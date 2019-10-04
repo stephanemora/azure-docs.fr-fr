@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: bfaf3cc9b113ff10766f7a17bd7bf09ffa619a8e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891135"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227421"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronisation d’Azure AD Connect : Présentation de la configuration par défaut
 Cet article présente les règles de configuration out-of-box. Il décrit les règles et l’impact que celles-ci ont sur la configuration. Il vous guide également tout au long de la configuration par défaut de la synchronisation Azure AD Connect. L’objectif est que le lecteur comprenne comment fonctionne le modèle de configuration, nommé approvisionnement déclaratif, dans un exemple réel. Cet article suppose que vous avez déjà installé et configuré la synchronisation Azure AD Connect à l’aide de l’Assistant d’installation.
@@ -71,7 +71,7 @@ Les règles d’attribut suivantes s’appliquent :
   2. Les attributs qui se trouvent dans la LAG (liste d’adresses globale) Exchange sont synchronisés à partir de la forêt avec la boîte aux lettres Exchange.
   3. Si aucune boîte aux lettres ne peut être trouvée, ces attributs peuvent provenir de n'importe quelle forêt.
   4. Les attributs liés à Exchange (attributs techniques non visibles dans la liste d’adresses globale) sont fournis à partir de la forêt où `mailNickname ISNOTNULL`.
-  5. S’il existe plusieurs forêts qui répondent à une de ces règles, alors l’ordre de création (date/heure) des connecteurs (forêts) est utilisé pour déterminer quelle forêt fournit les attributs.
+  5. S’il existe plusieurs forêts qui répondent à une de ces règles, alors l’ordre de création (date/heure) des connecteurs (forêts) est utilisé pour déterminer quelle forêt fournit les attributs. La première forêt connectée sera la première forêt à être synchronisée. 
 
 ### <a name="contact-out-of-box-rules"></a>Règles out-of-box de contact
 Un objet contact doit remplir les conditions suivantes pour être synchronisé :

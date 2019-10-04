@@ -1,6 +1,6 @@
 - name: Documentation relative aux notions de base
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce qu’Azure Active Directory\_?"
@@ -29,6 +29,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Stockages de données d’identité pour l’UE
       href: active-directory-data-storage-eu.md
+    - name: "Nouveautés de Microsoft\_365 Government"
+      href: whats-new-microsoft-365-government.md
 - name: Guides pratiques
   expanded: true
   items:

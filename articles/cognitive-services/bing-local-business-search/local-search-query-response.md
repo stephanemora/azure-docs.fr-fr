@@ -1,20 +1,21 @@
 ---
-title: Envoyer et utiliser les requêtes et les réponses de l’API Recherche d’entreprises locales Bing | Microsoft Docs
+title: Envoyer et utiliser les requêtes et les réponses de l’API Recherche d’entreprises locales Bing
 titleSuffix: Azure Cognitive Services
 description: Lisez cet article pour apprendre à envoyer et à utiliser les résultats de recherche de l’API Recherche d’entreprises locales Bing.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh; v-gedod
-ms.openlocfilehash: 79219de775be96f35bd11ac85640efcc4a04a93b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.subservice: bing-local-business
+ms.topic: conceptual
+ms.date: 06/26/2018
+ms.author: rosh
+ms.openlocfilehash: 31f81d76ff433d5f2e634b9a8f5fac50f8425f49
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779791"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906358"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envoyer et utiliser les requêtes et les réponses de l’API Recherche d’entreprises locales Bing
 
@@ -22,7 +23,7 @@ Vous pouvez obtenir des résultats locaux de l’API Recherche d’entreprises l
 
 ## <a name="creating-a-request"></a>Créer une demande
 
-Pour envoyer une demande à l’API Recherche d’entreprises locales Bing, ajoutez un critère de recherche au paramètre `q=` avant de l’intégrer au point de terminaison API et d’inclure l’en-tête `Ocp-Apim-Subscription-Key`. Par exemple : 
+Pour envoyer une demande à l’API Recherche d’entreprises locales Bing, ajoutez un critère de recherche au paramètre `q=` avant de l’intégrer au point de terminaison API et d’inclure l’en-tête `Ocp-Apim-Subscription-Key`. Par exemple :
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -37,6 +38,8 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localC
 ## <a name="using-responses"></a>Utiliser les réponses
 
 Les réponses JSON de l’API Recherche d’entreprises locales Bing contiennent un objet `SearchResponse`. L’API retourne les résultats de recherche pertinents dans le champ `places`. Si aucun résultat n’est trouvé, le champ `places` n’est pas inclus dans la réponse.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ```
 {

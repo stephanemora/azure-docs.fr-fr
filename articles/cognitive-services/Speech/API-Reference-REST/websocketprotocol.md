@@ -3,20 +3,20 @@ title: Protocole WebSocket pour la reconnaissance vocale Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Documentation sur le protocole basé sur les WebSockets du service Reconnaissance vocale Bing
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e7f51d49624d5019bec058a2d12f6ca2f1366938
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076188"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966882"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocole WebSocket pour la reconnaissance vocale Bing
 
@@ -69,7 +69,7 @@ L’en-tête *Authorization* doit contenir un jeton d’accès JWT (JSON Web Tok
 
 Pour plus d’informations sur la façon de s’abonner et d’obtenir des clés API permettant de récupérer des jetons d’accès JWT valides, consultez la page [Abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
-La clé API est transmise au service de jetons. Par exemple : 
+La clé API est transmise au service de jetons. Par exemple :
 
 ``` HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -78,11 +78,11 @@ Content-Length: 0
 
 Les informations d’en-tête suivantes sont requises pour l’accès au moyen d’un jeton.
 
-| Nom | Format | Description |
+| Name | Format | Description |
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | Votre clé d’abonnement |
 
-Le service de jetons renvoie le jeton d’accès JWT sous la forme `text/plain`. Ensuite, le jeton JWT est passé en tant que `Base64 access_token` au processus de négociation sous la forme d’un en-tête *Authorization* préfixé avec la chaîne `Bearer`. Par exemple : 
+Le service de jetons renvoie le jeton d’accès JWT sous la forme `text/plain`. Ensuite, le jeton JWT est passé en tant que `Base64 access_token` au processus de négociation sous la forme d’un en-tête *Authorization* préfixé avec la chaîne `Bearer`. Par exemple :
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -98,7 +98,7 @@ Les clients *doivent* prendre en charge les mécanismes de redirection standard 
 
 Les clients *doivent* utiliser un point de terminaison approprié du service Speech. Le point de terminaison est basé sur la langue et le mode de reconnaissance. Le tableau présente quelques exemples.
 
-| Mode | path | URI de service |
+| Mode | Path | URI de service |
 | -----|-----|-----|
 | Interactive | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | Conversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
@@ -152,8 +152,8 @@ Les en-têtes suivants sont requis pour tous les messages provenant du client.
 
 | En-tête | Valeur |
 |----|----|
-| path | Chemin du message, tel que spécifié dans ce document |
-| X-RequestId | UUID au format « sans tirets » |
+| Path | Chemin du message, tel que spécifié dans ce document |
+| X-RequestId | X-RequestId UUID au format "no-dash" |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 
 #### <a name="x-requestid-header"></a>En-tête X-RequestId
@@ -181,7 +181,7 @@ Les clients *doivent* envoyer un message `speech.config` dès qu’ils ont étab
 
 | Nom de l’en-tête | Valeur |
 |----|----|
-| path | `speech.config` |
+| Path | `speech.config` |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -252,8 +252,8 @@ Les en-têtes suivants sont requis pour tous les messages `audio`.
 
 | En-tête         |  Valeur     |
 | ------------- | ---------------- |
-| path | `audio` |
-| X-RequestId | UUID au format « sans tirets » |
+| Path | `audio` |
+| X-RequestId | X-RequestId UUID au format "no-dash" |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 | Content-Type | Type de contenu audio. Le type doit être *audio/x-wav* (PCM) ou *audio/silk* (SILK). |
 
@@ -308,7 +308,7 @@ Les clients doivent accuser réception de la fin d’un tour en envoyant un mess
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `telemetry` |
+| Path | `telemetry` |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 | Content-Type | `application/json` |
 | body | Structure JSON qui contient les informations clientes relatives au tour |
@@ -330,7 +330,7 @@ Le message `speech.startDetected` indique que le service Speech a détecté un �
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `speech.startDetected` |
+| Path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | body | Structure JSON qui contient des informations sur les conditions dans lesquelles le début de l’énoncé a été détecté. Le champ *Offset* de cette structure spécifie le décalage (en unités de 100 nanosecondes) avec lequel l’énoncé a été détecté par rapport au début du flux audio. |
 
@@ -355,8 +355,8 @@ Pendant la reconnaissance vocale, le service Speech génère régulièrement des
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `speech.hypothesis` |
-| X-RequestId | UUID au format « sans tirets » |
+| Path | `speech.hypothesis` |
+| X-RequestId | X-RequestId UUID au format "no-dash" |
 | Content-Type | application/json |
 | body | Structure JSON des hypothèses de la reconnaissance vocale |
 
@@ -387,7 +387,7 @@ Quand le service Speech détermine qu’il possède suffisamment d’information
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `speech.phrase` |
+| Path | `speech.phrase` |
 | Content-Type | application/json |
 | body | Structure JSON de l’expression de reconnaissance vocale |
 
@@ -415,7 +415,7 @@ Le message `speech.endDetected` spécifie que l’application cliente doit arrê
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `speech.endDetected` |
+| Path | `speech.endDetected` |
 | body | Structure JSON qui contient le décalage avec lequel la fin de l’énoncé a été détectée. Le décalage est représenté en unités de 100 nanosecondes par rapport au début du contenu audio utilisé pour la reconnaissance. |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -440,7 +440,7 @@ Le message `turn.start` signale le début d’un tour du point de vue du service
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `turn.start` |
+| Path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | body | Structure JSON |
 
@@ -467,7 +467,7 @@ Le message `turn.end` signale la fin d’un tour du point de vue du service. Le 
 | Champ | Description |
 | ------------- | ---------------- |
 | Encodage des messages WebSocket | Texte |
-| path | `turn.end` |
+| Path | `turn.end` |
 | body | Aucun |
 
 #### <a name="sample-message"></a>Exemple de message
@@ -508,10 +508,10 @@ La métrique `Connection` spécifie des détails sur les tentatives de connexion
 
 | Champ | Description | Usage |
 | ----- | ----------- | ----- |
-| Nom | `Connection` | Obligatoire |
-| ID | Valeur d’identificateur de connexion qui a été utilisée dans l’en-tête *X-ConnectionId* pour cette demande de connexion | Obligatoire |
-| Démarrer | Heure à laquelle le client a envoyé la demande de connexion | Obligatoire |
-| Terminer | Heure à laquelle le client a reçu la notification selon laquelle la connexion a été établie ou, en cas d’erreur, heure de son rejet, refus ou échec | Obligatoire |
+| Name | `Connection` | Obligatoire |
+| Id | Valeur d’identificateur de connexion qui a été utilisée dans l’en-tête *X-ConnectionId* pour cette demande de connexion | Obligatoire |
+| Start | Heure à laquelle le client a envoyé la demande de connexion | Obligatoire |
+| End | Heure à laquelle le client a reçu la notification selon laquelle la connexion a été établie ou, en cas d’erreur, heure de son rejet, refus ou échec | Obligatoire |
 | Error | Description de l’erreur qui s’est produite, le cas échéant. Si la connexion a réussi, les clients doivent omettre ce champ. La longueur maximale de ce champ est de 50 caractères. | Obligatoire pour les cas d’erreur, omis sinon |
 
 La description de l’erreur ne doit pas dépasser 50 caractères et doit idéalement être une des valeurs répertoriées dans le tableau suivant. Si la condition d’erreur ne correspond pas à une des valeurs suivantes, les clients peuvent utiliser une description succincte de la condition d’erreur en recourant à la [technique du camel case](https://en.wikipedia.org/wiki/Camel_case) sans espace blanc. L’envoi d’un message de *télémétrie* supposant une connexion au service, seules les conditions d’erreur passagères ou temporaires peuvent être signalées dans ce message. Les conditions d’erreur qui empêchent *définitivement* un client d’établir une connexion au service l’empêche d’envoyer un message au service, y compris les messages de *télémétrie*.
@@ -548,9 +548,9 @@ La valeur d’heure *End* de la métrique `Microphone` enregistre l’heure à l
 
 | Champ | Description | Usage |
 | ----- | ----------- | ----- |
-| Nom | Microphone | Obligatoire |
-| Démarrer | Heure à laquelle le client a commencé à utiliser l’entrée audio du microphone ou un autre flux audio ou a reçu un déclencheur du détecteur de mots clés | Obligatoire |
-| Terminer | Heure à laquelle le client a arrêté d’utiliser le microphone ou le flux audio | Obligatoire |
+| Name | Microphone | Obligatoire |
+| Start | Heure à laquelle le client a commencé à utiliser l’entrée audio du microphone ou un autre flux audio ou a reçu un déclencheur du détecteur de mots clés | Obligatoire |
+| End | Heure à laquelle le client a arrêté d’utiliser le microphone ou le flux audio | Obligatoire |
 | Error | Description de l’erreur qui s’est produite, le cas échéant. En cas d’échec des opérations de microphone, les clients doivent omettre ce champ. La longueur maximale de ce champ est de 50 caractères. | Obligatoire pour les cas d’erreur, omis sinon |
 
 ### <a name="metric-listeningtrigger"></a>Métrique `ListeningTrigger`
@@ -568,9 +568,9 @@ Appuyez-vous sur les exemples suivants pour enregistrer les valeurs d’heure *S
 
 | Champ | Description | Usage |
 | ----- | ----------- | ----- |
-| Nom | ListeningTrigger | Facultatif |
-| Démarrer | Heure à laquelle a démarré le déclencheur d’écoute du client | Obligatoire |
-| Terminer | Heure à laquelle a terminé le déclencheur d’écoute du client | Obligatoire |
+| Name | ListeningTrigger | Facultatif |
+| Start | Heure à laquelle a démarré le déclencheur d’écoute du client | Obligatoire |
+| End | Heure à laquelle a terminé le déclencheur d’écoute du client | Obligatoire |
 | Error | Description de l’erreur qui s’est produite, le cas échéant. Si l’opération du déclencheur a réussi, les clients doivent omettre ce champ. La longueur maximale de ce champ est de 50 caractères. | Obligatoire pour les cas d’erreur, omis sinon |
 
 #### <a name="sample-message"></a>Exemple de message
@@ -637,7 +637,7 @@ Si le service Speech détecte des violations de protocole émanant d’un client
 
 #### <a name="incorrect-message-format"></a>Format de message incorrect
 
-Si un client envoie au service un message texte ou binaire qui n’est pas encodé au format approprié indiqué dans cette spécification, le service ferme la connexion avec un code d’état *1007 (données de charge utile non valides)*.
+Si un client envoie au service un message texte ou binaire qui n’est pas encodé au format approprié indiqué dans cette spécification, le service ferme la connexion avec un code d’état *1007 (données de charge utile non valides)* .
 
 Le service retourne ce code d’état pour diverses raisons, comme indiqué dans les exemples suivants :
 
@@ -655,19 +655,19 @@ Le service retourne ce code d’état pour diverses raisons, comme indiqué dans
 
 #### <a name="missing-or-empty-headers"></a>En-têtes manquants ou vides
 
-Si un client envoie un message qui n’a pas les en-têtes requis *X-RequestId* ou *Path*, le service ferme la connexion avec un code d’état *1002 (erreur de protocole)*. Le message est « En-tête manquant/vide. {nom de l’en-tête}. »
+Si un client envoie un message qui n’a pas les en-têtes requis *X-RequestId* ou *Path*, le service ferme la connexion avec un code d’état *1002 (erreur de protocole)* . Le message est « En-tête manquant/vide. {nom de l’en-tête}. »
 
 #### <a name="requestid-values"></a>Valeurs d’identificateur de demande
 
-Si un client envoie un message qui spécifie un en-tête *X-RequestId* avec un format incorrect, le service ferme la connexion et retourne un état *1002 (erreur de protocole)*. Le message est « Demande non valide. La valeur de l’en-tête X-RequestId n’a pas été spécifiée dans un format d’UUID dépourvu de tirets. »
+Si un client envoie un message qui spécifie un en-tête *X-RequestId* avec un format incorrect, le service ferme la connexion et retourne un état *1002 (erreur de protocole)* . Le message est « Demande non valide. La valeur de l’en-tête X-RequestId n’a pas été spécifiée dans un format d’UUID dépourvu de tirets. »
 
 #### <a name="audio-encoding-errors"></a>Erreurs d’encodage audio
 
-Si un client envoie un bloc audio qui lance un tour et que l’encodage ou le format audio n’est pas conforme à la spécification requise, le service ferme la connexion et retourne un code d’état *1007 (données de charge utile non valides)*. Le message indique la source de l’erreur d’encodage du format.
+Si un client envoie un bloc audio qui lance un tour et que l’encodage ou le format audio n’est pas conforme à la spécification requise, le service ferme la connexion et retourne un code d’état *1007 (données de charge utile non valides)* . Le message indique la source de l’erreur d’encodage du format.
 
 #### <a name="requestid-reuse"></a>Réutilisation de l’identificateur de demande
 
-Après la fin d’un tour, si un client envoie un message qui réutilise l’identificateur de demande associé à ce tour, le service ferme la connexion et retourne un code d’état *1002 (erreur de protocole)*. Le message est « Demande non valide. La réutilisation des identificateurs de demande n’est pas autorisée. »
+Après la fin d’un tour, si un client envoie un message qui réutilise l’identificateur de demande associé à ce tour, le service ferme la connexion et retourne un code d’état *1002 (erreur de protocole)* . Le message est « Demande non valide. La réutilisation des identificateurs de demande n’est pas autorisée. »
 
 ## <a name="connection-failure-telemetry"></a>Données de télémétrie sur les échecs de connexion
 

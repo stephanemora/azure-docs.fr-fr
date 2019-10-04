@@ -2,25 +2,25 @@
 title: Afficher les détails d’un modèle – Custom Translator
 titleSuffix: Azure Cognitive Services
 description: 'L’onglet Models (Modèles), sous n’importe quel projet, donne des informations sur chaque modèle : nom, état, score BLEU, nombre de phrases d’apprentissage, d’optimisation et de test, etc.'
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 13f3d88ad69d2acc64b9a6469415eceaf22fa491
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 64f446c3b331c1aa6ddaae9081b7f61943f74ab2
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764386"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595568"
 ---
 # <a name="view-model-details"></a>Afficher les détails du modèle
 
 L’onglet Models (Modèles) qui se trouve sous le projet présente tous les modèles entraînés pour ce projet.
 
-Pour chaque modèle dans le projet, ces détails sont affichés.
+Pour chacun des modèles du projet, ces informations s’affichent.
 
 1.  Nom du modèle : affiche le nom d'un modèle donné.
 

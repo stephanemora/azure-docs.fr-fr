@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
 ms.openlocfilehash: c8d028a981d7811ed2c864db5750afc83ab93b2b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878058"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60878866"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Accéder à Azure Data Lake Storage Gen1 à partir de machines virtuelles au sein d’un réseau virtuel Azure
 Azure Data Lake Storage Gen1 est un service PaaS qui s’exécute sur des adresses IP Internet publiques. En général, tout serveur qui peut se connecter à l’Internet public peut également se connecter aux points de terminaison Azure Data Lake Storage Gen1. Par défaut, toutes les machines virtuelles qui se trouvent dans des réseaux virtuels Azure peuvent accéder à Internet et, ainsi, accéder à Azure Data Lake Storage Gen1. Toutefois, il est possible de configurer des machines virtuelles dans un réseau virtuel afin qu’elles n’aient pas accès à Internet. Pour ces machines virtuelles, l’accès à Azure Data Lake Storage Gen1 est également restreint. Bloquer l’accès à l’Internet public pour des machines virtuelles dans des réseaux virtuels Azure peut être effectué à l’aide d’une des approches suivantes :
@@ -48,7 +48,7 @@ Quand une règle de groupe de sécurité réseau est utilisée pour bloquer l’
 Quand des itinéraires, définis par l’utilisateur ou échangés par le biais de BGP, sont utilisés pour bloquer l’accès à Internet, un itinéraire spécial doit être configuré afin que les machines virtuelles dans ces sous-réseaux puissent accéder aux points de terminaison Data Lake Storage Gen1. Pour plus d’informations, consultez [Vue d’ensemble des itinéraires définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md). Pour obtenir des instructions sur la création d’itinéraires définis par l’utilisateur, consultez [Création d’itinéraires définis par l’utilisateur (UDR) dans Resource Manager](../virtual-network/tutorial-create-route-table-powershell.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Activation de la connectivité à partir de machines virtuelles restreintes à l’aide d’ExpressRoute
-Quand un circuit ExpressRoute est configuré, les serveurs locaux peuvent accéder à Data Lake Storage Gen1 par le biais de le peering public. Pour plus d’informations sur la configuration d’ExpressRoute pour l’appairage public, consultez [Forum Aux Questions ExpressRoute](../expressroute/expressroute-faqs.md).
+Quand un circuit ExpressRoute est configuré, les serveurs locaux peuvent accéder à Data Lake Storage Gen1 par le biais de le peering public. Pour plus d’informations sur la configuration d’ExpressRoute pour le peering public, consultez [Forum Aux Questions ExpressRoute](../expressroute/expressroute-faqs.md).
 
 ## <a name="see-also"></a>Voir aussi
 * [Vue d’ensemble d’Azure Data Lake Storage Gen1](data-lake-store-overview.md)

@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 99c4f0f99af61196cf1a12f2f68a7d10d8b2e6c7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 855bd64bc8beb86a1bc62c65f71254f43c7a722a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481278"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101979"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Qu’est-ce que SQL Server sur les machines virtuelles Azure ? (Windows)
 
@@ -74,7 +73,7 @@ Pour afficher les images de machines virtuelles Linux SQL Server disponibles, c
 ### <a id="BYOL"></a> BYOL (apportez votre propre licence)
 Vous pouvez également apporter votre propre licence (modèle BYOL). Dans ce scénario, vous payez uniquement pour la machine virtuelle sans frais supplémentaires pour la gestion de licences SQL Server.  Apporter votre propre licence peut être avantageux sur le long terme pour des charges de travail de production continue. Pour la configuration requise pour utiliser cette option, consultez [Tarification des machines virtuelles SQL Server Azure](virtual-machines-windows-sql-server-pricing-guidance.md#byol).
 
-Pour utiliser votre propre licence, vous pouvez soit convertir une machine virtuelle SQL avec paiement à l’utilisation, soit déployer une image avec le préfixe **{BYOL}**. Pour plus d’informations sur le passage du modèle de paiement à l’utilisation au modèle BYOL (apportez votre propre licence), consultez [Guide pratique pour modifier le modèle de licence d’une machine virtuelle SQL](virtual-machines-windows-sql-ahb.md). 
+Pour utiliser votre propre licence, vous pouvez soit convertir une machine virtuelle SQL avec paiement à l’utilisation, soit déployer une image avec le préfixe **{BYOL}** . Pour plus d’informations sur le passage du modèle de paiement à l’utilisation au modèle BYOL (apportez votre propre licence), consultez [Guide pratique pour modifier le modèle de licence d’une machine virtuelle SQL](virtual-machines-windows-sql-ahb.md). 
 
 | Version | Système d’exploitation | Édition |
 | --- | --- | --- |
@@ -83,7 +82,7 @@ Pour utiliser votre propre licence, vous pouvez soit convertir une machine virtu
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[BYOL Enterprise](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [BYOL Standard](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[BYOL Enterprise](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [BYOL Standard](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-Avec PowerShell, il est possible de déployer une image plus ancienne de SQL Server qui n’est pas disponible dans le portail Azure. Pour afficher toutes les images disponibles avec PowerShell, utilisez la commande suivante :
+Avec PowerShell, il est possible de déployer une image plus ancienne de SQL Server qui n'est pas disponible sur le portail Azure. Pour afficher toutes les images disponibles avec PowerShell, utilisez la commande suivante :
 
   ```powershell
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
@@ -97,6 +96,30 @@ Lorsque vous avez créé votre machine virtuelle SQL Server, connectez-vous à c
 
 ### <a name="migrate-your-data"></a>Migration de vos données
 Si vous disposez d’une base de données existante, vous voudrez la déplacer vers la machine virtuelle SQL récemment approvisionnée. Pour obtenir la liste des options de migration ainsi que de l’aide, voir [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](virtual-machines-windows-migrate-sql.md).
+
+## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Créer et gérer des ressources Azure SQL avec le portail Azure
+
+Le portail Azure fournit une page unique sur laquelle vous pouvez gérer [toutes vos ressources Azure SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql), y compris vos machines virtuelles SQL.
+
+Pour accéder à la page **Ressources Azure SQL**, sélectionnez **Azure SQL** dans le menu de gauche du portail Azure. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez *Azure SQL* dans la zone de recherche.
+
+> [!NOTE]
+> **Azure SQL** permet d'accéder rapidement et facilement à l'ensemble de vos bases de données SQL, pools élastiques, serveurs de base de données, instances managées SQL et machines virtuelles SQL. Azure SQL n'est pas un service ou une ressource. 
+
+Pour gérer les ressources existantes, sélectionnez l'élément souhaité dans la liste. Pour créer des ressources Azure SQL, sélectionnez **+ Ajouter**. 
+
+![Page du portail Azure SQL](./media/quickstart-sql-vm-create-portal/azure-sql.png)
+
+Après avoir sélectionné **+ Ajouter**, affichez des informations supplémentaires sur les différentes options en sélectionnant **Afficher les détails** sur une vignette.
+
+![Détails de la vignette Bases de données](./media/quickstart-sql-vm-create-portal/sql-vm-details.png)
+
+Pour plus d'informations, consultez les rubriques :
+
+- [Créer une base de données unique](../../../sql-database/sql-database-single-database-get-started.md)
+- [Créer un pool élastique](../../../sql-database/sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
+- [Créer une instance gérée](../../../sql-database/sql-database-managed-instance-get-started.md)
+- [Créer une machine virtuelle SQL](quickstart-sql-vm-create-portal.md)
 
 ## <a id="lifecycle"></a> Stratégie d’actualisation des images machine virtuelle SQL
 Azure conserve uniquement une image de machine virtuelle pour chaque combinaison de système d’exploitation, de version et d’édition prise en charge. Cela signifie qu’au fil du temps, les images sont actualisées et les images plus anciennes sont supprimées. Pour plus d’informations, consultez la section **Images** des [FAQ relatifs aux machines virtuelles SQL Server](virtual-machines-windows-sql-server-iaas-faq.md#images).

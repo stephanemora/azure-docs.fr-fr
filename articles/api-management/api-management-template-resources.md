@@ -10,16 +10,15 @@ ms.assetid: 51a1b4c6-a9fd-4524-9e0e-03a9800c3e94
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: b634f871670d252aadaf2d2a672c4d5f43a6e5d9
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757594"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073330"
 ---
 # <a name="azure-api-management-template-resources"></a>Ressources du modèle Gestion des API Azure
 La Gestion des API Azure fournit les types de ressources suivants, utilisables dans les modèles du portail des développeurs.  
@@ -49,24 +48,24 @@ Les options de localisation suivantes sont prises en charge :
 
 | Paramètres régionaux    | Langage               |
 |-----------|------------------------|
-| « en »      | « Anglais »              |
-| « cs »      | "Čeština"              |
-| « de »      | « Allemand »              |
-| « es »      | « Espagnol »              |
-| « fr »      | "Français"             |
+| « en »      | « English »              |
+| « cs »      | « Čeština »              |
+| « de »      | « Deutsch »              |
+| « es »      | « Español »              |
+| « fr »      | « Français »             |
 | « hu »      | « Magyar »               |
 | « it »      | « Italiano »             |
-| « ja-JP »   | "日本語"                |
-| « ko »      | "한국어"                |
+| « ja-JP »   | « 日本語 »                |
+| « ko »      | « 한국어 »                |
 | « nl »      | « Nederlands »           |
 | « pl »      | « Polski »               |
-| « pt-br »   | "Português (Brasil)"   |
-| "pt-pt"   | "Português (Portugal)" |
-| « ru »      | "Русский"              |
-| "sv"      | "Svenska"              |
-| « tr »      | "Türkçe"               |
-| « zh-hans » | "中文(简体)"           |
-| « zh-hant » | "中文(繁體)"           |
+| « pt-br »   | « Português (Brasil) »   |
+| « pt-pt »   | « Português (Portugal) » |
+| « ru »      | « Русский »              |
+| « sv »      | « Svenska »              |
+| « tr »      | « Türkçe »               |
+| « zh-hans » | « 中文(简体) »           |
+| « zh-hant » | « 中文(繁體) »           |
 
  Reportez-vous aux tableaux suivants pour connaître les ressources de chaînes utilisables dans vos modèles sur le portail des développeurs. Utilisez le nom de la table comme préfixe des ressources de chaînes dans ce tableau.  
   
@@ -132,9 +131,9 @@ Les options de localisation suivantes sont prises en charge :
 |WebDevelopersAppDeleteConfirmation|Voulez-vous vraiment supprimer l’application ?|  
 |WebDevelopersAppNotPublished|Non publié.|  
 |WebDevelopersAppNotSubmitted|Non soumis.|  
-|WebDevelopersAppTableCategoryHeader|Catégorie|  
+|WebDevelopersAppTableCategoryHeader|Category|  
 |WebDevelopersAppTableNameHeader|Nom|  
-|WebDevelopersAppTableStateHeader|État|  
+|WebDevelopersAppTableStateHeader|State|  
 |WebDevelopersEditLink|Modifier|  
 |WebDevelopersRegisterAppLink|Inscription de l’application|  
 |WebDevelopersRemoveLink|Supprimer|  
@@ -543,7 +542,7 @@ Les options de localisation suivantes sont prises en charge :
 |WebDevelopersSubscriptionRequested|Demandé sur {0}|  
 |WebDevelopersSubscriptionRequestedState|Demandé|  
 |WebDevelopersSubscriptionTableNameHeader|Nom|  
-|WebDevelopersSubscriptionTableStateHeader|État|  
+|WebDevelopersSubscriptionTableStateHeader|State|  
 |WebDevelopersUsageStatisticsLink|Rapports d’analyse|  
 |WebDevelopersYourSubscriptions|Vos abonnements|  
 |SubscriptionPropertyLabelRequestedDate|Demandé le|  

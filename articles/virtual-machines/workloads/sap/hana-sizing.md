@@ -4,22 +4,21 @@ description: Dimensionnement de SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0d72a9ef592579b21d082111ab8ad00f8995de2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f2540a0f9ea702ff620ccd4b68208cbb2e70aafd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030563"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101140"
 ---
 # <a name="sizing"></a>Dimensionnement
 
@@ -27,7 +26,7 @@ Le redimensionnement de la grande instance HANA n’est pas différent du redime
 
 - [Note de support SAP #1793345 - Sizing for SAP Suite on HANA](https://launchpad.support.sap.com/#/notes/1793345) (Dimensionnement de SAP Suite sur HANA)
 - [Note de support SAP #1872170 - Suite on HANA and S/4 HANA sizing report](https://launchpad.support.sap.com/#/notes/1872170) (Rapport de dimensionnement de Suite sur HANA et S/4 HANA)
-- [Remarque SAP n° 2121330 - FAQ : rapport de redimensionnement SAP BW sur HANA](https://launchpad.support.sap.com/#/notes/2121330)
+- [Note de support SAP 2121330 - FAQ : SAP BW on HANA Sizing Report (rapport de redimensionnement SAP BW sur HANA)](https://launchpad.support.sap.com/#/notes/2121330)
 - [Remarque SAP n° 1736976 - Rapport de redimensionnement de BW sur HANA](https://launchpad.support.sap.com/#/notes/1736976)
 - [Remarque SAP n°2296290 - Nouveau rapport de redimensionnement de BW sur HANA](https://launchpad.support.sap.com/#/notes/2296290)
 

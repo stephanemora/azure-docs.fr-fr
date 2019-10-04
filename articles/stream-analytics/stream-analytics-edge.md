@@ -1,20 +1,19 @@
 ---
 title: Azure Stream Analytics sur IoT Edge
 description: Créez des tâches de périphérie dans Azure Stream Analytics et déployez-les sur des appareils exécutant Azure IoT Edge.
-services: stream-analytics
+ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
+ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 8e3b6d0fbefb8e3d3437fd5e24f929e453c573df
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58892226"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621013"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics sur IoT Edge
  
@@ -61,7 +60,7 @@ Vous pouvez suivre [ce didacticiel pas à pas](https://docs.microsoft.com/azure/
 Un conteneur de stockage est nécessaire pour exporter la requête ASA compilée et la configuration de tâche. Il est utilisé pour configurer l’image ASA Docker avec votre requête spécifique. 
 1. Suivez ces [instructions](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) pour créer un compte de stockage à partir du portail Azure. Vous pouvez conserver toutes les options par défaut pour utiliser ce compte avec ASA.
 2. Dans le compte de stockage nouvellement créé, créez un conteneur de stockage d’objets blob :
-    1. Cliquez sur **BLOB**, puis  **+ Conteneur »**. 
+    1. Cliquez sur **BLOB**, puis  **+ Conteneur »** . 
     2. Entrez un nom et conservez le conteneur en tant que **Privé**.
 
 #### <a name="create-an-asa-edge-job"></a>Créer une tâche ASA Edge
@@ -82,7 +81,7 @@ Un conteneur de stockage est nécessaire pour exporter la requête ASA compilée
 4. Définissez les informations du conteneur de stockage dans le menu **Paramètres IoT Edge**.
 
 5. Définir des paramètres facultatifs
-    1. **Ordre des événements**. Vous pouvez configurer une stratégie d’arrivée en désordre dans le portail. La documentation est disponible [ici](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
+    1. **Ordre des événements**. Vous pouvez configurer une stratégie d’arrivée en désordre dans le portail. La documentation est disponible [ici](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
     2. **Paramètres régionaux**. Définissez le format d’internationalisation.
 
 
@@ -111,7 +110,7 @@ Ces étapes sont décrites dans la documentation IoT Edge pour [Windows](https:/
 
 > [!Note]
 > Dans cette étape, ASA crée un dossier nommé « EdgeJobs » dans le conteneur de stockage (s’il n’existe pas déjà). Pour chaque déploiement, un nouveau sous-dossier est créé dans le dossier « EdgeJobs ».
-> Pour déployer votre projet sur les appareils en périphérie, ASA crée une signature d’accès partagé (SAP) pour le fichier de définition de tâche. La clé SAP est transmise de façon sécurisée aux appareils IoT Edge à l’aide de jumeaux d’appareil. La durée avant expiration de cette clé est de trois ans à partir du jour de sa création.
+> Lorsque vous déployez votre projet sur les appareils IoT Edge, ASA crée une signature d’accès partagé (SAP) pour le fichier de définition de tâche. La clé SAP est transmise de façon sécurisée aux appareils IoT Edge à l’aide de jumeaux d’appareil. La durée avant expiration de cette clé est de trois ans à partir du jour de sa création. Lorsque vous mettez à jour une tâche IoT Edge, la SAP change, mais la version de l’image reste la même. Lorsque vous **mettez à jour**, suivez le flux de travail du déploiement. Ensuite, une notification de mise à jour est enregistrée sur l’appareil.
 
 
 Pour plus d’informations sur les déploiements IoT Edge, consultez [cette page](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -144,7 +143,7 @@ Cet exemple définit les itinéraires suivants :
 
 ## <a name="technical-information"></a>Informations techniques
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitations actuelles pour les tâches IoT Edge par rapport aux tâches cloud
-L’objectif est d’obtenir la parité entre les tâches IoT Edge et les tâches cloud. La plupart des fonctionnalités de langage de requête SQL sont prises en charge, ce qui permet d’exécuter la même logique dans le cloud et IoT Edge.
+L’objectif est d’obtenir la parité entre les tâches IoT Edge et les tâches cloud. La plupart des fonctionnalités du langage de requête SQL sont prises en charge, ce qui permet d’exécuter la même logique dans le cloud et IoT Edge.
 Cependant, les fonctionnalités suivantes ne sont pas encore prises en charge pour les tâches de périphérie :
 * Fonctions définies par l’utilisateur en JavaScript. Des fonctions définies par l’utilisateur sont disponibles en [C# pour les tâches IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (préversion).
 * Agrégats définis par l’utilisateur – (UDA).
@@ -203,9 +202,31 @@ Deux méthodes sont disponibles pour mettre à jour les données de référence�
 * [Licence Azure Stream Analytics sur IoT Edge](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Mentions tierces pour Azure Stream Analytics sur IoT Edge, version](https://go.microsoft.com/fwlink/?linkid=862828).
 
+## <a name="azure-stream-analytics-module-image-information"></a>Informations sur l’image de module Azure Stream Analytics 
+
+La dernière mise à jour des informations de version a été effectuée le 27-06-2019 :
+
+- Image : `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - image de base : microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - plateforme :
+      - architecture : amd64
+      - système d’exploitation : linux
+  
+- Image : `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - image de base : microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - plateforme :
+      - architecture : arm
+      - système d’exploitation : linux
+  
+- Image : `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - image de base : microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - plateforme :
+      - architecture : amd64
+      - système d’exploitation : windows
+      
+      
 ## <a name="get-help"></a>Obtenir de l’aide
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

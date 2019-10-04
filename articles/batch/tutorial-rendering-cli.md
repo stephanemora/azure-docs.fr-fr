@@ -3,18 +3,18 @@ title: Créer le rendu d’une scène dans le cloud - Azure Batch
 description: 'Didacticiel : comment créer le rendu d’une scène Autodesk 3ds Max avec Arnold à l’aide du service Azure Batch Rendering et de l’interface de ligne de commande Azure'
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 5abc2e673438a1ffa22e8d010bf2ee395cd521ae
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 28914244f7ea84ec133821d4b125cbd3b0378348
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149926"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272333"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutoriel : Créer le rendu d’une scène avec Azure Batch 
 
@@ -96,7 +96,7 @@ az storage container create \
     --name scenefiles
 ```
 
-Téléchargez la scène `MotionBlur-Dragon-Flying.max` depuis [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) vers un répertoire de travail local. Par exemple : 
+Téléchargez la scène `MotionBlur-Dragon-Flying.max` depuis [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) vers un répertoire de travail local. Par exemple :
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -168,20 +168,20 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-Pour écrire des fichiers de sortie dans le conteneur, Batch doit utiliser un jeton de signature d’accès partagé (SAS). Créez le jeton avec la commande [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). Cet exemple crée un jeton pour écrire dans n’importe quel conteneur d’objets blob du compte. Le jeton expire le 15 novembre 2018 :
+Pour écrire des fichiers de sortie dans le conteneur, Batch doit utiliser un jeton de signature d’accès partagé (SAS). Créez le jeton avec la commande [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). Cet exemple crée un jeton à écrire dans un conteneur d’objets blob du compte, et ce jeton expire le 15 novembre 2020 :
 
 ```azurecli-interactive
 az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2019-11-15
+    --expiry 2020-11-15
 ```
 
 Prenez note du jeton renvoyé par la commande, qui ressemble à ce qui suit. Vous utilisez ce jeton ultérieurement.
 
 ```
-se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 ## <a name="render-a-single-frame-scene"></a>Créer le rendu d’une scène à image unique
@@ -217,7 +217,7 @@ Modifiez les éléments `blobSource` et `containerURL` du JSON fichier afin qu�
   "commandLine": "cmd /c \"%3DSMAX_2018%3dsmaxcmdio.exe -secure off -v:5 -rfw:0 -start:1 -end:1 -outputName:\"dragon.jpg\" -w 400 -h 300 MotionBlur-DragonFlying.max\"",
   "resourceFiles": [
     {
-        "blobSource": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
+        "httpUrl": "https://mystorageaccount.blob.core.windows.net/scenefiles/MotionBlur-DragonFlying.max",
         "filePath": "MotionBlur-DragonFlying.max"
     }
   ],
@@ -301,7 +301,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>Afficher la sortie des tâches
 
-L’exécution d’une tâche prend quelques minutes. Utilisez la commande [az batch task list](/cli/azure/batch/task#az-batch-task-list) pour afficher l’état des tâches. Par exemple : 
+L’exécution d’une tâche prend quelques minutes. Utilisez la commande [az batch task list](/cli/azure/batch/task#az-batch-task-list) pour afficher l’état des tâches. Par exemple :
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +309,7 @@ az batch task list \
     --output table
 ```
 
-Utilisez la commande [az batch task show](/cli/azure/batch/task#az-batch-task-show) pour afficher des détails de chaque tâche. Par exemple : 
+Utilisez la commande [az batch task show](/cli/azure/batch/task#az-batch-task-show) pour afficher des détails de chaque tâche. Par exemple :
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Les tâches génèrent des fichiers de sortie nommés *dragon0002.jpg* - *dragon0007.jpg* sur les nœuds de calcul et les chargent dans le conteneur *job-myrenderjob* de votre compte de stockage. Pour afficher la sortie, téléchargez les fichiers dans un dossier de votre ordinateur local à l’aide de la commande [az storage blob download-batch](/cli/azure/storage/blob). Par exemple : 
+Les tâches génèrent des fichiers de sortie nommés *dragon0002.jpg* - *dragon0007.jpg* sur les nœuds de calcul et les chargent dans le conteneur *job-myrenderjob* de votre compte de stockage. Pour afficher la sortie, téléchargez les fichiers dans un dossier de votre ordinateur local à l’aide de la commande [az storage blob download-batch](/cli/azure/storage/blob). Par exemple :
 
 ```azurecli-interactive
 az storage blob download-batch \

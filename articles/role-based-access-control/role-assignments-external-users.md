@@ -1,5 +1,5 @@
 ---
-title: Gérer l'accès aux ressources Azure pour les utilisateurs externes à l'aide du contrôle d'accès en fonction du rôle | Microsoft Docs
+title: Gérer l’accès aux ressources Azure pour les utilisateurs invités externes à l’aide du contrôle d’accès en fonction du rôle | Microsoft Docs
 description: Apprenez à gérer l'accès aux ressources Azure pour les utilisateurs externes à l'organisation à l'aide du contrôle d'accès en fonction du rôle (RBAC).
 services: active-directory
 documentationcenter: ''
@@ -12,123 +12,197 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 09/12/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 12f4b0276074b6732cf57443f51ef5d867f205a6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012024"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967282"
 ---
-# <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gérer l'accès aux ressources Azure pour les utilisateurs externes à l'aide du contrôle d'accès en fonction du rôle
+# <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>Gérer l’accès aux ressources Azure pour les utilisateurs invités externes à l’aide du contrôle d’accès en fonction du rôle
 
-La fonctionnalité de contrôle d'accès basé sur le rôle (RBAC) permet une meilleure gestion de la sécurité pour les grandes organisations et pour les PME travaillant avec des collaborateurs, fournisseurs ou travailleurs indépendants externes qui doivent pouvoir accéder à des ressources spécifiques de votre environnement, mais pas nécessairement à l’ensemble de l’infrastructure ou aux domaines de la facturation. La fonctionnalité RBAC offre la flexibilité de pouvoir être propriétaire d’un seul abonnement Azure géré par le compte d’administrateur (rôle Administrateur du service au niveau d’un abonnement) et d’avoir plusieurs utilisateurs invités à travailler dans le cadre de cet abonnement, mais sans droits d’administration sur celui-ci.
+La fonctionnalité de contrôle d’accès en fonction du rôle (RBAC) permet une meilleure gestion de la sécurité pour les grandes organisations et pour les PME travaillant avec des collaborateurs, fournisseurs ou travailleurs indépendants externes qui doivent pouvoir accéder à des ressources spécifiques de votre environnement, mais pas nécessairement à l’ensemble de l’infrastructure ou aux domaines de la facturation. Vous pouvez utiliser les fonctionnalités offertes dans [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) pour collaborer avec des utilisateurs invités externes. Vous pouvez aussi utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder uniquement les autorisations dont les utilisateurs invités ont besoin dans votre environnement.
 
-> [!NOTE]
-> Ni les abonnements Office 365 ni les licences Azure Active Directory (par exemple, Accès à Azure Active Directory) approvisionnées à partir du centre d’administration ne sont pas éligibles pour l’utilisation de RBAC Microsoft 365.
+## <a name="when-would-you-invite-guest-users"></a>Quand voulez-vous convier des utilisateurs invités ?
 
-## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Attribuer des rôles RBAC à l’étendue d’abonnement
+Voici quelques exemples de scénarios où vous pourriez convier des utilisateurs invités à votre organisation pour leur octroyer des autorisations :
 
-Il existe notamment deux cas courants d’utilisation de la fonctionnalité RBAC :
+- Autoriser un fournisseur externe indépendant qui dispose uniquement d’un compte e-mail à accéder à vos ressources Azure dans le cadre d’un projet.
+- Autoriser un partenaire externe à gérer certaines ressources ou un abonnement entier.
+- Autoriser les ingénieurs du support technique ne faisant pas partie de votre organisation, par exemple les ingénieurs du support technique Microsoft, à accéder temporairement à vos ressources Azure pour résoudre des problèmes.
 
-* Invitation d’utilisateurs externes à l’organisation (ne faisant pas partie du client Azure Active Directory de l’utilisateur administrateur) à gérer certaines ressources ou la totalité de l’abonnement.
-* Collaboration avec des utilisateurs internes à l’organisation (faisant partie du locataire Azure Active Directory de l’utilisateur) qui appartiennent à différents groupes ou équipes et doivent avoir un accès granulaire à la totalité de l’abonnement ou seulement à certains groupes ou étendues de ressources dans l’environnement
+## <a name="permission-differences-between-member-users-and-guest-users"></a>Différences d’autorisation entre les utilisateurs membres et les utilisateurs invités
 
-## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Octroyer l’accès au niveau d’un abonnement à un utilisateur extérieur à Azure Active Directory
+Les membres natifs d’un annuaire (utilisateurs membres) ont des autorisations différentes de celles des utilisateurs invités appartenant à un autre annuaire, comme un invité à la collaboration B2B (utilisateurs invités). Par exemple, les utilisateurs membres peuvent lire presque toutes les informations d’annuaire tandis que les utilisateurs invités disposent d’autorisations limitées sur l’annuaire. Pour plus d’informations sur les utilisateurs membres et les utilisateurs invités, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../active-directory/fundamentals/users-default-permissions.md)
 
-Les rôles RBAC peuvent être octroyés uniquement par les **propriétaires** de l’abonnement. Par conséquent, l’administrateur doit être connecté en tant qu’utilisateur ayant ce rôle préattribué ou ayant créé l’abonnement Azure.
+## <a name="add-a-guest-user-to-your-directory"></a>Ajouter un utilisateur invité à votre annuaire
 
-Dans le portail Azure, après vous être connecté en tant qu’administrateur, sélectionnez « abonnements », puis choisissez l’abonnement souhaité.
-![Panneau d’abonnement dans le portail Azure](./media/role-assignments-external-users/0.png) Par défaut, si l’utilisateur administrateur a acheté l’abonnement Azure, il apparaît en tant que **Administrateur de compte**, ce qui correspond au rôle d’abonnement. Pour plus d’informations sur les rôles d’abonnement Azure, voir [Ajouter ou modifier des administrateurs d’abonnements Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+Effectuez les étapes suivantes pour ajouter un utilisateur invité à votre annuaire à l’aide de la page Azure Active Directory.
 
-Dans cet exemple, l’utilisateur « alflanigan@outlook.com » est le **Propriétaire** de l’abonnement « Évaluation gratuite » dans le client AAD « Client Azure par défaut ». Étant donné que cet utilisateur est le créateur de l’abonnement Azure avec le compte Microsoft initial « Outlook » (compte Microsoft = Outlook, Live, etc.), le nom de domaine par défaut pour tous les autres utilisateurs ajoutés à ce client sera **« \@alflaniganuoutlook.onmicrosoft.com »**. Par conception, la syntaxe du nouveau domaine est formée par assemblage du nom d’utilisateur et du nom domaine de l’utilisateur qui a créé le client, avec ajout de l’extension **« .onmicrosoft.com »**.
-De plus, les utilisateurs peuvent se connecter avec un nom de domaine personnalisé dans le locataire (ils doivent d’abord l’ajouter et le vérifier pour le nouveau locataire). Pour plus d’informations sur la vérification d’un nom de domaine personnalisé dans un locataire Azure Active Directory, consultez [Ajouter un nom de domaine personnalisé à votre annuaire](../active-directory/fundamentals/add-custom-domain.md).
+1. Assurez-vous que les paramètres de collaboration externe de votre organisation sont configurés de telle sorte que vous êtes autorisé à inviter des invités. Pour plus d’informations, consultez [Permettre une collaboration B2B externe et gérer les utilisateurs autorisés à en inviter d’autres](../active-directory/b2b/delegate-invitations.md).
 
-Dans cet exemple, l’annuaire « Client par défaut Azure » contient uniquement les utilisateurs dont le nom de domaine est « \@alflanigan.onmicrosoft.com ».
+1. Dans le portail Azure, cliquez sur **Azure Active Directory** > **Utilisateurs** > **Nouvel utilisateur invité**.
 
-Après avoir sélectionné l’abonnement, l’utilisateur administrateur doit cliquer sur **Contrôle d’accès (IAM)**, puis sur **Ajouter un nouveau rôle**.
+    ![Fonctionnalité Nouvel utilisateur invité dans le portail Azure](./media/role-assignments-external-users/invite-guest-user.png)
 
-![fonctionnalité de contrôle d’accès IAM dans le portail Azure](./media/role-assignments-external-users/1.png)
+1. Suivez les étapes pour ajouter un nouvel utilisateur invité. Pour plus d’informations, consultez [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le portail Azure](../active-directory/b2b/add-users-administrator.md#add-guest-users-to-the-directory).
 
-![ajouter un utilisateur dans la fonctionnalité de contrôle d’accès IAM dans le portail Azure](./media/role-assignments-external-users/2.png)
+Après avoir ajouté un utilisateur invité dans l’annuaire, vous pouvez envoyer à l’utilisateur invité un lien direct vers une application partagée, ou l’utilisateur invité peut cliquer sur l’URL d’échange dans l’e-mail d’invitation.
 
-L’étape suivante consiste à sélectionner le rôle à attribuer et l’utilisateur à qui le rôle RBAC doit être attribué. Dans le menu déroulant **Rôle**, l’utilisateur administrateur voit uniquement les rôles RBAC intégrés disponibles dans Azure. Pour plus d'explications sur chaque rôle et sur les étendues qui peuvent lui être attribuées, consultez [Rôles intégrés pour les ressources Azure](built-in-roles.md).
+![E-mail d’invitation envoyé à un utilisateur invité](./media/role-assignments-external-users/invite-email.png)
 
-L’utilisateur administrateur doit ensuite ajouter l’adresse de messagerie de l’utilisateur externe. Le comportement attendu est que l’utilisateur externe n'apparaisse pas dans le client existant. Une fois l’utilisateur externe invité, il est visible sous **Abonnements > Contrôle d’accès (IAM)** avec tous les utilisateurs auxquels un rôle RBAC est actuellement attribué dans l’étendue de l’abonnement.
+Pour que l’utilisateur invité soit en mesure d’accéder à votre annuaire, il doit compléter le processus d’invitation.
 
-![ajouter des autorisations au nouveau rôle RBAC](./media/role-assignments-external-users/3.png)
+![Révision des autorisations de l’utilisateur invité](./media/role-assignments-external-users/invite-review-permissions.png)
 
-![liste des rôles RBAC au niveau abonnement](./media/role-assignments-external-users/4.png)
+Pour plus d’informations sur le processus d’invitation, consultez [Utilisation d’invitations Azure Active Directory B2B Collaboration](../active-directory/b2b/redemption-experience.md).
 
-L’utilisateur « chessercarlton@gmail.com » a été invité à être **Propriétaire** d’un abonnement « Évaluation gratuite ». Une fois l’invitation envoyée, l’utilisateur externe reçoit un e-mail de confirmation contenant un lien d’activation.
-![e-mail d'invitation pour le rôles RBAC](./media/role-assignments-external-users/5.png)
+## <a name="grant-access-to-a-guest-user"></a>Accorder l’accès à un utilisateur invité
 
-Étant externe à l’organisation, le nouvel utilisateur ne dispose pas de tous les attributs existants dans l’annuaire « Client Azure par défaut ». Ceux-ci sont créés une fois que l’utilisateur externe accepte d’être inscrit dans l’annuaire associé à l’abonnement pour lequel un rôle lui a été attribué.
+Dans le contrôle d’accès en fonction du rôle, vous attribuez un rôle pour accorder l’accès. Pour accorder l’accès à un utilisateur invité, vous suivez les [mêmes étapes](role-assignments-portal.md#add-a-role-assignment) que pour un utilisateur membre, un groupe, un principal du service ou une identité managée. Suivez ces étapes pour accorder l’accès à un utilisateur invité à différentes étendues.
 
-![e-mail d’invitation pour le rôle RBAC](./media/role-assignments-external-users/6.png)
+1. Dans le portail Azure, cliquez sur **Tous les services**.
 
-L’utilisateur externe apparaît désormais dans le locataire Azure Active Directory en tant qu’utilisateur externe, et est visible sur le portail Azure.
+1.  Sélectionnez l’ensemble de ressources auquel s’applique l’accès, également appelé étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
 
-![panneau des utilisateurs azure active directory sur le portail azure](./media/role-assignments-external-users/7.png)
+1. Cliquez sur la ressource spécifique.
 
-Dans la vue **Utilisateurs**, les utilisateurs externes sont signalés par le type d’icône différent dans le portail Azure.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 
-Toutefois, l’octroi à un utilisateur externe d’un accès **Propriétaire** ou **Contributeur** à l’étendue **Abonnement** n’autorise pas l’accès à l’annuaire de l’utilisateur administrateur, sauf si l’**Administrateur général** l’autorise. Dans les propriétés de l’utilisateur, le **Type d’utilisateur** qui a deux paramètres communs, **Membre** et **Invité**, peut être identifié. Un membre est un utilisateur inscrit dans l’annuaire, tandis qu’un invité est un utilisateur invité dans l’annuaire à partir d’une source externe. Pour plus d’informations, voir [Comment les administrateurs Azure Active Directory ajoutent des utilisateurs B2B Collaboration](../active-directory/active-directory-b2b-admin-add-users.md).
+    La capture d’écran suivante montre un exemple de panneau Contrôle d’accès (IAM) pour un groupe de ressources. Si vous modifiez le contrôle d’accès ici, cette modification s’applique simplement au groupe de ressources.
 
-> [!NOTE]
-> Vérifiez qu’une fois les informations d’identification entrées dans le portail, l’utilisateur externe sélectionne l’annuaire approprié auquel se connecter. Le même utilisateur peut avoir accès à plusieurs annuaires et sélectionner l’un d'eux en cliquant sur le nom d’utilisateur dans la partie supérieure droite du portail Azure, puis en choisissant l’annuaire approprié dans la liste déroulante.
+    ![Panneau Contrôle d’accès (IAM) pour un groupe de ressources](./media/role-assignments-external-users/access-control-resource-group.png)
 
-Bien qu’étant un invité dans l’annuaire, l’utilisateur externe peut gérer toutes les ressources de l’abonnement Azure. En revanche, il ne peut pas accéder à l’annuaire.
+1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cette étendue.
 
-![accès restreint au portail azure active directory](./media/role-assignments-external-users/9.png)
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle.
 
-Azure Active Directory et un abonnement Azure n’ont pas de relation enfant-parent comme l’ont d’autres ressources Azure (par exemple, Azure Virtual Machines, Azure Virtual Networks, Web Apps, Stockage Azure, etc.). Ces dernières sont créées, gérées et facturées en relation avec un abonnement Azure, tandis que celui-ci est utilisé pour gérer l’accès à un annuaire Azure. Pour plus d’informations, consultez [Association d’un abonnement Azure à Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
 
-Parmi tous les rôles RBAC intégrés, les rôles **Propriétaire** et **Contributeur** offrent un accès en gestion complet à toutes les ressources de l’environnement, à la seule différence qu’un Contributeur ne peut pas créer ou supprimer des rôles RBAC. Les autres rôles intégrés, tels que **Contributeur de machines virtuelles**, offrent un accès en gestion complet uniquement aux ressources indiquées par le nom, quel que soit le **Groupe de ressources** dans lequel ils sont créés.
+    ![Ajoutez un menu](./media/role-assignments-external-users/add-menu.png)
 
-L’attribution du rôle RBAC intégré **Contributeur de machines virtuelles** au niveau d’un abonnement signifie que l’utilisateur auquel le rôle est attribué :
+1. Dans la liste déroulante **Rôle**, sélectionnez un rôle, tel que **Contributeur de machines virtuelles**.
 
-* peut afficher tous les machines virtuelles, quelle que soit leur date de déploiement, ainsi que les groupes de ressources auxquels elles appartiennent ;
-* dispose d’accès en gestion complet aux machines virtuelles faisant partie de l’abonnement ;
-* ne peut pas afficher d’autres types de ressources faisant partie de l’abonnement ;
-* ne peut apporter aucune modification sur le plan de la facturation.
+1. Dans la liste **Sélectionner**, sélectionnez l’utilisateur invité. Si vous ne voyez pas le l’utilisateur dans la liste, vous pouvez saisir du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage, des adresses e-mail et des identificateurs d’objet dans l’annuaire.
 
-## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Attribuer un rôle RBAC intégré à un utilisateur externe
+   ![Volet Ajouter une attribution de rôle](./media/role-assignments-external-users/add-role-assignment.png)
 
-Pour un autre scénario dans ce test, l’utilisateur externe « alflanigan@gmail.com » est ajouté en tant que **Contributeur de machines virtuelles**.
+1. Cliquez sur **Enregistrer** pour attribuer le rôle à l’étendue sélectionnée.
 
-![rôle prédéfini de contributeur de machines virtuelles](./media/role-assignments-external-users/11.png)
+    ![Attribution de rôle pour le contributeur de machine virtuelle](./media/role-assignments-external-users/access-control-role-assignments.png)
 
-Le comportement normal de cet utilisateur externe avec ce rôle intégré est de voir et gérer uniquement les machines virtuelles et uniquement les ressources adjacentes de Resource Manager nécessaires lors du déploiement. Par défaut, ces rôles limités offrent accès uniquement à leurs ressources correspondantes créées dans le portail Azure.
+## <a name="grant-access-to-a-guest-user-not-yet-in-your-directory"></a>Accorder l’accès à un utilisateur invité ne figurant pas encore dans votre annuaire
 
-![Vue d’ensemble du rôle contributeur de machines virtuelles dans le portail Azure](./media/role-assignments-external-users/12.png)
+Dans le contrôle d’accès en fonction du rôle, vous attribuez un rôle pour accorder l’accès. Pour accorder l’accès à un utilisateur invité, vous suivez les [mêmes étapes](role-assignments-portal.md#add-a-role-assignment) que pour un utilisateur membre, un groupe, un principal du service ou une identité managée.
 
-## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>Octroyer l’accès au niveau d’un abonnement à un utilisateur figurant dans le même annuaire
+Si l’utilisateur invité ne figure pas encore dans votre annuaire, vous pouvez l’inviter directement à partir du volet Ajouter une attribution de rôle.
 
-Le flux du processus est identique à celui de l’ajout d’un utilisateur externe, tant dans la perspective de l’administrateur octroyant le rôle RBAC, que de celle de l’utilisateur auquel l’accès au rôle est octroyé. La différence est que l’utilisateur invité ne reçoit pas d’e-mail d’invitation, car toutes les étendues de ressource au sein de l’abonnement sont disponibles dans le tableau de bord une fois la connexion établie.
+1. Dans le portail Azure, cliquez sur **Tous les services**.
 
-## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>Attribution de rôles RBAC au niveau de l’étendue d’un groupe de ressources
+1.  Sélectionnez l’ensemble de ressources auquel s’applique l’accès, également appelé étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
 
-L’attribution d’un rôle RBAC au niveau de l’étendue d’un **Groupe de ressources** est un processus identique à celui de l’attribution du rôle au niveau de l’abonnement pour les deux types d’utilisateurs, externes ou internes (au sein du même annuaire). Les utilisateurs auxquels le rôle RBAC est attribué peuvent voir dans leur environnement uniquement le groupe de ressources auquel ils ont accès à partir de l’icône **Groupes de ressources** dans le portail Azure.
+1. Cliquez sur la ressource spécifique.
 
-## <a name="assign-rbac-roles-at-the-resource-scope"></a>Attribuer des rôles RBAC au niveau de l’étendue d’une ressource
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 
-L’attribution d’un rôle RBAC au niveau de l’étendue d’une ressource dans Azure est un processus identique à celui de l’attribution du rôle au niveau de l’abonnement ou du groupe de ressources. Le flux de travail est le même pour les deux scénarios. Une fois encore, les utilisateurs auxquels le rôle RBAC est attribué peuvent voir uniquement les éléments auxquels ils ont accès, sous l’onglet **Toutes les ressources** ou directement dans leur tableau de bord.
+1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cette étendue.
 
-Un aspect important de la fonctionnalité RBAC, tant au niveau du groupe de ressources qu’à celui de la ressource, est que les utilisateurs doivent vérifier qu’ils se connectent à l’annuaire approprié.
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle.
 
-![connexion à un annuaire dans le portail azure](./media/role-assignments-external-users/13.png)
+    ![Ajoutez un menu](./media/role-assignments-external-users/add-menu.png)
 
-## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>Attribuer des rôles RBAC pour un groupe Azure Active Directory
+1. Dans la liste déroulante **Rôle**, sélectionnez un rôle, tel que **Contributeur de machines virtuelles**.
 
-Tous les scénarios utilisant la fonctionnalité RBAC aux trois niveaux d’étendue dans Azure offrent le privilège de pouvoir gérer, déployer et administrer diverses ressources comme un utilisateur assigné sans avoir besoin de gérer un abonnement personnel. Que le rôle RBAC soit attribué à un abonnement, un groupe de ressources ou une ressource, toutes les ressources créées ensuite par les utilisateurs attribués sont facturées sous le seul abonnement Azure auquel ils ont accès. Ainsi, les utilisateurs qui disposent d’autorisations d’administrateur de facturation pour cet abonnement Azure entier ont une vue d’ensemble complète de la consommation, quelle que soit la personne qui gère les ressources.
+1. Dans la liste **Sélectionner**, tapez l’adresse e-mail de la personne que vous voulez inviter, puis sélectionnez cette personne.
 
-Pour les entreprises de grande taille, les rôles RBAC peuvent être appliqués de la même façon pour des groupes Azure Active Directory, en considérant que l’utilisateur administrateur souhaite octroyer l’accès granulaire à des équipes ou à des départements entiers plutôt qu’individuellement à chaque utilisateur, et donc en considérant qu’il s’agit d’une option extrêmement efficace sur les plans du temps et de la gestion. Pour illustrer cet exemple, le rôle **Contributeur** a été ajouté à l’un des groupes dans le client au niveau de l’abonnement.
+   ![Inviter un utilisateur invité dans le volet Ajouter une attribution de rôle](./media/role-assignments-external-users/add-role-assignment-new-guest.png)
 
-![ajouter un rôle RBAC pour les groupes AAD](./media/role-assignments-external-users/14.png)
+1. Cliquez sur **Enregistrer** pour ajouter l’utilisateur invité à votre annuaire, attribuer le rôle, puis envoyer une invitation.
 
-Il s’agit de groupes de sécurité provisionnés et gérés uniquement dans Azure Active Directory.
+    Après quelques minutes, vous voyez une notification de l’attribution de rôle et des informations sur l’invitation.
 
+    ![Notification d’attribution de rôle et d’utilisateur invité](./media/role-assignments-external-users/invited-user-notification.png)
+
+1. Pour inviter manuellement l’utilisateur invité, cliquez avec le bouton droit et copiez le lien d’invitation inclus dans la notification. Ne cliquez pas sur le lien d’invitation, car cela démarre le processus d’invitation.
+
+    Le lien d’invitation est au format suivant :
+
+    `https://invitations.microsoft.com/redeem/...`
+
+1. Envoyez le lien d’invitation à l’utilisateur invité pour qu’il termine le processus d’invitation.
+
+    Pour plus d’informations sur le processus d’invitation, consultez [Utilisation d’invitations Azure Active Directory B2B Collaboration](../active-directory/b2b/redemption-experience.md).
+
+## <a name="remove-a-guest-user-from-your-directory"></a>Supprimer un utilisateur invité de votre annuaire
+
+Avant de supprimer un utilisateur invité d’un annuaire, vous devez d’abord supprimer toutes ses attributions de rôle. Suivez ces étapes pour supprimer un utilisateur invité d’un annuaire.
+
+1. Ouvrez **Contrôle d’accès (IAM)** dans une étendue, comme un groupe d’administration, un abonnement, un groupe de ressources ou une ressource, dans laquelle l’utilisateur invité a une attribution de rôle.
+
+1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher toutes les attributions de rôle.
+
+1. Dans la liste des attributions de rôle, ajoutez une coche en regard de l’utilisateur invité comportant l’attribution de rôle à supprimer.
+
+   ![Supprimer une attribution de rôle](./media/role-assignments-external-users/remove-role-assignment-select.png)
+
+1. Cliquez sur **Supprimer**.
+
+   ![Supprimer le message d’attribution de rôle](./media/role-assignments-external-users/remove-role-assignment.png)
+
+1. Dans le message d’attribution de rôle qui s’affiche, cliquez sur **Oui**.
+
+1. Dans la barre de navigation gauche, cliquez sur **Azure Active Directory** > **Utilisateurs**.
+
+1. Cliquez sur l’utilisateur invité à supprimer.
+
+1. Cliquez sur **Supprimer**.
+
+   ![Supprimer un utilisateur invité](./media/role-assignments-external-users/delete-guest-user.png)
+
+1. Dans le message de suppression qui apparaît, cliquez sur **Yes** (Oui).
+
+## <a name="troubleshoot"></a>Résolution des problèmes
+
+### <a name="guest-user-cannot-browse-the-directory"></a>Impossible pour l’utilisateur invité de parcourir l’annuaire
+
+Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Par exemple, les utilisateurs invités ne peuvent pas parcourir l’annuaire ni rechercher des groupes ou des applications. Pour plus d’informations, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../active-directory/fundamentals/users-default-permissions.md)
+
+![Impossible pour l’utilisateur invité de parcourir les utilisateurs figurant dans un annuaire](./media/role-assignments-external-users/directory-no-users.png)
+
+Si un utilisateur invité a besoin de privilèges supplémentaires sur l’annuaire, vous pouvez lui attribuer un rôle d’annuaire. Si vous voulez vraiment qu’un utilisateur invité dispose d’un accès en lecture complet à votre annuaire, vous pouvez l’ajouter au rôle [Lecteurs de répertoire](../active-directory/users-groups-roles/directory-assign-admin-roles.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+
+![Attribuer le rôle Lecteur de répertoire](./media/role-assignments-external-users/directory-roles.png)
+
+### <a name="guest-user-cannot-browse-users-groups-or-service-principals-to-assign-roles"></a>Impossible pour l’utilisateur invité de parcourir les utilisateurs, les groupes ou les principaux du service pour attribuer des rôles
+
+Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Même si un utilisateur invité est [propriétaire](built-in-roles.md#owner) au niveau d’une étendue, s’il essaie de créer une attribution de rôle pour accorder l’accès à une autre personne, il ne peut pas parcourir la liste des utilisateurs, des groupes ou des principaux du service.
+
+![Impossible pour l’utilisateur invité de parcourir les principaux de sécurité pour attribuer des rôles](./media/role-assignments-external-users/directory-no-browse.png)
+
+Si l’utilisateur invité connaît le nom de connexion exact d’une personne dans l’annuaire, il peut lui accorder l’accès. Si vous voulez vraiment qu’un utilisateur invité dispose d’un accès en lecture complet à votre annuaire, vous pouvez l’ajouter au rôle [Lecteurs de répertoire](../active-directory/users-groups-roles/directory-assign-admin-roles.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+
+### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>Impossible pour l’utilisateur invité d’inscrire des applications ou de créer des principaux du service
+
+Les utilisateurs invités disposent d'autorisations d'annuaire limitées. Si un utilisateur invité a besoin de pouvoir inscrire des applications ou de créer des principaux du service, vous pouvez l’ajouter au rôle [Développeur d’applications](../active-directory/users-groups-roles/directory-assign-admin-roles.md) dans Azure AD. Pour plus d’informations, consultez [Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+
+![Impossible pour l’utilisateur invité d’inscrire des applications](./media/role-assignments-external-users/directory-access-denied.png)
+
+### <a name="guest-user-does-not-see-the-new-directory"></a>Nouvel annuaire invisible pour l’utilisateur invité
+
+Si un utilisateur invité a reçu l’autorisation d’accéder à un nouvel annuaire, mais qu’il ne le voit pas listé dans le portail Azure quand il essaie de basculer vers son volet **Annuaire + abonnement**, vérifiez qu’il a bien achevé le processus d’invitation. Pour plus d’informations sur le processus d’invitation, consultez [Utilisation d’invitations Azure Active Directory B2B Collaboration](../active-directory/b2b/redemption-experience.md).
+
+### <a name="guest-user-does-not-see-resources"></a>Ressources invisibles pour l’utilisateur
+
+Si un utilisateur invité a reçu l’autorisation d’accéder à un annuaire, mais qu’il ne voit pas les ressources auxquelles il est autorisé à accéder dans le portail Azure, vérifiez qu’il a sélectionné le bon annuaire. Un utilisateur invité peut avoir accès à plusieurs annuaires. Pour changer d’annuaire, dans le coin supérieur gauche, cliquez sur **Annuaire + abonnement**, puis cliquez sur l’annuaire approprié.
+
+![Volet Annuaires + abonnements dans le portail Azure](./media/role-assignments-external-users/directory-subscription.png)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure](../active-directory/b2b/add-users-administrator.md)
+- [Propriétés d’un utilisateur Azure Active Directory B2B Collaboration](../active-directory/b2b/user-properties.md)
+- [Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)

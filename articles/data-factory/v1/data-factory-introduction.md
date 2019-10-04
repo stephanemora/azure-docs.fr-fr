@@ -3,25 +3,24 @@ title: Présentation de Data Factory, un service d’intégration de données | 
 description: Découvrez Azure Data Factory, un service cloud d’intégration de données qui gère et automatise le déplacement et la transformation des données.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 9bf8c51fda6985f88ecffa60b32c1c62e364a511
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2e508839cd343820a36cc715ebde0f47c2ac4ab1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014928"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139519"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d’Azure Data Factory 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-introduction.md)
 > * [Version 2 (version actuelle)](../introduction.md)
 
@@ -133,7 +132,6 @@ Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Mac
 ## <a name="get-started-with-creating-a-pipeline"></a>Prise en main de la création d’un pipeline
 Vous pouvez utiliser un des outils ou API suivants pour créer des pipelines de données dans Azure Data Factory : 
 
-- Portail Azure
 - Visual Studio
 - PowerShell
 - API .NET

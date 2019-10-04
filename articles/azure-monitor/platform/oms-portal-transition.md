@@ -10,23 +10,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 08/22/2019
 ms.author: bwren
-ms.openlocfilehash: c4950d03449f2b293a87ab88f1ea3f49eee29557
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e8fd49781301406e0c35e1de57cea3040167c6c3
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790092"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915865"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Migration du portail OMS vers Azure
 
 > [!NOTE]
 > Sauf indication contraire, cet article s’applique au cloud du secteur public et au cloud public Azure.
 
-Le portail Azure est le hub de tous les services Azure qui propose une expérience de gestion complète avec des fonctionnalités telles que des tableaux de bord pour épingler les ressources, la recherche intelligente pour rechercher des ressources et le balisage pour gérer les ressources. Pour consolider et rationaliser le flux de travail de monitoring et de gestion, nous avons commencé à ajouter les fonctionnalités du portail OMS dans le portail Azure. Toutes les fonctionnalités du portail OMS font désormais partie du portail Azure. En fait, certaines des nouvelles fonctionnalités, comme Traffic Analytics, ne sont disponibles que sur le Portail Azure. Vous pouvez faire tout ce que vous faisiez dans le portail OMS avec le portail Azure, et bien plus encore. Si ce n’est déjà fait, vous devriez commencer à utiliser le portail Azure dès aujourd’hui !
+**Le portail Microsoft Operations Management Suite pour le cloud public Azure a été officiellement retiré. Le portail Microsoft Operations Management Suite pour le cloud Azure - Gouvernement des États-Unis a été officiellement retiré le 15 mai 2019.** Nous sommes heureux de migrer vers le portail Azure et pensons que la transition sera facile. Mais nous comprenons que les changements sont difficiles et peuvent entraîner des perturbations. Le reste de cet article passe en revue les scénarios clés et la feuille de route pour cette transition.
 
-**Le portail OMS sera officiellement mis hors service le 15 janvier 2019** pour le cloud commercial Azure et pour le cloud Azure US Government, le portail OMS **sera officiellement mis hors service le 30 mars 2019.** Nous sommes heureux de migrer vers le portail Azure et pensons que la transition sera facile. Mais nous comprenons que les changements sont difficiles et peuvent entraîner des perturbations. Envoyer des questions, commentaires ou les problèmes à **LAUpgradeFeedback\@microsoft.com**. Le reste de cet article passe en revue les scénarios clés et la feuille de route pour cette transition.
+Le portail Azure est le hub de tous les services Azure qui propose une expérience de gestion complète avec des fonctionnalités telles que des tableaux de bord pour épingler les ressources, la recherche intelligente pour rechercher des ressources et le balisage pour gérer les ressources. Pour consolider et rationaliser le flux de travail de monitoring et de gestion, nous avons commencé à ajouter les fonctionnalités du portail OMS dans le portail Azure. Toutes les fonctionnalités du portail OMS font désormais partie du portail Azure. En fait, certaines des nouvelles fonctionnalités, comme Traffic Analytics, ne sont disponibles que sur le Portail Azure. Vous pouvez faire tout ce que vous faisiez dans le portail OMS avec le portail Azure, et bien plus encore. Si ce n’est déjà fait, vous devriez commencer à utiliser le portail Azure dès aujourd’hui !
 
 ## <a name="what-is-changing"></a>Qu’est-ce qui change ? 
 Les modifications suivantes sont annoncées avec l’abandon du portail OMS. Chacun de ces changements est décrit en détail dans les sections ci-dessous.
@@ -47,10 +47,10 @@ Même si vous pouvez continuer à utiliser la plupart des fonctionnalités sans 
 - Vous devez [migrer vos autorisations utilisateur](#user-access-and-role-migration) vers le portail Azure.
 - Pour plus d’informations sur la transition de la solution Update Management, consultez [Migrer vos déploiements de mises à jour OMS vers Azure](../../automation/migrate-oms-update-deployments.md).
 
-Référez-vous à [Questions courantes sur la transition du portail OMS vers le portail Azure pour les utilisateurs Log Analytics](oms-portal-faq.md) pour plus d’informations sur la transition vers le portail Azure. Envoyer des commentaires, des questions ou préoccupations à **LAUpgradeFeedback\@microsoft.com**.
+Référez-vous à [Questions courantes sur la transition du portail OMS vers le portail Azure pour les utilisateurs Log Analytics](oms-portal-faq.md) pour plus d’informations sur la transition vers le portail Azure. 
 
 ## <a name="user-access-and-role-migration"></a>Accès utilisateur et migration du rôle
-La gestion des accès du portail Azure est plus complète et plus puissante que la gestion des accès du portail OMS. Consultez [Gérer les espaces de travail](manage-access.md#manage-accounts-and-users) pour plus d’informations sur la gestion de l’accès dans Log Analytics.
+La gestion des accès du portail Azure est plus complète et plus puissante que la gestion des accès du portail OMS. Pour plus d’informations sur la gestion des accès dans Log Analytics, voir [Conception de votre espace de travail de journaux Azure](design-logs-deployment.md).
 
 > [!NOTE]
 > Les versions précédentes de cet article indiquaient que les autorisations seraient automatiquement converties depuis le portail OMS vers le portail Azure. Cette conversion automatique n’étant plus planifiée, vous devez effectuer la conversion vous-même.
@@ -76,10 +76,7 @@ Vous ne pouvez plus créer d’espaces de travail à l’aide du portail OMS. Po
 
 ### <a name="alert-extension"></a>Extension d’alerte  
 
-> [!NOTE]
-> Les alertes ont été entièrement étendues au Portail Azure pour le cloud public. Les règles d’alerte existantes sont consultables sur le portail OMS, mais ne peuvent être gérées que sur le Portail Azure. L’extension des alertes dans le portail Azure pour le cloud du secteur public Azure débute en février 2019.
-
-Les alertes ont été [étendues au Portail Azure](alerts-extend.md). Une fois cette opération terminée, les actions de gestion des alertes seront disponibles uniquement dans le portail Azure. Les alertes existantes continueront à être répertoriées dans le portail OMS. Si vous accédez aux alertes par programme à l’aide de l’API REST Log Analytics Alert ou du modèle Log Analytics Alert Resource, vous devrez utiliser des groupes d’actions à la place des actions dans vos appels d’API, modèles Azure Resource Manager et commandes PowerShell.
+Les alertes ont été [étendue dans le portail Azure](alerts-extend.md) Les alertes existantes continueront d’être répertoriées dans le portail Microsoft Operations Management Suite, mais ne vous pourrez les gérer que dans le portail Azure. Si vous accédez aux alertes par programme à l’aide de l’API REST Log Analytics Alert ou du modèle Log Analytics Alert Resource, vous devrez utiliser des groupes d’actions à la place des actions dans vos appels d’API, modèles Azure Resource Manager et commandes PowerShell.
 
 ### <a name="alert-management-solution"></a>solution de gestion des alertes
 Contrairement à ce qui avait été annoncé précédemment, la [solution de gestion des alertes](alert-management-solution.md) restera disponible et entièrement prise en charge dans le portail Azure. Vous pouvez continuer d'installer la solution depuis Place de marché Azure.
@@ -94,7 +91,7 @@ L’application mobile OMS deviendra caduque, ainsi que le portail OMS. Au lieu 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights Connector et solution
 [Application Insights Connector](app-insights-connector.md) permet d’inclure des données Application Insights dans un espace de travail Log Analytics. Cette duplication des données était nécessaire pour activer la visibilité sur les données d’infrastructure et d’application. Avec la prise en charge de la conservation des données étendue jusqu’en mars 2019 et la possibilité d’effectuer des [requêtes couvrant plusieurs ressources](../log-query/cross-workspace-query.md), en plus de pouvoir [voir plusieurs ressources Azure Monitor Application Insights](../log-query/unify-app-resource-data.md), il n’est pas nécessaire de dupliquer les données de vos ressources Application Insights et de les envoyer vers Log Analytics. En outre, le connecteur envoie à Log Analytics un sous-ensemble des propriétés des applications, et les requêtes couvrant plusieurs ressources vous offrent plus de flexibilité.  
 
-Dès lors, Application Insights Connector sera déconseillé et supprimé de Place de marché Azure, de même que le portail OMS le 30 mars 2019. Les connexions existantes continueront de fonctionner jusqu’au 30 juin 2019. Une fois le portail OMS déconseillé, il ne sera pas possible de configurer et de supprimer les connexions existantes du portail. Cela sera pris en charge par l'API REST qui sera disponible en janvier 2019, et une notification sera publiée sur les [mises à jour Azure](https://azure.microsoft.com/updates/). 
+Dès lors, Application Insights Connector a été déconseillé et supprimé de Place de marché Azure, de même que du portail Microsoft Operations Management Suite le 30 mars 2019. Les connexions existantes continueront de fonctionner jusqu'au 30 juin 2019. Une fois le portail OMS déconseillé, il ne sera pas possible de configurer et de supprimer les connexions existantes du portail. Cela sera pris en charge par l'API REST qui sera disponible en janvier 2019, et une notification sera publiée sur les [mises à jour Azure](https://azure.microsoft.com/updates/). 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure Network Security Group Analytics
 La [solution Azure Network Security Group Analytics](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) sera remplacée par [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) récemment lancé qui offre une visibilité sur l’activité des utilisateurs et des applications sur les réseaux cloud. Traffic Analytics vous permet d’auditer l’activité réseau de votre organisation, de sécuriser les applications et les données, d’optimiser les performances de la charge de travail et de rester en conformité. 

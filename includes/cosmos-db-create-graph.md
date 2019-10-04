@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: b656001c8a7d1bed21c208bc643018c5f751e09c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 837231ca07abcfdbd6ce932bb24bd890d91506a8
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733817"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541469"
 ---
 Vous pouvez désormais utiliser l’outil Explorateur de données dans le portail Azure pour créer une base de données de graphiques. 
 
-1. Cliquez sur **Explorateur de données** > **New Graph** (Nouveau graphique).
+1. Sélectionnez **Data Explorer** > **Nouveau graphique**.
 
     La zone **Ajouter un graphique** est affichée à l’extrême droite. Il peut donc être nécessaire de faire défiler à droite pour l’afficher.
 
@@ -28,8 +28,8 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
     Paramètre|Valeur suggérée|Description
     ---|---|---
     ID de base de données|sample-database|Entrez le nom *sample-database* pour la nouvelle base de données. Les noms de base de données doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin.
-    ID du graphique|sample-graph|Entrez le nom *sample-graph* pour votre nouvelle collection. Les noms de graphiques sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données.
-    Capacité de stockage|Fixe (10 Go)|Conservez la valeur par défaut **Fixe (10 Go)**. Cette valeur correspond à la capacité de stockage de la base de données.
     Débit|400 unités de requête|Changez le débit en indiquant 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.
+    ID du graphique|sample-graph|Entrez le nom *sample-graph* pour votre nouvelle collection. Les noms de graphiques sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données.
+    Partition Key| /pk |Tous les comptes Cosmos DB ont besoin d’une clé de partition se mettre à l’échelle horizontalement. Découvrez comment sélectionner une clé de partition appropriée dans l'article sur le [partitionnement des données graphiques](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
 
-3. Une fois le formulaire rempli, cliquez sur **OK**.
+3. Une fois le formulaire rempli, sélectionnez **OK**.

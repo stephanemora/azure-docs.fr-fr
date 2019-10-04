@@ -4,14 +4,14 @@ description: Découvrez comment sécuriser les données Azure Cosmos DB en utili
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
-ms.openlocfilehash: c5c103fcb7f80533f6f34cb51fd661364d77d6ef
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 9398eb4038afcd17788e750fcb5c27c76e9f3f44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549007"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66241077"
 ---
 # <a name="ip-firewall-in-azure-cosmos-db"></a>Pare-feu IP dans Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Pour sécuriser les données dans votre compte, Azure Cosmos DB assure la pris
 
 ## <a id="ip-access-control-overview"></a>Vue d’ensemble du contrôle d’accès IP
 
-Par défaut, votre compte Azure Cosmos est accessible depuis Internet, tant que la demande est accompagnée d’un jeton d’autorisation valide. Pour configurer le contrôle d’accès basé sur la stratégie IP, l’utilisateur doit fournir le jeu d’adresses IP ou des plages d’adresses IP au format CIDR (Classless Inter-Domain Routing) pour être ajouté à la liste d’adresses IP clientes autorisées pour un accès à un compte Azure Cosmos donné. Une fois cette configuration appliquée, toutes les demandes provenant d'ordinateurs qui ne figurent pas sur cette liste autorisée reçoivent une réponse 403 (Interdit). Lorsque vous utilisez un pare-feu IP, il est recommandé d’autoriser le portail Azure à accéder à votre compte. L’accès est requis pour autoriser l’utilisation de l’Explorateur de données ainsi que pour récupérer des métriques pour votre compte qui s’affichent sur le portail Azure. Lorsque vous utilisez l’Explorateur de données, en plus de permettre le portail Azure pour accéder à votre compte, vous devez également mettre à jour vos paramètres de pare-feu pour ajouter votre adresse IP actuelle aux règles de pare-feu. Notez que les modifications de pare-feu peuvent prendre jusqu'à 15 minutes pour propager. 
+Par défaut, votre compte Azure Cosmos est accessible depuis Internet, tant que la demande est accompagnée d’un jeton d’autorisation valide. Pour configurer le contrôle d’accès basé sur la stratégie IP, l’utilisateur doit fournir le jeu d’adresses IP ou des plages d’adresses IP au format CIDR (Classless Inter-Domain Routing) pour être ajouté à la liste d’adresses IP clientes autorisées pour un accès à un compte Azure Cosmos donné. Une fois cette configuration appliquée, toutes les demandes provenant d'ordinateurs qui ne figurent pas sur cette liste autorisée reçoivent une réponse 403 (Interdit). Lorsque vous utilisez un pare-feu IP, il est recommandé d’autoriser le portail Azure à accéder à votre compte. L’accès est requis pour autoriser l’utilisation de l’Explorateur de données ainsi que pour récupérer des métriques pour votre compte qui s’affichent sur le portail Azure. Lorsque vous utilisez l’explorateur de données, en plus de permettre au portail Azure d'accéder à votre compte, vous devez mettre à jour vos paramètres de pare-feu pour ajouter votre adresse IP actuelle aux règles de pare-feu. Notez que la propagation des modifications apportées au pare-feu peut prendre jusqu'à 15 minutes. 
 
 Vous pouvez combiner des pare-feu IP avec le contrôle d’accès de réseau virtuel et de sous-réseau. En les combinant, vous pouvez limiter l’accès à n’importe quelle source qui a une adresse IP publique et/ou à partir d’un sous-réseau spécifique au sein du réseau virtuel. Pour en savoir plus sur l’utilisation du contrôle d’accès basé sur le sous-réseau et le réseau virtuel, consultez [Accéder aux ressources Azure Cosmos DB à partir de réseaux virtuels](vnet-service-endpoint.md).
 

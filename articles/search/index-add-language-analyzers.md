@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: Yahnoosh
 ms.author: jlembicz
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: e54fa449e0ed7f3208d9924b69946c6598a00444
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549150"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648804"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Ajouter des analyseurs linguistiques à un index de Recherche Azure
 
@@ -45,9 +45,6 @@ L’analyseur par défaut est Lucene Standard, qui fonctionne bien pour l’angl
 + L'analyseur d'anglais de Lucene est une extension de l'analyseur standard. Il supprime la marque du possessif (« ’s ») à la fin des mots, applique l’algorithme de recherche de radical de Porter et supprime les mots vides de l’anglais.  
 
 + L’analyseur d’anglais de Microsoft procède par lemmatisation plutôt que par recherche de radical. Il gère donc beaucoup mieux les formes fléchies et irrégulières, ce qui donne des résultats de recherche plus pertinents. 
-
-  > [!Tip]
-  > La [démonstration de l’analyseur Recherche](https://alice.unearth.ai/) présente une comparaison point par point des résultats produits par l’analyseur Lucene standard, l’analyseur linguistique anglais de Lucene et de l’outil de traitement du langage naturel anglais de Microsoft. Pour chaque recherche, les résultats de chaque analyseur sont affichés dans des volets adjacents.
 
 ## <a name="configuring-analyzers"></a>Configuration des analyseurs
 
@@ -121,7 +118,7 @@ Pour plus d’informations sur les propriétés d’index, voir [Créer un index
 |Ourdou|ur.microsoft||  
 |Vietnamien|vi.microsoft||  
 
- Tous les analyseurs dont le nom est annoté **lucene** s’appuient sur les [analyseurs linguistiques d’Apache Lucene](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ).
+ Tous les analyseurs dont le nom est annoté **lucene** s’appuient sur les [analyseurs linguistiques d’Apache Lucene](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
 ## <a name="see-also"></a>Voir aussi  
  [Créer un index &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

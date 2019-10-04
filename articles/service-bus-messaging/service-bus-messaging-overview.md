@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0f3995e8904396dbb0bcbeeea1f993913d68587e
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918839"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013116"
 ---
 # <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
 
@@ -97,7 +97,7 @@ Si une erreur se produit et suscite un doute chez le client concernant le résul
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>Protocoles SAP et RBAC, et identités managées pour les ressources Azure
 
-Service Bus prend en charge les protocoles de sécurité tel que les [Signatures d’accès partagé](service-bus-sas.md) (SAP), le [Contrôle d’accès en fonction du rôle](service-bus-role-based-access-control.md) (RBAC) et les [Identités managées pour les ressources Azure](service-bus-managed-service-identity.md).
+Service Bus prend en charge les protocoles de sécurité tel que les [Signatures d’accès partagé](service-bus-sas.md) (SAP), le [Contrôle d’accès en fonction du rôle](authenticate-application.md) (RBAC) et les [Identités managées pour les ressources Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Géorécupération d’urgence
 
@@ -129,3 +129,4 @@ Pour commencer à utiliser la messagerie Service Bus, consultez les articles sui
 * En savoir plus sur les niveaux [Standard et Premium](https://azure.microsoft.com/pricing/details/service-bus/) Azure Service Bus et leur tarification
 * [Performances et latence du niveau Premium Azure Service Bus](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * Essayez les Démarrages rapides de [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), ou [JMS](service-bus-java-how-to-use-jms-api-amqp.md)
+* [Gérer les ressources Service Bus avec l'explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

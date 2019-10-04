@@ -13,39 +13,31 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7eb5f090026b415e3c980116a9317594f4ca8115
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: MT
+ms.openlocfilehash: 75beb7b66863efd2fb3679f034a3663dca4a6d2f
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750767"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076699"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Utilisation de fonctions dans les requêtes de journal Azure Monitor
-
-> [!NOTE]
-> Vous devez suivre [Bien démarrer avec le portail Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes](get-started-queries.md) avant d’effectuer cette leçon.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 
 Pour utiliser une requête de journal avec une autre requête, vous pouvez l’enregistrer en tant que fonction. Cela vous permet de simplifier les requêtes complexes en les divisant en plusieurs parties et de réutiliser le code commun avec plusieurs requêtes.
 
 ## <a name="create-a-function"></a>Créer une fonction
 
-Créer une fonction avec l’Analytique de journal dans le portail Azure en cliquant sur **enregistrer** , puis en fournissant les informations contenues dans le tableau suivant.
+Pour créer une fonction avec Log Analytics sur le portail Azure, cliquez sur **Enregistrer**, puis fournissez les informations indiquées dans le tableau suivant.
 
 | Paramètre | Description |
 |:---|:---|
 | Nom           | Nom d’affichage de la requête dans l’**Explorateur de requêtes**. |
 | Enregistrer sous        | Fonction |
 | Alias de fonction | Nom court pour utiliser la fonction dans d’autres requêtes. Ne peut pas contenir d’espaces et doit être unique. |
-| Catégorie       | Catégorie pour organiser les fonctions et les requêtes enregistrées dans l’**Explorateur de requêtes**. |
+| Category       | Catégorie pour organiser les fonctions et les requêtes enregistrées dans l’**Explorateur de requêtes**. |
 
 > [!NOTE]
 > Une fonction dans Azure Monitor ne peut pas contenir une autre fonction.
 
-> [!NOTE]
-> L’enregistrement d’une fonction est possible dans les requêtes de journal Azure Monitor, mais pas dans les requêtes Application Insights pour l’instant.
 
 
 

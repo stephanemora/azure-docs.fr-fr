@@ -1,21 +1,20 @@
 ---
-title: Gestion des erreurs et des exceptions - Azure Logic Apps | Microsoft Docs
+title: Gestion des erreurs et des exceptions - Azure Logic Apps
 description: Découvrez les modèles de gestion des erreurs et des exceptions dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: dereklee
 ms.author: deli
-manager: jeconnoc
+ms.reviewer: klam, estfan, LADocs
 ms.date: 01/31/2018
 ms.topic: article
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 828bea50a66b90f35843901ae2d7c703ffa58f2d
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779145"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208173"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 
@@ -73,9 +72,9 @@ Vous pouvez aussi spécifier manuellement la stratégie de nouvelle tentative da
 
 | Valeur | Type | Description |
 |-------|------|-------------|
-| <*retry-policy-type*> | Chaîne | Type de stratégie de nouvelles tentatives à utiliser : `default`, `none`, `fixed` ou `exponential` | 
-| <*retry-interval*> | Chaîne | Intervalle de nouvelle tentative, où la valeur doit être au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L’intervalle minimal par défaut est `PT5S` et l’intervalle maximal est `PT1D`. Quand vous utilisez la stratégie d’intervalle exponentiel, vous pouvez spécifier différentes valeurs minimales et maximales. | 
-| <*retry-attempts*> | Entier  | Nombre de nouvelles tentatives, qui doit être compris entre 1 et 90 | 
+| <*retry-policy-type*> | String | Type de stratégie de nouvelles tentatives à utiliser : `default`, `none`, `fixed` ou `exponential` | 
+| <*retry-interval*> | String | Intervalle de nouvelle tentative, où la valeur doit être au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L’intervalle minimal par défaut est `PT5S` et l’intervalle maximal est `PT1D`. Quand vous utilisez la stratégie d’intervalle exponentiel, vous pouvez spécifier différentes valeurs minimales et maximales. | 
+| <*retry-attempts*> | Integer | Nombre de nouvelles tentatives, qui doit être compris entre 1 et 90 | 
 ||||
 
 *Facultatif*
@@ -219,13 +218,15 @@ Pour intercepter des exceptions dans une étendue **Failed** et exécuter des ac
 
 Pour les limites sur les étendues, consultez [Limites et configuration](../logic-apps/logic-apps-limits-and-config.md).
 
+<a name="get-results-from-failures"></a>
+
 ### <a name="get-context-and-results-for-failures"></a>Obtenir le contexte et les résultats des échecs
 
-Bien que l’interception des échecs d’une étendue soit très utile, vous aurez peut-être également besoin du contexte pour identifier précisément les actions qui ont échoué, ainsi que les codes d’erreur ou d’état renvoyés. L’expression `@result()` fournit un contexte sur le résultat de toutes les actions d’une étendue.
+Bien que l’interception des échecs d’une étendue soit très utile, vous aurez peut-être également besoin du contexte pour identifier précisément les actions qui ont échoué, ainsi que les codes d’erreur ou d’état renvoyés.
 
-L’expression `@result()` accepte un paramètre unique (le nom de l’étendue), et renvoie un tableau de tous les résultats d’action contenus dans cette étendue. Ces objets d’action incluent les mêmes attributs que la  **\@actions()** objet, comme l’action de l’heure de début, heure de fin, état, entrées, ID de corrélation et les sorties. Pour envoyer le contexte de toutes les actions qui ont échoué dans une étendue, vous pouvez facilement associer une  **\@result()** fonctionne avec un **runAfter** propriété.
+La fonction [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) fournit le contexte des résultats de toutes les actions dans une étendue. La fonction `result()` accepte un seul paramètre, qui est le nom de l’étendue, et retourne un tableau contenant tous les résultats des actions dans cette étendue. Ces objets d’action incluent les mêmes attributs que l’objet `@actions()`, comme l’heure de début, l’heure de fin, l’état, les entrées, les ID de corrélation et les sorties de l’action. Pour envoyer le contexte pour les actions qui ont échoué dans une étendue, vous pouvez facilement associer une expression `@result()` à la propriété `runAfter`.
 
-Pour exécuter une action pour chaque action dans une étendue qui a un **échec** résultat, et pour filtrer les résultats sur les actions ayant échoué, vous pouvez associer  **\@result()** avec un **[ Filtrer un tableau](../connectors/connectors-native-query.md)** action et un [ **pour chaque** ](../logic-apps/logic-apps-control-flow-loops.md) boucle. Vous pouvez prendre le tableau des résultats filtrés et effectuer une action pour chaque échec à l’aide de la boucle **For each**. 
+Pour exécuter une action pour chaque action dans une étendue dont le résultat est **Échec** et pour filtrer le tableau de résultats sur les actions ayant échoué, vous pouvez associer une expression `@result()` à une action [**Filtrer le tableau**](../connectors/connectors-native-query.md) et à une boucle [**Pour chaque**](../logic-apps/logic-apps-control-flow-loops.md). Vous pouvez prendre le tableau des résultats filtrés et effectuer une action pour chaque échec à l’aide de la boucle **For each**.
 
 Cet exemple, suivi d’une explication détaillée, envoie une requête HTTP POST avec le corps de réponse pour toutes les actions qui ont échoué dans l’étendue « My_Scope » :
 
@@ -317,12 +318,12 @@ Pour référence, voici un exemple d’un seul élément `@result()`, montrant l
 }
 ```
 
-Vous pouvez utiliser les expressions décrites plus haut dans cet article pour exécuter différents modèles de gestion des exceptions. Vous pouvez choisir d’exécuter une seule action de gestion en dehors de l’étendue qui accepte l’intégralité du tableau filtré d’échecs, et de supprimer l’action **For each**. Vous pouvez également inclure d’autres propriétés utiles à partir de la  **\@result()** réponse comme décrit précédemment.
+Vous pouvez utiliser les expressions décrites plus haut dans cet article pour exécuter différents modèles de gestion des exceptions. Vous pouvez choisir d’exécuter une seule action de gestion en dehors de l’étendue qui accepte l’intégralité du tableau filtré d’échecs, et de supprimer l’action **For each**. Vous pouvez également inclure d’autres propriétés utiles à partir de la réponse **\@result()** comme décrit précédemment.
 
 ## <a name="azure-diagnostics-and-metrics"></a>Métriques et diagnostics Azure
 
 Les précédents modèles sont très utiles pour gérer les erreurs et les exceptions d’une exécution, mais vous pouvez également identifier les erreurs et y répondre indépendamment de l’exécution elle-même. 
-[Azure Diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md) fournit un moyen simple d’envoyer tous les événements de flux de travail, y compris tous les états d’exécution et d’action, à un compte de stockage Azure ou un hub d’événements créé avec Azure Event Hubs. 
+[Diagnostics Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) fournit un moyen simple d’envoyer tous les événements de flux de travail, y compris tous les états d’exécution et d’action, à un compte de stockage Azure ou un hub d’événements créé avec Azure Event Hubs. 
 
 Vous pouvez surveiller les journaux d’activité et les mesures ou les publier dans n’importe quel outil de supervision de votre choix pour évaluer les états d’exécution. Vous avez également la possibilité de transmettre tous les événements via Event Hubs à [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Dans Stream Analytics, vous pouvez écrire des requêtes actives basées sur des anomalies, moyennes ou échecs dans les journaux de diagnostic. Vous pouvez utiliser Stream Analytics pour envoyer des informations à d’autres sources de données, telles que des files d’attente, des rubriques, SQL, Azure Cosmos DB ou Power BI.
 

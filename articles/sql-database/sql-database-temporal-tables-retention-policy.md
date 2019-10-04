@@ -10,22 +10,21 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 62e88d912c55015f87cc00f21527010ad01ee00c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 72022510676548fad79031d4334a2c95571fc16d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560853"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566374"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gérer les données d’historique dans les tables temporelles avec la stratégie de rétention
 
-Par rapport aux tables normales, les tables temporelles peuvent augmenter la taille des bases de données, notamment si vous conservez les données d’historique pendant longtemps. Par conséquent, une stratégie de rétention des données d’historique est un aspect important de la planification et de la gestion du cycle de vie de chaque table temporelle. Les tables temporelles dans Azure SQL Database sont fournies avec un mécanisme de rétention facile à utiliser qui vous permet d’accomplir cette tâche.
+Par rapport aux tables normales, les tables temporelles peuvent augmenter la taille des bases de données, notamment si vous conservez les données d’historique pendant longtemps. Par conséquent, une stratégie de rétention des données d’historique est un aspect important de la planification et de la gestion du cycle de vie de chaque table temporelle. Les tables temporelles dans Azure SQL Database sont fournies avec un mécanisme de conservation facile à utiliser qui vous permet d’accomplir cette tâche.
 
 La rétention d’historique temporelle peut être configurée au niveau de tables spécifiques, ce qui permet aux utilisateurs de créer des stratégies d’ancienneté flexibles. L’application de la rétention temporelle est simple : elle ne requiert qu’un seul paramètre à définir lors de la modification du schéma ou de la création de la table.
 
-Une fois que vous avez défini la stratégie de rétention, Azure SQL Database commence par vérifier régulièrement s’il existe des lignes d’historique éligibles pour le nettoyage automatique des données. L’identification des lignes correspondantes et leur suppression de la table d’historique se produisent en toute transparence, dans la tâche d’arrière-plan planifiée et exécutée par le système. La condition d’ancienneté des lignes de la table d’historique est vérifiée en fonction de la colonne représentant la fin de la période SYSTEM_TIME. Par exemple, si la période de rétention est définie sur six mois, les lignes de table éligibles pour le nettoyage répondent à la condition suivante :
+Une fois que vous avez défini la stratégie de conservation, Azure SQL Database commence par vérifier régulièrement s’il existe des lignes d’historique éligibles pour le nettoyage automatique des données. L’identification des lignes correspondantes et leur suppression de la table d’historique se produisent en toute transparence, dans la tâche d’arrière-plan planifiée et exécutée par le système. La condition d’ancienneté des lignes de la table d’historique est vérifiée en fonction de la colonne représentant la fin de la période SYSTEM_TIME. Par exemple, si la période de rétention est définie sur six mois, les lignes de table éligibles pour le nettoyage répondent à la condition suivante :
 
 ```
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
@@ -74,7 +73,7 @@ CREATE TABLE dbo.WebsiteUserInfo
  );
 ```
 
-Azure SQL Database permet de spécifier la période de rétention à l’aide de différentes unités de temps : JOURS, SEMAINES, MOIS et ANNÉES. Si HISTORY_RETENTION_PERIOD est omis, la rétention INFINITE est utilisée. Vous pouvez également utiliser le mot clé INFINITE de façon explicite.
+Azure SQL Database permet de spécifier la période de conservation à l’aide de différentes unités de temps : JOURS, SEMAINES, MOIS et ANNÉES. Si HISTORY_RETENTION_PERIOD est omis, la rétention INFINITE est utilisée. Vous pouvez également utiliser le mot clé INFINITE de façon explicite.
 
 Dans certains scénarios, vous pouvez configurer la rétention après la création de la table ou pour modifier la valeur configurée précédemment. Dans ce cas, utilisez l’instruction ALTER TABLE :
 
@@ -119,7 +118,7 @@ La tâche de nettoyage des tables avec un index cluster rowstore requiert que l�
 
 *Msg 13765, niveau 16, état 1 <br></br> Échec de la définition d’une période de rétention limitée sur la table temporelle avec version gérée par le système « temporalstagetestdb.dbo.WebsiteUserInfo », car la table d’historique 'temporalstagetestdb.dbo.WebsiteUserInfoHistory » ne contient pas l’index cluster nécessaire. Vous devez créer un index cluster columnstore ou d’arbre B dans lequel la première colonne correspond à la fin de la période SYSTEM_TIME, sur la table d'historique.*
 
-Il est important de noter que la table d’historique par défaut déjà créée par Azure SQL Database a un index cluster, ce qui est compatible avec la stratégie de rétention. Si vous essayez de supprimer cet index sur une table avec une période de rétention limitée, l’opération échoue avec l’erreur suivante :
+Il est important de noter que la table d’historique par défaut déjà créée par Azure SQL Database a un index cluster, ce qui est compatible avec la stratégie de conservation. Si vous essayez de supprimer cet index sur une table avec une période de rétention limitée, l’opération échoue avec l’erreur suivante :
 
 *Msg 13766, niveau 16, état 1 <br></br> Impossible de supprimer l’index cluster « WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory », car il est utilisé pour le nettoyage automatique des données anciennes. Pour supprimer cet index, attribuez la valeur INFINITE à HISTORY_RETENTION_PERIOD sur la table temporelle avec version gérée par le système correspondante.*
 

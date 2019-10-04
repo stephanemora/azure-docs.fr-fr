@@ -1,26 +1,26 @@
 ---
-title: Redémarrer un serveur Azure Database pour PostgreSQL avec le portail Azure
-description: Cet article décrit comment vous pouvez redémarrer un serveur Azure Database pour PostgreSQL à l’aide du portail Azure.
+title: Redémarrer une instance d'Azure Database pour PostgreSQL - Single Server à l'aide du portail Azure
+description: Cet article explique comment redémarrer une instance d'Azure Database pour PostgreSQL - Single Server à l'aide du portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/18/2019
-ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.date: 5/6/2019
+ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621820"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65066837"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Redémarrez la base de données Azure pour serveur PostgreSQL à l’aide du portail Azure
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Redémarrer une instance d'Azure Database pour PostgreSQL - Single Server à l'aide du portail Azure
 Cette rubrique explique comment redémarrer un serveur Azure Database pour PostgreSQL. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.
 
 Le redémarrage du serveur est bloqué si le service est occupé. Par exemple, le service peut traiter une opération précédemment demandée, telle que la mise à l’échelle de vCores.
  
 Le temps nécessaire à un redémarrage varie selon le processus de récupération de PostgreSQL. Pour réduire le délai de redémarrage, nous vous recommandons de diminuer la quantité d’activités se produisant sur le serveur avant le redémarrage.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser ce guide pratique, il vous faut :
 - Un [serveur Azure Database pour PostgreSQL](quickstart-create-server-database-portal.md)
 
@@ -28,7 +28,7 @@ Pour utiliser ce guide pratique, il vous faut :
 
 Les étapes suivantes redémarrent le serveur PostgreSQL :
 
-1. Dans le [Azure portal](https://portal.azure.com/), sélectionnez votre serveur Azure Database pour PostgreSQL.
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre serveur Azure Database pour PostgreSQL.
 
 2. Dans la barre d’outils de la page **Vue d’ensemble** du serveur, cliquez sur **Redémarrer**.
 
@@ -48,4 +48,4 @@ Les étapes suivantes redémarrent le serveur PostgreSQL :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [comment définir des paramètres dans la base de données Azure pour PostgreSQL](howto-configure-server-parameters-using-portal.md)
+Découvrez [comment configurer les paramètres dans Azure Database pour PostgreSQL](howto-configure-server-parameters-using-portal.md)

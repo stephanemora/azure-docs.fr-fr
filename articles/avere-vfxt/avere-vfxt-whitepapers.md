@@ -7,11 +7,11 @@ ms.author: v-erkell
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791863"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60409190"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Livres blancs et autres ressources sur Azure vFTX pour Azure 
 

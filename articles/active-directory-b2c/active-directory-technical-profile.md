@@ -2,28 +2,28 @@
 title: Définir un profil technique Azure Active Directory dans une stratégie personnalisée dans Azure Active Directory B2C | Microsoft Docs
 description: Définissez un profil technique Azure Active Directory dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8dac47d1aa91eb8a8ee1ef9515809607b267437
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4383980953147560b9e51e4ccab3032dd8173dd4
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190699"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064619"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique Azure Active Directory dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C fournit un support pour gestion des utilisateurs Azure Active Directory. Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé.
+Azure Active Directory B2C (Azure AD B2C) prend en charge la gestion des utilisateurs Azure Active Directory. Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé.
 
-## <a name="protocol"></a>Protocole
+## <a name="protocol"></a>Protocol
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `Proprietary`. L’attribut **handler** doit contenir le nom complet de l’assembly du gestionnaire de protocole`Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 
@@ -31,7 +31,7 @@ Tous les profils techniques Azure AD incluent le profil technique **AAD-Common**
 
 - **AAD-UserReadUsingAlternativeSecurityId** et **UserReadUsingAlternativeSecurityId-AAD-NoError** : rechercher un compte de réseau social dans le répertoire.
 - **AAD-UserWriteUsingAlternativeSecurityId** : créer un compte de réseau social.
-- **AAD-UserReadUsingEmailAddress** : rechercher un compte local dans le répertoire. 
+- **AAD-UserReadUsingEmailAddress** : rechercher un compte local dans le répertoire.
 - **AAD-UserWriteUsingLogonEmail** : créer un compte local.
 - **AAD-UserWritePasswordUsingObjectId** : mettre à jour un mot de passe de compte local.
 - **AAD-UserWriteProfileUsingObjectId** : mettre à jour un profil utilisateur d’un compte local ou social.
@@ -91,7 +91,7 @@ Par exemple, le profil technique **AAD-UserWriteUsingLogonEmail** crée un compt
 
 ## <a name="persistedclaims"></a>PersistedClaims
 
-L’élément **PersistedClaims** contient toutes les valeurs qui doivent être conservées par Azure AD, avec des informations de mappage possible entre un type de revendication déjà défini dans la section ClaimsSchema dans la stratégie et le nom d’attribut Azure AD. 
+L’élément **PersistedClaims** contient toutes les valeurs qui doivent être conservées par Azure AD, avec des informations de mappage possible entre un type de revendication déjà défini dans la section ClaimsSchema dans la stratégie et le nom d’attribut Azure AD.
 
 Le profil technique **AAD-UserWriteUsingLogonEmail**, qui crée un nouveau compte local, conserve les revendications suivantes :
 
@@ -113,7 +113,7 @@ Le nom de la revendication est le nom de l’attribut Azure AD, sauf si l’attr
 
 ## <a name="requirements-of-an-operation"></a>Exigences d’une opération
 
-- Il doit y avoir exactement un élément **InputClaim** dans le panier de revendications pour tous les profils techniques Azure AD. 
+- Il doit y avoir exactement un élément **InputClaim** dans le panier de revendications pour tous les profils techniques Azure AD.
 - Si l’opération est `Write` ou `DeleteClaims`, il doit également apparaître dans un élément **PersistedClaims**.
 - La valeur de la revendication **userPrincipalName** doit être au format `user@tenant.onmicrosoft.com`.
 - La revendication **displayName** est obligatoire et ne peut pas être une chaîne vide.
@@ -122,7 +122,7 @@ Le nom de la revendication est le nom de l’attribut Azure AD, sauf si l’attr
 
 ### <a name="read"></a>Lire
 
-L’opération **Read** lit les données sur un seul compte d’utilisateur. Pour lire des données utilisateur, vous devez fournir une clé en tant que revendication d’entrée, telle que **objectId**, **userPrincipalName**, **signInNames** (de tout type, nom d’utilisateur, compte de courrier...) ou **alternativeSecurityId**.  
+L’opération **Read** lit les données sur un seul compte d’utilisateur. Pour lire des données utilisateur, vous devez fournir une clé en tant que revendication d’entrée, telle que **objectId**, **userPrincipalName**, **signInNames** (de tout type, nom d’utilisateur, compte de courrier...) ou **alternativeSecurityId**.
 
 Le profil technique suivant lit les données d’un compte d’utilisateur à l’aide de l’objectId de l’utilisateur :
 
@@ -154,7 +154,7 @@ Le profil technique suivant lit les données d’un compte d’utilisateur à l�
 
 ### <a name="write"></a>Écrire
 
-L’opération **Write** crée ou met à jour un seul compte d’utilisateur. Pour écrire un compte d’utilisateur, vous devez fournir une clé en tant que revendication d’entrée, telle que **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou  **alternativeSecurityId**.  
+L’opération **Write** crée ou met à jour un seul compte d’utilisateur. Pour écrire un compte d’utilisateur, vous devez fournir une clé en tant que revendication d’entrée, telle que **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou  **alternativeSecurityId**.
 
 Le profil technique suivant crée un compte de réseau social :
 
@@ -196,7 +196,7 @@ Le profil technique suivant crée un compte de réseau social :
 
 ### <a name="deleteclaims"></a>DeleteClaims
 
-L’opération **DeleteClaims** efface les informations d’une liste fournie de revendications. Pour supprimer des informations de revendications, vous devez fournir une clé en tant que revendication d’entrée, telles que **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou **alternativeSecurityId**.  
+L’opération **DeleteClaims** efface les informations d’une liste fournie de revendications. Pour supprimer des informations de revendications, vous devez fournir une clé en tant que revendication d’entrée, telles que **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou **alternativeSecurityId**.
 
 Le profil technique suivant supprime les revendications :
 
@@ -219,7 +219,7 @@ Le profil technique suivant supprime les revendications :
 
 ### <a name="deleteclaimsprincipal"></a>DeleteClaimsPrincipal
 
-L’opération **DeleteClaimsPrincipal** supprime un seul compte d’utilisateur de l’annuaire. Pour supprimer un compte d’utilisateur, vous devez fournir une clé en tant que revendication d’entrée, telle que **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou  **alternativeSecurityId**.  
+L’opération **DeleteClaimsPrincipal** supprime un seul compte d’utilisateur de l’annuaire. Pour supprimer un compte d’utilisateur, vous devez fournir une clé en tant que revendication d’entrée, telle que **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou  **alternativeSecurityId**.
 
 Le profil technique suivant supprime un compte d’utilisateur du répertoire en utilisant le nom d’utilisateur principal :
 
@@ -254,13 +254,13 @@ Le profil technique suivant supprime un compte d’utilisateur social en utilisa
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Opération | Oui | Opération à effectuer. Valeurs possibles : `Read`, `Write`, `DeleteClaims` ou `DeleteClaimsPrincipal`. | 
-| RaiseErrorIfClaimsPrincipalDoesNotExist | Non  | Génère une erreur si l’objet utilisateur n’existe pas dans le répertoire. Valeurs possibles : `true` ou `false`. | 
-| UserMessageIfClaimsPrincipalDoesNotExist | Non  | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalDoesNotExist), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur n’existe pas. La valeur peut être [localisée](localization.md).| 
-| RaiseErrorIfClaimsPrincipalAlreadyExists | Non  | Génère une erreur si l’objet utilisateur existe déjà. Valeurs possibles : `true` ou `false`.| 
-| UserMessageIfClaimsPrincipalAlreadyExists | Non  | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalAlreadyExists), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur existe déjà. La valeur peut être [localisée](localization.md).| 
-| ApplicationObjectId | Non  | Identificateur d’objet d’application pour les attributs d’extension. Valeur : ObjectId d'une application. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
-| ClientId | Non  | Identificateur client pour accéder au locataire en tant que tiers. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
+| Opération | OUI | Opération à effectuer. Valeurs possibles : `Read`, `Write`, `DeleteClaims` ou `DeleteClaimsPrincipal`. |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | Non | Génère une erreur si l’objet utilisateur n’existe pas dans le répertoire. Valeurs possibles : `true` ou `false`. |
+| UserMessageIfClaimsPrincipalDoesNotExist | Non | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalDoesNotExist), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur n’existe pas. La valeur peut être [localisée](localization.md).|
+| RaiseErrorIfClaimsPrincipalAlreadyExists | Non | Génère une erreur si l’objet utilisateur existe déjà. Valeurs possibles : `true` ou `false`.|
+| UserMessageIfClaimsPrincipalAlreadyExists | Non | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalAlreadyExists), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur existe déjà. La valeur peut être [localisée](localization.md).|
+| ApplicationObjectId | Non | Identificateur d’objet d’application pour les attributs d’extension. Valeur : ObjectId d'une application. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
+| ClientId | Non | Identificateur client pour accéder au locataire en tant que tiers. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
 
 
 

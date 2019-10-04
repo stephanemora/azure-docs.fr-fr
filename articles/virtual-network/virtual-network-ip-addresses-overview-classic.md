@@ -5,6 +5,7 @@ description: Découvrez plus en détail les adresses IP publiques et privées (C
 services: virtual-network
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 207e728d25df9192f8a600b13d86330af8311700
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652165"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058923"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Types d’adresses IP et méthodes d’allocation (classiques) dans Azure
 Vous pouvez affecter des adresses IP à des ressources Azure pour communiquer avec d’autres ressources Azure, votre réseau local et Internet. Les adresses IP que vous pouvez utiliser dans Azure sont de deux types : publiques et privées.
@@ -89,10 +90,10 @@ Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’
 
 | Ressource | Dynamique | statique | Plusieurs adresses IP |
 | --- | --- | --- | --- |
-| service cloud |Oui |OUI |Oui |
-| Instance de rôle PaaS ou VM IaaS |Oui |Non  |Non  |
-| passerelle VPN |Oui |Non  |Non  |
-| passerelle d’application |Oui |Non  |Non  |
+| service cloud |OUI |OUI |OUI |
+| Instance de rôle PaaS ou VM IaaS |OUI |Non |Non |
+| passerelle VPN |OUI |Non |Non |
+| passerelle d’application |OUI |Non |Non |
 
 ## <a name="private-ip-addresses"></a>Adresses IP privées
 Les adresses IP privées permettent aux ressources Azure de communiquer avec d’autres ressources dans un service cloud ou un [réseau virtuel](virtual-networks-overview.md)(VNet), ou dans un réseau local via une passerelle VPN ou un circuit ExpressRoute, sans utiliser d’adresse IP accessible via Internet.
@@ -139,19 +140,19 @@ Le tableau ci-dessous présente chaque type de ressource avec les méthodes d’
 
 | Ressource | Dynamique | statique | Plusieurs adresses IP |
 | --- | --- | --- | --- |
-| Machine virtuelle (dans un service cloud ou un réseau virtuel *autonome*) |Oui |OUI |Oui |
-| Instance de rôle PaaS (dans un service cloud ou un réseau virtuel *autonome*) |Oui |Non  |Non  |
-| Équilibreur de charge interne frontal |Oui |OUI |Oui |
-| Passerelle d’application frontale |Oui |OUI |Oui |
+| Machine virtuelle (dans un service cloud ou un réseau virtuel *autonome*) |OUI |OUI |OUI |
+| Instance de rôle PaaS (dans un service cloud ou un réseau virtuel *autonome*) |OUI |Non |Non |
+| Équilibreur de charge interne frontal |OUI |OUI |OUI |
+| Passerelle d’application frontale |OUI |OUI |OUI |
 
 ## <a name="limits"></a>limites
 Le tableau ci-dessous présente les limites imposées sur l'adressage IP dans Azure par abonnement. Vous pouvez [contacter le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter les limites par défaut jusqu’aux limites maximum en fonction des besoins de votre entreprise.
 
 |  | Limite par défaut | Limite maximale |
 | --- | --- | --- |
-| Adresses IP publiques (dynamiques) |5. |contacter le support |
+| Adresses IP publiques (dynamiques) |5\. |contacter le support |
 | Adresses IP publiques réservées |20 |contacter le support |
-| Adresse IP virtuelle publique par déploiement (service cloud) |5. |contacter le support |
+| Adresse IP virtuelle publique par déploiement (service cloud) |5\. |contacter le support |
 | Adresse IP virtuelle privée (ILB) par déploiement (service cloud) |1 |1 |
 
 Veillez à lire l’ensemble des [limites pour la mise en réseau](../azure-subscription-service-limits.md#networking-limits) dans Azure.

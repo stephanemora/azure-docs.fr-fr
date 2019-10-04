@@ -3,20 +3,20 @@ title: Prise en charge de la Reconnaissance vocale Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Prise en charge de la Reconnaissance vocale Bing
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/08/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 3bd996f23c7253dde0a55198068d8535a62bf127
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: d1b185cf6f69a547c50c8d2cf0e8b5f0da39444e
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669617"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965632"
 ---
 # <a name="support"></a>Support
 

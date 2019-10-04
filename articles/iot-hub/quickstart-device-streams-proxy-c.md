@@ -1,48 +1,50 @@
 ---
-title: Démarrage rapide C sur les flux d’appareil Azure IoT Hub pour SSH/RDP (préversion) | Microsoft Docs
-description: Dans ce guide de démarrage rapide, vous allez exécuter un exemple d’application C qui joue le rôle d’un proxy pour activer des scénarios SSH/RDP sur des flux d’appareil IoT Hub.
-author: rezasherafat
-manager: briz
+title: Démarrage rapide C sur les flux d’appareil Azure IoT Hub pour SSH et RDP (préversion) | Microsoft Docs
+description: Dans ce guide de démarrage rapide, vous exécutez un exemple d’application C qui joue le rôle de proxy pour activer des scénarios SSH et RDP sur des flux d’appareil IoT Hub.
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: 1468268e407eeac6196c8e8e4db0fc5a52ca09c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: robinsh
+ms.openlocfilehash: 23a005ebb16f4786c7dde9ec5b2a7ae7c5685cb8
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501567"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377238"
 ---
-# <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Démarrage rapide : SSH/RDP sur des flux d’appareil IoT Hub à l’aide d’une application proxy C (préversion)
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Démarrage rapide : Activer SSH et RDP sur un flux d’appareil IoT Hub à l’aide d’une application de proxy C (préversion)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
-Microsoft Azure IoT Hub prend actuellement en charge les flux d’appareil en tant que [fonctionnalité d’évaluation](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure IoT Hub prend actuellement en charge les flux d’appareil en tant que [fonctionnalité d’évaluation](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Les [flux d’appareil IoT Hub](./iot-hub-device-streams-overview.md) permettent aux applications de service et d’appareil de communiquer de manière sécurisée à travers des pare-feux. Consultez [cette page](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) pour obtenir une vue d’ensemble de la configuration.
+Les [flux d’appareil IoT Hub](./iot-hub-device-streams-overview.md) permettent aux applications de service et d’appareil de communiquer de manière sécurisée à travers des pare-feux. Pour obtenir une vue d’ensemble de la configuration, consultez [la page Exemple de proxy local](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
-Le présent document décrit la configuration du tunneling du trafic SSH (qui utilise le port 22) par le biais de flux d’appareil. La configuration pour le trafic RDP est similaire et nécessite une simple modification. Étant donné que les flux d’appareil ne dépendent pas des applications et des protocoles, vous pouvez modifier le présent guide de démarrage rapide (en modifiant les ports de communication) pour prendre en charge d’autres types de trafic d’application.
+Ce guide de démarrage rapide décrit la configuration du tunneling du trafic Secure Shell (SSH) (qui utilise le port 22) par le biais de flux d’appareil. La configuration pour le trafic du protocole RDP (Remote Desktop Protocol) est similaire et nécessite une simple modification. Étant donné que les flux d’appareil ne dépendent pas des applications et des protocoles, vous pouvez modifier ce démarrage rapide pour prendre en charge d’autres types de trafic d’application.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-La figure ci-dessous illustre la manière dont la configuration des programmes de proxy locaux d’appareil (et de service) active une connectivité de bout en bout entre le client SSH et les processus de démon SSH. Dans la préversion publique, le SDK C prend uniquement en charge les flux d’appareil côté appareil. Ainsi, le présent guide de démarrage rapide aborde uniquement les instructions permettant d’exécuter l’application proxy locale de l’appareil. Vous devez exécuter une application proxy locale de service complémentaire, disponible dans les guides de [démarrage rapide C#](./quickstart-device-streams-proxy-csharp.md) ou de [démarrage rapide Node.js](./quickstart-device-streams-proxy-nodejs.md).
+La figure suivante illustre la manière dont les programmes de proxy locaux d’appareil et de service active une connectivité de bout en bout entre le client SSH et les processus de démon SSH. Dans la préversion publique, le SDK C prend uniquement en charge les flux d’appareil côté appareil. Ainsi, le présent guide de démarrage rapide aborde uniquement les instructions permettant d’exécuter l’application de proxy locale de l’appareil. Vous devez exécuter l'un des guides de démarrage rapide côté service suivants :
 
-![Texte de remplacement](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "Configuration de proxy local")
+* [SSH/RDP sur des flux d'appareil IoT Hub à l'aide d'une application proxy C#](./quickstart-device-streams-proxy-csharp.md)
+* [SSH/RDP sur des flux d'appareil IoT Hub à l'aide d'une application proxy NodeJS](./quickstart-device-streams-proxy-nodejs.md)
+
+![Configuration du proxy local](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg)
 
 1. Le proxy local de service se connecte au hub IoT et lance un flux d’appareil sur l’appareil cible.
 
-2. Le proxy local d’appareil termine la négociation du lancement du flux et établit un tunnel de streaming de bout en bout par le biais du point de terminaison de streaming IoT Hub côté service.
+2. Le proxy local d’appareil termine la négociation du lancement du flux et établit un tunnel de streaming de bout en bout par le biais du point de terminaison de streaming du hub IoT côté service.
 
-3. Le proxy local d’appareil se connecte au démon SSH (SSHD) qui écoute le port 22 de l’appareil (ce dernier est configurable, comme décrit [ci-dessous](#run-the device-local-proxy-application)).
+3. Le proxy local d’appareil se connecte au démon SSH qui écoute le port 22 sur l’appareil. Ce paramètre est configurable, comme décrit dans la section « Exécuter l’application proxy locale de l’appareil ».
 
-4. Le proxy local de service attend de nouvelles connexions SSH de l’utilisateur en écoutant un port désigné, dans cet exemple, le port 2222 (celui-ci est également configurable, comme décrit [ci-dessous](#run-the-device-local-proxy-application)). Quand l’utilisateur se connecte par le biais d’un client SSH, le tunnel permet au trafic d’application SSH d’être transféré entre les programmes client et serveur SSH.
+4. Le proxy local de service attend de nouvelles connexions SSH de la part d’un utilisateur en écoutant un port désigné, le port 2222 ici. Ce paramètre est configurable, comme décrit dans la section « Exécuter l’application proxy locale de l’appareil ». Quand l’utilisateur se connecte par le biais d’un client SSH, le tunnel permet au trafic d’application SSH d’être transféré entre les programmes client et serveur SSH.
 
 > [!NOTE]
-> Le trafic SSH envoyé sur un flux d’appareil est traité par tunnel par le biais d’un point de terminaison de streaming IoT Hub, plutôt que directement entre le service et l’appareil. Ce processus offre [ces avantages](./iot-hub-device-streams-overview.md#benefits). De plus, la figure illustre le démon SSH en cours d’exécution sur le même appareil (ou ordinateur) en tant que proxy local de l’appareil. Dans ce guide de démarrage rapide, le fait de fournir l’adresse IP du démon SSH permet au proxy local de l’appareil et au démon de s’exécuter également sur des ordinateurs différents.
+> Le trafic SSH envoyé sur un flux d’appareil est traité par tunnel par le biais d’un point de terminaison de streaming du hub IoT, plutôt que directement entre le service et l’appareil. Pour plus d’informations, consultez les [avantages de l’utilisation des flux d’appareil Iot Hub](iot-hub-device-streams-overview.md#benefits). De plus, la figure illustre le démon SSH en cours d’exécution sur le même appareil (ou ordinateur) que le proxy local de l’appareil. Dans ce guide de démarrage rapide, le fait de fournir l’adresse IP du démon SSH permet au proxy local de l’appareil et au démon de s’exécuter également sur des ordinateurs différents.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -52,12 +54,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 * Pour le moment, la préversion des flux d’appareil est uniquement prise en charge pour les hubs IoT créés dans les régions suivantes :
 
-  * **USA Centre**
-  * **EUAP USA Centre**
+  * USA Centre
+  * EUAP USA Centre
 
-* Installez [Visual Studio 2017](https://www.visualstudio.com/vs/) avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
+* Installez [Visual Studio 2019](https://www.visualstudio.com/vs/) avec la charge de travail [Développement Desktop en C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
 * Installez la dernière version de [Git](https://git-scm.com/download/).
-* Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
+
+* Exécutez la commande suivante afin d’ajouter l’extension Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
@@ -65,20 +68,21 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prepare-the-development-environment"></a>Préparer l’environnement de développement
 
-Pour ce guide de démarrage rapide, vous devez utiliser le [kit SDK Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). Vous allez préparer un environnement de développement pour cloner et générer le [SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c) à partir de GitHub. Le kit SDK sur GitHub comprend l’exemple de code utilisé dans ce guide de démarrage rapide. 
+Pour ce guide de démarrage rapide, vous utilisez [Azure IoT device SDK for C](iot-hub-device-sdk-c-intro.md). Vous préparez un environnement de développement pour cloner et générer le [SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c) à partir de GitHub. Le SDK sur GitHub comprend l’exemple de code utilisé dans ce guide de démarrage rapide.
 
 1. Téléchargez le [système de génération CMake](https://cmake.org/download/).
 
-    Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
+    Important : les composants requis pour Visual Studio (Visual Studio et la charge de travail *Développement Desktop en C++* ) sont installés sur votre machine *avant* de commencer l’installation de CMake. Une fois les prérequis en place et le téléchargement vérifié, vous pouvez installer le système de génération CMake.
 
-2. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le référentiel GitHub du [Kit de développement logiciel (SDK) Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) :
-    
+1. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le référentiel GitHub du [Kit de développement logiciel (SDK) Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) :
+
     ```
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
-    Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
-3. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. 
+    Cette opération peut prendre plusieurs minutes.
+
+1. Créez un sous-répertoire *cmake* dans le répertoire racine du référentiel Git, comme indiqué dans la commande suivante, puis accédez à ce dossier.
 
     ```
     cd azure-iot-sdk-c
@@ -86,7 +90,7 @@ Pour ce guide de démarrage rapide, vous devez utiliser le [kit SDK Azure IoT de
     cd cmake
     ```
 
-4. Exécutez les commandes suivantes à partir du répertoire `cmake` pour générer une version du kit SDK propre à votre plateforme cliente de développement.
+1. Exécutez les commandes suivantes à partir du répertoire *cmake* pour générer une version du SDK propre à votre plateforme cliente de développement.
 
    * Dans Linux :
 
@@ -95,7 +99,7 @@ Pour ce guide de démarrage rapide, vous devez utiliser le [kit SDK Azure IoT de
       make -j
       ```
 
-   * Dans Windows, exécutez les commandes suivantes à l’invite de commandes développeur pour Visual Studio 2015 ou 2017. Une solution Visual Studio pour l’appareil simulé est générée dans le répertoire `cmake`.
+   * Dans Windows, exécutez les commandes suivantes à l’invite de commandes développeur pour Visual Studio 2015 ou 2017. Une solution Visual Studio pour l’appareil simulé est générée dans le répertoire *cmake*.
 
       ```cmd
       rem For VS2015
@@ -110,80 +114,84 @@ Pour ce guide de démarrage rapide, vous devez utiliser le [kit SDK Azure IoT de
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
 ## <a name="register-a-device"></a>Inscrire un appareil
 
-Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dans cette section, vous allez utiliser Azure Cloud Shell avec l’[extension IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) pour inscrire un appareil simulé.
+Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dans cette section, vous utilisez Azure Cloud Shell avec l’[extension IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) pour inscrire un appareil simulé.
 
-1. Exécutez les commandes suivantes dans Azure Cloud Shell pour créer l’identité d’appareil.
+1. Pour créer l’identité d’appareil, exécutez la commande suivante dans Cloud Shell :
 
-   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
-
-   **MyDevice** : il s’agit du nom donné à l’appareil inscrit. Utilisez MyDevice comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez également utiliser ce nom pour l’ensemble de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
+   > [!NOTE]
+   > * Remplacez l’espace réservé *YourIoTHubName* par le nom que vous avez choisi pour votre hub IoT.
+   > * Utilisez *MyDevice* comme indiqué. Il s’agit du nom donné à l’appareil inscrit. Si vous choisissez un autre nom pour votre appareil, utilisez-le pour l’ensemble de cet article et mettez à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
-2. Exécutez les commandes suivantes dans Azure Cloud Shell pour obtenir la _chaîne de connexion_ à l’appareil que vous venez d’inscrire :
+1. Pour obtenir la *chaîne de connexion d’appareil* pour celui que vous venez d’inscrire, exécutez les commandes suivantes dans Cloud Shell :
 
-   **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
+   > [!NOTE]
+   > Remplacez l’espace réservé *YourIoTHubName* par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
     ```
 
-    Notez la chaîne de connexion de l’appareil, qui ressemble à l’exemple suivant :
+    Notez la chaîne de connexion d’appareil car vous l’utiliserez plus tard au cours de ce démarrage rapide. Cela ressemble à l’exemple suivant :
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    Vous utiliserez cette valeur plus loin dans ce démarrage rapide.
-
 ## <a name="ssh-to-a-device-via-device-streams"></a>Liaison SSH à un appareil par le biais de flux d’appareil
+
+Dans cette section, vous allez établir un flux de bout en bout pour tunneliser le trafic SSH.
 
 ### <a name="run-the-device-local-proxy-application"></a>Exécuter l’application proxy locale de l’appareil
 
-1. Modifiez le fichier source `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/iothub_client_c2d_streaming_proxy_sample.c` et indiquez la chaîne de connexion de votre appareil, le nom d’hôte/adresse IP cible ainsi que le port SSH 22 :
+1. Modifiez le fichier source *iothub_client_c2d_streaming_proxy_sample.c* dans le dossier *iothub_client/samples/iothub_client_c2d_streaming_proxy_sample*, puis indiquez votre chaîne de connexion d’appareil, l’adresse IP/le nom d’hôte de l’appareil cible et le port SSH 22 :
 
    ```C
-   /* Paste in the your iothub connection string  */
+   /* Paste in your iothub connection string  */
    static const char* connectionString = "[Connection string of IoT Hub]";
    static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
    static const size_t localPort = 22; // Port of the local server to connect to.
    ```
 
-2. Compilez l’exemple :
+1. Compilez l’exemple :
 
    ```bash
-    # In Linux
-    # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
-    make -j
+   # In Linux
+   # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
+   make -j
    ```
 
    ```cmd
-    rem In Windows
-    rem Go to cmake at root of repository
-    cmake --build . -- /m /p:Configuration=Release
+   rem In Windows
+   rem Go to cmake at root of repository
+   cmake --build . -- /m /p:Configuration=Release
    ```
 
-3. Exécutez le programme compilé sur l’appareil :
+1. Exécutez le programme compilé sur l’appareil :
 
    ```bash
-    # In Linux
-    # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
-    ./iothub_client_c2d_streaming_proxy_sample
+   # In Linux
+   # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
+   ./iothub_client_c2d_streaming_proxy_sample
    ```
 
    ```cmd
-    rem In Windows
-    rem Go to the sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
-    iothub_client_c2d_streaming_proxy_sample.exe
+   rem In Windows
+   rem Go to the sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
+   iothub_client_c2d_streaming_proxy_sample.exe
    ```
 
 ### <a name="run-the-service-local-proxy-application"></a>Exécuter l’application proxy locale du service
 
-Comme indiqué [précédemment](#how-it-works), l’établissement d’un flux de bout en bout pour tunneliser le trafic SSH nécessite un proxy local à chaque extrémité (au niveau du service et de l’appareil). Dans la préversion publique, le SDK C IoT Hub prend uniquement en charge les flux d’appareil côté appareil. Pour générer et exécuter le proxy local de service, suivez les étapes disponibles dans le [démarrage rapide C#](./quickstart-device-streams-proxy-csharp.md) ou le [démarrage rapide Node.js](./quickstart-device-streams-proxy-nodejs.md).
+Comme indiqué dans la section « Fonctionnement », l’établissement d’un flux de bout en bout pour tunneliser le trafic SSH nécessite un proxy local à chaque extrémité (côté service et côté appareil). Dans la préversion publique, le SDK C IoT Hub prend uniquement en charge les flux d’appareil côté appareil. Pour générer et exécuter le proxy local de service, suivez les instructions de l’un des guides de démarrage rapide suivants :
+
+   * [SSH/RDP sur des flux d'appareil IoT Hub à l'aide d'une application proxy C#](./quickstart-device-streams-proxy-csharp.md)
+   * [SSH/RDP sur des flux d’appareil IoT Hub à l’aide d’une application de proxy Node.js](./quickstart-device-streams-proxy-nodejs.md)
 
 ### <a name="establish-an-ssh-session"></a>Établir une session SSH
 
@@ -193,11 +201,15 @@ Dès lors que les proxys locaux d’appareil et de service sont tous deux en cou
 ssh <username>@localhost -p 2222
 ```
 
-À ce stade, l’invite de connexion SSH s’affiche pour vous permettre d’entrer vos informations d’identification.
+À ce stade, la fenêtre de connexion SSH vous invite à entrer vos informations d’identification.
 
-Sortie de console sur le proxy local de l’appareil qui se connecte au démon SSH à l’adresse `IP_address:22` : ![Texte de remplacement](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "Sortie du proxy local d’appareil")
+L’image suivante montre la sortie de console sur le proxy local de l’appareil qui se connecte au démon SSH à l’adresse `IP_address:22` :
 
-Sortie de console du programme client SSH (le client SSH communique avec le démon SSH en se connectant au port 22 qu’écoute le proxy local du service) : ![Texte de remplacement](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "Sortie du client SSH")
+![Sortie du proxy local d'appareil](./media/quickstart-device-streams-proxy-c/device-console-output.png)
+
+L’image suivante montre la sortie de console du programme client SSH. Le client SSH communique avec le démon SSH en se connectant au port 22 qu’écoute le proxy local de service :
+
+![Sortie de client SSH](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -205,9 +217,9 @@ Sortie de console du programme client SSH (le client SSH communique avec le dém
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez configuré un hub IoT, inscrit un appareil, déployé un programme proxy local d’appareil (et de service) pour établir un flux d’appareil par le biais d’IoT Hub, puis vous avez utilisé les proxys pour traiter par tunnel le trafic SSH.
+Dans ce guide de démarrage rapide, vous avez configuré un hub IoT, inscrit un appareil, déployé un programme de proxy local d’appareil et de service pour établir un flux d’appareil par le biais d’IoT Hub, puis vous avez utilisé les proxys pour traiter par tunnel le trafic SSH.
 
-Utilisez les liens ci-dessous pour en savoir plus sur les flux d’appareil :
+Pour en savoir plus sur les flux d’appareil, consultez :
 
 > [!div class="nextstepaction"]
 > [Vue d’ensemble des flux d’appareil](./iot-hub-device-streams-overview.md)

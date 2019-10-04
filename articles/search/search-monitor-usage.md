@@ -2,21 +2,19 @@
 title: Superviser l’utilisation des ressources et les métriques de requêtes pour un service de recherche - Recherche Azure
 description: Activer la journalisation, obtenir des métriques d’activité des requêtes, l’utilisation des ressources et d’autres données système à partir d’un service Recherche Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/16/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e83e84cc8627be468ce0074b35549d5ea7def4f5
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010411"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640529"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
 
@@ -60,12 +58,12 @@ Le tableau suivant compare les options de stockage des journaux d’activité et
 
 | Ressource | Utilisé pour |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous, en corrélation avec les événements utilisateur dans votre application. Il s’agit de la seule solution qui prend en compte les signaux ou les actions utilisateur, en mappant les événements à partir d’une recherche lancée par l’utilisateur, par opposition aux requêtes de filtre soumises par le code d’application. Pour utiliser cette approche, copiez-collez le code d’instrumentation dans vos fichiers sources pour router les informations de requête de route vers Application Insights. Pour plus d’informations, consultez [Analytique du trafic des recherches](search-traffic-analytics.md). |
-| [Journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous. Les événements sont enregistrés dans un espace de travail Analytique de journal. Vous pouvez exécuter des requêtes sur un espace de travail pour retourner des informations détaillées du journal. Pour plus d’informations, consultez [prise en main les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Événements enregistrés et les métriques de requête, basé sur les schémas ci-dessous. Les événements sont journalisés dans un conteneur d’objets blob et stockés dans des fichiers JSON. Utilisez un éditeur JSON pour afficher le contenu des fichiers.|
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous, mis en corrélation avec les événements utilisateur de votre application. Il s’agit de la seule solution qui prend en compte les signaux ou les actions utilisateur, en mappant les événements à partir d’une recherche lancée par l’utilisateur, par opposition aux requêtes de filtre soumises par le code d’application. Pour utiliser cette approche, copiez-collez le code d’instrumentation dans vos fichiers sources pour router les informations de requête de route vers Application Insights. Pour plus d’informations, consultez [Analytique du trafic des recherches](search-traffic-analytics.md). |
+| [Journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous. Les événements sont journalisés dans un espace de travail Log Analytics. Vous pouvez exécuter des requêtes sur un espace de travail pour retourner des informations détaillées du journal. Pour plus d’informations, consultez [Bien démarrer avec les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous. Les événements sont journalisés dans un conteneur d’objets blob et stockés dans des fichiers JSON. Utilisez un éditeur JSON pour afficher le contenu des fichiers.|
 | [Concentrateur d’événements](https://docs.microsoft.com/azure/event-hubs/) | Événements et métriques des requêtes journalisés, basés sur les schémas présentés dans cet article. Choisissez cette option comme autre service de collecte de données pour les journaux d’activité très volumineux. |
 
-Journaux d’Azure Monitor et le stockage d’objets Blob sont disponibles comme un service gratuit partagé afin que vous pouvez l’essayer sans frais pendant la durée de vie de votre abonnement Azure. L’inscription à Application Insights et son utilisation sont gratuits tant que la taille de données d’application n’excède pas certaines limites. (Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/monitor/).)
+Les journaux Azure Monitor et le Stockage Blob sont tous les deux disponibles sous la forme d’un service partagé gratuit pour vous permettre de l’essayer sans frais pendant la durée de vie de votre abonnement Azure. L’inscription à Application Insights et son utilisation sont gratuits tant que la taille de données d’application n’excède pas certaines limites. (Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/monitor/).)
 
 La section suivante vous guide tout au long des étapes d’activation et d’utilisation du Stockage Blob Azure pour collecter des données de journal créées par les opérations Recherche Azure et y accéder.
 
@@ -77,13 +75,15 @@ Dans cette section, vous allez apprendre à utiliser le Stockage Blob pour stock
 
 1. [Créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) si vous n’en avez pas déjà un. Vous pouvez le placer dans le même groupe de ressources que la Recherche Azure pour simplifier le nettoyage ultérieur si vous voulez supprimer toutes les ressources utilisées dans cet exercice.
 
+   Votre compte de stockage doit exister dans la même région que la Recherche Azure.
+
 2. Ouvrez la page Vue d’ensemble de votre service de recherche. Dans le volet de navigation de gauche, faites défiler l’écran vers le bas jusqu’à **Supervision**, puis cliquez sur **Activer la supervision**.
 
    ![Activer la supervision](./media/search-monitor-usage/enable-monitoring.png "Activer la supervision")
 
-3. Choisissez les données à exporter : Journaux d’activité, Métriques ou les deux. Vous pouvez copier dans un compte de stockage, envoyer à un concentrateur d’événements ou exportez-le vers les journaux Azure Monitor.
+3. Choisissez les données à exporter : Journaux d’activité, Métriques ou les deux. Vous pouvez les copier sur un compte de stockage, les envoyer à un Event Hub ou les exporter vers les journaux Azure Monitor.
 
-   Pour l’archivage dans le Stockage Blob, seul le compte de stockage doit exister. Les conteneurs et les objets blob sont créés lors de l’exportation des données de journal.
+   Pour l’archivage dans le Stockage Blob, seul le compte de stockage doit exister. Les conteneurs et les objets blob sont créés au besoin lors de l’exportation des données de journal.
 
    ![Configurer une archive de stockage d’objets blob](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurer une archive de stockage d’objets blob")
 
@@ -96,7 +96,7 @@ La journalisation est activée une fois que vous enregistrez le profil. Les cont
 * journaux d’activité-Insights-operationlogs : pour les journaux d’activité de trafic de recherche
 * mesures-Insights-pt1m : pour les mesures
 
-**Il faut une heure pour que les conteneurs seront affiche dans le stockage Blob. Il existe un seul objet blob, par heure, et par conteneur.**
+**Une heure est nécessaire pour que les conteneurs s’affichent dans le Stockage Blob. Il y a un seul objet blob par heure et par conteneur.**
 
 Vous pouvez utiliser [Visual Studio Code](#download-and-open-in-visual-studio-code) ou un autre éditeur JSON pour afficher les fichiers. 
 
@@ -111,10 +111,10 @@ Les objets blob contenant vos journaux d’activité du trafic de votre service 
 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
-| time |Datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
-| ResourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
+| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
 | operationName |string |« Query.Search » |Nom de l’opération |
-| operationVersion |string |"2017-11-11" |Version d’API utilisée |
+| operationVersion |string |"2019-05-06" |Version d’API utilisée |
 | category |string |« OperationLogs » |constant |
 | resultType |string |« Success » |Valeurs possibles : Réussite ou Échec |
 | resultSignature |int |200 |Code de résultat HTTP |
@@ -126,7 +126,7 @@ Les objets blob contenant vos journaux d’activité du trafic de votre service 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
 | Description |string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
-| Interroger |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Paramètres de requête |
+| Interroger |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Paramètres de requête |
 | Documents |int |42 |Nombre de documents traités |
 | IndexName |string |« testindex » |Nom de l’index associé à l’opération |
 
@@ -136,9 +136,9 @@ Les métriques sont capturées pour les demandes de requête.
 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
-| ResourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
 | metricName |string |« Latency » |Nom de la mesure |
-| time |Datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
 | average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |
 | minimum |int |37 |Valeur minimale des échantillons bruts dans l’intervalle de temps de la mesure |
 | maximum |int |78 |Valeur maximale des échantillons bruts dans l’intervalle de temps de la mesure |
@@ -173,7 +173,7 @@ L’API REST de Recherche Azure et le SDK .NET fournissent tous les deux un acc
 * [Nombre de documents](/rest/api/searchservice/count-documents)
 * [Obtention de l’état d’indexeur](/rest/api/searchservice/get-indexer-status)
 
-Pour activer à l’aide de PowerShell ou de l’interface de ligne de commande Azure, consultez la documentation qui se trouve [ici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
+Pour activer à l’aide de PowerShell ou de l’interface de ligne de commande Azure, consultez la documentation qui se trouve [ici](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

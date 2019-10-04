@@ -3,20 +3,20 @@ title: Activité de fonction Azure dans Azure Data Factory | Microsoft Docs
 description: Découvrir comment utiliser l’activité de fonction Azure pour exécuter une fonction Azure dans un pipeline Data Factory
 services: data-factory
 documentationcenter: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: b98d20a1f96a6ab4a0dc72330e85fdc98ba04eae
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+ms.openlocfilehash: a3499637fb5320afe80bf4eefa634173db31f1b6
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576376"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931868"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Activité de fonction Azure dans Azure Data Factory
 
@@ -28,7 +28,7 @@ Pour une présentation de huit minutes et la démonstration de cette fonctionnal
 
 ## <a name="azure-function-linked-service"></a>Service lié de fonction Azure
 
-Le type de retour de la fonction Azure doit être un `JObject` valide (n’oubliez pas que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) est *pas* un `JObject`). Tout type de retour autre que `JObject` échoue et lève l’erreur d’utilisateur générique *Erreur lors de l’appel du point de terminaison*.
+Le type de retour de la fonction Azure doit être un `JObject` valide (n’oubliez pas que [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) est *pas* un `JObject`). Tout type de retour autre que `JObject` échoue et génère l’erreur utilisateur *Le contenu de la réponse n’est pas un JObject valide*.
 
 | **Propriété** | **Description** | **Obligatoire** |
 | --- | --- | --- |
@@ -46,17 +46,28 @@ Le type de retour de la fonction Azure doit être un `JObject` valide (n’oubli
 | service lié | Service lié de fonction Azure de l’application de fonction Azure correspondante  | référence de service lié | Oui |
 | nom de fonction  | Nom de la fonction dans l’application de fonction Azure que cette activité appelle. | Chaîne | Oui |
 | method  | Méthode API REST de l’appel de fonction. | Types de chaîne pris en charge : « GET », « POST », « PUT »   | Oui |
-| en-tête  | En-têtes envoyés à la demande. Par exemple, pour définir la langue et le type sur une demande : "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Chaîne (ou expression avec resultType de chaîne) | Non  |
+| en-tête  | En-têtes envoyés à la demande. Par exemple, pour définir la langue et le type sur une demande : "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Chaîne (ou expression avec resultType de chaîne) | Non |
 | body  | Corps envoyé avec la demande à la méthode d’api de la fonction  | Chaîne (ou expression avec resultType de chaîne) ou objet.   | Obligatoire pour les méthodes PUT/POST |
 |   |   |   | |
 
 Reportez-vous au schéma de la charge utile de demande dans la section  [Schéma de charge utile de demande](control-flow-web-activity.md#request-payload-schema) .
 
-## <a name="more-info"></a>En savoir plus
+## <a name="routing-and-queries"></a>Routage et requêtes
 
-L’activité de fonction Azure prend en charge le **routage**. Par exemple, si votre application utilise le routage `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>`, l’élément `functionName` est défini sur `functionName/{value}`, que vous pouvez paramétrer pour fournir le texte `functionName` souhaité lors de l’exécution.
+L’activité de fonction Azure prend en charge le **routage**. Par exemple, si votre fonction Azure a un point de terminaison `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, le `functionName` à utiliser dans l’activité de fonction Azure est `<functionName>/<value>`. Vous pouvez paramétrer cette fonction pour fournir le `functionName` souhaité lors de l’exécution.
 
-L’activité de fonction Azure prend également en charge les **requêtes**. Une requête doit faire partie de l’élément `functionName`, par exemple `HttpTriggerCSharp2?name=hello` , où le `function name` est `HttpTriggerCSharp2`.
+L’activité de fonction Azure prend également en charge les **requêtes**. Une requête doit être incluse dans le cadre de `functionName`. Par exemple, lorsque le nom de la fonction est `HttpTriggerCSharp` et que la requête que vous souhaitez inclure est `name=hello`, vous pouvez construire la `functionName` dans l’activité de fonction Azure en tant que `HttpTriggerCSharp?name=hello`. Cette fonction peut être paramétrée afin que la valeur soit déterminée au moment de l’exécution.
+
+## <a name="timeout-and-long-running-functions"></a>Délai d’expiration et fonctions durables
+
+Azure Functions expire après 230 secondes, quel que soit le paramètre `functionTimeout` que vous ayez configuré dans les paramètres. Pour plus d’informations, consultez [cet article](../azure-functions/functions-versions.md#timeout). Pour contourner ce comportement, appliquez un modèle asynchrone ou utilisez Durable Functions. L’avantage de Durable Functions que cette option utilise son propre mécanisme de suivi de l’état, donc vous n’aurez pas à implémenter le vôtre.
+
+Plus d’informations sur Durable Functions dans [cet article](../azure-functions/durable/durable-functions-overview.md). Vous pouvez configurer une activité de fonction Azure pour appeler la fonction Durable Functions, qui renvoie une réponse avec un autre URI, comme dans [cet exemple](../azure-functions/durable/durable-functions-http-features.md#http-api-url-discovery). Étant donné que `statusQueryGetUri` retourne l’état HTTP 202 pendant que la fonction est en cours d’exécution, vous pouvez interroger l’état de la fonction avec une activité web. Définissez simplement une activité web avec la valeur `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri` dans le champ `url`. Lorsque la fonction Durable Functions est terminée, la sortie de la fonction sera la sortie de l’activité web.
+
+
+## <a name="sample"></a>Exemple
+
+Vous trouverez un exemple de fabrique de données Data Factory qui utilise une fonction Azure pour extraire le contenu d’un fichier tar [ici](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,8 +1,7 @@
 ---
-title: 'Synchronisation d’Azure AD Connect : Comment gérer le compte de service Azure AD | Microsoft Docs'
-description: Cette rubrique explique comment restaurer le compte de service Azure AD.
+title: Changer le mot de passe du compte de connecteur Azure AD | Microsoft Docs
+description: Cette rubrique explique comment restaurer le compte de connecteur Azure AD.
 services: active-directory
-keywords: AADSTS70002, AADSTS50054, Comment réinitialiser le mot de passe du compte du service Connecteur de synchronisation Azure AD Connect
 documentationcenter: ''
 author: billmath
 manager: daveba
@@ -13,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f88318c87e29567b40b5eacf10f3b6f259adee8b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0ea151ee79fccd66f1d9422744d8f57829677ec0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196348"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204528"
 ---
-# <a name="azure-ad-connect-sync-how-to-manage-the-azure-ad-service-account"></a>Synchronisation d’Azure AD Connect : Comment gérer le compte de service Azure AD
-Le compte de service utilisé par le connecteur Azure AD est censé être proposé en libre-service. Si vous devez réinitialiser les informations d’identification, cette rubrique vous concerne. Par exemple, un administrateur général peut avoir réinitialisé par erreur le mot de passe du compte de service à l’aide de PowerShell.
+# <a name="change-the-azure-ad-connector-account-password"></a>Changer le mot de passe du compte de connecteur Azure AD
+Le compte de connecteur Azure AD est censé être proposé en libre-service. Si vous devez réinitialiser les informations d’identification, cette rubrique vous concerne. Par exemple, un administrateur général peut avoir réinitialisé par erreur le mot de passe du compte à l’aide de PowerShell.
 
 ## <a name="reset-the-credentials"></a>Réinitialisation des informations d'identification
-Si le compte de service défini sur le Connecteur Azure AD ne peut pas contacter Azure AD en raison de problèmes d’authentification, le mot de passe peut être réinitialisé.
+Si le compte de connecteur Azure AD ne peut pas contacter Azure AD en raison de problèmes d’authentification, le mot de passe peut être réinitialisé.
 
 1. Connectez-vous au serveur de synchronisation Azure AD Connect et démarrez PowerShell.
 2. Exécutez `Add-ADSyncAADServiceAccount`.  
@@ -38,14 +37,14 @@ Si le compte de service défini sur le Connecteur Azure AD ne peut pas contacter
 Cette applet de commande réinitialise le mot de passe du compte de service et l’actualise dans Azure AD et dans le moteur de synchronisation.
 
 ## <a name="known-issues-these-steps-can-solve"></a>Problèmes connus pouvant être résolus par les procédures indiquées ci-après
-Cette section est une liste d’erreurs signalées par les clients qui ont été résolues par une réinitialisation des informations d’identification sur le compte de service Azure AD.
+Cette section est une liste d’erreurs signalées par les clients qui ont été résolues par une réinitialisation des informations d’identification sur le compte de connecteur Azure AD.
 
-- - -
+---
 Événement 6900  
 Le serveur a rencontré une erreur inattendue lors du traitement d’une notification de modification de mot de passe :  
 AADSTS70002 : Erreur de validation des informations d’identification. AADSTS50054 : Un ancien mot de passe est utilisé pour l’authentification.
 
-- - -
+---
 Événement 659  
 Erreur lors de la récupération de la configuration de la synchronisation de stratégie de mot de passe. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException :  
 AADSTS70002 : Erreur de validation des informations d’identification. AADSTS50054 : Un ancien mot de passe est utilisé pour l’authentification.

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: be77ae932ec72239bea04fce298d7f1b84e5e4d8
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011241"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240649"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestion des données dans l’Explorateur de données Azure
 
@@ -52,7 +52,7 @@ Azure Data Explorer prend actuellement en charge ce qui suit :
 
 ### <a name="ingestion-using-integration-services"></a>Ingestion à l'aide des services d'intégration
 
-* Azure Data Factory (ADF), un service d’intégration de données entièrement géré pour les charges de travail dans Azure, pour copier des données vers et à partir de l’Explorateur de données Azure à l’aide [magasins de données et formats pris en charge](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Pour plus d’informations, consultez [copier des données à partir d’Azure Data Factory à l’Explorateur de données Azure](/azure/data-explorer/data-factory-load-data).
+* Azure Data Factory (ADF), service d’intégration de données entièrement géré pour les charges de travail analytiques dans Azure, permettant de copier des données vers et à partir d’Azure Data Explorer à l’aide de [formats et de magasins de données pris en charge](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Pour plus d’informations, consultez [Copier des données d’Azure Data Factory vers Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
 
 ### <a name="programmatic-ingestion"></a>Ingestion par programmation
 
@@ -80,7 +80,7 @@ Kusto propose des SDK client qui peuvent être utilisés pour ingérer et interr
 
 * Ingestion des données directement dans le moteur de l’Explorateur de données Azure (approche la plus appropriée pour l’exploration et le prototypage) :
 
-  * **Inline ingestion**: commande de contrôle (.ingest inline) contenant des données sur bande est destiné à des fins de tests ad hoc.
+  * **Ingestion inline** : commande de contrôle (.ingest inline) contenant des données intrabande et destinée aux tests ad hoc.
 
   * **Ingestion à partir de requête** : commande de contrôle (.set, .set-or-append, .set-or-replace) qui pointe vers des résultats de requête et qui sert à générer des rapports ou de petites tables temporaires.
 
@@ -113,13 +113,13 @@ Avant de commencer à ingérer les données, vous devez vous poser les questions
 * Quelles sont les exigences de latence ? 
 * Peut-on utiliser l’un des pipelines d’ingestion managés existants ? 
 
-Pour les organisations disposant d’une infrastructure existante basée sur un service de messagerie tel qu’Event Hub, l’utilisation d’un connecteur est probablement la solution la plus appropriée. L’ingestion en file d’attente convient aux grands volumes de données.
+Pour les organisations disposant d’une infrastructure existante basée sur un service de messagerie tel qu’Event Hub et IoT Hub, l’utilisation d’un connecteur est probablement la solution la plus appropriée. L’ingestion en file d’attente convient aux grands volumes de données.
 
 ## <a name="supported-data-formats"></a>Formats de données pris en charge
 
 Pour toutes les méthodes d’ingestion autres que l’ingestion à partir de requête, mettez en forme les données afin qu’Azure Data Explorer puisse les analyser. les formats de données pris en charge sont :
 
-* CSV, TSV, PSV, SCSV, SOH
+* CSV, TSV, TSVE, PSV, SCSV, SOH
 * JSON (séparé par une ligne, multiligne), Avro
 * ZIP et GZIP 
 

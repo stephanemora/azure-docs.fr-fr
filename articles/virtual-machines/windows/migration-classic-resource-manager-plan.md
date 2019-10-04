@@ -4,23 +4,22 @@ description: Planification de la migration des ressources IaaS d’Azure Classi
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: b8bb3db58538263ea60520d4537a76c6ebb6abf7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa36051f65936f25e4f2cc3bf03619b0f66ce5a6
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112515"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70165303"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier le parcours de migration pour éviter tout heurt. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration.
@@ -114,9 +113,9 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
 
 - **Groupes à haute disponibilité** : pour qu’un réseau virtuel migre vers Azure Resource Manager, toutes les machines virtuelles contenues dans le déploiement Classic (c’est-à-dire le service cloud) doivent se trouver dans un même groupe à haute disponibilité ou bien n’être dans aucun groupe à haute disponibilité. Il n’est pas possible d’avoir plusieurs groupes à haute disponibilité dans le service cloud avec Azure Resource Manager ; cela a pour effet de stopper la migration.  En outre, il ne peut pas y avoir des machines virtuelles dans un groupe à haute disponibilité et d’autres ailleurs que dans un groupe à haute disponibilité. Pour résoudre ce problème, vous devrez corriger ou remanier votre service cloud.  Adaptez votre planification en conséquence, car cette opération peut prendre du temps.
 
-- **Déploiements de rôles Web/de travail** : il n’est pas possible de migrer les services cloud contenant des rôles Web et de travail vers Azure Resource Manager. Les rôles Web/de travail doivent être retirés du réseau virtuel pour que la migration puisse démarrer.  Une solution classique consiste tout simplement à déplacer les instances de rôles Web/de travail vers un réseau virtuel Classic distinct, également lié à un circuit ExpressRoute, ou à migrer le code vers des App Services PaaS plus récents (cet aspect n’est pas abordé dans ce document). Dans le premier cas de redéploiement, créez un réseau virtuel Classic, déplacez/redéployez les rôles Web/de travail sur ce réseau virtuel, puis supprimez les déploiements du réseau virtuel déplacé. Aucune modification de code requise : La nouvelle fonctionnalité [d’homologation de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md) peut être utilisée pour apparier le réseau virtuel Classic contenant les rôles Web/de travail et d’autres réseaux virtuels de la même région Azure, par exemple le réseau virtuel en cours de migration (**après la fin de la migration du réseau virtuel, car il n’est pas possible de migrer des réseaux virtuels homologués**), ce qui fournit les mêmes fonctionnalités sans perte de performances et sans pénalités du point de vue de la latence et de la bande passante. Grâce à l’ajout de [l’homologation de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md), il est maintenant facile de corriger les déploiements de rôles Web/de travail, de sorte qu’ils ne bloquent pas la migration vers Azure Resource Manager.
+- **Déploiements de rôles Web/de travail** : il n’est pas possible de migrer les services cloud contenant des rôles Web et de travail vers Azure Resource Manager. Pour migrer le contenu de vos rôles web et worker, vous devez migrer le code lui-même vers des services App Services PaaS plus récents (ce point n’est pas traité dans ce document). Si vous voulez conserver les rôles web/worker tels quels mais migrer les machines virtuelles classiques vers le modèle de déploiement Resource Manager, les rôles web/worker doivent d’abord être supprimés du réseau virtuel pour que la migration puisse démarrer.  Une solution classique consiste simplement à déplacer les instances de rôle web/worker vers un réseau virtuel classique distinct qui est également lié à un circuit ExpressRoute. Dans le premier cas de redéploiement, créez un réseau virtuel classique, déplacez/redéployez les rôles web/worker sur ce réseau virtuel, puis supprimez les déploiements du réseau virtuel à déplacer. Aucune modification de code requise : La nouvelle fonctionnalité de [peering de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md) peut être utilisée pour effectuer le peering du réseau virtuel Classic contenant les rôles Web/de travail et d’autres réseaux virtuels de la même région Azure, par exemple le réseau virtuel en cours de migration (**après la fin de la migration du réseau virtuel, car il n’est pas possible de migrer des réseaux virtuels appairés**), ce qui fournit les mêmes fonctionnalités sans perte de performances et sans pénalités du point de vue de la latence et de la bande passante. Grâce à l’ajout du [peering de réseau virtuel](../../virtual-network/virtual-network-peering-overview.md), il est maintenant facile de corriger les déploiements de rôles Web/de travail, de sorte qu’ils ne bloquent pas la migration vers Azure Resource Manager.
 
-- **Quotas d’Azure Resource Manager** : les régions Azure disposent de quotas/limites distincts pour Classic et Azure Resource Manager. Bien qu’il n’y ait pas de nouveau matériel utilisé dans un scénario de migration *(on permute les machines virtuelles existantes de Classic vers Azure Resource Manager)*, les quotas d’Azure Resource Manager devront être mis en place avec une capacité suffisante pour que la migration puisse démarrer. Vous trouverez ci-dessous les principales limites dont nous avons constaté qu’elles posaient problème.  Ouvrez un ticket de support concernant les quotas pour relever les limites.
+- **Quotas d’Azure Resource Manager** : les régions Azure disposent de quotas/limites distincts pour Classic et Azure Resource Manager. Bien qu’il n’y ait pas de nouveau matériel utilisé dans un scénario de migration *(on permute les machines virtuelles existantes de Classic vers Azure Resource Manager)* , les quotas d’Azure Resource Manager devront être mis en place avec une capacité suffisante pour que la migration puisse démarrer. Vous trouverez ci-dessous les principales limites dont nous avons constaté qu’elles posaient problème.  Ouvrez un ticket de support concernant les quotas pour relever les limites.
 
     > [!NOTE]
     > Ces limites doivent être relevées dans la même région que votre environnement actuel à migrer.
@@ -132,7 +131,7 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
 
     Vous pouvez vérifier vos quotas Azure Resource Manager actuels en utilisant les commandes suivantes avec la dernière version d’Azure PowerShell.
     
-    [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+    [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
     **Calcul** *(cœurs, groupes à haute disponibilité)*
 
@@ -204,7 +203,7 @@ Points importants à prendre en compte :
 Ciblez les services que vous voulez activer dans Azure Resource Manager.  De nombreux clients trouvent les services ci-dessous incontournables pour leur environnement Azure :
 
 - [Contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md).
-- [Modèles Azure Resource Manager, pour un déploiement plus facile et mieux contrôlé](../../azure-resource-manager/resource-group-overview.md#template-deployment).
+- [Modèles Azure Resource Manager, pour un déploiement plus facile et mieux contrôlé](../../azure-resource-manager/template-deployment-overview.md).
 - [Tags](../../azure-resource-manager/resource-group-using-tags.md) (balises).
 - [Contrôle d’activité](../../azure-resource-manager/resource-group-audit.md)
 - [Stratégies Azure](../../governance/policy/overview.md)

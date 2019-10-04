@@ -6,17 +6,17 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8bcc72cf151b085c7f65b6c600a49642cd330bac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 7349287945a56bb7674e364f515d0b763015ed59
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248486"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262312"
 ---
-# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutoriel : Configurer et utiliser des métriques et des journaux de diagnostic avec un hub IoT
+# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Didacticiel : Configurer et utiliser des métriques et des journaux de diagnostic avec un hub IoT
 
 Si vous avez une solution IoT Hub en cours de production, il est conseillé de configurer certaines métriques et d’activer les journaux de diagnostic. Si un problème survient, vous disposez alors de données qui vous aident à diagnostiquer le problème et à le résoudre plus rapidement. Dans cet article, vous allez voir comment activer les journaux de diagnostic et rechercher les éventuelles erreurs qu’ils contiennent. Vous allez également configurer certaines métriques à surveiller et des alertes qui se déclenchent quand ces métriques atteignent une certaine limite. Par exemple, vous pouvez recevoir un e-mail quand le nombre de messages de télémétrie envoyés dépasse une limite spécifique ou quand le nombre de messages utilisés se rapproche du quota de messages autorisés par jour pour le hub IoT. 
 
@@ -126,7 +126,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ## <a name="enable-the-diagnostic-logs"></a>Activer les journaux de diagnostic 
 
-Les [journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md) sont désactivés par défaut quand vous créez un hub IoT. Dans cette section, activez les journaux de diagnostic pour votre hub.
+Les [journaux de diagnostic](../azure-monitor/platform/resource-logs-overview.md) sont désactivés par défaut quand vous créez un hub IoT. Dans cette section, activez les journaux de diagnostic pour votre hub.
 
 1. Pour commencer, si vous n’êtes pas déjà sur votre hub dans le portail, cliquez sur **Groupe de ressources**, puis sur le groupe de ressources Contoso-Resources. Sélectionnez le hub dans la liste des ressources affichées. 
 
@@ -163,7 +163,7 @@ Nous allons à présent configurer certaines métriques à surveiller quand des 
 
 1. Dans le volet des paramètres du hub IoT, cliquez sur l’option **Métriques** dans la section **Supervision**.
 
-2. En haut de l’écran, cliquez sur **Dernières 24 heures (automatique)**. Dans la liste déroulante qui s’affiche, sélectionnez **4 dernières heures** sous **Intervalle de temps**, **1 minute** sous **Granularité temporelle**, et l’heure locale. Cliquez sur **Appliquer** pour enregistrer ces paramètres. 
+2. En haut de l’écran, cliquez sur **Dernières 24 heures (automatique)** . Dans la liste déroulante qui s’affiche, sélectionnez **4 dernières heures** sous **Intervalle de temps**, **1 minute** sous **Granularité temporelle**, et l’heure locale. Cliquez sur **Appliquer** pour enregistrer ces paramètres. 
 
    ![Capture d’écran montrant les paramètres horaires des métriques.](./media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png)
 
@@ -238,7 +238,7 @@ IoT Hub ne prenant pas encore en charge les [métriques dans Azure Monitor](/azu
 
 5. Maintenant, configurez une autre alerte pour le *Nombre total de messages utilisés*. Cette métrique est utile si vous souhaitez envoyer une alerte quand le nombre de messages utilisés approche le quota du hub IoT. Vous savez ainsi que le hub va bientôt commencer à rejeter les messages.
 
-   Dans l’écran **Afficher les alertes classiques**, cliquez sur **Ajouter une alerte métrique (classique)**, puis renseignez ces champs dans le volet **Ajouter une règle**.
+   Dans l’écran **Afficher les alertes classiques**, cliquez sur **Ajouter une alerte métrique (classique)** , puis renseignez ces champs dans le volet **Ajouter une règle**.
 
    **Nom** : entrez un nom pour votre règle d’alerte, par exemple *number-of-messages-used*.
 
@@ -274,7 +274,7 @@ IoT Hub ne prenant pas encore en charge les [métriques dans Azure Monitor](/azu
 
 Plus haut dans la section sur la configuration du script, vous avez configuré un appareil pour simuler l’utilisation d’un appareil IoT. Dans cette section, vous téléchargez une application console .NET qui simule un appareil envoyant des messages appareil-à-cloud à un IoT Hub.  
 
-Téléchargez la solution pour la [simulation d’appareil IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Ce lien permet de télécharger un référentiel contenant plusieurs applications. La solution que vous recherchez se trouve à l’emplacement iot-hub/Tutorials/Routing/SimulatedDevice/.
+Téléchargez la solution pour la [simulation d’appareil IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Ce lien permet de télécharger un dépôt contenant plusieurs applications. La solution que vous recherchez se trouve à l’emplacement iot-hub/Tutorials/Routing/.
 
 Double-cliquez sur le fichier de solution (SimulatedDevice.sln) pour ouvrir le code dans Visual Studio, puis ouvrez Program.cs. Remplacez `{iot hub hostname}` par le nom d’hôte IoT Hub. Le format du nom d’hôte IoT Hub est **{iot-hub-name}.azure-devices.net**. Pour ce didacticiel, le nom d’hôte IoT Hub est **ContosoTestHub.azure-devices.net**. Ensuite, remplacez `{device key}` par la clé de l’appareil enregistrée précédemment lorsque vous avez configuré l’appareil simulé. 
 
@@ -298,7 +298,7 @@ Exécutez l’application console. Patientez 10 à 15 minutes. Vous pouvez vo
 
 ### <a name="see-the-metrics-in-the-portal"></a>Afficher les métriques dans le portail
 
-Ouvrez vos métriques à partir du tableau de bord. Remplacez les valeurs de temps par *30 dernières minutes* avec une granularité temporelle de *1 minute*. Le graphique montre alors les messages de télémétrie envoyés et le nombre total de messages utilisés, avec les nombres les plus récents en bas du graphique. 
+Ouvrez vos métriques à partir du tableau de bord. Remplacez les valeurs de temps par *30 dernières minutes* avec une granularité temporelle de *1 minute*. Le graphique montre alors les messages de télémétrie envoyés et le nombre total de messages utilisés, avec les nombres les plus récents en bas du graphique.
 
    ![Capture d’écran montrant les métriques.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
@@ -385,4 +385,4 @@ Dans ce tutoriel, vous avez appris à utiliser des métriques et des journaux de
 Passez au didacticiel suivant pour découvrir comment gérer l’état d’un appareil IoT. 
 
 > [!div class="nextstepaction"]
-[Configurer vos appareils à partir d’un service back-end](tutorial-device-twins.md)
+> [Configurer vos appareils à partir d’un service back-end](tutorial-device-twins.md)

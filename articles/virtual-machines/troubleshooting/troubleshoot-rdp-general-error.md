@@ -4,21 +4,20 @@ description: Apprendre à résoudre une erreur générale RDP sur une machine vi
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f290a7e16938c66d45fab9b78086f77bfdfe4839
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 7fc0fbf3362d18284ad6a80afa6396b6be1270a9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100409"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057997"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Résoudre une erreur générale RDP sur une machine virtuelle Azure
 
@@ -65,9 +64,9 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 
 ### <a name="serial-console"></a>Console série
 
-#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Étape 1 : Ouvrir une instance CMD dans la console série
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Étape 1 : ouvrir l’instance CMD dans la console série
 
-1. Accédez à la [Console série](serial-console-windows.md) en sélectionnant **Support & Troubleshooting (Support et dépannage)** > **Console série (préversion)**. Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine.
+1. Accédez à la [Console série](serial-console-windows.md) en sélectionnant **Support & Troubleshooting (Support et dépannage)**  > **Console série (préversion)** . Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine.
 
 2. Créez un canal pour une instance CMD. Tapez **CMD** pour démarrer le canal et en obtenir le nom.
 
@@ -77,7 +76,7 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
    ch -si 1
    ```
 
-#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Étape 2 : Vérifiez les valeurs des clés de Registre RDP :
+#### <a name="step-2-check-the-values-of-rdp-registry-keys"></a>Étape 2 : vérifier les valeurs des clés de Registre RDP :
 
 1. Vérifiez si le protocole RDP est désactivé par des stratégies.
 
@@ -164,17 +163,17 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 
 Si le problème persiste, passez à l’étape 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Étape 2 : Activer les services Bureau à distance
+#### <a name="step-2-enable-remote-desktop-services"></a>Étape 2 : activer les Services Bureau à distance
 
 Pour plus d’informations, consultez [Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Étape 3 : Réinitialiser l’écouteur RDP
+#### <a name="step-3-reset-rdp-listener"></a>Étape 3 : réinitialiser l’écouteur RDP
 
 Pour plus d'informations, consultez [Le Bureau à distance se déconnecte régulièrement sur une machine virtuelle Azure](troubleshoot-rdp-intermittent-connectivity.md).
 
 ### <a name="offline-repair"></a>Réparation en mode hors connexion
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Étape 1 : Tension du Bureau à distance
+#### <a name="step-1-turn-on-remote-desktop"></a>Étape 1 : activer le Bureau à distance
 
 1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
 2. Établissez une connexion Bureau à distance avec la machine virtuelle de récupération.
@@ -234,11 +233,11 @@ Pour plus d'informations, consultez [Le Bureau à distance se déconnecte régul
 
 Si le problème persiste, passez à l’étape 2.
 
-#### <a name="step-2-enable-remote-desktop-services"></a>Étape 2 : Activer les services Bureau à distance
+#### <a name="step-2-enable-remote-desktop-services"></a>Étape 2 : activer les Services Bureau à distance
 
 Pour plus d’informations, consultez [Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure](troubleshoot-remote-desktop-services-issues.md).
 
-#### <a name="step-3-reset-rdp-listener"></a>Étape 3 : Réinitialiser l’écouteur RDP
+#### <a name="step-3-reset-rdp-listener"></a>Étape 3 : réinitialiser l’écouteur RDP
 
 Pour plus d'informations, consultez [Le Bureau à distance se déconnecte régulièrement sur une machine virtuelle Azure](troubleshoot-rdp-intermittent-connectivity.md).
 

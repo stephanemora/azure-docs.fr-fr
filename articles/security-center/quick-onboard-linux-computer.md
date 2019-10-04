@@ -3,9 +3,8 @@ title: Démarrage rapide Azure Security Center - Intégrer vos ordinateurs Linux
 description: Ce guide de démarrage rapide décrit comment intégrer vos ordinateurs Linux à Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,18 +13,18 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.author: memildin
+ms.openlocfilehash: 82ce466f12acef529b5e45e5dd94c64b94be0f7e
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521918"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202886"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Linux à Azure Security Center
-Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour les ressources Linux s’exécutant en dehors d’Azure, par exemple, localement ou dans d’autres clouds, en provisionnant l’agent Linux.
+Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour les ressources Linux s’exécutant en dehors d’Azure, par exemple, localement ou dans d’autres clouds, en provisionnant un agent. L’agent est appelé Microsoft Monitoring Agent (MMA), mais peut également être appelé agent OMS.
 
-Ce guide de démarrage rapide décrit comment installer l’agent Linux sur un ordinateur Linux.
+Ce guide de démarrage rapide décrit comment installer l’agent sur un ordinateur Linux.
 
 ## <a name="prerequisites"></a>Prérequis
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire pour avoir un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
@@ -57,7 +56,7 @@ Vous devez utiliser le niveau tarifaire Standard de Security Center pour commenc
 
    ![Installer l’agent][5]
 
-Les journaux d’activité de l’agent Security Center pour Linux sont disponibles à l’emplacement : */var/opt/microsoft/omsagent/\<ID_espace de travail>/log/*
+Les journaux d’activité de l’agent sont disponibles à l’emplacement : */var/opt/microsoft/omsagent/\<ID_espace de travail>/log/* .
 
   ![Journaux d’activité de l’agent][6]
 
@@ -69,7 +68,7 @@ Vous pouvez maintenant surveiller vos machines virtuelles Azure et des ordinateu
 
   ![icon1](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) Ordinateur extérieur à Azure
 
-  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Microsoft Azure
+  ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 Vous pouvez supprimer l’agent de l’ordinateur Linux une fois que vous n’en avez plus besoin.

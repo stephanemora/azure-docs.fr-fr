@@ -3,23 +3,20 @@ title: Explorer vos ressources Azure
 description: Apprenez à utiliser le langage de requête Resource Graph pour explorer vos ressources et découvrir comment elles sont connectées.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/05/2019
+ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 3174e74dc3fb8c56279c0c9708a67d99ae19724a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 148d69b96291737088a1472a9affd8bb9e43ab1b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795968"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241122"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorer vos ressources Azure avec Resource Graph
 
 Azure Resource Graph vous permet d’explorer et de détecter vos ressources Azure rapidement et à l’échelle. Conçu pour fournir des réponses rapides, il s’avère très efficace pour en apprendre davantage sur votre environnement, mais aussi sur les propriétés qui composent vos ressources Azure.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="explore-virtual-machines"></a>Explorer des machines virtuelles
 
@@ -29,7 +26,7 @@ Dans Azure, les machines virtuelles sont des ressources courantes. En tant que t
 
 Commençons avec une requête simple qui vise à obtenir une seule machine virtuelle dans notre environnement et examinons les propriétés retournées.
 
-```Query
+```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'
 | limit 1
 ```
@@ -50,56 +47,6 @@ Les résultats JSON sont structurés de façon similaire à l’exemple suivant�
 ```json
 [
   {
-    "aliases": {
-      "Microsoft.Compute/imageId": null,
-      "Microsoft.Compute/imageOffer": "WindowsServer",
-      "Microsoft.Compute/imagePublisher": "MicrosoftWindowsServer",
-      "Microsoft.Compute/imageSku": "2016-Datacenter",
-      "Microsoft.Compute/imageVersion": "latest",
-      "Microsoft.Compute/licenseType": null,
-      "Microsoft.Compute/virtualMachines/availabilitySet.id": null,
-      "Microsoft.Compute/virtualMachines/diagnosticsProfile.bootDiagnostics": null,
-      "Microsoft.Compute/virtualMachines/diagnosticsProfile.bootDiagnostics.enabled": null,
-      "Microsoft.Compute/virtualMachines/diagnosticsProfile.bootDiagnostics.storageUri": null,
-      "Microsoft.Compute/virtualMachines/imageOffer": "WindowsServer",
-      "Microsoft.Compute/virtualMachines/imagePublisher": "MicrosoftWindowsServer",
-      "Microsoft.Compute/virtualMachines/imageSku": "2016-Datacenter",
-      "Microsoft.Compute/virtualMachines/imageVersion": "latest",
-      "Microsoft.Compute/virtualMachines/networkInterfaces[*].id": [
-        "/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Network/networkInterfaces/contosovm1535"
-      ],
-      "Microsoft.Compute/virtualMachines/osDisk.Uri": null,
-      "Microsoft.Compute/virtualMachines/osProfile.adminPassword": null,
-      "Microsoft.Compute/virtualMachines/osProfile.adminUsername": "localAdmin",
-      "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration": null,
-      "Microsoft.Compute/virtualMachines/osProfile.linuxConfiguration.disablePasswordAuthentication": null,
-      "Microsoft.Compute/virtualMachines/osProfile.windowsConfiguration": {
-        "enableAutomaticUpdates": true,
-        "provisionVMAgent": true
-      },
-      "Microsoft.Compute/virtualMachines/osProfile.windowsConfiguration.enableAutomaticUpdates": true,
-      "Microsoft.Compute/virtualMachines/osProfile.windowsConfiguration.provisionVMAgent": true,
-      "Microsoft.Compute/virtualMachines/sku.name": "Standard_B2s",
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].caching": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].createOption": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].diskSizeGB": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].image.uri": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].lun": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].managedDisk.id": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].managedDisk.storageAccountType": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].name": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.dataDisks[*].vhd.uri": [],
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.caching": "ReadWrite",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.createOption": "FromImage",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.encryptionSettings": null,
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.encryptionSettings.enabled": null,
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.id": "/subscriptions/<subscriptionId>/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.managedDisk.storageAccountType": "Premium_LRS",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.name": "ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.osType": "Windows",
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.vhd": null,
-      "Microsoft.Compute/virtualMachines/storageProfile.osDisk.vhd.uri": null
-    },
     "id": "/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/ContosoVM1",
     "kind": "",
     "location": "westus2",
@@ -160,15 +107,13 @@ Les résultats JSON sont structurés de façon similaire à l’exemple suivant�
 ]
 ```
 
-Le premier ensemble de propriétés sous **aliases** présente un certain nombre de valeurs de propriétés connexes. Pour obtenir des informations complémentaire sur les alias et découvrir les alias disponibles, consultez [Structure de définition Azure Policy - Alias](../../policy/concepts/definition-structure.md#aliases). Les alias sont principalement utilisés par Azure Policy pour gérer la conformité vis-à-vis des règles et de la gouvernance des organisations.
-
-Les autres propriétés nous en disent plus sur la ressource de machine virtuelle elle-même, que ce soit la référence (SKU), le système d’exploitation, les disques, les étiquettes ou le groupe de ressources et l’abonnement dont elle fait partie.
+Les propriétés nous en disent plus sur la ressource de machine virtuelle elle-même, que ce soit la référence (SKU), le système d’exploitation, les disques, les étiquettes ou le groupe de ressources et l’abonnement dont elle fait partie.
 
 ### <a name="virtual-machines-by-location"></a>Machines virtuelles par emplacement
 
 Sur la base de ce que nous avons appris sur la ressource de machine virtuelle, nous allons utiliser la propriété **location** pour compter toutes les machines virtuelles par emplacement. Pour mettre à jour la requête, nous allons supprimer la limite et résumer le nombre de valeurs d’emplacement.
 
-```Query
+```kusto
 where type =~ 'Microsoft.Compute/virtualMachines'
 | summarize count() by location
 ```
@@ -206,8 +151,8 @@ Nous pouvons maintenant voir combien de machines virtuelles nous avons dans chaq
 
 Après avoir rétabli les propriétés de machine virtuelle d’origine, essayons de trouver toutes les machines virtuelles dont la taille SKU est **Standard_B2s**. À la lecture du JSON retourné, nous voyons que cette information est stockée dans **properties.hardwareprofile.vmsize**. Nous allons mettre à jour la requête de façon à trouver toutes les machines virtuelles qui ont cette taille et pour que seuls le nom et la région des machines virtuelles soient retournés.
 
-```Query
-where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s
+```kusto
+where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
 | project name, resourceGroup"
 ```
 
@@ -223,7 +168,7 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and pro
 
 Si nous voulons obtenir les détails des disques managés Premium qui sont attachés à ces machines virtuelles **Standard_B2s**, nous pouvons étendre la requête de façon à obtenir l’ID de ressource de ces disques managés.
 
-```Query
+```kusto
 where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
 | extend disk = properties.storageProfile.osDisk.managedDisk
 | where disk.storageAccountType == 'Premium_LRS'
@@ -231,7 +176,7 @@ where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile
 ```
 
 > [!NOTE]
-> Une autre façon d’obtenir la référence (SKU) consiste à utiliser la propriété **aliases** **Microsoft.Compute/virtualMachines/sku.name**.
+> Une autre façon d’obtenir la référence (SKU) consiste à utiliser la propriété **aliases** **Microsoft.Compute/virtualMachines/sku.name**. Voir les exemples [Afficher des alias](../samples/starter.md#show-aliases) et [Afficher des valeurs distinctes pour un alias](../samples/starter.md#distinct-alias-values).
 
 ```azurecli-interactive
 az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
@@ -257,7 +202,7 @@ Exemple de sortie de la requête précédente, par exemple :
 ]
 ```
 
-```Query
+```kusto
 where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
@@ -280,14 +225,6 @@ Les résultats JSON sont structurés de façon similaire à l’exemple suivant�
 ```json
 [
   {
-    "aliases": {
-      "Microsoft.Compute/disks/sku.name": "Premium_LRS",
-      "Microsoft.Compute/imageId": null,
-      "Microsoft.Compute/imageOffer": null,
-      "Microsoft.Compute/imagePublisher": null,
-      "Microsoft.Compute/imageSku": null,
-      "Microsoft.Compute/imageVersion": null
-    },
     "id": "/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166",
     "kind": "",
     "location": "westus2",
@@ -319,17 +256,25 @@ Les résultats JSON sont structurés de façon similaire à l’exemple suivant�
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>Explorer des machines virtuelles pour trouver des adresses IP publiques
 
-Cet ensemble de requêtes Azure CLI recherche et stocke d’abord toutes les ressources de carte réseau (NIC) connectées à des machines virtuelles. Il se sert ensuite de la liste des cartes réseau pour trouver chaque ressource d’adresse IP qui correspond à une adresse IP publique et stocke ces valeurs. Il fournit enfin une liste des adresses IP publiques.
+Cet ensemble de requêtes recherche et stocke d’abord toutes les ressources de carte réseau (NIC) connectées à des machines virtuelles. Les requêtes utilisent ensuite la liste des cartes réseau pour trouver chaque ressource d’adresse IP qui correspond à une adresse IP publique et stocke ces valeurs. Puis, les requêtes fournissent la liste des adresses IP publiques.
 
 ```azurecli-interactive
-# Use Resource Graph to get all NICs and store in the 'nic' variable
+# Use Resource Graph to get all NICs and store in the 'nics.txt' file
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20" --output table | tail -n +3 > nics.txt
 
 # Review the output of the query stored in 'nics.txt'
 cat nics.txt
 ```
 
-Utilisez le fichier `nics.txt` dans la requête suivante pour obtenir les détails relatifs aux ressources d’interface réseau associées si une adresse IP publique est attachée à la carte réseau.
+```azurepowershell-interactive
+# Use Resource Graph to get all NICs and store in the $nics variable
+$nics = Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project nic = tostring(properties['networkProfile']['networkInterfaces'][0]['id']) | where isnotempty(nic) | distinct nic | limit 20"
+
+# Review the output of the query stored in the variable
+$nics.nic
+```
+
+Utilisez le fichier (Azure CLI) ou la variable (Azure PowerShell) dans la requête suivante pour obtenir les détails relatifs aux ressources d’interface réseau associées si une adresse IP publique est attachée à la carte réseau.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file
@@ -339,11 +284,24 @@ az graph query -q="where type =~ 'Microsoft.Network/networkInterfaces' | where i
 cat ips.txt
 ```
 
-Enfin, nous allons utiliser la liste de ressources d’adresse IP publique stockée dans `ips.txt` pour obtenir leur adresse IP publique réelle et les afficher.
+```azurepowershell-interactive
+# Use Resource Graph  with the $nics variable to get all related public IP addresses and store in $ips variable
+$ips = Search-AzGraph -Query "where type =~ 'Microsoft.Network/networkInterfaces' | where id in ('$($nics.nic -join "','")') | project publicIp = tostring(properties['ipConfigurations'][0]['properties']['publicIPAddress']['id']) | where isnotempty(publicIp) | distinct publicIp"
+
+# Review the output of the query stored in the variable
+$ips.publicIp
+```
+
+Enfin, nous allons utiliser la liste de ressources d’adresse IP publique stockée dans le fichier (Azure CLI) ou la variable (Azure PowerShell) pour obtenir et afficher leur adresse IP publique réelle à partir de l'objet associé.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'ips.txt' file to get the IP address of the public IP address resources
 az graph query -q="where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$(awk -vORS="','" '{print $0}' ips.txt | sed 's/,$//')') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip" --output table
+```
+
+```azurepowershell-interactive
+# Use Resource Graph with the $ips variable to get the IP address of the public IP address resources
+Search-AzGraph -Query "where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -4,29 +4,28 @@ description: Configurez et exécutez rapidement une base de données Oracle Gold
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 1d0905900b81a0c7775011774b55565217d13b71
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 31137bba8c9b6b88c6a8b9569c02ae887e73e8d0
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011542"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309605"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implémenter Oracle Golden Gate sur une machine virtuelle Linux Azure 
 
 L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide explique comment utiliser l’interface CLI Azure pour déployer une base de données Oracle 12c depuis une image de la galerie de la Place de marché Azure. 
 
-Ce document vous explique pas à pas comment créer, installer et configurer Oracle Golden Gate sur une machine virtuelle Azure.
+Ce document vous explique pas à pas comment créer, installer et configurer Oracle Golden Gate sur une machine virtuelle Azure. Dans ce didacticiel, deux machines virtuelles sont configurées dans un groupe à haute disponibilité dans une seule région. Le même didacticiel peut être utilisé pour configurer OracleGolden Gate pour des machines virtuelles dans différentes zones de disponibilité dans une même région Azure ou pour la configuration de machines virtuelles dans deux régions différentes.
 
 Avant de commencer, assurez-vous que l’interface de ligne de commande Azure est installée. Pour plus d’informations, consultez le [Guide d’installation de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -261,7 +260,6 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 
 ### <a name="start-oracle-listener"></a>Démarrer l’écouteur d’Oracle
 ```bash
-$ sudo su - oracle
 $ lsnrctl start
 ```
 
@@ -699,7 +697,7 @@ Pour installer Oracle Golden Gate, procédez comme suit :
    MAP pdb1.test.*, TARGET pdb1.test.*;
    ```
 
-5. Vous pouvez configurer un point de contrôle de réplication :
+5. Configurez un point de contrôle de réplication :
 
    ```bash
    GGSCI> ADD REPLICAT REPORA, INTEGRATED, EXTTRAIL ./dirdat/rt

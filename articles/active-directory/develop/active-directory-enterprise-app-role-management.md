@@ -4,30 +4,31 @@ description: Découvrez comment configurer les revendications de rôle émises d
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/21/2019
+ms.topic: conceptual
+ms.date: 04/22/2019
 ms.author: jeedes
-ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990509"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207193"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Configurer les revendications de rôle émises dans le jeton SAML pour les applications d'entreprise
 
 Grâce à Azure Active Directory (Azure AD), vous pouvez personnaliser le type de revendications de rôle que vous recevez après avoir autorisé une application.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure AD avec l’installation des répertoires.
 - Un abonnement pour lequel l’authentification unique (SSO) est activée. Vous devez configurer l’authentification unique avec votre application.
@@ -58,7 +59,7 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
     ![Page Propriétés](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Ouvrez l’[Explorateur graphique Azure AD](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre et procédez comme suit :
+6. Ouvrez l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre et procédez comme suit :
 
     a. Connectez-vous au site de l’Explorateur graphique en utilisant les informations d’identification d’administrateur global ou de coadministrateur de votre locataire.
 
@@ -152,20 +153,20 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
 8. Mettez à jour la table **Attributs** table pour définir un mappage personnalisé de la revendication de rôle.
 
-9. Dans la section **Attributs et revendications utilisateur** de la boîte de dialogue **Authentification unique**, configurez l'attribut de jeton SAML comme sur l'image et procédez comme suit.
+9. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
 
     | Nom de l’attribut | Valeur de l’attribut |
     | -------------- | ----------------|
     | Nom de rôle  | user.assignedroles |
 
     >[!NOTE]
-    >Si la valeur de revendication de rôle est null, puis Azure AD enverra pas cette valeur dans le jeton, et c’est par défaut en fonction de la conception.
+    >Si la valeur de revendication de rôle est null, Azure AD n’enverra pas cette valeur dans le jeton ; il s’agit du comportement par défaut normal.
 
-    a. Cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs d'utilisateur**.
+    a. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs et revendications de l’utilisateur**.
 
       ![Bouton « Ajouter un attribut »](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Sélectionnez **Ajouter un attribut** pour ouvrir le volet **Gérer les revendications des utilisateurs**.
+    b. Dans la boîte de dialogue **Gérer les revendications des utilisateurs**, ajoutez l’attribut de jeton SAML en cliquant sur **Ajouter une nouvelle revendication**.
 
       ![Bouton « Ajouter un attribut »](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
@@ -185,7 +186,7 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
 Pour mettre à jour un rôle existant, procédez comme suit :
 
-1. Ouvrez [Afficheur de Graph Azure AD](https://developer.microsoft.com/graph/graph-explorer).
+1. Ouvrez l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
 
 2. Connectez-vous au site de l’Explorateur graphique en utilisant les informations d’identification d’administrateur global ou de coadministrateur de votre locataire.
 
@@ -223,7 +224,7 @@ Pour mettre à jour un rôle existant, procédez comme suit :
 
 Pour supprimer un rôle existant, procédez comme suit :
 
-1. Ouvrez [l’Explorateur graphique Azure AD](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
+1. Ouvrez l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
 
 2. Connectez-vous au site de l’Explorateur graphique en utilisant les informations d’identification d’administrateur global ou de coadministrateur de votre locataire.
 

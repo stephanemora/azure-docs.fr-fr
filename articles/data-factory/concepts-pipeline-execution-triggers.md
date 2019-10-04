@@ -3,24 +3,23 @@ title: Exécution et déclencheurs du pipeline dans Azure Data Factory | Micro
 description: Cet article fournit des informations sur l’exécution d’un pipeline dans Azure Data Factory, soit à la demande, soit en créant un déclencheur.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.author: shlo
-ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453471"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137033"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-scheduling-and-execution.md)
 > * [Version actuelle](concepts-pipeline-execution-triggers.md)
 
@@ -279,11 +278,11 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 | Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides | Exemples |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Oui | Aucun | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | objet | Oui | Aucun | Un objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | number | Non  | 1 | 1 à 1000 | `"interval":10` |
-| **endTime** | string | Oui | Aucun | Une valeur date-heure représentant une heure dans le futur | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | objet | Non  | Aucun | Un objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **startTime** | string | OUI | Aucun | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | object | OUI | Aucun | Un objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **interval** | number | Non | 1 | 1 à 1000 | `"interval":10` |
+| **endTime** | string | OUI | Aucun | Une valeur date-heure représentant une heure dans le futur | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | object | Non | Aucun | Un objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>propriété startTime
 Le tableau suivant vous montre comment la propriété **startTime** contrôle une exécution du déclencheur :
@@ -370,10 +369,10 @@ Le tableau suivant présente une comparaison du déclencheur de fenêtre bascule
 
 |  | Déclencheur de fenêtre bascule | Déclencheur de planification |
 |:--- |:--- |:--- |
-| **Scénarios de renvoi** |  Pris en charge. Les exécutions de pipeline peuvent être planifiées pour des fenêtres dans le passé. | Non pris en charge. Les exécutions de pipeline peuvent être exécutées uniquement sur des périodes de temps à partir de l’heure actuelle et dans le futur. |
+| **Scénarios de renvoi** | Pris en charge. Les exécutions de pipeline peuvent être planifiées pour des fenêtres dans le passé. | Non pris en charge. Les exécutions de pipeline peuvent être exécutées uniquement sur des périodes de temps à partir de l’heure actuelle et dans le futur. |
 | **Fiabilité** | Fiabilité de 100 %. Les exécutions de pipeline peuvent être planifiées pour toutes les fenêtres à partir d’une date de début spécifiée sans espaces. | Moins fiable. |
-| **Fonctionnalité de nouvelle tentative** |  Pris en charge. Les exécutions de pipeline ayant échoué ont une stratégie de nouvelle tentative par défaut d’une valeur de 0, ou une stratégie spécifiée par l’utilisateur dans le cadre de la définition du déclencheur. Effectue automatiquement une nouvelle tentative quand les exécutions du pipeline échouent en raison de limites de concurrence/de serveur/de limitation (autrement dit, en cas de codes d’état 400 : Erreur de l’utilisateur, 429 : Trop de demandes et 500 : Erreur interne du serveur). | Non pris en charge. |
-| **Concurrency** |  Pris en charge. Les utilisateurs peuvent définir explicitement les limites de concurrence pour le déclencheur. Permet entre 1 et 50 exécutions du pipeline déclenchées en simultané. | Non pris en charge. |
+| **Fonctionnalité de nouvelle tentative** | Pris en charge. Les exécutions de pipeline ayant échoué ont une stratégie de nouvelle tentative par défaut d’une valeur de 0, ou une stratégie spécifiée par l’utilisateur dans le cadre de la définition du déclencheur. Effectue automatiquement une nouvelle tentative quand les exécutions du pipeline échouent en raison de limites de concurrence/de serveur/de limitation (autrement dit, en cas de codes d’état 400 : Erreur de l’utilisateur, 429 : Trop de demandes et 500 : Erreur interne du serveur). | Non pris en charge. |
+| **Concurrency** | Pris en charge. Les utilisateurs peuvent définir explicitement les limites de concurrence pour le déclencheur. Permet entre 1 et 50 exécutions du pipeline déclenchées en simultané. | Non pris en charge. |
 | **Variables système** | Prend en charge l’utilisation des variables système **WindowStart** et **WindowEnd**. Les utilisateurs peuvent accéder à `triggerOutputs().windowStartTime` et `triggerOutputs().windowEndTime` comme variables système de déclencheur dans la définition du déclencheur. Les valeurs sont utilisées en tant qu’heure de début de fenêtre et heure de fin de fenêtre, respectivement. Par exemple, pour un déclencheur de fenêtre bascule qui s’exécute toutes les heures, pour la fenêtre de 1h00 à 2h00, la définition est `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` et `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Non pris en charge. |
 | **Relation du pipeline et du déclencheur** | Prend en charge une relation un à un. Un seul pipeline peut être déclenché. | Prend en charge les relations plusieurs à plusieurs. Plusieurs déclencheurs peuvent exécuter le même pipeline. Un seul déclencheur peut déclencher plusieurs pipelines. |
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 144a991eb911fa6a337b6711515bd5760456fc10
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101752"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69996386"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Outil Copier des données dans Azure Data Factory
 L’outil Copier des données d’Azure Data Factory facilite et optimise le processus de réception des données dans Azure Data Lake, qui est généralement la première étape dans un scénario d’intégration des données de bout en bout.  Il permet de gagner du temps, surtout lorsque vous utilisez Azure Data Factory pour réceptionner des données à partir d’une source de données pour la première fois. Voici certains des avantages de l’utilisation de cet outil :
@@ -67,7 +67,7 @@ Souvent, le schéma de la source de données n’est peut-être pas identique au
 L’outil Copier des données surveille votre comportement et s’y adapte lorsque vous mappez des colonnes entre des magasins source et destination. Après avoir sélectionné une ou plusieurs colonnes à partir du magasin de données source et les avoir mappées au schéma de destination, l’outil Copier des données commence à analyser le modèle pour les paires de colonnes que vous avez choisies des deux côtés. Il applique ensuite le même modèle aux autres colonnes. Par conséquent, quelques clics suffisent pour afficher comme vous le souhaitez toutes les colonnes mappées vers la destination.  Si vous n’êtes pas satisfait du choix du mappage de colonnes fourni par l’outil Copier des données, vous pouvez l’ignorer et continuer en mappant manuellement les colonnes. Pendant ce temps, l’outil Copier des données assimile et met à jour continuellement le modèle jusqu’à obtenir le modèle adapté au mappage de colonnes que vous voulez. 
 
 > [!NOTE]
-> Lors de la copie de données à partir de SQL Server ou d’Azure SQL Data Warehouse vers Azure SQL Data Warehouse, si la table n’existe pas dans le magasin de destination, l’outil Copier des données prend en charge la création automatique de la table à l’aide du schéma source. 
+> Lors de la copie de données depuis SQL Server ou Azure SQL Database vers Azure SQL Data Warehouse, si la table n’existe pas dans le magasin de destination, l’outil Copier des données prend en charge la création automatique de la table à l’aide du schéma source. 
 
 ## <a name="filter-data"></a>Filtrer les données
 Vous pouvez filtrer les données sources pour sélectionner uniquement celles qui doivent être copiées vers le magasin de données de récepteur. Le filtrage réduit le volume des données à copier vers le magasin de données de récepteur et améliore de ce fait le débit de la copie. L’outil Copier des données fournit un moyen souple de filtrer les données dans une base de données relationnelle à l’aide du langage de requête SQL ou les fichiers d’un dossier d’objets blob Azure. 
@@ -78,7 +78,7 @@ La capture d’écran suivante montre une requête SQL permettant de filtrer les
 ![Filtrer les données d’une base de données](./media/copy-data-tool/filter-data-in-database.png)
 
 ### <a name="filter-data-in-an-azure-blob-folder"></a>Filtrer les données dans un dossier d’objets blob Azure
-Vous pouvez utiliser des variables dans le chemin d’accès au dossier pour copier des données à partir d’un dossier. Les variables prises en charge sont les suivantes : **{year}**, **{month}**, **{day}**, **{hour}** et **{minute}**. Exemple : inputfolder/{year}/{month}/{day}. 
+Vous pouvez utiliser des variables dans le chemin d’accès au dossier pour copier des données à partir d’un dossier. Les variables prises en charge sont les suivantes : **{year}** , **{month}** , **{day}** , **{hour}** et **{minute}** . Exemple : inputfolder/{year}/{month}/{day}. 
 
 Supposons que vos dossiers d’entrée présentent le format suivant : 
 
@@ -91,11 +91,11 @@ Supposons que vos dossiers d’entrée présentent le format suivant :
 
 Cliquez sur le bouton **Parcourir** à côté de **Fichier ou dossier**, accédez à l’un de ces dossiers (par exemple, 2016->03->01->02), puis cliquez sur **Choisir**. Vous devez voir 2016/03/01/02 dans la zone de texte. 
 
-Puis remplacez **2016** par **{year}**, **03** par **{month}**, **01** par **{day}** et **02** par **{hour}**, puis appuyez sur la touche de **tabulation**. Vous devez maintenant voir des listes déroulantes pour sélectionner le format de ces quatre variables :
+Puis remplacez **2016** par **{year}** , **03** par **{month}** , **01** par **{day}** et **02** par **{hour}** , puis appuyez sur la touche de **tabulation**. Vous devez maintenant voir des listes déroulantes pour sélectionner le format de ces quatre variables :
 
 ![Filtrer un fichier ou un dossier](./media/copy-data-tool/filter-file-or-folder.png)
 
-L’outil Copier des données génère des paramètres avec des expressions, fonctions et variables système qui peuvent être utilisés pour représenter les variables {year}, {month}, {day}, {hour} et {minute} lors de la création du pipeline. Pour plus d’informations, consultez l’article [Guide pratique pour lire ou écrire des données partitionnées](how-to-read-write-partitioned-data.md).
+L’outil Copier des données génère des paramètres avec des expressions, fonctions et variables système qui peuvent être utilisés pour représenter les variables {year}, {month}, {day}, {hour} et {minute} lors de la création du pipeline.
 
 ## <a name="scheduling-options"></a>Options de planification
 Vous pouvez effectuer l’opération de copie une seule fois ou la répéter selon une planification établie (horaire, quotidienne et ainsi de suite.). Ces options peuvent être utilisées pour les connecteurs entre différents environnements, notamment les environnements locaux, dans le cloud ou sur un bureau local. 

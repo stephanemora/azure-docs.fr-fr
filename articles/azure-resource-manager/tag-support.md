@@ -3,1280 +3,2026 @@ title: Prise en charge des étiquettes Azure Resource Manager pour les ressource
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
-ms.date: 02/13/2019
+ms.topic: conceptual
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: MT
+ms.openlocfilehash: 7b8d3de3eaa9cdbb945879f2acc283d74c8b4e82
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270383"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996823"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
-Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md).
+Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts.
 
 Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des virgules, téléchargez [tag-tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
-## <a name="microsoftaad"></a>Microsoft.AAD
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| DomainServices | OUI | 
-| DomainServices/oucontainer | Non  | 
+Accédez à un espace de noms du fournisseur de ressources :
+> [!div class="op_single_selector"]
+> - [Microsoft.AAD](#microsoftaad)
+> - [Microsoft.Addons](#microsoftaddons)
+> - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
+> - [Microsoft.Advisor](#microsoftadvisor)
+> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
+> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft.ApiManagement](#microsoftapimanagement)
+> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft.AppPlatform](#microsoftappplatform)
+> - [Microsoft.Attestation](#microsoftattestation)
+> - [Microsoft.Authorization](#microsoftauthorization)
+> - [Microsoft.Automation](#microsoftautomation)
+> - [Microsoft.Azconfig](#microsoftazconfig)
+> - [Microsoft.Azure.Geneva](#microsoftazuregeneva)
+> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [Microsoft.AzureData](#microsoftazuredata)
+> - [Microsoft.AzureStack](#microsoftazurestack)
+> - [Microsoft.Batch](#microsoftbatch)
+> - [Microsoft.Billing](#microsoftbilling)
+> - [Microsoft.BingMaps](#microsoftbingmaps)
+> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
+> - [Microsoft.Blockchain](#microsoftblockchain)
+> - [Microsoft.Blueprint](#microsoftblueprint)
+> - [Microsoft.BotService](#microsoftbotservice)
+> - [Microsoft.Cache](#microsoftcache)
+> - [Microsoft.Capacity](#microsoftcapacity)
+> - [Microsoft.Cdn](#microsoftcdn)
+> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
+> - [Microsoft.ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
+> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
+> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft.Commerce](#microsoftcommerce)
+> - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.Consumption](#microsoftconsumption)
+> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
+> - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
+> - [Microsoft.ContainerService](#microsoftcontainerservice)
+> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
+> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Microsoft.CostManagement](#microsoftcostmanagement)
+> - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
+> - [Microsoft.CustomProviders](#microsoftcustomproviders)
+> - [Microsoft.DataBox](#microsoftdatabox)
+> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
+> - [Microsoft.Databricks](#microsoftdatabricks)
+> - [Microsoft.DataCatalog](#microsoftdatacatalog)
+> - [Microsoft.DataFactory](#microsoftdatafactory)
+> - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
+> - [Microsoft.DataLakeStore](#microsoftdatalakestore)
+> - [Microsoft.DataMigration](#microsoftdatamigration)
+> - [Microsoft.DataShare](#microsoftdatashare)
+> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft.DBforMySQL](#microsoftdbformysql)
+> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
+> - [Microsoft.Devices](#microsoftdevices)
+> - [Microsoft.DevOps](#microsoftdevops)
+> - [Microsoft.DevSpaces](#microsoftdevspaces)
+> - [Microsoft.DevTestLab](#microsoftdevtestlab)
+> - [Microsoft.DocumentDB](#microsoftdocumentdb)
+> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft.DynamicsLcs](#microsoftdynamicslcs)
+> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [Microsoft.EventGrid](#microsofteventgrid)
+> - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft.Features](#microsoftfeatures)
+> - [Microsoft.Gallery](#microsoftgallery)
+> - [Microsoft.Genomics](#microsoftgenomics)
+> - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
+> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft.HardwareSecurityModules](#microsofthardwaresecuritymodules)
+> - [Microsoft.HDInsight](#microsofthdinsight)
+> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft.HybridCompute](#microsofthybridcompute)
+> - [Microsoft.HybridData](#microsofthybriddata)
+> - [Microsoft.Hydra](#microsofthydra)
+> - [Microsoft.ImportExport](#microsoftimportexport)
+> - [Microsoft.Intune](#microsoftintune)
+> - [Microsoft.IoTCentral](#microsoftiotcentral)
+> - [Microsoft.IoTSpaces](#microsoftiotspaces)
+> - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kusto](#microsoftkusto)
+> - [Microsoft.LabServices](#microsoftlabservices)
+> - [Microsoft.Logic](#microsoftlogic)
+> - [Microsoft.MachineLearning](#microsoftmachinelearning)
+> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft.ManagedServices](#microsoftmanagedservices)
+> - [Microsoft.Management](#microsoftmanagement)
+> - [Microsoft.Maps](#microsoftmaps)
+> - [Microsoft.Marketplace](#microsoftmarketplace)
+> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft.MarketplaceOrdering](#microsoftmarketplaceordering)
+> - [Microsoft.Media](#microsoftmedia)
+> - [Microsoft.Microservices4Spring](#microsoftmicroservices4spring)
+> - [Microsoft.Migrate](#microsoftmigrate)
+> - [Microsoft.MixedReality](#microsoftmixedreality)
+> - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft.OffAzure](#microsoftoffazure)
+> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
+> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
+> - [Microsoft.Peering](#microsoftpeering)
+> - [Microsoft.PolicyInsights](#microsoftpolicyinsights)
+> - [Microsoft.Portal](#microsoftportal)
+> - [Microsoft.PowerBI](#microsoftpowerbi)
+> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft.RemoteApp](#microsoftremoteapp)
+> - [Microsoft.ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft.ResourceHealth](#microsoftresourcehealth)
+> - [Microsoft.Resources](#microsoftresources)
+> - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft.Scheduler](#microsoftscheduler)
+> - [Microsoft.Search](#microsoftsearch)
+> - [Microsoft.Security](#microsoftsecurity)
+> - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
+> - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
+> - [Microsoft.ServiceBus](#microsoftservicebus)
+> - [Microsoft.ServiceFabric](#microsoftservicefabric)
+> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft.Services](#microsoftservices)
+> - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
+> - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
+> - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft.SQL](#microsoftsql)
+> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft.Storage](#microsoftstorage)
+> - [Microsoft.StorageCache](#microsoftstoragecache)
+> - [Microsoft.StorageReplication](#microsoftstoragereplication)
+> - [Microsoft.StorageSync](#microsoftstoragesync)
+> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
+> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft.StorSimple](#microsoftstorsimple)
+> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft.Subscription](#microsoftsubscription)
+> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft.Web](#microsoftweb)
+> - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
+> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
 
-## <a name="microsoftaadiam"></a>microsoft.aadiam
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| diagnosticSettings | Non  | 
-| diagnosticSettingsCategories | Non  | 
+## <a name="microsoftaad"></a>Microsoft.AAD
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | DomainServices | OUI |OUI |
+> | DomainServices/oucontainer | Non |Non |
+> | DomainServices/ReplicaSets | OUI |OUI |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| supportProviders | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | supportProviders | Non |Non |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| aadsupportcases | Non  | 
-| addsservices | Non  | 
-| agents | Non  | 
-| anonymousapiusers | Non  | 
-| configuration | Non  | 
-| journaux d’activité | Non  | 
-| reports | Non  | 
-| services | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | aadsupportcases | Non |Non |
+> | addsservices | Non |Non |
+> | agents | Non |Non |
+> | anonymousapiusers | Non |Non |
+> | configuration | Non |Non |
+> | logs | Non |Non |
+> | reports | Non |Non |
+> | servicehealthmetrics | Non |Non |
+> | services | Non |Non |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| configurations | Non  | 
-| generateRecommendations | Non  | 
-| de films | Non  | 
-| suppressions | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | configurations | Non |Non |
+> | generateRecommendations | Non |Non |
+> | metadata | Non |Non |
+> | de films | Non |Non |
+> | suppressions | Non |Non |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| actionRules | Non  | 
-| alertes | Non  | 
-| alertsList | Non  | 
-| alertsSummary | Non  | 
-| alertsSummaryList | Non  | 
-| smartDetectorAlertRules | Non  | 
-| smartDetectorRuntimeEnvironments | Non  | 
-| smartGroups | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | actionRules | OUI |OUI |
+> | alertes | Non |Non |
+> | alertsList | Non |Non |
+> | alertsMetaData | Non |Non |
+> | alertsSummary | Non |Non |
+> | alertsSummaryList | Non |Non |
+> | feedback | Non |Non |
+> | smartDetectorAlertRules | OUI |OUI |
+> | smartDetectorRuntimeEnvironments | Non |Non |
+> | smartGroups | Non |Non |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| servers | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | servers | OUI |OUI |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| reportFeedback | Non  | 
-| service | OUI | 
-| validateServiceName | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | reportFeedback | Non |Non |
+> | service | OUI |OUI |
+> | validateServiceName | Non |Non |
+
+## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | configurationStores | OUI |OUI |
+> | configurationStores/eventGridFilters | Non |Non |
+
+## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | Spring | OUI |OUI |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| attestationProviders | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | attestationProviders | Non |Non |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| classicAdministrators | Non  | 
-| denyAssignments | Non  | 
-| elevateAccess | Non  | 
-| locks | Non  | 
-| Autorisations | Non  | 
-| policyAssignments | Non  | 
-| policyDefinitions | Non  | 
-| policySetDefinitions | Non  | 
-| providerOperations | Non  | 
-| roleAssignments | Non  | 
-| roleDefinitions | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | classicAdministrators | Non |Non |
+> | dataAliases | Non |Non |
+> | denyAssignments | Non |Non |
+> | elevateAccess | Non |Non |
+> | locks | Non |Non |
+> | Autorisations | Non |Non |
+> | policyAssignments | Non |Non |
+> | policyDefinitions | Non |Non |
+> | policySetDefinitions | Non |Non |
+> | providerOperations | Non |Non |
+> | roleAssignments | Non |Non |
+> | roleDefinitions | Non |Non |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| automationAccounts | OUI | 
-| automationAccounts/configurations | OUI | 
-| automationAccounts/jobs | Non  | 
-| automationAccounts/runbooks | OUI | 
-| automationAccounts/softwareUpdateConfigurations | Non  | 
-| automationAccounts/webhooks | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | automationAccounts | OUI |OUI |
+> | automationAccounts/configurations | OUI |OUI |
+> | automationAccounts/jobs | Non |Non |
+> | automationAccounts/runbooks | OUI |OUI |
+> | automationAccounts/softwareUpdateConfigurations | Non |Non |
+> | automationAccounts/webhooks | Non |Non |
+
+## <a name="microsoftazconfig"></a>Microsoft.Azconfig
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | configurationStores | OUI |OUI |
+> | configurationStores/eventGridFilters | Non |Non |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| environments | Non  | 
-| environments/accounts | Non  | 
-| environments/accounts/namespaces | Non  | 
-| environments/accounts/namespaces/configurations | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | environments | Non |Non |
+> | environments/accounts | Non |Non |
+> | environments/accounts/namespaces | Non |Non |
+> | environments/accounts/namespaces/configurations | Non |Non |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| b2cDirectories | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | b2cDirectories | OUI |Non |
+> | b2ctenants | Non |Non |
+
+## <a name="microsoftazuredata"></a>Microsoft.AzureData
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | hybridDataManagers | OUI |OUI |
+> | postgresInstances | OUI |OUI |
+> | sqlBigDataClusters | OUI |OUI |
+> | sqlInstances | OUI |OUI |
+> | sqlServerRegistrations | OUI |OUI |
+> | sqlServerRegistrations/sqlServers | Non |Non |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| registrations | OUI | 
-| registrations/customerSubscriptions | Non  | 
-| registrations/products | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | registrations | OUI |OUI |
+> | registrations/customerSubscriptions | Non |Non |
+> | registrations/products | Non |Non |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| batchAccounts | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | batchAccounts | OUI |OUI |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| billingAccounts | Non  | 
-| billingAccounts/billingProfiles | Non  | 
-| billingAccounts/billingProfiles/billingSubscriptions | Non  | 
-| billingAccounts/billingProfiles/invoices | Non  | 
-| billingAccounts/billingProfiles/invoices/pricesheet | Non  | 
-| billingAccounts/billingProfiles/operationStatus | Non  | 
-| billingAccounts/billingProfiles/paymentMethods | Non  | 
-| billingAccounts/billingProfiles/policies | Non  | 
-| billingAccounts/billingProfiles/pricesheet | Non  | 
-| billingAccounts/billingProfiles/products | Non  | 
-| billingAccounts/billingProfiles/transactions | Non  | 
-| billingAccounts/billingSubscriptions | Non  | 
-| billingAccounts/departments | Non  | 
-| billingAccounts/eligibleOffers | Non  | 
-| billingAccounts/enrollmentAccounts | Non  | 
-| billingAccounts/invoices | Non  | 
-| billingAccounts/invoiceSections | Non  | 
-| billingAccounts/invoiceSections/billingSubscriptions | Non  | 
-| billingAccounts/invoiceSections/billingSubscriptions/transfer | Non  | 
-| billingAccounts/invoiceSections/importRequests | Non  | 
-| billingAccounts/invoiceSections/initiateImportRequest | Non  | 
-| billingAccounts/invoiceSections/initiateTransfer | Non  | 
-| billingAccounts/invoiceSections/operationStatus | Non  | 
-| billingAccounts/invoiceSections/products | Non  | 
-| billingAccounts/invoiceSections/transfers | Non  | 
-| billingAccounts/products | Non  | 
-| billingAccounts/projects | Non  | 
-| billingAccounts/projects/billingSubscriptions | Non  | 
-| billingAccounts/projects/importRequests | Non  | 
-| billingAccounts/projects/initiateImportRequest | Non  | 
-| billingAccounts/projects/operationStatus | Non  | 
-| billingAccounts/projects/products | Non  | 
-| billingAccounts/transactions | Non  | 
-| billingPeriods | Non  | 
-| BillingPermissions | Non  | 
-| billingProperty | Non  | 
-| BillingRoleAssignments | Non  | 
-| BillingRoleDefinitions | Non  | 
-| CreateBillingRoleAssignment | Non  | 
-| departments | Non  | 
-| enrollmentAccounts | Non  | 
-| importRequests | Non  | 
-| importRequests/acceptImportRequest | Non  | 
-| importRequests/declineImportRequest | Non  | 
-| invoices | Non  | 
-| transfers | Non  | 
-| transfers/acceptTransfer | Non  | 
-| transfers/declineTransfer | Non  | 
-| transfers/operationStatus | Non  | 
-| usagePlans | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | billingAccounts | Non |Non |
+> | billingAccounts/agreements | Non |Non |
+> | billingAccounts/billingPermissions | Non |Non |
+> | billingAccounts/billingProfiles | Non |Non |
+> | billingAccounts/billingProfiles/billingPermissions | Non |Non |
+> | billingAccounts/billingProfiles/billingRoleAssignments | Non |Non |
+> | billingAccounts/billingProfiles/billingRoleDefinitions | Non |Non |
+> | billingAccounts/billingProfiles/billingSubscriptions | Non |Non |
+> | billingAccounts/billingProfiles/createBillingRoleAssignment | Non |Non |
+> | billingAccounts/billingProfiles/customers | Non |Non |
+> | billingAccounts/billingProfiles/invoices | Non |Non |
+> | billingAccounts/billingProfiles/invoices/pricesheet | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/billingPermissions | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleAssignments | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/billingRoleDefinitions | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/billingSubscriptions | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/createBillingRoleAssignment | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/initiateTransfer | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/products | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/products/transfer | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/products/updateAutoRenew | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/transactions | Non |Non |
+> | billingAccounts/billingProfiles/invoiceSections/transfers | Non |Non |
+> | billingAccounts/BillingProfiles/patchOperations | Non |Non |
+> | billingAccounts/billingProfiles/paymentMethods | Non |Non |
+> | billingAccounts/billingProfiles/policies | Non |Non |
+> | billingAccounts/billingProfiles/pricesheet | Non |Non |
+> | billingAccounts/billingProfiles/pricesheetDownloadOperations | Non |Non |
+> | billingAccounts/billingProfiles/products | Non |Non |
+> | billingAccounts/billingProfiles/transactions | Non |Non |
+> | billingAccounts/billingRoleAssignments | Non |Non |
+> | billingAccounts/billingRoleDefinitions | Non |Non |
+> | billingAccounts/billingSubscriptions | Non |Non |
+> | billingAccounts/createBillingRoleAssignment | Non |Non |
+> | billingAccounts/createInvoiceSectionOperations | Non |Non |
+> | billingAccounts/customers | Non |Non |
+> | billingAccounts/customers/billingSubscriptions | Non |Non |
+> | billingAccounts/customers/initiateTransfer | Non |Non |
+> | billingAccounts/customers/products | Non |Non |
+> | billingAccounts/customers/transactions | Non |Non |
+> | billingAccounts/customers/transfers | Non |Non |
+> | billingAccounts/departments | Non |Non |
+> | billingAccounts/enrollmentAccounts | Non |Non |
+> | billingAccounts/invoices | Non |Non |
+> | billingAccounts/invoiceSections | Non |Non |
+> | billingAccounts/invoiceSections/billingSubscriptionMoveOperations | Non |Non |
+> | billingAccounts/invoiceSections/billingSubscriptions | Non |Non |
+> | billingAccounts/invoiceSections/billingSubscriptions/transfer | Non |Non |
+> | billingAccounts/invoiceSections/elevate | Non |Non |
+> | billingAccounts/invoiceSections/initiateTransfer | Non |Non |
+> | billingAccounts/invoiceSections/patchOperations | Non |Non |
+> | billingAccounts/invoiceSections/productMoveOperations | Non |Non |
+> | billingAccounts/invoiceSections/products | Non |Non |
+> | billingAccounts/invoiceSections/products/transfer | Non |Non |
+> | billingAccounts/invoiceSections/products/updateAutoRenew | Non |Non |
+> | billingAccounts/invoiceSections/transactions | Non |Non |
+> | billingAccounts/invoiceSections/transfers | Non |Non |
+> | billingAccounts/lineOfCredit | Non |Non |
+> | billingAccounts/patchOperations | Non |Non |
+> | billingAccounts/paymentMethods | Non |Non |
+> | billingAccounts/products | Non |Non |
+> | billingAccounts/transactions | Non |Non |
+> | billingPeriods | Non |Non |
+> | billingPermissions | Non |Non |
+> | billingProperty | Non |Non |
+> | billingRoleAssignments | Non |Non |
+> | billingRoleDefinitions | Non |Non |
+> | createBillingRoleAssignment | Non |Non |
+> | departments | Non |Non |
+> | enrollmentAccounts | Non |Non |
+> | invoices | Non |Non |
+> | transfers | Non |Non |
+> | transfers/acceptTransfer | Non |Non |
+> | transfers/declineTransfer | Non |Non |
+> | transfers/operationStatus | Non |Non |
+> | transfers/validateTransfer | Non |Non |
+> | validateAddress | Non |Non |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| mapApis | OUI | 
-| updateCommunicationPreference | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | mapApis | OUI |OUI |
+> | updateCommunicationPreference | Non |Non |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| BizTalk | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | BizTalk | OUI |OUI |
+
+## <a name="microsoftblockchain"></a>Microsoft.Blockchain
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | blockchainMembers | OUI |OUI |
+> | watchers | OUI |OUI |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| blueprintAssignments | Non  | 
-| blueprintAssignments/assignmentOperations | Non  | 
-| blueprintAssignments/operations | Non  | 
-| blueprints | Non  | 
-| blueprints/artifacts | Non  | 
-| blueprints/versions | Non  | 
-| blueprints/versions/artifacts | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | blueprintAssignments | Non |Non |
+> | blueprintAssignments/assignmentOperations | Non |Non |
+> | blueprintAssignments/operations | Non |Non |
+> | blueprints | Non |Non |
+> | blueprints/artifacts | Non |Non |
+> | blueprints/versions | Non |Non |
+> | blueprints/versions/artifacts | Non |Non |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| botServices | OUI | 
-| botServices/channels | Non  | 
-| botServices/connections | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | botServices | OUI |OUI |
+> | botServices/channels | Non |Non |
+> | botServices/connections | Non |Non |
+> | languages | Non |Non |
+> | modèles | Non |Non |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| Redis | OUI | 
-| RedisConfigDefinition | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | Redis | OUI |OUI |
+> | RedisConfigDefinition | Non |Non |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| appliedReservations | Non  | 
-| calculatePrice | Non  | 
-| catalogs | Non  | 
-| commercialReservationOrders | Non  | 
-| reservationOrders | Non  | 
-| reservationOrders/calculateRefund | Non  | 
-| reservationOrders/merge | Non  | 
-| reservationOrders/reservations | Non  | 
-| reservationOrders/reservations/revisions | Non  | 
-| reservationOrders/return | Non  | 
-| reservationOrders/split | Non  | 
-| reservationOrders/swap | Non  | 
-| reservations | Non  | 
-| les ressources | Non  | 
-| validateReservationOrder | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | appliedReservations | Non |Non |
+> | calculateExchange | Non |Non |
+> | calculatePrice | Non |Non |
+> | calculatePurchasePrice | Non |Non |
+> | catalogs | Non |Non |
+> | commercialReservationOrders | Non |Non |
+> | change | Non |Non |
+> | placePurchaseOrder | Non |Non |
+> | reservationOrders | Non |Non |
+> | reservationOrders/calculateRefund | Non |Non |
+> | reservationOrders/merge | Non |Non |
+> | reservationOrders/reservations | Non |Non |
+> | reservationOrders/reservations/revisions | Non |Non |
+> | reservationOrders/return | Non |Non |
+> | reservationOrders/split | Non |Non |
+> | reservationOrders/swap | Non |Non |
+> | reservations | Non |Non |
+> | les ressources | Non |Non |
+> | validateReservationOrder | Non |Non |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| edgenodes | Non  | 
-| profiles | OUI | 
-| profiles/endpoints | OUI | 
-| profiles/endpoints/customdomains | Non  | 
-| profiles/endpoints/origins | Non  | 
-| validateProbe | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | CdnWebApplicationFirewallManagedRuleSets | Non |Non |
+> | CdnWebApplicationFirewallPolicies | OUI |OUI |
+> | edgenodes | Non |Non |
+> | profiles | OUI |OUI |
+> | profiles/endpoints | OUI |OUI |
+> | profiles/endpoints/customdomains | Non |Non |
+> | profiles/endpoints/origins | Non |Non |
+> | validateProbe | Non |Non |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| certificateOrders | OUI | 
-| certificateOrders/certificates | Non  | 
-| validateCertificateRegistrationInformation | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | certificateOrders | OUI |OUI |
+> | certificateOrders/certificates | Non |Non |
+> | validateCertificateRegistrationInformation | Non |Non |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| capabilities | Non  | 
-| domainNames | Non  | 
-| domainNames/capabilities | Non  | 
-| domainNames/internalLoadBalancers | Non  | 
-| domainNames/serviceCertificates | Non  | 
-| domainNames/slots | Non  | 
-| domainNames/slots/roles | Non  | 
-| moveSubscriptionResources | Non  | 
-| operatingSystemFamilies | Non  | 
-| operatingSystems | Non  | 
-| quotas | Non  | 
-| resourceTypes | Non  | 
-| validateSubscriptionMoveAvailability | Non  | 
-| virtualMachines | Non  | 
-| virtualMachines/diagnosticSettings | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | capabilities | Non |Non |
+> | domainNames | OUI |OUI |
+> | domainNames/capabilities | Non |Non |
+> | domainNames/internalLoadBalancers | Non |Non |
+> | domainNames/serviceCertificates | Non |Non |
+> | domainNames/slots | Non |Non |
+> | domainNames/slots/roles | Non |Non |
+> | domainNames/slots/roles/metricDefinitions | Non |Non |
+> | domainNames/slots/roles/metrics | Non |Non |
+> | moveSubscriptionResources | Non |Non |
+> | operatingSystemFamilies | Non |Non |
+> | operatingSystems | Non |Non |
+> | quotas | Non |Non |
+> | resourceTypes | Non |Non |
+> | validateSubscriptionMoveAvailability | Non |Non |
+> | virtualMachines | OUI |OUI |
+> | virtualMachines/diagnosticSettings | Non |Non |
+> | virtualMachines/metricDefinitions | Non |Non |
+> | virtualMachines/metrics | Non |Non |
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| classicInfrastructureResources | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | classicInfrastructureResources | Non |Non |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| capabilities | Non  | 
-| expressRouteCrossConnections | Non  | 
-| expressRouteCrossConnections/peerings | Non  | 
-| gatewaySupportedDevices | Non  | 
-| networkSecurityGroups | Non  | 
-| quotas | Non  | 
-| reservedIps | Non  | 
-| virtualNetworks | Non  | 
-| virtualNetworks/remoteVirtualNetworkPeeringProxies | Non  | 
-| virtualNetworks/virtualNetworkPeerings | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | capabilities | Non |Non |
+> | expressRouteCrossConnections | Non |Non |
+> | expressRouteCrossConnections/peerings | Non |Non |
+> | gatewaySupportedDevices | Non |Non |
+> | networkSecurityGroups | OUI |OUI |
+> | quotas | Non |Non |
+> | reservedIps | OUI |OUI |
+> | virtualNetworks | OUI |OUI |
+> | virtualNetworks/remoteVirtualNetworkPeeringProxies | Non |Non |
+> | virtualNetworks/virtualNetworkPeerings | Non |Non |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| capabilities | Non  | 
-| disks | Non  | 
-| images | Non  | 
-| osImages | Non  | 
-| osPlatformImages | Non  | 
-| publicImages | Non  | 
-| quotas | Non  | 
-| storageAccounts | Non  | 
-| storageAccounts/services | Non  | 
-| storageAccounts/services/diagnosticSettings | Non  | 
-| storageAccounts/vmImages | Non  | 
-| vmImages | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | capabilities | Non |Non |
+> | disks | Non |Non |
+> | images | Non |Non |
+> | osImages | Non |Non |
+> | osPlatformImages | Non |Non |
+> | publicImages | Non |Non |
+> | quotas | Non |Non |
+> | storageAccounts | OUI |OUI |
+> | storageAccounts/blobServices | Non |Non |
+> | storageAccounts/fileServices | Non |Non |
+> | storageAccounts/metricDefinitions | Non |Non |
+> | storageAccounts/metrics | Non |Non |
+> | storageAccounts/queueServices | Non |Non |
+> | storageAccounts/services | Non |Non |
+> | storageAccounts/services/diagnosticSettings | Non |Non |
+> | storageAccounts/services/metricDefinitions | Non |Non |
+> | storageAccounts/services/metrics | Non |Non |
+> | storageAccounts/tableServices | Non |Non |
+> | storageAccounts/vmImages | Non |Non |
+> | vmImages | Non |Non |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| accounts | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | accounts | OUI |OUI |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| RateCard | Non  | 
-| UsageAggregates | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | RateCard | Non |Non |
+> | UsageAggregates | Non |Non |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| availabilitySets | OUI | 
-| disks | OUI | 
-| images | OUI | 
-| restorePointCollections | OUI | 
-| restorePointCollections/restorePoints | Non  | 
-| sharedVMImages | OUI | 
-| sharedVMImages/versions | OUI | 
-| snapshots | OUI | 
-| virtualMachines | OUI | 
-| virtualMachines/diagnosticSettings | Non  | 
-| virtualMachines/extensions | OUI | 
-| virtualMachineScaleSets | OUI | 
-| virtualMachineScaleSets/extensions | Non  | 
-| virtualMachineScaleSets/networkInterfaces | Non  | 
-| virtualMachineScaleSets/publicIPAddresses | Non  | 
-| virtualMachineScaleSets/virtualMachines | Non  | 
-| virtualMachineScaleSets/virtualMachines/networkInterfaces | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | availabilitySets | OUI |OUI |
+> | diskEncryptionSets | OUI |OUI |
+> | disks | OUI |OUI |
+> | galleries | OUI |OUI |
+> | galeries/applications | OUI |OUI |
+> | galleries/applications/versions | OUI |OUI |
+> | galleries/images | OUI |OUI |
+> | galleries/images/versions | OUI |OUI |
+> | hostGroups | OUI |OUI |
+> | hostGroups/hosts | OUI |OUI |
+> | images | OUI |OUI |
+> | proximityPlacementGroups | OUI |OUI |
+> | restorePointCollections | OUI |OUI |
+> | restorePointCollections/restorePoints | Non |Non |
+> | sharedVMImages | OUI |OUI |
+> | sharedVMImages/versions | OUI |OUI |
+> | snapshots | OUI |OUI |
+> | virtualMachines | OUI |OUI |
+> | virtualMachines/extensions | OUI |OUI |
+> | virtualMachines/metricDefinitions | Non |Non |
+> | virtualMachines/scriptJobs | Non |Non |
+> | virtualMachines/softwareUpdateDeployments | Non |Non |
+> | virtualMachineScaleSets | OUI |OUI |
+> | virtualMachineScaleSets/extensions | Non |Non |
+> | virtualMachineScaleSets/networkInterfaces | Non |Non |
+> | virtualMachineScaleSets/publicIPAddresses | Non |Non |
+> | virtualMachineScaleSets/virtualMachines | Non |Non |
+> | virtualMachineScaleSets/virtualMachines/networkInterfaces | Non |Non |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| AggregatedCost | Non  | 
-| Balances | Non  | 
-| Budgets | Non  | 
-| Charges | Non  | 
-| CostTags | Non  | 
-| credits | Non  | 
-| événements | Non  | 
-| Prévisions | Non  | 
-| lots | Non  | 
-| Marketplaces | Non  | 
-| Pricesheets | Non  | 
-| products | Non  | 
-| ReservationDetails | Non  | 
-| ReservationRecommendations | Non  | 
-| ReservationSummaries | Non  | 
-| ReservationTransactions | Non  | 
-| Balises | Non  | 
-| Termes | Non  | 
-| UsageDetails | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | AggregatedCost | Non |Non |
+> | Balances | Non |Non |
+> | Budgets | Non |Non |
+> | Charges | Non |Non |
+> | CostTags | Non |Non |
+> | credits | Non |Non |
+> | événements | Non |Non |
+> | Prévisions | Non |Non |
+> | lots | Non |Non |
+> | Marketplaces | Non |Non |
+> | Pricesheets | Non |Non |
+> | products | Non |Non |
+> | ReservationDetails | Non |Non |
+> | ReservationRecommendations | Non |Non |
+> | ReservationSummaries | Non |Non |
+> | ReservationTransactions | Non |Non |
+> | Balises | Non |Non |
+> | tenants | Non |Non |
+> | Termes | Non |Non |
+> | UsageDetails | Non |Non |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| containerGroups | OUI | 
-| serviceAssociationLinks | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | containerGroups | OUI |OUI |
+> | serviceAssociationLinks | Non |Non |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| registries | OUI | 
-| registries/builds | Non  | 
-| registries/builds/cancel | Non  | 
-| registries/builds/getLogLink | Non  | 
-| registries/buildTasks | OUI | 
-| registries/buildTasks/steps | Non  | 
-| registries/eventGridFilters | Non  | 
-| registries/getBuildSourceUploadUrl | Non  | 
-| registries/GetCredentials | Non  | 
-| registries/importImage | Non  | 
-| registries/queueBuild | Non  | 
-| registries/regenerateCredential | Non  | 
-| registries/regenerateCredentials | Non  | 
-| registries/replications | OUI | 
-| registries/runs | Non  | 
-| registries/runs/cancel | Non  | 
-| registries/scheduleRun | Non  | 
-| registries/tasks | OUI | 
-| registries/updatePolicies | Non  | 
-| registries/webhooks | OUI | 
-| registries/webhooks/getCallbackConfig | Non  | 
-| registries/webhooks/ping | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | registries | OUI |OUI |
+> | registries/builds | Non |Non |
+> | registries/builds/cancel | Non |Non |
+> | registries/builds/getLogLink | Non |Non |
+> | registries/buildTasks | OUI |OUI |
+> | registries/buildTasks/steps | Non |Non |
+> | registries/eventGridFilters | Non |Non |
+> | registries/getBuildSourceUploadUrl | Non |Non |
+> | registries/GetCredentials | Non |Non |
+> | registries/importImage | Non |Non |
+> | registries/queueBuild | Non |Non |
+> | registries/regenerateCredential | Non |Non |
+> | registries/regenerateCredentials | Non |Non |
+> | registries/replications | OUI |OUI |
+> | registries/runs | Non |Non |
+> | registries/runs/cancel | Non |Non |
+> | registries/scheduleRun | Non |Non |
+> | registries/tasks | OUI |OUI |
+> | registries/updatePolicies | Non |Non |
+> | registries/webhooks | OUI |OUI |
+> | registries/webhooks/getCallbackConfig | Non |Non |
+> | registries/webhooks/ping | Non |Non |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| containerServices | OUI | 
-| managedclusters | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | containerServices | OUI |OUI |
+> | managedclusters | OUI |OUI |
+> | openShiftManagedClusters | OUI |OUI |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| applications | OUI | 
-| updateCommunicationPreference | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | applications | OUI |OUI |
+> | updateCommunicationPreference | Non |Non |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| accounts | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | accounts | OUI |OUI |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| Alertes | Non  | 
-| BillingAccounts | Non  | 
-| Connecteurs | OUI | 
-| Departments | Non  | 
-| Dimensions | Non  | 
-| EnrollmentAccounts | Non  | 
-| Requête | Non  | 
-| inscription | Non  | 
-| Reportconfigs | Non  | 
-| Rapports | Non  | 
 
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| hubs | OUI | 
-| hubs/authorizationPolicies | Non  | 
-| hubs/connectors | Non  | 
-| hubs/connectors/mappings | Non  | 
-| hubs/interactions | Non  | 
-| hubs/kpi | Non  | 
-| hubs/links | Non  | 
-| hubs/profiles | Non  | 
-| hubs/roleAssignments | Non  | 
-| hubs/roles | Non  | 
-| hubs/suggestTypeSchema | Non  | 
-| hubs/views | Non  | 
-| hubs/widgetTypes | Non  | 
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | Alertes | Non |Non |
+> | BillingAccounts | Non |Non |
+> | Budgets | Non |Non |
+> | CloudConnectors | Non |Non |
+> | Connecteurs | OUI |OUI |
+> | Departments | Non |Non |
+> | Dimensions | Non |Non |
+> | EnrollmentAccounts | Non |Non |
+> | Exports | Non |Non |
+> | ExternalBillingAccounts | Non |Non |
+> | ExternalBillingAccounts/Alerts | Non |Non |
+> | ExternalBillingAccounts/Dimensions | Non |Non |
+> | ExternalBillingAccounts/Forecast | Non |Non |
+> | ExternalBillingAccounts/Query | Non |Non |
+> | ExternalSubscriptions | Non |Non |
+> | ExternalSubscriptions/Alerts | Non |Non |
+> | ExternalSubscriptions/Dimensions | Non |Non |
+> | ExternalSubscriptions/Forecast | Non |Non |
+> | ExternalSubscriptions/Query | Non |Non |
+> | Forecast | Non |Non |
+> | Requête | Non |Non |
+> | inscription | Non |Non |
+> | Reportconfigs | Non |Non |
+> | Rapports | Non |Non |
+> | Paramètres | Non |Non |
+> | showbackRules | Non |Non |
+> | Views | Non |Non |
+
+## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | requêtes | Non |Non |
+
+## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | associations | Non |Non |
+> | resourceProviders | OUI |OUI |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| jobs | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | jobs | OUI |OUI |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| DataBoxEdgeDevices | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | DataBoxEdgeDevices | OUI |OUI |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| workspaces | OUI | 
-| workspaces/virtualNetworkPeerings | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | workspaces | OUI |Non |
+> | workspaces/virtualNetworkPeerings | Non |Non |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| catalogs | OUI | 
 
-## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| connectionManagers | OUI | 
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | catalogs | OUI |OUI |
+> | datacatalogs | OUI |OUI |
+> | datacatalogs/datasources | Non |Non |
+> | datacatalogs/datasources/scans | Non |Non |
+> | datacatalogs/datasources/scans/datasets | Non |Non |
+> | datacatalogs/datasources/scans/triggers | Non |Non |
+> | datacatalogs/scantargets | Non |Non |
+> | datacatalogs/scantargets/datasets | Non |Non |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| dataFactories | OUI | 
-| dataFactories/diagnosticSettings | Non  | 
-| dataFactorySchema | Non  | 
-| factories | OUI | 
-| factories/integrationRuntimes | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | dataFactories | OUI |Non |
+> | dataFactories/diagnosticSettings | Non |Non |
+> | dataFactories/metricDefinitions | Non |Non |
+> | dataFactorySchema | Non |Non |
+> | factories | OUI |Non |
+> | factories/integrationRuntimes | Non |Non |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| accounts | OUI | 
-| accounts/dataLakeStoreAccounts | Non  | 
-| accounts/storageAccounts | Non  | 
-| accounts/storageAccounts/containers | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | accounts | OUI |OUI |
+> | accounts/dataLakeStoreAccounts | Non |Non |
+> | accounts/storageAccounts | Non |Non |
+> | accounts/storageAccounts/containers | Non |Non |
+> | accounts/transferAnalyticsUnits | Non |Non |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| accounts | OUI | 
-| accounts/eventGridFilters | Non  | 
-| accounts/firewallRules | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | accounts | OUI |OUI |
+> | accounts/eventGridFilters | Non |Non |
+> | accounts/firewallRules | Non |Non |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| services | OUI | 
-| services/projects | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | services | Non |Non |
+> | services/projects | Non |Non |
+
+## <a name="microsoftdatashare"></a>Microsoft.DataShare
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | accounts | OUI |OUI |
+> | accounts/shares | Non |Non |
+> | accounts/shares/datasets | Non |Non |
+> | accounts/shares/invitations | Non |Non |
+> | accounts/shares/providersharesubscriptions | Non |Non |
+> | accounts/shares/synchronizationSettings | Non |Non |
+> | accounts/sharesubscriptions | Non |Non |
+> | accounts/sharesubscriptions/consumerSourceDataSets | Non |Non |
+> | accounts/sharesubscriptions/datasetmappings | Non |Non |
+> | accounts/sharesubscriptions/triggers | Non |Non |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| servers | OUI | 
-| servers/recoverableServers | Non  | 
-| servers/virtualNetworkRules | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | servers | OUI |OUI |
+> | servers/advisors | Non |Non |
+> | servers/queryTexts | Non |Non |
+> | servers/recoverableServers | Non |Non |
+> | servers/topQueryStatistics | Non |Non |
+> | servers/virtualNetworkRules | Non |Non |
+> | servers/waitStatistics | Non |Non |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| servers | OUI | 
-| servers/recoverableServers | Non  | 
-| servers/virtualNetworkRules | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | servers | OUI |OUI |
+> | servers/advisors | Non |Non |
+> | servers/queryTexts | Non |Non |
+> | servers/recoverableServers | Non |Non |
+> | servers/topQueryStatistics | Non |Non |
+> | servers/virtualNetworkRules | Non |Non |
+> | servers/waitStatistics | Non |Non |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| servers | OUI | 
-| servers/advisors | Non  | 
-| servers/queryTexts | Non  | 
-| servers/recoverableServers | Non  | 
-| servers/topQueryStatistics | Non  | 
-| servers/virtualNetworkRules | Non  | 
-| servers/waitStatistics | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | serverGroups | OUI |OUI |
+> | servers | OUI |OUI |
+> | servers/advisors | Non |Non |
+> | servers/queryTexts | Non |Non |
+> | servers/recoverableServers | Non |Non |
+> | servers/topQueryStatistics | Non |Non |
+> | servers/virtualNetworkRules | Non |Non |
+> | servers/waitStatistics | Non |Non |
+> | serversv2 | OUI |OUI |
+
+## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | artifactSources | OUI |OUI |
+> | rollouts | OUI |OUI |
+> | serviceTopologies | OUI |OUI |
+> | serviceTopologies/services | OUI |OUI |
+> | serviceTopologies/services/serviceUnits | OUI |OUI |
+> | steps | OUI |OUI |
+
+## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | applicationgroups | OUI |OUI |
+> | applicationgroups/applications | Non |Non |
+> | applicationgroups/startmenuitems | Non |Non |
+> | hostpools | OUI |OUI |
+> | hostpools/sessionhosts | Non |Non |
+> | hostpools/sessionhosts/usersessions | Non |Non |
+> | hostpools/usersessions | Non |Non |
+> | workspaces | OUI |OUI |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| IoTHubs | OUI | 
-| IotHubs/eventGridFilters | Non  | 
-| ProvisioningServices | OUI | 
-| usages | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | ElasticPools | OUI |OUI |
+> | ElasticPools/IotHubTenants | OUI |OUI |
+> | IoTHubs | OUI |OUI |
+> | IotHubs/eventGridFilters | Non |Non |
+> | ProvisioningServices | OUI |OUI |
+> | usages | Non |Non |
+
+## <a name="microsoftdevops"></a>Microsoft.DevOps
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | pipelines | OUI |OUI |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| controllers | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | controllers | OUI |OUI |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| labs | OUI | 
-| labs/serviceRunners | OUI | 
-| labs/virtualMachines | OUI | 
-| schedules | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | labcenters | OUI |OUI |
+> | labs | OUI |OUI |
+> | labs/environments | OUI |OUI |
+> | labs/serviceRunners | OUI |OUI |
+> | labs/virtualMachines | OUI |OUI |
+> | schedules | OUI |OUI |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| databaseAccountNames | Non  | 
-| databaseAccounts | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | databaseAccountNames | Non |Non |
+> | databaseAccounts | OUI |OUI |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| domaines | OUI | 
-| domains/domainOwnershipIdentifiers | Non  | 
-| generateSsoRequest | Non  | 
-| topLevelDomains | Non  | 
-| validateDomainRegistrationInformation | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | domaines | OUI |OUI |
+> | domains/domainOwnershipIdentifiers | Non |Non |
+> | generateSsoRequest | Non |Non |
+> | topLevelDomains | Non |Non |
+> | validateDomainRegistrationInformation | Non |Non |
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| lcsprojects | Non  | 
-| lcsprojects/clouddeployments | Non  | 
-| lcsprojects/connectors | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | lcsprojects | Non |Non |
+> | lcsprojects/clouddeployments | Non |Non |
+> | lcsprojects/connectors | Non |Non |
+
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | services | OUI |OUI |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| domaines | OUI | 
-| domains/topics | Non  | 
-| eventSubscriptions | Non  | 
-| extensionTopics | Non  | 
-| topics | OUI | 
-| topicTypes | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | domaines | OUI |OUI |
+> | domains/topics | Non |Non |
+> | eventSubscriptions | Non |Non |
+> | extensionTopics | Non |Non |
+> | topics | OUI |OUI |
+> | topicTypes | Non |Non |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| clusters | OUI | 
-| namespaces | OUI | 
-| namespaces/authorizationrules | Non  | 
-| namespaces/disasterrecoveryconfigs | Non  | 
-| namespaces/eventhubs | Non  | 
-| namespaces/eventhubs/authorizationrules | Non  | 
-| namespaces/eventhubs/consumergroups | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | clusters | OUI |OUI |
+> | namespaces | OUI |OUI |
+> | namespaces/authorizationrules | Non |Non |
+> | namespaces/disasterrecoveryconfigs | Non |Non |
+> | namespaces/eventhubs | Non |Non |
+> | namespaces/eventhubs/authorizationrules | Non |Non |
+> | namespaces/eventhubs/consumergroups | Non |Non |
+> | namespaces/networkrulesets | Non |Non |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| features | Non  | 
-| fournisseurs | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | features | Non |Non |
+> | fournisseurs | Non |Non |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| enroll | Non  | 
-| galleryitems | Non  | 
-| generateartifactaccessuri | Non  | 
-| myareas | Non  | 
-| myareas/areas | Non  | 
-| myareas/areas/areas | Non  | 
-| myareas/areas/areas/galleryitems | Non  | 
-| myareas/areas/galleryitems | Non  | 
-| myareas/galleryitems | Non  | 
-| inscription | Non  | 
-| les ressources | Non  | 
-| retrieveresourcesbyid | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | enroll | Non |Non |
+> | galleryitems | Non |Non |
+> | generateartifactaccessuri | Non |Non |
+> | myareas | Non |Non |
+> | myareas/areas | Non |Non |
+> | myareas/areas/areas | Non |Non |
+> | myareas/areas/areas/galleryitems | Non |Non |
+> | myareas/areas/galleryitems | Non |Non |
+> | myareas/galleryitems | Non |Non |
+> | inscription | Non |Non |
+> | les ressources | Non |Non |
+> | retrieveresourcesbyid | Non |Non |
+
+## <a name="microsoftgenomics"></a>Microsoft.Genomics
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | accounts | OUI |OUI |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| guestConfigurationAssignments | Non  | 
-| software | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | autoManagedVmConfigurationProfiles | OUI |OUI |
+> | guestConfigurationAssignments | Non |Non |
+> | software | Non |Non |
+> | softwareUpdateProfile | Non |Non |
+> | softwareUpdates | Non |Non |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| hanaInstances | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | hanaInstances | OUI |OUI |
+> | sapMonitors | OUI |OUI |
+
+## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | dedicatedHSMs | OUI |OUI |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| clusters | OUI | 
-| clusters/applications | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | clusters | OUI |OUI |
+> | clusters/applications | Non |Non |
+
+## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | services | OUI |OUI |
+
+## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | machines | OUI |OUI |
+
+## <a name="microsofthybriddata"></a>Microsoft.HybridData
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | dataManagers | OUI |OUI |
+
+## <a name="microsofthydra"></a>Microsoft.Hydra
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | components | OUI |OUI |
+> | networkScopes | OUI |OUI |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| jobs | OUI | 
 
-## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| labelGroups | Non  | 
-| labelGroups/labels | Non  | 
-| labelGroups/labels/conditions | Non  | 
-| labelGroups/labels/subLabels | Non  | 
-| labelGroups/labels/subLabels/conditions | Non  | 
-
-## <a name="microsoftinsights"></a>microsoft.insights
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| actiongroups | OUI | 
-| activityLogAlerts | OUI | 
-| alertrules | OUI | 
-| automatedExportSettings | Non  | 
-| autoscalesettings | OUI | 
-| baseline | Non  | 
-| calculatebaseline | Non  | 
-| components | OUI | 
-| components/events | Non  | 
-| components/pricingPlans | Non  | 
-| components/query | Non  | 
-| diagnosticSettings | Non  | 
-| diagnosticSettingsCategories | Non  | 
-| eventCategories | Non  | 
-| eventtypes | Non  | 
-| extendedDiagnosticSettings | Non  | 
-| logDefinitions | Non  | 
-| logprofiles | Non  | 
-| journaux d’activité | Non  | 
-| metricAlerts | OUI |
-| migrateToNewPricingModel | Non  | 
-| myWorkbooks | Non  | 
-| queries | Non  | 
-| rollbackToLegacyPricingModel | Non  | 
-| scheduledqueryrules | OUI | 
-| vmInsightsOnboardingStatuses | Non  | 
-| webtests | OUI | 
-| workbooks | OUI | 
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | jobs | OUI |OUI |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| diagnosticSettings | Non  | 
-| diagnosticSettingsCategories | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | diagnosticSettings | Non |Non |
+> | diagnosticSettingsCategories | Non |Non |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| IoTApps | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | appTemplates | Non |Non |
+> | IoTApps | OUI |OUI |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| Graph | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | Graph | OUI |OUI |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| deletedVaults | Non  | 
-| vaults | OUI | 
-| vaults/accessPolicies | Non  | 
-| vaults/secrets | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | deletedVaults | Non |Non |
+> | hsmPools | OUI |OUI |
+> | vaults | OUI |OUI |
+> | vaults/accessPolicies | Non |Non |
+> | vaults/eventGridFilters | Non |Non |
+> | vaults/secrets | Non |Non |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| clusters | OUI | 
-| clusters/databases | Non  | 
-| clusters/databases/dataconnections | Non  | 
-| clusters/databases/eventhubconnections | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | clusters | OUI |OUI |
+> | clusters/attacheddatabaseconfigurations | Non |Non |
+> | clusters/databases | Non |Non |
+> | clusters/databases/dataconnections | Non |Non |
+> | clusters/databases/eventhubconnections | Non |Non |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| labaccounts | OUI | 
-| users | Non  | 
 
-## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| accounts | OUI | 
-
-## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| accounts | OUI | 
-
-## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| journaux d’activité | Non  | 
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | labaccounts | OUI |OUI |
+> | users | Non |Non |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| integrationAccounts | OUI | 
-| workflows | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | hostingEnvironments | OUI |OUI |
+> | integrationAccounts | OUI |OUI |
+> | integrationServiceEnvironments | OUI |OUI |
+> | integrationServiceEnvironments/managedApis | OUI |OUI |
+> | isolatedEnvironments | OUI |OUI |
+> | workflows | OUI |OUI |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| commitmentPlans | OUI | 
-| webServices | OUI | 
-| Workspaces | OUI | 
 
-## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| accounts | OUI | 
-| accounts/workspaces | OUI | 
-| accounts/workspaces/projects | OUI | 
-| teamAccounts | OUI | 
-| teamAccounts/workspaces | OUI | 
-| teamAccounts/workspaces/projects | OUI | 
-
-## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| accounts | OUI | 
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | commitmentPlans | OUI |OUI |
+> | webServices | OUI |OUI |
+> | Workspaces | OUI |OUI |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| workspaces | OUI | 
-| workspaces/computes | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | workspaces | OUI |OUI |
+> | workspaces/computes | Non |Non |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| Identities | Non  | 
-| userAssignedIdentities | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | Identities | Non |Non |
+> | userAssignedIdentities | OUI |OUI |
+
+## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | marketplaceRegistrationDefinitions | Non |Non |
+> | registrationAssignments | Non |Non |
+> | registrationDefinitions | Non |Non |
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| getEntities | Non  | 
-| managementGroups | Non  | 
-| les ressources | Non  | 
-| startTenantBackfill | Non  | 
-| tenantBackfillStatus | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | getEntities | Non |Non |
+> | managementGroups | Non |Non |
+> | les ressources | Non |Non |
+> | startTenantBackfill | Non |Non |
+> | tenantBackfillStatus | Non |Non |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| accounts | OUI | 
-| accounts/eventGridFilters | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | accounts | OUI |OUI |
+> | accounts/eventGridFilters | Non |Non |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| offers | Non  | 
-| offerTypes | Non  | 
-| offerTypes/publishers | Non  | 
-| offerTypes/publishers/offers | Non  | 
-| offerTypes/publishers/offers/plans | Non  | 
-| offerTypes/publishers/offers/plans/agreements | Non  | 
-| offerTypes/publishers/offers/plans/configs | Non  | 
-| offerTypes/publishers/offers/plans/configs/importImage | Non  | 
-| privategalleryitems | Non  | 
-| products | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | offers | Non |Non |
+> | offerTypes | Non |Non |
+> | offerTypes/publishers | Non |Non |
+> | offerTypes/publishers/offers | Non |Non |
+> | offerTypes/publishers/offers/plans | Non |Non |
+> | offerTypes/publishers/offers/plans/agreements | Non |Non |
+> | offerTypes/publishers/offers/plans/configs | Non |Non |
+> | offerTypes/publishers/offers/plans/configs/importImage | Non |Non |
+> | privategalleryitems | Non |Non |
+> | products | Non |Non |
+> | publishers | Non |Non |
+> | publishers/offers | Non |Non |
+> | publishers/offers/amendments | Non |Non |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| classicDevServices | OUI | 
-| updateCommunicationPreference | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | classicDevServices | OUI |OUI |
+> | updateCommunicationPreference | Non |Non |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| agreements | Non  | 
-| offertypes | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | agreements | Non |Non |
+> | offertypes | Non |Non |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| mediaservices | OUI | 
-| mediaservices/accountFilters | Non  | 
-| mediaservices/assets | Non  | 
-| mediaservices/assets/assetFilters | Non  | 
-| mediaservices/contentKeyPolicies | Non  | 
-| mediaservices/eventGridFilters | Non  | 
-| mediaservices/liveEventOperations | Non  | 
-| mediaservices/liveEvents | OUI | 
-| mediaservices/liveEvents/liveOutputs | Non  | 
-| mediaservices/liveOutputOperations | Non  | 
-| mediaservices/streamingEndpointOperations | Non  | 
-| mediaservices/streamingEndpoints | OUI | 
-| mediaservices/streamingLocators | Non  | 
-| mediaservices/streamingPolicies | Non  | 
-| mediaservices/transforms | Non  | 
-| mediaservices/transforms/jobs | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | mediaservices | OUI |OUI |
+> | mediaservices/accountFilters | Non |Non |
+> | mediaservices/assets | Non |Non |
+> | mediaservices/assets/assetFilters | Non |Non |
+> | mediaservices/contentKeyPolicies | Non |Non |
+> | mediaservices/eventGridFilters | Non |Non |
+> | mediaservices/liveEventOperations | Non |Non |
+> | mediaservices/liveEvents | OUI |OUI |
+> | mediaservices/liveEvents/liveOutputs | Non |Non |
+> | mediaservices/liveOutputOperations | Non |Non |
+> | mediaservices/streamingEndpointOperations | Non |Non |
+> | mediaservices/streamingEndpoints | OUI |OUI |
+> | mediaservices/streamingLocators | Non |Non |
+> | mediaservices/streamingPolicies | Non |Non |
+> | mediaservices/transforms | Non |Non |
+> | mediaservices/transforms/jobs | Non |Non |
+
+## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | appClusters | OUI |OUI |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| projects | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | assessmentProjects | OUI |OUI |
+> | migrateprojects | OUI |OUI |
+> | projects | OUI |OUI |
+
+## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | holographicsBroadcastAccounts | OUI |OUI |
+> | objectUnderstandingAccounts | OUI |OUI |
+> | remoteRenderingAccounts | OUI |OUI |
+> | spatialAnchorsAccounts | OUI |OUI |
+> | surfaceReconstructionAccounts | OUI |OUI |
+
+## <a name="microsoftnetapp"></a>Microsoft.NetApp
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | netAppAccounts | OUI |OUI |
+> | netAppAccounts/capacityPools | OUI |OUI |
+> | netAppAccounts/capacityPools/volumes | OUI |OUI |
+> | netAppAccounts/capacityPools/volumes/mountTargets | OUI |OUI |
+> | netAppAccounts/capacityPools/volumes/snapshots | OUI |OUI |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| applicationGateways | OUI | 
-| applicationSecurityGroups | OUI | 
-| azureFirewallFqdnTags | Non  | 
-| azureFirewalls | OUI | 
-| bgpServiceCommunities | Non  | 
-| connections | OUI | 
-| ddosCustomPolicies | OUI | 
-| ddosProtectionPlans | OUI | 
-| dnsOperationStatuses | Non  | 
-| dnszones | OUI | 
-| dnszones/A | Non  | 
-| dnszones/AAAA | Non  | 
-| dnszones/all | Non  | 
-| dnszones/CAA | Non  | 
-| dnszones/CNAME | Non  | 
-| dnszones/MX | Non  | 
-| dnszones/NS | Non  | 
-| dnszones/PTR | Non  | 
-| dnszones/recordsets | Non  | 
-| dnszones/SOA | Non  | 
-| dnszones/SRV | Non  | 
-| dnszones/TXT | Non  | 
-| expressRouteCircuits | OUI | 
-| expressRouteServiceProviders | Non  | 
-| frontdoors | OUI | 
-| frontdoorWebApplicationFirewallPolicies | OUI | 
-| getDnsResourceReference | Non  | 
-| interfaceEndpoints | OUI | 
-| internalNotify | Non  | 
-| loadBalancers | OUI | 
-| localNetworkGateways | OUI | 
-| natGateways | OUI | 
-| networkIntentPolicies | OUI | 
-| networkInterfaces | OUI | 
-| networkProfiles | OUI | 
-| networkSecurityGroups | OUI | 
-| networkWatchers | OUI | 
-| networkWatchers/connectionMonitors | OUI | 
-| networkWatchers/lenses | OUI | 
-| networkWatchers/pingMeshes | OUI | 
-| privateLinkServices | OUI | 
-| publicIPAddresses | OUI | 
-| publicIPPrefixes | OUI | 
-| routeFilters | OUI | 
-| routeTables | OUI | 
-| serviceEndpointPolicies | OUI | 
-| trafficManagerGeographicHierarchies | Non  | 
-| trafficmanagerprofiles | OUI | 
-| trafficmanagerprofiles/heatMaps | Non  | 
-| virtualHubs | OUI | 
-| virtualNetworkGateways | OUI | 
-| virtualNetworks | OUI | 
-| virtualNetworkTaps | OUI | 
-| virtualWans | OUI | 
-| vpnGateways | OUI | 
-| vpnSites | OUI | 
-| webApplicationFirewallPolicies | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | applicationGateways | OUI |OUI |
+> | applicationGatewayWebApplicationFirewallPolicies | OUI |OUI |
+> | applicationSecurityGroups | OUI |OUI |
+> | azureFirewallFqdnTags | Non |Non |
+> | azureFirewalls | OUI |OUI |
+> | bastionHosts | OUI |OUI |
+> | bgpServiceCommunities | Non |Non |
+> | connections | OUI |OUI |
+> | ddosCustomPolicies | OUI |OUI |
+> | ddosProtectionPlans | OUI |OUI |
+> | dnsOperationStatuses | Non |Non |
+> | dnszones | OUI |OUI |
+> | dnszones/A | Non |Non |
+> | dnszones/AAAA | Non |Non |
+> | dnszones/all | Non |Non |
+> | dnszones/CAA | Non |Non |
+> | dnszones/CNAME | Non |Non |
+> | dnszones/MX | Non |Non |
+> | dnszones/NS | Non |Non |
+> | dnszones/PTR | Non |Non |
+> | dnszones/recordsets | Non |Non |
+> | dnszones/SOA | Non |Non |
+> | dnszones/SRV | Non |Non |
+> | dnszones/TXT | Non |Non |
+> | expressRouteCircuits | OUI |OUI |
+> | expressRouteCrossConnections | OUI |OUI |
+> | expressRouteGateways | OUI |OUI |
+> | expressRoutePorts | OUI |OUI |
+> | expressRouteServiceProviders | Non |Non |
+> | firewallPolicies | OUI |OUI |
+> | frontdoors | Oui, mais limitée (voir la [remarque ci-dessous](#frontdoor)) |OUI |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Oui, mais limitée (voir la [remarque ci-dessous](#frontdoor)) |Non |
+> | frontdoorWebApplicationFirewallPolicies | Oui, mais limitée (voir la [remarque ci-dessous](#frontdoor)) |OUI |
+> | getDnsResourceReference | Non |Non |
+> | internalNotify | Non |Non |
+> | loadBalancers | OUI |Non |
+> | localNetworkGateways | OUI |OUI |
+> | natGateways | OUI |OUI |
+> | networkIntentPolicies | OUI |OUI |
+> | networkInterfaces | OUI |OUI |
+> | networkProfiles | OUI |OUI |
+> | networkSecurityGroups | OUI |OUI |
+> | networkWatchers | OUI |Non |
+> | networkWatchers/connectionMonitors | OUI |Non |
+> | networkWatchers/lenses | OUI |Non |
+> | networkWatchers/pingMeshes | OUI |Non |
+> | p2sVpnGateways | OUI |OUI |
+> | privateDnsOperationStatuses | Non |Non |
+> | privateDnsZones | OUI |OUI |
+> | privateDnsZones/A | Non |Non |
+> | privateDnsZones/AAAA | Non |Non |
+> | privateDnsZones/all | Non |Non |
+> | privateDnsZones/CNAME | Non |Non |
+> | privateDnsZones/MX | Non |Non |
+> | privateDnsZones/PTR | Non |Non |
+> | privateDnsZones/SOA | Non |Non |
+> | privateDnsZones/SRV | Non |Non |
+> | privateDnsZones/TXT | Non |Non |
+> | privateDnsZones/virtualNetworkLinks | OUI |OUI |
+> | privateEndpoints | OUI |OUI |
+> | privateLinkServices | OUI |OUI |
+> | publicIPAddresses | OUI |OUI |
+> | publicIPPrefixes | OUI |OUI |
+> | routeFilters | OUI |OUI |
+> | routeTables | OUI |OUI |
+> | secureGateways | OUI |OUI |
+> | serviceEndpointPolicies | OUI |OUI |
+> | trafficManagerGeographicHierarchies | Non |Non |
+> | trafficmanagerprofiles | OUI |OUI |
+> | trafficmanagerprofiles/heatMaps | Non |Non |
+> | trafficManagerUserMetricsKeys | Non |Non |
+> | virtualHubs | OUI |OUI |
+> | virtualNetworkGateways | OUI |OUI |
+> | virtualNetworks | OUI |OUI |
+> | virtualNetworkTaps | OUI |OUI |
+> | virtualWans | OUI |OUI |
+> | vpnGateways | OUI |Non |
+> | vpnSites | OUI |OUI |
+> | webApplicationFirewallPolicies | OUI |OUI |
+
+<a id="frontdoor" />
+
+> [!NOTE]
+> Pour Azure Front Door Service, vous pouvez appliquer des balises lors de la création de la ressource, mais la mise à jour ou l’ajout de balises n’est actuellement pas pris en charge.
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| namespaces | OUI | 
-| namespaces/notificationHubs | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | namespaces | OUI |Non |
+> | namespaces/notificationHubs | OUI |Non |
+
+## <a name="microsoftoffazure"></a>Microsoft.OffAzure
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | HyperVSites | OUI |OUI |
+> | ImportSites | OUI |OUI |
+> | ServerSites | OUI |OUI |
+> | VMwareSites | OUI |OUI |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| périphériques | Non  | 
-| linkTargets | Non  | 
-| storageInsightConfigs | Non  | 
-| workspaces | OUI | 
-| workspaces/dataSources | Non  | 
-| workspaces/linkedServices | Non  | 
-| workspaces/query | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | clusters | OUI |OUI |
+> | périphériques | Non |Non |
+> | linkTargets | Non |Non |
+> | storageInsightConfigs | Non |Non |
+> | workspaces | OUI |OUI |
+> | workspaces/dataSources | Non |Non |
+> | workspaces/linkedServices | Non |Non |
+> | workspaces/query | Non |Non |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| managementassociations | Non  | 
-| managementconfigurations | OUI | 
-| solutions | OUI | 
-| views | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | managementassociations | Non |Non |
+> | managementconfigurations | OUI |OUI |
+> | solutions | OUI |OUI |
+> | views | OUI |OUI |
+
+## <a name="microsoftpeering"></a>Microsoft.Peering
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | legacyPeerings | Non |Non |
+> | peerAsns | Non |Non |
+> | peerings | OUI |OUI |
+> | peeringServiceProviders | Non |Non |
+> | peeringServices | OUI |OUI |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| policyEvents | Non  | 
-| policyStates | Non  | 
-| policyTrackedResources | Non  | 
-| remediations | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | policyEvents | Non |Non |
+> | policyStates | Non |Non |
+> | policyTrackedResources | Non |Non |
+> | remediations | Non |Non |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| consoles | Non  | 
-| dashboards | OUI | 
-| userSettings | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | consoles | Non |Non |
+> | dashboards | OUI |OUI |
+> | userSettings | Non |Non |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| workspaceCollections | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | workspaceCollections | OUI |OUI |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| capacities | OUI | 
 
-## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| accounts | OUI | 
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | capacities | OUI |OUI |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| backupProtectedItems | Non  | 
-| vaults | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | backupProtectedItems | Non |Non |
+> | vaults | OUI |OUI |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| namespaces | OUI | 
-| namespaces/authorizationrules | Non  | 
-| namespaces/hybridconnections | Non  | 
-| namespaces/hybridconnections/authorizationrules | Non  | 
-| namespaces/wcfrelays | Non  | 
-| namespaces/wcfrelays/authorizationrules | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | namespaces | OUI |OUI |
+> | namespaces/authorizationrules | Non |Non |
+> | namespaces/hybridconnections | Non |Non |
+> | namespaces/hybridconnections/authorizationrules | Non |Non |
+> | namespaces/wcfrelays | Non |Non |
+> | namespaces/wcfrelays/authorizationrules | Non |Non |
+
+## <a name="microsoftremoteapp"></a>Microsoft.RemoteApp
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | accounts | Non |Non |
+> | collections | OUI |OUI |
+> | collections/applications | Non |Non |
+> | collections/securityprincipals | Non |Non |
+> | templateImages | Non |Non |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| les ressources | Non  | 
-| subscriptionsStatus | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | queries | OUI |OUI |
+> | resourceChangeDetails | Non |Non |
+> | resourceChanges | Non |Non |
+> | les ressources | Non |Non |
+> | resourcesHistory | Non |Non |
+> | subscriptionsStatus | Non |Non |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| availabilityStatuses | Non  | 
-| childAvailabilityStatuses | Non  | 
-| childResources | Non  | 
-| événements | Non  | 
-| impactedResources | Non  | 
-| Notifications | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | availabilityStatuses | Non |Non |
+> | childAvailabilityStatuses | Non |Non |
+> | childResources | Non |Non |
+> | événements | Non |Non |
+> | impactedResources | Non |Non |
+> | metadata | Non |Non |
+> | Notifications | Non |Non |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| deployments | Non  | 
-| deployments/operations | Non  | 
-| links | Non  | 
-| notifyResourceJobs | Non  | 
-| fournisseurs | Non  | 
-| resourceGroups | Non  | 
-| les ressources | Non  | 
-| subscriptions | Non  | 
-| subscriptions/providers | Non  | 
-| subscriptions/resourceGroups | Non  | 
-| subscriptions/resourcegroups/resources | Non  | 
-| subscriptions/resources | Non  | 
-| subscriptions/tagnames | Non  | 
-| subscriptions/tagNames/tagValues | Non  | 
-| tenants | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | deployments | OUI |Non |
+> | deployments/operations | Non |Non |
+> | links | Non |Non |
+> | notifyResourceJobs | Non |Non |
+> | fournisseurs | Non |Non |
+> | resourceGroups | OUI |Non |
+> | les ressources | Non |Non |
+> | subscriptions | Non |Non |
+> | subscriptions/providers | Non |Non |
+> | subscriptions/resources | Non |Non |
+> | subscriptions/tagnames | Non |Non |
+> | subscriptions/tagNames/tagValues | Non |Non |
+> | tenants | Non |Non |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| applications | OUI | 
-| saasresources | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | applications | OUI |OUI |
+> | saasresources | Non |Non |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| flows | OUI | 
-| jobcollections | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | jobcollections | OUI |OUI |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| resourceHealthMetadata | Non  | 
-| searchServices | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | resourceHealthMetadata | Non |Non |
+> | searchServices | OUI |OUI |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| advancedThreatProtectionSettings | Non  | 
-| alertes | Non  | 
-| allowedConnections | Non  | 
-| appliances | Non  | 
-| applicationWhitelistings | Non  | 
-| AutoProvisioningSettings | Non  | 
-| Compliances | Non  | 
-| dataCollectionAgents | Non  | 
-| discoveredSecuritySolutions | Non  | 
-| externalSecuritySolutions | Non  | 
-| InformationProtectionPolicies | Non  | 
-| jitNetworkAccessPolicies | Non  | 
-| monitoring | Non  | 
-| monitoring/antimalware | Non  | 
-| monitoring/baseline | Non  | 
-| monitoring/patch | Non  | 
-| stratégies | Non  | 
-| pricings | Non  | 
-| securityContacts | Non  | 
-| securitySolutions | Non  | 
-| securitySolutionsReferenceData | Non  | 
-| securityStatus | Non  | 
-| securityStatus/endpoints | Non  | 
-| securityStatus/subnets | Non  | 
-| securityStatus/virtualMachines | Non  | 
-| securityStatuses | Non  | 
-| securityStatusesSummaries | Non  | 
-| paramètres | Non  | 
-| tâches | Non  | 
-| topologies | Non  | 
-| workspaceSettings | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | adaptiveNetworkHardenings | Non |Non |
+> | advancedThreatProtectionSettings | Non |Non |
+> | alertes | Non |Non |
+> | allowedConnections | Non |Non |
+> | applicationWhitelistings | Non |Non |
+> | assessmentMetadata | Non |Non |
+> | assessments | Non |Non |
+> | AutoProvisioningSettings | Non |Non |
+> | Compliances | Non |Non |
+> | dataCollectionAgents | Non |Non |
+> | deviceSecurityGroups | Non |Non |
+> | discoveredSecuritySolutions | Non |Non |
+> | externalSecuritySolutions | Non |Non |
+> | InformationProtectionPolicies | Non |Non |
+> | iotSecuritySolutions | OUI |OUI |
+> | iotSecuritySolutions/analyticsModels | Non |Non |
+> | iotSecuritySolutions/analyticsModels/aggregatedAlerts | Non |Non |
+> | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | Non |Non |
+> | jitNetworkAccessPolicies | Non |Non |
+> | networkData | Non |Non |
+> | playbookConfigurations | OUI |OUI |
+> | stratégies | Non |Non |
+> | pricings | Non |Non |
+> | regulatoryComplianceStandards | Non |Non |
+> | regulatoryComplianceStandards/regulatoryComplianceControls | Non |Non |
+> | regulatoryComplianceStandards/regulatoryComplianceControls/regulatoryComplianceAssessments | Non |Non |
+> | securityContacts | Non |Non |
+> | securitySolutions | Non |Non |
+> | securitySolutionsReferenceData | Non |Non |
+> | securityStatuses | Non |Non |
+> | securityStatusesSummaries | Non |Non |
+> | serverVulnerabilityAssessments | Non |Non |
+> | paramètres | Non |Non |
+> | tâches | Non |Non |
+> | topologies | Non |Non |
+> | workspaceSettings | Non |Non |
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| diagnosticSettings | Non  | 
-| diagnosticSettingsCategories | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | diagnosticSettings | Non |Non |
+> | diagnosticSettingsCategories | Non |Non |
+
+## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | aggregations | Non |Non |
+> | alertRules | Non |Non |
+> | alertRuleTemplates | Non |Non |
+> | bookmarks | Non |Non |
+> | cas | Non |Non |
+> | dataConnectors | Non |Non |
+> | entities | Non |Non |
+> | entityQueries | Non |Non |
+> | officeConsents | Non |Non |
+> | paramètres | Non |Non |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| namespaces | OUI | 
-| namespaces/authorizationrules | Non  | 
-| namespaces/disasterrecoveryconfigs | Non  | 
-| namespaces/eventgridfilters | Non  | 
-| namespaces/queues | Non  | 
-| namespaces/queues/authorizationrules | Non  | 
-| namespaces/topics | Non  | 
-| namespaces/topics/authorizationrules | Non  | 
-| namespaces/topics/subscriptions | Non  | 
-| namespaces/topics/subscriptions/rules | Non  | 
-| premiumMessagingRegions | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | namespaces | OUI |Non |
+> | namespaces/authorizationrules | Non |Non |
+> | namespaces/disasterrecoveryconfigs | Non |Non |
+> | namespaces/eventgridfilters | Non |Non |
+> | namespaces/networkrulesets | Non |Non |
+> | namespaces/queues | Non |Non |
+> | namespaces/queues/authorizationrules | Non |Non |
+> | namespaces/topics | Non |Non |
+> | namespaces/topics/authorizationrules | Non |Non |
+> | namespaces/topics/subscriptions | Non |Non |
+> | namespaces/topics/subscriptions/rules | Non |Non |
+> | premiumMessagingRegions | Non |Non |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| clusters | OUI | 
-| clusters/applications | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | applications | OUI |OUI |
+> | clusters | OUI |OUI |
+> | clusters/applications | Non |Non |
+> | containerGroups | OUI |OUI |
+> | containerGroupSets | OUI |OUI |
+> | edgeclusters | OUI |OUI |
+> | edgeclusters/applications | Non |Non |
+> | networks | OUI |OUI |
+> | secretstores | OUI |OUI |
+> | secretstores/certificates | Non |Non |
+> | secretstores/secrets | Non |Non |
+> | volumes | OUI |OUI |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| applications | OUI | 
-| gateways | OUI | 
-| networks | OUI | 
-| secrets | OUI | 
-| volumes | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | applications | OUI |OUI |
+> | containerGroups | OUI |OUI |
+> | gateways | OUI |OUI |
+> | networks | OUI |OUI |
+> | secrets | OUI |OUI |
+> | volumes | OUI |OUI |
+
+## <a name="microsoftservices"></a>Microsoft.Services
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | providerRegistrations | Non |Non |
+> | providerRegistrations/resourceTypeRegistrations | Non |Non |
+> | rollouts | OUI |OUI |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| SignalR | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | SignalR | OUI |OUI |
+> | SignalR/eventGridFilters | Non |Non |
+
+## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | SiteRecoveryVault | OUI |OUI |
+
+## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | hybridUseBenefits | Non |Non |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| applianceDefinitions | OUI | 
-| appliances | OUI | 
-| applicationDefinitions | OUI | 
-| applications | OUI | 
-| jitRequests | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | applicationDefinitions | OUI |OUI |
+> | applications | OUI |OUI |
+> | jitRequests | OUI |OUI |
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| managedInstances | OUI |
-| managedInstances/databases | Oui (voir la remarque ci-dessous) |
-| managedInstances/databases/backupShortTermRetentionPolicies | Non  |
-| managedInstances/databases/schemas/tables/columns/sensitivityLabels | Non  |
-| managedInstances/databases/vulnerabilityAssessments | Non  |
-| managedInstances/databases/vulnerabilityAssessments/rules/baselines | Non  |
-| managedInstances/encryptionProtector | Non  |
-| managedInstances/keys | Non  |
-| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Non  |
-| managedInstances/vulnerabilityAssessments | Non  |
-| servers | OUI | 
-| servers/administrators | Non  | 
-| servers/communicationLinks | Non  | 
-| servers/databases | Oui (voir la remarque ci-dessous) | 
-| servers/encryptionProtector | Non  | 
-| servers/firewallRules | Non  | 
-| servers/keys | Non  | 
-| servers/restorableDroppedDatabases | Non  | 
-| servers/serviceobjectives | Non  | 
-| servers/tdeCertificates | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | managedInstances | OUI | OUI |
+> | managedInstances/databases | Oui (voir la [remarque ci-dessous](#sqlnote)) | OUI |
+> | managedInstances/databases/backupShortTermRetentionPolicies | Non | Non |
+> | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Non | Non |
+> | managedInstances/databases/vulnerabilityAssessments | Non | Non |
+> | managedInstances/databases/vulnerabilityAssessments/rules/baselines | Non | Non |
+> | managedInstances/encryptionProtector | Non | Non |
+> | managedInstances/keys | Non | Non |
+> | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Non | Non |
+> | managedInstances/vulnerabilityAssessments | Non | Non |
+> | servers | OUI | OUI |
+> | servers/administrators | Non | Non |
+> | servers/communicationLinks | Non | Non |
+> | servers/databases | Oui (voir la [remarque ci-dessous](#sqlnote)) | OUI |
+> | servers/encryptionProtector | Non | Non |
+> | servers/firewallRules | Non | Non |
+> | servers/keys | Non | Non |
+> | servers/restorableDroppedDatabases | Non | Non |
+> | servers/serviceobjectives | Non | Non |
+> | servers/tdeCertificates | Non | Non |
+> | virtualClusters | Non | Non |
+
+<a id="sqlnote" />
 
 > [!NOTE]
 > La base de données MASTER ne prend pas en charge les balises, à la différence d’autres bases de données, comme les bases de données Azure SQL Data Warehouse. Les bases de données Azure SQL Data Warehouse doivent avoir l’état Actif (pas en pause).
 
-
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| SqlVirtualMachineGroups | OUI | 
-| SqlVirtualMachineGroups/AvailabilityGroupListeners | Non  | 
-| SqlVirtualMachines | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | SqlVirtualMachineGroups | OUI |OUI |
+> | SqlVirtualMachineGroups/AvailabilityGroupListeners | Non |Non |
+> | SqlVirtualMachines | OUI |OUI |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| storageAccounts | OUI | 
-| storageAccounts/blobServices | Non  | 
-| storageAccounts/fileServices | Non  | 
-| storageAccounts/queueServices | Non  | 
-| storageAccounts/services | Non  | 
-| storageAccounts/tableServices | Non  | 
-| usages | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | storageAccounts | OUI |OUI |
+> | storageAccounts/blobServices | Non |Non |
+> | storageAccounts/fileServices | Non |Non |
+> | storageAccounts/queueServices | Non |Non |
+> | storageAccounts/services | Non |Non |
+> | storageAccounts/services/metricDefinitions | Non |Non |
+> | storageAccounts/tableServices | Non |Non |
+> | usages | Non |Non |
+
+## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | caches | OUI |OUI |
+> | caches/storageTargets | Non |Non |
+> | usageModels | Non |Non |
+
+## <a name="microsoftstoragereplication"></a>Microsoft.StorageReplication
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | replicationGroups | Non |Non |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| storageSyncServices | OUI | 
-| storageSyncServices/registeredServers | Non  | 
-| storageSyncServices/syncGroups | Non  | 
-| storageSyncServices/syncGroups/cloudEndpoints | Non  | 
-| storageSyncServices/syncGroups/serverEndpoints | Non  | 
-| storageSyncServices/workflows | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | storageSyncServices | OUI |OUI |
+> | storageSyncServices/registeredServers | Non |Non |
+> | storageSyncServices/syncGroups | Non |Non |
+> | storageSyncServices/syncGroups/cloudEndpoints | Non |Non |
+> | storageSyncServices/syncGroups/serverEndpoints | Non |Non |
+> | storageSyncServices/workflows | Non |Non |
+
+## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | storageSyncServices | OUI |OUI |
+> | storageSyncServices/registeredServers | Non |Non |
+> | storageSyncServices/syncGroups | Non |Non |
+> | storageSyncServices/syncGroups/cloudEndpoints | Non |Non |
+> | storageSyncServices/syncGroups/serverEndpoints | Non |Non |
+> | storageSyncServices/workflows | Non |Non |
+
+## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | storageSyncServices | OUI |OUI |
+> | storageSyncServices/registeredServers | Non |Non |
+> | storageSyncServices/syncGroups | Non |Non |
+> | storageSyncServices/syncGroups/cloudEndpoints | Non |Non |
+> | storageSyncServices/syncGroups/serverEndpoints | Non |Non |
+> | storageSyncServices/workflows | Non |Non |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| managers | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | managers | OUI |OUI |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| streamingjobs | Oui (voir la remarque ci-dessous) | 
-| streamingjobs/diagnosticSettings | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | streamingjobs | Oui (voir la remarque ci-dessous) |OUI |
 
 > [!NOTE]
 > Vous ne pouvez pas ajouter une balise lorsque streamingjobs est en cours d’exécution. Arrêtez la ressource pour pouvoir ajouter une balise.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| CreateSubscription | Non  | 
-| SubscriptionDefinitions | Non  | 
-| SubscriptionOperations | Non  | 
 
-## <a name="microsoftsupport"></a>microsoft.support
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| supporttickets | Non  | 
-
-## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| providerRegistrations | OUI | 
-| les ressources | OUI | 
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | annuler | Non |Non |
+> | CreateSubscription | Non |Non |
+> | enable | Non |Non |
+> | renommer | Non |Non |
+> | SubscriptionDefinitions | Non |Non |
+> | SubscriptionOperations | Non |Non |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| environments | OUI | 
-| environments/accessPolicies | Non  | 
-| environments/eventsources | OUI | 
-| environments/referencedatasets | OUI | 
 
-## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| account | OUI | 
-| account/extension | OUI | 
-| account/project | OUI | 
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | environments | OUI |Non |
+> | environments/accessPolicies | Non |Non |
+> | environments/eventsources | OUI |Non |
+> | environments/referencedatasets | OUI |Non |
+
+## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | dedicatedCloudNodes | OUI |OUI |
+> | dedicatedCloudServices | OUI |OUI |
+> | virtualMachines | OUI |OUI |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| apiManagementAccounts | Non  | 
-| apiManagementAccounts/apiAcls | Non  | 
-| apiManagementAccounts/apis | Non  | 
-| apiManagementAccounts/apis/apiAcls | Non  | 
-| apiManagementAccounts/apis/connectionAcls | Non  | 
-| apiManagementAccounts/apis/connections | Non  | 
-| apiManagementAccounts/apis/connections/connectionAcls | Non  | 
-| apiManagementAccounts/apis/localizedDefinitions | Non  | 
-| apiManagementAccounts/connectionAcls | Non  | 
-| apiManagementAccounts/connections | Non  | 
-| billingMeters | Non  | 
-| certificates | OUI | 
-| connectionGateways | OUI | 
-| connections | OUI | 
-| customApis | OUI | 
-| deletedSites | Non  | 
-| functions | Non  | 
-| hostingEnvironments | OUI | 
-| hostingEnvironments/multiRolePools | Non  | 
-| hostingEnvironments/multiRolePools/instances | Non  | 
-| hostingEnvironments/workerPools | Non  | 
-| hostingEnvironments/workerPools/instances | Non  | 
-| publishingUsers | Non  | 
-| de films | Non  | 
-| resourceHealthMetadata | Non  | 
-| runtimes | Non  | 
-| serverFarms | OUI | 
-| serverFarms/workers | Non  | 
-| sites | OUI | 
-| sites/domainOwnershipIdentifiers | Non  | 
-| sites/hostNameBindings | Non  | 
-| sites/instances | Non  | 
-| sites/instances/extensions | Non  | 
-| sites/premieraddons | OUI | 
-| sites/recommendations | Non  | 
-| sites/resourceHealthMetadata | Non  | 
-| sites/slots | OUI | 
-| sites/slots/hostNameBindings | Non  | 
-| sites/slots/instances | Non  | 
-| sites/slots/instances/extensions | Non  | 
-| sourceControls | Non  | 
-| validate | Non  | 
-| verifyHostingEnvironmentVnet | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | apiManagementAccounts | Non |Non |
+> | apiManagementAccounts/apiAcls | Non |Non |
+> | apiManagementAccounts/apis | Non |Non |
+> | apiManagementAccounts/apis/apiAcls | Non |Non |
+> | apiManagementAccounts/apis/connectionAcls | Non |Non |
+> | apiManagementAccounts/apis/connections | Non |Non |
+> | apiManagementAccounts/apis/connections/connectionAcls | Non |Non |
+> | apiManagementAccounts/apis/localizedDefinitions | Non |Non |
+> | apiManagementAccounts/connectionAcls | Non |Non |
+> | apiManagementAccounts/connections | Non |Non |
+> | billingMeters | Non |Non |
+> | certificates | OUI |OUI |
+> | connectionGateways | OUI |OUI |
+> | connections | OUI |OUI |
+> | customApis | OUI |OUI |
+> | deletedSites | Non |Non |
+> | functions | Non |Non |
+> | hostingEnvironments | OUI |OUI |
+> | hostingEnvironments/multiRolePools | Non |Non |
+> | hostingEnvironments/workerPools | Non |Non |
+> | publishingUsers | Non |Non |
+> | de films | Non |Non |
+> | resourceHealthMetadata | Non |Non |
+> | runtimes | Non |Non |
+> | serverFarms | OUI |OUI |
+> | serverFarms/eventGridFilters | Non |Non |
+> | sites | OUI |OUI |
+> | sites/config  | Non | Non |
+> | sites/eventGridFilters | Non |Non |
+> | sites/hostNameBindings | Non |Non |
+> | sites/networkConfig | Non |Non |
+> | sites/premieraddons | OUI |OUI |
+> | sites/slots | OUI |OUI |
+> | sites/slots/eventGridFilters | Non |Non |
+> | sites/slots/hostNameBindings | Non |Non |
+> | sites/slots/networkConfig | Non |Non |
+> | sourceControls | Non |Non |
+> | validate | Non |Non |
+> | verifyHostingEnvironmentVnet | Non |Non |
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| diagnosticSettings | Non  | 
-| diagnosticSettingsCategories | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | diagnosticSettings | Non |Non |
+> | diagnosticSettingsCategories | Non |Non |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| DeviceServices | OUI | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | DeviceServices | OUI |OUI |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
-| Type de ressource | Prend en charge les étiquettes |
-| ------------- | ----------- |
-| components | Non  | 
-| componentsSummary | Non  | 
-| monitorInstances | Non  | 
-| monitorInstancesSummary | Non  | 
-| monitors | Non  | 
-| notificationSettings | Non  | 
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | components | Non |Non |
+> | componentsSummary | Non |Non |
+> | monitorInstances | Non |Non |
+> | monitorInstancesSummary | Non |Non |
+> | monitors | Non |Non |
+> | notificationSettings | Non |Non |
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour savoir comment appliquer des étiquettes aux ressources, consultez [Utiliser des étiquettes pour organiser vos ressources Azure](resource-group-using-tags.md).

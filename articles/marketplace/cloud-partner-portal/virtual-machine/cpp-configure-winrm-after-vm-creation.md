@@ -1,25 +1,18 @@
 ---
-title: Configurer WinRM après la création d’une machine virtuelle Azure | Microsoft Docs
+title: Configurer WinRM après la création d’une machine virtuelle Azure | Place de marché Azure
 description: Explique comment configurer Windows Remote Management (WinRM) après la création d’une machine virtuelle hébergée sur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 6350d5bde737c46cf14a9aef75a7ec57260a6afa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.author: pabutler
+ms.openlocfilehash: 4a4248efcfda76dfd8907069e167fdfa144d0365
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938512"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configurer WinRM après la création d’une machine virtuelle
 
@@ -33,7 +26,7 @@ Cet article explique comment configurer une machine virtuelle hébergée sur Azu
 
 Le protocole WinRM sur HTTPS utilise le port 5896, qui n’est pas activé par défaut sur les machines virtuelles Windows préconfigurées proposées sur la Place de marché Azure. Pour activer ce protocole, procédez comme suit pour ajouter une nouvelle règle au groupe de sécurité réseau (NSG) dans le [portail Azure](https://portal.azure.com).  Pour plus d’informations sur les groupes de sécurité réseau, voir [Groupes de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
-1.  Accédez au panneau **Machines virtuelles >**  <*nom de la machine virtuelle*>  **> Paramètres/Mise en réseau**.
+1.  Accédez au panneau **Machines virtuelles >**   <*nom de la machine virtuelle*>   **> Paramètres/Mise en réseau**.
 2.  Cliquez sur le nom du groupe de sécurité réseau (dans cet exemple, **testvm11002**) pour afficher ses propriétés :
 
     ![Propriétés du groupe de sécurité réseau](./media/nsg-properties.png)

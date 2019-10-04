@@ -2,26 +2,25 @@
 author: mgottein
 ms.service: search
 ms.topic: include
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 ms.author: magottei
-ms.openlocfilehash: 4a9ed5dcb32d0e53f933b7da9163a5c8c4b4aa43
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 8fbdbf96106cdf2bd2990042c30d346dc830d398
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318425"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208283"
 ---
 * PDF
-* Formats Microsoft Office : DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (e-mails Outlook)  
+* Formats Microsoft Office : DOCX/DOC/DOCM, XLSX/XLS/XLSM, PPTX/PPT/PPTM, MSG (e-mails Outlook), XML (WORD XML 2003 et 2006)
+* Formats de document ouverts : ODT, ODS, ODP  
 * HTML
 * XML
 * ZIP
+* GZ
+* EPUB
 * EML
 * RTF
 * Fichiers de texte brut (voir aussi [l’indexation de texte brut](../articles/search/search-howto-indexing-azure-blob-storage.md#IndexingPlainText))
 * JSON (consultez [l’indexation d’objets JSON blobs](../articles/search/search-howto-index-json-blobs.md))
 * CSV (voir la fonctionnalité de version préliminaire[Indexation d’objets blob CSV](../articles/search/search-howto-index-csv-blobs.md))
-
-> [!IMPORTANT]
-> La prise en charge des tableaux CSV et JSON est actuellement en version préliminaire. Ces formats sont disponibles uniquement avec la version **2017-11-11-Preview** de l’API REST ou la version 7.x-preview du SDK .NET. N’oubliez pas que les API d’évaluation sont destinées à être utilisées à des fins de test et d’évaluation, et non dans les environnements de production.
->

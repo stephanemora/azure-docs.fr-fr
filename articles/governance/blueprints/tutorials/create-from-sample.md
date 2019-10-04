@@ -7,14 +7,14 @@ ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 137764cba91ab94adef4719a0d34b6fb9e6efe29
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785956"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232610"
 ---
-# <a name="create-an-environment-from-a-blueprint-sample"></a>Créer un nouvel environnement à partir d’un exemple de blueprint
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Didacticiel : Créer un nouvel environnement à partir d’un exemple de blueprint
 
 Les exemples de blueprint illustrent ce qui est réalisable à l’aide d’Azure Blueprints. Chaque exemple a été conçu avec une intention ou un but spécifique, mais ne permet pas de créer un environnement complet à lui seul. Chacun d’eux est conçu comme base d’exploration d’Azure Blueprints avec diverses combinaisons d’artefacts, de conceptions et de paramètres.
 
@@ -104,11 +104,11 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
 
      |Nom de l’artefact|Type d’artefact|Nom du paramètre|Valeur|Description|
      |-|-|-|-|-|
-     |Groupe de ressources ProdRG|Groupe de ressources|Nom|ProductionRG|Définit le nom du premier groupe de ressources.|
-     |Groupe de ressources ProdRG|Groupe de ressources|Lieu|USA Ouest 2|Définit l’emplacement du premier groupe de ressources.|
+     |Groupe de ressources ProdRG|Resource group|Nom|ProductionRG|Définit le nom du premier groupe de ressources.|
+     |Groupe de ressources ProdRG|Resource group|Location|USA Ouest 2|Définit l’emplacement du premier groupe de ressources.|
      |Contributeur|Attribution de rôle|Utilisateur ou groupe|{Votre ID}|Définit l’utilisateur ou le groupe auquel attribuer le rôle _Contributeur_ dans le premier groupe de ressources.|
-     |Groupe de ressources PreProdRG|Groupe de ressources|Nom|PreProductionRG|Définit le nom du deuxième groupe de ressources.|
-     |Groupe de ressources PreProdRG|Groupe de ressources|Lieu|USA Ouest|Définit l’emplacement du deuxième groupe de ressources.|
+     |Groupe de ressources PreProdRG|Resource group|Nom|PreProductionRG|Définit le nom du deuxième groupe de ressources.|
+     |Groupe de ressources PreProdRG|Resource group|Location|USA Ouest|Définit l’emplacement du deuxième groupe de ressources.|
      |Propriétaire|Attribution de rôle|Utilisateur ou groupe|{Votre ID}|Définit l’utilisateur ou le groupe auquel attribuer le rôle _Propriétaire_ dans le deuxième groupe de ressources.|
      |Lecteurs|Attribution de rôle|Utilisateur ou groupe|{Votre ID}|Définit l’utilisateur ou le groupe auquel attribuer le rôle _Lecteurs_ dans le deuxième groupe de ressources.|
 
@@ -150,7 +150,7 @@ L’affectation du blueprint crée et suit les artefacts définis dans la défin
 
    L’affectation de refus empêche toutes les opérations avec la configuration **\*** et **Action**, mais autorise l’accès en lecture en excluant **\*/read** via **NotActions**.
 
-1. Dans la barre de navigation du portail Azure, sélectionnez **PreProductionRG - Contrôle d’accès (IAM)**. Sélectionnez ensuite la page **Vue d’ensemble** à gauche, puis le bouton **Supprimer le groupe de ressources**. Entrez le nom _PreProductionRG_ pour confirmer la suppression et sélectionnez **Supprimer** dans le bas du volet.
+1. Dans la barre de navigation du portail Azure, sélectionnez **PreProductionRG - Contrôle d’accès (IAM)** . Sélectionnez ensuite la page **Vue d’ensemble** à gauche, puis le bouton **Supprimer le groupe de ressources**. Entrez le nom _PreProductionRG_ pour confirmer la suppression et sélectionnez **Supprimer** dans le bas du volet.
 
    Le message de notification du portail **Échec de la suppression du groupe de ressources PreProductionRG**  apparaît alors. L’erreur indique que, même si votre compte est autorisé à supprimer le groupe de ressources, l’accès est refusé par l’affectation du blueprint. N’oubliez pas que nous avons sélectionné le mode _Lecture seule_ de verrouillage du blueprint pendant l’affectation du blueprint. Le verrou de blueprint empêche un compte disposant d’autorisations, y compris _Propriétaire_, de supprimer la ressource. Pour plus d’informations, consultez [Verrouillage des ressources des blueprints](../concepts/resource-locking.md).
 
@@ -188,7 +188,7 @@ Une fois le didacticiel terminé, supprimez les ressources suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur le [cycle de vie des blueprints](../concepts/lifecycle.md)
-- Apprendre à utiliser les [paramètres statiques et dynamiques](../concepts/parameters.md)
+- Découvrir comment utiliser les [paramètres statiques et dynamiques](../concepts/parameters.md)
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../concepts/resource-locking.md)
 - Apprendre à personnaliser [l’ordre de séquencement des blueprints](../concepts/sequencing-order.md)
 - Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md)

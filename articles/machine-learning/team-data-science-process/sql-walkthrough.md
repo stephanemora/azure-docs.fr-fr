@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890847"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606513"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
 Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
@@ -376,7 +376,7 @@ De la même façon, nous pouvons vérifier la relation entre **rate\_code** et *
 ![Diagramme #8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Sous-échantillonnage des données dans SQL
-Quand vous préparez les données pour la création de modèles dans [Azure Machine Learning Studio](https://studio.azureml.net), vous pouvez soit utiliser la **requête SQL directement dans le module Importer les données**, soit stocker les données générées et échantillonnées dans une nouvelle table que vous pouvez utiliser dans le module [Importer les données][import-data] à l’aide d’une simple requête **SELECT * FROM <nouveau\_nom\_de\_votre_table>**.
+Quand vous préparez les données pour la création de modèles dans [Azure Machine Learning Studio](https://studio.azureml.net), vous pouvez soit utiliser la **requête SQL directement dans le module Importer les données**, soit stocker les données générées et échantillonnées dans une nouvelle table que vous pouvez utiliser dans le module [Importer les données][import-data] à l’aide d’une simple requête **SELECT * FROM <nouveau\_nom\_de\_votre_table>** .
 
 Dans cette section, nous allons créer une table destinée à contenir les données échantillonnées et générées. Un exemple de requête SQL directe pour la création de modèles est fourni à la section [Exploration des données et conception de fonctionnalités dans SQL Server](#dbexplore) .
 
@@ -515,7 +515,7 @@ Cet exemple transforme un champ numérique continu en plages de catégories pré
     cursor.commit()
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Conception de fonctionnalités : Extraire des fonctionnalités d’emplacement des valeurs décimales de latitude/longitude
-Cet exemple décompose la représentation décimale d’un champ de latitude et/ou de longitude en plusieurs champs d’emplacement de différentes granularités, tels que pays, région, ville, bloc, etc. Notez que les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d’informations sur le mappage des emplacements associés à un géocode, consultez l’article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx).
+Cet exemple décompose la représentation décimale d’un champ de latitude ou de longitude en plusieurs champs d’emplacement de différentes granularités, tels que pays/région, ville, bloc, etc. Notez que les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d’informations sur le mappage des emplacements associés à un géocode, consultez l’article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -575,7 +575,7 @@ Dans cet exercice, nous avons déjà exploré et généré les données dans SQL
 1. Récupérez les données dans Azure Machine Learning avec le module [Importer les données][import-data], disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Importer les données][import-data].
    
     ![Importation de données Azure Machine Learning][17]
-2. Dans le panneau **Propriétés**, sélectionnez **Azure SQL Database** dans le champ **Source de données**.
+2. Dans le panneau **Propriétés**, sélectionnez **Base de données Azure SQL** dans le champ **Source de données**.
 3. Dans le champ **Nom du serveur de base de données** , entrez le nom DNS de la base de données. Format : `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Dans le champ **Nom de la base de données** , entrez le nom de la base de données.
 5. Entrez le **nom d’utilisateur SQL** dans le champ **Nom de compte d’utilisateur du serveur**, et le **mot de passe** dans le champ **Mot de passe de compte d’utilisateur du serveur**.

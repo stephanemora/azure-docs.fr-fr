@@ -3,17 +3,18 @@ title: Forum aux questions sur la migration de Stockage Azure | Microsoft Docs
 description: Réponses aux questions fréquemment posées concernant la migration de Stockage Azure
 services: storage
 author: genlin
+manager: dcscontentpm
 ms.service: storage
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310844"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090817"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -82,7 +83,7 @@ Utilisez AzCopy pour déplacer les données d'un partage de fichiers Azure vers 
 
 Utilisez AzCopy pour charger des fichiers .csv volumineux dans Stockage Azure. Pour plus d'informations, voir [Transférer des données avec AzCopy sur Windows](storage-use-azcopy.md) et [Transférer des données avec AzCopy sur Linux](storage-use-azcopy-linux.md).
 
-**Je dois chaque jour déplacer les journaux du lecteur D vers mon compte de stockage Azure. Comment automatiser ce processus ?**
+**Je dois chaque jour déplacer les journaux d’activité du lecteur D vers mon compte de stockage Azure. Comment automatiser ce processus ?**
 
 Vous pouvez utiliser AzCopy et créer une tâche dans le Planificateur de tâches. Chargez les fichiers vers un compte de stockage Azure à l'aide d'un script de commandes par lot AzCopy. Pour plus d’informations, consultez [Comment configurer et exécuter des tâches de démarrage pour un service cloud](../../cloud-services/cloud-services-startup-tasks.md).
 
@@ -232,7 +233,7 @@ Le stockage Premium n'est pas autorisé avec Partage de fichiers Azure.
 
 Vous devez créer le compte de stockage de destination, copier les données du compte source vers le compte de destination, puis supprimer le compte source. Vous pouvez utiliser un outil comme AzCopy pour copier les données.
 
-Si vous utilisez des machines virtuelles, vous devez effectuer des étapes supplémentaires avant de migrer les données du compte de stockage. Pour plus d'informations, voir [Migration vers le stockage Azure Premium (disques non gérés)](storage-migration-to-premium-storage.md).
+Si vous utilisez des machines virtuelles, vous devez effectuer des étapes supplémentaires avant de migrer les données du compte de stockage. Pour plus d'informations, voir [Migration vers le stockage Azure Premium (disques non managés)](storage-migration-to-premium-storage.md).
 
 **Comment passer d'un compte de stockage classique vers un compte de stockage Azure Resource Manager ?**
 
@@ -276,13 +277,13 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
 -   Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Utilisez l’une des méthodes suivantes :  
       
-    - **AzCopy** : Ajoutez **-secondary** au nom du compte de stockage dans l’URL pour accéder au point de terminaison secondaire. Par exemple :   
+    - **AzCopy** : Ajoutez **-secondary** au nom du compte de stockage dans l’URL pour accéder au point de terminaison secondaire. Par exemple :  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **Jeton SAS** : Utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-dotnet-shared-access-signature-part-1.md).
+    - **Jeton SAS** : Utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-sas-overview.md).
 
-**Comment je utiliser un domaine personnalisé HTTPS avec mon compte de stockage ? Par exemple, comment faire « https :\//mystorageaccountname.blob.core.windows.net/images/image.gif » apparaissent sous la forme « https :\//www.contoso.com/images/image.gif » ?**
+**Comment je utiliser un domaine personnalisé HTTPS avec mon compte de stockage ? Par exemple, comment faire apparaître « https:\//mystorageaccountname.blob.core.windows.net/images/image.gif » sous la forme « https:\//www.contoso.com/images/image.gif » ?**
 
 SSL n'est actuellement pas pris en charge sur les comptes de stockage avec des domaines personnalisés.
 Mais vous pouvez utiliser des domaines personnalisés non-HTTPS. Pour plus d’informations, consultez la page [Configurer un nom de domaine personnalisé pour un point de terminaison Blob Storage](../blobs/storage-custom-domain-name.md).
@@ -291,7 +292,7 @@ Mais vous pouvez utiliser des domaines personnalisés non-HTTPS. Pour plus d’i
 
 Il n'existe aucun moyen d'accéder directement à un compte de stockage via FTP. Toutefois, vous pouvez configurer une machine virtuelle Azure puis installer un serveur FTP sur cette machine virtuelle. Vous pouvez faire en sorte que le serveur FTP stocke les fichiers dans un partage Azure Files ou sur un disque de données disponible pour la machine virtuelle.
 
-Si vous souhaitez uniquement télécharger des données sans avoir à utiliser l'Explorateur de stockage ou une application similaire, vous pouvez utiliser un jeton SAS. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-dotnet-shared-access-signature-part-1.md).
+Si vous souhaitez uniquement télécharger des données sans avoir à utiliser l'Explorateur de stockage ou une application similaire, vous pouvez utiliser un jeton SAS. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-sas-overview.md).
 
 **Comment migrer des objets blob d’un compte de stockage vers un autre ?**
 

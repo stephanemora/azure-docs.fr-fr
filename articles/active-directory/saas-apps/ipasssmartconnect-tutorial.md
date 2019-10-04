@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9417d7b957d69dc802ecb2f9f78723eb7aba08ba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099852"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Didacticiel : Intégration d’Azure Active Directory à iPass SmartConnect
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de iPass SmartConnect à Azure AD, vous devez 
 
 **Pour ajouter iPass SmartConnect à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -215,7 +215,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-ipass-smartconnect-test-user"></a>Créer un utilisateur de test iPass SmartConnect
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans iPass SmartConnect. Rapprochez-vous de  [l’équipe de support de iPass SmartConnect](mailto:help@ipass.com)  pour ajouter les utilisateurs ou le domaine à mettre sur liste verte sur la plateforme iPass SmartConnect. Si le domaine est ajouté par l’équipe, les utilisateurs sont automatiquement provisionnés dans la plateforme iPass SmartConnect. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans iPass SmartConnect. Rapprochez-vous de  [l’équipe de support d’iPass SmartConnect](mailto:help@ipass.com) pour ajouter les utilisateurs ou le domaine à mettre sur liste verte sur la plateforme iPass SmartConnect. Si le domaine est ajouté par l’équipe, les utilisateurs sont automatiquement provisionnés dans la plateforme iPass SmartConnect. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

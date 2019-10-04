@@ -1,67 +1,95 @@
-### YamlMime:YamlDocument
-ms.openlocfilehash: 7e075434b8c785665d28a2981233fc17e2a1ceac
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726336"
-documentType: LandingData
-title: Documentation de l’utilisateur Azure Automation
+### YamlMime:Landing
+title: Documentation Azure Automation
 metadata:
   document_id: 
-  title: Documentation Azure Automation - Didacticiels, informations de référence sur les API
-  description: Apprendre à utiliser Azure Automation
+  title: Documentation Azure Automation
+  description: Découvrez comment utiliser Automation pour configurer et automatiser des tâches opérationnelles dans un environnement hybride.
   services: automation
-  author: georgewallace
+  author: bobbytreed
   manager: carmonm
   ms.service: automation
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 12/13/2017
-  ms.author: gwallace
-abstract:
-  description: Découvrez comment utiliser Automation pour configurer et automatiser des tâches opérationnelles dans un environnement hybride. Les didacticiels, les informations de référence sur les API ainsi que d’autres documents vous montrent comment automatiser les processus, effectuer la gestion des mises à jour, la configuration de l’état souhaité (DSC), le suivi des modifications et la collecte des données d’inventaire.
-sections:
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: 'Découvrez comment automatiser et configurer vos environnements Azure et hybrides à l’aide d’Automation :'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: /azure/automation/media/index/automation.svg
-      text: Créer un compte Automation
-      href: /azure/automation/automation-quickstart-create-account
-    - image:
-        src: /azure/automation/media/index/runbook.svg
-      text: Créer un runbook
-      href: /azure/automation/automation-quickstart-create-runbook
-    - image:
-        src: /azure/automation/media/index/dscconfig.svg
-      text: Création d’une configuration DSC
-      href: /azure/automation/automation-quickstart-dsc-configuration
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Découvrez comment intégrer, déployer et gérer vos environnements Azure et hybrides.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/automation/automation-watchers-tutorial">Configurer les tâches d’observateur</a>
-    - html: <a href="/azure/automation/automation-tutorial-update-management">Gérer les mises à jour sur votre machine virtuelle</a>
-    - html: <a href="/azure/automation/automation-onboard-solutions">Intégrer à l’échelle</a>
-    - html: <a href="/azure/automation/automation-tutorial-installed-software">Identifier les logiciels installés sur une machine virtuelle</a>
-    - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Résoudre les modifications sur une machine virtuelle</a>
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Ligne de commande
-      html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
-    - title: Langues
-      html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/automation">API REST Automation</a></p>
+  ms.date: 09/06/2019
+  ms.author: robreed
+  ms.openlocfilehash: 3242e2c699e0f99164d6c5ecd2cf61441648b8e8
+  ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/06/2019
+  ms.locfileid: "70743729"
+landingContent:
+- title: Prise en main d'Azure Automation
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Automation ?
+      url: automation-intro.md
+  - linkListType: get-started
+    links:
+    - text: Créer un compte Automation
+      url: automation-quickstart-create-account.md
+  - linkListType: quickstart
+    links:
+    - text: Créer un runbook
+      url: automation-quickstart-create-runbook.md
+- title: Gérer les mises à jour pour les machines virtuelles
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vue d’ensemble de Update Management
+      url: automation-update-management.md
+  - linkListType: get-started
+    links:
+    - text: Gérer les mises à jour pour plusieurs machines virtuelles
+      url: manage-update-multi.md
+  - linkListType: deploy
+    links:
+    - text: Opérations de mise à jour, d’inventaire et de suivi des changements sur les machines virtuelles Azure
+      url: automation-onboard-solutions.md
+- title: Configurer vos machines virtuelles avec Desired State Configuration
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation de la configuration de l’état
+      url: automation-dsc-overview.md
+  - linkListType: concept
+    links:
+    - text: DSC PowerShell
+      url: /powershell/dsc/overview/overview
+  - linkListType: quickstart
+    links:
+    - text: Créer une configuration DSC à partir d’une stratégie de groupe
+      url: /powershell/dsc/quickstarts/gpo-quickstart
+  - linkListType: tutorial
+    links:
+    - text: Configurer des serveurs et gérer la dérive avec State Configuration
+      url: tutorial-configure-servers-desired-state.md
+- title: Utiliser des environnements hybrides
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vue d'ensemble des Runbooks Workers hybrides
+      url: automation-hybrid-runbook-worker.md
+  - linkListType: deploy
+    links:
+    - text: Déployer des Runbook Worker hybrides Windows
+      url: automation-windows-hrw-install.md
+    - text: Déployer des Runbook Worker hybrides Linux
+      url: automation-linux-hrw-install.md
+    - text: Démarrer des runbooks sur un Runbook Worker hybride
+      url: automation-hrw-run-runbooks.md
+- title: Automation dans plusieurs services
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Envoyer un e-mail depuis un runbook à l’aide de SendGrid
+      url: automation-send-email.md
+  - linkListType: get-started
+    links:
+    - text: Démarrer un runbook depuis des alertes Azure
+      url: automation-create-alert-triggered-runbook.md
+  - linkListType: deploy
+    links:
+    - text: Déployer un modèle Resource Manager dans un runbook PowerShell Automation
+      url: automation-deploy-template-runbook.md

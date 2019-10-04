@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e84324456aef12070cf9355fb17e132f9f99b80
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 814c81b6092c4af3778617e165a0bdbce09d71d7
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202789"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779124"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Connexion de l’utilisateur avec l’authentification directe Azure Active Directory
 
@@ -31,7 +31,7 @@ L’authentification directe Azure Active Directory (Azure AD) permet à vos uti
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Cette fonctionnalité est une alternative à [Synchronisation du hachage de mot de passe Azure AD](how-to-connect-password-hash-synchronization.md), qui offre les mêmes fonctionnalités d’authentification sur le cloud aux organisations. Toutefois, certaines organisations souhaitant appliquer leurs stratégies de mot de passe et de sécurité Active Directory locales, peuvent choisir d’utiliser l’authentification directe à la place. Consultez [ce guide](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) pour voir une comparaison entre les différentes méthodes de connexion Azure AD, et savoir comment choisir la méthode de connexion appropriée pour votre organisation.
+Cette fonctionnalité est une alternative à [Synchronisation du hachage de mot de passe Azure AD](how-to-connect-password-hash-synchronization.md), qui offre les mêmes fonctionnalités d’authentification sur le cloud aux organisations. Toutefois, certaines organisations souhaitant appliquer leurs stratégies de mot de passe et de sécurité Active Directory locales, peuvent choisir d’utiliser l’authentification directe à la place. Consultez [ce guide](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) pour voir une comparaison entre les différentes méthodes de connexion Azure AD, et savoir comment choisir la méthode de connexion appropriée pour votre organisation.
 
 ![Authentification directe Azure AD](./media/how-to-connect-pta/pta1.png)
 
@@ -59,7 +59,7 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 
 - Prend en charge la connexion de l’utilisateur dans toutes les applications basées sur un navigateur web et dans les applications clientes Microsoft Office qui utilisent [l’authentification moderne](https://aka.ms/modernauthga).
 - Les noms d’utilisateur de connexion peuvent être soit un nom d’utilisateur local par défaut (`userPrincipalName`), soit un autre attribut configuré dans Azure AD Connect (appelé `Alternate ID`).
-- La fonctionnalité fonctionne de façon transparente avec les fonctionnalités [d’accès conditionnel](../active-directory-conditional-access-azure-portal.md) telles que l’authentification multifacteur (MFA) pour aider à sécuriser vos utilisateurs.
+- Elle s’utilise très facilement avec les fonctionnalités d’[accès conditionnel](../active-directory-conditional-access-azure-portal.md) (telles que l’authentification multifacteur) pour la sécurisation de vos utilisateurs.
 - Elle est intégrée à la [gestion des mots de passe libre-service](../authentication/active-directory-passwords-overview.md) sur le cloud, y compris la réécriture des mots de passe dans l’annuaire Active Directory local et la protection par mot de passe en interdisant l’emploi de mots de passe courants.
 - Les environnements à plusieurs forêts sont pris en charge s’il existe des approbations de forêts entre les forêts AD et si le routage du suffixe de leurs noms est configuré correctement.
 - Cette fonctionnalité est gratuite et il est inutile de disposer des éditions payantes d’Azure AD pour l’utiliser.

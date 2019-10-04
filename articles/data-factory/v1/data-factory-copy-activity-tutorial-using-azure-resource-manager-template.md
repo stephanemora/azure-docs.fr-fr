@@ -9,23 +9,21 @@ editor: ''
 ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 95a29a458fc9333515ef29aaaed9a47e93cf3a8d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 311f2b6f6f974476aa3c33e668e173ced0274f71
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483758"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140333"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Didacticiel : utiliser un modèle Azure Resource Manager pour créer un pipeline Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistant de copie](data-factory-copy-data-wizard-tutorial.md)
-> * [Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modèle Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -58,15 +56,15 @@ Dans ce didacticiel, vous créez une fabrique de données avec les entités Data
 
 | Entité | Description |
 | --- | --- |
-| Service lié Azure Storage |Lie votre compte Stockage Azure à la fabrique de données. Stockage Azure est le magasin de données source et la base de données SQL Azure est le magasin de données récepteur de l’activité de copie dans le didacticiel. Il spécifie le compte de stockage contenant les données d’entrée pour l’activité de copie. |
-| Service lié pour base de données SQL Azure |Lie votre base de données SQL Azure à la fabrique de données. Il spécifie la base de données SQL Azure qui conserve les données de sortie de l’activité de copie. |
+| Service lié Azure Storage |Lie votre compte Stockage Azure à la fabrique de données. Stockage Azure est le magasin de données source et la base de données Azure SQL est le magasin de données récepteur de l’activité de copie dans le tutoriel. Il spécifie le compte de stockage contenant les données d’entrée pour l’activité de copie. |
+| Service lié Azure SQL Database |Lie votre base de données Azure SQL à la fabrique de données. Il spécifie la base de données Azure SQL qui conserve les données de sortie de l’activité de copie. |
 | Jeu de données d'entrée d'objet Blob Azure |Fait référence au service Stockage Azure lié. Le service lié fait référence à un compte de stockage Azure, et les jeux de données d’objet Blob Azure spécifie le conteneur, le dossier et le nom de fichier dans le stockage contenant les données d’entrée. |
 | Jeu de données de sortie SQL Azure |Fait référence au service SQL Azure lié. Le service lié SQL Azure fait référence à un serveur SQL Azure et le jeu de données SQL Azure spécifie le nom de la table qui contient les données de sortie. |
-| Pipeline de données |Le pipeline a une activité de type copie qui sélectionne le jeu de données d’objets blob Azure comme entrée et le jeu de données SQL Azure comme sortie. L’activité de copie les données d’un objet blob Azure vers une table dans la base de données SQL Azure. |
+| Pipeline de données |Le pipeline a une activité de type copie qui sélectionne le jeu de données d’objets blob Azure comme entrée et le jeu de données SQL Azure comme sortie. L’activité de copie les données d’un objet blob Azure vers une table dans la base de données Azure SQL. |
 
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un pipeline peut contenir une ou plusieurs activités. Il existe deux types d’activités : les [activités de déplacement des données](data-factory-data-movement-activities.md) et les [activités de transformation des données](data-factory-data-transformation-activities.md). Dans ce didacticiel, vous créez un pipeline avec une activité (activité de copie).
 
-![Copie de données d’un objet blob Azure vers une base de données SQL Azure](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png) 
+![Copie de données d’un objet blob Azure vers Azure SQL Database](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/CopyBlob2SqlDiagram.png) 
 
 La section suivante fournit le modèle Resource Manager complet permettant de définir des entités Data Factory pour que vous puissiez rapidement parcourir le didacticiel et tester le modèle. Pour comprendre comment chaque entité Data Factory est définie, consultez la section [Entités Data Factory dans le modèle](#data-factory-entities-in-the-template).
 
@@ -352,7 +350,7 @@ Créez un fichier JSON nommé **ADFCopyTutorialARM-Parameters** contient les par
 4. Cliquez sur votre fabrique de données Azure. La page d’accueil de la fabrique de données apparaît.
    
     ![Page d’accueil de la fabrique de données](media/data-factory-copy-activity-tutorial-using-azure-resource-manager-template/data-factory-home-page.png)  
-6. Suivez les instructions dans [Surveiller les jeux de données et le pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) pour surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel. Pour le moment, Visual Studio ne prend pas en charge la surveillance des pipelines Data Factory.
+6. Suivez les instructions dans [Surveiller les jeux de données et le pipeline](data-factory-monitor-manage-pipelines.md) pour surveiller le pipeline et les jeux de données que vous avez créés dans ce didacticiel. Pour le moment, Visual Studio ne prend pas en charge la surveillance des pipelines Data Factory.
 7. Lorsqu’une tranche est à l’état **Prêt**, vérifiez que les données sont copiées vers la table **emp** dans la base de données Azure SQL.
 
 
@@ -414,8 +412,8 @@ AzureStorageLinkedService relie votre compte de stockage Azure à la fabrique de
 
 La propriété connectionString utilise les paramètres storageAccountName et storageAccountKey. Les valeurs de ces paramètres sont transmises à l’aide d’un fichier de configuration. La définition utilise également les variables azureStorageLinkedService et dataFactoryName définies dans le modèle. 
 
-#### <a name="azure-sql-database-linked-service"></a>Service lié pour base de données SQL Azure
-AzureSqlLinkedService lie votre base de données SQL Azure à la fabrique de données. Les données copiées à partir du stockage Blob sont stockées dans cette base de données. Vous avez créé une table emp dans cette base de données dans le cadre des [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Vous spécifiez le nom du serveur SQL Azure, le nom de la base de données, le nom d’utilisateur et le mot de passe de l’utilisateur dans cette section. Consultez [Service lié SQL Azure](data-factory-azure-sql-connector.md#linked-service-properties) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié SQL Azure.  
+#### <a name="azure-sql-database-linked-service"></a>Service lié Azure SQL Database
+AzureSqlLinkedService lie votre base de données Azure SQL à la fabrique de données. Les données copiées à partir du stockage Blob sont stockées dans cette base de données. Vous avez créé une table emp dans cette base de données dans le cadre des [conditions préalables](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Vous spécifiez le nom du serveur SQL Azure, le nom de la base de données, le nom d’utilisateur et le mot de passe de l’utilisateur dans cette section. Consultez [Service lié SQL Azure](data-factory-azure-sql-connector.md#linked-service-properties) pour en savoir plus sur les propriétés JSON utilisées pour définir un service lié SQL Azure.  
 
 ```json
 {
@@ -480,7 +478,7 @@ Le service lié Stockage Azure spécifie la chaîne de connexion que le service 
 ```
 
 #### <a name="azure-sql-dataset"></a>Jeu de données SQL Azure
-Vous spécifiez le nom de la table dans Azure SQL Database contenant les données copiées à partir du Stockage Blob Azure. Consultez [Propriétés du jeu de données SQL Azure](data-factory-azure-sql-connector.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données SQL Azure. 
+Vous spécifiez le nom de la table dans la base de données Azure SQL contenant les données copiées à partir du stockage Blob Azure. Consultez [Propriétés du jeu de données SQL Azure](data-factory-azure-sql-connector.md#dataset-properties) pour en savoir plus sur les propriétés JSON permettant de définir un jeu de données SQL Azure. 
 
 ```json
 {
@@ -574,7 +572,7 @@ Vous définissez un pipeline qui copie les données du jeu de données d’objet
 ```
 
 ## <a name="reuse-the-template"></a>Réutiliser le modèle
-Dans ce didacticiel, vous avez créé un modèle pour définir des entités Data Factory et un modèle pour transmettre les valeurs des paramètres. Le pipeline copie les données d’un compte Stockage Azure vers une base de données SQL Azure spécifiée via des paramètres. Pour utiliser le même modèle afin de déployer des entités Data Factory dans des environnements différents, vous créez un fichier de paramètres pour chaque environnement et l’utiliser lors du déploiement de cet environnement.     
+Dans ce didacticiel, vous avez créé un modèle pour définir des entités Data Factory et un modèle pour transmettre les valeurs des paramètres. Le pipeline copie les données d’un compte Stockage Azure vers une base de données Azure SQL spécifiée via des paramètres. Pour utiliser le même modèle afin de déployer des entités Data Factory dans des environnements différents, vous créez un fichier de paramètres pour chaque environnement et l’utiliser lors du déploiement de cet environnement.     
 
 Exemple :  
 
@@ -593,7 +591,7 @@ Notez que la première commande utilise le fichier de paramètres pour l’envir
 Vous pouvez également réutiliser le modèle pour effectuer des tâches répétitives. Par exemple, vous devez créer plusieurs fabriques de données avec un ou plusieurs pipelines qui implémentent la même logique, mais chaque fabrique de données utilise des comptes Stockage et SQL Database différents. Dans ce scénario, vous utilisez le même modèle dans le même environnement (développement, test ou production) avec différents fichiers de paramètres pour créer des fabriques de données.   
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez utilisé le stockage Blob Azure comme magasin de données source et une base de données SQL Azure comme banque de données de destination dans une opération de copie. Le tableau ci-dessous contient la liste des magasins de données pris en charge en tant que sources et destinations par l’activité de copie : 
+Dans ce tutoriel, vous avez utilisé le stockage Blob Azure comme magasin de données source et une base de données Azure SQL comme banque de données de destination dans une opération de copie. Le tableau ci-dessous contient la liste des magasins de données pris en charge en tant que sources et destinations par l’activité de copie : 
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 

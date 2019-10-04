@@ -4,23 +4,22 @@ description: Découvrez comment créer une machine virtuelle Linux dans Azure ut
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9851305bdaa2f214e0d00eda3235068cac2ea980
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447844"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083475"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Créer une machine virtuelle Linux utilisant l’authentification SSH avec l’API REST
 
@@ -127,7 +126,7 @@ Un exemple de corps de requête figure ci-dessous. Veillez à spécifier le nom 
 }
 ```
 
-Pour obtenir une liste complète des définitions disponibles dans le corps de la demande, consultez [machines virtuelles, créer ou mettre à jour des définitions de corps de demande](/rest/api/compute/virtualmachines/createorupdate#definitions).
+Pour obtenir la liste complète des définitions disponibles dans le corps de la demande, consultez [Création ou mise à jour des définitions de corps de demande par les machines virtuelles](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## <a name="sending-the-request"></a>Envoi de la requête
 

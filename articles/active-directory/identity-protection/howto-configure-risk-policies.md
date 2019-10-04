@@ -2,46 +2,38 @@
 title: Comment configurer les stratégies en matière de risque dans Azure Active Directory Identity Protection (version actualisée) | Microsoft Docs
 description: Comment configurer les stratégies en matière de risque dans Azure Active Directory Identity Protection (version actualisée)
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f244c28b99c429fef5641bb4fc399e09fd451069
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699029"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126552"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Procédure : Configurer les stratégies en matière de risque dans Azure Active Directory Identity Protection (version actualisée)
 
+Azure AD détecte les détections de risques indiquant des identités potentiellement compromises. La configuration de stratégies en matière de risque vous permet de définir les réponses automatiques à apporter aux résultats de la détection :
 
-Azure AD détecte les événements à risque indiquant des identités potentiellement compromises. La configuration de stratégies en matière de risque vous permet de définir les réponses automatiques à apporter aux résultats de la détection :
-
-- Avec la stratégie de risque à la connexion, vous pouvez configurer une réponse à apporter à des événements à risque en temps réel détectés lors d'une connexion de l'utilisateur. 
+- Avec la stratégie de risque à la connexion, vous pouvez configurer une réponse à apporter à des détections de risques en temps réel détectées lors d’une connexion de l’utilisateur. 
 - Avec la stratégie de risque de l'utilisateur, vous pouvez configurer une réponse à apporter à tous les risques de l'utilisateur actif détectés au fil du temps.  
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-
 ## <a name="what-is-the-sign-in-risk-policy"></a>Qu’est-ce que la stratégie de connexion à risque ?
 
-Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Par exemple, la connexion est-elle effectuée à l’aide d’une adresse IP anonyme, ou est-elle lancée à partir d’un emplacement inconnu ? Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée un événement à risque. Azure AD calcule une valeur en fonction des événements à risque détectés au cours d’une connexion. Cette valeur représente la probabilité (faible, moyenne ou élevée) avec laquelle la connexion n’est pas effectuée par un utilisateur légitime. La probabilité est appelée **niveau de risque de connexion**.
+Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Par exemple, la connexion est-elle effectuée à l’aide d’une adresse IP anonyme, ou est-elle lancée à partir d’un emplacement inconnu ? Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée une détection de risque. Azure AD calcule une valeur en fonction des détections de risques détectées au cours d’une connexion. Cette valeur représente la probabilité (faible, moyenne ou élevée) avec laquelle la connexion n’est pas effectuée par un utilisateur légitime. La probabilité est appelée **niveau de risque de connexion**.
 
 La stratégie de connexion à risque est une réponse automatisée que vous pouvez configurer pour un niveau de risque de connexion spécifique. Dans votre réponse, vous pouvez bloquer l’accès à vos ressources ou exiger la résolution d’un test de l’authentification multifacteur pour obtenir l’accès.
 
-Lorsqu’un utilisateur a effectué une invite d’authentification Multifacteur déclenchée par la stratégie de risque de connexion, elle fournit des commentaires à Identity Protection et l’authentification dans provenant d’un utilisateur légitime. Par conséquent, l’événement de risque de connexion qui a déclenché l’invite d’authentification Multifacteur sera automatiquement fermée et Identity Protection empêche cet événement qui contribuent à l’élévation de risque de l’utilisateur. Activation de la stratégie de risque de connexion peut réduire les éléments superflus dans la vue risquées en permettant aux utilisateurs de corrige automatiquement lorsque vous y êtes invité pour l’authentification Multifacteur et en fermant ensuite automatiquement l’associé à risque connectez-vous.
+Lorsqu’un utilisateur exécute une invite MFA déclenchée par la stratégie de connexion à risque, il fournit des commentaires à Identity Protection et indique que la connexion provient de l’utilisateur légitime. Ainsi, la détection de connexion à risque qui a déclenché l’invite MFA est automatiquement fermée, et Identity Protection empêche cet événement de contribuer à l’élévation des risques utilisateur. L’activation de la stratégie de connexion à risque peut réduire la bruyance dans la vue des connexions à risque en permettant aux utilisateurs d’effectuer des corrections automatiques lors des invites MFA, puis en fermant automatiquement la connexion à risque associée.
 
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Comment faire pour accéder à la stratégie de connexion à risque ?
    
@@ -49,27 +41,25 @@ La stratégie de risque de connexion est disponible dans la section **Configurer
    
 ![Stratégie en matière de risque à la connexion](./media/howto-configure-risk-policies/1014.png "Stratégie en matière de risque à la connexion")
 
-
 ## <a name="sign-in-risk-policy-settings"></a>Paramètres de stratégie en matière de risque à la connexion
 
 Lorsque vous configurez la stratégie de connexion à risque, vous devez définir les paramètres suivants :
 
 - Les utilisateurs et les groupes auxquels la stratégie s’applique :
 
-    ![Utilisateurs et groupes](./media/howto-configure-risk-policies/11.png)
+   ![Utilisateurs et groupes](./media/howto-configure-risk-policies/11.png)
 
 - Le niveau de risque de connexion qui déclenche la stratégie :
 
-    ![Niveau de risque d’une connexion](./media/howto-configure-risk-policies/12.png)
+   ![Niveau de risque d’une connexion](./media/howto-configure-risk-policies/12.png)
 
 - Le type d’accès que vous souhaitez appliquer lorsque votre niveau de risque de connexion est atteint :  
 
-    ![Access](./media/howto-configure-risk-policies/13.png)
+   ![Access](./media/howto-configure-risk-policies/13.png)
 
 - L’état de votre stratégie :
 
-    ![Appliquer la stratégie](./media/howto-configure-risk-policies/14.png)
-
+   ![Appliquer la stratégie](./media/howto-configure-risk-policies/14.png)
 
 La boîte de dialogue de configuration de stratégie vous offre une option permettant d’évaluer l’impact de la reconfiguration.
 
@@ -86,7 +76,6 @@ Toutefois, pour des raisons de sécurité, ce paramètre s’applique uniquement
 Si vous souhaitez exiger l’authentification multifacteur pour les connexions à risque, vous devez :
 
 1. Activer la stratégie d'inscription à l'authentification multifacteur pour les utilisateurs concernés, et
-
 2. Demander aux utilisateurs concernés de se connecter à une session ne présentant aucun risque pour s’inscrire à une authentification MFA.
 
 Suivre ces étapes permet de s’assurer que l’authentification multifacteur est requise pour une connexion à risque.
@@ -94,9 +83,7 @@ Suivre ces étapes permet de s’assurer que l’authentification multifacteur e
 La stratégie en matière de risque à la connexion :
 
 - est appliquée à l’ensemble du trafic de navigateur et des connexions utilisant une authentification moderne ;
-
 - n’est pas appliquée aux applications utilisant des protocoles de sécurité plus anciens en désactivant le point de terminaison WS-Trust sur le fournisseur d’identité fédérée, tels qu’ADFS.
-
 
 Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez :
 
@@ -104,24 +91,15 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 * [Connexion à risque bloquée](flows.md#risky-sign-in-blocked)  
 * [Expériences de connexion avec Azure AD Identity Protection](flows.md)  
 
-
-
-
-
-
-
-
-
 ## <a name="what-is-a-user-risk-policy"></a>Qu’est-ce qu’une stratégie de risque utilisateur ?
 
-Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée un événement à risque. Bien que certains événements à risque puissent être détectés en temps réel, pour d’autres, la détection peut prendre plus de temps. Par exemple, pour détecter une navigation impossible vers des emplacements inhabituels, le système nécessite une période d’apprentissage initiale de 14 jours pour en savoir plus sur le comportement normal d’un utilisateur. Il existe plusieurs options pour résoudre les événements à risque détectés. Par exemple, vous pouvez résoudre manuellement des événements à risque, ou vous pouvez utiliser une stratégie d’accès conditionnel de risque utilisateur ou de risque de connexion pour le faire.
+Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée une détection de risque. Bien que certaines détections de risques puissent être détectées en temps réel, pour d’autres, la détection peut prendre plus de temps. Par exemple, pour détecter une navigation impossible vers des emplacements inhabituels, le système nécessite une période d’apprentissage initiale de 14 jours pour en savoir plus sur le comportement normal d’un utilisateur. Il existe plusieurs options pour résoudre les détections de risques détectées. Par exemple, vous pouvez résoudre manuellement des détections de risques ou vous pouvez utiliser une stratégie d’accès conditionnel de risque utilisateur ou de connexion à risque pour le faire.
 
-Tous les événements à risque qui ont été détectés pour un utilisateur et qui n’ont pas été résolus sont appelés événements à risque actifs. Les événements à risque actifs qui sont associés à un utilisateur sont appelés risque utilisateur. En fonction du risque utilisateur, Azure AD calcule la probabilité (faible, moyenne, élevée) selon laquelle un utilisateur a été compromis. Cette probabilité est appelée niveau de risque utilisateur.
+Toutes les détections de risques qui ont été détectées pour un utilisateur et qui n’ont pas été résolues sont appelées détections de risques actives. Les détections de risques actives qui sont associées à un utilisateur sont appelées risques utilisateur. En fonction du risque utilisateur, Azure AD calcule la probabilité (faible, moyenne, élevée) selon laquelle un utilisateur a été compromis. Cette probabilité est appelée niveau de risque utilisateur.
 
 ![Risque des utilisateurs](./media/howto-configure-risk-policies/11031.png)
 
 La stratégie de risque utilisateur est une réponse automatisée que vous pouvez configurer pour un niveau de risque utilisateur spécifique. Avec une stratégie de risque utilisateur, vous pouvez bloquer l’accès à vos ressources ou demander une modification du mot de passe pour récupérer un compte utilisateur dans un état propre.
-
 
 ## <a name="how-do-i-access-the-user-risk-policy"></a>Comment faire pour accéder à la stratégie d’utilisateur à risque ?
    
@@ -129,27 +107,25 @@ La stratégie de risque d'utilisateur est disponible dans la section **Configure
    
 ![Stratégie de risque d’utilisateur](./media/howto-configure-risk-policies/11014.png)
 
-
-
 ## <a name="user-risk-policy-settings"></a>Paramètres de stratégie de risque d’utilisateur
 
 Lorsque vous configurez la stratégie de risque utilisateur, vous devez définir les paramètres suivants :
 
 - Les utilisateurs et les groupes auxquels la stratégie s’applique :
 
-    ![Utilisateurs et groupes](./media/howto-configure-risk-policies/111.png)
+   ![Utilisateurs et groupes](./media/howto-configure-risk-policies/111.png)
 
 - Le niveau de risque de connexion qui déclenche la stratégie :
 
-    ![Niveau de risque d’un utilisateur](./media/howto-configure-risk-policies/112.png)
+   ![Niveau de risque d’un utilisateur](./media/howto-configure-risk-policies/112.png)
 
 - Le type d’accès que vous souhaitez appliquer lorsque votre niveau de risque de connexion est atteint :  
 
-    ![Access](./media/howto-configure-risk-policies/113.png)
+   ![Access](./media/howto-configure-risk-policies/113.png)
 
 - L’état de votre stratégie :
 
-    ![Appliquer la stratégie](./media/howto-configure-risk-policies/114.png)
+   ![Appliquer la stratégie](./media/howto-configure-risk-policies/114.png)
 
 La boîte de dialogue de configuration de stratégie vous offre une option permettant d’évaluer l’impact de votre configuration.
 
@@ -161,36 +137,10 @@ Vous pouvez définir une stratégie de sécurité de risque utilisateur pour blo
 
 ![Blocage](./media/howto-configure-risk-policies/116.png)
 
-
 Le blocage d’une connexion :
 
-* empêche la génération de nouveaux événements à risque pour l’utilisateur concerné ;
-* permet aux administrateurs de corriger manuellement les événements à risques affectant l’identité de l’utilisateur pour sécuriser à nouveau cette dernière.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* empêche la génération de nouvelles détections de risques pour l’utilisateur concerné ;
+* permet aux administrateurs de corriger manuellement les détections de risques affectant l’identité de l’utilisateur pour sécuriser à nouveau cette dernière.
 
 ## <a name="best-practices"></a>Bonnes pratiques
 
@@ -201,22 +151,13 @@ Cependant, cela a pour effet d’exclure les connexions associées à un indicat
 Pour définir la stratégie
 
 - Excluez les utilisateurs qui ne sont pas inscrits/ne peuvent pas s’inscrire à l’authentification multifacteur.
-
 - Excluez les utilisateurs situés dans des régions où l’activation de la stratégie n’est pas adaptée (par exemple, aucun accès au support technique).
-
 - Excluez les utilisateurs susceptibles de générer un grand nombre de faux positifs (développeurs, analystes de sécurité).
-
 - Utilisez un niveau de risque **Élevé** pendant le déploiement initial de la stratégie ou si vous devez réduire la complexité pour les utilisateurs finaux.
-
 - Utilisez un niveau de risque **Faible** si votre organisation nécessite une sécurité accrue. La sélection d’un niveau de risque **Faible** complique la connexion pour les utilisateurs, mais renforce la sécurité.
 
 Pour la plupart des organisations, nous recommandons de configurer un niveau de risque **Moyen** afin d’établir un juste équilibre entre facilité d’utilisation et sécurité.
 
-
-
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
  [Channel 9 : Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
-

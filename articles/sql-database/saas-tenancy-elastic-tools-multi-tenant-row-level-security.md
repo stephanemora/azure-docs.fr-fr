@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 996d4e2ba62c06992b0433fd255800ba8cea0af3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314957"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570167"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes
 
-Les [outils de base de données élastique](sql-database-elastic-scale-get-started.md) et la fonction de [sécurité au niveau des lignes (SNL)][rls] coopèrent pour permettre d’étendre la couche Données d’une application mutualisée au moyen d’Azure SQL Database. Ensemble, ces technologies vous aident à générer une application possédant une couche Données hautement évolutive. La couche Données prend en charge les partitions mutualisées et utilise **ADO.NET SqlClient** ou **Entity Framework**. Pour plus d’informations, consultez [Modèles de conception pour les applications SaaS mutualisées avec Microsoft Azure SQL Database](saas-tenancy-app-design-patterns.md).
+Les [outils de base de données élastique](sql-database-elastic-scale-get-started.md) et la fonction de [sécurité au niveau des lignes (SNL)][rls] coopèrent pour permettre la mise à l’échelle de la couche Données d’une application multilocataire au moyen d’Azure SQL Database. Ensemble, ces technologies vous aident à générer une application possédant une couche Données hautement évolutive. La couche Données prend en charge les partitions mutualisées et utilise **ADO.NET SqlClient** ou **Entity Framework**. Pour plus d’informations, consultez [Modèles de conception pour les applications SaaS multilocataires avec Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
-- Les **outils de base de données élastique** permettent aux développeurs de monter en charge la couche Données avec des pratiques de partitionnement standard à l’aide de bibliothèques .NET et de modèles de service Microsoft Azure. En gérant les partitions via la [bibliothèque cliente de base de données élastique][s-d-elastic-database-client-library], vous rationalisez et automatisez de nombreuses tâches de l’infrastructure portant généralement sur le partitionnement.
+- Les **outils de base de données élastique** permettent aux développeurs de monter en charge la couche Données avec des pratiques de partitionnement standard à l’aide de bibliothèques .NET et de modèles de service Microsoft Azure. En gérant les partitions à l’aide de la [bibliothèque cliente de bases de données élastiques][s-d-elastic-database-client-library], vous rationalisez et automatisez de nombreuses tâches de l’infrastructure portant généralement sur le partitionnement.
 - La **sécurité au niveau des lignes** permet aux développeurs de stocker en toute sécurité des données pour plusieurs locataires dans la même base de données. Les stratégies de sécurité SNL filtrent les lignes qui n’appartiennent pas au locataire exécutant une requête. La centralisation de la logique de filtre à l’intérieur de la base de données simplifie la maintenance et réduit le risque d’une erreur de sécurité. L’alternative consistant à s’appuyer sur la totalité du code client pour appliquer la sécurité est risquée.
 
 Grâce à l’utilisation conjointe de ces fonctionnalités, une application peut stocker les données de plusieurs locataires au sein de la base de données d’une seule et même partition. Le coût par locataire est inférieur lorsque les locataires partagent une base de données. Cependant, la même application peut également offrir à ses locataires premium une option de paiement pour leur propre partition locataire unique dédiée. L’un des avantages de l’isolation du locataire unique est la meilleure garantie de performances. Dans une base de données à locataire unique, il n’existe aucun autre locataire en concurrence pour les ressources.
@@ -37,10 +36,10 @@ L’objectif est d’utiliser les API de [routage dépendant des données](sql-d
 
 ## <a name="download-the-sample-project"></a>Téléchargement de l’exemple de projet
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 - Exécuter Visual Studio version 2012 ou plus
-- Créer trois bases de données SQL Azure
+- Créer trois bases de données Azure SQL
 - Téléchargez l’exemple de projet : [Outils de base de données élastique pour SQL Azure - Partitions multilocataires](https://go.microsoft.com/?linkid=9888163)
   - Saisissez les informations sur vos bases de données au début du fichier **Program.cs**
 
@@ -57,7 +56,7 @@ Comme la fonction RLS n’a pas encore été activée sur les bases de données
 1. **Couche Application** : Modifiez le code de l’application pour toujours définir le TenantId actuel dans SESSION\_CONTEXT après l’ouverture d’une connexion. L’exemple de projet définit déjà le TenantId de cette manière.
 2. **Couche données** : Créez une stratégie de sécurité SNL dans chaque base de données de partition pour filtrer les lignes selon le TenantId stocké dans SESSION\_CONTEXT. Créez une stratégie pour chaque base de données de partition. Dans le cas contraire, les lignes de partitions mutualisées ne seront pas filtrées.
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Couche Application : Définir le TenantId dans SESSION\_CONTEXT
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Couche Application : Définir le TenantId dans SESSION\_CONTEXT
 
 Tout d’abord, connectez-vous à une base de données de partition à l’aide des API de routage dépendant des données de la bibliothèque cliente de base de données élastique. L’application doit toujours indiquer à la base de données quel TenantId utilise la connexion. Le TenantId indique à la stratégie de sécurité SNL les lignes qui doivent être éliminées par filtrage car appartenant à d’autres locataires. Stockez le TenantId actuel dans le [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) de la connexion.
 
@@ -228,7 +227,7 @@ La sécurité SNL est implémentée dans Transact-SQL. Une fonction définie par
     - Un prédicat BLOCK empêche les lignes qui ne répondent pas au filtre d’être insérées (INSERT) ou mises à jour (UPDATE).
     - Si l’élément SESSION\_CONTEXT n’a pas été défini, la fonction retourne la valeur NULL, et aucune ligne n’est visible ou ne peut être insérée.
 
-Pour activer la sécurité SNL sur toutes les partitions, exécutez le code T-SQL suivant à l’aide de Visual Studio (SSDT), de SSMS ou du script PowerShell inclus dans le projet. Ou si vous utilisez des [tâches de base de données élastique](sql-database-elastic-jobs-overview.md), vous pouvez automatiser l’exécution de ce T-SQL sur toutes les partitions.
+Pour activer la sécurité SNL sur toutes les partitions, exécutez le code T-SQL suivant à l’aide de Visual Studio (SSDT), de SSMS ou du script PowerShell inclus dans le projet. Ou si vous utilisez des [tâches de base de données élastique](elastic-jobs-overview.md), vous pouvez automatiser l’exécution de ce T-SQL sur toutes les partitions.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
@@ -339,7 +338,7 @@ GO
 ```
 
 
-### <a name="maintenance"></a>Maintenance 
+### <a name="maintenance"></a>Maintenance
 
 - **Ajout de nouvelles partitions** : Exécutez le script T-SQL pour activer SNL sur les nouvelles partitions, sinon, les requêtes portant sur ces partitions ne sont pas filtrées.
 - **Ajout de nouvelles tables** : Ajoutez un prédicat FILTER et BLOCK à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne sont pas filtrées. Vous pouvez automatiser cet ajout par le biais d’un déclencheur DDL, comme décrit dans l’article [Apply Row-Level Security automatically to newly created tables (Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables) (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
@@ -351,8 +350,8 @@ Les outils de base de données élastique et la fonction de sécurité au niveau
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 - [Qu’est-ce qu’un pool élastique Azure ?](sql-database-elastic-pool.md)
-- [Montée en charge avec Azure SQL Database](sql-database-elastic-scale-introduction.md)
-- [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](saas-tenancy-app-design-patterns.md)
+- [Scale-out avec Azure SQL Database](sql-database-elastic-scale-introduction.md)
+- [Modèles de conception pour les applications SaaS multilocataires avec Azure SQL Database](saas-tenancy-app-design-patterns.md)
 - [Authentification sur les applications mutualisées, avec Azure AD et OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
 - [Application Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 

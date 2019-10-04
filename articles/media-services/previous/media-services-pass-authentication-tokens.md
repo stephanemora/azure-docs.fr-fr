@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: dwgeo
 ms.openlocfilehash: 71925a1ee67956df45901950b2a59fa4c1b458a7
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260076"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61463223"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Découvrez comment les clients passent des jetons au service de remise de clés d’Azure Media Services
 Les clients s’interrogent souvent sur la manière dont lecteur peut transmettre des jetons au service de remise de clés d’Azure Media Services à des fins de vérification afin que le lecteur puisse obtenir la clé. Media Services prend en charge les formats SWT (Simple Web Tokens) et JWT (JSON Web Token). L’authentification par jeton est appliquée à tout type de clé, que vous utilisiez un chiffrement commun ou un chiffrement d’enveloppe AES (Advanced Encryption Standard) dans le système.
@@ -29,7 +29,7 @@ Les clients s’interrogent souvent sur la manière dont lecteur peut transmettr
 
 - Via l’en-tête d’autorisation HTTP.
     > [!NOTE]
-    > Le préfixe « Porteur » est attendu pour les spécifications OAuth 2.0. Un exemple de lecteur avec la configuration de jeton est hébergé sur la [page de démo](https://ampdemo.azureedge.net/) Azure Media Player. Pour définir la source vidéo, sélectionnez **AES (jeton JWT)** ou **AES (jeton SWT)**. Le jeton est passé via l’en-tête d’autorisation.
+    > Le préfixe « Porteur » est attendu pour les spécifications OAuth 2.0. Un exemple de lecteur avec la configuration de jeton est hébergé sur la [page de démo](https://ampdemo.azureedge.net/) Azure Media Player. Pour définir la source vidéo, sélectionnez **AES (jeton JWT)** ou **AES (jeton SWT)** . Le jeton est passé via l’en-tête d’autorisation.
 
 - En ajoutant un paramètre de requête URL avec « token=tokenvalue ».  
     > [!NOTE]

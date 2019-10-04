@@ -9,17 +9,17 @@ ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 9b9e28f18208674609d0842b0e3a54e3fc661c9f
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988076"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177497"
 ---
 ## <a name="view-device-telemetry"></a>Afficher la télémétrie d’appareil
 
-Vous pouvez afficher les données de télémétrie envoyées à partir de votre appareil le **Device Explorer** page dans la solution.
+Vous pouvez afficher les données de télémétrie envoyées à partir de votre périphérique sur la page **Explorateur d’appareils** dans la solution.
 
-1. Sélectionnez l’appareil que vous avez configuré dans la liste des appareils sur le **Device Explorer** page. Un panneau affiche des informations sur votre périphérique, y compris un tracé de la télémétrie du périphérique :
+1. Sélectionnez le périphérique que vous avez configuré dans la liste des périphériques sur la page **Explorateur d’appareils**. Un panneau affiche des informations sur votre périphérique, y compris un tracé de la télémétrie du périphérique :
 
     ![Consultez les détails du périphérique](media/iot-suite-visualize-connecting/devicesdetail.png)
 
@@ -33,24 +33,24 @@ Vous pouvez afficher les données de télémétrie envoyées à partir de votre 
 
 ## <a name="act-on-your-device"></a>Agir sur votre périphérique
 
-Pour appeler des méthodes sur vos appareils, utilisez le **Device Explorer** page dans la solution de surveillance à distance. Par exemple, dans la solution de surveillance à distance **Chiller** appareils implémentent un **redémarrer** (méthode).
+Pour appeler des méthodes sur vos appareils, utilisez la page **Explorateur d’appareils** dans la solution de supervision à distance. Par exemple, dans la solution de supervision à distance les périphériques **Condenseur** mettent en œuvre une méthode **Redémarrer**.
 
-1. Choisissez **appareils** pour accéder à la **Device Explorer** page dans la solution.
+1. Choisissez **Appareils** pour accéder à la page **Explorateur d’appareils** dans la solution.
 
-1. Sélectionnez l’appareil que vous avez configuré dans la liste des appareils sur le **Device Explorer** page :
+1. Sélectionnez le périphérique que vous avez configuré dans la liste des périphériques sur la page **Explorateur d’appareils** :
 
     ![Sélectionner votre appareil réel](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Pour afficher une liste des méthodes que vous pouvez appeler sur votre appareil, choisissez **travaux**, puis **méthodes**. Pour planifier un travail à exécuter sur plusieurs appareils, vous pouvez sélectionner plusieurs appareils dans la liste. Le volet **Travaux** affiche les types de méthodes communes à tous les appareils que vous avez sélectionnés.
+1. Pour afficher une liste des méthodes que vous pouvez appeler sur votre appareil, choisissez **Travaux**, puis **Méthodes**. Pour planifier un travail à exécuter sur plusieurs appareils, vous pouvez sélectionner plusieurs appareils dans la liste. Le volet **Travaux** affiche les types de méthodes communes à tous les appareils que vous avez sélectionnés.
 
-1. Choisissez **redémarrer**, la valeur est le nom du travail **RebootPhysicalChiller** , puis **appliquer**:
+1. Choisissez **Redémarrer**, définissez le nom de la tâche **RebootPhysicalChiller**, puis choisissez **Appliquer** :
 
     ![Planifier la mise à jour du microprogramme](media/iot-suite-visualize-connecting/deviceschedule.png)
 
 1. Une série de messages s’affiche dans la console exécutant votre code de périphérique lorsque le périphérique simulé traite la méthode.
 
 > [!NOTE]
-> Pour suivre l’état de la tâche dans la solution, choisissez **afficher l’état de travail**.
+> Pour suivre l’état de la tâche dans la solution, choisissez **Afficher l’état de la tâche**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

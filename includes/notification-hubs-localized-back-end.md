@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/02/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 527567ee3f3a939c7358fb6a62271cbe38e16974
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: c15d695e072e72c6e7be6dcf49f3ea049a9b70b7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915160"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177654"
 ---
 Quand vous envoyez des notifications de modèle, vous devez uniquement fournir un ensemble de propriétés. Dans ce scénario, l’ensemble de propriétés contient la version localisée des informations actuelles.
 

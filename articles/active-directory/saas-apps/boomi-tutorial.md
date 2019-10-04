@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8092724a8ebf04342e00d054cc78fe26b48d2f82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 114d29d11e51209d5ac788ae25413b5b989b84f4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842700"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106114"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Tutoriel : Intégration d’Azure Active Directory à Boomi
+# <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Didacticiel : Intégration d’Azure Active Directory à Boomi
 
 Dans ce didacticiel, vous allez apprendre à intégrer Boomi à Azure Active Directory (Azure AD).
 L’intégration de Boomi dans Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Boomi avec Azure AD, vous devez ajouter Boo
 
 **Pour ajouter Boomi à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -237,7 +237,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Boomi, vous devez le
 
     ![Utilisateurs](./media/boomi-tutorial/tutorial_boomi_001.png "Utilisateurs")
 
-3. Cliquez sur l’icône **+**, et la boîte de dialogue **Ajouter/gérer les rôles utilisateur** s’ouvre.
+3. Cliquez sur l’icône **+** , et la boîte de dialogue **Ajouter/gérer les rôles utilisateur** s’ouvre.
 
     ![Utilisateurs](./media/boomi-tutorial/tutorial_boomi_002.png "Utilisateurs")
 

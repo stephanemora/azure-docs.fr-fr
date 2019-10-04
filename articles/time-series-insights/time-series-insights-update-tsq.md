@@ -2,20 +2,20 @@
 title: Interrogation de données Azure Time Series Insights en préversion | Microsoft Docs
 description: Interrogation de données Azure Time Series Insights en préversion.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7885473d029556e10663675a9886c7ea3b9c709c
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 29418345aaa8042e50b1297541cac3af0a3c1504
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555419"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935212"
 ---
 # <a name="data-querying"></a>Interrogation de données
 
@@ -35,9 +35,9 @@ Le [langage Expression de série chronologique (TSX)](https://docs.microsoft.com
 
 Les API principales suivantes sont prises en charge.
 
-![TSQ][1]
+[![Vue d'ensemble de la requête de série chronologique](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
-### <a name="environment-apis"></a>API d’environnement
+## <a name="environment-apis"></a>API d’environnement
 
 Les API d’environnement suivantes sont disponibles :
 
@@ -45,7 +45,7 @@ Les API d’environnement suivantes sont disponibles :
 * [API Obtenir la disponibilité de l’environnement](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api) : retourne la distribution du nombre d’événements au cours du timestamp `$ts` de l’événement. Cette API permet de déterminer s’il s’est produit des événements dans le timestamp en renvoyant le nombre d’événements.
 * [API Obtenir le schéma des événements](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api) : retourne les métadonnées du schéma des événements pour une période de recherche donnée. Cette API permet de récupérer toutes les métadonnées et propriétés disponibles dans le schéma sur une période définie.
 
-### <a name="time-series-model-query-tsm-q-apis"></a>API modèle-requête de série chronologique (TSM-Q)
+## <a name="time-series-model-query-tsm-q-apis"></a>API modèle-requête de série chronologique (TSM-Q)
 
 Les API modèle-requête de série chronologique suivantes sont disponibles :
 
@@ -54,7 +54,7 @@ Les API modèle-requête de série chronologique suivantes sont disponibles :
 * [API Hiérarchies](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api) : active CRUD sur les hiérarchies Time Series et les chemins d’accès de champs associés.
 * [API Instances](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api) : active CRUD sur les instances Time Series et les champs d’instance associés.
 
-### <a name="time-series-query-tsq-apis"></a>API de requête de série chronologique (TSQ)
+## <a name="time-series-query-tsq-apis"></a>API de requête de série chronologique (TSQ)
 
 Les API de requête de série chronologique suivantes sont disponibles :
 
@@ -75,11 +75,8 @@ Les API de requête de série chronologique suivantes sont disponibles :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur :
+- En savoir plus sur l'[entrée et le stockage](./time-series-insights-update-storage-ingress.md) dans Azure Time Series Insights en préversion.
 
-- [Stockage et entrée Azure Time Series Insights en préversion](./time-series-insights-update-storage-ingress.md)
-- [Modélisation des données](./time-series-insights-update-tsm.md)
-- [Meilleures pratiques pour choisir un ID Time Series](./time-series-insights-update-how-to-id.md)
+- Consultez l'article [Azure Time Series Insights (préversion) - Modélisation de données](./time-series-insights-update-tsm.md).
 
-<!-- Images -->
-[1]: media/v2-update-tsq/tsq.png
+- Découvrez les [meilleures pratiques pour choisir un ID Time Series](./time-series-insights-update-how-to-id.md).

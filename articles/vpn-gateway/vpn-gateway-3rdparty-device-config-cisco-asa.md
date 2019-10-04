@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
 ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817238"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60648745"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemple de configuration : Appareil Cisco ASA (IKEv2/pas de BGP)
 Cet article fournit des exemples de configurations pour la connexion de périphériques Cisco ASA (Adaptive Security Appliance) à des passerelles VPN Azure. L’exemple s’applique à des périphériques Cisco ASA qui exécutent IKEv2 sans protocole de passerelle frontière (BGP). 
@@ -27,7 +27,7 @@ Cet article fournit des exemples de configurations pour la connexion de périph�
 | Modèle testé           | ASA 5505                          |
 | Version testée         | 9.2                               |
 | Version IKE            | IKEv2                             |
-| BGP                    | Non                                 |
+| BGP                    | Non                                |
 | Type de passerelle VPN Azure | Passerelle VPN basée sur le routage           |
 |                        |                                   |
 

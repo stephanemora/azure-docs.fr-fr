@@ -2,20 +2,20 @@
 title: 'Didacticiel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse | Microsoft Docs'
 description: Ce tutoriel utilise le portail Azure et SQL Server Management Studio pour charger les données de New York Taxicab d’un objet blob Azure public vers Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 03/27/2019
-ms.author: mlee3gsd
+ms.subservice: load-data
+ms.date: 04/26/2019
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.openlocfilehash: e3bef20a92322b07219e42c4f7fe8443917eae32
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620187"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575201"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse
 
@@ -42,11 +42,11 @@ Avant de commencer ce didacticiel, téléchargez et installez la dernière versi
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-data-warehouse"></a>Créer un entrepôt de données SQL vide
+## <a name="create-a-blank-sql-data-warehouse"></a>Créer un entrepôt SQL Data Warehouse vide
 
-Un entrepôt de données Azure SQL est créé avec un ensemble défini de [ressources de calcul](memory-and-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
+Un entrepôt Azure SQL Data Warehouse est créé avec un ensemble défini de [ressources de calcul](memory-and-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
 
-Suivez ces étapes pour créer un entrepôt de données SQL vide. 
+Suivez ces étapes pour créer un entrepôt SQL Data Warehouse vide. 
 
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 
@@ -80,7 +80,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 6. Cliquez sur **Niveau de performance** pour spécifier si l’entrepôt de données est de type Gen1 ou Gen2, et indiquer le nombre d’unités d’entrepôt de données. 
 
-7. Pour ce didacticiel, sélectionnez **Gen2** de SQL Data Warehouse. Le curseur est défini sur **DW1000c** par défaut.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
+7. Pour ce tutoriel, sélectionnez **Gen2** de SQL Data Warehouse. Par défaut, le curseur est défini sur **DW1000c**.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
 
     ![configurer les performances](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -113,7 +113,7 @@ Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêch
 
     ![paramètres du serveur](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
-5. Cliquez sur **Afficher les paramètres de pare-feu**. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre. 
+5. Cliquez sur **Afficher les paramètres de pare-feu**. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre. 
 
     ![règle de pare-feu de serveur](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 
@@ -561,6 +561,49 @@ Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-s
 
     ![Afficher les tables chargées](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>S’authentifier à l’aide d’identités managées à charger (facultatif)
+Charger avec PolyBase et s'authentifier via des identités managées est le mécanisme le plus sécurisé et vous permet de tirer parti des points de terminaison de service de réseau virtuel avec Stockage Azure. 
+
+### <a name="prerequisites"></a>Prérequis
+1.  Installez Azure PowerShell en vous aidant de ce [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
+2.  Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez commencer par le mettre à niveau avec un compte v2 universel en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  Vous devez avoir activé **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** sous le menu de paramètres **Pare-feux et réseaux virtuels** du compte Stockage Azure. Pour plus d’informations, consultez ce [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+
+#### <a name="steps"></a>Étapes
+1. Dans PowerShell, **inscrivez votre serveur SQL Database** auprès d’Azure Active Directory (AAD) :
+
+   ```powershell
+   Connect-AzAccount
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
+    
+   1. Créez un **compte de stockage v2 universel** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+
+   > [!NOTE]
+   > - Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez **d’abord le mettre à niveau avec v2** en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+    
+1. Sous votre compte de stockage, accédez à **Contrôle d’accès (IAM)** , puis cliquez sur **Ajouter une attribution de rôle**. Attribuez le rôle RBAC **Contributeur aux données Blob de stockage** à votre serveur SQL Database.
+
+   > [!NOTE] 
+   > Seuls les membres dotés du privilège Propriétaire peuvent effectuer cette étape. Pour découvrir les divers rôles intégrés pour les ressources Azure, consultez ce [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  
+1. **Connectivité PolyBase au compte Stockage Azure :**
+    
+   1. Créez vos informations d’identification incluses dans l’étendue de la base de données avec **IDENTITY = 'Managed Service Identity'**  :
+
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - Il est inutile de spécifier SECRET avec la clé d’accès Stockage Azure, car ce mécanisme utilise l’[identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) en arrière-plan.
+       > - Le nom d’IDENTITY doit être **'Managed Service Identity'** pour que la connectivité PolyBase entre le compte Stockage Azure.
+    
+   1. Créer la source de données externe en spécifiant les informations d'identification incluses dans l'étendue de la base de données avec Managed Service Identity.
+        
+   1. Exécutez des requêtes comme vous le faites habituellement en utilisant des [tables externes](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+
+Consultez la [documentation ](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) suivante pour configurer des points de terminaison de service de réseau virtuel pour SQL Data Warehouse. 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -597,7 +640,7 @@ Voici les étapes que vous avez effectuées :
 > * Afficher la progression des données à mesure du chargement
 > * Créer des statistiques sur les données nouvellement chargées
 
-Passez à la vue d’ensemble de la migration pour savoir comment migrer une base de données existante vers SQL Data Warehouse.
+Passez à la vue d’ensemble du développement pour savoir comment migrer une base de données existante vers SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Découvrir comment migrer une base de données existante vers SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Décisions de conception pour migrer une base de données existante vers SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)

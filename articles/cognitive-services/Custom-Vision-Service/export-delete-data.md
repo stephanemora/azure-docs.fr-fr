@@ -1,6 +1,6 @@
 ---
 title: Exporter ou supprimer vos données - Service Vision personnalisée
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Apprenez à exporter ou à supprimer vos données à partir du service Vision personnalisée.
 services: cognitive-services
 author: PatrickFarley
@@ -10,20 +10,20 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: e662e61a9df45cf3d57d5698337a26b7b8fc55a3
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: b885f359d9416fbc5f778b094610260342a75f65
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349737"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564228"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Exporter ou supprimer des données utilisateur dans Custom Vision
 
-Vision personnalisée collecte les données utilisateur pour le service de fonctionner, mais les clients ont un contrôle total sur l’affichage, l’exportation et la suppression de leurs données à l’aide de la Vision personnalisée [formation API](https://go.microsoft.com/fwlink/?linkid=865446).
+Custom Vision collecte les données utilisateur pour faire fonctionner le service, mais les clients disposent d'un contrôle total sur l'affichage, l'exportation et la suppression de leurs données grâce aux [API Training](https://go.microsoft.com/fwlink/?linkid=865446) de Custom Vision.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Pour savoir comment exporter et supprimer des données utilisateur dans Vision personnalisée, consultez le tableau suivant.
+Pour savoir comment exporter et supprimer des données utilisateur dans Custom Vision, consultez le tableau suivant.
 
 | Données | Opération d’exportation | Opération de suppression |
 | ---- | ---------------- | ---------------- |

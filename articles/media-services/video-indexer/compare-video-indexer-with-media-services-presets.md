@@ -7,24 +7,25 @@ author: juliako
 manager: femila
 editor: ''
 ms.service: media-services
+ms.subservice: video-indexer
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 2c98f6d12f4868e5f90874fe3210fe5368f7ca2d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 275178998948e357a6a72fbe5d0b3c9c01485a3a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270334"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65800174"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Comparer les préréglages d’Azure Media Services v3 et de Video Indexer 
 
 Cet article compare les fonctionnalités des **API Video Indexer** et des **API Media Services v3**. 
 
-Actuellement, il existe un chevauchement entre les fonctionnalités offertes par le [API d’indexeur vidéo](https://api-portal.videoindexer.ai/) et [Media Services v3 API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json). Le tableau suivant offre des indications pour comprendre les différences et les similitudes. 
+Actuellement, il y a un chevauchement entre les fonctionnalités offertes par les [API Video Indexer](https://api-portal.videoindexer.ai/) et celles offertes par les [API Media Services v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json). Le tableau suivant offre des indications pour comprendre les différences et les similitudes. 
 
 ## <a name="compare"></a>Comparer
 
@@ -33,9 +34,9 @@ Actuellement, il existe un chevauchement entre les fonctionnalités offertes par
 |Insights médias|[Amélioré](video-indexer-output-json-v2.md) |[Fondamentaux](../latest/intelligence-concept.md)|
 |Expériences|Consultez la liste complète des fonctionnalités prises en charge : <br/> [Vue d'ensemble](video-indexer-overview.md)|Retourne uniquement des insights vidéo|
 |Facturation|[Tarifs de Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Tarifs de Media Services](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|Conformité|[ISO 27001](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [ISO 27018](https://www.microsoft.com/trustcenter/Compliance/ISO-IEC-27018), [SOC 1,2,3](https://www.microsoft.com/TrustCenter/Compliance/SOC), [HIPAA](https://www.microsoft.com/trustcenter/compliance/hipaa), [FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/fedramp), [PCI](https://www.microsoft.com/trustcenter/compliance/pci)et [ HITRUST](https://www.microsoft.com/TrustCenter/Compliance/hitrust) certifié. Pour les mises à jour plus récentes, visitez [état actuel de certifications de Video Indexer](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).|Media Services est compatible avec de nombreuses certifications. Consultez le fichier [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) et recherchez « Media Services » pour savoir s’il est conforme à un certificat d’intérêt.|
+|Conformité|Certifié [ISO 27001](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [ISO 27018](https://www.microsoft.com/trustcenter/Compliance/ISO-IEC-27018), [SOC 1,2,3](https://www.microsoft.com/TrustCenter/Compliance/SOC), [HIPAA](https://www.microsoft.com/trustcenter/compliance/hipaa), [FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/fedramp), [PCI](https://www.microsoft.com/trustcenter/compliance/pci), et [HITRUST](https://www.microsoft.com/TrustCenter/Compliance/hitrust). Pour les mises à jour plus récentes, consultez [le statut des certifications actuelles de Video Indexer](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).|Media Services est compatible avec de nombreuses certifications. Consultez le fichier [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) et recherchez « Media Services » pour savoir s’il est conforme à un certificat d’intérêt.|
 |Version d’évaluation gratuite|USA Est|Non disponible|
-|Disponibilité des régions|Est des États-Unis 2, Sud-Centre des États-Unis, ouest des États-Unis 2, Europe du Nord, Europe de l’ouest, Asie du Sud-est, Asie de l’est et est de l’Australie.  Pour les mises à jour plus récentes, visitez le [produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) page.|Consultez [État Azure](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
+|Disponibilité des régions|USA Est 2, USA Centre Sud, USA Ouest 2, Europe Nord, Europe Ouest, Asie Sud-Est, Asie Est et Australie Est.  Pour obtenir les mises à jour les plus actuelles, consultez la page des [produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).|Consultez [État Azure](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

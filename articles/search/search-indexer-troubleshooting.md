@@ -2,20 +2,18 @@
 title: Résoudre les problèmes courants des indexeurs de recherche - Recherche Azure
 description: Résolvez les problèmes courants liés aux indexeurs dans la Recherche Azure, notamment les erreurs de connexion aux sources de données, de pare-feu et de documents manquants.
 author: mgottein
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 ms.author: magottei
-ms.custom: seodec2018
-ms.openlocfilehash: b527b759eb9c76ab6289e909001c5f7820f34ef4
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 4692be287e9b38cf116107d2e7c1043f23a6b34b
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652414"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640597"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Résoudre les problèmes courants des indexeurs dans la Recherche Azure
 
@@ -35,20 +33,17 @@ Le Stockage Azure fournit un pare-feu configurable. Par défaut, le pare-feu est
 
 Il n’y a pas de message d’erreur spécifique lorsqu’il est activé. En règle générale, les erreurs de pare-feu sont de ce type : `The remote server returned an error: (403) Forbidden`.
 
-Vous pouvez vérifier que le pare-feu est activé sur le [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). Si c’est le cas, il existe deux moyens de contourner ce problème :
+Vous pouvez vérifier que le pare-feu est activé sur le [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). La seule solution de contournement prise en charge consiste à désactiver le pare-feu en choisissant d’autoriser l’accès depuis [« Tous les réseaux »](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
 
-1. Désactiver le pare-feu en choisissant d’autoriser l’accès de [« Tous les réseaux »](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
-1. [Ajouter une exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) pour l’adresse IP de votre service de recherche. Pour trouver cette adresse IP, utilisez la commande suivante :
+Si aucun ensemble de compétences n’est joint à votre indexeur, vous _pouvez_ tenter d’[ajouter une exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) pour les adresses IP de votre service de recherche. Toutefois, ce scénario n’est pas pris en charge et n’est pas garanti de fonctionner.
 
-`nslookup <service name>.search.windows.net`
-
-Les exceptions ne fonctionnent pas pour la [Recherche cognitive](cognitive-search-concept-intro.md). La seule solution de contournement consiste à désactiver le pare-feu.
+Vous trouverez l’adresse IP de votre service de recherche en effectuant un test ping de son nom de domaine complet (`<your-search-service-name>.search.windows.net`).
 
 ### <a name="cosmos-db"></a>Cosmos DB
 
 #### <a name="indexing-isnt-enabled"></a>L’indexation n’est pas activée
 
-La Recherche Azure comporte une dépendance implicite vis-à-vis de l’indexation Cosmos DB. Si l’indexation automatique est désactivée dans Cosmos DB, la Recherche Azure renvoie un état réussi, mais ne parvient pas à indexer le contenu du conteneur. Pour savoir comment vérifier les paramètres et activer l’indexation, voir [Gérer l’indexation dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#manage-indexing-using-azure-portal).
+La Recherche Azure comporte une dépendance implicite vis-à-vis de l’indexation Cosmos DB. Si l’indexation automatique est désactivée dans Cosmos DB, la Recherche Azure renvoie un état réussi, mais ne parvient pas à indexer le contenu du conteneur. Pour savoir comment vérifier les paramètres et activer l’indexation, voir [Gérer l’indexation dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## <a name="document-processing-errors"></a>Erreurs de traitement de documents
 
@@ -57,7 +52,7 @@ La Recherche Azure comporte une dépendance implicite vis-à-vis de l’indexati
 L’indexeur d’objets blob [précise quels formats de documents sont pris en charge explicitement](search-howto-indexing-azure-blob-storage.md#supported-document-formats). Il peut arriver qu’un conteneur de stockage blob contienne des documents non pris en charge ou bien problématiques. Pour ne pas avoir à arrêter votre indexeur sur ces documents, vous pouvez [modifier les options de configuration](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) :
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 
@@ -71,11 +66,11 @@ api-key: [admin key]
 
 L’indexeur d’objets blob [recherche et extrait du texte dans les objets blob d’un conteneur](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). L’extraction de texte peut poser les problèmes suivants :
 
-* Le document ne contient que des images numérisées. Les objets blob PDF comportant du contenu non textuel, comme des images numérisées (JPG), ne produisent pas de résultats dans un pipeline d’indexation blob standard. Si vous avez du contenu de type image comportant des éléments textuels, vous pouvez utiliser la [Recherche cognitive](cognitive-search-concept-image-scenarios.md) pour rechercher et extraire le texte.
+* Le document ne contient que des images numérisées. Les objets blob PDF comportant du contenu non textuel, comme des images numérisées (JPG), ne produisent pas de résultats dans un pipeline d’indexation blob standard. Si vous avez du contenu d’image comportant des éléments textuels, vous pouvez utiliser la [recherche cognitive](cognitive-search-concept-image-scenarios.md) pour rechercher et extraire le texte.
 * L’indexeur d’objets blob est configuré pour indexer uniquement les métadonnées. Pour extraire le contenu, il doit être configuré de façon à [extraire à la fois le contenu et les métadonnées](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed) :
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 
@@ -94,5 +89,5 @@ Les indexeurs recherchent des documents dans une [source de données](https://do
 * Le document n’a pas été indexé. Consultez le portail pour une exécution réussie de l’indexeur.
 * Le document a été mis à jour après l’exécution de l’indexeur. Si votre indexeur suit une [planification](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), il s’exécutera à nouveau et trouvera le document.
 * La [requête](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) spécifiée dans la source de données exclut le document. Les indexeurs ne peuvent pas indexer de documents qui ne font pas partie de la source de données.
-* Des [mappages de champs](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) ou la [Recherche cognitive](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) ont modifié le document, qui n’a pas l’aspect prévu.
+* Des [mappages de champs](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) ou la [recherche cognitive](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) ont modifié le document, qui n’a pas l’aspect prévu.
 * Utilisez [l’API Recherche de document](https://docs.microsoft.com/rest/api/searchservice/lookup-document) pour trouver votre document.

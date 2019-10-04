@@ -1,6 +1,6 @@
 ---
-title: Sur les menaces pare-feu Azure en fonction de filtrage
-description: En savoir plus sur le filtrage de pare-feu Azure threat intelligence
+title: Fonctionnalité de filtrage basé sur la Threat Intelligence du Pare-feu Azure
+description: En savoir plus sur la fonctionnalité de filtrage basé sur la Threat Intelligence du Pare-feu Azure
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,32 +8,32 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730534"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60194029"
 ---
-# <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Filtrage de menaces de pare-feu Azure basé sur l’intelligence - version préliminaire publique
+# <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Fonctionnalité de filtrage basé sur la Threat Intelligence du Pare-feu Azure - Préversion publique
 
-Threat intelligence filtrage peut être activé pour votre pare-feu pour l’alerte et de refuser le trafic depuis/vers connus des adresses IP malveillantes et les domaines. Ces adresses IP et domaines proviennent du flux Microsoft Threat Intelligence. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) alimente les menaces de Microsoft et est utilisé par plusieurs services, dont Azure Security Center.
+Le filtrage basé sur Threat Intelligence peut être activé pour votre pare-feu pour donner l’alerte et rejeter le trafic depuis ou vers des adresses IP et des domaines malveillants connus. Ces adresses IP et domaines proviennent du flux Microsoft Threat Intelligence. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) alimente Microsoft Threat Intelligence et est utilisé par de nombreux services, dont Azure Security Center.
 
-![Menaces de pare-feu](media/threat-intel/firewall-threat.png)
+![Fonctionnalité de Threat Intelligence du Pare-feu](media/threat-intel/firewall-threat.png)
 
 > [!IMPORTANT]
-> Threat intelligence en fonction de filtrage est actuellement en version préliminaire publique et est fourni avec un contrat de niveau de service en version préliminaire. Certaines fonctionnalités peuvent être limitées ou non prises en charge.  Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Le filtrage basé sur la Threat Intelligence est actuellement disponible en préversion publique et est fourni avec un contrat de niveau de service. Certaines fonctionnalités peuvent être limitées ou non prises en charge.  Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Si threat intelligence filtrage est activé, les règles associées sont traitées avant les règles NAT, règles de réseau ou règles d’application. La version préliminaire, seuls les enregistrements de confiance le plus élevés sont inclus.
+Si le filtrage basé sur la Threat Intelligence est activé, les règles associées sont traitées avant les règles NAT, les règles de réseau ou les règles d'application. Dans le cadre de la préversion, seuls les enregistrements au niveau de confiance le plus élevé sont inclus.
 
-Vous pouvez choisir de simplement une alerte de journal lorsqu’une règle est déclenchée, ou vous pouvez choisir d’alerte et refuser de mode.
+Vous pouvez vous contenter d'enregistrer une alerte lorsqu'une règle est déclenchée, ou vous pouvez choisir le mode d'alerte et le mode de refus.
 
-Par défaut, la threat intelligence filtrage est activé en mode d’alerte. Impossible de désactiver cette fonctionnalité ou de modifier le mode jusqu'à ce que l’interface du portail est disponible dans votre région.
+Par défaut, le filtrage basé sur la Threat Intelligence est activé en mode d'alerte. Vous ne pouvez pas désactiver cette fonctionnalité ni changer de mode tant que l'interface du portail n'est pas disponible dans votre région.
 
-![Sur les menaces en fonction de filtrage interface du portail](media/threat-intel/threat-intel-ui.png)
+![Interface du portail de filtrage basé sur la Threat Intelligence](media/threat-intel/threat-intel-ui.png)
 
 ## <a name="logs"></a>Journaux d’activité
 
-L’extrait de journal suivant montre une règle déclenchée :
+L'extrait de journal suivant montre une règle déclenchée :
 
 ```
 {
@@ -49,12 +49,12 @@ L’extrait de journal suivant montre une règle déclenchée :
 
 ## <a name="testing"></a>Test
 
-- **Test sortant** -alertes de trafic sortant doivent être rarement, car cela signifie que votre environnement a été compromise. Pour aider à alertes sortant de test fonctionnent, un nom de domaine complet a été créé de test qui déclenche une alerte. Utilisez **testmaliciousdomain.eastus.cloudapp.azure.com** pour vos tests sortants.
+- **Test sortant** : les alertes de trafic sortant doivent être exceptionnelles, car elles signifient que votre environnement a été compromis. Pour tester le fonctionnement des alertes de trafic sortant, un nom de domaine complet de test a été créé afin de déclencher une alerte. Utilisez **testmaliciousdomain.eastus.cloudapp.azure.com** pour vos tests sortants.
 
-- **Trafic entrant test** -vous pouvez vous attendre afficher les alertes sur le trafic entrant si des règles DNAT sont configurées sur le pare-feu. Cela est vrai même si des sources spécifiques sont autorisés dans la règle DNAT et le trafic est refusé dans le cas contraire. Pare-feu Azure n’envoie aucune alerte sur tous les analyseurs de port connu ; uniquement sur les analyseurs qui sont connus également s’engager dans les activités malveillantes.
+- **Test entrant** : vous pouvez vous attendre à recevoir des alertes de trafic entrant si des règles DNAT sont configurées sur le pare-feu, même si seules certaines sources sont autorisées sur la règle DNAT et que le trafic est autrement refusé. Le Pare-feu Azure n'alerte pas sur tous les scanneurs de ports connus ; il alerte uniquement sur les scanneurs connus pour leurs activités malveillantes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez [exemples d’Analytique de journal de pare-feu Azure](log-analytics-samples.md)
-- Découvrez comment [déployer et configurer un pare-feu d’Azure](tutorial-firewall-deploy-portal.md)
-- Examinez le [rapport d’analyse décisionnelle de Microsoft Security](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)
+- Consultez [Exemples Log Analytics pour le Pare-feu Azure](log-analytics-samples.md)
+- Apprenez à [déployer et configurer un Pare-feu Azure](tutorial-firewall-deploy-portal.md)
+- Consultez le [Rapport des renseignements de sécurité de Microsoft](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

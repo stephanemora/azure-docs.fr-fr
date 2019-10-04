@@ -1,27 +1,26 @@
 ---
-title: À l’aide de la valeur de retour d’une fonction Azure
-description: Apprenez à gérer les valeurs de retour pour Azure Functions
+title: Utilisation d’une valeur de retour dans Azure Functions
+description: Découvrez comment gérer les valeurs de retour pour Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 4ccfe192eaea94cb9b199bd3c6f0bdacf1685519
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: 1ea7ec0444ba80d3494afba77ad9d7fdabd5f982
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740424"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086422"
 ---
-# <a name="using-the-azure-function-return-value"></a>À l’aide de la valeur de retour de fonction Azure
+# <a name="using-the-azure-function-return-value"></a>Utilisation de la valeur de retour Azure Functions
 
-Cet article explique comment des valeurs de retour à l’intérieur d’une fonction.
+Cet article explique comment fonctionnent les valeurs de retour dans une fonction.
 
-Dans les langages qui ont une valeur de retour, vous pouvez lier une fonction [liaison de sortie](./functions-triggers-bindings.md#binding-direction) à la valeur de retour :
+Dans les langages qui proposent une valeur de retour, vous pouvez lier une [liaison de sortie](./functions-triggers-bindings.md#binding-direction) de fonction à la valeur de retour :
 
 * Dans une bibliothèque de classes C#, appliquez l’attribut de liaison de sortie à la valeur de retour de la méthode.
 * Dans d’autres langages, définissez la propriété `name` dans *function.json* sur `$return`.
@@ -168,4 +167,4 @@ def main(input: azure.functions.InputStream) -> str:
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Gérer les erreurs de liaison d’Azure Functions](./functions-bindings-errors.md)
+> [Gérer les erreurs liées aux liaisons Azure Functions](./functions-bindings-errors.md)

@@ -15,31 +15,22 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: df615b940873cd59341424d0b40a9e399d710126
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf241b788c0027c6905c6898352bb3352da64825
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896243"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326513"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec une application .NET Core
 
-
-
-Ce guide de démarrage rapide vous montre comment utiliser le cache Microsoft Azure pour Redis avec .NET Core. Le cache Microsoft Azure pour Redis se base sur le cache Azure pour Redis open source connu. Il vous permet d’accéder à un cache Azure pour Redis sécurisé et dédié géré par Microsoft. Un cache créé avec le cache Azure pour Redis est accessible à partir de toutes les applications dans Microsoft Azure.
-
-Dans ce démarrage rapide, vous allez utiliser le client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) avec une code C\# dans une application console .NET Core. Vous allez créer un cache et configurer l’application cliente .NET Core. Ensuite, vous ajouterez et mettrez à jour des objets dans le cache. 
-
-Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce démarrage rapide. Toutefois, [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
-
-![Application console terminée](./media/cache-dotnet-core-quickstart/cache-console-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Dans ce guide de démarrage rapide, vous allez incorporer le cache Azure pour Redis dans une application .NET Core pour avoir accès à un cache sécurisé et dédié accessible à partir de n’importe quelle application dans Azure. Vous utiliserez spécifiquement le client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) avec du code C# dans une application console .NET Core. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Kit de développement logiciel (SDK) .NET 2.0](https://www.microsoft.com/net/learn/get-started/windows) ou version ultérieure.
-* Le client StackExchange.Redis a besoin de [.NET Framework 4 ou version ultérieure](https://www.microsoft.com/net/download/dotnet-framework-runtime).
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- [Kit de développement logiciel (SDK) .NET Core](https://dotnet.microsoft.com/download)
+- [.NET Framework 4 ou ultérieur](https://www.microsoft.com/net/download/dotnet-framework-runtime), qui est requis par le client StackExchange.Redis.
 
 ## <a name="create-a-cache"></a>Création d'un cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -313,7 +304,7 @@ Sinon, si l’exemple d’application de démarrage rapide était votre dernièr
 
 Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
 
-Dans la zone de texte **Filtrer par nom.**, saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
+Dans la zone de texte **Filtrer par nom.** , saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
 
 ![Supprimer](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 

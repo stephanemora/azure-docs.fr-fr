@@ -4,18 +4,18 @@ description: Utiliser le portail Azure pour déployer des modules sur un apparei
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: f27484fd1d47a2e29aa5083a7d440e5c7dba11c1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430112"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839652"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Déployer des modules Azure IoT Edge à partir du portail Azure
 
@@ -43,7 +43,7 @@ Le portail Azure comprend un Assistant qui vous guide à travers la création du
 
 ### <a name="add-modules"></a>Ajouter des modules
 
-1. Dans la section **Paramètres de Registre** de la page, fournissez les informations d’identification permettant d’accéder à n’importe quels registres de conteneurs privés qui contiennent des images de module.
+1. Dans la section **Paramètres de Container Registry** de la page, fournissez les informations d’identification permettant d’accéder à n’importe quels registres de conteneurs privés qui contiennent des images de module.
 
 1. Dans la section **Modules de déploiement** de la page, sélectionnez **Ajouter**.
 
@@ -55,9 +55,9 @@ Le portail Azure comprend un Assistant qui vous guide à travers la création du
 
 1. Sélectionnez le **Module IoT Edge**.
 
-1. Fournissez un nom pour le module, puis spécifiez l’image conteneur. Par exemple : 
+1. Fournissez un nom pour le module, puis spécifiez l’image conteneur. Par exemple :
 
-   * **Nom** : tempSensor
+   * **Nom** – SimulatedTemperatureSensor
    * **URI d’image** : mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. Renseignez les champs facultatifs si nécessaire. Pour plus d’informations sur les options de création de conteneur, la stratégie de redémarrage et l’état souhaité, consultez [Propriétés souhaitées pour EdgeAgent](module-edgeagent-edgehub.md#edgeagent-desired-properties). Pour plus d’informations sur le jumeau de module, consultez [Définir ou mettre à jour les propriétés souhaitées](module-composition.md#define-or-update-desired-properties).

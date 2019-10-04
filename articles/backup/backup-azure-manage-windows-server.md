@@ -1,19 +1,18 @@
 ---
 title: Gérer les serveurs et les coffres Azure Recovery Services
 description: Gérez les travaux et les alertes dans un coffre Azure Recovery Services.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
-ms.author: raynew
-ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: MT
+ms.date: 07/08/2019
+ms.author: dacurwin
+ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268870"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954757"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
@@ -100,7 +99,7 @@ Par défaut, toutes les informations, à l’exception de **l’heure de la dern
 * Alerte
 * Élément de sauvegarde
 * Serveur protégé
-* Severity
+* severity
 * Duration
 * Heure de création
 * Statut
@@ -156,7 +155,7 @@ Choisissez la gravité d’alerte (critique ou avertissement) à utiliser pour g
 
 ## <a name="manage-backup-items"></a>Gérer les éléments de sauvegarde
 
-Un coffre Recovery Services peut contenir de nombreux types de données de sauvegarde. Pour obtenir la liste complète des types de sauvegarde, consultez [Quelles applications et charges de travail est-il possible de sauvegarder ?](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). Pour gérer les différents serveurs, ordinateurs, bases de données et charges de travail, cliquez sur la vignette **Éléments de sauvegarde** pour afficher le contenu du coffre.
+Un coffre Recovery Services peut contenir de nombreux types de données de sauvegarde. [En savoir plus](backup-overview.md#what-can-i-back-up) sur ce que vous pouvez sauvegarder. Pour gérer les différents serveurs, ordinateurs, bases de données et charges de travail, cliquez sur la vignette **Éléments de sauvegarde** pour afficher le contenu du coffre.
 
 ![Mosaïque Éléments de sauvegarde](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -176,7 +175,7 @@ La liste des machines virtuelles comprend des données utiles : le groupe de res
 
 Dans le tableau de bord du coffre, la vignette **Travaux de sauvegarde** montre plusieurs travaux qui sont en cours ou qui ont échoué au cours des dernières 24 heures. La vignette donne un aperçu du menu Travaux de sauvegarde.
 
-![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
+![Sauvegarder des éléments à partir de paramètres](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
 Pour afficher des informations détaillées sur les travaux, cliquez sur **En cours** ou **Échec** afin d’ouvrir le menu Travaux de sauvegarde filtré selon l’état choisi.
 
@@ -186,11 +185,11 @@ Le menu **Travaux de sauvegarde** affiche des informations sur le type de l’é
 
 Pour ouvrir le menu Travaux de sauvegarde, dans le menu principal du coffre, cliquez sur **Travaux de sauvegarde**.
 
-![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
+![Sauvegarder des éléments à partir de paramètres](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
 La liste des travaux de sauvegarde s’ouvre.
 
-![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+![Sauvegarder des éléments à partir de paramètres](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
 
 Le menu Travaux de sauvegarde affiche l’état de toutes les opérations de tous les types de sauvegarde, au cours des dernières 24 heures. Utilisez le menu **Filtrer** pour modifier les filtres. Les filtres sont abordés dans les sections suivantes.
 
@@ -198,11 +197,11 @@ Pour modifier les filtres :
 
 1. Dans le menu Travaux de sauvegarde du coffre, cliquez sur **Filtrer**.
 
-   ![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+   ![Sauvegarder des éléments à partir de paramètres](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
 
     Le menu Filtrer s’ouvre.
 
-   ![Éléments de sauvegarde à partir des paramètres](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+   ![Sauvegarder des éléments à partir de paramètres](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
 
 2. Choisissez les paramètres de filtre, puis cliquez sur **Terminé**. La liste filtrée est actualisée selon les nouveaux paramètres.
 
@@ -221,7 +220,7 @@ Le type d’élément correspond au type de gestion des sauvegardes de l’insta
 Vous pouvez afficher une seule opération ou toutes les opérations. Vous ne pouvez pas sélectionner deux ou trois opérations. Les opérations disponibles sont les suivantes :
 
 * Toutes les opérations
-* Register 
+* Register
 * Configurer une sauvegarde
 * Sauvegarde
 * Restore
@@ -260,21 +259,6 @@ Dans le tableau de bord, la vignette Stockage de sauvegarde indique le stockage 
 * L’utilisation du stockage cloud LRS associée au coffre
 * L’utilisation du stockage cloud GRS associée au coffre
 
-
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Combien de temps faut-il pour que l’état du travail de l’agent de sauvegarde Azure apparaisse dans le portail ?
-Une quinzaine de minutes peuvent être nécessaires avant que l’état du travail de l’agent de sauvegarde Azure ne s’affiche dans le portail.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>En cas d’échec d’un travail de sauvegarde, au bout de combien de temps l’alerte est-elle déclenchée ?
-Une alerte est générée dans les 20 minutes qui suivent l’échec de la sauvegarde Azure.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Est-il possible qu’aucun e-mail ne soit envoyé alors que les notifications sont activées ?
-Oui. Dans les cas suivants, les notifications ne sont pas envoyées :
-
-* Si les notifications sont configurées sur une base horaire, et qu’une alerte est déclenchée et résolue dans l’heure
-* Si un travail est annulé
-* Si un travail de sauvegarde secondaire a échoué, parce que le travail de sauvegarde principal est en cours
 
 ## <a name="troubleshooting-monitoring-issues"></a>Résolution des problèmes de surveillance
 

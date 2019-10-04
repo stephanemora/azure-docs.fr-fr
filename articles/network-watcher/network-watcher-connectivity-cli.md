@@ -3,8 +3,8 @@ title: Résoudre les problèmes associés aux connexions avec Azure Network Watc
 description: Découvrez comment utiliser la fonctionnalité de résolution des problèmes associés aux connexions d’Azure Network Watcher à l’aide d’Azure CLI.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: jdial
-ms.openlocfilehash: a44f46a01bd0c0530ce57ad65464c10a4d2617f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 568d3fe774bd2ec810bd3aa386fb151518e6a581
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889962"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64720850"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Résoudre les problèmes associés aux connexions avec Azure Network Watcher à l’aide d’Azure CLI
 

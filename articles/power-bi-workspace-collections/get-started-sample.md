@@ -2,18 +2,18 @@
 title: Prise en main d’un exemple
 description: Dans cet article, nous allons vous présenter l’exemple de prise en main relatif aux collections d’espaces de travail Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: 6c80dc2ca4d0062fcb98aeb6431566ce6ca39411
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 9b45dd6bcc9aa3abf2d5078b54e51531cae4ec5f
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519491"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669117"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Exemple de prise en main des collections d’espaces de travail Power BI
 
@@ -26,7 +26,7 @@ Avant de poursuivre, vous souhaitez enregistrer les ressources suivantes. Elles 
 
 * [Exemple d’application web d’espace de travail](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Informations de référence sur les API des collections d’espaces de travail Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible via NuGet)
+* [Kit de développement logiciel (SDK) .NET Power BI](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible par le biais de NuGet)
 * [Exemple de rapport JavaScript intégré](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -209,7 +209,7 @@ public ActionResult Reports()
 }
 ```
 
-Task<ActionResult> Report(string reportId)
+Tâche\<ActionResult > rapport (chaîne reportId)
 
 ```csharp
 public async Task<ActionResult> Report(string reportId)

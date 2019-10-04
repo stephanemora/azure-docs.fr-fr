@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Résoudre les problèmes de connectivité | Microsoft Docs'
+title: 'Azure AD Connect : Résoudre les problèmes de connectivité liés à Azure AD | Microsoft Docs'
 description: Explique comment résoudre les problèmes de connectivité liés à Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436653"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64572784"
 ---
-# <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Résoudre les problèmes de connectivité liés à Azure AD Connect
+# <a name="troubleshoot-azure-ad-connectivity"></a>Résoudre les problèmes de connectivité liés à Azure AD
 Cet article décrit le fonctionnement de la connectivité entre Azure AD Connect et Azure AD ainsi que la résolution des problèmes de connectivité. Ces problèmes sont susceptibles de se produire dans un environnement doté d’un serveur proxy.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Résoudre les problèmes de connectivité dans l’Assistant Installation
@@ -166,7 +166,7 @@ Vos informations d’identification ont expiré. Modifiez votre mot de passe.
 L’autorisation d’effectuer une action dans Azure AD n’a pas pu être accordée à l’utilisateur.
 
 ### <a name="authentication-canceled"></a>Authentification annulée
-La demande d’authentification multifacteur (MFA) a été annulée.
+Le test d’authentification multifacteur (MFA) a été annulé.
 
 <div id="connect-msolservice-failed">
 <!--

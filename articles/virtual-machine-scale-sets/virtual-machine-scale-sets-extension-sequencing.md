@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563998"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60620170"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Séquencer le provisionnement des extensions dans des groupes de machines virtuelles identiques
 Les extensions de machine virtuelle Azure apportent diverses fonctionnalités, telles que la configuration et la gestion après le déploiement, la supervision, la sécurité, et bien plus encore. Les déploiements de production utilisent généralement une combinaison de plusieurs extensions configurées pour les instances de machine virtuelle afin d’obtenir les résultats souhaités.

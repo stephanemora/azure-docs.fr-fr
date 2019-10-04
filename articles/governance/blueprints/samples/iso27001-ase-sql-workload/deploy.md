@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 78f608aedd53aa1071eaf88864f5a63f8f9e6072
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fb68b2f78e48dabf5b1377b7c811840a85604f53
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791009"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802432"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Déployer l’exemple de blueprint Charge de travail App Service Environment/SQL Database ISO 27001
 
@@ -21,7 +21,7 @@ Pour déployer l’exemple de blueprint Charge de travail App Service Environmen
 > [!div class="checklist"]
 > - Déployer l’exemple de blueprint [Services partagés ISO 27001](../iso27001-shared/index.md)
 > - Créer un blueprint à partir de l’exemple
-> - Marquez la copie de l’exemple en tant que **Publié**
+> - Marquer la copie de l’exemple en tant que **Publié**
 > - Affecter votre copie du blueprint à un abonnement existant
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
@@ -37,7 +37,7 @@ Avant de déployer cet exemple de blueprint, vous devez déployer celui intitul�
 
 Commencez par implémenter l’exemple de blueprint. Pour cela, créez un blueprint dans votre environnement en vous servant de l’exemple comme point de départ.
 
-1. Sélectionnez **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, sélectionnez **Blueprints**.
+1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
 1. Dans la page **Démarrage**à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
 
@@ -56,7 +56,7 @@ Commencez par implémenter l’exemple de blueprint. Pour cela, créez un bluepr
 
 Votre copie de l’exemple de blueprint est à présent créée dans votre environnement. Elle est créée en mode **Brouillon** et doit être **publiée** avant de pouvoir être attribuée et déployée. Vous pouvez personnaliser la copie de l’exemple de blueprint en fonction de votre environnement et de vos besoins, mais de telles modifications peuvent l’éloigner de la norme ISO 27001.
 
-1. Sélectionnez **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, sélectionnez **Blueprints**.
+1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
 1. Sélectionnez la page **Définitions de blueprint** à gauche. Utilisez les filtres pour rechercher votre copie de l’exemple de blueprint, puis sélectionnez-la.
 
@@ -66,7 +66,7 @@ Votre copie de l’exemple de blueprint est à présent créée dans votre envir
 
 Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peut être affectée à un abonnement dans le groupe d’administration où elle a été enregistrée. C’est à cette étape que les paramètres sont fournis pour que chaque déploiement de la copie de l’exemple de blueprint soit unique.
 
-1. Sélectionnez **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, sélectionnez **Blueprints**.
+1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
 1. Sélectionnez la page **Définitions de blueprint** à gauche. Utilisez les filtres pour rechercher votre copie de l’exemple de blueprint, puis sélectionnez-la.
 
@@ -115,35 +115,35 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 |Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|Groupe de ressources Log Analytics|Groupe de ressources|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-log-rg` pour rendre le groupe de ressources unique.|
-|Groupe de ressources Log Analytics|Groupe de ressources|Lieu|**Verrouillé** : utilise le paramètre du blueprint.|
+|Groupe de ressources Log Analytics|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-log-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources Log Analytics|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Log Analytics|Modèle Resource Manager|Niveau de service|Définit le niveau de l’espace de travail Log Analytics. La valeur par défaut est _PerNode_.|
 |Modèle Log Analytics|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
-|Modèle Log Analytics|Modèle Resource Manager|Lieu|Région utilisée pour créer l’espace de travail Log Analytics. La valeur par défaut est _USA Ouest 2_.|
-|Groupe de ressources réseau|Groupe de ressources|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-net-rg` pour rendre le groupe de ressources unique.|
-|Groupe de ressources réseau|Groupe de ressources|Lieu|**Verrouillé** : utilise le paramètre du blueprint.|
+|Modèle Log Analytics|Modèle Resource Manager|Location|Région utilisée pour créer l’espace de travail Log Analytics. La valeur par défaut est _USA Ouest 2_.|
+|Groupe de ressources réseau|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-net-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources réseau|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Groupe de sécurité réseau|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Adresse IP privée de pare-feu Azure|Configure l’adresse IP privée du [pare-feu Azure](../../../../firewall/overview.md). Doit faire partie de la notation CIDR définie dans le paramètre d’artefact _ISO 27001 : Services partagés_ **Préfixe d’adresse de sous-réseau de pare-feu Azure**. La valeur par défaut est _10.0.4.4_.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|ID d’abonnement Services partagés|Valeur utilisée pour activer le peering de réseau virtuel entre une charge de travail et les services partagés.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Préfixe d’adresse de réseau virtuel|Notation CIDR du réseau virtuel. La valeur par défaut est _10.1.0.0/16_.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Préfixe d’adresse de sous-réseau par défaut|notation CIDR du sous-réseau par défaut de réseau virtuel. La valeur par défaut est _10.1.0.0/16_.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Adresse IP ADDS|Adresse IP de la première machine virtuelle ADDS. Cette valeur sert de DNS VNET personnalisé.|
-|Groupe de ressources Key Vault|Groupe de ressources|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-kv-rg` pour rendre le groupe de ressources unique.|
-|Groupe de ressources Key Vault|Groupe de ressources|Lieu|**Verrouillé** : utilise le paramètre du blueprint.|
+|Groupe de ressources Key Vault|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-kv-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources Key Vault|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Key Vault|Modèle Resource Manager|ID d’objet AAD|Identificateur d’objet AAD du compte qui nécessite l’accès à l’instance Key Vault. N’a pas de valeur par défaut et ne peut pas être vide. Pour localiser cette valeur à partir du portail Azure, recherchez et sélectionnez « Utilisateurs » sous _Services_. Utilisez la zone _Nom_ pour filtrer le nom du compte, puis sélectionnez ce compte. Dans la page _Profil utilisateur_, sélectionnez l’icône « Cliquez pour copier » à côté de l’_ID d’objet_.|
 |Modèle Key Vault|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
 |Modèle Key Vault|Modèle Resource Manager|Référence SKU du coffre de clés|Spécifie la référence SKU du coffre de clés créé. La valeur par défaut est _Premium_.|
 |Modèle Key Vault|Modèle Resource Manager|Nom d’utilisateur administrateur Azure SQL Server|Nom d’utilisateur utilisé pour accéder à Azure SQL Server. Doit correspondre à la valeur de propriété du **modèle Azure SQL Database**. La valeur par défaut est _sql-admin-user_.|
-|Groupe de ressources Azure SQL Database|Groupe de ressources|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-azsql-rg` pour rendre le groupe de ressources unique.|
-|Groupe de ressources Azure SQL Database|Groupe de ressources|Lieu|**Verrouillé** : utilise le paramètre du blueprint.|
+|Groupe de ressources Azure SQL Database|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-azsql-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources Azure SQL Database|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Azure SQL Database|Modèle Resource Manager|Nom d’utilisateur administrateur Azure SQL Server|Nom d’utilisateur pour Azure SQL Server. Doit correspondre à la valeur de propriété du **modèle Key Vault**. La valeur par défaut est _sql-admin-user_.|
 |Modèle Azure SQL Database|Modèle Resource Manager|Mot de passe d’administrateur Azure SQL Server (ID de ressource Key Vault)|ID de ressource du coffre de clés. Utilisez « /subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv » et remplacez `{subscriptionId}` par votre ID d’abonnement et `{orgName}` par le paramètre de blueprint **Nom de l’organisation**.|
 |Modèle Azure SQL Database|Modèle Resource Manager|Mot de passe d’administrateur Azure SQL Server (Nom du secret Key Vault)|Nom d’utilisateur de l’administrateur SQL Server. Doit correspondre à la valeur de propriété **Modèle Key Vault** **Nom d’utilisateur administrateur Azure SQL Server**.|
 |Modèle Azure SQL Database|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
 |Modèle Azure SQL Database|Modèle Resource Manager|ID objet de l’administrateur AAD|ID objet AAD de l’utilisateur affecté en tant qu’administrateur Active Directory. N’a pas de valeur par défaut et ne peut pas être vide. Pour localiser cette valeur à partir du portail Azure, recherchez et sélectionnez « Utilisateurs » sous _Services_. Utilisez la zone _Nom_ pour filtrer le nom du compte, puis sélectionnez ce compte. Dans la page _Profil utilisateur_, sélectionnez l’icône « Cliquez pour copier » à côté de l’_ID d’objet_.|
 |Modèle Azure SQL Database|Modèle Resource Manager|Connexion administrateur AAD|Les comptes Microsoft (comme live.com ou outlook.com) ne peuvent pas actuellement être définis en tant qu’administrateur. Seuls les utilisateurs et groupes de sécurité au sein de votre organisation peuvent être définis en tant qu’administrateur. N’a pas de valeur par défaut et ne peut pas être vide. Pour localiser cette valeur à partir du portail Azure, recherchez et sélectionnez « Utilisateurs » sous _Services_. Utilisez la zone _Nom_ pour filtrer le nom du compte, puis sélectionnez ce compte. Dans la page _Profil utilisateur_, copiez le _Nom d’utilisateur_.|
-|Groupe de ressources App Service Environment|Groupe de ressources|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-ase-rg` pour rendre le groupe de ressources unique.|
-|Groupe de ressources App Service Environment|Groupe de ressources|Lieu|**Verrouillé** : utilise le paramètre du blueprint.|
+|Groupe de ressources App Service Environment|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-workload-ase-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources App Service Environment|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle App Service Environment|Modèle Resource Manager|Nom de domaine|Nom de l’annuaire Active Directory créé par l’exemple. La valeur par défaut est _contoso.com_.|
 |Modèle App Service Environment|Modèle Resource Manager|Emplacement ASE|Emplacement d’App Service Environment. La valeur par défaut est _USA Ouest 2_.|
 |Modèle App Service Environment|Modèle Resource Manager|Conservation du journal Application Gateway en jours|Conservation des données en jours. La valeur par défaut est _365_.|
@@ -158,7 +158,7 @@ Vous venez de passer en revue les étapes à suivre pour déployer l’exemple d
 
 Autres articles sur les blueprints et la manière de les utiliser :
 
-- Découvrir le [cycle de vie des blueprints](../../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../../concepts/resource-locking.md).

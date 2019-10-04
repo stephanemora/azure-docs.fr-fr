@@ -1,105 +1,75 @@
 ---
-title: Se connecter à l’Explorateur de données Azure avec ODBC
-description: Dans cette procédure, vous allez apprendre à configurer une connexion ODBC à l’Explorateur de données Azure, puis utiliser cette connexion pour visualiser les données avec un Tableau.
+title: Connexion à Azure Data Explorer avec ODBC
+description: Dans cet article, vous allez apprendre à configurer une connexion ODBC (Open Database Connectivity) à Azure Data Explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 06/30/2019
+ms.openlocfilehash: 65795b5b4dea8d2cdeecf5f78f9de751f275dac0
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59043879"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537586"
 ---
-# <a name="connect-to-azure-data-explorer-with-odbc"></a>Se connecter à l’Explorateur de données Azure avec ODBC
+# <a name="connect-to-azure-data-explorer-with-odbc"></a>Connexion à Azure Data Explorer avec ODBC
 
-Open Database Connectivity ([ODBC](/sql/odbc/reference/odbc-overview)) est une interface de programmation d’application largement acceptées (API) pour l’accès de base de données. Utiliser ODBC pour se connecter à l’Explorateur de données Azure à partir d’applications qui n’ont pas un connecteur dédié.
+L’interface Open Database Connectivity ([ODBC](/sql/odbc/reference/odbc-overview)) est une interface de programmation d’applications (API) largement acceptée pour l’accès à des bases de données. Utilisez ODBC pour vous connecter à Azure Data Explorer à partir d’applications qui ne sont associées à aucun connecteur dédié.
 
-Dans les coulisses, applications appellent des fonctions dans l’interface ODBC, qui sont implémentées dans des modules spécifiques à la base de données appelées *pilotes*. Explorateur de données Azure prend en charge un sous-ensemble du protocole de communication de SQL Server ([MS-TDS](/azure/kusto/api/tds/)) ; par conséquent, il peut utiliser le pilote ODBC pour SQL Server.
+Dans les coulisses, les applications appellent des fonctions dans l’interface ODBC, qui sont implémentées dans des modules spécifiques à la base de données appelés *pilotes*. Azure Data Explorer Azure prend en charge un sous-ensemble du protocole de communication de SQL Server ([MS-TDS](/azure/kusto/api/tds/)), et peut donc utiliser le pilote ODBC pour SQL Server.
 
-Dans cet article, vous allez apprendre à utiliser le pilote ODBC de SQL Server, pour vous connecter à l’Explorateur de données Azure à partir de n’importe quelle application qui prend en charge ODBC. Vous pouvez ensuite si vous le souhaitez vous connecter à l’Explorateur de données Azure à partir du Tableau et importer des données à partir d’un cluster de l’exemple.
+La vidéo suivante vous apprend comment créer une connexion ODBC. 
 
-## <a name="prerequisites"></a>Conditions préalables
+> [!VIDEO https://www.youtube.com/embed/qA5wxhrOwog]
 
-Pour suivre ce guide pratique, vous avez besoin des éléments suivants :
+Vous pouvez également [configurer la source de données ODBC](#configure-the-odbc-data-source) comme indiqué ci-dessous. 
 
-* [Microsoft ODBC Driver for SQL Server version 17.2.0.1 ou version ultérieure](/sql/connect/odbc/download-odbc-driver-for-sql-server) pour votre système d’exploitation.
+Cet article explique comment utiliser le pilote SDBC de SQL Server pour se connecter à Azure Data Explorer depuis n’importe quelle application prenant ce pilote en charge. 
 
-* Si vous souhaitez suivre notre exemple de Tableau, vous devez également :
+## <a name="prerequisites"></a>Prérequis
 
-  * Tableau Desktop, complète ou [d’évaluation](https://www.tableau.com/products/desktop/download) version.
+Vous avez besoin des éléments suivants :
 
-  * Un cluster qui inclut l’exemple de données StormEvents. Pour plus d’informations, consultez [Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md) et [Ingérer des exemples de données dans Azure Data Explorer](ingest-sample-data.md).
-
-    [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
+* [Microsoft ODBC Driver for SQL Server version 17.2.0.1 ou ultérieure](/sql/connect/odbc/download-odbc-driver-for-sql-server) pour votre système d’exploitation.
 
 ## <a name="configure-the-odbc-data-source"></a>Configurer la source de données ODBC
 
 Suivez ces étapes pour configurer une source de données ODBC à l’aide du pilote ODBC pour SQL Server.
 
-1. Dans Windows, recherchez *Sources de données ODBC*, puis ouvrez l’application de bureau de Sources de données ODBC.
+1. Dans Windows, recherchez *Sources de données ODBC*, puis ouvrez l’application de bureau Sources de données ODBC.
 
 1. Sélectionnez **Ajouter**.
 
     ![Ajouter une source de données](media/connect-odbc/add-data-source.png)
 
-1. Sélectionnez **ODBC Driver 17 for SQL Server** puis **Terminer**.
+1. Sélectionnez **ODBC Driver 17 for SQL Server** et cliquez sur **Terminer**.
 
-    ![Sélection du pilote](media/connect-odbc/select-driver.png)
+    ![Sélectionner un pilote](media/connect-odbc/select-driver.png)
 
-1. Entrez un nom et une description pour la connexion et le cluster que vous souhaitez vous connecter, puis sélectionnez **suivant**. L’URL doit être sous la forme de cluster  *\<ClusterName\>.\< Région\>. kusto.windows.net*.
+1. Saisissez un nom et une description pour la connexion et le cluster auquel que vous souhaitez vous connecter, puis sélectionnez **Suivant**. L’URL du cluster doit avoir le format suivant : *\<NomCluster\>.\<Région\>.kusto.windows.net*.
 
     ![Sélectionner un serveur](media/connect-odbc/select-server.png)
 
-1. Sélectionnez **intégrées à Active Directory** puis **suivant**.
+1. Cliquez sur **Intégration Active Directory**, puis sur **Suivant**.
 
-    ![Active Directory intégré](media/connect-odbc/active-directory-integrated.png)
+    ![Intégration Active Directory](media/connect-odbc/active-directory-integrated.png)
 
-1. Sélectionnez la base de données avec les exemples de données puis **suivant**.
+1. Sélectionnez la base de données avec les exemples de données, puis cliquez sur **Suivant**.
 
     ![Modifier la base de données par défaut](media/connect-odbc/change-default-database.png)
 
-1. Dans l’écran suivant, laissez toutes les options comme valeur par défaut est puis sélectionnez **Terminer**.
+1. Dans l’écran suivant, conservez toutes les valeurs par défaut des options et sélectionnez **Terminer**.
 
-1. Sélectionnez **Source de données de Test**.
+1. Sélectionnez **Tester la source de données**.
 
-    ![Source de données de test](media/connect-odbc/test-data-source.png)
+    ![Tester la source de données](media/connect-odbc/test-data-source.png)
 
-1. Vérifiez que le test a réussi puis sélectionnez **OK**. Si le test a échoué, vérifiez les valeurs que vous avez spécifié dans les étapes précédentes et que vous disposez des autorisations suffisantes pour se connecter au cluster.
+1. Vérifiez que le test a réussi, puis sélectionnez **OK**. Si le test a échoué, vérifiez les valeurs que vous avez spécifiées lors des étapes précédentes et assurez-vous que vous disposez des autorisations suffisantes pour vous connecter au cluster.
 
-    ![Test a réussi](media/connect-odbc/test-succeeded.png)
-
-## <a name="visualize-data-in-tableau-optional"></a>Visualiser les données dans le Tableau (facultatif)
-
-Maintenant vous avez terminé la configuration d’ODBC, vous pouvez importer des exemples de données dans le Tableau.
-
-1. Dans le Tableau Desktop, dans le menu de gauche, sélectionnez **autres bases de données (ODBC)**.
-
-    ![Se connecter à ODBC](media/connect-odbc/connect-odbc.png)
-
-1. Pour **DSN**, sélectionnez la source de données que vous avez créé pour ODBC, puis sélectionnez **Sign In**.
-
-    ![Connexion dans ODBC](media/connect-odbc/odbc-sign-in.png)
-
-1. Pour **base de données**, sélectionnez la base de données sur votre cluster de l’exemple, tel que *TestDatabase*. Pour **schéma**, sélectionnez *dbo*et pour **Table**, sélectionnez le *StormEvents* exemple de table.
-
-    ![Sélectionnez la base de données et de table](media/connect-odbc/select-database-table.png)
-
-1. Tableau affiche maintenant le schéma pour les exemples de données. Sélectionnez **mise à jour maintenant** pour importer les données dans le Tableau.
-
-    ![Mettre à jour des données](media/connect-odbc/update-data.png)
-
-    Lorsque les données sont importées, Tableau affiche des lignes de données similaires à l’image suivante.
-
-    ![Jeu de résultats](media/connect-odbc/result-set.png)
-
-1. Vous pouvez désormais créer des visualisations dans le Tableau en fonction des données importées à partir de l’Explorateur de données Azure. Pour plus d’informations, consultez [Tableau Learning](https://www.tableau.com/learn).
+    ![Test réussi](media/connect-odbc/test-succeeded.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Écrire des requêtes pour l’Explorateur de données Azure](write-queries.md)
-
-[Tutoriel : Visualiser des données Azure Data Explorer dans Power BI](visualize-power-bi.md)
+* [Se connecter à Azure Data Explorer depuis Tableau](tableau.md)

@@ -4,7 +4,7 @@ description: Apprenez à contrôler le routage dans des réseaux VNet à l'aide 
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: ca2b4638-8777-4d30-b972-eb790a7c804f
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0b6c8da03c4a67aadb38280ba958a9b0feb88d1f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1193145b315175e6394db4caf93ab2e76a942ed9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678576"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058787"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>Contrôle du routage et utilisation des appliances virtuelles (classiques) à l'aide de l'Interface de ligne de commande Azure
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
-> * [interface de ligne de commande Azure](tutorial-create-route-table-cli.md)
+> * [Interface de ligne de commande Azure](tutorial-create-route-table-cli.md)
 > * [PowerShell (classique)](virtual-network-create-udr-classic-ps.md)
 > * [Interface de ligne de commande (classique)](virtual-network-create-udr-classic-cli.md)
 
@@ -51,7 +51,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
     azure config mode asm
     ```
 
-    Output:
+    Sortie :
 
         info:    New mode is asm
 
@@ -61,7 +61,7 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
     azure network route-table create -n UDR-FrontEnd -l uswest
     ```
    
-    Output:
+    Sortie :
    
         info:    Executing command network route-table create
         info:    Creating route table "UDR-FrontEnd"
@@ -72,15 +72,15 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
    
     Paramètres :
    
-   * **-l (ou --location)**. Région Azure où le groupe de sécurité réseau sera créé. Pour notre scénario, *westus*.
-   * **-n (ou --name)**. Nom du nouveau groupe de sécurité réseau. Pour notre scénario, *NSG-FrontEnd*.
+   * **-l (ou --location)** . Région Azure où le groupe de sécurité réseau sera créé. Pour notre scénario, *westus*.
+   * **-n (ou --name)** . Nom du nouveau groupe de sécurité réseau. Pour notre scénario, *NSG-FrontEnd*.
 3. Exécutez la commande suivante pour créer un routage dans la table de routage pour envoyer tout le trafic destiné au sous-réseau Backend (192.168.2.0/24) à la machine virtuelle **FW1** (192.168.0.4) :
 
     ```azurecli
     azure network route-table route set -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -t VirtualAppliance -p 192.168.0.4
     ```
 
-    Output:
+    Sortie :
    
         info:    Executing command network route-table route set
         info:    Getting route table "UDR-FrontEnd"
@@ -89,9 +89,9 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
    
     Paramètres :
    
-   * **-r (ou --route-table-name)**. Nom de la table de routage où l'itinéraire sera ajouté. Pour notre scénario, *UDR-FrontEnd*.
-   * **-a (ou --address-prefix)**. Préfixe d'adresse pour le sous-réseau auquel les paquets sont destinés. Pour notre scénario, *192.168.2.0/24*.
-   * **-t (ou --next-hop-type)**. Type d'objet vers lequel le trafic sera envoyé. Les valeurs possibles sont *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *None*.
+   * **-r (ou --route-table-name)** . Nom de la table de routage où l'itinéraire sera ajouté. Pour notre scénario, *UDR-FrontEnd*.
+   * **-a (ou --address-prefix)** . Préfixe d'adresse pour le sous-réseau auquel les paquets sont destinés. Pour notre scénario, *192.168.2.0/24*.
+   * **-t (ou --next-hop-type)** . Type d'objet vers lequel le trafic sera envoyé. Les valeurs possibles sont *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet* ou *None*.
    * **-p (ou --next-hop-ip-address**). Adresse IP de saut suivant. Pour notre scénario, *192.168.0.4*.
 4. Exécutez la commande suivante pour associer la table de routage créée au sous-réseau **FrontEnd** :
 
@@ -114,8 +114,8 @@ Pour créer la table de routage et l'itinéraire nécessaires pour le sous-rése
    
     Paramètres :
    
-   * **-t (ou --vnet-name)**. Nom du réseau virtuel où le sous-réseau est situé. Pour notre scénario, *TestVNet*.
-   * **-n (ou --subnet-name)**. Nom du sous-réseau auquel la table de routage sera ajoutée. Pour notre scénario, *FrontEnd*.
+   * **-t (ou --vnet-name)** . Nom du réseau virtuel où le sous-réseau est situé. Pour notre scénario, *TestVNet*.
+   * **-n (ou --subnet-name)** . Nom du sous-réseau auquel la table de routage sera ajoutée. Pour notre scénario, *FrontEnd*.
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>Créer l’itinéraire défini par l’utilisateur pour le sous-réseau principal
 Pour créer la table d’itinéraires et l’itinéraire nécessaires au sous-réseau principal, conformément au scénario, procédez comme suit :

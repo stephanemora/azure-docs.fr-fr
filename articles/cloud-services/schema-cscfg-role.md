@@ -3,22 +3,17 @@ title: Schéma de rôle Azure Cloud Services | Microsoft Docs
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: 20f4186426152d2dc9b445981a69881c35587eb6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: 481301333ada39297bf2813bbea5f096c2abd3ad
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005779"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360660"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Schéma de rôle de configuration d’Azure Cloud Services
 

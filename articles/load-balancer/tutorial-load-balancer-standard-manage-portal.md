@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Ce didacticiel vous montre comment créer et gérer un Standard Load Balancer (équilibreur de charge standard) avec le portail Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create and Standard Load Balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 78266e447d1ddf6daf5a9b0ad9172ab6470bf0c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a0887a66b6cb886419f86d93973b991151141e0a
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845203"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327216"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic Internet sur les machines virtuelles avec le portail Azure
 
@@ -49,8 +49,8 @@ Dans cette section, vous allez créer un équilibreur de charge standard qui éq
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Abonnement               | Sélectionnez votre abonnement.    |    
-    | Groupe de ressources         | Sélectionnez **Créer**, puis entrez *myResourceGroupSLB* dans la zone de texte.|
+    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Resource group         | Sélectionnez **Créer**, puis entrez *myResourceGroupSLB* dans la zone de texte.|
     | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
@@ -86,11 +86,10 @@ Pour permettre à l’équilibreur de charge de surveiller l’état de votre ap
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez *MyHealthProbe*. |
-    | Protocole | Sélectionnez **HTTP**. |
+    | Protocol | Sélectionnez **HTTP**. |
     | Port | Entrez *80*.|
     | Intervalle | Entrez *15* pour **l’intervalle** en secondes entre les tentatives de la sonde. |
     | Seuil de défaillance sur le plan de l’intégrité | Sélectionnez *2* pour le **Seuil de défaillance sur le plan de l’intégrité**, soit le nombre d’échecs de sonde consécutifs qui peuvent se produire avant qu’une machine virtuelle soit considérée comme non saine.|
-    | Sonde d’intégrité | Sélectionnez *myHealthProbe*. |
     
 4. Sélectionnez **OK**.
 
@@ -105,7 +104,7 @@ Une règle d’équilibreur de charge sert à définir la distribution du trafic
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez *MyHTTPRule*. |
-    | Protocole | Sélectionnez **TCP**. |
+    | Protocol | Sélectionnez **TCP**. |
     | Port | Entrez *80*.|
     | Port principal | Entrez *80*. |
     | Pool principal | Sélectionnez *MyBackendPool*.|
@@ -126,9 +125,9 @@ Dans cette section, vous allez créer un réseau virtuel ainsi que trois machine
     | ------- | ----- |
     | Nom | Entrez *myVNet*. |
     | Espace d’adressage | Entrez *10.1.0.0/16*. |
-    | Abonnement | Sélectionnez votre abonnement.|
-    | Groupe de ressources | Sélectionner une ressource existante – *myResourceGroupSLB*. |
-    | Lieu | Sélectionnez **Europe Ouest**.|
+    | Subscription | Sélectionnez votre abonnement.|
+    | Resource group | Sélectionner une ressource existante – *myResourceGroupSLB*. |
+    | Location | Sélectionnez **Europe Ouest**.|
     | Sous-réseau - Nom | Entrez *myBackendSubnet*. |
     | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
     
@@ -152,14 +151,14 @@ Le service Standard Load Balancer ne prend en charge que des machines virtuelles
    - Vérifiez que les éléments suivants sont sélectionnés :
        - **Réseau virtuel** : **MyVNet**
        - **Sous-réseau** : **MyBackendSubnet**
-       - **Adresse IP publique** > sélectionnez **Créer**, puis, dans la fenêtre **Créer une adresse IP publique**, pour **Référence (SKU)**, sélectionnez **Standard** et, pour **Zone de disponibilité**, sélectionnez **Redondant interzone**.
+       - **Adresse IP publique** > sélectionnez **Créer**, puis, dans la fenêtre **Créer une adresse IP publique**, pour **Référence (SKU)** , sélectionnez **Standard** et, pour **Zone de disponibilité**, sélectionnez **Redondant interzone**.
       
    - Pour créer un groupe de sécurité réseau (NSG, un type de pare-feu), sous **Groupe de sécurité réseau**, sélectionnez **Avancé**. 
        1. Dans le champ **Configurer le groupe de sécurité réseau**, sélectionnez **Créer**. 
        1. Tapez *myNetworkSecurityGroup*, puis sélectionnez **OK**.
 
    - Pour que la machine virtuelle fasse partie du pool principal de l’équilibreur de charge, procédez comme suit :
-        - Dans **Équilibrage de charge**, pour **Placer cette machine virtuelle derrière une solution d’équilibrage de charge existante ?**, sélectionnez **Oui**.
+        - Dans **Équilibrage de charge**, pour **Placer cette machine virtuelle derrière une solution d’équilibrage de charge existante ?** , sélectionnez **Oui**.
         - Dans **Paramètres d’équilibrage de charge**, pour **Options d’équilibrage de charge**, sélectionnez **Équilibreur de charge Azure**.
         - Pour **Sélectionner un équilibreur de charge**, sélectionnez *MyLoadBalancer*. 
 1. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant** > **Gestion**. Sous **Supervision**, définissez **Diagnostics de démarrage** sur **Désactivé**. 

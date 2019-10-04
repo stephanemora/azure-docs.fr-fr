@@ -3,8 +3,8 @@ title: Applications web dans Azure Active Directory
 description: Décrit les applications web et les principes de base sur le flux de protocole, l’inscription et l’expiration des jetons pour ce type d’application.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58367913"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65544720"
 ---
 # <a name="web-apps"></a>les applications web
 
@@ -45,7 +45,7 @@ Consultez les exemples de code pour les scénarios du type navigateur web vers a
 
 ## <a name="app-registration"></a>Inscription d'application
 
-Pour inscrire une application web, consultez l’article [Inscrire une application auprès du point de terminaison Azure Active Directory v1.0](quickstart-v1-add-azure-ad-app.md).
+Pour inscrire une application web, consultez [Inscrire une application](quickstart-register-app.md).
 
 * Locataire unique : si vous créez une application uniquement pour votre organisation, vous devez l’inscrire dans l’annuaire de votre entreprise à l’aide du portail Azure.
 * Application mutualisée : si vous créez une application qui peut être utilisée par des utilisateurs externes, vous devez l’inscrire dans le répertoire de votre entreprise, mais également dans celui de chaque organisation qui utilise l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur.

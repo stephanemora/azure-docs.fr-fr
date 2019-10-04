@@ -10,24 +10,23 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: bbe220780a3c21e7bfb15d0568904af4ed47f765
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 7c1f93bb7cfe1e088aa88d9ff194c8fbce9ea3c6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567551"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570230"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vidéo indexée et annotée pour l’application SaaS multi-locataire à l’aide d’Azure SQL Database
 
 Cet article est un index annoté dans les emplacements de temps d’une vidéo de 81 minutes sur les modèles ou motifs de location SaaS. Cet article vous permet de faire défiler la vidéo en avant ou en arrière jusqu’à la partie qui vous intéresse. La vidéo explique les options de conception importantes pour une application de base de données multi-locataire sur Azure SQL Database. La vidéo inclut des démonstrations, des guides de code de gestion et propose plus d'informations basées sur l’expérience que n'en contient notre documentation écrite.
 
 La vidéo amplifie les informations de notre documentation écrite, par exemple : 
-- *Doc conceptuel :* Modèles de client de base de données SaaS mutualisée[saas-concept-design-patterns-563e]
+- *Doc conceptuel :* [Modèles de client de base de données SaaS multilocataires][saas-concept-design-patterns-563e]
 - *Tutoriels:* [Application SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
-La vidéo et les articles décrivent les différentes phases de création d’une application multi-locataire sur Azure SQL Database dans le cloud. Des fonctionnalités spéciales de Azure SQL Database facilitent le développement et la mise en œuvre des applications multi-locataires, toutes les deux plus faciles à gérer et fonctionnant de façon fiable.
+La vidéo et les articles décrivent les différentes phases de création d’une application multi-locataire sur Azure SQL Database dans le cloud. Des fonctionnalités Azure SQL Database spéciales facilitent le développement et la mise en œuvre des applications multi-locataires, toutes les deux plus faciles à gérer et fonctionnant de façon fiable.
 
 Nous mettons à jour régulièrement notre documentation écrite. La vidéo n’est pas modifiée ni mise à jour, par conséquent, davantage d’informations peuvent devenir obsolètes.
 
@@ -63,7 +62,7 @@ Les titres suivants sont des liens vers leurs sections annotées correspondantes
 - [17. Application SaaS multi-locataire hybride Canonical, 0:47:33](#anchor-image-wtip-min04733)
 - [18. Application exemple SaaS Wingtip, 0:48:10](#anchor-image-wtip-min04810)
 - [19. Scénarios et modèles explorés dans les didacticiels, 0:49:10](#anchor-image-wtip-min04910)
-- [20. Didacticiels de démonstration et référentiel GitHub, 0:50:18](#anchor-image-wtip-min05018)
+- [20. Tutoriels de démonstration et dépôt GitHub, 0:50:18](#anchor-image-wtip-min05018)
 - [21. Réf GitHub Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. Exploration des modèles, 0:56:20](#anchor-image-wtip-min05620)
 - [23. Approvisionnement de locataires et intégration, 0:57:44](#anchor-image-wtip-min05744)
@@ -199,13 +198,13 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 
 &nbsp;<a name="anchor-image-wtip-min05018"/>
-#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Didacticiels de démonstration et référentiel GitHub, 0:50:12
-[![Didacticiels de démonstration et réf GitHub][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
+#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Tutoriels de démonstration et dépôt GitHub, 0:50:12
+[![Tutoriels de démonstration et dépôt GitHub][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
 
 
 &nbsp;<a name="anchor-image-wtip-min05038"/>
-#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Réf GitHub Microsoft/WingtipSaaS, 0:50:32
-[![Réf GitHub Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
+#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Dépôt GitHub Microsoft/WingtipSaaS, 0:50:32
+[![Dépôt GitHub Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
 &nbsp;<a name="anchor-image-wtip-min05620"/>
@@ -292,16 +291,16 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 #### <a name="38-resources-for-more-information-12035"></a>38. Ressources pour plus d’informations, 1:20:35
 [![Ressources pour plus d’informations][image-wtip-min12042-resources-more-info]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=4835)
 
-- [Billet de blog, 22 mai 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
+- [Billet de blog, 22 mai 2017][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *Doc conceptuel :* Modèles de client de base de données SaaS mutualisée[saas-concept-design-patterns-563e]
+- *Doc conceptuel :* [Modèles de client de base de données SaaS multilocataires][saas-concept-design-patterns-563e]
 
 - *Tutoriels:* [Application SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
-- Référentiels GitHub pour des variantes de l’application locative SaaS Wingtip Tickets :
-    - [Réf GitHub pour : modèle d’application autonome][github-wingtip-standaloneapp].
-    - [Réf GitHub pour : modèle de base de données par locataire][github-wingtip-dbpertenant].
-    - [Réf GitHub pour : modèle de base de données multi-locataire][github-wingtip-multitenantdb].
+- Dépôts GitHub pour des variantes de l’application locative SaaS Wingtip Tickets :
+    - [Dépôt GitHub pour : modèle d’application autonome][github-wingtip-standaloneapp].
+    - [Dépôt GitHub pour : modèle de base de données par locataire][github-wingtip-dbpertenant].
+    - [Dépôt GitHub pour : modèle de base de données multilocataire][github-wingtip-multitenantdb].
 
 
 
@@ -309,7 +308,7 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Premier article du didacticiel][saas-how-welcome-wingtip-app-679t]
+- [Premier article du tutoriel][saas-how-welcome-wingtip-app-679t]
 
 
 
@@ -354,7 +353,7 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 [image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.png "Scénarios et modèles explorés dans les didacticiels"
 
-[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Didacticiels de démonstration et référentiel GitHub"
+[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Tutoriels de démonstration et dépôt GitHub"
 
 [image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Réf GitHub Microsoft/WingtipSaaS"
 

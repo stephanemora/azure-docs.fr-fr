@@ -14,28 +14,28 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60587918"
 ---
 # <a name="createuidefinition-functions"></a>Fonctions CreateUiDefinition
 Cette section contient les signatures pour toutes les fonctions prises en charge de CreateUiDefinition.
 
-Pour utiliser une fonction, encadrez la déclaration de crochets. Par exemple : 
+Pour utiliser une fonction, encadrez la déclaration de crochets. Par exemple :
 
 ```json
 "[function()]"
 ```
 
-Les chaînes et autres fonctions peuvent être référencées en tant que paramètres pour une fonction, mais les chaînes doivent être encadrées de guillemets simples. Par exemple : 
+Les chaînes et autres fonctions peuvent être référencées en tant que paramètres pour une fonction, mais les chaînes doivent être encadrées de guillemets simples. Par exemple :
 
 ```json
 "[fn1(fn2(), 'foobar')]"
 ```
 
-Le cas échéant, vous pouvez référencer les propriétés de la sortie d’une fonction à l’aide de l’opérateur point. Par exemple : 
+Le cas échéant, vous pouvez référencer les propriétés de la sortie d’une fonction à l’aide de l’opérateur point. Par exemple :
 
 ```json
 "[func().prop1]"

@@ -1,6 +1,6 @@
 ---
 title: Guide pour un exemple d’application mutualisée SQL Database - SaaS Wingtip | Microsoft Docs
-description: Fournit des instructions et des étapes pour installer et exécuter l’exemple d’application mutualisée qui utilise la base de données SQL Azure, l’exemple Wingtip Tickets SaaS.
+description: Fournit des instructions et des étapes pour installer et exécuter l’exemple d’application multilocataire qui utilise Azure SQL Database, l’exemple Wingtip Tickets SaaS.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 758cb47760f4a15e262a4d682089ac7d9fee64e8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 6c14fd69521be85dbda5ec4ceda991dfdff54ae0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900503"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570066"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Conseils généraux pour utiliser des exemples d'applications Wingtip Tickets SaaS
 
@@ -77,9 +76,9 @@ Conseils pour l’exploration et le parcours des scripts PowerShell :
 
 Utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour vous connecter et parcourir les bases de données et les serveurs de l’application.
 
-Des clients et des serveurs de base de données SQL de catalogue sont initialement connectés au déploiement. Les noms de serveurs dépendent du modèle de client de base de données (voir ci-dessous pour plus les détails). 
+Au départ, le déploiement a des locataires et des serveurs SQL Database de catalogue auxquels se connecter. Les noms de serveurs dépendent du modèle de client de base de données (voir ci-dessous pour plus les détails). 
 
-   - **Application autonome :** serveurs pour chaque client (ex. serveur *contosoconcerthall-&lt;Utilisateur&gt;*) et *catalog-sa-&lt;Utilisateur&gt;*
+   - **Application autonome :** serveurs pour chaque client (ex. serveur *contosoconcerthall-&lt;Utilisateur&gt;* ) et *catalog-sa-&lt;Utilisateur&gt;*
    - **Base de données par client :** serveurs *tenants1-dpt-&lt;Utilisateur&gt;* et *catalog-dpt-&lt;Utilisateur&gt;*
    - **Base de données mutualisée :** serveurs *tenants1-mt-&lt;Utilisateur&gt;* et *catalog-mt-&lt;Utilisateur&gt;*
 
@@ -94,7 +93,7 @@ Pour garantir une connexion de démonstration réussie, tous serveurs ont une [r
 
    ![catalog server](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Les informations d’identification de démonstration sont : Connexion = *développeur*, mot de passe = *P\@ssword1*
+3. Les informations d’identification de démonstration sont : Connexion = *developer*, Mot de passe = *P\@ssword1*
 
     L'image ci-dessous montre l'ouverture d'une session pour le modèle *Base de données par client*. 
     ![Connexion](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

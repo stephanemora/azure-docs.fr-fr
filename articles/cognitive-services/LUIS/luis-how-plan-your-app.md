@@ -1,6 +1,6 @@
 ---
-title: Planifier votre application
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Planifier votre application - LUIS
+titleSuffix: Azure Cognitive Services
 description: Structurez les entités et les intentions d’applications pertinentes, puis créez vos plans d’applications dans Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794984"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638316"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planifier votre application LUIS avec le domaine du sujet ainsi que les intentions et les entités
 
-Il est important de planifier votre application. Identifiez votre domaine, notamment les intentions et les entités possibles qui sont pertinentes pour votre application.  
+Pour planifier votre application, identifiez votre domaine de zone de sujet. Ceci inclut des intentions et des entités possibles qui sont pertinentes pour votre application.  
 
 ## <a name="identify-your-domain"></a>Identifier votre domaine
 
@@ -39,11 +39,13 @@ Pensez aux [intentions](luis-concept-intent.md) qui sont importantes pour la tâ
 
 ## <a name="create-example-utterances-for-each-intent"></a>Créer des exemples d’énoncés pour chaque intention
 
-Une fois que vous avez déterminé les intentions, créez 10 ou 15 exemples d’énoncés pour chacune. Pour commencer, ne descendez pas en dessous de ce nombre ou créez de nombreux énoncés pour chaque intention. Chaque énoncé doit être différent du précédent. Une sélection adéquate dans les énoncés inclut le nombre total de mots, le choix des mots, le temps des verbes et la ponctuation. 
+Une fois que vous avez déterminé les intentions, créez 15 à 30 exemples d’énoncés pour chacune. Pour commencer, ne descendez pas en dessous de ce nombre ou ne créez pas trop d’énoncés pour chaque intention. Chaque énoncé doit être différent du précédent. Une sélection adéquate dans les énoncés inclut le nombre total de mots, le choix des mots, le temps des verbes et la ponctuation. 
+
+Consultez les [énoncés](luis-concept-utterance.md) pour plus d’informations.
 
 ## <a name="identify-your-entities"></a>Identifier vos entités
 
-Dans les exemples d’énoncés, identifiez les entités à extraire. Pour réserver un vol, vous avez besoin d’informations comme la destination, la date, la compagnie aérienne, la catégorie de ticket et la classe de voyage. Vous créez des entités pour ces types de données, puis marquez les [entités](luis-concept-entity-types.md) dans les exemples d’énoncés, car elles sont importantes pour accomplir une intention. 
+Dans les exemples d’énoncés, identifiez les entités à extraire. Pour réserver un vol, vous avez besoin d’informations comme la destination, la date, la compagnie aérienne, la catégorie de ticket et la classe de voyage. Créez des entités pour ces types de données, puis marquez les [entités](luis-concept-entity-types.md) dans les exemples d’énoncés, car elles sont importantes pour accomplir une intention. 
 
 Lorsque vous déterminez les entités à utiliser dans votre application, gardez à l’esprit qu’il existe différents types d’entités pour la capture des relations entre les types d’objets. Les [entités dans LUIS](luis-concept-entity-types.md) fournissent plus de détails sur les différents types.
 

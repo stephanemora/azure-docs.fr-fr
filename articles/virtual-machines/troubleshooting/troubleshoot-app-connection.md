@@ -4,7 +4,7 @@ description: Utilisez ces étapes détaillées de résolution de problèmes pour
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: impossible de démarrer l’application, le programme ne s’ouvre pas, port d’écoute bloqué, impossible de démarrer le programme, port d’écoute bloqué
@@ -12,16 +12,15 @@ ms.assetid: b9ff7cd0-0c5d-4c3c-a6be-3ac47abf31ba
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 81535d51617a419174331dbf9b18ea558913dfa9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: caf73ffbc18a603ace22acfbd0da490048da698a
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413160"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058117"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>Résoudre les problèmes de connectivité des applications sur des machines virtuelles dans Azure
 
@@ -69,7 +68,7 @@ Pour les ordinateurs clients qui accèdent à l’application par le biais d’u
 
 Pour déterminer la source du problème et sa correction, procédez comme suit.
 
-## <a name="step-1-access-application-from-target-vm"></a>Étape 1 : Accéder à une application à partir de la machine virtuelle cible
+## <a name="step-1-access-application-from-target-vm"></a>Étape 1 : Accéder à une application à partir de la machine virtuelle cible
 Essayez d’accéder à l’application avec le programme client approprié à partir de la machine virtuelle sur laquelle il est en cours d’exécution. Utilisez le nom d’hôte local, l’adresse IP locale ou l’adresse de bouclage (127.0.0.1).
 
 ![démarrer l’application directement à partir de la machine virtuelle](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
@@ -85,7 +84,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les paramètres sui
 
 Sur les machines virtuelles Windows et Linux, utilisez la commande **netstat** pour afficher les ports d’écoute actifs. Examinez la sortie pour les ports attendus sur lesquels votre application doit être à l’écoute. Redémarrez l’application ou configurez-la pour utiliser les ports prévus selon les besoins et essayez d’accéder à nouveau localement à l’application.
 
-## <a id="step2"></a>Étape 2 : Accéder à l’application à partir d’une autre machine virtuelle dans le même réseau virtuel
+## <a id="step2"></a>Étape 2 : Accéder à l’application à partir d’une autre machine virtuelle dans le même réseau virtuel
 Essayez d’accéder à l’application à partir d’une machine virtuelle différente, mais sur le même réseau virtuel, à l’aide du nom d’hôte de la machine virtuelle ou de son adresse IP publique, privée ou de fournisseur attribuée par Azure. Pour les machines virtuelles créées à l’aide du modèle de déploiement classique, n’utilisez pas l’adresse IP publique du service cloud.
 
 ![démarrer l’application à partir d’une autre machine virtuelle](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -105,7 +104,7 @@ Si vous ne pouvez pas accéder à l’application, vérifiez les paramètres sui
 
 Sur une machine virtuelle Windows, utilisez le pare-feu Windows avec fonctions avancées de sécurité pour déterminer si les règles de pare-feu excluent le trafic entrant et sortant de votre application
 
-## <a id="step3"></a>Étape 3 : Accéder à l’application à partir de l’extérieur du réseau virtuel
+## <a id="step3"></a>Étape 3 : Accéder à l’application à l’extérieur du réseau virtuel
 Essayez d’accéder à l’application à partir d’un ordinateur en dehors du réseau virtuel de la machine virtuelle sur laquelle l’application est exécutée. Utilisez un réseau différent de celui de votre ordinateur client d’origine.
 
 ![démarrer l’application à partir d’un ordinateur situé hors du réseau virtuel](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)

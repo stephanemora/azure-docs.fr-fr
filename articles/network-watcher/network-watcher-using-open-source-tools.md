@@ -3,8 +3,8 @@ title: Visualiser les modèles de trafic réseau à l’aide d’Azure Network W
 description: Cette page explique comment utiliser la capture de paquets Network Watcher avec Capanalysis pour visualiser les modèles de trafic depuis et vers les machines virtuelles.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 7b1e1383e8e244a7cdb30be1e08514a6a4dd7b14
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: kumud
+ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302231"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64936019"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualiser les modèles de trafic réseau depuis et vers les machines virtuelles à l’aide d’outils open source
 
@@ -76,7 +76,7 @@ CapAnalysis propose différentes options pour visualiser la capture de paquets. 
 
 1. Carte des zones géographiques
 
-    Ce volet vous fournit une vue cartographique de votre trafic réseau, avec des couleurs correspondant au volume de trafic de chaque pays. Vous pouvez sélectionner les pays en surbrillance pour afficher des statistiques de flux supplémentaires, telles que la proportion de données envoyées et reçues à partir des IP dans ce pays.
+    Ce volet vous fournit une vue cartographique de votre trafic réseau, avec des couleurs correspondant au volume de trafic de chaque pays/région. Vous pouvez sélectionner les pays/régions en surbrillance pour afficher des statistiques de flux supplémentaires, telles que la proportion de données envoyées et reçues à partir des adresses IP dans ce pays ou cette région.
 
     ![carte des zones géographiques][8]
 
@@ -96,8 +96,8 @@ La fonctionnalité de capture de paquets de Network Watcher vous permet de captu
 
 Pour en savoir plus sur les journaux de flux NSG, consultez l’article sur les [journaux de flux NSG](network-watcher-nsg-flow-logging-overview.md).
 
-Découvrez comment visualiser vos journaux de flux NSG avec Power BI en consultant la page [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-<!--Image references--> (Visualiser les journaux de flux NSG avec Power BI)
+Découvrez comment visualiser vos journaux de flux de groupe de sécurité réseau avec Power BI en consultant la page [Visualizing Network Security Group flow logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualisation des journaux de flux de groupe de sécurité réseau avec Power BI).
+<!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png
 [2]: ./media/network-watcher-using-open-source-tools/figure2.png

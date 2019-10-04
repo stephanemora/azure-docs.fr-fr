@@ -1,38 +1,36 @@
 ---
 title: Ajout d’un annuaire Azure Active Directory à l’aide de services connectés dans Visual Studio
 description: Ajouter un annuaire Azure Active Directory à l’aide de la boîte de dialogue Visual Studio Ajouter des services connectés
-services: active-directory
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
-ms.prod: visual-studio-dev15
+ms.prod: visual-studio-windows
 ms.technology: vs-azure
-ms.custom: vs-azure
+ms.custom: aaddev, vs-azure
 ms.workload: azure-vs
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbbef13d2e64a5d1b177d8232c5b6ef1e64a1da9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6c02821a41faa976f8f35984ecf48f425239e6fd
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179142"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881179"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Ajout d’un annuaire Azure Active Directory à l’aide de services connectés dans Visual Studio
 
 En utilisant Azure Active Directory (Azure AD), vous pouvez prendre en charge l’authentification unique (SSO) pour les applications web MVC ASP.NET ou l’authentification Active Directory dans les services API web. Avec l’authentification Azure AD, vos utilisateurs peuvent se servir de leur compte sur Azure Active Directory pour se connecter à vos applications web. Grâce à l’authentification Azure AD avec l’API web, la sécurité des données pendant l’exposition d’une API à partir d’une application web est renforcée. Avec Azure AD, vous n’avez pas besoin de gérer un système d’authentification distinct doté de ses propres dispositifs de gestion de comptes et d’utilisateurs.
 
-Cet article et ceux qui l’accompagnent fournissent des détails sur l’utilisation de la fonctionnalité Service connecté de Visual Studio pour Active Directory. Cette fonctionnalité est disponible dans Visual Studio 2017 et Visual Studio 2015.
+Cet article et ceux qui l’accompagnent fournissent des détails sur l’utilisation de la fonctionnalité Service connecté de Visual Studio pour Active Directory. Cette fonctionnalité est disponible dans Visual Studio 2015 et versions ultérieures.
 
 Actuellement, le service connecté Active Directory ne prend pas en charge les applications ASP.NET Core.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure : si vous n’avez pas de compte Azure, vous pouvez [vous inscrire à un essai gratuit](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de votre abonnement Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
-- **Visual Studio 2015** ou version ultérieure. [Téléchargez Visual Studio 2017 maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2015** ou version ultérieure. [Téléchargez maintenant Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>Se connecter à Azure Active Directory à l’aide de la boîte de dialogue Services connectés
 

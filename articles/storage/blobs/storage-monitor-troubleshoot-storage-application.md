@@ -1,19 +1,19 @@
 ---
 title: Surveiller et résoudre les problèmes d’une application de stockage cloud dans Azure | Microsoft Docs
 description: Utilisez des outils de diagnostic, des métriques et la génération d’alertes pour surveiller et résoudre les problèmes d’une application cloud.
-services: storage
-author: tamram
+author: normesta
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 07/20/2018
-ms.author: tamram
-ms.custom: mvc
-ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: normesta
+ms.reviewer: fryu
+ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259987"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844887"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Surveiller et résoudre les problèmes d’une application de stockage cloud
 
@@ -39,7 +39,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com)
 
 Dans le menu de gauche, sélectionnez **Groupes de ressources**, **myResourceGroup**, puis votre compte de stockage dans la liste des ressources.
 
-Sous les **paramètres de Diagnostics (classique)**, définissez l’**État** sur **Activé**. Vérifiez que toutes les options sous **Propriétés de l’objet blob** sont activées.
+Sous les **paramètres de Diagnostics (classique)** , définissez l’**État** sur **Activé**. Vérifiez que toutes les options sous **Propriétés de l’objet blob** sont activées.
 
 Quand vous avez terminé, cliquez sur **Enregistrer**
 
@@ -51,7 +51,7 @@ Les alertes sont un moyen d’envoyer par e-mail aux administrateurs ou de décl
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Accédez à votre compte de stockage dans le Portail Azure
 
-Sous la section **Surveillance**, sélectionnez **Alertes (classique)**.
+Sous la section **Surveillance**, sélectionnez **Alertes (classique)** .
 
 Sélectionnez **Ajouter une alerte métrique (classique)** et terminez le formulaire **Ajouter une règle** en renseignant les informations requises. À partir de la liste déroulante **Métrique**, sélectionnez `SASClientOtherError`. Pour autoriser le déclenchement de votre alerte lors de la première erreur, à partir de la liste déroulante **Condition** sélectionnez **Supérieur ou égal à**.
 
@@ -105,7 +105,7 @@ Une fois le journal ouvert, vous pouvez consulter les événements de stockage. 
 
 ![Microsoft Message Analyzer - Affichage des événements](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-L’[Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) est un autre outil qui peut être utilisé pour interagir avec vos comptes de stockage, y compris le conteneur **$logs** et les fichiers journaux qu’il contient.
+L’[Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) est un autre outil qui peut être utilisé pour interagir avec vos comptes de stockage, y compris le conteneur **$logs** et les fichiers journaux d’activité qu’il contient.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

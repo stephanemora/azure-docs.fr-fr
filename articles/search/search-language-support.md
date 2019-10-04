@@ -1,74 +1,56 @@
 ---
 title: Indexation de recherche pour requêtes de recherche effectuées dans une langue autre que l’anglais - Recherche Azure
-description: " Azure Search prend en charge 56 langages, tirant parti des analyseurs de langue de la technologie Lucene et Natural Language Processing de Microsoft."
+description: Azure Search prend en charge 56 langages, tirant parti des analyseurs de langue de la technologie Lucene et Natural Language Processing de Microsoft.
 author: yahnoosh
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: a198fa7fe5e1ed81e30987990359f9ecedbe225b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9d2e6418eb925f0d113b7e9a91463951ca52031a
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631547"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186559"
 ---
-# <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Création d’un index de documents dans plusieurs langues dans Azure Search
-> [!div class="op_single_selector"]
->
-> * [Portail](search-language-support.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
-> * [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
->
->
+# <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Comment créer un index dans plusieurs langues dans Recherche Azure
 
-Décupler les performances des analyseurs de langue est aussi facile que de définir une propriété sur un champ de recherche dans la définition d'index. Maintenant, vous pouvez effectuer cette étape dans le portail.
+Les index peuvent comprendre des champs avec du contenu provenant de plusieurs langues, par exemple pour créer des champs pour des chaînes spécifiques à une langue. Pour obtenir des résultats optimaux lors de l’indexation et de l’interrogation, affectez un analyseur de langue qui fournit les règles linguistiques appropriées. 
 
-Voici les captures d'écran des panneaux du portail Azure pour Azure Search qui permettent aux utilisateurs de définir un schéma d'index. À partir de ce panneau, les utilisateurs peuvent créer tous les champs et définir la propriété de l'analyseur pour chacun d'eux.
+Recherche Azure offre une large sélection d’analyseurs de langue Lucene et Microsoft, qui peuvent être affectés à des champs individuels à l’aide de la propriété Analyzer. Vous pouvez également spécifier un analyseur de langue dans le portail, comme décrit dans cet article.
 
-> [!IMPORTANT]
-> Vous pouvez uniquement définir un analyseur de langage lors de la définition du champ, comme lors de la création d'un nouvel index ou lorsque vous ajoutez un nouveau champ à un index existant. Veillez à spécifier entièrement tous les attributs, y compris l'analyseur, lors de la création du champ. Vous ne pourrez pas modifier les attributs ou modifier le type d'analyseur une fois vos modifications enregistrées.
->
->
+## <a name="add-analyzers-to-fields"></a>Ajouter des analyseurs aux champs
 
-## <a name="define-a-new-field-definition"></a>Définir une nouvelle définition de champ
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) et ouvrez le panneau de votre service de recherche.
-2. Cliquez sur **Ajouter un index** dans la barre de commandes en haut du tableau de bord de service pour démarrer un nouvel index ou ouvrez un index existant pour définir un analyseur sur des nouveaux champs que vous ajoutez à un index existant.
-3. Le panneau Champs s'affiche. Il vous propose des options pour définir le schéma de l'index, y compris l'onglet Analyseur utilisé pour le choix d'un analyseur de langage.
-4. Dans le panneau Champs, démarrez une définition de champ en fournissant un nom, le choix du type de données et la définition des attributs pour marquer le champ en tant que texte intégral consultable, récupérables dans les résultats de recherche, utilisable dans des structures de navigation de facette, pouvant être trié, et ainsi de suite.
-5. Avant de passer au champ suivant, ouvrez l'onglet **Analyseur** .
+L’analyseur de langue est spécifié lors de la création d’un champ. L’ajout d’un analyseur à une définition de champ existante nécessite le remplacement (et le rechargement) de l’index ou la création d’un nouveau champ identique à l’original, mais avec une affectation d’analyseur. Vous pouvez ensuite supprimer le champ inutilisé à votre convenance.
 
-![][1]
-*Pour sélectionner un analyseur, cliquez sur l’onglet Analyseur du panneau Champs*
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis trouvez votre service de recherche.
+1. Cliquez sur **Ajouter un index** dans la barre de commandes en haut du tableau de bord de service pour démarrer un nouvel index ou ouvrez un index existant pour définir un analyseur sur des nouveaux champs que vous ajoutez à un index existant.
+1. Démarrez une définition de champ en fournissant un nom.
+1. Choisissez le type de données Edm.String. Seuls les champs de type chaîne peuvent faire l’objet d’une recherche en texte intégral.
+1. Définissez l’attribut **Searchable** pour activer la propriété de l’analyseur. Le champ doit être basé sur du texte pour pouvoir utiliser un analyseur de langue.
+1. Choisissez l’un des analyseurs disponibles. 
 
-## <a name="choose-an-analyzer"></a>Choisir un analyseur
-1. Faites défiler pour rechercher le champ que vous définissez.
-2. Si vous n'avez pas activé le champ de recherche, cliquez sur la case à cocher pour indiquer qu'il peut **faire l'objet d'une recherche**.
-3. Cliquez sur la zone Analyseur pour afficher la liste des analyseurs disponibles.
-4. Cliquez sur l'analyseur à utiliser.
+![Affecter des analyseurs de langue lors de la définition d’un champ](media/search-language-support/select-analyzer.png "Affecter des analyseurs de langue lors de la définition d’un champ")
 
-![][2]
-*Sélectionnez un des analyseurs pris en charge pour chaque champ*
+Par défaut, tous les champs pouvant faire l’objet d’une recherche utilisent l’[analyseur Lucene Standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) qui est indépendant de la langue. Pour afficher la liste complète des analyseurs pris en charge, consultez [Ajouter des analyseurs linguistiques à un index de Recherche Azure](index-add-language-analyzers.md).
 
-Par défaut, tous les champs pouvant faire l'objet d'une recherche utilisent l' [analyseur Lucene Standard](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) qui est indépendant du langage. Pour afficher la liste complète des analyseurs pris en charge, consultez [Prise en charge linguistique dans Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+Dans le portail, les analyseurs sont conçus pour être utilisés tels quels. Si vous avez besoin d’une personnalisation ou d’une configuration spécifique des filtres et des générateurs de jetons, vous devez [créer un analyseur personnalisé](index-add-custom-analyzers.md) dans le code. Le portail ne prend pas en charge la sélection ou la configuration d’analyseurs personnalisés.
 
-Une fois que l'analyseur de langage est sélectionné pour un champ, il sera utilisé à chaque demande de recherche et d'indexation pour ce champ. Lorsqu'une requête est émise sur plusieurs champs à l'aide de différents analyseurs, elle sera traitée indépendamment par les analyseurs corrects pour chaque champ.
+## <a name="query-language-specific-fields"></a>Champs spécifiques à la langue de la requête
 
-Plusieurs applications web et mobiles servent les utilisateurs dans le monde entier à l'aide de différentes langues. Il est possible de définir un index pour un scénario comme celui-ci en créant un champ pour chaque langue prise en charge.
-
-![][3]
-*Définition d'index avec un champ de description pour chaque langue prise en charge*
+Une fois que l'analyseur de langage est sélectionné pour un champ, il sera utilisé à chaque demande de recherche et d'indexation pour ce champ. Lorsqu’une requête est émise sur plusieurs champs à l’aide de différents analyseurs, elle sera traitée indépendamment par les analyseurs affectés pour chaque champ.
 
 Si la langue de l'agent d'émission d'une requête est connue, une demande de recherche peut être étendue à un champ spécifique à l'aide du paramètre de requête **searchFields** . La requête suivante sera émise uniquement sur la description en polonais :
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2017-11-11`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=PolishContent&api-version=2019-05-06`
 
-Vous pouvez interroger votre index à partir du portail en utilisant l **’Explorateur de recherche** pour coller une requête similaire à celle présentée ci-dessus. L’Explorateur de recherche est disponible dans la barre de commandes du panneau de service. Pour plus d’informations, consultez l’article [Interroger votre index Azure Search dans le portail](search-explorer.md) .
+Vous pouvez interroger votre index à partir du portail avec l’[**Explorateur de recherche**](search-explorer.md) pour coller une requête similaire à celle présentée ci-dessus.
 
-Parfois, la langue de l'agent d'émission d'une requête n'est pas connue, auquel cas la requête peut être exécutée simultanément sur tous les champs. Si nécessaire, la préférence de résultats dans une langue donnée peut être définie à l'aide des [profils de score](https://msdn.microsoft.com/library/azure/dn798928.aspx). Dans l'exemple ci-dessous, les correspondances trouvées dans la description en anglais auront un score supérieur par rapport aux correspondances en polonais et en français :
+## <a name="boost-language-specific-fields"></a>Améliorer les champs spécifiques à la langue
+
+Parfois, la langue de l'agent d'émission d'une requête n'est pas connue, auquel cas la requête peut être exécutée simultanément sur tous les champs. Si nécessaire, la préférence de résultats dans une langue donnée peut être définie à l'aide des [profils de score](index-add-scoring-profiles.md). Dans l'exemple ci-dessous, les correspondances trouvées dans la description en anglais auront un score supérieur par rapport aux correspondances en polonais et en français :
 
     "scoringProfiles": [
       {
@@ -79,11 +61,8 @@ Parfois, la langue de l'agent d'émission d'une requête n'est pas connue, auque
       }
     ]
 
-`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
+`https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2019-05-06`
 
-Si vous êtes un développeur .NET, notez que vous pouvez configurer les analyseurs de langage à l'aide du [Kit de développement logiciel (SDK) Azure Search .NET](https://www.nuget.org/packages/Microsoft.Azure.Search). La dernière version prend également en charge les analyseurs de langage Microsoft.
+## <a name="next-steps"></a>Étapes suivantes
 
-<!-- Image References -->
-[1]: ./media/search-language-support/AnalyzerTab.png
-[2]: ./media/search-language-support/SelectAnalyzer.png
-[3]: ./media/search-language-support/IndexDefinition.png
+Si vous êtes développeur .NET, notez que vous pouvez configurer les analyseurs de langue à l’aide du [Kit de développement logiciel (SDK) Recherche Azure .NET](https://www.nuget.org/packages/Microsoft.Azure.Search) et de la propriété [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet). 

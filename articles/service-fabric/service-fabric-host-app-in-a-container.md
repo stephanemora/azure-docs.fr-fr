@@ -3,7 +3,7 @@ title: Déployer une application .NET dans un conteneur vers Azure Service Fabri
 description: Découvrez comment mettre en conteneur une application .NET existante à l’aide de Visual Studio et comment déboguer des conteneurs Service Fabric en local. L’application en conteneur est envoyée par push dans un registre de conteneur Azure et déployée dans un cluster Service Fabric. Lorsqu’elle est déployée dans Azure, l’application utilise Azure SQL DB pour conserver des données.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
-ms.author: aljo
-ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/08/2019
+ms.author: atsenthi
+ms.openlocfilehash: 6e088d9ae201dc5a09de45b2a528b77400d8a111
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048467"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232393"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Didacticiel : Déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 
@@ -29,7 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Mettre en conteneur une application existante à l’aide de Visual Studio
-> * Création d’une base de données SQL Azure
+> * Création d’une base de données Azure SQL
 > * Créer un Azure Container Registry
 > * Déployer une application Service Fabric sur Azure
 
@@ -41,14 +41,14 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 1. Si vous n’avez pas d’abonnement Azure, [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installez [Docker CE pour Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) afin que vous puissiez exécuter des conteneurs sur Windows 10.
 3. Installez le [runtime Service Fabric version 6.2 ou supérieure](service-fabric-get-started.md) et le [kit de développement logiciel (SDK) Service Fabric version 3.1](service-fabric-get-started.md) ou supérieure.
-4. [Installez Visual Studio 2017 version 15.7](https://www.visualstudio.com/) ou supérieure avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
-5. Installez [Azure PowerShell][link-azure-powershell-install]
+4. Installez [Visual Studio 2019 version 16.1](https://www.visualstudio.com/) ou ultérieure avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
+5. Installez [Azure PowerShell][link-azure-powershell-install].
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Télécharger et exécuter Fabrikam Fiber CallCenter
 Téléchargez l’exemple d’application [Fabrikam Fiber CallCenter][link-fabrikam-github].  Cliquez sur le lien **Télécharger l’archive**.  À partir du répertoire *sourceCode* du fichier *fabrikam.zip*, extrayez le fichier *sourceCode.zip* puis le répertoire *VS2015* sur votre ordinateur.
 
-Vérifiez que l’application Fabrikam Fiber CallCenter génère et s’exécute sans erreur.  Lancez Visual Studio en tant **qu’administrateur** et ouvrez le fichier [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Appuyez sur F5 pour déboguer et exécuter l’application.
+Vérifiez que l’application Fabrikam Fiber CallCenter génère et s’exécute sans erreur.  Lancez Visual Studio en tant qu’**administrateur** et ouvrez le fichier [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Appuyez sur F5 pour déboguer et exécuter l’application.
 
 ![Exemple Fabrikam Web][fabrikam-web-page]
 
@@ -161,7 +161,7 @@ Durant la création du cluster :
 
 2. Connectez-vous avec votre compte Azure afin d’avoir accès à votre ou vos abonnements. 
 
-3. Sélectionnez le menu déroulant pour le **Point de terminaison de connexion** puis l’option **Créer un cluster...**.    
+3. Sélectionnez le menu déroulant pour le **Point de terminaison de connexion** puis l’option **Créer un cluster...** .    
         
 4. Dans la boîte de dialogue **Créer un cluster**, modifiez les paramètres suivants :
 
@@ -265,7 +265,7 @@ Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Mettre en conteneur une application existante à l’aide de Visual Studio
-> * Création d’une base de données SQL Azure
+> * Création d’une base de données Azure SQL
 > * Créer un Azure Container Registry
 > * Déployer une application Service Fabric sur Azure
 
@@ -284,8 +284,5 @@ Dans la partie suivante du tutoriel, découvrez comment [déployer une applicati
 [link-azure-sql]: /azure/sql-database/
 
 [fabrikam-web-page]: media/service-fabric-host-app-in-a-container/fabrikam-web-page.png
-[fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
-[publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png
-m-web-page.png
 [fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
 [publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png

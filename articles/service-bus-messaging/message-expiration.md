@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 109ecc671b43365c433a626ff8d9fe55a5a626b5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856959"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310297"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiration des messages (durée de vie)
 
@@ -35,6 +35,11 @@ Lorsque le message est verrouillé, l’application peut être en possession d�
 ## <a name="entity-level-expiration"></a>Expiration au niveau de l’entité
 
 Tous les messages envoyés dans une file d’attente ou une rubrique sont soumis à un délai d’expiration par défaut qui est défini au niveau de l’entité avec la propriété [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues). Ce délai peut également être défini dans le portail au moment de la création et modifié plus tard. Le délai d’expiration par défaut est utilisé pour tous les messages envoyés à l’entité où la propriété [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) n’est pas définie explicitement. Le délai d’expiration par défaut sert également de plafond pour la valeur **TimeToLive**. Les messages qui ont un délai d’expiration **TimeToLive** plus long que le délai par défaut sont ajustés en mode silencieux à la valeur **defaultMessageTimeToLive** avant d’être mis en file attente.
+
+> [!NOTE]
+> La valeur par défaut [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) d’un message réparti est [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue), sauf indication contraire.
+>
+> Pour les entités de messagerie (files d’attente et rubriques), le délai d’expiration par défaut est également [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) pour les niveaux standard et Premium de Service Bus.  Pour le niveau de base, le délai d’expiration par défaut est de 14 jours.
 
 Vous pouvez éventuellement choisir de déplacer les messages expirés vers une [file d’attente de lettres mortes](service-bus-dead-letter-queues.md) en définissant la propriété [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) ou en cochant la case correspondante dans le portail. Si l’option reste désélectionnée, les messages expirés sont supprimés. La distinction entre les messages expirés déplacés vers la file d’attente de lettres mortes et les autres messages de lettres mortes est possible grâce à la valeur de la propriété [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) que le répartiteur stocke dans la section des propriétés utilisateur (sa valeur est [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) dans le cas présent).
 

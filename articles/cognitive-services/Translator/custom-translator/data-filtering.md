@@ -2,19 +2,19 @@
 title: Filtrage des données - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Lorsque vous soumettez des documents pour l'apprentissage d'un système personnalisé, différentes étapes de traitement et de filtrage s'appliquent à ceux-ci afin de préparer l'apprentissage.
-author: v-pawal
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-jansko
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 0871cb7e4dcbe8cf71f35f174137396bde607c54
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 1028443eaaf6c483cd7cd57289b0dcf2a9f11902
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916105"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595909"
 ---
 # <a name="data-filtering"></a>Filtrage de données
 
@@ -23,7 +23,7 @@ Lorsque vous soumettez des documents pour l'apprentissage d'un système personna
 ## <a name="sentence-alignment"></a>Alignement de phrase
 Si votre document n'est pas au format XLIFF, TMX ou ALIGN, Custom Translator aligne les phrases de vos documents source et cible, phrase par phrase. Translator ne procède pas à l'alignement des documents. Il suit les noms que vous avez donnés aux documents afin de trouver le document correspondant dans l'autre langue. Dans le document, Custom Translator essaie de trouver la phrase correspondante dans l'autre langue. Il a recours au balisage des documents (balises HTML incorporées, par exemple) pour faciliter l'alignement.  
 
-Si vous consultez une grande différence entre le nombre de phrases dans la source d’et ciblez des documents côté, votre document ne peut-être pas encore été parallèle en premier lieu, ou pour d’autres raisons n’a pas pu être aligné. Les paires de documents présentant une importante différence de phrases (> 10 %) de chaque côté nécessitent un second examen pour s'assurer qu'elles sont bien parallèles. Custom Translator affiche un avertissement en regard du document en cas de différence suspecte du nombre de phrases.  
+Si vous constatez que le nombre de phrases est très différent entre les documents source et cible, cela peut indiquer que votre document n’était pas parallèle dès le début ou que d’autres raisons ont empêché son alignement. Les paires de documents présentant une importante différence de phrases (> 10 %) de chaque côté nécessitent un second examen pour s'assurer qu'elles sont bien parallèles. Custom Translator affiche un avertissement en regard du document en cas de différence suspecte du nombre de phrases.  
 
 
 ## <a name="deduplication"></a>Déduplication
@@ -45,7 +45,7 @@ Custom Translator supprime des données d'apprentissage les phrases présentes d
 Remplacement les caractères de ponctuation de fin de phrase multiples par une seule instance.  
 
 ## <a name="japanese-character-normalization"></a>Normalisation des caractères japonais
-Convertir en caractères demi-chasse pleine chasse lettres et chiffres.
+Conversion des lettres et des chiffres à pleine chasse en caractères à demi-chasse.
 
 ## <a name="unescaped-xml-tags"></a>Balises XML sans séquence d'échappement
 Le filtrage transforme les balises sans séquence d'échappement en balises avec séquence d'échappement :

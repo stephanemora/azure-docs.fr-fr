@@ -3,7 +3,7 @@ title: Mise à niveau d’un cluster Azure Service Fabric | Microsoft Docs
 description: Découvrez comment mettre à niveau la version ou la configuration d’un cluster Azure Service Fabric.  Cet article explique comment définir le mode de mise à jour du cluster, mettre à niveau les certificats, ajouter des ports d’application et appliquer des correctifs de système d’exploitation, et décrit ce à quoi vous pouvez vous attendre une fois les mises à niveau effectuées
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
-ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: 2c8465a3aba4a21efaa20a118807d739dd501b09
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663534"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599786"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Mise à niveau et mise à jour d’un cluster Azure Service Fabric
 
@@ -99,7 +99,7 @@ Vous pouvez spécifier des stratégies de contrôle d’intégrité personnalis�
 De nombreux paramètres de configuration différents peuvent être personnalisés sur un cluster, tels que le niveau de fiabilité des propriétés du cluster et des nœuds. Pour plus d’informations, consultez [Paramètres de structure du cluster Service Fabric](service-fabric-cluster-fabric-settings.md).
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Appliquer des correctifs au système d’exploitation dans les nœuds du cluster
-L’application d’orchestration des correctifs est une application Service Fabric qui automatise l’application de correctifs du système d’exploitation sur un cluster Service Fabric sans temps d’arrêt. L’[application d’orchestration des correctifs pour Windows](service-fabric-patch-orchestration-application.md) ou l’[application d’orchestration des correctifs pour Linux](service-fabric-patch-orchestration-application-linux.md) peut être déployée sur votre cluster pour installer des correctifs de manière orchestrée, tout en maintenant les services disponibles en permanence. 
+L’application d’orchestration des correctifs est une application Service Fabric qui automatise l’application de correctifs du système d’exploitation sur un cluster Service Fabric sans temps d’arrêt. L’[application d’orchestration des correctifs pour Windows](service-fabric-patch-orchestration-application.md) peut être déployée sur votre cluster pour installer des correctifs de manière orchestrée, tout en maintenant les services disponibles en permanence.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

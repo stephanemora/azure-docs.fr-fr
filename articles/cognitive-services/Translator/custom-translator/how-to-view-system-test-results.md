@@ -2,19 +2,19 @@
 title: Afficher les résultats des tests système et du déploiement - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Au terme de votre apprentissage, passez en revue les tests système pour analyser vos résultats. Si ces résultats vous conviennent, faites une demande de déploiement pour le modèle concerné.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: ccd31a0e8b91bc95ac364fe5bc0ec0ecdfaa4618
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438612"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595603"
 ---
 # <a name="view-system-test-results"></a>Afficher les résultats de test système
 
@@ -26,7 +26,7 @@ Sélectionnez un projet, puis l’onglet Modèles de ce projet. Recherchez le mo
 
 L’onglet Test affiche ce qui suit :
 
-1.  **Résultats des tests système :** Le résultat du processus de test dans les formations. Le processus de test génère le score BLEU.
+1.  **Résultats des tests système :** résultat du processus de test lors des entraînements. Le processus de test génère le score BLEU.
 
     **Sentence Count (Nombre de phases) :** nombre de phrases parallèles utilisées dans le jeu de test.
 
@@ -80,20 +80,20 @@ Pour demander un déploiement :
 5.  Vous pouvez afficher l’état de votre modèle dans la colonne « État ».
 
 >[!Note]
->Traducteur personnalisé prend en charge 10 modèles déployés au sein d’un espace de travail à tout moment dans le temps.
+>Custom Translator prend en charge 10 modèles déployés au sein d’un espace de travail à tout moment.
 
 ## <a name="update-deployment-settings"></a>Mettre à jour les paramètres de déploiement
 
 Pour mettre à jour les paramètres de déploiement :
 
-1.  Sélectionnez un projet, accédez à l’onglet **Models (Modèles)**.
+1.  Sélectionnez un projet, accédez à l’onglet **Models (Modèles)** .
 
-2. Pour un modèle déployé réussi, il affiche le bouton **Update (Mettre à jour)**.
+2. Pour un modèle déployé réussi, il affiche le bouton **Update (Mettre à jour)** .
 
     ![Déployer le modèle](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Sélectionnez **Update**.
-4.  Sélectionnez **Deployed (Déployé)** ou **Undeployed (Non déployé)** pour la ou les régions où vous souhaitez déployer votre modèle (ou en annuler le déploiement), puis cliquez sur **Save (Enregistrer)**.
+4.  Sélectionnez **Deployed (Déployé)** ou **Undeployed (Non déployé)** pour la ou les régions où vous souhaitez déployer votre modèle (ou en annuler le déploiement), puis cliquez sur **Save (Enregistrer)** .
 
     ![Déployer le modèle](media/how-to/how-to-undeploy-model.png)
 

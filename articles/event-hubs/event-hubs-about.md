@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 43f8af4f2afc0f7210e49dc5b483a8d2757e6aba
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 242f2fa9885f3f85439caddd061f650baafb8df4
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215352"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314410"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - plateforme de streaming de Big Data et service d’ingestion d’événements
 Azure Event Hubs est une plateforme de streaming de Big Data et un service d’ingestion d’événements. Il peut recevoir et traiter des millions d’événements par seconde. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel.
@@ -29,36 +29,38 @@ Les scénarios suivants sont quelques-uns des scénarios dans lesquels vous pouv
 - Archivage des données
 - Traitement des transactions
 - Traitement des données de télémétrie utilisateur
-- Diffusion en continu de télémétrie d’appareil 
+- Diffusion en continu de télémétrie d’appareil
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/45wgY-VSk9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## <a name="why-use-event-hubs"></a>Pourquoi utiliser Azure Event Hubs ?
 
 Les données ne sont importantes que lorsqu’il y a une manière facile de les traiter et d’obtenir des insights en temps voulu de sources de données. Event Hubs fournit une plateforme de traitement de flux distribués avec une latence faible et une intégration sans interruption, avec des services de données et d’analyse dans et hors Azure pour générer votre pipeline de Big Data complet.
 
-Event Hubs représente la « porte d’entrée » pour un pipeline d’événements, parfois qualifié de service de *réception d’événements* dans des architectures de solution. Un service de réception d'événements est un composant ou service qui se trouve entre les éditeurs d'événements et les consommateurs d'événements pour dissocier la production d'un flux d'événements de leur consommation. Event Hubs fournit une plateforme de streaming unifiée avec une mémoire tampon de conservation temporelle, en séparant les producteurs d’événements des consommateurs d’événements. 
+Event Hubs représente la « porte d’entrée » pour un pipeline d’événements, parfois qualifié de service de *réception d’événements* dans des architectures de solution. Un service de réception d'événements est un composant ou service qui se trouve entre les éditeurs d'événements et les consommateurs d'événements pour dissocier la production d'un flux d'événements de leur consommation. Event Hubs fournit une plateforme de streaming unifiée avec une mémoire tampon de conservation temporelle, en séparant les producteurs d’événements des consommateurs d’événements.
 
-Les sections suivantes décrivent les fonctionnalités clés du service Azure Event Hubs : 
+Les sections suivantes décrivent les fonctionnalités clés du service Azure Event Hubs :
 
-## <a name="fully-managed-paas"></a>PaaS intégralement gérée 
+## <a name="fully-managed-paas"></a>PaaS intégralement gérée
 
 Event Hubs est un service PaaS (Platform-as-a-Service) entièrement géré avec peu de configuration ou de gestion, ce qui vous permet de vous concentrer sur vos solutions métier. [Event Hubs pour les écosystèmes d’Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) vous offre l’expérience de PaaS Kafka sans avoir à gérer, configurer ou exécuter vos clusters.
 
 ## <a name="support-for-real-time-and-batch-processing"></a>Prise en charge d’un traitement par lots et en temps réel
 
-Ingérez, mettez en mémoire tampon, stockez et traitez votre flux en temps réel pour obtenir des insights actionnables. Event Hubs utilise un [modèle de consommateur partitionné](event-hubs-features.md#partitions), ce qui permet à plusieurs applications de traiter le flux de données en même temps et vous laisse le contrôle sur la rapidité du traitement.
+Ingérez, mettez en mémoire tampon, stockez et traitez votre flux en temps réel pour obtenir des insights actionnables. Event Hubs utilise un [modèle de consommateur partitionné](event-hubs-scalability.md#partitions), ce qui permet à plusieurs applications de traiter le flux de données en même temps et vous laisse le contrôle sur la rapidité du traitement.
 
-[Capturez](event-hubs-capture-overview.md) vos données en quasi temps réel dans un [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou dans [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)  pour une conservation à long terme ou un traitement par micro-lots. Vous pouvez obtenir ce comportement sur le même flux que celui que vous utilisez pour la dérivation de l’analytique en temps réel. La configuration de l’outil Capture est rapide. Son exécution n’engendre aucun coût d’administration et il s’adapte automatiquement à vos  [unités de débit](event-hubs-features.md#throughput-units) Event Hubs. Event Hubs vous permet de vous concentrer sur le traitement des données plutôt que sur leur capture.
+[Capturez](event-hubs-capture-overview.md) vos données en quasi temps réel dans un [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou dans [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)  pour une conservation à long terme ou un traitement par micro-lots. Vous pouvez obtenir ce comportement sur le même flux que celui que vous utilisez pour la dérivation de l’analytique en temps réel. La configuration de l’outil Capture est rapide. Son exécution n’engendre aucun coût d’administration et il s’adapte automatiquement à vos  [unités de débit](event-hubs-scalability.md#throughput-units) Event Hubs. Event Hubs vous permet de vous concentrer sur le traitement des données plutôt que sur leur capture.
 
 Azure Event Hubs s’intègre aussi avec [Azure Functions](/azure/azure-functions/) pour une architecture sans serveur.
 
-## <a name="scalable"></a>Évolutif 
+## <a name="scalable"></a>Évolutif
 
-Avec Event Hubs, vous pouvez commencer avec des flux de données en mégaoctets et passer à des gigaoctets ou téraoctets. La fonctionnalité de [majoration automatique](event-hubs-auto-inflate.md) est une des nombreuses options disponibles pour mettre à l'échelle le nombre d’unités de débit et ainsi répondre à vos besoins d’utilisation. 
+Avec Event Hubs, vous pouvez commencer avec des flux de données en mégaoctets et passer à des gigaoctets ou téraoctets. La fonctionnalité de [majoration automatique](event-hubs-auto-inflate.md) est une des nombreuses options disponibles pour mettre à l'échelle le nombre d’unités de débit et ainsi répondre à vos besoins d’utilisation.
 
 ## <a name="rich-ecosystem"></a>Écosystème riche
 
 [Event Hubs pour les écosystèmes Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permet aux clients et aux applications [Apache Kafka (1.0 et ultérieur)](https://kafka.apache.org/) de communiquer avec Event Hub. Vous n’avez pas besoin d’installer, de configurer et de gérer vos propres clusters Kafka.
- 
+
 Avec un vaste écosystème disponible dans différents [langages (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), vous pouvez facilement lancer le traitement de vos flux en provenance d’Event Hubs. Tous les langages client pris en charge fournissent une intégration de faible niveau. L’écosystème vous fournit également une intégration fluide aux services Azure tels qu’Azure Stream Analytics et Azure Functions, et vous permet donc de générer des architectures serverless.
 
 ## <a name="key-architecture-components"></a>Composants clés de l’architecture
@@ -77,11 +79,17 @@ La figure suivante montre l’architecture de traitement de flux Event Hubs :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour prendre en main Event Hubs, consultez les articles suivants :
+Pour commencer à utiliser Event Hubs, consultez les tutoriels **Envoyer et recevoir des événements** :
 
-1. **Créer un hub d'événements** : [portail Azure](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [modèle Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md)
-2. **Envoyer des événements à un hub d'événements** : [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-3. **Recevoir des événements d'un hub d'événements** : [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.JS](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C (envoi uniquement)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (réception uniquement)](event-hubs-storm-getstarted-receive.md)
+
 
 Pour plus d’informations sur les hubs d’événements, consultez les articles suivants :
 

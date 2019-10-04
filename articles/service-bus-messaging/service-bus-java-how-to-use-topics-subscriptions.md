@@ -1,5 +1,5 @@
 ---
-title: Utilisation des rubriques Azure Service Bus avec Java | Microsoft Docs
+title: Utiliser des rubriques et abonnements Azure Service Bus avec Java
 description: Utilisez les rubriques et abonnements Service Bus dans Azure.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,33 +14,34 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 0771656358503afc91bab7523d0c835e0050c2bc
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: affd62bd7cae0103b7d2510022fc12a66d26c865
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607872"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155582"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Utilisation des rubriques et abonnements Service Bus avec Java
+# <a name="use-service-bus-topics-and-subscriptions-with-java"></a>Utiliser des rubriques et des abonnements Service Bus avec Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Dans ce démarrage rapide, vous écrire du code Java pour envoyer des messages à une rubrique Service Bus et alors recevoir des messages à partir des abonnements à cette rubrique. 
+Dans ce guide de démarrage rapide, vous écrivez du code Java pour envoyer des messages à une rubrique Azure Service Bus, puis vous recevez les messages des abonnements à cette rubrique. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrivez-vous pour ouvrir un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes de la [Guide de démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à la rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
-    1. Créer un Service Bus **espace de noms**.
-    2. Obtenir le **chaîne de connexion**.
-    3. Créer un **rubrique** dans l’espace de noms.
-    4. Créer **trois abonnements** à la rubrique dans l’espace de noms.
-3. [Kit de développement logiciel (SDK) Azure pour Java][Azure SDK for Java].
+1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Suivez les étapes du document [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
+    1. Créez un **espace de noms** Service Bus.
+    2. Obtenez la **chaîne de connexion**.
+    3. Créez une **rubrique** dans l’espace de noms.
+    4. Créez **trois abonnements** à la rubrique dans l’espace de noms.
+3. [Kit SDK Azure pour Java][Azure SDK for Java].
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuration de votre application pour l’utilisation de Service Bus
 Vérifiez que vous avez installé le [Kit de développement logiciel (SDK) Azure pour Java][Azure SDK for Java] avant de créer cet exemple. Si vous utilisez Eclipse, vous pouvez installer le [Kit de ressources Azure pour Eclipse][Azure Toolkit for Eclipse] qui inclut le Kit de développement logiciel (SDK) Azure pour Java. Vous pouvez ensuite ajouter les **bibliothèques Microsoft Azure pour Java** à votre projet :
 
-![Bibliothèques dans le chemin de build Eclipse](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+![Ajouter les bibliothèques Microsoft Azure pour Java à votre projet Eclipse](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
 
 Vous devez également ajouter les fichiers JAR suivants au chemin de build Java :
 
@@ -454,12 +455,14 @@ Message sending: Id = 9
                         Content: [ firstName = Werner, name = Heisenberg ]
 ```
 
+> [!NOTE]
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, voir [Files d’attente, rubriques et abonnements Service Bus][Service Bus queues, topics, and subscriptions].
 
-[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
-[Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
+[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
+[Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
 [SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression

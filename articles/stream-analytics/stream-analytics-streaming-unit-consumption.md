@@ -8,17 +8,17 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.date: 06/21/2019
+ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304837"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329335"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
-Les unités de streaming sont les ressources de calcul allouées pour exécuter un travail. Plus le nombre d’unités de streaming est élevé, plus il y a de ressources d’UC et de mémoire allouées pour votre travail. Cette capacité vous permet de vous concentrer sur la logique de requête et résume la nécessité de gérer le matériel pour exécuter votre travail Stream Analytics en temps voulu.
+Les unités de streaming représentent les ressources de calcul allouées pour exécuter un travail Stream Analytics. Plus le nombre d’unités de streaming est élevé, plus il y a de ressources d’UC et de mémoire allouées pour votre travail. Cette capacité vous permet de vous concentrer sur la logique de requête et résume la nécessité de gérer le matériel pour exécuter votre travail Stream Analytics en temps voulu.
 
 Pour obtenir un traitement de streaming à faible latence, les travaux Azure Stream Analytics effectuent tout le traitement en mémoire. Quand la mémoire devient insuffisante, le travail de streaming échoue. Par conséquent, pour un travail de production, il est important de surveiller l’utilisation des ressources d’un travail de streaming et de vérifier qu’il existe suffisamment de ressources allouées afin d’assurer l’exécution des travaux 24 heures sur 24 et 7 jours sur 7.
 
@@ -51,7 +51,7 @@ En règle générale, la meilleure pratique consiste à démarrer avec 6 unité
 Pour plus d’informations sur le choix du nombre adapté d’unités de streaming, consultez cette page : [Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Le choix du nombre d’unités SU requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner votre quota en unités SU pour un travail. Par défaut, chaque abonnement Azure dispose d’un quota pouvant atteindre 200 unités de streaming pour tous les travaux Stream Analytics d’une région spécifique. Pour augmenter ce quota d’unités SU pour vos abonnements, contactez le [Support Microsoft](https://support.microsoft.com). Valeurs valides pour les unités SU par travail : 1, 3, 6 et au-dessus par incréments de 6.
+> Le choix du nombre d’unités SU requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner votre quota en unités SU pour un travail. Par défaut, chaque abonnement Azure dispose d’un quota pouvant atteindre 500 unités de streaming pour tous les travaux Stream Analytics d’une région spécifique. Pour augmenter ce quota d’unités SU pour vos abonnements, contactez le [Support Microsoft](https://support.microsoft.com). Valeurs valides pour les unités SU par travail : 1, 3, 6 et au-dessus par incréments de 6.
 
 ## <a name="factors-that-increase-su-utilization"></a>Facteurs qui augmentent l’utilisation du % SU 
 
@@ -59,7 +59,7 @@ Les éléments de requête temporelle (orientée sur le temps) sont l’ensemble
 
 Notez qu’un travail avec une logique de requête complexe peut avoir une utilisation élevée d’unités de streaming, même s’il ne reçoit pas continuellement des événements d’entrée. Cela peut se produire après un pic soudain des événements d’entrée et de sortie. Le travail peut continuer à maintenir l’état en mémoire si la requête est complexe.
 
-Le pourcentage d'utilisation des unités de streaming peut soudainement et brièvement passer à 0 avant de revenir aux niveaux prévus. Ce phénomène est dû à des erreurs transitoires ou à des mises à niveau lancées par le système.
+Le pourcentage d'utilisation des unités de streaming peut soudainement et brièvement passer à 0 avant de revenir aux niveaux prévus. Ce phénomène est dû à des erreurs transitoires ou à des mises à niveau lancées par le système. Augmenter le nombre d’unités de streaming d’un travail ne diminue pas forcément le pourcentage d’utilisation des unités de streaming si votre requête n’est pas [entièrement parallèle](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Logique de requête avec état dans les éléments temporels
 L’une des caractéristiques propres à un travail Azure Stream Analytics consiste à effectuer un traitement avec état, comme des agrégations fenêtrées, jointures temporelles et fonctions d’analyse temporelle. Chacun de ces opérateurs conserve des informations d’état. La taille maximale de la fenêtre pour ces éléments de requête est de sept jours. 
@@ -85,7 +85,7 @@ Par exemple, dans la requête suivante, le nombre associé à `clusterid` est la
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Afin d’atténuer les problèmes provoqués par une cardinalité élevée dans la requête précédente, vous pouvez envoyer des événements au Concentrateur d’événements avec un partitionnement par `clusterid` et augmenter la taille des instances de la requête en autorisant le système à traiter chaque partition d’entrée séparément à l’aide de **PARTITION BY** comme indiqué dans l’exemple ci-dessous :
+Afin d’atténuer les problèmes provoqués par une cardinalité élevée dans la requête précédente, vous pouvez envoyer des événements à Event Hub avec un partitionnement par `clusterid`, et effectuer un scale-out de la requête en autorisant le système à traiter chaque partition d’entrée séparément à l’aide de **PARTITION BY**, comme indiqué dans l’exemple ci-dessous :
 
    ```sql
    SELECT count(*) 

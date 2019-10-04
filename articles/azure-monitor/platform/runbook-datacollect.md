@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
 ms.openlocfilehash: 67378a5911e5bd83888342aa3773f7f5ed4ccf29
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102582"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60454106"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Collecter des données dans Log Analytics avec un runbook Azure Automation
 
@@ -28,7 +28,7 @@ Vous pouvez collecter une quantité importante de données dans Log Analytics à
 
 Ce didacticiel vous guide dans le processus de création et de planification d’un runbook dans Azure Automation pour écrire des données dans Log Analytics.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Ce scénario nécessite que les ressources suivantes soient configurées dans votre abonnement Azure. Les deux peuvent être des comptes gratuits.
 
 - [Espace de travail Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
@@ -68,7 +68,7 @@ Les [variables Automation](../../automation/automation-variables.md) contiennent
 | Nom | WorkspaceID | WorkspaceKey |
 | Type | Chaîne | Chaîne |
 | Valeur | Collez l’ID de votre espace de travail Log Analytics. | Collez la clé principale ou secondaire de votre espace de travail Log Analytics. |
-| Chiffré | Non  | Oui |
+| Chiffré | Non | OUI |
 
 ## <a name="3-create-runbook"></a>3. Créer un runbook
 
@@ -176,7 +176,7 @@ La méthode la plus courante pour démarrer un runbook qui collecte les données
 ![Planifier un runbook](media/runbook-datacollect/schedule-runbook.png)
 
 1. Dans les propriétés de votre runbook, sélectionnez **Planifications** sous **Ressources**.
-2. Cliquez sur **Add a schedule (Ajouter une planification)** > **Link a schedule to your runbook (Lier une planification à votre runbook)** > **Create a new schedule (Créer une planification)**.
+2. Cliquez sur **Add a schedule (Ajouter une planification)**  > **Link a schedule to your runbook (Lier une planification à votre runbook)**  > **Create a new schedule (Créer une planification)** .
 5. Saisissez les valeurs suivantes pour la planification, puis cliquez sur **Créer**.
 
 | Propriété | Valeur |
@@ -185,11 +185,11 @@ La méthode la plus courante pour démarrer un runbook qui collecte les données
 | Démarrages | Sélectionnez une heure au moins 5 minutes après l’heure actuelle. |
 | Périodicité | Récurrent |
 | Répéter toutes les | 1 heure |
-| Définir une expiration | Non  |
+| Définir une expiration | Non |
 
 Une fois que la planification est créée, vous devez définir les valeurs de paramètre qui seront utilisées chaque fois que cette planification démarre le runbook.
 
-1. Cliquez sur **Configure parameters and run settings (Configurer les paramètres et les paramètres d’exécution)**.
+1. Cliquez sur **Configure parameters and run settings (Configurer les paramètres et les paramètres d’exécution)** .
 1. Renseignez les valeurs pour **ResourceGroupName** et **AutomationAccountName**.
 1. Cliquez sur **OK**.
 

@@ -6,17 +6,17 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 308e452f33ded9be3b88ff370ed34326de54895c
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002899"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877011"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Didacticiel : Effectuer un basculement manuel pour un hub IoT (préversion publique)
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Didacticiel : Effectuer un basculement manuel pour un hub IoT
 
 Basculement manuel est une fonctionnalité du service IoT Hub qui permet aux clients le[basculement](https://en.wikipedia.org/wiki/Failover) des opérations de leur hub à partir d’une région primaire vers la région Azure associée géographiquement correspondante. Basculement manuel est possible en cas de sinistre régional ou une panne de service étendue. Vous pouvez également effectuer un basculement planifié pour tester vos capacités de récupération d’urgence, mais nous vous recommandons d’utiliser un IoT hub de test plutôt que celui en cours d’exécution en production. La fonctionnalité de basculement manuel est proposée aux clients sans coût supplémentaire.
 
@@ -47,7 +47,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
     **Groupe de ressources** : cliquez sur **Créer nouveau**  et spécifiez **ManIFailRG** pour le nom du groupe de ressources.
 
-    **Région**: sélectionnez une région proche de vous fait partie de la préversion. Ce didacticiel utilise`westus2`. Un basculement ne peut être effectué entre des régions Azure géographiquement associées. La région géographiquement associée à westus2 est WestCentralUS.
+    **Région** : sélectionnez une région proche de vous. Ce didacticiel utilise`West US 2`. Un basculement ne peut être effectué entre des régions Azure géographiquement associées. La région géographiquement associée à USA Ouest 2 est WestCentralUS.
     
    **Nom de IoT Hub** : spécifiez un nom pour votre IoT Hub. Le nom du hub doit être globalement unique. 
 
@@ -65,33 +65,38 @@ Notez qu’il existe une limite de deux basculements et deux restaurations par j
 
 1. Cliquez sur **Groupes de ressources** et sélectionnez le groupe de ressources **ManlFailRG**. Dans la liste des ressources, cliquez sur votre IoT Hub. 
 
-2. Sous **Résilience** dans le volet de IoT Hub, cliquez sur **Basculement manuel (préversion)**. Notez que si votre hub n’est pas configuré dans une région valide, l’option de basculement manuel va être désactivée.
+1. Sous **Paramètres** dans le volet IoT Hub, cliquez sur **Basculement**.
 
    ![Capture d’écran montrant le volet de propriétés de IoT Hub](./media/tutorial-manual-failover/trigger-failover-01.png)
 
-3. Dans le volet de Basculement manuel, vous voyez **l’Emplacement principal de l’IoT Hub**  et **l’emplacement secondaire de l’IoT Hub** . L’emplacement principal est initialement défini à l’emplacement spécifié lorsque vous avez créé l’IoT hub et indique toujours l’emplacement dans lequel le hub est actuellement actif. L’emplacement secondaire est le standard [région Azure géographiquement associée ](../best-practices-availability-paired-regions.md) qui est associé à l’emplacement principal. Vous ne pouvez pas modifier les valeurs de l’emplacement. Pour ce didacticiel, l’emplacement principal est `westus2` et l’emplacement secondaire est `WestCentralUS`.
+1. Dans le volet Basculement manuel sont affichés l’**Emplacement actuel** et l’**Emplacement de basculement**. L’emplacement actuel indique toujours l’emplacement où le hub est actuellement actif. L’emplacement de basculement est la [région Azure géographiquement associée](../best-practices-availability-paired-regions.md) standard qui est associé à l’emplacement actuel. Vous ne pouvez pas modifier les valeurs de l’emplacement. Pour ce tutoriel, l’emplacement actuel est `West US 2` et l’emplacement de basculement est `West Central US`.
 
    ![Capture d’écran montrant le volet de basculement manuel](./media/tutorial-manual-failover/trigger-failover-02.png)
 
-3. En haut du volet de Basculement manuel, cliquez sur **Lancer le basculement**. Vous voyez le volet **Confirmer le basculement manuel**. Complétez le nom de votre IoT hub pour vérifier que c’est bien celui que vous souhaitez basculer. Ensuite, pour lancer le basculement, cliquez sur **OK**.
+1. En haut du volet Basculement manuel, cliquez sur **Démarrer le basculement**. 
+
+1. Dans le volet de confirmation, spécifiez le nom de votre hub IoT pour vérifier que c’est bien celui que vous souhaitez basculer. Ensuite, pour lancer le basculement, cliquez sur **Basculement**.
 
    La quantité de temps nécessaire pour effectuer le basculement manuel est proportionnelle au nombre d’appareils qui sont inscrits pour votre hub. Par exemple, si vous avez 100 000 appareils,cela peut prendre 15 minutes, mais si vous avez cinq millions d’appareils, cela peut prendre une heure ou plus.
 
-4. Dans le volet**Confirmer le basculement manuel**, complétez le nom de votre IoT hub pour vérifier que c’est bien celui que vous souhaitez basculer. Ensuite, pour lancer le basculement, cliquez sur OK. 
-
    ![Capture d’écran montrant le volet de basculement manuel](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   Lorsque le processus de basculement manuel est en cours d’exécution, il existe une bannière dans le volet Basculement manuel qui vous indique qu’un basculement manuel est en cours d’exécution. 
+   Pendant l’exécution du processus de basculement manuel, une bannière s’affiche pour vous indiquer qu’un basculement manuel est en cours. 
 
    ![Capture d’écran montrant le volet de Basculement manuel en cours](./media/tutorial-manual-failover/trigger-failover-04-in-progress.png)
 
-   Si vous fermez le volet de IoT Hub et que vous l’ouvrez à nouveau en cliquant dessus dans le volet Groupe de ressources, vous voyez une bannière qui vous indique que le hub n'est pas actif. 
+   Si vous fermez le volet IoT Hub et que vous le rouvrez en cliquant dessus dans le volet Groupe de ressources, une bannière s’affiche pour vous indiquer que le hub est en cours de basculement manuel. 
 
-   ![Capture d’écran montrant que l’IoT Hub est inactif](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
+   ![Capture d’écran montrant le basculement de hub IoT en cours](./media/tutorial-manual-failover/trigger-failover-05-hub-inactive.png)
 
-   Une fois terminé, les régions primaires et secondaires sur la page de Basculement manuel sont retournées et le hub est à nouveau actif. Pour cet exemple, l’emplacement principal est maintenant `WestCentralUS` et l’emplacement secondaire est maintenant `westus2`. 
+   Une fois terminé, les régions actuelle et de basculement dans la page Basculement manuel sont permutées, et le hub est à nouveau actif. Dans cet exemple, l’emplacement actuel est maintenant `WestCentralUS` et l’emplacement de basculement est maintenant `West US 2`. 
 
    ![Capture d’écran montrant que le basculement est terminé](./media/tutorial-manual-failover/trigger-failover-06-finished.png)
+
+   La page de vue d’ensemble affiche également une bannière indiquant que le basculement est terminé et que le hub IoT s’exécute dans `West Central US`.
+
+   ![Capture d’écran montrant que le basculement est terminé dans la page de vue d’ensemble](./media/tutorial-manual-failover/trigger-failover-06-finished-overview.png)
+
 
 ## <a name="perform-a-failback"></a>Effectuer une restauration automatique 
 
@@ -101,15 +106,15 @@ Une restauration automatique est effectuée à l’instar d’un basculement man
 
 1. Pour effectuer une restauration automatique, retournez dans le volet de Iot Hub pour votre Iot Hub.
 
-2. Sous **Résilience** dans le volet de IoT Hub, cliquez sur **Basculement manuel (préversion)**. 
+2. Sous **Paramètres** dans le volet IoT Hub, cliquez sur **Basculement**. 
 
-3. En haut du volet de Basculement manuel, cliquez sur **Lancer le basculement**. Vous voyez le volet **Confirmer le basculement manuel**. 
+3. En haut du volet Basculement manuel, cliquez sur **Démarrer le basculement**. 
 
-4. Dans le volet**Confirmer le basculement manuel**, complétez le nom de votre IoT hub pour vérifier que c’est bien celui que vous souhaitez restaurer. Pour ensuite lancer la restauration automatique, cliquez sur OK. 
+4. Dans le volet de confirmation, spécifiez le nom de votre hub IoT pour vérifier que c’est bien celui que vous souhaitez restaurer automatiquement. Pour ensuite lancer la restauration automatique, cliquez sur OK. 
 
-   ![Capture d’écran de la requête de restauration manuelle](./media/tutorial-manual-failover/trigger-failback-01-regions.png)
+   ![Capture d’écran de la requête de restauration manuelle](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
-   Les bannières sont affichées comme expliqué dans la section Effectuer un basculement. Une fois la restauration automatique terminée, il affiche à nouveau `westus2` comme emplacement principal et `WestCentralUS` comme emplacement secondaire,comme défini à l’origine.
+   Les bannières sont affichées comme expliqué dans la section Effectuer un basculement. Une fois la restauration automatique terminée, il affiche à nouveau `West US 2` comme emplacement actuel et `West Central US` comme emplacement de basculement, comme défini à l’origine.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources 
 

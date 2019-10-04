@@ -3,8 +3,8 @@ title: Diagnostiquer un problème de routage réseau d’une machine virtuelle -
 description: Dans ce didacticiel, vous allez découvrir comment diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide de la fonctionnalité de tronçon suivant d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: ea64c93726c3bc5c5d60f35790bb337333d4d47a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 3ad9cd8b620b55aaa17e84343a82ac361081de44
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312193"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684516"
 ---
-# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Didacticiel : diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide du portail Azure
+# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Didacticiel : Diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide du portail Azure
 
 Lorsque vous déployez une machine virtuelle (VM), Azure crée à cet effet plusieurs itinéraires par défaut. Vous pouvez créer des itinéraires personnalisés pour remplacer les itinéraires par défaut d’Azure. Il arrive qu’une machine virtuelle ne puisse pas communiquer avec d’autres ressources à cause d’un itinéraire personnalisé. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -50,12 +50,12 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVm|
+    |Nom|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Sélectionnez votre abonnement.|
     |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
-    |Lieu| Sélectionnez **Est des États-Unis**.|
+    |Lieu| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, acceptez toutes les valeurs par défaut, puis cliquez sur **OK**.
@@ -70,7 +70,7 @@ Pour tester une communication réseau avec Network Watcher, vous devez d’abord
 Si vous disposez déjà d’un observateur réseau activé dans au moins une région, passez à l’étape [Use next hop](#use-next-hop) (Utiliser le tronçon suivant).
 
 1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats, sélectionnez-la.
-2. Sélectionnez la zone **Régions** pour la développer, puis sélectionnez **...** à droite de la région **Est des États-Unis**, comme illustré dans l’image suivante :
+2. Sélectionnez la zone **Régions** pour la développer, puis sélectionnez **...** à droite de la région **USA Est**, comme illustré dans l’image suivante :
 
     ![Activer Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
@@ -89,7 +89,7 @@ Azure crée automatiquement des itinéraires vers les destinations par défaut. 
     | Machine virtuelle         | Sélectionner myVm                                            |
     | interface réseau       | myvm : le nom de votre interface réseau peut être différent.   |
     | Adresse IP source       | 10.0.0.4                                               |
-    | Adresse IP de destination  | 13.107.21.200 : une des adresses de www.bing.com. |
+    | Adresse IP de destination  | 13.107.21.200 : l’une des adresses de <www.bing.com>. |
 
     ![Tronçon suivant](./media/diagnose-vm-network-routing-problem/next-hop.png)
 

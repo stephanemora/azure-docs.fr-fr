@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide pour apprendre à utiliser le cache Azure pour Redis avec Node.js | Microsoft Docs
+title: 'Démarrage rapide : Utiliser le cache Azure pour Redis avec Node.js'
 description: Dans ce guide de démarrage rapide, vous apprendrez à utiliser le cache Azure pour Redis avec Node.js et node_redis.
 services: cache
 documentationcenter: ''
@@ -14,36 +14,24 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: 739f0bd6381e872b5f989f9ecb4dd97fdbdb52c9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.custom: mvc, seo-javascript-september2019
+ms.openlocfilehash: f46a4771f1db5e4040cb23b1a9236c91699b6ad5
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238094"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057861"
 ---
-# <a name="quickstart-how-to-use-azure-cache-for-redis-with-nodejs"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec Node.js
+# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec Node.js
 
-
-
-Le cache Azure pour Redis vous permet d’accéder à un cache Azure pour Redis sécurisé et dédié géré par Microsoft. Votre cache est accessible à partir de n'importe quelle application dans Microsoft Azure.
-
-Cette rubrique vous montre comment utiliser le cache Azure pour Redis avec Node.js. 
-
-Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce démarrage rapide. Toutefois, [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
-
-![Application de cache terminée](./media/cache-nodejs-get-started/cache-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+Dans ce guide de démarrage rapide, vous allez incorporer le cache Azure pour Redis dans une application Node.js pour avoir accès à un cache sécurisé et dédié accessible à partir de n’importe quelle application dans Azure.
 
 ## <a name="prerequisites"></a>Prérequis
-Installez [node_redis](https://github.com/mranney/node_redis) :
 
-    npm install redis
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- [node_redis](https://github.com/mranney/node_redis), que vous pouvez installer à l’aide de la commande `npm install redis`. 
 
-Ce didacticiel utilise [node_redis](https://github.com/mranney/node_redis). Pour obtenir des exemples d’utilisation des autres clients Node.js, consultez la documentation individuelle pour les [clients Redis Node.js](https://redis.io/clients#nodejs)répertoriés.
-
+Pour obtenir des exemples d’utilisation des autres clients Node.js, consultez la documentation individuelle pour les [clients Redis Node.js](https://redis.io/clients#nodejs)répertoriés.
 
 ## <a name="create-a-cache"></a>Création d'un cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -57,7 +45,6 @@ Ajoutez des variables d’environnement pour votre **NOM D’HÔTE** et la clé 
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-
 
 ## <a name="connect-to-the-cache"></a>Connexion au cache
 
@@ -128,7 +115,6 @@ Dans l’exemple ci-dessous, vous pouvez voir que la clé `Message` présentait 
 
 ![Application de cache terminée](./media/cache-nodejs-get-started/cache-app-complete.png)
 
-
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez d’exécuter le didacticiel suivant, vous pouvez conserver les ressources créées dans le cadre de ce guide de démarrage rapide afin de les réutiliser.
@@ -139,17 +125,15 @@ Sinon, si l’exemple d’application de démarrage rapide était votre dernièr
 > La suppression d’un groupe de ressources est définitive ; le groupe de ressources et l’ensemble des ressources qu’il contient sont supprimés de manière permanente. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé les ressources pour l’hébergement de cet exemple dans un groupe de ressources existant contenant des ressources que vous souhaitez conserver, vous pouvez supprimer chaque ressource individuellement à partir de son panneau respectif, au lieu de supprimer l’intégralité du groupe de ressources.
 >
 
-Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
+Connectez-vous au [portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
-Dans la zone de texte **Filtrer par nom.**, saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
+Dans la zone de texte **Filtrer par nom**, entrez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
 
 ![Supprimer](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
 
-Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez le nom de votre groupe de ressources pour confirmer, puis cliquez sur **Supprimer**.
+Il vous sera demandé de confirmer la suppression du groupe de ressources. Entrez le nom de votre groupe de ressources à confirmer, puis sélectionnez **Supprimer**.
 
 Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -157,6 +141,3 @@ Dans ce guide de démarrage rapide, vous avez appris à utiliser le cache Azure 
 
 > [!div class="nextstepaction"]
 > [Créer une application web ASP.NET qui utilise un cache Azure pour Redis.](./cache-web-app-howto.md)
-
-
-

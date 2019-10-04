@@ -4,21 +4,20 @@ description: Cet article vous redirige vers les articles permettant de résoudre
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: genli
-ms.openlocfilehash: c12f753225f8c6fc4fdb3fdcbaf0e915cb85fdbf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 660c7fa0051654fd9b0012740ce7ed3ee1e91531
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779438"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059181"
 ---
 # <a name="troubleshoot-azure-virtual-machines-boot-errors"></a>Résoudre les erreurs de démarrage dans Machines virtuelles Azure
 

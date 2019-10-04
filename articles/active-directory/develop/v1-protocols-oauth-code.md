@@ -3,28 +3,32 @@ title: Comprendre le flux du code d’autorisation OAuth 2.0 dans Azure AD
 description: Cet article explique comment utiliser des messages HTTP pour autoriser l’accès aux applications web et API web dans votre client à l’aide d’Azure Active Directory et OAuth 2.0.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/5/2019
-ms.author: celested
+ms.topic: conceptual
+ms.date: 08/30/2019
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2598bb4deef0c7dae9f5df558ec1054ad02fb2f7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 81b1f06238b8205e72fd989bb581fba39423f7c3
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531111"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193235"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0
+
+> [!NOTE]
+>  Si vous n’indiquez pas au serveur la ressource que vous envisagez d’appeler, le serveur ne déclenche pas les stratégies d’accès conditionnel pour cette ressource. Ainsi, pour que l’authentification MFA se déclenche, vous devez inclure une ressource dans votre URL. 
+>
 
 Azure Active Directory (Azure AD) utilise OAuth 2.0 pour vous permettre d’autoriser l’accès aux applications web et aux API web dans votre client Azure AD. Ce guide est indépendant du langage. Il explique comment envoyer et recevoir des messages HTTP sans utiliser l’une de nos [bibliothèques open source](active-directory-authentication-libraries.md).
 
@@ -145,7 +149,7 @@ grant_type=authorization_code
 | client_id |required |L’ID d’application attribué à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. L’ID d’application s’affiche dans les paramètres de l’inscription de l’application. |
 | grant_type |required |Doit être `authorization_code` pour le flux de code d'autorisation. |
 | code |required |`authorization_code` que vous avez obtenu dans la section précédente. |
-| redirect_uri |required | Un `redirect_uri`inscrit sur l’application cliente. |
+| redirect_uri |required | Une `redirect_uri` inscrite sur l’application cliente. |
 | client_secret |requis pour les applications web, non autorisé pour les clients publics |Secret d’application que vous avez créé dans le portail Azure pour votre application sous **Clés**. Il ne peut pas être utilisé dans une application native (client public), car les clés secrètes client ne peuvent pas être stockées de manière sûre sur les appareils. Il est requis pour les applications web et les API Web (tous les clients confidentiels), qui peuvent stocker en toute sécurité le `client_secret` sur le côté serveur. Le client_secret doit être codée URL avant d’être envoyée. |
 | resource | recommandé |URI ID d’application de l’API web cible (ressource sécurisée). Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez sur **Azure Active Directory**, **Inscriptions des applications**, ouvrez la page **Paramètres** de l’application, puis cliquez sur **Propriétés**. Il peut également s’agir d’une ressource externe comme `https://graph.microsoft.com`. Il est nécessaire dans les requêtes de jeton ou d’autorisation. Pour réduire le nombre d’invites d’authentification, placez-le dans la requête d’autorisation afin d’être sûr que le consentement est reçu par l’utilisateur. S’il figure à la fois dans la requête d’autorisation et dans la requête de jeton, les paramètres de la ressource doivent correspondre. | 
 | code_verifier | facultatif | Le même code_verifier utilisé pour obtenir le authorization_code. Obligatoire si PKCE est utilisé dans la requête d’octroi du code d’autorisation. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636)   |
@@ -175,7 +179,7 @@ Une réponse réussie se présenterait ainsi :
 
 | Paramètre | Description |
 | --- | --- |
-| access_token |Le [jeton d’accès](access-tokens.md) demandé sous forme de JSON Web Token (JWT) signé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, comme une API Web. |
+| access_token |Le jeton d’accès demandé.  Il s’agit d’une chaîne opaque, qui dépend de ce que la ressource s’attend à recevoir, et elle n’est pas destinée à être examinée par le client. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, comme une API Web. |
 | token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. Pour plus d’informations sur les jetons du porteur, consultez le [Framework d’autorisation OAuth 2.0 : Utilisation de jetons du porteur (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | expires_in |La durée de validité (en secondes) du jeton d’accès. |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
@@ -209,7 +213,7 @@ Une réponse d’erreur se présenterait ainsi :
 | error |Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | error_description |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 | error_codes |Liste des codes d’erreur STS spécifiques pouvant être utiles dans les tests de diagnostic. |
-|  timestamp |Heure à laquelle l’erreur s’est produite. |
+| timestamp |Heure à laquelle l’erreur s’est produite. |
 | trace_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
 | correlation_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
 
@@ -258,7 +262,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="error-parameters"></a>Paramètres d’erreur
 | Paramètre | Description |
 | --- | --- |
-| authorization_uri |L’URI (point de terminaison physique) du serveur d’autorisation. Cette valeur est également utilisée comme clé de recherche pour obtenir plus d’informations sur le serveur à partir d’un point de terminaison de détection. <p><p>  Le client doit valider l’approbation du serveur d’autorisation. Lorsque la ressource est protégée par Azure AD, il suffit de vérifier que l’URL commence par https://login.microsoftonline.com ou un autre nom d’hôte pris en charge par Azure AD. Une ressource spécifique au client doit toujours retourner un URI d’autorisation spécifique au client. |
+| authorization_uri |L’URI (point de terminaison physique) du serveur d’autorisation. Cette valeur est également utilisée comme clé de recherche pour obtenir plus d’informations sur le serveur à partir d’un point de terminaison de détection. <p><p> Le client doit valider l’approbation du serveur d’autorisation. Lorsque la ressource est protégée par Azure AD, il suffit de vérifier que l’URL commence par https://login.microsoftonline.com ou un autre nom d’hôte pris en charge par Azure AD. Une ressource spécifique au client doit toujours retourner un URI d’autorisation spécifique au client. |
 | error |Une valeur de code d’erreur définie dans la section 5.2 du document [OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749)(Infrastructure d’autorisation OAuth 2.0). |
 | error_description |Une description plus détaillée de l’erreur. Ce message n’est pas destiné à offrir une description claire à l’utilisateur final. |
 | resource_id |Retourne l’identificateur unique de la ressource. L’application cliente peut utiliser cet identificateur en tant que valeur du paramètre `resource` lorsqu’elle demande un jeton pour la ressource. <p><p> Il est important pour l’application cliente de vérifier cette valeur. Sinon, un service malveillant peut être en mesure de provoquer une attaque **par élévation de privilèges** <p><p> La stratégie recommandée pour empêcher une attaque consiste à vérifier que le paramètre `resource_id` correspond à la base de l’URL de l’API web faisant l’objet de l’accès. Par exemple, si https://service.contoso.com/data fait l’objet d’un accès, `resource_id` peut être htttps://service.contoso.com/. L’application cliente doit rejeter un `resource_id` qui ne commence pas par l’URL de base sauf s’il existe une autre façon fiable de vérifier l’ID. |
@@ -341,8 +345,11 @@ Une réponse d’erreur se présenterait ainsi :
 | error |Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | error_description |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
 | error_codes |Liste des codes d’erreur STS spécifiques pouvant être utiles dans les tests de diagnostic. |
-|  timestamp |Heure à laquelle l’erreur s’est produite. |
+| timestamp |Heure à laquelle l’erreur s’est produite. |
 | trace_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic. |
 | correlation_id |Identifiant unique de la demande pouvant être utile dans les tests de diagnostic sur les divers composants. |
 
 Pour obtenir une description des codes d’erreur et connaître l’action client recommandée, consultez [Codes d’erreur pour les erreurs de point de terminaison de jeton](#error-codes-for-token-endpoint-errors).
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus sur le point de terminaison Azure AD v1.0 ainsi que sur l’ajout de l’authentification et de l’autorisation à vos applications web et API web, consultez [Exemples d’applications](sample-v1-code.md).

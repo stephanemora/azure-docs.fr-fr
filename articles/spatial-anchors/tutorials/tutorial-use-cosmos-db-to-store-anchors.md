@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: fc172b5327d72687fea7d13ddb706ecc7ab630b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915252"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135327"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Didacticiel : Partager Azure Spatial Anchors entre plusieurs sessions et appareils et un back-end Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Il est important de noter que vous utiliserez Unity et Azure Cosmos DB dans ce t
 
 Copiez la `Connection String`, car vous en aurez besoin.
 
-## <a name="open-the-sample-project-in-unity"></a>Ouvrir l’exemple de projet dans Unity
+## <a name="download-the-unity-sample-project"></a>Télécharger l’exemple de projet Unity
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -70,7 +70,7 @@ Recherchez la propriété `StorageConnectionString` et affectez-lui la valeur `C
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez utilisé Azure Cosmos DB pour partager des identificateurs d’ancre entre des appareils. Pour en savoir plus sur l’utilisation d’Azure Spatial Anchors dans une nouvelle application Android, passez au tutoriel suivant.
+Dans ce tutoriel, vous avez utilisé Azure Cosmos DB pour partager des identificateurs d’ancre entre des appareils. Pour en savoir plus sur l’utilisation d’Azure Spatial Anchors dans une nouvelle application Unity HoloLens, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Démarrage d’une nouvelle application Android](./tutorial-new-android-app.md)
+> [Démarrage d’une nouvelle application Android](./tutorial-new-unity-hololens-app.md)

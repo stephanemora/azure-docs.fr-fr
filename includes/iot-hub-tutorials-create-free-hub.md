@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e3110e4018e214e7e7aa591b811246369c029ecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 367a0b1d17f8d5ebe4f46835ace963b00e75354e
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38941759"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229298"
 ---
 Pour créer un hub IoT à l’aide du portail Azure :
 
-1. Connectez-vous au [Portail Azure](http://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 1. Sélectionnez **Créer une ressource** > **Internet des objets** > **IoT Hub**.
 
@@ -27,10 +27,10 @@ Pour créer un hub IoT à l’aide du portail Azure :
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Abonnement | Sélectionnez votre abonnement Azure dans la liste déroulante. |
-    | Groupe de ressources | Créer. Ce didacticiel utilise le nom **tutorials-iot-hub-rg**. |
-    | Région | Ce didacticiel utilise **Ouest des États-Unis**. Vous pouvez choisir la région la plus proche. |
-    | NOM | La capture d’écran suivante utilise le nom **tutorials-iot-hub**. Vous devez choisir votre propre nom unique quand vous créez ce hub. |
+    | Subscription | Sélectionnez votre abonnement Azure dans la liste déroulante. |
+    | Resource group | Créer. Ce didacticiel utilise le nom **tutorials-iot-hub-rg**. |
+    | Région | Ce didacticiel utilise **USA Ouest**. Vous pouvez choisir la région la plus proche. |
+    | Nom | La capture d’écran suivante utilise le nom **tutorials-iot-hub**. Vous devez choisir votre propre nom unique quand vous créez ce hub. |
 
     ![Paramètres du hub 1](media/iot-hub-tutorials-create-free-hub/hubdefinition-1.png)
 

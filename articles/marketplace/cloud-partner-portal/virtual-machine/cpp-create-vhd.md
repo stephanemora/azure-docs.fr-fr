@@ -1,39 +1,32 @@
 ---
-title: Créer un disque dur virtuel compatible avec Azure pour la Place de marché Microsoft Azure | Microsoft Docs
+title: Créer un disque dur virtuel compatible avec Azure pour la Place de marché Microsoft Azure
 description: Explique comment créer un disque dur virtuel d’une offre de machine virtuelle dans la Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 04a1741bbe4e60567a22445c5674ec03b232640c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: a47d16108d98c5449d57d1db4892bffcead7e5f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793074"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67072608"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Créer un disque dur virtuel compatible avec Azure
 
 Cet article détaille les étapes nécessaires pour créer un disque dur virtuel (VHD) pour une offre de machine virtuelle dans la Place de marché Microsoft Azure.  Il inclut également les meilleures pratiques pour différents aspects, comme l’utilisation du protocole RDP (Remote Desktop Protocol), la sélection d’une taille pour la machine virtuelle, l’installation des dernières mises à jour de Windows et la généralisation de l’image de disque dur virtuel.  Les sections suivantes sont principalement axées sur les disques durs virtuels basés sur Windows. Pour plus d’informations sur la création de disques durs virtuels basés sur Linux, consultez [Linux sur les distributions approuvées par Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 
 > [!WARNING]
-> Nous vous recommandons vivement de suivre les instructions de cette rubrique pour utiliser Azure afin de créer une machine virtuelle contenant un système d’exploitation pris en charge préconfiguré.  Si ce n’est pas compatible avec votre solution, il est possible de créer et configurer une machine virtuelle locale à l’aide d’un système d’exploitation approuvé.  Vous pouvez ensuite la configurer et la préparer pour le chargement comme décrit dans [Préparer un disque dur virtuel Windows à charger sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Nous vous recommandons vivement de suivre les instructions de cette rubrique pour utiliser Azure afin de créer une machine virtuelle contenant un système d’exploitation pris en charge préconfiguré.  Si ce n’est pas possible avec votre solution, il est alors possible de créer et de configurer une machine virtuelle locale à l’aide d’un système d’exploitation approuvé.  Vous pouvez ensuite la configurer et la préparer pour le chargement comme décrit dans [Préparer un disque dur virtuel Windows à charger sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 
 ## <a name="select-an-approved-base"></a>Sélectionner une base approuvée
 Le disque dur virtuel de système d’exploitation pour votre image de machine virtuelle doit être basé sur une image de base approuvée par Azure contenant Windows Server ou SQL Server.
 Pour commencer, créez une machine virtuelle à partir d’une des images suivantes, situées dans le portail Microsoft Azure :
 
--   Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/), [2012 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/), [2008 R2 SP1](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/))
+-   Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
 -   [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 -   [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 

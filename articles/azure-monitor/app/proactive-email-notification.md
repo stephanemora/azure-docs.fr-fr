@@ -10,11 +10,11 @@ ms.reviewer: mbullwin
 ms.date: 03/13/2019
 ms.author: harelbr
 ms.openlocfilehash: f984a34be1c5d5fdd18a00812107318df8f5d9bf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889282"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61298999"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Modification des notifications par e-mail de la détection intelligente
 
@@ -34,7 +34,7 @@ Cette modification touchera toutes les règles de détection intelligente, à l�
 
 ## <a name="how-to-prepare-for-this-change"></a>Préparation à cette modification
 
-Pour vous assurer que les notifications par courrier électronique à partir de la détection intelligente sont envoyées aux utilisateurs appropriés, ces utilisateurs doivent être assignés à la [lecteur d’analyse](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) ou [contributeur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) rôles de l’abonnement.
+Pour que les notifications par e-mail de la détection intelligente soient envoyées aux utilisateurs concernés, ces derniers doivent être assignés aux rôles [Lecteur de supervision](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) ou [Contributeur de supervision](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) de l’abonnement.
 
 Pour attribuer le rôle Lecteur de monitoring ou Contributeur de monitoring à des utilisateurs sur le Portail Azure, suivez les étapes de l’article [Ajouter une attribution de rôle](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Veillez à sélectionner le rôle _Lecteur de monitoring_ ou _Contributeur de monitoring_ pour l’attribuer aux utilisateurs.
 

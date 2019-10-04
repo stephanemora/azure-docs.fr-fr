@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/30/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 987ac064432dc823dad3b8df9d3b59e71b4c2ee9
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: d5e8a53ca26248510b07c848c38d5a30535a18bc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313494"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176983"
 ---
 > [!div class="op_single_selector"]
-> * [Portail](../articles/virtual-network/tutorial-filter-network-traffic.md)
+> * [Portal](../articles/virtual-network/tutorial-filter-network-traffic.md)
 > * [PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md)
-> * [interface de ligne de commande Azure](../articles/virtual-network/tutorial-filter-network-traffic-cli.md)
+> * [Interface de ligne de commande Azure](../articles/virtual-network/tutorial-filter-network-traffic-cli.md)
 > * [PowerShell (classique)](../articles/virtual-network/virtual-networks-create-nsg-classic-ps.md)
 > * [Interface de ligne de commande Azure (classique)](../articles/virtual-network/virtual-networks-create-nsg-classic-cli.md)

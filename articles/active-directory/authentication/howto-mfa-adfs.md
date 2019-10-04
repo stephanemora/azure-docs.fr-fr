@@ -1,5 +1,5 @@
 ---
-title: Sécuriser les ressources de cloud avec Azure MFA et AD FS - Azure Active Directory
+title: Sécurisation des ressources de cloud avec Azure MFA et AD FS - Azure Active Directory
 description: Voici la page d'authentification multifacteur Azure qui explique la prise en main de l'authentification multifacteur Azure et d’AD FS 2.0 dans le cloud.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: a5b1838007e1be7fc1d9872516ede14c208b1f57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371526"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113459"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
 
@@ -30,11 +30,11 @@ Pour sécuriser vos ressources de cloud, configurez une règle de revendication 
 2. Sur la gauche, sélectionnez **Approbations de partie de confiance**.
 3. Cliquez avec le bouton droit sur **Plateforme d’identité Microsoft Office 365** et sélectionnez **Modifier les règles de revendication**.
 
-   ![Console AD FS - approbations de partie de confiance](./media/howto-mfa-adfs/trustedip1.png)
+   ![Console AD FS - Approbations de parties de confiance](./media/howto-mfa-adfs/trustedip1.png)
 
 4. Sous Règles de transformation d’émission, cliquez sur **Ajouter une règle**.
 
-   ![Modification des règles de transformation d’émission](./media/howto-mfa-adfs/trustedip2.png)
+   ![Modifier des règles de transformation d’émission](./media/howto-mfa-adfs/trustedip2.png)
 
 5. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Passer ou filtrer une revendication entrante** dans la liste déroulante et cliquez sur **Suivant**.
 
@@ -58,24 +58,24 @@ La première chose à faire consiste à configurer les revendications AD FS. Cr�
 
 1. Ouvrez Gestion AD FS.
 2. Sur la gauche, sélectionnez **Approbations de partie de confiance**.
-3. Avec le bouton droit sur **plateforme d’identité Microsoft Office 365** et sélectionnez **modifier les règles de revendication... ** 
-    ![ADFS Console - modifier les règles de revendication](./media/howto-mfa-adfs/trustedip1.png)
-4. Dans les règles de transformation d’émission, cliquez sur **ajouter une règle.** 
-    ![Ajout d’une règle de revendication](./media/howto-mfa-adfs/trustedip2.png)
+3. Cliquez avec le bouton droit sur la **Plateforme d’identités Microsoft Office 365** et sélectionnez **Modifier les règles de revendication…** 
+   ![Console ADFS - Modifier les règles de revendication](./media/howto-mfa-adfs/trustedip1.png)
+4. Sous Règles de transformation d’émission, cliquez sur **Ajouter une règle.** 
+   ![Ajout de règle de revendication](./media/howto-mfa-adfs/trustedip2.png)
 5. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Passer ou filtrer une revendication entrante** dans la liste déroulante et cliquez sur **Suivant**.
    ![Assistant Ajouter une règle de revendication de transformation](./media/howto-mfa-adfs/trustedip3.png)
 6. Dans la zone en regard du nom de la règle de revendication, nommez votre règle. Par exemple :  InsideCorpNet.
 7. Dans la liste déroulante, en regard du type de revendication entrante, sélectionnez **Dans le périmètre du réseau d’entreprise**.
-   ![Revendication de l’ajout à l’intérieur d’un réseau d’entreprise](./media/howto-mfa-adfs/trustedip4.png)
+   ![Ajout d’une revendication dans le périmètre du réseau d’entreprise](./media/howto-mfa-adfs/trustedip4.png)
 8. Cliquez sur **Terminer**.
 9. Sous Règles de transformation d’émission, cliquez sur **Ajouter une règle**.
 10. Dans l’Assistant Ajout de règle de revendication de transformation, sélectionnez **Envoyer les revendications en utilisant une règle personnalisée** dans la liste déroulante et cliquez sur **Suivant**.
-11. Dans la zone sous Nom de la règle de revendication : entrez *Keep Users Signed In (Maintenir les utilisateurs connectés)*.
+11. Dans la zone sous Nom de la règle de revendication : entrez *Keep Users Signed In (Maintenir les utilisateurs connectés)* .
 12. Dans la zone Règle personnalisée, entrez :
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Créer une revendication personnalisée pour informer les utilisateurs connectés](./media/howto-mfa-adfs/trustedip5.png)
+    ![Créer une revendication personnalisée pour maintenir la connexion des utilisateurs](./media/howto-mfa-adfs/trustedip5.png)
 13. Cliquez sur **Terminer**.
 14. Cliquez sur **Appliquer**.
 15. Cliquez sur **OK**.
@@ -89,7 +89,7 @@ Maintenant que les revendications sont en place, nous pouvons configurer des adr
 2. Sélectionnez **Azure Active Directory** > **Accès conditionnel** > **Emplacements nommés**.
 3. À partir du panneau **Accès conditionnel - Emplacements nommés**, sélectionnez **Configurer des adresses IP approuvées MFA**
 
-   ![Azure AD accès conditionnel emplacements nommés Configurer des adresses IP approuvées MFA](./media/howto-mfa-adfs/trustedip6.png)
+   ![Emplacements nommés pour l’accès conditionnel Azure AD - Configurer des adresses IP approuvées MFA](./media/howto-mfa-adfs/trustedip6.png)
 
 4. Sur la page Paramètres du service, sous **Adresses IP approuvées**, sélectionnez **Ignorer l’authentification multifacteur pour les demandes issues d’utilisateurs fédérés provenant de mon intranet**.  
 5. Cliquez sur **save**.

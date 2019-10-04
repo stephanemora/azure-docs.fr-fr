@@ -9,11 +9,11 @@ ms.date: 04/05/2019
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 9971b16da42cdf1de0464857291c74a947535735
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803946"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177608"
 ---
 Vous pouvez utiliser des requêtes dans l’Explorateur de données pour récupérer et filtrer vos données.
 

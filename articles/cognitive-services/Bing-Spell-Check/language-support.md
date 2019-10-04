@@ -10,18 +10,18 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 16efb97569aabbea28065b03e9944d6881c39eee
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886823"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66390159"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Langages et régions pris en charge par l’API Vérification orthographique Bing
 
 Ces langues sont prises en charge par l’API Vérification orthographique Bing (uniquement en mode `spell`).
 
-Notez que pour utiliser toute autre langue que `en-US`, vous devez définir l’élément `mkt`, ainsi que `Accept-Language` ou `setLang`, comme décrit dans l’article [Spell Check API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) (Référence de l’API Vérification orthographique v7).
+Notez que pour utiliser toute autre langue que `en-US`, vous devez définir l’élément `mkt`, ainsi que `Accept-Language` ou `setLang`, comme décrit dans l’article [Spell Check API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Référence de l’API Vérification orthographique v7).
 
 | Langage    | Code de langue |
 |:----------- |:-------------:|

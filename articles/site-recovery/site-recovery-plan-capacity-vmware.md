@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: c198e6cd9d5c5e0aca69491db9df5d0ab8e08c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358014"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64924842"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planifier la capacité et la mise à l’échelle pour la récupération d’urgence VMware vers Azure
 
@@ -114,13 +114,13 @@ Avant de configurer l’infrastructure Azure Site Recovery, accédez à l’envi
 1. Pour mesurer ces paramètres, exécutez le Planificateur de déploiement Azure Site Recovery dans votre environnement. Pour obtenir des instructions utiles, voir [À propos du planificateur de déploiement Azure Site Recovery pour VMware sur Azure](site-recovery-deployment-planner.md).
 2. Déployez un serveur de configuration respectant les [recommandations de taille pour le serveur de configuration](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server-and-inbuilt-process-server). Si votre charge de travail de production dépasse 650 machines virtuelles, déployez un autre serveur de configuration.
 3. Selon le taux quotidien de modifications de données mesuré, déployez des [serveurs de processus de scale-out](vmware-azure-set-up-process-server-scale.md#download-installation-file) en suivant les [directives concernant la taille](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
-4. Si vous pensez que les données de taux de modification pour un ordinateur virtuel de disque dépasse 2 Mbits/s, assurez-vous d’utiliser des disques gérés premium. Le Planificateur de déploiement Azure Site Recovery s’exécute pendant une période spécifique. Il se peut que des pics de taux de modifications de données à d’autres moments ne figurent pas dans le rapport.
+4. Si vous pensez que le taux de modifications de données pour une machine virtuelle sur disque dépassera 2 Mbits/s, veillez à utiliser des disques managés Premium. Le Planificateur de déploiement Azure Site Recovery s’exécute pendant une période spécifique. Il se peut que des pics de taux de modifications de données à d’autres moments ne figurent pas dans le rapport.
 5. [Définissez la bande passante réseau](site-recovery-plan-capacity-vmware.md#control-network-bandwidth) en fonction de l’objectif de point de récupération à atteindre.
 6. Une fois l’infrastructure configurée, activer la récupération d’urgence pour votre charge de travail. Pour savoir comment procéder, voir [Configurer l’environnement source pour la réplication VMware vers Azure](vmware-azure-set-up-source.md).
 
 ## <a name="deploy-additional-process-servers"></a>Déployer d’autres serveurs de traitement
 
-Si vous faites monter en charge votre déploiement au-delà de 200 machines sources, ou si votre taux d’activités quotidien dépasse 2 To, vous devez ajouter des serveurs de processus pour gérer le volume du trafic. Pour savoir comment configurer le serveur de processus, voir [Ajouter des serveurs de processus supplémentaires pour augmenter la capacité de restauration automatique](vmware-azure-set-up-process-server-scale.md). Après avoir configuré le serveur de processus, vous pouvez migrer les machines sources pour l’utiliser.
+Si vous faites monter en charge votre déploiement au-delà de 200 machines sources, ou si votre taux d’activités quotidien dépasse 2 To, vous devez ajouter des serveurs de processus pour gérer le volume du trafic. Nous avons amélioré le produit dans la version 9.24 afin de proposer des [alertes de serveur de traitement](vmware-physical-azure-monitor-process-server.md#process-server-alerts) quand vous configurez un serveur de traitement scale-out. [Configurez le serveur de traitement](vmware-azure-set-up-process-server-scale.md) pour protéger les nouvelles machines sources ou [équilibrer la charge](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrez les machines pour utiliser le nouveau serveur de traitement
 

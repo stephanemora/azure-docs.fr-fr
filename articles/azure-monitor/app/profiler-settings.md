@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884157"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64922987"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurer Application Insights Profiler
 
@@ -41,13 +41,13 @@ En fonction de la configuration de votre environnement Azure App Service, l’ap
 ## <a id="profileondemand"></a> Déclencher manuellement Profiler
 
 ### <a name="minimum-requirements"></a>Configuration minimale requise 
-Pour un utilisateur déclencher manuellement une session de profileur, ils nécessitent au minimum « accès en écriture » de leur rôle pour le composant Application Insights. Dans la plupart des cas vous obtenez automatiquement cet accès et aucun travail supplémentaire est nécessaire. Si vous rencontrez des problèmes, le rôle de portée d’abonnement pour ajouter serait le rôle « Contributeur de composant Application Insights ». [En savoir plus sur le contrôle d’accès de rôle avec Azure Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
+Pour déclencher manuellement une session du profileur, l'utilisateur doit au moins disposer d'un accès en « écriture » au composant Application Insights. Dans la plupart des cas, vous bénéficiez automatiquement de cet accès et vous n'avez rien d'autre à faire. En cas de problèmes, le rôle d'étendue d'abonnement à ajouter est « Contributeur de composant Application Insights ». [En savoir plus sur le contrôle d'accès par rôle avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
 Vous pouvez déclencher manuellement Profiler en un clic. Supposons que vous exécutez un test de performances web. Vous avez besoin des traces pour comprendre comment votre application web fonctionne avec une certaine charge. Pour savoir quand le test de charge est exécuté, vous avez besoin de contrôler le moment de capture des traces. Toutefois, l’intervalle d’échantillonnage aléatoire ne permet pas de le faire.
 
 Les sections suivantes montrent comment ce scénario fonctionne :
 
-### <a name="step-1-optional-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Étape 1 : (Facultatif) Générer du trafic vers votre application web en démarrant un test de performances web
+### <a name="step-1-optional-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Étape 1 : (Facultatif) Générer du trafic vers votre application web en démarrant un test de performances web
 
 Si votre application web a déjà du trafic entrant ou si vous voulez simplement générer du trafic manuellement, ignorez cette section et continuez à l’étape 2.
 
@@ -67,14 +67,14 @@ Si votre application web a déjà du trafic entrant ou si vous voulez simplement
 
     ![Le test de charge est en cours d’exécution][load-test-in-progress]
 
-### <a name="step-2-start-a-profiler-on-demand-session"></a>Étape 2 : Démarrer une session de Profiler à la demande
+### <a name="step-2-start-a-profiler-on-demand-session"></a>Étape 2 : Démarrer une session de Profiler à la demande
 
 1. Quand le test de charge est en cours d’exécution, démarrez Profiler pour capturer les traces de l’application web pendant qu’elle reçoit la charge.
 
 1. Accédez au volet **Configurer Profiler**.
 
 
-### <a name="step-3-view-traces"></a>Étape 3 : Affichage des traces
+### <a name="step-3-view-traces"></a>Étape 3 : Affichage des traces
 
 Une fois que l’exécution de Profiler est terminée, suivez les instructions de la notification pour accéder au volet Performances et voir les traces.
 

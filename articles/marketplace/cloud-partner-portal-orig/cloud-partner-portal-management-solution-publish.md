@@ -1,27 +1,21 @@
 ---
-title: Publier une Solution de gestion Azure à la place de marché Azure
-description: Publier une Solution de gestion Azure à la place de marché Azure
+title: Publier une solution de gestion Azure sur la Place de marché Azure
+description: Publier une solution de gestion Azure sur la Place de marché Azure
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
 manager: pbutlerm
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 174edc2bb1424264ac9e82983669ed775b1ea330
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: e8ed19d9e90aa0551d8996ddc9a4cba3bc338056
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181518"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935079"
 ---
-<a name="publish-an-azure-management-solution-to-azure-marketplace"></a>Publier une Solution de gestion Azure à la place de marché Azure 
+<a name="publish-an-azure-management-solution-to-azure-marketplace"></a>Publier une solution de gestion Azure sur la Place de marché Azure 
 ========================================================
 
 > [!IMPORTANT]

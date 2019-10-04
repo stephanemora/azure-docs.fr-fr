@@ -2,20 +2,19 @@
 title: Exécuter des exemples MapReduce Apache Hadoop dans HDInsight - Azure
 description: Bien démarrer avec des exemples MapReduce dans des fichiers jar inclus dans HDInsight. Utilisez le protocole SSH pour vous connecter au cluster, puis utilisez la commande Hadoop pour exécuter des exemples de travaux.
 keywords: exemple de fichier jar Hadoop, exemples de fichiers jar hadoop, exemples mapreduce hadoop, exemples mapreduce
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 04/25/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7ff91a4fdc4bf0118c231a1ac18ebb521530a980
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706666"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Exécuter les exemples MapReduce inclus dans HDInsight
 
@@ -23,14 +22,11 @@ ms.locfileid: "58447010"
 
 Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dans HDInsight.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* **Un cluster HDInsight** : Consultez [Bien démarrer avec Apache Hadoop et Apache Hive dans HDInsight sur Linux](apache-hadoop-linux-tutorial-get-started.md)
+* Un cluster Apache Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-    > [!IMPORTANT]  
-    > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-* **Un client SSH** : Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="the-mapreduce-examples"></a>Exemples MapReduce
 
@@ -65,7 +61,11 @@ Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dan
 
 ## <a name="run-the-wordcount-example"></a>Exécuter l’exemple wordcount
 
-1. Connectez-vous à HDInsight à l’aide de SSH. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Connectez-vous à HDInsight à l’aide de SSH. Remplacez `CLUSTER` par le nom de votre cluster, puis entrez la commande suivante :
+
+    ```cmd
+    ssh sshuser@CLUSTER-ssh.azurehdinsight.net
+    ```
 
 2. À l’invite `username@#######:~$` , utilisez la commande suivante pour répertorier les exemples :
 
@@ -87,7 +87,7 @@ Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dan
 
     Ce message indique que vous pouvez fournir plusieurs chemins d’accès d’entrée pour les documents sources. Le chemin d’accès final correspond à l’emplacement de stockage de la sortie (nombre de mots dans les documents sources).
 
-4. Pour compter tous les mots figurant dans les carnets de Léonard De Vinci qui sont fournis comme exemples de données avec votre cluster, utilisez les éléments suivants :
+4. Pour compter tous les mots figurant dans les carnets de Léonard de Vinci qui sont fournis comme exemples de données avec votre cluster, utilisez les éléments suivants :
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -163,11 +163,11 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 La valeur retournée par cette commande doit être semblable à **3,14159155000000000000**. Pour référence, voici les 10 chiffres de Pi après la virgule : 3,1415926535.
 
-## <a name="10-gb-greysort-example"></a>Exemple de Greysort de 10 Go
+## <a name="10-gb-graysort-example"></a>Exemple GraySort de 10 Go
 
 GraySort est un tri de benchmark. La mesure est le taux de tri (To/minute) obtenu lors du tri de très grandes quantités de données, en général au minimum 100 To.
 
-Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O'Malley et Arun Murthy. Ces applications ont remporté en 2009 le benchmark du tri de téraoctets (« daytona ») annuel universel général avec un taux de 0,578 To/min (100 To en 173 minutes). Pour plus d'informations à ce sujet et sur d'autres benchmarks de tri, consultez le site [Sortbenchmark](https://sortbenchmark.org/) .
+Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O'Malley et Arun Murthy. Ces applications ont remporté en 2009 le benchmark du tri de téraoctets (« Daytona ») annuel universel général avec un taux de 0,578 To/min (100 To en 173 minutes). Pour plus d'informations à ce sujet et sur d'autres benchmarks de tri, consultez le site [Sort Benchmark](https://sortbenchmark.org/).
 
 Cet exemple utilise trois ensembles de programmes MapReduce :
 
@@ -212,7 +212,3 @@ Dans cet article, vous avez appris à exécuter les exemples inclus avec les clu
 * [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hdinsight-use-pig.md)
 * [Utiliser Apache Hive avec Apache Hadoop sur HDInsight](hdinsight-use-hive.md)
 * [Utiliser MapReduce avec Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
-
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-introduction]:apache-hadoop-introduction.md
-

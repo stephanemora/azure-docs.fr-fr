@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 67fba7a921868d0e5720216208cff7c298c926f6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 13ba1ced2d14ed22c89e7df594f3b2a44eea983f
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895011"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359961"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application dans Azure App Service à l'aide de Visual Studio
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Ce didacticiel explique comment utiliser les outils Visual Studio pour déboguer une application dans [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) en activant le [Mode débogage](https://docs.microsoft.com/visualstudio/debugger/) à distance ou en consultant les journaux des applications et des serveurs web.
 
 Vous apprendrez ce qui suit :
@@ -38,11 +38,11 @@ Vous apprendrez ce qui suit :
 Si vous disposez de Visual Studio Ultimate, vous pouvez également utiliser [IntelliTrace](/visualstudio/debugger/intellitrace) à des fins de débogage. IntelliTrace n’est pas couvert dans ce didacticiel.
 
 ## <a name="prerequisites"></a>Configuration requise
-Ce didacticiel fonctionne avec l'environnement de développement, le projet web et l'application App Service que vous avez configurés dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md). Pour les sections WebJobs, vous aurez besoin de l’application créée dans le cadre de la [Prise en main du Kit de développement logiciel (SDK) WebJobs Azure][GetStartedWJ].
+Ce didacticiel fonctionne avec l'environnement de développement, le projet web et l'application App Service que vous avez configurés dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md). Pour les sections WebJobs, vous aurez besoin de l’application créée dans le cadre de la [Prise en main du Kit de développement logiciel (SDK) Azure WebJobs][GetStartedWJ].
 
 Les exemples de code inclus dans ce didacticiel sont destinés à une application Web C# MVC, mais les procédures de résolution de problèmes sont identiques pour les applications Visual Basic et Web Forms.
 
-Ce didacticiel suppose que vous utilisez Visual Studio 2017. 
+Ce tutoriel suppose que vous utilisez Visual Studio 2019. 
 
 La fonctionnalité de diffusion de journaux d’activité en continu est opérationnelle uniquement pour les applications ciblant .NET Framework 4 ou une version ultérieure.
 
@@ -121,18 +121,18 @@ Cette section illustre comment déboguer à distance à l'aide du projet que vou
 
 1. Ouvrez le projet web que vous avez créé dans [Créer une application ASP.NET dans Azure App Service](app-service-web-get-started-dotnet-framework.md).
 
-2. Ouvrez *Controllers\HomeController.cs*.
+1. Ouvrez *Controllers\HomeController.cs*.
 
-3. Supprimez la méthode `About()` et insérez le code suivant à la place.
+1. Supprimez la méthode `About()` et insérez le code suivant à la place.
 
-``` c#
-public ActionResult About()
-{
-    string currentTime = DateTime.Now.ToLongTimeString();
-    ViewBag.Message = "The current time is " + currentTime;
-    return View();
-}
-```
+    ```csharp
+    public ActionResult About()
+    {
+        string currentTime = DateTime.Now.ToLongTimeString();
+        ViewBag.Message = "The current time is " + currentTime;
+        return View();
+    }
+    ```
 
 1. [Définissez un point d’arrêt](https://docs.microsoft.com/visualstudio/debugger/) sur la ligne `ViewBag.Message`.
 
@@ -244,12 +244,12 @@ Si votre fonction [a écrit des journaux d’activité](https://github.com/Azure
 * Pendant le débogage, le serveur envoie des données à Visual Studio, ce qui peut affecter les frais de bande passante. Pour plus d'informations sur les tarifs de bande passante, consultez les [tarifs Azure](https://azure.microsoft.com/pricing/calculator/).
 * Vérifiez que l’attribut `debug` de l’élément `compilation` du fichier *Web.config* est défini sur true. Il est défini sur true par défaut lorsque vous publiez une configuration de version de débogage.
 
-``` xml
-<system.web>
-  <compilation debug="true" targetFramework="4.5" />
-  <httpRuntime targetFramework="4.5" />
-</system.web>
-```
+    ```xml
+    <system.web>
+      <compilation debug="true" targetFramework="4.5" />
+      <httpRuntime targetFramework="4.5" />
+    </system.web>
+    ```
 * Si le débogueur ne parcourt pas le code que vous voulez déboguer, vous devez modifier le paramètre « Uniquement mon code ».  Pour plus d’informations, consultez la section [Specify whether to debug only user code using Just My Code in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code) (Déterminer s’il faut déboguer uniquement le code utilisateur via l’option Uniquement mon code dans Visual Studio).
 * Lorsque vous activez la fonctionnalité de débogage à distance, un compteur démarre sur le serveur : après 48 heures, la fonctionnalité est automatiquement désactivée. Cette limite de 48 heures a été définie à des fins de sécurité et de performances. Vous pouvez facilement réactiver la fonctionnalité autant de fois que nécessaire. Nous vous recommandons de la désactiver lorsque vous n'utilisez pas le débogage.
 * Vous pouvez manuellement connecter le débogueur à n'importe quel processus, et pas seulement au processus de l'application (w3wp.exe). Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
@@ -260,17 +260,17 @@ Une application ASP.NET qui s’exécute dans une application App Service peut c
 * **Journaux d’activité de suivi d’application**<br/>
   : l’application crée ces journaux d’activité en appelant des méthodes de la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) .
 * **Journaux d’activité des serveurs web**<br/>
-   : le serveur web crée une entrée de journal pour chaque requête HTTP à destination de l'application.
+  : le serveur web crée une entrée de journal pour chaque requête HTTP à destination de l'application.
 * **Journaux d’activité détaillés des messages d’erreur**<br/>
-   : le serveur Web crée une page HTML contenant certaines informations supplémentaires pour les requêtes HTTP ayant échoué (celles dont le code d’état est 400 ou plus).
+  : le serveur Web crée une page HTML contenant certaines informations supplémentaires pour les requêtes HTTP ayant échoué (celles dont le code d’état est 400 ou plus).
 * **Journaux d’activité de suivi de demandes ayant échoué**<br/>
-   : le serveur Web crée un fichier XML avec des informations de suivi détaillées pour les requêtes HTTP ayant échoué. Le serveur Web fournit également un fichier XSL pour mettre en forme le XML dans un navigateur.
+  : le serveur Web crée un fichier XML avec des informations de suivi détaillées pour les requêtes HTTP ayant échoué. Le serveur Web fournit également un fichier XSL pour mettre en forme le XML dans un navigateur.
 
 La fonction de journalisation affecte les performances des applications. Pour cette raison, Azure vous offre la possibilité d'activer ou de désactiver chaque type de journal, selon vos besoins. Vous pouvez définir un niveau minimal de gravité pour l’écriture des journaux d’activité d’application. Lorsque vous créez une application, la fonction de journalisation est désactivée par défaut.
 
 Les journaux d’activité sont consignés dans des fichiers du dossier *LogFiles*, au sein du système de fichiers de votre application, et ils sont accessibles par FTP. Il est également possible d’écrire les journaux d’activité de serveur Web et d’application dans un compte Azure Storage. Vous pouvez conserver davantage de journaux d’activité sur un compte de stockage que sur le système de fichiers. Le système de fichiers peut conserver jusqu’à 100 Mo de journaux d’activité (il ne conserve pas les journaux d’activité très longtemps : Azure libère de l'espace pour les nouveaux fichiers journaux en supprimant les anciens une fois la limite atteinte).  
 
-## <a name="apptracelogs"></a>Création et affichage des journaux de suivi d’application
+## <a name="apptracelogs"></a>Création et affichage des journaux d’activité de suivi d’application
 Dans cette section, vous effectuerez les tâches suivantes :
 
 * ajout d’instructions de traçage au projet web que vous avez créé dans [Prise en main d’Azure et ASP.NET](app-service-web-get-started-dotnet-framework.md).
@@ -282,34 +282,34 @@ Pour plus d’informations sur la création de journaux d’activité d’applic
 ### <a name="add-tracing-statements-to-the-application"></a>Ajout d'instructions de suivi à l'application
 1. Ouvrez *Controllers\HomeController.cs*, puis remplacez les méthodes `Index`, `About` et `Contact` par le code suivant afin d’ajouter les instructions `Trace` et une instruction `using` pour `System.Diagnostics` :
 
-```c#
-public ActionResult Index()
-{
-    Trace.WriteLine("Entering Index method");
-    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-    Trace.WriteLine("Leaving Index method");
-    return View();
-}
-
-public ActionResult About()
-{
-    Trace.WriteLine("Entering About method");
-    ViewBag.Message = "Your app description page.";
-    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-    Trace.WriteLine("Leaving About method");
-    return View();
-}
-
-public ActionResult Contact()
-{
-    Trace.WriteLine("Entering Contact method");
-    ViewBag.Message = "Your contact page.";
-    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-    Trace.WriteLine("Leaving Contact method");
-    return View();
-}        
-```
+    ```csharp
+    public ActionResult Index()
+    {
+        Trace.WriteLine("Entering Index method");
+        ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+        Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+        Trace.WriteLine("Leaving Index method");
+        return View();
+    }
+    
+    public ActionResult About()
+    {
+        Trace.WriteLine("Entering About method");
+        ViewBag.Message = "Your app description page.";
+        Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+        Trace.WriteLine("Leaving About method");
+        return View();
+    }
+    
+    public ActionResult Contact()
+    {
+        Trace.WriteLine("Entering Contact method");
+        ViewBag.Message = "Your contact page.";
+        Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+        Trace.WriteLine("Leaving Contact method");
+        return View();
+    }        
+    ```
 
 1. Ajoutez une instruction `using System.Diagnostics;` en haut du fichier.
 
@@ -321,32 +321,32 @@ public ActionResult Contact()
     ![Suivi dans la fenêtre Débogage](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugtracing.png)
 
     La procédure suivante montre comment afficher la sortie de suivi dans une page Web, sans procéder à la compilation en mode de débogage.
-2. Ouvrez le fichier Web.config de l'application (celui situé dans le dossier de projet), puis ajoutez un élément `<system.diagnostics>` à la fin du fichier, juste avant l'élément de fermeture `</configuration>` :
+1. Ouvrez le fichier Web.config de l'application (celui situé dans le dossier de projet), puis ajoutez un élément `<system.diagnostics>` à la fin du fichier, juste avant l'élément de fermeture `</configuration>` :
 
-``` xml
-<system.diagnostics>
-<trace>
-  <listeners>
-    <add name="WebPageTraceListener"
-        type="System.Web.WebPageTraceListener,
-        System.Web,
-        Version=4.0.0.0,
-        Culture=neutral,
-        PublicKeyToken=b03f5f7f11d50a3a" />
-  </listeners>
-</trace>
-</system.diagnostics>
-```
+    ``` xml
+    <system.diagnostics>
+    <trace>
+      <listeners>
+        <add name="WebPageTraceListener"
+            type="System.Web.WebPageTraceListener,
+            System.Web,
+            Version=4.0.0.0,
+            Culture=neutral,
+            PublicKeyToken=b03f5f7f11d50a3a" />
+      </listeners>
+    </trace>
+    </system.diagnostics>
+    ```
 
 L’élément `WebPageTraceListener` vous permet d’afficher la sortie de suivi en accédant à `/trace.axd`.
 1. Ajoutez un <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">élément de suivi</a> sous `<system.web>` dans le fichier Web.config, comme dans l’exemple suivant :
 
-``` xml
-<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
-```       
+    ``` xml
+    <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+    ```
 
 1. Appuyez sur Ctrl+F5 pour exécuter l’application.
-1. Dans la barre d’adresses de la fenêtre du navigateur, ajoutez *trace.axd* à l’URL, puis appuyez sur entrée (l’URL est similaire à `http://localhost:53370/trace.axd`).
+1. Dans la barre d’adresse du navigateur, ajoutez *trace.axd* à l’URL, puis appuyez sur Entrée (l’URL ressemble à `http://localhost:53370/trace.axd`).
 1. Sur la page **Suivi d’application**, cliquez sur **Afficher les détails** sur la première ligne (pas la ligne BrowserLink).
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -414,7 +414,7 @@ Ces éléments permettent d'effectuer les opérations suivantes :
 
 Si vous entrez une chaîne de recherche ou une expression régulière, Visual Studio filtre les informations de journalisation au niveau du client. Cela signifie que vous pouvez entrer les critères après l’affichage des journaux d’activité dans la fenêtre **Sortie** et que vous pouvez modifier les critères de filtrage sans avoir à régénérer les journaux d’activité.
 
-## <a name="webserverlogs"></a>Affichage des journaux de serveur Web
+## <a name="webserverlogs"></a>Affichage des journaux d’activité de serveur Web
 Les journaux d’activité de serveur Web enregistrent toutes les activités HTTP de l’application. Afin de pouvoir afficher ces journaux dans la fenêtre **Sortie**, vous devez les activer pour l'application et indiquer à Visual Studio que vous souhaitez les surveiller.
 
 1. Dans l’onglet **Configuration de l’application web Azure** que vous avez ouvert à partir de l’**Explorateur de serveurs**, remplacez la valeur du paramètre Journalisation du serveur web par **Activé**, puis cliquez sur **Enregistrer**.
@@ -436,7 +436,7 @@ Par défaut, Azure écrit les journaux d’activité dans le système de fichier
 
 Si vous utilisez le portail pour activer la journalisation de serveur web sur un compte de stockage Azure, puis désactivez la journalisation dans Visual Studio, les paramètres de votre compte de stockage sont restaurés lorsque vous réactivez la journalisation dans Visual Studio.
 
-## <a name="detailederrorlogs"></a>Affichage des journaux de messages d’erreur détaillés
+## <a name="detailederrorlogs"></a>Affichage des journaux d’activité de messages d’erreur détaillés
 Les journaux d’activité d’erreur détaillés fournissent des informations supplémentaires sur les requêtes HTTP ayant pour résultat des codes de réponse d’erreur (400 ou au-delà). Afin de pouvoir afficher ces journaux dans la fenêtre **Sortie** , vous devez les activer pour l'application et indiquer à Visual Studio que vous souhaitez les surveiller.
 
 1. Dans l’onglet **Configuration de l’application web Azure** que vous avez ouvert à partir de l’**Explorateur de serveurs**, remplacez la valeur du paramètre **Messages d’erreur détaillés** par **Activé**, puis cliquez sur **Enregistrer**.
@@ -459,7 +459,7 @@ Les journaux d’activité d’erreur détaillés fournissent des informations s
 
     ![Journal des erreurs détaillé - fenêtre du navigateur](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailederrorloginbrowser.png)
 
-## <a name="downloadlogs"></a>Téléchargement de journaux du système de fichiers
+## <a name="downloadlogs"></a>Téléchargement de journaux d’activité du système de fichiers
 Tous les journaux d’activité que vous pouvez surveiller dans la fenêtre **Sortie** peuvent aussi être téléchargés en tant que fichiers *.zip* .
 
 1. Dans la fenêtre **Sortie**, cliquez sur **Télécharger les journaux d’activité de diffusion en continu**.
@@ -558,7 +558,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
      ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
  -->
-## <a name="failedrequestlogs"></a>Affichage des journaux de suivi de demandes ayant échoué
+## <a name="failedrequestlogs"></a>Affichage des journaux d’activité de suivi de demandes ayant échoué
 Les journaux d’activité de suivi de demandes ayant échoué sont utiles pour comprendre les détails de gestion IIS d’une requête HTTP, dans des scénarios tels que des problèmes de réécriture d’URL ou d’authentification.
 
 Les applications App Service utilisent la même fonctionnalité de suivi de demandes ayant échoué que celle que proposait IIS 7.0 et versions ultérieures. Cependant, vous ne pouvez pas accéder aux paramètres IIS permettant de configurer les erreurs à journaliser. Lorsque vous activez le suivi des demandes ayant échoué, toutes les erreurs sont récupérées.
@@ -586,7 +586,7 @@ Vous pouvez afficher les journaux d’activité de suivi des demandes ayant éch
 
 5. Dans une nouvelle fenêtre de navigateur, accédez à l'URL affichée sous **Nom d'hôte FTP** ou **Nom d'hôte FTPS** sur la page **Vue d'ensemble** de votre application.
 
-6. Connectez-vous en utilisant les informations d'identification FTP que vous avez créées précédemment (nom d'utilisateur incluant le nom de l'application en tant que préfixe).
+6. Connectez-vous en utilisant les informations d'identification FTP que vous avez créées précédemment (incluant le nom de l'application en tant que préfixe pour le nom d'utilisateur).
 
     Le navigateur affiche le dossier racine de l'application.
 
@@ -649,32 +649,32 @@ Si votre application utilise une API Web Azure ou un système principal Mobile�
 Il n'y a pas d'autre présentation du suivi ASP.NET plus détaillée et actualisée disponible sur Internet. Nous vous conseillons de commencer par consulter les anciens documents de présentation rédigés pour Web Forms, car MVC n'existait pas encore, et de compléter cela en consultant les billets de blog les plus récents traitant de problèmes plus précis. Les ressources suivantes constituent un bon début :
 
 * [Surveillance et télémétrie (développement d’applications cloud concrètes avec Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).<br>
-   Chapitre de livre électronique contenant des recommandations pour le suivi dans les applications de cloud Azure.
+  Chapitre de livre électronique contenant des recommandations pour le suivi dans les applications de cloud Azure.
 * [Suivi ASP.NET](/previous-versions/dotnet/articles/ms972204(v=msdn.10))<br/>
-   Une ressource ancienne mais toujours efficace pour une présentation de base du sujet.
+  Une ressource ancienne mais toujours efficace pour une présentation de base du sujet.
 * [Écouteurs de suivi](/dotnet/framework/debug-trace-profile/trace-listeners)<br/>
   Contient des informations sur les écouteurs de suivi mais ne mentionne pas l’élément [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
 * [Procédure pas à pas : intégration du suivi ASP.NET avec le suivi System.Diagnostics](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Cet article est également ancien, mais vous y trouverez des informations complémentaires que l’article de présentation ne traite pas.
 * [Suivi dans les vues d’ASP.NET MVC Razor](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-   En plus du suivi dans les vues Razor, ce billet explique également comment créer un filtre d'erreur pour journaliser toutes les exceptions non gérées dans une application MVC. Pour plus d'informations sur la procédure de journalisation des exceptions non gérées dans une application Web Forms, consultez l'exemple de Global.asax dans [Exemple complet pour les gestionnaires d'erreurs](/previous-versions/bb397417(v=vs.140)) sur MSDN. Dans MVC ou Web Forms, si vous voulez journaliser certaines exceptions tout en laissant le Framework par défaut les gérer, vous pouvez utiliser l'exemple de code suivant :
+  En plus du suivi dans les vues Razor, ce billet explique également comment créer un filtre d'erreur pour journaliser toutes les exceptions non gérées dans une application MVC. Pour plus d'informations sur la procédure de journalisation des exceptions non gérées dans une application Web Forms, consultez l'exemple de Global.asax dans [Exemple complet pour les gestionnaires d'erreurs](/previous-versions/bb397417(v=vs.140)) sur MSDN. Dans MVC ou Web Forms, si vous voulez journaliser certaines exceptions tout en laissant le Framework par défaut les gérer, vous pouvez utiliser l'exemple de code suivant :
 
-``` c#
-try
-{
-   // Your code that might cause an exception to be thrown.
-}
-catch (Exception ex)
-{
-    Trace.TraceError("Exception: " + ex.ToString());
-    throw;
-}
-```
+    ```csharp
+    try
+    {
+       // Your code that might cause an exception to be thrown.
+    }
+    catch (Exception ex)
+    {
+        Trace.TraceError("Exception: " + ex.ToString());
+        throw;
+    }
+    ```
 
 * [Journalisation de suivi de diagnostics de diffusion à partir de l’outil en ligne de commande Azure (et Glimpse)](https://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-   Apprenez à utiliser l’outil en ligne de commande pour effectuer ce que montre ce didacticiel dans Visual Studio. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) est un outil pour le débogage d'applications ASP.NET.
-* [Utilisation des fonctions de journalisation et de diagnostic des applications web - avec David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) et [Journaux de streaming dans Web Apps - avec David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
-   par Scott Hanselman et David Ebbo.
+  Apprenez à utiliser l’outil en ligne de commande pour effectuer ce que montre ce didacticiel dans Visual Studio. [Glimpse](https://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) est un outil pour le débogage d'applications ASP.NET.
+* [Utilisation des fonctions de journalisation et de diagnostic des applications web - avec David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) et [Journaux d’activité de streaming dans Web Apps - avec David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+  par Scott Hanselman et David Ebbo.
 
 Pour la journalisation d'erreurs, vous pouvez éviter d'avoir à écrire votre propre code de suivi en utilisant un Framework de journalisation Open Source comme [ELMAH](https://nuget.org/packages/elmah/). Pour plus d'informations, consultez les [billets du blog de Scott Hanselman sur ELMAH](https://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
 
@@ -685,8 +685,8 @@ Pour plus d’informations sur l’analyse des journaux d’activité de serveur
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Un outil pour afficher les données des journaux d’activité de serveur Web (fichiers *.log* ).
-* [Dépannage des problèmes de performances IIS ou des erreurs d’Application à l’aide de LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
-   Une introduction à l’outil LogParser que vous pouvez utiliser pour analyser les journaux d’activité de serveur Web.
+* [Résolution des problèmes de performances IIS ou des erreurs d’application à l’aide de LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+  Une introduction à l’outil LogParser que vous pouvez utiliser pour analyser les journaux d’activité de serveur Web.
 * [Billets du blog de Robert McMurray sur l’utilisation de LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [Code d’état HTTP dans IIS 7.0, IIS 7.5 et IIS 8.0](https://support.microsoft.com/kb/943891)
 

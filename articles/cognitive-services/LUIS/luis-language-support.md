@@ -1,5 +1,5 @@
 ---
-title: Support multilingue
+title: Prise en charge des langues - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS possède un éventail de fonctionnalités au sein du service. Certaines fonctionnalités partagent la même parité de langage. Assurez-vous que les fonctionnalités qui que vous intéressent sont prises en charge dans la culture de langue que vous ciblez. Une application LUIS est propre à une culture et ne peut pas être modifiée après configuration.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/19/2019
+ms.topic: conceptual
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757656"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316353"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -34,17 +34,18 @@ LUIS comprend les énoncés dans les langues suivantes :
 |--|--|:--:|:--:|:--:|:--:|
 | Anglais (États-Unis) |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chinois](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Néerlandais |`nl-NL` |-|  -   |-|✔|
-| Français (France) |`fr-FR` |-| ✔ |✔ |✔|
+| Néerlandais |`nl-NL` |✔|  -   |-|✔|
+| Français (France) |`fr-FR` |✔| ✔ |✔ |✔|
 | Français (Canada) |`fr-CA` |-|   -   |-|✔|
-| Allemand |`de-DE` |-| ✔ |✔ |✔|
-| Italien |`it-IT` |-| ✔ |✔|✔|
-| *[Japonais](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Expression clé uniquement|
-| Coréen |`ko-KR` |-|   -   |-|Expression clé uniquement|
-| Portugais (Brésil) |`pt-BR` |-| ✔ |✔ |pas toutes les sous-cultures|
-| Espagnol (Espagne) |`es-ES` |-| ✔ |✔|✔|
+| Allemand |`de-DE` |✔| ✔ |✔ |✔|
+| Hindi | `hi-IN`|-|-|-|-|
+| Italien |`it-IT` |✔| ✔ |✔|✔|
+| *[Japonais](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Expression clé uniquement|
+| Coréen |`ko-KR` |✔|   -   |-|Expression clé uniquement|
+| Portugais (Brésil) |`pt-BR` |✔| ✔ |✔ |pas toutes les sous-cultures|
+| Espagnol (Espagne) |`es-ES` |✔| ✔ |✔|✔|
 | Espagnol (Mexique)|`es-MX` |-|  -   |✔|✔|
-| Turc | `tr-TR` |-|-|-|Sentiment uniquement|
+| Turc | `tr-TR` |✔|-|-|Sentiment uniquement|
 
 
 La prise en charge linguistique varie pour les [entités prédéfinies](luis-reference-prebuilt-entities.md) et les [domaines prédéfinis](luis-reference-prebuilt-domains.md).
@@ -53,7 +54,7 @@ La prise en charge linguistique varie pour les [entités prédéfinies](luis-ref
 
  - Dans la culture `zh-cn`, LUIS attend le jeu de caractères chinois simplifié plutôt que le jeu de caractères chinois traditionnel.
  - Les noms des intentions, les entités, les fonctionnalités et les expressions régulières peuvent être en caractères chinois ou romans.
- - Consultez le [référence des domaines prédéfinis](luis-reference-prebuilt-domains.md) pour plus d’informations sur lequel des domaines prédéfinis sont pris en charge dans le `zh-cn` culture.
+ - Pour plus d’informations sur les domaines prédéfinis pris en charge dans la culture `zh-cn`, voir la [référence des domaines prédéfinis](luis-reference-prebuilt-domains.md).
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*Notes pour la prise en charge du japonais
@@ -88,6 +89,7 @@ Pour effectuer l’apprentissage machine, LUIS décompose l’énoncé en [jeton
 |Français (fr-FR)|✔||||
 |Français (fr-CA)|✔||||
 |Allemand|||✔|✔|
+| Hindi |✔|-|-|-|-|
 |Italien|✔||||
 |Japonais||||✔|
 |Coréen||✔||✔|
@@ -95,16 +97,16 @@ Pour effectuer l’apprentissage machine, LUIS décompose l’énoncé en [jeton
 |Espagnol (es-ES)|✔||||
 |Espagnol (es-MX)|✔||||
 
-### <a name="custom-tokenizer-versions"></a>Versions du Générateur de jetons personnalisés
+### <a name="custom-tokenizer-versions"></a>Versions personnalisées du générateur de jetons
 
-Les cultures suivantes ont des versions du Générateur de jetons personnalisé :
+Les cultures suivantes ont des versions personnalisées du générateur de jetons :
 
 |Culture|Version|Objectif|
 |--|--|--|
-|Allemand<br>`de-de`|1.0.0|Crée des jetons mots en les fractionnant à l’aide d’un ordinateur basé sur un apprentissage Générateur de jetons qui tente de se décomposer des mots composés en leurs composants uniques.<br>Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, elle est activée `Ich fahre einen kranken wagen`. Ce qui permet le marquage de `kranken` et `wagen` indépendamment en tant que différentes entités.|
-|Allemand<br>`de-de`|1.0.1|Crée des jetons en les fractionnant sur les espaces de mots.<br> Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, il reste un jeton unique. Par conséquent `krankenwagen` est marquée comme une seule entité. |
+|Allemand<br>`de-de`|1.0.0|Segmente les mots composés en composants simples à l’aide d’un générateur de jetons de type Machine Learning.<br>L’énoncé `Ich fahre einen krankenwagen` est transformé en `Ich fahre einen kranken wagen`. Permet de marquer indépendamment `kranken` et `wagen` comme des entités différentes.|
+|Allemand<br>`de-de`|1.0.2|Segmente les mots en les fractionnant sur les espaces.<br> L’énoncé `Ich fahre einen krankenwagen` reste un jeton unique. `krankenwagen` est donc marqué comme une seule entité. |
 
-### <a name="migrating-between-tokenizer-versions"></a>Migration entre les versions du Générateur de jetons
+### <a name="migrating-between-tokenizer-versions"></a>Changer de version du générateur de jetons
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
@@ -207,6 +209,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-Création de jetons se produit au niveau de l’application. Il n’existe aucune prise en charge pour la création de jetons de niveau de version. 
+La segmentation du texte en unités lexicales se produit au niveau de l’application. La tokenisation au niveau de la version n’est pas prise en charge. 
 
-[Importez le fichier comme nouvelle application](luis-how-to-start-new-app.md#import-an-app-from-file), au lieu d’une version. Cette action signifie la nouvelle application a un ID d’application différents, mais utilise la version du Générateur de jetons spécifiée dans le fichier. 
+[Importez le fichier comme une nouvelle application](luis-how-to-start-new-app.md#import-an-app-from-file), au lieu d’une version, pour que l’application ait un autre ID, mais utilise la version du générateur de jetons spécifiée dans le fichier. 

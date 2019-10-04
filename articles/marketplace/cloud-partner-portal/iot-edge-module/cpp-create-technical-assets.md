@@ -1,25 +1,18 @@
 ---
-title: Créer des ressources techniques de module Azure IoT Edge | Microsoft Docs
+title: Créer des ressources techniques de module Azure IoT Edge | Place de marché Azure
 description: Créez des ressources techniques pour un module IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2ed4826eb47ab2fb13d312860475f9ec9b323bf7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 9f40e2272388e6f467b8c3d0b01a6639bf652e80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884152"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942369"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Préparer vos ressources techniques de module IoT Edge
 
@@ -129,7 +122,7 @@ Le Kit de développement logiciel (SDK) de module IoT est nécessaire pour obten
 ## <a name="recertification-process"></a>Processus de renouvellement de certification
 
 <!-- Add legal time windows-->
-Partenaires seront informés chaque fois qu’une modification avec rupture qui affecte leurs modules, tels que :
+Les partenaires reçoivent une notification à chaque changement cassant qui affecte leurs modules, tel que :
 
 - Matrice de prise en charge du système d’exploitation/arch de niveau 1 prise en charge par IoT Edge
 - Kit de développement logiciel (SDK) de module IoT

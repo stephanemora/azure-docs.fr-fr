@@ -3,15 +3,15 @@ title: Comment appeler des procédures stockées, des déclencheurs et des fonct
 description: Découvrez comment inscrire et appeler des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur à l’aide des kits de développement logiciel (SDK) Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 12/08/2018
+ms.topic: conceptual
+ms.date: 09/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: d3ab0f78cc59c94a95aac6c067ad185476502f6c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3cc144c1b8748710f0500b6ca2a418cd8bf5a2b7
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998617"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104827"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Comment inscrire et utiliser des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur dans Azure Cosmos DB
 
@@ -26,9 +26,9 @@ Les exemples suivants montrent comment inscrire et appeler une procédure stock�
 > [!NOTE]
 > Pour les conteneurs partitionnés, lorsque vous exécutez une procédure stockée, vous devez fournir une valeur de clé de partition dans les options de requête. Les procédures stockées se limitent toujours à une clé de partition. Les éléments qui ont une valeur de clé de partition différente ne seront pas visibles dans la procédure stockée. Cela s’applique également aux déclencheurs.
 
-### <a name="stored-procedures---net-sdk"></a>Procédures stockées - Kit de développement logiciel (SDK) .NET
+### <a name="stored-procedures---net-sdk-v2"></a>Procédures stockées - Kit de développement logiciel (SDK) .NET V2
 
-L’exemple suivant montre comment inscrire une procédure stockée à l’aide du kit de développement logiciel (SDK) .NET :
+L’exemple suivant montre comment inscrire une procédure stockée à l’aide du kit de développement logiciel (SDK) .NET V2 :
 
 ```csharp
 string storedProcedureId = "spCreateToDoItem";
@@ -42,7 +42,7 @@ var response = await client.CreateStoredProcedureAsync(containerUri, newStoredPr
 StoredProcedure createdStoredProcedure = response.Resource;
 ```
 
-L’exemple suivant montre comment appeler une procédure stockée à l’aide du kit de développement logiciel (SDK) .NET :
+L’exemple suivant montre comment appeler une procédure stockée à l’aide du kit de développement logiciel (SDK) .NET V2 :
 
 ```csharp
 dynamic newItem = new
@@ -56,7 +56,32 @@ dynamic newItem = new
 Uri uri = UriFactory.CreateStoredProcedureUri("myDatabase", "myContainer", "spCreateToDoItem");
 RequestOptions options = new RequestOptions { PartitionKey = new PartitionKey("Personal") };
 var result = await client.ExecuteStoredProcedureAsync<string>(uri, options, newItem);
-var id = result.Response;
+```
+
+### <a name="stored-procedures---net-sdk-v3"></a>Procédures stockées - Kit de développement logiciel (SDK) .NET V3
+
+L’exemple suivant montre comment inscrire une procédure stockée à l’aide du kit de développement logiciel (SDK) .NET V3 :
+
+```csharp
+StoredProcedureResponse storedProcedureResponse = await client.GetContainer("database", "container").Scripts.CreateStoredProcedureAsync(new StoredProcedureProperties
+{
+    Id = "spCreateToDoItem",
+    Body = File.ReadAllText(@"..\js\spCreateToDoItem.js")
+});
+```
+
+L’exemple suivant montre comment appeler une procédure stockée à l’aide du kit de développement logiciel (SDK) .NET V3 :
+
+```csharp
+dynamic newItem = new
+{
+    category = "Personal",
+    name = "Groceries",
+    description = "Pick up strawberries",
+    isComplete = false
+};
+
+var result = await client.GetContainer("database", "container").Scripts.ExecuteStoredProcedureAsync<string>("spCreateToDoItem", new PartitionKey("Personal"), newItem);
 ```
 
 ### <a name="stored-procedures---java-sdk"></a>Procédures stockées - Kit de développement logiciel (SDK) Java
@@ -148,9 +173,9 @@ with open('../js/spCreateToDoItem.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 sproc_definition = {
-            'id': 'spCreateToDoItem',
-            'serverScript': file_contents,
-        }
+    'id': 'spCreateToDoItem',
+    'serverScript': file_contents,
+}
 sproc = client.CreateStoredProcedure(container_link, sproc_definition)
 ```
 
@@ -176,9 +201,9 @@ Lors de l’exécution, les pré-déclencheurs sont transmis dans l’objet Requ
 > [!NOTE]
 > Même si le nom du déclencheur est transmis en tant que liste, vous ne pouvez pas exécuter plus d’un déclencheur par opération.
 
-### <a name="pre-triggers---net-sdk"></a>Pré-déclencheurs - Kit de développement logiciel (SDK) .NET
+### <a name="pre-triggers---net-sdk-v2"></a>Pré-déclencheurs - Kit de développement logiciel (SDK) .NET V2
 
-Le code suivant montre comment inscrire un pré-déclencheur à l’aide du kit de développement logiciel (SDK) .NET :
+Le code suivant montre comment inscrire un pré-déclencheur à l’aide du kit de développement logiciel (SDK) .NET V2 :
 
 ```csharp
 string triggerId = "trgPreValidateToDoItemTimestamp";
@@ -189,11 +214,11 @@ Trigger trigger = new Trigger
     TriggerOperation = TriggerOperation.Create,
     TriggerType = TriggerType.Pre
 };
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-Le code suivant montre comment appeler un pré-déclencheur à l’aide du kit de développement logiciel (SDK) .NET :
+Le code suivant montre comment appeler un pré-déclencheur à l’aide du kit de développement logiciel (SDK) .NET V2 :
 
 ```csharp
 dynamic newItem = new
@@ -204,9 +229,37 @@ dynamic newItem = new
     isComplete = false
 };
 
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new List<string> { "trgPreValidateToDoItemTimestamp" } };
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
+```
+
+### <a name="pre-triggers---net-sdk-v3"></a>Pré-déclencheurs - Kit de développement logiciel (SDK) .NET V3
+
+Le code suivant montre comment inscrire un pré-déclencheur à l’aide du kit de développement logiciel (SDK) .NET V3 :
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
+{
+    Id = "trgPreValidateToDoItemTimestamp",
+    Body = File.ReadAllText("@..\js\trgPreValidateToDoItemTimestamp.js"),
+    TriggerOperation = TriggerOperation.Create,
+    TriggerType = TriggerType.Pre
+});
+```
+
+Le code suivant montre comment appeler un pré-déclencheur à l’aide du kit de développement logiciel (SDK) .NET V3 :
+
+```csharp
+dynamic newItem = new
+{
+    category = "Personal",
+    name = "Groceries",
+    description = "Pick up strawberries",
+    isComplete = false
+};
+
+await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PreTriggers = new List<string> { "trgPreValidateToDoItemTimestamp" } });
 ```
 
 ### <a name="pre-triggers---java-sdk"></a>Pré-déclencheurs - Kit de développement logiciel (SDK) Java
@@ -279,11 +332,11 @@ with open('../js/trgPreValidateToDoItemTimestamp.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 trigger_definition = {
-            'id': 'trgPreValidateToDoItemTimestamp',
-            'serverScript': file_contents,
-            'triggerType': documents.TriggerType.Pre,
-            'triggerOperation': documents.TriggerOperation.Create
-        }
+    'id': 'trgPreValidateToDoItemTimestamp',
+    'serverScript': file_contents,
+    'triggerType': documents.TriggerType.Pre,
+    'triggerOperation': documents.TriggerOperation.Create
+}
 trigger = client.CreateTrigger(container_link, trigger_definition)
 ```
 
@@ -291,24 +344,26 @@ Le code suivant montre comment appeler un pré-déclencheur à l’aide du kit d
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-item = { 'category': 'Personal', 'name': 'Groceries', 'description':'Pick up strawberries', 'isComplete': False}
-client.CreateItem(container_link, item, { 'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
+item = {'category': 'Personal', 'name': 'Groceries',
+        'description': 'Pick up strawberries', 'isComplete': False}
+client.CreateItem(container_link, item, {
+                  'preTriggerInclude': 'trgPreValidateToDoItemTimestamp'})
 ```
 
 ## <a id="post-triggers"></a>Comment exécuter les post-déclencheurs
 
 Les exemples suivants montrent comment inscrire un post-déclencheur à l’aide des kits de développement logiciel (SDK) Azure Cosmos DB. Reportez-vous à [Exemple de post-déclencheur](how-to-write-stored-procedures-triggers-udfs.md#post-triggers) puisque la source pour ce post-déclencheur est enregistrée en tant que `trgPostUpdateMetadata.js`.
 
-### <a name="post-triggers---net-sdk"></a>Post-déclencheurs - Kit de développement logiciel (SDK) .NET
+### <a name="post-triggers---net-sdk-v2"></a>Post-déclencheurs - Kit de développement logiciel (SDK) .NET V2
 
-Le code suivant montre comment inscrire un post-déclencheur à l’aide du kit de développement logiciel (SDK) .NET :
+Le code suivant montre comment inscrire un post-déclencheur à l’aide du kit de développement logiciel (SDK) .NET V2 :
 
 ```csharp
 string triggerId = "trgPostUpdateMetadata";
 Trigger trigger = new Trigger
 {
     Id = triggerId,
-    Body = File.ReadAllText($@"..\js\{triggerId}.js");,
+    Body = File.ReadAllText($@"..\js\{triggerId}.js"),
     TriggerOperation = TriggerOperation.Create,
     TriggerType = TriggerType.Post
 };
@@ -316,7 +371,7 @@ Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myConta
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
-Le code suivant montre comment appeler un post-déclencheur à l’aide du kit de développement logiciel (SDK) .NET :
+Le code suivant montre comment appeler un post-déclencheur à l’aide du kit de développement logiciel (SDK) .NET V2 :
 
 ```csharp
 var newItem = { 
@@ -325,9 +380,35 @@ var newItem = {
     albums: ["Hellujah", "Rotators", "Spinning Top"]
 };
 
-var options = { postTriggerInclude: "trgPostUpdateMetadata" };
+RequestOptions options = new RequestOptions { PostTriggerInclude = new List<string> { "trgPostUpdateMetadata" } };
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.createDocumentAsync(containerUri, newItem, options);
+```
+
+### <a name="post-triggers---net-sdk-v3"></a>Post-déclencheurs - Kit de développement logiciel (SDK) .NET V3
+
+Le code suivant montre comment inscrire un post-déclencheur à l’aide du kit de développement logiciel (SDK) .NET V3 :
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateTriggerAsync(new TriggerProperties
+{
+    Id = "trgPostUpdateMetadata",
+    Body = File.ReadAllText(@"..\js\trgPostUpdateMetadata.js"),
+    TriggerOperation = TriggerOperation.Create,
+    TriggerType = TriggerType.Post
+});
+```
+
+Le code suivant montre comment appeler un post-déclencheur à l’aide du kit de développement logiciel (SDK) .NET V3 :
+
+```csharp
+var newItem = { 
+    name: "artist_profile_1023",
+    artist: "The Band",
+    albums: ["Hellujah", "Rotators", "Spinning Top"]
+};
+
+await client.GetContainer("database", "container").CreateItemAsync(newItem, null, new ItemRequestOptions { PostTriggers = new List<string> { "trgPostUpdateMetadata" } });
 ```
 
 ### <a name="post-triggers---java-sdk"></a>Post-déclencheurs - Kit de développement logiciel (SDK) Java
@@ -398,11 +479,11 @@ with open('../js/trgPostUpdateMetadata.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 trigger_definition = {
-            'id': 'trgPostUpdateMetadata',
-            'serverScript': file_contents,
-            'triggerType': documents.TriggerType.Post,
-            'triggerOperation': documents.TriggerOperation.Create
-        }
+    'id': 'trgPostUpdateMetadata',
+    'serverScript': file_contents,
+    'triggerType': documents.TriggerType.Post,
+    'triggerOperation': documents.TriggerOperation.Create
+}
 trigger = client.CreateTrigger(container_link, trigger_definition)
 ```
 
@@ -410,32 +491,34 @@ Le code suivant montre comment appeler un post-déclencheur à l’aide du kit d
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-item = { 'name': 'artist_profile_1023', 'artist': 'The Band', 'albums': ['Hellujah', 'Rotators', 'Spinning Top']}
-client.CreateItem(container_link, item, { 'postTriggerInclude': 'trgPostUpdateMetadata'})
+item = {'name': 'artist_profile_1023', 'artist': 'The Band',
+        'albums': ['Hellujah', 'Rotators', 'Spinning Top']}
+client.CreateItem(container_link, item, {
+                  'postTriggerInclude': 'trgPostUpdateMetadata'})
 ```
 
 ## <a id="udfs"></a> Comment utiliser des fonctions définies par l’utilisateur
 
 Les exemples suivants montrent comment inscrire une fonction définie par l’utilisateur à l’aide des kits de développement logiciel (SDK) Azure Cosmos DB. Reportez-vous à [Exemple de fonction définie par l’utilisateur](how-to-write-stored-procedures-triggers-udfs.md#udfs) puisque la source pour ce post-déclencheur est enregistrée en tant que `udfTax.js`.
 
-### <a name="user-defined-functions---net-sdk"></a>Fonction définie par l’utilisateur - Kit de développement logiciel (SDK) .NET
+### <a name="user-defined-functions---net-sdk-v2"></a>Fonction définie par l’utilisateur - Kit de développement logiciel (SDK) .NET V2
 
-Le code suivant montre comment inscrire une fonction définie par l’utilisateur à l’aide du kit de développement logiciel (SDK) .NET :
+Le code suivant montre comment inscrire une fonction définie par l’utilisateur à l’aide du kit de développement logiciel (SDK) .NET V2 :
 
 ```csharp
 string udfId = "Tax";
 var udfTax = new UserDefinedFunction
 {
     Id = udfId,
-    Body = File.ReadAllText($@"..\js\{udfId}.js"),
+    Body = File.ReadAllText($@"..\js\{udfId}.js")
 };
 
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```
 
-Le code suivant montre comment appeler une fonction définie par l’utilisateur à l’aide du kit de développement logiciel (SDK) .NET :
+Le code suivant montre comment appeler une fonction définie par l’utilisateur à l’aide du kit de développement logiciel (SDK) .NET V2 :
 
 ```csharp
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
@@ -444,6 +527,32 @@ var results = client.CreateDocumentQuery<dynamic>(containerUri, "SELECT * FROM I
 foreach (var result in results)
 {
     //iterate over results
+}
+```
+
+### <a name="user-defined-functions---net-sdk-v3"></a>Fonction définie par l’utilisateur - Kit de développement logiciel (SDK) .NET V3
+
+Le code suivant montre comment inscrire une fonction définie par l’utilisateur à l’aide du kit de développement logiciel (SDK) .NET V3 :
+
+```csharp
+await client.GetContainer("database", "container").Scripts.CreateUserDefinedFunctionAsync(new UserDefinedFunctionProperties
+{
+    Id = "Tax",
+    Body = File.ReadAllText(@"..\js\Tax.js")
+});
+```
+
+Le code suivant montre comment appeler une fonction définie par l’utilisateur à l’aide du kit de développement logiciel (SDK) .NET V3 :
+
+```csharp
+var iterator = client.GetContainer("database", "container").GetItemQueryIterator<dynamic>("SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000");
+while (iterator.HasMoreResults)
+{
+    var results = await iterator.ReadNextAsync();
+    foreach (var result in results)
+    {
+        //iterate over results
+    }
 }
 ```
 
@@ -514,9 +623,9 @@ with open('../js/udfTax.js') as file:
     file_contents = file.read()
 container_link = 'dbs/myDatabase/colls/myContainer'
 udf_definition = {
-            'id': 'Tax',
-            'serverScript': file_contents,
-        }
+    'id': 'Tax',
+    'serverScript': file_contents,
+}
 udf = client.CreateUserDefinedFunction(container_link, udf_definition)
 ```
 
@@ -524,7 +633,8 @@ Le code suivant montre comment appeler une fonction définie par l’utilisateur
 
 ```python
 container_link = 'dbs/myDatabase/colls/myContainer'
-results = list(client.QueryItems(container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
+results = list(client.QueryItems(
+    container_link, 'SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000'))
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

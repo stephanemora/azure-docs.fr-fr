@@ -4,29 +4,29 @@ description: Concevez et implémentez une base de données Oracle dans votre env
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 8241dc0303b7e60f9ce1e04e56d152c9a0b3906c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: c2c2d1a9affe13d485bfeef52c781ed259b53bc8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327508"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100124"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Concevoir et implémenter une base de données Oracle dans Azure
 
 ## <a name="assumptions"></a>Hypothèses
 
 - Vous prévoyez de migrer une base de données Oracle locale vers Azure.
+- Vous avez le [Pack Diagnostics](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) pour la base de données Oracle que vous cherchez à migrer
 - Vous comprenez les différentes métriques contenues dans les rapports Oracle AWR.
 - Vous avez une connaissance élémentaire des performances d’application et de l’utilisation de la plateforme.
 
@@ -51,7 +51,7 @@ Le tableau suivant liste certaines des différences qui existent entre une impl�
 > | **Résilience** |MTBF (temps moyen entre les défaillances) |MTTR (temps moyen de récupération)|
 > | **Maintenance planifiée** |Correctifs/mises à niveau|[Groupes à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (correctifs/mises à niveau gérés par Azure) |
 > | **Ressource** |Dédié  |Partagée avec d’autres clients|
-> | **Régions** |Centres de données |[Paires de régions](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
+> | **Régions** |Centres de données |[Paires de régions](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
 > | **Stockage** |SAN/disques physiques |[Stockage géré par Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Mettre à l'échelle** |Mise à l’échelle verticale |Mise à l’échelle horizontale|
 
@@ -72,11 +72,11 @@ Quatre zones potentielles que vous pouvez paramétrer pour améliorer les perfor
 
 ### <a name="generate-an-awr-report"></a>Générer un rapport AWR
 
-Si vous disposez d’une base de données Oracle que vous envisagez de migrer vers Azure, vous avez plusieurs options. Vous pouvez exécuter le rapport AWR Oracle pour obtenir les métriques (E/S par seconde, Mbits/s, Gibits/s, etc.). Ensuite, choisissez la machine virtuelle en fonction des métriques que vous avez collectées. Vous pouvez également contacter votre équipe d’infrastructure pour obtenir des informations similaires.
+Si vous disposez d’une base de données Oracle que vous envisagez de migrer vers Azure, vous avez plusieurs options. Si vous avez le [Pack Diagnostics](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) pour vos instances Oracle, vous pouvez exécuter le rapport AWR Oracle pour obtenir les métriques (E/S par seconde, Mbits/s, Gibits/s, etc.). Ensuite, choisissez la machine virtuelle en fonction des métriques que vous avez collectées. Vous pouvez également contacter votre équipe d’infrastructure pour obtenir des informations similaires.
 
 Pour comparer, vous pouvez exécuter votre rapport AWR lors de charges de travail normales et maximales. En fonction de ces rapports, vous pouvez dimensionner les machines virtuelles selon la charge de travail moyenne ou maximale.
 
-L’exemple suivant montre comment générer un rapport AWR :
+Voici un exemple montrant comment générer un rapport AWR (générez vos rapports AWR à l’aide d’Oracle Enterprise Manager, si votre installation actuelle en dispose) :
 
 ```bash
 $ sqlplus / as sysdba
@@ -143,6 +143,10 @@ Selon vos besoins en bande passante réseau, vous pouvez choisir différents typ
 
 - La latence réseau est supérieure par rapport à un déploiement local. La diminution des allers-retours réseau peut considérablement améliorer les performances.
 - Pour réduire le nombre d’allers-retours, regroupez les applications avec un nombre élevé de transactions et les applications « bavardes » sur une même machine virtuelle.
+- Utilisez des machines virtuelles avec la [mise en réseau accélérée](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) pour améliorer les performances réseau.
+- Pour certaines distributions de Linux, pensez à activer la [prise en charge de TRIM/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Installez [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) sur une machine virtuelle distincte.
+- Les Huge Pages ne sont pas activées par défaut sur Linux. Envisagez d’activer les Huge Pages et définissez `use_large_pages = ONLY` sur Oracle DB. Cela peut aider à améliorer les performances. Des informations supplémentaires sont disponibles [ici](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Types de disque et configurations
 
@@ -183,14 +187,15 @@ Une fois que vous avez une vision claire de vos besoins en E/S, vous pouvez choi
 - Utilisez la compression de données pour réduire les E/S (données et index).
 - Placez les flux de transport Redo, System, Temp et Undo sur des disques de données distincts.
 - Ne placez pas de fichiers d’application sur les disques du système d’exploitation par défaut (/dev/sda). Ces disques sont optimisés pour les démarrages rapides de machine virtuelle et risquent de ne pas fournir de performances optimales pour votre application.
+- Lorsque vous utilisez des machines virtuelles de série M sur le stockage Premium, activez [l’Accélérateur d'écriture](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) sur le disque des journaux d’activité de rétablissement.
 
 ### <a name="disk-cache-settings"></a>Paramètres de cache des disques
 
 Il existe trois solutions pour la mise en cache de l’hôte :
 
-- *Lecture seule* : toutes les demandes sont mises en cache pour les lectures ultérieures. Toutes les écritures sont conservées directement dans le Stockage Blob Azure.
+- *ReadOnly* : toutes les demandes sont mises en cache pour les lectures ultérieures. Toutes les écritures sont conservées directement dans le Stockage Blob Azure.
 
-- *Lecture-écriture* : il s'agit d'un algorithme de type « lecture anticipée ». Les lectures et les écritures sont mises en cache pour les lectures ultérieures. Les écritures qui ne sont pas de type double écriture sont d’abord conservées dans le cache local. Pour SQL Server, les écritures sont conservées dans Stockage Azure, car il utilise la double écriture. Il fournit également la latence de disque la plus faible pour les charges de travail légères.
+- *ReadWrite* : il s'agit d'un algorithme de type « lecture anticipée ». Les lectures et les écritures sont mises en cache pour les lectures ultérieures. Les écritures qui ne sont pas de type double écriture sont d’abord conservées dans le cache local. Il fournit également la latence de disque la plus faible pour les charges de travail légères. L’utilisation d’un cache en lecture/écriture avec une application qui ne gère pas la persistance des données requises peut entraîner des pertes de données en cas de panne de la machine virtuelle.
 
 - *Aucun* (désactivé) : cette option vous permet de contourner le cache. Toutes les données sont transférées sur le disque et conservées dans Stockage Azure. Cette méthode vous donne le taux d’E/S le plus élevé pour les charges de travail intensives d’E/S. Vous devez également tenir compte du coût de transaction.
 
@@ -205,7 +210,6 @@ Pour optimiser le débit, il est recommandé de commencer par **Aucun** pour la 
 - Pour DATA, utilisez **Aucun** pour la mise en cache. Toutefois, si votre base de données est en lecture seule ou en lecture intensive, utilisez la mise en cache **Lecture seule**.
 
 Une fois que votre configuration de disque de données est enregistrée, vous ne pouvez pas modifier le paramètre de mise en cache de l’hôte, sauf si vous démontez le disque au niveau du système d’exploitation, puis le remontez après modification.
-
 
 ## <a name="security"></a>Sécurité
 

@@ -10,16 +10,15 @@ ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.openlocfilehash: 323b3effb4c4a63d03ab7ea5251e0d59271d9dcd
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621921"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072137"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Référence du modèle de données du modèle Gestion des API Azure
 Cette rubrique décrit les représentations de type et d’entité des éléments courants utilisés dans les modèles de données pour les modèles du portail des développeurs dans la Gestion des API Azure.  
@@ -30,7 +29,7 @@ Cette rubrique décrit les représentations de type et d’entité des élément
 
 Le portail des développeurs n’est pas disponible dans le niveau de consommation.
 
-## <a name="reference"></a>Référence
+## <a name="reference"></a>Informations de référence
 
 -   [API](#API)  
 -   [API summary](#APISummary)  
@@ -169,8 +168,8 @@ Le portail des développeurs n’est pas disponible dans le niveau de consommati
 |`value`|string|Valeur de l’en-tête.|  
 |`typeName`|string|Type de données de la valeur d’en-tête.|  
 |`options`|string|Options.|  
-|`required`|booléenne|Indique si l’en-tête est requis.|  
-|`readOnly`|booléenne|Indique si l’en-tête est en lecture seule.|  
+|`required`|boolean|Indique si l’en-tête est requis.|  
+|`readOnly`|boolean|Indique si l’en-tête est en lecture seule.|  
   
 ##  <a name="HTTPRequest"></a> HTTP Request  
  Cette section décrit la représentation `request`.  
@@ -233,7 +232,7 @@ Le portail des développeurs n’est pas disponible dans le niveau de consommati
 |`Page`|number|Numéro de page actuel.|  
 |`PageSize`|number|Maximum de résultats à afficher sur une seule page.|  
 |`TotalItemCount`|number|Nombre d’éléments à afficher.|  
-|`ShowAll`|booléenne|Indique si tous les résultats doivent être affichés sur une seule page.|  
+|`ShowAll`|boolean|Indique si tous les résultats doivent être affichés sur une seule page.|  
 |`PageCount`|number|Nombre de pages de résultats.|  
   
 ##  <a name="Parameter"></a> Parameter  
@@ -245,7 +244,7 @@ Le portail des développeurs n’est pas disponible dans le niveau de consommati
 |`description`|string|Description du paramètre.|  
 |`value`|string|Valeur du paramètre.|  
 |`options`|tableau de chaînes|Valeurs définies pour les valeurs du paramètre de requête.|  
-|`required`|booléenne|Indique si le paramètre est obligatoire ou non.|  
+|`required`|boolean|Indique si le paramètre est obligatoire ou non.|  
 |`kind`|number|Indique si ce paramètre est un paramètre de chemin d’accès (1) ou un paramètre de chaîne de requête (2).|  
 |`typeName`|string|Type de paramètre.|  
   
@@ -259,7 +258,7 @@ Le portail des développeurs n’est pas disponible dans le niveau de consommati
 |`Description`|string|Description du produit. Ne doit pas être vide. Peut comporter des balises de mise en forme. La longueur maximale est de 1 000 caractères.|  
 |`Terms`|string|Conditions d’utilisation du produit. Les développeurs qui veulent s’abonner au produit devront consulter et accepter ces conditions pour pouvoir terminer le processus d’abonnement.|  
 |`ProductState`|number|Spécifie si le produit est publié ou non. Les produits publiés sont détectables par les développeurs sur le portail des développeurs. Les produits non publiés ne sont visibles que pour les administrateurs.<br /><br /> Les valeurs autorisées pour l’état du produit sont :<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
-|`AllowMultipleSubscriptions`|booléenne|Spécifie si un utilisateur peut avoir plusieurs abonnements à ce produit en même temps.|  
+|`AllowMultipleSubscriptions`|boolean|Spécifie si un utilisateur peut avoir plusieurs abonnements à ce produit en même temps.|  
 |`MultipleSubscriptionsCount`|number|Nombre maximal d’abonnements à ce produit qu’un utilisateur est autorisé à avoir simultanément.|  
   
 ##  <a name="Provider"></a> Provider  
@@ -292,16 +291,16 @@ Le portail des développeurs n’est pas disponible dans le niveau de consommati
 |`state`|string|État de l’abonnement. Les états possibles sont :<br /><br /> - `0 - suspended` : l’abonnement est bloqué et l’abonné ne peut appeler aucune API du produit.<br /><br /> - `1 - active` : l’abonnement est actif.<br /><br /> - `2 - expired` : l’abonnement a atteint sa date d’expiration et a été désactivé.<br /><br /> - `3 - submitted` : la demande d’abonnement a été effectuée par le développeur, mais n’a pas encore été approuvée ou rejetée.<br /><br /> - `4 - rejected` : la demande d’abonnement a été refusée par un administrateur.<br /><br /> - `5 - cancelled` : l’abonnement a été annulé par le développeur ou l’administrateur.|  
 |`DisplayName`|string|Nom complet de l’abonnement.|  
 |`CreatedDate`|dateTime|Date à laquelle l’abonnement a été créé, au format ISO 8601 : `2014-06-24T16:25:00Z`.|  
-|`CanBeCancelled`|booléenne|Si l’abonnement peut être annulé par l’utilisateur actuel.|  
-|`IsAwaitingApproval`|booléenne|Indique si l’abonnement est en attente d’approbation.|  
+|`CanBeCancelled`|boolean|Si l’abonnement peut être annulé par l’utilisateur actuel.|  
+|`IsAwaitingApproval`|boolean|Indique si l’abonnement est en attente d’approbation.|  
 |`StartDate`|dateTime|Date de début de l’abonnement, au format ISO 8601 : `2014-06-24T16:25:00Z`.|  
 |`ExpirationDate`|dateTime|Date d’expiration de l’abonnement, au format ISO 8601 : `2014-06-24T16:25:00Z`.|  
 |`NotificationDate`|dateTime|Date de notification de l’abonnement, au format ISO 8601 : `2014-06-24T16:25:00Z`.|  
 |`primaryKey`|string|Clé primaire de l’abonnement. La longueur maximale est de 256 caractères.|  
 |`secondaryKey`|string|Clé secondaire de l’abonnement. La longueur maximale est de 256 caractères.|  
-|`CanBeRenewed`|booléenne|Indique si l’abonnement peut être renouvelé par l’utilisateur actuel.|  
-|`HasExpired`|booléenne|Indique si l’abonnement a expiré.|  
-|`IsRejected`|booléenne|Indique si la demande d’abonnement a été refusée.|  
+|`CanBeRenewed`|boolean|Indique si l’abonnement peut être renouvelé par l’utilisateur actuel.|  
+|`HasExpired`|boolean|Indique si l’abonnement a expiré.|  
+|`IsRejected`|boolean|Indique si la demande d’abonnement a été refusée.|  
 |`CancelUrl`|string|URL relative pour annuler l’abonnement.|  
 |`RenewUrl`|string|URL relative pour renouveler l’abonnement.|  
   
@@ -324,7 +323,7 @@ Le portail des développeurs n’est pas disponible dans le niveau de consommati
 |`Password`|string|Mot de passe du compte d’utilisateur.|  
 |`NameIdentifier`|string|Identificateur du compte, identique à l’adresse de messagerie de l’utilisateur.|  
 |`ProviderName`|string|Nom du fournisseur d’authentification.|  
-|`IsBasicAccount`|booléenne|True si ce compte a été inscrit avec une adresse de messagerie et un mot de passe ; False si le compte a été inscrit à l’aide d’un fournisseur.|  
+|`IsBasicAccount`|boolean|True si ce compte a été inscrit avec une adresse de messagerie et un mot de passe ; False si le compte a été inscrit à l’aide d’un fournisseur.|  
   
 ##  <a name="UseSignIn"></a> User sign in  
  L’entité `user sign in` a les propriétés suivantes :  
@@ -334,27 +333,27 @@ Le portail des développeurs n’est pas disponible dans le niveau de consommati
 |`Email`|string|Adresse de messagerie. Ne doit pas être vide et doit être unique au sein de l’instance de service. La longueur maximale est de 254 caractères.|  
 |`Password`|string|Mot de passe du compte d’utilisateur.|  
 |`ReturnUrl`|string|URL de la page sur laquelle l’utilisateur a cliqué sur Se connecter.|  
-|`RememberMe`|booléenne|Indique si les informations de l’utilisateur actuel doivent être enregistrées.|  
-|`RegistrationEnabled`|booléenne|Indique si l’inscription est activée.|  
-|`DelegationEnabled`|booléenne|Indique si la connexion déléguée est activée.|  
+|`RememberMe`|boolean|Indique si les informations de l’utilisateur actuel doivent être enregistrées.|  
+|`RegistrationEnabled`|boolean|Indique si l’inscription est activée.|  
+|`DelegationEnabled`|boolean|Indique si la connexion déléguée est activée.|  
 |`DelegationUrl`|string|URL de la connexion déléguée, si elle est activée.|  
 |`SsoSignUpUrl`|string|URL d’authentification unique de l’utilisateur, le cas échéant.|  
 |`AuxServiceUrl`|string|Si l’utilisateur actuel est administrateur, lien vers l’instance de service dans le portail Azure.|  
 |`Providers`|Collection d’entités [Provider](#Provider).|Fournisseurs d’authentification de cet utilisateur.|  
 |`UserRegistrationTerms`|string|Conditions qu’un utilisateur doit accepter pour pouvoir se connecter.|  
-|`UserRegistrationTermsEnabled`|booléenne|Indique si les conditions sont activées.|  
+|`UserRegistrationTermsEnabled`|boolean|Indique si les conditions sont activées.|  
   
 ##  <a name="UserSignUp"></a> User sign up  
  L’entité `user sign up` a les propriétés suivantes :  
   
 |Propriété|Type|Description|  
 |--------------|----------|-----------------|  
-|`PasswordConfirm`|booléenne|Valeur utilisée par le contrôle [d’inscription](api-management-page-controls.md#sign-up).|  
+|`PasswordConfirm`|boolean|Valeur utilisée par le contrôle [d’inscription](api-management-page-controls.md#sign-up).|  
 |`Password`|string|Mot de passe du compte d’utilisateur.|  
 |`PasswordVerdictLevel`|number|Valeur utilisée par le contrôle [d’inscription](api-management-page-controls.md#sign-up).|  
 |`UserRegistrationTerms`|string|Conditions qu’un utilisateur doit accepter pour pouvoir se connecter.|  
 |`UserRegistrationTermsOptions`|number|Valeur utilisée par le contrôle [d’inscription](api-management-page-controls.md#sign-up).|  
-|`ConsentAccepted`|booléenne|Valeur utilisée par le contrôle [d’inscription](api-management-page-controls.md#sign-up).|  
+|`ConsentAccepted`|boolean|Valeur utilisée par le contrôle [d’inscription](api-management-page-controls.md#sign-up).|  
 |`Email`|string|Adresse de messagerie. Ne doit pas être vide et doit être unique au sein de l’instance de service. La longueur maximale est de 254 caractères.|  
 |`FirstName`|string|Prénom. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  
 |`LastName`|string|Nom. Ne doit pas être vide. La longueur maximale est de 100 caractères.|  

@@ -4,17 +4,17 @@ description: Cet article contient plusieurs rubriques concernant la gestion d’
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9de5909ddca5fd36f3fafcb79e2a4ad519402c9c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784974"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476582"
 ---
 # <a name="managing-azure-automation-data"></a>Gestion des données Azure Automation
 Cet article contient plusieurs rubriques concernant la gestion d’un environnement Azure Automation.
@@ -39,7 +39,7 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 
 La stratégie de rétention s’applique à tous les utilisateurs et ne peut actuellement pas être personnalisée.
 
-Toutefois, si vous souhaitez conserver les données pendant une longue période de temps, vous pouvez transférer les runbook journaux de tâches pour les journaux Azure Monitor.  Pour plus d’informations, consultez [transférer des données de travail Azure Automation dans les journaux d’Azure Monitor](automation-manage-send-joblogs-log-analytics.md).   
+Toutefois, si vous souhaitez conserver les données pendant une période plus longue, vous pouvez transférer les journaux des runbooks vers les journaux Azure Monitor.  Pour plus d’informations, consultez [Transférer des données de travaux Azure Automation vers les journaux Azure Monitor](automation-manage-send-joblogs-log-analytics.md).   
 
 ## <a name="backing-up-azure-automation"></a>Sauvegarde d’Azure Automation
 Lorsque vous supprimez un compte Automation dans Microsoft Azure, tous les objets du compte sont supprimés, notamment les Runbooks, les modules, les configurations, les paramètres, les tâches et les éléments multimédia. Il est impossible de récupérer les objets une fois que le compte a été supprimé.  Vous pouvez utiliser les informations suivantes pour sauvegarder le contenu de votre compte Automation avant de le supprimer. 
@@ -69,11 +69,11 @@ Le tableau suivant montre les paires de régions primaires et secondaires dispon
 
 | Primaire | Secondaire |
 | --- | --- |
-| USA Centre Sud |USA Centre Nord |
+| États-Unis - partie centrale méridionale |Centre-Nord des États-Unis |
 | USA Est 2 |USA Centre |
 | Europe Ouest |Europe Nord |
 | Asie Sud-Est |Asie Est |
-| Japon Est |Japon Ouest |
+| Japon Est |OuJapon Est |
 
 Dans l’éventualité peu probable que les données d’une région primaire soient perdues, Microsoft tente de les récupérer. Si les données primaires sont irrécupérables, un basculement géographique est effectué et les clients concernés en sont informés via leur abonnement.
 

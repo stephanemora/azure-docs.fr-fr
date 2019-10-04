@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à eKincare | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à eKincare | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et eKincare.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a925b13e6aed55f13bb38df53f2d6063b0948730
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0414b71a7c3765f7cf4d847e61544ab8a90ae3e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838236"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103515"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Tutoriel : Intégration d’Azure Active Directory à eKincare
+# <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Didacticiel : Intégration d’Azure Active Directory à eKincare
 
 Dans ce didacticiel, vous allez apprendre à intégrer eKincare à Azure Active Directory (Azure AD).
 L’intégration d’eKincare dans Azure AD vous offre les avantages suivants :
@@ -55,7 +55,7 @@ Pour configurer l’intégration d’eKincare à Azure AD, vous devez ajouter e
 
 **Pour ajouter eKincare à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -180,7 +180,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

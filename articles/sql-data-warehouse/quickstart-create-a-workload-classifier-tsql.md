@@ -1,28 +1,25 @@
 ---
 title: 'Démarrage rapide : Créer un classifieur de charge de travail - T-SQL | Microsoft Docs'
-description: Utiliser T-SQL pour créer un classifieur de charge de travail avec une importance haute
+description: Utilisez T-SQL pour créer un classifieur de charge de travail avec une importance haute.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: workload management
-ms.date: 03/13/2019
+ms.subservice: workload-management
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 198faf6791a4a2caa2cefee2181a13ed8185310e
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: ea2e0a3bb55d16c0b413b114fca9da7f95f5c053
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617335"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574869"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>Démarrage rapide : Créer un classifieur de charge de travail à l’aide de T-SQL (préversion)
+# <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>Démarrage rapide : Créer un classifieur de charge de travail à l’aide de T-SQL
 
 Dans ce guide de démarrage rapide, vous créez rapidement un classifieur de charge de travail avec une importance haute pour le PDG (CEO) de votre organisation. Ce classifieur de charge de travail donne la priorités aux requêtes du PDG sur les autres requêtes avec une importance inférieure dans la file d’attente.
-
-> [!Note]
-> La classification de charge de travail est disponible en préversion dans SQL Data Warehouse Gen2. Les informations relatives à l’importance et à la classification de la gestion des charges de travail (préversion) concernent les builds publiées au plus tôt le 9 avril 2019.  Les utilisateurs doivent éviter d’utiliser les builds antérieures à cette date à des fins de test de la gestion des charges de travail.  Pour déterminer si votre build est compatible avec la gestion des charges de travail, exécutez select @@version quand vous êtes connecté à votre instance SQL Data Warehouse.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -33,7 +30,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce guide de démarrage rapide part du principe que vous avez déjà un entrepôt de données SQL ainsi que des autorisations CONTROL DATABASE. Si vous devez en créer un, utilisez la section [Créer et connecter - Portail](create-data-warehouse-portal.md) pour créer un entrepôt de données nommé **mySampleDataWarehouse**.
+Ce démarrage rapide part du principe que vous avez déjà un entrepôt de données SQL ainsi que des autorisations CONTROL DATABASE. Si vous devez en créer un, utilisez la section [Créer et connecter - Portail](create-data-warehouse-portal.md) pour créer un entrepôt de données nommé **mySampleDataWarehouse**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -110,6 +107,6 @@ Suivez ces étapes pour nettoyer les ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez créé un classifieur de charge de travail. Exécutez quelques requêtes avec l’identité TheCEO pour voir comment elles fonctionnent. Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.
-
-Pour plus d’informations sur la gestion de charge de travail SQL Data Warehouse, consultez [Importance de la charge de travail SQL Data Warehouse](sql-data-warehouse-workload-importance.md) et [Classification de la charge de travail SQL Data Warehouse](sql-data-warehouse-workload-classification.md).
+- Vous avez créé un classifieur de charge de travail. Exécutez quelques requêtes avec l’identité TheCEO pour voir comment elles fonctionnent. Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.
+- Pour plus d’informations sur la gestion de charge de travail Azure SQL Data Warehouse, consultez [Importance de la charge de travail](sql-data-warehouse-workload-importance.md) et [Classification de la charge de travail](sql-data-warehouse-workload-classification.md).
+- Consultez les articles qui expliquent comment [Configurer l’importance de la charge de travail](sql-data-warehouse-how-to-configure-workload-importance.md) et comment [Gérer et surveiller la charge de travail](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

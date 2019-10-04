@@ -1,6 +1,6 @@
 ---
 title: Transactions distribuées entre bases de données cloud
-description: Vue d’ensemble des transactions de bases de données élastiques avec la base de données SQL Azure
+description: Vue d’ensemble des transactions de bases de données élastiques avec Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,22 +10,21 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3ca3e9074f28d66068d49b80915e98600759d9be
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901914"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568285"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transactions distribuées entre bases de données cloud
 
-Les transactions de bases de données élastiques pour la base de données SQL Azure (SQL DB) vous permettent d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans SQL DB. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Pour obtenir la bibliothèque, consultez [.NET Framework 4.6.1 (programme d’installation web)](https://www.microsoft.com/download/details.aspx?id=49981).
+Les transactions de bases de données élastiques pour Azure SQL Database (SQL DB) vous permettent d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans SQL DB. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Pour obtenir la bibliothèque, consultez [.NET Framework 4.6.1 (programme d’installation web)](https://www.microsoft.com/download/details.aspx?id=49981).
 
 En local, un tel scénario nécessitait généralement d’exécuter Microsoft Distributed Transaction Coordinator (MSDTC). Étant donné que MSDTC n’est pas disponible pour une application de plateforme en tant que service (PaaS) dans Azure, la fonctionnalité permettant de coordonner les transactions distribuées a maintenant été intégrée directement dans la base de données SQL. Les applications peuvent se connecter à n’importe quelle base de données SQL pour lancer des transactions distribuées, après quoi l’une des base de données coordonnera en toute transparence les transactions distribuées, comme illustré sur la figure suivante. 
 
-  ![Transactions distribuées avec la base de données SQL Azure utilisant les transactions de bases de données élastiques ][1]
+  ![Transactions distribuées avec Azure SQL Database utilisant les transactions de bases de données élastiques ][1]
 
 ## <a name="common-scenarios"></a>Scénarios courants
 
@@ -99,7 +98,7 @@ Les transactions de bases de données élastiques pour la base de données SQL p
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Installation de .NET pour Azure Cloud Services
 
-Azure fournit plusieurs offres pour héberger des applications .NET. Une comparaison des différentes offres est disponible dans la section [Comparaison entre Azure App Service, Cloud Services et Virtual Machines](../app-service/overview-compare.md). Si le SE invité de l'offre est antérieur à la version .NET 4.6.1 requise pour les transactions élastiques, vous devez mettre à niveau le SE invité vers la version 4.6.1. 
+Azure fournit plusieurs offres pour héberger des applications .NET. Une comparaison des différentes offres est disponible dans la section [Comparaison entre Azure App Service, Cloud Services et Virtual Machines](/azure/architecture/guide/technology-choices/compute-decision-tree). Si le SE invité de l'offre est antérieur à la version .NET 4.6.1 requise pour les transactions élastiques, vous devez mettre à niveau le SE invité vers la version 4.6.1. 
 
 Pour Azure App Services, les mises à niveau du SE invité ne sont actuellement pas prises en charge. Pour Azure Virtual Machines, connectez-vous à la machine virtuelle et exécutez le programme d'installation du .NET Framework le plus récent. Pour Azure Cloud Services, vous devez inclure l'installation d'une version plus récente de .NET dans les tâches de démarrage de votre déploiement. Les concepts et les étapes sont documentés dans [Installer .NET sur un rôle de service cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
@@ -128,15 +127,15 @@ Notez que le programme d'installation pour .NET 4.6.1 peut nécessiter plus de 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Les transactions de base de données élastique sont prises en charge sur différents serveurs SQL Database dans Azure SQL Database. Lorsque les transactions franchissent les limites du serveur SQL Database, les serveurs participants doivent d’abord entrer dans une relation de communication mutuelle. Une fois la relation de communication établie, n’importe quelle base de données de n’importe lequel des deux serveurs peut participer à des transactions élastiques avec des bases de données de l'autre serveur. Lorsque les transactions couvrent plus de deux serveurs SQL Database, une relation de communication doit être mise en place pour toutes les paires de serveurs SQL Database.
 
 Pour gérer les relations de communication entre serveurs pour les transactions de bases de données élastiques, utilisez les applets de commande PowerShell suivants :
 
-* **New-AzSqlServerCommunicationLink**: Utilisez cette cmdlet pour créer une nouvelle relation de communication entre deux serveurs SQL Database dans Azure SQL Database. La relation est symétrique, ce qui signifie que chacun des deux serveurs peut initier des transactions avec l'autre serveur.
-* **Get-AzSqlServerCommunicationLink**: Utilisez ce cmdlet pour extraire les relations de communication existantes et leurs propriétés.
-* **Remove-AzSqlServerCommunicationLink**: Utilisez ce cmdlet pour supprimer une relation de communication existante. 
+* **New-AzSqlServerCommunicationLink** : Utilisez cette applet de commande pour créer une nouvelle relation de communication entre deux serveurs SQL Database dans Azure SQL Database. La relation est symétrique, ce qui signifie que chacun des deux serveurs peut initier des transactions avec l'autre serveur.
+* **Get-AzSqlServerCommunicationLink** : Utilisez ce cmdlet pour extraire les relations de communication existantes et leurs propriétés.
+* **Remove-AzSqlServerCommunicationLink** : Utilisez ce cmdlet pour supprimer une relation de communication existante. 
 
 ## <a name="monitoring-transaction-status"></a>Surveillance de l’état de transaction
 
@@ -152,7 +151,7 @@ Les vues de gestion dynamique ci-dessous sont particulièrement utiles :
 
 Les limites suivantes s’appliquent actuellement aux transactions de bases de données élastiques dans la base de données SQL :
 
-* Seules les transactions entre les bases de données dans SQL DB sont prises en charge. Les autres fournisseurs de ressources [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) et les bases de données résidant à l’extérieur de SQL DB ne peuvent pas participer aux transactions de bases de données élastiques. Cela signifie que les transactions de bases de données élastiques ne peuvent pas s’étendre sur des bases de données SQL Server et SQL Azure locales. Pour les transactions distribuées en local, continuez à utiliser MSDTC. 
+* Seules les transactions entre les bases de données dans SQL DB sont prises en charge. Les autres fournisseurs de ressources [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) et les bases de données résidant à l’extérieur de SQL DB ne peuvent pas participer aux transactions de bases de données élastiques. Cela signifie que les transactions de bases de données élastiques ne peuvent pas s’étendre sur une base de données Azure SQL et SQL Server locale. Pour les transactions distribuées en local, continuez à utiliser MSDTC. 
 * Seules les transactions coordonnées par le client à partir d’une application .NET sont prises en charge. La prise en charge côté serveur de T-SQL, comme BEGIN DISTRIBUTED TRANSACTION, est planifiée, mais pas encore disponible. 
 * Les transactions entre les services WCF ne sont pas prises en charge. Par exemple, vous disposez d’une méthode de service WCF qui exécute une transaction. L’inclusion de l’appel dans une étendue de transaction échouera en levant l’exception [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 

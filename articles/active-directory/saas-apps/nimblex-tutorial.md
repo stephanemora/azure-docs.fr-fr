@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cd7199e94a58b3f0c121a0fd9401bff94406ed84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275626"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Didacticiel : Intégration d’Azure Active Directory à Nimblex
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Nimblex à Azure AD, vous devez ajouter Nimb
 
 **Pour ajouter Nimblex à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

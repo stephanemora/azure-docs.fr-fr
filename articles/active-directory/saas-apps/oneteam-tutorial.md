@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f12a4973f2c3427d9d44de625f9e987e836d4b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 195fa26a38d89d9ef738e6060ff7dab602d5c234
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272612"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095906"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Didacticiel : Intégration d’Azure Active Directory à Oneteam
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Oneteam à Azure AD, vous devez ajouter Onet
 
 **Pour ajouter Oneteam à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

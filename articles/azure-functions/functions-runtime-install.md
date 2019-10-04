@@ -6,16 +6,15 @@ author: apwestgarth
 manager: stefsch
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 0fbc76f3cb3fea84347ef55e40e1b2bed9b98152
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547543"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085493"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installer la préversion 2 du runtime Azure Functions
 
@@ -30,7 +29,7 @@ Si vous souhaitez installer la préversion 2 du runtime d’Azure Functions, su
 1. Terminez la configuration de la préversion 2 du runtime Azure Functions.
 1. Créer votre première fonction dans la préversion du runtime Azure Functions
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant d’installer la version préliminaire du runtime d’Azure Functions, vous devez disposer des ressources suivantes :
 
@@ -104,13 +103,13 @@ Pour terminer l’installation du runtime d’Azure Functions, vous devez termin
 
 Pour créer votre première fonction dans la préversion du runtime Azure Functions
 
-1. Accédez à la **portail du Runtime Azure Functions** comme `https://<machinename>.<domain>` par exemple `https://mycomputer.mydomain.com`.
+1. Accédez au **portail du runtime d’Azure Functions**, dont l’adresse est au format `https://<machinename>.<domain>` (par exemple, `https://mycomputer.mydomain.com`).
 
 1. Vous êtes invité à vous **connecter**. Avec un déploiement dans un domaine, utilisez le nom d'utilisateur et le mot de passe de votre compte de domaine. Sinon, utilisez le nom d'utilisateur et le mot de passe de votre compte local pour vous connecter au portail.
 
     ![Connexion au portail de la préversion du runtime Azure Functions][14]
 
-1. Pour créer des applications de fonction, vous devez créer un abonnement.  Dans le coin supérieur gauche du portail, cliquez sur le **+** option en regard des abonnements.
+1. Pour créer des applications de fonction, vous devez créer un abonnement.  Dans l’angle supérieur gauche du portail, cliquez sur l’option **+** en regard des abonnements.
 
     ![Abonnements du portail de la préversion du runtime Azure Functions][15]
 
@@ -118,7 +117,7 @@ Pour créer votre première fonction dans la préversion du runtime Azure Funct
 
     ![Plan et nom de l'abonnement du portail de la préversion du runtime Azure Functions][16]
 
-1. Toutes vos applications de fonction sont répertoriées dans le volet gauche du portail.  Pour créer une application de fonction, sélectionnez l'en-tête **Applications de fonction**, puis cliquez sur l'option **+**.
+1. Toutes vos applications de fonction sont répertoriées dans le volet gauche du portail.  Pour créer une application de fonction, sélectionnez l'en-tête **Applications de fonction**, puis cliquez sur l'option **+** .
 
 1. Entrez un nom pour votre application de fonction, sélectionnez l'abonnement approprié, choisissez la version du runtime Azure Functions pour la programmation, puis cliquez sur **Créer**
 

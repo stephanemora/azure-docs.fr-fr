@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Comm100 Live Chat | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Comm100 Live Chat | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Comm100 Live Chat.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 203c082275dc75a7dcf948eb42a383300955f355
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a03b185f6df5e32012883d210d684ec08b119019
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858097"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105024"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Tutoriel : Intégration d’Azure Active Directory à Comm100 Live Chat
+# <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Didacticiel : Intégration d’Azure Active Directory à Comm100 Live Chat
 
 Dans ce didacticiel, vous allez apprendre à intégrer Comm100 Live Chat à Azure Active Directory (Azure AD).
 L’intégration de Comm100 Live Chat à Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Comm100 Live Chat avec Azure AD, vous devez 
 
 **Pour ajouter Comm100 Live Chat à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -196,7 +196,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

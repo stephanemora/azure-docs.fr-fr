@@ -3,15 +3,15 @@ title: Guide pratique pour modéliser et partitionner des données sur Azure Cos
 description: Découvrez comment modéliser et partitionner un exemple concret à l’aide de l’API de base d’Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 3/27/2019
+ms.topic: conceptual
+ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 55290b88fedabe59417ea49f1cd3c3bc9961678d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919892"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093415"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Guide pratique pour modéliser et partitionner des données sur Azure Cosmos DB à l’aide d’un exemple concret
 
@@ -140,7 +140,7 @@ La récupération d’un utilisateur s’effectue en lisant l’élément corres
 
 ### <a name="c2-createedit-a-post"></a>[C2] Créer/modifier une publication
 
-Similaire à **[C1]**, il suffit d’écrire dans le conteneur `posts`.
+Similaire à **[C1]** , il suffit d’écrire dans le conteneur `posts`.
 
 ![Écriture d’un seul élément dans le conteneur de publications](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -199,7 +199,7 @@ La requête principale filtre les données sur la clé de partition du conteneur
 
 ### <a name="c4-like-a-post"></a>[C4] Ajouter une mention « j’aime » à une publication
 
-Tout comme pour **[C3]**, nous créons l’élément correspondant dans le conteneur `posts`.
+Tout comme pour **[C3]** , nous créons l’élément correspondant dans le conteneur `posts`.
 
 ![Écriture d’un seul élément dans le conteneur de publications](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -209,7 +209,7 @@ Tout comme pour **[C3]**, nous créons l’élément correspondant dans le conte
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Lister les mentions « j’aime » d’une publication
 
-Tout comme pour **[Q4]**, nous interrogeons les mentions « j’aime » de la publication, puis agrégeons leurs noms d’utilisateur.
+Tout comme pour **[Q4]** , nous interrogeons les mentions « j’aime » de la publication, puis agrégeons leurs noms d’utilisateur.
 
 ![Récupération de toutes les mentions « j’aime » d’une publication et agrégation des données supplémentaires](./media/how-to-model-partition-example/V1-Q5.png)
 
@@ -282,7 +282,7 @@ Nous allons également modifier chaque élément de commentaire et de mention «
 
 Notre objectif est que, chaque fois que nous ajoutons un commentaire ou une mention « j’aime », nous incrémentions également `commentCount` ou `likeCount` dans la publication correspondante. Comme notre conteneur `posts` est partitionné par `postId`, le nouvel élément (commentaire ou mention « j’aime ») et la publication correspondante figurent dans la même partition logique. Par conséquent, nous pouvons utiliser une [procédure stockée](stored-procedures-triggers-udfs.md) pour effectuer cette opération.
 
-À présent, lors de la création d’un commentaire (**[C3]**), au lieu d’ajouter simplement un nouvel élément dans le conteneur `posts`, nous appelons la procédure stockée suivante sur ce conteneur :
+À présent, lors de la création d’un commentaire ( **[C3]** ), au lieu d’ajouter simplement un nouvel élément dans le conteneur `posts`, nous appelons la procédure stockée suivante sur ce conteneur :
 
 ```javascript
 function createComment(postId, comment) {
@@ -396,7 +396,7 @@ La situation est exactement la même lors de l’énumération des mentions « 
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3 : S’assurer que toutes les demandes sont évolutives
 
-En examinant les améliorations de nos performances globales, nous constatons qu’il reste deux demandes que nous n’avons pas complètement optimisées : **[Q3]** et **[Q6]**. Ce sont les demandes impliquant des requêtes qui ne filtrent pas les données sur la clé de partition des conteneurs ciblés.
+En examinant les améliorations de nos performances globales, nous constatons qu’il reste deux demandes que nous n’avons pas complètement optimisées : **[Q3]** et **[Q6]** . Ce sont les demandes impliquant des requêtes qui ne filtrent pas les données sur la clé de partition des conteneurs ciblés.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Lister les publications d’un utilisateur sous forme abrégée
 
@@ -574,5 +574,5 @@ Le flux de modification que nous utilisons pour distribuer des mises à jour aux
 Après cette introduction à la modélisation et au partitionnement des données pratiques, vous pouvez consulter les articles suivants pour passer en revue les concepts que nous avons abordés :
 
 - [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md)
-- [Partitionnement dans Azure Cosmos DB](partitioning-overview.md)
-- [Flux de modification dans Azure Cosmos DB](change-feed.md)
+- [Partitioning in Azure Cosmos DB](partitioning-overview.md) (Partitionnement dans Azure Cosmos DB)
+- [Flux de modification dans Azure Cosmos DB](change-feed.md)

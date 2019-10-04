@@ -1,5 +1,5 @@
 ---
-title: Filtrage, classement, la pagination des entités Media Services - Azure | Microsoft Docs
+title: Filtrage, classement et pagination des d’entités Media Services – Azure | Microsoft Docs
 description: Cet article décrit le filtrage, le classement et la pagination d’entités Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 28c880e8709074d808a41d9920361eaa2b20ecc4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496571"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60732363"
 ---
 # <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 

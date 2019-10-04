@@ -1,5 +1,5 @@
 ---
-title: Entité prédéfinie geographyV2
+title: Entité prédéfinie geographyV2 - LUIS
 titleSuffix: Azure Cognitive Services
 description: Cet article contient des informations sur l’entité prédéfinie geographyV2 dans Language Understanding (LUIS).
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: conceptual
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 17f612f2ee6c7d27dcec9f72ed3df1ed418eb3d2
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.openlocfilehash: e28b541c1b5aa8f733c9f4ed44fd2ea5296b34d8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961603"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933538"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie geographyV2 pour une application LUIS
 L’entité prédéfinie geographyV2 détecte les emplacements géographiques. Étant donné que cette entité est déjà entraînée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant geographyV2 aux intentions de l’application. L’entité geographyV2 est prise en charge pour la [culture](luis-reference-prebuilt-entities.md) Anglais.
@@ -34,6 +34,9 @@ Les emplacements géographiques ont des sous-types :
 
 
 ## <a name="resolution-for-geographyv2-entity"></a>Résolution de l’entité geographyV2
+
+### <a name="api-version-2x"></a>API version 2.x
+
 L’exemple suivant montre la résolution de l’entité **builtin.geographyV2**.
 
 ```json
@@ -88,6 +91,104 @@ L’exemple suivant montre la résolution de l’entité **builtin.geographyV2**
         }
     ]
 } 
+```
+
+### <a name="preview-api-version-3x"></a>API 3.x en préversion
+
+Le code JSON suivant a le paramètre `verbose` défini sur `false` :
+
+```json
+{
+    "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+    "prediction": {
+        "normalizedQuery": "carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.5115521
+            }
+        },
+        "entities": {
+            "geographyV2": [
+                "the sphinx",
+                "gizah",
+                "egypt",
+                "africa",
+                "texas"
+            ]
+        }
+    }
+}
+```
+
+Le code JSON suivant a le paramètre `verbose` défini sur `true` :
+
+```json
+{
+    "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+    "prediction": {
+        "normalizedQuery": "carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.5115521
+            }
+        },
+        "entities": {
+            "geographyV2": [
+                "the sphinx",
+                "gizah",
+                "egypt",
+                "africa",
+                "texas"
+            ],
+            "$instance": {
+                "geographyV2": [
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "the sphinx",
+                        "startIndex": 18,
+                        "length": 10,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "gizah",
+                        "startIndex": 32,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "egypt",
+                        "startIndex": 38,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "africa",
+                        "startIndex": 47,
+                        "length": 6,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "texas",
+                        "startIndex": 72,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

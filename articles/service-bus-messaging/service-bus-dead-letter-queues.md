@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: afa2e6e46579d9ce2906e2686cf40adf4b65ab2b
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733312"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516597"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
 
@@ -49,7 +49,7 @@ Les applications peuvent définir leurs propres codes pour la propriété `DeadL
 | !TopicDescription.<br />EnableFilteringMessagesBeforePublishing et SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Le message a expiré et a été placé dans la file d’attente de lettres mortes. |
 | SubscriptionDescription.RequiresSession |L’ID de session a la valeur null. |L’entité activée dans la session n’autorise pas les messages dont l’identificateur de session a la valeur null. |
-| !dead letter queue |MaxTransferHopCountExceeded |Null |
+| !dead letter queue | MaxTransferHopCountExceeded | Nombre maximal de sauts autorisés lors du transfert entre files d’attente. La valeur est définie sur 4. |
 | Mise en file d’attente de lettres mortes explicite par l’application |Spécifié par l’application |Spécifié par l’application |
 
 ## <a name="exceeding-maxdeliverycount"></a>Dépassement de MaxDeliveryCount
@@ -102,6 +102,17 @@ while(true)
     }
 }
 ```
+
+## <a name="path-to-the-dead-letter-queue"></a>Chemin d’accès à la file d’attente de lettres mortes
+Vous pouvez accéder à la file d’attente de lettres mortes à l’aide de la syntaxe suivante :
+
+```
+<queue path>/$deadletterqueue
+<topic path>/Subscriptions/<subscription path>/$deadletterqueue
+```
+
+Si vous utilisez le kit SDK .NET, vous pouvez obtenir le chemin d’accès à la file d’attente de lettres mortes au moyen de la méthode SubscriptionClient.FormatDeadLetterPath(). Cette méthode prend le nom de la rubrique/nom de l’abonnement et ajoute le suffixe **/$DeadLetterQueue**.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

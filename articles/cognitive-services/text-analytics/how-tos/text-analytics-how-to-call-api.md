@@ -1,6 +1,6 @@
 ---
 title: Appeler l’API Text Analytics
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment appeler l’API REST Analyse de texte.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 720a6c57d4f1a6079f78244559a25018349bd378
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 14d3864f654dac42566441b3729de0cf88482295
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011237"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697858"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Comment appeler l’API REST Analyse de texte
 
@@ -28,9 +28,9 @@ Rappelez-vous qu’Analyse de texte étant sans état, il y a pas de ressources 
 > [!Tip]
 > Pour effectuer des appels ponctuels afin d’observer le fonctionnement de l’API, vous pouvez envoyer des demandes POST à partir de la **console de test d’API**, accessible via la [page de documentation de toute API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Aucune installation n’est nécessaire, et les seules exigences sont de coller une clé d’accès et les documents JSON dans la demande. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Vous devez avoir un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec l’API Analyse de texte, ainsi que la [clé du point de terminaison et la clé d’accès](text-analytics-how-to-access-key.md) générées lorsque vous vous inscrivez à Cognitive Services. 
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 <a name="json-schema"></a>
 
@@ -43,7 +43,7 @@ Vous pouvez actuellement envoyer les mêmes documents pour toutes les opération
 | Élément | Valeurs valides | Requis ? | Usage |
 |---------|--------------|-----------|-------|
 |`id` |Les données dont de type chaîne mais, dans la pratique, les ID de document tendent à être des entiers. | Obligatoire | Le système utilise les ID que vous fournissez pour structurer la sortie. Des codes langue, phrases clés et scores de sentiment sont générés pour chaque ID dans la demande.|
-|`text` | Texte brut non structurée, jusqu'à 5 120 caractères. | Obligatoire | Pour la détection de la langue, le texte peut être exprimé dans toute langue. Pour l’analyse des sentiments, l’extraction de phrases clés et l’identification d’entité, le texte doit être dans une [langue prise en charge](../text-analytics-supported-languages.md). |
+|`text` | Texte brut non structuré, jusqu’à 5 120 caractères. | Obligatoire | Pour la détection de la langue, le texte peut être exprimé dans toute langue. Pour l’analyse des sentiments, l’extraction de phrases clés et l’identification d’entité, le texte doit être dans une [langue prise en charge](../text-analytics-supported-languages.md). |
 |`language` | Code [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caractères d’une [langue prise en charge](../text-analytics-supported-languages.md) | Varie | Obligatoire pour l’analyse des sentiments, l’extraction de phrases clés et la liaison d’entité. Facultatif pour la détection de la langue. Son omission ne génère aucune erreur, mais affaiblit l’analyse. Le code de langue doit correspondre au `text` que vous fournissez. |
 
 Pour plus d’informations sur les limites, voir [Vue d’ensemble de l’Analyse de texte > Limites des données](../overview.md#data-limits). 
@@ -84,10 +84,10 @@ Le service accepte une taille de demande jusqu’à 1 Mo. Si vous utilisez Post
   + [Détection de la langue](text-analytics-how-to-language-detection.md)  
   + [Extraction de phrases clés](text-analytics-how-to-keyword-extraction.md)  
   + [Analyse des sentiments](text-analytics-how-to-sentiment-analysis.md)  
-  + [Reconnaissance d’entité](text-analytics-how-to-entity-linking.md)  
+  + [Reconnaissance d’entités](text-analytics-how-to-entity-linking.md)  
 
 
-6. Cliquez sur **Envoyer** pour soumettre la demande. Vous pouvez envoyer jusqu’à 100 demandes par minute. 
+6. Cliquez sur **Envoyer** pour soumettre la demande. Consultez la section [Limites de données](../overview.md#data-limits) dans la vue d’ensemble pour connaître le nombre de demandes que vous pouvez envoyer par minute et seconde.
 
    Dans Postman, la réponse s’affiche dans la fenêtre suivante en-dessous, en tant que document JSON, avec un élément pour chaque ID de document fourni dans la demande.
 

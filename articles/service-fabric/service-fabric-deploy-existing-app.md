@@ -3,7 +3,7 @@ title: Déploiement d’un exécutable existant dans Azure Service Fabric | Micr
 description: Découvrez comment empaqueter une application existante en tant que fichier exécutable invité afin de la déployer sur un cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: aljo
-ms.openlocfilehash: bfac14c598b405a398cad916787aa3312589bfd1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: 575303cc2ec3e880187bac64da06d05721df14e6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669943"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599667"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
 Lors de l’empaquetage d’un fichier exécutable en tant [qu’exécutable invité](service-fabric-guest-executables-introduction.md), vous pouvez choisir d’utiliser un modèle de projet Visual Studio ou de [créer le package d’application manuellement](#manually). À l’aide de Visual Studio, la structure de package d’application et les fichiers manifeste sont créés pour vous par le modèle de nouveau projet.
@@ -73,7 +73,7 @@ Le processus d’empaquetage manuel d’un exécutable invité est basé sur les
 -->
 
 ### <a name="create-the-package-directory-structure"></a>Création de la structure de répertoires du package
-Commencez par créer la structure de répertoire, comme décrit dans [empaqueter une application Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
+Vous pouvez commencer par créer la structure de répertoires, comme décrit dans [Empaqueter une application Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps).
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>Ajout des fichiers de code et de configuration de l’application
 Après avoir créé la structure de répertoires, vous pouvez ajouter les fichiers de code et de configuration de l’application dans les répertoires code et config. Vous pouvez également créer d’autres répertoires ou sous-répertoires dans les répertoires code ou config.

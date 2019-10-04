@@ -1,22 +1,22 @@
 ---
-title: Configurer des conteneurs
-titlesuffix: Face - Azure Cognitive Services
+title: Configurer des conteneurs - API VISAGE
+titleSuffix: Azure Cognitive Services
 description: Paramètres de configuration des conteneurs.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: diberry
-ms.openlocfilehash: 4152cf90d9de2eda15a798fbf6b5b4aa4f5646f7
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.date: 09/18/2019
+ms.author: dapine
+ms.openlocfilehash: a07f088f7f5699a2698c0ea8fb0e853b3d287572
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677780"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101949"
 ---
 # <a name="configure-face-docker-containers"></a>Configurer des conteneurs Docker Visage
 
@@ -31,11 +31,11 @@ L’environnement d’exécution de conteneur **Visage** est configuré à l’a
 
 ## <a name="apikey-configuration-setting"></a>Paramètre de configuration ApiKey
 
-Le paramètre `ApiKey` spécifie la clé de ressource Azure utilisée pour effectuer le suivi des informations de facturation pour le conteneur. Vous devez spécifier une valeur pour la clé API et la valeur doit être une clé valide pour le _Cognitive Services_ ressource spécifiée pour le [ `Billing` ](#billing-configuration-setting) paramètre de configuration.
+Le paramètre `ApiKey` spécifie la clé de ressource Azure utilisée pour effectuer le suivi des informations de facturation pour le conteneur. Vous devez donner une valeur à ApiKey, qui doit être une clé valide pour la ressource _Cognitive Services_ spécifiée dans le paramètre de configuration [`Billing`](#billing-configuration-setting).
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : **COGNITIVE Services** gestion des ressources, sous **clés**
+* Portail Azure : Gestion des ressources **Cognitive Services**, sous **Clés**
 
 ## <a name="applicationinsights-setting"></a>Paramètre ApplicationInsights
 
@@ -43,17 +43,17 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 ## <a name="billing-configuration-setting"></a>Paramètre de configuration Billing
 
-Le `Billing` paramètre spécifie l’URI de point de terminaison de la _Cognitive Services_ ressources sur Azure permet de contrôler les informations de facturation pour le conteneur. Vous devez spécifier une valeur pour ce paramètre de configuration, et la valeur doit être un URI de point de terminaison valide pour un _Cognitive Services_ ressources sur Azure. La conteneur crée des rapports sur l'utilisation toutes les 10 à 15 minutes.
+Le paramètre `Billing` permet de spécifier l’URI de point de terminaison de la ressource _Cognitive Services_ sur Azure servant à effectuer l’analyse des informations de facturation du conteneur. Vous devez donner une valeur à ce paramètre de configuration, qui doit être un URI de point de terminaison valide pour une ressource _Cognitive Services_ dans Azure. Le conteneur crée des rapports sur l’utilisation toutes les 10 à 15 minutes.
 
 Vous trouverez ce paramètre à l’emplacement suivant :
 
-* Portail Azure : **COGNITIVE Services** vue d’ensemble, étiqueté `Endpoint`
+* Portail Azure : Vue d’ensemble **Cognitive Services**, étiquetée `Endpoint`
 
-N’oubliez pas d’ajouter le _Face_ routage vers l’URI de point de terminaison, comme illustré dans l’exemple. 
+Pensez à ajouter le routage _Visage_ à l’URI de point de terminaison, comme dans l’exemple suivant. 
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|Oui| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
 
 <!-- specific to face only -->
 
@@ -138,12 +138,14 @@ Remplacez {_argument_name_} par vos propres valeurs :
 
 | Placeholder | Valeur | Format ou exemple |
 |-------------|-------|---|
-|{BILLING_KEY} | La clé de point de terminaison de la ressource Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | La valeur de point de terminaison facturation, y compris la région et le routage de face.|`https://westcentralus.api.cognitive.microsoft.com/face/v1.0`|
+| **{API_KEY}** | Clé de point de terminaison de la ressource `Face` dans la page Clés `Face` Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | La valeur de point de terminaison de facturation est disponible dans la page Vue d’ensemble Azure `Face`.| Pour obtenir des exemples explicites, consultez [Collecte des paramètres requis](face-how-to-install-containers.md#gathering-required-parameters). |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](face-how-to-install-containers.md#billing).
-> La valeur de clé API est la **clé** à partir d’Azure `Cognitive Services` page clés de ressources. 
+> La valeur ApiKey est la **Clé** de la page Clés des ressources Azure `Cognitive Services`. 
 
 ## <a name="face-container-docker-examples"></a>Exemples Docker de conteneurs Visage
 
@@ -155,8 +157,8 @@ Les exemples Docker suivants s’appliquent au conteneur Visage.
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY} 
+  Billing={ENDPOINT_URI} \
+  ApiKey={API_KEY} 
   ```
 
 ### <a name="logging-example"></a>Exemple de journalisation 
@@ -164,7 +166,7 @@ Les exemples Docker suivants s’appliquent au conteneur Visage.
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
+  Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
 

@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d1cf75d8e678bc5bd3e3036930eea42526194df1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58115808"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177304"
 ---
 ## <a name="create-a-queue-in-the-azure-portal"></a>Créer une file d’attente dans le portail Azure
 1. Dans la page **Espace de noms Service Bus**, sélectionnez **Files d’attente** dans le menu de navigation de gauche.

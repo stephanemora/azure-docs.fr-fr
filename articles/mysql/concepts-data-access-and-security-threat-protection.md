@@ -7,20 +7,20 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 10fa2a409437c8cc48bcd1a674cc3832f086dcf2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795951"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60525979"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure ATP pour Azure Database pour MySQL
 
 La protection avancée contre les menaces d’Azure Database pour MySQL détecte des activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses de vos bases de données.
 
 > [!NOTE]
-> Advanced Threat Protection est en version préliminaire publique.
+> Advanced Threat Protection est disponible en préversion publique.
 
-La protection avancée contre les menaces fait partie de l’offre Advanced Data Security qui est un package unifié de fonctionnalités de sécurité avancées. Advanced Threat Protection peuvent être accessibles et gérée la [Azure portal](https://portal.azure.com) ou à l’aide de [API REST](/rest/api/mysql/serversecurityalertpolicies). La fonctionnalité est disponible pour les serveurs à usage général et à mémoire optimisée.
+La protection avancée contre les menaces fait partie de l’offre Advanced Data Security qui est un package unifié de fonctionnalités de sécurité avancées. Vous pouvez accéder à Advanced Threat Protection et le gérer via le [portail Azure](https://portal.azure.com) ou l’[API REST](/rest/api/mysql/serversecurityalertpolicies). Cette fonctionnalité est disponible pour les serveurs Usage général et Mémoire optimisée.
 
 > [!NOTE]
 > La fonctionnalité Advanced Threat Protection **n’est pas** disponible dans les régions administratives et souveraines suivantes du cloud Azure : US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginie, US DoD Est, US DoD Central, Allemagne Centre, Allemagne Nord, Chine Est, Chine Est 2. Consultez les [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/) pour connaître la disponibilité générale des produits.

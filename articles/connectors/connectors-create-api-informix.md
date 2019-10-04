@@ -12,11 +12,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165898"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60690908"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Prise en main du connecteur Informix
 Microsoft Connector for Informix connecte Logic Apps aux ressources stockées dans une base de données IBM Informix. Le connecteur Informix inclut un client Microsoft permettant de communiquer avec les ordinateurs serveur Informix distants via un réseau TCP/IP. Cela inclut les bases de données cloud, telles que IBM Informix pour Windows en cours d’exécution dans la virtualisation Azure et les bases de données locales utilisant la passerelle de données locale. Consultez la [liste prise en charge](connectors-create-api-informix.md#supported-informix-platforms-and-versions) des plates-formes et versions IBM Informix (dans cette rubrique).
@@ -181,7 +181,7 @@ Vous pouvez créer une action d’application logique pour ajouter une ligne dan
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
 ## <a name="fetch-one-row-using-select"></a>Extraire une ligne à l’aide de l’instruction SELECT
-Vous pouvez créer une action d’application logique pour extraire une ligne dans une table Informix. Cette action indique au connecteur de traiter une instruction SELECT WHERE Informix, telle que `SELECT FROM AREA WHERE AREAID = '99999'`.
+Vous pouvez créer une action d’application logique pour récupérer une ligne dans une table Informix. Cette action indique au connecteur de traiter une instruction SELECT WHERE Informix, telle que `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Créer une application logique
 1. Dans le **Panneau de démarrage Azure**, sélectionnez **+** (signe plus), **Web + mobile**, puis **Application logique**.

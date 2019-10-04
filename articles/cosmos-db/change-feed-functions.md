@@ -4,51 +4,51 @@ description: Utiliser le flux de modification Azure Cosmos DB avec Azure Functio
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 35639dac0eacd5eae04b7848bdbbc1bc30fbf214
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 876fef2b597e9a7dfd896f2b9697378e745a07f3
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680772"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709826"
 ---
-# <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architectures basées sur les événements sans serveur avec Azure Cosmos DB et Azure Functions
+# <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architectures basées sur des événements serverless avec Azure Cosmos DB et Azure Functions
 
-Azure Functions fournit le moyen le plus simple pour vous connecter à la [le flux de modification](). Vous pouvez créer des petites fonctions Azure réactif qui sera déclenché automatiquement sur chaque nouvel événement dans le flux de modification de votre conteneur Azure Cosmos.
+Azure Functions fournit le moyen le plus simple pour vous connecter au [flux de modification](change-feed.md). Vous pouvez créer de petites fonctions Azure Functions réactives qui se déclencheront automatiquement sur chaque nouvel événement dans le flux de modification de votre conteneur Azure Cosmos.
 
-![Fonctions sans serveur basée sur les événements fonctionne avec le déclencheur Azure Cosmos DB](./media/change-feed-functions/functions.png)
+![Fonctions basées sur les événements sans serveur fonctionnant avec le déclencheur Azure Functions pour Cosmos DB](./media/change-feed-functions/functions.png)
 
-Avec le [déclencheur Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), vous pouvez tirer parti du [processeur de flux de modification](./change-feed-processor.md)de mise à l’échelle et la fonctionnalité de détection d’événement fiable sans la nécessité de maintenir les [worker infrastructure](./change-feed-processor.md#implementing-the-change-feed-processor-library). Concentrez-vous sur une logique de votre fonction Azure sans vous soucier du reste du pipeline event sourcing. Vous pouvez même combiner le déclencheur avec n’importe quel autre [liaisons Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings).
+Avec le [déclencheur Azure Functions pour Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), vous pouvez tirer parti de la mise à l’échelle du [processeur de flux de modification](./change-feed-processor.md) et de la fonctionnalité fiable de détection d’événement sans conserver d’[infrastructure Worker](./change-feed-processor.md). Concentrez-vous sur la logique de votre fonction Azure sans vous soucier du reste du pipeline source d’événements. Vous pouvez même combiner le déclencheur avec d’autres [liaisons Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
 > [!NOTE]
-> Actuellement, le déclencheur Azure Cosmos DB est pris en charge pour une utilisation avec le noyau (API SQL) uniquement.
+> Actuellement, le déclencheur Azure Functions pour Cosmos DB est pris en charge avec l’API Core (SQL) uniquement.
 
 ## <a name="requirements"></a>Configuration requise
 
-Pour implémenter un flux basé sur des événements sans serveur, vous devez :
+Pour implémenter un flux serverless basé sur des événements, vous avez besoin des éléments suivants :
 
-* **Conteneur surveillé**: Conteneur surveillé est le conteneur Azure Cosmos en cours d’analyse, et stocke les données à partir de laquelle le flux de modification est généré. Toutes les insertions et les modifications (par exemple, CRUD) au conteneur surveillé sont répercutées dans le flux de modification du conteneur.
-* **Le conteneur de bail**: Le conteneur de bail gère l’état entre plusieurs et les instances de Azure Function sans serveur dynamique et permet la mise à l’échelle dynamique. Ce conteneur de bail peut être créé manuellement ou automatiquement par le Trigger.To de base de données Azure Cosmos automatiquement créer le conteneur de bail, définissez la *CreateLeaseCollectionIfNotExists* indicateur dans le [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Conteneurs de bail partitionnées sont nécessaires pour avoir un `/id` définition de la clé de partition.
+* **Conteneur supervisé :** le conteneur supervisé désigne le conteneur Azure Cosmos actuellement supervisé. Il stocke les données à partir desquelles le flux de modification est généré. Toutes les insertions et les modifications (par exemple, CRUD) apportées au conteneur supervisé sont répercutées dans le flux de modification du conteneur.
+* **Conteneur de baux** : le conteneur de baux gère l’état entre plusieurs instances de fonction Azure serverless dynamiques et permet une mise à l’échelle dynamique. Ce conteneur de bail peut être créé manuellement ou automatiquement par le déclencheur Azure Functions pour Cosmos DB. Pour créer automatiquement le conteneur de bail, définissez l'indicateur *CreateLeaseCollectionIfNotExists* dans la [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Les conteneurs de baux partitionnés sont nécessaires pour avoir une définition de clé de partition `/id`.
 
-## <a name="create-your-azure-cosmos-db-trigger"></a>Créer votre déclencheur de base de données Azure Cosmos
+## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Créer votre déclencheur Azure Functions pour Cosmos DB
 
-Création de votre fonction Azure avec un déclencheur Azure Cosmos DB est maintenant pris en charge sur tous les IDE de fonctions Azure et les intégrations de CLI :
+La création de votre fonction Azure avec un déclencheur Azure Functions pour Cosmos DB est désormais prise en charge sur toutes les intégrations de l’interface de commande Azure Functions IDE et CLI :
 
-* [Extension Visual Studio](../azure-functions/functions-develop-vs.md) pour les utilisateurs de Visual Studio.
-* [Extension de Visual Studio Core](https://code.visualstudio.com/tutorials/functions-extension/create-function) pour les utilisateurs de Visual Studio Code.
-* Et enfin [outils Core CLI](../azure-functions/functions-run-local.md#create-func) pour une expérience d’agnostique IDE inter-plateformes.
+* [Extension Visual Studio](../azure-functions/functions-develop-vs.md) pour les utilisateurs Visual Studio.
+* [Extension Visual Studio Core](/azure/javascript/tutorial-vscode-serverless-node-01) pour les utilisateurs Visual Studio Code.
+* Et enfin [outils Core CLI](../azure-functions/functions-run-local.md#create-func) pour une expérience sans dépendance d’IDE multiplateforme.
 
-## <a name="run-your-azure-cosmos-db-trigger-locally"></a>Exécution locale de votre déclencheur Azure Cosmos DB
+## <a name="run-your-trigger-locally"></a>Exécuter votre déclencheur localement
 
-Vous pouvez exécuter votre [Azure Function localement](../azure-functions/functions-develop-local.md) avec la [émulateur Azure Cosmos DB](./local-emulator.md) pour créer et développer vos flux en fonction des événements sans serveur sans un abonnement Azure et sans frais.
+Vous pouvez exécuter votre [fonction Azure localement](../azure-functions/functions-develop-local.md) avec l’[émulateur Azure Cosmos DB](./local-emulator.md) pour créer et développer vos flux basés sur les événements serverless sans abonnement Azure et sans frais.
 
-Si vous souhaitez tester les scénarios en direct dans le cloud, vous pouvez [essai gratuit de Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sans carte de crédit ou abonnement Azure requis.
+Si vous souhaitez tester des scénarios en direct dans le cloud, vous pouvez [tester gratuitement Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) sans carte de crédit ni abonnement Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez maintenant continuer à en savoir plus sur les flux de modification dans les articles suivants :
+Pour plus d’informations sur le flux de modification, consultez les articles suivants :
 
 * [Présentation du flux de modification](change-feed.md)
 * [Manières de lire le flux de modification](read-change-feed.md)

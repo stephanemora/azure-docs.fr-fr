@@ -4,63 +4,80 @@ description: Références SKU pour SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b80f872c82061c0cb87f4f1e2714183e71cf02cd
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 987f84301608129075b55769f886912ec2354cbb
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448124"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099902"
 ---
 # <a name="available-skus-for-hli"></a>Références SKU disponibles pour HLI
 
-Le service SAP HANA sur Azure (grandes instances) est disponible dans plusieurs configurations pour les régions Azure USA Ouest, USA Est, Australie Est, Australie Sud-Est, Europe Ouest, Europe Nord, Japon Est et Japon Ouest.
+Le service SAP HANA sur Azure (Grandes instances) basé sur les tampons Révision 3 est disponible dans plusieurs configurations dans les régions suivantes :
+
+- USA Ouest
+- USA Est
+- Australie Est
+- Sud-Australie Est
+- Europe Ouest
+- Europe Nord
+- Japon Est
+- OuJapon Est
+
+Le service SAP HANA sur Azure (Grandes instances) basé sur des tampons Révision 4 est disponible dans plusieurs configurations dans les régions suivantes :
+
+- USA Ouest 2
+- USA Est
+- Europe Ouest
+- Europe Nord
+
+
 
 Liste des [Références SKU certifiées SAP HANA des grandes instances HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) telles que :
 
 | Solution SAP | UC | Mémoire | Stockage | Disponibilité |
 | --- | --- | --- | --- | --- |
-| Optimisé pour OLAP : SAP BW, BW/4HANA<br /> ou SAP HANA pour les charges de travail OLAP génériques | SAP HANA sur Azure S72<br /> - 2 x processeurs Intel® Xeon® E7-8890 v3<br /> 36 cœurs et 72 threads d’UC |  768 Go |  3 To | Plus proposé |
-| --- | SAP HANA sur Azure S144<br /> - 4 x processeurs Intel® Xeon® E7-8890 v3<br /> 72 cœurs et 144 threads d’UC |  1,5 To |  6 To | Plus proposé |
-| --- | SAP HANA sur Azure S192<br /> - 4 x processeurs Intel® Xeon® E7-8890 v4<br /> 96 cœurs et 192 threads d’UC |  2 TO |  8 To | Disponible |
-| --- | SAP HANA sur Azure S384<br /> - 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  4 TO |  16 TO | Disponible |
-| Optimisé pour OLTP : SAP Business Suite<br /> sur SAP HANA ou S/4HANA (OLTP),<br /> OLTP générique | SAP HANA sur Azure S72m<br /> - 2 x processeurs Intel® Xeon® E7-8890 v3<br /> 36 cœurs et 72 threads d’UC |  1,5 To |  6 To | Plus proposé |
-|---| SAP HANA sur Azure S144m<br /> - 4 x processeurs Intel® Xeon® E7-8890 v3<br /> 72 cœurs et 144 threads d’UC |  3 TO |  12 To | Plus proposé |
-|---| SAP HANA sur Azure S192m<br /> - 4 x processeurs Intel® Xeon® E7-8890 v4<br /> 96 cœurs et 192 threads d’UC  |  4 TO |  16 TO | Disponible |
-|---| SAP HANA sur Azure S384m<br /> - 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  6,0 To |  18 To | Disponible |
-|---| SAP HANA sur Azure S384xm<br /> - 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  8,0 To |  22 To |  Disponible |
-|---| SAP HANA sur Azure S576m<br /> - 12 x processeurs Intel® Xeon® E7-8890 v4<br /> 288 cœurs et 576 threads d’UC |  12,0 To |  28 To | Disponible |
-|---| SAP HANA sur Azure S768m<br /> - 16 x processeurs Intel® Xeon® E7-8890 v4<br /> 384 cœurs et 768 threads d’UC |  16,0 To |  36 To | Disponible |
-|---| SAP HANA sur Azure S960m<br /> - 20 x processeurs Intel® Xeon® E7-8890 v4<br /> 480 cœurs et 960 threads d’UC |  20,0 To |  46 To | Disponible |
+| Optimisé pour OLAP : SAP BW, BW/4HANA<br /> ou SAP HANA pour les charges de travail OLAP génériques | SAP HANA sur Azure S72<br /> \- 2 x processeurs Intel® Xeon® E7-8890 v3<br /> 36 cœurs et 72 threads d’UC |  768 Go |  3 To | Plus proposé |
+| --- | SAP HANA sur Azure S144<br /> \- 4 x processeurs Intel® Xeon® E7-8890 v3<br /> 72 cœurs et 144 threads d’UC |  1,5 To |  6 To | Plus proposé |
+| --- | SAP HANA sur Azure S192<br /> \- 4 x processeurs Intel® Xeon® E7-8890 v4<br /> 96 cœurs et 192 threads d’UC |  2 TO |  8 To | Disponible |
+| --- | SAP HANA sur Azure S384<br /> \- 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  4 TO |  16 TO | Disponible |
+| Optimisé pour OLTP : SAP Business Suite<br /> sur SAP HANA ou S/4HANA (OLTP),<br /> OLTP générique | SAP HANA sur Azure S72m<br /> \- 2 x processeurs Intel® Xeon® E7-8890 v3<br /> 36 cœurs et 72 threads d’UC |  1,5 To |  6 To | Plus proposé |
+|---| SAP HANA sur Azure S144m<br /> \- 4 x processeurs Intel® Xeon® E7-8890 v3<br /> 72 cœurs et 144 threads d’UC |  3 TO |  12 To | Plus proposé |
+|---| SAP HANA sur Azure S192m<br /> \- 4 x processeurs Intel® Xeon® E7-8890 v4<br /> 96 cœurs et 192 threads d’UC  |  4 TO |  16 TO | Disponible |
+|---| SAP HANA sur Azure S384m<br /> \- 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  6,0 To |  18 To | Disponible |
+|---| SAP HANA sur Azure S384xm<br /> \- 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  8,0 To |  22 To |  Disponible |
+|---| SAP HANA sur Azure S576m<br /> \- 12 x processeurs Intel® Xeon® E7-8890 v4<br /> 288 cœurs et 576 threads d’UC |  12,0 To |  28 To | Disponible |
+|---| SAP HANA sur Azure S768m<br /> \- 16 x processeurs Intel® Xeon® E7-8890 v4<br /> 384 cœurs et 768 threads d’UC |  16,0 To |  36 To | Disponible |
+|---| SAP HANA sur Azure S960m<br /> \- 20 x processeurs Intel® Xeon® E7-8890 v4<br /> 480 cœurs et 960 threads d’UC |  20,0 To |  46 To | Disponible |
 
 
-Sous SAP HANA TDIv5, SAP permet un redimensionnement personnalisé et des projets spécifiques au client qui peuvent déboucher sur des configurations de serveur qui ne sont pas répertoriées comme certifiées dans :
+Sous SAP HANA TDIv5, SAP permet un dimensionnement personnalisé et des projets propres au client qui peuvent déboucher sur des configurations de serveur qui ne sont pas répertoriées comme certifiées dans :
 
 - [Appliances certifiées SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
 - [Plateformes IaaS certifiées SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 
-Dans bien des cas, ces configurations de serveur propres au client comportent plus de mémoire que les unités de serveur certifiées pour SAP. Lorsqu’ils travaillent avec SAP, les clients ont bien la possibilité de recourir au support technique SAP pour faire certifier leurs configurations de serveur aux tailles spécifiques du client. Dans Azure, les références SKU standard des grandes instances HANA suivantes sont disponibles, et affichées dans les tarifs Microsoft pour de tels projets TDIv5 de redimensionnement propre au client.
+Dans bien des cas, ces configurations de serveur propres au client comportent plus de mémoire que les unités de serveur certifiées pour SAP. Lorsqu’ils travaillent avec SAP, les clients ont bien la possibilité de recourir au support technique SAP pour faire certifier leurs configurations de serveur aux tailles spécifiques du client. Dans Azure, les références SKU standard des grandes instances HANA suivantes sont disponibles, et affichées dans les tarifs Microsoft pour de tels projets TDIv5 de dimensionnement propre au client.
 
 | SKU|UC | Mémoire | Stockage | Disponibilité |
 | ---| --- | --- | --- | --- |
-| S96 | SAP HANA sur Azure S96<br /> - 2 x processeurs Intel® Xeon® E7-8890 v4<br /> 48 cœurs et 96 threads d’UC |  768 Go |  3 To | Disponible |
+| S96 | SAP HANA sur Azure S96<br /> \- 2 x processeurs Intel® Xeon® E7-8890 v4<br /> 48 cœurs et 96 threads d’UC |  768 Go |  3 To | Disponible |
 
 
 | Référence SKU d’origine qui peut être <br /> étendue dans la mémoire | UC | Mémoire | Stockage | Disponibilité |
 | --- | --- | --- | --- | --- |
-| S192m peut être étendue à | SAP HANA sur Azure S192xm<br /> - 4 x processeurs Intel® Xeon® E7-8890 v4<br /> 96 cœurs et 192 threads d’UC |  6,0 To |  16 TO | Disponible |
-| S384xm peut être étendue à | SAP HANA sur Azure S384xxm<br /> - 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  12,0 To |  28 To | Disponible |
-| S576m peut être étendue à | SAP HANA sur Azure S576xm<br /> - 12 x processeurs Intel® Xeon® E7-8890 v4<br /> 288 cœurs et 576 threads d’UC |  18,0 To |  41 To | Disponible |
-| S768m peut être étendue à | SAP HANA sur Azure S768xm<br /> - 16 x processeurs Intel® Xeon® E7-8890 v4<br /> 384 cœurs et 768 threads d’UC |  24,0 To |  56 To | Disponible |
+| S192m peut être étendue à | SAP HANA sur Azure S192xm<br /> \- 4 x processeurs Intel® Xeon® E7-8890 v4<br /> 96 cœurs et 192 threads d’UC |  6,0 To |  16 TO | Disponible |
+| S384xm peut être étendue à | SAP HANA sur Azure S384xxm<br /> \- 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  12,0 To |  28 To | Disponible |
+| S576m peut être étendue à | SAP HANA sur Azure S576xm<br /> \- 12 x processeurs Intel® Xeon® E7-8890 v4<br /> 288 cœurs et 576 threads d’UC |  18,0 To |  41 To | Disponible |
+| S768m peut être étendue à | SAP HANA sur Azure S768xm<br /> \- 16 x processeurs Intel® Xeon® E7-8890 v4<br /> 384 cœurs et 768 threads d’UC |  24,0 To |  56 To | Disponible |
 
 - Cœurs d’unité centrale = somme des cœurs d’UC non multithreads dérivée de la somme des processeurs de l’unité de serveur.
 - Threads d’UC = somme des threads de calcul fournis par les cœurs d’UC multithreads dérivée de la somme des processeurs de l’unité de serveur. La plupart des unités sont configurées par défaut pour utiliser la technologie Hyper-Threading.

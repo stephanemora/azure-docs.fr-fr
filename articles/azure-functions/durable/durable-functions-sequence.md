@@ -6,20 +6,19 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: MT
+ms.openlocfilehash: ee5b18ddc734335ddac2a7d3352de0e4388f445d
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043955"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933254"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Chaînage de fonctions dans Fonctions durables - Exemple de séquence Hello
 
-Un chaînage de fonctions fait référence au modèle d’exécution d’une séquence de fonctions dans un ordre particulier. La sortie d’une fonction doit souvent être appliquée à l’entrée d’une autre fonction. Cet article décrit la séquence de chaînage que vous créez quand vous suivez le guide de démarrage rapide de Durable Functions ([C#](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Pour plus d'informations sur Durable Functions, consultez [Concepts techniques et modèles Durable Functions](durable-functions-concepts.md).
+Un chaînage de fonctions fait référence au modèle d’exécution d’une séquence de fonctions dans un ordre particulier. La sortie d’une fonction doit souvent être appliquée à l’entrée d’une autre fonction. Cet article décrit la séquence de chaînage que vous créez quand vous suivez le guide de démarrage rapide de Durable Functions ([C#](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Pour plus d’informations sur Durable Functions, consultez [Vue d’ensemble de Durable Functions](durable-functions-overview.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -35,7 +34,7 @@ Les sections suivantes décrivent la configuration et le code utilisés pour les
 > [!NOTE]
 > Les fonctions Durable Functions JavaScript sont disponibles uniquement pour le runtime de Functions 2.x.
 
-## <a name="e1hellosequence"></a>E1_HelloSequence
+## <a name="e1_hellosequence"></a>E1_HelloSequence
 
 ### <a name="functionjson-file"></a>Fichier function.json
 
@@ -72,7 +71,7 @@ Toutes les fonctions d’orchestration JavaScript doivent inclure le module [`du
 
 L’objet `context` contient un objet `df` qui vous permet d’appeler d’autres fonctions d’*activité* et de passer les paramètres d’entrée à l’aide de sa méthode `callActivity`. Le code appelle `E1_SayHello` trois fois à la suite avec différentes valeurs de paramètre, en se servant de `yield` pour indiquer que l’exécution doit attendre les appels de fonction d’activité asynchrones à renvoyer. La valeur renvoyée de chaque appel est ajoutée à la liste `outputs`, qui est retournée à la fin de la fonction.
 
-## <a name="e1sayhello"></a>E1_SayHello
+## <a name="e1_sayhello"></a>E1_SayHello
 
 ### <a name="functionjson-file"></a>Fichier function.json
 
@@ -142,7 +141,7 @@ Comme vous pouvez le voir, le `runtimeStatus` de l’instance est *Terminé* et 
 > [!NOTE]
 > Le point de terminaison HTTP POST qui a démarré la fonction d’orchestrateur est implémenté dans l’application exemple en tant que fonction de déclenchement HTTP nommée « HttpStart ». Vous pouvez implémenter une logique de démarrage similaire pour d’autres types de déclenchement, comme `queueTrigger`, `eventHubTrigger`, ou `timerTrigger`.
 
-Examinez les journaux d’activité d’exécution de fonction. La fonction `E1_HelloSequence` démarrée et terminée plusieurs fois en raison du comportement de relecture décrit dans le [Vue d’ensemble](durable-functions-concepts.md). En revanche, il n’y a eu que trois exécutions de `E1_SayHello` étant donné que les exécutions de la fonction ne sont pas relues.
+Examinez les journaux d’activité d’exécution de fonction. La fonction `E1_HelloSequence` a démarré et s’est terminée plusieurs fois en raison du comportement de relecture décrit dans la rubrique sur la [fiabilité de l’orchestration](durable-functions-orchestrations.md#reliability). En revanche, il n’y a eu que trois exécutions de `E1_SayHello` étant donné que les exécutions de la fonction ne sont pas relues.
 
 ## <a name="visual-studio-sample-code"></a>Exemple de code Visual Studio
 

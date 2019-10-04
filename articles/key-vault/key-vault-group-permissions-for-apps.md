@@ -2,23 +2,19 @@
 title: Accorder à plusieurs applications l’autorisation d’accéder à un coffre de clés Azure - Azure Key Vault | Microsoft Docs
 description: Découvrez comment accorder à plusieurs applications l'autorisation d'accéder à un coffre de clés
 services: key-vault
-documentationcenter: ''
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 187d455003cf8b1c9402e24755c5f15b703cd9ad
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 07ee544057ffeb0a5859cc771b124523ec79c9c0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114397"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976397"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>Accorder l’accès à un coffre de clés à plusieurs applications
 

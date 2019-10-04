@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 6d18cce06a249958e67ca07859a7cc058e2fba45
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56751758"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176787"
 ---
-Pour nettoyer correctement après une mise en production de la session toutes les références.
+Pour nettoyer correctement après une session, libérez toutes les références.

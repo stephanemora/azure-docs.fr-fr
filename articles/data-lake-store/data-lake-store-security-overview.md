@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60195248"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sécurité dans Azure Data Lake Storage Gen1
 Un grand nombre d’entreprises tirent parti de l’analyse du Big Data pour bénéficier d’informations métier afin de prendre des décisions éclairées. Une organisation peut évoluer dans un environnement complexe et réglementé, avec un nombre croissant d’utilisateurs divers. Il est essentiel pour une entreprise de garantir que les données métier critiques sont stockées de manière plus sécurisée, avec le niveau d’accès adéquat pour chaque utilisateur. Azure Data Lake Storage Gen1 vous permet de respecter ces exigences de sécurité. Dans cet article, découvrez les fonctionnalités de sécurité de Data Lake Storage Gen1, notamment :
@@ -98,7 +98,7 @@ Pour les pistes d’audit de gestion des comptes, affichez et choisissez les col
 Pour plus d’informations sur l’utilisation des journaux d’activité, consultez [Afficher les journaux d’activité pour auditer les actions sur les ressources](../azure-resource-manager/resource-group-audit.md).
 
 ### <a name="diagnostics-logs"></a>Journaux de diagnostics
-Vous pouvez activer l’audit des accès aux données et la journalisation des diagnostics dans le portail Azure et envoyer les journaux à un compte de stockage Blob Azure, un concentrateur d’événements ou journaux Azure Monitor.
+Vous pouvez activer l’audit d’accès aux données et la journalisation des diagnostics dans le Portail Azure et envoyer des journaux à un compte de stockage Blob Azure, à Event Hub ou à des journaux Azure Monitor.
 
 ![Journaux de diagnostic](./media/data-lake-store-security-overview/diagnostic-logs.png "Journaux de diagnostic")
 

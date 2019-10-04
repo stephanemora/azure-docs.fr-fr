@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 02/15/2019
+ms.date: 05/19/2019
 ms.author: juliako
-ms.openlocfilehash: f4ce64599aad2b2eebbef6ca8d81acfca2a7a702
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f2cb2e2ee6393a59125ee879f2058516eb50d6b1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342505"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65956708"
 ---
 # <a name="create-an-azure-media-services-account"></a>Créer un compte Azure Media Services
 
@@ -46,7 +46,9 @@ az account set --subscription mySubscriptionId
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Diffuser un fichier](stream-files-dotnet-quickstart.md)
+* [Accéder aux API v3](access-api-cli-how-to.md)
+* [Diffuser un fichier](stream-files-dotnet-quickstart.md)
+* [Attacher un stockage secondaire à un compte Media Services](https://docs.microsoft.com/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)
 
 ## <a name="see-also"></a>Voir aussi
 

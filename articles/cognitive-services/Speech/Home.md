@@ -3,20 +3,20 @@ title: Service Microsoft Bing Speech | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Utilisez l’API Microsoft Speech pour ajouter des actions vocales à vos applications, y compris une interaction en temps réel avec les utilisateurs.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d2c7211831658a18e65e04aa753607f4eb22dac8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: ff9de2557583eecd5ddb2acd97b445a93abc5fb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673186"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966645"
 ---
 # <a name="what-is-bing-speech"></a>Quelle est la Reconnaissance vocale Bing ?
 
@@ -36,10 +36,10 @@ L’API de reconnaissance vocale Microsoft *transcrit* les flux audio en texte q
 
 | Cas d'utilisation | [API REST](GetStarted/GetStartedREST.md) | [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | Oui | Oui |
-| Convertir un long énoncé (> 15 s) | Non  | Oui |
-| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non  | Oui |
-| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non  | Oui |
+| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | OUI | OUI |
+| Convertir un long énoncé (> 15 s) | Non | OUI |
+| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non | OUI |
+| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non | OUI |
 
 Quelle que soit l’approche choisie par les développeurs (API REST ou bibliothèques clientes), le service Microsoft Speech prend en charge les éléments suivants :
 

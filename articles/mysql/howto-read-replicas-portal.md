@@ -5,19 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 52f192a179c02e63c394401cce82b51fbe96e92d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.date: 09/04/2019
+ms.openlocfilehash: 275c7bc8127855712c191141ef681526da7c377b
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887265"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309504"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database pour MySQL avec le portail Azure
 
-Dans cet article, vous allez apprendre à créer et à gérer des réplicas en lecture dans la même région Azure comme serveur maître dans le service Azure Database pour MySQL à l’aide du portail Azure. La fonctionnalité est actuellement en préversion publique.
+Dans cet article, vous allez apprendre à créer et à gérer des réplicas en lecture dans le service Azure Database pour MySQL à l’aide du Portail Microsoft Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Un [serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) qui sera utilisé comme serveur maître.
 
@@ -38,9 +38,18 @@ Un serveur réplica en lecture peut être créé en effectuant les étapes suiva
 
    ![Azure Database pour MySQL - Réplication](./media/howto-read-replica-portal/add-replica.png)
 
-5. Entrez un nom pour le serveur réplica, puis cliquez sur **OK** pour confirmer la création du réplica.
+5. Entrez un nom pour le serveur de réplica.
 
-   ![Azure Database pour MySQL - Créer un réplica](./media/howto-read-replica-portal/create-replica.png)
+    ![Azure Database pour MySQL - Nom du réplica](./media/howto-read-replica-portal/replica-name.png)
+
+6. Sélectionnez l’emplacement du serveur de réplica. L’emplacement par défaut est le même que celui du serveur maître.
+
+    ![Azure Database pour MySQL - Emplacement du réplica](./media/howto-read-replica-portal/replica-location.png)
+
+   > [!NOTE]
+   > Pour en savoir plus sur les régions dans lesquelles vous pouvez créer un réplica, consultez l’article [Concepts relatifs aux réplicas en lecture](concepts-read-replicas.md). 
+
+7. Sélectionnez **OK** pour confirmer la création du réplica.
 
 > [!NOTE]
 > Les réplicas en lecture sont créés avec la même configuration de serveur que le serveur maître. La configuration du serveur réplica peut être modifiée après la création de ce dernier. Il est recommandé que la configuration du serveur réplica soit maintenue à des valeurs égales ou supérieures à celles du serveur maître pour garantir que le serveur réplica est à la hauteur du serveur maître.
@@ -115,7 +124,7 @@ Pour supprimer un serveur maître du portail Azure, utilisez les étapes suivant
 
 2. Sous la section **Surveillance** de la barre latérale, sélectionnez **Métriques** :
 
-3. Sélectionnez **Décalage de la réplication en secondes** dans la liste déroulante des métriques disponibles. 
+3. Sélectionnez **Décalage de la réplication en secondes** dans la liste déroulante des métriques disponibles.
 
    ![Sélectionner le décalage de la réplication](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 

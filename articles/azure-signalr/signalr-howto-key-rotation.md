@@ -1,19 +1,19 @@
 ---
-title: Comment effectuer une rotation de clé d’accès pour le Service Azure SignalR
+title: Comment faire pivoter les clés d’accès pour Azure SignalR Service ?
 description: Clarification des raisons pour lesquelles le client doit régulièrement changer les clés d’accès et description de la procédure à suivre dans l’interface utilisateur du portail Azure et dans Azure CLI.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 15b0ff0bbb96e5fa96d81cfa265e83abf749cf85
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 133edc64ac2f858a397a4a184c24497dae8af333
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556661"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565727"
 ---
-# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Comment effectuer une rotation de clé d’accès pour le Service Azure SignalR
+# <a name="how-to-rotate-access-key-for-azure-signalr-service"></a>Comment faire pivoter les clés d’accès pour Azure SignalR Service ?
 
 Chaque instance Azure SignalR Service a une paire de clés d’accès appelées clé primaire et clé secondaire. Ces clés servent à authentifier les clients SignalR au moment des demandes au service. Les clés sont associées à l’URL du point de terminaison de l’instance. Protégez vos clés et changez-les régulièrement. Vous disposez de deux clés d’accès, ce qui signifie que vous pouvez maintenir des connexions à l’aide d’une clé pendant que vous regénérez l’autre clé.
 
@@ -35,7 +35,7 @@ Pour des raisons de sécurité et de conformité, vous devez changer régulière
 
    ![Régénérer les clés](media/signalr-howto-key-rotation/regenerate-keys.png)
 
-Vous pouvez également regénérer les clés à l’aide d’[Azure CLI](/cli/azure/ext/signalr/signalr/key?view=azure-cli-latest#ext-signalr-az-signalr-key-renew).
+Vous pouvez également regénérer les clés à l’aide d’[Azure CLI](/cli/azure/signalr/key?view=azure-cli-latest#az-signalr-key-renew).
 
 ## <a name="update-configurations-with-new-connection-strings"></a>Mettre à jour les configurations avec les nouvelles chaînes de connexion
 

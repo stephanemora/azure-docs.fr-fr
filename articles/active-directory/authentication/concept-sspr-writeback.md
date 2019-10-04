@@ -1,22 +1,22 @@
 ---
-title: Intégration de l’écriture différée de mot de passe local avec Azure AD SSPR - Azure Active Directory
+title: Intégration de la réécriture du mot de passe locale avec la réinitialisation de mot de passe en libre-service Azure AD - Azure Active Directory
 description: Obtenir les mots de passe réécrits au niveau de l’infrastructure AD sur site
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 07069d22d57540c6a16472bc7278821e14f1f18e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313292"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561277"
 ---
 # <a name="what-is-password-writeback"></a>Qu’est-ce que la réécriture du mot de passe ?
 
@@ -42,9 +42,8 @@ La réécriture du mot de passe permet :
 * **La prise en charge de la réécriture du mot de passe lorsqu’un administrateur le réinitialise depuis le portail Azure** : chaque fois qu’un administrateur réinitialise le mot de passe d’un utilisateur dans le [portail Azure](https://portal.azure.com), dès lors que cet utilisateur est fédéré ou qu’il dispose de la synchronisation de mot de passe haché, le mot de passe est réécrit en local. Actuellement, cette fonctionnalité n’est pas prise en charge dans le portail d’administration Office.
 * **L’absence de règles de pare-feu entrantes** : la réécriture de mot de passe utilise un relais Microsoft Azure Service Bus comme canal de communication sous-jacent. Toutes les communications sont sortantes sur le port 443.
 
-> [!Note]
-> Les comptes d’utilisateur qui existent dans des groupes protégés de votre annuaire Active Directory local ne peuvent pas être bénéficier de la réécriture du mot de passe. Les comptes d’administrateur qui existent dans des groupes protégés de votre annuaire AD local peuvent bénéficier de la réécriture du mot de passe. Pour plus d’informations sur les groupes protégés, consultez la page [Comptes et groupes protégés dans Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
->
+> [!NOTE]
+> Les comptes d’administrateur qui existent dans des groupes protégés de votre annuaire AD local peuvent bénéficier de la réécriture du mot de passe. Les administrateurs peuvent changer leur mot de passe dans le cloud, mais ne peuvent pas utiliser la réinitialisation de mot de passe pour réinitialiser un mot de passe oublié. Pour plus d’informations sur les groupes protégés, consultez la page [Comptes et groupes protégés dans Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Conditions de licence pour la réécriture du mot de passe
 
@@ -63,7 +62,6 @@ Pour que vous puissiez utiliser la réécriture du mot de passe, il faut que l�
 
 > [!WARNING]
 > Les plans de licences Office 365 édition autonome *ne prennent pas en charge « les réinitialisation/modification/déverrouillage de mot de passe libre-service avec réécriture locale »* et nécessitent l’un des plans précédents pour que cette fonctionnalité soit opérationnelle.
->
 
 ## <a name="how-password-writeback-works"></a>Fonctionnement de la réécriture du mot de passe
 
@@ -86,14 +84,10 @@ Lorsqu’un utilisateur fédéré ou disposant de la synchronisation du hachage 
    
    Lorsque l’appel provient du cloud, le moteur de synchronisation utilise l’attribut **cloudAnchor** pour rechercher l’objet CS (Connector Space) Azure Active Directory. Il suit ensuite le lien vers l’objet MV, puis le lien vers l’objet Active Directory. Étant donné qu’il peut exister plusieurs objets Active Directory (plusieurs forêts) pour le même utilisateur, le moteur de synchronisation s’appuie sur le lien `Microsoft.InfromADUserAccountEnabled.xxx` pour choisir celui qui convient.
 
-   > [!Note]
-   > Conformément à cette logique, Azure AD Connect doit être en mesure de communiquer avec l’émulateur de contrôleur de domaine principal (PDC) pour que l’écriture différée du mot de passe fonctionne. Si vous avez besoin d’activer cette option manuellement, vous pouvez connecter Azure AD Connect à l’émulateur PDC. Cliquez avec le bouton droit sur les **propriétés** du connecteur de synchronisation Active Directory, puis choisissez de **configurer les partitions d’annuaire**. À partir de là, recherchez la section correspondant aux **paramètres de connexion du contrôleur de domaine** et cochez la case intitulée **only use preferred domain controllers** (utiliser uniquement les contrôleurs de domaine préférés). Même si le contrôleur de domaine préféré n’est pas un émulateur PDC, Azure AD Connect cherche à se connecter au contrôleur de domaine principal pour l’écriture différée du mot de passe.
-
 1. Une fois le compte d’utilisateur trouvé, Une tentative de réinitialiser le mot de passe directement dans la forêt Active Directory appropriée est effectuée.
 1. Si l’opération de définition du mot de passe réussit, l’utilisateur reçoit le message que son mot de passe a été modifié.
    > [!NOTE]
    > Si le hachage de mot de passe de l’utilisateur est synchronisé à Azure AD à l’aide de la synchronisation de hachage de mot de passe, il se peut que la stratégie de mot de passe locale soit plus faible que la stratégie de mot de passe cloud. Dans ce cas, la stratégie locale est appliquée. Cela garantit que votre stratégie locale est appliquée dans le cloud, que vous utilisiez ou non la synchronisation ou la fédération de hachage de mot de passe pour fournir une authentification unique.
-   >
 
 1. Si l’opération de définition du mot de passe échoue, un message d’erreur invite l’utilisateur à réessayer. L’opération peut échouer pour les raisons suivantes :
     * Le service était arrêté.
@@ -166,8 +160,11 @@ Les mots de passe ne sont *pas* réécrits dans les situations suivantes :
 * **Opérations de l’utilisateur final non prises en charge**
    * Tout utilisateur final réinitialisant son mot de passe à l’aide de PowerShell (version 1 ou version 2) ou l’API Azure AD Graph
 * **Opérations de l’administrateur non prises en charge**
-   * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur depuis le [portail de gestion Office](https://portal.office.com)
    * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur à l’aide de PowerShell (version 1 ou version 2) ou l’API Azure AD Graph
+   * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur depuis le [Centre d’administration Microsoft 365](https://admin.microsoft.com)
+
+> [!WARNING]
+> L’utilisation de la case à cocher « L’utilisateur doit changer de mot de passe à la prochaine ouverture de session » dans les outils d’administration d’Active Directory locaux, comme Active Directory Users and Computers ou le Centre d’administration d’Active Directory, n’est pas prise en charge. Lorsque vous modifiez un mot de passe local, ne cochez pas cette option.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

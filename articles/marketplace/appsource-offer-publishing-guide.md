@@ -1,25 +1,18 @@
 ---
-title: Guide de publication des offres AppSource pour la vitrine AppsSource de la place de marché cloud qui inclut Office 365, Dynamics 365, Power BI, Power Apps et Azure
+title: Guide de publication des offres AppSource pour la vitrine AppsSource | Place de marché Azure
 description: Guide pas à pas et listes de contrôle de publication pour la publication d’applications dans la vitrine AppSource pour Office 365, Dynamics 365, Power BI et Power Apps
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter: ''
 author: ellacroi
-manager: nunoc
-editor: ellacroi
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 943f3a4739e5dffb2a7d218bf3a82a4e882538a6
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 38175bd2365ee9ab7246f0d967c364912efda37d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075666"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935699"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Guide de publication des offres Office 365, Dynamics 365, Power Apps et Power BI
 

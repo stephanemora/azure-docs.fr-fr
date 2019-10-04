@@ -4,21 +4,20 @@ description: Découvrez comment résoudre l’erreur « 0x0000005A-CRITICAL SER
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f038e56fe4b1e6ad2737217674706eef77a39fd6
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010152"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058050"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows affiche « CRITICAL SERVICE FAILED » sur écran bleu lors du démarrage d’une machine virtuelle Azure
 Cet article décrit l’erreur « CRITICAL SERVICE FAILED » que vous pouvez rencontrer lorsque vous démarrez une machine virtuelle Windows dans Microsoft Azure. Il fournit des étapes de dépannage pour vous aider à résoudre les problèmes. 
@@ -30,7 +29,7 @@ Cet article décrit l’erreur « CRITICAL SERVICE FAILED » que vous pouvez r
 
 Une machine virtuelle Windows ne démarre pas. Quand vous vérifiez les captures d’écran de démarrage de la fenêtre [Diagnostics de démarrage](./boot-diagnostics.md), vous voyez l’un des messages d’erreur suivants sur un écran bleu :
 
-- « Votre PC a rencontré un problème et doit redémarrer. Vous pouvez le redémarrer. Pour plus d’informations sur ce problème et les solutions possibles, visitez http://windows.com/stopcode. Si vous appelez un agent du support technique, fournissez-lui l'information suivante : Code d'arrêt : ÉCHEC DU SERVICE CRITIQUE » 
+- « Votre PC a rencontré un problème et doit redémarrer. Vous pouvez le redémarrer. Pour plus d’informations sur ce problème et les solutions possibles, visitez https://windows.com/stopcode. Si vous appelez un agent du support technique, fournissez-lui l'information suivante : Code d'arrêt : ÉCHEC DU SERVICE CRITIQUE » 
 - « Votre PC a rencontré un problème et doit redémarrer. Nous collectons simplement quelques informations sur l’erreur, puis nous vous aiderons à redémarrer. Si vous souhaitez en savoir plus, vous pourrez ultérieurement rechercher cette erreur en ligne : CRITICAL_SERVICE_FAILED »
 
 ## <a name="cause"></a>Cause :
@@ -106,7 +105,7 @@ Pour activer les journaux d’activité de vidage et la console série, exécute
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Facultatif : Analyser les journaux d’activité de vidage en mode Vidage sur incident
 
-Pour analyser les journaux de vidage vous-même, procédez comme suit :
+Pour analyser vous-même les journaux d’activité de vidage, procédez comme suit :
 
 1. Attachez le disque du système d’exploitation à une machine virtuelle de récupération.
 2. Sur le disque du système d’exploitation que vous avez attaché, accédez à **\windows\system32\config**. Copiez tous les fichiers en tant que sauvegarde pour le cas où une restauration serait requise.

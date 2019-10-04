@@ -2,19 +2,29 @@
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: jroth
-ms.openlocfilehash: cab85410ec0cc0d63b27cd03daf6a398daeb4f68
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.date: 6/15/2019
+ms.author: victorh
+ms.openlocfilehash: e8e65c0c1302523af5aefab297ffbafe2a90d2b4
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553738"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "68589951"
 ---
+**Zones DNS publiques**
+
 | Ressource | Limite par défaut |
 | --- | --- |
-| Zones par abonnement |100 <sup>1</sup> |
-| Jeux d’enregistrements par zone |5,000 <sup>1</sup> |
-| Enregistrements par jeu d’enregistrements |20 |
+| Zones DNS publiques par abonnement |250 <sup>1</sup> |
+| Jeux d’enregistrements par zone DNS publique |10 000 <sup>1</sup> |
+| Enregistrements par jeu d’enregistrements dans la zone DNS publique |20 |
+| Nombre d’enregistrements d’alias pour une seule ressource Azure |20|
+| Zones DNS privées par abonnement |1 000|
+| Jeux d’enregistrements par zone DNS privée |25000|
+| Enregistrements par jeu d’enregistrements pour les zones DNS privées |20|
+| Liens de réseau virtuel par zone DNS privée |1 000|
+| Liens de réseau virtuel par zone DNS privée avec l’inscription automatique activée |100|
+| Nombre de zones DNS privées auxquelles un réseau virtuel peut être lié avec l’inscription automatique activée |1|
+| Nombre de zones DNS privées auxquelles un réseau virtuel peut être lié |1 000|
 
-<sup>1</sup>si vous avez besoin d’augmenter ces limites, contactez le Support Azure.
+<sup>1</sup>Pour augmenter ces limites, contactez le support Azure.

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: ee47f464c59bd9deed98671f19cfcc6d2c3c1b39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0bd97a6b1636d4b540c616958e5531c86362f597
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762478"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276623"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison REST à l’aide d’Azure Data Factory
 
@@ -43,6 +43,10 @@ Plus précisément, ce connecteur REST générique prend en charge ce qui suit 
 > [!TIP]
 > Pour tester une requête pour l’extraction de données avant de configurer le connecteur REST dans Data Factory, obtenez des informations à partir de la spécification d’API sur les exigences d’en-tête et de corps. Vous pouvez vous servir d’outils tels que Postman ou un navigateur web pour valider.
 
+## <a name="prerequisites"></a>Prérequis
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>Prise en main
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -55,11 +59,11 @@ Les propriétés prises en charge pour le service lié REST sont les suivantes 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | Le **type** propriété doit être définie sur **RestService**. | Oui |
-| url | URL de base du service REST. | Oui |
-| enableServerCertificateValidation | Indique s’il faut ou non valider le certificat SSL côté serveur lors de la connexion au point de terminaison. | Non <br /> (la valeur par défaut est **true**) |
-| authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonyme**, **De base**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | Oui |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Vous pouvez utiliser Azure Integration Runtime ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, cette propriété utilise Azure Integration Runtime par défaut. |Non  |
+| type | La propriété **type** doit être définie sur **RestService**. | OUI |
+| url | URL de base du service REST. | OUI |
+| enableServerCertificateValidation | Indique s’il faut ou non valider le certificat SSL côté serveur lors de la connexion au point de terminaison. | Non<br /> (la valeur par défaut est **true**) |
+| authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonyme**, **De base**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | OUI |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Pour plus d’informations, consultez la section [Prérequis](#prerequisites). À défaut de spécification, cette propriété utilise Azure Integration Runtime par défaut. |Non |
 
 ### <a name="use-basic-authentication"></a>Utiliser une authentification de base
 
@@ -67,8 +71,8 @@ Définissez la propriété **authenticationType** sur **De base**. Outre les pro
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| userName | Nom d’utilisateur à utiliser pour accéder au point de terminaison REST. | Oui |
-| password | Mot de passe de l’utilisateur (valeur **userName**). Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| userName | Nom d’utilisateur à utiliser pour accéder au point de terminaison REST. | OUI |
+| password | Mot de passe de l’utilisateur (valeur **userName**). Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 
 **Exemple**
 
@@ -100,10 +104,10 @@ Définissez la propriété **authenticationType** sur **AadServicePrincipal**. O
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | Oui |
-| servicePrincipalKey | Spécifiez la clé de l’application Azure Active Directory. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
-| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| Oui |
+| servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | OUI |
+| servicePrincipalKey | Spécifiez la clé de l’application Azure Active Directory. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | OUI |
+| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| OUI |
 
 **Exemple**
 
@@ -137,7 +141,7 @@ Définissez la propriété **authenticationType** sur **ManagedServiceIdentity**
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| Oui |
+| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| OUI |
 
 **Exemple**
 
@@ -169,52 +173,25 @@ Pour copier des données à partir de REST, les propriétés suivantes sont pris
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **RestResource**. | Oui |
-| relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. | Non  |
-| requestMethod | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non  |
-| additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non  |
-| RequestBody | Corps de la requête HTTP. | Non  |
-| paginationRules | Règles de pagination pour composer des requêtes de page suivantes. Pour plus de détails, voir la section [Prise en charge la pagination](#pagination-support). | Non  |
+| type | La propriété **type** du jeu de données doit être définie sur **RestResource**. | OUI |
+| relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. | Non |
 
-**Exemple 1 : Utilisation de la méthode Get avec la pagination**
+Si vous avez défini `requestMethod`, `additionalHeaders`, `requestBody` et `paginationRules` dans le jeu de données, il reste pris en charge tel quel, mais nous vous suggérons d’utiliser le nouveau modèle dans la source d’activité à l’avenir.
+
+**Exemple :**
 
 ```json
 {
     "name": "RESTDataset",
     "properties": {
         "type": "RestResource",
+        "typeProperties": {
+            "relativeUrl": "<relative url>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<REST linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "additionalHeaders": {
-                "x-user-defined": "helloworld"
-            },
-            "paginationRules": {
-                "AbsoluteUrl": "$.paging.next"
-            }
-        }
-    }
-}
-```
-
-**Exemple 2 : Utilisation de la méthode Post**
-
-```json
-{
-    "name": "RESTDataset",
-    "properties": {
-        "type": "RestResource",
-        "linkedServiceName": {
-            "referenceName": "<REST linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "relativeUrl": "<relative url>",
-            "requestMethod": "Post",
-            "requestBody": "<body for POST REST request>"
         }
     }
 }
@@ -232,11 +209,15 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source d’activité de copie doit être définie sur **RestSource**. | Oui |
-| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**.  | Non  |
-| requestInterval | Durée d’attente avant d’envoyer la requête de page suivante. La valeur par défaut est **00:00:01** |  Non  |
+| type | La propriété **type** de la source d’activité de copie doit être définie sur **RestSource**. | OUI |
+| requestMethod | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non |
+| additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
+| requestBody | Corps de la requête HTTP. | Non |
+| paginationRules | Règles de pagination pour composer des requêtes de page suivantes. Pour plus de détails, voir la section [Prise en charge la pagination](#pagination-support). | Non |
+| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**.  | Non |
+| requestInterval | Durée d’attente avant d’envoyer la requête de page suivante. La valeur par défaut est **00:00:01** |  Non |
 
-**Exemple**
+**Exemple 1 : Utilisation de la méthode Get avec la pagination**
 
 ```json
 "activities":[
@@ -258,6 +239,46 @@ Les propriétés prises en charge dans la section **source** de l’activité de
         "typeProperties": {
             "source": {
                 "type": "RestSource",
+                "additionalHeaders": {
+                    "x-user-defined": "helloworld"
+                },
+                "paginationRules": {
+                    "AbsoluteUrl": "$.paging.next"
+                },
+                "httpRequestTimeout": "00:01:00"
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+**Exemple 2 : Utilisation de la méthode Post**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromREST",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<REST input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "RestSource",
+                "requestMethod": "Post",
+                "requestBody": "<body for POST REST request>",
                 "httpRequestTimeout": "00:01:00"
             },
             "sink": {
@@ -270,24 +291,24 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 
 ## <a name="pagination-support"></a>Prise en charge la pagination
 
-Normalement, l’API REST limite sa taille de charge utile de réponse par requête à un nombre raisonnable. Pour retourner une grande quantité de données, elle fractionne le résultat en plusieurs pages et exige des appelants qu’ils envoient des requêtes consécutives pour obtenir la page suivante du résultat. En règle générale, la requête d’une page est dynamique et composée par les informations retournées à partir de la réponse de la page précédente.
+Normalement, l’API REST limite sa taille de charge utile de réponse par demande à un nombre raisonnable. Pour retourner une grande quantité de données, elle fractionne le résultat en plusieurs pages et exige des appelants qu’ils envoient des demandes consécutives pour obtenir la page suivante du résultat. En règle générale, la requête d’une page est dynamique et composée par les informations retournées à partir de la réponse de la page précédente.
 
 Ce connecteur REST générique prend en charge les modèles de pagination suivants : 
 
-* URL absolue ou relative de la prochaine demande = valeur de propriété dans le corps de la réponse
-* URL absolue ou relative de la prochaine demande = valeur d’en-tête dans les en-têtes de réponse en cours
+* URL absolue ou relative de la requête suivante = valeur de propriété dans le corps de la réponse en cours
+* URL absolue ou relative de la requête suivante = valeur d’en-tête dans les en-têtes de la réponse en cours
 * Paramètre de requête de la demande suivante = valeur de propriété dans le corps de la réponse en cours
 * Paramètre de requête de la demande suivante = valeur d’en-tête dans les en-têtes de la réponse en cours
 * En-tête de la requête suivante = valeur de propriété dans le corps de la réponse en cours
 * En-tête de la requête suivante = valeur d’en-tête dans les en-têtes de la réponse en cours
 
-Les **règles de pagination** sont définies en tant que dictionnaire dans un jeu de données qui contient une ou plusieurs paires clé-valeur respectant la casse. La configuration sera utilisée pour générer la requête à partir de la deuxième page. Le connecteur arrête les itérations quand il obtient le code d’état HTTP 204 (Aucun contenu), ou quand une expression JSONPath dans « paginationRules » retourne la valeur null.
+Les **règles de pagination** sont définies en tant que dictionnaire dans un jeu de données qui contient une ou plusieurs paires clé-valeur respectant la casse. La configuration sera utilisée pour générer la requête à partir de la deuxième page. Le connecteur arrête les itérations quand il obtient le code d’état HTTP 204 (Aucun contenu) ou quand une expression JSONPath dans « paginationRules » retourne la valeur null.
 
 **Clés prises en charge** dans les règles de pagination :
 
 | Clé | Description |
 |:--- |:--- |
-| AbsoluteUrl | Indique l’URL pour l’émission de la requête suivante. Il peut être **URL absolue ou relative URL**. |
+| AbsoluteUrl | Indique l’URL pour l’émission de la requête suivante. Il peut s’agit d’une **URL absolue ou relative**. |
 | QueryParameters.*request_query_parameter* OU QueryParameters[’request_query_parameter’] | « request_query_parameter » est défini par l’utilisateur et fait référence à un nom de paramètre de requête dans l’URL de la requête HTTP suivante. |
 | Headers.*request_header* OR Headers[’request_header’] | « request_header » est défini par l’utilisateur et fait référence à un nom d’en-tête dans la requête HTTP suivante. |
 
@@ -332,23 +353,19 @@ L’API Graph Facebook retourne une réponse dans la structure suivante. Dans ce
 }
 ```
 
-La configuration du jeu de données REST correspondant, en particulier les `paginationRules`, se présente comme suit :
+La configuration de la source de l’activité de copie REST correspondante, en particulier `paginationRules`, se présente comme suit :
 
 ```json
-{
-    "name": "MyFacebookAlbums",
-    "properties": {
-            "type": "RestResource",
-            "typeProperties": {
-                "relativeUrl": "albums",
-                "paginationRules": {
-                    "AbsoluteUrl": "$.paging.next"
-                }
-            },
-            "linkedServiceName": {
-                "referenceName": "MyRestService",
-                "type": "LinkedServiceReference"
-            }
+"typeProperties": {
+    "source": {
+        "type": "RestSource",
+        "paginationRules": {
+            "AbsoluteUrl": "$.paging.next"
+        },
+        ...
+    },
+    "sink": {
+        "type": "<sink type>"
     }
 }
 ```

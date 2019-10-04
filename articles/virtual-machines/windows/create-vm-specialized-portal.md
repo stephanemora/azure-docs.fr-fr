@@ -4,22 +4,21 @@ description: Créez une machine virtuelle Windows à partir d’un disque dur vi
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ab5af0e5971b91f45cbb12b4d0583caafa5ad504
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163447"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079654"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Créer une machine virtuelle à partir d’un disque dur virtuel à l’aide du portail Azure
 
@@ -46,14 +45,14 @@ Créez une capture instantanée, puis créez un disque à partir de cette captur
 4. Dans le menu du haut, sélectionnez **Créer une capture instantanée**. 
 5. Entrez un **nom** pour la capture instantanée.
 6. Choisissez un **groupe de ressources** pour l’instantané. Vous pouvez utiliser un groupe de ressources existant ou en créer un.
-7. Comme **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)**.
+7. Comme **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)** .
 8. Quand vous avez terminé, sélectionnez **Créer** pour créer la capture instantanée.
 9. Une fois la capture instantanée créée, sélectionnez **Créer une ressource** dans le menu de gauche.
 10. Dans la zone de recherche, entrez **disque managé**, puis sélectionnez **Disques managés** dans la liste.
 11. Dans la page **Disques managés**, sélectionnez **Créer**.
 12. Donnez un **Nom** au disque.
 13. Choisissez un **groupe de ressources** pour le disque. Vous pouvez utiliser un groupe de ressources existant ou en créer un. Cette sélection est également utilisée comme groupe de ressources où vous créez la machine virtuelle à partir du disque.
-14. Pour **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)**.
+14. Pour **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)** .
 15. Dans **Type de source**, vérifiez que l’option **Capture instantanée** est sélectionnée.
 16. Dans la liste déroulante **Capture instantanée source**, sélectionnez l’instantané que vous souhaitez utiliser.
 17. Effectuez tout autre changement nécessaire, puis sélectionnez **Créer** pour créer le disque.

@@ -15,11 +15,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 605669a740663040ab7a167bf266fe1940123afc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551872"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60343390"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Intégration d’Apache Spark avec Azure Event Hubs
 
@@ -29,7 +29,7 @@ Cet article explique comment créer une application continue dans [Azure Databri
 
 L’exemple de cet article utilise deux blocs-notes Scala : un pour le streaming des événements à partir d’un hub d’événements et l’autre pour le renvoi d’événements vers celui-ci.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Une instance Event Hubs. Si vous n’en avez pas, [créez-en une](event-hubs-create.md).

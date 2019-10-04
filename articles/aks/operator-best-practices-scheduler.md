@@ -2,17 +2,17 @@
 title: Bonnes pratiques de l’opérateur - Fonctionnalités de base du planificateur dans Azure Kubernetes Service (AKS)
 description: Découvrir les bonnes pratiques de l’opérateur relatives aux fonctionnalités de base du planificateur, notamment les quotas de ressources et les budgets de perturbation de pod dans Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 8233330973946e552e36a85a11bdbbfb06c739f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: mlearned
+ms.openlocfilehash: 3ce59784b2c7c1d145d99786b10927c230146c8b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58178133"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614619"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités de base du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -94,7 +94,7 @@ spec:
       app: nginx-frontend
 ```
 
-Vous pouvez également définir un pourcentage (par exemple, *60 %*), pour compenser automatiquement le scale-up du nombre de pods par le jeu de réplicas.
+Vous pouvez également définir un pourcentage (par exemple, *60 %* ), pour compenser automatiquement le scale-up du nombre de pods par le jeu de réplicas.
 
 Vous pouvez définir le nombre maximal d’instances non disponibles dans un jeu de réplicas. Là encore, vous pouvez définir un pourcentage indiquant le nombre maximal de pods indisponibles. Selon le manifeste YAML du budget de perturbation de pod suivant, il ne peut pas y avoir plus de deux pods indisponibles dans le jeu de réplicas :
 
@@ -122,9 +122,11 @@ Pour plus d’informations sur l’utilisation de budgets de perturbation de pod
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Rechercher régulièrement les problèmes liés au cluster avec kube-advisor
 
-**Meilleures pratiques** -exécuter régulièrement la dernière version de `kube-advisor` outil open source pour détecter les problèmes dans votre cluster. Si vous appliquez des quotas de ressources sur un cluster AKS existant, exécutez d’abord `kube-advisor` pour rechercher les pods dont les demandes et limites de ressources ne sont pas définies.
+**Meilleure pratique** : exécutez régulièrement la dernière version de l’outil open source `kube-advisor` pour détecter les problèmes dans votre cluster. Si vous appliquez des quotas de ressources sur un cluster AKS existant, exécutez d’abord `kube-advisor` pour rechercher les pods dont les demandes et limites de ressources ne sont pas définies.
 
-Le [kube-conseiller] [ kube-advisor] outil est un projet open source AKS associé qui analyse un cluster Kubernetes et les rapports sur les problèmes qu’il trouve. Une vérification utile consiste à identifier les pods dépourvus de demandes et de limites de ressources.
+L’outil [kube-advisor][kube-advisor] est un projet open source AKS associé qui analyse un cluster Kubernetes et signale les problèmes trouvés. Une vérification utile consiste à identifier les pods dépourvus de demandes et de limites de ressources.
+
+L’outil kube-advisor peut rendre compte des limites et demandes de ressources manquantes dans PodSpecs pour les applications Windows et Linux, mais l’outil kube-advisor proprement dit doit être planifié sur un pod Linux. Vous pouvez planifier un pod pour qu’il s’exécute sur un pool de nœuds avec un système d’exploitation spécifique à l’aide d’un [sélecteur de nœud][k8s-node-selector] dans la configuration du pod.
 
 Dans un cluster AKS qui héberge plusieurs applications et équipes de développement, il peut être difficile de suivre les pods sans ces demandes et limites de ressources. Une bonne pratique consiste à exécuter régulièrement `kube-advisor` sur vos clusters AKS, surtout si vous n’affectez pas de quotas de ressources aux espaces de noms.
 
@@ -147,3 +149,4 @@ Dans cet article, nous avons traité des fonctionnalités de base du planificate
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

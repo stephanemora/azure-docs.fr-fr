@@ -4,17 +4,17 @@ description: Cet article fournit des informations sur l’installation et l’ut
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 55dff6cf073612e3e5473da3a5f1bf722b2ccdbd
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: c10905c283619e6008dbe6ab8c4e721888b8b786
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608552"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743797"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride
 
@@ -24,12 +24,9 @@ L’image suivante illustre cette fonctionnalité :
 
 ![Vue d’ensemble des Runbook Worker hybrides](media/automation-hybrid-runbook-worker/automation.png)
 
-Chaque Runbook Worker hybride est membre d'un groupe de Runbooks Workers hybrides que vous spécifiez lorsque vous installez l'agent. Un groupe peut inclure un seul agent, mais vous pouvez installer plusieurs agents dans un groupe pour une haute disponibilité.
+Chaque Runbook Worker hybride est membre d'un groupe de Runbooks Workers hybrides que vous spécifiez lorsque vous installez l'agent. Un groupe peut inclure un seul agent, mais vous pouvez installer plusieurs agents dans un groupe pour une haute disponibilité. Chaque ordinateur peut héberger un seul worker hybride associé à un seul compte Automation.
 
 Lorsque vous démarrez un Runbook sur un Runbook Worker hybride, vous spécifiez le groupe sur lequel il s’exécute. Chaque worker du groupe interroge Azure Automation pour voir si des travaux sont disponibles. Si un travail est disponible, le premier worker qui le reçoit s’en occupe. Le temps de traitement de la file d’attente des travaux varie selon la charge et le profil matériel du Worker hybride. Vous ne pouvez pas spécifier un worker en particulier. Les Runbook Workers hybrides ne partagent pas la plupart des limites propres aux bacs à sable Azure. Ils n’ont pas les mêmes limites d’espace disque, de mémoire ou de sockets réseau. Les Runbook Workers hybrides ne sont pas limités par les ressources sur le Runbook Worker hybride lui-même. En outre, les Runbook Workers hybrides ne partagent pas la limite de 180 minutes pour la [répartition de charge équilibrée](automation-runbook-execution.md#fair-share) des bacs à sable Azure. Pour en savoir plus sur les limites de service des bacs à sable Azure et des Runbook Workers hybrides, consultez la page sur les [limites](../azure-subscription-service-limits.md#automation-limits) du travail.
-
-> [!NOTE]
-> Workers hybrides ne sont pas pris en charge dans Azure en Chine.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Installer un Runbook Worker hybride
 
@@ -37,7 +34,7 @@ Le processus d’installation d’un Runbook Worker hybride diffère selon le sy
 
 Il existe deux méthodes pour installer et configurer un Runbook Worker hybride Windows. La méthode recommandée utilise un runbook Automation afin d’automatiser totalement le processus de configuration d’un ordinateur Windows. La deuxième méthode consiste à suivre la procédure pas à pas pour installer et configurer le rôle manuellement. Pour une machine Linux, vous exécutez un script Python pour installer l’agent.
 
-|SE  |Types de déploiement  |
+|OS  |Types de déploiement  |
 |---------|---------|
 |Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[Manuel](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
@@ -48,6 +45,8 @@ Il existe deux méthodes pour installer et configurer un Runbook Worker hybride 
 >Si vous activez la [solution Update Management](automation-update-management.md), tout ordinateur connecté à votre espace de travail Azure Log Analytics est automatiquement configuré en tant que Runbook Worker hybride pour prendre en charge les runbooks inclus dans cette solution. Toutefois, l’ordinateur n’est inscrit auprès d’aucun des groupes de Workers hybrides déjà définis dans votre compte Automation. L’ordinateur peut être ajouté à un groupe de Runbooks Workers hybrides dans votre compte Automation pour prendre en charge des runbooks Automation, à condition d’utiliser le même compte à la fois pour la solution et pour l’appartenance au groupe de Runbooks Workers hybrides. Cette fonctionnalité a été ajoutée à la version 7.2.12024.0 du Runbook Worker hybride.
 
 Examinez les [informations de planification de votre réseau](#network-planning) avant de commencer à déployer un Runbook Worker hybride. Une fois que vous avez déployé le worker, consultez [Exécution de runbooks sur un Runbook Worker hybride](automation-hrw-run-runbooks.md) pour apprendre à configurer vos runbooks en vue d’automatiser les processus dans votre centre de données local ou autre environnement cloud.
+
+L’ordinateur peut être ajouté à un groupe de Runbooks Workers hybrides dans votre compte Automation pour prendre en charge des runbooks Automation, à condition d’utiliser le même compte à la fois pour la solution et pour l’appartenance au groupe de Runbooks Workers hybrides. Cette fonctionnalité a été ajoutée à la version 7.2.12024.0 du groupe de Runbooks Workers hybrides.
 
 ## <a name="remove-a-hybrid-runbook-worker"></a>Supprimer un Runbook Worker hybride
 
@@ -100,11 +99,11 @@ Pour supprimer un groupe, vous devez tout d’abord supprimer les Runbooks Worke
 
 ### <a name="hybrid-worker-role"></a>Worker hybride
 
-Pour le Runbook Worker hybride pour se connecter à inscrire auprès d’Azure Automation, il doit avoir accès pour le numéro de port et les URL qui sont décrites dans cette section. Cet accès est en haut pour la [ports et URL requis pour Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) pour se connecter aux journaux d’Azure Monitor.
+Pour que le Runbook Worker hybride se connecte à Azure Automation et y soit inscrit, il doit avoir accès au numéro de port et aux URL décrits dans cette section. Cet accès se situe au-dessus des [ports et URL nécessaires pour que Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) puisse se connecter aux journaux Azure Automation.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Si vous utilisez un serveur proxy pour la communication entre l’agent et le service Azure Automation, assurez-vous que les ressources appropriées sont accessibles. Le délai d’expiration pour les demandes de workers hybrides et les services d’automatisation est de 30 secondes. La demande échoue après 3 tentatives. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès. Si vous utilisez la passerelle Log Analytics en tant que proxy, vérifiez qu’elle est configurée pour les workers hybrides. Pour obtenir des instructions à ce sujet, consultez [Configuration de la passerelle Log Analytics pour les Workers hybrides Automation](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
+Si vous utilisez un serveur proxy pour la communication entre l’agent et le service Azure Automation, assurez-vous que les ressources appropriées sont accessibles. Le délai d’expiration pour les demandes du Runbook Worker hybride et des services Automation est de 30 secondes. La demande échoue après 3 tentatives. Si vous utilisez un pare-feu pour restreindre l’accès à Internet, vous devez configurer votre pare-feu pour autoriser l’accès. Si vous utilisez la passerelle Log Analytics en tant que proxy, vérifiez qu’elle est configurée pour les workers hybrides. Pour obtenir des instructions à ce sujet, consultez [Configuration de la passerelle Log Analytics pour les Workers hybrides Automation](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway).
 
 Les port et URL suivants sont requis pour que le rôle Runbook Worker hybride communique avec Automation :
 
@@ -113,21 +112,21 @@ Les port et URL suivants sont requis pour que le rôle Runbook Worker hybride co
 * URL globale d’US Gov Virginie : *.azure-automation.us
 * Service de l’agent : https://\<ID_espace_de_travail\>.agentsvc.azure-automation.net
 
-Il est recommandé d’utiliser les adresses répertoriées lors de la définition des exceptions. Pour les adresses IP, vous pouvez télécharger les [Plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ce fichier, qui est mis à jour chaque semaine, possède les plages actuellement déployées et tous les changements à venir des plages d’adresses IP.
+Il est recommandé d’utiliser les adresses répertoriées lors de la définition des exceptions. Pour les adresses IP, vous pouvez télécharger les [Plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Ce fichier, qui est mis à jour chaque semaine, possède les plages actuellement déployées et tous les changements à venir des plages d’adresses IP.
 
 Si vous avez un compte Automation défini pour une région spécifique, vous pouvez limiter les communications à ce centre de données régional. Le tableau suivant indique l’enregistrement DNS pour chaque région :
 
 | **Région** | **Enregistrement DNS** |
 | --- | --- |
-| USA Centre-Ouest | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| USA Centre Sud |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| Centre-USA Ouest | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
+| États-Unis - partie centrale méridionale |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
 | USA Est 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | USA Ouest 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
 | Centre du Canada |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | Europe Ouest |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
 | Europe Nord |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
 | Asie Sud-Est |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
-| Inde Centre |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
+| Inde centrale |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | Japon Est |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Australie Est |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
 | Sud-Est de l’Australie |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |

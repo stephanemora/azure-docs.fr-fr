@@ -3,7 +3,7 @@ title: Modèles de mise en réseau d’Azure Service Fabric | Microsoft Docs
 description: Décrit les modèles de mise en réseau courants de Service Fabric et explique comment créer un cluster avec les fonctionnalités de mise en réseau d’Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: aljo
-ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: 90b2a1954d60f1e86ab61afb264483177f4aca3b
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049895"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073949"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modèles de mise en réseau de Service Fabric
 Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctionnalités de mise en réseau Azure. Dans cet article, nous vous expliquons comment créer des clusters qui utilisent les fonctionnalités suivantes :
@@ -29,7 +29,7 @@ Vous pouvez intégrer votre cluster Azure Service Fabric avec d’autres fonctio
 - [Équilibreur de charge interne uniquement](#internallb)
 - [Équilibreur de charge interne et externe](#internalexternallb)
 
-Service Fabric s’exécute dans un groupe de machines virtuelles identiques standard. Toutes les fonctionnalités que vous pouvez utiliser dans un groupe de machines virtuelles identiques sont utilisables avec un cluster Service Fabric. Les sections de mise en réseau des modèles Azure Resource Manager pour Service Fabric et les groupes de machines virtuelles identiques sont strictement les mêmes. Après avoir effectué le déploiement sur un réseau virtuel existant, il est facile d’intégrer d’autres fonctionnalités de mise en réseau, comme Azure ExpressRoute, la passerelle VPN Azure, un groupe de sécurité réseau et l’homologation de réseau virtuel.
+Service Fabric s’exécute dans un groupe de machines virtuelles identiques standard. Toutes les fonctionnalités que vous pouvez utiliser dans un groupe de machines virtuelles identiques sont utilisables avec un cluster Service Fabric. Les sections de mise en réseau des modèles Azure Resource Manager pour Service Fabric et les groupes de machines virtuelles identiques sont strictement les mêmes. Après avoir effectué le déploiement sur un réseau virtuel existant, il est facile d’intégrer d’autres fonctionnalités de mise en réseau, comme Azure ExpressRoute, la passerelle VPN Azure, un groupe de sécurité réseau et le peering de réseau virtuel.
 
 Service Fabric se distingue d’autres fonctionnalités de mise en réseau sur un aspect. Le [Portail Azure](https://portal.azure.com) utilise en interne le fournisseur de ressources Service Fabric pour effectuer des appels dans un cluster afin d’obtenir des informations sur les nœuds et les applications. Le fournisseur de ressources Service Fabric requiert un accès entrant accessible publiquement au port de la passerelle HTTP (port 19080, par défaut) sur le point de terminaison de gestion. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) utilise le point de terminaison de gestion pour gérer votre cluster. Le fournisseur de ressources Service Fabric utilise également ce port pour demander des informations sur votre cluster, à afficher sur le Portail Azure. 
 
@@ -268,7 +268,7 @@ Vous pouvez également consulter un [exemple qui n’est pas propre à Service F
                     ],
     ```
 
-7. Dans la ressource `Microsoft.ServiceFabric/clusters`, remplacez `managementEndpoint` par le nom de domaine complet du DNS de l’adresse IP statique. Si vous utilisez un cluster sécurisé, veillez à remplacer *http://* par *https://*. (Notez que cette étape s’applique uniquement aux clusters Service Fabric. Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape.)
+7. Dans la ressource `Microsoft.ServiceFabric/clusters`, remplacez `managementEndpoint` par le nom de domaine complet du DNS de l’adresse IP statique. Si vous utilisez un cluster sécurisé, veillez à remplacer *http://* par *https://* . (Notez que cette étape s’applique uniquement aux clusters Service Fabric. Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape.)
 
     ```json
                     "fabricSettings": [],
@@ -370,7 +370,7 @@ Ce scénario remplace l’équilibreur de charge externe dans le modèle Service
                     ],
     ```
 
-6. Dans la ressource `Microsoft.ServiceFabric/clusters`, modifiez `managementEndpoint` pour qu’il pointe vers l’adresse de l’équilibreur de charge interne. Si vous utilisez un cluster sécurisé, veillez à remplacer *http://* par *https://*. (Notez que cette étape s’applique uniquement aux clusters Service Fabric. Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape.)
+6. Dans la ressource `Microsoft.ServiceFabric/clusters`, modifiez `managementEndpoint` pour qu’il pointe vers l’adresse de l’équilibreur de charge interne. Si vous utilisez un cluster sécurisé, veillez à remplacer *http://* par *https://* . (Notez que cette étape s’applique uniquement aux clusters Service Fabric. Si vous utilisez un groupe de machines virtuelles identiques, ignorez cette étape.)
 
     ```json
                     "fabricSettings": [],
@@ -605,11 +605,12 @@ Dans un cluster à deux types de nœuds, l’un des types de nœuds est sur l’
 
 Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources. Si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (ports 19000 et 19080) affectés à l’adresse IP publique. L’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne apparaissent également. Les deux équilibreurs de charge utilisent le même pool back-end de groupe de machines virtuelles identiques.
 
-## <a name="next-steps"></a>Étapes suivantes
-[Créer un cluster](service-fabric-cluster-creation-via-arm.md) ternalLB.json
-    ```
+## <a name="notes-for-production-workloads"></a>Remarques pour les charges de travail de production
 
-Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources. Si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (ports 19000 et 19080) affectés à l’adresse IP publique. L’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne apparaissent également. Les deux équilibreurs de charge utilisent le même pool back-end de groupe de machines virtuelles identiques.
+Les modèles GitHub ci-dessus sont conçus pour fonctionner avec la référence SKU par défaut pour Azure Standard Load Balancer (SLB), la référence SKU De base. Ce SLB n’a pas de contrat SLA. Pour les charges de travail de production, la référence SKU Standard doit donc être utilisée. Pour plus d’informations, consultez la [vue d’ensemble d’Azure Standard Load Balancer](/azure/load-balancer/load-balancer-standard-overview). Tout cluster Service Fabric utilisant la référence SKU Standard pour SLB doit vérifier que chaque type de nœud a une règle autorisant le trafic sortant sur le port 443. Cette opération est nécessaire pour terminer l’installation du cluster, et tout déploiement sans règle de ce type échouera. Dans l’exemple ci-dessus d’un équilibreur de charge « interne uniquement », un équilibreur de charge externe supplémentaire doit être ajouté au modèle avec une règle autorisant le trafic sortant pour le port 443.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Créer un cluster](service-fabric-cluster-creation-via-arm.md)
+
+Après le déploiement, deux équilibreurs de charge apparaissent dans le groupe de ressources. Si vous parcourez les équilibreurs de charge, vous voyez l’adresse IP publique et les points de terminaison de gestion (ports 19000 et 19080) affectés à l’adresse IP publique. L’adresse IP interne statique et le point de terminaison d’application (port 80) affectés à l’équilibreur de charge interne apparaissent également. Les deux équilibreurs de charge utilisent le même pool back-end de groupe de machines virtuelles identiques.
+

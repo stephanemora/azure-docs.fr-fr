@@ -1,6 +1,6 @@
 ---
-title: Grant B2B utilisateurs l’accès à vos applications en local - Azure Active Directory | Microsoft Docs
-description: Montre comment accorder à cloud B2B aux utilisateurs accès sur les applications de site avec Azure AD B2B collaboration.
+title: Accorder aux utilisateurs B2B l’accès à vos applications locales - Azure Active Directory | Microsoft Docs
+description: Montre comment accorder aux utilisateurs B2B cloud l’accès aux applications locales avec Azure AD B2B Collaboration.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0e9536f009d478796bc9367a66630c02019dcd2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 6d3fa8e71df3d1184956e1802d1b6b72411b6449
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441244"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113034"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales
 
@@ -61,9 +61,9 @@ Le diagramme suivant fournit une vue d’ensemble globale du Proxy d’applicati
 
 ### <a name="lifecycle-management-policies"></a>Stratégies de gestion du cycle de vie
 
-Vous pouvez gérer les objets utilisateur B2B locaux par le biais de stratégies de gestion du cycle de vie. Par exemple : 
+Vous pouvez gérer les objets utilisateur B2B locaux par le biais de stratégies de gestion du cycle de vie. Par exemple :
 
-- Vous pouvez définir des stratégies d’authentification multifacteur (MFA) pour l’utilisateur invité afin que l’authentification multifacteur soit utilisée lors de l’authentification du Proxy d’application. Pour plus d’informations, consultez la page [Accès conditionnel pour les utilisateurs B2B Collaboration](conditional-access.md).
+- Vous pouvez définir des stratégies d’authentification multifacteur (MFA) pour l’utilisateur invité afin que l’authentification multifacteur soit utilisée lors de l’authentification du Proxy d’application. Pour plus d’informations, voir [Accès conditionnel pour les utilisateurs de collaboration B2B](conditional-access.md).
 - Les parrainages, révisions d’accès, vérifications de compte, etc. effectués pour l’utilisateur B2B cloud s’appliquent aux utilisateurs locaux. Par exemple, si l’utilisateur cloud est supprimé via vos stratégies de gestion du cycle de vie, l’utilisateur local est également supprimé par la synchronisation MIM ou via la synchronisation Azure AD Connect. Pour plus d’informations, consultez [Gérer l’accès invité avec les révisions d’accès Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim"></a>Créer des objets utilisateur invité B2B via MIM

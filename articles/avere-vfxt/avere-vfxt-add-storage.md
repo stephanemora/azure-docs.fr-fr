@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
 ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515928"
 ---
 # <a name="configure-storage"></a>Configurer le stockage
 
@@ -72,7 +72,7 @@ Ensuite, passez à la section [Créer une jonction](#create-a-junction).
 Pour utiliser le stockage Blob Azure en tant que stockage back-end de votre cluster vFXT, vous devez ajouter un conteneur vide en tant que système de stockage principal.
 
 > [!TIP] 
-> Si vous choisissez de créer un conteneur d’objets blob en même temps que le cluster Avere vFXT, le modèle de déploiement ou le script crée un conteneur de stockage, le définit comme système de stockage principal, et crée la jonction d'espace de noms dans le cadre de la création du cluster vFXT. Le modèle crée également un point de terminaison de service de stockage à l’intérieur du réseau virtuel du cluster. 
+> Si vous choisissez de créer un conteneur d’objets blob en même temps que le cluster Avere vFXT, le modèle de déploiement ou le script crée un conteneur de stockage, le définit comme système de stockage principal, et crée la jonction d'espace de noms dans le cadre de la création du cluster vFXT. Le modèle crée également un point de terminaison de service de stockage sur le réseau virtuel du cluster. 
 
 Pour ajouter un stockage d’objets blob à votre cluster, vous devez effectuer les tâches suivantes :
 

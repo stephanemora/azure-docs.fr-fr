@@ -1,10 +1,10 @@
 ---
-title: Problèmes rencontrés lors de la connexion à une application locale à l’aide du proxy d’application Azure AD | Microsoft Docs
+title: Problème de connexion à l’application locale à l’aide du proxy d’application Azure AD | Microsoft Docs
 description: Dépannage des problèmes courants rencontrés lorsque vous ne parvenez pas à vous connecter à une application locale intégrée à Azure AD à l’aide du proxy d’application Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ee322dd3ff6ccd68b09645fb46b1488b17819bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 4483dc75d116e75521cb348b56dac418b3e012a8
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871687"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381328"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problèmes rencontrés lors de la connexion à une application locale à l’aide du proxy d’application Azure AD
 
@@ -56,7 +56,7 @@ Les documents suivants peuvent vous aider à résoudre certains des problèmes l
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Je rencontre un problème avec le connecteur d’agent du proxy d’application
   Les documents suivants peuvent vous aider à résoudre certains des problèmes les plus courants de cette catégorie.
-  * [Je rencontre des problèmes pour installer le connecteur d’Agent Proxy d’Application](application-proxy-connector-installation-problem.md)
+  * [Je rencontre des problèmes lors de l’installation du connecteur d’agent de proxy d’application](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Offrir un accès à distance sécurisé aux applications locales](application-proxy.md)

@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60532814"
 ---
 # <a name="monitor-migration-activity"></a>Surveiller l’activité de migration
 Dans cet article, vous allez apprendre à surveiller la progression d’une migration aux niveaux de la base de données et de la table.
@@ -93,7 +93,7 @@ La table suivante répertorie les champs sur le panneau au niveau de la base de 
     </tr>
     <tr>
       <td rowspan="1" class="duration"><strong>Durée</strong></td>
-      <td>S.O.</td>
+      <td>N/A</td>
       <td>Durée totale entre l’initialisation de l’activité de migration et la fin ou l’échec de la migration.</td>
     </tr>
      </tbody>

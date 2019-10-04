@@ -1,32 +1,32 @@
 ---
-title: 'Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer'
-description: Dans ce guide de démarrage rapide, vous allez apprendre à ingérer (charger) des données dans l’Explorateur de données Azure depuis Event Hub.
+title: Ingérer des données Event Hub dans Azure Data Explorer
+description: Dans cet article, vous allez apprendre à ingérer (charger) des données dans Azure Data Explorer depuis Event Hub.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 02/02/2018
-ms.openlocfilehash: 52bdbe6d34fb631cd4b2205dfad25399fe0e43fb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.topic: conceptual
+ms.date: 07/17/2019
+ms.openlocfilehash: e52ce4411a2fa1969db196ba2e32bb485f71f8b6
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048385"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931223"
 ---
-# <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer
+# <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingérer des données Event Hub dans Azure Data Explorer
 
-L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. L’Explorateur de données Azure offre une ingestion (chargement de données) à partir d’Event Hubs, plateforme de streaming de big data et service d’ingestion d’événements. [Event Hubs](/azure/event-hubs/event-hubs-about) peut traiter des millions d’événements par seconde en quasi-temps réel. Dans ce guide de démarrage rapide, vous créez un hub d’événements, vous vous y connectez à partir de l’Explorateur de données Azure et vous voyez le flux de données via le système.
+L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. L’Explorateur de données Azure offre une ingestion (chargement de données) à partir d’Event Hubs, plateforme de streaming de big data et service d’ingestion d’événements. [Event Hubs](/azure/event-hubs/event-hubs-about) peut traiter des millions d’événements par seconde en quasi-temps réel. Dans cet article, vous créez un Event Hub, vous vous y connectez à partir d’Azure Data Explorer et vous voyez le flux de données via le système.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-* [Un cluster et une base de données de test](create-cluster-database-portal.md)
+* [Un cluster et une base de données de test](create-cluster-database-portal.md).
 
 * [Un exemple d’application](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) qui génère des données et les envoie à un hub d’événements. Téléchargez l’exemple d’application sur votre système.
 
-* [Visual studio 2017 version 15.3.2 ou ultérieure](https://www.visualstudio.com/vs/) pour exécuter l’application exemple
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) pour exécuter l’exemple d’application.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -34,7 +34,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Créer un hub d’événements
 
-Dans ce guide de démarrage rapide, vous générez des exemples de données et les envoyez à un hub d’événements. La première étape consiste à créer un hub d’événements. Pour cela, utilisez un modèle Azure Resource Manager (ARM) dans le portail Azure.
+Dans cet article, vous générez des exemples de données et les envoyez à un Event Hub. La première étape consiste à créer un hub d’événements. Pour cela, utilisez un modèle Azure Resource Manager (ARM) dans le portail Azure.
 
 1. Pour créer un hub d’événements, utilisez le bouton suivant pour démarrer le déploiement. Cliquez avec le bouton droit et sélectionnez **Ouvrir dans une nouvelle fenêtre** pour pouvoir suivre le reste des étapes de l’article.
 
@@ -56,9 +56,9 @@ Dans ce guide de démarrage rapide, vous générez des exemples de données et l
 
     **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
-    | Abonnement | Votre abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre hub d’événements.|
-    | Groupe de ressources | *test-hub-rg* | Créez un groupe de ressources. |
-    | Lieu | *USA Ouest* | Pour ce guide de démarrage rapide, sélectionnez *USA Ouest*. Pour un système de production, sélectionnez la région qui répond le mieux à vos besoins. Pour des performances optimales, créez l’espace de noms Event Hub au même emplacement que le cluster Kusto (en particulier pour les espaces de noms Event Hub ayant un débit élevé).
+    | Subscription | Votre abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre hub d’événements.|
+    | Resource group | *test-hub-rg* | Créez un groupe de ressources. |
+    | Location | *USA Ouest* | Pour cet article, sélectionnez *USA Ouest*. Pour un système de production, sélectionnez la région qui répond le mieux à vos besoins. Pour des performances optimales, créez l’espace de noms Event Hub au même emplacement que le cluster Kusto (en particulier pour les espaces de noms Event Hub ayant un débit élevé).
     | Nom de l’espace de noms | Nom unique de l’espace de noms | Choisissez un nom unique qui identifie votre espace de noms. Par exemple, *mytestnamespace*. Le nom de domaine *servicebus.windows.net* est ajouté au nom que vous fournissez. Le nom ne peut contenir que des lettres, des chiffres et des traits d’union. Le nom doit commencer par une lettre et se terminer par une lettre ou un chiffre. La valeur doit être comprise entre 6 et 50 caractères.
     | Nom du hub d’événements | *test-hub* | Le hub d’événements se trouve sous l’espace de noms, qui fournit un conteneur d’étendue unique. Le hub d’événements doit être unique dans l’espace de noms. |
     | Nom du groupe de consommateurs | *test-group* | Les groupes de consommateurs permettent que chacune des applications de consommation ait une vue distincte du flux d’événements. |
@@ -118,15 +118,18 @@ Vous vous connectez maintenant au hub d’événements depuis l’Explorateur de
 
     Table cible :
 
-    Deux options sont disponibles pour le routage : *statique* et *dynamique*. Pour ce guide de démarrage rapide, utilisez le routage statique (par défaut), où vous spécifiez le nom de la table, le format de fichier et le mappage. Par conséquent, ne sélectionnez pas **My data includes routing info** (Mes données incluent des informations de routage).
-    Vous pouvez aussi utiliser le routage dynamique, où vos données incluent les informations de routage nécessaires.
+    Deux options sont disponibles pour le routage des données ingérées : *statique* et *dynamique*. 
+    Dans le cadre de cet article, vous utilisez le routage statique, où vous spécifiez le nom de table, le format des données et le mappage. Par conséquent, ne sélectionnez pas **My data includes routing info** (Mes données incluent des informations de routage).
 
      **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
     | Table | *TestTable* | Table que vous avez créée dans **TestDatabase**. |
-    | Format de données | *JSON* | Les formats pris en charge sont Avro, CSV, JSON, JSON MULTILIGNE, PSV, SOH, SCSV, TSV et TXT. |
-    | Mappage de colonnes | *TestMapping* | Le mappage que vous avez créé dans **TestDatabase**, qui mappe les données JSON entrantes dans les colonnes des noms de colonne et les types de données de **TestTable**.|
+    | Format de données | *JSON* | Les formats pris en charge sont Avro, CSV, JSON, JSON MULTILIGNE, PSV, SOH, SCSV, TSV et TXT. Options de compression prises en charge : GZip |
+    | Mappage de colonnes | *TestMapping* | Le mappage que vous avez créé dans **TestDatabase**, qui mappe les données JSON entrantes dans les colonnes des noms de colonne et les types de données de **TestTable**. Obligatoire pour les formats JSON, MULTILINE JSON ou AVRO, et facultatif pour les autres formats.|
     | | |
+
+    > [!NOTE]
+    > Sélectionnez **My data includes routing info** pour utiliser le routage dynamique, où vos données incluent les informations de routage nécessaires comme indiqué dans les commentaires de l’[exemple d’application](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Si à la fois des propriétés statiques et des propriétés dynamiques sont définies, les propriétés dynamiques remplacent les propriétés statiques. 
 
 ## <a name="copy-the-connection-string"></a>Copier la chaîne de connexion
 
@@ -184,7 +187,9 @@ Avec l’application générant des données, vous pouvez maintenant voir le flu
     ![Jeu de résultats des messages](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > Azure Data Explorer est associé à une stratégie d’agrégation (traitement par lot) conçue pour optimiser le processus d’ingestion des données. La stratégie est configurée sur 5 minutes, ce qui peut entraîner une certaine latence.
+    > * Azure Data Explorer est associé à une stratégie d’agrégation (traitement par lot) conçue pour optimiser le processus d’ingestion des données. La stratégie est configurée sur 5 minutes ou 500 Mo de données, ce qui peut entraîner une certaine latence. Consultez la [stratégie de traitement par lot](/azure/kusto/concepts/batchingpolicy) pour les options d’agrégation. 
+    > * L’ingestion de Event Hub comprend le temps de réponse de Event Hub de 10 secondes ou 1 Mo. 
+    > * Configurez votre tableau pour prendre en charge la diffusion en continu et supprimez le décalage dans le temps de réponse. Consultez la [stratégie de diffusion en continu](/azure/kusto/concepts/streamingingestionpolicy). 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -202,5 +207,4 @@ Si vous ne prévoyez pas de réutiliser votre hub d’événements, nettoyez **t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
+* [Interroger des données dans Azure Data Explorer](web-query-data.md)

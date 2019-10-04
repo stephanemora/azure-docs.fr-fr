@@ -1,23 +1,23 @@
 ---
 title: 'Didacticiel : Créer une page web de recherche personnalisée - Recherche personnalisée Bing'
-titlesuffix: Azure Cognitive Services
-description: Décrit la configuration d’une instance de recherche personnalisée et son intégration à une page web.
+titleSuffix: Azure Cognitive Services
+description: Découvrez comment configurer une instance de recherche personnalisée Bing et comment l’intégrer à une page web.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aee84a4d9203d80b81f773df30d68c3539e5ec7c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100728"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564694"
 ---
-# <a name="tutorial-build-a-custom-search-web-page"></a>Tutoriel : Créer une page web Recherche personnalisée
+# <a name="tutorial-build-a-custom-search-web-page"></a>Didacticiel : Créer une page web Recherche personnalisée
 
 La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour des sujets qui vous intéressent. Par exemple, si vous avez un site web d’arts martiaux qui fournit une expérience de recherche, vous pouvez spécifier les domaines, sous-sites et pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de compulser des pages de résultats de recherche générale dont le contenu peut être inapproprié. 
 
@@ -35,7 +35,7 @@ Les tâches traitées sont les suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 - Pour suivre ce tutoriel, vous avez besoin d’une clé d’abonnement pour l’API Recherche personnalisée Bing.  Pour obtenir une clé, consultez [Essayer Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser la version **gratuite** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).
+- Si vous n’avez pas encore installé Visual Studio 2017 ou version ultérieure, vous pouvez télécharger et utiliser **gratuitement** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Création d’une instance de recherche personnalisée
 

@@ -10,14 +10,15 @@ ms.subservice: custom-decision-service
 ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: slivkins
-ms.openlocfilehash: d8ddafe20ff93e7ae4d51e2180bbd40447729234
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ROBOTS: NOINDEX
+ms.openlocfilehash: f7eafed9db25fba904d98ddea652671dc45aa01d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983030"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707219"
 ---
-# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Tutoriel : Personnalisation des articles pour la prise de décision contextuelle
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Didacticiel : Personnalisation des articles pour la prise de décision contextuelle
 
 Ce didacticiel est axé sur la personnalisation de la sélection d’articles sur la première page d’un site web. Le Service Décision personnalisée affecte *plusieurs* listes d’articles sur la première page par exemple. La page peut être un site web d’actualités qui traite uniquement de politique et de sport. Elle afficherait trois listes classées d’articles : politique, sports et nouveautés.
 

@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
 ms.openlocfilehash: 6894486118f69e682353142be04821e1d28440e5
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523169"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60814672"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Planifier des tâches U-SQL à l’aide de SQL Server Integration Services (SSIS)
 
 Dans ce document, vous apprenez à orchestrer et à créer des tâches U-SQL avec SQL Server Integration Services. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Le [Feature Pack Azure pour Integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud) fournit la [tâche Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017), et le [Gestionnaire de connexions Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017) qui vous aide à vous connecter au service Azure Data Lake Analytics. Pour utiliser cette tâche, veillez à installer les éléments suivants :
 
@@ -93,7 +93,7 @@ En mode création du package SSIS, ajoutez une **tâche de système de fichiers 
     
     Pour créer cette connexion de fichier :
 
-   1. Choisissez  **\<nouvelle connexion... >** dans FileConnection paramètre.
+   1. Choisissez **\<Nouvelle connexion...>** dans le paramètre FileConnection.
    2. Définissez **Type d’utilisation** sur **Fichier existant** et définissez le **Fichier** sur un chemin de fichier du fichier existant.
 
        ![Configurer un conteneur de boucle Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
@@ -131,7 +131,7 @@ Outre l’utilisation de fichiers U-SQL stockés dans le cloud, vous pouvez éga
 
 1. Avec le bouton droit, cliquez sur **Gestionnaires de connexions** dans un projet SSIS et choisissez **Nouveau gestionnaire de connexions**.
 
-2. Sélectionnez le type **Fichier** et cliquez sur **Ajouter...**.
+2. Sélectionnez le type **Fichier** et cliquez sur **Ajouter...** .
 
 3. Définissez **Type d’utilisation** sur **Fichier existant** et **Fichier** sur le fichier de la machine locale.
 

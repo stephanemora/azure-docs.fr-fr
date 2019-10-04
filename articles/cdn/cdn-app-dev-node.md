@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 48a84520a61d19968b467091871459e21898dd5e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 18dbcbf93947306334ccc2c156d9266884198e19
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548641"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594119"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Prise en main du développement Azure CDN
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Ouvrez *app.js* dans votre éditeur pour commencer à écrire la structure de ba
     var msRestAzure = require('ms-rest-azure');
     var cdnManagementClient = require('azure-arm-cdn');
     ```
-2. Nous devons définir certaines constantes que nos méthodes utiliseront.  Ajoutez le code suivant.  Veillez à remplacer les espaces réservés, notamment les **&lt;éléments entre chevrons&gt;**, par vos propres valeurs, si nécessaire.
+2. Nous devons définir certaines constantes que nos méthodes utiliseront.  Ajoutez le code suivant.  Veillez à remplacer les espaces réservés, notamment les **&lt;éléments entre chevrons&gt;** , par vos propres valeurs, si nécessaire.
    
     ``` javascript
     //Tenant app constants

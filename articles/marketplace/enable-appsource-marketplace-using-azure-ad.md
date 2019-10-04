@@ -2,24 +2,18 @@
 title: Activer une liste Microsoft AppSource et Place de marché Microsoft Azure à l’aide d’Azure Active Directory | Azure
 description: Activer un type de liste à l’aide d’Azure Active Directory dans la Place de marché Azure et AppSource pour les éditeurs d’application et de service.
 services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: qianw211
-ms.openlocfilehash: 247a45a38d732ace0455c6ca2ebbd5c44c384004
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.author: pabutler
+ms.openlocfilehash: 0b68687a2bbaa817f2776757ccab9571638c0fd5
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732326"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875996"
 ---
 # <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Activer une liste AppSource et Place de marché en utilisant Azure Active Directory
 
@@ -41,12 +35,12 @@ Aux différents [types d’offre et options de référencement](https://docs.mic
 | **Type d’offre**    | **Authentification unique Azure AD nécessaire ?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
 |  | Me contacter | Version d’évaluation | Version d’évaluation | Transaction |
-| Machine virtuelle | N/A | Non  | Non  | Non  |
+| Machine virtuelle | N/A | Non | Non | Non |
 | Applications Azure ( modèle de solution)  | N/A | N/A | N/A | N/A |
-| Applications managées  | N/A | N/A | N/A | Non  |
-| SaaS  | Non  | OUI | OUI | Oui |
-| Containers  | N/A | N/A | N/A | Non  |
-| Services de conseil  | Non  | N/A | N/A | N/A |
+| Applications managées  | N/A | N/A | N/A | Non |
+| SaaS  | Non | OUI | OUI | OUI |
+| Containers  | N/A | N/A | N/A | Non |
+| Services de conseil  | Non | N/A | N/A | N/A |
 
 Pour plus d’informations sur les exigences techniques SaaS, consultez le [guide de publication de l’offre des applications SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
@@ -95,4 +89,4 @@ Utilisez Azure AD pour permettre l’une des actions suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Vérifiez que vous êtes [inscrit sur la Place de marché Azure](https://azuremarketplace.microsoft.com/sell).
-- [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com/) pour créer ou terminer votre offre.
+- Pour plus d’informations sur la façon de créer ou de compléter votre offre, consultez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).

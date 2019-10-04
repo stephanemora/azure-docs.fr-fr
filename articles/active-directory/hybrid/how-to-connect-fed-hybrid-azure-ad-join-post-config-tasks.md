@@ -16,27 +16,27 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9af969700f4f2dfbedc4833badd7e7349696302
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 70e3267792f27a170efa26cc4267d1b25045a099
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199729"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231241"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tâches post-configuration concernant la jonction Azure AD Hybride
 
 Après avoir exécuté Azure AD Connect afin de configurer votre organisation pour la jonction Azure AD Hybride, vous devez suivre quelques étapes supplémentaires pour finaliser cette configuration.  Exécutez uniquement les étapes qui s’appliquent à vos appareils.
 
 ## <a name="1-configure-controlled-rollout-optional"></a>1. Configurer un lancement contrôlé (facultatif)
-Tous les appareils joints à un domaine qui exécutent Windows 10 et Windows Server 2016 s’inscrivent automatiquement auprès d’Azure AD à l’issue de la procédure de configuration. Si vous souhaitez opter pour un lancement contrôlé plutôt que pour cette inscription automatique, vous pouvez utiliser une stratégie de groupe pour activer ou désactiver de manière sélective le lancement automatique.  Vous devez définir cette stratégie de groupe avant d’exécuter l’autre procédure de configuration d’Azure AD :
+Tous les appareils joints à un domaine qui exécutent Windows 10 et Windows Server 2016 s’inscrivent automatiquement auprès d’Azure AD à l’issue de la procédure de configuration. Si vous souhaitez opter pour un lancement contrôlé plutôt que pour cette inscription automatique, vous pouvez utiliser une stratégie de groupe pour activer ou désactiver de manière sélective le lancement automatique.  Vous devez définir cette stratégie de groupe avant d’exécuter l’autre procédure de configuration :
 * Créez un objet de stratégie de groupe dans Active Directory.
 * Attribuez-lui un nom (par exemple, Jonction Azure AD Hybride).
-* Accédez à :  Configuration ordinateur > Stratégies > Modèles d’administration > Composants Windows > Inscription de l’appareil.
+* Modifier et accéder à :  Configuration ordinateur > Stratégies > Modèles d’administration > Composants Windows > Inscription de l’appareil.
 
 >[!NOTE]
 >Dans le cas de la version 2012R2, les paramètres de stratégie sont accessibles à l’emplacement **Configuration ordinateur > Stratégies > Modèles d’administration > Composants Windows > Rattacher à l’espace de travail > Joindre automatiquement les ordinateurs clients à l’espace de travail**.
 
-* Désactiver ce paramètre :  Enregistrer les ordinateurs appartenant au domaine en tant qu’appareils.
+* Activez ce paramètre :  Enregistrer les ordinateurs appartenant au domaine en tant qu’appareils.
 * Appliquez vos modifications, puis cliquez sur OK.
 * Liez l’objet de stratégie de groupe à l’emplacement de votre choix (unité d’organisation, groupe de sécurité ou domaine pour tous les appareils).
 

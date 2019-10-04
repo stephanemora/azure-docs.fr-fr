@@ -1,6 +1,6 @@
 ---
-title: Opérations de Protection de mot de passe AD Azure et de création de rapports - Azure Active Directory
-description: Opérations de post-déploiement de Protection de mot de passe AD Azure et création de rapports
+title: Opérations de protection par mot de passe AD Azure et création de rapports – Azure Active Directory
+description: Opérations et rapports post-déploiement de protection par mot de passe Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca85007bb016cc98d1be61ce08865945e699ad4a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: b5ff7f0bbf1bf474a611ae033165bca6dfaac676
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312425"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097630"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Protection par mot de passe Azure AD - Procédures opérationnelles
 
@@ -28,7 +28,7 @@ Suivez les instructions dans l’article [Configurer la liste des mots de passe 
 
 ## <a name="enable-password-protection"></a>Activer la Protection par mot de passe
 
-1. Se connecter à la [Azure portal](https://portal.azure.com) et accédez à **Azure Active Directory**, **méthodes d’authentification**, puis **Protection de mot de passe**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory**, **Méthodes d’authentification**, puis **Protection par mot de passe**.
 1. Définissez **Activer la Protection par mot de passe sur Windows Server Active Directory** sur**Oui**
 1. Comme mentionné dans le [Guide de déploiement](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), il est recommandé de régler de base le **Mode** sur **Audit**
    * Une fois que vous êtes familiarisé avec la fonctionnalité, vous pouvez basculer le **Mode** sur **Appliqué**
@@ -55,9 +55,12 @@ Ce message n’est qu’un seul exemple de plusieurs résultats possibles. Le me
 
 Les utilisateurs finaux concernés devront peut-être travailler avec leur service informatique pour comprendre les nouvelles exigences et être plus en mesure de choisir des mots de passe sécurisés.
 
+> [!NOTE]
+> La protection par mot de passe Azure AD n’a aucun contrôle sur le message d’erreur spécifique affiché par l’ordinateur client lorsqu’un mot de passe faible est rejeté.
+
 ## <a name="enable-mode"></a>Mode d’activation
 
-Ce paramètre doit normalement être laissé à son état par défaut (Oui). Si vous désactivez ce paramètre (Non), tous les agents DC de la Protection par mot de passe Azure AD déployés passeront en mode inactif : tous les mots de passe seront acceptés tels quels et aucune activité de validation ne sera exécutée (par exemple, aucun événement d'audit ne sera émis).
+Ce paramètre doit être laissé à son état par défaut (Oui). Si vous désactivez ce paramètre (Non), tous les agents DC de la Protection par mot de passe Azure AD déployés passeront en mode inactif : tous les mots de passe seront acceptés tels quels et aucune activité de validation ne sera exécutée (par exemple, aucun événement d'audit ne sera émis).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

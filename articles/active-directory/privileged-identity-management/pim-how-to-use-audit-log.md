@@ -1,68 +1,74 @@
 ---
-title: Afficher l’historique d’audit pour les rôles Azure AD dans PIM - Azure Active Directory | Microsoft Docs
-description: Découvrez comment afficher l’historique d’audit pour les rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
+title: Voir l’historique des audits pour les rôles Azure AD dans PIM - Azure Active Directory | Microsoft Docs
+description: Découvrez comment afficher l’historique des audits des rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/14/2017
-ms.author: rolyon
+ms.date: 06/10/2019
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c080173af8ddd31b077bb820ea19d82eb2b29300
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 3547ff218e9a15151e4abe2ceff53292d3f01ac0
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576138"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804329"
 ---
-# <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Afficher l’historique d’audit pour les rôles d’Azure AD dans PIM
-Vous pouvez utiliser l’historique d’audit Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pour voir toutes les activations et affectations d’utilisateur dans un laps de temps donné pour tous les rôles privilégiés. Si vous souhaitez consulter l’historique d’audit complet de l’activité dans votre client, notamment l’activité de l’administrateur, de l’utilisateur final et de la synchronisation, vous pouvez utiliser les [rapports d’accès et d’utilisation d’Azure Active Directory.](../reports-monitoring/overview-reports.md)
+# <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Voir l’historique d’audit pour les rôles Azure AD dans PIM
 
-## <a name="navigate-to-audit-history"></a>Accéder à l’historique d’audit
-À partir du [portail Azure](https://portal.azure.com) et du tableau de bord, sélectionnez l’application **Azure AD Privileged Identity Management** . À partir de là, accédez à l’historique d’audit en cliquant sur **Gérer les rôles privilégiés** > **Historique d’audit** dans le tableau de bord PIM.
+Vous pouvez utiliser l’historique d’audit PIM Azure Active Directory (Azure AD) pour voir toutes les activations et toutes les affectations de rôles qui ont été effectuées au cours des 30 derniers jours pour tous les rôles privilégiés. Si vous souhaitez consulter l’historique d’audit complet de l’activité dans votre annuaire, notamment l’activité de l’administrateur, de l’utilisateur final et de la synchronisation, vous pouvez utiliser les [rapports d’activité et de sécurité d’Azure Active Directory](../reports-monitoring/overview-reports.md).
 
-![Historique d´audit](media/azure-ad-pim-approval-workflow/image021.png)
+## <a name="view-audit-history"></a>Afficher l’historique d'audit
 
-> [!NOTE]
-> Vous pouvez trier les données par Action, puis recherchez « Activation approuvée »
+Suivez ces étapes pour afficher l’historique des audits pour les rôles Azure AD.
 
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
-## <a name="audit-history-graph"></a>Graphique de l’historique d’audit
-L’historique d’audit indique le nombre total d’activations, le nombre maximal d’activations par jour et le nombre moyen d’activations par jour dans un graphique linéaire.  Vous pouvez également filtrer les données par rôle s’il existe plusieurs rôles dans l’historique d’audit.
+1. Ouvrez **Azure AD Privileged Identity Management**.
 
-Utilisez les boutons **temps**, **action** et **rôle** pour trier l’historique.
+1. Cliquez sur **Rôles Azure AD**.
 
-## <a name="audit-history-list"></a>Liste de l’historique d’audit
-La liste de l’historique d’audit comprend les colonnes suivantes :
+1. Cliquez sur **Historique d’audit des rôles d’annuaire**.
 
-* **Demandeur** : personne qui a demandé l’activation de rôle ou la modification.  Si la valeur est « Système Azure », consultez l’historique d’audit Azure pour obtenir plus d’informations.
-* **Utilisateur** : l’utilisateur qui active un rôle ou y est affecté.
-* **Rôle** : le rôle affecté ou activé par l’utilisateur.
-* **Action** : les mesures prises par le demandeur. Ceci peut inclure l'attribution, la non-attribution, l’activation ou la désactivation.
-* **Heure** : heure à laquelle l’action s’est produite.
-* **Motif** : tout texte éventuellement entré dans le champ de motif pendant l’activation.
-* **Expiration** : concerne uniquement l’activation de rôles.
+    En fonction de l’historique d’audit, un histogramme s’affiche dans lequel figurent le nombre total d’activations, le nombre maximal d’activations par jour et la moyenne d’activations par jour.
+
+    ![Historique d’audit des rôles d’annuaire](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+
+    Au bas de la page, un tableau s’affiche avec des informations sur chaque action de l’historique d’audit disponible. Voici la signification de ces colonnes :
+
+    | Colonne | Description |
+    | --- | --- |
+    | Temps | Moment auquel une action s’est produite. |
+    | Demandeur | Personne qui a demandé l’activation d’un rôle ou sa modification. Si la valeur est **Système Azure**, consultez l’historique d’audit Azure pour obtenir plus d’informations. |
+    | Action | Actions effectuées par le demandeur. Il peut s’agir des actions Affecter, Annuler l’affectation, Activer, Désactiver ou AddedOutsidePIM. |
+    | Membre | Utilisateur qui active un rôle ou est affecté à ce rôle. |
+    | Role | Rôle affecté ou activé par l’utilisateur. |
+    | Raisonnement | Texte entré dans le champ Motif pendant l’activation. |
+    | Expiration | Date d’expiration d’un rôle activé. S’applique uniquement aux affectations de rôles éligibles. |
+
+1. Pour trier l’historique d’audit, utilisez les boutons **Date**, **Action** et **Rôle**.
 
 ## <a name="filter-audit-history"></a>Filtrer l’historique d’audit
-Vous pouvez filtrer les informations qui s’affichent dans l’historique d’audit en cliquant sur le bouton **Filtrer**.  Le panneau **Mettre à jour les paramètres du graphique** s’affiche.
 
-Une fois les filtres appliqués, cliquez sur **Mettre à jour** pour filtrer les données de l’historique.  Si les données ne s’affichent pas immédiatement, actualisez la page.
+1. En haut de la page de l’historique d’audit, cliquez sur le bouton **Filtrer**.
 
-### <a name="change-the-date-range"></a>Modifier la plage de dates
-Utilisez les boutons **Aujourd’hui**, **Semaine dernière**, **Mois dernier** ou **Personnalisé** pour changer de période dans l’historique d’audit.
+    Le volet **Mettre à jour les paramètres du graphique** s’affiche.
 
-Si vous choisissez le bouton **Personnalisé**, les champs de date **De** et **À** s’affichent pour que vous puissiez spécifier une plage de dates pour l’historique.  Vous pouvez entrer les dates au format JJ/MM/AAAA ou cliquer sur l’icône de **calendrier** et sélectionner une date dans un calendrier.
+1. Dans **Intervalle de temps**, sélectionnez un intervalle de temps.
 
-### <a name="change-the-roles-included-in-the-history"></a>Modifier les rôles inclus dans l’historique
-Cochez ou décochez la case **Rôle** en regard de chaque rôle à inclure dans le journal ou à exclure de celui-ci.
+1. Dans **Rôles**, cochez les rôles que vous souhaitez afficher.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+    ![Volet Mettre à jour les paramètres du graphique](media/pim-how-to-use-audit-log/update-chart-parameters.png)
+
+1. Pour voir l’historique d’audit filtré, cliquez sur **Terminé**.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Afficher l’activité et l’historique d’audit des rôles de ressources Azure dans PIM](azure-pim-resource-rbac.md)

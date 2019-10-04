@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 25dda12ca33165cfc64ffd949a2068acb5150b84
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5399f46106d94d593a15530ee0c223a3f5f3eaf
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097147"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802053"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutoriel : Créer des modèles Azure Resource Manager liés
 
@@ -89,7 +89,7 @@ Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé
 2. Effectuez les modifications suivantes :
 
     * Supprimez tous les paramètres autres que **location**.
-    * Ajoutez un paramètre appelé **storageAccountName**. 
+    * Ajoutez un paramètre appelé **storageAccountName**.
         ```json
         "storageAccountName":{
           "type": "string",
@@ -99,7 +99,7 @@ Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé
         },
         ```
         Le nom et l’emplacement du compte de stockage sont passés du modèle principal au modèle lié en tant que paramètres.
-        
+
     * Supprimez l’élément **variables** et toutes les définitions de variable.
     * Supprimez toutes les ressources autres que le compte de stockage. Vous supprimez quatre ressources au total.
     * Mettez à jour la valeur de l’élément **name** de la ressource de compte de stockage comme suit :
@@ -109,7 +109,7 @@ Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé
         ```
 
     * Mettez à jour l’élément **outputs**, de sorte qu’il ressemble à ce qui suit :
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -227,7 +227,7 @@ echo "Linked template URI with SAS token: $templateURI"
 4. Prenez note des deux valeurs (nom de groupe de ressources et URI du modèle lié) à la fin du volet de l’interpréteur de commandes. Vous aurez besoin de ces valeurs plus loin dans le didacticiel.
 5. Sélectionnez **Quitter le mode focus** pour fermer le volet de l’interpréteur de commandes.
 
-Dans la pratique, vous générez un jeton SAS quand vous déployez le modèle principal et affectez à l’expiration du jeton SAS une fenêtre plus petite pour renforcer la sécurité. Pour plus d’informations, consultez [Fournir un jeton SAS au cours du déploiement](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+Dans la pratique, vous générez un jeton SAS quand vous déployez le modèle principal et affectez à l’expiration du jeton SAS une fenêtre plus petite pour renforcer la sécurité. Pour plus d’informations, consultez [Fournir un jeton SAS au cours du déploiement](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="call-the-linked-template"></a>Appeler le modèle lié
 
@@ -272,7 +272,7 @@ Le modèle principal se nomme azuredeploy.json.
     Prenez note des détails suivants :
 
     * Une ressource `Microsoft.Resources/deployments` dans le modèle principal est utilisée pour créer le lien avec un autre modèle.
-    * La ressource `deployments` se nomme `linkedTemplate`. Ce nom est utilisé pour [configurer la dépendance](#configure-dependency).  
+    * La ressource `deployments` se nomme `linkedTemplate`. Ce nom est utilisé pour [configurer la dépendance](#configure-dependency).
     * Vous pouvez uniquement utiliser le mode de déploiement [Incremental](./deployment-modes.md) lors de l’appel de modèles liés.
     * `templateLink/uri` contient l’URI du modèle lié. Mettez à jour la valeur avec l’URI que vous obtenez quand vous chargez le modèle lié (celui avec un jeton SAS).
     * Pour passer des valeurs du modèle principal au modèle lié, utilisez `parameters`.
@@ -287,7 +287,7 @@ Nous avons vu dans le [Tutoriel : Créer des modèles Azure Resource Manager av
 
 Étant donné que le compte de stockage est maintenant défini dans le modèle lié, vous devez mettre à jour les deux éléments suivants de la ressource `Microsoft.Compute/virtualMachines`.
 
-* Reconfigurez l’élément `dependOn`. La définition du compte de stockage est déplacée vers le modèle lié.
+* Reconfigurez l’élément `dependsOn`. La définition du compte de stockage est déplacée vers le modèle lié.
 * Reconfigurez l’élément `properties/diagnosticsProfile/bootDiagnostics/storageUri`. Dans [Créer le modèle lié](#create-the-linked-template), vous avez ajouté une valeur de sortie :
 
     ```json
@@ -305,7 +305,7 @@ Nous avons vu dans le [Tutoriel : Créer des modèles Azure Resource Manager av
 
     ![Dépendance configurée par les modèles liés Azure Resource Manager](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    Le nom de la ressource de déploiement *linkedTemplate*.  
+    Le nom de la ressource de déploiement *linkedTemplate*.
 3. Mettez à jour **properties/diagnosticsProfile/bootDiagnostics/storageUri** comme indiqué dans la capture d’écran précédente.
 4. Enregistrez le modèle modifié.
 
@@ -327,11 +327,11 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 Pour améliorer le projet, apportez les modifications supplémentaires suivantes au projet terminé :
 
 1. Modifiez le modèle principal (azuredeploy.json) afin qu’il accepte la valeur d’URI du modèle lié par le biais d’un paramètre.
-2. Au lieu de générer un jeton SAS quand vous chargez le modèle lié, générez le jeton quand vous déployez le modèle principal. Pour plus d’informations, consultez [Fournir un jeton SAS au cours du déploiement](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+2. Au lieu de générer un jeton SAS quand vous chargez le modèle lié, générez le jeton quand vous déployez le modèle principal. Pour plus d’informations, consultez [Fournir un jeton SAS au cours du déploiement](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez modularisé un modèle en un modèle principal et un modèle lié. Pour découvrir comment utiliser les extensions de machine virtuelle afin d’exécuter les tâches post-déploiement, consultez :
 
 > [!div class="nextstepaction"]
-> [Déployer des extensions de machine virtuelle](./deployment-manager-tutorial.md)
+> [Déployer des extensions de machine virtuelle](./resource-manager-tutorial-deploy-vm-extensions.md)

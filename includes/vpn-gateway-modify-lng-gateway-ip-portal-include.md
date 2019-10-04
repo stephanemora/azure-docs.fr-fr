@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a79184a5e08aa43a4675194adf5f10b9807418db
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 52084b065ef65a69a6691b6646d1e199f011910d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36329550"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176898"
 ---
 ### <a name="gwipnoconnection"></a> Pour modifier l’adresse IP de la passerelle de réseau local - sans connexion de passerelle
 

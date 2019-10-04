@@ -18,18 +18,18 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098057"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60242378"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Confidentialité des utilisateurs et authentification directe Azure Active Directory
 
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 L’authentification directe Azure AD crée les types de journaux suivants, qui peuvent contenir des données personnelles :
 
@@ -98,7 +98,7 @@ Pour planifier une exécution de ce script toutes les 48 heures, effectuez les 
 6.  Sélectionnez **Tous les jours** pour le **Déclencheur de tâche**, puis cliquez sur **Suivant**.
 7.  Choisissez de répéter tous les deux jours, puis cliquez sur **Suivant**.
 8.  Sélectionnez **Démarrer un programme** comme action, puis cliquez sur **Suivant**.
-9.  Tapez **PowerShell** dans le champ Programme/script. Ensuite, dans le champ **Ajouter des arguments (facultatif)**, entrez le chemin complet du script que vous avez créé précédemment, puis cliquez sur **Suivant**.
+9.  Tapez **PowerShell** dans le champ Programme/script. Ensuite, dans le champ **Ajouter des arguments (facultatif)** , entrez le chemin complet du script que vous avez créé précédemment, puis cliquez sur **Suivant**.
 10. L’écran suivant montre un récapitulatif de la tâche que vous êtes sur le point de créer. Vérifiez les valeurs, puis cliquez sur **Terminer** pour créer la tâche :
  
 ### <a name="note-about-domain-controller-logs"></a>Remarque concernant les journaux d’activité des contrôleurs de domaine

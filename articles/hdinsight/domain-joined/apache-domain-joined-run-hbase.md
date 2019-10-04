@@ -1,20 +1,20 @@
 ---
-title: Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise - Azure
-description: Découvrez comment configurer des stratégies Apache Ranger pour HBase dans Azure HDInsight avec le Pack Sécurité Entreprise.
-services: hdinsight
+title: Tutoriel - Configurer Apache HBase avec le Pack Sécurité Entreprise - Azure
+description: Didacticiel - Découvrez comment configurer des stratégies Apache Ranger pour HBase dans Azure HDInsight avec le Pack Sécurité Entreprise.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: tutorial
-ms.date: 02/01/2019
-ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/04/2019
+ms.openlocfilehash: 5823bed08e0fc2ed67dbbf3c58c39982f3a1897e
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117283"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037270"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Didacticiel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise (préversion)
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Didacticiel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise
 
 Découvrez comment configurer des stratégies Apache Ranger pour des clusters Apache HBase avec le Pack Sécurité Entreprise (ESP). Les clusters ESP sont connectés à un domaine permettant aux utilisateurs de s’authentifier avec les informations d’identification du domaine. Dans ce tutoriel, vous créez deux stratégies Ranger pour restreindre l’accès à différentes familles de colonnes dans une table HBase.
 
@@ -88,7 +88,8 @@ Vous pouvez utiliser SSH pour vous connecter à des clusters HBase, puis utilise
     ```hbaseshell
     scan 'Contacts'
     ```
-    ![Interpréteur de commandes HBase Hadoop HDInsight](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
+
+    ![Sortie de l’interpréteur de commandes HBase Hadoop HDInsight](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)
 
 ## <a name="create-ranger-policies"></a>Création de stratégies Ranger
 
@@ -96,11 +97,11 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
 
 1. Ouvrez **l’interface utilisateur de l’administrateur Ranger**. Cliquez sur **\<NomCluster>_hbase** sous **HBase**.
 
-   ![Interface utilisateur de l’administrateur Apache Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
+   ![Interface utilisateur d’administration Apache Ranger HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
 2. L’écran **List of Policies** (Liste des stratégies) affiche toutes les stratégies Ranger qui ont été créées pour ce cluster. Il est possible qu’une stratégie préconfigurée figure dans la liste. Cliquez sur **Add New Policy** (Ajouter une nouvelle stratégie).
 
-    ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
+    ![Liste des stratégies Apache Ranger pour HBase](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
 3. Dans l’écran **Create Policy** (Créer une stratégie), entrez les valeurs suivantes :
 
@@ -119,7 +120,7 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
    * `*` indique zéro, une ou plusieurs occurrences des caractères.
    * `?` indique n’importe quel caractère individuel.
 
-   ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
+   ![créer une stratégie Apache Ranger pour sales](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
    >Attendez quelques instants pour que Ranger se synchronise avec Azure AD si un utilisateur du domaine n’est pas renseigné automatiquement dans **Sélectionner un utilisateur**.
@@ -138,7 +139,7 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
    |Sélectionner un utilisateur  | marketing_user1 |
    |Autorisations  | Lire |
 
-   ![Interface utilisateur de l’administrateur Apache Ranger - Créer une stratégie](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
+   ![créer une stratégie Apache Ranger pour marketing](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-marketing.png)  
 
 6. Cliquez sur **Ajouter** pour enregistrer la stratégie.
 
@@ -146,7 +147,7 @@ Créez une stratégie Ranger pour **sales_user1** et **marketing_user1**.
 
 En fonction des stratégies Ranger configurées, **sales_user1** peut voir toutes les données des colonnes à la fois dans les familles de colonnes `Name` et `Contact`. **marketing_user1** peut uniquement voir les données dans la famille de colonnes `Contact`.
 
-### <a name="access-data-as-salesuser1"></a>Accéder aux données en tant qu’utilisateur sales_user1
+### <a name="access-data-as-sales_user1"></a>Accéder aux données en tant qu’utilisateur sales_user1
 
 1. Ouvrez une connexion SSH avec le cluster. Utilisez la commande suivante pour vous connecter au cluster :
 
@@ -188,7 +189,7 @@ En fonction des stratégies Ranger configurées, **sales_user1** peut voir toute
     2 row(s) in 0.1000 seconds
     ```
 
-### <a name="access-data-as-marketinguser1"></a>Accéder aux données en tant qu’utilisateur marketing_user1
+### <a name="access-data-as-marketing_user1"></a>Accéder aux données en tant qu’utilisateur marketing_user1
 
 1. Ouvrez une connexion SSH avec le cluster. Utilisez la commande suivante pour vous connecter en tant que **marketing_user1** :
 
@@ -202,14 +203,14 @@ En fonction des stratégies Ranger configurées, **sales_user1** peut voir toute
    kinit marketing_user1
    ```
 
-2. Ouvrez l’interpréteur de commandes HBase et analysez la table `Customers` :
+1. Ouvrez l’interpréteur de commandes HBase et analysez la table `Customers`.
 
     ```hbaseshell
     hbase shell
     scan `Customers`
     ```
 
-3. Notez que l’utilisateur marketing peut uniquement voir les cinq colonnes de la famille de colonnes `Contact`.
+1. Notez que l’utilisateur marketing peut uniquement voir les cinq colonnes de la famille de colonnes `Contact`.
 
     ```hbaseshell
     ROW                                COLUMN+CELL
@@ -226,9 +227,9 @@ En fonction des stratégies Ranger configurées, **sales_user1** peut voir toute
     2 row(s) in 0.0730 seconds
     ```
 
-9. Consultez les événements d’accès de l’audit à partir de l’interface utilisateur de Ranger.
+1. Consultez les événements d’accès de l’audit à partir de l’interface utilisateur de Ranger.
 
-   ![Audit de stratégie de l’interface utilisateur de Ranger](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
+   ![Audit de stratégie de l’interface utilisateur Ranger HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-audit.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

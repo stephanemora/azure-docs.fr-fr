@@ -3,17 +3,17 @@ title: Autorisations et rôles Azure Container Registry
 description: Utilisez le contrôle d’accès en fonction du rôle (RBAC) et la gestion des identités et des accès (IAM) d’Azure pour fournir des autorisations de granularité fine aux ressources dans un registre de conteneurs Azure.
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 793dbf056201a3315a9b77dfebbb9331a8ed7db1
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894266"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310596"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry
 
@@ -23,7 +23,7 @@ Le service Azure Container Registry prend en charge un ensemble de rôles Azure 
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Propriétaire | X | X | X | X | X | X |  |  
 | Contributeur | X | X | X |  X | X | X |  |  
-| Lecteur | X |  |  | X |  |  |  |
+| Lecteur | X |  |  |  |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
@@ -63,7 +63,7 @@ Possibilité de `docker pull` une image qui n’est pas en quarantaine ou de tir
 
 ## <a name="delete-image-data"></a>Supprimer les données d’image
 
-La possibilité de [supprimer les images de conteneur](container-registry-delete.md), ou supprimer l’autre [pris en charge les artefacts](container-registry-image-formats.md) tels que des graphiques Helm, à partir d’un Registre.
+Possibilité de [supprimer des images de conteneur](container-registry-delete.md) ou de supprimer d’autres [artefacts pris en charge](container-registry-image-formats.md) tels que des graphiques Helm, à partir d’un registre.
 
 ## <a name="change-policies"></a>Changer de stratégies
 

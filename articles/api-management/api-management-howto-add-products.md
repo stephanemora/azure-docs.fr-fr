@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 0346cf456c53b14fd3c5b14b2e40eddd8b89fe4d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 134483764ffcb012ece0769a514683fc9487887f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465948"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073623"
 ---
 # <a name="create-and-publish-a-product"></a>Créer et publier un produit  
 
@@ -35,8 +34,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-+ Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
++ Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 ## <a name="create-and-publish-a-product"></a>Créer et publier un produit
 
@@ -47,12 +47,12 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
     Quand vous ajoutez un produit, vous devez fournir les informations suivantes : 
 
-    | NOM                     | Description                                                                                                                                                                                                                                                                                                             |
+    | Nom                     | Description                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Nom complet             | Le nom qui doit apparaître dans le **portail des développeurs**.                                                                                                                                                                                                                                                        |
-    | NOM                     | Nom descriptif du produit.                                                                                                                                                                                                                                                                                      |
+    | Nom                     | Nom descriptif du produit.                                                                                                                                                                                                                                                                                      |
     | Description              | Le champ **Description** vous permet d’ajouter des informations détaillées sur le produit, comme son objectif, les API auxquelles il permet l’accès, ainsi que d’autres informations utiles.                                                                                                                                               |
-    | État                    | Appuyez sur **Publié** si vous souhaitez publier le produit. Avant de pouvoir appeler les API dans un produit, ce produit doit être publié. Par défaut, les nouveaux produits ne sont pas publiés et ne sont visibles que pour les utilisateurs du groupe **Administrateurs** .                                                                                      |
+    | State                    | Appuyez sur **Publié** si vous souhaitez publier le produit. Avant de pouvoir appeler les API dans un produit, ce produit doit être publié. Par défaut, les nouveaux produits ne sont pas publiés et ne sont visibles que pour les utilisateurs du groupe **Administrateurs** .                                                                                      |
     | Nécessite un abonnement    | Cochez **Require subscription** (Demander un abonnement) si un utilisateur doit s’abonner pour pouvoir utiliser le produit.                                                                                                                                                                                                                                   |
     | Nécessite une approbation        | Cochez **Demander une approbation** si vous souhaitez qu’un administrateur révise et accepte ou refuse les tentatives d’abonnement à ce produit. Si la case n’est pas cochée, les tentatives d’abonnement sont automatiquement approuvées.                                                                                                                         |
     | Limite du nombre d’abonnements | Pour limiter le nombre de plusieurs abonnements simultanés, entrez la limite d’abonnements.                                                                                                                                                                                                                                |
@@ -83,6 +83,9 @@ Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l
 2. Accédez à l’onglet **API**.
 3. Cliquez sur **+ Ajouter**.
 4. Choisissez une API et cliquez sur **Sélectionner**.
+
+> [!TIP]
+> Vous pouvez créer ou mettre à jour l’abonnement de l’utilisateur à un *produit* avec les clés d’abonnement personnalisées [via l’API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate) ou une commande PowerShell.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

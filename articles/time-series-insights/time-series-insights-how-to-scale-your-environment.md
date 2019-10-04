@@ -4,29 +4,28 @@ description: Cet article explique comment mettre à l’échelle votre environne
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 08/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6c2c8c49f34c707c7b0fb4d525337fbfa169a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 13fa2b892013cf4a3fb96220c901030c6b0aee0b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692423"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70129109"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Mise à l’échelle de votre environnement Time Series Insights
 
-Cet article décrit comment changer la capacité de votre environnement Time Series Insights à l’aide du portail Azure. La capacité est le multiplicateur appliqué au débit d’entrée, à la capacité de stockage et au coût associé à votre référence SKU. 
+Cet article décrit comment changer la capacité de votre environnement Time Series Insights à l’aide du portail Azure. La capacité est le multiplicateur appliqué au débit d’entrée, à la capacité de stockage et au coût associé à votre référence SKU.
 
-Vous pouvez utiliser le portail Azure pour augmenter ou diminuer la capacité d’une référence SKU tarifaire donnée. 
+Vous pouvez utiliser le portail Azure pour augmenter ou diminuer la capacité d’une référence SKU tarifaire donnée.
 
-Toutefois, vous ne pouvez pas changer la référence SKU du niveau tarifaire. Par exemple, un environnement avec une référence SKU tarifaire S1 ne peut pas être converti en environnement S2 ou inversement. 
-
+Toutefois, vous ne pouvez pas changer la référence SKU du niveau tarifaire. Par exemple, un environnement avec une référence SKU tarifaire S1 ne peut pas être converti en environnement S2 ou inversement.
 
 ## <a name="s1-sku-ingress-rates-and-capacities"></a>Capacités et débits d’entrée de la référence S1
 
@@ -45,20 +44,21 @@ Toutefois, vous ne pouvez pas changer la référence SKU du niveau tarifaire. Pa
 Les capacités sont mises à l’échelle de façon linéaire. Par conséquent, une référence SKU S1 avec la capacité 2 prend en charge 2 Go (2 millions) d’événements par débit d’entrée par jour et 60 Go (60 millions d’événements) par mois.
 
 ## <a name="change-the-capacity-of-your-environment"></a>Changer la capacité de votre environnement
-1. Dans le portail Azure, recherchez et sélectionnez votre environnement Time Series Insights. 
 
-2. Dans le menu de votre environnement Time Series Insights, sélectionnez **Configurer**.
+1. Dans le portail Azure, recherchez et sélectionnez votre environnement Time Series Insights.
 
-   ![configure.png](media/scale-your-environment/configure.png)
+1. Dans le menu de votre environnement Time Series Insights, sélectionnez **Configurer**.
 
-3. Réglez le curseur **Capacité** pour sélectionner la capacité qui correspond à vos besoins en matière de débit d’entrée et de stockage. Notez que le **débit d’entrée**, la **capacité de stockage** et l’**estimation des coûts** se mettent à jour de manière dynamique pour montrer l’impact du changement. 
+   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
-   ![Curseur](media/scale-your-environment/slider.png)
+1. Réglez le curseur **Capacité** pour sélectionner la capacité qui correspond à vos besoins en matière de débit d’entrée et de stockage. Notez que le **débit d’entrée**, la **capacité de stockage** et l’**estimation des coûts** se mettent à jour de manière dynamique pour montrer l’impact du changement.
 
-   Vous pouvez aussi entrer le nombre du multiplicateur de capacité dans la zone de texte à droite du curseur. 
+   [![Curseur](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
 
-4. Sélectionnez **Enregistrer** pour mettre à l’échelle l’environnement. L’indicateur de progression s’affiche momentanément tant que la modification n’est pas validée. 
+   Vous pouvez aussi entrer le nombre du multiplicateur de capacité dans la zone de texte à droite du curseur.
+
+1. Sélectionnez **Enregistrer** pour mettre à l’échelle l’environnement. L’indicateur de progression s’affiche momentanément tant que la modification n’est pas validée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-> [!div class="nextstepaction"]
-> [Vérifiez que la nouvelle capacité est suffisante pour éviter la limitation](time-series-insights-diagnose-and-solve-problems.md).
+
+- Vérifiez que la nouvelle capacité est [suffisante pour éviter la limitation](time-series-insights-diagnose-and-solve-problems.md).

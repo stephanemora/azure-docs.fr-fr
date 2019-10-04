@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 701be795ca217c4a2dc5a7dbaa3a3717d16c85bc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: a8fbbdbd647aa3d733a26ceaf72629058ae3a274
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730220"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619274"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Ajouter un principal de service au rôle d’administrateur du serveur 
 
@@ -42,7 +42,7 @@ Pour effectuer cette tâche, vous devez disposer d’autorisations [Administrate
 
 
 > [!NOTE]
-> Pour les opérations de serveur à l’aide des applets de commande Azure PowerShell, le planificateur en cours d’exécution principal de service doit également appartenir à la **propriétaire** rôle pour la ressource dans [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md). 
+> Pour les opérations de serveur utilisant des applets de commande Azure PowerShell, le principal de service exécutant le planificateur doit également appartenir au rôle **Propriétaire** associé à la ressource dans le [contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md). 
 
 ## <a name="related-information"></a>Informations connexes
 

@@ -9,21 +9,21 @@ ms.date: 03/28/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 518c57bc3327511b70deef143826f2a1b9df8639
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58633002"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176733"
 ---
-Avant de vous attribuez un rôle RBAC à un principal de sécurité, déterminez l’étendue d’accès que l’entité de sécurité doit avoir. Les méthodes conseillées préconisent qu’il est toujours préférable d’accorder la plus petite portée possible.
+Avant d’attribuer un rôle RBAC à un principal de sécurité, déterminez l’étendue de l’accès dont doit disposer le principal de sécurité. Selon les bonnes pratiques, il est toujours préférable d’accorder la plus petite étendue possible.
 
-La liste suivante décrit les niveaux à laquelle vous pouvez étendre l’accès aux ressources d’objets blob et file d’attente Azure, en commençant par la plus petite portée :
+La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès aux ressources d’objets blob et de files d’attente Azure, en commençant par la plus petite étendue :
 
-- **Un conteneur spécifique.** Dans cette étendue, une attribution de rôle s’applique à tous les objets BLOB dans le conteneur, ainsi que les propriétés du conteneur et les métadonnées.
-- **Une file d’attente individuel.** Dans cette étendue, une attribution de rôle s’applique aux messages dans la file d’attente, ainsi que les propriétés de la file d’attente et les métadonnées.
-- **Le compte de stockage.** Dans cette étendue, une attribution de rôle s’applique à tous les conteneurs et leurs objets BLOB, ou pour toutes les files d’attente et leurs messages.
-- **Le groupe de ressources.** Dans cette étendue, une attribution de rôle s’applique à tous les conteneurs ou les files d’attente dans tous les comptes de stockage dans le groupe de ressources.
-- **L’abonnement.** Dans cette étendue, une attribution de rôle s’applique à tous les conteneurs ou les files d’attente dans tous les comptes de stockage dans tous les groupes de ressources dans l’abonnement.
+- **Un conteneur individuel.** Dans cette étendue, une attribution de rôle s’applique à tous les objets blob dans le conteneur, ainsi qu’aux propriétés et aux métadonnées du conteneur.
+- **Une file d’attente individuelle.** Dans cette étendue, une attribution de rôle s’applique aux messages dans la file d’attente, ainsi qu’à ses propriétés et ses métadonnées.
+- **Le compte de stockage.** Dans cette étendue, une attribution de rôle s’applique à tous les conteneurs et leurs objets blob, ou à toutes les files d’attente et leurs messages.
+- **Le groupe de ressources.** Dans cette étendue, une attribution de rôle s’applique à tous les conteneurs ou à toutes les files d’attente dans tous les comptes de stockage du groupe de ressources.
+- **L’abonnement.** Dans cette étendue, une attribution de rôle s’applique à tous les conteneurs ou à toutes les files d’attente dans tous les comptes de stockage de tous les groupes de ressources de l’abonnement.
 
 > [!IMPORTANT]
-> Si votre abonnement inclut un espace de noms Azure DataBricks, les rôles attribués à l’étendue de l’abonnement seront bloqués d’octroyer l’accès aux données blob et file d’attente.
+> Si votre abonnement comprend un espace de noms Azure DataBricks, les rôles attribués à l’étendue de l’abonnement sont bloqués et ne peuvent pas accorder l’accès aux données des objets blob et des files d’attente.

@@ -5,21 +5,21 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: e9b688d54049c21da3276a20e27dcc9ad3d4ceca
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443485"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231470"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurer la reprise d’activité pour une application SharePoint multiniveau à l’aide d’Azure Site Recovery
 
 Cet article explique en détail comment protéger une application SharePoint à l’aide d’[Azure Site Recovery](site-recovery-overview.md).
 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Microsoft SharePoint est une application puissante qui peut aider un groupe ou service à s’organiser, à collaborer et à partager des informations. SharePoint permet les portails intranet, la gestion des documents et fichiers, la collaboration, les réseaux sociaux, les réseaux extranet, les sites web, la recherche de contenu d’entreprise et le décisionnel. Elle offre également des capacités d’intégration de système, d’intégration de processus et d’automatisation de flux de travail. En règle générale, les organisations le considèrent comme une application de niveau 1 sensible à la perte de données et au temps d’arrêt.
 
@@ -29,12 +29,12 @@ Une bonne solution de récupération d’urgence doit permettre de modéliser de
 
 Cet article explique en détail comment protéger une application SharePoint à l’aide d’[Azure Site Recovery](site-recovery-overview.md). Cet article décrit les recommandations à suivre pour répliquer une application SharePoint à trois niveaux dans Azure, et indique comment vous pouvez effectuer un exercice de récupération d’urgence et comment vous pouvez basculer l’application vers Azure.
 
-Vous pouvez regarder la vidéo ci-dessous sur la récupération d’une application à plusieurs niveaux vers Azure.
+Vous pouvez regarder la vidéo ci-dessous sur la récupération d’une application multiniveau dans Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, veillez à bien comprendre ce qui suit :
 
@@ -56,26 +56,19 @@ SharePoint peut être déployée sur un ou plusieurs serveurs à l’aide de rô
 
 ## <a name="site-recovery-support"></a>Prise en charge de Site Recovery
 
-Pour la création de cet article, des machines virtuelles VMware avec Windows Server 2012 R2 Enterprise ont été utilisées. Les applications SharePoint 2013 Enterprise Edition et SQL Server 2014 Enterprise Edition ont été utilisées. Comme la réplication Site Recovery est indépendante des applications, les recommandations indiquées ici sont censées également s’appliquer aux scénarios suivants.
+Site Recovery est indépendant de toute application et doit fonctionner avec n'importe quelle version de SharePoint exécutée sur un ordinateur pris en charge. Pour la création de cet article, des machines virtuelles VMware avec Windows Server 2012 R2 Enterprise ont été utilisées. Les applications SharePoint 2013 Enterprise Edition et SQL Server 2014 Enterprise Edition ont été utilisées.
 
 ### <a name="source-and-target"></a>Source et cible
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | Oui | Oui
-**VMware** | Oui | Oui
-**Serveur physique** | Oui | Oui
-**Microsoft Azure** | N/D | Oui
+**Hyper-V** | OUI | OUI
+**VMware** | OUI | OUI
+**Serveur physique** | OUI | OUI
+**Microsoft Azure** | N/D | OUI
 
-### <a name="sharepoint-versions"></a>Versions de SharePoint
-Les versions suivantes de SharePoint Server sont prises en charge.
 
-* SharePoint Server 2013 Standard
-* SharePoint Server 2013 Enterprise
-* SharePoint Server 2016 Standard
-* SharePoint Server 2016 Enterprise
-
-### <a name="things-to-keep-in-mind"></a>Éléments à prendre en compte
+### <a name="things-to-keep-in-mind"></a>Points à prendre en compte
 
 Si vous utilisez un cluster basé sur disque partagé comme n’importe quel niveau dans votre application, vous ne pourrez pas utiliser la réplication de Site Recovery pour répliquer ces machines virtuelles. Vous pouvez utiliser la réplication native fournie par l’application, puis utiliser un [plan de récupération](site-recovery-create-recovery-plans.md) pour basculer tous les niveaux.
 
@@ -196,7 +189,7 @@ Suivez [ce guide](site-recovery-test-failover-to-azure.md) pour effectuer un tes
 
 Pour obtenir des conseils sur la réalisation du test de basculement pour Active Directory et DNS, consultez le document [Considérations relatives au test de basculement pour Active Directory et DNS](site-recovery-active-directory.md#test-failover-considerations).
 
-Pour obtenir des conseils sur la réalisation du test de basculement pour les groupes de disponibilité SQL AlwaysOn, consultez le document [Réalisation d’un test de basculement pour SQL Server AlwaysOn](site-recovery-sql.md#steps-to-do-a-test-failover).
+Pour obtenir des conseils sur la réalisation du test de basculement pour les groupes de disponibilité SQL AlwaysOn, consultez le document [Performing Application DR with Azure Site Recovery and doing Test failover (Récupération d’urgence d’application avec Azure Site Recovery et basculement de test)](site-recovery-sql.md#disaster-recovery-of-an-application).
 
 ## <a name="doing-a-failover"></a>Exécution d’un basculement
 Suivez [ce guide](site-recovery-failover.md) pour réaliser un basculement.

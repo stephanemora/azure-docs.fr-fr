@@ -1,33 +1,32 @@
 ---
 title: Utilisation de Python pour interroger Azure SQL Database | Microsoft Docs
-description: Cette rubrique vous explique comment utiliser Python pour créer un programme qui se connecte à une base de données SQL Azure et l’interroger à l’aide d’instructions Transact-SQL.
+description: Cette rubrique vous explique comment utiliser Python pour créer un programme qui se connecte à une base de données Azure SQL et l’interroger à l’aide d’instructions Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: python
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 788e21dc5d866bdd6641349ceeeeacbfab98c25c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 659f6333d16f84cc35be45c45b7a7119e53fd0d0
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444982"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70764286"
 ---
-# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Python pour interroger une base de données SQL Azure
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Python pour interroger une base de données Azure SQL
 
- Ce didacticiel de démarrage rapide montre comment utiliser [Python](https://python.org) pour se connecter à une base de données SQL Azure et utiliser des instructions Transact-SQL pour interroger des données. Pour plus d’informations concernant le kit de développement logiciel (SDK), consultez notre documentation de [référence](https://docs.microsoft.com/python/api/overview/azure/sql), le [référentiel GitHub pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) et un [exemple pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
+ Ce tutoriel de démarrage rapide montre comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure SQL et utiliser des instructions Transact-SQL pour interroger des données. Pour plus d’informations concernant le kit de développement logiciel (SDK), consultez notre documentation de [référence](https://docs.microsoft.com/python/api/overview/azure/sql), le [référentiel GitHub pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) et un [exemple pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
@@ -53,7 +52,7 @@ Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données SQL Azure. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -99,7 +98,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
+- [Concevoir votre première base de données Azure SQL](sql-database-design-first-database.md)
 - [Pilote Microsoft Python pour SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
 - [Centre de développement Python](https://azure.microsoft.com/develop/python/?v=17.23h)
 

@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256462"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204017"
 ---
-# <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Exemple - Effectuer un audit pour vérifier si les applications spécifiées n’ont pas été installées sur les machines virtuelles Linux
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exemple - Effectuer un audit pour vérifier si les applications spécifiées n’ont pas été installées sur les machines virtuelles Linux
 
-Cette initiative de configuration de stratégie d’invité et ses définitions vérifient si l’application spécifiée est installée sur les machines virtuelles Linux. L’ID de cette initiative intégrée est `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
+L’initiative de configuration de stratégie d’invité crée un événement d’audit si les applications spécifiées ne sont pas installées sur les machines virtuelles Linux. L’ID de cette initiative intégrée est `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
 
 > [!IMPORTANT]
 > Toutes les initiatives de configuration d’invité sont composées des définitions de stratégie **audit** et **deployIfNotExists**. Si vous n’affectez qu’une seule de ces définitions de stratégie, la configuration d’invité ne fonctionnera pas correctement.
@@ -32,9 +32,9 @@ Vous pouvez affecter cet exemple avec :
 
 L’initiative [Configuration d’invité](../concepts/guest-configuration.md) est constituée des stratégies suivantes :
 
-- [audit](#audit-definition) - Vérifier qu’une application est installée sur les machines virtuelles Linux
+- [audit](#audit-definition) : effectuer un audit pour vérifier si les applications n’ont pas été installées sur les machines virtuelles Linux
   - ID : `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition) - Déployer l’extension de la machine virtuelle pour vérifier qu’une application est installée sur les machines virtuelles Linux
+- [deployIfNotExists](#deployIfNotExists-definition) : déployer l’extension de la machine virtuelle pour vérifier si les applications n’ont pas été installées sur les machines virtuelles Linux
   - ID : `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>Définition d’initiative
@@ -45,7 +45,9 @@ L’initiative est créée en joignant les [paramètres de l’initiative](#init
 
 ### <a name="initiative-parameters"></a>Paramètres d’initiative
 
-|Nom |Type ||Description ||---|---||---||NomApplication |Chaîne |Noms d’applications. Exemple : 'python', 'powershell' ou une liste séparée par des virgules, par exemple, 'python,powershell'. Utilisez \* pour effectuer une recherche par caractère générique, comme 'power\*'.|
+|Nom |type |Description |
+|---|---|---|
+|applicationName |Chaîne |Noms des applications. Exemple : 'python', 'powershell' ou une liste séparée par des virgules, par exemple, 'python,powershell'. Utilisez \* pour effectuer une recherche par caractère générique, comme 'power\*'. |
 
 Lors de la création d’une affectation via PowerShell ou l’interface de ligne de commande Azure (Azure CLI), les valeurs de paramètres peuvent être passées au format JSON dans une chaîne ou via un fichier à l’aide de `-PolicyParameter` (PowerShell) ou de `--params` (Azure CLI).
 PowerShell prend également en charge `-PolicyParameterObject` qui nécessite de passer une table de hachage Nom/Valeur à l’applet de commande, où **Nom** est le nom du paramètre et **Valeur** est la valeur unique ou le tableau des valeurs transmises pendant l’affectation.
@@ -106,7 +108,7 @@ Après la création des définitions **audit** et **deployIfNotExists** dans le 
 
 ### <a name="create-copy-of-audit-definition"></a>Créer une copie d’une définition d’audit
 
-[![Déployer l’exemple de stratégie dans Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Déployer l’exemple de stratégie dans Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 [![Déployer l’exemple de stratégie dans Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 Lorsque vous utilisez ces boutons pour effectuer le déploiement via le portail, cela crée une copie de la définition de stratégie **audit**.
@@ -114,7 +116,7 @@ Sans la définition de stratégie **deployIfNotExists** associée, la configurat
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>Créer une copie de la définition deployIfNotExists
 
-[![Déployer l’exemple de stratégie dans Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Déployer l’exemple de stratégie dans Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 [![Déployer l’exemple de stratégie dans Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 Lorsque vous utilisez ces boutons pour effectuer le déploiement via le portail, cela crée une copie de la définition de stratégie **deployIfNotExists**. Sans la définition de stratégie **audit** associée, la configuration d’invité ne fonctionnera pas correctement.

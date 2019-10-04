@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: fbc5bbff62a13d9b4301271031105ecd7d17fa86
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 2684f89088854ecf05c547c77852155168baa38d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40183058"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177298"
 ---
 ### <a name="create-a-console-application"></a>Création d’une application console
 
-Dans Visual Studio, créez un nouveau projet **Application de console (.NET Framework)**.
+Dans Visual Studio, créez un nouveau projet **Application de console (.NET Framework)** .
 
 ### <a name="add-the-relay-nuget-package"></a>Ajout du package NuGet de relais
 

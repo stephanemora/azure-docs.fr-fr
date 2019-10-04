@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 8990f1f8e4cda5a6cc8b8d3197b843662b1397a5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096263"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598543"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(DÉPRÉCIÉ) Pipeline CI/CD complet pour déployer une application à plusieurs conteneurs sur Azure Container Service, avec Docker Swarm par le biais d’Azure DevOps Services
 
@@ -41,7 +41,7 @@ Voici une brève explication de ces étapes :
 1. Docker Swarm sur le cluster extrait la dernière version des images. 
 1. La nouvelle version de l’application est déployée à l’aide de Docker Compose. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce didacticiel, vous devez effectuer les tâches suivantes :
 
@@ -180,7 +180,7 @@ Azure DevOps Services vous permet de [gérer les mises en production dans les di
 
 ### <a name="initial-release-setup"></a>Configuration de la mise en production initiale
 
-1. Pour créer un pipeline de mise en production, cliquez sur **Mises en production** > **+ Mise en production**.
+1. Pour créer un pipeline de mise en production, cliquez sur **Mises en production** >  **+ Mise en production**.
 
 1. Pour configurer la source de l’artefact, cliquez sur **Artefacts** > **Lier une source d’artefact**. Ici, liez ce nouveau pipeline de mise en production à la build que vous avez définie à l’étape précédente. Ainsi, le fichier docker-compose.yml devient disponible dans le processus de mise en production.
 
@@ -225,4 +225,4 @@ Maintenant que vous avez terminé la configuration, il est temps de tester ce no
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la CI/CD avec Azure DevOps Services, voir la [vue d’ensemble de la génération dans Azure DevOps Services](https://www.visualstudio.com/docs/build/overview).
+* Pour plus d’informations sur la CI/CD avec Azure DevOps Services, consultez l’article [Documentation Azure Pipelines](/azure/devops/pipelines/?view=azure-devops).

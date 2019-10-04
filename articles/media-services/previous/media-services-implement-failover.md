@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f09391bf18910bf9151c99b8df91f92b2582e823
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: ea5238df50ff050140453ce655ea041669f6080c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189833"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67051654"
 ---
-# <a name="implement-failover-streaming-with-media-services"></a>Implémenter le basculement de diffusion en continu avec Media Services 
+# <a name="implement-failover-streaming-with-media-services"></a>Implémentation d’une diffusion en continu de basculement avec Media Services 
 
 Cette procédure pas à pas montre comment copier le contenu (objets blob) d'une ressource à une autre afin de gérer la redondance dans le cadre d’une diffusion en continu à la demande. Ce scénario est utile si vous souhaitez configurer le réseau de distribution de contenu Azure pour effectuer un basculement entre deux centres de données dans l’éventualité où une panne se produirait dans l’un d’eux. Cette procédure pas à pas utilise le SDK Microsoft Azure Media Services, l’API REST Microsoft Azure Media Services et le SDK Azure Storage pour effectuer les tâches suivantes :
 
@@ -50,7 +50,7 @@ Les considérations suivantes s'appliquent :
 * Les ressources de stockage chiffrées (AssetCreationOptions.StorageEncrypted) ne sont pas prises en charge pour la réplication (puisque la clé de chiffrement est différente dans les deux comptes Media Services). 
 * Si vous souhaitez tirer parti de l’empaquetage dynamique, assurez-vous que le point de terminaison de streaming à partir duquel vous souhaitez diffuser votre contenu se trouve à l’état **En cours d’exécution**.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez [Comment créer un compte Media Services](media-services-portal-create-account.md).
 * Système d’exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET Framework 4.5 ou .NET Framework 4.
@@ -409,8 +409,7 @@ Dans cette section, vous allez créer un moyen de gérer la redondance.
         {
 
             var ismAssetFiles = asset.AssetFiles.ToList().
-                        Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase))
-                        .ToArray();
+                        Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase));
 
             if (ismAssetFiles.Count() != 1)
                 throw new ArgumentException("The asset should have only one, .ism file");
@@ -421,15 +420,12 @@ Dans cette section, vous allez créer un moyen de gérer la redondance.
 
         public static IAssetFile GetPrimaryFile(IAsset asset)
         {
-            var theManifest =
-                    from f in asset.AssetFiles
-                    where f.Name.EndsWith(".ism")
-                    select f;
-
             // Cast the reference to a true IAssetFile type. 
-            IAssetFile manifestFile = theManifest.First();
+        IAssetFile theManifest = asset.AssetFiles.ToList().
+                Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).
+                FirstOrDefault();   
 
-            return manifestFile;
+            return theManifest;
         }
 
         public static IAsset RefreshAsset(CloudMediaContext context, IAsset asset)

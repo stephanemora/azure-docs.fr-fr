@@ -2,23 +2,19 @@
 title: À propos des clés, des secrets et des certificats Azure Key Vault - Azure Key Vault
 description: Vue d’ensemble de l’interface REST Azure Key Vault et des détails de développement sur les clés, les secrets et les certificats.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 01d9f763983da2415aba0f9bae81414017bc2f02
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: cca4f794fd3f84b991c7882307f74bcfadf6835b
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842564"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71241052"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>À propos des clés, des secrets et des certificats
 
@@ -29,7 +25,7 @@ Azure Key Vault permet aux utilisateurs et aux applications Microsoft Azure de s
 - Certificats : Prend en charge les certificats, qui sont basés sur des clés et des secrets, et ajoute une fonctionnalité de renouvellement automatique.
 - Stockage Azure : Peut gérer pour vous les clés d’un compte Stockage Azure. En interne, Key Vault peut lister (synchroniser) les clés avec un compte Stockage Azure et regénérer (faire tourner) régulièrement les clés. 
 
-Pour plus d’informations générales sur Key Vault, consultez [Présentation d’Azure Key Vault](/azure/key-vault/key-vault-whatis).
+Pour plus d’informations générales sur Key Vault, consultez [Présentation d’Azure Key Vault](/azure/key-vault/key-vault-overview).
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 
@@ -89,7 +85,7 @@ Où :
 Les clés de chiffrement dans Key Vault sont représentées en tant qu’objets de clé web JSON [JWK]. Les spécifications JWK/JWA de base sont également étendues pour rendre les types de clés uniques lors de l’implémentation du coffre de clés. Par exemple, l’importation de clés avec l’empaquetage spécifique au fournisseur HSM permet de sécuriser le transport des clés susceptibles d’être utilisées uniquement dans les modules HSM Key Vault.  
 
 - **Clés « logicielles »**  : clé traitée dans le logiciel par Key Vault, mais qui est chiffrée au repos avec une clé système qui se trouve dans un HSM. Les clients peuvent importer une clé RSA ou EC (Elliptic Curve) existante ou demander à Key Vault d’en générer une.
-- **Clés « matérielles »**  : clé traitée dans un module de sécurité matériel (HSM). Ces clés sont protégées dans un des mondes de sécurité HSM Key Vault (il existe un monde de sécurité par emplacement géographique afin de garantir l’isolation). Les clients peuvent importer une clé RSA ou EC, sous forme logicielle ou en exportant depuis un appareil HSM compatible. Les clients peuvent également demander à Key Vault de générer une clé. Ce type de clé ajoute l’attribut T à la JWK pour le transport du matériel de clé HSM.
+- **Clés « matérielles »**  : clé traitée dans un module de sécurité matériel (HSM). Ces clés sont protégées dans un des mondes de sécurité HSM Key Vault (il existe un monde de sécurité par emplacement géographique afin de garantir l’isolation). Les clients peuvent importer une clé RSA ou EC, sous forme logicielle ou en exportant depuis un appareil HSM compatible. Les clients peuvent également demander à Key Vault de générer une clé. Ce type de clé ajoute l’attribut key_hsm à la JWK pour le transport du matériel de clé HSM.
 
      Pour plus d’informations sur les frontières géographiques, consultez [Centre de gestion de la confidentialité Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -202,7 +198,7 @@ Vous pouvez spécifier des métadonnées spécifiques à l’application supplé
 
 Le contrôle d’accès pour les clés gérées par Key Vault est fourni au niveau d’un coffre de clés qui fait office de conteneur de clés. La stratégie de contrôle d’accès pour les clés est différente de la stratégie de contrôle d’accès pour les secrets dans un même coffre de clés. Les utilisateurs peuvent créer un ou plusieurs coffres pour stocker les clés et doivent maintenir une segmentation et une gestion des clés appropriées au scénario. Le contrôle d’accès pour les clés est indépendant du contrôle d’accès pour les secrets.  
 
-Les autorisations suivantes peuvent être accordées, par utilisateur/principal du service, dans l’entrée du contrôle d’accès aux clés sur un coffre. Ces autorisations reflètent précisément les opérations autorisées sur un objet clé :  
+Les autorisations suivantes peuvent être accordées, par utilisateur/principal du service, dans l’entrée du contrôle d’accès aux clés sur un coffre. Ces autorisations reflètent précisément les opérations autorisées sur un objet clé.  L’octroi de l’accès à un principal de service dans le coffre de clés est une opération unique et demeure identique pour tous les abonnements Azure. Vous pouvez l’utiliser pour déployer autant de certificats que vous le souhaitez. 
 
 - Autorisations pour les opérations de gestion de clés
   - *get* : lire la partie publique d’une clé, ainsi que ses attributs
@@ -480,5 +476,4 @@ Pour plus d’informations, consultez [Informations de référence sur les opér
 ## <a name="see-also"></a>Voir aussi
 
 - [Authentification, requêtes et réponses](authentication-requests-and-responses.md)
-- [Versions de Key Vault](key-vault-versions.md)
 - [Guide du développeur Key Vault](/azure/key-vault/key-vault-developers-guide)

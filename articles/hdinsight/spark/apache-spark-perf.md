@@ -1,7 +1,6 @@
 ---
 title: Optimiser les performances des travaux Spark - Azure HDInsight
-description: Présente des stratégies courantes permettant d’optimiser les performances des clusters Spark.
-services: hdinsight
+description: Présente des stratégies courantes permettant d’optimiser les performances des clusters Apache Spark dans Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 64dfd26e02526664a4edb204521f7a47a4463a12
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283067"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181082"
 ---
-# <a name="optimize-apache-spark-jobs"></a>Optimiser des travaux Apache Spark
+# <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimiser les travaux Apache Spark dans Azure HDInsight
 
 Découvrez comment optimiser la configuration de cluster [Apache Spark](https://spark.apache.org/) pour votre charge de travail.  Le défi le plus courant est la sollicitation de la mémoire due à aux configurations incorrectes (en particulier les exécuteurs de taille incorrecte), aux longues opérations et aux tâches qui entraînent des opérations cartésiennes. Vous pouvez accélérer les travaux avec une mise en cache appropriée et en autorisant [l’asymétrie des données](#optimize-joins-and-shuffles). Pour des performances optimales, surveillez les exécutions de travaux Spark de longue durée et consommatrices de ressources.
 
@@ -24,7 +23,7 @@ Les sections suivantes décrivent des recommandations et des optimisations coura
 
 ## <a name="choose-the-data-abstraction"></a>Choisir l’abstraction des données
 
-Les versions antérieures de Spark utilisent RDD pour données abstraites, Spark 1.3, et 1.6 introduit des trames de données et des jeux de données, respectivement. Voici leurs avantages relatifs respectifs :
+Les versions antérieures de Spark utilisent des RDD pour abstraire des données ; Spark 1.3 et Spark 1.6 ont introduit respectivement les DataFrames et les DataSets. Voici leurs avantages relatifs respectifs :
 
 * **DataFrames**
     * Meilleur choix dans la plupart des cas
@@ -60,10 +59,10 @@ Quand vous créez un cluster Spark, vous pouvez sélectionner Stockage Blob Azur
 
 | Type de magasin | Système de fichiers | Vitesse | Temporaire | Cas d'utilisation |
 | --- | --- | --- | --- | --- |
-| un stockage Azure Blob | **wasb[s]:**//url/ | **Standard** | Oui | Cluster temporaire |
-| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **Plus rapide** | Oui | Cluster temporaire |
-| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Plus rapide** | Oui | Cluster temporaire |
-| HDFS local | **hdfs:**//url/ | **Le plus rapide** | Non  | Cluster 24/7 interactif |
+| un stockage Azure Blob | **wasb:** //url/ | **Standard** | OUI | Cluster temporaire |
+| Azure Data Lake Storage Gen 2| **abfs:** //url/ | **Plus rapide** | OUI | Cluster temporaire |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Plus rapide** | OUI | Cluster temporaire |
+| HDFS local | **hdfs:** //url/ | **Le plus rapide** | Non | Cluster 24/7 interactif |
 
 ## <a name="use-the-cache"></a>Utiliser le cache
 
@@ -97,7 +96,7 @@ Pour référence, la structure de la mémoire Spark et certains des principaux p
 
 Si vous utilisez [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), celui-ci contrôle la somme maximale de mémoire utilisée par tous les conteneurs sur chaque nœud Spark.  Le diagramme suivant montre les objets clés et leurs relations.
 
-![Gestion de la mémoire Spark avec YARN](./media/apache-spark-perf/yarn-spark-memory.png)
+![Gestion de la mémoire Spark avec YARN](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
 Pour éviter les messages « Mémoire insuffisante », essayez les solutions suivantes :
 

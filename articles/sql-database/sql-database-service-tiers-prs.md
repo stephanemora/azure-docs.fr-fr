@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: f8fc1f7e338f69b42df69d9a8983e8ce3bb409e3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d2637618ea9e2a0a0d0369eddce01fae073be221
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359652"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566643"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Le niveau de service Azure SQL Database Premium RS (préversion) est en cours de retrait – Options de migration
 
@@ -27,7 +26,7 @@ Voici les destinations de migration et les options tarifaires envisageables pour
 
 - Niveaux de service vCore
 
-  Il s’agit des niveaux de service **Usage général** et **Critique pour l’entreprise** du [Modèle d’achat par vCore](sql-database-service-tiers-vcore.md). Ces deux niveaux de service sont en disponibilité générale. Le modèle d’achat par vCore offre également le niveau de service **Hyperscale** (en préversion publique) qui s’adapte à la demande aux besoins de la charge de travail avec montée en puissance automatique jusqu’à 100 To par base de données. Le niveau de service Hyperscale assure des performances d’E/S comparables à celles du niveau de service Premium du [modèle d’achat par DTU](sql-database-service-tiers-dtu.md) à un prix plus proche du niveau de service Premium RS.
+  Il s’agit des niveaux de service **Usage général** et **Critique pour l’entreprise** du [Modèle d’achat vCore](sql-database-service-tiers-vcore.md). Ces deux niveaux de service sont en disponibilité générale. Le modèle d’achat vCore offre également le niveau de service **Hyperscale** qui s’adapte à la demande aux besoins de la charge de travail avec une mise à l’échelle automatique jusqu’à 100 To par base de données. Le niveau de service Hyperscale assure des performances d’E/S comparables à celles du niveau de service Premium du [modèle d’achat DTU](sql-database-service-tiers-dtu.md) à un prix plus proche du niveau de service Premium RS.
 - Tarifs Dev/Test
 
   Les [tarifs Dev/Test ](https://azure.microsoft.com/pricing/dev-test/) permet d’économiser jusqu’à 55 % par rapport aux tarifs licence incluse avec un abonnement Visual Studio.
@@ -44,7 +43,7 @@ Lisez cet article d’aide, ainsi que nos tarifs et notre documentation, pour d�
 Pour des charges de travail Premium RS nécessitant beaucoup de ressources système, nous recommandons une migration vers notre niveau de service Usage général par vCore en disponibilité générale, ce qui permet de faire des économies par rapport aux tarifs licence incluse des offres Azure Hybrid Benefit pour SQL Server et Capacité réservée. Si vous préférez conserver une option d’achat par DTU, vous pouvez migrer vos bases de données Premium RS nécessitant beaucoup de ressources système vers un niveau de service Standard, qui reste avantageux par rapport aux tarifs de la disponibilité générale Premium RS (si elle avait existé).
 
 > [!WARNING]
-> Le fait de migrer des charges de travail Premium RS vers des niveaux de service Premium par DTU peut avoir pour effet d’augmenter les coûts mensuels par rapport aux tarifs Premium RS actuels. Nous vous recommandons d’étudier le niveau Hyperscale ou le niveau Critique pour l’entreprise avec les tarifs Azure Hybrid Benefit et Capacité réservée pour maintenir des coûts similaires ou inférieurs à Premium RS.
+> Le fait de migrer des charges de travail Premium RS vers des niveaux de service Premium DTU peut avoir pour effet d’augmenter les coûts mensuels par rapport aux tarifs Premium RS actuels. Nous vous recommandons d’étudier le niveau Hyperscale ou le niveau Critique pour l’entreprise avec les tarifs Azure Hybrid Benefit et Capacité réservée pour maintenir des coûts similaires ou inférieurs à Premium RS.
 
 ### <a name="premium-rs-databases"></a>Bases de données Premium RS
 
@@ -70,10 +69,10 @@ Nous recommandons de migrer les bases de données uniques nécessitant beaucoup 
 
 |**Si vous êtes actuellement sur…**|**Migrez vers le niveau par vCore comparable…**|**Migrez vers le niveau par DTU comparable…**|
 |---|---|---|
-|Premium RS 1|(Préversion) Hyperscale 1 vCore (Gen4) ou Critique pour l'entreprise 1 vCore (Gen4)|Premium 1|
-|Premium RS 2|(Préversion) Hyperscale 2 vCores (Gen4) ou Critique pour l'entreprise 2 vCores (Gen4)|Premium 2|
-|Premium RS 4|(Préversion) Hyperscale 4 vCores (Gen4) ou Critique pour l'entreprise 4 vCores (Gen4)|Premium 4
-|Premium RS 6|(Préversion) Hyperscale 6 vCores (Gen4) ou Critique pour l'entreprise 6 vCores (Gen4)|Premium 6|
+|Premium RS 1| Hyperscale 1 vCore (Gen4) ou Critique pour l’entreprise 1 vCore (Gen4)|Premium 1|
+|Premium RS 2| Hyperscale 2 vCores (Gen4) ou Critique pour l’entreprise 2 vCores (Gen4|Premium 2|
+|Premium RS 4| Hyperscale 4 vCores (Gen4) ou Critique pour l’entreprise 4 vCores (Gen4)|Premium 4
+|Premium RS 6| Hyperscale 6 vCores (Gen4) ou Critique pour l’entreprise 6 vCores (Gen4)|Premium 6|
 
 |**Si vous êtes actuellement sur…**|**Migrez vers le niveau par vCore comparable…**|**Migrez vers le niveau par DTU comparable…**|
 |---|---|---|
@@ -84,7 +83,7 @@ Nous recommandons de migrer les bases de données uniques nécessitant beaucoup 
 
 ## <a name="take-advantage-of-our-new-offers"></a>Tirer parti de nos nouvelles offres
 
-Nos niveaux de service du modèle d’achat par vCore sont compatibles avec les offres spéciales qui peuvent faire gagner jusqu’à 80 % par rapport aux tarifs licence incluse. Utilisez vos licences SQL Server Standard ou Enterprise Edition avec Software Assurance active pour économiser jusqu’à 55 % par rapport aux tarifs licence incluse avec [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Vous pouvez combiner Hybrid Benefit avec les tarifs [Capacité réservée Azure SQL Database](sql-database-reserved-capacity.md) et économiser jusqu’à 80 % en vous engageant dès le début pour une durée comprise entre un et trois ans.  Profitez dès aujourd’hui de ces deux avantages sur le Portail Azure.
+Nos niveaux de service du modèle d’achat vCore sont compatibles avec les offres spéciales qui peuvent faire gagner jusqu’à 80 % par rapport aux tarifs licence incluse. Utilisez vos licences SQL Server Standard ou Enterprise Edition avec Software Assurance active pour économiser jusqu’à 55 % par rapport aux tarifs licence incluse avec [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Vous pouvez combiner Hybrid Benefit avec les tarifs [Capacité réservée Azure SQL Database](sql-database-reserved-capacity.md) et économiser jusqu’à 80 % en vous engageant dès le début pour une durée comprise entre un et trois ans.  Profitez dès aujourd’hui de ces deux avantages sur le Portail Azure.
 
 Si vous avez des questions au sujet de ce changement ou si vous avez besoin d’aide pour la migration, contactez [Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
@@ -100,5 +99,5 @@ Vous pouvez copier n’importe quelle base de données possédant une taille de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources vCore SQL Database pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
-- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les pools élastiques, consultez [Limites des ressources vCore SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources vCore SQL Database pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md).
+- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les pools élastiques, consultez [Limites des ressources vCore SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md).

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: a91c42ca32fb356b418dcd412c0690b01ff85789
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5743d785afb87aef6b3a89af6dc8eb18f66b164d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57908134"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854646"
 ---
 Vous pouvez désormais utiliser l’outil Explorateur de données dans le portail Azure pour créer une base de données et une table. 
 
-1. Cliquez sur **Explorateur de données** > **Nouvelle table**. 
+1. Sélectionnez **Explorateur de données** > **Nouvelle table**. 
     
     La zone **Ajouter une table** est affichée à l’extrême droite. Il peut donc être nécessaire de faire défiler à droite pour l’afficher.
 
@@ -30,7 +30,7 @@ Vous pouvez désormais utiliser l’outil Explorateur de données dans le portai
     ID de la table|sample-database|L’ID de votre nouvelle table. Les noms de tables sont soumis aux mêmes exigences de nombre de caractères que les ID de bases de données. Les noms de base de données doivent inclure entre 1 et 255 caractères et ne peuvent pas contenir `/ \ # ?` ni d’espace de fin.
     Débit|400 unités de requête|Changez le débit en indiquant 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.
 
-3. Cliquez sur **OK**.
+3. Sélectionnez **OK**.
 
 4. L’Explorateur de données affiche la nouvelle base de données et la nouvelle table.
 

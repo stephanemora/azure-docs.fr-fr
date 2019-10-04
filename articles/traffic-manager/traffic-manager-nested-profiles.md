@@ -4,7 +4,7 @@ titlesuffix: Azure Traffic Manager
 description: Cet article explique la fonctionnalité des profils imbriqués d’Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
-ms.author: kumud
-ms.openlocfilehash: 6fb6b3e4476efec87b15d175d354afab777e6830
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.author: allensu
+ms.openlocfilehash: 8815d852ad9f8a1823e1c21cc2d233409518da33
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54228824"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333794"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Profils Traffic Manager imbriqués
 
@@ -94,6 +94,20 @@ Supposons que vous utilisez Traffic Manager pour migrer en douceur le trafic d�
 Les paramètres d’analyse dans un profil Traffic Manager s’appliquent à tous les points de terminaison au sein d’un même profil. Avec des profils imbriqués, vous utilisez un profil enfant distinct par site pour définir des paramètres de surveillance différents.
 
 ![Surveillance des points de terminaison Traffic Manager avec paramétrage par point de terminaison][10]
+
+## <a name="faqs"></a>FAQ
+
+* [Comment configurer des profils imbriqués ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+
+* [Combien de couches d’imbrication Traffic Manager prend-il en charge ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+
+* [Puis-je combiner d’autres types de point de terminaison avec des profils enfants imbriqués dans le même profil Traffic Manager ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+
+* [Comment le modèle de facturation s’applique-t-il aux profils imbriqués ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+
+* [Y a-t-il un impact sur les performances pour les profils imbriqués ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+
+* [Comment Traffic Manager calcule-t-il l’intégrité d’un point de terminaison imbriqué dans un profil parent ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

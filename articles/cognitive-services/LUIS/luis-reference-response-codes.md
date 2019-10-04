@@ -1,6 +1,6 @@
 ---
-title: Codes de réponse HTTP d’API
-titleSuffix: Azure
+title: Codes de réponse HTTP des API - LUIS
+titleSuffix: Azure Cognitive Services
 description: Comprendre les codes de réponse HTTP retournés par les API de point de terminaison et de création LUIS
 services: cognitive-services
 author: diberry
@@ -8,22 +8,22 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 18ec59200d3cf820794ac353e38106ad26aca697
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: 43fbca732bbd281ad980ae86e4a89f446fdb69bc
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337242"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945859"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Codes de réponse d’API courants et leur signification
 
-Les API de [création](https://aka.ms/luis-authoring-apis) et de [point de terminaison](https://aka.ms/luis-endpoint-apis) retournent des codes de réponse HTTP. Bien que les messages de réponse contiennent des informations propres à une requête, le code d’état de réponse HTTP est général. 
+Les API de [création](https://go.microsoft.com/fwlink/?linkid=2092087) et de [point de terminaison](https://go.microsoft.com/fwlink/?linkid=2092356) retournent des codes de réponse HTTP. Bien que les messages de réponse contiennent des informations propres à une requête, le code d’état de réponse HTTP est général. 
 
 ## <a name="common-status-codes"></a>Codes d’état courants
-Le tableau suivant liste certains des codes d’état de réponse HTTP les plus courants pour les API de [création](https://aka.ms/luis-authoring-apis) et de [point de terminaison](https://aka.ms/luis-endpoint-apis) :
+Le tableau suivant liste certains des codes d’état de réponse HTTP les plus courants pour les API de [création](https://go.microsoft.com/fwlink/?linkid=2092087) et de [point de terminaison](https://go.microsoft.com/fwlink/?linkid=2092356) :
 
 |Code|API|Explication|
 |:--|--|--|

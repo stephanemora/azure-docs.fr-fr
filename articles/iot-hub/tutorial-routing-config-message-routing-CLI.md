@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6faa585f1ad38eb981e0bbffffef603c4aab0bc8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 103a18389a2b956f20b61ce45d045fb9a11c4356
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360295"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984709"
 ---
 # <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Didacticiel : Utiliser Azure CLI pour configurer le routage des messages IoT Hub
 
@@ -44,8 +44,8 @@ Copiez le script ci-dessous et collez-le dans Cloud Shell, puis appuyez sur Ent
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account. 
-# This field is used when setting up the routing rules.
-subscriptionID=$(az account show --query id)
+# This field is used when setting up the routing queries.
+subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
 # You can set this to "" or to a specific value if you don't want it to be random.

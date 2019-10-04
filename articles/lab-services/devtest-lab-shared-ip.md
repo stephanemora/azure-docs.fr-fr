@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/12/2019
 ms.author: spelluru
-ms.openlocfilehash: c62f8808565022371484b936f5a2bdaba1f8900e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f7c9feedddab1aea031cb3a8879e868aae04df00
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781588"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65236844"
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Comprendre les adresses IP partagées dans Azure DevTest Labs
 
@@ -26,29 +26,29 @@ Azure DevTest Labs permet aux machines virtuelles de laboratoire de partager la 
 
 ## <a name="shared-ip-setting"></a>Paramètre d’adresse IP partagée
 
-Lorsque vous créez un laboratoire, il se trouve dans un sous-réseau de réseau virtuel.  Par défaut, ce sous-réseau est créé avec le paramètre **Enable shared public IP** (Activer l’adresse IP publique partagée) défini sur *Oui*.  Cette configuration crée une adresse IP publique pour le sous-réseau dans son ensemble.  Pour plus d’informations sur la configuration des réseaux virtuels et des sous-réseaux, consultez [Configurer un réseau virtuel dans Azure DevTest Labs](devtest-lab-configure-vnet.md).
+Lorsque vous créez un laboratoire, il est créé dans un sous-réseau de réseau virtuel.  Par défaut, ce sous-réseau est créé avec le paramètre **Enable shared public IP** (Activer l’adresse IP publique partagée) défini sur *Oui*.  Cette configuration crée une adresse IP publique pour le sous-réseau dans son ensemble.  Pour plus d’informations sur la configuration des réseaux virtuels et des sous-réseaux, consultez [Configurer un réseau virtuel dans Azure DevTest Labs](devtest-lab-configure-vnet.md).
 
 ![Nouveau sous-réseau de laboratoire](media/devtest-lab-shared-ip/lab-subnet.png)
 
 Pour les laboratoires existants, vous pouvez activer cette option en sélectionnant **Configuration et stratégies > réseaux virtuels**. Puis, sélectionnez un réseau virtuel dans la liste et choisissez **ACTIVER L’ADRESSE IP PUBLIQUE PARTAGÉE** pour un sous-réseau sélectionné. Vous pouvez également désactiver cette option dans un laboratoire si vous ne souhaitez pas partager une adresse IP publique entre les machines virtuelles du laboratoire.
 
-Les machines virtuelles créées dans ce laboratoire utilisent par défaut une adresse IP partagée.  Lorsque vous créez la machine virtuelle, ce paramètre peut être observé dans le panneau **Paramètres avancés** sous **Configuration de l’adresse IP**.
+Les machines virtuelles créées dans ce laboratoire utilisent par défaut une adresse IP partagée.  Lorsque vous créez la machine virtuelle, ce paramètre peut être observé dans la page **Paramètres avancés** sous **Configuration de l’adresse IP**.
 
 ![Nouvelle machine virtuelle](media/devtest-lab-shared-ip/new-vm.png)
 
-- **Partagé :** toutes les machines virtuelles créées en mode **Partagé** sont placées dans un groupe de ressources (GR). Une seule adresse IP est affectée à ce GR et toutes les machines virtuelles de ce GR utilisent cette adresse IP.
-- **Public :** chaque machine virtuelle que vous créez possède sa propre adresse IP et est créée dans son propre groupe de ressources.
-- **Privé :** chaque machine virtuelle que vous créez utilise une adresse IP privée. Vous ne pourrez pas vous connecter directement à cette machine virtuelle depuis Internet avec le bureau à distance.
+- **Partagé :** Toutes les machines virtuelles créées en mode **Partagé** sont placées dans un groupe de ressources (GR). Une seule adresse IP est affectée à ce GR et toutes les machines virtuelles de ce GR utilisent cette adresse IP.
+- **Public :** Chaque machine virtuelle que vous créez possède sa propre adresse IP et est créée dans son propre groupe de ressources.
+- **Privé :** Chaque machine virtuelle que vous créez utilise une adresse IP privée. Vous ne pouvez pas vous connecter directement à cette machine virtuelle depuis Internet avec le bureau à distance.
 
 Chaque fois qu’une machine virtuelle dotée une adresse IP partagée activée est ajoutée au sous-réseau, DevTest Labs ajoute automatiquement la machine virtuelle à un équilibreur de charge et attribue un numéro de port TCP à l’adresse IP publique, pour le transfert vers le port RDP sur la machine virtuelle.  
 
 ## <a name="using-the-shared-ip"></a>Utilisation de l’adresse IP partagée
 
-- **Utilisateurs Linux :** SSH vers la machine virtuelle à l’aide de l’adresse IP ou du nom de domaine complet, suivis du signe deux-points et du port. Par exemple, dans l’image ci-dessous, l’adresse RDP pour se connecter à la machine virtuelle est `doclab-lab13998814308000.centralus.cloudapp.azure.com:51686`.
+- **Utilisateurs Linux :** SSH vers la machine virtuelle à l’aide de l’adresse IP ou du nom de domaine complet, suivis du signe deux-points et du port. Par exemple, dans l’image ci-dessous, l’adresse RDP pour se connecter à la machine virtuelle est `mydevtestlab597975021002.eastus.cloudapp.azure.com:50661`.
 
   ![Exemple de machine virtuelle](media/devtest-lab-shared-ip/vm-info.png)
 
-- **Utilisateurs Windows :** sélectionnez **Se connecter** sur le portail Azure pour télécharger un fichier RDP préconfiguré et accéder à la machine virtuelle.
+- **Utilisateurs Windows :** Sélectionnez le bouton **Se connecter** sur le Portail Azure pour télécharger un fichier RDP préconfiguré et accéder à la machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

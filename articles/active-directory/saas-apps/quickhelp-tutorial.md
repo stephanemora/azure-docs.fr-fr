@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f4b41098a3b374506e655bf90f972b57195e0958
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270096"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093373"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Didacticiel : Intégration d’Azure Active Directory à QuickHelp
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de QuickHelp à Azure AD, vous devez ajouter Q
 
 **Pour ajouter QuickHelp à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec QuickHelp, effectuez 
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://quickhelp.com/<ROUTEURL>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL : `https://auth.quickhelp.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `https://auth.quickhelp.com`
 
     > [!NOTE]
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’administrateur QuickHelp de votre organisation ou votre BrainStorm Client Success Manager pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

@@ -1,6 +1,6 @@
 ---
-title: Entraîner une application
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Effectuer l’apprentissage de l’application - LUIS
+titleSuffix: Azure Cognitive Services
 description: L’entraînement est le processus au cours duquel votre version d’application Language Understanding (LUIS) apprend afin d’améliorer sa compréhension du langage naturel. Formez votre application LUIS après des mises à jour du modèle, telles qu’un ajout, une édition, un étiquetage ou une suppression d’entités, d’intentions ou d’énoncés.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/07/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b3841c9d60cf275e423024fc66c15582f95c0a10
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267053"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932751"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Entraîner votre version active de l’application LUIS 
 
@@ -44,9 +44,9 @@ Pour démarrer le processus itératif dans le [portail LUIS](https://www.luis.ai
 >[!NOTE]
 >Si vous avez une ou plusieurs intentions dans votre application, qui ne contiennent pas d’exemple d’énoncé, vous ne pouvez pas former votre application. Ajoutez des énoncés pour tous vos intentions. Pour plus d’informations, voir [Ajouter des exemples d’énoncés](luis-how-to-add-example-utterances.md).
 
-## <a name="training-date-and-time"></a>Heure et date de formation
+## <a name="training-date-and-time"></a>Date et heure de l’apprentissage
 
-Date de la formation et l’heure est GMT + 2. 
+L’heure de l’apprentissage est GMT+2. 
 
 ## <a name="train-with-all-data"></a>Entraîner avec toutes les données
 

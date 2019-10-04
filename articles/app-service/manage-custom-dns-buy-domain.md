@@ -10,25 +10,24 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 188db5e89097542b5a47b43e7bc8bbb2ce30b072
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121534"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073126"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 
-Les domaines App Service (version préliminaire) sont des domaines de niveau supérieur gérés directement dans Azure. Ils facilitent la gestion des domaines personnalisés pour [Azure App Service](overview.md). Ce tutoriel explique comment acheter un domaine App Service et attribuer des noms DNS dans Azure App Service.
+Les domaines App Service sont des domaines de niveau supérieur gérés directement dans Azure. Ils facilitent la gestion des domaines personnalisés pour [Azure App Service](overview.md). Ce tutoriel explique comment acheter un domaine App Service et attribuer des noms DNS dans Azure App Service.
 
 Pour la machine virtuelle Azure ou le stockage Azure, consultez [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Attribuer un domaine App Service à une machine virtuelle Azure ou un stockage Azure). Pour Services cloud, consultez [Configuration d’un nom de domaine personnalisé pour un service cloud Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel :
 
@@ -55,7 +54,7 @@ La page de gestion de l’application App Service s’affiche.
 
 ### <a name="check-the-pricing-tier"></a>Vérification du niveau tarifaire
 
-Dans la navigation gauche de la page de l’application, faites défiler jusqu’à la section **Paramètres** et sélectionnez **Monter en puissance (plan App Service)**.
+Dans la navigation gauche de la page de l’application, faites défiler jusqu’à la section **Paramètres** et sélectionnez **Monter en puissance (plan App Service)** .
 
 ![Menu Monter en puissance](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -126,7 +125,7 @@ Sélectionnez ensuite les options souhaitées pour votre domaine. Pour plus de p
 Cliquez sur **Mentions légales** pour consulter les mentions et les frais, puis cliquez sur **Acheter**.
 
 > [!NOTE]
-> Domaines App Service utilisent GoDaddy pour l’inscription de domaine et Azure DNS pour héberger les domaines. Outre les frais d’inscription de domaine, les frais d’utilisation d’Azure DNS s’appliquent aussi. Pour en savoir plus, consultez la page relative à la [tarification Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
+> Les domaines App Service utilisent GoDaddy pour l’inscription du domaine, et Azure DNS pour l’hébergement. Outre les frais d’inscription de domaine, les frais d’utilisation d’Azure DNS s’appliquent aussi. Pour en savoir plus, consultez la page relative à la [tarification Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 
@@ -138,13 +137,17 @@ Retournez sur la page **Domaine App Service**, puis cliquez sur **OK**. Pendant 
 
 ### <a name="test-the-hostnames"></a>Test des noms d’hôte
 
-Si vous avez attribué des noms d’hôte par défaut à votre application, vous voyez également une notification de réussite pour chaque nom d’hôte choisi. 
+Si vous avez attribué des noms d’hôte par défaut à votre application, vous voyez également une notification de réussite pour chaque nom d’hôte choisi.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-Vous voyez également les noms d’hôtes choisis sur la page **Domaines personnalisés**, dans la section **Noms d’hôte personnalisés**. 
+Vous voyez également les noms d’hôtes choisis sur la page **Domaines personnalisés**, dans la section **Noms d’hôte personnalisés**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
+
+> [!NOTE]
+> Si le domaine personnalisé présente l’état **Non sécurisé**, cela signifie qu’il n’est pas encore lié à un certificat SSL. Toutes les requêtes HTTPS d’un navigateur sur votre domaine personnalisé recevront une erreur ou un avertissement, selon le navigateur. Pour configurer la liaison SSL, consultez [Acheter et configurer un certificat SSL pour Azure App Service](web-sites-purchase-ssl-web-site.md).
+>
 
 Pour tester des noms d’hôte, accédez à ceux qui sont répertoriés dans le navigateur. Dans l’exemple de la capture d’écran précédente, essayez d’accéder à _kontoso.net_ et _www\.kontoso.net_.
 
@@ -174,7 +177,7 @@ Vérifiez que votre domaine acheté est répertorié dans la section **Domaines 
 Sélectionnez **Ajouter un nom d’hôte**.
 
 ### <a name="configure-hostname"></a>Configurer le nom d’hôte
-Dans la boîte de dialogue **Ajouter un nom d’hôte**, entrez le nom de domaine complet du domaine App Service ou de n’importe quel sous-domaine. Par exemple : 
+Dans la boîte de dialogue **Ajouter un nom d’hôte**, entrez le nom de domaine complet du domaine App Service ou de n’importe quel sous-domaine. Par exemple :
 
 - kontoso.net
 - www\.kontoso.net
@@ -201,7 +204,9 @@ Accédez aux noms d’hôte répertoriés dans le navigateur. Dans l’exemple s
 
 ## <a name="renew-the-domain"></a>Renouveler le domaine
 
-Le domaine App Service que vous avez acheté est valable un an à compter de la date d'achat. Par défaut, le domaine est configuré pour se renouveler automatiquement, avec une facturation selon votre mode de paiement, pour l'année suivante. Si vous souhaitez désactiver le renouvellement automatique ou renouveler manuellement votre domaine, suivez les étapes décrites ici.
+Le domaine App Service que vous avez acheté est valable un an à compter de la date d'achat. Par défaut, le domaine est configuré pour se renouveler automatiquement, avec une facturation selon votre mode de paiement, pour l'année suivante. Vous pouvez renouveler manuellement votre nom de domaine.
+
+Si vous souhaitez désactiver le renouvellement automatique ou renouveler manuellement votre domaine, suivez les étapes décrites ici.
 
 Sous l’onglet **App Services**, cliquez sur le nom de votre application, puis sélectionnez **Paramètres** et **Domaines personnalisés**.
 
@@ -211,11 +216,25 @@ Dans la section **Domaines App Service**, sélectionnez le domaine que vous souh
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-Dans la barre de navigation à gauche du domaine, sélectionnez **Renouvellement de domaine**. Pour arrêter automatiquement le renouvellement de votre domaine, sélectionnez **Désactivé**, puis **Enregistrer**. 
+Dans la barre de navigation à gauche du domaine, sélectionnez **Renouvellement de domaine**. Pour arrêter automatiquement le renouvellement de votre domaine, sélectionnez **Désactivé**, puis **Enregistrer**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Pour renouveler manuellement votre domaine, sélectionnez **Renouveler le domaine**. Cependant, ce bouton n'est actif que 90 jours avant l'expiration du domaine.
+Pour renouveler manuellement votre domaine, sélectionnez **Renouveler le domaine**. Cependant, ce bouton n'est actif que [90 jours avant l'expiration du domaine](#when-domain-expires).
+
+Si le renouvellement de votre domaine est réussi, vous recevrez une notification par e-mail dans les 24 heures.
+
+## <a name="when-domain-expires"></a>Lorsque le domaine expire
+
+Azure traite les domaines App Service expirés ou sur le point d’expirer comme suit :
+
+* Si le renouvellement automatique est désactivé : 90 jours avant l’expiration de domaine, une notification par e-mail est envoyée et le bouton **Renouveler le domaine** est activé dans le portail.
+* Si le renouvellement automatique est activé : Le jour après la date d’expiration de votre domaine, Azure tente de vous facturer pour le renouvellement du nom de domaine.
+* Si une erreur se produit pendant le renouvellement automatique (par exemple, si votre carte enregistrée est arrivée à expiration), ou si le renouvellement automatique est désactivé et que vous autorisez l’expiration du domaine, Azure vous avertit de l’expiration du domaine et réserve votre nom de domaine. Vous pouvez [renouveler manuellement](#renew-the-domain) votre domaine.
+* Les 4 et 12e jours après expiration, Azure vous envoie des e-mails de notification supplémentaires. Vous pouvez [renouveler manuellement](#renew-the-domain) votre domaine.
+* Le 19e jour après expiration, votre domaine reste réservé, mais fait alors l’objet de frais d’échange. Vous pouvez appeler le support technique pour renouveler votre nom de domaine, soumis aux frais de renouvellement et d’échange applicables.
+* Le 25e jour après expiration, Azure met votre domaine aux enchères avec un service de vente aux enchères de noms de domaine du secteur. Vous pouvez appeler le support technique pour renouveler votre nom de domaine, soumis aux frais de renouvellement et d’échange applicables.
+* Le 30e jour après expiration, vous n’êtes plus en mesure de récupérer votre domaine.
 
 <a name="custom"></a>
 
@@ -259,7 +278,7 @@ Dans le menu de gauche du domaine, sélectionnez **Liaisons de noms d’hôte**.
 
 Vous ne pouvez pas supprimer le domaine App Service avant d’avoir supprimé toutes les liaisons de nom d’hôte.
 
-Supprimez chaque liaison de nom d’hôte en sélectionnant **...** > **Supprimer**. Après avoir supprimé toutes les liaisons, sélectionnez **Enregistrer**.
+Supprimez chaque liaison de nom d’hôte en sélectionnant **...**  > **Supprimer**. Après avoir supprimé toutes les liaisons, sélectionnez **Enregistrer**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-delete-hostname-bindings.png)
 
@@ -278,7 +297,3 @@ Une fois l’opération terminée, le domaine n’est plus lié à votre abonnem
 ## <a name="direct-default-url-to-a-custom-directory"></a>Diriger l'URL par défaut vers un répertoire personnalisé
 
 Par défaut, App Service dirige les demandes web au répertoire racine du code de votre application. Pour les diriger vers un sous-répertoire, par exemple `public`, voir [Diriger l'URL par défaut vers un répertoire personnalisé](app-service-web-tutorial-custom-domain.md#virtualdir).
-
-## <a name="more-resources"></a>Autres ressources
-
-[FORUM AUX QUESTIONS : domaine App Service (préversion) et domaines personnalisés](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

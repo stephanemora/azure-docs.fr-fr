@@ -1,10 +1,10 @@
 ---
-title: Générer une application monopage AngularJS pour la connexion à et la déconnexion d’Azure Active Directory | Microsoft Docs
+title: Générer une application monopage AngularJS pour la connexion et la déconnexion avec Azure AD | Microsoft Docs
 description: Découvrez comment générer une application monopage AngularJS qui s’intègre à Azure AD pour la connexion et appelle des API protégées par Azure AD à l’aide d’OAuth.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6596d1d8251bafd1ff013961555b20475e3a06d3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544938"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380751"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Démarrage rapide : Générer une application monopage AngularJS pour la connexion à et la déconnexion avec Azure Active Directory
 
@@ -47,7 +47,7 @@ Pour générer l’application fonctionnelle complète, vous devez :
 3. Utilisez la bibliothèque ADAL pour sécuriser les pages dans l’application à page unique.
 
 > [!NOTE]
-> Si vous devez activer les connexions pour les comptes personnels en plus des comptes professionnels et scolaires, vous pouvez utiliser le *[point de la plateforme d’identités Microsoft](azure-ad-endpoint-comparison.md)*. Pour plus d’informations, consultez [ce tutoriel JavaScript SPA](tutorial-v2-javascript-spa.md) ainsi que [cet article](active-directory-v2-limitations.md), qui expliquent ce que sont les *points de terminaison de la plateforme d’identité Microsoft*. 
+> Si vous devez activer les connexions pour les comptes personnels en plus des comptes professionnels et scolaires, vous pouvez utiliser le *[point de la plateforme d’identités Microsoft](azure-ad-endpoint-comparison.md)* . Pour plus d’informations, consultez [ce tutoriel JavaScript SPA](tutorial-v2-javascript-spa.md) ainsi que [cet article](active-directory-v2-limitations.md), qui expliquent ce que sont les *points de terminaison de la plateforme d’identité Microsoft*. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -63,20 +63,15 @@ Pour autoriser votre application à authentifier les utilisateurs et à obtenir 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Si vous êtes connecté à plusieurs répertoires, vous devez peut-être vous assurer que vous consultez le répertoire approprié. Pour ce faire, dans la barre supérieure, cliquez sur votre compte. Dans la liste **Répertoire**, choisissez le locataire Azure AD auprès duquel vous voulez inscrire votre application.
 1. Cliquez sur **Tous les services** dans le volet de gauche, puis sélectionnez **Azure Active Directory**.
-1. Cliquez sur **Inscriptions des applications**, puis sélectionnez **Ajouter**.
-1. Suivez les invites et créez une application web et/ou API web :
-
-    * **Nom** décrit votre application pour les utilisateurs.
-    * L’**URL de connexion** est l’emplacement vers lequel Azure AD retourne les jetons. L’emplacement par défaut de cet exemple est `https://localhost:44326/`.
-
-1. Une fois l’inscription terminée, Azure AD affecte un ID d’application unique à votre application. Copiez cette valeur dans l’onglet de l’application, car vous en aurez besoin dans les sections suivantes.
-1. Adal.js utilise le flux implicite OAuth pour communiquer avec Azure AD. Vous devez activer ce flux pour votre application :
-
-    1. Cliquez sur l’application et sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste en ligne.
-    1. Recherchez la propriété `oauth2AllowImplicitFlow`. Affectez-lui la valeur `true`.
-    1. Cliquez sur **Enregistrer** pour enregistrer le manifeste.
-
-1. Accordez les autorisations à votre locataire sur votre application. Accédez à **Paramètres > Autorisations requises**, puis sélectionnez le bouton **Accorder des autorisations** dans la barre supérieure.
+1. Cliquez sur **Inscriptions d’applications**, puis sur **Nouvelle inscription**.
+1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
+1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
+1. Sélectionnez la plateforme **Web** dans la section **URI de redirection** et définissez la valeur sur `https://localhost:44326/` (l’emplacement vers lequel Azure AD retourne des jetons).
+1. Lorsque vous avez terminé, sélectionnez **Inscrire**. Sur la page **Vue d’ensemble**, notez la valeur **ID d’application (client)** .
+1. Adal.js utilise le flux implicite OAuth pour communiquer avec Azure AD. Vous devez activer ce flux pour votre application. Dans le volet de navigation de gauche de l’application inscrite, sélectionnez **Authentification**.
+1. Dans **Paramètres avancés**, sous **Octroi implicite**, cochez les cases **Jetons d’ID** et **Jetons d’accès**. Les jetons d’ID et jetons d’accès sont nécessaires dans la mesure où cette application doit connecter des utilisateurs et appeler une API.
+1. Sélectionnez **Enregistrer**.
+1. Accordez les autorisations à votre locataire sur votre application. Accédez à **autorisations d’API**, puis sélectionnez le bouton **Accorder le consentement de l’administrateur** sous **Accorder le consentement**.
 1. Sélectionnez **Oui** pour confirmer.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Étape 2 : Installer la bibliothèque ADAL et configurer l’application monopage

@@ -14,25 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 2aa2dd8373a9568478a02691ca5e6a43e80cd408
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847743"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71289427"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
-> [!div class="op_single_selector"]
-> * [Windows](service-fabric-patch-orchestration-application.md)
-> * [Linux](service-fabric-patch-orchestration-application-linux.md)
->
->
-
-
 > 
 > [!IMPORTANT]
-> Version 1.2 de l’application. * va la prise en charge sur 30 avril 2019. Mettez à niveau vers la dernière version.
+> Le support de la version 1.2.* de l’application s’est terminé le 30 avril 2019. Effectuez une mise à niveau vers la dernière version.
 
 
 [Les mises à niveau automatiques de l’image du système d’exploitation du groupe de machines virtuelles identiques Azure ](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) correspondent aux meilleures pratiques pour conserver vos systèmes d’exploitation corrigés dans Azure, et l’Application d’Orchestration des correctifs (POA) est un wrapper autour du service Service Fabrics RepairManager Systems qui permet la planification des correctifs de système d’exploitation en fonction de la configuration pour les clusters hébergés ailleurs que sur Azure. POA n’est pas obligatoire pour les clusters hébergés ailleurs que sur Azure, mais la planification de l’installation de correctifs par les Domaines de mise à niveau est nécessaire pour corriger les hôtes de clusters Service Fabric sans temps d’arrêt.
@@ -65,10 +58,10 @@ L’application d’orchestration des correctifs comprend les sous-composants su
 > [!NOTE]
 > L’application d’orchestration des correctifs utilise le service système gestionnaire des réparations de Service Fabric pour désactiver ou activer le nœud et effectuer des vérifications d’intégrité. La tâche de réparation créée par l’application d’orchestration des correctifs suit la progression de l’exécution de Windows Update pour chaque nœud.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 > [!NOTE]
-> Version minimale de .NET framework requise correspond à 4.6.
+> La version minimale de .NET Framework requise est la version 4.6.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Activer le service de gestion des réparations (s’il est inactif)
 
@@ -148,9 +141,7 @@ Les mises à jour automatiques Windows peuvent entraîner une perte de disponibi
 
 ## <a name="download-the-app-package"></a>Télécharger le package de l’application
 
-L’application et les scripts d’installation peuvent être téléchargés à partir de [Lien de l’archive](https://go.microsoft.com/fwlink/?linkid=869566).
-
-L’application au format sfpkg peut être téléchargée à partir de [lien sfpkg](https://aka.ms/POA/POA.sfpkg). Cela s’avère utile pour le [déploiement de l’application basée sur Azure Resource Manager](service-fabric-application-arm-resource.md).
+Pour télécharger le package d’application, rendez-vous sur la [page](https://github.com/microsoft/Service-Fabric-POA/releases/latest/) GitHub de Patch Orchestration Application.
 
 ## <a name="configure-the-app"></a>Configurer l’application
 
@@ -162,12 +153,12 @@ Vous pouvez configurer le comportement de l’application d’orchestration des 
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indique la stratégie que le service Coordinateur doit utiliser pour installer les mises à jour Windows Update sur les nœuds du cluster Service Fabric.<br>                         Les valeurs autorisées sont les suivantes : <br>                                                           <b>NodeWise</b>. Les mises à jour Windows Update sont installées de façon séquentielle, nœud après nœud. <br>                                                           <b>UpgradeDomainWise</b>. Les mises à jour Windows Update sont installées sur un domaine de mise à niveau à la fois (au maximum, tous les nœuds appartenant à un domaine de mise à niveau peuvent bénéficier de Windows Update).<br> Reportez-vous à la section [FAQ](#frequently-asked-questions) sur la façon de déterminer la stratégie la plus adaptée pour votre cluster.
 |LogsDiskQuotaInMB   |long  <br> (Par défaut : 1 024               |Taille maximale en Mo des journaux d’activité de l’application d’orchestration des correctifs qui peuvent être conservés localement sur des nœuds.
 | WUQuery               | string<br>(Par défaut : « IsInstalled=0 »)                | Requête pour obtenir les mises à jour Windows Update. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
-| InstallWindowsOSOnlyUpdates | Booléen <br> (par défaut : false)                 | Utilisez cet indicateur pour contrôler les mises à jour qui doivent être téléchargées et installées. Les valeurs suivantes sont autorisées <br>True : installe uniquement les mises à jour du système d’exploitation Windows.<br>False : installe toutes les mises à jour disponibles sur l’ordinateur.          |
+| InstallWindowsOSOnlyUpdates | Boolean <br> (par défaut : false)                 | Utilisez cet indicateur pour contrôler les mises à jour qui doivent être téléchargées et installées. Les valeurs suivantes sont autorisées <br>True : installe uniquement les mises à jour du système d’exploitation Windows.<br>False : installe toutes les mises à jour disponibles sur l’ordinateur.          |
 | WUOperationTimeOutInMinutes | Int <br>(Par défaut : 90)                   | Spécifie le délai d’expiration de toute opération de Windows Update (rechercher, télécharger ou installer). Si l’opération n’est pas terminée dans le délai imparti, elle est abandonnée.       |
 | WURescheduleCount     | Int <br> (Par défaut : 5)                  | Nombre maximal de fois que le service replanifie une mise à jour Windows en cas d’échec persistant d’une opération.          |
 | WURescheduleTimeInMinutes | Int <br>(Par défaut : 30) | Intervalle auquel le service replanifie une mise à jour de Windows en cas d’échec persistant. |
 | WUFrequency           | Chaîne de valeurs séparées par une virgule (par défaut : « Toutes les semaines, Mercredi, 7:00:00 »)     | Fréquence d’installation des mises à jour Windows Update. Le format et les valeurs possibles sont les suivants : <br>-   Mensuelle, JJ,HH:MM:SS, par exemple, Mensuelle, 5,12:22:32.<br>Les valeurs autorisées pour le champ JJ (jour) sont des nombres compris entre la plage 1 à 28 et « last » (dernier). <br> -   Hebdomadaire, JOUR, HH:MM:SS, par exemple, Hebdomadaire, mardi, 12:22:32.  <br> -   Quotidienne, HH:MM:SS, par exemple, Quotidienne, 12:22:32.  <br> -  Aucune  indique que les mises à jour Windows Update ne doivent pas être effectuées.  <br><br> Notez que les heures sont exprimées en UTC.|
-| AcceptWindowsUpdateEula | Booléen <br>(Par défaut : true) | Lorsque cet indicateur est défini, l’application accepte le contrat de licence utilisateur final de Windows Update pour le compte du propriétaire de l’ordinateur.              |
+| AcceptWindowsUpdateEula | Boolean <br>(Par défaut : true) | Lorsque cet indicateur est défini, l’application accepte le contrat de licence utilisateur final de Windows Update pour le compte du propriétaire de l’ordinateur.              |
 
 > [!TIP]
 > Si vous souhaitez qu’une mise à jour Windows Update ait lieu immédiatement, définissez `WUFrequency` par rapport à l’heure de déploiement de l’application. Par exemple, supposons que vous disposez d’un cluster de test de cinq nœuds et que vous prévoyez de déployer l’application vers 17 heures UTC. Si vous estimez que la mise à niveau ou le déploiement de l’application nécessite au maximum 30 minutes, définissez WUFrequency sur « Quotidienne, 17:30:00 »
@@ -212,13 +203,15 @@ L’application d’orchestration des correctifs expose les API REST pour affich
       {
         "OperationResult": 0,
         "NodeName": "_stg1vm_1",
-        "OperationTime": "2017-05-21T11:46:52.1953713Z",
+        "OperationTime": "2019-05-13T08:44:56.4836889Z",
+        "OperationStartTime": "2019-05-13T08:44:33.5285601Z",
         "UpdateDetails": [
           {
             "UpdateId": "7392acaf-6a85-427c-8a8d-058c25beb0d6",
             "Title": "Cumulative Security Update for Internet Explorer 11 for Windows Server 2012 R2 (KB3185319)",
             "Description": "A security issue has been identified in a Microsoft software product that could affect your system. You can help protect your system by installing this update from Microsoft. For a complete listing of the issues that are included in this update, see the associated Microsoft Knowledge Base article. After you install this update, you may have to restart your system.",
-            "ResultCode": 0
+            "ResultCode": 0,
+            "HResult": 0
           }
         ],
         "OperationType": 1,
@@ -241,6 +234,9 @@ ResultCode | Identique à OperationResult | Ce champ indique le résultat de l�
 OperationType | 1 - Installation<br> 0 - Rechercher et télécharger.| L’installation est le seul OperationType qui s’affiche dans les résultats par défaut.
 WindowsUpdateQuery | La valeur par défaut est « IsInstalled=0 » |Requête Windows Update utilisée pour rechercher les mises à jour. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 RebootRequired | true : le redémarrage était requis<br> false : le redémarrage n’était pas requis | Indique si le redémarrage était requis pour terminer l’installation des mises à jour.
+OperationStartTime | DateTime | Indique l’heure de démarrage de l’opération (Téléchargement/Installation).
+OperationTime | DateTime | Indique l’heure de fin de l’opération (Téléchargement/Installation).
+HResult | 0 - Réussite<br> Autre valeur - Échec| Indique la raison de l’échec de la mise à jour Windows avec updateID « 7392acaf-6a85-427c-8a8d-058c25beb0d6 ».
 
 Si aucune mise à jour n’est planifiée, le JSON de résultat est vide.
 
@@ -262,6 +258,62 @@ Pour activer le proxy inverse sur le cluster, procédez de la manière décrite 
 
 ## <a name="diagnosticshealth-events"></a>Événements de diagnostic et d’intégrité
 
+La section suivante traite du débogage/diagnostic des problèmes liés aux mises à jour correctives effectuées par le biais de Patch Orchestration Application sur des clusters Service Fabric.
+
+> [!NOTE]
+> La version 1.4.0 de POA doit être installée pour que vous bénéficiiez de plusieurs des améliorations d’auto-diagnostic ci-dessous.
+
+Le service NodeAgentNTService crée des [tâches de réparation](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) pour installer les mises à jour sur les nœuds. Chaque tâche est ensuite préparée par CoordinatorService conformément à la stratégie d’approbation des tâches. Les tâches préparées sont finalement approuvées par le Gestionnaire des réparations qui n’approuvera aucune tâche si le cluster est dans un état non sain. Découvrons étape par étape comment se déroulent les mises à jour sur un nœud.
+
+1. S’exécutant sur chaque nœud, NodeAgentNTService recherche les mises à jour Windows disponibles à l’heure prévue. Si des mises à jour sont disponibles, il poursuit son traitement et les télécharge sur le nœud.
+2. Une fois les mises à jour téléchargées, NodeAgentNTService crée la tâche de réparation correspondante pour le nœud sous le nom POS___<id_unique>. Ces tâches de réparation sont visibles à l’aide de l’applet de commande [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps) ou dans la section des détails du nœud dans SFX. Une fois créée, la tâche de réparation passe rapidement à [l’état Revendiqué](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtaskstate?view=azure-dotnet).
+3. Le service Coordinateur recherche périodiquement les tâches de réparation à l’état Revendiqué, continue le traitement et les met à jour avec l’état Préparation conformément à la TaskApprovalPolicy. Si la TaskApprovalPolicy est configurée pour être NodeWise, une tâche de réparation associée à un nœud n’est préparée que si aucune autre tâche de réparation n’est actuellement à l’état Préparation/Approuvé/Exécution/Restauration. De même, une TaskApprovalPolicy UpgradeWise garantit qu’à tout moment seuls les nœuds appartenant au même domaine de mise à niveau exécutent des tâches dans les états susmentionnés. Dès qu’une tâche de réparation passe à l’état Préparation, le nœud Service Fabric correspondant est [désactivé](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) avec l’intention de « Redémarrer ».
+
+   POA(v1.4.0 et plus) affiche les événements avec la propriété « ClusterPatchingStatus » sur CoordinaterService pour afficher les nœuds qui sont actuellement corrigés. L’image ci-dessous indique que les mises à jour s’installent sur _poanode_0 :
+
+    [![Image de l’état de mise à jour corrective de cluster](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
+
+4. Une fois le nœud désactivé, la tâche de réparation passe à l’état Exécution.
+   
+   >[!NOTE]
+   > Un nœud bloqué dans un état désactivé peut bloquer une nouvelle tâche de réparation, ce qui entraîne l’arrêt de l’opération de mise à jour corrective sur le cluster.
+
+5. Une fois que la tâche de réparation passe à l’état d’exécution, l’installation du correctif commence sur ce nœud. Une fois le correctif installé, le nœud peut ou non redémarrer en fonction de celui-ci. Notez que la tâche de réparation passe à l’état Restauration, ce qui permet de réactiver le nœud et de le marquer comme terminé.
+
+   Dans les versions v1.4.0 et supérieures de l’application, vous pouvez connaître l’état de la mise à jour en examinant les événements d’intégrité sur NodeAgentService au niveau de la propriété « WUOperationStatus-[NodeName] ». Les sections en surbrillance dans les images ci-dessous montrent l’état de la mise à jour Windows sur les nœuds « poanode_0 » et « poanode_2 » :
+
+   [![Image de l’état d’opération de mise à jour Windows](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
+
+   [![Image de l’état d’opération de mise à jour Windows](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusb.png#lightbox)
+
+   Pour obtenir les informations détaillées, vous pouvez également vous aider de Powershell en vous connectant au cluster et en récupérant l’état de la tâche de réparation avec [Get-ServiceFabricRepairTask](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricrepairtask?view=azureservicefabricps). L’exemple ci-dessous montre que la tâche « POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15 » se trouve dans l’état DownloadComplete. Cela signifie que les mises à jour ont été téléchargées sur le nœud « poanode_2 » et que l’installation sera tentée lorsque la tâche passera à l’état Exécution.
+
+   ``` powershell
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k = Get-ServiceFabricRepairTask -TaskId "POS__poanode_2_125f2969-933c-4774-85d1-ebdf85e79f15"
+
+    D:\service-fabric-poa-bin\service-fabric-poa-bin\Release> $k.ExecutorData
+    {"ExecutorSubState":2,"ExecutorTimeoutInMinutes":90,"RestartRequestedTime":"0001-01-01T00:00:00"}
+    ```
+
+   Pour effectuer des recherches plus poussées, connectez-vous à la ou aux machines virtuelles spécifiques afin de consulter les journaux d’événements Windows. La tâche de réparation mentionnée ci-dessus ne peut posséder que ces sous-états exécuteur :
+
+      ExecutorSubState | Detail
+    -- | -- 
+      None=1 |  Implique qu’il n’y avait pas d’opération en cours sur le nœud. Transitions d’état possibles.
+      DownloadCompleted=2 | Signifie que l’opération de téléchargement s’est achevée avec succès, en échec partiel ou en échec total.
+      InstallationApproved=3 | Signifie que l’opération de téléchargement s’est achevée plus tôt et que le Gestionnaire des réparations a approuvé l’installation.
+      InstallationInProgress=4 | Correspond à l’état d’exécution de la tâche de réparation.
+      InstallationCompleted=5 | Signifie que l’installation s’est achevée avec succès, en réussite partielle ou en échec.
+      RestartRequested=6 | Signifie que l’installation du correctif s’est achevée et qu’une action de redémarrage est en attente sur le nœud.
+      RestartNotNeeded=7 |  Signifie que le redémarrage n’était pas nécessaire après la fin de l’installation du correctif.
+      RestartCompleted=8 | Signifie que le redémarrage s’est achevé avec succès.
+      OperationCompleted=9 | L’opération de mise à jour Windows est terminée.
+      OperationAborted=10 | Signifie que l’opération de mise à jour Windows est interrompue.
+
+6. À partir de la version 1.4.0 de l’application, lorsque la tentative de mise à jour s’achève sur un nœud, un événement comportant la propriété « WUOperationStatus-[NodeName] » est affiché sur le NodeAgentService pour indiquer l’heure de démarrage de la prochaine tentative de téléchargement et d’installation de la mise à jour. Reportez-vous à l’image ci-dessous :
+
+     [![Image de l’état d’opération de mise à jour Windows](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusc.png#lightbox)
+
 ### <a name="diagnostic-logs"></a>Journaux de diagnostic
 
 Les journaux d’activité de l’application d’orchestration des correctifs sont collectés en même temps que les journaux d’activité du runtime Service Fabric.
@@ -276,12 +328,6 @@ Si vous le souhaitez, vous pouvez capturer les journaux d’activité au moyen d
 ### <a name="health-reports"></a>Rapports d'intégrité
 
 L’application d’orchestration des correctifs publie également des rapports d’intégrité concernant le service Coordinateur ou le service Agent du nœud dans les cas suivants :
-
-#### <a name="a-windows-update-operation-failed"></a>Une opération de Windows Update a échoué
-
-Si une opération de Windows Update échoue sur un nœud, un rapport d’intégrité est généré concernant le service Agent du nœud. Les détails du rapport d’intégrité contiennent le nom du nœud problématique.
-
-Une fois la mise à jour corrective effectuée avec succès sur le nœud problématique, le rapport est automatiquement effacé.
 
 #### <a name="the-node-agent-ntservice-is-down"></a>Le service NT Agent du nœud est inactif
 
@@ -350,6 +396,18 @@ Q. **Puis-je utiliser l’application d’orchestration des correctifs pour appl
 
 R. Non, l’application d’orchestration des correctifs ne peut pas être utilisée pour corriger un cluster à un nœud. Cette limitation est liée à la conception, car [services système de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou toute application cliente connaît des interruptions de service et, par conséquent, toute opération de réparation pour la correction ne sera jamais approuvée par le service de gestion des réparations.
 
+Q. **Comment corriger des nœuds de cluster sur Linux ?**
+
+R. Consultez [Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) pour orchestrer les mises à jour sur Linux.
+
+Q.**Pourquoi le cycle de mise à jour prend-il autant de temps ?**
+
+R. Interrogez le résultat json, puis passez par l’entrée du cycle de mise à jour pour tous les nœuds. Vous pouvez essayer de connaître le temps mis par l’installation de la mise à jour sur chaque nœud en utilisant OperationStartTime et OperationTime(OperationCompletionTime). S’il n’y a eu aucune mise à jour pendant une longue période, c’est peut-être parce que le cluster se trouvait à l’état d’erreur et parce que le Gestionnaire des réparations n’avait approuvé aucune autre tâche de réparation POA. Si l’installation de la mise à jour a pris beaucoup de temps sur un nœud, il est possible que celui-ci n’ait pas été mis à jour depuis longtemps et qu’un grand nombre de mises à jour aient été en attente d’installation, ce qui a allongé la durée du traitement. Il est également possible que l’installation d’un correctif sur un nœud reste bloquée à l’état de désactivation, car la désactivation du nœud risque d’engendrer la perte de quorum/de données.
+
+Q. **Pourquoi est-il nécessaire de désactiver le nœud lorsque POA y installe un correctif ?**
+
+R. Patch Orchestration Application désactive le nœud avec l’intention de le redémarrer, ce qui arrête/réalloue tous les services Azure Service Fabric qui s’exécutent sur le nœud. Cela évite que les applications utilisent un mélange de nouvelles DLL et d’anciennes DLL. Il est donc recommandé de désactiver un nœud avant d’y installer un correctif.
+
 ## <a name="disclaimers"></a>Clauses d’exclusion de responsabilité
 
 - L’application d’orchestration des correctifs accepte le contrat de licence utilisateur final de Windows Update à la place de l’utilisateur. Il est possible de désactiver ce paramètre dans la configuration de l’application.
@@ -390,6 +448,9 @@ Un administrateur doit intervenir et déterminer la raison pour laquelle l’app
 
 ## <a name="release-notes"></a>Notes de publication
 
+>[!NOTE]
+> À partir de la version 1.4.0, des notes de publication et des versions sont disponibles sur la [page](https://github.com/microsoft/Service-Fabric-POA/releases/) de téléchargement GitHub.
+
 ### <a name="version-110"></a>Version 1.1.0
 - Version publique
 
@@ -424,4 +485,4 @@ Un administrateur doit intervenir et déterminer la raison pour laquelle l’app
 - Remplacement de la valeur par défaut de InstallWindowsOSOnlyUpdates par la valeur False.
 
 ### <a name="version-132"></a>Version 1.3.2
-- Correction d’un problème qui a effectué la mise à jour corrective vie-importantes sur un nœud dans le cas où il existe des nœuds de nom qui est le sous-ensemble du nom du nœud actuel. Pour de tels nœuds, il est possible qu’un correctif soit omis ou qu’un redémarrage soit en cours. 
+- Correction d’un problème qui affectait le cycle de vie de la correction sur un nœud dans le cas où il existe des nœuds dont le nom est un sous-ensemble du nom du nœud courant. Pour de tels nœuds, il est possible qu’un correctif soit omis ou qu’un redémarrage soit en cours. 

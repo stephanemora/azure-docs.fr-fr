@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 7779d01fd59446cf10aabf9fd6fdcce05e76899b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579459"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852997"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core
 
@@ -73,18 +73,22 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment une applicatio
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Étape 2 : Télécharger votre projet ASP.NET Core
 
-- [Télécharger la solution Visual Studio 2017](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Télécharger la solution Visual Studio 2019](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
+#### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
 
 1. Extrayez le fichier zip dans un dossier local du dossier racine, par exemple, **C:\Azure-Samples**
-1. Si vous utilisez Visual Studio 2017, ouvrez la solution dans Visual Studio (facultatif).
-1. Modifiez le fichier **appsettings.json**. Recherchez `ClientId` et mettez à jour la valeur de `ClientId` avec l’**ID d’application (client)** de l’application que vous venez d’inscrire. 
+1. Si vous utilisez Visual Studio 2019, ouvrez la solution dans Visual Studio (facultatif).
+1. Modifiez le fichier **appsettings.json**. Recherchez `ClientId` et mettez à jour la valeur de `ClientId` avec la valeur de l’**ID d’application (client)** de l’application que vous avez inscrite. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Ce guide de démarrage rapide prend en charge Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > Où :
@@ -95,11 +99,11 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment une applicatio
 >   - Si votre application prend en charge **tous les utilisateurs de compte Microsoft**, remplacez cette valeur par `common`
 >
 > > [!TIP]
-> > Pour connaître les valeurs de l’**ID d’Application (client)**, de l’**ID de l’annuaire (locataire)**, et des **Types de comptes pris en charge**, consultez la page **Vue d’ensemble** de l’application dans le Portail Azure.
+> > Pour connaître les valeurs de l’**ID d’Application (client)** , de l’**ID de l’annuaire (locataire)** , et des **Types de comptes pris en charge**, consultez la page **Vue d’ensemble** de l’application dans le Portail Azure.
 
 ## <a name="more-information"></a>Plus d’informations
 
-Cette section offre une vue d’ensemble du code requis pour connecter les utilisateurs. Elle vous sera utile pour comprendre comment le code fonctionne et les principaux arguments. Elle vous aidera également à ajouter une connexion à une application ASP.NET Core existante.
+Cette section offre une vue d’ensemble du code requis pour connecter les utilisateurs. Cette vue d’ensemble peut être utile pour comprendre comment le code fonctionne, les principaux arguments et également si vous souhaitez ajouter une connexion à une application ASP.NET Core existante.
 
 ### <a name="startup-class"></a>Classe de démarrage
 
@@ -136,9 +140,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-La méthode `AddAuthentication` configure le service pour ajouter une authentification basée sur les cookies, qui est utilisée dans les scénarios de navigateur, et pour définir la demande sur OpenID Connect. 
+La méthode `AddAuthentication` configure le service pour ajouter une authentification basée sur les cookies, qui est utilisée sur les scénarios de navigateur, et pour définir la demande d’authentification sur OpenID Connect. 
 
-La ligne contenant `.AddAzureAd` ajoute à votre application l’authentification auprès de la plateforme d’identités Microsoft. Elle est ensuite configurée pour se connecter à l’aide du point de terminaison de la plateforme d’identités Microsoft.
+La ligne contenant `.AddAzureAd` ajoute à votre application l’authentification auprès de la plateforme d’identités Microsoft. Elle est ensuite configurée pour la connexion à l’aide du point de terminaison de la plateforme d’identités Microsoft.
 
 > |Where  |  |
 > |---------|---------|
@@ -153,13 +157,18 @@ La ligne contenant `.AddAzureAd` ajoute à votre application l’authentificatio
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Protéger un contrôleur ou la méthode d’un contrôleur
 
-Vous pouvez protéger un contrôleur ou les méthodes d’un contrôleur à l’aide de l’attribut `[Authorize]`. Cet attribut limite l’accès au contrôleur ou aux méthodes en accordant une autorisation aux utilisateurs authentifiés uniquement, ce qui signifie que la demande d’authentification peut être lancée pour accéder au contrôleur si l’utilisateur n’est pas authentifié.
+Vous pouvez protéger un contrôleur ou les méthodes d’un contrôleur à l’aide de l’attribut `[Authorize]`. Cet attribut limite l’accès au contrôleur ou aux méthodes en autorisant uniquement les utilisateurs authentifiés, ce qui signifie que la demande d’authentification peut être démarrée pour accéder au contrôleur si l’utilisateur n’est pas authentifié.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le dépôt GitHub de ce tutoriel ASP.NET Core pour obtenir plus d’informations, notamment des instructions sur l’ajout de l’authentification à une toute nouvelle application web ASP.NET Core, sur l’appel de Microsoft Graph et des autres API Microsoft, sur l’appel de vos propres API, sur l’ajout de l’autorisation, sur la connexion des utilisateurs dans les clouds nationaux ou à l’aide d’identités sociales, etc. :
+Consultez le dépôt GitHub pour ce tutoriel ASP.NET Core pour plus d’informations, notamment pour savoir comment ajouter une authentification à une toute nouvelle application web ASP.NET Core, appeler Microsoft Graph et d’autres API Microsoft, appeler vos propres API, ajouter une autorisation, connecter des utilisateurs dans des clouds nationaux ou avec des identités de réseaux sociaux et plus encore :
 
 > [!div class="nextstepaction"]
 > [Tutoriel sur les applications web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
+
+Aidez-nous à améliorer la plateforme des identités Microsoft. Faites-nous part de votre avis en répondant à une petite enquête de deux questions.
+
+> [!div class="nextstepaction"]
+> [Enquête sur la plateforme des identités Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

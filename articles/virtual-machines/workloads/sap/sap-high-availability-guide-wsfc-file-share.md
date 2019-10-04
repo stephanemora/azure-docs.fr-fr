@@ -4,25 +4,24 @@ description: Découvrez comment mettre en cluster une instance SAP ASCS/SCS sur 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 07/24/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28b3851a52ec5fe69eaa531e2e08f66fb73cb1e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8db3baf9fa4c0d054e743d0b52964847b37ec281
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997975"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078293"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -206,14 +205,14 @@ ms.locfileid: "57997975"
 
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide du partage de fichiers dans Azure
 
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 
 Le clustering de basculement Windows Server constitue la base d’une installation de SGBD et de SAP ASCS/SCS à haute disponibilité dans Windows.
 
 Un cluster de basculement est un groupe de 1 + n serveurs indépendants (nœuds) qui fonctionnent ensemble pour accroître la disponibilité des applications et des services. En cas d’échec d’un nœud, le clustering de basculement Windows Server calcule le nombre d’échecs qui peuvent se produire sans que le cluster ne perde son intégrité, de sorte que les applications et les services puissent être fournis. Différents modes de quorum sont disponibles pour obtenir un clustering de basculement.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant d’aborder les tâches décrites dans cet article, consultez l’article suivant :
 
 * [Scénarios et architecture de haute disponibilité de machines virtuelles Azure pour SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -292,9 +291,11 @@ Un partage de fichiers avec montée en puissance parallèle offre un partage de 
 
 Les espaces de stockage direct sont utilisés en tant que disque partagé pour un partage de fichiers avec montée en puissance parallèle. Vous pouvez utiliser les espaces de stockage direct pour générer un stockage hautement disponible et évolutif à l’aide de serveurs à stockage local. Le stockage partagé utilisé pour un partage de fichiers avec montée en puissance parallèle, comme pour les fichiers d’hôte global SAP, ne constitue pas un point de défaillance unique.
 
-> [!IMPORTANT]
->Si vous *n’envisagez pas* de configurer la récupération d’urgence, nous vous recommandons d’utiliser un partage de fichiers avec montée en puissance parallèle pour bénéficier d’un partage de fichiers hautement disponible dans Azure.
->
+Lorsque vous choisissez les espaces de stockage direct, tenez compte des cas d’utilisation suivants :
+
+- Les machines virtuelles utilisées pour créer le cluster d’espaces de stockage direct doivent être déployées dans un groupe à haute disponibilité Azure.
+- Pour la récupération d’urgence d’un cluster d’espaces de stockage direct, vous pouvez utiliser les services [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
+- Il n’est pas possible de déployer le cluster d’espaces de stockage direct sur différentes Zones de disponibilité Azure.
 
 ### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>Conditions préalables liées à SAP pour les partages de fichiers avec montée en puissance parallèle dans Azure
 
@@ -316,7 +317,6 @@ Si vous souhaitez utiliser un partage de fichiers avec montée en puissance para
 * Pour obtenir de bonnes performances réseau entre les machines virtuelles (nécessaires pour la synchronisation des disques d’espaces de stockage direct), utilisez un type de machine virtuelle disposant au moins d’une bande passante réseau élevée.
     Pour plus d’informations, consultez les spécifications des [séries DSv2][dv2-series] et des [séries DS][ds-series].
 * Nous vous recommandons de réserver une capacité non allouée dans le pool de stockage. Vous laisserez ainsi aux volumes suffisamment d’espace pour effectuer une réparation « sur place » en cas d’échec d’un disque. Cette méthode améliore les performances et la sécurité des données.  Pour plus d’informations, consultez la rubrique [Choix de la taille des volumes][choosing-the-size-of-volumes-s2d].
-* Les machines virtuelles Azure de partage de fichiers avec montée en puissance parallèle doivent être déployées dans leur propre groupe à haute disponibilité Azure.
 * Vous n’avez pas besoin de configurer l’équilibreur de charge interne Azure avec le nom réseau du partage de fichiers avec montée en puissance parallèle, comme pour \<l’hôte global SAP\>. Cette opération s’effectue pour le \<nom d’hôte virtuel ASCS/SCS\> de l’instance SAP ASCS/SCS ou pour le système de gestion de base de données (SGBD). Un partage de fichiers avec montée en puissance parallèle fait monter en charge l’ensemble des nœuds de cluster. \<L’hôte global SAP\> utilise l’adresse IP locale pour tous les nœuds de cluster.
 
 
@@ -338,17 +338,11 @@ Vous pouvez déployer des instances SAP ASCS/SCS dans un cluster avec leur propr
 _**Figure 5 :** Instance SAP ASCS/SCS et partage de fichiers avec scale-out dans deux clusters_
 
 > [!IMPORTANT]
-> Dans le cloud Azure, chaque cluster utilisé pour les partages de fichiers avec montée en puissance parallèle et SAP doit être déployé dans son propre groupe à haute disponibilité Azure. Ceci garantit une sélection élective distribuée des machines virtuelles du cluster dans toute l’infrastructure Azure sous-jacente.
+> Dans le cloud Azure, chaque cluster utilisé pour les partage de fichiers scale-out et SAP doit être déployé dans son propre groupe à haute disponibilité Azure ou dans les Zones de disponibilité Azure. Ceci garantit une sélection élective distribuée des machines virtuelles du cluster dans toute l’infrastructure Azure sous-jacente. Les déploiements de zones de disponibilité sont pris en charge avec cette technologie.
 >
 
 ## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>Partage de fichiers générique avec SIOS DataKeeper en tant que disques partagés de cluster
 
-
-> [!IMPORTANT]
-> Nous vous recommandons de choisir une solution de partage de fichiers avec montée en puissance parallèle pour bénéficier d’un partage de fichiers hautement disponible.
->
-> Si vous prévoyez aussi de configurer la récupération d’urgence pour votre partage de fichiers hautement disponible, vous devez utiliser un partage de fichiers générique et SISO DataKeeper pour vos disques partagés de cluster.
->
 
 Un partage de fichiers générique constitue une alternative au partage de fichiers hautement disponible.
 
@@ -360,4 +354,4 @@ Dans ce cas, vous pouvez utiliser une solution SIOS tierce en tant que disque pa
 * [Installation de la haute disponibilité SAP NetWeaver sur un cluster de basculement Windows et un disque partagé pour une instance SAP (A)SCS][sap-high-availability-installation-wsfc-shared-disk]
 * [Déployer un serveur de fichiers à deux nœuds Storage Spaces Direct réparti pour le stockage UPD dans Azure][deploy-sofs-s2d-in-azure]
 * [Storage Spaces Direct dans Windows Server 2016][s2d-in-win-2016]
-* [Présentation approfondie : volumes dans les espaces de stockage direct][deep-dive-volumes-in-s2d]
+* [Présentation approfondie : Columes dans les espaces de stockage direct][deep-dive-volumes-in-s2d]

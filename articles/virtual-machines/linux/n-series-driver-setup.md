@@ -4,24 +4,23 @@ description: Procédure de configuration des pilotes GPU NVIDIA pour les machine
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c80b821d6bd0263473ba0178eea148f7a2d5773
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 5ef060127840838778a00fdabd2d56b2ef23d6f4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788120"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082696"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
@@ -170,9 +169,9 @@ Déployez des machines virtuelles de série N compatibles RDMA à partir de l’
 
 * **CentOS 7.4 HPC** - Les pilotes RDMA et Intel MPI 5.1 sont installés sur la machine virtuelle.
 
-## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>Installer les pilotes GRID sur les machines virtuelles de série NV ou NVv2
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Installer les pilotes GRID sur les machines virtuelles de série NV ou NVv3
 
-Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV ou NVv2, établissez une connexion SSH à chaque machine virtuelle et suivez les étapes de votre distribution Linux. 
+Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV ou NVv3, établissez une connexion SSH avec chaque machine virtuelle et suivez les étapes correspondant à votre distribution Linux. 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -187,9 +186,11 @@ Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV 
 
    sudo apt-get dist-upgrade -y
 
-  sudo apt-get install build-essential ubuntu-desktop -y
-  ```
-3. Désactivez le pilote du noyau Nouveau, qui n’est pas compatible avec le pilote NVIDIA. (Utilisez uniquement le pilote NVIDIA sur les machines virtuelles NV ou NVv2.) Pour ce faire, créez un fichier dans `/etc/modprobe.d` nommé `nouveau.conf` avec le contenu suivant :
+   sudo apt-get install build-essential ubuntu-desktop -y
+   
+   sudo apt-get install linux-azure -y
+   ```
+3. Désactivez le pilote du noyau Nouveau, qui n’est pas compatible avec le pilote NVIDIA. (Utilisez uniquement le pilote NVIDIA sur les machines virtuelles NV ou NVv2.) Pour ce faire, créez un fichier `/etc/modprobe.d` nommé `nouveau.conf` avec le contenu suivant :
 
    ```
    blacklist nouveau
@@ -226,8 +227,15 @@ Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV 
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE
    ```
-9. Redémarrez la machine virtuelle et vérifiez l’installation.
+   
+9. Le cas échéant, supprimez ce qui suit de `/etc/nvidia/gridd.conf` :
+ 
+   ```
+   FeatureType=0
+   ```
+10. Redémarrez la machine virtuelle et vérifiez l’installation.
 
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS ou Red Hat Enterprise Linux 
@@ -242,9 +250,11 @@ Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV 
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
    sudo yum install dkms
+   
+   sudo yum install hyperv-daemons
    ```
 
-2. Désactivez le pilote du noyau Nouveau, qui n’est pas compatible avec le pilote NVIDIA. (Utilisez uniquement le pilote NVIDIA sur les machines virtuelles NV ou NVv2.) Pour ce faire, créez un fichier dans `/etc/modprobe.d` nommé `nouveau.conf` avec le contenu suivant :
+2. Désactivez le pilote du noyau Nouveau, qui n’est pas compatible avec le pilote NVIDIA. (Utilisez uniquement le pilote NVIDIA sur les machines virtuelles NV ou NVv2.) Pour ce faire, créez un fichier `/etc/modprobe.d` nommé `nouveau.conf` avec le contenu suivant :
 
    ```
    blacklist nouveau
@@ -290,8 +300,15 @@ Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV 
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE 
    ```
-9. Redémarrez la machine virtuelle et vérifiez l’installation.
+9. Le cas échéant, supprimez ce qui suit de `/etc/nvidia/gridd.conf` :
+ 
+   ```
+   FeatureType=0
+   ```
+10. Redémarrez la machine virtuelle et vérifiez l’installation.
+
 
 ### <a name="verify-driver-installation"></a>Vérification de l’installation du pilote
 

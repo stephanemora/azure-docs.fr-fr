@@ -1,46 +1,58 @@
 ---
-title: Gérer les instances d’alerte
+title: Gérer les instances d’alerte dans Azure Monitor
 description: Gestion des instances d’alerte dans Azure
 author: anantr
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: cb93f38c05156d7ab5acb89ffff810949583e507
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 91a770b522011f3955ae0956e289886eb204cf47
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089401"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702904"
 ---
-# <a name="manage-alert-instances"></a>Gérer les instances d’alerte
-Avec l’[expérience des alertes unifiées](https://aka.ms/azure-alerts-overview) dans Azure Monitor, vous pouvez maintenant voir vos différents types d’alertes dans Azure, sur plusieurs abonnements, dans un volet unique. Cet article vous explique comment afficher vos instances d’alerte et comment aller plus loin sur le portail pour rechercher des instances d’alerte spécifiques à dépanner.
+# <a name="manage-alert-instances-with-unified-alerts"></a>Gérer les instances d’alerte avec des alertes unifiées
+L’[expérience des alertes unifiées](https://aka.ms/azure-alerts-overview) dans Azure Monitor, vous permet de voir vos différents types d’alertes dans Azure. Elle s’étend sur plusieurs abonnements dans un seul volet. Cet article explique comment afficher vos instances d’alerte et comment rechercher des instances d’alerte spécifiques pour résoudre des problèmes.
 
-1. Il existe trois façons d’accéder à la page des alertes
+> [!NOTE]
+   >  Vous ne pouvez accéder qu’aux alertes générées au cours des 30 derniers jours.
 
-   + Dans le [portail](https://portal.azure.com/), sélectionnez **Surveiller** et choisissez **Alertes** dans la section Surveiller.  
-     ![Surveillance](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
+## <a name="go-to-the-alerts-page"></a>Accéder à la page des alertes
+
+Vous pouvez accéder à la page des alertes de l’une des manières suivantes :
+
+   + Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Surveiller** > **Alertes**.  
+     ![Capture d’écran de la surveillance des alertes](media/alerts-managing-alert-instances/monitoring-alerts-managing-alert-instances-toc.jpg)
   
-   + Vous pouvez accéder aux alertes à partir d’une **ressource** spécifique. Une fois qu’une ressource est ouverte, parcourez sa table des matières pour accéder à la section Surveiller, puis choisissez **Alertes**, la page d’accueil étant préfiltrée sur les alertes correspondant à cette ressource en particulier.
+   + Utilisez le contexte d’une ressource spécifique. Ouvrez une ressource, accédez à la section **Analyse**, puis sélectionnez **Alertes**. La page d’accueil est pré-filtrée pour les alertes sur cette ressource spécifique.
    
-     ![Surveillance](media/alerts-managing-alert-instances/alert-resource.JPG)
+     ![Capture d’écran des alertes d’analyse des ressources](media/alerts-managing-alert-instances/alert-resource.JPG)
     
-   + Vous pouvez accéder aux alertes à partir d’un **groupe de ressources** spécifique. Une fois qu’un groupe de ressources est ouvert, parcourez sa table des matières pour accéder à la section Surveiller, puis choisissez **Alertes**, la page d’accueil étant préfiltrée sur les alertes correspondant à ce groupe de ressources en particulier.    
+   + Utilisez le contexte d’un groupe de ressources spécifique. Ouvrez un groupe de ressources, accédez à la section **Analyse**, puis sélectionnez **Alertes**. La page d’accueil est pré-filtrée pour les alertes sur ce groupe de ressources spécifique.    
    
-     ![Surveillance](media/alerts-managing-alert-instances/alert-rg.JPG)
+     ![Capture d’écran des alertes d’analyse de groupe de ressources](media/alerts-managing-alert-instances/alert-rg.JPG)
 
-1. Vous accéderez à la page **Résumé des alertes**, qui vous donne une vue d’ensemble de toutes vos instances d’alerte dans Azure. Vous pouvez modifier la vue Résumé en sélectionnant **plusieurs abonnements** (au maximum 5) ou en filtrant sur des **groupes de ressources**, des **ressources** spécifiques ou des **intervalles de temps**. Cliquez sur Nombre total d’alertes ou sur l’une des bandes de gravité pour accéder à la liste de vos alertes.     
-   ![Résumé des alertes](media/alerts-managing-alert-instances/alerts-summary.jpg)
+## <a name="find-alert-instances"></a>Rechercher des instances d’alerte
+
+La page **Résumé des alertes** affiche une vue d’ensemble de toutes vos instances d’alerte dans Azure. Vous pouvez modifier l’affichage du résumé en sélectionnant **plusieurs abonnements** (jusqu’à 5) ou en filtrant sur des **groupes de ressources**, des **ressources** spécifiques ou des **intervalles de temps**. Sélectionnez **Nombre total d’alertes** ou l’une des bandes de gravité pour accéder à la liste de vos alertes.     
+   ![Capture d’écran de la page Récapitulatif des alertes](media/alerts-managing-alert-instances/alerts-summary.jpg)
  
-1. Vous accédez à la page **Toutes les alertes**, où toutes les instances d’alerte dans Azure sont répertoriées. Si vous accédez au portail à partir d’une notification d’alerte, vous pouvez utiliser les filtres disponibles pour vous concentrer sur cette instance d’alerte spécifique. (**Remarque** : si vous avez accédé à la page en cliquant sur une des bandes de gravité, la liste sera préfiltrée sur ce niveau de gravité lorsque vous y accéderez.) Outre les filtres disponibles dans la page précédente, vous pouvez désormais également filtrer sur la base du service de surveillance (par exemple, la plateforme pour les mesures), de la condition de surveillance (déclenchée ou résolue), de la gravité, de l’état de l’alerte (nouvelle/reconnue/fermée) ou de l’ID de groupe intelligent.
+La page **Toutes les alertes** répertorie toutes les instances d’alerte dans Azure. Si vous accédez au portail à partir d’une notification d’alerte, vous pouvez utiliser les filtres disponibles pour vous concentrer sur cette instance d’alerte spécifique.
 
-   ![Toutes les alertes](media/alerts-managing-alert-instances/all-alerts.jpg)
+> [!NOTE]
+>  Si vous avez accédé à la page en sélectionnant l’une des bandes de gravité, la liste est pré-filtrée sur ce niveau de gravité.
+
+En plus des filtres disponibles dans la page précédente, vous pouvez filtrer sur la base du service de surveillance (par exemple, la plateforme pour les mesures), de la condition de surveillance (déclenchée ou résolue), de la gravité, de l’état de l’alerte (nouvelle/reconnue/fermée) ou de l’ID de groupe intelligent.
+
+   ![Capture d’écran de la page Toutes les alertes](media/alerts-managing-alert-instances/all-alerts.jpg)
 
    > [!NOTE]
-   >  Si vous avez accédé à la page en cliquant sur une des bandes de gravité, la liste sera préfiltrée sur ce niveau de gravité lorsque vous y accéderez.
+   >  Si vous avez accédé à la page en sélectionnant l’une des bandes de gravité, la liste est pré-filtrée sur ce niveau de gravité.
  
-1. Si vous cliquez sur n’importe quelle instance d’alerte, la page **Détails de l’alerte** s’ouvre, vous permettant de rechercher des informations approfondies sur cette instance d’alerte spécifique.   
-   ![Détails de l’alerte](media/alerts-managing-alert-instances/alert-details.jpg)  
+La sélection d’une instance d’alerte a pour effet d’ouvrir la page **Détails de l’alerte** qui affiche des détails supplémentaires sur cette instance d’alerte spécifique.   
+   ![Capture d’écran de la page Détails de l’alerte](media/alerts-managing-alert-instances/alert-details.jpg)  
 

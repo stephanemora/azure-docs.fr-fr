@@ -3,21 +3,20 @@ title: Activité ForEach dans Azure Data Factory | Microsoft Docs
 description: L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection et d’exécuter des activités spécifiées.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.author: shlo
-ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 319f4e722184ce840d43b8f23e61711851a6d4a0
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092002"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142477"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Activité ForEach dans Azure Data Factory
 L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection, et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.
@@ -71,12 +70,12 @@ Les propriétés sont décrites plus loin dans cet article. La propriété items
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité ForEach. | Chaîne | Oui
-Type | Doit être défini sur **ForEach** | Chaîne | Oui
-isSequential | Spécifie si la boucle doit être exécutée de façon séquentielle ou parallèle.  Le nombre maximal d’itérations de boucle exécutables simultanément en parallèle est de 20. Par exemple, si vous avez une activité ForEach effectuant une itération sur une activité de copie portant sur 10 jeux de données de source et de récepteur différents avec la valeur **isSequential** définie sur False, toutes les copies sont exécutées en même temps. La valeur par défaut est False. <br/><br/> Si la valeur de « isSequential » est définie sur False, assurez-vous qu’il existe une configuration correcte pour exécuter plusieurs exécutables. Autrement, cette propriété doit être utilisée avec précaution pour éviter des conflits d’écriture. Pour plus d’informations, voir la section [Exécution parallèle](#parallel-execution). | Booléen | Non. La valeur par défaut est False.
+Nom | Nom de l’activité ForEach. | Chaîne | OUI
+Type | Doit être défini sur **ForEach** | Chaîne | OUI
+isSequential | Spécifie si la boucle doit être exécutée de façon séquentielle ou parallèle.  Le nombre maximal d’itérations de boucle exécutables simultanément en parallèle est de 20. Par exemple, si vous avez une activité ForEach effectuant une itération sur une activité de copie portant sur 10 jeux de données de source et de récepteur différents avec la valeur **isSequential** définie sur False, toutes les copies sont exécutées en même temps. La valeur par défaut est False. <br/><br/> Si la valeur de « isSequential » est définie sur False, assurez-vous qu’il existe une configuration correcte pour exécuter plusieurs exécutables. Autrement, cette propriété doit être utilisée avec précaution pour éviter des conflits d’écriture. Pour plus d’informations, voir la section [Exécution parallèle](#parallel-execution). | Boolean | Non. La valeur par défaut est False.
 batchCount | Nombre de lots à utiliser pour contrôler le nombre d’exécutions en parallèle (lorsque isSequential est défini sur false). | Entier (maximum 50) | Non. La valeur par défaut est 20.
-Éléments | Expression qui retourne un tableau JSON auquel appliquer l’itération. | Expression (qui retourne un tableau JSON) | Oui
-Activités | Activités à exécuter. | Liste des activités | Oui
+Éléments | Expression qui retourne un tableau JSON auquel appliquer l’itération. | Expression (qui retourne un tableau JSON) | OUI
+Activités | Activités à exécuter. | Liste des activités | OUI
 
 ## <a name="parallel-execution"></a>Exécution en parallèle
 Si la valeur de **isSequential** est définie sur False, l’activité effectue l’itération en parallèle avec un maximum de 20 itérations simultanées. Ce paramètre doit être utilisé avec précaution. Si les itérations simultanées écrivent dans le même dossier, mais dans des fichiers différents, cette approche convient. Si les itérations simultanées écrivent en même temps dans le même fichier, cette approche entraînera très probablement une erreur. 
@@ -474,7 +473,7 @@ Il est possible d’itérer sur plusieurs activités (par exemple : des activit
 
 ## <a name="aggregating-outputs"></a>Agréger des sorties
 
-Aux sorties agrégation de __foreach__ activité, veuillez utiliser _Variables_ et _ajouter Variable_ activité.
+Pour agréger les sorties de l’activité __foreach__, utilisez des _Variables_ et l’activité _Append Variable_.
 
 Commencez par déclarer une `array` _variable_ dans le pipeline. Puis appelez l'activité _Append Variable_ dans chaque boucle __ForEach__. Vous pouvez ensuite récupérer l'agrégation à partir de votre tableau.
 

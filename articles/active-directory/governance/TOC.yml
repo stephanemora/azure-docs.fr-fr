@@ -1,26 +1,57 @@
 - name: Documentation sur Azure AD Identity Governance
   href: index.yml
-- name: Vue d’ensemble
-  expanded: false
+- name: Vue d'ensemble
+  expanded: true
   items:
-    - name: "Qu’est-ce que la gouvernance des identités\_?"
+    - name: Présentation de la gouvernance des identités
       href: identity-governance-overview.md
+    - name: Présentation de la gestion des droits d’utilisation (Préversion)
+      href: entitlement-management-overview.md
     - name: Que sont les révisions d’accès ?
       href: access-reviews-overview.md
-- name: Concepts
-  expanded: false
+- name: Tutoriels
+  expanded: true
   items:
-    - name: Gérer l’accès des invités avec les révisions
-      href: manage-guest-access-with-access-reviews.md
-    - name: Gérer l’accès utilisateur avec les révisions
-      href: manage-user-access-with-access-reviews.md
-    - name: Gérer des programmes et leurs contrôles
-      href: manage-programs-controls.md
-    - name: Gérer les utilisateurs exclus de l’accès conditionnel
-      href: conditional-access-exclusion.md
+    - name: Créer votre premier package d’accès
+      href: entitlement-management-access-package-first.md
+- name: Concepts
+  expanded: true
+  items:
+    - name: Gestion des droits d’utilisation
+      items:
+        - name: Processus de demande et e-mails
+          href: entitlement-management-process.md
+    - name: Révisions d’accès
+      items:
+        - name: Gérer l’accès des invités avec les révisions
+          href: manage-guest-access-with-access-reviews.md
+        - name: Gérer l’accès utilisateur avec les révisions
+          href: manage-user-access-with-access-reviews.md
+        - name: Gérer les utilisateurs exclus de l’accès conditionnel
+          href: conditional-access-exclusion.md
 - name: Guides pratiques
   expanded: true
   items:
+    - name: Gestion des droits d’utilisation
+      items:
+        - name: Scénarios courants
+          href: entitlement-management-scenarios.md
+        - name: Créer un package d’accès
+          href: entitlement-management-access-package-create.md
+        - name: Modifier un package d’accès
+          href: entitlement-management-access-package-edit.md
+        - name: Créer un catalogue
+          href: entitlement-management-catalog-create.md
+        - name: Demander l'accès
+          href: entitlement-management-request-access.md
+        - name: Approuver les demandes
+          href: entitlement-management-request-approve.md
+        - name: Déléguer des tâches
+          href: entitlement-management-delegate.md
+        - name: Afficher les rapports et les journaux
+          href: entitlement-management-reports.md
+        - name: Résolution des problèmes
+          href: entitlement-management-troubleshoot.md
     - name: Révisions d’accès
       items:
         - name: Groupes et applications
@@ -33,21 +64,19 @@
               href: review-your-access.md
             - name: Effectuer une révision d’accès
               href: complete-access-review.md
-            - name: Récupérer les résultats d’une révision d’accès
-              href: retrieve-access-review.md
         - name: Rôles Azure AD
           items:
-            - name: Réviser mes rôles Azure AD
-              href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-            - name: Démarrage d’une révision d’accès
+            - name: Créer une révision d’accès
               href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+            - name: Revoir l’accès
+              href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
             - name: Effectuer une révision d’accès
               href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
         - name: Rôles de ressources Azure
           items:
-            - name: Consulter mes rôles de ressources Azure
-              href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-            - name: Démarrage d’une révision d’accès
+            - name: Créer une révision d’accès
               href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+            - name: Revoir l’accès
+              href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
             - name: Effectuer une révision d’accès
               href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json

@@ -7,15 +7,14 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f5c2b58fc6877bc196eb98faab88712f474523cb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273156"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241325"
 ---
-# <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Définir et affecter un blueprint Azure avec l’API REST
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec l’API REST
 
 Un utilisateur qui sait comment créer et affecter des blueprints peut définir des modèles courants et développer des configurations réutilisables et rapides à déployer en fonction de modèles Resource Manager, de stratégies, d’exigences en matière de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprint pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation, notamment :
 
@@ -28,9 +27,6 @@ Un utilisateur qui sait comment créer et affecter des blueprints peut définir 
 > - Supprimer un blueprint affecté à un abonnement
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="getting-started-with-rest-api"></a>Bien démarrer avec l’API REST
 
@@ -440,7 +436,7 @@ Pour supprimer le blueprint, utilisez l’opération d’API REST suivante :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir le [cycle de vie d’un blueprint](./concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](./concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](./concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](./concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](./concepts/resource-locking.md).

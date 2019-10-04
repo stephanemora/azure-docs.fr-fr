@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: d11ebad3eaa629a1b03d22c6548f3b7ad591cf5b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: fe74080387f76b858f60c5285a98c9b67f051449
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003801"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671885"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure à l’aide d’Azure PowerShell
 
@@ -39,21 +39,21 @@ Vous allez apprendre à effectuer les actions suivantes :
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer :
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](azure-to-azure-architecture.md).
 - Vérifiez les [exigences de prise en charge](azure-to-azure-support-matrix.md) pour tous les composants.
-- Vous avez Azure PowerShell `Az` module. Si vous devez installer ou mettre à niveau Azure PowerShell, consultez le [guide sur l’installation et la configuration d’Azure PowerShell](/powershell/azure/install-az-ps).
+- Vous devez disposer du module Azure PowerShell `Az`. Si vous devez installer ou mettre à niveau Azure PowerShell, consultez le [guide sur l’installation et la configuration d’Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Connexion à un abonnement Microsoft Azure
 
-Connectez-vous à votre abonnement Azure à l’aide de l’applet de commande Connect-AzAccount
+Connectez-vous à votre abonnement Azure à l’aide de la cmdlet Connect-AzAccount.
 
 ```azurepowershell
 Connect-AzAccount
 ```
-Sélectionnez votre abonnement Azure. Utilisez l’applet de commande Get-AzSubscription pour obtenir la liste des abonnements Azure auxquels que vous avez accès à. Sélectionnez l’abonnement Azure à utiliser à l’aide de l’applet de commande Select-AzSubscription.
+Sélectionnez votre abonnement Azure. Utilisez la cmdlet Get-AzSubscription pour obtenir la liste des abonnements Azure auxquels vous avez accès. Sélectionnez l’abonnement Azure à utiliser à l’aide de la cmdlet Select-AzSubscription.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -135,19 +135,12 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 ## <a name="set-the-vault-context"></a>Définir le contexte du coffre
 
-> [!TIP]
-> Le module Azure Site Recovery PowerShell (module Az.RecoveryServices) est fourni avec des alias faciles à utiliser pour la plupart des applets de commande. Les applets de commande dans le module prennent la forme  *\<opération >-**AzRecoveryServicesAsr**\<objet >* et possèdent des alias équivalents qui prennent la forme  *\< Opération >-**ASR**\<objet >*. Cet article utilise les alias de cmdlet afin de faciliter la lecture.
 
-Définissez le contexte du coffre pour l’utiliser dans la session PowerShell. Pour ce faire, téléchargez le fichier de paramètres du coffre, et importez-le dans la session PowerShell pour définir le contexte du coffre.
-
-Ensuite, les opérations suivantes d’Azure Site Recovery dans la session PowerShell sont effectuées dans le contexte du coffre sélectionné.
+Définissez le contexte du coffre pour l’utiliser dans la session PowerShell. Ensuite, les opérations suivantes d’Azure Site Recovery dans la session PowerShell sont effectuées dans le contexte du coffre sélectionné.
 
  ```azurepowershell
-#Download the vault settings file for the vault.
-$Vaultsettingsfile = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteRecovery -Path C:\users\user\Documents\
-
-#Import the downloaded vault settings file to set the vault context for the PowerShell session.
-Import-AzRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.FilePath
+#Setting the vault context.
+Set-AsrVaultSettings -Vault $vault
 
 ```
 ```
@@ -160,6 +153,16 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 #Delete the downloaded vault settings file
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
+
+Pour une migration d’Azure vers Azure, vous pouvez définir le contexte du coffre sur le coffre nouvellement créé : 
+
+```azurepowershell
+
+#Set the vault context for the PowerShell session.
+Set-AzRecoveryServicesAsrVaultContext -Vault $vault
+
+```
+
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Préparation du coffre pour commencer la réplication des machines virtuelles Azure
 
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>Créer un objet de structure Site Recovery pour représenter la région (source) principale
@@ -408,11 +411,11 @@ $OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationC
 
 # Data disk
 $datadiskId1  = $vm.StorageProfile.DataDisks[0].ManagedDisk.id
-$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0]. StorageAccountType
-$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0]. StorageAccountType
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0].StorageAccountType
+$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0].StorageAccountType
 
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
-         -DiskId $datadiskId1 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
 #Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
@@ -591,9 +594,9 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
-## <a name="reprotect-and-failback-to-source-region"></a>La reprotection et la restauration automatique vers la région source
+## <a name="reprotect-and-failback-to-source-region"></a>Reprotection et restauration automatique dans la région source
 
-Après un basculement, lorsque vous êtes prêt à revenir en arrière à la région d’origine, lancer la réplication inverse pour la réplication élément protégé à l’aide de l’applet de commande Update-AzRecoveryServicesAsrProtectionDirection.
+Après un basculement, lorsque vous êtes prêt à revenir à la région d’origine, démarrez la réplication inverse pour l’élément protégé de la réplication à l’aide de la cmdlet Update-AzRecoveryServicesAsrProtectionDirection.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -606,7 +609,15 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 -ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
 ```
 
-Une fois la reprotection terminée, vous pouvez lancer le basculement dans le sens inverse (ouest des États-Unis est des États-Unis) et la restauration automatique vers la région source.
+Une fois la reprotection terminée, vous pouvez lancer le basculement dans le sens inverse (de la région USA Ouest vers la région USA Est) ainsi que la restauration automatique vers la région source.
+
+## <a name="disable-replication"></a>Désactiver la réplication
+
+Vous pouvez désactiver la réplication à l’aide de la cmdlet Remove-ASRReplicationProtectedItem.
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Afficher le [référence Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/az.RecoveryServices) pour savoir comment vous pouvez effectuer d’autres tâches telles que la création de Plans de récupération et de test de basculement des plans de récupération via PowerShell.
+Affichez la [référence Azure Site Recovery PowerShell](https://docs.microsoft.com/powershell/module/az.RecoveryServices) pour savoir comment effectuer d’autres tâches, telles que la création de plans de récupération et le test de basculement des plans de récupération via PowerShell.

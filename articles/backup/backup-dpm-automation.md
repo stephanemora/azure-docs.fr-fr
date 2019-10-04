@@ -1,19 +1,19 @@
 ---
 title: 'Sauvegarde Azure : Utiliser PowerShell pour sauvegarder des charges de travail DPM'
 description: Découvrez comment déployer et gérer Sauvegarde Azure pour Data Protection Manager (DPM) à l’aide de PowerShell
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/23/2017
-ms.author: adigan
-ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.date: 01/23/2017
+ms.author: dacurwin
+ms.openlocfilehash: 12c6df6b68ee0996b468ff1e7d929ce6bfa680c9
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651838"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210246"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour des serveurs Data Protection Manager (DPM) à l’aide de PowerShell
 
@@ -42,7 +42,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pour commencer, [télécharger la dernière version d’Azure PowerShell](/powershell/azure/install-az-ps).
+Pour commencer, [téléchargez la dernière version d’Azure PowerShell](/powershell/azure/install-az-ps).
 
 Les tâches de configuration et d’inscription ci-après peuvent être automatisées avec PowerShell :
 
@@ -68,7 +68,7 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
     New-AzResourceGroup –Name "test-rg" –Location "West US"
     ```
 
-3. Utilisez le **New-AzRecoveryServicesVault** applet de commande pour créer un coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
+3. Utilisez la cmdlet **New-AzRecoveryServicesVault** pour créer un coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
@@ -90,7 +90,7 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
 
 Utilisez **Get-AzRecoveryServicesVault** pour afficher la liste de tous les coffres dans l’abonnement actuel. Vous pouvez utiliser cette commande pour vérifier qu’un coffre a été créé ou pour voir les coffres disponibles dans l’abonnement.
 
-Exécutez la commande, Get-AzRecoveryServicesVault, et tous les coffres dans l’abonnement sont répertoriés.
+Exécutez la commande Get-AzRecoveryServicesVault ; tous les coffres de l’abonnement sont alors répertoriés.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -274,7 +274,7 @@ Vous pouvez obtenir la liste des serveurs sur lesquels l’agent DPM est install
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains “productionserver01”}
 ```
 
-Extrayez à présent la liste des sources de données sur ```$server``` à l’aide de l’applet de commande [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Dans cet exemple Nous filtrons le volume *D:\\*  que nous souhaitons configurer pour la sauvegarde. Cette source de données est ensuite ajoutée au groupe de protection à l’aide de l’applet de commande [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). N’oubliez pas d’utiliser l’objet de groupe de protection *modifiable* ```$MPG``` pour effectuer les ajouts.
+Extrayez à présent la liste des sources de données sur ```$server``` à l’aide de l’applet de commande [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Dans cet exemple, nous filtrons le volume *D:\\* que vous souhaitez configurer pour une sauvegarde. Cette source de données est ensuite ajoutée au groupe de protection à l’aide de l’applet de commande [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). N’oubliez pas d’utiliser l’objet de groupe de protection *modifiable* ```$MPG``` pour effectuer les ajouts.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains “D:\” }

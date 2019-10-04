@@ -1,62 +1,64 @@
 ---
-title: Azure Notification Hubs et la migration de Google Firebase Cloud Messaging (FCM)
-description: Décrit comment Azure Notification Hubs résout le Google GCM à la migration de FCM.
+title: Prise en charge par Azure Notification Hubs de la migration vers Google Firebase Cloud Messaging (FCM)
+description: Décrit la manière dont Azure Notification Hubs gère la migration de Google GCM vers Google FCM.
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 04/10/2019
-ms.author: jowargo
-ms.openlocfilehash: 4cbfc67bc66e84b4743f3326db40872241e5d474
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 04/10/2019
+ms.openlocfilehash: 80eae09240bde61870995468485338db5f0b9c2d
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787013"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212304"
 ---
-# <a name="azure-notification-hubs-and-the-google-firebase-cloud-messaging-fcm-migration"></a>Azure Notification Hubs et la migration de Google Firebase Cloud Messaging (FCM)
+# <a name="azure-notification-hubs-and-the-google-firebase-cloud-messaging-fcm-migration"></a>Prise en charge par Azure Notification Hubs de la migration vers Google Firebase Cloud Messaging (FCM)
 
 ## <a name="current-state"></a>État actuel
 
-Lorsque Google a annoncé sa migration à partir de Google Cloud Messaging (GCM) pour Firebase Cloud Messaging (FCM), les services push comme la nôtre deviez ajuster la façon dont nous envoyé des notifications à des appareils Android pour prendre en charge la modification.
+Lorsque Google a annoncé la migration de Google Cloud Messaging (GCM) vers Firebase Cloud Messaging (FCM), les services d’envoi (push) tels que les nôtres ont dû adapter la méthode d’envoi des notifications aux appareils Android pour prendre en compte ce changement.
 
-Nous mis à jour de notre serveur principal de service, puis mises à jour publiées à nos API et les kits de développement logiciel en fonction des besoins. Avec notre implémentation, nous avons pris la décision pour assurer la compatibilité avec les schémas de notification GCM existants afin de minimiser l’impact sur le client. Cela signifie que nous avons actuellement envoyer des notifications aux appareils Android à l’aide de FCM en Mode hérité de FCM. Au final, nous souhaitons ajouter la prise en charge true pour FCM, y compris les nouvelles fonctionnalités et le format de charge utile. C’est une modification à long terme et la migration en cours se concentre sur la conservation de la compatibilité avec les applications existantes et les kits de développement logiciel. Vous pouvez utiliser les kits de développement logiciel FCM ou GCM dans votre application (ainsi que notre kit de développement logiciel) et nous nous assurons que la notification est envoyée correctement.
+Nous avons mis à jour notre service principal, puis nous avons publié les mises à jour de nos API et Kits de développement logiciel (SDK) selon les besoins. Dans le cadre de notre implémentation, nous avons pris la décision de maintenir la compatibilité avec les schémas de notification GCM existants afin de minimiser l’impact sur les clients. Cela signifie que nous envoyons actuellement les notifications aux appareils Android à l’aide de FCM en mode FCM hérité. À terme, nous souhaitons offrir une véritable prise en charge de FCM, y compris de ses nouvelles fonctionnalités et du format de charge utile. Cet objectif représente une évolution à long terme. La migration actuelle est axée sur le maintien de la compatibilité avec les applications et Kits de développement logiciel (SDK) existants. Vous pouvez choisir d’utiliser les Kits de développement logiciel (SDK) GCM ou FCM dans votre application (en même temps que notre SDK). Quel que soit votre choix, nous nous assurons que les notifications seront correctement envoyées.
 
-Certains clients a récemment reçu un message électronique à partir de l’avertissement de Google sur les applications à l’aide d’un point de terminaison GCM pour les notifications. Il s’agit simplement d’un avertissement et rien n’est pas rompu : notifications Android de votre application sont toujours envoyées à Google pour le traitement et Google traite toujours les. Certains clients qui spécifié le point de terminaison GCM explicitement dans leur configuration de service à utiliser le point de terminaison déconseillée. Nous avait déjà identifié cet écart et que vous utilisiez sur le problème corrigé lors de l’e-mail envoyé à Google.
+Certains clients ont récemment reçu un e-mail d’avertissement de la part de Google signalant le fait que des applications utilisaient encore un point de terminaison GCM pour les notifications. Il ne s’agissait que d’un avertissement, et tout continue de fonctionner normalement. Les notifications Android de votre application sont toujours envoyées à Google à des fins de traitement, et Google continue de traiter ces notifications. Certains clients ayant explicitement spécifié le point de terminaison GCM dans leur configuration de service continuaient à utiliser le point de terminaison déconseillé. Nous avions déjà identifié ce problème et avions entrepris de le corriger au moment où Google a envoyé cet e-mail.
 
-Nous avons remplacé ce point de terminaison déconseillée et le correctif est déployé.
+Nous avons remplacé le point de terminaison déconseillé et déployé le correctif associé.
 
 ## <a name="going-forward"></a>À l’avenir
 
-Forum aux questions de FCM de Google indique que vous n’avez rien à faire. Dans le [FCM FAQ](https://developers.google.com/cloud-messaging/faq), Google dit « kits SDK clients et les jetons GCM continue de fonctionner indéfiniment. Toutefois, vous ne pourrez cibler la dernière version des Services Google Play dans votre application Android, sauf si vous migrez vers FCM. »
+Le FAQ Google concernant FCM indique que vous n’avez rien à faire. Dans son [FAQ FCM](https://developers.google.com/cloud-messaging/faq), Google déclare ce qui suit : « Les Kits de développement logiciel (SDK) clients et les jetons GCM continueront de fonctionner indéfiniment. Toutefois, vous ne serez plus en mesure de cibler la dernière version de Google Play Services dans votre application Android, sauf si vous migrez vers FCM. »
 
-Si votre application utilise la bibliothèque GCM, continuez et suivez les instructions de Google pour mettre à niveau vers la bibliothèque FCM dans votre application. Notre kit de développement logiciel est compatible avec deux, donc vous ne devrez pas mettre à jour quoi que ce soit dans votre application de notre côté (tant que vous êtes à jour avec la version du Kit de développement logiciel).
+Si votre application utilise la bibliothèque GCM, suivez les instructions de Google pour mettre à niveau cette dernière vers la bibliothèque FCM dans votre application. Notre Kit de développement logiciel (SDK) étant compatible avec ces deux bibliothèques, vous n’aurez rien à mettre à jour dans votre application de notre côté (tant que votre version du Kit de développement logiciel (SDK) reste à jour).
 
 ## <a name="questions-and-answers"></a>Questions et réponses
 
-Voici les réponses aux questions les plus fréquentes que nous avons entendu des clients :
+Voici les réponses aux questions les plus fréquemment posées par les clients :
 
-**Q :** Que dois-je faire pour être compatible avant la date limite (actuel du Google date de coupure est 29 mai et peut changer) ?
+**Q :** Que dois-je faire pour être compatible d’ici la date limite (la date limite actuellement fixée par Google est le 29 mai et peut évoluer) ?
 
-**R :** Rien. Nous conservons la compatibilité avec le schéma de notification GCM existant. Votre clé GCM continueront à fonctionner normalement ainsi que des kits de développement logiciel GCM et des bibliothèques utilisées par votre application.
+**R :** Rien. Nous maintiendrons la compatibilité avec le schéma de notification GCM existant. Votre clé GCM continuera de fonctionner normalement, ainsi que tous les Kits de développement logiciel (SDK) et bibliothèques GCM utilisés par votre application.
 
-Si/quand vous décidez de mettre à niveau vers les kits de développement logiciel FCM et les bibliothèques pour tirer parti des nouvelles fonctionnalités, votre clé GCM continueront de fonctionner. Vous pouvez basculer vers à l’aide d’une clé FCM si vous le souhaitez, mais assurez-vous que vous ajoutez Firebase à votre projet GCM existant lors de la création du nouveau projet Firebase. Cela garantit la compatibilité descendante avec les clients qui exécutent des versions antérieures de l’application qui utilisent toujours des bibliothèques et les kits de développement logiciel GCM.
+Le jour où vous déciderez d’effectuer la mise à niveau vers les Kits de développement logiciel (SDK) et bibliothèques FCM pour tirer parti des nouvelles fonctionnalités, votre clé GCM continuera de fonctionner. Vous pouvez basculer vers l’utilisation d’une clé FCM si vous le souhaitez, mais dans ce cas, prenez soin d’ajouter Firebase à votre projet GCM existant lorsque vous créez le projet Firebase. Cette opération garantira la compatibilité descendante avec vos clients exécutant des versions antérieures de l’application qui utilisent toujours des bibliothèques et Kits de développement logiciel (SDK) GCM.
 
-Si vous créez un nouveau projet FCM et ne pas attacher au projet GCM existant, une fois que vous mettez à jour les concentrateurs de Notification avec le nouveau secret FCM vous perdez la possibilité pour envoyer des notifications push à vos installations actuelles de l’application, dans la mesure où la nouvelle clé FCM dispose d’aucun lien vers l’ancien GCM projet.
+Si vous créez un projet FCM sans l’attacher au projet GCM existant, une fois que vous mettrez à jour Notification Hubs avec le nouveau secret FCM, vous perdrez la possibilité d’envoyer (push) des notifications à vos installations d’application actuelles, dans la mesure où la nouvelle clé FCM ne dispose d’aucun lien vers l’ancien projet GCM.
 
-**Q :** Pourquoi ai-je reçu cet e-mail sur les anciens points de terminaison GCM utilisé ? Que dois-je faire ?
+**Q :** Pourquoi ai-je reçu cet e-mail concernant l’utilisation des anciens points de terminaison GCM ? Que dois-je faire ?
 
-**R :** Rien. Nous ont été migration vers les nouveaux points de terminaison et sera bientôt terminés, aucune modification n’est nécessaire. Rien n’est rompue, notre point de terminaison vous avez manqué un dû simplement des messages d’avertissement à partir de Google.
+**R :** Rien. Nous avons commencé la migration vers les nouveaux points de terminaison, et nous aurons bientôt terminé. Aucune modification n’est donc nécessaire. Tout continue de fonctionner normalement. Le seul point de terminaison que nous avons manqué a seulement entraîné l’envoi de messages d’avertissement de la part de Google.
 
-**Q :** Comment puis-je transition vers le nouveau SDK de FCM et bibliothèques sans interrompre les utilisateurs existants ?
+**Q :** Comment puis-je effectuer la transition vers les nouveaux Kits de développement logiciel (SDK) et bibliothèques FCM sans interrompre le travail des utilisateurs existants ?
 
-R : Mettre à niveau à tout moment. Google n’a pas encore annoncé toute dépréciation des bibliothèques et les kits de développement logiciel existant GCM. Afin de vous empêcher le fractionnement des notifications push aux utilisateurs existants, assurez-vous que lorsque vous créez le nouveau projet Firebase que vous associez à votre projet GCM existant. Ainsi, les nouveaux Firebase secrets fonctionnera pour les utilisateurs qui exécutent les anciennes versions de votre application avec les bibliothèques et les kits de développement logiciel GCM, ainsi que les nouveaux utilisateurs de votre application avec les bibliothèques et les kits de développement logiciel FCM.
+R : Vous pouvez effectuer la mise à niveau à tout moment. Google n’a pas encore annoncé la dépréciation des Kits de développement logiciel (SDK) et bibliothèques GCM existants. Pour éviter tout risque d’interruption de l’envoi des notifications Push aux utilisateurs existants, prenez soin d’associer votre projet GCM existant lorsque vous créez le projet Firebase. De cette manière, les nouveaux secrets Firebase fonctionneront aussi bien pour les utilisateurs qui exécutent d’anciennes versions de votre application avec les Kits de développement logiciel (SDK) et bibliothèques GCM, que pour les nouveaux utilisateurs de votre application avec les Kits de développement logiciel (SDK) et bibliothèques FCM.
 
-**Q :** Quand puis-je utiliser des schémas et des nouvelles fonctionnalités FCM pour mes notifications ?
+**Q :** Quand pourrai-je utiliser les nouveaux schémas et fonctionnalités FCM pour mes notifications ?
 
-**R :** Une fois que nous publions une mise à jour à nos API et les kits de développement logiciel, restez connecté – devrait avoir quelque chose pour vous dans les prochains mois.
+**R :** Après la publication d’une mise à jour de nos API et Kits de développement logiciel (SDK), consultez régulièrement notre site pour découvrir les nouveautés que nous mettrons à votre disposition dans les prochains mois.

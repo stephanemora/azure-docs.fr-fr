@@ -2,27 +2,21 @@
 title: Comment configurer la stratégie de risque utilisateur dans Azure Active Directory Identity Protection | Microsoft Docs
 description: Découvrez comment configurer la stratégie de risque utilisateur Azure AD Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b94e9b7267c956c07f4171f8cce46c6159affd90
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 92bfb921833d99a3538ffa8c4c5d16a9f0cd3acd
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518403"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126280"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Procédure : Configurer la stratégie en matière de risque à l’utilisateur
 
@@ -30,25 +24,21 @@ Avec le risque utilisateur, Azure AD détecte la probabilité selon laquelle un 
  
 Cet article vous fournit les informations dont vous avez besoin pour configurer une stratégie de risque utilisateur.
 
-
 ## <a name="what-is-a-user-risk-policy"></a>Qu’est-ce qu’une stratégie de risque utilisateur ?
 
-Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée un événement à risque. Bien que certains événements à risque puissent être détectés en temps réel, pour d’autres, la détection peut prendre plus de temps. Par exemple, pour détecter une navigation impossible vers des emplacements inhabituels, le système nécessite une période d’apprentissage initiale de 14 jours pour en savoir plus sur le comportement normal d’un utilisateur. Il existe plusieurs options pour résoudre les événements à risque détectés. Par exemple, vous pouvez résoudre manuellement des événements à risque, ou vous pouvez utiliser une stratégie d’accès conditionnel de risque utilisateur ou de risque de connexion pour le faire.
+Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée une détection de risque. Bien que certaines détections de risques puissent être détectées en temps réel, pour d’autres, la détection peut prendre plus de temps. Par exemple, pour détecter une navigation impossible vers des emplacements inhabituels, le système nécessite une période d’apprentissage initiale de 14 jours pour en savoir plus sur le comportement normal d’un utilisateur. Il existe plusieurs options pour résoudre les détections de risques détectées. Par exemple, vous pouvez résoudre manuellement des détections de risques ou vous pouvez utiliser une stratégie d’accès conditionnel de risque utilisateur ou de connexion à risque pour le faire.
 
-Tous les événements à risque qui ont été détectés pour un utilisateur et qui n’ont pas été résolus sont appelés événements à risque actifs. Les événements à risque actifs qui sont associés à un utilisateur sont appelés risque utilisateur. En fonction du risque utilisateur, Azure AD calcule la probabilité (faible, moyenne, élevée) selon laquelle un utilisateur a été compromis. Cette probabilité est appelée niveau de risque utilisateur.
+Toutes les détections de risques qui ont été détectées pour un utilisateur et qui n’ont pas été résolues sont appelées détections de risques actives. Les détections de risques actives qui sont associées à un utilisateur sont appelées risques utilisateur. En fonction du risque utilisateur, Azure AD calcule la probabilité (faible, moyenne, élevée) selon laquelle un utilisateur a été compromis. Cette probabilité est appelée niveau de risque utilisateur.
 
 ![Risque des utilisateurs](./media/howto-user-risk-policy/1031.png)
 
 La stratégie de risque utilisateur est une réponse automatisée que vous pouvez configurer pour un niveau de risque utilisateur spécifique. Avec une stratégie de risque utilisateur, vous pouvez bloquer l’accès à vos ressources ou demander une modification du mot de passe pour récupérer un compte utilisateur dans un état propre.
-
 
 ## <a name="how-do-i-access-the-user-risk-policy"></a>Comment faire pour accéder à la stratégie d’utilisateur à risque ?
    
 La stratégie de risque de connexion est disponible dans la section **Configurer** de la [page Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
 ![Stratégie de risque d’utilisateur](./media/howto-user-risk-policy/1014.png)
-
-
 
 ## <a name="policy-settings"></a>Paramètres de stratégie
 
@@ -80,11 +70,10 @@ Vous pouvez définir une stratégie de sécurité de risque utilisateur pour blo
 
 ![Blocage](./media/howto-user-risk-policy/16.png)
 
-
 Le blocage d’une connexion :
 
-* empêche la génération de nouveaux événements à risque pour l’utilisateur concerné ;
-* permet aux administrateurs de corriger manuellement les événements à risques affectant l’identité de l’utilisateur pour sécuriser à nouveau cette dernière.
+* empêche la génération de nouvelles détections de risques pour l’utilisateur concerné ;
+* permet aux administrateurs de corriger manuellement les détections de risques affectant l’identité de l’utilisateur pour sécuriser à nouveau cette dernière.
 
 ## <a name="best-practices"></a>Bonnes pratiques
 
@@ -110,9 +99,6 @@ Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez�
 - Dans le panneau **Azure AD Identity Protection**, dans la section **Configurer**, cliquez sur **Stratégie de risque d’utilisateur**.
 
     ![Stratégie de risque d’utilisateur](./media/howto-user-risk-policy/1009.png "Stratégie de risque d’utilisateur")
-
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

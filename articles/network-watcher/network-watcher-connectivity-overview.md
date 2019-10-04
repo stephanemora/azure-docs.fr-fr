@@ -3,8 +3,8 @@ title: Présentation de la résolution des problèmes de connexion d’Azure Net
 description: Cette page fournit une vue d’ensemble de la fonctionnalité de résolution des problèmes de connexion de Network Watcher
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: jdial
-ms.openlocfilehash: 0268c7e54aa82df12243f98fd72de836fbc82070
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: kumud
+ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833997"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64705820"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Présentation de la résolution des problèmes de connexion dans Azure Network Watcher
 
@@ -74,7 +74,7 @@ Vous trouverez ci-dessous un exemple de problème détecté sur un tronçon.
 
 La résolution des problèmes de connexion retourne les types d’erreur liés à la connexion. Le tableau suivant fournit une liste des types d’erreur actuels retournés.
 
-|type  |Description  |
+|Type  |Description  |
 |---------|---------|
 |UC     | Utilisation élevée du processeur.       |
 |Mémoire     | Utilisation élevée de la mémoire.       |

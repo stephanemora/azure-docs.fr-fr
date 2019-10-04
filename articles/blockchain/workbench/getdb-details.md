@@ -1,27 +1,27 @@
 ---
-title: Obtenir des détails sur la base de données Azure Blockchain Workbench
-description: Découvrez comment obtenir des informations sur la base de données Azure Blockchain Workbench et le serveur de base de données.
+title: Obtenir des détails sur la base de données Azure Blockchain Workbench Preview
+description: Découvrez comment obtenir des informations sur la base de données Azure Blockchain Workbench Preview et le serveur de base de données.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0d806491c58c4b1881adc2fd830de7c7b9f0859d
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: f4a4eaab9a03aeed27e29eb645b6e22a028b243b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331926"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845076"
 ---
-# <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Obtenir des informations sur votre base de données Azure Blockchain Workbench
+# <a name="get-information-about-your-azure-blockchain-workbench-preview-database"></a>Obtenir des informations sur votre base de données Azure Blockchain Workbench Preview
 
-Cet article explique comment obtenir des informations détaillées sur votre base de données Azure Blockchain Workbench.
+Cet article explique comment obtenir des informations détaillées sur votre base de données Azure Blockchain Workbench Preview.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Pour plus d’informations sur les applications, les flux de travail et l’exécution des contrats intelligent, utilisez les vues de base de données dans la base de données SQL Blockchain Workbench. Les développeurs peuvent utiliser ces informations avec certains outils comme Microsoft Excel, Power BI, Visual Studio et SQL Server Management Studio.
 

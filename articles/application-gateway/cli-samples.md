@@ -1,29 +1,22 @@
 ---
-title: Exemples Azure CLI Azure Application Gateway | Microsoft Docs
-description: Exemples Azure CLI Application Gateway
+title: Exemples Azure CLI pour Azure Application Gateway
+description: Exemples Azure CLI pour Azure Application Gateway
 services: application-gateway
-documentationcenter: networking
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 01/30/2018
+ms.topic: sample
+ms.date: 08/07/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 10857e248382156f7f65b343e3eedb65229f6639
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: eac8569f16c84211c1e881a9cb8daab9d7e602b5
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201009"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824501"
 ---
-# <a name="azure-application-gateway-azure-cli-samples"></a>Exemples Azure CLI Azure Application Gateway
+# <a name="azure-cli-examples-for-azure-application-gateway"></a>Exemples Azure CLI pour Azure Application Gateway
 
-Le tableau suivant contient des liens vers des exemples de scripts Azure CLI qui créent des passerelles d’application.
+Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI pour Azure Application Gateway.
 
 | | |
 |---|---|

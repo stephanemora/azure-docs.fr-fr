@@ -1,28 +1,28 @@
 ---
-title: Configurer Azure multi-Factor Authentication - Azure Active Directory
+title: Configurer Microsoft Azure Multi-Factor Authentication - Azure Active Directory
 description: Cet article explique comment configurer les paramètres Azure Multi-Factor Authentication sur le portail Azure.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 06/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: cf732ec97a57a5bc1d2bcaa39e5fd14a305504d0
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885993"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075496"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
-Cet article vous explique comment gérer les paramètres d’Azure Multi-Factor Authentication dans le portail Azure. Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication. Toutes les fonctionnalités ne sont pas disponibles dans chaque [version d’Azure Multi-Factor Authentication](concept-mfa-whichversion.md#what-features-do-i-need).
+Cet article vous explique comment gérer les paramètres d’Azure Multi-Factor Authentication dans le portail Azure. Il aborde divers sujets qui vous permettent de tirer le meilleur parti d’Azure Multi-Factor Authentication. Toutes les fonctionnalités ne sont pas disponibles dans chaque version d’Azure Multi-Factor Authentication.
 
-Vous pouvez accéder à des paramètres liés à Multi-Factor Authentication à partir du portail Azure en accédant à **Azure Active Directory** > **MFA**.
+Vous pouvez accéder aux paramètres liés à Azure Multi-Factor Authentication à partir du portail Azure en accédant à **Azure Active Directory** > **MFA**.
 
 ![Portail Azure - Paramètres d’Azure AD Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -33,9 +33,9 @@ Certains de ces paramètres s’appliquent à MFA Server, à Azure MFA ou aux de
 | Fonctionnalité | Description |
 | ------- | ----------- |
 | Verrouillage de compte | Verrouille temporairement les comptes dans le service Multi-Factor Authentication si de trop nombreuses tentatives d’authentification sont refusées à la suite. Cette fonctionnalité s’applique seulement aux utilisateurs qui entrent un code PIN pour s’authentifier. (MFA Server) |
-| [Blocage/déblocage des utilisateurs](#block-and-unblock-users) | Utilisé pour empêcher des utilisateurs spécifiques sur MFA Server (local) de recevoir des demandes d’authentification multifacteur. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués. |
-| [Alerte de fraude](#fraud-alert) | Configurer les paramètres liés à la capacité des utilisateurs à signaler les demandes de vérification frauduleuse |
-| Notifications | Activez les notifications des événements provenant de MFA Server. |
+| [Blocage/déblocage des utilisateurs](#block-and-unblock-users) | Utilisé pour empêcher des utilisateurs spécifiques de recevoir des demandes d’authentification multifacteur. Toutes les tentatives d’authentification des utilisateurs bloqués sont automatiquement refusées. La durée de blocage de ces utilisateurs est de 90 jours à partir du moment où ils sont bloqués. |
+| [Alerte de fraude](#fraud-alert) | Configurez les paramètres liés à la possibilité pour les utilisateurs de signaler des demandes de vérification frauduleuses. |
+| [Notifications](#notifications) | Activez les notifications des événements provenant de MFA Server. |
 | [Jetons OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Utilisé dans les environnements Azure MFA cloud afin de gérer les jetons OATH pour les utilisateurs. |
 | [Paramètres de l’appel téléphonique](#phone-call-settings) | Configurez les paramètres liés aux appels téléphoniques et aux messages d’accueil pour les environnements cloud et locaux. |
 | Fournisseurs | Ceci montre tous les fournisseurs d’authentification existants que vous avez associés à votre compte. À compter du 1er septembre 2018, vous ne pouvez plus créer des fournisseurs d’authentification |
@@ -64,7 +64,7 @@ Utilisez la fonctionnalité de _blocage/déblocage_ pour empêcher les utilisate
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Accédez à **Azure Active Directory** > **MFA** > **Bloquer/débloquer des utilisateurs**.
 3. Sélectionnez **Ajouter** pour bloquer un utilisateur.
-4. Sélectionnez le **Groupe de réplication**. Entrez le nom d’utilisateur de l’utilisateur bloqué en tant que **nom d’utilisateur\@domaine.com**. Entrez un commentaire dans le champ **Motif**.
+4. Sélectionnez le **Groupe de réplication**. Entrez le nom d’utilisateur de l’utilisateur bloqué sous la forme **nom_utilisateur\@domain.com**. Entrez un commentaire dans le champ **Motif**.
 5. Sélectionnez **Ajouter** pour achever de bloquer l’utilisateur.
 
 ### <a name="unblock-a-user"></a>Débloquer un utilisateur
@@ -89,7 +89,7 @@ Configurez la fonctionnalité d’_alerte de fraude_ pour que vos utilisateurs p
 ### <a name="configuration-options"></a>Options de configuration
 
 * **Bloquer l’utilisateur en cas de fraude signalée** : si un utilisateur fait l’objet d’un signalement de fraude, son compte est bloqué pendant 90 jours ou jusqu’à ce qu’un administrateur le débloque. Un administrateur peut consulter les connexions à l’aide du rapport de connexion et prendre les mesures appropriées pour empêcher les fraudes futures. Un administrateur peut ensuite [débloquer](#unblock-a-user) le compte de l’utilisateur.
-* **Code pour signaler une fraude lors du message d’accueil initial** : quand les utilisateurs reçoivent un appel téléphonique, pour effectuer la vérification en deux étapes, ils appuient normalement sur **#** pour confirmer leur connexion. Pour signaler une fraude, l’utilisateur doit saisir un code avant d’appuyer sur **#**. Ce code est **0** par défaut, mais vous pouvez le personnaliser.
+* **Code pour signaler une fraude lors du message d’accueil initial** : quand les utilisateurs reçoivent un appel téléphonique, pour effectuer la vérification en deux étapes, ils appuient normalement sur **#** pour confirmer leur connexion. Pour signaler une fraude, l’utilisateur doit saisir un code avant d’appuyer sur **#** . Ce code est **0** par défaut, mais vous pouvez le personnaliser.
 
    >[!NOTE]
    >Le message d’accueil par défaut de Microsoft demande aux utilisateurs d’appuyer sur **0#** pour envoyer une alerte de fraude. Si vous souhaitez utiliser un code autre que **0**, enregistrez et chargez vos propres messages d’accueil vocaux personnalisés avec les instructions appropriées pour vos utilisateurs.
@@ -99,6 +99,12 @@ Configurez la fonctionnalité d’_alerte de fraude_ pour que vos utilisateurs p
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Azure Active Directory** > **Connexions**. Le rapport de fraude fait désormais partie du rapport de connexions Azure Active Directory standard.
+
+## <a name="notifications"></a>Notifications
+
+Configurez les adresses e-mail ici pour les utilisateurs qui recevront les e-mails d’alerte en cas de fraude.
+
+![Exemple d’e-mail d’alerte en cas de fraude](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
 ## <a name="phone-call-settings"></a>Paramètres de l’appel téléphonique
 
@@ -144,6 +150,31 @@ Par exemple, s’il n’existe qu’un seul message personnalisé et que la lang
 1. Sélectionnez un fichier audio .mp3 ou .wav à charger.
 1. Sélectionnez **Ajouter**.
 
+### <a name="custom-voice-message-defaults"></a>Valeurs par défaut des messages vocaux personnalisés
+
+Exemples de scripts pour la création de messages personnalisés.
+
+| Nom du message | Script |
+| --- | --- |
+| Authentification réussie | Votre connexion a bien été vérifiée. Au revoir. |
+| Invite à entrer une extension | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour continuer. |
+| Confirmation de fraude | Une alerte de fraude a été envoyée. Pour débloquer votre compte, veuillez contacter le support informatique de votre société. |
+| Message d'accueil en cas de fraude (standard) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. Si vous n’êtes pas à l’origine de cette vérification, quelqu’un tente peut-être d’accéder à votre compte. Veuillez appuyer sur zéro puis sur dièse pour envoyer une alerte de fraude. Cela avertira l’équipe informatique de votre entreprise et bloquera les autres tentatives de vérification. |
+| Fraude signalée – Une alerte de fraude a été envoyée. | Pour débloquer votre compte, veuillez contacter le support informatique de votre société. |
+| Activation | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. |
+| Nouvelle tentative d'authentification refusée | Vérification refusée. |
+| Réessayer (standard) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. |
+| Message d'accueil (standard) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. |
+| Message d'accueil (PIN) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Veuillez entrer votre code PIN suivi de la clé dièse pour terminer votre vérification. |
+| Message d'accueil en cas de fraude (PIN) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft.  Veuillez entrer votre code PIN suivi de la clé dièse pour terminer votre vérification. Si vous n’êtes pas à l’origine de cette vérification, quelqu’un tente peut-être d’accéder à votre compte. Veuillez appuyer sur zéro puis sur dièse pour envoyer une alerte de fraude. Cela avertira l’équipe informatique de votre entreprise et bloquera les autres tentatives de vérification. |
+| Nouvelle tentative (PIN) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Veuillez entrer votre code PIN suivi de la clé dièse pour terminer votre vérification. |
+| Invite à entrer une extension après les chiffres | Si vous utilisez déjà cette extension, appuyez sur la touche dièse pour continuer. |
+| Authentification refusée | Désolé, nous ne pouvons pas vous connecter pour le moment. Veuillez réessayer plus tard. |
+| Message d'accueil lors de l'activation (standard) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. |
+| Nouvelle tentative d'activation (standard) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Appuyez sur la touche dièse pour terminer la vérification. |
+| Message d'accueil lors de l'activation (PIN) | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Veuillez entrer votre code PIN suivi de la clé dièse pour terminer votre vérification. |
+| Invite à entrer une extension avant les chiffres | Merci d'avoir choisi d'utiliser le système de vérification de connexion de Microsoft. Veuillez transférer cet appel vers l’extension... |
+
 ## <a name="one-time-bypass"></a>Contournement à usage unique
 
 La fonctionnalité de _contournement à usage unique_ permet à un utilisateur de s’authentifier une seule fois sans passer par la vérification en deux étapes. Le contournement est temporaire et expire après le nombre de secondes spécifié. Lorsque l’application mobile ou le téléphone ne reçoit pas de notification ou d’appel téléphonique, vous pouvez autoriser un contournement à usage unique pour que l’utilisateur puisse accéder à la ressource souhaitée.
@@ -154,7 +185,7 @@ La fonctionnalité de _contournement à usage unique_ permet à un utilisateur d
 2. Accédez à **Azure Active Directory** > **MFA** > **Contournement à usage unique**.
 3. Sélectionnez **Ajouter**.
 4. Si nécessaire, sélectionnez le groupe de réplication de ce contournement.
-5. Entrez le nom d’utilisateur en tant que **nom d’utilisateur\@domaine.com**. Entrez la durée du contournement en secondes. Entrez le motif du contournement.
+5. Entrez le nom d’utilisateur **nom_utilisateur\@domain.com**. Entrez la durée du contournement en secondes. Entrez le motif du contournement.
 6. Sélectionnez **Ajouter**. La limite de temps entre immédiatement en vigueur. L’utilisateur doit se connecter avant que le délai de contournement à usage unique ne soit écoulé.
 
 ### <a name="view-the-one-time-bypass-report"></a>Afficher le rapport de contournement à usage unique
@@ -191,7 +222,7 @@ Certaines applications, comme Office 2010 ou antérieur, et Apple Mail avant iOS
 L’authentification moderne est prise en charge pour les clients Microsoft Office 2013 et versions ultérieures. Les clients Office 2013, y compris Outlook, prennent en charge des protocoles d’authentification moderne et peuvent être activés pour fonctionner dans le cadre de la vérification en deux étapes. Une fois le client activé, les mots de passe d’application ne sont pas requis par le client.
 
 >[!NOTE]
->Les mots de passe d’application ne fonctionnent pas avec l’accès conditionnel basé sur des stratégies d’authentification multifacteur et sur l’authentification moderne.
+>Les mots de passe d’application ne fonctionnent pas avec les stratégies d’authentification multifacteur basées sur l’accès conditionnel ni avec l’authentification moderne.
 
 ### <a name="considerations-about-app-passwords"></a>Considérations sur les mots de passe d’application
 
@@ -243,7 +274,7 @@ Azure AD prend en charge la fédération (ou authentification unique) avec les s
 Par défaut, les utilisateurs ne peuvent pas créer des mots de passe d’application. La fonctionnalité des mots de passe d’application doit être activée. Pour permettre aux utilisateurs de créer des mots de passe d’application, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
+2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs**.
 3. Sélectionnez **Multi-Factor Authentication**.
 4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
 5. Sur la page **Paramètres du service**, sélectionnez l’option **Autoriser les utilisateurs à créer des mots de passe d’application pour se connecter à des applications sans navigateur**.
@@ -259,7 +290,7 @@ Les utilisateurs peuvent aussi créer des mots de passe d’application après l
 La fonctionnalité d’_adresses IP approuvées_ d’Azure Multi-Factor Authentication est utilisée par les administrateurs d’un locataire géré ou fédéré. Elle contourne la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet d’entreprise. Cette fonctionnalité est disponible dans la version complète d’Azure Multi-Factor Authentication, mais pas dans la version gratuite pour les administrateurs. Pour plus d’informations sur l’obtention de la version complète d’Azure Multi-Factor Authentication, consultez [Présentation d’Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 > [!NOTE]
-> Les adresses IP MFA de confiance et les emplacements nommés avec accès conditionnel fonctionnent uniquement avec les adresses IPV4.
+> Les adresses IP approuvées MFA et les emplacements nommés avec accès conditionnel fonctionnent uniquement avec les adresses IPV4.
 
 Si votre organisation déploie l’extension de serveur NPS pour fournir l’authentification multifacteur aux applications locales, notez que l’adresse IP source apparaît toujours comme étant le serveur NPS qu’emprunte la tentative d’authentification.
 
@@ -283,17 +314,17 @@ Que la fonctionnalité Adresses IP approuvées soit activée ou non, la vérific
 ### <a name="enable-named-locations-by-using-conditional-access"></a>Activer les emplacements nommés à l’aide de l’accès conditionnel
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. À gauche, sélectionnez **Azure Active Directory** > **Accès conditionnel** > **Emplacements nommés**.
+2. À gauche, sélectionnez **Azure Active Directory** > **Sécurité** > **Accès conditionnel** > **Emplacements nommés**.
 3. Sélectionnez **Nouvel emplacement**.
 4. Entrez le nom de l’emplacement.
 5. Sélectionnez **Marquer comme emplacement approuvé**.
 6. Spécifiez la plage d’adresses IP en notation CIDR, comme **192.168.1.1/24**.
-7. Sélectionnez **Créer**.
+7. Sélectionnez **Create** (Créer).
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Activer la fonctionnalité Adresses IP approuvées à l’aide de l’accès conditionnel
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. À gauche, sélectionnez **Azure Active Directory** > **Accès conditionnel** > **Emplacements nommés**.
+2. À gauche, sélectionnez **Azure Active Directory** > **Sécurité** >  **Accès conditionnel** > **Emplacements nommés**.
 3. Sélectionnez **Configurer des adresses IP approuvées MFA**.
 4. Dans la page **Paramètres du service**, sous **Adresses IP approuvées**, choisissez l’une des deux options suivantes :
 
@@ -343,7 +374,7 @@ Lorsque vos utilisateurs inscrivent leurs comptes à Multi-Factor Authentication
 ### <a name="enable-and-disable-verification-methods"></a>Activer et désactiver des méthodes de vérification
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
+2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs**.
 3. Sélectionnez **Multi-Factor Authentication**.
 4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
 5. Dans la page **Paramètres du service**, sous **Options de vérification**, sélectionnez (ou désélectionnez) les options que vous souhaitez proposer à vos utilisateurs.
@@ -358,8 +389,7 @@ La fonctionnalité _Mémoriser Multi-Factor Authentication_ pour les appareils e
 >[!IMPORTANT]
 >Si un appareil ou un compte est compromis, la mémorisation de Multi-Factor Authentication sur des appareils approuvés peut affecter la sécurité. En cas de violation d’un compte d’entreprise ou de perte/vol d’un appareil fiable, vous devez [restaurer Multi-Factor Authentication sur tous les appareils](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->L’action de restauration révoque le statut approuvé de tous les appareils et oblige l’utilisateur à procéder de nouveau à la vérification en deux étapes. Vous pouvez également demander à vos utilisateurs de restaurer Multi-Factor Authentication sur leurs propres appareils, en suivant les instructions détaillées dans l’article [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
->
+>L’action de restauration révoque le statut approuvé de tous les appareils et oblige l’utilisateur à procéder de nouveau à la vérification en deux étapes. Vous pouvez également demander à vos utilisateurs de restaurer Multi-Factor Authentication sur leurs propres appareils, en suivant les instructions détaillées dans l’article [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Principe de la fonctionnalité
 
@@ -374,11 +404,13 @@ La fonctionnalité réduit le nombre d’authentifications sur les applications 
 >
 >Si votre utilisateur sélectionne **Maintenir la connexion** dans AD FS et désigne son appareil comme approuvé pour Multi-Factor Authentication, il n’est pas vérifié automatiquement à l’issue du délai en jours spécifiés dans **Mémoriser Multi-Factor Authentication**. Azure AD demande une nouvelle vérification en deux étapes, mais AD FS renvoie un jeton avec la revendication Multi-Factor Authentication et la date associée, au lieu d’effectuer de nouveau la vérification en deux étapes. **Cette réaction déclenche une boucle de vérification entre Azure AD et AD FS**.
 >
+>La fonctionnalité **Mémoriser Multi-Factor Authentication** n’est pas compatible avec les utilisateurs B2B, et n’est pas visible pour ceux-ci lors de la connexion aux locataires invités.
+>
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Activer Mémoriser Multi-Factor Authentication
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
+2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs**.
 3. Sélectionnez **Multi-Factor Authentication**.
 4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
 5. Dans la page **Paramètres du service**, **Gérer Mémoriser Multi-Factor Authentication**, sélectionnez l’option **Permettre aux utilisateurs de mémoriser l’authentification multifacteur sur des appareils de confiance**.

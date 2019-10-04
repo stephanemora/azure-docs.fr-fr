@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: baa2a09adeba133c5348449b12e037d4a9cb3213
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: a9d8bc172eb5f5e0e119a0bde56fb167f7a0c2b2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683027"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699149"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métriques et alertes Azure DNS
 Azure DNS est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. Cet article aborde les métriques et les alertes du service Azure DNS.
 
 ## <a name="azure-dns-metrics"></a>Métriques Azure DNS
 
-Azure DNS fournit des métriques aux clients pour leur permettre d’analyser des aspects spécifiques de leurs zones DNS hébergées dans le service. De plus, avec les métriques Azure DNS, vous pouvez configurer et recevoir des alertes en fonction des conditions qui vous intéressent. Les métriques sont fournies via le [service Azure Monitor](../azure-monitor/index.yml). Azure DNS fournit les métriques suivantes via Azure Monitor pour vos zones DNS :
+Azure DNS fournit des métriques aux clients pour qu’ils puissent surveiller certains aspects de leurs zones DNS hébergées dans le service. De plus, avec les métriques Azure DNS, vous pouvez configurer et recevoir des alertes en fonction des conditions qui vous intéressent. Les métriques sont fournies via le [service Azure Monitor](../azure-monitor/index.yml). Azure DNS fournit les métriques suivantes via Azure Monitor pour vos zones DNS :
 
 -   QueryVolume
 -   RecordSetCount
@@ -36,7 +36,7 @@ Vous pouvez également voir la [définition de ces métriques](../azure-monitor/
 >[!NOTE]
 > À ce stade, ces métriques sont uniquement disponibles pour les zones DNS publiques hébergées dans Azure DNS. Si vous disposez de zones privées hébergées dans Azure DNS, ces métriques ne fourniront pas de données les concernant. De plus, les métriques et les alertes sont uniquement prises en charge dans le cloud public Azure. La prise en charge dans les clouds souverains est prévue. 
 
-Le niveau de dimension granulaire de ces métriques est Zone DNS.
+L’élément plus granulaire pour lequel vous pouvez voir des métriques est une zone DNS. Actuellement, vous ne pouvez pas voir les métriques des enregistrements de ressource individuels dans une zone.
 
 ### <a name="query-volume"></a>Volume de requêtes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Générer une application de liaison d’entités - C#'
+title: 'Didacticiel : Générer une application de liaison d’entités - C#'
 titlesuffix: Azure Cognitive Services
 description: Analysez du texte et liez des entités nommées aux entrées adéquates dans une base de connaissances à l’aide de l’API de liaison d’entités.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: fc1bdd5c6ad4829e22af9922c6749e60f842abaf
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4b283103920230a0d2aae98c83f75fb03679a675
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594030"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706810"
 ---
-# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Tutoriel : Générer une application de liaison d’entités en C#
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Didacticiel : Générer une application de liaison d’entités en C#
 
 La liaison d'entités de Microsoft est un outil de traitement de langage naturel qui analyse du texte et lie des entités nommées aux entrées adéquates dans une base de connaissances. 
 

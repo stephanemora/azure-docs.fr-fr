@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une application web monopage - API Recherche Web Bing'
+title: 'Didacticiel : Créer une application web monopage - API Recherche Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Cette application monopage montre comment l’API Recherche Web Bing peut être utilisée pour récupérer, analyser et afficher des résultats de recherche pertinents dans une application monopage.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 09/12/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 6c28b02d68239bac658954caf447b6ff738c1b65
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1203947efadf4fed328655c9cfb839f666a80b0c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881239"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390044"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutoriel : Créer une application web monopage à l’aide de l’API Recherche Web Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Didacticiel : Créer une application web monopage à l’aide de l’API Recherche Web Bing
 
 Cette application monopage montre comment récupérer, analyser et afficher des résultats de recherche à partir de l’API Recherche Web Bing. Le tutoriel utilise du code HTML et CSS réutilisable, et se concentre sur le code JavaScript. Les fichiers HTML, CSS et JS sont disponibles sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) avec des instructions de démarrage rapide.
 
@@ -80,7 +80,7 @@ L’élément `index.html` comprend un formulaire qui permet aux utilisateurs de
 
 ## <a name="query-options"></a>Options de requête
 
-Le formulaire HTML inclut des options qui mappent à des paramètres de requête dans [l’API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Le tableau suivant montre comment les utilisateurs peuvent filtrer les résultats de recherche à l’aide de l’exemple d’application :
+Le formulaire HTML inclut des options qui mappent à des paramètres de requête dans [l’API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Le tableau suivant montre comment les utilisateurs peuvent filtrer les résultats de recherche à l’aide de l’exemple d’application :
 
 | Paramètre | Description |
 |-----------|-------------|
@@ -93,7 +93,7 @@ Le formulaire HTML inclut des options qui mappent à des paramètres de requête
 | `offset` | Champ masqué. Décalage du premier résultat de recherche dans la requête, qui est utilisé pour la pagination. Il est réinitialisé sur `0` à chaque nouvelle requête. |
 
 > [!NOTE]
-> L’API Recherche Web Bing offre des paramètres de requête supplémentaires pour affiner les résultats de la recherche. Le présent exemple en utilise seulement quelque uns. Pour obtenir la liste complète des paramètres disponibles, consultez les [informations de référence sur l’API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters).
+> L’API Recherche Web Bing offre des paramètres de requête supplémentaires pour affiner les résultats de la recherche. Le présent exemple en utilise seulement quelque uns. Pour obtenir la liste complète des paramètres disponibles, consultez les [informations de référence sur l’API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters).
 
 La fonction `bingSearchOptions()` convertit ces options pour correspondre au format exigé par l’API Recherche Bing.
 

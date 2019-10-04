@@ -1,6 +1,6 @@
 ---
 title: Surveiller et améliorer les performances - Azure SQL Database | Microsoft Docs
-description: La base de données SQL Azure fournit des outils de performances pour vous aider à identifier les zones susceptibles d’améliorer les performances actuelles des requêtes.
+description: Azure SQL Database fournit des outils de performances pour vous aider à identifier les zones susceptibles d’améliorer les performances actuelles des requêtes.
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''
@@ -9,14 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: adbccd5f9cfd5ddd1912e304f800f3ebe04912c7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 39a100c487588fb717c642036c7713150a95e047
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453006"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567083"
 ---
 # <a name="monitor-and-improve-performance"></a>Surveiller et améliorer les performances
 
@@ -73,10 +72,10 @@ Azure SQL Database peut régler automatiquement les performances des bases de do
 
   ![tableau de bord des performances](./media/sql-database-query-performance/performance.png)
 
-Pour plus d’informations sur cette page, voir l’article **[How to use Query Performance Insight (Utilisation de Query Performance Insight)](sql-database-query-performance.md)**.
+Pour plus d’informations sur cette page, voir l’article **[How to use Query Performance Insight (Utilisation de Query Performance Insight)](sql-database-query-performance.md)** .
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Guide des performances de base de données SQL Azure pour les bases de données uniques](sql-database-performance-guidance.md)
+* [Guide des performances Azure SQL Database pour les bases de données uniques](sql-database-performance-guidance.md)
 * [Quand utiliser un pool élastique ?](sql-database-elastic-pool-guidance.md)
 

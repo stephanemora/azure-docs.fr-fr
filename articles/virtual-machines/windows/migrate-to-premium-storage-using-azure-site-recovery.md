@@ -11,11 +11,11 @@ ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
 ms.openlocfilehash: 5744ee76d36b1cea256cd2594bcbc07c954f38f7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993282"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60849763"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
@@ -65,7 +65,7 @@ Voici les prérequis Azure pour ce scénario de migration :
 * Un réseau virtuel Azure auquel les machines virtuelles se connectent quand elles sont créées au moment du basculement. Le réseau virtuel Azure doit se trouver dans la même région que celle dans laquelle s’exécute Site Recovery.
 * Un compte de stockage Azure standard pour stocker les journaux d’activité de réplication. Il peut s'agir du même compte de stockage que celui des disques de machine virtuelle en cours de migration.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Identifiez les composants de scénario de migration pertinents de la section précédente.
 * Planifiez votre temps d’arrêt en vous familiarisant avec le [basculement dans Site Recovery](../../site-recovery/site-recovery-failover.md).
@@ -77,7 +77,7 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 ### <a name="step-1-create-a-recovery-services-vault"></a>Étape 1 : Créer un coffre Recovery Services
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Créer une ressource** > **Gestion** > **Backup and Site Recovery (OMS)**. Vous pouvez aussi sélectionner **Parcourir** > **Coffre Recovery Services** > **Ajouter**.
+2. Sélectionnez **Créer une ressource** > **Gestion** > **Backup and Site Recovery (OMS)** . Vous pouvez aussi sélectionner **Parcourir** > **Coffre Recovery Services** > **Ajouter**.
    >[!NOTE]
    >Sauvegarde et Site Recovery faisaient précédemment partie intégrante de la ![suite OMS](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
 1. Spécifiez une région sur laquelle répliquer les machines virtuelles. Pour effectuer une migration au sein de la même région, sélectionnez la région dans laquelle se trouvent vos machines virtuelles source et les comptes de stockage source. 
@@ -144,7 +144,7 @@ Pour vérifier que votre serveur de configuration est correctement associé à l
 ### <a name="step-6-plan-capacity"></a>Étape 6 : Planifier la capacité
 
 1. Utilisez le [Capacity Planner](../../site-recovery/site-recovery-capacity-planner.md) pour évaluer de manière précise la bande passante réseau, le stockage et les autres conditions requises pour répondre à vos besoins en matière de réplication. 
-2. Une fois que vous avez terminé, sélectionnez **Oui, je l’ai fait** dans **Avez-vous effectué une planification de la capacité ?**.
+2. Une fois que vous avez terminé, sélectionnez **Oui, je l’ai fait** dans **Avez-vous effectué une planification de la capacité ?** .
 
    ![Zone de confirmation d’exécution de la planification de capacité][11]
 

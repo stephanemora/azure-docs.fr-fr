@@ -1,6 +1,6 @@
 ---
-title: Exemple PowerShell-audit-détection des menaces-Azure SQL Database | Microsoft Docs
-description: Exemple de script Azure PowerShell pour configurer l’audit des bases de données et la détection des menaces dans une base de données Azure SQL
+title: Exemple PowerShell d’audit et Advanced Threat Protection - Azure SQL Database | Microsoft Docs
+description: Exemple de script Azure PowerShell pour configurer l’audit et Advanced Threat Protection dans une instance Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,23 +9,22 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: ronitr
 ms.author: ronitr
-ms.reviewer: carlrab
-manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: a3117f2cd75ae2d85b5241fee87f6d5940e8e116
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.reviewer: carlrab, vanto
+ms.date: 08/05/2019
+ms.openlocfilehash: f9ef894f4c4d1d0ad0ab43b538c984f9cf5b2d01
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59356862"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816693"
 ---
-# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Utiliser PowerShell pour configurer l’audit et la détection des menaces SQL Database
+# <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Utiliser PowerShell pour configurer l’audit SQL Database et Advanced Threat Protection
 
-Cet exemple de script PowerShell configure l’audit et la détection des menaces SQL Database.
+Cet exemple de script PowerShell configure l’audit SQL Database et Advanced Threat Protection.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Si vous choisissez d’installer et d’utiliser PowerShell en local, vous avez besoin de la version 1.4.0 d’AZ PowerShell ou d’une version ultérieure pour suivre ce tutoriel. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 
@@ -52,7 +51,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crée une base de données unique ou un pool élastique. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Crée un compte de stockage. |
 | [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Définit la stratégie d’audit d’une base de données. |
-| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Définit une stratégie de détection des menaces sur une base de données. |
+| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Définit une stratégie Advanced Threat Protection sur une base de données. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||
 
@@ -60,4 +59,4 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/azure/overview).
 
-Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell sur la page [Scripts PowerShell Azure SQL Database](../sql-database-powershell-samples.md).
+Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell dans [Scripts PowerShell Azure SQL Database](../sql-database-powershell-samples.md).

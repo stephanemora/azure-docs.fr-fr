@@ -3,7 +3,7 @@ title: Hiérarchie de pays/région utilisée par le type de routage géographiqu
 description: Cet article répertorie la hiérarchie de pays/région utilisée par le type de routage géographique Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: kumud
-ms.openlocfilehash: f033f8e8e686165febdd2262953b2aa871686a12
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: d16529e966fb2e16d1012f4aa0aafcff204a3093
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609232"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071163"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hiérarchie de pays/région utilisée par Azure Traffic Manager pour la méthode de routage du trafic géographique
 
@@ -99,7 +99,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - ME(Monténégro)
 
-        - MK (Macédoine du Nord)
+        - MK(Macédoine du Nord)
 
         - MT(Malte)
 
@@ -481,8 +481,6 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
         - CD(Congo (RDC))
 
         - CF(République centrafricaine)
-
-        - CG(Congo)
 
         - CI(Côte d’Ivoire)
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 350aef037f019733e02331623758c14a3c64ab50
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: MT
+ms.openlocfilehash: 19ccd44888d64967baf82568c1cbb2540f3b3f68
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804990"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780337"
 ---
 # <a name="azure-service-fabric-security"></a>Sécurité de Microsoft Azure Service Fabric 
 
-Pour plus d’informations sur les [bonnes pratiques relatives à la sécurité d’Azure](https://docs.microsoft.com/azure/security/), passez en revue [Bonnes pratiques pour la sécurité Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
+Pour plus d’informations sur les [bonnes pratiques relatives à la sécurité d’Azure](https://docs.microsoft.com/azure/security/), passez en revue [Bonnes pratiques pour la sécurité Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
 
 ## <a name="key-vault"></a>Key Vault
 
@@ -188,7 +188,7 @@ principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGr
 az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
 ```
 
-Dans le code de votre application Service Fabric, obtenez un jeton d’accès pour Azure Resource Manager à l’aide d’une REST similaire à la suivante :
+Dans le code de votre application Service Fabric, [obtenez un jeton d’accès](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) pour Azure Resource Manager à l’aide d’une REST similaire à la suivante :
 
 ```bash
 access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
@@ -201,6 +201,20 @@ L’exemple suivant montre comment faire pour une ressource Cosmos DB :
 ```bash
 cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
 ```
+## <a name="windows-security-baselines"></a>Lignes de base de la sécurité Windows
+[Nous vous recommandons d’implémenter une configuration répondant aux normes du secteur largement connue et bien testée, telle que des lignes de base de sécurité Microsoft, plutôt que de créer une ligne de base vous-même](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines) ; une option pour l’approvisionnement sur vos groupes de machines virtuelles identiques consiste à utiliser le gestionnaire d’extension DSC (Desired State Configuration) pour configurer les machines virtuelles comme elles sont fournies en ligne, afin qu’elles exécutent le logiciel en production.
+
+## <a name="azure-firewall"></a>Pare-feu Azure
+[Pare-feu Azure est un service de sécurité réseau informatique managé qui protège vos ressources Réseau virtuel Azure. Il s’agit d’un service de pare-feu entièrement avec état, pourvu d’une haute disponibilité intégrée et de l’extensibilité du cloud sans limites.](https://docs.microsoft.com/azure/firewall/overview) ; cela permet de limiter le trafic HTTP/S sortant à une liste spécifiée des noms de domaine complet (FQDN), y compris les caractères génériques. Cette fonctionnalité ne nécessite pas d’arrêt SSL. Nous vous recommandons d’exploiter les [balises FQDN Pare-feu Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags) pour Windows Update et pour activer le trafic réseau pour que les points de terminaison Microsoft Windows Update puissent transiter par votre pare-feu. [Déployer Pare-feu Azure à l’aide d’un modèle](https://docs.microsoft.com/azure/firewall/deploy-template) propose un exemple de définition de modèle de ressource Microsoft.Network/azureFirewalls. Les règles de pare-feu communes aux applications Service Fabric autorisent notamment les éléments suivants pour votre réseau virtuel de clusters :
+
+- *download.microsoft.com
+- *servicefabric.azure.com
+- *.core.windows.net
+
+Ces règles de pare-feu complètent vos groupes de sécurité réseau sortant autorisés, comprenant Service Fabric et Stockage, en tant que destinations autorisées depuis votre réseau virtuel.
+
+## <a name="tls-12"></a>TLS 1.2
+[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 
@@ -235,6 +249,18 @@ Par défaut, l’antivirus Windows Defender est installé sur Windows Server 20
 
 > [!NOTE]
 > Si vous n’utilisez pas Windows Defender, reportez-vous à la documentation de votre logiciel anti-programme malveillant pour les règles de configuration. Windows Defender n’est pas pris en charge sur Linux.
+
+## <a name="platform-isolation"></a>Isolement de la plateforme
+Par défaut, les applications Service Fabric ont accès au runtime Service Fabric, qui se manifeste sous différentes formes : des [variables d’environnement](service-fabric-environment-variables-reference.md) pointant vers les chemins d’accès sur l’hôte correspondant à l’application et aux fichiers Fabric, un point de terminaison de communication inter-processus qui accepte les demandes spécifiques à l’application et le certificat client que Fabric prévoit que l’application utilisera pour s’authentifier. Dans l’éventualité que le service héberge lui-même du code non fiable, il est conseillé de désactiver cet accès au runtime SF, sauf si explicitement nécessaire. L’accès au runtime est supprimé via la déclaration suivante dans la section Stratégies du manifeste de l’application : 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

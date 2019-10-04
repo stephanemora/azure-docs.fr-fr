@@ -1,5 +1,5 @@
 ---
-title: 'Détection des jeux de couleurs : Vision par ordinateur'
+title: Détection des modèles de couleurs - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
 description: Concepts liés à la détection des jeux de couleurs dans les images à l’aide de l’API Vision par ordinateur.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e0fa85b8a90ea57d9b81bd2eeaa6d080b7582acd
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998615"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945273"
 ---
 # <a name="detect-color-schemes-in-images"></a>Détecter les jeux de couleurs dans les images
 
@@ -30,7 +30,7 @@ La Vision par ordinateur retourne également une valeur booléenne qui indique s
 
 L’exemple suivant illustre la réponse JSON retournée par Vision par ordinateur lors de la détection du jeu de couleurs de l’image d’exemple. Dans ce cas, l’exemple d’image n’est pas en noir et blanc, mais les couleurs de premier plan et d’arrière-plan dominantes sont le noir, tandis que les couleurs dominantes de l’image dans son ensemble sont le noir et le blanc.
 
-![Mountain extérieur au coucher du soleil, avec la silhouette d’une personne](./Images/mountain_vista.png)
+![Montagne en extérieur au coucher du soleil, avec la silhouette d’une personne](./Images/mountain_vista.png)
 
 ```json
 {
@@ -76,7 +76,7 @@ Le tableau suivant présente l’évaluation en noir et blanc de la Vision par o
 | Image | Noir et blanc ? |
 |-------|----------------|
 |![Image noir et blanc représentant des immeubles de Manhattan](./Images/bw_buildings.png) | true |
-|![Maison bleu et jardin en façade ](./Images/house_yard.png) | false |
+|![Maison bleu et jardin en façade](./Images/house_yard.png) | false |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

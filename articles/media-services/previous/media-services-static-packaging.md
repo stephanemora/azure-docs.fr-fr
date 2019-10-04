@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: a2ffc344f51c45007eb982a02b14cb2d481d752e
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 8665f6daa698f2e885f1fe768ad6b9c87dbbe164
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616779"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67074519"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilisation d'Azure Media Packager pour effectuer des tâches d'empaquetage statique  
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Pour fournir une vidéo numérique sur Internet, vous devez compresser le contenu multimédia. Les fichiers vidéo numériques sont volumineux et peuvent être trop importants pour être fournis sur Internet ou pour que les appareils de vos clients les affichent correctement. L’encodage est le processus de compression audio et vidéo permettant à vos clients d’afficher votre contenu multimédia. Une fois qu'une vidéo a été encodée, elle peut être placée dans différents conteneurs de fichiers. Le processus destiné à placer des médias encodés dans un conteneur s'appelle « empaquetage ». Par exemple, vous pouvez prendre un fichier MP4 et le convertir en contenu Smooth Streaming ou HLS à l'aide d'Azure Media Packager. 
 
-Media Services prend en charge l'empaquetage dynamique et statique. Lorsque vous utilisez l'empaquetage statique, vous devez créer une copie de votre contenu dans chaque format requis par vos clients. Avec l’empaquetage dynamique, il vous suffit consiste à créer un élément multimédia qui contient un ensemble de fichiers de format MP4 ou Smooth Streaming à débit adaptatif. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de streaming à la demande s'assure que vos utilisateurs reçoivent le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients.
+Media Services prend en charge l'empaquetage dynamique et statique. Lorsque vous utilisez l'empaquetage statique, vous devez créer une copie de votre contenu dans chaque format requis par vos clients. Avec l’empaquetage dynamique, il vous suffit de créer un élément contenant un ensemble de fichiers MP4 ou de fichiers Smooth Streaming à débit adaptatif. Ensuite, en fonction du format spécifié dans le manifeste ou la demande de fragment, le serveur de streaming à la demande s'assure que vos utilisateurs reçoivent le flux conforme au protocole choisi. Par conséquent, il vous suffit de stocker et de payer les fichiers dans un seul format de stockage. Le service Media Services se charge de créer et de fournir la réponse appropriée en fonction des demandes des clients.
 
 > [!NOTE]
 > Il est recommandé d'utiliser l' [empaquetage dynamique](media-services-dynamic-packaging-overview.md).
@@ -81,7 +81,7 @@ Pour valider vos fichiers MP4 avec Media Services Packager, vous devez créer 
     </smil>
 ```
 
-Une fois que vous avez le débit adaptatif MP4 défini, vous pouvez tirer parti de l’empaquetage dynamique. L'empaquetage dynamique vous permet de fournir des flux dans le protocole spécifié sans créer d'autres packages. Pour plus d'informations, consultez la page [Empaquetage dynamique](media-services-dynamic-packaging-overview.md).
+Une fois que vous avez défini le débit adaptatif du format MP4, vous pouvez tirer parti de l’empaquetage dynamique. L'empaquetage dynamique vous permet de fournir des flux dans le protocole spécifié sans créer d'autres packages. Pour plus d'informations, consultez la page [Empaquetage dynamique](media-services-dynamic-packaging-overview.md).
 
 L'exemple de code suivant utilise les extensions de kit de développement logiciel (SDK) Azure Media Services .NET.  Veillez à mettre à jour le code pour pointer vers le dossier où se trouvent vos fichiers MP4 d'entrée et le fichier .ism, sans oublier l’emplacement du fichier MediaPackager_ValidateTask.xml. Ce fichier XML est défini dans l’article [Présélection de tâches pour Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx).
 
@@ -247,7 +247,7 @@ L'exemple de code suivant utilise les extensions de kit de développement logici
             static void SetISMFileAsPrimary(IAsset asset)
             {
                 var ismAssetFiles = asset.AssetFiles.ToList().
-                    Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase)).ToArray();
+                    Where(f => f.Name.EndsWith(".ism", StringComparison.OrdinalIgnoreCase));
 
                 // The following code assigns the first .ism file as the primary file in the asset.
                 // An asset should have one .ism file.  
@@ -717,7 +717,7 @@ Si vous souhaitez chiffrer votre contenu HLS avec AES-128, vous pouvez choisir d
 > [!NOTE]
 > Pour convertir votre contenu au format HLS, vous devez tout d'abord convertir/encoder votre contenu pour le Smooth Streaming.
 > Par ailleurs, pour qu'un contenu HLS soit chiffré avec AES, assurez-vous de définir les propriétés suivantes dans votre fichier MediaPackager_SmoothToHLS.xml : définissez la propriété du chiffrement sur true et définissez la valeur de clé et la valeur keyuri de manière à ce qu’elles pointent vers votre  serveur d'authentification\autorisation.
-> Media Services crée un fichier de clé et le place dans le conteneur d’éléments multimédias. Vous devez copier le fichier /asset-containerguid/\*.key sur votre serveur (ou créer votre propre fichier de clé), puis supprimer le fichier \*.key du conteneur d’éléments multimédia.
+> Media Services crée un fichier de clé et le place dans le conteneur d’éléments. Vous devez copier le fichier /asset-containerguid/\*.key sur votre serveur (ou créer votre propre fichier de clé), puis supprimer le fichier \*.key du conteneur d’éléments multimédia.
 > 
 > 
 

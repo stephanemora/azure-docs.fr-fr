@@ -1,32 +1,32 @@
 ---
-title: Installer et exécuter des conteneurs
-titleSuffix: Text Analytics -  Azure Cognitive Services
+title: Installer et exécuter des conteneurs – Analyse de texte
+titleSuffix: Azure Cognitive Services
 description: Ce tutoriel pas à pas décrit comment télécharger, installer et exécuter des conteneurs pour Analyse de texte.
 services: cognitive-services
-author: diberry
+author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: article
-ms.date: 04/16/2019
-ms.author: diberry
-ms.openlocfilehash: e0e8b9f767376db8028a3ac4a2d8659bab69268b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.topic: conceptual
+ms.date: 09/24/2019
+ms.author: dapine
+ms.openlocfilehash: 69fc955bbd9fc584e0d95e02087b778624def11b
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005867"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316463"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 
-Les conteneurs Analyse de texte fournissent un traitement en langage naturel avancé sur le texte brut et incluent trois fonctions principales : analyse des sentiments, extraction d’expressions clés et détection de la langue. Entity Linking n’est actuellement pas pris en charge dans un conteneur. 
+Les conteneurs vous permettent d’exécuter les API d’analyse de texte dans votre propre environnement et sont très utiles pour répondre à vos besoins spécifiques en matière de sécurité et de gouvernance des données. Les conteneurs Analyse de texte fournissent un traitement en langage naturel avancé sur le texte brut et incluent trois fonctions principales : analyse des sentiments, extraction d’expressions clés et détection de la langue. Entity Linking n’est actuellement pas pris en charge dans un conteneur.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour exécuter un des conteneurs d’Analytique de texte, vous devez disposer les environnements d’ordinateur et le conteneur hôte.
+Pour exécuter l’un des conteneurs Analyse de texte, vous devez disposer de l’ordinateur hôte et des environnements de conteneur.
 
 ## <a name="preparation"></a>Préparation
 
@@ -36,9 +36,11 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs A
 |--|--|
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|`Cognitive Services` Ressources |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Un [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) des ressources Azure pour obtenir la clé de facturation associée et l’URI de point de terminaison facturation. Les deux valeurs sont disponibles sur les pages de vue d’ensemble de Cognitive Services et les clés du portail Azure et sont nécessaires pour démarrer le conteneur. Vous devez ajouter le `text/analytics/v2.0` routage vers l’URI de point de terminaison, comme indiqué dans l’exemple BILLING_ENDPOINT_URI suivant.<br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+|Ressource Analyse de texte |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Ressource [Analyse de texte](../../cognitive-services-apis-create-account.md) d’Azure afin d’obtenir la clé API et l’URI du point de terminaison associés. Les deux valeurs, disponibles dans les pages Vue d’ensemble d’Analyse de texte et Clés du portail Azure, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page**Vue d’ensemble**|
 
-### <a name="the-host-computer"></a>L’ordinateur hôte
+[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
+
+## <a name="the-host-computer"></a>L’ordinateur hôte
 
 [!INCLUDE [Host Computer requirements](../../../../includes/cognitive-services-containers-host-computer.md)]
 
@@ -46,95 +48,87 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs A
 
 Le tableau suivant décrit les cœurs de processeur minimum et recommandés, d’au moins 2,6 gigahertz (GHz) ou plus rapides, et la mémoire, en gigaoctets (Go), à allouer pour chaque conteneur Analyse de texte.
 
-| Conteneur | Minimale | Recommandé | TPS<br>(Au minimum, Maximum)|
-|-----------|---------|-------------|--|
-|Extraction d’expressions clés | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15, 30|
-|Détection de la langue | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15, 30|
-|Analyse des sentiments | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |15, 30|
+# <a name="key-phrase-extractiontabkeyphrase"></a>[Extraction d’expressions clés](#tab/keyphrase)
+
+[!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
+
+# <a name="language-detectiontablanguage"></a>[Détection de la langue](#tab/language)
+
+[!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
+
+# <a name="sentiment-analysistabsentiment"></a>[Analyse des sentiments](#tab/sentiment)
+
+[!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
+
+***
 
 * Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
-* Programmes transactionnels - transactions par seconde
+* TPS - transactions par seconde
 
 Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtenir l’image conteneur avec `docker pull`
 
-Images conteneur pour Analyse de texte disponibles à partir de Microsoft Container Registry. 
+Images conteneur pour Analyse de texte disponibles dans Microsoft Container Registry.
 
-| Conteneur | Référentiel |
-|-----------|------------|
-|Extraction d’expressions clés | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
-|Détection de la langue | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Analyse des sentiments | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+# <a name="key-phrase-extractiontabkeyphrase"></a>[Extraction d’expressions clés](#tab/keyphrase)
 
-Utilisez le [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) commande pour télécharger une image de conteneur à partir du Registre de conteneurs de Microsoft.
+[!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
 
-Pour obtenir une description complète des balises disponibles pour les conteneurs Analyse de texte, consultez les conteneurs suivants dans le Docker Hub :
+# <a name="language-detectiontablanguage"></a>[Détection de la langue](#tab/language)
 
-* [Extraction de phrases clés](https://go.microsoft.com/fwlink/?linkid=2018757)
-* [Détection de la langue](https://go.microsoft.com/fwlink/?linkid=2018759)
-* [Analyse des sentiments](https://go.microsoft.com/fwlink/?linkid=2018654)
+[!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
 
-Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur.
+# <a name="sentiment-analysistabsentiment"></a>[Analyse des sentiments](#tab/sentiment)
 
+[!INCLUDE [sentiment-analysis-container-repository](../includes/sentiment-analysis-container-repository.md)]
 
-### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker pull du conteneur d’extraction de phrases clés
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
-```
-
-### <a name="docker-pull-for-the-language-detection-container"></a>Docker pull du conteneur de détection de langue
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
-```
-
-### <a name="docker-pull-for-the-sentiment-container"></a>Docker pull du conteneur de sentiments
-
-```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
+***
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
+### <a name="docker-pull-for-the-text-analytics-containers"></a>Docker pull pour les conteneurs Analyse de texte
+
+# <a name="key-phrase-extractiontabkeyphrase"></a>[Extraction d’expressions clés](#tab/keyphrase)
+
+[!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
+
+# <a name="language-detectiontablanguage"></a>[Détection de la langue](#tab/language)
+
+[!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
+
+# <a name="sentiment-analysistabsentiment"></a>[Analyse des sentiments](#tab/sentiment)
+
+[!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
+
+***
 
 ## <a name="how-to-use-the-container"></a>Comment utiliser le conteneur
 
 Une fois que le conteneur est sur l’[ordinateur hôte](#the-host-computer), appliquez la procédure suivante pour travailler avec le conteneur.
 
-1. [Exécutez le conteneur](#run-the-container-with-docker-run) avec les paramètres de facturation requis. D’autres [exemples](../text-analytics-resource-container-config.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
-1. [Interrogez le point de terminaison de prédiction du conteneur](#query-the-containers-prediction-endpoint). 
+1. [Exécutez le conteneur](#run-the-container-with-docker-run) avec les paramètres de facturation requis. D’autres [exemples](../text-analytics-resource-container-config.md#example-docker-run-commands) de commande `docker run` sont disponibles.
+1. [Interrogez le point de terminaison de prédiction du conteneur](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Exécuter le conteneur avec `docker run`
 
-Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter l’un des trois conteneurs. La commande utilise les paramètres suivants :
+Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter l’un des trois conteneurs. Consultez la section [Recueillir les paramètres requis](#gathering-required-parameters) pour plus d’informations sur la façon d’obtenir les valeurs `{ENDPOINT_URI}` et `{API_KEY}`.
 
-| Placeholder | Valeur |
-|-------------|-------|
-|{BILLING_KEY} | Cette clé est utilisée pour démarrer le conteneur et est disponible sur le portail Azure `Cognitive Services` page clés.  |
-|{BILLING_ENDPOINT_URI} | La valeur de l’URI de point de terminaison facturation est disponible sur Azure `Cognitive Services` page Vue d’ensemble. <br><br>Exemple :<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+[Exemples ](../text-analytics-resource-container-config.md#example-docker-run-commands) de la commande `docker run` sont disponibles.
 
-Vous devez ajouter le `text/analytics/v2.0` routage vers l’URI de point de terminaison, comme indiqué dans l’exemple BILLING_ENDPOINT_URI précédent.
+# <a name="key-phrase-extractiontabkeyphrase"></a>[Extraction d’expressions clés](#tab/keyphrase)
 
-Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `docker run` suivant.
+[!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/keyphrase \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
-```
+# <a name="language-detectiontablanguage"></a>[Détection de la langue](#tab/language)
 
-Cette commande :
+[!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-* Exécute un conteneur de phrases clés à partir d’une image conteneur
-* Alloue un cœur de processeur et 4 gigaoctets (Go) de mémoire.
-* Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur
-* Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte. 
+# <a name="sentiment-analysistabsentiment"></a>[Analyse des sentiments](#tab/sentiment)
 
-D’autres [exemples](../text-analytics-resource-container-config.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
+[!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
+
+***
 
 > [!IMPORTANT]
 > Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](#billing).
@@ -143,9 +137,9 @@ D’autres [exemples](../text-analytics-resource-container-config.md#example-doc
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Interroger le point de terminaison de prédiction du conteneur
 
-Le conteneur fournit des API de point de terminaison de prédiction de requête basées sur REST. 
+Le conteneur fournit des API de point de terminaison de prédiction de requête basées sur REST.
 
-Utilisez l’hôte, `https://localhost:5000`, pour les API de conteneur.
+Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur.
 
 <!--  ## Validate container is running -->
 
@@ -157,21 +151,30 @@ Utilisez l’hôte, `https://localhost:5000`, pour les API de conteneur.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Si vous exécutez le conteneur avec un [montage](../text-analytics-resource-container-config.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur. 
+Si vous exécutez le conteneur avec un [montage](../text-analytics-resource-container-config.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur.
+
+[!INCLUDE [Cognitive Services FAQ note](../../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Facturation
 
-L’envoi de conteneurs d’Analytique de texte informations de facturation pour Azure, en utilisant un _Cognitive Services_ ressource sur votre compte Azure. 
+Les conteneurs Analyse de texte envoient des informations de facturation à Azure à l’aide d’une ressource _Analyse de texte_ sur votre compte Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Pour plus d’informations sur ces options, consultez [Configurer des conteneurs](../text-analytics-resource-container-config.md).
 
+<!--blogs/samples/video course -->
+
+[!INCLUDE [Discoverability of more container information](../../../../includes/cognitive-services-containers-discoverability.md)]
+
 ## <a name="summary"></a>Résumé
 
 Dans cet article, vous avez découvert des concepts et le flux de travail pour le téléchargement, l’installation et l’exécution des conteneurs Analyse de texte. En résumé :
 
-* Analyse de texte fournit trois conteneurs Linux pour Docker, intégrant l’extraction de phrases clés, la détection de la langue et l’analyse des sentiments.
+* Analyse de texte fournit trois conteneurs Linux pour Docker, encapsulant diverses fonctionnalités :
+   * *Extraction d’expressions clés*
+   * *Détection de la langue*
+   * *Analyse des sentiments*
 * Les images conteneur sont téléchargées à partir de Microsoft Container Registry (MCR) dans Azure.
 * Les images conteneurs s’exécutent dans Docker.
 * Vous pouvez utiliser l’API REST ou le kit SDK pour appeler des opérations dans des conteneurs Analyse de texte en spécifiant l’URI hôte du conteneur.
@@ -184,4 +187,3 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
 
 * Pour obtenir les paramètres de configuration, passez en revue [Configurer des conteneurs](../text-analytics-resource-container-config.md).
 * Reportez-vous à [Forum aux questions (FAQ)](../text-analytics-resource-faq.md) pour résoudre les problèmes liés à la fonctionnalité.
-

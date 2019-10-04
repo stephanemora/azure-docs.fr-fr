@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 48377f981e4d2c9ab480a1a734e6207a0246712a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046120"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60407909"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurer une connexion de réseau virtuel à réseau virtuel (classique)
 
@@ -103,7 +103,7 @@ Si vous utilisez cet article dans le cadre d’un exercice, vous pouvez vous ser
 Nom : TestVNet1<br>
 Espace d’adressage : 10.11.0.0/16, 10.12.0.0/16 (facultatif)<br>
 Nom du sous-réseau : par défaut<br>
-Plage d’adresses de sous-réseau : 10.11.0.1/24<br>
+Plage d’adresses du sous-réseau : 10.11.0.1/24<br>
 Groupe de ressources : ClassicRG<br>
 Localisation : USA Est<br>
 GatewaySubnet : 10.11.1.0/27
@@ -113,7 +113,7 @@ GatewaySubnet : 10.11.1.0/27
 Nom : TestVNet4<br>
 Espace d’adressage : 10.41.0.0/16, 10.42.0.0/16 (facultatif)<br>
 Nom du sous-réseau : par défaut<br>
-Plage d’adresses de sous-réseau : 10.41.0.1/24<br>
+Plage d’adresses du sous-réseau : 10.41.0.1/24<br>
 Groupe de ressources : ClassicRG<br>
 Localisation : USA Ouest<br>
 GatewaySubnet : 10.41.1.0/27

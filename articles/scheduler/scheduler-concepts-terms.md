@@ -10,17 +10,17 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 7e31f891cfd758b888e4045566ad2cd2d9ab6fb8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683050"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300953"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepts, terminologie et entités d’Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en cours de retrait. Pour planifier des travaux, [essayez à la place Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible.
 
 ## <a name="entity-hierarchy"></a>Hiérarchie des entités
 
@@ -75,21 +75,21 @@ Azure Scheduler prend en charge plusieurs types de travaux :
 D’une façon générale, un travail du planificateur comprend les éléments de base suivants :
 
 * L’action qui s’exécute quand le minuteur du travail se déclenche
-* Facultatif : La durée d’exécution du travail
-* Facultatif : Quand et à quelle fréquence répéter le travail
-* Facultatif : Une action d’erreur qui s’exécute si l’action principale échoue
+* Facultatif : l’heure à laquelle exécuter le travail
+* Facultatif : quand et à quelle fréquence répéter le travail
+* Facultatif : une action d’erreur qui s’exécute en cas d’échec de l’action principale
 
 Le travail inclut également des données fournies par le système, comme l’heure d’exécution planifiée suivante du travail. La définition du code du travail est un objet au format JSON (JavaScript Objet Notation), qui comporte ces éléments :
 
 | Élément | Obligatoire | Description | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Non  | Heure de début du travail avec un décalage de fuseau horaire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
-| [**action**](#action) | Oui | Détails de l’action principale, qui peuvent inclure un objet **errorAction** | 
-| [**errorAction**](#error-action) | Non  | Détails de l’action secondaire qui s’exécute si l’action principale échoue |
-| [**recurrence**](#recurrence) | Non  | Détails tels que la fréquence et l’intervalle pour un travail périodique | 
-| [**retryPolicy**](#retry-policy) | Non  | Détails sur la fréquence à laquelle réessayer une action | 
-| [**state**](#state) | Oui | Détails de l’état actuel du travail |
-| [**status**](#status) | Oui | Détails de l’état actuel du travail, qui est contrôlé par le service |
+| [**startTime**](#start-time) | Non | Heure de début du travail avec un décalage de fuseau horaire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**action**](#action) | OUI | Détails de l’action principale, qui peuvent inclure un objet **errorAction** | 
+| [**errorAction**](#error-action) | Non | Détails de l’action secondaire qui s’exécute si l’action principale échoue |
+| [**recurrence**](#recurrence) | Non | Détails tels que la fréquence et l’intervalle pour un travail périodique | 
+| [**retryPolicy**](#retry-policy) | Non | Détails sur la fréquence à laquelle réessayer une action | 
+| [**state**](#state) | OUI | Détails de l’état actuel du travail |
+| [**status**](#status) | OUI | Détails de l’état actuel du travail, qui est contrôlé par le service |
 ||||
 
 Voici un exemple qui montre une définition complète d’un travail pour une action HTTP avec des éléments détaillés plus complets, décrits dans les sections suivantes : 
@@ -248,15 +248,15 @@ Un travail se répète si la définition JSON du travail inclut l’objet **recu
 | Propriété | Obligatoire | Value | Description | 
 |----------|----------|-------|-------------| 
 | **frequency** | Oui, quand **recurrence** est utilisé | "Minute", "Hour", "Day", "Week", "Month", "Year" | Unité de temps entre les occurrences | 
-| **interval** | Non  | 1 à 1000 (inclusivement) | Entier positif qui détermine le nombre d’unités de temps entre chaque occurrence, en fonction de **frequency** | 
-| **schedule** | Non  | Varie | Détails pour les planifications avancées et plus complexes. Voir **hours**, **minutes**, **weekDays**, **months** et **monthDays** | 
-| **hours** | Non  | 1 à 24 | Tableau avec les marques d’heures pour le moment où exécuter le travail | 
-| **minutes** | Non  | 0 à 59 | Tableau avec les marques de minutes pour le moment où exécuter le travail | 
-| **months** | Non  | 1 à 12 | Tableau avec les mois pour le moment où exécuter le travail | 
-| **monthDays** | Non  | Varie | Tableau avec les jours du mois pour le moment où exécuter le travail | 
-| **weekDays** | Non  | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Tableau avec les jours de la semaine pour le moment où exécuter le travail | 
-| **count** | Non  | <*none*> | Nombre de récurrences. Par défaut, le nombre de récurrences est infini. Vous ne pouvez pas utiliser à la fois **count** et **endTime**, mais la règle qui se termine en premier est honorée. | 
-| **endTime** | Non  | <*none*> | La date et l’heure d’arrêt de la récurrence. Par défaut, le nombre de récurrences est infini. Vous ne pouvez pas utiliser à la fois **count** et **endTime**, mais la règle qui se termine en premier est honorée. | 
+| **interval** | Non | 1 à 1000 (inclusivement) | Entier positif qui détermine le nombre d’unités de temps entre chaque occurrence, en fonction de **frequency** | 
+| **schedule** | Non | Varie | Détails pour les planifications avancées et plus complexes. Voir **hours**, **minutes**, **weekDays**, **months** et **monthDays** | 
+| **hours** | Non | 1 à 24 | Tableau avec les marques d’heures pour le moment où exécuter le travail | 
+| **minutes** | Non | 0 à 59 | Tableau avec les marques de minutes pour le moment où exécuter le travail | 
+| **months** | Non | 1 à 12 | Tableau avec les mois pour le moment où exécuter le travail | 
+| **monthDays** | Non | Varie | Tableau avec les jours du mois pour le moment où exécuter le travail | 
+| **weekDays** | Non | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Tableau avec les jours de la semaine pour le moment où exécuter le travail | 
+| **count** | Non | <*none*> | Nombre de récurrences. Par défaut, le nombre de récurrences est infini. Vous ne pouvez pas utiliser à la fois **count** et **endTime**, mais la règle qui se termine en premier est honorée. | 
+| **endTime** | Non | <*none*> | La date et l’heure d’arrêt de la récurrence. Par défaut, le nombre de récurrences est infini. Vous ne pouvez pas utiliser à la fois **count** et **endTime**, mais la règle qui se termine en premier est honorée. | 
 ||||
 
 Pour plus d’informations sur ces éléments, consultez [Créer des planifications complexes et des récurrences avancées](../scheduler/scheduler-advanced-complexity.md).
@@ -277,9 +277,9 @@ Dans le cas où un travail du planificateur échoue, vous pouvez configurer une 
 
 | Propriété | Obligatoire | Value | Description | 
 |----------|----------|-------|-------------| 
-| **retryType** | Oui | **Fixed**, **None** | Détermine si vous spécifiez une stratégie de nouvelle tentative (**fixed**) ou non (**none**). | 
-| **retryInterval** | Non  | PT30S | Spécifie l’intervalle et la fréquence entre les nouvelles tentatives au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). La valeur minimale est 15 secondes, alors que la valeur maximale est 18 mois. | 
-| **retryCount** | Non  | 4 | Spécifie le nombre de nouvelles tentatives. La valeur maximale est 20. | 
+| **retryType** | OUI | **Fixed**, **None** | Détermine si vous spécifiez une stratégie de nouvelle tentative (**fixed**) ou non (**none**). | 
+| **retryInterval** | Non | PT30S | Spécifie l’intervalle et la fréquence entre les nouvelles tentatives au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). La valeur minimale est 15 secondes, alors que la valeur maximale est 18 mois. | 
+| **retryCount** | Non | 4 | Spécifie le nombre de nouvelles tentatives. La valeur maximale est 20. | 
 ||||
 
 Pour plus d’informations, consultez [Haute disponibilité et fiabilité](../scheduler/scheduler-high-availability-reliability.md).
@@ -307,7 +307,7 @@ Après le démarrage d’un travail, Scheduler retourne des informations sur l�
 * Nombre d’échecs, le cas échéant
 * Nombre d’erreurs, le cas échéant
 
-Par exemple : 
+Par exemple :
 
 ```json
 "status": {

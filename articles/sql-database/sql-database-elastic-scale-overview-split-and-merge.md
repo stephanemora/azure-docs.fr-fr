@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 841794dcbb41249ea25f615524150df4bd257b45
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901931"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568390"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Déplacement de données entre des bases de données cloud mises à l’échelle
 
@@ -25,7 +24,7 @@ Si vous êtes un développeur Software as a Service et que votre application con
 
 L'outil de fractionnement et de fusion fonctionne comme un service web Azure. Grâce à cet outil, un administrateur ou un développeur déplace des shardlets (les données d'une partition) entre différentes bases de données (partitions). L'outil s’appuie sur la gestion de cartes de partitions pour gérer la base de données de métadonnées de service et garantir des mappages cohérents.
 
-![Présentation][1]
+![Vue d'ensemble][1]
 
 ## <a name="download"></a>Téléchargement
 
@@ -101,7 +100,7 @@ L'outil de fractionnement et de fusion fonctionne comme un service web Azure. Gr
 
     Les informations de comparaison des tables de référence et des tables partitionnées sont fournies par les API `SchemaInfo` dans la carte des partitions. L’exemple suivant illustre l’utilisation de ces API sur un objet donné du gestionnaire des cartes de partitions :
 
-    ```c#
+    ```csharp
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
 
@@ -136,7 +135,7 @@ Le package de service de fractionnement et de fusion inclut un rôle de travail 
 
 - **Carte de partitions**
 
-  La section suivante concernant les paramètres des demandes couvre les informations relatives à la carte de partitions et à la base de données qui l’héberge. En particulier, vous devez fournir le nom du serveur de base de données SQL Azure et de la base de données hébergeant la carte de partitions, les informations d'identification pour se connecter à la base de données de mappage et, enfin, le nom de la carte. Actuellement, l'opération n'accepte qu'un seul ensemble d'informations d'identification. Ces dernières doivent disposer d’autorisations suffisantes pour apporter des modifications à la carte de partitions ainsi qu’aux données utilisateur des partitions.
+  La section suivante concernant les paramètres des demandes couvre les informations relatives à la carte de partitions et à la base de données qui l’héberge. En particulier, vous devez fournir le nom du serveur Azure SQL Database et de la base de données hébergeant la carte de partitions, les informations d'identification pour se connecter à la base de données de mappage et, enfin, le nom de la carte. Actuellement, l'opération n'accepte qu'un seul ensemble d'informations d'identification. Ces dernières doivent disposer d’autorisations suffisantes pour apporter des modifications à la carte de partitions ainsi qu’aux données utilisateur des partitions.
 
 - **Plage source (diviser et fusionner)**
 
@@ -218,7 +217,7 @@ Le service de fusion et de fractionnement utilise Diagnostics Azure basé sur Az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Pour activer la surveillance et le diagnostic à l'aide de la configuration de diagnostic pour les rôles Web et les rôles de travail fournis par le package NuGet, exécutez les commandes suivantes à l'aide d'Azure PowerShell :
 
@@ -248,7 +247,7 @@ La table WADLogsTable mise en surbrillance dans la figure ci-dessus comporte les
 
 ## <a name="performance"></a>Performances
 
-En général, les meilleures performances proviennent de niveaux de service élevés, plus performants, de la base de données SQL Azure. Des allocations d'E/S, de processeur et de mémoire plus élevées pour les niveaux de service supérieurs sont bénéfiques aux opérations de copie et de suppression en bloc que le service de fractionnement et de fusion utilise. Pour cette raison, augmentez le niveau de service pour ces bases de données pour une période limitée et définie.
+En général, les meilleures performances proviennent de niveaux de service élevés et plus performants d’Azure SQL Database. Des allocations d'E/S, de processeur et de mémoire plus élevées pour les niveaux de service supérieurs sont bénéfiques aux opérations de copie et de suppression en bloc que le service de fractionnement et de fusion utilise. Pour cette raison, augmentez le niveau de service pour ces bases de données pour une période limitée et définie.
 
 Le service effectue également des requêtes de validation dans le cadre de ses opérations. Ces requêtes de validation recherchent la présence inattendue de données dans la plage cible et garantissent que les opérations de fractionnement, de fusion et de déplacement démarrent à partir d'un état cohérent. Ces requêtes fonctionnent toutes sur des plages de clés de partitionnement définies par l'étendue de l'opération de fractionnement, de fusion et de déplacement et la taille du batch fourni dans le cadre de la définition de la demande. Ces requêtes offrent de meilleures performances lorsqu'un index est présent et doté de la clé de partitionnement en tant que première colonne.
 

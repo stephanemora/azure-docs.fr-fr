@@ -3,19 +3,18 @@ title: Démarrage rapide Azure - Exécution d’un travail Batch - Portail
 description: Apprenez rapidement à exécuter un travail Batch avec le portail Azure.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 92f8499a10c07e7d5ea74e49c374cef192b8a47f
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087837"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094118"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Démarrage rapide : Exécuter votre premier travail Batch dans le portail Azure
 

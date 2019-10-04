@@ -3,7 +3,7 @@ title: Présentation des API Azure Consumption | Microsoft Docs
 description: Découvrez comment les API Azure Consumption vous permettent d’accéder par programme aux données de coût et d’utilisation de vos ressources Azure.
 services: billing
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 6/07/2018
-ms.author: erikre
-ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.date: 10/01/2019
+ms.author: banders
+ms.openlocfilehash: f867cc954bcdf8cb2fc7ebf37ff19e52db485376
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286746"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719753"
 ---
 # <a name="azure-consumption-api-overview"></a>Présentation des API Azure Consumption 
 

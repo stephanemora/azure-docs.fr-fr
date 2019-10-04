@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c022dbb08146bbf8b16ccd9020fdffbc50166dd9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3d8af8784d0fce78f77efdaddfec554fa1d648a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279259"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094561"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-phraseanet"></a>Didacticiel : Intégration d'Azure Active Directory à Phraseanet
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Phraseanet à Azure AD, vous devez ajouter P
 
 **Pour ajouter Phraseanet à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

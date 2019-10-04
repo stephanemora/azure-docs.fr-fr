@@ -1,33 +1,32 @@
 ---
 title: Utilisation de Ruby pour interroger Azure SQL Database | Microsoft Docs
-description: Cette rubrique vous explique comment utiliser Ruby pour créer un programme qui se connecte à une base de données SQL Azure et l’interroger à l’aide d’instructions Transact-SQL.
+description: Cette rubrique vous explique comment utiliser Ruby pour créer un programme qui se connecte à une base de données Azure SQL et l’interroger à l’aide d’instructions Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ruby
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 05f3213383c526944a8a1cf51fb92d5186ac7434
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 5b47ddc2d865108e03b3c649536bfaa700e4a59d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449025"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569111"
 ---
-# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Ruby pour interroger une base de données SQL Azure
+# <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Ruby pour interroger une base de données Azure SQL
 
-Ce démarrage rapide explique comment utiliser [Ruby](https://www.ruby-lang.org) pour se connecter à une base de données SQL Azure et interroger les données à l’aide d’instructions Transact-SQL.
+Ce guide de démarrage rapide explique comment utiliser [Ruby](https://www.ruby-lang.org) pour se connecter à une base de données Azure SQL et interroger les données à l’aide d’instructions Transact-SQL.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide, vous avez besoin de ce qui suit :
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
@@ -53,7 +52,7 @@ Pour effectuer ce démarrage rapide, vous avez besoin de ce qui suit :
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données SQL Azure. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -65,7 +64,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 1. Créez un nouveau fichier nommé *sqltest.py* dans un éditeur de texte ou de code.
    
-1. Ajoutez le code suivant. Remplacez les valeurs `<server>`, `<database>`, `<username>` et `<password>` de votre base de données SQL Azure.
+1. Ajoutez le code suivant. Remplacez les valeurs `<server>`, `<database>`, `<username>` et `<password>` de votre base de données Azure SQL.
    
    >[!IMPORTANT]
    >Dans cet exemple, le code utilise les exemples de données AdventureWorksLT que vous pouvez choisir comme source lors de la création de votre base de données. Si votre base de données comporte des données différentes, utilisez des tables de votre propre base de données dans la requête SELECT. 
@@ -101,7 +100,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 1. Vérifiez que les 20 premières lignes catégorie/produit de votre base de données sont retournées. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md).
+- [Concevoir votre première base de données Azure SQL](sql-database-design-first-database.md).
 - [Référentiel GitHub pour TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
 - [Signaler des problèmes ou poser des questions sur TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues).
 - [Pilote Ruby pour SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).

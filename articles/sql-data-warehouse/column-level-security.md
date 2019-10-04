@@ -11,11 +11,11 @@ ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
 ms.openlocfilehash: aa91bd586e064239d0e05c754427947963c9ee3a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788730"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61082796"
 ---
 # <a name="column-level-security"></a>Sécurité au niveau des colonnes
 La sécurité au niveau des colonnes permet aux clients de contrôler l’accès aux colonnes de table de base de données selon le contexte d’exécution de l’utilisateur ou leur appartenance au groupe.

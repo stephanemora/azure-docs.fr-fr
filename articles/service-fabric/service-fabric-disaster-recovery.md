@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883239"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60948506"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Récupération d’urgence dans Azure Service Fabric
 Pour fournir une haute disponibilité, il est essentiel que les services puissent survivre à tous les types d’échecs. Ceci est particulièrement important pour les échecs inattendus et hors de votre contrôle. Cet article décrit certains modes d’échec courants qui peuvent aboutir à une situation critique s’ils ne sont pas modélisés et gérés correctement. Il traite également des atténuations de risques et des actions à entreprendre si un incident se produit. L’objectif est de limiter ou d’éliminer le risque de temps d’arrêt ou de perte de données en cas de défaillances, planifiées ou non.
@@ -77,7 +77,7 @@ Vous pouvez visualiser la disposition de votre cluster à l’aide de la carte d
 
 <center>
 
-![Nœuds répartis dans les domaines d’erreur dans Service Fabric Explorer][sfx-cluster-map]
+![Nœuds répartis dans les domaines d’erreur et visibles dans Service Fabric Explorer][sfx-cluster-map]
 </center>
 
 > [!NOTE]
@@ -132,7 +132,7 @@ Il existe deux stratégies pour survivre à la défaillance permanente ou prolon
 2. Exécuter un cluster Service Fabric qui s’étend sur plusieurs centres de données ou régions. Pour cette méthode, la configuration minimale prise en charge est de trois régions ou centres de données. Il est recommandé d’utiliser cinq régions ou centres de données. Cette configuration nécessite une topologie de cluster plus complexe. Toutefois, l’avantage de ce modèle est que la défaillance d’un centre de données ou d’une région passe de l’état d’incident à celui de défaillance normale. Ces défaillances peuvent être gérées par les mécanismes qui fonctionnent pour les clusters d’une même région. Les domaines d’erreur, les domaines de mise à niveau et les règles de sélection élective de Service Fabric garantissent que les charges de travail sont distribuées de manière à survivre aux défaillances normales. Pour plus d’informations sur les stratégies qui peuvent aider à utiliser les services dans ce type de cluster, lisez cet article sur les [stratégies de sélection élective](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md).
 
 ### <a name="random-failures-leading-to-cluster-failures"></a>Défaillances aléatoires entraînant un échec du cluster
-Service Fabric utilise le concept de nœud initial. Il s’agit de nœuds qui permettent de maintenir la disponibilité du cluster sous-jacent. Ces nœuds vous aident à garantir que le cluster reste actif en établissant des baux avec d’autres nœuds et en servant de tiebreaker pour certains types de défaillances réseau. Si des défaillances aléatoires suppriment la majorité des nœuds initiaux du cluster et qu’ils ne sont pas remis en, votre sonnerie de fédération du cluster réduit que vous avez perdu le quorum de nœud de départ et le cluster échoue. Dans Azure, le fournisseur de ressources Service Fabric gère les configurations de cluster Service Fabric et par défaut distribue les nœuds initiaux sur plusieurs domaines d’erreur et de mise à niveau de Type de nœud principal ; Si le type de nœud principal est marqué comme une durabilité Silver ou Gold, lorsque vous supprimez un nœud de valeur initiale, soit par la mise à l’échelle dans votre type de nœud principal ou la suppression manuelle d’un nœud de valeur initiale, le cluster tente de promouvoir un autre nœud non-seed depuis le nodetype principal disponible capacité et échoue si vous disposez d’une capacité inférieure disponible à votre niveau de fiabilité du cluster nécessite pour votre Type de nœud principal.
+Service Fabric utilise le concept de nœud initial. Il s’agit de nœuds qui permettent de maintenir la disponibilité du cluster sous-jacent. Ces nœuds vous aident à garantir que le cluster reste actif en établissant des baux avec d’autres nœuds et en servant de tiebreaker pour certains types de défaillances réseau. Si des défaillances aléatoires suppriment la majorité des nœuds initiaux du cluster, et que ceux-ci ne sont pas restaurés, votre cercle de fédération du cluster se réduit, car vous avez perdu le quorum des nœuds de départ, et le cluster échoue. Dans Azure, le fournisseur de ressources Service Fabric gère les configurations de cluster Service Fabric, et par défaut distribue les nœuds initiaux dans des domaines d’erreur et de mise à niveau de type Nœud principal. Si ce type de nœud principal est marqué comme étant du niveau de durabilité Silver ou Gold, lorsque vous supprimez un nœud initial (soit par la mise à l’échelle dans votre type de nœud principal ou par la suppression manuelle d’un nœud initial), le cluster tente de promouvoir un autre nœud non initial à partir de la capacité disponible du type de nœud principal. Il échoue si vous disposez d’une capacité disponible inférieure au niveau de fiabilité que votre cluster nécessite pour votre type de nœud principal.
 
 Dans les clusters Service Fabric autonomes et Azure, le type de nœud principal est celui qui exécute les nœuds initiaux. Lorsque vous définissez un type de nœud principal, Service Fabric utilise automatiquement le nombre de nœuds fournis en créant jusqu’à 9 nœuds initiaux et 7 réplicas de chaque service système. Si un ensemble de défaillances aléatoires supprime simultanément une majorité de ces réplicas de services système, ceux-ci passent à l’état de perte de quorum, comme décrit plus haut. Si la majorité des nœuds initiaux est perdue, le cluster est arrêté rapidement après.
 

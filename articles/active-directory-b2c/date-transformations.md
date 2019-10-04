@@ -2,26 +2,26 @@
 title: Exemples de transformations de revendications Date pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C | Microsoft Docs
 description: Exemples de transformations de revendications Date pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 077915705c242805d3709b5d52d445288fa5336a
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564785"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064347"
 ---
 # <a name="date-claims-transformations"></a>Transformations de revendications Date
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Cet article fournit des exemples pour l’utilisation de transformations de revendications Date du schéma Infrastructure d’expérience d’identité dans Azure Active Directory (Azure AD) B2C. Pour plus d’informations, consultez [ClaimsTransformations](claimstransformations.md).
+Cet article fournit des exemples pour l’utilisation de transformations de revendications de date du schéma Identity Experience Framework dans Azure Active Directory B2C (Azure AD B2C). Pour plus d’informations, voir [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
@@ -29,10 +29,10 @@ Vérifie qu’une revendication de date et d’heure (type de données string) e
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | chaîne | Type de la première revendication, qui doit être postérieure à la deuxième revendication. |
-| inputClaim | rightOperand | chaîne | Type de la deuxième revendication, qui doit être antérieure à la première revendication. |
-| InputParameter | AssertIfEqualTo | booléenne | Spécifie si cette assertion doit passer si l’opérande gauche est égal à l’opérande droit. |
-| InputParameter | AssertIfRightOperandIsNotPresent | booléenne | Spécifie si cette assertion doit passer si l’opérande droit est manquante. |
+| inputClaim | leftOperand | string | Type de la première revendication, qui doit être postérieure à la deuxième revendication. |
+| inputClaim | rightOperand | string | Type de la deuxième revendication, qui doit être antérieure à la première revendication. |
+| InputParameter | AssertIfEqualTo | boolean | Spécifie si cette assertion doit passer si l’opérande gauche est égal à l’opérande droit. |
+| InputParameter | AssertIfRightOperandIsNotPresent | boolean | Spécifie si cette assertion doit passer si l’opérande droit est manquante. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Spécifie le nombre de millisecondes autorisées entre les deux dates pour considérer les heures comme égales (par exemple, pour tenir compte du décalage d’horloge). |
 
 La transformation de revendication **AssertDateTimeIsGreaterThan** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md). Les métadonnées de profil technique autodéclaré **DateTimeGreaterThan** contrôlent le message d’erreur présenté à l’utilisateur par le profil technique.
@@ -143,9 +143,9 @@ Détermine si un dateTime est postérieur, antérieur ou égal à un autre. Le r
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | La première valeur dateTime à comparer, pour voir si elle est antérieure ou postérieure à la deuxième valeur dateTime. Une valeur null lève une exception. |
 | InputClaim | secondDateTime | dateTime | La deuxième valeur dateTime à comparer, pour voir si elle est antérieure ou postérieure à la première valeur dateTime. La valeur NULL est considérée comme la valeur datetTime actuelle. |
-| InputParameter | operator | chaîne | Une des valeurs suivantes : identique, plus tard ou antérieur. |
+| InputParameter | operator | string | Une des valeurs suivantes : identique, plus tard ou antérieur. |
 | InputParameter | timeSpanInSeconds | int | Ajoute l’intervalle de temps au premier dateTime. |
-| OutputClaim | result | booléenne | ClaimType généré après l’appel de cette ClaimsTransformation. |
+| OutputClaim | result | boolean | ClaimType généré après l’appel de cette ClaimsTransformation. |
 
 Utilisez cette transformation de revendication pour déterminer si deux ClaimTypes sont égales, ou antérieure ou postérieure à l’autre. Par exemple, vous pouvez stocker la dernière fois qu’un utilisateur a accepté vos conditions d’utilisation du service. Après 3 mois, vous pouvez de nouveau lui demander d’accepter les conditions d’utilisation.
 Pour exécuter la transformation de revendication,vous devez d’abord obtenir le dateTime actuel et la dernière fois que l’utilisateur a accepté les conditions d’utilisation.

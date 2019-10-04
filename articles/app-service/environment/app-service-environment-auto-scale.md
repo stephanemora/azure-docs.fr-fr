@@ -10,17 +10,16 @@ ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f0c49e1835412b61817ff3571dd3ee1eaa29f21f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270023"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070082"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Mise à l’échelle automatique et environnement App Service v1
 
@@ -76,7 +75,7 @@ Le pool de Workers 1 est utilisé pour les charges de travail, tandis que le poo
 
 Les plans App Service pour l’assurance qualité et le développement sont configurés pour la mise à l’échelle manuelle. Le plan App Service de production est configuré pour la mise à l’échelle automatique afin de gérer les variations de charge et de trafic.
 
-Frank connaît bien l’application. Il sait que les heures de pointe de charge sont situées entre 9 h et 18 h, car il s’agit d’une application métier (LOB) utilisée par les employés lorsqu’ils sont au bureau. Le taux d’utilisation chute une fois que les utilisateurs ont fini leur journée de travail. En dehors des heures de pointe, il existe toujours une charge, car les utilisateurs peuvent accéder à distance à l’application via leurs appareils mobiles ou leurs ordinateurs personnels. Le plan App Service de production est déjà configuré sur la mise à l’échelle automatique basée sur le taux d’utilisation du processeur avec les règles suivantes :
+Frank connaît bien l’application. Il sait que les heures de pointe de charge se situent entre 9 h et 18 h, car il s’agit d’une application métier (LOB) utilisée par les employés lorsqu’ils sont au bureau. Le taux d’utilisation chute une fois que les utilisateurs ont fini leur journée de travail. En dehors des heures de pointe, il existe toujours une charge, car les utilisateurs peuvent accéder à distance à l’application via leurs appareils mobiles ou leurs ordinateurs personnels. Le plan App Service de production est déjà configuré sur la mise à l’échelle automatique basée sur le taux d’utilisation du processeur avec les règles suivantes :
 
 ![Paramètres spécifiques pour une application métier.][asp-scale]
 

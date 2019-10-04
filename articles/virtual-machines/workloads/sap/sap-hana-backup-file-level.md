@@ -4,21 +4,20 @@ description: Il existe deux grandes méthodes permettant d’effectuer des sauve
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: d3d1769766053b513a98df153cb635ae148f26b1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 8860c943dafdb9d166510519d0fb058f523537b3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867368"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078896"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Sauvegarde SAP HANA sur Azure au niveau fichier
 
@@ -36,7 +35,7 @@ Cette illustration montre la boîte de dialogue de l’élément du menu de sauv
 
 Bien que ce choix semble simple et direct, certains points doivent être pris en compte. Comme indiqué précédemment, les machines virtuelles Azure ont une limite en termes de nombre de disques de données qui peuvent être liés. Les systèmes de fichiers de la machine virtuelle ne disposent peut-être pas de la capacité nécessaire pour stocker les fichiers de sauvegarde SAP HANA, en fonction de la taille de la base de données et des contraintes de débit du disque. Cela peut nécessiter que un entrelacement logiciel sur plusieurs disques de données. Plus loin dans cet article, nous aborderons différentes options permettant de déplacer ces fichiers de sauvegarde et de gérer les restrictions concernant la taille des fichiers et les performances lors du traitement de plusieurs téraoctets de données.
 
-Une autre possibilité, qui offre davantage de liberté en ce qui concerne la capacité totale, est le stockage Blob Azure. Bien que les objets blob soient également limités à 1 To, la capacité totale d’un conteneur d’objets blob unique est actuellement de 500 To. En outre, cela offre également la possibilité aux clients de sélectionner ce que l’on appelle le stockage Blob &quot;froid&quot;, qui représente un avantage en termes de coût. Pour plus d’informations sur le stockage Blob froid, voir [Stockage Blob Azure : niveaux de stockage chauds et froids](../../../storage/blobs/storage-blob-storage-tiers.md).
+Une autre possibilité, qui offre davantage de liberté en ce qui concerne la capacité totale, est le stockage Blob Azure. Bien que les objets blob soient également limités à 1 To, la capacité totale d’un conteneur d’objets blob unique est actuellement de 500 To. En outre, cela offre également la possibilité aux clients de sélectionner ce que l’on appelle le stockage Blob &quot;froid&quot;, qui représente un avantage en termes de coût. Consultez [Stockage Blob Azure : Niveaux de stockage chaud et froid](../../../storage/blobs/storage-blob-storage-tiers.md) pour plus d’informations sur le stockage d’objets blob froid.
 
 Pour plus de sécurité, utilisez un compte de stockage géo-répliqué pour stocker les sauvegardes SAP HANA. Pour plus d’informations sur la réplication des comptes de stockage, voir [Réplication Azure Storage](../../../storage/common/storage-redundancy.md).
 
@@ -50,7 +49,7 @@ Une autre solution consiste à copier les fichiers de sauvegarde SAP HANA sur un
 
 ## <a name="azure-blobxfer-utility-details"></a>Détails de l’utilitaire blobxfer Azure
 
-Pour stocker les répertoires et les fichiers sur le stockage Azure, vous pouvez utiliser l’interface de ligne de commande ou PowerShell, ou encore développer un outil à l’aide d’un des [kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/). Il existe également un utilitaire prêt à l’emploi, AzCopy, qui permet de copier des données vers le stockage Azure, mais il est uniquement compatible avec Windows (voir [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../../../storage/common/storage-use-azcopy.md)).
+Pour stocker les répertoires et les fichiers sur le stockage Azure, vous pouvez utiliser l’interface de ligne de commande ou PowerShell, ou encore développer un outil à l’aide d’un des [kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/). Il existe également un utilitaire prêt à l’emploi, AzCopy, pour la copie de données dans Stockage Azure. (consultez l’article [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../../../storage/common/storage-use-azcopy.md).)
 
 Par conséquent, blobxfer a été utilisé pour copier les fichiers de sauvegarde SAP HANA. Il s’agit d’un outil Open Source utilisé par de nombreux clients dans leur environnement de production. Il est disponible sur [GitHub](https://github.com/Azure/blobxfer). Cet outil permet de copier des données directement sur le stockage Blob Azure ou sur le système de partage de fichiers Azure. Il inclut également de nombreuses fonctionnalités utiles, telles que le code de hachage md5 ou le parallélisme automatique lors de la copie d’un répertoire contenant plusieurs fichiers.
 
@@ -70,7 +69,7 @@ La répétition de la même sauvegarde sur le RAID logiciel avec entrelacement s
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>Copier les fichiers de sauvegarde SAP HANA vers le stockage Blob Azure
 
-Une autre option pour stocker rapidement les fichiers de sauvegarde SAP HANA est le stockage Blob Azure. Un conteneur d’objets blob unique a une limite de 500 To, suffisante pour les petits systèmes SAP HANA utilisant les types de machine virtuelle M32ts, M32ls, M64ls et GS5 d’Azure, afin de conserver les sauvegardes SAP HANA suffisantes. Les clients ont le choix entre le stockage Blob &quot;chaud&quot; et &quot;froid&quot; (voir [Stockage Blob Azure : niveaux de stockage chauds et froids](../../../storage/blobs/storage-blob-storage-tiers.md)).
+Une autre option pour stocker rapidement les fichiers de sauvegarde SAP HANA est le stockage Blob Azure. Un conteneur d’objets blob unique a une limite de 500 To, suffisante pour les petits systèmes SAP HANA utilisant les types de machine virtuelle M32ts, M32ls, M64ls et GS5 d’Azure, afin de conserver les sauvegardes SAP HANA suffisantes. Les clients ont le choix entre le stockage d’objets blob &quot;chaud&quot; et &quot;froid&quot; (voir [Stockage Blob Azure : Niveaux de stockage chaud et froid](../../../storage/blobs/storage-blob-storage-tiers.md)).
 
 Grâce à l’outil blobxfer, il est facile de copier les fichiers de sauvegarde SAP HANA directement dans le stockage Blob Azure.
 

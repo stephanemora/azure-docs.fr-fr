@@ -2,28 +2,28 @@
 title: Exemples de transformations de revendications de chaînes pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C | Microsoft Docs
 description: Exemples de transformations de revendications de chaînes pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 32acee78b1aadbe5a461de6ea4475cf28503c325
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 83379cc194f23ebff977babc7124a7bc90f4bc60
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113025"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063457"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Cet article fournit des exemples pour l’utilisation de transformations de revendications de chaînes du schéma Infrastructure d’expérience d’identité dans Azure Active Directory (Azure AD) B2C. Pour plus d’informations, consultez [ClaimsTransformations](claimstransformations.md).
+Cet article fournit des exemples pour l’utilisation de transformations de revendications de chaîne du schéma Identity Experience Framework dans Azure Active Directory B2C (Azure AD B2C). Pour plus d’informations, voir [ClaimsTransformations](claimstransformations.md).
 
-## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual 
+## <a name="assertstringclaimsareequal"></a>AssertStringClaimsAreEqual
 
 Compare deux revendications et lève une exception si elles ne sont pas égales en fonction des éléments de comparaison inputClaim1, inputClaim2 et stringComparison spécifiés.
 
@@ -37,7 +37,7 @@ La transformation de revendication **AssertStringClaimsAreEqual** est toujours e
 
 ![Exécution d’AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
 
-Vous pouvez utiliser cette transformation de revendication pour vérifier que deux ClaimTypes ont la même valeur. Si ce n’est pas le cas, un message d’erreur est levé. L’exemple suivant vérifie que le ClaimType **strongAuthenticationEmailAddress** est égal au ClaimType **email**. Si ce n’est pas le cas, un message d’erreur est levé. 
+Vous pouvez utiliser cette transformation de revendication pour vérifier que deux ClaimTypes ont la même valeur. Si ce n’est pas le cas, un message d’erreur est levé. L’exemple suivant vérifie que le ClaimType **strongAuthenticationEmailAddress** est égal au ClaimType **email**. Si ce n’est pas le cas, un message d’erreur est levé.
 
 ```XML
 <ClaimsTransformation Id="AssertEmailAndStrongAuthenticationEmailAddressAreEqual" TransformationMethod="AssertStringClaimsAreEqual">
@@ -84,7 +84,7 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
   - **stringComparison** : ordinalIgnoreCase
 - Résultat : Erreur levée
 
-## <a name="changecase"></a>ChangeCase 
+## <a name="changecase"></a>ChangeCase
 
 Modifie la casse de la revendication fournie (minuscules ou majuscules) en fonction de l’opérateur.
 
@@ -94,7 +94,7 @@ Modifie la casse de la revendication fournie (minuscules ou majuscules) en fonct
 | InputParameter | toCase | string | L’une des valeurs suivantes : `LOWER` ou `UPPER`. |
 | OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. |
 
-Utilisez cette transformation de revendication pour mettre un ClaimType en majuscules ou en minuscules.  
+Utilisez cette transformation de revendication pour mettre un ClaimType en majuscules ou en minuscules.
 
 ```XML
 <ClaimsTransformation Id="ChangeToLower" TransformationMethod="ChangeCase">
@@ -119,7 +119,7 @@ Utilisez cette transformation de revendication pour mettre un ClaimType en majus
 - Revendications de sortie :
   - **email** : someone@contoso.com
 
-## <a name="createstringclaim"></a>CreateStringClaim 
+## <a name="createstringclaim"></a>CreateStringClaim
 
 Crée une revendication de chaîne à partir du paramètre d’entrée fourni dans la stratégie.
 
@@ -157,8 +157,8 @@ Détermine si une revendication de chaîne est égale à une autre. Le résultat
 | inputClaim | inputClaim1 | string | Premier type de revendication à comparer. |
 | inputClaim | inputClaim2 | string | Deuxième type de revendication à comparer. |
 | InputParameter | operator | string | Valeurs possibles : `EQUAL` ou `NOT EQUAL`. |
-| InputParameter | ignoreCase | booléenne | Spécifie si cette comparaison doit ignorer la casse des chaînes comparées. |
-| OutputClaim | outputClaim | booléenne | ClaimType généré après que cette transformation de revendication a été appelée. |
+| InputParameter | ignoreCase | boolean | Spécifie si cette comparaison doit ignorer la casse des chaînes comparées. |
+| OutputClaim | outputClaim | boolean | ClaimType généré après que cette transformation de revendication a été appelée. |
 
 Utilisez cette transformation de revendication pour vérifier si une revendication est égale à une autre. Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **email** est égale à la revendication **Verified.Email**.
 
@@ -198,8 +198,8 @@ Détermine si une valeur de revendication est égale à la valeur du paramètre 
 | inputClaim | inputClaim1 | string | Type de la revendication à comparer. |
 | InputParameter | operator | string | Valeurs possibles : `EQUAL` ou `NOT EQUAL`. |
 | InputParameter | compareTo | string | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
-| InputParameter | ignoreCase | booléenne | Spécifie si cette comparaison doit ignorer la casse des chaînes comparées. |
-| OutputClaim | outputClaim | booléenne | ClaimType généré après que cette transformation de revendication a été appelée. |
+| InputParameter | ignoreCase | boolean | Spécifie si cette comparaison doit ignorer la casse des chaînes comparées. |
+| OutputClaim | outputClaim | boolean | ClaimType généré après que cette transformation de revendication a été appelée. |
 
 Vous pouvez utiliser cette transformation de revendication pour vérifier si une revendication est égale à une valeur que vous avez spécifiée. Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **termsOfUseConsentVersion** est égale à `v1`.
 
@@ -224,7 +224,7 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
     - **inputClaim1** : v1
 - Paramètres d’entrée :
     - **compareTo** : V1
-    - **operator** : EQUAL 
+    - **operator** : EQUAL
     - **ignoreCase** : true
 - Revendications de sortie :
     - **outputClaim** : true
@@ -237,7 +237,7 @@ Crée une chaîne aléatoire à l’aide du générateur de nombres aléatoires.
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | string | Spécifie la valeur aléatoire à générer, `GUID` (ID global unique) ou `INTEGER` (nombre). |
 | InputParameter | stringFormat | string | [Facultatif] Mettre en forme la valeur aléatoire. |
-| InputParameter | base64 | booléenne | [Facultatif] Convertir la valeur aléatoire en base64. Si la mise en forme de la chaîne est appliquée, la valeur après la mise en forme de la chaîne est encodée en base64. |
+| InputParameter | base64 | boolean | [Facultatif] Convertir la valeur aléatoire en base64. Si la mise en forme de la chaîne est appliquée, la valeur après la mise en forme de la chaîne est encodée en base64. |
 | InputParameter | maximumNumber | int | [Facultatif] Pour randomGeneratorType `INTEGER` uniquement. Spécifiez le nombre maximal. |
 | InputParameter | seed  | int | [Facultatif] Pour randomGeneratorType `INTEGER` uniquement. Spécifiez la valeur de départ pour la valeur aléatoire. Remarque : la même valeur de départ génère la même séquence de nombres aléatoires. |
 | OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. Valeur aléatoire. |
@@ -258,7 +258,7 @@ L’exemple suivant génère un ID unique global. Cette transformation de revend
 
 - Paramètres d’entrée :
     - **randomGeneratorType** : GUID
-- Revendications de sortie : 
+- Revendications de sortie :
     - **outputClaim** : bc8bedd2-aaa3-411e-bdee-2f1810b73dfc
 
 L’exemple suivant génère une valeur entière aléatoire comprise entre 0 et 1000. La valeur est mise en forme au format OTP_ {valeur aléatoire}.
@@ -284,7 +284,7 @@ L’exemple suivant génère une valeur entière aléatoire comprise entre 0 et 
     - **maximumNumber** : 1 000
     - **stringFormat** : OTP_{0}
     - **base64** : false
-- Revendications de sortie : 
+- Revendications de sortie :
     - **outputClaim** : OTP_853
 
 
@@ -298,7 +298,7 @@ Met en forme une revendication en fonction de la chaîne de format fournie. Cett
 | InputParameter | stringFormat | string | Format de chaîne, y compris le paramètre {0}. |
 | OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. |
 
-Utilisez cette transformation de revendication pour mettre en forme une chaîne avec un paramètre {0}. L’exemple suivant crée un **userPrincipalName**. Tous les profils techniques de fournisseurs d’identité sociale, tels que `Facebook-OAUTH` appellent **CreateUserPrincipalName** pour générer un **userPrincipalName**.   
+Utilisez cette transformation de revendication pour mettre en forme une chaîne avec un paramètre {0}. L’exemple suivant crée un **userPrincipalName**. Tous les profils techniques de fournisseurs d’identité sociale, tels que `Facebook-OAUTH` appellent **CreateUserPrincipalName** pour générer un **userPrincipalName**.
 
 ```XML
 <ClaimsTransformation Id="CreateUserPrincipalName" TransformationMethod="FormatStringClaim">
@@ -392,7 +392,7 @@ La transformation de revendication recherche le texte de l’élément et retour
     <InputClaim ClaimTypeReferenceId="responseCode" TransformationClaimType="mapFromClaim" />
   </InputClaims>
   <OutputClaims>
-    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />         
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="restrictionValueClaim" />        
   </OutputClaims>
 </ClaimsTransformation>
 ```
@@ -412,7 +412,7 @@ Recherche une valeur de revendication dans une liste de valeurs en fonction de l
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputParameterId | string | Revendication qui contient la valeur de recherche |
 | InputParameter | |string | Collection d’inputParameters. |
-| InputParameter | errorOnFailedLookup | booléenne | Contrôle si une erreur est retournée en l’absence de correspondance. |
+| InputParameter | errorOnFailedLookup | boolean | Contrôle si une erreur est retournée en l’absence de correspondance. |
 | OutputClaim | inputParameterId | string | ClaimType généré après que cette transformation de revendication a été appelée. Valeur de l’ID correspondant. |
 
 L’exemple suivant recherche le nom de domaine dans l’une des collections inputParameters. La transformation de revendication recherche le nom de domaine dans l’identificateur et retourne sa valeur (un ID d’application).
@@ -431,7 +431,7 @@ L’exemple suivant recherche le nom de domaine dans l’une des collections inp
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="domainAppId" TransformationClaimType="outputClaim" />
   </OutputClaims>
-</ClaimsTransformation> 
+</ClaimsTransformation>
 ```
 
 ### <a name="example"></a>Exemples
@@ -511,9 +511,9 @@ Vérifie qu’une revendication de chaîne et un paramètre d’entrée `matchTo
 | InputParameter | stringMatchMsgCode | string | Deuxième valeur à définir si les chaînes sont égales. |
 | OutputClaim | outputClaim1 | string | Si les chaînes sont égales, cette revendication de sortie contient la valeur du paramètre d’entrée `stringMatchMsg`. |
 | OutputClaim | outputClaim2 | string | Si les chaînes sont égales, cette revendication de sortie contient la valeur du paramètre d’entrée `stringMatchMsgCode`. |
-| OutputClaim | stringCompareResultClaim | booléenne | Type de revendication de la sortie de résultat de comparaison, qui doit être défini sur `true` ou `false` en fonction du résultat de la comparaison. |
+| OutputClaim | stringCompareResultClaim | boolean | Type de revendication de la sortie de résultat de comparaison, qui doit être défini sur `true` ou `false` en fonction du résultat de la comparaison. |
 
-Vous pouvez utiliser cette transformation de revendication pour vérifier si une revendication est égale à la valeur que vous avez spécifiée. Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **termsOfUseConsentVersion** est égale à `v1`. Si c’est le cas, elle remplace la valeur par `v2`. 
+Vous pouvez utiliser cette transformation de revendication pour vérifier si une revendication est égale à la valeur que vous avez spécifiée. Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **termsOfUseConsentVersion** est égale à `v1`. Si c’est le cas, elle remplace la valeur par `v2`.
 
 ```XML
 <ClaimsTransformation Id="CheckTheTOS" TransformationMethod="SetClaimsIfStringsAreEqual">
@@ -539,7 +539,7 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
     - **inputClaim** : v1
 - Paramètres d’entrée :
     - **matchTo** : V1
-    - **stringComparison** : ordinalIgnoreCase 
+    - **stringComparison** : ordinalIgnoreCase
     - **stringMatchMsg** :  B2C_V1_90005
     - **stringMatchMsgCode** :  The TOS is upgraded to v2
 - Revendications de sortie :
@@ -558,9 +558,9 @@ Vérifie qu’une revendication de chaîne et un paramètre d’entrée `matchTo
 | InputParameter | stringComparison | string | Valeurs possibles : `Ordinal` ou `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | string | Valeur à définir si les chaînes sont égales. |
 | OutputClaim | outputClaim | string | Si les chaînes sont égales, cette revendication de sortie contient la valeur du paramètre d’entrée `outputClaimIfMatched`. Ou null, si les chaînes ne sont pas mises en correspondance. |
-| OutputClaim | stringCompareResultClaim | booléenne | Type de revendication de la sortie de résultat de comparaison, qui doit être défini sur `true` ou `false` en fonction du résultat de la comparaison. |
+| OutputClaim | stringCompareResultClaim | boolean | Type de revendication de la sortie de résultat de comparaison, qui doit être défini sur `true` ou `false` en fonction du résultat de la comparaison. |
 
-Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **ageGroup** est égale à `Minor`. Si c’est le cas, elle retourne la valeur `B2C_V1_90001`. 
+Par exemple, la transformation de revendication suivante vérifie si la valeur de la revendication **ageGroup** est égale à `Minor`. Si c’est le cas, elle retourne la valeur `B2C_V1_90001`.
 
 ```XML
 <ClaimsTransformation Id="SetIsMinor" TransformationMethod="SetClaimsIfStringsMatch">
@@ -585,7 +585,7 @@ Par exemple, la transformation de revendication suivante vérifie si la valeur d
     - **claimToMatch** : Secondaire
 - Paramètres d’entrée :
     - **matchTo** : Secondaire
-    - **stringComparison** : ordinalIgnoreCase 
+    - **stringComparison** : ordinalIgnoreCase
     - **outputClaimIfMatched** :  B2C_V1_90001
 - Revendications de sortie :
     - **isMinorResponseCode** : B2C_V1_90001

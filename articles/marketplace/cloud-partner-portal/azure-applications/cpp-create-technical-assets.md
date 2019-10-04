@@ -1,25 +1,18 @@
 ---
-title: Créer des ressources techniques d’application Azure | Microsoft Docs
+title: Créer des ressources techniques d’application Azure | Place de marché  Azure
 description: Créez les ressources techniques pour une offre d’application Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a498fb2bc3efcc3a081a0ab854df107135a4e008
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: cbe1b8c8f1159d90fbf97eeae272c1c50ec9b9bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104690"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942986"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Préparer les ressources techniques de votre application Azure
 

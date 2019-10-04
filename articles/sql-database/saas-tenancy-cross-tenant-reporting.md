@@ -1,5 +1,5 @@
 ---
-title: Exécuter des requêtes de rapport sur plusieurs bases de données SQL Azure | Microsoft Docs
+title: Exécuter des requêtes de rapport sur plusieurs bases de données Azure SQL | Microsoft Docs
 description: Création de rapports inter-clients à l’aide de requêtes distribuées.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewers: billgib,ayolubek
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 9562d0cd1ad97a459c3630456a6070ac2b6e63f3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: fa8dbbbb09fbdc14049e168afe6eb4810ccc8254
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096025"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570232"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Création de rapports inter-clients à l’aide de requêtes distribuées
 
@@ -106,7 +105,7 @@ Cet exercice déploie la base de données _adhocreporting_. Cette base de donné
 
 1. Dans *PowerShell ISE*, ouvrez ...\\Modules d’apprentissage\\Analytique opérationnelle\\Génération d’états adhoc\\*Demo-AdhocReporting.ps1*. 
 
-1. Définissez **$DemoScenario = 2**, _déployer Ad hoc reporting de base de données_.
+1. Définissez **$DemoScenario = 2**, _Déployer la base de données de génération d’états ad hoc_.
 
 1. Appuyez sur **F5** pour exécuter le script et créer la base de données *adhocreporting*.
 
@@ -128,7 +127,7 @@ Cet exercice ajoute le schéma (les définitions de la source de données extern
 
     ![créer une source de données externe](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   Les tables externes qui font référence aux vues globales décrites dans la section précédente et définies avec **DISTRIBUTION = SHARDED(VenueId)**. Étant donné que chaque élément *VenueId* correspond à une base de données individuelle, cela améliore les performances dans de nombreux scénarios, comme illustré dans la section suivante.
+   Les tables externes qui font référence aux vues globales décrites dans la section précédente et définies avec **DISTRIBUTION = SHARDED(VenueId)** . Étant donné que chaque élément *VenueId* correspond à une base de données individuelle, cela améliore les performances dans de nombreux scénarios, comme illustré dans la section suivante.
 
     ![créer des tables externes](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -148,12 +147,12 @@ Maintenant que la base de données *adhocreporting* est configurée, lancez-vous
 
 Lors de l’inspection du plan d’exécution, passez la souris sur les icônes de plan pour plus d’informations. 
 
-Remarque importante : lorsque nous avons défini la source de données externe, le paramètre **DISTRIBUTION = SHARDED(VenueId)** améliore les performances dans de nombreux scénarios. Comme chaque *VenueId* correspond à une base de données, le filtrage est effectué à distance facilement, renvoyant uniquement les données nécessitées.
+Remarque importante : lorsque nous avons défini la source de données externe, le paramètre **DISTRIBUTION = SHARDED(VenueId)** améliore les performances dans de nombreux scénarios. Étant donné que chaque élément *VenueId* correspond à une base de données individuelle, le filtrage peut être effectué à distance facilement, renvoyant uniquement les données nécessaires.
 
 1. Ouvrir... \\Modules d’apprentissage\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* dans SSMS.
 2. Assurez-vous que vous êtes connecté à la base de données **adhocreporting**.
 3. Sélectionnez le menu **Requête** et cliquez sur **Inclure le plan d’exécution réel**
-4. Mettez en surbrillance la requête *Quels lieux sont actuellement inscrits ?*, puis appuyez sur **F5**.
+4. Mettez en surbrillance la requête *Quels lieux sont actuellement inscrits ?* , puis appuyez sur **F5**.
 
    La requête renvoie la liste complète des lieux, montrant à quel point il est facile d’interroger l’ensemble des clients et de renvoyer des données provenant de chacun d’eux.
 
@@ -169,7 +168,7 @@ Remarque importante : lorsque nous avons défini la source de données externe,
 
    ![Joindre des données locales et distantes](media/saas-tenancy-cross-tenant-reporting/query2-plan.png)
 
-6. Sélectionnez à présent la requête *Quel jour y a-t-il eu le plus de tickets vendus ?*, puis appuyez sur **F5**.
+6. Sélectionnez à présent la requête *Quel jour y a-t-il eu le plus de tickets vendus ?* , puis appuyez sur **F5**.
 
    Cette requête effectue une opération de jointure et d’agrégation un peu plus complexe. La plupart des traitements se produisent à distance.  Seules les lignes uniques, contenant chacune le nombre de ventes de tickets par jour sur le lieu, sont renvoyées à la base de données de tête.
 

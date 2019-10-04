@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: magattus
-ms.openlocfilehash: afe959e80b339db5112fa97fd79d0528390e3954
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 9f185f58e1d33a3985777cb22bc7578f9f2c4541
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096450"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593802"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Compression des fichiers dans Azure CDN pour améliorer les performances
 La compression de fichiers est une méthode simple et efficace qui vise à améliorer la vitesse de transfert des fichiers et à accroître les performances de chargement des pages en réduisant la taille des fichiers avant leur envoi à partir du serveur. La compression de fichiers peut réduire les coûts de bande passante et offre à vos utilisateurs davantage de réactivité.
@@ -101,9 +101,9 @@ Les niveaux Standard et Premium de CDN fournissent les mêmes fonctionnalités, 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Profils CDN Azure Standard fourni par Microsoft
 
 Pour les profils du **CDN Azure Standard fourni par Microsoft**, seuls les fichiers éligibles sont compressés. Pour être éligible pour la compression, un fichier doit :
-- Être d’un type MIME qui a été [configuré pour la compression](#enabling-compression).
-- Être supérieure à 1 Ko
-- Être inférieur à 8 Mo
+- Être d’un type MIME [configuré pour la compression](#enabling-compression).
+- Être supérieur à 1 Ko
+- Être inférieur à 8 Mo
 
 Ces profils prennent en charge les encodages de compression suivants :
 - gzip (GNU zip)
@@ -117,7 +117,7 @@ Lorsqu’une demande liée à un composant spécifie la compression gzip et que 
 
 Pour les profils **CDN Azure Standard fourni par Verizon** et **CDN Azure Premium fourni par Verizon**, seuls les fichiers éligibles sont compressés. Pour être éligible pour la compression, un fichier doit :
 - Être supérieur à 128 octets
-- Être inférieur à 3 Mo
+- Être inférieur à 3 Mo
 
 Ces profils prennent en charge les encodages de compression suivants :
 - gzip (GNU zip)

@@ -1,8 +1,8 @@
-- name: Documentation Gestion des appareils
+- name: Documentation sur les identités d’appareil
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
-    - name: "En quoi consiste la gestion des appareils dans Azure AD\_?"
+    - name: "Qu’est-ce qu’une identité d’appareil\_?"
       href: overview.md
     - name: Qu’est-ce qu’Enterprise State Roaming ?
       href: enterprise-state-roaming-overview.md
@@ -18,37 +18,55 @@
     - name: Configurer des enregistrements dans Azure AD lors de la première exécution de Windows 10
       href: azuread-joined-devices-frx.md
 - name: Concepts
-  expanded: false
-  items:
-    - name: Authentification unique auprès de ressources locales
-      href: azuread-join-sso.md
-- name: Guides pratiques
   expanded: true
   items:
-    - name: Gérer les appareils via le portail Azure
+    - name: Appareils inscrits sur Azure AD
+      href: concept-azure-ad-register.md
+    - name: Appareils joints Azure AD
+      href: concept-azure-ad-join.md
+    - name: Appareils joints Azure AD hybrides
+      href: concept-azure-ad-join-hybrid.md
+    - name: Authentification unique auprès de ressources locales
+      href: azuread-join-sso.md
+    - name: Jetons d’actualisation principaux
+      href: concept-primary-refresh-token.md
+    - name: Stations de travail gérées par Azure
+      href: concept-azure-managed-workstation.md
+- name: Guides pratiques
+  expanded: false
+  items:
+    - name: Planifier votre implémentation de la jointure d’Azure AD
+      href: azureadjoin-plan.md
+    - name: Assigner des administrateurs locaux aux appareils joints Azure AD
+      href: assign-local-admin.md
+    - name: Planifier votre implémentation de la jointure d’Azure AD hybride
+      href: hybrid-azuread-join-plan.md
+    - name: Validation contrôlée de la jonction Azure AD hybride
+      href: hybrid-azuread-join-control.md
+    - name: Gérer les identités des appareils
       href: device-management-azure-portal.md
     - name: Gérer les appareils obsolètes
       href: manage-stale-devices.md
-    - name: Planifier votre implémentation de la jointure d’Azure AD
-      href: azureadjoin-plan.md
-    - name: Planifier votre implémentation de la jointure d’Azure AD hybride
-      href: hybrid-azuread-join-plan.md
-    - name: Contrôler la jointure d’Azure AD hybride de vos appareils
-      href: hybrid-azuread-join-control.md
-    - name: Assigner des administrateurs locaux aux appareils joints Azure AD
-      href: assign-local-admin.md
     - name: Activer Enterprise State Roaming
       href: enterprise-state-roaming-enable.md
-    - name: Résoudre les problèmes de jointure d’Azure AD hybride pour les appareils Windows actuels
-      href: troubleshoot-hybrid-join-windows-current.md
-    - name: Résoudre les problèmes d’appareils Windows hérités joints Azure AD
-      href: troubleshoot-hybrid-join-windows-legacy.md
-    - name: Résoudre les problèmes relatifs à Enterprise State Roaming
-      href: enterprise-state-roaming-troubleshooting.md
-    - name: FAQ
-      href: faq.md
-    - name: FAQ sur l’activation d’Enterprise State Roaming
-      href: enterprise-state-roaming-faqs.md
+    - name: Déployer des stations de travail gérées par Azure
+      href: howto-azure-managed-workstation.md
+    - name: Résoudre les problèmes d’identités d’appareil
+      items:
+        - name: Résoudre les problèmes de jointure d’Azure AD hybride pour les appareils Windows actuels
+          href: troubleshoot-hybrid-join-windows-current.md
+        - name: Résoudre les problèmes avec dsregcmd
+          href: troubleshoot-device-dsregcmd.md
+        - name: Résoudre les problèmes d’appareils Windows de bas niveau joints Azure AD
+          href: troubleshoot-hybrid-join-windows-legacy.md
+        - name: Résoudre les problèmes relatifs à Enterprise State Roaming
+          href: enterprise-state-roaming-troubleshooting.md
+    - name: Questions fréquentes (FAQ)
+      items:
+        - name: FAQ
+          href: faq.md
+        - name: FAQ sur l’activation d’Enterprise State Roaming
+          href: enterprise-state-roaming-faqs.md
 - name: Informations de référence
   items:
     - name: Paramètres GPO Enterprise State Roaming

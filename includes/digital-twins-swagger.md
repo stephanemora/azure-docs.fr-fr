@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/26/2018
-ms.author: adgera
+ms.date: 08/12/2019
+ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 35078d9cf705351a9f64f52738c9eaca90814f7a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5c53f4408fb9e2345cf9efabffc39e93e9ec300b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53805753"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012122"
 ---
 > [!TIP]
 > Vous pouvez obtenir un premier aperçu de Swagger qui illustre le jeu de fonctionnalités de l’API.
@@ -25,7 +25,7 @@ Vous pouvez accéder à votre propre documentation Swagger générée pour l’A
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| NOM | Remplacer par |
+| Nom | Remplacer par |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Nom de votre instance Azure Digital Twins |
 | YOUR_LOCATION | Région de serveur dans laquelle votre instance est hébergée |

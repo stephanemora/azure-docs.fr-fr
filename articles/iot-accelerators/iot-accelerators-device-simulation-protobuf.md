@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
 ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447979"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Sérialiser des données de télémétrie à l'aide de Protocol Buffers
 
@@ -70,7 +70,7 @@ Ouvrez le fichier **.vscode/launch.json** et assignez la chaîne de connexion de
 
 Pour exécuter le microservice d'adaptateur de stockage localement, cliquez sur **Déboguer \> Démarrer le débogage**.
 
-Dans Visual Studio Code, la fenêtre **Terminal** affiche la sortie du microservice en cours d'exécution, avec une URL pour la vérification d'intégrité du service web : <http://127.0.0.1:9022/v1/status>. Lorsque vous accédez à cette adresse, l’état doit être « OK : Alive and well ».
+Dans Visual Studio Code, la fenêtre **Terminal** affiche la sortie du microservice en cours d'exécution, avec une URL pour la vérification d'intégrité du service web : <http://127.0.0.1:9022/v1/status>. Quand vous accédez à cette adresse, vous devez voir l’état « OK: Alive and well ».
 
 Laissez le microservice d'adaptateur de stockage s'exécuter dans cette instance de Visual Studio Code pendant que vous effectuez les étapes suivantes.
 
@@ -174,7 +174,7 @@ Lorsque vous disposez d'un fichier **proto**, l'étape suivante consiste à gén
 
 1. [Télécharger le compilateur Protobuf à partir de GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Exécutez le compilateur, en spécifiant le répertoire source, le répertoire de destination et le nom de votre fichier **proto**. Par exemple : 
+1. Exécutez le compilateur, en spécifiant le répertoire source, le répertoire de destination et le nom de votre fichier **proto**. Par exemple :
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ Ouvrez le fichier **WebService\appsettings.ini** et modifiez les paramètres com
 
 Par défaut, les fichiers JSON et JS de votre nouveau modèle d'appareil ne sont pas copiés dans la solution créée. Vous devez les y inclure explicitement.
 
-Pour chacun des fichiers à inclure, ajoutez une entrée dans le fichier **services\services.csproj**. Par exemple : 
+Pour chacun des fichiers à inclure, ajoutez une entrée dans le fichier **services\services.csproj**. Par exemple :
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">

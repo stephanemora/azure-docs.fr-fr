@@ -3,17 +3,17 @@ title: Déployer localement la solution de supervision à distance (Visual Studi
 description: Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local en utilisant Visual Studio Code à des fins de test et de développement.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 946f815cecea4cc172fac35c0b260d795317e6e1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316216"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66730162"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Déployer localement la solution de supervision à distance - Visual Studio Code
 
@@ -21,7 +21,7 @@ ms.locfileid: "58316216"
 
 Cet article montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local à des fins de test et de développement. Vous apprendrez à exécuter les microservices dans Visual Studio Code. Un déploiement de microservices local utilise les services cloud suivants : IoT Hub, Cosmos DB, Azure Stream Analytics et Azure Time Series Insights.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour déployer les services Azure utilisés par l’accélérateur de solution de supervision à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -59,16 +59,17 @@ dotnet build -c Release
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Déployer toutes les autres microservices sur l’ordinateur local
 
-Les étapes suivantes vous montrent comment exécuter les microservices de surveillance à distance dans Visual Studio 2017 :
+Les étapes suivantes vous montrent comment exécuter les microservices de surveillance à distance dans Visual Studio Code :
 
 1. Lancez Visual Studio Code.
-1. Ouvrez le module **azure-iot-pcs-remote-monitoring-dotnet** à partir de votre copie locale dans Visual Studio Code.
-1. Copiez les fichiers **launch.json** et **tasks.json** à partir de scripts\local\launch\idesettings\vscode\. Créez un dossier **azure-iot-pcs-remote-monitoring-dotnet\.vscode** et collez les fichiers à cet emplacement.
-1. Ouvrez le panneau de débogage dans Visual Studio Code et exécutez la configuration **Exécuter tous les microservices**. Cette configuration exécute le microservice de simulation d’appareil dans Docker et les autres microservices dans le débogueur.
+1. Ouvrez le dossier **azure-iot-pcs-remote-monitoring-dotnet** dans Visual Studio Code.
+1. Créez un dossier nommé **vscode** dans le dossier **azure-iot-pcs-remote-monitoring-dotnet**.
+1. Copiez les fichiers **launch.json** et **tasks.json** à partir de services\scripts\local\launch\idesettings\vscode dans le dossier **vscode** que vous venez de créer.
+1. Ouvrez le **panneau de débogage** dans Visual Studio Code et exécutez la configuration **Exécuter tous les microservices**. Cette configuration exécute le microservice de simulation d’appareil dans Docker et les autres microservices dans le débogueur.
 
-Par exemple, la sortie du service **Auth** dans la **Console de débogage** ressemble à ceci :
+La sortie obtenue avec l’exécution de la configuration **Exécuter tous les microservices** dans la console de débogage ressemble à ce qui suit :
 
-[![Deploy-Local-Auth-Service](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>Exécuter l’interface utilisateur web
 
@@ -79,7 +80,7 @@ npm install
 npm start
 ```
 
-Lorsque le démarrage est terminé, votre navigateur affiche la page **http :\//localhost:3000 / tableau de bord**. Les erreurs présentes sur cette page sont attendues. Pour afficher l’application sans erreur, procédez comme suit.
+Une fois le démarrage terminé, votre navigateur affiche la page **http:\//localhost:3000/dashboard**. Les erreurs présentes sur cette page sont attendues. Pour afficher l’application sans erreur, procédez comme suit.
 
 ### <a name="configure-and-run-nginx"></a>Configurer et exécuter NGINX
 
@@ -92,7 +93,7 @@ Pour plus d’informations sur l’exécution de **nginx**, consultez [nginx pou
 
 ### <a name="connect-to-the-dashboard"></a>Connexion au tableau de bord
 
-Pour accéder à du tableau de bord solution de surveillance à distance, accédez à http :\//localhost:9000 dans votre navigateur.
+Pour accéder au tableau de bord de la solution de supervision à distance, accédez à http:\//localhost:9000 dans votre navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
 

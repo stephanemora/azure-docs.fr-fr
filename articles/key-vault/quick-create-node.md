@@ -2,21 +2,19 @@
 title: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web Node | Microsoft Docs'
 description: Dans ce guide de démarrage rapide, vous définissez et récupérez un secret depuis Azure Key Vault à l’aide d’une application web Node
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
-manager: sumedhb
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
-ms.workload: identity
 ms.topic: quickstart
-ms.date: 09/05/2018
-ms.author: barclayn
+ms.date: 09/03/2010
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 02b9c439a932a4b35700871e68bdad7f03451110
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522302"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003504"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Démarrage rapide : Définir et récupérer un secret à partir d’Azure Key Vault à l’aide d’une application web Node 
 
@@ -26,10 +24,10 @@ Ce démarrage rapide vous montre comment stocker un secret dans Azure Key Vault 
 * Stockage d’un secret dans le coffre de clés.
 * Récupération d’un secret à partir du coffre de clés.
 * Création d’une application web Azure.
-* Activer une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) pour l’application web.
+* Activer une [identité managée](../active-directory/managed-service-identity/overview.md) pour l’application web.
 * Octroi des autorisations requises à l’application web pour lire des données venant du coffre de clés.
 
-Avant de procéder, assurez-vous d’être familiarisé avec les [concepts de base](key-vault-whatis.md#basic-concepts) de Key Vault.
+Avant de procéder, assurez-vous d’être familiarisé avec les [concepts de base](basic-concepts.md) de Key Vault.
 
 > [!NOTE]
 > Key Vault est un référentiel central pour stocker les secrets par programmation. Mais pour cela, les applications et les utilisateurs doivent d’abord s’authentifier sur Key Vault, et donc présenter un secret. Conformément aux bonnes pratiques de sécurité, ce premier secret doit être changé régulièrement. 
@@ -198,5 +196,9 @@ Ensuite, quand vous accédez à `https://<app_name>.azurewebsites.net`, vous pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [SDK Azure pour Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+Dans ce guide de démarrage rapide, vous avez créé un coffre de clés Key Vault et vous y avez stocké un secret. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
+
+- Lire la [vue d’ensemble Azure Key Vault](key-vault-overview.md)
+- Consulter le [Guide du développeur Azure Key Vault](key-vault-developers-guide.md)
+- Découvrir les [clés, secrets et certificats](about-keys-secrets-and-certificates.md)
+- Passer en revue les [bonnes pratiques relatives à Azure Key Vault](key-vault-best-practices.md)

@@ -6,18 +6,18 @@ author: lachie83
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: d6e1cc033416c90e27b5caf4bba310400e55b3a5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: MT
+ms.openlocfilehash: f0975d0a60081b66d3d5a513954deb0c4fa1b978
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312276"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851547"
 ---
 # <a name="http-application-routing"></a>Routage d’applications HTTP
 
-La solution de routage des applications HTTP permet d’accéder facilement aux applications déployées sur votre cluster AKS (Azure Kubernetes Service). Lorsqu’elle est activée, la solution configure un contrôleur d’entrée sur votre cluster AKS. À mesure que les applications sont déployées, la solution crée également des noms DNS accessibles publiquement pour les points de terminaison d’application.
+La solution de routage des applications HTTP permet d’accéder facilement aux applications déployées sur votre cluster AKS (Azure Kubernetes Service). Quand elle est activée, la solution configure un [contrôleur d’entrée](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) sur votre cluster AKS. À mesure que les applications sont déployées, la solution crée également des noms DNS accessibles publiquement pour les points de terminaison d’application.
 
 Lorsque ce module complémentaire est activé, il crée une zone DNS dans votre abonnement. Pour plus d’informations sur les coûts DNS, consultez [Tarification de DNS][dns-pricing].
 
@@ -26,9 +26,9 @@ Lorsque ce module complémentaire est activé, il crée une zone DNS dans votre 
 
 ## <a name="http-routing-solution-overview"></a>Vue d’ensemble de la solution de routage HTTP
 
-Le module complémentaire déploie deux composants : un [contrôleur d’entrée Kubernetes][ingress] et un [contrôleur DNS externe][external-dns].
+Le module complémentaire déploie deux composants : un [contrôleur d’entrée Kubernetes][ingress] et un contrôleur [DNS externe][external-dns].
 
-- **Contrôleur d’entrée** : le contrôleur d’entrée est exposé sur Internet à l’aide d’un service Kubernetes de type LoadBalancer. Le contrôleur d’entrée surveille et implémente des [ressources d’entrée Kubernetes][ingress-resource], ce qui crée des itinéraires vers des points de terminaison d’application.
+- **Contrôleur d’entrée** : le contrôleur d’entrée est exposé sur Internet à l’aide d’un service Kubernetes de type LoadBalancer. Le contrôleur d’entrée surveille et implémente des [ressources d’entrée Kubernetes][ingress-resource], ce qui crée des routes es points de terminaison d’application.
 - **Contrôleur DNS externe** : surveille les ressources d’entrée Kubernetes et crée des enregistrements DNS A dans la zone DNS spécifique au cluster.
 
 ## <a name="deploy-http-routing-cli"></a>Déployer le routage HTTP : Interface de ligne de commande
@@ -209,7 +209,7 @@ Répétez l’étape `kubectl delete` précédente pour toutes les ressources *a
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
-Utilisez la commande [kubectl logs][kubectl-logs] pour afficher les journaux d’activité d’application de l’application DNS externe. Les journaux d’activité doivent confirmer que des enregistrements DNS A et TXT ont bien été créés.
+Utilisez la commande [kubectl logs][kubectl-logs] pour afficher les journaux d’application de l’application DNS externe. Les journaux d’activité doivent confirmer que des enregistrements DNS A et TXT ont bien été créés.
 
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
@@ -222,7 +222,7 @@ Ces enregistrements peuvent également être consultés sur la ressource de zone
 
 ![Obtenir les enregistrements DNS](media/http-routing/clippy.png)
 
-Utilisez la commande [kubectl logs][kubectl-logs] pour afficher les journaux d’activité d’application du contrôleur d’entrée Nginx. Les journaux d’activité doivent confirmer la création (`CREATE`) d’une ressource d’entrée et le rechargement du contrôleur. Toutes les activités HTTP sont journalisées.
+Utilisez la commande [kubectl logs][kubectl-logs] pour afficher les journaux d’application du contrôleur d’entrée Nginx. Les journaux d’activité doivent confirmer la création (`CREATE`) d’une ressource d’entrée et le rechargement du contrôleur. Toutes les activités HTTP sont journalisées.
 
 ```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system

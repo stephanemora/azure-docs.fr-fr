@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ba74961eb549afd2fcf7c10f2d8b981e389a2c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 3fc25cffde264a5c9c9e9627bbf4b72ccda60673
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845087"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290869"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Résolution des erreurs lors de la synchronisation
 Des erreurs peuvent se produire lorsque les données d’identité sont synchronisées à partir de Windows Server Active Directory (AD DS) vers Azure Active Directory (Azure AD). Cet article fournit une vue d’ensemble des différents types d’erreurs de synchronisation, certains des scénarios qui provoquent ces erreurs et les méthodes possibles pour les résoudre. Cet article inclut les types d’erreur courants et peut ne pas couvrir toutes les erreurs possibles.
@@ -72,19 +72,19 @@ Le schéma Azure Active Directory n’autorise de donner à deux objets ou plus 
 
 #### <a name="example-case"></a>Exemple de scénario :
 1. **Bob Smith** est un utilisateur synchronisé dans Azure Active Directory à partir d’un Active Directory local de *contoso.com*
-2. Bob Smith **UserPrincipalName** est défini en tant que **bobs\@contoso.com**.
+2. La valeur **UserPrincipalName** de Bob Smith est définie sur **bobs\@contoso.com**.
 3. **"abcdefghijklmnopqrstuv=="** est l’attribut **SourceAnchor** calculé par Azure AD Connect avec l’attribut **objectGUID** de Bob Smith à partir de l’Active Directory local, qui est **immutableId** pour Bob Smith dans Azure Active Directory.
 4. Robert dispose des valeurs suivantes pour l’attribut **proxyAddresses** :
    * smtp : bobs@contoso.com
    * smtp : bob.smith@contoso.com
-   * **smtp: bob\@contoso.com**
+   * **smtp : bob\@contoso.com**
 5. Un nouvel utilisateur, **Bob Taylor**, est ajouté à l’Active Directory local.
-6. Bob Taylor **UserPrincipalName** est défini en tant que **bobt\@contoso.com**.
+6. La valeur **UserPrincipalName** de Bob Taylor est définie sur **bobt\@contoso.com**.
 7. **"abcdefghijkl0123456789==""** est l’attribut **sourceAnchor** calculé par Azure AD Connect avec l’attribut **objectGUID** de Bob Taylor à partir de l’Active Directory local. L’objet de Bob Taylor n’est PAS encore synchronisé sur Azure Active Directory.
 8. Bob dispose des valeurs suivantes pour l’attribut proxyAddresses
    * smtp : bobt@contoso.com
    * smtp : bob.taylor@contoso.com
-   * **smtp: bob\@contoso.com**
+   * **smtp : bob\@contoso.com**
 9. Lors de la synchronisation, Azure Connect AD reconnaît l’ajout de Bob Taylor dans l’Active Directory local et demande à Azure AD d’apporter la même modification.
 10. Azure AD effectue d’abord la correspondance exacte. Autrement dit, il cherche si des objets avec l’attribut immutableId égal à "abcdefghijkl0123456789==". La correspondance exacte échoue car aucun autre objet dans Azure AD n’a cette valeur d’attribut immutableId.
 11. Azure AD tente alors de chercher Bob Taylor par correspondance souple. Autrement dit, il cherche des objets avec l’attribut proxyAddresses égal aux trois valeurs, notamment smtp : bob@contoso.com
@@ -116,8 +116,8 @@ Azure AD tente d’effectuer une correspondance souple pour deux objets. Il est 
 * Un groupe de sécurité activé pour la messagerie est créé dans Office 365. L’administrateur ajoute un nouvel utilisateur ou un nouveau contact à l’Active Directory local (qui n’est pas encore synchronisé à Azure AD) avec la même valeur pour l’attribut ProxyAddresses que pour le groupe Office 365.
 
 #### <a name="example-case"></a>Exemple de scénario
-1. L’administrateur crée un nouveau groupe de sécurité activé pour la messagerie dans Office 365 pour le service des impôts et fournit une adresse de messagerie en tant que tax@contoso.com. Ce groupe est affecté à la valeur d’attribut ProxyAddresses **smtp : taxe\@contoso.com**
-2. Un nouvel utilisateur rejoint Contoso.com et un compte est créé pour l’utilisateur local avec l’attribut proxyAddress en tant que **smtp : taxe\@contoso.com**
+1. L’administrateur crée un nouveau groupe de sécurité activé pour la messagerie dans Office 365 pour le service des impôts et fournit une adresse de messagerie en tant que tax@contoso.com. Ce groupe est assigné à la valeur d’attribut ProxyAddresses de **smtp : tax\@contoso.com**
+2. Un nouvel utilisateur rejoint Contoso.com et un compte est créé pour l’utilisateur local avec l’attribut proxyAddress en tant que **smtp : tax\@contoso.com**
 3. Lorsqu’Azure AD Connect synchronise le nouveau compte d’utilisateur, il obtient l’erreur « ObjectTypeMismatch ».
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>Procédure de correction des erreurs ObjectTypeMismatch
@@ -143,16 +143,16 @@ Si Azure AD Connect tente d’ajouter un nouvel objet ou de mettre à jour un ob
 
 #### <a name="example-case"></a>Exemple de scénario :
 1. **Bob Smith** est un utilisateur synchronisé dans Azure Active Directory à partir d’un Active Directory local de contoso.com
-2. Bob Smith **UserPrincipalName** en local est défini en tant que **bobs\@contoso.com**.
+2. La valeur **UserPrincipalName** locale de Bob Smith est définie sur **bobs\@contoso.com**.
 3. Robert dispose des valeurs suivantes pour l’attribut **proxyAddresses** :
    * smtp : bobs@contoso.com
    * smtp : bob.smith@contoso.com
-   * **smtp: bob\@contoso.com**
+   * **smtp : bob\@contoso.com**
 4. Un nouvel utilisateur, **Bob Taylor**, est ajouté à l’Active Directory local.
-5. Bob Taylor **UserPrincipalName** est défini en tant que **bobt\@contoso.com**.
+5. La valeur **UserPrincipalName** de Bob Taylor est définie sur **bobt\@contoso.com**.
 6. **Bob Taylor** dispose des valeurs suivantes pour l’attribut **proxyAddresses** i. smtp : bobt@contoso.com ii. smtp : bob.taylor@contoso.com
 7. L’objet de Bob Taylor est synchronisé avec Azure AD avec succès.
-8. L’administrateur a décidé de mettre à jour l’attribut **ProxyAddresses** de Bob Taylor avec la valeur suivante : i. **smtp: bob\@contoso.com**
+8. L’administrateur a décidé de mettre à jour l’attribut **ProxyAddresses** de Bob Taylor avec la valeur suivante : i. **smtp : bob\@contoso.com**
 9. Azure AD tente de mettre à jour l’objet de Bob Taylor dans Azure AD avec la valeur ci-dessus, mais cette opération échoue car cette valeur ProxyAddresses est déjà attribuée à Bob Smith, ce qui provoque une erreur « AttributeValueMustBeUnique ».
 
 #### <a name="how-to-fix-attributevaluemustbeunique-error"></a>Correction des erreurs AttributeValueMustBeUnique
@@ -195,7 +195,7 @@ Pour un utilisateur synchronisé, le suffixe UserPrincipalName a été modifié 
 4. L’attribut UserPrincipalName n’est pas mis à jour et cause une erreur de synchronisation « FederatedDomainChangeError ».
 
 #### <a name="how-to-fix"></a>Procédure de résolution
-Si le suffixe d’attribut UserPrincipalName d’un utilisateur a été mis à jour à partir de bob @**contoso.com** à bob\@**fabrikam.com**, où les deux **contoso.com** et  **Fabrikam.com** sont **domaines fédérés**, puis procédez comme suit pour résoudre l’erreur de synchronisation
+Si le suffixe UserPrincipalName d’un utilisateur a été mis à jour en remplaçant bob@**contoso.com** par bob\@**fabrikam.com**, où **contoso.com** et **fabrikam.com** sont des **domaines fédérés**, procédez comme suit pour corriger l’erreur de synchronisation
 
 1. Replacez le UserPrincipalName de l’utilisateur dans Azure AD bob@contoso.com par bob@contoso.onmicrosoft.com. Vous pouvez utiliser la commande PowerShell suivante avec le Module Azure AD PowerShell : `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Permettez au cycle de synchronisation suivant de tenter de synchronisation. Cette fois la synchronisation sera réussie et mettra à jour l’attribut UserPrincipalName de Bob sur bob@fabrikam.com, comme prévu.
@@ -237,9 +237,10 @@ Azure AD Connect n’est pas autorisé à établir une correspondance souple à 
 ### <a name="how-to-fix"></a>Procédure de résolution
 Pour corriger ce problème, effectuez l’une des opérations suivantes :
 
-
-- changez le UserPrincipalName en spécifiant une valeur qui ne correspond pas à celle d’un utilisateur administrateur dans Azure AD, ce qui créera un nouvel utilisateur dans Azure AD avec le UserPrincipalName correspondant
-- supprimez le rôle administratif de l’utilisateur administrateur dans Azure AD, ce qui permettra la correspondance souple entre l’objet utilisateur local et l’objet utilisateur Azure AD existant.
+ - Supprimez le compte Azure AD (propriétaire) de tous les rôles d’administrateur. 
+ - **Supprimez définitivement** l’objet mis en quarantaine dans le cloud. 
+ - Le prochain cycle de synchronisation s’occupe de la mise en correspondance logicielle de l’utilisateur local avec le compte cloud (dans la mesure où l’utilisateur cloud n’est plus administrateur général). 
+ - Restaurez les appartenances aux rôles pour le propriétaire. 
 
 >[!NOTE]
 >Vous pouvez réaffecter le rôle administratif à l’objet utilisateur existant une fois la correspondance souple entre l’objet utilisateur local et l’objet utilisateur Azure AD effectuée.

@@ -1,20 +1,18 @@
 ---
 title: Utiliser des workflows Hadoop Oozie dans Azure HDInsight basé sur Linux
 description: Utilisation de Hadoop Oozie dans HDInsight basé sur Linux. Découvrez comment définir un workflow Oozie et envoyer un travail Oozie.
-services: hdinsight
-ms.service: hdinsight
-ms.custom: hdinsightactive
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: daee7ddd0a09d43132bbcf0f4553601846d31433
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.date: 05/06/2019
+ms.openlocfilehash: b0cb5f9fa0a0bc64b38225fba03568cf31021572
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448239"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181092"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur Azure HDInsight Linux
 
@@ -28,32 +26,26 @@ Découvrez comment utiliser Apache Oozie avec Apache Hadoop sur Azure HDInsight.
 Vous pouvez également utiliser Oozie pour planifier des travaux propres à un système, comme des programmes Java ou des scripts de l’interpréteur de commandes.
 
 > [!NOTE]  
-> Une autre option pour définir des workflows avec HDInsight consiste à utiliser Azure Data Factory. Pour plus d’informations sur Data Factory, consultez [Utiliser Apache Pig et Apache Hive avec Data Factory][azure-data-factory-pig-hive]. Pour utiliser Oozie sur les clusters avec le Pack Sécurité Entreprise, consultez la section [Exécuter Apache Oozie dans des clusters HDInsight Hadoop avec le Pack Sécurité Entreprise](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
+> Une autre option pour définir des workflows avec HDInsight consiste à utiliser Azure Data Factory. Pour plus d’informations sur Data Factory, consultez [Utiliser Apache Pig et Apache Hive avec Data Factory][azure-data-factory-pig-hive]. Pour utiliser Oozie sur les clusters avec le Pack Sécurité Entreprise, consultez la section [Exécuter Apache Oozie dans des clusters HDInsight Hadoop avec le Pack Sécurité Entreprise](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* **Un cluster Hadoop sur HDInsight**. Consultez [prise en main HDInsight sous Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Un cluster Hadoop sur HDInsight**. Consultez [Bien démarrer avec HDInsight sur Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Un client SSH**. Consultez [se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un client SSH**. Consultez [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md) (Se connecter à HDInsight (Apache Hadoop) avec SSH).
 
-* **Une base de données SQL Azure**.  Consultez [créer une base de données SQL Azure dans le portail Azure](../sql-database/sql-database-get-started.md).  Cet article utilise une base de données nommée `oozietest`.
+* **Une base de données Azure SQL**.  Consultez [Démarrage rapide : Créer et interroger une base de données unique dans Azure SQL Database à l’aide du portail Azure](../sql-database/sql-database-get-started.md).  Cet article utilise une base de données nommée `oozietest`.
 
-* **Changement possible pour la configuration du stockage.**  Consultez [configuration du stockage](#storage-configuration) si vous utilisez le type de compte de stockage `BlobStorage`.
-
-## <a name="storage-configuration"></a>Configuration du stockage
-Aucune action n’est requise si le compte de stockage utilisé est du genre `Storage (general purpose v1)` ou `StorageV2 (general purpose v2)`.  Le processus dans l’article produira la sortie vers au moins `/mapreducestaging`.  Une configuration de hadoop par défaut contiendra `/mapreducestaging` dans le `fs.azure.page.blob.dir` variable de configuration dans `core-site.xml` pour service `HDFS`.  Cette configuration entraîne la sortie vers le répertoire d’objets BLOB de pages, qui n’est pas pris en charge pour le type de compte de stockage `BlobStorage`.  Pour utiliser `BlobStorage` pour cet article, vous devez supprimer `/mapreducestaging` à partir de la `fs.azure.page.blob.dir` variable de configuration.  La configuration est accessible à partir de la [Ambari UI](hdinsight-hadoop-manage-ambari.md).  Sinon, vous recevrez le message d’erreur : `Page blob is not supported for this account type.`
-
-> [!NOTE]  
-> Le compte de stockage utilisé dans cet article a [transfert sécurisé](../storage/common/storage-require-secure-transfer.md) activé et par conséquent `wasbs` plutôt que `wasb` est utilisée tout au long de l’article.
+* Le [schéma d’URI](./hdinsight-hadoop-linux-information.md#URI-and-scheme) pour votre stockage principal de clusters. Il s’agirait de `wasb://` pour Stockage Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de `adl://` pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Azure, l’URI sera `wasbs://`. Voir aussi [transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="example-workflow"></a>Exemple de flux de travail
 
 Le workflow utilisé dans ce document comporte deux actions. Les actions sont des définitions de tâches, telles que l’exécution de Hive, Sqoop, MapReduce ou d’autres processus :
 
-![Diagramme du workflow][img-workflow-diagram]
+![Diagramme du workflow HDInsight Oozie](./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png)
 
-1. Une action Hive exécute un script HiveQL pour extraire des enregistrements à partir de la `hivesampletable` incluse avec HDInsight. Chaque ligne de données décrit un accès depuis un appareil mobile spécifique. Le format d’enregistrement ressemble à ce qui suit :
+1. Une action Hive exécute un script HiveQL pour extraire des enregistrements à partir de `hivesampletable`, élément inclus avec HDInsight. Chaque ligne de données décrit un accès depuis un appareil mobile spécifique. Le format d’enregistrement ressemble à ce qui suit :
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
@@ -61,18 +53,18 @@ Le workflow utilisé dans ce document comporte deux actions. Les actions sont de
 
     Le script Hive utilisé dans ce document comptabilise le nombre total d’accès pour chaque plateforme (par exemple, Android ou iPhone) et stocke ces nombres dans une nouvelle table Hive.
 
-    Pour plus d’informations sur Hive, consultez [Utiliser Apache Hive avec HDInsight][hdinsight-use-hive].
+    Pour obtenir plus d’informations sur Hive, consultez [Utiliser Apache Hive avec HDInsight][hdinsight-use-hive].
 
 2. Une action Sqoop exporte le contenu de la nouvelle table Hive vers une table créée dans Azure SQL Database. Pour plus d’informations sur Sqoop, consultez [Utiliser Apache Sqoop avec HDInsight][hdinsight-use-sqoop].
 
 > [!NOTE]  
-> Pour obtenir la liste des versions Oozie prises en charge sur les clusters HDInsight, voir [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions].
+> Pour obtenir la liste des versions Oozie prises en charge sur les clusters HDInsight, consultez [Nouveautés des versions de cluster Hadoop fournies par HDInsight][hdinsight-versions].
 
 ## <a name="create-the-working-directory"></a>Création du répertoire de travail
 
 Oozie s’attend à ce que vous stockiez toutes les ressources requises pour un travail dans le même répertoire. Cet exemple utilise `wasbs:///tutorials/useoozie`. Pour créer ce répertoire, suivez les étapes ci-dessous :
 
-1. Modifier le code ci-dessous pour remplacer `sshuser` avec SSH utilisateur nom pour le cluster, puis remplacez `clustername` avec le nom du cluster.  Entrez le code pour se connecter au cluster HDInsight par [à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  
+1. Modifiez le code ci-dessous pour remplacer `sshuser` par le nom d’utilisateur SSH du cluster, puis remplacez `clustername` par le nom du cluster.  Entrez ensuite le code pour vous connecter au cluster HDInsight [à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  
 
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
@@ -85,9 +77,9 @@ Oozie s’attend à ce que vous stockiez toutes les ressources requises pour un 
     ```
 
     > [!NOTE]  
-    > Le paramètre `-p` a provoqué la création de tous les répertoires dans le chemin d’accès. Le `data` directory est utilisé pour contenir les données utilisées par le `useooziewf.hql` script.
+    > Le paramètre `-p` a provoqué la création de tous les répertoires dans le chemin d’accès. Le répertoire `data` est utilisé pour contenir les données utilisées par le script `useooziewf.hql`.
 
-3. Modifier le code ci-dessous pour remplacer `username` avec votre nom d’utilisateur SSH.  Pour vous assurer qu’Oozie peut emprunter l’identité de votre compte d’utilisateur, utilisez la commande suivante :
+3. Modifiez le code ci-dessous pour remplacer `username` par votre nom d’utilisateur SSH.  Pour vous assurer qu’Oozie peut emprunter l’identité de votre compte d’utilisateur, utilisez la commande suivante :
 
     ```bash
     sudo adduser username users
@@ -105,7 +97,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozi
 ```
 
 > [!IMPORTANT]  
-> Vérifiez que le pilote JDBC réels qui existe à `/usr/share/java/`.
+> Vérifiez le pilote JDBC réel qui se trouve dans `/usr/share/java/`.
 
 Si votre workflow utilisait d’autres ressources, par exemple un fichier jar contenant une application MapReduce, vous devez également les ajouter.
 
@@ -134,11 +126,11 @@ Suivez les étapes ci-après pour créer un script de langage de requête Hive (
 
    * `${hiveDataFolder}`: contient l’emplacement où stocker les fichiers de données pour la table.
 
-     Le fichier de définition du workflow (workflow.xml dans ce didacticiel) transmet ces valeurs à ce script HiveQL au moment de l’exécution.
+     Le fichier de définition du workflow (workflow.xml dans cet article) transmet ces valeurs à ce script HiveQL au moment de l’exécution.
 
 4. Pour enregistrer le fichier, sélectionnez Ctrl + X, entrez `Y`, puis sélectionnez **Entrée**.  
 
-5. Utilisez la commande suivante pour copier `useooziewf.hql` à `wasbs:///tutorials/useoozie/useooziewf.hql`:
+5. Exécutez la commande suivante pour copier `useooziewf.hql` vers `wasbs:///tutorials/useoozie/useooziewf.hql` :
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -232,7 +224,7 @@ Les définitions de workflow Oozie sont écrites en langage de définition de pr
 ## <a name="create-a-table"></a>Création d’une table
 
 > [!NOTE]  
-> Il existe de nombreuses façons de se connecter à la base de données SQL pour créer une table. Les étapes suivantes utilisent [FreeTDS](http://www.freetds.org/) à partir du cluster HDInsight.
+> Il existe de nombreuses façons de se connecter à la base de données SQL pour créer une table. Les étapes suivantes utilisent [FreeTDS](https://www.freetds.org/) à partir du cluster HDInsight.
 
 1. Utilisez la commande suivante pour installer FreeTDS sur le cluster HDInsight :
 
@@ -240,7 +232,7 @@ Les définitions de workflow Oozie sont écrites en langage de définition de pr
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Modifier le code ci-dessous pour remplacer `<serverName>` avec votre nom de serveur SQL Azure et `<sqlLogin>` avec la connexion de serveur SQL Azure.  Entrez la commande pour vous connecter à la configuration requise de la base de données SQL.  Entrez le mot de passe à l’invite.
+2. Modifiez le code ci-dessous pour remplacer `<serverName>` par votre nom de serveur Azure SQL et `<sqlLogin>` par l’identifiant du serveur Azure SQL.  Entrez la commande pour vous connecter à la base de données SQL mentionnée dans les prérequis.  Entrez le mot de passe à l’invite.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -265,7 +257,7 @@ Les définitions de workflow Oozie sont écrites en langage de définition de pr
     GO
     ```
 
-    Une fois l’instruction `GO` entrée, les instructions précédentes sont évaluées. Ces instructions créent une table nommée `mobiledata`, qui est utilisé par le flux de travail.
+    Une fois l’instruction `GO` entrée, les instructions précédentes sont évaluées. Ces instructions créent une table nommée `mobiledata` qui est utilisée par le workflow.
 
     Pour vérifier que la table a été créée, utilisez les commandes suivantes :
 
@@ -279,7 +271,7 @@ Les définitions de workflow Oozie sont écrites en langage de définition de pr
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
         oozietest       dbo             mobiledata      BASE TABLE
 
-4. Quittez l’utilitaire tsql en entrant `exit` à la `1>` invite.
+4. Quittez l’utilitaire tsql en entrant `exit` à l’invite `1>`.
 
 ## <a name="create-the-job-definition"></a>Création de la définition de travail
 
@@ -303,15 +295,15 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
 
     Enregistrez le contenu de l’élément `<value>`, car il est utilisé dans les prochaines étapes.
 
-2. Modifiez le fichier xml ci-dessous comme suit :
+2. Modifiez le fichier xml ci-dessous comme suit :
 
     |Valeur d’espace réservé| Valeur remplacée|
     |---|---|
-    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Valeur reçue de l’étape 1.|
-    |admin| Votre nom de connexion pour le cluster de HDInsight si ce n’est pas administrateur.|
-    |serverName| Nom du serveur de base de données SQL Azure.|
-    |sqlLogin| Connexion au serveur de base de données SQL Azure.|
-    |sqlPassword| Azure SQL database server connexion mot de passe.|
+    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Valeur obtenue à l’étape 1.|
+    |admin| Votre ID de connexion pour le cluster HDInsight si vous n’êtes pas administrateur.|
+    |serverName| Nom du serveur de base de données Azure SQL.|
+    |sqlLogin| Identifiant du serveur de base de données Azure SQL.|
+    |sqlPassword| Mot de passe de connexion du serveur de base de données Azure SQL.|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -382,7 +374,7 @@ La définition du travail indique où se trouve le fichier workflow.xml. Elle in
     nano job.xml
     ```
 
-4. Une fois que l’éditeur nano s’ouvre, collez le code XML modifié en tant que le contenu du fichier.
+4. Une fois que l’éditeur nano est ouvert, collez le code XML modifié en tant que contenu du fichier.
 
 5. Pour enregistrer le fichier, sélectionnez Ctrl + X, entrez `Y`, puis sélectionnez **Entrée**.
 
@@ -408,7 +400,7 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 
     La partie `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` correspond à l’URL à utiliser avec la commande Oozie.
 
-2. Modifier le code pour remplacer l’URL par celle reçue précédemment. Pour créer une variable d’environnement pour l’URL, utilisez l’élément suivant afin de ne pas être obligé de le taper pour chaque commande :
+2. Modifiez le code pour remplacer l’URL par celle obtenue précédemment. Pour créer une variable d’environnement pour l’URL, utilisez l’élément suivant afin de ne pas être obligé de le taper pour chaque commande :
 
     ```bash
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
@@ -424,7 +416,7 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 
     Une fois la commande terminée, elle renvoie l’ID du travail (par exemple, `0000005-150622124850154-oozie-oozi-W`). Cet ID est utilisé pour gérer le travail.
 
-4. Modifier le code ci-dessous pour remplacer `<JOBID>` par l’ID renvoyé à l’étape précédente.  Pour vérifier le statut du travail, utilisez la commande suivante :
+4. Modifiez le code ci-dessous pour remplacer `<JOBID>` par l’ID renvoyé à l’étape précédente.  Pour vérifier le statut du travail, utilisez la commande suivante :
 
     ```bash
     oozie job -info <JOBID>
@@ -449,15 +441,15 @@ Les étapes suivantes utilisent la commande Oozie pour soumettre et gérer des f
 
     Ce travail a le statut `PREP`, Cet état indique que le travail a été créé, mais qu’il n’a pas commencé.
 
-5. Modifier le code ci-dessous pour remplacer `<JOBID>` avec l’ID renvoyé précédemment.  Pour démarrer le travail, utilisez la commande suivante :
+5. Modifiez le code ci-dessous pour remplacer `<JOBID>` par l’ID renvoyé précédemment.  Pour démarrer le travail, utilisez la commande suivante :
 
     ```bash
-    oozie job -start JOBID
+    oozie job -start <JOBID>
     ```
 
-    Si vous vérifiez l’état après cette commande, il sera en cours d’exécution et des informations pour les actions au sein du travail seront renvoyées.  Le travail prendra quelques minutes pour terminer.
+    Si vous vérifiez l’état après cette commande, il sera en cours d’exécution et des informations pour les actions au sein du travail seront renvoyées.  L’exécution de ce travail nécessite quelques minutes.
 
-6. Modifier le code ci-dessous pour remplacer `<serverName>` avec votre nom de serveur SQL Azure et `<sqlLogin>` avec la connexion de serveur SQL Azure.  Une fois que la tâche se termine avec succès, vous pouvez vérifier que les données a été générées et exportées vers la table de base de données SQL à l’aide de la commande suivante.  Entrez le mot de passe à l’invite.
+6. Modifiez le code ci-dessous pour remplacer `<serverName>` par votre nom de serveur Azure SQL et `<sqlLogin>` par l’identifiant du serveur Azure SQL.  Une fois la tâche terminée correctement, vous pouvez vérifier que les données ont été générées et exportées vers la table de base de données SQL en utilisant la commande suivante.  Entrez le mot de passe à l’invite.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
@@ -489,7 +481,7 @@ L’API REST Oozie vous permet de créer vos propres outils fonctionnant avec Oo
 
 * **URI** : vous pouvez accéder à l’API REST depuis l’extérieur du cluster à l’adresse `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Authentification** : pour l’authentification, utilisez l’API, le compte HTTP (admin) et le mot de passe du cluster. Par exemple : 
+* **Authentification** : pour l’authentification, utilisez l’API, le compte HTTP (admin) et le mot de passe du cluster. Par exemple :
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -513,33 +505,33 @@ Pour accéder à l’interface utilisateur web Oozie, procédez comme suit :
 
 1. Créez un tunnel SSH vers le cluster HDInsight. Pour plus d’informations, consultez [Utilisation du tunneling SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Une fois que vous créez un tunnel, ouvrez l’interface utilisateur web d’Ambari dans votre navigateur web à l’aide d’URI `http://headnodehost:8080`.
+2. Une fois qu’un tunnel a été créé, ouvrez l’interface utilisateur web Ambari dans votre navigateur web à l’aide de l’URI `http://headnodehost:8080`.
 
 3. Sur le côté gauche de la page, sélectionnez **Oozie** > **Liens rapides** > **Interface utilisateur web Oozie**.
 
-    ![Image des menus](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
+    ![Étapes dans l’interface utilisateur web d’Apache Ambari Oozie](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
 4. L’interface utilisateur web Oozie affiche par défaut les travaux du workflow en cours d’exécution. Pour voir tous les travaux du workflow, sélectionnez **Tous les travaux**.
 
-    ![Tous les travaux affichés](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
+    ![Travaux du workflow de la console web Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
 5. Pour afficher plus d’informations sur un travail, sélectionnez le travail.
 
-    ![Job Info](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
+    ![Informations sur un travail HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
 6. Sous l’onglet **Infos travail**, vous pouvez voir les informations de base sur le travail, ainsi que les actions individuelles au sein du travail. Vous pouvez utiliser les onglets en haut de la page pour afficher la **définition du travail**, la **configuration du travail**, accéder au **journal du travail** ou afficher un graphe orienté acyclique (DAG) du travail sous **Job DAG** (DAG du travail).
 
    * **Journal de la tâche** : Cliquez sur le bouton **Obtenir les journaux d’activité** pour obtenir tous les journaux d’activité de la tâche, ou utilisez le champ **Entrer un filtre de recherche** pour filtrer les journaux d’activité.
 
-       ![Journal du travail](./media/hdinsight-use-oozie-linux-mac/joblog.png)
+       ![Journal des travaux HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
    * **DAG de la tâche** : le graphique orienté acyclique est une représentation graphique des chemins de données utilisés à travers le workflow.
 
-       ![Graphique non cyclique dirigé du travail](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
+       ![DAG des travaux HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. Si vous sélectionnez l’une des actions sous l’onglet **Infos travail**, des informations sur l’action s’affichent. Par exemple, sélectionnez l’action **RunSqoopExport**.
 
-    ![Informations sur l’action](./media/hdinsight-use-oozie-linux-mac/action.png)
+    ![Informations sur les actions de travaux HDInsight Oozie](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
 8. Vous pouvez voir les détails de l’action, notamment un lien vers **l’URL de la console** Utilisez ce lien pour afficher les informations de suivi pour le travail.
 
@@ -582,7 +574,7 @@ Vous pouvez utiliser le coordinateur pour spécifier un début, une fin et la fr
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. Pour modifier le `job.xml` fichier que vous avez créé précédemment, utilisez la commande suivante :
+4. Pour modifier le fichier `job.xml` créé précédemment, utilisez la commande suivante :
 
     ```bash
     nano job.xml
@@ -627,11 +619,11 @@ Vous pouvez utiliser le coordinateur pour spécifier un début, une fin et la fr
         </property>
         ```
 
-       Ces valeurs définissent l’heure de début sur 12 h 00 le 10 mai 2018 et l’heure de fin pour le 12 mai 2018. L’intervalle d’exécution de ce travail est défini sur quotidien. La fréquence est exprimée en minutes, par conséquent, 24 heures x 60 minutes = 1 440 minutes. Enfin, le fuseau horaire est défini sur UTC.
+       Ces valeurs définissent le début sur 12 h 00 le 10 mai 2018 et la fin sur le 12 mai 2018. L’intervalle d’exécution de ce travail est défini sur quotidien. La fréquence est exprimée en minutes, par conséquent, 24 heures x 60 minutes = 1 440 minutes. Enfin, le fuseau horaire est défini sur UTC.
 
 5. Pour enregistrer le fichier, sélectionnez Ctrl + X, entrez `Y`, puis sélectionnez **Entrée**.
 
-6. Pour soumettre et démarrer le travail, utilisez la commande suivante :
+6. Pour envoyer et démarrer le travail, utilisez la commande suivante :
 
     ```bash
     oozie job -config job.xml -run
@@ -639,18 +631,18 @@ Vous pouvez utiliser le coordinateur pour spécifier un début, une fin et la fr
 
 7. Si vous accédez à l’interface utilisateur web Oozie et sélectionnez l’onglet **Travaux du coordinateur**, vous obtenez des informations semblables à l’image suivante :
 
-    ![Onglet Travaux du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
+    ![Onglet Travaux du coordinateur dans la console web Oozie](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
     L’entrée **Next Materialization** (Matérialisation suivante) indique l’heure de la prochaine exécution du travail.
 
 8. De même que pour le travail de workflow précédent, si vous sélectionnez l’entrée du travail dans l’interface utilisateur web, des informations sur le travail s’affichent :
 
-    ![Informations sur le travail du coordinateur](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
+    ![Informations sur les travaux du coordinateur Apache Oozie](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
     > [!NOTE]  
     > L’image affiche uniquement les exécutions réussies du travail, et non les actions individuelles dans le workflow planifié. Pour afficher les actions individuelles, sélectionnez l’une des entrées **Action**.
 
-    ![Informations sur l’action](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
+    ![Onglet Infos travail dans la console web OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -674,7 +666,7 @@ Voici des erreurs spécifiques que vous pouvez rencontrer avec une description d
 
 **Résolution** : changez les adresses de Stockage Blob utilisées par la tâche.
 
-### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002 : Oozie n’est pas autorisé à emprunter l’identité &lt;utilisateur&gt;
+### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltusergt"></a>JA002 : Oozie ne peut pas emprunter l’identité &lt;USER&gt;
 
 **Symptômes** : l’état de la tâche passe à **SUSPENDED** (Suspendu). Les détails du travail montrent que l’état de `RunHiveScript` est défini sur **START_MANUAL**. Lorsque vous sélectionnez l’action, le message d’erreur suivant s’affiche :
 
@@ -715,7 +707,7 @@ Par exemple, pour le travail de ce document, vous utiliseriez les étapes suivan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie et comment exécuter un travail Oozie. Pour en savoir plus sur l’utilisation de HDInsight, consultez les articles suivants :
+Dans cet article, vous avez appris comment définir un workflow Oozie et comment exécuter un travail Oozie. Pour en savoir plus sur l’utilisation de HDInsight, consultez les articles suivants :
 
 * [Charger des données pour des travaux Apache Hadoop dans HDInsight][hdinsight-upload-data]
 * [Utiliser Apache Sqoop avec Apache Hadoop dans HDInsight][hdinsight-use-sqoop]
@@ -754,7 +746,6 @@ Dans ce didacticiel, vous avez appris comment définir un flux de travail Oozie 
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Workflow.Diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 

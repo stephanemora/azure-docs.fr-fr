@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: reference
-ms.date: 10/05/2018
+ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 101c985178b8269b4ff542b94b057330d0c2652a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0199d8f0c4a76a10fffcab7cf2819643d0ac2d68
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496059"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075359"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Fonctionnalités Application Insights prises en charge pour Azure Functions
 
@@ -30,27 +30,27 @@ Azure Functions offre une [intégration prédéfinie](https://docs.microsoft.com
 | **Kit SDK .NET d’Application Insights**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **Collecte automatique de**        |                 |                   |               
-| &bull; Requêtes                     | Oui             | Oui               | 
-| &bull; Exceptions                   | Oui             | Oui               | 
-| &bull; Compteurs de performances         | Oui             | Oui               |
+| &bull; Requêtes                     | OUI             | OUI               | 
+| &bull; Exceptions                   | OUI             | OUI               | 
+| &bull; Compteurs de performances         | OUI             | OUI               |
 | &bull; Dépendances                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Oui               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Oui               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Oui               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Oui               | 
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | OUI               | 
+| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | OUI               | 
+| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | OUI               | 
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | OUI               | 
 | | | | 
 | **Fonctionnalités prises en charge**                |                   |                   |               
-| &bull; Pulsation rapide/Métriques temps réel       | Oui             | Oui               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Canal de contrôle sécurisé|                 | Oui               | 
-| &bull; Échantillonnage                     | Oui             | Oui               | 
-| &bull; Pulsations                   |                 | Oui               | 
+| &bull; Pulsation rapide/Métriques temps réel       | OUI             | OUI               | 
+| &nbsp;&nbsp;&nbsp;&mdash; Canal de contrôle sécurisé|                 | OUI               | 
+| &bull; Échantillonnage                     | OUI             | OUI               | 
+| &bull; Pulsations                   |                 | OUI               | 
 | | | | 
 | **Corrélation**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | Oui               | 
-| &bull; EventHub                       |                   | Oui               | 
+| &bull; ServiceBus                     |                   | OUI               | 
+| &bull; EventHub                       |                   | OUI               | 
 | | | | 
 | **Configurable**                      |                   |                   |           
-| &bull; Entièrement configurable.<br/>Consultez [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) pour obtenir des instructions.<br/>Consultez [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) pour connaître toutes les options.               |                   | Oui                   | 
+| &bull; Entièrement configurable.<br/>Consultez [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) pour obtenir des instructions.<br/>Consultez [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) pour connaître toutes les options.               |                   | OUI                   | 
 
 
 ## <a name="performance-counters"></a>Compteurs de performance
@@ -66,9 +66,9 @@ Les critères de filtres personnalisés que vous spécifiez sont renvoyés au co
 
 Azure Functions permet l’échantillonnage par défaut dans sa configuration. Pour plus d’informations, consultez [Configurer l’échantillonnage](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
 
-Si votre projet ait une dépendance sur le SDK Application Insights pour effectuer la télémétrie manuelle de suivi, vous pouvez rencontrer un comportement étrange si votre configuration d’échantillonnage est différente de la configuration d’échantillonnage des fonctions. 
+Si votre projet prend une dépendance sur le kit de développement logiciel (SDK) Application Insights pour effectuer un suivi télémétrique manuel, vous constaterez peut-être un comportement inhabituel en présence d'une configuration d’échantillonnage différente de la configuration d’échantillonnage de Functions. 
 
-Nous vous recommandons d’utiliser la même configuration en tant que fonctions. Avec **fonctions v2**, vous pouvez obtenir la même configuration à l’aide de l’injection de dépendances dans votre constructeur :
+Nous vous recommandons d’utiliser la même configuration que Functions. Avec **Functions v2**, vous pouvez obtenir la même configuration à l’aide de l’injection de dépendances dans votre constructeur :
 
 ```csharp
 using Microsoft.ApplicationInsights;

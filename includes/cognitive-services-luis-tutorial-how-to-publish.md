@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 08/17/2018
 ms.author: diberry
 ms.openlocfilehash: a65b075e89180441eecfb420130bfd1e47b277a5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740746"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177370"
 ---
 Pour recevoir une prédiction LUIS dans un chatbot ou une autre application cliente, vous devez publier l’application sur le point de terminaison. 
 

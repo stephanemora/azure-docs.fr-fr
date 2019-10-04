@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 542505c5a6c3af91669ebe28287ae6e1477e214d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: f74f9ba55f3593ed31994b83bb9bda1501445e0a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487174"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100664"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurer un groupe de disponibilité AlwaysOn sur des machines virtuelles Azure dans des emplacements différents
 
@@ -145,7 +144,7 @@ Le réplica dans le centre de données distant fait partie du groupe de disponib
 
 Idéalement, mettez à jour les chaînes de connexion au client pour qu’elles indiquent `MultiSubnetFailover=Yes`. Consultez [Connexion à MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-Si vous ne pouvez pas modifier les chaînes de connexion, vous pouvez configurer la mise en cache de la résolution des noms. Consultez [Connection Timeouts in Multi-subnet Availability Group (Délais d’expiration de la connexion dans le groupe de disponibilité de plusieurs sous-réseaux)](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
+Si vous ne pouvez pas modifier les chaînes de connexion, vous pouvez configurer la mise en cache de la résolution des noms. Consultez [Erreur de délai d’attente et vous ne pouvez pas vous connecter à un écouteur de groupe de disponibilité AlwaysOn SQL Server 2012 dans un environnement à plusieurs sous-réseaux](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
 ## <a name="fail-over-to-remote-region"></a>Basculer vers la région distante
 
@@ -158,14 +157,14 @@ Pour tester la connectivité de l’écouteur à la région distante, vous pouve
 1. Cliquez sur OK.
 1. Dans l’**Explorateur d’objets**, cliquez sur le groupe de disponibilité puis sur **Afficher le tableau de bord**.
 1. Dans le tableau de bord, vérifiez que le réplica sur le site de récupération d’urgence est synchronisé.
-1. Dans l’**Explorateur d’objets**, cliquez sur le groupe de disponibilité puis sur **Basculer...**. SQL Server Management Studio ouvre un assistant pour effectuer le basculement vers SQL Server.  
+1. Dans l’**Explorateur d’objets**, cliquez sur le groupe de disponibilité puis sur **Basculer...** . SQL Server Management Studio ouvre un assistant pour effectuer le basculement vers SQL Server.  
 1. Cliquez sur **Suivant** et sélectionnez l’instance de SQL Server sur le site de récupération d’urgence. Cliquez à nouveau sur **Suivant** .
 1. Connectez-vous à l’instance de SQL Server sur le site de récupération d’urgence et cliquez sur **Suivant**.
 1. Dans la page **Synthèse**, vérifiez les paramètres et cliquez sur **Terminer**.
 
 Après avoir testé la connectivité, replacez le réplica principal dans votre centre de données principal et rétablissez les paramètres de fonctionnement normaux du mode de disponibilité. Le tableau suivant présente les paramètres de fonctionnement normaux de l’architecture décrite dans ce document :
 
-| Lieu | Instance de serveur | Rôle | Mode de disponibilité | Mode de basculement
+| Location | Instance de serveur | Role | Mode de disponibilité | Mode de basculement
 | ----- | ----- | ----- | ----- | -----
 | Centre de données principal | SQL-1 | Primaire | Synchrone | Automatique
 | Centre de données principal | SQL-2 | Secondaire | Synchrone | Automatique

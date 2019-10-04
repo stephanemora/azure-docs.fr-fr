@@ -1,23 +1,23 @@
 ---
 title: Configurer un nom de domaine personnalisé pour votre compte de Stockage Azure | Microsoft Docs
 description: Utilisez le portail Azure pour mapper votre propre nom canonique (CNAME) au point de terminaison de stockage Blob ou web dans un compte de stockage Azure.
-services: storage
-author: tamram
+author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 2359befc05bff867a8f8b17943ed67d906ff4971
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112634"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534347"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurer un nom de domaine personnalisé pour votre compte de Stockage Azure
 
-Vous pouvez configurer un domaine personnalisé pour accéder à des données d’objets blob dans votre compte de stockage Azure. Le point de terminaison par défaut pour le stockage d’objets blob Azure est *\<storage-account-name >. blob.core.windows.net*. Vous pouvez également utiliser le point de terminaison web généré dans le cadre de la [fonctionnalité de sites web statiques (préversion)](storage-blob-static-website.md). Si vous mappez un domaine personnalisé et un sous-domaine, tel que *www\.contoso.com*, au point de terminaison blob ou web pour votre compte de stockage, vos utilisateurs peuvent utiliser ce domaine pour accéder aux données de blob dans votre compte de stockage.
+Vous pouvez configurer un domaine personnalisé pour accéder à des données d’objets blob dans votre compte de stockage Azure. Le point de terminaison par défaut pour le stockage d’objets blob Azure est *\<storage-account-name >. blob.core.windows.net*. Vous pouvez également utiliser le point de terminaison web généré dans le cadre de la [fonctionnalité de sites web statiques](storage-blob-static-website.md). Si vous mappez un domaine personnalisé et un sous-domaine comme *www\.contoso.com* au point de terminaison web ou à l’objet blob de votre compte de stockage, vos utilisateurs peuvent accéder aux données blob de votre compte de stockage à l’aide de ce domaine.
 
 > [!IMPORTANT]
 > Stockage Azure ne prend pas encore en charge HTTPS nativement avec des domaines personnalisés. Vous pouvez [utiliser Azure CDN pour accéder aux objets blob à l’aide des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md).
@@ -27,29 +27,29 @@ Vous pouvez configurer un domaine personnalisé pour accéder à des données d�
 > Les comptes de stockage prennent actuellement en charge un seul nom de domaine personnalisé par compte. Vous ne pouvez pas mapper un nom de domaine personnalisé aux points de terminaison de service web et d’objet blob.
 > 
 > [!NOTE]
-> Le mappage fonctionne uniquement pour les sous-domaines (par exemple, www\.contoso.com). Si vous souhaitez avoir votre point de terminaison web disponible sur le domaine racine (par exemple, contoso.com), vous devez ensuite [utiliser Azure CDN avec des domaines personnalisés](storage-https-custom-domain-cdn.md)
+> Le mappage fonctionne uniquement pour les sous-domaines (par exemple, www\.contoso.com). Si vous souhaitez que votre point de terminaison web soit disponible sur le domaine racine (par exemple, contoso.com), vous devez [ajouter un domaine personnalisé à votre point de terminaison Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
-Le tableau suivant contient des exemples d’URL pour les données de l’objet blob situées dans un compte de stockage nommé *mystorageaccount*. Le sous-domaine personnalisé qui est inscrit pour le compte de stockage est *www\.contoso.com*:
+Le tableau suivant contient des exemples d’URL pour les données de l’objet blob situées dans un compte de stockage nommé *mystorageaccount*. Le sous-domaine personnalisé enregistré pour le compte de stockage est *www\.contoso.com*:
 
 | Type de ressource | URL par défaut | URL du domaine personnalisé |
 | --- | --- | --- |
-| Compte de stockage | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
-| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Conteneur racine | http://mystorageaccount.blob.core.windows.net/myblob ou http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob ou http://www.contoso.com/$root/myblob |
-| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] ou http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] ou http://mystorageaccount.[zone].web.core.windows.net/$web ou http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web ou http://www.contoso.com/ ou http://www.contoso.com/$web/[indexdoc] ou http://www.contoso.com/[indexdoc] |
+| Compte de stockage | http:\//mystorageaccount.blob.core.windows.net | http:\//www.contoso.com |
+| Blob |http:\//mystorageaccount.blob.core.windows.net/mycontainer/myblob | http:\//www.contoso.com/mycontainer/myblob |
+| Conteneur racine | http:\//mystorageaccount.blob.core.windows.net/myblob ou http:\//mystorageaccount.blob.core.windows.net/$root/myblob | http:\//www.contoso.com/myblob ou http:\//www.contoso.com/$root/myblob |
+| Web |  http:\//mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] ou http:\//mystorageaccount.[zone].web.core.windows.net/[indexdoc] ou http:\//mystorageaccount.[zone].web.core.windows.net/$web or http:\//mystorageaccount.[zone].web.core.windows.net/ | http:\//www.contoso.com/$web ou http:\//www.contoso.com/ ou http:\//www.contoso.com/$web/[indexdoc] ou http:\//www.contoso.com/[indexdoc] |
 
 > [!NOTE]  
 > Comme indiqué dans les sections suivantes, tous les exemples pour le point de terminaison du service blob s’appliquent également au point de terminaison du service web.
 
-## <a name="direct-vs-intermediary-cname-mapping"></a>Direct ou intermédiaire mappage CNAME
+## <a name="direct-vs-intermediary-cname-mapping"></a>Mappage CNAME direct ou intermédiaire
 
-Vous pouvez faire pointer votre domaine personnalisé est préfixé avec un sous-domaine (par exemple, www\.contoso.com) au point de terminaison blob pour votre compte de stockage de deux manières : 
+Il existe deux méthodes pour mapper votre domaine personnalisé préfixé avec un sous-domaine (par exemple www\.contoso.com) au point de terminaison de service blob de votre compte de stockage : 
 * Utiliser le mappage CNAME direct.
 * Utiliser le sous-domaine intermédiaire *asverify*.
 
 ### <a name="direct-cname-mapping"></a>Mappage CNAME direct
 
-La première méthode, qui est aussi la plus simple, consiste à créer un enregistrement de nom canonique (CNAME) qui mappe votre domaine personnalisé et un sous-domaine directement au point de terminaison d’objet blob. Un enregistrement CNAME est une fonctionnalité DNS (Domain Name System) qui mappe un domaine source à un domaine de destination. Dans notre exemple, le domaine source est votre propre domaine personnalisé et un sous-domaine (*www\.contoso.com*, par exemple). Le domaine de destination est votre point de terminaison de service blob (*mystorageaccount.blob.core.windows.net*, par exemple).
+La première méthode, qui est aussi la plus simple, consiste à créer un enregistrement de nom canonique (CNAME) qui mappe votre domaine personnalisé et un sous-domaine directement au point de terminaison d’objet blob. Un enregistrement CNAME est une fonctionnalité DNS (Domain Name System) qui mappe un domaine source à un domaine de destination. Dans notre cas, le domaine source est votre propre domaine personnalisé et un sous-domaine (*www\.contoso.com*, par exemple). Le domaine de destination est votre point de terminaison de service blob (*mystorageaccount.blob.core.windows.net*, par exemple).
 
 La méthode directe est couverte dans la section « Inscrire un domaine personnalisé ».
 
@@ -85,7 +85,7 @@ Vous pouvez généralement gérer les paramètres DNS de votre domaine sur le si
 1. Recherchez la section relative à la gestion des enregistrements CNAME.  
    Pour cela, accédez à une page de paramètres avancés et recherchez **CNAME**, **Alias** ou **Sous-domaines**.
 
-1. Créer un enregistrement CNAME, entrez un alias de sous-domaine tel que **www** ou **photos** (sous-domaine est obligatoire, les domaines racines ne sont pas pris en charge), puis indiquez un nom d’hôte.  
+1. Créez un enregistrement CNAME, saisissez un alias de sous-domaine tel que **www** ou **photos** (un sous-domaine est nécessaire, les domaines racines ne sont pas pris en charge), puis spécifiez un nom d’hôte.  
    Le nom d’hôte est votre point de terminaison de service blob. Le format est *\<mystorageaccount>.blob.core.windows.net*, où *mystorageaccount* correspond au nom de votre compte de stockage. Le nom d’hôte à utiliser s’affiche dans l’élément #1 du volet **Domaine personnalisé** dans le [portail Azure](https://portal.azure.com). 
 
 1. Dans la zone de texte du volet **Domaine personnalisé**, entrez le nom de votre domaine personnalisé, avec le sous-domaine.  
@@ -155,7 +155,7 @@ Pour supprimer le paramètre de domaine personnalisé, procédez comme suit :
 
 Une fois le domaine personnalisé supprimé, une notification de portail apparaît, indiquant que votre compte de stockage a été correctement mis à jour.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 Pour supprimer une inscription de domaine personnalisé, utilisez la commande d’interface de ligne de commande [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) et spécifiez une chaîne vide (`""`) pour la valeur d’argument `--custom-domain`.
 

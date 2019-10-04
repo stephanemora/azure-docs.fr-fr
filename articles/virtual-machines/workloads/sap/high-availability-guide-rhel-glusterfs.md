@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fd5014de622c37950c15006c2cc4dcbbb27ef8e1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342321"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101121"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS sur les machines virtuelles Azure sur Red Hat Enterprise Linux pour SAP NetWeaver
 
@@ -28,14 +27,14 @@ ms.locfileid: "53342321"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
@@ -44,7 +43,7 @@ ms.locfileid: "53342321"
 [sap-hana-ha]:sap-hana-high-availability-rhel.md
 
 Cet article décrit comment déployer les machines virtuelles, les configurer et installer un cluster GlusterFS pouvant être utilisé pour stocker les données partagées d’un système SAP hautement disponible.
-Ce guide décrit comment configurer un cluster GlusterFS utilisé par deux systèmes SAP : NW1 et NW2. Les noms des ressources (par exemple les machines virtuelles, les réseaux virtuels) de l’exemple partent du principe que vous avez utilisé le [modèle de serveur du fichier SAP][template-file-server] avec le préfixe de ressource **glust**.
+Ce guide décrit comment configurer un cluster GlusterFS utilisé par deux systèmes SAP : NW1 et NW2. Les noms des ressources (comme les machines virtuelles et les réseaux virtuels) de l'exemple partent du principe que vous avez utilisé le [modèle de serveur du fichier SAP][template-file-server] avec le préfixe de ressource **glust**.
 
 Commencez par lire les notes et publications SAP suivantes
 
@@ -63,8 +62,8 @@ Commencez par lire les notes et publications SAP suivantes
 * La note SAP [1999351] contient des informations de dépannage supplémentaires pour l’extension d’analyse Azure améliorée pour SAP.
 * Le [WIKI de la communauté SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contient toutes les notes SAP requises pour Linux.
 * [Planification et implémentation de Machines virtuelles Azure pour SAP sur Linux][planning-guide]
-* [Déploiement de Machines virtuelles Azure pour SAP sur Linux (cet article)][deployment-guide]
-* [Déploiement SGBD de Machines virtuelles Azure pour SAP sur Linux][dbms-guide]
+* [Déploiement de machines virtuelles Azure pour SAP sur Linux (cet article)][deployment-guide]
+* [Déploiement SGBD de machines virtuelles Azure pour SAP sur Linux][dbms-guide]
 * [Documentation du produit pour Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * Documentation RHEL générale
   * [Vue d’ensemble des modules complémentaires de haute disponibilité](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
@@ -74,7 +73,7 @@ Commencez par lire les notes et publications SAP suivantes
   * [Stratégies de prise en charge des clusters à haute disponibilité RHEL - Machines virtuelles Microsoft Azure en tant que membres du cluster](https://access.redhat.com/articles/3131341)
   * [Installation et configuration d’un cluster à haute disponibilité Red Hat Enterprise Linux 7.4 (et versions ultérieures) sur Microsoft Azure](https://access.redhat.com/articles/3252491)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Pour obtenir une haute disponibilité, SAP NetWeaver nécessite stockage partagé. GlusterFS est configuré dans un cluster distinct et peut être utilisé par plusieurs systèmes SAP.
 
@@ -89,8 +88,8 @@ Vous pouvez utiliser un modèle Azure de github pour déployer l’ensemble des 
 La Place de marché Azure contient une image de Red Hat Enterprise Linux que vous pouvez utiliser pour déployer de nouvelles machines virtuelles.
 Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
 
-1. Ouvrez le [modèle de serveur de fichiers SAP][template-file-server] dans le portail Azure.
-1. Entrez les paramètres suivants.
+1. Ouvrez le [modèle de serveur de fichiers SAP][template-file-server] dans le portail Azure
+1. Entrez les paramètres suivants
    1. Préfixe de ressource  
       Entrez le préfixe à utiliser. Cette valeur sera utilisée comme préfixe pour les ressources déployées.
    2. Nombre de systèmes SAP Saisissez le nombre de systèmes SAP qui utiliseront ce serveur de fichiers. Cette action déploie le nombre de disques requis, etc.
@@ -99,7 +98,7 @@ Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github
    4. Nom d’utilisateur administrateur, mot de passe d’administrateur ou clé SSH  
       Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
    5. ID de sous-réseau  
-      Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/**&lt;ID_abonnement&gt;**/resourceGroups/**&lt;nom_groupe_ressources&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nom_réseau_virtuel&gt;**/subnets/**&lt;nom_sous_réseau&gt;**
+      Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/ **&lt;ID_abonnement&gt;** /resourceGroups/ **&lt;nom_groupe_ressources&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nom_réseau_virtuel&gt;** /subnets/ **&lt;nom_sous_réseau&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Déployer manuellement Linux via le portail Azure
 
@@ -356,4 +355,4 @@ Les éléments suivants sont précédés de **[A]** - applicable à tous les nœ
 * [Déploiement de machines virtuelles Azure pour SAP][deployment-guide]
 * [Déploiement SGBD de machines virtuelles Azure pour SAP][dbms-guide]
 * Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur Azure (grandes instances), consultez [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md).
-* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur des machines virtuelles Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha].
+* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur des machines virtuelles Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha]

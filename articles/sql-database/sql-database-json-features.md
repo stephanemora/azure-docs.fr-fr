@@ -1,6 +1,6 @@
 ---
 title: Utilisation de données JSON dans Azure SQL Database | Microsoft Docs
-description: Base de données SQL Azure vous permet d’analyser, d’interroger et de mettre en forme des données dans une notation JavaScript Object Notation (JSON).
+description: Azure SQL Database vous permet d’analyser, d’interroger et de mettre en forme des données dans une notation JavaScript Object Notation (JSON).
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,24 +10,23 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 77f6125980c43817230b8a8d4beb32757f23e6c2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3a09fba3f01eec6c712bad67ef10b8b5c55fb33e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995497"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567836"
 ---
-# <a name="getting-started-with-json-features-in-azure-sql-database"></a>Prise en main des fonctionnalités JSON dans Base de données SQL Azure
-Base de données SQL Azure vous permet d’analyser et d’interroger des données représentées au format JavaScript Object Notation [(JSON)](https://www.json.org/) , et d’exporter vos données relationnelles en tant que texte JSON. Les scénarios JSON suivants sont disponibles dans Azure SQL Database :
+# <a name="getting-started-with-json-features-in-azure-sql-database"></a>Prise en main des fonctionnalités JSON dans Azure SQL Database
+Azure SQL Database vous permet d’analyser et d’interroger des données représentées au format JavaScript Object Notation [(JSON)](https://www.json.org/) , et d’exporter vos données relationnelles en tant que texte JSON. Les scénarios JSON suivants sont disponibles dans Azure SQL Database :
 - [Conversion de données relationnelles au format JSON](#formatting-relational-data-in-json-format) à l’aide de la clause `FOR JSON`.
 - [Utilisation de données JSON](#working-with-json-data)
 - [Interrogation de données JSON](#querying-json-data) à l’aide de fonctions scalaires JSON.
 - [Conversion de JSON au format tabulaire](#transforming-json-into-tabular-format) à l’aide de la fonction `OPENJSON`.
 
 ## <a name="formatting-relational-data-in-json-format"></a>Conversion de données relationnelles au format JSON
-Si vous disposez d’un service web qui prélève des données de la couche de base de données et fournit une réponse au format JSON, ou d’infrastructures ou bibliothèques JavaScript côté client qui acceptent des données au format JSON, vous pouvez convertir le contenu de votre base de données au format JSON directement dans une requête SQL. Vous n’avez plus besoin d’écrire de code d’application qui convertit les résultats de Base de données SQL Azure au format JSON, ou d’inclure une bibliothèque de sérialisation JSON pour convertir des résultats de requête sous forme de tableau, puis sérialiser des objets au format JSON. Au lieu de cela, vous pouvez utiliser la clause FOR JSON pour convertir les résultats de requête SQL au format JSON dans Base de données SQL Azure, et les utiliser directement dans votre application.
+Si vous disposez d’un service web qui prélève des données de la couche de base de données et fournit une réponse au format JSON, ou d’infrastructures ou bibliothèques JavaScript côté client qui acceptent des données au format JSON, vous pouvez convertir le contenu de votre base de données au format JSON directement dans une requête SQL. Vous n’avez plus besoin d’écrire de code d’application qui convertit les résultats d’Azure SQL Database au format JSON, ou d’inclure une bibliothèque de sérialisation JSON pour convertir des résultats de requête sous forme de tableau, puis sérialiser des objets au format JSON. Au lieu de cela, vous pouvez utiliser la clause FOR JSON pour convertir les résultats de requête SQL au format JSON dans Azure SQL Database, et les utiliser directement dans votre application.
 
 Dans l’exemple suivant, les lignes de la table Sales.Customer sont converties au format JSON à l’aide de la clause FOR JSON :
 
@@ -103,7 +102,7 @@ Au lieu d’envoyer des requêtes séparées pour obtenir des données du client
 ## <a name="working-with-json-data"></a>Utilisation de données JSON
 Si vous n’avez pas de données strictement structurées, si vous avez des sous-objets, tableaux ou données hiérarchiques complexes, ou si vos structures de données évoluent au fil du temps, le format JSON peut vous aider à représenter toute structure de données complexe.
 
-JSON est un format texte utilisable comme tout autre type de chaîne dans Base de données SQL Azure. Vous pouvez envoyer ou stocker des données JSON en tant que type NVARCHAR standard :
+JSON est un format texte utilisable comme tout autre type de chaîne dans Azure SQL Database. Vous pouvez envoyer ou stocker des données JSON en tant que type NVARCHAR standard :
 
 ```
 CREATE TABLE Products (
@@ -125,12 +124,12 @@ Les données JSON utilisées dans cet exemple sont représentées à l’aide du
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Tout langage ou bibliothèque côté client qui fonctionne avec des données de chaîne dans Base de données SQL Azure fonctionne également avec des données JSON. Des données JSON peuvent être stockées dans toute table prenant en charge le type NVARCHAR, par exemple, une table mémoire optimisée ou une table avec version système. JSON n’introduit aucune contrainte, que ce soit dans le code côté client ou dans la couche de base de données.
+Tout langage ou bibliothèque côté client qui fonctionne avec des données de chaîne dans Azure SQL Database fonctionne également avec des données JSON. Des données JSON peuvent être stockées dans toute table prenant en charge le type NVARCHAR, par exemple, une table mémoire optimisée ou une table avec version système. JSON n’introduit aucune contrainte, que ce soit dans le code côté client ou dans la couche de base de données.
 
 ## <a name="querying-json-data"></a>Interrogation de données JSON
 Si vous avez des données au format JSON stockées dans des tables SQL Azure, les fonctions JSON vous permettent d’utiliser ces données dans n’importe quelle requête SQL.
 
-Les fonctions JSON disponibles dans Base de données SQL Azure vous permettent de traiter des données au format JSON comme tout autre type de données SQL. Vous pouvez facilement extraire des valeurs du texte JSON et utiliser des données JSON dans toute requête :
+Les fonctions JSON disponibles dans Azure SQL Database vous permettent de traiter des données au format JSON comme tout autre type de données SQL. Vous pouvez facilement extraire des valeurs du texte JSON et utiliser des données JSON dans toute requête :
 
 ```
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
@@ -148,7 +147,7 @@ La fonction JSON_QUERY est similaire à la fonction JSON_VALUE. Contrairement à
 
 La fonction JSON_MODIFY permet de spécifier le chemin d’accès de la valeur dans le texte JSON à mettre à jour, ainsi qu’une nouvelle valeur pour remplacer l’ancienne. Vous pouvez ainsi facilement mettre à jour le texte JSON sans réanalyser la structure entière.
 
-Étant donné que JSON est stocké dans un texte standard, il n’est nullement garanti que le format des valeurs stockées dans les colonnes de texte est correct. Vous pouvez vérifier que le texte stocké dans une colonne JSON est correctement mis en forme en utilisant des contraintes de vérification de Base de données SQL Azure standard et la fonction ISJSON :
+Étant donné que JSON est stocké dans un texte standard, il n’est nullement garanti que le format des valeurs stockées dans les colonnes de texte est correct. Vous pouvez vérifier que le texte stocké dans une colonne JSON est correctement mis en forme en utilisant des contraintes de vérification Azure SQL Database standard et la fonction ISJSON :
 
 ```
 ALTER TABLE Products
@@ -159,7 +158,7 @@ ALTER TABLE Products
 Si le texte d’entrée est du JSON correctement mis en forme, la fonction ISJSON renvoie la valeur 1. À chaque insertion ou mise à jour de la colonne JSON, cette contrainte vérifie que nouvelle valeur de texte n’est pas dans du JSON mal formé.
 
 ## <a name="transforming-json-into-tabular-format"></a>Conversion de JSON en format tabulaire
-Base de données SQL Azure vous permet également de convertir des collections JSON en format tabulaire, ainsi que de charger ou d’interroger des données JSON.
+Azure SQL Database vous permet également de convertir des collections JSON en format tabulaire, ainsi que de charger ou d’interroger des données JSON.
 
 OPENJSON est une fonction table-valeur qui analyse le texte JSON, trouve un tableau d’objets JSON, opère une itération dans les éléments du tableau, et retourne une ligne dans le résultat de sortie pour chaque élément.
 

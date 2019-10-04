@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Documentation Azure HPC Cache (préversion)
+summary: Utiliser Azure HPC Cache pour accélérer l’accès aux fichiers pour des charges de travail HPC (High-Performance Computing) à lecture intensive
+metadata:
+  title: Microsoft Azure HPC Cache
+  description: Découvrez comment créer et utiliser Azure HPC Cache pour résoudre le problème de latence entre vos ressources de calcul et le stockage. Azure HPC Cache est un service destiné aux charges de travail à lecture intensive basées sur des fichiers. Il peut créer un système de fichiers virtuel agrégé qui incorpore le stockage Blob Azure et des serveurs matériels de fichiers de stockage au niveau local.
+  ms.service: hpc-cache
+  ms.topic: landing-page
+  ms.collection: collection
+  author: ekpgh
+  ms.author: v-erkell
+  ms.date: 09/24/2019
+  ms.openlocfilehash: 266f1e62f57c0d795d154dc29c159c609212b73b
+  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71299895"
+landingContent:
+- title: À propos d’Azure HPC Cache
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure HPC Cache ?
+      url: hpc-cache-overview.md
+- title: Prise en main
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer des prérequis pour Azure HPC Cache
+      url: hpc-cache-prereqs.md
+    - text: Créer le cache
+      url: hpc-cache-create.md
+    - text: Ajouter du stockage
+      url: hpc-cache-add-storage.md
+    - text: Monter des clients
+      url: hpc-cache-mount.md
+  - linkListType: concept
+    links:
+    - text: Planifier l’espace de noms agrégé
+      url: hpc-cache-namespace.md
+    - text: Déplacer des données vers des cibles de stockage (si nécessaire)
+      url: hpc-cache-ingest.md
+- title: Résolution des problèmes
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ouverture d’un ticket de support
+      url: hpc-cache-support-ticket.md

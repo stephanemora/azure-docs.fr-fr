@@ -1,20 +1,20 @@
 ---
-author: wesmc7777
+author: yegu-ms
 ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: wesmc
-ms.openlocfilehash: 8ebf5ddfa118e0aeadeab0c00a981871a4b5708e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.author: yegu
+ms.openlocfilehash: 61e93e3700b9a396d2ac4fdcbb51fc5c874cf9cb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429961"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286154"
 ---
 Les applications .NET peuvent utiliser le client de cache **StackExchange.Redis** , qui peut être configuré dans Visual Studio à l’aide d’un package NuGet simplifiant la configuration des applications clientes de cache. 
 
 > [!NOTE]
-> Pour plus d’informations, consultez la page GitHub [StackExchange.Redis](http://github.com/StackExchange/StackExchange.Redis) et la [documentation du client de Cache StackExchange.Azure pour Redis](http://github.com/StackExchange/StackExchange.Redis#documentation).
+> Pour plus d’informations, consultez la page GitHub [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) et la [documentation du client de Cache StackExchange.Azure pour Redis](https://github.com/StackExchange/StackExchange.Redis#documentation).
 >
 >
 

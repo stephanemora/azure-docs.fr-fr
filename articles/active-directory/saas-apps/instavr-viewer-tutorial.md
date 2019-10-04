@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8acc835a7f18ee673f0857f65d49eed59638a6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0e005d794fa3c6c70edf3d3466b0f076e2007352
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutoriel : Intégration d’Azure Active Directory à InstaVR Viewer
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration d'InstaVR Viewer à Azure AD, vous devez ajoute
 
 **Pour ajouter InstaVR Viewer à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -111,7 +111,7 @@ Pour configurer l’authentification unique Azure AD avec InstaVR Viewer, procé
     > [!NOTE]
     > Il n’existe pas de modèle fixe pour l’URL de connexion. Elle est générée lorsque le client InstaVR Viewer procède à l'empaquetage web. Elle est unique pour chaque client et package. Pour obtenir l'URL de connexion exacte, vous devez vous connecter à votre instance InstaVR Viewer et procéder à un empaquetage web.
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
 
     > [!NOTE]
     > La valeur de l'identificateur n'est pas réelle. Vous devez remplacer cette valeur par la valeur de l'identificateur réelle, ce qui est expliqué plus loin dans ce tutoriel.
@@ -172,7 +172,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

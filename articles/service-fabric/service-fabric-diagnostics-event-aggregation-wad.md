@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: 641f9150d1135f4f214038150b95b6691a37ecc0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60393330"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agrégation et collecte d’événements à l’aide de Diagnostics Azure pour Windows
 > [!div class="op_single_selector"]
@@ -30,12 +30,12 @@ ms.locfileid: "60005832"
 
 Lorsque vous exécutez un cluster Service Fabric dans Azure, il peut être intéressant de collecter les journaux d’activité de tous les nœuds pour les regrouper dans un emplacement central. La centralisation des journaux d’activité vous permet d’analyser et résoudre les problèmes que vous pourriez rencontrer dans votre cluster ou dans les applications et services exécutés dans ce cluster.
 
-Pour télécharger et collecter des journaux d’activité, vous pouvez utiliser l’extension Windows Azure Diagnostics (WAD), qui télécharge les journaux d’activité dans Azure Storage, ou envoyer les journaux d’activité à Azure Application Insights ou à des concentrateurs d’événements. Vous pouvez également utiliser un processus externe pour lire les événements à partir du stockage et les placer dans une plateforme d’analyse, tels que [Azure Monitor enregistre](../log-analytics/log-analytics-service-fabric.md) ou une autre solution d’analyse de journaux.
+Pour charger et collecter des journaux, vous pouvez utiliser l’extension Diagnostics Azure pour Windows, qui télécharge les journaux dans Stockage Azure, ou envoyer les journaux à Azure Application Insights ou à des hubs d’événements. Vous pouvez également utiliser un processus externe pour lire les événements à partir du stockage et les placer dans une plateforme d’analyse comme les journaux d’activité [Azure Monitor](../log-analytics/log-analytics-service-fabric.md) ou une autre solution d’analyse des journaux.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Cet article fait référence aux outils suivants :
 
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
@@ -60,7 +60,7 @@ Nous vous recommandons vivement de télécharger le modèle **avant de cliquer s
 
 ![Modèle de cluster](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Maintenant que vous avez entrepris d’agréger les événements dans le stockage Azure, [configuré des journaux d’Azure Monitor](service-fabric-diagnostics-oms-setup.md) pour obtenir des informations et les interroger dans Azure Monitor journaux portail
+Une fois que vous avez entrepris d’agréger des événements dans le service Stockage Azure, [configurez les journaux d’activité Azure Monitor](service-fabric-diagnostics-oms-setup.md) afin d’obtenir des informations détaillées et de les interroger dans le portail des journaux d’activité Azure Monitor.
 
 >[!NOTE]
 >Pour l’instant, il n’existe aucun moyen de filtrer ou de nettoyer les événements qui sont envoyés aux tables. Si vous n’implémentez aucun processus de suppression des événements de la table, la table continuera à croître (la limite par défaut est de 50 Go). La procédure de modification de ce comportement est décrite [dans la suite de cet article](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). En outre, un exemple de service de nettoyage de données en cours d’exécution est inclus dans [l’échantillon Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), et il est recommandé d’en écrire un vous-même, sauf si vous avez une bonne raison de stocker les journaux d’activité au-delà de 30 ou 90 jours.
@@ -303,7 +303,7 @@ Si vous utilisez un récepteur Application Insights, comme décrit dans la secti
 >[!NOTE]
 >Cette configuration s’applique uniquement aux clusters Windows pour le moment.
 
-Il existe deux méthodes principales pour envoyer des données à partir de WAD à Azure Application Insights, qui est obtenue en ajoutant un récepteur Application Insights à la configuration de WAD, via le portail Azure ou via un modèle Azure Resource Manager.
+Il existe deux méthodes principales permettant d’envoyer des données à Azure Application Insights à partir de WAD, ce qui nécessite d’ajouter un récepteur Application Insights à la configuration de WAD, via le portail Azure ou via un modèle Azure Resource Manager.
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Ajouter une clé d’instrumentation Application Insights lors de la création d’un cluster dans le portail Azure
 
@@ -337,20 +337,20 @@ Dans l’élément « WadCfg » du modèle Resource Manager, ajoutez un récep
 
 Dans les deux extraits de code précédents, le nom « applicationInsights » a été utilisé pour décrire le récepteur. Cela n’est pas obligatoire, et tant que le nom du récepteur est inclus dans l’élément « sinks », vous pouvez définir n’importe quelle chaîne comme nom.
 
-Actuellement, les journaux d’activité du cluster s’affichent sous forme de **traces** dans la visionneuse des journaux d’activité d’Application Insights. Étant donné que les traces provenant de la plateforme sont de niveau « Informations », vous pouvez également envisager de modifier la configuration du récepteur pour envoyer uniquement des journaux de type « Avertissement » ou « Erreur ». Pour ce faire, ajoutez « Channels » à votre récepteur, comme illustré dans [cet article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Actuellement, les journaux d’activité du cluster s’affichent sous forme de **traces** dans la visionneuse des journaux d’activité d’Application Insights. Étant donné que la plupart des traces provenant de la plateforme sont de type « Informations », vous pouvez également envisager de modifier la configuration du récepteur pour que seuls les journaux d’activité de type « Avertissement » ou « Erreur » soient envoyés. Pour ce faire, ajoutez « Channels » à votre récepteur, comme illustré dans [cet article](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Si vous utilisez une clé Application Insights incorrecte dans le portail ou dans votre modèle Resource Manager, vous devrez modifier manuellement la clé et mettre à jour/redéployer le cluster.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez correctement configuré les diagnostics Azure, vous verrez les données de vos tables de stockage dans les journaux d’activité ETW et EventSource. Si vous choisissez d’utiliser des journaux Azure Monitor, Kibana ou toutes autres données analytique plateforme et de visualisation qui n’est pas directement configurée dans le modèle Resource Manager, veillez à configurer la plateforme de votre choix pour lire les données à partir de ces tables de stockage. Cette opération pour des journaux Azure Monitor est relativement simple et est expliquée dans [analyse d’événements et journaux](service-fabric-diagnostics-event-analysis-oms.md). L’utilisation d’Application Insights est un peu plus compliquée ici, car il peut être configuré en tant que partie de la configuration de l’extension Diagnostics. Reportez-vous par conséquent à l[’article approprié](service-fabric-diagnostics-event-analysis-appinsights.md) si vous choisissez d’utiliser AI.
+Une fois que vous avez correctement configuré les diagnostics Azure, vous verrez les données de vos tables de stockage dans les journaux d’activité ETW et EventSource. Si vous choisissez d’utiliser les journaux d’activité Azure Monitor, Kibana ou une autre plateforme d’analytique données et de visualisation des données qui n’est pas directement configurée dans le modèle Resource Manager, veillez à configurer la plateforme de votre choix pour lire les données à partir de ces tables de stockage. Cette opération relativement simple pour les journaux d’activité Azure Monitor est expliquée dans [Analyse d’événements et de journaux](service-fabric-diagnostics-event-analysis-oms.md). L’utilisation d’Application Insights est un peu plus compliquée ici, car il peut être configuré en tant que partie de la configuration de l’extension Diagnostics. Reportez-vous par conséquent à l[’article approprié](service-fabric-diagnostics-event-analysis-appinsights.md) si vous choisissez d’utiliser AI.
 
 >[!NOTE]
 >Il n’existe actuellement aucun moyen de filtrer ou de nettoyer les événements qui sont envoyés à la table. Si vous n’implémentez aucun processus de suppression des événements de la table, la table continuera à croître. Un exemple de service de nettoyage de données en cours d’exécution est inclus avec l[’échantillon Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), et il est recommandé d’en écrire un vous-même, sauf s’il existe une bonne raison de stocker les journaux d’activité au-delà de 30 ou 90 jours.
 
 * [Découvrez comment collecter des compteurs de performances ou des journaux d’activité à l’aide de l’extension Diagnostics](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Analyse et visualisation d’événements avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Analyse des événements et visualisation avec les journaux d’Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
+* [Analyse et visualisation d’événements avec les journaux d’activité Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * [Analyse et visualisation d’événements avec Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Analyse des événements et visualisation avec les journaux d’Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
+* [Analyse et visualisation d’événements avec les journaux d’activité Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)

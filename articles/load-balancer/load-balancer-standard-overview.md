@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Présentation des fonctionnalités Azure Load Balancer Standard
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
-ms.author: kumud
-ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 8eb8134452685add53b9dc339437ac262ecc8a9f
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578524"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274398"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Présentation d'Azure Standard Load Balancer
 
@@ -75,7 +75,7 @@ Pour plus d’informations, consultez [Sondes d’intégrité Load Balancer](loa
 ### <a name="az"></a> Zones de disponibilité
 
 >[!IMPORTANT]
->Révision [Zones de disponibilité](../availability-zones/az-overview.md) pour d’autres sujets connexes, y compris des informations spécifiques de région.
+>Consultez les sujets connexes de l’article [Zones de disponibilité](../availability-zones/az-overview.md), y compris toutes les informations propres à une région.
 
 Load Balancer Standard prend en charge des fonctionnalités supplémentaires dans les régions où les Zones de disponibilité sont disponibles.  Ces fonctionnalités sont incrémentielles pour tous les Load Balancer Standard fournis.  Les configurations de Zones de disponibilité sont disponibles pour Load Balancer Standard public et interne.
 
@@ -226,7 +226,6 @@ Pour plus d’informations sur la tarification de Load Balancer Standard, consul
 - Les références SKU ne sont pas mutables. Vous ne pouvez pas modifier la référence SKU d’une ressource existante.
 - Une ressource de machine virtuelle autonome, une ressource de groupe à haute disponibilité ou une ressource de groupe de machines virtuelles identiques peut faire référence à une seule référence SKU, jamais aux deux.
 - Une règle Load Balancer ne peut pas s’étendre sur deux réseaux virtuels.  Les frontaux et les instances principales associées doivent se trouver dans le même réseau virtuel.  
-- Les frontaux Load Balancer ne sont pas accessibles sur un appairage global de réseaux virtuels.
 - Les [opérations de déplacement d’abonnement](../azure-resource-manager/resource-group-move-resources.md) ne sont pas prises en charge pour les ressources LB et PIP de SKU standard.
 - Les rôles de travail web sans réseau virtuel et d’autres services de plateforme Microsoft peuvent être accessibles alors que seul un équilibreur de charge Standard interne est utilisé, en raison d’un effet secondaire du fonctionnement des services pré-réseau virtuel et des autres services de plateforme. Ne comptez pas sur cet effet secondaire, car le service lui-même ou la plateforme sous-jacente sont susceptibles de changer sans préavis. Partez toujours du principe que vous devrez créer explicitement une [connexion sortante](load-balancer-outbound-connections.md) si vous en souhaitez une alors que vous utilisez seulement un équilibreur de charge Standard interne.
 - Load Balancer est un produit TCP ou UDP pour l’équilibrage de charge et de réacheminement de ports pour ces protocoles IP spécifiques.  Les règles d’équilibrage de charge et les règles NAT entrantes sont prises en charge pour les protocoles TCP et UDP, mais pas pour les autres protocoles IP, y compris ICMP. Load Balancer ne peut pas mettre fin à la charge utile d’un flux TCP ou UDP, ni y répondre ou interagir d’une quelconque autre façon avec cette charge utile. Il ne s’agit pas d’un proxy. La réussite de la validation de la connectivité à un serveur frontal doit avoir lieu dans la bande avec le même protocole que celui utilisé dans une règle d’équilibrage de charge ou de règle NAT entrante (TCP ou UDP) _et_ au moins une de vos machines virtuelles doit générer une réponse pour qu’un client puisse voir une réponse à partir d’un serveur frontal.  L’absence de réponse de la part du serveur frontal Load Balancer dans la bande indique qu’aucune machine virtuelle n’a été en mesure de répondre.  Il est impossible d’interagir avec un serveur frontal Load Balancer si aucune machine virtuelle ne peut répondre.  Cela vaut également pour les connexions sortantes où la [traduction d’adresses réseau avec masquage de port](load-balancer-outbound-connections.md#snat) est uniquement prise en charge pour les protocoles TCP et UDP ; tous les autres protocoles IP, y compris ICMP, échoueront également.  Assignez une adresse IP publique de niveau d’instance pour résoudre le problème.

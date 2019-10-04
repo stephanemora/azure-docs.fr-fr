@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à FreshGrade | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à FreshGrade | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FreshGrade.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 3dcbbfcdff0f30b8300e4fe767e27efb65723c5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4abffc36695b5399eec28d74b9aa5eccb9841821
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101893"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutoriel : Intégration d’Azure Active Directory à FreshGrade
+# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Didacticiel : Intégration d’Azure Active Directory à FreshGrade
 
 Dans ce didacticiel, vous allez apprendre à intégrer FreshGrade à Azure Active Directory (Azure AD).
 L’intégration de FreshGrade dans Azure AD vous offre les avantages suivants :
@@ -52,7 +52,7 @@ Pour configurer l’intégration de FreshGrade à Azure AD, vous devez ajouter F
 
 **Procédez comme suit pour ajouter FreshGrade à partir de la galerie :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -111,7 +111,7 @@ Pour configurer l’authentification unique Azure AD avec FreshGrade, effectuez
       | `https://<subdomain>.freshgrade.com/login` |
       | `https://<subdomain>.onboarding.freshgrade.com/login` |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL aux formats suivants :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , entrez une URL aux formats suivants :
     
       | |
       |--|
@@ -147,7 +147,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

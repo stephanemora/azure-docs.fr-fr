@@ -1,19 +1,19 @@
 ---
 title: Enregistrer des éléments de données dans Azure Data Catalog
-description: Comment inscrire des ressources de données dans votre catalogue Azure Data Catalog
+description: Ce tutoriel explique comment inscrire des ressources de données dans votre catalogue Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
-ms.date: 04/08/2019
-ms.openlocfilehash: 91f7967915fd19ae47ca207913f979aa56fcd27f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011702"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950249"
 ---
-# <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Didacticiel : Enregistrer des éléments de données dans Azure Data Catalog
+# <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutoriel : Enregistrer des éléments de données dans Azure Data Catalog
 
 Dans ce tutoriel, vous utilisez l’outil de référencement pour inscrire des ressources de données de l’exemple de base de données Azure SQL avec le catalogue. L’inscription est le processus par lequel les métadonnées structurelles clés (telles que les noms, les types et les emplacements) sont extraites de la source de données et des ressources qu’elle contient, puis copiées dans le catalogue. La source de données et les ressources de données restent au même endroit, mais les métadonnées sont utilisées par le catalogue pour faciliter leur découverte et leur compréhension.
 
@@ -71,7 +71,7 @@ Vous pouvez désormais inscrire des ressources de données de l’exemple de bas
 
     2. Appuyez sur la touche CTRL, puis sélectionnez **Product**, **ProductCategory**, **ProductDescription** et **ProductModel**.
 
-    3. Sélectionnez la **flèche de déplacement de la sélection** (**>**). Cette action déplace tous les objets sélectionnés dans la liste **Objets à inscrire** .
+    3. Sélectionnez la **flèche de déplacement de la sélection** ( **>** ). Cette action déplace tous les objets sélectionnés dans la liste **Objets à inscrire** .
 
           ![Didacticiel Azure Data Catalog--parcourir et sélectionner des objets](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 

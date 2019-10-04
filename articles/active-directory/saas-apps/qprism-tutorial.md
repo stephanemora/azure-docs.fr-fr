@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: bf6c50a486acfaf8c0410616a75d9bcbe36987e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: af3862d81270363c475ab9d925757569a6927858
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274704"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093391"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Didacticiel : Intégration d’Azure Active Directory à QPrism
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de QPrism avec Azure AD, vous devez ajouter QP
 
 **Pour ajouter QPrism à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD auprès de QPrism, effectu
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<customer domain>.qmyzone.com/login`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<customer domain>.qmyzone.com/metadata.php`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<customer domain>.qmyzone.com/metadata.php`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support QPrism](mailto:qsupport-ce@quatrro.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

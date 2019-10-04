@@ -4,7 +4,7 @@ description: Possibilité de prise en charge de l’ajout de machines virtuelles
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 7a5e97b66fec040b4ec32caa8d58cf9b50169a33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 3954df389516aa7199022d713dc63d62dda961ae
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433142"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155453"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Possibilité de prise en charge de l’ajout de machines virtuelles Azure à un groupe à haute disponibilité
 
@@ -38,4 +38,4 @@ Série et groupe à haute disponibilité|Deuxième machine virtuelle|A|Av2|D|Dv2
 
 Les autres séries ne pourraient pas être dans le même groupe à haute disponibilité, car elles nécessitent un matériel spécifique.
 
-Taille de machine virtuelle a8/A9 ne peuvent pas être combiné en raison d’une exigence sur le réseau principal RDMA dédié.
+Vous ne pouvez pas combiner des machines virtuelles de taille A8/A9 en raison des exigences du réseau principal RDMA dédié.

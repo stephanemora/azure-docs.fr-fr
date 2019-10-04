@@ -1,22 +1,21 @@
 ---
-title: Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant le stockage
+title: Effectuer la migration de clusters Apache Hadoop locaux vers Azure HDInsight - Stockage
 description: Découvrez les bonnes pratiques concernant le stockage pour la migration des clusters Hadoop locaux vers Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 0acd4c2793c7c13fb687f591d01e6d8753f71bdc
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000060"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71181148"
 ---
-# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant le stockage
+# <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Effectuer la migration de clusters Apache Hadoop locaux vers Azure HDInsight
 
 Cet article fournit des recommandations pour le stockage de données dans les systèmes Azure HDInsight. Il fait partie d’une série qui propose des bonnes pratiques pour aider à la migration des systèmes Apache Hadoop locaux vers Azure HDInsight.
 
@@ -91,7 +90,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 ### <a name="azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 est la toute dernière stockage offre. Elle unifie les capacités de base de la première génération d’Azure Data Lake Storage avec un point de terminaison de système de fichiers compatible Hadoop, directement intégré dans Stockage Blob Azure. Cette amélioration combine les avantages de la mise à l’échelle et du coût de stockage des objets, avec la fiabilité et les performances généralement associées seulement à des systèmes de fichiers locaux.
+Azure Data Lake Storage Gen2 est la l’offre de stockage la plus récente. Elle unifie les capacités de base de la première génération d’Azure Data Lake Storage avec un point de terminaison de système de fichiers compatible Hadoop, directement intégré dans Stockage Blob Azure. Cette amélioration combine les avantages de la mise à l’échelle et du coût de stockage des objets, avec la fiabilité et les performances généralement associées seulement à des systèmes de fichiers locaux.
 
 ADLS Gen 2 est basé sur  [Stockage Blob Azure](../../storage/blobs/storage-blobs-introduction.md) et vous permet d’interagir avec les données selon les deux paradigmes du système de fichiers et du stockage d’objets. Les fonctionnalités  [d’Azure Data Lake Storage Gen1](../../data-lake-store/index.md), comme la sémantique des systèmes de fichiers, la sécurité au niveau des fichiers et la mise à l’échelle, sont combinées à celles du  [Stockage Blob Azure](../../storage/blobs/storage-blobs-introduction.md), comme le stockage hiérarchisé économique, la haute disponibilité/reprise d’activité après sinistre et l’écosystème étendu de SDK/d’outils. Dans Data Lake Storage Gen2, toutes les qualités du stockage d’objets sont conservées, avec en plus les avantages d’une interface de système de fichiers optimisée pour les charges de travail analytiques.
 
@@ -111,7 +110,7 @@ Dans le passé, l’analytique cloud devait trouver le meilleur compromis entre 
 
 Vous pouvez utiliser un des formats suivants pour accéder aux données stockées dans Azure Data Lake Storage Gen2 :
 - `abfs:///`: Accédez au stockage Data Lake par défaut pour le cluster.
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Utilisé pour communiquer avec un stockage Data Lake autre que celui par défaut.
+- `abfs://file_system@account_name.dfs.core.windows.net`: Utilisé pour communiquer avec un stockage Data Lake autre que celui par défaut.
 
 Pour plus d’informations, consultez les articles suivants :
 
@@ -172,11 +171,11 @@ Par défaut, HDInsight dispose d’un accès total aux données dans les comptes
 
 5. Pour limiter l’accès à un conteneur avec une signature d’accès partagé, ajoutez une entrée personnalisée à la configuration de core-site pour le cluster sous Ambari > HDFS > Configs > Advanced > Custom core-site > Add property.
 
-6. Utilisez les valeurs suivantes pour les champs  **Key** et **Value**  :
+6. Utilisez les valeurs suivantes pour les champs **Clé** et **Valeur** :
 
     **Clé** : **Valeur** `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` : Clé SAP retournée l’application Python de l’étape 4 ci-dessus.
 
-7. Cliquez sur le bouton  **Ajouter**  pour enregistrer cette clé et cette valeur, puis cliquez sur le bouton  **Enregistrer**  pour enregistrer les modifications de configuration. Quand vous y êtes invité, ajoutez une description de la modification (par exemple « Ajout de l’accès au stockage avec signature d’accès partagé »), puis cliquez sur  **Enregistrer**.
+7. Cliquez sur le bouton **Ajouter** pour enregistrer cette clé et cette valeur, puis cliquez sur le bouton **Enregistrer** pour enregistrer les modifications de configuration. Lorsque vous y êtes invité, ajoutez une description de la modification (« Ajout d’accès de stockage SAP », par exemple), puis cliquez sur **Enregistrer**.
 
 8. Dans l’interface utilisateur web d’Ambari, sélectionnez HDFS dans la liste sur la gauche, puis sélectionnez  **Restart All Affected** (Redémarrer tous les éléments affectés) dans la liste déroulante Service Actions (Actions du service) située à droite. Quand vous y êtes invité, sélectionnez  **Confirm Restart All** (Confirmer le redémarrage de tout).
 

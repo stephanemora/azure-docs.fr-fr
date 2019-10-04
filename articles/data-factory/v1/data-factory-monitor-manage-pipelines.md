@@ -3,22 +3,20 @@ title: Surveiller et gérer les pipelines à l’aide du portail Azure et de Pow
 description: Découvrez comment utiliser le portail Azure et Azure PowerShell pour surveiller et gérer les fabriques de données et les pipelines Azure que vous avez créés.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445141"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139656"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Surveiller et gérer les pipelines Azure Data Factory à l’aide du portail Azure et de PowerShell
 > [!div class="op_single_selector"]
@@ -49,7 +47,7 @@ Cette section décrit également comment une tranche de jeu de données passe d�
 
 ### <a name="navigate-to-your-data-factory"></a>Accédez à votre fabrique de données
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Cliquer sur **Fabriques de données** dans le menu de gauche. Si vous ne voyez pas cette option, cliquez sur **Autres services >**, puis sur **Fabriques de données** dans la catégorie **INTELLIGENCE + ANALYSE**.
+2. Cliquer sur **Fabriques de données** dans le menu de gauche. Si vous ne voyez pas cette option, cliquez sur **Autres services >** , puis sur **Fabriques de données** dans la catégorie **INTELLIGENCE + ANALYSE**.
 
    ![Parcourir tout > Fabriques de données](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 3. Dans le panneau **Fabriques de données**, sélectionnez la fabrique de données qui vous intéresse.
@@ -89,7 +87,7 @@ Voici la liste des différents états possibles pour les tranches d’un jeu de 
 
 <table>
 <tr>
-    <th align="left">État</th><th align="left">Sous-état</th><th align="left">Description</th>
+    <th align="left">State</th><th align="left">Sous-état</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">En attente</td><td>ScheduleTime</td><td>L’heure n’est pas venue pour l’exécution de la tranche.</td>
@@ -175,12 +173,12 @@ Vous pouvez gérer vos pipelines à l’aide d’Azure PowerShell. Par exemple, 
 > [!NOTE] 
 > La vue schématique ne prend pas en charge la suspension et la reprise des pipelines. Si vous souhaitez utiliser une interface utilisateur, utilisez l’application de surveillance et gestion. Pour en savoir plus sur l’utilisation de l’application, consultez l’article [Surveiller et gérer les pipelines Azure Data Factory à l’aide de l’application de surveillance et gestion](data-factory-monitor-manage-app.md). 
 
-Vous pouvez suspendre des pipelines à l’aide de la **Suspend-AzDataFactoryPipeline** applet de commande PowerShell. Cette applet de commande est utile lorsque vous ne voulez pas exécuter vos pipelines jusqu'à ce qu’un problème est résolu. 
+Vous pouvez suspendre l’exécution des pipelines à l’aide de la cmdlet PowerShell **Suspend-AzDataFactoryPipeline**. Cette applet de commande est utile lorsque vous ne voulez pas exécuter vos pipelines jusqu'à ce qu’un problème est résolu. 
 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Par exemple : 
+Par exemple :
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -191,7 +189,7 @@ Une fois le problème résolu au niveau du pipeline, vous pouvez reprendre le pi
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-Par exemple : 
+Par exemple :
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -219,26 +217,26 @@ En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de do
 
 #### <a name="use-powershell-to-debug-an-error"></a>Utiliser PowerShell pour déboguer une erreur
 1. Lancez **PowerShell**.
-2. Exécutez le **Get-AzDataFactorySlice** commande pour voir les tranches et leur état. Une tranche dont l’état est **Échec**devrait apparaître.        
+2. Exécutez la commande **Get-AzDataFactorySlice** pour voir les tranches et leur état. Une tranche dont l’état est **Échec**devrait apparaître.        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```   
-   Par exemple : 
+   Par exemple :
 
     ```powershell   
     Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
     ```
 
    Remplacez **StartDateTime** par l’heure de début de votre pipeline. 
-3. Exécutez maintenant le **Get-AzDataFactoryRun** pour obtenir plus d’informations sur l’activité exécutée pour la tranche.
+3. Exécutez maintenant la cmdlet **Get-AzDataFactoryRun** pour obtenir des détails sur l’exécution de l’activité de la tranche.
 
     ```powershell   
     Get-AzDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime]
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    Par exemple : 
+    Par exemple :
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -269,7 +267,7 @@ En cas d’échec d’exécution de l’activité dans un pipeline, le jeu de do
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
     ```
-5. Vous pouvez exécuter la **Save-AzDataFactoryLog** applet de commande avec la valeur d’Id dans la sortie et de télécharger les fichiers journaux à l’aide de la **- DownloadLogsoption** pour l’applet de commande.
+5. Vous pouvez exécuter la cmdlet **Save-AzDataFactoryLog** avec la valeur d’ID indiquée dans la sortie et télécharger les fichiers journaux en utilisant le paramètre **-DownloadLogsoption** pour la cmdlet.
 
     ```powershell
     Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
@@ -290,7 +288,7 @@ En cas d’échec de validation de la tranche à cause d’une erreur de straté
 ![Corriger les erreurs et valider](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
-Vous pouvez réexécuter ceux-ci à l’aide de la **Set-AzDataFactorySliceStatus** applet de commande. Consultez le [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) rubrique pour la syntaxe et d’autres détails concernant l’applet de commande.
+Vous pouvez exécuter à nouveau des problèmes à l’aide de la cmdlet **Set-AzDataFactorySliceStatus**. Consultez la rubrique [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) pour en savoir plus sur la syntaxe et la cmdlet.
 
 **Exemple :**
 

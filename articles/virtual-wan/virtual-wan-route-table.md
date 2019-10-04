@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: fc8dd6770efa1c057a56374ddc0094c2d88d2eb5
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 18af56f6924484c6267871cf3fed34f80a8f12a4
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335729"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744698"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Créer une table d’itinéraires de hub virtuel pour diriger le trafic vers une appliance réseau virtuelle
 
@@ -36,10 +36,10 @@ Dans cet article, vous apprendrez comment :
 
 Vérifiez que vous respectez les critères suivants :
 
-1. Vous avez une Appliance virtuelle réseau (NVA). Il s’agit d’un logiciel tiers de votre choix est généralement mis en service à partir de la place de marché Azure dans un réseau virtuel.
+1. Vous avez une appliance virtuelle réseau (NVA). Il s’agit d’un logiciel tiers de votre choix qui est généralement provisionné à partir de la Place de marché Azure dans un réseau virtuel.
 2. Vous disposez d’une adresse IP privée assignée à l’interface de l’appliance réseau virtuelle. 
-3. L’appliance virtuelle réseau ne peut pas être déployé dans le hub virtuel. Elle doit être déployée dans un réseau virtuel distinct. Dans cet article, le réseau virtuel NVA est appelé « DMZ VNet ».
-4. Un ou plusieurs réseaux virtuels peuvent être connectés au réseau « DMZ VNet ». Dans cet article, ce réseau virtuel est appelé « Indirect spoke VNet ». Ces réseaux virtuels peuvent être connectés au réseau DMZ VNet à l’aide de l’homologation.
+3. L’appliance réseau virtuelle ne peut pas être déployée dans le hub virtuel. Elle doit être déployée dans un réseau virtuel distinct. Dans cet article, le réseau virtuel NVA est appelé « DMZ VNet ».
+4. Un ou plusieurs réseaux virtuels peuvent être connectés au réseau « DMZ VNet ». Dans cet article, ce réseau virtuel est appelé « Indirect spoke VNet ». Ces réseaux virtuels peuvent être connectés au réseau DMZ VNet à l’aide du peering.
 5. Vérifiez que les deux réseaux virtuels sont créés. Ils seront utilisés en tant que réseaux virtuels spokes. Dans cet article, le réseau virtuel spoke bénéficie des espaces d’adressage 10.0.2.0/24 et 10.0.3.0/24. Si vous avez besoin d’informations sur la création d’un réseau virtuel, consultez l’article [Créer un réseau virtuel à l’aide de PowerShell](../virtual-network/quick-create-powershell.md).
 6. Veillez à ce qu’aucune passerelle de réseau virtuel n’existe dans les réseaux virtuels.
 
@@ -78,7 +78,7 @@ Assurez-vous d’avoir installé la dernière version des cmdlets PowerShell de 
 3. Créez un hub virtuel.
 
    ```powershell
-   New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
+   New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24" -Location "West US"
    ```
 
 ## <a name="connections"></a>3. Créer des connexions

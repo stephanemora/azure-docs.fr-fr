@@ -1,161 +1,260 @@
 ---
-title: Utiliser les extensions PostgreSQL dans Azure Database pour PostgreSQL
-description: Décrit la capacité à étendre les fonctionnalités d’une base de données à l’aide des extensions de la base de données Azure pour PostgreSQL.
+title: Utiliser les extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur unique
+description: Décrit la capacité à étendre les fonctionnalités d’une base de données à l’aide des extensions d’Azure Database pour PostgreSQL - Serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.openlocfilehash: 7d052ee2d3d3bdf6cca99dd6a91b88176983113f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 09/10/2019
+ms.openlocfilehash: 383f5acb9f106bb4697433be99c53bb78d00b396
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888074"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091147"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensions PostgreSQL dans une base de données Azure pour PostgreSQL
-PostgreSQL offre la possibilité d’étendre les fonctionnalités d’une base de données à l’aide des extensions. Les extensions permettent de regrouper plusieurs objets SQL liés dans un package unique ; elles peuvent être chargées ou supprimées de votre base de données d’une seule commande. Une fois chargées dans la base de données, les extensions peuvent fonctionner comme des fonctionnalités intégrées. Pour plus d’informations sur les extensions PostgreSQL, consultez la page  [Empaqueter des objets liés dans une extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur unique
+PostgreSQL offre la possibilité d’étendre les fonctionnalités d’une base de données à l’aide des extensions. Les extensions regroupent plusieurs objets SQL associés au sein d’un package qui peut être chargé ou supprimé de votre base de données à l’aide d’une seule commande. Une fois chargées dans la base de données, les extensions fonctionnent comme des fonctionnalités intégrées.
 
 ## <a name="how-to-use-postgresql-extensions"></a>Guide pratique pour utiliser les extensions PostgreSQL
-Les extensions PostgreSQL doivent être installées dans votre base de données pour être utilisables. Pour installer une extension donnée, exécutez la commande  [CRÉER UNE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html)  dans l’outil psql pour charger les objets empaquetés dans votre base de données.
+Les extensions PostgreSQL doivent être installées dans votre base de données pour être utilisables. Pour installer une extension donnée, exécutez la commande  [CRÉER UNE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html)  dans l’outil psql pour charger les objets empaquetés dans votre base de données.
 
-Azure Database pour PostgreSQL prend actuellement en charge un sous-ensemble d’extensions de clé, comme indiqué ici. Les extensions qui ne sont pas mentionnées ici ne sont pas prises en charge ; vous ne pouvez pas créer votre propre extension avec le service de base de données Azure pour PostgreSQL.
+Azure Database pour PostgreSQL prend en charge un sous-ensemble d’extensions clés, comme indiqué ci-dessous. Ces informations sont également disponibles en exécutant `SELECT * FROM pg_available_extensions;`. Les extensions qui ne figurent pas dans la liste ne sont pas prises en charge. Vous ne pouvez pas créer votre propre extension dans Azure Database pour PostgreSQL.
 
-## <a name="extensions-supported-by-azure-database-for-postgresql"></a>Extensions prises en charge par la base de données Azure pour PostgreSQL
-Les tables suivantes répertorient les extensions PostgreSQL standard actuellement prises en charge par la base de données Azure pour PostgreSQL. Ces informations sont également disponibles en exécutant `SELECT * FROM pg_available_extensions;`.
+## <a name="postgres-11-extensions"></a>Extensions Postgres 11
 
-### <a name="data-types-extensions"></a>Extensions de types de données
-
-> [!div class="mx-tableFixed"]
-> | **Extension** | **Description** |
-> |---|---|
-> | [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | Fournit un type de données pour les mots de passe chiffrés automatiquement. |
-> | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Fournit un type de chaîne de caractères avec respect de la casse. |
-> | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Fournit un type de données pour les cubes multidimensionnels. |
-> | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Fournit un type de données permettant de stocker des ensembles de paires clé/valeur. |
-> | [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | Fournit des types de données pour les standards internationaux de numérotation de produits. |
-> | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | Fournit un type de données pour les structures hiérarchiques de type arborescence. |
-
-### <a name="functions-extensions"></a>Extensions de fonctions
+Les extensions suivantes sont disponibles dans les serveurs Azure Database pour PostgreSQL qui disposent de la version 11 de Postgres. 
 
 > [!div class="mx-tableFixed"]
-> | **Extension** | **Description** |
-> |---|---|
-> | [earthdistance](https://www.postgresql.org/docs/9.6/static/earthdistance.html) | Fournit un moyen de calculer les distances de grands cercles à la surface de la Terre. |
-> | [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | Fournit plusieurs fonctions permettant de déterminer les ressemblances et la distance entre des chaînes. |
-> | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | Fournit des fonctions et des opérateurs permettant de manipuler des tableaux d’entiers non Null. |
-> | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | Fournit des fonctions de chiffrement. |
-> | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | Gère les tables partitionnées par date ou par ID. |
-> | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Fournit des fonctions et des opérateurs permettant de déterminer la similarité entre des textes alphanumériques par rapprochement de trigrammes. |
-> | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Fournit des fonctions qui manipulent des tables entières, y compris les tables croisées. |
-> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Génère des identificateurs uniques universels (UUID). |
+> | **Extension**| **Version d’extension** | **Description** |
+> |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Utilisé pour analyser une adresse et la décomposer en éléments constitutifs, |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Exemple de jeu de données de normalisation des adresses aux États-Unis|
+> |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | Prise en charge de l’indexation des types de données communs dans GIN|
+> |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | Prise en charge de l’indexation des types de données communs dans GiST|
+> |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | Type de données des chaînes de caractères sans respect de la casse|
+> |[cube](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | Type de données pour les cubes multidimensionnels|
+> |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1.2             | Se connecte à d’autres bases de données PostgreSQL à partir d’une base de données|
+> |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1.0             | Modèle de dictionnaire de recherche de texte pour les entiers|
+> |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | Calcule les distances orthodromiques à la surface de la Terre|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | Détermine les ressemblances et la distance entre les chaînes|
+> |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | Type de données permettant de stocker des paires clé/valeur|
+> |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.2           | Index hypothétiques pour PostgreSQL|
+> |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | Fonctions, opérateurs et prise en charge d’index pour les tableaux d’entiers 1D|
+> |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | Types de données pour les standards internationaux de numérotation de produits|
+> |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
+> |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
+> |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
+> |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | Extension pgRouting|
+> |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
+> |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Affiche les statistiques au niveau du tuple|
+> |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | Examine le cache des tampons partagé|
+> |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 4.0.0           | Extension pour gérer les tables partitionnées par date et heure ou par ID|
+> |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | Préchauffe les données de relation|
+> |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | Suit les statistiques d’exécution de toutes les instructions SQL exécutées|
+> |[pg_trgm](https://www.postgresql.org/docs/11/pgtrgm.html)                      | 1.4             | Mesure de la similarité du texte et recherche d’index sur la base de trigrammes|
+> |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | Langage procédural PL/pgSQL|
+> |[plv8](https://plv8.github.io/)                         | 2.3.11          | Langage procédural PL/JavaScript (v8) approuvé|
+> |[postgis](https://www.postgis.net/)                      | 2.5.1           | Géométrie, géographie et types et fonctions spatiaux raster PostGIS|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | Fonctions SFCGAL PostGIS|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | PostGIS tiger geocoder et geocoder inverse|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Types et fonctions spatiaux de topologie PostGIS|
+> |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | Wrapper de données externes pour les serveurs PostgreSQL distants|
+> |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | Fonctions qui manipulent des tables entières, y compris les tables d’analyse croisée|
+> |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | Dictionnaire de recherche de texte qui supprime les accents|
+> |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | Génère des identificateurs uniques universels (UUID)|
 
-### <a name="full-text-search-extensions"></a>Extensions de recherche en texte intégral
+## <a name="postgres-10-extensions"></a>Extensions Postgres 10 
 
-> [!div class="mx-tableFixed"]
-> | **Extension** | **Description** |
-> |---|---|
-> | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | Fournit un modèle de dictionnaire de recherche de texte pour les entiers. |
-> | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | Dictionnaire de recherche de texte qui supprime les accents (signes diacritiques) des lexèmes. |
-
-### <a name="index-types-extensions"></a>Extensions de types d’index
-
-> [!div class="mx-tableFixed"]
-> | **Extension** | **Description** |
-> |---|---|
-> | [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | Fournit des exemples de classes d’opérateurs GIN qui implémentent des comportements de type arbre B pour certains types de données. |
-> | [btree\_gist](https://www.postgresql.org/docs/9.6/static/btree-gist.html) | Fournit des classes d’opérateurs d’index GiST qui implémentent l’arbre B. |
-
-### <a name="language-extensions"></a>Extensions de langage
-
-> [!div class="mx-tableFixed"]
-> | **Extension** | **Description** |
-> |---|---|
-> | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | Langage procédural chargeable PL/pgSQL. |
-> | [plv8](https://plv8.github.io/) | Une extension du langage Javascript pour PostgreSQL qui peut être utilisée pour des procédures stockées, des déclencheurs, etc. |
-
-### <a name="miscellaneous-extensions"></a>Extensions diverses
-
-> [!div class="mx-tableFixed"]
-> | **Extension** | **Description** |
-> |---|---|
-> | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | Fournit un moyen d’examiner ce qui se passe dans le cache partagé des tampons en temps réel. |
-> | [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | Fournit un moyen de charger les données de relation dans le cache des tampons. |
-> | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | Fournit un moyen de suivre les statistiques d’exécution de toutes les instructions SQL exécutées par un serveur. (Voir ci-dessous pour une remarque sur cette extension). |
-> | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | Fournit un moyen d’afficher des informations de verrouillage au niveau des lignes. |
-> | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Fournit un moyen d’afficher les statistiques au niveau du tuple. |
-> | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Wrapper de données externes permettant d’accéder aux données stockées dans des serveurs externes PostgreSQL. (Voir ci-dessous pour une remarque sur cette extension).|
-> | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Fournit un moyen de créer des index hypothétiques qui ne consomment pas de ressources processeur ou disque. |
-> | [dblink](https://www.postgresql.org/docs/current/dblink.html) | Module prenant en charge les connexions aux autres bases de données PostgreSQL à partir d’une session de base de données. (Voir ci-dessous pour une remarque sur cette extension). |
-
-
-### <a name="postgis-extensions"></a>Extensions PostGIS
+Les extensions suivantes sont disponibles dans les serveurs Azure Database pour PostgreSQL qui disposent de la version 10 de Postgres.
 
 > [!div class="mx-tableFixed"]
-> | **Extension** | **Description** |
-> |---|---|
-> | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objets spatiaux et géographiques pour PostgreSQL. |
-> | address\_standardizer, address\_standardizer\_data\_us | Utilisé pour analyser une adresse et la décomposer en éléments constitutifs, Utilisé pour prendre en charge l’étape de normalisation des adresses par géocodage. |
-> | [pgrouting](https://pgrouting.org/) | Étend la base de données géospatiale PostGIS / PostgreSQL pour offrir une fonctionnalité de routage géospatial. |
+> | **Extension**| **Version d’extension** | **Description** |
+> |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Utilisé pour analyser une adresse et la décomposer en éléments constitutifs, |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Exemple de jeu de données de normalisation des adresses aux États-Unis|
+> |[btree_gin](https://www.postgresql.org/docs/10/btree-gin.html)                    | 1.3             | Prise en charge de l’indexation des types de données communs dans GIN|
+> |[btree_gist](https://www.postgresql.org/docs/10/btree-gist.html)                   | 1.5             | Prise en charge de l’indexation des types de données communs dans GiST|
+> |[chkpass](https://www.postgresql.org/docs/10/chkpass.html)                       | 1.0             | Type de données pour les mots de passe chiffrés automatiquement|
+> |[citext](https://www.postgresql.org/docs/10/citext.html)                       | 1.4             | Type de données des chaînes de caractères sans respect de la casse|
+> |[cube](https://www.postgresql.org/docs/10/cube.html)                         | 1.2             | Type de données pour les cubes multidimensionnels|
+> |[dblink](https://www.postgresql.org/docs/10/dblink.html)                       | 1.2             | Se connecte à d’autres bases de données PostgreSQL à partir d’une base de données|
+> |[dict_int](https://www.postgresql.org/docs/10/dict-int.html)                     | 1.0             | Modèle de dictionnaire de recherche de texte pour les entiers|
+> |[earthdistance](https://www.postgresql.org/docs/10/earthdistance.html)                | 1.1             | Calcule les distances orthodromiques à la surface de la Terre|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/10/fuzzystrmatch.html)                | 1.1             | Détermine les ressemblances et la distance entre les chaînes|
+> |[hstore](https://www.postgresql.org/docs/10/hstore.html)                       | 1.4             | Type de données permettant de stocker des paires clé/valeur|
+> |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | Index hypothétiques pour PostgreSQL|
+> |[intarray](https://www.postgresql.org/docs/10/intarray.html)                     | 1.2             | Fonctions, opérateurs et prise en charge d’index pour les tableaux d’entiers 1D|
+> |[isn](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | Types de données pour les standards internationaux de numérotation de produits|
+> |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
+> |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
+> |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
+> |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | Extension pgRouting|
+> |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
+> |[pgstattuple](https://www.postgresql.org/docs/10/pgstattuple.html)                  | 1.5             | Affiche les statistiques au niveau du tuple|
+> |[pg_buffercache](https://www.postgresql.org/docs/10/pgbuffercache.html)               | 1.3             | Examine le cache des tampons partagé|
+> |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | Extension pour gérer les tables partitionnées par date et heure ou par ID|
+> |[pg_prewarm](https://www.postgresql.org/docs/10/pgprewarm.html)                   | 1.1             | Préchauffe les données de relation|
+> |[pg_stat_statements](https://www.postgresql.org/docs/10/pgstatstatements.html)           | 1.6             | Suit les statistiques d’exécution de toutes les instructions SQL exécutées|
+> |[pg_trgm](https://www.postgresql.org/docs/10/pgtrgm.html)                      | 1.3             | Mesure de la similarité du texte et recherche d’index sur la base de trigrammes|
+> |[plpgsql](https://www.postgresql.org/docs/10/plpgsql.html)                      | 1.0             | Langage procédural PL/pgSQL|
+> |[plv8](https://plv8.github.io/)                         | 2.1.0          | Langage procédural PL/JavaScript (v8) approuvé|
+> |[postgis](https://www.postgis.net/)                      | 2.4.3           | Géométrie, géographie et types et fonctions spatiaux raster PostGIS|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.4.3           | Fonctions SFCGAL PostGIS|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.4.3           | PostGIS tiger geocoder et geocoder inverse|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | Types et fonctions spatiaux de topologie PostGIS|
+> |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | Wrapper de données externes pour les serveurs PostgreSQL distants|
+> |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | Fonctions qui manipulent des tables entières, y compris les tables d’analyse croisée|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Permet des insertions scalables et des requêtes complexes pour les données de séries chronologiques|
+> |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | Dictionnaire de recherche de texte qui supprime les accents|
+> |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | Génère des identificateurs uniques universels (UUID)|
 
+## <a name="postgres-96-extensions"></a>Extensions Postgres 9.6 
 
-### <a name="time-series-extensions"></a>Extensions de séries chronologiques
+Les extensions suivantes sont disponibles dans les serveurs Azure Database pour PostgreSQL qui disposent de la version 9.6 de Postgres.
 
 > [!div class="mx-tableFixed"]
-> | **Extension** | **Description** |
-> |---|---|
-> | [TimescaleDB](https://docs.timescale.com/latest) | Une série chronologique SQL de base de données qui prend en charge automatisée plus rapidement de partitionnement pour recevoir et requêtes. Fournit des fonctions analytiques axés sur le temps, les optimisations et s’adapte de PostgreSQL pour les charges de travail de série chronologique. TimescaleDB est développée par et une marque déposée de [l’échelle de temps, Inc.](https://www.timescale.com/) (Voir ci-dessous pour une remarque sur cette extension). |
+> | **Extension**| **Version d’extension** | **Description** |
+> |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.2           | Utilisé pour analyser une adresse et la décomposer en éléments constitutifs, |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.2           | Exemple de jeu de données de normalisation des adresses aux États-Unis|
+> |[btree_gin](https://www.postgresql.org/docs/9.6/btree-gin.html)                    | 1.0             | Prise en charge de l’indexation des types de données communs dans GIN|
+> |[btree_gist](https://www.postgresql.org/docs/9.6/btree-gist.html)                   | 1.2             | Prise en charge de l’indexation des types de données communs dans GiST|
+> |[chkpass](https://www.postgresql.org/docs/9.6/chkpass.html)                       | 1.0             | Type de données pour les mots de passe chiffrés automatiquement|
+> |[citext](https://www.postgresql.org/docs/9.6/citext.html)                       | 1.3             | Type de données des chaînes de caractères sans respect de la casse|
+> |[cube](https://www.postgresql.org/docs/9.6/cube.html)                         | 1.2             | Type de données pour les cubes multidimensionnels|
+> |[dblink](https://www.postgresql.org/docs/9.6/dblink.html)                       | 1.2             | Se connecte à d’autres bases de données PostgreSQL à partir d’une base de données|
+> |[dict_int](https://www.postgresql.org/docs/9.6/dict-int.html)                     | 1.0             | Modèle de dictionnaire de recherche de texte pour les entiers|
+> |[earthdistance](https://www.postgresql.org/docs/9.6/earthdistance.html)                | 1.1             | Calcule les distances orthodromiques à la surface de la Terre|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/9.6/fuzzystrmatch.html)                | 1.1             | Détermine les ressemblances et la distance entre les chaînes|
+> |[hstore](https://www.postgresql.org/docs/9.6/hstore.html)                       | 1.4             | Type de données permettant de stocker des paires clé/valeur|
+> |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | Index hypothétiques pour PostgreSQL|
+> |[intarray](https://www.postgresql.org/docs/9.6/intarray.html)                     | 1.2             | Fonctions, opérateurs et prise en charge d’index pour les tableaux d’entiers 1D|
+> |[isn](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | Types de données pour les standards internationaux de numérotation de produits|
+> |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
+> |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
+> |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
+> |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | Extension pgRouting|
+> |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
+> |[pgstattuple](https://www.postgresql.org/docs/9.6/pgstattuple.html)                  | 1.4             | Affiche les statistiques au niveau du tuple|
+> |[pg_buffercache](https://www.postgresql.org/docs/9.6/pgbuffercache.html)               | 1.2             | Examine le cache des tampons partagé|
+> |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | Extension pour gérer les tables partitionnées par date et heure ou par ID|
+> |[pg_prewarm](https://www.postgresql.org/docs/9.6/pgprewarm.html)                   | 1.1             | Préchauffe les données de relation|
+> |[pg_stat_statements](https://www.postgresql.org/docs/9.6/pgstatstatements.html)           | 1.4             | Suit les statistiques d’exécution de toutes les instructions SQL exécutées|
+> |[pg_trgm](https://www.postgresql.org/docs/9.6/pgtrgm.html)                      | 1.3             | Mesure de la similarité du texte et recherche d’index sur la base de trigrammes|
+> |[plpgsql](https://www.postgresql.org/docs/9.6/plpgsql.html)                      | 1.0             | Langage procédural PL/pgSQL|
+> |[plv8](https://plv8.github.io/)                         | 2.1.0          | Langage procédural PL/JavaScript (v8) approuvé|
+> |[postgis](https://www.postgis.net/)                      | 2.3.2           | Géométrie, géographie et types et fonctions spatiaux raster PostGIS|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.3.2           | Fonctions SFCGAL PostGIS|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.3.2           | PostGIS tiger geocoder et geocoder inverse|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | Types et fonctions spatiaux de topologie PostGIS|
+> |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | Wrapper de données externes pour les serveurs PostgreSQL distants|
+> |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | Fonctions qui manipulent des tables entières, y compris les tables d’analyse croisée|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Permet des insertions scalables et des requêtes complexes pour les données de séries chronologiques|
+> |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | Dictionnaire de recherche de texte qui supprime les accents|
+> |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | Génère des identificateurs uniques universels (UUID)|
+
+## <a name="postgres-95-extensions"></a>Extensions Postgres 9.5 
+
+Les extensions suivantes sont disponibles dans les serveurs Azure Database pour PostgreSQL qui disposent de la version 9.5 de Postgres.
+
+> [!div class="mx-tableFixed"]
+> | **Extension**| **Version d’extension** | **Description** |
+> |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.3.0           | Utilisé pour analyser une adresse et la décomposer en éléments constitutifs, |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.3.0           | Exemple de jeu de données de normalisation des adresses aux États-Unis|
+> |[btree_gin](https://www.postgresql.org/docs/9.5/btree-gin.html)                    | 1.0             | Prise en charge de l’indexation des types de données communs dans GIN|
+> |[btree_gist](https://www.postgresql.org/docs/9.5/btree-gist.html)                   | 1.1             | Prise en charge de l’indexation des types de données communs dans GiST|
+> |[chkpass](https://www.postgresql.org/docs/9.5/chkpass.html)                       | 1.0             | Type de données pour les mots de passe chiffrés automatiquement|
+> |[citext](https://www.postgresql.org/docs/9.5/citext.html)                       | 1.1             | Type de données des chaînes de caractères sans respect de la casse|
+> |[cube](https://www.postgresql.org/docs/9.5/cube.html)                         | 1.0             | Type de données pour les cubes multidimensionnels|
+> |[dblink](https://www.postgresql.org/docs/9.5/dblink.html)                       | 1.1             | Se connecte à d’autres bases de données PostgreSQL à partir d’une base de données|
+> |[dict_int](https://www.postgresql.org/docs/9.5/dict-int.html)                     | 1.0             | Modèle de dictionnaire de recherche de texte pour les entiers|
+> |[earthdistance](https://www.postgresql.org/docs/9.5/earthdistance.html)                | 1.0             | Calcule les distances orthodromiques à la surface de la Terre|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/9.5/fuzzystrmatch.html)                | 1.0             | Détermine les ressemblances et la distance entre les chaînes|
+> |[hstore](https://www.postgresql.org/docs/9.5/hstore.html)                       | 1.3             | Type de données permettant de stocker des paires clé/valeur|
+> |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | Index hypothétiques pour PostgreSQL|
+> |[intarray](https://www.postgresql.org/docs/9.5/intarray.html)                     | 1.0             | Fonctions, opérateurs et prise en charge d’index pour les tableaux d’entiers 1D|
+> |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | Types de données pour les standards internationaux de numérotation de produits|
+> |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | Type de données pour les structures hiérarchiques de type arborescence|
+> |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
+> |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | Fonctions de chiffrement|
+> |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | Extension pgRouting|
+> |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | Affiche les informations de verrouillage au niveau des lignes|
+> |[pgstattuple](https://www.postgresql.org/docs/9.5/pgstattuple.html)                  | 1.3             | Affiche les statistiques au niveau du tuple|
+> |[pg_buffercache](https://www.postgresql.org/docs/9.5/pgbuffercache.html)               | 1.1             | Examine le cache des tampons partagé|
+> |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | Extension pour gérer les tables partitionnées par date et heure ou par ID|
+> |[pg_prewarm](https://www.postgresql.org/docs/9.5/pgprewarm.html)                   | 1.0             | Préchauffe les données de relation|
+> |[pg_stat_statements](https://www.postgresql.org/docs/9.5/pgstatstatements.html)           | 1.3             | Suit les statistiques d’exécution de toutes les instructions SQL exécutées|
+> |[pg_trgm](https://www.postgresql.org/docs/9.5/pgtrgm.html)                      | 1.1             | Mesure de la similarité du texte et recherche d’index sur la base de trigrammes|
+> |[plpgsql](https://www.postgresql.org/docs/9.5/plpgsql.html)                      | 1.0             | Langage procédural PL/pgSQL|
+> |[postgis](https://www.postgis.net/)                      | 2.3.0           | Géométrie, géographie et types et fonctions spatiaux raster PostGIS|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.3.0           | Fonctions SFCGAL PostGIS|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.3.0           | PostGIS tiger geocoder et geocoder inverse|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.0           | Types et fonctions spatiaux de topologie PostGIS|
+> |[postgres_fdw](https://www.postgresql.org/docs/9.5/postgres-fdw.html)                 | 1.0             | Wrapper de données externes pour les serveurs PostgreSQL distants|
+> |[tablefunc](https://www.postgresql.org/docs/9.5/tablefunc.html)                    | 1.0             | Fonctions qui manipulent des tables entières, y compris les tables d’analyse croisée|
+> |[unaccent](https://www.postgresql.org/docs/9.5/unaccent.html)                     | 1.0             | Dictionnaire de recherche de texte qui supprime les accents|
+> |[uuid-ossp](https://www.postgresql.org/docs/9.5/uuid-ossp.html)                    | 1.0             | Génère des identificateurs uniques universels (UUID)|
 
 
-## <a name="pgstatstatements"></a>pg_stat_statements
-L’extension [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) est préchargée sur chaque serveur Azure Database pour PostgreSQL afin de vous fournir un moyen de suivre les statistiques d’exécution des instructions SQL.
+## <a name="pg_stat_statements"></a>pg_stat_statements
+L’extension pg_stat_statements est préchargée sur chaque serveur Azure Database pour PostgreSQL afin de vous fournir un moyen de suivre les statistiques d’exécution des instructions SQL.
 Le paramètre `pg_stat_statements.track`, qui contrôle quelles instructions sont comptées par l’extension, a la valeur par défaut `top`, ce qui signifie que toutes les instructions exécutées directement par les clients sont suivies. Les deux autres niveaux de suivi sont `none` et `all`. Ce paramètre peut être configuré comme paramètre de serveur via le [portail Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) ou [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 Un compromis existe entre les informations d’exécution des requêtes fournies par pg_stat_statements et l’impact sur les performances du serveur en raison de la journalisation de chaque instruction SQL. Si vous n’utilisez pas l’extension pg_stat_statements de façon active, nous vous recommandons de définir `pg_stat_statements.track` sur `none`. Notez que certains services de surveillance tiers peuvent s’appuyer sur pg_stat_statements pour fournir des insights sur les performances des requêtes : vérifiez donc si c’est ou non le cas pour vous.
 
-## <a name="dblink-and-postgresfdw"></a>dblink et postgres_fdw
-dblink et postgres_fdw vous permettent de vous connecter à partir d’un serveur PostgreSQL à un autre ou à une autre base de données dans le même serveur. Le serveur de réception doit autoriser les connexions à partir du serveur d’envoi via son pare-feu. Quand vous utilisez ces extensions pour établir une connexion entre des serveurs Azure Database pour PostgreSQL, vous pouvez effectuer cette opération en définissant « Autoriser l’accès aux services Azure » sur Activé. Vous devez faire de même si vous souhaitez utiliser les extensions pour établir la connexion vers le même serveur. Le paramètre « Autoriser l’accès aux services Azure » se trouve dans la page du portail Azure dédiée au serveur Postgres, sous Sécurité de la connexion. L’activation du paramètre « Autoriser l’accès aux services Azure » place toutes les adresses IP Azure sur liste verte.
+## <a name="dblink-and-postgres_fdw"></a>dblink et postgres_fdw
+dblink et postgres_fdw vous permettent de vous connecter à partir d’un serveur PostgreSQL à un autre ou à une autre base de données dans le même serveur. Le serveur de réception doit autoriser les connexions à partir du serveur d’envoi via son pare-feu. Quand vous utilisez ces extensions pour établir une connexion entre des serveurs Azure Database pour PostgreSQL, vous pouvez effectuer cette opération en définissant « Autoriser l’accès aux services Azure » sur Activé. Vous devez faire de même si vous souhaitez utiliser les extensions pour établir la connexion vers le même serveur. Le paramètre « Autoriser l’accès aux services Azure » se trouve dans la page du portail Azure dédiée au serveur Postgres, sous Sécurité de la connexion. L’activation du paramètre « Autoriser l’accès aux services Azure » place toutes les adresses IP Azure sur liste verte.
 
-Actuellement, les connexions sortantes à partir de la base de données Azure pour PostgreSQL ne sont pas pris en charge, à l’exception des connexions à une autre base de données Azure pour les serveurs PostgreSQL.
+Actuellement, les connexions sortantes d’Azure Database pour PostgreSQL ne sont pas prises en charge, à l’exception des connexions à d’autres serveurs Azure Database pour PostgreSQL.
+
+## <a name="uuid"></a>uuid
+Si vous envisagez d’utiliser `uuid_generate_v4()` à partir de l’extension uuid-ossp, envisagez la comparaison avec `gen_random_uuid()` à partir de l’extension pgcrypto pour optimiser les performances.
+
+
+## <a name="pgaudit"></a>pgAudit
+L’extension pgAudit permet la journalisation d’audit des sessions et des objets. Pour savoir comment utiliser cette extension dans Azure Database pour PostgreSQL, consultez l’[article sur les concepts d’audit](concepts-audit.md). 
 
 ## <a name="timescaledb"></a>TimescaleDB
-TimescaleDB est une base de données de série chronologique qui est empaqueté en tant qu’extension pour PostgreSQL. TimescaleDB fournit des fonctions analytiques axés sur le temps, les optimisations et évolue Postgres pour les charges de travail de série chronologique.
+TimescaleDB est une base de données de séries chronologiques empaquetée en tant qu’extension pour PostgreSQL. TimescaleDB fournit des fonctions analytiques axées sur le temps et des optimisations et met à l’échelle PostgreSQL pour les charges de travail de série chronologique.
 
-[En savoir plus sur TimescaleDB](https://docs.timescale.com/latest), une marque déposée de [l’échelle de temps, Inc.](https://www.timescale.com/)
+[Apprenez-en davantage sur TimescaleDB](https://docs.timescale.com/latest), marque déposée de [Timescale, Inc.](https://www.timescale.com/)
 
-### <a name="installing-timescaledb"></a>L’installation TimescaleDB
-Pour installer TimescaleDB, vous devez l’inclure dans les bibliothèques de préchargement partagé du serveur. Une modification de bibliothèques de préchargement partagées de Postgres nécessite un **redémarrage du serveur** entrent en vigueur.
+### <a name="installing-timescaledb"></a>Installation de TimescaleDB
+Pour installer TimescaleDB, vous devez l’inclure dans les bibliothèques de préchargement partagées du serveur. Une modification apportée au paramètre `shared_preload_libraries` de Postgres nécessite un **redémarrage du serveur** pour prendre effet. Vous pouvez modifier les paramètres à l’aide du [portail Azure](howto-configure-server-parameters-using-portal.md) ou d’[Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 > [!NOTE]
-> TimescaleDB peut être activée sur la base de données Azure pour les versions de PostgreSQL 9.6 et 10
+> TimescaleDB peut être activé sur les versions 9.6 et 10 d’Azure Database pour PostgreSQL
 
-À l’aide de la [Azure portal](https://portal.azure.com/):
+À l’aide du [Portail Azure](https://portal.azure.com/) :
 
 1. Sélectionnez votre serveur Azure Database pour PostgreSQL.
 
-2. Dans la barre latérale, sélectionnez **paramètres du serveur**.
+2. Dans la barre latérale, sélectionnez **Paramètres du serveur**.
 
 3. Recherchez le paramètre `shared_preload_libraries`.
 
-4. Copiez et collez le texte suivant comme valeur pour `shared_preload_libraries`
-   ```
-   timescaledb
-   ```
+4. Sélectionnez **TimescaleDB**.
 
-5. Sélectionnez **enregistrer** pour conserver vos modifications. Vous recevez une notification une fois que la modification est enregistrée. 
+5. Sélectionnez **Enregistrer** pour conserver vos modifications. Vous recevez une notification une fois que la modification est enregistrée. 
 
-6. Après la notification, **redémarrer** le serveur pour appliquer ces modifications. Pour apprendre à redémarrer un serveur, consultez [Redémarrer un serveur Azure Database pour PostgreSQL](howto-restart-server-portal.md).
+6. Après avoir reçu la notification, **redémarrez** le serveur pour appliquer ces modifications. Pour apprendre à redémarrer un serveur, consultez [Redémarrer un serveur Azure Database pour PostgreSQL](howto-restart-server-portal.md).
 
 
-Vous pouvez maintenant activer TimescaleDB dans votre base de données Postgres. Connectez-vous à la base de données et exécutez la commande suivante :
+Vous pouvez maintenant activer TimescaleDB dans votre base de données Postgres. Connectez-vous à la base de données et exécutez la commande suivante :
 ```sql
 CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 ```
 > [!TIP]
-> Si vous voyez une erreur, vérifiez que vous avez [redémarré votre serveur](howto-restart-server-portal.md) après l’enregistrement shared_preload_libraries. 
+> Si vous voyez une erreur, vérifiez que vous avez [redémarré le serveur](howto-restart-server-portal.md) après l’enregistrement de shared_preload_libraries. 
 
-Vous pouvez maintenant créer un hypertable TimescaleDB [à partir de zéro](https://docs.timescale.com/getting-started/creating-hypertables) ou migrer [les données de série chronologique existantes dans PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
+Vous pouvez maintenant créer une hypertable TimescaleDB [à partir de zéro](https://docs.timescale.com/getting-started/creating-hypertables) ou migrer des [données de série chronologiques existantes dans PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous ne voyez pas une extension que vous souhaitez utiliser, faites-le-nous savoir. Votez pour les demandes existantes ou envoyez de nouveaux commentaires et de nouvelles demandes dans notre [Forum de commentaires client](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+Si vous ne voyez pas une extension que vous souhaitez utiliser, faites-le-nous savoir. Votez pour les demandes existantes ou créez de nouvelles demandes dans notre [Forum de commentaires](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).

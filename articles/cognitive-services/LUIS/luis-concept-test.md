@@ -1,6 +1,6 @@
 ---
 title: Tester votre application LUIS
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Le test est le processus consistant à fournir des exemples d’énoncés à LUIS et obtenir une réponse des intentions et des entités reconnues par LUIS.
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 775b50c4735115dde8ae936c4d06b087d58683b1
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789534"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619783"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Test d’exemples d’énoncés dans LUIS
 
@@ -46,7 +46,7 @@ Tous les tests sur votre point de terminaison sont inclus dans votre quota d’u
 Si vous testez sur un point de terminaison et que vous ne souhaitez pas que l’énoncé soit enregistré, pensez à utiliser la configuration de la chaîne de requête `logging=false`.
 
 ## <a name="where-to-find-utterances"></a>Où trouver les énoncés
-LUIS stocke tous les énoncés enregistrés dans le journal des requêtes, disponible au téléchargement sur le site web [LUIS](luis-reference-regions.md) à la page répertoriant les **Applications**, ainsi que les [API de création](https://aka.ms/luis-authoring-apis) LUIS. 
+LUIS stocke tous les énoncés enregistrés dans le journal des requêtes, disponible au téléchargement sur le site web [LUIS](luis-reference-regions.md) à la page répertoriant les **Applications**, ainsi que les [API de création](https://go.microsoft.com/fwlink/?linkid=2092087) LUIS. 
 
 Les énoncés dont LUIS n’est pas sûr sont répertoriés dans la page **[Réviser les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md)** du site web [LUIS](luis-reference-regions.md). 
 

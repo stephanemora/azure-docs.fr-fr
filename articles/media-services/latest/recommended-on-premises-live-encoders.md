@@ -6,15 +6,15 @@ keywords: encodage;encodeurs;média
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 01/17/2019
+ms.date: 08/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 6b9cb325f2bb7419e32efd5bde4705786c5dbeb5
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317321"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934929"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Encodeurs de streaming en direct recommandés
 
@@ -24,7 +24,7 @@ Dans Azure Media Services, un [Événement en temps réel](https://docs.microsof
 
   > [!NOTE]
   > L’utilisation d’une méthode pass-through est le moyen le plus économique de diffuser une vidéo en flux continu.
-
+ 
 * Un encodeur live local envoie un flux à débit unique à l'Événement en temps réel activé pour effectuer un encodage en temps réel avec Media Services dans l'un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). L'Événement en temps réel procède ensuite à l'encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif).
 
 Pour des informations détaillées sur l’encodage en temps réel avec Media Services, voir [Streaming en direct avec Media Services v3](live-streaming-overview.md).
@@ -60,6 +60,9 @@ Media Services recommande l’utilisation d’un des encodeurs live suivants, qu
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live et Hero 4K (UHD/HEVC)
 
+> [!TIP]
+>  L’encodeur live Media Excel configuré pour envoyer du flux en temps réel à un événement en direct transmis directement permet de diffuser en continu des événements en direct dans plusieurs langues (par exemple, une piste audio en anglais et une piste audio en espagnol).
+
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Configuration des paramètres de l'encodeur live local
 
 Pour plus d'informations sur les paramètres valides pour votre type d'événement en temps réel, consultez [Comparaison des types d'événements en temps réel](live-event-types-comparison.md).
@@ -94,7 +97,7 @@ En tant que partenaire d’encodeur local d’Azure Media Services, Media Servic
 10. Combinez l’URL de l’étape 8 avec le nom d’hôte de l’étape 9 pour obtenir l’URL complète.
 11. Exécutez votre encodeur live pendant environ 10 minutes.
 12. Arrêtez l’événement en direct. 
-13. Utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour regarder l’élément multimédia archivé afin de vous assurer que la lecture est dépourvue de problèmes visibles à tous les niveaux de qualité. Vous pouvez également regarder et valider via l’URL de l’aperçu pendant la session active.
+13. Utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://aka.ms/azuremediaplayer) pour regarder l’élément multimédia archivé afin de vous assurer que la lecture est dépourvue de problèmes visibles à tous les niveaux de qualité. Vous pouvez également regarder et valider via l’URL de l’aperçu pendant la session active.
 14. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live.
 15. Réinitialisez l'état de l'Événement en temps réel après la création de chaque exemple.
 16. Répétez les étapes 5 à 15 pour toutes les configurations prises en charge par votre encodeur (avec et sans signalisation des annonces, légendes ou vitesses d’encodage différentes).
@@ -113,18 +116,18 @@ En tant que partenaire d’encodeur local d’Azure Media Services, Media Servic
 10. Combinez l’URL de l’étape 8 avec le nom d’hôte de l’étape 9 pour obtenir l’URL complète.
 11. Exécutez votre encodeur live pendant environ 10 minutes.
 12. Arrêtez l’événement en direct.
-13. Utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour regarder l’élément multimédia archivé afin de vous assurer que la lecture est dépourvue de problèmes visibles à tous les niveaux de qualité. Vous pouvez également regarder et valider via l’URL de l’aperçu pendant la session active.
+13. Utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://aka.ms/azuremediaplayer) pour regarder l’élément multimédia archivé afin de vous assurer que la lecture est dépourvue de problèmes visibles à tous les niveaux de qualité. Vous pouvez également regarder et valider via l’URL de l’aperçu pendant la session active.
 14. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live.
 15. Réinitialisez l'état de l'Événement en temps réel après la création de chaque exemple.
 16. Répétez les étapes 5 à 15 pour toutes les configurations prises en charge par votre encodeur (avec et sans signalisation des annonces, légendes ou vitesses d’encodage différentes).
 
 ### <a name="longevity-verification"></a>Vérification de longévité
 
-Suivez les mêmes étapes que pour la [Vérification d’un Événement en temps réel de type pass-through](#pass-through-live-event-verification), à l’exception de l’étape 11. <br/>Au lieu de 10 minutes, exécutez votre encodeur live pendant une semaine ou plus. Utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour regarder de temps en temps le streaming en direct (ou un élément multimédia archivé) afin de vous assurer que la lecture est dépourvue de problèmes visibles.
+Suivez les mêmes étapes que pour la [Vérification d’un Événement en temps réel de type pass-through](#pass-through-live-event-verification), à l’exception de l’étape 11. <br/>Au lieu de 10 minutes, exécutez votre encodeur live pendant une semaine ou plus. Utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://aka.ms/azuremediaplayer) pour regarder de temps en temps le streaming en direct (ou un élément multimédia archivé) afin de vous assurer que la lecture est dépourvue de problèmes visibles.
 
 ### <a name="email-your-recorded-settings"></a>Envoi par e-mail de vos paramètres enregistrés
 
-Enfin, envoyez par e-mail vos paramètres enregistrés et paramètres d’archivage en direct à Azure Media Services à l’adresse amsstreaming@microsoft.com en guise de notification indiquant que tous les contrôles de vérification automatique ont réussi. Incluez également vos informations de contact à des fins de suivi. Vous pouvez contacter l’équipe Azure Media Services pour toute question sur ce processus.
+Enfin, envoyez par e-mail vos paramètres enregistrés et paramètres d’archivage en direct à Azure Media Services à l’adresse amshelp@microsoft.com en guise de notification indiquant que tous les contrôles de vérification automatique ont réussi. Incluez également vos informations de contact à des fins de suivi. Vous pouvez contacter l’équipe Azure Media Services pour toute question sur ce processus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

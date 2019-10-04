@@ -4,8 +4,6 @@ description: Découvrez comment déployer des extensions de machines virtuelles 
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
@@ -13,12 +11,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a40619000998d7222781094db2829aabcc6a7fb2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6d0c3e9daba6f4f37778fabde161751944e174a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100766"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774875"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Didacticiel : Déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager
 
@@ -108,7 +106,7 @@ Ajoutez une ressource d’extension de machine virtuelle au modèle existant ave
 
 Pour plus d’informations sur la définition de cette ressource, consultez les [informations de référence sur les extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Voici quelques éléments importants :
 
-* **nom** : étant donné que la ressource d’extension est une ressource enfant de l’objet de machine virtuelle, le nom doit être composé du préfixe du nom de la machine virtuelle. Voir [Ressources enfants](./resource-group-authoring-templates.md#child-resources).
+* **nom** : étant donné que la ressource d’extension est une ressource enfant de l’objet de machine virtuelle, le nom doit être composé du préfixe du nom de la machine virtuelle. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md).
 * **dependsOn** : créez la ressource d’extension après avoir créé la machine virtuelle.
 * **fileUris** : il s’agit des emplacements où sont stockés les fichiers de script. Si vous choisissez de ne pas utiliser l’emplacement fourni, vous devez mettre à jour les valeurs.
 * **commandToExecute** : cette commande appelle le script.  

@@ -1,54 +1,53 @@
-items:
 - name: Documentation Azure DevOps Projects
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
-  - name: Présentation d’Azure DevOps Project
-    href: overview.md
+    - name: Présentation d’Azure DevOps Project
+      href: overview.md
 - name: Démarrages rapides
-  items:
-  - name: .NET
-    href: /azure/devops-project/azure-devops-project-aspnet-core
-    maintainContext: true
-  - name: Node.js
-    href: /azure/devops-project/azure-devops-project-nodejs
-    maintainContext: true
-  - name: Java
-    href: /azure/devops-project/azure-devops-project-java
-    maintainContext: true
-  - name: Python
-    href: /azure/devops-project/azure-devops-project-python
-    maintainContext: true
-  - name: PHP
-    href: /azure/devops-project/azure-devops-project-php
-    maintainContext: true
-  - name: Ruby
-    href: /azure/devops-project/azure-devops-project-ruby
-    maintainContext: true
-  - name: Go
-    href: /azure/devops-project/azure-devops-project-go
-    maintainContext: true
   expanded: true
-- name: Didacticiels
   items:
-  - name: 1 - GitHub et DevOps Projects
-    href: azure-devops-project-github.md
-    maintainContext: true
-  - name: 2 - Déployer sur des machines virtuelles
-    href: azure-devops-project-vms.md
-    maintainContext: true
-  - name: 3 - Déployer sur Azure SQL Database
-    href: azure-devops-project-sql-database.md
-    maintainContext: true
-  - name: 4 - Déployer sur AKS
-    href: azure-devops-project-aks.md
-    maintainContext: true
-  - name: 5 - Déployer sur Azure Service Fabric
-    href: azure-devops-project-service-fabric.md
-    maintainContext: true
-ms.openlocfilehash: 110ed59f1232336fc250b9ef8a66e36b20fe025f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282615"
+    - name: .NET
+      href: /azure/devops-project/azure-devops-project-aspnet-core
+      maintainContext: true
+    - name: Node.js
+      href: /azure/devops-project/azure-devops-project-nodejs
+      maintainContext: true
+    - name: Java
+      href: /azure/devops-project/azure-devops-project-java
+      maintainContext: true
+    - name: Python
+      href: /azure/devops-project/azure-devops-project-python
+      maintainContext: true
+    - name: PHP
+      href: /azure/devops-project/azure-devops-project-php
+      maintainContext: true
+    - name: Ruby
+      href: /azure/devops-project/azure-devops-project-ruby
+      maintainContext: true
+    - name: Go
+      href: /azure/devops-project/azure-devops-project-go
+      maintainContext: true
+- name: Tutoriels
+  items:
+    - name: 1 - GitHub et DevOps Projects
+      href: azure-devops-project-github.md
+      maintainContext: true
+    - name: 2 - Déployer sur des machines virtuelles
+      href: azure-devops-project-vms.md
+      maintainContext: true
+    - name: 3 - Déployer sur Azure SQL Database
+      href: azure-devops-project-sql-database.md
+      maintainContext: true
+    - name: 4 - Déployer sur AKS
+      href: azure-devops-project-aks.md
+      maintainContext: true
+    - name: 5 - Déployer sur Azure Service Fabric
+      href: azure-devops-project-service-fabric.md
+      maintainContext: true
+    - name: 6 - Déployer sur Azure Cosmos DB
+      href: azure-devops-project-cosmos-db.md
+      maintainContext: true
+    - name: 7 - Déployer sur Azure Functions
+      href: azure-devops-project-functions.md
+      maintainContext: true

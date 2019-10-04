@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: 9cc650cea17acb8d89933c819c4ca60e2c459d1c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330955"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177694"
 ---
 Les enregistrements SPF (Sender Policy Framework) servent à spécifier les serveurs de messagerie qui peuvent envoyer des e-mails pour un nom de domaine. Il est important de configurer correctement les enregistrements SPF pour éviter que des destinataires les marquent comme courrier indésirable.
 

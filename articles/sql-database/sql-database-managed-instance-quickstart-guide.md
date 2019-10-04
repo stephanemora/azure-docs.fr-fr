@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
-manager: craigg
-ms.date: 03/25/2019
-ms.openlocfilehash: 739afe52403633b1a37f57f0005a85972cc78a39
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/11/2019
+ms.openlocfilehash: a8dfe0db5277a995b6e6675381ebeb5aeb243c9b
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360166"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647214"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Bien démarrer avec une instance managée Azure SQL Database
 
@@ -31,14 +30,16 @@ Les guides de démarrage rapide suivants vous permettent en un rien de temps de 
 
 Dans un premier temps, vous devez créer votre première instance Managed Instance avec l’environnement réseau dans lequel elle va être placée, puis activer la connexion à partir de l’ordinateur ou de la machine virtuelle où vous exécutez les requêtes vers Managed Instance. Vous pouvez utiliser les guides suivants :
 
-- [Créer une instance managée à l’aide du portail Azure](sql-database-managed-instance-get-started.md). Dans le portail Azure, vous configurez les paramètres nécessaires (nom d’utilisateur/mot de passe, nombre de cœurs et stockage maximal) pour créer automatiquement l’environnement réseau Azure, sans vous occuper des détails du réseau ni des besoins d’infrastructure. Vous devez simplement vérifier que vous avez un [type d’abonnement](sql-database-managed-instance-resource-limits.md#supported-subscription-types) actuellement autorisé à créer une instance managée. Si vous disposez de votre propre réseau à utiliser, ou que vous souhaitez personnaliser le réseau, consultez [Configurer un réseau virtuel existant pour Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md) ou [Créer un réseau virtuel pour Azure SQL Database Managed Instance](sql-database-managed-instance-create-vnet-subnet.md).
+- [Créer une instance managée à l’aide du portail Azure](sql-database-managed-instance-get-started.md). Dans le portail Azure, vous configurez les paramètres nécessaires (nom d’utilisateur/mot de passe, nombre de cœurs et quantité de stockage maximal) pour créer automatiquement l’environnement réseau Azure, sans vous occuper des détails du réseau ni des besoins d’infrastructure. Vous devez simplement vérifier que vous avez un [type d’abonnement](sql-database-managed-instance-resource-limits.md#supported-subscription-types) actuellement autorisé à créer une instance managée. Si vous disposez de votre propre réseau à utiliser, ou que vous souhaitez personnaliser le réseau, consultez [Configurer un réseau virtuel existant pour Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md) ou [Créer un réseau virtuel pour Azure SQL Database Managed Instance](sql-database-managed-instance-create-vnet-subnet.md).
 - Une instance managée est créée dans son propre réseau virtuel sans aucun point de terminaison public. Pour l’accès aux applications clientes, vous pouvez **créer une machine virtuelle dans le même réseau virtuel (sous-réseau différent)** ou **créer une connexion VPN point à site au réseau virtuel à partir de votre ordinateur client**, à l’aide de l’un de ces guides de démarrage rapide :
-
+  - Activez un [point de terminaison public](sql-database-managed-instance-public-endpoint-configure.md) sur votre instance gérée pour accéder à vos données directement à partir de votre environnement.
   - Créez une [machine virtuelle Azure dans le réseau virtuel de l’instance managée](sql-database-managed-instance-configure-vm.md) pour la connectivité aux applications clientes, notamment SQL Server Management Studio.
   - Configurez une [connexion VPN de point à site à votre instance managée](sql-database-managed-instance-configure-p2s.md) à partir de votre ordinateur client où se trouvent SQL Server Management Studio et d’autres applications de connectivité clientes. Il s’agit là de l’une des deux options disponibles pour établir la connectivité à votre instance managée et à son réseau virtuel.
 
   > [!NOTE]
   > Vous pouvez également utiliser une connexion ExpressRoute ou de site à site à partir de votre réseau local, mais ces approches sortent du cadre de ces guides de démarrage rapide.
+
+En guise d’alternative à la création manuelle d’instance gérée, vous pouvez utiliser [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), [PowerShell avec le modèle Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) ou [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) pour générer des scripts et automatiser ce processus.
 
 ### <a name="migrate-your-databases"></a>Migrer vos bases de données
 
@@ -55,27 +56,23 @@ Ces guides de démarrage rapide vous permettent de créer, de configurer et de r
 
 Bien que le réseau virtuel/sous-réseau puisse être configuré automatiquement quand l’instance est créée avec [le portail Azure](sql-database-managed-instance-get-started.md), il peut être judicieux de le créer avant de commencer à créer des instances managées, car vous pouvez ainsi configurer les paramètres du réseau virtuel et du sous-réseau. Le moyen le plus simple pour créer et configurer l’environnement réseau consiste à utiliser le modèle de [déploiement Azure Resource Manager](sql-database-managed-instance-create-vnet-subnet.md), qui va créer et configurer votre réseau et votre sous-réseau où l’instance sera placée. Vous devez simplement cliquer sur le bouton de déploiement Azure Resource Manager et remplir le formulaire avec les paramètres.
 
-Vous pouvez aussi utiliser un [script PowerShell](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) pour automatiser la création du réseau.
-
 Vous pouvez également utiliser ce [script PowerShell](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) pour automatiser la création du réseau.
 
-Si vous avez déjà un réseau virtuel et un sous-réseau où vous souhaitez déployer votre instance managée, vous devez vérifier que votre réseau virtuel et votre sous-réseau répondent à la [configuration réseau demandée](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Utilisez ce [script PowerShell pour vérifier que votre sous-réseau est correctement configuré](sql-database-managed-instance-configure-vnet-subnet.md). Ce script vérifie votre réseau et signale les éventuels problèmes. Il indique aussi ce qui doit être changé et vous propose d’effectuer les modifications nécessaires dans votre réseau virtuel/sous-réseau. Exécutez ce script si vous ne souhaitez pas configurer votre réseau virtuel/sous-réseau manuellement. Vous pouvez également l’exécuter après toute reconfiguration majeure de votre infrastructure réseau. Si vous souhaitez créer et configurer votre propre réseau, lisez l’article consacré à l’[architecture de la connectivité](sql-database-managed-instance-connectivity-architecture.md) et ce [guide complet pour créer et configurer un environnement Managed Instance](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01).
+Si vous avez déjà un réseau virtuel et un sous-réseau où vous souhaitez déployer votre instance managée, vous devez vérifier que votre réseau virtuel et votre sous-réseau répondent à la [configuration réseau demandée](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Utilisez ce [script PowerShell pour vérifier que votre sous-réseau est correctement configuré](sql-database-managed-instance-configure-vnet-subnet.md). Ce script vérifie votre réseau et signale les éventuels problèmes. Il indique aussi ce qui doit être changé et vous propose d’effectuer les modifications nécessaires dans votre réseau virtuel/sous-réseau. Exécutez ce script si vous ne souhaitez pas configurer votre réseau virtuel/sous-réseau manuellement. Vous pouvez également l’exécuter après toute reconfiguration majeure de votre infrastructure réseau. Si vous souhaitez créer et configurer votre propre réseau, lisez l’article consacré à l’[architecture de la connectivité](sql-database-managed-instance-connectivity-architecture.md) et ce [guide complet pour créer et configurer un environnement d’instance gérée](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01).
 
-## <a name="automating-creation-of-a-managed-instance"></a>Automatisation de la création d’une instance managée
+## <a name="migrate-to-a-managed-instance"></a>Migrer vers une instance gérée
 
- Si vous n’avez pas créé l’environnement réseau comme décrit dans l’étape précédente, le portail Azure peut le faire pour vous. Le seul inconvénient est qu’il le configure avec certains paramètres par défaut que vous ne pouvez pas changer par la suite. En guise d’alternative, vous pouvez utiliser :
+Les articles de ces guides de démarrage rapide vous permettent de configurer une instance managée et de déplacer vos bases de données à l’aide de la fonctionnalité `RESTORE` native. Il s’agit d’un bon point de départ si vous voulez effectuer une preuve de concept pour vérifier que votre solution peut fonctionner sur Managed Instance. 
 
-- [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)
-- [PowerShell avec un modèle Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)
-- [Azure CLI](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/11/14/create-azure-sql-managed-instance-using-azure-cli/).
-- [Modèle Resource Manager](sql-database-single-database-get-started-template.md)
+Toutefois, pour migrer votre base de données de production ou même des bases de données de Dev/Test à utiliser pour effectuer des tests de performances, vous devez envisager d’utiliser des techniques supplémentaires, telles que :
+- Test des performances : vous devez mesurer les performances de base sur votre instance SQL Server source et les comparer aux performances de l’instance gérée de destination où vous avez migré la base de données. Apprenez-en davantage sur les [meilleures pratiques en matière de comparaison des performances](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
+- Migration en ligne : avec la commande `RESTORE` native décrite dans cet article, vous devez attendre que les bases de données soient restaurées (et copiées vers Stockage Blob Azure si elles ne s’y trouvent pas déjà). Il en résulte des temps d’arrêt pour votre application, en particulier si les bases de données sont volumineuses. Pour déplacer votre base de données de production, utilisez [Database Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) afin de migrer votre base de données avec un temps d’arrêt minimal. Pour y parvenir, DMS envoie (push) les changements effectués dans votre base de données source à la base de données de l’instance managée en cours de restauration. De cette façon, vous pouvez basculer rapidement votre application de la base de données source vers la base de données cible avec un temps d’arrêt minimal.
 
-## <a name="migrating-to-a-managed-instance-with-minimal-downtime"></a>Migration vers une instance managée avec un temps d’arrêt minimal
-
-Les articles de ces guides de démarrage rapide vous permettent de configurer une instance managée et de déplacer vos bases de données à l’aide de la fonctionnalité `RESTORE` native. Toutefois, avec la fonctionnalité `RESTORE` native, vous devez attendre que les bases de données soient restaurées (et copiées dans le stockage Blob Azure si elles ne s’y trouvent pas déjà). Il en résulte des temps d’arrêt pour votre application, en particulier si les bases de données sont volumineuses. Pour déplacer votre base de données de production, utilisez [Database Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) afin de migrer votre base de données avec un temps d’arrêt minimal. Pour y parvenir, DMS envoie (push) les changements effectués dans votre base de données source à la base de données de l’instance managée en cours de restauration. De cette façon, vous pouvez basculer rapidement votre application de la base de données source vers la base de données cible avec un temps d’arrêt minimal.
+Apprenez-en davantage sur le [processus de migration recommandé](sql-database-managed-instance-migrate.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Vous trouverez une [liste générale des fonctionnalités prises en charge dans Managed Instance ici](sql-database-features.md) et des [informations détaillées et problèmes connus ici](sql-database-managed-instance-transact-sql-information.md).
 - Apprenez-en davantage sur les [caractéristiques techniques de Managed Instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
 - Consultez l’article sur l’[utilisation d’une instance managée dans Azure SQL Database](sql-database-howto-managed-instance.md) pour accéder à des guides pratiques plus avancés.
+- [Identifiez la bonne référence SKU d’Azure SQL Database/Managed Instance pour votre base de données locale](/sql/dma/dma-sku-recommend-sql-db/).

@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 62f0d82a543c0ae4e629eda3bca18b0a06322f2c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178190"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60381233"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Azure AD Connect dans Microsoft Cloud Germany - Version préliminaire
 ## <a name="introduction"></a>Introduction
@@ -33,7 +33,7 @@ Actuellement, la plupart des scénarios dans [Microsoft Cloud Germany](https://a
 * Les URL suivantes doivent être ouvertes sur un serveur proxy pour que la synchronisation réussisse :
   
   * *.microsoftonline.de
-  * * .windows.net
+  * \* .windows.net
   * * Listes de révocation de certificat
 * Lorsque vous vous connectez à votre annuaire Azure AD, vous devez utiliser un compte du domaine onmicrosoft.de.
 

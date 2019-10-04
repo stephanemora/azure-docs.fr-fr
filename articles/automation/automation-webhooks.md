@@ -4,27 +4,27 @@ description: Webhook qui permet à un client de démarrer un runbook dans Azure 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 153e910ea85ae843c6d4db51e709b58e441f6761
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224889"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061440"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Démarrage d’un runbook Azure Automation avec un webhook
 
-Un *webhook* vous permet de démarrer un Runbook dans Azure Automation via une simple requête HTTP. Ainsi, les services externes tels que Azure DevOps Services, GitHub, les journaux Azure Monitor ou des applications personnalisées pour démarrer des runbooks sans avoir à implémenter une solution complète à l’aide de l’API d’automatisation Azure.  
+Un *webhook* vous permet de démarrer un Runbook dans Azure Automation via une simple requête HTTP. Les services externes, tels que Azure DevOps Services, GitHub, les journaux Azure Monitor ou les applications personnalisées, peuvent ainsi démarrer les runbooks sans avoir à implémenter une solution complète à l’aide de l’API Azure Automation.
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 Vous pouvez comparer les webhooks à d'autres méthodes de démarrage d'un Runbook dans [Démarrage d'un Runbook dans Azure Automation](automation-starting-a-runbook.md)
 
 > [!NOTE]
-> À l’aide d’un webhook pour démarrer un runbook Python n’est pas pris en charge.
+> L’utilisation d’un webhook pour démarrer un runbook Python n’est pas prise en charge.
 
 ## <a name="details-of-a-webhook"></a>Détails d'un webhook
 
@@ -54,6 +54,9 @@ L’objet **$WebhookData** comporte les propriétés suivantes :
 | RequestBody |Corps de la requête POST entrante. Ceci conserve les mises en forme telles que les chaînes, JSON, XML ou les données de formulaire codées. Le Runbook doit être écrit pour fonctionner avec le format de données qui est attendu. |
 
 Il n’existe aucune configuration du webhook requise pour prendre en charge le paramètre **$WebhookData** et le runbook n’est pas obligé de l’accepter. Si le runbook ne définit pas le paramètre, tous les détails de la demande envoyée depuis le client sont ignorés.
+
+> [!NOTE]
+> Lors de l’appel d’un webhook, vous devez toujours stocker toutes les valeurs de paramètre en cas d’échec de l’appel. En cas de panne réseau ou de problème de connexion, vous ne pourrez pas récupérer les appels de webhook ayant échoué.
 
 Si vous spécifiez une valeur de $WebhookData lors de la création du Webhook, elle est remplacée lorsque le Webhook démarre le runbook avec les données de la requête POST du client, même si celui-ci ne fournit aucune donnée dans le corps de la requête. Si vous démarrez un Runbook ayant $WebhookData à l'aide d'une méthode autre qu'un webhook, vous pouvez fournir une valeur pour $Webhookdata qui est reconnue par le Runbook. Cette valeur doit être un objet avec les mêmes [propriétés](#details-of-a-webhook) que $Webhookdata afin que le Runbook puisse l'utiliser correctement comme s’il s’agissait d’une valeur WebhookData réelle transmise par un webhook.
 
@@ -171,7 +174,7 @@ if ($WebhookData) {
             {
                 throw "Could not retrieve connection asset: $ConnectionAssetName. Check that this asset exists in the Automation account."
             }
-            Write-Output "Authenticating to Azure with service principal." 
+            Write-Output "Authenticating to Azure with service principal."
             Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint | Write-Output
 
         # Start each virtual machine

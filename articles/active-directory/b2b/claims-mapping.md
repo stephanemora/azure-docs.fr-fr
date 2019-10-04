@@ -1,5 +1,5 @@
 ---
-title: Revendications d’utilisateur de collaboration B2B mappage - Azure Active Directory | Microsoft Docs
+title: Mappage des revendications d’utilisateur B2B Collaboration - Azure Active Directory | Microsoft Docs
 description: Personnaliser les revendications d’utilisateur émises dans le jeton SAML pour les utilisateurs d’Azure Active Directory (Azure AD) B2B.
 services: active-directory
 ms.service: active-directory
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 445d6c8b527b56f63a1156a39ac07393b4ffe115
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: edb18c31f40de3358ad987be4a9c67ed3a5079e8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668545"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65811928"
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mappage des revendications d’utilisateur B2B Collaboration dans Azure Active Directory
 

@@ -1,7 +1,6 @@
 ---
-title: Migrer des clusters Apache Hadoop locaux vers Azure HDInsight – meilleures pratiques concernant la migration de données
+title: Migrer des clusters Apache Hadoop locaux vers Azure HDInsight – migration de données
 description: Découvrez les meilleures pratiques concernant la migration de données afin de migrer des clusters Hadoop locaux vers Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02c7f53c090559ca0ada46ec90de3a44b0518a29
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 567edca422237c71f0d69c862a17fbc0d2a72795
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683571"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735928"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight – meilleures pratiques concernant la migration de données
 
@@ -29,7 +28,7 @@ Il existe deux options principales pour migrer des données d’un environnement
     2. Express Route : ExpressRoute est un service Azure qui vous permet de créer des connexions privées entre les centres de données Microsoft et une infrastructure locale ou une installation de colocalisation. Les connexions ExpressRoute ne sont pas établies via le réseau public Internet et offrent plus de sécurité, de fiabilité et de rapidité, ainsi que moins de latences que les connexions classiques sur Internet. Pour plus d’informations, consultez l’article [Créer et modifier un circuit ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Transfert de données en ligne Data Box : Data Box Edge et Data Box Gateway sont des produits de transfert de données en ligne, qui font office de passerelles de stockage réseau pour gérer les données transitant entre votre site et Azure. Data Box Edge est un appareil réseau local, qui échange des données avec Azure et utilise le computing en périphérie basé sur l’intelligence artificielle pour traiter les données. Data Box Gateway est une appliance virtuelle dotée de fonctionnalités de passerelle de stockage. Pour plus d’informations, consultez [Documentation Azure Data Box - Transfert en ligne](https://docs.microsoft.com/azure/databox-online/).
 1.  Expédition de données hors connexion
-    1. Transfert de données hors connexion Data Box : les appareils Data Box, Data Box Disk et Data Box Heavy vous permettent de transférer de grandes quantités de données vers Azure quand l’utilisation du réseau n’est pas envisageable. Ces appareils de transfert de données hors connexion sont échangés entre votre organisation et le centre de données Azure. Ils utilisent un chiffrement AES pour protéger vos données en transit et font l’objet d’un processus complet d’assainissement après téléchargement, destiné à supprimer vos données. Pour plus d’informations sur les appareils de transfert hors connexion de zone de données, consultez [Documentation Azure Data Box - transfert hors connexion](https://docs.microsoft.com/azure/databox/). Pour plus d’informations sur la migration des clusters Hadoop, consultez [utiliser Azure Data Box pour migrer à partir d’un magasin HDFS en local vers Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+    1. Transfert de données hors connexion Data Box : les appareils Data Box, Data Box Disk et Data Box Heavy vous permettent de transférer de grandes quantités de données vers Azure quand l’utilisation du réseau n’est pas envisageable. Ces appareils de transfert de données hors connexion sont échangés entre votre organisation et le centre de données Azure. Ils utilisent un chiffrement AES pour protéger vos données en transit et font l’objet d’un processus complet d’assainissement après téléchargement, destiné à supprimer vos données. Pour plus d’informations sur les appareils de transfert Data Box, consultez [Documentation Azure Data Box - Transfert hors connexion](https://docs.microsoft.com/azure/databox/). Pour plus d’informations sur la migration des clusters Hadoop, consultez [Utiliser Azure Data Box pour migrer des données à partir d’un magasin HDFS en local vers le stockage Azure](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 Le tableau suivant indique les durées moyennes de transfert de données en fonction du volume de données et de la bande passante réseau. Utilise une Data Box si la migration des données est censée prendre plus de trois semaines.
 
@@ -93,7 +92,7 @@ Le metastore Hive peut être migré en utilisant soit les scripts soit la répli
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Migration du metastore Hive à l’aide des scripts
 
-1. Générer le DDL Hive à partir de metastore Hive de site. Cette étape peut être effectuée à l'aide d'un [wrapper bash script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Générez les langages de définition de données (DDL) Hive à partir du metastore Hive local. Cette étape peut être effectuée à l'aide d'un [wrapper bash script](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
 1. Modifiez le DDL généré pour remplacer l'URL HDFS par des URL WASB/ADLS/ABFS.
 1. Exécutez le DDL mis à jour sur le metastore à partir du cluster HDInsight.
 1. Assurez-vous que la version du metastore Hive est compatible avec l'environnement local et cloud.
@@ -110,7 +109,7 @@ Le metastore Hive peut être migré en utilisant soit les scripts soit la répli
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - Exportez les stratégies Ranger locales dans des fichiers xml.
-- Transformer en local basé sur le HDFS chemins d’accès spécifiques à l’aide d’un outil tel que XSLT WASB/ADLS.
+- Transformez des chemins d’accès basés sur HDFS spécifiques locaux en WASB/ADLS, à l’aide d’un outil tel que XSLT.
 - Importez les stratégies sur l’exécution Ranger dans HDInsight.
 
 ## <a name="next-steps"></a>Étapes suivantes

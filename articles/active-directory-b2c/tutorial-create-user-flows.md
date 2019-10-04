@@ -1,25 +1,25 @@
 ---
-title: Tutoriel - Créer des flux d’utilisateur dans Azure Active Directory B2C | Microsoft Docs
-description: Découvrez comment créer des flux d’utilisateur pour vos applications dans Azure Active Directory B2C à l’aide du portail Azure.
+title: Tutoriel – Créer des flux utilisateur – Azure Active Directory B2C
+description: Découvrez comment créer des flux utilisateur sur le portail Azure pour permettre l’inscription, la connexion et la modification de profil utilisateur pour vos applications dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 02/01/2019
-ms.author: davidmu
+ms.date: 06/07/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b76d56b17973c04992a8855917c814ced649bd0f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 3633ffb09d71bd166cb7366f860662d9b91c7f07
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338256"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063399"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Didacticiel : Créer des flux d’utilisateur dans Azure Active Directory B2C
 
-Dans vos applications, vous pouvez avoir des [flux d’utilisateur](active-directory-b2c-reference-policies.md) qui permettent aux utilisateurs de s’inscrire, de se connecter ou de gérer leur profil. Vous pouvez créer plusieurs flux d’utilisateur de types différents dans votre locataire Azure Active Directory (Azure AD) B2C et les utiliser dans vos applications selon vos besoins. Les flux d’utilisateurs peuvent être réutilisés entre les différentes applications.
+Vos applications comportent peut-être des [flux utilisateur](active-directory-b2c-reference-policies.md) qui permettent aux utilisateurs de s’inscrire, de se connecter ou de gérer leur profil. Vous pouvez créer plusieurs flux d’utilisateurs de types différents dans votre locataire Azure Active Directory B2C (Azure AD B2C) et les utiliser dans vos applications selon les besoins. Les flux d’utilisateurs peuvent être réutilisés entre les différentes applications.
 
 Dans cet article, vous apprendrez comment :
 
@@ -28,92 +28,92 @@ Dans cet article, vous apprendrez comment :
 > * Créer un flux d’utilisateur de modification de profil
 > * Créer un flux d’utilisateur de réinitialisation du mot de passe
 
-Ce tutoriel vous montre comment créer des flux d’utilisateur recommandés à l’aide du portail Azure. Si vous cherchez des informations sur la configuration d’un flux ROPC (informations d’identification de mot de passe du propriétaire de la ressource) dans votre application, consultez [Configurer le flux des informations d’identification de mot de passe du propriétaire de la ressource dans Azure AD B2C](configure-ropc.md).
+Ce tutoriel vous montre comment créer des flux d’utilisateur recommandés à l’aide du portail Azure. Si vous recherchez des informations sur la façon de configurer un flux ROPC (informations d’identification de mot de passe du propriétaire de la ressource) dans votre application, consultez [Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource dans Azure AD B2C](configure-ropc.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-[Inscrivez vos applications](tutorial-register-applications.md) qui font partie des flux d’utilisateur à créer. 
+[Inscrivez vos applications](tutorial-register-applications.md) qui font partie des flux d’utilisateur à créer.
 
 ## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Créer un flux d’utilisateur d’inscription et de connexion
 
 Le flux d’utilisateur Inscription et connexion gère les expériences d’inscription et de connexion avec une seule configuration. Les utilisateurs de votre application sont dirigés vers le chemin approprié en fonction du contexte.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 
-    ![Basculer vers l’annuaire de l’abonnement](./media/tutorial-create-user-flows/switch-directories.png)
+    ![Filtre Répertoire et abonnement avec locataire B2C sélectionné](./media/tutorial-create-user-flows/switch-directories.PNG)
 
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Dans le menu de gauche, sélectionnez **Flux d’utilisateur**, puis **Nouveau flux d’utilisateur**.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Dans le menu de gauche, sous **Stratégies**, sélectionnez **Flux utilisateur (stratégies)** , puis **Nouveau flux d’utilisateur**.
 
-    ![Sélectionnez Nouveau flux utilisateur](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
+    ![Page Flux d'utilisateur du portail avec bouton Nouveau flux d'utilisateur en surbrillance](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-5. Sélectionnez le flux d’utilisateur **Inscription et connexion** sous l’onglet Recommandé.
+1. Sous l’onglet **Recommandé**, sélectionnez le flux utilisateur **Inscription et connexion**.
 
-    ![Sélectionner le flux d’utilisateur Inscription et connexion](./media/tutorial-create-user-flows/signup-signin-type.png)
+    ![Page Sélectionner un flux d'utilisateur avec Inscription et connexion en surbrillance](./media/tutorial-create-user-flows/signup-signin-type.png)
 
-6. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *signupsignin1*.
-7. Pour **Fournisseurs d’identité**, sélectionnez **Inscription par e-mail**.
+1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *signupsignin1*.
+1. Pour **Fournisseurs d’identité**, sélectionnez **Inscription par e-mail**.
 
-    ![Définir les propriétés de flux](./media/tutorial-create-user-flows/signup-signin-properties.png)
+    ![Page Créer un flux d'utilisateur du Portail Azure avec propriétés en surbrillance](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-8. Pour **Attributs utilisateur et revendications**, choisissez les revendications et les attributs à collecter et envoyer par l’utilisateur pendant l’inscription. Par exemple, sélectionnez **Afficher plus**, puis choisissez **Pays/région**, **Nom d’affichage** et **Code postal**. Cliquez sur **OK**.
+1. Pour **Attributs utilisateur et revendications**, choisissez les revendications et les attributs à collecter et envoyer par l’utilisateur pendant l’inscription. Par exemple, sélectionnez **Afficher plus**, puis choisissez des attributs et des revendications pour **Pays/région**, **Nom d’affichage** et **Code postal**. Cliquez sur **OK**.
 
-    ![Sélectionner des attributs et des revendications](./media/tutorial-create-user-flows/signup-signin-attributes.png)
+    ![Page de sélection des attributs et revendications avec trois revendications sélectionnées](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-9. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
+1. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
 
 ### <a name="test-the-user-flow"></a>Tester le flux utilisateur
 
-1. Dans la page Vue d’ensemble du flux d’utilisateur, sélectionnez **Exécuter le flux d’utilisateur**.
-2. Pour **Application**, sélectionnez l’application web *webapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-3. Cliquez sur **Exécuter le flux d’utilisateur**, puis sélectionnez **S’inscrire maintenant**.
+1. Sélectionnez le flux utilisateur que vous avez créé pour ouvrir sa page de présentation, puis sélectionnez **Exécuter le flux d’utilisateur**.
+1. Pour **Application**, sélectionnez l’application web *webapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
+1. Cliquez sur **Exécuter le flux d’utilisateur**, puis sélectionnez **S’inscrire maintenant**.
 
-    ![Exécuter le flux d’utilisateur](./media/tutorial-create-user-flows/signup-signin-run-now.png)
+    ![Page Exécuter le flux d'utilisateur du portail avec bouton Exécuter le flux d'utilisateur en surbrillance](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
-4. Entrez une adresse e-mail valide, cliquez sur **Envoyer un code de vérification**, puis entrez le code de vérification que vous recevez.
-5. Entrez un nouveau mot de passe et confirmez-le.
-6. Entrez le nom que vous voulez afficher, sélectionnez votre pays et votre région, entrez un code postal, puis cliquez sur **Créer**. Le jeton est envoyé à `https://jwt.ms` et vous devez le voir.
-7. Vous pouvez maintenant réexécuter le flux d’utilisateur et vous connecter avec le compte que vous avez créé. Le jeton retourné comprend les revendications que vous avez sélectionnées pour le nom, le pays et le code postal.
+1. Entrez une adresse e-mail valide, cliquez sur **Envoyer un code de vérification**, entrez le code de vérification que vous recevez, puis sélectionnez **Vérifier le code**.
+1. Entrez un nouveau mot de passe et confirmez-le.
+1. Sélectionnez votre pays et votre région, entrez le nom que vous voulez afficher, entrez un code postal, puis cliquez sur **Créer**. Le jeton est envoyé à `https://jwt.ms` et vous devez le voir.
+1. Vous pouvez maintenant réexécuter le flux d’utilisateur et vous connecter avec le compte que vous avez créé. Le jeton retourné comprend les revendications que vous avez sélectionnées pour le pays/région, le nom et le code postal.
 
 ## <a name="create-a-profile-editing-user-flow"></a>Créer un flux d’utilisateur de modification de profil
 
 Si vous voulez autoriser les utilisateurs à modifier leur profil dans votre application, vous utilisez un flux d’utilisateur de modification de profil.
 
-1. Dans le menu de gauche, sélectionnez **Flux d’utilisateur**, puis **Nouveau flux d’utilisateur**.
-2. Sélectionnez le flux d’utilisateur **Modification de profil** sous l’onglet Recommandé.
-3. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *profileediting1*.
-4. Sous **Fournisseurs d’identité**, sélectionnez **Connexion du compte local**.
-5. Sous **Attributs utilisateur**, choisissez les attributs que le client peut modifier dans son profil. Par exemple, sélectionnez **Afficher plus**, puis choisissez **Nom d’affichage** et **Poste**. Cliquez sur **OK**.
-6. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
+1. Dans le menu de gauche de la page de vue d’ensemble du locataire Azure AD B2C, sélectionnez **Flux utilisateur (stratégies)** , puis sélectionnez **Nouveau flux d’utilisateur**.
+1. Sélectionnez le flux d’utilisateur **Modification de profil** sous l’onglet Recommandé.
+1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *profileediting1*.
+1. Sous **Fournisseurs d’identité**, sélectionnez **Connexion du compte local**.
+1. Sous **Attributs utilisateur**, choisissez les attributs que le client peut modifier dans son profil. Par exemple, sélectionnez **Afficher plus**, puis choisissez des attributs et des revendications pour **Nom d’affichage** et **Poste**. Cliquez sur **OK**.
+1. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
 
 ### <a name="test-the-user-flow"></a>Tester le flux utilisateur
 
-1. Dans la page Vue d’ensemble du flux d’utilisateur, sélectionnez **Exécuter le flux d’utilisateur**.
-2. Pour **Application**, sélectionnez l’application web *webapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-3. Cliquez sur **Exécuter le flux d’utilisateur**, puis connectez-vous avec le compte que vous avez créé précédemment.
-4. Vous avez désormais la possibilité de changer le nom d’affichage et le poste de l’utilisateur. Cliquez sur **Continuer**. Le jeton est envoyé à `https://jwt.ms` et vous devez le voir.
+1. Sélectionnez le flux utilisateur que vous avez créé pour ouvrir sa page de présentation, puis sélectionnez **Exécuter le flux d’utilisateur**.
+1. Pour **Application**, sélectionnez l’application web *webapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
+1. Cliquez sur **Exécuter le flux d’utilisateur**, puis connectez-vous avec le compte que vous avez créé précédemment.
+1. Vous avez désormais la possibilité de changer le nom d’affichage et le poste de l’utilisateur. Cliquez sur **Continuer**. Le jeton est envoyé à `https://jwt.ms` et vous devez le voir.
 
 ## <a name="create-a-password-reset-user-flow"></a>Créer un flux d’utilisateur de réinitialisation du mot de passe
 
-Vous pouvez autoriser l’utilisateur de votre application à réinitialiser son mot de passe si nécessaire. Pour activer la réinitialisation de mot de passe, vous utilisez un flux d’utilisateur de réinitialisation de mot de passe.
+Pour permettre aux utilisateurs de votre application de réinitialiser leur mot de passe, utilisez un flux utilisateur de réinitialisation de mot de passe.
 
-1. Dans le menu de gauche, sélectionnez **Flux d’utilisateur**, puis **Nouveau flux d’utilisateur**.
-2. Sélectionnez le flux d’utilisateur **Réinitialisation de mot de passe** sous l’onglet Recommandé.
-3. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *passwordreset1*.
-4. Sous **Fournisseurs d’identité**, activez **Réinitialiser le mot de passe à l’aide de l’adresse e-mail**.
-5. Sous Revendications d’application, cliquez sur **Afficher plus** et choisissez les revendications à renvoyer à votre application dans les jetons d’autorisation. Par exemple, sélectionnez **ID d’objet de l’utilisateur**.
-6. Cliquez sur **OK**.
-7. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
+1. Dans le menu de gauche, sélectionnez **Flux utilisateur (stratégies)** , puis **Nouveau flux d’utilisateur**.
+1. Sélectionnez le flux d’utilisateur **Réinitialisation de mot de passe** sous l’onglet Recommandé.
+1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *passwordreset1*.
+1. Sous **Fournisseurs d’identité**, activez **Réinitialiser le mot de passe à l’aide de l’adresse e-mail**.
+1. Sous Revendications d’application, cliquez sur **Afficher plus** et choisissez les revendications à renvoyer à votre application dans les jetons d’autorisation. Par exemple, sélectionnez **ID d’objet de l’utilisateur**.
+1. Cliquez sur **OK**.
+1. Cliquez sur **Créer** pour ajouter le flux utilisateur. Un préfixe *B2C_1* est automatiquement ajouté au nom.
 
 ### <a name="test-the-user-flow"></a>Tester le flux utilisateur
 
-1. Dans la page Vue d’ensemble du flux d’utilisateur, sélectionnez **Exécuter le flux d’utilisateur**.
-2. Pour **Application**, sélectionnez l’application web *webapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
-3. Cliquez sur **Exécuter le flux d’utilisateur**, puis connectez-vous avec le compte que vous avez créé précédemment.
-4. Vous avez maintenant la possibilité de changer le mot de passe de l’utilisateur. Cliquez sur **Continuer**. Le jeton est envoyé à `https://jwt.ms` et vous devez le voir.
+1. Sélectionnez le flux utilisateur que vous avez créé pour ouvrir sa page de présentation, puis sélectionnez **Exécuter le flux d’utilisateur**.
+1. Pour **Application**, sélectionnez l’application web *webapp1* que vous avez précédemment inscrite. L’**URL de réponse** doit être `https://jwt.ms`.
+1. Cliquez sur **Exécuter le flux d’utilisateur**, vérifiez l’adresse e-mail du compte que vous avez précédemment créé, puis sélectionnez **Continuer**.
+1. Vous avez maintenant la possibilité de changer le mot de passe de l’utilisateur. Changez le mot de passe et sélectionnez **Continuer**. Le jeton est envoyé à `https://jwt.ms` et vous devez le voir.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -124,5 +124,7 @@ Dans cet article, vous avez appris à effectuer les opérations suivantes :
 > * Créer un flux d’utilisateur de modification de profil
 > * Créer un flux d’utilisateur de réinitialisation du mot de passe
 
+Ensuite, découvrez comment ajouter des fournisseurs d’identité à vos applications pour permettre à vos utilisateurs de se connecter avec les fournisseurs que sont Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter.
+
 > [!div class="nextstepaction"]
-> [Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C](tutorial-add-identity-providers.md)
+> [Ajouter des fournisseurs d’identité à vos applications >](tutorial-add-identity-providers.md)

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: aed63e332375be4f8ed939cf162545c9f366f329
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317593"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608009"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personnaliser l’accélérateur de solution de supervision à distance
 
@@ -31,15 +31,15 @@ Les étapes suivantes décrivent le processus de configuration d’un environnem
 
 1. Déployez une instance de **base** de l’accélérateur de solution à l’aide de l’interface CLI **pcs**. Notez le nom de votre déploiement et les informations d’identification que vous avez fournies pour la machine virtuelle. Pour plus d’informations, consultez [Déployer à l’aide de l’interface CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Pour activer l’accès SSH à la machine virtuelle qui héberge les microservices de votre solution, utilisez le Portail Azure ou Azure Cloud Shell. Par exemple : 
+1. Pour activer l’accès SSH à la machine virtuelle qui héberge les microservices de votre solution, utilisez le Portail Azure ou Azure Cloud Shell. Par exemple :
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Activez uniquement l’accès SSH durant les phases de développement et de test. Si vous activez SSH, [désactivez-le dès que vous avez fini de l’utiliser](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
+    Activez uniquement l’accès SSH durant les phases de développement et de test. Si vous activez SSH, [désactivez-le dès que vous avez fini de l’utiliser](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Utilisez le Portail Azure ou Azure Cloud Shell pour rechercher le nom et l’adresse IP publique de votre machine virtuelle. Par exemple : 
+1. Utilisez le Portail Azure ou Azure Cloud Shell pour rechercher le nom et l’adresse IP publique de votre machine virtuelle. Par exemple :
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
@@ -73,7 +73,7 @@ Les étapes suivantes décrivent le processus de configuration d’un environnem
     npm start
     ```
 
-1. La commande précédente exécute localement l’interface utilisateur http :\//localhost:3000 / tableau de bord. Vous pouvez modifier le code pendant que le site est en cours d’exécution et voir sa mise à jour dynamique.
+1. La commande précédente exécute l’interface utilisateur localement sur http:\//localhost:3000/dashboard. Vous pouvez modifier le code pendant que le site est en cours d’exécution et voir sa mise à jour dynamique.
 
 ## <a name="customize-the-layout"></a>Personnaliser la disposition
 
@@ -496,11 +496,11 @@ Pour affiner la couche de présentation et de visualisations dans la solution de
 
 Dans cet article, vous avez découvert les ressources disponibles pour personnaliser l’interface utilisateur web dans l’accélérateur de solution de supervision à distance. Pour en savoir plus sur la personnalisation de l’interface utilisateur, consultez les articles suivants :
 
-* [Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-page.md)
-* [Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-service.md)
-* [Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-grid.md)
-* [Ajouter un menu volant personnalisé à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-flyout.md)
-* [Ajouter un panneau personnalisé au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-panel.md)
+* [Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-page.md)
+* [Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-service.md)
+* [Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-grid.md)
+* [Ajouter un menu volant personnalisé à l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [Ajouter un panneau personnalisé au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance](iot-accelerators-remote-monitoring-customize-panel.md)
 
 Pour plus d’informations conceptuelles sur l’accélérateur de solution de supervision à distance, consultez [Architecture de la supervision à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 

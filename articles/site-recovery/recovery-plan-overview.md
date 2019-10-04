@@ -1,26 +1,25 @@
 ---
-title: Utiliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec Azure Site Recovery | Microsoft Docs
+title: Utiliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec Azure Site Recovery
 description: Découvrez comment utiliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec le service Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 services: site-recovery
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/18/2019
+ms.topic: conceptual
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 520f30b5fabebf299b5407a502b76d7d30850bfd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797393"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814428"
 ---
 # <a name="about-recovery-plans"></a>À propos des plans de récupération
 
 Cet article décrit les plans de récupération dans [Azure Site Recovery](site-recovery-overview.md).
 
-Un plan de récupération rassemble les machines dans des groupes de récupération. Vous pouvez personnaliser un plan en y ajoutant un ordre, des instructions et des tâches. Lorsqu’un plan est défini, vous pouvez basculer vers celui-ci.
-
+Un plan de récupération rassemble les machines dans des groupes de récupération. Vous pouvez personnaliser un plan en y ajoutant un ordre, des instructions et des tâches. Lorsqu’un plan est défini, vous pouvez basculer vers celui-ci.  Les machines peuvent être référencées dans plusieurs plans de récupération, dans lesquels les plans suivants ignoreront le déploiement/démarrage de la machine si elle a été déployée au préalable via un autre plan de récupération.
 
 
 ## <a name="why-use-a-recovery-plan"></a>Pourquoi utiliser un plan de récupération ?
@@ -37,10 +36,10 @@ Un plan de récupération vous permet de définir un processus de récupération
 
 Vous pouvez planifier et créer un groupe de récupération pour capturer les propriétés propres à l’application. Par exemple, prenons une application à trois niveaux classique avec un serveur SQL principal, un intergiciel et un serveur web frontal. En règle générale, vous personnalisez le plan de récupération afin que les machines de chaque niveau démarrent dans l’ordre approprié après un basculement.
 
-    - Le serveur SQL principal doit être le premier, l’intergiciel suivant et enfin le serveur web frontal.
-    - Cet ordre de démarrage garantit le bon fonctionnement de l’application au moment où la dernière machine démarre.
-    - Cet ordre permet de s’assurer que lorsque l’intergiciel démarre et tente de se connecter au niveau SQL Server, le niveau SQL Server est déjà en cours d’exécution. 
-    - Cet ordre permet également de s’assurer que les serveurs frontaux démarrent en dernier, de sorte que les utilisateurs finaux ne se connectent pas à l’URL de l’application avant que tous les composants ne soient opérationnels, et que l’application soit prête à accepter des requêtes.
+- Le serveur SQL principal doit être le premier, l’intergiciel suivant et enfin le serveur web frontal.
+- Cet ordre de démarrage garantit le bon fonctionnement de l’application au moment où la dernière machine démarre.
+- Cet ordre permet de s’assurer que lorsque l’intergiciel démarre et tente de se connecter au niveau SQL Server, le niveau SQL Server est déjà en cours d’exécution. 
+- Cet ordre permet également de s’assurer que les serveurs frontaux démarrent en dernier, de sorte que les utilisateurs finaux ne se connectent pas à l’URL de l’application avant que tous les composants ne soient opérationnels, et que l’application soit prête à accepter des requêtes.
 
 Pour créer cet ordre, vous ajoutez des groupes au groupe de récupération et ajoutez des machines dans les groupes.
 - Si un ordre est spécifié, un séquencement est utilisé. Les actions sont exécutées en parallèle, le cas échéant, afin d’améliorer le RTO de récupération de l’application.
@@ -61,11 +60,11 @@ Avec cette personnalisation, voici ce qui se passe lorsque vous exécutez un bas
 
 La récupération d’applications de grande taille peut être une tâche complexe. Les étapes manuelles du processus sont source d’erreurs et la personne qui exécute le basculement n’a peut-être pas connaissance de toutes les subtilités de l’application. Vous pouvez utiliser un plan de récupération pour imposer un ordre et automatiser les actions nécessaires à chaque étape, à l’aide de runbooks Azure Automation pour le basculement vers Azure, ou de scripts. Pour les tâches qui ne peuvent pas être automatisées, vous pouvez insérer des pauses pour des actions manuelles dans les plans de récupération. Vous pouvez configurer deux types de tâches :
 
-* **Tâches sur la machine virtuelle Azure après le basculement** : quand vous basculez vers Azure, vous devez généralement effectuer des actions afin de pouvoir vous connecter à la machine virtuelle après le basculement. Par exemple :  
+* **Tâches sur la machine virtuelle Azure après le basculement** : quand vous basculez vers Azure, vous devez généralement effectuer des actions afin de pouvoir vous connecter à la machine virtuelle après le basculement. Par exemple : 
     * Créer une adresse IP publique sur la machine virtuelle Azure.
     * Associer un groupe de sécurité réseau à la carte réseau de la machine virtuelle Azure.
     * Ajouter un équilibreur de charge à un groupe à haute disponibilité
-* **Tâches dans la machine virtuelle après le basculement** : ces tâches reconfigurent généralement l’application exécutée sur la machine afin qu’elle continue à fonctionner correctement dans le nouvel environnement. Par exemple : 
+* **Tâches dans la machine virtuelle après le basculement** : ces tâches reconfigurent généralement l’application exécutée sur la machine afin qu’elle continue à fonctionner correctement dans le nouvel environnement. Par exemple :
     * Modifier la chaîne de connexion de base de données dans la machine.
     * Modifier les règles ou la configuration du serveur web
 
@@ -84,7 +83,7 @@ Vous pouvez utiliser un plan de récupération pour déclencher un test de bascu
 
 ## <a name="watch-the-video"></a>Regarder la vidéo
 
-Regardez une vidéo d’exemple montrant un basculement en un clic pour une application de WordPress à deux niveaux.
+Regardez une courte vidéo d’exemple montrant un basculement en un clic pour une application WordPress à deux niveaux.
     
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
 

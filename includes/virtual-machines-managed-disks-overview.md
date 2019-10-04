@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/11/2019
+ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9d96bd76a4d284e9b4390c564446e8b27c43d591
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: be82ab1597021d7198d7936ecd24e4bec64fdf25
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60118538"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266906"
 ---
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -31,27 +31,45 @@ Avec des disques managés, vous pouvez créer jusqu’à 50 000 **disques** de
 
 Les disques managés sont intégrés avec des groupes à haute disponibilité pour garantir que les disques des [machines virtuelles d’un groupe à haute disponibilité](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) sont suffisamment isolés les uns des autres pour éviter un point de défaillance unique. Les disques sont automatiquement placés dans différentes unités d’échelle de stockage (horodatages). Si un horodatage est mis en échec en raison d’une défaillance matérielle ou logicielle, seules les instances de machine virtuelle possédant des disques sur ces horodatages sont mises en échec. Par exemple, supposons qu’une de vos applications est exécutée sur 5 machines virtuelles, qui sont hébergées dans un groupe à haute disponibilité. Les disques de ces machines virtuelles ne seront pas stockés dans le même horodatage. Par conséquent, si un horodatage est mis en échec, les autres instances de l’application continuent de s’exécuter.
 
-### <a name="integration-with-availability-zones"></a>Intégration avec les Zones de disponibilité
+### <a name="integration-with-availability-zones"></a>Intégration aux zones de disponibilité
 
-Managed prend en charge des disques [Zones de disponibilité](../articles/availability-zones/az-overview.md), qui est une offre de haute disponibilité qui protège vos applications contre les défaillances de centre de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. Avec les Zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %.
+Les disques managés prennent en charge les [Zones de disponibilité](../articles/availability-zones/az-overview.md), qui constituent une offre à haute disponibilité pour la protection de vos applications contre les pannes des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. Avec les Zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %.
 
 ### <a name="azure-backup-support"></a>Support Sauvegarde Azure
 
-Pour vous protéger contre les sinistres régionaux, [Sauvegarde Azure](../articles/backup/backup-introduction-to-azure-backup.md) peut être utilisé pour créer un travail de sauvegarde avec des sauvegardes périodiques et des stratégies de rétention de sauvegarde. Ceci vous permet d’effectuer des restaurations des machines virtuelles à volonté. Actuellement, le service Sauvegarde Azure prend en charge les tailles de disque jusqu’à quatre tébioctets (TiB). Pour plus d’informations, consultez [Utilisation de Sauvegarde Azure pour les machines virtuelles avec disques managés](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+Pour vous protéger contre les sinistres régionaux, [Sauvegarde Azure](../articles/backup/backup-overview.md) peut être utilisé pour créer un travail de sauvegarde avec des sauvegardes périodiques et des stratégies de rétention de sauvegarde. Ceci vous permet d’effectuer des restaurations des machines virtuelles à volonté. Actuellement, le service Sauvegarde Azure prend en charge les tailles de disque jusqu’à quatre tébioctets (TiB).  Sauvegarde Azure prend en charge la sauvegarde et la restauration des disques managés. [Apprenez-en davantage](../articles/backup/backup-support-matrix-iaas.md) sur la prise en charge de la sauvegarde des machines virtuelles Azure.
 
 ### <a name="granular-access-control"></a>Contrôle d’accès granulaire
 
 Utilisez le [contrôle d’accès en fonction du rôle Azure](../articles/role-based-access-control/overview.md) afin d’affecter à un ou plusieurs utilisateurs des autorisations spécifiques d’accès à un disque managé. Les disques managés exposent différentes opérations, notamment la lecture, l’écriture (création/mise à jour), la suppression et la récupération d’un [URI de signature d’accès partagé](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) pour le disque. N’accordez l’accès qu’aux opérations dont une personne a besoin pour exécuter son travail. Par exemple, si vous voulez empêcher un utilisateur de copier un disque managé sur un compte de stockage, vous pouvez décider de lui interdire l’accès à l’action d’exportation sur ce disque managé. De la même manière, si vous voulez empêcher un utilisateur d’employer un URI de signature d’accès partagé pour copier un disque managé, vous pouvez décider de ne pas lui octroyer l’autorisation d’accès à ce disque managé.
 
+### <a name="upload-your-vhd"></a>Charger votre disque dur virtuel
+
+ Le chargement direct vous permet de transférer facilement votre disque dur virtuel vers un disque managé Azure. Jusqu’à présent, vous deviez suivre un processus complexe qui impliquait le placement temporaire de vos données dans un compte de stockage. Il y a désormais moins d’étapes. Il est plus facile de charger des machines virtuelles locales sur Azure et de charger sur de gros disques managés, et le processus de sauvegarde et de restauration est simplifié. Ceci réduit également les coûts, en vous permettant de charger des données directement sur des disques managés sans les attacher aux machines virtuelles. Vous pouvez utiliser le chargement direct pour charger des disques durs virtuels d’une taille maximale de 32 Tio.
+
+ Pour découvrir comment transférer votre disque dur virtuel sur Azure, consultez les articles [CLI](../articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) ou [PowerShell](../articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md).
+
+## <a name="encryption"></a>Chiffrement
+
+Les disques managés offrent deux types de chiffrement différents. Le premier est le chiffrement SSE (Storage Service Encryption), qui est effectué par le service de stockage. Le second est Azure Disk Encryption, que vous pouvez activer sur les disques de système d’exploitation et de données pour vos machines virtuelles.
+
+### <a name="storage-service-encryption-sse"></a>Storage Service Encryption (SSE)
+
+Le [chiffrement SSE Azure](../articles/storage/common/storage-service-encryption.md) assure le chiffrement au repos et la protection de vos données pour assurer le respect des engagements de votre organisation en matière de sécurité et de conformité. SSE est activé par défaut pour l’ensemble des disques managés, captures instantanées et images dans toutes les régions où des disques managés sont disponibles. Pour plus d’informations, voir la [page du FAQ sur la fonctionnalité Disques managés](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption).
+
+### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+
+Azure Disk Encryption vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS. Ce chiffrement inclut les disques managés. Sur Windows, les disques sont chiffrés à l’aide de la technologie de chiffrement BitLocker standard. Sur Linux, les disques sont chiffrés à l’aide de la technologie DM-Crypt. Le processus de chiffrement est intégré à Azure Key Vault pour vous permettre de contrôler et gérer les clés de chiffrement de disque. Pour plus d’informations, consultez [Azure Disk Encryption pour les machines virtuelles IaaS](../articles/security/azure-security-disk-encryption-overview.md).
+
 ## <a name="disk-roles"></a>Rôles de disque
 
-Il existe trois rôles de disque principal dans Azure : le disque de données, le disque du système d’exploitation et le disque temporaire. Ces rôles mappent sur les disques qui sont attachés à votre machine virtuelle.
+Il existe trois rôles de disque principaux dans Azure : le disque de données, le disque de système d’exploitation et le disque temporaire. Ces rôles sont mappés à des disques qui sont attachés à votre machine virtuelle.
 
 ![Rôles de disque en action](media/virtual-machines-managed-disks-overview/disk-types.png)
 
 ### <a name="data-disk"></a>Disque de données
 
-Un disque de données est un disque managé attaché à une machine virtuelle pour stocker des données d’application ou d’autres données que vous devez conserver. Les disques de données sont enregistrés en tant que disques SCSI et sont nommés avec la lettre de votre choix. Chaque disque de données a une capacité maximale de 32 767 gibioctets (Gio). La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher et le type de stockage que vous pouvez utiliser pour héberger les disques.
+Un disque de données est un disque managé attaché à une machine virtuelle pour stocker des données d’application ou d’autres données que vous devez conserver. Les disques de données sont enregistrés en tant que disques SCSI et sont nommés avec la lettre de votre choix. Chaque disque de données a une capacité maximale de 32 767 gibioctets (Gio). La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher et le type de stockage que vous pouvez utiliser pour héberger les disques.
 
 ### <a name="os-disk"></a>Disque de système d’exploitation
 
@@ -61,11 +79,13 @@ Ce disque a une capacité maximale de 2 048 Gio.
 
 ### <a name="temporary-disk"></a>Disque temporaire
 
-Chaque machine virtuelle contient un disque temporaire qui n’est pas un disque managé. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Données sur le disque temporaire peuvent être perdues pendant un [événement de maintenance](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) événement ou lorsque vous [redéployer une machine virtuelle](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Machines virtuelles Azure Linux, le disque temporaire est/dev/sdb par défaut et sur les machines virtuelles Windows le disque temporaire est E: par défaut. Lors d’un redémarrage réussi standard de la machine virtuelle, les données sur le disque temporaire seront conservé.
+Chaque machine virtuelle contient un disque temporaire qui n’est pas un disque managé. Il fournit un stockage à court terme pour les applications et les processus, et est destiné à stocker seulement des données comme les fichiers de pagination ou d’échange. Les données présentes sur le disque temporaire peuvent être perdues lors d’un [événement de maintenance](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quand vous [redéployez une machine virtuelle](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Sur les machines virtuelles Azure Linux, le disque temporaire est /dev/sdb par défaut, tandis que sur les machines virtuelles Windows il s’agit de D: par défaut. Lors d’un redémarrage standard réussi de la machine virtuelle, les données présentes sur le disque temporaire sont conservées.
 
 ## <a name="managed-disk-snapshots"></a>Captures instantanées de disque managé
 
-La capture instantanée d’un disque managé est une copie en lecture seule d’un disque managé qui est stockée comme disque managé standard par défaut. Avec des captures instantanées, vous pouvez sauvegarder vos disques managés à tout moment dans le temps. Ces captures instantanées existent indépendamment du disque source et peuvent être utilisées pour créer des disques managés par la suite. Elles sont facturées en fonction de la taille utilisée. Par exemple, si vous créez une capture instantanée d’un disque managé avec une capacité approvisionnée de 64 Gio et une taille des données utilisées réelle de 10 Gio, cet instantané est facturé uniquement pour la taille des données utilisées de 10 Gio.  
+La capture instantanée d’un disque managé est une copie en lecture seule et cohérente en cas d’incident d’un disque managé qui est stockée comme disque managé standard par défaut. Avec des captures instantanées, vous pouvez sauvegarder vos disques managés à tout moment dans le temps. Ces captures instantanées existent indépendamment du disque source et peuvent être utilisées pour créer des disques managés par la suite. 
+
+Les instantanés sont facturés en fonction de la taille utilisée. Par exemple, si vous créez une capture instantanée d’un disque managé avec une capacité approvisionnée de 64 Gio et une taille des données utilisées réelle de 10 Gio, cet instantané est facturé uniquement pour la taille des données utilisées de 10 Gio. Vous pouvez voir la taille utilisée de vos captures instantanées en examinant le [rapport d’utilisation d’Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-bill). Par exemple, si la taille de données utilisée d’un instantané est 10 Gio, le rapport d’utilisation affiche 10 Gio/(31 jours x 24 heures) = 0,013441 Gio comme quantité consommée.
 
 Pour en savoir plus sur la création de captures instantanées avec des disques managés, consultez les ressources suivantes :
 
@@ -89,6 +109,22 @@ Une capture instantanée est une copie d’un disque à un instant t. Elle s’a
 
 Une capture instantanée n’a connaissance d’aucun autre disque que celui qu’elle contient. Il est donc difficile de l’utiliser dans des scénarios qui nécessitent la coordination de plusieurs disques, tels que l’agrégation par bandes. Pour cela, les captures instantanées devraient être capables de se coordonner entre elles, ce qui n’est actuellement pas pris en charge.
 
+## <a name="disk-allocation-and-performance"></a>Allocation des disques et performances
+
+Le diagramme suivant illustre l’allocation de bande passante et d’IOPS en temps réel pour les disques, à l’aide d’un système de provisionnement à trois niveaux :
+
+![Système de provisionnement à trois niveaux présentant l’allocation de bande passante et d’IOPS](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
+
+Le provisionnement de premier niveau définit le nombre d’IOPS par disque et l’affectation de bande passante.  Au deuxième niveau, l’hôte serveur de calcul implémente le provisionnement SSD, en l’appliquant uniquement aux données stockées sur le disque SSD du serveur, ce qui inclut les disques avec mise en cache (ReadWrite et ReadOnly) et les disques locaux et temporaires. Pour finir, le provisionnement du réseau de machines virtuelles a lieu au troisième niveau pour les E/S que l’hôte de calcul envoie au back-end Stockage Azure. Avec ce schéma, les performances d’une machine virtuelle dépendent de différents facteurs, de la manière dont la machine virtuelle utilise le disque SSD local jusqu’au nombre de disques attachés, en passant par le type de mise en cache et les performances de ces disques.
+
+À titre d’exemple de ces limitations, une machine virtuelle Standard_DS1v1 ne peut pas atteindre le potentiel de 5 000 IOPS d’un disque P30, qu’elle soit mise en cache ou non, en raison des limites au niveau des disques SSD et du réseau :
+
+![Exemple d’allocation Standard_DS1v1](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
+
+Azure utilise pour le trafic de disque un canal réseau qui est prioritaire par rapport à tout autre trafic réseau de faible priorité. Cela aide les disques à conserver leurs performances attendues en cas de contention de réseau. De même, Stockage Azure gère les conflits de ressources et autres problèmes en arrière-plan avec l’équilibrage de charge automatique. Stockage Azure alloue les ressources nécessaires quand vous créez un disque, et applique un équilibrage proactif et réactif des ressources pour gérer le niveau de trafic. Cela permet de s’assurer que les disques peuvent supporter leurs cibles d’IOPS et de débit attendues. Vous pouvez utiliser les métriques au niveau de la machine virtuelle et du disque pour suivre les alertes de performances et de configuration en fonction des besoins.
+
+Consultez notre article sur la [conception pour des performances élevées](../articles/virtual-machines/windows/premium-storage-performance.md) afin de connaître les bonnes pratiques permettant d’optimiser les configurations de machines virtuelles et de disques et d’obtenir les performances souhaitées.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les offres de types de disques individuels Azure et sur le type de disque bien adapté à vos besoins en lisant notre article sur les types de disques.
+Apprenez-en davantage sur les différentes offres de types de disques Azure, sur le type de disque le plus adapté à vos besoins et sur les cibles de performances en lisant notre article sur les types de disques.

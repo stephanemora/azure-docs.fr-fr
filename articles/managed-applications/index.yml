@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 353616141e37e8024695fad81a16c9c2f3b82625
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107342"
 documentType: LandingData
 title: Documentation Azure Managed Applications
 metadata:
-  title: Documentation Azure Managed Applications - Didacticiels, informations de référence sur les API
+  title: 'Documentation Azure Managed Applications - Didacticiels, informations de référence sur les API'
   description: Utilisez Azure Managed Applications pour publier des solutions Cloud plus faciles à gérer pour les utilisateurs.
   services: managed-applications
   author: tfitzmac
@@ -22,35 +16,35 @@ metadata:
 abstract:
   description: Azure Managed Applications vous permet de proposer vos solutions Cloud à des utilisateurs internes et externes. Vous définissez l’infrastructure de la solution et les conditions de gestion continue de la solution. La facturation pour votre solution est gérée via la facturation Azure.
 sections:
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: Découvrez comment publier et déployer une application managée.
-  - type: list
-    style: icon48
+  - title: "Démarrages en 5\_minutes"
     items:
-    - image:
-        src: /azure/managed-applications/media/index/cli.svg
-      text: Azure CLI
-      href: /azure/managed-applications/managed-apps-quickstart-cli
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Apprenez à développer des applications managées et à les proposer via la Place de marché Microsoft Azure.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Découvrez comment publier et déployer une application managée.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/managed-applications/media/index/cli.svg
+            text: Azure CLI
+            href: /azure/managed-applications/managed-apps-quickstart-cli
+  - title: Didacticiels pas à pas
     items:
-    - html: <a href="/azure/managed-applications/publish-service-catalog-app">Publier une application managée pour des utilisateurs internes</a>
-    - html: <a href="/azure/managed-applications/publish-marketplace-app">Publier une application managée pour des utilisateurs externes</a>
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Apprenez à développer des applications managées et à les proposer via la Place de marché Microsoft Azure.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/managed-applications/publish-service-catalog-app">Publier une application managée pour des utilisateurs internes</a>
+          - html: <a href="/azure/managed-applications/publish-marketplace-app">Publier une application managée pour des utilisateurs externes</a>
+  - title: Informations de référence
     items:
-    - title: Ligne de commande
-      html: <p><a href="/cli/azure/managedapp">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
-    - title: API REST
-      html: <p><a href="/rest/api/resources/">REST</a></p>
-    - title: Interface utilisateur
-      html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Éléments d’interface utilisateur</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Fonctions de l’interface utilisateur</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Ligne de commande
+            html: <p><a href="/cli/azure/managedapp">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/az.resources">PowerShell</a></p>
+          - title: API REST
+            html: <p><a href="/rest/api/resources/">REST</a></p>
+          - title: Interface utilisateur
+            html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Éléments d’interface utilisateur</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Fonctions de l’interface utilisateur</a></p>

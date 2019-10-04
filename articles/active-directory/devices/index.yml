@@ -1,35 +1,59 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation Gestion des appareils Azure AD
+### YamlMime:Landing
+title: Documentation sur l’Identité d’appareil Azure AD
+summary: Découvrez comment configurer et gérer les identités d’appareil dans Azure AD.
 metadata:
-  document_id: null
-  title: 'Documentation relative à la gestion des appareils Azure AD - Tutoriels, concepts, références | Microsoft Docs'
-  description: Découvrez comment configurer et tester la gestion des appareils Azure Active.
+  title: Documentation sur l’Identité d’appareil Azure AD
+  description: Découvrez comment configurer et gérer les identités d’appareil dans Azure AD.
   services: active-directory
-  ms.subservice: devices
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: devices
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: 'Grâce aux appareils, les utilisateurs peuvent accéder aux ressources d’entreprise. Pour protéger vos ressources d’entreprise, en tant qu’administrateur informatique, vous souhaitez avoir le contrôle de ces appareils. Cela vous permet de vous assurer que vos utilisateurs ont accès à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité.<br>La gestion des appareils est également à la base de l’accès conditionnel en fonction de l’appareil. Avec l’accès conditionnel en fonction des appareils, vous pouvez faire en sorte que l’accès aux ressources de votre environnement ne soit possible qu’avec des appareils gérés.'
-sections:
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: Découvrez comment intégrer vos appareils joints à AD sur site avec Azure AD.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: les domaines managés ;
-            href: hybrid-azuread-join-managed-domains.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: les domaines fédérés.
-            href: hybrid-azuread-join-federated-domains.md
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: e26be2206ba63fa4721ced7ed1a2f35ddc63a5fd
+  ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/20/2019
+  ms.locfileid: "69648939"
+landingContent:
+- title: À propose de l’identité d’appareil
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’une identité d’appareil ?
+      url: overview.md
+    - text: Qu’est-ce qu’Enterprise State Roaming ?
+      url: enterprise-state-roaming-overview.md
+  - linkListType: concept
+    links:
+    - text: Appareils inscrits sur Azure AD
+      url: concept-azure-ad-register.md
+    - text: Appareils joints Azure AD
+      url: concept-azure-ad-join.md
+    - text: Appareils joints Azure AD hybrides
+      url: concept-azure-ad-join-hybrid.md
+    - text: Authentification unique auprès de ressources locales
+      url: azuread-join-sso.md
+    - text: Jetons d’actualisation principaux
+      url: concept-primary-refresh-token.md
+- title: Configurer et gérer des appareils joints Azure AD
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Planifier votre implémentation de la jointure d’Azure AD
+      url: azureadjoin-plan.md
+    - text: Gérer le groupe Administrateurs local sur des appareils joints à Azure AD
+      url: assign-local-admin.md
+    - text: Rechercher et gérer des appareils obsolètes dans Azure AD
+      url: manage-stale-devices.md
+- title: Configurer et gérer des appareils joints à Azure AD Hybride
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Planifier votre implémentation de la jointure d’Azure AD hybride
+      url: hybrid-azuread-join-plan.md
+    - text: Résoudre des problèmes d’appareils joints à Azure AD Hybride
+      url: troubleshoot-hybrid-join-windows-current.md

@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
-ms.openlocfilehash: 2f0a361d53489e22ccc8e41406e5b86b423ea2f6
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 2bea8aa06daef5d119b4cbfc4853a2d6ab07ddb7
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091400"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593517"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Contrôler le comportement de mise en cache du CDN Azure avec des chaînes de requête - niveau premium
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "49091400"
 > * [Niveau Premium](cdn-query-string-premium.md)
 > 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Avec Azure Content Delivery Network (CDN), vous pouvez contrôler la manière dont les fichiers sont mis en cache pour une requête web qui contient une chaîne de requête. Dans une requête web contenant une chaîne de requête, la chaîne de requête représente la partie de la demande qui apparaît après le point d’interrogation (?). Une chaîne de requête peut contenir une ou plusieurs paires clé-valeur où le nom du champ et sa valeur sont séparés par un signe égal (=). Chaque paire clé-valeur est séparée par une esperluette (&). Par exemple, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. S’il existe plusieurs paires clé-valeur dans la chaîne de requête d’une demande, leur ordre n’a pas d’importance. 
 
 > [!IMPORTANT]
@@ -37,14 +37,14 @@ Avec Azure Content Delivery Network (CDN), vous pouvez contrôler la manière do
 
 Trois modes de chaîne de requête sont disponibles :
 
-- **cache standard** : mode par défaut. Dans ce mode, le nœud POP (point de présence) du CDN transmet les chaînes de requête, du demandeur au serveur d’origine de la première requête et met en cache la ressource. Toutes les requêtes suivantes pour la ressource, qui sont traitées à partir du serveur POP, ignorent les chaînes de requête jusqu’à l’arrivée à expiration de la ressource mise en cache.
+- **standard-cache** : Mode par défaut. Dans ce mode, le nœud POP (point de présence) du CDN transmet les chaînes de requête, du demandeur au serveur d’origine de la première requête et met en cache la ressource. Toutes les requêtes suivantes pour la ressource, qui sont traitées à partir du serveur POP, ignorent les chaînes de requête jusqu’à l’arrivée à expiration de la ressource mise en cache.
 
     >[!IMPORTANT] 
     > Si l’autorisation de jeton est activée pour n’importe quel chemin d’accès sur ce compte, le mode de cache standard est le seul mode qui peut être utilisé. 
 
 - **no-cache** : dans ce mode, les requêtes avec des chaînes de requête ne sont pas mises en cache au niveau du nœud POP CDN. Le nœud POP récupère la ressource directement à partir du serveur d’origine et le transmet au demandeur avec chaque requête.
 
-- **cache unique** : dans ce mode, chaque demande contenant une URL unique, y compris la chaîne de requête, est traitée comme une ressource unique avec son propre cache. Par exemple, la réponse du serveur d’origine à une requête pour example.ashx?q=test1 est mise en cache au niveau du nœud POP et retournée pour les caches suivants avec la même chaîne de requête. Une requête pour example.ashx?q=test2 est mise en cache en tant que ressource distincte avec son propre paramètre de durée de vie.
+- **unique-cache** : dans ce mode, chaque demande contenant une URL unique, y compris la chaîne de requête, est traitée comme une ressource unique avec son propre cache. Par exemple, la réponse du serveur d’origine à une requête pour example.ashx?q=test1 est mise en cache au niveau du nœud POP et retournée pour les caches suivants avec la même chaîne de requête. Une requête pour example.ashx?q=test2 est mise en cache en tant que ressource distincte avec son propre paramètre de durée de vie.
    
     >[!IMPORTANT] 
     > N’utilisez pas ce mode lorsque la chaîne de requête contient des paramètres qui varient à chaque requête, par exemple un ID de session ou un nom d’utilisateur, car cela entraînerait un faible taux d’accès au cache.

@@ -1,6 +1,6 @@
 ---
 title: Obtenir des vidéos à partir de votre vue personnalisée – Recherche personnalisée Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Présentation générale de l’utilisation de la Recherche personnalisée Bing pour obtenir des vidéos à partir d’une vue personnalisée du web.
 services: cognitive-services
 author: swhite-msft
@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 202691bc03a7447cce28932406b00cc945a889db
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 222256036a59c7df302546bbf82648c4d524d43f
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878287"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405091"
 ---
 # <a name="get-videos-from-your-custom-view"></a>Obtenir des vidéos à partir d’une vue personnalisée
 
 La Recherche personnalisée de vidéos Bing vous permet d’enrichir votre expérience de recherche personnalisée avec des vidéos. Comme les résultats web, la recherche personnalisée prend en charge la recherche de vidéos dans la liste de sites web de votre instance. Vous pouvez obtenir des vidéos en utilisant l’API Recherche personnalisée de vidéos Bing ou la fonctionnalité Hosted UI (Interface utilisateur hébergée). La fonctionnalité d’interface utilisateur hébergée est simple à utiliser et recommandée pour rendre votre expérience de recherche rapidement opérationnelle. Pour plus d’informations sur la configuration de votre interface utilisateur hébergée dans le but d’inclure des vidéos, consultez [Configurer votre expérience d’interface utilisateur hébergée](hosted-ui.md).
 
-Si vous souhaitez contrôler davantage l’affichage des résultats de recherche, vous pouvez utiliser l’API Recherche personnalisée de vidéos Bing. Étant donné que l’appel de cette API ressemble à celui de l’API Recherche de vidéos Bing, consultez [Recherche de vidéos Bing](../Bing-Video-Search/search-the-web.md) pour des exemples d’appel de cette API. Au préalable, familiarisez-vous avec les [Informations de référence sur l’API Recherche personnalisée de vidéos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). Les principales différences sont les paramètres de requête pris en charge (vous devez inclure le paramètre de requête customConfig) et le point de terminaison auquel vous envoyez vos requêtes.
+Si vous souhaitez contrôler davantage l’affichage des résultats de recherche, vous pouvez utiliser l’API Recherche personnalisée de vidéos Bing. Étant donné que l’appel de cette API ressemble à celui de l’API Recherche de vidéos Bing, consultez [Recherche de vidéos Bing](../Bing-Video-Search/search-the-web.md) pour des exemples d’appel de cette API. Au préalable, familiarisez-vous avec les [Informations de référence sur l’API Recherche personnalisée de vidéos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Les principales différences sont les paramètres de requête pris en charge (vous devez inclure le paramètre de requête customConfig) et le point de terminaison auquel vous envoyez vos requêtes.
 
 <!--
 ## Next steps

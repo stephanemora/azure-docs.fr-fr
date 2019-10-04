@@ -7,17 +7,18 @@ author: ika-microsoft
 manager: femila
 editor: ''
 ms.service: media-services
+ms.subservice: video-indexer
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: e98cf44db01de1f99836e247066ba01006eac97b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: a9b75c3454c67112b0e00c7ea4b4e8c676ebcc97
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733297"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65949471"
 ---
 # <a name="manage-multiple-tenants"></a>Gérer plusieurs locataires
 
@@ -67,7 +68,7 @@ Lors du [chargement de vidéos](https://api-portal.videoindexer.ai/docs/services
 
 ## <a name="azure-subscription-per-tenant"></a>Un abonnement Azure par locataire 
 
-Selon cette architecture, chaque client a son propre abonnement Azure. Pour chaque utilisateur, vous créez un compte Video Indexer dans l’abonnement du locataire.
+Selon cette architecture, chaque locataire a son propre abonnement Azure. Pour chaque utilisateur, vous créez un compte Video Indexer dans l’abonnement du locataire.
 
 ![Un abonnement Azure par locataire](./media/manage-multiple-tenants/azure-subscription-per-tenant.png)
 

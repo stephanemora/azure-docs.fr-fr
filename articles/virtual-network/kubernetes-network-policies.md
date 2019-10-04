@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: b4f8577724781e5df10846a5fc4e30c8320403f2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ff6fd45e0a68a3e93e4c62eb31a566a6dffa2344
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219768"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494948"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Vue d’ensemble des stratégies réseau Azure Kubernetes
 
@@ -32,7 +32,7 @@ Les stratégies réseau permettent une micro-segmentation des pods tout comme le
 Les stratégies réseau Azure fonctionnent conjointement avec Azure CNI qui fournit l’intégration de réseau virtuel aux conteneurs. Il est actuellement pris en charge uniquement sur les nœuds Linux. Les implémentations configurent des règles de table d’adresses IP Linux basées sur les stratégies définies pour appliquer un filtrage du trafic.
 
 ## <a name="planning-security-for-your-kubernetes-cluster"></a>Planification de la sécurité pour votre cluster Kubernetes
-Quand vous implémentez la sécurité de votre cluster, utilisez des groupes de sécurité réseau (NSG) pour filtrer le trafic nord-sud, autrement dit, le trafic entrant et sortant de votre sous-réseau de cluster, et utilisez des stratégies réseau Kubernetes pour le trafic est-ouest, c’est-à-dire le trafic entre pods dans votre cluster.
+Quand vous implémentez la sécurité de votre cluster, utilisez des groupes de sécurité réseau (NSG) pour filtrer le trafic nord-sud, c’est-à-dire le trafic entrant et sortant de votre sous-réseau de cluster, et utilisez des stratégies réseau Kubernetes pour le trafic est-ouest, c’est-à-dire le trafic entre les pods de votre cluster.
 
 ## <a name="using-azure-kubernetes-network-policies"></a>Utilisation des stratégies réseau Azure Kubernetes
 Les stratégies réseau Azure peuvent être utilisées dans les méthodes suivantes pour fournir une micro-segmentation des pods.

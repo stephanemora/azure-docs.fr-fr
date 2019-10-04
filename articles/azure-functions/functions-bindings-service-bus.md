@@ -4,20 +4,19 @@ description: Découvrez comment utiliser des déclencheurs et des liaisons Azure
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: e1cd7d9e135f5e3196f02237076c5c8069048fb0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7dcc69434e017d6564030d83b14098344bc8ac0d
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501040"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178335"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -35,6 +34,9 @@ Les liaisons Service Bus sont fournies dans le package NuGet [Microsoft.Azure.We
 
 Les liaisons Service Bus sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/).
 
+> [!NOTE]
+> La version 2.x ne crée pas la rubrique ou l’abonnement configurés dans l’instance `ServiceBusTrigger`. La version 2.x se base sur [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) et ne gère pas les files d’attente.
+
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Déclencheur
@@ -50,6 +52,7 @@ Consultez l’exemple propre à un langage particulier :
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
@@ -148,7 +151,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>Déclencheur - exemple Java
 
-La fonction Java suivante utilise le `@ServiceBusQueueTrigger` annotation à partir de la [Java fonctions de bibliothèque runtime](/java/api/overview/azure/functions/runtime) pour décrire la configuration d’un déclencheur de file d’attente Service Bus. La fonction récupère le message placé dans la file d’attente et l’ajoute dans les journaux.
+La fonction Java suivante utilise l’annotation `@ServiceBusQueueTrigger` provenant de la [bibliothèque runtime de fonctions Java](/java/api/overview/azure/functions/runtime) afin de décrire la configuration d’un déclencheur de file d’attente Service Bus. La fonction récupère le message placé dans la file d’attente et l’ajoute dans les journaux.
 
 ```java
 @FunctionName("sbprocessor")
@@ -162,7 +165,7 @@ La fonction Java suivante utilise le `@ServiceBusQueueTrigger` annotation à par
  }
 ```
 
-Fonctions Java peuvent également être déclenchées lorsqu’un message est ajouté à une rubrique Service Bus. L’exemple suivant utilise le `@ServiceBusTopicTrigger` annotation pour décrire la configuration du déclencheur.
+Les fonctions Java peuvent également être déclenchées lorsqu’un message est ajouté à une rubrique Service Bus. L’exemple suivant utilise l’annotation `@ServiceBusTopicTrigger` pour décrire la configuration du déclencheur.
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -210,6 +213,57 @@ module.exports = function(context, myQueueItem) {
     context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
+```
+
+### <a name="trigger---python-example"></a>Déclencheur – Exemple Python
+
+L’exemple suivant montre comment lire un message de file d’attente ServiceBus à l’aide d’un déclencheur.
+
+Une liaison ServiceBus est définie dans *function.json*, où le *type* est défini sur `serviceBusTrigger`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "inputqueue",
+      "connection": "AzureServiceBusConnectionString"
+    }
+  ]
+}
+```
+
+Le code dans *_\_init_\_.py* déclare un paramètre `func.ServiceBusMessage` qui vous permet de lire le message de la file d’attente dans votre fonction.
+
+```python
+import azure.functions as func
+
+import logging
+import json
+
+def main(msg: func.ServiceBusMessage):
+    logging.info('Python ServiceBus queue trigger processed message.')
+
+    result = json.dumps({
+        'message_id': msg.message_id,
+        'body': msg.get_body().decode('utf-8'),
+        'content_type': msg.content_type,
+        'expiration_time': msg.expiration_time,
+        'label': msg.label,
+        'partition_key': msg.partition_key,
+        'reply_to': msg.reply_to,
+        'reply_to_session_id': msg.reply_to_session_id,
+        'scheduled_enqueue_time': msg.scheduled_enqueue_time,
+        'session_id': msg.session_id,
+        'time_to_live': msg.time_to_live,
+        'to': msg.to,
+        'user_properties': msg.user_properties,
+    })
+
+    logging.info(result)
 ```
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
@@ -295,7 +349,7 @@ En langage C# et dans un script C#, vous pouvez utiliser les types de paramètre
 * `string` -Si le message est un texte.
 * `byte[]` - Utile pour les données binaires.
 * Un type personnalisé - Si le message contient JSON, Azure Functions essaie de désérialiser les données JSON.
-* `BrokeredMessage` - Vous donne le message désérialisé avec la méthode [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
+* `BrokeredMessage` - Vous donne le message désérialisé avec la méthode [BrokeredMessage.GetBody\<](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
 
 Ces paramètres concernent Azure Functions version 1.x ; pour 2.x, utilisez [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) au lieu de `BrokeredMessage`.
 
@@ -330,7 +384,7 @@ Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](./
 |`CorrelationId`|`string`|L’ID de corrélation.|
 
 > [!NOTE]
-> Actuellement, le déclencheur fonctionne uniquement avec les files d’attente et les abonnements qui n’utilisent pas de sessions. Veuillez suivre [cet élément de fonctionnalité](https://github.com/Azure/azure-functions-host/issues/563) pour toute mise à jour supplémentaire concernant cette fonctionnalité. 
+> Le déclencheur Service Bus qui fonctionne avec les abonnements et les files d’attente activées dans la session est actuellement en préversion. Veuillez suivre [cet élément](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) pour toute mise à jour supplémentaire concernant cette fonctionnalité. 
 
 Consultez les [exemples de code](#trigger---example) qui utilisent ces propriétés précédemment dans cet article.
 
@@ -354,7 +408,7 @@ Le fichier [host.json](functions-host-json.md#servicebus) contient les paramètr
 |prefetchCount|n/a|Valeur PrefetchCount par défaut qui est utilisée par l’instance MessageReceiver sous-jacente.|
 |maxAutoRenewDuration|00:05:00|Durée maximale pendant laquelle le verrouillage de message doit être renouvelé automatiquement.|
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 Utilisez la liaison de sortie Azure Service Bus pour envoyer des messages de file d’attente ou de rubrique.
 
@@ -367,6 +421,7 @@ Consultez l’exemple propre à un langage particulier :
 * [F#](#output---f-example)
 * [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>Sortie - exemple C#
 
@@ -488,7 +543,7 @@ public String pushToQueue(
 
  Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@QueueOutput` sur les paramètres de fonction dont la valeur serait écrite dans une file d’attente Service Bus.  Le type de paramètre doit être `OutputBinding<T>`, où T désigne n’importe quel type Java natif d’un POJO.
 
-Fonctions Java peuvent également écrire dans une rubrique Service Bus. L’exemple suivant utilise le `@ServiceBusTopicOutput` annotation pour décrire la configuration pour la liaison de sortie. 
+Les fonctions Java peuvent également écrire dans une rubrique Service Bus. L’exemple suivant utilise l’annotation `@ServiceBusTopicOutput` afin de décrire la configuration pour la liaison de sortie. 
 
 ```java
 @FunctionName("sbtopicsend")
@@ -557,6 +612,56 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+### <a name="output---python-example"></a>Sortie - Exemple Python
+
+L’exemple suivant montre comment écrire dans une file d’attente ServiceBus dans Python.
+
+Une définition de liaison ServiceBue est définie dans *function.json* , où *Type* possède la valeur `serviceBus`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "serviceBus",
+      "direction": "out",
+      "connection": "AzureServiceBusConnectionString",
+      "name": "msg",
+      "queueName": "outqueue"
+    }
+  ]
+}
+```
+
+Dans *_\_init_\_.py*, vous pouvez écrire un message dans la file d’attente en passant une valeur à la méthode `set`.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+
+    input_msg = req.params.get('message')
+
+    msg.set(input_msg)
+
+    return 'OK'
+```
+
 ## <a name="output---attributes"></a>Sortie - attributs
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [ServiceBusAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
@@ -612,18 +717,23 @@ En langage C# et dans un script C#, vous pouvez utiliser les types de paramètre
 * `out T paramName` - `T` peut être n’importe quel type sérialisable au format JSON. Si la valeur du paramètre est null lorsque la fonction se termine, Functions crée le message avec un objet null.
 * `out string` - Si la valeur du paramètre est null lorsque la fonction se termine, Functions ne crée pas de message.
 * `out byte[]` - Si la valeur du paramètre est null lorsque la fonction se termine, Functions ne crée pas de message.
-* `out BrokeredMessage` - Si la valeur du paramètre est null lorsque la fonction se termine, Functions ne crée pas de message.
+* `out BrokeredMessage` - Si la valeur du paramètre est null lorsque la fonction se termine, Functions ne crée pas de message (pour Functions 1.x).
+* `out Message` - Si la valeur du paramètre est null lorsque la fonction se termine, Functions ne crée pas de message (pour Functions 2.x).
 * `ICollector<T>` ou `IAsyncCollector<T>` - Pour la création de plusieurs messages. Un message est créé quand vous appelez la méthode `Add` .
 
-Dans les fonctions asynchrones, utilisez la valeur de retour ou `IAsyncCollector` au lieu d’un paramètre `out`.
+Quand vous utilisez des fonctions C# :
 
-Ces paramètres concernent Azure Functions version 1.x ; pour 2.x, utilisez [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) au lieu de `BrokeredMessage`.
+* Les fonctions asynchrones ont besoin d’une valeur renvoyée ou de `IAsyncCollector` au lieu d’un paramètre `out`.
 
-Dans JavaScript, accédez à la file d’attente ou la rubrique à l’aide de `context.bindings.<name from function.json>`. Vous pouvez affecter une chaîne, un tableau d’octets ou un objet Javascript (désérialisé dans JSON) à `context.binding.<name>`.
+* Pour accéder à l’ID de session, établissez une liaison à un type [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) et utilisez la propriété `sessionId`.
+
+Dans JavaScript, accédez à la file d’attente ou la rubrique à l’aide de `context.bindings.<name from function.json>`. Vous pouvez affecter une chaîne, un tableau d’octets ou un objet Javascript (désérialisé au format JSON) à `context.binding.<name>`.
+
+Pour envoyer un message à une file d’attente prenant en charge les sessions dans des langages autres que C#, utilisez le [SDK Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging) plutôt que la liaison de sortie intégrée.
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison | Référence |
+| Liaison | Informations de référence |
 |---|---|
 | Service Bus | [Codes d’erreur de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
 | Service Bus | [Limites de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |

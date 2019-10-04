@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 2808264b4641bda49a53677ebe216a3b53b7d0d9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: aad66a91f7de8380ac7e87f0ce8e35ed43cac4a6
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293489"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594526"
 ---
-Le code de toutes les fonctions d’une application de fonctions spécifique se trouve dans un dossier de projet racine qui contient un fichier de configuration d’hôte, ainsi qu’un ou plusieurs sous-dossiers. Chaque sous-dossier contient le code d’une fonction distincte, comme dans la représentation suivante :
+Le code de toutes les fonctions d’une application de fonctions spécifique se trouve dans un dossier de projet racine qui contient un fichier de configuration d’hôte, ainsi qu’un ou plusieurs sous-dossiers. Chaque sous-dossier contient le code d’une fonction distincte. La structure de dossiers est présentée dans la représentation suivante :
 
 ```
 FunctionApp
@@ -31,9 +31,9 @@ FunctionApp
  | - bin
 ```
 
-Dans la version 2.x du runtime Functions, toutes les fonctions dans l’application de fonction doivent partager le même rôle de travail de langage.  
+Dans la version 2.x du runtime Functions, toutes les fonctions dans la Function App doivent partager la même pile de langage.  
 
-Le fichier [host.json](../articles/azure-functions/functions-host-json.md), qui contient des configurations spécifiques du runtime, se trouve dans le dossier racine de l’application de fonction. Un dossier `bin` contient les packages et autres fichiers de bibliothèque requis par l’application de fonction. Consultez la configuration requise spécifique au langage d’un projet d’application de fonction :
+Le fichier [host.json](../articles/azure-functions/functions-host-json.md) contient des configurations spécifiques du runtime et se trouve dans le dossier racine de la Function App. Un dossier *bin* contient des packages et autres fichiers de bibliothèque requis par la Function App. Consultez la configuration requise spécifique au langage d’un projet d’application de fonction :
 
 * [Bibliothèque de classes C# (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
 * [Script C# (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)

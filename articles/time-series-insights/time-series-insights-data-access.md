@@ -4,38 +4,41 @@ description: Cet article explique comment configurer la sécurité et les autori
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 4455d499ab4c52a27a7d9cf878e8130ff38b1c62
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558514"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846948"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Accorder l’accès aux données dans un environnement
 
 Cet article décrit les deux types de stratégies d’accès d’Azure Time Series Insights en préversion.
 
-## <a name="grant-data-access"></a>Accorder l’accès aux données
-
-Effectuez les étapes suivantes pour accorder l’accès aux données à un utilisateur principal.
+## <a name="sign-in-to-time-series-insights"></a>Se connecter à Time Series Insights
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 1. Recherchez votre environnement Time Series Insights. Entrez `Time Series` dans la zone **Recherche**. Sélectionnez **Environnement Time Series** dans les résultats de recherche.
 1. Sélectionnez votre environnement Time Series Insights dans la liste.
+
+## <a name="grant-data-access"></a>Accorder l’accès aux données
+
+Effectuez les étapes suivantes pour accorder l’accès aux données à un utilisateur principal.
+
 1. Sélectionnez **Stratégies d’accès aux données**, puis **+Ajouter**.
 
-    ![Data-access-one][1]
+    [![Data-access-one](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
-1. Choisissez **Sélectionner un utilisateur**. Recherchez le nom d’utilisateur ou l’adresse e-mail pour accéder à l’utilisateur que vous voulez ajouter. Cliquez sur **Sélectionner** pour confirmer la sélection.
+1. Choisissez **Sélectionner un utilisateur**. Recherchez le nom d’utilisateur ou l’adresse e-mail pour accéder à l’utilisateur que vous voulez ajouter. Sélectionnez **Sélectionner** pour confirmer la sélection.
 
-    ![Data-access-two][2]
+    [![Data-access-two](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
 1. Choisissez **Sélectionner un rôle**. Choisissez le rôle d’accès approprié pour l’utilisateur :
 
@@ -45,40 +48,37 @@ Effectuez les étapes suivantes pour accorder l’accès aux données à un util
 
    Sélectionnez **OK** pour confirmer le choix du rôle.
 
-    ![Data-access-three][3]
+    [![Data-access-three](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
 
 1. Sélectionnez **OK** dans la page **Sélectionner un rôle utilisateur**.
 
-    ![Data-access-four][4]
+    [![Data-access-four](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
 
 1. Confirmez que la page **Stratégies d’accès aux données** répertorie les utilisateurs, et les rôles pour chaque utilisateur.
 
-    ![Data-access-five][5]
+    [![Data-access-five](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
-## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>Fournir l’accès invité à un utilisateur issu d’un autre locataire Azure Active Directory
+## <a name="provide-guest-access-from-another-aad-tenant"></a>Fournir l’accès invité à partir d’un autre locataire AAD
 
 `Guest` ne correspond pas à un rôle de gestion. Il est utilisé pour désigner un compte qui a été invité par un autre locataire. Une fois que le compte invité est invité dans le répertoire du locataire, le même contrôle d’accès peut lui être appliqué comme pour tout autre compte. Vous pouvez accorder à l’administration l’accès à un environnement Time Series Insights en utilisant le Panneau Contrôle d’accès (IAM). Vous pouvez également autoriser l’accès aux données de l’environnement via le panneau Stratégies d’accès aux données. Pour plus d’informations sur l’accès invité Azure Active Directory (Azure AD), lisez [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Suivez ces étapes pour que l’accès invité à un environnement Time Series Insights soit accordé à un utilisateur Azure AD par un autre locataire.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-1. Recherchez votre environnement Time Series Insights. Entrez **Time Series** dans la zone **Recherche**. Sélectionnez **Environnement Time Series** dans les résultats de recherche.
-1. Sélectionnez votre environnement Time Series Insights dans la liste.
 1. Sélectionnez **Stratégies d’accès aux données**, puis **+Inviter**.
 
-    ![Data-access-six][6]
+    [![Data-access-six](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
 
 1. Entrez l’adresse de messagerie de l’utilisateur que vous souhaitez inviter. Cette adresse e-mail doit être associée à Azure AD. Vous pouvez inclure un message personnel dans l’invitation.
 
-    ![Data-access-seven][7]
+    [![Data-access-seven](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
 
 1. Recherchez la bulle de confirmation qui s’affiche sur l’écran.
 
-    ![Data-access-eight][8]
+    [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
-1. Choisissez **Sélectionner un utilisateur**. Pour ajouter l’utilisateur que vous avez invité, recherchez son adresse e-mail. Cliquez sur **Sélectionner** pour confirmer la sélection.
+1. Choisissez **Sélectionner un utilisateur**. Pour ajouter l’utilisateur que vous avez invité, recherchez son adresse e-mail. Cliquez ensuite sur **Sélectionner** pour confirmer la sélection.
 
-    ![Data-access-nine][9]
+    [![Data-access-nine](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
 1. Choisissez **Sélectionner un rôle**. Choisissez le rôle d’accès approprié pour l’utilisateur invité :
 
@@ -88,51 +88,36 @@ Suivez ces étapes pour que l’accès invité à un environnement Time Series I
 
    Sélectionnez **OK** pour confirmer le choix du rôle.
 
-    ![Data-access-ten][10]
+    [![Data-access-ten](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
 
 1. Sélectionnez **OK** dans la page **Sélectionner un rôle utilisateur**.
 
 1. Confirmez que la page **Stratégies d’accès aux données** liste l’utilisateur invité et les rôles pour chaque utilisateur invité.
 
-    ![Data-access-eleven][11]
+    [![Data-access-eleven](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
 
 1. Maintenant, l’utilisateur invité doit suivre les étapes pour accéder à l’environnement du locataire Azure dans lequel vous l’avez invité. Tout d’abord, il doit accepter l’invitation que vous lui avez envoyé. Cette invitation est envoyée par e-mail à l’adresse que vous avez utilisée à l’étape 5. Ils sélectionnent **Commencer** pour accepter.
 
-    ![Data-access-twelve][12]
+    [![Data-access-twelve](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
 
 1. Ensuite, l’utilisateur invité accepte les autorisations associées à l’organisation de l’administrateur.
 
-    ![Data-access-thirteen][13]
+    [![Data-access-thirteen](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
 
 1. Une fois que l’utilisateur invité est connecté à l’adresse e-mail que vous avez utilisée pour l’inviter et qu’il accepte l’invitation, il se rend sur insights.azure.com. Une fois sur ce site, il sélectionne l’avatar à côté de l’adresse e-mail, dans le coin supérieur droit de l’écran.
 
-    ![Data-access-fourteen][14]
+    [![Data-access-fourteen](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
 
 1. Ensuite, l’utilisateur invité sélectionne votre locataire Azure dans le menu déroulant de l’annuaire. C’est à ce locataire que vous avez invité l’utilisateur.
 
-    ![Data-access-fifteen][15]
+    [![Data-access-fifteen](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
 
-Lorsque l’utilisateur invité a sélectionne votre locataire, il voit l’environnement Time Series Insights auquel vous lui avez donné accès. Il dispose désormais de toutes les fonctionnalités associées au rôle que vous lui avez fourni à l’étape 8.
+Lorsque l’utilisateur invité a sélectionne votre locataire, il voit l’environnement Time Series Insights auquel vous lui avez donné accès. Il dispose désormais de toutes les fonctionnalités associées au rôle que vous lui avez fourni à l’**étape 5**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez le [Guide pratique pour ajouter une source d’événement Azure Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md) à votre environnement Time Series Insights.
-* Envoyez [des événements à la source d’événement](./time-series-insights-send-events.md).
-* Accédez à [votre environnement dans l’explorateur Time Series Insights en préversion](./time-series-insights-update-explorer.md).
 
-<!-- Images -->
-[1]: media/data-access/data-access-one.png
-[2]: media/data-access/data-access-two.png
-[3]: media/data-access/data-access-three.png
-[4]: media/data-access/data-access-four.png
-[5]: media/data-access/data-access-five.png
-[6]: media/data-access/data-access-six.png
-[7]: media/data-access/data-access-seven.png
-[8]: media/data-access/data-access-eight.png
-[9]: media/data-access/data-access-nine.png
-[10]: media/data-access/data-access-ten.png
-[11]: media/data-access/data-access-eleven.png
-[12]: media/data-access/data-access-twelve.png
-[13]: media/data-access/data-access-thirteen.png
-[14]: media/data-access/data-access-fourteen.png
-[15]: media/data-access/data-access-fifteen.png
+* Envoyez [des événements à la source d’événement](./time-series-insights-send-events.md).
+
+* Accédez à [votre environnement dans l’explorateur Time Series Insights en préversion](./time-series-insights-update-explorer.md).

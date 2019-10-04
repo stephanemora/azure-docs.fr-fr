@@ -1,28 +1,26 @@
 ---
-title: Utilisation du stockage de files d’attente à partir de PHP | Microsoft Docs
+title: Utilisation du Stockage File d’attente à partir de PHP - Stockage Azure
 description: Découvrez comment utiliser le service de stockage de files d’attente Azure pour créer et supprimer des files d’attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en PHP.
-services: storage
-author: roygara
-ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: php
-ms.topic: article
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 01/11/2018
-ms.author: rogarana
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 0f9cc11e64e2517ef7aff0cd51705c39bf212b37
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: b175c34f131a7a0f172c7be0dda083fbfda3dc1e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011435"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721440"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Utilisation du stockage de files d'attente à partir de PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service Azure Stockage File d’attente. Les exemples ont été écrits avec des classes de la [bibliothèque de client Stockage Azure pour PHP][download]. Les scénarios traités incluent l’insertion, la lecture furtive, la récupération et la suppression des messages de file d’attente, ainsi que la création et suppression des files d’attente.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -87,7 +85,7 @@ UseDevelopmentStorage=true
 Pour créer un client de service de file d’attente Azure, vous devez utiliser la classe **QueueRestProxy**. Vous pouvez utiliser une des techniques suivantes :
 
 * Lui passer directement la chaîne de connexion.
-* utiliser des variables d’environnement dans votre application web pour stocker la chaîne de connexion. Pour configurer des chaînes de connexion, consultez le document [Paramètres de configuration des applications web Azure](../../app-service/web-sites-configure.md).
+* utiliser des variables d’environnement dans votre application web pour stocker la chaîne de connexion. Pour configurer des chaînes de connexion, consultez le document [Paramètres de configuration des applications web Azure](../../app-service/configure-common.md).
 Dans les exemples ci-dessous, la chaîne de connexion est passée directement.
 
 ```php
@@ -419,7 +417,7 @@ Maintenant que vous connaissez les bases du stockage des files d’attente Azure
 Pour plus d’informations, consultez également le [Centre pour développeurs PHP](https://azure.microsoft.com/develop/php/).
 
 [download]: https://github.com/Azure/azure-storage-php
-[require_once]: http://www.php.net/manual/en/function.require-once.php
+[require_once]: https://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 [composer-phar]: https://getcomposer.org/composer.phar
 

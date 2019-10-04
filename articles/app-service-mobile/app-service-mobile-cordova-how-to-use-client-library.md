@@ -3,7 +3,7 @@ title: Comment utiliser le plug-in Apache Cordova pour Azure Mobile Apps
 description: Comment utiliser le plug-in Apache Cordova pour Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 327cb3a3667c63454549ec694790769c9ea1fd58
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004207"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446415"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Comment utiliser la bibliothèque cliente Apache Cordova pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent surveiller l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, et interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent également utiliser **Auth** pour authentifier leurs utilisateurs, ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-how-to-use-client-library) dès aujourd'hui.
+>
+
+## <a name="overview"></a>Vue d'ensemble
 Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [plug-in Apache Cordova pour Azure Mobile Apps]. Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un serveur principal, créer une table et télécharger un projet Apache Cordova prédéfini. Dans ce guide, nous nous concentrons sur le plug-in Apache Cordova côté client.
 
 ## <a name="supported-platforms"></a>Plateformes prises en charge
@@ -106,7 +111,7 @@ Suivez ces instructions pour ajouter vos paramètres régionaux à la configurat
              "https://localhost:3000"
          ],
 
-    Remplacez les URL par les URL de votre service.  Exemples `http://localhost:3000` (pour le service d’exemple Node.js), ou `http://localhost:4400` (pour le service Ripple).  Il s’agit seulement d’exemples d’URL. Votre situation, y compris pour les services mentionnés dans les exemples, peut être différente.
+    Remplacez les URL par les URL de votre service.  Par exemple, `http://localhost:3000` (pour l’exemple de service Node.js) ou `http://localhost:4400` (pour le service Ripple).  Il s’agit seulement d’exemples d’URL. Votre situation, y compris pour les services mentionnés dans les exemples, peut être différente.
 8. Cliquez sur le bouton **Lecture/Écriture** dans le coin supérieur droit de l’écran.
 9. Cliquez sur le bouton vert **PUT** .
 

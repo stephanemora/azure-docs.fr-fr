@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 2639d47a6c9d8da53c9d6bccde0d317698d5d9fd
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.openlocfilehash: 5f242018abfb15cea1b76cbcaad00942ec25d78d
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58257961"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69015073"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publier du contenu dans le portail Azure  
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "58257961"
 > 
 > 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 > [!NOTE]
 > Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
@@ -37,8 +37,8 @@ ms.locfileid: "58257961"
 
 Pour fournir aux utilisateurs une URL pouvant être utilisée pour diffuser en continu ou télécharger votre contenu, vous devez d’abord publier votre actif multimédia en créant un localisateur. Les localisateurs permettent d’accéder aux fichiers d’actifs multimédias. Azure Media Services prend en charge deux types de localisateurs : 
 
-* **Localisateurs de streaming (OnDemandOrigin)**. Les localisateurs de streaming sont utilisés pour le streaming adaptatif. Parmi les exemples de streaming adaptatif, nous pouvons citer Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming et Dynamic Adaptive Streaming sur HTTP (DASH, aussi appelé MPEG-DASH). Pour créer un localisateur de streaming, votre actif multimédia doit contenir un fichier .ism. Par exemple : http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
-* **Localisateurs progressifs (signature d’accès partagé)**. Les localisateurs progressifs sont utilisés pour diffuser des vidéos par téléchargement progressif.
+* **Localisateurs de streaming (OnDemandOrigin)** . Les localisateurs de streaming sont utilisés pour le streaming adaptatif. Parmi les exemples de streaming adaptatif, nous pouvons citer Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming et Dynamic Adaptive Streaming sur HTTP (DASH, aussi appelé MPEG-DASH). Pour créer un localisateur de streaming, votre actif multimédia doit contenir un fichier .ism. Par exemple : http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
+* **Localisateurs progressifs (signature d’accès partagé)** . Les localisateurs progressifs sont utilisés pour diffuser des vidéos par téléchargement progressif.
 
 Pour créer une URL de streaming HLS, ajoutez *(format=m3u8-aapl)* à l’URL :
 
@@ -89,7 +89,7 @@ Sélectionnez la vidéo, puis cliquez sur le bouton **Lecture**.
 Certaines considérations s’appliquent :
 
 * Vérifiez que la vidéo a été publiée.
-* Le lecteur multimédia du portail Azure effectue la lecture à partir du point de terminaison de streaming par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de streaming que celui par défaut, sélectionnez et copiez l’URL dans un autre lecteur. Par exemple, vous pouvez tester votre vidéo avec le lecteur [Azure Media Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+* Le lecteur multimédia du portail Azure effectue la lecture à partir du point de terminaison de streaming par défaut. Si vous souhaitez lire à partir d’un autre point de terminaison de streaming que celui par défaut, sélectionnez et copiez l’URL dans un autre lecteur. Par exemple, vous pouvez tester votre vidéo avec le lecteur [Azure Media Player](https://aka.ms/azuremediaplayer).
 * Le point de terminaison de streaming à partir duquel vous diffusez en continu doit être en cours d’exécution.  
 
 ## <a name="provide-feedback"></a>Fournir des commentaires

@@ -9,15 +9,15 @@ services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094505"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447044"
 ---
 # <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de la solution de supervision à distance
 
-Cet article vous montre comment ajouter un nouveau service à l’interface utilisateur web de l’accélérateur de solution de supervision à distance. Cet article décrit :
+Cet article vous montre comment ajouter un nouveau service à l’interface utilisateur web de l’accélérateur de solution de supervision à distance. Cet article aborde les points suivants :
 
 - Comment préparer un environnement de développement local.
 - Comment ajouter un nouveau service à l’interface utilisateur web.

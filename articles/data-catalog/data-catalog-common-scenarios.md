@@ -1,24 +1,22 @@
 ---
 title: Scénarios courants avec Azure Data Catalog
 description: Vue d’ensemble des scénarios courants pour Azure Data Catalog, notamment l’inscription et la découverte des sources de données de grande valeur, l’activation du décisionnel libre-service et la capture de connaissances existantes sur les sources de données et les processus.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: aeae505b510f563a6640726c384ea358983eb24f
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010804"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736455"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Scénarios courants avec Azure Data Catalog
 Cet article présente des scénarios courants dans lesquels Azure Data Catalog peut aider votre organisation à mieux exploiter ses sources de données existantes.
 
-## <a name="scenario-1-registration-of-central-data-sources"></a>Scénario 1 : Inscription des sources de données centrales
+## <a name="scenario-1-registration-of-central-data-sources"></a>Scénario 1 : Enregistrement des sources de données centrales
 Les organisations ont souvent de nombreuses sources de données de grande valeur. Celles-ci incluent les systèmes d’entreprise OLTP, les entrepôts de données et les bases de données de décisionnel/analyse. Le nombre de systèmes augmente et le chevauchement entre les systèmes s’accentue au fur et à mesure de l’évolution des besoins de l’entreprise ou de l’évolution de l’entreprise elle-même, par exemple par le biais de fusions et d’acquisitions.
 
 Il peut être difficile pour les membres de l’organisation de savoir où rechercher les données parmi ces sources de données. Des questions telles que celles-ci se posent régulièrement :
@@ -47,7 +45,7 @@ Cette croissance organique du contenu du catalogue est un complément naturel de
 
 Il est important de noter que, bien que ce scénario se concentre spécifiquement sur le décisionnel libre-service, les mêmes schémas et les mêmes défis s’appliquent également aux projets décisionnels d’entreprise de grande échelle. Grâce à Data Catalog, votre organisation peut améliorer les efforts qui impliquent un processus manuel de découverte de source de données.
 
-## <a name="scenario-3-capturing-tribal-knowledge"></a>Scénario 3 : Capturer les connaissances tribales
+## <a name="scenario-3-capturing-tribal-knowledge"></a>Scénario 3 : Capture des connaissances tribales
 Comment savoir quelles données sont nécessaires pour effectuer votre travail et où les trouver ?
 
 Si vous occupez le même poste depuis un certain temps, vous connaissez probablement la réponse. Vous avez suivi un processus d’apprentissage progressif, et au fil du temps vous avez appris quelles sources de données sont essentielles à la réalisation de vos tâches quotidiennes.

@@ -2,26 +2,26 @@
 title: Référence - Infrastructures de confiance dans Azure Active Directory B2C | Microsoft Docs
 description: Rubrique sur les stratégies personnalisées Azure Active Directory B2C et l’infrastructure d’expérience d’identité.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8debab073d65cd64303d2f395b73a3a04e8105b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e96ddcb904bbda6c3123ffc9d3da50ff80823689
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166864"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500013"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Définir des infrastructures de confiance avec l’infrastructure d’expérience d’identité Azure AD B2C
 
 Les stratégies personnalisées Azure Active Directory B2C (Azure AD B2C) qui utilisent l’infrastructure d’expérience d’identité fournissent un service centralisé à votre organisation. Ce service permet de réduire la complexité de la fédération des identités au sein d’une large communauté d’intérêts. La complexité est réduite à une seule relation d’approbation et à un seul échange de métadonnées.
 
-Les stratégies personnalisées Azure AD B2C qui utilisent l’infrastructure d’expérience d’identité permettent de répondre aux questions suivantes :
+Les stratégies personnalisées Azure AD B2C utilisent l’infrastructure d’expérience d’identité pour vous permettre de répondre aux questions suivantes :
 
 - Quelles stratégies de conformité, de sécurité, de confidentialité et de protection des données doivent être appliquées ?
 - Quels sont les contacts et les processus pour devenir un participant agréé ?

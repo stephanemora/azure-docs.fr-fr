@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 778a95db8ce462d06e2464db56b542f8113a4960
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149272"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875373"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : Forum Aux Questions (FAQ)
 
@@ -37,6 +37,7 @@ ms.locfileid: "60149272"
 
 ## <a name="can-i-use-application-insights-with-"></a>Puis-je utiliser Application Insights avec... ?
 
+* [Applications web sur un serveur IIS sur une machine virtuelle Azure ou un groupe de machines virtuelles identiques Azure](azure-vm-vmss-apps.md)
 * [Applications web sur un serveur IIS - en local ou sur une machine virtuelle](asp-net.md)
 * [Applications web Java](java-get-started.md)
 * [Applications Node.js](nodejs.md)
@@ -104,7 +105,7 @@ Une application de bureau que vous pouvez utiliser dans votre serveur web IIS po
 * Requêtes HTTP
 * [Dépendances](asp-net-dependencies.md). Appels passés aux instances SQL Database ; appels HTTP vers des services externes ; Azure Cosmos DB, table, stockage d’objets blob et file d’attente. 
 * [Exceptions](asp-net-exceptions.md) et arborescences des appels de procédure.
-* [Compteurs de performances](performance-counters.md) : si vous utilisez [Status Monitor](monitor-performance-live-website-now.md), [Supervision Azure](azure-web-apps.md) ou le [writer collectd d’Application Insights](java-collectd.md).
+* [Compteurs de performances](performance-counters.md) : si vous utilisez [Status Monitor](monitor-performance-live-website-now.md), la [surveillance Azure pour App Services](azure-web-apps.md), la [surveillance Azure pour le groupe de machines virtuelles identiques](azure-vm-vmss-apps.md) ou le [writer collectd d’Application Insights](java-collectd.md).
 * [Événements et mesures personnalisés](api-custom-events-metrics.md) que vous codez.
 * [Journaux d’activité de suivi](asp-net-trace-logs.md) si vous configurez le collecteur approprié.
 
@@ -132,7 +133,7 @@ Oui, dans le serveur, vous pouvez écrire :
 
 En savoir plus pour [ASP.NET](api-filtering-sampling.md) ou [Java](java-filter-telemetry.md).
 
-## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>Comment sont calculées les données relative à la ville, au pays et aux autres emplacements géographiques ?
+## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>Comment sont calculées les données relative à la ville, au pays/à la région et aux autres emplacements géographiques ?
 
 Nous recherchons l’adresse IP (IPv4 ou IPv6) du client web à l’aide de [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
@@ -145,7 +146,7 @@ Vous pouvez [utiliser Power BI](export-power-bi.md ) pour afficher les données 
 
 
 ## <a name="data"></a>Combien de temps les données sont-elles conservées dans le portail ? Sont-elles sécurisées ?
-Voir [Rétention de données et confidentialité][data].
+Consultez [Rétention de données et confidentialité][data].
 
 ## <a name="could-personal-data-be-sent-in-the-telemetry"></a>Est-ce que des informations personnelles peuvent être envoyées dans les données de télémétrie ?
 
@@ -153,7 +154,7 @@ Cela est possible si votre code envoie ce type de données. Cela peut également
 
 **Tous** les octets de l’adresse web du client ont toujours la valeur 0 lors de la recherche des attributs d’emplacement géographique.
 
-## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Ma clé d’Instrumentation est visible dans ma source de la page web. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>La clé d’instrumentation est visible dans la source de ma page web. 
 
 * Il s’agit d’une pratique courante dans les solutions de surveillance.
 * Il ne peut pas être utilisé pour dérober vos données.
@@ -162,7 +163,7 @@ Cela est possible si votre code envoie ce type de données. Cela peut également
 
 Vous pouvez :
 
-* Utilisez les deux clés d’Instrumentation distincts (ressources Application Insights distinctes), pour les données client et serveur. Ou
+* Utiliser deux clés d’instrumentation distinctes (ressources Application Insights distinctes) pour les données client et serveur. Ou
 * Écrire un proxy qui s’exécute sur votre serveur et que le client web utilise pour envoyer des données.
 
 ## <a name="post"></a>Comment consulter les données POST dans la fonction Recherche de diagnostic ?
@@ -288,12 +289,12 @@ Votre passerelle doit acheminer le trafic vers l’adresse de base de notre poin
 
 _Remarque : ApplicationIdProvider est disponible à partir de la version 2.6.0_
 
-### <a name="proxy-passthrough"></a>Relais de proxy
+### <a name="proxy-passthrough"></a>Pass-through du proxy
 
-Relais proxy peut être obtenue en configurant un niveau de l’ordinateur ou le niveau de l’application proxy.
-Pour plus d’informations, consultez l’article de dotnet sur [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+Vous pouvez obtenir le pass-through du proxy en configurant un proxy au niveau de l’ordinateur ou de l’application.
+Pour en savoir plus, consultez l’article de dotnet sur [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
- Exemple Web.config :
+ Exemple de fichier Web.config :
  ```xml
 <system.net>
     <defaultProxy>

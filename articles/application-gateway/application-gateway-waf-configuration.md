@@ -4,16 +4,15 @@ description: Cet article fournit des informations sur la configuration des limit
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.workload: infrastructure-services
-ms.date: 1/29/2019
+ms.date: 7/17/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9e9472fbcd01cf40204063174b159638369d7429
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791757"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326667"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions
 
@@ -25,10 +24,10 @@ Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une pro
 
 Le pare-feu d’applications web vous permet de configurer des limites maximale et minimale de la taille des demandes. Les configurations de limites à deux tailles suivantes sont disponibles :
 
-- Le champ de la taille maximale du corps de la demande est spécifié en Ko et contrôle la limite globale de la taille de la demande à l’exclusion de tout chargement de fichier. La valeur de ce champ peut varier de 1 Ko à 128 Ko. La valeur par défaut pour la taille du corps de la demande est de 128 Ko.
+- Le champ de la taille maximale du corps de la requête est spécifié en kilo-octets et contrôle la limite globale de la taille de la requête à l’exclusion de tout chargement de fichier. La valeur de ce champ peut varier de 1 Ko à 128 Ko. La valeur par défaut pour la taille du corps de la demande est de 128 Ko.
 - Le champ de la limite de chargement de fichier est spécifié en Mo et régit la taille maximale autorisée pour la limite de chargement de fichier. La valeur de ce champ peut être comprise entre 1 Mo et 500 Mo pour les grandes instances SKU et 100 Mo pour les instances SKU intermédiaires. La valeur par défaut pour la limite de chargement de fichier est de 100 Mo.
 
-Le WAF offre également un bouton configurable qui permet d’activer ou de désactiver l’inspection du corps de la demande. Par défaut, l’inspection du corps de la demande est activée. Si l’inspection du corps de la demande est désactivée, le WAF n’évalue pas le contenu du corps du message HTTP. Dans ce cas, le WAF continue d’appliquer ses règles sur les en-têtes, les cookies et les URI. Si l’inspection du corps de la demande est désactivée, le champ de la taille maximale du corps de la demande n’est pas applicable et ne peut pas être défini. La désactivation de l’inspection du corps de la demande permet l’envoi au WAF de messages dont la taille est supérieure à 128 Ko, mais le corps du message n’est pas inspecté.
+Le WAF offre également un bouton configurable qui permet d’activer ou de désactiver l’inspection du corps de la demande. Par défaut, l’inspection du corps de la demande est activée. Si l’inspection du corps de la requête est désactivée, le WAF n’évalue pas le contenu du corps du message HTTP. Dans ce cas, le WAF continue d’appliquer ses règles sur les en-têtes, les cookies et les URI. Si l’inspection du corps de la demande est désactivée, le champ de la taille maximale du corps de la demande n’est pas applicable et ne peut pas être défini. La désactivation de l’inspection du corps de la demande permet l’envoi au WAF de messages dont la taille est supérieure à 128 Ko, mais le corps du message n’est pas inspecté.
 
 ## <a name="waf-exclusion-lists"></a>Listes d’exclusions du WAF
 
@@ -36,17 +35,18 @@ Le WAF offre également un bouton configurable qui permet d’activer ou de dés
 
 Les listes d’exclusion du WAF vous permettent d’omettre certains attributs de la demande dans une évaluation par le WAF. À titre d’exemple courant, citons les jetons Active Directory insérés qui sont utilisés pour les champs d’authentification ou de mot de passe. Ces attributs sont sujets à contenir des caractères spéciaux qui peuvent déclencher un faux positif dans les règles du pare-feu d’applications web. Une fois ajouté à la liste d’exclusions du WAF, un attribut n’est pris en considération par aucune règle du pare-feu d’applications web configurée et active. Les listes d’exclusions ont une portée globale.
 
-Les attributs suivants peuvent être ajoutés aux listes d’exclusion :
+Les attributs qui suivent peuvent être ajoutés aux listes d’exclusion par nom. Les valeurs du champ choisi ne sont pas évaluées par rapport aux règles WAF, mais leurs noms le sont toujours (voir l’Exemple 1 ci-dessous, où la valeur de l’en-tête User-Agent est exclue de l’évaluation WAF). Les listes d’exclusion suppriment l’inspection de la valeur du champ.
 
 * En-têtes de demande
 * Cookies de requête
-* Corps de la requête
+* Vous pouvez ajouter le nom d’un attribut de requête (argument) comme un élément d’exclusion, par exemple :
 
-   * Données de plusieurs parties de formulaire
-   * XML
-   * JSON
+   * Nom du champ de formulaire
+   * Entité XML
+   * Entité JSON
+   * Arguments de chaîne de requête de l’URL
 
-Vous pouvez spécifier une correspondance exacte avec l'en-tête ou le corps d'une requête, un cookie ou un attribut de chaîne de requête  ou spécifier des correspondances partielles. L'exclusion porte toujours sur un champ d'en-tête, jamais sur sa valeur. Les règles d'exclusion ont une portée globale, et s'appliquent à toutes les pages et à toutes les règles.
+Vous pouvez spécifier une correspondance exacte avec l'en-tête ou le corps d'une requête, un cookie ou un attribut de chaîne de requête  ou spécifier des correspondances partielles. Les règles d'exclusion ont une portée globale, et s'appliquent à toutes les pages et à toutes les règles.
 
 Voici les opérateurs de critères de correspondance pris en charge :
 
@@ -54,45 +54,47 @@ Voici les opérateurs de critères de correspondance pris en charge :
 - **Commence par** : cet opérateur correspond à tous les champs qui commencent par la valeur de sélecteur spécifiée.
 - **Se termine par** :  cet opérateur correspond à tous les champs de demande qui se terminent par la valeur de sélecteur spécifiée.
 - **Contient** : cet opérateur correspond à tous les champs de demande qui se contiennent la valeur de sélecteur spécifiée.
-- **Est égal à un**: Cet opérateur correspond à tous les champs de demande. * sera la valeur du sélecteur.
+- **Est égal à** : Cet opérateur correspond à tous les champs de la requête. * sera la valeur du sélecteur.
 
 Dans tous les cas, la correspondance respecte la casse, et les expressions régulières ne sont pas autorisées en guise de sélecteurs.
+
+> [!NOTE]
+> Si vous souhaitez en savoir plus et obtenir de l’aide, veuillez consulter la section [Résolution des problèmes WAF](web-application-firewall-troubleshoot.md).
 
 ### <a name="examples"></a>Exemples
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-L’extrait de code Azure PowerShell suivant montre comment utiliser les exclusions :
+Les exemples suivants montrent comment utiliser les exclusions.
+
+### <a name="example-1"></a>Exemple 1
+
+Dans cet exemple, vous souhaitez exclure l’en-tête user-agent. Cet en-tête de requête contient une chaîne caractéristique qui permet aux pairs de protocole réseau d’identifier le type d’application, le système d’exploitation, l’éditeur de logiciels ou la version du logiciel de l’agent utilisateur de logiciels demandeur. Pour plus d’informations, consultez la section [Agent utilisateur](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
+
+Il peut y avoir plusieurs raisons de désactiver l’évaluation de cet en-tête. Le WAF peut voir une chaîne et la considérer comme malveillante. Par exemple, l’attaque SQL classique « x = x » dans une chaîne. Dans certains cas, il peut s’agir de trafic légitime. Par conséquent, vous devrez peut-être exclure cet en-tête de l’évaluation par le WAF.
+
+La cmdlet Azure PowerShell suivante permet d’exclure l’en-tête user-agent de l’évaluation :
 
 ```azurepowershell
-// exclusion 1: exclude request head start with xyz
-// exclusion 2: exclude request args equals a
-
-$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestHeaderNames" -SelectorMatchOperator "StartsWith" -Selector "xyz"
-
-$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig -MatchVariable "RequestArgNames" -SelectorMatchOperator "Equals" -Selector "a"
-
-// add exclusion lists to the firewall config
-
-$firewallConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode Prevention -RuleSetType "OWASP" -RuleSetVersion "2.2.9" -DisabledRuleGroups $disabledRuleGroup1,$disabledRuleGroup2 -RequestBodyCheck $true -MaxRequestBodySizeInKb 80 -FileUploadLimitInMb 70 -Exclusions $exclusion1,$exclusion2
+$exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestHeaderNames" `
+   -SelectorMatchOperator "Equals" `
+   -Selector "User-Agent"
 ```
 
-L’extrait de code json suivant montre comment utiliser les exclusions :
+### <a name="example-2"></a>Exemple 2
 
-```json
-"webApplicationFirewallConfiguration": {
-          "enabled": "[parameters('wafEnabled')]",
-          "firewallMode": "[parameters('wafMode')]",
-          "ruleSetType": "[parameters('wafRuleSetType')]",
-          "ruleSetVersion": "[parameters('wafRuleSetVersion')]",
-          "disabledRuleGroups": [],
-          "exclusions": [
-            {
-                "matchVariable": "RequestArgNames",
-                "selectorMatchOperator": "StartsWith",
-                "selector": "a^bc"
-            }
+Cet exemple exclut la valeur du paramètre *utilisateur* qui est transmis dans la requête via l’URL. Par exemple, imaginons qu’il est courant dans votre environnement que le champ utilisateur contienne une chaîne que le WAF considère comme contenu malveillant, et donc que celle-ci soit bloquée.  Vous pouvez exclure le paramètre utilisateur dans ce cas, afin que le WAF n’évalue rien qui appartienne à ce champ.
+
+La cmdlet Azure PowerShell suivante permet d’exclure le paramètre utilisateur de l’évaluation :
+
+```azurepowershell
+$exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
+   -MatchVariable "RequestArgNames" `
+   -SelectorMatchOperator "StartsWith" `
+   -Selector "user"
 ```
+Par conséquent, si l'URL **http://www.contoso.com/?user%281%29=fdafdasfda** est passée au WAF, elle n'évaluera pas la chaîne **fdafdasfda**, mais évaluera toujours le nom du paramètre **user%281%29**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

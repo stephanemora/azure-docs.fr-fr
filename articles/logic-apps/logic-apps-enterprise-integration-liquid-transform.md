@@ -9,35 +9,35 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.openlocfilehash: 203c57a2755a3287566a774e2878a87b847337b9
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58292884"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70900655"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Effectuez des transformations JSON avancées avec des modèles Liquid dans Azure Logic Apps
 
-Vous pouvez effectuer des transformations JSON de base dans vos applications logiques par le biais d’actions d’opérations de données natives telles que **Compose** ou **Parse JSON**. Pour effectuer des transformations JSON avancées, vous pouvez créer des modèles ou des mappages avec [Liquid](https://shopify.github.io/liquid/), qui est un langage de modèle open source destiné aux applications web flexibles. Un modèle Liquid définit comment transformer la sortie JSON et prend en charge les transformations JSON plus complexes, telles que les itérations, flux de contrôle, variables et ainsi de suite. 
+Vous pouvez effectuer des transformations JSON de base dans vos applications logiques par le biais d’actions d’opérations de données natives telles que **Compose** ou **Parse JSON**. Pour effectuer des transformations JSON avancées, vous pouvez créer des modèles ou des mappages avec [Liquid](https://shopify.github.io/liquid/), qui est un langage de modèle open source destiné aux applications web flexibles. Un modèle Liquid définit comment transformer une sortie JSON et prend en charge des transformations JSON plus complexes (itérations, flux de contrôle, variables, etc.). 
 
-Avant de pouvoir effectuer une transformation Liquid dans votre application logique, vous devez d’abord définir le code JSON au mappage JSON avec un modèle Liquid et le stocker dans votre compte d’intégration. Cet article vous montre comment créer et utiliser ce modèle ou ce mappage Liquid. 
+Avant de pouvoir effectuer une transformation Liquid dans votre application logique, vous devez définir le mappage JSON à JSON avec un modèle Liquid et le stocker dans votre compte d’intégration. Cet article vous montre comment créer et utiliser ce modèle ou ce mappage Liquid. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Vous pouvez aussi [souscrire un abonnement avec paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Base [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) de base
 
 * Des connaissances de base sur le [langage de gabarit Liquid.](https://shopify.github.io/liquid/)
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Créer un mappage ou un modèle Liquid pour votre compte d’intégration
 
-1. Pour cet exemple, créez l’exemple de modèle Liquid décrit à cette étape. Dans votre modèle Liquid, vous pouvez utiliser [Liquid filtre](https://shopify.github.io/liquid/basics/introduction/#filters), qui utilisent [DotLiquid](https://dotliquidmarkup.org/) et C# conventions de nommage. 
+1. Pour cet exemple, créez l’exemple de modèle Liquid décrit à cette étape. Dans votre modèle Liquid, vous pouvez définir des [filtres Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), qui utilisent les conventions de nommage de [DotLiquid](https://dotliquidmarkup.org/) et C#. 
 
    > [!NOTE]
-   > Assurez-vous que les noms de filtre utiliser *casse de la phrase* dans votre modèle. Sinon, les filtres ne fonctionneront pas.
+   > Assurez-vous que les noms de filtre utilisent la *mise en majuscules des phrases* dans votre modèle. Sinon, les filtres ne fonctionneront pas.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -81,7 +81,7 @@ Avant de pouvoir effectuer une transformation Liquid dans votre application logi
 
 1. Dans le portail Azure, procédez comme suit pour [créer une application logique vierge](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Dans le Concepteur d’application logique, ajoutez le [déclencheur Requête](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) à votre application logique.
+2. Dans le Concepteur d’application logique, ajoutez le [déclencheur Requête](../connectors/connectors-native-reqres.md#add-request) à votre application logique.
 
 3. Sous le déclencheur, choisissez **Nouvelle étape**. 
    Dans la zone de recherche, entrez « liquid » comme filtre, puis sélectionnez cette action : **Transformer de JSON en JSON - Liquid**

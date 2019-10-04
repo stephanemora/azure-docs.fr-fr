@@ -11,22 +11,21 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d8f12e699c17787d897a7f5ed23eccdbf3659921
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357113"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569134"
 ---
-# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Démarrage rapide : utiliser Visual Studio Code pour vous connecter et interroger une base de données SQL Azure
+# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Démarrage rapide : Utiliser Visual Studio Code pour vous connecter et interroger une base de données Azure SQL
 
-[Visual Studio Code](https://code.visualstudio.com/docs) est un éditeur de code graphique pour Linux, macOS et Windows. Il prend en charge les extensions, notamment [l’extension mssql](https://aka.ms/mssql-marketplace) pour l’exécution de requêtes dans Microsoft SQL Server, Azure SQL Database et SQL Data Warehouse. Dans ce guide de démarrage rapide, vous utilisez Visual Studio Code pour vous connecter à une base de données SQL Azure, puis exécutez des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données.
+[Visual Studio Code](https://code.visualstudio.com/docs) est un éditeur de code graphique pour Linux, macOS et Windows. Il prend en charge les extensions, notamment [l’extension mssql](https://aka.ms/mssql-marketplace) pour l’exécution de requêtes dans Microsoft SQL Server, Azure SQL Database et SQL Data Warehouse. Dans ce guide de démarrage rapide, vous utilisez Visual Studio Code pour vous connecter à une base de données Azure SQL, puis exécutez des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
@@ -71,7 +70,7 @@ Aucune configuration spéciale nécessaire.
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données SQL Azure. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -93,7 +92,7 @@ Dans Visual Studio Code, définissez le mode de langage sur **SQL** pour activer
 
 ## <a name="connect-to-your-database"></a>Connectez-vous à votre base de données
 
-Utilisez Visual Studio Code pour établir une connexion à votre serveur Azure SQL Database.
+Utilisez Visual Studio Code pour établir une connexion à votre serveur Azure SQL Database.
 
 > [!IMPORTANT]
 > Avant de poursuivre, vérifiez que votre serveur est prêt et que vous avez vos informations de connexion. Une fois que vous avez commencé à saisir les informations concernant le profil de connexion, si vous modifiez le focus à partir de Visual Studio Code, vous devez redémarrer la création du profil.
@@ -192,6 +191,6 @@ Exécutez l’instruction Transact-SQL [DELETE](https://docs.microsoft.com/sql/t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour vous connecter et effectuer des requêtes à l’aide de SQL Server Management Studio, consultez [Démarrage rapide : Utilisez SQL Server Management Studio pour vous connecter à une base de données SQL Azure et interroger les données](sql-database-connect-query-ssms.md).
+- Pour vous connecter et effectuer des requêtes à l’aide de SQL Server Management Studio, consultez [Démarrage rapide : Utilisez SQL Server Management Studio pour vous connecter à une base de données Azure SQL et interroger les données](sql-database-connect-query-ssms.md).
 - Pour vous connecter et effectuer des requêtes à l’aide du portail Azure, consultez [Démarrage rapide : Utilisez l’éditeur de requête SQL dans le portail Azure pour vous connecter et interroger les données](sql-database-connect-query-portal.md).
 - Pour lire un article du magazine MSDN sur l’utilisation de Visual Studio Code, consultez le [billet de blog Créer un IDE de base de données avec une extension MSSQL](https://msdn.microsoft.com/magazine/mt809115).

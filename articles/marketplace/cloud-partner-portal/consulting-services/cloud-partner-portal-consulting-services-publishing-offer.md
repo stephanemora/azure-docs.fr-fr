@@ -1,25 +1,18 @@
 ---
-title: Offre de service de conseil Azure et Dynamics 365 | Microsoft Docs
+title: Offre de services de conseil Azure et Dynamics 365 | Place de marché Azure
 description: Guide pour la définition et publication d’une offre de service de conseil Azure ou Dynamics 365 dans le portail Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e543c24a8e3549bc53d6074c7008f3d01fcc96c4
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.author: pabutler
+ms.openlocfilehash: 6c75664e558602429250420f1896b75a74546e67
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54228757"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145456"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Offre de service de conseil Azure et Dynamics 365
 
@@ -40,6 +33,7 @@ Cette section décrit les éléments de la publication d’une offre de service 
 
 - [Conditions préalables à la publication d'un service de conseil](./cpp-consulting-service-prerequisites.md) répertorie les conditions requises pour publier une offre de service de conseil pour :
  
+    - Microsoft Azure
     - Dynamics 365 for Customer Engagement 
     - Dynamics 365 for Finance & Operations 
     - Dynamics 365 Business Central 

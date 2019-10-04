@@ -1,6 +1,6 @@
 ---
-title: Base de données SQL Azure - lire des requêtes sur les réplicas | Microsoft Docs
-description: La base de données SQL Azure fournit la possibilité d’équilibrer la charge des charges de travail en lecture seule à l’aide de la capacité des réplicas en lecture seule - appelée lecture du Scale-Out.
+title: Azure SQL Database - lire des requêtes sur les réplicas | Microsoft Docs
+description: La base de données Azure SQL offre la possibilité d’équilibrer les charges de travail en lecture seule à l’aide de la capacité des réplicas en lecture seule, appelée échelle horizontale en lecture.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,37 +10,34 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: cbcdcfd151951334246a4e85d9f521a15bb6269d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 06/03/2019
+ms.openlocfilehash: aefd3da1908b2be879b5ba500746fab48e43d5bd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006146"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566958"
 ---
-# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Utilisez des réplicas en lecture seule aux charges de travail de l’équilibrage de charge des requêtes en lecture seule
+# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Utiliser des réplicas en lecture seule pour équilibrer des charges de travail de requêtes en lecture seule
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
-Dans le cadre de la [architecture de haute disponibilité](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), chaque base de données dans le niveau de service Premium, critique pour l’entreprise ou très grande échelle est automatiquement configurée avec un réplica principal et plusieurs réplicas secondaires. Les réplicas secondaires sont configurés avec la même taille de calcul en tant que le réplica principal. Le **lecture du Scale-Out** fonctionnalité vous permet d’équilibrer la charge de la base de données SQL en lecture seule des charges de travail à l’aide de la capacité d’un des réplicas en lecture seule au lieu de partager le réplica en lecture-écriture. De cette façon, la charge de travail en lecture seule sera isolée à partir de la charge de travail principale en lecture-écriture et n’affectera pas ses performances. La fonctionnalité est conçue pour les applications qui incluent logiquement séparées en lecture seule des charges de travail, tels qu’analytique. Ils peuvent obtenir des gains de performance à l’aide de cette capacité supplémentaire à aucun coût supplémentaire.
+Dans le cadre d’une [architecture  à haute disponibilité](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), chaque base de données des niveaux de service Premium, Critique pour l’entreprise ou Hyperscale est automatiquement approvisionnée avec un réplica principal et plusieurs réplicas secondaires. Les réplicas secondaires sont approvisionnés avec la même taille de calcul que le réplica principal. La fonctionnalité **Échelle horizontale en lecture** vous permet d’équilibrer les charges de travail en lecture seule SQL Database à l’aide de la capacité de l’un des réplicas en lecture seule au lieu de partager le réplica en lecture-écriture. De cette façon, la charge de travail en lecture seule sera isolée à partir de la charge de travail principale en lecture-écriture et n’affectera pas ses performances. Cette fonctionnalité est destinée aux applications qui incluent des charges de travail en lecture seule séparées logiquement, telles que des analyses. Cette capacité supplémentaire n’occasionnant aucun frais supplémentaire pourrait apporter à ces applications des gains en termes de performances.
 
-Le diagramme suivant illustre à l’aide d’une base de données critique pour l’entreprise.
+Le diagramme suivant illustre cela à l’aide d’une base de données Critique pour l’entreprise.
 
 ![Réplicas en lecture seule](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-La fonctionnalité de lecture du Scale-Out est activée par défaut sur Nouvelle Premium, critique pour l’entreprise et les bases de données de très grande échelle. Si votre chaîne de connexion SQL est configuré avec `ApplicationIntent=ReadOnly`, l’application est redirigée par la passerelle pour un réplica en lecture seule de cette base de données. Pour plus d’informations sur l’utilisation de la `ApplicationIntent` propriété, consultez [intention de l’Application en spécifiant](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+La fonctionnalité Échelle horizontale en lecture est activée par défaut sur les nouvelles bases de données Premium, Critiques pour l’entreprise et Hyperscale. Si votre chaîne de connexion SQL est configurée avec `ApplicationIntent=ReadOnly`, l’application est redirigée par la passerelle vers un réplica en lecture seule de cette base de données. Pour plus d’informations sur la manière d’utiliser la propriété `ApplicationIntent`, voir [Spécification de l’intention de l’application](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
-Si vous souhaitez vous assurer que l’application se connecte au réplica principal, quel que soit le `ApplicationIntent` définition dans la chaîne de connexion SQL, vous devez explicitement désactiver lecture du scale-out lors de la création de la base de données ou lors de la modification de sa configuration. Par exemple, si vous mettez à niveau votre base de données à partir du niveau Standard ou usage général au niveau Premium, critique pour l’entreprise ou très grande échelle et souhaitez vous assurer que toutes vos connexions continuent à accéder au réplica principal, désactivez la lecture du Scale-out. Pour plus d’informations sur la façon de le désactiver, consultez [activer et désactiver la lecture du Scale-Out](#enable-and-disable-read-scale-out).
+Si vous souhaitez vous assurer que l’application se connecte au réplica principal quel que soit le paramètre `ApplicationIntent` de la chaîne de connexion SQL, vous devez désactiver explicitement l’échelle horizontale en lecture lors de la création de la base de données ou de la modification de sa configuration. Par exemple, si vous mettez à niveau votre base de données de type Standard ou Usage général vers une base de données de type Premium, Critique pour l’entreprise ou Hyperscale, et souhaitez vous assurer que toutes vos connexions continuent d’aller vers le réplica principal, désactivez la fonctionnalité Échelle horizontale en lecture. Pour plus d’informations sur la façon de désactiver cette fonctionnalité, voir [Activer et désactiver l’échelle horizontale en lecture](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
-> Store de données de requête, les événements étendus, SQL Profiler et les fonctionnalités d’Audit ne sont pas pris en charge sur les réplicas en lecture seule. 
+> Les fonctionnalités Magasin de données des requêtes, Magasin de données des requêtes, Générateur de profils SQL Server et Audit ne sont pas prises en charge sur les réplicas en lecture seule. 
 
 ## <a name="data-consistency"></a>Cohérence des données
 
-Un des avantages des réplicas est qu’ils sont toujours dans un état cohérent au niveau transactionnel, mais il peut y avoir une petite latence à différents moments entre les différents réplicas. La fonctionnalité de lecture du Scale-out prend en charge la cohérence au niveau de la session. Cela signifie que, si la session en lecture seule se reconnecte après une erreur de connexion engendrée par l’indisponibilité du réplica, il peut être redirigé vers un réplica qui n’est pas à jour avec le réplica en lecture-écriture à 100 %. De même, si une application écrit des données à l’aide d’une session en lecture-écriture et les lit immédiatement à l’aide d’une session en lecture seule, il est possible que les dernières mises à jour ne sont pas immédiatement visibles sur le réplica. La latence est due à une opération de rétablissement de journaux de transaction asynchrone.
+Un des avantages des réplicas est qu’ils sont toujours dans un état cohérent au niveau transactionnel, mais il peut y avoir une petite latence à différents moments entre les différents réplicas. La fonctionnalité de lecture du Scale-out prend en charge la cohérence au niveau de la session. Ainsi, si la session en lecture seule se reconnecte après une erreur de connexion engendrée par l’indisponibilité du réplica, elle peut être redirigée vers un autre réplica qui n’est pas complètement synchronisé avec le réplica en lecture-écriture. De même, si une application écrit des données à l’aide d’une session en lecture-écriture et les lit immédiatement à l’aide d’une session en lecture seule, il est possible que les dernières mises à jour ne soient pas visibles immédiatement sur le réplica. La latence est due à une opération de rétablissement de journal des transactions asynchrone.
 
 > [!NOTE]
 > Les latences de réplication dans la région sont réduites, et cette situation est rare.
@@ -76,43 +73,43 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="monitoring-and-troubleshooting-read-only-replica"></a>Surveillance et dépannage de réplica en lecture seule
 
-Lorsque connecté à un réplica en lecture seule, vous pouvez accéder à la métrique de performances à l’aide du `sys.dm_db_resource_stats` DMV. Pour accéder aux statistiques de plan de requête, utilisez le `sys.dm_exec_query_stats`, `sys.dm_exec_query_plan` et `sys.dm_exec_sql_text` DMV.
+Une fois connecté à un réplica en lecture seule, vous pouvez accéder aux métriques de performances à l’aide de la vue de gestion dynamique (DMV) `sys.dm_db_resource_stats`. Pour accéder aux statistiques du plan de requête, utilisez les DMV `sys.dm_exec_query_stats`, `sys.dm_exec_query_plan` et `sys.dm_exec_sql_text`.
 
 > [!NOTE]
-> La DMV `sys.resource_stats` dans la base de données master logique retourne des données de stockage et l’utilisation du processeur du réplica principal.
+> La DMV `sys.resource_stats` dans la base de données MASTER logique retourne les données sur l’utilisation du processeur et le stockage et du réplica principal.
 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Activer et désactiver l’échelle horizontale en lecture
 
-Lecture du Scale-Out est activé par défaut sur les niveaux de service Premium, critique pour l’entreprise et très grande échelle. Lecture du Scale-Out ne peut pas être activé dans les niveaux de service Basic, Standard ou usage général. Lecture du Scale-Out est automatiquement désactivé sur les bases de données Hyperscale configurés avec des réplicas 0. 
+La fonctionnalité Échelle horizontale en lecture est activée par défaut sur les niveaux de service Premium, Critique pour l’entreprise et Hyperscale. La fonctionnalité Échelle horizontale en lecture ne peut pas être activée aux niveaux de service De base, Standard ou Usage général. La fonctionnalité Échelle horizontale en lecture est automatiquement désactivée sur les bases de données Hyperscale configurées avec 0 réplica. 
 
-Vous pouvez désactiver et réactiver le lecture du Scale-Out sur les bases de données uniques et pool élastique dans le niveau de service Premium ou critique pour l’entreprise à l’aide des méthodes suivantes.
+Vous pouvez désactiver et réactiver la fonctionnalité Échelle horizontale en lecture sur des bases de données uniques et des bases de données de pool élastique aux niveaux de service Premium ou Critique pour l’entreprise à l’aide des méthodes suivantes.
 
 > [!NOTE]
-> La possibilité de désactiver la lecture du Scale-Out est fournie pour la compatibilité descendante.
+> La possibilité de désactiver la fonctionnalité Échelle horizontale en lecture est fournie à des fins de compatibilité descendante.
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Vous pouvez gérer les paramètres de lecture Sacle-out sur le **configurer** panneau base de données. 
+Vous pouvez gérer le paramètre d’échelle horizontale en lecture sur le panneau base de données **Configurer**. 
 
 ### <a name="powershell"></a>PowerShell
 
 La gestion de la lecture du Scale-out dans Azure PowerShell nécessite la version d’Azure PowerShell de décembre 2016 ou plus récente. Pour obtenir la version de PowerShell la plus récente, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Vous pouvez désactiver ou réactiver le lecture du Scale-Out dans Azure PowerShell en appelant le [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) applet de commande et en passant la valeur souhaitée, `Enabled` ou `Disabled` --pour les `-ReadScale` paramètre. 
+Vous pouvez activer ou désactiver la fonctionnalité Échelle horizontale en lecture dans Azure PowerShell en appelant la cmdlet [Set-AzureRmSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) et en transmettant la valeur souhaitée – `Enabled` ou `Disabled` -- pour le paramètre `-ReadScale`. 
 
-Pour désactiver la lecture du scale-out sur une base de données existante (en remplaçant les éléments entre les crochets pointus par les valeurs correctes pour votre environnement et en supprimant ces crochets) :
+Pour désactiver la fonctionnalité Échelle horizontale en lecture sur une base de données existante (en remplaçant les éléments entre crochets angulaires par les valeurs correctes pour votre environnement et en supprimant ces crochets) :
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
 ```
-Pour désactiver la lecture du scale-out sur une base de données (en remplaçant les éléments entre les crochets pointus par les valeurs correctes pour votre environnement et en supprimant ces crochets) :
+Pour désactiver la fonctionnalité Échelle horizontale en lecture sur une base de données existante (en remplaçant les éléments entre crochets angulaires par les valeurs correctes pour votre environnement et en supprimant ces crochets) :
 
 ```powershell
 New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled -Edition Premium
 ```
 
-Pour réactiver la lecture du scale-out sur une base de données existante (en remplaçant les éléments entre les crochets pointus par les valeurs correctes pour votre environnement et en supprimant ces crochets) :
+Pour réactiver la fonctionnalité Échelle horizontale en lecture sur une base de données existante (en remplaçant les éléments entre crochets angulaires par les valeurs correctes pour votre environnement et en supprimant ces crochets) :
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
@@ -120,7 +117,7 @@ Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -D
 
 ### <a name="rest-api"></a>API REST
 
-Pour créer une base de données avec la lecture du scale-out désactivé, ou pour modifier le paramètre pour une base de données existante, utilisez la méthode suivante avec la `readScale` propriété définie sur `Enabled` ou `Disabled` comme dans l’exemple de requête ci-dessous.
+Pour créer une base de données avec la fonctionnalité Échelle horizontale en lecture désactivée, ou pour modifier le paramétrage d’une base de données existante, utilisez la méthode suivante avec la propriété `readScale` définie sur `Enabled` ou `Disabled`, comme dans l’exemple de demande ci-dessous.
 
 ```rest
 Method: PUT
@@ -136,17 +133,17 @@ Body:
 
 Pour plus d’informations, consultez [Bases de données - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
 
-## <a name="using-tempdb-on-read-only-replica"></a>L’utilisation de TempDB sur le réplica en lecture seule
+## <a name="using-tempdb-on-read-only-replica"></a>Utilisation de TempDB sur un réplica en lecture seule
 
-La base de données TempDB n’est pas répliquée vers les réplicas en lecture seule. Chaque réplica a sa propre version de base de données TempDB est créé lorsque le réplica est créé. Il garantit que TempDB est modifiable et peut être modifié pendant l’exécution de votre requête. Si votre charge de travail en lecture seule dépend de l’utilisation d’objets de TempDB, vous devez créer ces objets dans le cadre de votre script de requête. 
+La base de données TempDB n’est pas répliquée vers les réplicas en lecture seule. Chaque réplica a sa propre version de la base de données TempDB créée lors de la création du réplica. Il vérifie que TempDB peut être mise à jour et modifié pendant l’exécution de votre requête. Si votre charge de travail en lecture seule dépend de l’utilisation d’objets TempDB, vous devez intégrer ceux-ci dans votre script de requête. 
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Utilisation de l’échelle horizontale en lecture avec des bases de données géorépliquées
 
-Si vous utilisez lecture du Scale-Out pour équilibrer la charge en lecture seule des charges de travail sur une base de données géo-répliqué (par exemple, en tant que membre d’un groupe de basculement), assurez-vous que cette lecture du scale-out est activé sur le serveur principal et les bases de données secondaire géo-répliquée. Cette configuration garantit que la même expérience de l’équilibrage de charge continue lorsque votre application se connecte à la nouvelle base primaire après le basculement. Si vous vous connectez à la base de données secondaire géorépliquée et que l’échelle horizontale en lecture est activée, vos sessions avec `ApplicationIntent=ReadOnly` sont routées vers l’un réplicas de la même façon que les connexions sont routées sur la base de données primaire.  Les sessions sans `ApplicationIntent=ReadOnly` sont routées vers le réplica principal de la base de données secondaire géorépliquée, qui est également en lecture seule. Étant donné que la base de données secondaire géo-répliquée a un point de terminaison autre que la base de données primaire, par le passé pour accéder à la base de données secondaire il n’était pas requis pour définir `ApplicationIntent=ReadOnly`. À des fins de compatibilité descendante, la vue de gestion dynamique `sys.geo_replication_links` affiche `secondary_allow_connections=2` (toute connexion cliente est autorisée).
+Si vous utilisez la fonctionnalité Échelle horizontale en lecture pour équilibrer des charges de travail en lecture seule sur une base de données géorépliquée (par exemple, comme membre d’un groupe de basculement), vérifiez que la fonctionnalité est activée sur la base de données primaire et les bases de données secondaires géorépliquées. Cette configuration garantit que la même expérience d’équilibrage de charge continue quand votre application se connecte à la nouvelle base de données primaire après le basculement. Si vous vous connectez à la base de données secondaire géorépliquée et que l’échelle horizontale en lecture est activée, vos sessions avec `ApplicationIntent=ReadOnly` sont routées vers l’un réplicas de la même façon que les connexions sont routées sur la base de données primaire.  Les sessions sans `ApplicationIntent=ReadOnly` sont routées vers le réplica principal de la base de données secondaire géorépliquée, qui est également en lecture seule. Le point de terminaison de la base de données secondaire géorépliquée étant différent de celui de la base de données primaire, il était par le passé inutile de définir `ApplicationIntent=ReadOnly` pour accéder à la base de données secondaire. À des fins de compatibilité descendante, la vue de gestion dynamique `sys.geo_replication_links` affiche `secondary_allow_connections=2` (toute connexion cliente est autorisée).
 
 > [!NOTE]
-> Tourniquet (Round-Robin) ou n’importe quel autre équilibrée de routage entre les réplicas locaux de la base de données secondaire n’est pas pris en charge.
+> Aucun tourniquet (round robin) ou routage à charge équilibrée entre les réplicas locaux de la base de données secondaire n’est pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur l’offre de très grande échelle de la base de données SQL, consultez [niveau de service Hyperscale](./sql-database-service-tier-hyperscale.md).
+- Pour plus d’informations sur l’offre SQL Database Hyperscale, voir [Niveau de service Hyperscale](./sql-database-service-tier-hyperscale.md).

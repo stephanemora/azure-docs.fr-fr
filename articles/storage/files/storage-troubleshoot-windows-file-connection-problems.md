@@ -1,29 +1,27 @@
 ---
 title: Résoudre les problèmes liés à Azure Files sous Windows | Microsoft Docs
 description: Résoudre les problèmes liés à Azure Files sous Windows
-services: storage
 author: jeffpatt24
-tags: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9849b8209db0a4aa73a80d461b67bda9b0b3656a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f36d3bcb16876f080f780658bc59afd794e3431e
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049725"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699179"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
 Cet article liste les problèmes courants liés à Microsoft Azure Files en cas de connexion à partir de clients Windows. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolution présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)  pour vérifier que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales. Vous pouvez également trouver ces informations dans [l’utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), qui vous guide dans les étapes de résolution des problèmes liés à la connexion, au mappage ou au montage de partages Azure Files.
 
-<a id="error5"></a>
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+<a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Error 5 quand vous montez un partage de fichiers Azure
 
 Quand vous essayez de monter un partage de fichiers, vous pouvez recevoir l’erreur suivante :
@@ -64,7 +62,7 @@ Une erreur système 53 ou 67 peut se produire si la communication sortante du 
 
 Pour vérifier si votre pare-feu ou votre ISP bloque le port 445, utilisez l’outil [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ou l’applet de commande `Test-NetConnection`. 
 
-Pour utiliser le `Test-NetConnection` applet de commande Azure PowerShell module doit être installé, consultez [installer Azure PowerShell module](/powershell/azure/install-Az-ps) pour plus d’informations. N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
+Pour utiliser la cmdlet `Test-NetConnection`, vous devez avoir installé le module Azure PowerShell. Pour en savoir plus, veuillez consulter [Installer un module Azure PowerShell](/powershell/azure/install-Az-ps). N’oubliez pas de remplacer `<your-storage-account-name>` et `<your-resource-group-name>` avec les noms appropriés de votre compte de stockage.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -95,19 +93,18 @@ Si la connexion a réussi, vous devez voir la sortie suivante :
 
 ### <a name="solution-for-cause-1"></a>Solution pour la cause 1
 
-#### <a name="solution-1---use-azure-file-sync"></a>Solution 1 - utiliser Azure File Sync
-Azure File Sync peut transforme votre serveur de Windows en local dans un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Azure File Sync fonctionne sur le port 443 et peut donc être utilisé comme solution de contournement pour accéder Azure Files à partir de clients qui ont le port 445 bloqué. [Découvrez comment configurer Azure File Sync](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers).
+#### <a name="solution-1---use-azure-file-sync"></a>Solution 1 - Utiliser Azure File Sync
+Azure File Sync peut transformer vos instances Windows Server locales en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Azure File Sync fonctionne sur le port 443 et peut donc être utilisé comme une solution de contournement pour accéder à Azure Files à partir de clients dont le port 445 est bloqué. [Découvrez comment configurer Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
-#### <a name="solution-2---use-vpn"></a>Solution 2 : utilisation VPN
-En configurant un VPN à votre compte de stockage spécifique, le trafic passe par un tunnel sécurisé par opposition à via internet. Suivez le [obtenir des instructions sur la configuration du VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
-) pour accéder aux fichiers Azure à partir de Windows.
+#### <a name="solution-2---use-vpn"></a>Solution 2 - Utiliser un VPN
+En configurant un VPN pour votre compte de stockage spécifique, le trafic passera par un tunnel sécurisé plutôt que par Internet. Suivez les [instructions pour configurer un VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) pour accéder à Azure Files depuis Windows.
 
-#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solution 3 : débloquer le port 445 à l’aide de votre fournisseur de services / administrateur informatique
-Travailler avec votre service informatique ou le fournisseur de services Internet pour ouvrir le port 445 sortant aux [plages IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solution 3 - Débloquer le port 445 avec l’aide de votre ISP/administrateur informatique
+Contactez votre service informatique ou ISP pour ouvrir le port 445 sortant aux [plages IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solution 4 : utiliser l’API REST en fonction des outils tels que Storage Explorer ou de Powershell
-Azure Files prend également en charge REST en plus de SMB. L’accès REST fonctionne sur le port 443 (tcp standard). Il existe différents outils qui sont écrits à l’aide de l’API REST qui permettent l’expérience d’interface utilisateur riche. [Explorateur de stockage](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) est un d’eux. [Télécharger et installer l’Explorateur de stockage](https://azure.microsoft.com/en-us/features/storage-explorer/) et connectez-vous à votre partage de fichiers grâce à Azure Files. Vous pouvez également utiliser [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) qui également utilisateur API REST.
-
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solution 4 - Utiliser les outils basés sur l’API REST, par exemple l’Explorateur Stockage/PowerShell
+Azure Files prend également en charge REST en plus de SMB. L’accès REST fonctionne sur le port 443 (tcp standard). Il existe divers outils écrits à l’aide de l’API REST qui permettent une expérience d’interface utilisateur riche. L’[Explorateur Stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) est l’un d’eux. [Téléchargez et installez l’Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/), puis connectez-vous à votre partage de fichiers grâce à Azure Files. Vous pouvez aussi utiliser [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) qui utilise également API REST.
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Cause 2 : NTLMv1 est activé
 
@@ -136,14 +133,20 @@ L’erreur 1816 se produit lorsque vous atteignez la limite autorisée de descri
 
 Réduisez le nombre de handles ouverts simultanément en fermant certains d’entre eux, puis réessayez. Pour plus d’informations, consultez [Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-<a id="accessdeniedportal"></a>
-## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erreur « Accès refusé » quand vous accédez à un partage de fichiers Azure dans le portail
+Pour afficher les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez l’applet de commande PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle).  
+
+Pour fermer les descripteurs ouverts pour un partage de fichiers, un répertoire ou un fichier, utilisez l’applet de commande PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle).
+
+> [!Note]  
+> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module PowerShell Az version 2.4 ou ultérieure. Pour installer le module PowerShell Az le plus récent, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+<a id="authorizationfailureportal"></a>
+## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Erreur « Échec de l’autorisation » quand vous accédez à un partage de fichiers Azure dans le portail
 
 Quand vous accédez à un partage de fichiers Azure dans le portail, vous pouvez recevoir l’erreur suivante :
 
-Accès refusé  
-Vous n’avez pas accès  
-Apparemment, vous n’avez pas accès à ce contenu. Pour obtenir l’accès, contactez le propriétaire.  
+Échec de l’autorisation  
+Vous n’avez pas accès 
 
 ### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Cause 1 : Votre compte d’utilisateur n’a pas accès au compte de stockage
 
@@ -156,6 +159,23 @@ Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliqu
 ### <a name="solution-for-cause-2"></a>Solution pour la cause 2
 
 Vérifiez que les règles de pare-feu et de réseau virtuel sont configurées correctement sur le compte de stockage. Pour vérifier si des règles de pare-feu ou de réseau virtuel sont à l’origine du problème, définissez temporairement le paramètre du compte de stockage sur **Autoriser l’accès à partir de tous les réseaux**. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossible de supprimer un fichier ou répertoire d’un partage de fichiers Azure
+
+### <a name="cause"></a>Cause :
+Ce problème se produit généralement quand le fichier ou le répertoire a un descripteur ouvert. 
+
+### <a name="solution"></a>Solution
+
+Si les clients SMB ont fermé tous les descripteurs ouverts et que le problème persiste, effectuez les étapes suivantes :
+
+- Utilisez l’applet de commande PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) pour afficher les descripteurs ouverts.
+
+- Utilisez l’applet de commande PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) pour fermer les descripteurs ouverts. 
+
+> [!Note]  
+> Les applets de commande AzStorageFileHandle et Close-AzStorageFileHandle sont incluses dans le module PowerShell Az version 2.4 ou ultérieure. Pour installer le module PowerShell Az le plus récent, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Ralentissement des copies de fichiers vers et à partir d’Azure Files sous Windows
@@ -184,7 +204,7 @@ Si le correctif logiciel est installé, la sortie suivante s’affiche :
 > Les images de Windows Server 2012 R2 dans Azure Marketplace ont le correctif logiciel KB3114025 installé par défaut à compter de décembre 2015.
 
 <a id="shareismissing"></a>
-## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>Aucun dossier avec une lettre de lecteur dans **Poste de travail**
+## <a name="no-folder-with-a-drive-letter-in-my-computer-or-this-pc"></a>Aucun dossier avec une lettre de lecteur dans « Poste de travail » ou « Ce PC »
 
 Si vous mappez un partage de fichiers Azure en tant qu’administrateur via Net use, le partage n’apparaît pas.
 
@@ -284,6 +304,8 @@ L’erreur AadDsTenantNotFound se produit lorsque vous tentez d’[activer l’a
 ### <a name="solution"></a>Solution
 
 Activez AAD DS sur le locataire AAD de l’abonnement sur lequel votre compte de stockage est déployé. Pour créer un domaine managé, vous devez disposer des privilèges d’administrateur du locataire AAD. Si vous n’êtes pas l’administrateur du locataire Azure AD, contactez-le et suivez les instructions pas à pas pour [Activer Azure Active Directory Domain Services à l’aide du portail Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
+
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 Si vous avez encore besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.

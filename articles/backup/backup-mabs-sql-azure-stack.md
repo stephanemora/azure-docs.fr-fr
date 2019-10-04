@@ -1,21 +1,21 @@
 ---
 title: Sauvegarder des charges de travail SQL Server sur Azure Stack
 description: Utilisez le serveur de sauvegarde Azure pour protéger une charge de travail SQL Server sur Azure Stack.
-services: backup
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/8/2018
-ms.author: adigan
-ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: MT
+ms.date: 06/08/2018
+ms.author: dacurwin
+ms.openlocfilehash: ab65a1bf371ff8581f347403b49fafed6697374c
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493505"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210229"
 ---
-# <a name="back-up-sql-server-on-stack"></a>Sauvegarder SQL Server sur Stack
+# <a name="back-up-sql-server-on-azure-stack"></a>Sauvegarder SQL Server sur Azure Stack
 Utilisez cet article pour configurer Microsoft Azure Backup Server (MABS) afin de protéger des bases de données SQL Server sur Azure Stack.
 
 La gestion de sauvegarde et de récupération de base de données SQL Server dans Azure implique trois étapes :

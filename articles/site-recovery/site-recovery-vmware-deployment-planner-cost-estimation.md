@@ -5,26 +5,21 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/14/2019
+ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 1f825b67baf36c9a1a9187d555522f5a5955d1c7
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093835"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620078"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Consulter le rapport d’estimation des coûts dans le planificateur de déploiement Site Recovery pour la reprise d’activité de VMware sur Azure
 
 Le rapport du planificateur de déploiement fournit le résumé de l’estimation des coûts dans les feuilles [Recommandations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) et l’analyse des coûts détaillée dans la feuille Estimation du coût. Une analyse des coûts détaillée par machine virtuelle est proposée. 
 
 >[!Note]
->La version actuelle de l’outil Deployment planner ne fournit pas estimation des coûts pour les machines virtuelles de réplication vers des disques gérés.
->* Les estimations de coût de récupération d’urgence Drill sont les mêmes pour les comptes de stockage et des disques gérés, lors de la « Utilisation de disques gérés » paramètre est défini sur « Oui » sur le panneau de « Calcul et réseau ».
->* Pour obtenir une estimation de coût annuel approximatif pour la réplication, vérifiez les paramètres suivants temporaires sur **l’Estimation des coûts** feuille :
->    * Définir le paramètre « Durée de coût » dans **paramètres** table « Year »
->    * Dans **Detailed analyse des coûts** de table, la valeur de la colonne « Nombre d’extractions de la récupération d’urgence dans une année » 12 et « chaque durée de récupération d’urgence (jours) » à 30 
->    * Le coût de réplication sera similaire au coût renseigné dans le coût de stockage de colonne « R », par exemple,-récupération d’urgence par an **coût de récupération d’urgence par an** sous-section.
+>La version actuelle de l’outil Planificateur de déploiement est v2.5. Elle fournit des estimations de coûts pour les machines virtuelles dupliqués sur les disques managés.
 
 ### <a name="cost-estimation-summary"></a>Résumé de l’estimation des coûts 
 Le graphique affiche la vue Résumé du coût estimé de la récupération d’urgence totale (DR) pour Azure de votre région cible choisie et avec la devise que vous avez spécifiée pour la génération du rapport.
@@ -94,7 +89,6 @@ Si vous êtes client ou partenaire Azure et si vous bénéficiez d’une remise 
 Ce tableau montre le nombre de machines virtuelles Windows et non Windows et le coût du calcul de l’extraction de la récupération d’urgence associé.
 
 ### <a name="settings"></a>Paramètres 
-**Utilisation de disques managés** : indique si le disque managé est utilisé au moment des simulations de reprise d’activité. La valeur par défaut de ce paramètre est Oui. Si vous avez défini -UseManagedDisks sur Non, le prix du disque non managé est utilisé pour le calcul du coût.
 
 **Devise** : Devise dans laquelle le rapport est généré. Période de coût :  vous pouvez afficher tous les coûts pour le mois ou l’ensemble de l’année. 
 
@@ -107,7 +101,7 @@ Pour ajouter manuellement des machines virtuelles :
 
 * Nombre de machines virtuelles, taille IaaS (votre sélection)
 * Type de stockage (Standard/Premium)
-* Taille de stockage totale de machine virtuelle (en Go)
+* Taille totale de stockage de la machine virtuelle (en Go) de la machine source
 * Nombre d’extractions de la récupération d’urgence par an 
 * Durée de chaque extraction de la récupération d’urgence (en jours) 
 * Type de système d’exploitation
@@ -128,7 +122,7 @@ Pour ajouter manuellement des machines virtuelles :
 
 **Type de stockage** : type de stockage utilisé par la machine virtuelle. Il s’agit du stockage Standard ou Premium.
 
-**Taille de stockage totale de la machine virtuelle (en Go)**  : stockage total de la machine virtuelle.
+**Taille de stockage totale de la machine virtuelle (en Go)**  : Stockage total de la machine virtuelle source.
 
 **Nombre de simulations de reprise d’activité en un an** : nombre de fois où vous réalisez des simulations de reprise d’activité en une année. Par défaut, il est de 4 fois par an. Vous pouvez modifier la période pour des machines virtuelles spécifiques ou appliquer la nouvelle valeur à toutes les machines virtuelles en saisissant la nouvelle valeur sur la ligne du haut et en cliquant sur le bouton « Appliquer à tous ». Le coût total de l’extraction de la récupération d’urgence est calculé en fonction du nombre d’extractions de la récupération d’urgence et la période de cette dernière.  
 
@@ -164,7 +158,7 @@ Le Planificateur de déploiement Azure Site Recovery peut générer le rapport d
 |IDR|Roupie indonésienne (Rp)||INR|Roupie indienne (₹)||JPY|Yen japonais (¥)|
 |KRW|Won coréen (₩)||MXN|Peso mexicain (MXN$)||MYR|Ringgit malais (RM$)|
 |NOK|Couronne norvégienne (kr)||NZD|Dollar néo-zélandais ($)||RUB|Rouble russe (руб)|
-|SAR|Saudi Riyal (SR)||SEK|Couronne suédoise (kr)||TWD|Dollar taiwanais (NT$)|
+|SAR|Riyal saoudien (SR)||SEK|Couronne suédoise (kr)||TWD|Dollar taiwanais (NT$)|
 |TRY|Lire turque (TL)||USD| Dollar américain ($)||ZAR|Rand sud-africain (R)|
 
 ## <a name="next-steps"></a>Étapes suivantes

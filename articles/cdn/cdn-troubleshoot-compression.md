@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 5195dc3c47d2a4377147b2ef49b23bab6b3fee77
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149448"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593319"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Résolution des problèmes de compression des fichiers CDN
 Cet article vous aide à résoudre les problèmes de [compression des fichiers CDN](cdn-improve-performance.md).
@@ -97,7 +97,7 @@ Accédez à votre point de terminaison dans le [portail Azure](https://portal.az
 
 À l’aide des outils de développement de votre navigateur, vérifiez les en-têtes de réponse pour vous assurer que le fichier est mis en cache dans la région où il est demandé.
 
-* Vérifiez l’en-tête de réponse **Server** .  L’en-tête doit être au format **Plateforme (ID serveur/POP)**, comme indiqué dans l’exemple suivant.
+* Vérifiez l’en-tête de réponse **Server** .  L’en-tête doit être au format **Plateforme (ID serveur/POP)** , comme indiqué dans l’exemple suivant.
 * Vérifiez l’en-tête de réponse **X-Cache** .  L’en-tête doit indiquer **HIT**.  
 
 ![En-têtes de réponse CDN](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
@@ -116,6 +116,6 @@ Afin d’être éligible pour la compression, un fichier doit respecter les exig
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Vérifiez la requête sur le serveur d’origine pour un en-tête **Via**
 L’en-tête HTTP **Via** indique au serveur web que la requête est transmise par un serveur proxy.  Par défaut, des serveurs web Microsoft IIS ne compressent pas les réponses lorsque la requête contient un en-tête **Via** .  Pour modifier ce comportement, procédez comme suit :
 
-* **IIS 6**: [Définissez HcNoCompressionForProxies = « FALSE » dans les propriétés de la métabase IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 et jusqu'à**: [Définissez les options **noCompressionForHttp10** et **noCompressionForProxies** sur False dans la configuration du serveur](https://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6** : [définissez HcNoCompressionForProxies="FALSE" dans les propriétés de la métabase IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
+* **IIS 7 et versions ultérieures** : [définissez **noCompressionForHttp10** et **noCompressionForProxies** sur False dans la configuration du serveur](https://www.iis.net/configreference/system.webserver/httpcompression)
 

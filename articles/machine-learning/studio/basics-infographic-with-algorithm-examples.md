@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: garyericson
-ms.author: garye
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: e29e4713cb01fcf894e09631ecca91ff07587751
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 6e0a355852be57a3b0869a6bf094e98a89f49f28
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455188"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514924"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : principes de base de l’apprentissage automatique avec exemples d’algorithmes
 
@@ -23,7 +23,7 @@ Téléchargez cette vue d’ensemble infographique présentant de manière simpl
 
 ## <a name="popular-algorithms-in-machine-learning-studio"></a>Algorithmes populaires disponibles dans Machine Learning Studio
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) est fourni avec un grand nombre de bibliothèques d’algorithmes pour vos analyses prédictives. Cette infographie identifie les quatre familles les plus courantes d’algorithmes - régression, détection d’anomalie, clustering et classification - et fournit des liens vers des exemples fonctionnels dans les [Azure AI Gallery](https://gallery.azure.ai/). La galerie contient des exemples d'expérience et des didacticiels montrant comment ces algorithmes peuvent être appliqués à de nombreuses solutions réelles.
+[Azure Machine Learning Studio](https://studio.azureml.net/) est fourni avec un grand nombre de bibliothèques d’algorithmes pour vos analyses prédictives. Cette infographie identifie les quatre familles les plus courantes d’algorithmes (régression, détection d’anomalie, clustering et classification) et fournit des liens vers des exemples opérationnels dans [Azure AI Gallery](https://gallery.azure.ai/). La galerie contient des exemples d'expérience et des didacticiels montrant comment ces algorithmes peuvent être appliqués à de nombreuses solutions réelles.
 
 ## <a name="download-the-infographic-with-algorithm-examples"></a>Téléchargez la vue infographique avec des exemples d’algorithmes
 
@@ -34,7 +34,7 @@ Téléchargez cette vue d’ensemble infographique présentant de manière simpl
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Aide supplémentaire sur les algorithmes pour les débutants et les utilisateurs expérimentés
 
 * Pour plus d’informations sur les différents types d’algorithmes d’apprentissage automatique, sur leur utilisation et sur la manière de choisir l’algorithme qui convient à votre solution, consultez [Comment choisir des algorithmes Microsoft Azure Machine Learning Studio](algorithm-choice.md).
-* Pour obtenir une liste par catégorie de tous les algorithmes d’apprentissage automatique disponibles dans Machine Learning Studio, consultez [Initialiser le modèle][initialize-model] dans Machine Learning Studio : aide sur les algorithmes et les modules.
+* Pour obtenir la liste par catégorie de tous les algorithmes d’apprentissage automatique disponibles dans Machine Learning Studio, consultez [Initialiser le modèle][initialize-model] dans Machine Learning Studio : aide sur les algorithmes et les modules.
 * Pour obtenir la liste alphabétique complète des algorithmes et des modules de Machine Learning Studio, consultez [Liste alphabétique des modules de Machine Learning Studio][a-z-list] dans Machine Learning Studio : aide sur les algorithmes et les modules.
 * Pour obtenir une vue d’ensemble d’Azure AI Gallery et des nombreuses ressources proposées par la communauté, consultez la page [Partager et découvrir des ressources dans Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 

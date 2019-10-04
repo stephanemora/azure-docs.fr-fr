@@ -14,34 +14,40 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b4cb571653cbe69939a1cbdc92338663e4e7125f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8aa8c8132220965d55097c4fed8ba1b2e9501301
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576070"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326530"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application .NET Framework avec Azure App Configuration
 
-Azure App Configuration est un service de configuration managée dans Azure. Vous pouvez vous en servir pour stocker et gérer facilement tous les paramètres de votre application dans un seul endroit, indépendamment de votre code. Ce guide de démarrage rapide vous montre comment intégrer le service à une application console de Bureau Windows basée sur le .NET Framework.
-
-![Démarrage rapide complet local](./media/quickstarts/dotnet-fx-app-run.png)
+Dans ce guide de démarrage rapide, vous intégrez Azure App Configuration dans une application console .NET Framework pour centraliser le stockage et la gestion des paramètres d’application en dehors de votre code.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2017](https://visualstudio.microsoft.com/vs) et [.NET Framework version 4.7.1](https://dotnet.microsoft.com/download) ou ultérieure, si vous ne l’avez pas déjà fait.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
+- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Créer un magasin de configuration d’application
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
+6. Sélectionnez **Explorateur de configurations** >  **+ Créer** pour ajouter les paires clé-valeur suivantes :
+
+    | Clé | Valeur |
+    |---|---|
+    | TestApp:Settings:Message | Data from Azure App Configuration |
+
+    Laissez **Étiquette** et **Type de contenu** vides pour l’instant.
+
 ## <a name="create-a-net-console-app"></a>Créer une application console .NET
 
 1. Démarrez Visual Studio, puis sélectionnez **Fichier** > **Nouveau** > **Projet**.
 
-2. Dans **Nouveau projet**, sélectionnez **Installé** > **Visual C#** > **Windows Desktop**. Sélectionnez **Application console (.NET Framework)** et entrez un nom pour votre projet. Sélectionnez **.NET Framework 4.7.1** ou ultérieur, puis **OK**.
+2. Dans **Nouveau projet**, sélectionnez **Installé** > **Visual C#**  > **Windows Desktop**. Sélectionnez **Application console (.NET Framework)** et entrez un nom pour votre projet. Sélectionnez **.NET Framework 4.7.1** ou ultérieur, puis **OK**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin de configuration d’application
 
@@ -106,4 +112,4 @@ Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2017](https
 En suivant ce guide de démarrage rapide, vous avez créé un magasin de configuration d’application et vous l’avez utilisé avec une application console .NET Framework. Pour en savoir plus sur la façon d’utiliser App Configuration, passez au tutoriel suivant et découvrez l’authentification.
 
 > [!div class="nextstepaction"]
-> [Identités managées pour l’intégration des ressources Azure](./integrate-azure-managed-service-identity.md)
+> [Intégration des identités managées](./howto-integrate-azure-managed-service-identity.md)

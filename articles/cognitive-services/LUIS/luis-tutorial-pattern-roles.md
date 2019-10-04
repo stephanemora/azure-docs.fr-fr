@@ -1,5 +1,5 @@
 ---
-title: Rôles de modèle
+title: 'Didacticiel : Données de rôles de modèle - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Les modèles permettent d’extraire des données à partir d’énoncés de modèle au format approprié. L’énoncé de modèle utilise une entité simple et des rôles pour extraire des données associées telles que l’emplacement d’origine et l’emplacement de destination.
 ms.custom: seodec18
@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7b95dcf6a93c9abdeab9520f0a0fd80eb17dccff
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523272"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387637"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Didacticiel : Extraire des modèles relatifs au contexte à l’aide de rôles
 
@@ -64,7 +64,7 @@ Procédez comme suit :
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `roles`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+3. À partir de la section **Manage (Gérer)** , sous l’onglet **Versions**, clonez la version et nommez-la `roles`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
 ## <a name="create-new-entities"></a>Créer des entités
 

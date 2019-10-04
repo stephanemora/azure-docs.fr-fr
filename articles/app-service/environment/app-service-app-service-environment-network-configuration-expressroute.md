@@ -10,17 +10,16 @@ ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b10bd15538ecca7934a397ca63db1150a0bfc32c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113377"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070040"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Détails de la configuration réseau pour l’environnement App Service pour PowerApps avec Azure ExpressRoute
 
@@ -59,7 +58,7 @@ L’environnement App Service requiert les paramètres de connectivité réseau 
 
 * L’accès réseau entrant vers les ports nécessaires à l’environnement App Service doit être autorisé. Pour plus de détails, voir [Contrôle du trafic entrant vers un environnement App Service][requiredports].
 
-Pour satisfaire la configuration DNS requise, assurez-vous qu’une infrastructure DNS valide est configurée et gérée pour le réseau virtuel. Si la configuration DNS est modifiée après la création d’un environnement App Service, les développeurs peuvent forcer ce dernier à récupérer la nouvelle configuration DNS. Vous pouvez déclencher le redémarrage d’un environnement à l’aide de l’icône **Redémarrer** située sous les options de gestion de l’environnement App Service dans le [portail Azure][NewPortal]. Suite à ce redémarrage , l’environnement récupère la nouvelle configuration DNS.
+Pour satisfaire la configuration DNS requise, assurez-vous qu’une infrastructure DNS valide est configurée et gérée pour le réseau virtuel. Si la configuration DNS est modifiée après la création d’un environnement App Service, les développeurs peuvent forcer ce dernier à récupérer la nouvelle configuration DNS. Vous pouvez déclencher le redémarrage d’un environnement à l’aide de l’icône **Redémarrer** située sous les options de gestion de l’environnement App Service dans le [Portail Azure][NewPortal]. Suite à ce redémarrage , l’environnement récupère la nouvelle configuration DNS.
 
 Pour satisfaire les exigences en matière d’accès réseau entrant, configurez un [groupe de sécurité réseau (NSG)][NetworkSecurityGroups] sur le sous-réseau App Service Environment. Le groupe de sécurité réseau autorise l’accès requis [pour contrôler le trafic entrant vers l’environnement App Service][requiredports].
 
@@ -81,7 +80,7 @@ L’effet combiné de cette configuration est que l’UDR de niveau sous-réseau
 > [!IMPORTANT]
 > Les itinéraires définis dans un UDR doivent être suffisamment spécifiques pour avoir la priorité sur les itinéraires annoncés par la configuration ExpressRoute. L’exemple décrit dans la section suivante utilise la plage d’adresses 0.0.0.0/0 étendue. Cette plage peut être accidentellement remplacée par des annonces de routage utilisant des plages d’adresses plus spécifiques.
 > 
-> L’environnement App Service n’est pas pris en charge avec les configurations ExpressRoute qui annoncent de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent des annonces de routage en provenance de Microsoft pour un grand ensemble de plages d’adresses IP Microsoft Azure. Si ces plages d’adresses sont publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’environnement App Service sont tunnelisés de force vers l’infrastructure réseau local du client. Ce flux de réseau n’est actuellement pas pris en charge avec l’environnement App Service. L’une des solutions consiste à arrêter les itinéraires croisés depuis le chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée.
+> L’environnement App Service n’est pas pris en charge avec les configurations ExpressRoute qui annoncent de façon croisée des itinéraires à partir du chemin d’accès de peering public vers le chemin d’accès de peering privé. Les configurations ExpressRoute ayant un peering public configuré reçoivent des annonces de routage en provenance de Microsoft pour un grand ensemble de plages d’adresses IP Microsoft Azure. Si ces plages d’adresses sont publiées de façon croisée sur le chemin d’accès de peering privé, il en résulte que tous les paquets réseau sortants du sous-réseau de l’environnement App Service sont tunnelisés de force vers l’infrastructure réseau local du client. Ce flux de réseau n’est actuellement pas pris en charge avec l’environnement App Service. L’une des solutions consiste à arrêter les itinéraires croisés depuis le chemin d’accès de peering public vers le chemin d’accès de peering privé.
 > 
 > 
 
@@ -95,7 +94,7 @@ Cette section présente un exemple de configuration d’itinéraire défini par 
 
 ### <a name="prerequisites"></a>Prérequis
 
-* Installez Azure Powershell à partir de la [page Téléchargements Azure][AzureDownloads]. Choisissez un téléchargement datant au minimum de juin 2015. Sous **Outils en ligne de commande** > **Windows PowerShell**, sélectionnez **Installer** pour installer les dernières applets de commande PowerShell.
+* Installez Azure PowerShell à partir de la [page Téléchargements Azure][AzureDownloads]. Choisissez un téléchargement datant au minimum de juin 2015. Sous **Outils en ligne de commande** > **Windows PowerShell**, sélectionnez **Installer** pour installer les dernières applets de commande PowerShell.
 
 * Créez un sous-réseau unique pour une utilisation exclusive par l’environnement App Service. Ce sous-réseau unique garantit que les itinéraires définis par l’utilisateur qui y seront appliqués ouvriront le trafic sortant pour l’environnement App Service uniquement.
 
@@ -118,7 +117,7 @@ Configurez un accès sortant à Internet. Définissez un itinéraire pour 0.0.0.
 
 0.0.0.0/0 est une plage d’adresses étendue. Cette plage est remplacée par les plages d’adresses plus spécifiques publiées par ExpressRoute. Un UDR avec un itinéraire 0.0.0.0/0 doit être utilisé conjointement avec une configuration ExpressRoute qui publie uniquement 0.0.0.0/0. 
 
-Vous pouvez également télécharger la liste complète actuelle des plages CIDR utilisées par Azure. Le fichier XML de toutes les plages d’adresses IP Azure est disponible dans le [Centre de téléchargement Microsoft][DownloadCenterAddressRanges].  
+Vous pouvez également télécharger la liste complète actuelle des plages CIDR utilisées par Azure. Le fichier XML de toutes les plages d’adresses IP Azure est disponible dans le [Centre de téléchargement Microsoft][DownloadCenterAddressRanges].  
 
 > [!NOTE]
 >

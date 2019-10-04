@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06566ab81b6af847a7eb174731105b7f43a7197f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 29f94d6ff8045b7cae64957eeae00d2460ca3e37
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680896"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176823"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -31,7 +31,7 @@ L’authentification unique transparente (Seamless SSO) Azure Active Directory (
 
 Pour déployer l’authentification unique transparente, procédez comme suit.
 
-## <a name="step-1-check-the-prerequisites"></a>Étape 1 : Vérifier les prérequis
+## <a name="step-1-check-the-prerequisites"></a>Étape 1 : Vérifier les prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -55,7 +55,7 @@ Vérifiez que les prérequis suivants sont remplis :
 
 * **Utiliser les dernières versions de clients Office 365** : Pour obtenir une utilisation de l’authentification unique sans assistance avec les clients Office 365 (Outlook, Word, Excel, etc.), vos utilisateurs doivent utiliser la version 16.0.8730.xxxx ou une version ultérieure.
 
-## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
+## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
 
 Activez Seamless SSO via [Azure AD Connect](whatis-hybrid-identity.md).
 
@@ -93,12 +93,12 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 ![Portail Azure : Volet Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> L’authentification unique transparente crée un compte d’ordinateur nommé `AZUREADSSOACC` dans votre Active Directory (AD) dans chaque forêt Active Directory sur site. Le `AZUREADSSOACC` compte d’ordinateur doit être fortement protégé pour des raisons de sécurité. Seuls les administrateurs de domaine doit être en mesure de gérer le compte d’ordinateur. Vérifiez que la délégation Kerberos sur le compte d’ordinateur est désactivée et qu’aucun autre compte dans Active Directory ne dispose des autorisations de délégation le `AZUREADSSOACC` compte d’ordinateur. Store le compte d’ordinateur dans une unité d’organisation (UO) où ils sont protégés contre les suppressions accidentelles et seuls les administrateurs de domaine ont accès.
+> L’authentification unique fluide crée un compte d’ordinateur nommé `AZUREADSSOACC` sur votre instance Active Directory (AD) locale, dans chaque forêt AD. Pour des raisons de sécurité, le compte d’ordinateur `AZUREADSSOACC` doit être fortement protégé. Seuls des administrateurs de domaine doivent être en mesure de gérer le compte d’ordinateur. Vérifiez que la délégation Kerberos sur le compte d’ordinateur est désactivée et qu’aucun autre compte dans Active Directory ne dispose d’autorisations de délégation sur le compte d’ordinateur `AZUREADSSOACC`. Stockez le compte d’ordinateur dans une unité d’organisation (UO) où il sera protégé contre les suppressions accidentelles et à laquelle seuls des administrateurs de domaine ont accès.
 
 >[!NOTE]
-> Si vous utilisez des architectures Pass-the-Hash et réduction des risques de vol d’informations d’identification dans votre environnement local, apporter les modifications nécessaires pour vous assurer que le `AZUREADSSOACC` compte d’ordinateur ne s’arrête pas dans le conteneur de mise en quarantaine. 
+> Si vous utilisez des architectures de type « Pass-The-Hash » et Atténuation des vols d'informations d'identification dans votre environnement local, apportez les changements qui conviennent pour veiller à ce que le compte d'ordinateur `AZUREADSSOACC` ne se retrouve pas dans le conteneur Quarantaine. 
 
-## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
+## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 
 Vous pouvez déployer progressivement l’authentification unique fluide pour vos utilisateurs en suivant les instructions fournies ci-dessous. Vous commencez par ajouter l’URL Azure AD ci-après aux paramètres de la zone Intranet de tous les utilisateurs ou des utilisateurs sélectionnés en utilisant la stratégie de groupe dans Active Directory :
 
@@ -124,7 +124,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
 1. Ouvrez l’outil Éditeur de gestion des stratégies de groupe.
 2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cette exemple utilise la **stratégie de domaine par défaut**.
-3. Accédez à **Configuration utilisateur** > **stratégie** > **modèles d’administration** > **Windows Composants** > **Internet Explorer** > **le panneau de configuration Internet** > **Page sécurité**. Puis sélectionnez **Liste des attributions de sites aux zones**.
+3. Accédez à **Configuration utilisateur** > **Stratégie** > **Modèles d'administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité**. Puis sélectionnez **Liste des attributions de sites aux zones**.
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Activez la stratégie, puis entrez les valeurs suivantes dans la boîte de dialogue :
    - **Nom de la valeur** : URL Azure AD vers laquelle les tickets Kerberos sont transférés.
@@ -144,7 +144,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Accédez à **Configuration utilisateur** > **modèles d’administration** **stratégie** > ** > **les composants Windows**  >  **Internet Explorer** > **le panneau de configuration Internet** > **Page sécurité**  >   **Zone intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
+6. Accédez à **Configuration utilisateur** > **Stratégie** > **Modèles d’administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité** > **Zone Intranet**. Puis sélectionnez **Autoriser les mises à jour de la barre d’état via le script**.
 
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso11.png)
 
@@ -199,7 +199,7 @@ L’utilisation des extensions de stratégie de groupe Active Directory tierces 
 
 L’authentification unique transparente ne fonctionne pas en mode de navigation privée sur Firefox et Microsoft Edge. Par ailleurs, il ne fonctionne pas sur Internet Explorer si le navigateur en cours d’utilisation est en mode Protection améliorée.
 
-## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
+## <a name="step-4-test-the-feature"></a>Étape 4 : Tester la fonctionnalité
 
 Pour tester la fonctionnalité d’un utilisateur spécifique, assurez-vous que toutes les conditions suivantes sont en place :
   - L’utilisateur se connecte à un appareil d’entreprise.
@@ -221,7 +221,7 @@ Pour tester le scénario dans lequel l’utilisateur n’a pas à entrer le nom 
 >[!IMPORTANT]
 >Si elle est divulguée, la clé de déchiffrement Kerberos d’un compte d’ordinateur peut être utilisée pour générer des tickets Kerberos à l’attention de n’importe quel utilisateur dans sa forêt Active Directory. Les personnes malveillantes peuvent emprunter l’identité de connexions Azure AD pour des utilisateurs compromis. Nous vous recommandons vivement de renouveler ces clés de déchiffrement Kerberos au moins tous les 30 jours.
 
-Pour obtenir des instructions sur la substitution des clés, voir [Authentification unique transparente Azure Active Directory : questions fréquentes](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). Nous étudions actuellement la possibilité d’introduire le déploiement de clés automatisé.
+Pour obtenir des instructions sur la substitution des clés, voir [Authentification unique transparente Azure Active Directory : questions fréquentes](how-to-connect-sso-faq.md). Nous étudions actuellement la possibilité d’introduire le déploiement de clés automatisé.
 
 >[!IMPORTANT]
 >Vous n’avez pas besoin d’effectuer cette étape _immédiatement_ après avoir activé la fonctionnalité. Substituez les clés de déchiffrement Kerberos au moins une fois tous les 30 jours.

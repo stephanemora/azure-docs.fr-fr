@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 0dac2730bcc13b979de6a8faaaa53c0aaf15e902
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 52f9584a2f793ff513100afcb7b7bd6acd2a4742
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669348"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900492"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Vue d’ensemble d’Azure Service Fabric avec Gestion des API
 
@@ -54,7 +54,7 @@ Gestion des API Azure peut être utilisée avec n’importe quelle combinaison d
 
 ## <a name="send-traffic-to-a-stateless-service"></a>Envoyer le trafic vers un service sans état
 
-Dans le cas le plus simple, le trafic est transféré à une instance de service sans état. Pour ce faire, une opération Gestion des API contient une stratégie de traitement entrant avec un service principal Service Fabric qui effectue un mappage à une instance de service sans état spécifique dans le service principal Service Fabric. Les requêtes envoyées à ce service sont envoyées vers un réplica aléatoire de l’instance de service sans état.
+Dans le cas le plus simple, le trafic est transféré à une instance de service sans état. Pour ce faire, une opération Gestion des API contient une stratégie de traitement entrant avec un service principal Service Fabric qui effectue un mappage à une instance de service sans état spécifique dans le service principal Service Fabric. Les requêtes envoyées à ce service le sont à une instance aléatoire du service.
 
 #### <a name="example"></a>Exemples
 Dans le scénario suivant, une application Service Fabric contient un service sans état nommé `fabric:/app/fooservice`, qui expose une API HTTP interne. Le nom d’instance de service est bien connu et peut être codé en dur directement dans la stratégie de traitement entrant Gestion des API. 
@@ -77,7 +77,7 @@ Le service est partitionné à l’aide du schéma de partition Int64, avec deux
 
 Dans des scénarios plus avancés, vous pouvez définir une opération Gestion des API qui mappe les requêtes à plusieurs instances de service. Dans ce cas, chaque opération contient une stratégie qui mappe les requêtes à une instance de service spécifique en fonction des valeurs définies à partir de la requête HTTP entrante, comme le chemin d’accès URL ou la chaîne de requête, et pour les services avec état, une partition dans l’instance de service. 
 
-Pour ce faire, une opération Gestion des API contient une stratégie de traitement entrant avec un service principal Service Fabric qui effectue un mappage à une instance de service sans état dans le service principal Service Fabric basé sur les valeurs récupérées dans la requête HTTP entrante. Les requêtes envoyées à une instance de service sont envoyées vers un réplica aléatoire de l’instance de service.
+Pour ce faire, une opération Gestion des API contient une stratégie de traitement entrant avec un service principal Service Fabric qui effectue un mappage à une instance de service sans état dans le service principal Service Fabric basé sur les valeurs récupérées dans la requête HTTP entrante. Les requêtes envoyées à un service le sont à une instance aléatoire du service.
 
 #### <a name="example"></a>Exemples
 
@@ -85,7 +85,7 @@ Dans cet exemple, une instance de service sans état est créée pour chaque uti
  
 - `fabric:/app/users/<username>`
 
-  Chaque service a un nom unique, mais ces noms ne sont pas connus au départ, car les services sont créés en réponse à une entrée utilisateur ou administrateur et ils ne peuvent donc pas être codés en dur dans des stratégies APIM ou des règles de routage. Au lieu de cela, le nom du service auquel vous souhaitez envoyer une requête est généré dans la définition de stratégie principale à partir de la valeur `name` fournie dans le chemin d’accès de requête URL. Par exemple : 
+  Chaque service a un nom unique, mais ces noms ne sont pas connus au départ, car les services sont créés en réponse à une entrée utilisateur ou administrateur et ils ne peuvent donc pas être codés en dur dans des stratégies APIM ou des règles de routage. Au lieu de cela, le nom du service auquel vous souhaitez envoyer une requête est généré dans la définition de stratégie principale à partir de la valeur `name` fournie dans le chemin d’accès de requête URL. Par exemple :
 
   - Une requête vers `/api/users/foo` est acheminée vers l’instance de service `fabric:/app/users/foo`
   - Une requête vers `/api/users/bar` est acheminée vers l’instance de service `fabric:/app/users/bar`
@@ -104,7 +104,7 @@ Dans cet exemple, une instance de service avec état est créée pour chaque uti
  
 - `fabric:/app/users/<username>`
 
-  Chaque service a un nom unique, mais ces noms ne sont pas connus au départ, car les services sont créés en réponse à une entrée utilisateur ou administrateur et ils ne peuvent donc pas être codés en dur dans des stratégies APIM ou des règles de routage. Au lieu de cela, le nom du service auquel vous souhaitez envoyer une requête est généré dans la définition de stratégie principale à partir de la valeur `name` fournie dans le chemin d’accès de requête URL. Par exemple : 
+  Chaque service a un nom unique, mais ces noms ne sont pas connus au départ, car les services sont créés en réponse à une entrée utilisateur ou administrateur et ils ne peuvent donc pas être codés en dur dans des stratégies APIM ou des règles de routage. Au lieu de cela, le nom du service auquel vous souhaitez envoyer une requête est généré dans la définition de stratégie principale à partir de la valeur `name` fournie dans le chemin d’accès de requête URL. Par exemple :
 
   - Une requête vers `/api/users/foo` est acheminée vers l’instance de service `fabric:/app/users/foo`
   - Une requête vers `/api/users/bar` est acheminée vers l’instance de service `fabric:/app/users/bar`

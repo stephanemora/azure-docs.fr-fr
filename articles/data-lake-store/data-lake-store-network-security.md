@@ -14,11 +14,11 @@ ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
 ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798978"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60612703"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Intégration de réseau virtuel dans Azure Data Lake Storage Gen1
 
@@ -26,14 +26,14 @@ Cet article présente l’intégration au réseau virtuel pour Azure Data Lake S
 
 Cette fonctionnalité permet de protéger votre compte Data Lake Storage contre les menaces externes.
 
-L’intégration au réseau virtuel dans Data Lake Storage Gen1 fait appel à la sécurité des points de terminaison fournisseurs de réseau virtuel entre votre réseau virtuel et Azure Active Directory (Azure AD) afin de générer des revendications de sécurité supplémentaires dans le jeton d’accès. Ces revendications permettent ensuite d’authentifier votre réseau virtuel à votre compte Data Lake Storage Gen1 et d’y accéder.
+L’intégration au réseau virtuel dans Data Lake Storage Gen1 fait appel à la sécurité des points de terminaison de service de réseau virtuel entre votre réseau virtuel et Azure Active Directory (Azure AD) afin de générer des revendications de sécurité supplémentaires dans le jeton d’accès. Ces revendications permettent ensuite d’authentifier votre réseau virtuel à votre compte Data Lake Storage Gen1 et d’y accéder.
 
 > [!NOTE]
 > L’utilisation de ces fonctionnalités n’entraîne aucuns frais supplémentaires. Votre compte est facturé au tarif standard de Data Lake Storage Gen1. Pour plus d’informations, voir la [tarification](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). Pour tous les autres services Azure que vous utilisez, voir la [tarification](https://azure.microsoft.com/pricing/#product-picker).
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Scénarios d’intégration de réseau virtuel dans Data Lake Storage Gen1
 
-Avec l’intégration de réseau virtuel Data Lake Storage Gen1, vous pouvez restreindre l’accès à votre compte Data Lake Storage Gen1 à des sous-réseaux et réseaux virtuels spécifiques. Une fois que votre compte est verrouillé sur le sous-réseau de réseau virtuel spécifié, les autres réseaux virtuels/machines virtuelles d’Azure ne sont pas autorisés à y accéder. Sur le plan fonctionnel, l’intégration au réseau virtuel dans Data Lake Storage Gen1 permet le même scénario que les [points de terminaison fournisseurs de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Quelques différences importantes sont détaillées dans les sections ci-dessous. 
+Avec l’intégration de réseau virtuel Data Lake Storage Gen1, vous pouvez restreindre l’accès à votre compte Data Lake Storage Gen1 à des sous-réseaux et réseaux virtuels spécifiques. Une fois que votre compte est verrouillé sur le sous-réseau de réseau virtuel spécifié, les autres réseaux virtuels/machines virtuelles d’Azure ne sont pas autorisés à y accéder. Sur le plan fonctionnel, l’intégration au réseau virtuel dans Data Lake Storage Gen1 permet le même scénario que les [points de terminaison de service de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Quelques différences importantes sont détaillées dans les sections ci-dessous. 
 
 ![Diagramme des scénarios d’intégration de réseau virtuel dans Data Lake Storage Gen1](media/data-lake-store-network-security/scenario-diagram.png)
 
@@ -42,7 +42,7 @@ Avec l’intégration de réseau virtuel Data Lake Storage Gen1, vous pouvez res
 
 ## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Routage optimal grâce à l’intégration au réseau virtuel dans Data Lake Storage Gen1
 
-L’[optimisation des itinéraires ](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) depuis votre réseau virtuel constitue l’un des principaux avantages des points de terminaison fournisseurs de réseau virtuel. Vous pouvez effectuer la même optimisation des itinéraires pour les comptes Data Lake Storage Gen1. Utilisez les [itinéraires définis par l’utilisateur](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) suivants entre votre réseau virtuel et votre compte Data Lake Storage Gen1.
+L’[optimisation des itinéraires ](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) depuis votre réseau virtuel constitue l’un des principaux avantages des points de terminaison de service de réseau virtuel. Vous pouvez effectuer la même optimisation des itinéraires pour les comptes Data Lake Storage Gen1. Utilisez les [itinéraires définis par l’utilisateur](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) suivants entre votre réseau virtuel et votre compte Data Lake Storage Gen1.
 
 **Adresse IP publique Data Lake Storage** : utilisez l’adresse IP publique de vos comptes Data Lake Storage Gen1 cibles. Pour identifier les adresses IP de vos comptes Data Lake Storage Gen1, [résolvez les noms DNS](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) de vos comptes. Créez une entrée différente pour chaque adresse.
 
@@ -83,7 +83,7 @@ Voici quelques options disponibles :
 
 ## <a name="configuration"></a>Configuration
 
-### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Étape 1 : Configurer votre réseau virtuel pour qu’il utilise un point de terminaison de service Azure AD
+### <a name="step-1-configure-your-virtual-network-to-use-an-azure-ad-service-endpoint"></a>Étape 1 : Configurer votre réseau virtuel pour qu’il utilise un point de terminaison de service Azure AD
 
 1.  Accédez au portail Azure et connectez-vous à votre compte.
  
@@ -107,7 +107,7 @@ Voici quelques options disponibles :
  
     ![Ajout réussi du point de terminaison fournisseur](media/data-lake-store-network-security/config-vnet-4.png)
 
-### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>Étape 2 : Configurer le réseau virtuel ou sous-réseau autorisé pour votre compte Data Lake Storage Gen1
+### <a name="step-2-set-up-the-allowed-virtual-network-or-subnet-for-your-data-lake-storage-gen1-account"></a>Étape 2 : Configurer le réseau virtuel ou sous-réseau autorisé pour votre compte Data Lake Storage Gen1
 
 1.  Après avoir configuré votre réseau virtuel, [créez un compte Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account) dans votre abonnement. Vous pouvez également accéder à un compte Data Lake Storage Gen1 existant. Le compte Data Lake Storage Gen1 doit se trouver dans la même région que le réseau virtuel.
  

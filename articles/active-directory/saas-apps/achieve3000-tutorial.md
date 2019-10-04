@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Achieve3000 | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Achieve3000 | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Achieve3000.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ddac8a87bb557daadf0a6ea0f1303545ec63d50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8aa86f75d70e7253fa250893ce685b90d6a02f01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835535"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107418"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Tutoriel : Intégration d’Azure Active Directory à Achieve3000
+# <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Didacticiel : Intégration d’Azure Active Directory à Achieve3000
 
 Ce didacticiel explique comment intégrer Achieve3000 avec Azure Active Directory (Azure AD).
 L’intégration d’Achieve3000 avec Azure AD offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’Achieve3000 dans Azure AD, vous devez ajout
 
 **Pour ajouter Achieve3000 à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD auprès d’Achieve3000, e
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://saml.achieve3000.com/district/<District Identifier>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez la valeur : `achieve3000-saml`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez la valeur : `achieve3000-saml`
 
     > [!NOTE]
     > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique Achieve3000](https://www.achieve3000.com/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

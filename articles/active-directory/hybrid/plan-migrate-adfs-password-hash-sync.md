@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Passer de la fédération à la synchronisation de hachage de mot de passe pour Azure AD | Microsoft Docs'
+title: 'Azure AD Connect : Passer de la fédération à la synchronisation de hachage de mot de passe (PHS) pour Azure AD | Microsoft Docs'
 description: Cet article contient des informations sur le déplacement d’un environnement d’identité hybride de la fédération à la synchronisation de hachage de mot de passe.
 services: active-directory
 author: billmath
@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d522b0740b144c39da81a9838f9d6e259fe62d22
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 1b291f2243dfe28a8e866796e0b7375f94fa4f2e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532777"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779441"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory
 
@@ -86,7 +86,7 @@ Pour vérifier les paramètres actuels de connexion des utilisateurs :
 
    * Si **Synchronisation de hachage de mot de passe** est défini sur **Désactivé**, effectuez les étapes de cet article pour l’activer.
    * Si **Synchronisation de hachage de mot de passe** est défini sur **Activé**, vous pouvez ignorer la section **Étape 1 : Activer la synchronisation de hachage de mot de passe** de cet article.
-4. Dans la page **Vérification de votre solution**n faites défiler jusqu’à **Services Active Directory Federation Services (ADFS)**.<br />
+4. Dans la page **Vérification de votre solution**n faites défiler jusqu’à **Services Active Directory Federation Services (ADFS)** .<br />
 
    * ‎Si la configuration d’AD FS apparaît dans cette section, vous pouvez considérer qu’AD FS a été initialement configuré à l’aide d’Azure AD Connect. Vous pouvez convertir vos domaines de l’identité fédérée en identité managée en utilisant l’option **Modifier la connexion utilisateur** d’Azure AD Connect. Le processus est détaillé dans la section **Option A : Passer de la fédération à la synchronisation de hachage de mot de passe avec Azure AD Connect**.
    * Si AD FS n’est pas listé dans les paramètres actuels, vous devez convertir manuellement vos domaines de l’identité fédérée à l’identité managée avec PowerShell. Pour plus d’informations sur ce processus, consultez la section **Option B : Passer de la fédération à la synchronisation de hachage de mot de passe avec Azure AD Connect et PowerShell**.
@@ -113,7 +113,7 @@ Pour plus d’informations, voir les articles suivants :
 * [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Si **SupportsMfa** est défini sur **True**, cela signifie que vous utilisez une solution d’authentification multifacteur locale pour injecter un deuxième facteur dans le flux d’authentification des utilisateurs. Cette configuration ne fonctionne plus pour les scénarios d’authentification d’Azure AD. 
+> Si **SupportsMfa** est défini sur **True**, cela signifie que vous utilisez une solution d’authentification multifacteur locale pour injecter un deuxième facteur dans le flux d’authentification des utilisateurs. Ce programme d’installation ne fonctionne plus pour les scénarios d’authentification Azure AD après conversion de ce domaine de l’authentification fédérée à l’authentification gérée. Après la désactivation de la fédération, vous interrompez la relation avec votre fédération en local, y compris les adaptateurs MFA locaux. 
 >
 > Au lieu de cela, utilisez le service cloud Azure Multi-Factor Authentication pour la même fonction. Évaluez soigneusement vos besoins d’authentification multifacteur avant de continuer. Avant de convertir vos domaines, veillez à bien comprendre comment utiliser Azure Multi-Factor Authentication, les implications en matière de gestion des licences et le processus d’inscription des utilisateurs.
 
@@ -337,7 +337,7 @@ Utilisez cette option si vous n’avez pas initialement configuré vos domaines 
 
    Avant l’activation de la synchronisation de hachage de mot de passe : ![Capture d’écran montrant l’option Ne pas configurer dans la page Connexion utilisateur](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   Après l’activation de la synchronisation de hachage de mot de passe : ![Capture d’écran montrant les nouvelles options sur la page de connexion utilisateur](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   Après l’activation de la synchronisation de hachage de mot de passe : ![Capture d’écran montrant de nouvelles options sur la page Connexion utilisateur](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > À compter d’Azure AD Connect version 1.1.880.0, la case **Authentification unique fluide** est cochée par défaut.
@@ -474,5 +474,5 @@ Pour plus d’informations, consultez [Comment puis-je substituer la clé de dé
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez plus d’informations sur les [principes de conception d’Azure AD Connect](plan-connect-design-concepts.md).
-* Choisir l’[authentification appropriée](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Choisir l’[authentification appropriée](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 * Découvrez plus d’informations sur les [topologies prises en charge](plan-connect-design-concepts.md).

@@ -2,22 +2,22 @@
 title: Accès distant aux applications locales - Proxy d’application Azure Active Directory | Microsoft Docs
 description: Le proxy d’application Azure Active Directory offre un accès à distance sécurisé pour les applications web. Après une authentification unique à Azure AD, les utilisateurs peuvent accéder aux applications cloud et locales par le biais d’une URL externe ou un portail d’applications interne. Par exemple, Application Proxy peut fournir un accès à distance et une authentification unique aux applications Bureau à distance, SharePoint, Teams, Tableau, Qlik et aux applications métier (LOB).
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: celested
+ms.date: 05/09/2019
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 780dedd52e492aceaab1aa00eedb631d0814ebf3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108379"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Accès à distance aux applications locales via le service Proxy d’application Azure Active Directory 
 
@@ -43,6 +43,8 @@ Proxy d’application fonctionne avec les ressources suivantes :
 * Applications clientes complètes intégrées à Active Directory Authentication Library (ADAL)
 
 Proxy d’application prend en charge l’authentification unique. Pour plus d’informations sur les méthodes prises en charge, consultez [Choix d’une méthode d’authentification unique](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+
+Proxy d’application est recommandé pour donner aux utilisateurs distants l’accès aux ressources internes. Proxy d’application remplace la nécessité d’un VPN ou d’un proxy inversé. Il n’est pas destiné aux utilisateurs internes sur le réseau d’entreprise.  Ces utilisateurs qui utilisent inutilement le proxy d’application peuvent ralentir les performances de manière inattendue et indésirable.
 
 ## <a name="how-application-proxy-works"></a>Fonctionnement de Proxy d’application
 

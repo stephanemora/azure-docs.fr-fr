@@ -8,23 +8,22 @@ manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 23809abd06d626eb87e5d5d15d265f1769b97b66
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: MT
+ms.openlocfilehash: 20aa65f0a8e47485e71fd03d73ff144f5290bcb7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806729"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036090"
 ---
-# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutoriel : Découvrez comment mettre à niveau une application Service Fabric à l'aide de Visual Studio
+# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Didacticiel : Découvrez comment mettre à niveau une application Service Fabric à l'aide de Visual Studio
 
-Ce tutoriel est la quatrième partie d’une série et vous montre comment mettre à niveau une application Azure Service Fabric Mesh directement depuis Visual Studio. La mise à niveau inclut une mise à jour du code et une mise à jour de la configuration. Vous verrez que les étapes de la mise à niveau et de publication à partir de Visual Studio sont les mêmes.
+Ce tutoriel est la quatrième partie d’une série et vous montre comment mettre à niveau une application Azure Service Fabric Mesh directement depuis Visual Studio. La mise à niveau inclut une mise à jour du code et une mise à jour de la configuration. Vous verrez que les étapes de la mise à niveau et de la publication dans Visual Studio sont les mêmes.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -40,7 +39,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 
@@ -48,27 +47,27 @@ Avant de commencer ce tutoriel :
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Mettre à niveau un service Service Fabric Mesh à l’aide de Visual Studio
 
-Cet article explique comment mettre à niveau un microservice au sein d’une application. Dans cet exemple, nous allons modifier le `WebFrontEnd` service pour afficher une catégorie de tâche et augmenter la quantité d’UC qui lui est attribué. Ensuite, nous allons mettre à niveau le service déployé.
+Cet article explique comment mettre à niveau un microservice à l’intérieur d’une application. Dans cet exemple, nous allons modifier le service `WebFrontEnd` pour afficher une catégorie de tâche et augmenter la quantité d’UC qui lui est attribuée. Ensuite, nous allons mettre à niveau le service déployé.
 
 ## <a name="modify-the-config"></a>Modifier la configuration
 
-Lorsque vous créez une application de maillage de Service Fabric, Visual studio ajoute un **parameters.yaml** fichier pour chaque environnement de déploiement (cloud et local). Dans ces fichiers, vous pouvez définir des paramètres et leurs valeurs qui peuvent ensuite être référencés à partir de vos fichiers de *.yaml MAILLE tels que service.yaml ou network.yaml.  Visual Studio fournit certaines variables, telles que l’UC que le service peut utiliser.
+Lorsque vous créez une application Service Fabric Mesh, Visual studio ajoute un fichier **parameters.yaml** pour chaque environnement de déploiement (cloud et local). Dans ces fichiers, vous pouvez définir des paramètres et leurs valeurs, qui peuvent ensuite être référencés à partir de vos fichiers *.yaml Mesh, tels que service.yaml ou network.yaml.  Visual Studio fournit certaines variables, telles que la quantité d’UC utilisable par le service.
 
-Nous mettrons à jour le `WebFrontEnd_cpu` paramètre pour mettre à jour les ressources de processeur à `1.5` en prévision qui le **WebFrontEnd** service sera plus largement utilisé.
+Nous allons mettre à jour le paramètre `WebFrontEnd_cpu` pour attribuer la valeur de `1.5` aux ressources de processeur, en prévision d’une plus forte utilisation du service **WebFrontEnd**.
 
-1. Dans le **todolistapp** de projet, sous **environnements** > **Cloud**, ouvrez le **parameters.yaml** fichier. Modifier le `WebFrontEnd_cpu`, valeur `1.5`. Le nom du paramètre commence par le nom du service `WebFrontEnd_` recommandé pour le différencier des paramètres du même nom qui s’appliquent à différents services.
+1. Dans le projet **todolistapp**, sous **Environnements** > **Cloud**, ouvrez le fichier **parameters.yaml**. Remplacez la valeur de `WebFrontEnd_cpu` par `1.5`. En tant que bonne pratique, le nom du paramètre commence par le nom du service `WebFrontEnd_`, afin de le différencier des paramètres du même nom qui s’appliquent à d’autres services.
 
     ```xml
     WebFrontEnd_cpu: 1.5
     ```
 
-2. Ouvrez le **WebFrontEnd** du projet **service.yaml** de fichiers sous **WebFrontEnd** > **Service ressources**.
+2. Ouvrez le fichier **service.yaml** du projet **WebFrontEnd** sous **WebFrontEnd** > **Ressources du service**.
 
-    Notez que le dans `resources:` section, `cpu:` est défini sur `"[parameters('WebFrontEnd_cpu')]"`. Si le projet est généré pour le cloud, la valeur de `'WebFrontEnd_cpu` seront prises dans le **environnements** > **Cloud** > **parameters.yaml** de fichiers et sera `1.5`. Si le projet est généré pour s’exécuter localement, vous allez prendre la valeur à partir de la **environnements** > **Local** > **parameters.yaml** fichier, et « 0,5 » sera.
+    Remarquez que dans la section `resources:`, le paramètre `cpu:` est défini sur `"[parameters('WebFrontEnd_cpu')]"`. Si le projet est créé pour le cloud, la valeur de `'WebFrontEnd_cpu` est prise dans le fichier **Environnements** > **Cloud** > **parameters.yaml** et est `1.5`. Si le projet est créé pour s’exécuter localement, la valeur est prise dans le fichier **Environnements** > **Local** > **parameters.yaml** et est « 0,5 ».
 
 > [!Tip]
-> Par défaut, le fichier de paramètre qui est un homologue du fichier profile.yaml sera être utilisé pour fournir les valeurs pour ce fichier profile.yaml.
-> Par exemple, les environnements > Cloud > parameters.yaml fournit les valeurs de paramètre pour les environnements > Cloud > profile.yaml.
+> Par défaut, le fichier de paramètres, qui est un homologue du fichier profile.yaml, est utilisé pour fournir les valeurs de ce fichier profile.yaml.
+> Par exemple, Environnements > Cloud > parameters.yaml fournit les valeurs des paramètres pour Environnements > Cloud > profile.yaml.
 >
 > Vous pouvez remplacer cela en ajoutant le code suivant au fichier profile.yaml :`parametersFilePath=”relative or full path to the parameters file”` Par exemple, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou `parametersFilePath=”..\CommonParameters.yaml”`.
 
@@ -132,25 +131,25 @@ Générez et exécutez l’application pour vérifier que vous voyez une nouvell
 
 ## <a name="upgrade-the-app-from-visual-studio"></a>Mettre à niveau l’application à partir de Visual Studio
 
-Si vous effectuez une mise à niveau du code, ou une mise à niveau de configuration (dans ce cas nous faisons à la fois), la mise à niveau de votre application de maillage de Service Fabric sur Azure en cliquant sur **todolistapp** dans Visual Studio, puis sélectionnez **publier...**
+Que vous effectuiez une mise à niveau du code ou une mise à niveau de la configuration (dans ce cas nous effectuons les deux), mettez à niveau votre application Service Fabric Mesh sur Azure en cliquant avec le bouton droit sur **todolistapp** dans Visual Studio, puis en sélectionnant **Publier...**
 
 Ensuite, une boîte de dialogue **Publier une application Service Fabric** s’affiche.
 
-Utiliser le **profil cible** liste déroulante pour sélectionner le fichier profile.yaml à utiliser pour ce déploiement. Nous mettons à jour de l’application dans le cloud et nous sélectionnons le **cloud.yaml** dans la liste déroulante, qui utilisera le `WebFrontEnd_cpu` la valeur 1.0 défini dans ce fichier.
+Utilisez la liste déroulante **Profil cible** pour sélectionner le fichier profile.yaml à utiliser pour ce déploiement. Comme nous mettons à niveau l’application dans le cloud, nous sélectionnons le fichier **cloud.yaml** dans la liste déroulante ; celui-ci utilisera la valeur « 1,0 » de `WebFrontEnd_cpu`, qui est définie dans ce fichier.
 
 ![Boîte de dialogue Publier Service Fabric mesh dans Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Sélectionnez votre compte et votre abonnement Azure. Définir le **emplacement** à l’emplacement que vous avez utilisé quand vous avez initialement publié l’application de tâches vers Azure. Dans cet article, nous utilisons la région **USA Est**.
+Sélectionnez votre compte et votre abonnement Azure. Définissez **Emplacement** sur le lieu que vous avez utilisé quand vous avez initialement publié l’application de tâches dans Azure. Dans cet article, nous utilisons la région **USA Est**.
 
-Définissez **groupe de ressources** au groupe de ressources que vous avez utilisé quand vous avez initialement publié l’application de tâches vers Azure.
+Définissez **Groupe de ressources** sur le groupe de ressources que vous avez utilisé quand vous avez initialement publié l’application de tâches dans Azure.
 
-Définissez **Azure Container Registry** pour le nom du Registre de conteneur azure que vous avez créé quand vous avez initialement publié l’application de tâches vers Azure.
+Définissez **Azure Container Registry** sur le nom du registre de conteneurs Azure que vous avez créé quand vous avez initialement publié l’application de tâches dans Azure.
 
 Dans la boîte de dialogue de publication, appuyez sur le bouton **Publier** pour mettre à niveau l’application de tâches sur Azure.
 
-Surveiller la progression de la mise à niveau en sélectionnant le **outils Service Fabric** volet dans Visual Studio **sortie** fenêtre. 
+Supervisez la progression de la mise à niveau en sélectionnant le volet **Service Fabric Tools** dans la fenêtre de **Sortie** de Visual Studio. 
 
-Une fois que l’image est généré et envoyé vers le Registre de conteneur Azure, un **état** lien s’affiche dans la sortie que vous pouvez cliquer pour surveiller le déploiement dans le portail Azure.
+Une fois l’image générée et envoyée au registre de conteneurs Azure, un lien **Pour l’état** s’affiche dans la sortie, sur lequel vous pouvez cliquer pour superviser le déploiement dans le portail Azure.
 
 Une fois la mise à niveau terminée, la sortie de **Service Fabric Tools** affiche l’adresse IP et le port de votre application sous la forme d’une URL.
 

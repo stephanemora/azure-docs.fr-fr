@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Créer une instance publique de Standard Load Balancer avec un frontend interzone redondant à l’aide d’Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: load-balancer
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
-ms.author: kumud
-ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 6a22ac9a2727c537d98e692e67076637fe8cc457
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592925"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274327"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Équilibrer la charge de machines virtuelles entre toutes les zones de disponibilité avec Azure CLI
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Créer une adresse IP publique standard redondante dans une zone
-Pour accéder à votre application sur Internet, vous avez besoin d’une adresse IP publique pour l’équilibreur de charge. Un serveur frontal redondant interzone est servi par toutes les zones de disponibilité d’une région simultanément. Créer une zone redondante adresse IP publique avec [créer az network public-ip](/cli/azure/network/public-ip#az-network-public-ip-create). Par défaut, lorsque vous créez une adresse IP publique standard, elle est redondante dans une zone.
+Pour accéder à votre application sur Internet, vous avez besoin d’une adresse IP publique pour l’équilibreur de charge. Un serveur frontal redondant interzone est servi par toutes les zones de disponibilité d’une région simultanément. Créez une adresse IP publique redondante de zone avec la commande [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). Par défaut, lorsque vous créez une adresse IP publique standard, elle est redondante dans une zone.
 
 L’exemple suivant crée une adresse IP publique redondante dans une zone nommée *myPublicIP* dans le groupe de ressources *myResourceGroupLoadBalancer*.
 

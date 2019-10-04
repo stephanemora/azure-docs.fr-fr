@@ -2,26 +2,26 @@
 title: Implémentation de la navigation à facettes dans une hiérarchie de catégorie - Recherche Azure
 description: Ajoutez la navigation à facettes aux applications qui s'intègrent à Recherche Azure, un service de recherche cloud hébergé sur Microsoft Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 8e325abf1f58458d2fa035c8c8f081173efb0e65
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523713"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649889"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implémentation de la navigation à facettes dans Azure Search
 La navigation à facettes est un mécanisme de filtrage qui fournit une navigation autonome d'extraction dans les applications de recherche. Le terme « navigation à facettes » peut vous sembler peu familier, mais vous l’avez très certainement déjà utilisé. Comme l'indique l'exemple ci-dessous, la navigation à facettes correspond tout simplement aux catégories utilisées pour filtrer les résultats.
 
- ![Démonstration du portail de recrutement Recherche Azure][1]
+ ![Démonstration du portail de recrutement Recherche Azure](media/search-faceted-navigation/azure-search-faceting-example.png "Démonstration du portail de recrutement Recherche Azure")
 
-La navigation à facettes constitue un autre point d’entrée pour la recherche. Elle offre une alternative pratique à la saisie manuelle d’expressions de recherche complexes. Les facettes peuvent vous aider à trouver ce que vous recherchez, tout en vous assurant d’obtenir au moins un résultat. En tant que développeur, les facettes vous permettent d'exposer les critères de recherche les plus utiles pour naviguer dans votre corpus de recherche. Dans les applications de vente au détail en ligne, la navigation à facettes repose souvent sur les marques, les catégories (chaussures pour enfants), la taille, le prix, la popularité et les évaluations. 
+La navigation à facettes constitue un autre point d’entrée pour la recherche. Elle offre une alternative pratique à la saisie manuelle d’expressions de recherche complexes. Les facettes peuvent vous aider à trouver ce que vous recherchez, tout en vous assurant d’obtenir au moins un résultat. En tant que développeur, les facettes vous permettent d’exposer les critères de recherche les plus utiles pour naviguer dans votre index de recherche. Dans les applications de vente au détail en ligne, la navigation à facettes repose souvent sur les marques, les catégories (chaussures pour enfants), la taille, le prix, la popularité et les évaluations. 
 
 L’implémentation de la navigation par facettes varie en fonction des technologies de recherche. Dans Recherche Azure, la navigation à facettes est créée au moment de la requête, à l’aide de champs précédemment attribués dans votre schéma.
 
@@ -34,7 +34,7 @@ Dans le développement de votre application, l’écriture du code qui construit
 ## <a name="sample-code-and-demo"></a>Exemple de code et démonstration
 Cet article prend l’exemple d’un portail de recrutement. L’exemple est implémenté en tant qu’application ASP.NET MVC.
 
--   Consultez et testez la démonstration en ligne sur la [démonstration du portail de recrutement Recherche Azure](http://azjobsdemo.azurewebsites.net/).
+-   Consultez et testez la démonstration en ligne sur la [démonstration du portail de recrutement Recherche Azure](https://azjobsdemo.azurewebsites.net/).
 
 -   Téléchargez le code à partir du [référentiel Azure-Samples sur GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -71,7 +71,7 @@ La précision, interprétée comme la possibilité de filtrer les résultats non
     La valeur de ce paramètre constitue l’expression de recherche. Il peut s'agir d'une portion de texte unique ou d'une expression de recherche complexe qui comprend plusieurs termes et opérateurs. Sur le serveur, une expression de recherche est utilisée pour la recherche en texte intégral. Elle interroge les champs pouvant faire l'objet d'une recherche dans l'index pour la correspondance des termes et renvoie les résultats classés. Si vous définissez `search` sur null, l'exécution de la requête est effectuée sur la totalité de l'index (c'est-à-dire, `search=*`). Dans ce cas, d’autres éléments de la requête, comme `$filter` ou un profil de score, sont les principaux facteurs qui influencent les documents renvoyés (`($filter`) ainsi que leur ordre (`scoringProfile` ou `$orderby`).
 
 -   **$filter =**  
-     Un filtre est un mécanisme puissant pour limiter la taille des résultats de la recherche basés sur les valeurs des attributs de document spécifiques. Un `$filter` est évalué en premier, suivi de la logique de facettes qui génère les valeurs disponibles et les décomptes correspondants pour chaque valeur
+    Un filtre est un mécanisme puissant pour limiter la taille des résultats de la recherche basés sur les valeurs des attributs de document spécifiques. Un `$filter` est évalué en premier, suivi de la logique de facettes qui génère les valeurs disponibles et les décomptes correspondants pour chaque valeur
 
 Les expressions de recherche complexes diminuent les performances de la requête. Si possible, utilisez des expressions de filtre bien construites pour accroître la précision et améliorer les performances de la requête.
 
@@ -232,7 +232,7 @@ SearchParameters sp = new SearchParameters()
 
 Un paramètre de requête à facettes est défini sur un champ et, selon le type de données, peut être davantage paramétré par une liste délimitée par des virgules qui inclut `count:<integer>`, `sort:<>`, `interval:<integer>` et `values:<list>`. Une liste de valeurs est prise en charge pour les données numériques lors de la définition de plages. Consultez [Rechercher des documents (API Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour obtenir des détails sur l'utilisation.
 
-En plus des facettes, la requête formulée par votre application doit également créer des filtres pour limiter le jeu de documents candidats basés sur une sélection de valeur de facette. Pour un magasin de vélos, la navigation à facettes fournit des indications aux questions du type *Quels sont les couleurs, fabricants et types de vélos disponibles ?*. Le filtrage permet de répondre à des questions du type *Quels sont les vélos de type VTT et de couleur rouge dans cette gamme de prix ?*. Lorsque vous cliquez sur « Rouge » pour indiquer que seuls les produits de couleur rouge doivent s’afficher, la requête suivante envoyée par l’application inclut `$filter=Color eq ‘Red’`.
+En plus des facettes, la requête formulée par votre application doit également créer des filtres pour limiter le jeu de documents candidats basés sur une sélection de valeur de facette. Pour un magasin de vélos, la navigation à facettes fournit des indications aux questions du type *Quels sont les couleurs, fabricants et types de vélos disponibles ?* . Le filtrage permet de répondre à des questions du type *Quels sont les vélos de type VTT et de couleur rouge dans cette gamme de prix ?* . Lorsque vous cliquez sur « Rouge » pour indiquer que seuls les produits de couleur rouge doivent s’afficher, la requête suivante envoyée par l’application inclut `$filter=Color eq ‘Red’`.
 
 L’extrait de code suivant tiré de la page `JobsSearch.cs` ajoute la Fonction sélectionnée au filtre si vous sélectionnez une valeur de la facette Fonction.
 
@@ -270,11 +270,11 @@ Si vous générez dynamiquement la liste de facettes en fonction d’une entrée
 ### <a name="filtering-tips"></a>Conseils de filtrage
 **Augmenter la précision de la recherche avec des filtres**
 
- Utilisation de filtres. Si vous utilisez uniquement les expressions de recherche, la recherche de radical peut entraîner le renvoi d'un document qui ne contient pas la valeur de facette précise dans aucun de ses champs.
+Utilisation de filtres. Si vous utilisez uniquement les expressions de recherche, la recherche de radical peut entraîner le renvoi d'un document qui ne contient pas la valeur de facette précise dans aucun de ses champs.
 
 **Augmenter les performances de recherche avec des filtres**
 
- Les filtres réduisent le jeu de documents candidats pour la recherche et les excluent du classement. Pour les grands jeux de documents, l’utilisation d’une exploration à facettes sélective offre souvent de meilleures performances.
+Les filtres réduisent le jeu de documents candidats pour la recherche et les excluent du classement. Pour les grands jeux de documents, l’utilisation d’une exploration à facettes sélective offre souvent de meilleures performances.
   
 **Filtrer uniquement les champs à facettes**
 
@@ -307,9 +307,9 @@ Notez la différence entre les résultats de la recherche et les résultats de l
 * `@colorFacet.count`<br/>
   Dans le code de présentation, un paramètre de décompte doit s’afficher sur la facette. Il est utilisé pour afficher le nombre de résultats de la facette. Dans les résultats de la facette, le décompte indique le nombre de documents qui correspondent au terme ou à la plage de la facette.
 * `&facet=City,count:12`<br/>
-   Dans une requête de facette, vous pouvez définir le décompte sur une valeur.  La valeur par défaut est 10, mais vous pouvez définir une valeur supérieure ou inférieure. Le paramètre `count:12` renvoie les 12 premières correspondances dans les résultats de la facette selon le décompte de documents.
+  Dans une requête de facette, vous pouvez définir le décompte sur une valeur.  La valeur par défaut est 10, mais vous pouvez définir une valeur supérieure ou inférieure. Le paramètre `count:12` renvoie les 12 premières correspondances dans les résultats de la facette selon le décompte de documents.
 * "`@odata.count`"<br/>
-   Dans la réponse de la requête, cette valeur indique le nombre d'éléments correspondants dans les résultats de la recherche. En moyenne, il est supérieur à la somme de tous les résultats de la facette combinés, en raison de la présence d'éléments qui correspondent au terme de la recherche, mais sans correspondance avec la valeur de la facette.
+  Dans la réponse de la requête, cette valeur indique le nombre d'éléments correspondants dans les résultats de la recherche. En moyenne, il est supérieur à la somme de tous les résultats de la facette combinés, en raison de la présence d'éléments qui correspondent au terme de la recherche, mais sans correspondance avec la valeur de la facette.
 
 **Obtenir les décomptes dans les résultats de facettes**
 
@@ -321,7 +321,7 @@ Dans certaines circonstances, il est possible que les décomptes de facettes ne 
 
 Les décomptes de facettes peuvent être erronés en raison de l'architecture de partitionnement. Chaque index de recherche a plusieurs partitions et chacune d’elles indique les N premières facettes par décompte de document, qui est ensuite combiné en un résultat unique. Si certaines partitions ont beaucoup de valeurs correspondantes, tandis que d’autres en ont moins, il est possible que certaines valeurs de facettes soient manquantes ou sous-comptabilisées dans les résultats.
 
-Ce comportement peut changer à tout moment, si vous rencontrez ce problème aujourd'hui, vous pouvez contourner en gonflant artificiellement le décompte :\<nombre > sur un nombre élevé pour appliquer la déclaration complète de chaque partition. Si la valeur de décompte : est supérieure ou égale au nombre de valeurs uniques dans le champ, vous êtes sûr d'obtenir des résultats précis. Toutefois, lorsque les décomptes de documents sont élevés, les performances baissent, alors utilisez cette option judicieusement.
+Ce comportement peut changer à tout moment, mais si vous rencontrez ce problème aujourd’hui, vous pouvez le contourner en gonflant artificiellement le décompte :\<nombre> sur un nombre élevé pour appliquer la déclaration complète à partir de chaque partition. Si la valeur de décompte : est supérieure ou égale au nombre de valeurs uniques dans le champ, vous êtes sûr d'obtenir des résultats précis. Toutefois, lorsque les décomptes de documents sont élevés, les performances baissent, alors utilisez cette option judicieusement.
 
 ### <a name="user-interface-tips"></a>Conseils sur l’interface utilisateur
 **Ajouter des étiquettes pour chaque champ dans la navigation à facettes**
@@ -339,9 +339,9 @@ Azure Search simplifie la création de plage en fournissant deux approches pour 
 Pour définir les facettes de prix par incréments de 10 $, vous devez spécifier :`&facet=price,interval:10`
 
 **Approche 2 : Utiliser une liste de valeurs**  
- Pour les données numériques, vous pouvez utiliser une liste de valeurs.  Prenez en compte la plage de facette pour un champ `listPrice`, indiquée comme suit :
+Pour les données numériques, vous pouvez utiliser une liste de valeurs.  Prenez en compte la plage de facette pour un champ `listPrice`, indiquée comme suit :
 
-  ![Exemple de liste de valeurs][5]
+  ![Exemple de liste de valeurs](media/search-faceted-navigation/Facet-5-Prices.PNG "Exemple de liste de valeurs")
 
 Pour spécifier une plage de facette comme celle de la capture d’écran précédente, utilisez une liste de valeurs :
 
@@ -352,7 +352,7 @@ Chaque plage est créée avec 0 comme point de départ, une valeur de la liste c
 ### <a name="build-a-filter-for-a-range"></a>Créer un filtre pour une plage
 Pour filtrer les documents en fonction d’une plage que vous avez sélectionnée, vous pouvez utiliser les opérateurs de filtre `"ge"` et `"lt"` dans une expression en deux parties qui définit les points de terminaison de la plage. Par exemple, si vous choisissez la plage 10-25 pour un champ `listPrice`, le filtre sera `$filter=listPrice ge 10 and listPrice lt 25`. Dans l’exemple de code, l’expression de filtre utilise les paramètres **priceFrom** et **priceTo** pour définir les points de terminaison. 
 
-  ![Requête pour une plage de valeurs][6]
+  ![Requête pour une plage de valeurs](media/search-faceted-navigation/Facet-6-buildfilter.PNG "Requête pour une plage de valeurs")
 
 <a name="geofacets"></a> 
 
@@ -385,11 +385,11 @@ Lorsque vous utilisez les résultats de la recherche, observez les modifications
    
    Une structure de navigation à facettes est également renvoyée avec les résultats de la recherche. Dans la page de résultats de la recherche, la structure de la navigation à facettes inclut des décomptes pour chaque résultat de facette. Aucune facette n’est sélectionnée : tous les résultats correspondants sont donc renvoyés.
    
-   ![Résultats de recherche avant la sélection des facettes][11]
+   ![Résultats de recherche avant la sélection des facettes](media/search-faceted-navigation/faceted-search-before-facets.png "Résultats de recherche avant la sélection des facettes")
 
 4. Cliquez sur une Fonction, un Lieu ou un Salaire minimal. Les facettes sont égales à « null » pour la recherche initiale, mais lorsqu’elles prennent des valeurs, les éléments qui ne correspondent plus sont supprimés des résultats de la recherche.
    
-   ![Résultats de recherche après la sélection des facettes][12]
+   ![Résultats de recherche après la sélection des facettes](media/search-faceted-navigation/faceted-search-after-facets.png "Résultats de recherche après la sélection des facettes")
 
 5. Pour effacer la requête à facettes afin de tester des comportements de requête différents, cliquez sur `[X]` en regard des facettes sélectionnées dans le but d’effacer ces dernières.
    
@@ -400,42 +400,6 @@ Regardez la [Présentation approfondie de la Recherche Azure](https://channel9.m
 
 Pour plus d'informations sur les principes de conception pour la navigation à facettes, nous vous recommandons les liens suivants :
 
-* [Conception pour la recherche à facettes](http://www.uie.com/articles/faceted_search/)
 * [Modèles de conception : Navigation à facettes](https://alistapart.com/article/design-patterns-faceted-navigation)
-
-
-<!--Anchors-->
-[How to build it]: #howtobuildit
-[Build the presentation layer]: #presentationlayer
-[Build the index]: #buildindex
-[Check for data quality]: #checkdata
-[Build the query]: #buildquery
-[Tips on how to control faceted navigation]: #tips
-[Faceted navigation based on range values]: #rangefacets
-[Faceted navigation based on GeoPoints]: #geofacets
-[Try it out]: #tryitout
-
-<!--Image references-->
-[1]: ./media/search-faceted-navigation/azure-search-faceting-example.PNG
-[2]: ./media/search-faceted-navigation/Facet-2-CSHTML.PNG
-[3]: ./media/search-faceted-navigation/Facet-3-schema.PNG
-[4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
-[5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
-[6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
-[10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
-[11]: ./media/search-faceted-navigation/faceted-search-before-facets.png
-[12]: ./media/search-faceted-navigation/faceted-search-after-facets.png
-
-<!--Link references-->
-[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
+* [Problèmes de serveur frontal lors de l’implémentation de la recherche à facettes - Partie 1](https://articles.uie.com/faceted_search2/)
 

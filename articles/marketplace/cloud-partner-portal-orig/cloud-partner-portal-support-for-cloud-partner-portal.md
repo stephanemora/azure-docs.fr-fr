@@ -1,38 +1,31 @@
 ---
-title: Support pour le portail Cloud Partner | Microsoft Docs
+title: Support du portail Microsoft Cloud Partner | Place de marché Azure
 description: Bénéficiez du support dans le portail Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 54ceb8768ed641beac8ab812a9d90936c4c911f5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 35a5a4c4cfdbfa26ea00f0f4d76f91f9f76a1ca5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935374"
 ---
 # <a name="get-support-for-cloud-partner-portal"></a>Bénéficier du support dans le portail Cloud Partner
 
 Microsoft prend en charge un large éventail de produits et services.
 S'assurer que votre requête soit traitée par l'équipe de support appropriée est primordial pour garantir une réponse appropriée et en temps voulu. Parmi les scénarios suivants, lequel devrait vous aider à acheminer votre demande vers l’équipe appropriée ?
 
--   Si vous êtes un serveur de publication et que vous avez une question à partir d’un client, demandez à votre client pour demander la prise en charge à l’aide de liens de support à [portail Azure](https://portal.azure.com/)
+-   En tant qu'éditeur, si un client vous pose une question, demandez-lui de faire appel au support via les liens de support du  [portail Azure](https://portal.azure.com/).
 
 -   Si vous êtes un éditeur et que vous avez une question relative à votre application ou votre service, examinez les étapes suivantes pour ouvrir un ticket de support.
 
 ## <a name="to-open-a-support-ticket"></a>Pour ouvrir un ticket de support
 
-1. Accédez à [portail Microsoft Cloud Partner](https://cloudpartner.azure.com/) et connectez-vous avec votre compte professionnel ou scolaire.
+1. Accédez au  [portail Cloud Partner](https://cloudpartner.azure.com/) et connectez-vous avec votre compte professionnel ou scolaire.
 
 2. Dans le menu en haut à droite de la page, sélectionnez l’icône d’**aide**, puis sélectionnez **Support**.
 

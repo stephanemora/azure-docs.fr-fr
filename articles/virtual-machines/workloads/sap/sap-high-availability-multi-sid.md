@@ -4,25 +4,24 @@ description: Guide de configuration de haute disponibilité pour SAP NetWeaver m
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: 0b89b4f8-6d6c-45d7-8d20-fe93430217ca
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fe9b70d74e326166afae366becc47fbcc8b2ea56
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 75d4c4e38069cb192917f275245d87bb4c63d502
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788713"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078147"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Créer une configuration SAP NetWeaver multi-SID
 
@@ -56,7 +55,7 @@ Cet article met l’accent sur le passage d’une installation ASCS/SCS unique �
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Vous avez déjà configuré un cluster WSFC qui est utilisé pour une instance SAP ASCS/SCS, comme indiqué dans le [Guide de haute disponibilité SAP NetWeaver sur machines virtuelles Windows][sap-ha-guide] et comme illustré dans ce diagramme.
 
 ![Instance SAP ASCS/SCS à haute disponibilité][sap-ha-guide-figure-6001]
@@ -242,12 +241,12 @@ Le processus complet d’installation d’un deuxième système SAP SID2 est dé
 
 La procédure détaillée est la suivante :
 
-1. [Installez le premier nœud de cluster SAP][sap-ha-guide-9.1.2].  
+1. [Installer le premier nœud de cluster SAP][sap-ha-guide-9.1.2].  
  Dans cette étape, vous installez SAP avec une instance ASCS/SCS à haute disponibilité sur le **nœud de cluster WSFC existant 1**.
 
-2. [Modifiez le profil SAP de l’instance ASCS/SCS][sap-ha-guide-9.1.3].
+2. [Modifier le profil SAP de l’instance ASCS/SCS][sap-ha-guide-9.1.3].
 
-3. [Configurez un port de sonde][sap-ha-guide-9.1.4].  
+3. [Configurer un port de sonde][sap-ha-guide-9.1.4].  
  Dans cette étape, vous configurez le port de sonde SAP-SID2-IP d’une ressource de cluster SAP à l’aide de PowerShell. Exécutez cette configuration sur un des nœuds de cluster SAP ASCS/SCS.
 
 4. [Installer l’instance de base de données][sap-ha-guide-9.2].  
@@ -271,5 +270,5 @@ La procédure détaillée est la suivante :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Limites de mise en réseau : Azure Resource Manager][networking-limits-azure-resource-manager]
-- [Adresses IP virtuelles multiples pour l’équilibrage de charge Azure][load-balancer-multivip-overview]
+- [Adresses IP virtuelles multiples pour Azure Load Balancer][load-balancer-multivip-overview]
 - [Guide de haute disponibilité SAP NetWeaver sur des machines virtuelles Windows][sap-ha-guide]

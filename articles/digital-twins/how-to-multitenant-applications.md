@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 08/12/2019
 ms.author: mavoge
-ms.openlocfilehash: 2b4f9bf87122f047e496dca1dbd425db8ad7c16c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 2ee3681640f68839c32e2963b34d5547abb6943b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119966"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976882"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Applications multilocataires avec Azure Digital Twins
 

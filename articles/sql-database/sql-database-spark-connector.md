@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 8e531de34302ef8aee571c960955d33a4832aa11
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 49877994e7eef89f099e19d92e26de48bd9d41f4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013701"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566459"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Accélérer l’analytique du Big Data en temps réel avec le connecteur Spark pour Azure SQL Database et SQL Server
 
-Le connecteur Spark pour Azure SQL Database et SQL Server permet aux bases de données SQL, y compris à Azure SQL Database et SQL Server, de jouer le rôle de source de données d’entrée ou de récepteur de données de sortie pour les travaux Spark. Il vous permet d’utiliser des données transactionnelles en temps réel dans l’analytique du Big Data et de conserver les résultats pour des requêtes ad hoc ou des rapports. Par rapport au connecteur JDBC intégré, ce connecteur offre la possibilité d’insérer des données en bloc dans des bases de données SQL. Il peut donner de meilleurs résultats que l’insertion ligne par ligne et atteindre des performances entre 10 et 20 fois plus rapides. Le connecteur Spark pour Azure SQL Database et SQL Server prend également en charge l’authentification AAD. Il vous permet de vous connecter en toute sécurité à votre base de données SQL Azure depuis Azure Databricks à l’aide de votre compte AAD. Il fournit des interfaces similaires à celles du connecteur JDBC intégré. Effectuer la migration de vos travaux Spark existants pour utiliser ce nouveau connecteur est très simple.
+Le connecteur Spark pour Azure SQL Database et SQL Server permet aux bases de données SQL, y compris à Azure SQL Database et SQL Server, de jouer le rôle de source de données d’entrée ou de récepteur de données de sortie pour les travaux Spark. Il vous permet d’utiliser des données transactionnelles en temps réel dans l’analytique du Big Data et de conserver les résultats pour des requêtes ad hoc ou des rapports. Par rapport au connecteur JDBC intégré, ce connecteur offre la possibilité d’insérer des données en bloc dans des bases de données SQL. Il peut donner de meilleurs résultats que l’insertion ligne par ligne et atteindre des performances entre 10 et 20 fois plus rapides. Le connecteur Spark pour Azure SQL Database et SQL Server prend également en charge l’authentification AAD. Il vous permet de vous connecter en toute sécurité à votre base de données Azure SQL depuis Azure Databricks à l’aide de votre compte AAD. Il fournit des interfaces similaires à celles du connecteur JDBC intégré. Effectuer la migration de vos travaux Spark existants pour utiliser ce nouveau connecteur est très simple.
 
 ## <a name="download"></a>Téléchargement
 Pour commencer, téléchargez le connecteur Spark à SQL Database depuis le [dépôt azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) sur GitHub.
@@ -55,7 +54,7 @@ Actuellement, le projet de connecteur utilise maven. Pour créer le connecteur s
 - Le fichier SQL DB Spark JAR inclus
 
 ## <a name="connect-spark-to-sql-db-using-the-connector"></a>Connecter Spark à SQL Database à l’aide du connecteur
-Vous pouvez vous connecter à Azure SQL Database ou à SQL Server à partir de travaux Spark, lire ou écrire des données. Vous pouvez également exécuter une requête DML ou DDL dans une base de données SQL Azure ou SQL Server.
+Vous pouvez vous connecter à Azure SQL Database ou à SQL Server à partir de travaux Spark, lire ou écrire des données. Vous pouvez également exécuter une requête DML ou DDL dans une base de données Azure SQL ou SQL Server.
 
 ### <a name="read-data-from-azure-sql-database-or-sql-server"></a>Lire des données à partir d’Azure SQL Database ou SQL Server
 
@@ -161,7 +160,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Configuration requise
 Si vous utilisez le mode d’authentification par jeton d’accès, vous devez télécharger [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) et ses dépendances, puis les inclure dans le chemin de la build Java.
 
-Consultez [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database](sql-database-aad-authentication.md) pour savoir comment obtenir un jeton d’accès à votre base de données SQL Azure.
+Consultez [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database](sql-database-aad-authentication.md) pour savoir comment obtenir un jeton d’accès à votre base de données Azure SQL.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config
@@ -180,7 +179,7 @@ collection.show()
 ```
 
 ## <a name="write-data-to-azure-sql-database-or-sql-server-using-bulk-insert"></a>Écrire des données dans Azure SQL Database ou SQL Server en utilisant l’insertion en bloc
-Le connecteur JDBC traditionnel écrit les données dans Azure SQL Database ou SQL Server en utilisant l’insertion ligne par ligne. Vous pouvez utiliser le connecteur Spark à SQL Database pour écrire des données dans la base de données SQL en utilisant l’insertion en bloc. Ce connecteur améliore considérablement les performances d’écriture lors du chargement de grands jeux de données ou de données dans des tables où un index de banque des colonnes est utilisé.
+Le connecteur JDBC traditionnel écrit les données dans la base de données Azure SQL ou SQL Server en utilisant l’insertion ligne par ligne. Vous pouvez utiliser le connecteur Spark à SQL Database pour écrire des données dans la base de données SQL en utilisant l’insertion en bloc. Ce connecteur améliore considérablement les performances d’écriture lors du chargement de grands jeux de données ou de données dans des tables où un index de banque des colonnes est utilisé.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.bulkcopy.BulkCopyMetadata
@@ -202,7 +201,6 @@ val bulkCopyConfig = Config(Map(
   "databaseName"      -> "MyDatabase",
   "user"              -> "username",
   "password"          -> "*********",
-  "databaseName"      -> "zeqisql",
   "dbTable"           -> "dbo.Clients",
   "bulkCopyBatchSize" -> "2500",
   "bulkCopyTableLock" -> "true",

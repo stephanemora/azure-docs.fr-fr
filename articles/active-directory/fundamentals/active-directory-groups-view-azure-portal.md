@@ -2,23 +2,23 @@
 title: Démarrage rapide pour afficher les membres et groupes – Azure Active Directory | Microsoft Docs
 description: Instructions permettant de rechercher et d’afficher les groupes et membres assignés de votre organisation.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eef6f7a363fe7b020a3ef18ae26799d7d5452ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9b4f2f6e86ce076e7c0464609252b027499a8307
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881008"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942886"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -53,7 +53,7 @@ Créez un groupe nommé _MDM policy - West_ (Stratégie GPM - Ouest). Pour plus 
 3. Sélectionnez **Créer**.
 
 ## <a name="create-a-new-user"></a>Créer un utilisateur
-Créez un utilisateur nommé _Alain Charon_. Un utilisateur doit exister avant d’être ajouté comme membre du groupe. Pour plus d’informations sur la création d’un utilisateur, consultez [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](add-users-azure-active-directory.md).
+Créez un utilisateur nommé _Alain Charon_. Un utilisateur doit exister avant d’être ajouté comme membre du groupe. Consultez d’abord l’onglet « Noms de domaine personnalisés » pour connaître le nom de domaine vérifié dans lequel créer des utilisateurs. Pour plus d’informations sur la création d’un utilisateur, consultez [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](add-users-azure-active-directory.md).
 
 1. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Nouvel utilisateur**.
 

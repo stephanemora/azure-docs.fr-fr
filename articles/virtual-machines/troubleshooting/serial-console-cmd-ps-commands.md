@@ -4,22 +4,21 @@ description: Comment utiliser les commandes CMD et PowerShell au sein de la cons
 services: virtual-machines-windows
 documentationcenter: ''
 author: alsin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: a106984bc60d0ccfe29a1956213aec6f87ad30dd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074996"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090170"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Commandes Windows - CMD et PowerShell
 
@@ -118,7 +117,7 @@ Lorsque vous êtes limité aux méthodes disponibles dans Windows par défaut, P
 ### <a name="disable-windows-firewall"></a>Désactiver le Pare-feu Windows
 `netsh advfirewall set allprofiles state off`
 
-Vous pouvez utiliser cette commande lors de la résolution des problèmes pour écarter temporairement le Pare-feu Windows. Il s’agit de permettre au redémarrage suivant ou lorsque vous activez en utilisant la commande ci-dessous. N’arrêtez pas le service de Pare-feu Windows (MPSSVC) ni le service de moteur de filtrage de base (BFE) pour écarter le Pare-feu Windows. L’arrêt des services MPSSVC ou BFE entraîne le blocage de toute la connectivité.
+Vous pouvez utiliser cette commande lors de la résolution des problèmes pour écarter temporairement le Pare-feu Windows. Il sera activé au prochain redémarrage ou lorsque vous l’activerez à l’aide de la commande ci-dessous. N’arrêtez pas le service de Pare-feu Windows (MPSSVC) ni le service de moteur de filtrage de base (BFE) pour écarter le Pare-feu Windows. L’arrêt des services MPSSVC ou BFE entraîne le blocage de toute la connectivité.
 ### <a name="enable-windows-firewall"></a>Activer le Pare-feu Windows
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>Gérer les utilisateurs et les groupes
@@ -241,7 +240,7 @@ L’ajout de `/f` force la fermeture des applications en cours d’exécution sa
 ### <a name="detect-safe-mode-boot"></a>Détecter le démarrage en mode sans échec
 `bcdedit /enum | find /i "safeboot"` 
 
-# <a name="windows-commands---powershell"></a>Commandes Windows - PowerShell
+## <a name="windows-commands---powershell"></a>Commandes Windows - PowerShell
 
 Pour exécuter PowerShell dans la console SAC, après avoir accédé à une invite de commandes, entrez :
 

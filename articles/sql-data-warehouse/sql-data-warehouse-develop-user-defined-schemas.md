@@ -2,20 +2,20 @@
 title: Utilisation de schémas définis par l’utilisateur dans SQL Data Warehouse | Microsoft Docs
 description: Conseils relatifs à l’utilisation de schémas T-SQL dans Azure SQL Data Warehouse pour le développement de solutions.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ae017461767a207deae1d990980258a1f661df3d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e0ae00e0fca5ed4c6fba04444e5c50424462d297
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468442"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479580"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>Utilisation de schémas définis par l’utilisateur dans SQL Data Warehouse
 Conseils relatifs à l’utilisation de schémas T-SQL dans Azure SQL Data Warehouse pour le développement de solutions.

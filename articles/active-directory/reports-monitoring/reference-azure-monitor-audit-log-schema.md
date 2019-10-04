@@ -1,9 +1,9 @@
 ---
-title: Interpréter le schéma de journal d’audit Azure Active Directory dans Azure Monitor | Microsoft Docs
-description: Décrire le schéma de journal d’audit Azure AD pour une utilisation dans Azure Monitor
+title: Interpréter le schéma des journaux d’audit Azure Active Directory dans Azure Monitor | Microsoft Docs
+description: Décrire le schéma de journal d’audit Azure AD pour une utilisation dans Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010226"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987954"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpréter le schéma des journaux d’audit Azure Active Directory dans Azure Monitor (préversion)
 
@@ -178,6 +178,6 @@ Cet article décrit le schéma de journal d’audit Azure Active Directory (Azur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Interpréter le schéma des journaux de connexion dans Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
+* [Interpréter le schéma des journaux d’activité de connexion dans Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
 * [Journaux de diagnostics Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Questions fréquentes et problèmes connus](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

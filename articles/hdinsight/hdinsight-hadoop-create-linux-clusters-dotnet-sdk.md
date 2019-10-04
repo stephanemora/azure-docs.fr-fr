@@ -1,20 +1,19 @@
 ---
 title: Créer des clusters Apache Hadoop avec .NET - Azure HDInsight
 description: Découvrez comment créer des clusters Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark sur Linux pour HDInsight à l’aide du kit de développement logiciel (SDK) HDInsight .NET.
-services: hdinsight
-author: mamccrea
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.author: mamccrea
-ms.openlocfilehash: 0106063cfe376f31040b5dcd6856282ee09ae5c9
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.author: hrasheed
+ms.openlocfilehash: fccb29167dc04bf75a85935eeb57b0420b151f64
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447955"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916481"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET
 
@@ -28,17 +27,17 @@ Découvrez comment créer un cluster [Apache Hadoop](https://hadoop.apache.org/)
 >
 > Pour plus d’informations sur les tailles de nœud et les coûts associés, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Un abonnement Azure**. Consultez [Obtenir une version d'évaluation gratuite d'Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un compte Azure Storage**. Voir [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
-* **Visual Studio 2013, Visual Studio 2015 ou Visual Studio 2017**.
+* **Visual Studio**.
 
 ## <a name="create-clusters"></a>Créer des clusters
 
-1. Ouvrez Visual Studio 2017.
+1. Ouvrez Visual Studio.
 2. Créez une application console Visual C#.
 3. Dans le menu **Outils**, cliquez sur **Gestionnaire de package NuGet**, puis sur **Console du Gestionnaire de package**.
 4. Exécutez la commande suivante dans la console pour installer les packages :
@@ -394,7 +393,6 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 
 ### <a name="run-jobs"></a>Exécuter des tâches
 * [Exécuter des tâches Apache Hive dans HDInsight avec le SDK .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Exécuter des tâches Apache Pig dans HDInsight avec le SDK .NET](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [Exécuter des tâches Apache Sqoop dans HDInsight avec le SDK .NET](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Exécuter des tâches Apache Oozie dans HDInsight](hdinsight-use-oozie-linux-mac.md)
 

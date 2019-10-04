@@ -2,22 +2,19 @@
 title: 'Tutoriel : Utiliser Azure Key Vault avec une machine virtuelle Windows dans Python | Microsoft Docs'
 description: Dans ce tutoriel, vous allez configurer une application ASP.NET Core pour lire un secret dans votre coffre de clés.
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: msmbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 133de5410d5e506c9528e2dba90dd4c00d8fcc2d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 52791719e518f6a6b1a4178d8b9a010f1db14fc4
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438208"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003867"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Didacticiel : Utiliser Azure Key Vault avec une machine virtuelle Windows dans Python
 
@@ -35,7 +32,7 @@ Ce didacticiel explique les procédures suivantes :
 > * Activez une identité managée.
 > * Attribuez des autorisations à l’identité de machine virtuelle.
 
-Avant de continuer, lisez les [concepts de base de Key Vault](key-vault-whatis.md#basic-concepts). 
+Avant de continuer, lisez les [concepts de base de Key Vault](basic-concepts.md). 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -49,7 +46,7 @@ Pour Windows, Mac et Linux :
 
 Azure Key Vault stocke les informations d’identification de manière sécurisée, de façon à ce qu’elles n’apparaissent pas dans votre code. Toutefois, vous devez vous authentifier auprès d’Azure Key Vault pour récupérer vos clés. Pour vous authentifier auprès de Key Vault, vous avez besoin d’informations d’identification. Il s’agit d’un dilemme de démarrage classique. Managed Service Identity (MSI) résout ce problème en fournissant une _identité de démarrage_.
 
-Lorsque vous activez MSI pour un service Azure, par exemple, Machines virtuelles Azure, Azure App Service ou Azure Functions, Azure crée un [principal de service](key-vault-whatis.md#basic-concepts). MSI procède ainsi pour l’instance du service dans Azure Active Directory (Azure AD) et injecte les informations d’identification du principal de service dans cette instance. 
+Lorsque vous activez MSI pour un service Azure, par exemple, Machines virtuelles Azure, Azure App Service ou Azure Functions, Azure crée un [principal de service](basic-concepts.md). MSI procède ainsi pour l’instance du service dans Azure Active Directory (Azure AD) et injecte les informations d’identification du principal de service dans cette instance. 
 
 ![MSI](media/MSI.png)
 
@@ -106,9 +103,9 @@ Ce secret stocke la valeur **MySecret**.
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 Vous pouvez créer une machine virtuelle à l’aide de l’une des méthodes suivantes :
 
-* [L’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
-* [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [Le portail Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [L’interface de ligne de commande Microsoft Azure](../virtual-machines/windows/quick-create-cli.md)
+* [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+* [Le portail Azure](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="assign-an-identity-to-the-vm"></a>Affecter une identité à la machine virtuelle
 Dans cette étape, vous créez une identité affectée par le système pour la machine virtuelle en exécutant la commande suivante dans Azure CLI :
@@ -135,7 +132,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## <a name="log-on-to-the-virtual-machine"></a>Connexion à la machine virtuelle
 
-Pour vous connecter à la machine virtuelle, suivez les instructions de l’article [Se connecter à une machine virtuelle Azure exécutant Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+Pour vous connecter à la machine virtuelle, suivez les instructions de l’article [Se connecter à une machine virtuelle Azure exécutant Windows](../virtual-machines/windows/connect-logon.md).
 
 ## <a name="create-and-run-a-sample-python-app"></a>Créer et exécuter l’exemple d’application Python
 

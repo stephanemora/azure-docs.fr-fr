@@ -2,25 +2,30 @@
 title: Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 description: Découvrez comment mettre à niveau un cluster Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2019
-ms.author: iainfou
-ms.openlocfilehash: 59d52db8c3f5f8968eae1a544abe1e5c6bbaacca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.date: 05/31/2019
+ms.author: mlearned
+ms.openlocfilehash: 9404888eadf94eaf86a6e8584b49595e10b34c69
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185978"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71264184"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
-Dans le cadre du cycle de vie d’un cluster AKS, vous devez souvent opérer une mise à niveau vers la dernière version de Kubernetes. Il est important d’appliquer les dernières publications de sécurité de Kubernetes, ou d’opérer une mise à niveau pour obtenir les dernières fonctionnalités. Cet article vous montre comment mettre à niveau un cluster AKS existant.
+Dans le cadre du cycle de vie d’un cluster AKS, vous devez souvent opérer une mise à niveau vers la dernière version de Kubernetes. Il est important d’appliquer les dernières publications de sécurité de Kubernetes, ou d’opérer une mise à niveau pour obtenir les dernières fonctionnalités. Cet article vous montre comment mettre à niveau les composants principaux ou un pool de nœud unique par défaut dans un cluster AKS.
+
+Pour en savoir plus sur les clusters AKS utilisant plusieurs pools de nœuds ou des nœuds Windows Server (les deux sont actuellement en préversion dans ACS), consultez [Mettre à niveau à niveau un pool de nœuds dans ACS][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.56 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.65 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
+
+> [!WARNING]
+> Une mise à niveau de cluster AKS déclenche une isolation et un drainage de vos nœuds. Si vous n’avez qu’un quota de calcul faible, la mise à niveau peut échouer.  Pour plus d’informations, consultez l’article [Augmenter les quotas](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289).
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Recherchez les mises à niveau du cluster AKS disponibles
 
@@ -31,27 +36,36 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> Lors de la mise à niveau d’un cluster AKS, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau *1.10.x* -> *1.11.x* ou *1.11.x* -> *1.12.x* sont autorisées, mais pas *1.10.x* -> *1.12.x*.
+> Lors de la mise à niveau d’un cluster AKS, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau *1.12.x* -> *1.13.x* ou *1.13.x* -> *1.14.x* sont autorisées, mais pas *1.12.x* -> *1.14.x*.
 >
-> Pour opérer une mise à niveau *1.10.x* -> *1.12.x*, commencez par une mise à niveau *1.10.x* -> *1.11.x*, puis opérez la mise à niveau *1.11.x* -> *1.12.x*.
+> Pour opérer une mise à niveau *1.12.x* -> *1.14.x*, commencez par une mise à niveau *1.12.x* -> *1.13.x*, puis effectuez la mise à niveau *1.13.x* -> *1.14.x*.
 
-L’exemple de sortie suivant montre que le cluster peut être mis à niveau vers la version *1.11.5* ou *1.11.6* :
+L’exemple de sortie suivant montre que le cluster peut être mis à niveau vers les versions *1.13.9* et *1.13.10* :
 
 ```console
-Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.10.12          1.10.12            1.11.5, 1.11.6
+Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
+-------  ----------------  ---------------  -----------------  ---------------
+default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
+```
+Si aucune mise à niveau n’est disponible, vous obtenez :
+```console
+ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>Mettre à niveau un cluster AKS
 
-Avec une liste des versions disponibles pour votre cluster AKS, utilisez la commande [az aks upgrade] [ az-aks-upgrade] pour opérer la mise à niveau. Pendant le processus de mise à niveau, AKS ajoute un nouveau au cluster, puis [isole et draine][kubernetes-drain] précautionneusement un seul nœud à la fois, afin de perturber le moins possible les applications en cours d’exécution. Les exemples suivants mettent à niveau le cluster vers la version *1.11.6*.
+Avec une liste des versions disponibles pour votre cluster AKS, utilisez la commande [az aks upgrade][az-aks-upgrade] pour opérer la mise à niveau. Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud au cluster exécutant la version de Kubernetes indiquée, puis il [isole et draine][kubernetes-drain] précautionneusement l’un des anciens nœuds afin de perturber le moins possible les applications en cours d’exécution. Une fois que l’exécution des pods d’application par le nouveau nœud est confirmée, l’ancien nœud est supprimé. Ce processus se répète jusqu’à ce que tous les nœuds du cluster soient mis à niveau.
+
+L’exemple suivant met à niveau le cluster vers la version *1.13.10* :
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.6
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
 ```
 
-Quelques minutes suffisent pour mettre à niveau le cluster. Le temps nécessaire varie en fonction du nombre de nœuds.
+Quelques minutes suffisent pour mettre à niveau le cluster. Le temps nécessaire varie en fonction du nombre de nœuds. 
+
+> [!NOTE]
+> Il existe un temps total alloué à la mise à niveau de cluster. Cette durée est calculée en prenant le produit de l’opération `10 minutes * total number of nodes in the cluster`. Par exemple, dans un cluster de 20 nœuds, les opérations de mise à niveau doivent réussir en 200 minutes. Dans le cas contraire, AKS fait échouer l’opération pour éviter un état de cluster irrécupérable. Pour effectuer une récupération en cas d’échec de mise à niveau, retentez l’opération de mise à niveau une fois le délai d’expiration atteint.
 
 Pour vérifier si la mise à niveau a réussi, utilisez la commande [az aks show][az-aks-show] :
 
@@ -59,12 +73,12 @@ Pour vérifier si la mise à niveau a réussi, utilisez la commande [az aks show
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-L’exemple de sortie suivant montre que le cluster exécute à présent *1.11.6* :
+L’exemple de sortie suivant montre que le cluster exécute à présent *1.13.10* :
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.11.6               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.13.10               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -83,3 +97,4 @@ Cet article vous a montré comment mettre à niveau un cluster AKS existant. Pou
 [az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

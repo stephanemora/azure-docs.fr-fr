@@ -1,28 +1,59 @@
-items:
-- name: Documentation OpenShift
-  href: index.md
-- name: Démarrages rapides
+- name: Azure Red Hat OpenShift
+  href: index.yml
+- name: Vue d'ensemble
   items:
-  - name: 'OpenShift : modèle de communauté'
-    href: https://azure.microsoft.com/resources/templates/openshift-origin-rhel/
+    - name: À propos d’Azure Red Hat OpenShift
+      href: intro-openshift.md
+- name: Tutoriels
+  items:
+    - name: Créer et gérer un cluster Azure Red Hat OpenShift
+      items:
+        - name: 1 - Créer un cluster Azure Red Hat OpenShift
+          href: tutorial-create-cluster.md
+        - name: 2 - Mettre à l’échelle un cluster Azure Red Hat OpenShift
+          href: tutorial-scale-cluster.md
+        - name: 3 - Supprimer un cluster Azure Red Hat OpenShift
+          href: tutorial-delete-cluster.md
+- name: Administration des clusters
+  items:
+    - name: Administration des clusters Azure Red Hat OpenShift
+      items:
+        - name: 1 - Rôle de l’administrateur de clusters Azure Red Hat OpenShift
+          href: cluster-administration-cluster-admin-role.md
+        - name: 2 - Gestion des limites de contexte de sécurité
+          href: cluster-administration-security-context-constraints.md
+- name: Guides pratiques
   expanded: true
-- name: Didacticiels
   items:
-  - name: Déployer sur des machines virtuelles Azure
-    href: /azure/virtual-machines/linux/openshift-get-started
+    - name: Configurer votre environnement de développement Azure Red Hat OpenShift
+      href: howto-setup-environment.md
+      expanded: true
+      items:
+        - name: Créer un locataire Azure AD
+          href: howto-create-tenant.md
+        - name: Créer un utilisateur et un objet d’application Azure AD
+          href: howto-aad-app-configuration.md
+    - name: Déployer un prometheus autonome sur un cluster Azure Red Hat OpenShift
+      href: howto-deploy-prometheus.md
+    - name: Gérer des projets dans un cluster Azure Red Hat OpenShift
+      href: howto-manage-projects.md
+- name: Informations de référence
+  items:
+    - name: Interface CLI Azure Red Hat OpenShift
+      href: /cli/azure/openshift
+    - name: API REST Azure Red Hat OpenShift
+      href: /rest/api/openshift
 - name: Ressources
   items:
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Modèle de conteneur OpenShift
-    href: https://github.com/Microsoft/openshift-container-platform
-  - name: OpenShift Origin
-    href: https://docs.openshift.org/latest/getting_started/index.html
-  - name: Site OpenShift
-    href: https://docs.openshift.org/latest/welcome/index.html
-ms.openlocfilehash: d0339ac640f7f4f554d99bbff26ca258ed3620c6
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362009"
+    - name: Questions courantes
+      href: openshift-faq.md
+    - name: Résolution de problèmes
+      href: troubleshoot.md
+    - name: Ressources prises en charge
+      href: supported-resources.md
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Documentation Red Hat OpenShift
+      href: 'https://docs.openshift.com/aro/welcome/index.html'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'

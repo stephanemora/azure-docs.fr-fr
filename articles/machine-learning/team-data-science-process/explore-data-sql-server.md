@@ -12,11 +12,11 @@ ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: be75490e4e86956337ce38133df6095790b3a374
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896294"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60303643"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Explorer les données d’une machine virtuelle SQL Server sur Azure
 
@@ -41,7 +41,7 @@ Voici quelques exemples de scripts SQL utilisables pour l’exploration de magas
 3. Obtenir le nombre de niveaux en combinant deux colonnes catégorielles 
    
     `select <column_a>, <column_b>,count(*) from <tablename> group by <column_a>, <column_b>`
-4. Obtenir la distribution relative aux colonnes numériques 
+4. Obtenir la distribution relative aux colonnes numériques
    
     `select <column_name>, count(*) from <tablename> group by <column_name>`
 

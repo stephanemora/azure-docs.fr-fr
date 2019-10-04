@@ -9,22 +9,21 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a6d8326afa3bcf13234ab072a2cd2909a864738b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 89f731062ce46969c73f745d62b289b3b3483d8c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002855"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100351"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurer le groupe de disponibilité Always On sur une machine virtuelle Azure avec PowerShell
 > [!div class="op_single_selector"]
-> * [Classique : UI](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Classique : Interface utilisateur](../classic/portal-sql-alwayson-availability-groups.md)
 > * [Classique : PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
@@ -239,7 +238,7 @@ Le serveur du contrôleur de domaine est maintenant correctement configuré. Ens
         $acl.AddAccessRule($ace1)
         Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
-    Le GUID spécifié ci-dessus est celui du type d’objet ordinateur. Le compte **CORP\Install** nécessite les autorisations **Lire toutes les propriétés** et  **Créer des objets d’ordinateur** pour créer les objets Active Directory du cluster de basculement. L’autorisation **Lire toutes les propriétés** étant déjà accordée à CORP\Install par défaut, vous ne devez donc pas le faire explicitement. Pour plus d’informations sur les autorisations nécessaires pour créer le cluster de basculement, consultez [Guide pas à pas du Cluster de basculement : Configuration des comptes dans Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
+    Le GUID spécifié ci-dessus est celui du type d’objet ordinateur. Le compte **CORP\Install** nécessite les autorisations **Lire toutes les propriétés** et  **Créer des objets d’ordinateur** pour créer les objets Active Directory du cluster de basculement. L’autorisation **Lire toutes les propriétés** étant déjà accordée à CORP\Install par défaut, vous ne devez donc pas le faire explicitement. Pour plus d'informations sur les autorisations nécessaires pour créer le cluster de basculement, consultez [Guide pas à pas du cluster de basculement : configuration de comptes dans Active Directory](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx).
 
     Maintenant que vous avez fini de configurer Active Directory et les objets utilisateur, vous allez créer deux machines virtuelles SQL Server et les joindre à ce domaine.
 
@@ -380,15 +379,15 @@ Le serveur du contrôleur de domaine est maintenant correctement configuré. Ens
 ## <a name="initialize-the-failover-cluster-vms"></a>Initialisation des machines virtuelles du cluster de basculement
 Dans cette section, vous devez modifier les trois serveurs que vous allez utiliser dans le cluster de basculement et l’installation de SQL Server. Plus précisément :
 
-* Tous les serveurs : Vous devez installer le **le Clustering de basculement** fonctionnalité.
-* Tous les serveurs : Vous devez ajouter **CORP\Install** que la machine **administrateur**.
-* ContosoSQL1 et ContosoSQL2 uniquement : Vous devez ajouter **CORP\Install** comme un **sysadmin** rôle dans la base de données par défaut.
-* ContosoSQL1 et ContosoSQL2 uniquement : Vous devez ajouter **NT AUTHORITY\System** comme nom de connexion avec les autorisations suivantes :
+* Tous les serveurs : vous devez installer la fonctionnalité **Clustering de basculement**.
+* Tous les serveurs : vous devez ajouter **CORP\Install** en tant **qu'administrateur** de l'ordinateur.
+* ContosoSQL1 et ContosoSQL2 uniquement : vous devez ajouter **CORP\Install** via le rôle **sysadmin** dans la base de données par défaut.
+* ContosoSQL1 et ContosoSQL2 uniquement : vous devez ajouter **NT AUTHORITY\System** comme nom de connexion, avec les autorisations suivantes :
 
   * Modifier un groupe de disponibilité
   * Connecter SQL
   * Afficher l’état du serveur
-* ContosoSQL1 et ContosoSQL2 uniquement : Le **TCP** protocole est déjà activé sur la machine virtuelle SQL Server. Toutefois, vous devez encore ouvrir le pare-feu pour l’accès à distance de SQL Server.
+* ContosoSQL1 et ContosoSQL2 uniquement : le protocole **TCP** est déjà activé sur la machine virtuelle SQL Server. Toutefois, vous devez encore ouvrir le pare-feu pour l’accès à distance de SQL Server.
 
 Maintenant, vous êtes prêt à démarrer. En commençant par **ContosoQuorum**, suivez les étapes ci-dessous :
 

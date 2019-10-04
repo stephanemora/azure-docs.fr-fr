@@ -1,6 +1,6 @@
 ---
-title: Solution d’Analytique de SQL Azure dans Azure Monitor | Microsoft Docs
-description: La solution Azure SQL Analytics vous permet de gérer vos instances Azure SQL Database.
+title: Solution Azure SQL Analytics dans Azure Monitor | Microsoft Docs
+description: La solution Azure SQL Analytics vous permet de gérer vos bases de données Azure SQL.
 services: log-analytics
 ms.service: log-analytics
 ms.custom: ''
@@ -10,20 +10,20 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: c68c278b2a7afa8287845c452e3bec5380cf05c0
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 60538145652f3539768e6deb591352a1765488fd
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629976"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71019007"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
 ![Symbole Azure SQL Analytics](./media/azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics est une solution de supervision cloud avancée permettant de superviser à grande échelle les performances des bases de données SQL Azure, des pools élastiques et des bases de données Managed Instance dans plusieurs abonnements depuis un tableau de bord unique. Cette solution collecte et visualise des métriques importantes de performances Azure SQL Database avec une intelligence intégrée pour résoudre les problèmes.
+Azure SQL Analytics est une solution cloud avancée permettant de superviser à grande échelle les performances des bases de données Azure SQL, des pools élastiques et des bases de données Managed Instance dans plusieurs abonnements depuis un tableau de bord unique. Cette solution collecte et visualise des métriques importantes de performances Azure SQL Database avec une intelligence intégrée pour résoudre les problèmes.
 
-En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes de surveillance personnalisées. La solution vous aide à identifier les problèmes sur chacune des couches de votre pile applicative. Elle utilise les métriques de Diagnostic Azure, ainsi que des affichages Azure Monitor pour présenter des données sur tous les vos bases de données SQL Azure, les pools élastiques et les bases de données dans des Instances gérées dans un seul espace de travail Analytique de journal. Azure Monitor vous aide à collecter, corréler et visualiser les données structurées et non structurées.
+En vous appuyant sur les mesures collectées avec la solution, vous êtes en mesure de créer des règles et des alertes de surveillance personnalisées. La solution vous aide à identifier les problèmes sur chacune des couches de votre pile applicative. Elle utilise des métriques de diagnostic Azure avec des vues Azure Monitor pour présenter les données de l’ensemble de vos bases de données Azure SQL, de vos pools élastiques et de vos bases de données dans des instances managées dans un espace de travail Log Analytics unique. Azure Monitor prend en charge la collecte, la mise en correspondance et l’affichage des données structurées et non structurées.
 
 Pour une présentation pratique sur l'utilisation de la solution Azure SQL Analytics et des scénarios d'utilisation standard, regardez la vidéo incorporée :
 
@@ -32,24 +32,24 @@ Pour une présentation pratique sur l'utilisation de la solution Azure SQL Analy
 
 ## <a name="connected-sources"></a>Sources connectées
 
-Azure SQL Analytics est une solution de supervision entièrement dans le cloud qui prend en charge le streaming de données de télémétrie de diagnostic pour les bases de données SQL Azure uniques, mises en pool et Managed Instance. Comme la solution n’utilise pas les agents pour vous connecter à Azure Monitor, la solution ne pas prendre en charge la surveillance de SQL Server est hébergé en local ou sur des machines virtuelles, reportez-vous au tableau de compatibilité ci-dessous.
+Azure SQL Analytics est une solution de monitoring entièrement dans le cloud qui prend en charge le streaming de données de télémétrie de diagnostic pour les bases de données Azure SQL uniques, mises en pool et Managed Instance. Étant donné que cette solution n’utilise pas d’agents pour se connecter à Azure Monitor, elle ne prend pas en charge la supervision d’un serveur SQL Server hébergé localement ou dans des machines virtuelles. Consultez le tableau de compatibilité ci-dessous.
 
 | Source connectée | Pris en charge | Description |
 | --- | --- | --- |
-| [Azure Diagnostics](../platform/collect-azure-metrics-logs.md) | **Oui** | Les données de métriques et journaux Azure sont envoyées aux journaux d’Azure Monitor directement par Azure. |
-| [Compte Azure Storage](../platform/collect-azure-metrics-logs.md) | Non  | Azure Monitor ne lit pas les données à partir d’un compte de stockage. |
-| [Agents Windows](../platform/agent-windows.md) | Non  | Les agents directs Windows ne sont pas utilisés par la solution. |
-| [Agents Linux](../learn/quick-collect-linux-computer.md) | Non  | Les agents directs Linux ne sont pas utilisés par la solution. |
-| [Groupe d’administration de Microsoft System Center Operations Manager](../platform/om-agents.md) | Non  | Une connexion directe à partir de l’agent Operations Manager à Azure Monitor n’est pas utilisée par la solution. |
+| [Diagnostics Azure](../platform/collect-azure-metrics-logs.md) | **Oui** | Les métriques Azure et les données des journaux sont envoyées à Azure Monitor directement par Azure. |
+| [Compte Azure Storage](../platform/collect-azure-metrics-logs.md) | Non | Azure Monitor ne lit pas les données d’un compte de stockage. |
+| [Agents Windows](../platform/agent-windows.md) | Non | Les agents directs Windows ne sont pas utilisés par la solution. |
+| [Agents Linux](../learn/quick-collect-linux-computer.md) | Non | Les agents directs Linux ne sont pas utilisés par la solution. |
+| [Groupe d’administration de Microsoft System Center Operations Manager](../platform/om-agents.md) | Non | La solution n’utilise pas de connexion directe entre l’Agent Operations Manager et Azure Monitor. |
 
 ## <a name="configuration"></a>Configuration
-Utilisez la procédure décrite dans [solutions ajouter Azure Monitor à partir de la galerie de Solutions](../../azure-monitor/insights/solutions.md) pour ajouter la solution d’Analytique de SQL Azure (version préliminaire) à votre espace de travail Analytique de journal.
+Procédez de la manière décrite dans [Ajouter des solutions Azure Monitor à partir de la Galerie Solutions](../../azure-monitor/insights/solutions.md) pour ajouter la solution Azure SQL Analytics (préversion) à votre espace de travail Log Analytics.
 
-### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Configurer des instances Azure SQL Database, des pools élastiques et des instances Managed Instance pour la diffusion en continu des données de télémétrie de diagnostic
+### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Configurer des bases de données Azure SQL, des pools élastiques et des instances managées pour envoyer en streaming des données de télémétrie de diagnostic
 
 Après avoir créé une solution Azure SQL Analytics dans votre espace de travail, **configurez chacune** des ressources pour lesquelles vous souhaitez effectuer un monitoring pour diffuser en continu ses données de télémétrie de diagnostic vers la solution. Suivez les instructions détaillées de cette page :
 
-- Activez Diagnostics Azure pour votre base de données SQL Azure afin de [diffuser en continu les données de télémétrie de diagnostic vers Azure SQL Analytics](../../sql-database/sql-database-metrics-diag-logging.md).
+- Activez Azure Diagnostics pour votre base de données Azure SQL afin de [diffuser en continu les données de télémétrie de diagnostic vers Azure SQL Analytics](../../sql-database/sql-database-metrics-diag-logging.md).
 
 La page ci-dessus fournit également des instructions sur l’activation de la prise en charge de la surveillance de plusieurs abonnements Azure depuis un espace de travail Azure SQL Analytics faisant office de tableau de bord unique.
 
@@ -57,23 +57,23 @@ La page ci-dessus fournit également des instructions sur l’activation de la p
 
 Lorsque vous ajoutez la solution à votre espace de travail, la vignette Azure SQL Analytics est également ajoutée ; elle apparaît dans la Vue d’ensemble. Sélectionnez le lien Afficher le résumé pour charger le contenu de la vignette.
 
-![Vignette de résumé Analytique de SQL Azure](./media/azure-sql/azure-sql-sol-tile-01.png)
+![Vignette de résumé d’Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Une fois chargé, la vignette affiche le nombre de bases de données SQL Azure, les pools élastiques, les Instances gérées et les bases de données dans les instances gérées recevant la solution de télémétrie de diagnostic à partir de.
+Une fois chargée, la vignette indique le nombre de bases de données Azure SQL, de pools élastiques, d’instances managées et de bases de données dans ces instances en provenance desquelles la solution reçoit des données de télémétrie de diagnostic.
 
 ![Vignette Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-02.png)
 
-La solution offre deux vues distinctes : l’une pour la supervision des instances Azure SQL Database et des pools élastiques, et l’autre pour la supervision des instances Managed Instance et de leurs bases de données.
+La solution offre deux vues distinctes : l’une pour la supervision des bases de données Azure SQL et des pools élastiques, et l’autre pour la supervision des instances managées et de leurs bases de données.
 
-Pour visualiser le tableau de bord de supervision Azure SQL Analytics pour les instances Azure SQL Database et les pools élastiques, cliquez sur la partie supérieure de la vignette. Pour visualiser le tableau de bord de supervision Azure SQL Analytics pour les instances Managed Instance et leurs bases de données, cliquez sur la partie inférieure de la vignette.
+Pour visualiser le tableau de bord de supervision Azure SQL Analytics pour les bases de données Azure SQL et les pools élastiques, cliquez sur la partie supérieure de la vignette. Pour visualiser le tableau de bord de supervision Azure SQL Analytics pour les instances Managed Instance et leurs bases de données, cliquez sur la partie inférieure de la vignette.
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Affichage des données Azure SQL Analytics
 
-Ce tableau de bord propose un aperçu de toutes les bases de données surveillées selon différentes perspectives. Pour différentes perspectives fonctionnent, vous devez activer les métriques appropriées ou les journaux sur vos ressources SQL d’être diffusé vers l’espace de travail Analytique de journal.
+Ce tableau de bord propose un aperçu de toutes les bases de données surveillées selon différentes perspectives. Pour que ces différentes perspectives fonctionnent, vous devez activer les métriques ou les journaux d’activité appropriés sur les ressources SQL, celles dont la diffusion doit s’effectuer en continu sur l’espace de travail Log Analytics.
 
-Notez que si certaines métriques ou les journaux ne sont pas diffusés en continu dans Azure Monitor, les vignettes de la solution ne sont pas remplis avec les informations de surveillance.
+Remarque : si certaines métriques ou certains journaux d’activité ne sont pas diffusés en continu vers Azure Monitor, les informations de monitoring n’apparaissent pas dans les vignettes de la solution.
 
-### <a name="azure-sql-database-and-elastic-pool-view"></a>Vue des instances Azure SQL Database et des pools élastiques
+### <a name="azure-sql-database-and-elastic-pool-view"></a>Vue des bases de données Azure SQL et des pools élastiques
 
 Lorsque la vignette Azure SQL Analytics de la base de données est sélectionnée, le tableau de bord de monitoring s’affiche.
 
@@ -99,22 +99,22 @@ La sélection de la vue des instances Managed Instance présente les détails co
 
 ### <a name="perspectives"></a>Perspectives
 
-Le tableau ci-après présente les perspectives prises en charge pour les deux versions du tableau de bord, l’une pour les bases de données SQL Azure et les pools élastiques, et l’autre pour les instances Managed Instance.
+Le tableau ci-après présente les perspectives prises en charge pour les deux versions du tableau de bord, l’une pour les bases de données Azure SQL et les pools élastiques, et l’autre pour les instances managées.
 
 | Perspective | Description | Prise en charge pour les instances SQL Database et les pools élastiques | Prise en charge pour les instances Managed Instance |
 | --- | ------- | ----- | ----- |
-| Ressource par type | Perspective comptabilisant toutes les ressources surveillées. | Oui | Oui |
-| Insights | Permet une exploration hiérarchique des performances dans Intelligent Insights. | Oui | Oui |
-| Errors | Permet une exploration hiérarchique des erreurs SQL qui se sont produites dans les bases de données. | Oui | Oui |
-| Délais d’expiration | Permet une exploration hiérarchique des délais d’expiration SQL qui se sont produits dans les bases de données. | Oui | Non  |
-| Blocages | Permet une exploration hiérarchique des blocages SQL qui se sont produits dans les bases de données. | Oui | Non  |
-| Attentes de la base de données | Permet une exploration hiérarchique des statistiques d’attente SQL au niveau des bases de données. Inclut des résumés du temps d’attente total et de la durée d’attente par type d’attente. |Oui | Oui |
-| Durée de la requête | Permet une exploration hiérarchique des statistiques d’exécution de la requête, par exemple la durée de la requête, l’utilisation du processeur, l’utilisation des E/S de données, l’utilisation des E/S du journal. | Oui | Oui |
-| Attentes de requête | Permet une exploration hiérarchique des statistiques d’attente de requête par catégorie d’attente. | Oui | Oui |
+| Ressource par type | Perspective comptabilisant toutes les ressources surveillées. | OUI | OUI |
+| Insights | Permet une exploration hiérarchique des performances dans Intelligent Insights. | OUI | OUI |
+| Errors | Permet une exploration hiérarchique des erreurs SQL qui se sont produites dans les bases de données. | OUI | OUI |
+| Délais d’expiration | Permet une exploration hiérarchique des délais d’expiration SQL qui se sont produits dans les bases de données. | OUI | Non |
+| Blocages | Permet une exploration hiérarchique des blocages SQL qui se sont produits dans les bases de données. | OUI | Non |
+| Attentes de la base de données | Permet une exploration hiérarchique des statistiques d’attente SQL au niveau des bases de données. Inclut des résumés du temps d’attente total et de la durée d’attente par type d’attente. |OUI | OUI |
+| Durée de la requête | Permet une exploration hiérarchique des statistiques d’exécution de la requête, par exemple la durée de la requête, l’utilisation du processeur, l’utilisation des E/S de données, l’utilisation des E/S du journal. | OUI | OUI |
+| Attentes de requête | Permet une exploration hiérarchique des statistiques d’attente de requête par catégorie d’attente. | OUI | OUI |
 
 ### <a name="intelligent-insights-report"></a>Rapport Intelligent Insights
 
-Azure SQL Database [Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md) permet de suivre les performances de toutes les bases de données SQL Azure. Toutes les analyses Intelligent Insights collectées peut être visualisées et sont accessibles par le biais de la perspective Insights.
+Azure SQL Database [Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md) permet de suivre les performances de toutes les bases de données Azure SQL. Toutes les analyses Intelligent Insights collectées peut être visualisées et sont accessibles par le biais de la perspective Insights.
 
 ![Insights Azure SQL Analytics](./media/azure-sql/azure-sql-sol-insights.png)
 
@@ -159,7 +159,6 @@ Remplacez « {SubscriptionId} » dans le script ci-dessous par votre ID d’ab
     $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
     $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
-    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
     $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
     $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
@@ -193,7 +192,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les mesures de diagnostic (option « Toutes les mesures ») à la solution.
+> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les métriques de base à la solution.
 > - Remplacez la valeur MetricName cpu_percent par dtu_consumption_percent pour obtenir des résultats de DTU élevés à la place.
 
 #### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Processeur élevé sur des pools élastiques Azure SQL Database
@@ -208,7 +207,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les mesures de diagnostic (option « Toutes les mesures ») à la solution.
+> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les métriques de base à la solution.
 > - Remplacez la valeur MetricName cpu_percent par dtu_consumption_percent pour obtenir des résultats de DTU élevés à la place.
 
 #### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Stockage Azure SQL Database supérieur à 95 % en moyenne au cours de la dernière heure
@@ -225,7 +224,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les mesures de diagnostic (option « Toutes les mesures ») à la solution.
+> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les métriques de base à la solution.
 > - Cette requête nécessite une règle d’alerte pour être configurée de manière à déclencher une alerte lorsqu’il y a des résultats (résultats > 0) à la requête, indiquant que la condition existe sur certaines bases de données. La sortie est une liste de ressources de base de données qui se situent au-dessus de storage_threshold dans le time_range défini.
 > - La sortie est une liste de ressources de base de données qui se situent au-dessus de storage_threshold dans le time_range défini.
 
@@ -287,10 +286,10 @@ AzureDiagnostics
 
 ### <a name="pricing"></a>Tarifs
 
-La solution est gratuite, mais la consommation de la télémétrie de diagnostics qui dépasse les unités gratuites d’ingestion de données allouées chaque mois est facturée. Consultez [Tarifs de Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). Les unités gratuites d’ingestion de données fournies permettent de superviser gratuitement plusieurs bases de données chaque mois. Il faut savoir que les bases de données actives, traitant des charges de travail plus lourdes, ingèrent plus de données que les bases de données inactives. Vous pouvez facilement suivre votre consommation d’ingestion de données dans la solution en sélectionnant l’espace de travail OMS dans le menu de navigation d’Azure SQL Analytics, puis en sélectionnant Utilisation et estimation des coûts.
+La solution est gratuite, mais la consommation de la télémétrie de diagnostics qui dépasse les unités gratuites d’ingestion de données allouées chaque mois est facturée. Consultez [Tarifs de Log Analytics](https://azure.microsoft.com/pricing/details/monitor). Les unités gratuites d’ingestion de données fournies permettent de superviser gratuitement plusieurs bases de données chaque mois. Il faut savoir que les bases de données actives, traitant des charges de travail plus lourdes, ingèrent plus de données que les bases de données inactives. Vous pouvez facilement suivre votre consommation d’ingestion de données dans la solution en sélectionnant l’espace de travail OMS dans le menu de navigation d’Azure SQL Analytics, puis en sélectionnant Utilisation et estimation des coûts.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Utilisez [enregistrer des requêtes](../log-query/log-query-overview.md) dans Azure Monitor pour afficher des données détaillées de SQL Azure.
+- Utilisez les [requêtes de journaux dans Azure Monitor](../log-query/log-query-overview.md) pour afficher des données détaillées Azure SQL.
 - [Créer un tableau de bord personnalisé](../learn/tutorial-logs-dashboards.md) comportant les données Azure SQL.
 - [Create and manage alert rules in Log Analytics with the OMS portal](../platform/alerts-overview.md) (Créer et gérer des règles d’alerte dans Log Analytics dans Log Analytics à l’aide du portail OMS).

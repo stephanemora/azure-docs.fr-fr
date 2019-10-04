@@ -2,26 +2,26 @@
 title: Approvisionner et gérer la préversion d’Azure Time Series Insights | Microsoft Docs
 description: Comprendre comment approvisionner et gérer la préversion d’Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 09/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 85d5bb822bc9b89c68c70633a22a1bed74118f49
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: a84c587a2666982e862f0640b30d2d6bef3b9a42
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758183"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744644"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Approvisionner et gérer la préversion d’Azure Time Series Insights
 
 Cet article explique comment créer et gérer un environnement Azure Time Series Insights en préversion via le [portail Azure](https://portal.azure.com/).
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les environnements Azure Time Series Insights en préversion sont des environnements payants à l’utilisation.
 
@@ -33,7 +33,7 @@ Lorsque vous approvisionnez un environnement Azure Time Series Insights en prév
 Découvrez [comment planifier votre environnement](./time-series-insights-update-plan.md).
 
 >[!IMPORTANT]
-> Pour la version préliminaire, assurez-vous que vous utilisez un stockage Azure usage général v1 (GPv1) compte.  Prise en charge pour les comptes GPv2 et versions ultérieures sera ajouté dans un avenir proche.  
+> Pour la préversion, assurez-vous que vous utilisez un compte de stockage Azure v1 universel (GPv1).
 
 Vous pouvez également associer chaque environnement Azure Time Series Insights en préversion à une source d’événement. Pour plus d’informations, voir [Ajouter une source de hub d’événements](./time-series-insights-how-to-add-an-event-source-eventhub.md) et [Ajouter une source de hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md). Pendant cette étape, vous fournissez une propriété d’ID d’horodatage et un groupe de consommateurs unique. Cela garantit l’accès de l’environnement aux événements appropriés.
 
@@ -45,7 +45,7 @@ Les étapes suivantes permettent de créer un environnement Azure Time Series In
 
 1. Sélectionnez le bouton **PAYG** sous le menu **référence SKU**. Fournissez un nom d’environnement et choisissez le groupe d’abonnements et le groupe de ressources à utiliser. Ensuite, sélectionnez un emplacement pris en charge pour héberger l’environnement.
 
-   ![Créez une instance Azure Time Series Insight.][1]
+   [![Créez une instance Azure Time Series Insights.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 1. Entrez un ID Time Series.
 
@@ -56,7 +56,7 @@ Les étapes suivantes permettent de créer un environnement Azure Time Series In
 
 1. Créez un compte de stockage Azure en sélectionnant un nom de compte de stockage et en spécifiant un choix de réplication. Un compte Stockage Azure à usage général v1 est alors automatiquement créé. Il sera créé dans la même région que l’environnement Azure Time Series Insights en préversion que vous avez sélectionné précédemment.
 
-    ![Créer un compte de stockage Azure pour votre instance][5]
+    [![Créer un compte de stockage Azure pour votre instance](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
 
 1. Si vous le souhaitez, vous pouvez ajouter une source d’événement.
 
@@ -67,11 +67,11 @@ Les étapes suivantes permettent de créer un environnement Azure Time Series In
      > [!TIP]
      > Il est possible que l’heure de placement du message dans la file d’attente ne soit pas le paramètre le mieux configuré à utiliser pour un l’événement de traitement par lots ou des scénarios de chargement des données historiques. Veillez à vérifier votre choix d’utiliser ou non une propriété Timestamp dans de tels cas.
 
-     ![Onglet Source de l’événement][2]
+     [![Onglet Source de l’événement](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
 
 1. Vérifiez que votre environnement a été approvisionné avec les paramètres souhaités.
 
-    ![Onglet Vérifier + créer][3]
+    [![Onglet Vérifier + créer](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
 
 ## <a name="manage-the-environment"></a>Gérer l’environnement
 
@@ -88,19 +88,12 @@ Vous pouvez gérer votre environnement Azure Time Series Insights en préversion
 
 * Le panneau **Données de référence** du portail Azure a été supprimé dans Azure Time Series Insights en préversion parce que les données de référence ne sont pas un composant des environnements payants à l’utilisation.
 
-![Environnement Time Series Insights en préversion dans le portail Azure][4]
+[![Environnement Time Series Insights en préversion dans le portail Azure](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lire [Planifier votre environnement](./time-series-insights-update-plan.md).
+- Lire [Planifier votre environnement](./time-series-insights-update-plan.md).
 
-Lire [Ajouter une source de hub d’événements](./time-series-insights-how-to-add-an-event-source-eventhub.md).
+- Découvrez comment [ajouter une source Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md).
 
-Lire [Ajouter une source de hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).
-
-<!-- Images -->
-[1]: media/v2-update-manage/manage_one.PNG
-[2]: media/v2-update-manage/manage_two.PNG
-[3]: media/v2-update-manage/manage_three.PNG
-[4]: media/v2-update-manage/manage_four.PNG
-[5]: media/v2-update-manage/manage_five.PNG
+- Configurez [une source de hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).

@@ -1,7 +1,7 @@
 ---
 title: Définir des modules R personnalisés
 titleSuffix: Azure Machine Learning Studio
-description: Cette rubrique explique comment créer et déployer un module R personnalisé dans Azure Machine Learning Studio. Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir.
+description: Cette rubrique explique comment créer et déployer un module R Studio. Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120378"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65025060"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Définir des modules R personnalisés pour Azure Machine Learning Studio
 
-Cette rubrique explique comment créer et déployer un module R personnalisé dans Azure Machine Learning Studio. Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir. Par ailleurs, elle illustre la construction de ces fichiers et l’inscription du module à des fins de déploiement dans un espace de travail Machine Learning. Les éléments et attributs utilisés dans la définition du module personnalisé sont ensuite décrits plus en détail. Par ailleurs, nous allons découvrir comment utiliser les fichiers et la fonctionnalité auxiliaires, ainsi que les sorties multiples. 
+Cette rubrique explique comment créer et déployer un module R Studio. Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir. Par ailleurs, elle illustre la construction de ces fichiers et l’inscription du module à des fins de déploiement dans un espace de travail Machine Learning. Les éléments et attributs utilisés dans la définition du module personnalisé sont ensuite décrits plus en détail. Par ailleurs, nous allons découvrir comment utiliser les fichiers et la fonctionnalité auxiliaires, ainsi que les sorties multiples. 
 
 
 
@@ -123,7 +123,7 @@ Règles relatives aux limites de caractères dans les éléments Module :
 * Le contenu de l’élément **Description** ne doit pas dépasser 128 caractères.
 * Le contenu de l’élément **Owner** ne doit pas dépasser 32 caractères.
 
-Les résultats d’un module peuvent être déterministes ou non déterministes.** Par défaut, tous les modules sont considérés comme déterministes. Autrement dit, le module étant donné un jeu qui ne changent pas de paramètres d’entrée et de données, doit retourner la présence de résultats de la même ou une fonction de son exécution. Étant donné ce comportement, Azure Machine Learning Studio ne réexécute les modules marqués comme étant déterministes que si un paramètre ou les données d’entrée ont été modifiés. Le renvoi des résultats mis en cache assure également une exécution bien plus rapide des expériences.
+Les résultats d’un module peuvent être déterministes ou non déterministes.** Par défaut, tous les modules sont considérés comme déterministes. Autrement dit, en présence d’un jeu de données et de paramètres d’entrée qui ne change pas, le module doit retourner les mêmes résultats chaque fois qu’il est exécuté. Étant donné ce comportement, Azure Machine Learning Studio ne réexécute les modules marqués comme étant déterministes que si un paramètre ou les données d’entrée ont été modifiés. Le renvoi des résultats mis en cache assure également une exécution bien plus rapide des expériences.
 
 Il existe des fonctions non déterministes, notamment RAND ou une fonction qui retourne la date ou l’heure actuelle. Si votre module utilise une fonction non déterministe, vous pouvez spécifier que le module n’est pas déterministe en définissant l’attribut facultatif **isDeterministic** sur **FALSE**. Cela permet de s’assurer que le module est réexécuté à chaque exécution de l’expérience, même si le module d’entrée et les paramètres n’ont pas changé. 
 
@@ -159,7 +159,7 @@ Pour les ports **DataTable** facultatifs qui ne sont pas transmis comme entrée 
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-Pour les modules R personnalisés, l’id d’un port Zip ne doit pas nécessairement correspondre aux paramètres de la fonction R. En effet, le fichier zip est automatiquement extrait dans le répertoire de travail R.
+Pour les modules R personnalisés, l’ID d’un port Zip ne doit pas nécessairement correspondre aux paramètres de la fonction R. En effet, le fichier zip est automatiquement extrait dans le répertoire de travail R.
 
 **Règles d'entrée :**
 
@@ -224,7 +224,7 @@ Ensuite, renvoyez la liste des objets dans une liste respectant l’ordre adéqu
 
 ### <a name="arguments"></a>Arguments
 Des données supplémentaires peuvent être transmises à la fonction R via les paramètres de module qui sont définis dans l’élément **Arguments** . Ces paramètres apparaissent dans le volet des propriétés de l’interface utilisateur de Machine Learning le plus à droite lorsque le module est sélectionné. Les arguments peuvent être de n’importe quel type pris en charge, ou vous pouvez créer une énumération personnalisée lorsque cela s’avère nécessaire. Comme pour les éléments **Ports**, les éléments **Arguments** peuvent avoir un élément **Description** facultatif spécifiant le texte qui apparaît lorsque vous passez la souris sur le nom du paramètre.
-Les propriétés facultatives pour un module, telles que defaultValue, minValue et maxValue, peuvent être ajoutées à n’importe quel argument en tant qu’attributs d’un élément **Properties** . Les propriétés valides pour l’élément **Properties** dépendent du type d’argument et sont décrites avec les types d’arguments pris en charge dans la section suivante. Pour les arguments dont la propriété **isOptional** est définie sur **« true »**, l’utilisateur n’a pas à entrer de valeur. Si aucune valeur n’est fournie à l’argument, celui-ci n’est pas transmis à la fonction de point d’entrée. Les arguments de la fonction de point d’entrée qui sont facultatifs doivent être gérés explicitement par la fonction, par exemple se voir attribuer la valeur NULL par défaut dans la définition de fonction de point d’entrée. Un argument facultatif applique uniquement les autres contraintes d’argument, par exemple min ou max, si une valeur est fournie par l’utilisateur.
+Les propriétés facultatives pour un module, telles que defaultValue, minValue et maxValue, peuvent être ajoutées à n’importe quel argument en tant qu’attributs d’un élément **Properties** . Les propriétés valides pour l’élément **Properties** dépendent du type d’argument et sont décrites avec les types d’arguments pris en charge dans la section suivante. Pour les arguments dont la propriété **isOptional** est définie sur **« true »** , l’utilisateur n’a pas à entrer de valeur. Si aucune valeur n’est fournie à l’argument, celui-ci n’est pas transmis à la fonction de point d’entrée. Les arguments de la fonction de point d’entrée qui sont facultatifs doivent être gérés explicitement par la fonction, par exemple se voir attribuer la valeur NULL par défaut dans la définition de fonction de point d’entrée. Un argument facultatif applique uniquement les autres contraintes d’argument, par exemple min ou max, si une valeur est fournie par l’utilisateur.
 Comme dans le cas des entrées et sorties, il est essentiel que chaque paramètre soit associé à une valeur d’ID unique. Dans notre exemple de démarrage rapide, l’ID/paramètre associé était *swap*.
 
 ### <a name="arg-element"></a>Élément Arg
@@ -284,7 +284,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
   * **allowedTypes**. Filtre les types de colonnes que vous pouvez choisir. Les valeurs valides incluent : 
     
     * Chiffre
-    * Booléen
+    * Boolean
     * Par catégorie
     * Chaîne
     * Étiquette

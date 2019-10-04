@@ -3,22 +3,23 @@ title: Résolution des problèmes liés à Azure Data Factory
 description: Découvrez comment résoudre les problèmes liés à l'utilisation de Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
+author: djpmsft
+ms.author: daperlov
+ms.reviewer: maghan
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 5b9e0a30658e1cb8fe0f83d55c04f120637babaf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: d729fd11f355650b1476e6864a6d70219bf37e12
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549202"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135135"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Résolution des problèmes liés à Data Factory
 > [!NOTE]
@@ -47,9 +48,9 @@ Si vous recevez cette erreur, cela signifie que le fournisseur de ressources Azu
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problème : Erreur non autorisée lors de l’exécution d’une applet de commande Data Factory
 Vous n’utilisez probablement pas le compte ou l’abonnement Azure correct pour Azure PowerShell. Utilisez les applets de commande suivantes pour sélectionner le compte et l’abonnement Azure corrects à utiliser avec Azure PowerShell.
 
-1. Se connecter-AzAccount - utilisez l’ID d’utilisateur et mot de passe
-2. Get-AzSubscription - afficher tous les abonnements associés au compte.
-3. Sélectionnez-AzSubscription &lt;nom de l’abonnement&gt; -sélectionner l’abonnement approprié. Utilisez le même que celui que vous utilisez pour créer une fabrique de données sur le portail Azure.
+1. Connect-AzAccount : utilisez l’ID d’utilisateur et le mot de passe corrects
+2. Get-AzSubscription : affichez tous les abonnements du compte.
+3. Select-AzSubscription &lt;nom de l’abonnement&gt; - Sélectionnez l’abonnement correct. Utilisez le même que celui que vous utilisez pour créer une fabrique de données sur le portail Azure.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problème : Échec du lancement de l’installation rapide de la passerelle de gestion des données à partir du portail Azure
 L’installation rapide de la passerelle de gestion des données nécessite Internet Explorer ou un navigateur web compatible avec Microsoft ClickOnce. Si le programme d'installation rapide ne démarre pas, effectuez l'une des opérations suivantes :
@@ -118,14 +119,14 @@ Consultez la page [Déboguer un pipeline avec une activité personnalisée](data
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Utilisation du portail Azure pour résoudre les problèmes
 ### <a name="using-portal-blades"></a>Utilisation des panneaux du portail
-Consultez la page [Surveiller le pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) pour obtenir la procédure.
+Consultez la page [Surveiller le pipeline](data-factory-monitor-manage-pipelines.md) pour obtenir la procédure.
 
 ### <a name="using-monitor-and-manage-app"></a>Utilisation de l’application Surveillance et gestion
 Consultez [Surveiller et gérer les pipelines Data Factory à l’aide de l’application Surveillance et gestion](data-factory-monitor-manage-app.md) pour plus d’informations.
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Utiliser Azure PowerShell pour résoudre les problèmes
 ### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Utiliser Azure PowerShell pour résoudre une erreur
-Consultez la page [Surveiller les pipelines Data Factory à l’aide d’Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) pour plus d’informations.
+Consultez la page [Surveiller les pipelines Data Factory à l’aide d’Azure PowerShell](data-factory-monitor-manage-pipelines.md) pour plus d’informations.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Bomgar Remote Support | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Bomgar Remote Support | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Bomgar Remote Support.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f65e7192bdcc148ba081d0de954b51535778e750
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b25007fa8e9d547b9e5671390514b3bc10f329fa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886080"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106099"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bomgar-remote-support"></a>Tutoriel : Intégration d’Azure Active Directory à Bomgar Remote Support
+# <a name="tutorial-azure-active-directory-integration-with-bomgar-remote-support"></a>Didacticiel : Intégration d’Azure Active Directory à Bomgar Remote Support
 
 Dans ce tutoriel, vous allez apprendre à intégrer Bomgar Remote Support à Azure Active Directory (Azure AD).
 L’intégration de Bomgar Remote Support à Azure AD vous offre les avantages suivants :
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Bomgar Remote Support à Azure AD, vous deve
 
 **Pour ajouter Bomgar Remote Support à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Bomgar Remote Support,
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.trafficmanager.net/saml`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<SUBDOMAIN>.trafficmanager.net`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<SUBDOMAIN>.trafficmanager.net`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Bomgar Remote Support](https://www.bomgar.com/docs/index.htm#support). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -149,7 +149,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -1,25 +1,25 @@
 ---
 title: Envoi de demandes à l’API Suggestion automatique Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment envoyer des demandes à l’API Suggestion automatique Bing.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
-ms.topic: quickstart
-ms.date: 02/20/2019
+ms.topic: conceptual
+ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 597ef48fd7499a9d33b214b182d6dd1354756cdf
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: dbc8e2ccbd0a9d8c395a3b4e8a95e4e51f152792
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011581"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882434"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Envoi de demandes à l’API Suggestion automatique Bing.
 
-Si votre application envoie des requêtes à l’une des API Recherche Bing, vous pouvez utiliser l’API Suggestion automatique Bing pour améliorer l’expérience de recherche de vos utilisateurs. L’API Suggestion automatique Bing retourne une liste de requêtes suggérées en fonction d’une chaîne de requête partielle dans la zone de recherche. À mesure que des caractères sont entrés dans la zone de recherche de votre application, vous pouvez afficher des suggestions dans une liste déroulante. Utilisez cet article pour savoir comment envoyer des requêtes de recherche cette API.
+Si votre application envoie des requêtes à l’une des API Recherche Bing, vous pouvez utiliser l’API Suggestion automatique Bing pour améliorer l’expérience de recherche de vos utilisateurs. L’API Suggestion automatique Bing retourne une liste de requêtes suggérées en fonction d’une chaîne de requête partielle dans la zone de recherche. À mesure que des caractères sont entrés dans la zone de recherche de votre application, vous pouvez afficher des suggestions dans une liste déroulante. Utilisez cet article pour savoir comment envoyer des requêtes de recherche cette API. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Point de terminaison de l’API Suggestion automatique Bing
 
@@ -33,7 +33,7 @@ Pour obtenir des suggestions de requête à l’aide de l’API Bing, envoyez un
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
-Pour plus d’informations sur les en-têtes, les paramètres, les codes de marché, les objets de réponse, les erreurs, etc., consultez la référence [API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference).
+Pour plus d’informations sur les en-têtes, les paramètres, les codes de marché, les objets de réponse, les erreurs, etc., consultez la référence [API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference).
 
 Les API **Bing** prennent en charge les actions de recherche qui renvoient des résultats en fonction de leur type. Tous les points de terminaison de recherche renvoient des résultats en tant qu’objets de réponse JSON.
 Tous les points de terminaison prennent en charge les requêtes qui renvoient une langue et/ou un emplacement spécifique par longitude, latitude et rayon de recherche.
@@ -44,7 +44,7 @@ Pour obtenir des exemples de requêtes de base à l’aide de l’API Suggestion
 ## <a name="bing-autosuggest-api-requests"></a>Requêtes API Suggestion automatique Bing
 
 > [!NOTE]
-> Les requêtes envoyées à l’API Suggestion automatique Bing doivent utiliser le protocole HTTPS.
+> * Les requêtes envoyées à l’API Suggestion automatique Bing doivent utiliser le protocole HTTPS.
 
 Nous vous recommandons de générer toutes les requêtes à partir d’un serveur. Si vous diffusez la clé dans le cadre d’une application client, vous prenez le risque qu’un tiers malveillant puisse y accéder. Par ailleurs, en appelant l’API à partir d’un serveur, vous disposez d’un unique point de mise à niveau pour les prochaines versions.
 
@@ -95,11 +95,13 @@ L’exemple suivant illustre une requête qui renvoie les chaînes de requête s
 
 Si vous appelez l’une des API Bing pour la première fois, n’incluez pas l’en-tête ID client. Indiquez uniquement l’en-tête ID client si vous avez précédemment appelé une API Bing et que Bing a retourné un ID client pour la combinaison utilisateur/appareil.
 
-La réponse à la requête précédente est affichée ci-dessous. Elle inclut un groupe de suggestions web comportant une liste de suggestions pour la requête de recherche. Chaque suggestion comporte les champs `displayText`, `query` et `url`.
+Le groupe de suggestions web suivant est une réponse à la requête ci-dessus. Le groupe contient une liste de suggestions de requête de recherche, chaque suggestion contenant des champs `displayText`, `query` et `url`.
 
 Le champ `displayText` correspond à la requête suggérée à utiliser dans la liste déroulante de la zone de recherche. Vous devez afficher toutes les suggestions incluses dans la réponse, dans l’ordre indiqué.  
 
-Si l’utilisateur sélectionne une requête dans la liste déroulante, vous pouvez l’utiliser pour appeler l’une des [API Recherche Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) et afficher les résultats vous-même, ou bien renvoyer l’utilisateur vers la page de résultats de Bing à l’aide du champ `url`. L’exemple suivant utilise l’API Recherche Web Bing.
+Si l’utilisateur sélectionne une requête dans la liste déroulante, vous pouvez l’utiliser pour appeler l’une des [API Recherche Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) et afficher les résultats vous-même, ou bien renvoyer l’utilisateur vers la page de résultats de Bing à l’aide du champ `url`.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -168,5 +170,5 @@ BingAPIs-Market: en-US
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Qu’est-ce que la Suggestion automatique Bing ?](../get-suggested-search-terms.md)
-- [Informations de référence sur l’API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Informations de référence sur l’API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
 - [Obtention de suggestions de termes de recherche avec l’API Suggestion automatique Bing](get-suggestions.md)

@@ -2,20 +2,20 @@
 title: TechnicalProfiles | Microsoft Docs
 description: Spécifiez l’élément TechnicalProfiles d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 86f2a8fa11becdf24c0a10c0325893946a033c3d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: e1192c8d0057d77306a1ffb06dd9bae12b7634ca
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568173"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70998739"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -76,7 +76,7 @@ L’élément **TechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 |---------|---------|---------|
-| ID | Oui | Identificateur unique du profil technique. Le profil technique peut être référencé à l’aide de cet identificateur à partir d’autres éléments dans le fichier de stratégie. Par exemple, **OrchestrationSteps** et **ValidationTechnicalProfile**. |
+| Id | OUI | Identificateur unique du profil technique. Le profil technique peut être référencé à l’aide de cet identificateur à partir d’autres éléments dans le fichier de stratégie. Par exemple, **OrchestrationSteps** et **ValidationTechnicalProfile**. |
 
 L’élément **TechnicalProfile** contient les éléments suivants :
 
@@ -85,7 +85,7 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | Domaine | 0:1 | Nom de domaine pour le profil technique. Par exemple, si votre profil technique Spécifie le fournisseur d’identité Facebook, le nom de domaine est Facebook.com. |
 | DisplayName | 0:1 | Nom du profil technique qui peut être affiché aux utilisateurs. |
 | Description | 0:1 | Description du profil technique qui peut être affichée aux utilisateurs. |
-| Protocole | 0:1 | Protocole utilisé pour la communication avec l’autre partie. |
+| Protocol | 0:1 | Protocole utilisé pour la communication avec l’autre partie. |
 | Métadonnées | 0:1 | Collection de paires clé/valeur utilisées par le protocole pour communiquer avec le point de terminaison durant une transaction. |
 | InputTokenFormat | 0:1 | Format du jeton d’entrée. Valeurs possibles : `JSON`, `JWT`, `SAML11` ou `SAML2`. La valeur `JWT` représente un JSON Web Token conforme à la spécification IETF. La valeur `SAML11` représente un jeton de sécurité SAML 1.1 conforme à la spécification OASIS.  La valeur `SAML2` représente un jeton de sécurité SAML 2.0 conforme à la spécification OASIS. |
 | OutputTokenFormat | 0:1 | Format du jeton de sortie. Valeurs possibles : `JSON`, `JWT`, `SAML11` ou `SAML2`. |
@@ -102,14 +102,14 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | UseTechnicalProfileForSessionManagement | 0:1 | Autre profil technique à utiliser pour la gestion de session. |
 |EnabledForUserJourneys| 0:1 |Contrôle si le profil technique est exécuté dans un parcours utilisateur.  |
 
-### <a name="protocol"></a>Protocole
+### <a name="protocol"></a>Protocol
 
 L’élément **Protocol** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `WsFed`, `WsTrust`, `Proprietary`, `session management`, `self-asserted` ou `None`. |
-| Handler | Non  | Lorsque le nom de protocole est défini sur `Proprietary`, spécifiez le nom complet de l’assembly qu’Azure AD B2C utilise pour déterminer le gestionnaire de protocole. |
+| Name | OUI | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, `session management`, `self-asserted` ou `None`. |
+| Handler | Non | Lorsque le nom de protocole est défini sur `Proprietary`, spécifiez le nom complet de l’assembly qu’Azure AD B2C utilise pour déterminer le gestionnaire de protocole. |
 
 ### <a name="metadata"></a>Métadonnées
 
@@ -125,7 +125,7 @@ L’élément **Item** de l’élément **Metadata** contient les attributs suiv
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Clé | Oui | Clé de métadonnées. Pour obtenir la liste des éléments de métadonnées, voir chaque type de profil technique. |
+| Clé | OUI | Clé de métadonnées. Pour obtenir la liste des éléments de métadonnées, voir chaque type de profil technique. |
 
 ### <a name="cryptographickeys"></a>CryptographicKeys
 
@@ -141,8 +141,8 @@ L’élément **Key** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Non  | Identificateur unique d’une paire de clés spécifique référencé à partir d’autres éléments dans le fichier de stratégie. |
-| StorageReferenceId | Oui | Identificateur d’un conteneur de clé de stockage référencé à partir d’autres éléments dans le fichier de stratégie. |
+| Id | Non | Identificateur unique d’une paire de clés spécifique référencé à partir d’autres éléments dans le fichier de stratégie. |
+| StorageReferenceId | OUI | Identificateur d’un conteneur de clé de stockage référencé à partir d’autres éléments dans le fichier de stratégie. |
 
 ### <a name="inputclaimstransformations"></a>InputClaimsTransformations
 
@@ -158,7 +158,7 @@ L’élément **InputClaimsTransformation** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Oui | Identificateur d’une transformation de revendications déjà défini dans le fichier de stratégie ou un fichier de stratégie parent. |
+| ReferenceId | OUI | Identificateur d’une transformation de revendications déjà défini dans le fichier de stratégie ou un fichier de stratégie parent. |
 
 ### <a name="inputclaims"></a>InputClaims
 
@@ -174,9 +174,9 @@ L’élément **InputClaim** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Oui | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
-| DefaultValue | Non  | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
-| PartnerClaimType | Non  | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
+| ClaimTypeReferenceId | OUI | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
+| DefaultValue | Non | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
+| PartnerClaimType | Non | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
 
 ### <a name="persistedclaims"></a>PersistedClaims
 
@@ -192,9 +192,9 @@ L’élément **PersistedClaim** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Oui | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
-| DefaultValue | Non  | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
-| PartnerClaimType | Non  | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
+| ClaimTypeReferenceId | OUI | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
+| DefaultValue | Non | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
+| PartnerClaimType | Non | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -210,10 +210,10 @@ L’élément **OutputClaim** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Oui | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
-| DefaultValue | Non  | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
-|AlwaysUseDefaultValue |Non  |Forcer l’utilisation de la valeur par défaut.  |
-| PartnerClaimType | Non  | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
+| ClaimTypeReferenceId | OUI | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
+| DefaultValue | Non | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
+|AlwaysUseDefaultValue |Non |Forcer l’utilisation de la valeur par défaut.  |
+| PartnerClaimType | Non | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
 
 ### <a name="outputclaimstransformations"></a>OutputClaimsTransformations
 
@@ -229,7 +229,7 @@ L’élément **OutputClaimsTransformation** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Oui | Identificateur d’une transformation de revendications déjà défini dans le fichier de stratégie ou un fichier de stratégie parent. |
+| ReferenceId | OUI | Identificateur d’une transformation de revendications déjà défini dans le fichier de stratégie ou un fichier de stratégie parent. |
 
 ### <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
@@ -245,7 +245,7 @@ L’élément **ValidationTechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Oui | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
+| ReferenceId | OUI | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
 
 ###  <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
@@ -253,7 +253,7 @@ L’élément **SubjectNamingInfo** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClaimType | Oui | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie. |
+| ClaimType | OUI | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie. |
 
 ### <a name="includetechnicalprofile"></a>IncludeTechnicalProfile
 
@@ -261,7 +261,7 @@ L’élément **IncludeTechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Oui | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
+| ReferenceId | OUI | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
 
 ### <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 
@@ -269,7 +269,7 @@ L’élément **UseTechnicalProfileForSessionManagement** contient l’attribut 
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Oui | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
+| ReferenceId | OUI | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
 
 ### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
 L’élément **ClaimsProviderSelections** dans un parcours utilisateur définit la liste et l’ordre des options de sélection de fournisseur de revendications. Avec l’élément **EnabledForUserJourneys**, vous filtrez le fournisseur de revendications disponible pour l’utilisateur. L’élément **EnabledForUserJourneys** contient l’une des valeurs suivantes :

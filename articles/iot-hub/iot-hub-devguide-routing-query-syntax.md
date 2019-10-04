@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 94d3599fe919cf648be7115be68002d2aa458ee3
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 7f6439d79e5d46621b92b1c24ba5caf87889f443
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744839"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877071"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 
@@ -53,10 +53,11 @@ Les propriétés système permettent d’identifier le contenu et la source des 
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| contentType | chaîne | L’utilisateur spécifie le type de contenu du message. Pour autoriser la requête sur le corps du message, cette valeur doit être définie sur application/JSON. |
-| contentEncoding | chaîne | L’utilisateur spécifie le type d’encodage du message. Les valeurs autorisées sont UTF-8, UTF-16, UTF-32 si la valeur contentType est définie sur application/JSON. |
-| iothub-connection-device-id | chaîne | Cette valeur est définie par IoT Hub et identifie l’ID de l’appareil. Pour interroger, utilisez `$connectionDeviceId`. |
-| iothub-enqueuedtime | chaîne | Cette valeur est définie par IoT Hub et représente l’heure (UTC) réelle de la mise en file d’attente du message. Pour interroger, utilisez `enqueuedTime`. |
+| contentType | string | L’utilisateur spécifie le type de contenu du message. Pour autoriser la requête sur le corps du message, cette valeur doit être définie sur application/JSON. |
+| contentEncoding | string | L’utilisateur spécifie le type d’encodage du message. Les valeurs autorisées sont UTF-8, UTF-16, UTF-32 si la valeur contentType est définie sur application/JSON. |
+| iothub-connection-device-id | string | Cette valeur est définie par IoT Hub et identifie l’ID de l’appareil. Pour interroger, utilisez `$connectionDeviceId`. |
+| iothub-enqueuedtime | string | Cette valeur est définie par IoT Hub et représente l’heure (UTC) réelle de la mise en file d’attente du message. Pour interroger, utilisez `enqueuedTime`. |
+| iothub-interface-name | string | Cette valeur est définie par l’utilisateur et représente le nom de l’interface du jumeau numérique qui implémente le message de télémétrie. Pour interroger, utilisez `$interfaceName`. Cette fonctionnalité fait partie de la [préversion publique d’IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Comme expliqué dans l’article [Messages IoT Hub](iot-hub-devguide-messages-construct.md), il existe des propriétés système supplémentaires dans un message. En plus de **contentType**, **contentEncoding** et **enqueuedTime**, les propriétés **connectionDeviceId** et **connectionModuleId** peuvent également être interrogées.
 
@@ -66,7 +67,7 @@ Les propriétés de l’application sont des chaînes définies par l’utilisat
 
 ### <a name="query-expressions"></a>Expressions de requête
 
-Une requête sur les propriétés système d’un message doit avoir pour préfixe le symbole `$`. Les requêtes sur les propriétés de l’application sont accessibles par leur nom, dont le préfixe ne doit pas contenir de symbole `$`. Si le nom d’une propriété de l’application commence par `$`, IoT Hub recherche ce nom dans les propriétés système, où il est introuvable, puis le cherche dans les propriétés de l’application. Par exemple :  
+Une requête sur les propriétés système d’un message doit avoir pour préfixe le symbole `$`. Les requêtes sur les propriétés de l’application sont accessibles par leur nom, dont le préfixe ne doit pas contenir de symbole `$`. Si le nom d’une propriété de l’application commence par `$`, IoT Hub recherche ce nom dans les propriétés système, où il est introuvable, puis le cherche dans les propriétés de l’application. Par exemple : 
 
 Pour interroger la propriété système contentEncoding 
 
@@ -86,7 +87,7 @@ Pour combiner ces requêtes, vous pouvez utiliser des fonctions et des expressio
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-La liste complète des fonctions et opérateurs pris en charge est répertoriée dans [Expression et conditions](iot-hub-devguide-query-language.md#expressions-and-conditions)
+La liste complète des fonctions et des opérateurs pris en charge est affichée dans [Expression et conditions](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="message-routing-query-based-on-message-body"></a>Requête de routage de messages en fonction du corps de message 
 
@@ -163,7 +164,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Requête de routage de messages en fonction du jumeau d’appareil 
 
-Le routage de messages vous permet d’interroger les étiquettes et les propriétés d’un [Jumeau d’appareil](iot-hub-devguide-device-twins.md), qui sont des objets JSON. Notez que l’interrogation d’un jumeau de module n’est pas prise en charge. Un exemple d’étiquettes et de propriétés de jumeau d’appareil est détaillé ci-dessous.
+Le routage de messages vous permet d’interroger les étiquettes et les propriétés d’un [Jumeau d’appareil](iot-hub-devguide-device-twins.md), qui sont des objets JSON. L’interrogation d’un jumeau de module n’est pas prise en charge. Un exemple d’étiquettes et de propriétés de jumeau d’appareil est détaillé ci-dessous.
 
 ```JSON
 {

@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
 ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795404"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60562211"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Spécifier des artefacts obligatoires pour une instance Azure DevTest Labs
-En tant que propriétaire d’un laboratoire, vous pouvez spécifier des artefacts obligatoires qui sont appliquées à chaque machine créée dans le laboratoire. Supposons que vous souhaitez qu’elles soient toutes connectées à votre réseau d’entreprise. Dans ce cas, chaque utilisateur lab devra ajouter un artefact de jonction de domaine lors de la création de la machine virtuelle pour respecter cette exigence. En d’autres termes, il devra pour ainsi dire recréer une machine si jamais il oublie d’y appliquer les artefacts obligatoires. En tant que propriétaire d’une instance lab, c’est vous qui rendez obligatoire l’artefact de jonction de domaine. L’objectif est de faire en sorte que chaque machine soit connectée au réseau d’entreprise et de faire gagner du temps aux utilisateurs.
+En tant que propriétaire d’un labo, vous pouvez spécifier des artefacts obligatoires qui sont appliqués à chaque machine créée dans le labo. Supposons que vous souhaitez qu’elles soient toutes connectées à votre réseau d’entreprise. Dans ce cas, chaque utilisateur lab devra ajouter un artefact de jonction de domaine lors de la création de la machine virtuelle pour respecter cette exigence. En d’autres termes, il devra pour ainsi dire recréer une machine si jamais il oublie d’y appliquer les artefacts obligatoires. En tant que propriétaire d’une instance lab, c’est vous qui rendez obligatoire l’artefact de jonction de domaine. L’objectif est de faire en sorte que chaque machine soit connectée au réseau d’entreprise et de faire gagner du temps aux utilisateurs.
  
 On peut citer d’autres artefacts obligatoires possibles, comme un outil commun utilisé par l’équipe, un pack de sécurité lié à la plateforme que chaque machine doit posséder par défaut, etc. En somme, tout logiciel devant être commun à toutes les machines de l’instance lab devient un artefact obligatoire. Si vous créez une image personnalisée à partir d’une machine à laquelle des artefacts obligatoires sont appliqués, puis que vous créez une nouvelle machine à partir de cette image, les artefacts obligatoires sont réappliqués à la machine lors de sa création. Ce comportement a une autre conséquence : chaque fois qu’une image personnalisée, même ancienne, est utilisée pour créer une machine, la dernière version des artefacts obligatoires est appliquée à cette dernière au cours du flux de création. 
  

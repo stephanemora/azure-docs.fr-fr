@@ -1,25 +1,18 @@
 ---
-title: Créer ou modifier une offre | Microsoft Docs
+title: Créer ou modifier une offre | Place de marché Azure
 description: API pour créer une offre ou en mettre une à jour.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c7aed97c442c414e86c9531f9b0a8431e22b8b44
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 55f6aa60c836d55333e1c5b02a44114b91df822d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806025"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935518"
 ---
 <a name="create-or-modify-an-offer"></a>Créer ou modifier une offre
 =========================

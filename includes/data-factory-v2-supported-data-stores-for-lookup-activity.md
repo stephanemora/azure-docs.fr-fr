@@ -5,21 +5,20 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 02/15/2019
+ms.date: 08/06/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: d9562bb9c91700e817c120934e59c0c308d1e55b
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a2b00173f463cf5bf0cda321286042a516b7e322
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56323394"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70130081"
 ---
-| Catégorie | Banque de données |
+| Category | Banque de données |
 |:--- |:--- |
 | **Microsoft Azure** |[stockage d’objets blob Azure](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (API SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |
-| &nbsp; |[API pour MongoDB d’Azure Cosmos DB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |
 | &nbsp; |[Explorateur de données Azure](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
@@ -27,8 +26,8 @@ ms.locfileid: "56323394"
 | &nbsp; |[Azure Database pour MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Base de données Azure pour PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure Files](../articles/data-factory/connector-azure-file-storage.md) |
-| &nbsp; |[Base de données SQL Azure](../articles/data-factory/connector-azure-sql-database.md) |
-| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |
+| &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
+| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Stockage Table Azure](../articles/data-factory/connector-azure-table-storage.md) |
 | **Base de données** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
@@ -39,9 +38,9 @@ ms.locfileid: "56323394"
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |
 | &nbsp; |[Apache Impala (préversion)](../articles/data-factory/connector-impala.md) |
-| &nbsp; |[Informix](../articles/data-factory/connector-odbc.md#ibm-informix-source) 
+| &nbsp; |[Informix](../articles/data-factory/connector-informix.md) 
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |
-| &nbsp; |[Microsoft Access](../articles/data-factory/connector-odbc.md#microsoft-access-source) |
+| &nbsp; |[Microsoft Access](../articles/data-factory/connector-microsoft-access.md) |
 | &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |
 | &nbsp; |[Netezza](../articles/data-factory/connector-netezza.md) |
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |
@@ -51,6 +50,7 @@ ms.locfileid: "56323394"
 | &nbsp; |[SAP Business Warehouse Open Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
+| &nbsp; |[SAP Table](../articles/data-factory/connector-sap-table.md) |
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |
@@ -58,7 +58,6 @@ ms.locfileid: "56323394"
 | &nbsp; |[Vertica](../articles/data-factory/connector-vertica.md) |
 | **NoSQL** |[Cassandra](../articles/data-factory/connector-cassandra.md) |
 | &nbsp; |[Couchbase (préversion)](../articles/data-factory/connector-couchbase.md) |
-| &nbsp; |[MongoDB](../articles/data-factory/connector-mongodb.md) |
 | **File** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |
 | &nbsp; |[Système de fichiers](../articles/data-factory/connector-file-system.md) |
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |
@@ -68,9 +67,8 @@ ms.locfileid: "56323394"
 | **Protocole générique** |[HTTP générique](../articles/data-factory/connector-http.md) |
 | &nbsp; |[OData générique](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[ODBC générique](../articles/data-factory/connector-odbc.md) |
-| &nbsp; |[REST générique](../articles/data-factory/connector-rest.md) |
 | **Services et applications** |[Amazon Marketplace Web Service (préversion)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
-| &nbsp; |[Common Data Service pour les applications](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓
+| &nbsp; |[Common Data Service pour les applications](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Concur (préversion)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics AX (préversion)](../articles/data-factory/connector-dynamics-ax.md) |
@@ -82,10 +80,11 @@ ms.locfileid: "56323394"
 | &nbsp; |[Marketo (préversion)](../articles/data-factory/connector-marketo.md) |
 | &nbsp; |[Oracle Eloqua (préversion)](../articles/data-factory/connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys (préversion)](../articles/data-factory/connector-oracle-responsys.md) |
-| &nbsp; |[Oracle Service Cloud (préversion)](../articles/data-factory/connector-oracle-service-cloud.md) || &nbsp; |[Paypal (préversion)](../articles/data-factory/connector-paypal.md) |
+| &nbsp; |[Oracle Service Cloud (préversion)](../articles/data-factory/connector-oracle-service-cloud.md) |
+| &nbsp; |[PayPal (préversion)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks (préversion)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
-| &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce.md) |
+| &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce-service-cloud.md) |
 | &nbsp; |[Salesforce Marketing Cloud (préversion)](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |

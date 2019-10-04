@@ -3,17 +3,18 @@ title: Guide de démarrage rapide – Déployer un conteneur Docker sur Azure Co
 description: Dans ce guide de démarrage rapide, vous utilisez le Azure CLI pour déployer rapidement une application web conteneurisée qui s’exécute dans une instance de conteneur Azure isolé.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8e504a081f8685107871aed920077dd75a70dfa7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b344e5fefdef6cd25dcafc0577b9fbbd7f0e398d
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368508"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050624"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Démarrage rapide : Déployer un instance de conteneur dans Azure à l’aide d’Azure CLI
 
@@ -27,7 +28,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][azure-acco
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de l’interface Azure CLI pour procéder à ce démarrage rapide. Si vous souhaitez l’utiliser en local, nous vous recommandons la version 2.0.55 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de l’interface Azure CLI pour procéder à ce démarrage rapide. Si vous souhaitez l’utiliser en local, nous vous recommandons la version 2.0.55 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -41,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Maintenant que vous avez un groupe de ressources, vous pouvez exécuter un conteneur dans Azure. Pour créer une instance de conteneur avec Azure CLI, fournissez un nom de groupe de ressources, un nom d’instance de conteneur et l’image de conteneur Docker à la commande [az container create][az-container-create]. Dans ce démarrage rapide, vous utilisez l’image `mcr.microsoft.com/azuredocs/aci-helloworld` publique. Cette image contient une petite application web écrite en Node.js qui sert une page HTML statique.
+Maintenant que vous avez un groupe de ressources, vous pouvez exécuter un conteneur dans Azure. Pour créer une instance de conteneur avec Azure CLI, fournissez un nom de groupe de ressources, un nom d’instance de conteneur et l’image conteneur Docker à la commande [az container create][az-container-create]. Dans ce démarrage rapide, vous utilisez l’image `mcr.microsoft.com/azuredocs/aci-helloworld` publique. Cette image contient une petite application web écrite en Node.js qui sert une page HTML statique.
 
 Vous pouvez exposer vos conteneurs sur Internet en spécifiant un ou plusieurs ports à ouvrir, une étiquette de nom DNS ou les deux. Dans ce guide de démarrage rapide, vous déployez un conteneur avec une étiquette de nom DNS pour que l’application web soit publiquement accessible.
 
@@ -51,7 +52,7 @@ Pour démarrer une instance de conteneur, exécutez une commande similaire à la
 az container create --resource-group myResourceGroup --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
-Après quelques secondes, vous devez recevoir une réponse d’Azure CLI indiquant que le déploiement est terminé. Vérifiez son état à l’aide de la commande [az container show][az-container-show] :
+Après quelques secondes, vous devez recevoir une réponse d’Azure CLI indiquant que le déploiement est terminé. Vérifiez son état à l’aide de la commande [az container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
@@ -76,7 +77,7 @@ Si l’application n’apparaît pas dans un premier temps, vous devrez peut-êt
 
 Lorsque vous avez besoin de résoudre les problèmes relatifs à un conteneur ou à l’application qu’il exécute (ou simplement afficher son résultat), commencez par consulter les journaux d’activité de l’instance de conteneur.
 
-Extrayez les journaux d’activité d’instance de conteneur avec la commande [az container logs][az-container-logs] :
+Extrayez les journaux d’instance de conteneur avec la commande [az container logs][az-container-logs] :
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -138,7 +139,7 @@ az container list --resource-group myResourceGroup --output table
 
 Le conteneur **mycontainer** ne doit pas apparaître dans la sortie de la commande. Si vous ne disposez d’aucun autre conteneur dans le groupe de ressources, aucune sortie ne s’affiche.
 
-Si vous avez terminé avec le groupe de ressources *myResourceGroup* et toutes les ressources qu’il contient, supprimez-le avec la commande [az group delete][az-group-delete] :
+Si vous en avez terminé avec le groupe de ressources *myResourceGroup* et toutes les ressources qu’il contient, supprimez-le avec la commande [az group delete][az-group-delete] :
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

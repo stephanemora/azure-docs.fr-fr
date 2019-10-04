@@ -3,27 +3,24 @@ title: Créer votre première fabrique de données (REST) | Microsoft Docs
 description: Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide de l’API REST Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 7e0a2465-2d85-4143-a4bb-42e03c273097
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 5dcf31adc5e8bdf810d484f07ebeb6f23acbf452
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 5fe554371e54c6f67ae714084f110319b43fe54c
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487802"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140433"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Didacticiel : Créer votre première fabrique de données Azure en utilisant l’API REST Data Factory
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-build-your-first-pipeline.md)
-> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -125,8 +122,8 @@ Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de co
 
 | Propriété | Description |
 |:--- |:--- |
-| ClusterSize |Taille du cluster HDInsight. |
-| TimeToLive |Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
+| clusterSize |Taille du cluster HDInsight. |
+| timeToLive |Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
 | linkedServiceName |Spécifie le compte de stockage utilisé pour stocker les journaux d’activité générés par HDInsight |
 
 Notez les points suivants :
@@ -171,10 +168,10 @@ Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de co
 
 | Propriété | Description |
 |:--- |:--- |
-| Type |La propriété type est définie sur AzureBlob, car les données se trouvent dans le stockage d’objets blob Azure. |
+| type |La propriété type est définie sur AzureBlob, car les données se trouvent dans le stockage d’objets blob Azure. |
 | linkedServiceName |fait référence au service StorageLinkedService que vous avez créé précédemment. |
 | fileName |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans le cas présent, seul le fichier input.log est traité. |
-| Type |Les fichiers journaux sont au format texte : nous utilisons donc TextFormat. |
+| type |Les fichiers journaux sont au format texte : nous utilisons donc TextFormat. |
 | columnDelimiter |Les colonnes des fichiers journaux sont délimitées par une virgule (,) |
 | frequency/interval |La fréquence est définie sur Mois et l’intervalle est 1, ce qui signifie que les segments d’entrée sont disponibles mensuellement. |
 | external |Cette propriété a la valeur true si les données d’entrée ne sont pas générées par le service Data Factory. |
@@ -474,7 +471,7 @@ Exécutez Invoke-Command et la commande suivante jusqu’à ce que la tranche so
 >
 >
 
-Vous pouvez également utiliser le portail Azure pour surveiller les tranches et résoudre les éventuels problèmes. Consultez la page [Surveillance et gestion des pipelines d’Azure Data Factory](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) pour plus d’informations.
+Vous pouvez également utiliser le portail Azure pour surveiller les tranches et résoudre les éventuels problèmes. Consultez la page [Surveillance et gestion des pipelines d’Azure Data Factory](data-factory-monitor-manage-pipelines.md) pour plus d’informations.
 
 ## <a name="summary"></a>Résumé
 Dans ce didacticiel, vous avez créé une fabrique de données Azure pour traiter des données en exécutant le script Hive sur un cluster Hadoop HDInsight. Vous avez effectué les étapes suivantes dans le portail Azure à l’aide de Data Factory Editor :

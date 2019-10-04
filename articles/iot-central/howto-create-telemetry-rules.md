@@ -3,21 +3,23 @@ title: Créer et gérer des règles de télémétrie dans votre application Azur
 description: Les règles de télémétrie d’Azure IoT Central vous permettent de surveiller vos appareils quasi en temps réel et d’appeler automatiquement des actions, comme l’envoi d’un e-mail, quand la règle se déclenche.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 02/02/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0fb7cdaa24d139549545c93c920d60936d3c9fc1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 3ac8e488de11abc3471df836ca852cf3dc85c82f
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517230"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877362"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Créer une règle de télémétrie et configurer des notifications dans votre application Azure IoT Central
 
 *Cet article s’applique aux opérateurs, aux créateurs et aux administrateurs.*
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Vous pouvez utiliser Azure IoT Central pour surveiller à distance vos appareils connectés. Les règles d’Azure IoT Central vous permettent de surveiller vos appareils quasiment en temps réel et d’appeler automatiquement des actions, comme l’envoi d’un e-mail ou le déclenchement de Microsoft Flow. En quelques clics seulement, vous pouvez définir la condition pour surveiller les données de votre appareil et configurer l’action correspondante. Cet article explique comment créer des règles pour surveiller les données de télémétrie envoyées par l’appareil.
 
@@ -27,23 +29,23 @@ Les appareils peuvent utiliser des mesures de télémétrie pour envoyer des don
 
 Pour créer une règle de télémétrie, le modèle d’appareil doit avoir au moins une mesure de télémétrie définie. Cet exemple utilise un distributeur automatique réfrigéré qui envoie les données de télémétrie de la température et de l’humidité. La règle surveille la température signalée par l’appareil et envoie un e-mail quand elle dépasse 80 degrés.
 
-1. À l’aide de la **modèles de périphériques** page, accédez au modèle de périphérique pour lequel vous ajoutez la règle pour.
+1. À l’aide de la page **Modèles d’appareil**, accédez au modèle d’appareil pour lequel vous ajoutez la règle.
 
 1. Si vous n’avez pas encore créé de règles, vous voyez l’écran suivant :
 
-    ![Pas encore de règles](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
+    ![Pas encore de règles](media/howto-create-telemetry-rules/rules_landing_page1.png)
 
-1. Sur le **règles** onglet, sélectionnez **+ nouvelle règle** pour voir les types de règles que vous pouvez créer.
+1. Sous l’onglet **Règles**, sélectionnez **+ Nouvelle règle** pour voir les types de règles que vous pouvez créer.
 
-1. Sélectionnez **télémétrie** pour créer une règle pour la surveillez la télémétrie d’appareil.
+1. Sélectionnez **Télémétrie** pour créer une règle afin de surveiller la télémétrie de l’appareil.
 
-    ![Types de règles](media/howto-create-telemetry-rules/Rule_Types.png)
+    ![Types de règles](media/howto-create-telemetry-rules/rule_types1.png)
 
 1. Entrez un nom qui vous aide à identifier la règle dans ce modèle d’appareil.
 
 1. Pour activer immédiatement la règle sur tous les appareils créés pour ce modèle, choisissez **Activer la règle pour tous les appareils de ce modèle**.
 
-   ![Détail de la règle](media/howto-create-telemetry-rules/Rule_Detail.png)
+   ![Détail de la règle](media/howto-create-telemetry-rules/rule_detail1.png)
 
     La règle s’applique automatiquement à tous les appareils de ce modèle.
 
@@ -51,15 +53,15 @@ Pour créer une règle de télémétrie, le modèle d’appareil doit avoir au m
 
 La condition définit les critères qui sont surveillés par la règle.
 
-1. Sélectionnez **+** regard **Conditions** pour ajouter une nouvelle condition.
+1. Sélectionnez **+** en regard de **Conditions** pour ajouter une nouvelle condition.
 
 1. Sélectionnez les données de télémétrie que vous souhaitez analyser dans la liste déroulante **Mesure**.
 
 1. Choisissez **Agrégation**, **Opérateur** et spécifiez une valeur **Seuil**.
-   - L’agrégation est facultative. Sans agrégation, la règle se déclenche pour chaque point de données de télémétrie qui répond à la condition. Par exemple, si la règle est configurée pour le déclencheur lorsque la température est supérieure à 80, puis la règle déclenche presque instantanément lorsque l’appareil signale température > 80.
+   - L’agrégation est facultative. Sans agrégation, la règle se déclenche pour chaque point de données de télémétrie qui répond à la condition. Par exemple, si la règle est configurée pour se déclencher quand la température dépasse 80, la règle se déclenche presque instantanément lorsque l’appareil affiche température > 80.
    - Si une fonction d’agrégation comme Average, Min, Max, Count est sélectionnée, l’utilisateur doit spécifier la **fenêtre de temps d’agrégation** pendant laquelle la condition sera évaluée. Par exemple, si vous définissez la fenêtre sur « 5 minutes » et que votre règle recherche une température moyenne supérieure à 80, la règle se déclenche lorsque la température moyenne est au-dessus de 80 pendant au moins 5 minutes. La fréquence d’évaluation de la règle est la même que la **fenêtre de temps d’agrégation**, ce qui signifie que, dans cet exemple, la règle est évaluée toutes les 5 minutes.
 
-     ![Condition](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+     ![Condition](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
      >Vous pouvez ajouter plusieurs mesures de télémétrie sous **Condition**. Quand plusieurs conditions sont spécifiées, toutes les conditions doivent être remplies pour que la règle se déclenche. Chaque condition est implicitement jointe par une clause « AND ». Lorsque vous utilisez un agrégat, chaque mesure doit être agrégée.
@@ -68,16 +70,16 @@ La condition définit les critères qui sont surveillés par la règle.
 
 Cette section vous indique comment configurer les actions à effectuer lorsque la règle est déclenchée. Les actions sont appelées lorsque toutes les conditions spécifiées dans la règle présentent la valeur true.
 
-1. Choisissez le signe Plus (**+**) en regard de **Actions**. Vous voyez ici la liste des actions disponibles.  
+1. Choisissez le signe Plus ( **+** ) en regard de **Actions**. Vous voyez ici la liste des actions disponibles.  
 
-    ![Ajouter une action](media/howto-create-telemetry-rules/Add_Action.png)
+    ![Ajouter une action](media/howto-create-telemetry-rules/add_action1.png)
 
 1. Choisissez l’action **Envoyer un e-mail**, entrez une adresse e-mail valide dans le champ **À** et spécifiez une note qui doit apparaître dans le corps de l’e-mail quand la règle se déclenche.
 
     > [!NOTE]
     > Les e-mails sont envoyés seulement aux utilisateurs qui ont été ajoutés à l’application et qui se sont connectés au moins une fois. Découvrez plus en détail la [gestion des utilisateurs](howto-administer.md) dans Azure IoT Central.
 
-   ![Configurer une action](media/howto-create-telemetry-rules/Configure_Action.png)
+   ![Configurer une action](media/howto-create-telemetry-rules/configure_action1.png)
 
 1. Pour enregistrer la règle, choisissez **Enregistrer**. La règle est active au bout de quelques minutes et commence à surveiller la télémétrie envoyée à votre application. Quand la condition spécifiée dans la règle est remplie, cette dernière déclenche l’action d’envoi d’e-mail configurée.
 
@@ -112,5 +114,5 @@ Maintenant que vous avez appris à créer des règles dans votre application Azu
 
 - [Ajouter une action Microsoft Flow dans les règles](howto-add-microsoft-flow.md)
 - [Ajouter une action Webhook dans les règles](howto-create-webhooks.md)
-- [Plusieurs actions à exécuter à partir d’une ou plusieurs règles de groupe](howto-use-action-groups.md)
+- [Regrouper plusieurs actions à exécuter à partir d’une ou plusieurs règles](howto-use-action-groups.md)
 - [Gérer vos appareils](howto-manage-devices.md)

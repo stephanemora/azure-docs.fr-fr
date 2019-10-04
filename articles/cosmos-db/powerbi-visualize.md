@@ -4,14 +4,14 @@ description: Utilisez ce didacticiel Power BI pour importer JSON, créer des rap
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 2c58b982e596c95aa47442c1897410fe9ab6b99a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1dbdd428a54ebf38c7b880bb9530935c0f748226
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137672"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616809"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualiser les données Azure Cosmos DB à l’aide du connecteur Power BI
 
@@ -25,14 +25,14 @@ Cet article décrit les étapes requises pour connecter le compte Azure Cosmos D
 > [!NOTE]
 > La connexion à Azure Cosmos DB avec le connecteur Power BI est actuellement prise en charge uniquement pour les comptes d’API SQL Azure Cosmos DB et d’API Gremlin.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de suivre les instructions de ce didacticiel Power BI, assurez-vous de disposer des ressources suivantes :
 
 * [Télécharger la dernière version de Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
 * Téléchargez les [exemples de données de volcan](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) à partir de GitHub.
 
-* [Créer un compte de base de données Azure Cosmos DB](https://azure.microsoft.com/documentation/articles/create-account/) et importer les données de volcan à l’aide de l’[outil de migration de données Azure Cosmos DB](import-data.md). Lorsque vous importez des données, prenez en compte les paramètres suivants pour la source et les destinations dans l’outil de migration de données :
+* [Créer un compte de base de données Azure Cosmos](https://azure.microsoft.com/documentation/articles/create-account/) et importer les données de volcan à l’aide de l’[outil de migration de données Azure Cosmos DB](import-data.md). Lorsque vous importez des données, prenez en compte les paramètres suivants pour la source et les destinations dans l’outil de migration de données :
 
    * **Paramètres de la source** 
 
@@ -122,7 +122,7 @@ Vous souhaitez récupérer les données relatives aux volcans du compte Azure Co
 8. Indiquez un nom pour la nouvelle colonne, par exemple LatLong.
 9. Spécifiez ensuite la formule personnalisée à appliquer à la nouvelle colonne.  Dans notre exemple, nous allons concaténer les valeurs de latitude et longitude séparées par une virgule, comme indiqué ci-dessous, à l’aide de la formule suivante : `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Cliquez sur **OK**.
    
-    Pour plus d’informations sur les Expressions DAX (Data Analysis), y compris les fonctions DAX, visitez [principes fondamentaux de DAX dans Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
+    Pour plus d’informations sur le langage DAX (Data Analysis Expressions) et notamment sur les fonctions DAX, consultez la page [Principes fondamentaux de DAX dans Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
     ![Didacticiel Power BI pour le connecteur Microsoft Azure Cosmos DB et Power BI - Ajout d’une colonne personnalisée](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 

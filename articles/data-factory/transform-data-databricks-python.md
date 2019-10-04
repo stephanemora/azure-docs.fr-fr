@@ -3,21 +3,21 @@ title: Transformer des données avec Databricks Python - Azure | Microsoft Docs
 description: Découvrez comment traiter ou transformer des données en exécutant une activité Databricks Python.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
-ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+author: djpmsft
+ms.author: daperlov
+ms.reviewer: maghan
+manager: craigg
+ms.openlocfilehash: 02c4644c4440c3a00a21ef22674bcc0d00902ac2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541704"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140789"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transformer des données en exécutant une activité Python dans Azure Databricks
 
@@ -64,13 +64,13 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 |Propriété|Description|Obligatoire|
 |---|---|---|
-|Nom|Nom de l'activité dans le pipeline.|Oui|
-|description|Texte décrivant l’activité.|Non |
-|Type|Pour l’activité Databricks Python, le type d’activité est DatabricksSparkPython.|Oui|
-|linkedServiceName|Nom du service lié Databricks sur lequel s’exécute l’activité Python. Pour en savoir plus sur ce service lié, consultez l’article  [Services liés de calcul](compute-linked-services.md) .|Oui|
-|pythonFile|L’URI du fichier Python à exécuter. Seuls les chemins DBFS sont pris en charge.|Oui|
-|parameters|Les paramètres de ligne de commande qui sont passés au fichier Python. C’est un tableau de chaînes.|Non |
-|libraries|Liste de bibliothèques à installer sur le cluster qui exécute la tâche. Il peut s’agir d’un tableau de < chaîne, objet >|Non |
+|name|Nom de l'activité dans le pipeline.|OUI|
+|description|Texte décrivant l’activité.|Non|
+|Type|Pour l’activité Databricks Python, le type d’activité est DatabricksSparkPython.|OUI|
+|linkedServiceName|Nom du service lié Databricks sur lequel s’exécute l’activité Python. Pour en savoir plus sur ce service lié, consultez l’article  [Services liés de calcul](compute-linked-services.md) .|OUI|
+|pythonFile|L’URI du fichier Python à exécuter. Seuls les chemins DBFS sont pris en charge.|OUI|
+|parameters|Les paramètres de ligne de commande qui sont passés au fichier Python. C’est un tableau de chaînes.|Non|
+|libraries|Liste de bibliothèques à installer sur le cluster qui exécute la tâche. Il peut s’agir d’un tableau de < chaîne, objet >|Non|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliothèques prises en charge pour les activités Databricks
 

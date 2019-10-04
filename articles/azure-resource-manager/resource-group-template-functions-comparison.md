@@ -1,25 +1,17 @@
 ---
 title: Fonctions de modèle Azure Resource Manager - comparaison| Microsoft Docs
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour comparer des valeurs.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6591a75577670f5bb50c1275af7e51e9b8328d50
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 05e51af62be974f925fefc46ad63c489f27fd163
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268702"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194820"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Fonctions de comparaison pour les modèles Azure Resource Manager
 
@@ -42,8 +34,8 @@ Vérifie si deux valeurs sont égales.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |entier, chaîne, tableau ou objet |Première valeur dont l’égalité est à vérifier. |
-| arg2 |OUI |entier, chaîne, tableau ou objet |Deuxième valeur dont l’égalité est à vérifier. |
+| arg1 |OUI |int, string, array ou object |Première valeur dont l’égalité est à vérifier. |
+| arg2 |OUI |int, string, array ou object |Deuxième valeur dont l’égalité est à vérifier. |
 
 ### <a name="return-value"></a>Valeur de retour
 

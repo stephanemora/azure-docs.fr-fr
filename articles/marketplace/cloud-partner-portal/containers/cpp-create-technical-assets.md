@@ -1,25 +1,18 @@
 ---
-title: Créer des ressources techniques d’image conteneur | Microsoft Docs
+title: Créer des ressources techniques d’image conteneur Azure | Place de marché Azure
 description: Créer les ressources techniques pour un conteneur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 5a7531be73a872d9c088a0bf02a8686f947c220a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047362"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65794337"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Préparer vos ressources techniques de conteneur
 
@@ -60,9 +53,10 @@ Nous vous suggérons également d’examiner les outils disponibles sur la page 
 
 ## <a name="create-the-container-image"></a>Créer l’image conteneur
 
-- Créez et configurez le disque dur virtuel (VHD) pour votre machine virtuelle de conteneur. Ce disque dur virtuel contient le système d’exploitation (Windows, Linux ou Ubuntu) du conteneur. Des disques de données supplémentaires peuvent être nécessaires.
-- Configurez le système d’exploitation de la machine virtuelle, la taille de la machine virtuelle, les ports à ouvrir et les disques de données attachés.
-- Installez l’application et les autres logiciels requis pour votre offre. Par exemple : le logiciel de base de données, les logiciels tiers ou une application personnalisée.
+Consultez les liens suivants pour plus d’informations :
+
+* [Tutoriel : Créer une image conteneur à déployer sur Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

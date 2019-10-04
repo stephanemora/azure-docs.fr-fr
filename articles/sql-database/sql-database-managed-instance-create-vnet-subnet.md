@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
-ms.date: 01/15/2019
-ms.openlocfilehash: 5e8b385d018482d281153f1cf80f9953cb8c7f06
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 09/12/2019
+ms.openlocfilehash: 2fd4055f1a2ec7b5b29d1a303f1c9ac3260f4cca
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59782522"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70958471"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Créer un réseau virtuel pour Azure SQL Database Managed Instance
 
@@ -34,6 +33,9 @@ Azure SQL Database Managed Instance doit être déployé au sein d’un [réseau
 > Vous devez [déterminer la taille du sous-réseau pour Managed Instance](sql-database-managed-instance-determine-size-vnet-subnet.md) avant de déployer la première instance. Vous ne pouvez pas redimensionner le sous-réseau une fois que celui-ci contient des ressources.
 >
 > Si vous envisagez d’utiliser un réseau virtuel existant, vous devez modifier sa configuration pour prendre en compte Managed Instance. Pour plus d’informations, consultez [Modifier un réseau virtuel existant pour Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md).
+>
+> Après la création d’une instance managée, le déplacement de l’instance managée ou du réseau virtuel vers un autre groupe de ressources ou vers un autre abonnement n’est pas pris en charge.
+
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 

@@ -1,24 +1,24 @@
 ---
-title: Inscrire votre organisation - Azure Active Directory | Microsoft Docs
+title: Inscrire votre organisation – Azure Active Directory | Microsoft Docs
 description: Instructions d’inscription de votre organisation pour utiliser Azure et Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bec4385b77ce44e87ed1f947a5a7a3e3d0d52fc6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: eb306e1ecbbdf2142d88b837b9750bbd2166cfda
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101361"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561625"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Inscrire votre organisation pour utiliser Azure Active Directory
 Inscrivez-vous à Azure Active Directory (Azure AD) ou obtenez un nouvel abonnement Microsoft Azure à l’aide de :

@@ -2,25 +2,17 @@
 title: Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure | Microsoft Docs
 description: Créer une connexion de passerelle VPN entre des réseaux virtuels à l’aide de Resource Manager et du portail Azure.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: a7015cfc-764b-46a1-bfac-043d30a275df
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 94b32595cf2c884ccfd1362f6c8d03f542aabfc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7ad83327d5b85784f523a5931f277cd00009e0ed
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090098"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266461"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure
 
@@ -40,7 +32,6 @@ Les étapes mentionnées dans cet article s’appliquent au modèle de déploiem
 >
 >
 
-
 ## <a name="about-connecting-vnets"></a>À propos de la connexion de réseaux virtuels
 
 Les sections ci-dessous décrivent les différentes manières de se connecter à des réseaux virtuels.
@@ -55,9 +46,9 @@ Lorsque vous créez une connexion de réseau virtuel à réseau virtuel, l’esp
 
 Si vous travaillez avec une configuration réseau complexe, vous pouvez connecter vos réseaux virtuels à l’aide d'une connexion de [site à site](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Lorsque vous suivez les étapes IPsec de site à site, vous créez et configurez manuellement les passerelles réseau locales. La passerelle de réseau local pour chaque réseau virtuel traite l’autre réseau virtuel comme un site local. Ces étapes vous permettent de spécifier un espace d’adressage supplémentaire pour la passerelle réseau locale afin d’acheminer le trafic. Si l’espace d’adressage pour un réseau virtuel est modifié, vous devez manuellement mettre à jour la passerelle réseau local correspondante.
 
-### <a name="vnet-peering"></a>Homologation de réseaux virtuels
+### <a name="vnet-peering"></a>Peering de réseaux virtuels
 
-Vous pouvez également connecter vos réseaux virtuels à l’aide de l’homologation de réseaux virtuels. VNet Peering n’utilise pas de passerelle VPN et a d’autres contraintes En outre, la [tarification de VNet Peering](https://azure.microsoft.com/pricing/details/virtual-network) est différente de la [tarification de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+Vous pouvez également connecter vos réseaux virtuels à l’aide du peering de réseaux virtuels. VNet Peering n’utilise pas de passerelle VPN et a d’autres contraintes En outre, la [tarification de VNet Peering](https://azure.microsoft.com/pricing/details/virtual-network) est différente de la [tarification de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour plus d’informations, consultez l’article [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why-create-a-vnet-to-vnet-connection"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
 
@@ -94,7 +85,6 @@ Cet article explique comment connecter des réseaux virtuels avec une connexion 
     - **Sous-réseau de passerelle** :
         - **Nom** : *Sous-réseau de passerelle* est automatiquement renseigné.
         - **Plage d’adresses** : Entrez *10.11.255.0/27*.
-    - **Serveur DNS** : Sélectionnez **Personnalisé**, puis entrez l’adresse IP de votre serveur DNS.
 
 - **Paramètres de passerelle de réseau virtuel** 
     - **Nom** : Entrez *TestVNet1GW*.
@@ -120,7 +110,6 @@ Cet article explique comment connecter des réseaux virtuels avec une connexion 
    - **GatewaySubnet** 
       - **Nom** : *Sous-réseau de passerelle* est automatiquement renseigné.
       - **Plage d’adresses** : Entrez *10.41.255.0/27*.
-   - **Serveur DNS** : Sélectionnez **Personnalisé**, puis entrez l’adresse IP de votre serveur DNS.
 
 - **Paramètres de passerelle de réseau virtuel** 
     - **Nom** : Entrez *TestVNet4GW*.
@@ -133,7 +122,7 @@ Cet article explique comment connecter des réseaux virtuels avec une connexion 
        - **Clé partagée** : Entrez *abc123*. Vous pouvez créer la clé partagée vous-même. Lorsque vous créez la connexion entre les réseaux virtuels, les valeurs doivent correspondre.
 
 ## <a name="create-and-configure-testvnet1"></a>Créer et configurer TestVNet1
-Si vous disposez déjà d’un réseau virtuel, vérifiez que les paramètres sont compatibles avec la conception de votre passerelle VPN, avec une attention particulière pour tous les sous-réseaux qui pourraient chevaucher d’autres réseaux. Si vos sous-réseaux se chevauchent, votre connexion ne fonctionnera pas correctement. Une fois votre réseau virtuel correctement configuré, vous pouvez commencer à suivre les étapes de la section Spécifier un serveur DNS.
+Si vous disposez déjà d’un réseau virtuel, vérifiez que les paramètres sont compatibles avec la conception de votre passerelle VPN, avec une attention particulière pour tous les sous-réseaux qui pourraient chevaucher d’autres réseaux. Si vos sous-réseaux se chevauchent, votre connexion ne fonctionnera pas correctement.
 
 ### <a name="to-create-a-virtual-network"></a>Pour créer un réseau virtuel
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
@@ -143,26 +132,15 @@ Vous pouvez ajouter des espaces d’adressage supplémentaires et créer des sou
 
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
-## <a name="create-a-gateway-subnet"></a>Créer un sous-réseau de passerelle
-Vous devez d’abord créer un sous-réseau de passerelle pour pouvoir configurer une passerelle de réseau virtuel pour votre réseau virtuel. Le sous-réseau de passerelle contient les adresses IP utilisées par les services de passerelle de réseau virtuel. Si possible, il est préférable de créer un sous-réseau de passerelle à l’aide d’un bloc CIDR de /28 ou /27 afin de fournir suffisamment d’adresses IP pour satisfaire les exigences de configuration future supplémentaires.
-
-Si vous créez cette configuration dans le cadre d’un exercice, reportez-vous à ces [Exemples de paramètres](#example-settings) lorsque vous créez votre sous-réseau de passerelle.
-
-[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### <a name="to-create-a-gateway-subnet"></a>Pour créer un sous-réseau de passerelle
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-## <a name="specify-a-dns-server-optional"></a>Spécifier un serveur DNS (facultatif)
-Aucun DNS n’est nécessaire pour les connexions entre des réseaux virtuels. Toutefois, si vous souhaitez résoudre les noms des ressources qui sont déployées sur votre réseau virtuel, spécifiez un serveur DNS. Ce paramètre vous permet de spécifier le serveur DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel. Il n'entraîne pas la création d'un serveur DNS.
-
-[!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
-
 ## <a name="create-a-virtual-network-gateway"></a>Créer une passerelle de réseau virtuel
 Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée. Si vous créez cette configuration dans le cadre d’un exercice, consultez les [Exemples de paramètres](#example-settings).
 
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
+
 ### <a name="to-create-a-virtual-network-gateway"></a>Pour créer une passerelle de réseau virtuel
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="create-and-configure-testvnet4"></a>Créer et configurer TestVNet4
 Après avoir configuré TestVNet1, créez TestVNet4 en répétant les étapes précédentes et en remplaçant les valeurs par les valeurs de TestVNet4. Vous n’avez pas besoin d’attendre que la création de la passerelle de réseau virtuel pour TestVNet1 soit terminée pour configurer TestVNet4. Si vous utilisez vos propres valeurs, assurez-vous que les espaces d’adressage ne chevauchent pas les réseaux virtuels auxquels vous souhaitez vous connecter.

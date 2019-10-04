@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: b97bf56c23dfa96acf7cb5af5ac28b4270de117d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879779"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61281433"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurer la reprise d’activité pour une application Dynamics AX multiniveau   
 
@@ -27,7 +27,7 @@ Cet article explique comment créer une solution de récupération d’urgence p
 
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 L’implémentation de la récupération d’urgence pour l’application Dynamics AX à l’aide de Site Recovery nécessite les prérequis suivants :
 
@@ -45,9 +45,9 @@ Pour les besoins de cet article, des machines virtuelles VMware avec Dynamics AX
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | Oui | Oui
-**VMware** | Oui | Oui
-**Serveur physique** | Oui | Oui
+**Hyper-V** | OUI | OUI
+**VMware** | OUI | OUI
+**Serveur physique** | OUI | OUI
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Permettre la récupération d’urgence de l’application Dynamics AX à l’aide de Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Protéger votre application Dynamics AX

@@ -1,22 +1,21 @@
 ---
 title: Une présentation d’Apache Kafka sur HDInsight - Azure
 description: 'Découvrez Apache Kafka sur HDInsight : Présentation, fonctionnalités et exemples et informations de prise en main.'
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 04/11/2018
-ms.openlocfilehash: 4d054542d600f2569170f40b8f6c053e005fc8af
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 06/13/2019
+ms.openlocfilehash: 7cf83af52d5bedee5b4d57ee1b4dda2fb34d1b3f
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889186"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70960083"
 ---
-# <a name="what-is-apache-kafka-on-hdinsight"></a>Présentation d’Apache Kafka sur HDInsight
+# <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Présentation d’Apache Kafka dans Azure HDInsight
 
 [Apache Kafka](https://kafka.apache.org) est une plateforme de diffusion en continu distribuée open source qui permet de générer des pipelines de données et des applications de diffusion en continu en temps réel. Kafka fournit également des fonctionnalités de courtier de messages semblables à une file d’attente, où vous pouvez publier et vous abonner aux flux de données nommés. 
 
@@ -46,7 +45,7 @@ Voici les caractéristiques spécifiques de Kafka sur HDInsight :
 
 Le diagramme suivant illustre une configuration Kafka type qui utilise des groupes de consommateurs, un partitionnement et une réplication afin d’offrir une lecture parallèle des événements avec tolérance de panne :
 
-![Diagramme de configuration du cluster Kafka](./media/apache-kafka-introduction/kafka-cluster.png)
+![Diagramme de configuration du cluster Kafka](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
 
 Apache ZooKeeper gère l’état du cluster Kafka. ZooKeeper est conçu pour des transactions simultanées, résilientes et à faible latence. 
 

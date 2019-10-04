@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Folloze | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Folloze | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Folloze.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41f867e2700c7b3f5d70d76c78a32e0fa3361d56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5d7d9115ba7b5d60c6fbf61590aebd47a00c4b2f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892623"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102166"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Tutoriel : Intégration d’Azure Active Directory à Folloze
+# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Didacticiel : Intégration d’Azure Active Directory à Folloze
 
 Dans ce tutoriel, vous allez apprendre à intégrer Folloze dans Azure Active Directory (Azure AD).
 L’intégration de Folloze dans Azure AD vous offre les avantages suivants :
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Folloze à Azure AD, vous devez ajouter Fol
 
 **Pour ajouter Folloze à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select_azuread.png)
 
@@ -171,7 +171,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

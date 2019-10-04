@@ -3,8 +3,8 @@ title: Protocole SAML d’authentification unique Azure | Microsoft Docs
 description: Cet article décrit le protocole SAML d’authentification unique dans Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: cf512f802e0e4944e6ce949830719b87301adfc4
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437881"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834812"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocole SAML d’authentification unique
 
@@ -49,7 +49,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| ID | Obligatoire | Azure AD utilise cet attribut pour compléter l’attribut `InResponseTo` de la réponse retournée. L’ID ne doit pas commencer par un nombre ; vous pouvez donc suivre la stratégie courante qui consiste à ajouter une chaîne de type « id » devant la représentation sous forme de chaîne d’un GUID. Par exemple, `id6c1c178c166d486687be4aaf5e482730` est un ID valide. |
+| id | Obligatoire | Azure AD utilise cet attribut pour compléter l’attribut `InResponseTo` de la réponse retournée. L’ID ne doit pas commencer par un nombre ; vous pouvez donc suivre la stratégie courante qui consiste à ajouter une chaîne de type « id » devant la représentation sous forme de chaîne d’un GUID. Par exemple, `id6c1c178c166d486687be4aaf5e482730` est un ID valide. |
 | Version | Obligatoire | Ce paramètre doit être défini sur **2.0**. |
 | IssueInstant | Obligatoire | Chaîne DateTime associée à une valeur UTC et comportant le [format aller-retour (« o »)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD attend une valeur DateHeure de ce type, sans pour autant l’évaluer ni l’utiliser. |
 | AssertionConsumerServiceUrl | Facultatif | Si ce paramètre est fourni, il doit correspondre à l’élément `RedirectUri` du service cloud dans Azure AD. |
@@ -90,7 +90,7 @@ Si `NameIDPolicy` est fourni, vous pouvez inclure son attribut `Format` facultat
 Azure AD ignore l’attribut `AllowCreate` .
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-L’élément `RequestedAuthnContext` spécifie les méthodes d’authentification souhaitées. Il est facultatif dans les éléments `AuthnRequest` envoyés à Azure AD. Azure AD prend en charge une seule valeur `AuthnContextClassRef` : `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+L’élément `RequestedAuthnContext` spécifie les méthodes d’authentification souhaitées. Il est facultatif dans les éléments `AuthnRequest` envoyés à Azure AD. Azure AD prend en charge des valeurs `AuthnContextClassRef`, telles que `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Scoping
 L’élément `Scoping`, qui comprend une liste de fournisseurs d’identité, est facultatif dans les éléments `AuthnRequest` envoyés à Azure AD.
@@ -158,7 +158,7 @@ L’élément `Response` inclut le résultat de la demande d’autorisation. Azu
 
 ### <a name="issuer"></a>Émetteur
 
-Azure AD définit la `Issuer` élément `https://login.microsoftonline.com/<TenantIDGUID>/` où \<TenantIDGUID > est l’ID client du locataire Azure AD.
+Azure AD définit l’élément `Issuer` sur `https://login.microsoftonline.com/<TenantIDGUID>/` où \<TenantIDGUID> correspond à l’ID du locataire Azure AD.
 
 Exemple de réponse comportant l’élément Issuer :
 
@@ -193,7 +193,7 @@ Outre les éléments `ID`, `IssueInstant` et `Version`, Azure Active Directory d
 
 #### <a name="issuer"></a>Émetteur
 
-Il est défini sur `https://sts.windows.net/<TenantIDGUID>/`où \<TenantIDGUID > est l’ID client du locataire Azure AD.
+Cet élément est défini sur `https://sts.windows.net/<TenantIDGUID>/`, où \<TenantIDGUID> correspond à l’ID du locataire Azure AD.
 
 ```
 <Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>

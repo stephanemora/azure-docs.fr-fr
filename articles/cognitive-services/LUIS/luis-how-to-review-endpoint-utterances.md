@@ -1,35 +1,35 @@
 ---
-title: Passer en revue les énoncés de l’utilisateur
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Apprentissage actif des requêtes de point de terminaison sont capturées et sélectionne les énoncés de point de terminaison de l’utilisateur qu’il n’est pas sûr de. Vous passez en revue ces énoncés pour sélectionner l’intention et marquer des entités pour ces énoncés réalistes en lecture. Accepter ces modifications dans votre énoncés exemple puis formez et publiez. Plus précisément, LUIS identifie ensuite énoncés.
+title: Passer en revue les énoncés de l’utilisateur – LUIS
+titleSuffix: Azure Cognitive Services
+description: L’apprentissage actif capture les requêtes de point de terminaison et sélectionne les énoncés de point de terminaison de l’utilisateur dont il n’est pas sûr. Vous passez en revue ces énoncés pour sélectionner l’intention et marquez des entités pour ces énoncés réalistes. Acceptez ces modifications dans vos exemples d’énoncés, puis formez et publiez. Ensuite, LUIS identifie les énoncés de manière plus précise.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/25/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 8fac360682ef11c438cdec333fac21d6f8cfc117
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c617e4aa62ce2ff468545bef0b2ebe2c4d0e4f03
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791048"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382353"
 ---
-# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Comment passer en revue les énoncés de point de terminaison dans le portail de LUIS pour un apprentissage actif
+# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Comment passer en revue les énoncés de point de terminaison dans le portail LUIS pour l’apprentissage actif
 
-[Apprentissage actif](luis-concept-review-endpoint-utterances.md) capture les requêtes de point de terminaison et sélectionne les énoncés de point de terminaison de l’utilisateur qu’il n’est pas sûr de. Vous passez en revue ces énoncés pour sélectionner l’intention et marquer des entités pour ces énoncés réalistes en lecture. Accepter ces modifications dans votre énoncés exemple puis formez et publiez. Plus précisément, LUIS identifie ensuite énoncés.
+[L’apprentissage actif](luis-concept-review-endpoint-utterances.md) capture les requêtes de point de terminaison et sélectionne les énoncés de point de terminaison de l’utilisateur dont il n’est pas sûr. Vous passez en revue ces énoncés pour sélectionner l’intention et marquez des entités pour ces énoncés réalistes. Acceptez ces modifications dans vos exemples d’énoncés, puis formez et publiez. Ensuite, LUIS identifie les énoncés de manière plus précise.
 
 
 ## <a name="enable-active-learning"></a>Activer l’apprentissage actif
 
-Pour activer l’apprentissage actif, enregistrer des requêtes de l’utilisateur. Cela s’effectue en définissant le [requête de point de terminaison](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) avec la `log=true` querystring paramètre et valeur.
+Pour activer l’apprentissage actif, enregistrez des requêtes de l’utilisateur. Cela s’effectue en définissant la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) avec la valeur et le paramètre `log=true` querystring.
 
 ## <a name="disable-active-learning"></a>Désactiver l’apprentissage actif
 
-Pour désactiver l’apprentissage actif, n’enregistre pas les requêtes utilisateur. Cela s’effectue en définissant le [requête de point de terminaison](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) avec la `log=false` querystring paramètre et valeur.
+Pour désactiver l’apprentissage actif, n’enregistrez pas des requêtes de l’utilisateur. Cela s’effectue en définissant la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) avec la valeur et le paramètre `log=false` querystring.
 
 ## <a name="filter-utterances"></a>Filtrer les énoncés
 

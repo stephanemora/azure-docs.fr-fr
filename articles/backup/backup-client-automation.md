@@ -1,19 +1,19 @@
 ---
 title: Utiliser PowerShell pour sauvegarder Windows Server dans Azure
 description: Découvrez comment déployer et gérer Sauvegarde Azure à l’aide de PowerShell
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: shivamg
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/24/2018
-ms.author: pvrk
-ms.openlocfilehash: 6280ca55023fc604e70b62cabdc30cca6409d9e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 08/20/2019
+ms.author: dacurwin
+ms.openlocfilehash: d65da05ea2b24e3820d9a6fde31b3d4a5c72dbd1
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698485"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656749"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 
@@ -22,7 +22,7 @@ Cet article décrit comment utiliser PowerShell pour configurer Sauvegarde Azure
 ## <a name="install-azure-powershell"></a>Installation d’Azure PowerShell
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Prise en main, [installer la dernière version de PowerShell](/powershell/azure/install-az-ps).
+Pour commencer, [installez la dernière version de PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -40,7 +40,7 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
 
-3. Utilisez le **New-AzRecoveryServicesVault** applet de commande pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
+3. Utilisez l’applet de commande **New-AzRecoveryServicesVault** pour créer le coffre. Spécifiez pour le coffre le même emplacement que pour le groupe de ressources.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
@@ -60,9 +60,9 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Afficher les coffres dans un abonnement
 
-Utilisez **Get-AzRecoveryServicesVault** pour afficher la liste de tous les coffres dans l’abonnement actuel. Vous pouvez utiliser cette commande pour vérifier qu’un coffre a été créé, ou pour voir les coffres disponibles dans l’abonnement.
+Utilisez **Get-AzRecoveryServicesVault** pour voir la liste de tous les coffres dans l’abonnement actuel. Vous pouvez utiliser cette commande pour vérifier qu’un coffre a été créé, ou pour voir les coffres disponibles dans l’abonnement.
 
-Exécutez la commande, **Get-AzRecoveryServicesVault**, et tous les coffres dans l’abonnement sont répertoriés.
+Exécutez la commande **Get-AzRecoveryServicesVault** ; tous les coffres de l’abonnement sont alors listés.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -86,7 +86,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Avant d’installer l'agent de sauvegarde Azure, vous devez avoir téléchargé le programme d’installation sur le serveur Windows. Vous pouvez obtenir la dernière version du programme d’installation à partir du [Centre de téléchargement Microsoft](https://aka.ms/azurebackup_agent) ou de la page Tableau de bord du coffre Recovery Services. Enregistrez le programme d’installation dans un emplacement auquel vous pouvez accéder facilement, par exemple *C:\Téléchargements\*.
 
 Vous pouvez également utiliser PowerShell pour obtenir le téléchargeur :
- 
+
  ```powershell
  $MarsAURL = 'https://aka.ms/Azurebackup_Agent'
  $WC = New-Object System.Net.WebClient
@@ -138,8 +138,20 @@ $CredsPath = "C:\downloads"
 $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 -Path $CredsPath
 ```
 
+### <a name="registering-using-the-ps-az-module"></a>Inscription à l’aide du module PS Az
+
+Dans le dernier module Az de Powershell, en raison des limitations sous-jacentes de la plateforme, le téléchargement des informations d’identification du coffre-fort nécessite un certificat auto-signé. L’exemple suivant montre comment fournir un certificat auto-signé et télécharger les informations d’identification du coffre-fort.
+
+```powershell
+$Vault = Get-AzRecoveryServicesVault -ResourceGroupName $rgName -Name $VaultName
+$cert = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname xxxxxxxxxxxxx
+$certificate =[System.Convert]::ToBase64String($cert.RawData)
+$CredsPath = "C:\downloads"
+$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Certificate $certificate -Vault $vault -Backup -Path $CredsPath
+```
+
 Sur le serveur Windows Server ou l’ordinateur client Windows, exécutez l’applet de commande [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) pour inscrire l’ordinateur auprès du coffre.
-Cette applet de commande, ainsi que d’autres utilisées pour la sauvegarde, proviennent du module MSONLINE que le Mars AgentInstaller a ajouté dans le cadre du processus d’installation. 
+Cette applet de commande, ainsi que d’autres utilisées pour la sauvegarde, proviennent du module MSONLINE que le Mars AgentInstaller a ajouté dans le cadre du processus d’installation.
 
 Le programme d’installation de l’agent ne met pas à jour la variable $Env:PSModulePath. Cela signifie que le chargement automatique du module échoue. Pour résoudre ce problème, vous pouvez effectuer les étapes suivantes :
 
@@ -200,7 +212,7 @@ Server properties updated successfully.
 
 Les données sauvegardées envoyées à Sauvegarde Azure sont chiffrées pour garantir leur confidentialité. Le mot de passe du chiffrement est le « mot de passe » permettant de déchiffrer les données lors de la restauration.
 
-Vous devez générer un code pin de sécurité en sélectionnant **générer**, sous **paramètres** > **propriétés** > **code PIN de sécurité** dans le **coffre Recovery Services** section du portail Azure. Ensuite, utilisez-le comme le `generatedPIN` dans la commande :
+Vous devez générer un code pin de sécurité en sélectionnant **Générer**, sous **Paramètres** > **Propriétés** > **Code PIN de sécurité** dans la section **Coffre Recovery Services** du portail Azure. Ensuite, utilisez-le comme `generatedPIN` dans la commande :
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -391,6 +403,32 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Sauvegarder l’état du système Windows Server dans l’agent MABS
+
+Cette section traite de la commande PowerShell pour configurer l’état du système dans l’agent MABS
+
+### <a name="schedule"></a>Planification
+```powershell
+$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
+```
+
+### <a name="retention"></a>Rétention
+
+```powershell
+$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
+```
+
+### <a name="configuring-schedule-and-retention"></a>Configuration de la planification et de la conservation
+
+```powershell
+New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
+ ```
+
+### <a name="verifying-the-policy"></a>Vérification de la stratégie
+
+```powershell
+Get-OBSystemStatePolicy
+ ```
 
 ### <a name="applying-the-policy"></a>Application de la stratégie
 

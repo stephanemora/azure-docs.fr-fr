@@ -11,17 +11,16 @@ ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 1/11/2019
-ms.author: msangapu;yili
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 22c4096711bbc1d47ff6684e38ac829d77681a9f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7c00946ed9de88df43a4435c23ebef27b5c64e5c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793439"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071322"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Présentation d’Azure App Service sur Linux
 
@@ -33,12 +32,12 @@ App Service sur Linux prend en charge de nombreuses images intégrées afin d’
 
 | Langage | Versions prises en charge |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10.1, 10.10, 10.14 |
 | Java * | Tomcat 8.5, 9.0, Java SE, WildFly 14 (tous exécutant JRE 8) |
-| PHP | 5.6, 7.0, 7.2 |
-| Python (préversion) | 2.7, 3.6, 3.7 |
-| .NET Core | 1.0, 1.1, 2.0, 2.1 |
-| Ruby | 2.3 |
+| PHP | 5.6, 7.0, 7.2, 7.3 |
+| Python | 2.7, 3.6, 3.7 |
+| .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
+| Ruby | 2.3, 2.4, 2.5, 2.6 |
 
 ## <a name="deployments"></a>Déploiements
 
@@ -71,18 +70,13 @@ Consultez le [tableau de bord Statut Azure](https://azure.microsoft.com/status).
 
 Le portail Azure affiche uniquement les fonctionnalités compatibles avec Web App for Containers. Les fonctionnalités seront visibles sur le portail au fur et à mesure de leur activation.
 
-App Service sur Linux n’est pris en charge que par les plans App Service [De base, Standard et Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) et ne dispose pas d’un niveau [Gratuit ou Partagé](https://azure.microsoft.com/pricing/details/app-service/plans/). Il n’est pas possible de créer des applications Web App for Containers dans un plan App Service qui héberge déjà des applications web autres que Linux.  
+App Service sur Linux n’est pris en charge que par les plans App Service [Gratuit, De base, Standard et Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) et ne dispose pas d’un niveau [Partagé](https://azure.microsoft.com/pricing/details/app-service/plans/). Il n’est pas possible de créer une application web Linux dans un plan App Service qui héberge déjà des applications web autres que Linux.  
 
-Il existe une limitation actuelle qui vous empêche de mélanger les applications Windows et Linux dans le même groupe de ressources.
+Il existe une limitation actuelle pour le même groupe de ressources, qui vous empêche de mélanger les applications Windows et Linux dans la même région.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Lorsque votre application ne démarre pas ou que vous souhaitez vérifier la journalisation à partir de votre application, consultez les journaux d’activité Docker dans le répertoire LogFiles. Vous pouvez accéder à ce répertoire par le biais de votre site SCM ou d’un FTP.
-Pour journaliser `stdout` et `stderr` à partir de votre conteneur, vous devez activer **Journalisation de conteneur Docker** sous **Journaux de diagnostic**.
-
-![Activation de la journalisation][2]
-
-Le paramètre prend effet immédiatement. App Service détecte le changement de paramètre et redémarre le conteneur pour vous automatiquement.
+Lorsque votre application ne démarre pas ou que vous souhaitez vérifier la journalisation à partir de votre application, consultez les journaux d’activité Docker dans le répertoire LogFiles. Vous pouvez accéder à ce répertoire par le biais de votre site SCM ou d’un FTP. Pour journaliser `stdout` et `stderr` à partir de votre conteneur, vous devez activer **Journalisation de conteneur Docker** sous **Journaux App Service**. Le paramètre prend effet immédiatement. App Service détecte le changement et redémarre le conteneur automatiquement.
 
 Vous pouvez accéder au site SCM à partir d’**Outils avancés** dans le menu **Outils de développement**.
 

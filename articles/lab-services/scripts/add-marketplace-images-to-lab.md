@@ -1,5 +1,5 @@
 ---
-title: 'Script PowerShell : Ajouter une image de place de marché à un laboratoire dans Azure DevTest Labs | Microsoft Docs'
+title: 'Script PowerShell : Ajouter une image de place marché à un lab dans Azure DevTest Labs | Microsoft Docs'
 description: Ce script PowerShell ajoute une image de place de marché à un lab dans Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
 ms.openlocfilehash: e099a29a198d43bf8d00487ab45e2648479aedbe
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194775"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66160599"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Utiliser PowerShell pour ajouter une image de place de marché à un lab dans Azure DevTest Labs
 
@@ -27,7 +27,7 @@ Cet exemple de script PowerShell ajoute une image de place de marché à un lab 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * **Un lab**. Le script vous demande d’avoir un lab. 
 
 ## <a name="sample-script"></a>Exemple de script

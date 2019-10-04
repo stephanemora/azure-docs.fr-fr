@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 6085eb2b520217c4e678a75032e8a1cb4b9343ec
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58261491"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176998"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilisation de la fonctionnalité Disques managés dans les modèles Azure Resource Manager
 
-Ce document décrit les différences entre les disques gérés et les disques non gérés lorsque vous utilisez des modèles Azure Resource Manager pour configurer des machines virtuelles. Ces exemples vous permettent de mettre à jour les modèles existants qui utilisent des disques non managés en les remplaçant par des disques managés. Pour référence, nous utilisons le modèle [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) comme guide. Vous pouvez consulter le modèle utilisant des [disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) et une version antérieure utilisant des [disques non managés](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) si vous voulez les comparer directement.
+Ce document décrit les différences entre les disques managés et les disques non managés lorsque vous utilisez des modèles Azure Resource Manager pour configurer des machines virtuelles. Ces exemples vous permettent de mettre à jour les modèles existants qui utilisent des disques non managés en les remplaçant par des disques managés. Pour référence, nous utilisons le modèle [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) comme guide. Vous pouvez consulter le modèle utilisant des [disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) et une version antérieure utilisant des [disques non managés](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) si vous voulez les comparer directement.
 
-## <a name="unmanaged-disks-template-formatting"></a>Mise en forme de modèle de disques non gérés
+## <a name="unmanaged-disks-template-formatting"></a>Mise en forme de modèle de disques non managés
 
-Pour commencer, nous nous intéressons à la façon dont les disques non managés sont déployés. Lorsque vous créez des disques non gérés, vous avez besoin d’un compte de stockage pour héberger les fichiers de disque dur virtuel. Vous pouvez créer un compte de stockage ou en utiliser un existant. Cet article vous explique comment créer un compte de stockage. Pour ce faire, créez une ressource de compte de stockage dans le bloc de ressources, comme indiqué ci-dessous.
+Pour commencer, nous nous intéressons à la façon dont les disques non managés sont déployés. Lorsque vous créez des disques non managés, vous avez besoin d’un compte de stockage pour héberger les fichiers de disque dur virtuel. Vous pouvez créer un compte de stockage ou en utiliser un existant. Cet article vous explique comment créer un compte de stockage. Pour ce faire, créez une ressource de compte de stockage dans le bloc de ressources, comme indiqué ci-dessous.
 
 ```json
 {
@@ -202,7 +202,7 @@ Dans l’objet de machine virtuelle, faites référence à l’objet de disque d
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Créer des groupes à haute disponibilité managés avec des machines virtuelles à l’aide de disques managés
 
-Pour créer des groupes à haute disponibilité managés avec des machines virtuelles à l’aide de disques managés, ajoutez l’objet `sku` à la ressource de groupe à haute disponibilité et définissez la propriété `name` sur `Aligned`. Cette propriété garantit que les disques de chaque machine virtuelle sont suffisamment isolés les uns des autres pour éviter les points uniques de défaillance. Vous pouvez aussi remarquer que la propriété `apiVersion` de la ressource de groupe à haute disponibilité est définie sur `2017-03-30`.
+Pour créer des groupes à haute disponibilité managés avec des machines virtuelles à l’aide de disques managés, ajoutez l’objet `sku` à la ressource de groupe à haute disponibilité et définissez la propriété `name` sur `Aligned`. Cette propriété garantit que les disques de chaque machine virtuelle sont suffisamment isolés les uns des autres pour éviter les points uniques de défaillance. Vous pouvez aussi remarquer que la propriété `apiVersion` de la ressource de groupe à haute disponibilité est définie sur `2018-10-01`.
 
 ```json
 {

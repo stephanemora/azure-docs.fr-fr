@@ -1,7 +1,6 @@
 ---
 title: MapReduce avec Apache Hadoop sur HDInsight
-description: Apprenez à exécuter des tâches MapReduce sur Apache Hadoop dans des clusters HDInsight.
-services: hdinsight
+description: Apprenez à exécuter des tâches Apache MapReduce sur Apache Hadoop dans des clusters HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,51 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: c4f975b56d3658731b6dc165e01b54ac09f3b89c
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521193"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076229"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Utiliser MapReduce dans Apache Hadoop sur HDInsight
 
-Apprenez à exécuter des tâches MapReduce sur des clusters HDInsight. 
-
-## <a id="whatis"></a>Qu’est-ce que MapReduce ?
-
-Apache Hadoop MapReduce est une infrastructure logicielle qui permet d’écrire des tâches traitant d’importantes quantités de données. Les données d’entrée sont fractionnées en blocs indépendants. Chaque bloc est traité en parallèle sur les nœuds de votre cluster. Une tâche MapReduce se compose de deux fonctions :
-
-* **Mappeur** : il consomme les données d’entrée, les analyse (généralement avec les opérations de tri et de filtre) et émet des tuples (paires clé-valeur).
-
-* **Raccord de réduction** : il consomme les tuples émis par le Mappeur et effectue une opération de synthèse qui crée un résultat plus petit, combiné à partir des données du Mappeur.
-
-Un exemple de tâche MapReduce de comptage de mots de base est illustré dans le diagramme suivant :
-
-![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
-
-Le résultat de ce travail indique le nombre d’occurrences de chaque mot dans le texte.
-
-* Le mappeur prend chaque ligne du texte saisi en tant qu'entrée, et la divise en mots. Il émet une paire clé/valeur pour chaque occurrence de mot ou si le mot est suivi d’un 1. Le résultat est trié avant d'être envoyé au raccord de réduction.
-* Ce dernier calcule la somme du compte de mots, puis émet une seule paire clé/valeur contenant le mot défini, suivi par la somme de ses occurrences.
-
-MapReduce peut être implémenté dans plusieurs langues. Java est l'implémentation la plus courante. Ce langage est utilisé à titre d’exemple dans ce document.
-
-## <a name="development-languages"></a>Langues de développement
-
-Les langages ou infrastructures basés sur Java et la Machine virtuelle Java peuvent être exécutés directement comme une tâche MapReduce. L’exemple utilisé dans ce document est une application Java MapReduce. Les langages autres que Java, comme C#, Python ou des exécutables autonomes, doivent utiliser la **diffusion en continu Hadoop**.
-
-La diffusion en continu Hadoop communique avec le mappeur et le raccord de réduction via STDIN et STDOUT. Le mappeur et le raccord de réduction lisent les données ligne par ligne depuis STDIN et écrivent la sortie dans STDOUT. Chaque ligne lue ou émise par le mappeur et le raccord de réduction doit être au format d’une paire clé / valeur, délimitée par un caractère de tabulation :
-
-    [key]/t[value]
-
-Pour plus d’informations, consultez [Diffusion en continu Hadoop](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
-
-Pour obtenir des exemples d’utilisation de diffusion en continu Hadoop avec HDInsight, consultez les documents suivants :
-
-* [Développement de tâches MapReduce C#](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-
-* [Développement de tâches MapReduce Python](apache-hadoop-streaming-python.md)
+Apprenez à exécuter des tâches MapReduce sur des clusters HDInsight.
 
 ## <a id="data"></a>Exemple de données
 
@@ -137,11 +101,9 @@ public class WordCount {
 }
 ```
 
-Pour savoir comment écrire vos propres applications MapReduce, consultez les documents suivants :
+Pour savoir comment écrire vos propres applications MapReduce, consultez le document suivant :
 
 * [Développement d’applications MapReduce en Java pour HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Développement d’applications MapReduce en Python pour HDInsight](apache-hadoop-streaming-python.md)
 
 ## <a id="run"></a>Exécution de la tâche MapReduce
 
@@ -159,12 +121,9 @@ Pour savoir comment utiliser les données dans HDInsight, consultez les document
 
 * [Développement de programmes MapReduce en Java pour HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [Développement de programmes MapReduce de diffusion en continu Python pour HDInsight](apache-hadoop-streaming-python.md)
-
 * [Utilisation d’Apache Hive avec HDInsight][hdinsight-use-hive]
 
 * [Utilisation d’Apache Pig avec HDInsight][hdinsight-use-pig]
-
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
@@ -174,5 +133,3 @@ Pour savoir comment utiliser les données dans HDInsight, consultez les document
 
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif

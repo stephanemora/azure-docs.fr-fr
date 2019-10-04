@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 2d56b1f800c71a5bbef7ffb1155d05e096113e2c
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358998"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162430"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
-Vous pouvez utiliser [l’accès conditionnel Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md) pour contrôler les méthodes d’accès des utilisateurs autorisés aux ressources.
+Vous pouvez utiliser la fonction [d’accès conditionnel Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md) pour contrôler les méthodes d’accès des utilisateurs autorisés aux ressources.
 
 Cet article fournit des informations de prise en charge sur les options de configuration suivantes dans une stratégie d’accès conditionnel :
 
@@ -33,43 +33,42 @@ Si ce n’est pas les informations que vous recherchez, laissez un commentaire �
 
 ## <a name="cloud-apps-assignments"></a>Affectations des applications cloud
 
-Les stratégies d’accès conditionnel vous permettent de contrôler la façon dont les utilisateurs accèdent à vos [applications cloud](conditions.md#cloud-apps). Quand vous configurez une stratégie d’accès conditionnel, vous devez sélectionner au moins une application cloud. 
+Les stratégies d’accès conditionnel vous permettent de contrôler la façon dont les utilisateurs accèdent à vos [applications cloud](conditions.md#cloud-apps-and-actions). Lorsque vous configurez une stratégie d’accès conditionnel, vous devez sélectionner au moins une application cloud. 
 
 ![Sélectionner les applications cloud pour votre stratégie](./media/technical-reference/09.png)
 
 ### <a name="microsoft-cloud-applications"></a>Applications cloud Microsoft
 
-Vous pouvez affecter une stratégie d’accès conditionnel aux applications cloud Microsoft  suivantes :
+Vous pouvez affecter une stratégie d’accès conditionnel aux applications cloud Microsoft suivantes :
 
 - Azure Analysis Services
 - Azure DevOps
-- Azure SQL Database et Data Warehouse - [en savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
+- Azure SQL Database et Data Warehouse - [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
 - Dynamics CRM en ligne
-- Microsoft Application Insights Analytique
-- Microsoft Azure Information Protection - [en savoir plus](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
-- Microsoft Azure Management - [en savoir plus](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- Microsoft Azure RemoteApp
+- Microsoft Application Insights Analytics
+- Microsoft Azure Information Protection - [En savoir plus](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Gestion Microsoft Azure - [En savoir plus](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
 - Gestion des abonnements Microsoft Azure
 - Microsoft Cloud App Security
-- Portail de contrôle d’accès des outils de Microsoft Commerce
-- Service d’authentification Microsoft Commerce outils
+- Portail de contrôle des accès aux outils de Microsoft Commerce
+- Service d’authentification des outils Microsoft Commerce
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
 - Inscription à Microsoft Intune
 - Planificateur Microsoft
-- Microsoft Power BI
 - Microsoft PowerApps
-- Recherche de Microsoft dans Bing
+- Recherche Microsoft Bing
 - Microsoft StaffHub
 - Microsoft Stream
 - Microsoft Teams
 - Office 365 Exchange Online
 - Office 365 SharePoint Online
 - Office 365 Yammer
-- Plonger Office
+- Office Delve
 - Office Sway
 - Outlook Groups
+- Service Power BI
 - Project Online
 - Skype Entreprise Online
 - Réseau privé virtuel (VPN)
@@ -78,7 +77,7 @@ Vous pouvez affecter une stratégie d’accès conditionnel aux applications clo
 
 ### <a name="other-applications"></a>Autres applications
 
-Outre les applications cloud Microsoft, vous pouvez affecter une stratégie d’accès conditionnel aux types d’applications cloud suivants :
+Outre les applications cloud Microsoft, vous pouvez affecter une stratégie d’accès conditionnel aux types d’applications cloud suivants :
 
 - applications connectées à Azure AD ;
 - application software as a service (SaaS) fédérée préintégrée ;
@@ -88,7 +87,7 @@ Outre les applications cloud Microsoft, vous pouvez affecter une stratégie d’
 
 ## <a name="device-platform-condition"></a>Condition de plateforme d’appareil
 
-Dans une stratégie d’accès conditionnel, vous pouvez configurer la condition de plateforme d’appareil pour lier la stratégie au système d’exploitation d’un client. L’accès conditionnel Azure AD prend en charge les plateformes suivantes :
+Dans une stratégie d’accès conditionnel, vous pouvez configurer la condition de plateforme d’appareil pour lier la stratégie au système d’exploitation d’un client. L’accès conditionnel Azure AD prend en charge les plateformes d’appareil suivantes :
 
 - Android
 - iOS
@@ -97,6 +96,8 @@ Dans une stratégie d’accès conditionnel, vous pouvez configurer la condition
 - macOS
 
 ![Lier la stratégie d’accès au système d’exploitation client](./media/technical-reference/41.png)
+
+Si vous bloquez l’authentification héritée à l’aide de la condition **Autres clients**, vous pouvez également définir la condition de plateforme de l’appareil.
 
 ## <a name="client-apps-condition"></a>Condition d’applications clientes
 
@@ -109,48 +110,49 @@ Dans votre stratégie d’accès conditionnel, vous pouvez configurer la conditi
 
 ### <a name="supported-browsers"></a>Navigateurs pris en charge
 
-Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Navigateurs** comme application cliente.
+Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Navigateurs** en tant qu’application cliente.
 
 ![Contrôler l’accès pour les navigateurs pris en charge](./media/technical-reference/05.png)
 
 Ce paramètre fonctionne avec tous les navigateurs. Toutefois, pour satisfaire à une stratégie d’appareil, telle qu’une exigence d’appareil conforme, les systèmes d’exploitation et navigateurs suivants sont pris en charge :
 
-| SE                     | Navigateurs                                      |
-| :--                    | :--                                           |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
-| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
-| Windows 7              | Internet Explorer, Chrome                     |
-| iOS                    | Safari, Microsoft Edge, Intune Managed Browser |
-| Android                | Chrome, Microsoft Edge, Intune Managed Browser |
-| Windows Phone          | Internet Explorer, Microsoft Edge             |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
-| Windows Server 2016    | Chrome                                        |
-| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
-| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
-| macOS                  | Chrome, Safari                                |
+| OS                     | Navigateurs                                        |
+| :--                    | :--                                             |
+| Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                       |
+| Windows 7              | Internet Explorer, Chrome                       |
+| iOS                    | Microsoft Edge, Intune Managed Browser, Safari  |
+| Android                | Microsoft Edge, Intune Managed Browser, Chrome  |
+| Windows Phone          | Microsoft Edge, Internet Explorer               |
+| Windows Server 2019    | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows Server 2016    | Internet Explorer |
+| Windows Server 2012 R2 | Internet Explorer                       |
+| Windows Server 2008 R2 | Internet Explorer                       |
+| macOS                  | Chrome, Safari                                  |
 
-#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Pourquoi un certificat invite dans le navigateur
 
-Sur Windows 7, iOS, Android et macOS, Azure AD identifie l’appareil à l’aide d’un certificat client qui est approvisionné quand l’appareil est inscrit auprès d’Azure AD.  Lorsqu’un utilisateur tout d’abord se connecte via le navigateur, l’utilisateur est invité à sélectionner le certificat. L’utilisateur doit sélectionner ce certificat avant d’utiliser le navigateur.
+#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Pourquoi une invite de saisie de certificat s’affiche-t-elle dans mon navigateur ?
+
+Sur des systèmes Windows 7, iOS, Android et macOS, Azure AD identifie l’appareil à l’aide d’un certificat client, qui est approvisionné lorsque l’appareil est inscrit auprès d’Azure AD.  Lorsqu’un utilisateur se connecte pour la première fois via le navigateur, l’utilisateur est invité à sélectionner le certificat. Il doit sélectionner ce certificat avant d’utiliser le navigateur.
 
 #### <a name="chrome-support"></a>Prise en charge Chrome
 
-Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de [cette extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Dans **Windows 10 Creators Update (version 1703)** ou version ultérieure, la prise en charge de Chrome nécessite l’installation de l’[extension Comptes Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Cette extension est requise lorsqu’une stratégie d’accès conditionnel requiert des détails spécifiques sur l’appareil.
 
 Pour déployer automatiquement cette extension sur les navigateurs Chrome, créez la clé de Registre suivante :
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Nom | 1 |
 | Type | REG_SZ (String) |
-| Données | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
+| Données | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
 Pour la prise en charge de Chrome dans **Windows 8.1 et 7**, créez la clé de Registre suivante :
 
 |    |    |
 | --- | --- |
-| path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Nom | 1 |
 | Type | REG_SZ (String) |
 | Données | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
@@ -159,7 +161,7 @@ Ces navigateurs prennent en charge l’authentification des appareils, ce qui pe
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Applications mobiles et clients de bureau pris en charge
 
-Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Applications mobiles et clients de bureau** comme application cliente.
+Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Applications mobiles et clients de bureau** en tant qu’application cliente.
 
 ![Contrôler l’accès pour les applications mobiles ou les clients de bureau pris en charge](./media/technical-reference/06.png)
 
@@ -167,7 +169,6 @@ Ce paramètre a un impact sur les tentatives d’accès provenant des applicatio
 
 | Applications clientes | Service cible | Plateforme |
 | --- | --- | --- |
-| Application distante Azure | Service Application distante Azure | Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS |
 | Application Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS et Android |
 | Application de messagerie/calendrier/contacts, Outlook 2016, Outlook 2013 (avec l’authentification moderne)| Office 365 Exchange Online | Windows 10 |
 | Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge.| Tout service d’application Mes applications| Android et iOS |
@@ -203,6 +204,9 @@ Dans votre stratégie d’accès conditionnel, vous pouvez exiger que toute tent
 Ce paramètre s’applique aux applications clientes suivantes :
 
 - Microsoft Azure Information Protection
+- Microsoft Bookings
+- Microsoft Cortana
+- Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
@@ -233,27 +237,29 @@ Ce paramètre s’applique aux applications clientes suivantes :
 - Exigence **Nécessite une application cliente approuvée** :
    - elle prend uniquement en charge iOS et Android pour la [condition de plate-forme de périphérique](#device-platform-condition).
 
-## <a name="app-protection-policy-requirement"></a>Exigence de la stratégie App protection 
+## <a name="app-protection-policy-requirement"></a>Présence obligatoire d’une stratégie de protection des applications 
 
-Dans votre stratégie d’accès conditionnel, vous pouvez exiger qu'une stratégie de protection d’application est présent sur l’application cliente avant de l’accès est disponible pour les applications cloud sélectionnées. 
+Dans votre stratégie d’accès conditionnel, vous pouvez exiger qu’une stratégie de protection des applications soit présente sur l’application cliente pour qu’il soit possible d’accéder aux applications cloud sélectionnées. 
 
-![Contrôler l’accès via la stratégie de protection des applications](./media/technical-reference/22.png)
+![Contrôler les accès avec une stratégie de protection des applications](./media/technical-reference/22.png)
 
 Ce paramètre s’applique aux applications clientes suivantes :
 
+- Microsoft Cortana
 - Microsoft OneDrive
 - Microsoft Outlook
+- Planificateur Microsoft
 
 **Remarques**
 
-- Applications pour la stratégie de protection des applications prennent en charge la fonctionnalité de gestion d’applications mobiles Intune avec protection de la stratégie.
-- Le **nécessitent la stratégie de protection des applications** exigences :
+- Les applications associées à la stratégie de protection des applications prennent en charge la fonctionnalité de gestion d’applications mobiles Intune avec la protection des stratégies.
+- Exigences relatives à la stratégie **Exiger une stratégie de protection des applications** :
     - elle prend uniquement en charge iOS et Android pour la [condition de plate-forme de périphérique](#device-platform-condition).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Vous trouverez une vue d’ensemble de l’accès conditionnel sur la page [Présentation de l’accès conditionnel dans Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
-- Si vous êtes prêt à configurer des stratégies d’accès conditionnel dans votre environnement, consultez les [Pratiques recommandées d’accès conditionnel dans Azure Active Directory](best-practices.md).
+- Si vous êtes prêt à configurer des stratégies d’accès conditionnel dans votre environnement, consultez les [Pratiques recommandées en matière d’accès conditionnel dans Azure Active Directory](best-practices.md).
 
 <!--Image references-->
 [1]: ./media/technical-reference/01.png

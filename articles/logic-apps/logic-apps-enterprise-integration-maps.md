@@ -11,28 +11,28 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: d0d40ca0ae6ccd4f709d7d94d52764d4affcc215
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66244693"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformer des données XML à l’aide de mappages dans Azure Logic Apps avec Enterprise Integration Pack
 
-Pour transférer des données XML entre les formats pour les scénarios d’intégration entreprise dans Azure Logic Apps, votre application logique peut utiliser maps, ou plus précisément, de feuille de Style Extensible Language Transformations (XSLT) est mappé. Un mappage est un document XML qui décrit comment convertir les données d’un document XML dans un autre format. 
+Si vous souhaitez convertir des données XML dans un autre format pour des scénarios d’intégration entreprise dans Azure Logic Apps, votre application logique peut utiliser des mappages, notamment des mappages XSLT (Extensible Stylesheet Language Transformations). Un mappage est un document XML qui décrit comment convertir les données d’un document XML dans un autre format. 
 
 Par exemple, imaginons que vous receviez régulièrement des commandes ou des factures B2B de la part d’un client qui utilise le format de date AAAMMJJ. Votre organisation, quant à elle, utilise le format de date MMJJAAA. Vous pouvez définir et utiliser un mappage qui transforme le format de date AAAMMJJ au format MMJJAAA avant d’enregistrer les détails de la commande ou de la facture dans votre base de données clients.
 
 Pour connaître les limites associées aux comptes d’intégration et aux artefacts tels que les mappages, consultez [Limites et informations de configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez <a href="https://azure.microsoft.com/free/" target="_blank">vous inscrire pour obtenir un compte Azure gratuitement</a>.
+* Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
 * Un [Compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) où vous stockez vos mappages et autres artefacts pour les solutions d’intégration d’entreprise et les solutions B2B.
 
-* Si votre mappage référence un assembly externe, vous devez charger à la fois l’*assembly et le mappage* dans votre compte d’intégration. Vous devez *d’abord charger l’assembly*, puis charger le mappage qui le référence.
+* Si votre mappage référence un assembly externe, vous devez charger à la fois l’*assembly et le mappage* dans votre compte d’intégration. Vous devez [*d’abord charger votre assembly*](#add-assembly), puis charger le mappage qui le référence.
 
   Si la taille de votre assembly est *inférieure ou égale à 2 Mo*, vous pouvez ajouter votre assembly à votre compte d’intégration directement dans le portail Azure. Toutefois, si la taille de votre assembly ou de votre mappage est supérieure à 2 Mo, mais ne dépasse pas la [taille limite des assemblys ou des mappages](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), vous disposez des options suivantes :
 
@@ -50,9 +50,11 @@ Pour connaître les limites associées aux comptes d’intégration et aux artef
 
 Vous n’avez pas besoin d’une application logique pour créer et ajouter des mappages. Toutefois, pour utiliser un mappage, votre application logique doit être associée au compte d’intégration dans lequel vous stockez ce mappage. Découvrez comment [lier des applications logiques à des comptes d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Si vous n’avez pas encore d’application logique, découvrez [comment créer des applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+<a name="add-assembly"></a>
+
 ## <a name="add-referenced-assemblies"></a>Ajouter des assemblys référencés
 
-1. Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azure</a> avec les informations d’identification de votre compte Azure.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec les informations d’identification de votre compte Azure.
 
 1. Pour rechercher et ouvrir votre compte d’intégration, dans le menu Azure principal, sélectionnez **Tous les services**. 
    Dans la zone de recherche, entrez « compte d’intégration ». 
@@ -74,6 +76,9 @@ Vous n’avez pas besoin d’une application logique pour créer et ajouter des 
 
 En fonction de la taille de votre assembly, suivez les étapes de chargement pour les assemblys de taille [inférieure ou égale à 2 Mo](#smaller-assembly) ou pour les assemblys dont la taille est comprise entre [2 Mo et 8 Mo](#larger-assembly).
 Pour connaître le nombre limite d’assemblys que peut comprendre un compte d’intégration, consultez [Limites et configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+
+> [!NOTE]
+> Si vous changez votre assembly, vous devez également mettre à jour votre mappage, qu’il comporte, ou non, des changements.
 
 <a name="smaller-assembly"></a>
 
@@ -99,7 +104,7 @@ Pour connaître le nombre limite d’assemblys que peut comprendre un compte d�
 
 ### <a name="add-assemblies-more-than-2-mb"></a>Ajouter des assemblys de taille supérieure à 2 Mo
 
-Pour ajouter des assemblys plus volumineux, vous pouvez charger votre assembly dans un conteneur d’objets blob Azure de votre compte de stockage Azure. Les étapes pour ajouter des assemblys varient selon que votre conteneur d’objets blob dispose ou non d’un accès en lecture public. Effectuez donc les étapes suivantes pour vérifier si votre conteneur d’objets blob dispose d’un accès en lecture public : [Définir le niveau d’accès public pour le conteneur d’objets blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Pour ajouter des assemblys plus volumineux, vous pouvez charger votre assembly dans un conteneur d’objets blob Azure de votre compte de stockage Azure. Les étapes pour ajouter des assemblys varient selon que votre conteneur d’objets blob dispose, ou non, d’un accès en lecture public. Effectuez donc les étapes suivantes pour vérifier si votre conteneur d’objets blob dispose d’un accès en lecture public : [Définir le niveau d’accès public pour le conteneur d’objets blob](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Vérifier le niveau d’accès du conteneur
 
@@ -128,7 +133,7 @@ Pour ajouter des assemblys plus volumineux, vous pouvez charger votre assembly d
 
 1. Retournez au portail Azure où le volet **Ajouter un assembly** est ouvert. 
    Entrez un nom pour votre assembly. 
-   Choisissez **Fichier de grande taille (plus de 2 Mo)**.
+   Choisissez **Fichier de grande taille (plus de 2 Mo)** .
 
    La zone **URI de contenu** s’affiche à la place de la zone **Assembly**.
 
@@ -148,12 +153,12 @@ Dans la page **Vue d’ensemble** de votre compte d’intégration, sous **Compo
 1. Une fois le chargement terminé, générez une signature d’accès partagé (SAP) pour votre assembly. 
    Dans le menu contextuel de l’assembly, sélectionnez **Obtenir une signature d’accès partagé**.
 
-1. Dans le volet **Signature d’accès partagé**, sélectionnez **Generate container-level shared access signature URI (Générer un URI de signature d’accès partagé au niveau du conteneur)** > **Créer**. 
+1. Dans le volet **Signature d’accès partagé**, sélectionnez **Generate container-level shared access signature URI (Générer un URI de signature d’accès partagé au niveau du conteneur)**  > **Créer**. 
    Une fois que vous avez généré l’URI de signature d’accès partagé, à côté de la zone **URL**, sélectionnez **Copier**.
 
 1. Retournez au portail Azure où le volet **Ajouter un assembly** est ouvert. 
    Entrez un nom pour votre assembly. 
-   Choisissez **Fichier de grande taille (plus de 2 Mo)**.
+   Choisissez **Fichier de grande taille (plus de 2 Mo)** .
 
    La zone **URI de contenu** s’affiche à la place de la zone **Assembly**.
 
@@ -170,7 +175,7 @@ Pour connaître le nombre limite de mappages que peut comprendre un compte d’i
 
 Une fois que vous avez chargé les assemblys que votre mappage référence, vous pouvez charger votre mappage.
 
-1. Si vous n’êtes pas déjà connecté, connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azure</a> à l’aide des informations d’identification de votre compte Azure. 
+1. Si vous n’êtes pas déjà connecté, connectez-vous au [portail Azure](https://portal.azure.com) à l’aide des informations d’identification de votre compte Azure. 
 
 1. Si votre compte d’intégration n’est pas déjà ouvert, dans le menu Azure principal, sélectionnez **Tous les services**. 
    Dans la zone de recherche, entrez « compte d’intégration ». 
@@ -310,7 +315,7 @@ the map appears in the **Maps** list.
 
 Pour mettre à jour un mappage existant, vous devez charger un nouveau fichier de mappage qui comporte les modifications souhaitées. Cependant, vous pouvez d’abord télécharger le mappage existant pour le modifier.
 
-1. Dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, ouvrez votre compte d’intégration, s’il n’est pas déjà ouvert.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre compte d’intégration, s’il n’est pas déjà ouvert.
 
 1. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « compte d’intégration ». Sélectionnez **Comptes d’intégration**.
 
@@ -328,7 +333,7 @@ Pour mettre à jour un mappage existant, vous devez charger un nouveau fichier d
 
 ## <a name="delete-maps"></a>Supprimer des mappages
 
-1. Dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, ouvrez votre compte d’intégration, s’il n’est pas déjà ouvert.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre compte d’intégration, s’il n’est pas déjà ouvert.
 
 1. Dans le menu principal Azure, sélectionnez **Tous les services**. 
    Dans la zone de recherche, entrez « compte d’intégration ». 

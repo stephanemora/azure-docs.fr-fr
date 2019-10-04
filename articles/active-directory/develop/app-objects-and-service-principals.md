@@ -2,8 +2,8 @@
 title: Objets application et principal du service dans Azure Active Directory
 description: Découvrez la relation entre les objets application et principal du service dans Azure Active Directory.
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 services: active-directory
 editor: ''
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
@@ -14,22 +14,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
-ms.custom: aaddev
+ms.author: ryanwi
+ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cee05b1ff6c63aae07b9c04435e4ff3ae4d07ee
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: 83083026b20573d93777e77f44bf8d5480bfdd97
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565884"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853322"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objets application et principal du service dans Azure Active Directory
 
 Parfois, la signification du terme « application » peut être mal comprise lorsqu’il est utilisé dans le contexte d’Azure Active Directory (Azure AD). Cet article clarifie les aspects conceptuels et concrets de l’intégration des applications dans Azure AD, en donnant un exemple d’inscription et de consentement pour une [application multi-locataire](developer-glossary.md#multi-tenant-application).
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Une application qui a été intégrée à Azure AD a des effets qui vont au-delà de l’aspect logiciel. Le terme « Application » est souvent utilisé comme concept, faisant référence non seulement au programme d’application, mais également à son inscription Azure AD et à son rôle lors des « conversations » d’authentification/autorisation au moment de l’exécution.
 
@@ -45,14 +45,14 @@ Dans les sections suivantes, vous allez examiner la manière dont un modèle d�
 
 ## <a name="application-registration"></a>Inscription de l’application
 
-Lorsque vous inscrivez une application Azure AD dans le [portail Azure][AZURE-Portal], deux objets sont créés dans votre client Azure AD :
+Lorsque vous inscrivez une application Azure AD dans le [portail Azure][AZURE-Portal], deux objets sont créés dans votre locataire Azure AD :
 
 - un objet application et
 - un objet principal du service.
 
 ### <a name="application-object"></a>Objet application
 
-Une application Azure AD est définie par son seul et unique objet application, qui réside dans le client Azure AD dans lequel l’application a été inscrite, appelé client « de base » de l’application. Microsoft Graph [entité d’Application] [ MS-Graph-App-Entity] définit le schéma pour les propriétés d’un objet application.
+Une application Azure AD est définie par son seul et unique objet application, qui réside dans le client Azure AD dans lequel l’application a été inscrite, appelé client « de base » de l’application. [L’entité Application][MS-Graph-App-Entity] de Microsoft Graph définit le schéma pour les propriétés d’un objet d’application.
 
 ### <a name="service-principal-object"></a>Objet principal du service
 
@@ -60,7 +60,7 @@ Pour accéder aux ressources qui sont sécurisées par un locataire Azure AD, l�
 
 Le principal de sécurité définit la stratégie d’accès et les autorisations pour l’utilisateur ou l’application du locataire Azure AD. Cela rend possibles les fonctionnalités de base, telles que l’authentification de l’application ou de l’utilisateur lors de la connexion, et l’autorisation lors de l’accès aux ressources.
 
-Lorsqu’une application reçoit l’autorisation d’accéder aux ressources d’un locataire (après inscription ou [consentement](developer-glossary.md#consent)), un objet de principal de service est créé. Microsoft Graph [entité ServicePrincipal] [ MS-Graph-Sp-Entity] définit le schéma pour les propriétés d’un objet principal du service.
+Lorsqu’une application reçoit l’autorisation d’accéder aux ressources d’un locataire (après inscription ou [consentement](developer-glossary.md#consent)), un objet de principal de service est créé. [L’entité ServicePrincipal][MS-Graph-Sp-Entity] de Microsoft Graph définit le schéma pour les propriétés d’un objet de principal de service.
 
 ### <a name="application-and-service-principal-relationship"></a>Relation entre l’application et le principal de service
 
@@ -83,7 +83,7 @@ Le schéma suivant illustre la relation entre un objet application d’une appli
 - **Contoso** : le client utilisé par l’entreprise Contoso, qui est un consommateur de **l’application RH** ;
 - **Fabrikam** : le client utilisé par l’entreprise Fabrikam, qui est également un consommateur de **l’application RH**.
 
-![Relation entre un objet application et un objet principal du service](./media/app-objects-and-service-principals/application-objects-relationship.svg)
+![Relation entre un objet d’application et un objet de principal de service](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 Dans cet exemple de scénario :
 
@@ -95,9 +95,9 @@ Dans cet exemple de scénario :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Vous pouvez utiliser la [Explorateur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) pour interroger les applications et les objets principal du service.
-- Vous pouvez accéder à un objet d’application à l’aide de l’API Microsoft Graph, le [du portail Azure] [ AZURE-Portal] éditeur de manifeste d’application, ou [applets de commande PowerShell Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) , telle que représentée par son OData [entité d’Application][MS-Graph-App-Entity].
-- Vous pouvez accéder à un objet de service application principal via l’API Microsoft Graph ou [applets de commande PowerShell Azure AD](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tels que représentés par son OData [entité ServicePrincipal] [ MS-Graph-Sp-Entity].
+- Vous pouvez utiliser [l’Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) pour interroger à la fois les objets d’application et de principal de service.
+- Vous pouvez accéder à l’objet d’application d’une application via l’API Microsoft Graph, l’éditeur de manifeste d’application du [Portail Azure][AZURE-Portal] ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tel que représenté par son [entité Application][MS-Graph-App-Entity] OData.
+- Vous pouvez accéder à l’objet de principal de service d’une application via l’API Microsoft Graph ou les [cmdlets Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), tel que représenté par son [entité ServicePrincipal][MS-Graph-Sp-Entity] OData.
 
 <!--Image references-->
 

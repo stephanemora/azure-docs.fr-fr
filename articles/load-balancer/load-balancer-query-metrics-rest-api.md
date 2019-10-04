@@ -3,20 +3,20 @@ title: Récupérer les mesures avec l’API REST
 titlesuffix: Azure Load Balancer
 description: Utilisez les API REST Azure pour collecter des métriques sur l’intégrité et l’utilisation de l’équilibreur de charge sur une plage de dates et une plage horaire définies.
 services: sql-database
-author: KumudD
+author: asudbring
 ms.reviewer: routlaw
 manager: jeconnoc
 ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: KumudD
-ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 0d12dc04aff58dd6273d8d29d422bdbd9e7c886b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337049"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274523"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Récupérer les métriques Azure Load Balancer avec l’API REST
 
@@ -46,7 +46,7 @@ Les en-têtes suivants sont requis :
 | Nom | Description |
 | :--- | :---------- |
 | subscriptionId | L’ID d’abonnement d’un abonnement Azure. Si vous avez plusieurs abonnements, consultez [Utilisation de plusieurs abonnements](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
-| nom_groupe_ressources | Nom du groupe de ressources qui contient la ressource. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager, de CLI ou du portail. |
+| resourceGroupName | Nom du groupe de ressources qui contient la ressource. Vous pouvez obtenir cette valeur à partir de l’API Azure Resource Manager, de CLI ou du portail. |
 | loadBalancerName | Nom de l’équilibreur de charge Azure Load Balancer. |
 | metricnames | Liste des [métriques Load Balancer](/azure/load-balancer/load-balancer-standard-diagnostics) valides, séparées par des virgules. |
 | api-version | Version de l’API à utiliser pour la requête.<br /><br /> Ce document aborde la version d’API `2018-01-01`, incluse dans l’URL ci-dessus.  |

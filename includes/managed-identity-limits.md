@@ -10,13 +10,13 @@ ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: 887646c7e0ae87cd5e290a68ccc43b80dfbb109c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553758"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "67177472"
 ---
-| Catégorie | Limite |
+| Category | Limite |
 | --- | --- |
-| Affectée à l’utilisateur des identités gérées | <ul><li>Lorsque vous créez affectée à l’utilisateur géré identités, uniquement des caractères alphanumériques (0-9, a-z et A-Z) et le trait d’union (-) sont pris en charge. Pour l’attribution à une machine virtuelle ou les machines virtuelles identiques pour fonctionner correctement, le nom est limité à 24 caractères.</li><li>Si vous utilisez l’extension de machine virtuelle identité gérée, la limite prise en charge est 32 identités gérées affectée à l’utilisateur. Sans l’extension de machine virtuelle identité gérée, la limite prise en charge est 512 identités affectée à l’utilisateur.</li>|
+| Identités managées attribuées par l’utilisateur | <ul><li>Lorsque vous créez des identités managées attribuées par l’utilisateur, seuls les caractères alphanumériques (0-9, a-z, A-Z) et le trait d’union (-) sont pris en charge. Pour que l’attribution à une machine virtuelle ou à un groupe de machines virtuelles identiques fonctionne correctement, le nom est limité à 24 caractères.</li><li>Si vous utilisez l’extension de machine virtuelle d’identité managée, la limite prise en charge est de 32 identités managées attribuées par l’utilisateur. Sans l’extension de machine virtuelle d’identité managée, la prise en charge est limitée à 512 identités managées attribuées par l’utilisateur.</li>|
 

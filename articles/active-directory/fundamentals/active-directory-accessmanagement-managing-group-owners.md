@@ -2,30 +2,30 @@
 title: Ajouter ou supprimer les propriétaires d’un groupe – Azure Active Directory | Microsoft Docs
 description: Ces instructions expliquent comment ajouter ou supprimer les propriétaires de groupes avec Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2541a1d76b56f92b250fb422951769db7877213e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d259be0c04af0fcf3628a9f296730749404610cb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181743"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562076"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Ajouter ou supprimer les propriétaires de groupes dans Azure Active Directory
-Les groupes Azure Active Directory (Azure AD) sont détenus et gérés par des propriétaires de groupes. Les propriétaires de groupes sont affectés par un propriétaire de ressource (administrateur) pour gérer un groupe et ses membres. Ils ne sont pas nécessairement membres du groupe. Lorsqu’un propriétaire de groupe a été affecté, seul un propriétaire de ressource peut ajouter ou supprimer des propriétaires.
+Les groupes Azure Active Directory (Azure AD) sont détenus et gérés par des propriétaires de groupes. Les propriétaires de groupe peuvent être des utilisateurs ou des principaux de service et sont en mesure de gérer le groupe, notamment l’appartenance. Seuls les propriétaires de groupe existant ou les administrateurs gérant un groupe peuvent attribuer des propriétaires de groupe. Ils ne sont pas nécessairement membres du groupe.
 
-Dans certains cas, en tant qu’administrateur, vous pouvez décider de ne pas affecter un propriétaire de groupe. Le cas échéant, vous devenez le propriétaire de groupe. En outre, des propriétaires peuvent affecter d’autres propriétaires à leur groupe à moins que vous n’ayez limité ce paramètre dans les paramètres de groupe.
+Lorsqu’un groupe n’a aucun propriétaire, les administrateurs gérant le groupe sont toujours en mesure de gérer le groupe.
 
 ## <a name="add-an-owner-to-a-group"></a>Ajouter un propriétaire à un groupe
-Ajoutez des propriétaires de groupes supplémentaires à un groupe à l’aide d’Azure AD.
+Vous trouverez ci-dessous des instructions pour l’ajout d’un utilisateur en tant que propriétaire d’un groupe à l’aide du Portail Azure Active Directory. Pour ajouter un principal de service en tant que propriétaire d’un groupe, suivez les instructions pour effectuer cette opération avec [PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0).
 
 ### <a name="to-add-a-group-owner"></a>Pour ajouter un propriétaire de groupe
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général pour l’annuaire.

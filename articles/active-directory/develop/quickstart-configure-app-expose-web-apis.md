@@ -1,10 +1,10 @@
 ---
-title: Configurer une application pour exposer les API web (préversion) | Azure
+title: Configurer une application pour exposer des API web - Plateforme d’identités Microsoft
 description: Découvrez comment configurer une application pour exposer une nouvelle autorisation/étendue ainsi qu’un rôle pour rendre l’application disponible sur les applications clientes.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 08/14/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080843"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989269"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Démarrage rapide : Configurer une application pour exposer les API web (préversion)
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Démarrage rapide : Configurer une application pour exposer des API web
 
 Vous pouvez développer une API web et la mettre à disposition des applications clientes en exposant l’[autorisation/étendue](developer-glossary.md#scopes) et les [rôles](developer-glossary.md#roles). Une API web correctement configurée peut être mise à disposition tout comme les autres API web Microsoft, notamment l'API Graph et les API Office 365.
 
@@ -37,15 +37,14 @@ Pour commencer, assurez-vous de remplir ces conditions préalables :
 * Découvrez les [autorisations et consentement](v2-permissions-and-consent.md) pris en charge qu’il est important de comprendre lors de la création d’applications devant être utilisées par d’autres utilisateurs ou applications.
 * Disposez d’un locataire auprès duquel des applications sont inscrites.
   * Si vous n’avez pas d’applications inscrites, [découvrez comment inscrire des applications à l’aide de la plateforme d’identité Microsoft](quickstart-register-app.md).
-* Intégrez l’expérience de préversion pour les inscriptions d’applications dans le portail Azure. Les étapes figurant dans ce démarrage rapide correspondent à la nouvelle interface utilisateur et ne fonctionnent que si vous participez à l’expérience de préversion.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Connectez-vous au portail Azure puis sélectionnez l’application
 
 Avant de pouvoir configurer l’application, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, sélectionnez ensuite **Inscriptions d’applications (préversion)**.
+1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
+1. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications**.
 1. Recherchez et sélectionnez l’application que vous souhaitez configurer. Une fois l’application sélectionnée, vous pourrez voir sa **présentation** ou sa page d’inscription principale.
 1. Pour exposer une nouvelle étendue,choisissez la méthode que vous souhaitez utiliser, l’interface utilisateur ou le manifeste de l'application :
     * [Exposer une nouvelle étendue via l’interface utilisateur](#expose-a-new-scope-through-the-ui)
@@ -53,7 +52,7 @@ Avant de pouvoir configurer l’application, procédez comme suit :
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Exposer une nouvelle étendue via l’interface utilisateur
 
-[![Exposer une API à l’aide de l’interface utilisateur](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Montre comment exposer une API à l’aide de l’interface utilisateur](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 Pour exposer une nouvelle étendue via l’interface utilisateur vous devez...
 
@@ -117,8 +116,9 @@ Pour exposer une nouvelle étendue via le manifeste de l'application vous devez.
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Vérifier que l’API web est exposée à d’autres applications
 
 1. Revenez à votre locataire Azure AD, sélectionnez **Inscriptions des applications**, puis recherchez et sélectionnez l’application cliente que vous souhaitez configurer.
-1. Répétez l’étape décrite dans la section Configurer une application cliente pour accéder aux API web.
-1. Lorsque vous arrivez à l’étape intitulée **Sélectionner une API**, sélectionnez votre ressource. Vous devriez voir la nouvelle étendue, disponible pour les demandes d’autorisations clientes.
+1. Répétez l’étape décrite dans la section [Configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md).
+1. Lorsque vous arrivez à l’étape intitulée [Sélectionner une API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+), sélectionnez votre ressource. Vous devriez voir la nouvelle étendue, disponible pour les demandes d’autorisations clientes.
 
 ## <a name="more-on-the-application-manifest"></a>Informations complémentaires concernant le manifeste d’application
 

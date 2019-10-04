@@ -1,93 +1,97 @@
 ---
-title: Installez IBM zD & environnement de développement/test T sur Azure | Microsoft Docs
-description: Déployer IBM Z Development et environnement de Test (zD & T) sur l’infrastructure de Machine virtuelle Azure (VM) en tant que service (IaaS).
+title: Installer l’environnement de développement/test IBM zD&T sur Azure | Microsoft Docs
+description: Déployez l’environnement de développement et de test IBM zD&T sur l’infrastructure Machine virtuelle Azure en tant que service IaaS (Infrastructure as a Service).
 services: virtual-machines-linux
+ms.service: virtual-machines-linux
 documentationcenter: ''
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 2f5520213e7d8792c89f5445d470987323173dc3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7ba3323f0811f3f9b76d73796264bf17712a1179
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894523"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841337"
 ---
-# <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installez IBM zD & environnement de développement/test T sur Azure
+# <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installer l’environnement de développement/test IBM zD&T sur Azure
 
-Pour créer un environnement de développement/test pour les charges de travail mainframe sur IBM Z Systems, vous pouvez déployer IBM Z Development et Test Environment (zD & T) sur l’infrastructure de Machine virtuelle Azure (VM) en tant que service (IaaS).
+Pour créer un environnement de développement/test pour les charges de travail mainframe sur des systèmes IBM Z, vous pouvez déployer IBM zD&T (Z Development and Test Environment ) sur l’infrastructure Machine virtuelle Azure en tant que service IaaS (Infrastructure as a Service).
 
-Avec zD & T, vous pouvez tirer parti des économies de la x86 plate-forme pour vos environnements de développement et de test moins critiques, puis à transmettre les mises à jour dans un environnement de production Z système. Pour plus d’informations, consultez le [IBM ZD & T des instructions d’installation](https://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
+Avec zD&T, vous pouvez tirer parti de la plateforme économique x86 pour vos environnements moins vitaux que sont les environnements de développement et de test et renvoyer ensuite (push) les mises à jour à un environnement de production Z System. Pour plus d’informations, consultez les [instructions d’installation d’IBM ZD&T](https://www-01.ibm.com/support/docview.wss?uid=swg24044565#INSTALL).
 
 Azure et Azure Stack prennent en charge les versions suivantes :
 
-- zD & T Personal Edition
-- zD & T Parallel Sysplex
-- zD & T Enterprise Edition
+- zD&T Personal Edition
+- zD&T Parallel Sysplex
+- zD&T Enterprise Edition
 
-Toutes les éditions de zD & T exécutent uniquement sur les x86 les systèmes Linux, pas Windows Server. Enterprise Edition est pris en charge sur Red Hat Enterprise Linux (RHEL) ou Ubuntu/Debian. Les images RHEL et machine virtuelle Debian sont disponibles pour Azure.
+Toutes les éditions de zD&T s’exécutent uniquement sur des systèmes x86 Linux, et non sur Windows Server. La version Enterprise Edition est prise en charge sur Red Hat Enterprise Linux (RHEL) ou Ubuntu/Debian. Il existe des images de machine virtuelle RHEL et Debian pour Azure.
 
-Cet article vous montre comment configurer zD & T Enterprise Edition sur Azure, vous pouvez donc utiliser le zD & du serveur web T Enterprise Edition pour la création et gestion des environnements. Installation zD & T n’installe pas les environnements. Vous devez créer séparément comme des packages d’installation. Par exemple, Application développeurs contrôlé Distributions (ADCD) sont des images de volume des environnements de test. Elles sont contenues dans les images de zip sur la distribution multimédia disponible à partir d’IBM. Consultez Comment [configurer un environnement ADCD sur Azure](demo.md).
+Cet article vous montre comment configurer zD&T Enterprise Edition sur Azure en vue d’utiliser le serveur web zD&T Enterprise Edition pour la création et la gestion d’environnements. L’installation de zD&T n’installe aucun environnement. Vous devez les créer séparément comme packages d’installation. Par exemple, les ADCD (Application Developers Controlled Distributions) sont des images de volume d’environnements de test. Elles se présentent sous forme d’images zip sur le média distribué par IBM. Découvrez comment [configurer un environnement ADCD sur Azure](demo.md).
 
-Pour plus d’informations, consultez le [zD & vue d’ensemble de T](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zdt.overview.gs.doc/topics/c_product_overview.html) dans le centre de connaissances d’IBM.
+Pour plus d’informations, consultez la [présentation de zD&T](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zdt.overview.gs.doc/topics/c_product_overview.html) sur le site IBM Knowledge Center.
 
-Cet article vous montre comment configurer Z développement et l’environnement de Test (zD & T) Enterprise Edition sur Azure. Ensuite, vous pouvez utiliser le zD & du serveur web T Enterprise Edition pour créer et gérer des environnements Z sur Azure.
+Cet article vous montre comment configurer zD&T (Z Development and Test Environment) Enterprise Edition sur Azure. Vous pouvez ensuite utiliser le serveur web zD&T Enterprise Edition pour créer et gérer des environnements Z sur Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 > [!NOTE]
-> IBM permet zD & T Enterprise Edition doit être installé dans les environnements de développement/test uniquement :*pas* les environnements de production.
+> IBM n’autorise l’installation de zD&T Enterprise Edition que dans des environnements de développement/test, et *non* dans des environnements de production.
 
 - Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-- Vous devez avoir accès au média, qui est disponible uniquement pour les partenaires et clients d’IBM. Pour plus d’informations, contactez votre représentant IBM ou les informations de contact sur le [zD & T](https://www.ibm.com/us-en/marketplace/z-systems-development-test-environment) site Web.
+- Vous devez avoir accès au média, qui s’adresse uniquement aux clients et partenaires d’IBM. Pour plus d’informations, contactez votre représentant IBM ou procurez-vous les informations de contact sur le site web [zD&T](https://www.ibm.com/us-en/marketplace/z-systems-development-test-environment).
 
-- Un [le serveur de licences](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html). Cela est nécessaire pour l’accès aux environnements. La manière dont vous le créez dépend de comment vous une licence pour le logiciel à partir d’IBM :
+- Un [serveur de licences](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html). Il s’agit d’une condition d’accès aux environnements. La façon dont vous le créez dépend de la façon dont vous avez acheté vos licences logicielles auprès d’IBM :
 
-     - **Serveur de licences en fonction du matériel** requiert un périphérique USB qui contient les jetons Rational nécessaires pour accéder à toutes les parties du logiciel. Vous devez l’obtenir à partir d’IBM.
+     - Le **serveur de licences matériel** nécessite une unité matérielle USB qui contient les jetons Rational nécessaires à l’accès à toutes les parties des logiciels. Vous devez vous la procurer auprès d’IBM.
 
-     - **Serveur de licences basé sur logiciel** , vous devez configurer un serveur centralisé pour la gestion des clés de licence. Cette méthode est conseillée et vous oblige à configurer les clés que vous recevez d’IBM dans le serveur d’administration.
+     - Le **serveur de licences logiciel** vous impose de configurer un serveur centralisé pour la gestion des clés de licence. Il s’agit de la méthode conseillée. Elle vous contraint à configurer les clés que vous recevez d’IBM dans le serveur d’administration.
 
-## <a name="create-the-base-image-and-connect"></a>Créer l’image de base et de se connecter
+## <a name="create-the-base-image-and-connect"></a>Créer l’image de base et se connecter
 
-1. Dans le portail Azure, [créer une machine virtuelle](/azure/virtual-machines/linux/quick-create-portal) avec la configuration de système d’exploitation. Cet article suppose une machine virtuelle B4ms (avec 4 processeurs virtuels et 16 Go de mémoire) exécutant Ubuntu 16.04.
+1. Sur le portail Azure, [créez une machine virtuelle](/azure/virtual-machines/linux/quick-create-portal) avec la configuration de système d’exploitation de votre choix. Dans cet article, la configuration utilisée est une machine virtuelle B4ms (avec 4 processeurs virtuels et 16 Go de mémoire) exécutant Ubuntu 16.04.
 
-2. Une fois que la machine virtuelle est créée, ouvrez les ports entrants 22 pour SSH, 21 pour FTP et 9443 pour le serveur web.
+2. Une fois la machine virtuelle créée, ouvrez les ports entrants 22 pour SSH, 21 pour FTP et 9443 pour le serveur web.
 
-3. Obtenir les informations d’identification SSH indiquées sur la **vue d’ensemble** Panneau de la machine virtuelle via le **Connect** bouton. Sélectionnez le **SSH** onglet et copiez la commande d’ouverture de session SSH dans le Presse-papiers.
+3. Obtenez les informations d’identification SSH figurant dans le panneau **Vue d’ensemble** de la machine virtuelle via le bouton **Connecter**. Sélectionnez l’onglet **SSH** et copiez la commande SSH logon dans le Presse-papiers.
 
-4. Ouvrez une session sur un [interpréteur de commandes Bash](/azure/cloud-shell/quickstart) à partir de votre PC local et le coller la commande. Il sera sous la forme **ssh\<id utilisateur\>\@\<adresse IP\>**. Lors de l’invité à entrer vos informations d’identification, entrez-les pour établir une connexion à votre répertoire de base.
+4. Ouvrez une session sur un [shell Bash](/azure/cloud-shell/quickstart) à partir de votre PC local et collez la commande. Elle se présente sous la forme **ssh\<id utilisateur\>\@\<Adresse IP\>** . Quand vous y êtes invité, entrez vos informations d’identification pour établir une connexion à votre répertoire de base.
 
-## <a name="copy-the-installation-file-to-the-server"></a>Copiez le fichier d’installation sur le serveur
+## <a name="copy-the-installation-file-to-the-server"></a>Copier le fichier d’installation sur le serveur
 
-Le fichier d’installation pour le serveur web est **ZDT\_installer\_EE\_V12.0.0.1.tgz**. Il est inclus dans le support fourni par IBM. Vous devez télécharger ce fichier à votre VM Ubuntu.
+Le fichier d’installation du serveur web se nomme **ZDT\_Install\_EE\_V12.0.0.1.tgz**. Il se trouve sur le média fourni par IBM. Vous devez charger ce fichier sur votre machine virtuelle Ubuntu.
 
-1. À partir de la ligne de commande, entrez la commande suivante pour vous assurer que tout est à jour dans l’image qui vient d’être créée :
+1. Sur la ligne de commande, entrez la commande suivante pour faire en sorte que tout ce qui se trouve dans l’image nouvellement créée soit à jour :
 
     ```
     sudo apt-get update
     ```
 
-2. Créer le répertoire d’installation pour :
+2. Créez le répertoire d’installation suivant :
 
     ```
     mkdir ZDT
     ```
 
-3. Copiez le fichier à partir de votre ordinateur local à la machine virtuelle :
+3. Copiez le fichier de votre ordinateur local vers la machine virtuelle :
 
     ```
     scp ZDT_Install_EE_V12.0.0.1.tgz  your_userid@<IP Address /ZDT>   =>
     ```
     
 > [!NOTE]
-> Cette commande copie le fichier d’installation dans le répertoire ZDT dans votre répertoire de base, qui varie selon que votre client s’exécute Windows ou Linux.
+> Cette commande copie le fichier d’installation dans le répertoire ZDT de votre répertoire de base, qui varie selon que votre client exécute Windows ou Linux.
 
-## <a name="install-the-enterprise-edition"></a>Installez l’édition entreprise
+## <a name="install-the-enterprise-edition"></a>Installer Enterprise Edition
 
-1. Accédez au répertoire ZDT et décompresser le ZDT\_installer\_EE\_fichier V12.0.0.1.tgz utilisant les commandes suivantes :
+1. Accédez au répertoire ZDT et décompressez le fichier ZDT\_Install\_EE\_fichier V12.0.0.1.tgz en utilisant les commandes suivantes :
 
     ```
     cd ZDT
@@ -100,38 +104,38 @@ Le fichier d’installation pour le serveur web est **ZDT\_installer\_EE\_V12.0.
     ./ZDT_Install_EE_V12.0.0.0.x86_64
     ```
 
-3. Sélectionnez **1** pour installer le serveur d’entreprise.
+3. Sélectionnez **1** pour installer Enterprise Server.
 
-4. Appuyez sur **entrée** et lisez attentivement les contrats de licence. À la fin de la licence, entrez **Oui** pour continuer.
+4. Appuyez sur **Entrée** et lisez attentivement les contrats de licence. À la fin de la licence, entrez **Oui** pour continuer.
 
-5. Lorsque vous êtes invité à modifier le mot de passe pour l’utilisateur nouvellement créé, **ibmsys1**, utilisez la commande **sudo passwd ibmsys1** et entrez le nouveau mot de passe.
+5. Quand vous êtes invité à modifier le mot de passe pour l’utilisateur nouvellement créé, **ibmsys1**, utilisez la commande **sudo passwd ibmsys1** et entrez le nouveau mot de passe.
 
-6. Pour vérifier si l’installation a réussi Entrez
+6. Pour vérifier que l’installation a abouti, entrez
 
     ```
     dpkg -l | grep zdtapp
     ```
 
-7. Vérifiez que la sortie contienne la chaîne **zdtapp 12.0.0.0**, qui indique que le gaz package été installé avec succès
+7. Vérifiez que la sortie contient la chaîne **zdtapp 12.0.0.0**, ce qui indique que le package a bien été installé.
 
-### <a name="starting-enterprise-edition"></a>Au départ Enterprise Edition
+### <a name="starting-enterprise-edition"></a>Démarrage d’Enterprise Edition
 
-N’oubliez pas que, lorsque le serveur web démarre, il s’exécute sous l’ID d’utilisateur zD & T qui a été créé pendant le processus d’installation.
+N’oubliez pas qu’au moment de démarrer, le serveur web s’exécute sous l’ID d’utilisateur zD&T qui a été créé au cours de l’installation.
 
-1. Pour démarrer le serveur web, utilisez l’ID d’utilisateur racine pour exécuter la commande suivante :
+1. Pour démarrer le serveur web, utilisez l’ID utilisateur racine pour exécuter la commande suivante :
 
     ```
     sudo /opt/ibm/zDT/bin/startServer
     ```
 
-2. Copiez la sortie de l’URL par le script, qui ressemble à :
+2. Copiez l’URL générée par le script, qui se présente comme ceci :
 
     ```
     https://<your IP address or domain name>:9443/ZDTMC/login.htm
     ```
 
-3. Collez l’URL dans un navigateur web pour ouvrir le composant de gestion de votre installation de T zD.
+3. Collez l’URL dans un navigateur web pour ouvrir le composant de gestion de votre installation zD&T.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Valeur d’une Application aux développeurs sous contrôle de Distribution (ADCD) dans IBM zD & T v1](./demo.md)
+[Configurer une instance ADCD (Application Developers Controlled Distribution) dans IBM zD&T v1](./demo.md)

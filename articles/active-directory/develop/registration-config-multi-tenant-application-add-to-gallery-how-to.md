@@ -3,25 +3,26 @@ title: Ajouter une application mutualisée dans la galerie d’applications Azur
 description: Explique comment vous pouvez afficher votre application mutualisée personnalisée dans la galerie d’applications Azure AD.
 services: active-directory
 documentationCenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7be7f0cbc0d3e5cf8dc507a331384e56a9621482
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8024130b986d111abe3b470d6b06e86ed6419dc4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173077"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320913"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Ajouter une application mutualisée dans la galerie d’applications Azure AD
 

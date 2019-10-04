@@ -2,22 +2,19 @@
 title: Tutoriel - Utiliser Azure Key Vault avec une application web Azure dans .NET | Microsoft Docs
 description: Dans ce didacticiel, vous allez configurer une application ASP.NET Core pour lire un secret dans votre coffre de clés.
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: msmbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 2c2bb3e4064294bb8d4a63b009069fd6834ca31e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 84256d79ec543d038b4d3d3f3dc6901bbd003871
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370888"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003369"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Didacticiel : Utiliser Azure Key Vault avec une application web Azure dans .NET
 
@@ -36,7 +33,7 @@ Ce didacticiel explique les procédures suivantes :
 > * Affectez une autorisation à l’application web.
 > * Exécutez l’application web sur Azure.
 
-Avant de continuer, lisez les [concepts de base de Key Vault](key-vault-whatis.md#basic-concepts). 
+Avant de continuer, lisez les [concepts de base de Key Vault](basic-concepts.md). 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -46,14 +43,14 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 * Pour Mac : [Visual Studio pour Mac](https://visualstudio.microsoft.com/vs/mac/)
 * Pour Windows, Mac et Linux :
   * [Git](https://git-scm.com/downloads)
-  * Ce didacticiel nécessite que vous exécutiez l’interface Azure CLI localement. Vous devez avoir installé Azure CLI 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * Ce didacticiel nécessite que vous exécutiez l’interface Azure CLI localement. Vous devez avoir installé Azure CLI 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
   * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
 
 ## <a name="about-managed-service-identity"></a>À propos de Managed Service Identity (MSI)
 
 Azure Key Vault stocke les informations d’identification de manière sécurisée, de façon à ce qu’elles n’apparaissent pas dans votre code. Toutefois, vous devez vous authentifier auprès d’Azure Key Vault pour récupérer vos clés. Pour vous authentifier auprès de Key Vault, vous avez besoin d’informations d’identification. Il s’agit d’un dilemme de démarrage classique. Managed Service Identity (MSI) résout ce problème en fournissant une _identité de démarrage_.
 
-Lorsque vous activez MSI pour un service Azure, par exemple, Machines virtuelles Azure, Azure App Service ou Azure Functions, Azure crée un [principal de service](key-vault-whatis.md#basic-concepts). MSI procède ainsi pour l’instance du service dans Azure Active Directory (Azure AD) et injecte les informations d’identification du principal de service dans cette instance.
+Lorsque vous activez MSI pour un service Azure, par exemple, Machines virtuelles Azure, Azure App Service ou Azure Functions, Azure crée un [principal de service](basic-concepts.md). MSI procède ainsi pour l’instance du service dans Azure Active Directory (Azure AD) et injecte les informations d’identification du principal de service dans cette instance.
 
 ![Diagramme MSI](media/MSI.png)
 
@@ -194,7 +191,7 @@ Vous pouvez également regarder cette vidéo :
 
 ## <a name="run-the-web-app"></a>Exécuter l’application web
 
-1. Dans le menu principal de Visual Studio 2017, sélectionnez **Déboguer** > **Démarrer**, avec ou sans débogage. 
+1. Dans le menu principal de Visual Studio 2019, sélectionnez **Déboguer** > **Démarrer**, avec ou sans débogage. 
 1. Dans le navigateur, accédez à la page **À propos de**.  
     La valeur d’**AppSecret** s’affiche.
 
@@ -240,7 +237,7 @@ Republiez votre application web dans Azure pour vérifier si votre application w
 
 1. Dans Visual Studio, sélectionnez le projet **key-vault-dotnet-core-quickstart**.
 2. Sélectionnez **Publier** > **Démarrer**.
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 
 Lorsque vous exécutez l’application, vous voyez normalement qu’elle peut récupérer votre valeur de secret.
 
@@ -252,4 +249,4 @@ Quand ils ne sont plus nécessaires, vous pouvez supprimer la machine virtuelle 
 ## <a name="next-steps"></a>Étapes suivantes
 
 >[!div class="nextstepaction"]
->[Guide du développeur de coffre de clés Azure](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)
+>[Guide du développeur de coffre de clés Azure](key-vault-developers-guide.md)

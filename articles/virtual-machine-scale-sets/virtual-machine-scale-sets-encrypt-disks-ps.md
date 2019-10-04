@@ -13,50 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 04/26/2019
 ms.author: cynthn
-ms.openlocfilehash: cc1405d2dd972aff6091a9d5b60ff9da18185286
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a582a4787a4b215d82dcbff60be8853793f92c32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978100"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66728368"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell-preview"></a>Chiffrer des disques de données joints et de systèmes d’exploitation dans un groupe de machines virtuelles identiques avec Azure PowerShell (préversion)
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-azure-powershell"></a>Chiffrer des disques de données joints et de systèmes d’exploitation dans un groupe de machines virtuelles identiques avec Azure PowerShell
 
 Conçue pour protéger les données au repos, Azure Disk Encryption (ADE) est une technologie de chiffrement standard prise en charge par les groupes de machines virtuelles identiques. Le chiffrement peut être activé pour les groupes de machines virtuelles identiques Windows et Linux. Pour plus d’informations, consultez [Azure Disk Encryption pour machines virtuelles Windows et Linux](../security/azure-security-disk-encryption.md).
-
-> [!NOTE]
->  Azure Disk Encryption pour les groupes de machines virtuelles identiques est actuellement en préversion publique, disponible dans toutes les régions publiques Azure.
 
 Azure Disk Encryption est pris en charge :
 - Pour les groupes identiques créés avec des disques managés, et non pris en charge pour les groupes identiques de disques natifs (ou non managés).
 - Pour les volumes de données et de systèmes d’exploitation dans les groupes identiques Windows. La désactivation du chiffrement est prise en charge pour les volumes de données et de systèmes d’exploitation des groupes identiques Windows.
-- Pour les volumes de données dans les groupes identiques Linux. Le chiffrement de disque de systèmes d’exploitation n’est PAS pris en charge dans la préversion actuelle pour les groupes identiques Linux.
+- Pour les volumes de données dans les groupes identiques Linux. Actuellement, le chiffrement de disque de systèmes d’exploitation n’est PAS pris en charge pour les groupes identiques Linux.
 
-Les opérations de mise à niveau et de réinitialisation des machines virtuelles d’un groupe identique ne sont pas prises en charge dans la préversion actuelle. L’utilisation de la préversion d’Azure Disk Encryption pour les groupes de machines virtuelles identiques est uniquement recommandée dans les environnements de test. Dans la préversion, n’activez pas le chiffrement de disque dans les environnements de production dans lesquels vous devez mettre à niveau une image de système d’exploitation dans un groupe identique chiffré.
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
-
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
-
-## <a name="register-for-disk-encryption-preview"></a>S’inscrire à la fonctionnalité de chiffrement de disque en préversion
-
-Pour utiliser la préversion d’Azure Disk Encryption pour les groupes de machines virtuelles identiques, vous devez inscrire votre abonnement avec [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature). Effectuez uniquement les étapes suivantes quand vous utilisez la fonctionnalité de chiffrement de disque en préversion pour la première fois :
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
-```
-
-
-La demande d’inscription peut prendre jusqu’à 10 minutes pour aboutir. Vous pouvez vérifier l’état de l’inscription avec [Get-AzProviderFeature](/powershell/module/az.resources/Get-AzProviderFeature). Quand `RegistrationState` indique *Inscrit*, réinscrivez le fournisseur *Microsoft.Compute* avec [Register-AzResourceProvider](/powershell/module/az.resources/Register-AzResourceProvider) :
-
-
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-azure-key-vault-enabled-for-disk-encryption"></a>Créer un coffre de clés Azure activé pour le chiffrement de disque
 
@@ -125,6 +102,26 @@ Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vm
 
 Quand vous y êtes invité, tapez *y* pour continuer le processus de chiffrement de disque sur les instances de machine virtuelle dans le groupe identique.
 
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Activer le chiffrement à l’aide de KEK pour encapsuler la clé
+
+Vous pouvez également utiliser une clé de chiffrement de clé pour renforcer la sécurité lors du chiffrement du groupe de machines virtuelles identiques.
+
+```azurepowershell-interactive
+$diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
+$keyVaultResourceId=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).ResourceId
+$keyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $vaultName -Name $keyEncryptionKeyName).Key.kid;
+
+Set-AzVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $vmssName `
+    -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $keyVaultResourceId `
+    -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $keyVaultResourceId –VolumeType "All"
+```
+
+> [!NOTE]
+>  La syntaxe de la valeur du paramètre disk-encryption-keyvault est la chaîne de l’identificateur complet :</br>
+/subscriptions/[guid-id-abonnement]/resourceGroups/[nom-groupe-ressources]/providers/Microsoft.KeyVault/vaults/[nom-coffre-clés]</br></br>
+> La syntaxe de la valeur du paramètre key-encryption-key est l’URI complet vers la clé KEK comme dans :</br>
+https://[nom-coffre-clés].vault.azure.net/keys/[nom-clé-kek]/[id-clé-kek-unique]
+
 ## <a name="check-encryption-progress"></a>Vérifier la progression du chiffrement
 
 Pour vérifier l’état du chiffrement de disque, utilisez [Get-AzVmssDiskEncryption](/powershell/module/az.compute/Get-AzVmssDiskEncryption) :
@@ -165,4 +162,5 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssNam
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez utilisé Azure PowerShell pour chiffrer un groupe de machines virtuelles identiques. Vous pouvez également utiliser [Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md) ou des modèles pour [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) ou [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+- Dans cet article, vous avez utilisé Azure PowerShell pour chiffrer un groupe de machines virtuelles identiques. Vous pouvez également utiliser [Azure CLI](virtual-machine-scale-sets-encrypt-disks-cli.md) ou des modèles pour [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) ou [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+- Si vous souhaitez qu’Azure Disk Encryption soit appliqué après l’approvisionnement d’une autre extension, vous pouvez utiliser le [séquencement d’extensions](virtual-machine-scale-sets-extension-sequencing.md). Vous pouvez utiliser [ces exemples](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates) pour bien démarrer.

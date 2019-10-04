@@ -3,8 +3,8 @@ title: Gérer les captures de paquets avec Azure Network Watcher - Portail Azure
 description: Découvrez comment gérer la fonctionnalité de capture de paquets de Network Watcher à l’aide du portail Azure.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: jdial
-ms.openlocfilehash: 22bdd50f129a48ade97db323f904f7e652a00d39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 00349a7e681beab447e585139e481c04755b7879
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889979"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102863"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide du portail
 
@@ -34,33 +34,33 @@ La capture de paquets requiert la connectivité suivante :
 * Connexions entrante et sortante à l’adresse IP 169.254.169.254
 * Connexions entrante et sortante à l’adresse IP 168.63.129.16
 
-Si un groupe de sécurité réseau est associé à l’interface réseau ou à un sous-réseau dans lequel figure l’interface réseau, assurez-vous qu’il existe des règles autorisant les ports ci-dessus. 
+Si un groupe de sécurité réseau est associé à l’interface réseau ou à un sous-réseau dans lequel figure l’interface réseau, assurez-vous qu’il existe des règles autorisant les ports ci-dessus. De même, l’ajout d’itinéraires de trafic définis par l’utilisateur à votre réseau peut empêcher la connectivité aux adresses IP et ports précités. Vérifiez qu’ils sont accessibles. 
 
 ## <a name="start-a-packet-capture"></a>Démarrer une capture de paquets
 
 1. Dans votre navigateur, accédez au [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**, puis, dans la section **Mise en réseau**, choisissez **Network Watcher**.
 2. Sélectionnez **Capture de paquets** sous **Outils de diagnostic réseau**. Les captures de paquets existantes sont répertoriées, indépendamment de leur état.
 3. Sélectionnez **Ajouter** pour créer une capture de paquets. Vous pouvez sélectionner des valeurs pour les propriétés suivantes :
-   - **Abonnement**: L’abonnement de capture pour la machine virtuelle que vous souhaitez créer le paquet est.
-   - **Groupe de ressources** : Le groupe de ressources de la machine virtuelle.
-   - **Machine virtuelle cible** : La machine virtuelle que vous souhaitez créer pour la capture de paquets.
-   - **Nom de capture de paquets**: Un nom pour la capture de paquets.
-   - **Compte de stockage ou le fichier**: Sélectionnez **compte de stockage**, **fichier**, ou les deux. Si vous sélectionnez **Fichier**, la capture est écrite dans un chemin d’accès à l’intérieur de la machine virtuelle.
-   - **Chemin d’accès du fichier local**: Le chemin d’accès local sur l’ordinateur virtuel où la capture de paquets sera enregistrée (valide uniquement lorsque *fichier* est sélectionnée). Il doit s’agir d’un chemin d’accès valide. Si vous utilisez une machine virtuelle Linux, le chemin doit commencer par */var/captures*.
-   - **Comptes de stockage** : Sélectionnez un compte de stockage existant, si vous avez sélectionné *compte de stockage*. Cette option est disponible uniquement si vous avez sélectionné **Stockage**.
+   - **Abonnement**: abonnement dans lequel figure la machine virtuelle pour laquelle vous voulez créer la capture de paquets.
+   - **Groupe de ressources** : groupe de ressources de la machine virtuelle.
+   - **Machine virtuelle cible** : machine virtuelle pour laquelle vous voulez créer la capture de paquets.
+   - **Nom de la capture de paquets** : nom pour la capture de paquets.
+   - **Compte ou fichier de stockage** : Sélectionnez **Compte de stockage**, **Fichier**, ou les deux. Si vous sélectionnez **Fichier**, la capture est écrite dans un chemin d’accès à l’intérieur de la machine virtuelle.
+   - **Chemin de fichier local** : chemin d’accès local, sur la machine virtuelle, de l’emplacement où la capture de paquets sera enregistrée (uniquement quand *Fichier* est sélectionné). Il doit s’agir d’un chemin d’accès valide. Si vous utilisez une machine virtuelle Linux, le chemin doit commencer par */var/captures*.
+   - **Comptes de stockage** : si vous avez choisi *Compte de stockage*, sélectionnez un compte de stockage. Cette option est disponible uniquement si vous avez sélectionné **Stockage**.
    
      > [!NOTE]
      > Les comptes de stockage Premium ne sont actuellement pas pris en charge pour le stockage des captures de paquets.
 
-   - **Nombre maximal d’octets par paquet**: Le nombre d’octets capturés dans chaque paquet. Si ce champ est vide, tous les octets sont capturés.
-   - **Nombre maximal d’octets par session**: Le nombre total d’octets capturés. Une fois la valeur atteinte, la capture de paquets s’arrête.
-   - **Délai imparti (secondes)**: La limite de temps avant l’arrêt de la capture de paquets. La valeur par défaut est 18 000 secondes.
+   - **Nombre maximal d’octets par paquet** : nombre d’octets capturés dans chaque paquet. Si ce champ est vide, tous les octets sont capturés.
+   - **Nombre maximal d’octets par session** : nombre total d’octets capturés. Une fois la valeur atteinte, la capture de paquets s’arrête.
+   - **Délai imparti (secondes)**  : délai précédant l’arrêt de la capture de paquets. La valeur par défaut est 18 000 secondes.
    - Filtrage (facultatif). Sélectionnez **+ Ajouter un filtre**
      - **Protocole** : Protocole permettant de filtrer la capture de paquets. Valeurs possibles : TCP, UDP et Quelconque.
-     - **Adresse IP locale**: Filtre la capture de paquets pour les paquets dont l’adresse IP locale correspond à cette valeur.
-     - **Port local**: Filtre la capture de paquets pour les paquets dont le port local correspond à cette valeur.
-     - **Adresse IP distante**: Filtre la capture de paquets pour les paquets dont l’adresse IP distante correspond à cette valeur.
-     - **Port distant**: Filtre la capture de paquets pour les paquets dont le port distant correspond à cette valeur.
+     - **Adresse IP locale** : filtre la capture de paquets en la limitant à ceux dont l’adresse IP locale correspond à cette valeur.
+     - **Port local** : filtre la capture de paquets en la limitant à ceux dont le port local correspond à cette valeur.
+     - **Adresse IP distante** : filtre la capture de paquets en la limitant à ceux dont l’adresse IP distante correspond à cette valeur.
+     - **Port distant** : filtre la capture de paquets en la limitant à ceux dont le port distant correspond à cette valeur.
     
      > [!NOTE]
      > Les valeurs d’adresse IP et de port peuvent être une valeur unique, une série de valeurs ou une plage de valeurs telle que 80-1024 pour le port. Vous pouvez définir autant de filtres que nécessaire.

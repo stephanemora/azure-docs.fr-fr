@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 36ef27dfb4a5d77ec2e595013a82f55cdf240c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: a29381bded4bb2562227bd5f23ccb59bb5add028
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312459"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67059211"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services avec .NET 
+
+> [!NOTE]
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
 
 Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous pouvez surveiller les notifications de travaux Media Services à l’aide d’Azure WebHooks ou du [Stockage File d’attente Azure](media-services-dotnet-check-job-progress-with-queues.md). Cet article vous montre comment utiliser webhooks.
 
@@ -31,7 +34,7 @@ Cet article montre comment
     
     Dans ce cas, le webhook est déclenché par Media Services lorsque l’état de votre travail d’encodage change. La fonction attend le rappel du webhook à partir des notifications Media Services et publie la ressource en sortie une fois que le travail se termine. 
     
-    >[!NOTE]
+    >[!TIP]
     >Avant de poursuivre, assurez-vous que vous comprenez le fonctionnement des [liaisons HTTP et webhook d’Azure Functions](../../azure-functions/functions-bindings-http-webhook.md).
     >
     
@@ -39,7 +42,7 @@ Cet article montre comment
 
 Vous trouverez la définition des différentes fonctions Media Services .NET Azure Functions (notamment celle dont il est question dans cet article) [ici](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les éléments suivants sont requis pour suivre le didacticiel :
 
@@ -69,7 +72,7 @@ Une fois votre Function App déployée, vous pouvez la retrouver parmi les fonct
 
 1. Sélectionnez votre Function App et cliquez sur **Nouvelle fonction**.
 2. Sélectionnez le code **C#** et le scénario **API et webhooks**. 
-3. Sélectionnez **Webhook générique - C#**.
+3. Sélectionnez **Webhook générique - C#** .
 4. Nommez votre webhook, puis appuyez sur **Créer**.
 
 ### <a name="files"></a>Fichiers
@@ -242,7 +245,7 @@ private static string PublishAndBuildStreamingURLs(String jobID)
 
     // Get a reference to the streaming manifest file from the  
     // collection of files in the asset. 
-    var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+    var manifestFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                 EndsWith(".ism")).
                 FirstOrDefault();
 

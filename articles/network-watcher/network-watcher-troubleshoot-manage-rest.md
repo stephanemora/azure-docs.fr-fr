@@ -3,8 +3,8 @@ title: Résoudre les problèmes liés à la passerelle de réseau virtuel et aux
 description: Cette page explique comment résoudre les problèmes liés aux passerelles de réseau virtuel et aux connexions avec Azure Network Watcher à l’aide de REST
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: e4d5f195-b839-4394-94ef-a04192766e55
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
-ms.author: jdial
-ms.openlocfilehash: 1276d1e581caf477449ce9a4c928d4493a6354d3
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 0f10b9b45f63485417685a0826c047725a264772
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487598"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64686115"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions à l’aide d’Azure Network Watcher
 
@@ -44,7 +44,7 @@ Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Cre
 
 Vous trouverez la liste des types de passerelles pris en charge sur la page [Types de passerelles pris en charge](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les fonctionnalités de dépannage de Network Watcher permettent de résoudre les problèmes qui surviennent avec les passerelles de réseau virtuel et les connexions. Lorsqu’une demande de résolution des problèmes liés aux ressources est effectuée, les journaux d’activité sont interrogés et inspectés. Lorsque l’inspection est terminée, les résultats sont renvoyés. L’exécution des demandes de l’API de résolution des problèmes nécessite un certain temps : vous devrez peut-être patienter plusieurs minutes avant d’obtenir un résultat. Les journaux d’activité sont stockés dans un conteneur sur un compte de stockage.
 

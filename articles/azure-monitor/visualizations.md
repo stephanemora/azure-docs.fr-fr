@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 4e9bb9bd86e22efa5dd514e742481911b09c5e17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6390384220830d473b56f4082a98dfaa8aa686d1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796050"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984182"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
@@ -32,11 +32,11 @@ Les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md) constit
 ![tableau de bord](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Avantages
-- Intégration approfondie à Azure. Visualisations peuvent être épinglées aux tableaux de bord à partir de plusieurs pages Azure, y compris Metrics Explorer et Analytique de journal Application Insights.
+- Intégration approfondie à Azure. Les visualisations peuvent être épinglées aux tableaux de bord à partir de plusieurs pages Azure, notamment Metrics Explorer, Log Analytics et Application Insights.
 - Prend en charge les métriques et les journaux d’activité.
-- Combiner des données provenant de plusieurs sources, y compris la sortie de [Explorateur de mesures](platform/metrics-charts.md), [enregistrer des requêtes](log-query/log-query-overview.md), et [mappe](app/app-map.md) et la disponibilité dans Application Insights.
+- Combinez des données provenant de plusieurs sources, notamment une sortie [Metrics Explorer](platform/metrics-charts.md), des [requêtes de journal](log-query/log-query-overview.md) ainsi que des [cartes](app/app-map.md) et des données de disponibilité dans Application Insights.
 - Possibilité de définir des tableaux de bord personnels ou partagés. Intégré à [l’authentification basée sur les rôles (RBAC)](../role-based-access-control/overview.md) Azure.
-- Actualisation automatique. L’actualisation des métriques a lieu selon un intervalle de temps de cinq minutes au minimum. Les journaux d’activité sont actualisés chaque minute.
+- Actualisation automatique. L’actualisation des métriques a lieu selon un intervalle de temps de cinq minutes au minimum. Les journaux sont actualisés toutes les heures, avec une option d’actualisation manuelle à la demande en cliquant sur l’icône d’actualisation d’une visualisation donnée ou en actualisant le tableau de bord complet.
 - Les tableaux de bord de métriques sont paramétrés avec un horodatage et des paramètres personnalisés.
 - Options de disposition flexibles.
 - Mode plein écran.
@@ -140,7 +140,7 @@ Vous pouvez accéder aux données dans les journaux et aux métriques dans Azure
 - Découvrez les [données collectées par Azure Monitor](platform/data-platform.md).
 - Découvrez les [tableaux de bord Azure](../azure-portal/azure-portal-dashboards.md).
 - Découvrez les [affichages dans Azure Monitor](platform/view-designer.md).
-- En savoir plus sur [classeurs](../azure-monitor/app/usage-workbooks.md).
+- Découvrez les [classeurs](../azure-monitor/app/usage-workbooks.md).
 - Découvrez [l’importation de données de journal dans Power BI](../azure-monitor/platform/powerbi.md).
 - Découvrez le [plug-in de source de données Azure Monitor pour Grafana](../azure-monitor/platform/grafana-plugin.md).
 

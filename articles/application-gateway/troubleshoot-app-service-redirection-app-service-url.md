@@ -1,58 +1,60 @@
 ---
-title: 'Résolution des problèmes de passerelle Azure Application Gateway avec App Service : la Redirection vers l’URL du Service de l’application'
-description: Cet article fournit des informations sur la façon de résoudre le problème de redirection Azure Application Gateway est utilisé avec Azure App Service
+title: Résoudre les problèmes d’Azure Application Gateway avec App Service – Redirection vers l’URL d’App Service
+description: Cet article fournit des informations sur la façon de résoudre les problèmes de redirection lorsque vous utilisez Azure Application Gateway avec Azure App Service
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 07/19/2019
 ms.author: absha
-ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b233117bc0f967368aeac7baec8c4875aa16826
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797787"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051425"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service"></a>Résoudre les problèmes de passerelle d’Application avec App Service
+# <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Résoudre les problèmes d’App Service dans Application Gateway
 
-Découvrez comment diagnostiquer et résoudre les problèmes rencontrés avec la passerelle d’Application et App Service en tant que le serveur principal.
+Découvrez comment diagnostiquer et résoudre les problèmes que vous pouvez rencontrer quand Azure App Service est utilisé comme cible de back-end avec Azure Application Gateway.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-Dans cet article, vous allez apprendre à résoudre les problèmes suivants :
+Cet article explique comment résoudre les problèmes suivants :
 
 > [!div class="checklist"]
-> * Obtention exposée dans le navigateur lorsqu’il existe une redirection de l’URL du Service d’application
-> * Domaine du Cookie de ARRAffinity du Service de l’application la valeur nom d’hôte de Service d’application (example.azurewebsites.net) au lieu de l’hôte d’origine
+> * L’URL d’App Service est exposée dans le navigateur en cas de redirection.
+> * Le domaine du cookie ARRAffinity d’App Service est défini sur nom d’hôte d’App Service (example.azurewebsites.net) au lieu de l’hôte d’origine.
 
-Lorsque vous configurez un Service d’application dans le pool back-end de passerelle d’Application publiques et si vous avez une redirection configurée dans votre code d’Application, vous verrez peut-être lorsque vous accédez à la passerelle d’Application, vous serez redirigé par le navigateur directement à l’application URL du service.
+Quand une application back-end envoie une réponse de redirection, vous pouvez souhaiter rediriger le client vers une URL différente de celle spécifiée par l’application back-end. Cela peut être le cas quand un service d’application est hébergé derrière une passerelle d’application et demande au client d’effectuer une redirection vers son chemin relatif. C’est, par exemple, le cas d’une redirection de contoso.azurewebsites.net/path1 vers contoso.azurewebsites.net/path2. 
 
-Ce problème peut se produire en raison des raisons principales suivantes :
+Quand le service d’application envoie une réponse de redirection, il utilise le nom d’hôte qui figure dans l’en-tête d’emplacement de sa réponse, qui est identique à celui situé dans la requête qu’il reçoit de la passerelle d’application. Par exemple, le client adresse directement la requête à contoso.azurewebsites.net/path2 au lieu de passer par la passerelle d’application contoso.com/path2. Vous ne souhaitez pas ignorer la passerelle d’application.
 
-- Vous avez configurée sur votre Service d’application de la redirection. La redirection peut être aussi simple que l’ajout d’une barre oblique à la demande.
-- Vous avez l’authentification Azure AD qui provoque la redirection.
-- Vous avez activé le commutateur « Choisir hôte nom d’adresse du serveur principal » dans les paramètres HTTP de passerelle d’Application.
-- Vous n’avez pas votre domaine personnalisé enregistré avec votre Service d’application.
+Ce problème peut se produire pour les raisons suivantes :
 
-En outre, lorsque vous utilisez des Services d’application derrière la passerelle d’Application et que vous utilisez un domaine personnalisé pour accéder à la passerelle d’Application, vous pouvez voir la valeur de domaine du cookie ARRAffinity définie par le Service d’application contiendra le nom de domaine « example.azurewebsites.net ». Si vous souhaitez que votre nom d’hôte d’origine pour être le domaine du cookie, suivez la solution dans cet article.
+- Vous avez configuré la redirection sur votre App Service. La redirection peut être aussi simple que l’ajout d’une barre oblique à la demande.
+- L’authentification Azure Active Directory provoque la redirection.
+
+En outre, lorsque vous utilisez des App Services derrière une passerelle d’application, le nom de domaine associé à celle-ci (example.com) diffère du nom de domaine de l’App Service (par exemple, example.azurewebsites.net). La valeur de domaine pour le cookie ARRAffinity défini par l’App Service porte le nom de domaine example.azurewebsites.net, ce qui n’est pas souhaitable. Le nom d’hôte d’origine, example.com, doit être la valeur du nom de domaine dans le cookie.
 
 ## <a name="sample-configuration"></a>Exemple de configuration
 
-- Écouteur HTTP : Base ou de plusieurs sites
-- Pool d’adresses principales : App Service
-- Paramètres HTTP : « Pick nom d’hôte à partir de l’adresse du serveur principal » activé
-- Sonde : « Pick nom d’hôte à partir des paramètres HTTP » activé
+- Écouteur HTTP : De base ou de multi-sites
+- Pool d’adresses IP back-end : App Service
+- Paramètres HTTP : **Choisir le nom d’hôte à partir de l’adresse du serveur principal** activé
+- Sonde : **Choisir le nom d’hôte à partir des paramètres HTTP** activé
 
 ## <a name="cause"></a>Cause :
 
-Un Service d’application est uniquement accessible avec les noms d’hôte configuré dans les paramètres de domaine personnalisé, par défaut, il est « example.azurewebsites.net » et si vous souhaitez accéder à votre Service d’application à l’aide de la passerelle d’Application avec un nom d’hôte ne pas inscrit dans App Service ou avec La passerelle d’application nom de domaine complet, vous devez remplacer le nom d’hôte dans la demande d’origine au nom d’hôte du Service de l’application.
+App Service étant un service multilocataire, il utilise l’en-tête d’hôte de la requête pour router celle-ci vers le point de terminaison approprié. Le nom de domaine par défaut des App Services, *.azurewebsites.net (par exemple, contoso.azurewebsites.net), est différent du nom de domaine de la passerelle d’application (par exemple, contoso.com). 
 
-Pour ce faire, avec la passerelle d’Application, nous utilisons le commutateur « Choisir nom d’hôte à partir de back-end Address » dans les paramètres HTTP et de la sonde fonctionne, nous utilisons « Sélectionner des nom d’hôte à partir de paramètres Backend HTTP » dans la configuration de sonde.
+La demande d’origine du client a le nom de domaine de la passerelle d’application, contoso.com, en tant que nom d’hôte. Vous devez configurer la passerelle d’application pour remplacer le nom d’hôte dans la demande d’origine par le nom d’hôte de l’App Service lors de du routage de la demande vers le serveur principal du service. Utilisez le commutateur **Choisir le nom d’hôte à partir de l’adresse du serveur principal** dans la configuration du paramètre HTTP de la passerelle d’application. Utilisez le commutateur **Choisir le nom d’hôte à partir des paramètres HTTP du serveur principal** dans la configuration de la sonde d’intégrité.
 
-![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
-Pour cette raison, lorsque le Service de l’application effectue une redirection, il utilise le nom d’hôte « example.azurewebsites.net » dans l’en-tête Location, au lieu du nom d’hôte d’origine sauf configuration différente. Vous pouvez vérifier les en-têtes exemple demande et de réponse ci-dessous.
+
+![La passerelle d’application change le nom d’hôte](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
+
+Quand l’App Service effectue une redirection, il utilise le nom d’hôte remplacé « contoso.azurewebsites.net » dans l’en-tête d’emplacement, au lieu du nom d’hôte d’origine « contoso.com », sauf en cas de configuration différente. Examinez les exemples suivants d’en-tête de requête et de réponse.
 ```
 ## Request headers to Application Gateway:
 
@@ -66,44 +68,51 @@ Host: www.contoso.com
 
 Status Code: 301 Moved Permanently
 
-Location: http://example.azurewebsites.net/path/
+Location: http://contoso.azurewebsites.net/path/
 
 Server: Microsoft-IIS/10.0
 
-Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=example.azurewebsites.net
+Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=contoso.azurewebsites.net
 
 X-Powered-By: ASP.NET
 ```
-Dans l’exemple ci-dessus, vous pouvez remarquer que l’en-tête de réponse a un code d’état de 301 pour la redirection et l’en-tête location a de nom d’hôte du Service de l’application au lieu du nom d’hôte d’origine « www.contoso.com ».
+Dans l’exemple précédent, notez que l’en-tête de réponse a un code d’état 301 pour la redirection. L’en-tête d’emplacement a le nom d’hôte de l’App Service au lieu du nom d’hôte d’origine www.contoso.com.
 
-## <a name="solution"></a>Solution
+## <a name="solution-rewrite-the-location-header"></a>Solution : Réécrire l’en-tête d’emplacement
 
-Ce problème peut être résolu en évitant une redirection côté Application, toutefois, si cela n’est pas possible, que nous devons transmettre l’en-tête d’hôte qui reçoit de la passerelle d’Application sur App Service ainsi au lieu d’effectuer un remplacement de l’hôte.
+Définissez le nom d’hôte de l’en-tête d’emplacement sur le nom de domaine de la passerelle d’application. Pour ce faire, créez une [règle de réécriture](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) avec une condition qui détermine si l’en-tête d’emplacement de la réponse contient azurewebsites.net. Elle doit aussi exécuter une action de façon à réécrire l’en-tête d’emplacement et lui attribuer le nom d’hôte de la passerelle d’application. Pour plus d’informations, voir les instructions de [réécriture de l’en-tête d’emplacement](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
 
-Une fois que nous le faire, App Service effectue la redirection (le cas échéant) sur le même en-tête d’hôte d’origine qui pointe vers la passerelle d’Application et non pas son propre.
+> [!NOTE]
+> La prise en charge de la réécriture d’en-tête HTTP n’est disponible que pour les [références (SKU) Standard_v2 et WAF_v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) d’Application Gateway. Si vous utilisez la référence (SKU) v1, nous vous recommandons de [migrer de v1 vers v2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). Vous pouvez utiliser la réécriture et d’autres [fonctionnalités avancées](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) disponibles avec la référence (SKU) v2.
 
-Pour ce faire, vous devez posséder un domaine personnalisé et suivez le processus indiqué ci-dessous.
+## <a name="alternate-solution-use-a-custom-domain-name"></a>Autre solution : Ajouter un nom de domaine personnalisé
 
-- Enregistrez le domaine à la liste de domaine personnalisé d’App Service. Pour ce faire, vous devez disposer d’un enregistrement CNAME dans votre domaine personnalisé qui pointe vers le nom de domaine complet du Service de l’application. Pour plus d’informations, consultez [mapper un nom DNS personnalisé existant à Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+Si vous utilisez la référence (SKU) v1, vous ne pouvez pas réécrire l’en-tête d’emplacement. Cette fonctionnalité est disponible uniquement pour la référence (SKU) v2. Pour résoudre le problème de redirection, vous devrez transmettre le nom d’hôte reçu par la passerelle d’application à l’App Service au lieu de modifier l’hôte.
 
-![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
+L’App Service effectue ensuite la redirection (le cas échéant) sur le même en-tête hôte d’origine qui pointe vers la passerelle d’application et pas le sien.
 
-- Une fois cette opération effectuée, votre App Service est prêt à accepter le nom d’hôte « www.contoso.com ». Maintenant modifier votre entrée CNAME dans DNS afin qu’il pointe vers FQDN de la passerelle d’Application. Par exemple, « appgw.eastus.cloudapp.azure.com ».
+Vous devez posséder un domaine personnalisé et procéder comme suit :
 
-- Assurez-vous que votre domaine « www.contoso.com » est résolu en nom de domaine complet de passerelle d’Application lorsque vous effectuez une requête DNS.
+- Enregistrez le domaine dans la liste de domaines personnalisés de l’App Service. Vous devez disposer d’un enregistrement CNAME dans votre domaine personnalisé qui pointe vers le nom de domaine complet de l’App Service. Pour plus d’informations, consultez [Mapper un nom DNS personnalisé existant à Azure App Service](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
 
-- Définissez votre sonde personnalisée pour désactiver les « Choisir des nom d’hôte à partir de paramètres serveur principal HTTP ». Cela peut être effectuée à partir du portail en décochant la case à cocher dans les paramètres de sonde et dans PowerShell en n’utilisant ne pas le PickHostNameFromBackendHttpSettings - basculer dans la commande Set-AzApplicationGatewayProbeConfig. Dans le champ nom d’hôte de la sonde, entrez votre nom de domaine complet du Service d’application « example.azurewebsites.net » comme les demandes de sonde envoyées à partir de la passerelle d’Application contiendra dans l’en-tête d’hôte.
+    ![Liste de domaines personnalisés d’App Service](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
+
+- Votre App Service est prêt à accepter le nom d’hôte www.contoso.com. Modifiez votre entrée CNAMe en DNS pour qu’elle repointe vers le nom de domaine complet de la passerelle d’application, par exemple appgw.eastus.cloudapp.azure.com.
+
+- Assurez-vous que votre domaine www.contoso.com est résolu avec le nom de domaine complet de la passerelle d’application lorsque vous effectuez une requête DNS.
+
+- Configurez votre sonde personnalisée pour désactiver **Choisir le nom d’hôte à partir des paramètres HTTP du serveur principal**. Dans le portail Azure, désactivez la case à cocher dans les paramètres de sonde. Dans PowerShell, n’utilisez pas le commutateur **-PickHostNameFromBackendHttpSettings** dans la commande **Set-AzApplicationGatewayProbeConfig**. Dans le champ du nom d’hôte de la sonde, entrez le nom de domaine complet de App Service, example.azurewebsites.net. Les demandes de sondage envoyées par la passerelle d’application transportent ce nom de domaine complet dans l’en-tête de l’hôte.
 
   > [!NOTE]
-  > Lors de l’étape suivante, vérifiez que votre sonde personnalisée est associé aux paramètres de votre serveur principal HTTP, car vos encore de paramètres HTTP du commutateur « Choisir nom d’hôte de serveur principal Address » activé à ce stade.
+  > Pour l’étape suivante, assurez-vous que votre sonde personnalisée n’est pas associée aux paramètres HTTP du serveur principal. À ce stade, le commutateur **Choisir le nom d’hôte à partir de l’adresse du serveur principal** est toujours activé dans vos paramètres HTTP.
 
-- Définir des paramètres HTTP de votre passerelle d’Application pour désactiver « Choisir nom d’hôte à partir de back-end Address ». Cela est possible à partir du portail en décochant la case à cocher et dans PowerShell en n’utilisant ne pas les PickHostNameFromBackendAddress - basculer dans la commande Set-AzApplicationGatewayBackendHttpSettings.
+- Configurez les paramètres HTTP d’Application Gateway pour désactiver **Choisir le nom d’hôte à partir de l’adresse du serveur principal**. Dans le portail Azure, désactivez la case à cocher. Dans PowerShell, n’utilisez pas le commutateur **-PickHostNameFromBackendAddress** dans la commande **Set-AzApplicationGatewayBackendHttpSettings**.
 
-- Associer la sonde personnalisée vers les paramètres de serveur principal HTTP et vérifiez l’intégrité du serveur principal s’il est sain.
+- Associez à nouveau la sonde personnalisée aux paramètres HTTP du serveur principal, et vérifiez l’intégrité de celui-ci.
 
-- Une fois cette opération est effectuée, Application Gateway doit transférer maintenant le même nom d’hôte « www.contoso.com » pour le Service d’application et la redirection se produira sur le même nom d’hôte. Vous pouvez vérifier les en-têtes exemple demande et de réponse ci-dessous.
+- La passerelle d’application doit maintenant transférer le même nom d’hôte, www.contoso.com, vers l’App Service. La redirection a lieu sur le même nom d’hôte. Examinez les exemples suivants d’en-tête de requête et de réponse.
 
-Pour implémenter les étapes mentionnées ci-dessus à l’aide de PowerShell pour une installation existante, suivez l’exemple de script PowerShell ci-dessous. Notez comment nous avons utilisé les commutateurs - PickHostname pas dans la configuration de sonde et les paramètres HTTP.
+Pour implémenter les étapes précédentes à l’aide de PowerShell pour une configuration existante, suivez l’exemple de script PowerShell ci-dessous. Notez que nous n’avons pas utilisé les commutateurs **-PickHostname** dans la configuration de la sonde et des paramètres HTTP.
 
 ```azurepowershell-interactive
 $gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
@@ -135,4 +144,4 @@ Set-AzApplicationGateway -ApplicationGateway $gw
   ```
   ## <a name="next-steps"></a>Étapes suivantes
 
-Si les étapes précédentes ne vous permettent pas de résoudre le problème, ouvrez un [ticket d’incident](https://azure.microsoft.com/support/options/).
+Si les étapes précédentes ne vous permettent pas de résoudre le problème, ouvrez un [ticket de support](https://azure.microsoft.com/support/options/).

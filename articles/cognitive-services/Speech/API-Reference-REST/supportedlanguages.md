@@ -3,20 +3,20 @@ title: Langues prises en charge par le service Reconnaissance vocale Bing | Mic
 titlesuffix: Azure Cognitive Services
 description: Liste des langues parlées qui sont prises en charge par le service Reconnaissance vocale Bing.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 044c0355b6ec9f064cae74ffd5259d457cb49147
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: e53980482a2d355c0fb024658f8012d65354c7a5
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672387"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965948"
 ---
 # <a name="supported-languages"></a>Langues prises en charge
 
@@ -29,7 +29,7 @@ L’API de reconnaissance vocale de Microsoft prend en charge les langues suivan
 |Code | Langage | Code | Langage |
 |-----|-----|-----|-----|
 | ar-EG | Arabe (Égypte), standard moderne | hi-IN | Hindi (Inde) |
-| ca-ES | Catalan (Espagne) | it-IT | Italien (Italie)  |
+| ca-ES | Catalan | it-IT | Italien (Italie)  |
 | da-DK | Danois (Danemark) | ja-JP | Japonais (Japon) |
 | de-DE | Allemand (Allemagne) |ko-KR | Coréen (Corée) |
 | en-AU | Anglais (Australie) |nb-NO | Norvégien( Bokmål) (Norvège)  |

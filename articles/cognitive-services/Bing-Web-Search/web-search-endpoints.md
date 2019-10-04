@@ -3,19 +3,19 @@ title: Point de terminaison Recherche Web
 titleSuffix: Azure Cognitive Services
 description: Synthèse sur le point de terminaison de l’API Recherche Web.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2018
-ms.author: v-gedod
-ms.openlocfilehash: 8c3fd0fc091edbc4323315f636ed2f4fea7d822a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: aahi
+ms.openlocfilehash: be622c5636c253c48bec4d67fba58319262c2603
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880786"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883558"
 ---
 # <a name="web-search-endpoint"></a>Point de terminaison Recherche Web
 
@@ -31,7 +31,7 @@ Pour obtenir des résultats de recherche web à l’aide de l’API Bing, envoye
 GET https://api.cognitive.microsoft.com/bing/v7.0/search
 ```
 
-Point de terminaison : Pour plus d’informations sur les en-têtes, les paramètres, les codes de marché, les objets de réponse, les erreurs, etc., consultez les informations de référence sur l’[API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
+Point de terminaison : Pour plus d’informations sur les en-têtes, les paramètres, les codes de marché, les objets de réponse, les erreurs, etc., consultez les informations de référence sur l’[API Recherche Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
 
 ## <a name="response-json"></a>Réponse JSON
 

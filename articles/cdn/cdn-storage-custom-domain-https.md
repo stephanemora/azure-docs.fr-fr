@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,26 +15,26 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 7aaf4be23c806dda621430c4d1b0c142f41feb1f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: e3b10760b95662570c8a6e802a57e1073e2faa0a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090380"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593383"
 ---
-# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Didacticiel : Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS
+# <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Didacticiel : Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS
 
 Une fois que vous avez intégré votre compte de stockage Azure à Azure Content Delivery Network (CDN), vous pouvez ajouter un domaine personnalisé et activer le protocole HTTPS sur ce domaine pour le point de terminaison de votre stockage d’objets blob personnalisé. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de suivre la procédure indiquée dans ce didacticiel, vous devez intégrer votre compte de stockage Azure à Azure CDN. Pour plus d’informations, consultez le guide de démarrage rapide [Intégrer un compte de stockage Azure à Azure CDN](cdn-create-a-storage-account-with-cdn.md).
+Avant de suivre la procédure indiquée dans ce didacticiel, vous devez intégrer votre compte de stockage Azure à Azure CDN. Pour plus d’informations, consultez [Démarrage rapide : Intégrer un compte de stockage Azure à Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="add-a-custom-domain"></a>Ajouter un domaine personnalisé
-Lorsque vous créez un point de terminaison CDN dans votre profil, le nom du point de terminaison, qui est un sous-domaine de azureedge.net, est inclus dans l’URL de diffusion de contenu CDN par défaut. Vous avez également la possibilité d’associer un domaine personnalisé à un point de terminaison CDN. Grâce à cette option, vous distribuez votre contenu avec un domaine personnalisé dans votre URL au lieu d’un nom de point de terminaison. Pour ajouter un domaine personnalisé à votre point de terminaison, suivez les instructions du didacticiel : [Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md).
+Lorsque vous créez un point de terminaison CDN dans votre profil, le nom du point de terminaison, qui est un sous-domaine de azureedge.net, est inclus dans l’URL de diffusion de contenu CDN par défaut. Vous avez également la possibilité d’associer un domaine personnalisé à un point de terminaison CDN. Grâce à cette option, vous distribuez votre contenu avec un domaine personnalisé dans votre URL au lieu d’un nom de point de terminaison. Pour ajouter un domaine personnalisé à votre point de terminaison, suivez les instructions de ce tutoriel : [Ajouter un domaine personnalisé à votre point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md).
 
 ## <a name="configure-https"></a>Configurer le protocole HTTPS
-En utilisant le protocole HTTPS sur votre domaine personnalisé, vous vous assurez que vos données sont distribuées sur internet en toute sécurité via le chiffrement TLS/SSL. Lorsque votre navigateur web est connecté à un site web via HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Pour configurer le protocole HTTPS sur votre domaine personnalisé, suivez les instructions du didacticiel : [Configurer le protocole HTTPS sur un domaine personnalisé Azure CDN](cdn-custom-ssl.md).
+En utilisant le protocole HTTPS sur votre domaine personnalisé, vous vous assurez que vos données sont distribuées sur internet en toute sécurité via le chiffrement TLS/SSL. Lorsque votre navigateur web est connecté à un site web via HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Pour configurer le protocole HTTPS sur votre domaine personnalisé, suivez les instructions de ce tutoriel : [Configurer HTTPS sur un domaine personnalisé Azure CDN](cdn-custom-ssl.md).
 
 ## <a name="shared-access-signatures"></a>Les signatures d’accès partagé
 Si le point de terminaison de votre stockage d’objets blob est configuré de sorte que l’accès en lecture anonyme est interdit, vous devez fournir un jeton [Signature d’accès partagé (SAP)](cdn-sas-storage-support.md) pour chaque requête effectuée auprès de votre domaine personnalisé. Par défaut, les points de terminaison de stockage d’objets blob interdisent l’accès en lecture anonyme. Pour en savoir plus sur SAP, consultez la section [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../storage/blobs/storage-manage-access-to-resources.md).
@@ -44,7 +44,7 @@ Azure CDN ignore les restrictions ajoutées au jeton SAP. Par exemple, tous les 
 Si vous créez plusieurs URL de SAP pour le même point de terminaison d’objets blob, il convient d’activer la mise en cache de la chaîne de requête. Ce paramètre vous permet de garantir que chaque URL est traitée en tant qu’entité unique. Pour plus d’informations, consultez l’article [Contrôler le comportement de mise en cache d’Azure CDN avec des chaînes de requête](cdn-query-string.md).
 
 ## <a name="http-to-https-redirection"></a>Redirection HTTP vers HTTPS
-Vous avez la possibilité de rediriger le trafic HTTP vers HTTPS en créant une [règle de redirection d’URL](cdn-rules-engine-reference-features.md#url-redirect) à l’aide du [moteur de règles Azure CDN](cdn-rules-engine.md). Pour bénéficier de cette option, vous devez disposer d’un profil **Azure CDN Premium de Verizon**. 
+Vous avez la possibilité de rediriger le trafic HTTP vers HTTPS en créant une [règle de redirection d’URL](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect) à l’aide du [moteur de règles Azure CDN](cdn-verizon-premium-rules-engine.md). Pour bénéficier de cette option, vous devez disposer d’un profil **Azure CDN Premium de Verizon**.
 
 ![Règle de redirection d’URL](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
 

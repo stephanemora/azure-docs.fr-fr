@@ -1,5 +1,5 @@
 - name: Documentation Liaison d’entités
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   href: Home.md
 - name: Prise en main
   href: GettingStarted.md

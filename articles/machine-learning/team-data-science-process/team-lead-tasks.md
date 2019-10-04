@@ -11,11 +11,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465263"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60812069"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Tâches pour responsable d’équipe dans Team Data Science Process
 
@@ -100,13 +100,13 @@ Effectuez cette étape si vous utilisez Azure DevOps Services comme plateforme d
 
 - Si vous voyez une fenêtre contextuelle intitulée **Félicitations**, cliquez sur **Ajouter du code** (le bouton rouge). Sinon, cliquez sur **Code** (le bouton jaune). Vous êtes alors dirigé vers la page du dépôt Git de votre projet. 
 
-    ![5.](./media/team-lead-tasks/team-leads-5-team-project-home.png)
+    ![5\.](./media/team-lead-tasks/team-leads-5-team-project-home.png)
 
 ### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>Créer le dépôt MyProjectTemplate (R3) sur Git
 
 - Dans la page du dépôt Git de votre projet, cliquez sur la flèche vers le bas en regard du dépôt **MyTeam**, puis sélectionnez **Gérer les dépôts**.
 
-    ![6.](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
+    ![6\.](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 
 - Sous l’onglet **Gestion de version** du panneau de configuration de votre projet, cliquez sur **MyTeam**, puis sélectionnez **Renommer le dépôt**. 
 

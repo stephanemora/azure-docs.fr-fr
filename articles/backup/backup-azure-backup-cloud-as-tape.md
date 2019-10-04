@@ -1,20 +1,18 @@
 ---
 title: Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande
-description: Découvrez comment Azure Backup fournit une sémantique de type bande qui permet de sauvegarder et de restaurer des données dans Azure.
-services: backup
-author: trinadhk
-manager: vijayts
+description: Découvrir comment la Sauvegarde Azure fournit une sémantique de type bande qui vous permet de sauvegarder et de restaurer des données dans Azure
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/10/2017
-ms.author: saurse
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 04/30/2017
+ms.author: dacurwin
+ms.openlocfilehash: 3be3a2e3355793a8d0b4fcaf0e7f62668f78f0c8
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259597"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954878"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Déplacement de votre stockage à long terme de la bande vers le cloud Azure
 Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes :
@@ -44,10 +42,10 @@ Le nombre total de « points de rétention » spécifié dans cette stratégie
 ## <a name="example--putting-both-together"></a>Exemple – Combinaison des deux
 ![Exemple d’écran](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Stratégie de rétention quotidienne**: les sauvegardes effectuées quotidiennement sont stockées pendant sept jours.
-2. **Stratégie de rétention hebdomadaire**: les sauvegardes effectuées tous les jours à minuit et à 18 h 00 le samedi sont conservées pendant quatre semaines.
-3. **Stratégie de rétention mensuelle**: les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18 h 00 sont conservées pendant 12 mois.
-4. **Stratégie de rétention annuelle**: les sauvegardes effectuées le dernier samedi de chaque mois de mars à minuit sont conservées pendant 10 ans.
+1. **Stratégie de rétention quotidienne** : Les sauvegardes effectuées quotidiennement sont stockées pendant sept jours.
+2. **Stratégie de rétention hebdomadaire** : Les sauvegardes effectuées tous les jours à minuit et à 18 h 00 le samedi sont conservées pendant quatre semaines
+3. **Stratégie de rétention mensuelle** : Les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18 h 00 sont conservées pendant 12 mois
+4. **Stratégie de rétention annuelle** : Les sauvegardes effectuées le dernier samedi de chaque mois de mars à minuit sont conservées pendant 10 ans
 
 Le nombre total de « points de rétention » (points à partir duquel un client peut restaurer des données) dans le schéma précédent est calculé comme suit :
 
@@ -59,8 +57,7 @@ Le nombre total de « points de rétention » (points à partir duquel un clie
 Le nombre total de points de récupération est 56.
 
 > [!NOTE]
-> La sauvegarde Azure n'impose aucune restriction sur le nombre de points de récupération.
->
+> Grâce à Sauvegarde Azure, vous pouvez créer jusqu’à 9 999 points de récupération par instance protégée. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail sauvegardé dans Azure.
 >
 
 ## <a name="advanced-configuration"></a>Configuration avancée

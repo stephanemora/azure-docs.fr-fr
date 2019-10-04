@@ -1,35 +1,80 @@
 - name: Documentation Gestion des applications
   href: index.yml
-- name: Vue d’ensemble
-  items:
-    - name: À propos de la gestion des applications
-      href: what-is-application-management.md
-- name: Démarrages rapides
+- name: Vue d'ensemble
   expanded: true
   items:
-    - name: "Ajouter une application de la galerie\_- portail"
+    - name: "Qu’est-ce que la gestion d’applications cloud et l’authentification unique\_?"
+      href: what-is-application-management.md
+    - name: "Qu’est-ce que le provisionnement utilisateur automatique\_?"
+      href: user-provisioning.md
+    - name: "Qu’est-ce que le Proxy d’application pour les applications locales\_?"
+      href: what-is-application-proxy.md
+- name: Démarrages rapides
+  items:
+    - name: Ajouter une application cloud à partir de la galerie
       href: add-application-portal.md
-    - name: Afficher les applications du client - portail
+    - name: Voir vos applications d’entreprise
       href: view-applications-portal.md
 - name: Tutoriels
   items:
-    - name: Configurer l'authentification unique - portail
-      href: configure-single-sign-on-portal.md
-    - name: "Ajouter une application locale\_- portail"
+    - name: Tutoriels sur les applications SaaS
+      href: /azure/active-directory/saas-apps/
+    - name: Ajouter une application locale via le proxy d’application
       href: application-proxy-add-on-premises-application.md
 - name: Concepts
+  expanded: true
   items:
-    - name: Planifier une intégration d’applications dans le cloud
+    - name: Applications cloud et authentification unique
       items:
-        - name: "Que se passe-t-il lorsque vous ajoutez une application\_?"
-          href: plan-an-application-integration.md
-        - name: Aide pour les développeurs
-          href: developer-guidance-for-integrating-applications.md
-    - name: Planifier une intégration d’application sur site
+        - name: Planification d’une intégration d’applications cloud
+          items:
+            - name: Bien démarrer avec l’intégration d’applications
+              href: plan-an-application-integration.md
+            - name: Planifier le déploiement d’un volet d’accès
+              href: access-panel-deployment-plan.md
+            - name: Aide pour les développeurs
+              href: developer-guidance-for-integrating-applications.md
+        - name: Authentification unique
+          items:
+            - name: Qu’est-ce que l’authentification unique
+              href: what-is-single-sign-on.md
+            - name: Activer SSO pour votre application multilocataire
+              href: isv-sso-content.md
+            - name: Créer un locataire Azure pour une application multilocataire
+              href: isv-tenant-multi-tenant-app.md
+            - name: Choisir une fédération multilocataire
+              href: isv-choose-multi-tenant-federation.md
+            - name: Créer une documentation pour une application multilocataire
+              href: isv-create-sso-documentation.md
+            - name: Planifier un déploiement de l’authentification unique
+              href: plan-sso-deployment.md
+        - name: Authentification SSO en un clic
+          items:
+            - name: Qu’est-ce que l’authentification SSO en un clic
+              href: one-click-sso-tutorial.md
+        - name: Sécurité des applications
+          items:
+            - name: Options d’accès aux applications
+              href: what-is-access-management.md
+            - name: Options de signature de certificat
+              href: certificate-signing-options.md
+            - name: Gérer des certificats
+              href: manage-certificates-for-federated-single-sign-on.md
+            - name: Restrictions de locataire
+              href: tenant-restrictions.md
+            - name: Configurer le chiffrement de jetons SAML (préversion)
+              href: howto-saml-token-encryption.md
+            - name: Portails d’utilisateurs finaux
+              href: end-user-experiences.md
+    - name: Provisionnement automatique d'utilisateurs
+      items:
+        - name: Provisionnement automatique pour les applications prenant en charge SCIM
+          href: use-scim-to-provision-users-and-groups.md
+    - name: Proxy d’application pour applications locales
       items:
         - name: Proxy d’application
           href: application-proxy.md
-        - name: Planifier un déploiement de proxy d’application
+        - name: Planification d’un déploiement de proxy d’application
           href: application-proxy-deployment-plan.md
         - name: Connecteurs
           href: application-proxy-connectors.md
@@ -39,96 +84,239 @@
           href: application-proxy-security.md
         - name: Topologie du réseau
           href: application-proxy-network-topology.md
+        - name: Haute disponibilité et équilibrage de charge
+          href: application-proxy-high-availability-load-balancing.md
         - name: Comparaison des solutions d’accès à distance
           href: application-proxy-migration.md
-    - name: Provisionnement d'utilisateurs et de groupes
-      items:
-        - name: Provisionnement automatique d'utilisateurs
-          href: configure-automatic-user-provisioning-portal.md
-        - name: Applications SaaS
-          href: user-provisioning.md
-        - name: Applications prenant en charge SCIM
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Personnaliser les attributs de l’application
-          href: Customize-application-attributes.md
-        - name: Écrire des expressions pour les mappages d’attributs
-          href: functions-for-customizing-application-data.md
-        - name: Filtres d’étendue
-          href: define-conditional-rules-for-provisioning-user-accounts.md
-        - name: Créer des rapports sur le provisionnement automatique d’utilisateurs
-          href: check-status-user-account-provisioning.md
-        - name: Résoudre les problèmes de provisionnement d’utilisateurs
-          href: application-provisioning-config-problem.md
-    - name: Sécurité des applications
-      items:
-        - name: Options d’accès aux applications
-          href: what-is-access-management.md
-        - name: Options de signature de certificat
-          href: certificate-signing-options.md
-        - name: Gérer des certificats
-          href: manage-certificates-for-federated-single-sign-on.md
-        - name: Restrictions de locataire
-          href: tenant-restrictions.md
-        - name: Configurer le chiffrement de jetons SAML (préversion)
-          href: howto-saml-token-encryption.md
-    - name: Authentification unique
-      href: what-is-single-sign-on.md
-    - name: Portails d’utilisateurs finaux
-      href: end-user-experiences.md
 - name: Guides pratiques
+  expanded: true
   items:
-    - name: Intégration d’applications dans le cloud
+    - name: Applications cloud et authentification unique
       items:
-        - name: Ajout d’une application
+        - name: Ajouter une application cloud
           items:
-            - name: Choisir un type d’application
-              href: choose-application-type.md
-            - name: Problèmes courants - applications de la galerie
-              href: adding-gallery-app-common-problems.md
-            - name: Problèmes courants - applications hors galerie
-              href: adding-non-gallery-app-common-problems.md
-        - name: Modifier le nom ou le logo
-          href: change-name-or-logo-portal.md
-    - name: Intégration d’applications sur site
+            - name: Ajouter une application galerie
+              href: add-gallery-app.md
+            - name: Ajouter une application non-galerie
+              href: add-non-gallery-app.md
+            - name: Changer le nom ou le logo d’une application
+              href: change-name-or-logo-portal.md
+        - name: Configurer l’authentification unique
+          items:
+            - name: Configurer l’authentification unique SAML
+              items:
+                - name: Configurer l’authentification unique SAML
+                  href: configure-single-sign-on-non-gallery-applications.md
+                - name: Personnaliser les attributs et revendications d’un utilisateur
+                  items:
+                    - name: Configurer des revendications de groupe
+                      href: /azure/active-directory/hybrid/how-to-connect-fed-group-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
+                    - name: Configurer des revendications de rôle
+                      href: /azure/active-directory/develop/active-directory-enterprise-app-role-management?context=azure/active-directory/manage-apps/context/manage-apps-context
+                    - name: Personnaliser des revendications dans le portail
+                      href: /azure/active-directory/develop/active-directory-saml-claims-customization?context=azure/active-directory/manage-apps/context/manage-apps-context
+                    - name: Personnaliser des revendications avec PowerShell
+                      href: /azure/active-directory/develop/active-directory-claims-mapping?context=azure/active-directory/manage-apps/context/manage-apps-context
+                    - name: Configurer des revendications facultatives
+                      href: /azure/active-directory/develop/active-directory-optional-claims?context=azure/active-directory/manage-apps/context/manage-apps-context
+                    - name: Configurer les durées de vie des jetons
+                      href: /azure/active-directory/develop/active-directory-configurable-token-lifetimes?context=azure/active-directory/manage-apps/context/manage-apps-context
+            - name: Configurer l’authentification par mot de passe
+              href: configure-password-single-sign-on-non-gallery-applications.md
+            - name: Configurer l’authentification liée
+              href: configure-linked-sign-on.md
+        - name: Affecter des utilisateurs et gérer l’accès aux applications
+          items:
+            - name: Configurer le consentement de l’utilisateur
+              href: configure-user-consent.md
+            - name: Méthodes d’attribution d’utilisateurs et de groupes à une application
+              href: methods-for-assigning-users-and-groups.md
+            - name: Affecter un utilisateur à une application
+              href: assign-user-or-group-access-portal.md
+            - name: Utiliser l’accès aux applications en libre-service
+              href: access-panel-manage-self-service-access.md
+            - name: Méthodes de suppression d’un accès utilisateur à une application
+              href: methods-for-removing-user-access.md
+            - name: Supprimer l’accès à l’utilisateur ou au groupe
+              href: remove-user-or-group-access-portal.md
+            - name: Masquer l’application pour un utilisateur
+              href: hide-application-from-user-portal.md
+            - name: "Comment désactiver les inscriptions des utilisateurs\_?"
+              href: disable-user-sign-in-portal.md
+            - name: Configurer le provisionnement d’applications en libre-service
+              href: manage-self-service-access.md
+            - name: Découverte du domaine d’accueil
+              href: configure-authentication-for-federated-users-portal.md
+        - name: Migrer des applications vers Azure AD
+          items:
+            - name: Ressources de migration
+              href: migration-resources.md
+            - name: Migrer une application ADFS vers Azure
+              href: migrate-adfs-apps-to-azure.md
+        - name: Résolution des problèmes
+          items:
+            - name: Résoudre les problèmes d’ajout d’applications
+              items:
+                - name: Problèmes courants - applications de la galerie
+                  href: adding-gallery-app-common-problems.md
+                - name: Problèmes courants - applications hors galerie
+                  href: adding-non-gallery-app-common-problems.md
+            - name: Résoudre les problèmes de connexion utilisateur
+              items:
+                - name: Invite de consentement inattendue
+                  href: application-sign-in-unexpected-user-consent-prompt.md
+                - name: Erreur de consentement de l’utilisateur
+                  href: application-sign-in-unexpected-user-consent-error.md
+                - name: Problèmes de connexion à partir du portail personnalisé
+                  href: application-sign-in-other-problem-deeplink.md
+                - name: Problèmes de connexion à partir du panneau d’accès
+                  href: application-sign-in-other-problem-access-panel.md
+                - name: Erreur sur la page de connexion de l’application
+                  href: application-sign-in-problem-application-error.md
+                - name: Problème avec le mot de passe de l’authentification unique - applications hors galerie
+                  href: application-sign-in-problem-password-sso-non-gallery.md
+                - name: Problème avec le mot de passe de l’authentification unique - applications de galerie
+                  href: application-sign-in-problem-password-sso-gallery.md
+                - name: Problème de connexion à une application Microsoft
+                  href: application-sign-in-problem-first-party-microsoft.md
+                - name: Problème avec le mot de passe de l’authentification unique - application hors galerie
+                  href: application-sign-in-problem-federated-sso-non-gallery.md
+                - name: Problème avec le mot de passe de l’authentification unique - application de galerie
+                  href: application-sign-in-problem-federated-sso-gallery.md
+                - name: Problème avec l’application personnalisée
+                  href: application-sign-in-problem-custom-dev.md
+            - name: Résoudre les problèmes d’authentification unique
+              items:
+                - name: Problèmes courants de configuration d’authentification fédérée - applications de galerie
+                  href: configure-federated-single-sign-on-gallery-applications-problems.md
+                - name: Problèmes courants de configuration de l’authentification fédérée - applications hors galerie
+                  href: configure-federated-single-sign-on-non-gallery-applications-problems.md
+                - name: Problèmes courants de configuration du mot de passe - applications de galerie
+                  href: configure-password-single-sign-on-gallery-applications-problems.md
+                - name: Problèmes courants de configuration du mot de passe - applications hors galerie
+                  href: configure-password-single-sign-on-non-gallery-applications-problems.md
+            - name: Résoudre les problèmes d’affectation et de liste d’applications
+              items:
+                - name: Gérer la liste des applications pour votre locataire
+                  href: application-types.md
+                - name: Utilisateur attribué inattendu
+                  href: ways-users-get-assigned-to-applications.md
+            - name: Résoudre les problèmes du panneau d’accès
+              items:
+                - name: Gérer l’extension de navigateur
+                  href: manage-access-panel-browser-extension.md
+                - name: L’application n’apparaît pas
+                  href: access-panel-troubleshoot-application-not-appearing.md
+                - name: Une application inattendue apparaît
+                  href: access-panel-troubleshoot-unexpected-application.md
+                - name: Connexion impossible
+                  href: access-panel-troubleshoot-web-sign-in-problem.md
+                - name: Erreur lors de l’installation de l’extension du navigateur
+                  href: access-panel-extension-problem-installing.md
+                - name: Erreur lors de l’utilisation de l’accès aux applications en libre-service
+                  href: access-panel-troubleshoot-self-service-access.md
+    - name: Provisionnement automatique d'utilisateurs
+      items:
+        - name: Configurer l'approvisionnement de l'utilisateur
+          items:
+            - name: Provisionnement d’utilisateurs pour les applications de galerie
+              href: application-provisioning-config-how-to.md
+            - name: Activer le provisionnement utilisateur automatique pour les applications multilocataires
+              href: isv-automatic-provisioning-multi-tenant-apps.md
+            - name: Configurer le provisionnement d’utilisateurs automatique
+              href: configure-automatic-user-provisioning-portal.md
+            - name: Personnaliser les attributs de l’application
+              href: Customize-application-attributes.md
+            - name: Filtres d’étendue
+              href: define-conditional-rules-for-provisioning-user-accounts.md
+            - name: Ignorer la suppression pour les utilisateurs hors limites
+              href: skip-out-of-scope-deletions.md
+            - name: Vérifier l’état du provisionnement
+              href: application-provisioning-when-will-provisioning-finish-specific-user.md
+            - name: Créer des rapports sur le provisionnement automatique d’utilisateurs
+              href: check-status-user-account-provisioning.md
+            - name: Exporter et importer votre configuration
+              href: export-import-provisioning-configuration.md
+        - name: Résoudre les problèmes de provisionnement d’utilisateurs
+          items:
+            - name: Résoudre les problèmes de provisionnement d’utilisateurs
+              href: application-provisioning-config-problem.md
+            - name: Journaux d’approvisionnement
+              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
+            - name: Synchroniser un attribut pour le mappage - application de galerie
+              href: user-provisioning-sync-attributes-for-mapping.md
+            - name: Provisionnement très lent - application de galerie
+              href: application-provisioning-when-will-provisioning-finish.md
+            - name: Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration du provisionnement d’utilisateurs pour une application de galerie
+              href: application-provisioning-config-problem-storage-limit.md
+            - name: Aucun utilisateur provisionné - application de galerie
+              href: application-provisioning-config-problem-no-users-provisioned.md
+            - name: Utilisateurs incorrects provisionnés - application de galerie
+              href: application-provisioning-config-problem-wrong-users-provisioned.md
+    - name: Proxy d’application pour applications locales
       items:
         - name: Configurer des connecteurs
-          href: application-proxy-configure-connectors-with-proxy-servers.md
-        - name: Configurer des applications prenant en charge les revendications
-          href: application-proxy-configure-for-claims-aware-applications.md
-        - name: Inscrire le connecteur - installation silencieuse
-          href: application-proxy-register-connector-powershell.md
-        - name: Configurer des applications de client natif
-          href: application-proxy-configure-native-client-application.md
-        - name: Configurer une page d’accueil personnalisée
-          href: application-proxy-configure-custom-home-page.md
-        - name: Traduire les liens inclus
-          href: application-proxy-configure-hard-coded-link-translation.md
-        - name: Configurer les paramètres de cookies
-          href: application-proxy-configure-cookie-settings.md
-        - name: Publier en utilisant des caractères génériques
-          href: application-proxy-wildcard.md
-        - name: Supprimer des données personnelles
-          href: application-proxy-remove-personal-data.md
-        - name: Configurer un domaine personnalisé
-          href: application-proxy-configure-custom-domain.md
-        - name: Erreurs de configuration
-          href: application-proxy-troubleshoot.md
-        - name: Publication de procédures pas à pas
           items:
-            - name: Intégrer avec Cloud App Security
-              href: application-proxy-integrate-with-microsoft-cloud-application-security.md
-            - name: Intégrer au Bureau à distance
-              href: application-proxy-integrate-with-remote-desktop-services.md
-            - name: Intégrer à SharePoint
-              href: application-proxy-integrate-with-sharepoint-server.md
-            - name: Intégrer à Teams
-              href: application-proxy-integrate-with-teams.md
-            - name: Intégrer à Tableau
-              href: application-proxy-integrate-with-tableau.md
-            - name: Intégrer à Qlik
-              href: application-proxy-qlik.md
-        - name: Résolution des problèmes de proxy d’application
+            - name: Configurer avec des serveurs proxy
+              href: application-proxy-configure-connectors-with-proxy-servers.md
+            - name: Inscrire le connecteur - installation silencieuse
+              href: application-proxy-register-connector-powershell.md
+        - name: Configurer l’accès aux applications
           items:
+            - name: Configurer des applications prenant en charge les revendications
+              href: application-proxy-configure-for-claims-aware-applications.md
+            - name: Donner accès aux applications mobiles et de bureau aux API locales
+              href: application-proxy-secure-api-access.md
+            - name: Configurer des applications de clients mobile et de bureau
+              href: application-proxy-configure-native-client-application.md
+            - name: Configurer une page d’accueil personnalisée
+              href: application-proxy-configure-custom-home-page.md
+            - name: Traduire les liens inclus
+              href: application-proxy-configure-hard-coded-link-translation.md
+            - name: Configurer les paramètres de cookies
+              href: application-proxy-configure-cookie-settings.md
+            - name: Publier en utilisant des caractères génériques
+              href: application-proxy-wildcard.md
+            - name: Supprimer des données personnelles
+              href: application-proxy-remove-personal-data.md
+            - name: Configurer un domaine personnalisé
+              href: application-proxy-configure-custom-domain.md
+            - name: Authentification unique avec le proxy d’application
+              items:
+                - name: Délégation Kerberos contrainte (KCD)
+                  href: application-proxy-configure-single-sign-on-with-kcd.md
+                - name: Mise au coffre des mots de passe
+                  href: application-proxy-configure-single-sign-on-password-vaulting.md
+                - name: headers
+                  href: application-proxy-configure-single-sign-on-with-ping-access.md
+                - name: SAML SSO
+                  href: application-proxy-configure-single-sign-on-on-premises-apps.md
+            - name: Publication de procédures pas à pas
+              items:
+                - name: Intégrer à Azure AD Domain Services
+                  href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
+                - name: Intégrer à Power BI
+                  href: application-proxy-integrate-with-power-bi.md
+                - name: Intégrer avec Cloud App Security
+                  href: application-proxy-integrate-with-microsoft-cloud-application-security.md
+                - name: Intégrer au Bureau à distance
+                  href: application-proxy-integrate-with-remote-desktop-services.md
+                - name: Intégrer à SharePoint
+                  href: application-proxy-integrate-with-sharepoint-server.md
+                - name: Intégrer à Teams
+                  href: application-proxy-integrate-with-teams.md
+                - name: Intégrer à Tableau
+                  href: application-proxy-integrate-with-tableau.md
+                - name: Intégrer à Qlik
+                  href: application-proxy-qlik.md
+        - name: Résoudre les problèmes du proxy d’application
+          items:
+            - name: Résolution des problèmes de proxy d’application
+              href: application-proxy-troubleshoot.md
+            - name: Organigramme de résolution des problèmes de connecteur
+              href: application-proxy-debug-connectors.md
+            - name: Organigramme de résolution des problèmes d’application
+              href: application-proxy-debug-apps.md
             - name: Problème lors de l’affichage de la page de l’application
               href: application-proxy-page-appearance-broken-problem.md
             - name: Le chargement de l’application est trop long
@@ -155,140 +343,32 @@
               href: application-proxy-connector-installation-problem.md
             - name: Problème de connexion
               href: application-sign-in-problem-on-premises-application-proxy.md
-    - name: Approvisionnement d'utilisateurs
-      items:
-        - name: Temps nécessaire
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: Provisionnement très lent - application de galerie
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: Configurer le provisionnement d’utilisateurs - application de galerie
-          href: application-provisioning-config-how-to.md
-        - name: Problème de configuration du provisionnement d’utilisateurs - application de galerie
-          href: application-provisioning-config-problem.md
-        - name: Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration du provisionnement d’utilisateurs pour une application de galerie
-          href: application-provisioning-config-problem-storage-limit.md
-        - name: Aucun utilisateur provisionné - application de galerie
-          href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: Utilisateurs incorrects provisionnés - application de galerie
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
-    - name: Accès aux applications
-      items:
-        - name: Types d’applications
-          href: application-types.md
-        - name: Configurer le consentement de l’utilisateur
-          href: configure-user-consent.md
-        - name: Méthodes d’attribution d’utilisateurs et de groupes à une application
-          href: methods-for-assigning-users-and-groups.md
-        - name: Affecter un utilisateur à une application
-          href: assign-user-or-group-access-portal.md
-        - name: Méthodes de suppression d’un accès utilisateur à une application
-          href: methods-for-removing-user-access.md
-        - name: Utilisateur attribué inattendu
-          href: ways-users-get-assigned-to-applications.md
-        - name: Supprimer l’accès à l’utilisateur ou au groupe
-          href: remove-user-or-group-access-portal.md
-        - name: Masquer l’application pour un utilisateur
-          href: hide-application-from-user-portal.md
-        - name: "Comment désactiver les inscriptions des utilisateurs\_?"
-          href: disable-user-sign-in-portal.md
-        - name: Configurer le provisionnement d’applications en libre-service
-          href: manage-self-service-access.md
-        - name: Découverte du domaine d’accueil
-          href: configure-authentication-for-federated-users-portal.md
-    - name: Authentification unique
-      items:
-        - name: Configurer les applications hors galerie
-          href: configure-single-sign-on-non-gallery-applications.md
-        - name: Configurer l’authentification fédérée - applications de galerie
-          href: configure-federated-single-sign-on-gallery-applications.md
-        - name: Problèmes courants de configuration d’authentification fédérée - applications de galerie
-          href: configure-federated-single-sign-on-gallery-applications-problems.md
-        - name: Configurer l’authentification fédérée - applications hors galerie
-          href: configure-federated-single-sign-on-non-gallery-applications.md
-        - name: Problèmes courants de configuration de l’authentification fédérée - applications hors galerie
-          href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: Configurer le mot de passe - applications de galerie
-          href: configure-password-single-sign-on-gallery-applications.md
-        - name: Problèmes courants de configuration du mot de passe - applications de galerie
-          href: configure-password-single-sign-on-gallery-applications-problems.md
-        - name: Configurer le mot de passe - applications hors galerie
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Problèmes courants de configuration du mot de passe - applications hors galerie
-          href: configure-password-single-sign-on-non-gallery-applications-problems.md
-        - name: Proxy d’application
-          items:
-            - name: Délégation Kerberos contrainte (KCD)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: Mise au coffre des mots de passe
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: headers
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-            - name: SAML SSO
-              href: application-proxy-configure-single-sign-on-on-premises-apps.md
-    - name: Panneau d’accès
-      items:
-        - name: Gérer l’extension de navigateur
-          href: manage-access-panel-browser-extension.md
-        - name: L’application n’apparaît pas
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: Une application inattendue apparaît
-          href: access-panel-troubleshoot-unexpected-application.md
-        - name: Connexion impossible
-          href: access-panel-troubleshoot-web-sign-in-problem.md
-        - name: Erreur lors de l’installation de l’extension du navigateur
-          href: access-panel-extension-problem-installing.md
-        - name: Guide pratique pour utiliser l’accès aux applications en libre-service
-          href: access-panel-manage-self-service-access.md
-        - name: Erreur lors de l’utilisation de l’accès aux applications en libre-service
-          href: access-panel-troubleshoot-self-service-access.md
-    - name: Migration
-      items:
-        - name: Ressources de migration
-          href: migration-resources.md
-        - name: Migrer une application ADFS vers Azure
-          href: migrate-adfs-apps-to-azure.md
-    - name: Résoudre les problèmes de connexion utilisateur
-      items:
-        - name: Invite de consentement inattendue
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: Erreur de consentement de l’utilisateur
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: Problèmes de connexion à partir du portail personnalisé
-          href: application-sign-in-other-problem-deeplink.md
-        - name: Problèmes de connexion à partir du panneau d’accès
-          href: application-sign-in-other-problem-access-panel.md
-        - name: Erreur sur la page de connexion de l’application
-          href: application-sign-in-problem-application-error.md
-        - name: Problème avec le mot de passe de l’authentification unique - applications hors galerie
-          href: application-sign-in-problem-password-sso-non-gallery.md
-        - name: Problème avec le mot de passe de l’authentification unique - applications de galerie
-          href: application-sign-in-problem-password-sso-gallery.md
-        - name: Problème de connexion à une application Microsoft
-          href: application-sign-in-problem-first-party-microsoft.md
-        - name: Problème avec le mot de passe de l’authentification unique - application hors galerie
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: Problème avec le mot de passe de l’authentification unique - application de galerie
-          href: application-sign-in-problem-federated-sso-gallery.md
-        - name: Problème avec l’application personnalisée
-          href: application-sign-in-problem-custom-dev.md
+            - name: Problèmes CORS dans le proxy d’application
+              href: application-proxy-understand-cors-issues.md
 - name: Informations de référence
   items:
-    - name: Historique des versions du proxy d’application
-      href: application-proxy-release-version-history.md
+    - name: Provisionnement automatique d'utilisateurs
+      items:
+        - name: Écrire des expressions pour les mappages d’attributs
+          href: functions-for-customizing-application-data.md
+    - name: Agent de provisionnement Azure AD Connect
+      items:
+        - name: Historique des versions de l’agent de provisionnement
+          href: provisioning-agent-release-version-history.md
+    - name: Proxy d’application pour applications locales
+      items:
+        - name: Historique des versions du proxy d’application
+          href: application-proxy-release-version-history.md
 - name: Ressources
   items:
-    - name: Plans de déploiement Azure AD
-      href: /azure/active-directory/fundamentals/active-directory-deployment-plans?context=azure/active-directory/manage-apps/context/manage-apps-context
+    - name: Options d’aide et de support pour les développeurs
+      href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Forum de commentaires Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/active-directory'
-    - name: Calculatrice de prix
-      href: 'https://azure.microsoft.com/pricing/calculator'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=active-directory'
     - name: Stack Overflow

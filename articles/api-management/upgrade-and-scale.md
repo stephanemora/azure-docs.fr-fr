@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 64649c86dbd3c3469247308bfc4dd0ed12e06949
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319857"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018236"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Mettre à niveau une instance du service Gestion des API Azure et la mettre à l’échelle  
 
@@ -53,8 +53,11 @@ Le niveau **Premium** vous permet de distribuer une seule instance du service Ge
 
 Vous pouvez effectuer la mise à niveau et la rétrogradation vers n’importe quel niveau. Notez que la mise à niveau et le passage à une version antérieure sont susceptibles de supprimer certaines fonctionnalités, par exemple, les réseaux virtuels ou les déploiements sur plusieurs régions lors du passage du niveau Premium au niveau Standard ou au niveau De base.
 
->[!NOTE]
->Le processus de mise à niveau ou de mise à l’échelle peut durer entre 15 et 45 minutes. Vous recevez une notification lorsqu’il est terminé.
+> [!NOTE]
+> Le processus de mise à niveau ou de mise à l’échelle peut durer entre 15 et 45 minutes. Vous recevez une notification lorsque le processus est terminé.
+
+> [!NOTE]
+> Le service Gestion des API dans le niveau **Consommation** est automatiquement mis à l’échelle en fonction du trafic.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Utiliser le portail Azure pour effectuer la mise à niveau et la mise à l’échelle
 
@@ -66,6 +69,10 @@ Vous pouvez effectuer la mise à niveau et la rétrogradation vers n’importe q
 4. Spécifiez le nombre d’**unités** à ajouter. Vous pouvez utiliser le curseur ou saisir le nombre d’unités.  
     Si vous choisissez le niveau **Premium**, vous devez d’abord sélectionner une région.
 5. Appuyez sur **Enregistrer**.
+
+## <a name="downtime-during-scaling-up-and-down"></a>Temps d’arrêt pendant la montée et la descente en puissance
+Si vous effectuez une mise à l’échelle à partir de ou vers le niveau développeur, il y aura des temps d’arrêt. Dans le cas contraire, il n’y a aucun temps d’arrêt. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

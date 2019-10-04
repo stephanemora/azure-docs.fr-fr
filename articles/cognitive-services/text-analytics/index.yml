@@ -1,97 +1,149 @@
-### YamlMime:YamlDocument
-ms.openlocfilehash: 77c69ea24adeef7960b1f16670a2e34ffaf5aca7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728255"
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation sur les API Analyse de texte
+summary: 'L’API Analyse de texte est un service cloud qui fournit un traitement en langage naturel avancé de texte brut. Elle inclut quatre fonctions principales : analyse des sentiments, extraction de phrases clés, reconnaissance des entités nommées et détection de la langue.'
 metadata:
   title: Documentation sur les API Analyse de texte - Tutoriels, Informations de référence de l’API | Microsoft Docs
-  description: Découvrez comment utiliser les API Analyse de texte pour effectuer un traitement en langage naturel avancé sur un texte. Les tutoriels montrent comment écrire du code utilisant le service Analyse de texte.
+  titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: nitinme
-  manager: cgronlun
+  description: 'L’API Analyse de texte est un service cloud qui fournit un traitement en langage naturel avancé de texte brut. Elle inclut quatre fonctions principales : analyse des sentiments, extraction de phrases clés, reconnaissance des entités nommées et détection de la langue. Découvrez comment analyser le contenu de différentes façons avec nos démarrages rapides, didacticiels et exemples.'
+  author: aahill
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: nitinme
-abstract:
-  description: 'L’API Analyse de texte est un service cloud qui fournit un traitement en langage naturel avancé sur le texte brut et inclut trois fonctions principales : analyse des sentiments, extraction d’expressions clés et détection de la langue. Découvrez comment analyser le contenu de différentes façons avec nos démarrages rapides, didacticiels et exemples.'
-sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/cognitive-services/text-analytics/overview
-      html: <p>Découvrez des informations sur l’API Analyse de texte.</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Qu’est-ce que le service Analyse de texte ?
-    - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
-      html: <p>Découvrez comment s’inscrire pour l’API Analyse de texte.</p>
-      image:
-        src: ../media/index/i_get-started.svg
-      title: S’inscrire pour l’API Analyse de texte
-    - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
-      html: <p>Découvrez comment obtenir les clés d’accès et les points de terminaison pour l’API Analyse de texte.</p>
-      image:
-        src: ../media/index/i_tasks.svg
-      title: Clés d’accès pour l’API Analyse de texte
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: 'Commencez à utiliser l’API Analyse de texte en procédant à la détection du langage, à l’analyse des sentiments et à l’extraction de phrases clés :'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/logo_csharp.svg
-      text: C&#35;
-      href: quickstarts/csharp
-    - image:
-        src: media/index/logo_java.svg
-      text: Java
-      href: quickstarts/java
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node.js
-      href: quickstarts/nodejs
-    - image:
-        src: media/index/logo_python.svg
-      text: Python
-      href: quickstarts/python
-    - image:
-        src: media/index/logo_go.svg
-      text: Go
-      href: quickstarts/go
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: 'Découvrez comment développer des applications à l’aide de l’API Analyse de texte :'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Analyse de texte avec Power BI</a>
-    - html: <a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">Analyse de texte dans Power Apps</a>
+  ms.date: 07/29/2019
+  ms.author: aahi
+  ms.openlocfilehash: 9b90900b7d09f9a8f94e57941cccf366c440690f
+  ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 10/02/2019
+  ms.locfileid: "71827784"
+landingContent:
+- title: À propos de l’API Analyse de texte
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que l’API Analyse de texte ?
+      url: overview.md
+    - text: Exemples de scénarios utilisateur
+      url: text-analytics-user-scenarios.md
+  - linkListType: video
+    links:
+    - text: Compréhension du texte avec Cognitive Services
+      url: https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player
+  - linkListType: whats-new
+    links:
+    - text: Nouveautés
+      url: whats-new.md
+- title: analyse de sentiments
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Utilisation de C#
+      url: quickstarts/csharp.md#sentiment-analysis
+    - text: Utilisation de Python
+      url: quickstarts/python-sdk.md#sentiment-analysis
+    - text: Utilisation de Node.js
+      url: quickstarts/nodejs-sdk.md#sentiment-analysis
+    - text: Utilisation de Go
+      url: quickstarts/go-sdk.md#sentiment-analysis
+    - text: Utilisation de Ruby
+      url: quickstarts/ruby-sdk.md#sentiment-analysis
+  - linkListType: tutorial
+    links:
+    - text: Intégrer Power BI pour analyser les sentiments des clients
+      url: tutorials/tutorial-power-bi-key-phrases.md
+    - text: Utiliser Flask pour la traduction de texte, l’analyse de sentiments et la synthèse vocale
+      url: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+  - linkListType: how-to-guide
+    links:
+    - text: analyse de sentiments
+      url: how-tos/text-analytics-how-to-sentiment-analysis.md
+- title: Détection de la langue
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Utilisation de C#
+      url: quickstarts/csharp.md#language-detection
+    - text: Utilisation de Python
+      url: quickstarts/python-sdk.md#language-detection
+    - text: Utilisation de Node.js
+      url: quickstarts/nodejs-sdk.md#language-detection
+    - text: Utilisation de Go
+      url: quickstarts/go-sdk.md#language-detection
+    - text: Utilisation de Ruby
+      url: quickstarts/ruby-sdk.md#language-detection
+  - linkListType: how-to-guide
+    links:
+    - text: Détection de la langue
+      url: how-tos/text-analytics-how-to-language-detection.md
+- title: Extraction d’expressions clés
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Utilisation de C#
+      url: quickstarts/csharp.md#key-phrase-extraction
+    - text: Utilisation de Python
+      url: quickstarts/python-sdk.md#key-phrase-extraction
+    - text: Utilisation de Node.js
+      url: quickstarts/nodejs-sdk.md#key-phrase-extraction
+    - text: Utilisation de Go
+      url: quickstarts/go-sdk.md#key-phrase-extraction
+    - text: Utilisation de Ruby
+      url: quickstarts/ruby-sdk.md#key-phrase-extraction
+  - linkListType: how-to-guide
+    links:
+    - text: Extraction de mots clés
+      url: how-tos/text-analytics-how-to-keyword-extraction.md
+- title: Reconnaissance d’entité
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Utilisation de C#
+      url: quickstarts/csharp.md#entity-recognition
+    - text: Utilisation de Python
+      url: quickstarts/python-sdk.md#entity-recognition
+    - text: Utilisation de Node.js
+      url: quickstarts/nodejs-sdk.md#entity-recognition
+    - text: Utilisation de Go
+      url: quickstarts/go-sdk.md#entity-recognition
+    - text: Utilisation de Ruby
+      url: quickstarts/ruby-sdk.md#entity-recognition
+  - linkListType: how-to-guide
+    links:
+    - text: Reconnaissance d’entité
+      url: how-tos/text-analytics-how-to-entity-linking.md
 - title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7">Référence sur l’API</a></p>
-    - title: Kits SDK
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest">Node.JS</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable">Java</a></p>
-    - title: PowerShell
-      html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: Interface de ligne de commande
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Interface de ligne de commande Azure</a></p>
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
+    - text: Bibliothèque de client .NET
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
+    - text: Bibliothèque de client Python
+      url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
+    - text: Bibliothèque de client Node.js
+      url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics?view=azure-node-latest
+    - text: Bibliothèque de client Java
+      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
+    - text: Bibliothèque de client Go
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
+    - text: D’Azure CLI
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+- title: Utiliser des conteneurs Docker
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Installer et exécuter les conteneurs Analyse de texte
+      url: how-tos/text-analytics-how-to-install-containers.md
+    - text: Configurer les conteneurs Analyse de texte
+      url: text-analytics-resource-container-config.md
+    - text: Déployer une instance de conteneur sur Azure
+      url: how-tos/text-analytics-how-to-use-container-instances.md
+    - text: Déployer un conteneur dans Azure Kubernetes Service (AKS)
+      url: how-tos/text-analytics-how-to-use-kubernetes-service.md

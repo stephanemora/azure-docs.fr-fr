@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
 ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565122"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62125693"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -26,30 +26,30 @@ Vous devez déployer un serveur de configuration local quand vous utilisez [Azur
 
 Le serveur de configuration doit être configuré comme une machine virtuelle VMware hautement disponible avec certaines exigences matérielles et dimensionnelles minimales. Pour un déploiement simple et pratique, Site Recovery fournit un modèle OVA (Open Virtualization Application) téléchargeable pour configurer le serveur de configuration conformément à toutes les exigences listées ci-dessous.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les conditions matérielles minimales pour un serveur de configuration sont synthétisées dans le tableau suivant.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
-## <a name="azure-active-directory-permission-requirements"></a>Exigences d’autorisation Azure Active Directory
+## <a name="azure-active-directory-permission-requirements"></a>Autorisations Azure Active Directory requises
 
-Vous avez besoin d’un utilisateur avec **une de ces** les autorisations dans AAD (Azure Active Directory) pour inscrire le serveur de configuration avec Azure Site Recovery services.
+Un utilisateur avec **une de ces** autorisations doit être défini dans AAD (Azure Active Directory) pour inscrire le serveur de configuration auprès de services Azure Site Recovery.
 
-1. Utilisateur doit avoir le rôle de « Développeur » pour créer l’application.
-   1. Pour vérifier, connectez-vous au portail Azure</br>
-   1. Accédez à Azure Active Directory > rôles et les administrateurs</br>
-   1. Vérifiez si le rôle de « Développeur » est affecté à l’utilisateur. Dans le cas contraire, un utilisateur à utiliser avec cette autorisation ou contacter [administrateur pour activer l’autorisation](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+1. L’utilisateur doit avoir le rôle « Développeur d’applications » pour créer l’application.
+   1. Pour vérifier, connectez-vous au Portail Azure</br>
+   1. Accédez à Azure Active Directory > Rôles et administrateurs</br>
+   1. Vérifiez si le rôle « Développeur d’applications » est attribué à l’utilisateur. Si ce n’est pas le cas, utilisez un utilisateur disposant de cette autorisation ou contacter l’[administrateur pour activer l’autorisation](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
-1. Si le rôle de « Développeur » ne peut pas être assigné, vérifiez que « L’utilisateur peut inscrire application » est défini comme true pour l’utilisateur créer l’identité. Pour activer ci-dessus les autorisations,
+1. Si le rôle « Développeur d’applications » ne peut pas être attribué, vérifiez que l’indicateur « Les utilisateurs peuvent inscrire des applications » est défini sur Oui pour que l’utilisateur puisse créer une identité. Pour activer les autorisations ci-dessus,
    1. Se connecter au portail Azure
-   1. Accédez à Azure Active Directory > Paramètres utilisateur
-   1. Sous ** inscriptions d’application », « Les utilisateurs peuvent inscrire des applications » doit être choisi comme « Oui ».
+   1. Accéder à Azure Active Directory > Paramètres utilisateur
+   1. Sous **Inscription des applications**, « Les utilisateurs peuvent inscrire des applications » doit être défini sur « Oui ».
 
       ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
-> Services(ADFS) de fédération Active Directory est **ne pas pris en charge**. Utilisez un compte géré via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
+> Les services de fédération Active Directory (AD FS) ne **sont pas pris en charge**. Utilisez un compte managé via [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
 
 ## <a name="capacity-planning"></a>planification de la capacité
 
@@ -74,7 +74,7 @@ Si vous répliquez plusieurs machines virtuelles VMware, lisez les [considérati
    >Vous pouvez également télécharger directement la dernière version du modèle de serveur de configuration dans le [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
 
 > [!NOTE]
-> La licence fournie avec le modèle de OVA est une licence d’évaluation valable 180 jours. Après cette période, client doit activer les fenêtres avec une licence approvisionnée.
+> La licence fournie avec le modèle OVA est une licence d’évaluation valide pendant 180 jours. Passée cette période, le client devra activer les fenêtres avec une licence payante.
 
 ## <a name="import-the-template-in-vmware"></a>Importer le modèle dans VMware
 
@@ -115,19 +115,19 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 5. Saisissez un nom utilisé pour inscrire le serveur de configuration sur Site Recovery. Sélectionnez ensuite **Suivant**.
 6. L’outil vérifie que la machine virtuelle peut se connecter à Azure. Une fois la connexion établie, sélectionnez **Connecter** pour vous connecter à votre abonnement Azure.</br>
     a. Les informations d’identification doivent avoir accès au coffre dans lequel vous souhaitez inscrire le serveur de configuration.</br>
-    b. Assurez-vous que le compte d’utilisateur choisi dispose des autorisations pour créer une application dans Azure. Pour activer les autorisations requises, suivez les instructions fournies [ici](#azure-active-directory-permission-requirements).
+    b. Assurez-vous que le compte d’utilisateur choisi dispose d’autorisations pour créer une application dans Azure. Pour activer les autorisations requises, suivez les instructions fournies [ici](#azure-active-directory-permission-requirements).
 7. L’outil effectue des tâches de configuration, puis redémarre.
 8. Reconnectez-vous à la machine. L’Assistant Gestion du serveur de configuration démarre **automatiquement** au bout de quelques secondes.
 
 ### <a name="configure-settings"></a>Configurer les paramètres
 
-1. Dans l’assistant de gestion de serveur de configuration, sélectionnez **Configurer la connectivité**. Dans les menus déroulants, commencez par sélectionner la carte réseau que le serveur de processus intégré utilise pour l’installation push du service Mobilité sur les machines sources, puis sélectionnez la carte réseau que le serveur de configuration utilise pour la connectivité avec Azure. Ensuite, sélectionnez **Enregistrer**. Vous ne pouvez pas modifier ce paramètre après sa configuration. Il est fortement déconseillé de modifier l'adresse IP d'un serveur de configuration. Vérifiez que l’adresse IP affectée au serveur de configuration est une adresse IP statique et pas une adresse IP DHCP.
-2. Dans **sélectionner les Services de récupération du coffre**, connectez-vous à Microsoft Azure avec les informations d’identification utilisées dans **étape 6** de «[enregistrer un serveur avec Azure Site Recovery Services configuration](#register-the-configuration-server-with-azure-site-recovery-services)» .
-3. Une fois la connexion, sélectionnez votre abonnement Azure et le groupe de ressources pertinentes et le coffre.
+1. Dans l’assistant de gestion de serveur de configuration, sélectionnez **Configurer la connectivité**. Dans les menus déroulants, commencez par sélectionner la carte réseau que le serveur de processus intégré utilise pour l’installation push du service Mobilité sur les machines sources, puis sélectionnez la carte réseau que le serveur de configuration utilise pour la connectivité avec Azure. Ensuite, sélectionnez **Enregistrer**. Vous ne pouvez pas modifier ce paramètre une fois qu’il a été configuré. Il est fortement déconseillé de modifier l'adresse IP d'un serveur de configuration. Vérifiez que l’adresse IP affectée au serveur de configuration est une adresse IP statique et pas une adresse IP DHCP.
+2. Dans **Sélectionner un coffre Recovery Services**, connectez-vous à Microsoft Azure avec les informations d’identification utilisées à l’**étape 6** de « [Inscrire le serveur de configuration auprès des services Azure Site Recovery](#register-the-configuration-server-with-azure-site-recovery-services) ».
+3. Une fois connecté, sélectionnez votre abonnement Azure ainsi que le groupe de ressources et le coffre appropriés.
 
     > [!NOTE]
     > Une fois inscrit, le coffre Recovery Services n’est plus modifiable.
-    > Variation coffre recovery services nécessiterait la dissociation du serveur de configuration à partir du coffre actuel, et l’arrêt de la réplication de toutes les machines virtuelles protégées sous le serveur de configuration. En savoir [plus](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
+    > Le changement de coffre Recovery Services requiert une dissociation du serveur de configuration du coffre actuel, entraînant l’arrêt de la réplication de toutes les machines virtuelles protégées sur le serveur de configuration. En savoir [plus](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault).
 
 4. Dans **Installer des logiciels tiers** :
 
@@ -156,7 +156,7 @@ Pour éviter toute interruption d’une réplication continue, assurez-vous que 
 
 1. Pendant combien de temps la licence fournie sur le serveur de configuration déployé via OVF est-elle valide ? Que se passe-t-il si je ne réactive pas la licence ?
 
-    La licence fournie avec le modèle de OVA est une licence d’évaluation valable 180 jours. Avant l’expiration, vous devez activer la licence. Sinon, cela peut entraîner un arrêt fréquent du serveur de configuration, et donc constituer une entrave aux activités de réplication.
+    La licence fournie avec le modèle OVA est une licence d’évaluation valide pendant 180 jours. Avant l’expiration, vous devez activer la licence. Sinon, cela peut entraîner un arrêt fréquent du serveur de configuration, et donc constituer une entrave aux activités de réplication.
 
 2. Puis-je utiliser la machine virtuelle sur laquelle le serveur de configuration est installé à des fins différentes ?
 
@@ -184,7 +184,7 @@ Pour éviter toute interruption d’une réplication continue, assurez-vous que 
     Dans le **coffre Recovery Services**, **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**. Dans Serveurs, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
 10. Puis-je cloner un serveur de configuration existant et l’utiliser pour l’orchestration de la réplication ?
 
-    **Non**, l’utilisation d’un composant de serveur de configuration cloné n’est pas prise en charge. Clone du serveur de processus de montée en puissance est également un scénario non pris en charge. Le clonage de Site Recovery composants un impact sur les réplications en cours.
+    **Non**, l’utilisation d’un composant de serveur de configuration cloné n’est pas prise en charge. Le clonage du serveur de traitement de montée en puissance est également un scénario non pris en charge. Le clonage de composants Site Recovery a un impact sur les réplications en cours.
 
 11. Puis-je changer l’adresse IP du serveur de configuration ?
 

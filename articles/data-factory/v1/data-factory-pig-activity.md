@@ -3,25 +3,24 @@ title: Transformer des données à l’aide d’une activité Pig dans Azure Dat
 description: Découvrez comment utiliser l'activité pig d’une fabrique de données Azure pour exécuter des requêtes pig sur un cluster HDInsight à la demande/ou votre propre cluster.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 72f532c277096a20387ab1b4922def2cd35a9afb
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997018"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139124"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Pig dans Azure Data Factory
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Activités de transformation"]
 > * [Activité Hive](data-factory-hive-activity.md) 
 > * [Activité pig](data-factory-pig-activity.md)
 > * [Activité MapReduce](data-factory-map-reduce.md)
@@ -85,15 +84,15 @@ L’activité Pig de HDInsight d’un [pipeline](data-factory-create-pipelines.m
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de l’activité |Oui |
-| description |Texte décrivant la raison motivant l’activité. |Non  |
-| Type |HDinsightPig |Oui |
-| inputs |Une ou plusieurs entrées utilisées par l'activité pig |Non  |
-| outputs |Une ou plusieurs sorties produites par l’activité pig |Oui |
-| linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |Oui |
-| script |Spécifier le script en ligne pig |Non  |
-| chemin d'accès du script |Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non  |
-| defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script pig |Non  |
+| name |Nom de l’activité |OUI |
+| description |Texte décrivant la raison motivant l’activité. |Non |
+| type |HDinsightPig |OUI |
+| inputs |Une ou plusieurs entrées utilisées par l'activité pig |Non |
+| outputs |Une ou plusieurs sorties produites par l’activité pig |OUI |
+| linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |OUI |
+| script |Spécifier le script en ligne pig |Non |
+| scriptPath |Stockez le script pig dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non |
+| defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script pig |Non |
 
 ## <a name="example"></a>Exemples
 Prenons un exemple d’analyse de journaux d’activité de jeux où vous souhaitez identifier le temps passé par les joueurs à jouer à des jeux créés par votre entreprise.
@@ -211,7 +210,7 @@ Pour utiliser le script pig paramétré, procédez comme suit :
       }
     }
     ```
-* Dans le script pig, reportez-vous aux paramètres à l'aide de ’**$parameterName**’ comme indiqué dans l'exemple suivant :
+* Dans le script pig, reportez-vous aux paramètres à l'aide de ’ **$parameterName**’ comme indiqué dans l'exemple suivant :
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: e1951a65c48c32f2ce4af722400d03c20dfa684b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e624520a9d1f39bc8115ac72e9df0398065928f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565391"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102388"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Didacticiel : Intégration d’Azure Active Directory à Fluxx Labs
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Fluxx Labs à Azure AD, vous devez ajouter F
 
 **Pour ajouter Fluxx Labs à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -160,11 +160,11 @@ Pour configurer l’authentification unique Azure AD avec Fluxx Labs, effectuez 
 
     d. Dans la zone de texte **URL Assertion Consumer Service (URL d’authentification unique)** , entrez la valeur **URL de réponse** que vous avez saisie dans le portail Azure.
 
-    e. Dans la zone de texte **Audience (ID d’entité SP)**, entrez la valeur **Identifier** que vous avez saisie dans le portail Azure.
+    e. Dans la zone de texte **Audience (ID d’entité SP)** , entrez la valeur **Identifier** que vous avez saisie dans le portail Azure.
 
     f. Dans la zone de texte **Identity Provider SSO Target URL** (URL cible d’authentification unique du fournisseur d’identité), collez la valeur de l’**URL de connexion** que vous avez copiée dans le portail Azure.
 
-    g. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Identity provider certificate (Certificat du fournisseur d’identité)**.
+    g. Ouvrez votre certificat codé en base 64 dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Identity provider certificate (Certificat du fournisseur d’identité)** .
 
     h. Dans la zone de texte **Format de l’identificateur de nom**, saisissez la valeur `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
 

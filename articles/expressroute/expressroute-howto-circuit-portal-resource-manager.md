@@ -6,14 +6,15 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: cherylmc;ganesr
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 25821f60f47b1279e70cba2574901cd5df3d327f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103024"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846585"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Création et modification d’un circuit ExpressRoute
 
@@ -21,6 +22,7 @@ ms.locfileid: "58103024"
 > * [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interface de ligne de commande Azure](howto-circuit-cli.md)
+> * [Modèle Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-circuit-classic.md)
 >
@@ -56,12 +58,12 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
    * **Limitation des données** détermine le type de facturation. Vous pouvez spécifier **Limité** pour un forfait de données limité, et **Illimité** pour un forfait de données illimité. Notez que vous pouvez modifier le type de facturation de **Limité** à **Illimité**.
 
      > [!IMPORTANT]
-     > Vous ne pouvez pas modifier le type de **illimité** à **limitées**.
+     > En revanche, vous ne pouvez pas modifier le type de **Illimité** à **Limité**.
 
    * L’**Emplacement d’homologation** est l’emplacement physique où vous vous homologuez auprès de Microsoft.
 
      > [!IMPORTANT]
-     > L’emplacement d’homologation indique [l’emplacement physique](expressroute-locations.md) où vous vous homologuez auprès de Microsoft. Cet emplacement n’est **pas** lié à la propriété « Emplacement », qui fait référence à la zone géographique où se trouve le fournisseur de ressources réseau Azure. Bien que ces éléments ne soient pas liés, nous vous conseillons de choisir un fournisseur de ressources réseau géographiquement proche de l’emplacement d’homologation du circuit.
+     > L’emplacement de peering indique [l’emplacement physique](expressroute-locations.md) où vous effectuez le peering auprès de Microsoft. Cet emplacement n’est **pas** lié à la propriété « Emplacement », qui fait référence à la zone géographique où se trouve le fournisseur de ressources réseau Azure. Bien que ces éléments ne soient pas liés, nous vous conseillons de choisir un fournisseur de ressources réseau géographiquement proche de l’emplacement de peering du circuit.
 
 ### <a name="3-view-the-circuits-and-properties"></a>3. Afficher les circuits et les propriétés
 
@@ -106,7 +108,7 @@ Vous pouvez afficher les propriétés du circuit qui vous intéressent en le sé
 
 ### <a name="6-create-your-routing-configuration"></a>6. Créer votre configuration de routage
 
-Pour obtenir des instructions pas à pas, consultez l’article [Configuration du routage des circuits ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) pour créer et modifier des homologations de circuit.
+Pour obtenir des instructions pas à pas, consultez l’article [Configuration du routage des circuits ExpressRoute](expressroute-howto-routing-portal-resource-manager.md) pour créer et modifier des peerings de circuit.
 
 > [!IMPORTANT]
 > Ces instructions s’appliquent seulement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement un VPN IP, comme MPLS), votre fournisseur de connectivité configure et gère le routage pour vous.
@@ -121,7 +123,7 @@ Vous pouvez afficher l’état d’un circuit en sélectionnant celui-ci et en a
 
 ## <a name="modify"></a>Modification d’un circuit ExpressRoute
 
-Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité. Vous pouvez modifier la bande passante, la référence (SKU), le modèle de facturation et autoriser les opérations classiques sur la page **Configuration**. Pour plus d’informations sur les limites et limitations, voir le [FAQ ExpressRoute](expressroute-faqs.md). 
+Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité. Vous pouvez modifier la bande passante, la référence (SKU), le modèle de facturation et autoriser les opérations classiques sur la page **Configuration**. Pour plus d’informations sur les limites et limitations, voir le [FAQ ExpressRoute](expressroute-faqs.md).
 
 Vous pouvez effectuer les tâches suivantes sans temps d’arrêt :
 
@@ -139,9 +141,9 @@ Vous pouvez effectuer les tâches suivantes sans temps d’arrêt :
 * Vous pouvez activer et désactiver *Autoriser les opérations classiques*.
   > [!IMPORTANT]
   > Vous devrez peut-être recréer le circuit ExpressRoute si la capacité sur le port existant est inappropriée. Vous ne pouvez pas mettre le circuit à niveau si aucune capacité supplémentaire n’est disponible à cet emplacement.
-  > 
+  >
   > Même si vous pouvez aisément mettre à niveau la bande passante, vous ne pouvez pas réduire la bande passante d’un circuit ExpressRoute sans interrompre le service. Le fait de passer à un niveau inférieur de bande passante vous oblige à annuler l’approvisionnement du circuit ExpressRoute, puis à réapprovisionner un nouveau circuit ExpressRoute.
-  > 
+  >
   > La désactivation de l’opération du module complémentaire Premium peut échouer si vous utilisez davantage de ressources que ce qui est autorisé pour le circuit standard.
 
 Pour modifier un circuit ExpressRoute, cliquez sur **Configuration**.

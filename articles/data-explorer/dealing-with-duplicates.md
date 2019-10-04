@@ -1,20 +1,20 @@
 ---
-title: Gérer les données en double dans l’Explorateur de données Azure
-description: Cette rubrique vous montrera différentes approches pour traiter des données en double lorsque vous utilisez l’Explorateur de données Azure.
+title: Traiter des données en double dans Azure Data Explorer
+description: Cette rubrique décrit différentes approches du traitement des données en double en lien avec l’utilisation d’Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 60ec2b86e0205060f907f1fe39d084dca3aac1cd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045779"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608229"
 ---
-# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Gérer les données en double dans l’Explorateur de données Azure
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Traiter des données en double dans Azure Data Explorer
 
 Les appareils qui envoient des données dans le cloud gèrent un cache local des données. Selon la taille des données, le cache local peut stocker des données pendant plusieurs jours ou même plusieurs mois. Vous souhaitez protéger vos bases de données analytiques des appareils défectueux qui renvoient les données mises en cache et entraînent une duplication des données dans la base de données analytique. Cette rubrique décrit les bonnes pratiques pour la gestion des données en double pour ces types de scénarios.
 
@@ -70,7 +70,7 @@ DeviceEventsAll
 
 ### <a name="solution-3-filter-duplicates-during-the-ingestion-process"></a>Solution 3 : Filtrer les doublons lors du processus d’ingestion
 
-Une autre solution consiste à filtrer les doublons pendant le processus d’ingestion. Le système ignore les données en double lors de l’ingestion dans les tables Kusto. Les données sont ingérées dans une table intermédiaire, puis copiées dans une autre table après la suppression des lignes en double. L’avantage de cette solution est que les performances des requêtes sont considérablement meilleures par rapport à la solution précédente. Les inconvénients sont des temps d’ingestion accrus et des coûts supplémentaires de stockage des données.
+Une autre solution consiste à filtrer les doublons pendant le processus d’ingestion. Le système ignore les données en double lors de l’ingestion dans les tables Kusto. Les données sont ingérées dans une table intermédiaire, puis copiées dans une autre table après la suppression des lignes en double. L’avantage de cette solution est que les performances des requêtes sont considérablement meilleures par rapport à la solution précédente. Les inconvénients sont des temps d’ingestion accrus et des coûts supplémentaires de stockage des données. En plus, cette solution ne fonctionne que si les doublons ne sont pas ingérés simultanément. S’il existe plusieurs ingestions simultanées contenant des enregistrements en double, elles peuvent toutes être ingérées, car le processus de déduplication ne trouvera pas d’enregistrements correspondants existant dans la table.    
 
 L’exemple suivant décrit cette méthode :
 

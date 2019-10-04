@@ -10,19 +10,19 @@ ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885024"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60813747"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Étendre des scripts U-SQL à l’aide de code R dans Azure Data Lake Analytics
 
 L’exemple suivant illustre les étapes de base pour déployer un code R :
 * Utilisation de l’instruction `REFERENCE ASSEMBLY` pour activer les extensions R pour le script U-SQL.
-* Utilisez le `REDUCE` opération pour partitionner les données d’entrée sur une clé.
+* Utilisation de l’opération `REDUCE` pour partitionner les données d’entrée sur une clé.
 * Les extensions R pour U-SQL comprennent un réducteur intégré (`Extension.R.Reducer`) qui exécute le code R sur chaque vertex affecté au réducteur. 
-* Utilisation de dédié nommé trames de données appelés `inputFromUSQL` et `outputToUSQL` respectivement pour passer des données entre U-SQL et R. entrée et sortie de trame de données fixe des noms d’identificateur (autrement dit, les utilisateurs ne peuvent pas modifier les noms prédéfinis d’entrée et de sortie trame de données identificateurs).
+* Utilisation de tableaux de données nommés dédiés, respectivement intitulés `inputFromUSQL` et `outputToUSQL`, pour transférer des données entre U-SQL et R. Les noms des identificateurs des tableaux de données d’entrée et de sortie sont fixes. Autrement dit, les utilisateurs ne peuvent pas modifier les noms prédéfinis des identificateurs des tableaux de données d’entrée et de sortie.
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>Incorporation de code R dans le script U-SQL
 

@@ -9,23 +9,23 @@ ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898684"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61478508"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Préparation des disques durs pour un travail d’importation
 
 L’outil WAImportExport est l’outil de préparation et de réparation de disques, que vous pouvez utiliser avec le [service Microsoft Azure Import/Export](../storage-import-export-service.md). Il permet de copier les données sur des disques durs que vous allez envoyer à un centre de données Azure. Lorsqu’un travail d’importation est terminé, vous pouvez utiliser cet outil pour réparer les objets blob endommagés, manquants ou en conflit avec d’autres objets blob. Lorsque vous recevez les disques d’un travail d’exportation, vous pouvez utiliser cet outil pour réparer tous les fichiers endommagés ou manquants sur les disques. Dans cet article, nous passerons en revue l’utilisation de cet outil.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="requirements-for-waimportexportexe"></a>Configuration requise pour WAImportExport.exe
 
 - **Configuration de l’ordinateur**
   - Windows 7, Windows Server 2008 R2 ou système d’exploitation Windows plus récent
-  - .NET framework 4 installé. Consultez [FAQ](#faq) sur la façon de vérifier si .NET Framework est installé sur l’ordinateur.
+  - .NET framework 4 installé. Consultez les [questions fréquentes (FAQ)](#faq) pour savoir comment déterminer si .Net Framework est installé sur l’ordinateur.
 - **Clé du compte de stockage** : vous devez avoir au moins une des clés du compte de stockage.
 
 ### <a name="preparing-disk-for-import-job"></a>Préparation de disques en vue du travail d’importation
@@ -112,8 +112,7 @@ H,Format,SilentMode,Encrypt,
 | DriveLetter | **[Obligatoire]**<br/> Chaque disque spécifié comme cible dans l’outil doit contenir un volume NTFS simple et être associé à une lettre.<br/> <br/>**Exemple**: R ou r |
 | FormatOption | **[Obligatoire]**  Format &#124; AlreadyFormatted<br/><br/> **Format** : Cette valeur déclenche la mise en forme de toutes les données sur le disque. <br/>**AlreadyFormatted** : L’outil ignore la mise en forme lorsque cette valeur est spécifiée. |
 | SilentOrPromptOnFormat | **[Obligatoire]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode** : Cette valeur permet à l’utilisateur d’exécuter l’outil en mode silencieux. <br/>**PromptOnFormat** : L’outil invite l’utilisateur à confirmer l’action pour chaque format.<br/><br/>Si ce paramètre n’est pas défini, la commande ne s’exécute pas et affiche le message d’erreur : « Incorrect value for SilentOrPromptOnFormat: none » (« Valeur incorrecte de SilentOrPromptOnFormat : aucune ») |
-| Chiffrement | 
-  **[Obligatoire]** Encrypt &#124; AlreadyEncrypted<br/> La valeur de ce champ indique le disque à chiffrer et le disque à ne pas chiffrer. <br/><br/>**Encrypt** : L’outil chiffre le disque. Si le champ « FormatOption » a pour valeur « Format », cette valeur doit être « Encrypt ». Si vous spécifiez « AlreadyEncrypted » dans ce cas, l’erreur « When Format is specified, Encrypt must also be specified (Lorsque Format est spécifié, Encrypt doit aussi être spécifié) » s’affiche.<br/>**AlreadyEncrypted** : L’outil déchiffre le disque avec la clé BitLockerKey fournie dans le champ « ExistingBitLockerKey ». Si la valeur du champ « FormatOption » est « AlreadyFormatted », cette valeur peut être « Encrypt » ou « AlreadyEncrypted ». |
+| Chiffrement | **[Obligatoire]** Encrypt &#124; AlreadyEncrypted<br/> La valeur de ce champ indique le disque à chiffrer et le disque à ne pas chiffrer. <br/><br/>**Encrypt** : L’outil chiffre le disque. Si le champ « FormatOption » a pour valeur « Format », cette valeur doit être « Encrypt ». Si vous spécifiez « AlreadyEncrypted » dans ce cas, l’erreur « When Format is specified, Encrypt must also be specified (Lorsque Format est spécifié, Encrypt doit aussi être spécifié) » s’affiche.<br/>**AlreadyEncrypted** : L’outil déchiffre le disque avec la clé BitLockerKey fournie dans le champ « ExistingBitLockerKey ». Si la valeur du champ « FormatOption » est « AlreadyFormatted », cette valeur peut être « Encrypt » ou « AlreadyEncrypted ». |
 | ExistingBitLockerKey | **[Obligatoire]** Si la valeur du champ « Encryption » est « AlreadyEncrypted »,<br/> La valeur de ce champ est la clé BitLocker associée au disque en question. <br/><br/>Ce champ doit être vide si la valeur du champ « Encryption » est « Encrypt ».  Si la clé BitLocker est spécifiée, le message d’erreur « Bitlocker Key should not be specified (La clé BitLocker ne doit pas être spécifiée) » s’affiche.<br/>  **Exemple**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  <a name="preparing-disk-for-import-job"></a>Préparation de disques en vue du travail d’importation
@@ -334,7 +333,7 @@ Pour chaque disque dur que vous préparez avec l’outil Azure Import/Export, ce
 
 Le répertoire de journaux d’activité désigne le répertoire à utiliser pour stocker les journaux d’activité détaillés et les fichiers manifestes temporaires. Si ce paramètre n’est pas spécifié, le répertoire courant est utilisé comme répertoire de journaux. Les journaux d’activité sont détaillés.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 #### <a name="what-are-the-specifications-of-my-disk"></a>Quelles sont les caractéristiques de mon disque ?
 
@@ -365,7 +364,7 @@ Pour désactiver le module de plateforme sécurisée dans BitLocker, procédez c
 
 Toutes les versions de Microsoft .NET Framework sont installées dans le répertoire suivant : %windir%\Microsoft.NET\Framework\
 
-Accédez à cet emplacement sur l’ordinateur censé exécuter l’outil. Recherchez le répertoire dont le nom commence par « v4 ». L’absence de ce répertoire signifie que .NET 4 n’est pas installé sur votre ordinateur. Vous pouvez télécharger le .NET 4 sur votre ordinateur à l’aide [Microsoft .NET Framework 4 (programme d’installation Web)](https://www.microsoft.com/download/details.aspx?id=17851).
+Accédez à cet emplacement sur l’ordinateur censé exécuter l’outil. Recherchez le répertoire dont le nom commence par « v4 ». L’absence de ce répertoire signifie que .NET 4 n’est pas installé sur votre ordinateur. Vous pouvez télécharger .NET 4 sur votre ordinateur à l’aide de [Microsoft .NET Framework 4 (programme d'installation web)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### <a name="limits"></a>limites
 

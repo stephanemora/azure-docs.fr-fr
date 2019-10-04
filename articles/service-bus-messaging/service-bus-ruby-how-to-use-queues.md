@@ -14,28 +14,28 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6c42fbffd0b4569a9b04dede94061e716c48ecf1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 48f60b7c07cc16b4d9994d5644069fdcb4881e0a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786034"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65991873"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Utilisation des files d’attente Service Bus avec Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Dans ce didacticiel, vous allez apprendre à créer des applications Ruby pour envoyer des messages à et de recevoir des messages à partir d’une file d’attente Service Bus. Les exemples sont écrits en Ruby et utilisent le module Azure gem.
+Dans ce tutoriel, vous allez apprendre à créer des applications Ruby afin d’envoyer des messages à une file d’attente Service Bus. Les exemples sont écrits en Ruby et utilisent le module Azure gem.
 
-## <a name="prerequisites"></a>Conditions préalables
-1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes de la [utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) article.
-    1. Lire le plus rapide pour **vue d’ensemble** de Service Bus **files d’attente**. 
-    2. Créer un Service Bus **espace de noms**. 
-    3. Obtenir le **chaîne de connexion**. 
+## <a name="prerequisites"></a>Prérequis
+1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md).
+    1. Consultez la **vue d’ensemble** rapide des **files d’attente Service Bus**. 
+    2. Créez un **espace de noms** Service Bus. 
+    3. Obtenez la **chaîne de connexion**. 
 
         > [!NOTE]
-        > Vous allez créer un **file d’attente** dans l’espace de noms Service Bus à l’aide de Ruby dans ce didacticiel. 
+        > Dans ce tutoriel, vous allez créer un **file d’attente** dans l’espace de noms Service Bus à l’aide de Ruby. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
@@ -79,7 +79,7 @@ La méthode `receive_queue_message()` de l’objet **Azure::ServiceBusService** 
 
 Avec le comportement par défaut, la lecture et la suppression sont une opération en deux étapes, ce qui permet également de prendre en charge des applications ne pouvant pas fonctionner avec des messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode `delete_queue_message()` et en fournissant le message à supprimer sous la forme d’un paramètre. La méthode `delete_queue_message()` marque le message comme étant consommé et le supprime de la file d’attente.
 
-Si le `:peek_lock` paramètre est défini sur **false**, la lecture et suppression du message devient le modèle le plus simple et mieux adapté aux scénarios dans lesquels une application peut tolérer de ne pas traiter un message en cas de défaillance. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Étant donné que Service Bus a marqué le message comme étant consommé, lorsque l’application redémarre et recommence à consommer des messages, elle manque le message consommé avant l’incident.
+Si le paramètre `:peek_lock` est défini sur **false**, le modèle le plus simple correspond à la lecture et à la suppression du message. Ce modèle fonctionne mieux pour les scénarios dans lesquels une application peut accepter de ne pas traiter un message en cas d’échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Étant donné que Service Bus a marqué le message comme étant consommé, lorsque l’application redémarre et recommence à consommer des messages, elle manque le message consommé avant l’incident.
 
 L’exemple suivant montre comment recevoir et traiter des messages à l’aide de la méthode `receive_queue_message()`. Dans l’exemple, un message est d’abord reçu puis supprimé par le biais de `:peek_lock` défini sur **false**. Un autre message est ensuite reçu, puis supprimé via `delete_queue_message()` :
 
@@ -96,6 +96,9 @@ Service Bus intègre des fonctionnalités destinées à faciliter la récupérat
 De même, il faut savoir qu'un message verrouillé dans une file d'attente est assorti d'un délai d'expiration et que si l'application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l'application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
 
 Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode `delete_queue_message()`, le message est à nouveau remis à l’application lorsqu’elle redémarre. Dans ce type de traitement, souvent appelé *Au moins une fois*, chaque message est traité au moins une fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Ceci, grâce à la propriété `message_id` du message, qui reste constante entre les tentatives de transmission.
+
+> [!NOTE]
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les principes de base des files d'attente Service Bus, consultez ces liens pour en savoir plus :

@@ -3,17 +3,17 @@ title: Utilisation de l’approvisionnement automatique du service Azure IoT Hub
 description: Utilisation de l’approvisionnement automatique du service Azure IoT Hub Device Provisioning pour inscrire le DevKit IoT MXChip auprès d’IoT Hub.
 author: liydu
 ms.author: liydu
-ms.date: 12/18/2018
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 2731bbcd6a6b0c8f7d82334c022c017d5eae35f0
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904489"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677021"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Utiliser l’approvisionnement automatique du service Azure IoT Hub Device Provisioning pour inscrire le DevKit IoT MXChip auprès d’IoT Hub
 
@@ -30,7 +30,7 @@ Le [IoT MXChip DevKit](https://aka.ms/iot-devkit) est une carte tout-en-un compa
 
 Pour effectuer les étapes de ce didacticiel, commencez par exécuter les tâches suivantes :
 
-* Configurer le Wi-Fi du Kit de développement et de préparer votre environnement de développement en suivant les étapes décrites dans [connecter IoT DevKit AZ3166 à Azure IoT Hub dans le cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Configurez le Wi-Fi de votre DevKit et préparez votre environnement de développement en suivant les étapes de la section « Préparer l’environnement de développement » dans l’article [Connecter IoT DevKit AZ3166 à Azure IoT Hub dans le cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
 * Procédez à la mise à niveau vers la dernière version du microprogramme (1.3.0 ou ultérieure) à l’aide du didacticiel [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) (Mettre à jour le microprogramme du DevKit).
 * Créez et liez un IoT Hub avec une instance du service Device Provisioning en suivant les étapes décrites dans [Configurer le service IoT Hub Device Provisioning avec le portail Azure](/azure/iot-dps/quick-setup-auto-provision).
 
@@ -60,7 +60,7 @@ Pour enregistrer un UDS sur le DevKit :
 
 1. Dans DevKit, maintenez le **bouton A** enfoncé, appuyez sur le bouton de **réinitialisation** et relâchez-le, puis relâchez le **bouton A**. Votre DevKit passe en mode de configuration.
 
-1. Cliquez sur `F1` pour ouvrir la palette de commandes, puis tapez et sélectionnez **Azure IoT Device Workbench : Configurer les paramètres de l’appareil... > Configurer la chaîne d’appareil unique (UDS)**.
+1. Cliquez sur `F1` pour ouvrir la palette de commandes, puis tapez et sélectionnez **Azure IoT Device Workbench : Configurer les paramètres de l’appareil... > Configurer la chaîne d’appareil unique (UDS)** .
   ![Configurer une UDS](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
 
 1. Notez la chaîne UDS générée. Vous en aurez besoin pour générer le certificat X.509. Appuyez ensuite sur `Enter`.
@@ -79,7 +79,7 @@ Dans le code de l’appareil, vous devez spécifier le [point de terminaison de 
 1. Dans le portail Azure, sélectionnez le volet **Vue d’ensemble** de votre instance du service Device Provisioning et notez les valeurs des paramètres **Point de terminaison d’appareil global** et **Étendue de l’ID**.
   ![Point de terminaison global de service Device Provisioning et étendue de l’ID](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
-1. Ouvrez **DeKitDPS.ino**. Recherchez `[Global Device Endpoint]` et `[ID Scope]`, puis remplacez-les par les valeurs que vous venez de noter.
+1. Ouvrez **DevKitDPS.ino**. Recherchez `[Global Device Endpoint]` et `[ID Scope]`, puis remplacez-les par les valeurs que vous venez de noter.
   ![Point de terminaison du service Device Provisioning ](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
 
 1. Remplissez la variable `registrationId` dans le code. Seule une combinaison de caractères alphanumériques, de minuscules et de tirets d’une longueur maximale de 128 caractères est autorisée. Notez également la valeur.
@@ -91,9 +91,6 @@ Dans le code de l’appareil, vous devez spécifier le [point de terminaison de 
 ## <a name="generate-x509-certificate"></a>Générer un certificat X.509
 
 Le [mécanisme d’attestation](/azure/iot-dps/concepts-device#attestation-mechanism) utilisé par cet exemple est le certificat X.509. Vous devez utiliser un utilitaire pour le générer.
-
-> [!NOTE]
-> Le générateur de certificats X.509 ne prend en charge que Windows pour le moment.
 
 1. Dans VS Code, cliquez sur `F1`, puis tapez et sélectionnez **Ouvrir un nouveau Terminal** pour ouvrir une fenêtre de terminal.
 

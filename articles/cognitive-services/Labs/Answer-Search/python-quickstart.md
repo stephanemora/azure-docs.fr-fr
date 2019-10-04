@@ -10,12 +10,13 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 2eaf07e041998efade1091861144a2dc4d78c56d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: c35bf9649a0a22f3488c45d1f4f8729e211e0ddb
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860301"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707077"
 ---
 # <a name="quickstart-project-answer-search-with-python"></a>Démarrage rapide : Project Answer Search avec Python
 
@@ -23,7 +24,7 @@ L’exemple Python suivant crée et envoie une demande d’information sur « R
 
 ## <a name="prerequisites"></a>Prérequis
 
-Obtenir une clé d’accès pour l’essai gratuit [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Obtenir une clé d’accès pour l’essai gratuit [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 Cet exemple utilise Python 3.6.4.
 

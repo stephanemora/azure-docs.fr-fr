@@ -1,6 +1,6 @@
 ---
-title: 'Configurer le mode de transport IPsec pour les hôtes Windows - apparairage privé : ExpressRoute : Azure | Microsoft Docs'
-description: Découvrez comment activer le mode de transport IPsec entre des machines virtuelles Azure exécutant Windows et des hôtes Windows locaux via l’appairage privé ExpressRoute, à l’aide d’objets de stratégie de groupe ou d’unités d’organisation.
+title: 'Configurer le mode de transport IPsec pour les hôtes Windows - peering privé : ExpressRoute : Azure | Microsoft Docs'
+description: Découvrez comment activer le mode de transport IPsec entre des machines virtuelles Azure exécutant Windows et des hôtes Windows locaux via le peering privé ExpressRoute, à l’aide d’objets de stratégie de groupe ou d’unités d’organisation.
 services: expressroute
 author: fabferri
 ms.service: expressroute
@@ -9,19 +9,19 @@ ms.date: 10/17/2018
 ms.author: fabferri
 ms.custom: seodec18
 ms.openlocfilehash: d728980517988e2dc39be4e4b64d20157a1aef54
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121177"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60366925"
 ---
-# <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurer le mode de transport IPsec pour l’appairage privé ExpressRoute
+# <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurer le mode de transport IPsec pour le peering privé ExpressRoute
 
-Cet article explique comment créer des tunnels IPsec en mode Transport via un appairage privé ExpressRoute entre des machines virtuelles Azure exécutant Windows et des hôtes Windows locaux. Les étapes décrites dans cet article utilisent des objets de stratégie de groupe pour créer cette configuration. Même s’il est possible de créer une telle configuration sans utiliser d’unités d’organisation ou d’objets de stratégie de groupe, le fait d’associer ces deux types d’objets permet de simplifier le contrôle de vos stratégies de sécurité et d’effectuer rapidement un scale-up. Les étapes de cet article supposent que vous disposez déjà d’une configuration Active Directory et que vous êtes familiarisé avec l’utilisation des unités d’organisation et des objets de stratégie de groupe.
+Cet article explique comment créer des tunnels IPsec en mode Transport via un peering privé ExpressRoute entre des machines virtuelles Azure exécutant Windows et des hôtes Windows locaux. Les étapes décrites dans cet article utilisent des objets de stratégie de groupe pour créer cette configuration. Même s’il est possible de créer une telle configuration sans utiliser d’unités d’organisation ou d’objets de stratégie de groupe, le fait d’associer ces deux types d’objets permet de simplifier le contrôle de vos stratégies de sécurité et d’effectuer rapidement un scale-up. Les étapes de cet article supposent que vous disposez déjà d’une configuration Active Directory et que vous êtes familiarisé avec l’utilisation des unités d’organisation et des objets de stratégie de groupe.
 
 ## <a name="about-this-configuration"></a>À propos de cette configuration
 
-Dans les étapes suivantes, la configuration utilise un réseau virtuel Azure avec un appairage privé ExpressRoute. Toutefois, cette configuration peut s’étendre sur plusieurs réseaux virtuels Azure et réseaux locaux. Cet article vous montre comment définir une stratégie de chiffrement IPsec et comment l’appliquer à un groupe de machines virtuelles Azure et d’hôtes locaux faisant partie d’une même unité d’organisation. Vous ne devez configurer le chiffrement entre les machines virtuelles Azure (vm1 et vm2) et l’hôte local host1 que pour le trafic HTTP avec le port de destination 8080. Différents types de stratégies IPsec peuvent être créés selon vos besoins.
+Dans les étapes suivantes, la configuration utilise un réseau virtuel Azure avec un peering privé ExpressRoute. Toutefois, cette configuration peut s’étendre sur plusieurs réseaux virtuels Azure et réseaux locaux. Cet article vous montre comment définir une stratégie de chiffrement IPsec et comment l’appliquer à un groupe de machines virtuelles Azure et d’hôtes locaux faisant partie d’une même unité d’organisation. Vous ne devez configurer le chiffrement entre les machines virtuelles Azure (vm1 et vm2) et l’hôte local host1 que pour le trafic HTTP avec le port de destination 8080. Différents types de stratégies IPsec peuvent être créés selon vos besoins.
 
 ### <a name="working-with-ous"></a>Utilisation des unités d’organisation 
 
@@ -36,7 +36,7 @@ Le diagramme suivant montre l’interconnexion et l’espace d’adressage IP at
 
 [![1]][1]
 
-Ce diagramme montre les tunnels IPsec en transit dans l’appairage privé ExpressRoute.
+Ce diagramme montre les tunnels IPsec en transit dans le peering privé ExpressRoute.
 
 [![4]][4]
 
@@ -70,7 +70,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 * Vous devez disposer d’un circuit ExpressRoute actif.
   * Pour plus d’informations sur la création d’un circuit ExpressRoute, consultez [Créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md). 
   * Vérifiez que le circuit a été activé par votre fournisseur de connectivité. 
-  * Vérifiez que l’appairage privé Azure a été configuré pour votre circuit. Pour obtenir des instructions de routage, consultez l'article sur la [configuration du routage](expressroute-howto-routing-arm.md) . 
+  * Vérifiez que le peering privé Azure a été configuré pour votre circuit. Pour obtenir des instructions de routage, consultez l'article sur la [configuration du routage](expressroute-howto-routing-arm.md) . 
   * Vérifiez qu’un réseau virtuel et une passerelle de réseau virtuel ont été créés et entièrement provisionnés. Suivez les instructions pour [créer une passerelle de réseau virtuel pour ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). Une passerelle de réseau virtuel pour ExpressRoute utilise le type de passerelle « ExpressRoute », pas de VPN.
 
 * La passerelle de réseau virtuel ExpressRoute doit être connectée au circuit ExpressRoute. Pour plus d’informations, consultez [Connecter un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md).
@@ -104,7 +104,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 1. Pour créer un objet de stratégie de groupe lié à une unité d’organisation, ouvrez le composant logiciel enfichable Gestion des stratégies de groupe, puis recherchez l’unité d’organisation à laquelle l’objet de stratégie de groupe est lié. Dans l’exemple, l’unité d’organisation se nomme **IPSecOU**. 
 
    [![9]][9]
-2. Dans le composant logiciel enfichable Gestion des stratégies de groupe, sélectionnez l’unité d’organisation, puis cliquez dessus avec le bouton droit. Dans la liste déroulante, cliquez sur **Créer un objet GPO dans ce domaine, et le lier ici...**.
+2. Dans le composant logiciel enfichable Gestion des stratégies de groupe, sélectionnez l’unité d’organisation, puis cliquez dessus avec le bouton droit. Dans la liste déroulante, cliquez sur **Créer un objet GPO dans ce domaine, et le lier ici...** .
 
    [![10]][10]
 3. Attribuez un nom explicite à l’objet de stratégie de groupe de manière à pouvoir le localiser facilement quand vous en aurez besoin. Cliquez sur **OK** pour créer et lier l’objet de stratégie de groupe.
@@ -141,7 +141,7 @@ Pour appliquer l’objet de stratégie de groupe à l’unité d’organisation,
 6. Dans la page **Communiquer avec des ordinateurs qui ne prennent pas en charge IPSec**, sélectionnez **Ne pas autoriser les communications non sécurisées**, puis cliquez sur **Suivant**.
 
    [![20]][20]
-7. Dans la page **Trafic IP et sécurité**, sélectionnez **Personnalisé**, puis cliquez sur **Paramètres...**.
+7. Dans la page **Trafic IP et sécurité**, sélectionnez **Personnalisé**, puis cliquez sur **Paramètres...** .
 
    [![21]][21]
 8. Dans la page **Paramètres personnalisés de la méthode de sécurité**, sélectionnez **Chiffrement et intégrité des données (ESP) : SHA1, 3DES**. Cliquez ensuite sur **OK**.
@@ -252,14 +252,14 @@ Ajoutez à la stratégie IPsec la **liste de filtres IP** et **l’action de fil
 6. Sélectionnez l’action de filtrage que vous avez créée précédemment (**myEncryption**).
 
    [![46]][46]
-7. Windows prend en charge quatre types d’authentification distincts : Kerberos, certificats, NTLMv2 et clé prépartagée. Étant donné que nous utilisons des ordinateurs hôtes joints à un domaine, sélectionnez **Authentification Active Directory par défaut (protocole Kerberos v.5)**, puis cliquez sur **Suivant**.
+7. Windows prend en charge quatre types d’authentification distincts : Kerberos, certificats, NTLMv2 et clé prépartagée. Étant donné que nous utilisons des ordinateurs hôtes joints à un domaine, sélectionnez **Authentification Active Directory par défaut (protocole Kerberos v.5)** , puis cliquez sur **Suivant**.
 
    [![47]][47]
 8. La nouvelle stratégie crée la règle de sécurité **azure-onpremises-HTTP8080**. Cliquez sur **OK**.
 
    [![48]][48]
 
-La stratégie IPsec nécessite que toutes les connexions HTTP passant par le port de destination 8080 utilisent le mode de transport IPsec. Étant donné que le protocole HTTP est non chiffré, le fait d’activer la stratégie de sécurité garantit le chiffrement des données lors de leur transfert via l’appairage privé ExpressRoute. La stratégie de sécurité IP pour Active Directory est plus complexe à configurer que le Pare-feu Windows avec fonctions avancées de sécurité. Toutefois, elle permet de personnaliser davantage la connexion IPsec.
+La stratégie IPsec nécessite que toutes les connexions HTTP passant par le port de destination 8080 utilisent le mode de transport IPsec. Étant donné que le protocole HTTP est non chiffré, le fait d’activer la stratégie de sécurité garantit le chiffrement des données lors de leur transfert via le peering privé ExpressRoute. La stratégie de sécurité IP pour Active Directory est plus complexe à configurer que le Pare-feu Windows avec fonctions avancées de sécurité. Toutefois, elle permet de personnaliser davantage la connexion IPsec.
 
 ## <a name="assigngpo"></a>8. Attribuer l’objet de stratégie de groupe IPsec à l’unité d’organisation
 

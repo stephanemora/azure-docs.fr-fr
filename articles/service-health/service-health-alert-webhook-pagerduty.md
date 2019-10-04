@@ -1,19 +1,19 @@
 ---
-title: Configurer des alertes sur l’intégrité du service Azure avec PagerDuty | Microsoft Docs
+title: Envoyer des alertes sur l’intégrité du service Azure avec PagerDuty à l’aide de webhooks
 description: Obtenir des notifications personnalisées sur les événements d’intégrité du service sur votre instance PagerDuty.
 author: stephbaron
 ms.author: stbaron
 ms.topic: article
 ms.service: service-health
-ms.date: 11/14/2017
-ms.openlocfilehash: b78c155fb2f3a13c27f4ff71c4dd37df2dbd2f36
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 06/10/2019
+ms.openlocfilehash: ab3bcffb6453b284c3c8bb0d0373c7155fe8ef23
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883047"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067149"
 ---
-# <a name="configure-service-health-alerts-with-pagerduty"></a>Configurer des alertes sur l’intégrité de service avec PagerDuty
+# <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Envoyer des alertes sur l’intégrité du service Azure avec PagerDuty à l’aide de webhooks
 
 Cet article vous explique comment configurer les notifications sur l’intégrité du service Azure via PagerDuty à l’aide d’un Webhook. À l’aide du type d’intégration Microsoft Azure personnalisé [PagerDuty](https://www.pagerduty.com/), vous pouvez facilement ajouter des alertes sur l’intégrité du service à vos services PagerDuty nouveaux ou existants.
 

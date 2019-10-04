@@ -13,11 +13,11 @@ ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
 ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60395229"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Transformer des données à l’aide de Databricks dans Azure Data Factory
 
@@ -33,7 +33,7 @@ Pour plus de simplicité, ce modèle ne crée aucun déclencheur planifié. Vous
 
 ![1](media/solution-template-Databricks-notebook/Databricks-tutorial-image01.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 1.  Créez un **compte de stockage d’objets blob** et un conteneur appelé `sinkdata` à utiliser comme **récepteur**. Notez le **nom du compte de stockage**, le **nom du conteneur** et la **clé d’accès** dans la mesure où ils sont référencés plus loin dans le modèle.
 
@@ -73,7 +73,7 @@ Pour plus de simplicité, ce modèle ne crée aucun déclencheur planifié. Vous
 
     ![4](media/solution-template-Databricks-notebook/Databricks-tutorial-image04.png)
 
-    ![5.](media/solution-template-Databricks-notebook/Databricks-tutorial-image05.png)
+    ![5\.](media/solution-template-Databricks-notebook/Databricks-tutorial-image05.png)
 
 ## <a name="create-linked-services-and-datasets"></a>Créer des services liés et des jeux de données
 
@@ -85,7 +85,7 @@ Pour plus de simplicité, ce modèle ne crée aucun déclencheur planifié. Vous
 
         `https://storagewithdata.blob.core.windows.net/?sv=2017-11-09&ss=b&srt=sco&sp=rl&se=2019-12-31T21:40:53Z&st=2018-10-24T13:40:53Z&spr=https&sig=K8nRio7c4xMLnUV0wWVAmqr5H4P3JDwBaG9HCevI7kU%3D`
 
-        ![6.](media/solution-template-Databricks-notebook/Databricks-tutorial-image06.png)
+        ![6\.](media/solution-template-Databricks-notebook/Databricks-tutorial-image06.png)
 
     1.  **Récepteur** : emplacement où les données sont copiées.
 

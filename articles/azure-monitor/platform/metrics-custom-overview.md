@@ -5,15 +5,15 @@ author: ancav
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.openlocfilehash: d52cb4d7b8e29838338baddd45a175661801b19b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287262"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844657"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métriques personnalisées dans Azure Monitor
 
@@ -23,7 +23,7 @@ Ces métriques **personnalisées** peuvent être collectées par le biais des do
 ## <a name="send-custom-metrics"></a>Envoyer des métriques personnalisées
 Les métriques personnalisées peuvent être envoyées à Azure Monitor à l’aide de plusieurs méthodes :
 - Instrumenter votre application en utilisant le SDK Azure Application Insights et envoyer des données de télémétrie personnalisées à Azure Monitor 
-- Installez l’extension Diagnostics Azure pour Windows (WAD) sur votre [machine virtuelle Azure](collect-custom-metrics-guestos-resource-manager-vm.md), votre [groupe de machines virtuelles identiques](collect-custom-metrics-guestos-resource-manager-vmss.md), votre [machine virtuelle classique](collect-custom-metrics-guestos-vm-classic.md) ou votre [instance Cloud Services classique](collect-custom-metrics-guestos-vm-cloud-service-classic.md), et envoyer des compteurs de performances à Azure Monitor. 
+- Installer l’extension Microsoft Azure Diagnostics (WAD) sur votre [machine virtuelle Azure](collect-custom-metrics-guestos-resource-manager-vm.md), votre [groupe de machines virtuelles identiques](collect-custom-metrics-guestos-resource-manager-vmss.md), votre [machine virtuelle classique](collect-custom-metrics-guestos-vm-classic.md) ou votre [instance Cloud Services classique](collect-custom-metrics-guestos-vm-cloud-service-classic.md), et envoyer des compteurs de performances à Azure Monitor 
 - Installer [l’agent InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) sur votre machine virtuelle Linux Azure et envoyer les métriques à l’aide du plug-in de sortie Azure Monitor
 - Envoyer des métriques personnalisées [directement à l’API REST Azure Monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md) : `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`
 
@@ -55,7 +55,7 @@ Cette propriété capture la région Azure dans laquelle est déployée la resso
 >
 
 ### <a name="timestamp"></a>Timestamp
-Chaque point de données envoyé à Azure Monitor doit être marqué par un timestamp. Cet horodatage capture la date et l’heure auxquelles la valeur de métrique a été mesurée ou collectée. Azure Monitor accepte les données métriques dont les horodatages ne datent pas de plus de 20 minutes et ne dépassent pas les 5 minutes à venir. L’horodatage doit être au format ISO 8601.
+Chaque point de données envoyé à Azure Monitor doit être marqué par un timestamp. Cet horodatage capture la date et l’heure auxquelles la valeur de métrique a été mesurée ou collectée. Azure Monitor accepte les données métriques dont les horodatages ne datent pas de plus de 20 minutes et ne dépassent pas les 5 minutes à venir. Le timestamp doit être au format ISO 8601.
 
 ### <a name="namespace"></a>Espace de noms
 Les espaces de noms offrent un moyen de grouper ou classer par catégorie des métriques similaires. Les espaces de noms permettent d’isoler les groupes de métriques collectant différents insights ou indicateurs de performances. Par exemple, vous pouvez avoir un espace de noms appelé **ContosoMemoryMetrics** qui effectue le suivi des métriques d’utilisation de la mémoire qui profile votre application. Un autre espace de noms appelé **ContosoAppTransaction** peut effectuer le suivi de toutes les métriques relatives aux transactions utilisateur de votre application.
@@ -65,7 +65,7 @@ Les espaces de noms offrent un moyen de grouper ou classer par catégorie des m�
 
 ### <a name="dimension-keys"></a>Clés de dimension
 Une dimension est une paire de clés ou de valeurs qui décrivent des caractéristiques supplémentaires concernant la métrique collectée. Ces caractéristiques supplémentaires permettent de collecter plus d’informations sur la métrique, offrant des insights plus approfondis. Par exemple, la métrique **Memory Bytes In Use** peut disposer d’une clé de dimension nommée **Process**, qui capture le nombre d’octets de mémoire consommés par chaque processus sur une machine virtuelle. Cette clé vous permet de filtrer les résultats de cette métrique pour connaître la quantité de mémoire utilisée par certains processus ou pour identifier les cinq processus utilisant le plus de mémoire.
-Les dimensions sont facultatives, pas toutes les métriques peuvent avoir des dimensions. Une mesure personnalisée peut avoir jusqu'à 10 dimensions.
+Les dimensions sont facultatives ; certaines métriques peuvent ne pas avoir de dimensions. Une métrique personnalisée peut avoir jusqu'à 10 dimensions.
 
 ### <a name="dimension-values"></a>Valeurs de dimension
 Lorsqu’un point de données de métrique est rapporté, chaque clé de dimension rapportée est associée à une valeur de dimension. Par exemple, vous pouvez souhaiter que la mémoire utilisée par l’application ContosoApp sur votre machine virtuelle soit rapportée :
@@ -75,7 +75,7 @@ Lorsqu’un point de données de métrique est rapporté, chaque clé de dimensi
 * La valeur de dimension sera **ContosoApp.exe**.
 
 Lorsque vous publiez une valeur de métrique, vous pouvez spécifier une valeur de dimension par clé de dimension uniquement. Si vous collectez une même utilisation de la mémoire pour plusieurs processus sur la machine virtuelle, vous pouvez rapporter plusieurs valeurs de métrique pour cet horodatage. Chaque valeur de métrique spécifiera une valeur de dimension différente pour la clé de dimension **Process**.
-Les dimensions sont facultatives, pas toutes les métriques peuvent avoir des dimensions. Si un billet métrique définit les clés de dimension, les valeurs de dimension correspondantes sont obligatoires.
+Les dimensions sont facultatives ; certaines métriques peuvent ne pas avoir de dimensions. Si une publication de métriques définit des clés de dimension, les valeurs de dimension correspondantes sont obligatoires.
 
 ### <a name="metric-values"></a>Valeurs de métrique
 Azure Monitor stocke toutes les métriques à intervalles réguliers (avec une granularité d’une minute). Nous savons qu’il peut être nécessaire d’échantillonner une métrique plusieurs fois au cours d’une minute donnée. C’est le cas, par exemple, avec l’utilisation du processeur. Vous pouvez également avoir besoin de mesurer une métrique pour de nombreux événements discrets. C’est le cas, par exemple, avec les latences de transaction de connexion. Pour limiter le nombre de valeurs brutes que vous devez émettre et payer dans Azure Monitor, vous pouvez pré-agréger les valeurs localement et les émettre :
@@ -168,20 +168,36 @@ Une fois les métriques personnalisées envoyées à Azure Monitor, vous pouvez 
 ## <a name="supported-regions"></a>Régions prises en charge
 Dans la préversion publique, la publication des métriques personnalisées n’est possible que dans un sous-ensemble de régions Azure. Cette restriction signifie que vous ne pouvez publier des métriques que pour les ressources qui sont situées dans l’une de ces régions. Le tableau suivant répertorie les régions Azure qui prennent en charge les métriques personnalisées. Il répertorie également les points de terminaison où peuvent être publiées les métriques concernant les ressources situées dans ces régions :
 
-|Région Azure|Préfixe du point de terminaison régional|
+|Région Azure |Préfixe du point de terminaison régional|
 |---|---|
-|USA Est| https :\//eastus.monitoring.azure.com/ |
-|USA Centre Sud| https:\//southcentralus.monitoring.azure.com/ |
-|USA Centre-Ouest| https:\//westcentralus.monitoring.azure.com/ |
-|USA Ouest 2| https:\//westus2.monitoring.azure.com/ |
-|Asie Sud-Est| https :\//southeastasia.monitoring.azure.com/ |
-|Europe Nord| https:\//northeurope.monitoring.azure.com/ |
-|Europe Ouest| https:\//westeurope.monitoring.azure.com/ |
+| **États-Unis et Canada** | |
+|Centre-USA Ouest | https:\//westcentralus.monitoring.azure.com/ |
+|USA Ouest 2       | https:\//westus2.monitoring.azure.com/ |
+|Centre-Nord des États-Unis | https:\//northcentralus.monitoring.azure.com
+|États-Unis - partie centrale méridionale| https:\//southcentralus.monitoring.azure.com/ |
+|USA Centre      | https:\//centralus.monitoring.azure.com |
+|Centre du Canada | https:\//canadacentral.monitoring.azure.comc
+|USA Est| https:\//eastus.monitoring.azure.com/ |
+| **Europe** | |
+|Europe Nord    | https:\//northeurope.monitoring.azure.com/ |
+|Europe Ouest     | https:\//westeurope.monitoring.azure.com/ |
+|Sud du Royaume-Uni | https:\//uksouth.monitoring.azure.com
+|France Centre | https:\//francecentral.monitoring.azure.com |
+| **Afrique** | |
+|Afrique du Sud Nord | https:\//southafricanorth.monitoring.azure.com
+| **Asie** | |
+|Inde centrale | https:\//centralindia.monitoring.azure.com
+|Australie Est | https:\//australiaeast.monitoring.azure.com
+|Japon Est | https:\//japaneast.monitoring.azure.com
+|Asie Sud-Est  | https:\//southeastasia.monitoring.azure.com |
+|Asie Est | https:\//eastasia.monitoring.azure.com
+|Centre de la Corée   | https:\//koreacentral.monitoring.azure.com
+
 
 ## <a name="quotas-and-limits"></a>Quotas et limites
 Azure Monitor impose les limites d’utilisation suivantes quant aux métriques personnalisées :
 
-|Catégorie|Limite|
+|Category|Limite|
 |---|---|
 |Série chronologique active/abonnements/région|50 000|
 |Clés de dimension par métrique|10|

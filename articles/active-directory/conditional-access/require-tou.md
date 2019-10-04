@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37a58cb9f9d1082d02854f43e511e5431d90c13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ba684209b497792cd2f520f6b530168959e62d7f
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894249"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67506914"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Démarrage rapide : Exiger l’acceptation des conditions d’utilisation avant d’accorder l’accès à des applications cloud
 
@@ -54,16 +54,13 @@ Cette section explique comment configurer des conditions d’utilisation. Lorsqu
 **Pour créer vos conditions d’utilisation :**
 
 1. Dans Microsoft Word, créez un nouveau document.
-
 1. Saisissez **My terms of use**, puis enregistrez le document sur votre ordinateur sous le nom **mytou.pdf**.
-
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
-
 1. Dans la barre de navigation gauche du portail Azure, cliquez sur **Azure Active Directory**.
 
    ![Azure Active Directory](./media/require-tou/02.png)
 
-1. Dans la page **Azure Active Directory**, dans la section **Sécurité**, cliquez sur **Accès conditionnel**.
+1. Sur la page **Azure Active Directory**, dans la section **Sécurité**, cliquez sur **Accès conditionnel**.
 
    ![Accès conditionnel](./media/require-tou/03.png)
 
@@ -80,17 +77,11 @@ Cette section explique comment configurer des conditions d’utilisation. Lorsqu
    ![Conditions d’utilisation](./media/require-tou/112.png)
 
    1. Dans la zone de texte **Nom**, saisissez **My TOU**.
-
    1. Dans la zone de texte **Nom d’affichage** saisissez **My TOU**.
-
    1. Chargez vos conditions d’utilisation sous forme de fichier PDF.
-
    1. Dans la zone **langue**, sélectionnez **anglais**.
-
-   1. Activez l’option permettant de **demander aux utilisateurs de développer les conditions d’utilisation****.**
-
+   1. Activez l’option permettant de **demander aux utilisateurs de développer les conditions d’utilisation** **.**
    1. Pour l’option **Appliquer avec des modèles de stratégie d’accès conditionnel**, sélectionnez **Stratégie personnalisée**.
-
    1. Cliquez sur **Créer**.
 
 ## <a name="create-your-conditional-access-policy"></a>Créer votre stratégie d’accès conditionnel
@@ -98,7 +89,7 @@ Cette section explique comment configurer des conditions d’utilisation. Lorsqu
 Cette section montre comment créer la stratégie d’accès conditionnel requise. Le scénario de ce démarrage rapide utilise ce qui suit :
 
 - le portail Azure en tant qu’espace réservé pour une application cloud qui exige que vos conditions d’utilisation soient acceptées ; 
-- votre exemple d’utilisateur pour tester la stratégie d’accès conditionnel.  
+- Votre exemple d’utilisateur pour tester la stratégie d’accès conditionnel.  
 
 Dans votre stratégie, définissez :
 
@@ -125,13 +116,9 @@ Dans votre stratégie, définissez :
    ![Utilisateurs et groupes](./media/require-tou/24.png)
 
    1. Cliquez sur **Sélectionner des utilisateurs et des groupes**, puis choisissez **des utilisateurs et des groupes**.
-
    1. Cliquez sur **Sélectionner**.
-
    1. Dans la page **Sélectionner**, sélectionnez **Isabella Simonsen**, puis cliquez sur **Sélectionner**.
-
    1. Dans la page **Utilisateurs et groupes**, cliquez sur **Terminé**.
-
 1. Cliquez sur **Applications cloud**.
 
    ![Applications cloud](./media/require-tou/08.png)
@@ -141,13 +128,9 @@ Dans votre stratégie, définissez :
    ![Sélection des applications cloud](./media/require-tou/26.png)
 
    1. Cliquez sur **Sélectionner les applications**.
-
    1. Cliquez sur **Sélectionner**.
-
    1. Dans la page **Sélectionner**, choisissez **Gestion Microsoft Azure**, puis cliquez sur **Sélectionner**.
-
    1. Dans la page **Applications cloud**, cliquez sur **Terminé**.
-
 1. Dans la section **Contrôles d’accès**, cliquez sur **Accorder**.
 
    ![Contrôles d’accès](./media/require-tou/10.png)
@@ -157,11 +140,8 @@ Dans votre stratégie, définissez :
    ![Grant (Autoriser)](./media/require-tou/111.png)
 
    1. Sélectionner **Accorder l’accès**.
-
    1. Sélectionnez **My TOU**.
-
    1. Cliquez sur **Sélectionner**.
-
 1. Dans la section **Activer la stratégie**, cliquez sur **Activée**.
 
    ![Activer la stratégie](./media/require-tou/18.png)
@@ -170,9 +150,9 @@ Dans votre stratégie, définissez :
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Évaluer une connexion simulée
 
-À présent que vous avez configuré votre stratégie d’accès conditionnel, vous souhaitez probablement savoir s’il fonctionne comme prévu. Dans un premier temps, utilisez l’outil de stratégie d’accès conditionnel What If pour simuler une connexion de votre utilisateur de test. La simulation évalue l’impact cette connexion sur vos stratégies et génère un rapport de simulation.  
+À présent que vous avez configuré votre stratégie d’accès conditionnel, vous souhaitez probablement savoir s’il fonctionne comme prévu. Dans un premier temps, utilisez l’outil de stratégie d’accès conditionnel What If pour simuler une connexion de votre utilisateur de test. La simulation évalue l’impact de cette connexion sur vos stratégies et génère un rapport de simulation.  
 
-Pour initialiser l’outil d’évaluation de stratégie What If, définissez ce qui suit :
+Pour initialiser l’outil d’évaluation de stratégie **What If**, définissez ce qui suit :
 
 - **Isabella Simonsen** en tant qu’utilisateur.
 - **Gestion Microsoft Azure** en tant qu’application cloud.
@@ -199,15 +179,10 @@ Un clic sur **What If** a pour effet de créer un rapport de simulation indiquan
    ![Applications cloud](./media/require-tou/16.png)
 
    1. Cliquez sur **Applications cloud**.
-
    1. Dans la page **Applications cloud**, cliquez sur **Sélectionner les applications**.
-
    1. Cliquez sur **Sélectionner**.
-
    1. Dans la page **Sélectionner**, choisissez **Gestion Microsoft Azure**, puis cliquez sur **Sélectionner**.
-
    1. Dans la page Applications cloud, cliquez sur **Terminé**.
-
 1. Cliquez sur **What If**.
 
 ## <a name="test-your-conditional-access-policy"></a>Tester votre stratégie d’accès conditionnel
@@ -223,7 +198,6 @@ Pour tester votre stratégie, essayez de vous connecter à votre [portail Azure]
 Lorsque vous n’en avez plus besoin, supprimez l’utilisateur de test et la stratégie d’accès conditionnel :
 
 - Si vous ignorez comment supprimer un utilisateur Azure AD, voir [Supprimer des utilisateurs d’Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-
 - Pour supprimer votre stratégie, sélectionnez-la, puis cliquez sur **Supprimer** dans la barre d’outils Accès rapide.
 
     ![Authentification multifacteur](./media/require-tou/33.png)

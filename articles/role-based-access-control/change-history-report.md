@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e5758f480c9216cf71e47509682053b39f0b15bf
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997901"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172412"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle apportés aux ressources Azure
 
@@ -92,7 +92,7 @@ Properties              :
 
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 
 Pour afficher les journaux d’activité avec l’interface de ligne de commande Azure, utilisez la commande [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
 
@@ -110,7 +110,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 
-[Journaux d’analyse Azure](../log-analytics/log-analytics-overview.md) est un autre outil, vous pouvez utiliser pour collecter et analyser les modifications RBAC pour toutes vos ressources Azure. Journaux d’analyse Azure présente les avantages suivants :
+[Les journaux Azure Monitor](../log-analytics/log-analytics-overview.md) sont un autre outil que vous pouvez utiliser pour collecter et analyser les changements RBAC de toutes vos ressources Azure. Les journaux Azure Monitor possèdent les avantages suivants :
 
 - Écriture de requêtes et d’une logique complexes
 - Intégration aux alertes, à Power BI et à d’autres outils
@@ -121,11 +121,11 @@ Voici les étapes de base pour bien démarrer :
 
 1. [Créez un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configurez la solution Activity Log Analytics](../azure-monitor/platform/collect-activity-logs.md#configuration) pour vos espaces de travail.
+1. [Configurez la solution Activity Log Analytics](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) pour vos espaces de travail.
 
-1. [Affichez les journaux d’activité](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Un moyen rapide d’accéder à la page de vue d’ensemble de solution Analytique de journal d’activité consiste à cliquer sur le **Analytique de journal** option.
+1. [Affichez les journaux d’activité](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Un moyen rapide d’accéder à la page Vue d’ensemble de la solution Activity Log Analytics consiste à cliquer sur l’option **Log Analytics**.
 
-   ![Option de journaux Azure Monitor dans le portail](./media/change-history-report/azure-log-analytics-option.png)
+   ![Option journaux Azure Monitor dans le portail](./media/change-history-report/azure-log-analytics-option.png)
 
 1. Éventuellement, utilisez la page [Recherche dans les journaux d’activité](../log-analytics/log-analytics-log-search.md) ou le [portal Analytique avancée](../azure-monitor/log-query/get-started-portal.md) pour interroger et afficher les journaux d’activité. Pour plus d’informations sur ces deux options, consultez la [page Recherche dans les journaux ou le portail Analytique avancée](../azure-monitor/log-query/portals.md).
 
@@ -133,7 +133,7 @@ Voici une requête qui retourne les nouvelles attributions de rôle organisées 
 
 ```
 AzureActivity
-| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
+| where TimeGenerated > ago(60d) and OperationNameValue startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
 | parse ResourceId with * "/providers/" TargetResourceAuthProvider "/" *
 | summarize count(), makeset(Caller) by TargetResourceAuthProvider
 ```
@@ -142,8 +142,8 @@ Voici une requête qui retourne des changements d’attribution de rôle affich�
 
 ```
 AzureActivity
-| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments"
-| summarize count() by bin(TimeGenerated, 1d), OperationName
+| where TimeGenerated > ago(60d) and OperationNameValue startswith "Microsoft.Authorization/roleAssignments"
+| summarize count() by bin(TimeGenerated, 1d), OperationNameValue
 | render timechart
 ```
 

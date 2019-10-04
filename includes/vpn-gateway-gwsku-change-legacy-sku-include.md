@@ -9,11 +9,11 @@ ms.date: 03/15/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c232e1ce183c6935d625b5bc9987a4981865ae4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57908686"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176943"
 ---
 Si vous utilisez le modèle de déploiement du Gestionnaire des ressources, vous pouvez basculer vers les nouvelles références SKU de passerelle. Lorsque vous passez d’une ancienne référence SKU de passerelle vers une nouvelle référence SKU, vous supprimez la passerelle VPN existante et créez une nouvelle passerelle VPN.
 

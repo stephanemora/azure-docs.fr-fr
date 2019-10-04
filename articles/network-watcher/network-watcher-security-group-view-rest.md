@@ -3,8 +3,8 @@ title: Analyser la sécurité réseau avec la vue Groupe de sécurité réseau N
 description: Cet article décrit comment utiliser PowerShell pour analyser la sécurité des machines virtuelles par le biais de la vue Groupe de sécurité.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: a2f418fe-f5d2-43ed-8dc3-df0ed2a4d4ac
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: a2f55a65d88b499384fc961c3d6a479bac804ba8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 86fff39605fa91c1b09c1547dd0efa97b8fd26cd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051527"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64687861"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analyser la sécurité de votre machine virtuelle par le biais de la vue Groupe de sécurité dans l’API REST
 
@@ -53,7 +53,7 @@ armclient login
 
 Exécutez le script suivant pour renvoyer une machine virtuelle. Le code suivant nécessite des variables :
 
-- **ID d’abonnement** -l’id d’abonnement peut également être récupéré avec la **Get-AzSubscription** applet de commande.
+- **subscriptionId** - L’ID d’abonnement peut également être récupéré avec l’applet de commande **Get-AzSubscription**.
 - **resourceGroupName** - Le nom d’un groupe de ressources qui contient les machines virtuelles.
 
 ```powershell

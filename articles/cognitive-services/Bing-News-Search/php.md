@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Effectuer une recherche d’actualités à l’aide de PHP - API REST Recherche d’actualités Bing'
-titlesuffix: Azure Cognitive Services
+title: 'Démarrage rapide : Effectuer une recherche d’actualités à l’aide de PHP et l’API REST Recherche d’actualités Bing'
+titleSuffix: Azure Cognitive Services
 description: Utilisez ce démarrage rapide pour envoyer une requête à l’API REST Recherche d’actualités Bing à l’aide de PHP et recevez une réponse JSON.
 services: cognitive-services
 author: aahill
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e77c7ea6036e92c33c975f8180053a8880db55a0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b905993c88bd4425215dd83962980d8e46a7b943
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090523"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423707"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Démarrage rapide : Effectuer une recherche d’actualités à l’aide de PHP et l’API REST Recherche d’actualités Bing
 
@@ -34,7 +34,7 @@ Consultez également [Tarification Cognitive Services - API Recherche Bing](http
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-L’[API Recherche d'actualités Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) renvoie des résultats de l’actualité à partir du moteur de recherche Bing.
+L’[API Recherche d'actualités Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) renvoie des résultats de l’actualité à partir du moteur de recherche Bing.
 
 1. Vérifiez que la prise en charge HTTP sécurisée est activée dans `php.ini` comme décrit dans le commentaire de code.
 2. Créez un projet PHP dans votre éditeur ou IDE favori.

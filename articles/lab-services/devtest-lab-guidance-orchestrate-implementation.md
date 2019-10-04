@@ -14,11 +14,11 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e0ac09a68bda539fe7abd05fce1739d1a58a3c99
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242989"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127342"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Orchestrer l’implémentation d’Azure DevTest Labs
 Cet article présente une approche recommandée pour un déploiement et une implémentation rapides d’Azure DevTest Labs. L’illustration suivante met l’accent sur l’ensemble du processus sous forme de conseils prescriptifs tout en observant la flexibilité pour prendre en charge différents scénarios et différentes exigences du secteur.

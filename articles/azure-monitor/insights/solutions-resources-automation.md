@@ -15,11 +15,11 @@ ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62110359"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Ajout de ressources Azure Automation à une solution de gestion (préversion)
 > [!NOTE]
@@ -32,7 +32,7 @@ Les [solutions de gestion]( solutions.md) comprennent généralement des runbook
 > Les exemples dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Conception et génération d’une solution de gestion dans Azure]( solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous êtes déjà familiarisé avec les informations suivantes.
 
 - Comment [créer une solution de gestion]( solutions-creating.md).
@@ -282,8 +282,8 @@ Si vous définissez la valeur initiale pour la variable, elle doit être configu
 | Type de données | Description | Exemples | Est résolu en |
 |:--|:--|:--|:--|
 | string   | Placer la valeur entre des guillemets doubles.  | "\"Hello world\"" | "Hello world" |
-| numérique  | Valeur numérique avec des guillemets simples.| "64" | 64 |
-| booléenne  | **true** ou **false** entre guillemets.  Notez que cette valeur doit être en minuscules. | "true" | true |
+| numeric  | Valeur numérique avec des guillemets simples.| "64" | 64 |
+| boolean  | **true** ou **false** entre guillemets.  Notez que cette valeur doit être en minuscules. | "true" | true |
 | datetime | Valeur de date sérialisée.<br>Vous pouvez utiliser la cmdlet ConvertTo-Json dans PowerShell pour générer cette valeur pour une date particulière.<br>Exemple : get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modules

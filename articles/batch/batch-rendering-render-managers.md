@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcc66a73e3d7986b177b13eb309ad664a006b960
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.openlocfilehash: eb3ce47e5ffed697392065a1faacbbfaec19f4d1
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790054"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983672"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Utilisation d’Azure Batch avec des gestionnaires de groupe de rendus
 
@@ -23,22 +23,28 @@ Azure fournit la prise en charge intégrée ou des modules complémentaires pour
 Les gestionnaires de rendus suivants sont pris en charge :
 
 * [PipelineFX Qube!](https://www.pipelinefx.com/)
-* [Royal Render](http://www.royalrender.de/)
+* [Royal Render](https://www.royalrender.de/)
 * [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
+
+## <a name="azure-render-hub"></a>Azure Render Hub
+
+Azure Render Hub simplifie la création et la gestion des groupes de rendus Azure.  Render Hub assure une prise en charge native de PipelineFx Qube et Deadline 10.  Pour obtenir plus d’informations et des instructions détaillées, consultez le [dépôt GitHub](https://github.com/Azure/azure-render-hub).
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>Utilisation d’Azure avec PipelineFX Qube
 
-Les scripts et instructions permettant d’utiliser des machines virtuelles du pool Azure Batch comme des Workers Qube se trouvent dans le [référentiel GitHub](https://github.com/Azure/azure-qube).
+Azure Render Hub prend en charge les gestionnaires de rendus populaires, dont Deadline.  Pour obtenir des instructions sur le déploiement et l’utilisation de Render Hub, consultez le [dépôt GitHub](https://github.com/Azure/azure-render-hub).
+
+Les scripts et instructions permettant d’utiliser des machines virtuelles du pool Azure Batch comme workers Qube sont également disponibles dans le [dépôt GitHub](https://github.com/Azure/azure-qube).
 
 ## <a name="using-azure-with-royal-render"></a>Utilisation d’Azure avec Royal Render
 
-Azure et Azure Batch sont intégrés dans Royal Render, ce qui vous permet d’étendre un groupe de rendus avec des machines virtuelles Azure. Pour obtenir un résumé, consultez les [fichiers d’aide](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
+Azure et Azure Batch sont intégrés dans Royal Render, ce qui vous permet d’étendre un groupe de rendus avec des machines virtuelles Azure. Pour obtenir un résumé, consultez les [fichiers d’aide](https://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
 Pour obtenir un exemple d’un client Royal Render utilisant l’intégration d’Azure, consultez le [témoignage client de Jellyfish Pictures](https://customers.microsoft.com/story/jellyfishpictures).
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>Utilisation d’Azure avec Thinkbox Deadline
 
-Les scripts et instructions permettant d’utiliser des machines virtuelles du pool Azure Batch comme des esclaves Deadline se trouvent dans le [référentiel GitHub](https://github.com/Azure/azure-deadline).
+Azure Render Hub prend en charge les gestionnaires de rendus populaires, dont Deadline.  Pour obtenir des instructions sur le déploiement et l’utilisation de Render Hub, consultez le [dépôt GitHub](https://github.com/Azure/azure-render-hub).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

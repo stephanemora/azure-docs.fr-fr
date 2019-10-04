@@ -3,7 +3,7 @@ title: Qu’est-ce que Privileged Identity Management ? - Azure Active Director
 description: Fournit une vue d’ensemble d’Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be8b9fe027a023cec6c816fa641beb41e5849741
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 5009310dd4ea4e99e1da2871085ee2d2d99a6eab
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496076"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804509"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
@@ -42,15 +42,6 @@ PIM vous permet de gérer qui a accès aux ressources importantes, à quel momen
 - Effectuer des **révisions d’accès** pour vérifier que les utilisateurs ont toujours besoin de leurs rôles
 - Télécharger l’**historique des audits** (internes ou externes)
 
-## <a name="prerequisites"></a>Prérequis
-
-Pour utiliser PIM, vous devez disposer de l’une des licences payantes ou gratuites suivantes : Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](../fundamentals/active-directory-whatis.md).
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-
-Pour plus d’informations sur les licences utilisateur, consultez [Exigences relatives aux licences pour l’utilisation de PIM](subscription-requirements.md).
-
 ## <a name="terminology"></a>Terminologie
 
 Pour mieux comprendre PIM et sa documentation, vous devez connaître les termes suivants.
@@ -60,8 +51,8 @@ Pour mieux comprendre PIM et sa documentation, vous devez connaître les termes 
 | Éligible | Type | Attribution de rôle qui oblige l’utilisateur à effectuer une ou plusieurs actions pour utiliser ce rôle. Lorsqu’un utilisateur devient éligible pour un rôle, il peut l’activer pour réaliser des tâches privilégiées. Il n’existe aucune différence entre un accès accordé de façon permanente à un utilisateur et l’affectation d’un rôle éligible. La seule différence réside dans le fait que certaines personnes n’ont pas besoin d’un accès permanent. |
 | active | Type | Attribution de rôle qui n’exige aucune action de la part de l’utilisateur pour être utilisée. Les utilisateurs actifs disposent des privilèges affectés au rôle. |
 | Activer |  | Processus dans lequel une ou plusieurs actions sont exécutées dans le but d’utiliser un rôle pour lequel un utilisateur est éligible. Il peut s’agir de procéder à une vérification de l’authentification multifacteur (MFA), de fournir une justification professionnelle ou de demander une approbation aux approbateurs désignés. |
-| Affecté | État | Utilisateur qui dispose d’une attribution de rôle active. |
-| Activé | État | Utilisateur qui dispose d’une attribution de rôle éligible, qui a effectué les actions nécessaires à l’activation du rôle et qui est maintenant actif.  Une fois le rôle activé, l’utilisateur peut s’en servir durant une période prédéfinie avant d’être obligé de l’activer à nouveau. |
+| Affecté | State | Utilisateur qui dispose d’une attribution de rôle active. |
+| Activé | State | Utilisateur qui dispose d’une attribution de rôle éligible, qui a effectué les actions nécessaires à l’activation du rôle et qui est maintenant actif.  Une fois le rôle activé, l’utilisateur peut s’en servir durant une période prédéfinie avant d’être obligé de l’activer à nouveau. |
 | Éligibilité permanente | Duration | Attribution de rôle qui permet à un utilisateur d’être toujours éligible à l’activation du rôle. |
 | Active en permanence | Duration | Attribution de rôle qui permet à un utilisateur de toujours utiliser un rôle sans effectuer aucune action. |
 | Éligibilité avec expiration | Duration | Attribution de rôle qui permet à un utilisateur d’être éligible à l’activation d’un rôle pendant une période spécifiée. |
@@ -87,7 +78,7 @@ Pour les rôles de ressources Azure, seul un administrateur d’abonnement, un p
 
 PIM prend en charge les scénarios suivants :
 
-**En tant qu’Administrateur de rôle privilégié, vous pouvez :**
+**En tant qu’Administrateur de rôle privilégié, vous pouvez :**
 
 - Activer l’approbation pour des rôles spécifiques
 - Spécifier les utilisateurs et/ou groupes approbateurs pour approuver des demandes
@@ -105,8 +96,14 @@ PIM prend en charge les scénarios suivants :
 - Afficher l’état de votre demande d’activation
 - Exécuter la tâche dans Azure AD si l’activation a été approuvée
 
+## <a name="license-requirements"></a>Conditions de licence :
+
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+Pour plus d’informations sur les licences utilisateur, consultez [Exigences relatives aux licences pour l’utilisation de PIM](subscription-requirements.md).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Licences requises pour utiliser PIM](subscription-requirements.md)
+- [Exigences relatives aux licences pour l’utilisation de PIM](subscription-requirements.md)
 - [Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-- [Déployer PIM](pim-deployment-plan.md)
+- [Déployer PIM (Privileged Identity Management)](pim-deployment-plan.md)

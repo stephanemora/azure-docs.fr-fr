@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8cb048964830f62fe483da63d24356f46538b7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d3b304bb35ea69906fc9576f45733134387be1b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099518"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Didacticiel : Intégration d’Azure Active Directory à JIRA SAML SSO by Microsoft (v5.2)
 
@@ -37,7 +37,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="description"></a>Description
 
-Utilisez votre compte Microsoft Azure Active Directory avec le serveur Atlassian JIRA pour activer l’authentification unique. Ainsi, l’ensemble des utilisateurs de votre organisation peuvent utiliser les informations d’identification Azure AD pour se connecter à l’application JIRA. Ce plug-in utilise SAML 2.0 pour la fédération.
+Utilisez votre compte Microsoft Azure Active Directory avec le serveur Atlassian JIRA pour activer l’authentification unique. Ainsi, tous les utilisateurs de votre organisation peuvent utiliser les informations d’identification Azure Active Directory pour se connecter à l’application JIRA. Ce plug-in utilise SAML 2.0 pour la fédération.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -66,7 +66,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 * JIRA prend également en charge les versions 6.0 à 7.12. Pour plus d’informations, cliquez sur [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md).
 
 > [!NOTE]
-> Notez que JIRA prend également en charge Linux Ubuntu version 16.04
+> Veuillez noter que notre plug-in JIRA fonctionnent également sur la version 16.04 de Ubuntu
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -78,9 +78,9 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de JIRA SAML SSO by Microsoft (v5.2) à Azure AD, vous devez ajouter JIRA SAML SSO by Microsoft (v5.2) à votre liste d’applications SaaS gérées à partir de la galerie.
 
-**Pour ajouter JIRA SAML SSO by Microsoft (v5.2) à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter JIRA SAML SSO by Microsoft (v5.2) à partir de la galerie, suivez les étapes ci-dessous :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -92,7 +92,7 @@ Pour configurer l’intégration de JIRA SAML SSO by Microsoft (v5.2) à Azure A
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **JIRA SAML SSO by Microsoft (v5.2)**, sélectionnez **JIRA SAML SSO by Microsoft (v5.2)** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **JIRA SAML SSO by Microsoft (v5.2)** , sélectionnez **JIRA SAML SSO by Microsoft (v5.2)** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![JIRA SAML SSO by Microsoft (v5.2) dans la liste des résultats](common/search-new-app.png)
 
@@ -116,7 +116,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec JIRA SAML SSO by Microsoft (v5.2), effectuez les étapes suivantes :
 
-1. Sur le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **JIRA SAML SSO by Microsoft (v5.2)**, sélectionnez **Authentification unique**.
+1. Sur le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **JIRA SAML SSO by Microsoft (v5.2)** , sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -132,9 +132,9 @@ Pour configurer l’authentification unique Azure AD avec JIRA SAML SSO by Micro
 
     ![Informations d’authentification unique dans Domaine et URL JIRA SAML SSO by Microsoft (V5.2)](common/sp-identifier-reply.png)
 
-    a. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant : `https://<domain:port>/plugins/servlet/saml/auth`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<domain:port>/plugins/servlet/saml/auth`.
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<domain:port>/`
+    b. Dans la zone de texte **Identificateur**, tapez une URL en utilisant le format suivant : `https://<domain:port>/`
 
     c. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<domain:port>/plugins/servlet/saml/auth`
 
@@ -224,11 +224,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à JIRA SAML SSO by Microsoft (v5.2).
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **JIRA SAML SSO by Microsoft (v5.2)**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis sélectionnez **JIRA SAML SSO by Microsoft (v5.2)** .
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **JIRA SAML SSO by Microsoft (v5.2)**.
+2. Dans la liste des applications, sélectionnez **JIRA SAML SSO by Microsoft (v5.2)** .
 
     ![Lien JIRA SAML SSO by Microsoft (v5.2) dans la liste Applications](common/all-applications.png)
 
@@ -250,7 +250,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 Les utilisateurs Azure AD doivent avoir été provisionnés dans le serveur local JIRA pour pouvoir s’y connecter.
 
-**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
+**Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
 1. Connectez-vous à votre serveur local JIRA en tant qu’administrateur.
 

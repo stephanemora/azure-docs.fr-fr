@@ -1,19 +1,19 @@
 ---
 title: Utiliser un stockage de sauvegarde moderne avec un Serveur de sauvegarde Azure
 description: Découvrez les nouvelles fonctionnalités du Serveur de sauvegarde Azure. Cet article décrit comment mettre à niveau votre installation de serveur de sauvegarde.
-services: backup
-author: rayne-wiselman
+ms.reviewer: adigan
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan
-ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: dacurwin
+ms.openlocfilehash: 48d58ac303a843c627067c9a0287628c35b65f66
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852857"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019068"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Ajouter du stockage à un serveur de sauvegarde Azure
 
@@ -75,13 +75,13 @@ Avec un stockage prenant en compte les charges de travail, vous pouvez sélectio
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Vous pouvez configurer le stockage prenant en charge les charges de travail à l’aide de l’applet de commande PowerShell Update-DPMDiskStorage, ce qui met à jour les propriétés d’un volume dans le pool de stockage sur un serveur de sauvegarde Azure. 
+Vous pouvez configurer un stockage prenant en compte les charges de travail à l’aide de l’applet de commande PowerShell Update-DPMDiskStorage, ce qui a pour effet de mettre à jour les propriétés d’un volume dans le pool de stockage sur un serveur de sauvegarde Azure. 
 
 Syntaxe :
 
 `Parameter Set: Volume`
 
-```
+```powershell
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
 La capture d’écran suivante montre l’applet de commande Update-DPMDiskStorage dans la fenêtre PowerShell.

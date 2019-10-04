@@ -2,26 +2,26 @@
 title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Spécifiez l’élément ClaimsSchema d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 1a26d6228fd2d0383f22d4f286cc84e263facfe6
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487819"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999102"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L’élément **ClaimsSchema** définit les types de revendications qui peuvent être référencés dans le cadre de la stratégie. Le schéma de revendications est l’endroit où vous déclarez vos revendications. Une revendication peut être le prénom, le nom de famille, le nom d’affichage, le numéro de téléphone, et bien plus encore. L’élément ClaimsSchema contient une liste d’éléments **ClaimType**. L’élément **ClaimType** contient l’attribut **Id**, qui est le nom de la revendication. 
+L’élément **ClaimsSchema** définit les types de revendications qui peuvent être référencés dans le cadre de la stratégie. Le schéma de revendications est l’endroit où vous déclarez vos revendications. Une revendication peut être le prénom, le nom de famille, le nom d’affichage, le numéro de téléphone, et bien plus encore. L’élément ClaimsSchema contient une liste d’éléments **ClaimType**. L’élément **ClaimType** contient l’attribut **Id**, qui est le nom de la revendication.
 
 ```XML
 <BuildingBlocks>
@@ -44,7 +44,7 @@ L’élément **ClaimType** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur utilisé pour le type de revendication. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
+| Id | OUI | Identificateur utilisé pour le type de revendication. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
 
 L’élément **ClaimType** contient les éléments suivants :
 
@@ -65,14 +65,14 @@ PredicateValidationReference| 0:1 | Référence à un élément **PredicateValid
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Protocole | 0:n | Liste de protocoles avec leur nom de type de revendication de partenaire par défaut. |
+| Protocol | 0:n | Liste de protocoles avec leur nom de type de revendication de partenaire par défaut. |
 
 L’élément **Protocol** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed ou WsTrust. |
-| PartnerClaimType | Oui | Nom du type de revendication à utiliser. |
+| Name | OUI | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| PartnerClaimType | OUI | Nom du type de revendication à utiliser. |
 
 Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité interagit avec un fournisseur d’identité SAML2 ou une application de confiance, la revendication **surname** est mappée à `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Avec OpenIdConnect et OAuth2, la revendication est mappée à `family_name`.
 
@@ -89,7 +89,7 @@ Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité
 ```
 
 Ainsi, le jeton JWT émis par Azure AD B2C émet le `family_name` au lieu du nom de ClaimType **surname**.
- 
+
 ```JSON
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
@@ -106,8 +106,8 @@ L’élément **Mask** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| `Type` | Oui | Type du masque de revendication. Valeurs possibles : `Simple` ou `Regex`. La valeur `Simple` indique qu’un masque de texte simple est appliqué à la partie gauche d’une revendication de chaîne. La valeur `Regex` indique qu’une expression régulière est appliquée à la revendication de chaîne dans son ensemble.  Si la valeur `Regex` est spécifiée, un attribut facultatif doit également être défini avec l’expression régulière à utiliser. |
-| `Regex` | Non  | Si **`Type`** a la valeur `Regex`, spécifiez l’expression régulière à utiliser.
+| `Type` | OUI | Type du masque de revendication. Valeurs possibles : `Simple` ou `Regex`. La valeur `Simple` indique qu’un masque de texte simple est appliqué à la partie gauche d’une revendication de chaîne. La valeur `Regex` indique qu’une expression régulière est appliquée à la revendication de chaîne dans son ensemble.  Si la valeur `Regex` est spécifiée, un attribut facultatif doit également être défini avec l’expression régulière à utiliser. |
+| `Regex` | Non | Si **`Type`** a la valeur `Regex`, spécifiez l’expression régulière à utiliser.
 
 L’exemple suivant configure une revendication **PhoneNumber** avec le masque `Simple` :
 
@@ -115,14 +115,14 @@ L’exemple suivant configure une revendication **PhoneNumber** avec le masque `
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
-  <Mask Type="Simple">XXX-XXX-</Mask>  
+  <Mask Type="Simple">XXX-XXX-</Mask>
   <UserHelpText>Your telephone number.</UserHelpText>
 </ClaimType>
 ```
 
 L’Infrastructure d’expérience d’identité affiche le numéro de téléphone tout en masquant les six premiers chiffres :
 
-![Utilisation du type de revendication avec un masque](./media/claimsschema/mask.png)
+![Revendication de numéro de téléphone affichée dans le navigateur avec les six premiers chiffres masqués par des X](./media/claimsschema/mask.png)
 
 L’exemple suivant configure une revendication **AlternateEmail** avec le masque `Regex` :
 
@@ -137,7 +137,7 @@ L’exemple suivant configure une revendication **AlternateEmail** avec le masqu
 
 L’Infrastructure d’expérience d’identité affiche uniquement la première lettre de l’adresse e-mail et le nom de domaine de messagerie :
 
-![Utilisation du type de revendication avec un masque](./media/claimsschema/mask-regex.png)
+![Revendication d’e-mail affichée dans le navigateur avec les caractères masqués par des astérisques](./media/claimsschema/mask-regex.png)
 
 
 ### <a name="restriction"></a>Restriction
@@ -146,7 +146,7 @@ L’élément **Restriction** peut contenir l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| MergeBehavior | Non  | Méthode utilisée pour fusionner des valeurs d’énumération avec un ClaimType dans une stratégie parente avec le même identificateur. Utilisez cet attribut quand vous remplacez une revendication spécifiée dans la stratégie de base. Valeurs possibles : `Append`, `Prepend` ou `ReplaceAll`. La valeur `Append` est une collection de données qui doivent être ajoutées à la fin de la collection spécifiée dans la stratégie parente. La valeur `Prepend` est une collection de données qui doivent être ajoutées avant la collection spécifiée dans la stratégie parente. La valeur `ReplaceAll` est une collection de données spécifiée dans la stratégie parente qui doit être ignorée. |
+| MergeBehavior | Non | Méthode utilisée pour fusionner des valeurs d’énumération avec un ClaimType dans une stratégie parente avec le même identificateur. Utilisez cet attribut quand vous remplacez une revendication spécifiée dans la stratégie de base. Valeurs possibles : `Append`, `Prepend` ou `ReplaceAll`. La valeur `Append` est une collection de données qui doivent être ajoutées à la fin de la collection spécifiée dans la stratégie parente. La valeur `Prepend` est une collection de données qui doivent être ajoutées avant la collection spécifiée dans la stratégie parente. La valeur `ReplaceAll` est une collection de données spécifiée dans la stratégie parente qui doit être ignorée. |
 
 L’élément **Restriction** contient les éléments suivants :
 
@@ -161,9 +161,9 @@ L’élément **Enumeration** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Texte | Oui | Chaîne d’affichage présentée à l’utilisateur dans l’interface utilisateur pour cette option. |
-|Valeur | Oui | Valeur de revendication associée à la sélection de cette option. |
-| SelectByDefault | Non  | Indique si cette option doit être sélectionnée par défaut dans l’interface utilisateur. Valeurs possibles : True ou False. |
+| Texte | OUI | Chaîne d’affichage présentée à l’utilisateur dans l’interface utilisateur pour cette option. |
+|Valeur | OUI | Valeur de revendication associée à la sélection de cette option. |
+| SelectByDefault | Non | Indique si cette option doit être sélectionnée par défaut dans l’interface utilisateur. Valeurs possibles : True ou False. |
 
 L’exemple suivant configure une revendication de liste déroulante **city** avec une valeur par défaut définie sur `New York` :
 
@@ -179,10 +179,10 @@ L’exemple suivant configure une revendication de liste déroulante **city** av
   </Restriction>
 </ClaimType>
 ```
+
 Liste déroulante de villes avec New York comme valeur par défaut :
 
-![Liste déroulante de villes](./media/claimsschema/dropdownsingleselect.png)
-
+![Contrôle de liste déroulante affiché dans le navigateur et présentant la valeur par défaut](./media/claimsschema/dropdownsingleselect.png)
 
 ### <a name="pattern"></a>Modèle
 
@@ -190,8 +190,8 @@ L’élément **Pattern** peut contenir les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| RegularExpression | Oui | Expression régulière auxquelles les revendications de ce type doivent correspondre pour être valides. |
-| HelpText | Non  | Modèle ou expression régulière pour cette revendication. |
+| RegularExpression | OUI | Expression régulière auxquelles les revendications de ce type doivent correspondre pour être valides. |
+| HelpText | Non | Modèle ou expression régulière pour cette revendication. |
 
 L’exemple suivant configure une revendication **email** avec validation de l’entrée d’expression régulière et texte d’aide :
 
@@ -212,7 +212,7 @@ L’exemple suivant configure une revendication **email** avec validation de l�
 
 L’Infrastructure d’expérience d’identité affiche la revendication d’adresse e-mail avec validation de l’entrée du format d’e-mail :
 
-![Utilisation du type de revendication avec pattern](./media/claimsschema/pattern.png)
+![TextBox présentant le message d’erreur déclenché par la restriction regex](./media/claimsschema/pattern.png)
 
 ## <a name="userinputtype"></a>UserInputType
 
@@ -222,7 +222,7 @@ Azure AD B2C prend en charge toute une gamme de types d’entrée d’utilisateu
 
 Le type d’entrée d’utilisateur **TextBox** sert à fournir une zone de texte sur une seule ligne.
 
-![Utilisation du type de revendication avec textbox](./media/claimsschema/textbox.png)
+![TextBox présentant les propriétés spécifiées dans le type de revendication](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -237,7 +237,7 @@ Le type d’entrée d’utilisateur **TextBox** sert à fournir une zone de text
 
 Le type d’entrée d’utilisateur **EmailBox** sert à fournir un champ d’entrée d’e-mail de base.
 
-![Utilisation du type de revendication avec emailbox](./media/claimsschema/emailbox.png)
+![EmailBox présentant les propriétés spécifiées dans le type de revendication](./media/claimsschema/emailbox.png)
 
 ```XML
 <ClaimType Id="email">
@@ -297,7 +297,7 @@ Le type d’entrée d’utilisateur **RadioSingleSelect** sert à fournir une co
     <Enumeration Text="Green " Value="Green" SelectByDefault="false" />
     <Enumeration Text="Orange" Value="Orange" SelectByDefault="true" />
   </Restriction>
-</ClaimType>    
+</ClaimType>
 ```
 
 ### <a name="dropdownsingleselect"></a>DropdownSingleSelect
@@ -375,4 +375,4 @@ Le type d’entrée d’utilisateur **Paragraph** sert à fournir un champ qui a
 </ClaimType>
 ```
 
-Pour afficher l’une des valeurs **Enumeration** dans une revendication **responseMsg**, utilisez la transformation de revendication `GetMappedValueFromLocalizedCollection` ou `CreateStringClaim`. Pour plus d’informations, consultez [Transformations de revendications de chaînes](string-transformations.md). 
+Pour afficher l’une des valeurs **Enumeration** dans une revendication **responseMsg**, utilisez la transformation de revendication `GetMappedValueFromLocalizedCollection` ou `CreateStringClaim`. Pour plus d’informations, consultez [Transformations de revendications de chaînes](string-transformations.md).

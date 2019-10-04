@@ -3,21 +3,20 @@ title: Création de branches dans un pipeline Azure Data Factory | Microsoft Doc
 description: Découvrez comment contrôler le flux de données dans Azure Data Factory à l’aide d’activités de création de branches et de chaînage.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: shlo
-ms.openlocfilehash: f2a8983ae5306ec2ada7b4b537c2f17425b8717d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d8e4c17307b35295f37f1f84db912d04ca625b6a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449365"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140906"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 Dans ce didacticiel, vous créez un pipeline Data Factory qui présente certaines des fonctionnalités de flux de contrôle. Ce pipeline est une simple copie depuis un conteneur Stockage Blob Azure vers un autre conteneur dans le même compte de stockage. Si l’activité de copie réussit, le pipeline envoie les détails de l’opération de copie réussie (par exemple, la quantité de données écrites) dans un e-mail d’avis de réussite. Si l’activité de copie échoue, le pipeline envoie les détails de l’échec de la copie (par exemple, le message d’erreur) dans un e-mail d’avis d’échec. Tout au long de ce didacticiel, vous allez apprendre à passer des paramètres.
@@ -42,7 +41,7 @@ Ce didacticiel utilise le portail Azure. Vous pouvez utiliser d’autres mécani
 
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte Stockage Azure**. Vous utilisez le stockage blob comme magasins de données **source**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) pour découvrir comment en créer un.
-* **Base de données SQL Azure**. Vous utilisez la base de données en tant que magasin de données **récepteur**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) pour savoir comme en créer une.
+* **Azure SQL Database**. Vous utilisez la base de données en tant que magasin de données **récepteur**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) pour savoir comme en créer une.
 
 ### <a name="create-blob-table"></a>Créer la table d’objets blob
 
@@ -91,7 +90,7 @@ La requête dans le concepteur d’application logique doit ressembler à l’im
 
 ![Concepteur d’application logique - requête](media/tutorial-control-flow-portal/logic-app-designer-request.png)
 
-Pour l’action **Envoyer un e-mail**, personnalisez le mode de mise en forme de l’e-mail, en utilisant les propriétés passées dans le schéma JSON du corps de la requête. Voici un exemple : 
+Pour l’action **Envoyer un e-mail**, personnalisez le mode de mise en forme de l’e-mail, en utilisant les propriétés passées dans le schéma JSON du corps de la requête. Voici un exemple :
 
 ![Concepteur d’application logique - action Envoyer un e-mail](media/tutorial-control-flow-portal/send-email-action-2.png)
 
@@ -103,7 +102,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ### <a name="fail-email-workflow"></a>Flux de travail d’un e-mail d’avis d’échec 
-Suivez les mêmes étapes pour créer un autre flux de travail Logic Apps **CopyFailEmail**. Dans le déclencheur de la requête, `Request Body JSON schema` est identique. Modifiez la mise en forme de votre e-mail, notamment `Subject`, pour l’adapter à un avis d’échec. Voici un exemple : 
+Suivez les mêmes étapes pour créer un autre flux de travail Logic Apps **CopyFailEmail**. Dans le déclencheur de la requête, `Request Body JSON schema` est identique. Modifiez la mise en forme de votre e-mail, notamment `Subject`, pour l’adapter à un avis d’échec. Voici un exemple :
 
 ![Concepteur d’application logique - flux de travail d’un e-mail d’avis d’échec](media/tutorial-control-flow-portal/fail-email-workflow-2.png)
 
@@ -146,7 +145,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
          
         Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Sélectionnez **V2** pour la **version**.
-5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 6. Sélectionnez **Épingler au tableau de bord**.     
 7. Cliquez sur **Créer**.      
 8. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**. 
@@ -266,13 +265,13 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
         ```
 
         ![Paramètres pour la deuxième activité Web](./media/tutorial-control-flow-portal/web-activity2-settings.png)         
-22. Sélectionnez l’activité de **copie** dans le concepteur de pipeline, puis cliquez sur le bouton **+->**, puis sélectionnez **Erreur**.  
+22. Sélectionnez l’activité de **copie** dans le concepteur de pipeline, puis cliquez sur le bouton **+->** , puis sélectionnez **Erreur**.  
 
     ![Paramètres pour la deuxième activité Web](./media/tutorial-control-flow-portal/select-copy-failure-link.png)
 23. Faites glisser le bouton **rouge** proche de l’activité de copie vers la deuxième activité Web **SendFailureEmailActivity**. Vous pouvez déplacer les activités afin que le pipeline ressemble à l’image suivante : 
 
     ![Pipeline complète avec toutes les activités](./media/tutorial-control-flow-portal/full-pipeline.png)
-24. Pour valider le pipeline, cliquez sur le bouton **Valider** dans la barre d’outils. Fermez la fenêtre **Sortie de validation du pipeline** en cliquant sur le bouton **>>**.
+24. Pour valider le pipeline, cliquez sur le bouton **Valider** dans la barre d’outils. Fermez la fenêtre **Sortie de validation du pipeline** en cliquant sur le bouton **>>** .
 
     ![Valider le pipeline](./media/tutorial-control-flow-portal/validate-pipeline.png)
 24. Pour publier les entités (jeux de données, pipelines, etc.) sur Data Factory, cliquez sur **Publish All** (Publier tout). Patientez jusqu’à voir le message **Publication réussie**.

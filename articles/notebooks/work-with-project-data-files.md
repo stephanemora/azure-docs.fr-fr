@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: b522b0bd641d0147518843b11be4cd3a1430ae20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60240413"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Utiliser des fichiers de données dans les projets Azure Notebooks
 
@@ -62,11 +62,11 @@ Vous pouvez déplacer des fichiers dans un projet depuis le tableau de bord du p
 
 1. Dans la fenêtre **État du chargement** qui s'affiche, sélectionnez un **dossier de destination** à partir de la liste déroulante :
 
-    - Dossier de session (*~/*) : Télécharge les fichiers dans la session de notebook en cours, mais ne crée pas de fichiers dans le projet. Le dossier de session est un homologue du dossier de projet, mais ne persiste pas au-delà de la session. Pour accéder aux fichiers de session dans le code, faites précéder les noms de fichier du chemin d'accès relatif *../*.
+    - Dossier de session ( *~/* ) : Télécharge les fichiers dans la session de notebook en cours, mais ne crée pas de fichiers dans le projet. Le dossier de session est un homologue du dossier de projet, mais ne persiste pas au-delà de la session. Pour accéder aux fichiers de session dans le code, faites précéder les noms de fichier du chemin d'accès relatif *../* .
 
         Le dossier de session est utile à des fins d'expérimentation et permet d'éviter de surcharger le projet avec des fichiers dont vous n'aurez peut-être pas besoin sur le long terme. Vous pouvez également charger dans le dossier de session des fichiers portant des noms identiques aux fichiers du projet, sans créer de conflits ou devoir les renommer. Par exemple, supposons que le projet contienne déjà une version du fichier *data.csv*, mais que vous souhaitiez expérimenter une version différente de ce fichier *data.csv*. En chargeant le fichier dans le dossier de session, vous pouvez exécuter le notebook à l’aide des données contenues dans le fichier chargé (en y faisant référence dans le code à l'aide de *../data.csv*) plutôt que des données contenues dans le fichier du projet.
 
-    - Dossier du projet (*/project*) : charge les fichiers dans le projet où ils sont accessibles à l’aide des chemins d’accès relatifs dans le code. Le chargement d'un fichier vers ce dossier est identique au chargement d'un fichier dans le tableau de bord du projet. Le fichier est enregistré avec le projet et disponible dans les sessions ultérieures.
+    - Dossier du projet ( */project*) : charge les fichiers dans le projet où ils sont accessibles à l’aide des chemins d’accès relatifs dans le code. Le chargement d'un fichier vers ce dossier est identique au chargement d'un fichier dans le tableau de bord du projet. Le fichier est enregistré avec le projet et disponible dans les sessions ultérieures.
 
         Le chargement échoue si vous tentez de charger un fichier portant le même nom qu'un autre fichier déjà présent dans le projet. Pour remplacer un fichier, chargez le nouveau fichier à partir du tableau de bord du projet afin d'accéder à cette possibilité.
 

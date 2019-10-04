@@ -1,5 +1,5 @@
 ---
-title: Prédire les intentions
+title: 'Didacticiel : Prédire les intentions - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application personnalisée qui prédit l’intention d’un utilisateur. Cette application est le type d’application LUIS le plus simple, car elle n’extrait pas divers éléments de données du texte de l’énoncé tels que les adresses e-mail ou les dates.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7139876f64841a877e688ec6faf03597c527d1f2
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593911"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375818"
 ---
-# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutoriel : Générer une application LUIS pour déterminer les intentions d’un utilisateur
+# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Didacticiel : Générer une application LUIS pour déterminer les intentions d’un utilisateur
 
 Dans ce tutoriel, vous créez une application Ressources humaines (RH) personnalisée qui prédit l’intention d’un utilisateur selon l’énoncé (texte). 
 
@@ -131,7 +131,7 @@ Cette application a quelques intentions.
 
     Le paramètre de chaîne de requête `verbose=true` signifie qu’il faut inclure **toutes les intentions** dans les résultats de requête de l’application. Le tableau d’entités est vide, car cette application n’a pas d’entités. 
 
-    Le résultat JSON identifie l’intention avec le score le plus élevé en tant que propriété **`topScoringIntent`**. Tous les scores sont compris entre 1 et 0, le meilleur score étant proche de 1. 
+    Le résultat JSON identifie l’intention avec le score le plus élevé en tant que propriété **`topScoringIntent`** . Tous les scores sont compris entre 1 et 0, le meilleur score étant proche de 1. 
 
 ## <a name="create-intent-for-job-applications"></a>Créer une intention pour des candidatures à des postes
 

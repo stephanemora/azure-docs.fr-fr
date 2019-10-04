@@ -3,8 +3,8 @@ title: Applications API web dans Azure Active Directory
 description: Décrit les applications API web et les principes de base sur le flux de protocole, l’inscription et l’expiration du jeton pour ce type d’application.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b477171be0f306431b0f7c5965ebede4f4680c22
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 484e6b4c5f0e064254c957b07b8ba15ef98f2634
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201905"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65545207"
 ---
 # <a name="web-api"></a>API Web
 
@@ -69,7 +69,7 @@ Consultez les exemples de code pour les scénarios du type application web vers 
 
 ## <a name="app-registration"></a>Inscription d'application
 
-Pour inscrire une application auprès du point de terminaison Azure AD v1.0, consultez [Inscrire une application auprès du point de terminaison Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Pour inscrire une application auprès du point de terminaison Azure AD v1.0, consultez [Inscrire une application](quickstart-register-app.md).
 
 * Application à locataire unique : pour les identités d’application et les identités d’utilisateur délégué, l’application web et l’API web doivent être inscrites dans le même annuaire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application web à ses ressources. Si une identité d’utilisateur délégué est utilisée, l’application web doit sélectionner les autorisations souhaitées dans le menu déroulant **Autorisations pour d’autres applications** du portail Azure. Cette étape n’est pas requise si une identité d’application est utilisée.
 * Application mutualisée : tout d’abord, l’application web est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations au niveau utilisateur pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application web et l’API web sont inscrites dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur.

@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
 ms.openlocfilehash: 0c381cc6e2e2957c946207491c666667821184ad
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "52156761"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177529"
 ---
 | Catégorie | Banque de données | Prise en charge en tant que source | Prise en charge en tant que récepteur |
 |:--- |:--- |:--- |:--- |
 | **Microsoft Azure** |[stockage d’objets blob Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Cosmos DB (API SQL)](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/v1/data-factory-azure-datalake-connector.md) |✓ |✓ |
-| &nbsp; |[Base de données SQL Azure](../articles/data-factory/v1/data-factory-azure-sql-connector.md) |✓ |✓ |
+| &nbsp; |[Azure SQL Database](../articles/data-factory/v1/data-factory-azure-sql-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/v1/data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
 | &nbsp; |[Index Recherche Azure](../articles/data-factory/v1/data-factory-azure-search-connector.md) | |✓ |
 | &nbsp; |[Stockage Table Azure](../articles/data-factory/v1/data-factory-azure-table-connector.md) |✓ |✓ |

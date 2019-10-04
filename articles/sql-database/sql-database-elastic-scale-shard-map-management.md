@@ -1,5 +1,5 @@
 ---
-title: Montée en puissance parallèle d’une base de données SQL Azure | Microsoft Docs
+title: Scale-out d’une base de données Azure SQL | Microsoft Docs
 description: Utilisation de ShardMapManager, la bibliothèque cliente de base de données élastique
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3e7e2294938179da83fb5ad03db177c1142ad096
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476789"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568341"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Monter en charge les bases de données avec le Gestionnaire de cartes de partitions
 
@@ -58,7 +57,7 @@ L’infrastructure élastique prend en charge les types suivants en tant que cl�
 | long |long |
 | GUID |uuid |
 | byte[]  |byte[] |
-| Datetime | timestamp |
+| datetime | timestamp |
 | intervalle de temps | duration|
 | datetimeoffset |offsetdatetime |
 
@@ -75,12 +74,12 @@ Les **partitions** contiennent des **shardlets** (micro-partitions) et le mappag
 | 1 |Database_A |
 | 3 |Database_B |
 | 4 |Database_C |
-| 6. |Database_B |
+| 6 |Database_B |
 | ... |... |
 
 ### <a name="range-shard-maps"></a>Cartes de partitions de plage
 
-Dans une **carte de partitions de plage**, la plage de clé est décrite par une paire **[valeur inférieure, valeur supérieure)**, où la *valeur inférieure* correspond à la clé minimale de la plage, tandis que la *valeur supérieure* correspond à la première valeur supérieure à la plage.
+Dans une **carte de partitions de plage**, la plage de clé est décrite par une paire **[valeur inférieure, valeur supérieure)** , où la *valeur inférieure* correspond à la clé minimale de la plage, tandis que la *valeur supérieure* correspond à la première valeur supérieure à la plage.
 
 Par exemple, **[0, 100)** inclut tous les entiers égaux ou supérieurs à 0 et inférieurs à 100. Notez que plusieurs plages peuvent pointer vers la même base de données et que les plages disjointes sont prises en charge (par exemple, [100,200) et [400,600) pointent vers la base de données C dans l’exemple suivant.)
 

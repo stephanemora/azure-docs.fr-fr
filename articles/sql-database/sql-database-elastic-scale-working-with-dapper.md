@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1eafb123014effad9daca89dc1b852367d9cbbf1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002297"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568273"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilisation de la bibliothèque cliente de la base de données élastique avec Dapper
 Ce document est destiné aux développeurs qui utilisent Dapper pour générer des applications, mais veulent également adopter les [outils de base de données élastique](sql-database-elastic-scale-introduction.md) pour créer des applications implémentant le partitionnement pour la montée en puissance parallèle de la couche Données.  Ce document présente les modifications devant être appliquées aux applications basées sur Dapper pour intégrer des outils de base de données élastique. Nous nous concentrerons sur la composition de la gestion de partition de base de données élastique et du routage dépendant des données avec Dapper. 
 
 **Exemple de code** : [outils de base de données élastique pour l’intégration Azure SQL Database - Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
-L’intégration de **Dapper** et de **DapperExtensions** avec la bibliothèque cliente de la base de données élastique pour la base de données SQL Azure est simple. Les applications peuvent utiliser le routage dépendant des données en modifiant la création et l’ouverture de nouveaux objets [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) pour utiliser l’appel [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) à partir de la [bibliothèque cliente](https://msdn.microsoft.com/library/azure/dn765902.aspx). Cela limite les modifications au sein de votre application à la création et l’ouverture de nouvelles connexions uniquement. 
+L’intégration de **Dapper** et de **DapperExtensions** avec la bibliothèque cliente de la base de données élastique pour Azure SQL Database est simple. Les applications peuvent utiliser le routage dépendant des données en modifiant la création et l’ouverture de nouveaux objets [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) pour utiliser l’appel [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) à partir de la [bibliothèque cliente](https://msdn.microsoft.com/library/azure/dn765902.aspx). Cela limite les modifications au sein de votre application à la création et l’ouverture de nouvelles connexions uniquement. 
 
 ## <a name="dapper-overview"></a>Vue d’ensemble de Dapper
 **Dapper** est un mappeur relationnel objet. Il mappe les objets .NET de votre application à une base de données relationnelle (et inversement). La première partie de l’exemple de code illustre comment vous pouvez intégrer la bibliothèque client de base de données élastique avec les applications Dapper. La deuxième partie de l’exemple de code illustre comment effectuer l’intégration lors de l’utilisation de Dapper et de DapperExtensions.  
@@ -160,7 +159,7 @@ Les approches décrites dans ce document entraînent quelques limitations :
 * Nous partons du principe que tous les traitements de base de données d’une demande donnée sont contenus dans une seule partition, identifiée par la clé de partitionnement fournie par la demande. Cependant, cette hypothèse n’est pas toujours valide, par exemple, lorsqu’il n’est pas possible de rendre une clé de partitionnement disponible. Pour résoudre ce problème, la bibliothèque cliente  de base de données élastique inclut la [classe MultiShardQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). La classe implémente une abstraction de la connexion pour l’interrogation sur plusieurs partitions. Ce document ne permet pas d’apprendre à utiliser la MultiShardQuery conjointement à Dapper.
 
 ## <a name="conclusion"></a>Conclusion
-Les applications utilisant Dapper et DapperExtensions peuvent facilement tirer parti des outils de la base de données élastique pour la base de données SQL Azure. À travers les étapes décrites dans ce document, ces applications peuvent utiliser la capacité d’outil pour le routage dépendant des données en modifiant la création et l’ouverture de nouveaux objets [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) pour utiliser l’appel [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) de la bibliothèque cliente de la base de données élastique. Cela limite les modifications au sein de votre application aux endroits où de nouvelles connexions sont créées et ouvertes. 
+Les applications utilisant Dapper et DapperExtensions peuvent facilement tirer parti des outils de la base de données élastique pour Azure SQL Database. À travers les étapes décrites dans ce document, ces applications peuvent utiliser la capacité d’outil pour le routage dépendant des données en modifiant la création et l’ouverture de nouveaux objets [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) pour utiliser l’appel [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) de la bibliothèque cliente de la base de données élastique. Cela limite les modifications au sein de votre application aux endroits où de nouvelles connexions sont créées et ouvertes. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

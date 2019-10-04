@@ -1,5 +1,5 @@
 ---
-title: Rapports d’audit et un utilisateur de collaboration B2B - Azure Active Directory | Microsoft Docs
+title: Audit et création de rapports relatifs à un utilisateur de B2B collaboration - Azure Active Directory | Microsoft Docs
 description: Les propriétés de l’utilisateur invité sont configurables dans Azure Active Directory B2B Collaboration
 services: active-directory
 ms.service: active-directory
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5763a7e5f122702ddaf86246fbfbd18326878146
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.openlocfilehash: 506721a23a5a18eaea76efaca61df49f20dc9228
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294193"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65812467"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Audit et création de rapports relatifs à un utilisateur B2B Collaboration
 Avec les utilisateurs invités, vous disposez de fonctionnalités d’audit identiques à celles des utilisateurs membres. 
@@ -29,11 +29,11 @@ Vous pouvez utiliser les révisions d’accès pour vérifier périodiquement si
 
 Les journaux d’audit d’Azure AD fournissent des enregistrements de l’activité du système et des utilisateurs, y compris les activités initiées par les utilisateurs invités. Pour accéder aux journaux d’audit, dans **Azure Active Directory**, sous **Supervision**, sélectionnez **Journaux d’audit**. Voici un exemple de l’historique d’invitation et d’échange pour l’invité Sam Oogle :
 
-![Capture d’écran et exemple d’audit consigne la sortie](./media/auditing-and-reporting/audit-log.png)
+![Capture d’écran affichant un exemple de sortie d’un journal d’audit](./media/auditing-and-reporting/audit-log.png)
 
 Vous pouvez explorer chacun de ces événements pour en obtenir les détails. Examinons, par exemple, les détails de l’acceptation.
 
-![Capture d’écran et exemple de sortie de détails de l’activité](./media/auditing-and-reporting/activity-details.png)
+![Capture d’écran affichant un exemple de sortie de détails d’activités](./media/auditing-and-reporting/activity-details.png)
 
 Vous pouvez également exporter ces journaux d’activité à partir d’Azure AD et utiliser l’outil de création de rapports de votre choix afin d’obtenir des rapports personnalisés.
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 893e8de5efc523df34e2c1e139082d2b471cb63e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870619"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828525"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions (FAQ)
 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Vous trouverez ci-dessous une suite de questions-réponses sur les problématiques que vous pouvez rencontrer en tant que partenaire StorSimple, lorsque vous déployez ou gérez une instance StorSimple Virtual Array dans le portail Azure.
 
 Les questions/réponses sont organisées en plusieurs catégories :
@@ -50,7 +50,7 @@ Oui. Le modèle est un programme de remise en gros, à l’instar d’autres ser
 Il s’agit des références disponibles avec les services StorSimple autonomes. 
 
 ### <a name="is-there-any-difference-between-the-storsimple-directly-purchased-from-microsoft-under-ea-and-storsimple-as-a-part-of-csp"></a>Existe-t-il une différence entre le service StorSimple acheté directement auprès de Microsoft, par le biais du Contrat Entreprise, et StorSimple dans le cadre du programme des fournisseurs de solutions cloud ?
- Non. Dans le cadre du programme des fournisseurs de solutions cloud, les clients peuvent également acheter d’autres services proposés par le partenaire, en parallèle de StorSimple Virtual Array (SVA), sous une seule facture. Notez toutefois que pour se doter de l’appareil physique StorSimple gamme 8000, les clients doivent opter pour le Contrat Entreprise. 
+Non. Dans le cadre du programme des fournisseurs de solutions cloud, les clients peuvent également acheter d’autres services proposés par le partenaire, en parallèle de StorSimple Virtual Array (SVA), sous une seule facture. Notez toutefois que pour se doter de l’appareil physique StorSimple gamme 8000, les clients doivent opter pour le Contrat Entreprise. 
 
 ### <a name="in-which-markets-is-storsimple-available-for-csp-at-launch"></a>Dans quels marchés puis-je trouver StorSimple disponible au lancement pour le programme des fournisseurs de solutions cloud ?
 StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud est disponible dans tous les marchés dans lesquels StorSimple est disponible à ce jour. Pour plus d’informations, accédez à la [liste des régions dans lesquelles StorSimple est disponible](https://azure.microsoft.com/regions/services/).
@@ -63,7 +63,7 @@ Il existe plusieurs solutions :
 - Ils peuvent également découvrir de nouveaux modèles d’entreprise, en fournissant des services gérés.
 
 ### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Quelles sont les primes disponibles pour les partenaires du programme des fournisseurs de solutions cloud StorSimple ? Suis-je éligible à une prime du programme des fournisseurs de solutions cloud ?
-Pour plus d’informations sur les primes, accédez à [prime du programme CSP](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+Pour plus d'informations sur les primes, accédez à la [page descriptive des primes du programme des fournisseurs de solutions cloud](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
 
 
 ## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Déployer et gérer StorSimple en tant que partenaire
@@ -89,7 +89,7 @@ Oui. La direction commerciale du partenaire et l’équipe en charge du compte c
 Vous pouvez consulter le forum dédié à StorSimple dans le programme des fournisseurs de solutions cloud ; vous trouverez des réponses à des questions fréquentes. Dans un premier temps, il vous faudra rejoindre le [groupe Yammer des conseillers Azure](https://www.yammer.com/azureadvisors). Recherchez ensuite le groupe à rejoindre, consacré aux **conseillers des partenaires StorSimple**.
 
 ### <a name="how-does-the-support-work-for-storsimple-for-csp"></a>Comment le support fonctionne-t-il pour StorSimple pour le programme de fournisseurs de solutions cloud ? 
-Le modèle de support dédié à StorSimple pour le programme de fournisseurs de solutions cloud est identique à celui mis à disposition pour d’autres services Azure du programme. Pour plus d’informations, accédez au [Support client pour le programme de fournisseurs de solutions cloud](https://msdn.microsoft.com/partner-center/customer-support). 
+Le modèle de support dédié à StorSimple pour le programme de fournisseurs de solutions cloud est identique à celui mis à disposition pour d’autres services Azure du programme. Pour plus d’informations, accédez au [Support client pour le programme de fournisseurs de solutions cloud](/partner-center/csp-overview).
 
 Pour plus d’informations sur StorSimple pour le programme de fournisseurs de solutions cloud, consultez les ressources suivantes :
 

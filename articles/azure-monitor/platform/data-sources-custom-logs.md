@@ -11,16 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 09/26/2019
 ms.author: bwren
-ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: MT
+ms.openlocfilehash: 39691c0efbac7b7a48dd844641d63e0ca178e95f
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234790"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327460"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Journaux d’activité personnalisés dans Azure Monitor
+
 La source de données Journaux d’activité personnalisés d’Azure Monitor vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
 
 ![Collecte de journaux personnalisés](media/data-sources-custom-logs/overview.png)
@@ -29,26 +30,25 @@ Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 
 - Le journal doit comporter une seule entrée par ligne ou utiliser un horodatage correspondant à l’un des formats suivants au début de chaque entrée.
 
-    AAAA-MM-JJ HH:MM:SS <br>M/J/AAAA HH:MM:SS AM/PM<br>Mois JJ, AAAA HH:MM:SS<br />aaMMjj HH:mm:ss<br />jjMMaa HH:mm:ss<br />MMM j hh:mm:ss<br />jj/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-jjTHH:mm:ssK
+    AAAA-MM-JJ HH:MM:SS<br>M/J/AAAA HH:MM:SS AM/PM<br>Mois JJ, AAAA HH:MM:SS<br />aaMMjj HH:mm:ss<br />jjMMaa HH:mm:ss<br />MMM j hh:mm:ss<br />jj/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-jjTHH:mm:ssK
 
 - Le fichier journal ne doit pas autoriser les journalisations circulaires ni la rotation des journaux, où de nouvelles entrées sont consignées.
 - Le fichier journal doit utiliser l’encodage ASCII ou UTF-8.  Les autres formats, par exemple UTF-16, ne sont pas pris en charge.
 
 >[!NOTE]
->Si le fichier journal contient des entrées dupliquées, Azure Monitor les collecte.  Toutefois, les résultats de la requête sont incohérents dans les cas où les résultats du filtre affichent un nombre d’événements supérieur au nombre de résultats.  Il est important de valider le journal pour déterminer si l’application qui le crée cause ce comportement et résoudre, si possible, le problème avant la création de la définition de collection de journal personnalisée.  
->
-  
->[!NOTE]
-> Si votre application crée un fichier journal tous les jours ou qu’elle atteint une taille spécifique, l’agent Log Analytics pour Linux ne découvre pas ces fichiers tant qu’il n’a pas été redémarré. Ceci est dû au fait que l’agent énumère et supervise uniquement les modèles avec les journaux d’activité spécifiés au démarrage ; par conséquent, vous devez en tenir compte en automatisant le redémarrage de l’agent.  Cette limitation n’existe pas dans le cas de l’agent Log Analytics pour Windows.  
+> Si le fichier journal contient des entrées dupliquées, Azure Monitor les collecte. Toutefois, les résultats de la requête sont incohérents dans les cas où les résultats du filtre affichent un nombre d’événements supérieur au nombre de résultats. Il est important de valider le journal pour déterminer si l’application qui le crée cause ce comportement et résoudre, si possible, le problème avant la création de la définition de collection de journal personnalisée.  
 >
 
 >[!NOTE]
 > Chaque espace de travail Log Analytics prend en charge les limites suivantes :
 > 
-> * Seuls 500 journaux d’activité personnalisés peuvent être créés.
+> * Seuls 500 journaux personnalisés peuvent être créés.
 > * Une table ne prend en charge que jusqu'à 500 colonnes. 
 > * Le nombre maximal de caractères pour le nom de colonne est 500. 
 >
+
+>[!IMPORTANT]
+>La collecte de journaux personnalisée nécessite que l’application qui écrit le fichier journal vide régulièrement le contenu du journal sur le disque. Ceci est dû au fait que la collecte de journaux personnalisée repose sur des notifications de changement de système de fichiers pour le fichier journal qui est suivi actuellement.
 
 ## <a name="defining-a-custom-log"></a>Définition d’un journal personnalisé
 Utilisez la procédure suivante pour définir un fichier journal personnalisé.  Rendez-vous à la fin de cet article pour une procédure détaillée d’ajout d’un journal personnalisé.
@@ -58,7 +58,7 @@ L’Assistant Journal personnalisé s’exécute dans le portail Azure et vous p
 
 1. Dans le portail Azure, sélectionnez l’**espace de travail Log Analytics** > votre espace de travail > **Paramètres avancés**.
 2. Cliquez sur **Données** > **Journaux d’activité personnalisés**.
-3. Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents.  Pour les agents Linux, un fichier de configuration est envoyé au collecteur de données Fluentd.  Si vous souhaitez modifier ce fichier manuellement sur chaque agent Linux, décochez la case *Appliquer la configuration ci-dessous à mes machines Linux*.
+3. Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents. Pour les agents Linux, un fichier de configuration est envoyé au collecteur de données Fluentd.
 4. Cliquez sur **Ajouter+** pour ouvrir l’Assistant Journal personnalisé.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Étape 2. Télécharger et analyser un exemple de journal
@@ -67,7 +67,6 @@ Commencez par télécharger un exemple du journal personnalisé.  L’assistant 
 **Nouvelle ligne** .  Si la ligne commence par un horodatage dans un des formats disponibles, vous pouvez spécifier un délimiteur **Horodatage** prenant en charge les entrées qui s’étendent sur plusieurs lignes.
 
 Si un délimiteur Timestamp est utilisé, la propriété TimeGenerated de chaque enregistrement stocké dans Azure Monitor contient la date et l’heure spécifiées pour cette entrée dans le fichier journal.  Si un délimiteur Nouvelle ligne est utilisé, la propriété TimeGenerated est renseignée avec la date et l’heure auxquelles Azure Monitor a collecté l’entrée.
-
 
 1. Cliquez sur **Parcourir** et accédez à un exemple de fichier.  Notez que ce bouton peut s’appeler **Choisir un fichier** dans certains navigateurs.
 2. Cliquez sur **Suivant**.
@@ -80,13 +79,9 @@ Vous devez définir un ou plusieurs chemins indiquant à l’agent où trouver l
 
 Par exemple, une application peut créer un fichier journal chaque jour avec la date dans le nom, comme dans log20100316.txt. Par exemple, ce modèle peut être *log\*.txt* et s’appliquer à un fichier journal conforme à la convention de dénomination de l’application.
 
->[!NOTE]
-> Si votre application crée un fichier journal tous les jours ou qu’elle atteint une taille spécifique, l’agent Log Analytics pour Linux ne découvre pas ces fichiers tant qu’il n’a pas été redémarré. Ceci est dû au fait que l’agent énumère et supervise uniquement les modèles avec les journaux d’activité spécifiés au démarrage ; par conséquent, vous devez en tenir compte en automatisant le redémarrage de l’agent.  Cette limitation n’existe pas dans le cas de l’agent Log Analytics pour Windows.  
->
-
 Le tableau suivant fournit des exemples de modèles valides pour différents fichiers journaux.
 
-| Description | path |
+| Description | Path |
 |:--- |:--- |
 | Tous les fichiers sous *C:\Logs* avec l’extension .txt sur l’agent Windows |C:\Logs\\\*.txt |
 | Tous les fichiers sous *C:\Logs* avec un nom commençant par log et portant l’extension .txt sur l’agent Windows |C:\Logs\log\*.txt |
@@ -112,7 +107,6 @@ Lorsque Azure Monitor commence la collecte du journal personnalisé, ses enregis
 > [!NOTE]
 > Si la propriété RawData est manquante dans la requête, vous devrez peut-être fermer et rouvrir votre navigateur.
 
-
 ### <a name="step-6-parse-the-custom-log-entries"></a>Étape 6. Analyser les entrées du journal personnalisé
 L’entrée de journal est stockée dans une propriété unique appelée **RawData**.  Vous souhaiterez certainement séparer les différents éléments d’information de chaque entrée dans des propriétés distinctes pour chaque enregistrement. Consultez [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des options d’analyse **RawData** dans plusieurs propriétés.
 
@@ -121,7 +115,6 @@ Pour supprimer un journal personnalisé que vous avez défini précédemment, pr
 
 1. Dans le menu **Données** des **Paramètres avancés** de votre espace de travail, sélectionnez **Journaux d’activité personnalisés** pour répertorier tous vos journaux d’activité personnalisés.
 2. Cliquez sur **Supprimer** en regard du journal personnalisé à supprimer.
-
 
 ## <a name="data-collection"></a>Collecte des données
 Azure Monitor collecte les nouvelles entrées de chaque journal personnalisé toutes les 5 minutes environ.  L’agent enregistre sa place dans chaque fichier journal dont il la collecte.  Si l’agent est hors connexion pendant un moment, Azure Monitor collecte les entrées à partir du point d’interruption, même si ces entrées ont été créées lorsque l’agent était hors connexion.
@@ -134,7 +127,7 @@ Les enregistrements de journal personnalisé sont caractérisés par le nom du j
 | Propriété | Description |
 |:--- |:--- |
 | TimeGenerated |Date et heure auxquelles l’enregistrement a été collecté par Azure Monitor.  Si le journal utilise un délimiteur basé sur l’heure, il s’agit de l’heure collectée à partir de l’entrée. |
-| SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager : Agent Windows. Connexion directe ou System Center Operations Manager <br>  Linux – Tous les agents Linux |
+| SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager : Agent Windows. Connexion directe ou System Center Operations Manager <br> Linux – Tous les agents Linux |
 | RawData |Texte complet de l’entrée collectée. Vous souhaiterez probablement [analyser ces données dans des propriétés individuelles](../log-query/parse-text.md). |
 | ManagementGroupName |Nom du groupe d’administration pour les agents System Center Operations Manage  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
 
@@ -142,11 +135,11 @@ Les enregistrements de journal personnalisé sont caractérisés par le nom du j
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exemple de procédure d’ajout d’un journal personnalisé
 La section suivante décrit la procédure complète de création d’un champ personnalisé.  L’exemple de journal collecté comporte une seule entrée sur chaque ligne commençant par une date et une heure, suivie de plusieurs champs (code, état et message) séparés par des virgules.  Plusieurs exemples d’entrée sont présentés ci-dessous.
 
-    2016-03-10 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
-    2016-03-10 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
-    2016-03-10 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
-    2016-03-10 01:38:22 302,Error,Application could not connect to database
-    2016-03-10 01:31:34 303,Error,Application lost connection to database
+    2019-08-27 01:34:36 207,Success,Client 05a26a97-272a-4bc9-8f64-269d154b0e39 connected
+    2019-08-27 01:33:33 208,Warning,Client ec53d95c-1c88-41ae-8174-92104212de5d disconnected
+    2019-08-27 01:35:44 209,Success,Transaction 10d65890-b003-48f8-9cfc-9c74b51189c8 succeeded
+    2019-08-27 01:38:22 302,Error,Application could not connect to database
+    2019-08-27 01:31:34 303,Error,Application lost connection to database
 
 ### <a name="upload-and-parse-a-sample-log"></a>Télécharger et analyser un exemple de journal
 Nous fournissons un des fichiers journaux et nous voyons les événements qu’il va collecter.  Dans ce cas, le délimiteur Nouvelle ligne suffit.  Cependant, si une entrée du journal s’étend sur plusieurs lignes, il faut utiliser un délimiteur Horodatage.
@@ -164,14 +157,10 @@ Nous utilisons le nom *MyApp_CL* et complétons le champ **Description**.
 ![Nom du journal](media/data-sources-custom-logs/log-name.png)
 
 ### <a name="validate-that-the-custom-logs-are-being-collected"></a>Vérifier que les journaux d’activité personnalisés sont collectés
-Nous utilisons une requête *Type=MyApp_CL* pour retourner tous les enregistrements du journal collecté.
+Nous utilisons une requête simple *MyApp_CL* pour retourner tous les enregistrements du journal collecté.
 
 ![Requête de journal sans aucun champ personnalisé](media/data-sources-custom-logs/query-01.png)
 
-### <a name="parse-the-custom-log-entries"></a>Analyser les entrées du journal personnalisé
-Nous utilisons Champs personnalisés pour définir les champs *EventTime*, *Code*, *Status* et *Message*, et pouvons voir la différence dans les enregistrements retournés par la requête.
-
-![Requête de journal avec des champs personnalisés](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="alternatives-to-custom-logs"></a>Alternatives aux journaux d’activité personnalisés
 Les journaux d’activité personnalisés sont très utiles lorsque vos données sont conformes aux critères énumérés, mais dans certains cas, une autre stratégie peut être nécessaire :

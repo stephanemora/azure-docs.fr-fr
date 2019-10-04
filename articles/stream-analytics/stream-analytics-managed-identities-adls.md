@@ -1,5 +1,5 @@
 ---
-title: Authentifier des travaux Azure Stream Analytique à la sortie d’Azure Data Lake Storage Gen1
+title: Authentifier un travail Azure Stream Analytics pour la sortie Azure Data Lake Storage Gen1
 description: Cet article explique comment utiliser des identités managées afin d’authentifier votre tâche Azure Stream Analytics pour la sortie Azure Data Lake Storage Gen1.
 author: mamccrea
 ms.author: mamccrea
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522059"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66148540"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Authentifier Analytique Stream pour Azure Data Lake Storage Gen1 à l’aide d’identités gérées
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Authentifier Stream Analytics pour Azure Data Lake Storage Gen1 à l’aide d’identités managées
 
 Azure Stream Analytics prend en charge l’authentification des identités managées avec la sortie Azure Data Lake Storage (ADLS) Gen1. L’identité est une application managée inscrite auprès d’Azure Active Directory. Elle représente un travail Stream Analytics spécifique et peut servir à l’authentification auprès d’une ressource cible. Les identités managées n’ont pas les limitations des méthodes d’authentification basée sur l’utilisateur, comme la réauthentification obligatoire après un changement de mot de passe ou l’expiration du jeton d’utilisateur tous les 90 jours. De plus, les identités managées facilitent l’automatisation des déploiements de travaux Stream Analytics dont la sortie est générée dans Azure Data Lake Storage Gen1.
 
@@ -24,11 +24,11 @@ Cet article présente trois façons d'activer une identité managée pour un tra
 
 ## <a name="azure-portal"></a>Portail Azure
 
-1. Commencez par créer un travail Stream Analytics ou par ouvrir un travail existant dans le portail Azure. Dans la barre de menus située sur le côté gauche de l’écran, sélectionnez **msi** situé sous **configurer**.
+1. Commencez par créer un travail Stream Analytics ou par ouvrir un travail existant dans le portail Azure. Dans la barre de menus située sur le côté gauche de l’écran, sélectionnez **Identité managée** sous **Configurer**.
 
-   ![Configurer l’identité de l’Analytique Stream gérés](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Configurer une identité managée Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Sélectionnez **attribué par le système de l’utilisation des identités gérées** à partir de la fenêtre qui apparaît à droite. Cliquez sur **enregistrer** à un principal de service pour l’identité de la tâche Analytique de Stream dans Azure Active Directory. Le cycle de vie de la nouvelle identité est géré par Azure. Quand le travail Stream Analytics est supprimé, l’identité associée (autrement dit, le principal de service) est également automatiquement supprimée par Azure.
+2. Sélectionnez **Utiliser l’identité managée affectée par le système** dans la fenêtre qui s’affiche à droite. Cliquez sur **Enregistrer** sur un principal de service pour l’identité associée au travail Stream Analytics dans Azure Active Directory. Le cycle de vie de la nouvelle identité est géré par Azure. Quand le travail Stream Analytics est supprimé, l’identité associée (autrement dit, le principal de service) est également automatiquement supprimée par Azure.
 
    Une fois que la configuration est enregistrée, l’ID objet (l’OID) du principal de service s’affiche en tant qu’ID de principal, comme ci-dessous :
 
@@ -36,7 +36,7 @@ Cet article présente trois façons d'activer une identité managée pour un tra
  
    Le principal de service a le même nom que le travail Stream Analytics. Par exemple, si le nom de votre travail est **MyASAJob**, le nom du principal de service créé est également **MyASAJob**.
 
-3. Dans la fenêtre de propriétés de sortie du récepteur de sortie ADLS Gen1, cliquez sur le mode d’authentification liste déroulante et sélectionnez ** msi **.
+3. Dans la fenêtre de propriétés de la sortie du récepteur de sortie ADLS Gen1, cliquez sur la liste déroulante Mode d’authentification et sélectionnez **Identité managée **.
 
 4. Renseignez le reste des propriétés. Pour en savoir plus sur la création d’une sortie ADLS, consultez [Créer une sortie Data Lake Storage avec Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md). Quand vous avez terminé, cliquez sur **Enregistrer**.
 
@@ -70,7 +70,7 @@ Cet article présente trois façons d'activer une identité managée pour un tra
 
    ![Identités managées dans la configuration du travail Stream Analytics](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. Dans la fenêtre de propriétés de sortie du récepteur de sortie ADLS Gen1, cliquez sur le mode d’authentification liste déroulante et sélectionnez ** msi **.
+2. Dans la fenêtre de propriétés de la sortie du récepteur de sortie ADLS Gen1, cliquez sur la liste déroulante Mode d’authentification et sélectionnez **Identité managée **.
 
    ![Identités managées générées par ADLS](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 
@@ -173,14 +173,14 @@ Cet article présente trois façons d'activer une identité managée pour un tra
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Pour en savoir plus sur la commande PowerShell ci-dessus, reportez-vous à la [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentation.
+   Pour en savoir plus sur la commande PowerShell ci-dessus, consultez la documentation [Set-AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry).
 
 ## <a name="limitations"></a>Limites
-Cette fonctionnalité ne prend en charge les éléments suivants :
+Cette fonctionnalité ne prend pas en charge les éléments suivants :
 
-1. **Accès de l’architecture mutualisé**: Le principal du Service créé pour un travail Stream Analytique donné résident sur le client Azure Active Directory sur lequel le travail a été créé et ne peut pas être utilisé sur une ressource qui réside sur un autre locataire Azure Active Directory. Par conséquent, vous pouvez uniquement utiliser MSI sur les ressources ADLS Gen 1 qui se trouvent dans le même locataire Azure Active Directory que votre travail Azure Stream Analytique. 
+1. **Accès multi-locataire** : Le principal de service créé pour un travail Stream Analytics donné réside sur le locataire Azure Active Directory sur lequel le travail a été créé. En outre, il ne peut pas être utilisé sur une ressource qui réside sur un autre locataire Azure Active Directory. Par conséquent, vous pouvez uniquement utiliser MSI sur les ressources ADLS Gen 1 qui se trouvent dans le même locataire Azure Active Directory que votre travail Azure Stream Analytics. 
 
-2. **[Utilisateur de l’identité affectée](../active-directory/managed-identities-azure-resources/overview.md)**: n’est pas pris en charge. Cela signifie que l’utilisateur n’est pas en mesure d’entrer leur propres principal de service à utiliser par leur travail Analytique de Stream. Le principal du service est généré par Azure Stream Analytique.
+2. **[Identité attribuée à l’utilisateur](../active-directory/managed-identities-azure-resources/overview.md)** : non prise en charge. Cela signifie que l’utilisateur n’est pas en mesure d’entrer dans son propre principal de service à utiliser par son travail Stream Analytics. Le principal de service est généré par Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

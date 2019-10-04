@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 6eaaeba8a36bcba8134d605889185fb8827dd05c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997512"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851188"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Utiliser le Kit de développement logiciel (SDK) Node.js pour Mobile Apps
 
@@ -135,7 +135,7 @@ Visual Studio 2015 requiert une extension pour développer les applications No
 
     Enregistrez le fichier .
 
-1. Exécutez l’application localement (l’API est disponible sur `http://localhost:3000`) ou le publier sur Azure.
+1. Exécutez l’application localement (l’API est disponible sur `http://localhost:3000`) ou publiez-la sur Azure.
 
 ### <a name="create-node-backend-portal"></a>Créer un serveur principal Node.js à l’aide du portail Azure
 
@@ -144,7 +144,7 @@ Vous pouvez créer un serveur principal Mobile Apps dans le [portail Azure]. Vou
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
 Dans le volet **Prise en main**, sous **Create a table API** (Créer une API de table), sélectionnez **Node.js** en tant que langue de serveur principal.
-Cochez la case **Je reconnais que cette opération va remplacer tout le contenu du site.**, puis sélectionnez sur **Créer une table TodoItem**.
+Cochez la case **Je reconnais que cette opération va remplacer tout le contenu du site.** , puis sélectionnez sur **Créer une table TodoItem**.
 
 ### <a name="download-quickstart"></a>Télécharger le projet de code de démarrage rapide du serveur principal Node.js à l’aide de Git
 
@@ -190,7 +190,7 @@ Si vous voulez que cette option soit disponible uniquement pour un développemen
 
 ## <a name="TableOperations"></a>Opérations de table
 
-Le Kit de développement logiciel (SDK) Node.js Server azure-mobile-apps fournit des mécanismes permettant d’exposer les tables de données stockées dans Azure SQL Database sous la forme d’une API Web. Il fournit cinq opérations :
+Le kit SDK Node.js Server azure-mobile-apps fournit des mécanismes permettant d’exposer les tables de données stockées dans Azure SQL Database sous la forme d’une API Web. Il fournit cinq opérations :
 
 | Opération | Description |
 | --- | --- |
@@ -302,7 +302,7 @@ Le Kit de développement logiciel (SDK) Node.js pour Mobile Apps utilise le [pac
 
    h. Sélectionnez **SQL Server Services** dans le menu de l’arborescence.
 
-   i. Cliquez avec le bouton droit sur **SQL Server (SQLEXPRESS)**, puis sélectionnez **Redémarrer**.
+   i. Cliquez avec le bouton droit sur **SQL Server (SQLEXPRESS)** , puis sélectionnez **Redémarrer**.
 
    j. Fermez le Gestionnaire de configuration de SQL Server 2014.
 
@@ -397,14 +397,14 @@ La modification de la plupart des paramètres requiert le redémarrage du servic
 
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
-L’utilisation de la base de données SQL Azure en tant que datastore est identique pour tous les types d’applications Azure App Service. Si vous ne l’avez pas déjà fait, suivez ces étapes pour créer un serveur principal Mobile Apps :
+L’utilisation d’Azure SQL Database en tant que datastore est identique pour tous les types d’applications Azure App Service. Si vous ne l’avez pas déjà fait, suivez ces étapes pour créer un serveur principal Mobile Apps :
 
 1. Connectez-vous au [Portail Azure].
 1. Dans le coin supérieur gauche de la fenêtre, sélectionnez le bouton **+ NOUVEAU** > **Web + Mobile**>**Application mobile**, puis indiquez un nom pour votre serveur principal Mobile Apps.
 1. Dans la zone **Groupe de ressources** , entrez le même nom que votre application.
 1. Le plan App Service par défaut est sélectionné. Si vous souhaitez modifier votre plan App Service :
 
-   a. Sélectionnez **Plan App Service** > **+Créer**.
+   a. Sélectionnez **Plan App Service** >  **+Créer**.
 
    b. Indiquez le nom du nouveau plan App Service et sélectionnez un emplacement approprié.
 
@@ -422,11 +422,11 @@ Vous pouvez choisir de connecter une base de données SQL existante à votre ser
 > [!NOTE]
 > Si vous avez déjà une base de données dans le même emplacement que le serveur principal Mobile Apps, vous pouvez sélectionner **Utiliser une base de données existante**, puis cette base de données. Nous vous déconseillons d’utiliser une base de données dans un autre emplacement en raison de latences plus importantes.
 
-1. Dans le nouveau serveur principal Mobile Apps, sélectionnez **Paramètres** > **Application mobile** > **Données** > **+Ajouter**.
+1. Dans le nouveau serveur principal Mobile Apps, sélectionnez **Paramètres** > **Application mobile** > **Données** >  **+Ajouter**.
 1. Dans le volet **Ajouter une connexion de données**, sélectionnez **Base de données SQL - Configurer les paramètres requis** > **Créer une base de données**. Entrez le nom de la nouvelle base de données dans le champ **Nom**.
 1. Sélectionnez **Serveur**. Dans le volet **Nouveau serveur**, entrez un nom de serveur unique dans le champ **Nom du serveur**, et indiquez un nom de connexion d’administration serveur et un mot de passe appropriés. Vérifiez que l’option **Autoriser les services Azure à accéder au serveur** est sélectionnée. Sélectionnez **OK**.
 
-   ![Création d’une base de données SQL Azure][6]
+   ![Création d’une base de données Azure SQL][6]
 1. Dans le volet **Nouvelle base de données**, sélectionnez **OK**.
 1. Dans le volet **Ajouter une connexion de données**, sélectionnez **Chaîne de connexion**, entrez le nom de connexion et le mot de passe que vous avez indiqués lors de la création de la base de données. Si vous utilisez une base de données existante, indiquez les informations d’identification de connexion à celle-ci. Sélectionnez **OK**.
 1. Dans le volet **Ajouter une connexion de données**, sélectionnez **OK** pour créer la base de données.
@@ -891,7 +891,7 @@ api.get.access = 'authenticated';
 module.exports = api;
 ```
 
-## <a name="Debugging"></a>Débogage, Tables facile et API simples
+## <a name="Debugging"></a>Débogage
 
 ### <a name="howto-diagnostic-logs"></a>Déboguer, diagnostiquer et résoudre des problèmes sur Mobile Apps
 
@@ -903,47 +903,6 @@ Consultez les articles suivants pour prendre en main la résolution des problèm
 * [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]
 
 Les applications Node.js ont accès à un large éventail d’outils de journaux de diagnostic. En interne, le Kit de développement logiciel (SDK) Node.js dans Azure Mobile Apps utilise [Winston] pour la journalisation des diagnostics. La journalisation est activée automatiquement lorsque vous activez le mode de débogage ou définissez le paramètre d’application `MS_DebugMode` sur true dans le [portail Azure]. Les journaux d’activité générés s’affichent dans les journaux de diagnostic sur le [portail Azure].
-
-### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Utiliser l’outil Tables faciles dans le portail Azure
-
-Vous pouvez faire appel à l’outil Tables faciles pour créer et utiliser des tables directement dans le portail. Vous pouvez télécharger le jeu de données vers Tables faciles au format CSV. Notez que vous ne pouvez pas utiliser de noms de propriétés (dans votre jeu de données CSV) qui sont en conflit avec des noms de propriétés système du serveur principal Mobile Apps. Les noms de propriétés système sont :
-* createdAt
-* updatedAt
-* deleted
-* version
-
-Vous pouvez même modifier les opérations de table à l’aide de l’éditeur App Service. Lorsque vous cliquez sur **Tables faciles** dans vos paramètres de site principal, vous pouvez ajouter, modifier ou supprimer une table. Vous pouvez également voir les données de la table.
-
-![Utilisation de l’outil Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
-
-Les commandes suivantes sont disponibles dans la barre de commandes d’une table :
-
-* **Modifier les autorisations** : Modifiez l’autorisation pour les opérations de lecture, d’insertion, de mise à jour et de suppression sur la table.
- Vous avez la possibilité d’autoriser l’accès anonyme, d’exiger une authentification ou de désactiver tous les accès à l’opération.
-* **Modifier le script** : Le fichier de script de la table est ouvert dans l’éditeur App Service.
-* **Gérer le schéma** : Ajoutez ou supprimez des colonnes ou modifiez l’index de la table.
-* **Effacer la table** : Tronquez une table existante en supprimant toutes les lignes de données tout en conservant le schéma à l’identique.
-* **Supprimer les lignes** : Supprimez des lignes de données spécifiques.
-* **Afficher les journaux de diffusion en continu** : Connectez-vous au service de journaux de diffusion en continu de votre site.
-
-### <a name="work-easy-apis"></a>Utiliser l’outil API faciles dans le portail Azure
-
-Vous pouvez faire appel à l’outil API faciles pour créer et utiliser des API personnalisées directement dans le portail. Vous pouvez modifier des scripts API à l’aide de l’éditeur App Service.
-
-Lorsque vous sélectionnez **API faciles** dans vos paramètres de site principal, vous pouvez ajouter, modifier ou supprimer un point de terminaison d’API personnalisée.
-
-![Utilisation de l’outil Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
-
-Dans le portail, vous pouvez modifier les autorisations d’accès pour une action HTTP, modifier le fichier de script d’API dans l’éditeur App Service ou afficher les journaux d’activité de diffusion en continu.
-
-### <a name="online-editor"></a>Modifier le code dans l’éditeur App Service
-
-Le portail Azure vous permet de modifier les fichiers de script de votre serveur principal Node.js dans l’éditeur App Service sans avoir à télécharger le projet sur votre ordinateur local. Pour modifier les fichiers de script dans l’éditeur en ligne :
-
-1. Dans le volet de votre serveur principal Mobile Apps, sélectionnez **All settings** (Tous les paramètres) > **Tables faciles** ou **API faciles**. Sélectionnez une table ou une API, puis **Modifier le script**. Le fichier de script s’ouvre dans l’éditeur App Service.
-
-   ![Éditeur App Service](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-1. Apportez vos modifications au fichier de code dans l’éditeur en ligne. Les modifications sont enregistrées automatiquement au fil de la saisie.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png

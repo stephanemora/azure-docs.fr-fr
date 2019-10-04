@@ -1,6 +1,6 @@
 ---
 title: Collecter des données relatives à vos modèles de production
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Découvrez comment collecter des données de modèle d’entrée Azure Machine Learning dans un stockage d’objets blob Azure.
 services: machine-learning
 ms.service: machine-learning
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 12/3/2018
+ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: a127a211157edb0b26d0495bc2ed05dd79323111
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: d836b600a39b73f60c0847c5a9642f396fb70d17
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842632"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002857"
 ---
 # <a name="collect-data-for-models-in-production"></a>Collecter des données pour des modèles en production
 
-Dans cet article, vous allez découvrir comment collecter des données de modèle d’entrée à partir des services Azure Machine Learning que vous avez déployés dans Azure Kubernetes Cluster (AKS) dans un stockage d’objets blob Azure. 
+Dans cet article, vous allez découvrir comment collecter des données de modèle d’entrée à partir d’Azure Machine Learning déployé dans un cluster Azure Kubernetes dans un stockage d’objets blob Azure. 
 
 Une fois la collecte activée, ces données vous aideront à :
-* Superviser les dérives de données à mesure que les données de production entrent dans votre modèle.
+* [Superviser les dérives de données](how-to-monitor-data-drift.md) à mesure que les données de production entrent dans votre modèle.
 
 * Prendre de meilleures décisions concernant le réentraînement ou l’optimisation de votre modèle.
 
@@ -48,20 +48,20 @@ Le chemin des données de sortie dans l’objet blob respecte cette syntaxe :
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+- Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
-- Un espace de travail du service Azure Machine Learning, un répertoire local contenant vos scripts et le kit SDK Azure Machine Learning pour Python installé. Découvrez comment obtenir ces prérequis à l’aide du document [Guide pratique pour configurer un environnement de développement](how-to-configure-environment.md).
+- Un espace de travail Azure Machine Learning, un répertoire local contenant vos scripts, et le SDK Azure Machine Learning pour Python. Découvrez comment obtenir ces prérequis à l’aide du document [Guide pratique pour configurer un environnement de développement](how-to-configure-environment.md).
 
-- Un modèle Machine Learning entraîné à déployer sur Azure Kubernetes Service (AKS). Si vous n’en avez pas, consultez le tutoriel [Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md).
+- Un modèle Machine Learning entraîné à déployer sur Azure Kubernetes Service (AKS). Si vous n’en avez pas, consultez le didacticiel [Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md).
 
 - Cluster Azure Kubernetes Service. Pour plus d’informations sur la création et le déploiement, consultez le document [Où et comment effectuer un déploiement](how-to-deploy-and-where.md).
 
 - [Configurez votre environnement](how-to-configure-environment.md) et installez le [SDK Monitoring](https://aka.ms/aml-monitoring-sdk).
 
 ## <a name="enable-data-collection"></a>Activer la collecte des données
-La collecte de données peut être activée quel que soit le modèle en cours de déploiement par le biais du service Azure Machine Learning ou d’autres outils. 
+La collecte de données peut être activée quel que soit le modèle en cours de déploiement par le biais d’Azure Machine Learning ou d’autres outils. 
 
 Pour l’activer, vous devez :
 
@@ -109,7 +109,7 @@ Pour l’activer, vous devez :
 
 Si vous disposez déjà d’un service avec les dépendances installées dans votre **fichier d’environnement** et votre **fichier de scoring**, activez la collecte de données en effectuant les étapes suivantes :
 
-1. Accédez au [portail Azure](https://portal.azure.com).
+1. Accédez au [Portail Azure](https://portal.azure.com).
 
 1. Ouvrez votre espace de travail.
 
@@ -144,6 +144,8 @@ Vous pouvez arrêter la collecte de données à tout moment. Pour désactiver la
 
   1. Sélectionnez **Mettre à jour** pour appliquer la modification.
 
+  Vous pouvez également accéder à ces paramètres dans la [page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com).
+
 + Option 2 : utiliser Python pour désactiver la collecte de données :
 
   ```python 
@@ -172,7 +174,7 @@ Pour accéder rapidement aux données à partir de votre objet blob :
 
 ### <a name="analyzing-model-data-through-power-bi"></a>Analyse des données de modèle via Power BI
 
-1. Téléchargez [PowerBI Desktop](https://www.powerbi.com), puis ouvrez-le.
+1. Télécharger et ouvrir [Power BI Desktop](https://www.powerbi.com)
 
 1. Sélectionnez **Obtenir des données** et cliquez sur [**Stockage Blob Azure**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
@@ -218,7 +220,7 @@ Pour accéder rapidement aux données à partir de votre objet blob :
 
     [![Table de base de données](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. Mettez à jour l’emplacement de vos données. Voici un exemple : 
+1. Mettez à jour l’emplacement de vos données. Voici un exemple :
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

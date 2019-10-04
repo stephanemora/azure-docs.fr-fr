@@ -5,18 +5,18 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/12/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 379c7913f803c599865df080524da5c3fb1d0e52
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526337"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616946"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel
 
-Le flux de modification Azure Cosmos DB est un mécanisme permettant d’obtenir un flux d’enregistrements continu et incrémentiel à partir d’un conteneur Azure Cosmos DB à mesure que ces enregistrements sont créés ou modifiés. La prise en charge du flux de modification consiste à identifier les modifications apportées au conteneur. Il renvoie ensuite la liste chronologique de documents qui ont été modifiés, dans l’ordre dans lequel ils ont été modifiés. Pour plus d’informations sur le flux de modification, consultez l’article [Utilisation du support de flux de modification](change-feed.md). 
+Le flux de modification Azure Cosmos DB est un mécanisme permettant d’obtenir un flux d’enregistrements continu et incrémentiel à partir d’un conteneur Azure Cosmos à mesure que ces enregistrements sont créés ou modifiés. La prise en charge du flux de modification consiste à identifier les modifications apportées au conteneur. Il renvoie ensuite la liste chronologique de documents qui ont été modifiés, dans l’ordre dans lequel ils ont été modifiés. Pour plus d’informations sur le flux de modification, consultez l’article [Utilisation du support de flux de modification](change-feed.md). 
 
 Cet article explique comment une société d’e-commerce peut utiliser le flux de modification pour comprendre les modèles utilisateur, pour effectuer l’analyse des données en temps réel et pour visualiser ces données. Vous allez analyser différents événements tels que la consultation d’un article par un utilisateur, l’ajout d’un article à un panier ou l’achat d’un article. Lorsque l’un de ces événements survient, un enregistrement est créé, puis consigné par le flux de modification. Le flux de modification déclenche ensuite une série d’étapes aboutissant à la visualisation de métriques qui analysent les performances et l’activité de la société. Les métriques que vous pouvez visualiser comprennent notamment les recettes, le nombre de visiteurs uniques du site, les articles les plus populaires et le prix moyen des articles qui sont consultés par rapport aux articles ajoutés à un panier et aux articles achetés. Ces exemples de métriques peuvent aider une société d’e-commerce à évaluer la popularité de son site, à développer ses stratégies publicitaires et de tarification et à prendre des décisions concernant le stock dans lequel elle doit investir.
 
@@ -41,9 +41,9 @@ Le diagramme ci-après illustre le flux de données et les composants impliqués
    }
    ```
 
-2. **Cosmos DB :** les données générées sont stockées dans une collection Azure Cosmos DB.  
+2. **Cosmos DB :** les données générées sont stockées dans un conteneur Azure Cosmos.  
 
-3. **Flux de modification :** le flux de modification identifie les modifications apportées à la collection Azure Cosmos DB. Chaque fois qu’un nouveau document est ajouté à la collection (autrement dit, lors de chaque événement tel que la consultation d’un article par un utilisateur, l’ajout d’un article à un panier ou l’achat d’un article), le flux de modification déclenche une [fonction Azure](../azure-functions/functions-overview.md).  
+3. **Flux de modification :** le flux de modification identifie les modifications apportées au conteneur Azure Cosmos. Chaque fois qu’un nouveau document est ajouté à la collection (autrement dit, lors de chaque événement tel que la consultation d’un article par un utilisateur, l’ajout d’un article à un panier ou l’achat d’un article), le flux de modification déclenche une [fonction Azure](../azure-functions/functions-overview.md).  
 
 4. **Fonction Azure :** la fonction Azure traite les nouvelles données et les envoie à un [hub d’événements Azure](../event-hubs/event-hubs-about.md).  
 
@@ -53,7 +53,7 @@ Le diagramme ci-après illustre le flux de données et les composants impliqués
 
 7. **Power BI :** Power BI permet de visualiser les données envoyées par Azure Stream Analytics. Vous pouvez générer un tableau de bord afin de visualiser l’évolution des métriques en temps réel.  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Microsoft .NET Framework 4.7.1 ou une version ultérieure
 
@@ -143,7 +143,7 @@ Un Event Hub Azure reçoit les données d’événement, puis stocke, traite et 
 
 ## <a name="set-up-azure-function-to-read-the-change-feed"></a>Configurer une fonction Azure pour la lecture du flux de modification
 
-Lorsqu’un document est créé, ou qu’un document existant est modifié dans une collection Cosmos DB, le flux de modification ajoute automatiquement ce document modifié à son historique des modifications de la collection. Vous allez à présent créer et exécuter une fonction Azure qui traite le flux de modification. Lorsqu’un document sera créé ou modifié dans la collection que vous avez créée, la fonction Azure sera déclenchée par le flux de modification. La fonction Azure enverra alors le document modifié à l’Event Hub.
+Quand un document est créé, ou qu’un document existant est modifié dans un conteneur Cosmos, le flux de modification ajoute automatiquement ce document modifié à son historique des modifications de la collection. Vous allez à présent créer et exécuter une fonction Azure qui traite le flux de modification. Lorsqu’un document sera créé ou modifié dans la collection que vous avez créée, la fonction Azure sera déclenchée par le flux de modification. La fonction Azure enverra alors le document modifié à l’Event Hub.
 
 1. Réaccédez au référentiel que vous avez cloné sur votre appareil.  
 
@@ -318,7 +318,7 @@ Power BI est une suite d’outils d’analyse métier permettant d’analyser de
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Facultatif : Visualiser les données à l’aide d’un site d’e-commerce
 
-Vous allez à présent découvrir comment utiliser votre nouvel outil d’Analytique données pour vous connecter à un véritable site d’e-commerce. Pour générer le site d’e-commerce, utilisez une base de données Azure Cosmos DB afin de stocker la liste des catégories de produits (Pour femmes, Pour hommes, Unisexe), le catalogue de produits et la liste des articles les plus populaires.
+Vous allez à présent découvrir comment utiliser votre nouvel outil d’Analytique données pour vous connecter à un véritable site d’e-commerce. Pour générer le site d’e-commerce, utilisez une base de données Azure Cosmos afin de stocker la liste des catégories de produits (Pour femmes, Pour hommes, Unisexe), le catalogue de produits et la liste des articles les plus populaires.
 
 1. Réaccédez au [Portail Azure](https://portal.azure.com/), à votre **Compte Cosmos DB**, puis à **l’Explorateur de données**.  
 

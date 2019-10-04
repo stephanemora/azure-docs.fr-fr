@@ -4,23 +4,22 @@ description: Apprenez à créer un compte Azure Batch dans le portail Azure pour
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 5cceb7cc179f78d6b6d7350e7c4f6c31bb9cbfed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773722"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095726"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 
@@ -32,7 +31,7 @@ Pour plus d’informations sur les comptes et les scénarios Batch, consultez la
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-1. Connectez-vous au [portail Azure][azure_portal].
+1. Connectez-vous au [Portail Azure][azure_portal].
 
 1. Sélectionnez **Créer une ressource** > **Compute** > **Service Batch**.
 
@@ -84,7 +83,7 @@ Si vous choisissez de créer un compte Batch en mode d’abonnement utilisateur,
 
 Quand vous créez votre premier compte Batch en mode Abonnement utilisateur, vous devez inscrire votre abonnement auprès de Batch. (Si vous l’avez déjà fait, passez à la section suivante.)
 
-1. Connectez-vous au [portail Azure][azure_portal].
+1. Connectez-vous au [Portail Azure][azure_portal].
 
 1. Sélectionnez **Tous les services** > **Abonnements**, puis cliquez sur l’abonnement que vous souhaitez utiliser pour le compte Batch.
 
@@ -92,7 +91,7 @@ Quand vous créez votre premier compte Batch en mode Abonnement utilisateur, vou
 
     ![Inscrire le fournisseur Microsoft.Batch][register_provider]
 
-1. Dans la page **Abonnement**, sélectionnez **Contrôle d’accès (IAM)** > **Attributions de rôles** > **Ajouter une attribution de rôle**.
+1. Dans la page **Abonnement**, sélectionnez **Contrôle d’accès (IAM)**  > **Attributions de rôles** > **Ajouter une attribution de rôle**.
 
     ![Contrôle d’accès à l’abonnement][subscription_access]
 
@@ -113,7 +112,11 @@ En mode Abonnement utilisateur, un coffre de clés Azure appartenant au même gr
 
 1. Dans la page **Créer un coffre de clés**, entrez un nom pour le coffre de clés et créez un groupe de ressources dans la région souhaitée pour votre compte Batch. Conservez les autres paramètres par défaut, puis cliquez sur **Créer**.
 
-Lors de la création du compte Batch en mode Abonnement utilisateur, utilisez le groupe de ressources pour le coffre de clés, spécifiez **Abonnement utilisateur** en tant que mode d’allocation de pool, puis sélectionnez le coffre de clés.
+Lors de la création du compte Batch en mode Abonnement utilisateur, utilisez le groupe de ressources pour le coffre de clés. Spécifiez **Abonnement utilisateur** en tant que mode d’allocation de pool, sélectionnez le coffre de clés, puis cochez la case pour accorder à Azure Batch l’accès au coffre de clés. 
+
+Si vous préférez accorder manuellement l’accès au coffre de clés, accédez à la section **Stratégies d’accès** du coffre de clés, sélectionnez **Ajouter une stratégie d’accès**, puis recherchez **Microsoft Azure Batch**. Une fois les autorisations sélectionnées sous **Autorisations du secret**, vous devez les configurer à l’aide du menu déroulant. Azure Batch doit avoir au minimum les autorisations **Get**, **List**, **Set** et **Delete**.
+
+![Autorisations de secret pour Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
 
 ### <a name="configure-subscription-quotas"></a>Configurer les quotas d’abonnement
 

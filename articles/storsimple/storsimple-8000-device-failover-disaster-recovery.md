@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5dc4a98bf889d38c62c76364289c2d58c14d771e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 079a2f153f257040d1899a33c9e255d633e526ad
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108477"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60576382"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Basculement et récupération d’urgence pour votre appareil de la gamme StorSimple 8000
 
@@ -50,8 +50,8 @@ Sur un appareil de la gamme StorSimple 8000, les stratégies de sauvegarde sont
 
 Supposons qu’il existe deux stratégies de sauvegarde, *defaultPol* et *customPol* :
 
-* *defaultPol* : un seul volume, *vol1*, s’exécute tous les jours à 22 h 30.
-* *customPol* : quatre volumes, *vol1*, *vol2*, *vol3* et *vol4*, s’exécutent tous les jours à 22 h 00.
+* *defaultPol* : un seul volume, *vol1*, s’exécute tous les jours à 22h30.
+* *customPol* : quatre volumes, *vol1*, *vol2*, *vol3* et *vol4*, s’exécutent tous les jours à 22h00.
 
 Dans ce cas, StorSimple donne la priorité pour des raisons de cohérence en cas d’incident et utilise *customPol*, car elle a plus de volumes. La sauvegarde la plus récente de cette stratégie est utilisée pour restaurer les données. Pour plus d’informations sur la façon de créer et gérer des stratégies de sauvegarde, accédez à [Use the StorSimple Device Manager service in Azure portal to manage backup policies](storsimple-8000-manage-backup-policies-u2.md) (Utiliser le service StorSimple Device Manager dans le portail Azure pour gérer les stratégies de sauvegarde).
 
@@ -104,21 +104,21 @@ Une fois un basculement terminé, StorSimple effectue les actions suivantes :
 
 Si vous envisagez de tester les basculements ou restaurations automatiques, nous vous recommandons de tester des conteneurs de volumes comprenant moins de données (Go). Généralement, vous pouvez démarrer la restauration automatique 24 heures après la fin du basculement.
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-Q : **Que se passe-t-il si la récupération d’urgence échoue ou réussit partiellement ?**
+Q. **Que se passe-t-il si la récupération d’urgence échoue ou réussit partiellement ?**
 
 R. Si la récupération d’urgence échoue, nous vous recommandons d’essayer à nouveau. Le travail de basculement du deuxième appareil tient compte de la progression du premier travail et commence à partir de là.
 
-Q : **Puis-je supprimer un appareil pendant son basculement ?**
+Q. **Puis-je supprimer un appareil pendant son basculement ?**
 
-A. Vous ne pouvez pas supprimer un appareil lorsqu’une récupération d’urgence est en cours. Vous ne pourrez le faire qu’après la récupération d’urgence. Vous pouvez surveiller la progression du travail de basculement de l’appareil dans le panneau **Travaux**.
+R. Vous ne pouvez pas supprimer un appareil lorsqu’une récupération d’urgence est en cours. Vous ne pourrez le faire qu’après la récupération d’urgence. Vous pouvez surveiller la progression du travail de basculement de l’appareil dans le panneau **Travaux**.
 
-Q : **Quand commence le nettoyage de la mémoire (garbage collection) sur l’appareil source pour en supprimer les données locales ?**
+Q. **Quand commence le nettoyage de la mémoire (garbage collection) sur l’appareil source pour en supprimer les données locales ?**
 
 R. Le nettoyage de la mémoire n’est activé sur l’appareil source qu’une fois l’appareil entièrement nettoyé. Le nettoyage inclut le nettoyage des objets qui ont échoué sur l’appareil source, notamment les volumes, objets de sauvegarde (et non les données), conteneurs de volumes et stratégies.
 
-Q : **Que se passe-t-il en cas d’échec du travail de suppression associé aux conteneurs de volumes dans l’appareil source ?**
+Q. **Que se passe-t-il en cas d’échec du travail de suppression associé aux conteneurs de volumes dans l’appareil source ?**
 
 R.  Si le travail de suppression échoue, vous pouvez supprimer manuellement les conteneurs de volumes. Dans le panneau **Appareils**, sélectionnez votre appareil source, puis cliquez sur **Conteneurs de volumes**. Sélectionnez les conteneurs de volumes que vous avez basculés et, en bas du panneau, cliquez sur **Supprimer**. Une fois que vous avez supprimé tous les conteneurs de volumes basculés sur l’appareil source, vous pouvez démarrer la restauration automatique. Pour plus d’informations, accédez à [Delete a volume container](storsimple-8000-manage-volume-containers.md#delete-a-volume-container) (Supprimer un conteneur de volumes).
 

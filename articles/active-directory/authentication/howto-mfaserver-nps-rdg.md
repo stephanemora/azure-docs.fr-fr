@@ -1,5 +1,5 @@
 ---
-title: Passerelle Bureau à distance et serveur Azure MFA utilisant RADIUS - Azure Active Directory
+title: RDG et Azure MFA Server avec RADIUS - Azure Active Directory
 description: Il s'agit de la page d'authentification multifacteur Azure qui facilite le déploiement de la passerelle Bureau à distance (RD) et le serveur Azure Multi-Factor Authentication à l’aide de RADIUS.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bc47f1f3e7022b566181220e203d33564b5b93b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: a129030e8071dc590562ca5ca203d8d735f0449e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372163"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052557"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS
 
@@ -26,7 +26,10 @@ Souvent, la passerelle du Bureau à distance (RD) utilise les [services de strat
 
 Installez le serveur Multi-Factor Authentication sur un serveur distinct, qui envoie par proxy la demande RADIUS au serveur NPS sur le serveur de la passerelle Bureau à distance. Une fois que le serveur NPS (Network Policy Server) a validé le nom d’utilisateur et le mot de passe, il renvoie une réponse au serveur Multi-Factor Authentication. Ensuite, le serveur MFA applique le second facteur d’authentification et retourne un résultat à la passerelle.
 
-## <a name="prerequisites"></a>Conditions préalables
+> [!IMPORTANT]
+> À compter du 1er juillet 2019, Microsoft ne proposera plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1er juillet pourront télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
+
+## <a name="prerequisites"></a>Prérequis
 
 - Un serveur Azure MFA joint à un domaine. Si vous n’en avez pas déjà installé un, suivez les étapes décrites dans [Prise en main du serveur Azure Multi-Factor Authentication](howto-mfaserver-deploy.md).
 - Un serveur NPS configuré.
@@ -79,7 +82,7 @@ Le serveur Azure Multi-Factor Authentication est configuré en tant que proxy RA
 3. Accédez à l’onglet **Cible**, puis sélectionnez le bouton radio des **serveurs RADIUS**.
 4. Sélectionnez **Ajouter** et entrez l’adresse IP, le secret partagé et les ports du serveur NPS. À moins d’utiliser un NPS central, le client RADIUS et la cible RADIUS seront identiques. Le secret partagé doit correspondre à celui configuré dans la section du client RADIUS du serveur NPS.
 
-![Authentification RADIUS du serveur MFA](./media/howto-mfaserver-nps-rdg/radius.png)
+![Authentification Radius dans MFA Server](./media/howto-mfaserver-nps-rdg/radius.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,15 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 05/22/2019
 ms.author: cherylmc
-Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f286c02e0eb6e801f62d4f2e16f1197a1e9d44ce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958684"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66304545"
 ---
 # <a name="virtual-wan-partners"></a>Partenaires Virtual WAN
 
@@ -199,69 +198,7 @@ Le fichier de configuration de périphérique contient les paramètres à utilis
 
 ## <a name="default"></a>Stratégies par défaut pour la connectivité IPsec
 
-### <a name="initiator"></a>Initiateur
-
-Les sections suivantes répertorient les combinaisons de stratégies prises en charge quand Azure représente l’initiateur du tunnel.
-
-**Phase-1**
-
-* AES_256, SHA1, DH_GROUP_2
-* AES_256, SHA_256, DH_GROUP_2
-* AES_128, SHA1, DH_GROUP_2
-* AES_128, SHA_256, DH_GROUP_2
-* 3DES, SHA1, DH_GROUP_2
-* 3DES, SHA_256, DH_GROUP_2
-
-**Phase-2**
-
-* GCM_AES_256, GCM_AES_256, PFS_NONE
-* AES_256, SHA_1, PFS_NONE
-* CBC_3DES, SHA_1, PFS_NONE
-* AES_256, SHA_256, PFS_NONE
-* AES_128, SHA_1, PFS_NONE
-* CBC_3DES, SHA_256, PFS_NONE
-
-### <a name="responder"></a>Répondeur
-
-Les sections suivantes répertorient les combinaisons de stratégies prises en charge quand Azure représente le répondeur du tunnel.
-
-**Phase-1**
-
-* AES_256, SHA1, DH_GROUP_2
-* AES_256, SHA_256, DH_GROUP_2
-* AES_128, SHA1, DH_GROUP_2
-* AES_128, SHA_256, DH_GROUP_2
-* 3DES, SHA1, DH_GROUP_2
-* 3DES, SHA_256, DH_GROUP_2
-
-**Phase-2**
-
-* GCM_AES_256, GCM_AES_256, PFS_NONE
-* AES_256, SHA_1, PFS_NONE
-* CBC_3DES, SHA_1, PFS_NONE
-* AES_256, SHA_256, PFS_NONE
-* AES_128, SHA_1, PFS_NONE
-* CBC_3DES, SHA_256, PFS_NONE
-* CBC_DES, SHA_1, PFS_NONE 
-* AES_256, SHA_1, PFS_1
-* AES_256, SHA_1, PFS_2
-* AES_256, SHA_1, PFS_14
-* AES_128, SHA_1, PFS_1
-* AES_128, SHA_1, PFS_2
-* AES_128, SHA_1, PFS_14
-* CBC_3DES, SHA_1, PFS_1
-* CBC_3DES, SHA_1, PFS_2
-* CBC_3DES, SHA_256, PFS_2
-* AES_256, SHA_256, PFS_1
-* AES_256, SHA_256, PFS_2
-* AES_256, SHA_256, PFS_14
-* AES_256, SHA_1, PFS_24
-* AES_256, SHA_256, PFS_24
-* AES_128, SHA_256, PFS_NONE
-* AES_128, SHA_256, PFS_1
-* AES_128, SHA_256, PFS_2
-* AES_128, SHA_256, PFS_14
-* CBC_3DES, SHA_1, PFS_14
+[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
 
 ### <a name="does-everything-need-to-match-between-the-virtual-hub-vpngateway-policy-and-my-on-premises-sdwanvpn-device-or-sd-wan-configuration"></a>Tous les éléments entre la stratégie de passerelle VPN et mes configurations de périphérique VPN/SDWAN local ou SD-WAN doivent-ils correspondre ?
 

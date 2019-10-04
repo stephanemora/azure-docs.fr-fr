@@ -3,26 +3,27 @@ title: Démarrage rapide de Project Acoustics avec Unreal
 titlesuffix: Azure Cognitive Services
 description: En utilisant des exemples de contenu, faites des expériences avec des contrôles de conception Project Acoustics dans Unreal et Wwise, et déployez sur Windows Desktop.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
-ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: noelc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 927ce403130460c302f546038ff3a0c3a16e0368
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492403"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933022"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Démarrage rapide de Project Acoustics Unreal/Wwise
 Dans ce guide de démarrage rapide, vous expérimentez des contrôles de conception de Project Acoustics en utilisant l’exemple de contenu fourni pour le moteur Unreal et Wwise.
 
-Configuration logicielle requise :
-* [Unreal Engine](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
+Configuration logicielle requise pour utiliser des exemples de contenu :
+* [Unreal Engine](https://www.unrealengine.com/) 4.22
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2019.1.2
 
 ## <a name="download-the-sample-package"></a>Télécharger l’exemple de package
 Téléchargez l’[exemple de package Project Acoustics Unreal + Wwise](https://www.microsoft.com/download/details.aspx?id=58090). L’exemple de package contient un projet Unreal Engine, le projet Wwise pour ce projet Unreal et le plug-in Project Acoustics Wwise.
@@ -50,14 +51,20 @@ Le plug-in Project Acoustics Unreal nécessite l’exposition d’un comportemen
 
     ![Capture d’écran de l’Explorateur Windows montrant le script permettant de corriger le projet Wwise](media/patch-wwise-script.png)
 
-* Si le SDK DirectX n’est pas installé sur votre machine, vous devez mettre en commentaire la ligne contenant DXSDK_DIR dans `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Si le SDK DirectX n’est pas installé, selon la version de Wwise que vous utilisez, vous devrez peut-être ajouter un commentaire sur la ligne qui contient `DXSDK_DIR` dans `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` :
 
     ![Capture d’écran de l’éditeur de code montrant DXSDK avec des commentaires](media/directx-sdk-comment.png)
+
+* Pour contourner une erreur de liaison avec Wwise si vous compilez avec Visual Studio 2019, modifiez manuellement la valeur `VSVersion` par défaut dans `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` par `vc150` :
+
+    ![Capture d’écran de l’éditeur de code montrant VSVersion remplacé par vc150](media/vsversion-comment.png)
 
 ### <a name="open-the-unreal-project"></a>Ouvrez le projet Unreal. 
 Il vous est demandé de regénérer les modules : cliquez sur Yes.
 
-Si l’ouverture du projet échoue sur des échecs de génération, vérifiez que vous avez installé le plug-in Project Acoustics Wwise pour la même version de Wwise que celle utilisée dans l’exemple de projet Project Acoustics.
+>Si l’ouverture du projet échoue sur des échecs de génération, vérifiez que vous avez installé le plug-in Project Acoustics Wwise pour la même version de Wwise que celle utilisée dans l’exemple de projet Project Acoustics.
+
+>Si vous utilisez une version de [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) antérieure à la version 2019.1, vous ne pourrez pas générer de banques de sons avec l’exemple de projet Project Acoustics.  Vous devez intégrer la version 2019.1 de Wwise dans l’exemple de projet pour une utilisation appropriée.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Faire des essais avec les contrôles de conception de Project Acoustics
 Écoutez le son de la scène en cliquant sur le bouton Play dans l’éditeur Unreal. Sur le poste de travail, utilisez W, A, S, D et la souris pour vous déplacer. Pour afficher les raccourcis clavier des autres contrôles, appuyez sur **F1**. Voici quelques activités de conception à essayer :
@@ -72,7 +79,7 @@ Si le multiplicateur **Occlusion** est supérieur à 1 (la valeur par défaut es
 Pour activer la transmission à travers les murs, déplacez le curseur **Transmission (dB)** à son niveau le plus bas. 
 
 ### <a name="modify-wetness-for-a-source"></a>Modifier l’humidité pour une source
-Pour modifier la rapidité avec laquelle l’humidité change avec la distance, utilisez la **déformation de distance de perception**. Project Acoustics calcule les niveaux d’humidité dans l’espace provenant de la simulation, qui varient de façon régulière en fonction de la distance et fournissent des repères pour la perception de la distance. L’augmentation de la déformation de distance exagère cet effet en augmentant les niveaux d’humidité liés à la distance. Des valeurs de déformation inférieures à 1 rendent plus subtiles les modifications de réverbération en fonction de la distance. Cet effet peut également être ajusté de façon plus fine en ajustant les **Wetness (dB)**.
+Pour modifier la rapidité avec laquelle l’humidité change avec la distance, utilisez la **déformation de distance de perception**. Project Acoustics calcule les niveaux d’humidité dans l’espace provenant de la simulation, qui varient de façon régulière en fonction de la distance et fournissent des repères pour la perception de la distance. L’augmentation de la déformation de distance exagère cet effet en augmentant les niveaux d’humidité liés à la distance. Des valeurs de déformation inférieures à 1 rendent plus subtiles les modifications de réverbération en fonction de la distance. Cet effet peut également être ajusté de façon plus fine en ajustant les **Wetness (dB)** .
 
 Augmentez le temps d’atténuation dans l’espace en ajustant **Decay Time Scale**. Prenons le cas où le résultat de la simulation est un temps d’atténuation de 1,5s. La définition de **Decay Time Scale** sur 2 entraîne un temps d’atténuation appliqué à la source de 3s.
 

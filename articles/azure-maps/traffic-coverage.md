@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: f9a3c4875f01c650485034fe46f53bb5aa1fd75b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372240"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722649"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Couverture du trafic Azure Maps
 
@@ -62,7 +62,9 @@ Toutefois, Maps n’a pas le même niveau d’informations et de précision pour
 |---------|:---------:|:---------:|
 |Andorre   |✓         |✓         |
 |Autriche     |✓         |✓         |
+|Bélarus    |✓         |✓         |
 |Belgique     |✓         |✓         |
+|Bosnie-Herzégovine    |✓         |✓         |
 |Bulgarie     |✓         |✓         |
 |Croatie     |✓         |✓         |
 |République tchèque     |✓         |✓         |
@@ -78,6 +80,7 @@ Toutefois, Maps n’a pas le même niveau d’informations et de précision pour
 |Islande     |✓         |✓         |
 |Irlande     |✓         |✓         |
 |Italie     |✓         |✓        |
+|Kazakhstan    |✓         |✓        |
 |Lettonie     |✓         |✓         |
 |Lesotho     |✓         |✓         |
 |Liechtenstein      |✓         |✓         |
@@ -93,6 +96,7 @@ Toutefois, Maps n’a pas le même niveau d’informations et de précision pour
 |Roumanie     |✓         |✓         |
 |Fédération de Russie     |✓         |✓         |
 |Saint-Marin    |✓         |✓         |
+|Serbie   |✓         |✓         |
 |Slovaquie     |✓         |✓         |
 |Slovénie     |✓         |✓         |
 |Espagne     |✓         |✓         |
@@ -105,8 +109,8 @@ Toutefois, Maps n’a pas le même niveau d’informations et de précision pour
 |Ukraine     |✓         |✓         |
 |Royaume-Uni     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
-|+ Guernesey & Jersey     |✓         |✓         |
-|+ Île de Man     |✓         |✓         |
+|+Guernsey & Jersey     |✓         |✓         |
+|+Île de Man     |✓         |✓         |
 |Cité du Vatican   |✓         |✓         |
 
 

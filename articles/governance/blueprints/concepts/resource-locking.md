@@ -3,21 +3,20 @@ title: Présentation du verrouillage des ressources
 description: Découvrez les options de verrouillage permettant de protéger les ressources au moment d’affecter un blueprint.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 232d823f364f9f98d1da1bade50ba369b898a57d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 8d3cee73d8614c4aea2d2883cdcf2f049b1b8f67
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788616"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232935"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendre le verrouillage de ressources dans les blueprints Azure
 
-La création d’environnements cohérents à l’échelle n’est vraiment utile que s’il existe un mécanisme pour gérer cette cohérence. Cet article explique le fonctionnement du verrouillage de ressources dans les blueprints Azure. Pour voir un exemple de verrouillage de ressources et l’application de _refuser affectations_, consultez le [protégeant les ressources nouvelles](../tutorials/protect-new-resources.md) didacticiel.
+La création d’environnements cohérents à l’échelle n’est vraiment utile que s’il existe un mécanisme pour gérer cette cohérence. Cet article explique le fonctionnement du verrouillage de ressources dans les blueprints Azure. Pour voir un exemple de verrouillage des ressources et d’application _d’affectations de refus_, consultez le didacticiel relatif à la [protection des nouvelles ressources](../tutorials/protect-new-resources.md).
 
 ## <a name="locking-modes-and-states"></a>Modes et états de verrouillage
 
@@ -26,10 +25,10 @@ Les modes de verrouillage ne peuvent cependant pas être modifiés en dehors des
 
 Les ressources créées par des artefacts dans une attribution de blueprint ont quatre états possibles : **Non verrouillé**, **Lecture seule**, **Modification/suppression impossible** ou **Suppression impossible**. Chaque type d’artefact peut être en état **Non verrouillé**. Le tableau suivant permet de déterminer l’état d’une ressource :
 
-|Mode|Type de ressource d’artefact|État|Description|
+|Mode|Type de ressource d’artefact|State|Description|
 |-|-|-|-|
 |Ne pas verrouiller|*|Non verrouillé|Les ressources ne sont pas protégées par des blueprints. Cet état est également utilisé pour des ressources ajoutées à un artéfact de groupe de ressources **En lecture seule** ou **Ne pas supprimer** à partir de l’extérieur d’une attribution de blueprint.|
-|Lecture seule|Groupe de ressources|Modification/suppression impossible|Le groupe de ressources est en lecture seule et les balises sur le groupe de ressources ne peuvent pas être modifiées. Des ressources **Non verrouillées** peuvent être ajoutées, déplacées, modifiées ou supprimées dans ce groupe de ressources.|
+|Lecture seule|Resource group|Modification/suppression impossible|Le groupe de ressources est en lecture seule et les balises sur le groupe de ressources ne peuvent pas être modifiées. Des ressources **Non verrouillées** peuvent être ajoutées, déplacées, modifiées ou supprimées dans ce groupe de ressources.|
 |Lecture seule|Groupe de non-ressources|Lecture seule|La ressource ne peut pas être modifiée de quelque manière que ce soit (aucune modification possible et suppression impossible).|
 |Ne pas supprimer|*|Suppression impossible|Les ressources peuvent être modifiées mais pas supprimées. Des ressources **Non verrouillées** peuvent être ajoutées, déplacées, modifiées ou supprimées dans ce groupe de ressources.|
 
@@ -52,15 +51,22 @@ Une fois l’affectation supprimée, les verrous créés par les blueprints sont
 
 Une action de refus de type [Refuser les attributions](../../../role-based-access-control/deny-assignments.md) de contrôle d’accès en fonction du rôle (RBAC) est appliquée aux ressources d’artefact lors de l’attribution d’un blueprint si cette attribution a sélectionné l’option **Lecture seule** ou **Ne pas supprimer**. L’action de refus est ajoutée par l’identité managée de l’attribution de blueprint, et ne peut être supprimée des ressources d’artefacts que par cette même identité managée. Cette mesure de sécurité a pour effet d’appliquer le mécanisme de verrouillage et d’empêcher la suppression du verrou du blueprint en dehors de blueprints.
 
-![Solution Blueprint refuser l’affectation de groupe de ressources](../media/resource-locking/blueprint-deny-assignment.png)
+![Affectation de refus blueprint sur groupe de ressources](../media/resource-locking/blueprint-deny-assignment.png)
+
+[Propriétés d’affectation de refus](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de chaque mode :
+
+|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|-|-|-|-|-|-|
+|Lecture seule |**\*** |**\*/read** |SystemDefined (Everyone) |affectation blueprint et paramètres définis par l’utilisateur dans **excludedPrincipals** |Groupe de ressources - _true_ ; ressource - _false_ |
+|Ne pas supprimer |**\*/delete** | |SystemDefined (Everyone) |affectation blueprint et paramètres définis par l’utilisateur dans **excludedPrincipals** |Groupe de ressources - _true_ ; ressource - _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager met en cache les détails des affectations de rôles pendant 30 minutes au maximum. Par conséquent, une action de refus de type Refuser les attributions sur des ressources de blueprint risque de ne pas être immédiatement effective. Pendant cette période de temps, il peut être possible de supprimer une ressource destinée à être protégée par des verrous de blueprint.
 
-## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclure une entité de sécurité d’une affectation de refus
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclure un principal d’une affectation de refus
 
-Dans certains scénarios de conception ou de sécurité, il peut être nécessaire exclure un principal à partir de la [refuser affectation](../../../role-based-access-control/deny-assignments.md) crée l’affectation de plan. Cela dans l’API REST en ajoutant jusqu'à cinq valeurs pour le **excludedPrincipals** de tableau dans le **verrous** propriété lorsque [créez l’attribution de](/rest/api/blueprints/assignments/createorupdate).
-Il s’agit d’un exemple d’un corps de demande qui inclut **excludedPrincipals**:
+Dans certains scénarios de conception ou de sécurité, il peut être nécessaire d’exclure un principal de [l’affectation de refus](../../../role-based-access-control/deny-assignments.md) créée par l’affectation blueprint. Cette opération est effectuée dans l’API REST en ajoutant jusqu’à cinq valeurs au tableau **excludedPrincipals** de la propriété **locks** lors de la [création de l’affectation](/rest/api/blueprints/assignments/createorupdate).
+Exemple d’un corps de requête qui inclut **excludedPrincipals** :
 
 ```json
 {
@@ -104,8 +110,8 @@ Il s’agit d’un exemple d’un corps de demande qui inclut **excludedPrincipa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Suivez le [protéger les nouvelles ressources](../tutorials/protect-new-resources.md) didacticiel.
-- Découvrir le [cycle de vie des blueprints](lifecycle.md).
+- Suivre le didacticiel relatif à la [protection des nouvelles ressources](../tutorials/protect-new-resources.md).
+- En savoir plus sur le [cycle de vie des blueprints](lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md).
 - Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).

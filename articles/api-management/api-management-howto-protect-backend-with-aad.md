@@ -9,20 +9,22 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2018
+ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 653089042c87b3223b3de048b6f12056d04b0f3c
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635065"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806330"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
 Ce guide montre comment configurer votre instance de Gestion des API pour protéger une API à l’aide du protocole OAuth 2.0 avec Azure Active Directory (Azure AD). 
+
+> [!NOTE]
+> Cette fonctionnalité est disponible dans les niveaux **Développeur**, **Standard** et **Premium** de Gestion des API.
 
 ## <a name="prerequisites"></a>Prérequis
 Pour suivre les étapes décrites dans cet article, vous devez avoir :
@@ -30,76 +32,83 @@ Pour suivre les étapes décrites dans cet article, vous devez avoir :
 * Une API publiée qui utilise l’instance Gestion des API
 * un locataire Azure AD ;
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Voici un petit aperçu des étapes :
 
 1. Inscrire une application (backend-app) dans Azure AD pour représenter l’API.
 2. Inscrire une autre application (client-app) dans Azure AD pour représenter une application cliente qui doit appeler l’API.
 3. Dans Azure AD, accorder des autorisations pour permettre à client-app d’appeler backend-app.
-4. Configurer la console de développeur pour utiliser l’autorisation utilisateur OAuth 2.0.
+4. Configurez la console de développeur pour appeler l’API à l’aide de l’autorisation utilisateur OAuth 2.0.
 5. Ajouter une stratégie **validate-jwt** afin de valider le jeton OAuth pour chaque requête entrante.
 
 ## <a name="register-an-application-in-azure-ad-to-represent-the-api"></a>Inscrire une application dans Azure AD pour représenter l’API
 
 Pour protéger une API avec Azure AD, la première étape consiste à inscrire dans Azure AD une application qui représente l’API. 
 
-1. Accédez à votre locataire Azure AD, puis accédez à **Inscriptions des applications**.
+1. Accédez à la page [Portail Azure - Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908). 
 
-2. Sélectionnez **Nouvelle inscription d’application**. 
+1. Sélectionnez **Nouvelle inscription**. 
 
-3. Spécifiez le nom de l’application. (Pour cet exemple, le nom est `backend-app`.)  
+1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application : 
+    - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `backend-app`. 
+    - Dans la section **Types de comptes pris en charge**, sélectionnez une option adaptée à votre scénario. 
 
-4. Choisissez **Application web/API** comme **Type d’application**. 
+1. Laissez la section **URI de redirection** vide pour l’instant.
 
-5. Pour **URL de connexion**, vous pouvez utiliser `https://localhost` comme espace réservé.
+1. Sélectionnez **Inscrire** pour créer l’application. 
 
-6. Sélectionnez **Créer**.
+1. Dans la page **Vue d’ensemble** de l’application, recherchez la valeur **ID d’application (client)** et notez-la.
 
 Une fois l’application créée, prenez note de l’**ID d’application** ; vous en aurez besoin lors d’une étape ultérieure. 
+
+1. Sélectionnez **Exposer une API** , puis cliquez sur **Enregistrer et continuer**pour créer un URI d’ID d’application.
+
+1. Dans la page **Ajouter une étendue**, créez une étendue prise en charge par l’API. (par exemple, Lire), puis cliquez sur *Ajouter une étendue* pour créer l’étendue. Répétez cette étape pour ajouter toutes les étendues prises en charge par votre API.
+
+1. Lorsque l’étendue est créée, prenez-en note afin de l’utiliser dans une étape ultérieure. 
 
 ## <a name="register-another-application-in-azure-ad-to-represent-a-client-application"></a>Inscrire une autre application dans Azure AD pour représenter une application cliente
 
-Chaque application cliente qui appelle l’API doit également être inscrite en tant qu’application dans Azure AD. Ici, l’exemple d’application cliente est la console de développeur dans le portail des développeurs de Gestion des API. Voici comment inscrire une autre application dans Azure AD pour représenter la console de développeur.
+Chaque application cliente qui appelle l’API doit également être inscrite en tant qu’application dans Azure AD. Dans cet exemple, l’application cliente est la console de développeur dans le portail des développeurs de gestion des API. Voici comment inscrire une autre application dans Azure AD pour représenter la console de développeur.
 
-1. Sélectionnez **Nouvelle inscription d’application**. 
+1. Accédez à la page [Portail Azure - Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908). 
 
-2. Spécifiez le nom de l’application. (Pour cet exemple, le nom est `client-app`.)
+1. Sélectionnez **Nouvelle inscription**.
 
-3. Choisissez **Application web/API** comme **Type d’application**.  
+1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application : 
+    - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `client-app`. 
+    - Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel**. 
 
-4. Pour **URL de connexion**, vous pouvez utiliser `https://localhost` comme espace réservé ou utiliser l’URL de connexion de votre instance Gestion des API. (Pour cet exemple, l’URL est `https://contoso5.portal.azure-api.net/signin`.)
+1. Dans la section **URI de redirection**, sélectionnez `Web` et entrez l’URL `https://contoso5.portal.azure-api.net/signin`
 
-5. Sélectionnez **Créer**.
+1. Sélectionnez **Inscrire** pour créer l’application. 
 
-Une fois l’application créée, prenez note de l’**ID d’application** ; vous en aurez besoin lors d’une étape ultérieure. 
+1. Dans la page **Vue d’ensemble** de l’application, recherchez la valeur **ID d’application (client)** et notez-la.
 
 Maintenant, créez un secret client pour cette application, que nous utiliserons lors d’une étape ultérieure.
 
-1. Sélectionnez **Paramètres** et accédez à **Clés**.
+1. Dans la liste des pages de votre application cliente, sélectionnez **Certificats et secrets**, puis sélectionnez **Nouveau secret client**.
 
-2. Sous **Mots de passe**, fournissez une **Description de la clé**. Choisissez quand la clé doit expirer et sélectionnez **Enregistrer**.
+1. Sous **Ajouter un secret client**, fournissez une **Description**. Déterminez quand la clé doit expirer et sélectionnez **Ajouter**.
 
-Prenez note de la valeur de la clé. 
+Lorsque le secret est créé, prenez note de la valeur de clé afin de l’utiliser dans une étape ultérieure. 
 
 ## <a name="grant-permissions-in-azure-ad"></a>Accorder des autorisations dans Azure AD
 
 Maintenant que vous avez inscrit deux applications pour représenter l’API et la console de développeur, vous devez accorder des autorisations pour permettre à client-app d’appeler backend-app.  
 
-1. Accédez à **Inscriptions des applications**. 
+1. Accédez à **Inscriptions d’applications**. 
 
-2. Sélectionnez `client-app` et accédez à **Paramètres**.
+1. Sélectionnez `client-app`, puis dans la liste des pages de l’application, accédez à **Autorisations de l’API**.
 
-3. Sélectionnez **Autorisations requises** > **Ajouter**.
+1. Sélectionnez **Ajouter une autorisation**.
 
-4. Sélectionnez **Sélectionner une API** et recherchez `backend-app`.
+1. Sous **Sélectionner une API**, recherchez et sélectionnez `backend-app`.
 
-5. Sous **Autorisations déléguées**, cochez `Access backend-app`. 
+1. Sous **Permissions déléguées**, sélectionnez les permissions appropriées pour `backend-app`, puis cliquez sur **Ajouter des permissions**.
 
-6. Sélectionnez **Sélectionner**, puis sélectionnez **Terminé**. 
-
-> [!NOTE]
-> Si **Azure Active Directory** n’est pas listé sous les autorisations d’autres applications, sélectionnez **Ajouter** pour l’ajouter à partir de la liste.
+1. Si vous le souhaitez, dans la page **Permissions d’API**, cliquez sur **Accorder le consentement de l’administrateur pour <your-tenant-name>** au bas de la page pour octroyer le consentement au nom de tous les utilisateurs de ce répertoire. 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>Activer l’autorisation utilisateur OAuth 2.0 dans la console de développeur
 
@@ -109,36 +118,41 @@ Dans cet exemple, la console de développeur est l’application cliente. Les é
 
 1. Sur le Portail Azure, accédez à votre instance Gestion des API.
 
-2. Sélectionnez **OAuth 2.0** > **Ajouter**.
+1. Sélectionnez **OAuth 2.0** > **Ajouter**.
 
-3. Spécifiez un **Nom d’affichage** et une **Description**.
+1. Spécifiez un **Nom d’affichage** et une **Description**.
 
-4. Pour **l’URL de la page d’inscription client**, entrez une valeur d’espace réservé telle que `http://localhost`. L’**URL de la page d’enregistrement client** pointe vers la page que les utilisateurs peuvent utiliser pour créer et configurer leurs propres comptes pour les fournisseurs OAuth 2.0 qui prennent en charge cette fonctionnalité. Dans cet exemple, les utilisateurs ne peuvent pas créer et configurer leurs propres comptes. Un espace réservé est donc utilisé à la place.
+1. Pour **l’URL de la page d’inscription client**, entrez une valeur d’espace réservé telle que `http://localhost`. L’**URL de la page d’enregistrement client** pointe vers la page que les utilisateurs peuvent utiliser pour créer et configurer leurs propres comptes pour les fournisseurs OAuth 2.0 qui prennent en charge cette fonctionnalité. Dans cet exemple, les utilisateurs ne peuvent pas créer et configurer leurs propres comptes. Un espace réservé est donc utilisé à la place.
 
-5. Sélectionnez **Code d’autorisation** comme **Types d’octroi d’autorisation**.
+1. Sélectionnez **Code d’autorisation** comme **Types d’octroi d’autorisation**.
 
-6. Spécifiez l’**URL de point de terminaison d’autorisation** et l’**URL de point de terminaison de jeton**. Récupérez ces valeurs à partir de la page **Points de terminaison** dans votre locataire Azure AD. Accédez à nouveau à la page **Inscriptions des applications** puis sélectionnez **Points de terminaison**.
+1. Spécifiez l’**URL de point de terminaison d’autorisation** et l’**URL de point de terminaison de jeton**. Récupérez ces valeurs à partir de la page **Points de terminaison** dans votre locataire Azure AD. Accédez à nouveau à la page **Inscriptions des applications** puis sélectionnez **Points de terminaison**.
 
-    >[!NOTE]
-    > Utilisez ici les points de terminaison **v1**.
 
-7. Copiez la valeur de **Point de terminaison d’autorisation OAuth 2.0** et collez-la dans la zone de texte **URL de point de terminaison d’autorisation**.
+1. Copiez la valeur de **Point de terminaison d’autorisation OAuth 2.0** et collez-la dans la zone de texte **URL de point de terminaison d’autorisation**. Sélectionnez **PUBLICATION** sous Méthode de demande d’autorisation.
 
-8. Copiez la valeur de **Point de terminaison de jeton OAuth 2.0** et collez-la dans la zone de texte **URL de point de terminaison de jeton**. En plus de coller le point de terminaison de jeton, ajoutez un paramètre de corps nommé **ressource**. Comme valeur pour ce paramètre, utilisez l’**ID d’application** de l’application back-end.
+1. Copiez la valeur de **Point de terminaison de jeton OAuth 2.0** et collez-la dans la zone de texte **URL de point de terminaison de jeton**. 
 
-9. Ensuite, spécifiez les informations d’identification du client. Il s’agit des informations d’identification de client-app.
+    >[!IMPORTANT]
+    > Vous pouvez utiliser des points de terminaison **v1** ou **v2**. Toutefois, selon la version que vous choisissez, l’étape ci-dessous sera différente. Nous vous recommandons d’utiliser des points de terminaison v2. 
 
-10. Pour **ID client**, utilisez l’**ID d’application** de client-app.
+1. Si vous utilisez des points de terminaison **v1**, ajoutez un paramètre de corps nommé **Ressource**. Comme valeur pour ce paramètre, utilisez l’**ID d’application** de l’application back-end. 
 
-11. Pour **Secret client**, utilisez la clé que vous avez créée pour client-app. 
+1. Si vous utilisez des points de terminaison **v2**, utilisez l’étendue que vous avez créée pour l’application back-end dans le champ **Étendue par défaut**.
 
-12. Juste après le secret client figure la valeur **redirect_url** pour le type d’octroi du code d’autorisation. Notez cette URL.
+1. Ensuite, spécifiez les informations d’identification du client. Il s’agit des informations d’identification de client-app.
 
-13. Sélectionnez **Créer**.
+1. Pour **ID client**, utilisez l’**ID d’application** de client-app.
 
-14. Revenez à la page **Paramètres** de votre client-app.
+1. Pour **Secret client**, utilisez la clé que vous avez créée pour client-app. 
 
-15. Sélectionnez l’**URL de réponse** et collez la valeur **redirect_url** sur la première ligne. Dans cet exemple, vous avez remplacé `https://localhost` par l’URL sur la première ligne.  
+1. Juste après le secret client figure la valeur **redirect_url** pour le type d’octroi du code d’autorisation. Notez cette URL.
+
+1. Sélectionnez **Create** (Créer).
+
+1. Revenez à la page **Paramètres** de votre client-app.
+
+1. Sélectionnez l’**URL de réponse** et collez la valeur **redirect_url** sur la première ligne. Dans cet exemple, vous avez remplacé `https://localhost` par l’URL sur la première ligne.  
 
 Maintenant que vous avez configuré un serveur d’autorisation OAuth 2.0, la console de développeur peut obtenir des jetons d’accès à partir d’Azure AD. 
 
@@ -146,7 +160,7 @@ L’étape suivante consiste à activer l’autorisation utilisateur OAuth 2.0 p
 
 1. Accédez à votre instance Gestion des API,puis accédez à **API**.
 
-2. Sélectionnez l’API que vous souhaitez protéger. Dans cet exemple, vous utilisez `Echo API`.
+2. Sélectionnez l’API que vous souhaitez protéger. Par exemple, vous pouvez utiliser `Echo API`.
 
 3. Accédez à **Settings**.
 
@@ -159,9 +173,9 @@ L’étape suivante consiste à activer l’autorisation utilisateur OAuth 2.0 p
 > [!NOTE]
 > Cette section ne s’applique pas au niveau **consommation**, qui ne prend pas en charge le portail des développeurs.
 
-Maintenant que l’autorisation utilisateur OAuth 2.0 est activée sur `Echo API`, la console de développeur obtient un jeton d’accès pour le compte de l’utilisateur avant d’appeler l’API.
+Maintenant que l’autorisation utilisateur OAuth 2.0 est activée sur votre API, la console de développeur obtient un jeton d’accès pour le compte de l’utilisateur avant d’appeler l’API.
 
-1. Accédez à l’opération de votre choix sous `Echo API` dans le portail des développeurs puis sélectionnez **Essayez-la**. Cela vous amène à la console de développeur.
+1. Accédez à l’opération de votre choix sous l’API dans le portail des développeurs puis sélectionnez **Essayer**. Cela vous amène à la console de développeur.
 
 2. Observez le nouvel élément dans la section **Autorisation** correspondant au serveur d’autorisation que vous venez d’ajouter.
 
@@ -178,9 +192,9 @@ Maintenant que l’autorisation utilisateur OAuth 2.0 est activée sur `Echo API
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>Configuration d’une stratégie de validation JWT pour autoriser des demandes
 
-À ce stade, lorsqu’un utilisateur tente d’effectuer un appel à partir de la console de développeur, l’utilisateur est invité à se connecter. La console de développeur obtient un jeton d’accès pour le compte de l’utilisateur.
+À ce stade, lorsqu’un utilisateur tente d’effectuer un appel à partir de la console de développeur, l’utilisateur est invité à se connecter. La console de développeur obtient un jeton d’accès pour le compte de l’utilisateur et comprend le jeton dans la requête adressée à l’API.
 
-Toutefois, que se passe-t-il si quelqu’un appelle votre API sans jeton ou avec un jeton non valide ? Par exemple, vous pouvez toujours appeler l’API même si vous supprimez l’en-tête`Authorization`. Cela est dû au fait que Gestion des API ne valide pas le jeton d’accès à ce stade. Elle transfert simplement l’en-tête `Authorization` à l’API principale.
+Toutefois, que se passe-t-il si quelqu’un appelle votre API sans jeton ou avec un jeton non valide ? Par exemple, essayez d’appeler l’API sans l'en-tête `Authorization`. L’appel marchera quand même. Cela est dû au fait que Gestion des API ne valide pas le jeton d’accès à ce stade. Elle transfert simplement l’en-tête `Authorization` à l’API principale.
 
 Vous pouvez utiliser la stratégie [Validate JWT](api-management-access-restriction-policies.md#ValidateJWT) pour pré-autoriser les requêtes dans Gestion des API en validant les jetons d’accès de chaque requête entrante. Si une requête n’a pas de jeton valide, Gestion des API la bloque. Par exemple, vous pouvez ajouter la stratégie ci-dessous à la section de stratégie `<inbound>` de `Echo API`. Il vérifie la revendication d’audience dans un jeton d’accès et retourne un message d’erreur si le jeton n’est pas valide. Pour plus d’informations sur la façon de configurer des stratégies, consultez [Définir ou modifier des stratégies](set-edit-policies.md).
 

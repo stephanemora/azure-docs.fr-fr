@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
 ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58886095"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751662"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning Studio
 
@@ -89,17 +89,17 @@ Par exemple, l’instruction suivante définit une constante `x` :
 
 `Const X = 28;`
 
-Pour définir simultanément deux constantes ou plus, mettez les noms d’identificateur et les valeurs associées entre accolades, en les séparant par des points-virgules. Par exemple : 
+Pour définir simultanément deux constantes ou plus, mettez les noms d’identificateur et les valeurs associées entre accolades, en les séparant par des points-virgules. Par exemple :
 
 `Const { X = 28; Y = 4; }`
 
-Le côté droit de chaque expression d’affectation peut être un entier, un nombre réel, une valeur booléenne (vrai/faux) ou une expression mathématique. Par exemple : 
+Le côté droit de chaque expression d’affectation peut être un entier, un nombre réel, une valeur booléenne (vrai/faux) ou une expression mathématique. Par exemple :
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>Déclaration de couche
 
-La déclaration de couche est requise. Elle définit la taille et la source de la couche, y compris ses attributs et faisceaux de connexions. L’instruction de déclaration commence par le nom de la couche (d’entrée, masquée ou de sortie), suivi de ses dimensions (un tuple d’entiers positifs). Par exemple : 
+La déclaration de couche est requise. Elle définit la taille et la source de la couche, y compris ses attributs et faisceaux de connexions. L’instruction de déclaration commence par le nom de la couche (d’entrée, masquée ou de sortie), suivi de ses dimensions (un tuple d’entiers positifs). Par exemple :
 
 ```Net#
 input Data auto;
@@ -450,7 +450,7 @@ output Digit [10] from Hid3 all;
 + Le mot clé `convolve` indique que les couches nommées `Conv1` et `Conv2` sont des couches convolutionnelles. Chacune de ces déclarations de couche est suivie d'une liste des attributs de convolution.
 + Le réseau contient une troisième couche masquée, `Hid3`, entièrement connectée à la deuxième couche masquée, `Conv2`.
 + La couche de sortie, `Digit`, n’est connectée qu’à la troisième couche masquée, `Hid3`. Le mot clé `all` indique que la couche de sortie est entièrement connectée à `Hid3`.
-+ L’arité de la convolution est de 3 : la longueur des tuples `InputShape`, `KernelShape`, `Stride`, et `Sharing`.
++ L’arité de la convolution est de 3 : longueur des tuples `InputShape`, `KernelShape`, `Stride` et `Sharing`.
 + Le nombre de poids par noyau est de `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Ou `26 * 50 = 1300`.
 + Vous pouvez calculer les nœuds de chaque couche masquée comme suit :
 

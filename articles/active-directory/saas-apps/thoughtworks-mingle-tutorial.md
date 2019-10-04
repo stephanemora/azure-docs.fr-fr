@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5acf02c021fdfd9f85eeb2b6b1c697ce92c48a15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259505"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088745"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Didacticiel : Intégration d'Azure AD à Thoughtworks Mingle
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Thoughtworks Mingle à Azure AD, vous devez 
 
 **Pour ajouter Thoughtworks Mingle à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -128,7 +128,7 @@ Pour configurer l’authentification unique Azure AD avec Thoughtworks Mingle, e
 
 1. Connectez-vous à votre site d’entreprise **Thoughtworks Mingle** en tant qu’administrateur.
 
-2. Cliquez sur l’onglet **Admin**, puis sur **SSO Config (Configuration SSO)**.
+2. Cliquez sur l’onglet **Admin**, puis sur **SSO Config (Configuration SSO)** .
    
     ![Onglet Admin](./media/thoughtworks-mingle-tutorial/ic785157.png "Configuration SSO")
 
@@ -202,7 +202,7 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être appr
    
     ![Votre premier projet](./media/thoughtworks-mingle-tutorial/ic785160.png "Votre premier projet")
 
-3. Cliquez sur l’onglet **Admin**, puis sur **Users (Utilisateurs)**.
+3. Cliquez sur l’onglet **Admin**, puis sur **Users (Utilisateurs)** .
    
     ![Utilisateurs](./media/thoughtworks-mingle-tutorial/ic785161.png "Utilisateurs")
 
@@ -216,7 +216,7 @@ Pour que les utilisateurs Azure AD puissent se connecter, ils doivent être appr
  
     a. Renseignez les zones de texte **Sign-in name** (Nom de connexion), **Display name** (Nom d’affichage), **Choose password** (Choisir le mot de passe) et **Confirm password** (Confirmer le mot de passe) du compte Azure AD valide que vous souhaitez approvisionner. 
 
-    b. Dans **User type (Type d’utilisateur)**, sélectionnez **Full user (Utilisateur complet)**.
+    b. Dans **User type (Type d’utilisateur)** , sélectionnez **Full user (Utilisateur complet)** .
 
     c. Cliquez sur **Create This Profile**.
 

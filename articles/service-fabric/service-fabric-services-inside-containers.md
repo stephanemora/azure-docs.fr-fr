@@ -3,7 +3,7 @@ title: Conteneuriser vos services Azure Service Fabric sur Windows
 description: Découvrez comment conteneuriser vos services Service Fabric Reliable Actors et Reliable Services sur Windows.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: anmolah
 editor: roroutra
 ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
-ms.author: aljo, anmola
-ms.openlocfilehash: 147607bbea65199ff97459711ad6301a4ae93aa4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: anmola
+ms.openlocfilehash: 0cb48a2272ce854005f9f3db5b6a9abf62cc7015
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079824"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599211"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Conteneuriser vos services Service Fabric Reliable Actors et Reliable Services sur Windows
 
@@ -119,6 +119,16 @@ Ce document fournit des conseils pour rendre votre service opérationnel à l’
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> Par défaut, les applications Service Fabric ont accès au runtime Service Fabric, sous la forme d’un point de terminaison acceptant les demandes propres à l’application. Pensez à désactiver cet accès si l’application héberge un code non fiable. Pour plus d’informations, consultez les [meilleures pratiques de sécurité dans Service Fabric](service-fabric-best-practices-security.md#platform-isolation). Pour désactiver l’accès au runtime Service Fabric, ajoutez le paramètre suivant dans la section Stratégies du manifeste de l’application correspondant au manifeste du service importé, comme suit :
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. Pour tester cette application, vous devez la déployer sur un cluster qui exécute la version 5.7 ou plus. Pour les versions de runtime 6.1 ou inférieures, vous devez modifier et mettre à jour les paramètres de cluster pour activer cette fonctionnalité en préversion. Suivez les étapes de cet [article](service-fabric-cluster-fabric-settings.md) pour ajouter le paramètre représenté ensuite.
     ```

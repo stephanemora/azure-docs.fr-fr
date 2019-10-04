@@ -3,18 +3,17 @@ title: Démarrage rapide - Utiliser le Portail Azure pour créer une file d’at
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer une file d’attente Service Bus à l’aide du Portail Azure. Vous allez ensuite utiliser un exemple d’application cliente pour envoyer et recevoir des messages à partir de la file d’attente.
 services: service-bus-messaging
 author: spelluru
-manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/10/2019
+ms.date: 09/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607753"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70242376"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Démarrage rapide : Utiliser le Portail Azure pour créer une file d’attente Service Bus
 Ce démarrage rapide montre comment envoyer et recevoir des messages vers et depuis une file d’attente Service Bus, en utilisant le [portail Azure][Azure portal] pour créer un espace de noms de messagerie et une file d’attente au sein de cet espace de noms, et pour obtenir les informations d’identification sur cet espace de noms. La procédure montre ensuite comment envoyer et recevoir des messages depuis cette file d’attente à l’aide de la [bibliothèque .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -25,7 +24,7 @@ Ce démarrage rapide montre comment envoyer et recevoir des messages vers et dep
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 
-- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit][] avant de commencer.
+- Un abonnement Azure. Si vous n'avez pas d'abonnement Azure, vous pouvez créer un [compte gratuit][] avant de commencer.
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) ou ultérieur. Vous utilisez Visual Studio pour générer un exemple qui envoie des messages à une file d’attente et reçoit un message de celle-ci. L’exemple consiste à tester la file d’attente que vous avez créée à l’aide de PowerShell. 
 - [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
 
@@ -35,7 +34,19 @@ Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installé
 
 ## <a name="send-and-receive-messages"></a>Envoyer et recevoir des messages
 
-Une fois que l’espace de noms et la file d’attente sont approvisionnés et que vous avez les informations d’identification nécessaires, vous êtes prêt à envoyer et recevoir des messages. Vous pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
+> [!NOTE]
+> L’exemple utilisé dans cette section pour envoyer et recevoir des messages est un exemple .NET. Pour obtenir des exemples d’envoi et de réception de messages à l’aide d’autres langages de programmation, consultez [Exemples Service Bus](service-bus-samples.md). 
+> 
+> Pour obtenir des instructions pas à pas sur l’envoi et la réception de messages au moyen de divers langages de programmation, consultez les guides de démarrage rapide suivants :
+> - [.NET](service-bus-dotnet-get-started-with-queues.md)
+> - [Java](service-bus-java-how-to-use-queues.md)
+> - [Node.js avec le package azure/service-bus](service-bus-nodejs-how-to-use-queues-new-package.md)
+> - [Node.js avec le package azure-sb](service-bus-nodejs-how-to-use-queues.md)
+> - [PHP](service-bus-php-how-to-use-queues.md)
+> - [Python](service-bus-python-how-to-use-queues.md)
+> - [Ruby](service-bus-ruby-how-to-use-queues.md)
+
+Une fois que l’espace de noms et la file d’attente sont approvisionnés et que vous avez les informations d’identification nécessaires, vous êtes prêt à envoyer et recevoir des messages. Vous pouvez consulter le code dans [ce dossier d’exemples GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
 
 Pour exécuter le code, procédez comme suit :
 
@@ -197,6 +208,8 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
     await queueClient.CompleteAsync(message.SystemProperties.LockToken);
 }
 ```
+> [!NOTE]
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

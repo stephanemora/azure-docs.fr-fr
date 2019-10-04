@@ -1,19 +1,19 @@
 ---
-title: Créer des travaux Spark Streaming avec traitement unique des événements - Azure HDInsight
-description: Comment configurer Spark Streaming pour traiter un événement une seule fois.
-services: hdinsight
+title: Travaux Spark Streaming avec traitement unique des événements - Azure HDInsight
+description: Comment configurer Apache Spark Streaming pour traiter un événement une seule fois.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 908c49a46fe7993bc20bcb63a3c15758e2de5343
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651773"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091017"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Créer des tâches Apache Spark Streaming avec traitement unique des événements
 

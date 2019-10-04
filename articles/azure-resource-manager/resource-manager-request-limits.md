@@ -1,28 +1,22 @@
 ---
 title: Limitation des requêtes - Azure Resource Manager
 description: Décrit comment utiliser la limitation avec des requêtes Azure Resource Manager lorsque les limites d’abonnement ont été atteintes.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/05/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: f457b316d9f499f2cab02452c1b03ad07a9aef27
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550622"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302829"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
 
-Pour chaque abonnement et locataire Azure, Resource Manager autorise jusqu’à 12 000 demandes de lecture et 1 200 demandes d’écriture par heure. Ces limites sont définies d’après l’ID du principal qui effectue les requêtes et l’ID d’abonnement ou l’ID du locataire. Si vos demandes proviennent de plusieurs ID de principal, votre limite dans l’abonnement ou le locataire est supérieure à 12 000 et 1 200 par heure.
+Pour chaque abonnement et locataire Azure, Resource Manager autorise jusqu’à 12 000 demandes de lecture et 1 200 demandes d’écriture par heure. Ces limites sont définies d’après le principal de sécurité (utilisateur ou application) qui effectue les requêtes et l’ID d’abonnement ou l’ID du locataire. Si vos requêtes proviennent de plusieurs principaux de sécurité, votre limite dans l’abonnement ou le locataire est supérieure à 12 000 et 1200 par heure.
 
 Les requêtes sont appliquées à votre abonnement ou à votre locataire. Les requêtes appliquées à l’abonnement sont celles qui impliquent la transmission de votre ID d’abonnement, par exemple pour récupérer les groupes de ressources dans votre abonnement. Les requêtes appliquées au locataire n’incluent pas votre ID d’abonnement, notamment pour la récupération des emplacements Azure valides.
 
@@ -32,10 +26,10 @@ Si votre application ou script atteint ces limites, vous devez limiter vos requ�
 
 Lorsque vous atteignez la limite, vous recevez le code d’état HTTP **429 Trop de requêtes**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Azure Resource Graph limite le nombre de requêtes à ses opérations. Les étapes décrites dans cet article pour déterminer les requêtes restantes et comment réagir si la limite est atteinte s’appliquent également à Resource Graph. Toutefois, Resource Graph définit ses propres limites et son propre taux de réinitialisation. Pour plus d’informations, consultez [Throttle in Azure Resource Graph (Limitation dans Azure Resource Graph)](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Requêtes restantes
-Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-têtes de réponse. Demandes de lecture retournent une valeur dans l’en-tête pour le nombre de demandes de lecture restants. Écrire des demandes incluent une valeur pour le nombre de requêtes d’écriture restantes. Le tableau suivant décrit les en-têtes de réponse que vous pouvez examiner pour ces valeurs :
+Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-têtes de réponse. Les requêtes de lecture retournent une valeur dans l’en-tête pour le nombre de requêtes de lecture restantes. Les requêtes d’écriture incluent une valeur pour le nombre de requêtes d’écriture restantes. Le tableau suivant décrit les en-têtes de réponse que vous pouvez examiner pour ces valeurs :
 
 | En-tête de réponse | Description |
 | --- | --- |
@@ -51,7 +45,7 @@ Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-tê
 ## <a name="retrieving-the-header-values"></a>Récupération des valeurs d’en-tête
 La récupération de ces valeurs d’en-tête dans votre code ou script est similaire à la récupération de n’importe quelle valeur d’en-tête. 
 
-Par exemple, en **C#**, vous récupérez la valeur d’en-tête d’un objet **HttpWebResponse** nommé **response** avec le code suivant :
+Par exemple, en **C#** , vous récupérez la valeur d’en-tête d’un objet **HttpWebResponse** nommé **response** avec le code suivant :
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)

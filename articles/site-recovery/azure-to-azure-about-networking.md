@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sujayt
-ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.author: sutalasi
+ms.openlocfilehash: 9c65d6055807ee2735f1915e8ca289dc0754535b
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149312"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736396"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Mise en réseau dans Azure pour la réplication d’Azure
 
@@ -48,10 +48,10 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 
 **URL** | **Détails**  
 --- | ---
-*.blob.core.windows.net | Nécessaire pour que les données puissent être écrites dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. Si vous connaissez le cache de tous les comptes de stockage pour vos machines virtuelles, vous pouvez autoriser les URL de compte de stockage spécifique (Ex : cache1.blob.core.windows.net et cache2.blob.core.windows.net) au lieu de *. blob.core.windows.net
+*.blob.core.windows.net | Nécessaire pour que les données puissent être écrites dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. Si vous connaissez tous les comptes de stockage de cache pour vos machines virtuelles, vous pouvez autoriser les URL de compte de stockage spécifique (Ex : cache1.blob.core.windows.net et cache2.blob.core.windows.net) au lieu de *. blob.core.windows.net
 login.microsoftonline.com | Nécessaire pour l’autorisation et l’authentification aux URL du service Site Recovery.
-*.hypervrecoverymanager.windowsazure.com | Nécessaire pour que la communication du service Site Recovery puisse avoir lieu à partir de la machine virtuelle. Vous pouvez utiliser le « Site Recovery adresse IP correspondante' Si votre proxy de pare-feu prend en charge les adresses IP.
-*.servicebus.windows.net | Nécessaire pour que les données de surveillance et de diagnostic Site Recovery puissent être écrites à partir de la machine virtuelle. Vous pouvez utiliser le « Site Recovery surveillance adresse IP correspondante' Si votre proxy de pare-feu prend en charge les adresses IP.
+*.hypervrecoverymanager.windowsazure.com | Nécessaire pour que la communication du service Site Recovery puisse avoir lieu à partir de la machine virtuelle. Vous pouvez utiliser l’« Adresse IP de Site Recovery » correspondante si votre proxy de pare-feu prend en charge les adresses IP.
+*.servicebus.windows.net | Nécessaire pour que les données de surveillance et de diagnostic Site Recovery puissent être écrites à partir de la machine virtuelle. Vous pouvez utiliser l’« Adresse IP de supervision de Site Recovery » correspondante si votre proxy de pare-feu prend en charge les adresses IP.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Connectivité sortante pour les plages d’adresses IP
 
@@ -72,24 +72,24 @@ Les plages d’adresses IP Site Recovery sont les suivantes :
    --- | --- | ---
    Asie Est | 52.175.17.132 | 13.94.47.61
    Asie Sud-Est | 52.187.58.193 | 13.76.179.223
-   Inde Centre | 52.172.187.37 | 104.211.98.185
+   Inde centrale | 52.172.187.37 | 104.211.98.185
    Inde Sud | 52.172.46.220 | 104.211.224.190
-   USA Centre Nord | 23.96.195.247 | 168.62.249.226
+   Centre-Nord des États-Unis | 23.96.195.247 | 168.62.249.226
    Europe Nord | 40.69.212.238 | 52.169.18.8
    Europe Ouest | 52.166.13.64 | 40.68.93.145
    USA Est | 13.82.88.226 | 104.45.147.24
    USA Ouest | 40.83.179.48 | 104.40.26.199
-   USA Centre Sud | 13.84.148.14 | 104.210.146.250
+   États-Unis - partie centrale méridionale | 13.84.148.14 | 104.210.146.250
    USA Centre | 40.69.144.231 | 52.165.34.144
    USA Est 2 | 52.184.158.163 | 40.79.44.59
    Japon Est | 52.185.150.140 | 138.91.1.105
-   Japon Ouest | 52.175.146.69 | 138.91.17.38
+   OuJapon Est | 52.175.146.69 | 138.91.17.38
    Brésil Sud | 191.234.185.172 | 23.97.97.36
    Australie Est | 104.210.113.114 | 191.239.64.144
-   Australie Sud-Est | 13.70.159.158 | 191.239.160.45
+   Sud-Australie Est | 13.70.159.158 | 191.239.160.45
    Centre du Canada | 52.228.36.192 | 40.85.226.62
    Est du Canada | 52.229.125.98 | 40.86.225.142
-   USA Centre-Ouest | 52.161.20.168 | 13.78.149.209
+   Centre-USA Ouest | 52.161.20.168 | 13.78.149.209
    USA Ouest 2 | 52.183.45.166 | 13.66.228.204
    Ouest du Royaume-Uni | 51.141.3.203 | 51.141.14.113
    Sud du Royaume-Uni | 51.140.43.158 | 51.140.189.52
@@ -109,6 +109,15 @@ Les plages d’adresses IP Site Recovery sont les suivantes :
    Gouvernement des États-Unis – Texas | 52.238.119.218 | 52.238.116.60
    Est des États-Unis – US DoD | 52.181.164.103 | 52.181.162.129
    Centre des États-Unis – US DoD | 52.182.95.237 | 52.182.90.133
+   Chine du Nord | 40.125.202.254 | 42.159.4.151
+   Chine Nord 2 | 40.73.35.193 | 40.73.33.230
+   Chine orientale | 42.159.205.45 | 42.159.132.40
+   Chine orientale 2 | 40.73.118.52| 40.73.100.125
+   Allemagne Nord| 51.116.208.58| 51.116.58.128
+   Allemagne Centre-Ouest | 51.116.156.176 | 51.116.154.192
+   Suisse Ouest | 51.107.231.223| 51.107.154.128
+   Suisse Nord | 51.107.68.31| 51.107.58.128
+
 ## <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau
 
 Cet exemple montre comment configurer des règles de groupes de sécurité réseau pour une machine virtuelle à répliquer.
@@ -144,7 +153,7 @@ Ces règles sont nécessaires pour que la réplication puisse être activée de 
 
    **Lieu** | **Adresse IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
     --- | --- | ---
-   USA Centre | 13.82.88.226 | 104.45.147.24
+   USA Est | 13.82.88.226 | 104.45.147.24
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuration des appliances virtuelles réseau
 
@@ -165,9 +174,9 @@ Vous pouvez créer un point de terminaison de service réseau dans votre réseau
 
 ### <a name="forced-tunneling"></a>Tunneling forcé
 
-Vous pouvez remplacer l’itinéraire système par défaut d’Azure pour le préfixe d’adresse 0.0.0.0/0 par un [itinéraire personnalisé](../virtual-network/virtual-networks-udr-overview.md#custom-routes) et rediriger le trafic des machines virtuelles vers une appliance virtuelle réseau locale, mais cette configuration n’est pas recommandée pour la réplication Site Recovery. Si vous utilisez des itinéraires personnalisés, vous devez [créer un point de terminaison de service de réseau virtuel](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) dans votre réseau virtuel pour le « Stockage », afin que le trafic de réplication ne quitte pas la limite Azure.
+Vous pouvez remplacer l’itinéraire système par défaut d’Azure pour le préfixe d’adresse 0.0.0.0/0 par un [itinéraire personnalisé](../virtual-network/virtual-networks-udr-overview.md#custom-routes) et rediriger le trafic des machines virtuelles vers une appliance virtuelle réseau locale, mais cette configuration n’est pas recommandée pour la réplication Site Recovery. Si vous utilisez des itinéraires personnalisés, vous devez [créer un point de terminaison de service de réseau virtuel](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) dans votre réseau virtuel pour « Stockage » afin que le trafic de réplication ne quitte pas la limite Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Commencer à protéger vos charges de travail en [répliquant des machines virtuelles Azure](site-recovery-azure-to-azure.md).
 - En savoir plus sur la [conservation des adresses IP](site-recovery-retain-ip-azure-vm-failover.md) pour le basculement de machines virtuelles Azure.
-- En savoir plus sur la récupération d’urgence de [machines virtuelles Azure avec ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- En savoir plus sur la récupération d’urgence des [machines virtuelles Azure via ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

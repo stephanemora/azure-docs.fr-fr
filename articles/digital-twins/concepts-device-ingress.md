@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: 35d12d0114f9677905c85a9df94ecd074e5f8f75
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 22ae7aeeff4542bee764e131f58eb115026a4fb3
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729521"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177107"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrée de télémétrie et connectivité des appareils
 
@@ -50,7 +50,7 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 | *LE_GUID_DE_VOTRE_APPAREIL* | ID de l’appareil |
 
 ```plaintext
-YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
 | Valeur du paramètre | Remplacer par |
@@ -61,7 +61,7 @@ Dans la charge utile de réponse, copiez la propriété **connectionString** de 
 
 ## <a name="device-to-cloud-message"></a>Message d’appareil vers le cloud
 
-Vous pouvez personnaliser le format et la charge utile du message de votre appareil en fonction des besoins de votre solution. Utilisez n’importe quel contrat de données qui peut être sérialisé en un flux ou tableau d’octets pris en charge par la [classe Message Azure IoT Device Client Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). Le message peut être un format binaire personnalisé de votre choix, sous réserve que vous décodiez le contrat de données dans une fonction définie par l’utilisateur correspondante. Il n’y a qu’une seule condition requise pour le bon fonctionnement d’un message d’appareil vers le cloud. Vous devez tenir à jour un ensemble de propriétés pour vous assurer que votre message est acheminé de façon appropriée au moteur de traitement.
+Vous pouvez personnaliser le format et la charge utile du message de votre appareil en fonction des besoins de votre solution. Utilisez n’importe quel contrat de données qui peut être sérialisé en un flux ou tableau d’octets pris en charge par la [classe Message Azure IoT Device Client Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). Le message peut être un format binaire personnalisé de votre choix, sous réserve que vous décodiez le contrat de données dans une fonction définie par l’utilisateur correspondante. Il n’y a qu’une seule condition requise pour le bon fonctionnement d’un message d’appareil vers le cloud. Conservez un ensemble de propriétés pour vous assurer que votre message est acheminé de façon appropriée au moteur de traitement.
 
 ### <a name="telemetry-properties"></a>Propriétés de données de télémétrie
 
@@ -69,10 +69,10 @@ Vous pouvez personnaliser le format et la charge utile du message de votre appar
 
 | Nom de la propriété | Valeur | Obligatoire | Description |
 |---|---|---|---|
-| **DigitalTwins-Telemetry** | 1.0 | Oui | Valeur constante qui identifie un message auprès du système. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | Oui | Identificateur unique du capteur envoyant le **Message**. Cette valeur doit correspondre à la propriété **HardwareId** d’un objet pour que le système puisse la traiter. Par exemple : `00FF0643BE88-CO2`. |
-| **CreationTimeUtc** | `string` | Non  | Chaîne de date au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui identifie l’heure d’échantillonnage de la charge utile. Par exemple : `2018-09-20T07:35:00.8587882-07:00`. |
-| **CorrelationId** | `string` | Non  | UUID qui peut être utilisé pour tracer les événements sur le système. Par exemple : `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
+| **DigitalTwins-Telemetry** | 1.0 | OUI | Valeur constante qui identifie un message auprès du système. |
+| **DigitalTwins-SensorHardwareId** | `string(72)` | OUI | Identificateur unique du capteur envoyant le **Message**. Cette valeur doit correspondre à la propriété **HardwareId** d’un objet pour que le système puisse la traiter. Par exemple : `00FF0643BE88-CO2`. |
+| **CreationTimeUtc** | `string` | Non | Chaîne de date au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui identifie l’heure d’échantillonnage de la charge utile. Par exemple : `2018-09-20T07:35:00.8587882-07:00`. |
+| **CorrelationId** | `string` | Non | UUID qui peut être utilisé pour tracer les événements sur le système. Par exemple : `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
 ### <a name="send-your-message-to-digital-twins"></a>Envoyer votre message à Digital Twins
 

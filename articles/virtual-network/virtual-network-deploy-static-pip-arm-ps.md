@@ -3,8 +3,8 @@ title: Créer une machine virtuelle avec une adresse IP publique statique - Pow
 description: Découvrez comment créer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
-ms.author: jdial
-ms.openlocfilehash: 422a48a3671974248e9e3258be16d3537713f762
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 208cff3c816b8243bc31b3db819f13dafe58c1d1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089996"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64683207"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide de PowerShell
 
@@ -39,7 +39,7 @@ Vous pouvez effectuer les étapes suivantes à partir de votre ordinateur local 
    New-AzResourceGroup -Name myResourceGroup -Location EastUS
    ```
 
-3. Créer une machine virtuelle avec le [New-AzVM](/powershell/module/az.Compute/New-azVM) commande. L’option `-AllocationMethod "Static"` attribue une adresse IP publique statique à la machine virtuelle. L’exemple suivant crée une machine virtuelle Windows Server avec une adresse IP statique de base (référence SKU) nommée *myPublicIpAddress*. Quand vous y êtes invité, indiquez le nom d’utilisateur et le mot de passe à utiliser comme informations d’identification de connexion pour la machine virtuelle :
+3. Créez une machine virtuelle avec la commande [New-AzVM](/powershell/module/az.Compute/New-azVM). L’option `-AllocationMethod "Static"` attribue une adresse IP publique statique à la machine virtuelle. L’exemple suivant crée une machine virtuelle Windows Server avec une adresse IP statique de base (référence SKU) nommée *myPublicIpAddress*. Quand vous y êtes invité, indiquez le nom d’utilisateur et le mot de passe à utiliser comme informations d’identification de connexion pour la machine virtuelle :
 
    ```azurepowershell-interactive
    New-AzVm `
@@ -52,7 +52,7 @@ Vous pouvez effectuer les étapes suivantes à partir de votre ordinateur local 
 
    Si l’adresse IP publique doit être une référence SKU standard, vous devez [créer une adresse IP publique](virtual-network-public-ip-address.md#create-a-public-ip-address), [créer une interface réseau](virtual-network-network-interface.md#create-a-network-interface), [attribuer l’adresse IP publique à l’interface réseau](virtual-network-network-interface-addresses.md#add-ip-addresses), puis [créer une machine virtuelle avec l’interface réseau](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm), une étape après l’autre. Découvrez plus en détail les [références SKU d’adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#sku). Si la machine virtuelle doit être ajoutée au pool backend d’un équilibreur de charge Azure public, la référence SKU de l’adresse IP publique de la machine virtuelle doit correspondre à celle de l’équilibreur de charge. Pour plus d’informations, consultez [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-4. Afficher l’adresse IP publique affectée et vérifiez qu’il a été créé en tant qu’une adresse statique, avec [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
+4. Examinez l’adresse IP publique qui a été affectée et vérifiez qu’elle a été créée en tant qu’adresse statique, à l’aide de [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) :
 
    ```azurepowershell-interactive
    Get-AzPublicIpAddress `
@@ -69,7 +69,7 @@ Vous pouvez effectuer les étapes suivantes à partir de votre ordinateur local 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient :
+Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour le supprimer ainsi que toutes les ressources qu’il contient :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

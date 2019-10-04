@@ -2,27 +2,27 @@
 title: Guide de conception pour les tables répliquées - Azure SQL Data Warehouse | Microsoft Docs
 description: Recommandations relatives à la conception de tables répliquées dans votre schéma Azure SQL Data Warehouse. 
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/19/2019
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: acea42f7f4ab986e9828000ab7cfc9e302ed92a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c622edc6c3a37b2bc71323cf0e2c155f7aec6e33
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885449"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479311"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Guide de conception pour l’utilisation de tables répliquées dans Azure SQL Data Warehouse
 Cet article vous fournit des recommandations relatives à la conception de tables répliquées dans votre schéma SQL Data Warehouse. Utilisez ces recommandations pour améliorer les performances des requêtes en réduisant le déplacement de données et la complexité des requêtes.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez l’article sur [l’architecture](massively-parallel-processing-mpp-architecture.md). 
 
 Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.  Considérez par exemple les questions suivantes :
@@ -32,13 +32,13 @@ Dans le cadre de la conception d’une table, essayez d’en savoir autant que p
 - Est-ce que je dispose de tables de faits et de dimension dans un entrepôt de données ?   
 
 ## <a name="what-is-a-replicated-table"></a>Qu’est-ce qu’une table répliquée ?
-Une table répliquée possède une copie complète de la table accessible sur chaque nœud de calcul. La réplication d’une table évite le transfert de données entre des nœuds de calcul avant une jointure ou une agrégation. Étant donné que la table possède plusieurs copies, le fonctionnement des tables répliquées est optimal lorsque la taille de la table est inférieure à 2 Go compressés.  2 Go n’est pas une limite inconditionnelle.  Si les données sont statiques et ne changent pas, vous pouvez répliquer des tables volumineuses.
+Une table répliquée possède une copie complète de la table accessible sur chaque nœud de calcul. La réplication d’une table évite le transfert de données entre des nœuds de calcul avant une jointure ou une agrégation. Étant donné que la table possède plusieurs copies, le fonctionnement des tables répliquées est optimal lorsque la taille de la table est inférieure à 2 Go compressés.  2 Go n’est pas une limite inconditionnelle.  Si les données sont statiques et ne changent pas, vous pouvez répliquer des tables plus volumineuses.
 
 Le diagramme suivant illustre une table répliquée accessible sur chaque nœud de calcul. Dans SQL Data Warehouse, la table répliquée est entièrement copiée dans une base de données de distribution sur chaque nœud de calcul. 
 
 ![Table répliquée](media/guidance-for-using-replicated-tables/replicated-table.png "Table répliquée")  
 
-Fonctionnement des tables bien pour les tables de dimension dans un schéma en étoile de répliquées. Tables de dimension sont généralement jointes à des tables de faits qui sont répartis différemment de la table de dimension.  Les dimensions sont généralement d’une taille qui permet de stocker et gérer plusieurs copies. Les dimensions stockent des données descriptives qui se modifient lentement, comme le nom et l’adresse du client, ainsi que les détails sur le produit. La nature de variation des données entraîne moins de maintenance de la table répliquée. 
+Les tables répliquées fonctionnent bien dans des tables de dimension dans un schéma en étoile. Les tables de dimension sont généralement jointes à des tables de faits, qui sont réparties différemment des tables de dimension.  Les dimensions sont généralement une taille qui permet de stocker et de gérer plusieurs copies. Les dimensions stockent des données descriptives qui se modifient lentement, comme le nom et l’adresse du client, ainsi que les détails sur le produit. La lenteur de la nature changeante des données entraîne moins de maintenance pour la table répliquée. 
 
 Envisagez d’utiliser une table répliquée dans les cas suivants :
 
@@ -48,7 +48,7 @@ Envisagez d’utiliser une table répliquée dans les cas suivants :
 Les tables répliquées ne produisent sans doute pas les meilleurs résultats dans les cas suivants :
 
 - La table est l’objet d’opérations d’insertion, de mise à jour et de suppression fréquentes. Ces opérations DLM (langage de manipulation de données) nécessitent une regénération de la table répliquée. La reconstruction fréquente peut diminuer les performances.
-- L’entrepôt de données est souvent mis à l’échelle. Mise à l’échelle un entrepôt de données modifie le nombre de nœuds de calcul, ce qui entraîne la reconstruction de la table répliquée.
+- L’entrepôt de données est souvent mis à l’échelle. La mise à l’échelle d’un entrepôt de données modifie le nombre de nœuds de calcul, ce qui entraîne une reconstruction de la table répliquée.
 - La table comporte un grand nombre de colonnes, mais les opérations de données n’accèdent généralement qu’à un nombre restreint de colonnes. Dans ce scénario, au lieu de répliquer la table entière, il peut s’avérer plus efficace de distribuer la table et de créer ensuite un index sur les colonnes fréquemment sollicitées. Quand une requête requiert le déplacement des données, SQL Data Warehouse déplace uniquement les données pour les colonnes demandées. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Utiliser des tables répliquées avec des prédicats de requête simples
@@ -59,7 +59,7 @@ Avant de décider de distribuer ou de répliquer une table, pensez aux types de 
 
 Les requêtes sollicitant beaucoup le processeur fonctionnent de manière optimale lorsque le travail est réparti entre tous les nœuds de calcul. Par exemple, les requêtes qui exécutent des calculs sur chaque ligne d’une table fonctionnent mieux sur les tables distribués que sur les tables répliquées. Étant donné qu’une table répliquée est entièrement stockée sur chaque nœud de calcul, une requête sollicitant beaucoup le processeur sur une table répliquée s’exécute sur la table entière sur chaque nœud de calcul. Le calcul supplémentaire peut ralentir les performances des requêtes.
 
-Par exemple, cette requête comporte un prédicat complexe.  Il s’exécute plus rapidement lorsque les données sont dans une table distribuée au lieu d’une table répliquée. Dans cet exemple, les données peuvent être distribué par tourniquet.
+Par exemple, cette requête comporte un prédicat complexe.  Elle s’exécute plus rapidement lorsque les données se trouvent dans une table distribuée au lieu d’une table répliquée. Dans cet exemple, les données peuvent être distribuées par tourniquet.
 
 ```sql
 
@@ -70,7 +70,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Convertir les tables de distribution par tourniquet (round-robin) en tables répliquées
-Si vous avez déjà des tables de tourniquet (round-robin), nous vous recommandons de les convertir en tables répliquées si elles répondent aux critères indiqués dans cet article. Les tables répliquées ont de meilleures performances que les tables de distribution par tourniquet, car elles éliminent le déplacement des données.  Une table de distribution par tourniquet requiert toujours le déplacement des données pour les jointures. 
+Si vous avez déjà des tables de distribution par tourniquet, nous vous recommandons de les convertir en tables répliquées si elles sont conformes aux critères décrits dans cet article. Les tables répliquées ont de meilleures performances que les tables de distribution par tourniquet, car elles éliminent le déplacement des données.  Une table de distribution par tourniquet requiert toujours le déplacement des données pour les jointures. 
 
 Cet exemple utilise [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) pour modifier la table DimSalesTerritory en une table répliquée. Cet exemple fonctionne que la table DimSalesTerritory soit distribuée par hachage ou par tourniquet.
 

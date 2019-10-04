@@ -3,19 +3,19 @@ title: Prise en charge linguistique - API de traduction de texte Translator Text
 titleSuffix: Azure Cognitive Services
 description: Liste des langages naturels pris en charge par l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: cb0552612d95500e01edd91aff36406d4c2282bd
+ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577588"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70909978"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -28,17 +28,17 @@ L’API de traduction de texte Translator Text prend en charge les langues ci-ap
 **API Translator V2**
 
 > [!NOTE]
-> La V2 a été dépréciée le 30 avril 2018 et sera supprimée le 30 avril 2019.
+> La V2 a été déconseillée le 30 avril 2018. Migrez vos applications vers la V3 pour bénéficier des nouvelles fonctionnalités disponibles exclusivement dans la V3.
 
 * Statistique uniquement : Aucun système neural n’est disponible pour cette langue.
 * Neural disponible : Un système neural est disponible. Utilisez le paramètre `category=generalnn` pour accéder au système neural.
 * Neural par défaut : Neural est le système de traduction par défaut. Utilisez le paramètre `category=smt` pour accéder au système de statistiques en vue d’une utilisation avec Microsoft Translator Hub.
 * Neural uniquement : Seule la traduction neurale est disponible.
 
-L’**API Translator V3** est neurale par défaut et les systèmes statistiques ne sont disponibles qu’en l’absence d’un système neural. 
+L’**API Translator V3** est neurale par défaut et les systèmes statistiques ne sont disponibles qu’en l’absence d’un système neural.
 
 > [!NOTE]
-> Actuellement, un sous-ensemble des langues NEURONALES sont disponibles dans le traducteur de personnalisé et nous ajoutons progressivement de nouvelles. [Afficher des langues actuellement disponibles dans personnalisé Translator](#customization).
+> Actuellement, un sous-ensemble de langues neurales est disponible dans Custom Translator et nous les enrichissons progressivement. [Affichez les langues actuellement disponibles dans Custom Translator](#customization).
 
 |Langage|  Code de langue|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|
@@ -60,7 +60,7 @@ L’**API Translator V3** est neurale par défaut et les systèmes statistiques
 |Fidjien|    `fj`    |Statistique uniquement|  Statistique|
 |Filipino|  `fil`   |Statistique uniquement|  Statistique|
 |Finnois|   `fi`    |Neural disponible|  Neuronale|
-|Anglais|    `fr`    |Neural disponible|  Neuronale|
+|Français|    `fr`    |Neural disponible|  Neuronale|
 |Allemand|    `de`    |Neural disponible|  Neuronale|
 |Grec| `el`    |Neural disponible|  Neuronale|
 |Créole haïtien|    `ht`    |Statistique uniquement   |Statistique|
@@ -82,7 +82,7 @@ L’**API Translator V3** est neurale par défaut et les systèmes statistiques
 |Malais| `ms`    |Statistique uniquement   |Statistique|
 |Maltais|   `mt`    |Statistique uniquement|  Statistique|
 |Norvégien| `nb`    |Neural disponible|  Neuronale|
-|Persan|   `fa`    |Statistique uniquement|  Statistique|
+|Persan|   `fa`    |Neural disponible|  Neuronale|
 |Polonais|    `pl`    |Neural disponible|  Neuronale|
 |Portugais|    `pt`    |Neural disponible|  Neuronale|
 |Queretaro Otomi|   `otq`   |Statistique uniquement|  Statistique|
@@ -153,7 +153,7 @@ Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à 
 | Néerlandais      | `nl`          |
 | Estonien      | `et`          |
 | Finnois      | `fi`          |
-| Anglais      | `fr`          |
+| Français      | `fr`          |
 | Allemand      | `de`          |
 | Grec      | `el`          |
 | Créole haïtien      | `ht`          |
@@ -193,7 +193,7 @@ Le dictionnaire prend en charge les langues ci-après de ou vers l’anglais à 
 
 ## <a name="detect"></a>Detect
 
-L’API Translator Text détecte toutes les langues disponibles pour la traduction et translittération.
+L’API de traduction de texte détecte toutes les langues disponibles pour la traduction et la translittération.
 
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>Accéder par programme à la liste de langues de l'API de traduction de texte Translator Text
@@ -204,7 +204,7 @@ Vous pouvez utiliser la méthode Languages pour récupérer la liste des langues
 
 ## <a name="customization"></a>Personnalisation
 
-Les langues suivantes sont disponibles pour la personnalisation vers ou à partir de l’anglais à l’aide de [personnalisé Translator](https://aka.ms/CustomTranslator).
+Les langues suivantes sont disponibles pour la personnalisation vers ou depuis l'anglais à l'aide de [Custom Translator](https://aka.ms/CustomTranslator).
 
 | Langage    | Code de langue |
 |:----------- |:-------------:|
@@ -213,6 +213,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou à parti
 | Bosniaque (latin)      | `bs`          |
 | Bulgare      | `bg`          |
 | Chinois simplifié      | `zh-Hans`          |
+|Chinois traditionnel|   `zh-Hant`   |
 | Croate      | `hr`          |
 | Tchèque      | `cs`          |
 | Danois      | `da`          |
@@ -220,7 +221,7 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou à parti
 | Anglais    | `en`     |
 | Estonien      | `et`          |
 | Finnois      | `fi`          |
-| Anglais      | `fr`          |
+| Français      | `fr`          |
 | Allemand      | `de`          |
 | Grec      | `el`          |
 | Hébreu      | `he`          |
@@ -228,16 +229,21 @@ Les langues suivantes sont disponibles pour la personnalisation vers ou à parti
 | Hongrois      | `hu`          |
 | Islandais | `is` |
 | Indonésien|   `id`    |
+| Irlandais | `ga`  |
 | Italien      | `it`          |
 | Japonais      | `ja`          |
+|Kiswahili| `sw`    |
 | Coréen      | `ko`          |
 | Letton      | `lv`          |
 | Lituanien      | `lt`          |
+|Malgache|  `mg`    |
 | Norvégien      | `nb`          |
+| Persan      | `fa`          |
 | Polonais      | `pl`          |
 | Portugais      | `pt`          |
 | Roumain      | `ro`          |
 | Russe      | `ru`          |
+|Samoan|    `sm`    |
 | Serbe (latin)      | `sr-Latn`          |
 | Slovaque     | `sk`          |
 | Slovène      | `sl`          |

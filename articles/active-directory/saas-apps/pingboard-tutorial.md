@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 341d8dd712b858572ec5df76b176258ca87c8857
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271116"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Didacticiel : Intégration d'Azure Active Directory à Pingboard
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Pingboard avec Azure AD, vous devez ajouter 
 
 **Pour ajouter Pingboard à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -142,7 +142,7 @@ Pour configurer l’authentification unique Azure AD avec Pingboard, procédez 
 
     ![Configurer l'authentification unique](./media/pingboard-tutorial/Pingboard_integration.png)
 
-3. Sur la page **Intégrations**, recherchez la mosaïque **« Azure Active Directory »**, puis cliquez dessus.
+3. Sur la page **Intégrations**, recherchez la mosaïque **« Azure Active Directory »** , puis cliquez dessus.
 
     ![Intégration de l’authentification unique Pingboard](./media/pingboard-tutorial/Pingboard_aad.png)
 
@@ -224,7 +224,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     a. Dans la zone de texte **Nom complet**, tapez le nom complet d’un utilisateur, par exemple, **Britta Simon**.
 
-    b. Dans la zone de texte **E-mail**, tapez l’adresse e-mail d’un utilisateur, par exemple, **brittasimon@contoso.com**.
+    b. Dans la zone de texte **E-mail**, tapez l’adresse e-mail d’un utilisateur, par exemple, **brittasimon@contoso.com** .
 
     c. Dans la zone de texte **Poste**, tapez le poste de Britta Simon.
 

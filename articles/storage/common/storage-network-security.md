@@ -2,37 +2,38 @@
 title: Configurer des pare-feux et des réseaux virtuels dans Stockage Azure | Microsoft Docs
 description: Configurez une sécurité réseau en couche pour votre compte de stockage.
 services: storage
-author: cbrooksmsft
+author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2019
-ms.author: cbrooks
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b474e090db48b792ade81e8d0f5be0b69f6f109c
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280738"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673161"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
-Stockage Azure fournit un modèle de sécurité en couche. Ce modèle vous permet de sécuriser vos comptes de stockage pour un ensemble spécifique de réseaux pris en charge. Quand des règles de réseau sont configurées, seules les applications demandant des données sur l’ensemble de réseaux spécifié peuvent accéder à un compte de stockage.
+Stockage Azure fournit un modèle de sécurité en couche. Ce modèle vous permet de sécuriser vos comptes de stockage pour un sous-ensemble spécifique de réseaux. Quand des règles de réseau sont configurées, seules les applications demandant des données sur l’ensemble de réseaux spécifié peuvent accéder à un compte de stockage. Vous pouvez limiter l’accès à votre compte de stockage aux demandes provenant d’adresses IP, de plages d’adresses IP ou d’une liste de sous-réseaux dans des réseaux virtuels Azure spécifiés.
 
-Une application qui accède à un compte de stockage alors que des règles de réseau sont en vigueur requiert une autorisation appropriée sur la demande. L’autorisation est pris en charge avec les informations d’identification Azure Active Directory (Azure AD) pour les objets BLOB et files d’attente, avec une clé d’accès de compte valide ou avec un jeton SAP.
+Une application qui accède à un compte de stockage alors que des règles de réseau sont en vigueur requiert une autorisation appropriée pour la demande. L’autorisation est prise en charge avec les informations d’identification Azure Active Directory (Azure AD) pour les objets blob et les files d’attente, avec une clé d’accès de compte valide ou un jeton SAS.
 
 > [!IMPORTANT]
 > L’activation des règles de pare-feu pour votre compte de stockage bloque les demandes entrantes pour les données par défaut, sauf si les demandes proviennent d’un service qui fonctionne au sein d’un réseau virtuel (VNet) Azure. Les demandes qui sont bloquées comprennent les demandes émanant d’autres services Azure, du portail Azure, des services de journalisation et de métriques, etc.
 >
-> Vous pouvez accorder l’accès aux services Azure qui fonctionnent à partir d’un réseau virtuel en autorisant le sous-réseau de l’instance de service. Activez un nombre limité de scénarios via le mécanisme [Exceptions](#exceptions) décrit dans la section suivante. Pour accéder au portail Azure, vous devez utiliser un ordinateur qui se trouve dans la limite de confiance (IP ou réseau virtuel) que vous avez définie.
+> Vous pouvez accorder l’accès aux services Azure qui fonctionnent à partir d’un réseau virtuel en autorisant le trafic en provenance du sous-réseau hébergeant l’instance de service. Vous pouvez également activer un nombre limité de scénarios via le mécanisme [Exceptions](#exceptions) décrit dans la section suivante. Pour accéder aux données du compte de stockage via le portail Azure, vous devez utiliser un ordinateur qui se trouve dans la limite de confiance (IP ou réseau virtuel) que vous avez définie.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="scenarios"></a>Scénarios
 
-Configurez les comptes de stockage pour refuser l’accès au trafic de tous les réseaux (y compris le trafic Internet) par défaut. Accordez ensuite l’accès au trafic de réseaux virtuels spécifiques. Cette configuration vous permet de créer une limite de réseau sécurisée pour vos applications. Vous pouvez aussi accorder l’accès à des plages d’adresses IP Internet publiques, en activant des connexions à partir de clients Internet ou locaux spécifiques.
+Pour sécuriser votre compte de stockage, vous devez commencer par configurer une règle pour refuser l’accès au trafic de tous les réseaux (y compris le trafic Internet) par défaut. Ensuite, vous devez configurer des règles qui autorisent l’accès au trafic en provenance de réseaux virtuels spécifiques. Cette configuration vous permet de créer une limite de réseau sécurisée pour vos applications. Vous pouvez également configurer des règles pour accorder l’accès au trafic en provenance de plages d’adresses IP Internet publiques, en autorisant des connexions à partir de clients Internet ou locaux spécifiques.
 
-Les règles de réseau sont appliquées sur tous les protocoles réseau vers le stockage Azure, notamment REST et SMB. Pour accéder aux données avec des outils tels que le portail Azure, l’Explorateur de stockage et AZCopy, des règles de réseau explicites sont requises.
+Les règles de réseau sont appliquées sur tous les protocoles réseau vers le stockage Azure, notamment REST et SMB. Pour accéder aux données avec des outils tels que le portail Azure, l’Explorateur de stockage et AZCopy, vous devez configurer des règles de réseau explicites.
 
 Vous pouvez appliquer des règles de réseau aux comptes de stockage existant ou lorsque vous créez des comptes de stockage.
 
@@ -111,11 +112,11 @@ Vous pouvez gérer les règles d’accès réseau par défaut pour les comptes d
 
 ## <a name="grant-access-from-a-virtual-network"></a>Accorder l’accès à partir d’un réseau virtuel
 
-Vous pouvez configurer des comptes de stockage pour autoriser l’accès uniquement à partir de réseaux virtuels spécifiques.
+Vous pouvez configurer des comptes de stockage pour autoriser l’accès uniquement à partir de sous-réseaux spécifiques. Les sous-réseaux autorisés peuvent appartenir à un réseau virtuel dans le même abonnement ou dans un autre abonnement, y compris dans un abonnement appartenant à un autre locataire Azure Active Directory.
 
-Activez un [point de terminaison de service](/azure/virtual-network/virtual-network-service-endpoints-overview) pour le stockage Azure dans le réseau virtuel. Ce point de terminaison donne au trafic une route optimale vers le service Stockage Azure. Les identités du réseau virtuel et du sous-réseau sont également transmises avec chaque demande. Les administrateurs peuvent ensuite configurer des règles de réseau pour le compte de stockage qui autorisent la réception des demandes à partir de sous-réseaux spécifiques dans le réseau virtuel. Les clients qui obtiennent un accès par le biais de ces règles de réseau doivent continuer à respecter les exigences d’autorisation du compte de stockage pour accéder aux données.
+Activez un [point de terminaison de service](/azure/virtual-network/virtual-network-service-endpoints-overview) pour le stockage Azure dans le réseau virtuel. Le point de terminaison de service achemine le trafic à partir du réseau virtuel via un chemin d’accès optimal vers le service Stockage Azure. Les identités du sous-réseau et du réseau virtuel sont également transmises avec chaque demande. Les administrateurs peuvent ensuite configurer des règles de réseau pour le compte de stockage qui autorisent la réception des demandes à partir de sous-réseaux spécifiques d’un réseau virtuel. Les clients qui obtiennent un accès par le biais de ces règles de réseau doivent continuer à respecter les exigences d’autorisation du compte de stockage pour accéder aux données.
 
-Chaque compte de stockage prend en charge jusqu'à 100 règles de réseau virtuel qui peuvent être combinées avec des [règles de réseau IP](#grant-access-from-an-internet-ip-range).
+Chaque compte de stockage prend en charge jusqu’à 100 règles de réseau virtuel qui peuvent être combinées avec des [règles de réseau IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Régions de réseau virtuel disponibles
 
@@ -130,7 +131,10 @@ Quand vous planifiez une récupération d’urgence en cas de panne régionale, 
 
 Pour appliquer une règle de réseau virtuel à un compte de stockage, l’utilisateur doit disposer des autorisations appropriées pour les sous-réseaux à ajouter. L’autorisation nécessaire est *joindre le service à un sous-réseau* et est incluse dans le rôle intégré *Contributeur de compte de stockage*. Elle peut également être ajoutée aux définitions de rôles personnalisés.
 
-Le compte de stockage et les réseaux virtuels qui ont un accès peuvent se trouver dans des abonnements différents, mais ces abonnements doivent faire partie du même locataire Azure Active Directory.
+Le compte de stockage et les réseaux virtuels auxquels l’accès est accordé peuvent se trouver dans des abonnements différents, y compris des abonnements appartenant à un autre locataire Azure AD.
+
+> [!NOTE]
+> La configuration de règles qui accordent l’accès à des sous-réseaux de réseaux virtuels qui font partie d’un autre locataire Azure Active Directory n’est actuellement possible que via PowerShell, l’interface de ligne de commande et des API REST. S’il est possible de consulter ces règles sur le portail Azure, il est impossible de les y configurer.
 
 ### <a name="managing-virtual-network-rules"></a>Gestion des règles de réseau virtuel
 
@@ -148,6 +152,8 @@ Vous pouvez gérer les règles de réseau virtuel pour les comptes de stockage v
 
     > [!NOTE]
     > Si un point de terminaison de service pour le stockage Azure n’a pas déjà été configuré pour le réseau virtuel et les sous-réseaux sélectionnés, vous pouvez le configurer dans le cadre de cette opération.
+    >
+    > Actuellement, seuls des réseaux virtuels appartenant à un même locataire Azure Active Directory s’affichent pour sélection lors de la création d’une règle. Pour accorder l’accès à un sous-réseau d’un réseau virtuel appartenant à un autre locataire, utilisez PowerShell, l’interface de ligne de commande ou des API REST.
 
 1. Pour supprimer une règle de réseau ou sous-réseau virtuel, cliquez sur **...** pour ouvrir le menu contextuel du réseau ou sous-réseau virtuel, puis cliquez sur **Supprimer**.
 
@@ -175,6 +181,9 @@ Vous pouvez gérer les règles de réseau virtuel pour les comptes de stockage v
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
+
+    > [!TIP]
+    > Pour ajouter une règle de réseau pour un sous-réseau d’un réseau virtuel appartenant à un autre locataire Azure AD, utilisez un paramètre **VirtualNetworkResourceId** complet sous la forme « /subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name ».
 
 1. Supprimez une règle de réseau pour un réseau virtuel et un sous-réseau.
 
@@ -209,6 +218,11 @@ Vous pouvez gérer les règles de réseau virtuel pour les comptes de stockage v
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
     ```
 
+    > [!TIP]
+    > Pour ajouter une règle pour un sous-réseau d’un réseau virtuel appartenant à un autre locataire Azure AD, utilisez un ID de sous-réseau complet sous la forme « /subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name ».
+    > 
+    > Vous pouvez utiliser le paramètre **subscription** pour récupérer l’ID de sous-réseau d’un réseau virtuel appartenant à un autre locataire Azure AD.
+
 1. Supprimez une règle de réseau pour un réseau virtuel et un sous-réseau.
 
     ```azurecli
@@ -228,7 +242,7 @@ Fournissez les plages d’adresses Internet autorisées à l’aide de la [notat
    > [!NOTE]
    > Les petites plages d’adresses qui utilisent les tailles de préfixe « /31 » ou « /32 » ne sont pas prises en charge. Ces plages doivent être configurées à l’aide des règles d’adresses IP individuelles.
 
-Les règles de réseau IP sont autorisées uniquement pour les adresses IP **Internet publiques**. Les plages d’adresses IP réservées aux réseaux privés (comme défini dans [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) ne sont pas autorisées dans les règles IP. Les réseaux privés incluent des adresses qui commencent par _10.*_, _172.16.*_ - _172.31.*_ et _192.168.*_.
+Les règles de réseau IP sont autorisées uniquement pour les adresses IP **Internet publiques**. Les plages d’adresses IP réservées aux réseaux privés (comme défini dans [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) ne sont pas autorisées dans les règles IP. Les réseaux privés incluent des adresses qui commencent par _10.*_ , _172.16.*_  - _172.31.*_ et _192.168.*_ .
 
    > [!NOTE]
    > Les règles de réseau IP n’ont aucun effet sur les requêtes provenant de la même région Azure que le compte de stockage. Utilisez des [règles de réseau virtuel](#grant-access-from-a-virtual-network) pour autoriser les requêtes de même région.
@@ -241,7 +255,7 @@ Chaque compte de stockage prend en charge jusqu’à 100 règles de réseau IP q
 
 Pour accorder l’accès à votre compte de stockage à partir de réseaux locaux avec une règle de réseau IP, vous devez identifier les adresses IP Internet utilisées par votre réseau. Contactez votre administrateur réseau pour obtenir de l’aide.
 
-Si vous utilisez [ExpressRoute](/azure/expressroute/expressroute-introduction) localement, pour le Peering public ou Microsoft, vous devez identifier les adresses IP NAT (traduction d’adresses réseau) utilisées. Pour l’homologation publique, chaque circuit ExpressRoute utilise par défaut deux adresses IP NAT qui sont appliquées au trafic de service Azure lorsque le trafic entre dans le réseau principal de Microsoft Azure. Pour l’homologation Microsoft, les adresses IP NAT qui sont utilisées sont fournies par le client ou par le fournisseur de services. Pour autoriser l’accès à vos ressources de votre service, vous devez autoriser ces adresses IP publiques dans le paramètre de pare-feu IP de ressource. Pour trouver les adresses IP de votre circuit ExpressRoute d’homologation publique, [ouvrez un ticket de support avec ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via le portail Azure. Découvrez d’autres informations sur [l’homologation publique et Microsoft NAT pour ExpressRoute.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
+Si vous utilisez [ExpressRoute](/azure/expressroute/expressroute-introduction) localement, pour le Peering public ou Microsoft, vous devez identifier les adresses IP NAT (traduction d’adresses réseau) utilisées. Pour le peering public, chaque circuit ExpressRoute utilise par défaut deux adresses IP NAT qui sont appliquées au trafic de service Azure lorsque le trafic entre dans le réseau principal de Microsoft Azure. Pour le peering Microsoft, les adresses IP NAT qui sont utilisées sont fournies par le client ou par le fournisseur de services. Pour autoriser l’accès à vos ressources de votre service, vous devez autoriser ces adresses IP publiques dans le paramètre de pare-feu IP de ressource. Pour trouver les adresses IP de votre circuit ExpressRoute de peering public, [ouvrez un ticket de support avec ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via le portail Azure. Découvrez d’autres informations sur le [peering public et Microsoft NAT pour ExpressRoute.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Gestion des règles de réseau IP
 
@@ -343,22 +357,25 @@ Les règles de réseau peuvent activer une configuration de réseau sécurisée 
 
 Certains services Microsoft qui interagissent avec les comptes de stockage fonctionnent à partir de réseaux qui ne peuvent pas obtenir l’accès par le biais des règles de réseau.
 
-Pour que ce type de service fonctionne comme prévu, autorisez l’ensemble des services Microsoft approuvés à contourner les règles de réseau. Ces services utilisent alors une authentification forte pour accéder au compte de stockage.
+Pour que certains services fonctionnent comme prévu, vous devez autoriser un sous-ensemble de services Microsoft approuvés pour contourner les règles de réseau. Ces services utilisent alors une authentification forte pour accéder au compte de stockage.
 
 Si vous activez l’exception **Services Microsoft approuvés**, les services suivants (s’ils sont inscrits dans votre abonnement) ont accès au compte de stockage :
 
-|de diffusion en continu|Nom du fournisseur de ressources|Objectif|
-|:------|:---------------------|:------|
-|Sauvegarde Azure|Microsoft.Backup|Effectuez des sauvegardes et des restaurations de disques non managés dans des machines virtuelles IAAS. (non requis pour les disques managés). [Plus d’informations](/azure/backup/backup-introduction-to-azure-backup)|
-|Azure Data Box|Microsoft.DataBox|Permet l’importation des données vers Azure à l’aide de la zone de données. [Plus d’informations](/azure/databox/data-box-overview)|
-|Azure DevTest Labs|Microsoft.DevTestLab|Création d’une image personnalisée et installation de l’artefact. [Plus d’informations](/azure/devtest-lab/devtest-lab-overview)|
-|Azure Event Grid|Microsoft.EventGrid|Permettez la publication d’événements Stockage Blob et autorisez Event Grid à effectuer des publications dans les files d’attente de stockage. En savoir plus sur les [événements Stockage Blob](/azure/event-grid/event-sources) et la [publication dans les files d’attente](/azure/event-grid/event-handlers).|
-|Hubs d'événements Azure|Microsoft.EventHub|Archivage des données avec Event Hubs Capture. [En savoir plus](/azure/event-hubs/event-hubs-capture-overview)|
-|Azure HDInsight|Microsoft.HDInsight|Configurer le contenu initial du système de fichiers par défaut pour un nouveau cluster HDInsight. [Plus d’informations](https://azure.microsoft.com/en-us/blog/enhance-hdinsight-security-with-service-endpoints/)|
-|Azure Monitor|Microsoft.Insights|Autorisation de l’écriture de données de supervision dans un compte de stockage sécurisé. [En savoir plus](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
-|Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux d’activité du trafic réseau. [Plus d’informations](/azure/network-watcher/network-watcher-packet-capture-overview)|
-|Azure Site Recovery|Microsoft.SiteRecovery |Configurez la récupération d’urgence en activant la réplication pour les machines virtuelles Azure IaaS. Cela est nécessaire si vous utilisez un compte de stockage de cache avec pare-feu activé, un compte de stockage source ou un compte de stockage cible.  [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)|
-|Azure SQL Data Warehouse|Microsoft.Sql|Permet d’importer et d’exporter des scénarios à l’aide de PolyBase. [Plus d’informations](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)|
+| de diffusion en continu                  | Nom du fournisseur de ressources     | Objectif                                                                                                                                                                                                                                                                                                                      |
+|:-------------------------|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Sauvegarde Azure             | Microsoft.RecoveryServices | Effectuez des sauvegardes et des restaurations de disques non managés dans des machines virtuelles IAAS. (non requis pour les disques managés). [Plus d’informations](/azure/backup/backup-introduction-to-azure-backup)                                                                                                                                                     |
+| Azure Data Box           | Microsoft.DataBox          | Permet l’importation des données vers Azure à l’aide de Microsoft Azure Data Box. [Plus d’informations](/azure/databox/data-box-overview)                                                                                                                                                                                                                              |
+| Azure DevTest Labs       | Microsoft.DevTestLab       | Création d’une image personnalisée et installation de l’artefact. [Plus d’informations](/azure/devtest-lab/devtest-lab-overview)                                                                                                                                                                                                                      |
+| Azure Event Grid         | Microsoft.EventGrid        | Permettez la publication d’événements Stockage Blob et autorisez Event Grid à effectuer des publications dans les files d’attente de stockage. En savoir plus sur les [événements Stockage Blob](/azure/event-grid/event-sources) et la [publication dans les files d’attente](/azure/event-grid/event-handlers).                                                                                                     |
+| Hubs d'événements Azure         | Microsoft.EventHub         | Archivage des données avec Event Hubs Capture. [En savoir plus](/azure/event-hubs/event-hubs-capture-overview)                                                                                                                                                                                                                           |
+| Azure File Sync          | Microsoft.StorageSync      | Vous permet de transformer votre serveur de fichiers local en cache pour les partages de fichiers Azure. Autoriser la synchronisation sur plusieurs sites, une récupération d’urgence rapide et une sauvegarde sur le cloud. [En savoir plus](../files/storage-sync-files-planning.md)                                                                                                       |
+| Azure HDInsight          | Microsoft.HDInsight        | Approvisionnez le contenu initial du système de fichiers par défaut pour un nouveau cluster HDInsight. [Plus d’informations](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)                                                                                                                                    |
+| Service Azure Machine Learning | Microsoft.MachineLearningServices | Les espaces de travail Azure Machine Learning autorisés écrivent des sorties, des modèles et des journaux expérimentaux dans le stockage d’objets blob. [Plus d’informations](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace)                                                               
+| Azure Monitor            | Microsoft.Insights         | Autorisation de l’écriture de données de supervision dans un compte de stockage sécurisé. [En savoir plus](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).                                                                                                                                                                        |
+| Mise en réseau Azure         | Microsoft.Network          | Stockage et analyse des journaux d’activité du trafic réseau. [Plus d’informations](/azure/network-watcher/network-watcher-packet-capture-overview)                                                                                                                                                                                                        |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | Configurez la récupération d’urgence en activant la réplication pour les machines virtuelles Azure IaaS. Cela est nécessaire si vous utilisez un compte de stockage de cache avec pare-feu activé, un compte de stockage source ou un compte de stockage cible.  [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) |
+| Azure SQL Data Warehouse | Microsoft.Sql              | Permet d’importer et exporter des scénarios à partir d’instances de bases de données SQL spécifiques, à l’aide de PolyBase. [Plus d’informations](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)                                                                                                                                                 |
+| Azure Stream Analytics   | Microsoft.StreamAnalytics  | Autorise l’écriture des données d’une tâche de streaming dans le stockage d’objets blob. Remarque : cette fonctionnalité est actuellement en préversion. [Plus d’informations](../../stream-analytics/blob-output-managed-identity.md)                                                                                                                                        |
 
 ### <a name="storage-analytics-data-access"></a>Accès aux données Storage Analytics
 

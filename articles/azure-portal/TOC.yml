@@ -1,15 +1,15 @@
 - name: Documentation du portail Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos du portail Azure
       href: azure-portal-overview.md
+    - name: Bien démarrer avec le centre de démarrage rapide Azure
+      href: azure-portal-quickstart-center.md
     - name: Navigateurs et appareils pris en charge
       href: azure-portal-supported-browsers-devices.md
 - name: Concepts
   items:
-    - name: Créer et partager des tableaux de bord Azure
-      href: azure-portal-dashboards.md
     - name: Partager des tableaux de bord à l’aide du contrôle d’accès en fonction du rôle
       href: azure-portal-dashboard-share-access.md
     - name: Créer par programmation des tableaux de bord Azure
@@ -20,16 +20,20 @@
       href: azure-portal-change-theme-high-contrast.md
     - name: 'Ajouter, supprimer et trier des favoris'
       href: azure-portal-add-remove-sort-favorites.md
+    - name: Créer et partager des tableaux de bord Azure
+      href: azure-portal-dashboards.md
     - name: Utiliser une vignette Markdown personnalisée
       href: azure-portal-markdown-tile.md
     - name: Exporter ou supprimer des paramètres utilisateur
       href: azure-portal-export-delete-settings.md
     - name: Série de vidéos de procédures sur le portail Azure
-      href: 'https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR'
+      href: azure-portal-video-series.md
 - name: Informations de référence
   items:
     - name: Raccourcis clavier
       href: azure-portal-keyboard-shortcuts.md
+    - name: Mettre sur liste fiable les URL du portail Azure
+      href: azure-portal-safelist-urls.md
     - name: Structure des tableaux de bord Azure
       href: azure-portal-dashboards-structure.md
 - name: Ressources

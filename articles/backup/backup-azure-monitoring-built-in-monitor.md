@@ -1,101 +1,112 @@
 ---
-title: 'Sauvegarde Azure : Surveiller la sauvegarde Azure des charges de travail protégées'
-description: Surveiller les charges de travail de sauvegarde Azure à l’aide du portail Azure
-services: backup
-author: pvrk
-manager: shivamg
-keywords: Sauvegarde Azure ; Alertes ;
+title: 'Sauvegarde Azure : Surveiller les charges de travail protégées de Sauvegarde Azure'
+description: Surveiller les charges de travail de Sauvegarde Azure avec le Portail Azure
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
+keywords: Sauvegarde Azure ; alertes ;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: bae05e890ef76ada9f775293c673cb8baa82c8bf
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112498"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954580"
 ---
-# <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de sauvegarde Azure
+# <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de Sauvegarde Azure
 
-Sauvegarde Azure fournit plusieurs solutions de sauvegarde basées sur la topologie exigence et infrastructure de sauvegarde (On-premises vs Azure). N’importe quel utilisateur de sauvegarde ou un administrateur doit s’afficher ce qui se passait dans toutes les solutions et prévu être informé dans les scénarios importants. Cet article décrit en détail les fonctionnalités de surveillance et de notification fournies par le service de sauvegarde Azure.
+Le service Sauvegarde Azure fournit plusieurs solutions de sauvegarde basées sur l’exigence en matière de sauvegarde et la topologie d’infrastructure (locale ou Azure). N’importe quel administrateur ou utilisateur de sauvegarde doit voir ce qui se passe au niveau de toutes les solutions et s’attendre à être informé dans les scénarios importants. Cet article décrit en détail les fonctionnalités de surveillance et de notification fournies par le service Sauvegarde Azure.
 
 ## <a name="backup-jobs-in-recovery-services-vault"></a>Travaux de sauvegarde dans le coffre Recovery Services
 
-Azure Backup offre intégrée de surveillance et de fonctionnalités pour les charges de travail protégées par Azure Backup d’alerte. Dans le coffre Recovery Services, paramètres de la **surveillance** section fournit des travaux intégrée et les alertes.
+Le service Sauvegarde Azure offre des fonctionnalités de surveillance et d’alerte intégrées pour les charges de travail protégées par Sauvegarde Azure. Dans les paramètres du coffre Recovery Services, la section **Surveillance** fournit des travaux intégrés et des alertes.
 
-![Surveillance intégrée du coffre RS](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
+![Surveillance intégrée du coffre Recovery Services](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltmonitoring.png)
 
-Les tâches sont générées lorsque les opérations telles que la configuration de sauvegarde, sauvegarde, restauration, supprimer la sauvegarde et ainsi de suite, sont effectuées.
+Les travaux sont générés lorsque des opérations telles que la configuration de la sauvegarde, la sauvegarde, la restauration, la suppression de la sauvegarde, etc. sont effectuées.
 
-Travaux à partir de solutions de sauvegarde Azure suivantes est indiquées ici :
+Les travaux provenant des solutions Sauvegarde Azure suivantes sont indiqués ici :
 
   - Sauvegarde des machines virtuelles Azure
   - Sauvegarde de fichiers Azure
-  - Sauvegarde de charges de travail Azure, tels que SQL
-  - Agent de sauvegarde Azure (ACM)
+  - Sauvegarde de charge de travail Azure comme SQL
+  - Azure Backup Agent (MAB)
 
-Travaux à partir de System Center Data Protection Manager (SC-DPM), serveur de sauvegarde Microsoft Azure (MABS) n’est pas affichés.
+Les travaux provenant de System Center Data Protection Manager (SC-DPM) et du Serveur Sauvegarde Microsoft Azure NE sont PAS affichés.
 
 > [!NOTE]
-> Charges de travail Azure telles que les sauvegardes SQL au sein de machines virtuelles Azure ont un très grand nombre de travaux de sauvegarde. Par exemple, les sauvegardes de journal peuvent exécuter pour toutes les 15 minutes. Par conséquent, pour ces charges de travail de base de données, les opérations de l’utilisateur uniquement déclenchée sont affichées. Les opérations de sauvegarde planifiées ne sont pas affichées.
+> Les charges de travail Azure telles que les sauvegardes SQL au sein de machines virtuelles Azure présentent un très grand nombre de travaux de sauvegarde. Par exemple, les sauvegardes de fichier journal peuvent s’exécuter toutes les 15 minutes. Par conséquent, pour ces charges de travail de base de données, seules les opérations déclenchées par l’utilisateur sont affichées. Les opérations de sauvegarde planifiées ne sont PAS affichées.
 
 ## <a name="backup-alerts-in-recovery-services-vault"></a>Alertes de sauvegarde dans le coffre Recovery Services
 
-Les alertes sont principalement les scénarios où les utilisateurs sont avertis afin qu’ils peuvent prendre les mesures nécessaires. Le **alertes de sauvegarde** section affiche les alertes générées par le service de sauvegarde Azure. Ces alertes sont définies par le service et l’utilisateur ne peut pas personnalisé créer toutes les alertes.
+Les alertes sont principalement des scénarios dans le cadre desquels les utilisateurs reçoivent des notifications leur permettant de prendre les mesures nécessaires. La section **Alertes de sauvegarde** affiche les alertes générées par le service Sauvegarde Azure. Ces alertes sont définies par le service et l’utilisateur ne peut pas créer d’alerte de façon personnalisée.
 
 ### <a name="alert-scenarios"></a>Scénarios d’alerte
-Les scénarios suivants sont définis par le service en tant que scénarios alertables.
+Les scénarios suivants sont définis par le service en tant que scénarios pouvant donner lieu à des alertes.
 
   - Échecs de sauvegarde/restauration
-  - Sauvegarde réussi avec avertissements
-  - Conserver les arrêtez la protection des données/arrêter la protection avec suppression des données
+  - Sauvegarde réussie avec des avertissements pour Azure Backup Agent (MAB)
+  - Arrêt de la protection avec données conservées/Arrêt de la protection avec données supprimées
 
-### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceptions quand une alerte n’est pas déclenchée.
-Il existe quelques exceptions près, quand une alerte n’est pas déclenchée suite à un échec, ils sont :
+### <a name="exceptions-when-an-alert-is-not-raised"></a>Cas exceptionnels dans lesquels une alerte n’est pas déclenchée
+Dans quelques cas exceptionnels, une alerte n’est pas déclenchée en cas d’échec :
 
-  - L’utilisateur a explicitement annulé le travail en cours d’exécution
-  - L’échec du travail, car un autre travail de sauvegarde est en cours d’exécution (rien d’agir ici dans la mesure où il nous faut simplement attendre la tâche précédente se termine)
-  - Le travail de sauvegarde de machine virtuelle échoue parce que la machine virtuelle de sauvegarde Azure n’existe plus
+  - L’utilisateur a explicitement annulé le travail en cours d’exécution.
+  - Le travail échoue, car un autre travail de sauvegarde est en cours d’exécution (aucune intervention n’est nécessaire dans ce cas, dans la mesure où il nous faut simplement attendre que la tâche précédente se termine).
+  - Le travail de sauvegarde de machine virtuelle échoue, car la machine virtuelle Azure sauvegardée n’existe plus.
 
-Les exceptions ci-dessus sont conçues à partir de la compréhension le résultat de ces opérations (principalement utilisateur déclenchée) s’affiche immédiatement sur les clients du portail/PS/CLI. Par conséquent, l’utilisateur est immédiatement prenant en charge et n’a pas besoin une notification.
+Dans le cadre des exceptions ci-dessus, il est entendu que le résultat de ces opérations (principalement déclenchées par l’utilisateur) s’affiche immédiatement sur le portail et dans les clients PS et CLI. Par conséquent, l’utilisateur en est informé immédiatement et n’a pas besoin de notification.
 
-### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Alertes des solutions de sauvegarde Azure suivantes sont affichés ici :
+### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Les alertes provenant des solutions Sauvegarde Azure suivantes sont indiqués ici :
 
   - Sauvegardes de machines virtuelles Azure
   - Sauvegardes de fichiers Azure
-  - Sauvegardes de charge de travail Azure, tels que SQL
-  - Agent de sauvegarde Azure (ACM)
+  - Sauvegardes de charge de travail Azure comme SQL
+  - Azure Backup Agent (MAB)
 
 > [!NOTE]
-> Alertes de System Center Data Protection Manager (SC-DPM), serveur de sauvegarde Microsoft Azure (MABS) ne sont pas affichés ici.
+> Les alertes provenant de System Center Data Protection Manager (SC-DPM) et du Serveur Sauvegarde Microsoft Azure NE sont PAS affichées ici.
 
 ### <a name="alert-types"></a>Types d’alertes
-Selon la gravité d’alerte, les alertes peuvent être définies dans les trois types :
+Les alertes peuvent être définies selon trois types, en fonction de leur gravité :
 
-  - **Critique** : En principe, toute sauvegarde ou de récupération échec (planifiés ou déclenchés de l’utilisateur) conduirait à la génération d’une alerte et sont affiché en tant qu’une alerte critique et également des opérations destructrices telles que supprimer sauvegarde.
-  - **Avertissement** : Si l’opération de sauvegarde réussit, mais avec quelques avertissements, ils sont répertoriés sous forme d’alertes d’avertissement.
-  - **D’information**: À ce jour, aucune alerte d’information n’est générée par le service de sauvegarde Azure.
+  - **Critique** : En principe, tout échec de sauvegarde ou de récupération (planifiée ou déclenchée par l’utilisateur) conduit à la génération d’une alerte et s’affiche en tant qu’alerte critique, de même que les opérations destructrices telles que la suppression de sauvegarde.
+  - **Avertissement** : Si l’opération de sauvegarde réussit, mais avec quelques avertissements, ces derniers sont répertoriés sous forme d’alertes d’avertissement.
+  - **Information** : À ce jour, aucune alerte d’information n’est générée par le service Sauvegarde Azure.
 
-## <a name="notification-for-backup-alerts"></a>Notification des alertes de sauvegarde
-
-> [!NOTE]
-> Configuration de notification peut être effectuée uniquement via le portail Azure. Prise en charge de l’interface CLI/PS/REST API/Azure Resource Manager modèle n’est pas pris en charge.
-
-Une fois qu’une alerte est déclenchée, les utilisateurs sont avertis. Sauvegarde Azure fournit un mécanisme intégré de notification par courrier électronique. Il peut s’agir des adresses e-mail individuelles ou des listes de distribution pour être averti lorsqu’une alerte est générée. Vous pouvez également choisir pour être averti chaque alerte ou à les regrouper dans une synthèse horaire et puis recevez une notification.
-
-![Notification par e-mail le coffre de Recovery Services intégré](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
-
-Lors de la notification est configurée, vous recevrez un e-mail de bienvenue ou de base. Cela confirme que sauvegarde Azure peut envoyer des e-mails à ces adresses lorsqu’une alerte est déclenchée.<br>
-
-Si la fréquence était définie sur une synthèse horaire et une alerte a été déclenchée et résolue en une heure, il ne sera pas une partie de la synthèse horaire à venir.
+## <a name="notification-for-backup-alerts"></a>Notification pour les alertes de sauvegarde
 
 > [!NOTE]
-> 
-> * Si une opération destructive comme **arrêter la protection avec suppression des données** est effectuée, une alerte est déclenchée et un e-mail est envoyé aux propriétaires d’abonnements, les administrateurs et coadministrateurs, même si les notifications ne sont pas configurées pour le Service de récupération coffre.
-> * Pour configurer la notification pour utilisent des travaux réussis [Analytique de journal](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+> La configuration de la notification peut être effectuée uniquement via le Portail Azure. La prise en charge de l’interface CLI/de PS/de l’API REST/du modèle Azure Resource Manager n’est pas assurée.
+
+Lorsqu’une alerte est déclenchée, les utilisateurs en sont informés. Le service Sauvegarde Azure fournit un mécanisme intégré de notification par e-mail. Vous pouvez spécifier des adresses e-mail individuelles ou des listes de distribution pour être informé de la génération d’une alerte. Vous pouvez également choisir d’être informé à chaque alerte ou de les grouper dans une synthèse horaire avant d’être informé.
+
+![Notification par e-mail intégrée du coffre Recovery Services](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
+
+> [!NOTE]
+> Les alertes correspondant aux sauvegardes SQL seront consolidées et l’e-mail est envoyé uniquement pour la première occurrence. Toutefois, si l’alerte est désactivée par l’utilisateur, l’occurrence suivante déclenche un autre e-mail.
+
+Lorsque la notification est configurée, vous recevez un e-mail de bienvenue ou d’introduction. Il confirme que le service Sauvegarde Azure peut envoyer des e-mails à ces adresses lorsqu’une alerte est déclenchée.<br>
+
+Si la fréquence était définie sur une synthèse horaire et qu’une alerte a été déclenchée et résolue dans l’heure, elle ne fera pas partie de la synthèse horaire à venir.
+
+> [!NOTE]
+>
+> * Si une opération destructive comme **l’arrêt de la protection avec suppression des données** est effectuée, une alerte est déclenchée et un e-mail est envoyé aux administrateurs, coadministrateurs et propriétaires de l’abonnement, même si les notifications ne sont PAS configurées pour le coffre Recovery Services.
+> * Pour configurer la notification pour les travaux réussis, utilisez [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+
+## <a name="inactivating-alerts"></a>Désactivation des alertes
+
+Pour désactiver/résoudre une alerte active, vous pouvez cliquer sur l’élément de liste correspondant à l’alerte que vous voulez désactiver. Cette opération ouvre un écran qui affiche des informations détaillées sur l’alerte, avec un bouton « Désactiver » en haut. Le fait de cliquer sur ce bouton change l’état de l’alerte en « Inactif ». Vous pouvez également désactiver une alerte en cliquant simplement avec le bouton droit sur l’élément de liste correspondant à cette alerte et en sélectionnant « Désactiver ».
+
+![Désactivation d’alerte de coffre Recovery Services](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Surveiller les charges de travail de sauvegarde Azure à l’aide d’Azure Monitor](backup-azure-monitoring-use-azuremonitor.md)
+[Monitor Azure backup workloads using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) (Surveiller les charges de travail de Sauvegarde Azure avec Azure Monitor)

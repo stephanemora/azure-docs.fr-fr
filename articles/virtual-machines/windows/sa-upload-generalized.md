@@ -4,24 +4,23 @@ description: Chargez un disque dur virtuel généralisé sur un compte de stocka
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cd81eb3d62332bba67f0056a6f7b49279bc50c4f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ac1572a75a3310afb9d0e0a34c6751ed12d839f9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788810"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102433"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Charger un disque dur virtuel généralisé sur Azure pour créer une machine virtuelle
 
@@ -31,7 +30,7 @@ Si vous souhaitez créer une machine virtuelle à partir d’un disque dur virtu
 
 Cette rubrique décrit l’utilisation de comptes de stockage, mais nous recommandons aux clients de plutôt passer à l’utilisation de la fonctionnalité Disques managés. Pour obtenir une présentation complète de la préparation, du chargement et de la création d’une machine virtuelle à l’aide de disques managés, consultez [Créer une machine virtuelle à partir d’un disque dur virtuel généralisé chargé sur Azure à l’aide de la fonctionnalité Disques managés](upload-generalized-managed.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-vm"></a>Préparation de la machine virtuelle
 

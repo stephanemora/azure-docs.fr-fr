@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentation sur Liaison privée
+summary: Le service Liaison privée Azure vous permet d’accéder aux services PaaS Azure, comme Stockage Azure et SQL Database, ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un point de terminaison privé dans votre réseau virtuel.  Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez également créer votre propre service Liaison privée dans votre réseau virtuel et le distribuer en privé à vos clients.
+metadata:
+  title: 'Documentation sur Liaison privée : guides de démarrage rapide, guides pratiques, informations de référence sur les API'
+  description: Découvrez comment utiliser le service Liaison privée Azure. Les guides de démarrage rapide et les tutoriels vous montrent comment déployer un service Liaison privée.
+  ms.service: private-link
+  ms.topic: landing-page
+  ms.collection: collection
+  author: KumudD
+  ms.author: kumud
+  ms.date: 09/16/2019
+  ms.openlocfilehash: 24b6d3ce2514ef25a015182e4a4fcd641ac76d50
+  ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/18/2019
+  ms.locfileid: "71104604"
+landingContent:
+- title: À propos de Liaison privée Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Liaison privée ?
+      url: private-link-overview.md
+- title: Se connecter à un service Azure
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Qu’est-ce qu’un point de terminaison privé ?
+      url: private-endpoint-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Créer un point de terminaison privé
+      url: create-private-endpoint-portal.md
+- title: Créer votre propre service Liaison privée
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Qu’est-ce que le service Liaison privée ?
+      url: private-link-service-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer un service Liaison privée
+      url: create-private-link-service-powershell.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: D’Azure CLI
+      url: /cli/azure/network
+    - text: Azure PowerShell
+      url: /powershell/module/az.network
+    - text: REST
+      url: /rest/api/virtualnetwork/privatelinkservices

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889571"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177097"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Attacher les câbles SAS
 1. Identifiez le boîtier principal et le boîtier EBOD Les deux boîtiers peuvent être identifiés en examinant leurs fonds de panier respectifs. Reportez-vous à la figure suivante. 

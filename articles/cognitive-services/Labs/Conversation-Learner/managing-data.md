@@ -3,19 +3,20 @@ title: Gestion des données utilisateur avec l’Apprenant de conversation – M
 titleSuffix: Azure
 description: Découvrez comment gérer les données utilisateur avec l’Apprenant de conversation.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 83c7e808e48733487e84d668236cdb327c21c44c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: MT
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 857e899764d284e2d78f1172fa8eeac04c57d618
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249076"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705192"
 ---
 # <a name="managing-user-data"></a>Gestion des données utilisateur
 

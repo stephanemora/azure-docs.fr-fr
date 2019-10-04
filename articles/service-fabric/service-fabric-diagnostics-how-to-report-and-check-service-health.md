@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: 0db341a9e36d61761321821de5631a564adea050
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821676"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66428159"
 ---
 # <a name="report-and-check-service-health"></a>Signaler et contrôler l’intégrité du service
 Lorsque vos services rencontrent des problèmes, votre capacité à réagir et à résoudre les incidents et les pannes induits dépend de votre capacité à détecter les problèmes rapidement. En signalant les problèmes et les pannes au gestionnaire de contrôle d’intégrité Azure Service Fabric à partir de votre code de service, vous pouvez utiliser les outils standard de contrôle d’intégrité fournis par Service Fabric pour contrôler l’état d’intégrité.
@@ -34,10 +34,10 @@ Il existe trois méthodes pour signaler l’intégrité à partir du service :
 
 Cet article vous présente un exemple de rapports d’intégrité du code de service. L’exemple montre également comment les outils fournis par Service Fabric peuvent être utilisés pour vérifier l’état d’intégrité. Cet article constitue une présentation rapide des fonctionnalités de contrôle d’intégrité de Service Fabric. Pour plus d’informations, vous pouvez lire la série d’articles détaillés sur l’intégrité, à commencer par le lien situé à la fin de cet article.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Les éléments suivants doivent être installés :
 
-* Visual Studio 2015 ou Visual Studio 2017
+* Visual Studio 2015 ou Visual Studio 2019
 * SDK Service Fabric
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>Pour créer un cluster local de développement sécurisé
@@ -124,7 +124,7 @@ Les modèles de projet Visual Studio de Service Fabric contiennent des exemples 
     }
     ```
    Ce code déclenche le rapport d’intégrité à chaque exécution de `RunAsync`. Après avoir apporté la modification, appuyez sur **F5** pour exécuter l’application.
-1. Une fois que l’application est en cours d’exécution, ouvrez Service Fabric Explorer pour vérifier l’intégrité de l’application. Cette fois-ci, Service Fabric Explorer affiche un problème d’intégrité de l’application. Ceci est dû à l’erreur signalée à partir du code que nous avons ajouté précédemment.
+1. Une fois que l’application est en cours d’exécution, ouvrez Service Fabric Explorer pour vérifier l’intégrité de l’application. Cette fois-ci, Service Fabric Explorer affiche un problème d’intégrité de l’application. L’application s’affiche comme non saine en raison de l’erreur signalée à partir du code que nous avons ajouté précédemment.
    
     ![Application non saine dans l’Explorateur Service Fabric](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 1. Si vous sélectionnez le réplica principal dans l’arborescence de Service Fabric Explorer, vous verrez que l’ **état d’intégrité** indique également une erreur. Service Fabric Explorer affiche également les détails du rapport d’intégrité qui ont été ajoutés au paramètre `HealthInformation` dans le code. Vous pouvez voir les mêmes rapports d’intégrité dans PowerShell, ainsi que dans le portail Azure.

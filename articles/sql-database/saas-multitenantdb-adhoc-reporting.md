@@ -1,5 +1,5 @@
 ---
-title: Exécuter des requêtes de rapport ad hoc sur plusieurs bases de données SQL Azure | Microsoft Docs
+title: Exécuter des requêtes de rapport ad hoc sur plusieurs bases de données Azure SQL | Microsoft Docs
 description: Exécutez des requêtes de rapport ad hoc sur plusieurs bases de données SQL dans un exemple d’application multiclient.
 services: sql-database
 ms.service: sql-database
@@ -8,18 +8,17 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: AyoOlubeko
-ms.author: ayolubek
+ms.author: craigg
 ms.reviewer: sstein
-manager: craigg
 ms.date: 10/30/2018
-ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 0a6b45db3c8b4071b591ca2b5fc604b986598c0c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076358"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570365"
 ---
-# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données SQL Azure
+# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données Azure SQL
 
 Dans ce didacticiel, vous allez exécuter des requêtes distribuées sur l’ensemble des bases de données client pour permettre un rapport ad hoc. Ces requêtes peuvent extraire des analyses enfouies dans les données opérationnelles quotidiennes de l’application SaaS Wingtip Tickets. Pour effectuer ces extractions, vous déployez une base de données analytique supplémentaire sur le serveur de catalogue et utilisez une requête élastique pour activer les requêtes distribuées.
 
@@ -96,7 +95,7 @@ Cet exercice ajoute le schéma (la source de données externe et les définition
 
     ![créer une source de données externe](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   Les tables externes qui font référence à des tables client sont définies avec **DISTRIBUTION = SHARDED(VenueId)**. Cela achemine une requête pour un *VenueId* particulier vers la base de données appropriée et améliore les performances pour de nombreux scénarios comme indiqué dans la section suivante.
+   Les tables externes qui font référence à des tables client sont définies avec **DISTRIBUTION = SHARDED(VenueId)** . Cela achemine une requête pour un *VenueId* particulier vers la base de données appropriée et améliore les performances pour de nombreux scénarios comme indiqué dans la section suivante.
 
     ![créer des tables externes](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 
@@ -119,7 +118,7 @@ Lors de l’inspection du plan d’exécution, passez la souris sur les icônes 
 1. Dans *SSMS*, ouvrez ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*.
 2. Assurez-vous que vous êtes connecté à la base de données **adhocreporting**.
 3. Sélectionnez le menu **Requête** et cliquez sur **Inclure le plan d’exécution réel**
-4. Mettez en surbrillance la requête *Quels lieux sont actuellement inscrits ?*, puis appuyez sur **F5**.
+4. Mettez en surbrillance la requête *Quels lieux sont actuellement inscrits ?* , puis appuyez sur **F5**.
 
    La requête renvoie la liste complète des lieux, montrant à quel point il est facile d’interroger l’ensemble des clients et de renvoyer des données provenant de chacun d’eux.
 
@@ -135,7 +134,7 @@ Lors de l’inspection du plan d’exécution, passez la souris sur les icônes 
 
    ![Joindre des données locales et distantes](media/saas-multitenantdb-adhoc-reporting/query2-plan.png)
 
-6. Sélectionnez à présent la requête *Quel jour y a-t-il eu le plus de tickets vendus ?*, puis appuyez sur **F5**.
+6. Sélectionnez à présent la requête *Quel jour y a-t-il eu le plus de tickets vendus ?* , puis appuyez sur **F5**.
 
    Cette requête effectue une opération de jointure et d’agrégation un peu plus complexe. Il est important de noter que la plupart du traitement est effectué à distance, et une fois encore, nous récupérons uniquement les lignes dont nous avons besoin, en renvoyant une seule ligne pour le cumul agrégé de ventes de tickets par jour pour chaque lieu.
 

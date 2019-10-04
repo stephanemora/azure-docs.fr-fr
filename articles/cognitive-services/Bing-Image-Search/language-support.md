@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a4c315d2696b081a4f2ac646d097e76ff9562380
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009478"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881920"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Langues et régions prises en charge par l’API Recherche d’images Bing
 
@@ -32,7 +32,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 > - en-AU (anglais, Australie)
 > - zh-CN (chinois, Chine)
 
-## <a name="countries"></a>Pays
+## <a name="countriesregions"></a>Pays/régions
 
 |Pays/région|Code|
 |-------|----|
@@ -49,7 +49,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Allemagne|DE|
 |Hong Kong (R.A.S.)|HK|
 |Inde|IN|
-|Indonésie|ID|
+|Indonésie|id|
 |Italie|IT|
 |Japon|JP|
 |Corée du Sud|KR|
@@ -82,14 +82,14 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Australie|Anglais|en-AU|
 |Autriche|Allemand|de-AT|
 |Belgique|Néerlandais|nl-BE|
-|Belgique|Anglais|fr-BE|
+|Belgique|Français|fr-BE|
 |Brésil|Portugais|pt-br|
 |Canada|Anglais|en-CA|
-|Canada|Anglais|fr-CA|
+|Canada|Français|fr-CA|
 |Chili|Espagnol|es-CL|
 |Danemark|Danois|da-DK|
 |Finlande|Finnois|fi-FI|
-|France|Anglais|fr-FR|
+|France|Français|fr-FR|
 |Allemagne|Allemand|de-DE|
 |Hong Kong (R.A.S.)|Chinois traditionnel|zh-HK|
 |Inde|Anglais|en-IN|
@@ -110,7 +110,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Afrique du Sud|Anglais|en-ZA|
 |Espagne|Espagnol|es-ES|
 |Suède|Suédois|sv-SE|
-|Suisse|Anglais|fr-CH|
+|Suisse|Français|fr-CH|
 |Suisse|Allemand|de-CH|
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|
@@ -119,4 +119,4 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |États-Unis|Espagnol|es-US|
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les points de terminaison de Recherche d’actualités Bing, consultez [Référence de l’API Recherche d’images v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+Pour plus d’informations sur les points de terminaison de Recherche d’actualités Bing, consultez [Référence de l’API Recherche d’images v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

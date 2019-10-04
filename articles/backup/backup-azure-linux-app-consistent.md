@@ -1,20 +1,20 @@
 ---
 title: 'Sauvegarde Azure : sauvegarde de cohérence des applications de machines virtuelles Linux'
 description: Créez des sauvegardes cohérentes des applications de vos machines virtuelles Linux sur Azure. Cet article explique la configuration de l’infrastructure de script pour sauvegarder les machines virtuelles Linux déployées par Azure. Il contient également des informations de dépannage.
-services: backup
-author: anuragmehrotra
-manager: shivamg
+ms.reviewer: anuragm
+author: dcurwin
+manager: carmonm
 keywords: sauvegarde cohérente des applications ; sauvegarde cohérente des applications de la machine virtuelle Azure ; sauvegarde de la machine virtuelle Linux ; sauvegarde Azure
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/12/2018
-ms.author: anuragm
-ms.openlocfilehash: a81c0b9c87db85771fcecab87c6b9ac88dcbd472
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: MT
+ms.date: 01/12/2018
+ms.author: dacurwin
+ms.openlocfilehash: dc7745c7c1110bf3635b1621cecfd5e61488b9f9
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581843"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210394"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Sauvegarde cohérente des applications des machines virtuelles Linux Azure
 
@@ -24,7 +24,7 @@ Lorsque vous prenez des instantanés de sauvegarde de vos machines virtuelles, l
 
 L’infrastructure fournit une option permettant d’exécuter des pré/post-scripts personnalisés lors de la capture d’instantanés de machines virtuelles. Les pré-scripts s’exécutent juste avant la capture instantanée de machines virtuelles ; et les post-scripts, juste après. Les pré-scripts et post-scripts vous permettent de contrôler votre application et votre environnement, pendant que vous prenez des captures instantanées de machines virtuelles.
 
-Les pré-scripts appellent les API natives de l’application, qui suspendent les E/S et vident le contenu de la mémoire sur le disque. Ces actions garantissent que la capture instantanée est cohérente des applications. Les post-scripts utilisent les API natives de l’application pour libérer les E/S, ce qui permet à l’application de reprendre ses opérations normales après la capture instantanée des machines virtuelles.
+Les pré-scripts appellent les API natives de l’application, qui suspendent les E/S et vident le contenu de la mémoire sur le disque. Ces actions garantissent que la capture instantanée est cohérente des applications. Les post-scripts utilisent les API natives de l’application pour libérer les E/S, qui permettent à l’application de reprendre ses opérations normales après la capture instantanée des machines virtuelles.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Procédure de configuration du pré-script et du post-script
 

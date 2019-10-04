@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 116a465a0ddc913e342e0ffcc1fb29f5bf969419
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a6a87f90586dc4392dc1304a83349bc386590ee4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464158"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568586"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Prise en main des requêtes de bases de données croisées (partitionnement vertical) (version préliminaire)
 
-Les requêtes de bases de données élastiques (en version préliminaire) pour base de données SQL Azure vous permettent d’exécuter des requêtes T-SQL qui s’étendent sur plusieurs bases de données via un seul point de connexion. Cet article s’applique aux [bases de données partitionnées verticalement](sql-database-elastic-query-vertical-partitioning.md).  
+Les requêtes de bases de données élastiques (en préversion) pour Azure SQL Database vous permettent d’exécuter des requêtes T-SQL qui s’étendent sur plusieurs bases de données via un seul point de connexion. Cet article s’applique aux [bases de données partitionnées verticalement](sql-database-elastic-query-vertical-partitioning.md).  
 
-À l’issue du processus, vous serez capable de configurer et d’utiliser une base de données SQL Azure pour exécuter des requêtes qui s’étendent sur plusieurs bases de données associées.
+À l’issue du processus, vous serez capable de configurer et d’utiliser une base de données Azure SQL pour exécuter des requêtes qui s’étendent sur plusieurs bases de données associées.
 
 Pour plus d’informations sur la fonctionnalité de requête de base de données élastique, consultez l’article [Vue d’ensemble de la requête de base de données élastique Azure SQL Database](sql-database-elastic-query-overview.md).
 
@@ -107,7 +106,7 @@ Après avoir défini vos tables externes et votre source de données externe, vo
 
 ## <a name="cost"></a>Coût
 
-Actuellement, la fonctionnalité de requête de base de données élastique est incluse dans le coût de votre base de données SQL Azure.  
+Actuellement, la fonctionnalité de requête de base de données élastique est incluse dans le coût de votre base de données Azure SQL.  
 
 Pour plus d’informations sur la tarification, voir [Tarification SQL Database](https://azure.microsoft.com/pricing/details/sql-database).
 

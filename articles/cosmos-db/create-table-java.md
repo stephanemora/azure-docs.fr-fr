@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : API Table avec Java - Azure Cosmos DB'
+title: Utiliser l’API Table et Java pour créer une application - Azure Cosmos DB
 description: Ce guide de démarrage rapide montre comment utiliser l’API Table Azure Cosmos DB pour créer une application avec le portail Azure et Java
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: b0fda94f3120f1f228836713456d584d33c08a48
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.custom: seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 14742984fb993679abc87e279f3ad9882ec77ce3
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033118"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266036"
 ---
-# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec Java et Azure Cosmos DB
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Démarrage rapide : Créer une application Java pour gérer les données de l’API Table d’Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -24,7 +25,7 @@ ms.locfileid: "54033118"
 > * [Python](create-table-python.md)
 > 
 
-Ce guide de démarrage rapide montre comment utiliser Java et [l’API Table](table-introduction.md) d’Azure Cosmos DB pour créer une application en clonant un exemple à partir de GitHub. Ce guide de démarrage rapide vous montre également comment créer un compte Azure Cosmos DB et comment utiliser l’Explorateur de données pour créer des tables et des entités dans le portail web Azure.
+Ce guide de démarrage rapide montre comment utiliser Java et [l’API Table](table-introduction.md) d’Azure Cosmos DB pour créer une application en clonant un exemple à partir de GitHub. Vous allez apprendre à créer un compte Azure Cosmos DB et à utiliser l’Explorateur de données pour créer des tables et des entités dans le portail Azure web.
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
@@ -35,8 +36,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 Par ailleurs : 
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * Sur Ubuntu, exécutez `apt-get install default-jdk` pour installer le JDK.
+* [Kit de développement Java (JDK) 8](https://aka.ms/azure-jdks)
     * Veillez à définir la variable d’environnement JAVA_HOME pour qu’elle pointe vers le dossier dans lequel le JDK est installé.
 * [Téléchargement](https://maven.apache.org/download.cgi) et [installation](https://maven.apache.org/install.html) d’une archive binaire [Maven](https://maven.apache.org/)
     * Sur Ubuntu, vous pouvez exécuter `apt-get install maven` pour installer Maven.
@@ -85,9 +85,9 @@ Par ailleurs :
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application. Cette opération permet à votre application de communiquer avec votre base de données hébergée. 
 
-1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Chaîne de connexion**. 
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Chaîne de connexion**. 
 
-   ![Affichez et copiez les informations de chaîne de connexion qui se trouvent dans le volet Chaîne de connexion](./media/create-table-java/connection-string.png)
+   ![Voir les informations de chaîne de connexion dans le volet Chaîne de connexion](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
 
 2. Copiez la CHAÎNE DE CONNEXION PRINCIPALE à l’aide du bouton Copier à droite.
 
@@ -95,7 +95,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 5. Commentez la ligne une et supprimez les commentaires de la ligne deux. Les deux premières lignes devraient maintenant ressembler à ceci.
 
-    ```
+    ```xml
     #StorageConnectionString = UseDevelopmentStorage=true
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```

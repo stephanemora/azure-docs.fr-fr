@@ -6,13 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.author: cherylmc
+ms.reviewer: anzaman
+ms.openlocfilehash: e42190814b9365c7db054eb2b5f1842581b64009
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524886"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657066"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Créer et modifier un circuit ExpressRoute à l’aide de l’interface de ligne de commande
 
@@ -23,9 +24,10 @@ Cet article décrit comment créer un circuit Azure ExpressRoute à l’aide de 
 > * [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interface de ligne de commande Azure](howto-circuit-cli.md)
+> * [Modèle Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-circuit-classic.md)
-> 
+>
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -56,7 +58,7 @@ az account set --subscription "<subscription ID>"
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Récupérer la liste des fournisseurs, des emplacements et des bandes passantes pris en charge
 
-Avant de créer un circuit ExpressRoute, vous avez besoin d’une liste des fournisseurs de services, des emplacements et des options de bande passante pris en charge. La commande CLI `az network express-route list-service-providers` retourne cette information, vous allez utiliser dans les étapes ultérieures :
+Avant de créer un circuit ExpressRoute, vous avez besoin d’une liste des fournisseurs de services, des emplacements et des options de bande passante pris en charge. La commande d’interface CLI `az network express-route list-service-providers` retourne ces informations que vous utilisez dans les étapes ultérieures :
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -127,8 +129,8 @@ Vous êtes maintenant prêt à créer un circuit ExpressRoute.
 
 > [!IMPORTANT]
 > Votre circuit ExpressRoute est facturé à partir de l’émission d'une clé de service. Effectuez cette opération quand le fournisseur de connectivité est prêt à approvisionner le circuit.
-> 
-> 
+>
+>
 
 Si vous n’avez pas déjà un groupe de ressources, vous devez en créer un avant de créer votre circuit ExpressRoute. Vous pouvez créer un groupe de ressources à l’aide de la commande suivante :
 
@@ -136,7 +138,7 @@ Si vous n’avez pas déjà un groupe de ressources, vous devez en créer un ava
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-L’exemple suivant montre comment créer un circuit ExpressRoute de 200 Mb/s par le biais d’Equinix dans la Silicon Valley. Si vous utilisez un autre fournisseur et des paramètres différents, utilisez ces informations quand vous créez votre requête. 
+L’exemple suivant montre comment créer un circuit ExpressRoute de 200 Mb/s par le biais d’Equinix dans la Silicon Valley. Si vous utilisez un autre fournisseur et des paramètres différents, utilisez ces informations quand vous créez votre requête.
 
 Assurez-vous que vous spécifiez le niveau de référence (SKU) et la famille de références corrects :
 
@@ -154,7 +156,7 @@ La réponse contient la clé de service.
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Répertorier tous les circuits ExpressRoute
 
-Pour obtenir une liste de tous les circuits ExpressRoute que vous avez créé, exécutez le `az network express-route list` commande. Vous pouvez récupérer ces informations à tout moment à l’aide de cette commande. Pour répertorier tous les circuits, effectuez l’appel sans paramètres.
+Pour obtenir la liste de tous les circuits ExpressRoute que vous avez créés, exécutez la commande `az network express-route list`. Vous pouvez récupérer ces informations à tout moment à l’aide de cette commande. Pour répertorier tous les circuits, effectuez l’appel sans paramètres.
 
 ```azurecli-interactive
 az network express-route list
@@ -263,12 +265,12 @@ La réponse ressemble à ce qui suit :
 
 ### <a name="7-create-your-routing-configuration"></a>7. Créer votre configuration de routage
 
-Pour obtenir des instructions pas à pas, consultez l’article [Configuration du routage des circuits ExpressRoute](howto-routing-cli.md) pour créer et modifier des homologations de circuit.
+Pour obtenir des instructions pas à pas, consultez l’article [Configuration du routage des circuits ExpressRoute](howto-routing-cli.md) pour créer et modifier des peerings de circuit.
 
 > [!IMPORTANT]
 > Ces instructions s’appliquent seulement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement un VPN IP, comme MPLS), votre fournisseur de connectivité configure et gère le routage pour vous.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Lier un réseau virtuel à un circuit ExpressRoute
 
@@ -279,7 +281,7 @@ Maintenant, vous devez lier un réseau virtuel à votre circuit ExpressRoute. Ut
 Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affecter la connectivité. Vous pouvez apporter les modifications suivantes sans temps d'arrêt :
 
 * Vous pouvez activer ou désactiver le module complémentaire ExpressRoute Premium pour votre circuit ExpressRoute.
-* Vous pouvez augmenter la bande passante de votre circuit ExpressRoute à condition que la capacité disponible sur le port le permette. Cependant, la rétrogradation de la bande passante d'un circuit n'est pas prise en charge. 
+* Vous pouvez augmenter la bande passante de votre circuit ExpressRoute à condition que la capacité disponible sur le port le permette. Cependant, la rétrogradation de la bande passante d'un circuit n'est pas prise en charge.
 * Vous pouvez remplacer le plan de mesure Données limitées par Données illimitées. Cependant, le remplacement du plan de mesure Données illimitées par Données limitées n’est pas pris en charge.
 * Vous pouvez activer et désactiver *Autoriser les opérations classiques*.
 
@@ -299,14 +301,14 @@ Les fonctionnalités du module complémentaire ExpressRoute Premium sont ainsi a
 
 > [!IMPORTANT]
 > Cette opération peut échouer si vous utilisez des ressources supérieures à ce qui est autorisé pour le circuit standard.
-> 
-> 
+>
+>
 
 Avant de désactiver le module complémentaire ExpressRoute Premium, comprenez les critères suivants :
 
 * Avant de rétrograder du niveau Premium à Standard, vous devez vous assurer que le nombre de réseaux virtuels liés au circuit est inférieur à 10. S’il y en a plus de 10, votre demande de mise à jour échoue et nous appliquons les tarifs Premium.
 * Vous devez dissocier tous les réseaux virtuels dans d'autres régions géopolitiques. Si vous ne le faites pas, votre demande de mise à jour échoue et nous appliquons les tarifs Premium.
-* Pour l’homologation privée, votre table de routage doit comporter moins de 4 000 routages. Si elle contient plus de 4 000 routages, la session BGP est supprimée. Cette session ne sera réactivée qu’une fois le nombre de préfixes publiés repassé sous la barre des 4 000.
+* Pour le peering privé, votre table de routage doit comporter moins de 4 000 routages. Si elle contient plus de 4 000 routages, la session BGP est supprimée. Cette session ne sera réactivée qu’une fois le nombre de préfixes publiés repassé sous la barre des 4 000.
 
 Vous pouvez désactiver le module complémentaire ExpressRoute Premium dans votre circuit existant à l’aide de l’exemple suivant :
 

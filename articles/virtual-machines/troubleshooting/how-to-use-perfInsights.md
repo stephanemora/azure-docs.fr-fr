@@ -4,22 +4,21 @@ description: Découvrez comment utiliser PerfInsights pour résoudre les problè
 services: virtual-machines-windows'
 documentationcenter: ''
 author: anandhms
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: MT
+ms.openlocfilehash: 783b479dd3e5f429516799d7d3ea82f363cac2ec
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275733"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058173"
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights
 
@@ -105,36 +104,36 @@ Les informations portant sur la configuration de la machine virtuelle Windows, d
 |Données collectées                              |  |  | Scénarios de performances |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
 |                               | Analyse rapide des performances | Benchmarking | Analyse des performances | Analyse de fichiers Azure | Analyse avancée des performances |
-| Informations tirées des journaux d’événements       | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Informations système                | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Mappage de volume                        | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Mappage de disque                          | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Tâches en cours d’exécution                     | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Compteurs de fiabilité de stockage      | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Informations sur le stockage               | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Sortie Fsutil                     | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Informations du pilote de filtre                | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Sortie Netstat                    | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Configuration réseau             | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Configuration du pare-feu            | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Configuration de SQL Server          | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Suivis des diagnostics de performances *  | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
-| Suivi du compteur de performances **      |                            |                                    | Oui                      |                      | Oui                  |
-| Suivi du compteur SMB **              |                            |                                    |                          | Oui                  |                      |
-| Suivi du compteur SQL Server **       |                            |                                    | Oui                      |                      | Oui                  |
-| Suivi XPerf                       |                            |                                    |                          |                      | Oui                  |
-| Suivi StorPort                    |                            |                                    |                          |                      | Oui                  |
-| Suivi réseau                     |                            |                                    |                          | Oui                  | Oui                  |
-| Suivi d’évaluation Diskspd ***       |                            | Oui                                |                          |                      |                      |
+| Informations tirées des journaux d’événements       | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Informations système                | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Mappage de volume                        | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Mappage de disque                          | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Tâches en cours d’exécution                     | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Compteurs de fiabilité de stockage      | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Informations sur le stockage               | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Sortie Fsutil                     | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Informations du pilote de filtre                | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Sortie Netstat                    | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Configuration réseau             | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Configuration du pare-feu            | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Configuration de SQL Server          | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Suivis des diagnostics de performances *  | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
+| Suivi du compteur de performances **      |                            |                                    | OUI                      |                      | OUI                  |
+| Suivi du compteur SMB **              |                            |                                    |                          | OUI                  |                      |
+| Suivi du compteur SQL Server **       |                            |                                    | OUI                      |                      | OUI                  |
+| Suivi XPerf                       |                            |                                    |                          |                      | OUI                  |
+| Suivi StorPort                    |                            |                                    |                          |                      | OUI                  |
+| Suivi réseau                     |                            |                                    |                          | OUI                  | OUI                  |
+| Suivi d’évaluation Diskspd ***       |                            | OUI                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Suivi des diagnostics de performances (*)
 
 Exécute un moteur basé sur des règles en arrière-plan afin de collecter des données et diagnostiquer les problèmes de performances en cours. Les règles actuellement prises en charge sont les suivantes :
 
-- Règle HighCpuUsage : détecte les périodes d’utilisation élevée du processeur et montre les principaux utilisateurs du processeur pendant ces périodes.
-- Règle HighDiskUsage : détecte les périodes d’utilisation élevée de disque sur les disques physiques et montre les principaux utilisateurs de disque pendant ces périodes.
-- Règle HighResolutionDiskMetric : montre les mesures d’E/S par seconde, de débit et de latence d’E/S par intervalles de 50 millisecondes pour chaque disque physique. Cela permet d’identifier rapidement les périodes de limitation de disque.
+- Règle HighCpuUsage : détecte les périodes d’utilisation élevée du processeur et montre les principaux utilisateurs du processeur pendant ces périodes.
+- Règle HighDiskUsage : détecte les périodes d’utilisation élevée de disque sur les disques physiques et montre les principaux utilisateurs de disque pendant ces périodes.
+- Règle HighResolutionDiskMetric : montre les mesures d’E/S par seconde, de débit et de latence d’E/S par intervalles de 50 millisecondes pour chaque disque physique. Cela permet d’identifier rapidement les périodes de limitation de disque.
 - Règle HighMemoryUsage : détecte les périodes d’utilisation élevée de la mémoire et montre les principaux utilisateurs de la mémoire pendant ces périodes.
 
 > [!NOTE] 
@@ -167,7 +166,7 @@ Tests de charge de travail d’E/S Diskspd (disque de système d’exploitation 
 
 -  Cet outil doit être exécuté sur la machine virtuelle qui présente le problème de performances. 
 
--  Les systèmes d’exploitation suivants sont pris en charge : Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, et Windows Server 2016; Windows 8.1 and Windows 10.
+-  Les systèmes d’exploitation pris en charge sont les suivants : Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016 ; Windows 8.1 et Windows 10.
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Problèmes possibles lorsque vous exécutez l’outil sur des machines virtuelles de production
 
@@ -194,7 +193,7 @@ Pour exécuter l’outil PerfInsights, suivez ces étapes :
 
 2. Débloquez le fichier PerfInsights.zip. Pour ce faire, cliquez avec le bouton droit sur le fichier PerfInsights.zip, puis sélectionnez **Propriétés**. Sous l’onglet **Général**, sélectionnez **Débloquer**, puis **OK**. Cela garantit que l’outil s’exécute sans invite de sécurité supplémentaire.  
 
-    ![Capture d’écran des propriétés PerfInsights, avec mise en surbrillance du déblocage](media/how-to-use-perfInsights/unlock-file.png)
+    ![Capture d’écran des propriétés PerfInsights, avec mise en surbrillance du déblocage](media/how-to-use-perfInsights/pi-unlock-file.png)
 
 3.  Développez le fichier compressé PerfInsights.zip dans votre disque temporaire (par défaut, il s’agit généralement du disque D). 
 
@@ -204,7 +203,7 @@ Pour exécuter l’outil PerfInsights, suivez ces étapes :
     cd <the path of PerfInsights folder>
     PerfInsights
     ```
-    ![Capture d’écran de la sortie de ligne de commande de PerfInsights](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
+    ![Capture d’écran de la sortie de ligne de commande de PerfInsights](media/how-to-use-perfInsights/pi-commandline.png)
     
     La syntaxe de base pour l’exécution de scénarios PerfInsights est la suivante :
     
@@ -253,8 +252,8 @@ Le fichier **PerformanceDiagnostics\_aaaa-MM-jj\_hh-mm-ss-fff.zip** peut inclure
 
 Sélectionnez l’onglet **Conclusions**.
 
-![Capture d’écran du rapport de PerfInsights](media/how-to-use-perfInsights/findingtab.png)
-![Capture d’écran du rapport de PerfInsights](media/how-to-use-perfInsights/findings.PNG)
+![Capture d’écran du rapport de PerfInsights](media/how-to-use-perfInsights/pi-finding-tab.png)
+![Capture d’écran du rapport de PerfInsights](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Les conclusions identifiées comme étant d’importance élevée sont des problèmes connus qui peuvent conduire à des problèmes de performances. Les conclusions identifiées comme étant d’importance moyenne représentent des configurations non optimales ne provoquant pas forcément de problèmes de performances. Les conclusions identifiées comme étant d’importance faible sont des instructions données à titre informatif uniquement.
@@ -269,17 +268,17 @@ Les sections **Mappage de disque** et **Mappage de volume** décrivent les liens
 
 Dans la perspective du disque physique (Mappage de disque), le tableau affiche tous les volumes logiques en cours d’exécution sur le disque. Dans l’exemple suivant, **PhysicalDrive2** exécute deux volumes logiques créés sur plusieurs partitions (J et H) :
 
-![Capture d’écran de l’onglet du disque](media/how-to-use-perfInsights/disktab.png)
+![Capture d’écran de l’onglet du disque](media/how-to-use-perfInsights/pi-disk-tab.png)
 
 Dans la perspective du volume (Mappage de volume), les tables affichent tous les disques physiques sous chaque volume logique. Pour les disques RAID/dynamiques, vous pouvez exécuter un volume logique sur plusieurs disques physiques. Dans l’exemple suivant, *C:\\mount* est un point de montage configuré en tant que *SpannedDisk* sur les disques physiques 2 et 3 :
 
-![Capture d’écran de l’onglet de volume](media/how-to-use-perfInsights/volumetab.png)
+![Capture d’écran de l’onglet de volume](media/how-to-use-perfInsights/pi-volume-tab.png)
 
 ### <a name="sql-tab"></a>Onglet SQL
 
 Si la machine virtuelle cible héberge des instances SQL Server, un onglet supplémentaire appelé **SQL** apparaît dans le rapport :
 
-![Capture d’écran de l’onglet SQL](media/how-to-use-perfInsights/sqltab.png)
+![Capture d’écran de l’onglet SQL](media/how-to-use-perfInsights/pi-sql-tab.png)
 
 Cette section contient un onglet **Conclusions**, et des sous-onglets supplémentaires pour chacune des instances SQL Server hébergées sur la machine virtuelle.
 
@@ -287,7 +286,7 @@ L’onglet **Conclusions** contient une liste de tous les problèmes de performa
 
 Dans l’exemple suivant, **PhysicalDrive0** (en cours d’exécution du lecteur C) s’affiche. Cela est dû au fait que les fichiers **modeldev** et **modellog** se trouvent sur le disque C, et ils sont de types différents (par exemple, fichier de données et journal des transactions, respectivement).
 
-![Capture d’écran des informations du journal](media/how-to-use-perfInsights/loginfo.png)
+![Capture d’écran des informations du journal](media/how-to-use-perfInsights/pi-log-info.png)
 
 Les onglets des instances spécifiques de SQL Server contiennent une section générale qui affiche des informations de base sur l’instance sélectionnée. Les onglets contiennent également des sections supplémentaires pour les informations avancées, notamment les paramètres, les configurations et les options utilisateur.
 
@@ -310,7 +309,7 @@ Vous pouvez charger les journaux de diagnostic et les rapports vers le Support M
 
 La capture d’écran suivante affiche un message semblable à ce que vous pouvez recevoir :
 
-![Capture d’écran de l’exemple de message envoyé par le Support Microsoft](media/how-to-use-perfInsights/supportemail.png)
+![Capture d’écran de l’exemple de message envoyé par le Support Microsoft](media/how-to-use-perfInsights/pi-support-email.png)
 
 Suivez les instructions dans le message pour accéder à l’espace de travail de transfert de fichier. Pour plus de sécurité, vous devez modifier votre mot de passe à la première utilisation.
 

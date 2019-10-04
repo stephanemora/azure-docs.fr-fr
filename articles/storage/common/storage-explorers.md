@@ -1,19 +1,20 @@
 ---
-title: Outils pour l’utilisation du stockage Azure | Microsoft Docs
-description: Liste des outils qui vous permettent d’afficher/d’interagir avec vos données Azure Storage.
+title: Outils pour l’utilisation du stockage Azure
+description: Liste des outils qui vous permettent d’afficher et d’interagir avec vos données Azure Storage.
 services: storage
-author: dineshmurthy
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2017
-ms.author: dineshmurthy
+ms.date: 08/26/2019
+ms.author: tamram
+ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: ae6ceee33aa6d96c360782c33232e0c7561cf209
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 11838a50d70d1b9a0216505e9ef0958d3b18bdac
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015331"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70035263"
 ---
 # <a name="azure-storage-client-tools"></a>Outils clients d’Azure Storage
 Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher/d’interagir avec leurs données à l’aide d’un outil client d’Azure Storage. Dans les tableaux ci-dessous, nous répertorions un certain nombre d’outils qui vous permettent de le faire. Nous avons placé un « X » dans chaque bloc si l’outil offre la possibilité d’énumérer et/ou d’accéder à l’abstraction des données. Le tableau indique également si l’outil est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais que le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.
@@ -121,30 +122,16 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate : Azure Explorer</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>O</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
     <td><a href="https://github.com/sebagomez/azurestorageexplorer">Explorateur de stockage web Azure</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td>O</td>
-    <td></td>
     <td>X</td>
+    <td>O</td>
+    <td>X</td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
@@ -177,7 +164,7 @@ Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tier
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf : AzureXplorer, CloudXplorer, TableXplorer</a></td>
+    <td><a href="https://clumsyleaf.com">ClumsyLeaf : AzureXplorer, CloudXplorer, TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>

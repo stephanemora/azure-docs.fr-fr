@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 3ae87523e66ae49d17f198a1f70b0f449ca0a713
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050728"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080414"
 ---
 # <a name="upload-files-with-iot-hub"></a>Chargement de fichiers avec IoT Hub
 
-Comme nous l’avons expliqué dans l’article [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md), un appareil peut lancer le chargement de fichiers en envoyant une notification par le biais d’un point de terminaison orienté appareil (**/devices/{deviceId}/files**). Lorsqu’un appareil indique à IoT Hub la fin d’un chargement, IoT Hub envoie un message de notification de chargement de fichiers via le point de terminaison côté service (**/messages/servicebound/filenotifications**).
+Comme nous l’avons expliqué dans l’article [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md), un appareil peut lancer le chargement de fichiers en envoyant une notification par le biais d’un point de terminaison orienté appareil ( **/devices/{deviceId}/files**). Lorsqu’un appareil indique à IoT Hub la fin d’un chargement, IoT Hub envoie un message de notification de chargement de fichiers via le point de terminaison côté service ( **/messages/servicebound/filenotifications**).
 
 Au lieu de distribuer les messages via sa propre plate-forme, IoT Hub joue le rôle de répartiteur vers un compte Stockage Azure associé. Un appareil demande à IoT Hub un jeton de stockage spécifique au fichier que l’appareil souhaite télécharger. L’appareil utilise l’URI SAP pour télécharger le fichier vers le stockage. Une fois le téléchargement terminé, l’appareil envoie une notification à IoT Hub pour l’en informer. IoT Hub vérifie que le chargement de fichiers est terminé, puis ajoute un message de notification de chargement de fichiers au point de terminaison côté service dédié à la notification de fichiers.
 
@@ -95,7 +95,7 @@ Les rubriques de référence suivantes vous fournissent des informations supplé
 
 Éventuellement, lorsqu’un appareil notifie IoT Hub que le chargement est terminé, le service peut générer un message de notification. Ce message contient l’emplacement de stockage et le nom du fichier.
 
-Comme l’explique la section [Points de terminaison](iot-hub-devguide-endpoints.md), IoT Hub émet des notifications de chargement de fichiers sous forme de messages par le biais d’un point de terminaison orienté service (**/messages/servicebound/fileuploadnotifications**). La sémantique de réception des notifications de chargement de fichiers est identique à celle des messages cloud-à-appareil et présente le même [cycle de vie des messages](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Chaque message récupéré à partir du point de terminaison de notification de téléchargement de fichier est un enregistrement JSON qui possède les propriétés suivantes :
+Comme l’explique la section [Points de terminaison](iot-hub-devguide-endpoints.md), IoT Hub émet des notifications de chargement de fichiers sous forme de messages par le biais d’un point de terminaison orienté service ( **/messages/servicebound/fileuploadnotifications**). La sémantique de réception des notifications de chargement de fichiers est identique à celle des messages cloud-à-appareil et présente le même [cycle de vie des messages](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-life-cycle). Chaque message récupéré à partir du point de terminaison de notification de téléchargement de fichier est un enregistrement JSON qui possède les propriétés suivantes :
 
 | Propriété | Description |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Java'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Commencez à utiliser l’API REST Vérification orthographique Bing pour vérifier l’orthographe et la grammaire.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: a139d0558565114725c6198f64e139e5a5019c75
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 47b47a91b0cd223a17d6779d7f0db7cdb7c88a0b
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616693"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70123294"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Java
 
@@ -101,15 +101,16 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }
+    ```
 
-1. Create a `BufferedReader` and read the response from the API. Print it to the console.
+1. Créez un `BufferedReader` et lisez la réponse de l’API. Imprimez-la dans la console.
     
     ```java
     BufferedReader in = new BufferedReader(
     new InputStreamReader(connection.getInputStream()));
     String line;
     while ((line = in.readLine()) != null) {
-        System.out.println(prettify(line);
+        System.out.println(prettify(line));
     }
     in.close();
     ```
@@ -117,17 +118,16 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 ## <a name="call-the-api"></a>Appeler l’API
 
 Dans la fonction main de votre application, appelez la méthode check() créée ci-dessus.
-
-    ```java
-    public static void main(String[] args) {
-        try {
-            check();
+```java
+        public static void main(String[] args) {
+            try {
+                check();
+            }
+            catch (Exception e) {
+                System.out.println (e);
+            }
         }
-        catch (Exception e) {
-            System.out.println (e);
-        }
-    }
-    ```
+```
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
@@ -193,4 +193,4 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 > [Créer une application web monopage](../tutorials/spellcheck.md)
 
 - [Qu’est-ce que l’API Vérification orthographique Bing ?](../overview.md)
-- [Informations de référence sur l’API Vérification orthographique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Informations de référence sur l’API Vérification orthographique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

@@ -1,6 +1,6 @@
 ---
 title: Copier des données à partir du Stockage Blob Azure vers SQL Database | Microsoft Docs
-description: Ce didacticiel fournit les instructions pas à pas permettant de copier des données à partir du Stockage Blob Azure vers Azure SQL Database.
+description: Ce tutoriel fournit les instructions pas à pas permettant de copier des données à partir de Stockage Blob Azure vers Azure SQL Database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 7aadac72aa1c8c7e7085cccba1d8c83ffb3ebc7b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 49b5b03356790bd45b2ad29897a57b746af1abe1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58792427"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140681"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copier des données à partir d’un objet blob Azure vers Azure SQL Database à l’aide d’Azure Data Factory
 
@@ -28,7 +27,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > [!div class="checklist"]
 > * Créer une fabrique de données.
 > * Créer les services liés Stockage Azure et Azure SQL Database.
-> * Créer des jeux de données d’objet blob Azure et Azure SQL Database.
+> * Créer des jeux de données Blob Azure et Azure SQL Database.
 > * Créer un pipeline contenant une activité de copie.
 > * Démarrer une exécution de pipeline.
 > * Surveiller les exécutions de pipeline et d’activité.
@@ -40,14 +39,14 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 * **Compte Stockage Azure**. Vous utilisez le stockage blob comme magasins de données **source**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) pour découvrir comment en créer un.
-* **Base de données SQL Azure**. Vous utilisez la base de données en tant que magasin de données **récepteur**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) pour savoir comme en créer une.
+* **Azure SQL Database**. Vous utilisez la base de données en tant que magasin de données **récepteur**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) pour savoir comme en créer une.
 * **Visual Studio** 2015 ou 2017. La procédure pas à pas dans cet article utilise Visual Studio 2017.
-* **Téléchargez et installez le [SDK Azure .NET](https://azure.microsoft.com/downloads/)**.
+* **Téléchargez et installez le [SDK Azure .NET](https://azure.microsoft.com/downloads/)** .
 * **Créez une application dans Azure Active Directory** en suivant [cette instruction](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Notez les valeurs suivantes que vous utiliserez lors d’étapes ultérieures : **ID d’application**, **clé d’authentification** et **ID de locataire**. Affectez l’application au rôle « **Contributeur**  » en suivant les instructions dans le même article.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Créer un objet blob et une table SQL
 
-À présent, préparez votre objet blob Azure et Azure SQL Database pour ce didacticiel, en effectuant les étapes suivantes :
+À présent, préparez votre objet blob Azure et Azure SQL Database pour ce tutoriel, en effectuant les étapes suivantes :
 
 #### <a name="create-a-source-blob"></a>Créer un objet blob source
 
@@ -89,7 +88,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 1. Lancez **Visual Studio**.
 2. Cliquez sur **Fichier**, pointez le curseur de la souris sur **Nouveau**, puis cliquez sur **Projet**.
-3. Sélectionnez **Visual C#** -> **Application console (.NET Framework)** dans la liste des types de projets située sur la droite. .NET version 4.5.2 ou ultérieure est nécessaire.
+3. Sélectionnez **Visual C#**  -> **Application console (.NET Framework)** dans la liste des types de projets située sur la droite. .NET version 4.5.2 ou ultérieure est nécessaire.
 4. Entrez **ADFv2Tutorial** pour le nom.
 5. Cliquez sur **OK** pour créer le projet.
 
@@ -120,7 +119,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ```
 
     
-2. Ajoutez le code suivant à la méthode **Main** qui définit les variables. Remplacez les espaces réservés par vos propres valeurs. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+2. Ajoutez le code suivant à la méthode **Main** qui définit les variables. Remplacez les espaces réservés par vos propres valeurs. Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 
     ```csharp
     // Set variables
@@ -383,7 +382,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 Créez et démarrez l’application, puis vérifiez l’exécution du pipeline.
 
-La console affiche la progression de la création d’une fabrique de données, d’un service lié, de jeux de données, du pipeline et de l’exécution du pipeline. Elle vérifie ensuite l’état de l’exécution du pipeline. Patientez jusqu’à l’affichage des détails de l’exécution de l’activité de copie avec la taille des données lues/écrites. Ensuite, utilisez des outils tels que SSMS (SQL Server Management Studio) ou Visual Studio pour vous connecter à votre Azure SQL Database de destination et vérifier si les données sont copiées dans la table que vous avez spécifiée.
+La console affiche la progression de la création d’une fabrique de données, d’un service lié, de jeux de données, du pipeline et de l’exécution du pipeline. Elle vérifie ensuite l’état de l’exécution du pipeline. Patientez jusqu’à l’affichage des détails de l’exécution de l’activité de copie avec la taille des données lues/écrites. Ensuite, utilisez des outils tels que SSMS (SQL Server Management Studio) ou Visual Studio pour vous connecter à votre instance Azure SQL Database de destination et vérifier si les données sont copiées dans la table que vous avez spécifiée.
 
 ### <a name="sample-output"></a>Exemple de sortie
 
@@ -521,7 +520,7 @@ Dans cet exemple, le pipeline copie les données d’un emplacement vers un autr
 > [!div class="checklist"]
 > * Créer une fabrique de données.
 > * Créer les services liés Stockage Azure et Azure SQL Database.
-> * Créer des jeux de données d’objet blob Azure et Azure SQL Database.
+> * Créer des jeux de données Blob Azure et Azure SQL Database.
 > * Créer un pipeline contenant une activité de copie.
 > * Démarrer une exécution de pipeline.
 > * Surveiller les exécutions de pipeline et d’activité.

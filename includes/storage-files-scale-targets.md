@@ -1,27 +1,27 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: tamram
-ms.openlocfilehash: 99314538f90404d7c2b72da0dd2da2d8ac60a08a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 05/06/2019
+ms.author: rogarana
+ms.openlocfilehash: 9f259c3e403e933c847ac56000b1db2cd594caf5
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803937"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "67449932"
 ---
-| Ressource | Partages de fichiers Standard | Partages de fichiers Premium (préversion) |
+| Ressource | Partages de fichiers Standard | Partages de fichiers Premium |
 |----------|---------------|------------------------------------------|
-| Taille minimale d'un partage de fichiers | Aucun minimum ; paiement | 100 Go ; mise en service |
-| Taille maximale d’un partage de fichiers | 5 Tio | 5 To (version préliminaire publique), 100 TIO (version préliminaire publique limitée) |
+| Taille minimale d'un partage de fichiers | (aucun minimum ; paiement à l’utilisation) | 100 GiB provisionné |
+| Taille maximale d’un partage de fichiers | 5 To (GA), 100 Tio (préversion) | 100 Tio |
 | Taille maximale d’un fichier dans un partage de fichiers | 1 Tio | 1 Tio |
 | Nombre maximal de fichiers dans un partage de fichiers | Aucune limite | Aucune limite |
-| Nombre maximal d’IOPS par partage | 1 000 E/S | 5 120 base e/s avec la limite de croissance 15 360 (préversion publique), 100 000 e/s (version préliminaire publique limitée)|
-| Nombre maximal de stratégies d’accès stockées par fichier partager | 5. | 5. |
-| Débit cible pour un partage de fichier unique | Jusqu’à 60 Mio/s | Consultez premium partage entrant et sortant valeurs du fichier|
-| Sortie maximale pour un partage de fichier unique | Consultez le débit de cible de partage de fichiers standard | Jusqu'à 368 Mio/s (préversion publique), jusqu'à 6,204 Mio/s (version préliminaire publique limitée) |
-| Entrée maximale pour un partage de fichier unique | Consultez le débit de cible de partage de fichiers standard | Jusqu'à 245 Mio/s (préversion publique), jusqu'à 4 136 Mio/s (version préliminaire publique limitée) |
+| Maximum d’E/S par seconde par partage | 1 000 IOPS (GA), 10 000 IOPS (préversion) | 100 000 E/S par seconde |
+| Nombre maximal de stratégies d’accès stockées par partage de fichiers | 5\. | 5\. |
+| Débit cible pour un partage de fichier unique | Jusqu’à 60 Mio/s (GA), jusqu’à 300 Mio/s (préversion) | Voir les valeurs d’entrée et de sortie du partage de fichiers Premium|
+| Sortie maximale pour un partage de fichier unique | Voir le débit de cible du partage de fichiers standard | Jusqu’à 6 204 Mio/s |
+| Entrée maximale pour un partage de fichier unique | Voir le débit de cible du partage de fichiers standard | Jusqu’à 4 136 Mio/s |
 | Nombre maximal de descripteurs ouverts par fichier | 2 000 descripteurs ouverts | 2 000 descripteurs ouverts |
 | Nombre maximal d’instantanés de partage | 200 instantanés de partage | 200 instantanés de partage |
 | Longueur maximale du nom de l’objet (répertoires et fichiers) | 2 048 caractères | 2 048 caractères |

@@ -10,20 +10,19 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 8784a06306f59015b95293d90ff5509dcfcae045
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549486"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057936"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
-La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application. 
+La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées.  Les sauvegardes peuvent être configurées pour être conservées au maximum indéfiniment. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application.
 
 Pour plus d’informations sur la restauration d’une application à partir d’une sauvegarde, consultez [Restauration d’une application dans Azure](web-sites-restore.md).
 
@@ -40,7 +39,7 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
    - [Base de données SQL](https://azure.microsoft.com/services/sql-database/)
    - [Azure Database pour MySQL](https://azure.microsoft.com/services/mysql)
    - [Base de données Azure pour PostgreSQL](https://azure.microsoft.com/services/postgresql)
-   - [MySQL dans l’application](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
+   - [MySQL dans l’application](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/)
  
 
 > [!NOTE]
@@ -50,7 +49,7 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Exigences et restrictions
-* La fonctionnalité de sauvegarde et de restauration implique que le plan App Service soit de type **Standard** ou **Premium**. Pour plus d'informations sur la mise à l’échelle de votre plan App Service en vue d'utiliser un niveau plus élevé, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md).  
+* La fonctionnalité de sauvegarde et de restauration implique que le plan App Service soit de type **Standard** ou **Premium**. Pour plus d'informations sur la mise à l’échelle de votre plan App Service en vue d'utiliser un niveau plus élevé, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](manage-scale-up.md).  
   Le niveau **Premium** permet un plus grand nombre de sauvegardes quotidiennes que le niveau **Standard**.
 * Vous avez besoin d’un compte de stockage Azure et d’un conteneur dans le même abonnement que l’application que vous souhaitez sauvegarder. Pour plus d’informations sur les comptes de stockage Azure, consultez [Vue d’ensemble des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Les sauvegardes peuvent contenir jusqu’à 10 Go de contenu d’applications et de bases de données. Une erreur se produit si la taille de la sauvegarde dépasse cette limite.
@@ -69,7 +68,7 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
    
    > [!NOTE]
    > Si le message suivant s’affiche, cliquez dessus pour mettre à niveau votre plan App Service avant de pouvoir poursuivre les sauvegardes.
-   > Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](web-sites-scale.md).  
+   > Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](manage-scale-up.md).  
    > ![Sélection d'un compte de stockage](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
@@ -123,7 +122,7 @@ Parfois, vous ne souhaitez pas sauvegarder tout le contenu de votre application.
 Les sauvegardes partielles vous permettent de choisir exactement les fichiers à sauvegarder.
 
 > [!NOTE]
-> Bases de données individuelles dans la sauvegarde peuvent être maximale de 4 Go, mais la taille totale maximale de la sauvegarde est de 10 Go
+> Les bases de données individuelles de la sauvegarde peuvent atteindre 4 Go au maximum. Toutefois, la taille totale maximale de la sauvegarde est de 10 Go
 
 ### <a name="exclude-files-from-your-backup"></a>Exclusion de fichiers de votre sauvegarde
 Supposons que vous avez une application qui contient des fichiers journaux et des images statiques créés à un moment donné et qui ne seront jamais modifiés. Dans ce cas, vous pouvez exclure ces fichiers et dossiers du stockage lors de vos sauvegardes futures. Pour exclure des fichiers et dossiers de vos sauvegardes, créez un fichier `_backup.filter` dans le dossier `D:\home\site\wwwroot` de votre application. Spécifiez la liste des fichiers et dossiers à exclure de ce fichier. 

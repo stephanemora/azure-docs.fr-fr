@@ -10,16 +10,15 @@ ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: 93681062b325756f720f6fe8280ee6b874fea284
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540837"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072254"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modèles Problème dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
@@ -101,8 +100,8 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |--------------|----------|-----------------|  
 |`Issues`|Collection d’entités [Problème](api-management-template-data-model-reference.md#Issue).|Problèmes visibles par l’utilisateur actuel.|  
 |`Paging`|Entité [Paging](api-management-template-data-model-reference.md#Paging).|Informations de pagination de la collection d’applications.|  
-|`IsAuthenticated`|booléenne|Indique si l’utilisateur actuel est connecté au portail des développeurs.|  
-|`CanReportIssues`|booléenne|Indique si l’utilisateur actuel dispose des autorisations pour poser une question.|  
+|`IsAuthenticated`|boolean|Indique si l’utilisateur actuel est connecté au portail des développeurs.|  
+|`CanReportIssues`|boolean|Indique si l’utilisateur actuel dispose des autorisations pour poser une question.|  
 |`Search`|string|Cette propriété est déconseillée et ne doit pas être utilisée.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  

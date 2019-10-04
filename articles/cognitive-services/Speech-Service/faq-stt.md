@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431986"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839234"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -33,7 +33,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 **Q : Dois-je toujours générer un modèle vocal personnalisé ?**
 
-**R** : Non. Si votre application utilise un langage générique, quotidien, vous n’avez pas besoin de personnaliser un modèle. Si elle est utilisée dans un environnement dénué ou presque de bruit de fond, ce n’est pas davantage nécessaire.
+**R** :  Non. Si votre application utilise un langage générique, quotidien, vous n’avez pas besoin de personnaliser un modèle. Si elle est utilisée dans un environnement dénué ou presque de bruit de fond, ce n’est pas davantage nécessaire.
 
 Vous pouvez déployer des modèles de référence et personnalisés dans le portail, puis exécuter des tests de précision sur ceux-ci. Vous pouvez utiliser cette fonctionnalité pour mesurer la précision d’un modèle de référence par rapport à celle d’un modèle personnalisé.
 
@@ -63,13 +63,13 @@ L’ancien et le nouveau jeux de données doivent être combinés dans un seul f
 
 **R** : Les déploiements ne sont PAS mis à jour automatiquement.
 
-Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiement reste en l’état. Les clients peuvent mettre hors service le modèle déployé, ré-adapter à l’aide de la version la plus récente de la ligne de base et déployez de nouveau.
+Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiement reste en l’état. Les clients peuvent désactiver le modèle déployé, le réadapter à l’aide de la version plus récente du modèle de référence, puis redéployer leur nouveau modèle.
 
 **Q : Que faire si j’ai besoin pour mon modèle déployé d’une concurrence plus élevée que ce que propose le portail ?**
 
 **R** : Vous pouvez augmenter l’échelle de votre modèle par incréments de 20 requêtes simultanées.
 
-Si vous avez besoin d’augmenter l’échelle de votre modèle, contactez-nous.
+S'il vous faut augmenter l’échelle de votre modèle, contactez le [support Speech](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text).
 
 **Q : Puis-je télécharger mon modèle et l’exécuter localement ?**
 
@@ -83,7 +83,12 @@ Si vous avez besoin d’augmenter l’échelle de votre modèle, contactez-nous.
 
 **R** : L’API REST limite les requêtes à 25 par période de 5 secondes. Pour plus de détails, consultez nos pages sur la [Reconnaissance vocale](speech-to-text.md).
 
-Si vous rencontrez des problèmes de confidentialité qui vous empêchent d’utiliser le service vocal personnalisé, contactez l’un des canaux de support.
+**Q : Comment suis-je facturé pour l’audio à deux canaux ?**
+
+**R** : Si vous soumettez chaque canal séparément (chaque canal dans son propre fichier), vous serez facturé en fonction de la durée de chaque fichier. Si vous soumettez un seul fichier avec chaque canal multiplexé, vous serez facturé pour la durée du fichier unique.
+
+> [!IMPORTANT]
+> Si vous rencontrez des problèmes de confidentialité qui vous empêchent d’utiliser le service vocal personnalisé, contactez l’un des canaux de support.
 
 ## <a name="importing-data"></a>Importation de données
 
@@ -93,7 +98,7 @@ Si vous rencontrez des problèmes de confidentialité qui vous empêchent d’ut
 
 **Q : Puis-je zipper mes fichiers texte afin de charger des fichiers plus volumineux ?** 
 
-**R** : Non. Seuls des fichiers texte non compressés sont actuellement autorisés.
+**R** :  Non. Seuls des fichiers texte non compressés sont actuellement autorisés.
 
 **Q : Le rapport relatif aux données indique que des énoncés ont échoué. Quel est le problème ?**
 

@@ -5,65 +5,83 @@ services: virtual-machines
 author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/14/2018
+ms.date: 8/22/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: b2a7bbef2c421281780c0191fa32381468899bbf
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551655"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020329"
 ---
-Azure met régulièrement à jour la plateforme pour améliorer la fiabilité, le niveau de performance et la sécurité de l’infrastructure hôte des machines virtuelles. Ces mises à jour vont de l’application d’une mise à jour corrective aux composants logiciels de l’environnement d’hébergement, en passant par la mise à niveau des composants réseau, à la désactivation du matériel. La majorité de ces mises à jour n’a aucun impact sur les machines virtuelles hébergées. Toutefois, dans certains cas, les mises à jour ont un impact. Azure choisit alors la méthode ayant le moins d’impact pour l’exécution des mises à jour :
+Azure met régulièrement à jour sa plateforme pour améliorer la fiabilité, le niveau de performance et la sécurité de l’infrastructure hôte des machines virtuelles. L’objectif de ces mises à jour comprend l’application d’une mise à jour corrective aux composants logiciels de l’environnement d’hébergement, la mise à niveau des composants réseau et la désactivation du matériel. 
+
+Les mises à jour affectent rarement les machines virtuelles hébergées. Lorsque les mises à jour ont un effet, Azure choisit alors la méthode ayant le moins d’impact pour l’exécution des mises à jour :
 
 - Si une mise à jour sans redémarrage est possible, la machine virtuelle est en pause pendant la mise à jour de l’hôte ou fait l’objet d’une migration dynamique vers un hôte déjà mis à jour.
 
-- Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Azure vous permet également de disposer d’une fenêtre de temps où vous pouvez démarrer la maintenance vous-même, au moment qui vous convient. Azure investit dans des technologies qui permettent de réduire le nombre de cas où les machines virtuelles doivent redémarrer pour une maintenance planifiée de la plateforme. 
+- Si la maintenance nécessite un redémarrage, vous êtes averti de la maintenance planifiée. Azure vous permet également de disposer d’un intervalle de temps durant lequel vous pouvez démarrer la maintenance vous-même, au moment qui vous convient. La période de maintenance manuelle est généralement de 35 jours, sauf si la maintenance est urgente. Azure investit dans des technologies qui permettent de réduire le nombre de cas où une maintenance de la plateforme exige que les machines virtuelles soient redémarrées. 
 
-Cette page décrit la façon dont Azure effectue les deux types de maintenance. Pour plus d’informations sur les événements non planifiés (interruptions), consultez Gérer la disponibilité des machines virtuelles pour [Windows](../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Cette page décrit la façon dont Azure effectue les deux types de maintenance. Pour plus d’informations sur les événements non planifiés (interruptions), consultez  [Gérer la disponibilité des machines virtuelles pour Windows](../articles/virtual-machines/windows/manage-availability.md) ou l’article correspondant pour [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Vous pouvez recevoir une notification de machine virtuelle concernant une maintenance à venir à l’aide de Scheduled Events pour [Windows](../articles/virtual-machines/windows/scheduled-events.md) ou [Linux](../articles/virtual-machines/linux/scheduled-events.md).
+Dans une machine virtuelle, vous pouvez recevoir une notification concernant une maintenance à venir [à l’aide de Scheduled Events pour Windows](../articles/virtual-machines/windows/scheduled-events.md) ou pour [Linux](../articles/virtual-machines/linux/scheduled-events.md).
 
-Pour obtenir des guides pratiques sur la gestion de la maintenance planifiée, consultez « Gestion des notifications de maintenance planifiée » pour [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+Pour plus d’informations sur la procédure de gestion de la maintenance planifiée, consultez [Gestion des notifications de maintenance planifiée pour Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou l’article correspondant pour [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="maintenance-not-requiring-a-reboot"></a>Maintenance ne pas nécessitant un redémarrage
+## <a name="maintenance-that-doesnt-require-a-reboot"></a>Maintenance ne nécessitant aucun redémarrage
 
-L’objectif de la plupart des maintenance qui ne nécessite pas un redémarrage est inférieure à 10 secondes Suspendre pour la machine virtuelle. Dans certains cas, des mécanismes de maintenance liés à la conservation de la mémoire sont utilisés, ce qui permet de mettre la machine virtuelle en pause pendant 30 secondes au maximum et de préserver le contenu de la RAM. La machine virtuelle est redémarrée et l’horloge de la machine virtuelle est automatiquement synchronisée. Azure utilise de plus en plus les technologies de migration dynamique et améliore le mécanisme de maintenance lié à la conservation de la mémoire pour réduire la durée de la mise en pause.
+Comme indiqué précédemment, la plupart des mises à jour de la plateforme n’affectent pas les machines virtuelles cliente. Lorsqu’une mise à jour sans impact n’est pas possible, Azure choisit alors le mécanisme ayant le moins d’impact pour les machines virtuelles clientes. 
 
-Ces opérations de maintenance sans redémarrage sont appliquées domaine d’erreur par domaine d’erreur et sont arrêtées si des signaux d’avertissement sont reçus. 
+La plupart des maintenances ayant un impact mettent la machine virtuelle en pause pendant moins de 10 secondes. Dans certains cas, Azure utilise des mécanismes de maintenance avec préservation de la mémoire. Ces mécanismes interrompent la machine virtuelle pendant 30 secondes au maximum et conservent la mémoire dans la RAM. Une fois la machine virtuelle redémarrée, son horloge est synchronisée automatiquement. 
 
-Certaines applications peuvent être affectées par ces types de mises à jour. Si la machine virtuelle fait l’objet d’une migration dynamique vers un autre hôte, certaines charges de travail sensibles peuvent subir une légère détérioration des performances au cours des quelques minutes qui précèdent la mise en pause de la machine virtuelle. De telles applications peuvent tirer parti de l’utilisation de Scheduled Events pour [Windows](../articles/virtual-machines/windows/scheduled-events.md) ou [Linux](../articles/virtual-machines/linux/scheduled-events.md) afin de préparer la maintenance de la machine virtuelle, et n’ont aucun impact sur la maintenance d’Azure. Azure travaille également sur les fonctionnalités de contrôle de maintenance pour ces applications ultra-sensibles. 
+La maintenance avec préservation de la mémoire fonctionne avec plus de 90 % des machines virtuelles Azure. Elle ne fonctionne pas pour les modèles de série G, M, N et H. Azure utilise de plus en plus les technologies de migration dynamique et améliore les mécanismes de maintenance avec préservation de la mémoire pour réduire la durée de la mise en pause.  
 
+Ces opérations de maintenance qui ne nécessitent pas de redémarrage sont appliquées à un domaine d’erreur à la fois. Elles sont interrompues si elles reçoivent des signaux d’avertissement relatifs à l’intégrité. 
 
-## <a name="maintenance-requiring-a-reboot"></a>Maintenance nécessitant un redémarrage
+Ces types de mise à jour peuvent affecter certaines applications. Lorsque la machine virtuelle fait l’objet d’une migration dynamique vers un autre hôte, certaines charges de travail sensibles peuvent subir une légère détérioration des performances au cours des quelques minutes qui précèdent la mise en pause de la machine virtuelle. Afin de préparer la maintenance de la machine virtuelle et de réduire l’impact sur la maintenance d’Azure, essayez d’[utiliser Scheduled Events pour Windows](../articles/virtual-machines/windows/scheduled-events.md) ou [Linux](../articles/virtual-machines/linux/scheduled-events.md) sur de telles applications. Azure fournit également un contrôle total sur une telle maintenance de plateforme avec un impact non nul sur les [hôtes dédiés Azure](../articles/virtual-machines/windows/dedicated-hosts.md) et les [machines virtuelles isolées](../articles/security/fundamentals/isolation-choices.md). La fonctionnalité de contrôle de maintenance est en préversion et vous pouvez y demander l’accès en soumettant un [formulaire d’inscription](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u). Cela vous donne la possibilité d’ignorer les mises à jour de plateforme avec un impact non nul et d’appliquer les mises à jour sous forme de lot à l’heure de votre choix dans une fenêtre de 35 jours consécutifs.
 
-Dans les rares cas où les machines virtuelles doivent redémarrer pour une maintenance planifiée, vous recevez une notification à l’avance. Une maintenance planifiée comprend deux phases : la fenêtre de libre-service et une fenêtre de maintenance planifiée.
+### <a name="live-migration"></a>Migration dynamique
 
-La **fenêtre libre-service** vous permet de démarrer la maintenance sur vos machines virtuelles. Pendant ce temps, vous pouvez interroger chaque machine virtuelle pour afficher leur état et vérifier le résultat de votre dernière requête de maintenance.
+La migration dynamique est une opération qui ne nécessite aucun redémarrage et qui conserve la mémoire pour la machine virtuelle. Elle entraîne une pause ou un blocage qui dure généralement moins de 5 secondes. Toutes les machines virtuelles infrastructure as a service (IaaS) sont éligibles pour la migration dynamique, à l’exception des machines de série G, M, N et H. Les machines virtuelles éligibles représentent plus de 90 % des machines virtuelles IaaS déployées sur la flotte Azure. 
 
-Quand vous démarrez la maintenance libre-service, votre machine virtuelle est redéployée sur un nœud déjà mis à jour. À cause du redémarrage de la machine virtuelle, le disque temporaire est perdu et les adresses IP dynamiques associées à l’interface réseau virtuelle sont mises à jour.
+La plateforme Azure démarre la migration dynamique dans les scénarios suivants :
+- Maintenance planifiée
+- Défaillance matérielle
+- Optimisations de l’allocation
 
-Si vous démarrez une maintenance en libre-service et rencontrez une erreur au cours du processus, l’opération s’interrompt, la machine virtuelle n’est pas mise à jour et vous aurez la possibilité de retenter la maintenance en libre-service. 
+Certains scénarios de maintenance planifiée utilisent la migration dynamique. Vous pouvez utiliser Scheduled Events pour connaître à l’avance la date de démarrage des opérations de migration dynamique.
 
-C’est après la fenêtre de libre-service qu’apparaît la **fenêtre de maintenance planifiée**. Pendant cette fenêtre de temps, vous pouvez toujours interroger la fenêtre de maintenance, mais vous ne pouvez pas démarrer la maintenance vous-même.
+La migration dynamique peut également servir à déplacer des machines virtuelles lorsque les algorithmes d’Azure Machine Learning prédisent une défaillance matérielle imminente ou lorsque vous souhaitez optimiser les allocations de machines virtuelles. Pour plus d’informations sur la modélisation prédictive détectant les instances de matériel détérioré, consultez [Améliorer la résilience des machines virtuelles Azure grâce à la migration dynamique et au Machine Learning prédictif](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). Les notifications de migration dynamique s’affichent sur le portail Azure, dans les journaux Monitor et Service Health ainsi que dans Scheduled Events si vous utilisez ces services.
 
-Pour obtenir des informations sur la gestion de la maintenance nécessitant un redémarrage, consultez « Gestion des notifications de maintenance planifiée » pour [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
+## <a name="maintenance-that-requires-a-reboot"></a>Maintenance nécessitant un redémarrage
+
+Dans les rares cas où les machines virtuelles doivent redémarrer dans le cadre d’une maintenance planifiée, vous recevez une notification à l’avance. Une maintenance planifiée comprend deux phases : celle de libre-service et celle de maintenance planifiée.
+
+Lors de la *phase de libre-service*, qui dure généralement quatre semaines, vous démarrez la maintenance sur vos machines virtuelles. Puisqu’il s’agit d’un libre-service, vous pouvez interroger chaque machine virtuelle pour afficher leur état et vérifier le résultat de votre dernière requête de maintenance.
+
+Quand vous démarrez la maintenance libre-service, votre machine virtuelle est redéployée sur un nœud déjà mis à jour. À cause du redémarrage de la machine virtuelle, le disque temporaire est perdu et les adresses IP dynamiques associées à l’interface réseau virtuelle sont mises à jour.
+
+Si vous rencontrez une erreur lors de la maintenance en libre-service, l’opération s’interrompt, la machine virtuelle n’est pas mise à jour et vous aurez la possibilité de retenter la maintenance en libre-service. 
+
+Lorsque la phase de libre-service se termine, la *phase de maintenance planifiée* commence. Pendant cette phase, vous pouvez toujours interroger la phase de maintenance, mais vous ne pouvez pas démarrer la maintenance vous-même.
+
+Pour plus d’informations sur la gestion des maintenances nécessitant un redémarrage, consultez [Gestion des notifications de maintenance planifiée pour Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou l’article correspondant pour [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
 ### <a name="availability-considerations-during-scheduled-maintenance"></a>Considérations relatives à la disponibilité lors de la maintenance planifiée 
 
-Si vous décidez d’attendre jusqu’à la fenêtre de maintenance planifiée, plusieurs éléments sont à prendre en compte si vous voulez maintenir une haute disponibilité de vos machines virtuelles. 
+Si vous décidez d’attendre jusqu’à la phase de maintenance planifiée, plusieurs éléments sont à prendre en compte si vous voulez maintenir une haute disponibilité de vos machines virtuelles. 
 
 #### <a name="paired-regions"></a>Régions jumelées
 
-Chaque région Azure fait l’objet d’un appairage avec une autre région de la même zone géographique. Ensemble, elles forment une paire régionale. Durant la phase de maintenance planifiée, Azure met à jour uniquement les machines virtuelles d’une seule région d’une paire régionale. Par exemple, durant la mise à jour de la machine virtuelle dans la région USA Centre Nord, Azure ne met à jour aucune machine virtuelle dans la région USA Centre Sud. En revanche, les autres régions, Europe Nord par exemple, peuvent faire l’objet d’une maintenance en même temps que la région USA Est. Comprendre le fonctionnement des paires régionales peut vous aider à mieux répartir vos machines virtuelles entre les régions. Pour en savoir plus, consultez [Paires régionales Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Chaque région Azure est jumelée à une autre région de la même zone géographique. Elles constituent une paire de régions. Durant la phase de maintenance planifiée, Azure met uniquement à jour les machines virtuelles d’une seule des régions d’une paire de régions. Par exemple, durant la mise à jour de la machine virtuelle dans la région USA Centre Nord, Azure ne met à jour simultanément aucune machine virtuelle dans la région USA Centre Sud. En revanche, les autres régions, Europe Nord par exemple, peuvent faire l’objet d’une maintenance en même temps que la région USA Est. Comprendre le fonctionnement des paires régionales peut vous aider à mieux répartir vos machines virtuelles entre les régions. Pour en savoir plus, consultez [Paires régionales Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 #### <a name="availability-sets-and-scale-sets"></a>Groupes à haute disponibilité et groupes identiques
 
-Lorsque vous déployez une charge de travail sur des machines virtuelles Azure, vous pouvez créer des machines virtuelles dans un groupe à haute disponibilité afin de fournir une haute disponibilité pour votre application. Ainsi, pendant une interruption ou des événements de maintenance entraînant un redémarrage, au moins une machine virtuelle est disponible.
+Lorsque vous déployez une charge de travail sur des machines virtuelles Azure, vous pouvez créer des machines virtuelles dans un *groupe à haute disponibilité* afin de fournir une haute disponibilité pour votre application. À l’aide des groupes à haute disponibilité, vous pouvez vous assurer qu’au moins une machine virtuelle est disponible en cas de panne ou d’événements de maintenance nécessitant un redémarrage.
 
-Au sein d’un groupe à haute disponibilité, les machines virtuelles individuelles sont réparties sur un maximum de 20 domaines de mise à jour (UD). Durant la maintenance planifiée, un seul domaine de mise à jour est mis à jour à un moment donné. L’ordre de mise à jour des domaines de mise à jour ne s’effectue pas nécessairement de manière séquentielle. 
+Au sein d’un groupe à haute disponibilité, les machines virtuelles individuelles sont réparties sur un maximum de 20 domaines de mise à jour (UD). Durant la maintenance planifiée, un seul UD est mis à jour à un moment donné. Les UD ne sont pas systématiquement mis à jour de façon séquentielle. 
 
-Les groupes de machines virtuelles identiques sont des ressources Azure Compute que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques en tant que ressource unique. Le groupe identique est automatiquement déployé dans les domaines de mise à jour, comme les machines virtuelles dans un groupe à haute disponibilité. Comme pour les groupes à haute disponibilité, un seul domaine de mise à jour est mis à jour à un moment donné dans les groupes identiques durant la maintenance planifiée.
+Les *groupes de machines virtuelles identiques* sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer un ensemble de machines virtuelles identiques en tant que ressource unique. Le groupe identique est automatiquement déployé dans les domaines de mise à jour, comme les machines virtuelles dans un groupe à haute disponibilité. Comme pour les groupes à haute disponibilité, un seul UD est mis à jour à un moment donné dans les groupes identiques durant la maintenance planifiée.
 
-Pour plus d’informations sur la configuration de vos machines virtuelles pour une haute disponibilité, consultez Gérer la disponibilité de vos machines virtuelles pour [Windows](../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Pour plus d’informations sur la configuration de vos machines virtuelles pour la haute disponibilité, consultez  [Gérer la disponibilité de vos machines virtuelles pour Windows](../articles/virtual-machines/windows/manage-availability.md) ou l’article correspondant pour [Linux](../articles/virtual-machines/linux/manage-availability.md).

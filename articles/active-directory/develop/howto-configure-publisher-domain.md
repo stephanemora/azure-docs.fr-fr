@@ -1,77 +1,77 @@
 ---
-title: Configurer un domaine d’application serveur de publication | Azure
-description: Découvrez comment configurer un domaine d’application serveur de publication pour permettre aux utilisateurs de savoir où leurs informations sont envoyées.
+title: Configurer un domaine d’éditeur d’application | Azure
+description: Découvrez comment configurer un domaine d’éditeur d’application permettant aux utilisateurs de savoir où leurs informations sont envoyées.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efbf448770bfcf797d6bf01cd3c28dc98023adff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793891"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71257931"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Activation Configurer un domaine d’application serveur de publication (version préliminaire)
+# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Activation Configurer un domaine d’éditeur d’application (préversion)
 
-Domaine du serveur de publication d’une application est présentée aux utilisateurs sur le [invite de consentement de l’application](application-consent-experience.md) pour permettre aux utilisateurs de savoir où leurs informations sont envoyées. Les applications mutualisées qui sont inscrits après le 21 mai 2019 qui n’ont pas un domaine de l’éditeur s’affichera en tant que **non vérifiés**. Les applications mutualisées sont des applications qui prennent en charge des comptes en dehors d’un seul annuaire d’organisation ; par exemple, prend en charge de tous les comptes Azure AD, ou prennent en charge tous les comptes Azure AD et les comptes Microsoft personnels.
+Un domaine d’éditeur d’application est présenté aux utilisateurs à l’[invite de consentement de l’application](application-consent-experience.md) et leur permet de savoir où leurs informations sont envoyées. Les applications multilocataires inscrites après le 21 mai 2019 n’ont pas de domaine d’éditeur qui s’affiche comme **non vérifié**. Les applications multilocataires sont des applications qui prennent en charge des comptes en dehors d’un annuaire d’organisation unique, et qui prennent en charge, par exemple, tous les comptes Azure AD ou tous les comptes Azure AD et comptes Microsoft personnels.
 
 ## <a name="new-applications"></a>Nouvelles applications
 
-Lorsque vous inscrivez une nouvelle application, le domaine du serveur de publication de votre application peut être défini à une valeur par défaut. La valeur dépend où l’application est inscrite, en particulier si l’application est inscrite dans un locataire et indique si le client a locataire des domaines vérifiés.
+Lorsque vous inscrivez une nouvelle application, le domaine d’éditeur de votre application peut être défini sur une valeur par défaut. La valeur dépend de l’emplacement où l’application est inscrite, en particulier si l’application est inscrite dans un locataire et si le locataire contient des domaines vérifiés par le locataire.
 
-S’il existe des domaines vérifiés de locataire, domaine de l’application de l’éditeur principal domaine vérifié du locataire par défaut. S’il existe aucun locataire domaines ne vérifiés (ce qui est le cas lorsque l’application n’est pas enregistrée dans un locataire), le domaine de l’éditeur de l’application sera définie sur null.
+S’il existe des domaines vérifiés par le locataire, le domaine d’éditeur de l’application est défini par défaut sur le domaine vérifié principal du locataire. S’il existe aucun domaine vérifié par le locataire (ce qui est le cas lorsque l’application n’est pas inscrite dans un locataire), le domaine d’éditeur de l’application est défini sur null.
 
-Le tableau suivant récapitule le comportement par défaut de la valeur de domaine du serveur de publication.  
+Le tableau suivant récapitule le comportement par défaut de la valeur de domaine d’éditeur.  
 
-| Domaines vérifiés de locataire | Valeur par défaut du domaine du serveur de publication |
+| Domaines vérifiés par le locataire | Valeur par défaut du domaine d’éditeur |
 |-------------------------|----------------------------|
 | null | null |
 | *.onmicrosoft.com | *.onmicrosoft.com |
-| -*. onmicrosoft.com<br/>- domain1.com<br/>-domain2.com (principal) | domain2.com |
+| - *.onmicrosoft.com<br/>- domain1.com<br/>- domain2.com (primary) | domain2.com |
 
-Si le domaine du serveur de publication d’une application mutualisée n’est pas défini, ou si elle est définie sur un domaine qui se terminent par. onmicrosoft.com, invite de consentement de l’application affichera **non vérifiés** à la place du domaine du serveur de publication.
+Si le domaine d’éditeur d’une application multilocataires n’est pas défini, ou s’il est défini sur un domaine qui se termine par . onmicrosoft.com, l’invite de consentement de l’application affiche **non vérifié** au lieu du domaine d’éditeur.
 
-## <a name="grandfathered-applications"></a>Droits acquis des applications
+## <a name="grandfathered-applications"></a>Applications héritées
 
-Si votre application a été inscrite avant le 21 mai 2019, invite de consentement de votre application n’affichera pas **non vérifiés** si vous n’avez pas défini un domaine de l’éditeur. Nous vous recommandons de définir le serveur de publication la valeur de domaine afin que les utilisateurs peuvent voir ces informations sur l’invite de consentement de votre application.
+Si votre application a été inscrite avant le 21 mai 2019, l’invite de consentement de votre application n’affichera pas **non vérifié** si vous n’avez pas défini de domaine d’éditeur. Nous vous recommandons de définir la valeur de domaine d’éditeur pour que les utilisateurs puissent voir ces informations sur l’invite de consentement de votre application.
 
-## <a name="configure-publisher-domain-using-the-azure-portal"></a>Configurer le domaine de l’éditeur à l’aide du portail Azure
+## <a name="configure-publisher-domain-using-the-azure-portal"></a>Configurer le domaine d’éditeur à l’aide du Portail Azure
 
-Pour définir le domaine de l’éditeur de votre application, procédez comme suit.
+Pour définir le domaine d’éditeur de votre application, procédez comme suit.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 
-1. Si votre compte est présent dans plusieurs locataires Azure AD :
-   1. Sélectionnez votre profil dans le menu situé en haut à droite de la page, puis **changer de répertoire**.
-   1. Modifier votre session au locataire Azure AD où vous souhaitez créer votre application.
+1. Si votre compte est présent dans plusieurs locataires Azure AD :
+   1. Sélectionnez votre profil dans le menu en haut à droite de la page, puis **changez de répertoire**.
+   1. Modifiez votre session sur le locataire Azure AD où vous voulez créer votre application.
 
-1. Accédez à [Azure Active Directory > inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) pour rechercher et sélectionner l’application que vous souhaitez configurer.
+1. Accédez à [Azure Active Directory > Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) pour rechercher et sélectionner l’application que vous souhaitez configurer.
 
-   Une fois que vous avez sélectionné l’application, vous verrez l’application **vue d’ensemble** page.
+   Une fois l’application sélectionnée, vous pourrez voir sa page **Vue d’ensemble**.
 
-1. À partir de l’application **vue d’ensemble** page, sélectionnez le **Branding** section.
+1. Dans la page **Vue d’ensemble** de l’application, sélectionner la section **Personnalisation**.
 
-1. Rechercher la **domaine de l’éditeur** champ et sélectionnez une des options suivantes :
+1. Recherchez le champ **Domaine d’éditeur** et sélectionnez une des options suivantes :
 
-   - Sélectionnez **configurer un domaine** si vous n’avez pas configuré un domaine déjà.
-   - Sélectionnez **domaine de mise à jour** si un domaine a déjà été configuré.
+   - Sélectionnez **Configurer un domaine** si vous n’avez pas déjà configuré de domaine.
+   - Sélectionnez **Mettre à jour le domaine** si un domaine a déjà été configuré.
 
-Si votre application est inscrite dans un locataire, vous verrez deux onglets pour sélectionner à partir de : **Sélectionnez un domaine vérifié** et **vérifier un nouveau domaine**.
+Si votre application est inscrite dans un locataire, vous verrez deux onglets dans lesquels sélectionner : **Sélectionner un domaine vérifié** et **Vérifier un nouveau domaine**.
 
-Si votre application n’est pas inscrite dans un locataire, vous verrez uniquement la possibilité de vérifier un nouveau domaine pour votre application.
+Si votre application n’est pas inscrite dans un locataire, vous ne verrez que l’option de vérification d’un nouveau domaine pour votre application.
 
 ### <a name="to-verify-a-new-domain-for-your-app"></a>Pour vérifier un nouveau domaine pour votre application
 
@@ -87,35 +87,41 @@ Si votre application n’est pas inscrite dans un locataire, vous verrez uniquem
     }
    ```
 
-1. Remplacez l’espace réservé *{YOUR-application-ID-HERE}* avec l’ID d’application (client) qui correspond à votre application.
+1. Remplacez l’espace réservé *{YOUR-APP-ID-HERE}* par l’ID d’application (client) qui correspond à votre application.
 
-1. Héberger le fichier à : `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Remplacez l’espace réservé *{YOUR-domaine-ici}* pour correspondre au domaine vérifié.
+1. Hébergez le fichier dans : `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Remplacez l’espace réservé *{YOUR-DOMAIN-HERE}* pour qu’il corresponde au domaine vérifié.
 
-1. Cliquez sur le **Vérifiez et enregistrez le domaine** bouton.
+1. Cliquez sur le bouton **Vérifier et enregistrer le domaine**.
 
 ### <a name="to-select-a-verified-domain"></a>Pour sélectionner un domaine vérifié
 
-- Si votre client a des domaines vérifiés, sélectionnez un des domaines à partir de la **sélectionner un domaine vérifié** liste déroulante.
+- Si votre client contient des domaines vérifiés, sélectionnez un des domaines dans la liste déroulante **Sélectionner un domaine vérifié**.
 
-## <a name="implications-on-the-app-consent-prompt"></a>Invite de consentement de conséquences sur l’application
+>[!Note]
+> L’en-tête « Content-type » attendu qui doit être retourné est `application/json`. Vous pouvez recevoir une erreur comme indiqué ci-dessous si vous utilisez autre chose, tel que `application/json; charset=utf-8`. 
+> 
+>``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+>
 
-Configurer le domaine du serveur de publication a un impact sur ce que les utilisateurs voient à l’invite de consentement de l’application. Pour bien comprendre les composants de l’invite de consentement, consultez [comprendre le consentement de l’application des expériences](application-consent-experience.md).
+## <a name="implications-on-the-app-consent-prompt"></a>Conséquences sur l’invite de consentement d’application
+
+La configuration du domaine d’éditeur a un impact sur ce que les utilisateurs voient à l’invite de consentement de l’application. Pour bien comprendre les composants de l’invite de consentement, consultez [Comprendre les expériences du consentement d’application](application-consent-experience.md).
 
 Le tableau suivant décrit le comportement pour les applications créées avant le 21 mai 2019.
 
 ![Invite de consentement pour les applications créées avant le 21 mai 2019](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
 
-Le comportement pour les nouvelles applications créés après le 21 mai 2019 varie selon le domaine du serveur de publication et le type d’application. Le tableau suivant décrit les modifications que vous devriez voir les différentes combinaisons de configurations.
+Le comportement pour les nouvelles applications créées après le 21 mai 2019 varie en fonction du domaine d’éditeur et du type d’application. Le tableau suivant décrit les modifications que vous devriez voir les différentes combinaisons de configurations.
 
 ![Invite de consentement pour les applications créées après le 21 mai 2019](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
 
-## <a name="implications-on-redirect-uris"></a>Implications sur les URI de redirection
+## <a name="implications-on-redirect-uris"></a>Conséquences sur les URI de redirection
 
-Les applications qui connectent les utilisateurs à n’importe quel compte professionnel ou scolaire ou des comptes personnels Microsoft ([mutualisée](single-and-multi-tenant-apps.md)) sont soumis à quelques restrictions lors de la spécification URI de redirection.
+Les applications qui connectent les utilisateurs à un compte professionnel ou scolaire ou des comptes Microsoft personnels ([multilocataire](single-and-multi-tenant-apps.md)) sont soumises à quelques restrictions lors de la spécification des URI de redirection.
 
 ### <a name="single-root-domain-restriction"></a>Restriction de domaine racine unique
 
-Lorsque la valeur de domaine de serveur de publication pour les applications d’architecture mutualisées est définie à null, applications sont limitées à partager un domaine racine unique pour l’URI de redirection. Par exemple, la combinaison de valeurs suivante n’est pas autorisée, car le domaine racine, contoso.com, fabrikam.com ne correspond pas.
+Lorsque la valeur de domaine d’éditeur pour les applications multilocataires est définie sur null, les applications sont limitées au partage d’un domaine racine unique pour les URI de redirection. Par exemple, la combinaison de valeurs suivante n’est pas autorisée, car le domaine racine, contoso.com, ne correspond pas à fabrikam.com.
 
 ```
 "https://contoso.com",
@@ -124,14 +130,14 @@ Lorsque la valeur de domaine de serveur de publication pour les applications d�
 
 ### <a name="subdomain-restrictions"></a>Restrictions de sous-domaine
 
-Sous-domaines sont autorisés, mais vous devez inscrire explicitement le domaine racine. Par exemple, tandis que les URI suivants partagent un domaine racine unique, la combinaison n’est pas autorisée.
+Les sous-domaines sont autorisés, mais vous devez inscrire explicitement le domaine racine. Par exemple, bien que les URI suivants partagent un domaine racine unique, la combinaison n’est pas autorisée.
 
 ```
 "https://app1.contoso.com",
 "https://app2.contoso.com",
 ```
 
-Toutefois, si le développeur ajoute explicitement le domaine racine, la combinaison est autorisée.
+Toutefois, si le développeur ajoute explicitement le domaine racine, la combinaison sera autorisée.
 
 ```
 "https://contoso.com",
@@ -141,12 +147,12 @@ Toutefois, si le développeur ajoute explicitement le domaine racine, la combina
 
 ### <a name="exceptions"></a>Exceptions
 
-Les cas suivants ne sont pas soumises à la limitation du domaine racine unique :
+Les cas suivants ne sont pas soumis à la restriction de domaine racine unique :
 
-- Applications à locataire unique, ou les applications qui ciblent des comptes dans un répertoire unique
-- Utilisation de l’hôte local comme URI de redirection
+- Applications à locataire unique, ou applications ciblant des comptes dans un répertoire unique
+- Utilisation de localhost comme URI de redirection
 - URI de redirection avec des schémas personnalisés (non-HTTP ou HTTPS)
 
-## <a name="configure-publisher-domain-programmatically"></a>Configurer le domaine de l’éditeur par programmation
+## <a name="configure-publisher-domain-programmatically"></a>Configurer un domaine d’éditeur par programmation
 
-Il n’existe actuellement aucune prise en charge de l’API REST ou PowerShell pour configurer le domaine de l’éditeur par programmation.
+Il n’existe actuellement aucune prise en charge de l’API REST ou de PowerShell pour configurer un domaine d’éditeur par programmation.

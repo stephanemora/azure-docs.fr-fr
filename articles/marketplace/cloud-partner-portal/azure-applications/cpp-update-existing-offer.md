@@ -1,25 +1,18 @@
 ---
-title: Mettre à jour une offre d’application Azure existante | Microsoft Docs
+title: Mettre à jour une offre d’application Azure existante | Place de marché Azure
 description: Comment mettre à jour une offre d’application Azure existante sur la place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 1019c06afbdab0a6b0e172133da316aea01a5504
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: a36df757e3a2682af641101ed82583a0cd293e0a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216889"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942817"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>Mettre à jour une offre d’application Azure existante
 
@@ -77,7 +70,7 @@ Pour mettre à jour les métadonnées de Place de marché associées à votre of
 4. Cliquez sur **Publier** pour démarrer le flux de travail et publier vos modifications.
  
 >[!Note]
->Cloud fournisseurs de solutions partenaires canal opt-in est désormais disponible.  Consultez [les fournisseurs de solutions de Cloud](../../cloud-solution-providers.md) canaux du partenaire pour plus d’informations sur le marketing de votre offre via le CSP de Microsoft.
+>L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Veuillez consulter [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
 
 ## <a name="deleting-an-existing-offer"></a>Suppression d’une offre existante
 

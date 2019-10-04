@@ -1,28 +1,29 @@
 ---
-title: Guide pratique pour configurer une nouvelle application multilocataire | Microsoft Docs
+title: Configurer l’authentification unique d’application | Microsoft Docs
 description: Comment configurer l’authentification unique pour une application personnalisée que vous développez et inscrivez dans Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: celested
+ms.date: 07/15/2019
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc92ff0eea2bbd55330a954746245dd4a5ee75a3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fbc9f20903d65fbde161d26ed3e194e63d341ccb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173230"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320951"
 ---
-# <a name="how-to-configure-a-new-multi-tenant-application"></a>Guide pratique pour configurer une nouvelle application multilocataire
+# <a name="how-to-configure-single-sign-on-for-an-application"></a>Comment configurer l’authentification unique pour une application
 
 L’authentification unique (SSO) fédérée dans votre application est automatiquement activée dans le cadre d’une fédération via Azure AD pour OpenID Connect, SAML 2.0 ou WS-Fed. Si vos utilisateurs finaux doivent se connecter malgré une session en cours dans Azure AD, il est probable que votre application soit mal configurée.
 

@@ -1,98 +1,40 @@
 ---
 title: Obtenir le Kit de développement logiciel (SDK) de dispositifs vocaux
 titleSuffix: Azure Cognitive Services
-description: Les services Speech fonctionnent avec une large gamme d’appareils et de sources audio. Vous pouvez maintenant faire passer vos applications de reconnaissance vocale au niveau supérieur en y associant du matériel et des logiciels. Dans cet article, vous allez découvrir comment accéder au kit SDK Speech Devices et commencer à développer.
+description: Le service Speech fonctionne avec une large gamme d’appareils et de sources audio. Vous pouvez maintenant faire passer vos applications de reconnaissance vocale au niveau supérieur en y associant du matériel et des logiciels. Dans cet article, vous allez découvrir comment accéder au kit SDK Speech Devices et commencer à développer.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 3c5874625ee9d1932c401238c1586ad89d5d206d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: b60c8735833c3012523c5cc0d7eea6a50e9d10b6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856720"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559683"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obtenir le kit de développement logiciel (SDK) Speech Devices de Cognitive Services
 
-Le SDK Speech Devices est en préversion limitée et nécessite votre inscription au programme. Actuellement, Microsoft privilégie les grandes entreprises comme candidats pour l’accès à ce produit.
+Le kit SDK Speech Devices est une bibliothèque préconfigurée conçue pour fonctionner avec des kits de développement spécialisés et différentes configurations de réseau de microphones.
 
-## <a name="request-access"></a>Demander l'accès
+## <a name="choose-a-development-kit"></a>Choisir un kit de développement
 
-Pour accéder au SDK Speech Devices :
-
-1. Accédez au [formulaire d’inscription](https://aka.ms/sdsdk-signup) du kit de développement logiciel (SDK) Microsoft Speech Devices.
-1. Lisez le [contrat de licence](speech-devices-sdk-license.md).
-1. Si vous acceptez les termes de ce contrat de licence, sélectionnez **J’accepte**.
-1. Répondez aux questions du formulaire.
-1. Envoyez le formulaire.
-1. Si votre adresse e-mail ne fait pas déjà partie d’Azure Active Directory (Azure AD), vous recevez une invitation par e-mail semblable à l’exemple suivant quand votre accès a été approuvé. Si votre adresse e-mail figure déjà dans Azure AD, vous recevez un e-mail de l’équipe Microsoft Speech quand votre accès a été approuvé, et vous pouvez passer directement à la rubrique [Télécharger le SDK Speech Devices](#download-the-speech-devices-sdk).
-
-## <a name="approval-e-mail"></a>E-mail d’approbation
-
-```
-From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com>
-Subject: You're invited to the Microsoft organization
-```
-
-![message électronique](media/speech-devices-sdk/get-sdk-1.png)
-
-## <a name="accept-access"></a>Accepter l’accès
-
-Effectuez les étapes suivantes pour joindre Azure AD avec l’adresse e-mail que vous avez fournie lors de l’inscription. Ce processus vous permet d’accéder au [site de téléchargement](https://shares.datatransfer.microsoft.com/) du SDK Speech Devices.
-
-1. Dans l’e-mail que vous avez reçu, cliquez sur **Bien démarrer**. Si votre organisation est déjà un client Office 365, vous êtes invité à vous connecter et vous pouvez passer directement à l’étape 7.
-
-2. Dans la fenêtre de navigateur qui s’ouvre, sélectionnez **Suivant**.
-
-    ![Fenêtre d’authentification](media/speech-devices-sdk/get-sdk-2.png)
-
-3. Créez un compte Microsoft si vous n’en avez pas. Entrez l’adresse e-mail à laquelle vous avez reçu l’e-mail d’invitation.
-
-    ![Création d'un compte Microsoft](media/speech-devices-sdk/get-sdk-3.png)
-
-4. Sélectionnez **Suivant** pour créer un mot de passe.
-
-5. Quand vous êtes invité à vérifier votre adresse e-mail, récupérez le code de vérification mentionné dans l’e-mail d’invitation que vous avez reçu.
-
-7. Collez ou tapez dans la boîte de dialogue le code de sécurité mentionné dans l’e-mail. Dans cet exemple, le code de sécurité est **8406**. Sélectionnez **Suivant**.
-
-    ![Vérifier l’adresse e-mail](media/speech-devices-sdk/get-sdk-6.png)
-
-8. Quand vous voyez l’application Panneau d’accès dans le navigateur, cela signifie que vous avez confirmé que votre adresse e-mail fait partie d’Azure AD. Vous avez à présent accès au site de téléchargement du kit de développement logiciel (SDK) Speech Devices.
+|Appareils|Caractéristique|Description|Scénarios|
+|--|--|--|--|
+|[Kit de développement Roobo Smart Audio](https://ddk.roobo.com)</br>[Configuration](speech-devices-sdk-roobo-v1.md) / [Démarrage rapide](speech-devices-sdk-android-quickstart.md)![Kit de développement Roobo Smart Audio](media/speech-devices-sdk/device-roobo-v1.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, sortie audio, E/S. </br>[Android](speech-devices-sdk-android-quickstart.md)|Le premier kit SDK Speech Devices à adapter l’ensemble Microsoft Mic Array et le kit SDK de traitement frontal pour développer des scénarios de transcription et de reconnaissance vocale de qualité.|Transcription de conversation, enceinte connectée, agent vocal, technologie portable|
+|[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)</br>[Configurer](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk) / [Démarrage rapide](speech-devices-sdk-windows-quickstart.md)![Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg)|Caméras de profondeur et RVB avec ensemble de 7 micros. </br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|Kit de développement doté de capteurs d’intelligence artificielle (IA) avancés pour élaborer des modèles vocaux et des modèles de vision par ordinateur sophistiqués. Il associe un ensemble de microphones spatiaux de pointe et une caméra de profondeur à une caméra vidéo et à un capteur d'orientation, le tout au sein d'un petit dispositif doté de différents modes, options et kits SDK pour gérer différents types de calcul.|Transcription de conversation, robotique, bâtiment intelligent|
+|Kit de développement Roobo Smart Audio 2![Kit de développement Roobo Smart Audio 2](media/speech-devices-sdk/device-roobo-v2.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, Bluetooth, E/S. </br>Linux|Le kit SDK Speech Devices deuxième génération, qui offre un autre système d’exploitation et des fonctionnalités supplémentaires dans une conception de référence économique.|Transcription de conversation, enceinte connectée, agent vocal, technologie portable|
+|Carte de développement URbetter T11![Kit DDK URbetter](media/speech-devices-sdk/device-urbetter.jpg)|Ensemble de 7 micros, SoC ARM, Wi-Fi, Ethernet, HDMI, caméra USB. </br>Linux|Un kit SDK Speech Devices de niveau industriel qui adapte l’ensemble Microsoft Mic Array et prend en charge de nombreuses E/S, comme HDMI/Ethernet et d’autres périphériques USB.|Transcription de conversation, enseignement, hôpital, robots, boîte OTT, la agent vocal, Drive Thru|
 
 ## <a name="download-the-speech-devices-sdk"></a>Télécharger le kit de développement logiciel (SDK) Speech Devices
 
-Accédez au [site de téléchargement du SDK Speech Devices](https://shares.datatransfer.microsoft.com/). Connectez-vous avec le compte Microsoft que vous avez créé précédemment.
-
-![Site de téléchargement du SDK](media/speech-devices-sdk/get-sdk-7.png)
-
-Pour télécharger le SDK Speech Devices, l’exemple de code associé et les documents de référence :
-
-1. Téléchargez et installez l’outil Aspera Connect quand vous y êtes invité dans le navigateur.
-
-    ![Télécharger Aspera Connect](media/speech-devices-sdk/get-sdk-8.png)
-
-1. Sélectionnez **Oui** pour basculer les applications vers Aspera Connect.
-
-    ![Basculer vers Aspera Connect](media/speech-devices-sdk/get-sdk-9.png)
-
-1. Sélectionnez **Autoriser** pour confirmer le téléchargement des fichiers à l’aide d’Aspera Connect.
-
-    ![Télécharger à l’aide d’Aspera Connect](media/speech-devices-sdk/get-sdk-10.png)
-
-1. Fermez la fenêtre des transferts Aspera Connect une fois les fichiers téléchargés.
-
-    ![Fenêtre des transferts Aspera Connect](media/speech-devices-sdk/get-sdk-11.png)
-
-Par défaut, les fichiers sont téléchargés dans votre dossier **Téléchargements**. Vous pouvez maintenant vous déconnecter de ce site.
+Télécharger le [kit SDK Speech Devices](https://aka.ms/sdsdk-download).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Prise en main du kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk-qsg.md)
+> [Prise en main du kit de développement logiciel (SDK) Speech Devices](https://aka.ms/sdsdk-quickstart)

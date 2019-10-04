@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: efde1f1dafc62576398c5225ad1c652438fc0c31
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617884"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Didacticiel : Intégration d’Azure Active Directory à Periscope Data
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de Periscope Data à Azure AD, vous devez ajou
 
 **Pour ajouter Periscope Data à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -111,7 +111,7 @@ Pour configurer l’authentification unique Azure AD auprès de Periscope Data,
     | `https://app.periscopedata.com/` |
     | `https://app.periscopedata.com/app/<SITENAME>` |
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://app.periscopedata.com/<SITENAME>/sso`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://app.periscopedata.com/<SITENAME>/sso`
 
     > [!NOTE]
     > La valeur d’URL de connexion n’est pas réelle. Mettez à jour les valeurs avec l’URL de connexion réelle. Contactez l’[équipe du support technique de Periscope Data](mailto:support@periscopedata.com) pour obtenir cette valeur, ainsi que celle de l’identificateur que vous allez récupérer à la section **Configurer l’authentification unique de Periscope Data**, expliquée plus loin dans le tutoriel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

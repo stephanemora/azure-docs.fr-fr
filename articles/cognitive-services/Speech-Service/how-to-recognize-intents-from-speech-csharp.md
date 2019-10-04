@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d61141a0955f916b1d4bfeabb22454ec38415cea
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280534"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603237"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Didacticiel : Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour C#
-
-[!INCLUDE [Article selector](../../../includes/cognitive-services-speech-service-how-to-recognize-intents-from-speech-selector.md)]
 
 Le [kit SDK Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) de Cognitive Services s’intègre au [Language Understanding Intelligent Service (LUIS)](https://www.luis.ai/home) pour fournir **la reconnaissance de l’intention**. Une intention est quelque chose que l’utilisateur souhaite faire : réserver un vol, vérifier la météo ou effectuer un appel. L’utilisateur peut utiliser les termes qui lui semblent naturels. À l’aide du machine learning, LUIS mappe les demandes des utilisateurs aux intentions que vous avez définies.
 

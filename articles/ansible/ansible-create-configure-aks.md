@@ -1,111 +1,121 @@
 ---
-title: Créer et configurer des clusters Azure Kubernetes Service dans Azure avec Ansible
+title: 'Tutoriel : Configurer des clusters Azure Kubernetes Service (AKS) dans Azure à l’aide d’Ansible | Microsoft Docs'
 description: Découvrez comment utiliser Ansible pour créer et gérer un cluster Azure Kubernetes Service dans Azure
-ms.service: azure
-keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, conteneur, Kubernetes
+keywords: ansible, azure, devops, bash, cloudshell, manuel, aks, conteneur, aks, kubernetes
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 08/23/2018
-ms.openlocfilehash: 2270a9225d26329f3d78d78895223aaa6ccc855f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/30/2019
+ms.openlocfilehash: 1467afce60038e086daace72947c1ab21569865a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176393"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231333"
 ---
-# <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Créer et configurer des clusters Azure Kubernetes Service dans Azure avec Ansible
-Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer votre service Azure Kubernetes Service (AKS). Cet article vous montre comment utiliser Ansible pour créer et configurer un cluster Azure Kubernetes Service.
+# <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Didacticiel : Configurer des clusters Azure Kubernetes Service (AKS) dans Azure à l’aide d’Ansible
+
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
+
+[!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
+
+AKS peut être configuré pour utiliser [Azure Active Directory (AD)](/azure/active-directory/) pour l’authentification utilisateur. Une fois configuré, votre jeton d’authentification Azure AD vous permet de vous connecter au cluster AKS. Le RBAC peut être basé sur l’identité d’un utilisateur ou l’appartenance à un groupe de répertoire.
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Créer un cluster AKS
+> * Configurer un cluster AKS
 
 ## <a name="prerequisites"></a>Prérequis
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
-- **Principal du service Azure** : lors de la [création du principal du service](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), notez les valeurs suivantes : **appId**, **displayName**, **mot de passe** et **locataire**.
 
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-
-> [!Note]
-> Ansible 2.6 est nécessaire pour exécuter les exemples de playbooks suivants dans ce tutoriel.
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-managed-aks-cluster"></a>Créer un cluster AKS managé
-Le code indiqué dans cette section présente un exemple de playbook Ansible pour créer un groupe de ressources, ainsi qu’un cluster AKS qui réside dans ce groupe de ressources.
 
-> [!Tip]
-> Pour l’espace réservé `your_ssh_key`, entrez votre clé publique RSA dans un format de ligne unique, commençant par « ssh-rsa » (sans les guillemets).
+L’exemple de manuel crée un groupe de ressources et un cluster AKS au sein du groupe de ressources.
 
-  ```yaml
-  - name: Create Azure Kubernetes Service
-    hosts: localhost
-    connection: local
-    vars:
-      resource_group: myResourceGroup
-      location: eastus
-      aks_name: myAKSCluster
-      username: azureuser
-      ssh_key: "your_ssh_key"
-      client_id: "your_client_id"
-      client_secret: "your_client_secret"
-    tasks:
-    - name: Create resource group
-      azure_rm_resourcegroup:
-        name: "{{ resource_group }}"
-        location: "{{ location }}"
-    - name: Create a managed Azure Container Services (AKS) cluster
-      azure_rm_aks:
-        name: "{{ aks_name }}"
-        location: "{{ location }}"
-        resource_group: "{{ resource_group }}"
-        dns_prefix: "{{ aks_name }}"
-        linux_profile:
-          admin_username: "{{ username }}"
-          ssh_key: "{{ ssh_key }}"
-        service_principal:
-          client_id: "{{ client_id }}"
-          client_secret: "{{ client_secret }}"
-        agent_pool_profiles:
-          - name: default
-            count: 2
-            vm_size: Standard_D2_v2
-        tags:
-          Environment: Production
-  ```
+Enregistrez le playbook suivant en tant que `azure_create_aks.yml` :
 
-Les éléments suivant vous aident à comprendre le code du playbook Ansible précédent :
-- La première section de **tasks** définit un groupe de ressources nommé **myResourceGroup** à l’emplacement **eastus**.
-- La deuxième section de **tasks** définit un cluster AKS nommé **myAKSCluster** au sein du groupe de ressources **myResourceGroup**.
+```yml
+- name: Create Azure Kubernetes Service
+  hosts: localhost
+  connection: local
+  vars:
+    resource_group: myResourceGroup
+    location: eastus
+    aks_name: myAKSCluster
+    username: azureuser
+    ssh_key: "your_ssh_key"
+    client_id: "your_client_id"
+    client_secret: "your_client_secret"
+  tasks:
+  - name: Create resource group
+    azure_rm_resourcegroup:
+      name: "{{ resource_group }}"
+      location: "{{ location }}"
+  - name: Create a managed Azure Container Services (AKS) cluster
+    azure_rm_aks:
+      name: "{{ aks_name }}"
+      location: "{{ location }}"
+      resource_group: "{{ resource_group }}"
+      dns_prefix: "{{ aks_name }}"
+      linux_profile:
+        admin_username: "{{ username }}"
+        ssh_key: "{{ ssh_key }}"
+      service_principal:
+        client_id: "{{ client_id }}"
+        client_secret: "{{ client_secret }}"
+      agent_pool_profiles:
+        - name: default
+          count: 2
+          vm_size: Standard_D2_v2
+      tags:
+        Environment: Production
+```
 
-Pour créer le cluster AKS avec Ansible, enregistrez l’exemple de playbook précédent en tant que `azure_create_aks.yml`, puis exécutez le playbook avec la commande suivante :
+Avant d’exécuter le playbook, consultez les notes suivantes :
 
-  ```bash
-  ansible-playbook azure_create_aks.yml
-  ```
+- La première section au sein de `tasks` définit un groupe de ressources nommé `myResourceGroup` dans l’emplacement `eastus`.
+- La deuxième section au sein de `tasks` définit un cluster AKS nommé `myAKSCluster` dans le groupe de ressources `myResourceGroup`.
+- Pour l’espace réservé `your_ssh_key`, entrez votre clé publique RSA dans un format de ligne unique, commençant par « ssh-rsa » (sans les guillemets).
 
-La sortie de la commande **ansible-playbook* est similaire à ceci, qui montre que le cluster AKS a été correctement créé :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
-  ```Output
-  PLAY [Create AKS] ****************************************************************************************
+```bash
+ansible-playbook azure_create_aks.yml
+```
 
-  TASK [Gathering Facts] ********************************************************************************************
-  ok: [localhost]
+L’exécution du playbook donne des résultats similaires à la sortie suivante :
 
-  TASK [Create resource group] **************************************************************************************
-  changed: [localhost]
+```Output
+PLAY [Create AKS] 
 
-  TASK [Create an Azure Container Services (AKS) cluster] ***************************************************
-  changed: [localhost]
+TASK [Gathering Facts] 
+ok: [localhost]
 
-  PLAY RECAP *********************************************************************************************************
-  localhost                  : ok=3    changed=2    unreachable=0    failed=0
-  ```
+TASK [Create resource group] 
+changed: [localhost]
+
+TASK [Create an Azure Container Services (AKS) cluster] 
+changed: [localhost]
+
+PLAY RECAP 
+localhost                  : ok=3    changed=2    unreachable=0    failed=0
+```
 
 ## <a name="scale-aks-nodes"></a>Mettre à l’échelle nœuds ACS
 
-L’exemple de playbook de la section précédente définit deux nœuds. Si vous avez besoin de plus ou de moins de charges de travail de conteneur sur votre cluster, vous pouvez facilement ajuster le nombre de nœuds. L’exemple de playbook de cette section fait passer le nombre de nœuds de deux à trois. La modification du nombre de nœuds est effectuée en changeant la valeur de **count** dans le bloc **agent_pool_profiles**.
+L’exemple de playbook de la section précédente définit deux nœuds. Vous ajustez le nombre de nœuds en modifiant la valeur `count` dans le bloc `agent_pool_profiles`.
 
-> [!Tip]
-> Pour l’espace réservé `your_ssh_key`, entrez votre clé publique RSA dans un format de ligne unique, commençant par « ssh-rsa » (sans les guillemets).
+Enregistrez le playbook suivant en tant que `azure_configure_aks.yml` :
 
-```yaml
+```yml
 - name: Scale AKS cluster
   hosts: localhost
   connection: local
@@ -136,64 +146,74 @@ L’exemple de playbook de la section précédente définit deux nœuds. Si vous
             vm_size: Standard_D2_v2
 ```
 
-Pour mettre à l’échelle le cluster Azure Kubernetes Service avec Ansible, enregistrez le playbook précédent en tant que *azure_configure_aks.yml*, puis exécutez le playbook comme suit :
+Avant d’exécuter le playbook, consultez les notes suivantes :
 
-  ```bash
-  ansible-playbook azure_configure_aks.yml
-  ```
+- Pour l’espace réservé `your_ssh_key`, entrez votre clé publique RSA dans un format de ligne unique, commençant par « ssh-rsa » (sans les guillemets).
 
-La sortie suivante montre que le cluster AKS a été correctement créé :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
-  ```Output
-  PLAY [Scale AKS cluster] ***************************************************************
+```bash
+ansible-playbook azure_configure_aks.yml
+```
 
-  TASK [Gathering Facts] ******************************************************************
-  ok: [localhost]
+L’exécution du playbook donne des résultats similaires à la sortie suivante :
 
-  TASK [Scaling an existed AKS cluster] **************************************************
-  changed: [localhost]
+```Output
+PLAY [Scale AKS cluster] 
 
-  PLAY RECAP ******************************************************************************
-  localhost                  : ok=2    changed=1    unreachable=0    failed=0
-  ```
-## <a name="delete-a-managed-aks-cluster"></a>Supprimer un cluster AKS managé
-
-La section suivante avec l’exemple de playbook Ansible illustre comment supprimer un cluster AKS :
-
-  ```yaml
-  - name: Delete a managed Azure Container Services (AKS) cluster
-    hosts: localhost
-    connection: local
-    vars:
-      resource_group: myResourceGroup
-      aks_name: myAKSCluster
-    tasks:
-    - name:
-      azure_rm_aks:
-        name: "{{ aks_name }}"
-        resource_group: "{{ resource_group }}"
-        state: absent
-   ```
-
-Pour supprimer le cluster Azure Kubernetes Service avec Ansible, enregistrez le playbook précédent en tant que *azure_delete_aks.yml*, puis exécutez le playbook comme suit :
-
-  ```bash
-  ansible-playbook azure_delete_aks.yml
-  ```
-
-La sortie suivante montre que le cluster AKS a été correctement supprimé :
-  ```Output
-PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
-
-TASK [Gathering Facts] ********************************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [azure_rm_aks] *********************************************************************
+TASK [Scaling an existed AKS cluster] 
+changed: [localhost]
 
-PLAY RECAP *********************************************************************
+PLAY RECAP 
 localhost                  : ok=2    changed=1    unreachable=0    failed=0
+```
+
+## <a name="delete-a-managed-aks-cluster"></a>Supprimer un cluster AKS managé
+
+L’exemple de manuel supprime un cluster AKS.
+
+Enregistrez le playbook suivant en tant que `azure_delete_aks.yml` :
+
+
+```yml
+- name: Delete a managed Azure Container Services (AKS) cluster
+  hosts: localhost
+  connection: local
+  vars:
+    resource_group: myResourceGroup
+    aks_name: myAKSCluster
+  tasks:
+  - name:
+    azure_rm_aks:
+      name: "{{ aks_name }}"
+      resource_group: "{{ resource_group }}"
+      state: absent
   ```
 
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+
+```bash
+ansible-playbook azure_delete_aks.yml
+```
+
+L’exécution du playbook donne des résultats similaires à la sortie suivante :
+
+```Output
+PLAY [Delete a managed Azure Container Services (AKS) cluster] 
+
+TASK [Gathering Facts] 
+ok: [localhost]
+
+TASK [azure_rm_aks] 
+
+PLAY RECAP 
+localhost                  : ok=2    changed=1    unreachable=0    failed=0
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 > [!div class="nextstepaction"]
-> [Tutoriel : Mettre à l’échelle une application dans Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)
+> [Tutoriel : Mettre à l’échelle une application dans Azure Kubernetes Service (AKS)](/azure/aks/tutorial-kubernetes-scale)

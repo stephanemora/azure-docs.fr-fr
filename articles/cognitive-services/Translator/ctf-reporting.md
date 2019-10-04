@@ -1,30 +1,28 @@
 ---
 title: Compte-rendu CTF (Collaborative Translation Framework) - API de traduction de texte Translator Text
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Explique comment utiliser le compte-rendu CTF (Collaborative Translation Framework).
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-jansko
-ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 6a197095d97e67f7548e60375148cff57e47b797
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917394"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595941"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Guide pratique pour utiliser le compte-rendu CTF (Collaborative Translation Framework)
 
 > [!NOTE]
 > Cette méthode est dépréciée. Elle n’est pas disponible dans la version 3.0 de l’API de traduction de texte Translator Text.
 > 
-> L’infrastructure CTF (Collaborative Translation Framework), disponible pour la version 2.0 de l’API de traduction de texte Translator Text, a été dépréciée à compter du 1er février 2018. Les fonctions AddTranslation et AddTranslationArray permettent aux utilisateurs d’activer les corrections via l’infrastructure CTF. Depuis le 31 janvier 2018, ces deux fonctions n’ont pas accepté de nouvelles soumissions de phrases, et les utilisateurs reçoivent un message d’erreur. Ces fonctions ont été retirées et ne seront pas remplacées.
-> 
-> Une fonctionnalité similaire est disponible dans l’API Translator Hub, qui vous permet de créer un système de traduction personnalisé avec votre terminologie et votre style. Vous pouvez l’appeler en utilisant l’ID de catégorie dans l’API de traduction de texte Translator Text. Translator Hub : [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). API Translator Hub : [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
+> L’infrastructure CTF (Collaborative Translation Framework), disponible pour la version 2.0 de l’API de traduction de texte Translator Text, a été dépréciée à compter du 1er février 2018. Les fonctions AddTranslation et AddTranslationArray permettent aux utilisateurs d’activer les corrections via l’infrastructure CTF. Depuis le 31 janvier 2018, ces deux fonctions n’ont pas accepté de nouvelles soumissions de phrases, et les utilisateurs reçoivent un message d’erreur. Ces fonctions ont été mises hors service et ne seront pas remplacées.
 
 L’API de compte-rendu de l’infrastructure CTF (Collaborative Translation Framework) retourne des statistiques et le contenu réel du magasin CTF. Cette API est différente de la méthode GetTranslations(), car elle :
 * Retourne le contenu traduit et son nombre total uniquement à partir de votre compte (compte Place de marché Microsoft Azure ou appId).
@@ -98,7 +96,7 @@ Le jeu de résultats contient un tableau des éléments **UserTranslationCount**
 
 | Champ | Description |
 |:---|:---|
-| Nombre| Nombre de résultats récupérés|
+| Count| Nombre de résultats récupérés|
 | À partir | Langue source|
 | Rating| Évaluation appliquée par l’expéditeur dans l’appel de méthode AddTranslation()|
 | À| Langue cible|

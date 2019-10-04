@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d64cac3812d8daf8ac34b93c91338e1dfab88a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e662d2c6d7939756dee6eb25ca62fef171b7d6d0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193479"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109333"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Définir une stratégie d’adoption des identités hybrides
 Dans le cadre de cette tâche, vous définissez la stratégie d’adoption des identités hybrides pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise évoquées dans les articles suivants :
@@ -37,7 +37,7 @@ La première tâche concerne la détermination des besoins métier de l’entrep
 ## <a name="define-an-integration-strategy"></a>Définir une stratégie d’intégration
 Microsoft possède trois scénarios principaux d’intégration : identités cloud, identités synchronisées et identités fédérées.  Vous devez prévoir d’adopter l’une de ces stratégies d’intégration.  La stratégie choisie peut varier. Il peut y avoir différents éléments à considérer : le type d’expérience utilisateur que vous souhaitez proposer, la présence ou non d’une infrastructure existante et la rentabilité notamment.  
 
-![](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
+![Scénarios d’intégration](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
 Les scénarios définis dans la figure ci-dessus sont les suivants :
 
@@ -54,9 +54,9 @@ Le tableau ci-après vous aide à déterminer les avantages et inconvénients de
 
 | Stratégie | Avantages | Inconvénients |
 | --- | --- | --- |
-| **Identités cloud** |Plus faciles à gérer pour les petites entreprises. <br> Rien à installer en local. Pas de matériel supplémentaire requis.<br>Faciles à désactiver si l’utilisateur quitte l’entreprise |Les utilisateurs doivent se connecter lorsqu’ils accèdent aux charges de travail dans le cloud <br>  Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
-| **Synchronisée** |Le mot de passe local authentifie les répertoires locaux et cloud <br>Plus faciles à gérer pour les petites, moyennes et grandes entreprises <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br>  Plus faciles à gérer |Certains clients peuvent rechigner à synchroniser leurs répertoires avec le cloud en raison de la stratégie spécifique de l’entreprise |
-| **Adresses IP fédérées** |Les utilisateurs peuvent disposer de l’authentification unique (SSO)  <br>Si un utilisateur a achevé sa mission ou quitte l’entreprise, le compte peut immédiatement être désactivé et l’accès révoqué<br> Prise en charge de scénarios avancés qui ne peuvent pas être concrétisés avec l’option Synchronisée |Étapes supplémentaires pour l’installation et la configuration <br> Maintenance plus élevée <br> Peut requérir du matériel supplémentaire pour l’infrastructure STS <br> Peut nécessiter un matériel supplémentaire pour l’installation du serveur de fédération. Requiert des logiciels supplémentaires en cas d’utilisation des services de fédération Active Directory (AD FS). <br> Requiert une installation complète pour l’authentification unique <br> Point de défaillance critique : si le serveur de fédération est arrêté, les utilisateurs ne sont pas en mesure de s’authentifier |
+| **Identités cloud** |Plus faciles à gérer pour les petites entreprises. <br> Rien à installer en local. Pas de matériel supplémentaire requis.<br>Faciles à désactiver si l’utilisateur quitte l’entreprise |Les utilisateurs doivent se connecter lorsqu’ils accèdent aux charges de travail dans le cloud <br> Les mots de passe peuvent être les mêmes ou non pour les identités cloud et locales |
+| **Synchronisée** |Le mot de passe local authentifie les répertoires locaux et cloud <br>Plus faciles à gérer pour les petites, moyennes et grandes entreprises <br>Les utilisateurs peuvent disposer de l’authentification unique (SSO) pour certaines ressources <br> Méthode Microsoft préférée pour la synchronisation <br> Plus faciles à gérer |Certains clients peuvent rechigner à synchroniser leurs répertoires avec le cloud en raison de la stratégie spécifique de l’entreprise |
+| **Adresses IP fédérées** |Les utilisateurs peuvent disposer de l’authentification unique (SSO) <br>Si un utilisateur a achevé sa mission ou quitte l’entreprise, le compte peut immédiatement être désactivé et l’accès révoqué<br> Prise en charge de scénarios avancés qui ne peuvent pas être concrétisés avec l’option Synchronisée |Étapes supplémentaires pour l’installation et la configuration <br> Maintenance plus élevée <br> Peut requérir du matériel supplémentaire pour l’infrastructure STS <br> Peut nécessiter un matériel supplémentaire pour l’installation du serveur de fédération. Requiert des logiciels supplémentaires en cas d’utilisation des services de fédération Active Directory (AD FS). <br> Requiert une installation complète pour l’authentification unique <br> Point de défaillance critique : si le serveur de fédération est arrêté, les utilisateurs ne sont pas en mesure de s’authentifier |
 
 ### <a name="client-experience"></a>Expérience client
 La stratégie que vous utilisez détermine l’expérience de connexion utilisateur.  Les tableaux suivants vous fournissent des informations sur ce que les utilisateurs peuvent attendre de leur expérience de connexion.  Certains fournisseurs d’identité fédérée ne prennent pas en charge l’authentification unique dans tous les scénarios.
@@ -111,14 +111,14 @@ Au fil des années, plusieurs outils de synchronisation ont existé et ont été
 ### <a name="supported-topologies"></a>Topologies prises en charge
 Lorsque vous définissez une stratégie de synchronisation, la topologie qui est utilisée doit être déterminée. Selon les informations qui ont été déterminées à l’étape 2, vous pouvez déterminer la topologie adaptée à utiliser. La forêt unique, topologie Azure AD unique, est la plus courante et se compose d’une forêt Active Directory unique et d’une seule instance d’Azure AD.  Ces éléments seront utilisés dans la majorité des scénarios et constituent la topologie attendue lors de l’utilisation de l’installation Express Azure AD Connect comme indiqué dans la figure ci-dessous.
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest.png) Scénario de forêt unique Les grandes entreprises, et même les petites, disposent couramment de plusieurs forêts, comme illustré à la figure 5.
+![Topologies prises en charge](./media/plan-hybrid-identity-design-considerations/single-forest.png) Scénario de forêt unique Les grandes entreprises, et même les petites, disposent couramment de plusieurs forêts, comme illustré à la figure 5.
 
 > [!NOTE]
 > Pour plus d’informations sur les différentes topologies locales et Azure AD avec la synchronisation Azure AD Connect, consultez l’article [Topologies pour Azure AD Connect](plan-connect-topologies.md).
 > 
 > 
 
-![](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![Topologie de forêts multiples](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 Scénario de forêts multiples
 
@@ -140,7 +140,7 @@ La topologie Azure AD unique à plusieurs forêts doit être envisagée si les 
 
 Si la partie ci-dessus n’est pas vraie et que vous avez plus d’un compte actif ou plusieurs boîtes aux lettres, Azure AD Connect choisira un élément et ignorera les autres.  Si vous avez lié des boîtes aux lettres, mais aucun autre compte, ces comptes ne seront pas exportés vers Azure AD et cet utilisateur ne sera membre d’aucun groupe.  La situation a évolué avec DirSync et l’intention est de mieux prendre en charge ces scénarios de forêts multiples. Un scénario de forêts multiples est illustré dans la figure ci-dessous.
 
-![](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![Plusieurs clients Azure AD](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **Scénario Azure AD de plusieurs forêts multiples**
 
@@ -148,7 +148,7 @@ Il est recommandé de disposer seulement d’un répertoire unique dans Azure A
 
 Il est possible et pris en charge de connecter une instance locale d’Active Directory à plusieurs répertoires Azure AD, comme illustré dans la figure ci-dessous :
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![Une seule forêt filtrée](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **Scénario de filtrage d’une forêt unique**
 
@@ -185,7 +185,7 @@ Options de conception multifacteur :
 | Applications Microsoft |Oui |Oui |
 | Applications SaaS dans la galerie d’applications |Oui |Oui |
 | Applications IIS publiées via le proxy d'application Azure AD |Oui |Oui |
-| Applications IIS non publiées via le proxy Azure AD App  |no |Oui |
+| Applications IIS non publiées via le proxy Azure AD App |no |Oui |
 | Accès à distance en tant que VPN, passerelle Bureau à distance (RDG) |no |Oui |
 
 Même si vous avez opté pour une solution pour votre stratégie, vous devez toujours utiliser l’évaluation ci-dessus sur l’emplacement où se trouvent vos utilisateurs.  Cela peut entraîner la modification de la solution.  Utilisez le tableau ci-dessous pour vous aider à déterminer les éléments suivants :
@@ -199,8 +199,7 @@ Même si vous avez opté pour une solution pour votre stratégie, vous devez tou
 | AD local |Serveur Multi-Factor Authentication |
 
 > [!NOTE]
-> Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception.  Pour plus d’informations, consultez la rubrique [Choix de la solution de sécurité multifacteur la mieux adaptée](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
-> 
+> Vous devez également vous assurer que l’option de conception de l’authentification multifacteur sélectionnée prend en charge les fonctionnalités requises pour votre conception.  Pour plus d’informations, consultez la rubrique [Choix de la solution de sécurité multifacteur la mieux adaptée](../authentication/concept-mfa-howitworks.md).
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Fournisseur d’authentification multi facteurs

@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: c2165d0ff16233766918f9e274324b02d1bf1ac8
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852839"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962110"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copier des données vers un index de recherche Azure à l’aide d’Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-azure-search-connector.md)
 > * [Version actuelle](connector-azure-search.md)
 
@@ -43,13 +43,13 @@ Les propriétés prises en charge pour le service lié Recherche Azure sont les 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **AzureSearch** | Oui |
-| url | URL du service Recherche Azure. | Oui |
+| type | La propriété type doit être définie sur : **AzureSearch** | OUI |
+| URL | URL du service Recherche Azure. | OUI |
 | key | Clé d’administration du service Recherche Azure. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 > [!IMPORTANT]
-> Lors de la copie de données à partir d’un magasin de données cloud dans des index de recherche Azure, dans la recherche Azure, service lié, vous devez faire référence à un Runtime d’intégration Azure avec une région explicite dans connactVia. Définissez la région comme celle dans laquelle votre Recherche Azure réside. En savoir plus dans [Integration Runtime Azure](concepts-integration-runtime.md#azure-integration-runtime).
+> Lors de la copie de données d’une banque de données cloud vers l’index Recherche Azure, dans un service lié Recherche Azure, vous devez référencer un runtime d’intégration Azure avec une région explicite dans connactVia. Définissez la région comme celle dans laquelle votre Recherche Azure réside. En savoir plus dans [Integration Runtime Azure](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Exemple :**
 
@@ -75,14 +75,14 @@ Les propriétés prises en charge pour le service lié Recherche Azure sont les 
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les jeux de données. Cette section fournit la liste des propriétés prises en charge par le jeu de données de Recherche Azure.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données de Recherche Azure.
 
-Pour copier des données vers Recherche Azure, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+Pour copier des données dans Recherche Azure, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **AzureSearchIndex** | Oui |
-| indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | Oui |
+| type | La propriété type du jeu de données doit être définie sur : **AzureSearchIndex** | OUI |
+| indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | OUI |
 
 **Exemple :**
 
@@ -91,12 +91,13 @@ Pour copier des données vers Recherche Azure, affectez la valeur **RelationalTa
     "name": "AzureSearchIndexDataset",
     "properties": {
         "type": "AzureSearchIndex",
+        "typeProperties" : {
+            "indexName": "products"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Search linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties" : {
-            "indexName": "products"
         }
    }
 }
@@ -112,9 +113,9 @@ Pour copier des données vers Recherche Azure, définissez **AzureSearchIndexSin
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureSearchIndexSink** | Oui |
-| writeBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).<br/><br/>Les valeurs autorisées sont les suivantes : **Merge** (par défaut) et **Upload**. | Non  |
-| writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property).<br/><br/>Valeurs autorisées : entier de 1 à 1000 ; la valeur par défaut est 1000. | Non  |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureSearchIndexSink** | OUI |
+| writeBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).<br/><br/>Les valeurs autorisées sont les suivantes : **Merge** (par défaut) et **Upload**. | Non |
+| writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property).<br/><br/>Valeurs autorisées : entier de 1 à 1000 ; la valeur par défaut est 1000. | Non |
 
 ### <a name="writebehavior-property"></a>Propriété WriteBehavior
 
@@ -163,20 +164,22 @@ Le service Recherche Azure prend en charge l’écriture de documents sous form
 ]
 ```
 
-### <a name="data-type-support"></a>Prise en charge des types de données
+## <a name="data-type-support"></a>Prise en charge des types de données
 
 Le tableau suivant indique si un type de données Recherche Azure est pris en charge ou non.
 
 | Type de données Recherche Azure | Pris en charge dans le récepteur de l’index Recherche Azure |
 | ---------------------- | ------------------------------ |
-| String | O |
+| Chaîne | O |
 | Int32 | O |
 | Int64 | O |
 | Double | O |
 | Boolean | O |
 | DataTimeOffset | O |
-| String Array | N |
+| Tableau de chaînes | N |
 | GeographyPoint | N |
+
+Les autres types de données, par exemple ComplexType, ne sont pas pris en charge pour le moment. Pour obtenir la liste complète des types de données pris en charge par le service Recherche Azure, consultez [Types de données pris en charge (Recherche Azure)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

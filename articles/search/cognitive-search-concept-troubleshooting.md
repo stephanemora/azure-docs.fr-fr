@@ -2,21 +2,19 @@
 title: Conseils de dépannage pour la recherche cognitive - Recherche Azure
 description: Conseils et résolution des problèmes pour la configuration de pipelines de recherche cognitive dans Recherche Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: ebc0ca718ab8edf5ef644993c71b0353861265b8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.openlocfilehash: ee54d560ae1a294467e4520063153566d2c3b0a2
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961845"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265842"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Conseils de dépannage pour la recherche cognitive
 
@@ -84,7 +82,7 @@ Ajoutez un champ ```enriched``` dans votre définition d’index à des fins de 
 
 Un contenu manquant peut résulter d’une suppression de documents lors de l’indexation. Les limites de taille de document pour les niveaux Gratuit et De base sont basses. Tout fichier dépassant la limite est écarté lors de l’indexation. Vous pouvez vérifier la présence de documents écartés dans le portail Azure. Dans le tableau de bord du service de recherche, double-cliquez sur la vignette Indexeurs. Examinez le taux de documents correctement indexés. S’il n’est pas de 100 %, vous pouvez cliquer dessus pour obtenir plus de détails. 
 
-Si le problème est lié à la taille du fichier, vous pouvez voir une erreur similaire à celle-ci : « L’objet blob <nom-fichier> a une taille de <taille-fichier> octets, ce qui est supérieur à la taille maximale d’extraction de document correspondant à votre niveau de service actuel. » Pour plus d’informations sur les limites de l’indexeur, voir [Limites du service](search-limits-quotas-capacity.md).
+Si le problème est lié à la taille du fichier, vous pouvez voir une erreur similaire à celle-ci : « L’objet blob \<nom-fichier> a une taille de \<taille-fichier> octets, ce qui est supérieur à la taille maximale d’extraction de document correspondant à votre niveau de service actuel. » Pour plus d’informations sur les limites de l’indexeur, voir [Limites du service](search-limits-quotas-capacity.md).
 
 Un échec d’affichage du contenu peut également résulter d’erreurs de mappage d’entrée/sortie. Par exemple, un nom de cible de sortie est « Contacts », mais le nom du champ d’index est « contacts » en minuscules. Le système peut retourner 201 messages de réussite pour le pipeline entier, de sorte que vous pensez que l’indexation a réussi alors qu’en fait un champ est vide. 
 
@@ -94,7 +92,10 @@ L’analyse d’image nécessite une grande capacité de calcul, même pour des 
 
 Le temps d’exécution maximal varie selon le niveau : de quelques minutes pour le niveau Gratuit, à une durée d’indexation de 24 heures pour les niveaux facturables. Si le traitement n’aboutit pas dans un délai de 24 heures pour un traitement à la demande, passez à une planification telle que l’indexeur reprenne le traitement là où il l’a laissé. 
 
-Pour les indexeurs planifiés, l’indexation reprend dans le délai prévu au dernier bon document connu. Avec une planification récurrente, l’indexeur peut opérer à sa manière dans le backlog d’images sur une série d’heures ou de jours, jusqu’à ce que toutes les images non traitées le soient. Pour plus d’informations sur la syntaxe de la planification, consultez [Étape 3 : Créer un indexeur](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Pour les indexeurs planifiés, l’indexation reprend dans le délai prévu au dernier bon document connu. Avec une planification récurrente, l’indexeur peut opérer à sa manière dans le backlog d’images sur une série d’heures ou de jours, jusqu’à ce que toutes les images non traitées le soient. Pour plus d’informations sur la syntaxe de la planification, consultez [Étape 3 : Créer un indexeur](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) ou consultez [Guide pratique pour planifier des indexeurs pour Recherche Azure](search-howto-schedule-indexers.md).
+
+> [!NOTE]
+> Si un indexeur est défini sur une certaine planification, mais échoue à plusieurs reprises sur le même document chaque fois qu’il s’exécute, l’indexeur commence à s’exécuter à un intervalle moins fréquent (jusqu’à un maximum d’au moins une fois toutes les 24 heures) jusqu’à ce qu’il progresse correctement à nouveau.  Si vous pensez avoir résolu le problème qui provoquait le blocage de l’indexeur à un moment donné, vous pouvez effectuer une exécution à la demande de l’indexeur, et en cas de progression, l’indexeur reprend son intervalle de planification défini.
 
 Pour une indexation basée sur le portail (telle que décrite dans le démarrage rapide), le choix de l’option d’indexeur « Exécuter une fois » limite le traitement à 1 heure (`"maxRunTime": "PT1H"`). Vous pouvez étendre la fenêtre de traitement.
 

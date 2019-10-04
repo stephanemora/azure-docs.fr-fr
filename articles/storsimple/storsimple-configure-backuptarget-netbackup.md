@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
-ms.author: hkanna
-ms.openlocfilehash: 17428405a0be45854a2eaaef831864f529ed145a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: matd
+ms.openlocfilehash: 957fff73f2406e0e057a7c978dd76a6bd9c156b7
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994473"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "67876207"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple comme cible de sauvegarde avec NetBackup
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Azure StorSimple est une solution de stockage cloud hybride de Microsoft. StorSimple s’attaque à la complexité de la croissance exponentielle des données en utilisant un compte de stockage Azure en tant qu’extension de la solution locale et en hiérarchisant automatiquement les données sur le stockage local et sur le stockage cloud.
 
@@ -102,7 +102,7 @@ Les tableaux ci-après contiennent les informations d’aide initiales concernan
 | Scénario de sauvegarde  | Capacité de stockage local  | Capacité de stockage cloud  |
 |---|---|---|
 | Sauvegarde principale  | Sauvegardes récentes stockées sur le stockage local afin d’accélérer la récupération pour se conformer à l’objectif de point de récupération (RPO) | Capacité du cloud adaptée à l’historique des sauvegardes (RPO) |
-| Sauvegarde secondaire | Possibilité de stocker une copie secondaire des données de sauvegarde dans la capacité du cloud  | S.O.  |
+| Sauvegarde secondaire | Possibilité de stocker une copie secondaire des données de sauvegarde dans la capacité du cloud  | N/A  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>Utiliser StorSimple comme cible de sauvegarde principale
 
@@ -265,11 +265,11 @@ Sur la base des hypothèses qui précèdent, créez un volume hiérarchisé Stor
 
 ### <a name="to-set-up-netbackup-storage"></a>Pour configurer le stockage NetBackup
 
-1.  Dans la console d’administration NetBackup, sélectionnez **Media and Device Management (Gestion des supports et des appareils)** > **Devices (Appareils)** > **Disk Pools (Pools de disques)**. Dans l’Assistant de configuration de pool de disques, sélectionnez le type de serveur de stockage **AdvancedDisk**, puis sélectionnez **Next (Suivant)**.
+1.  Dans la console d’administration NetBackup, sélectionnez **Media and Device Management (Gestion des supports et des appareils)**  > **Devices (Appareils)**  > **Disk Pools (Pools de disques)** . Dans l’Assistant de configuration de pool de disques, sélectionnez le type de serveur de stockage **AdvancedDisk**, puis sélectionnez **Next (Suivant)** .
 
     ![Console d’administration NetBackup, Assistant de configuration de pool de disques](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
-2.  Sélectionnez votre serveur, puis **Next (Suivant)**.
+2.  Sélectionnez votre serveur, puis **Next (Suivant)** .
 
     ![Console d’administration NetBackup, sélection du serveur](./media/storsimple-configure-backup-target-using-netbackup/nbimage2.png)
 
@@ -277,9 +277,9 @@ Sur la base des hypothèses qui précèdent, créez un volume hiérarchisé Stor
 
     ![Console d’administration NetBackup, sélection du disque du volume StorSimple](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  Entrez un nom pour la cible de sauvegarde, puis sélectionnez **Next (Suivant)** > **Next (Suivant)** pour terminer l’Assistant.
+4.  Entrez un nom pour la cible de sauvegarde, puis sélectionnez **Next (Suivant)**  > **Next (Suivant)** pour terminer l’Assistant.
 
-5.  Passez en revue les paramètres, puis sélectionnez **Finish (Terminer)**.
+5.  Passez en revue les paramètres, puis sélectionnez **Finish (Terminer)** .
 
 6.  À la fin de chaque affectation de volume, modifiez les paramètres du dispositif de stockage conformément aux paramètres recommandés dans les [Meilleures pratiques pour StorSimple et NetBackup](#best-practices-for-storsimple-and-netbackup).
 
@@ -312,23 +312,23 @@ La procédure ci-après repose sur l’hypothèse que NetBackup et l’hôte cib
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-backup-job"></a>Pour affecter des volumes StorSimple à un travail de sauvegarde NetBackup
 
-1. Dans la Console d’administration NetBackup, sélectionnez **NetBackup Management (Gestion NetBackup)**, cliquez avec le bouton droit sur **Policies (Stratégies)**, puis sélectionnez **New Policy (Nouvelle stratégie)**.
+1. Dans la Console d’administration NetBackup, sélectionnez **NetBackup Management (Gestion NetBackup)** , cliquez avec le bouton droit sur **Policies (Stratégies)** , puis sélectionnez **New Policy (Nouvelle stratégie)** .
 
    ![Console d’administration NetBackup, création d’une stratégie](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2. Dans la boîte de dialogue **Add a New Policy (Ajouter une nouvelle stratégie)**, entrez un nom pour la stratégie, puis cochez la case **Use Policy Configuration Wizard (Utiliser l’Assistant de configuration de stratégie)**. Sélectionnez **OK**.
+2. Dans la boîte de dialogue **Add a New Policy (Ajouter une nouvelle stratégie)** , entrez un nom pour la stratégie, puis cochez la case **Use Policy Configuration Wizard (Utiliser l’Assistant de configuration de stratégie)** . Sélectionnez **OK**.
 
    ![Console d’administration NetBackup, boîte de dialogue d’ajout d’une nouvelle stratégie](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
-3. Dans l’Assistant de configuration de stratégie de sauvegarde, choisissez le type de sauvegarde de votre choix, puis sélectionnez **Next (Suivant)**.
+3. Dans l’Assistant de configuration de stratégie de sauvegarde, choisissez le type de sauvegarde de votre choix, puis sélectionnez **Next (Suivant)** .
 
    ![Console d’administration NetBackup, sélection du type de sauvegarde](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
 
-4. Pour définir le type de stratégie, sélectionnez **Standard**, puis sélectionnez **Next (Suivant)**.
+4. Pour définir le type de stratégie, sélectionnez **Standard**, puis sélectionnez **Next (Suivant)** .
 
    ![Console d’administration NetBackup, sélection du type de stratégie](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5. Sélectionnez votre hôte, cochez la case **Detect client operating system (Détecter le système d’exploitation client)**, puis sélectionnez **Add (Ajouter)**. Sélectionnez **Suivant**.
+5. Sélectionnez votre hôte, cochez la case **Detect client operating system (Détecter le système d’exploitation client)** , puis sélectionnez **Add (Ajouter)** . Sélectionnez **Suivant**.
 
    ![Console d’administration NetBackup, répertorier les clients dans une nouvelle stratégie](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
@@ -340,23 +340,23 @@ La procédure ci-après repose sur l’hypothèse que NetBackup et l’hôte cib
 
    ![Console d’administration NetBackup, fréquence et rotation de sauvegarde pour une nouvelle stratégie](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
-8. Sélectionnez **Next (Suivant)** > **Next (Suivant)** > **Finish (Terminer)**.  Vous pouvez modifier la planification une fois la stratégie créée.
+8. Sélectionnez **Next (Suivant)**  > **Next (Suivant)**  > **Finish (Terminer)** .  Vous pouvez modifier la planification une fois la stratégie créée.
 
-9. Développez la stratégie que vous avez créée, puis sélectionnez **Schedules (Planifications)**.
+9. Développez la stratégie que vous avez créée, puis sélectionnez **Schedules (Planifications)** .
 
    ![Console d’administration NetBackup, planifications pour une nouvelle stratégie](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
-10. Cliquez avec le bouton droit sur **Differential-Inc (Différentielle incrémentielle)**, sélectionnez **Copy to new (Copier vers nouveau)**, puis sélectionnez **OK**.
+10. Cliquez avec le bouton droit sur **Differential-Inc (Différentielle incrémentielle)** , sélectionnez **Copy to new (Copier vers nouveau)** , puis sélectionnez **OK**.
 
     ![Console d’administration NetBackup, copier la planification vers une nouvelle stratégie](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
 
-11. Cliquez avec le bouton droit sur la nouvelle planification, puis sélectionnez **Change (Modifier)**.
+11. Cliquez avec le bouton droit sur la nouvelle planification, puis sélectionnez **Change (Modifier)** .
 
-12. Dans l’onglet **Attributes (Attributs)**, cochez la case **Override policy storage selection (Écraser la sélection de stratégie de stockage)**, puis sélectionnez le volume réservé aux sauvegardes incrémentielles effectuées le lundi.
+12. Dans l’onglet **Attributes (Attributs)** , cochez la case **Override policy storage selection (Écraser la sélection de stratégie de stockage)** , puis sélectionnez le volume réservé aux sauvegardes incrémentielles effectuées le lundi.
 
     ![Console d’administration NetBackup, modifier la planification](./media/storsimple-configure-backup-target-using-netbackup/nbimage15.png)
 
-13. Dans l’onglet **Start Window (Fenêtre de démarrage)**, sélectionnez la fenêtre horaire pour vos sauvegardes.
+13. Dans l’onglet **Start Window (Fenêtre de démarrage)** , sélectionnez la fenêtre horaire pour vos sauvegardes.
 
     ![Console d’administration NetBackup, modifier la fenêtre de démarrage](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
@@ -364,7 +364,7 @@ La procédure ci-après repose sur l’hypothèse que NetBackup et l’hôte cib
 
 15. Répétez les étapes 10 à 14 pour chaque sauvegarde incrémentielle. Sélectionnez le volume et la planification appropriés pour chaque sauvegarde que vous créez.
 
-16. Cliquez avec le bouton droit sur la planification **Differential-Inc (Différentielle incrémentielle)**, puis supprimez-la.
+16. Cliquez avec le bouton droit sur la planification **Differential-Inc (Différentielle incrémentielle)** , puis supprimez-la.
 
 17. Modifiez la planification complète conformément à vos besoins de sauvegarde.
 
@@ -430,23 +430,23 @@ Une fois que vous avez défini les pools de disques initiaux, vous devez défini
 
 ### <a name="to-assign-storsimple-volumes-to-a-netbackup-archive-and-duplication-job"></a>Pour attribuer des volumes StorSimple à un travail d’archivage et de duplication NetBackup
 
-1. Dans la Console d’administration NetBackup, sélectionnez **Storage (Stockage)** > **Storage Lifecycle Policies (Stratégies de cycle de vie du stockage)** > **New Storage Lifecycle Policy (Nouvelle stratégie de cycle de vie du stockage)**.
+1. Dans la Console d’administration NetBackup, sélectionnez **Storage (Stockage)**  > **Storage Lifecycle Policies (Stratégies de cycle de vie du stockage)**  > **New Storage Lifecycle Policy (Nouvelle stratégie de cycle de vie du stockage)** .
 
    ![Console d’administration de NetBackup, nouvelle stratégie de cycle de vie du stockage](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
-2. Entrez un nom pour la capture instantanée, puis sélectionnez **Add (Ajouter)**.
+2. Entrez un nom pour la capture instantanée, puis sélectionnez **Add (Ajouter)** .
 
-3. Dans la boîte de dialogue **New Operation (Nouvelle opération)**, dans l’onglet **Properties (Propriétés)**, pour **Operation (Opération)**, sélectionnez **Backup (Sauvegarde)**. Sélectionnez les valeurs souhaitées pour **Destination storage (Stockage cible)**, **Retention type (Type de rétention)** et **Retention period (Période de rétention)**. Sélectionnez **OK**.
+3. Dans la boîte de dialogue **New Operation (Nouvelle opération)** , dans l’onglet **Properties (Propriétés)** , pour **Operation (Opération)** , sélectionnez **Backup (Sauvegarde)** . Sélectionnez les valeurs souhaitées pour **Destination storage (Stockage cible)** , **Retention type (Type de rétention)** et **Retention period (Période de rétention)** . Sélectionnez **OK**.
 
    ![Console d’administration NetBackup, boîte de dialogue Nouvelle opération](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
    Cette opération définit la première opération de sauvegarde et le référentiel.
 
-4. Sélectionnez pour mettre en surbrillance l’opération précédente, puis sélectionnez **Add (Ajouter)**. Dans la boîte de dialogue **Change Storage Operation (Modifier l’opération de sauvegarde)**, sélectionnez les valeurs souhaitées pour **Destination storage (Stockage cible)**, **Retention type (Type de rétention)** et **Retention period (Période de rétention)**.
+4. Sélectionnez pour mettre en surbrillance l’opération précédente, puis sélectionnez **Add (Ajouter)** . Dans la boîte de dialogue **Change Storage Operation (Modifier l’opération de sauvegarde)** , sélectionnez les valeurs souhaitées pour **Destination storage (Stockage cible)** , **Retention type (Type de rétention)** et **Retention period (Période de rétention)** .
 
    ![Console d’administration NetBackup, boîte de dialogue Modifier l’opération de sauvegarde](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
 
-5. Sélectionnez pour mettre en surbrillance l’opération précédente, puis sélectionnez **Add (Ajouter)**. Dans la boîte de dialogue **New Storage Lifecycle Policy (Nouvelle stratégie de cycle de vie du stockage)**, ajoutez des sauvegardes mensuelles pour une année.
+5. Sélectionnez pour mettre en surbrillance l’opération précédente, puis sélectionnez **Add (Ajouter)** . Dans la boîte de dialogue **New Storage Lifecycle Policy (Nouvelle stratégie de cycle de vie du stockage)** , ajoutez des sauvegardes mensuelles pour une année.
 
    ![Console d’administration de NetBackup, boîte de dialogue Nouvelle stratégie de cycle de vie du stockage](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
 
@@ -454,13 +454,13 @@ Une fois que vous avez défini les pools de disques initiaux, vous devez défini
 
    ![Console d’administration de NetBackup, Ajouter des stratégies dans la boîte de dialogue Nouvelle stratégie de cycle de vie du stockage](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
 
-7. Lorsque vous avez terminé de définir votre stratégie de rétention SLP, sous **Policy (Stratégie)**, définissez une stratégie de sauvegarde en suivant les étapes détaillées dans [Affectation de volumes StorSimple à un travail de sauvegarde NetBackup](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
+7. Lorsque vous avez terminé de définir votre stratégie de rétention SLP, sous **Policy (Stratégie)** , définissez une stratégie de sauvegarde en suivant les étapes détaillées dans [Affectation de volumes StorSimple à un travail de sauvegarde NetBackup](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
 
-8. Sous **Schedules (Planifications)**, dans la boîte de dialogue **Change Schedule (Modifier la planification)**, cliquez avec le bouton droit sur **Full (Complète)**, puis sélectionnez **Change (Modifier)**.
+8. Sous **Schedules (Planifications)** , dans la boîte de dialogue **Change Schedule (Modifier la planification)** , cliquez avec le bouton droit sur **Full (Complète)** , puis sélectionnez **Change (Modifier)** .
 
    ![Console d’administration NetBackup, boîte de dialogue Modifier la planification](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
 
-9. Cochez la case **Override policy storage selection (Écraser la sélection de stratégie de stockage)**, puis sélectionnez la stratégie de rétention SLP créée aux étapes 1 à 6.
+9. Cochez la case **Override policy storage selection (Écraser la sélection de stratégie de stockage)** , puis sélectionnez la stratégie de rétention SLP créée aux étapes 1 à 6.
 
    ![Console d’Administration NetBackup, Écraser la sélection de stratégie de stockage](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
 

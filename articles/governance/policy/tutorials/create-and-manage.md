@@ -7,14 +7,14 @@ ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1641a88a95d4c056cdd1be8d855482c80b1430cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c12345791e62aa99bd07dde7fc44dd52d0989941
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283611"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979180"
 ---
-# <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
+# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Didacticiel : Créer et gérer des stratégies pour appliquer la conformité
 
 Il est important de comprendre comment créer et gérer des stratégies dans Azure pour rester conforme aux normes de votre entreprise et aux contrats de niveau de service. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Policy pour effectuer certaines des tâches les plus courantes liées à la création, à l’affectation et à la gestion des stratégies dans votre organisation, notamment :
 
@@ -42,11 +42,11 @@ La première étape de l’application de la conformité avec une stratégie Azu
 
    ![Affecter une définition de stratégie à partir de la page Affectations](../media/create-and-manage/select-assign-policy.png)
 
-1. Dans la page **Assigner une stratégie**, sélectionnez **l’étendue** en cliquant sur les points de suspension et en sélectionnant un groupe d’administration ou un abonnement. Sélectionnez éventuellement un groupe de ressources. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée.  Cliquez ensuite sur **Sélectionner** dans le bas de la page **Étendue**.
+1. Dans la page **Assigner une stratégie**, sélectionnez **l’étendue** en cliquant sur les points de suspension et en sélectionnant un groupe d’administration ou un abonnement. Sélectionnez éventuellement un groupe de ressources. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Cliquez ensuite sur **Sélectionner** dans le bas de la page **Étendue**.
 
    Cet exemple utilise l’abonnement **Contoso**. Votre abonnement sera différent.
 
-1. Vous pouvez exclure des ressources en fonction de **l’étendue**.  Les **exclusions** commencent à un niveau inférieur à celui de **l’étendue**. Les **exclusions** étant facultatives, laissez ce champ vide pour l’instant.
+1. Vous pouvez exclure des ressources en fonction de **l’étendue**. Les **exclusions** commencent à un niveau inférieur à celui de **l’étendue**. Les **exclusions** étant facultatives, laissez ce champ vide pour l’instant.
 
 1. Sélectionnez les points de suspension de **Définition de stratégie** pour ouvrir la liste des définitions disponibles. Vous pouvez filtrer le **Type** de définition de stratégie sur *BuiltIn* pour les afficher tous et lire leurs descriptions.
 
@@ -54,7 +54,8 @@ La première étape de l’application de la conformité avec une stratégie Azu
 
    ![Utiliser le filtre de recherche pour localiser une stratégie](../media/create-and-manage/select-available-definition.png)
 
-1. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, laissez *Exiger SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.  **Affectée par** est automatiquement renseigné en fonction de l’utilisateur connecté. Ce champ étant facultatif, vous pouvez entrer des valeurs personnalisées.
+1. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, laissez *Exiger SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.
+   **Affectée par** est automatiquement renseigné en fonction de l’utilisateur connecté. Ce champ étant facultatif, vous pouvez entrer des valeurs personnalisées.
 
 1. Laissez la case **Créer une identité managée** non cochée. Vous _devez_ la cocher si la stratégie ou l’initiative affectée inclut une stratégie avec l’effet [deployIfNotExists](../concepts/effects.md#deployifnotexists). Comme ce n’est pas le cas pour la stratégie utilisée dans ce tutoriel, ne cochez pas la case. Pour plus d’informations, consultez [Identités managées](../../../active-directory/managed-identities-azure-resources/overview.md) et [Fonctionnement de la sécurité par correction](../how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -116,7 +117,7 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Créer une définition de stratégie avec l’API REST
 
-Vous pouvez créer une stratégie avec l’API REST pour les définitions des stratégies. L’API REST vous permet de créer et de supprimer des définitions de stratégies, ainsi que d’obtenir des informations sur les définitions existantes. Pour créer une définition de stratégie, utilisez l’exemple suivant :
+Vous pouvez créer une stratégie avec l’API REST pour les définitions Azure Policy. L’API REST vous permet de créer et de supprimer des définitions de stratégies, ainsi que d’obtenir des informations sur les définitions existantes. Pour créer une définition de stratégie, utilisez l’exemple suivant :
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
@@ -156,7 +157,7 @@ Incluez un texte de demande semblable à l’exemple suivant :
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Créer une définition de stratégie avec PowerShell
 
-Avant de passer à l’exemple PowerShell, assurez-vous d’avoir installé la dernière version du module Azure PowerShell Az. 
+Avant de passer à l’exemple PowerShell, assurez-vous d’avoir installé la dernière version du module Azure PowerShell Az.
 
 Vous pouvez créer une définition de stratégie en utilisant l’applet de commande `New-AzPolicyDefinition`.
 
@@ -369,13 +370,14 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
    ![Affecter une définition à partir de la page de définition d’initiative](../media/create-and-manage/assign-definition.png)
 
-   Vous pouvez également cliquer avec le bouton droit sur la ligne sélectionnée ou cliquer sur le bouton de sélection situé en fin de ligne pour faire apparaître un menu contextuel.  Sélectionnez ensuite **Affecter**.
+   Vous pouvez également cliquer avec le bouton droit sur la ligne sélectionnée ou cliquer sur le bouton de sélection situé en fin de ligne pour faire apparaître un menu contextuel. Sélectionnez ensuite **Affecter**.
 
    ![Autres options pour une initiative](../media/create-and-manage/select-right-click.png)
 
 1. Renseignez la page **Garantir la sécurité : affecter l’initiative** en entrant les exemples d’informations suivants. Vous pouvez utiliser vos propres informations.
 
-   - Étendue : l’abonnement ou le groupe d’administration dans lequel vous avez enregistré l’initiative devient la valeur par défaut.  Vous pouvez changer l’étendue pour affecter l’initiative à un abonnement ou un groupe de ressources, à l’emplacement d’enregistrement.
+   - Étendue : l’abonnement ou le groupe d’administration dans lequel vous avez enregistré l’initiative devient la valeur par défaut.
+     Vous pouvez changer l’étendue pour affecter l’initiative à un abonnement ou un groupe de ressources, à l’emplacement d’enregistrement.
    - Exclusions : configurez des ressources dans l’étendue afin d’empêcher que l’affectation d’initiative leur soit appliquée.
    - Définition d’initiative et Nom de l’affectation : Garantir la sécurité (prérenseigné avec le nom de l’initiative assignée).
    - Description : cette affectation d’initiative est adaptée afin d’appliquer ce groupe de définitions de stratégie.
@@ -389,7 +391,8 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
 1. Sélectionnez **Conformité** dans la partie gauche de la page Azure Policy.
 
-1. Localisez l’initiative **Obtenir des sources**. Elle est probablement toujours à l’_État de conformité_ **Non démarrée**. Cliquez sur l’initiative pour obtenir tous les détails sur la progression de l’affectation.
+1. Localisez l’initiative **Obtenir des sources**. Elle est probablement toujours à l’_État de conformité_ **Non démarrée**.
+   Cliquez sur l’initiative pour obtenir tous les détails sur la progression de l’affectation.
 
    ![Page de conformité de l’initiative - évaluations non démarrées](../media/create-and-manage/compliance-status-not-started.png)
 

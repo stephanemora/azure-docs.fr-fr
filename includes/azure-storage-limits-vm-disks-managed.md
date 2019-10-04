@@ -9,24 +9,24 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395645"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "67177054"
 ---
-**Disque dur standard des disques gérés**
+**Disques managés HDD Standard**
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
 
-**Disque SSD standard des disques gérés**
+**Disques managés SSD Standard**
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-**Premium SSD des disques gérés : Limites par disque**
+**Disques managés SSD Premium : Limites par disque**
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-**Premium SSD des disques gérés : Limites par machine virtuelle**
+**Disques managés SSD Premium : Limites par machine virtuelle**
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre maximal d’IOPS par machine virtuelle |80 000 E/S par seconde avec la machine virtuelle GS5 |
+| Maximum d’E/S par seconde par machine virtuelle |80 000 E/S par seconde avec la machine virtuelle GS5 |
 | Débit maximal par machine virtuelle |2 000 Mo/s avec la machine virtuelle GS5 |

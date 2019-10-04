@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: v-ant-msft
-ms.openlocfilehash: d96444984c503da68ccbda3aef9fea0ede5c7ff9
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.author: jeedes
+ms.openlocfilehash: 43ae028e57578634c34c69357a264fdb180b8a1f
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579051"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515360"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zscaler Three pour le provisionnement automatique d’utilisateurs
 
@@ -28,8 +28,6 @@ Ce tutoriel montre comment configurer Azure Active Directory (Azure AD) pour pro
 
 > [!NOTE]
 > Ce tutoriel décrit un connecteur reposant sur le service de provisionnement d’utilisateurs Azure AD. Pour obtenir des informations importantes sur l’utilisation et le fonctionnement de ce service, ainsi que des réponses aux questions fréquentes, consultez [Automatiser le provisionnement et le déprovisionnement d’utilisateurs dans les applications SaaS avec Azure Active Directory](../active-directory-saas-app-provisioning.md).
->
-> Ce connecteur est actuellement en préversion publique. Pour plus d’informations sur les conditions d’utilisation Azure générales relatives aux fonctionnalités en préversion, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prérequis
 

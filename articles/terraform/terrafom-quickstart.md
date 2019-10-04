@@ -5,14 +5,14 @@ services: terraform
 author: neilpeterson
 ms.service: azure
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 09/20/2019
 ms.author: nepeters
-ms.openlocfilehash: 6c858514c29a040539516f42e024f1633c2512a7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c53f3a31b46f00d3207cd8f47dcfbfa131c03666
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776528"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173521"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Créer une configuration Terraform pour Azure
 
@@ -24,7 +24,7 @@ Dans cette section, vous allez créer la configuration d’une instance Azure Co
 
 Sélectionnez **Essayer maintenant** pour ouvrir Azure Cloud Shell. Ensuite, entrez `code .` pour ouvrir l’éditeur de code de Cloud Shell.
 
-```azurecli-interactive
+```bash
 code .
 ```
 
@@ -34,7 +34,7 @@ Cette configuration modélise un groupe de ressources Azure, un entier aléatoir
 
 Quand vous avez terminé, enregistrez le fichier sous le nom `main.tf`. Pour cela, utilisez les points de suspension dans la partie supérieure droite de l’éditeur de code.
 
-```azurecli-interactive
+```hcl
 resource "azurerm_resource_group" "vote-resource-group" {
   name     = "vote-resource-group"
   location = "westus"
@@ -67,7 +67,7 @@ resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
 
 La commande [terraform init](https://www.terraform.io/docs/commands/init.html) initialise le répertoire de travail. Exécutez `terraform init` dans le terminal Cloud Shell pour préparer le déploiement de la nouvelle configuration.
 
-```azurecli-interactive
+```bash
 terraform init
 ```
 
@@ -75,13 +75,13 @@ La commande [terraform plan](https://www.terraform.io/docs/commands/plan.html) p
 
 Exécutez `terraform plan` pour tester la nouvelle configuration Terraform.
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 Appliquez la configuration. Pour cela, utilisez la commande [terraform apply](https://www.terraform.io/docs/commands/apply.html) et spécifiez le nom du fichier de plan. Cette commande déploie les ressources dans votre abonnement Azure.
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -98,7 +98,7 @@ Deux variables d’environnement sont définies : `COSMOS_DB_ENDPOINT` et `COSM
 
 La configuration inclut également un bloc de sortie qui retourne le nom de domaine complet de l’instance de conteneur.
 
-```azurecli-interactive
+```hcl
 resource "azurerm_container_group" "vote-aci" {
   name                = "vote-aci"
   location            = "${azurerm_resource_group.vote-resource-group.location}"
@@ -112,12 +112,12 @@ resource "azurerm_container_group" "vote-aci" {
     image  = "microsoft/azure-vote-front:cosmosdb"
     cpu    = "0.5"
     memory = "1.5"
-    ports  = {
+    ports {
       port     = 80
       protocol = "TCP"
     }
 
-    secure_environment_variables {
+    secure_environment_variables = {
       "COSMOS_DB_ENDPOINT"  = "${azurerm_cosmosdb_account.vote-cosmos-db.endpoint}"
       "COSMOS_DB_MASTERKEY" = "${azurerm_cosmosdb_account.vote-cosmos-db.primary_master_key}"
       "TITLE"               = "Azure Voting App"
@@ -134,13 +134,13 @@ output "dns" {
 
 Exécutez `terraform plan` pour créer le plan mis à jour et visualiser les changements à effectuer. Vous devriez voir qu’une ressource Azure Container Instances a été ajoutée à la configuration.
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 Enfin, exécutez `terraform apply` pour appliquer la configuration.
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -156,7 +156,7 @@ Accédez au nom de domaine complet de l’instance de conteneur. Si tout a bien 
 
 Quand vous avez terminé, vous pouvez supprimer les ressources et le groupe de ressources Azure à l’aide de la commande [terraform destroy](https://www.terraform.io/docs/commands/destroy.html).
 
-```azurecli-interactive
+```bash
 terraform destroy -auto-approve
 ```
 

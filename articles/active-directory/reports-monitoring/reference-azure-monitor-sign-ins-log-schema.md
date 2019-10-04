@@ -1,9 +1,9 @@
 ---
-title: Schéma de journal de connexion Azure Active Directory dans Azure Monitor | Microsoft Docs
-description: Décrire l’authentification Azure AD dans le schéma de journal pour une utilisation dans Azure Monitor
+title: Schéma des journaux de connexion Azure Active Directory dans Azure Monitor | Microsoft Docs
+description: Décrire le schéma des journaux de connexion Azure AD pour une utilisation dans Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ac6c56dca100ea9836158f46881c4eb12213e1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c3a05a531fd03cbd77bf3460ec45300692764565
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001148"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259154"
 ---
-# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpréter le schéma des journaux de connexion Azure AD dans Azure Monitor
+# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpréter le schéma des journaux de connexion Azure Active Directory dans Azure Monitor
 
 Cet article décrit le schéma de journal de connexion Azure Active Directory (Azure AD) dans Azure Monitor. La plupart des informations liées aux connexions sont fournies sous l’attribut *Propriétés* de l’objet `records`.
 
@@ -149,20 +149,25 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
 | ResourceId | Valeur non mappée, vous pouvez ignorer ce champ.  |
 | OperationName | Pour les connexions, cette valeur est toujours *Activité de connexion*. |
 | operationVersion | Version d’API REST demandée par le client. |
-| Catégorie | Pour les connexions, cette valeur est toujours *SignIn*. | 
+| Category | Pour les connexions, cette valeur est toujours *SignIn*. | 
 | TenantId | GUID de locataire associé aux journaux d’activité. |
 | ResultType | Le résultat de l’opération de connexion peut être *Success* (Réussite) ou *Failure* (Échec). | 
 | ResultSignature | Contient le code d’erreur éventuel de l’opération de connexion. |
 | resultDescription | Fournit la description de l’erreur pour l’opération de connexion. |
-| DurationMs |  Valeur non mappée, vous pouvez ignorer ce champ.|
+| riskDetail | riskDetail | Fournit le motif de l’état spécifique d’un utilisateur à risque, d’une connexion ou d’une détection d’événement à risque. Les valeurs possibles sont : `none`, `adminGeneratedTemporaryPassword`, `userPerformedSecuredPasswordChange`, `userPerformedSecuredPasswordReset`, `adminConfirmedSigninSafe`, `aiConfirmedSigninSafe`, `userPassedMFADrivenByRiskBasedPolicy`, `adminDismissedAllRiskForUser`, `adminConfirmedSigninCompromised`, `unknownFutureValue`. La valeur `none` signifie qu’aucune action n’a été effectuée sur l’utilisateur ou la connexion jusqu’à présent. <br>**Remarque :** Les détails de cette propriété nécessitent une licence Azure AD Premium P2. Les autres licences retournent la valeur `hidden`. |
+| riskEventTypes | riskEventTypes | Types de détections d’événements à risque associés à la connexion. Les valeurs possibles sont : `unlikelyTravel`, `anonymizedIPAddress`, `maliciousIPAddress`, `unfamiliarFeatures`, `malwareInfectedIPAddress`, `suspiciousIPAddress`, `leakedCredentials`, `investigationsThreatIntelligence`, `generic` et `unknownFutureValue`. |
+| riskLevelAggregated | riskLevel | Niveau de risque agrégé. Les valeurs possibles sont : `none`, `low`, `medium`, `high`, `hidden` et `unknownFutureValue`. La valeur `hidden` indique que l’utilisateur ou la connexion n’a pas été activé pour Azure AD Identity Protection. **Remarque :** Les détails de cette propriété sont uniquement disponibles pour les clients Azure AD Premium P2. Tous les autres clients se verront retourner `hidden`. |
+| riskLevelDuringSignIn | riskLevel | Niveau de risque pendant la connexion. Les valeurs possibles sont : `none`, `low`, `medium`, `high`, `hidden` et `unknownFutureValue`. La valeur `hidden` indique que l’utilisateur ou la connexion n’a pas été activé pour Azure AD Identity Protection. **Remarque :** Les détails de cette propriété sont uniquement disponibles pour les clients Azure AD Premium P2. Tous les autres clients se verront retourner `hidden`. |
+| riskState | riskState | Signale l’état de l’utilisateur à risque, de la connexion ou d’une détection d’événement à risque. Les valeurs possibles sont : `none`, `confirmedSafe`, `remediated`, `dismissed`, `atRisk`, `confirmedCompromised`, `unknownFutureValue`. |
+| DurationMs |  Valeur non mappée, vous pouvez ignorer ce champ. |
 | callerIpAddress | Adresse IP du client à l’origine de la demande. | 
 | CorrelationId | GUID facultatif transmis par le client. Cette valeur peut aider à corréler des opérations côté client avec des opérations côté serveur, et est utile lors du suivi de journaux d’activité couvrant plusieurs services. |
 | Identité | Identité extraite du jeton présenté lors de la création de la demande. Il peut s’agir d’un compte d’utilisateur, d’un compte système ou d’un principal du service. |
 | Niveau | Fournit le type de message. Pour l’audit, il s’agit toujours d’*Information*. |
-| Lieu | Indique l’emplacement de l’activité de connexion. |
+| Location | Indique l’emplacement de l’activité de connexion. |
 | properties | Répertorie toutes les propriétés associées aux connexions. Pour plus d’informations, voir la [documentation de référence sur l’API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Ce schéma utilise les mêmes noms d’attribut que la ressource de connexion pour une meilleure lisibilité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Interpréter le schéma des journaux d’audit dans Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [En savoir plus sur les journaux de diagnostic Azure](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [En savoir plus sur les journaux de diagnostic Azure](../../azure-monitor/platform/resource-logs-overview.md)

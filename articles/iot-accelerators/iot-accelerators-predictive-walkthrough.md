@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 3387996dc0e1953eaafee9c4c61eb8faa865b654
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58172833"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447534"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Présentation de l’accélérateur de solution de maintenance prédictive
 
@@ -71,7 +71,7 @@ IoT Hub fournit un accusé de réception de la commande de l’appareil.
 **L’hôte de processeur d’événements** s’exécute dans une tâche web Azure. Le **processeur d’événements** mémorise les valeurs moyennes des capteurs sur un cycle terminé. Il les transmet à un modèle formé pour calculer la durée de vie utile restante d’un moteur. Une API permet d’accéder au modèle dans un espace de travail Machine Learning qui fait partie de la solution.
 
 ## <a name="machine-learning"></a>Machine Learning
-Le composant Machine Learning utilise un modèle dérivé des données collectées à partir des moteurs d’avion réels. Vous pouvez accéder à l’espace de travail Machine Learning à partir de la vignette sur le [azureiotsolutions.com] [ lnk-azureiotsolutions] page. La vignette est disponible lorsque le statut de la solution est **Prêt**.
+Le composant Machine Learning utilise un modèle dérivé des données collectées à partir des moteurs d’avion réels. Vous pouvez accéder à l’espace de travail Machine Learning depuis la vignette de votre solution dans la page [azureiotsolutions.com][lnk-azureiotsolutions]. La vignette est disponible lorsque le statut de la solution est **Prêt**.
 
 Le modèle Machine Learning est disponible comme modèle qui montre comment utiliser les données télémétriques recueillies via les services des accélérateurs de solution IoT. Microsoft a créé un [modèle de régression][lnk_regression_model] d’un moteur d’avion basé sur des données disponibles publiquement<sup>\[1\]</sup> et des instructions d’utilisation détaillées.
 

@@ -11,20 +11,24 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.custom: fasttrack-edit
+ms.openlocfilehash: a585ab059319b15be1f2a86bf10b7dc58da72494
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454505"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299463"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacité d’une instance du service Gestion des API Azure
 
-La **capacité** est la [métrique Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) la plus importante et la seule dont vous devez tenir compte pour prendre des décisions éclairées en ce qui concerne la mise à l’échelle d’une instance du service Gestion des API pour accepter une charge plus élevée. Sa construction est complexe et requiert l’adoption d’un certain comportement.
+La **capacité** est la [métrique Azure Monitor](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) la plus importante et celle dont vous devez tenir compte pour prendre des décisions éclairées en ce qui concerne la mise à l’échelle d’une instance du service Gestion des API pour accepter une charge plus élevée. Sa construction est complexe et requiert l’adoption d’un certain comportement.
 
 Cet article explique ce à quoi correspond la **capacité**, ainsi que son comportement. Il décrit comment accéder aux métriques de **capacité** dans le Portail Azure et vous informe quand le moment est venu de procéder à une mise à l’échelle ou à une mise à niveau de votre instance du service Gestion des API.
 
-## <a name="prerequisites"></a>Conditions préalables
+> [!IMPORTANT]
+> Cet article explique comment surveiller et mettre à l’échelle votre instance de Gestion des API Azure en fonction de sa métrique de capacité. Toutefois, il est tout aussi important de comprendre ce qui se passe quand une instance de Gestion des API Azure a réellement *atteint* sa capacité. La Gestion des API Azure n’applique pas de limitation au niveau du service pour empêcher une surcharge physique des instances. Quand une instance atteint sa capacité physique, elle se comporte comme tout serveur web surchargé incapable de traiter des demandes entrantes : la latence augmente, des connexions sont abandonnées, des erreurs de délai d’attente se produisent, etc. Cela signifie que les clients d’API doivent être prêts à gérer cette éventualité comme avec tout autre service externe (par exemple, en appliquant des stratégies de nouvelle tentative).
+
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre les étapes décrites dans cet article, vous devez avoir :
 
@@ -40,12 +44,15 @@ Pour suivre les étapes décrites dans cet article, vous devez avoir :
 
 ![Métrique de capacité](./media/api-management-capacity/capacity-ingredients.png)
 
-La **capacité** est un indicateur de charge sur une instance APIM. Elle reflète l’utilisation des ressources (UC, mémoire) et les longueurs de files d’attente réseau. L’utilisation de la mémoire et de l’UC indique la consommation des ressources par :
+La **capacité** est un indicateur de charge sur une instance de gestion des API. Elle reflète l’utilisation des ressources (UC, mémoire) et les longueurs de files d’attente réseau. L’utilisation de la mémoire et de l’UC indique la consommation des ressources par :
 
-+ les services APIM, tels que les actions de gestion ou le traitement des requêtes, qui peuvent inclure le transfert de requêtes ou l’exécution d’une stratégie
-+ les processus de système d’exploitation sélectionnés, y compris les processus qui impliquent le coût des négociations SSL sur les nouvelles connexions.
++ Les services de plan de données de Gestion des API, tels que le traitement des demandes, qui incluent le transfert de demandes ou l’exécution d’une stratégie.
++ Les services de plan de gestion de Gestion des API, tels que les actions de gestion appliquées via le portail Azure ou ARM, ou une charge provenant du [portail des développeurs](api-management-howto-developer-portal.md).
++ Les processus de système d’exploitation sélectionnés, y compris les processus qui impliquent le coût des négociations SSL sur les nouvelles connexions.
 
 La **capacité** totale est une moyenne de ses propres valeurs issues de chacune des unités d’une instance du service Gestion des API.
+
+Bien que la **métrique de capacité** soit conçue pour mettre en évidence les problèmes liés à votre instance de gestion des API, il existe des cas où les problèmes ne seront pas reflétés dans les modifications de la **métrique de capacité**.
 
 ## <a name="capacity-metric-behavior"></a>Comportement de la métrique de capacité
 
@@ -63,13 +70,15 @@ Plus les opérations sur les requêtes sont complexes, plus la consommation de l
 ![Pics de la métrique de capacité](./media/api-management-capacity/capacity-spikes.png)
 
 La **capacité** peut également augmenter par intermittence ou être supérieure à zéro même si aucune requête n’est en cours de traitement. Cela se produit en raison d’actions propres au système ou à la plateforme et ne doit pas être pris en compte lorsque vous envisagez de mettre à l’échelle une instance.
+
+Une **métrique de capacité faible** ne signifie pas nécessairement que votre instance de gestion des API ne rencontre aucun problème.
   
 ## <a name="use-the-azure-portal-to-examine-capacity"></a>Utiliser le Portail Azure pour étudier la capacité
   
 ![Métrique de capacité](./media/api-management-capacity/capacity-metric.png)  
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à votre instance APIM.
-2. Sélectionnez **Métriques (préversion)**.
+2. Sélectionnez **Métriques**.
 3. Dans la section de couleur violette, sélectionnez la métrique **Capacité** parmi les métriques disponibles et conservez la valeur d’agrégation **Moy** par défaut.
 
     > [!TIP]
@@ -78,7 +87,7 @@ La **capacité** peut également augmenter par intermittence ou être supérieur
 4. Dans la section de couleur verte, sélectionnez **Emplacement** pour fractionner la métrique par dimension.
 5. Choisissez une plage horaire dans la barre supérieure de la section.
 
-    Vous pouvez définir une alerte Métrique vous permettant de savoir à quel moment un événement inattendu survient. Par exemple, obtenir des notifications lorsque votre instance APIM a été supérieure à sa capacité maximale attendue pendant plus de 20 minutes.
+    Vous pouvez définir une alerte Métrique vous permettant de savoir à quel moment un événement inattendu survient. Par exemple, recevez des notifications quand votre instance APIM dépasse sa capacité maximale attendue pendant plus de 20 minutes.
 
     >[!TIP]
     > Vous pouvez configurer des alertes pour déterminer quand votre service n’a plus assez de capacité ou utiliser la fonctionnalité de mise à l’échelle automatique d’Azure Monitor pour ajouter automatiquement une unité du service Gestion des API Azure. L’opération de mise à l’échelle peut prendre environ 30 minutes, vous devez donc prévoir vos règles en conséquence.  

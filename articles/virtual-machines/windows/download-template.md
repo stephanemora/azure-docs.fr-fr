@@ -4,23 +4,22 @@ description: Téléchargez un modèle de machine virtuelle pour faciliter l’au
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 37e833e5ba2fcbc9fcfe0a27d5b607a5c6cdd55b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798825"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079528"
 ---
 # <a name="download-the-template-for-a-vm"></a>Télécharger le modèle d’une machine virtuelle
 Lorsque vous créez une machine virtuelle dans Azure à l’aide du portail ou de PowerShell, un modèle Resource Manager est automatiquement créé pour vous. Vous pouvez utiliser ce modèle pour dupliquer rapidement un déploiement. Le modèle contient des informations sur toutes les ressources d’un groupe de ressources. Pour une machine virtuelle, cela signifie que le modèle contient tout ce qui est créé pour prendre en charge la machine virtuelle dans ce groupe de ressources, notamment les ressources réseau.
@@ -29,7 +28,7 @@ Lorsque vous créez une machine virtuelle dans Azure à l’aide du portail ou d
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu de gauche, sélectionnez **Machines virtuelles**.
 3. Sélectionnez la machine virtuelle dans la liste.
-4. Sélectionnez **exporter le modèle**.
+4. Sélectionnez **Exporter le modèle**.
 5. Sélectionnez **Télécharger** depuis le menu en haut et enregistrez le fichier .zip sur votre ordinateur local.
 6. Ouvrez le fichier .zip et extrayez les fichiers dans un dossier. Le fichier .zip contient :
    

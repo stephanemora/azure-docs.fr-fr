@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 060e071a5c54baa607733cd4fe7342fd981cf827
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a088675bc1610daf275bac77ae222f0e664afd67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257805"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090559"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Didacticiel : Intégration d'Azure Active Directory à Skills Base
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Skills Base à Azure AD, vous devez ajouter 
 
 **Pour ajouter Skills Base à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

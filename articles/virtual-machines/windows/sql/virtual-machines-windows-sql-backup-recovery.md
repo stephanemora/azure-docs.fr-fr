@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.openlocfilehash: e4c126bbac73accb984f1040a7fea1740d919233
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286293"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100545"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure
 
@@ -35,7 +34,7 @@ Le tableau suivant contient des informations sur les différentes options de sau
 | Stratégie | Versions de SQL | Description |
 |---|---|---|
 | [Sauvegarde automatisée](#automated) | 2014<br/> 2016<br/> 2017 | La sauvegarde automatisée vous permet de planifier des sauvegardes régulières pour toutes les bases de données d’une machine virtuelle SQL Server. Les sauvegardes sont stockées dans Stockage Azure pendant 30 jours maximum. Depuis SQL Server 2016, Sauvegarde automatisée v2 offre des options supplémentaires telles que la configuration d’une planification manuelle et la fréquence des sauvegardes complètes et des sauvegardes de fichiers journaux. |
-| [Sauvegarde Azure pour machines virtuelles SQL](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | Sauvegarde Azure contient une fonctionnalité de sauvegarde Entreprise pour SQL Server exécuté sur des machines virtuelles Azure. Avec ce service, vous pouvez gérer de manière centralisée les sauvegardes de plusieurs serveurs et de milliers de bases de données. Les bases de données peuvent être restaurées à un point spécifique dans le temps dans le portail. Ce service propose une stratégie de rétention personnalisable qui peut conserver des sauvegardes pendant des années. Cette fonctionnalité est actuellement disponible en préversion publique. |
+| [Sauvegarde Azure pour machines virtuelles SQL](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | Sauvegarde Azure contient une fonctionnalité de sauvegarde Entreprise pour SQL Server exécuté sur des machines virtuelles Azure. Avec ce service, vous pouvez gérer de manière centralisée les sauvegardes de plusieurs serveurs et de milliers de bases de données. Les bases de données peuvent être restaurées à un point spécifique dans le temps dans le portail. Ce service propose une stratégie de rétention personnalisable qui peut conserver des sauvegardes pendant des années. |
 | [Sauvegarde manuelle](#manual) | Tous | En fonction de votre version de SQL Server, il existe différentes techniques permettant de sauvegarder et de restaurer manuellement SQL Server s’exécutant sur une machine virtuelle Azure. Dans ce scénario, vous êtes chargé du mode de sauvegarde de vos bases de données ainsi que de l’emplacement et la gestion du stockage de ces sauvegardes. |
 
 Les sections suivantes décrivent plus en détail chacune de ces options. La dernière section de cet article contient un résumé sous la forme d’une matrice des fonctionnalités.
@@ -56,7 +55,7 @@ Pour restaurer une base de données, vous devez localiser le ou les fichiers de 
 
 Pour plus d’informations sur la configuration de la sauvegarde automatisée des machines virtuelles SQL, consultez les articles suivants :
 
-- **SQL Server 2016/2017** : [Sauvegarde automatisée version 2 pour les Machines virtuelles Azure](virtual-machines-windows-sql-automated-backup-v2.md)
+- **SQL Server 2016/2017** : [Sauvegarde automatisée version 2 pour les machines virtuelles Azure](virtual-machines-windows-sql-automated-backup-v2.md)
 - **SQL Server 2014** : [Sauvegarde automatisée pour les machines virtuelles SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 
 ## <a id="azbackup"></a> Sauvegarde Azure pour les machines virtuelles SQL
@@ -78,7 +77,7 @@ Pour une vue d’ensemble rapide de son fonctionnement et une démonstration, re
 
 > [!VIDEO https://www.youtube.com/embed/wmbANpHos_E]
 
-Cette solution de sauvegarde Azure pour les machines virtuelles SQL est généralement disponible. Pour plus d’informations, consultez [Sauvegarder une base de données SQL Server dans Azure](../../../backup/backup-azure-sql-database.md).
+Cette solution Sauvegarde Azure pour les machines virtuelles SQL est mise à la disposition générale. Pour plus d’informations, consultez [Sauvegarder une base de données SQL Server dans Azure](../../../backup/backup-azure-sql-database.md).
 
 ## <a id="manual"></a> Sauvegarde manuelle
 
@@ -130,23 +129,23 @@ Le tableau ci-dessous récapitule les fonctionnalités de chaque option de sauve
 
 || **Sauvegarde automatisée** | **Sauvegarde Azure pour SQL** | **Sauvegarde manuelle** |
 |---|---|---|---|
-| Service Azure supplémentaire nécessaire |   | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Configuration d’une stratégie de sauvegarde dans le portail Azure | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Restauration des bases de données dans le portail Azure |   | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Gestion de plusieurs serveurs dans un tableau de bord |   | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Limite de restauration dans le temps | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Objectif de point de récupération (RPO) de 15 minutes | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Stratégie de rétention de sauvegarde à court terme (jours) | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Stratégie de rétention de sauvegarde à long terme (mois, années) |   | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Prise en charge intégrée de SQL Server Always On |   | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Sauvegarde vers des comptes de stockage Azure | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatique) | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatique) | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(gérée par le client) |
-| Gestion des fichiers de sauvegarde et de stockage | | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
-| Sauvegarde sur des disques attachés sur la machine virtuelle |   |   | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Rapports de sauvegarde personnalisables établis de façon centralisée |   | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Alertes par e-mail consolidées pour informer des défaillances |   | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Personnaliser la surveillance basée sur les journaux d’Azure Monitor |   | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Surveillance des travaux de sauvegarde avec SSMS ou des scripts Transact-SQL | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-| Restauration des bases de données avec SSMS ou des scripts Transact-SQL | ![Oui](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Service Azure supplémentaire nécessaire |   | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Configuration d’une stratégie de sauvegarde dans le portail Azure | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Restauration des bases de données dans le portail Azure |   | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Gestion de plusieurs serveurs dans un tableau de bord |   | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Limite de restauration dans le temps | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Objectif de point de récupération (RPO) de 15 minutes | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Stratégie de rétention de sauvegarde à court terme (jours) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Stratégie de rétention de sauvegarde à long terme (mois, années) |   | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Prise en charge intégrée de SQL Server Always On |   | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Sauvegarde vers des comptes de stockage Azure | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatique) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(automatique) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png)(gérée par le client) |
+| Gestion des fichiers de sauvegarde et de stockage | | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |  |
+| Sauvegarde sur des disques attachés sur la machine virtuelle |   |   | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Rapports de sauvegarde personnalisables établis de façon centralisée |   | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Alertes par e-mail consolidées pour informer des défaillances |   | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Personnaliser la supervision basée sur les journaux Azure Monitor |   | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Surveillance des travaux de sauvegarde avec SSMS ou des scripts Transact-SQL | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
+| Restauration des bases de données avec SSMS ou des scripts Transact-SQL | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![OUI](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

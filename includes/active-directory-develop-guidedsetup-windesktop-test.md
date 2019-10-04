@@ -15,11 +15,11 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803953"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177241"
 ---
 ## <a name="test-your-code"></a>Test de votre code
 
@@ -44,7 +44,7 @@ Une fois connecté, vous devez voir les informations de profil utilisateur qui s
 |Propriété  |Format  |Description |
 |---------|---------|---------|
 
-|**Nom d’utilisateur**  | <span> user@domain.com </span> | Le nom d’utilisateur qui est utilisé pour identifier l’utilisateur. | | **Expiration du jeton** | Date/heure | Heure à laquelle le jeton expire. MSAL repousse la date d’expiration en renouvelant le jeton en fonction des besoins. |
+|**Nom d’utilisateur**  |<span>user@domain.com</span> |Le nom d’utilisateur qui est utilisé pour identifier l’utilisateur.| |**Expiration du jeton** |Date/heure | Date/heure à laquelle le jeton expire. MSAL repousse la date d’expiration en renouvelant le jeton de façon appropriée.|
 
 
 <!--start-collapse-->

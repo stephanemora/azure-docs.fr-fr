@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: d277786fd08e1448b3d5ccf4fd45055fe069e4c0
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078786"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097775"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Utiliser le kit SDK du serveur backend .NET pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -35,7 +35,7 @@ Cette rubrique montre comment utiliser le kit SDK du serveur backend .NET dans l
 ## <a name="reference-documentation"></a>Documentation de référence
 La documentation de référence du SDK serveur se trouve ici : [Documentation de référence .NET Azure Mobile Apps][1].
 
-## <a name="create-app"></a>Guide pratique : Créer un back-end d’application mobile .NET
+## <a name="create-app"></a>Procédure : Créer un back-end d’application mobile .NET
 Si vous démarrez un nouveau projet, vous pouvez créer une application App Service à l’aide du [portail Azure] ou de Visual Studio. Vous pouvez exécuter l’application App Service en local ou publier le projet sur votre application mobile App Service hébergée sur le cloud.
 
 Si vous ajoutez des fonctionnalités mobiles à un projet existant, consultez la section [Télécharger et initialiser le Kit de développement logiciel (SDK)](#install-sdk) .
@@ -51,21 +51,21 @@ Dans le panneau *Prise en main*, sous **Créer une table API**, sélectionnez **
 
 Installez la charge de travail Azure par le biais de Visual Studio Installer pour publier le projet Azure Mobile Apps à partir de Visual Studio. Une fois que vous avez installé le SDK, créez une application ASP.NET en procédant comme suit :
 
-1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu **Fichier** > **Nouveau** > **Projet...**).
-2. Développez **Visual C#**, puis sélectionnez **Web**.
-3. Sélectionnez **Application Web ASP.NET (.NET Framework)**.
+1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu **Fichier** > **Nouveau** > **Projet...** ).
+2. Développez **Visual C#** , puis sélectionnez **Web**.
+3. Sélectionnez **Application Web ASP.NET (.NET Framework)** .
 4. Renseignez le nom du projet. Cliquez ensuite sur **OK**.
 5. Sélectionnez **Application mobile Azure** dans la liste des modèles.
 6. Cliquez sur **OK** pour créer la solution.
-7. Cliquez avec le bouton droit sur le projet dans **l’Explorateur de solutions**, choisissez **Publier...**, puis **App Service** comme cible de publication.
+7. Cliquez avec le bouton droit sur le projet dans **l’Explorateur de solutions**, choisissez **Publier...** , puis **App Service** comme cible de publication.
 8. Suivez les invites pour procéder à l’authentification et à la sélection d’un backend Azure App Service nouveau ou existant comme cible de publication.
 
 ### <a name="create-a-net-backend-using-visual-studio-2015"></a>Créer un backend .NET à l’aide de Visual Studio 2015
 
 Pour créer un projet Azure Mobile Apps dans Visual Studio, installez le [Kit de développement logiciel (SDK) Azure pour .NET][4] (version 2.9.0 ou ultérieure). Une fois que vous avez installé le SDK, créez une application ASP.NET en procédant comme suit :
 
-1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu **Fichier** > **Nouveau** > **Projet...**).
-2. Développez **Modèles** > **Visual C#**, puis sélectionnez **Web**.
+1. Ouvrez la boîte de dialogue **Nouveau projet** (dans le menu **Fichier** > **Nouveau** > **Projet...** ).
+2. Développez **Modèles** > **Visual C#** , puis sélectionnez **Web**.
 3. Sélectionnez **Application web ASP.NET**.
 4. Renseignez le nom du projet. Cliquez ensuite sur **OK**.
 5. Sous *Modèles ASP.NET 4.5.2*, sélectionnez **Application mobile Azure**. Activez la case à cocher **Hôte dans le cloud** afin de créer un backend mobile dans le cloud pour la publication de ce projet.
@@ -104,7 +104,7 @@ Pour activer des fonctionnalités spécifiques, vous devez appeler les méthodes
         .MapApiControllers()
         .ApplyTo(config);
 
-Le démarrage rapide du serveur à partir du portail Azure appelle **UseDefaultConfiguration()**. Cette configuration s’apparente à celle-ci :
+Le démarrage rapide du serveur à partir du portail Azure appelle **UseDefaultConfiguration()** . Cette configuration s’apparente à celle-ci :
 
         new MobileAppConfiguration()
             .AddMobileAppHomeController()             // from the Home package
@@ -166,7 +166,7 @@ Définissez un contrôleur de table pour exposer une table SQL aux clients mobil
 2. Configurer une référence de table dans la classe DbContext Mobile.
 3. Créer un contrôleur de table.
 
-Un objet de transfert de données (DTO) est un objet C# simple qui hérite de `EntityData`.  Par exemple : 
+Un objet de transfert de données (DTO) est un objet C# simple qui hérite de `EntityData`.  Par exemple :
 
     public class TodoItem : EntityData
     {
@@ -197,7 +197,7 @@ Le DTO est utilisé pour définir la table au sein de la base de données SQL.  
 
 Si vous avez installé le Kit de développement logiciel (SDK) Azure, vous pouvez maintenant créer un modèle de contrôleur de table comme suit :
 
-1. Cliquez avec le bouton droit sur le dossier Contrôleurs et sélectionnez **Ajouter** > **Contrôleur...**.
+1. Cliquez avec le bouton droit sur le dossier Contrôleurs et sélectionnez **Ajouter** > **Contrôleur...** .
 2. Sélectionnez l’option **Contrôleur de tables dans les applications mobiles Azure**, puis cliquez sur **Ajouter**.
 3. Dans la boîte de dialogue **Ajouter un contrôleur** :
    * Dans la liste déroulante **Classe de modèle** , sélectionnez votre nouveau DTO.
@@ -412,7 +412,7 @@ Toutes les balises fournies par le client pendant l’inscription aux notificati
 
 Pour obtenir un exemple, consultez [Client-added push notification tags][5] (Balises de notification Push ajoutées au client) dans l’exemple de démarrage rapide complet d’App Service Mobile Apps.
 
-## <a name="push-user"></a>Guide pratique : Envoyer des notifications Push à un utilisateur authentifié
+## <a name="push-user"></a>Procédure : Envoyer des notifications Push à un utilisateur authentifié
 Quand un utilisateur authentifié s’inscrit aux notifications Push, une balise avec l’ID d’utilisateur est automatiquement ajoutée à l’inscription. Grâce à cette balise, vous pouvez envoyer des notifications Push à tous les appareils inscrits par cette personne. Le code suivant permet d’obtenir le SID de l’utilisateur qui émet la demande et d’envoyer un modèle de notification Push à chaque inscription d’appareil pour cette personne :
 
     // Get the current user SID and create a tag for the current user.
@@ -440,7 +440,7 @@ Vous pouvez écrire dans les journaux de diagnostics App Service à l’aide du 
 
 Pour activer les diagnostics et écrire dans les journaux d’activité :
 
-1. Suivez les étapes indiquées dans [Activer des diagnostics](../app-service/troubleshoot-diagnostic-logs.md#enablediag).
+1. Suivez les étapes [d’Activer la journalisation des applications (Windows)](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows).
 2. Ajoutez l’instruction using suivante dans votre fichier de code :
 
         using System.Web.Http.Tracing;
@@ -449,7 +449,7 @@ Pour activer les diagnostics et écrire dans les journaux d’activité :
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Publiez à nouveau votre projet de serveur et accédez au serveur principal d’application mobile pour exécuter le chemin d’accès du code avec la journalisation.
-5. Téléchargez et évaluez les journaux d’activité, comme décrit dans [Guide pratique : Télécharger des journaux d’activité](../app-service/troubleshoot-diagnostic-logs.md#download).
+5. Téléchargez et évaluez les journaux d’activité, comme décrit dans [Accéder aux fichiers journaux](../app-service/troubleshoot-diagnostic-logs.md#access-log-files).
 
 ### <a name="local-debug"></a>Débogage local avec authentification
 Vous pouvez exécuter localement votre application afin de tester les modifications avant de les publier dans le cloud. Pour la plupart des backends Azure Mobile Apps, appuyez sur *F5* lorsque vous êtes dans Visual Studio. Toutefois, certains points spécifiques sont à prendre en compte en lien avec l’authentification.

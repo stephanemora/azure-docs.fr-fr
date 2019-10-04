@@ -10,27 +10,27 @@ ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: apurvajo;cephalin
+ms.author: cephalin
+ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: MT
+ms.openlocfilehash: 7c899bae6cf36e68664a3ce60939f72a4b5bd1ab
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216575"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71001206"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acheter et configurer un certificat SSL pour Azure App Service
 
-Ce tutoriel vous montre comment sécuriser votre [application App Service](https://docs.microsoft.com/azure/app-service/) ou votre [Function App](https://docs.microsoft.com/azure/azure-functions/) en créant (en achetant) un certificat App Service dans [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), puis comment lier ce certificat à une application App Service.
+Ce tutoriel vous montre comment sécuriser votre [application App Service](https://docs.microsoft.com/azure/app-service/) ou votre [Function App](https://docs.microsoft.com/azure/azure-functions/) en créant (en achetant) un certificat App Service dans [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview), puis comment lier ce certificat à une application App Service.
 
 > [!TIP]
-> Les certificats App Service peuvent être utilisés pour n’importe quel service Azure ou non Azure et ne sont pas limités aux App Services. Pour cela, vous devez créer une copie PFX locale d’un certificat App Service afin de pouvoir l’utiliser où vous voulez. Pour plus d’informations, consultez [Création d’une copie PFX locale d’un certificat App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+> Les certificats App Service peuvent être utilisés pour n’importe quel service Azure ou non Azure et ne sont pas limités aux App Services. Pour cela, vous devez créer une copie PFX locale d’un certificat App Service afin de pouvoir l’utiliser où vous voulez. Pour plus d’informations, consultez [Création d’une copie PFX locale d’un certificat App Service](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/).
 >
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
@@ -50,11 +50,11 @@ Aidez-vous du tableau suivant pour configurer le certificat. Lorsque vous avez t
 | Paramètre | Description |
 |-|-|
 | Nom | Nom convivial de votre certificat App Service. |
-| Nom d’hôte de domaine nu | Si vous spécifiez ici le domaine racine, vous obtenez un certificat qui sécurise *à la fois* le domaine racine et le sous-domaine `www`. Pour sécuriser un sous-domaine uniquement, indiquez ici son nom de domaine complet (par exemple, `mysubdomain.contoso.com`). |
-| Abonnement | Centre de données dans lequel l’application web est hébergée. |
-| Groupe de ressources | Groupe de ressources qui contient le certificat. Vous pouvez utiliser un nouveau groupe de ressources, ou sélectionner le même groupe de ressources que votre application App Service, par exemple. |
+| Nom d’hôte de domaine nu | Spécifiez ici le domaine racine. Le certificat émis sécurise *à la fois* le domaine racine et le sous-domaine `www`. Dans le certificat émis, le champ Nom commun contient le domaine racine et le champ Autre nom de l’objet contient le domaine `www`. Pour sécuriser un sous-domaine uniquement, indiquez ici son nom de domaine complet (par exemple, `mysubdomain.contoso.com`).|
+| Subscription | Centre de données dans lequel l’application web est hébergée. |
+| Resource group | Groupe de ressources qui contient le certificat. Vous pouvez utiliser un nouveau groupe de ressources, ou sélectionner le même groupe de ressources que votre application App Service, par exemple. |
 | Référence (SKU) de certificat | Détermine le type de certificat à créer (certificat standard ou [certificat générique](https://wikipedia.org/wiki/Wildcard_certificate)). |
-| Termes et conditions | Cliquez pour confirmer que vous acceptez les termes et conditions. Les certificats sont obtenues à partir de GoDaddy. |
+| Termes et conditions | Cliquez pour confirmer que vous acceptez les termes et conditions. Les certificats sont obtenus auprès de GoDaddy. |
 
 ## <a name="store-in-azure-key-vault"></a>Stocker dans Azure Key Vault
 
@@ -64,15 +64,15 @@ Sélectionnez le certificat dans la page [App Service Certificates](https://port
 
 ![insérer une image de prêt à stocker dans KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) est un service Azure qui permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. C’est le stockage recommandé pour les certificats App Service.
+[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) est un service Azure qui permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. C’est le stockage recommandé pour les certificats App Service.
 
 Dans la page **État de Key Vault**, cliquez sur **Référentiel Key Vault** pour créer un coffre ou choisir un coffre existant. Si vous créez un coffre, configurez le nouveau coffre en vous aidant du tableau ci-dessous, puis cliquez sur Créer. Voir comment créer un coffre de clés dans le même abonnement et dans le même groupe de ressources.
 
 | Paramètre | Description |
 |-|-|
 | Nom | Nom unique composé de caractères alphanumériques et de tirets. |
-| Groupe de ressources | Nous vous conseillons de choisir le même groupe de ressources que votre certificat App Service. |
-| Lieu | Choisissez le même emplacement que votre application App Service. |
+| Resource group | Nous vous conseillons de choisir le même groupe de ressources que votre certificat App Service. |
+| Location | Choisissez le même emplacement que votre application App Service. |
 | Niveau tarifaire | Pour obtenir des informations sur les tarifs, consultez [Tarification d’Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Stratégies d’accès| Définit les applications et l’accès autorisé aux ressources du coffre. Vous pouvez configurer ce paramètre ultérieurement, en suivant les étapes décrites dans [Accorder à plusieurs applications l’autorisation d’accéder à un coffre de clés](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Accès au réseau virtuel | Limitez l’accès au coffre à certains réseaux virtuels Azure. Vous pouvez configurer ce paramètre ultérieurement, en suivant les étapes décrites dans [Configurer les pare-feux et réseaux virtuels d’Azure Key Vault](../key-vault/key-vault-network-security.md) |
@@ -97,9 +97,9 @@ Sélectionnez **Vérification App Service**. Étant donné que vous avez déjà 
 
 ## <a name="bind-certificate-to-app"></a>Lier le certificat à l’application
 
-Dans le **[portail Azure](https://portal.azure.com/)**, dans le menu de gauche, sélectionnez **App Services** > **\<votre_app>**.
+Dans le **[portail Azure](https://portal.azure.com/)** , dans le menu de gauche, sélectionnez **App Services** >  **\<votre_app>** .
 
-Dans le panneau de navigation de gauche de votre application, sélectionnez **Paramètres SSL** > **Certificats privés (.pfx)** > **Importer un App Service Certificate**.
+Dans le panneau de navigation de gauche de votre application, sélectionnez **Paramètres SSL** > **Certificats privés (.pfx)**  > **Importer un App Service Certificate**.
 
 ![insérer une image d’importation de certificat](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
@@ -123,22 +123,22 @@ Accédez à votre application en utilisant `HTTPS://<domain_name>` au lieu de `H
 
 ## <a name="rekey-certificate"></a>Recréer la clé du certificat
 
-Si vous pensez que privée du certificat de votre clé est compromise, vous pouvez alors renouveler votre certificat. Sélectionnez le certificat dans le [certificats App Service](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, puis sélectionnez **renouveler la clé et synchroniser** dans le volet de navigation gauche.
+Si vous pensez que la clé privée de votre certificat est compromise, vous pouvez recréer la clé de votre certificat. Sélectionnez le certificat dans la page [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), puis sélectionnez **Recréer la clé et synchroniser** dans le volet de navigation de gauche.
 
-Cliquez sur **renouveler la clé** pour démarrer le processus. Ce processus peut prendre de 1 à 10 minutes.
+Cliquez sur le bouton **Recréer la clé** pour lancer le processus. Ce processus peut prendre de 1 à 10 minutes.
 
 ![insérer une image de renouvellement de clé SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 Le renouvellement de la clé de votre certificat remplace le certificat par un nouveau certificat émis par l’autorité de certification.
 
-Une fois l’opération de renouvellement est terminée, cliquez sur **synchronisation**. L’opération de synchronisation met à jour automatiquement les liaisons de nom d’hôte pour le certificat dans App Service sans provoquer de temps d’arrêt de vos applications.
+Une fois l’opération de recréation de clé terminée, cliquez sur **Synchronisation**. L’opération de synchronisation met à jour automatiquement les liaisons de nom d’hôte pour le certificat dans App Service sans perturber le fonctionnement de vos applications.
 
 > [!NOTE]
-> Si vous ne cliquez pas sur **synchronisation**, App Service se synchronise automatiquement votre certificat dans les 48 heures.
+> Si vous ne cliquez pas sur **Synchronisation**, App Service synchronise automatiquement votre certificat sous 48 heures.
 
 ## <a name="renew-certificate"></a>Renouvellement de certificat
 
-Pour activer le renouvellement automatique de votre certificat à tout moment, sélectionnez le certificat dans la page [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), puis cliquez sur **Paramètres de renouvellement automatique** dans le volet de navigation de gauche.
+Pour activer le renouvellement automatique de votre certificat à tout moment, sélectionnez le certificat dans la page [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), puis cliquez sur **Paramètres de renouvellement automatique** dans le volet de navigation de gauche. Par défaut, App Service Certificate est valide pendant 1 an.
 
 Sélectionnez **Activé** et cliquez sur **Enregistrer**. Les certificats peuvent être automatiquement renouvelés 60 jours avant leur expiration si vous avez activé le renouvellement automatique.
 
@@ -146,14 +146,14 @@ Sélectionnez **Activé** et cliquez sur **Enregistrer**. Les certificats peuven
 
 Pour renouveler manuellement le certificat, cliquez sur **Renouvellement manuel**. Vous pouvez demander le renouvellement manuellement de votre certificat 60 jours avant expiration.
 
-Une fois l’opération de renouvellement est terminée, cliquez sur **synchronisation**. L’opération de synchronisation met à jour automatiquement les liaisons de nom d’hôte pour le certificat dans App Service sans provoquer de temps d’arrêt de vos applications.
+Une fois l’opération de renouvellement terminée, cliquez sur **Synchronisation**. L’opération de synchronisation met à jour automatiquement les liaisons de nom d’hôte pour le certificat dans App Service sans perturber le fonctionnement de vos applications.
 
 > [!NOTE]
-> Si vous ne cliquez pas sur **synchronisation**, App Service se synchronise automatiquement votre certificat dans les 48 heures.
+> Si vous ne cliquez pas sur **Synchronisation**, App Service synchronise automatiquement votre certificat sous 48 heures.
 
 ## <a name="automate-with-scripts"></a>Automatiser des tâches à l’aide de scripts
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 [!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
@@ -166,4 +166,4 @@ Une fois l’opération de renouvellement est terminée, cliquez sur **synchroni
 * [Appliquer le protocole HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Appliquer le protocole TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Utiliser un certificat SSL dans votre code d’application dans Azure App Service](app-service-web-ssl-cert-load.md)
-* [FORUM AUX QUESTIONS : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [FORUM AUX QUESTIONS : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

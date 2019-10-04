@@ -1,18 +1,18 @@
 ---
 title: Développer pour la plateforme Android Things à l’aide des Kits de développement logiciel (SDK) Azure IoT | Microsoft Docs
 description: 'Guide du développeur : découvrez comment développer sur Android Things à l’aide des Kits de développement logiciel (SDK) Azure IoT Hub.'
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: yizhon
-ms.openlocfilehash: 8e36cee9857c00fcb618a8491595432fb0fd60fd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: robinsh
+ms.openlocfilehash: 82f6da54aec7aee94c19fd75a06d2850ca0db8b6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264571"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883135"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Développer pour la plateforme Android Things à l’aide des Kits de développement logiciel (SDK) Azure IoT
 
@@ -20,7 +20,7 @@ Les [Kits de développement logiciel (SDK) Azure IoT Hub](https://docs.microsoft
 
 Ce didacticiel décrit les étapes à suivre pour créer une application côté appareil sur Android Things à l’aide du Kit de développement logiciel (SDK) Java Azure IoT.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Matériel compatible Android Things avec le système d’exploitation Android Things en cours d’exécution.  Pour savoir comment flasher le système d’exploitation Android Things, vous pouvez suivre la [documentation d’Android Things](https://developer.android.com/things/get-started/kits#flash-at).  Assurez-vous que votre appareil Android Things est connecté à Internet et dispose des périphériques essentiels tels qu’un clavier, un écran et une souris.  Ce didacticiel utilise Raspberry Pi 3.
 
@@ -49,7 +49,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. Exécutez les commandes suivantes dans Azure Cloud Shell pour obtenir le *chaîne de connexion d’appareil* pour l’appareil que vous venez d’inscrire. Remplacez `YourIoTHubName` ci-dessous avec le nom que vous choisissez pour votre IoT hub.
+2. Exécutez les commandes suivantes dans Azure Cloud Shell pour obtenir la *chaîne de connexion d’appareil* pour celui que vous venez d’inscrire. Remplacez `YourIoTHubName` ci-dessous par le nom que vous avez choisi pour votre IoT Hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
@@ -65,7 +65,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 1. La première étape pour créer une application Android Things consiste à se connecte à vos appareils Android Things. Connectez votre appareil Android Things à un écran, puis connectez le à internet. Android Things fournit une [documentation](https://developer.android.com/things/get-started/kits) sur la façon de se connecter au WiFi. Une fois connecté à internet, prenez note de l’adresse IP répertoriée sous Réseaux.
 
-2. Servez-vous de l’outil [adb](https://developer.android.com/studio/command-line/adb) outil pour vous connecter à votre appareil Android Things en utilisant l’adresse IP indiquée ci-dessus. Vérifiez soigneusement la connexion à l’aide de cette commande à partir de votre terminal. Vous devriez voir vos appareils répertoriés en tant que « connecté ».
+2. Servez-vous de l’outil [adb](https://developer.android.com/studio/command-line/adb) outil pour vous connecter à votre appareil Android Things en utilisant l’adresse IP indiquée ci-dessus. Vérifiez soigneusement la connexion à l’aide de cette commande à partir de votre terminal. Vous voyez normalement vos appareils listés comme étant connectés.
 
    ```
    adb devices

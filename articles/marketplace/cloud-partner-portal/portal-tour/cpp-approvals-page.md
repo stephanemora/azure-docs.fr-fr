@@ -1,25 +1,18 @@
 ---
-title: Page Approbations pour la Place de marché Azure | Microsoft Docs
-description: .
+title: Page Approbations pour la Place de marché Azure
+description: Vue d'ensemble de la page Approbations sur le Portail Cloud Partner pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 64e4ea6e9bcb9fdbf2d2d7794d3ab8f6ff87bfa1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.author: pabutler
+ms.openlocfilehash: 69727b2eb4259f106d114050e6fc6e8a21410cc5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266280"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943422"
 ---
 # <a name="approvals-page"></a>Page Approbations
 

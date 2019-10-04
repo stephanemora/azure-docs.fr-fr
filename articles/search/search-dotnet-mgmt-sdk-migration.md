@@ -2,22 +2,26 @@
 title: Mise à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management Recherche Azure - Recherche Azure
 description: Mettre à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management Recherche Azure à partir d’une version précédente. Découvrez les nouveautés et les modifications de code nécessaires.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 ms.author: brjohnst
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
-ms.custom: seodec2018
-ms.openlocfilehash: 369e5283d7350729e0d8cc44f94f1f2e71b133c3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 05/02/2019
+ms.openlocfilehash: 2a59cff7f5313b0ac5a060d698950a4c82160f67
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316865"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182250"
 ---
-# <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Mise à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management Recherche Azure
+# <a name="upgrading-to-the-azure-search-net-management-sdk-version"></a>Mise à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management de Recherche Azure 
+
+> [!Important]
+> Ce contenu est en cours de construction. La version 3.0 du Kit de développement logiciel (SDK) .NET Management de Recherche Azure est disponible sur NuGet. Nous travaillons sur la mise à jour de ce guide de migration. Celle-ci expliquera comment effectuer la mise à niveau vers la nouvelle version. 
+>
+
 Si vous utilisez la version 1.0.2 ou une version antérieure du [Kit de développement logiciel (SDK) .NET Management Recherche Azure](https://aka.ms/search-mgmt-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 2.
 
 La version 2 du Kit SDK .NET Management Recherche Azure contient des modifications par rapport aux versions antérieures. Elles sont pour la plupart mineures, et donc, la modification de votre code devrait ne nécessiter que peu d’effort. Consultez la page [Procédure de mise à niveau](#UpgradeSteps) pour obtenir des instructions sur la façon de modifier le code à utiliser avec la nouvelle version du kit de développement logiciel.

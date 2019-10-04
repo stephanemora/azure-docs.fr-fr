@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 295fc80c0b6d9a4554dc08d24d9167bea627144f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 99b314fe34798099c73de419dc718c548fd5b623
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090087"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Didacticiel : Intégration d’Azure Active Directory à Spacio
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Spacio avec Azure AD, vous devez ajouter Sp
 
 **Pour ajouter Spacio à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec Spacio, procédez com
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://sso.spac.io/<brokerageID>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://sso.spac.io/<brokerageID>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://sso.spac.io/<brokerageID>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Spacio](mailto:support@spac.io). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

@@ -1,25 +1,17 @@
 ---
 title: Lier des modèles pour un déploiement Azure | Microsoft Docs
 description: Décrit comment utiliser des modèles liés dans un modèle Azure Resource Manager afin de créer une solution de modèle modulaire. Indique comment transmettre des valeurs de paramètres, spécifier un fichier de paramètres et créer dynamiquement des URL.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/18/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: d4ecccf8787e369b9a3270eab2d01a01ce7ae0c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: b48988c04f6b387a8124a812a836e2b92a9d3ada
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58174305"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194388"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -73,11 +65,12 @@ Pour imbriquer le modèle dans le modèle principal, utilisez la propriété **t
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2018-07-01",
+            "apiVersion": "2019-04-01",
             "name": "[variables('storageName')]",
             "location": "West US",
-            "properties": {
-              "accountType": "Standard_LRS"
+            "kind": "StorageV2",
+            "sku": {
+                "name": "Standard_LRS"
             }
           }
         ]
@@ -90,14 +83,14 @@ Pour imbriquer le modèle dans le modèle principal, utilisez la propriété **t
 > [!NOTE]
 > Pour les modèles imbriqués, vous ne pouvez pas utiliser les paramètres ou variables définis dans le modèle imbriqué. Vous pouvez en revanche utiliser les paramètres et variables du modèle principal. Dans l’exemple précédent, `[variables('storageName')]` récupère une valeur du modèle principal, et non du modèle imbriqué. Cette restriction ne s'applique pas aux modèles externes.
 >
-> Pour les deux ressources définis à l’intérieur d’un modèle d’imbrication et une ressource dépend de l’autre, la valeur de la dépendance est simplement le nom de la ressource variaient :
+> Quand deux ressources sont définies dans un modèle imbriqué et qu’une ressource dépend de l’autre, la valeur de la dépendance est simplement le nom de la ressource dépendante :
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
 > ],
 > ```
 >
-> Vous ne pouvez pas utiliser la fonction `reference` dans la section outputs d’un modèle imbriqué. Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
+> Vous ne pouvez pas utiliser la fonction `reference` dans la section Sorties d’un modèle imbriqué pour une ressource que vous avez déployée dans le modèle imbriqué. Pour renvoyer les valeurs d’une ressource déployée dans un modèle imbriqué, convertissez votre modèle imbriqué en modèle lié.
 
 Le modèle imbriqué nécessite les [mêmes propriétés](resource-group-authoring-templates.md) qu’un modèle standard.
 
@@ -150,6 +143,51 @@ Pour passer une valeur du modèle principal au modèle lié, utilisez des **para
           "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
         }
      }
+  }
+]
+```
+
+## <a name="using-copy"></a>Utilisation de la copie
+
+Pour créer plusieurs instances d’une ressource avec un modèle imbriqué, ajoutez l’élément copy au niveau de la ressource **Microsoft.Resources/deployments**.
+
+L’exemple de modèle suivant montre comment utiliser copy avec un modèle imbriqué.
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Resources/deployments",
+    "apiVersion": "2018-05-01",
+    "name": "[concat('nestedTemplate', copyIndex())]",
+    // yes, copy works here
+    "copy":{
+      "name": "storagecopy",
+      "count": 2
+    },
+    "properties": {
+      "mode": "Incremental",
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[concat(variables('storageName'), copyIndex())]",
+            "location": "West US",
+            "kind": "StorageV2",
+            "sku": {
+              "name": "Standard_LRS"
+            }
+            // no, copy doesn't work here
+            //"copy":{
+            //  "name": "storagecopy",
+            //  "count": 2
+            //}
+          }
+        ]
+      }
+    }
   }
 ]
 ```
@@ -441,6 +479,8 @@ done
 Même si le modèle lié doit être disponible en externe, il n’a pas besoin d’être accessible au public. Vous pouvez ajouter votre modèle dans un compte de stockage privé, uniquement accessible au propriétaire du compte de stockage. Ensuite, vous créez un jeton de signature d’accès partagé (SAP) pour autoriser l’accès en cours de déploiement. Vous ajoutez ce jeton SAP à l’URI pour le modèle lié. Même si le jeton est transmis sous forme de chaîne sécurisée, l’URI du modèle lié, y compris le jeton SAP, est enregistré dans les opérations de déploiement. Pour limiter l’exposition, définissez un délai d’expiration pour le jeton.
 
 Le fichier de paramètres peut également être limité à l’accès avec un jeton SAP.
+
+Vous ne pouvez pas établir un lien vers un modèle dans un compte de stockage derrière un [pare-feu Stockage Azure](../storage/common/storage-network-security.md).
 
 L’exemple suivant montre comment passer un jeton SAP lors de la liaison à un modèle :
 

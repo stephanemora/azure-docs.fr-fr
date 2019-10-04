@@ -7,25 +7,25 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 03/13/2019
+ms.date: 07/16/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: b97e27b86ecad1f7f87a6de4d43b09d69c167c6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 3875106e8c6301c95bc8d0fbce6a1c0400d07f78
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792032"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278120"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Utiliser les planifications de maintenance pour gérer les mises à jour et la maintenance des services
 
-Les planifications de maintenance sont désormais disponibles dans toutes les régions Azure SQL Data Warehouse. Cette fonctionnalité intègre les notifications de maintenance planifiée de Service Health, le moniteur des vérifications d’Azure Resource Health et le service de planification de la maintenance d’Azure SQL Data Warehouse.
+Les planifications de maintenance sont maintenant disponibles dans toutes les régions Azure SQL Data Warehouse. Cette fonctionnalité intègre les notifications de maintenance planifiée de Service Health, le moniteur des vérifications d’Azure Resource Health et le service de planification de la maintenance d’Azure SQL Data Warehouse.
 
-Vous utilisez la planification de maintenance afin de choisir la bonne fenêtre pour recevoir les nouvelles fonctionnalités, les mises à niveau et les correctifs. Vous choisissez une fenêtre de maintenance principale et une fenêtre de maintenance secondaire dans un délai de sept jours. Par exemple, une fenêtre principale le samedi 22:00 à dimanche 01:00 et une fenêtre secondaire le mercredi de 19:00 à 22:00. Si Azure SQL Data Warehouse ne peut pas effectuer la maintenance pendant la fenêtre principale, il retente l’opération pendant la fenêtre secondaire. Maintenance du service peut se produire pendant le réplica principal et secondaire windows. Pour garantir une exécution rapide de toutes les opérations de maintenance, DW400(c) et les niveaux inférieurs de l’entrepôt de données peuvent effectuer la maintenance en dehors d’une fenêtre de maintenance désigné.
+Vous utilisez la planification de maintenance afin de choisir la bonne fenêtre pour recevoir les nouvelles fonctionnalités, les mises à niveau et les correctifs. Vous choisissez une fenêtre de maintenance principale et une fenêtre de maintenance secondaire dans un délai de sept jours. Par exemple, une fenêtre principale le samedi 22:00 à dimanche 01:00 et une fenêtre secondaire le mercredi de 19:00 à 22:00. Si Azure SQL Data Warehouse ne peut pas effectuer la maintenance pendant la fenêtre principale, il retente l’opération pendant la fenêtre secondaire. La maintenance du service peut se produire pendant les fenêtres principales et secondaires. Pour garantir une complétion rapide de toutes les opérations de maintenance, les niveaux d’entrepôt de données DW400(c) et inférieurs peuvent effectuer la maintenance en dehors d’une fenêtre de maintenance désignée.
 
 Pendant le déploiement, une planification de maintenance définie par le système est appliquée à toutes les instances Azure SQL Data Warehouse récemment créées. La planification peut être modifiée une fois le déploiement terminé.
 
-Chaque fenêtre de maintenance peut durer de trois à huit heures. La maintenance peut intervenir à tout moment pendant la fenêtre. Attendez-vous à une brève perte de connectivité lorsque le service déploie du nouveau code dans votre entrepôt de données.
+Chaque fenêtre de maintenance peut durer de trois à huit heures. La maintenance peut intervenir à tout moment pendant la fenêtre. Quand la maintenance démarre, toutes les sessions actives sont annulées et les transactions non validées sont restaurées. Attendez-vous à plusieurs brèves pertes de connectivité lorsque le service déploie du nouveau code dans votre entrepôt de données. Vous êtes averti dès que la maintenance est terminée dans votre entrepôt de données.
 
 Pour pouvoir utiliser cette fonctionnalité, vous devrez identifier une fenêtre principale et une fenêtre secondaire sur des plages temporelles distinctes. Toutes les opérations de maintenance doivent se terminer dans les fenêtres de maintenance planifiée. Aucune maintenance ne peut avoir lieu en dehors des fenêtres de maintenance définies, sans notification préalable. Si votre entrepôt de données est suspendu pendant une maintenance planifiée, il sera mis à jour pendant l’opération de reprise.  
 
@@ -33,7 +33,10 @@ Pour pouvoir utiliser cette fonctionnalité, vous devrez identifier une fenêtre
 
 L’intégration des notifications Azure Service Health et du moniteur de vérifications Azure Resource Health permet aux clients d’être informés des activités de maintenance imminentes. Cette nouvelle automatisation tire parti d’Azure Monitor. Vous décidez comment vous souhaitez être informé des événements de maintenance imminente. Vous décidez également des flux automatisés qui peuvent vous aider à gérer les temps d’arrêt et à minimiser l’impact sur vos opérations.
 
-Une notification anticipée de 24 heures doit précéder tous les événements de maintenance, à l’exception en cours de DW400c et les niveaux inférieurs. Pour réduire le temps d’arrêt des instances, vérifiez qu’aucune transaction de longue durée n’est en cours dans votre entrepôt de données avant le début de la période de maintenance choisie. Au début de la maintenance, toutes les sessions actives sont annulées. Transactions non validées sont annulées et votre entrepôt de données provoque une courte perte de connectivité. Vous êtes averti dès que la maintenance est terminée dans votre entrepôt de données.
+Une notification 24 heures à l’avance doit précéder tous les événements de maintenance, à l’exception des niveaux DW400c et inférieurs. Pour réduire le temps d’arrêt des instances, vérifiez qu’aucune transaction de longue durée n’est en cours dans votre entrepôt de données avant le début de la période de maintenance choisie.
+
+> [!NOTE]
+> Dans le cas où nous sommes amenés à déployer une mise à jour critique dans le temps, les temps de notification avancés peuvent être considérablement réduits.
 
 Si vous avez reçu une notification pour une prochaine maintenance mais que Microsoft Azure SQL Data Warehouse n’a pas pu effectuer cette maintenance pendant la période prévue, vous recevrez une notification d’annulation. La maintenance reprendra lors de la prochaine période de maintenance planifiée.
 

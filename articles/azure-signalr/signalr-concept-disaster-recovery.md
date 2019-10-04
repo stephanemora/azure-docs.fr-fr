@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
 ms.openlocfilehash: eb70e65db4a086afc60e91cadf55a8844b102591
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620274"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61402130"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Résilience et reprise d’activité après sinistre
 
 La résilience et la reprise d’activité après sinistre sont des besoins communs des systèmes en ligne. Azure SignalR Service garantit déjà une disponibilité de 99,9 %, mais demeure un service régional.
-Votre instance de service est toujours en cours d’exécution dans une région et ne sont pas basculer vers une autre région lors d’une panne au niveau régional.
+Votre instance de service s’exécute toujours dans une seule région et ne bascule pas vers une autre région lors d’une panne au niveau régional.
 
 Au lieu de cela, le kit SDK de notre service fournit une fonctionnalité permettant de prendre en charge plusieurs instances du service SignalR et de basculer automatiquement vers d’autres instances lorsque certaines ne sont pas disponibles.
 Cette fonctionnalité vous permet de récupérer en cas de sinistre, mais vous devez configurer par vous-même la topologie appropriée du système. Vous allez apprendre à le faire dans ce document.
@@ -28,8 +28,8 @@ Lors de la connexion de plusieurs instances de service au serveur d’applicatio
 Le rôle principal est une instance qui accepte le trafic en ligne et le rôle secondaire est une instance pleinement fonctionnelle mais de secours du rôle principal.
 Dans notre implémentation du kit SDK, la négociation retourne uniquement les points de terminaison principaux, de sorte que, dans le cadre d’un fonctionnement normal, les clients se connectent uniquement aux points de terminaison principaux.
 Mais lorsque l’instance principale est défaillante, la négociation retourne les points de terminaison secondaires pour permettre aux clients de continuer à se connecter.
-Instance principale et du serveur d’applications sont connectés via des connexions serveur normal, mais une instance secondaire et du serveur d’applications sont connectés via un type spécial de connexion appelé connexion faible.
-La principale différence d’une connexion de faible est qu’il n’accepte pas le routage de connexion client, car l’instance secondaire se trouve dans une autre région. Routage d’un client vers une autre région n’est pas un choix optimal (augmente la latence).
+L’instance principale et le serveur d’applications sont connectés via des connexions serveur normales, mais l’instance secondaire et le serveur d’applications sont connectés via un type spécial de connexion, appelée connexion faible.
+La principale différence d’une connexion faible est qu’elle n’accepte pas le routage des connexions client, car l’instance secondaire se trouve dans une autre région. Le routage d’un client vers une autre région n’est pas un choix optimal (augmente la latence).
 
 Une instance de service peut avoir différents rôles si elle se connecte à plusieurs serveurs d’applications.
 Une installation type pour un scénario inter-région consiste à avoir deux paires (ou plus) d’instances de service SignalR et de serveurs d’applications.
@@ -51,7 +51,7 @@ Vous pouvez procéder de deux façons :
 
 ### <a name="through-config"></a>Via la configuration
 
-Vous aurait dû être comment définir la chaîne de connexion de service SignalR via l’environnement variables/application settings/web.cofig, via une entrée de configuration nommée `Azure:SignalR:ConnectionString`.
+Vous devez déjà savoir comment définir la chaîne de connexion du service SignalR via variables d’environnement/paramètres d’application/web.config, via une entrée de configuration nommée `Azure:SignalR:ConnectionString`.
 Si vous avez plusieurs points de terminaison, vous pouvez les définir dans plusieurs entrées de configuration, chacune dans le format suivant :
 
 ```
@@ -121,7 +121,7 @@ Le service SignalR peut prendre en charge ces deux modèles, la principale diff�
 Si les serveurs d’applications présentent une configuration active/passive, le service SignalR présente également une configuration active/passive (car le serveur d’applications principal retourne uniquement son instance de service SignalR principale).
 Si les serveurs d’applications présentent une configuration active/active, le service SignalR présente également une configuration active/active (car tous les serveurs d’applications retournent leurs propres instances SignalR principales, afin que tous puissent obtenir le trafic).
 
-Noter, quel que soit les modèles que vous choisissez d’utiliser, vous devez connecter chaque instance du service SignalR à un serveur d’applications en tant que principal.
+Notez que, quel que soit le modèle que vous choisissez d’utiliser, vous devez connecter chaque instance du service SignalR à un serveur d’applications en tant qu’instance principale.
 
 De plus, en raison de la nature de la connexion SignalR (connexion longue), les clients sont confrontés à des interruptions de connexion en cas d’incident et de basculement.
 Vous devez gérer de telles situations côté client pour les rendre transparentes pour vos clients finaux. Par exemple, rétablissez une connexion qui a été fermée.
@@ -130,4 +130,4 @@ Vous devez gérer de telles situations côté client pour les rendre transparent
 
 Dans cet article, vous avez appris à configurer votre application pour assurer la résilience pour le service SignalR. Pour plus de détails sur la connexion serveur/client et le routage des connexions dans le service SignalR, vous pouvez lire [cet article](signalr-concept-internals.md) sur les éléments internes du service SignalR.
 
-Mise à l’échelle des scénarios comme le partitionnement, qui utilisent plusieurs instances ensemble pour gérer le grand nombre de connexions, lire [mise à l’échelle de plusieurs instances](signalr-howto-scale-multi-instances.md)?
+Pour les scénarios de mise à l’échelle tels que le partitionnement, qui utilisent plusieurs instances pour gérer un grand nombre de connexions, consultez [Guide pratique pour mettre à l’échelle plusieurs instances](signalr-howto-scale-multi-instances.md).

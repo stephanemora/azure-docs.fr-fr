@@ -2,34 +2,27 @@
 title: Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD | Microsoft Docs
 description: Découvrez comment attribuer des rôles Azure au groupe Administrateurs local d’un appareil Windows.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/08/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da55370df55bcd9122bf87c561b00f3106cc6c58
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521888"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67983663"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD
 
 Pour gérer un appareil Windows, vous devez être membre du groupe Administrateurs local. Dans le cadre du processus de jonction à Azure Active Directory (Azure AD), Azure AD met à jour l’appartenance de ce groupe sur un appareil. Vous pouvez personnaliser la mise à jour de l’appartenance pour répondre aux besoins de votre entreprise. Une mise à jour de l’appartenance peut par exemple être utile si vous souhaitez autoriser le personnel du support technique à effectuer des tâches nécessitant des droits d’administrateur sur un appareil.
 
 Cet article explique comment la mise à jour de l’appartenance fonctionne et comment la personnaliser pendant une jonction à Azure AD. Le contenu de cet article ne s’applique pas à une jonction à Azure AD **hybride**.
-
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -42,13 +35,11 @@ Quand vous connectez un appareil Windows avec Azure AD à l’aide d’une jonct
 En ajoutant des rôles Azure AD au groupe Administrateurs local, vous pouvez mettre à jour les utilisateurs qui peuvent gérer un appareil à tout moment dans Azure AD, sans modifier quoi que ce soit sur l’appareil. À l’heure actuelle, vous ne pouvez pas affecter de groupes à un rôle d’administrateur.
 Azure AD ajoute également le rôle d’administrateur d’appareil Azure AD au groupe Administrateurs local pour prendre en charge le principe des privilèges minimum. En plus des administrateurs généraux, vous pouvez également autoriser les utilisateurs ayant *uniquement* reçu le rôle d’administrateur d’appareil à gérer un appareil. 
 
-
 ## <a name="manage-the-global-administrators-role"></a>Gérer le rôle Administrateur général
 
 Pour afficher et mettre à jour l’appartenance du rôle Administrateur général, consultez :
 
 - [Afficher tous les membres d’un rôle d’administrateur dans Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
-
 - [Attribuer des rôles d’administrateur à un utilisateur dans Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 
@@ -57,9 +48,9 @@ Pour afficher et mettre à jour l’appartenance du rôle Administrateur génér
 Dans le portail Azure, vous pouvez gérer le rôle d’administrateur d’appareil dans la page **Appareils**. Pour ouvrir la page **Appareils** :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général ou administrateur d’appareil.
-2. Dans la barre de navigation gauche, cliquez sur **Azure Active Directory**. 
-3. Dans la section **Gérer**, cliquez sur **Appareils**.
-4. Dans la page **Appareils**, cliquez sur **Paramètres de l’appareil**.
+1. Dans la barre de navigation gauche, cliquez sur **Azure Active Directory**. 
+1. Dans la section **Gérer**, cliquez sur **Appareils**.
+1. Dans la page **Appareils**, cliquez sur **Paramètres de l’appareil**.
 
 Pour modifier le rôle d’administrateur d’appareils, configurez **Administrateurs locaux supplémentaires sur les appareils joints à Azure AD**.  
 
@@ -68,38 +59,28 @@ Pour modifier le rôle d’administrateur d’appareils, configurez **Administra
 >[!NOTE]
 > Cette option nécessite un locataire Azure AD Premium. 
 
-
 Les administrateurs d’appareil sont affectés à toutes les appareils joints à Azure AD. Vous ne pouvez pas limiter l’étendue des administrateurs d’appareil à un jeu spécifique d’appareils. La mise à jour du rôle d’administrateur d’appareil n’a pas nécessairement un impact immédiat sur les utilisateurs affectés. Pour les appareils auxquels un utilisateur est déjà connecté, la mise à jour du privilège a lieu :
-     
 
 - Quand un utilisateur se déconnecte.
 - Après 4 heures, quand un nouveau jeton d’actualisation principal est émis. 
-
-
-
 
 ## <a name="manage-regular-users"></a>Gérer les utilisateurs réguliers
 
 Par défaut, Azure AD ajoute l’utilisateur qui effectue la jonction à Azure AD au groupe Administrateurs sur l’appareil. Si vous souhaitez empêcher les utilisateurs réguliers de devenir des administrateurs locaux, vous disposez des options suivantes :
 
 - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) : Windows Autopilot offre une option permettant d’empêcher l’utilisateur principal qui effectue la jonction de devenir un administrateur local. Pour cela, vous pouvez [créer un profil Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
- 
 - [Inscription en bloc](https://docs.microsoft.com/intune/windows-bulk-enroll) : une jonction à Azure AD qui est effectuée dans le contexte d’une inscription en bloc se produit dans le contexte d’un utilisateur créé automatiquement. Les utilisateurs qui se connectent après la jonction d’un appareil ne sont pas ajoutés au groupe Administrateurs.   
-
-
 
 ## <a name="manually-elevate-a-user-on-a-device"></a>Élever manuellement un utilisateur sur un appareil 
 
 Outre l’utilisation du processus de jonction à Azure AD, vous pouvez également élever manuellement un utilisateur régulier pour qu’il devienne un administrateur local sur un appareil spécifique. Cette étape nécessite que vous soyez déjà membre du groupe Administrateurs local. 
 
-À compter de la version **Windows 10 1709**, vous pouvez sélectionner **Paramètres -> Comptes -> Autres utilisateurs**. Sélectionnez **Ajouter un utilisateur professionnel ou scolaire**, entrez l’UPN de l’utilisateur sous **Compte d’utilisateur**, puis sélectionnez *Administrateur* sous **type de compte**  
+À compter de la version **Windows 10 1709**, vous pouvez effectuer cette tâche depuis **Paramètres -> Comptes -> Autres utilisateurs**. Sélectionnez **Ajouter un utilisateur professionnel ou scolaire**, entrez l’UPN de l’utilisateur sous **Compte d’utilisateur**, puis sélectionnez *Administrateur* sous **type de compte**  
  
 Vous pouvez également ajouter des utilisateurs à l’invite de commandes :
 
 - Si vos utilisateurs locataires sont synchronisés à partir d’Active Directory en local, utilisez `net localgroup administrators /add "Contoso\username"`.
-
 - Si vos utilisateurs locataires sont créés dans Azure AD, utilisez `net localgroup administrators /add "AzureAD\UserUpn"`.
-
 
 ## <a name="considerations"></a>Considérations 
 
@@ -109,12 +90,7 @@ Les administrateurs d’appareil sont affectés à tous les appareils joints à 
 
 Quand vous supprimez des utilisateurs du rôle Administrateur d’appareil, ils disposent toujours du privilège d’administrateur local sur un appareil tant qu’ils sont connectés à celui-ci. Le privilège est révoqué la prochaine fois qu’ils se connectent, ou après 4 heures quand un nouveau jeton d’actualisation principal est émis.
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour obtenir une vue d’ensemble de la gestion des appareils dans le portail Azure, consultez [Gestion des appareils via le portail Azure](device-management-azure-portal.md).
-
 - Pour en savoir plus sur l’accès conditionnel basé sur les appareils, consultez [Configurer les stratégies d’accès conditionnel basé sur les appareils Azure Active Directory](../conditional-access/require-managed-devices.md).
-
-

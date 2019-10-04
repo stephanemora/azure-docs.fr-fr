@@ -17,18 +17,18 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f2d9a7c8cfbfc4fb56ff8fba3c65ae9a7925830
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852951"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60348613"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect : Effectuer une mise à niveau à partir de DirSync
 Azure AD Connect est le successeur de DirSync. Cette rubrique explique les différentes façons de procéder à une mise à niveau à partir de DirSync. Ces étapes ne fonctionnent pas pour la mise à niveau à partir d’une autre version d’Azure AD Connect ou d’Azure AD Sync.
 
 Avant de commencer l’installation d’Azure AD Connect, veillez à [télécharger Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) et effectuer les étapes préalables décrites dans [Azure AD Connect : matériel et prérequis](how-to-connect-install-prerequisites.md). En particulier, il est recommandé de se renseigner sur les éléments suivants, dans la mesure où ces zones sont différentes de celles de DirSync :
 
-* La version requise de .NET et de PowerShell. Les versions plus récentes doivent être sur le serveur dont DirSync a besoin.
+* version requise de .Net et de PowerShell. Les versions plus récentes doivent être sur le serveur dont DirSync a besoin.
 * La configuration du serveur proxy. Si vous utilisez un serveur proxy pour accéder à internet, ce paramètre doit être configuré avant d’effectuer la mise à niveau. DirSync a toujours utilisé le serveur proxy configuré pour l’utilisateur qui effectue l’installation, alors qu’Azure AD Connect utilise les paramètres de l’ordinateur.
 * Les URL doivent être ouvertes dans le serveur proxy. Pour les scénarios de base, qui sont également pris en charge par DirSync, les exigences sont les mêmes. Si vous souhaitez utiliser une des nouvelles fonctionnalités d’Azure AD Connect, certaines nouvelles URL doivent être ouvertes.
 
@@ -49,12 +49,12 @@ Selon votre déploiement DirSync actuel, il existe différentes options pour la 
 > Lorsque vous envisagez de mettre à niveau à partir de DirSync vers Azure AD Connect, ne désinstallez pas DirSync vous-même avant la mise à niveau. Azure AD Connect lit et migre la configuration de DirSync et procède à la désinstallation après l'inspection du serveur.
 
 **Mise à niveau sur place**  
- L’Assistant affiche la durée estimée de l’opération. Cette estimation est basée sur l’hypothèse qu’il faut 3 heures pour mettre à niveau une base de données contenant 50 000 objets (utilisateurs, contacts et groupes). Azure AD Connect recommande une mise à niveau sur place si votre base de données contient moins de 50 000 objets. Si vous décidez de continuer, vos paramètres actuels sont appliqués automatiquement au cours de la mise à niveau et votre serveur rétablit automatiquement la synchronisation active.
+L’Assistant affiche la durée estimée de l’opération. Cette estimation est basée sur l’hypothèse qu’il faut 3 heures pour mettre à niveau une base de données contenant 50 000 objets (utilisateurs, contacts et groupes). Azure AD Connect recommande une mise à niveau sur place si votre base de données contient moins de 50 000 objets. Si vous décidez de continuer, vos paramètres actuels sont appliqués automatiquement au cours de la mise à niveau et votre serveur rétablit automatiquement la synchronisation active.
 
 Si vous souhaitez effectuer une migration de la configuration et un déploiement en parallèle, vous pouvez ne pas effectuer la mise à niveau sur place. Vous pouvez, par exemple, prendre l'opportunité d'actualiser le matériel et le système d'exploitation. Pour plus d’informations, consultez la section [Déploiement en parallèle](#parallel-deployment).
 
 **Déploiement en parallèle**  
- Un déploiement en parallèle est recommandé si vous avez plus de 50 000 objets. Ce déploiement permet d’éviter les retards opérationnels rencontrés par vos utilisateurs. L’installation d’Azure AD Connect tente d’estimer le temps d’arrêt associé à la mise à niveau, mais si vous avez déjà mis à niveau DirSync, votre propre expérience est sans doute plus fiable.
+Un déploiement en parallèle est recommandé si vous avez plus de 50 000 objets. Ce déploiement permet d’éviter les retards opérationnels rencontrés par vos utilisateurs. L’installation d’Azure AD Connect tente d’estimer le temps d’arrêt associé à la mise à niveau, mais si vous avez déjà mis à niveau DirSync, votre propre expérience est sans doute plus fiable.
 
 ### <a name="supported-dirsync-configurations-to-be-upgraded"></a>Configurations de DirSync prises en charge à mettre à niveau
 Les modifications de configuration suivantes sont prises en charge avec la mise à niveau de DirSync :
@@ -97,11 +97,11 @@ Des étapes supplémentaires sont nécessaires dans les cas suivants :
 3. Cliquez sur le bouton Suivant pour analyser votre installation DirSync existante.  
    ![Analyse de l’installation existante de la synchronisation d’annuaires](./media/how-to-dirsync-upgrade-get-started/Analyze.png)
 4. Une fois l’analyse terminée, nous proposons des recommandations sur la marche à suivre.  
-   * Si vous utilisez SQL Server Express et que vous avez moins de 50 000 objets, l'écran suivant s'affiche :   
+   * Si vous utilisez SQL Server Express et que vous avez moins de 50 000 objets, l'écran suivant s'affiche :  
      ![Analyse terminée, mise à niveau à partir de la synchronisation d’annuaires prête](./media/how-to-dirsync-upgrade-get-started/AnalysisReady.png)
    * Si vous utilisez une instance SQL Server complète pour DirSync, vous voyez cette page à la place :  
      ![Analyse terminée, mise à niveau à partir de DirSync prête](./media/how-to-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
-      Les informations concernant le serveur de base de données SQL Server utilisé par DirSync s’affichent. Apportez des modifications, si nécessaire. Cliquez sur **Suivant** pour continuer l'installation.
+     Les informations concernant le serveur de base de données SQL Server utilisé par DirSync s’affichent. Apportez des modifications, si nécessaire. Cliquez sur **Suivant** pour continuer l'installation.
    * Si vous avez plus de 50 000 objets, vous voyez cet écran à la place :  
      ![Analyse terminée, mise à niveau à partir de DirSync prête](./media/how-to-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
      Pour procéder à une mise à niveau sur place, cochez la case en regard du message : **Continuez à mettre à niveau DirSync sur cet ordinateur.**
@@ -158,7 +158,7 @@ Lorsque vous installez Azure AD Connect sur un nouveau serveur, le système pré
    * Un emplacement d'installation personnalisé pour Azure AD Connect.
    * Une instance de SQL Server (par défaut, Azure AD Connect installe SQL Server 2012 Express). N'utilisez pas la même instance de base de données que celle de votre serveur DirSync.
    * Un compte de service utilisé pour la connexion à SQL Server (si votre base de données SQL Server est distante, ce compte doit être un compte de service du domaine).
-     Ces options s'affichent dans cet écran :   
+     Ces options s'affichent dans cet écran :  
      ![Entrez vos informations d’identification Azure AD.](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)
 7. Cliquez sur **Suivant**.
 8. Sur la page **Prêt pour la configuration**, laissez la case **Démarrer le processus de synchronisation dès que la configuration est terminée** cochée. Le serveur étant maintenant en [mode de préproduction](how-to-connect-sync-staging-server.md) , les modifications ne sont pas exportées vers Azure AD.

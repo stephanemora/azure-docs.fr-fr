@@ -4,7 +4,7 @@ description: Découvrez comment résoudre le problème de suppression impossible
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-network
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4bd143b37e4403d039108b4349b27604b6503e0e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2d427a8b40fcb537801ce76aae6bc32fcda3a307
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415217"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71056924"
 ---
-# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Résolution de problème : impossible de supprimer un réseau virtuel dans Azure
+# <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Résolution des problèmes : Échec de la suppression d’un réseau virtuel dans Azure
 
 Vous rencontrez peut-être des erreurs lors de vos tentatives de suppression de réseau virtuel dans Microsoft Azure. Cet article fournit les étapes requises pour vous aider à résoudre ce problème. 
 
@@ -66,18 +66,18 @@ Si Active Directory Domain Services est activé et connecté au réseau virtuel,
 
 ![Vérifier l’appareil connecté](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Pour désactiver le service, consultez la page [Désactiver Azure Active Directory Domain Services à l’aide du Portail Azure](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
+Pour désactiver le service, consultez la page [Désactiver Azure Active Directory Domain Services à l’aide du Portail Azure](../active-directory-domain-services/delete-aadds.md).
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Vérifier si le réseau virtuel est connecté à d’autres ressources
 
-Recherchez les liaisons de circuit, les connexions et les homologations de réseaux virtuels. Tous ces éléments peuvent empêcher la suppression d’un réseau virtuel. 
+Recherchez les liaisons de circuit, les connexions et les peerings de réseaux virtuels. Tous ces éléments peuvent empêcher la suppression d’un réseau virtuel. 
 
 Voici la séquence de suppression recommandée :
 
 1. Connexions de passerelle
 2. Passerelles
 3. Adresses IP
-4. Homologations de réseaux virtuels
+4. Peerings de réseaux virtuels
 5. App Service Environment (ASE)
 
 ### <a name="check-whether-a-virtual-machine-is-still-running-in-the-virtual-network"></a>Vérifier si une machine virtuelle s’exécute toujours dans le réseau virtuel

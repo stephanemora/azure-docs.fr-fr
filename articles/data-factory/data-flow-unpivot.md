@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61348149"
 ---
-# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory de Transformation Unpivot
+# <a name="azure-data-factory-unpivot-transformation"></a>Transformation de suppression de tableau croisé dynamique Azure Data Factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -54,4 +54,4 @@ Le tableau croisé dynamique supprimé du jeu de résultats final affiche mainte
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez le [transformation de tableau croisé dynamique](data-flow-pivot.md) aux lignes de tableau croisé dynamique à des colonnes.
+Utilisez la [transformation Tableau croisé dynamique](data-flow-pivot.md) pour convertir des lignes en colonnes.

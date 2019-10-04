@@ -1,11 +1,10 @@
 ---
 title: Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android | Microsoft Docs
-description: Découvrez comment connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
+description: Découvrez comment connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android.
 services: active-directory
 documentationcenter: android
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
-ms.reviewer: dadobali
+ms.date: 05/21/2019
+ms.author: ryanwi
+ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9537748f8dd3ee027236c73e9587ff6b78ded7f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ac4007cc9379aa98d88099df13ba303063f9831f
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207583"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268520"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
 
@@ -31,7 +30,7 @@ ms.locfileid: "56207583"
 
 Si vous développez une application Android, Microsoft simplifie et facilite la connexion d’utilisateurs Azure Active Directory (Azure AD). Azure AD permet à votre application d’accéder à des données utilisateur via Microsoft Graph ou votre propre API web protégée.
 
-La bibliothèque Android ADAL (Azure AD Authentication Library) permet à votre application de commencer à utiliser [Microsoft Azure Cloud](https://cloud.microsoft.com) et [l’API Microsoft Graph](https://developer.microsoft.com/graph) en prenant en charge des [comptes Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) dans le respect des normes OAuth 2.0 et OpenID Connect.
+La bibliothèque Android ADAL (Azure AD Authentication Library) permet à votre application de commencer à utiliser [Microsoft Azure Cloud](https://azure.microsoft.com/free/cloud-services/) et [l’API Microsoft Graph](https://developer.microsoft.com/graph) en prenant en charge des [comptes Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) dans le respect des normes OAuth 2.0 et OpenID Connect.
 
 Dans ce guide de démarrage rapide, vous apprenez à :
 
@@ -46,7 +45,7 @@ Pour commencer, vous avez besoin d’un client Azure AD dans lequel vous pouvez
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>Scénario : connecter des utilisateurs et appeler Microsoft Graph
 
-![Topologie](./media/quickstart-v1-android/active-directory-android-topology.png)
+![Illustre la topologie Azure AD et Android](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 Vous pouvez utiliser cette application pour tous les comptes Azure AD. Elle prend en charge les scénarios avec un ou plusieurs locataires (présentés dans les étapes). Ce guide vous montre comment créer des applications à connecter à des utilisateurs professionnels, et accéder à leurs données Azure +O365 via Microsoft Graph. Pendant le flux d’authentification, les utilisateurs finaux sont invités à se connecter et à accepter les autorisations de l’application. Dans certains cas, ils peuvent demander à un administrateur d’accepter les conditions d’utilisation de l’application. L’essentiel de la logique dans cet exemple montre comment authentifier un utilisateur final et établir un appel de base à Microsoft Graph.
 
@@ -86,18 +85,17 @@ Vous devez disposer d’une application cliente native inscrite auprès de Micro
     - Sélectionnez ***Azure Active Directory*** > ***Inscriptions des applications***.
 
 2. Création de l'application
-    - Sélectionnez **Nouvelle inscription d’application**.
+    - Sélectionnez **Nouvelle inscription**.
     - Entrez un nom d’application dans le champ **Nom**.
-    - Dans **Type d’application**, sélectionnez **Native**.
-    - Dans **URI de redirection**, entrez `http://localhost`.
+    - Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
+    - Dans **URI de redirection**, sélectionnez **Client public (mobile et bureau)** dans le menu déroulant, puis entrez `http://localhost`.
+    - Cliquez sur **S'inscrire**.
 
 3. Configurer Microsoft Graph
-    - Sélectionnez **Paramètres > Autorisations requises**.
-    - Sélectionnez **Ajouter**, puis dans **Sélectionner une API**, sélectionnez ***Microsoft Graph***.
-    - Sélectionnez l’autorisation **Activer la connexion et lire le profil utilisateur**, puis appuyez sur **Sélectionner** pour enregistrer.
-        - Cette autorisation est mappée à l’étendue `User.Read`.
-    - Facultatif : dans **Autorisations requises > Microsoft Azure Active Directory**, supprimez l’autorisation sélectionnée **Activer la connexion et lire le profil utilisateur**. Cela permet d’éviter que la page de consentement de l’utilisateur affiche deux fois l’autorisation.
-
+    - Sélectionnez **Autorisations de l’API**.
+    - Sélectionnez **Ajouter une autorisation**, puis dans **Sélectionner une API**, choisissez ***Microsoft Graph***.
+    - Sous **Autorisations déléguées**, sélectionnez l'autorisation **User.Read**, puis appuyez sur **Ajouter** pour enregistrer.        
+    
 4. Félicitations ! Votre application est correctement configurée. Dans la section suivante, vous aurez besoin de ce qui suit :
     - `Application ID`
     - `Redirect URI`

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c419ee1eec9e451cad835d8b4a56818101dc853a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: bee8c1d2a1cd313c7fe59d8e53379dc57554e98c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856211"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618574"
 ---
 # <a name="duplicate-detection"></a>Détection des doublons
 
@@ -35,6 +35,9 @@ Le contrôle de l’identificateur par l’application est essentiel, car lui se
 Pour un processus métier dans lequel plusieurs messages sont envoyés durant le traitement d’un contexte d’application, *MessageId* peut se composer de l’identificateur de contexte de l’application, par exemple un numéro de bon de commande, et de l’objet du message, par exemple, **12345.2017/paiement**.
 
 *MessageId* peut aussi être un GUID, mais associer l’identificateur au processus métier offre l’avantage de fournir une répétabilité prévisible, ce qui permet de tirer pleinement parti de la fonctionnalité de détection des doublons.
+
+> [!NOTE]
+> Si la déduction dupliquée est activée et que la clé de partition ou l’ID de session n’est pas définie, l’ID du message est utilisé comme clé de partition. Si l’ID du message n’est pas défini, les bibliothèques .NET et AMQP génèrent automatiquement un ID de message pour le message. Pour plus d’informations, consultez l’article [Utiliser des clés de partition](service-bus-partitioning.md#use-of-partition-keys).
 
 ## <a name="enable-duplicate-detection"></a>Activer la détection des doublons
 

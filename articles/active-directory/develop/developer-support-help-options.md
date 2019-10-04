@@ -3,27 +3,26 @@ title: Options d'aide et de support pour les développeurs d'applications Azure 
 description: Apprenez à vous procurer aide et support pour les questions liées au développement et les problèmes rencontrés lors de la création d'applications qui s'intègrent à des identités Microsoft (compte Azure Active Directory et Microsoft)
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
-ms.author: celested
-ms.reviewer: jmprieur, dadobali
+ms.date: 05/23/2019
+ms.author: ryanwi
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501587"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66235335"
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs
 
@@ -82,10 +81,10 @@ Les publications suivantes de Stack Overflow contiennent des conseils sur la for
 
 Si vous découvrez un bogue ou un problème lié à nos bibliothèques, signalez-le dans nos référentiels GitHub. Nos bibliothèques étant open source, vous pouvez également soumettre une demande de tirage (pull request).
 
-Pour accéder à la liste des bibliothèques et de leurs référentiels GitHub, consultez les articles suivants :
+Pour obtenir la liste des bibliothèques et de leurs référentiels GitHub, consultez les informations suivantes :
 
 * Bibliothèques et référentiels GitHub [ADAL](active-directory-authentication-libraries.md)
-* Bibliothèques et référentiels GitHub [MSAL](reference-v2-libraries.md)
+* Bibliothèques [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) et [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) et référentiels GitHub
 
 ## <a name="open-a-support-request"></a>Ouverture d’une demande de support
 

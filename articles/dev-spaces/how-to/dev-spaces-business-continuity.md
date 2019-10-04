@@ -8,14 +8,14 @@ ms.author: lcozzens
 ms.date: 01/28/2019
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, maille de services, service maillage du routage, kubectl, k8s '
-manager: jeconnoc
-ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
+manager: gwallace
+ms.openlocfilehash: 2da92b4fcd98024ada8d852d65e08fe8c70e3884
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775638"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704052"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuité d’activité et reprise d’activité dans Azure Dev Spaces
 
@@ -27,7 +27,7 @@ Azure Dev Spaces est une fonctionnalité d’Azure Kubernetes Service. Vous deve
 
 L’activation de Dev Spaces sur des clusters AKS dans différentes régions vous permet de reprendre l’utilisation de Dev Spaces juste après un incident dans une région Azure.
 
-Pour obtenir des informations générales sur les déploiements d’AKS dans plusieurs régions, consultez [Planifier le déploiement multi-région](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multi-region-deployment)
+Pour obtenir des informations générales sur les déploiements d’AKS dans plusieurs régions, consultez [Planifier le déploiement multi-région](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
 Pour obtenir des informations sur le déploiement d’un cluster AKS compatible avec Azure Dev Spaces, consultez [Créer un cluster Kubernetes à l’aide d’Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
 

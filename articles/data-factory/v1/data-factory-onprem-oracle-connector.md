@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 51fae63b6db99f28a5b3bed056dadc0c2513ff0f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084604"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839931"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copier des données vers ou à partir d’une instance locale d’Oracle à l’aide d’Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-onprem-oracle-connector.md)
 > * [Version 2 (version actuelle)](../connector-oracle.md)
 
@@ -42,7 +42,7 @@ Vous pouvez copier des données des magasins de données suivants *vers une base
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Data Factory prend en charge la connexion à des sources Oracle locales à l’aide de la passerelle de gestion des données. Pour plus d’informations sur la passerelle de gestion des données, consultez [Passerelle de gestion des données](data-factory-data-management-gateway.md). Pour obtenir des instructions détaillées sur la configuration de la passerelle dans un pipeline de données en vue de déplacer des données, consultez l’article [Déplacer les données d’une source locale vers le cloud](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -83,7 +83,7 @@ Vous pouvez créer un pipeline ayant une activité de copie. Le pipeline déplac
 
 Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant de copie. Consultez le [tutoriel : Créer un pipeline à l’aide de l’Assistant Copie de données](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
 
-Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, un **modèle Azure Resource Manager**, **l’API .NET** et **l’API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline ayant une activité de copie, consultez le [Tutoriel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Vous pouvez également utiliser un des outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, un **modèle Azure Resource Manager**, l’**API .NET** ou l’**API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline ayant une activité de copie, consultez le [Tutoriel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Que vous utilisiez des outils ou des API, effectuez les étapes suivantes pour créer un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur :
 
@@ -102,10 +102,10 @@ Le tableau suivant décrit les éléments JSON qui sont propres au service lié 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété **type** doit être définie sur **OnPremisesOracle**. |Oui |
-| driverType | Spécifiez le pilote à utiliser pour copier les données vers ou à partir de la base de données Oracle. Les valeurs autorisées sont **Microsoft** ou **ODP** (par défaut). Pour plus d’informations sur le pilote, consultez [Version prise en charge et installation](#supported-versions-and-installation). | Non  |
-| connectionString | Spécifiez les informations nécessaires pour se connecter à l’instance de base de données Oracle pour la propriété **connectionString**. | Oui |
-| gatewayName | Nom de la passerelle utilisée pour se connecter au serveur Oracle local |Oui |
+| Type |La propriété **type** doit être définie sur **OnPremisesOracle**. |OUI |
+| driverType | Spécifiez le pilote à utiliser pour copier les données vers ou à partir de la base de données Oracle. Les valeurs autorisées sont **Microsoft** ou **ODP** (par défaut). Pour plus d’informations sur le pilote, consultez [Version prise en charge et installation](#supported-versions-and-installation). | Non |
+| connectionString | Spécifiez les informations nécessaires pour se connecter à l’instance de base de données Oracle pour la propriété **connectionString**. | OUI |
+| gatewayName | Nom de la passerelle utilisée pour se connecter au serveur Oracle local |OUI |
 
 **Exemple : Utilisation du pilote Microsoft**
 
@@ -153,7 +153,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| TableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. |Non (si **oracleReaderQuery** ou **OracleSource** est spécifié) |
+| tableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. |Non (si **oracleReaderQuery** ou **OracleSource** est spécifié) |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
@@ -172,7 +172,7 @@ Dans le cas d’une activité de copie, quand la source est de type **OracleSour
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : « select \* from **MyTable** ». <br/><br/>Si non spécifié, l’instruction SQL est exécutée : « select \* from **MyTable** ». |Non <br />(si **tableName** de **dataset** est spécifié) |
+| oracleReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : « select \* from **MyTable** ». <br/><br/>Si non spécifié, l’instruction SQL est exécutée : « select \* from **MyTable** ». |Non<br />(si **tableName** de **dataset** est spécifié) |
 
 ### <a name="oraclesink"></a>OracleSink
 
@@ -180,14 +180,14 @@ Dans le cas d’une activité de copie, quand la source est de type **OracleSour
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Temps d’attente avant expiration de l’opération d’insertion de lot. |**timespan**<br/><br/> Exemple : 00:30:00 (30 minutes) |Non  |
+| writeBatchTimeout |Temps d’attente avant expiration de l’opération d’insertion de lot. |**timespan**<br/><br/> Exemple : 00:30:00 (30 minutes) |Non |
 | writeBatchSize |Insère des données dans la table SQL quand la taille de la mémoire tampon atteint la valeur de **writeBatchSize**. |Nombre entier (nombre de lignes) |Non (valeur par défaut : 100) |
-| sqlWriterCleanupScript |Spécifie une requête pour exécuter l’activité de copie afin que les données d’un segment spécifique soient nettoyées. |Une instruction de requête. |Non  |
-| sliceIdentifierColumnName |Spécifie le nom de la colonne qui doit être remplie avec un identificateur de segment généré automatiquement pour l’activité de copie. La valeur de **sliceIdentifierColumnName** est utilisée pour nettoyer les données d’un segment quand celui-ci est réexécuté. |Nom d’une colonne avec le type de données **binary(32)**. |Non  |
+| sqlWriterCleanupScript |Spécifie une requête pour exécuter l’activité de copie afin que les données d’un segment spécifique soient nettoyées. |Une instruction de requête. |Non |
+| sliceIdentifierColumnName |Spécifie le nom de la colonne qui doit être remplie avec un identificateur de segment généré automatiquement pour l’activité de copie. La valeur de **sliceIdentifierColumnName** est utilisée pour nettoyer les données d’un segment quand celui-ci est réexécuté. |Nom d’une colonne avec le type de données **binary(32)** . |Non |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Exemples JSON pour copier des données vers et à partir de la base de données Oracle
 
-Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers ou à partir d’une base de données Oracle ou du Stockage Blob Azure. Toutefois, il est possible de copier des données dans l’un des récepteurs répertoriés dans [Magasins et formats de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), à l’aide de l’activité de copie dans Azure Data Factory.
+Les exemples suivants présentent des exemples de définitions JSON que vous pouvez utiliser pour créer un pipeline à l’aide de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ils indiquent comment copier des données vers ou à partir d’une base de données Oracle ou du Stockage Blob Azure. Toutefois, il est possible de copier des données dans l’un des récepteurs répertoriés dans [Magasins et formats de données pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats), à l’aide de l’activité de copie dans Azure Data Factory.
 
 **Exemple : Copie de données d’Oracle vers Stockage Blob Azure**
 
@@ -571,7 +571,7 @@ Le pipeline contient une activité de copie qui est configurée pour utiliser le
     1. Ouvrez le fichier machine.config de .NET 2.0 dans le dossier : <disque système\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Recherchez le **Fournisseur de données Oracle pour .NET**. Vous devez trouver une entrée comme celle de l’exemple suivant sous **system.data** > **DbProviderFactories** : `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * Copiez cette entrée dans le fichier machine.config qui est situé dans le dossier .NET 4.0 suivant : <disque système\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config. Ensuite, remplacez la version par 4.xxx.x.x.
-* Installez <Chemin d’installation d’ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll dans le Global Assembly Cache (GAC) en exécutant **gacutil /i [chemin du fournisseur]**.
+* Installez <Chemin d’installation d’ODP.NET\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll dans le Global Assembly Cache (GAC) en exécutant **gacutil /i [chemin du fournisseur]** .
 
 ### <a name="problem-2-datetime-formatting"></a>Problème 2 : Mise en forme de la date et de l’heure
 
@@ -601,7 +601,7 @@ Quand vous déplacez des données à partir d’Oracle, les mappages suivants so
 | BLOB |Byte[]<br/>(uniquement pris en charge sur Oracle 10g et versions ultérieures lorsque vous utilisez le pilote Microsoft) |
 | CHAR |Chaîne |
 | CLOB |Chaîne |
-| DATE |DateTime |
+| DATE |Datetime |
 | FLOAT |Décimale, chaîne (si précision > 28) |
 | INTEGER |Décimale, chaîne (si précision > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
@@ -614,9 +614,9 @@ Quand vous déplacez des données à partir d’Oracle, les mappages suivants so
 | NVARCHAR2 |Chaîne |
 | RAW |Byte[] |
 | ROWID |Chaîne |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
-| TIMESTAMP WITH TIME ZONE |DateTime |
+| TIMESTAMP |Datetime |
+| TIMESTAMP WITH LOCAL TIME ZONE |Datetime |
+| TIMESTAMP WITH TIME ZONE |Datetime |
 | UNSIGNED INTEGER |NUMBER |
 | VARCHAR2 |Chaîne |
 | XML |Chaîne |

@@ -3,39 +3,36 @@ title: Utilisation de modèles Resource Manager dans Data Factory | Microsoft Do
 description: Découvrez comment créer et utiliser des modèles Azure Resource Manager pour créer des entités Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
-ms.assetid: 37724021-f55f-4e85-9206-6d4a48bda3d8
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: ca8b3930b9d9f708d83dc760be3ee89737b074dc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: d2360efe71327f02d5cb7d16cb8141f47c304b0c
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541585"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164679"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Utilisation de modèles pour créer des entités Azure Data Factory
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Lors de l’utilisation d’Azure Data Factory pour vos besoins d’intégration de données, vous pourriez être amené à réutiliser le même modèle dans différents environnements ou à implémenter la même tâche de façon répétée dans la même solution. Les modèles vous aident à implémenter et à gérer ces scénarios de manière simple. Les modèles dans Azure Data Factory sont parfaitement adaptés aux scénarios qui impliquent la réutilisation et la répétition.
 
-Prenons le cas d’une entreprise qui compte 10 usines de fabrication dans le monde entier. Les journaux d’activité de chaque usine sont stockés dans une base de données SQL Server locale distincte. L’entreprise souhaite créer un entrepôt de données unique dans le cloud pour l’analytique ad hoc. Elle souhaite également avoir la même logique mais des configurations différentes pour les environnements de développement, de test et de production.
+Prenons le cas d’une entreprise qui compte 10 usines de fabrication dans le monde entier. Les journaux d’activité de chaque usine sont stockés dans une base de données SQL Server locale distincte. L’entreprise souhaite créer un entrepôt de données unique dans le cloud pour l’analyse ad-hoc. Elle souhaite également avoir la même logique mais des configurations différentes pour les environnements de développement, de test et de production.
 
 Dans ce cas, une tâche doit être répétée dans le même environnement, mais avec des valeurs différentes dans les 10 entrepôts de données pour chaque usine de fabrication. Le facteur de **répétition** est donc présent. La création de modèles permet l’abstraction de ce flux générique (autrement dit, les pipelines ayant les mêmes activités dans chaque entrepôt de données), mais utilise un fichier de paramètres distinct pour chaque usine de fabrication.
 
 En outre, étant donné que l’entreprise souhaite déployer ces 10 entrepôts de données plusieurs fois dans différents environnements, les modèles peuvent utiliser cette **réutilisation** à l’aide de fichiers de paramètres distincts pour les environnements de développement, de test et de production.
 
 ## <a name="templating-with-azure-resource-manager"></a>Création de modèles avec Azure Resource Manager
-Les [modèles Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md#template-deployment) constituent une excellente méthode de création de modèles dans Azure Data Factory. Les modèles Resource Manager définissent l’infrastructure et la configuration de votre solution Azure à l’aide d’un fichier JSON. Étant donné que les modèles Azure Resource Manager fonctionnent avec tous les services ou la plupart des services Azure, ils peuvent être utilisés pour gérer facilement toutes les ressources de vos actifs Azure. Pour en savoir plus sur les modèles Resource Manager en général, consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
+Les [modèles Azure Resource Manager](../../azure-resource-manager/template-deployment-overview.md) constituent une excellente méthode de création de modèles dans Azure Data Factory. Les modèles Resource Manager définissent l’infrastructure et la configuration de votre solution Azure à l’aide d’un fichier JSON. Étant donné que les modèles Azure Resource Manager fonctionnent avec tous les services ou la plupart des services Azure, ils peuvent être utilisés pour gérer facilement toutes les ressources de vos actifs Azure. Pour en savoir plus sur les modèles Resource Manager en général, consultez [Création de modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
 
 ## <a name="tutorials"></a>Tutoriels
 Reportez-vous aux didacticiels suivants pour obtenir des instructions détaillées sur la création d’entités Data Factory à l’aide de modèles Resource Manager :
@@ -46,7 +43,7 @@ Reportez-vous aux didacticiels suivants pour obtenir des instructions détaillé
 ## <a name="data-factory-templates-on-github"></a>Modèles Data Factory sur GitHub
 Découvrez les modèles de démarrage rapide Azure suivants sur GitHub :
 
-* [Créer une fabrique de données pour copier des données à partir du Stockage Blob Azure vers une base de données SQL Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
+* [Créer une fabrique de données pour copier des données du Stockage Blob Azure vers Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy)
 * [Créer une fabrique de données avec une activité Hive sur un cluster Azure HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-hive-transformation)
 * [Créer une fabrique de données pour copier des données à partir de Salesforce vers des objets blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy)
 * [Créer une fabrique de données qui lié les activités : copie des données à partir d’un serveur FTP vers des objets Blob Azure, appelle un script hive sur un cluster HDInsight à la demande pour transformer les données et copie le résultat dans Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-data-factory-ftp-hive-blob)
@@ -176,7 +173,7 @@ Consultez [Magasins de données pris en charge](data-factory-data-movement-activ
 }
 ```
 
-Consultez [Définition des pipelines](data-factory-create-pipelines.md#pipeline-json) pour plus d’informations sur les propriétés JSON permettant de définir le pipeline et les activités spécifiques que vous souhaitez déployer. Notez que le paramètre « dependsOn » spécifie le nom de la fabrique de données, ainsi que les services liés ou les jeux de données correspondants. Un exemple de pipeline qui copie des données depuis le Stockage Blob Azure vers une base de données SQL Azure est indiqué dans l’extrait de code JSON suivant :
+Consultez [Définition des pipelines](data-factory-create-pipelines.md#pipeline-json) pour plus d’informations sur les propriétés JSON permettant de définir le pipeline et les activités spécifiques que vous souhaitez déployer. Notez que le paramètre « dependsOn » spécifie le nom de la fabrique de données, ainsi que les services liés ou les jeux de données correspondants. Un exemple de pipeline qui copie des données depuis le Stockage Blob Azure vers une base de données Azure SQL est indiqué dans l’extrait de code JSON suivant :
 
 ```JSON
 "type": "datapipelines",

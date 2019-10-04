@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance horaire | Microsoft Docs »
-description: En savoir plus sur les spécificités de fuseau horaire de Azure SQL Database Managed Instance
+title: Fuseaux horaires d’Azure SQL Database Managed Instance | Microsoft Docs
+description: En savoir plus sur les spécificités des fuseaux horaires d'Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -9,47 +9,48 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-manager: craigg
-ms.date: 04/10/2019
-ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 09/03/2019
+ms.openlocfilehash: e81ae2fc563300402339fc40893fbbdbbd326dcd
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489688"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233225"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Fuseau horaire dans la base de données Azure SQL Managed Instance (version préliminaire)
+# <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fuseaux horaires dans Azure SQL Database Managed Instance
 
-À l’aide de temps universel coordonné (UTC) est une pratique recommandée pour la couche de données de solutions de cloud, Azure SQL Database Managed Instance offre un choix de fuseau horaire en fonction des besoins des applications existantes qui stockent les valeurs de date et d’heure et date de l’appel et fonctions d’heure avec un contexte implicite d’un fuseau horaire spécifique.
+Le temps universel coordonné (UTC) est le fuseau horaire recommandé pour le niveau des données de solutions dans le cloud. Azure SQL Database Managed Instance offre également un choix de fuseaux horaires pour répondre aux besoins des applications existantes qui stockent les valeurs de date et d'heure et les fonctions d'appel de date et d'heure avec le contexte implicite d'un fuseau horaire spécifique.
 
-Les fonctions T-SQL comme [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) ou code CLR observer le fuseau horaire défini sur l’instance à niveau. Travaux SQL Agent suivre également la planification selon le fuseau horaire de l’instance.
-
-  >[!NOTE]
-  > Managed Instance est l’option de déploiement uniquement de base de données SQL Azure qui prend en charge le paramètre de fuseau horaire. Autres options de déploiement suivent toujours UTC.
-Utilisez [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) dans uniques et bureaux bases de données SQL si vous avez besoin d’interpréter les informations de date et d’heure dans le fuseau horaire non UTC.
-
-## <a name="supported-time-zones"></a>Prise en charge des fuseaux horaires
-
-Un ensemble de fuseaux horaires pris en charge est hérité à partir du système d’exploitation sous-jacent de l’instance gérée et il est régulièrement mis à jour pour obtenir les nouvelles définitions de fuseau horaire et refléter les modifications apportées à des colonnes existantes.
-
-Une liste avec les noms des fuseaux horaires pris en charge est exposée via la [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) vue système.
-
-## <a name="setting-time-zone"></a>Définition du fuseau horaire
-
-Un fuseau horaire de l’instance managée peut être défini lors de la création d’instance uniquement. Le fuseau horaire par défaut est le temps universel coordonné (UTC).
+Les fonctions T-SQL comme [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) ou le code CLR utilisent le fuseau horaire défini au niveau de l'instance. Les tâches SQL Server Agent suivent également des planifications en fonction du fuseau horaire de l'instance.
 
   >[!NOTE]
-  > Le fuseau horaire d’une instance managée existante ne peut pas être modifié.
+  > Managed Instance est la seule option de déploiement d'Azure SQL Database prenant en charge le réglage du fuseau horaire. Les autres options de déploiement suivent toujours le fuseau UTC.
+Utilisez [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) dans les bases de données SQL simples et regroupées si vous devez interpréter des informations de date et d'heure dans un fuseau horaire non UTC.
 
-### <a name="setting-the-time-zone-through-azure-portal"></a>Définition du fuseau horaire via le portail Azure
+## <a name="supported-time-zones"></a>Fuseaux horaires pris en charge
 
-Lorsque vous entrez des paramètres pour la nouvelle instance, sélectionnez un fuseau horaire dans la liste des fuseaux horaires pris en charge :
+Un ensemble de fuseaux horaires pris en charge est hérité du système d'exploitation sous-jacent de l'instance gérée. Il est régulièrement mis à jour pour obtenir de nouvelles définitions de fuseaux horaires et refléter les changements apportés aux fuseaux horaires existants.
+
+[La stratégie Heure d’été/modifications de fuseau horaire](https://aka.ms/time) garantit la précision de l’historique à partir de 2010.
+
+Une liste avec les noms des fuseaux horaires pris en charge est affichée dans la vue système [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql).
+
+## <a name="set-a-time-zone"></a>Régler un fuseau horaire
+
+Le fuseau horaire d'une instance gérée ne peut être réglé que lors de la création de l'instance. Le fuseau horaire par défaut est UTC.
+
+  >[!NOTE]
+  > Le fuseau horaire d'une instance gérée existante ne peut pas être modifié.
+
+### <a name="set-the-time-zone-through-the-azure-portal"></a>Régler le fuseau horaire via le portail Azure
+
+Lorsque vous saisissez les paramètres d’une nouvelle instance, sélectionnez un fuseau horaire dans la liste des fuseaux horaires pris en charge.
   
-![Définition du fuseau horaire lors de la création d’instance](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
+![Réglage d'un fuseau horaire lors de la création d'une instance](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
 ### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 
-Spécifiez la propriété timezoneId dans votre [modèle Resource Manager](https://aka.ms/sql-mi-create-arm-posh) pour définir le fuseau horaire lors de la création d’instance.
+Spécifiez la propriété timezoneId dans votre [modèle Resource Manager](https://aka.ms/sql-mi-create-arm-posh) pour régler le fuseau horaire lors de la création de l'instance.
 
 ```json
 "properties": {
@@ -66,181 +67,180 @@ Spécifiez la propriété timezoneId dans votre [modèle Resource Manager](https
 
 ```
 
-Vous trouverez la liste de valeurs prises en charge pour la propriété timezoneId à la fin de cet article.
+Vous trouverez à la fin de cet article une liste des valeurs prises en charge pour la propriété timezoneId.
 
-Si non spécifié, fuseau horaire est défini sur UTC.
+Si aucun fuseau horaire n’est spécifié, le fuseau horaire est réglé sur UTC.
 
-## <a name="checking-the-time-zone-of-instance"></a>La vérification du fuseau horaire de l’instance
+## <a name="check-the-time-zone-of-an-instance"></a>Vérifier le fuseau horaire d'une instance
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) fonction retourne un nom d’affichage du fuseau horaire de l’instance.
+La fonction [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) retourne un nom d'affichage du fuseau horaire de l'instance.
 
-## <a name="cross-feature-considerations"></a>Considérations relatives à l’entre fonctionnalités
+## <a name="cross-feature-considerations"></a>Considérations multifonctionnalités
 
-### <a name="restore-and-import"></a>Importation et restauration
+### <a name="restore-and-import"></a>Restaurer et importer
 
-Vous pouvez restaurer le fichier de sauvegarde ou importer des données vers une instance gérée à partir d’une instance ou un serveur avec les paramètres de fuseau horaire différent. Toutefois, veillez à le faire avec précaution et pour analyser le comportement des applications et les résultats des requêtes et des rapports, comme lors du transfert des données entre deux instances de SQL Server avec les paramètres de fuseau horaire différent.
+Vous pouvez restaurer un fichier de sauvegarde ou importer des données vers une instance gérée à partir d'une instance ou d'un serveur avec différents paramètres de fuseau horaire. Procédez avec précaution ! Analysez le comportement de l'application et les résultats des requêtes et des rapports, comme lorsque vous transférez des données entre deux instances SQL Server avec différents paramètres de fuseau horaire.
 
 ### <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 
-Lorsque vous effectuez la restauration de point-à-temps, le temps à restaurer est interprété en heure UTC pour éviter toute ambiguïté en raison de l’heure d’été et de ses modifications potentielles.
+Lorsque vous effectuez une restauration dans le temps, l'heure de la restauration est interprétée comme une heure UTC. Toute ambiguïté liée à l'heure d'été et à ses éventuelles modifications est ainsi évitée.
 
 ### <a name="auto-failover-groups"></a>Groupes de basculement automatique
 
-À l’aide de la même fuseau horaire sur l’instance principale et secondaire de basculement groupe n’est pas appliqué, mais il est fortement recommandé.
-  >[!IMPORTANT]
-  > Bien qu’il existe des scénarios valides pour avoir un autre fuseau horaire géo-secondaire instance utilisé pour l’échelle lecture uniquement, veuillez noter qu’en cas de basculement manuel ou automatique pour l’instance secondaire il conserve son fuseau horaire d’origine.
+L'utilisation du même fuseau horaire dans des instances principale et secondaire d'un groupe de basculement n'est pas imposée, mais nous le recommandons fortement.
+
+  >[!WARNING]
+  > Nous vous conseillons vivement d'utiliser le même fuseau horaire pour les instances principale et secondaire d’un groupe de basculement. En raison de certains cas d'usage rares, le même fuseau horaire n'est pas conservé entre les instances principale et secondaire. Il est important de comprendre qu'en cas de basculement manuel ou automatique, l'instance secondaire conservera son fuseau horaire original.
 
 ## <a name="limitations"></a>Limites
 
-- Fuseau horaire de l’instance gérée existante ne peut pas être modifié.
-- Les processus externes lancées depuis les travaux SQL Agent ne tiennent pas compte de fuseau horaire de l’instance.
-- Instance managée de native [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance) applet de commande PowerShell ne pas les temps de passage de prise en charge de la zone paramètre encore. Wrapper PowerShell utilisez [modèle Resource Manager](https://aka.ms/sql-mi-create-arm-posh) à la place.
-- Commande CLI [créer az sql mi](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) ne prend pas encore en charge le paramètre de fuseau horaire.
+- Le fuseau horaire de l’instance gérée existante ne peut pas être modifié.
+- Les processus externes lancés à partir des travaux SQL Server Agent ne suivent pas le fuseau horaire de l'instance.
 
 ## <a name="list-of-supported-time-zones"></a>Liste des fuseaux horaires pris en charge
 
-| **ID de fuseau horaire** | **Nom d’affichage de fuseau horaire** |
+| **ID de fuseau horaire** | **Nom d'affichage du fuseau horaire** |
 | --- | --- |
-| Changement de date | (UTC-12:00) Ligne de changement de date ouest |
+| Ligne de changement de date internationale | (UTC-12:00) Ligne de changement de date ouest |
 | UTC-11 | (UTC-11:00) Temps universel coordonné-11 |
-| Heure standard Îles Aléoutiennes | (UTC-10:00) Îles aléoutiennes |
-| Hawaii | (UTC-10:00) Hawaii |
-| Heure standard Marquises | (UTC-09:30) Îles Marquises |
-| Alaska | (UTC-09:00) Alaska |
+| Heure standard des îles Aléoutiennes | (UTC-10:00) Îles Aléoutiennes |
+| Heure standard d’Hawaï | (UTC-10:00) Hawaï |
+| Heure standard des Marquises | (UTC-09:30) Îles Marquises |
+| Heure standard de l'Alaska | (UTC-09:00) Alaska |
 | UTC-09 | (UTC-09:00) Temps universel coordonné-09 |
-| Pacifique (Mexique) | (UTC-08:00) Baja California |
+| Heure standard du Pacifique (Mexique) | (UTC-08:00) Baja California |
 | UTC-08 | (UTC-08:00) Temps universel coordonné-08 |
-| Pacifique | (UTC-08:00) Heure du Pacifique (États-Unis et Canada) |
-| Heure d'hiver États-Unis (Montagnes Rocheuses) | (UTC-07:00) Arizona |
-| Heure d'hiver Montagnes Rocheuses (Mexique) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
-| Rocheuses | (UTC-07:00) Heure des montagnes Rocheuses (États-Unis et Canada) |
-| Amérique centrale | (UTC-06:00) Amérique centrale |
-| Centre | (UTC-06:00) Heure du centre (États-Unis et Canada) |
-| Heure standard Île de Pâques | (UTC-06:00) Île de Pâques |
-| Heure d’hiver Centre (Mexique) | (UTC-06:00) Guadalajara, Mexico City, Monterrey |
-| Heure standard de la région Canada Centre | (UTC-06:00) Saskatchewan |
-| Heure d'hiver Amérique du Sud Pacifique | (UTC-05:00) Bogota, Lima, Quito, Rio Branco |
-| Heure d’hiver de l'Est (Mexique) | (UTC-05:00) Chetumal |
-| Est | (UTC-05:00) Heure de l’Est (États-Unis et Canada) |
-| Heure standard Haïti | (UTC-05:00) Haïti |
-| Heure standard Cuba | (UTC-05:00) La Havane |
-| Heure d'hiver États-Unis (Est) | (UTC-05:00) Indiana (Est) |
-| Îles Turks et Caicos heure d’hiver | (UTC-05:00) Îles Turques-et-Caïques |
-| Paraguay | (UTC-04:00) Asuncion |
-| Atlantique | (UTC-04:00) Heure de l’Atlantique (Canada) |
-| Venezuela | (UTC-04:00) Caracas |
-| Brésil Centre | (UTC-04:00) Cuiaba |
-| Heure d'hiver Amérique du Sud (Ouest) | (UTC-04:00) Georgetown, La Paz, Manaus, San Juan |
-| Heure d'hiver Amérique du Sud Pacifique | (UTC-04:00) Santiago |
-| Heure d’hiver Terre-Neuve | (UTC-03:30) Terre-Neuve |
-| Heure standard Tocantins | (UTC-03:00) Araguaina |
-| E. Heure d’hiver Amérique du Sud | (UTC-03:00) Brasilia |
-| Heure d'hiver Amérique du Sud (Est) | (UTC-03:00) Cayenne, Fortaleza |
-| Argentine | (UTC-03:00) Buenos Aires |
+| Heure standard du Pacifique | (UTC-08:00) Heure du Pacifique (États-Unis et Canada) |
+| Heure standard des Rocheuses (États-Unis) | (UTC-07:00) Arizona |
+| Heure standard des Rocheuses (Mexique) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
+| Heure standard des Rocheuses | (UTC-07:00) Heure des Rocheuses (États-Unis et Canada) |
+| Heure standard du Centre (Amérique) | (UTC-06:00) Amérique centrale |
+| Heure standard du Centre | (UTC-06:00) Heure du Centre (États-Unis et Canada) |
+| Heure standard de l’Île de Pâques | (UTC-06:00) Île de Pâques |
+| Heure standard du Centre (Mexique) | (UTC-06:00) Guadalajara, Mexico City, Monterrey |
+| Heure standard du Centre (Canada) | (UTC-06:00) Saskatchewan |
+| Heure standard du Pacifique (Amérique du Sud) | (UTC-05:00) Bogota, Lima, Quito, Rio Branco |
+| Heure standard de l'Est (Mexique) | (UTC-05:00) Chetumal |
+| Heure standard de l'Est | (UTC-05:00) Heure de l’Est (États-Unis et Canada) |
+| Heure standard de Haïti | (UTC-05:00) Haïti |
+| Heure standard de Cuba | (UTC-05:00) La Havane |
+| Heure standard de l'Est (États-Unis) | (UTC-05:00) Indiana (Est) |
+| Heure standard des Îles Turques-et-Caïques | (UTC-05:00) Îles Turques-et-Caïques |
+| Heure standard du Paraguay | (UTC-04:00) Asuncion |
+| Heure standard de l’Atlantique | (UTC-04:00) Heure de l’Atlantique (Canada) |
+| Heure standard du Venezuela | (UTC-04:00) Caracas |
+| Heure standard du Brésil (Centre) | (UTC-04:00) Cuiaba |
+| Heure standard de l’Amérique du Sud (Ouest) | (UTC-04:00) Georgetown, La Paz, Manaus, San Juan |
+| Heure standard de l’Amérique du Sud (Pacifique) | (UTC-04:00) Santiago |
+| Heure standard de Terre-Neuve | (UTC-03:30) Terre-Neuve |
+| Heure standard de Tocantins | (UTC-03:00) Araguaina |
+| E. Heure standard de l’Amérique du Sud | (UTC-03:00) Brasilia |
+| Heure standard de l’Amérique du Sud (Est) | (UTC-03:00) Cayenne, Fortaleza |
+| Heure standard de l’Argentine | (UTC-03:00) Buenos Aires |
 | Heure standard du Groenland | (UTC-03:00) Groenland |
-| Montevideo | (UTC-03:00) Montevideo |
-| Heure standard de Magallanes  | (UTC-03:00) Punta Arenas |
-| Heure standard Saint-Pierre | (UTC-03:00) Saint-Pierre-et-Miquelon |
-| Bahia | (UTC-03:00) Salvador |
+| Heure standard de Montevideo | (UTC-03:00) Montevideo |
+| Heure standard de Magallanes | (UTC-03:00) Punta Arenas |
+| Heure standard de Saint-Pierre-et-Miquelon | (UTC-03:00) Saint-Pierre-et-Miquelon |
+| Heure standard de Bahia | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Temps universel coordonné-02 |
-| Centre-Atlantique | (UTC-02:00) Centre-Atlantique - Ancien |
+| Heure standard de Centre-Atlantique | (UTC-02:00) Centre-Atlantique - Ancien |
 | Heure standard des Açores | (UTC-01:00) Açores |
-| Cap-Vert | (UTC-01:00) Îles du Cap Vert |
+| Heure standard des Îles du Cap-Vert | (UTC-01:00) Îles du Cap-Vert |
 | UTC | (UTC) Temps universel coordonné |
-| GMT | (UTC+00:00) Dublin, Édimbourg, Lisbonne, Londres |
-| Greenwich | (UTC+00:00) Monrovia, Reykjavik |
-| W. Heure d’hiver Europe | (UTC+01:00) Amsterdam, Berlin, Berne, Rome, Stockholm, Vienne |
-| Europe centrale | (UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague |
-| Paris, Madrid | (UTC+01:00) Bruxelles, Copenhague, Madrid, Paris |
-| Maroc | (UTC+01:00) Casablanca |
-| Heure standard de São Tomé | (UTC+01:00) São Tomé |
-| Centre de l'Europe | (UTC+01:00) Sarajevo, Skopje, Varsovie, Zagreb |
-| W. Afrique centrale | (UTC+01:00) Afrique Centrale de l’Ouest |
-| Jordanie | (UTC+02:00) Amman |
-| GTB | (UTC+02:00) Athènes, Bucharest |
+| Heure standard GMT | (UTC+00:00) Dublin, Édimbourg, Lisbonne, Londres |
+| Heure standard de Greenwich | (UTC+00:00) Monrovia, Reykjavik |
+| Heure standard d’Europe de l’Ouest | (UTC+01:00) Amsterdam, Berlin, Berne, Rome, Stockholm, Vienne |
+| Heure standard d’Europe centrale | (UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague |
+| Romance Standard Time (RST) | (UTC+01:00) Bruxelles, Copenhague, Madrid, Paris |
+| Heure standard du Maroc | (UTC+01:00) Casablanca |
+| Heure standard de Sao Tomé-et-Principe | (UTC+01:00) Sao Tomé |
+| Heure standard d’Europe centrale | (UTC+01:00) Sarajevo, Skopje, Varsovie, Zagreb |
+| Heure standard d’Afrique Centrale de l’Ouest | (UTC+01:00) Afrique Centrale de l’Ouest |
+| Heure standard de Jordanie | (UTC+02:00) Amman |
+| Heure standard GTB | (UTC+02:00) Athènes, Bucarest |
 | Heure standard du Moyen-Orient | (UTC+02:00) Beyrouth |
-| Égypte | (UTC+02:00) Le Caire |
-| E. Heure d’hiver Europe | (UTC+02:00) Chisinau |
-| Syrie | (UTC+02:00) Damas |
-| Heure d’hiver Cisjordanie | (UTC+02:00) Gaza, Hébron |
-| Afrique du Sud | (UTC+02:00) Harare, Pretoria |
-| FLE | (UTC+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius |
-| Israël | (UTC+02:00) Jérusalem |
-| Heure d’hiver Kaliningrad | (UTC+02:00) Kaliningrad |
+| Heure standard d’Égypte | (UTC+02:00) Le Caire |
+| E. d’Europe de l’Ouest | (UTC+02:00) Chisinau |
+| Heure standard de Syrie | (UTC+02:00) Damas |
+| Heure standard de Cisjordanie | (UTC+02:00) Gaza, Hébron |
+| Heure standard d’Afrique du Sud | (UTC+02:00) Harare, Pretoria |
+| Heure standard FLE | (UTC+02:00) Helsinki, Kiev, Riga, Sofia, Tallinn, Vilnius |
+| Heure standard d’Israël | (UTC+02:00) Jérusalem |
+| Heure standard de Kaliningrad | (UTC+02:00) Kaliningrad |
 | Heure standard du Soudan | (UTC+02:00) Khartoum |
-| Libye | (UTC+02:00) Tripoli |
-| Namibie | (UTC+02:00) Windhoek |
-| Arabie | (UTC+03:00) Bagdad |
-| Turquie | (UTC+03:00) Istanbul |
-| Heure standard des pays arabes | (UTC+03:00) Koweït, Riyad |
-| Heure d’hiver Belarus | (UTC+03:00) Minsk |
-| Heure d’hiver Russie | (UTC+03:00) Moscou, St. Petersbourg |
-| E. Heure d’hiver Afrique | (UTC+03:00) Nairobi |
-| Iran | (UTC+03:30) Téhéran |
-| Arabie | (UTC+04:00) Abu Dhabi, Mascate |
-| Heure standard Astrakhan | (UTC+04:00) Astrakhan, Oulianovsk |
-| Azerbaïdjan | (UTC+04:00) Bakou |
+| Heure standard de Lybie | (UTC+02:00) Tripoli |
+| Heure standard de Namibie | (UTC+02:00) Windhoek |
+| Heure standard d’Arabie | (UTC+03:00) Bagdad |
+| Heure standard de Turquie | (UTC+03:00) Istanbul |
+| Heure standard arabe | (UTC+03:00) Koweït, Riyad |
+| Heure standard du Bélarus | (UTC+03:00) Minsk |
+| Heure standard de Russie | (UTC+03:00) Moscou, Saint-Pétersbourg, Volgograd |
+| E. Heure standard d’Afrique de l’Est | (UTC+03:00) Nairobi |
+| Heure standard d’Iran | (UTC+03:30) Téhéran |
+| Heure standard arabe | (UTC+04:00) Abu Dhabi, Mascate |
+| Heure standard d’Astrakhan | (UTC+04:00) Astrakhan, Oulianovsk |
+| Heure standard d’Azerbaïdjan | (UTC+04:00) Bakou |
 | Fuseau horaire de Russie 3 | (UTC+04:00) Izhevsk, Samara |
-| Île Maurice | (UTC+04:00) Port Louis |
+| Heure standard de Maurice | (UTC+04:00) Port Louis |
 | Heure standard de Saratov | (UTC+04:00) Saratov |
-| Géorgie | (UTC+04:00) Tbilissi |
-| Heure Standard de Volgograd | (UTC+04:00) Volgograd |
-| Caucase | (UTC+04:00) Erevan |
-| Heure d’hiver Afghanistan | (UTC+04:30) Kaboul |
-| Asie de l'Ouest | (UTC+05:00) Achgabat, Tachkent |
-| Iekaterinbourg | (UTC+05:00) Iekaterinbourg |
-| Pakistan | (UTC+05:00) Islamabad, Karachi |
-| Inde | (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi |
-| Sri Lanka | (UTC+05:30) Sri Jayawardenepura |
-| Népal | (UTC+05:45) Katmandou |
-| Asie centrale | (UTC+06:00) Astana |
-| Bangladesh | (UTC+06:00) Dacca |
-| Heure standard Omsk | (UTC+06:00) Omsk |
-| Myanmar | (UTC+06:30) Yangon (Rangoon) |
-| Heure d’hiver Asie (Sud-Est) | (UTC+07:00) Bangkok, Hanoï, Jakarta |
-| Heure standard Altaï | (UTC+07:00) Barnaul, Gorno-Altaysk |
-| W. Heure d’hiver Mongolie | (UTC+07:00) Hovd |
-| Asie du Nord | (UTC+07:00) Krasnoïarsk |
-| N. Asie centrale | (UTC+07:00) Novossibirsk |
-| Heure standard Tomsk | (UTC+07:00) Tomsk |
-| Chine | (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi |
-| Asie du Nord est des États-Unis | (UTC+08:00) Irkoutsk |
-| Heure d’hiver Singapour | (UTC+08:00) Kuala Lumpur, Singapour |
-| W. Heure d’hiver Australie | (UTC+08:00) Perth |
+| Heure standard de Géorgie | (UTC+04:00) Tbilissi |
+| Heure standard de Volgograd | (UTC+04:00) Volgograd |
+| Heure standard du Caucase | (UTC+04:00) Erevan |
+| Heure standard d’Afghanistan | (UTC+04:30) Kaboul |
+| Heure standard d’Asie de l’Ouest | (UTC+05:00) Achgabat, Tachkent |
+| Heure standard d’Iekaterinbourg | (UTC+05:00) Iekaterinbourg |
+| Heure standard du Pakistan | (UTC+05:00) Islamabad, Karachi |
+| Heure standard de l’Inde | (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi |
+| Heure standard du Sri Lanka | (UTC+05:30) Sri Jayawardenepura |
+| Heure standard du Népal | (UTC+05:45) Katmandou |
+| Heure standard d’Asie centrale | (UTC+06:00) Astana |
+| Heure standard du Bangladesh | (UTC+06:00) Dacca |
+| Heure standard d’Omsk | (UTC+06:00) Omsk |
+| Heure standard du Myanmar | (UTC+06:30) Yangon (Rangoon) |
+| Heure standard d’Asie du Sud-Est | (UTC+07:00) Bangkok, Hanoï, Jakarta |
+| Heure standard de l’Altaï | (UTC+07:00) Barnaul, Gorno-Altaysk |
+| Heure standard de Mongolie occidentale | (UTC+07:00) Hovd |
+| Heure standard d’Asie du Nord | (UTC+07:00) Krasnoïarsk |
+| N. Heure standard d’Asie centrale (Nord) | (UTC+07:00) Novossibirsk |
+| Heure standard de Tomsk | (UTC+07:00) Tomsk |
+| Heure standard de Chine | (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi |
+| Heure standard d’Asie de l’Est (Nord) | (UTC+08:00) Irkoutsk |
+| Heure standard de Singapour | (UTC+08:00) Kuala Lumpur, Singapour |
+| Heure standard d’Australie occidentale | (UTC+08:00) Perth |
 | Heure standard de Taipei | (UTC+08:00) Taipei |
-| Oulan-Bator | (UTC+08:00) Oulan-Bator |
-| Heure standard Australie Centre-Ouest | (UTC+08:45) Eucla |
-| Heure standard Transbaïkalie | (UTC+09:00) Chita |
-| Tokyo | (UTC+09:00) Osaka, Sapporo, Tokyo |
-| Heure d’hiver Corée du Nord | (UTC+09:00) Pyongyang |
-| Corée | (UTC+09:00) Séoul |
-| Yakoutsk | (UTC+09:00) Iakoutsk |
-| CEN. Heure d’hiver Australie | (UTC+09:30) Adelaide |
-| Heure d'hiver Australie centrale | (UTC+09:30) Darwin |
-| E. Heure d’hiver Australie | (UTC+10:00) Brisbane |
-| Heure d’hiver Australie (Est) | (UTC+10:00) Canberra, Melbourne, Sydney |
-| Pacifique Ouest | (UTC+10:00) Guam, Port Moresby |
-| Tasmanie | (UTC+10:00) Hobart |
-| Vladivostok Standard Time | (UTC+10:00) Vladivostok |
-| Heure standard Lord Howe | (UTC+10:30) Île Lord Howe |
-| Heure standard Bougainville | (UTC+11:00) Île Bougainville |
+| Heure standard d’Oulan-Bator | (UTC+08:00) Oulan-Bator |
+| Heure standard d’Australie occidentale (Centre) | (UTC+08:45) Eucla |
+| Heure standard de Transbaïkalie | (UTC+09:00) Chita |
+| Heure standard de Tokyo | (UTC+09:00) Osaka, Sapporo, Tokyo |
+| Heure standard de Corée du Nord | (UTC+09:00) Pyongyang |
+| Heure standard de Corée du Sud | (UTC+09:00) Séoul |
+| Heure standard d’Iakoutsk | (UTC+09:00) Iakoutsk |
+| Heure standard d’Australie (Centre) | (UTC+09:30) Adelaide |
+| Heure standard d’Australie Centre) | (UTC+09:30) Darwin |
+| E. Heure standard d’Australie de l’Est | (UTC+10:00) Brisbane |
+| Heure standard d’Australie de l’Est | (UTC+10:00) Canberra, Melbourne, Sydney |
+| Heure standard du Pacifique (Ouest) | (UTC+10:00) Guam, Port Moresby |
+| Heure standard de Tasmanie | (UTC+10:00) Hobart |
+| Heure standard de Vladivostok | (UTC+10:00) Vladivostok |
+| Heure standard de l’Île Lord Howe | (UTC+10:30) Île Lord Howe |
+| Heure standard de l’Île Bougainville | (UTC+11:00) Île Bougainville |
 | Fuseau horaire de Russie 10 | (UTC+11:00) Chokurdakh |
-| Magadan | (UTC+11:00) Magadan |
-| Heure standard Norfolk | (UTC+11:00) Île Norfolk |
-| Heure standard Sakhaline | (UTC+11:00) Sakhaline |
-| Pacifique Centre | (UTC+11:00) Îles Salomon, Nouvelle-Calédonie |
+| Heure standard de Magadan | (UTC+11:00) Magadan |
+| Heure standard de l’Île Norfolk | (UTC+11:00) Île Norfolk |
+| Heure standard de Sakhaline | (UTC+11:00) Sakhaline |
+| Heure standard du Pacifique (Centre) | (UTC+11:00) Îles Salomon, Nouvelle-Calédonie |
 | Fuseau horaire de Russie 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky |
-| Nouvelle-Zélande | (UTC+12:00) Auckland, Wellington |
+| Heure standard de Nouvelle-Zélande | (UTC+12:00) Auckland, Wellington |
 | UTC+12 | (UTC+12:00) Temps universel coordonné+12 |
-| Heure d’hiver Fidji | (UTC+12:00) Fidji |
-| Kamchatka | (UTC+12:00) Petropavlovsk-Kamchatsky - Ancien |
-| Heure standard Îles Chatham | (UTC+12:45) Îles Chatham |
-| UTC+13 | (UTC+13:00) Temps universel coordonné +13 |
-| Tonga | (UTC+13:00) Nuku’alofa |
+| Heure standard de Fidji | (UTC+12:00) Fidji |
+| Heure standard du Kamchatka | (UTC+12:00) Petropavlovsk-Kamchatsky - Ancien |
+| Heure standard des Îles Chatham | (UTC+12:45) Îles Chatham |
+| UTC+13 | (UTC+13:00) Temps universel coordonné+13 |
+| Heure standard de Tonga | (UTC+13:00) Nuku’alofa |
 | Heure standard de Samoa | (UTC+13:00) Samoa |
-| Heure d'hiver Îles de la Ligne | (UTC+14:00) Île de Kiritimati |
+| Heure standard des Îles de la Ligne | (UTC+14:00) Île de Kiritimati |
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir aussi 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

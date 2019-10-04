@@ -1,21 +1,21 @@
 ---
 title: Méthode Languages de l’API de traduction de texte Translator Text
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez la méthode Languages de l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 3dd875fbf9a8da464abe1b6312cec84c030dc624
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915762"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934012"
 ---
 # <a name="translator-text-api-30-languages"></a>API de traduction de texte Translator Text 3.0 : Languages
 
@@ -263,7 +263,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>429</td>
-    <td>L’appelant envoie trop de demandes.</td>
+    <td>Le serveur a rejeté la requête, car le client a dépassé les limites de requête.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -281,10 +281,6 @@ Si une erreur se produit, la requête renvoie également une réponse d'erreur J
 
 L’exemple suivant montre comment récupérer les langues prises en charge pour la traduction du texte.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"
 ```
-
----

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 4001f3c88b676a2786159946a8981823e18ea5f6
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878191"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274416"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -41,12 +41,12 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Si j’active la réinitialisation du mot de passe pour un groupe, puis décide de l’activer pour tout le monde, mes utilisateurs doivent-ils se réenregistrer ?**
 
-  > **R :** Non. Les utilisateurs possédant des données d’authentification renseignées ne doivent pas s’enregistrer de nouveau.
+  > **R :**  Non. Les utilisateurs possédant des données d’authentification renseignées ne doivent pas s’enregistrer de nouveau.
   >
   >
 * **Q :  Puis-je définir des données de réinitialisation de mot de passe pour le compte de mes utilisateurs ?**
 
-  > **R :** Oui, vous pouvez le faire avec Azure AD Connect, PowerShell, le [portail Azure](https://portal.azure.com) ou le Centre d’administration Office 365. Pour plus d’informations, consultez [Données utilisées par la réinitialisation du mot de passe en libre-service Azure AD](howto-sspr-authenticationdata.md).
+  > **R :** Oui, vous pouvez le faire avec Azure AD Connect, PowerShell, le [portail Azure](https://portal.azure.com) ou le [Centre d’administration Microsoft 365](https://admin.microsoft.com). Pour plus d’informations, consultez [Données utilisées par la réinitialisation du mot de passe en libre-service Azure AD](howto-sspr-authenticationdata.md).
   >
   >
 * **Q :  Puis-je synchroniser localement des données pour des questions de sécurité ?**
@@ -61,7 +61,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Mes utilisateurs doivent-ils être inscrits avant de pouvoir utiliser la réinitialisation de mot de passe ?**
 
-  > **R :** Non. Si vous définissez suffisamment d’informations d’authentification en leur nom, les utilisateurs n’ont pas besoin de s’inscrire. La réinitialisation de mot de passe fonctionne tant que vous disposez de données correctement formatées stockées dans les champs appropriés de l’annuaire.
+  > **R :**  Non. Si vous définissez suffisamment d’informations d’authentification en leur nom, les utilisateurs n’ont pas besoin de s’inscrire. La réinitialisation de mot de passe fonctionne tant que vous disposez de données correctement formatées stockées dans les champs appropriés de l’annuaire.
   >
   >
 * **Q :  Puis-je synchroniser ou définir les champs Téléphone d’authentification, E-mail d’authentification ou Autre téléphone d’authentification pour le compte de mes utilisateurs ?**
@@ -101,7 +101,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   > Si vous ne recevez pas la notification dans ce laps de temps :
   > * Vérifiez votre dossier de courrier indésirable.
   > * Vérifiez que le numéro ou que l’e-mail contacté est celui que vous attendez.
-  > * Vérifiez que les données d’authentification dans le répertoire seront correctement mis en forme, par exemple, + 1 4255551234 ou *utilisateur\@contoso.com*. 
+  > * Vérifiez que les données d’authentification dans l’annuaire sont mises en forme correctement, par exemple +1 4255551234 ou *user\@contoso.com*. 
 * **Q :  Quelles langues sont prises en charge pour la réinitialisation de mot de passe ?**
 
   > **R :** L’interface utilisateur pour la réinitialisation du mot de passe, les SMS et les appels vocaux sont localisés dans les mêmes langues que celles prises en charge dans Office 365.
@@ -114,7 +114,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Comment puis-je informer mes utilisateurs des liens sur lesquels ils peuvent cliquer pour réinitialiser leur mot de passe ?**
 
-  > **R :** Essayez certaines des suggestions de notre [article sur le déploiement de la réinitialisation de mot de passe](howto-sspr-deployment.md#sample-communication).
+  > **R :** Essayez certaines des suggestions de notre [article sur le déploiement de la réinitialisation de mot de passe](howto-sspr-deployment.md#communications-plan).
   >
   >
 * **Q :  Puis-je utiliser cette page à partir d’un appareil mobile ?**
@@ -159,7 +159,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Un utilisateur peut-il inscrire plusieurs fois la même question de sécurité ?**
 
-  > **R :** Non. Une fois qu’un utilisateur a inscrit une question particulière, il ne peut plus inscrire cette même question une deuxième fois.
+  > **R :**  Non. Une fois qu’un utilisateur a inscrit une question particulière, il ne peut plus inscrire cette même question une deuxième fois.
   >
   >
 * **Q :  Est-il possible de définir un nombre minimal de questions de sécurité pour l’inscription et la réinitialisation ?**
@@ -179,7 +179,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Quelle est la durée de validité des codes secrets à usage unique pour les e-mails et les SMS ?**
 
-  > **R :** La durée de vie de session pour la réinitialisation du mot de passe est de 15 minutes. À compter du début de l’opération de réinitialisation du mot de passe, l’utilisateur dispose de 15 minutes pour le réinitialiser. Le code secret à usage unique pour les messages électroniques et les SMS perd sa validité à l’issue de cette période.
+  > **R :** La durée de vie de session pour la réinitialisation du mot de passe est de 15 minutes. À compter du début de l’opération de réinitialisation du mot de passe, l’utilisateur dispose de 15 minutes pour le réinitialiser. Le code secret à usage unique pour les e-mails et les SMS est valide pendant 5 minutes lors de la session de réinitialisation du mot de passe.
   >
   >
 * **Q :  Puis-je empêcher des utilisateurs de réinitialiser leur mot de passe ?**

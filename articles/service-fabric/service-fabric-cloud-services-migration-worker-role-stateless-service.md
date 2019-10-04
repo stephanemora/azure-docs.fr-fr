@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: e82abd6a7915123a94b4355e24cb94f13f9693c8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667716"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550385"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide de conversion des rôles web et de travail en services sans état Service Fabric
 Cet article explique comment migrer vos rôles web et de travail des services cloud vers les services sans état Service Fabric. Il s’agit de la manière la plus simple de migrer des applications dont l’architecture globale va rester quasi identique des services cloud vers Service Fabric.
@@ -32,7 +32,7 @@ La différence est que le projet de service cloud associe le déploiement d’ap
 ![Comparaison de projet entre Service Fabric et les services cloud][3]
 
 ## <a name="worker-role-to-stateless-service"></a>Rôle de travail en service sans état
-D’un point de vue conceptuel, un rôle de travail représente une charge de travail sans état, ce qui signifie que toutes les instances de la charge de travail sont identiques et que les requêtes peuvent être acheminées vers n’importe quelle instance à tout moment. Chaque instance n’est pas censée se souvenir de la requête précédente. L’état auquel la charge de travail s’exécute est géré par un magasin d’état externe, tel que le stockage de tables Azure ou Azure Document DB. Dans Service Fabric, ce type de charge de travail est représenté par un service sans état. Le plus simple pour migrer un rôle de travail dans Service Fabric est de convertir un code de rôle de travail en service sans état.
+D’un point de vue conceptuel, un rôle de travail représente une charge de travail sans état, ce qui signifie que toutes les instances de la charge de travail sont identiques et que les requêtes peuvent être acheminées vers n’importe quelle instance à tout moment. Chaque instance n’est pas censée se souvenir de la requête précédente. L’état auquel la charge de travail s’exécute est géré par un magasin d’état externe, tel qu’Azure Stockage Table ou Azure Cosmos DB. Dans Service Fabric, ce type de charge de travail est représenté par un service sans état. Le plus simple pour migrer un rôle de travail dans Service Fabric est de convertir un code de rôle de travail en service sans état.
 
 ![Rôle de travail en service sans état][4]
 
@@ -41,10 +41,10 @@ Comme pour le rôle de travail, un rôle web représente également une charge d
 
 | **Application** | **Pris en charge** | **Chemin de migration** |
 | --- | --- | --- |
-| Formulaires web ASP.NET |Non  |Convertir en ASP.NET Core 1 MVC |
+| Formulaires web ASP.NET |Non |Convertir en ASP.NET Core 1 MVC |
 | ASP.NET MVC |Avec migration |Mettre à niveau vers ASP.NET Core 1 MVC |
 | API Web ASP.NET |Avec migration |Utiliser un serveur auto-hébergé ou ASP.NET Core 1 |
-| ASP.NET Core 1 |Oui |S.O. |
+| ASP.NET Core 1 |OUI |N/A |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de point d’entrée et cycle de vie
 Les points d’entrée des API de rôle de travail et de Service Fabric sont semblables : 
@@ -52,9 +52,9 @@ Les points d’entrée des API de rôle de travail et de Service Fabric sont sem
 | **Point d’entrée** | **Instances de** | **Service Service Fabric** |
 | --- | --- | --- |
 | Traitement en cours |`Run()` |`RunAsync()` |
-| Démarrer la machine virtuelle |`OnStart()` |S.O. |
-| Arrêter la machine virtuelle |`OnStop()` |S.O. |
-| Ouvrir l’écouteur pour les requêtes du client |S.O. |<ul><li> Sans état : `CreateServiceInstanceListener()`</li><li>Avec état : `CreateServiceReplicaListener()`</li></ul> |
+| Démarrer la machine virtuelle |`OnStart()` |N/A |
+| Arrêter la machine virtuelle |`OnStop()` |N/A |
+| Ouvrir l’écouteur pour les requêtes du client |N/A |<ul><li> Sans état : `CreateServiceInstanceListener()`</li><li>Avec état : `CreateServiceReplicaListener()`</li></ul> |
 
 ### <a name="worker-role"></a>Instances de
 ```csharp
@@ -110,8 +110,8 @@ Les deux disposent d’un remplacement « Exécuter » principal où commencer
 
 Il existe plusieurs différences majeures entre le cycle de vie et la durée de vie des rôles de travail et des services Service Fabric :
 
-* **Cycle de vie :** La plus grande différence est qu’un rôle de travail est une machine virtuelle et par conséquent, son cycle de vie est liée à la machine virtuelle, ce qui inclut les événements lorsque la machine virtuelle démarre et s’arrête. Le cycle de vie des services Service Fabric est distinct du cycle de vie de la machine virtuelle. Il n’inclut donc pas d’événements lorsque l’ordinateur ou la machine virtuelle hôte démarre et s’arrête, dans la mesure où ils ne sont pas liés.
-* **Durée de vie :** Une instance de rôle de travail est recyclées quand la `Run` issues de la méthode. La méthode `RunAsync` dans un service Service Fabric peut cependant s’exécuter jusqu’à la fin et l’instance de service continuera de s’exécuter. 
+* **Cycle de vie :** la plus grande différence est qu’un rôle de travail est une machine virtuelle. Son cycle de vie est donc lié à la machine virtuelle, ce qui inclut les événements de démarrage et d’arrêt de la machine virtuelle. Le cycle de vie des services Service Fabric est distinct du cycle de vie de la machine virtuelle. Il n’inclut donc pas d’événements lorsque l’ordinateur ou la machine virtuelle hôte démarre et s’arrête, dans la mesure où ils ne sont pas liés.
+* **Durée de vie :** les instances de rôle de travail sont recyclées quand la méthode `Run` se ferme. La méthode `RunAsync` dans un service Service Fabric peut cependant s’exécuter jusqu’à la fin et l’instance de service continuera de s’exécuter. 
 
 Service Fabric fournit un point d’entrée de configuration de la communication en option pour les services qui écoutent les requêtes des clients. RunAsync et le point d’entrée de communication constituent tous deux des remplacements en option dans les services Service Fabric. Votre service peut choisir d’écouter les requêtes des clients, d’exécuter uniquement une boucle de traitement, ou les deux. C’est pourquoi la méthode RunAsync peut se fermer sans redémarrer l’instance de service : elle peut continuer à écouter les requêtes des clients.
 
@@ -123,8 +123,8 @@ L’API d’environnement des services cloud fournit des informations et des fon
 | Paramètres de configuration et notification de modification |`RoleEnvironment` |`CodePackageActivationContext` |
 | Stockage local |`RoleEnvironment` |`CodePackageActivationContext` |
 | Informations sur le point de terminaison |`RoleInstance` <ul><li>Instance actuelle : `RoleEnvironment.CurrentRoleInstance`</li><li>Autres rôles et instances : `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` pour l’adresse du nœud actuel</li><li>`FabricClient` et `ServicePartitionResolver` pour la découverte de point de terminaison de service</li> |
-| Émulation de l’environnement |`RoleEnvironment.IsEmulated` |S.O. |
-| Événement de modification simultanée |`RoleEnvironment` |S.O. |
+| Émulation de l’environnement |`RoleEnvironment.IsEmulated` |N/A |
+| Événement de modification simultanée |`RoleEnvironment` |N/A |
 
 ## <a name="configuration-settings"></a>Paramètres de configuration
 Les paramètres de configuration des services cloud sont définis pour un rôle de machine virtuelle et s’appliquent à toutes les instances de ce rôle de machine virtuelle. Ces paramètres correspondent à des paires clé-valeur définies dans les fichiers ServiceConfiguration.*.cscfg. Ils sont accessibles directement via RoleEnvironment. Dans Service Fabric, les paramètres s’appliquent individuellement à chaque service et chaque application, plutôt qu’à une machine virtuelle. En effet, une machine virtuelle peut héberger plusieurs applications et services. Un service se compose de trois packages :

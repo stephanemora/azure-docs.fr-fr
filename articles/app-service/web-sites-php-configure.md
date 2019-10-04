@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ad5a4981869f992ab6823a13afc2cad0e5252d08
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 38e0983830c540082a915332aa4158d2af84567b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105431"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65408913"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configurer PHP dans Azure App Service
 
@@ -35,15 +35,11 @@ Les versions PHP 7.0 et PHP 7.2 sont également disponibles, mais ne sont pas ac
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Accédez à votre application dans le [portail Azure](https://portal.azure.com), puis cliquez sur le bouton **Paramètres**.
+1. Accédez à votre application dans le [Portail Azure](https://portal.azure.com) et faites défiler jusqu’à la page **Configuration**.
 
-    ![Paramètres de l'application][settings-button]
-2. Dans le panneau **Paramètres**, sélectionnez **Paramètres de l’application**, puis choisissez la nouvelle version de PHP.
+2. Dans **Configuration**, sélectionnez **Paramètres généraux** et choisissez la nouvelle version PHP.
 
-    ![Paramètres de l’application][application-settings]
-3. Cliquez sur le bouton **Enregistrer** en haut du panneau **Paramètres de l’application**.
-
-    ![Enregistrer les paramètres de configuration][save-button]
+3. Cliquez sur le bouton **Enregistrer** en haut du panneau **Paramètres généraux**.
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
@@ -130,18 +126,12 @@ Comme indiqué dans la section précédente, la méthode idéale pour afficher l
 ### <a name="configure-via-app-setting"></a>Configuration par un paramètre d’application
 
 1. Ajoutez un répertoire `bin` au répertoire racine.
-1. Placez les fichiers `.dll` dans le répertoire `bin` (par exemple, `php_xdebug.dll`). Assurez-vous que les extensions sont compatibles avec la version par défaut de PHP ainsi qu'avec VC9 et NTS (Non-Thread Safe).
-2. Déployez votre application.
-3. Accédez à votre application dans le portail Azure, puis cliquez sur le bouton **Paramètres**.
-
-    ![Paramètres de l'application][settings-button]
-4. Dans le panneau **Paramètres**, sélectionnez **Paramètres de l’application**, puis accédez à la section **Paramètres de l’application**.
-5. Dans la section **Paramètres de l’application**, créez une clé **PHP_EXTENSIONS**. La valeur de cette clé est un chemin d’accès relatif à la racine du site web : **bin\your-ext-file**.
-
-    ![Activer une extension dans les paramètres d'application][php-extensions]
-6. Cliquez sur le bouton **Enregistrer** en haut du panneau **Paramètres de l’application**.
-
-    ![Enregistrer les paramètres de configuration][save-button]
+2. Placez les fichiers `.dll` dans le répertoire `bin` (par exemple, `php_xdebug.dll`). Assurez-vous que les extensions sont compatibles avec la version par défaut de PHP ainsi qu'avec VC9 et NTS (Non-Thread Safe).
+3. Déployez votre application.
+4. Accédez à votre application dans le Portail Azure, puis cliquez sur le bouton **Configuration** situé sous la section **Paramètres**.
+5. Dans le panneau **Configuration**, sélectionnez **Paramètres de l’application**.
+6. Dans la section **Paramètres de l’application**, cliquez sur **+ Nouveau paramètre d’application** et créez une clé **PHP_EXTENSIONS**. La valeur de cette clé est un chemin d’accès relatif à la racine du site web : **bin\your-ext-file**.
+7. Cliquez sur le bouton **Mettre à jour** situé en bas, puis cliquez sur **Enregistrer** au-dessus de l’onglet **Paramètres de l’application**.
 
 Les extensions Zend sont également prises en charge à l’aide d’une clé **PHP_ZENDEXTENSIONS**. Pour activer plusieurs extensions, insérez une liste de fichiers `.dll` séparés par des virgules pour la valeur de paramètre d’application.
 
@@ -154,15 +144,11 @@ Au lieu du runtime PHP par défaut, App Service peut utiliser un runtime PHP que
 3. Vous pouvez éventuellement ajouter des extensions à votre runtime PHP et les activer dans le fichier `php.ini` .
 4. Ajoutez un répertoire `bin` à votre répertoire racine, puis placez-y le répertoire contenant votre runtime PHP (par exemple, `bin\php`).
 5. Déployez votre application.
-6. Accédez à votre application dans le portail Azure, puis cliquez sur le bouton **Paramètres**.
-
-    ![Paramètres de l'application][settings-button]
-7. Dans le panneau **Paramètres**, sélectionnez **Paramètres de l’application**, puis accédez à la section **Mappages de gestionnaires**. Ajoutez `*.php` au champ Extension, puis ajoutez le chemin d’accès à l’exécutable `php-cgi.exe`. Si vous placez votre runtime PHP dans le répertoire `bin` situé à la racine de votre application, le chemin est `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
-
-    ![Indiquer le gestionnaire dans les mappages][handler-mappings]
-8. Cliquez sur le bouton **Enregistrer** en haut du panneau **Paramètres de l’application**.
-
-    ![Enregistrer les paramètres de configuration][save-button]
+6. Accédez à votre application dans le Portail Azure, puis cliquez sur le panneau **Configuration**.
+8. Dans le panneau **Configuration**, sélectionnez **Mappages de chemin d’accès**. 
+9. Cliquez sur **+ Nouveau gestionnaire**, ajoutez `*.php` au champ Extension et ajoutez le chemin d’accès à l’exécutable `php-cgi.exe` dans **Processeur de script**. Si vous placez votre runtime PHP dans le répertoire `bin` situé à la racine de votre application, le chemin est `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+10. Cliquez sur **Mettre à jour** situé en bas pour terminer d’ajouter du mappage de gestionnaire.
+11. Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 <a name="composer" />
 
@@ -195,9 +181,9 @@ Pour plus d’informations, consultez le [Centre pour développeurs PHP](https:/
 [version d’évaluation gratuite]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
-[Liste des directives de php.ini]: http://www.php.net/manual/en/ini.list.php
-[.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
-[ini_set()]: http://www.php.net/manual/en/function.ini-set.php
+[Liste des directives de php.ini]: https://www.php.net/manual/en/ini.list.php
+[.user.ini]: https://www.php.net/manual/en/configuration.file.per-user.php
+[ini_set()]: https://www.php.net/manual/en/function.ini-set.php
 [application-settings]: ./media/web-sites-php-configure/application-settings.png
 [settings-button]: ./media/web-sites-php-configure/settings-button.png
 [save-button]: ./media/web-sites-php-configure/save-button.png

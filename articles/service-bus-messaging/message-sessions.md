@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500139"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091826"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessions de messagerie : premier entré, premier sorti (FIFO) 
 
@@ -40,6 +40,9 @@ La fonctionnalité de session dans Service Bus autorise une opération de récep
 Dans le portail, définissez l’indicateur avec la case à cocher suivante :
 
 ![][2]
+
+> [!NOTE]
+> Lorsque les sessions sont activées sur une file d’attente ou un abonnement, les applications client ***ne peuvent plus*** envoyer/recevoir des messages standard. Tous les messages doivent être envoyés dans le cadre d’une session (en définissant l’ID de session) et reçus en recevant la session.
 
 Les API relatives aux sessions existent sur les clients de file d’attente et d’abonnement. Il existe un modèle impératif qui contrôle le moment de la réception des sessions et des messages, ainsi qu’un modèle basé sur le gestionnaire, semblable à *OnMessage*, qui simplifie la gestion de la boucle de réception.
 
@@ -77,10 +80,19 @@ Toutes les sessions existantes dans une file d’attente ou un abonnement peuven
 
 L’état de session stocké dans une file d’attente ou dans un abonnement est pris en compte dans le quota de stockage de cette entité. Lorsque l’application a terminé avec une session, il est donc recommandé de faire en sorte que l’application supprime l’état de session conservé afin d’éviter un coût de gestion externe.
 
+## <a name="impact-of-delivery-count"></a>Impact du nombre de livraisons
+
+La définition du nombre de livraisons par message dans le contexte des sessions varie légèrement de la définition dans l’absence de sessions. Voici une table résumant le moment où le nombre de livraisons est incrémenté.
+
+| Scénario | Le nombre de livraisons du message est-il incrémenté |
+|----------|---------------------------------------------|
+| La session est acceptée, mais le verrouillage de session expire (en raison du délai d’expiration) | OUI |
+| La session est acceptée, les messages de la session ne sont pas terminés (même s’ils sont verrouillés) et la session est fermée | Non |
+| La session est acceptée, les messages sont terminés, puis la session est explicitement fermée | S.O. (il s'agit du flux standard. Ici, les messages sont supprimés de la session) |
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez [un exemple complet](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) des procédures d’envoi et de réception de messages basés sur la session à partir de files d’attente Service Bus à l’aide de la bibliothèque .NET Standard.
-- Consultez [un exemple](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) qui utilise le client .NET Framework pour traiter les messages prenant en charge la session. 
+- Consultez les [exemples Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) ou les [exemples Microsoft.ServiceBus.Messaging](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) pour obtenir un exemple d’utilisation du client .NET Framework pour traiter les messages prenant en charge la session. 
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

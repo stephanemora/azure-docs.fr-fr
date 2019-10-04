@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble des informations de sécurité (préversion) - Azure Active Directory | Microsoft Docs
-description: Vue d’ensemble de la zone d’informations de sécurité, avec notamment des liens vers d’autres articles connexes.
+description: Liste de liens vers des articles concernant la fonctionnalité et la page Informations de sécurité.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,34 +9,37 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/11/2019
+ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 234c7244f438926f43ddf31234a38c9034a6ca52
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d981ad0f02e9cef31a01a9d407de22cf63352c01
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453225"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382205"
 ---
 # <a name="security-info-preview-overview"></a>Vue d’ensemble des informations de sécurité (préversion)
-Vous pouvez configurer vos informations de sécurité pour la vérification en deux étapes et la réinitialisation de mot de passe dans la page **Informations de sécurité**. Vous pouvez également modifier vos informations de sécurité et changer votre méthode par défaut dans cette page.
+
+La page **Informations de sécurité** vous permet de configurer vos méthodes de vérification en deux étapes et les informations de réinitialisation de votre mot de passe. Elle vous permet également de mettre à jour vos informations de sécurité personnelles et votre méthode de vérification par défaut.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
 >Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-## <a name="in-this-section"></a>Dans cette section
-Vous trouverez plus d’informations sur l’ajout, la mise à jour et la suppression des informations de sécurité dans les articles suivants, selon la méthode que vous souhaitez utiliser.
+## <a name="security-info-related-articles"></a>Articles relatifs aux informations de sécurité
 
-|Article |Description |
-|------|------------|
-|[Configurer les informations de sécurité pendant la connexion](security-info-setup-signin.md)|Décrit comment configurer vos informations de sécurité si votre page de connexion vous invite à le faire.|
-|[Configurer les informations de sécurité pour une application d’authentification](security-info-setup-auth-app.md)|Décrit comment configurer vos informations de sécurité pour utiliser une application Microsoft Authenticator comme méthode de vérification.|
-|[Configurer les informations de sécurité pour les messages SMS](security-info-setup-text-msg.md)|Décrit comment configurer vos informations de sécurité pour utiliser des messages SMS comme méthode de vérification.|
-|[Configurer les informations de sécurité pour utiliser un appel téléphonique](security-info-setup-phone-number.md)| Procédure de configuration de votre numéro de téléphone en tant que méthode.|
-|[Configurer les informations de sécurité pour utiliser l’e-mail](security-info-setup-email.md)|Procédure de configuration de votre adresse de messagerie pour vous aider à réinitialiser votre mot de passe.|
-|[Set up security info to use pre-defined security questions](security-info-setup-questions.md) (Configurer les informations de sécurité pour utiliser les questions de sécurité prédéfinis)|Procédure d’utilisation des questions de sécurité pour vous aider à réinitialiser votre mot de passe.|
-|[Manage app passwords](security-info-app-passwords.md) (Gérer les mots de passe d’application)|Procédure de configuration des mots de passe à l’aide des informations de sécurité.|
-|[How to sign in](user-help-sign-in.md) (Comment se connecter)|Décrit comment se connecter à l’aide de votre méthode de vérification spécifiée.|
+Pour obtenir des informations détaillées et des instructions sur l’ajout, la mise à jour et la suppression de vos informations de sécurité, consultez les articles suivants (en fonction de la méthode que vous voulez utiliser) :
+
+| Article | Description |
+| ------ | ------------ |
+| [Ajouter votre méthode de sécurité à partir d’une invite de commandes dans votre page de connexion](security-info-setup-signin.md) | Instructions sur la façon de configurer vos informations de sécurité quand vous êtes invité à le faire dans votre page de connexion. Cette invite s’affiche uniquement si vous n’avez pas déjà configuré les informations de sécurité demandées par votre organisation. Si l’invite ne s’affiche pas, vous pouvez toujours utiliser d’autres articles de ce tableau pour changer et ajouter des méthodes de vérification. |
+| [Ajouter l’application Microsoft Authenticator comme méthode de vérification](security-info-setup-auth-app.md) | Instructions sur la façon de configurer l’application Microsoft Authenticator comme méthode de vérification. |
+| [Ajouter la messagerie texte comme méthode de vérification](security-info-setup-text-msg.md) | Instructions sur la façon de configurer la messagerie texte comme méthode de vérification. |
+| [Ajouter les appels téléphoniques comme méthode de vérification](security-info-setup-phone-number.md) | Instructions sur la façon de configurer votre numéro de téléphone comme méthode de vérification. |
+| [Ajouter une clé de sécurité en tant que méthode de vérification](security-info-setup-security-key.md) | Instructions relatives à l’inscription d’une clé de sécurité compatible Microsoft en tant que méthode de vérification. |
+| [Ajouter une adresse e-mail pour réinitialiser votre mot de passe](security-info-setup-email.md) | Instructions sur la façon d’ajouter votre adresse e-mail afin que vous puissiez réinitialiser votre mot de passe. |
+| [Ajouter des questions de sécurité pour réinitialiser votre mot de passe](security-info-setup-questions.md) | Instructions sur la façon d’ajouter des questions de sécurité prédéfinies afin que vous puissiez réinitialiser votre mot de passe. |
+| [Gérer les mots de passe d’application pour les applications qui ne prennent pas en charge la vérification en deux étapes](security-info-app-passwords.md) | Instructions sur la façon de créer des mots de passe d’application pour les applications qui ne prennent pas en charge la vérification en deux étapes dans une organisation qui l’utilise. |
+| [How to sign in](user-help-sign-in.md) (Comment se connecter) |Décrit comment se connecter à l’aide de votre méthode de vérification spécifiée. |

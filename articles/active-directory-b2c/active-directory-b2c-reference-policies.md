@@ -2,24 +2,24 @@
 title: Flux d’utilisateur dans Azure Active Directory B2C | Microsoft Docs
 description: Découvrez plus d’informations sur le framework de stratégie extensible d’Azure Active Directory B2C et la création de différents flux d’utilisateur.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 67db13c8a36977f2614ba7b0e263919bd0405bc7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: MT
+ms.openlocfilehash: 08da04a8bf167c99ef2384a9714034ae1865bec1
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585591"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71065373"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flux d’utilisateur dans Azure Active Directory B2C
 
-L’infrastructure de stratégie extensible d’Azure Active Directory (Azure AD) B2C est le pilier central du service. Les stratégies décrivent entièrement les expériences relatives à l’identité, comme l’inscription, la connexion ou la modification de profil. Pour vous aider à configurer les tâches d’identité les plus courantes, le portail Azure AD B2C inclut des stratégies configurables prédéfinies appelées **flux d’utilisateur**. 
+Le framework de stratégie extensible d’Azure Active Directory B2C (Azure AD B2C) est le pilier central du service. Les stratégies décrivent entièrement les expériences relatives à l’identité, comme l’inscription, la connexion ou la modification de profil. Pour vous aider à configurer les tâches d’identité les plus courantes, le portail Azure AD B2C inclut des stratégies configurables prédéfinies appelées **flux d’utilisateur**.
 
 ## <a name="what-are-user-flows"></a>Qu’est-ce qu’un flux d’utilisateur ?
 
@@ -29,9 +29,9 @@ Un flux d’utilisateur vous permet de contrôler les comportements dans vos app
 - Attributs à collecter auprès du consommateur, comme le prénom, le code postal et la pointure
 - Azure Multi-Factor Authentication
 - Personnalisation de l’interface utilisateur
-- Informations que l’application reçoit sous forme de revendications dans un jeton 
+- Informations que l’application reçoit sous forme de revendications dans un jeton
 
-Vous pouvez créer plusieurs flux d’utilisateur de types différents dans votre locataire et les utiliser dans vos applications selon vos besoins. Les flux d’utilisateurs peuvent être réutilisés entre les différentes applications. Cette flexibilité vous permet de définir et de modifier les expériences relatives à l’identité avec peu ou pas de modification du code. Votre application déclenche un flux d’utilisateur à l’aide d’une demande d’authentification HTTP standard qui inclut un paramètre de flux d’utilisateur. La réponse reçue est un [jeton](active-directory-b2c-reference-tokens.md) personnalisé. 
+Vous pouvez créer plusieurs flux d’utilisateur de types différents dans votre locataire et les utiliser dans vos applications selon vos besoins. Les flux d’utilisateurs peuvent être réutilisés entre les différentes applications. Cette flexibilité vous permet de définir et de modifier les expériences relatives à l’identité avec peu ou pas de modification du code. Votre application déclenche un flux d’utilisateur à l’aide d’une demande d’authentification HTTP standard qui inclut un paramètre de flux d’utilisateur. La réponse reçue est un [jeton](active-directory-b2c-reference-tokens.md) personnalisé.
 
 Les exemples suivants montrent le paramètre de chaîne de requête « p » qui spécifie le flux d’utilisateur à utiliser :
 
@@ -71,16 +71,16 @@ Les flux d’utilisateur suivants sont actuellement recommandés :
 
 ## <a name="linking-user-flows"></a>Liaison de flux d’utilisateur
 
-Un flux d’utilisateur **Inscription ou connexion** avec des comptes locaux comprend un lien **Mot de passe oublié ?** sur la première page. Lorsque vous cliquez sur ce lien, le flux d’utilisateur de réinitialisation du mot de passe n’est pas automatiquement déclenché. 
+Un flux d’utilisateur **Inscription ou connexion** avec des comptes locaux comprend un lien **Mot de passe oublié ?** sur la première page. Lorsque vous cliquez sur ce lien, le flux d’utilisateur de réinitialisation du mot de passe n’est pas automatiquement déclenché.
 
 À la place, le code d’erreur `AADB2C90118` est retourné à votre application. Votre application doit gérer ce code d’erreur en exécutant un flux d’utilisateur spécifique qui réinitialise le mot de passe. Pour voir un exemple, examinons un [simple exemple ASP.NET](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) qui illustre la liaison des flux d’utilisateur.
 
 ## <a name="email-address-storage"></a>Stockage d’adresse e-mail
 
 Vous pouvez avoir besoin d’une adresse e-mail dans le cadre d’un flux d’utilisateur. Si l’utilisateur s’authentifie avec un fournisseur d’identité de réseau social, l’adresse e-mail est stockée dans la propriété **otherMails**. Si un compte local est basé sur un nom d’utilisateur, l’adresse e-mail est stockée dans une propriété détaillée d’authentification forte. Si un compte local est basé sur une adresse e-mail, l’adresse e-mail est stockée dans la propriété **signInNames**.
- 
+
 L’adresse e-mail n’est pas forcément vérifiée dans tous les cas. Un administrateur de locataire peut désactiver la vérification d’e-mail dans les stratégies de base des comptes locaux. Même si la vérification de l’adresse e-mail est activée, les adresses ne sont pas vérifiés si elles proviennent d’un fournisseur d’identité de réseau social et qu’elles n’ont pas été changées.
- 
+
 Seules les propriétés **otherMails** et **signInNames** sont exposées avec l’API Graph Active Directory. L’adresse e-mail dans la propriété détaillée de l’authentification forte n’est pas disponible.
 
 ## <a name="next-steps"></a>Étapes suivantes

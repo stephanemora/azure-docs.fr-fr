@@ -3,7 +3,7 @@ title: Présentation des rapports Azure Active Directory | Microsoft Docs
 description: Fournit une vue d’ensemble des rapports Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ccf8014938e813676e9338e9bfc4eaa18f63f9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cd3907231ce3963d43fa8279039a736b63fc2043
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436946"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127274"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Présentation des rapports Azure Active Directory
 
@@ -54,9 +54,9 @@ Toutes les éditions d’Azure AD vous indiquent les rapports de sécurité Uti
 
 - Dans les **éditions Azure Active Directory Free et Basic**, vous obtenez la liste des utilisateurs marqués à risque et à connexions à risque. 
 
-- L’édition **Azure Active Directory Premium 1** étend ce modèle en vous permettant également d’examiner certains événements à risque sous-jacent qui ont été détectés pour chaque rapport. 
+- L’édition **Azure Active Directory Premium 1** étend ce modèle en vous permettant également d’examiner certaines détections de risques sous-jacentes qui ont été détectées pour chaque rapport. 
 
-- L’édition **Azure Active Directory Premium 2** vous fournit les informations les plus détaillées sur les événements à risque sous-jacent. Elle vous permet également de configurer des stratégies de sécurité répondant automatiquement aux niveaux de risque configurés.
+- L’édition **Azure Active Directory Premium 2** vous fournit les informations les plus détaillées sur les détections de risques sous-jacentes. Elle vous permet également de configurer des stratégies de sécurité répondant automatiquement aux niveaux de risque configurés.
 
 
 ## <a name="activity-reports"></a>Rapports d’activité
@@ -103,4 +103,4 @@ En plus de l’interface utilisateur, Azure AD vous fournit également un [acc�
 
 - [Rapport sur les connexions à risque](concept-risky-sign-ins.md)
 - [Rapport de journaux d’audit](concept-audit-logs.md)
-- [Rapport de journaux de connexions](concept-sign-ins.md)
+- [Rapport de journaux d’activité de connexions](concept-sign-ins.md)

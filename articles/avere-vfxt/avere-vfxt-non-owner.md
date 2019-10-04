@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: e72e6d969649de09389ee38b94e874fad98ee08f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669566"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60409207"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Autoriser les utilisateurs non propriétaires à déployer Avere vFXT
 

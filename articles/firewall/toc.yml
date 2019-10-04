@@ -1,6 +1,6 @@
 - name: Documentation sur le pare-feu Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’un pare-feu Azure\_?"
       href: overview.md
@@ -10,7 +10,7 @@
     - name: Déployer et configurer
       href: tutorial-firewall-deploy-portal.md
     - name: Déployer dans un réseau hybride
-      href: tutorial-hybrid-ps.md
+      href: tutorial-hybrid-portal.md
     - name: Filtrer le trafic entrant avec DNAT
       href: tutorial-firewall-dnat.md
     - name: Surveiller les journaux de diagnostics
@@ -39,14 +39,24 @@
   items:
     - name: Déployer avec Azure PowerShell
       href: deploy-ps.md
+    - name: "Déployer dans un réseau hybride\_- PowerShell"
+      href: tutorial-hybrid-ps.md
+    - name: Déployer à l’aide d’Azure CLI
+      href: deploy-cli.md
     - name: Déployer à l’aide d’un modèle
       href: deploy-template.md
+    - name: Déployer avec plusieurs adresses IP publiques
+      href: deploy-multi-public-ip-powershell.md
+    - name: Déployer avec des zones de disponibilité
+      href: deploy-availability-zone-powershell.md
     - name: Intégrer avec l’équilibreur de charge
       href: integrate-lb.md
+    - name: Règles d’application avec des FQDN SQL
+      href: sql-fqdn-filtering.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
-      href: /cli/azure/network
+    - name: D’Azure CLI
+      href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
     - name: .NET

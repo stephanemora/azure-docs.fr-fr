@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Vérifier les images par rapport aux listes personnalisées en C# - Content Moderator'
-titlesuffix: Azure Cognitive Services
+title: Vérifier les images par rapport aux listes personnalisées en C# - Content Moderator
+titleSuffix: Azure Cognitive Services
 description: Comment modérer des images avec des listes d’images personnalisées à l’aide du Kit de développement logiciel (SDK) de Content Moderator pour C#.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: ded5b097e7c8feab56e2d82cb44f92e3127519e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 915b308b0129d714e51ac50b4230d8447b5c933a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881789"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564481"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>Démarrage rapide : Modérer du contenu avec des listes d’images personnalisées en C#
+# <a name="moderate-with-custom-image-lists-in-c"></a>Modérer du contenu avec des listes d’images personnalisées en C#
 
 Cet article fournit des informations et des exemples de code qui vont vous aider à prendre en main le [SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) afin d’effectuer les opérations suivantes :
 - Créer une liste d’images personnalisée
@@ -32,7 +32,7 @@ Cet article fournit des informations et des exemples de code qui vont vous aider
 > [!NOTE]
 > Il existe une limite maximale de **5 listes d’images**, chaque liste **ne devant pas dépasser 10 000 images**.
 
-L’application de console pour ce démarrage rapide simule certaines des tâches que vous pouvez effectuer avec l’API Liste d’images.
+L’application de console pour ce guide simule certaines des tâches que vous pouvez effectuer avec l’API Liste d’images.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
@@ -303,7 +303,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Créer une méthode pour ajouter une collection d’images à la liste
 
-Ajoutez la méthode suivante à la classe **Program**. Ce démarrage rapide ne montre pas comment appliquer des balises aux images dans la liste. 
+Ajoutez la méthode suivante à la classe **Program**. Ce guide ne montre pas comment appliquer des balises aux images dans la liste. 
 
 ```csharp
 /// <summary>

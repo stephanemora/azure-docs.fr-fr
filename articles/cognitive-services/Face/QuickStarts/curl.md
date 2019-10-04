@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 212b935e8986731940effe79ec80f52c0d7b64c4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: da929744922f8653bc293b68dbbadb9347a447e9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308926"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859140"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST Visage et de cURL
 
@@ -29,10 +29,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="write-the-command"></a>Écrire la commande
  
-Vous allez utiliser une commande similaire à la suivante pour appeler l’API Visage et obtenir des données d’attribut de visage à partir d’une image. Pour commencer, copiez le code dans un éditeur de texte. Avant de l’exécuter, vous devez changer certaines parties.
+Vous allez utiliser une commande similaire à ce qui suit pour appeler l’API Visage et obtenir les données d’attribut de visage d’une image. Pour commencer, copiez le code dans un éditeur de texte. Avant de l’exécuter, vous devez changer certaines parties.
 
 ```shell
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://<My Endpoint String>.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
 ### <a name="subscription-key"></a>Clé d’abonnement
@@ -40,7 +40,9 @@ Remplacez `<Subscription Key>` par votre clé d’abonnement Visage valide.
 
 ### <a name="face-endpoint-url"></a>URL du point de terminaison Visage
 
-L’URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indique le point de terminaison Visage Azure à interroger. Vous devrez peut-être changer la première partie de cette URL pour faire corresponde la région à celle de votre clé d’abonnement. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).)
+L’URL `https://<My Endpoint String>.com/face/v1.0/detect` indique le point de terminaison Visage Azure à interroger. Vous devrez peut-être changer la première partie de cette URL pour qu’elle corresponde au point de terminaison associé à votre clé d’abonnement.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ### <a name="url-query-string"></a>Chaîne de requête d’URL
 
@@ -51,7 +53,7 @@ La chaîne de requête de l’URL du point de terminaison Visage spécifie les a
 ```
 
 ### <a name="image-source-url"></a>URL source de l’image
-L’URL source indique l’image à utiliser comme entrée. Vous pouvez la faire pointer vers n’importe quelle image que vous souhaitez analyser.
+L’URL source indique l’image à utiliser comme entrée. Vous pouvez la faire pointer vers n’importe quelle image à analyser.
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
@@ -59,7 +61,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 
 ## <a name="run-the-command"></a>Exécutez la commande.
 
-Après avoir apporté vos changements, ouvrez une invite de commandes et entrez la nouvelle commande. Les informations de visage doivent apparaître en tant que données JSON dans la fenêtre de console. Par exemple : 
+Après avoir apporté vos changements, ouvrez une invite de commandes et entrez la nouvelle commande. Les informations de visage doivent apparaître en tant que données JSON dans la fenêtre de console. Par exemple :
 
 ```json
 [

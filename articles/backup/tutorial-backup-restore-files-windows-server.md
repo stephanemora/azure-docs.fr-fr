@@ -1,21 +1,19 @@
 ---
 title: Récupérer des fichiers à partir d’Azure vers un serveur Windows Server
 description: Ce didacticiel détaille les éléments de récupération d’Azure vers un serveur Windows Server.
-services: backup
-author: saurabhsensharma
-manager: shivamg
-keywords: sauvegarde windows server;restaurer des fichiers windows server;sauvegarde et récupération d’urgence
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
-ms.author: saurse
+ms.date: 02/14/2018
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: e05c80e52605e051bdd6815608ca8c12e1393727
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e03c085a9671ba84d3af63da658f749f09ebcdef
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607019"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210071"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Récupérer des fichiers à partir d’Azure vers un serveur Windows Server
 
@@ -32,7 +30,7 @@ Ce didacticiel suppose que vous avez déjà effectué les étapes permettant de 
 
 Un Assistant d’interface utilisateur utile nommé Sauvegarde Microsoft Azure est installé avec l’agent Microsoft Azure Recovery Services. L’Assistant Sauvegarde Microsoft Azure fonctionne avec l’agent Microsoft Azure Recovery Services pour récupérer des données de sauvegarde à partir de points de récupération stockés dans Azure. Utilisez l’Assistant Sauvegarde Microsoft Azure pour identifier les fichiers ou dossiers que vous voulez restaurer sur Windows Server. 
 
-1. Ouvrez le composant logiciel enfichable **Sauvegarde Microsoft Azure**. Vous pouvez le trouver en recherchant **Sauvegarde Microsoft Azure**sur votre ordinateur.
+1. Ouvrez le composant logiciel enfichable **Sauvegarde Microsoft Azure**. Vous pouvez le trouver en recherchant **Sauvegarde Microsoft Azure** sur votre ordinateur.
 
     ![Sauvegarde en attente](./media/tutorial-backup-restore-files-windows-server/mars.png)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 94e0b365d159ef18d7c0e6216ac9f5babb0d6231
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c0a513ad8fe772839813615d065616f2c911a031
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262803"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943334"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Didacticiel : Intégration d'Azure Active Directory à Recognize
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Recognize à Azure AD, vous devez ajouter R
 
 **Pour ajouter Recognize à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -101,7 +101,7 @@ Pour configurer l’authentification unique Azure AD avec Recognize, effectuez 
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section  **Configuration SAML de base**, si vous disposez d’un  **fichier de métadonnées du fournisseur de services**, effectuez les étapes suivantes :
+4. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
 
     >[!NOTE]
     >Vous obtiendrez le **fichier de métadonnées de fournisseur de services** dans la section **Configurer l’authentification unique Recognize** du tutoriel.
@@ -245,7 +245,7 @@ Cette application ne prend pas en charge l’approvisionnement SCIM, mais inclut
    
     b. Pour **Choisir le fournisseur de synchronisation**, sélectionnez **Microsoft / Office 365**.
    
-    c. Cliquez sur **Run User Sync (Exécuter la synchronisation des utilisateurs)**.
+    c. Cliquez sur **Run User Sync (Exécuter la synchronisation des utilisateurs)** .
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

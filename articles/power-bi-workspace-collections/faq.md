@@ -2,18 +2,18 @@
 title: Questions fréquentes (FAQ) sur les Collections d’espaces de travail Power BI
 description: Questions fréquemment posées sur les Collections d’espaces de travail Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: 2de9d57e6febd0f0bec3bbbf1a175700c5b0bf71
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: b737c7753ce374d0360738e37d83609d1db995b1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518901"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672418"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Questions fréquentes (FAQ) sur les Collections d’espaces de travail Power BI
 
@@ -30,7 +30,7 @@ Les Collections d’espaces de travail Power BI s’adressent aux développeurs 
 
 ## <a name="how-does-power-bi-workspace-collections-relate-to-the-power-bi-service"></a>Quelle est la relation entre les Collections d’espaces de travail Power BI et le service Power BI ?
 
-Les Collections d’espaces de travail Power BI et le service Power BI sont deux offres distinctes. Les Collections d’espaces de travail Power BI appliquent un modèle de facturation basée sur la consommation réelle et est déployé par le biais du portail Azure. Il est conçu pour permettre aux éditeurs de logiciels indépendants d’incorporer des visualisations de données dans les applications destinées à leurs clients. Le service Power BI, facturé et déployé via le centre d’administration Microsoft 365 et est d’une offre d’usage général BI autonome principalement destinée à une utilisation interne en entreprise. Pour plus d’informations sur le service Power BI, voir [www.powerbi.com](https://powerbi.microsoft.com).
+Les Collections d’espaces de travail Power BI et le service Power BI sont deux offres distinctes. Les Collections d’espaces de travail Power BI appliquent un modèle de facturation basée sur la consommation réelle et est déployé par le biais du portail Azure. Il est conçu pour permettre aux éditeurs de logiciels indépendants d’incorporer des visualisations de données dans les applications destinées à leurs clients. Le service Power BI, facturé et déployé via le centre d’administration Microsoft 365, est une offre BI autonome à usage général, principalement destinée à une utilisation interne en entreprise. Pour plus d’informations sur le service Power BI, voir [www.powerbi.com](https://powerbi.microsoft.com).
 
 ## <a name="how-does-power-bi-workspace-collections-improve-my-app"></a>Comment les Collections d’espaces de travail Power BI améliorent mon application ?
 

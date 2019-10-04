@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 09/13/2019
 ms.author: magattus
-ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: 8704d715a20b94dc170f232b07a0acd54bb1e6f1
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735798"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996808"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Présentation de la facturation du CDN Azure
 
@@ -45,7 +45,7 @@ Pour plus d’informations sur les tarifs d’Azure CDN, consultez [Tarifs Conte
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>Comment les frais de livraison sont-ils calculés par région ?
 La région de facturation d’Azure CDN est fonction de l’emplacement du serveur source qui fournit le contenu à l’utilisateur final. La destination (emplacement physique) du client n’est pas considérée comme la région de facturation.
 
-Par exemple, si un utilisateur situé au Mexique émet une requête qui est traitée par un serveur situé dans un point POP aux États-Unis en raison des conditions d’homologation ou de trafic, les États-Unis sont la région de facturation.
+Par exemple, si un utilisateur situé au Mexique émet une requête qui est traitée par un serveur situé dans un point POP aux États-Unis en raison des conditions de peering ou de trafic, les États-Unis sont la région de facturation.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>Qu’est-ce qu’une transaction Azure CDN facturable ?
 Toute requête HTTP(S) qui se termine au niveau du CDN est un événement facturable, qui inclut tous les types de réponse : réussite, échec ou autre. Toutefois, différentes réponses peuvent générer différents montants de trafic. Par exemple, la réponse *304 Non modifié* et d’autres réponses avec en-tête seulement génèrent peu de trafic, car ce sont des réponses courtes avec en-tête. De même, les réponses d’erreur (par exemple, *404 Introuvable*) sont facturables, mais entraînent un faible coût en raison de la minuscule charge utile de réponse.
@@ -57,9 +57,12 @@ Si vous utilisez le stockage Blob Azure en tant qu’origine de votre contenu, l
 
 - Go réels utilisés : stockage réel de vos objets sources.
 
+- Transactions : en fonction des besoins du remplissage du cache.
+
 - Transferts en Go : quantité de données transférées pour remplir les caches du CDN.
 
-- Transactions : en fonction des besoins du remplissage du cache.
+> [!NOTE]
+> À partir d’octobre 2019, si vous utilisez le service Azure CDN de Microsoft, le coût du transfert de données d’origines hébergées dans Azure vers des PoP (points de présence) de CDN est gratuit. Azure CDN de Verizon et Azure CDN d’Akamai sont soumis aux tarifs décrits ci-dessous.
 
 Pour plus d’informations sur la facturation du service Stockage Azure, consultez [Understanding Windows Azure Storage Billing – Bandwidth, Transactions, and Capacity](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/) (Présentation de la facturation du service Stockage Microsoft Azure : bande passante, transactions et capacité).
 
@@ -83,6 +86,36 @@ Si votre client utilise des requêtes de plage d’octets (quel que soit le serv
 - Nombre de nœuds nécessaires pour charger l’objet : à chaque fois qu’un nœud charge un objet à partir de l’origine, une transaction facturable est appliquée. Par conséquent, un contenu plus global (accessible à partir de plus de nœuds) entraîne davantage de transactions facturables.
 
 - Influence de la durée de vie : si un objet a une durée de vie plus longue, cela signifie qu’il doit être récupéré à partir de l’origine moins fréquemment. Cela signifie également que les clients, tels que les navigateurs, peuvent mettre en cache l’objet plus de temps, ce qui peut réduire les transactions vers le CDN.
+
+## <a name="which-origin-services-are-eligible-for-free-data-transfer-with-azure-cdn-from-microsoft"></a>Quels sont les services d’origine éligibles au transfert de données gratuit avec Azure CDN de Microsoft ? 
+Si vous utilisez l’un des services Azure suivants en tant qu’origine de CDN, vous n’êtes pas facturé pour le transfert de données de l’origine aux PoP de CDN. 
+
+- Stockage Azure
+- Azure Media Services
+- Machines virtuelles Azure
+- Réseau virtuel
+- Équilibreur de charge
+- Application Gateway
+- Azure DNS
+- ExpressRoute
+- Passerelle VPN
+- Traffic Manager
+- Network Watcher
+- Pare-feu Azure
+- Azure Front Door Service
+- Azure Bastion
+- Azure App Service
+- Azure Functions
+- Azure Data Factory
+- Gestion des API Azure
+- Azure Batch 
+- Explorateur de données Azure
+- HDInsight
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Service Azure Machine Learning 
+- Base de données Azure SQL
+- Cache Azure pour Redis
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Comment gérer plus efficacement les coûts ?
 Définissez la plus longue durée de vie possible de votre contenu. 

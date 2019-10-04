@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 570f789d0f399c5ffa7535101136ab65ba58ccd5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 864a9243a9f737506fd4d8cbc3940d7a86711f20
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277083"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Didacticiel : Intégration d’Azure AD à ScreenSteps
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de ScreenSteps à Azure AD, vous devez ajouter 
 
 **Pour ajouter ScreenSteps à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -154,7 +154,7 @@ Pour configurer l’authentification unique Azure AD avec ScreenSteps, effectuez
 
     ![Modifier un point de terminaison](./media/screensteps-tutorial/ic778528.png "Modifier un point de terminaison")
 
-1. Dans la section **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)**, procédez comme suit :
+1. Dans la section **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)** , procédez comme suit :
 
     ![Remote authentication endpoint](./media/screensteps-tutorial/ic778527.png "Remote authentication endpoint")
 
@@ -170,7 +170,7 @@ Pour configurer l’authentification unique Azure AD avec ScreenSteps, effectuez
 
     f. Copiez la valeur **SAML Consumer URL** (URL du consommateur SAML) dans le Presse-papiers, puis collez-la dans la zone de texte **URL de connexion** située dans la section **Configuration SAML de base** sur le portail Azure.
 
-    g. Revenez à **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)**.
+    g. Revenez à **Edit Single Sign-on Endpoint (Modifier un point de terminaison d’authentification unique)** .
 
     h. Cliquez sur le bouton **Make default for account** (Configurer par défaut pour le compte) pour utiliser ce point de terminaison pour tous les utilisateurs qui se connectent à ScreenSteps. Vous pouvez également cliquer sur le bouton **Ajouter au site** pour utiliser ce point de terminaison pour des sites spécifiques dans **ScreenSteps**.
 

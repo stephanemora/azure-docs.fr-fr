@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: cf414f9dd0f3a7ab638dc72e50aa8f3997308cc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4267b75be72c1d162b4abaf7184afcdd02c38720
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279735"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943104"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Didacticiel : Intégration d’Azure Active Directory à Vibe HCM
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Vibe HCM à Azure AD, vous devez ajouter V
 
 **Pour ajouter Vibe HCM à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -101,7 +101,7 @@ Pour configurer l’authentification unique Azure AD avec Vibe HCM, effectuez 
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le  **fournisseur d’identité** , l’utilisateur n’a rien à faire, car l’application est pré-intégrée avec Azure.
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, l’utilisateur n’a rien à faire, car l’application est pré-intégrée avec Azure.
 
     ![Informations d’authentification unique dans pour le domaine et l’URL Vibe HCM](common/preintegrated.png)
 
@@ -174,7 +174,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-vibe-hcm-test-user"></a>Créer un utilisateur de test Vibe HCM
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Vibe HCM. Collaborez avec l’ [équipe du support technique Vibe HCM](mailto:support@vibehcm.com) pour ajouter des utilisateurs à la plateforme Vibe HCM. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Vibe HCM. Collaborez avec l’[équipe du support technique Vibe HCM](mailto:support@vibehcm.com) pour ajouter des utilisateurs à la plateforme Vibe HCM. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

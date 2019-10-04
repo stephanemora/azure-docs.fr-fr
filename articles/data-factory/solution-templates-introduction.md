@@ -8,15 +8,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: eb7a7eb8e1bdacae4b74e3a0019a376c440fe4d5
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003550"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091972"
 ---
 # <a name="templates"></a>Modèles
 
@@ -30,7 +30,7 @@ Vous pouvez commencer à créer un pipeline Data Factory à partir d’un modèl
 
     ![Ouvrir la galerie de modèles sur la page Vue d’ensemble](media/solution-templates-introduction/templates-intro-image1.png)
 
-1.  Dans l’onglet Auteur de l’Explorateur de ressources, sélectionnez **+**, puis **Pipeline à partir du modèle** pour ouvrir la galerie de modèles.
+1.  Dans l’onglet Auteur de l’Explorateur de ressources, sélectionnez **+** , puis **Pipeline à partir du modèle** pour ouvrir la galerie de modèles.
 
     ![Ouvrir la galerie de modèles dans l’onglet Auteur](media/solution-templates-introduction/templates-intro-image2.png)
 
@@ -40,21 +40,23 @@ Vous pouvez commencer à créer un pipeline Data Factory à partir d’un modèl
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Modèles Data Factory prêts à l’emploi
 
-Data Factory utilise des modèles Azure Resource Manager pour enregistrer des modèles de pipelines Data Factory. Vous pouvez voir tous les modèles Resource Manager, ainsi que le fichier manifest utilisé pour mieux des modèles de Data Factory boîte, dans le [officiel référentiel GitHub d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Voici quelques exemples de modèles prédéfinis fournis par Microsoft :
+Data Factory utilise des modèles Azure Resource Manager pour enregistrer des modèles de pipelines Data Factory. Tous les modèles Resource Manager, ainsi que le fichier manifeste utilisé pour les modèles Data Factory prêts à l’emploi, se trouvent dans le [référentiel GitHub officiel d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Voici quelques exemples de modèles prédéfinis fournis par Microsoft :
 
 -   Modèles de copie :
 
     -   [Copie en bloc à partir d’une base de données](solution-template-bulk-copy-with-control-table.md)
     
-    -   [Copier les nouveaux fichiers par LastModifiedDate & gt](solution-template-copy-new-files-lastmodifieddate.md)
+    -   [Copier les nouveaux fichiers par LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copie de plusieurs conteneurs de fichiers entre différents magasins basés sur des fichiers](solution-template-copy-files-multiple-containers.md)
+
+    -   [Déplacer des fichiers](solution-template-move-files.md)
 
     -   [Copie delta à partir d’une base de données](solution-template-delta-copy-with-control-table.md)
 
     -   Copie de \<source\> vers \<destination\>
 
-        -   D’Amazon S3 vers Azure Data Lake Storage Gen2
+        -   [D’Amazon S3 vers Azure Data Lake Storage Gen2](solution-template-migration-s3-azure.md)
 
         -   De Google BigQuery vers Azure Data Lake Storage Gen2
 

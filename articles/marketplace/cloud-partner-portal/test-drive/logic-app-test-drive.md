@@ -1,25 +1,18 @@
 ---
-title: Version d’évaluation d’une application logique | Microsoft Docs
+title: Version d’évaluation de l’application logique | Place de marché Azure
 description: Explique comment créer sa version d’évaluation qui se connectera à une instance Dynamics AX/CRM ou aux autres ressources qui ne se limitent pas à celles d’Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64940003"
 ---
 <a name="logic-app-test-drive"></a>Version d’évaluation d’une application logique
 ====================
@@ -68,11 +61,11 @@ La section suivante à remplir correspond à l’emplacement où vous configurez
 
 ![Configuration technique de la version d’évaluation](./media/azure-resource-manager-test-drive/howtopub5_logicapp.png)
 
-- **Région** - *[champ obligatoire]* La région que vous sélectionnez correspond à la région dans laquelle vous souhaitez déployer la version d’évaluation de l’application logique.
+- **Région** -  *[champ obligatoire]* La région que vous sélectionnez correspond à la région dans laquelle vous souhaitez déployer la version d’évaluation de l’application logique.
 
     *Remarque :* si votre application logique compte des ressources personnalisées qui sont stockées dans une région, assurez-vous que celle-ci est sélectionnée ici. La meilleure façon de procéder consiste à **déployer entièrement votre application logique localement vers votre abonnement Azure dans le portail et à vérifier qu’elle fonctionne** avant de l’écrire ici.
 
-- **Maximum Concurrent Test Drives (Nombre maximal de versions d’évaluation simultanées)** - *[champ obligatoire]* Nombre d’instances de version d’évaluation déjà déployées et en attente d’accès par région sélectionnée. Les clients peuvent accéder instantanément à ces versions d’évaluation au lieu d’attendre un déploiement.
+- **Maximum Concurrent Test Drives (Nombre maximal de versions d’évaluation simultanées)**  -  *[champ obligatoire]* Nombre d’instances de version d’évaluation déjà déployées et en attente d’accès par région sélectionnée. Les clients peuvent accéder instantanément à ces versions d’évaluation au lieu d’attendre un déploiement.
 
     *Remarque :* si vous exécutez un webinaire/une classe où vous voulez que l’ensemble de vos étudiants (nombre N) prennent une version d’évaluation, il est recommandé de publier avec le nombre N d’instances à chaud, puis une fois la classe terminée, de republier vers le nombre normal d’instances à chaud.
 
@@ -84,7 +77,7 @@ La section suivante à remplir correspond à l’emplacement où vous configurez
 
 - **Deprovision Logic App Name (Déprovisionner le nom de l’application logique) :** *[champ obligatoire]* écrivez le nom de l’application logique pour déprovisionner toutes les ressources créées dans la version d’évaluation. Assurez-vous que ce fichier est enregistré dans le groupe de ressources indiqué ci-dessus.
 
-- **Informations d’accès :** *[champ obligatoire]* lorsqu’un client obtient sa version d’évaluation, les informations d’accès lui sont présentées. Ces instructions sont destinées à partager les paramètres de sortie utiles à partir du modèle Resource Manager de votre version d’évaluation. Pour inclure les paramètres de sortie, utilisez des accolades doubles (par exemple, **{{nom_sortie}}**) afin de les insérer correctement à l’emplacement. (Une mise en forme de chaîne HTML est recommandée ici pour l’affichage dans le serveur frontal).
+- **Informations d’accès :** *[champ obligatoire]* lorsqu’un client obtient sa version d’évaluation, les informations d’accès lui sont présentées. Ces instructions sont destinées à partager les paramètres de sortie utiles à partir du modèle Resource Manager de votre version d’évaluation. Pour inclure les paramètres de sortie, utilisez des accolades doubles (par exemple, **{{nom_sortie}}** ) afin de les insérer correctement à l’emplacement. (Une mise en forme de chaîne HTML est recommandée ici pour l’affichage dans le serveur frontal).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Détails d’abonnement du déploiement de la version d’évaluation
 
@@ -126,7 +119,7 @@ Cliquez sur Enregistrer. La dernière étape consiste à récupérer l’ID de c
 Étant donné que nous utilisons l’application à déployer vers l’abonnement, nous devons ajouter cette application en tant que contributeur dans l’abonnement. Voici les instructions pour le faire :
 
 1. Accédez au panneau Abonnements et sélectionnez l’abonnement approprié que vous utilisez uniquement pour la version d’évaluation.
-1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 1. Cliquez sur l’onglet **Attributions de rôles**.  ![Azure Active Directory, ajout d’un nouveau principal de contrôle d’accès](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Cliquez sur **Ajouter une attribution de rôle**.
 1. Définissez le rôle **Contributeur**.
@@ -139,7 +132,7 @@ Cliquez sur Enregistrer. La dernière étape consiste à récupérer l’ID de c
 ![Section Clés d’Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails8.png)
 
 > [!CAUTION]
-> Vous ne pouvez pas utiliser l’aperçu de l’inscription d’application Azure, car il ne génère pas actuellement d’une clé codée en base64.
+> Vous ne pouvez pas utiliser Azure App Registration (Préversion), car elle ne génère pas de clé encodée en base64 pour le moment.
 
 
 <a name="next-steps"></a>Étapes suivantes

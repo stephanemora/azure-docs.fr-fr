@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c5d1a791de5c295b4644e5633983a5369200498e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 56399f99ede611c4a120603cce3a3eede2728c6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256581"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Didacticiel : Intégration d’Azure Active Directory à Trisotech Digital Enterprise Server
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Trisotech Digital Enterprise Server à Azure
 
 **Pour ajouter Trisotech Digital Enterprise Server à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Trisotech Digital Ente
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.trisotech.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<companyname>.trisotech.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.trisotech.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez l’[équipe de support Trisotech Digital Enterprise Server](mailto:support@trisotech.com) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -126,7 +126,7 @@ Pour configurer l’authentification unique Azure AD avec Trisotech Digital Ente
 
     ![Configurer l'authentification unique](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
 
-3. Sélectionnez **User Provider (Fournisseur d’utilisateur)**.
+3. Sélectionnez **User Provider (Fournisseur d’utilisateur)** .
 
     ![Configurer l'authentification unique](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
 
@@ -142,7 +142,7 @@ Pour configurer l’authentification unique Azure AD avec Trisotech Digital Ente
 
     d. Cliquez sur **Enregistrer**.
 
-    e. Entrez le nom de domaine dans la zone de texte **Allowed Domains (empty means everyone)**. Des licences sont affectées automatiquement pour les utilisateurs correspondant aux domaines autorisés.
+    e. Entrez le nom de domaine dans la zone de texte **Allowed Domains (empty means everyone)** . Des licences sont affectées automatiquement pour les utilisateurs correspondant aux domaines autorisés.
 
     f. Cliquez sur **Enregistrer**.
 

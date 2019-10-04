@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
 ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516482"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61247241"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personnalisation des présélections de tâches Media Encoder Standard  
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cet article explique comment exécuter un encodage avancé avec Media Encoder Standard (MES) en utilisant une présélection personnalisée. Il décrit comment utiliser .NET pour créer une tâche d’encodage et générer un travail qui exécute cette tâche.  
 
 Cet article vous explique comment personnaliser une présélection en utilisant la présélection [H264 - Vitesse de transmission multiple - 720 pixels](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) et en réduisant le nombre de couches. L’article [Personnalisation des présélections de tâches Media Encoder Standard](media-services-advanced-encoding-with-mes.md) présente des présélections personnalisées qui peuvent être utilisées pour effectuer les tâches d’encodage avancées.
 
 > [!NOTE]
-> Les présélections personnalisées décrites dans cet article ne peut pas être utilisées dans [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) transformations ou les commandes CLI. Consultez le [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md) pour plus d’informations.
+> Les présélections personnalisées décrites dans cet article ne peuvent pas être utilisées dans les transformations [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/) ou les commandes CLI. Pour plus d’informations, consultez [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 ## <a id="customizing_presets"></a> Personnalisation d'une présélection MES
 
@@ -266,7 +266,7 @@ namespace CustomizeMESPresests
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Comment encoder avec une transformation personnalisée à l’aide de CLI](../latest/custom-preset-cli-howto.md)
+- [Comment encoder avec une transformation personnalisée à l’aide de la CLI](../latest/custom-preset-cli-howto.md)
 - [Encodage avec Media Services v3](../latest/encoding-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services

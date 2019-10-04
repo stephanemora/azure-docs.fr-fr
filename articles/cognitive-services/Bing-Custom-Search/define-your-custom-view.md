@@ -1,6 +1,6 @@
 ---
 title: Configurer votre expérience de Recherche personnalisée Bing | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Décrit comment créer des services de site et de recherche verticale
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1827bfdbebaf1ffa17c7c631a94aa8fc6471d13b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234813"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854096"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurer votre expérience de Recherche personnalisée Bing
 
@@ -27,7 +27,7 @@ Utilisez les éléments suivants pour définir vos sections du web :
 
 | Nom de la section | Description                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domaine     | Une section de domaine inclut tout le contenu trouvé dans un domaine internet. Par exemple : `www.microsoft.com`. L’omission de `www.` oblige Bing à rechercher également dans les sous-domaines du domaine. Par exemple, si vous spécifiez  `microsoft.com`, Bing renvoie également les résultats de  `support.microsoft.com` ou `technet.microsoft.com`. |
+| Domaine     | Une section de domaine inclut tout le contenu trouvé dans un domaine internet. Par exemple : `www.microsoft.com`. L’omission de `www.` oblige Bing à rechercher également dans les sous-domaines du domaine. Par exemple, si vous spécifiez `microsoft.com`, Bing retourne également les résultats de `support.microsoft.com` ou `technet.microsoft.com`. |
 | Sous-page    | Une section de sous-page comprend tout le contenu trouvé dans la sous-page, et les chemins situés en dessous de celle-ci. Vous pouvez indiquer un maximum de deux sous-pages dans le chemin. Par exemple, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Page web    | Une section de page Web ne peut inclure que cette page Web dans une recherche personnalisée. Si vous le souhaitez, vous pouvez préciser s’il faut inclure ou non les sous-pages.                                                                                                                                                                                  |
 
@@ -74,7 +74,7 @@ Après l’ajout de sections web à la liste **Active**, le portail Recherche pe
 
 ## <a name="search-for-images-and-videos"></a>Rechercher des images et vidéos
 
-Vous pouvez rechercher des images et vidéos de la même façon que du contenu web à l’aide de l’[API Recherche d’images personnalisée Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) ou de l’[API Recherche de vidéos personnalisée Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). Vous pouvez afficher ces résultats avec l’[interface utilisateur hébergée](hosted-ui.md) ou les API. 
+Vous pouvez rechercher des images et vidéos de la même façon que du contenu web à l’aide de l’[API Recherche d’images personnalisée Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) ou de l’[API Recherche de vidéos personnalisée Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Vous pouvez afficher ces résultats avec l’[interface utilisateur hébergée](hosted-ui.md) ou les API. 
 
 Ces API sont similaires aux API [Recherche d’images Bing](../Bing-Image-Search/overview.md) et [Recherche de vidéos Bing](../Bing-Video-Search/search-the-web.md) non personnalisées, mais recherchent dans l’intégralité du web et ne nécessitent pas le paramètre de requête `customConfig`. Pour plus d’informations sur l’utilisation d’images et de vidéos, voir ces ensembles de documentation. 
 
@@ -83,7 +83,7 @@ Ces API sont similaires aux API [Recherche d’images Bing](../Bing-Image-Search
 Vous pouvez tester votre instance de recherche en utilisant le volet de visualisation situé du côté droit du portail pour soumettre des requêtes de recherche et afficher les résultats. 
 
 1. Sous la zone de recherche, sélectionnez **My instance** (Mon instance). Vous pouvez comparer les résultats de votre expérience de recherche à Bing en sélectionnant **Bing**. 
-2. Sélectionnez un filtre de recherche sécurisée et le marché dans lequel effectuer la recherche (voir [Paramètres de requête](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)).
+2. Sélectionnez un filtre de recherche sécurisée et le marché dans lequel effectuer la recherche (voir [Paramètres de requête](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Entrez une requête et appuyez sur Entrée ou cliquez sur l’icône de recherche pour afficher les résultats issus de la configuration active. Vous pouvez modifier le type de recherche que vous effectuez en cliquant sur **Web**, **Image** ou **Vidéo** pour obtenir les résultats correspondants. 
 
 <a name="adjustrank"></a>
@@ -118,9 +118,9 @@ Le portail vous permet également d’épingler des URL en tête des résultats 
 
 Vous pouvez épingler une page web en tête des résultats de deux manières :
 
-* Sous l’onglet  **Pinned**  (Épinglé), entrez l’URL de la page web à épingler en tête des résultats et la requête correspondante.
+* Sous l’onglet **Pinned** (Épinglé), entrez l’URL de la page web à épingler en tête des résultats et la requête correspondante.
 
-* Dans le volet **Preview** (Visualisation), entrez une requête de recherche, puis cliquez sur Search (Rechercher). Recherchez la page web à épingler pour votre requête, puis cliquez sur **Pin to top** (Épingler en haut). La page web et la requête seront ajoutées à la liste **Pinned** (Épinglé).
+* Dans le volet **Preview** (Visualisation), entrez une requête de recherche, puis cliquez sur Search (Rechercher). Recherchez la page web à épingler pour votre requête, puis cliquez sur **Pin to top** (Épingler en haut). La page web et la requête seront ajoutées à la liste **Pinned** (Épinglé).
 
 ### <a name="specify-the-pins-match-condition"></a>Spécifier la condition de correspondance de l’épingle
 
@@ -159,5 +159,5 @@ Si vous êtes abonné au niveau approprié de la Recherche personnalisée (voir 
 
 - [Appeler votre recherche personnalisée](./search-your-custom-view.md)
 - [Configurer votre expérience d’interface utilisateur hébergée](./hosted-ui.md)
-- [Utiliser des marqueurs d’ornement pour mettre en surbrillance du texte](./hit-highlighting.md)
+- [Utiliser des marqueurs d’ornement pour mettre en surbrillance du texte](../bing-web-search/hit-highlighting.md)
 - [Paginer des pages web](./page-webpages.md)

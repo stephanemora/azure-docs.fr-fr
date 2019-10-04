@@ -1,21 +1,21 @@
 ---
-title: 'Tutoriel : API Visage en C#'
+title: 'Didacticiel : API Visage en C#'
 titleSuffix: Azure Cognitive Services
-description: Créez une application Windows simple qui utilise l’API Visage Cognitive Services pour détecter des traits du visage dans une image.
+description: Créez une application Windows qui utilise l’API Visage Cognitive Services pour détecter les traits de visages dans une image.
 services: cognitive-services
 author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 07/03/2019
 ms.author: ghogen
-ms.openlocfilehash: aafa115ee1e270b903e958e5b43826dfb4ff8bdb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7907a79289149d9e165dd6df0c09bee596e624e2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435224"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606816"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Se connecter à l’API Visage Cognitive Services avec les Services connectés dans Visual Studio
 
@@ -25,8 +25,8 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Un abonnement Azure**. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 version 15.7** avec installation de la charge de travail **Développement web**. [Téléchargez-le maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Un abonnement Azure. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
+- Visual Studio 2017 version 15.7 ou ultérieure avec la charge de travail **Développement web** installée. [Téléchargez-le maintenant](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -147,7 +147,7 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
             });
         }
    ```
-    Le code de cette étape construit une requête HTTP avec un appel à l’API REST Visage, à l’aide de la clé que vous avez ajoutée lorsque vous avez intégré le service connecté.
+    Le code de cette étape construit une requête HTTP avec un appel à l’API REST Visage, à l’aide de la clé que vous avez ajoutée quand vous avez intégré le service connecté.
 
 1. Ajoutez les fonctions d’assistance GetImageAsByteArray et JsonPrettyPrint.
 
@@ -239,9 +239,9 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 
 Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le service cognitif et les ressources qui lui sont associées. Pour supprimer le groupe de ressources à l’aide du portail :
 
-1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce Démarrage rapide dans les résultats de recherche, sélectionnez-le.
+1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce démarrage rapide dans les résultats de recherche, sélectionnez-le.
 1. Sélectionnez **Supprimer le groupe de ressources**.
-1. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)**, tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
+1. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)** , tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

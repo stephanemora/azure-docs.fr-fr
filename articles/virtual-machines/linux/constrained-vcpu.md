@@ -4,23 +4,22 @@ description: Liste les tailles de machine virtuelle compatibles avec un nombre r
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: jonbeck
-ms.openlocfilehash: ec2ee8fa9c374b5870cfcfd325925322c49aa0ca
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 473db3ad0a31e66c6b8f148d5756978dab44ed27
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718731"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091960"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>Tailles de machine virtuelle compatibles avec des processeurs virtuels restreints
 

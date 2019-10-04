@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548703"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60693143"
 ---
 # <a name="set-alerts-in-application-insights"></a>Configuration d’alertes dans Application Insights
 [Azure Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application web. 
@@ -27,15 +27,15 @@ Application Insights analyse votre application en direct sur un [large éventail
 
 Il existe plusieurs types d’alertes :
 
-* [**Alertes de métrique** ](../../azure-monitor/platform/alerts-metric-overview.md) indiquent quand une métrique dépasse une valeur de seuil pendant une certaine période - tels que les temps de réponse, nombre d’exceptions, l’utilisation du processeur ou les vues de page.
-* [**Alertes de journal** ](../../azure-monitor/platform/alerts-unified-log.md) est utilisé pour décrire les alertes où le signal d’alerte est basé sur une requête Kusto personnalisée.
+* Les [**alertes de métrique**](../../azure-monitor/platform/alerts-metric-overview.md) indiquent quand une métrique dépasse une valeur seuil pendant une certaine période, comme les temps de réponse, le nombre d’exceptions, l’utilisation du processeur ou les affichages de page.
+* Les [**alertes de journal** ](../../azure-monitor/platform/alerts-unified-log.md) sont utilisées pour décrire les alertes lors desquelles le signal d'alerte repose sur une requête Kusto personnalisée.
 * Les [**tests web**][availability] indiquent quand votre site est indisponible sur Internet ou répond lentement. [En savoir plus][availability].
 * Les [**diagnostics proactifs**](../../azure-monitor/app/proactive-diagnostics.md) sont configurés automatiquement pour vous informer des modèles de performances exceptionnelles.
 
 ## <a name="set-a-metric-alert"></a>Définir une alerte métrique
-Ouvrez l’onglet Règles d’alerte, puis utilisez le bouton Ajouter.
+Ouvrez l'onglet des règles d’alerte, puis utilisez le bouton Ajouter.
 
-![Dans l’onglet Règles d’alerte, choisissez Ajouter une alerte. Définissez votre application comme ressource à mesurer, fournissez un nom pour l’alerte et sélectionnez une métrique.](./media/alerts/01-set-metric.png)
+![Dans l'onglet des règles d’alerte, cliquez sur Ajouter une alerte. Définissez votre application comme ressource à mesurer, fournissez un nom pour l’alerte et sélectionnez une métrique.](./media/alerts/01-set-metric.png)
 
 * Définissez la ressource avant les autres propriétés. **Choisissez la ressource « (composants) »** si vous souhaitez définir des alertes sur les mesures de performances ou d'utilisation.
 * Le nom que vous donnez à l’alerte doit être unique dans le groupe de ressources (pas uniquement dans votre application).
@@ -43,11 +43,11 @@ Ouvrez l’onglet Règles d’alerte, puis utilisez le bouton Ajouter.
 * Si vous cochez la case « Envoyer des e-mails aux propriétaires… », les alertes sont envoyées par e-mail à toutes les personnes ayant accès à ce groupe de ressources. Pour étendre cet ensemble de personnes, ajoutez-le au [groupe de ressources ou à l’abonnement](../../azure-monitor/app/resources-roles-access-control.md) (pas à la ressource).
 * Si vous spécifiez « E-mails supplémentaires », les alertes sont envoyées à ces personnes ou groupes (que vous ayez ou non coché la case « Envoyer des e-mails aux propriétaires… »). 
 * Définissez une [adresse de webhook](../../azure-monitor/platform/alerts-webhooks.md) si vous avez configuré une application web qui répondra aux alertes. Elle est appelée lorsque l’alerte est Activée ou Résolue. (Mais notez qu’à l’heure actuelle, les paramètres de requête ne sont pas transmis en tant que propriétés webhook.)
-* Vous pouvez désactiver ou activer l’alerte : consultez les boutons en haut.
+* Vous pouvez désactiver ou activer l'alerte avec les boutons du haut.
 
 *Je ne vois pas apparaître le bouton Ajouter une alerte.*
 
-* Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Examinez l’onglet de contrôle d’accès. [En savoir plus sur le contrôle d’accès][roles].
+* Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Consultez l'onglet Access Control. [En savoir plus sur le contrôle d’accès][roles].
 
 > [!NOTE]
 > Dans le panneau Alertes, vous pouvez constater qu’une alerte est déjà configurée : [Diagnostics proactifs](../../azure-monitor/app/proactive-failure-diagnostics.md). Cette alerte automatique surveille une métrique spécifique : le taux d’échec des demandes. Sauf si vous décidez de désactiver l’alerte proactive, vous n’avez pas besoin de définir votre propre alerte pour les taux d’échec des demandes.
@@ -57,7 +57,7 @@ Ouvrez l’onglet Règles d’alerte, puis utilisez le bouton Ajouter.
 ## <a name="see-your-alerts"></a>Consultez vos alertes
 Vous recevez un e-mail lorsqu’une alerte bascule entre les états inactive et active. 
 
-L’état actuel de chaque alerte est indiqué dans l’onglet Règles d’alerte.
+L’état actuel de chaque alerte est indiqué dans l'onglet des règles d'alerte.
 
 Il existe un résumé de l’activité récente dans la liste déroulante des alertes :
 
@@ -65,7 +65,7 @@ Il existe un résumé de l’activité récente dans la liste déroulante des al
 
 L’historique des modifications d’état figure dans le journal d’activité :
 
-![Sous l’onglet vue d’ensemble, cliquez sur paramètres, journaux d’Audit](./media/alerts/09-alerts.png)
+![Dans l'onglet Vue d’ensemble, cliquez sur Paramètres, puis sur Journaux d’audit.](./media/alerts/09-alerts.png)
 
 ## <a name="how-alerts-work"></a>Fonctionnement des alertes
 * Une alerte possède trois états : « Jamais activé », « Activé » et « Résolu ». L’état Activé signifie que la condition spécifiée était vraie lors de la dernière évaluation.
@@ -90,28 +90,28 @@ Les alertes les plus appréciées sont les suivantes :
 
 N’oubliez pas que les [diagnostics de taux d’échec proactifs](../../azure-monitor/app/proactive-failure-diagnostics.md) analysent automatiquement le taux selon lequel votre application répond aux demandes avec des codes d’échec.
 
-## <a name="how-to-set-an-exception-alert-using-custom-log-search"></a>Comment définir une alerte d’exception à l’aide de la recherche de journal personnalisée
+## <a name="how-to-set-an-exception-alert-using-custom-log-search"></a>Comment définir une alerte d’exception à l’aide de la recherche personnalisée dans les journaux ?
 
-Dans cette section, nous allons examiner comment définir une alerte d’exception en fonction de requête. Pour cet exemple, supposons que nous voulons une alerte lorsque le taux d’échec est supérieur à 10 % dans les dernières 24 heures.
+Cette section vous explique comment définir une alerte d'exception basée sur une requête. Pour cet exemple, supposons que nous souhaitions déclencher une alerte lorsque le taux d’échec est supérieur à 10 % au cours des 24 dernières heures.
 
-1. Accédez à votre ressource Application Insight dans le portail Azure.
-2. Sur la gauche, sous configurer, cliquez sur **alerte**.
+1. Accédez à votre ressource Application Insights dans le portail Azure.
+2. Sur la gauche, sous configurer, cliquez sur **Alerte**.
 
-    ![Sur la gauche, sous configurer sur l’alerte](./media/alerts/1appinsightalert.png)
+    ![Sur la gauche, sous configurer, cliquer sur Alerte](./media/alerts/1appinsightalert.png)
 
-3. En haut de l’onglet Alerte sélectionnez **nouvelle règle d’alerte**.
+3. En haut de l'onglet d'alerte, sélectionnez **Nouvelle règle d'alerte**.
 
-     ![En haut de l’onglet alerte, cliquez sur Nouvelle règle d’alerte](./media/alerts/2createalert.png)
+     ![En haut de l'onglet d'alerte, cliquer sur nouvelle règle d'alerte](./media/alerts/2createalert.png)
 
-4. Votre ressource doit être sélectionné automatiquement. Pour définir une condition, cliquez sur **ajouter une condition**.
+4. Votre ressource doit être sélectionnée automatiquement. Pour définir une condition, cliquez sur **Ajouter une condition**.
 
-    ![Cliquez sur Ajouter une condition](./media/alerts/3addcondition.png)
+    ![Cliquer sur ajouter une condition](./media/alerts/3addcondition.png)
 
-5. Dans l’onglet de logique de signal configurer sélectionnez **recherche de journal personnalisée**
+5. Dans l'onglet Configurer la logique du signal, sélectionner **Recherche personnalisée dans les journaux**
 
-    ![Cliquez sur la recherche de journal personnalisée](./media/alerts/4customlogsearch.png)
+    ![Cliquer sur Recherche personnalisée dans les journaux](./media/alerts/4customlogsearch.png)
 
-6. Dans l’onglet de recherche de journal personnalisé, entrez votre requête dans la zone de « Requête de recherche ». Pour cet exemple, nous utiliserons le ci-dessous requête Kusto.
+6. Dans l’onglet Recherche personnalisée dans les journaux, entrez votre requête dans la zone « Requête de recherche ». Pour cet exemple, nous utiliserons la requête Kusto ci-dessous.
     ```kusto
     let percentthreshold = 10;
     let period = 24h;
@@ -124,48 +124,48 @@ Dans cette section, nous allons examiner comment définir une alerte d’excepti
 
     ```
 
-    ![Tapez la requête dans la zone de requête de recherche](./media/alerts/5searchquery.png)
+    ![Entrer la requête dans la zone Requête de recherche](./media/alerts/5searchquery.png)
     
     > [!NOTE]
-    > Vous pouvez également appliquer ces étapes pour les autres types d’alertes basées sur la requête. Plus d’informations sur le langage de requête Kusto à partir de ce [Kusto mise en route doc](https://docs.microsoft.com/azure/kusto/concepts/) ou cela [aide-mémoire SQL au Kusto](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
+    > Vous pouvez également appliquer cette procédure aux autres types d’alertes basées sur une requête. Pour plus d'informations sur le langage de requête Kusto, consultez ce [Document de prise en main Kusto](https://docs.microsoft.com/azure/kusto/concepts/) ou cet [Aide-mémoire SQL/Kusto](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
 
-7. Sous « Logique d’alerte », choisissez si elle est basée sur le nombre de résultats ou de mesure métrique. Sélectionne la condition (supérieure à, égale à, inférieur à) et un seuil. Lorsque vous modifiez ces valeurs, vous pouvez remarquer les modifications de phrase de version préliminaire de condition. Dans cet exemple, nous utilisons « égal à ».
+7. Sous « Logique d’alerte », spécifiez si elle repose sur le nombre de résultats ou la mesure métrique. Sélectionnez ensuite la condition (supérieur à, égal à, inférieur à) et un seuil. Lors de la modification de ces valeurs, vous constaterez peut-être une évolution de phrase préliminaire de la condition. Dans cet exemple, nous utilisons « égal à ».
 
-    ![Sous Alert logic choix parmi les options fournies en fonction et une condition, puis tapez un seuil](./media/alerts/6alertlogic.png)
+    ![Sous Logique d'alerte, sélectionnez une des options proposées ainsi qu'une condition, puis entrez un seuil.](./media/alerts/6alertlogic.png)
 
-8. Sous « Évalué selon », définir la période et la fréquence. La période ici doit correspondre à la valeur que nous plaçons pour période dans la requête ci-dessus. Puis cliquez sur **fait**.
+8. Sous « Évalué selon », définissez la période et la fréquence. La période doit correspondre à la valeur utilisée dans la requête ci-dessus. Cliquez ensuite sur **Terminé**.
 
-    ![Définir la période et la fréquence en bas et cliquez ensuite sur terminé](./media/alerts/7evaluate.png)
+    ![Définir la période et la fréquence en bas, puis cliquer sur Terminer](./media/alerts/7evaluate.png)
 
-9. Nous voyons à présent la condition que nous avons créé avec le coût mensuel estimé. Ci-dessous sous [« Groupes d’actions »](../platform/action-groups.md) vous pouvez créer un nouveau groupe ou sélectionnez-en un existant. Si vous le souhaitez, vous pouvez personnaliser les actions.
+9. La condition créée s'affiche, ainsi que le coût mensuel estimé. Sous [Groupe d'actions](../platform/action-groups.md), vous pouvez créer un groupe ou sélectionner un groupe existant. Vous pouvez personnaliser les actions.
 
-    ![Cliquez sur l’instruction select ou créer des boutons sous le groupe d’actions](./media/alerts/8actiongroup.png)
+    ![Cliquer sur le bouton Sélectionner ou Créer, sous Groupe d'actions](./media/alerts/8actiongroup.png)
 
-10. Enfin ajouter vos détails de l’alerte (nom de la règle, la description, gravité d’alerte). Lorsque vous avez terminé, cliquez sur **créer une règle d’alerte** en bas.
+10. Enfin, ajoutez les détails de l'alerte (nom de règle d’alerte, description et gravité). Lorsque vous avez terminé, cliquez sur **Créer une règle d’alerte** en bas.
 
-    ![Sous Détails de l’alerte tapez votre nom de règle d’alerte, écrivez une description et choisir un niveau de gravité](./media/alerts/9alertdetails.png)
+    ![Sous Détails de l’alerte, entrer le nom de règle d'alerte, une description et sélectionner une gravité](./media/alerts/9alertdetails.png)
 
-## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Comment se désabonner des notifications d’alerte par courrier
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Comment se désabonner des notifications d’alerte classiques par e-mail ?
 
-Cette section s’applique aux **alertes de disponibilité classic**, **les alertes de métriques classiques de Application Insights**et **alertes d’échec classique d’anomalies**.
+Cette section s’applique aux **alertes de disponibilité**, **alertes de métriques Application Insights** et **alertes d'anomalies** classiques.
 
-Vous recevez des notifications par courrier électronique pour ces alertes classiques si les éléments suivants s’applique :
+Vous recevez des notifications par e-mail pour ces alertes classiques dans les cas suivants :
 
-* Votre adresse de messagerie est répertorié dans le champ de destinataires de courrier électronique de Notification dans les paramètres de règle d’alerte.
+* Votre adresse e-mail est répertoriée dans le champ des destinataires des notifications par e-mail des paramètres de règles d’alerte.
 
-* La possibilité d’envoyer des notifications par courrier électronique aux utilisateurs contenant certains rôles pour l’abonnement est activée et que vous maintenez un rôle respectif pour cet abonnement Azure.
+* L'option permettant d’envoyer des notifications par e-mail aux utilisateurs détenant certains rôles pour l’abonnement est activée, et vous détenez un de ces rôles pour l'abonnement Azure en question.
 
-![Capture d’écran de la notification d’alerte](./media/alerts/alert-notification.png)
+![Capture d'écran de notification d'alerte](./media/alerts/alert-notification.png)
 
-Pour mieux contrôler votre sécurité et la confidentialité, nous vous recommandons généralement de spécifier explicitement les destinataires de notification pour vos alertes classiques dans le **destinataires de courrier électronique de Notification** champ. L’option pour informer tous les utilisateurs contenant certains rôles est fournie pour la compatibilité descendante.
+Pour un meilleur contrôle de votre sécurité et de votre confidentialité, nous vous recommandons de spécifier explicitement les destinataires des notifications de vos alertes classiques dans le champ **Destinataires des notifications par e-mail**. L’option permettant d'informer tous les utilisateurs détenant certains rôles est proposée à des fins de compatibilité descendante.
 
-Pour vous désabonner des notifications par courrier électronique générées par une certaine règle d’alerte, supprimer votre adresse de messagerie à partir de la **destinataires de courrier électronique de Notification** champ.
+Pour vous désabonner des notifications par e-mail générées par une règle d’alerte donnée, supprimez votre adresse e-mail dans le champ **Destinataires des notifications par e-mail**.
 
-Si votre adresse de messagerie n’est pas explicitement répertorié, nous vous recommandons de désactiver l’option permettant de notifier tous les membres de certains rôles automatiquement et de liste à la place de tous les messages électroniques d’utilisateurs qui doivent recevoir des notifications pour cette règle d’alerte dans la Notification par courrier électronique champ de destinataires.
+Si votre adresse e-mail n’est pas explicitement répertoriée, nous vous recommandons de désactiver l’option permettant d'informer tous les membres détenant certains rôles automatiquement et de répertorier tous les e-mails des utilisateurs devant recevoir des notifications pour cette règle d’alerte dans le champ Destinataires des notifications par e-mail.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Qui reçoit les notifications d'alerte (classiques) ?
 
-Cette section ne s'applique qu'aux alertes classiques et vous aidera à optimiser vos notifications d'alerte afin que seuls les destinataires de votre choix les reçoivent. Pour en savoir plus sur la différence entre [alertes classiques](../platform/alerts-classic.overview.md) et les nouvelles alertes expérience, reportez-vous à la [article de vue d’ensemble des alertes](../platform/alerts-overview.md). Pour contrôler les notifications d’alerte dans la nouvelle expérience alertes, utilisez [groupes d’actions](../platform/action-groups.md).
+Cette section ne s'applique qu'aux alertes classiques et vous aidera à optimiser vos notifications d'alerte afin que seuls les destinataires de votre choix les reçoivent. Pour mieux comprendre la différence entre les [alertes classiques](../platform/alerts-classic.overview.md) et les nouvelles alertes, reportez-vous à l’[article de présentation des alertes](../platform/alerts-overview.md). Pour contrôler la notification des alertes dans la nouvelle expérience d'alerte, utilisez des [groupes d'actions](../platform/action-groups.md).
 
 * Nous recommandons l'utilisation de destinataires spécifiques pour les notifications d'alertes classiques.
 

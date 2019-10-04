@@ -1,6 +1,6 @@
 ---
-title: Surveiller les métriques de Media Services et des journaux de diagnostic via Azure Monitor | Microsoft Docs
-description: Cet article donne une vue d’ensemble de la surveillance des métriques de Media Services et des journaux de diagnostic via Azure Monitor.
+title: Surveiller les métriques et journaux de diagnostic Azure Media Services via Azure Monitor | Microsoft Docs
+description: Cet article donne un aperçu de la façon de surveiller les métriques et journaux de diagnostic Azure Media Services via Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,81 +11,106 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 1c77cdf57978af81accc7802575d262b97d08fe2
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785083"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261071"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Surveiller les métriques de Media Services et des journaux de diagnostic
+# <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Surveiller les métriques et journaux de diagnostic Media Services
 
-[Azure Monitor](../../azure-monitor/overview.md) permet aux mesures de surveillance et de journaux de diagnostic qui vous aident à comprendre le fonctionnement de vos applications. Toutes les données collectées par Azure Monitor s’adapte à un des deux types fondamentaux, journaux et métriques. Vous pouvez surveiller les journaux de diagnostic de Media Services et créer des alertes et notifications pour les métriques collectées et les journaux. Vous pouvez visualiser et analyser les données de mesures à l’aide [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). Vous pouvez envoyer des journaux au [stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)et les exporter vers [Analytique de journal](https://azure.microsoft.com/services/log-analytics/), ou utiliser les services tiers 3e.
+[Azure Monitor](../../azure-monitor/overview.md) vous permet de surveiller les métriques et journaux de diagnostic pour vous aider à comprendre le fonctionnement de vos applications. Toutes les données collectées par Azure Monitor sont de l’un des deux types fondamentaux, les métriques et les journaux d’activité. Vous pouvez surveiller les journaux de diagnostic Media Services et créer des alertes et notifications pour les métriques et les journaux collectés. Vous pouvez visualiser et analyser les métriques à l’aide [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). Vous pouvez envoyer les journaux d’activité au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers [Log Analytics](https://azure.microsoft.com/services/log-analytics/), ou utiliser un service externe.
 
-Pour une présentation détaillée, consultez [mesures Azure Monitor](../../azure-monitor/platform/data-platform.md) et [journaux de Diagnostic du moniteur Azure](../../azure-monitor/platform/diagnostic-logs-overview.md).
+Pour plus un aperçu détaillé, voir [Métriques Azure Monitor](../../azure-monitor/platform/data-platform.md) et [Journaux de diagnostic Azure Monitor](../../azure-monitor/platform/resource-logs-overview.md).
 
-Cette rubrique traite actuellement disponibles [Media Services métriques](#media-services-metrics) et [journaux de Diagnostic de Media Services](#media-services-diagnostic-logs).
+Cette rubrique traite des [métriques Media Services](#media-services-metrics) et des [Journaux de diagnostic Media Services](#media-services-diagnostic-logs) pris en charge.
 
-## <a name="media-services-metrics"></a>Métriques de Media Services
+## <a name="media-services-metrics"></a>Métriques Media Services
 
-Les métriques sont collectées à intervalles réguliers, que la valeur change ou non. Elles sont utiles pour créer des alertes, dans la mesure où elles peuvent être échantillonnées fréquemment, et où une alerte peut être déclenchée rapidement avec un circuit logique assez simple.
+Les métriques sont collectées à intervalles réguliers, que la valeur change ou non. Elles sont utiles pour créer des alertes, dans la mesure où elles peuvent être échantillonnées fréquemment, et où une alerte peut être déclenchée rapidement avec un circuit logique assez simple. Pour plus d’informations sur la création d’alertes de métrique, voir [Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Actuellement, les Services de média suivants [les points de terminaison de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingendpoints) métriques sont émis par Azure :
+Media Services prend en charge les métriques de surveillance pour les ressources suivantes :
+
+* Compte
+* Point de terminaison de streaming
+ 
+### <a name="account"></a>Compte
+
+Vous pouvez surveiller les métriques de compte suivantes. 
+
+|Nom de métrique|Nom complet|Description|
+|---|---|---|
+|AssetCount|Nombre de ressources|Ressources dans votre compte.|
+|AssetQuota|Quota de ressources|Quota de ressources dans votre compte.|
+|AssetQuotaUsedPercentage|Pourcentage du quota de ressources utilisé|Pourcentage du quota de ressources déjà utilisé.|
+|ContentKeyPolicyCount|Nombre de stratégies de clé de contenu|Stratégies de clé de contenu dans votre compte.|
+|ContentKeyPolicyQuota|Quota de stratégies de clé de contenu|Quota de stratégies de clé de contenu dans votre compte.|
+|ContentKeyPolicyQuotaUsedPercentage|Pourcentage du quota de stratégies de clé de contenu utilisé|Pourcentage du quota de stratégies de clé de contenu déjà utilisé.|
+|StreamingPolicyCount|Nombre de stratégies de diffusion en continu|Stratégies de diffusion en continu dans votre compte.|
+|StreamingPolicyQuota|Quota de stratégies de diffusion en continu|Quota de stratégies de diffusion en continu dans votre compte.|
+|StreamingPolicyQuotaUsedPercentage|Pourcentage du quota de stratégies de diffusion en continu utilisé|Pourcentage du quota de stratégies de diffusion en continu déjà utilisé.|
+ 
+Vous devez également examiner les [quotas et limitations de compte](limits-quotas-constraints.md).
+
+### <a name="streaming-endpoint"></a>Point de terminaison de streaming
+
+Les métriques de [points de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) Media Services suivantes sont pris en charge :
+
+|Nom de métrique|Nom complet|Description|
+|---|---|---|
+|Demandes|Demandes|Fournit le nombre total de requêtes HTTP traitées par le point de terminaison de streaming.|
+|Sortie|Sortie|Nombre total d’octets de sortie. Par exemple, les octets diffusés en continu par le point de terminaison de streaming.|
+|SuccessE2ELatency|Latence de réussite de bout en bout|Durée à partir de laquelle le point de terminaison de streaming a reçu la requête lorsque le dernier octet de la réponse a été envoyé.|
+
+### <a name="why-would-i-want-to-use-metrics"></a>Pourquoi utiliser des métriques ? 
+
+Voici des exemples de la façon dont la surveillance de métriques Media Services peut vous aider à comprendre le fonctionnement de vos applications. Voici quelques questions qui peuvent être traitées avec les métriques Media Services :
+
+* Comment surveiller mon point de terminaison de streaming standard pour savoir quand j’ai dépassé les limites ?
+* Comment savoir si j’ai suffisamment d’unités d’échelle de point de terminaison de streaming Premium ? 
+* Comment définir une alerte pour savoir quand mettre à l’échelle mes points de terminaison de streaming ?
+* Comment définir une alerte pour savoir quand la sortie maximale configurée sur le compte a été atteinte ?
+* Comment voir la répartition des demandes qui échouent et ce qui est à l’origine de l’échec ?
+* Comment voir combien de demandes TLS ou DASH sont extraites du packager ?
+* Comment définir une alerte pour savoir quand la valeur seuil du nombre de requêtes ayant échoué a été atteinte ? 
+
+### <a name="example"></a>Exemples
+
+Consultez [Surveiller les métriques Media Services](media-services-metrics-howto.md)
+
+## <a name="media-services-diagnostic-logs"></a>Journaux de diagnostic Media Services
+
+Les journaux de diagnostic fournissent des informations complètes et fréquentes sur le fonctionnement d’une ressource Azure. Pour plus d’informations, consultez [Comment collecter et utiliser des données de journal à partir de vos ressources Azure](../../azure-monitor/platform/resource-logs-overview.md).
+
+Media Services prend en charge les journaux de diagnostic suivants :
+
+* Remise de clés
+
+### <a name="key-delivery"></a>Remise de clés
 
 |Nom|Description|
 |---|---|
-|Demandes|Donne des détails concernant le nombre total de demandes traitées par le point de terminaison de diffusion en continu.|
-|Sortie|Nombre total d’octets de sortie. Par exemple, les octets transmis en continu par point de terminaison de diffusion en continu.|
-|Latence de bout en bout de réussite| Fournit des informations sur la latence de bout en bout de demandes réussies.|
+|Demande de service de remise de clé|Journaux contenant les informations de demande de service de remise de clé. Pour plus d’informations, voir [Schémas](media-services-diagnostic-logs-schema.md).|
 
-Par exemple, pour obtenir des mesures de « Sortie » avec l’interface CLI, exécutez la commande suivante `az monitor metrics` commande CLI :
+### <a name="why-would-i-want-to-use-diagnostics-logs"></a>Pourquoi utiliser les journaux de diagnostic ? 
 
-```cli
-az monitor metrics list --resource \
-   "/subscriptions/<subscription id>/resourcegroups/<resource group name>/providers/Microsoft.Media/mediaservices/<Media Services account name>/streamingendpoints/<streaming endpoint name>" \
-   --metric "Egress"
-```
+Voici quelques éléments que vous pouvez examiner avec les journaux de diagnostic de remise de clé :
 
-Pour plus d’informations sur la création d’alertes de métriques, consultez [créer, afficher et gérer les alertes de métriques avec Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+* Voir le nombre de licences fournies par type DRM
+* Voir le nombre de licences fournies par stratégie 
+* Voir les erreurs par type de DRM ou de stratégie
+* Voir le nombre de requêtes de licence non autorisées émises par les clients
 
-## <a name="media-services-diagnostic-logs"></a>Journaux de diagnostic de Media Services
+### <a name="example"></a>Exemples
 
-Actuellement, vous pouvez obtenir les journaux de diagnostics suivants :
-
-|Nom|Description|
-|---|---|
-|Demande de service de remise de clé|Journaux qui indiquent les informations de demande de service de remise de clé. Pour plus d’informations, consultez [schémas](media-services-diagnostic-logs-schema.md).|
-
-Pour activer le stockage des journaux de diagnostic dans un compte de stockage, vous exécuteriez suit `az monitor diagnostic-settings` commande CLI : 
-
-```cli
-az monitor diagnostic-settings create --name <diagnostic name> \
-    --storage-account <name or ID of storage account> \
-    --resource <target resource object ID> \
-    --resource-group <storage account resource group> \
-    --logs '[
-    {
-        "category": <category name>,
-        "enabled": true,
-        "retentionPolicy": {
-            "days": <# days to retain>,
-            "enabled": true
-        }
-    }]'
-```
-
-Par exemple : 
-
-```cli
-az monitor diagnostic-settings create --name amsv3diagnostic \
-    --storage-account storageaccountforamsv3  \
-    --resource "/subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/amsv3ResourceGroup/providers/Microsoft.Media/mediaservices/amsv3account" \
-    --resource-group "amsv3ResourceGroup" \
-    --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
-```
+Consultez [Comment surveiller les journaux de diagnostic Media Services](media-services-diagnostic-logs-howto.md)
 
 ## <a name="next-steps"></a>Étapes suivantes 
 
-[Comment collecter et consommer des données de journal à partir de vos ressources Azure](../../azure-monitor/platform/diagnostic-logs-overview.md).
+* [Comment collecter et consommer les données des journaux de vos ressources Azure](../../azure-monitor/platform/resource-logs-overview.md)
+* [Créer, afficher et gérer des alertes de métrique à l'aide d'Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
+* [Surveiller les métriques Media Services](media-services-metrics-howto.md)
+* [Surveillez les journaux de diagnostic de Media Services](media-services-diagnostic-logs-howto.md)

@@ -1,0 +1,73 @@
+- name: Azure Blockchain Service (Préversion)
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: À propos d’Azure Blockchain Service
+      href: overview.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Créer un membre – Portail
+      href: create-member.md
+    - name: Créer un membre – CLI
+      href: create-member-cli.md
+    - name: Se connecter à un nœud de transaction
+      items:
+        - name: Avec VS Code
+          href: connect-vscode.md
+        - name: Utilisation de MetaMask
+          href: connect-metamask.md
+        - name: Utilisation de Geth
+          href: connect-geth.md
+        - name: Utilisation de Truffle
+          href: connect-truffle.md
+- name: Tutoriels
+  items:
+    - name: Utiliser des contrats intelligents
+      href: send-transaction.md
+- name: Concepts
+  items:
+    - name: Consortium
+      href: consortium.md
+    - name: Accès aux données et sécurité
+      href: data-security.md
+    - name: Développement
+      href: develop.md
+    - name: limites
+      href: limits.md
+    - name: 'Mise à jour corrective, mise à jour, gestion de versions'
+      href: ledger-versions.md
+- name: Guides pratiques
+  items:
+    - name: Configurer l’accès Azure AD
+      href: configure-aad.md
+    - name: Configurer les nœuds de transaction
+      href: configure-transaction-nodes.md
+    - name: Gérer à l’aide d’Azure CLI
+      href: manage-cli.md
+    - name: Gérer le consortium en utilisant PowerShell
+      href: manage-consortium-powershell.md
+    - name: Utiliser Logic Apps
+      href: ethereum-logic-app.md
+- name: Ressources
+  items:
+    - name: API REST Blockchain
+      href: 'https://docs.microsoft.com/rest/api/blockchain/'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Extension Visual Studio Code Azure Blockchain Service
+      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
+    - name: Exemples de code
+      href: 'https://github.com/Azure-Samples/blockchain'
+    - name: Communauté
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Forum
+      href: 'https://aka.ms/workbenchforum'
+    - name: Commentaires sur le produit
+      href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
+    - name: Disponibilité des régions
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'

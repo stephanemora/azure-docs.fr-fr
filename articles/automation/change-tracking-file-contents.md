@@ -4,17 +4,17 @@ description: Utilisez la fonctionnalité de changement de contenu de fichier de 
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 6aef9a24e3337d1f5a5a6c9ac6b510cc7f9a66a5
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074741"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478643"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Voir le contenu d’un fichier suivi avec Change Tracking
 
@@ -75,5 +75,5 @@ Consultez le didacticiel sur Change Tracking pour en savoir plus sur l’utilisa
 > [!div class="nextstepaction"]
 > [Dépanner les modifications apportées à votre environnement](automation-tutorial-troubleshoot-changes.md)
 
-* Utilisez [recherches de journal dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) pour afficher les données de suivi détaillé.
+* Effectuez des [recherches dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md) pour afficher les données détaillées du suivi des modifications.
 

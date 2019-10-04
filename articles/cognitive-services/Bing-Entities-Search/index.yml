@@ -2,18 +2,17 @@
 documentType: LandingData
 title: Documentation Recherche d’entités Bing
 metadata:
-  title: 'Documentation Recherche d’entités Bing - Tutoriels, guides de démarrage rapide, informations de référence sur l’API | Microsoft Docs'
+  title: "Documentation de l’API Recherche d’entités Bing\_- Tutoriels, guides de démarrage rapide, informations de référence sur l’API"
+  titleSuffix: Azure Cognitive Services
   description: 'Découvrez comment utiliser l’API Recherche d’entités Bing pour obtenir des informations sur des personnes, des lieux ou d’autres sujets définis. Ces tutoriels expliquent comment créer des applications qui utilisent le service.'
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-entity-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/01/2019
-  ms.author: v-gedod
+  ms.date: 07/25/2019
+  ms.author: aahi
 abstract:
   description: 'L’API Recherche d’entités Bing permet à vos applications d’obtenir des informations sur les entités détectées dans les requêtes de recherche. Les entités peuvent être des personnes, des lieux, des titres d’articles, etc.'
 sections:
@@ -90,9 +89,9 @@ sections:
         className: cardsD
         items:
           - title: API
-            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference">API Recherche d’entités Bing v7</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference">API Recherche d’entités Bing v7</a></p>'
           - title: Kits SDK
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/entitysearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-entitysearch?view=azure-node-latest">Node.JS</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch">Go</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-entitysearch?view=azure-node-latest">Node.JS</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch">Go</a></p>'
           - title: PowerShell
             html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
           - title: Interface de ligne de commande

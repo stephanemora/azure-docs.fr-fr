@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: e6c7d682d9b16266208baeeff14168b3da157251
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: d89e83092775828016c2c47a96164319f5474c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186619"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568420"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Informations d’identification utilisées pour accéder à la bibliothèque cliente de la base de données élastique
 
@@ -73,12 +72,12 @@ Dans cet exemple, **smmUserConnectionString** comporte la chaîne de connexion c
 
 Tout comme pour les informations d’identification de l’administrateur, n’utilisez pas de valeurs sous la forme « username@server ». Utilisez simplement « username ».  Notez également que la chaîne de connexion ne comporte pas de nom de serveur et de nom de base de données. En effet, l’appel de **OpenConnectionForKey** dirige automatiquement la connexion vers la partition appropriée en fonction de la clé. Par conséquent, il n'est pas nécessaire de fournir les noms de la base de données et du serveur.
 
-## <a name="see-also"></a>Consultez également la section 
+## <a name="see-also"></a>Consultez également la section
 
-[Gestion des bases de données et des connexions dans la base de données SQL Microsoft Azure](sql-database-manage-logins.md)
+[Gestion des bases de données et des connexions dans Azure SQL Database](sql-database-manage-logins.md)
 
 [Sécurisation de votre base de données SQL](sql-database-security-overview.md)
 
-[Prise en main de Tâches de bases de données élastiques](sql-database-elastic-jobs-getting-started.md)
+[Tâches de base de données élastique](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

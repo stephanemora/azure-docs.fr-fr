@@ -1,78 +1,104 @@
 ---
-title: Inscrire des extensions de liaison d’Azure Functions
-description: Découvrez comment inscrire une extension de liaison d’Azure Functions en fonction de votre environnement.
+title: Inscrire des extensions de liaison Azure Functions
+description: Découvrez comment inscrire une extension de liaison Azure Functions en fonction de votre environnement.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
-ms.date: 02/18/2019
+ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 5534086d5754691f650370e465fa2c63210e0dc7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: 93ced443a73d5499d8b305770c3c866c26d540f0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740108"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086460"
 ---
-# <a name="register-azure-functions-binding-extensions"></a>Inscrire des extensions de liaison d’Azure Functions
+# <a name="register-azure-functions-binding-extensions"></a>Inscrire des extensions de liaison Azure Functions
 
-Azure Functions prend en charge HTTP et le minuteur prêts à l’emploi. Pour travailler avec d’autres services, vous devez installer ou *inscrire* un [liaison](./functions-triggers-bindings.md) extension. Extensions de liaison sont fournies via les packages Azure Core Tools ou NuGet. 
+Dans Azure Functions version 2.x, des [liaisons](./functions-triggers-bindings.md) sont disponibles sous forme de packages distincts du runtime de fonctions. Alors que les fonctions .NET accèdent aux liaisons via des packages NuGet, les offres groupées d’extension permettent à d’autres fonctions d’accéder à toutes les liaisons via un paramètre de configuration.
 
-Le tableau suivant indique quand et comment vous inscrire des liaisons.
+Prenez en compte les éléments suivants liés aux extensions de liaison :
+
+- Les extensions de liaison ne sont pas explicitement inscrites dans Functions 1.x, sauf lors de la [création d’une bibliothèque de classes C# à l’aide de Visual Studio](#local-csharp).
+
+- Les déclencheurs HTTP et compteur sont pris en charge par défaut et ne nécessitent pas une extension.
+
+Le tableau suivant indique quand et comment vous inscrivez des liaisons.
 
 | Environnement de développement |Inscription<br/> dans Functions 1.x  |Inscription<br/> dans Functions 2.x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Portail Azure|Automatique|[Automatique - avec invite](#azure-portal-development)|
-|Langages non .NET ou développement Azure Core Tools local|Automatique|[Utiliser les commandes CLI des outils de base](#local-development-azure-functions-core-tools)|
-|Bibliothèque de classes C# avec Visual Studio 2017|[Utiliser les outils NuGet](#c-class-library-with-visual-studio-2017)|[Utiliser les outils NuGet](#c-class-library-with-visual-studio-2017)|
-|Bibliothèque de classes C# avec Visual Studio Code|S.O.|[Utiliser CLI .NET Core](#c-class-library-with-visual-studio-code)|
+|Portail Azure|Automatique|Automatique|
+|Langages non .NET ou développement Azure Core Tools local|Automatique|[Utiliser Azure Functions Core Tools et des offres groupées d’extension](#extension-bundles)|
+|Bibliothèque de classes C# avec Visual Studio|[Utiliser les outils NuGet](#vs)|[Utiliser les outils NuGet](#vs)|
+|Bibliothèque de classes C# avec Visual Studio Code|N/A|[Utiliser CLI .NET Core](#vs-code)|
 
-Les types de liaison suivants sont des exceptions qui ne nécessitent pas d’inscription explicite, car ils sont inscrits automatiquement dans toutes les versions et tous les environnements : HTTP et minuteur.
+## <a name="extension-bundles"></a>Offres groupées d’extension pour développement local
 
-> [!IMPORTANT]
-> Ce contenu pour le reste de cet article s’applique uniquement à Functions 2.x. Les extensions de liaison ne sont pas inscrits explicitement dans les fonctions 1.x sauf quand [création d’un C# bibliothèque de classes à l’aide de Visual Studio 2017](#local-csharp).
+Les offres groupées d’extension constituent une technologie de développement local pour le runtime version 2.x qui vous permet d’ajouter un jeu d’extensions de liaison Functions compatible à votre projet d’application de fonction. Ces packages d’extension sont ensuite inclus dans le package de déploiement lorsque vous déployez sur Azure. Les offres groupées permettent de mettre à disposition toutes les liaisons publiées par Microsoft via un paramètre dans le fichier *host.json*. Les packages d’extension définis dans une offre groupée sont compatibles entre eux, vous permettant ainsi d’éviter les conflits entre les packages. Lors d’un développement local, vérifiez que vous utilisez la dernière version d’[Azure Functions Core Tools](functions-run-local.md#v2).
 
-## <a name="azure-portal-development"></a>Développement sur le portail Azure
+Utilisez des offres groupées d’extension pour l’ensemble du développement local à l’aide d’Azure Functions Core Tools ou de Visual Studio Code.
 
-Quand vous créez une fonction ou que vous ajoutez une liaison, vous êtes averti quand l’extension pour le déclencheur ou la liaison nécessite une inscription. Répondez à l’invite en cliquant sur **Installer** pour inscrire l’extension. L’installation peut prendre jusqu’à 10 minutes sur un plan de consommation.
+Si vous n’utilisez pas d’offres groupées d’extension, vous devez installer le Kit de développement logiciel (SDK) .NET Core 2.x sur votre ordinateur local avant d’installer des extensions de liaison. Les offres groupées suppriment cette exigence pour le développement local. 
 
-Vous n’avez besoin d’installer chaque extension qu’une seule fois pour une application de fonction donnée. Pour les liaisons prises en charge qui ne sont pas disponibles dans le portail ou pour mettre à jour une extension installée, vous pouvez également [installer ou mettre à jour manuellement des extensions de liaison d’Azure Functions à partir du portail](install-update-binding-extensions-manual.md).  
+Pour utiliser des offres groupées d’extension, mettez à jour le fichier *host.json* pour inclure l’entrée suivante pour `extensionBundle` :
 
-## <a name="local-development-azure-functions-core-tools"></a>Azure Functions Core Tools pour le développement local
-
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
-
-<a name="local-csharp"></a>
-## <a name="c-class-library-with-visual-studio-2017"></a>Bibliothèque de classes C# avec Visual Studio 2017
-
-Dans **Visual Studio 2017**, vous pouvez installer des packages à partir de la console du Gestionnaire de package avec la commande [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), comme indiqué dans l’exemple suivant :
-
-```powershell
-Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <target_version>
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
+    }
+}
 ```
 
-Le nom du package à utiliser pour une liaison donnée est fourni dans l’article de référence pour cette liaison. Pour obtenir un exemple, consultez la [section Packages de l’article Informations de référence sur les liaisons Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
+Les propriétés suivantes sont disponibles dans `extensionBundle` :
 
-Remplacez `<target_version>` dans l’exemple par une version spécifique du package, comme `3.0.0-beta5`. Les versions valides sont répertoriées sur les pages de chaque package sur [NuGet.org](https://nuget.org). Les versions majeures qui correspondent aux runtime Functions 1.x ou 2.x sont spécifiées dans l’article de référence pour la liaison.
+| Propriété | Description |
+| -------- | ----------- |
+| **`id`** | Espace de noms pour les offres groupées d’extension Microsoft Azure Functions. |
+| **`version`** | Version de l’offre groupée à installer. Le runtime Functions récupère toujours la version autorisée maximale définie par la plage ou l’intervalle de version. La valeur de version ci-dessus autorise toutes les versions d’offre groupée jusqu’à 1.0.0 mais sans inclure la version 2.0.0. Pour plus d’informations, consultez la [notation d’intervalle de spécification de plages de versions](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards). |
 
-## <a name="c-class-library-with-visual-studio-code"></a>Bibliothèque de classes C# avec Visual Studio Code
+Les versions d’offre groupées sont incrémentées à mesure que les packages contenus dans l’offre groupée changent. Un changement de version majeure se produit lorsque les packages contenus dans l’offre groupée sont incrémentés par une version majeure, ce qui coïncide généralement avec un changement de version majeure du runtime Functions.  
 
-Dans **Visual Studio Code**, vous pouvez installer des packages à partir de l’invite de commandes avec la commande [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) dans CLI .NET Core, comme indiqué dans l’exemple suivant :
+L’ensemble actuel d’extensions installées par l’offre groupée par défaut est énuméré dans ce [fichier extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/master/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json).
+
+<a name="local-csharp"></a>
+
+## <a name="vs"></a> Bibliothèque de classes C\# avec Visual Studio
+
+Dans **Visual Studio**, vous pouvez installer des packages à partir de la console du Gestionnaire de package avec la commande [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), comme indiqué dans l’exemple suivant :
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
+```
+
+Le nom du package utilisé pour une liaison donnée est fourni dans l’article de référence pour cette liaison. Pour obtenir un exemple, consultez la [section Packages de l’article Informations de référence sur les liaisons Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
+
+Remplacez `<TARGET_VERSION>` dans l’exemple par une version spécifique du package, comme `3.0.0-beta5`. Les versions valides sont répertoriées sur les pages de chaque package sur [NuGet.org](https://nuget.org). Les versions majeures qui correspondent aux runtime Functions 1.x ou 2.x sont spécifiées dans l’article de référence pour la liaison.
+
+Si vous utilisez `Install-Package` pour faire référence à une liaison, vous n’avez pas besoin d’utiliser des [bundles d’extensions](#extension-bundles). Cette approche est spécifique aux bibliothèques de classes générées dans Visual Studio.
+
+## <a name="vs-code"></a> Bibliothèque de classes C# avec Visual Studio Code
+
+> [!NOTE]
+> Nous vous recommandons d’utiliser des [offres groupées d’extension](#extension-bundles) pour que Functions installe automatiquement un ensemble de packages d’extension de liaison compatible.
+
+Dans **Visual Studio Code**, installez des packages pour un projet de bibliothèque de classes C# à partir de l’invite de commandes avec la commande [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) dans CLI .NET Core. L’exemple suivant montre comment ajouter une liaison :
 
 ```terminal
-dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <target_version>
+dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
 ```
 
 CLI .NET Core peut être utilisé seulement pour le développement Azure Functions 2.x.
 
-Le nom du package à utiliser pour une liaison donnée est fourni dans l’article de référence pour cette liaison. Pour obtenir un exemple, consultez la [section Packages de l’article Informations de référence sur les liaisons Service Bus](functions-bindings-service-bus.md#packages---functions-1x).
+Remplacez `<BINDING_TYPE_NAME>` par le nom du package fourni dans l’article de référence pour la liaison souhaitée. Vous trouverez l’article de référence de la liaison souhaitée dans la [liste des liaisons prises en charge](./functions-triggers-bindings.md#supported-bindings).
 
-Remplacez `<target_version>` dans l’exemple par une version spécifique du package, comme `3.0.0-beta5`. Les versions valides sont répertoriées sur les pages de chaque package sur [NuGet.org](https://nuget.org). Les versions majeures qui correspondent aux runtime Functions 1.x ou 2.x sont spécifiées dans l’article de référence pour la liaison.
+Remplacez `<TARGET_VERSION>` dans l’exemple par une version spécifique du package, comme `3.0.0-beta5`. Les versions valides sont répertoriées sur les pages de chaque package sur [NuGet.org](https://nuget.org). Les versions majeures qui correspondent aux runtime Functions 1.x ou 2.x sont spécifiées dans l’article de référence pour la liaison.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Exemple de déclencheur et la liaison de fonction Azure](./functions-bindings-example.md)
-
+> [Exemples de liaisons et de déclencheurs Azure Functions](./functions-bindings-example.md)

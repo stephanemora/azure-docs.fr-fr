@@ -1,6 +1,6 @@
 ---
 title: Mise à niveau de l’API Recherche d’actualités Bing version 5 vers version 7
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Permet d’identifier les parties de votre application que vous devez mettre à jour pour utiliser la version 7.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 04c457fba5cb32cc1312ffac2c2f7c1470b5a46b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1263e93b1e316cab4afb51cd828737a5bd087fed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878440"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423841"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guide de mise à niveau de l’API Recherche d'actualités Bing
 
@@ -70,24 +70,24 @@ Bloqué|InvalidRequest.Blocked
 
 ### <a name="object-changes"></a>Modifications d’objet
 
-- Ajout du champ `contractualRules` à l’objet [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle). Le champ `contractualRules` contient une liste de règles que vous devez respecter (l’attribution d’article, par exemple). Vous devez appliquer l’attribution fournie dans `contractualRules` au lieu d’utiliser `provider`. L’article inclut `contractualRules` seulement lorsque la réponse de l’[API Recherche Web Bing](../bing-web-search/search-the-web.md) contient Actualités.
+- Ajout du champ `contractualRules` à l’objet [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Le champ `contractualRules` contient une liste de règles que vous devez respecter (l’attribution d’article, par exemple). Vous devez appliquer l’attribution fournie dans `contractualRules` au lieu d’utiliser `provider`. L’article inclut `contractualRules` seulement lorsque la réponse de l’[API Recherche Web Bing](../bing-web-search/search-the-web.md) contient Actualités.
 
 ## <a name="non-breaking-changes"></a>Changements non cassants
 
 ### <a name="query-parameters"></a>Paramètres de requête
 
-- Ajout de Produits comme valeur possible définissable pour le paramètre de requête [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category). Consultez [Catégories par marchés](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
+- Ajout de Produits comme valeur possible définissable pour le paramètre de requête [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category). Consultez [Catégories par marchés](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
 
-- Ajout du paramètre de requête [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby), qui retourne les rubriques tendance triées par date en commençant par la plus récente.
+- Ajout du paramètre de requête [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby), qui retourne les rubriques tendance triées par date en commençant par la plus récente.
 
-- Ajout du paramètre de requête [Since](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since), qui renvoie les rubriques tendance découvertes par Bing pendant ou après le timestamp d’époque Unix.
+- Ajout du paramètre de requête [Since](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since), qui renvoie les rubriques tendance découvertes par Bing pendant ou après le timestamp d’époque Unix.
 
 ### <a name="object-changes"></a>Modifications d’objet
 
-- Ajout du champ `mentions` à l’objet [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle). Le champ `mentions` contient une liste d’entités (personnes ou lieux) trouvées dans l’article.
+- Ajout du champ `mentions` à l’objet [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Le champ `mentions` contient une liste d’entités (personnes ou lieux) trouvées dans l’article.
 
-- Ajout du champ `video` à l’objet [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle). Le champ `video` contient une vidéo en lien avec l’article. La vidéo est soit \<iframe\>, et vous pouvez l’intégrer, soit un vidéo miniature.
+- Ajout du champ `video` à l’objet [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Le champ `video` contient une vidéo en lien avec l’article. La vidéo est soit \<iframe\>, et vous pouvez l’intégrer, soit un vidéo miniature.
 
-- Ajout du champ `sort` à l’objet [News](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news). Le champ `sort` indique l’ordre de tri des articles. Par exemple, les articles sont triés par pertinence (par défaut) ou par date.
+- Ajout du champ `sort` à l’objet [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news). Le champ `sort` indique l’ordre de tri des articles. Par exemple, les articles sont triés par pertinence (par défaut) ou par date.
 
-- Ajout de l’objet [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue), qui définit l’ordre de tri. Le champ `isSelected` indique si la réponse a utilisé l’ordre de tri. Si la valeur est **true**, la réponse a utilisé l’ordre de tri. Si `isSelected` est **false**, vous pouvez utiliser l’URL dans le champ `url` pour demander un ordre de tri différent.
+- Ajout de l’objet [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue), qui définit l’ordre de tri. Le champ `isSelected` indique si la réponse a utilisé l’ordre de tri. Si la valeur est **true**, la réponse a utilisé l’ordre de tri. Si `isSelected` est **false**, vous pouvez utiliser l’URL dans le champ `url` pour demander un ordre de tri différent.

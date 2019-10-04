@@ -15,29 +15,22 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 487a51b6f644cca88011383b8035515d437857e6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 5930ac3834c0b697a4c03ce5b110dfeac105436a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237890"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324428"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec une application .NET
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec une application .NET Framework
 
-
-
-Ce guide de démarrage rapide vous montre comment utiliser le cache Microsoft Azure pour Redis avec .NET. Le cache Microsoft Azure pour Redis se base sur le cache Azure pour Redis open source connu. Il vous permet d’accéder à un cache Azure pour Redis sécurisé et dédié géré par Microsoft. Un cache créé avec le cache Azure pour Redis est accessible à partir de toutes les applications dans Microsoft Azure.
-
-Dans ce démarrage rapide, vous allez utiliser le client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) avec une code C\# dans une application console. Vous allez créer un cache et configurer l’application cliente .NET. Ensuite, vous ajouterez et mettrez à jour des objets dans le cache. 
-
-![Application console terminée](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Dans ce guide de démarrage rapide, vous allez incorporer le cache Azure pour Redis dans une application .NET Framework pour avoir accès à un cache sécurisé et dédié accessible à partir de n’importe quelle application dans Azure. Vous utiliserez spécifiquement le client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) avec du code C# dans une application console .NET.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
-* Le client StackExchange.Redis a besoin de [.NET Framework 4 ou version ultérieure](https://www.microsoft.com/net/download/dotnet-framework-runtime).
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/)
+- [.NET Framework 4 ou ultérieur](https://www.microsoft.com/net/download/dotnet-framework-runtime), qui est requis par le client StackExchange.Redis.
 
 ## <a name="create-a-cache"></a>Création d'un cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -63,7 +56,7 @@ Remplacez `<access-key>` par la clé primaire de votre cache.
 
 Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
 
-Sous **Visual C#**, cliquez sur **Bureau Windows Classique** puis cliquez sur **Application Console** et **OK** pour créer une nouvelle application console.
+Sous **Visual C#** , cliquez sur **Bureau Windows Classique** puis cliquez sur **Application Console** et **OK** pour créer une nouvelle application console.
 
 
 <a name="configure-the-cache-clients"></a>
@@ -256,7 +249,7 @@ Sinon, si l’exemple d’application de démarrage rapide était votre dernièr
 
 Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
 
-Dans la zone de texte **Filtrer par nom.**, saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
+Dans la zone de texte **Filtrer par nom.** , saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources dans la liste des résultats, cliquez sur **...** , puis sur **Supprimer le groupe de ressources**.
 
 ![Supprimer](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 

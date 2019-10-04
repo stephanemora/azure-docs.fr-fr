@@ -1,25 +1,18 @@
 ---
-title: Configurer la machine virtuelle hébergée sur Microsoft Azure pour Place de marché Microsoft Azure | Microsoft Docs
+title: Configurer la machine virtuelle hébergée sur Microsoft Azure pour la Place de marché Microsoft Azure
 description: Cet article explique comment dimensionner, mettre à jour et généraliser une machine virtuelle hébergée sur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 1270dff0bcb8de117247a454ab9c144250cfb17c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833499"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880362"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurer la machine virtuelle hébergée sur Azure
 
@@ -29,7 +22,7 @@ Cet article explique comment dimensionner, mettre à jour et généraliser une m
 ## <a name="sizing-the-vhds"></a>Dimensionnement des disques durs virtuels (VHD)
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-Si vous avez sélectionné une des machines virtuelles préconfigurées avec un système d’exploitation (et éventuellement d’autres services), vous avez déjà choisi une taille de machine virtuelle Azure standard, comme décrit dans [onglet SKU de machine virtuelle](./cpp-skus-tab.md).  Il est recommandé de démarrer votre solution avec un système d’exploitation préconfiguré.  Toutefois, si vous installez un système d’exploitation manuellement, vous devez dimensionner votre VHD principal dans votre image de machine virtuelle :
+Si vous avez sélectionné l’une des machines virtuelles préconfigurées avec un système d’exploitation (et éventuellement d’autres services), vous avez déjà choisi une taille de machine virtuelle Azure standard, comme décrit dans l’article [Virtual machine SKUs tab](./cpp-skus-tab.md) (Onglet Références de machine virtuelle).  Il est recommandé de démarrer votre solution avec un système d’exploitation préconfiguré.  Toutefois, si vous installez un système d’exploitation manuellement, vous devez dimensionner votre VHD principal dans votre image de machine virtuelle :
 
 - Pour Windows, le VHD de système d’exploitation doit être créé en tant que VHD au format fixe de 127-128 Go. 
 - Pour Linux, ce VHD doit être créé en tant que VHD au format fixe de 30-50 Go.
@@ -66,18 +59,18 @@ Pour plus d’informations sur les personnalisations Linux, consultez l’articl
 
 Toutes les images dans Azure Marketplace doivent être réutilisables de façon générale. Pour autoriser cette réutilisation, le VHD de système d’exploitation doit être *généralisé* : cette opération consiste à supprimer d’une machine virtuelle tous les pilotes logiciels et identificateurs propres à une instance.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Les disques de système d’exploitation Windows sont généralisés à l’aide de [l’outil sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Si vous mettez à jour ou reconfigurez le système d’exploitation par la suite, vous devrez réexécuter sysprep. 
 
 > [!WARNING]
 >  Étant donné que les mises à jour peuvent s’exécuter automatiquement, une fois que vous exécutez sysprep, vous devez éteindre la machine virtuelle jusqu’à son déploiement.  Cet arrêt évite que des mises à jour ultérieures apportent des modifications propres à une instance au système d’exploitation du VHD ou aux services installés.
 
-Pour plus d’informations sur l’exécution de sysprep, consultez [étapes afin de généraliser un disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#steps-to-generalize-a-vhd)
+Pour plus d’informations sur l’exécution de sysprep, voir [Étapes de généralisation d’un disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep).
 
 ### <a name="linux"></a>Linux
 
-Ce processus en deux étapes généralise une machine virtuelle Linux et la redéploie sous la forme d’une machine virtuelle distincte.  Pour plus d’informations, consultez l’article [Créer une image d’une machine virtuelle ou d’un disque dur virtuel](../../../virtual-machines/linux/capture-image.md). 
+Le processus en deux étapes suivant généralise une machine virtuelle Linux et la redéploie sous la forme d’une machine virtuelle distincte. Ces deux étapes sont simplement les éléments essentiels du processus. Pour plus d’informations sur ces deux étapes et la raison pour laquelle elles doivent être effectuées, consultez [Créer une image d’une machine virtuelle ou d’un disque dur virtuel](../../../virtual-machines/linux/capture-image.md). Dans le but de créer le disque dur virtuel pour votre offre de la Place de marché Azure, vous pouvez vous arrêter lorsque vous atteignez la section « Créer une machine virtuelle à partir de l’image capturée ».
 
 #### <a name="remove-the-azure-linux-agent"></a>Supprimer l’agent Linux Azure
 1.  Connectez-vous à votre machine virtuelle Linux en utilisant un client SSH.
@@ -102,4 +95,4 @@ La création de copies de machine virtuelle est souvent utile pour les tâches d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois votre machine virtuelle configurée, vous êtes en mesure de [déployer une machine virtuelle à partir d’un disque dur virtuel](./cpp-deploy-vm-vhd.md).
+Une fois que votre machine virtuelle est généralisée, qu’elle a été libérée et que vous avez créé une image de la machine virtuelle, vous êtes prêt à [déployer une machine virtuelle à partir d’un disque dur virtuel](./cpp-deploy-vm-vhd.md).

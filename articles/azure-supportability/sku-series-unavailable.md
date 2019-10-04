@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: xingwan
-ms.openlocfilehash: 62964d0c5d75168226a35b25e5c256a1b57f3f81
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: a57899e36a6716a6fd59cb018119c225b7396c0d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24870576"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60649111"
 ---
 # <a name="region-or-sku-unavailable"></a>Région ou référence (SKU) non disponible
 Cet article décrit comment résoudre le problème quand un abonnement Azure n’a pas accès à une région ou à un SKU de machine virtuelle.

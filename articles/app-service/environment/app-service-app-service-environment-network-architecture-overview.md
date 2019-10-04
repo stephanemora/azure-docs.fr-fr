@@ -10,24 +10,23 @@ ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 0d7d4af46e54ad89e0d084cb15af13e56115e996
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 98eb4d7440126bedb3d2e1de5711141eaac8b07a
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274161"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070064"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Présentation de l'architecture réseau des environnements App Service
 ## <a name="introduction"></a>Introduction
-Les environnements App Service sont toujours créés dans un sous-réseau d'un [réseau virtuel][virtualnetwork]. Les applications exécutées dans un environnement App Service peuvent communiquer avec des points de terminaison privés au sein de la même topologie de réseau virtuel.  Dans la mesure où les clients peuvent verrouiller des parties de leur infrastructure de réseau virtuel, il est important de comprendre les types de flux de communication réseau qui se produisent avec un environnement App Service.
+Les environnements App Service sont toujours créés dans un sous-réseau d’un [réseau virtuel][virtualnetwork]. Les applications exécutées dans un environnement App Service peuvent communiquer avec des points de terminaison privés au sein de la même topologie de réseau virtuel.  Dans la mesure où les clients peuvent verrouiller des parties de leur infrastructure de réseau virtuel, il est important de comprendre les types de flux de communication réseau qui se produisent avec un environnement App Service.
 
 ## <a name="general-network-flow"></a>Flux réseau général
-Lorsqu’un environnement App Service (ASE) utilise une adresse IP virtuelle publique (VIP) pour les applications, tout le trafic entrant arrive sur cette adresse IP virtuelle publique.  Cela inclut le trafic HTTP et HTTPS pour les applications, ainsi que le reste du trafic pour les opérations de gestion Azure, les fonctionnalités de débogage à distance et FTP.  Pour obtenir une liste complète des ports spécifiques (obligatoires et facultatifs) disponibles sur l'adresse VIP publique, consultez l'article sur le [contrôle du trafic entrant][controllinginboundtraffic] dans un environnement App Service. 
+Lorsqu’un environnement App Service (ASE) utilise une adresse IP virtuelle publique (VIP) pour les applications, tout le trafic entrant arrive sur cette adresse IP virtuelle publique.  Cela inclut le trafic HTTP et HTTPS pour les applications, ainsi que le reste du trafic pour les opérations de gestion Azure, les fonctionnalités de débogage à distance et FTP.  Pour obtenir une liste complète des ports spécifiques (obligatoires et facultatifs) disponibles sur l'adresse VIP publique, consultez l’article sur le [contrôle du trafic entrant][controllinginboundtraffic] dans un environnement App Service. 
 
 Les environnements App Service prennent également en charge les applications en cours d’exécution et uniquement liées à une adresse interne de réseau virtuel, également appelée adresse ILB (équilibrage de charge interne).  Sur un ASE avec équilibrage de charge interne, le trafic HTTP et HTTPS des applications et des appels de débogage à distance arrive sur l’adresse d’équilibrage de charge interne.  Dans la plupart des configurations d’équilibrage de charge interne ASE, le trafic FTP/FTPS arrive également sur l’adresse d’équilibrage de charge interne.  Toutefois les opérations de gestion Azure continuent de transiter par les ports 454/455 sur l’adresse IP virtuelle publique d’un ASE avec équilibrage de charge interne.
 
@@ -44,9 +43,9 @@ Un environnement App Service peut communiquer avec plusieurs points de terminai
 
 Les environnements App Service communiquent également avec les ressources BD SQL et stockage Azure nécessaires pour la gestion et l'exploitation d'un environnement App Service.  Certaines des ressources de stockage et Sql avec lesquelles un environnement App Service communique se trouvent dans la même région que l'environnement App Service, tandis que d'autres sont situées dans des régions Azure distantes.  Par conséquent, une connectivité sortante à Internet est toujours requise pour qu'un environnement App Service fonctionne correctement. 
 
-Étant donné qu'un environnement App Service est déployé dans un sous-réseau, vous pouvez utiliser des groupes de sécurité réseau pour contrôler le trafic entrant vers le sous-réseau.  Pour plus d'informations sur la façon de contrôler le trafic entrant vers un environnement App Service, consultez l'[article][controllinginboundtraffic] suivant.
+Étant donné qu'un environnement App Service est déployé dans un sous-réseau, vous pouvez utiliser des groupes de sécurité réseau pour contrôler le trafic entrant vers le sous-réseau.  Pour plus d’informations sur la façon de contrôler le trafic entrant vers un environnement App Service, consultez l’[article][controllinginboundtraffic] suivant.
 
-Pour plus d'informations sur la façon d'autoriser la connectivité Internet sortante à partir d'un environnement App Service, consultez l'article suivant sur l'utilisation d'[ExpressRoute][ExpressRoute].  La même approche que celle décrite dans cet article s'applique avec une connectivité de site à site et l'utilisation du tunneling forcé.
+Pour plus d’informations sur la façon d’autoriser la connectivité Internet sortante à partir d’un environnement App Service, consultez l’article suivant sur l’utilisation d’[ExpressRoute][ExpressRoute].  La même approche que celle décrite dans cet article s'applique avec une connectivité de site à site et l'utilisation du tunneling forcé.
 
 ## <a name="outbound-network-addresses"></a>Adresses réseau sortantes
 Lorsqu'un environnement App Service effectue des appels sortants, une adresse IP est toujours associée aux appels sortants.  L'adresse IP spécifique utilisée varie suivant si le point de terminaison appelé se trouve dans la topologie de réseau virtuel ou en dehors de la topologie de réseau virtuel.

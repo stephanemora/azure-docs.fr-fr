@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 72d3455f37d0ccef0dd5b7d8882f70670de07572
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 38662fc8dda935d5f000aee6609fd9b2e42de17f
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497318"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68253174"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gérer l’accès, de puissance et de mode de connectivité pour votre passerelle de zone de données Azure
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gérer l’accès, l’alimentation et le mode de connectivité de votre appareil Azure Data Box Gateway
 
 Cet article explique comment gérer l’accès, la puissance et le mode de connectivité d’Azure Data Box Gateway. Ces opérations sont effectuées sur l’interface utilisateur web locale ou le Portail Azure.
 
@@ -28,11 +28,11 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="manage-device-access"></a>Gérer l’accès aux appareils
 
-L’accès à votre périphérique de passerelle de zone de données est contrôlé par l’utilisation d’un mot de passe du périphérique. Vous pouvez modifier le mot de passe via l’interface utilisateur web locale. Vous pouvez également réinitialiser le mot de passe dans le portail Azure.
+L’accès à votre appareil Data Box Gateway est contrôlé par l’utilisation d’un mot de passe d’appareil. Vous pouvez changer ce mot de passe à l’aide de l’interface utilisateur web locale. Vous pouvez également le réinitialiser sur le portail Azure.
 
 ### <a name="change-device-password"></a>Modifier le mot de passe d’un appareil
 
-Suivez ces étapes dans l’interface utilisateur locale pour modifier le mot de passe.
+Suivez ces étapes sur l’interface utilisateur locale pour changer le mot de passe de l’appareil.
 
 1. Sur l’interface utilisateur web locale, accédez à **Maintenance > Modification du mot de passe**.
 2. Entrez le mot de passe actuel, puis le nouveau. Le mot de passe indiqué doit comporter entre 8 et 16 caractères, d’au moins trois types : majuscule, minuscule, chiffre et caractère spécial. Confirmez le nouveau mot de passe.
@@ -41,7 +41,7 @@ Suivez ces étapes dans l’interface utilisateur locale pour modifier le mot de
 
 3. Cliquez sur **Modifier le mot de passe**.
  
-### <a name="reset-device-password"></a>Réinitialiser le mot de passe de l'appareil
+### <a name="reset-device-password"></a>Réinitialiser le mot de passe de l’appareil
 
 Le workflow de réinitialisation n’implique pas de se rappeler l’ancien mot de passe, ce qui est utile en cas de perte. Il s’effectue sur le Portail Azure.
 
@@ -53,6 +53,48 @@ Le workflow de réinitialisation n’implique pas de se rappeler l’ancien mot 
 2. Entrez le nouveau mot de passe, puis confirmez-le. Le mot de passe indiqué doit comporter entre 8 et 16 caractères, d’au moins trois types : majuscule, minuscule, chiffre et caractère spécial. Cliquez sur **Réinitialiser**.
 
     ![Réinitialiser le mot de passe](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
+
+## <a name="manage-resource-access"></a>Gérer l’accès aux ressources
+
+Pour créer votre ressource Data Box Edge/Data Box Gateway, IoT Hub et de Stockage Azure, vous devez disposer d’autorisations en tant que contributeur ou d’autorisations plus élevées au niveau du groupe de ressources. Les fournisseurs de ressources correspondants doivent également être inscrits. Pour toutes les opérations qui impliquent des informations d’identification et une clé d’activation, des autorisations sur l’API Azure Active Directory Graph sont également exigées. Elles sont décrites dans les sections suivantes.
+
+### <a name="manage-microsoft-azure-active-directory-graph-api-permissions"></a>Gérer les autorisations d’API Microsoft Azure Active Directory Graph
+
+Quand vous générez la clé d’activation pour l’appareil Data Box Edge ou que vous effectuez des opérations qui nécessitent des informations d’identification, vous devez disposer d’autorisations sur l’API Azure Active Directory Graph. Les opérations nécessitant des informations d’identification peuvent être les suivantes :
+
+-  Création d’un partage avec un compte de stockage associé.
+-  Création d’un utilisateur qui peut accéder aux partages se trouvant sur l’appareil.
+
+Vous devez avoir un accès `User` sur le locataire Active Directory car vous devez être en mesure de `Read all directory objects`. Vous ne pouvez pas être un utilisateur Invité car ce type d’utilisateur ne dispose pas d’autorisations pour `Read all directory objects`. Si vous êtes invité, les opérations telles que la génération d’une clé d’activation, la création d’un partage sur votre appareil Data Box Edge et la création d’un utilisateur, sont toutes vouées à l’échec.
+
+Pour plus d’informations sur la façon de fournir aux utilisateurs un accès à l’API Azure Active Directory Graph, consultez [Accès par défaut pour les administrateurs, utilisateurs et utilisateurs invités](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+
+### <a name="register-resource-providers"></a>Inscrire des fournisseurs de ressources
+
+Pour provisionner une ressource dans Azure (dans le modèle Azure Resource Manager), vous avez besoin d’un fournisseur de ressources qui prend en charge la création de cette ressource. Par exemple, pour provisionner une machine virtuelle, vous devez avoir un fournisseur de ressources « Microsoft.Compute » disponible dans l’abonnement.
+ 
+Les fournisseurs de ressources sont inscrits sur le niveau de l’abonnement. Par défaut, tout nouvel abonnement Azure est préinscrit auprès d’une liste de fournisseurs de ressources couramment utilisés. Le fournisseur de ressources pour Microsoft.DataBoxEdge n’est pas inclus dans cette liste.
+
+Vous n’avez pas besoin d’accorder des autorisations d’accès au niveau de l’abonnement pour que les utilisateurs puissent créer des ressources comme « Microsoft.DataBoxEdge » dans leurs groupes de ressources sur lesquels ils disposent de droits de propriétaire, à condition que les fournisseurs de ces ressources soient déjà inscrits.
+
+Avant d’essayer de créer une ressource, vérifiez que le fournisseur de ressources est inscrit dans l’abonnement. Si le fournisseur de ressources n’est pas inscrit, vous devez vérifier que l’utilisateur qui crée la ressource dispose de droits suffisants pour inscrire le fournisseur de ressources nécessaire sur le niveau de l’abonnement. Si vous ne l’avez pas fait également, l’erreur suivante s’affiche :
+
+*L’abonnement \< <Nom de l’abonnement> ne dispose des autorisations pour inscrire le fournisseur de ressources : Microsoft.DataBoxEdge.*
+
+
+Pour obtenir une liste des fournisseurs de ressources inscrits dans l’abonnement actuel, exécutez la commande suivante :
+
+```PowerShell
+Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
+```
+
+Pour un appareil Data Box Edge, `Microsoft.DataBoxEdge` doit être inscrit. Pour inscrire `Microsoft.DataBoxEdge`, l’administrateur de l’abonnement doit exécuter la commande suivante :
+
+```PowerShell
+Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
+```
+
+Pour plus d’informations sur la façon d’inscrire un fournisseur de ressources, consultez [Résoudre les erreurs d’inscription de fournisseurs de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
 ## <a name="manage-connectivity-mode"></a>Gérer le mode de connectivité
 
@@ -80,7 +122,7 @@ Pour modifier le mode de l’appareil, suivez ces étapes :
 
 ## <a name="manage-power"></a>Gérer la puissance
 
-Vous pouvez arrêter ou redémarrer votre appareil physique et virtuel sur l'interface utilisateur web locale. Avant de redémarrer, nous vous recommandons de mettre les partages hors connexion sur l’ordinateur hôte. Cette action réduit les risques d’altération des données.
+Vous pouvez arrêter ou redémarrer votre appareil virtuel à l'aide de l'interface utilisateur web locale. Avant de redémarrer, nous vous recommandons de mettre les partages hors connexion sur l’ordinateur hôte. Cette action réduit les risques d’altération des données.
 
 1. Sur l’interface utilisateur web locale, accédez à **Maintenance > Paramètres d'alimentation**.
 2. Cliquez sur **Arrêter** ou **Redémarrer** selon ce que vous voulez faire.

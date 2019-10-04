@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ace42278269ff6af31902dbecead81329815af12
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588668"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177299"
 ---
 ## <a name="create-a-topic-using-the-azure-portal"></a>Créer une rubrique à l’aide du Portail Azure
 1. Dans la page **Espace de noms Service Bus**, sélectionnez **Rubriques** dans le menu de gauche.
@@ -30,7 +30,7 @@ ms.locfileid: "56588668"
 2. Dans la page **Rubrique Service Bus**, sélectionnez **Abonnements** dans le menu de gauche, puis **+ Abonnement** dans la barre d’outils. 
     
     ![Bouton Ajouter un abonnement](./media/service-bus-create-topics-subscriptions-portal/add-subscription-button.png)
-3. Sur le **créer d’abonnement** , entrez **S1** pour **nom** pour l’abonnement, puis sélectionnez **créer**. 
+3. Dans la page **Créer un abonnement**, entrez **S1** comme **nom** d’abonnement, puis sélectionnez **Créer**. 
 
     ![Page Créer un abonnement](./media/service-bus-create-topics-subscriptions-portal/create-subscription-page.png)
-4. Répétez l’étape précédente à deux reprises pour créer des abonnements nommés **S2** et **S3**.
+4. Répétez la dernière étape deux autre fois pour créer des abonnements nommés **S2** et **S3**.

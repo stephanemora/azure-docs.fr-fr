@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 192a6f4841e9dc3a478da5e4b53594362955ca71
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0e3f996ab2a42057198368759c75f10e911d5f54
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56246849"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68936798"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Le protocole BGP est-il pris en charge sur toutes les références de passerelle VPN Azure ?
 Non, le protocole BGP est pris en charge sur les passerelles VPN Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** et **HighPerformance**. La référence **De base** N’EST PAS prise en charge.
@@ -28,7 +28,7 @@ Oui, vous pouvez utiliser vos propres NSA publics ou privés pour vos réseaux l
 Non, les passerelles VPN Azure ne prennent en charge que les NSA 16 bits pour le moment.
 
 ### <a name="are-there-asns-reserved-by-azure"></a>Existe-t-il des NSA réservés par Azure ?
-Oui. Les NSA suivants sont réservés par Azure pour les homologations internes et externes :
+Oui. Les NSA suivants sont réservés par Azure pour les peerings internes et externes :
 
 * NSA publics : 8074, 8075, 12076
 * NSA privés : 65515, 65517, 65518, 65519, 65520
@@ -40,6 +40,13 @@ Oui, les NSA ci-après sont [réservés par l’IANA](http://www.iana.org/assign
 
 23456, 64496-64511, 65535-65551 et 429496729.
 
+### <a name="what-private-asns-can-i-use"></a>Quels sont les ASN privés que je peux utiliser ?
+Voici la plage des ASN pouvant être utilisés :
+
+* 64512-65514, 65521-65534
+
+Ces ASN ne sont pas réservés pour IANA ou Azure. Ils peuvent donc être affectés à votre passerelle VPN Azure.
+
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>Puis-je utiliser le même NSA pour les réseaux VPN locaux et les réseaux virtuels Azure ?
 Non. Vous devez attribuer des NSA différents à vos réseaux locaux et vos réseaux virtuels Azure si vous les interconnectez avec le protocole BGP. Le NSA 65515 est attribué aux passerelles VPN Azure par défaut, et ce, que le protocole BGP soit activé ou non pour la connectivité entre les sites locaux. Vous pouvez remplacer cette valeur par défaut en attribuant un NSA différent lors de la création de la passerelle VPN, ou modifier le NSA après avoir créé la passerelle. Vous devez affecter vos NSA locaux aux passerelles de réseau local Azure correspondantes.
 
@@ -48,7 +55,7 @@ La passerelle VPN Azure publiera les itinéraires suivants pour vos périphériq
 
 * préfixes d’adresse de votre réseau virtuel ;
 * préfixes d’adresse de chaque passerelle de réseau local connectée à la passerelle VPN Azure ;
-* itinéraires obtenus à partir d’autres sessions d’homologation BGP connectées à la passerelle VPN Azure, **à l’exception de l’itinéraire par défaut ou des itinéraires se chevauchant avec un préfixe de réseau virtuel**.
+* itinéraires obtenus à partir d’autres sessions de peering BGP connectées à la passerelle VPN Azure, **à l’exception de l’itinéraire par défaut ou des itinéraires se chevauchant avec un préfixe de réseau virtuel**.
 
 ### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>Combien de préfixes puis-je publier sur la passerelle VPN Azure ?
 Nous prenons en charge jusqu’à 4 000 préfixes. La session BGP s’arrête si le nombre de préfixes dépasse la limite.
@@ -85,13 +92,13 @@ Oui, mais au moins une des passerelles de réseau virtuel doit être dans une co
 Oui. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Quelle adresse la passerelle VPN Azure utilise-t-elle pour l’IP d’homologue BGP ?
-La passerelle VPN Azure alloue une adresse IP unique à partir de la plage GatewaySubnet définie pour le réseau virtuel. Par défaut, il s’agit de l’avant-dernière adresse de la plage. Par exemple, si votre GatewaySubnet est 10.12.255.0/27 (de 10.12.255.0 à 10.12.255.31), l’adresse IP d’homologue BGP sur la passerelle VPN Azure sera 10.12.255.30. Vous pouvez trouver ces informations lorsque vous affichez la liste des informations de passerelle VPN Azure.
+La passerelle VPN Azure alloue une adresse IP unique à partir de la plage de sous-réseau de passerelle pour les passerelles VPN de type actif/passif, ou deux adresses IP pour les passerelles VPN actif-actif. Vous pouvez obtenir les adresses IP BGP réelles allouées à l’aide de PowerShell (Get-AzVirtualNetworkGateway, recherchez la propriété « bgpPeeringAddress »), ou dans le portail Azure (sous la propriété « Configurer un ASN BGP » sur la page Configuration de la passerelle).
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>Quelles sont les conditions requises concernant les adresses IP d’homologue BGP sur mon périphérique VPN ?
-Votre adresse d’homologue BGP local **NE DOIT PAS** être identique à l’adresse IP publique de votre périphérique VPN. Utilisez une adresse IP différente de l’IP d’homologue BGP pour votre périphérique VPN. Il peut s’agir d’une adresse affectée à l’interface de bouclage sur l’appareil, mais veuillez noter qu’il ne peut pas s’agir d’une adresse APIPA (169.254.x.x). Spécifiez cette adresse sur la passerelle de réseau local correspondante, représentant l’emplacement.
+Votre adresse d’homologue BGP locale **ne doit pas** être identique à l’adresse IP publique de votre appareil VPN ni à l’espace d’adresse de la passerelle VPN. Utilisez une adresse IP différente de l’IP d’homologue BGP pour votre périphérique VPN. Il peut s’agir d’une adresse affectée à l’interface de bouclage sur l’appareil, mais veuillez noter qu’il ne peut pas s’agir d’une adresse APIPA (169.254.x.x). Spécifiez cette adresse sur la passerelle de réseau local correspondante, représentant l’emplacement.
 
 ### <a name="what-should-i-specify-as-my-address-prefixes-for-the-local-network-gateway-when-i-use-bgp"></a>Que dois-je spécifier comme préfixes d’adresse pour la passerelle de réseau local lorsque j’utilise le protocole BGP ?
 La passerelle de réseau local Azure spécifie les préfixes d’adresse initiaux pour le réseau local. Avec le protocole BGP, vous devez allouer le préfixe de l’hôte (préfixe /32) de votre adresse IP d’homologue BGP en tant qu’espace d’adressage pour ce réseau local. Si votre adresse IP d’homologue BGP est 10.52.255.254, vous devez spécifier « 10.52.255.254/32 » comme espace localNetworkAddressSpace de la passerelle de réseau local, représentant ce réseau local. Ainsi, vous vous assurez que la passerelle VPN Azure établit la session BGP via le tunnel VPN S2S.
 
-### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Que dois-je ajouter à mon périphérique VPN local pour la session d’homologation BGP ?
+### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>Que dois-je ajouter à mon périphérique VPN local pour la session de peering BGP ?
 Vous devez ajouter un itinéraire hôte de l’adresse IP d’homologue BGP Azure sur votre périphérique VPN pointant vers le tunnel VPN S2S IPsec. Par exemple, si l’adresse IP d’homologue VPN Azure est « 10.12.255.30 », vous devez ajouter un itinéraire hôte pour « 10.12.255.30 » avec l’interface de tronçon suivant de l’interface de tunnel IPsec correspondante sur votre périphérique VPN.

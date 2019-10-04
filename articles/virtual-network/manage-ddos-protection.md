@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: Découvrez comment utiliser les données de télémétrie du service Protection DDos Standard Azure dans Azure Monitor pour atténuer une attaque.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
-ms.author: jdial
-ms.openlocfilehash: 32c4516c7dc68b04826b362d34841160936d682d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.date: 05/17/2019
+ms.author: kumud
+ms.openlocfilehash: 37a8799ca1ea986d5b47dad6e17781d7dfbacfab
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244517"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261679"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gérer le service Protection DDos Standard Azure à l’aide du portail Azure
 
@@ -33,21 +33,21 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="create-a-ddos-protection-plan"></a>Créer un plan de protection DDoS
 
-Un plan de protection DDoS définit un ensemble de réseaux virtuels pour lesquels la protection DDoS standard est activée par le biais des abonnements. Vous pouvez configurer un plan de protection DDoS pour votre organisation et lier des réseaux virtuels à partir de plusieurs abonnements au même plan. Le plan Protection DDoS lui-même est également associé à un abonnement, que vous sélectionnez à la création du plan. L’abonnement auquel le plan est associé subit la facturation mensuelle périodique du plan, ainsi que les frais de dépassement, si le nombre d’adresses IP publiques protégées est supérieur à 100. Pour en savoir plus sur la tarification du service de protection DDoS, consultez la rubrique relative aux [détails de tarification](https://azure.microsoft.com/pricing/details/ddos-protection/).
+Un plan de protection DDoS définit un ensemble de réseaux virtuels pour lesquels la protection DDoS standard est activée par le biais des abonnements. Vous pouvez configurer un plan de protection DDoS pour votre organisation et lier des réseaux virtuels à partir de plusieurs abonnements au même plan. Le plan Protection DDoS lui-même est également associé à un abonnement, que vous sélectionnez à la création du plan. Le Plan Protection DDoS fonctionne entre les régions et abonnements. Exemple : vous pouvez créer le plan dans la région USA Est et l’associer à l’abonnement n° 1 dans votre locataire. Le même plan peut être associé à des réseaux virtuels d’autres abonnements dans différentes régions, dans votre locataire. L’abonnement auquel le plan est associé subit la facturation mensuelle périodique du plan, ainsi que les frais de dépassement, si le nombre d’adresses IP publiques protégées est supérieur à 100. Pour en savoir plus sur la tarification du service de protection DDoS, consultez la rubrique relative aux [détails de tarification](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 La création de plusieurs plans n’est pas requise pour la plupart des organisations. Un plan ne peut pas être déplacé d’un abonnement vers un autre. Si vous souhaitez changer l’abonnement auquel un plan est rattaché, vous devez [supprimer le plan existant](#work-with-ddos-protection-plans) et en créer un.
 
 1. Sélectionnez **Créer une ressource** en haut à gauche du portail Azure.
 2. Recherchez *DDoS*. Quand **Plan de protection DDoS** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 4. Entrez ou sélectionnez vos propres valeurs ou les exemples de valeurs suivants, puis sélectionnez **Créer** :
 
     |Paramètre        |Valeur                                              |
     |---------      |---------                                          |
     |Nom           | myDdosProtectionPlan                              |
-    |Abonnement   | Sélectionnez votre abonnement.                         |
-    |Groupe de ressources | Sélectionnez **Créer** et entrez *myResourceGroup*. |
-    |Lieu       | USA Est                                           |
+    |Subscription   | Sélectionnez votre abonnement.                         |
+    |Resource group | Sélectionnez **Créer** et entrez *myResourceGroup*. |
+    |Location       | USA Est                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>Activer la protection DDoS pour un nouveau réseau virtuel
 
@@ -58,9 +58,9 @@ La création de plusieurs plans n’est pas requise pour la plupart des organisa
     | Paramètre         | Valeur                                                        |
     | ---------       | ---------                                                    |
     | Nom            | myVirtualNetwork                                             |
-    | Abonnement    | Sélectionnez votre abonnement.                                    |
-    | Groupe de ressources  | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
-    | Lieu        | USA Est                                                      |
+    | Subscription    | Sélectionnez votre abonnement.                                    |
+    | Resource group  | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
+    | Location        | USA Est                                                      |
     | Protection DDoS | Sélectionnez **Standard** puis, sous **Protection DDoS**, sélectionnez **myDdosProtectionPlan**. Le plan que vous sélectionnez peut se trouver dans le même abonnement que le réseau virtuel, ou dans un abonnement différent, mais les deux abonnements doivent être associés au même locataire Azure Active Directory.|
 
 Vous ne pouvez pas déplacer un réseau virtuel vers un autre groupe de ressources ou abonnement quand la protection DDoS Standard est activée pour le réseau virtuel. Si vous devez déplacer un réseau virtuel pour lequel la protection DDoS Standard est activée, désactivez d’abord celle-ci, déplacez le réseau virtuel, puis activez la protection DDoS Standard. Après le déplacement, les seuils de stratégie réglée automatiquement pour toutes les adresses IP publiques protégées dans le réseau virtuel sont réinitialisés.
@@ -99,8 +99,8 @@ Vous ne pouvez pas déplacer un réseau virtuel vers un autre groupe de ressourc
     |Paramètre                  |Valeur                                                                                               |
     |---------                |---------                                                                                           |
     |Nom                     | myDdosAlert                                                                                        |
-    |Abonnement             | Sélectionnez l’abonnement qui contient l’adresse IP publique pour laquelle vous souhaitez recevoir des alertes.        |
-    |Groupe de ressources           | Sélectionnez le groupe de ressources qui contient l’adresse IP publique pour laquelle vous souhaitez recevoir des alertes.      |
+    |Subscription             | Sélectionnez l’abonnement qui contient l’adresse IP publique pour laquelle vous souhaitez recevoir des alertes.        |
+    |Resource group           | Sélectionnez le groupe de ressources qui contient l’adresse IP publique pour laquelle vous souhaitez recevoir des alertes.      |
     |Ressource                 | Sélectionnez la ressource qui contient l’adresse IP publique pour laquelle vous souhaitez recevoir des alertes. Le service DDoS surveille les adresses IP publiques affectées aux ressources dans un réseau virtuel. Si aucune ressource dans le réseau virtuel ne possède une adresse IP publique, vous devez d’abord créer une ressource dotée d’une adresse IP publique. Vous pouvez surveiller l’adresse IP publique de toutes les ressources déployées par le biais de Resource Manager (non classique) qui sont répertoriées dans [Réseau virtuel pour services Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), à l’exception des environnements Azure App Service et de la passerelle VPN Azure. Pour poursuivre ce tutoriel, vous pouvez créer rapidement une machine virtuelle [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).                   |
     |Métrique                   | Sous attaque DDoS ou non                                                                            |
     |Seuil                | **1** signifie que vous faites l’objet d’une attaque. **0** signifie que vous ne faites pas l’objet d’une attaque.                         |
@@ -127,6 +127,7 @@ Les données de télémétrie pour une attaque sont fournies par le biais d’Az
 4. Sélectionnez **l’Abonnement** et le **Groupe de ressources** qui contiennent l’adresse IP publique dont vous souhaitez les données de télémétrie.
 5. Sélectionnez **Adresse IP publique** pour **Type de ressource**, puis sélectionnez l’adresse IP publique dont vous souhaitez les données de télémétrie.
 6. Une série de **métriques disponibles** s’affiche sur le côté gauche de l’écran. Quand elles sont sélectionnées, ces métriques sont représentées dans le **graphique des métriques Azure Monitor** sur l’écran de vue d’ensemble.
+7. Définissez le type **d’agrégation** sur **Max**
 
 Les noms des métriques présentent différents types de paquets et les octets/paquets, et les noms de balise sur chaque métrique sont essentiellement construits comme suit :
 
@@ -138,7 +139,7 @@ Pour simuler une attaque DDoS afin de valider les données de télémétrie, con
 
 ## <a name="view-ddos-mitigation-policies"></a>Voir les stratégies d’atténuation des risques liés à DDoS
 
-DDoS Protection Standard applique trois stratégies de prévention réglées automatiquement (TCP SYN, TCP et UDP) pour chaque adresse IP publique de la ressource protégée, dans le réseau virtuel sur lequel la protection DDoS est activée. Vous pouvez voir les seuils de stratégie en sélectionnant les métriques **Paquets TCP entrants pour déclencher l’atténuation des risques liés à DDoS** et **Paquets UDP entrants pour déclencher l’atténuation des risques liés à DDoS**, comme indiqué dans l’image suivante :
+DDoS Protection Standard applique trois stratégies de prévention réglées automatiquement (TCP SYN, TCP et UDP) pour chaque adresse IP publique de la ressource protégée, dans le réseau virtuel sur lequel la protection DDoS est activée. Vous pouvez voir les seuils de stratégie en sélectionnant les métriques **Paquets TCP entrants pour déclencher l’atténuation des risques liés à DDoS** et **Paquets UDP entrants pour déclencher l’atténuation des risques liés à DDoS** avec le type **d’agrégation** défini sur « Max », comme indiqué dans l’image suivante :
 
 ![Voir les stratégies d’atténuation des risques](./media/manage-ddos-protection/view-mitigation-policies.png)
 
@@ -158,8 +159,8 @@ La fonctionnalité Rapports de prévention des attaques utilise les données de 
 6. Sélectionnez **Activer les diagnostics pour collecter le journal DDoSMitigationReports**, puis sélectionnez autant d’options que nécessaire parmi les suivantes :
 
     - **Archivage dans un compte de stockage** : les données sont écrites dans un compte Stockage Azure. Pour en savoir plus sur cette option, consultez [Archiver les journaux de diagnostic](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Diffuser sur un hub d’événements** : permet à un récepteur de journal d’activité de sélectionner les journaux d’activité à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de diagnostic sur un hub d’événements](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Envoyer à Log Analytics** : Écrit les journaux dans le service Azure Monitor. Pour en savoir plus sur cette option, consultez [collecter les journaux pour une utilisation dans les journaux Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Diffuser sur un hub d’événements** : permet à un récepteur de journal d’activité de sélectionner les journaux d’activité à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de diagnostic sur un hub d’événements](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Envoyer à Log Analytics** : écrit les journaux d’activité dans le service Azure Monitor. Pour en savoir plus sur cette option, consultez [Collecte des journaux d’activité et des métriques des services Azure dans l’espace de travail Log Analytics d’Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Le rapport incrémentiel et le rapport de prévention incluent tous les deux les champs suivants :
 - Vecteurs d’attaque
@@ -180,8 +181,8 @@ Les journaux de flux de prévention des attaques vous permettent de passer en re
 6. Sélectionnez **Activer les diagnostics pour collecter le journal DDoSMitigationFlowLogs**, puis sélectionnez autant d’options que nécessaire parmi les suivantes :
 
     - **Archivage dans un compte de stockage** : les données sont écrites dans un compte Stockage Azure. Pour en savoir plus sur cette option, consultez [Archiver les journaux de diagnostic](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Diffuser sur un hub d’événements** : permet à un récepteur de journal d’activité de sélectionner les journaux d’activité à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de diagnostic sur un hub d’événements](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Envoyer à Log Analytics** : Écrit les journaux dans le service Azure Monitor. Pour en savoir plus sur cette option, consultez [collecter les journaux pour une utilisation dans les journaux Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Diffuser sur un hub d’événements** : permet à un récepteur de journal d’activité de sélectionner les journaux d’activité à l’aide d’un hub d’événements Azure. Les hubs d’événements permettent l’intégration à Splunk ou à d’autres systèmes SIEM. Pour en savoir plus sur cette option, consultez [Diffuser les journaux de diagnostic sur un hub d’événements](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Envoyer à Log Analytics** : écrit les journaux d’activité dans le service Azure Monitor. Pour en savoir plus sur cette option, consultez [Collecte des journaux d’activité et des métriques des services Azure dans l’espace de travail Log Analytics d’Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Pour afficher les données des journaux de flux dans le tableau de bord d’analyse Azure, vous pouvez importer l’exemple de tableau de bord à partir de https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Les journaux de flux comportent les champs suivants : 
@@ -202,6 +203,19 @@ Microsoft travaille en collaboration avec [BreakingPoint Cloud](https://www.ixia
 - Optimiser votre processus de réponse aux incidents en cas d’attaque DDoS
 - Documenter la conformité DDoS
 - Former des équipes de sécurité réseau
+
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Afficher les alertes de protection DDoS dans Azure Security Center
+
+Azure Security Center fournit une liste des [alertes de sécurité](/azure/security-center/security-center-managing-and-responding-alerts), accompagnée d’informations pour examiner et corriger les problèmes. Avec cette fonctionnalité, vous obtenez une vue unifiée des alertes, y compris les alertes en rapport avec les attaques DDoS et les actions mises en place pour atténuer l’attaque en temps quasi-réel.
+Il existe deux alertes spécifiques qui seront affichées pour toutes les détections et atténuation d’attaque DDoS :
+
+- **DDoS Attack detected for Public IP** (Attaque DDoS détectée pour l’adresse IP publique) : Cette alerte est générée lorsque le service de protection DDoS détecte que l’une de vos adresses IP publiques est la cible d’une attaque DDoS.
+- **DDoS Attack mitigated for Public IP** (Attaque DDoS atténuée pour l’adresse IP publique) : Cette alerte est générée lorsqu’une attaque sur l’adresse IP publique a été atténuée.
+Pour afficher les alertes, ouvrez **Security Center** dans le portail Azure. Sous **Protection contre les menaces**, sélectionnez **Alertes de sécurité**. La capture d’écran suivante présente un exemple des alertes d’attaque DDoS.
+
+![Alerte DDoS dans Azure Security Center](./media/manage-ddos-protection/ddos-alert-asc.png)
+
+Les alertes incluent des informations générales sur l’adresse IP publique faisant l’objet de l’attaque, des informations géographiques et sur l’intelligence des menaces, ainsi que des étapes de correction.
 
 ## <a name="permissions"></a>Autorisations
 

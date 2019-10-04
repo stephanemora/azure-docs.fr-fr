@@ -2,34 +2,30 @@
 title: Enregistrement sécurisé des paramètres d’application de secret d’une application web - Azure Key Vault | Microsoft Docs
 description: Procédure d’enregistrement en toute sécurité des paramètres d’application de secret tels que les informations d’identification Azure ou les clés API tierces à l’aide du fournisseur de Key Vault ASP.NET Core, du secret utilisateur ou des générateurs de configuration .NET 4.7.1
 services: visualstudio
-documentationcenter: ''
 author: cawaMS
 manager: paulyuk
 editor: ''
-ms.assetid: ''
 ms.service: key-vault
-ms.workload: web, azure
-ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: 79b1c740bca56982243ddc130d8747fdc955247f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: d5662fa3cae8ba0cec0fd76965597ccac7c83889
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124114"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639478"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Enregistrement en toute sécurité des paramètres d’application de secret d’une application web
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Cet article décrit comment enregistrer en toute sécurité des paramètres de configuration d’application de secret pour des applications Azure.
 
 Tous les paramètres de configuration d’application web sont généralement enregistrés dans des fichiers de configuration tels que Web.config. Cette pratique entraîne l’archivage des paramètres de secret tels que les informations d’identification de cloud dans des systèmes de contrôle de code source publics, par exemple GitHub. Il peut toutefois être difficile de suivre les meilleures pratiques de sécurité en raison de la surcharge requise pour modifier le code source et pour reconfigurer des paramètres de développement.
 
-Pour garantir la sécurité des processus de développement, des bibliothèques d’outils et d’infrastructures sont créées pour enregistrer les paramètres de secret d’application en toute sécurité avec peu, voire aucune, modification du code source.
+Pour garantir la sécurité des processus de développement, des bibliothèques d’outils et de frameworks sont créées pour enregistrer les paramètres de secret d’application de manière sécurisée avec peu, voire aucun, changement du code source.
 
-## <a name="aspnet-and-net-core-applications"></a>Applications ASP.NET et .NET Core
+## <a name="aspnet-and-net-core-applications"></a>Applications ASP.NET et .NET Core
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Enregistrer les paramètres de secret dans le magasin de secrets utilisateur qui se trouve en dehors du dossier de contrôle de code source
 Si vous créez un prototype rapide ou que vous n’avez pas accès à Internet, commencez par déplacer vos paramètres de secret du dossier de contrôle de code source vers le magasin de secrets utilisateur. Le magasin de secrets utilisateur est un fichier enregistré sous le dossier du générateur de profils utilisateur ; les secrets ne sont donc pas archivés dans le contrôle de code source. Le diagramme suivant illustre le fonctionnement du [Secret utilisateur](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio).
@@ -45,7 +41,7 @@ Si vous développez un projet et si vous devez partager le code source en toute 
 
     ![Créer un Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Accordez un accès au Key Vault à vous et aux membres de votre équipe. Si votre équipe est importante, vous pouvez créer un [groupe Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) et ajouter cet accès de groupe de sécurité au Key Vault. Dans la liste déroulante *Autorisations du secret*, vérifiez *Get* et *Liste* sous *Opérations de gestion des secrets*.
+2. Accordez un accès au Key Vault à vous et aux membres de votre équipe. Si votre équipe est importante, vous pouvez créer un [groupe Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) et ajouter cet accès de groupe de sécurité au Key Vault. Dans la liste déroulante *Autorisations du secret*, vérifiez *Get* et *Liste* sous *Opérations de gestion des secrets*.
 
     ![Ajouter une stratégie d’accès à Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
@@ -53,14 +49,16 @@ Si vous développez un projet et si vous devez partager le code source en toute 
 
     ![Ajouter un secret Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-4. Installez l’[extension d’authentification de services Azure pour Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354). Grâce à cette extension, l’application peut accéder à Key Vault à l’aide de l’identité de connexion Visual Studio.
-
-5. Ajoutez les packages NuGet suivants à votre projet :
+    > [!NOTE] 
+    > Avant Visual Studio 2017 V15.6, nous recommandions d’installer l’extension Azure Services Authentication pour Visual Studio. Cela est toutefois maintenant déprécié, car la fonctionnalité est intégrée à Visual Studio. Par conséquent, si vous utilisez une version antérieure de Visual Studio 2017, nous vous suggérons de mettre à jour vers, au minimum, Visual Studio 2017 15.6 ou version supérieure pour pouvoir utiliser cette fonctionnalité en mode natif et accéder au coffre de clés à partir de l’identité de connexion Visual Studio.
+    >
+ 
+4. Ajoutez les packages NuGet suivants à votre projet :
 
     ```
     Microsoft.Azure.Services.AppAuthentication
     ```
-6. Ajoutez le code suivant au fichier Program.cs :
+5. Ajoutez le code suivant au fichier Program.cs :
 
     ```csharp
     public static IWebHost BuildWebHost(string[] args) =>
@@ -83,11 +81,11 @@ Si vous développez un projet et si vous devez partager le code source en toute 
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-7. Ajoutez votre URL de Key Vault au fichier launchsettings.json. Le nom de la variable d’environnement *KEYVAULT_ENDPOINT* est défini dans le code que vous avez ajouté à l’étape 6.
+6. Ajoutez votre URL de Key Vault au fichier launchsettings.json. Le nom de la variable d’environnement *KEYVAULT_ENDPOINT* est défini dans le code que vous avez ajouté à l’étape 6.
 
     ![Ajouter l’URL de Key Vault comme variable d’environnement de projet](./media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-8. Démarrez le débogage du projet. Cette opération doit s’exécuter avec succès.
+7. Démarrez le débogage du projet. Cette opération doit s’exécuter avec succès.
 
 ## <a name="aspnet-and-net-applications"></a>Applications ASP.NET et .NET
 
@@ -99,10 +97,10 @@ Si vous écrivez un prototype rapide et que vous ne souhaitez pas approvisionner
 
 1. Installer le package NuGet suivant dans votre projet
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic
+    Microsoft.Configuration.ConfigurationBuilders.Base
     ```
 
-2. Créez un fichier similaire à ci-dessous. Enregistrez-le dans un emplacement en dehors de votre dossier de projet.
+2. Créez un fichier similaire au suivant. Enregistrez-le dans un emplacement en dehors de votre dossier de projet.
 
     ```xml
     <root>
@@ -125,7 +123,7 @@ Si vous écrivez un prototype rapide et que vous ne souhaitez pas approvisionner
     </configBuilders>
     ```
 
-4. Précisez que la section appSettings utilise le générateur de configuration de secrets. Vérifiez qu’une entrée pour le paramètre de secret avec une valeur factice existe.
+4. Précisez que la section appSettings utilise le générateur de configuration de secrets. Vérifiez qu’il existe une entrée pour le paramètre de secret avec une valeur factice.
 
     ```xml
         <appSettings configBuilders="Secrets">

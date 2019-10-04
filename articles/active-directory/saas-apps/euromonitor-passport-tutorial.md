@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Euromonitor Passport | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Euromonitor Passport | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Euromonitor Passport.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cdf8f78a54c89ac89441a87ca0ba34d61a3d2a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2d8323e771d757d35e424516da6247b940901bb6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888312"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103030"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Tutoriel : Intégration d’Azure Active Directory à Euromonitor Passport
+# <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Didacticiel : Intégration d’Azure Active Directory à Euromonitor Passport
 
 Dans ce tutoriel, vous allez apprendre à intégrer Euromonitor Passport à Azure Active Directory (Azure AD).
 L’intégration d’Euromonitor Passport à Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’Euromonitor Passport dans Azure AD, vous de
 
 **Pour ajouter Euromonitor Passport à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -169,7 +169,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

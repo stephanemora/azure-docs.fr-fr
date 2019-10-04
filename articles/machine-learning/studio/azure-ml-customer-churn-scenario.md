@@ -10,15 +10,15 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856110"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64699436"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analyse de l’attrition des clients à l’aide d’Azure Machine Learning Studio
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning Studio. Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous mesurons également la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
 
 ### <a name="acknowledgements"></a>Remerciements
@@ -188,7 +188,7 @@ Les modèles hébergés dans ML Studio ont supplanté le modèle SAP de 15 à 
 Dans le secteur des télécommunications, plusieurs pratiques ont émergé pour l’analyse de l’attrition :  
 
 * Mesures dérivées pour quatre catégories principales :
-  * **Entité (par exemple, un abonnement)**. Informations de base sur l’abonnement ou le client qui risque de se désabonner.
+  * **Entité (par exemple, un abonnement)** . Informations de base sur l’abonnement ou le client qui risque de se désabonner.
   * **Activité**. Obtient toutes les informations d’utilisation possibles qui sont associées à l’entité, par exemple le nombre de connexions.
   * **Service client**. Récupère des informations dans les journaux d’activité du service client pour indiquer si l’abonné a rencontré des problèmes ou est entré en contact avec le service client.
   * **Données d'entreprise et concurrentielles**. Obtient toutes les informations possibles sur le client (par exemple, les données indisponibles ou difficiles à récupérer).
@@ -217,7 +217,7 @@ Ce document détaille une approche rationnelle pour la gestion d’un problème 
 
 [3] [CRISP-DM 1.0 : Step-by-Step Data Mining Guide](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Modèle d’attrition de Telco](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) dans la [galerie Azure AI](https://gallery.azure.ai/) 
  

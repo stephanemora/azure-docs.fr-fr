@@ -1,20 +1,18 @@
 ---
 title: Développement pour Azure Files avec Python | Microsoft Docs
 description: Découvrez comment développer des services et applications Python qui utilisent Azure Files pour stocker les données de fichiers.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
-ms.devlang: python
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2018
-ms.author: tamram
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 06c0256043ef27e6298cc4e30dc3f372e6bd3959
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 139e3009722761172b7bbd57805a7f5b07e55fc0
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456593"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699398"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Développement pour Azure Files avec Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -103,7 +101,7 @@ L’exemple suivant charge le contenu du fichier **sunset.png** dans le fichier 
 from azure.storage.file import ContentSettings
 file_service.create_file_from_path(
     'myshare',
-    None, # We want to create this blob in the root directory, so we specify None for the directory_name
+    None,  # We want to create this blob in the root directory, so we specify None for the directory_name
     'myfile',
     'sunset.png',
     content_settings=ContentSettings(content_type='image/png'))
@@ -151,7 +149,8 @@ shares = list(file_service.list_shares(include_snapshots=True))
 Vous pouvez parcourir le contenu d’un instantané de partage spécifique pour récupérer les fichiers et les répertoires à partir du point dans le temps correspondant.
 
 ```python
-directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
+directories_and_files = list(
+    file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
 ```
 
 ## <a name="get-file-from-share-snapshot"></a>Récupérer un fichier d’un instantané de partage
@@ -159,7 +158,8 @@ Vous pouvez télécharger un fichier à partir d’un instantané de partage pou
 
 ```python
 with open(FILE_PATH, 'wb') as stream:
-    file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
+    file = file_service.get_file_to_stream(
+        share_name, directory_name, file_name, stream, snapshot=snapshot_id)
 ```
 
 ## <a name="delete-a-single-share-snapshot"></a>Supprimer un instantané de partage spécifique  

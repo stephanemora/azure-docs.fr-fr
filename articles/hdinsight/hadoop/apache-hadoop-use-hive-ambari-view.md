@@ -1,7 +1,6 @@
 ---
 title: Utiliser les vues Apache Ambari pour travailler avec Hive sur HDInsight (Apache Hadoop) - Azure
 description: Découvrez comment utiliser la vue Hive à partir de votre navigateur web pour envoyer des requêtes Hive. La vue Hive fait partie de l’interface utilisateur web Ambari fournie avec votre cluster HDInsight sous Linux.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517298"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077007"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utiliser la vue Apache Ambari Hive avec Apache Hadoop dans HDInsight
 
@@ -22,24 +21,24 @@ ms.locfileid: "58517298"
 
 Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. L’affichage Hive vous permet de créer, d’optimiser et d’exécuter des requêtes Hive à partir du navigateur web.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Un cluster Hadoop sur HDInsight. Consultez [prise en main HDInsight sous Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Un navigateur web
 
 ## <a name="run-a-hive-query"></a>Exécution d'une tâche Hive
 
-1. À partir de la [Azure portal](https://portal.azure.com/), sélectionnez votre cluster.  Consultez [liste et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters) pour obtenir des instructions. Le cluster est ouvert dans un nouveau panneau du portail.
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre cluster.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters). Le cluster est ouvert dans un nouveau panneau du portail.
 
-2. À partir de **des tableaux de bord de Cluster**, sélectionnez **Ambari views**. Lorsque vous êtes invité à vous authentifier, utilisez le nom de compte et le mot de passe de connexion de cluster (`admin` par défaut) que vous avez fournis lors de la création du cluster.
+2. Dans **Tableaux de bord du cluster**, sélectionnez **Vues Ambari**. Lorsque vous êtes invité à vous authentifier, utilisez le nom de compte et le mot de passe de connexion de cluster (`admin` par défaut) que vous avez fournis lors de la création du cluster.
 
 3. Dans la liste des vues, sélectionnez __Affichage Hive__.
 
-    ![L’affichage Hive sélectionné](./media/apache-hadoop-use-hive-ambari-view/select-hive-view.png)
+    ![Apache Ambari - Sélectionner la vue Apache Hive](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     L’affiche Hive est similaire à ceci :
 
-    ![Image de la feuille de calcul de requête pour l’affichage Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-hive-view.png)
+    ![Image de la feuille de calcul de requête pour l’affichage Hive](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
 4. Dans l’onglet __Requête__ , collez les instructions HiveQL suivantes dans la feuille de calcul :
 
@@ -76,17 +75,17 @@ Découvrez comment exécuter des requêtes Hive avec la vue Apache Ambari Hive. 
    > [!IMPORTANT]  
    > Conservez la sélection __Base de données__ par __défaut__. Les exemples de ce document utilisent la base de données par défaut incluse avec HDInsight.
 
-5. Pour démarrer la requête, sélectionnez **Execute** ci-dessous la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
+5. Pour démarrer la requête, sélectionnez **Exécuter** au-dessous de la feuille de calcul. Ce bouton devient orange et le texte affiche **Stop** (Arrêter).
 
 6. Lorsque la requête est terminée, l’onglet **Results** (Résultats) affiche les résultats de l’opération. Le texte suivant est le résultat de la requête :
 
         loglevel       count
         [ERROR]        3
 
-    Vous pouvez utiliser la **journal** onglet pour afficher les informations de journalisation que la tâche créée.
+    Vous pouvez utiliser l’onglet **JOURNAL** pour afficher les informations de journalisation que le travail a créées.
 
    > [!TIP]  
-   > Télécharger ou enregistrer les résultats à partir de la **Actions** boîte de dialogue de la liste déroulante sous la **résultats** onglet.
+   > Téléchargez ou enregistrez les résultats de la boîte de dialogue à liste déroulante **Actions** dans l’onglet **Résultats**.
 
 ### <a name="visual-explain"></a>Visual Explain
 
@@ -96,28 +95,28 @@ La vue **Visual Explain** de la requête peut être utile pour comprendre le dé
 
 ### <a name="tez-ui"></a>Interface utilisateur Tez
 
-Pour afficher l’UI Tez pour la requête, sélectionnez le **Tez UI** onglet situé sous la feuille de calcul.
+Sélectionnez l’onglet **Tez UI** (IU Tez) au-dessous de la feuille de calcul afin d’afficher l’interface utilisateur Tez pour la requête.
 
 > [!IMPORTANT]  
-> Tez n’est pas utilisé pour résoudre toutes les requêtes. Vous pouvez résoudre de nombreuses requêtes sans utiliser Tez. 
+> Tez n’est pas utilisé pour résoudre toutes les requêtes. Vous pouvez résoudre de nombreuses requêtes sans utiliser Tez.
 
 ## <a name="view-job-history"></a>Afficher l’historique des tâches
 
 L’onglet __Travaux__ affiche un historique des requêtes Hive.
 
-![Image de l’historique des travaux](./media/apache-hadoop-use-hive-ambari-view/job-history.png)
+![Apache Hive - Afficher l’onglet d’historique des tâches](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## <a name="database-tables"></a>Tables de base de données
 
 Vous pouvez utiliser l’onglet __Tables__ onglet pour travailler avec des tables dans une base de données Hive.
 
-![Image de l’onglet tables](./media/apache-hadoop-use-hive-ambari-view/tables.png)
+![Image de l’onglet Tables d’Apache Hive](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## <a name="saved-queries"></a>Requêtes enregistrées
 
 À partir de l’onglet **Query** (Requête), vous pouvez éventuellement enregistrer des requêtes. Après avoir enregistré une requête, vous pouvez la réutiliser à partir de l’onglet __Saved Queries__ (Requêtes enregistrées).
 
-![Image de l’onglet de requêtes enregistrées](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
+![Onglet Afficher les requêtes Apache Hive enregistrées](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Les requêtes enregistrées sont stockées dans le stockage en cluster par défaut. Vous pouvez rechercher les requêtes enregistrées sous le chemin `/user/<username>/hive/scripts`. Ces fichiers sont stockés en tant que fichiers `.hql` en texte brut.
@@ -130,7 +129,7 @@ Vous pouvez étendre Hive par l’intermédiaire de fonctions définies par l’
 
 Déclarez et enregistrez un ensemble de fonctions définies par l’utilisateur en utilisant l’onglet **UDF** en haut de l’affichage Hive. Ces UDF peuvent être utilisés avec les **l’éditeur de requête**.
 
-![Image de l’onglet UDF](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+![Affichage de l’onglet UDF d’Apache Hive](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
 Lorsque vous avez ajouté une fonction définie par l’utilisateur à l’affichage Hive, un bouton **Insert udfs** (Insérer des fonctions définies par l’utilisateur) s’affiche au bas de **Query Editor** (l’éditeur de requête). La sélection de cette entrée affiche une liste déroulante des UDF définis dans l’affichage Hive. La sélection d’une fonction UDF ajoute des instructions HiveQL à votre requête pour activer l’UDF.
 

@@ -1,5 +1,5 @@
 ---
-title: Niveaux de service Azure SQL Database - Modèle d'achat DTU | Microsoft Docs
+title: Niveaux de service Azure SQL Database - Modèle d’achat DTU | Microsoft Docs
 description: Découvrez les niveaux de service du modèle d'achat DTU des bases de données uniques et mises en pool pour la fourniture de tailles de calcul et de tailles de stockage.
 services: sql-database
 ms.service: sql-database
@@ -10,25 +10,24 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/25/2019
-ms.openlocfilehash: 57a20ac29ec3a15db26e0ab2c0b61b57ab3a5882
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 09/06/2019
+ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004004"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773203"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 
-Les niveaux de service du modèle d'achat DTU se distinguent par une plage de tailles de calcul, avec un quantité fixe de stockage inclus, une période de conservation fixe des sauvegardes, ainsi qu’un prix fixe. Tous les niveaux de service du modèle d'achat DTU permettent de changer de taille de calcul, sans nécessiter de temps d’arrêt. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et de la taille du calcul.
+Les niveaux de service du modèle d'achat DTU se distinguent par une plage de tailles de calcul, avec un quantité fixe de stockage inclus, une période de conservation fixe des sauvegardes, ainsi qu’un prix fixe. Tous les niveaux de service dans le modèle d’achat DTU offrent la flexibilité nécessaire pour modifier les tailles de calcul avec un [temps d’arrêt](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/) minimal ; toutefois, il existe un délai de basculement durant lequel la connectivité à la base de données est perdue pendant un court laps de temps, qui peut être atténué à l’aide d’une logique de nouvelle tentative. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et de la taille du calcul.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance ne prend pas en charge le modèle d’achat DTU. Pour plus d’informations, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 > [!NOTE]
-> Pour plus d’informations sur les niveaux de service basés sur vCore, voir [Niveaux de service basés sur des vCore](sql-database-service-tiers-vcore.md). Pour plus d’informations sur ce qui différencie les niveaux de service basés sur des unités DTU et les niveaux de service basés sur vCore, voir [Modèles d’achat d’Azure SQL Database](sql-database-purchase-models.md).
+> Pour plus d’informations sur les niveaux de service vCore, consultez [Niveaux de service vCore](sql-database-service-tiers-vcore.md). Pour plus d’informations sur ce qui différencie les niveaux de service DTU des niveaux de service vCore, consultez [Modèles d’achat Azure SQL Database](sql-database-purchase-models.md).
 
-## <a name="compare-the-dtu-based-service-tiers"></a>Comparer les niveaux de service basés sur des unités DTU
+## <a name="compare-the-dtu-based-service-tiers"></a>Comparer les niveaux de service DTU
 
 Le choix d’un niveau de service dépend principalement des exigences de continuité d’activité, de stockage et de performance.
 
@@ -38,27 +37,27 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |Contrat SLA de durée de fonctionnement|99,99 %|99,99 %|99,99 %|
 |Rétention des sauvegardes|7 jours|35 jours|35 jours|
 |UC|Faible|Faible, moyen, élevé|Faible, élevé|
-|Débit d’E/S (approximatif) |2,5 IOPS par DTU| 2,5 IOPS par DTU | 48 IOPS par DTU|
+|Débit d’E/S (approximatif) |1-5 IOPS par DTU| 1-5 IOPS par DTU | 25 IOPS par DTU|
 |Latence d’E/S (approximative)|5 ms (lecture), 10 ms (écriture)|5 ms (lecture), 10 ms (écriture)|2 ms (lecture/écriture)|
-|Indexation Columnstore |S.O.|S3 et supérieur|Pris en charge|
-|OLTP en mémoire|S.O.|S.O.|Pris en charge|
+|Indexation Columnstore |N/A|S3 et supérieur|Pris en charge|
+|OLTP en mémoire|N/A|N/A|Pris en charge|
 |||||
 
 > [!NOTE]
-> Vous pouvez obtenir une base de données SQL Azure gratuit au niveau de service de base en conjonction avec un compte Azure gratuit pour Explorer Azure. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).
+> Vous pouvez obtenir une base de données Azure SQL Database gratuite au niveau de service De base avec un compte Azure gratuit pour explorer Azure. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Limites de stockage et unités DTU d’une base de données unique
 
-Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, voir [Modèle d’achat basé sur des unités DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
+Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, consultez [Modèle d’achat DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
 ||De base|standard|Premium|
 | :-- | --: | --: | --: |
 | Taille de stockage maximale | 2 Go | 1 To | 4 To  |
-| DTU maximales | 5. | 3000 | 4000 | 
+| DTU maximales | 5\. | 3000 | 4000 | 
 |||||
 
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>eDTU de pool élastique, stockage et limites de base de données mise en pool
 
@@ -66,7 +65,7 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 | :-- | --: | --: | --: |
 | Taille de stockage maximale par base de données  | 2 Go | 1 To | 1 To |
 | Taille de stockage maximale par pool | 156 Go | 4 To | 4 To |
-| Nombre maximal d’eDTU par base de données | 5. | 3000 | 4000 |
+| Nombre maximal d’eDTU par base de données | 5\. | 3000 | 4000 |
 | eDTU maximales par pool | 1 600 | 3000 | 4000 |
 | Nombre maximal de bases de données par pool | 500  | 500 | 100 |
 |||||
@@ -74,7 +73,7 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 > [!IMPORTANT]
 > Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="dtu-benchmark"></a>Test d’évaluation DTU
 
@@ -124,7 +123,7 @@ Les transactions sont sélectionnées de manière aléatoire à partir d’une d
 | --- | --- |
 | Read Lite |35 |
 | Read Medium |20 |
-| Read Heavy |5. |
+| Read Heavy |5\. |
 | Update Lite |20 |
 | Update Heavy |3 |
 | Insert Lite |3 |

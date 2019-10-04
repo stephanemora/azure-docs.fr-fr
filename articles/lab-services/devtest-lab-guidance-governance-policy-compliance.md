@@ -14,11 +14,11 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e02400ef940efdf42370fbdc1da75bdc7062a8ef
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243703"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127359"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Gouvernance de l’infrastructure Azure DevTest Labs : stratégie d’entreprise et conformité
 Cet article fournit des conseils concernant la stratégie de l’entreprise et la conformité de l’infrastructure Azure DevTest Labs. 

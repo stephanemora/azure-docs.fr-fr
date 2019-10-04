@@ -1,41 +1,45 @@
 ---
-title: Fonctionnalités et plateformes prises en charge par Azure Security Center | Microsoft Docs
-description: Ce document fournit une liste des fonctionnalités et des plateformes prises en charge par Azure Security Center.
+title: Plateformes prises en charge par Azure Security Center | Microsoft Docs
+description: Ce document fournit une liste des plateformes prises en charge par Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
-ms.author: monhaber
-ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.date: 08/29/2019
+ms.author: memildin
+ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678307"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201632"
 ---
-# <a name="platforms-and-features-supported-by-azure-security-center"></a>Plateformes et fonctionnalités prises en charge par Azure Security Center
+# <a name="supported-platforms"></a>Plateformes prises en charge 
 
-La supervision de l’état de la sécurité et des recommandations sont disponibles pour les machines virtuelles créées à l’aide des modèles de déploiement classique et Resource Manager, ainsi que des ordinateurs.
+## Machines virtuelles / serveurs <a name="vm-server"></a>
+
+Security Center prend en charge des machines virtuelles/serveurs sur différents types d’environnements hybrides :
+
+* Azure uniquement
+* Azure et en local
+* Azure et autres clouds
+* Azure, autres clouds et en local
+
+Dans le cas d’un environnement Azure activé sur un abonnement Azure, Azure Security Center détecte automatiquement les ressources IaaS déployées dans l’abonnement.
 
 > [!NOTE]
-> En savoir plus sur les [modèles de déploiement de type Classique et Resource Manager](../azure-classic-rm.md) pour les ressources Azure.
->
->
+> Pour bénéficier de l’ensemble complet des fonctionnalités de sécurité, vous devez disposer du [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent), qu’Azure Security Center utilise, installé et [correctement configuré pour envoyer des données à Azure Security Center](security-center-enable-data-collection.md#manual-agent).
 
-## <a name="platforms-that-support-the-data-collection-agent"></a>Plateformes prenant en charge l’agent de collecte de données 
 
-Cette section liste les plateformes sur lesquelles l’agent Azure Security Center peut s’exécuter et à partir desquelles il peut collecter des données.
+Les sections suivantes répertorient les systèmes d’exploitation serveur pris en charge sur lesquels peut s’exécuter le [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent) qu’Azure Security Center utilise.
 
-### <a name="supported-platforms-for-windows-computers-and-vms"></a>Plateformes prises en charge pour les ordinateurs et machines virtuelles Windows
-Les systèmes d’exploitation Windows suivants sont pris en charge :
+### Systèmes d’exploitation de serveur Windows <a name="os-windows"></a>
 
 * Windows Server 2019
 * Windows Server 2016
@@ -45,96 +49,80 @@ Les systèmes d’exploitation Windows suivants sont pris en charge :
 * Windows Server 2008
 
 > [!NOTE]
-> L’intégration à Windows Defender ATP prend en charge seulement Windows Server 2012 R2 et Windows Server 2016.
->
->
+> L’intégration avec Microsoft Defender - PACM prend en charge uniquement Windows Server 2012 R2 et Windows Server 2016.
 
-### <a name="supported-platforms-for-linux-computers-and-vms"></a>Plateformes prises en charge pour les ordinateurs et machines virtuelles Linux
-Les systèmes d’exploitation Linux suivants sont pris en charge :
+Pour en savoir plus sur les fonctionnalités prises en charge pour les systèmes d’exploitation Windows, voir les [fonctionnalités de machine virtuelle/serveur prises en charge](security-center-services.md##vm-server-features).
 
-* Ubuntu versions 12.04 LTS, 14.04 LTS et 16.04 LTS.
-* Debian versions 6, 7, 8 et 9.
-* CentOS versions 5, 6 et 7.
-* Red Hat Enterprise Linux (RHEL) versions 5, 6 et 7.
-* SUSE Linux Enterprise Server (SLES) versions 11 et 12.
-* Oracle Linux versions 5, 6 et 7.
-* Amazon Linux, des versions 2012.09 à 2017.
-* OpenSSL 1.1.0 n’est pris en charge que sur les plateformes x86_64 (64 bits).
+### Systèmes d’exploitation Linux <a name="os-linux"></a>
 
-## <a name="vms-and-cloud-services"></a>Machines virtuelles et services cloud
-Les machines virtuelles en cours d’exécution dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur les services cloud, consultez [Vue d’ensemble d’Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
+64 bits
 
+* CentOS 6 et 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 et 7
+* Red Hat Enterprise Linux Server 6 et 7
+* Debian GNU/Linux 8 et 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS et 18.04 LTS
+* SUSE Linux Enterprise Server 12
 
-## <a name="supported-iaas-features"></a>Fonctionnalités IaaS prises en charge
-
-> [!div class="mx-tableFixed"]
-> 
-
-|Serveur|Windows||Linux||
-|----|----|----|----|----|
-|Environnement|Azure|Non-Azure|Azure|Non-Azure|
-|Alertes de détection des menaces VMBA|✔|✔|✔ (sur les versions prises en charge)|✔|
-|Alertes de détection des menaces réseau|✔|X|✔|X|
-|Intégration de Windows Defender ATP|✔ (sur les versions prises en charge)|✔|X|X|
-|Correctifs manquants|✔|✔|✔|✔|
-|Configurations de sécurité|✔|✔|✔|✔|
-|Protection du point de terminaison|✔|✔|X|X|
-|Accès JIT à la machine virtuelle|✔|X|✔|X|
-|Contrôles d’application adaptative|✔|X|X|X|
-|FIM|✔|✔|✔|✔|
-|Chiffrement de disque|✔|X|✔|X|
-|Déploiement tiers|✔|X|✔|X|
-|Groupes de sécurité réseau|✔|X|✔|X|
-|Détection des menaces sans fichier|✔|✔|X|X|
-|Mappage réseau|✔|X|✔|X|
-|Contrôles réseau adaptatifs|✔|X|✔|X|
-
-
-### <a name="supported-endpoint-protection-solutions"></a>Solutions de protection du point de terminaison prises en charge
-
-Le tableau suivant fournit une matrice de ce qui suit :
- - Si vous pouvez utiliser Azure Security Center pour installer chaque solution.
- - Les solutions de protection du point de terminaison que Security Center peut détecter. Si une de ces solutions de protection du point de terminaison est détectée, Security Center vous déconseillera d'en installer une autre.
-
-| Protection du point de terminaison| Plateformes | Installation du centre de sécurité | Détection du centre de sécurité |
-|------|------|-----|-----|
-| Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| Oui |
-| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | Oui |
-| Trend Micro : toutes les versions | Gamme Windows Server  | Non  | Oui |
-| Symantec v12.1.1100+| Gamme Windows Server  | Non  | Oui |
-| McAfee v10+ | Gamme Windows Server  | Non  | Oui |
-| Kaspersky| Gamme Windows Server  | Non  | Non   |
-| Sophos| Gamme Windows Server  | Non  | Non   |
+32 bits
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 et 9
+* Ubuntu Linux 14.04 LTS et 16.04 LTS
 
 > [!NOTE]
-> - La détection de System Center Endpoint Protection (SCEP) sur une machine virtuelle Windows Server 2008 R2 requiert l’installation de SCEP après celle de PowerShell 3.0 (ou d’une version ultérieure).
->
->
+> Étant donné que la liste des systèmes d’exploitation Linux pris en charge change constamment, si vous préférez, cliquez [ici](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) pour voir la liste actualisée des versions prises en charge, au cas où des modifications aient été apportées depuis la dernière publication de cette rubrique.
 
-## <a name="supported-paas-features"></a>Fonctionnalités PaaS prises en charge 
+Pour en savoir plus sur les fonctionnalités prises en charge pour les systèmes d’exploitation Linux, voir les [fonctionnalités de machine virtuelle/serveur prises en charge](security-center-services.md##vm-server-features).
 
+### Services de machine virtuelle managés <a name="virtual-machine"></a>
 
-|de diffusion en continu|Recommandations|Détection de menaces|
-|----|----|----|
-|SQL|✔| ✔|
-|PostGreSQL*|✔| ✔|
-|MySQL*|✔| ✔|
-|Comptes de stockage Azure blob*|✔| ✔|
-|App Services|✔| ✔|
-|Cloud Services|✔| X|
-|Réseaux virtuels|✔| N/D|
-|Sous-réseaux|✔| N/D|
-|Cartes réseau|✔| ✔|
-|Groupes de sécurité réseau|✔| N/D|
-|Abonnement|✔| ✔|
+Des machines virtuelles sont également créées dans un abonnement client dans le cadre de certains services managés Azure, tels qu’Azure Kubernetes (AKS), Azure Databricks et bien plus encore. Ces machines virtuelles sont également découvertes par Azure Security Center, et le Log Analytics Agent peut être installé et configuré en fonction des [systèmes d’exploitation Windows/Linux](#os-windows) pris en charge répertoriés ci-dessus.
 
-\* Ces fonctionnalités sont actuellement prises en charge en préversion publique. 
+### Services cloud <a name="cloud-services"></a>
 
+Les machines virtuelles s’exécutant dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur les services cloud, consultez [Vue d’ensemble d’Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
+## Services PaaS <a name="paas-services"></a>
+
+Azure Security Center prend en charge les ressources Azure PaaS suivantes :
+
+* SQL
+* PostGreSQL
+* MySQL
+* CosmosDB
+* Compte de stockage
+* App Service
+* Fonction
+* Service cloud
+* Réseau virtuel
+* Subnet
+* Carte d’interface réseau
+* Groupe de sécurité réseau
+* Compte Batch
+* Compte Service Fabric
+* Compte Automation
+* Équilibrage de charge
+* Recherche
+* Espace de noms Service Bus
+* Stream Analytics
+* Espace de noms du hub d’événements
+* Logic Apps
+* Redis
+* Data Lake Analytics
+* Data Lake Store
+* Coffre de clés
+
+Pour en savoir plus sur les fonctionnalités prises en charge pour la liste ci-dessus de ressources PaaS, voir [fonctionnalités prises en charge par les services PaaS](security-center-services.md#paas-services).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Découvrez comment [Security Center collecte les données et l'agent Log Analytics Agent](security-center-enable-data-collection.md).
+- Découvrez comment [Security Center gère et protège les données](security-center-data-security.md).
 - [Découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception](security-center-planning-and-operations-guide.md).
-- En savoir plus sur [l’analyse comportementale de machine virtuelle et l’analyse de mémoire de vidage sur incident dans Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Découvrez les [fonctionnalités disponibles pour les différents environnements cloud](security-center-services.md).
+- Découvrez-en plus sur la [détection des menaces pour les machines virtuelles et les serveurs dans Azure Security Center](security-center-alerts-iaas.md).
 - Découvrez [les réponses aux questions le plus souvent posées sur l’utilisation d’Azure Security Center](security-center-faq.md).
 - Accédez à des [billets de blog sur la sécurité et la conformité Azure](https://blogs.msdn.com/b/azuresecurity/).

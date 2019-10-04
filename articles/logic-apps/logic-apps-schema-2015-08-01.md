@@ -11,11 +11,11 @@ ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
 ms.openlocfilehash: 92f522c72f69218e55b1ee4cfff74511a30288b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904539"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60553757"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Mises à jour de schéma pour Azure Logic Apps - Version préliminaire du 1er août 2015
 
@@ -419,7 +419,7 @@ Avec ces modifications, Logic Apps remplace la fonction `@accessKeys()` par la f
 
 ## <a name="call-child-workflows"></a>Appel de flux de travail enfants
 
-Auparavant, quiconque souhaitait appeler des flux de travail enfants devait y accéder, récupérer le jeton d’accès, puis coller ce dernier dans la définition de l’application logique destinée à effectuer l’appel. Avec ce schéma, le moteur Logic Apps génère automatiquement une signature d’accès partagé lors de l’exécution pour le workflow enfant, ce qui évite de devoir coller des secrets dans la définition. Voici un exemple : 
+Auparavant, quiconque souhaitait appeler des flux de travail enfants devait y accéder, récupérer le jeton d’accès, puis coller ce dernier dans la définition de l’application logique destinée à effectuer l’appel. Avec ce schéma, le moteur Logic Apps génère automatiquement une signature d’accès partagé lors de l’exécution pour le workflow enfant, ce qui évite de devoir coller des secrets dans la définition. Voici un exemple :
 
 ``` json
 "myNestedWorkflow": {

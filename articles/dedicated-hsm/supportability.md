@@ -3,7 +3,7 @@ title: Prise en charge - Azure HSM dédié | Microsoft Docs
 description: Options de prise en charge et domaines de responsabilité pour un module de sécurité matériel (HSM) dédié Azure dans différents scénarios
 services: dedicated-hsm
 author: johndaw
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 03/27/2019
-ms.author: barclayn
-ms.openlocfilehash: 3fd460409cab8dce0f5c4ce31f5323f19706d268
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.author: mbaldwin
+ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541093"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881005"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Prise en charge Azure HSM dédié
 
@@ -26,19 +26,19 @@ Ils sont entièrement responsables des applications qui utilisent les HSM et doi
 
 ## <a name="getting-support"></a>Obtention d’une assistance
 
-Le support technique pour HSM dédié est un effort conjoint entre Microsoft et Gemalto. Tous les problèmes de matériel ou problèmes de chemin d’accès réseau seront résolus par Microsoft, et rien à voir avec le module HSM réel, telles que la configuration, de logiciels, de développement d’application et de microprogramme, sera traité par Gemalto. Ce modèle de prise en charge garantit l’itinéraire le plus rapide pour la prise en charge plus efficace. En cas de doute un problème particulier, déclenche une demande de support auprès de Microsoft, et nous allons nous assurer que vous êtes dirigé correctement. Microsoft restent intéressé à tous les scénarios de prise en charge et s’efforcent de la meilleure expérience de prise en charge pour nos clients.
+Le support technique pour Dedicated HSM est un effort conjoint entre Microsoft et Gemalto. Tous les problèmes de matériel ou de chemin réseau seront résolus par Microsoft, et tout ce qui concerne le module HSM proprement dit, comme la configuration, les logiciel, le microprogramme et le développement d’application, sera traité par Gemalto. Ce modèle de prise en charge garantit l’accès le plus rapide au support le plus efficace. En cas de doute sur un problème particulier, envoyez une demande de support à Microsoft, et nous veillerons à vous diriger correctement. Microsoft restera impliqué dans tous les scénarios de support et s’efforcera de procurer à ses clients la meilleure expérience de support possible.
 
 ## <a name="gemalto-support"></a>Support de Gemalto
 
-Les clients qui utilisent le service HSM dédié éligibles pour la prise en charge à partir de Gemalto conformément à leur Plus Plan de Support. Cela nécessite simplement un processus d’inscription à l’aide du portail de support Gemalto. Vous fournirons un ID de client et des instructions pour cela dans le cadre de son engagement initial auprès de Microsoft pour accéder au service HSM dédié. Pour bénéficier du support de Gemalto, ils doivent passer par leur [portail de support client](https://supportportal.gemalto.com/csm/).
-Un aspect important de remarque est que Gemalto fournit tous les logiciels et la documentation nécessaire pour utiliser le module de sécurité matériel (par exemple, le logiciel d’accès client et kits de développement logiciel) par téléchargement sur le portail de support client.
+Les clients qui utilisent le service Dedicated HSM sont éligibles au support technique de Gemalto conformément à leur Plan de support Plus. Cela nécessite simplement un processus d’inscription par le biais du portail de support Gemalto. Un ID de client et des instructions vous seront fournis dans le cadre de l’engagement initial auprès de Microsoft afin d’accéder au service Dedicated HSM. Pour bénéficier du support de Gemalto, ils doivent passer par leur [portail de support client](https://supportportal.gemalto.com/csm/).
+Un aspect important à noter est que Gemalto fournit tous les logiciels et la documentation nécessaires pour utiliser le HSM (par exemple le logiciel d’accès client et les kits SDK) par le biais du téléchargement à partir du portail de support client.
 
 ### <a name="software-components"></a>Composants logiciels
 
 Différents composants logiciels sont utilisés dans la configuration de périphériques HSM :
 
 * Logiciel client
-* Kit SDK 
+* Kit SDK
 * Outils
 
 ### <a name="guidance"></a>Assistance
@@ -55,7 +55,7 @@ Pour toute assistance lors de la conception, du développement et du déploiemen
 
 ## <a name="microsoft-support"></a>Support Microsoft
 
-Microsoft garantit que les périphériques HSM physiques sont réseau accessible et dans un état opérationnel à l’usage exclusif d’un client unique. Les clients sont responsables de la configuration, l’administration et gestion de l’appareil. Les responsabilités suivantes incombent à Microsoft :
+Microsoft veillera à ce que les appareils HSM physiques soient accessibles par le biais du réseau et en état de fonctionner pour une utilisation exclusive par un seul client. Les clients sont responsables de la configuration, de l’administration et de la gestion de l’appareil. Les responsabilités suivantes incombent à Microsoft :
 
 * S’assurer que l’appareil est sous tension et refroidi
 * Maintenir un état opérationnel du HSM (par exemple, scénarios d’arrêt/de réparation)
@@ -76,7 +76,7 @@ Une fois un client dispose d’une inscription approuvée pour le service HSM d�
 
 ### <a name="hardware-issues"></a>Problèmes matériels
 
-L’appareil HSM a des dispositifs d’alimentation et des ventilateurs redondants et remplaçables.  Toutefois, suppression d’unité de ventilateur provoque toujours un événement de falsification. En cas de défaillance d’un composant, Microsoft utilise le processus le plus approprié pour résoudre le problème au niveau du composant d’une manière qui provoque une interruption minimale et le plus faible risque en termes de disponibilité des services pour nos clients.
+L’appareil HSM a des dispositifs d’alimentation et des ventilateurs redondants et remplaçables.  Toutefois, l’enlèvement des ventilateurs génèrera quand même un événement de falsification. En cas de défaillance d’un composant, Microsoft utilise le processus le plus approprié pour résoudre le problème au niveau du composant d’une manière qui provoque une interruption minimale et le plus faible risque en termes de disponibilité des services pour nos clients.
 N’importe quelle défaillance plus grave de l’appareil entraîne son remplacement par un appareil neuf du pool libre. Le client inclut simplement le nouvel appareil dans la paire à haute disponibilité existante pour qu’il soit synchronisé et retrouve un état opérationnel complet. Les dispositifs de support des données de l’appareil défaillant sont enlevés et détruits dans le centre de données. Seul le châssis est renvoyé à Gemalto pour être recyclé.
 
 

@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: ada794807f980854c203b56874e452713ecef6ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651666"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568351"
 ---
 # <a name="split-merge-security-configuration"></a>Configuration de la sécurité du fractionnement et de la fusion
 
-Pour utiliser le service de fusion et de fractionnement, vous devez configurer correctement la sécurité. Ce service fait partie de la fonctionnalité d’infrastructure élastique de la base de données SQL Microsoft Azure. Pour plus d’informations, consultez le [didacticiel sur le service de fusion et de fractionnement de l’infrastructure élastique](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
+Pour utiliser le service de fusion et de fractionnement, vous devez configurer correctement la sécurité. Ce service fait partie de la fonctionnalité d’infrastructure élastique de Microsoft Azure SQL Database. Pour plus d’informations, consultez le [didacticiel sur le service de fusion et de fractionnement de l’infrastructure élastique](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 
 ## <a name="configuring-certificates"></a>Configuration des certificats
 
@@ -121,7 +120,7 @@ La configuration par défaut refuse tout accès au point de terminaison HTTP. I
 La configuration par défaut accepte tout accès au point de terminaison HTTPS. Ce paramètre peut être restreint davantage.
 
 ### <a name="changing-the-configuration"></a>Modification de la configuration
-Le groupe de règles de contrôle d’accès qui s’appliquent à et de point de terminaison sont configurés dans le  **\<EndpointAcls >** section dans le **fichier de configuration de service**.
+Le groupe de règles de contrôle d'accès qui s'appliquent à un point de terminaison est configuré dans la section **\<EndpointAcls>** du **fichier de configuration du service**.
 
 ```xml
 <EndpointAcls>
@@ -130,7 +129,7 @@ Le groupe de règles de contrôle d’accès qui s’appliquent à et de point d
 </EndpointAcls>
 ```
 
-Les règles dans un groupe de contrôle d’accès sont configurées dans un \<AccessControl nom = "" > section du fichier de configuration du service. 
+Les règles d'un groupe de contrôle d'accès sont configurées dans une section \<AccessControl name=""> du fichier de configuration du service. 
 
 Le format est expliqué dans la documentation de listes de contrôle d’accès réseau.
 Par exemple, pour autoriser uniquement les adresses IP de la plage 100.100.0.0 à 100.100.255.255 à accéder au point de terminaison HTTPS, les règles ressembleraient à ceci :
@@ -358,7 +357,7 @@ Chaque personne pour laquelle un certificat client a été émis doit suivre ces
 * Dans la boîte de dialogue Certificat qui s'ouvre, sélectionnez l'onglet Détails
 * Veillez à ce que l'option Afficher indique Tous
 * Sélectionnez le champ nommé Empreinte numérique dans la liste
-* Copiez la valeur de l’empreinte numérique
+* Copiez la valeur de l'empreinte
   * Supprimez les caractères Unicode non visibles devant le premier chiffre
   * Supprimez tous les espaces
 
@@ -478,7 +477,7 @@ Dans le [portail Azure](https://portal.azure.com/) :
 7. Lorsque vous avez terminé, copiez l’empreinte de certificat à partir de la nouvelle entrée dans la liste.
 
 ## <a name="other-security-considerations"></a>Autres considérations liées à la sécurité
-Les paramètres SSL décrits dans ce document chiffrent les communications entre le service et ses clients lorsque le point de terminaison HTTPS est utilisé. Ceci est important car les informations d’identification pour l’accès à la base de données, et éventuellement à d’autres informations sensibles, sont contenues dans les communications. Notez, néanmoins, que le service conserve l'état interne, y compris les informations d'identification, dans ses tables internes de la base de données SQL Azure de Microsoft que vous avez fournies pour le stockage des métadonnées dans votre abonnement Microsoft Azure. Cette base de données a été définie dans le paramètre suivant dans votre fichier de configuration de service (fichier .CSCFG) : 
+Les paramètres SSL décrits dans ce document chiffrent les communications entre le service et ses clients lorsque le point de terminaison HTTPS est utilisé. Ceci est important car les informations d’identification pour l’accès à la base de données, et éventuellement à d’autres informations sensibles, sont contenues dans les communications. Notez, néanmoins, que le service conserve l'état interne, y compris les informations d'identification, dans ses tables internes de la base de données Microsoft Azure SQL que vous avez fournies pour le stockage des métadonnées dans votre abonnement Microsoft Azure. Cette base de données a été définie dans le paramètre suivant dans votre fichier de configuration de service (fichier .CSCFG) : 
 
 ```xml
 <Setting name="ElasticScaleMetadata" value="Server=…" />

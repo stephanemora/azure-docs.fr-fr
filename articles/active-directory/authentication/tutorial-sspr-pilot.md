@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 685c928a20e9bfb47365b5ffa769f1a223d2c563
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362121"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69561499"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Didacticiel : Effectuer un déploiement pilote de réinitialisation de mot de passe en libre-service pour Azure AD
 
@@ -37,13 +37,13 @@ Il est important de réaliser les tests de réinitialisation de mot de passe en 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général.
 1. Accédez à **Azure Active Directory** et sélectionnez **Réinitialisation de mot de passe**.
 1. Démarrez avec un groupe pilote en activant le mot de passe en libre-service pour un sous-ensemble d’utilisateurs dans votre organisation.
-   * Sur la page **Propriétés**, sous l’option **Réinitialisation de mot de passe en libre-service activée**, choisissez **Sélectionné** et optez pour un groupe.
+   * Dans la page **Propriétés**, sous l’option **Réinitialisation de mot de passe en libre-service activée**, choisissez **Sélectionné** et optez pour un groupe.
       * Seuls les membres du groupe Azure AD que vous choisissez peuvent utiliser la fonctionnalité de réinitialisation de mot de passe en libre-service. Nous vous recommandons de définir un groupe d’utilisateurs et d’utiliser ce paramètre lorsque vous déployez cette fonctionnalité pour une preuve de concept. L’imbrication de groupes de sécurité est prise en charge ici.
       * Vérifiez que les utilisateurs du groupe que vous avez choisis disposent d’une licence correcte.
    * Cliquez sur **Enregistrer**.
 1. Sur la page **Méthodes d'authentification**
    * Définissez l’option **Nombre de méthodes requises pour réinitialiser** sur **1**.
-   * Choisissez les **méthodes disponibles pour les utilisateurs** que votre entreprise souhaite autoriser. Pour ce tutoriel, cochez les cases permettant d’activer **E-mail**, **Téléphone mobile**, **Téléphone professionnel**, **Notification d’application mobile (préversion)** et **Code d’application mobile (préversion)**.
+   * Choisissez les **méthodes disponibles pour les utilisateurs** que votre entreprise souhaite autoriser. Pour ce tutoriel, cochez les cases permettant d’activer **E-mail**, **Téléphone mobile**, **Téléphone professionnel**, **Notification d’application mobile** et **Code d’application mobile**.
    * Cliquez sur **Enregistrer**.
 1. Sur la page **Inscription**
    * Sélectionnez **Oui** pour l’option **Obliger les utilisateurs à s’inscrire durant la connexion**.
@@ -54,13 +54,13 @@ Il est important de réaliser les tests de réinitialisation de mot de passe en 
    * Définissez l’option **Notifier tous les administrateurs quand d’autres administrateurs réinitialisent leur mot de passe** sur **Oui**.
 1. Sur la page **Personnalisation**
    * Microsoft recommande de définir l’option **Personnaliser le lien du support technique** sur **Oui** et de fournir une adresse e-mail ou une URL de page web où vos utilisateurs peuvent obtenir une aide supplémentaire de la part de votre organisation dans le champ **E-mail ou URL du support technique personnalisé**.
-   * Pour ce didacticiel, nous conservons l’option **Personnaliser le lien du support technique** définie sur **Non**.
+   * Pour ce tutoriel, nous conservons l’option **Personnaliser le lien du support technique** définie sur **Non**.
 
 La réinitialisation de mot de passe en libre-service est désormais configurée pour les utilisateurs cloud de votre groupe pilote.
 
 ## <a name="test-sspr-as-a-user"></a>Tester la réinitialisation de mot de passe en libre-service en tant qu’utilisateur
 
-Tester la réinitialisation de mot de passe en libre-service à l’aide d’un utilisateur non-administrateur test qui est membre de votre groupe pilote. **N’oubliez pas que si vous utilisez un compte qui dispose de rôles d’administrateur, les méthodes d’authentification et leur nombre peuvent varier par rapport à ce que vous avez sélectionné lorsque Microsoft gère la stratégie administrateur.**
+Tester la réinitialisation de mot de passe en libre-service à l’aide d’un utilisateur non-administrateur test qui est membre de votre groupe pilote. **Si vous utilisez un compte qui dispose de rôles d’administrateur, les méthodes d’authentification et leur nombre peuvent varier par rapport à ce que vous avez sélectionné quand Microsoft gère la stratégie administrateur.**
 
 1. Ouvrez une nouvelle fenêtre de navigateur dans InPrivate ou en mode privé.
 1. À l’aide d’un utilisateur de test, inscrivez-vous pour la réinitialisation de mot de passe en libre-service via le portail d’inscription situé à l’adresse[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).

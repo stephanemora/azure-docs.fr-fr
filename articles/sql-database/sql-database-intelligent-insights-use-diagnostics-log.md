@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: MT
+ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217034"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262145"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utiliser le journal de diagnostic Intelligent Insights des performances d’Azure SQL Database
 
-Cette page fournit des informations sur l’utilisation du journal de diagnostic des performances d’Azure SQL Database généré par [Intelligent Insights](sql-database-intelligent-insights.md), son format et les données qu’il contient pour vos besoins de développement. Vous pouvez envoyer ce journal de diagnostic à [Azure Monitor enregistre](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou une solution tierce pour DevOps personnalisé d’alertes et rapports fonctionnalités.
+Cette page fournit des informations sur l’utilisation du journal de diagnostic des performances d’Azure SQL Database généré par [Intelligent Insights](sql-database-intelligent-insights.md), son format et les données qu’il contient pour vos besoins de développement. Vous pouvez envoyer ce journal de diagnostic aux [journaux Azure Monitor](../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), au [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou à une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
 
 ## <a name="log-header"></a>En-tête du journal
 
@@ -135,7 +134,7 @@ La dernière partie du journal de diagnostic des performances Intelligent Insigh
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Vous pouvez utiliser le journal de performances Intelligent Insights avec [Azure Monitor enregistre]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou une solution tierce pour la génération d’alertes et fonctionnalités de rapports DevOps personnalisées.
+Vous pouvez utiliser le journal de diagnostic des performances Intelligent Insights avec des [journaux Azure Monitor]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez les concepts [Intelligent Insights](sql-database-intelligent-insights.md).

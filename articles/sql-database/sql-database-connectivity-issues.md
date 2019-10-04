@@ -1,6 +1,6 @@
 ---
 title: Gestion des erreurs temporaires - Azure SQL Database | Microsoft Docs
-description: Découvrez comment diagnostiquer, résoudre et empêcher une erreur de connexion SQL ou une erreur temporaire dans Base de données SQL Azure.
+description: Découvrez comment diagnostiquer, résoudre et empêcher une erreur de connexion SQL ou une erreur temporaire dans Azure SQL Database.
 keywords: connexion SQL,chaîne de connexion,problèmes de connectivité,erreur temporaire,erreur de connexion
 services: sql-database
 ms.service: sql-database
@@ -9,20 +9,20 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
+manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 06/14/2019
+ms.openlocfilehash: eb34395e0a9ec881c2f5e303383555fa6544369d
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007468"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090903"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Gestion des problèmes de connexion et des erreurs temporaires de base de données SQL
 
-Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre application cliente rencontre lorsqu’elle interagit avec Base de données SQL Azure. Découvrez comment configurer une logique de nouvelle tentative, générer la chaîne de connexion et ajuster les autres paramètres de connexion.
+Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre application cliente rencontre lorsqu’elle interagit avec Azure SQL Database. Découvrez comment configurer une logique de nouvelle tentative, générer la chaîne de connexion et ajuster les autres paramètres de connexion.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
@@ -77,8 +77,8 @@ Vous pouvez également définir le nombre maximal de tentatives avant l’arrêt
 
 Des exemples de code avec logique de nouvelle tentative sont disponibles aux emplacements suivants :
 
-- [Connexion résiliente à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [Connexion résiliente à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [Se connecter de façon robuste à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Se connecter de façon robuste à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -91,9 +91,9 @@ Pour tester la logique de nouvelle tentative, vous devez simuler ou provoquer un
 Pour tester votre logique de nouvelle tentative, vous pouvez déconnecter votre ordinateur client du réseau pendant l’exécution du programme. L’erreur est :
 
 - **SqlException.Number** = 11001
-- Message : « Aucun hôte n’inconnu »
+- Message : « Cet hôte est inconnu. »
 
-Dans le cadre de la première nouvelle tentative, votre programme peut corriger les fautes d’orthographe et tenter de se connecter.
+Dans le cadre de la nouvelle tentative numéro un, vous pouvez reconnecter votre ordinateur client au réseau, puis tenter de vous connecter.
 
 Pour concrétiser ce test, débranchez votre ordinateur du réseau avant lancer votre programme. Votre programme reconnaît alors un paramètre d’exécution qui fait en sorte que le programme :
 
@@ -109,7 +109,7 @@ Pour concrétiser ce test, débranchez votre ordinateur du réseau avant lancer 
 Votre programme peut délibérément mal orthographier le nom d’utilisateur avant la première tentative de connexion. L’erreur est :
 
 - **SqlException.Number** = 18456
-- Message : « Échec de la connexion pour l’utilisateur 'WRONG_MyUserName' ».
+- Message : « Échec de la connexion pour l’utilisateur 'WRONG_MyUserName' »
 
 Dans le cadre de la première nouvelle tentative, votre programme peut corriger les fautes d’orthographe et tenter de se connecter.
 
@@ -134,12 +134,12 @@ Si votre programme client se connecte à SQL Database à l’aide de la classe 
 Lorsque vous générez la [chaîne de connexion](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) pour votre objet **SqlConnection**, coordonnez les valeurs entre les paramètres suivants :
 
 - **ConnectRetryCount** :&nbsp;&nbsp;La valeur par défaut est 1. La plage s’étend de 0 à 255.
-- **ConnectRetryInterval** :&nbsp;&nbsp;La valeur par défaut est 1 seconde. La plage s’étend de 1 à 60.
+- **ConnectRetryInterval** :&nbsp;&nbsp;La valeur par défaut est de 10 secondes. La plage s’étend de 1 à 60.
 - **ConnectionTimeout** :&nbsp;&nbsp;La valeur par défaut est 15 secondes. La plage s’étend de 0 à 2 147 483 647.
 
 Plus précisément, les valeurs que vous choisissez doivent vérifier la formule suivante : Délai d’expiration de connexion = ConnectRetryCount × ConnectionRetryInterval
 
-Par exemple, si le nombre est égal à 3 et que l’intervalle est égal à 10 secondes, un délai d’expiration de 29 secondes seulement ne donne pas le système suffisamment de temps pour sa 3e et dernière tentative pour se connecter : 29 < 3 * 10.
+Par exemple, si le nombre est égal à 3 et que l’intervalle s’élève à 10 secondes, un délai d’expiration de 29 secondes seulement ne laisse pas suffisamment de temps au système pour sa 3e et dernière tentative de connexion, 29 étant inférieur à 3 * 10.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -172,7 +172,7 @@ La chaîne de connexion nécessaire pour se connecter à SQL Database est légè
 
 ### <a name="connection-ip-address"></a>Connexion : Adresse IP
 
-Vous devez configurer le serveur de base de données SQL pour accepter les communications à partir de l’adresse IP de l’ordinateur qui héberge votre programme client. Pour définir cette configuration, modifiez les paramètres du pare-feu via le [portail Azure](https://portal.azure.com/).
+Vous devez configurer le serveur SQL Database pour accepter les communications à partir de l’adresse IP de l’ordinateur qui héberge votre programme client. Pour définir cette configuration, modifiez les paramètres du pare-feu via le [portail Azure](https://portal.azure.com/).
 
 Si vous oubliez de configurer l’adresse IP, votre programme échoue en envoyant un message d’erreur pratique indiquant l’adresse IP nécessaire.
 
@@ -202,7 +202,7 @@ Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.Sq
 
 #### <a name="starting-with-adonet-462"></a>À compter d’ADO.NET 4.6.2
 
-- Une nouvelle tentative d’ouverture de connexion est effectuée immédiatement pour les bases de données SQL Azure, ce qui améliore les performances des applications compatibles avec le cloud.
+- Une nouvelle tentative d’ouverture de connexion est effectuée immédiatement pour les bases de données Azure SQL, ce qui améliore les performances des applications compatibles avec le cloud.
 
 #### <a name="starting-with-adonet-461"></a>À compter d’ADO.NET 4.6.1
 
@@ -219,7 +219,7 @@ Si vous utilisez ADO.NET 4.0 ou version antérieure, nous vous recommandons d�
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnostics : Tester si les utilitaires peuvent se connecter
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnostics : vérifier si les utilitaires peuvent se connecter
 
 Si votre programme ne parvient pas à se connecter à SQL Database, une option de diagnostic consiste à essayer de se connecter avec un programme utilitaire. Dans l’idéal, l’utilitaire se connecte à l’aide de la bibliothèque que votre programme utilise.
 
@@ -232,7 +232,7 @@ Une fois votre programme connecté, faites un test avec une courte requête SQL 
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>Diagnostics : Vérifier les ports ouverts
+### <a name="diagnostics-check-the-open-ports"></a>Diagnostics : vérifier les ports ouverts
 
 Si vous pensez que les tentatives de connexion échouent en raison de problèmes de port, vous pouvez exécuter un utilitaire sur votre ordinateur pour obtenir des rapports sur les configurations de port.
 
@@ -261,17 +261,17 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-### <a name="diagnostics-log-your-errors"></a>Diagnostics : Consigner les erreurs de votre
+### <a name="diagnostics-log-your-errors"></a>Diagnostics : Consigner les erreurs
 
 Un problème intermittent est parfois mieux diagnostiqué par la détection d’une tendance générale observée sur plusieurs jours ou semaines.
 
 Votre client peut aider à consigner toutes les erreurs qu’il rencontre un diagnostic. Vous pouvez mettre en corrélation les entrées de journal d’activité avec des informations sur les erreurs de base consignées en interne par SQL Database lui-même.
 
-Enterprise Library 6 (EntLib60) offre des classes .NET gérées afin de faciliter la journalisation. Pour plus d’informations, consultez [5 - aussi simple comme une évidence : Utiliser le bloc applicatif de journalisation](https://msdn.microsoft.com/library/dn440731.aspx).
+Enterprise Library 6 (EntLib60) offre des classes .NET gérées afin de faciliter la journalisation. Pour en savoir plus, voir [5 - Un jeu d’enfants : utilisation du bloc d’application de journalisation](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnostics : Examinez les journaux d’erreur système
+### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnostics : examiner les journaux d’activité d’erreur système
 
 Voici quelques instructions Transact-SQL SELECT qui permettent d’interroger les journaux d’activité d’erreur et d’autres informations.
 
@@ -282,7 +282,7 @@ Voici quelques instructions Transact-SQL SELECT qui permettent d’interroger le
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnostics : Rechercher des problèmes survenus dans le journal de base de données SQL
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnostics : rechercher les événements liés aux problèmes dans le journal de SQL Database
 
 Vous pouvez rechercher des entrées sur les problèmes survenus dans le journal de SQL Database. Essayez l’instruction Transact-SQL SELECT qui suit dans la base de données *MASTER* :
 
@@ -311,7 +311,7 @@ ORDER BY
 ;
 ```
 
-#### <a name="a-few-returned-rows-from-sysfnxetelemetryblobtargetreadfile"></a>quelques-unes d’entre elles ont renvoyé des lignes de sys.fn_xe_telemetry_blob_target_read_file
+#### <a name="a-few-returned-rows-from-sysfn_xe_telemetry_blob_target_read_file"></a>quelques-unes d’entre elles ont renvoyé des lignes de sys.fn_xe_telemetry_blob_target_read_file
 
 L’exemple suivant montre à quoi peut ressembler une ligne retournée. Les valeurs null indiquées ne sont en général pas nulles dans d’autres lignes.
 
@@ -327,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Enterprise Library 6 (EntLib60) est une infrastructure de classes .NET qui vous permet d’implémenter des clients de cloud fiables, et notamment le service SQL Database. Pour rechercher des rubriques dédiées à chaque zone dans laquelle EntLib60 peut être utile, consultez [Enterprise Library 6 - avril 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-La logique de nouvelle tentative pour la gestion des erreurs temporaires est un domaine où EntLib60 peut être utile. Pour plus d’informations, consultez [4 - la persévérance, le secret de la réussite : Utiliser le bloc applicatif de gestion des erreurs temporaires](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+La logique de nouvelle tentative pour la gestion des erreurs temporaires est un domaine où EntLib60 peut être utile. Pour plus d’informations, voir [4 - Perseverance, Secret of All Triumphs: Use the Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
 > Le code source pour EntLib60 est publiquement disponible par téléchargement depuis le [Centre de téléchargement](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft ne prévoit pas d’apporter des mises à jour de maintenance ou de fonctionnalité supplémentaires à EntLib.
@@ -354,13 +354,13 @@ Dans l’espace de noms **Microsoft.Practices.EnterpriseLibrary.TransientFaultHa
 
 Voici quelques liens vers des informations sur EntLib60 :
 
-- Téléchargement du livre gratuit : [Guide du développeur pour Microsoft Enterprise Library, 2e édition](https://www.microsoft.com/download/details.aspx?id=41145).
-- Meilleure pratique : [Conseils généraux de nouvelle tentative](../best-practices-retry-general.md) a une excellente présentation approfondie de la logique de nouvelle tentative.
-- Téléchargement NuGet : [Enterprise Library - bloc d’Application de gestion des erreurs temporaires 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Téléchargement du livre gratuit : [Guide du développeur de Microsoft Enterprise Library, 2e édition](https://www.microsoft.com/download/details.aspx?id=41145).
+- Meilleure pratique : [Conseils généraux sur les nouvelles tentatives](../best-practices-retry-general.md) comprend une excellente présentation approfondie de la logique de nouvelle tentative.
+- Téléchargement de NuGet : [Bibliothèque d’entreprise - Bloc applicatif de gestion des erreurs 6.0 temporaires de Microsoft](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
-### <a name="entlib60-the-logging-block"></a>EntLib60: Le bloc de journalisation
+### <a name="entlib60-the-logging-block"></a>EntLib60 : le bloc de journalisation
 
 - Le bloc de journalisation est une solution très flexible et configurable qui vous permet de :
   - Créer et stocker des messages du journal dans de nombreux emplacements.
@@ -368,7 +368,7 @@ Voici quelques liens vers des informations sur EntLib60 :
   - Recueillir des informations contextuelles utiles pour le débogage et le suivi, ainsi que pour les exigences d’audit et de journalisation en général.
 - Le bloc de journalisation extrait les fonctionnalités issues de la destination de journalisation de façon que le code d’application soit cohérent, quels que soient l’emplacement et le type du magasin de journalisation cible.
 
-Pour plus d’informations, consultez [5 - aussi simple comme une évidence : Utiliser le bloc applicatif de journalisation](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Pour en savoir plus, voir [5 - Un jeu d’enfants : utilisation du bloc d’application de journalisation](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 

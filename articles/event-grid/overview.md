@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/04/2019
+ms.date: 05/25/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: b262a06bc3d80bd1f8105c6629bbc07e6ccd34eb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578405"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67077152"
 ---
 # <a name="what-is-azure-event-grid"></a>Qu'est-ce qu'Azure Event Grid ?
 
@@ -22,7 +22,7 @@ Azure Event Grid vous permet de créer facilement des applications avec les arch
 
 Vous pouvez utiliser des filtres pour acheminer des événements spécifiques à différents points de terminaison, multidiffuser vers des points de terminaison multiples et vous assurez que vos événements sont correctement livré.
 
-Actuellement, Azure Event Grid est disponible dans toutes les régions publiques. Il n'est pas encore disponible dans les clouds Azure Allemagne, Azure Chine 21Vianet ou Azure Government.
+Azure Event Grid est déployé pour optimiser la disponibilité via une répartition en mode natif sur plusieurs domaines d’erreur dans chaque région et sur les zones de disponibilité (dans les régions qui les prennent en charge). Actuellement, Azure Event Grid est disponible dans toutes les régions publiques. Il n'est pas encore disponible dans les clouds Azure Allemagne, Azure Chine 21Vianet ou Azure Government.
 
 Cet article fournit une vue d’ensemble d’Azure Event Grid. Pour bien démarrer avec Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md). 
 
@@ -56,6 +56,7 @@ Pour plus d’informations sur les fonctionnalités de chaque gestionnaire, ains
 * [Logic Apps](event-handlers.md#logic-apps)
 * [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Stockage de files d’attente](event-handlers.md#queue-storage)
+* [Service Bus](event-handlers.md#service-bus-queue-preview) (préversion)
 * [WebHooks](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Concepts

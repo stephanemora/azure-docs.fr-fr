@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: conceptual
-ms.openlocfilehash: bf1cc3b95e8335b6e24dd405d82e5c51d2a8d11b
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.openlocfilehash: 7b9503b2db14d4de6c4c8cf983c42bccd6f9f8fd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792682"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66157436"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Supprimer une passerelle de réseau virtuel avec PowerShell
 > [!div class="op_single_selector"]
@@ -98,7 +98,7 @@ Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 
 À ce stade, votre passerelle de réseau virtuel a été supprimée. Vous pouvez vous conformer aux étapes suivantes pour supprimer toutes les ressources qui ne sont plus utilisées.
 
-### <a name="5-delete-the-local-network-gateways"></a>5. Supprimez les passerelles de réseau local.
+### <a name="5-delete-the-local-network-gateways"></a>5\. Supprimez les passerelles de réseau local.
 
 Récupérez la liste des passerelles de réseau local correspondantes.
 

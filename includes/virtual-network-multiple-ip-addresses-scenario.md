@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: genli
 ms.openlocfilehash: 3df4108907a4e1e65a444faf1049163966b7accf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52270016"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176985"
 ---
 ## <a name="scenario"></a>Scénario
 Une machine virtuelle avec une seule carte réseau est créée et connectée à un réseau virtuel. La machine virtuelle nécessite trois adresses IP *privées* différentes et deux adresses IP *publiques*. Les adresses IP sont affectées aux configurations IP suivantes :
 
-* **IPConfig-1 :** attribue une adresse IP privée *statique* et une adresse IP publique *statique*.
-* **IPConfig-2 :** attribue une adresse IP privée *statique* et une adresse IP publique *statique*.
-* **IPConfig-3 :** attribue une adresse IP privée *statique* et aucune adresse IP publique.
+* **IPConfig-1 :** attribue une adresse IP privée *statique* et une adresse IP publique *statique*.
+* **IPConfig-2 :** attribue une adresse IP privée *statique* et une adresse IP publique *statique*.
+* **IPConfig-3 :** attribue une adresse IP privée *statique* et aucune adresse IP publique.
   
     ![Plusieurs adresses IP](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
 

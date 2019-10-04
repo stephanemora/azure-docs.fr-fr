@@ -3,8 +3,8 @@ title: Diagnostiquer un problème de routage sur une machine virtuelle Azure | M
 description: Découvrez comment diagnostiquer un problème de routage de machine virtuelle en consultant les itinéraires effectifs d’une machine virtuelle.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
-ms.author: jdial
-ms.openlocfilehash: 6864e282319bc5a0539c4c94f3062dcab7315970
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 465d44ea823c99afbb4f25541d64770c114ba7e2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652244"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64730509"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnostiquer un problème de routage sur une machine virtuelle
 
@@ -56,9 +56,9 @@ Même si dans les étapes précédentes, les itinéraires effectifs ont été af
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell à partir de votre ordinateur, vous devez le module Azure PowerShell, version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Connect-AzAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell sur votre ordinateur, vous devez utiliser le module Azure PowerShell version 1.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable Az` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Connect-AzAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
-Obtenir les itinéraires effectifs pour une interface réseau avec [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
+Obtenez les itinéraires effectifs d’une interface réseau avec [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `
@@ -129,8 +129,8 @@ Lors de la résolution de problèmes de communication, considérez les points su
 - Si vous avez créé un itinéraire vers 0.0.0.0/0, l’intégralité du trafic internet sortant est acheminé vers le tronçon suivant que vous avez spécifié, par exemple vers une appliance virtuelle de réseau ou une passerelle VPN. La création d’un itinéraire de ce type est généralement appelé « tunneling forcé ». Les connexions à distance, utilisant les protocoles RDP ou SSH depuis internet vers votre machine virtuelle, peuvent ne pas fonctionner avec cet itinéraire, selon la façon dont le tronçon suivant gère le trafic. Le tunneling forcé peut être activé :
     - Lors de l’utilisation du VPN de site à site, en créant un itinéraire avec comme type de tronçon suivant une *passerelle VPN*. En savoir plus sur la [configuration du tunneling forcé](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - Si un 0.0.0.0/0 (itinéraire par défaut) est publié sur BGP via une passerelle de réseau virtuel lors de l’utilisation d’un VPN de site à site, ou du circuit ExpressRoute. En savoir plus sur l’utilisation de BGP avec un [VPN de site à site](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ip-addresses-used-for-azure-private-peering).
-- Pour que le trafic d’homologation de réseau virtuel fonctionne correctement, un itinéraire système, avec comme type de tronçon suivant *VNet Peering*, doit exister pour la plage de préfixes du réseau virtuel homologué. S’il n’existe aucune route de ce type, et si le lien d’appairage de réseau virtuel est **Connecté** :
-    - Attendez quelques secondes et réessayez. S’il s’agit d’un lien d’homologation récemment établi, il faut parfois plus de temps pour propager les itinéraires à toutes les interfaces réseau d’un sous-réseau. Pour en savoir plus sur l’homologation de réseau virtuel, consultez la [Vue d’ensemble de l’homologation de réseau virtuel](virtual-network-peering-overview.md) et la [gestion de l’homologation de réseau virtuel](virtual-network-manage-peering.md).
+- Pour que le trafic d’homologation de réseau virtuel fonctionne correctement, un itinéraire système, avec comme type de tronçon suivant *VNet Peering*, doit exister pour la plage de préfixes du réseau virtuel homologué. S’il n’existe aucune route de ce type, et si le lien de peering de réseau virtuel est **Connecté** :
+    - Attendez quelques secondes et réessayez. S’il s’agit d’un lien de peering récemment établi, il faut parfois plus de temps pour propager les itinéraires à toutes les interfaces réseau d’un sous-réseau. Pour en savoir plus sur le peering de réseau virtuel, consultez la [Vue d’ensemble du peering de réseau virtuel](virtual-network-peering-overview.md) et la [gestion du peering de réseau virtuel](virtual-network-manage-peering.md).
     - Les règles du groupe de sécurité réseau peuvent avoir une incidence sur la communication. Pour plus d’informations, consultez [Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle](diagnose-network-traffic-filter-problem.md).
 - Même si Azure affecte des itinéraires par défaut à chaque interface réseau Azure, si vous disposez de plusieurs interfaces réseau attachées à la machine virtuelle, seule l’interface réseau principale se voit attribuer un itinéraire par défaut (0.0.0.0/0), ou une passerelle, au sein du système d’exploitation de la machine virtuelle. Découvrez comment créer un itinéraire par défaut pour les interfaces réseau secondaires attachées à une machine virtuelle [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) ou [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics). Apprenez-en davantage sur les [interfaces réseau principale et secondaire](virtual-network-network-interface-vm.md#constraints).
 

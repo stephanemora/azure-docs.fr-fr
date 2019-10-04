@@ -1,6 +1,6 @@
 ---
-title: Pare-feu d’applications web Azure - Forum aux Questions
-description: Cette page fournit des réponses aux questions fréquemment posées sur le Service de porte d’entrée Azure
+title: Pare-feu d’applications web Azure - Forum aux questions
+description: Cette page fournit des réponses aux questions les plus souvent posées sur Azure Front Door Service.
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -9,73 +9,68 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 05d01851d0a3dc9df6c396e862ce93defd957c70
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 06/10/2019
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: f7d205920704ce8aedf3b2e3c07bd429b3c64964
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788919"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375343"
 ---
-# <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Forum aux questions sur les pare-feu d’applications web Azure
+# <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Forum aux questions sur le pare-feu d’applications web Azure
 
-Cet article répond aux questions courantes sur les fonctionnalités de pare-feu (WAF) d’application web Azure. 
+Cet article répond aux questions courantes sur les fonctionnalités du pare-feu d’applications web Azure (WAF). 
 
-## <a name="what-is-azure-waf"></a>Qu’est Azure WAF ?
+## <a name="what-is-azure-waf"></a>Qu’est-ce qu’Azure WAF ?
 
-WAF Azure est un pare-feu d’applications web que vous aide à protéger vos applications web contre les menaces courantes telles que SQL injection, scripts intersites et autres attaques web. Vous pouvez définir une stratégie de pare-feu d’applications Web consistant en une combinaison de règles personnalisées et gérés pour contrôler l’accès à vos applications web.
+Azure WAF est un pare-feu d’applications web qui aide à protéger vos applications web des menaces courantes telles que les injections de code SQL, le script de site à site et autres codes malveillants exploitant des failles de sécurité. Vous pouvez définir une stratégie de pare-feu d’applications web consistant en une combinaison de règles personnalisées et gérées pour contrôler l’accès à vos applications web.
 
-Une stratégie de pare-feu d’applications Web Azure peut être appliquée aux applications web hébergées sur les services de passerelle d’Application ou de la porte d’entrée Azure.
+Une stratégie de pare-feu d’applications web Azure peut être appliquée aux applications web hébergées sur les services Application Gateway ou Azure Front Door.
 
-## <a name="what-is-waf-for-azure-front-door-service"></a>Qu’est WAF pour Service de porte d’entrée Azure ? 
+## <a name="what-is-waf-for-azure-front-door-service"></a>Qu’est-ce qu’un pare-feu d’applications web pour le service Azure Front Door Service ? 
 
-Porte d’entrée Azure est une application hautement évolutive et distribuée dans le monde entier et le réseau de distribution de contenu. WAF Azure, lorsque intégré à la porte d’entrée, arrête un déni de service et ciblé les attaques de l’application sur le périmètre du réseau Azure, sources d’attaque avant leur entrée sur votre réseau virtuel, offre une protection sans sacrifier les performances.
+Azure Front Door est un réseau de distribution de contenu et d’application hautement évolutif et distribué mondialement. Un pare-feu d’applications web Azure, lorsqu’intégré à Front Door, bloque les attaques DDoS et ciblant une application à la périphérie du réseau Azure, près de la source avant qu’elles ne pénètrent dans votre réseau virtuel, et offre une protection sans sacrifice des performances.
 
-## <a name="how-will-i-be-charged-for-azure-waf-for-front-door"></a>Comment sera être facturé pour le pare-feu d’applications Web Azure pour la porte d’entrée ?
-Préversion publique, l’utilisation de pare-feu d’applications Web à la porte d’entrée sont gratuites. Notez que les frais de la porte d’entrée est supplémentaire. Consultez la tarification du Service de la porte d’entrée [ici](https://azure.microsoft.com/pricing/details/frontdoor/).
+## <a name="does-azure-waf-support-https"></a>Le pare-feu d’applications web prend-il en charge HTTPS ?
 
-## <a name="does-azure-waf-support-https"></a>Pare-feu d’applications Web Azure prend en charge HTTPS ?
+Le service Front Door offre le déchargement SSL. Le pare-feu d’applications web est intégré de façon native à Front Door et peut inspecter une demande après qu’elle ait été déchiffrée.
 
-Service de la porte d’entrée offre le déchargement SSL. WAF est intégré en mode natif avec la porte d’entrée et peut inspecter une demande une fois qu’il est déchiffré.
+## <a name="does-azure-waf-support-ipv6"></a>Le pare-feu d’applications web prend-il en charge IPv6 ?
 
-## <a name="does-azure-waf-support-ipv6"></a>Pare-feu d’applications Web Azure prend en charge IPv6 ?
+Oui. Vous pouvez configurer la restriction IP pour IPv4 et IPv6.
 
-Oui. Vous pouvez configurer des restrictions d’adresse IP pour IPv4 et IPv6.
+## <a name="how-up-to-date-are-the-managed-rule-sets"></a>Les ensembles de règles gérées sont-ils à jour ?
 
-## <a name="how-up-to-date-are-the-managed-rule-sets"></a>À jour sont les ensembles de règles managé ?
+Nous faisons de notre mieux pour suivre le rythme d’un monde de menaces en constante évolution. Lorsqu’une nouvelle règle est mise à jour, elle est ajoutée à l’ensemble de règles par défaut avec un nouveau numéro de version.
 
-Nous faisons de notre mieux pour suivre la variation du paysage des menaces. Une fois qu’une nouvelle règle est mise à jour, il est ajouté à l’ensemble par défaut règle avec un nouveau numéro de version.
+## <a name="what-is-the-propagation-time-if-i-make-a-change-to-my-waf-policy"></a>Quelle est la durée de propagation si j’effectue une modification de ma stratégie de pare-feu d’applications web ?
 
-## <a name="what-is-the-propagation-time-if-i-make-a-change-to-my-waf-policy"></a>Qu’est la durée de propagation si j’apporte une modification à ma stratégie de pare-feu d’applications Web ?
+Le déploiement global d’une stratégie de pare-feu d’applications web prend généralement 5 minutes, voire moins.
 
-Déploiement d’une stratégie de pare-feu d’applications Web dans le monde entier généralement prend environ cinq minutes et souvent se termine plus tôt.
+## <a name="can-waf-policies-be-different-for-different-regions"></a>Les stratégies de pare-feu d’applications web peuvent-elles être différentes d’une région à une autre ?
 
-## <a name="can-waf-policies-be-different-for-different-regions"></a>Stratégies de pare-feu d’applications Web peuvent être différents pour les différentes régions ?
-
-Lorsque intégrée avec le Service de la porte d’entrée, WAF est une ressource globale. Même configuration s’applique à tous les emplacements de porte d’entrée.
+Une fois intégré au service Front Door, le pare-feu d’applications web constitue une ressource globale. La même configuration s’applique à tous les emplacements Front Door.
  
-## <a name="how-do-i-limit-access-to-my-back-end-to-be-from-front-door-only"></a>Comment limiter les accès à mon serveur principal soit à partir de la porte d’entrée uniquement ?
 
-Vous pouvez configurer la liste de contrôle d’accès IP sur votre serveur principal pour permettre uniquement porte sortants plages d’adresses IP et refuser tout accès direct à partir d’Internet. Balises de service sont prises en charge que vous pouvez utiliser sur votre réseau virtuel. En outre, vous pouvez vérifier que le champ d’en-tête X-transférés-Host HTTP est valide pour votre application web.
+## <a name="which-azure-waf-options-should-i-choose"></a>Quelles options de pare-feu d’applications web Azure dois-je choisir ?
 
-
-
-
-## <a name="which-azure-waf-options-should-i-choose"></a>Les options de pare-feu d’applications Web Azure dois-je choisir ?
-
-Il existe deux options pour appliquer des stratégies de pare-feu d’applications Web dans Azure. WAF avec Azure porte d’entrée est une solution de sécurité distribuée globalement, edge. Pare-feu d’applications Web avec Application Gateway est une solution régionale, dédiée. Nous vous recommandons de que vous choisissez une solution selon vos besoins de performances et la sécurité globales. Pour plus d’informations, consultez [équilibrage de charge avec la suite de livraison d’Azure application](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
+Il y a deux options lors de l’application de stratégies de pare-feu d’applications web dans Azure. Le pare-feu d’applications web avec Azure Front Door est une solution distribuée mondialement de sécurité en périphérie. Le pare-feu d’applications web avec Application Gateway est une solution dédiée et régionale. Nous vous recommandons de choisir une solution basée sur vos exigences générales en matière de performances et de sécurité. Pour en savoir plus, consultez [Équilibrage de charge avec la suite de livraison d’application Azure](https://docs.microsoft.com/azure/frontdoor/front-door-lb-with-azure-app-delivery-suite).
 
 
-## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Prenez-vous en charge les fonctionnalités de WAF mêmes dans toutes les plateformes intégrées ?
+## <a name="do-you-support-same-waf-features-in-all-integrated-platforms"></a>Prenez-vous en charge les mêmes fonctionnalités de pare-feu d’applications web dans toutes les plateformes intégrées ?
 
-Actuellement, ModSec CRS 2.2.9 et les règles CRS 3.0 sont uniquement pris en charge avec WAF au niveau de passerelle d’Application. Limitation du débit, filtrage géographique et Azure managé par défaut un ensemble de règles des règles sont pris en charge uniquement avec le WAF à Azure porte d’entrée.
+Actuellement, les règles ModSec CRS 2.2.9 et CRS 3.0 sont uniquement prises en charge avec le pare-feu d’applications web sur Application Gateway. Les règles de l’ensemble de règles par défaut Azure, la limitation du débit et le filtrage géographique sont pris en charge uniquement avec le pare-feu d’applications web sur Azure Front Door.
 
-## <a name="is-ddos-protection-integrated-with-front-door"></a>Protection DDoS est intégrée avec la porte d’entrée ? 
+## <a name="is-ddos-protection-integrated-with-front-door"></a>La protection DDoS est-elle intégrée à Front Door ? 
 
-Porte d’entrée Azure globalement distribuées sur les bords de réseau Azure, et peut absorber et géographiquement isoler les attaques de gros volume. Vous pouvez créer stratégie WAF personnalisée à bloc automatiquement et le taux de limiter les attaques HTTP (s) dont les signatures. Davantage de plus, vous pouvez activer DDoS Protection Standard sur le réseau virtuel dans lequel vos serveurs principaux sont déployées. Les clients de Protection DDoS Standard Azure bénéficient des avantages supplémentaires, y compris la protection des coûts, garantie de contrat SLA et l’accès à des experts à partir de l’équipe de réponse DDoS rapide pour obtenir une aide immédiate pendant une attaque. 
+Distribué mondialement aux périphéries réseau d’Azure, Azure Front Door peut absorber et isoler géographiquement d’importants volumes d’attaques. Vous pouvez créer une stratégie de pare-feu d’applications web personnalisée pour bloquer automatiquement et limiter le débit des attaques http(s) aux signatures connues. De plus, vous pouvez activer la protection DDos standard sur le réseau virtuel où vos back-ends sont déployés. Les clients de la protection DDos standard d’Azure profitent d’avantages supplémentaires dont la protection du coût, la garantie SLA et l’accès à des experts de l’équipe spécialisée en attaques DDoS, pour une aide immédiate en cas d’attaque. 
+
+Nous vous recommandons de verrouiller vos back-ends dans un environnement de production, de façon à réduire la surface d’attaque DDoS. Consultez [Comment restreindre l’accès à mon back-end uniquement à Azure Front Door ?](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [pare-feu d’applications web Azure](waf-overview.md).
-- En savoir plus sur [porte d’entrée Azure](front-door-overview.md).
+- En savoir plus sur le [pare-feu d’application web Azure](waf-overview.md).
+- En savoir plus sur [Azure Front Door](front-door-overview.md).

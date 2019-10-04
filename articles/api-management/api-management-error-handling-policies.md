@@ -10,16 +10,15 @@ ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 73609e802eceea6aa94d77cef6ca1d654264973d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: df7b14c8221ab7837cabe968a82cfc5d5d9050c4
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265005"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072576"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestion des erreurs dans les stratégies de la Gestion des API
 
@@ -73,19 +72,19 @@ La section de stratégie `on-error` peut être utilisée, quelle que soit l’é
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
-## <a name="lasterror"></a>LastError
+## <a name="lasterror"></a>lastError
 
  Lorsqu’une erreur se produit et que le contrôle passe à la section de stratégie `on-error`, l’erreur est enregistrée dans la propriété [context.LastError](api-management-policy-expressions.md#ContextVariables), à laquelle les stratégies peuvent accéder dans la section `on-error`. LastError a les propriétés suivantes.  
   
-| NOM     | type   | Description                                                                                               | Obligatoire |
-|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Source   | chaîne | Désigne l’élément où l’erreur s’est produite. Peut être une stratégie ou un nom d’étape de pipeline intégrée.     | OUI      |
-| Motif   | chaîne | Code d’erreur informatique, utilisable dans la gestion des erreurs.                                       | Non        |
-| Message  | chaîne | Description lisible de l’erreur.                                                                         | OUI      |
-| Étendue    | chaîne | Nom de l’étendue où l’erreur s’est produite. Peut être « global », « product », « api » ou « operation ». | Non        |
-| Section  | chaîne | Nom de la section où l’erreur s’est produite. Valeurs possibles : « entrant », « principal », « sortant » ou « erreur ».       | Non        |
-| path     | chaîne | Spécifie la stratégie imbriquée, par exemple, « choose[3]/when[2] ».                                                        | Non        |
-| PolicyId | chaîne | Valeur de l’attribut `id`, s’il est spécifié par le client, sur la stratégie où l’erreur s’est produite.             | Non        |
+| Nom       | type   | Description                                                                                               | Obligatoire |
+|------------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| `Source`   | string | Désigne l’élément où l’erreur s’est produite. Peut être une stratégie ou un nom d’étape de pipeline intégrée.     | OUI      |
+| `Reason`   | string | Code d’erreur informatique, utilisable dans la gestion des erreurs.                                       | Non       |
+| `Message`  | string | Description lisible de l’erreur.                                                                         | OUI      |
+| `Scope`    | string | Nom de l’étendue où l’erreur s’est produite. Peut être « global », « product », « api » ou « operation ». | Non       |
+| `Section`  | string | Nom de la section où l’erreur s’est produite. Valeurs possibles : « entrant », « principal », « sortant » ou « erreur ».       | Non       |
+| `Path`     | string | Spécifie la stratégie imbriquée, par exemple, « choose[3]/when[2] ».                                                        | Non       |
+| `PolicyId` | string | Valeur de l’attribut `id`, s’il est spécifié par le client, sur la stratégie où l’erreur s’est produite.             | Non       |
 
 > [!TIP]
 > Vous pouvez accéder au code d’état avec context.Response.StatusCode.  
@@ -108,7 +107,7 @@ La section de stratégie `on-error` peut être utilisée, quelle que soit l’é
 | Source       | Condition                                                       | Motif                    | Message                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | rate-limit   | Limite de débit dépassée.                                             | RateLimitExceeded         | Limite de débit dépassée.                                                                                                               |
-| quota        | Quota dépassé                                                  | QuotaExceeded             | Quota de volume d’appels dépassé. Le quota sera réapprovisionné dans xx:xx:xx. - ou - Quota de bande passante dépassé. Le quota sera réapprovisionné dans xx:xx:xx. |
+| quota        | Quota dépassé                                                  | QuotaExceeded             | Quota de volume d’appels dépassé. Le quota sera réapprovisionné dans xx:xx:xx. \- ou - Quota de bande passante dépassé. Le quota sera réapprovisionné dans xx:xx:xx. |
 | jsonp        | La valeur du paramètre de rappel n’est pas valide (contient des caractères incorrects). | CallbackParameterInvalid  | La valeur du paramètre de rappel {callback-parameter-name} n’est pas un identificateur JavaScript valide.                                          |
 | ip-filter    | Impossible d’analyser l’IP d’appelant de la demande.                          | FailedToParseCallerIP     | Impossible d’établir l’adresse IP de l’appelant. Accès refusé.                                                                        |
 | ip-filter    | L’adresse IP de l’appelant ne figure pas dans la liste autorisée.                                | CallerIpNotAllowed        | L’adresse IP de l’appelant {ip-address} n’est pas autorisée. Accès refusé.                                                                        |

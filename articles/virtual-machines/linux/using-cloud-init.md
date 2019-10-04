@@ -3,8 +3,8 @@ title: Vue d’ensemble de la prise en charge cloud-init pour les machines virtu
 description: Vue d’ensemble des fonctionnalités cloud-init dans Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
-manager: jeconnoc
+author: danielsollondon
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
@@ -13,36 +13,39 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 11/29/2017
-ms.author: rclaus
-ms.openlocfilehash: 6dd1dd0ce2395e2b06d80385ffd299835a280526
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 08/20/2019
+ms.author: danis
+ms.openlocfilehash: 7e22aaf2ead4dd618c2907f8659455e1862110a5
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002035"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650106"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
-Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
+Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment du provisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
 
 ## <a name="cloud-init-overview"></a>Présentation de cloud-init
 [Cloud-init](https://cloudinit.readthedocs.io) est une méthode largement utilisée pour personnaliser une machine virtuelle Linux lors de son premier démarrage. Vous pouvez utiliser cloud-init pour installer des packages et écrire des fichiers, ou encore pour configurer des utilisateurs ou des paramètres de sécurité. cloud-init étant appelé pendant le processus de démarrage initial, aucune autre étape ni aucun agent ne sont nécessaires pour appliquer votre configuration.  Pour plus d’informations sur la façon de mettre correctement en forme vos fichiers `#cloud-config`, consultez le [site de documentation cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Les fichiers `#cloud-config` sont des fichiers texte encodés en base64.
 
 Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vous n’utilisez pas **apt-get install** ou **yum install** pour installer un package. Au lieu de cela, vous pouvez définir une liste des packages à installer, après quoi cloud-init se charge d’utiliser automatiquement l’outil de gestion de package natif correspondant à la distribution que vous sélectionnez.
 
- Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettront à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques Virtual Machine Scale Sets. Le tableau suivant présente la disponibilité actuelle des images compatibles avec cloud-init sur la plateforme Azure :
+Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettent à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques. Le tableau suivant présente la disponibilité actuelle des images compatibles avec cloud-init sur la plateforme Azure :
 
 | Publisher | Offre | SKU | Version | Compatible avec cloud-init |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |le plus récent |Oui | 
-|Canonical |UbuntuServer |17.10 |le plus récent |Oui | 
-|Canonical |UbuntuServer |16.04-LTS |le plus récent |Oui | 
-|Canonical |UbuntuServer |14.04.5-LTS |le plus récent |Oui |
-|CoreOS |CoreOS |Stable |le plus récent |Oui |
-|OpenLogic |CentOS |7-CI |le plus récent |preview |
-|Red Hat |RHEL |7-RAW-CI |le plus récent |preview |
+|Canonical |UbuntuServer |18.04-LTS |latest |Oui | 
+|Canonical |UbuntuServer |16.04-LTS |latest |Oui | 
+|Canonical |UbuntuServer |14.04.5-LTS |latest |Oui |
+|CoreOS |CoreOS |Stable |latest |Oui |
+|OpenLogic 7.6 |CentOS |7-CI |latest |preview |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Oui |
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
+    
+Azure Stack ne prend pas en charge le provisionnement de RHEL 7.x et CentOS 7.x à l’aide de cloud-init.
 
-Azure Stack ne prend pas en charge le provisionnement de RHEL 7.4 et de CentOS 7.4 à l’aide de cloud-init.
+* Pour RHEL 7.6, package cloud-init, le package pris en charge est le suivant : *18.2-1.el7_6.2* 
+* Pour RHEL 7.7 (préversion), package cloud-init, le package pris en charge est le suivant : *18.5-3.el7*
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Quelle est la différence entre cloud-init et l’agent Linux (WALA) ?
 WALA est un agent spécifique à la plateforme Azure, qui est utilisé pour configurer des machines virtuelles et gérer des extensions Azure. Nous améliorons la tâche de configuration des machines virtuelles afin d’utiliser cloud-init en lieu et place de l’agent Linux, ceci pour permettre aux clients cloud-init existants de s’appuyer sur leurs scripts cloud-init actuels.  Si vous possédez des investissements existants dans des scripts cloud-init pour la configuration de systèmes Linux, **aucun autre paramétrage n’est requis** pour les activer. 
@@ -79,7 +82,7 @@ L’exemple suivant crée une machine virtuelle nommée *centos74* et des clés 
 az vm create \
   --resource-group myResourceGroup \
   --name centos74 \
-  --image OpenLogic:CentOS:7-CI:latest \
+  --image OpenLogic:CentOS-CI:7-CI:latest \
   --custom-data cloud-init.txt \
   --generate-ssh-keys 
 ```

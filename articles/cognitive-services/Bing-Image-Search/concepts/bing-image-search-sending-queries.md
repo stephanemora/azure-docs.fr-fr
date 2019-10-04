@@ -1,5 +1,5 @@
 ---
-title: Envoi de requêtes d’image - API Recherche d’images Bing
+title: Personnaliser et suggérer des requêtes de recherche d’images - API Recherche d’images Bing
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment personnaliser les requêtes de recherche que vous envoyez à l’API Recherche d’images Bing.
 services: cognitive-services
@@ -9,28 +9,26 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: b2d142783146edcaf40125ce58e43fe001909412
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337649"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542756"
 ---
-# <a name="send-queries-to-the-bing-image-search-api"></a>Envoi de requêtes à l’API Recherche d’images Bing
+# <a name="customize-and-suggest-image-search-queries"></a>Personnaliser et suggérer des requêtes de recherche d’images
 
-L’API Recherche d’images Bing fournit une expérience similaire à Bing.com/Images. Vous pouvez l’utiliser pour envoyer une requête de recherche à Bing et obtenir une liste d’images pertinentes.
+Utilisez cet article pour apprendre à personnaliser les requêtes et suggérer des termes de recherche à envoyer à l’API Recherche d’images Bing.
 
-## <a name="use-and-suggest-search-terms"></a>Utiliser et suggérer des termes de recherche
-
-Lorsqu’un terme de recherche est entré, encodez-le par URL avant de définir le paramètre de requête [**q**](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query). Par exemple, si vous saisissez *sailing dinghies*, définissez `q` avec la valeur `sailing+dinghies` ou `sailing%20dinghies`.
+## <a name="suggest-search-terms"></a>Suggérer des termes de recherche
 
 Si votre application comprend une zone de recherche où les termes de recherche sont entrés, vous pouvez utiliser l’[API Suggestion automatique Bing](../../bing-autosuggest/get-suggested-search-terms.md) pour améliorer l’expérience. L’API peut afficher des suggestions de termes en temps réel. L’API suggère des chaînes de requête basées sur des termes de recherche partiels et Cognitive Services.
 
 ## <a name="pivot-the-query"></a>Ajouter un tableau croisé dynamique à la requête
 
-Si Bing peut segmenter la requête de recherche d’origine, l’objet [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) retourné contient `pivotSuggestions`. Les suggestions de tableau croisé dynamique peuvent être affichées comme des termes de recherche facultatifs à l’utilisateur. Par exemple, Bing peut segmenter la requête d’origine *Microsoft Surface* en *Microsoft* et *Surface* et suggérer des tableaux croisés dynamiques pour chacun. Ces suggestions peuvent être affichées comme des termes de requête facultatifs à l’utilisateur.
+Si Bing peut segmenter la requête de recherche d’origine, l’objet [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) retourné contient `pivotSuggestions`. Les suggestions de tableau croisé dynamique peuvent être affichées comme des termes de recherche facultatifs à l’utilisateur. Par exemple, Bing peut segmenter la requête d’origine *Microsoft Surface* en *Microsoft* et *Surface* et suggérer des tableaux croisés dynamiques pour chacun. Ces suggestions peuvent être affichées comme des termes de requête facultatifs à l’utilisateur.
 
 L’exemple suivant montre les suggestions de tableau croisé dynamique pour *Microsoft Surface* :  
 
@@ -91,7 +89,7 @@ L’exemple suivant montre les suggestions de tableau croisé dynamique pour *Mi
 }
 ```
 
-Le champ `pivotSuggestions` contient la liste des segments (tableaux croisés dynamiques) composant la requête d’origine. Pour chaque tableau croisé dynamique, la réponse contient une liste d’objets [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) contenant les requêtes suggérées. Le champ `text` contient la requête suggérée. Le champ `displayText` contient le terme qui remplace le tableau croisé dynamique dans la requête d’origine. Il peut s’agir par exemple de la date de lancement de Surface.
+Le champ `pivotSuggestions` contient la liste des segments (tableaux croisés dynamiques) composant la requête d’origine. Pour chaque tableau croisé dynamique, la réponse contient une liste d’objets [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj) contenant les requêtes suggérées. Le champ `text` contient la requête suggérée. Le champ `displayText` contient le terme qui remplace le tableau croisé dynamique dans la requête d’origine. Il peut s’agir par exemple de la date de lancement de Surface.
 
 Si la chaîne de requête du tableau croisé dynamique est vraiment ce que l’utilisateur recherche, utilisez les champs `text` et `thumbnail` pour présenter les requêtes du tableau croisé dynamique. Pour rendre la miniature et le texte interactifs, utilisez l’URL `webSearchUrl` ou l’URL `searchLink`. Utilisez `webSearchUrl` pour envoyer l’utilisateur vers les résultats de recherche Bing. Si vous fournissez votre propre page de résultats, utilisez `searchLink`.
 
@@ -103,7 +101,7 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Développer la requête
 
-Si Bing peut développer la requête pour affiner la recherche d’origine, l’objet [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) contient le champ `queryExpansions`. Par exemple, si la requête était *Microsoft Surface*, les requêtes développées peuvent être :
+Si Bing peut développer la requête pour affiner la recherche d’origine, l’objet [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contient le champ `queryExpansions`. Par exemple, si la requête était *Microsoft Surface*, les requêtes développées peuvent être :
 - Microsoft Surface **Pro 3**.
 - Microsoft Surface **RT**.
 - Microsoft Surface **Phone**.
@@ -149,7 +147,7 @@ L’exemple suivant montre les requêtes développées pour *Microsoft Surface*.
 }
 ```
 
-Le champ `queryExpansions` contient une liste d’objets [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj). Le champ `text` contient la requête développée. Le champ `displayText` contient le terme de développement. Si la chaîne de requête développée est vraiment ce que l’utilisateur recherche, utilisez les champs `text` et `thumbnail` pour présenter les requêtes de requête développée. Pour rendre la miniature et le texte interactifs, utilisez l’URL `webSearchUrl` ou l’URL `searchLink`. Utilisez `webSearchUrl` pour envoyer l’utilisateur vers les résultats de recherche Bing. Si vous fournissez votre propre page de résultats, utilisez `searchLink`.
+Le champ `queryExpansions` contient une liste d’objets [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query_obj). Le champ `text` contient la requête développée. Le champ `displayText` contient le terme de développement. Si la chaîne de requête développée est vraiment ce que l’utilisateur recherche, utilisez les champs `text` et `thumbnail` pour présenter les requêtes de requête développée. Pour rendre la miniature et le texte interactifs, utilisez l’URL `webSearchUrl` ou l’URL `searchLink`. Utilisez `webSearchUrl` pour envoyer l’utilisateur vers les résultats de recherche Bing. Si vous fournissez votre propre page de résultats, utilisez `searchLink`.
 
 <!-- Removing until we can replace with a sanitized image.
 The following shows an example Bing implementation that uses expanded queries. If the user clicks the Microsoft Surface Pro 3 link, they're taken to the Bing search results page, which shows them images of the Pro 3.

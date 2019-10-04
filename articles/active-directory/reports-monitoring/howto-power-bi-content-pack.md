@@ -2,7 +2,7 @@
 title: Utilisation du pack de contenu Power BI Azure Active Directory | Microsoft Docs
 description: Découvrir comment utiliser le pack de contenu Power BI Azure Active Directory
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 4d56802e96028b6b01b6be749405c56df2648161
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436827"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988231"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Utilisation du pack de contenu Power BI Azure Active Directory
 
@@ -31,7 +31,7 @@ ms.locfileid: "58436827"
 
 Le pack de contenu Power BI pour Azure Active Directory (Azure AD) contient des rapports prédéfinis conçus pour vous aider à comprendre comment vos utilisateurs adoptent et utilisent les fonctionnalités Azure AD. Cela vous permet d’obtenir des insights sur toutes les activités au sein de votre répertoire, à l’aide de l’expérience de visualisation riche dans Power BI. Vous pouvez aussi créer votre propre tableau de bord et le partager avec d’autres personnes de votre organisation. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Vous avez besoin d’une licence Azure AD premium (P1/P2) pour utiliser le pack de contenu. Consultez [Bien démarrer avec Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) pour mettre à niveau votre édition d’Azure Active Directory.
 
@@ -59,7 +59,7 @@ Vous pouvez également filtrer les résultats en sélectionnant une date ou un e
 
 - User Name
 - Adresse IP
-- Lieu 
+- Location 
 - État de la connexion 
 
 **Synthèse SSPR** : ce rapport vous aide à comprendre l’utilisation de l’outil SSPR au sein de votre organisation. Vous pouvez voir le nombre de tentatives de réinitialisation de mot de passe via l’outil SSPR et du nombre de celles ayant abouti. Vous pouvez aussi approfondir les échecs de réinitialisation de mot de passe pour comprendre les raisons pour lesquelles certains échecs se sont produits. 
@@ -134,7 +134,7 @@ Pour obtenir une aide générale sur Power BI, consultez ces [articles d’aide]
  
 ### <a name="data-import-is-too-slow"></a>L’importation de données est trop lente 
  
-**Circonstances de l’apparition de l’erreur** : Dans Power BI, quand vous avez connecté votre pack de contenu, le processus d’importation de données démarre pour préparer votre tableau de bord pour le journal d’activité Azure AD. Le message suivant s’affiche : **Importation de données...**, mais le processus n’évolue pas.  
+**Circonstances de l’apparition de l’erreur** : Dans Power BI, quand vous avez connecté votre pack de contenu, le processus d’importation de données démarre pour préparer votre tableau de bord pour le journal d’activité Azure AD. Le message suivant s’affiche : **Importation de données...** , mais le processus n’évolue pas.  
 
 | Cause : | Procédure de résolution |
 | ---   | ---        |

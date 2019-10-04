@@ -3,8 +3,8 @@ title: Types d’applications dans v1.0 | Azure
 description: Découvrez les types d’applications et scénarios pris en charge par le point de terminaison Azure Active Directory v1.0.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef180fb444e32e8b055837fd418e21162ff58339
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191467"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540658"
 ---
 # <a name="application-types-in-v10"></a>Types d’applications dans v1.0
 
@@ -63,7 +63,7 @@ Toute application qui externalise l’authentification pour la confier à Azure�
   * **Clé** : clé envoyée avec un ID d’application lors de l’authentification auprès d’Azure AD en vue d’appeler une API web.
 * Azure AD doit assurer que l’application dispose des autorisations nécessaires pour accéder à vos données d’annuaire, à d’autres applications de votre organisation, etc.
 
-Pour en savoir plus, consultez l’article sur [l’inscription d’une application avec le point de terminaison Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Pour en savoir plus, découvrez comment [inscrire une application](quickstart-register-app.md).
 
 ## <a name="single-tenant-and-multi-tenant-apps"></a>Application monolocataire et application multilocataire
 

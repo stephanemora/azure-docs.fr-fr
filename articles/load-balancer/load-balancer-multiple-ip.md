@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Équilibrage de charge sur des configurations IP principales et secondaires.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: dbf8cdd326d3e1c8f32f6dc2bd3486146993e06b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856113"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274731"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Équilibrage de charge sur plusieurs configurations IP dans le portail Azure
 
@@ -72,7 +72,7 @@ Pour chaque machine virtuelle dans votre réseau virtuel, ajoutez la configurati
     
     2. Sélectionnez **Configurations IP**. Dans le volet suivant, en haut, sélectionnez **Ajouter**.
 
-    3. Dans **Add IP configurations (Ajouter des configurations IP)**, ajoutez une seconde configuration IP à la carte réseau : 
+    3. Dans **Add IP configurations (Ajouter des configurations IP)** , ajoutez une seconde configuration IP à la carte réseau : 
 
         1. Entrez un nom pour la configuration IP secondaire. (Par exemple, pour VM1 et VM2, nommez la configuration IP **VM1NIC2-ipconfig2** et **VM2NIC2-ipconfig2**, respectivement.)
 
@@ -138,11 +138,11 @@ Pour chaque site web (contoso.com et fabrikam.com), configurez le pool d’adres
 
 2. Sélectionnez l’équilibreur de charge (**mylb**) auquel vous souhaitez ajouter le pool principal.
 
-3. Sous **Paramètres**, sélectionnez **Backend Pools (Pools principaux)**. Entrez le nom de votre pool principal (par exemple, **contosopool** ou **fabrikampool**). Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
+3. Sous **Paramètres**, sélectionnez **Backend Pools (Pools principaux)** . Entrez le nom de votre pool principal (par exemple, **contosopool** ou **fabrikampool**). Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
 
-4. Dans **Associated to (Associé à)**, sélectionnez **Availability set (Groupe à haute disponibilité)**.
+4. Dans **Associated to (Associé à)** , sélectionnez **Availability set (Groupe à haute disponibilité)** .
 
-5. Dans **Availability set (Groupe à haute disponibilité)**, sélectionnez **myAvailset**.
+5. Dans **Availability set (Groupe à haute disponibilité)** , sélectionnez **myAvailset**.
 
 6. Ajoutez les configurations IP réseau cibles pour les deux machines virtuelles : 
 
@@ -164,7 +164,7 @@ Configurez une sonde d’intégrité pour votre équilibreur de charge :
 
 2. Sélectionnez l’équilibreur de charge (**mylb**) auquel vous souhaitez ajouter la sonde d’intégrité.
 
-3. Sous **Paramètres**, sélectionnez **Health Probe (Sonde d’intégrité)**. Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
+3. Sous **Paramètres**, sélectionnez **Health Probe (Sonde d’intégrité)** . Dans le volet suivant, en haut, sélectionnez **Ajouter**. 
 
 4. Entrez le nom de la sonde d’intégrité (par exemple, **HTTP**). Sélectionnez **OK**.
 
@@ -178,9 +178,9 @@ Pour chaque site web (contoso.com et fabrikam.com), configurez les règles d’�
 
 3. Dans **Adresse IP du serveur frontal**, sélectionnez l’adresse IP frontale que vous avez précédemment créée (par exemple, **contosofe** ou **fabrikamfe**).
 
-4. Dans **Port** et **Backend port (Port principal)**, conservez la valeur par défaut (**80**).
+4. Dans **Port** et **Backend port (Port principal)** , conservez la valeur par défaut (**80**).
 
-5. Dans **IP flottante (retour direct du serveur)**, sélectionnez **Désactivée**.
+5. Dans **IP flottante (retour direct du serveur)** , sélectionnez **Désactivée**.
 
 6. <a name="step6-6"></a>Sélectionnez **OK**.
 
@@ -194,4 +194,4 @@ La dernière étape consiste à configurer vos enregistrements de ressource DNS 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour en savoir plus sur la combinaison de services d’équilibrage de charge dans Azure, consultez [Utilisation des services d’équilibrage de charge dans Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Découvrez comment vous pouvez utiliser différents types de journaux pour gérer et dépanner l’équilibrage de charge [Azure Monitor enregistre pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Pour savoir comment gérer et dépanner l’équilibrage de charge à l’aide de différents types de journaux d’activité, consultez [Journaux d’activité Azure Monitor pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

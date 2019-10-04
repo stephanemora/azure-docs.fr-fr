@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.author: juliako
+ms.reviewer: milanga;cenkdin
+ms.openlocfilehash: 1cebe0fda7da97933fc94082a62c671535fe689b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294924"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015803"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Mettre à jour Media Services après la substitution de clés d’accès de stockage 
 
@@ -29,7 +30,7 @@ Pour effectuer les actions décrites dans cet article, vous devez utiliser des [
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Lors de la création d’un compte de stockage, Azure génère deux clés d’accès de stockage 512 bits, qui sont utilisées pour authentifier l’accès à votre compte de stockage. Pour sécuriser vos connexions de stockage, il est recommandé de régénérer et d’alterner périodiquement vos clés d’accès de stockage. Vous bénéficiez de deux clés d’accès (primaire et secondaire), ce qui vous permet de conserver vos connexions au compte de stockage à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé. Cette procédure est également appelée « substitution des clés d’accès ».
 
@@ -44,7 +45,7 @@ Media Services dépend d'une clé de stockage qui lui est fournie. Plus précis�
 ## <a name="steps-to-rotate-storage-keys"></a>Étapes de régénération des clés de stockage 
  
  1. Modifiez la clé primaire du compte de stockage par le biais de l’applet de commande Powershell ou du portail [Azure](https://portal.azure.com/).
- 2. Appelez l’applet de commande Sync-AzMediaServiceStorageKeys avec les paramètres appropriés pour forcer le compte multimédia à assimiler les clés de compte de stockage
+ 2. Appelez la cmdlet Sync-AzMediaServiceStorageKeys avec les paramètres appropriés pour forcer le compte multimédia à utiliser les clés de compte de stockage.
  
     L’exemple suivant montre comment synchroniser des clés avec des comptes de stockage.
   
@@ -52,7 +53,7 @@ Media Services dépend d'une clé de stockage qui lui est fournie. Plus précis�
   
  3. Attendez environ une heure. Vérifiez que les scénarios de streaming fonctionnent.
  4. Modifiez la clé secondaire du compte de stockage par le biais de l’applet de commande Powershell ou du portail Azure.
- 5. Appelez powershell AzMediaServiceStorageKeys de synchronisation avec les paramètres appropriés pour forcer le compte multimédia à assimiler les nouvelles clés de compte de stockage. 
+ 5. Appelez la cmdlet Sync-AzMediaServiceStorageKeys avec les paramètres appropriés pour forcer le compte multimédia à utiliser de nouvelles clés de compte de stockage. 
  6. Attendez environ une heure. Vérifiez que les scénarios de streaming fonctionnent.
  
 ### <a name="a-powershell-cmdlet-example"></a>Exemple d’applet de commande PowerShell 

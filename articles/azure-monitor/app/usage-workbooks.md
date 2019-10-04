@@ -13,12 +13,12 @@ ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 6d84ad69b067f730bbfbcad9e46bdc9ae2036ead
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270145"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64569606"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Créer des rapports interactifs avec les classeurs Azure Monitor
 
@@ -166,7 +166,7 @@ Quatre types de paramètres sont actuellement pris en charge :
 
 ### <a name="using-a-text-parameter"></a>Utilisation d’un paramètre de texte
 
-La valeur qu’un utilisateur saisit dans la zone de texte est directement remplacée dans la requête, sans espace ni guillemets. Si la valeur dont vous avez besoin est une chaîne, le paramètre doit être saisi entre guillemets dans la requête (par exemple **‘{paramètre}’**).
+La valeur qu’un utilisateur saisit dans la zone de texte est directement remplacée dans la requête, sans espace ni guillemets. Si la valeur dont vous avez besoin est une chaîne, le paramètre doit être saisi entre guillemets dans la requête (par exemple **‘{paramètre}’** ).
 
 Ainsi, la valeur saisie dans une zone de texte peut être utilisée n’importe où. Cela peut être un nom de tableau, un nom de colonne, un nom de fonction, un opérateur, etc.
 
@@ -206,7 +206,7 @@ Génère le résultat :
 
 ![Commandes d’édition de la section Workbooks d’Application Insights](./media/usage-workbooks/011-data-table.png)
 
-Vous pouvez également utiliser une liste déroulante pour sélectionner un nom de pays dans un ensemble de pays proposés :
+Vous pouvez également utiliser une liste déroulante pour sélectionner un nom de pays/région dans un ensemble de pays/régions proposés :
 
 ```
 customEvents

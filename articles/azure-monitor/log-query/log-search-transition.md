@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: bwren
 ms.openlocfilehash: dc3a754bd1a9f689f4b24b9ee2c1e4cbc0611684
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751359"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60519900"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Passer de la recherche dans les journaux d’activité Log Analytics aux journaux d’activité Azure Monitor
 La recherche dans les journaux d’activité Log Analytics vient d’être remplacée par une nouvelle expérience d’analyse des journaux d’activité Azure Monitor. Actuellement, la page de recherche dans les journaux d’activité est toujours accessible par le biais de l’élément de menu **Journaux d’activité (classiques)** de la page **Espaces de travail Log Analytics** dans le portail Azure, mais elle sera supprimée le 15 février 2019. Cet article décrit les différences entre les deux expériences pour vous aider à remplacer la recherche dans les journaux. 

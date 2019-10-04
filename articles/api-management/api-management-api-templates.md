@@ -10,16 +10,15 @@ ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 9d75dff413e7b6e61d38b95e08bf9c891b583014
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486366"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073816"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modèles d’API dans Gestion des API Azure
 
@@ -44,7 +43,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="APIList"></a> Liste d’API  
+## <a name="APIList"></a> Liste d’API  
  Le modèle **Liste d’API** vous permet de personnaliser le corps de la page Liste d’API dans le portail des développeurs.  
   
  ![Liste d’API dans le portail des développeur](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Modèles Liste d’API dans le portail des développeurs APIM")  
@@ -112,7 +111,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
 }  
 ```  
   
-##  <a name="Product"></a> Opération  
+## <a name="Product"></a> Opération  
  Le modèle **Opération** vous permet de personnaliser le corps de la page Opération dans le portail des développeurs.  
   
  ![Page Opération dans le portail des développeur](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Modèles de page Opération dans le portail des développeurs APIM")  
@@ -642,7 +641,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
 }  
 ```  
   
-##  <a name="CodeSamples"></a> Exemples de code  
+## <a name="CodeSamples"></a> Exemples de code  
  Les modèles suivants vous permettent de personnaliser le corps des exemples de code sur la page Opération.  
   
  ![Modèles Exemples de code dans le portail des développeur](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Modèles Exemples de code dans le portail des développeurs APIM")  
@@ -663,7 +662,7 @@ Les modèles de cette section vous permettent de personnaliser le contenu des pa
   
 -   [Ruby](#Ruby)  
   
-###  <a name="Curl"></a> Curl  
+### <a name="Curl"></a> Curl  
  Le modèle **DocumentationSamplesCurl** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
@@ -716,12 +715,12 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="CSharp"></a> C#  
+### <a name="CSharp"></a> C#  
  Le modèle **DocumentationSamplesCsharp** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
   
-```xml  
+```csharp  
 using System;  
 using System.Net.Http.Headers;  
 using System.Text;  
@@ -895,12 +894,12 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <a name="Stub"></a> Java  
+### <a name="Stub"></a> Java  
  Le modèle **DocumentationSamplesJava** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
   
-```xml  
+```java  
 // // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
@@ -991,12 +990,12 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="JavaScript"></a> JavaScript  
+### <a name="JavaScript"></a> JavaScript  
  Le modèle **DocumentationSamplesJs** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
   
-```xml  
+```html  
 <!DOCTYPE html>  
 <html>  
 <head>  
@@ -1080,12 +1079,12 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="ObjectiveC"></a> Objective C  
+### <a name="ObjectiveC"></a> Objective C  
  Le modèle **DocumentationSamplesObjc** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
   
-```xml  
+```objective-c  
 #import <Foundation/Foundation.h>  
   
 int main(int argc, const char * argv[])  
@@ -1192,12 +1191,12 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <a name="PHP"></a> PHP  
+### <a name="PHP"></a> PHP  
  Le modèle **DocumentationSamplesPhp** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
   
-```xml  
+```php  
 <?php  
 // This sample uses the HTTP_Request2 PHP library (https://github.com/pear/HTTP_Request2)  
 require_once 'HTTP/Request2.php';  
@@ -1282,12 +1281,12 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <a name="Python"></a> Python  
+### <a name="Python"></a> Python  
  Le modèle **DocumentationSamplesPython** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
   
-```xml  
+```python  
 ########### Python 2.7 #############  
 import httplib, urllib, base64  
   
@@ -1363,7 +1362,7 @@ except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))  
   
 ####################################  
-```  
+```
   
 #### <a name="controls"></a>Commandes  
  Les modèles d’exemples de code ne permettent pas d’utiliser des [contrôles de page](api-management-page-controls.md).  
@@ -1400,12 +1399,12 @@ except Exception as e:
 }  
 ```  
   
-###  <a name="Ruby"></a> Ruby  
+### <a name="Ruby"></a> Ruby  
  Le modèle **DocumentationSamplesRuby** vous permet de personnaliser cet exemple de code dans la section Exemples de code de la page Opération.  
   
 #### <a name="default-template"></a>Modèle par défaut  
   
-```xml  
+```ruby  
 require 'net/http'  
   
 uri = URI('{{scheme}}://{{host}}{{path}}')  

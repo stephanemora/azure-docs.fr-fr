@@ -1,19 +1,19 @@
 ---
 title: Présentation d'Azure Data Lake Storage Gen2
 description: Fournit une vue d'ensemble d'Azure Data Lake Storage Gen2
-services: storage
-author: jamesbak
+author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/06/2018
-ms.author: jamesbak
+ms.author: normesta
+ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 8777a7504c48b22d0e670dd9f0d28016ac8918db
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: de2dc5068dc454925744688a43f49a855aac42f3
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009461"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991847"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Présentation d'Azure Data Lake Storage Gen2
 
@@ -27,7 +27,7 @@ Une caractéristique fondamentale de Data Lake Storage Gen2 est l’ajout d’un
 
 Dans le passé, l’analytique cloud devait trouver le meilleur compromis entre les performances, la gestion et la sécurité. Data Lake Storage Gen2 traite chacun de ces aspects de plusieurs manières :
 
--   Les **performances** sont optimisées, car vous n’avez pas besoin de copier ou transformer les données avant l’analyse. L’espace de noms hiérarchique améliore considérablement les performances des opérations de gestion de répertoires, et donc les performances générales du travail.
+-   Les **performances** sont optimisées, car vous n’avez pas besoin de copier ou transformer les données avant l’analyse. L’espace de noms hiérarchique améliore considérablement les performances des opérations de gestion de répertoires, et donc les performances générale du travail.
 
 -   La **gestion** est plus facile, car vous pouvez organiser et manipuler les fichiers dans des répertoires et des sous-répertoires.
 
@@ -37,13 +37,13 @@ Dans le passé, l’analytique cloud devait trouver le meilleur compromis entre 
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principales fonctionnalités de Data Lake Storage Gen2
 
--   **Accès compatible Hadoop** : Azure Data Lake Storage Gen2 vous permet de gérer les données et d’y accéder comme vous le feriez avec un [système de fichiers HDFS (Hadoop Distributed File System)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Le nouveau [pilote ABFS](data-lake-storage-abfs-driver.md) est disponible dans tous les environnements Apache Hadoop, y compris [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)*,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index) et [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) pour accéder aux données stockées dans Data Lake Storage Gen2.
+-   **Accès compatible Hadoop** : Azure Data Lake Storage Gen2 vous permet de gérer les données et d’y accéder comme vous le feriez avec un [système de fichiers HDFS (Hadoop Distributed File System)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Le nouveau [pilote ABFS](data-lake-storage-abfs-driver.md) est disponible dans tous les environnements Apache Hadoop, y compris [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) *,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index) et [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) pour accéder aux données stockées dans Data Lake Storage Gen2.
 
 -   **Surensemble d’autorisations POSIX** : Le modèle de sécurité pour Data Lake Gen2 prend en charge les autorisations ACL et POSIX, ainsi que certaines granularités supplémentaires spécifiques à Data Lake Storage Gen2. Les paramètres peuvent être configurés via l’Explorateur Stockage ou des infrastructures telles que Hive et Spark.
 
 -   **Rentabilité** : Data Lake Storage Gen2 offre une capacité de stockage et des transactions à bas coût. Tout au long du cycle de vie des données, les taux de facturation changent pour maintenir les coûts au minimum par le biais de fonctionnalités intégrées comme le [cycle de vie du Stockage Blob Azure](storage-lifecycle-management-concepts.md).
 
--   **Pilote optimisé** : Le pilote ABFS est [optimisé spécifiquement](data-lake-storage-abfs-driver.md) pour l’analytique des données volumineuses. Les API REST correspondantes sont exposés via le point de terminaison `dfs.core.windows.net`.
+-   **Pilote optimisé** : Le pilote ABFS est [optimisé spécifiquement](data-lake-storage-abfs-driver.md) pour l’analytique Big Data. Les API REST correspondantes sont exposées par le biais du point de terminaison `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Extensibilité
 
@@ -64,7 +64,7 @@ Les éléments suivants sont des entités équivalentes, décrites par différen
 | Concept                                | Organisation de niveau supérieur | Organisation de niveau inférieur                                            | Conteneur de données |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Objets BLOB – Stockage d’objets à usage général | Conteneur              | Répertoire virtuel (Kit de développement logiciel uniquement – ne fournit aucune manipulation atomique) | Blob           |
-| ADLS Gen2 – Stockage de l’analytique          | Système de fichiers             | Répertoire                                                           | Fichier           |
+| ADLS Gen2 – Stockage de l’analytique          | Conteneur            | Répertoire                                                           | Fichier           |
 
 ## <a name="supported-open-source-platforms"></a>Plateformes open source prises en charge
 

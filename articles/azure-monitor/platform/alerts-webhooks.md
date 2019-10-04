@@ -9,11 +9,11 @@ ms.date: 04/03/2017
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465664"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60345774"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Recevoir une alerte de métrique classique pour notifier un système non-Azure à l’aide d’un webhook
 Les Webhooks permettent de rediriger une notification d’alerte Azure vers d’autres systèmes pour effectuer un post-traitement ou des actions personnalisées. Vous pouvez utiliser un Webhook sur une alerte pour rediriger cette dernière vers des services qui envoient des SMS, consignent des bogues, avertissent une équipe dans des services de conversation instantanée/messagerie ou effectuent d’autres actions. 
@@ -73,9 +73,9 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 |:--- |:--- |:--- |:--- |
 | status |O |Activated, Resolved |État de l’alerte en fonction des conditions que vous avez définies. |
 | context |O | |Contexte de l’alerte. |
-|  timestamp |O | |Heure à laquelle l’alerte a été déclenchée. |
+| timestamp |O | |Heure à laquelle l’alerte a été déclenchée. |
 | id |O | |Chaque règle d’alerte possède un ID unique. |
-| Nom |O | |Nom de l’alerte. |
+| name |O | |Nom de l’alerte. |
 | description |O | |Description de l’alerte. |
 | conditionType |O |Metric, Event |Deux types d’alertes sont pris en charge : métrique et événement. Les alertes de métrique sont basées sur une condition de métrique. Les alertes d’événement sont basées sur un événement dans le journal d’activité. Utilisez cette valeur pour vérifier si l’alerte est basée sur une métrique ou sur un événement. |
 | condition |O | |Champs à vérifier en fonction de la valeur **conditionType**. |
@@ -87,10 +87,10 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 | timeAggregation |Pour les alertes de métrique |Average, Last, Maximum, Minimum, None, Total |Détermine la façon dont les données collectées doivent être combinées au fil du temps. La valeur par défaut est Average. Consultez les [valeurs autorisées](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx). |
 | operator |Pour les alertes de métrique | |Opérateur utilisé pour la comparaison des données de métrique actuelles au seuil défini. |
 | subscriptionId |O | |L’ID d’abonnement Azure. |
-| nom_groupe_ressources |O | |Nom du groupe de ressources de la ressource affectée. |
+| resourceGroupName |O | |Nom du groupe de ressources de la ressource affectée. |
 | resourceName |O | |ID de la ressource affectée. |
 | resourceType |O | |Type de la ressource affectée. |
-| ResourceId |O | |ID de la ressource affectée. |
+| resourceId |O | |ID de la ressource affectée. |
 | resourceRegion |O | |Région ou emplacement de la ressource affectée. |
 | portalLink |O | |Lien direct vers la page de résumé de la ressource sur le portail. |
 | properties |N |Facultatif |Ensemble de paires clé/valeur contenant les détails de l’événement. Par exemple : `Dictionary<String, String>`. Le champ properties est facultatif. Dans un workflow basé sur une application logique ou une interface utilisateur personnalisée, les utilisateurs peuvent entrer des paires clé/valeur transmissibles par le biais de la charge utile. Une autre manière de transmettre des propriétés personnalisées au Webhook consiste à utiliser l’URI du Webhook (sous la forme de paramètres de requête). |

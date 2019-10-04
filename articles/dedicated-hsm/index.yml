@@ -1,65 +1,52 @@
-### YamlMime:YamlDocument
-ms.openlocfilehash: 6acffc5056f916f2e05c7a0fd3eb325fd89a9e4b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117049"
-documentType: LandingData
-title: Documentation du module de sécurité matériel (HSM) dédié Azure
+### YamlMime:Landing
+title: Documentation Azure Dedicated HSM
+summary: Apprenez à utiliser Azure Dedicated HSM pour créer et gérer des clés d’accès et de chiffrement pour vos ressources, applications et solutions cloud. Tutoriels, informations de référence sur les API et plus.
 metadata:
-  title: Documentation du module de sécurité matériel (HSM) dédié Azure - Didacticiels, informations de référence sur les API | Microsoft Docs
-  meta.description: Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  title: Documentation Azure Dedicated HSM
+  description: Apprenez à utiliser Azure Dedicated HSM pour créer et gérer des clés d’accès et de chiffrement pour vos ressources, applications et solutions cloud. Tutoriels, informations de référence sur les API et plus.
   services: dedicated-hsm
-  author: barclayn
-  manager: barbkess
-  layout: LandingPage
-  ms.assetid: 
   ms.service: dedicated-hsm
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/21/2018
-  ms.author: barclayn
-abstract:
-  description: Découvrez les fonctionnalités du module HSM dédié et son application à votre environnement.
-sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/dedicated-hsm/overview
-      html: <p>Découvrez tout ce qu’il y a à savoir sur le module HSM dédié Azure.</p>
-      image:
-        src: media/index/hsm.svg
-      title: Vue d’ensemble du module HSM dédié
-    - href: /azure/dedicated-hsm/faq
-      html: <p>Considérations de conception lors de l’utilisation de HSM dédié</p>
-      image:
-        src: media/index/guide.svg
-      title: Choix de l’architecture de déploiement
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: ''
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/cli.svg
-      text: Azure CLI
-      href: /azure/dedicated-hsm/tutorial-deploy-hsm-cli
-    - image:
-        src: media/index/logo_powershell.svg
-      text: PowerShell
-      href: /azure/dedicated-hsm/tutorial-deploy-hsm-powershell
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Forum Aux Questions
-      html: <p><a href="/azure/dedicated-hsm/faq/">Forum Aux Questions</a></p>
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 09/19/2019
+  ms.openlocfilehash: 9e592fdb5fa87487f131bb0aca0c6176175e5385
+  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71300100"
+landingContent:
+- title: À propos de Dedicated HSM
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation de Dedicated HSM
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Haute disponibilité
+      url: high-availability.md
+    - text: Sécurité physique
+      url: physical-security.md
+    - text: Mise en réseau
+      url: networking.md
+    - text: Prise en charge
+      url: supportability.md
+    - text: Surveillance
+      url: monitoring.md
+- title: Prise en main
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Déploiement sur un réseau virtuel avec Azure CLI
+      url: tutorial-deploy-hsm-cli.md
+    - text: Déploiement sur un réseau virtuel avec Azure PowerShell
+      url: tutorial-deploy-hsm-powershell.md
+- title: Scénarios
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Architecture de déploiement Azure Dedicated HSM
+      url: deployment-architecture.md

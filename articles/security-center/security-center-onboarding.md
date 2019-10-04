@@ -3,23 +3,22 @@ title: Intégration d’Azure Security Center Standard pour une sécurité renfo
 description: " Apprenez à intégrer Azure Security Center Standard pour une sécurité renforcée. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 19/02/2019
-ms.author: monhaber
-ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.date: 02/19/2019
+ms.author: memildin
+ms.openlocfilehash: 7448516e464a379e27abd45834b31760fca3fedd
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665489"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201854"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Intégration d’Azure Security Center Standard pour une sécurité renforcée
 Effectuez la mise à niveau vers Security Center Standard pour tirer profit d’une gestion de la sécurité et d’une protection contre les menaces renforcées pour vos charges de travail cloud hybrides.  Vous pouvez essayer gratuitement le niveau Standard. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -33,7 +32,7 @@ Security Center Standard inclut :
 ## <a name="detecting-unprotected-resources"></a>Détection des ressources non protégées     
 Security Center détecte automatiquement les abonnements Azure ou les espaces de travail dans lesquels Security Center Standard n’est pas activé. Cela inclut les abonnements Azure utilisant Security Center Gratuit et les espaces de travail dans lesquels la solution de sécurité n’est pas activée.
 
-Vous pouvez mettre à niveau un abonnement Azure entier vers le niveau Standard, qui est hérité par toutes les ressources prises en charge dans l’abonnement. Application de la norme de couche à un espace de travail s’applique à toutes les ressources associées à l’espace de travail.
+Vous pouvez mettre à niveau un abonnement Azure entier vers le niveau Standard, qui est hérité par toutes les ressources prises en charge dans l’abonnement. L’application du niveau Standard à un espace de travail concerne toutes les ressources associées à l’espace de travail.
 
 > [!NOTE]
 > Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents. Le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) vous permet d’appliquer une étendue à la solution et de cibler un sous-ensemble d’ordinateurs dans l’espace de travail.  Si vous utilisez le ciblage de solution, Security Center répertorie l’espace de travail comme n’ayant pas de solution.
@@ -53,7 +52,7 @@ Pour mettre à niveau un abonnement ou un espace de travail vers Standard :
 
 
    > [!NOTE]
-   > Les fonctionnalités gratuites de Security Center sont appliquées à vos machines virtuelles Azure et les VMSS uniquement. Les fonctionnalités du niveau Gratuit ne sont pas appliquées aux ordinateurs autres qu’Azure. Si vous sélectionnez Standard, les fonctionnalités Standard sont appliquées à toutes les machines virtuelles Azure identiques de machines virtuelles et ordinateurs non Azure à l’espace de travail. Nous vous conseillons d’appliquer le niveau Standard pour offrir une sécurité avancée à vos ressources Azure et autres qu’Azure.
+   > Les fonctionnalités du niveau Gratuit de Security Center sont appliquées à vos machines virtuelles Azure et VMSS uniquement. Les fonctionnalités du niveau Gratuit ne sont pas appliquées aux ordinateurs autres qu’Azure. Si vous sélectionnez le niveau Standard, les fonctionnalités du niveau Standard sont appliquées à toutes les machines virtuelles Azure, tous les groupes identiques de machines virtuelles et à tous les ordinateurs autres qu’Azure associés à l’espace de travail. Nous vous conseillons d’appliquer le niveau Standard pour offrir une sécurité avancée à vos ressources Azure et autres qu’Azure.
    >
    >
 
@@ -94,7 +93,7 @@ Vous pouvez ajouter un ordinateur en suivant le flux de travail du panneau **Int
 
 1. Revenez au menu principal de Security Center et au tableau de bord **Vue d’ensemble**.
 
-   ![Présentation][5]
+   ![Vue d'ensemble][5]
 
 2. Sélectionnez **Compute et applications**.
 3. Sous **Compute et applications**, sélectionnez **Ajouter des ordinateurs**.

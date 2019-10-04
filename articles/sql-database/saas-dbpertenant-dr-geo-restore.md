@@ -8,16 +8,15 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: AyoOlubeko
-ms.author: ayolubek
+ms.author: craigg
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c8990e5183d09e8f530fdef952a80a09104d3617
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116773"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570492"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utiliser la géorestauration pour récupérer une application SaaS multilocataire à partir de sauvegardes de bases de données
 
@@ -60,7 +59,7 @@ La récupération d’urgence est un élément important à prendre en compte po
 > [!NOTE]
 > L’application est récupérée dans la région jumelée à celle dans laquelle l’application est déployée. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
 
-Ce didacticiel utilise les fonctionnalités d’Azure SQL Database et la plateforme Azure pour effectuer ces tâches :
+Ce tutoriel utilise les fonctionnalités Azure SQL Database et la plateforme Azure pour effectuer ces tâches :
 
 * [Modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) pour réserver toute la capacité nécessaire aussi rapidement que possible. Les modèles Azure Resource Manager sont utilisés pour provisionner une image miroir des serveurs et pools élastiques d’origine dans la région de récupération. Un serveur et un pool distincts sont également créés pour le provisionnement de nouveaux locataires.
 * [Bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md) (EDCL) pour créer et tenir à jour un catalogue de bases de données de locataire. Le catalogue augmenté inclut des informations de configuration de pool et de base de données régulièrement actualisées.
@@ -80,7 +79,7 @@ Les scripts de reprise d’activité utilisés dans ce tutoriel sont disponibles
 ## <a name="review-the-healthy-state-of-the-application"></a>Examiner l’état d’intégrité de l’application
 Avant de lancer le processus de récupération, examinez l’état d’intégrité normale de l’application.
 
-1. Dans votre navigateur web, ouvrez le hub d’événements Wingtip Tickets (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net, remplacez &lt;user&gt; par la valeur d’utilisateur de votre déploiement).
+1. Dans votre navigateur web, ouvrez le hub d’événements Wingtip Tickets (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net, remplacez &lt; user&gt; par la valeur d’utilisateur de votre déploiement).
     
    Faites défiler la page vers le bas et notez le nom et l’emplacement du serveur de catalogue dans le pied de page. L’emplacement correspond à la région dans laquelle vous avez déployé l’application.    
 
@@ -200,7 +199,7 @@ Pendant que le point de terminaison de l’application est désactivé dans Traf
  
     ![Processus de récupération](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * Si vous ouvrez la page Événements d’un locataire directement alors qu’il est hors connexion, la page présente une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall.
+  * Si vous ouvrez la page Événements d’un locataire directement alors qu’il est hors connexion, la page présente une notification indiquant que le locataire est hors connexion. Par exemple, si Contoso Concert Hall est hors connexion, essayez d’ouvrir http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Processus de récupération](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -266,7 +265,7 @@ Cette tâche permet de mettre à jour l’une des bases de données de locataire
 
 3. Appuyez sur F5 pour exécuter le script.
 
-4. Actualisez la page des événements de Contoso Concert Hall (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall) et remarquez que l’événement Seriously Strauss est manquant.
+4. Actualisez la page des événements de Contoso Concert Hall (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall) et remarquez que l’événement Seriously Strauss est manquant.
 
 À ce stade du tutoriel, vous avez récupéré l’application, qui est à présent en cours d’exécution dans la région de récupération. Vous avez provisionné un nouveau locataire dans la région de récupération et modifié les données de l’un des locataires restaurés.  
 
@@ -330,7 +329,7 @@ Si vous avez suivi le tutoriel, le script réactive immédiatement Fabrikam Jazz
 
     Appuyez sur F5 pour exécuter le script de récupération dans une nouvelle fenêtre PowerShell. Le rapatriement prend plusieurs minutes, et vous pouvez le surveiller dans la fenêtre PowerShell.
 
-3. Pendant l’exécution du script, actualisez la page du hub d’événements (http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net).
+3. Pendant l’exécution du script, actualisez la page du hub d’événements (http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net).
 
     Remarquez que tous les locataires sont en ligne et accessibles pendant ce processus.
 
@@ -369,7 +368,7 @@ Dans ce tutoriel, vous avez appris à :
 > [!div class="checklist"]
 > 
 > * Utiliser le catalogue de locataire pour conserver régulièrement les informations de configuration actualisées, et ainsi créer un environnement de récupération d’image miroir dans une autre région.
-> * Récupérer des bases de données SQL Azure dans la région de récupération en utilisant la géorestauration.
+> * Récupérer des bases de données Azure SQL dans la région de récupération en utilisant la géorestauration.
 > * Mettre à jour le catalogue de locataire pour refléter les emplacements de bases de données de locataire restaurées. 
 > * Utiliser un alias DNS pour permettre à une application de se connecter au catalogue de locataire sans reconfiguration.
 > * Utiliser la géoréplication pour rapatrier des bases de données récupérées dans leur région d’origine après la résolution d’une panne.

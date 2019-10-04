@@ -3,23 +3,18 @@ title: Application Node.js avec Socket.IO - Azure
 description: Découvrez comment utiliser socket.io dans une application node.js hébergée sur Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: jeconnoc
-ms.openlocfilehash: cd0bceae770182e778410d8065d34dfeed055acc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: bbeaacd4c7028905e279dd5dc421414f4eafae54
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993256"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306762"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure
 
@@ -74,7 +69,7 @@ Pour ce projet, nous allons utiliser un exemple de conversation instantanée obt
 Avant de tester l'application dans l'émulateur Azure, nous allons apporter quelques modifications mineures. Procédez comme suit avec le fichier server.js :
 
 1. Ouvrez le fichier **server.js** dans Visual Studio ou un éditeur de texte.
-2. Recherchez la section **Module dependencies** située au début du fichier server.js, puis remplacez la ligne contenant **sio = require('..//..//lib//socket.io')** par **sio = require('socket.io')**, comme indiqué ci-dessous :
+2. Recherchez la section **Module dependencies** située au début du fichier server.js, puis remplacez la ligne contenant **sio = require('..//..//lib//socket.io')** par **sio = require('socket.io')** , comme indiqué ci-dessous :
    
        var express = require('express')
          , stylus = require('stylus')
@@ -109,11 +104,11 @@ Après avoir enregistré vos modifications dans le fichier **server.js**, procé
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > Si vous rencontrez des problèmes avec le lancement de l’émulateur, par ex. : Start-AzureEmulator : Une erreur inattendue s’est produite.  Détails : A rencontré une erreur inattendue l’objet de communication System.ServiceModel.Channels.ServiceChannel ne peut pas être utilisée pour la communication car il est dans l’état Faulted.
+   > Si vous rencontrez des problèmes lors du lancement de l'émulateur, par exemple : Start-AzureEmulator : Une défaillance inattendue s'est produite.  Détails : une erreur inattendue s'est produite. L'objet de communication System.ServiceModel.Channels.ServiceChannel ne peut pas être utilisé pour la communication car son état est Faulted.
    > 
-   > Réinstallez AzureAuthoringTools v 2.7.1 et AzureComputeEmulator v 2.7 : Assurez-vous que la version correspond.
+   > Réinstallez AzureAuthoringTools v 2.7.1 et AzureComputeEmulator v 2.7 : assurez-vous que la version correspond.
 
-2. Ouvrez un navigateur et accédez à **http://127.0.0.1**.
+2. Ouvrez un navigateur et accédez à **http://127.0.0.1** .
 3. À l'ouverture de la fenêtre du navigateur, entrez un pseudonyme, puis appuyez sur Entrée.
    Vous pouvez ainsi publier des messages sous un pseudonyme spécifique. Pour tester la fonctionnalité multi-utilisateurs, ouvrez d'autres fenêtres du navigateur en utilisant la même URL et en entrant différents pseudonymes.
    
@@ -121,7 +116,7 @@ Après avoir enregistré vos modifications dans le fichier **server.js**, procé
 4. Une fois le test de l'application terminé, arrêtez l'émulateur en exécutant la commande suivante :
    
        PS C:\node\chatapp\WorkerRole1> Stop-AzureEmulator
-5. Pour déployer l'application dans Azure, utilisez la cmdlet **Publish-AzureServiceProject** . Par exemple : 
+5. Pour déployer l'application dans Azure, utilisez la cmdlet **Publish-AzureServiceProject** . Par exemple :
    
        PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
    
@@ -149,7 +144,7 @@ Votre application s'exécute à présent dans Azure, et peut transmettre des mes
 ## <a name="next-steps"></a>Étapes suivantes
 Ce didacticiel vous a montré comment créer une application de conversation instantanée de base, hébergée dans un service cloud Azure. Pour plus d’informations sur l’hébergement de cette application sur un site web Azure, consultez la page [Création d’une application de conversation instantanée Node.js avec Socket.IO sur un site web Azure][chatwebsite].
 
-Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
+Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js](https://docs.microsoft.com/azure/javascript/).
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 

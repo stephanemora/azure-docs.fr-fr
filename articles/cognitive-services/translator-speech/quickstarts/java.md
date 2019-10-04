@@ -3,20 +3,20 @@ title: 'Démarrage rapide : API de traduction de conversation Translator Speech
 titlesuffix: Azure Cognitive Services
 description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API de traduction de conversation Translator Speech.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b9cf9a5e60ff5f66a3956170b4f5fb41d4b6d66c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bdf207fadd71d843e4ee72a645e787d3d50c12f5
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551039"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966425"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Démarrage rapide : API de traduction de conversation Translator Speech avec Java
 <a name="HOLTop"></a>

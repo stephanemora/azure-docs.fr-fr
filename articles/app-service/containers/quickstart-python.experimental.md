@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a386924be2f82aadafeaccbeadc68e5e27404855
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 08b1b85b980f992e799fc5198891290ec0d55c5d
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546329"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070998"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Créer une application Python dans Azure App Service sur Linux (préversion)
 
@@ -41,7 +40,7 @@ Dans Cloud Shell, créez un répertoire de démarrage rapide, puis utilisez-le.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Exécutez ensuite la commande suivante pour cloner le référentiel de l’exemple d’application sur votre répertoire de démarrage rapide.
@@ -64,7 +63,7 @@ Checking connectivity... done.
 
 Passez au répertoire qui contient l’exemple de code et exécutez la commande `az webapp up`.
 
-Dans l’exemple suivant, remplacez <nom de l’application> par un nom d’application unique.
+Dans l’exemple suivant, remplacez *\<app_name>* par un nom d’application unique (les caractères autorisés sont `a-z`, `0-9` et `-`).
 
 ```bash
 cd python-docs-hello-world
@@ -165,7 +164,7 @@ Le menu de gauche fournit différentes pages vous permettant de configurer votre
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’image Python intégrée dans App Service sur Linux est actuellement en version préliminaire, et vous pouvez personnaliser la commande utilisée pour démarrer votre application. Pour créer des applications Python de production, vous pouvez également utiliser un conteneur personnalisé à la place.
+L’image Python intégrée à App Service sur Linux est actuellement en préversion, et vous pouvez personnaliser la commande utilisée pour démarrer votre application. Pour créer des applications Python de production, vous pouvez également utiliser un conteneur personnalisé à la place.
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Application Python avec PostgreSQL](tutorial-python-postgresql-app.md)

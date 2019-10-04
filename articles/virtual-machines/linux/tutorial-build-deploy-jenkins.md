@@ -6,21 +6,20 @@ manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42e1ede7c762fef1f33436ea4c757b0c0531a8f2
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901421"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828423"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutoriel : Déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Didacticiel : Déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Services
 
 L’intégration continue (CI) et le déploiement continu (CD) constituent un pipeline via lequel vous pouvez générer, mettre en production et déployer votre code. Azure DevOps Services fournit un ensemble complet d’outils d’automatisation CI/CD pour le déploiement sur Azure. Jenkins est un outil serveur CI/CD tiers populaire qui propose également l’automatisation CI/CD. Vous pouvez utiliser Azure DevOps Services et Jenkins ensemble pour personnaliser la façon dont vous proposez votre service ou application cloud.
 
@@ -55,7 +54,7 @@ dans un [groupe de déploiement](https://docs.microsoft.com/azure/devops/pipelin
 ## <a name="get-the-sample-app"></a>Obtenir l’exemple d’application
 
 Vous devez déployer une application, stockée dans un dépôt Git.
-Pour ce didacticiel, nous vous recommandons d’utiliser [cet exemple d’application disponible sur GitHub](https://github.com/azooinmyluggage/fabrikam-node). Ce didacticiel contient un exemple de script qui est utilisé pour l’installation de Node.js et d’une application. Si vous souhaitez utiliser votre propre dépôt, vous devez configurer un exemple similaire.
+Pour ce didacticiel, nous vous recommandons d’utiliser [cet exemple d’application disponible sur GitHub](https://github.com/azure-devops/fabrikam-node). Ce didacticiel contient un exemple de script qui est utilisé pour l’installation de Node.js et d’une application. Si vous souhaitez utiliser votre propre dépôt, vous devez configurer un exemple similaire.
 
 Dupliquez cette application et notez son emplacement (URL) pour pouvoir l’utiliser ultérieurement dans ce didacticiel. Pour plus d’informations, consultez [Fork a repo](https://help.github.com/articles/fork-a-repo/) (Dupliquer un dépôt).    
 
@@ -133,7 +132,7 @@ Vous avez besoin d’un [groupe de déploiement](https://www.visualstudio.com/do
 
 1. Ouvrez l’onglet **Mises en production** du hub **Build &amp; mise en production**, ouvrez **Groupes de déploiement** et sélectionnez **+ Nouveau**.
 2. Entrez un nom pour le groupe de déploiement, et éventuellement une description. Sélectionnez ensuite **Créer**.
-3. Sélectionnez le système d’exploitation pour votre machine virtuelle cible de déploiement. Par exemple, sélectionnez **Ubuntu 16.04+**.
+3. Sélectionnez le système d’exploitation pour votre machine virtuelle cible de déploiement. Par exemple, sélectionnez **Ubuntu 16.04+** .
 4. Sélectionnez **Utiliser un jeton d’accès personnel dans le script pour l’authentification**.
 5. Sélectionnez le lien **Prérequis système**. Installez les composants requis pour votre système d’exploitation.
 6. Sélectionnez **Copier le script dans le Presse-papiers** pour copier le script.
@@ -166,7 +165,7 @@ Pour créer le pipeline de mise en production dans Azure Pipelines :
 2. Sélectionnez la build que vous avez générée dans la liste déroulante en surbrillance, puis sélectionnez **File d’attente**.
 3. Dans le message qui s’affiche, sélectionnez le lien de la mise en production. Par exemple :  « Mise en production **Mise en production-1** a été créé. »
 4. Ouvrez l’onglet **Journaux d’activité** pour surveiller la sortie de console de mise en production.
-5. Dans votre navigateur, ouvrez l’URL de l’un des serveurs que vous avez ajoutés à votre groupe de déploiement. Par exemple, entrez **http://{adresse-ip-de-votre-serveur}**.
+5. Dans votre navigateur, ouvrez l’URL de l’un des serveurs que vous avez ajoutés à votre groupe de déploiement. Par exemple, entrez **http://{adresse-ip-de-votre-serveur}** .
 6. Accédez au dépôt Git source et modifiez le contenu du titre **h1** dans le fichier app/views/index.jade en apportant quelques corrections au texte.
 7. Validez votre modification.
 8. Après quelques minutes, vous verrez une nouvelle mise en production sur la page **Mises en production** d’Azure DevOps. Ouvrez la mise en production pour voir le déploiement en action. Félicitations !

@@ -1,25 +1,18 @@
 ---
-title: Publier une offre | Microsoft Docs
+title: Publier une offre | Place de marché Microsoft Azure
 description: API permettant de publier l’offre spécifiée.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cb1293a771a137f4df7e36a2b412f68b384f16ef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 117a4e5e238e754524ff813ce25ebc1105e2153c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806729"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64934974"
 ---
 <a name="publish-an-offer"></a>Publication d’une offre
 ================
@@ -33,7 +26,7 @@ Démarre le processus de publication pour l’offre spécifiée. Cet appel est u
 
 |  **Nom**      |    **Description**                               |  **Type de données** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherid   | Identificateur du serveur de publication, par exemple `contoso`      |   Chaîne       |
+|  publisherId   | Identificateur du serveur de publication, par exemple `contoso`      |   Chaîne       |
 |  offerId       | Identificateur de l’offre                                 |   Chaîne       |
 |  api-version   | Version la plus récente de l’API                        |   Date         |
 |  |  |

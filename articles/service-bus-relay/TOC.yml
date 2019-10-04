@@ -1,6 +1,6 @@
 - name: Documentation Service Bus Relay
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que Relay\_?"
       href: relay-what-is-it.md
@@ -32,8 +32,12 @@
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
 - name: Concepts
   items:
-    - name: Authentification et autorisation
-      href: relay-authentication-and-authorization.md
+    - name: Sécurité
+      items:
+        - name: Authentification et autorisation
+          href: relay-authentication-and-authorization.md
+        - name: Contrôles de sécurité intégrés
+          href: service-bus-relay-security-controls.md
     - name: Protocole Connexions hybrides
       href: relay-hybrid-connections-protocol.md
 - name: Procédure
@@ -46,8 +50,6 @@
       items:
         - name: Créer un espace de noms
           href: relay-create-namespace-portal.md
-        - name: Utiliser WCF Relay pour exposer les services WCF aux clients externes
-          href: relay-wcf-dotnet-get-started.md
         - name: API disponibles
           href: relay-api-overview.md
           items:

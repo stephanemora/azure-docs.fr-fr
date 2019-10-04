@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cce4337e3ef95c6407d46d9b8b6401fe4f6600b
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497738"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60576184"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utiliser l’outil de diagnostic StorSimple pour résoudre les problèmes des appareils de la gamme 8000
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 L’outil de diagnostic StorSimple permet de détecter les problèmes liés au système, aux performances, au réseau et à l’intégrité des composants matériels sur un appareil StorSimple. L’outil de diagnostic peut être utilisé dans différents scénarios. Ces scénarios incluent la planification de la charge de travail, le déploiement d’un appareil StorSimple, l’évaluation de l’environnement réseau et la détermination des performances d’un appareil opérationnel. Cet article offre une vue d’ensemble de l’outil de diagnostic et explique comment utiliser cet outil avec un appareil StorSimple.
 

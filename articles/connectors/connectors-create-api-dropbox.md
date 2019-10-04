@@ -6,28 +6,29 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 4e0689454ec074348fcbc775373a48d6825cfac4
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314414"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050974"
 ---
-# <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Charger et gérer les fichiers de Dropbox à l’aide d’Azure Logic Apps
+# <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Charger et gérer les fichiers de Dropbox à l'aide d'Azure Logic Apps
 
-Avec le connecteur Dropbox et les Azure Logic Apps, vous pouvez créer des flux de travail automatisés charger et gérer des fichiers dans votre compte Dropbox. 
+Le connecteur Dropbox et Azure Logic Apps vous permettent de créer des workflows automatisés qui chargent et gèrent les fichiers sur votre compte Dropbox. 
 
-Cet article explique comment se connecter à Dropbox à partir de votre application logique et puis ajouter Dropbox **lorsqu’un fichier est créé** déclencheur et Dropbox **obtenir le contenu du fichier à l’aide du chemin d’accès** action.
+Cet article vous explique comment vous connecter à Dropbox à partir de votre application logique, puis comment ajouter le déclencheur Dropbox **Quand un fichier est créé** et l'action Dropbox **Obtenir le contenu du fichier à l'aide du chemin d'accès**.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* Un [compte Dropbox](https://www.dropbox.com/), laquelle vous pouvez vous inscrire gratuitement. Vos informations d’identification de compte sont nécessaires pour créer une connexion entre votre application logique et votre compte Dropbox.
+* Un [compte Dropbox](https://www.dropbox.com/), que vous pouvez obtenir gratuitement. Les informations d'identification de votre compte sont nécessaires pour établir une connexion entre votre application logique et votre compte Dropbox.
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour cet exemple, vous avez besoin d’une application logique vide.
 
@@ -44,22 +45,22 @@ Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Quand un fic
 
 1. Fournissez les informations requises pour votre déclencheur. 
 
-   Dans cet exemple, sélectionnez le dossier où vous souhaitez effectuer le suivi de la création de fichiers. Pour parcourir vos dossiers, choisissez l’icône de dossier à côté du **dossier** boîte.
+   Dans cet exemple, sélectionnez le dossier dans lequel vous souhaitez effectuer le suivi de la création de fichiers. Pour parcourir vos dossiers, sélectionnez l'icône de dossier en regard de la zone **Dossier**.
 
 ## <a name="add-action"></a>Ajouter une action
 
-Ajoutons maintenant une action qui obtient le contenu à partir de n’importe quel nouveau fichier.
+Ajoutez maintenant une action permettant de récupérer le contenu de tout nouveau fichier.
 
 1. Sous le déclencheur, choisissez **Étape suivante**. 
 
 1. Sous la zone de recherche, choisissez **Tout**. Dans la zone de recherche, entrez « dropbox » comme filtre.
 Dans la liste des actions, sélectionnez cette action : **Obtenir le contenu d’un fichier à l’aide du chemin**
 
-1. Si vous n’avez pas déjà autorisé Azure Logic Apps pour accéder à Dropbox, autorisez un accès maintenant.
+1. Si vous n'avez pas encore autorisé Azure Logic Apps à accéder à Dropbox, faites-le maintenant.
 
-1. Pour rechercher le chemin d’accès de fichier que vous souhaitez utiliser, à côté du **chemin d’accès du fichier** , sélectionnez les points de suspension (**...** ) bouton. 
+1. Pour accéder à l'emplacement que vous souhaitez utiliser, cliquez sur le bouton représentant des points de suspension ( **...** ) en regard de la zone **Chemin d'accès au fichier**. 
 
-   Vous pouvez également cliquer à l’intérieur de la **chemin d’accès du fichier** et dans la liste de contenu dynamique, sélectionnez **chemin d’accès du fichier**, dont la valeur est disponible en tant que sortie à partir du déclencheur que vous avez ajouté dans la section précédente.
+   Vous pouvez également cliquer dans la zone **Chemin d'accès au fichier** puis, dans la liste de contenu dynamique, sélectionner **Chemin d'accès au fichier**, dont la valeur est disponible en tant que sortie du déclencheur que vous avez ajouté à la section précédente.
 
 1. Lorsque vous avez terminé, enregistrez votre application logique.
 
@@ -67,12 +68,7 @@ Dans la liste des actions, sélectionnez cette action : **Obtenir le contenu d�
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, telles que des déclencheurs, actions et limites, comme décrit par OpenAPI du connecteur (anciennement Swagger), consultez le [page de référence du connecteur](/connectors/dropbox/).
-
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/dropbox/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a21b9f45d70151c2a2c2ae8ac6328a3eeb609b29
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: ca534d3ffcfd1d4caeb9cf755934a846fafae26e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883332"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570106"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Application SaaS Wingtip Tickets
 
@@ -26,7 +25,7 @@ La même application *Wingtip Tickets* SaaS est implémentée dans chacun des tr
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>3 modèles d’application SaaS et de clients
 
-Trois versions de l’application sont disponibles, chacune explorant un modèle différent d’architecture mutualisée de base de données sur Azure SQL Database.  Le premier utilise une application autonome par client avec sa propre base de données. La deuxième utilise une application multi-locataire avec une base de données par locataire. La troisième utilise une application multi-locataire avec des bases de données multi-locataires partitionnées.
+Trois versions de l’application sont disponibles, chacune explorant un modèle différent d’architecture multilocataire de base de données sur Azure SQL Database.  Le premier utilise une application autonome par client avec sa propre base de données. La deuxième utilise une application multi-locataire avec une base de données par locataire. La troisième utilise une application multi-locataire avec des bases de données multi-locataires partitionnées.
 
 ![Trois modèles d’architecture mutualisée][image-three-tenancy-patterns]
 

@@ -3,27 +3,26 @@ title: Activation de l’authentification unique entre applications sur Android 
 description: En savoir plus sur l’utilisation des fonctionnalités de votre Kit de développement logiciel (SDK) ADAL pour activer l’authentification unique sur l’ensemble de vos applications.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
-ms.reviewer: dadobali
+ms.author: ryanwi
+ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: eb11a4a926c676d37a0bf6be456e3b831a5d8357
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442169"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65962642"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Activation Activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL
 
@@ -35,11 +34,11 @@ La plateforme d’identité de Microsoft, avec les kits de développement logici
 
 Dans cette procédure, vous allez découvrir comment configurer le Kit de développement logiciel (SDK) dans votre application afin de fournir l’authentification unique à vos clients.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cette procédure suppose que vous savez comment :
 
-- Configurer votre application à l’aide du portail hérité pour Azure Active Directory (Azure AD). Pour plus d’informations, consultez l’article sur l’[inscription d’une application avec le point de terminaison Azure AD v1.0](quickstart-v1-add-azure-ad-app.md)
+- Configurer votre application à l’aide du portail hérité pour Azure Active Directory (Azure AD). Pour plus d’informations, consultez [Inscrire une application](quickstart-register-app.md)
 - Intégrer votre application à [Android SDK Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## <a name="single-sign-on-concepts"></a>Concepts de l’authentification unique
@@ -119,7 +118,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Étape 2 : Établissez un nouvel URI de redirection avec votre schéma d’URL
 
-Afin de garantir que la bonne application reçoit retourné les informations d’identification des jetons, il est nécessaire de s’assurer que l’appel à votre application d’une manière pouvant être vérifiée par le système d’exploitation Android. Le système d’exploitation Android utilise le hachage du certificat dans Google Play Store. Ce hachage du certificat ne peut pas être falsifié par une application non fiable. Avec l’URI de l’application de répartiteur, Microsoft vérifie que les jetons sont retournés à l’application appropriée. Une URI de redirection unique est nécessaire pour être inscrit sur l’application.
+Pour garantir que l’application appropriée reçoit les jetons d’identification retournés, il est nécessaire de respecter la procédure de rappel de votre application pouvant être vérifiée par votre système d’exploitation Android. Le système d’exploitation Android utilise le hachage du certificat dans Google Play Store. Ce hachage du certificat ne peut pas être falsifié par une application non fiable. Avec l’URI de l’application de répartiteur, Microsoft vérifie que les jetons sont retournés à l’application appropriée. Une URI de redirection unique est nécessaire pour être inscrit sur l’application.
 
 Votre URI de redirection doit présenter la forme appropriée suivante :
 

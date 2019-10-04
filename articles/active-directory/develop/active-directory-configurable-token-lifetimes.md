@@ -3,33 +3,34 @@ title: Durées de vie des jetons configurables dans Azure Active Directory | M
 description: Découvrez comment définir les durées de vie des jetons émis par Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/05/2018
-ms.author: celested
-ms.custom: aaddev
+ms.topic: conceptual
+ms.date: 08/22/2019
+ms.author: ryanwi
+ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: f9244dfabef8b13105ef830f9f4543da9cb2cca9
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484541"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70842634"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (préversion)
 
 Vous pouvez spécifier la durée de vie d’un jeton émis par Azure Active Directory (Azure AD). Vous pouvez définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée (plusieurs organisations) ou pour un principal de service spécifique de votre organisation.
 
 > [!IMPORTANT]
-> Après avoir pris en compte les commentaires de nos clients concernant la préversion, nous prévoyons de remplacer cette fonctionnalité par une nouvelle fonctionnalité pour l’accès conditionnel Azure Active Directory.  Une fois la nouvelle fonctionnalité finalisée, cette fonctionnalité sera déconseillée après une période de notification.  Si vous utilisez la stratégie configurable de durée de vie des jetons, préparez-vous à basculer vers la nouvelle fonctionnalité d’accès conditionnel lorsqu’elle sera disponible. 
+> En réponse aux retours des clients au cours de la préversion, nous avons implémenté des [fonctionnalités de gestion des sessions d’authentification](https://go.microsoft.com/fwlink/?linkid=2083106) dans l’accès conditionnel Azure AD. Vous pouvez utiliser cette nouvelle fonctionnalité pour configurer les durées de vie des jetons d’actualisation en définissant la fréquence de connexion. Après le 1er novembre 2019, vous ne pourrez pas utiliser une stratégie de durée de vie de jetons configurable pour configurer des jetons d’actualisation, mais vous pourrez toujours l’utiliser pour configurer des jetons d’accès.
 
 Dans Azure AD, un objet de stratégie représente un ensemble de règles appliquées sur des applications individuelles ou sur toutes les applications d’une organisation. Chaque type de stratégie comporte une structure unique avec un ensemble de propriétés qui sont ensuite appliquées aux objets auxquels elles sont affectées.
 
@@ -39,6 +40,7 @@ Vous pouvez désigner une stratégie comme stratégie par défaut pour votre org
 > La stratégie configurable de durée de vie des jetons n’est pas prise en charge par SharePoint Online.  Même si vous avez la possibilité de créer cette stratégie via PowerShell, SharePoint Online ne reconnaît pas cette stratégie. Reportez-vous au [blog SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) pour en savoir plus sur la configuration des délais d’expiration des sessions inactives.
 >* Par défaut, la durée de vie d’un jeton d’accès SharePoint Online est d’une heure. 
 >* Par défaut, la durée de vie d’un jeton d’actualisation SharePoint Online est de 90 jours.
+
 
 ## <a name="token-types"></a>Types de jetons
 
@@ -65,7 +67,7 @@ Les clients publics ne peuvent pas stocker en toute sécurité un mot de passe c
 Les jetons d’ID sont transmis aux sites web et clients natifs. Les jetons d’ID contiennent des informations de profil sur un utilisateur. Un jeton d’ID est lié à une combinaison spécifique d’utilisateur et de client. Les jetons d’ID sont considérés comme valides jusqu’à leur expiration. En règle générale, une application web fait correspondre la durée de vie de session d’un utilisateur de l’application à la durée de vie du jeton d’ID émis pour l’utilisateur. Vous pouvez ajuster la durée de vie des jetons d’ID pour contrôler la fréquence à laquelle l’application web arrête la session de l’application et demande à l’utilisateur de s’authentifier à nouveau auprès d’Azure AD (en mode silencieux ou interactif).
 
 ### <a name="single-sign-on-session-tokens"></a>Jetons de session d’authentification unique
-Lorsqu’un utilisateur s’authentifie auprès d’Azure AD, une session d’authentification unique (SSO) est établie avec le navigateur de l’utilisateur et Azure AD. Le jeton SSO représente cette session sous la forme d’un cookie. Notez que le jeton de session SSO n’est pas lié à une application cliente/ressource spécifique. Les jetons de session SSO peuvent être révoqués, et leur validité est vérifiée à chaque fois qu’ils sont utilisés.
+Lorsqu’un utilisateur s’authentifie auprès d’Azure AD, une session d’authentification unique (SSO) est établie avec le navigateur de l’utilisateur et Azure AD. Le jeton SSO représente cette session sous la forme d’un cookie. Le jeton de session SSO n’est pas lié à une application cliente/ressource spécifique. Les jetons de session SSO peuvent être révoqués, et leur validité est vérifiée à chaque fois qu’ils sont utilisés.
 
 Azure AD utilise deux types de jetons de session SSO : persistant et non persistant. Les jetons de session persistants sont stockés en tant que cookies persistants par le navigateur. Les jetons de session non persistants sont stockés en tant que cookies de session. (Les cookies de session sont détruits lors de la fermeture du navigateur.) En règle générale, un jeton de session non persistant est stocké. Cependant, quand l’utilisateur sélectionne la case à cocher **Maintenir la connexion** lors de l’authentification, un jeton de session persistant est stocké.
 
@@ -79,14 +81,15 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 ### <a name="configurable-token-lifetime-properties"></a>Propriétés des durées de vie des jetons configurables
 | Propriété | Chaîne de propriété de stratégie | Éléments affectés | Default | Minimale | Maximale |
 | --- | --- | --- | --- | --- | --- |
-| Durée de vie de jeton d’accès |AccessTokenLifetime |Jetons d’accès, jetons d’ID, jetons SAML2 |1 heure |10 minutes |1 jour |
+| Durée de vie de jeton d’accès |AccessTokenLifetime<sup>2</sup> |Jetons d’accès, jetons d’ID, jetons SAML2 |1 heure |10 minutes |1 jour |
 | Délai d’inactivité maximale de jeton d’actualisation |MaxInactiveTime |Jetons d’actualisation |90 jours |10 minutes |90 jours |
 | Âge maximal de jeton d’actualisation à facteur unique |MaxAgeSingleFactor |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 | Âge maximal de jeton d’actualisation multifacteur |MaxAgeMultiFactor |Jetons d’actualisation (pour tous les utilisateurs) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
-| Âge maximal de jeton de session à facteur unique |MaxAgeSessionSingleFactor<sup>2</sup> |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
-| Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor<sup>3</sup> |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
+| Âge maximal de jeton de session à facteur unique |MaxAgeSessionSingleFactor |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
+| Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 
 * <sup>1</sup>Une durée explicite maximale de 365 jours peut être définie pour ces attributs.
+* <sup>2</sup>Pour que le client web Microsoft Teams fonctionne, il est recommandé de définir AccessTokenLifetime sur une valeur supérieure à 15 minutes pour Microsoft Teams.
 
 ### <a name="exceptions"></a>Exceptions
 | Propriété | Éléments affectés | Default |
@@ -103,13 +106,13 @@ Vous pouvez créer, puis affecter une stratégie de durée de vie à une applica
 * Si une stratégie est explicitement affectée au principal de service, elle est appliquée.
 * Si aucune stratégie n’est explicitement affectée au principal de service, une stratégie explicitement affectée à l’organisation parente du principal de service est appliquée.
 * Si aucune stratégie n’est explicitement affectée au principal de service ou à l’organisation, la stratégie affectée à l’application est appliquée.
-* Si aucune stratégie n’a été affectée au principal de service, à l’organisation ou à l’objet d’application, les valeurs par défaut sont appliquées. (Consultez le tableau dans la section [Propriétés des durées de vie des jetons configurables](#configurable-token-lifetime-properties).)
+* Si aucune stratégie n’a été affectée au principal du service, à l’organisation ou à l’objet d’application, les valeurs par défaut sont appliquées. (Consultez le tableau dans la section [Propriétés des durées de vie des jetons configurables](#configurable-token-lifetime-properties).)
 
 Pour plus d’informations sur la relation existant entre les objets de principal de service et d’application, consultez [Objets application et principal du service dans Azure Active Directory](app-objects-and-service-principals.md).
 
 La validité d’un jeton est évaluée lors de son utilisation. C’est la stratégie pourvue de la priorité la plus élevée sur l’application ouverte qui est appliquée.
 
-Tous les intervalles de temps utilisés ici sont mis en forme selon C# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) object - D.HH:MM:SS.  Par conséquent, 80 jours et 30 minutes s’affichent sous la forme `80.00:30:00`.  La première valeur D peut être supprimée si elle est égale à zéro ; 90 minutes deviennent alors `00:90:00`.  
+Tous les intervalles de temps utilisés ici sont mis en forme selon C# [TimeSpan](/dotnet/api/system.timespan) object - D.HH:MM:SS.  Par conséquent, 80 jours et 30 minutes s’affichent sous la forme `80.00:30:00`.  La première valeur D peut être supprimée si elle est égale à zéro ; 90 minutes deviennent alors `00:90:00`.  
 
 > [!NOTE]
 > Voici un scénario d’exemple.
@@ -201,7 +204,7 @@ Dans les exemples, vous pouvez apprendre à :
 * Créer une stratégie pour une application native qui appelle une API web
 * Gérer une stratégie avancée
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Dans les exemples suivants, vous allez créer, mettre à jour, lier et supprimer des stratégies pour les applications, les principaux de service et votre organisation globale. Si vous débutez avec Azure AD, nous vous recommandons de vous documenter sur [l’obtention d’un client Azure Active Directory](quickstart-create-new-tenant.md) avant de continuer avec ces exemples.  
 
 Pour commencer, suivez les étapes ci-dessous :
@@ -224,7 +227,7 @@ Dans cet exemple, vous allez créer une stratégie qui permet à vos utilisateur
 
 1. Créez une stratégie de durée de vie des jetons.
 
-    1.  Définissez le jeton d’actualisation à facteur unique sur « Jusqu’à révocation ». Le jeton n’expire pas tant que l’accès n’est pas révoqué. Créez la définition de stratégie suivante :
+    1. Définissez le jeton d’actualisation à facteur unique sur « Jusqu’à révocation ». Le jeton n’expire pas tant que l’accès n’est pas révoqué. Créez la définition de stratégie suivante :
 
         ```powershell
         @('{
@@ -236,16 +239,16 @@ Dans cet exemple, vous allez créer une stratégie qui permet à vos utilisateur
         }')
         ```
 
-    2.  Pour créer la stratégie, exécutez la commande suivante :
+    2. Pour créer la stratégie, exécutez la commande suivante :
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3.  Pour afficher votre nouvelle stratégie et obtenir son **ID d’objet**, exécutez la commande ci-après :
+    3. Pour afficher votre nouvelle stratégie et obtenir son **ID d’objet**, exécutez la commande ci-après :
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Mettez à jour la stratégie.
@@ -253,7 +256,7 @@ Dans cet exemple, vous allez créer une stratégie qui permet à vos utilisateur
     Vous pouvez décider que la première stratégie que vous définissez dans cet exemple n’est pas aussi stricte que ce que votre service requiert. Pour définir votre jeton d’actualisation à facteur unique de façon qu’il expire dans deux jours, exécutez la commande suivante :
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>Exemple : Créer une stratégie de connexion web
@@ -264,88 +267,98 @@ Dans cet exemple, vous créez une stratégie qui nécessite que vos utilisateurs
 
     Cette stratégie de connexion web définit la durée de vie des jetons d’accès/ID et l’âge maximal de jeton de session à facteur unique sur 2 heures.
 
-    1.  Pour créer la stratégie, exécutez la commande suivante :
+    1. Pour créer la stratégie, exécutez la commande suivante :
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  Pour afficher votre nouvelle stratégie et obtenir son **ID d’objet**, exécutez la commande ci-après :
+    2. Pour afficher votre nouvelle stratégie et obtenir son **ID d’objet**, exécutez la commande ci-après :
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2.  Affectez la stratégie au principal de service. Vous devez également obtenir **l’ID d’objet** de votre principal de service. 
+2. Affectez la stratégie au principal de service. Vous devez également obtenir **l’ID d’objet** de votre principal de service.
 
-    1.  Pour afficher tous les principaux de service de votre organisation, vous pouvez interroger [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Vous pouvez par ailleurs effectuer des tests dans [l’Afficheur Azure AD Graph](https://graphexplorer.azurewebsites.net/) et [l’Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) avec votre compte Azure AD.
-
-    2.  Une fois que vous disposez de **l’ID d’objet**  de votre principal de service, exécutez la commande suivante :
-
+    1. Utilisez la cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) pour afficher tous les principaux de service de votre organisation ou un seul principal de service.
         ```powershell
-        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
+    2. Une fois que vous disposez du principal du service, exécutez la commande suivante :
+        ```powershell
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
 
 ### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Exemple : Créer une stratégie pour une application native qui appelle une API web
 Dans cet exemple, vous créez une stratégie qui nécessite que vos utilisateurs s’authentifient moins fréquemment. La stratégie augmente également la durée pendant laquelle un utilisateur peut être inactif avant d’avoir à s’authentifier de nouveau. La stratégie est appliquée à l’API web. Lorsque l’application native demande l’API web en tant que ressource, cette stratégie est appliquée.
 
 1. Créez une stratégie de durée de vie des jetons.
 
-    1.  Pour créer une stratégie stricte pour une API web, exécutez la commande suivante :
+    1. Pour créer une stratégie stricte pour une API web, exécutez la commande suivante :
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  Pour afficher votre nouvelle stratégie et obtenir son **ID d’objet**, exécutez la commande ci-après :
+    2. Pour afficher votre nouvelle stratégie, exécutez la commande suivante :
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Affectez la stratégie à votre API web. Vous devez également obtenir **l’ID d’objet** de votre application. La meilleure façon de trouver **l’ID d’objet** de votre application consiste à utiliser le [portail Azure](https://portal.azure.com/).
+2. Affectez la stratégie à votre API web. Vous devez également obtenir **l’ID d’objet** de votre application. Utilisez la cmdlet [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) pour trouver l’**ObjectId** de votre application, ou utilisez le [portail Azure](https://portal.azure.com/).
 
-   Une fois que vous disposez de **l’ID d’objet**  de votre application, exécutez la commande suivante :
+    Obtenez l’**ObjectId** de votre application et assignez la stratégie :
 
-        ```powershell
-        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
-        ```
+    ```powershell
+    # Get the application
+    $app = Get-AzureADApplication -Filter "DisplayName eq 'Fourth Coffee Web API'"
 
+    # Assign the policy to your web API.
+    Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
+    ```
 
 ### <a name="example-manage-an-advanced-policy"></a>Exemple : Gérer une stratégie avancée
-Dans cet exemple, vous créez quelques stratégies, pour savoir comment fonctionne le système de priorité. Vous pouvez également apprendre à gérer plusieurs stratégies qui sont appliquées à divers objets.
+Dans cet exemple, vous créez quelques stratégies, pour savoir comment fonctionne le système de priorité. Vous apprenez également à gérer plusieurs stratégies qui sont appliquées à divers objets.
 
 1. Créez une stratégie de durée de vie des jetons.
 
-    1.  Pour créer une stratégie par défaut d’organisation qui définit la durée de vie des jetons d’actualisation à facteur unique sur 30 jours, exécutez la commande suivante :
+    1. Pour créer une stratégie par défaut d’organisation qui définit la durée de vie des jetons d’actualisation à facteur unique sur 30 jours, exécutez la commande suivante :
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2.  Pour afficher votre nouvelle stratégie et obtenir son **ID d’objet**, exécutez la commande ci-après :
+    2. Pour afficher votre nouvelle stratégie, exécutez la commande suivante :
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Affectez la stratégie à un principal de service.
 
     À présent, vous avez une stratégie qui s’applique à toute l’organisation. Vous souhaitez peut-être conserver cette stratégie de 30 jours pour un principal de service spécifique, mais changer la stratégie par défaut d’organisation pour qu’elle soit la limite supérieure du paramètre « Jusqu’à révocation ».
 
-    1.  Pour afficher tous les principaux de service de votre organisation, vous pouvez interroger [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Vous pouvez par ailleurs effectuer des tests dans [l’Afficheur Azure AD Graph](https://graphexplorer.azurewebsites.net/) et [l’Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) avec votre compte Azure AD.
+    1. Pour afficher tous les principaux de service de votre organisation, utilisez la cmdlet [Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal).
 
-    2.  Une fois que vous disposez de **l’ID d’objet**  de votre principal de service, exécutez la commande suivante :
+    2. Une fois que vous disposez du principal du service, exécutez la commande suivante :
 
-            ```powershell
-            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-            ```
-        
+        ```powershell
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
+
 3. Définissez l’indicateur `IsOrganizationDefault` sur false :
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Créez une stratégie par défaut d’organisation :

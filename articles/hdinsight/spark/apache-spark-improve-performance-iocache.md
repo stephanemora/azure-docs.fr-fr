@@ -1,27 +1,27 @@
 ---
-title: Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache (préversion)
+title: Performances des charges de travail Apache Spark avec le cache d’E/S Azure HDInsight (préversion)
 description: Découvrez-en plus sur Azure HDInsight IO Cache et comment l’utiliser pour améliorer les performances d’Apache Spark.
-services: hdinsight
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 5422f4796d2451b652222332799d8ad1a9fc4803
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525593"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266181"
 ---
-# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache (préversion)
+# <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache
 
 IO Cache est un service de mise en cache de données pour Azure HDInsight qui améliore les performances des travaux Apache Spark. IO Cache fonctionne également avec des charges de travail [Apache TEZ](https://tez.apache.org/) et [Apache Hive](https://hive.apache.org/), qui peuvent être exécutées sur des clusters [Apache Spark](https://spark.apache.org/). IO Cache utilise un composant de mise en cache open source appelé RubiX. RubiX est un cache de disque local conçu pour une utilisation avec les moteurs d’analytique du Big Data qui accèdent aux données à partir de systèmes de stockage cloud. RubiX est un système de mise en cache unique, car il utilise des disques SSD au lieu de réserver de la mémoire d’exploitation pour la mise en cache. Le service IO Cache lance et gère les serveurs de métadonnées RubiX sur chaque nœud Worker du cluster. Il configure également tous les services du cluster pour une utilisation transparente du cache RubiX.
 
 La plupart des disques SSD fournissent plus de 1 Go par seconde de bande passante. Cette bande passante, complétée par le cache de fichiers en mémoire du système d’exploitation, fournit suffisamment de bande passante pour charger des moteurs de traitement de calcul Big Data, tels qu’Apache Spark. La mémoire d’exploitation reste disponible pour qu’Apache Spark traite des tâches fortement dépendantes de la mémoire, comme les lectures aléatoires. L’utilisation exclusive de la mémoire d’exploitation permet à Apache Spark d’atteindre une utilisation optimale des ressources.  
 
->[!Note]  
->IO Cache utilise actuellement RubiX comme composant de mise en cache, mais cela pourrait changer dans les futures versions du service. Utilisez les interfaces IO Cache et n’utilisez aucune dépendance directement dans l’implémentation de RubiX.
+> [!Note]  
+> IO Cache utilise actuellement RubiX comme composant de mise en cache, mais cela pourrait changer dans les futures versions du service. Utilisez les interfaces IO Cache et n’utilisez aucune dépendance directement dans l’implémentation de RubiX.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Avantages d’Azure HDInsight IO Cache
 
@@ -70,7 +70,7 @@ Vous pourrez rencontrer des erreurs d’espace disque lors de l’exécution des
 
 1. Sélectionnez **Redémarrer** > **Redémarrer tous les éléments affectés**.
 
-    ![Redémarrer tous les éléments affectés](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Redémarrer tous les éléments affectés")
+    ![Apache Ambari : Redémarrer tous les éléments affectés](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Redémarrer tous les éléments affectés")
 
 1. Sélectionnez **Confirmer le redémarrage**.
 

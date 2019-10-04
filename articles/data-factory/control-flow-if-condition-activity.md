@@ -3,21 +3,20 @@ title: Activité IfCondition dans Azure Data Factory | Microsoft Docs
 description: L’activité IfCondition vous permet de contrôler le flux de traitement en fonction d’une condition.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: fc6318b5033ff1297f917ab95b28f8ed9285e930
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431493"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142488"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Activité IfCondition dans Azure Data Factory | Microsoft Docs
 L’activité IfCondition fournit les mêmes fonctionnalités qu’une instruction «if » dans les langages de programmation. La condition évalue un ensemble d’activités si l’expression retourne `true` et un autre ensemble d’activités si elle retourne `false`. 
@@ -66,11 +65,11 @@ L’activité IfCondition fournit les mêmes fonctionnalités qu’une instructi
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité de condition « if ». | Chaîne | Oui
-Type | Doit avoir la valeur **IfCondition** | Chaîne | Oui
-expression | Expression qui doit retourner true ou false | Expression avec un résultat de type booléen | Oui
-ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | Tableau | Oui
-ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | Tableau | Oui
+name | Nom de l’activité de condition « if ». | String | OUI
+Type | Doit avoir la valeur **IfCondition** | String | OUI
+expression | Expression qui doit retourner true ou false | Expression avec un résultat de type booléen | OUI
+ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | Array | OUI
+ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | Array | OUI
 
 ## <a name="example"></a>Exemples
 Le pipeline dans cet exemple copie les données depuis un dossier d’entrée vers un dossier de sortie. Le dossier de sortie est déterminé par la valeur du paramètre de pipeline routeSelection. Si la valeur de routeSelection est true, les données sont copiées vers outputPath1. Par contre, si la valeur de routeSelection est false, les données sont copiées vers outputPath2. 

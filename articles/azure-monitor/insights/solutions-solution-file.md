@@ -15,11 +15,11 @@ ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60595762"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Création d’un fichier de solution de gestion dans Azure (préversion)
 > [!NOTE]
@@ -70,9 +70,9 @@ Le tableau suivant décrit les attributs d’un paramètre.
 
 | Attribut | Description |
 |:--- |:--- |
-| Type |Type de données pour le paramètre. Le contrôle de saisie affiché pour l’utilisateur dépend du type de données.<br><br>Valeur booléenne : zone de liste déroulante<br>Chaîne : zone de texte<br>Entier : zone de texte<br>securestring : champ de mot de passe<br> |
+| type |Type de données pour le paramètre. Le contrôle de saisie affiché pour l’utilisateur dépend du type de données.<br><br>Valeur booléenne : zone de liste déroulante<br>Chaîne : zone de texte<br>Entier : zone de texte<br>securestring : champ de mot de passe<br> |
 | category |Catégorie du paramètre facultative.  Les paramètres de la même catégorie sont regroupés. |
-| contrôle |Fonctionnalité supplémentaire pour les paramètres de type chaîne.<br><br>datetime : le contrôle Datetime est affiché.<br>guid : la valeur Guid est générée automatiquement et le paramètre n’est pas affiché. |
+| control |Fonctionnalité supplémentaire pour les paramètres de type chaîne.<br><br>datetime : le contrôle Datetime est affiché.<br>guid : la valeur Guid est générée automatiquement et le paramètre n’est pas affiché. |
 | description |Description du paramètre facultative.  Affichée dans une bulle d’informations en regard du paramètre. |
 
 ### <a name="standard-parameters"></a>Paramètres standard
@@ -83,14 +83,14 @@ Le tableau suivant répertorie les paramètres standard pour toutes les solution
 >
 >
 
-| Paramètre | Type | Description |
+| Paramètre | type | Description |
 |:--- |:--- |:--- |
-| accountName |string |Nom de compte Azure Automation. |
-| pricingTier |string |Niveau tarifaire de l’espace de travail Log Analytics et du compte Azure Automation. |
-| regionId |string |Région du compte Azure Automation. |
-| solutionName |string |Nom de la solution.  Si vous déployez votre solution via des modèles de démarrage rapide, vous devez définir solutionName comme un paramètre afin de pouvoir définir une chaîne au lieu d’obliger l’utilisateur à en spécifier une. |
-| workspaceName |string |Nom de l’espace de travail Log Analytics. |
-| workspaceRegionId |string |Région de l’espace de travail Log Analytics. |
+| accountName |chaîne |Nom de compte Azure Automation. |
+| pricingTier |chaîne |Niveau tarifaire de l’espace de travail Log Analytics et du compte Azure Automation. |
+| regionId |chaîne |Région du compte Azure Automation. |
+| solutionName |chaîne |Nom de la solution.  Si vous déployez votre solution via des modèles de démarrage rapide, vous devez définir solutionName comme un paramètre afin de pouvoir définir une chaîne au lieu d’obliger l’utilisateur à en spécifier une. |
+| workspaceName |chaîne |Nom de l’espace de travail Log Analytics. |
+| workspaceRegionId |chaîne |Région de l’espace de travail Log Analytics. |
 
 
 Voici la structure des paramètres standards que vous pouvez copier et coller dans votre fichier de solution.  
@@ -129,7 +129,7 @@ Voici la structure des paramètres standards que vous pouvez copier et coller da
     }
 
 
-Faites référence aux valeurs de paramètre dans d’autres éléments de la solution avec la syntaxe **parameters('nom du paramètre')**.  Par exemple, pour accéder au nom de l’espace de travail, utilisez **parameters('workspaceName')**.
+Faites référence aux valeurs de paramètre dans d’autres éléments de la solution avec la syntaxe **parameters('nom du paramètre')** .  Par exemple, pour accéder au nom de l’espace de travail, utilisez **parameters('workspaceName')** .
 
 ## <a name="variables"></a>variables
 Les [Variables](../../azure-resource-manager/resource-group-authoring-templates.md#variables) sont des valeurs que vous allez utiliser dans le reste de la solution de gestion.  Celles-ci ne sont pas exposées à l’utilisateur qui installe la solution.  Elles sont conçues pour fournir à l’auteur un emplacement unique où il peut gérer les valeurs qui peuvent être utilisées plusieurs fois dans la solution. Vous devez placer toutes les valeurs spécifiques à votre solution dans des variables, contrairement au codage en dur dans l’élément **resources**.  Cela rend le code plus lisible et vous permet de modifier facilement ces valeurs dans des versions ultérieures.
@@ -144,7 +144,7 @@ Voici un exemple d’élément **variables** avec des paramètres standard utili
         "AutomationApiVersion": "2015-10-31"
     },
 
-Faites référence aux valeurs de variable dans la solution avec la syntaxe **variables('nom de la variable')**.  Par exemple, pour accéder à la variable SolutionName, utilisez **variables('SolutionName')**.
+Faites référence aux valeurs de variable dans la solution avec la syntaxe **variables('nom de la variable')** .  Par exemple, pour accéder à la variable SolutionName, utilisez **variables('SolutionName')** .
 
 Vous pouvez également définir des variables complexes pour plusieurs ensembles de valeurs.  Elles sont particulièrement utiles dans les solutions de gestion où vous définissez plusieurs propriétés pour différents types de ressources.  Par exemple, vous pouvez restructurer les variables de solution ci-dessus avec ce qui suit.
 
@@ -213,7 +213,7 @@ La ressource de solution possède les propriétés indiquées dans le tableau su
 
 | Propriété | Description |
 |:--- |:--- |
-| workspaceResourceId |ID de l’espace de travail Analytique de journal sous la forme  *\<ID de groupe de ressources > /providers/Microsoft.OperationalInsights/workspaces/\<nom de l’espace de travail\>*. |
+| workspaceResourceId |ID de l'espace de travail Log Analytics au format *\<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>* . |
 | referencedResources |Liste des ressources de la solution qui ne doivent pas être supprimées en même temps que la solution. |
 | containedResources |Liste des ressources de la solution qui doivent être supprimées en même temps que la solution. |
 
@@ -224,7 +224,7 @@ L’entité **plan** de la ressource de solution possède les propriétés indiq
 
 | Propriété | Description |
 |:--- |:--- |
-| Nom |Nom de la solution. |
+| name |Nom de la solution. |
 | version |Version de la solution, telle que déterminée par l’auteur. |
 | product |Chaîne unique pour identifier la solution. |
 | publisher |Éditeur de la solution. |

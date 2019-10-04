@@ -1,6 +1,6 @@
 - name: Documentation sur les accélérateurs de solution IoT
   href: index.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: Que sont les accélérateurs de solution IoT ?
@@ -9,7 +9,7 @@
       href: iot-accelerators-permissions.md
 - name: Surveillance à distance
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       href: iot-accelerators-remote-monitoring-sample-walkthrough.md
       items:
         - name: Choix d’architecture
@@ -61,7 +61,7 @@
             - name: Node.js sur Raspberry Pi
               href: iot-accelerators-connecting-pi-node.md
             - name: DevKit IoT MXChip
-              href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+              href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md
         - name: Simuler un appareil
           items:
             - name: Créez un appareil simulé.
@@ -97,7 +97,7 @@
           href: iot-accelerators-remote-monitoring-rbac.md
         - name: Explorer la télémétrie
           items:
-            - name: Visualiser des données de télémétrie avec PowerBI
+            - name: "Visualiser les données de télémétrie avec Power\_BI"
               href: iot-accelerators-integrate-data-powerbi.md
             - name: Intégrer Azure Time Series Insights à la Supervision à distance
               href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -129,40 +129,34 @@
           href: iot-accelerators-faq-rm-v2.md
 - name: IoT industriel
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: Définition de l’IoT industriel
           href: overview-iot-industrial.md
-        - name: OPC Twin
-          items:
-            - name: Définition d’OPC Twin
-              href: overview-opc-twin.md
-            - name: Architecture d’OPC Twin
-              href: overview-opc-twin-architecture.md
-        - name: OPC Vault
-          items:
-            - name: Définition d’OPC Vault
-              href: overview-opc-vault.md
-        - name: Fabrique connectée
-          items:
-            - name: Vue d’ensemble de Connected Factory
-              href: iot-accelerators-connected-factory-features.md
-            - name: Architecture de Connected Factory
-              href: iot-accelerators-connected-factory-sample-walkthrough.md
+        - name: Définition d’OPC Twin
+          href: overview-opc-twin.md
+        - name: Définition d’OPC Vault
+          href: overview-opc-vault.md
+        - name: Définition d’OPC Publisher
+          href: overview-opc-publisher.md
+        - name: Définition d’une fabrique connectée
+          href: iot-accelerators-connected-factory-features.md
     - name: Démarrages rapides
       items:
         - name: Essayer une solution de fabrique connectée
           href: quickstart-connected-factory-deploy.md
+    - name: Concepts
+      items:
+        - name: Architecture d’OPC Twin
+          href: overview-opc-twin-architecture.md
+        - name: Architecture d’OPC Vault
+          href: overview-opc-vault-architecture.md
     - name: Guides pratiques
       items:
         - name: Fabrique connectée
           items:
             - name: Utiliser le tableau de bord
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: Déployer une passerelle
-              href: iot-accelerators-connected-factory-gateway-deployment.md
-            - name: Utiliser l’éditeur d’OPC
-              href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: Configurer l’accélérateur de solution
               href: iot-accelerators-connected-factory-configure.md
             - name: Personnaliser l’accélérateur de solution
@@ -177,14 +171,20 @@
               href: howto-opc-twin-deploy-dependencies.md
         - name: OPC Vault
           items:
-            - name: Déployer OPC Vault sur un projet existant
-              items:
-                - name: Sécuriser les communications du client OPC et OPC PLC
-                  href: howto-opc-vault-deploy-existing-client-plc-communication.md
-                - name: Sécuriser le client OPC UA et les applications de serveur OPC UA
-                  href: howto-opc-vault-deploy-existing-client-server-communication.md
-            - name: Déployer OPC Vault à partir de zéro
-              href: howto-opc-vault-deploy-scratch.md
+            - name: Déployer le service OPC Vault
+              href: howto-opc-vault-deploy.md
+            - name: Gérer le service OPC Vault
+              href: howto-opc-vault-manage.md
+            - name: Sécuriser la communication des appareils OPC UA avec OPC Vault
+              href: howto-opc-vault-secure.md
+            - name: Utiliser le service OPC Vault de façon sécurisée
+              href: howto-opc-vault-secure-ca.md
+        - name: OPC Publisher
+          items:
+            - name: Configurer OPC Publisher
+              href: howto-opc-publisher-configure.md
+            - name: Exécuter OPC Publisher
+              href: howto-opc-publisher-run.md
     - name: Ressources
       items:
         - name: Dépôt GitHub
@@ -193,7 +193,7 @@
           href: iot-accelerators-faq-cf.md
 - name: Simulation d’appareil
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       href: iot-accelerators-device-simulation-overview.md
     - name: Démarrages rapides
       items:
@@ -213,7 +213,7 @@
           href: iot-accelerators-device-simulation-advanced-device.md
         - name: Visualiser des données de télémétrie avec Azure Time Series Insights
           href: iot-accelerators-device-simulation-time-series-insights.md
-        - name: Sérialiser des données de télémétrie à l’aide de Protbuf
+        - name: Sérialiser la télémétrie à l’aide de Protobuf
           href: iot-accelerators-device-simulation-protobuf.md
         - name: Déployer une image Docker personnalisée
           href: iot-accelerators-device-simulation-deploy-image.md
@@ -225,7 +225,7 @@
           href: 'https://github.com/Azure/device-simulation-dotnet'
 - name: Maintenance prédictive
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       href: iot-accelerators-predictive-walkthrough.md
     - name: Démarrages rapides
       items:
@@ -237,10 +237,8 @@
           href: 'https://github.com/Azure/azure-iot-predictive-maintenance'
 - name: Architecture de référence
   items:
-    - name: Vue d’ensemble
-      href: iot-accelerators-architecture-overview.md
-    - name: Téléchargement
-      href: 'https://aka.ms/iotrefarchitecture'
+    - name: Vue d'ensemble
+      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/iot/'
     - name: Implémentations partenaires
       items:
         - name: Plateforme de logistique connecté Intel
@@ -253,14 +251,16 @@
   items:
     - name: solutions
       items:
-        - name: Accélérateurs de solution IoT
-          href: /azure/iot-accelerators
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: Accélérateurs de solution IoT
+          href: /azure/iot-accelerators
     - name: Services de plateforme
       items:
         - name: IoT Hub
           href: /azure/iot-hub
+        - name: IoT Plug-and-Play
+          href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
         - name: Kits de développement logiciel (SDK) IoT Service
@@ -269,18 +269,12 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: "Azure IoT\_Edge"
           href: /azure/iot-edge
         - name: Kits de développement logiciel (SDK) IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
-    - name: Stream Analytics
-      href: /azure/stream-analytics/
-    - name: Event Hubs
-      href: /azure/event-hubs/
-    - name: Machine Learning
-      href: /azure/machine-learning/
 - name: Ressources
   items:
     - name: Feuille de route Azure

@@ -4,23 +4,22 @@ description: Utilisez des tâches de préparation au niveau du travail afin de m
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 517ac0f612b9e5fc5909a7f0fe2ce088c9b367d9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: MT
+ms.openlocfilehash: 2dbdbc8b13a75b72ca09a319c6925d0835a52e13
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548695"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095134"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Exécuter des tâches de préparation et de validation du travail sur les nœuds de calcul Batch
 
@@ -51,7 +50,7 @@ Dans un environnement de « pool partagé » dans lequel les nœuds de calcul d�
 
 **Rétention des journaux**
 
-Vous voulez peut-être conserver une copie des fichiers journaux générés par les tâches ou peut-être les fichiers de vidage sur incident qui peuvent être générés par les applications ayant échoué. Dans ces cas, utilisez une **tâche de validation du travail** pour compresser et télécharger ces données vers un compte de [Stockage Azure][azure_storage].
+Vous voulez peut-être conserver une copie des fichiers journaux générés par les tâches ou peut-être les fichiers de vidage sur incident qui peuvent être générés par les applications ayant échoué. Dans ces cas, utilisez une **tâche de mise en production du travail** pour compresser et télécharger ces données vers un compte de [Stockage Azure][azure_storage].
 
 > [!TIP]
 > Une autre façon de conserver les journaux d’activité et les autres données de sortie des travaux et des tâches consiste à utiliser la bibliothèque de [conventions de fichier Azure Batch](batch-task-output.md) .
@@ -73,6 +72,8 @@ Lorsqu'un travail est marqué comme terminé, la tâche de validation du travail
 
 > [!NOTE]
 > La suppression du travail exécute également la tâche de validation du travail. Toutefois, si un travail a déjà été arrêté, la tâche de validation n’est pas exécutée une seconde fois si ce travail est supprimé par la suite.
+
+Les tâches de validation du travail peuvent s’exécuter pendant un maximum de 15 minutes avant d’être terminées par le service Batch. Pour plus d’informations, voir la [Documentation de référence sur l’API REST](https://docs.microsoft.com/rest/api/batchservice/job/add#jobreleasetask).
 > 
 > 
 
@@ -191,7 +192,7 @@ Outre la tâche de préparation du travail, vous pouvez également utiliser la f
 ### <a name="installing-applications-and-staging-data"></a>Installation d’applications et de données intermédiaires
 Le billet MSDN ci-après fournit une vue d’ensemble de différentes méthodes de préparation de vos nœuds à l’exécution des tâches :
 
-[Installing applications and staging data on Batch compute nodes][forum_post] (Installation d’applications et de données intermédiaires sur les nœuds de calcul Batch)
+[Installation d’applications et de données intermédiaires sur les nœuds de calcul Batch][forum_post]
 
 Rédigé par l’un des membres de l’équipe Azure Batch, ce billet décrit plusieurs techniques que vous pouvez utiliser pour déployer des applications et des données sur les nœuds de calcul.
 

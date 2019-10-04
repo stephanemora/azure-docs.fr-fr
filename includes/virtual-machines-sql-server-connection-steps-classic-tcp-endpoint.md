@@ -1,12 +1,25 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: d4e8d99cd7c67136f359772664eb017c6207e6e4
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177006"
+---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Création d'un point de terminaison TCP pour la machine virtuelle
 Pour accéder à SQL Server depuis Internet, la machine virtuelle doit avoir un point de terminaison pour écouter les communications TCP entrantes. Dans cette étape de configuration Azure, le trafic du port TCP entrant est dirigé vers un port TCP accessible à la machine virtuelle.
 
 > [!NOTE]
-> Si vous vous connectez dans le même service cloud ou réseau virtuel, vous n’avez pas besoin de créer un point de terminaison accessible publiquement. Dans ce cas, vous pouvez passer à l’étape suivante. Pour plus d'informations, consultez [Scénarios de connexion](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
+> Si vous vous connectez dans le même service cloud ou réseau virtuel, vous n’avez pas besoin de créer un point de terminaison public accessible. Dans ce cas, vous pouvez passer à l’étape suivante. Pour plus d'informations, consultez [Scénarios de connexion](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 > 
 > 
 
-1. Dans le portail Azure, sélectionnez **Machines virtuelles (classiques)**.
+1. Dans le portail Azure, sélectionnez **Machines virtuelles (classiques)** .
 2. Sélectionnez ensuite une machine virtuelle SQL Server.
 3. Sélectionnez **Points de terminaison**, puis cliquez sur le bouton **Ajouter** bouton en haut du panneau Points de terminaison.
    

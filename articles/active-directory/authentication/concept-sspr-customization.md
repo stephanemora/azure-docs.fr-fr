@@ -1,22 +1,22 @@
 ---
-title: Réinitialisation de la personnalisation AD Azure mot de passe libre-service - Azure Active Directory
+title: Personnalisation de la réinitialisation du mot de passe libre-service Azure AD - Azure Active Directory
 description: Options de personnalisation de la réinitialisation du mot de passe libre-service Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 527dd99f122ec70cc47305947a5cbce3207b9664
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369222"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666296"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation du mot passe libre-service
 
@@ -24,14 +24,22 @@ Les professionnels de l’informatique qui souhaitent déployer la réinitialisa
 
 ## <a name="customize-the-contact-your-administrator-link"></a>Personnaliser le lien « Contactez votre administrateur »
 
-Même si la réinitialisation n’est pas activée, les utilisateurs disposent toujours d’un lien « Contactez votre administrateur » dans le portail de réinitialisation du mot de passe. Si l’utilisateur sélectionne ce lien, l’une des actions ci-dessous se produit :
+Les utilisateurs de la réinitialisation de mot de passe en libre-service disposent d’un lien « Contactez votre administrateur » dans le portail de réinitialisation de mot de passe. Si un utilisateur sélectionne ce lien, il effectue l’une des deux opérations suivantes :
 
-* Un e-mail est envoyé à vos administrateurs pour demander une assistance lors de la modification du mot de passe de l’utilisateur.
-* Les utilisateurs sont dirigés vers une URL que vous spécifiez pour l’assistance.
+* S'il reste dans son état par défaut :
+   * Un e-mail est envoyé à vos administrateurs pour demander une assistance lors de la modification du mot de passe de l’utilisateur. Consultez [l'exemple d'e-mail](#sample-email) ci-dessous.
+* S'il est personnalisé :
+   * Il renvoie l'utilisateur vers une page web ou une adresse e-mail spécifiée par l’administrateur afin d'obtenir de l’aide.
 
-Nous vous recommandons de définir comme contact une adresse e-mail ou un site web que vos utilisateurs utilisent déjà pour des questions de support.
+> [!TIP]
+> Si vous le personnalisez, nous vous recommandons d'opter pour une solution que les utilisateurs connaissent.
 
-![Exemple de demande pour réinitialiser le courrier électronique envoyé à l’administrateur][Contact]
+> [!WARNING]
+> Si vous personnalisez ce paramètre avec une adresse e-mail et un compte nécessitant une réinitialisation du mot de passe, l’utilisateur peut ne pas être en mesure de demander de l’aide.
+
+### <a name="sample-email"></a>Exemple de message électronique
+
+![Exemple d’e-mail de demande de réinitialisation envoyé à l’administrateur][Contact]
 
 L’e-mail de contact est envoyé aux destinataires suivants dans cet ordre :
 
@@ -68,8 +76,8 @@ Les graphiques que vous choisissez s’affichent dans les circonstances suivante
 
 * Quand un utilisateur entre son nom d’utilisateur
 * Si l’utilisateur accède à l’URL personnalisée :
-   * En passant le `whr` paramètre au mot de passe page de réinitialisation, comme `https://login.microsoftonline.com/?whr=contoso.com`
-   * En passant le `username` paramètre au mot de passe page de réinitialisation, comme `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * En passant le paramètre `whr` à la page de réinitialisation du mot de passe, par exemple `https://login.microsoftonline.com/?whr=contoso.com`
+   * En passant le paramètre `username` à la page de réinitialisation du mot de passe, par exemple `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Retrouvez plus d’informations sur la configuration de la marque de société dans l’article [Ajouter une marque de société à votre page de connexion dans Azure AD](../fundamentals/customize-branding.md).
 

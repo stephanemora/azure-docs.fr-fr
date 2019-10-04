@@ -1,126 +1,90 @@
 ---
-title: Notes de publication de base de données SQL Azure | Microsoft Docs
-description: En savoir plus sur les nouvelles fonctionnalités et améliorations dans le service de base de données SQL Azure et dans la documentation de base de données SQL Azure
+title: Notes de publication Azure SQL Database | Microsoft Docs
+description: En savoir plus sur les nouvelles fonctionnalités et améliorations dans le service Azure SQL Database et la documentation associée
 services: sql-database
-author: CarlRabeler
-manager: craigg
+author: stevestein
 ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/10/2019
-ms.author: carlrab
-ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 05/15/2019
+ms.author: sstein
+ms.openlocfilehash: 90be253a4763aebd31b663aa0e765c187c8bff92
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495103"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266417"
 ---
-# <a name="sql-database-release-notes"></a>Notes de publication de base de données SQL
+# <a name="sql-database-release-notes"></a>Notes de publication SQL Database
 
-Cet article répertorie les nouvelles fonctionnalités et améliorations dans le service de base de données SQL et dans la documentation de base de données SQL. Pour les améliorations du service de base de données SQL, consultez également [mises à jour du service de base de données SQL](https://azure.microsoft.com/updates/?product=sql-database). Améliorations apportées à d’autres services Azure, consultez [mises à jour de Service](https://azure.microsoft.com/updates).
+Cet article répertorie les fonctionnalités SQL Database actuellement en préversion publique. Pour connaître les mises à jour et améliorations de SQL Database, consultez [Mises à jour du service SQL Database](https://azure.microsoft.com/updates/?product=sql-database). Pour connaître les mises à jour et améliorations apportées aux autres services Azure, consultez [Mises à jour des services](https://azure.microsoft.com/updates).
 
-## <a name="features-in-public-preview"></a>Fonctionnalités en version préliminaire publique
+## <a name="features-in-public-preview"></a>Fonctionnalités en préversion publique
+
+### <a name="single-databasetabsingle-database"></a>[Base de données unique](#tab/single-database)
 
 | Fonctionnalité | Détails |
 | ---| --- |
-| Tâches de base de données élastiques | Pour plus d’informations, consultez [créer, configurer et gérer des tâches élastiques](elastic-jobs-overview.md) |
-| Transactions élastiques | [Transactions distribuées entre bases de données cloud](sql-database-elastic-transactions-overview.md) |
-| Requêtes élastiques | Pour plus d’informations, consultez [vue d’ensemble de la requête élastique](sql-database-elastic-query-overview.md) |
-| Réplication avec des instances managées |Pour plus d’informations, consultez [configurer la réplication dans une base de données Azure SQL Database instance managée](replication-with-sql-database-managed-instance.md)|
-| Classement de l’instance avec les instances gérées |Pour plus d’informations, consultez [utiliser PowerShell avec le modèle Azure Resource Manager pour créer une instance gérée dans la base de données SQL Azure](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
-| R services / apprentissage avec des bases de données uniques et les pools élastiques |Pour plus d’informations, consultez [Machine Learning Services dans la base de données SQL Azure](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)|
-| Récupération de base de données accélérée avec les bases de données uniques et les pools élastiques | Pour plus d’informations, consultez [accéléré la récupération de base de données](sql-database-accelerated-database-recovery.md)|
-| Découverte et classification des données  |Pour plus d’informations, consultez [découverte de données Azure SQL Database et SQL Data Warehouse et classification](sql-database-data-discovery-and-classification.md)|
-| Transparent data encryption (TDE) avec Bring Your Own Key (BYOK) avec les instances gérées |Pour plus d’informations, consultez [Azure SQL Transparent Data Encryption avec clés gérées par le client dans Azure Key Vault : Prise en charge Your Own Key](transparent-data-encryption-byok-azure-sql.md)|
-| Recréer les bases de données supprimées avec les instances gérées |Pour plus d’informations, consultez [recréer les bases de données supprimées dans Azure SQL Managed Instance](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)|
-| Détection des menaces avec des instances gérées |Pour plus d’informations, consultez [configurer la détection des menaces dans Azure SQL Database managed instance](sql-database-managed-instance-threat-detection.md)|
-| Niveaux de service de très grande échelle avec les bases de données uniques |Pour plus d’informations, consultez [le niveau de service Hyperscale jusqu'à 100 To](sql-database-service-tier-hyperscale.md)|
-| Éditeur de requête dans le portail Azure |Pour plus d’informations, consultez [utiliser l’éditeur de requête SQL du portail Azure pour vous connecter et interroger des données](sql-database-connect-query-portal.md)|
-|Nombre approximatif distincte|Pour plus d’informations, consultez [approximative Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
-|En Mode Batch Rowstore (sous le niveau de compatibilité 150)|Pour plus d’informations, consultez [Rowstore en Mode Batch](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
-|Retour d’allocation de mémoire (Mode en ligne) (sous le niveau de compatibilité 150)|Pour plus d’informations, consultez [retour d’allocation de mémoire (Mode en ligne)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
-|Table Variable différée Compilation (sous le niveau de compatibilité 150)|Pour plus d’informations, consultez [Compilation différée Variable de Table](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
-|SQL Analytics|Pour plus d’informations, consultez [Analytique de SQL Azure](../azure-monitor/insights/azure-sql.md)|
-| Prise en charge de fuseau horaire pour les instances managées|Pour plus d’informations, consultez [fuseau horaire dans Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
-|||
-
-## <a name="march-2019"></a>Mars 2019
-
-### <a name="service-improvements"></a>Améliorations du service
-
-| Améliorations du service | Détails |
-| --- | --- |
-| Disponibilité générale : Prise en charge de la fonctionnalité d’échelle lecture pour Azure SQL Database | Pour plus d’informations, consultez [lecture du scale-out](sql-database-read-scale-out.md)|
+| [Liaison privée Azure](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Le service Liaison privée simplifie l’architecture réseau et sécurise la connexion entre les points de terminaison dans Azure en conservant les données sur le réseau Azure, éliminant ainsi l’exposition à Internet. Liaison privée vous permet également de créer vos propres services et d’assurer leur rendu dans Azure. |
+| Récupération de base de données accélérée à l’aide de bases de données uniques et de pools élastiques | Pour plus d’informations, consultez [Récupération de base de données accélérée](sql-database-accelerated-database-recovery.md).|
+|Comptage approximatif des valeurs distinctes|Pour plus d’informations, consultez [Comptage approximatif des valeurs distinctes](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
+|Mode Batch sur rowstore (sous le niveau de compatibilité 150)|Pour plus d’informations, consultez [Mode Batch sur rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
+| Découverte et classification des données  |Pour plus d’informations, consultez [Découverte et classification des données pour Azure SQL Database et SQL Data Warehouse](sql-database-data-discovery-and-classification.md).|
+| Tâches de base de données élastiques | Pour plus d’informations, consultez [Créer, configurer et gérer des travaux élastiques](elastic-jobs-overview.md). |
+| Requêtes élastiques | Pour plus d’informations, consultez [Vue d’ensemble de la requête élastique](sql-database-elastic-query-overview.md). |
+| Transactions élastiques | [Transactions distribuées entre bases de données cloud](sql-database-elastic-transactions-overview.md). |
+|Rétroaction d’allocation de mémoire (Mode ligne) (sous le niveau de compatibilité 150)|Pour plus d’informations, consultez [Rétroaction d’allocation de mémoire (Mode ligne)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
+| Éditeur de requête dans le portail Azure |Pour plus d’informations, consultez [Utiliser l’éditeur de requête SQL du portail Azure pour se connecter aux données et les interroger](sql-database-connect-query-portal.md).|
+| Services R / machine learning avec des bases de données uniques et des pools élastiques |Pour plus d’informations, consultez [Machine Learning Services dans Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
+| Niveau de calcul serverless | Pour plus d’informations, consultez [SQL Database serverless (préversion)](sql-database-serverless.md).|
+|SQL Analytics|Pour plus d’informations, consultez [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).|
+|Compilation différée des variables de table (sous le niveau de compatibilité 150)|Pour plus d’informations, consultez [Compilation différée des variables de table](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | &nbsp; |
 
-### <a name="documentation-improvements"></a>Améliorations de la documentation
+### <a name="managed-instancetabmanaged-instance"></a>[Managed Instance](#tab/managed-instance)
 
-| Améliorations de la documentation | Détails |
-| --- | --- |
-| Prise en charge de fuseau horaire pour les instances managées|Pour plus d’informations, consultez [fuseau horaire dans Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
-| Limites du journal ajouté des bases de données|Pour plus d’informations, consultez [limites de ressources vCore de base de données unique](sql-database-vcore-resource-limits-single-databases.md).|
-| Limites du journal ajouté pour les pools et bases de données regroupées|Pour plus d’informations, consultez [limites de ressources vCore des pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md).|
-| Ajout gouvernance de taux de journal de Transaction| Ajouté le nouveau contenu pour [gouvernance de taux de Transaction log](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|
-| Exemples PowerShell mis à jour pour les bases de données uniques et des pools élastiques à utiliser le module de az.sql | Pour plus d’informations, consultez [exemples PowerShell pour les bases de données uniques et les pools élastiques](sql-database-powershell-samples.md#single-database-and-elastic-pools).|
+| Fonctionnalité | Détails |
+| ---| --- |
+| <a href="/azure/sql-database/sql-database-instance-pools">Pools d’instances</a> | Moyen pratique et économique de migrer des instances SQL plus petites vers le cloud. |
+| <a href="https://aka.ms/managed-instance-tde-byok">Chiffrement transparent des données (TDE) avec prise en charge du service BYOK (Bring Your Own Key)</a> |Pour plus d’informations, consultez [Azure SQL Transparent Data Encryption avec les clés managées par le client dans Azure Key Vault : prise en charge de Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).|
+| <a href="https://aka.ms/managed-instance-aadlogins">Principaux de serveur (connexions) Azure AD au niveau de l’instance</a> | Créer des connexions de niveau serveur avec l’instruction <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>. |
+| [Réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) | Répliquez les changements apportés à vos tables dans d’autres bases de données placées sur des instances managées, des bases de données uniques ou des instances SQL Server, ou mettez à jour vos tables quand certaines lignes sont modifiées dans d’autres instances managées ou dans une instance SQL Server. Pour plus d’informations, consultez, [Configurer la réplication dans une base de données d’instance managée Azure SQL Database](replication-with-sql-database-managed-instance.md). |
+| Détection de menaces |Pour plus d’informations, consultez [Configurer la détection des menaces dans Azure SQL Database Managed Instance](sql-database-managed-instance-threat-detection.md).|
+| Recréer les bases de données supprimées avec les instances managées |Pour plus d’informations, consultez [Recréer les bases de données supprimées dans Azure SQL Managed Instance](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266).|
 | &nbsp; |
 
-## <a name="february-2019"></a>Février 2019
+---
 
-### <a name="service-improvements"></a>Améliorations du service
+## <a name="new-features"></a>Nouvelles fonctionnalités
 
-| Améliorations du service | Détails |
-| --- | --- |
-|Création d’un index en ligne pouvant être repris est désormais disponible| Pour plus d’informations, consultez [Create Index](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql).|
-|Prise en charge de l’instance managée pour les tables de routage amélioré| Pour plus d’informations, consultez [configuration réseau requise](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
-|Changement de nom de base de données pris en charge dans l’instance managée | Pour plus d’informations, consultez le [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) et [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) syntaxe.|
-|Base de données SQL en tant que source de données de référence pour l’Analytique de Stream. | Pour plus d’informations, consultez [Stream Analytique](https://azure.microsoft.com/services/stream-analytics/).|
-|Assistance de Migration de données prend en charge pour l’instance managée. |Pour plus d’informations, consultez [quelles sont les nouveautés dans DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew).|
-|Assistant Migration SQL Server ajoute la prise en charge pour l’évaluation de la disponibilité cible pour l’instance managée. | Pour plus d’informations, consultez [Assistant Migration SQL Server](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
-|Service de migration de données prend en charge la migration à partir d’Amazon RDS vers une instance gérée | Pour plus d’informations, consultez [Tutoriel : Migrer des services Bureau à distance SQL Server vers Azure SQL Database ou une instance managée de base de données SQL Azure en ligne à l’aide de DMS](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
-| &nbsp; |
+### <a name="managed-instance-h2-2019-updates"></a>Mises à jour des instances managées (deuxième partie de l’exercice 2019)
 
-### <a name="documentation-improvements"></a>Améliorations de la documentation
+- Des [groupes de basculement automatique](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/) vous permettent de répliquer toutes les bases de données de l’instance principale vers une instance secondaire dans une autre région.
+- Configurez le comportement de votre instance managée avec des [indicateurs de trace globaux](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
 
-| Améliorations de la documentation | Détails |
-| --- | --- |
-|Ajout de gérés précisions d’option de déploiement instance|Mise à jour de nombreux articles pour clarifier la mise en application à la base de données unique, pool élastique et options de déploiement d’instance gérée. |
-|Tailles de tempdb mis à jour pour le modèle d’achat DTU | Pour plus d’informations, consultez [base de données Tempdb dans SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
-|Importation mis à jour et l’exportation avec le fichier bacpac pour la prise en charge de l’instance managée| Pour plus d’informations, consultez [importation depuis BACPAC](sql-database-import.md) et [exporter vers un fichier BACPAC](sql-database-export.md). |
-| &nbsp; |
+### <a name="managed-instance-h1-2019-updates"></a>Mises à jour des instances managées (première partie de l’exercice 2019)
 
+Les fonctionnalités suivantes sont activées dans le modèle de déploiement d’instance managée de la première partie de l’exercice 2019 :
+  - Prise en charge des abonnements avec le <a href="https://aka.ms/sql-mi-visual-studio-subscribers">crédit mensuel Azure pour les abonnés Visual Studio</a> et des [limites régionales](sql-database-managed-instance-resource-limits.md#regional-resource-limitations) étendues.
+  - Prise en charge de <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 et SharePoint 2019 </a> ainsi que de <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
+  - Création d’instances pour lesquelles vous choisissez le <a href="https://aka.ms/managed-instance-collation">classement au niveau du serveur</a> et le <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">fuseau horaire</a>.
+  - Les instances managées sont maintenant protégées par un <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">pare-feu intégré</a>.
+  - Configurer des instances pour utiliser des [points de terminaison publics](sql-database-managed-instance-public-endpoint-configure.md), [remplacer par proxy](sql-database-connectivity-architecture.md#connection-policy) une connexion afin d’obtenir de meilleures performances réseau, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores sur la génération de matériel Gen5</a> ou <a href="https://aka.ms/managed-instance-configurable-backup-retention">configurer la conservation des sauvegardes jusqu’à 35 jours</a> pour une restauration dans le temps. La conservation des sauvegardes à long terme (jusqu’à 10 ans) n’est toujours pas activée. À la place, vous pouvez utiliser des <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">sauvegardes de copie uniquement</a>.
+  - De nouvelles fonctionnalités vous permettent de <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">géo-restaurer votre base de données dans un autre centre de données à l’aide de PowerShell</a>, de [renommer la base de données](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/) et de [supprimer un cluster virtuel](sql-database-managed-instance-delete-virtual-cluster.md).
+  - Le nouveau [rôle Contributeur d’instance intégré](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) permet la conformité de la séparation des tâches aux principes de sécurité et le respect des normes d’entreprise.
+  - L’instance managée est disponible dans les régions Azure Government suivantes pour la disponibilité générale (US Gov Texas, US Gov Arizona) ainsi que dans les régions Chine Nord 2 et Chine Est 2. Elle est également disponible dans les régions publiques suivantes : Australie Centre, Australie Centre 2, Brésil Sud, France Sud, Émirats arabes unis Centre, Émirats arabes unis Nord, Afrique du Sud Nord, Afrique du Sud Ouest.
 
-## <a name="january-2019"></a>Janvier 2019
+## <a name="fixed-known-issues"></a>Problèmes connus résolus
 
-### <a name="service-improvements"></a>Améliorations du service
+- **Août 2019** : Les bases de données autonomes sont entièrement prises en charge dans une instance managée.
 
-| Améliorations du service | Détails |
-| --- | --- |
-| Options de granularité supplémentaire pour les ressources de calcul | L’usage général et critique pour l’entreprise pour les niveaux de service [bases de données uniques](sql-database-vcore-resource-limits-single-databases.md) et [pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md) ont désormais plusieurs options de calcul précis.|
-| Affichage des enregistrements d’audit pour l’instance managée dans le portail Azure | Affichage [enregistrements pour les instances gérées d’audit](sql-database-managed-instance-auditing.md) dans le portail Azure portal est désormais pris en charge.|
-| Fonctionnalité de détection de menaces avancée renommée en fonctions avancées de sécurité de données | Fonctionnalité de détection de menaces avancée renommé en [fonctions avancées de sécurité de données](sql-advanced-threat-protection.md) pour les bases de données uniques, les pools élastiques et des instances gérées. |
-| &nbsp; |
+## <a name="updates"></a>Mises à jour
 
-### <a name="documentation-improvements"></a>Améliorations de la documentation
+Pour obtenir la liste des mises à jour et améliorations de SQL Database, consultez [Mises à jour du service SQL Database](https://azure.microsoft.com/updates/?product=sql-database).
 
-| Améliorations de la documentation | Détails |
-| --- | --- |
-| Les instances gérées et la réplication transactionnelle | Ajout de l’article sur l’utilisation de [la réplication transactionnelle avec des instances gérées](replication-with-sql-database-managed-instance.md) |
-| Ajout d’Azure AD avec le didacticiel de l’instance managée | Cela [Azure AD avec l’instance managée](sql-database-managed-instance-aad-security-tutorial.md) didacticiel montre que vous devez configurer et tester gérés sécurité des instances à l’aide de connexions d’Azure AD. |
-| Contenu mis à jour pour l’automatisation du travail à l’aide de scripts Transact-SQL | Mise à jour et clarification de contenu pour l’utilisation de [automation de travail à l’aide de scripts Transact-SQL](sql-database-job-automation-overview.md) pour les bases de données uniques, des pools élastiques et des instances managées |
-| Contenu de sécurité pour les instances gérées mis à jour | Mise à jour et clarification de contenu pour le [modèle de sécurité pour les instances gérées](sql-database-security-overview.md)et différences avec le modèle de sécurité pour les bases de données uniques et les pools élastiques |
-| Actualisation de tous les Démarrages rapides et didacticiels | Tous les Démarrages rapides et didacticiels dans la [documentation](https://docs.microsoft.com/azure/sql-database) ont été mis à jour et mise à jour pour correspondre à des modifications dans le portail Azure |
-| Ajout de démarrage rapide vue d’ensemble des guides | Ajouter un guide de présentation de démarrage rapide pour [bases de données uniques](sql-database-quickstart-guide.md) et pour [instances managées](sql-database-managed-instance-quickstart-guide.md) |
-| Glossaire SQL Database ajouté | Cela [glossaire des termes](sql-database-glossary-terms.md) article fournit une liste définitive des termes du contrat de base de données SQL et des liens vers la page principale de conceptuelle qui explique le terme dans le contexte. |
-| &nbsp; |
+Pour connaître les mises à jour et améliorations apportées à tous les services Azure, consultez [Mises à jour des services](https://azure.microsoft.com/updates).
 
-## <a name="contribute-to-content-improvement"></a>Contribuer à l’amélioration de contenu
+## <a name="contribute-to-content"></a>Contribuer au contenu
 
-Le jeu de documentation de SQL Azure est open source. Utilisation de l’ouvrir présente plusieurs avantages :
-
-- Plan de référentiels Open source dans l’ouvrir pour obtenir des commentaires sur les documents sont plus nécessaires.
-- Les référentiels Open source passez en revue dans l’ouvrir pour publier le contenu plus utile sur notre première version.
-- Les référentiels Open source mettre à jour dans l’ouvrir pour faciliter l’améliorer en permanence le contenu.
-
-Pour contribuer au contenu de la documentation Azure SQL Database, consultez la [vue d’ensemble du guide de contributeur Microsoft Docs](https://docs.microsoft.com/contribute/). L’expérience utilisateur sur [docs.microsoft.com](https://docs.microsoft.com/) intègre [GitHub](https://github.com/) des flux de travail directement à faciliter encore davantage. Commencez par [modifier le document que vous affichez](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents). Ou, à l’aide par [examen de nouvelles rubriques](https://docs.microsoft.com/contribute/#review-open-prs), ou [créer des problèmes de qualité](https://docs.microsoft.com/contribute/#create-quality-issues).
+Pour contribuer à la documentation Azure SQL Database, consultez le [guide du contributeur de documents](https://docs.microsoft.com/contribute/).

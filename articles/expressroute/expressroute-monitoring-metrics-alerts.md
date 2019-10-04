@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: d78c110f3317f4dd9f16cbe243aeca437e9890a1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: dbe03ef29bd28d465fa671abc915d63d4b038cb2
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108795"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71154765"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervision, métriques et alertes ExpressRoute
 
@@ -23,17 +23,54 @@ Cet article vous aide à comprendre la supervision, les métriques et les alerte
 >L’utilisation des **métriques classiques** n’est pas recommandée.
 >
 
-## <a name="circuit-metrics"></a>Métriques de circuit
+## <a name="expressroute-metrics"></a>Métriques ExpressRoute
 
-Pour accéder aux **Métriques**, cliquez sur la page ExpressRoute du circuit que vous souhaitez surveiller. Sous **Supervision**, vous pouvez voir les **Métriques**. Sélectionnez BitsInPerSecond ou BitsOutPerSecond, et Aggregation. Si vous le souhaitez, vous pouvez appliquer un fractionnement, qui affiche les métriques par type de peering.
+Pour afficher les **métriques**, accédez à la page *Azure Monitor*, puis cliquez sur *Métriques*. Pour afficher les métriques **ExpressRoute**, filtrez les *circuits ExpressRoute* par type de ressource. Pour afficher les métriques **Global Reach**, filtrez les *circuits ExpressRoute* par type de ressource, puis sélectionnez une ressource de circuit ExpressRoute où Global Reach est activé. Pour afficher les métriques **ExpressRoute Direct**, filtrez les *ports ExpressRoute* par type de ressource. 
+
+Une fois qu’une métrique est sélectionnée, l’agrégation par défaut est appliquée. Si vous le souhaitez, vous pouvez appliquer une division pour afficher les métriques avec différentes dimensions.
+
+### <a name="available-metrics"></a>Métriques disponibles
+|**Mesure**|**Catégorie**|**Dimension(s)**|**Fonctionnalité(s)**|
+| --- | --- | --- | --- |
+|Disponibilité ARP|Disponibilité|<ui><li>Pair (routeur ExpressRoute principal/secondaire)</ui></li><ui><li> Type d’appairage (privé/public/Microsoft)</ui></li>|ExpressRoute|
+|Disponibilité du protocole BGP|Disponibilité|<ui><li> Pair (routeur ExpressRoute principal/secondaire)</ui></li><ui><li> Type d’appairage</ui></li>|ExpressRoute|
+|BitsInPerSecond|Trafic|<ui><li> Type d’appairage (ExpressRoute)</ui></li><ui><li>Liaison (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|Trafic| <ui><li>Type d’appairage (ExpressRoute)</ui></li><ui><li> Liaison (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|GlobalReachBitsInPerSecond|Trafic|<ui><li>Skey de circuit appairé (clé de service)</ui></li>|Global Reach|
+|GlobalReachBitsOutPerSecond|Trafic|<ui><li>Skey de circuit appairé (clé de service)</ui></li>|Global Reach|
+|AdminState|Connectivité physique|Lien|ExpressRoute Direct|
+|LineProtocol|Connectivité physique|Lien|ExpressRoute Direct|
+|RxLightLevel|Connectivité physique|<ui><li>Liaison</ui></li><ui><li>Couloir</ui></li>|ExpressRoute Direct|
+|TxLightLevel|Connectivité physique|<ui><li>Liaison</ui></li><ui><li>Couloir</ui></li>|ExpressRoute Direct|
+>[!NOTE]
+>L’utilisation des métriques *GlobalGlobalReachBitsInPerSecond* et *GlobalGlobalReachBitsOutPerSecond* sera visible uniquement si au moins une connexion Global Reach est établie.
+>
+
+## <a name="circuits-metrics"></a>Métriques des circuits
+
+### <a name="bits-in-and-out---metrics-across-all-peerings"></a>Bits entrants et sortants : métriques sur l’ensemble des peerings
+
+Vous pouvez voir les métriques sur l’ensemble des peerings sur un circuit ExpressRoute donné.
 
 ![métriques de circuit](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-## <a name="metrics-per-peering"></a>Métriques par homologation
+### <a name="bits-in-and-out---metrics-per-peering"></a>Bits entrants et sortants : métriques par peering
 
 Vous pouvez afficher des mesures pour l’homologation privée, publique et Microsoft en bits par seconde.
 
 ![métriques par homologation](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
+
+### <a name="bgp-availability---split-by-peer"></a>Disponibilité du protocole BGP : découpage par pair  
+
+Vous pouvez consulter la disponibilité du protocole BGP en quasi temps réel sur les peerings et les pairs (routeurs ExpressRoute principal et secondaire). Ce tableau de bord présente la session BGP principale en haut pour le peering privé et la session BGP secondaire en bas pour le peering privé. 
+
+![Disponibilité du protocole BGP par pair](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
+
+### <a name="arp-availability---split-by-peering"></a>Disponibilité du protocole ARP : découpage par peering  
+
+Vous pouvez consulter la disponibilité du protocole [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) en quasi temps réel sur les peerings et les pairs (routeurs ExpressRoute principal et secondaire). Ce tableau de bord présente la session ARP de peering privé en haut sur les deux pairs, mais la session complète en bas pour le peering Microsoft sur les peerings. L’agrégation par défaut (moyenne) a été utilisée sur les deux pairs.  
+
+![Disponibilité du protocole ARP par pair](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Connexions de passerelle ExpressRoute en bits/secondes
 
@@ -47,7 +84,7 @@ Vous pouvez afficher des mesures pour l’homologation privée, publique et Micr
 
 2. Cliquez sur **+Sélectionner la cible** et sélectionnez la ressource de connexion de passerelle ExpressRoute.
 
-   ![cible]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Définissez les détails de l’alerte.
 
    ![groupe d’actions](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)

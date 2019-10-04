@@ -3,7 +3,7 @@ title: Ajout de notifications Push à votre application Xamarin.Forms | Microsof
 description: Découvrez comment utiliser les services Azure pour envoyer des notifications Push multiplateforme à vos applications Xamarin.Forms.
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
@@ -12,20 +12,24 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/12/2016
-ms.author: crdun
-ms.openlocfilehash: 99f2d9fb7c9a74e57eff3cd0b007fcee459cab88
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: b7e2ff63211ec5891a48a585e4f69e18116cdeb3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000225"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446581"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Ajout de notifications Push à votre application Xamarin.Forms
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+> [!NOTE]
+> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent surveiller l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics** et interagir avec des utilisateurs à l’aide du service **Push**. Les développeurs peuvent également utiliser **Auth** pour authentifier leurs utilisateurs, ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-push) aujourd’hui.
+>
+
+## <a name="overview"></a>Vue d'ensemble
 
 Dans ce didacticiel, vous ajoutez des notifications Push à tous les projets qui résultent du [démarrage rapide Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md). Cela signifie qu’une notification Push est envoyée à tous les clients inter-plateformes à chaque fois qu’un enregistrement est inséré.
 
@@ -59,7 +63,7 @@ Terminez cette section pour activer les notifications Push pour le projet Androi
 
 Une fois le serveur principal configuré avec FCM, vous pouvez ajouter des codes et des composants au client pour vous inscrire auprès de FCM. Vous pouvez également vous inscrire aux notifications Push avec Azure Notification Hubs via le serveur principal Mobile Apps et recevoir des notifications.
 
-1. Dans le projet **Droid**, cliquez avec le bouton droit sur **Références > Gérer les Packages NuGet...**.
+1. Dans le projet **Droid**, cliquez avec le bouton droit sur **Références > Gérer les Packages NuGet...** .
 1. Dans la fenêtre du gestionnaire de packages NuGet, recherchez le package **Xamarin.Firebase.Messaging** et ajoutez-le au projet.
 1. Dans les propriétés du projet **Droid**, configurez l’application pour qu’elle soit compilée avec Android 7.0 ou une version ultérieure.
 1. Ajoutez le fichier **google-services.json**, téléchargé à partir de la console Firebase, à la racine du projet **Droid** et définissez son action de compilation sur **GoogleServicesJson**. Pour plus d’informations, consultez [Ajouter le fichier JSON de Google Services](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/#Add_the_Google_Services_JSON_File).
@@ -232,7 +236,7 @@ Les deux premières étapes sont requises uniquement lorsque vous testez sur un 
 2. Ajoutez un compte Google à l’appareil Android en cliquant sur **Applications** > **Paramètres** > **Ajouter un compte**. Puis suivez les invites pour ajouter un compte Google existant sur l’appareil ou pour en créer un nouveau.
 3. Dans Visual Studio ou Xamarin Studio, cliquez avec le bouton droit sur le projet **Droid**, puis cliquez sur **Définir comme projet de démarrage**.
 4. Cliquez sur **Exécuter** pour générer le projet et lancer l’application sur votre appareil ou émulateur Android.
-5. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
+5. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus ( **+** ).
 6. Vérifiez qu’une notification est reçue lorsqu’un élément est ajouté.
 
 ## <a name="configure-and-run-the-ios-project-optional"></a>Configurer et exécuter le projet iOS (facultatif)
@@ -326,7 +330,7 @@ L'application est mise à jour et prend en charge les notifications Push.
    > [!NOTE]
    > Vous devez accepter explicitement les notifications Push de votre application. Cette demande s’effectue uniquement lors du premier démarrage de l’application.
 
-3. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus (**+**).
+3. Dans l’application, tapez une tâche, puis cliquez sur l’icône plus ( **+** ).
 4. Vérifiez que vous avez reçu une notification, puis cliquez sur **OK** pour fermer celle-ci.
 
 ## <a name="configure-and-run-windows-projects-optional"></a>Configurer et exécuter des projets Windows (facultatif)
@@ -398,7 +402,7 @@ Cette section s’applique à l’exécution des projets Xamarin.Forms WinApp et
 
 1. Dans Visual Studio, cliquez avec le bouton droit sur un projet Windows, puis cliquez sur **Définir comme projet de démarrage**.
 2. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l'application.
-3. Dans l’application, tapez un nom pour un nouvel élément todoitem, puis cliquez sur l’icône de signe plus (**+**) pour l’ajouter.
+3. Dans l’application, tapez un nom pour un nouvel élément todoitem, puis cliquez sur l’icône de signe plus ( **+** ) pour l’ajouter.
 4. Vérifiez qu’une notification est reçue lorsque l’élément est ajouté.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -409,12 +413,12 @@ Apprenez-en plus sur les notifications Push :
 * [Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
 * [Notifications à distance avec Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/)
 * [Diagnostiquer les problèmes de notification Push](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-   Il existe différentes raisons pour lesquelles les notifications peuvent être perdues ou n’arrivent pas sur les appareils. Cette rubrique vous explique comment analyser et déterminer la cause première des défaillances de notification Push.
+  Il existe différentes raisons pour lesquelles les notifications peuvent être perdues ou n’arrivent pas sur les appareils. Cette rubrique vous explique comment analyser et déterminer la cause première des défaillances de notification Push.
 
 Vous pouvez poursuivre avec l’un des didacticiels suivants :
 
-* [Ajout de l’authentification à votre application](app-service-mobile-xamarin-forms-get-started-users.md)  
-   Apprenez à authentifier les utilisateurs de votre application avec un fournisseur d’identité.
+* [Ajout de l'authentification à votre application](app-service-mobile-xamarin-forms-get-started-users.md)  
+  Apprenez à authentifier les utilisateurs de votre application avec un fournisseur d’identité.
 * [Activer la synchronisation hors connexion pour votre application](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Découvrez comment ajouter une prise en charge hors connexion à votre application à l’aide d’un serveur principal Mobile Apps. La synchronisation hors connexion permet aux utilisateurs d’interagir avec une application mobile &mdash;pour afficher, ajouter ou modifier des données&mdash;, même lorsqu’il n’existe aucune connexion réseau.
 

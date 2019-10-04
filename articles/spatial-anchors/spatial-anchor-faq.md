@@ -4,16 +4,16 @@ description: Azure Spatial Anchors est un service cloud managé et une plateform
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d38f7a22d90c62b245e49e6bdb0a3041c4f1023f
-ms.sourcegitcommit: 68ba7916a6ff8dd40f5037e57059733d74374954
+ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753591"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927511"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Questions fréquentes (FAQ) sur Azure Spatial Anchors
 
@@ -57,7 +57,7 @@ Pour illustrer cela, voici une image d’environnement et le nuage de points dis
 
 Azure Spatial Anchors respecte les [conditions du contrat de service Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9) et la [déclaration de confidentialité Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
-![Un environnement et son nuage de points disséminés qui en est dérivé](./media/sparce-point-cloud.png)
+![Un environnement et son nuage de points disséminés qui en est dérivé](./media/sparse-point-cloud.png)
 *Figure 1 : Un environnement et son nuage de points disséminés qui en est dérivé*
 
 
@@ -78,7 +78,7 @@ Azure Spatial Anchors respecte les [conditions du contrat de service Azure](http
 Les dates de disponibilité générale (GA) seront bientôt annoncées.
 
 **Q : Existe-t-il des limites ?**
- 
+
 **R** : Oui, il existe des limites.  Cependant, vous ne devriez pas les atteindre dans le cadre du développement et du test d’une application normale. Pour les déploiements de production, nous sommes prêts à répondre aux exigences élevées de nos clients. [Contactez-nous](mailto:azuremrs@microsoft.com) pour en discuter. Durant cette phase de préversion, nous n’avons pas encore publié de structure de hiérarchisation et de prix, mais cela devrait venir prochainement.
 
 **Q : Dans quelles régions Azure Spatial Anchors est disponible ?**
@@ -120,8 +120,8 @@ Lancez-vous dans le [développement ici](index.yml).
 
 **Q : Le service fonctionne-t-il avec Unreal ?**
 
-**R :** La prise en charge d’Unreal devrait être assurée prochainement.
+**R :** La prise en charge de Unreal sera envisagée prochainement.
 
-**Q : Le service fonctionne-t-il avec Xamarin ?**
+**Q : Quels ports et protocoles Azure Spatial Anchors utilise-t-il ?**
 
-**R :** Oui. Bien que nous ne proposions pas de kit SDK Xamarin, nous pensons que les développeurs peuvent utiliser Azure Spatial Anchors dans leurs applications Xamarin en l’intégrant avec l’API Azure Spatial Anchors.
+**R :** Azure Spatial Anchors communique via le port TCP 443 à l’aide d’un protocole chiffré. Pour l’authentification, il utilise [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), qui communique à l’aide de HTTPS sur le port 443.

@@ -1,6 +1,6 @@
 ---
-title: Réécrire les en-têtes de demande et de réponse HTTP avec Azure Application Gateway - portail Azure | Microsoft Docs
-description: Découvrez comment utiliser le portail Azure pour configurer une passerelle d’Application Azure pour réécrire les en-têtes HTTP dans les demandes et réponses passant par la passerelle
+title: Réécrire les en-têtes de requête et de réponse HTTP avec Azure Application Gateway - Azure portal | Microsoft Docs
+description: Découvrez comment utiliser le portail Azure pour configurer une instance d’Azure Application Gateway pour réécrire les en-têtes HTTP dans les requêtes et réponses passant par la passerelle
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -8,125 +8,127 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 6afc07f98905469b06622e7829ec4a215b94845e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e144214a58f9fe383cf4edd878554792d9d6a6f9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994603"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64947161"
 ---
-# <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Réécrire les en-têtes de demande et de réponse HTTP avec Azure Application Gateway - portail Azure
+# <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Réécrire les en-têtes de requête et de réponse HTTP avec Azure Application Gateway - Azure portal
 
-Cet article vous montre comment utiliser le portail Azure pour configurer un [référence (SKU) de passerelle d’Application v2](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) pour réécrire les en-têtes HTTP dans les demandes et réponses.
-
-> [!IMPORTANT]
-> La référence SKU de la passerelle d’application redondante interzone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Cet article explique comment utiliser le portail Microsoft Azure pour configurer une instance de la [référence SKU Application Gateway v2](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) afin de réécrire les en-têtes HTTP des requêtes et des réponses.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Vous devez disposer d’un environnement v2 passerelle d’Application étant donné que la capacité de réécriture de l’en-tête dans la référence (SKU) n’est pas pris en charge pour la référence SKU v1. Si vous n’avez pas la référence (SKU) v2, créez un [référence (SKU) de passerelle d’Application v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) avant de commencer.
+Vous devez disposer d’une instance de la référence SKU Application Gateway v2 pour suivre la procédure décrite dans cet article. La réécriture des en-têtes n’est pas prise en charge dans la référence SKU v1. Si vous ne disposez pas de la référence SKU v2, créez une instance de [référence SKU Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) avant de commencer.
 
-## <a name="what-is-required-to-rewrite-a-header"></a>Ce qui est nécessaire de réécrire un en-tête
+## <a name="create-required-objects"></a>Créer les objets requis
 
-Pour configurer la réécriture d’en-tête HTTP, vous devez :
+Pour configurer la réécriture d’en-têtes HTTP, procédez comme suit.
 
-1. Créer les nouveaux objets requis pour réécrire les en-têtes HTTP :
+1. Créez les objets requis pour la réécriture des en-têtes HTTP :
 
-   - **Réécriture d’Action**: permet de spécifier la demande et les champs d’en-tête de demande que vous avez l’intention de réécrire et la nouvelle valeur que les en-têtes d’origine doivent être réécrites pour. Vous pouvez choisir d’associer à un ou plus réécriture condition avec une action de réécriture.
+   - **Action de réécriture** : permet de spécifier la requête et les champs d’en-tête de requête que vous souhaitez réécrire, ainsi que la nouvelle valeur des en-têtes. Vous pouvez associer une ou plusieurs conditions de réécriture avec une action de réécriture.
 
-   - **Réécrivez la Condition**: Il est une configuration facultative. Si une condition de la réécriture est ajoutée, il est évalué le contenu des requêtes HTTP (S) et des réponses. La décision d’exécuter l’action de réécriture associée à la condition de réécriture reposera si la demande de HTTP (S) ou la réponse mise en correspondance avec la condition de réécriture. 
+   - **Condition de réécriture** : une configuration facultative. Les conditions de réécriture évaluent le contenu des requêtes et réponses HTTP(S). L’action de réécriture se produira si la requête ou la réponse HTTP(S) correspondent à la condition de réécriture.
 
-     Si plusieurs conditions sont associé à une action, puis l’action sera exécutée uniquement lorsque toutes les conditions sont remplies, par exemple, une opération AND logique sera effectuée.
+     Si vous associez plusieurs conditions à une action, cette dernière ne se produit que lorsque toutes les conditions sont remplies. En d’autres termes, il s’agit d’une opération ET logique.
 
-   - **Règle de réécriture**: règle de réécriture contient plusieurs réécriture action - réécrire les combinaisons de condition.
+   - **Règle de réécriture** : contient plusieurs combinaisons d’actions de réécriture/conditions de réécriture.
 
-   - **Séquence de règle**: permet de déterminer l’ordre dans lequel les différentes règles de réécriture sont exécutées. Cela est utile lorsqu’il existe plusieurs règles de réécriture dans un ensemble de réécriture. La règle de réécriture avec la valeur de séquence de règle inférieure obtient exécutée en premier. Si vous fournissez la même séquence de règle à deux règles de réécriture, l’ordre d’exécution sera non déterministe.
+   - **Séquence de règle** : permet de déterminer l’ordre dans lequel les règles de réécriture s’exécutent. Cette configuration est utile lorsque vous disposez de plusieurs règles de réécriture dans un jeu de réécritures. Une règle de réécriture qui présente une valeur de séquence de règle peu élevée s’exécute en premier. Si vous attribuez la même valeur de séquence de règle à deux règles de réécriture, l’ordre d’exécution n’est pas déterministe.
 
-   - **Réécrire ensemble**: contient plusieurs règles de réécriture qui seront associés à une règle de routage de demande.
+   - **Jeu de réécriture** : contient plusieurs règles de réécriture qui seront associées à une règle d’acheminement de requête.
 
-2. Vous devez attacher la réécriture définie avec une règle de routage. Il s’agit, car la configuration de la réécriture est attachée à l’écouteur source via la règle de routage. Lorsque vous utilisez une règle d’acheminement de base, la configuration de réécriture de l’en-tête est associée à un écouteur de la source et est une réécriture de l’en-tête global. Lorsqu’une règle d’acheminement basée sur le chemin d’accès est utilisée, la configuration de réécriture de l’en-tête est définie sur le mappage de chemin d’accès d’URL. Elle s’applique donc exclusivement à la zone de chemin d’accès spécifique d’un site.
+2. Attachez le jeu de réécriture à une règle d’acheminement. La configuration de réécriture est attachée à l’écouteur source par le biais de la règle d’acheminement. Lorsque vous utilisez une règle d’acheminement de base, la configuration de réécriture d’en-tête est associée à un écouteur source et correspond à une réécriture d’en-tête global. Lorsque vous utilisez une règle d’acheminement basée sur le chemin d’accès, la configuration de réécriture d’en-tête est définie sur le mappage du chemin d’URL. Dans ce cas, elle s’applique exclusivement à la zone de chemin d’accès spécifique d’un site.
 
-Vous pouvez créer plusieurs jeux de réécriture d’en-tête http et chaque jeu de réécriture peut être appliqué à plusieurs écouteurs. Toutefois, vous pouvez appliquer uniquement un ensemble à un port d’écoute spécifique de réécriture.
+Vous pouvez créer plusieurs jeux de réécritures d’en-tête HTTP et appliquer chacun d’eux à différents écouteurs. En revanche, vous ne pouvez appliquer qu’un seul jeu de réécritures à un écouteur spécifique.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au [portail Azure](https://portal.azure.com/) avec votre compte Azure.
 
-## <a name="configure-header-rewrite"></a>Configurer la réécriture de l’en-tête
+## <a name="configure-header-rewrite"></a>Configurer la réécriture d’en-tête
 
-Dans cet exemple, nous allons modifier l’URL de redirection par la réécriture de l’en-tête d’emplacement dans la réponse http envoyée par l’application principale. 
+Dans cet exemple, nous allons modifier une URL de redirection en réécrivant l’en-tête de localisation dans la réponse HTTP envoyée par une application back-end.
 
-1. Sélectionnez **toutes les ressources**, puis sélectionnez votre passerelle d’application.
+1. Sélectionnez **Toutes les ressources**, puis sélectionnez votre passerelle d’application.
 
-2. Sélectionnez **réécrit** dans le menu de gauche.
+2. Dans le volet gauche, sélectionnez **Réécrit**.
 
-3. Cliquez sur **+ réécrire ensemble**. 
+3. Sélectionnez **Jeu de réécriture** :
 
-   ![Ajouter le jeu de réécriture](media/rewrite-http-headers-portal/add-rewrite-set.png)
+   ![Ajouter un jeu de réécriture](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
-4. Fournissez le nom à l’ensemble de réécriture et l’associer à une règle de routage :
+4. Fournissez un nom pour le jeu de réécriture et associer-le à une règle d’acheminement :
 
-   - Entrez le nom de la réécriture définie le **nom** zone de texte.
-   - Sélectionnez une ou plusieurs règles répertoriées dans le **associées des règles de routage** liste. Vous pouvez sélectionner uniquement les règles qui n’ont pas été associés avec d’autres ensembles de réécriture. Les règles qui ont déjà été associées avec d’autres ensembles de réécriture seront grisées.
-   - Cliquez sur Suivant.
+   - Entrez le nom du jeu de réécriture défini dans la zone **Nom**.
+   - Sélectionnez une ou plusieurs des règles présentées dans la liste **Règles d’acheminement associées**. Vous pouvez sélectionner uniquement les règles qui n’ont pas été associés à d’autres jeux de réécriture. Les règles qui ont déjà été associées à d’autres jeux de réécriture ne sont pas disponibles.
+   - Sélectionnez **Suivant**.
    
-     ![Ajouter le nom et l’association](media/rewrite-http-headers-portal/name-and-association.png)
+     ![Ajouter un nom et une association](media/rewrite-http-headers-portal/name-and-association.png)
 
 5. Créer une règle de réécriture :
 
-   - Cliquez sur **+ ajouter une règle de réécriture**.![ Ajouter une règle de réécriture](media/rewrite-http-headers-portal/add-rewrite-rule.png)
-   - Fournir un nom pour la règle de réécriture dans la zone de texte Nom de règle réécriture et une séquence de la règle.![Ajouter le nom de la règle](media/rewrite-http-headers-portal/rule-name.png)
+   - Sélectionnez **Ajouter une règle de réécriture**.
 
-6. Dans cet exemple, nous avons réécrit l’en-tête d’emplacement que lorsqu’elle contient une référence à « azurewebsites.net ». Pour ce faire, ajoutez une condition à évaluer si l’en-tête d’emplacement dans la réponse contient azurewebsites.net :
+     ![Ajouter une règle de réécriture](media/rewrite-http-headers-portal/add-rewrite-rule.png)
 
-   - Cliquez sur **+ ajouter une condition** , puis cliquez sur la section avec le **si** obtenir des instructions pour développer les y![ Ajouter le nom de la règle](media/rewrite-http-headers-portal/add-condition.png)
+   - Entrez un nom pour la règle de réécriture dans la zone **Nom de règle de réécriture**. Entrez un numéro dans la zone **Séquence de règle**.
 
-   - Sélectionnez **en-tête HTTP** à partir de la **Type de variable à vérifier** liste déroulante. 
+     ![Ajouter un nom de règle de réécriture](media/rewrite-http-headers-portal/rule-name.png)
 
-   - Sélectionnez **type d’en-tête** comme **réponse**.
+6. Dans cet exemple, nous allons réécrire l’en-tête d’emplacement uniquement lorsqu’il contient une référence à azurewebsites.net. Pour ce faire, ajoutez une condition destinée à évaluer si l’en-tête d’emplacement de la réponse contient ou non azurewebsites.net.
 
-   - Étant donné que dans cet exemple, nous évaluons l’en-tête location qui se trouve être un en-tête commun, sélectionnez **en-tête commun** case d’option en tant que le **nom d’en-tête**.
+   - Sélectionnez **Ajouter une condition**, puis sélectionnez la zone contenant les instructions **Si** pour la développer.
 
-   - Sélectionnez **emplacement** à partir de la **en-tête commun** liste déroulante.
+     ![Ajouter une condition](media/rewrite-http-headers-portal/add-condition.png)
 
-   - Sélectionnez **non** en tant que le **respect de la casse** paramètre.
+   - Dans la liste **Type de variable à vérifier**, sélectionnez **En-tête HTTP**.
 
-   - Sélectionnez **signe égal (=)** à partir de la **opérateur** liste déroulante.
+   - Dans la liste **Type d’en-tête**, sélectionnez **Réponse**.
 
-   - Entrez le modèle d’expression régulière. Dans cet exemple, nous allons utiliser le modèle `(https?):\/\/.*azurewebsites\.net(.*)$` .
+   - Comme dans cet exemple, nous évaluons l’en-tête d’emplacement, qui est un en-tête commun, sélectionnez **En-tête commun** sous **Nom d’en-tête**.
 
-   - Cliquez sur **OK**.
+   - Dans la liste **En-tête commun**, sélectionnez **Emplacement**.
 
-     ![Modifier l’en-tête d’emplacement](media/rewrite-http-headers-portal/condition.png)
+   - Sous **Respect de la casse**, sélectionnez **Non**.
 
-7. Ajouter une action pour réécrire l’en-tête d’emplacement :
+   - Dans la liste **Opérateur**, sélectionnez **Égal (=)** .
 
-   - Sélectionnez **définir** en tant que le **type d’Action**.
+   - Entrez un modèle d’expression régulière. Dans cet exemple, nous allons utiliser le modèle `(https?):\/\/.*azurewebsites\.net(.*)$`.
 
-   - Sélectionnez **réponse** en tant que le **type d’en-tête**.
+   - Sélectionnez **OK**.
 
-   - Sélectionnez **en-tête commun** en tant que le **nom d’en-tête**.
+     ![Configurer une condition Si](media/rewrite-http-headers-portal/condition.png)
 
-   - Sélectionnez **emplacement** à partir de la **en-tête commun** liste déroulante.
+7. Ajoutez une action pour réécrire l’en-tête d’emplacement :
 
-   - Entrez la valeur d’en-tête. Dans cet exemple, nous allons utiliser `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` en tant que la valeur d’en-tête. Cette opération va remplacer *azurewebsites.net* avec *contoso.com* dans l’en-tête location.
+   - Dans la liste **type d’Action**, sélectionnez **Définir**.
 
-   - Cliquez sur **OK**.
+   - Dans la liste **Type d’en-tête**, sélectionnez **Réponse**.
 
-     ![Modifier l’en-tête d’emplacement](media/rewrite-http-headers-portal/action.png)
+   - Sous **Nom d’en-tête**, sélectionnez **En-tête commun**.
 
-8. Cliquez sur **créer** pour créer la réécriture.
+   - Dans la liste **En-tête commun**, sélectionnez **Emplacement**.
 
-   ![Modifier l’en-tête d’emplacement](media/rewrite-http-headers-portal/create.png)
+   - Entrez la valeur de l’en-tête. Dans cet exemple, nous allons utiliser `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` en tant que valeur de l’en-tête. Cette valeur remplacera *azurewebsites.net* par *contoso.com* dans l’en-tête d’emplacement.
 
-9. Vous serez redirigé vers la vue d’ensemble de réécriture. Vérifiez que le jeu de réécriture que vous avez créé précédemment est présent dans la liste des jeux de réécriture.
+   - Sélectionnez **OK**.
 
-   ![Modifier l’en-tête d’emplacement](media/rewrite-http-headers-portal/rewrite-set-list.png)
+     ![Ajouter une action](media/rewrite-http-headers-portal/action.png)
+
+8. Sélectionnez **Créer** pour créer le jeu de réécriture :
+
+   ![Sélectionner Créer](media/rewrite-http-headers-portal/create.png)
+
+9. La vue Jeu de réécriture s’ouvre. Vérifiez que le jeu de réécriture que vous avez créé se trouve dans la liste des jeux de réécriture :
+
+   ![Vue Jeu de réécriture](media/rewrite-http-headers-portal/rewrite-set-list.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la configuration requise pour accomplir certaines courantes cas d’utilisation, consultez [scénarios de réécriture d’en-tête commun](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
-
-   
+Pour plus d’informations sur la configuration de certains cas d’usage courants, consultez l’article présentant des [scénarios de réécriture d’en-têtes courants](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).

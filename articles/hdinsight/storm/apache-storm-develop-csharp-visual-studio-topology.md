@@ -1,7 +1,6 @@
 ---
 title: Topologies Apache Storm avec Visual Studio et C# - Azure HDInsight
 description: Découvrez comment créer des topologies Storm en C#. Créez une topologie simple de comptage de mots dans Visual Studio à l’aide des outils Hadoop pour Visual Studio.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1bcb50829dca59f8a467c2c1d2381b5463ef9471
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 828ec2b925535df3f925093466556447e703cd76
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437392"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003816"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Développer des topologies C# pour Apache Storm à l’aide de Data Lake Tools pour Visual Studio
 
@@ -104,7 +103,7 @@ Data Lake Tools pour Visual Studio fournit les modèles suivants :
 | Type de projet | Illustre le |
 | --- | --- |
 | Application Storm |Projet de topologie Storm vide |
-| Exemple d’enregistreur SQL Azure Storm |Écriture dans Azure SQL Database |
+| Exemple d’enregistreur SQL Azure Storm |Écriture dans Azure SQL Database. |
 | Exemple de lecteur Azure Cosmos DB Storm |Lecture à partir d’Azure Cosmos DB |
 | Exemple d’enregistreur Azure Cosmos DB Storm |Écriture dans Azure Cosmos DB |
 | Exemple de lecteur EventHub Storm |Lecture à partir d’Azure Event Hubs |
@@ -136,7 +135,7 @@ Pour un exemple de topologie utilisant ce composant et fonctionnant avec Storm s
 
 2. Dans la fenêtre **Nouveau projet**, développez **Installé** > **Modèles**, puis sélectionnez **Azure Data Lake**. Dans la liste des modèles, sélectionnez **Application Storm**. En bas de la boîte de dialogue, entrez **Statistiques** comme nom d’application.
 
-    ![Capture d’écran de la fenêtre Nouveau projet](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
+    ![Capture d’écran de la fenêtre Nouveau projet](./media/apache-storm-develop-csharp-visual-studio-topology/apache-storm-new-project.png)
 
 3. Une fois le projet créé, vous devez avoir les fichiers suivants :
 
@@ -339,7 +338,7 @@ Pour un exemple de topologie utilisant ce composant et fonctionnant avec Storm s
 
 Les spouts et les bolts sont organisés dans un graphique, qui définit la circulation des données entre les composants. Dans cette topologie, le graphique est le suivant :
 
-![Diagramme illustrant l’organisation des composants](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![Diagramme illustrant l’organisation des composants](./media/apache-storm-develop-csharp-visual-studio-topology/word-count-topology1.png)
 
 Des phrases sont émises par le spout, puis distribuées à des instances du bolt Splitter. Le bolt de fractionnement fractionne les phrases en mots, qui sont distribués au bolt de décompte.
 
@@ -433,7 +432,7 @@ Les topologies transactionnelles implémentent les opérations suivantes pour pr
 
 * **Mise en cache des métadonnées** : le spout doit stocker les métadonnées relatives aux données émises, afin que les données puissent être récupérées et émises à nouveau en cas de défaillance. Dans la mesure où les données émises par l’exemple sont petites, les données brutes de chaque tuple sont stockées dans un dictionnaire pour la relecture.
 
-* **Ack** : chaque bolt de la topologie peut appeler `this.ctx.Ack(tuple)` afin de signaler qu’il a traité un tuple avec succès. Lorsque tous les bolts ont accepté le tuple, la `Ack` méthode du spout est appelée. La méthode `Ack` permet au spout de supprimer les données mises en cache pour la relecture.
+* **Ack** : chaque bolt de la topologie peut appeler `this.ctx.Ack(tuple)` afin de signaler qu’il a traité un tuple avec succès. Quand tous les bolts ont accusé réception du tuple, la méthode `Ack` du spout est appelée. La méthode `Ack` permet au spout de supprimer les données mises en cache pour la relecture.
 
 * **Fail** : chaque bolt peut appeler `this.ctx.Fail(tuple)` pour indiquer que le traitement d’un tuple a échoué. L’échec se propage à la méthode `Fail` du spout, où le tuple peut être relu à l’aide des métadonnées mises en cache.
 
@@ -461,7 +460,6 @@ Pour un exemple de topologie hybride, créez un projet, puis sélectionnez **Exe
 
   > [!NOTE]  
   > Cette version montre également comment utiliser le code Clojure à partir d’un fichier texte en tant que composant Java.
-
 
 Pour changer la topologie utilisée au moment d’envoyer le projet, déplacez l’instruction `[Active(true)]` vers la topologie que vous souhaitez utiliser avant de l’envoyer au cluster.
 
@@ -560,27 +558,27 @@ Pour les clusters HDInsight basés sur Linux, vous devez vous assurer que votre 
 
 ### <a name="test-a-topology-locally"></a>Test local d’une topologie
 
-Bien qu’il soit facile de déployer une topologie sur un cluster, dans certains cas, il sera peut-être nécessaire de tester une topologie localement. Utilisez les étapes suivantes pour exécuter et tester localement l’exemple de topologie de ce didacticiel localement dans votre environnement de développement.
+Bien qu’il soit facile de déployer une topologie sur un cluster, dans certains cas, il sera peut-être nécessaire de tester une topologie localement. Utilisez les étapes suivantes pour exécuter et tester localement l’exemple de topologie de cet article localement dans votre environnement de développement.
 
 > [!WARNING]  
 > Le test local fonctionne uniquement pour les topologies exclusivement C# de base. Vous ne pouvez pas employer le test local pour les topologies hybrides ou celles qui utilisent plusieurs flux de données.
 
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet et sélectionnez **Propriétés**. Dans les propriétés du projet, modifiez le **Type de sortie** sur **Application Console**.
 
-    ![Capture d’écran des propriétés du projet, avec le type de sortie en surbrillance](./media/apache-storm-develop-csharp-visual-studio-topology/outputtype.png)
+    ![Capture d’écran des propriétés du projet, avec le type de sortie en surbrillance](./media/apache-storm-develop-csharp-visual-studio-topology/hdi-output-type-window.png)
 
    > [!NOTE]
    > N’oubliez pas de modifier le **Type de sortie** sur **Bibliothèque de classes** avant de déployer la topologie sur un cluster.
 
-2. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Ajouter** > **Nouvel élément**. Sélectionnez **Classe**, puis entrez **LocalTest.cs** en tant que nom de classe. Enfin, cliquez sur **Ajouter**.
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Ajouter** > **Nouvel élément**. Sélectionnez **Classe**, puis entrez **LocalTest.cs** en tant que nom de classe. Enfin, cliquez sur **Ajouter**.
 
-3. Ouvrez **LocalTest.cs**, puis ajoutez l’instruction **using** au début du fichier :
+1. Ouvrez **LocalTest.cs**, puis ajoutez l’instruction **using** au début du fichier :
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. Utilisez le code suivant comme contenu de la classe **LocalTest** :
+1. Utilisez le code suivant comme contenu de la classe **LocalTest** :
 
     ```csharp
     // Drives the topology components
@@ -682,9 +680,9 @@ Bien qu’il soit facile de déployer une topologie sur un cluster, dans certain
     Console.ReadKey();
     ```
 
-2. Enregistrez les modifications, puis cliquez sur **F5** ou sélectionnez **Débogage** > **Démarrer le débogage** pour démarrer le projet. Une fenêtre de console doit apparaître et enregistrer les statuts avec la progression des tests. Lorsque le message **Tests terminés** s’affiche, appuyez sur n’importe quelle touche pour fermer la fenêtre.
+1. Enregistrez les modifications, puis cliquez sur **F5** ou sélectionnez **Débogage** > **Démarrer le débogage** pour démarrer le projet. Une fenêtre de console doit apparaître et enregistrer les statuts avec la progression des tests. Lorsque le message **Tests terminés** s’affiche, appuyez sur n’importe quelle touche pour fermer la fenêtre.
 
-3. Utilisez l’**Explorateur Windows** pour localiser le répertoire contenant votre projet. Par exemple :  **C:\Utilisateurs\<votre_nom_utilisateur>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. Dans ce répertoire, ouvrez **Bin**, puis cliquez sur **Débogage**. Vous devez voir les fichiers texte produits lors de l’exécution de tests : sentences.txt, counter.txt et splitter.txt. Ouvrez chaque fichier texte et inspectez les données.
+1. Utilisez l’**Explorateur Windows** pour localiser le répertoire contenant votre projet. Par exemple :  **C:\Utilisateurs\<votre_nom_utilisateur>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. Dans ce répertoire, ouvrez **Bin**, puis cliquez sur **Débogage**. Vous devez voir les fichiers texte produits lors de l’exécution de tests : sentences.txt, counter.txt et splitter.txt. Ouvrez chaque fichier texte et inspectez les données.
 
    > [!NOTE]  
    > Les chaînes de données sont conservées sous forme de tableau de valeurs décimales dans ces fichiers. Par exemple, le résultat \[[97,103,111]] dans le fichier **splitter.txt** correspond au mot *and*.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 367027a48dd51dd88de63cb163e05e0e8503755d
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011611"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308579"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -170,7 +170,7 @@ Il est essentiel non seulement de savoir qui utilise vos applications, mais auss
   > 
   > **Démarrer** : pour en savoir plus sur l’authentification dans App Service, consultez [Authentification et autorisation dans Azure App Service](../../app-service/overview-authentication-authorization.md).
 
-Pour en savoir plus sur les bonnes pratiques de sécurité dans Azure, consultez [Bonnes pratiques et modèle de sécurité dans Azure](../../security/security-best-practices-and-patterns.md).
+Pour en savoir plus sur les bonnes pratiques de sécurité dans Azure, consultez [Bonnes pratiques et modèle de sécurité dans Azure](../../security/fundamentals/best-practices-and-patterns.md).
 
 ### <a name="monitoring"></a>Surveillance
 
@@ -199,7 +199,7 @@ Azure est une plateforme cloud mondiale qui est disponible dans de nombreuses r�
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Choisir la meilleure région pour votre application et vos données
 
-L’un des avantages de l’utilisation d’Azure est de pouvoir déployer des applications dans différents centres de données du monde. La région que vous choisissez peut affecter les performances de votre application. Par exemple, il est préférable de choisir une région proche de la plupart de vos clients afin de réduire la latence des demandes réseau. Vous pouvez également sélectionner votre région pour répondre aux exigences légales de distribution de votre application dans certains pays. Il est toujours recommandé de stocker les données d’application dans le même centre de données ou dans un centre de données aussi proche que possible du centre de données qui héberge votre application.
+L’un des avantages de l’utilisation d’Azure est de pouvoir déployer des applications dans différents centres de données du monde. La région que vous choisissez peut affecter les performances de votre application. Par exemple, il est préférable de choisir une région proche de la plupart de vos clients afin de réduire la latence des demandes réseau. Vous pouvez également sélectionner votre région pour répondre aux exigences légales de distribution de votre application dans certains pays/régions. Il est toujours recommandé de stocker les données d’application dans le même centre de données ou dans un centre de données aussi proche que possible du centre de données qui héberge votre application.
 
 ### <a name="multi-region-apps"></a>Applications multirégions
 
@@ -234,12 +234,12 @@ Azure repose sur un ensemble d’API REST qui prennent en charge l’interface u
 Outre les API REST, de nombreux services Azure vous permettent de gérer par programmation les ressources de vos applications en utilisant les kits SDK Azure spécifiques à la plateforme, notamment les kits SDK pour les plateformes de développement suivantes :
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
--   [Node.JS](https://docs.microsoft.com/javascript/azure)
+-   [Node.JS](https://docs.microsoft.com/azure/javascript/)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](https://docs.microsoft.com/python/azure)
+-   [Python](/azure/python/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
--   [Go](https://docs.microsoft.com/go/azure)
+-   [Go](https://docs.microsoft.com/azure/go)
 
 Des services tels que [Mobile Apps](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md) et [Azure Media Services](../../media-services/previous/media-services-dotnet-how-to-use.md) fournissent des kits SDK côté client pour vous permettre d’accéder aux services à partir d’applications clientes web et mobiles.
 
@@ -247,7 +247,7 @@ Des services tels que [Mobile Apps](../../app-service-mobile/app-service-mobile-
     
 L’exécution de votre application sur Azure implique probablement l’utilisation de plusieurs services Azure, qui ont tous le même cycle de vie et peuvent être vus comme une unité logique. Par exemple, une application web peut utiliser Web Apps, SQL Database, Stockage, le cache Azure pour Redis et les services Azure Content Delivery Network. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) vous permet d’utiliser les ressources de votre application sous la forme d’un groupe. Vous pouvez déployer, mettre à jour et supprimer toutes les ressources dans le cadre d’une opération unique et coordonnée.
 
-Outre le regroupement et la gestion logiques des ressources connexes, Azure Resource Manager inclut des fonctionnalités de déploiement qui vous permettent de personnaliser le déploiement et la configuration des ressources connexes. Par exemple, Resource Manager vous permet de déployer et de configurer une application qui se compose de plusieurs machines virtuelles, d’un équilibreur de charge et d’une base de données SQL Azure, comme une unité unique.
+Outre le regroupement et la gestion logiques des ressources connexes, Azure Resource Manager inclut des fonctionnalités de déploiement qui vous permettent de personnaliser le déploiement et la configuration des ressources connexes. Par exemple, Resource Manager vous permet de déployer et de configurer une application qui se compose de plusieurs machines virtuelles, d’un équilibreur de charge et d’une base de données Azure SQL, comme une unité unique.
 
 Vous développez ces déploiements à l’aide d’un modèle Azure Resource Manager, qui est un document au format JSON. Les modèles vous permettent de définir un déploiement et de gérer vos applications à l’aide de modèles déclaratifs, plutôt que de scripts. Vos modèles peuvent fonctionner pour différents environnements, par exemple des environnements de test, de préproduction et de production. Par exemple, vous pouvez utiliser des modèles pour ajouter un bouton à un dépôt GitHub qui déploie le code figurant dans le dépôt d’un seul clic dans un ensemble de services Azure.
 
@@ -281,7 +281,7 @@ Azure Resource Explorer est un excellent outil de visualisation des ressources q
 
 Lorsque vous autorisez l’accès à des ressources Azure, il est toujours recommandé de fournir aux utilisateurs les privilèges minimaux nécessaires pour effectuer une tâche donnée.
 
-- **Contrôle d’accès en fonction du rôle (RBAC)** : dans Azure, vous pouvez accorder l’accès aux comptes d’utilisateur (principaux) dans une étendue spécifiée : abonnement, groupe de ressources ou ressources individuelles. RBAC vous permet de déployer un ensemble de ressources dans un groupe de ressources et d’accorder des autorisations à un utilisateur ou un groupe spécifique. Il vous permet également de limiter l’accès aux seules ressources qui appartiennent au groupe de ressources cible. Vous pouvez également accorder l’accès à une ressource unique, telle qu’une machine virtuelle ou un réseau virtuel. Pour accorder l’accès, vous assignez un rôle à l’utilisateur, au groupe ou au principal de service. Il existe de nombreux rôles prédéfinis et vous pouvez également définir vos propres rôles personnalisés. Pour en savoir plus, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md).
+- **Contrôle d’accès en fonction du rôle (RBAC)** : dans Azure, vous pouvez accorder l’accès aux comptes d’utilisateur (principaux) dans une étendue spécifiée : abonnement, groupe de ressources ou ressources individuelles. RBAC vous permet de déployer un ensemble de ressources dans un groupe de ressources et d’accorder des autorisations à un utilisateur ou un groupe spécifique. Il permet également de limiter l’accès aux seules ressources qui appartiennent au groupe de ressources cible. Vous pouvez également accorder l’accès à une ressource unique, telle qu’une machine virtuelle ou un réseau virtuel. Pour accorder l’accès, vous assignez un rôle à l’utilisateur, au groupe ou au principal de service. Il existe de nombreux rôles prédéfinis et vous pouvez également définir vos propres rôles personnalisés. Pour en savoir plus, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md).
 
   > **Quand l’utiliser** : quand vous avez besoin de gérer avec précision l’accès des utilisateurs et des groupes ou que vous devez faire d’un utilisateur le propriétaire d’un abonnement.
   > 

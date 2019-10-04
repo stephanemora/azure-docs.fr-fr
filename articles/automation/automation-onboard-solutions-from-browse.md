@@ -3,26 +3,26 @@ title: Découvrez comment intégrer les solutions Update Management, Change Trac
 description: Découvrez comment intégrer une machine virtuelle Azure avec Update Management, Change Tracking et Inventory qui font partie d’Azure Automation.
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578490"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534689"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Activer les solutions Update Management, Change Tracking et Inventory sur plusieurs machines virtuelles
 
 Azure Automation fournit des solutions pour gérer les mises à jour de sécurité du système d’exploitation, le suivi des modifications et l’inventaire de ce qui est installé sur vos ordinateurs. Vous pouvez intégrer des machines de plusieurs façons : vous pouvez intégrer la solution [à partir d’une machine virtuelle](automation-onboard-solutions-from-vm.md), à partir de votre [compte Automation](automation-onboard-solutions-from-automation-account.md), par la navigation sur des machines virtuelles, ou par [runbook](automation-onboard-solutions.md). Cet article présente l’intégration de ces solutions par la navigation sur des machines virtuelles dans Azure.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous à Azure à l’adresse https://portal.azure.com.
+Se connecter à Azure à https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Activer des solutions
 
@@ -45,13 +45,15 @@ La liste des machines virtuelles est filtrée pour afficher uniquement celles qu
 
 ### <a name="resource-group-limit"></a> Limitations en matière d’intégration
 
-Le nombre de groupes de ressources que vous pouvez utiliser pour l’intégration est restreint par les [limites de déploiement Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Les déploiements Resource Manager, à ne pas confondre avec les déploiements de mises à jour, sont limités à 5 groupes de ressources par déploiement. Pour garantir l’intégrité de l’intégration, 2 de ces groupes de ressources sont réservés à la configuration de l’espace de travail Log Analytics, du compte Automation et des ressources associées. Il vous reste donc 3 groupes de ressources sélectionnables pour le déploiement.
+Le nombre de groupes de ressources que vous pouvez utiliser pour l’intégration est restreint par les [limites de déploiement Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Les déploiements Resource Manager (à ne pas confondre avec les déploiements de mises à jour) sont limités à 5 groupes de ressources par déploiement. Pour garantir l’intégrité de l’intégration, 2 de ces groupes de ressources sont réservés à la configuration de l’espace de travail Log Analytics, du compte Automation et des ressources associées. Il vous reste donc 3 groupes de ressources sélectionnables pour le déploiement. Cette limite s’applique uniquement à l’intégration simultanée, pas au nombre de groupes de ressources qui peuvent être gérés par une solution Automation.
+
+Vous pouvez également utiliser un runbook pour l’intégration. Pour plus d’informations, consultez [Intégrer les solutions de suivi de modifications et de mises à jour dans Azure Automation](automation-onboard-solutions.md).
 
 Utilisez les contrôles de filtre pour sélectionner des machines virtuelles provenant de différents abonnements, emplacements et groupes de ressources.
 
 ![Intégrer la solution Update Management](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Passez en revue les choix pour l’espace de travail Analytique de journal et le compte Automation. Un espace de travail et un compte Automation existant sont sélectionnés par défaut. Si vous souhaitez utiliser un espace de travail Log Analytics et un compte Automation différents, cliquez sur **PERSONNALISÉ** pour les sélectionner sur la page **Configuration personnalisée**. Lorsque vous choisissez un espace de travail Log Analytics, une vérification est effectuée pour déterminer si ce dernier est lié à un compte Automation. Si un compte Automation lié est trouvé, l’écran ci-après s’affiche. Une fois que vous avez terminé, cliquez sur **OK**.
+Passez en revue les options concernant l’espace de travail Log Analytics et le compte Automation. Un espace de travail et un compte Automation existant sont sélectionnés par défaut. Si vous souhaitez utiliser un espace de travail Log Analytics et un compte Automation différents, cliquez sur **PERSONNALISÉ** pour les sélectionner sur la page **Configuration personnalisée**. Lorsque vous choisissez un espace de travail Log Analytics, une vérification est effectuée pour déterminer si ce dernier est lié à un compte Automation. Si un compte Automation lié est trouvé, l’écran ci-après s’affiche. Une fois que vous avez terminé, cliquez sur **OK**.
 
 ![Sélectionner un espace de travail et un compte](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -59,27 +61,10 @@ Si l’espace de travail sélectionné n’est pas lié à un compte Automation,
 
 ![Aucun espace de travail](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Lorsque vous activez des solutions, uniquement dans certaines régions sont prises en charge pour la liaison d’un espace de travail Analytique de journal et un compte Automation.
-
-Le tableau suivant renseigne sur les mappages pris en charge :
-
-|**Région de l’espace de travail Log Analytics**|**Région Azure Automation**|
-|---|---|
-|AustralieSudEst|AustralieSudEst|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|USAEst2|
-|JaponEst|JaponEst|
-|AsieSudEst|AsieSudEst|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|RoyaumeUniSud|RoyaumeUniSud|
-|USGovVirginie|USGovVirginie|
-|EastUS2EUAP<sup>1</sup>|USACentreEUAP|
-
-<sup>1</sup> EastUS2EUAP et EastUS des mappages d’espaces de travail Analytique de journal aux comptes Automation ne sont pas un mappage précis de la région à une autre, mais est le mappage correct.
-
-<sup>2</sup> en raison des restrictions de capacité la région n’est pas disponible lors de la création de nouvelles ressources. Cela inclut les espaces de travail comptes Automation et d’Analytique de journal. Toutefois, les ressources liées préexistants dans la région doivent continuer à fonctionner.
+> [!NOTE]
+> Lors de l’activation de solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
+>
+> Pour obtenir la liste des paires de mappages prises en charge, consultez [Mappage de région pour un compte Automation et l’espace de travail Log Analytics](how-to/region-mappings.md).
 
 Désactivez la case à cocher en regard des machines virtuelles que vous ne souhaitez pas activer. Les machines virtuelles qui ne peuvent pas être activées sont déjà désélectionnées.
 
@@ -93,7 +78,7 @@ Les solutions ci-après sont tributaires d’un espace de travail Log Analytics 
 * [Suivi des modifications](automation-change-tracking.md)
 * [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
 
-Si vous décidez que vous ne souhaitez plus intégrer votre compte Automation à un espace de travail Analytique de journal, vous pouvez dissocier votre compte directement depuis le portail Azure. Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
+Si vous ne souhaitez plus intégrer votre compte Automation dans un espace de travail Log Analytics, vous pouvez supprimer son lien directement dans le portail Microsoft Azure. Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
 
 Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivantes pour supprimer le lien de votre compte Automation.
 
@@ -121,6 +106,8 @@ Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pen
 * Start and stop VM runbook schedules (Démarrer et arrêter les planifications de Runbook de machine virtuelle)
 * Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
 * variables
+
+Vous pouvez également dissocier votre espace de travail de votre compte Automation à partir de votre espace de travail Log Analytics. Dans votre espace de travail, sélectionnez **Compte Automation** sous **Ressources connexes**. Sur la page du compte Automation, sélectionnez **Dissocier le compte**.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

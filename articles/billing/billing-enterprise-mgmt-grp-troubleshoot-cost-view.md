@@ -1,30 +1,28 @@
 ---
-title: Résoudre les problèmes liés aux vues des coûts d’entreprise Azure | Microsoft Docs
+title: Résoudre les problèmes liés aux vues des coûts d’entreprise Azure
 description: Découvrez comment résoudre les problèmes que vous pourriez rencontrer avec les vues des coûts d’organisation dans le portail Azure.
-author: rthorn17
-manager: adpick
-editor: ''
-ms.assetid: ''
+author: bandersmsft
+manager: amberb
 ms.service: billing
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2017
+ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: d35996b16d615a198b9a6039386f6b295172f388
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 7b4f7fbba83d9d336e42e1de60822a0aa9107269
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900185"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709657"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Résoudre les problèmes liés aux vues des coûts d’entreprise
 
 Dans les inscriptions d’entreprise, plusieurs paramètres peuvent empêcher les utilisateurs au sein de l’inscription d’afficher les coûts.  Ces paramètres sont gérés par l’administrateur d’inscription. Ou, si l’inscription n’est pas achetée directement via Microsoft, les paramètres sont gérés par le partenaire.  Cet article vous aide à comprendre quels sont les paramètres et dans quelle mesure ils impactent l’inscription. Ces paramètres sont indépendants des rôles de contrôle d’accès en fonction du rôle (RBAC) Azure.
 
-## <a name="enabling-access-to-costs"></a>Activation de l’accès aux coûts
+## <a name="enable-access-to-costs"></a>Activer l’accès aux coûts
 
 Voyez-vous un message « Non autorisé » ou *« Les vues des coûts sont désactivées dans votre inscription. »* quand vous recherchez des informations sur les coûts ?
 ![Capture d’écran affichant « non autorisé » dans le champ Coût actuel, pour l’abonnement.](media/billing-enterprise-mgmt-groups/unauthorized.png)
@@ -41,8 +39,11 @@ L’une des raisons suivantes peut en être la cause :
 
 ## <a name="asset-is-unavailable"></a>Une ressource est indisponible
 
-L’affichage du message d’erreur « La ressource n’est pas disponible » quand vous essayez d’accéder à un abonnement ou à un groupe d’administration signifie que vous n’avez pas le rôle approprié pour afficher cet élément.  
+L’affichage du message d’erreur **La ressource n’est pas disponible** quand vous essayez d’accéder à un abonnement ou à un groupe d’administration signifie que vous n’avez pas le rôle approprié pour afficher cet élément.  
 
 ![Capture d’écran montrant le message qu’une « ressource n’est pas disponible ».](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Demandez l’accès à votre administrateur de l’abonnement ou du groupe d’administration Azure. Pour plus d’informations, consultez [Gérer l’accès à l’aide de RBAC et du portail Azure](../role-based-access-control/role-assignments-portal.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+- Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

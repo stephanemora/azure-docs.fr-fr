@@ -8,11 +8,11 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
 ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878389"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60790910"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obtenir des événements d’intégrité des ressources Azure à l’aide de l’API REST 
 

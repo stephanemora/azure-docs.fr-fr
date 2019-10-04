@@ -1,6 +1,6 @@
 ---
-title: Test par lot
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Test par lot - LUIS
+titleSuffix: Azure Cognitive Services
 description: Utilisez des tests par lot pour travailler en continu sur votre application afin d’affiner et d’améliorer sa compréhension de la langue.
 services: cognitive-services
 author: diberry
@@ -9,26 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: b962fc32cdcde0509cfa60d105022bb208633ae3
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528150"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639287"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Tests par lot avec 1000 énoncés dans le portail de LUIS
 
-Les tests par lot valident votre modèle entraîné [actif](luis-concept-version.md#active-version) afin de mesurer la précision des prédictions. Un test par lot vous permet de visualiser la précision de chaque intention et entité dans votre modèle entraîné actif dans un graphique. Passez en revue les résultats des tests par lot pour prendre les mesures appropriées afin d’améliorer la précision, par exemple ajouter d’autres exemples d’énoncés à une intention si votre application échoue fréquemment dans sa tentative d’identification de l’intention.
+Les tests par lot valident votre modèle entraîné [actif](luis-concept-version.md#active-version) afin de mesurer la précision des prédictions. Un test par lot vous permet de visualiser la précision de chaque intention et entité dans votre modèle entraîné actif, affichant ainsi les résultats avec un graphique. Passez en revue les résultats des tests par lot pour prendre les mesures appropriées afin d’améliorer la précision, par exemple ajouter d’autres exemples d’énoncés à une intention si votre application échoue fréquemment dans sa tentative d’identification de l’intention.
 
 ## <a name="group-data-for-batch-test"></a>Regrouper les données pour le test par lot
 
-Il est important que les énoncés utilisés pour les tests par lot soient nouveaux pour LUIS. Si vous avez un jeu de données d’énoncés, divisez les énoncés en trois jeux : énoncés ajoutés à une intention, énoncés reçus du point de terminaison publié et énoncés utilisés pour exécuter des tests par lot sur LUIS une fois qu’il a été entraîné. 
+Il est important que les énoncés utilisés pour les tests par lot soient nouveaux pour LUIS. Si vous avez un jeu de données d’énoncés, divisez les énoncés en trois jeux : exemples d’énoncés ajoutés à une intention, énoncés reçus du point de terminaison publié et énoncés utilisés pour exécuter des tests par lot sur LUIS une fois qu’il a été entraîné. 
 
-## <a name="a-dataset-of-utterances"></a>Un jeu de données d’énoncés
+## <a name="a-data-set-of-utterances"></a>Un jeu de données d’énoncés
 
-Envoyez un fichier d’énoncés, appelé *jeu de données*, pour les tests par lot. Le jeu de données est un fichier au format JSON contenant un maximum de 1000 énoncés étiquetés et **non dupliqués**. Vous pouvez tester jusqu’à 10 jeux de données dans une application. Si vous avez besoin d’en tester davantage, supprimez un jeu de données, puis ajoutez-en un nouveau.
+Envoyez un fichier d’énoncés, appelé *jeu de données*, pour les tests par lot. Le jeu de données est un fichier au format JSON contenant un maximum de 1 000 énoncés étiquetés et **non dupliqués**. Vous pouvez tester jusqu’à 10 jeux de données dans une application. Si vous avez besoin d’en tester davantage, supprimez un jeu de données, puis ajoutez-en un nouveau.
 
 |**Règles**|
 |--|

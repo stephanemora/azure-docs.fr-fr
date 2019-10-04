@@ -1,20 +1,21 @@
 ---
-title: Démarrage rapide – Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Java | Microsoft Docs
+title: 'Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Java'
 titleSuffix: Azure Cognitive Services
 description: Suivez cet article pour commencer à utiliser l’API Recherche d’entreprises locales Bing en Java.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: ed98d40987645fdadff8cc628cfd08feca41d01f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.subservice: bing-local-business
+ms.topic: quickstart
+ms.date: 09/13/2019
+ms.author: aahi
+ms.openlocfilehash: 3e71268004ca8fd171835adf289436a65d866fdc
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768261"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994410"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Java
 
@@ -22,7 +23,7 @@ Utilisez ce démarrage rapide pour commencer à envoyer des demandes à l’API 
 
 Cet exemple d’application récupère des données de réponse locales auprès de l’API pour la requête de recherche `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Le [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 

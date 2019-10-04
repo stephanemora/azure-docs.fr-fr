@@ -1,21 +1,19 @@
 ---
 title: Architecture du moteur de recherche en texte intégral (Lucene) - Recherche Azure
 description: Explication des concepts de traitement des requêtes et d’extraction de documents Lucene pour la recherche en texte intégral, liée à la recherche Azure.
-manager: jlembicz
+manager: nitinme
 author: yahnoosh
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: d377d6180f3d2d64f183ed574add3e7307e34fc3
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537226"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186543"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Fonctionnement de la recherche en texte intégral dans la recherche Azure
 
@@ -54,7 +52,7 @@ Une requête de recherche est une spécification complète de ce qui doit être 
 L’exemple suivant est une requête de recherche que vous pourriez envoyer à la recherche Azure à l’aide de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
-POST /indexes/hotels/docs/search?api-version=2017-11-11 
+POST /indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
     "searchFields": "description, title",
@@ -351,7 +349,7 @@ search=Spacious, air-condition* +"Ocean view"
 }
 ~~~~
 
-Le document 1 correspond mieux à la requête, car le terme *spacieux* et l’expression requise *vue mer* se trouvent tous les deux dans le champ Description. Les documents2 et 3 correspondent uniquement à l’expression *vue mer*. Il peut être surprenant que le score de pertinence des documents 2 et 3 soit différent, bien qu’ils correspondent à la requête de la même façon. Cela signifie que la formule de notation a plus de composants que la formule TF/IDF. Dans ce cas, un score légèrement plus élevé a été affecté au document 3, car sa description est plus courte. En savoir plus sur la [formule de notation pratique Lucene](https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) pour comprendre comment la longueur de champ et d’autres facteurs peuvent influencer le score de pertinence.
+Le document 1 correspond mieux à la requête, car le terme *spacieux* et l’expression requise *vue mer* se trouvent tous les deux dans le champ Description. Les documents2 et 3 correspondent uniquement à l’expression *vue mer*. Il peut être surprenant que le score de pertinence des documents 2 et 3 soit différent, bien qu’ils correspondent à la requête de la même façon. Cela signifie que la formule de notation a plus de composants que la formule TF/IDF. Dans ce cas, un score légèrement plus élevé a été affecté au document 3, car sa description est plus courte. En savoir plus sur la [formule de notation pratique Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) pour comprendre comment la longueur de champ et d’autres facteurs peuvent influencer le score de pertinence.
 
 Certains types de requête (caractère générique, préfixe, expression régulière) contribuent toujours à un score constant dans le score général du document. Ainsi, les correspondances trouvées par le biais de l’extension de requête sont incluses dans les résultats, sans affecter le classement. 
 
@@ -392,8 +390,6 @@ Cet article a présenté la recherche en texte intégral dans le contexte de la 
 + Découvrez comment appliquer des [analyseurs lexicaux propres au langage](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configurez des analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) pour un traitement minimal ou pour un traitement spécialisé sur des champs spécifiques.
-
-+ [Comparez les analyseurs standard et les analyseurs anglais](https://alice.unearth.ai/) côte à côte sur ce site web de démonstration. 
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -1,148 +1,141 @@
-items:
 - name: Documentation de Content Moderator
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Qu’est-ce que Content Moderator ?
-    href: overview.md
-    expanded: true
+    - name: Qu’est-ce que Content Moderator ?
+      href: overview.md
+      expanded: true
 - name: Démarrages rapides
   items:
-  - name: Essayer Content Moderator sur le web
-    href: quick-start.md
-  - name: Utilisation du kit de développement logiciel (SDK) client
-    items:
-    - name: C#
+    - name: Essayer Content Moderator sur le web
+      href: quick-start.md
+    - name: Utilisation du kit de développement logiciel (SDK) client
       items:
-      - name: Analyser le contenu d’une image
-        href: image-moderation-quickstart-dotnet.md
-      - name: Analyser le contenu d’un texte
-        href: text-moderation-quickstart-dotnet.md
-    - name: Python
-      items:
-      - name: Analyser le contenu d’un texte
-        href: text-moderation-quickstart-python.md
+        - name: Utilisation du kit de développement logiciel (SDK) .NET
+          items:
+            - name: Analyser le contenu d’une image
+              href: image-moderation-quickstart-dotnet.md
+            - name: Analyser le contenu d’un texte
+              href: text-moderation-quickstart-dotnet.md
+        - name: Utilisation du Kit de développement logiciel (SDK) Python
+          href: python-sdk-quickstart.md
+        - name: Utilisation du Kit de développement logiciel (SDK) Java
+          href: java-sdk-quickstart.md
 - name: Tutoriels
   items:
-  - name: Modérer les images d’e-commerce
-    href: ecommerce-retail-catalog-moderation.md
-  - name: Modérer le contenu de Facebook
-    href: facebook-post-moderation.md
-  - name: Modération de vidéos et de transcriptions
-    href: video-transcript-moderation-review-tutorial-dotnet.md
+    - name: Modérer les images d’e-commerce
+      href: ecommerce-retail-catalog-moderation.md
+    - name: Modérer le contenu de Facebook
+      href: facebook-post-moderation.md
+    - name: Modération de vidéos et de transcriptions
+      href: video-transcript-moderation-review-tutorial-dotnet.md
 - name: Concepts
   items:
-  - name: Modération d’image
-    href: image-moderation-api.md
-  - name: Modération de texte
-    href: text-moderation-api.md
-  - name: Modération de vidéo
-    href: video-moderation-human-review.md
-  - name: Outil de révision
-    href: Review-Tool-User-Guide/human-in-the-loop.md
-  - name: Révisions, workflows et travaux
-    href: review-api.md
+    - name: Modération d’image
+      href: image-moderation-api.md
+    - name: Modération de texte
+      href: text-moderation-api.md
+    - name: Modération de vidéo
+      href: video-moderation-human-review.md
+    - name: Outil de révision
+      href: Review-Tool-User-Guide/human-in-the-loop.md
+    - name: 'Révisions, workflows et travaux'
+      href: review-api.md
 - name: Guides pratiques
   items:
-  - name: Modérer du contenu
-    items:
-    - name: API REST
+    - name: Modérer du contenu
       items:
-      - name: 'Images : console d’API'
-        href: try-image-api.md
-      - name: 'Images personnalisées : console d’API'
-        href: try-image-list-api.md
-      - name: 'Texte : console d’API'
-        href: try-text-api.md
-      - name: 'Conditions personnalisées : console d’API'
-        href: try-terms-list-api.md
-    - name: Kit de développement logiciel (SDK) .NET
+        - name: API REST
+          items:
+            - name: "Images\_: console d’API"
+              href: try-image-api.md
+            - name: "Images personnalisées\_: console d’API"
+              href: try-image-list-api.md
+            - name: "Texte\_: console d’API"
+              href: try-text-api.md
+            - name: "Conditions personnalisées\_: console d’API"
+              href: try-terms-list-api.md
+        - name: Kit de développement logiciel (SDK) .NET
+          items:
+            - name: Vérifiez le contenu du fichier vidéo
+              href: video-moderation-api.md
+            - name: Vérifiez les images avec les listes personnalisées
+              href: image-lists-quickstart-dotnet.md
+            - name: Vérifiez le texte avec les conditions personnalisées
+              href: term-lists-quickstart-dotnet.md
+    - name: Définir et utiliser des révisions
       items:
-      - name: Vérifiez le contenu du fichier vidéo
-        href: video-moderation-api.md
-      - name: Vérifiez les images avec les listes personnalisées
-        href: image-lists-quickstart-dotnet.md
-      - name: Vérifiez le texte avec les conditions personnalisées
-        href: term-lists-quickstart-dotnet.md
-  - name: Définir et utiliser des révisions
-    items:
-    - name: Outil de révision (navigateur)
-      href: Review-Tool-User-Guide/Review-Moderated-Images.md
-    - name: API REST
-      href: try-review-api-review.md
-    - name: Kit de développement logiciel (SDK) .NET
-      href: moderation-reviews-quickstart-dotnet.md
-    - name: Révisions de vidéos (.NET)
-      href: video-reviews-quickstart-dotnet.md
-    - name: Révisions de transcriptions de vidéo (.NET)
-      href: video-transcript-reviews-quickstart-dotnet.md
-  - name: Définir et utiliser des workflows
-    items:
-    - name: Outil de révision (navigateur)
-      href: Review-Tool-User-Guide/Workflows.md
-    - name: API REST
-      href: try-review-api-workflow.md
-  - name: Définir et utiliser des travaux
-    items:
-    - name: API REST
-      href: try-review-api-job.md
-    - name: Kit de développement logiciel (SDK) .NET
-      href: moderation-jobs-quickstart-dotnet.md
-  - name: Configurer l’outil de révision
-    href: Review-Tool-User-Guide/Configure.md
-  - name: Exporter ou supprimer des données de compte
-    href: ./export-delete-data.md
+        - name: Outil de révision (navigateur)
+          href: Review-Tool-User-Guide/Review-Moderated-Images.md
+        - name: API REST
+          href: try-review-api-review.md
+        - name: Kit de développement logiciel (SDK) .NET
+          href: moderation-reviews-quickstart-dotnet.md
+        - name: Révisions de vidéos (.NET)
+          href: video-reviews-quickstart-dotnet.md
+        - name: Révisions de transcriptions de vidéo (.NET)
+          href: video-transcript-reviews-quickstart-dotnet.md
+    - name: Définir et utiliser des workflows
+      items:
+        - name: Outil de révision (navigateur)
+          href: Review-Tool-User-Guide/Workflows.md
+        - name: API REST
+          href: try-review-api-workflow.md
+    - name: Définir et utiliser des travaux
+      items:
+        - name: API REST
+          href: try-review-api-job.md
+        - name: Kit de développement logiciel (SDK) .NET
+          href: moderation-jobs-quickstart-dotnet.md
+    - name: Configurer l’outil de révision
+      href: Review-Tool-User-Guide/Configure.md
+    - name: Exporter ou supprimer des données de compte
+      href: ./export-delete-data.md
 - name: Informations de référence
   items:
-  - name: API Content Moderator
-    href: api-reference.md
-  - name: Kits SDK
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
+    - name: API Content Moderator
+      href: api-reference.md
+    - name: Kits SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python'
+        - name: Go
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator'
 - name: Ressources
   items:
-  - name: Exemples
-    items:
-    - name: Exemples du kit SDK .NET
-      href: samples-dotnet.md
-    - name: Exemples du kit SDK Python
-      href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples
-    - name: Exemples du kit SDK Node.js
-      href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples
-    - name: Exemples d’API REST en C#
-      href: samples-rest.md
-    - name: Autres exemples Azure
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
-  - name: Série de webinaires Azure
-    href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-  - name: Forum Aux Questions
-    href: FAQs.md
-  - name: Tarification et limites
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/559960-content-moderator
-  - name: Base de connaissances
-    href: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
-  - name: Support multilingue
-    href: language-support.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-  - name: Disponibilité régionale
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: 8948caa31d1fa464f13295a4dd4c1174b88543f5
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758151"
+    - name: Exemples
+      items:
+        - name: Exemples du kit SDK .NET
+          href: samples-dotnet.md
+        - name: Exemples du kit SDK Python
+          href: 'https://github.com/Azure-Samples/cognitive-services-python-sdk-samples'
+        - name: Exemples du kit SDK Node.js
+          href: 'https://github.com/Azure-Samples/cognitive-services-node-sdk-samples'
+        - name: 'Exemples d’API REST en C#'
+          href: samples-rest.md
+        - name: Autres exemples Azure
+          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator'
+    - name: Série de webinaires Azure
+      href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
+    - name: Tarification et limites
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/559960-content-moderator'
+    - name: Base de connaissances
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator'
+    - name: Support multilingue
+      href: language-support.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

@@ -1,37 +1,46 @@
 ---
-title: Des Solutions intégrées | Azure
-description: Solutions intégrées dans Azure Marketplace et AppSource
+title: Solutions intégrées | Azure
+description: Solutions préférées dans la Place de marché Azure et AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: f0bda0e0d70d325afd84dc64ddacfa4c0f18a4df
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: MT
+ms.openlocfilehash: b6015ce2d52c140a966636b887d021e76e92990d
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220907"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993625"
 ---
-# <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Solutions intégrées dans Azure Marketplace et AppSource
+# <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Solutions préférées dans la Place de marché Azure et AppSource
 
-Une Solution intégrée regroupe des technologies de pointe de la technologie issues des partenaires de Microsoft, ainsi que la consultation, le déploiement et prend en charge fournie par les systèmes experts intégrateurs (SI).
+Une solution intégrée rassemble les meilleures technologies de partenaires Microsoft, ainsi que des services de consultation, de déploiement et de support fournis par des intégrateurs système experts.
 
-Ces solutions sont conçues pour l’adresse besoin d’un client spécifique ou de scénario, qui commence par une présentation de l’industrie défi ou DOULEUR points. Deux ou plusieurs technologies de pointe de la technologie sont ensuite intégrées par un incident de service pour créer une expérience unifiée et reproductibles de déploiement pour les clients, d’eux et en cours d’exécution rapidement. Les systèmes integrator fournit également un seul point de contact pour le client, en fournissant une personnalisation pertinentes et de Conseil et prennent en charge autour de la solution.  Le résultat est une solution intégrée, y compris les technologies et services.
+Ces solutions sont conçues pour répondre à un besoin ou à un scénario spécifique du client. Cela commence par une compréhension des difficultés ou préoccupations du secteur. Au moins deux technologies de pointe sont ensuite intégrées par un intégrateur système afin de créer une expérience de déploiement unifiée et reproductible permettant aux clients d’être rapidement opérationnels. L’intégrateur système fournit également un point de contact unique au client, à des fins de personnalisation, de conseil et support en lien avec la solution.  Le résultat est une solution intégrée, incluant de la technologie et des services.
 
 ## <a name="advantages"></a>Avantages
 
-Avantages d’une approche intégrée sont :
+Les avantages d’une approche intégrée sont les suivants :
 
-* *Expertise industrielle*: Intégrateurs de systèmes fournissant des connaissances et des solutions spécifiques du secteur
-* *Valeur de durée de*: Approche de déploiement intégrés pour vous aider à tirer parti des avantages immédiats
-* *Solutions de pointe de la technologie*: Découvrez la facilité d’une expérience d’achat et l’implémentation intégrée
+* *Expertise sectorielle* : intégrateurs de systèmes proposant des solutions et connaissances spécifiques du secteur.
+* *Temps de valorisation* : approche de déploiement intégré pour vous aider à réaliser des bénéfices immédiats.
+* *Solutions de pointe* : découvrez la facilité d’une expérience d’achat et d’implémentation intégrée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez découvrir des Solutions intégrées et vous connecter avec ces partenaires en consultant la section Services de Conseil de [place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+Vous pouvez découvrir des solutions intégrées et communiquer avec ces précieux partenaires en visitant leurs référencements ici :
+
+* [Customer 360 Powered by Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [Rapid Commerce](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
+* [Credit Analytics](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
+* [Healthcare Cloud Security Stack](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [DevOps Acceleration Engine](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
+* [Windows Server End-of-Support](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+
+Et aussi en accédant à la section Services de Conseil de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+
+Pour plus d’informations, consultez Solutions intégrées de publication.
 
 ---

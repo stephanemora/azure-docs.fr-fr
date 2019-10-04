@@ -1,19 +1,18 @@
 ---
 title: Guide de démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de PHP | Microsoft Docs
 description: Apprenez rapidement à transférer des objets vers/à partir de Stockage Blob Azure avec PHP
-services: storage
-author: roygara
-ms.service: storage
-ms.devlang: php
-ms.topic: quickstart
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 11/14/2018
-ms.author: rogarana
-ms.openlocfilehash: 3e1738c3e5acbe63faf1d614e2435088efd8c4d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014776"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726387"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Transférer des objets vers/à partir de Stockage Blob Azure avec PHP
 Dans ce guide de démarrage rapide, vous apprenez à utiliser PHP pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage blob Azure. 
@@ -123,7 +122,7 @@ Dans cette section, vous configurez une instance du client Stockage Azure, insta
 
 Stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages. Comme les objets blob de blocs sont les plus couramment utilisés, nous les utilisons dans ce démarrage rapide.  
 
-Pour charger un fichier dans un objet blob, récupérez le chemin complet du fichier en joignant le nom de répertoire au nom de fichier sur votre disque local. Vous pouvez ensuite charger le fichier sur le chemin spécifié à l’aide de la méthode **createBlockBlob()**. 
+Pour charger un fichier dans un objet blob, récupérez le chemin complet du fichier en joignant le nom de répertoire au nom de fichier sur votre disque local. Vous pouvez ensuite charger le fichier sur le chemin spécifié à l’aide de la méthode **createBlockBlob()** . 
 
 L’exemple de code prend un fichier local et le charge vers Azure. Le fichier est stocké en tant que **myfile** et le nom de l’objet blob en tant que **fileToUpload** dans le code. L'exemple suivant charge le fichier dans votre conteneur nommé **quickstartblobs**.
 
@@ -142,11 +141,11 @@ L’exemple de code prend un fichier local et le charge vers Azure. Le fichier e
     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 ```
 
-Pour effectuer une mise à jour partielle du contenu d’un objet blob de bloc, exécutez la méthode **createblocklist()**. Les objets blob de blocs peuvent atteindre une taille maximale de 4.7 To et peuvent représenter toutes sortes d’éléments allant des feuilles de calcul Excel aux fichiers vidéo volumineux. Les objets blob de pages sont principalement utilisés pour les fichiers VHD utilisés pour stocker des machines virtuelles IaaS. Les objets blob d’ajout sont utilisés pour la journalisation, par exemple, quand vous voulez écrire dans un fichier et continuer à ajouter d’autres informations. Les objets blob d’ajout doivent être utilisés dans un modèle enregistreur unique. La plupart des objets stockés dans Stockage Blob sont des objets blob de blocs.
+Pour effectuer une mise à jour partielle du contenu d’un objet blob de bloc, exécutez la méthode **createblocklist()** . Les objets blob de blocs peuvent atteindre une taille maximale de 4.7 To et peuvent représenter toutes sortes d’éléments allant des feuilles de calcul Excel aux fichiers vidéo volumineux. Les objets blob de pages sont principalement utilisés pour les fichiers VHD utilisés pour stocker des machines virtuelles IaaS. Les objets blob d’ajout sont utilisés pour la journalisation, par exemple, quand vous voulez écrire dans un fichier et continuer à ajouter d’autres informations. Les objets blob d’ajout doivent être utilisés dans un modèle enregistreur unique. La plupart des objets stockés dans Stockage Blob sont des objets blob de blocs.
 
 ### <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 
-Vous pouvez obtenir la liste des fichiers du conteneur à l’aide de la méthode **listBlobs()**. Le code suivant récupère la liste des objets blob, puis effectue une itération sur ces derniers en affichant les noms des objets blob trouvés dans un conteneur.  
+Vous pouvez obtenir la liste des fichiers du conteneur à l’aide de la méthode **listBlobs()** . Le code suivant récupère la liste des objets blob, puis effectue une itération sur ces derniers en affichant les noms des objets blob trouvés dans un conteneur.  
 
 ```PHP
     $listBlobsOptions = new ListBlobsOptions();
@@ -167,7 +166,7 @@ Vous pouvez obtenir la liste des fichiers du conteneur à l’aide de la méthod
 
 ### <a name="get-the-content-of-your-blobs"></a>Obtenir le contenu de vos objets blob
 
-Obtenez le contenu de vos objets blob à l’aide de la méthode **getBlob()**. Le code suivant affiche le contenu de l’objet blob chargé dans une section précédente.
+Obtenez le contenu de vos objets blob à l’aide de la méthode **getBlob()** . Le code suivant affiche le contenu de l’objet blob chargé dans une section précédente.
 
 ```PHP
     $blob = $blobClient->getBlob($containerName, $fileToUpload);
@@ -175,7 +174,7 @@ Obtenez le contenu de vos objets blob à l’aide de la méthode **getBlob()**. 
 ```
 
 ### <a name="clean-up-resources"></a>Supprimer des ressources
-Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de la méthode **deleteContainer()**. Si les fichiers créés ne sont plus nécessaires, utilisez la méthode **deleteBlob()** pour supprimer ces fichiers.
+Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de la méthode **deleteContainer()** . Si les fichiers créés ne sont plus nécessaires, utilisez la méthode **deleteBlob()** pour supprimer ces fichiers.
 
 ```PHP
     // Delete blob.

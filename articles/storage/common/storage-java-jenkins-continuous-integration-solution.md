@@ -1,20 +1,20 @@
 ---
 title: Utilisation de Stockage Azure avec une solution d’intégration continue Jenkins
-description: Ce didacticiel décrit l’utilisation du service BLOB Azure comme référentiel d’artefacts de build créés par une solution d’intégration continue Jenkins.
+description: Ce didacticiel décrit l’utilisation du service blob Azure comme référentiel d’artefacts de build créés par une solution d’intégration continue Jenkins.
 ms.topic: article
 ms.author: tarcher
 author: tarcher
 services: devops
 ms.service: storage
 custom: jenkins
-ms.date: 07/31/2018
+ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: 8ea80d557185f4489a96384b77ddd2519e7bd049
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: dc62696700a5c34c28f5f8c4f347dbb4c5183cab
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992172"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986544"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilisation de Stockage Azure avec une solution d’intégration continue Jenkins
 
@@ -35,7 +35,7 @@ L'utilisation du service BLOB pour héberger vos artefacts de build dans un envi
 * Performances lorsque vos clients et partenaires téléchargent vos artefacts de build.
 * Contrôle sur les stratégies d'accès utilisateur, avec choix entre accès anonyme, accès par signature d'accès partagé basé sur l'expiration, accès privé, etc.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Une solution d’intégration continue Jenkins.
   
     Si vous ne disposez pas d'une solution Jenkins CI, vous pouvez en exécuter une à l'aide de la technique suivante :
@@ -56,7 +56,7 @@ L'utilisation du service BLOB pour héberger vos artefacts de build dans un envi
 Pour utiliser le service BLOB avec Jenkins, vous devez installer le plug-in Azure Storage, le configurer pour utiliser votre compte de stockage, puis créer une action post-build qui télécharge vos artefacts de build sur votre compte de stockage. Les étapes de cette procédure sont décrites dans les sections suivantes.
 
 ## <a name="how-to-install-the-azure-storage-plugin"></a>Comment installer le plug-in de stockage Azure
-1. Dans le tableau de bord Jenkins, sélectionnez **Manage Jenkins (Gérer Jenkins)**.
+1. Dans le tableau de bord Jenkins, sélectionnez **Manage Jenkins (Gérer Jenkins)** .
 2. Dans la page **Manage Jenkins** (Gérer Jenkins), sélectionnez **Manage Plugins** (Gérer les plug-ins).
 3. Sélectionnez l’onglet **Available** (Disponible).
 4. Dans la section **Téléchargeurs d'artefacts**, activez la case à cocher **Plug-in Microsoft Azure Storage**.
@@ -64,7 +64,7 @@ Pour utiliser le service BLOB avec Jenkins, vous devez installer le plug-in Azur
 6. Redémarrez Jenkins.
 
 ## <a name="how-to-configure-the-azure-storage-plugin-to-use-your-storage-account"></a>Comment configurer le plug-in de stockage Azure pour utiliser votre compte de stockage
-1. Dans le tableau de bord Jenkins, sélectionnez **Manage Jenkins (Gérer Jenkins)**.
+1. Dans le tableau de bord Jenkins, sélectionnez **Manage Jenkins (Gérer Jenkins)** .
 2. Dans la page **Manage Jenkins** (Gérer Jenkins), sélectionnez **Configure System** (Configurer le système).
 3. Dans la section **Configuration du compte Microsoft Azure Storage** :
    1. Entrez le nom de votre compte de stockage, que vous pouvez obtenir à partir du [portail Azure](https://portal.azure.com).
@@ -97,7 +97,7 @@ Pour les besoins de la formation, vous devez d’abord créer une tâche qui cr�
     **Conseil**
    
     Sous la section **Command** où vous avez entré un script pour **Execute Windows batch command**, un lien permet d'accéder aux variables d'environnement reconnues par Jenkins. Sélectionnez ce lien pour découvrir les noms des variables d’environnement avec leurs descriptions. Les variables d’environnement qui contiennent des caractères spéciaux, comme la variable d’environnement **BUILD_URL**, ne sont pas autorisées comme nom de conteneur ou comme chemin virtuel commun.
-8. Sélectionnez **Make new container public by default** (Rendre le nouveau conteneur public par défaut) pour cet exemple. (Si vous voulez utiliser un conteneur privé, vous devez créer une signature d’accès partagé pour autoriser l’accès, ce qui se trouve en dehors de la portée de cet article. Pour en savoir plus sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](../storage-dotnet-shared-access-signature-part-1.md).)
+8. Sélectionnez **Make new container public by default** (Rendre le nouveau conteneur public par défaut) pour cet exemple. (Si vous voulez utiliser un conteneur privé, vous devez créer une signature d’accès partagé pour autoriser l’accès, ce qui se trouve en dehors de la portée de cet article. Pour en savoir plus sur les signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP)](storage-sas-overview.md).)
 9. [Facultatif] Sélectionnez **Clean container before uploading** (Nettoyer le conteneur avant le téléchargement) si vous voulez que le contenu du conteneur soit effacé avant le chargement des artefacts de build (ne sélectionnez pas cette option si vous ne voulez pas effacer le contenu du conteneur).
 10. Dans **List of Artifacts to upload** (Liste des artefacts à télécharger), entrez `text/*.txt`.
 11. Pour **Common virtual path for uploaded artifacts** (Chemin virtuel commun pour les artefacts chargés), dans le cadre de ce tutoriel, entrez `${BUILD\_ID}/${BUILD\_NUMBER}`.
@@ -118,7 +118,7 @@ Les étapes suivantes expliquent comment configurer une étape de génération p
 1. Dans la section **Build** (Générer) de la configuration de la tâche, sélectionnez **Add build step** (Ajouter une étape de génération) et sélectionnez **Download from Azure Blob storage** (Télécharger à partir de Stockage Blob Azure).
 2. Dans le champ **Nom du compte de stockage**, sélectionnez le compte de stockage à utiliser.
 3. Dans le champ **Nom du conteneur**, indiquez le nom du conteneur dans lequel se trouvent les objets blob que vous souhaitez télécharger. Vous pouvez utiliser des variables d'environnement.
-4. Dans le champ **Nom d'objet blob**, indiquez le nom de l'objet blob. Vous pouvez utiliser des variables d'environnement. Vous pouvez aussi utiliser un astérisque comme caractère générique après avoir indiqué la ou les premières lettres du nom de l’objet blob. Par exemple, **projet\\*** Spécifiez tous les objets BLOB dont le nom commence avec **projet**.
+4. Dans le champ **Nom d'objet blob**, indiquez le nom de l'objet blob. Vous pouvez utiliser des variables d'environnement. Vous pouvez aussi utiliser un astérisque comme caractère générique après avoir indiqué la ou les premières lettres du nom de l’objet blob. Par exemple, **projet\\** * désignera tous les objets blob dont le nom commence par **projet**.
 5. [Facultatif] Dans le champ **Chemin de téléchargement**, indiquez l'emplacement de l'ordinateur Jenkins où vous souhaitez télécharger les fichiers depuis le stockage d'objets blob Azure. Vous pouvez utiliser des variables d’environnement. Si vous n'entrez rien dans le champ **Chemin de téléchargement**, les fichiers du stockage d'objets blob Azure seront téléchargés dans l'espace de travail de la tâche.
 
 Si vous souhaitez télécharger d’autres éléments depuis le stockage d’objets blob Azure, vous pouvez créer des étapes de génération supplémentaires.
@@ -135,9 +135,9 @@ La section suivante présente les composants du service Blob.
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    (Le format ci-dessus s’applique au cloud Azure global. Si vous utilisez un autre cloud Azure, utilisez le point de terminaison dans le [portail Azure](https://portal.azure.com) pour déterminer votre URL de point de terminaison.
+    (Le format ci-dessus s’applique au cloud Azure global. Si vous utilisez un autre cloud Azure, utilisez le point de terminaison dans le [portail Azure](https://portal.azure.com) pour déterminer votre URL de point de terminaison.)
   
-    Dans le format ci-dessus, `storageaccount` représente le nom de votre compte de stockage, `container_name` représente le nom de votre conteneur et `blob_name` représente le nom de votre objet blob, respectivement. Le nom du conteneur contient plusieurs chemins d’accès, séparés par une barre oblique (**/**). Dans ce tutoriel, nous avons utilisé **MyJob** comme exemple de nom de conteneur et **${BUILD\_ID}/${BUILD\_NUMBER}** comme chemin virtuel commun. L’URL de l’objet blob a donc la forme suivante :
+    Dans le format ci-dessus, `storageaccount` représente le nom de votre compte de stockage, `container_name` représente le nom de votre conteneur et `blob_name` représente le nom de votre objet blob, respectivement. Le nom du conteneur contient plusieurs chemins d’accès, séparés par une barre oblique ( **/** ). Dans ce tutoriel, nous avons utilisé **MyJob** comme exemple de nom de conteneur et **${BUILD\_ID}/${BUILD\_NUMBER}** comme chemin virtuel commun. L’URL de l’objet blob a donc la forme suivante :
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

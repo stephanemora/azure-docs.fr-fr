@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Découvrez comment créer un équilibreur de charge public dans Resource Manager à l’aide d’un modèle
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: af72eb0214f46c1e001f9e93934d38cb934503e4
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: a94c7d1b5d1ecd11dd213eccf2354e943a96cabd
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592483"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275288"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Création d’un équilibreur de charge public à l’aide d’un modèle
 
@@ -43,7 +43,7 @@ L’exemple de modèle disponible dans le référentiel public utilise un fichie
 Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les étapes ci-dessous.
 
 1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
-2. Exécutez le **New-AzResourceGroupDeployment** applet de commande pour créer un groupe de ressources à l’aide du modèle.
+2. Pour créer un groupe de ressources à l’aide du modèle, exécutez la cmdlet **New-AzResourceGroupDeployment**.
 
     ```powershell
     New-AzResourceGroupDeployment -Name TestRG -Location uswest `

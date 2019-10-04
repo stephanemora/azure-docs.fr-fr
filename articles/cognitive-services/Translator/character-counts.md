@@ -1,21 +1,21 @@
 ---
 title: 'Nombre de caractères : API de traduction de texte Translator Text'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Comment l’API de traduction de texte Translator Text compte les caractères.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: e3a16d9272e75f9a94f5381c1681c036d177e0f6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917411"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595985"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Comment l’API de traduction de texte Translator Text compte les caractères
 
@@ -35,7 +35,7 @@ Voici ce qui est pris en compte :
 
 Pour les scripts basés sur les idéogrammes, tels que les idéogrammes chinois et les kanji japonais, l’API de traduction de texte Translator Text comptabilise toujours le nombre de points de code Unicode, en comptant un caractère par idéogramme. Exception : Les substituts Unicode comptent comme deux caractères.
 
-Le nombre de requêtes, de mots, d’octets ou de phrases est sans importance dans la comptabilisation des caractères. 
+Le nombre de requêtes, de mots, d’octets ou de phrases est sans importance dans la comptabilisation des caractères.
 
 Les appels aux méthodes Detect et BreakSentence ne sont pas comptés dans l’utilisation de caractères. Toutefois, nous nous attendons à ce que la quantité d’appels aux méthodes Detect et BreakSentence soit raisonnable par rapport à l’utilisation des autres fonctions comptées. Si le nombre d’appels Detect ou BreakSentence que vous effectuez dépasse le nombre des autres méthodes comptabilisées multiplié par 100, Microsoft se réserve le droit de limiter votre utilisation des méthodes Detect et BreakSentence.
 

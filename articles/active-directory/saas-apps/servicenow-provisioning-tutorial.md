@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer ServiceNow pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer ServiceNow pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment approvisionner et annuler l’approvisionnement automatiquement des comptes utilisateur d’Azure AD vers ServiceNow.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b3e4cc5ba4bc0173721947bd1e1a680ca7b3a3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: 85783339c7d1348f598f924f14d9b40cd0c8cd22
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217698"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967182"
 ---
-# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutoriel : Configurer ServiceNow pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory
+# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Didacticiel : Configurer ServiceNow pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory
 
 L’objectif de ce didacticiel est de vous montrer la procédure à suivre dans ServiceNow et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur Azure AD vers ServiceNow.
 
@@ -44,8 +44,7 @@ Pour configurer l’intégration d’Azure AD à ServiceNow, vous avez besoin de
 Vous devez en outre suivre les recommandations ci-dessous :
 
 - N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
-
+- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/).
 
 ## <a name="assigning-users-to-servicenow"></a>Affectation d’utilisateurs à ServiceNow
 
@@ -57,6 +56,7 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 > [!IMPORTANT]
 >*   Il est recommandé de n’assigner qu’un seul utilisateur Azure AD à ServiceNow afin de tester la configuration de l’approvisionnement. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
 >*   Lorsque vous assignez un utilisateur à ServiceNow, vous devez sélectionner un rôle d’utilisateur valide. Le rôle « Accès par défaut » ne fonctionne pas pour l’approvisionnement.
+>*   Pour plus d’informations sur la façon de créer et de configurer des rôles dans Azure AD, consultez [ce lien](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
 ## <a name="enable-automated-user-provisioning"></a>Activer l’approvisionnement automatique des utilisateurs
 

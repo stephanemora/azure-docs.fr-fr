@@ -1,91 +1,87 @@
 ---
-title: Bien démarrer avec votre compte de facturation pour un contrat de client de Microsoft - Azure | Microsoft Docs
-description: Comprendre le compte de facturation d’un contrat de client de Microsoft
-services: billing
-documentationcenter: ''
-author: amberbhargava
+title: Prise en main de votre compte de facturation dans le cadre d’un Contrat client Microsoft - Azure
+description: Comprendre le fonctionnement de votre compte de facturation associé à un Contrat client Microsoft
+author: bandersmsft
 manager: amberbhargava
-editor: banders
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 09/10/2019
 ms.author: banders
-ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: 835686d639679cca7e9a83b5297b365953835e47
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337411"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880736"
 ---
-# <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Bien démarrer avec votre compte de facturation pour un contrat de client de Microsoft
+# <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Prise en main de votre compte de facturation dans le cadre d’un Contrat client Microsoft
 
-Un compte de facturation est créé pour chaque contrat que vous vous connectez avec Microsoft à utiliser Azure. Votre compte de facturation vous permet de gérer la facturation et de suivre les coûts. Vous pouvez accéder à plusieurs comptes de facturation. Par exemple, peut avoir souscrit pour Azure pour vos projets personnels. Peut également avoir accès à Azure via un contrat entreprise ou le contrat de client de Microsoft de votre organisation. Pour chacun de ces scénarios, vous devez un compte de facturation distinct.
+Vous créez un compte de facturation lorsque vous vous inscrivez auprès de Microsoft Azure. Votre compte de facturation vous permet de gérer vos factures et paiements, et d’effectuer un suivi des coûts. Vous pouvez accéder à plusieurs comptes de facturation. Par exemple, vous pouvez vous être inscrit à Azure pour vos projets personnels. Vous pouvez aussi accéder à Azure via le Contrat Entreprise de votre organisation ou le Contrat client Microsoft. Pour chacun de ces scénarios, vous disposez d'un compte de facturation distinct.
 
-Cet article s’applique à un compte de facturation d’un contrat de client de Microsoft. [Vérifiez si vous avez accès à un contrat de client Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Cet article s’applique à un compte de facturation associé à un Contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="understand-billing-account"></a>Comprendre le compte de facturation
+## <a name="your-billing-account"></a>Votre compte de facturation
 
-Votre compte de facturation pour le contrat du client Microsoft contient un ou plusieurs profils de facturation qui vous permettent de gérer vos factures et les modes de paiement. Chaque profil de facturation contient une ou plusieurs sections de facture qui vous permettent d’organiser les coûts sur la facture de facturation du profil.
+Votre compte de facturation pour le Contrat client Microsoft contient un ou plusieurs profils de facturation qui vous permettent de gérer vos factures et modes de paiement. Chaque profil de facturation contient une ou plusieurs sections de facture qui vous permettent d'organiser les coûts sur la facture du profil de facturation.
 
-Le diagramme suivant montre la relation entre un compte de facturation, les profils de facturation et les sections de facture.
+Le diagramme suivant montre la relation entre le compte de facturation, les profils de facturation et les sections de la facture.
 
-![Diagramme qui montre la hiérarchie de facturation pour un contrat de client de Microsoft](./media/billing-mca-overview/mca-billing-hierarchy.png)
+![Diagramme illustrant la hiérarchie de facturation pour un Contrat client Microsoft](./media/billing-mca-overview/mca-billing-hierarchy.png)
 
-Rôles sur le compte de facturation ont le plus haut niveau d’autorisations. Par défaut, seuls les administrateurs généraux sur Azure Active Directory votre organisation accéder au compte de facturation. Ces rôles doivent être assignés aux utilisateurs qui doivent afficher des factures et effectuer le suivi des coûts pour toute votre organisation, comme le service financier ou les responsables informatiques. Pour plus d’informations, consultez [les tâches et les rôles de compte de facturation](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
+Les rôles du compte de facturation disposent du plus haut niveau d’autorisations. Par défaut, seul l’utilisateur inscrit auprès de Microsoft Azure peut accéder au compte de facturation. Ces rôles sont à attribuer aux utilisateurs qui doivent consulter des factures et suivre les coûts pour toute votre organisation, comme les responsables des services financiers et informatiques. Pour plus d’informations, consultez [Rôles et tâches liés au compte de facturation](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
 
-## <a name="understand-billing-profiles"></a>Comprendre les profils de facturation
+## <a name="billing-profiles"></a>Profils de facturation
 
-Utilisez un profil de facturation pour gérer vos méthodes de facturation et de paiement. Une facture mensuelle est générée pour les abonnements Azure et d’autres produits achetés à l’aide du profil de facturation. Les méthodes de paiements vous permet de payer la facture.
+Utilisez un profil de facturation pour gérer vos factures et modes de paiement. Une facture mensuelle est générée au début du mois pour chaque profil de facturation associé à votre compte. La facture contient les frais respectifs pour tous les abonnements Azure et les autres achats du mois précédent.
 
-Un profil de facturation est automatiquement créé pour votre compte de facturation. Vous pouvez créer des profils de facturation pour configurer des factures supplémentaires. Par exemple, vous souhaite différentes factures pour chaque service ou d’un projet dans votre organisation.
+Un profil de facturation est automatiquement créé pour votre compte de facturation. Il contient une section de facture par défaut. Vous pouvez créer des sections supplémentaires pour effectuer un suivi et allouer facilement les coûts en fonction de vos besoins, que ce soit par projet, service ou environnement de développement. Ces sections s’affichent sur la facture et reflètent l’utilisation de chaque abonnement et des achats que vous lui avez attribués.
 
-Vous pouvez également créer des sections de facture pour organiser les coûts sur la facture d’un profil facturation. Des frais pour les produits achetés pour une section de facture et les abonnements Azure s’affichent dans la section. Facture de facturation du profil inclut les frais pour toutes les sections de la facture.
+Les rôles associés aux profils de facturation sont autorisés à afficher et à gérer les factures et les modes de paiement. Attribuez ces rôles aux utilisateurs qui paient les factures tels que les membres du service de comptabilité de votre organisation. Pour plus d’informations, consultez [Rôles et tâches liés au profil de facturation](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-Les rôles sur les profils de facturation dispose des autorisations pour afficher et gérer des factures et des modes de paiement. Attribuer ces rôles aux utilisateurs qui paient factures comme membres de l’équipe de gestion des comptes dans votre organisation. Pour plus d’informations, consultez [tâches et rôles de profil de facturation](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+### <a name="each-billing-profile-gets-a-monthly-invoice"></a>Chaque profil de facturation reçoit une facture mensuelle
 
-### <a name="monthly-invoice-generated-for-each-billing-profile"></a>Facture mensuelle généré pour chaque profil de facturation
+Une facture mensuelle est générée au début du mois pour chaque profil de facturation. Elle inclut tous les frais du mois précédent.
 
-Une facture mensuelle est générée sur la date de facturation pour chaque profil de facturation. La facture contient tous les frais pour le mois précédent.
+Dans le portail Azure, vous pouvez afficher la facture, télécharger des documents et modifier le paramètre pour obtenir les futures factures par e-mail. Pour plus d'informations, veuillez consulter [Télécharger les factures pour un contrat client Microsoft](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
-Vous pouvez afficher la facture, téléchargez des documents et modifier le paramètre pour obtenir les factures futures par courrier électronique, dans le portail Azure. Pour plus d’informations, consultez [télécharger les factures d’un contrat de client Microsoft](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
+### <a name="invoice-payment-methods"></a>Modes de paiement des factures
 
-### <a name="invoices-paid-through-payment-methods"></a>Payé par le biais des méthodes de paiement des factures
-
-Chaque profil de facturation a ses propres méthodes de paiement sont utilisés pour payer ses factures. Les méthodes de paiement suivantes sont prises en charge :
+Chaque profil de facturation a ses propres modes de paiement qui permettent de régler les factures associées. Les modes de paiement suivants sont prises en charge :
 
 | Type             | Définition  |
 |------------------|-------------|
-|Crédits Azure    |  Crédits sont automatiquement appliqués au montant total facturé sur votre facture pour calculer le montant que vous devez payer. Pour plus d’informations, consultez [suivre le solde du crédit Azure de votre profil de facturation](billing-mca-check-azure-credits-balance.md). |
-|Virement par chèque ou bancaire | Vous pouvez payer le montant dû pour votre facture soit via la vérification ou un câble de transfert. Les instructions de paiement sont accordées sur la facture |
+|Crédits Azure    |  Les crédits sont automatiquement appliqués au montant total facturé de votre facture, ce qui réduit le montant que vous devez payer. Pour plus d’informations, consultez [Suivre le solde du crédit Azure de votre profil de facturation](billing-mca-check-azure-credits-balance.md). |
+|Paiement par virement bancaire/chèque | Si ces types de paiement sont approuvés pour votre compte, vous pouvez payer le montant de votre facture par chèque ou virement. Les instructions de paiement sont indiquées sur la facture |
+|Carte de crédit | Les clients qui s’inscrivent auprès de Microsoft Azure via le site web Azure peuvent payer par carte de crédit. |
 
-### <a name="control-azure-marketplace-and-reservation-purchases-by-applying-policies"></a>Achats de réservation et de contrôle Azure Marketplace en appliquant des stratégies
+### <a name="apply-policies-to-control-purchases"></a>Appliquer des stratégies pour contrôler les achats
 
-Appliquer des stratégies pour contrôler les achats effectués à l’aide d’un profil de facturation. Vous pouvez définir des stratégies pour désactiver l’achat de réservations d’Azure et produits de la place de marché. Lorsque les stratégies sont appliquées, les abonnements créés pour les sections de facture dans le profil de facturation ne peut pas servir à acheter des réservations d’Azure et produits de la place de marché.
+Vous pouvez appliquer des stratégies afin de contrôler les achats de Réservations et de produits de la Place de marché Microsoft Azure à l’aide d’un profil de facturation. Vous pouvez définir des stratégies pour désactiver l’achat de Réservations Azure et produits de la Place de marché. Lorsque ces stratégies sont appliquées, les abonnements qui sont facturés à un profil de facturation spécifique ne peuvent pas être utilisés pour effectuer ces achats.
 
-### <a name="allow-users-to-create-azure-subscriptions-by-enabling-azure-plans"></a>Autoriser les utilisateurs à créer des abonnements Azure en activant les plans Azure
+### <a name="azure-plans-determine-pricing-and-service-level-agreement-for-subscriptions"></a>Les plans Azure déterminent les contrats de niveau de service et la tarification des abonnements
 
-Les plans Azure sont automatiquement activées lorsque vous créez un profil de facturation. Toutes les sections de facture dans le profil de facturation ont accès à ces plans. Les utilisateurs ayant accès à la section de facture utilisent les plans pour créer des abonnements Azure. Ils ne peuvent pas créer des abonnements Azure, sauf si un plan Azure est activé pour le profil de facturation. Les plans Azure suivants sont pris en charge dans les comptes de facturation pour un contrat de client de Microsoft :
+Les plans Azure déterminent les contrats de niveau de service et la tarification associés aux abonnements. Ils sont automatiquement activés lorsque vous créez un profil de facturation. Toutes les sections de facture associées au profil de facturation peuvent utiliser ces plans. Les utilisateurs ayant accès à la section de facture utilisent les plans pour créer des abonnements Azure. Les plans Azure suivants sont pris en charge dans les comptes de facturation du Contrat client Microsoft :
 
 | Planification             | Définition  |
 |------------------|-------------|
-|Plan Microsoft Azure   | Autoriser les utilisateurs à créer des abonnements qui peuvent exécuter des charges de travail. Pour plus d’informations, consultez [Plan de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Plan Microsoft Azure pour Dev/Test | Autoriser les abonnés Visual Studio créer des abonnements qui sont limitées pour le développement ou le test des charges de travail. Ces abonnements bénéficiez des avantages tels que les taux inférieur et l’accès aux images des machines virtuelles exclusif dans le portail Azure. Pour plus d’informations, consultez [Microsoft Azure planifier DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)|
+|Offre Microsoft Azure   | Autorisez les utilisateurs à créer des abonnements pouvant exécuter n'importe quelle charge de travail.  |
+|Offre Microsoft Azure pour Dev/Test | Autorisez les abonnés Visual Studio à créer des abonnements limités aux charges de travail de développement ou de test. Ces abonnements s'accompagnent d'avantages tels que des tarifs privilégiés et un accès à des images de machine virtuelle exclusives dans le portail Azure. |
 
-## <a name="understand-invoice-sections"></a>Comprendre les sections de facture
+## <a name="invoice-sections"></a>Sections de facture
 
-Créer des sections de facture pour organiser les coûts sur la facture d’un profil facturation. Par exemple, vous devrez peut-être une seule facture pour votre organisation, mais vous souhaitez organiser les coûts par département, l’équipe ou projet. Pour ce scénario, vous avez un seul profil de facturation où vous créez une section de facture pour chaque service, une équipe ou un projet.
+Vous pouvez créer des sections de facture pour organiser les coûts affichés sur votre facture. Par exemple, une seule facture peut suffire pour votre organisation, mais vous pouvez souhaitez organiser les coûts par service, équipe ou projet. Pour ce scénario, vous disposez d'un seul profil de facturation dans lequel vous créez une section de facture pour chaque service, équipe ou projet.
 
-Création d’une section de facture, vous pouvez autoriser d’autres utilisateurs à créer des abonnements Azure pour la section. Les frais d’utilisation et les achats pour les abonnements sont alors répercutées sur la section appropriée de la facture.
+Lorsqu’une section de facture est créée, vous pouvez autoriser d’autres utilisateurs à créer des abonnements Azure facturés en fonction de la section. Les frais d’utilisation et les achats liés aux abonnements sont ensuite facturés en fonction de la section.
 
-Rôles dans la section facture dispose des autorisations pour contrôler les utilisateurs qui crée des abonnements Azure. Attribuer ces rôles aux utilisateurs qui a configuré l’environnement Azure pour les équipes dans notre organisation, comme les responsables d’ingénierie et les architectes techniques. Pour plus d’informations, consultez [section rôles et tâches de facture](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
+Les rôles figurant dans la section de facture sont autorisés à contrôler qui crée des abonnements Azure. Attribuez ces rôles aux utilisateurs configurant l’environnement Azure pour les équipes de votre organisation, tels que les responsables d'ingénierie et les architectes techniques. Pour plus d’informations, consultez [Rôles et tâches liés aux sections de facture](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifiez l’accès à un contrat de client de Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l’accès à un Contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
+## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 
 Si vous avez toujours besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
 
@@ -93,6 +89,6 @@ Si vous avez toujours besoin d’aide, [contactez le support technique](https://
 
 Consultez les articles suivants pour en savoir plus sur votre compte de facturation :
 
-- [Comprendre les rôles d’administrateur de contrat de client de Microsoft dans Azure](billing-understand-mca-roles.md)
-- [Créer un nouvel abonnement Azure pour le contrat de client de Microsoft](billing-mca-create-subscription.md)
+- [Présentation des rôles d'administrateur Azure dans le cadre des Contrats client Microsoft](billing-understand-mca-roles.md)
+- [Créer un abonnement Azure associé dans le cadre de votre Contrat client Microsoft](billing-mca-create-subscription.md)
 - [Créer des sections sur votre facture pour organiser vos coûts](billing-mca-section-invoice.md)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 4e2a182493b1e9de3d2ba9d586a9560e42fe0ecb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 838d65da90ec0daef69375e5a75bcb497a0c3512
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773433"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900401"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Choisir une solution Azure pour le transfert de données
 
@@ -63,6 +63,11 @@ Répondez aux questions suivantes pour sélectionner une solution de transfert d
 - Souhaitez-vous transférer des données en continu ?
 
     Si oui, utilisez les options qui sont décrites dans le [Scénario 4 : Transfert régulier de données](storage-solution-periodic-data-transfer.md).
+ 
+
+## <a name="data-transfer-feature-in-azure-portal"></a>Fonctionnalité de transfert de données dans le Portail Microsoft Azure
+
+Vous pouvez également vous rendre sur votre compte Stockage Azure dans le Portail Microsoft Azure et sélectionner la fonctionnalité **Transfert de données**. Indiquez la bande passante réseau dans votre environnement, la taille des données que vous souhaitez transférer et la fréquence du transfert de données. Vous verrez les solutions optimales de transfert de données correspondant aux informations que vous avez fournies. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -78,4 +83,4 @@ Répondez aux questions suivantes pour sélectionner une solution de transfert d
 - Utiliser les API REST pour transférer des données
 
     - [Dans .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [Dans Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)
+    - [Dans Java](https://docs.microsoft.com/java/api/overview/azure/storage)

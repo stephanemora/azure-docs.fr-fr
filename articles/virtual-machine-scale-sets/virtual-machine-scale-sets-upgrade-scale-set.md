@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
 ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873625"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60803138"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 
@@ -316,7 +316,7 @@ Pour mettre à jour les machines virtuelles existantes, vous devez effectuer une
 - Vous pouvez également utiliser les [kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) propres à un langage.
 
 >[!NOTE]
-> Les clusters Service Fabric peuvent uniquement utiliser le mode *Automatique*, mais la mise à jour est gérée différemment. Pour plus d’informations, consultez [mises à niveau de Service Fabric application](../service-fabric/service-fabric-application-upgrade.md).
+> Les clusters Service Fabric peuvent uniquement utiliser le mode *Automatique*, mais la mise à jour est gérée différemment. Pour plus d’informations, consultez [Mise à niveau des applications Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
 Il existe une méthode de modification des propriétés globales de groupe identique qui ne respecte pas la stratégie de mise à niveau. Les modifications apportées au profil de système d’exploitation du groupe identique (par exemple au nom d’utilisateur ou au mot de passe de l’administrateur) peuvent être apportées uniquement dans la version d’API *2017-12-01* ou une version ultérieure. Ces modifications s’appliquent uniquement aux machines virtuelles qui ont été créées après la modification du modèle du groupe identique. Pour mettre à jour les machines virtuelles existantes, vous devez effectuer un réimageage pour chacune d’elles. Vous pouvez effectuer ce réimageage via :
 

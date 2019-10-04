@@ -1,25 +1,18 @@
 ---
-title: API de récupération d’offres | Microsoft Docs
+title: API de récupération des offres | Place de marché Azure
 description: API récupère une liste récapitulative des offres d’un espace de noms du serveur de publication.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: de9261548ec79e206b0db87caabc1fa4c9ad6771
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 67109c3605ea96123ff41cb88d5ac328a09991e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591548"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935327"
 ---
 <a name="retrieve-offers"></a>Récupération des offres
 ===============

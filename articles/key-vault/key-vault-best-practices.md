@@ -1,50 +1,46 @@
 ---
 title: Meilleures pratiques pour utiliser Key Vault - Azure Key Vault | Microsoft Docs
-description: Ce document décrit certaines des meilleures pratiques pour utiliser Key Vault
+description: Ce document décrit certaines des meilleures pratiques à employer pour utiliser Key Vault.
 services: key-vault
-documentationcenter: ''
-author: yvprashanth
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-key-vault
-ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/07/2019
-ms.author: prashanthyv
-ms.openlocfilehash: ee4418700cec5de1dc404c3669dd5de315aab983
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.author: mbaldwin
+ms.openlocfilehash: 654a9bb772c8a7426a335c98dfeca69515b9ce67
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368608"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881623"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Meilleures pratiques pour utiliser Key Vault
 
 ## <a name="control-access-to-your-vault"></a>Contrôler l’accès à votre coffre
 
-Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement comme les certificats, chaînes de connexion et mots de passe. Comme il s’agit de données sensibles et critiques, vous devez sécuriser l’accès à vos coffres de clés en acceptant seulement les applications et les utilisateurs autorisés. Cela [article](key-vault-secure-your-key-vault.md) fournit une vue d’ensemble du modèle d’accès Key Vault. Il décrit l’authentification et l’autorisation, puis explique comment sécuriser l’accès à vos coffres de clés.
+Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement comme les certificats, chaînes de connexion et mots de passe. Comme il s’agit de données sensibles et critiques, vous devez sécuriser l’accès à vos coffres de clés en acceptant seulement les applications et les utilisateurs autorisés. Cet [article](key-vault-secure-your-key-vault.md) fournit une vue d’ensemble du modèle d’accès aux coffres de clés. Il décrit l’authentification et l’autorisation, puis explique comment sécuriser l’accès à vos coffres de clés.
 
-Suggestions tout en contrôlant l’accès à votre coffre sont les suivantes :
-1. Verrouiller l’accès à votre abonnement, le groupe de ressources et la clé de coffres (RBAC)
+Voici quelques suggestions concernant le contrôle de l’accès à votre coffre :
+1. Verrouiller l’accès à votre abonnement, au groupe de ressources et aux coffres de clés : contrôle d’accès en fonction du rôle (RBAC)
 2. Créer des stratégies d’accès pour chaque coffre
-3. Utiliser moins principal de l’accès de privilèges pour accorder l’accès
-4. Activer le pare-feu et [points de terminaison de Service réseau virtuel](key-vault-overview-vnet-service-endpoints.md)
+3. Utiliser le principe des privilèges d’accès minimum pour accorder l’accès
+4. Activer le pare-feu et les [points de terminaison de service de réseau virtuel](key-vault-overview-vnet-service-endpoints.md)
 
-## <a name="use-separate-key-vault"></a>Utiliser le coffre de clés distinctes
+## <a name="use-separate-key-vault"></a>Utiliser un coffre de clés distinct
 
-Notre recommandation est d’utiliser un coffre par application et par environnement (développement, préproduction et Production). Cela vous permet de ne partager pas les secrets dans des environnements et permet également de réduire la menace en cas de violation.
+Nous recommandons d’utiliser un coffre par application et par environnement (développement, préproduction et production). Cela vous aide à éviter le partage de secrets entre environnements et réduit la menace en cas de violation.
 
 ## <a name="backup"></a>Sauvegarde
 
-Veillez à prendre regular retour ups de votre [coffre](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) sur la mise à jour, supprimer ou créer des objets au sein d’un coffre.
+Veillez à effectuer des sauvegardes régulières de votre [coffre](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) lors de la mise à jour, de la suppression ou de la création d’objets au sein d’un coffre.
 
 ## <a name="turn-on-logging"></a>Activer la journalisation
 
-[Activer la journalisation](key-vault-logging.md) pour votre coffre. Également configurer des alertes.
+[Activez la journalisation](key-vault-logging.md) pour votre coffre. Configurez également des alertes.
 
 ## <a name="turn-on-recovery-options"></a>Activer les options de récupération
 
-1. Activer [suppression réversible](key-vault-ovw-soft-delete.md).
-2. Activer la protection de purge si vous souhaitez protéger contre la suppression de force de la clé secrète / coffre même après que la suppression réversible est activée.
+1. Activez la [suppression réversible](key-vault-ovw-soft-delete.md).
+2. Activez la protection contre le vidage si vous souhaitez bénéficier d’une protection contre la suppression forcée du secret ou du coffre, même après activation de la suppression réversible.

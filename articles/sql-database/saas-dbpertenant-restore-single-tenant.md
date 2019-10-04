@@ -1,5 +1,5 @@
 ---
-title: Restaurer une base de données SQL Azure dans une application SaaS multilocataire | Microsoft Docs
+title: Restaurer une base de données Azure SQL dans une application SaaS multilocataire | Microsoft Docs
 description: Découvrez comment restaurer une base de données SQL à locataire unique après la suppression accidentelle des données
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0776935215b608211ad4f6cd66112fb92e33a34b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274426"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570396"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurer un seul locataire avec une application SaaS de base de données par locataire
 
@@ -76,7 +75,7 @@ Pour illustrer ces scénarios de récupération, commencez par supprimer « acci
 
 1. Dans PowerShell ISE, ouvrez ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1*, puis définissez la valeur suivante :
 
-   * **$DemoScenario** = **1**, *Supprimer le dernier événement (sans ventes de tickets)*.
+   * **$DemoScenario** = **1**, *Supprimer le dernier événement (sans ventes de tickets)* .
 2. Appuyez sur F5 pour exécuter le script et supprimer le dernier événement. Le message de confirmation suivant s’affiche :
 
    ```Console

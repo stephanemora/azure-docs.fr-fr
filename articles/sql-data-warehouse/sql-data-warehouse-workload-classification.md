@@ -1,74 +1,71 @@
 ---
-title: Classification de l’entrepôt de données SQL | Microsoft Docs
-description: Conseils d’utilisation de classification pour gérer l’accès concurrentiel, importance, ressources et de calcul pour les requêtes dans Azure SQL Data Warehouse.
+title: Classification Azure SQL Data Warehouse | Microsoft Docs
+description: Conseils d’utilisation d’une classification pour gérer la concurrence, l’importance et les ressources de calcul en lien avec les requêtes dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
-ms.date: 03/13/2019
+ms.subservice: workload-management
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 4988d284bed46a918f85eec8d7b4a5b89fc6549e
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617748"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588492"
 ---
-# <a name="sql-data-warehouse-workload-classification-preview"></a>Classification de la charge de travail de SQL Data Warehouse (version préliminaire)
+# <a name="azure-sql-data-warehouse-workload-classification"></a>Classification de charge de travail Azure SQL Data Warehouse
 
-Cet article explique le processus de classification de la charge de travail de SQL Data Warehouse d’affectation d’une classe de ressources et l’importance aux requêtes entrantes.
-
-> [!Note]
-> Classification de la charge de travail est disponible en version préliminaire sur SQL Data Warehouse Gen2. Aperçu de Classification de gestion de la charge de travail et l’Importance est pour les builds avec une date de publication de 9 avril 2019 ou version ultérieure.  Les utilisateurs Évitez d’utiliser les builds antérieures à cette date pour le test de charge de travail administration.  Pour déterminer si votre build est la gestion de la charge de travail capable, exécutez select @@version lorsque connecté à votre instance SQL Data Warehouse.
+Cet article explique le processus de classification de charge de travail de SQL Data Warehouse pour l’affectation d’une classe de ressources et de l’importance aux requêtes entrantes.
 
 ## <a name="classification"></a>classification ;
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
-Classification de gestion de la charge de travail permet aux stratégies de la charge de travail à appliquer aux demandes par le biais de [classes de ressources](resource-classes-for-workload-management.md#what-are-resource-classes) et [importance](sql-data-warehouse-workload-importance.md).
+La classification de la gestion d’une charge de travail permet aux stratégies de charge de travail d’être appliquées aux demandes par le biais de [classes de ressources](resource-classes-for-workload-management.md#what-are-resource-classes) et de l’[importance](sql-data-warehouse-workload-importance.md).
 
-Bien qu’il existe de nombreuses façons de classifier des charges de travail d’entreposage de données, la classification la plus simple et la plus courante est la charge et la requête. Vous chargez des données avec insert, update et des instructions de suppression.  Vous interrogez les données à l’aide des instructions SELECT. Une solution d’entrepôt de données ont souvent une stratégie de charge de travail pour l’activité de charge, tels que l’attribution d’une classe de ressources supérieure avec davantage de ressources. Une stratégie de charge de travail différents pourrait s’appliquent aux requêtes, telles qu’importance inférieure par rapport aux activités de charge.
+Bien qu’il existe de nombreuses façons de classifier des charges de travail d’entreposage de données, la classification la plus simple et la plus courante est la charge et l’interrogation. Vous chargez des données avec des instructions d’insertion, de mise à jour et de suppression.  Vous interrogez les données à l’aide des instructions SELECT. Une solution d’entrepôt de données possède souvent une stratégie de charge de travail pour l’activité de charge, tels que l’attribution d’une classe de ressources supérieure avec davantage de ressources. Une stratégie de charge de travail différente pourrait s’appliquer aux requêtes, comme une importance inférieure par rapport aux activités de charge.
 
-Vous pouvez également subclassify vos charges de travail charge et de la requête. Sous-classification vous donne davantage de contrôle de vos charges de travail. Par exemple, les charges de travail de requête peuvent se composer d’actualisations de cube, les requêtes de tableau de bord ou les requêtes ad-hoc. Vous pouvez classer chacune de ces charges de travail de requête avec les classes de ressources différents ou des paramètres de l’importance. Charge peut également bénéficier de sous-classification. Transformations volumineuses peuvent être affectées à des classes de ressources plus grandes. Une importance plus élevée peut servir à garantir la clé données ventes chargeur avant les données météorologiques ou un flux de données sociales.
+Vous pouvez également effectuer une sous-classification de vos charges de travail de charge et d’interrogation. La sous-classification vous donne davantage de contrôle sur vos charges de travail. Par exemple, les charges de travail de requête peuvent se composer d’actualisations de cube, de requêtes de tableau de bord ou de requêtes ad-hoc. Vous pouvez classer chacune de ces charges de travail de requête avec différentes classes de ressources ou différents paramètres d’importance. La charge peut également faire l’objet d’une sous-classification. Les transformations volumineuses peuvent être affectées à des classes de ressources plus grandes. Une importance plus élevée peut servir à garantir le fait que les données clés des ventes soient chargées avant les données météorologiques ou un flux de données sociales.
 
-Pas toutes les instructions sont classées comme qu’ils n’exigent pas nécessitent des ressources ou avez besoin d’importance pour influencer l’exécution.  Les commandes DBCC, les instructions BEGIN, COMMIT et ROLLBACK TRANSACTION ne sont pas classées.
+Toutes les instructions ne sont pas classées car elles n’exigent pas de ressources ou n’influencent pas l’exécution.  Les commandes DBCC, les instructions BEGIN, COMMIT et ROLLBACK TRANSACTION ne sont pas classées.
 
 ## <a name="classification-process"></a>Processus de classification
 
-Classement dans SQL Data Warehouse s’effectue dès aujourd'hui en assignant des utilisateurs à un rôle qui a une classe de ressource correspondante qui lui est assignée à l’aide de [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilité pour caractériser les demandes au-delà d’une connexion à une classe de ressource est limitée avec cette fonctionnalité. Une méthode plus riche pour la classification est désormais disponible avec la [créer un classifieur de charge de travail](/sql/t-sql/statements/create-workload-classifier-transact-sql) syntaxe.  Avec cette syntaxe, les utilisateurs SQL Data Warehouse peuvent assigner importance et une classe de ressources aux requêtes.  
+La classification dans SQL Data Warehouse s’effectue aujourd’hui en assignant des utilisateurs à un rôle disposant d’une classe de ressource correspondante, assignée à l’aide de [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilité de caractériser des demandes au-delà d’une connexion à une classe de ressource est limitée avec cette fonctionnalité. Une méthode plus riche pour la classification est désormais disponible avec la syntaxe [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL](/sql/t-sql/statements/create-workload-classifier-transact-sql).  Avec cette syntaxe, les utilisateurs SQL Data Warehouse peuvent assigner une importance et une classe de ressources aux requêtes.  
 
 > [!NOTE]
-> Classification est évaluée sur la base de chaque demande. Plusieurs demandes dans une seule session peuvent être classés différemment.
+> La classification est évaluée à chaque requête. Plusieurs demandes dans une seule session peuvent être classées différemment.
 
-## <a name="classification-precedence"></a>Priorité de classement
+## <a name="classification-precedence"></a>Priorité de classification
 
-Dans le cadre du processus de classification, la priorité est en place pour déterminer quelle classe de ressource est affectée. La classification basée sur un utilisateur de base de données est prioritaire sur l’appartenance au rôle. Si vous créez un classifieur qui mappe l’utilisateur de base de données UserA à la classe de ressources mediumrc. Ensuite, mappez le rôle de base de données RoleA (dont l’utilisateur a est membre) à la classe de ressources largerc. Le classifieur qui mappe l’utilisateur de base de données à la classe de ressources mediumrc ont priorité sur le classifieur qui mappe le rôle de base de données RoleA à la classe de ressources largerc.
+Dans le cadre du processus de classification, la priorité est en place pour déterminer la classe de ressource affectée. La classification basée sur un utilisateur de base de données est prioritaire sur l’appartenance au rôle. Si vous créez un classifieur qui mappe l’utilisateur A de base de données à la classe de ressources mediumrc. Ensuite, mappez le rôle A de base de données (dont l’utilisateur A est membre) à la classe de ressources largerc. Le classifieur qui mappe l’utilisateur de base de données à la classe de ressources mediumrc a priorité sur le classifieur mappant le rôle A de base de données à la classe de ressources largerc.
 
-Si un utilisateur est membre de plusieurs rôles avec les classes de ressources différent affecté ou mis en correspondance dans plusieurs classifieurs, l’utilisateur bénéficie de l’attribution de classe de ressource la plus élevée.  Ce comportement est cohérent avec le comportement d’attribution de classe ressource existante.
+Si un utilisateur est membre de plusieurs rôles avec différentes classes de ressources affectées ou mises en correspondance dans plusieurs classifieurs, l’utilisateur bénéficie de l’attribution de la classe de ressource la plus élevée.  Ce comportement est cohérent avec le comportement d’attribution de la classe ressource existante.
 
-## <a name="system-classifiers"></a>Classifieurs de système
+## <a name="system-classifiers"></a>Classifieurs système
 
-Classification de la charge de travail a des classifieurs de charge de travail système. Les classifieurs de système de mappage existant appartenances de rôle de classe de ressource pour les allocations de ressources de classe de ressource importance normale. Impossible de supprimer les classifieurs de système. Pour afficher les classifieurs de système, vous pouvez exécuter la sous requête :
+La classification de charge de travail possède des classifieurs de charge de travail système. Les classifieurs système effectuent le mappage des appartenances existantes de rôle de classe de ressource aux allocations de ressources de classe de ressource avec une importance normale. Les classifieurs système ne peuvent pas être annulés. Pour afficher les classifieurs système, vous pouvez exécuter la requête ci-dessous :
 
 ```sql
 SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <= 12
 ```
 
-## <a name="mixing-resource-class-assignments-with-classifiers"></a>Mélange de ressources des affectations de classe avec des classifieurs
+## <a name="mixing-resource-class-assignments-with-classifiers"></a>Mélange d’affectations de classe de ressources et des classifieurs
 
-Les classifieurs système créées en votre nom permettent un accès facile pour migrer vers la classification de la charge de travail. À l’aide des mappages de rôle de classe de ressource avec la priorité de classement, peut entraîner classification incorrecte lorsque vous commencez à créer des classifieurs de nouveau avec une importance.
+Les classifieurs système créés en votre nom offrent un accès facile pour migrer vers une classification de charge de travail. L’utilisation de mappages de rôle de classe de ressources avec une priorité de classification peut entraîner une mauvaise classification lorsque vous commencez à créer de nouveaux classifieurs avec une importance.
 
 Examinez le scénario suivant :
 
-Entrepôt de données existant •un a un utilisateur de base de données que dbauser attribué au rôle de classe de ressources largerc. L’attribution de classe de ressource a été effectuée avec sp_addrolemember.
-Entrepôt de données •la est désormais mis à jour avec gestion de la charge de travail.
-•Pour tester la nouvelle syntaxe de classification, le rôle de base de données DBARole (c'est-à-dire DBAUser membre), a un classifieur créé pour lui mappant à mediumrc et une importance haute.
-•When DBAUser se connecte et exécute une requête, la requête sera attribuée à largerc. Étant donné que l’utilisateur est prioritaire sur une appartenance au rôle.
+- Un entrepôt de données existant possède un utilisateur de base de données DBAUser attribué au rôle de classe de ressources largerc. L’attribution de classe de ressources a été effectuée avec sp_addrolemember.
+- L’entrepôt de données est maintenant mis à jour avec la gestion des charges de travail.
+- Pour tester la nouvelle syntaxe de classification, le rôle de base de données DBARole (dont DBAUser est membre), possède un classifieur créé pour lui, le mappant à mediumrc et possédant une importance élevée.
+- Lorsque DBAUser se connecte et exécute une requête, celle-ci est assignée à largerc. La raison est que l’utilisateur est prioritaire sur une appartenance au rôle.
 
-Pour simplifier la résolution des problèmes de classification incorrecte, nous vous recommandons de que supprimer mappages de rôle de classe de ressource que vous créez les classifieurs de charge de travail.  Le code ci-dessous retourne des appartenances aux rôles de classe ressource existante.  Exécutez [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) pour chaque nom de membre retournée à partir de la classe de ressource correspondante.
+Pour simplifier la résolution des problèmes de classification, nous vous recommandons de supprimer les mappages de rôle de classe de ressources car vous créez des classifieurs de charge de travail.  Le code ci-dessous retourne des appartenances existantes aux rôles de classe de ressources.  Exécutez [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) pour chaque nom de membre retourné par la classe de ressource correspondante.
 
 ```sql
 SELECT  r.name AS [Resource Class]
@@ -84,4 +81,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la classification de la charge de travail de SQL Data Warehouse et l’importance, consultez [créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md) et [Importance de l’entrepôt de données SQL](sql-data-warehouse-workload-importance.md). Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.
+- Pour plus d’informations sur la création d’un classifieur, consultez l’article [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Consultez le guide de démarrage rapide sur la création d’un classifieur de charge de travail [Créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md).
+- Consultez les articles qui expliquent comment [configurer l’importance de la charge de travail](sql-data-warehouse-how-to-configure-workload-importance.md) et comment [gérer et surveiller la charge de travail](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.

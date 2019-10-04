@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, C++ (macOS) - Services Speech'
+title: 'Démarrage rapide : Reconnaissance vocale, C++ (macOS) – Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Découvrir la reconnaissance vocale en C++ sur macOS avec le SDK Speech
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: be4c5d6187e6367ba04ce7debcc0701937e87ae9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 12abb7fb6d5e93e226ae539f8161566e3c30bd65
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59012347"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803327"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en C++ sur macOS avec le SDK Speech
 
@@ -30,8 +30,6 @@ Vous avez besoin d’une clé d’abonnement au service Speech pour suivre ce gu
 ## <a name="install-speech-sdk"></a>Installer le kit SDK Speech
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `1.4.0`.
 
 Le SDK Speech pour macOS peut être téléchargé sous la forme d’un bundle de framework compressé à partir de https://aka.ms/csspeech/macosbinary.
 
@@ -82,7 +80,7 @@ Téléchargez et installez le Kit de développement logiciel (SDK) comme suit :
 * Exécutez la commande suivante pour générer l’application.
 
   ```sh
-  g++ helloworld.cpp -o helloworld --std=c++11 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
+  g++ helloworld.cpp -o helloworld --std=c++14 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
   ```
 
 ## <a name="run-the-app"></a>Exécution de l'application
@@ -115,4 +113,3 @@ Téléchargez et installez le Kit de développement logiciel (SDK) comme suit :
 
 - [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
 - [Personnaliser les modèles de langage](how-to-customize-language-model.md)
-

@@ -4,23 +4,22 @@ description: Apprenez à créer et à télécharger un disque dur virtuel (VHD)
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: e032f9a9772232d3a57a9672dc6c601354ecad43
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: eb6ef87edd2ff16750573c6b8c719fa4b81d3a4c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105520"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083603"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informations concernant les distributions non approuvées
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -74,7 +73,7 @@ Le mécanisme de reconstruction d'image initrd ou initramfs varie en fonction de
 ### <a name="resizing-vhds"></a>Redimensionnement des disques durs virtuels
 Les images de disque dur virtuel sur Azure doivent avoir une taille virtuelle alignée à 1 Mo.  En règle générale, les disques durs virtuels créés à l’aide d’Hyper-V sont alignés correctement.  Si le disque dur virtuel n’est pas correctement aligné, un message d’erreur semblable au suivant peut s’afficher quand vous essayez de créer une image à partir de votre disque dur virtuel.
 
-* Le disque dur virtuel http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd dispose d’une taille virtuelle non prise en charge de 21 475 270 656 octets. La taille doit être un nombre entier (en Mo).
+* Le disque dur virtuel http://\//\<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd dispose d’une taille virtuelle non prise en charge de 21475270656 octets. La taille doit être un nombre entier (en Mo).
 
 Le cas échéant, redimensionnez la machine virtuelle à l’aide de la console Gestionnaire Hyper-V ou de la cmdlet PowerShell [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx).  Si vous n’utilisez pas un environnement Windows, nous vous recommandons d’utiliser `qemu-img` pour convertir (si nécessaire) le disque dur virtuel et le redimensionner.
 
@@ -144,10 +143,10 @@ Si un noyau personnalisé est requis, nous vous recommandons d’utiliser une ve
 Les correctifs suivants doivent être inclus dans le noyau. Cette liste ne peut pas être complète pour toutes les distributions.
 
 * [ata_piix : reporter des disques dans les pilotes Hyper-V par défaut](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/ata/ata_piix.c?id=cd006086fa5d91414d8ff9ff2b78fbb593878e3c)
-* [storvsc : Compte pour les paquets en transit dans le chemin d’accès de réinitialisation](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
+* [storvsc : prendre en compte les paquets en transit dans le chemin RESET](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/drivers/scsi/storvsc_drv.c?id=5c1b10ab7f93d24f29b5630286e323d1c5802d5c)
 * [storvsc : éviter l’utilisation de WRITE_SAME](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=3e8f4f4065901c8dfc51407e1984495e1748c090)
-* [storvsc : Désactiver WRITE_SAME pour RAID et les pilotes de carte hôte virtuel](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
-* [storvsc : Correctif de déréférence du pointeur NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
+* [storvsc : désactiver WRITE_SAME pour RAID et les pilotes adaptateurs de l’hôte virtuel](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=54b2b50c20a61b51199bedb6e5d2f8ec2568fb43)
+* [storvsc : correctif de déréférencement de pointeur NULL](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=b12bb60d6c350b348a4e1460cd68f97ccae9822e)
 * [storvsc : des défaillances de la mémoire tampon de l’anneau peuvent entraîner un gel des E/S](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/storvsc_drv.c?id=e86fb5e8ab95f10ec5f2e9430119d5d35020c951)
 * [scsi_sysfs : se protéger contre une double exécution de __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 

@@ -2,20 +2,20 @@
 title: ClaimsProviders - Azure Active Directory B2C | Microsoft Docs
 description: Spécifiez l’élément ClaimsProvider d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2d862d07a65c3fb28b49a82692ea575f787b9750
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 8d2570af6abb34a87ac4c69dd63408c8ec2e8005
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008747"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66511521"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -55,7 +55,7 @@ L’élément **ClaimsProvider** contient les éléments enfant suivants :
 | DisplayName | 0:1 | Une chaîne qui contient le nom du fournisseur de revendications pouvant être présentée aux utilisateurs. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Un ensemble de profils techniques pris en charge par le fournisseur de revendications |
 
-**ClaimsProvider** organise vos profils techniques interaction avec le fournisseur de revendications. L’exemple suivant montre le fournisseur de revendications Azure Active Directory avec les profils techniques Azure Active Directory :
+**ClaimsProvider** organise le rapport entre vos profils techniques et le fournisseur de revendications. L’exemple suivant montre le fournisseur de revendications Azure Active Directory avec les profils techniques Azure Active Directory :
 
 ```XML
 <ClaimsProvider>

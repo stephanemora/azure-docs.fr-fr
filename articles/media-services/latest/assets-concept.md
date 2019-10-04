@@ -1,5 +1,5 @@
 ---
-title: Éléments multimédias dans Media Services - Azure | Microsoft Docs
+title: Éléments multimédias dans Azure Media Services | Microsoft Docs
 description: Cet article explique ce que sont les éléments multimédias et comment ils sont utilisés par Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -9,30 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 3dc1866a3c0339bca0c27fb53894a14581e88490
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447308"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390497"
 ---
 # <a name="assets"></a>Éléments multimédias
 
-Dans Azure Media Services, un [actif multimédia](https://docs.microsoft.com/rest/api/media/assets) contient des fichiers numériques (notamment des données vidéo, des données audio, des images, des collections de miniatures, des pistes de texte et des fichiers de sous-titres) et les métadonnées associées à ces fichiers. Une fois les fichiers numériques chargés dans un actif multimédia, ils peuvent être utilisés dans des workflows Media Services d’encodage, de diffusion et d’analyse de contenu. Pour plus d’informations, consultez la section [Charger des fichiers numériques dans des actifs multimédias](#upload-digital-files-into-assets), ci-dessous.
+Dans Azure Media Services, un [actif](https://docs.microsoft.com/rest/api/media/assets) contient des informations sur les fichiers numériques stockés dans Stockage Azure (notamment des données vidéo, des données audio, des images, des collections de miniatures, des pistes de texte et des fichiers de sous-titres). 
 
 Un actif multimédia est mappé à un conteneur d’objets blob dans le [compte Stockage Azure](storage-account-concept.md) et les fichiers contenus dans l’actif multimédia sont stockés sous forme d’objets blob de blocs dans ce conteneur. Media Services prend en charge les niveaux d’objets blob quand le compte utilise le stockage v2 universel (GPv2). Avec GPv2, vous pouvez déplacer les fichiers vers un [stockage Froid ou Archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). Le stockage **Archive** est approprié pour archiver les fichiers sources quand ils ne sont plus nécessaires (par exemple une fois qu’ils ont été encodés).
 
 Le niveau de stockage **Archive** est recommandé uniquement pour les fichiers sources très volumineux qui ont déjà été encodés et dont la sortie de travail d’encodage a été placée dans un conteneur d’objets blob de sortie. Les objets blob présents dans le conteneur de sortie que vous voulez associer à un actif multimédia et utiliser pour diffuser en continu ou analyser votre contenu doivent exister dans un niveau de stockage **Chaud** ou **Froid**.
 
-> [!NOTE]
-> Les propriétés d’élément multimédia de type DateHeure sont toujours au format UTC.
+### <a name="naming-blobs"></a>Nommer des objets blob
+
+Les noms des fichiers/objets blob au sein d’une ressource doivent respecter les [exigences en matière de nom d’objet blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) et de [nom NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Ces exigences se justifient par le fait que les fichiers peuvent être copiés du stockage d’objets blob vers un disque NTFS local à des fins de traitement.
 
 ## <a name="upload-digital-files-into-assets"></a>Charger des fichiers numériques dans des actifs multimédias
 
-L’un des workflows Media Services courants consiste à charger, à encoder et à diffuser en continu un fichier. Cette section décrit les étapes générales.
+Une fois les fichiers numériques chargés dans le stockage et associés à un actif, ils peuvent être utilisés dans des workflows Media Services d’encodage, de diffusion et d’analyse de contenu. L’un des workflows Media Services courants consiste à charger, à encoder et à diffuser en continu un fichier. Cette section décrit les étapes générales.
+
+> [!TIP]
+> Avant de commencer à développer, consultez [Développement avec les API Media Services v3](media-services-apis-overview.md) (informations sur l’accès aux API, les conventions de nommage, etc.)
 
 1. Utilisez l’API Media Services v3 pour créer un actif multimédia « d’entrée ». Cette opération crée un conteneur dans le compte de stockage associé à votre compte Media Services. L’API retourne le nom du conteneur (par exemple, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    
@@ -44,13 +48,16 @@ L’un des workflows Media Services courants consiste à charger, à encoder et 
     az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
     ```
 2. Obtenez une URL SAS avec des autorisations de lecture-écriture qui sera utilisée pour charger des fichiers numériques dans le conteneur d’actifs multimédias. Vous pouvez utiliser l’API Media Services pour [lister les URL de conteneurs d’actifs multimédias](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
-3. Utilisez les API ou les SDK de Stockage Azure (par exemple, [l’API REST de stockage](../../storage/common/storage-rest-api-auth.md), le [SDK JAVA](../../storage/blobs/storage-quickstart-blobs-java-v10.md) ou [le SDK .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) pour charger des fichiers dans le conteneur d’actifs multimédias. 
+3. Utilisez les SDK ou les API Stockage Azure (par exemple l’[API REST de stockage](../../storage/common/storage-rest-api-auth.md) ou le [SDK .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) pour charger des fichiers dans le conteneur d’actifs multimédias. 
 4. Utilisez des API Media Services v3 pour créer une transformation et un travail afin de traiter votre actif multimédia « d’entrée ». Pour plus d’informations, consultez [Transformations et travaux](transform-concept.md).
 5. Diffusez en continu le contenu à partir de l’actif multimédia de « sortie ».
 
 Pour obtenir un exemple .NET complet qui montre comment créer l’actif multimédia, obtenir une URL SAS accessible en écriture vers le conteneur de l’actif multimédia dans le stockage et charger le fichier dans le conteneur de stockage à l’aide de l’URL SAS, consultez [Créer une entrée de travail à partir d’un fichier local](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Créer un actif multimédia
+
+> [!NOTE]
+> Les propriétés d’élément multimédia de type DateHeure sont toujours au format UTC.
 
 #### <a name="rest"></a>REST
 
@@ -84,9 +91,22 @@ curl -X PUT \
 
 Pour obtenir un exemple complet, consultez [Créer une entrée de travail à partir d’un fichier local](job-input-from-local-file-how-to.md). Dans Media Services v3, il est également possible de créer une entrée de travail à partir d’URL HTTPS (consultez [Créer une entrée de travail à partir d’une URL HTTPS](job-input-from-http-how-to.md)).
 
-## <a name="filtering-ordering-paging"></a>Filtrage, tri, pagination
+## <a name="map-v3-asset-properties-to-v2"></a>Mapper les propriétés de l’élément multimédia v3 à v2
 
-Consultez [Filtrage, tri et pagination des entités Media Services](entities-overview.md).
+Le tableau suivant montre comment les propriétés de l’[élément multimédia](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)de v3 sont mappées aux propriétés de l’élément multimédia de v2.
+
+|Propriétés de v3|Propriétés de v2|
+|---|---|
+|id : (unique) chemin d’accès complet à Azure Resource Manager, voir les exemples dans [Ressource](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|nom : (unique) consultez [Convention d’affectation de noms](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|Id : valeur (unique) commençant par le préfixe `nb:cid:UUID:`.|
+|created|Date de création|
+|description|Nom|
+|lastModified|LastModified|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| Options (options de création)|
+|Type||
 
 ## <a name="storage-side-encryption"></a>Chiffrement côté stockage
 
@@ -101,6 +121,10 @@ Pour protéger vos éléments au repos, les ressources doivent être chiffrées 
 <sup>1</sup> Bien que Media Services prenne en charge la gestion de contenu en clair/sans aucune forme de chiffrement, ce n’est pas conseillé.
 
 <sup>2</sup> Dans Media Services v3, le chiffrement de stockage (chiffrement AES-256) est uniquement pris en charge pour la compatibilité descendante lorsque vos ressources ont été créées avec Media Services v2. Cela signifie que la version v3 fonctionne avec les ressources chiffrées du stockage existant mais qu’elle n’autorisera pas de nouvelles créations.
+
+## <a name="filtering-ordering-paging"></a>Filtrage, tri, pagination
+
+Consultez [Filtrage, tri et pagination des entités Media Services](entities-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

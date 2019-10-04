@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f2d7aba05fc01c5a4dcdb123f25242c4e4a72578
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: e4d20cd39d2a843ee1ab57a412ac668b3495fdb1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "43426422"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176887"
 ---
 >[!NOTE]
 >À compter du 1er juillet 2018, la passerelle VPN Azure ne prendra plus en charge TLS 1.0 et 1.1. Elle prendra uniquement en charge TLS 1.2. Pour maintenir la prise en charge, consultez les [mises à jour permettant la prise en charge de TLS 1.2](#tls1).

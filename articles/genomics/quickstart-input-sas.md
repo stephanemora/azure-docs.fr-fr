@@ -1,7 +1,7 @@
 ---
 title: Soumettre un workflow à l’aide de signatures d’accès partagé - Microsoft Genomics
 titleSuffix: Azure
-description: L’article suppose que vous avez le client msgen est installé et que vous avez exécuté les exemples de données via le service.
+description: Cet article part du principe que le client msgen est installé et que vous avez exécuté l’échantillon de données dans le service.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,18 +9,18 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 7c51a0934457a2fcc03f9be1535712e97ac91a1e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 833067f53f53f347ce091a64702d44a78cde836f
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451380"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657095"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un workflow à Microsoft Genomics à l’aide d’un SAS plutôt que d’une clé de compte de stockage 
 
-Cet article montre comment soumettre un workflow dans le service Microsoft Genomics à l’aide d’un fichier config.txt contenant [partagé (SAP) des signatures d’accès](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) au lieu de clés de compte de stockage. Cette fonctionnalité peut être utile si avoir la clé de compte de stockage visible dans le fichier config.txt pose des problèmes de sécurité. 
+Cet article montre comment envoyer un workflow au service Microsoft Genomics à l’aide d’un fichier config.txt contenant des [signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) au lieu de clés de compte de stockage. Cette fonctionnalité peut être utile si avoir la clé de compte de stockage visible dans le fichier config.txt pose des problèmes de sécurité. 
 
-Cette article suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à poursuivre cet article. 
+Cette article suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à effectuer les procédures décrites dans cet article. 
 
 ## <a name="what-is-a-sas"></a>Qu’est ce qu’une SAP ?
 Une [signature d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) fournit un accès délégué aux ressources de votre compte de stockage. Avec une signature d’accès partagé, vous pouvez accorder l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. C’est tout l’intérêt d’utiliser des signatures d’accès partagé dans vos applications : une SAP est un moyen sécurisé de partager vos ressources de stockage sans compromettre vos clés de compte.
@@ -56,9 +56,9 @@ Les SAP pour les fichiers d’entrée doivent être déterminées en fonction du
  ![Explorateur de stockage SAP Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorateur de stockage SAP Genomics")
 
 
-### <a name="set-up-create-a-sas-programmatically"></a>Configuration : Créer une SAP par programme
+### <a name="set-up-create-a-sas-programmatically"></a>Configuration : créer une SAP par programmation
 
-Pour créer une SAP à l’aide du kit de développement logiciel (SDK) Stockage Azure, consultez la documentation existante dans plusieurs langages, notamment [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), and [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
+Pour créer une SAP à l’aide du kit de développement logiciel (SDK) Stockage Azure, consultez la documentation existante dans plusieurs langages, notamment [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), and [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 
 Pour créer une SAP sans kit de développement logiciel (SDK), la chaîne de requête SAP peut être directement construite, y compris toutes les informations requises pour authentifier la SAP. Ces [instructions](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) décrivent en détail les composants de la chaîne de requête SAP et comment la générer. La signature SAP requise est créée en générant un HMAC à l’aide des informations d’authentification du blob/conteneur, comme décrit dans ces [instructions](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
 

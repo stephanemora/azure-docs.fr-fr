@@ -1,25 +1,18 @@
 ---
-title: Prise en main | Microsoft Docs
+title: Prise en main | Place de marché Azure
 description: Prise en main du portail Microsoft Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 00558b9effed39e160aef93c22431863daf6aa0d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 9d2c64479f65995c0eca756b86bd0a96a752867d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806050"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935745"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>Prise en main du portail Microsoft Cloud Partner
 

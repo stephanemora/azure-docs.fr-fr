@@ -1,25 +1,19 @@
 ---
-title: Gestion des utilisateurs sur le portail Microsoft Cloud Partner
+title: Gestion des utilisateurs sur le portail Microsoft Cloud Partner | Place de marché Azure
 description: Gestion des utilisateurs sur le portail Microsoft Cloud Partner
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
 manager: pbutlerm
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 56c646c2ab1f733c37a20cf6e6a5945b223beec4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.author: pabutler
+ms.openlocfilehash: 5a3724729f85b7917b1559ce2ac3d859881e0de8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447273"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935125"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Gestion des utilisateurs sur le portail Microsoft Cloud Partner
 ======================================

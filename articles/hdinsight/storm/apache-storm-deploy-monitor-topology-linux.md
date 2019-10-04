@@ -1,7 +1,6 @@
 ---
 title: Déploiement et gestion des topologies Apache Storm sur Azure HDInsight
 description: Apprenez à déployer, surveiller et gérer des topologies Apache Storm à l’aide du tableau de bord Storm sur HDInsight basé sur Linux. Utilisez les outils Hadoop pour Visual Studio.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,29 +8,25 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 32ad4434db8c2816fe7792b1b851e020021d543a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 1c219c85836eb4730fa90918385555c433a12449
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447105"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915085"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Déploiement et gestion des topologies Apache Storm sur Azure HDInsight 
 
 Ce document présente les principes fondamentaux de la gestion et du monitoring des topologies [Apache Storm](https://storm.apache.org/) qui s’exécutent sur des clusters Storm sur HDInsight.
 
-> [!IMPORTANT]  
-> Les étapes décrites dans cet article nécessitent un cluster Storm Linux sur HDInsight. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
->
+## <a name="prerequisites"></a>Prérequis
+
+* Un cluster Apache Storm sur HDInsight. Consultez la section [Création de clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **Storm** dans le champ **Type de cluster**.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+* (Facultatif) Des connaissances en SSH et SCP : Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Un cluster Storm Linux sur HDInsight**: consultez [Prise en main d’Apache Storm sur HDInsight](apache-storm-tutorial-get-started-linux.md) pour connaître les étapes de création d’un cluster
-
-* (Facultatif) **Des connaissances en SSH et SCP** : Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](../hdinsight-hadoop-linux-use-ssh-unix.md).
-
-* (Facultatif) **Visual Studio** : le SDK Azure 2.5.1 ou version ultérieure et Data Lake Tools pour Visual Studio. Pour plus d’informations, consultez [Get started using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md) (Prise en main de Data Lake Tools pour Visual Studio).
+* (Facultatif) Visual Studio : le SDK Azure 2.5.1 ou version ultérieure et Data Lake Tools pour Visual Studio. Pour plus d’informations, consultez [Get started using Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md) (Prise en main de Data Lake Tools pour Visual Studio).
 
     L’une des versions suivantes de Visual Studio :
 
@@ -59,7 +54,7 @@ Les outils HDInsight permettent de soumettre des topologies C# ou hybrides à vo
 
 3. Dans la boîte de dialogue **Nouveau projet**, développez **Installé** > **Modèles**, puis sélectionnez **HDInsight**. Dans la liste des modèles, sélectionnez **Exemple Storm**. En bas de la boîte de dialogue, entrez un nom pour l’application.
 
-    ![image](./media/apache-storm-deploy-monitor-topology-linux/sample.png)
+    ![image](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 
 4. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Envoyer à Storm sur HDInsight**.
 
@@ -95,7 +90,7 @@ Vous pouvez déployer par programme une topologie à l’aide du service Nimbus.
 
 Lorsqu’une topologie est envoyée à l’aide de Visual Studio, la vue **Topologies Storm** s’affiche. Sélectionnez la topologie à partir de la liste pour afficher des informations sur la topologie en cours d’exécution.
 
-![Visual Studio Monitor](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
+![Visual Studio Monitor](./media/apache-storm-deploy-monitor-topology-linux/visual-studio-monitor.png)
 
 > [!NOTE]  
 > Vous pouvez également afficher les **Topologies Storm** dans l’**Explorateur de serveurs** en développant **Azure** > **HDInsight**, puis en cliquant avec le bouton droit sur le cluster HDInsight et en sélectionnant **Affichage des topologies Storm**.
@@ -160,7 +155,7 @@ Le rééquilibrage d’une topologie permet au système de réviser le parallél
 
 ## <a name="monitor-and-manage-storm-ui"></a>Superviser et gérer : Interface utilisateur de Storm
 
-L’interface utilisateur Storm fournit une interface web incluse dans votre cluster HDInsight pour utiliser les topologies en cours d’exécution. Pour afficher l’interface utilisateur Storm, utilisez un navigateur web pour ouvrir **https://CLUSTERNAME.azurehdinsight.net/stormui**, où **CLUSTERNAME** est le nom de votre cluster.
+L’interface utilisateur Storm fournit une interface web incluse dans votre cluster HDInsight pour utiliser les topologies en cours d’exécution. Pour afficher l’interface utilisateur Storm, utilisez un navigateur web pour ouvrir **https://CLUSTERNAME.azurehdinsight.net/stormui** , où **CLUSTERNAME** est le nom de votre cluster.
 
 > [!NOTE]  
 > Si vous êtes invité à fournir un nom d’utilisateur et un mot de passe, entrez l’administrateur de cluster (admin) et le mot de passe que vous avez utilisé pour la création du cluster.
@@ -214,7 +209,7 @@ Pour plus d’informations, voir [API REST de l’interface utilisateur Apache S
 
 ### <a name="base-uri"></a>URI de base
 
-L’URI de base pour l’API REST sur des clusters HDInsight basés sur Linux est disponible sur le nœud principal à **https :\//HEADNODEFQDN:8744/api/v1/**. Le nom de domaine du nœud principal est généré lors de la création du cluster et n’est pas statique.
+L’URI de base pour l’API REST sur des clusters HDInsight sous Linux est disponible sur le nœud principal à l’adresse **https:\//HEADNODEFQDN:8744/api/v1/** . Le nom de domaine du nœud principal est généré lors de la création du cluster et n’est pas statique.
 
 Vous trouverez le nom de domaine complet (FQDN) du nœud principal du cluster de plusieurs façons différentes :
 

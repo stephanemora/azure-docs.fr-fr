@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2018
+ms.date: 08/07/2019
 ms.author: chkuhtz
-ms.openlocfilehash: b9a140314b8eba6386c37bdbcf2bb3de58589335
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b109e87a8fcbef0bfca356c83716509ebc6cecd4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163427"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884208"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Serveurs frontaux multiples dans Azure Load Balancer
 
@@ -65,8 +65,8 @@ Nous définissons deux règles :
 
 | Règle | Mapper le serveur frontal | Au pool principal |
 | --- | --- | --- |
-| 1 |![serveur frontal vert](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png)  DIP2:80 |
-| 2 |![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png)  DIP2:81 |
+| 1 |![serveur frontal vert](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![Adresse IP virtuelle](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 Le mappage complet dans Azure Load Balancer se présente désormais comme suit :
 
@@ -113,8 +113,8 @@ Nous définissons deux règles :
 
 | Règle | Serveur frontal | Mapping au pool principal |
 | --- | --- | --- |
-| 1 |![Règle](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (dans VM1 et VM2) |
-| 2 |![Règle](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (dans VM1 et VM2) |
+| 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (dans VM1 et VM2) |
+| 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![Serveur principal](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (dans VM1 et VM2) |
 
 Le tableau suivant présente le mappage complet de l’équilibrage de charge :
 
@@ -132,7 +132,7 @@ Le type de règle faisant appel à l’adresse IP flottante constitue la base de
 ## <a name="limitations"></a>Limites
 
 * Les configurations de serveurs frontaux multiples sont uniquement prises en charge avec les machines virtuelles IaaS.
-* Avec la règle IP flottante, votre application doit utiliser la configuration IP principale pour les flux sortants. Si votre application se lie à l’adresse IP du serveur frontal configurée sur l’interface de bouclage du SE invité, la SNAT d’Azure n’est pas disponible pour réécrire le flux sortant et le flux échoue.
+* Avec la règle IP flottante, votre application doit utiliser la configuration IP principale pour les flux SNAT sortants. Si votre application se lie à l’adresse IP du serveur frontal configurée sur l’interface de bouclage du SE invité, la SNAT sortant d’Azure n’est pas disponible pour réécrire le flux sortant et le flux échoue.  Passez en revue les [scénarios de sortie](load-balancer-outbound-connections.md).
 * Les adresses IP publiques ont une incidence sur la facturation. Pour plus d’informations, voir la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Des limites d’abonnement s’appliquent. Pour plus d’informations, voir les [limites de service](../azure-subscription-service-limits.md#networking-limits) .
 

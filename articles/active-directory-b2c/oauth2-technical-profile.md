@@ -1,29 +1,29 @@
 ---
-title: Définir un profil technique OAuth2 dans une stratégie personnalisée dans Azure Active Directory B2C | Microsoft Docs
+title: Définir un profil technique OAuth2 dans une stratégie personnalisée dans Azure Active Directory B2C | Microsoft Docs
 description: Définir un profil technique OAuth2 dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e92378cca445191f42708bd6348b1c75b29da1a1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 63500c057b5c9f497e59589286a852a4394059ec
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009835"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063972"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OAuth2 dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C prend en charge le fournisseur d’identité de protocole OAuth2. OAuth2 est le principal protocole d’autorisation et l’authentification déléguée. Pour plus d’informations, voir la spécification [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Avec un profil technique OAuth2, vous pouvez fédérer avec un fournisseur d’identité basé sur OAuth2, tels que Facebook. Fédération avec un fournisseur d’identité permet aux utilisateurs de se connecter avec leurs réseaux sociaux existants ou les identités d’entreprise.
+Azure Active Directory B2C (Azure AD B2C) prend en charge le fournisseur d’identité du protocole OAuth2. OAuth2 est le principal protocole pour l’autorisation et l’authentification déléguée. Pour plus d’informations, voir la spécification [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749). Un profil technique OAuth2 vous permet d’opérer une fédération avec un fournisseur d’identité basée sur OAuth2, tel que Facebook. Fédérer avec un fournisseur d’identité permet aux utilisateurs de se connecter avec leurs identités existantes de réseaux sociaux ou d’entreprise.
 
-## <a name="protocol"></a>Protocole
+## <a name="protocol"></a>Protocol
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `OAuth2`. Par exemple, le protocole pour profil technique **Facebook-OAUTH** est `OAuth2` :
 
@@ -31,7 +31,7 @@ L’attribut **Name** de l’élément **Protocol** doit être défini sur `OAut
 <TechnicalProfile Id="Facebook-OAUTH">
   <DisplayName>Facebook</DisplayName>
   <Protocol Name="OAuth2" />
-  ...    
+  ...
 ```
 
 ## <a name="input-claims"></a>Revendications d’entrée
@@ -54,10 +54,10 @@ L’exemple suivant montre les revendications retournées par le fournisseur d�
 
 - Revendication **first_name** mappée à la revendication **givenName**.
 - Revendication **last_name** mappée à la revendication **surname**.
-- Le **displayName** sans mappage de nom de revendication.
+- Revendication **displayName** sans mappage de nom.
 - La revendication **email** sans mappage de nom.
 
-Le profil technique retourne également des revendications qui ne sont pas retournées par le fournisseur d’identité : 
+Le profil technique retourne également des revendications qui ne sont pas retournées par le fournisseur d’identité :
 
 - La revendication **identityProvider** contenant le nom du fournisseur d’identité.
 - La revendication **authenticationSource** avec la valeur par défaut **socialIdpAuthentication**.
@@ -78,23 +78,23 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| client_id | Oui | Identificateur d’application du fournisseur d’identité. |
-| IdTokenAudience | Non  | Audience du jeton id_token. Si la valeur est spécifiée, Azure AD B2C vérifie si le jeton figure dans une revendication retournée par le fournisseur d’identité, et est identique à celui spécifié. |
-| authorization_endpoint | Oui | URL du point de terminaison d’autorisation conformément à la norme RFC 6749. |
-| AccessTokenEndpoint | Oui | URL du point de terminaison de jeton conformément à la norme RFC 6749. |  
-| ClaimsEndpoint | Oui | URL du point de terminaison d’informations utilisateur conformément à la norme RFC 6749. | 
-| AccessTokenResponseFormat | Non  | Format de l’appel de point de terminaison du jeton d’accès. Par exemple, Facebook nécessite une méthode HTTP GET, mais la réponse de jeton d’accès est au format JSON. |
-| AdditionalRequestQueryParameters | Non  | Paramètres de requête de demande supplémentaire. Par exemple, vous pouvez envoyer des paramètres supplémentaires à votre fournisseur d’identité. Vous pouvez inclure plusieurs paramètres en utilisant un séparateur virgule. | 
-| ClaimsEndpointAccessTokenName | Non  | Nom du paramètre de chaîne de requête du jeton accès. Les points de terminaison de revendications de certains fournisseurs d’identité prennent en charge les requêtes HTTP GET. Dans ce cas, le jeton du porteur est envoyé à l’aide d’un paramètre de chaîne de requête au lieu de l’en-tête d’autorisation. |
-| ClaimsEndpointFormatName | Non  | Nom du paramètre de chaîne de requête de format. Par exemple, vous pouvez définir le nom en tant que `format` dans ce point de terminaison de revendications LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
-| ClaimsEndpointFormat | Non  | Valeur du paramètre de chaîne de requête de format. Par exemple, vous pouvez définir la valeur en tant que `json` dans ce point de terminaison de revendications LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
-| ProviderName | Non  | Nom du fournisseur d'identité. |
-| response_mode | Non  | Méthode que le fournisseur d’identité utilise pour renvoyer le résultat à Azure AD B2C. Valeurs possibles : `query`, `form_post` (par défaut) ou `fragment`. |
-| scope | Non  | L’étendue de la demande qui est définie en fonction de la spécification de fournisseur d’identité OAuth2. Par exemple, `openid`, `profile` ou `email`. |
-| HttpBinding | Non  | Liaison HTTP attendue aux points de terminaison de jeton d’accès et de jeton de revendications. Valeurs possibles : `GET` ou `POST`.  |
-| ResponseErrorCodeParamName | Non  | Nom du paramètre contenant le message d’erreur retourné sur HTTP 200 (OK). |
-| ExtraParamsInAccessTokenEndpointResponse | Non  | Contient les paramètres supplémentaires qui peuvent être retournés dans la réponse d’**AccessTokenEndpoint** par certains fournisseurs d’identité. Par exemple, la réponse d’**AccessTokenEndpoint** contient un paramètre supplémentaire tel que `openid`, qui est obligatoire, en plus du jeton d’accès dans une chaîne de requête de demande **ClaimsEndpoint**. S’il y a plusieurs noms de paramètre, ils doivent être échappés et séparés par le délimiteur virgule « , ». |
-| ExtraParamsInClaimsEndpointRequest | Non  | Contient les paramètres supplémentaires qui peuvent être retournés dans la demande **ClaimsEndpoint** par certains fournisseurs d’identité. S’il y a plusieurs noms de paramètre, ils doivent être échappés et séparés par le délimiteur virgule « , ». |
+| client_id | OUI | Identificateur d’application du fournisseur d’identité. |
+| IdTokenAudience | Non | Audience du jeton id_token. Si la valeur est spécifiée, Azure AD B2C vérifie si le jeton figure dans une revendication retournée par le fournisseur d’identité, et est identique à celui spécifié. |
+| authorization_endpoint | OUI | URL du point de terminaison d’autorisation conformément à la norme RFC 6749. |
+| AccessTokenEndpoint | OUI | URL du point de terminaison de jeton conformément à la norme RFC 6749. |
+| ClaimsEndpoint | OUI | URL du point de terminaison d’informations utilisateur conformément à la norme RFC 6749. |
+| AccessTokenResponseFormat | Non | Format de l’appel de point de terminaison du jeton d’accès. Par exemple, Facebook nécessite une méthode HTTP GET, mais la réponse de jeton d’accès est au format JSON. |
+| AdditionalRequestQueryParameters | Non | Paramètres de requête de demande supplémentaire. Par exemple, vous pouvez envoyer des paramètres supplémentaires à votre fournisseur d’identité. Vous pouvez inclure plusieurs paramètres en utilisant un séparateur virgule. |
+| ClaimsEndpointAccessTokenName | Non | Nom du paramètre de chaîne de requête du jeton accès. Les points de terminaison de revendications de certains fournisseurs d’identité prennent en charge les requêtes HTTP GET. Dans ce cas, le jeton du porteur est envoyé à l’aide d’un paramètre de chaîne de requête au lieu de l’en-tête d’autorisation. |
+| ClaimsEndpointFormatName | Non | Nom du paramètre de chaîne de requête de format. Par exemple, vous pouvez définir le nom en tant que `format` dans ce point de terminaison de revendications LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. |
+| ClaimsEndpointFormat | Non | Valeur du paramètre de chaîne de requête de format. Par exemple, vous pouvez définir la valeur en tant que `json` dans ce point de terminaison de revendications LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. |
+| ProviderName | Non | Nom du fournisseur d'identité. |
+| response_mode | Non | Méthode que le fournisseur d’identité utilise pour renvoyer le résultat à Azure AD B2C. Valeurs possibles : `query`, `form_post` (par défaut) ou `fragment`. |
+| scope | Non | Étendue de la requête définie conformément à la spécification de fournisseur d’identité OAuth2. Par exemple, `openid`, `profile` ou `email`. |
+| HttpBinding | Non | Liaison HTTP attendue aux points de terminaison de jeton d’accès et de jeton de revendications. Valeurs possibles : `GET` ou `POST`.  |
+| ResponseErrorCodeParamName | Non | Nom du paramètre contenant le message d’erreur retourné sur HTTP 200 (OK). |
+| ExtraParamsInAccessTokenEndpointResponse | Non | Contient les paramètres supplémentaires qui peuvent être retournés dans la réponse d’**AccessTokenEndpoint** par certains fournisseurs d’identité. Par exemple, la réponse d’**AccessTokenEndpoint** contient un paramètre supplémentaire tel que `openid`, qui est obligatoire, en plus du jeton d’accès dans une chaîne de requête de demande **ClaimsEndpoint**. S’il y a plusieurs noms de paramètre, ils doivent être échappés et séparés par le délimiteur virgule « , ». |
+| ExtraParamsInClaimsEndpointRequest | Non | Contient les paramètres supplémentaires qui peuvent être retournés dans la demande **ClaimsEndpoint** par certains fournisseurs d’identité. S’il y a plusieurs noms de paramètre, ils doivent être échappés et séparés par le délimiteur virgule « , ». |
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 
@@ -102,7 +102,7 @@ L’élément **CryptographicKeys** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| client_secret | Oui | Clé secrète client de l’application du fournisseur d’identité. La clé de chiffrement est requise uniquement si les métadonnées **response_types** sont définies sur `code`. Dans ce cas, Azure AD B2C émet un autre appel pour échanger le code d’autorisation pour un jeton d’accès. Si les métadonnées sont définies `id_token`, vous pouvez omettre la clé de chiffrement. |  
+| client_secret | OUI | Clé secrète client de l’application du fournisseur d’identité. La clé de chiffrement est requise uniquement si les métadonnées **response_types** sont définies sur `code`. Dans ce cas, Azure AD B2C émet un autre appel pour échanger le code d’autorisation pour un jeton d’accès. Si les métadonnées sont définies sur `id_token`, vous pouvez omettre la clé de chiffrement. |
 
 ## <a name="redirect-uri"></a>URI de redirection
 

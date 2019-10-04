@@ -1,5 +1,5 @@
 ---
-title: Contrôle d’accès aux données pour la surveillance à distance - Azure | Microsoft Docs
+title: Contrôle d’accès aux données pour la surveillance à distance - Azure | Microsoft Docs
 description: Cet article fournit des informations sur la façon dont vous pouvez configurer les contrôles d’accès pour l’explorateur de données de télémétrie Time Series Insights dans l’accélérateur de solution de supervision à distance
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: ecc3cb32a4bbacb92c875133bf72fc0374bc24df
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: MT
+ms.openlocfilehash: 9d5d572c3e32e3645e65ba8d6fc28b567b3c1e9a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65827198"
 ---
 # <a name="configure-access-controls-for-the-time-series-insights-telemetry-explorer"></a>Configurer des contrôles d’accès pour l’explorateur de données de télémétrie Time Series Insights
 
@@ -21,7 +21,38 @@ Cet article fournit des informations sur la façon dont vous pouvez configurer l
 
 Les stratégies d’accès aux données accordent des autorisations pour générer des requêtes de données, manipuler des données de référence dans l’environnement, et des requêtes partagées enregistrées et des perspectives associées à l’environnement.
 
-[!INCLUDE [iot-tsi-data-access](../../includes/iot-tsi-data-access.md)]
+## <a name="grant-data-access"></a>Accorder l’accès aux données
+
+Effectuez les étapes suivantes pour accorder l’accès aux données à un utilisateur principal :
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+
+2. Recherchez votre environnement Time Series Insights. Tapez **Time Series** dans la zone de **recherche**. Sélectionnez **Environnement Time Series** dans les résultats de recherche. 
+
+3. Sélectionnez votre environnement Time Series Insights dans la liste.
+
+4. Sélectionnez **Stratégies d’accès aux données**, puis **+Ajouter**.
+    ![Gérer la source Time Series Insights - Environnement](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access1.png)
+
+5. Sélectionnez **Sélectionner un utilisateur**.  Recherchez le nom d’utilisateur ou l’adresse e-mail pour accéder à l’utilisateur que vous voulez ajouter. Cliquez sur **Sélectionner** pour confirmer la sélection. 
+
+    ![Gérer la source Time Series Insights - Ajouter](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access2.png)
+
+6. Sélectionnez **Sélectionner un rôle**. Choisissez le rôle d’accès approprié pour l’utilisateur :
+   - Sélectionnez **Contributeur** si vous voulez autoriser l’utilisateur à changer les données de référence et à partager des requêtes et des perspectives enregistrées avec d’autres utilisateurs de l’environnement. 
+   - Sinon, sélectionnez **Lecteur** pour autoriser l’utilisateur à interroger les données dans l’environnement et à enregistrer des requêtes personnelles (non partagées) dans l’environnement.
+
+     Sélectionnez **OK** pour confirmer le choix du rôle.
+
+     ![Gérer la source Time Series Insights - Sélectionner un utilisateur](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access3.png)
+
+7. Sélectionnez **OK** dans la page **Sélectionner un rôle utilisateur**.
+
+    ![Gérer la source Time Series Insights - Sélectionner un rôle](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access4.png)
+
+8. La page **Stratégies d’accès aux données** répertorie les utilisateurs, et le ou les rôles pour chaque utilisateur.
+
+    ![Gérer la source Time Series Insights - Résultats](media/iot-accelerators-remote-monitoring-rbac-tsi/getstarted-grant-data-access5.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

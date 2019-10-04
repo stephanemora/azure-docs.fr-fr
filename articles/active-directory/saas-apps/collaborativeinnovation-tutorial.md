@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Collaborative Innovation | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Collaborative Innovation | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Collaborative Innovation.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8252dea33ff5cde07e021421d9772a69ea9f143b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0b36d34babcbb0241118e895cfe0cc8e4c3bb363
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840832"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105136"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutoriel : Intégration d'Azure Active Directory à Collaborative Innovation
+# <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Didacticiel : Intégration d'Azure Active Directory à Collaborative Innovation
 
 Dans ce didacticiel, vous allez découvrir comment intégrer Collaborative Innovation à Azure Active Directory (Azure AD).
 L’intégration de Collaborative Innovation à Azure AD vous offre les avantages suivants :
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Collaborative Innovation à Azure AD, vous
 
 **Pour ajouter Collaborative Innovation à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Collaborative Innova
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<instancename>.foundry.<companyname>.com/`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<instancename>.foundry.<companyname>.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<instancename>.foundry.<companyname>.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support client Collaborative Innovation](https://www.unilever.com/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -180,7 +180,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

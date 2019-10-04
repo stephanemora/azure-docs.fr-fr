@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: b22a9cf8c79530fd931cbe944ef5bfc876a02243
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850290"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570133"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explorer des analyses SaaS avec Azure SQL Database,SQL Data Warehouse, Data Factory et Power BI
 
@@ -65,7 +64,7 @@ Ce didacticiel fournit des exemples simples d’informations que vous pouvez rec
 
 ## <a name="setup"></a>Paramétrage
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 > [!NOTE]
 > Ce didacticiel utilise des fonctionnalités de Azure Data Factory qui sont actuellement en version préliminaire limitée (paramétrage du service lié). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement [ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Nous vous enverrons une confirmation dès l’activation de votre abonnement.
@@ -87,22 +86,22 @@ Ce didacticiel explore les analytiques sur les données de ventes de ticket. À 
 ### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Déployer SQL Data Warehouse, Data Factory, et le stockage d’objets blob 
 Dans l’application Wingtip Tickets, les données transactionnelles des clients sont distribuées sur de nombreuses bases de données. Azure Data Factory (ADF) est utilisé pour orchestrer l’extraction, le chargement et la transformation (ELT) de ces données dans l’entrepôt de données. Pour charger des données plus efficacement dans SQL Data Warehouse, ADF extrait des données dans des fichiers d’objets blob intermédiaires, puis utilise [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) pour charger les données dans l’entrepôt de données.   
 
-Dans cette étape, vous déployez les ressources supplémentaires utilisées dans le didacticiel : un entrepôt de données SQL appelé _tenantanalytics_, une fabrique de données Azure appelée _dbtodwload-\<utilisateur\>_, et un compte de stockage Azure appelé _wingtipstaging\<utilisateur\>_. Le compte de stockage est utilisé pour stocker temporairement des fichiers de données extraits en tant qu’objets blob avant leur chargement dans l’entrepôt de données. Cette étape déploie également le schéma d’entrepôt de données et définit les pipelines ADF qui orchestrent le processus ELT.
+Dans cette étape, vous déployez les ressources supplémentaires utilisées dans le didacticiel : un entrepôt de données SQL appelé _tenantanalytics_, une fabrique de données Azure appelée _dbtodwload-\<utilisateur\>_ , et un compte de stockage Azure appelé _wingtipstaging\<utilisateur\>_ . Le compte de stockage est utilisé pour stocker temporairement des fichiers de données extraits en tant qu’objets blob avant leur chargement dans l’entrepôt de données. Cette étape déploie également le schéma d’entrepôt de données et définit les pipelines ADF qui orchestrent le processus ELT.
 1. Dans PowerShell ISE, ouvrez *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*, et configurez :
     - **$DemoScenario** = **2** déployer l’entrepôt de données analytiques, le stockage d’objets blob et la fabrique de données du client 
 1. Appuyez sur **F5** pour exécuter le script de démonstration et déployer les ressources Azure. 
 
 Maintenant, examinez les ressources Azure déployées :
 #### <a name="tenant-databases-and-analytics-store"></a>Bases de données client et magasin d’analytique
-Utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour vous connecter aux serveurs **tenants1-dpt-&lt;utilisateur&gt;** et **catalogue-dpt-&lt;utilisateur&gt;**. Remplacez &lt;utilisateur&gt; par la valeur utilisée lors du déploiement de l’application. Utiliser une connexion = *développeur* et mot de passe = *P\@ssword1*. Consultez le [didacticiel d’introduction](saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
+Utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour vous connecter aux serveurs **tenants1-dpt-&lt;utilisateur&gt;** et **catalogue-dpt-&lt;utilisateur&gt;** . Remplacez &lt;utilisateur&gt; par la valeur utilisée lors du déploiement de l’application. Utilisez le nom de connexion = *developer* et le mot de passe = *P\@ssword1*. Consultez le [didacticiel d’introduction](saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
 
-![Se connecter au serveur de base de données SQL à partir de SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
+![Se connecter au serveur SQL Database à partir de SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
 Dans l'Explorateur d'objets :
 
-1. Développez le serveur *tenants1-dpt-&lt;Utilisateur&gt;*.
+1. Développez le serveur *tenants1-dpt-&lt;Utilisateur&gt;* .
 1. Développez le nœud Bases de données et affichez la liste des bases de données client.
-1. Développez le serveur *catalog-dpt-&lt;Utilisateur&gt;*.
+1. Développez le serveur *catalog-dpt-&lt;Utilisateur&gt;* .
 1. Vérifiez que vous voyez le magasin d’analytique contenant les objets suivants :
     1. Les tables **raw_Tickets**, **raw_Customers**, **raw_Events** et **raw_Venues** contiennent les données brutes extraites des bases de données client.
     1. Les tables du schéma en étoile sont **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** et **dim_Dates** .
@@ -126,7 +125,7 @@ Dans le [portail Azure](https://ms.portal.azure.com) au sein du groupe de ressou
  ![adf_portal](media/saas-tenancy-tenant-analytics/adf-data-factory-portal.png)
 
 Cette section traite de la fabrique de données créée. Suivez les étapes ci-dessous pour lancer la fabrique de données :
-1. Dans le portail, cliquez sur la fabrique de données appelée **dbtodwload -\<utilisateur\>**.
+1. Dans le portail, cliquez sur la fabrique de données appelée **dbtodwload -\<utilisateur\>** .
 2. Cliquez sur le titre **Créer et surveiller** pour lancer le concepteur Data Factory dans un onglet séparé. 
 
 ## <a name="extract-load-and-transform-data"></a>Extraire, charger et transformer des données
@@ -195,13 +194,13 @@ Utilisez les étapes suivantes pour vous connecter à Power BI et importer les v
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Sélectionnez **base de données** dans le volet gauche, puis entrez nom d’utilisateur = *développeur*, puis entrez le mot de passe = *P\@ssword1*. Cliquez sur **Connecter**.  
+5. Sélectionnez **Base de données** dans le volet gauche, puis entrez le nom d’utilisateur = *developer* et le mot de passe = *P\@ssword1*. Cliquez sur **Connecter**.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. Dans le volet **Navigateur**, sous la base de données analytique, sélectionnez les tables du schéma en étoile : **fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** et **dim_Dates**. Sélectionnez ensuite **Charger**. 
 
-Félicitations ! Vous avez correctement chargé les données dans Power BI. Maintenant, explorez les visualisations intéressantes pour obtenir des informations sur vos clients. Examinez ensuite comment les analytiques peuvent permettre de fournir des recommandations basées sur certaines données à l’équipe de professionnels de Wingtip Tickets. Les recommandations peuvent aider à optimiser l’expérience client et le modèle d’affaires.
+Félicitations ! Vous avez correctement chargé les données dans Power BI. Maintenant, explorez les visualisations intéressantes pour obtenir des informations sur vos clients. Examinez ensuite comment les analytiques peuvent permettre de fournir des recommandations basées sur certaines données à l’équipe de professionnels de Wingtip Tickets. Les recommandations peuvent aider à optimiser l’expérience client et le modèle d’affaires.
 
 Commencez en analysant les données de ventes de ticket pour afficher la variation de l’utilisation sur les systèmes. Sélectionnez les options affichées dans Power BI pour tracer un graphique à barres du nombre total de tickets vendus par emplacement. (En raison d’une variation aléatoire dans le générateur de tickets, vos résultats peuvent être différents.)
  
@@ -258,7 +257,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Interroger l’entrepôt de données d’analyse. 
 > * Power BI permet de visualiser les tendances des données pour tous les clients.
 
-Félicitations !
+Félicitations !
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

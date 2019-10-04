@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 587d6f8ecdc447672c14ce400ebc64609e4d472d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bb78b014ffe2d40b9a61da8e47893056e435ddc6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273904"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088658"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Didacticiel : Intégration d’Azure AD à ThousandEyes
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de ThousandEyes à Azure AD, vous devez ajouter
 
 **Pour ajouter ThousandEyes à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -135,7 +135,7 @@ Pour configurer l’authentification unique Azure AD auprès de ThousandEyes, ef
 
     ![Compte](./media/thousandeyes-tutorial/ic790067.png "Compte")
 
-4. Cliquez sur l’onglet **Security & Authentication (Sécurité et authentification)**.
+4. Cliquez sur l’onglet **Security & Authentication (Sécurité et authentification)** .
 
     ![Sécurité et authentification](./media/thousandeyes-tutorial/ic790068.png "Sécurité et authentification")
 
@@ -221,11 +221,11 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     ![Compte](./media/thousandeyes-tutorial/IC790067.png "Compte")
 
-4. Cliquez sur l’onglet **Accounts & Users (Comptes et utilisateurs)**.
+4. Cliquez sur l’onglet **Accounts & Users (Comptes et utilisateurs)** .
 
     ![Comptes et utilisateurs](./media/thousandeyes-tutorial/IC790073.png "Comptes et utilisateurs")
 
-5. Dans la section **Add Users & Accounts (Ajouter des utilisateurs et des comptes)**, procédez comme suit :
+5. Dans la section **Add Users & Accounts (Ajouter des utilisateurs et des comptes)** , procédez comme suit :
 
     ![Ajouter des comptes d’utilisateurs](./media/thousandeyes-tutorial/IC790074.png "Ajouter des comptes d’utilisateurs")
 

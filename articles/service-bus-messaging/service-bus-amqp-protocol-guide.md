@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658264"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60749381"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -270,7 +270,7 @@ Pour commencer le travail transactionnel, le contrôleur doit obtenir un `txn-id
 | --- | --- | --- |
 | attach(<br/>name={nom du lien},<br/>... ,<br/>role=**sender**,<br/>target=**Coordinator**<br/>) | ------> |  |
 |  | <------ | attach(<br/>name={nom du lien},<br/>... ,<br/>target=Coordinator()<br/>) |
-| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()**)}| ------> |  |
+| transfer(<br/>delivery-id=0, ...)<br/>{ AmqpValue (**Declare()** )}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=**Declared**(<br/>**txn-id**={ID de transaction}<br/>))|
 
 #### <a name="discharging-a-transaction"></a>Rejet d’une transaction
@@ -284,8 +284,8 @@ Le contrôleur met fin au travail transactionnel en envoyant un message `dischar
 | transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID de transaction}<br/>))|
 | | . . . <br/>Travail transactionnel<br/>sur les autres liens<br/> . . . |
-| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)**)}| ------> |  |
-| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()**)|
+| transfer(<br/>delivery-id=57, ...)<br/>{ AmqpValue (<br/>**Discharge(txn-id=0,<br/>fail=false)** )}| ------> |  |
+| | <------ | disposition( <br/> first=57, last=57, <br/>state=**Accepted()** )|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Envoi d’un message dans une transaction
 
@@ -295,8 +295,8 @@ Tout le travail transactionnel est effectué avec l’état de livraison transac
 | --- | --- | --- |
 | transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID de transaction}<br/>))|
-| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)**)<br/>{ payload }| ------> |  |
-| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))|
+| transfer(<br/>handle=1,<br/>delivery-id=1, <br/>**state=<br/>TransactionalState(<br/>txn-id=0)** )<br/>{ payload }| ------> |  |
+| | <------ | disposition( <br/> first=1, last=1, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()** ))|
 
 #### <a name="disposing-a-message-in-a-transaction"></a>Déclassement d’un message dans une transaction
 
@@ -307,7 +307,7 @@ Le déclassement d’un message inclut des opérations telles que `Complete` / `
 | transfer(<br/>delivery-id=0, ...)<br/>{AmqpValue (Declare())}| ------> |  |
 |  | <------ | disposition( <br/> first=0, last=0, <br/>state=Declared(<br/>txn-id={ID de transaction}<br/>))|
 | | <------ |transfer(<br/>handle=2,<br/>delivery-id=11, <br/>state=null)<br/>{ payload }|  
-| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()**))| ------> |
+| disposition( <br/> first=11, last=11, <br/>state=**TransactionalState(<br/>txn-id=0,<br/>outcome=Accepted()** ))| ------> |
 
 
 ## <a name="advanced-service-bus-capabilities"></a>Fonctionnalités avancées de Service Bus
@@ -361,10 +361,10 @@ Le message de demande possède les propriétés d’application suivantes :
 
 | Clé | Facultatif | Type de valeur | Contenu de la valeur |
 | --- | --- | --- | --- |
-| operation |Non  |chaîne |**put-token** |
-| Type |Non  |chaîne |Type du jeton placé. |
-| Nom |Non  |chaîne |« Audience » à laquelle le jeton s’applique. |
-| expiration |Oui |timestamp |Délai d’expiration du jeton. |
+| operation |Non |chaîne |**put-token** |
+| type |Non |chaîne |Type du jeton placé. |
+| name |Non |chaîne |« Audience » à laquelle le jeton s’applique. |
+| expiration |OUI |timestamp |Délai d’expiration du jeton. |
 
 La propriété *name* identifie l’entité avec laquelle le jeton doit être associé. Dans Service Bus, il s’agit du chemin d’accès à la file d’attente ou à la rubrique/l’abonnement. La propriété *type* identifie le type de jeton :
 
@@ -380,8 +380,8 @@ Le message de réponse a les valeurs *application-properties* suivantes :
 
 | Clé | Facultatif | Type de valeur | Contenu de la valeur |
 | --- | --- | --- | --- |
-| status-code |Non  |int |Code de réponse HTTP **[RFC2616]**. |
-| status-description |Oui |chaîne |Description de l’état. |
+| status-code |Non |int |Code de réponse HTTP **[RFC2616]** . |
+| status-description |OUI |chaîne |Description de l’état. |
 
 Le client peut appeler *put-token* à plusieurs reprises pour toutes les entités de l’infrastructure de messagerie. Les jetons portent sur le client actuel et sont ancrés sur la connexion actuelle, ce qui signifie que le serveur annule tous les jetons conservés en cas d’abandon de la connexion.
 
@@ -397,13 +397,13 @@ Le client est ensuite chargé de vérifier l’expiration du jeton. Lorsqu’un 
 
 La [fonctionnalité Envoyer via/Transférer l’expéditeur](service-bus-transactions.md#transfers-and-send-via) permet à Service Bus de transférer un message donné vers une entité de destination via une autre entité. Cette fonctionnalité est utilisée pour effectuer des opérations sur différentes entités dans une transaction unique.
 
-Avec cette fonctionnalité, vous créez un expéditeur et établissez le lien vers l’élément `via-entity`. Lors de l’établissement du lien, des informations supplémentaires sont transmises pour établir la véritable destination des messages/transferts sur ce lien. Une fois que l’attachement a réussi, tous les messages envoyés sur ce lien sont automatiquement transférés vers *l’entité de destination (destination-entity)* par le biais de *l’entité de transition (via-entity)*. 
+Avec cette fonctionnalité, vous créez un expéditeur et établissez le lien vers l’élément `via-entity`. Lors de l’établissement du lien, des informations supplémentaires sont transmises pour établir la véritable destination des messages/transferts sur ce lien. Une fois que l’attachement a réussi, tous les messages envoyés sur ce lien sont automatiquement transférés vers *l’entité de destination (destination-entity)* par le biais de *l’entité de transition (via-entity)* . 
 
 > Remarque : L’authentification doit être effectuée pour *via-entity* et *destination-entity* avant d’établir ce lien.
 
 | Client | | Service Bus |
 | --- | --- | --- |
-| attach(<br/>name={nom du lien},<br/>role=sender,<br/>source={ID du lien client},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
+| attach(<br/>name={nom du lien},<br/>role=sender,<br/>source={ID du lien client},<br/>target= **{via-entity}** ,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
 | | <------ | attach(<br/>name={nom du lien},<br/>role=receiver,<br/>source={ID du lien client},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
 
 ## <a name="next-steps"></a>Étapes suivantes

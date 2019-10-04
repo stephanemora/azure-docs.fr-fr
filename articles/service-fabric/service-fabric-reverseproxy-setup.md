@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
-ms.author: v-jamebr
-ms.openlocfilehash: 7f1b6f955dd3f59f6c17403b536cf99d666aab08
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.author: chackdan
+ms.openlocfilehash: 826e7e953bd713bb623ec469b45c56012601490b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662055"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030813"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Installer et configurer un proxy inverse dans Azure Service Fabric
 Un proxy inverse est un service Azure Service Fabric facultatif qui aide des microservices s’exécutant dans un cluster Service Fabric à découvrir d’autres services ayant des points de terminaison HTTP, et à communiquer avec ces services. Pour en savoir plus, voir [Proxy inverse dans Azure Service Fabric](service-fabric-reverseproxy.md). Cet article vous montre comment installer et configurer un proxy inverse dans votre cluster. 
@@ -334,7 +333,7 @@ Par exemple, vous pouvez spécifier la valeur de **DefaultHttpRequestTimeout** p
 
 Pour plus d’informations sur la mise à jour des paramètres de structure pour des clusters Azure, voir [Personnaliser les paramètres de cluster à l’aide de modèles Resource Manager](service-fabric-cluster-config-upgrade-azure.md). Pour des clusters autonomes, voir [Personnaliser les paramètres de cluster pour les clusters autonomes](service-fabric-cluster-config-upgrade-windows-server.md). 
 
-Plusieurs paramètres de structure sont utilisés pour aider à établir une communication sécurisée entre un proxy inverse et des services. Pour obtenir des informations détaillées sur ces paramètres, consultez [se connecter à un service sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md).
+Plusieurs paramètres de structure sont utilisés pour aider à établir une communication sécurisée entre un proxy inverse et des services. Pour obtenir des informations détaillées sur ces paramètres, consultez [Se connecter à un service sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Configurer le transfert vers un service HTTP sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md)

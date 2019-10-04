@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à UNIFI | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à UNIFI | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et UNIFI.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27028a4e95abd2f190dd1f37bb877ed28fe8aade
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67a26207e4b031cd93be8c7e5eec43c72582fcda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838118"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087698"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Tutoriel : Intégration d’Azure Active Directory à UNIFI
+# <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Didacticiel : Intégration d’Azure Active Directory à UNIFI
 
 Dans ce didacticiel, vous allez apprendre à intégrer UNIFI à Azure Active Directory (Azure AD).
 L’intégration d’UNIFI dans Azure AD vous offre les avantages suivants :
@@ -54,7 +54,7 @@ Pour configurer l’intégration d’UNIFI avec Azure AD, vous devez ajouter UN
 
 **Pour ajouter UNIFI à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -148,7 +148,7 @@ Pour configurer l’authentification unique Azure AD avec UNIFI, effectuez les 
 
     b. Dans la zone de texte **Provider URL** (URL du fournisseur), collez l’**URL de connexion** que vous avez copiée sur le portail Azure.
 
-    c. Ouvrez le certificat que vous avez téléchargé à partir du portail Azure dans le bloc-notes, supprimez les balises **---BEGIN CERTIFICATE---** et **---END CERTIFICATE---**, puis collez le contenu restant dans la zone de texte **Certificat**.
+    c. Ouvrez le certificat que vous avez téléchargé à partir du portail Azure dans le bloc-notes, supprimez les balises **---BEGIN CERTIFICATE---** et **---END CERTIFICATE---** , puis collez le contenu restant dans la zone de texte **Certificat**.
 
     d. Cochez la case **est le fournisseur par défaut**.
 
@@ -170,7 +170,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

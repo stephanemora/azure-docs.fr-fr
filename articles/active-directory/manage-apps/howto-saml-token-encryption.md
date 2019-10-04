@@ -3,8 +3,8 @@ title: Chiffrement des jetons SAML dans Azure Active Directory
 description: Découvrez comment configurer le chiffrement des jetons SAML Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/06/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7de6705ad38133b8321caabb7b0f4093284af503
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 75f8b785b8eadd21f1f94cf82fe137d6f747e738
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799352"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65824767"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Activation Configurer le chiffrement des jetons SAML Azure AD (préversion)
 
@@ -71,7 +71,7 @@ Vous pouvez ajouter le certificat public à la configuration de votre applicatio
 
     ![Importer le fichier .cer qui contient le certificat X.509](./media/howto-saml-token-encryption/import-certificate-small.png)
 
-1. Une fois le certificat importé et la clé privée configurée pour une utilisation côté application, activez le chiffrement en sélectionnant les points de suspension (**...**) en regard de l’état de l’empreinte numérique, puis sélectionnez **Activer le chiffrement des jetons** dans les options du menu déroulant.
+1. Une fois le certificat importé et la clé privée configurée pour une utilisation côté application, activez le chiffrement en sélectionnant les points de suspension ( **...** ) en regard de l’état de l’empreinte numérique, puis sélectionnez **Activer le chiffrement des jetons** dans les options du menu déroulant.
 
 1. Sélectionnez **Oui** pour confirmer l’activation du certificat de chiffrement de jeton.
 

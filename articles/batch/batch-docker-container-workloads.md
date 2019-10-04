@@ -3,20 +3,19 @@ title: Charges de travail de conteneur - Azure Batch | Microsoft Docs
 description: Découvrez comment exécuter des applications à partir d’images conteneur sur Azure Batch.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/19/2018
+ms.date: 08/09/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 51037e66ec649fc275a746c9f5316b91d82e186a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9e24924472e0bb8dbd0e529b739263469b631fb
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454825"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090753"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
@@ -90,7 +89,7 @@ Remarques supplémentaires relatives à l’utilisation d’une image personnali
 
 ## <a name="container-configuration-for-batch-pool"></a>Configuration du conteneur pour le pool Batch
 
-Pour permettre à un pool Batch d’exécuter des charges de travail sur le conteneur, vous devez spécifier les paramètres [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) dans l’objet [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) du pool. (Cet article fournit des liens vers la référence sur l’API .NET Batch. Les paramètres correspondants sont dans l’API [Python Batch](/python/api/azure.batch).)
+Pour permettre à un pool Batch d’exécuter des charges de travail sur le conteneur, vous devez spécifier les paramètres [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) dans l’objet [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) du pool. (Cet article fournit des liens vers la référence sur l’API .NET Batch. Les paramètres correspondants sont dans l’API [Python Batch](/python/api/overview/azure/batch).)
 
 Vous pouvez créer un pool pour conteneurs avec ou sans images conteneur prérécupérées, comme indiqué dans les exemples suivants. Le processus d’extraction (ou prérécupération) vous permet de précharger les images conteneur à partir du Hub Docker ou d’un autre registre de conteneurs sur Internet. Pour de meilleures performances, utilisez un [Registre de conteneurs Azure](../container-registry/container-registry-intro.md) dans la même région que le compte Batch.
 
@@ -104,10 +103,10 @@ Pour configurer un pool pour conteneurs sans images conteneur prérécupérées,
 
 ```python
 image_ref_to_use = batch.models.ImageReference(
-        publisher='microsoft-azure-batch',
-        offer='ubuntu-server-container',
-        sku='16-04-lts',
-        version='latest')
+    publisher='microsoft-azure-batch',
+    offer='ubuntu-server-container',
+    sku='16-04-lts',
+    version='latest')
 
 """
 Specify container configuration. This is required even though there are no prefetched images.
@@ -116,13 +115,13 @@ Specify container configuration. This is required even though there are no prefe
 container_conf = batch.models.ContainerConfiguration()
 
 new_pool = batch.models.PoolAddParameter(
-        id=pool_id,
-        virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
-            image_reference=image_ref_to_use,
-            container_configuration=container_conf,
-            node_agent_sku_id='batch.node.ubuntu 16.04'),
-        vm_size='STANDARD_D1_V2',
-        target_dedicated_nodes=1)
+    id=pool_id,
+    virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+        image_reference=image_ref_to_use,
+        container_configuration=container_conf,
+        node_agent_sku_id='batch.node.ubuntu 16.04'),
+    vm_size='STANDARD_D1_V2',
+    target_dedicated_nodes=1)
 ...
 ```
 
@@ -144,7 +143,8 @@ image_ref_to_use = batch.models.ImageReference(
 Specify container configuration, fetching the official Ubuntu container image from Docker Hub. 
 """
 
-container_conf = batch.models.ContainerConfiguration(container_image_names=['ubuntu'])
+container_conf = batch.models.ContainerConfiguration(
+    container_image_names=['ubuntu'])
 
 new_pool = batch.models.PoolAddParameter(
     id=pool_id,
@@ -227,7 +227,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Pour exécuter une tâche de conteneur sur un pool prenant en charge les conteneurs, spécifiez des paramètres propres aux conteneurs. Il s’agit notamment de l’image à utiliser, du registre et des options d’exécution des conteneurs.
 
-* Utilisez la propriété `ContainerSettings` des classes de tâches pour configurer les paramètres spécifiques au conteneur. Ces paramètres sont définis par la classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
+* Utilisez la propriété `ContainerSettings` des classes de tâches pour configurer les paramètres spécifiques au conteneur. Ces paramètres sont définis par la classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings). Notez que l’option de conteneur `--rm` ne nécessite pas d’option `--runtime` supplémentaire, car elle est prise en charge par Batch. 
 
 * Si vous exécutez des tâches sur des images conteneur, la [tâche de cloud](/dotnet/api/microsoft.azure.batch.cloudtask) et la [tâche du gestionnaire de travaux](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) nécessitent des paramètres de conteneur. Toutefois, la [tâche de démarrage](/dotnet/api/microsoft.azure.batch.starttask), la [tâche de préparation du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) et la [tâche de mise en production du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) ne nécessitent pas de paramètres de conteneur (autrement dit, elles peuvent s’exécuter dans un contexte de conteneur ou directement sur le nœud).
 
@@ -274,14 +274,13 @@ L’extrait de code Python suivant montre une ligne de commande de base exécut�
 ```python
 task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
-    image_name='myimage', 
+    image_name='myimage',
     container_run_options='--rm --workdir /')
 task = batch.models.TaskAddParameter(
     id=task_id,
     command_line='/bin/sh -c \"echo \'hello world\' > $AZ_BATCH_TASK_WORKING_DIR/output.txt\"',
     container_settings=task_container_settings
 )
-
 ```
 
 L’exemple C# suivant montre les paramètres de conteneur de base d’une tâche de cloud :

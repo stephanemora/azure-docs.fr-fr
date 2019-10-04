@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97dc67d46b08bf5765c59806b45edd82f38720cd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011973"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60347735"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : Limitations actuelles
 
@@ -34,7 +34,7 @@ Les scénarios suivants sont pris en charge :
 
 - L’utilisateur se connecte à des applications s’appuyant sur un navigateur web.
 - L’utilisateur se connecte aux clients Outlook à l’aide des protocoles hérités, comme Exchange ActiveSync, EAS, SMTP, POP et IMAP.
-- L’utilisateur se connecte aux applications clientes Office héritées et aux applications Office prenant en charge [l’authentification moderne](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview) : Office 2013 et versions de 2016.
+- L’utilisateur se connecte aux applications clientes Office héritées et aux applications Office prenant en charge [l’authentification moderne](https://www.microsoft.com/en-us/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview) : Versions 2013 et 2016 d'Office.
 - L’utilisateur se connecte à des applications de protocole héritées, telles que PowerShell version 1.0, etc.
 - Jonctions Azure AD pour les appareils Windows 10.
 - Mots de passe d'application pour l’authentification multifacteur.

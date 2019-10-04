@@ -1,19 +1,18 @@
 ---
 title: Comprendre le langage de requête
-description: Décrit les opérateurs Kusto disponibles et les fonctions utilisables avec le graphique des ressources Azure.
+description: Décrit les opérateurs et les fonctions Kusto disponibles et utilisables avec Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/11/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 08e4f09665a3501073f55b7f5b82bf51cf508ea9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c6e35d688581d0839e12806117e63c7d71fbc459
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276675"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231511"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -52,6 +51,38 @@ Voici la liste des fonctions prises en charge dans Resource Graph :
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [tostring()](/azure/kusto/query/tostringfunction)
 - [zip()](/azure/kusto/query/zipfunction)
+
+## <a name="escape-characters"></a>Caractères d'échappement
+
+Certains noms propres, tels que ceux qui incluent un `.` ou `$`, doivent être inclus dans un wrapper ou échappés dans la requête, sinon le nom de la propriété est interprété de façon incorrecte et les résultats attendus ne sont pas obtenus.
+
+- `.`- Encapsulez le nom de la propriété de cette façon : `['propertyname.withaperiod']`
+  
+  Exemple de requête qui encapsule la propriété _odata.type_ :
+
+  ```kusto
+  where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
+  ```
+
+- `$` - Échappez le caractère dans le nom de la propriété. Le caractère d’échappement utilisé dépend de l’interpréteur de commandes Resource Graph sur lequel il est exécuté.
+
+  - **bash** - `\`
+
+    Exemple de requête qui échappe la propriété _\$type_ dans bash :
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
+    ```
+
+  - **cmd** - ne pas échapper le caractère `$`.
+
+  - **PowerShell** - ``` ` ```
+
+    Exemple de requête qui échappe la propriété _\$type_ dans PowerShell :
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

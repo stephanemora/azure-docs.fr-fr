@@ -13,19 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: willzhan;juliako
-ms.openlocfilehash: 5c86a49cd9dc26f724de12ed2e5e77e645e4ab53
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: willzhan
+ms.reviewer: juliako
+ms.openlocfilehash: d15bfcfbae3b24e1a9b29dc74f9b41a979e63ae9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886709"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69014672"
 ---
-# <a name="hybrid-design-of-drm-subsystems"></a>Conception de sous-systèmes DRM hybrides 
+# <a name="hybrid-design-of-drm-subsystems"></a>Conception de modèles hybrides de sous-systèmes de DRM 
 
 Cette rubrique explique comment concevoir des modèles hybrides de sous-systèmes de gestion des droits numériques (DRM) à l’aide d’Azure Media Services.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Azure Media Services assure la prise en charge des trois systèmes de DRM suivants :
 
@@ -96,11 +97,11 @@ Sur la base des explications de la section précédente, les cinq scénarios hyb
 
 |**Hébergement et origine du contenu**|**Chiffrement DRM**|**Remise de licence DRM**|**Configuration de la clé de contenu**|**Configurer une stratégie de distribution d’éléments multimédias**|**Exemple**|
 |---|---|---|---|---|---|
-|AMS|AMS|AMS|Oui|Oui|Exemple 1|
-|AMS|AMS|Tiers|Oui|Oui|Exemple 2|
-|AMS|Tiers|AMS|Oui|Non |Exemple 3|
-|AMS|Tiers|Extérieur|Non |Non |Exemple 4|
-|Tiers|Tiers|AMS|Oui|Non |    
+|AMS|AMS|AMS|OUI|OUI|Exemple 1|
+|AMS|AMS|Tiers|OUI|OUI|Exemple 2|
+|AMS|Tiers|AMS|OUI|Non|Exemple 3|
+|AMS|Tiers|Extérieur|Non|Non|Exemple 4|
+|Tiers|Tiers|AMS|OUI|Non|    
 
 Dans les exemples, la protection PlayReady fonctionne à la fois pour DASH et la diffusion en continu lisse. Les URL de vidéos ci-dessous sont des URL de diffusion en continu lisse. Pour obtenir l’URL DASH correspondante, il vous suffit d’ajouter « (format=mpd-time-csf) ». Vous pouvez utiliser le lecteur [Azure Media Test](https://aka.ms/amtest) pour effectuer des tests dans un navigateur. Il vous permet de configurer le protocole de diffusion en continu à utiliser, sous la technologie de votre choix. IE11 et Microsoft Edge sur Windows 10 prennent en charge PlayReady via EME. Pour plus d’informations, consultez [ce billet de blog sur l’outil de test](https://blogs.msdn.microsoft.com/playready4/2016/02/28/azure-media-test-tool/).
 

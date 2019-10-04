@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: a2858ac73838b50c21a76db5860675171a306192
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505783"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177532"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé
 
@@ -98,7 +98,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
 
 9. Sur la page **Assistant d’installation de Microsoft Integration Runtime terminé**, cliquez sur **Terminer**.
 
-10. Sur la page **Inscrire le Integration Runtime (auto-hébergé)**, collez la clé que vous avez enregistrée dans la section précédente, puis cliquez sur **Inscrire**. 
+10. Sur la page **Inscrire le Integration Runtime (auto-hébergé)** , collez la clé que vous avez enregistrée dans la section précédente, puis cliquez sur **Inscrire**. 
 
     ![Inscrire le runtime d’intégration](media/data-factory-create-install-integration-runtime/register-integration-runtime.png)
 
@@ -106,7 +106,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
 
     ![Inscription réussie](media/data-factory-create-install-integration-runtime/registered-successfully.png)
 
-12. Sur la page **Nouveau runtime d’intégration (auto-hébergé)**, cliquez sur **suivant**. 
+12. Sur la page **Nouveau runtime d’intégration (auto-hébergé)** , cliquez sur **suivant**. 
 
     ![Page Nouveau nœud Integration Runtime](media/data-factory-create-install-integration-runtime/new-integration-runtime-node-page.png)
 
@@ -114,7 +114,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
 
     ![Page du canal de communication Intranet](media/data-factory-create-install-integration-runtime/intranet-communication-channel-page.png)
 
-14. Sur la page **Inscrire le runtime d’intégration (auto-hébergé)**, cliquez sur **Lancer le Gestionnaire de configuration**.
+14. Sur la page **Inscrire le runtime d’intégration (auto-hébergé)** , cliquez sur **Lancer le Gestionnaire de configuration**.
 
 15. La page suivante apparaît une fois que le nœud est connecté au service cloud :
 

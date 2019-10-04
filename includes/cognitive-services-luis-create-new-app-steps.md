@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 12/21/2018
+ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 589569ac1f7b3ff44880062cee235c3aa4375011
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f419fdf2e11fa57438bb7f9756a395e35b3164c0
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738891"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66479803"
 ---
 1. Connectez-vous au portail LUIS avec l’URL de [https://www.luis.ai](https://www.luis.ai). 
 
@@ -27,4 +27,5 @@ ms.locfileid: "56738891"
 
     ![Créer une applications HumanResources LUIS](./media/cognitive-services-luis/tutorials-create-new-app/create-app.png)
 
-1. Sélectionnez **Terminé**. Ensuite, l’application affiche la page **Intents** (Intentions) avec l’intention **None**.
+1. Sélectionnez **Terminé**. 
+

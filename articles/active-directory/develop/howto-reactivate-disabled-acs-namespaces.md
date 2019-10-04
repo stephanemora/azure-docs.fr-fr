@@ -3,8 +3,8 @@ title: Réactiver des espaces de noms Azure Access Control Service (ACS) désact
 description: Découvrez comment trouver et activer vos espaces de noms Azure Access Control Service (ACS) et demander une extension de leur activation jusqu'au 4 février 2019.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 534c0463cd8aee9fccfa183586b946032dada722
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1cb17109d53c6e08c8607959207e367086032f6d
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094556"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482710"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Activation Réactiver des espaces de noms Access Control Service désactivés
 
@@ -90,7 +90,7 @@ Les extensions supplémentaires ne seront plus automatiquement approuvées. Si v
 
 ### <a name="to-request-an-extension"></a>Pour demander une extension
 
-1. Connectez-vous au portail Azure et créez une [demande de support](https://portal.azure.com/#create/Microsoft.Support).
+1. Connectez-vous au portail Microsoft Azure et créez une [demande de support](https://portal.azure.com/#create/Microsoft.Support).
 1. Renseignez le formulaire de demande de support comme indiqué dans l’exemple suivant.
 
     | Champ de la demande de support | Valeur |
@@ -102,7 +102,7 @@ Les extensions supplémentaires ne seront plus automatiquement approuvées. Si v
     | **Type de problème** | `ACS to SAS Migration` |
     | **Objet** | Décrivez le problème |
 
-   ![Nouvelle demande de support technique](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Affiche un exemple de nouvelle demande de support technique](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 

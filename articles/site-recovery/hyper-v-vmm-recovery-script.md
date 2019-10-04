@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: a3d6f84de103596e27c22cbb11d709bb1a85dc91
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836835"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64700461"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Ajouter un script VMM à un plan de récupération
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser des scripts PowerShell dans vos plans de récupération. Po
     - Si une erreur se produit, le reste du script ne s’exécute pas.
     - Si une erreur se produit lorsque vous exécutez un basculement non planifié, le plan de récupération se poursuit.
     - Si une erreur se produit lorsque vous exécutez un basculement planifié, le plan de récupération s’arrête. Corrigez le script, vérifiez sa bonne exécution, puis exécutez de nouveau le plan de récupération.
-        - La commande `Write-Host` ne fonctionne pas dans un script de plan de récupération. Si vous utilisez la commande `Write-Host` dans un script, il échoue. Pour créer une sortie, générez un script de proxy exécutant votre script principal. Pour vérifier que l’ensemble des sorties sont extraites, utilisez la commande **\>\>**.
+        - La commande `Write-Host` ne fonctionne pas dans un script de plan de récupération. Si vous utilisez la commande `Write-Host` dans un script, il échoue. Pour créer une sortie, générez un script de proxy exécutant votre script principal. Pour vérifier que l’ensemble des sorties sont extraites, utilisez la commande **\>\>** .
         - Le script expire si aucune sortie n’est produite dans les 600 secondes.
         - Si des éléments sont écrits sur STDERR, le script est classé comme mis en échec. Ces informations s’affichent dans les détails d’exécution du script.
 
@@ -45,7 +45,7 @@ Vous pouvez utiliser des scripts PowerShell dans vos plans de récupération. Po
   
   1. Ouvrez l’Éditeur du Registre, puis accédez à **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  1. Remplacez la valeur de **ScriptLibraryPath** par **\\\libserver2.contoso.com\share\\**. Spécifiez le nom de domaine complet. Fournissez des autorisations d’accès à l’emplacement de partage. Il s’agit du nœud racine du partage. Pour rechercher le nœud racine, dans VMM, accédez au nœud racine dans la bibliothèque. Le chemin qui s’ouvre est la racine du chemin. C’est le chemin que vous devez utiliser dans la variable.
+  1. Remplacez la valeur de **ScriptLibraryPath** par **\\\libserver2.contoso.com\share\\** . Spécifiez le nom de domaine complet. Fournissez des autorisations d’accès à l’emplacement de partage. Il s’agit du nœud racine du partage. Pour rechercher le nœud racine, dans VMM, accédez au nœud racine dans la bibliothèque. Le chemin qui s’ouvre est la racine du chemin. C’est le chemin que vous devez utiliser dans la variable.
 
   1. Testez le script en utilisant un compte d’utilisateur qui a le même niveau de droits d’utilisateur que le compte de service VMM. Le fait d’utiliser ces droits d’utilisateur confirme que les scripts testés et autonomes s’exécutent de la même façon que dans les plans de récupération. Sur le serveur VMM, définissez le mode de contournement suivant de la stratégie d’exécution :
 

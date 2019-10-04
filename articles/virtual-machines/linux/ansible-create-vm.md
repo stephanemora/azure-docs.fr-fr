@@ -1,30 +1,31 @@
 ---
-title: Créer une machine virtuelle Linux dans Azure à l’aide d’Ansible
-description: Découvrez comment utiliser Ansible pour créer une machine virtuelle Linux dans Azure.
-ms.service: virtual-machines-linux
+title: Démarrage rapide - Configurer des machines virtuelles Linux dans Azure à l’aide d’Ansible | Microsoft Docs
+description: Dans ce démarrage rapide, apprenez à créer une machine virtuelle Linux dans Azure à l’aide d’Ansible
 keywords: ansible, azure, devops, machine virtuelle
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
-ms.topic: quickstart
-ms.date: 08/22/2018
-ms.openlocfilehash: 38cc6cd8f375fe7c60a706541bc74313e8ea2c4f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/30/2019
+ms.openlocfilehash: 32d4486138f21bd99c3d75ee72ae5dd0df667e41
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090251"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668646"
 ---
-# <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Créer une machine virtuelle Linux dans Azure à l’aide d’Ansible
-À l’aide d’un langage déclaratif, Ansible vous permet d’automatiser la création, la configuration et le déploiement de ressources Azure par le biais de *playbooks* Ansible. Chaque section de cet article vous présente l’aspect que prendrait chacune des sections d’un playbook Ansible pour la création et la configuration des différents aspects d’une machine virtuelle Linux. Le [playbook Ansible complet](#complete-sample-ansible-playbook) est fourni à la fin de cet article.
+# <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Démarrage rapide : Configurer des machines virtuelles Linux dans Azure à l’aide d’Ansible
+
+À l’aide d’un langage déclaratif, Ansible vous permet d’automatiser la création, la configuration et le déploiement de ressources Azure par le biais de *playbooks* Ansible. Cet article présente un exemple de playbook Ansible pour la configuration de machines virtuelles Linux. Le [playbook Ansible complet](#complete-sample-ansible-playbook) est fourni à la fin de cet article.
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+
 Ansible a besoin d’un groupe de ressources dans lequel vos ressources seront déployées. L’exemple ci-après de section d’un playbook Ansible crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `eastus` :
 
 ```yaml
@@ -35,6 +36,7 @@ Ansible a besoin d’un groupe de ressources dans lequel vos ressources seront d
 ```
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+
 Lorsque vous créez une machine virtuelle Azure, vous devez créer un [réseau virtuel](/azure/virtual-network/virtual-networks-overview) ou en utiliser un existant. Vous devez également déterminer la manière dont vos machines virtuelles doivent être accessibles sur le réseau virtuel. L’exemple ci-après de section d’un playbook Ansible crée un réseau virtuel nommé `myVnet` dans l’espace d’adressage `10.0.0.0/16` :
 
 ```yaml
@@ -59,7 +61,12 @@ L’exemple ci-après de section d’un playbook Ansible crée un sous-réseau n
 ```
 
 ## <a name="create-a-public-ip-address"></a>Créer une adresse IP publique
-Les [adresses IP publiques](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) permettent aux ressources Internet de communiquer avec les ressources Azure (communication entrante). Les adresses IP publiques permettent également aux ressources Azure de communiquer avec Internet et les services Azure publics (communication sortante) quand une adresse IP est attribuée à la ressource. L’adresse est dédiée à la ressource jusqu’à ce que vous annuliez son attribution. Si aucune adresse IP publique n’est attribuée à une ressource, la ressource peut toujours communiquer avec Internet (communication sortante), mais Azure attribue dynamiquement une adresse IP disponible qui n’est pas dédiée à la ressource. 
+
+
+
+
+
+Les [adresses IP publiques](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) permettent aux ressources Internet de communiquer avec les ressources Azure (communication entrante). Les adresses IP publiques permettent également aux ressources Azure de communiquer avec les services Azure publics (communication sortante). Dans les deux scénarios, vous accédez à une adresse IP attribuée à la ressource. L’adresse est dédiée à la ressource jusqu’à ce que vous annuliez son attribution. Si une adresse IP publique n’est pas attribuée à une ressource, la ressource peut encore communiquer avec Internet (communication sortante). La connexion est établie par Azure, qui affecte dynamiquement une adresse IP disponible. L’adresse attribuée dynamiquement n’est pas dédiée à la ressource.
 
 L’exemple ci-après de section d’un playbook Ansible crée une adresse IP publique nommée `myPublicIP` :
 
@@ -72,9 +79,10 @@ L’exemple ci-après de section d’un playbook Ansible crée une adresse IP pu
 ```
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
-Un [groupe de sécurité réseau](/azure/virtual-network/security-overview) vous permet de filtrer le trafic réseau à destination et en provenance des ressources Azure dans un réseau virtuel Azure. Un groupe de sécurité réseau contient des règles de sécurité qui autorisent ou refusent le trafic réseau entrant ou sortant en direction/à partir des différents types de ressources Azure. 
 
-L’exemple ci-après de section d’un playbook Ansible crée un groupe de sécurité réseau nommé `myNetworkSecurityGroup` et définit une règle pour autoriser le trafic SSH sur le port TCP 22 :
+Les [groupes de sécurité réseau](/azure/virtual-network/security-overview) filtrent le trafic réseau entre les ressources Azure d’un réseau virtuel. Des règles de sécurité sont définies et régissent le trafic entrant et sortant vers et depuis les ressources Azure. Pour plus d’informations sur les ressources Azure et les groupes de sécurité réseau, consultez [Intégration d’un réseau virtuel pour les services Azure](/azure/virtual-network/virtual-network-for-azure-services)
+
+Le playbook suivant crée un groupe de sécurité réseau nommé `myNetworkSecurityGroup`. Le groupe de sécurité réseau inclut une règle qui autorise le trafic SSH sur le port TCP 22.
 
 ```yaml
 - name: Create Network Security Group that allows SSH
@@ -90,14 +98,14 @@ L’exemple ci-après de section d’un playbook Ansible crée un groupe de séc
         direction: Inbound
 ```
 
-
 ## <a name="create-a-virtual-network-interface-card"></a>Créer une carte d’interface réseau virtuelle
+
 Une carte d’interface réseau virtuelle connecte votre machine virtuelle à un réseau virtuel, à une adresse IP publique et à un groupe de sécurité réseau spécifiques. 
 
 La section ci-après d’un exemple de section d’un playbook Ansible crée une carte d’interface réseau virtuelle nommée `myNIC` qui est connectée aux ressources de réseau virtuel que vous avez créées :
 
 ```yaml
-- name: Create virtual network inteface card
+- name: Create virtual network interface card
   azure_rm_networkinterface:
     resource_group: myResourceGroup
     name: myNIC
@@ -108,6 +116,7 @@ La section ci-après d’un exemple de section d’un playbook Ansible crée une
 ```
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
+
 L’étape finale consiste à créer une machine virtuelle qui utilise toutes les ressources que vous avez créées dans les sections précédentes de cet article. 
 
 L’exemple de section d’un playbook Ansible présentée dans cette section crée une machine virtuelle nommée `myVM` et y attache la carte d’interface réseau virtuelle nommée `myNIC`. Remplacez l’espace réservé &lt;your-key-data> par vos propres données de clé publique complètes.
@@ -175,7 +184,7 @@ Cette section présente l’exemple de playbook Ansible complet que vous avez é
           access: Allow
           priority: 1001
           direction: Inbound
-  - name: Create virtual network inteface card
+  - name: Create virtual network interface card
     azure_rm_networkinterface:
       resource_group: myResourceGroup
       name: myNIC
@@ -261,7 +270,7 @@ Cette section vous guide tout au long de l’exécution de l’exemple de playbo
    TASK [Create Network Security Group that allows SSH] **********************
    changed: [localhost]
 
-   TASK [Create virtual network inteface card] *******************************
+   TASK [Create virtual network interface card] *******************************
    changed: [localhost]
 
    TASK [Create VM] **********************************************************
@@ -278,5 +287,6 @@ Cette section vous guide tout au long de l’exécution de l’exemple de playbo
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 > [!div class="nextstepaction"] 
-> [Gérer une machine virtuelle Linux dans Azure à l’aide d’Ansible](./ansible-manage-linux-vm.md)
+> [Démarrage rapide : Gérer une machine virtuelle Linux dans Azure à l’aide d’Ansible](./ansible-manage-linux-vm.md)

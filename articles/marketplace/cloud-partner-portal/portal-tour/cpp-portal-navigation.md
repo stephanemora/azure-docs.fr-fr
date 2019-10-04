@@ -1,25 +1,18 @@
 ---
-title: Navigation dans le portail Microsoft Cloud Partner pour la Place de marché Azure | Microsoft Docs
-description: .
+title: Navigation dans le portail Microsoft Cloud Partner pour la Place de marché Azure
+description: Explication de navigation sur le portail Cloud Partner pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e963734af450a96ac08830769560a2b5e8eef9c6
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.author: pabutler
+ms.openlocfilehash: ef329bfef9dc4f98dfd975a33c190f0b1825df4e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266304"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942082"
 ---
 # <a name="cloud-partner-portal-navigation"></a>Navigation dans le portail Microsoft Cloud Partner
 
@@ -41,7 +34,7 @@ Un clic sur le contenu de ces zones déclenche les actions suivantes :
 
 Ces menus et formulaires sont décrits ci-après.
 
-### <a name="help-menu"></a>Menu Aide
+### <a name="help-menu"></a>Menu aide
 
 Le menu **Aide** fournit des ressources utiles pour l’utilisateur du portail Microsoft Cloud Partner.
 

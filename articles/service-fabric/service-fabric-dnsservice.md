@@ -3,7 +3,7 @@ title: Service DNS dans Azure Service Fabric | Microsoft Docs
 description: Utilisez le service DNS de Service Fabric pour détecter des microservices depuis le cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: vturecek
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
-ms.author: aljo
-ms.openlocfilehash: 3b3262eadc732c23000a66f24aaeeed4d9794db0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: d8925f1c31b7a0c8f45e65e783077e8f5e2b0add
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665642"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71103242"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Service DNS dans Azure Service Fabric
 Le service DNS est un service système facultatif que vous pouvez activer dans votre cluster pour détecter d’autres services utilisant le protocole DNS. 
@@ -73,16 +73,16 @@ Une fois que vous avez un modèle, vous pouvez activer le service DNS en effectu
 
    - Pour activer le service DNS avec les paramètres par défaut, ajoutez-le à la section `addonFeatures` à l’intérieur de la section `properties`, comme indiqué dans l’exemple suivant :
 
-       ```json
-           "properties": {
-              ...
-
-              "addonFeatures": [
-                "DnsService"
+        ```json
+          "properties": {
+            ...
+            "addonFeatures": [
+              "DnsService"
               ],
-              ...
-           }
-       ```
+            ...
+          }
+        ```
+
    - Pour activer le service avec d’autres paramètres que les paramètres par défaut, ajoutez une section `DnsService` à la section `fabricSettings` à l’intérieur de la section `properties`. Dans ce cas, vous n’avez pas besoin d’ajouter le DnsService à `addonFeatures`. Pour en savoir plus sur les propriétés que vous pouvez définir pour le service DNS, consultez les [Paramètres du service DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
@@ -111,7 +111,10 @@ Une fois que vous avez un modèle, vous pouvez activer le service DNS en effectu
               ]
             }
        ```
-1. Après avoir mis à jour le modèle de cluster avec ces modifications, appliquez-les et laissez la mise à niveau s’accomplir. Une fois la mise à niveau terminée, le service DNS démarre votre cluster. Le nom du service est `fabric:/System/DnsService`. Il est mentionné dans la section **Système** de Service Fabric explorer. 
+3. Après avoir mis à jour le modèle de cluster avec ces modifications, appliquez-les et laissez la mise à niveau s’accomplir. Une fois la mise à niveau terminée, le service DNS démarre votre cluster. Le nom du service est `fabric:/System/DnsService`. Il est mentionné dans la section **Système** de Service Fabric explorer. 
+
+> [!NOTE]
+> Lors de la mise à niveau du DNS de désactivé à activé, Service Fabric Explorer peut ne pas refléter le nouvel état. Pour résoudre ce problème, redémarrez les nœuds en modifiant UpgradePolicy dans votre modèle Azure Resource Manager. Pour plus d’informations, consultez la [Référence du modèle Service Fabric](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications).
 
 
 ## <a name="setting-the-dns-name-for-your-service"></a>Configuration du nom DNS de votre service
@@ -179,7 +182,7 @@ Les requêtes DNS qui ciblent une partition sont formatées comme suit :
 Où :
 
 - *First-Label-Of-Partitioned-Service-DNSName* est la première partie du nom de votre service DNS.
-- *PartitionPrefix* est une valeur qui peut être définie dans la section DnsService du manifeste du cluster ou via le modèle Resource Manager du cluster. La valeur par défaut est « - ». Pour plus d’informations, consultez les [paramètres du service DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
+- *PartitionPrefix* est une valeur qui peut être définie dans la section DnsService du manifeste du cluster ou via le modèle Resource Manager du cluster. La valeur par défaut est « -- ». Pour plus d’informations, consultez les [paramètres du service DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Target-Partition-Name* est le nom de la partition. 
 - *PartitionSuffix* est une valeur qui peut être définie dans la section DnsService du manifeste du cluster ou via le modèle Resource Manager du cluster. La valeur par défaut est une chaîne vide. Pour plus d’informations, consultez les [paramètres du service DNS](./service-fabric-cluster-fabric-settings.md#dnsservice).
 - *Remaining-Partitioned-Service-DNSName* est la partie restante du nom DNS de votre service.

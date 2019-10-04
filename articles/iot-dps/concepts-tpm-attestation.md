@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048875"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60746425"
 ---
 # <a name="tpm-attestation"></a>Attestation TPM
 
@@ -25,7 +25,7 @@ Cet article concerne uniquement les appareils utilisant un TPM 2.0 avec la prise
 
 Les Kits de développement logiciel (SDK) d’appareil du service Device Provisioning gèrent pour vous tout ce qui est décrit dans cet article. Vous n’avez pas besoin d’implémenter quoi que ce soit si vous utilisez les Kits de développement logiciel (SDK) sur vos appareils. Cet article vous aidera à comprendre, d’un point de vue conceptuel, ce qui se passe avec votre processeur de sécurité TPM lorsque votre appareil est approvisionné et pourquoi cette opération est si sécurisée.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les TPM utilisent une paire de clés de type EK en tant que clé racine sécurisée de confiance. La paire de clés de type EK est unique au TPM et sa modification transforme l’appareil en un autre appareil.
 
@@ -35,7 +35,7 @@ Une fois qu’un appareil a été configuré et qu’il est prêt à être utili
 
 ![Prise de possession d’un TPM](./media/concepts-tpm-attestation/tpm-ownership.png)
 
-Une remarque sur la prise de possession du module TPM : Appropriation d’un module de plateforme sécurisée dépend de nombreux facteurs, notamment le fabricant, le jeu d’outils de module de plateforme sécurisée utilisée et la système d’exploitation de périphérique TPM. Suivez les instructions relatives à votre système pour la prise de possession.
+Une remarque sur la prise de possession du module TPM : Prendre possession d’un TPM dépend de nombreux facteurs, notamment du fabricant du TPM, de l’ensemble d’outils TPM utilisés et du système d’exploitation de l’appareil. Suivez les instructions relatives à votre système pour la prise de possession.
 
 Le service Device Provisioning utilise la partie publique de la paire de clés de type EK (EK_pub) pour identifier et inscrire des appareils. Le fournisseur de l’appareil peut lire la partie EK_pub pendant la fabrication ou le test final et charger la partie EK_pub dans le service d’approvisionnement de façon que l’appareil soit reconnu lorsqu’il se connecte pour l’approvisionnement. Le service Device Provisioning ne vérifie pas la clé racine de stockage ni le propriétaire. Par conséquent, le TPM efface les données clientes mais la paire de clés de type EK (et les autres données du fournisseur) est conservée et l’appareil sera toujours reconnu par le service Device Provisioning lorsqu’il se connecte pour l’approvisionnement.
 

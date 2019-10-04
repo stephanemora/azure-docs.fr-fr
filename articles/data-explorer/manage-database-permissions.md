@@ -1,5 +1,5 @@
 ---
-title: Gérer les autorisations de base de données dans l’Explorateur de données Azure
+title: Gérer les autorisations de base de données dans Azure Data Explorer
 description: Cet article décrit les contrôles d’accès en fonction du rôle pour les bases de données et les tables dans l’Explorateur de données Azure.
 author: orspod
 ms.author: orspodek
@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045663"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60758753"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gérer les autorisations de base de données de l’Explorateur de données Azure
 

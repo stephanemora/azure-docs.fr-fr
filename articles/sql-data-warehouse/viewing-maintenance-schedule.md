@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 61537a4cb8ca1e6e98f2fa04959861eb03480fe9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f0b9b59ec09445a170d1f93181c2b432eafb60bf
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247253"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839984"
 ---
 # <a name="view-a-maintenance-schedule"></a>Afficher une planification de maintenance 
 
@@ -27,7 +27,7 @@ Pour afficher la planification de maintenance qui a été appliquée à votre en
 
 1.  Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2.  Sélectionnez l’entrepôt de données à afficher. 
-3.  L’entrepôt de données sélectionné s’ouvre dans le panneau de vue d’ensemble. La planification de maintenance appliquée à l’entrepôt de données s’affiche sous **Planification de la maintenance (préversion)**.
+3.  L’entrepôt de données sélectionné s’ouvre dans le panneau de vue d’ensemble. La planification de maintenance appliquée à l’entrepôt de données s’affiche sous **Planification de la maintenance**.
 
 ![Panneau Vue d’ensemble](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 

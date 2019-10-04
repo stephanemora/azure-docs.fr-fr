@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e8b735780f4ed3402845d9d401f8e37701b9a1a6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 6afcb891de763f156705bc9825ab7575a272c1db
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667580"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035036"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
 Obtenez les détails du service et répertoriez les services d’une ressource d’application.

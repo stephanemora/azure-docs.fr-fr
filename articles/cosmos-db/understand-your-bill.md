@@ -4,23 +4,25 @@ description: Cet article fournit quelques exemples pour vous aider à mieux comp
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 1dc4120ec9f1db8ac34800096ae407b5581758a4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877627"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614166"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
-Azure Cosmos DB est un service de base de données cloud natif entièrement géré qui simplifie la facturation en facturant uniquement le débit approvisionné et le stockage consommé. Il n’existe aucun frais de licence supplémentaires, matériel, les coûts de fonctionnement ou les coûts d’infrastructure par rapport à en local ou alternatives IaaS hébergé. Lorsque vous envisagez la plusieurs fonctionnalités de région d’Azure Cosmos DB, le service de base de données fournit une réduction substantielle des coûts par rapport aux existant en local ou des solutions IaaS.
+Azure Cosmos DB est un service de base de données cloud natif entièrement géré qui simplifie la facturation en facturant uniquement le débit approvisionné et le stockage consommé. Il ne comporte aucuns frais de licence supplémentaires, ni coûts matériels, frais de fonctionnement ou frais d’équipement, contrairement aux autres solutions IaaS ou hébergées en local. Grâce aux fonctionnalités multi-région d’Azure Cosmos DB, le service de base de données réduit considérablement les coûts par rapport aux solutions IaaS ou locales existantes.
 
 Avec Azure Cosmos DB, vous êtes facturé à l’heure en fonction du débit fourni et du stockage consommé. Le débit fourni est facturé sur une base de 100 RU/s par heure, à un tarif de 0,008 $ de l’heure, en supposant une tarification publique standard. Voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/). Pour le stockage utilisé, vous êtes facturé à raison de 0,25 $ pour 1 Go de stockage par mois. Voir la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 Cet article s’appuie sur des exemples pour vous aider à comprendre les détails figurant sur la facture mensuelle. Les chiffres indiqués dans les exemples peuvent être différents si vos conteneurs Azure Cosmos fournissent une autre quantité de débit, s’ils s’étendent sur plusieurs régions ou s’ils sont exécutés sur une période supérieure à un mois.
+
+>! Remarque : La facturation concerne une partie d’une heure d’horloge, et non pas une durée de 60 minutes.
 
 ## <a name="billing-examples"></a>Exemples de facturation
 
@@ -88,7 +90,7 @@ Si vous augmentez le débit provisionné pour un conteneur ou un ensemble de con
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Exemples de facturation avec géo-réplication et multimaître  
 
-Vous pouvez ajouter à votre compte de base de données Azure Cosmos DB des régions Azure n’importe où dans le monde, ou en supprimer, et ceci à tout moment. La réservation du débit que vous avez configuré pour les différentes bases de données et conteneurs Azure Cosmos DB est garantie dans chacune des régions Azure associées à votre compte de base de données Azure Cosmos. Si la somme de débit approvisionné (RU/s) configuré sur l’ensemble des bases de données et des conteneurs de votre compte de base de données Azure Cosmos (approvisionné par heure) est T et que le nombre de régions Azure associées à votre compte de base de données est N, alors le débit total approvisionné pour une heure donnée, pour votre compte de base de données Azure Cosmos, (a) configuré avec une seule région d’écriture est égal à T x N RU/s et (b) configuré avec toutes les régions capables de traiter les écritures est égal à T x (N + 1) RU/s, respectivement. Le débit approvisionné (une seule région d’écriture) coûte 0,008 $/heure pour 100 RU/seconde et le débit approvisionné avec plusieurs régions accessibles en écriture (configuration multimaître) coûte 0,016 $/heure et pour 100 RU/seconde (voir la [Page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/)). Azure Cosmos DB vous permet de lire vos données de n’importe quelle région, que vous utilisiez une seule ou plusieurs région(s) d’écriture.
+Vous pouvez ajouter des régions Azure à votre compte de base de données Azure Cosmos n’importe où dans le monde, ou en supprimer, et ceci à tout moment. La réservation du débit que vous avez configuré pour les différentes bases de données et conteneurs Azure Cosmos est garantie dans chacune des régions Azure associées à votre compte de base de données Azure Cosmos. Si la somme de débit approvisionné (RU/s) configuré sur l’ensemble des bases de données et des conteneurs de votre compte de base de données Azure Cosmos (approvisionné par heure) est T et que le nombre de régions Azure associées à votre compte de base de données est N, alors le débit total approvisionné pour une heure donnée, pour votre compte de base de données Azure Cosmos, (a) configuré avec une seule région d’écriture est égal à T x N RU/s et (b) configuré avec toutes les régions capables de traiter les écritures est égal à T x (N + 1) RU/s, respectivement. Le débit approvisionné (une seule région d’écriture) coûte 0,008 $/heure pour 100 RU/seconde et le débit approvisionné avec plusieurs régions accessibles en écriture (configuration multimaître) coûte 0,016 $/heure et pour 100 RU/seconde (voir la [Page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/)). Azure Cosmos DB vous permet de lire vos données de n’importe quelle région, que vous utilisiez une seule ou plusieurs région(s) d’écriture.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Exemple de facturation : compte Azure Cosmos avec plusieurs régions et une seule région d’écriture
 
@@ -100,7 +102,7 @@ Supposons que vous disposez d’un conteneur Azure Cosmos dans la région USA Ou
 |Facture de débit pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est)       | 3 x 10 000 RU/s x 24 x 30    |0,008 $ pour 100 RU/s par heure  |1 728 $|
 |Facture de stockage pour le conteneur de la région USA Ouest      | 250 Go    |0,25 $/Go  |62,50 $|
 |Facture de stockage pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est)      | 3 x 250 Go    |0,25 $/Go  |187,50 $|
-|**Total**     |     |  |**2 554** |
+|**Total**     |     |  |**2 554**|
 
 *Supposons également que vous faites sortir 100 Go de données chaque mois du conteneur dans la région USA Ouest, afin de répliquer les données dans les régions USA Est, Europe Nord et Asie Est. Vous êtes facturé pour les sorties en fonction du tarif des transferts de données.*
 
@@ -184,7 +186,7 @@ La facture totale mensuelle sera (en supposant une durée de 30 jours/720 heures
 | | |Facture de débit pour 2 régions supplémentaires : USA Est, Europe Nord (toutes les régions sont accessibles en écriture)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |2 880 $  |
 |[101-200] |D1 : 50 000 <br/>D2 : 70 000 <br/>C1 : -- |Facture de débit pour le conteneur de la région USA Ouest (écriture dans toutes les régions)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` |1 920 $  |
 | | |Facture de débit pour 2 régions supplémentaires : USA Est, Europe Nord (toutes les régions sont accessibles en écriture)  |`(2 + 1) * (120 K RU/sec /100 * $0.016) * 100 hours = $5,760`  |5 760 $  |
-|[201-300]  |D1 : 50 000 <br/>D2 : 70 000 <br/>C1 : 20 000 |Facture de débit pour le conteneur de la région USA Ouest (écriture dans toutes les régions)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$2,240  |
+|[201-300]  |D1 : 50 000 <br/>D2 : 70 000 <br/>C1 : 20 000 |Facture de débit pour le conteneur de la région USA Ouest (écriture dans toutes les régions)  |`D1: 50 K RU/sec/100 * $0.016 * 100 hours = $800` <br/>`D2: 70 K RU/sec/100 * $0.016 * 100 hours = $1,120` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |2 240 $  |
 | | |Facture de débit pour 2 régions supplémentaires : USA Est, Europe Nord (toutes les régions sont accessibles en écriture)  |`(2 + 1) * (140 K RU/sec /100 * $0.016-) * 100 hours = $6,720` |6 720 |
 |[301-400] |D1 : 10 000 <br/>D2 : 80 000 <br/>C1 : -- |Facture de débit pour le conteneur de la région USA Ouest (écriture dans toutes les régions)  |`D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 80 K RU/sec/100 * $0.016 * 100 hours = $1,280`  |1 440 $   |
 | | |Facture de débit pour 2 régions supplémentaires : USA Est, Europe Nord (toutes les régions sont accessibles en écriture)  |`(1 + 1) * (90 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |2 880 $  |
@@ -213,7 +215,7 @@ Prenons un autre exemple, dans lequel vous souhaitez anticiper le montant de vot
 |**Coût du débit** | | | |
 |----|----|----|----|
 |Type d'opération| Requêtes/s| Avg. RU/requête| RU nécessaires|
-|Écrire| 100 | 5. | 500|
+|Écrire| 100 | 5\. | 500|
 |Lire| 400| 1| 400|
 
 RU total/s : 500 + 400 = 900 ; coût horaire : 900/100 x 0,008 $ = coût mensuel attendu de 0,072 $ pour le débit (en supposant une durée de 31 jours) : 0,072 $ x 24 x 31 = 53,57 $
@@ -226,7 +228,7 @@ Coût mensuel total = coût mensuel de stockage + coût mensuel du débit pour u
 
 ## <a name="billing-with-azure-cosmos-db-reserved-capacity"></a>Facturation avec une capacité réservée Azure Cosmos DB
 
-La capacité réservée Azure Cosmos DB vous permet d’acheter à l’avance du débit approvisionné (une capacité réservée ou une réservation) qui peut être appliqué à tous les conteneurs et bases de données Azure Cosmos DB (pour n’importe quelle API ou n’importe quel modèle de données) de toutes les régions Azure. Comme le prix du débit provisionné varie d’une région à l’autre, il est utile de considérer la capacité de réserve comme un crédit monétaire que vous avez acheté au rabais et qui peut être utilisé pour le débit approvisionné au prix respectif dans chaque région. Par exemple, supposons que vous disposez d’un compte Azure Cosmos avec un seul conteneur configuré avec 50 000 RU/s et deux régions globalement répliquées : USA Est et Japon Est. Si vous choisissez l’option de paiement à l’utilisation, vous devrez alors payer :  
+La capacité réservée Azure Cosmos DB vous permet d’acheter à l’avance du débit approvisionné (une capacité réservée ou une réservation) qui peut être appliqué à tous les conteneurs et toutes les bases de données Azure Cosmos (pour n’importe quelle API ou n’importe quel modèle de données) de toutes les régions Azure. Comme le prix du débit provisionné varie d’une région à l’autre, il est utile de considérer la capacité de réserve comme un crédit monétaire que vous avez acheté au rabais et qui peut être utilisé pour le débit approvisionné au prix respectif dans chaque région. Par exemple, supposons que vous disposez d’un compte Azure Cosmos avec un seul conteneur configuré avec 50 000 RU/s et deux régions globalement répliquées : USA Est et Japon Est. Si vous choisissez l’option de paiement à l’utilisation, vous devrez alors payer :  
 
 * dans la région USA Est : 50 000 RU/s au tarif de 0,008 $ pour 100 RU/s dans cette région 
 
@@ -236,7 +238,7 @@ Votre facture totale (sans capacité réservée) serait (en supposant une durée
 
 |**Région**| **Tarif horaire pour 100 RU/s**|**Unités (RU/s)**|**Montant facturé (horaire)**| **Montant facturé (mensuel)**|
 |----|----|----|----|----|
-|USA Est|0,008 $ |50 000|4 $|2 880 $ |
+|East US|0,008 $ |50 000|4 $|2 880 $ |
 |Japon Est|0,009 $ |50 000| 4,50 $ |3 240 $ |
 |Total|||8,50 $|6 120 $ |
 
@@ -250,7 +252,7 @@ Vous avez réalité acheté un crédit de 8 $ par heure, pour 100 000 RU/s, au p
 
 |**Région**| **Tarif horaire pour 100 RU/s**|**Unités (RU/s)**| **Montant facturé (horaire)**| **Montant facturé (mensuel)**|
 |----|----|----|----|----|
-|USA Est|0,008 $ |50 000|4 $|2 880 $ |
+|East US|0,008 $ |50 000|4 $|2 880 $ |
 |Japon Est|0,009 $ |50 000| 4,50 $ |3 240 $ |
 |||Paiement à l’utilisation|8,50 $|6 120 $|
 |Capacité de réserve achetée|0,0064 $ (remise de 20 %) |100 RU/s ou 8 $ de capacité de réserve pré-achetée |-8 $|-5 760 $ |

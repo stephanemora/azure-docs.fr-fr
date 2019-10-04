@@ -1,26 +1,25 @@
 ---
-title: Synthèse vocale référence de l’API (REST) - Services de reconnaissance vocale
+title: Informations de référence sur l’API Synthèse vocale (REST) – Service Speech
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment utiliser l’API REST de synthèse vocale. Cet article vous présente les options d’autorisation, les options de requête, et vous explique comment structurer une demande et recevoir une réponse.
+description: Découvrez comment utiliser les API REST Synthèse vocale. Cet article vous présente les options d’autorisation, les options de requête, et vous explique comment structurer une demande et recevoir une réponse.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 71710cd940aad3a56dae6c19d4d52a5b141b3d80
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: b0a0d788c9fadd13b9a37f541a81945c86b37c29
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660964"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559180"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de synthèse vocale
 
-Les Services de reconnaissance vocale permettent de vous [convertir du texte en parole synthétisée](#convert-text-to-speech) et [obtenir une liste de voix pris en charge](#get-a-list-of-voices) pour une région à l’aide d’un ensemble d’API REST. Chaque point de terminaison disponible est associé à une région. Pour le point de terminaison/la région que vous envisagez d’utiliser une clé d’abonnement est requise.
+Les services Speech vous permettent de [convertir du texte en voix de synthèse](#convert-text-to-speech) et d’[obtenir une liste de voix prises en charge](#get-a-list-of-voices) pour une région à partir d’un ensemble d’API REST. Chaque point de terminaison disponible est associé à une région. Une clé d’abonnement pour le point de terminaison ou la région que vous prévoyez d’utiliser est nécessaire.
 
 L’API REST de synthèse vocale prend en charge les voix de synthèse vocale neuronales et standard qui, à leur tour, prennent chacune en charge une langue et un dialecte spécifiques, identifiés par les paramètres régionaux.
 
@@ -30,43 +29,43 @@ L’API REST de synthèse vocale prend en charge les voix de synthèse vocale ne
 > [!IMPORTANT]
 > Les prix varient pour les voix standard, personnalisées et neurales. Pour plus d’informations, voir la [tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Avant d’utiliser cette API, comprendre :
+Avant d’utiliser cette API, tenez compte du point suivant :
 
 * L’API REST de synthèse vocale nécessite un en-tête d’autorisation. Cela signifie que vous devez échanger un jeton pour accéder au service. Pour en savoir plus, consultez [Authentification](#authentication).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="get-a-list-of-voices"></a>Obtenir la liste des contacts
+## <a name="get-a-list-of-voices"></a>Obtenir une liste de voix
 
-Le `voices/list` point de terminaison vous permet d’obtenir une liste complète des voix pour une région/point de terminaison spécifique.
+Le point de terminaison `voices/list` vous permet d’obtenir une liste complète de voix pour une région/point de terminaison spécifique.
 
 ### <a name="regions-and-endpoints"></a>Régions et points de terminaison
 
 | Région | Point de terminaison |
 |--------|----------|
-| Australie Est | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Brésil Sud | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centre du Canada | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Centre | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Asie Est | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Est | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Est 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| France Centre | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Inde Centre | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Japon Est | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centre de la Corée | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Centre Nord | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Europe Nord | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Centre Sud | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Asie Sud-Est | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Sud du Royaume-Uni | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Europe de l'Ouest | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Ouest | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Ouest 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Australie Est | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Brésil Sud | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centre du Canada | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Centre | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Asie Est | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Est | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Est 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| France Centre | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Inde Centre | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japon Est | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centre de la Corée | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centre-Nord des États-Unis | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europe Nord | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| États-Unis - partie centrale méridionale | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Asie Sud-Est | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sud du Royaume-Uni | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europe Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Ouest | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Ouest 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demandes de synthèse vocale.
+Ce tableau liste les en-têtes obligatoires et facultatifs pour les demandes de synthèse vocale.
 
 | En-tête | Description | Obligatoire/facultatif |
 |--------|-------------|---------------------|
@@ -74,11 +73,11 @@ Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demand
 
 ### <a name="request-body"></a>Corps de la demande
 
-Un corps n’est pas nécessaire pour `GET` demandes à ce point de terminaison.
+Les demandes `GET` à ce point de terminaison ne nécessitent pas de corps.
 
 ### <a name="sample-request"></a>Exemple de requête
 
-Cette demande nécessite uniquement un en-tête d’autorisation.
+Chaque demande nécessite uniquement un en-tête d’autorisation.
 
 ```http
 GET /cognitiveservices/voices/list HTTP/1.1
@@ -92,7 +91,7 @@ Authorization: Bearer [Base64 access_token]
 Cette réponse a été tronquée pour illustrer la structure d’une réponse.
 
 > [!NOTE]
-> Disponibilité de la voix varie selon la région/point de terminaison.
+> La disponibilité des voix varie selon la région et/ou le point de terminaison.
 
 ```json
 [
@@ -138,7 +137,7 @@ Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs co
 
 | Code d'état HTTP | Description | Raison possible |
 |------------------|-------------|-----------------|
-| 200 | OK | La demande a réussi. |
+| 200 | OK | La demande a abouti. |
 | 400 | Demande incorrecte | Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long. |
 | 401 | Non autorisé | La demande n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton est valide et dans la région appropriée. |
 | 429 | Trop de demandes | Vous avez dépassé le quota ou le taux de requêtes autorisé pour votre abonnement. |
@@ -147,7 +146,7 @@ Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs co
 
 ## <a name="convert-text-to-speech"></a>Convertir la synthèse vocale
 
-Le `v1` point de terminaison, vous pouvez convertir à l’aide de synthèse vocale [Markup langage SSML (Speech Synthesis)](speech-synthesis-markup.md).
+Le point de terminaison `v1` vous permet de convertir du texte en voix à l’aide de [SSML (Speech Synthesis Markup Langage)](speech-synthesis-markup.md).
 
 ### <a name="regions-and-endpoints"></a>Régions et points de terminaison
 
@@ -157,18 +156,18 @@ Ces régions sont prises en charge pour la synthèse vocale à l’aide de l’A
 
 ### <a name="request-headers"></a>En-têtes de requête
 
-Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demandes de synthèse vocale.
+Ce tableau liste les en-têtes obligatoires et facultatifs pour les demandes de synthèse vocale.
 
 | En-tête | Description | Obligatoire/facultatif |
 |--------|-------------|---------------------|
 | `Authorization` | Un jeton d’autorisation précédé du mot `Bearer`. Pour en savoir plus, consultez [Authentification](#authentication). | Obligatoire |
 | `Content-Type` | Spécifie le type de contenu pour le texte fourni. Valeur acceptée : `application/ssml+xml`. | Obligatoire |
 | `X-Microsoft-OutputFormat` | Spécifie le format de la sortie audio. Pour obtenir une liste complète des valeurs acceptées, consultez [Sorties audio](#audio-outputs). | Obligatoire |
-| `User-Agent` | Nom de l'application. La valeur fournie doit être inférieure à 255 caractères. | Obligatoire |
+| `User-Agent` | Nom de l'application. La valeur fournie doit être inférieure à 255 caractères. | Obligatoire |
 
 ### <a name="audio-outputs"></a>Sorties audio
 
-Liste de formats audio pris en charge envoyés dans chaque demande en tant qu’en-tête `X-Microsoft-OutputFormat`. Chaque format indique la vitesse de transmission et le type d’encodage. Les Services de reconnaissance vocale prend en charge 24 KHz, 16 KHz, et sorties audio de 8 KHz.
+Liste de formats audio pris en charge envoyés dans chaque demande en tant qu’en-tête `X-Microsoft-OutputFormat`. Chaque format indique la vitesse de transmission et le type d’encodage. Les services Speech prennent en charge les sorties audio de 24 kHz, 16 kHz et 8 kHz.
 
 |||
 |-|-|
@@ -181,7 +180,7 @@ Liste de formats audio pris en charge envoyés dans chaque demande en tant qu’
 | `audio-24khz-48kbitrate-mono-mp3` | |
 
 > [!NOTE]
-> Si la voix que vous avez sélectionnée ne présente pas la même vitesse de transmission que le format de sortie spécifié, les données audio sont rééchantillonnées si nécessaire. Toutefois, es voix à 24 kHz ne prennent pas en charge les formats de sortie `audio-16khz-16kbps-mono-siren` et `riff-16khz-16kbps-mono-siren`.
+> Si la voix que vous avez sélectionnée ne présente pas la même vitesse de transmission que le format de sortie spécifié, les données audio sont rééchantillonnées si nécessaire. Cependant, les voix de 24 kHz ne prennent pas en charge les formats de sortie `audio-16khz-16kbps-mono-siren` et `riff-16khz-16kbps-mono-siren`.
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -204,12 +203,12 @@ Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
-    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+    name='en-US-JessaRUS'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
 ```
 
-Consultez nos guides de démarrage rapide pour obtenir des exemples spécifiques au langage :
+Consultez nos guides de démarrage rapide pour obtenir des exemples propres aux langages :
 
 * [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
 * [Python](quickstart-python-text-to-speech.md)
@@ -225,6 +224,7 @@ Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs co
 | 400 | Demande incorrecte | Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long. |
 | 401 | Non autorisé | La demande n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton est valide et dans la région appropriée. |
 | 413 | Entité de requête trop volumineuse | L’entrée SSML comporte plus de 1 024 caractères. |
+| 415 | Type de média non pris en charge | Il est possible que le `Content-Type` indiqué était incorrect. `Content-Type` doit être définie sur `application/ssml+xml`. |
 | 429 | Trop de demandes | Vous avez dépassé le quota ou le taux de requêtes autorisé pour votre abonnement. |
 | 502 | Passerelle incorrecte | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides. |
 

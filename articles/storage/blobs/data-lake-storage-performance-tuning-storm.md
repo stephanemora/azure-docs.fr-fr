@@ -1,25 +1,25 @@
 ---
 title: Recommandations en matière de réglage des performances d’Azure Data Lake Storage Gen2 Storm | Microsoft Docs
 description: Recommandations en matière de réglage des performances d’Azure Data Lake Storage Gen2 Storm
-services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
-ms.openlocfilehash: 2401c74b55df78014a2f642b5166b4cf0017d87d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: normesta
+ms.reviewer: stewu
+ms.openlocfilehash: ed13735b4da4818e969c4dddff68b55af6e71a15
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076205"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855420"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Recommandations en matière de réglage des performances pour Storm sur HDInsight et Azure Data Lake Storage Gen2
 
 Comprendre les facteurs à prendre en compte lorsque vous optimisez les performances d’une topologie Storm dans Azure. Par exemple, il est important de comprendre les caractéristiques du travail effectué par les Spouts et les Bolts (si le travail est intensif en E/S ou en mémoire). Cet article aborde diverses recommandations d’optimisation des performances, y compris la résolution des problèmes courants.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Azure Data Lake Storage Gen2**. Pour obtenir des instructions afin d’en créer un, consultez [Démarrage rapide : Créer un compte de stockage pour l’analyse](data-lake-storage-quickstart-create-account.md).
@@ -110,7 +110,7 @@ Vous pouvez constater des échecs de tâche si vous atteignez les limites de la 
 
 Pour vérifier si une limitation est appliquée, activez la journalisation du débogage côté client :
 
-1. Dans **Ambari** > **Storm** > **Config** > **Avancé storm-worker-log4j**, remplacez **&lt;root level="info"&gt;** par **&lt;root level=”debug”&gt;**. Redémarrez tous les nœuds/le service pour que la configuration prenne effet.
+1. Dans **Ambari** > **Storm** > **Config** > **Avancé storm-worker-log4j**, remplacez **&lt;root level="info"&gt;** par **&lt;root level=”debug”&gt;** . Redémarrez tous les nœuds/le service pour que la configuration prenne effet.
 2. Surveillez l’éventuelle présence d’exceptions de limitation de Data Lake Storage Gen2 dans les journaux d’activité de topologie Storm sur les nœuds Worker (sous /var/log/storm/worker-artifacts/&lt;NomTopologie&gt;/&lt;port&gt;/worker.log).
 
 ## <a name="next-steps"></a>Étapes suivantes

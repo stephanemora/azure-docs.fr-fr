@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: dbd7189b1761a9ea88ce32dae3d7b45a88301ff6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278120"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Didacticiel : Intégration d'Azure Active Directory à UserVoice
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de UserVoice avec Azure AD, vous devez ajouter
 
 **Pour ajouter UserVoice à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec UserVoice, effectuez l
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenantname>.UserVoice.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<tenantname>.UserVoice.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<tenantname>.UserVoice.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique UserVoice](https://www.uservoice.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -146,7 +146,7 @@ Pour configurer l’authentification unique Azure AD avec UserVoice, effectuez l
    
     ![Modifier l’authentification utilisateur](./media/uservoice-tutorial/ic777521.png "modifier l’authentification utilisateur")
    
-    a. Cliquez sur **Single Sign-On (SSO)**.
+    a. Cliquez sur **Single Sign-On (SSO)** .
  
     b. Collez la valeur de l’**URL de connexion** copiée à partir du portail Azure dans la zone de texte **SSO Remote Sign-In** (Connexion à distance avec authentification unique).
 

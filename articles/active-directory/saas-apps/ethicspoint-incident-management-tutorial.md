@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e50cdd19510f0bf160c075c763e645120622674
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 76a43acb1cf0c514111e89f1a3f4408f4c51e091
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835694"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutoriel : Intégration d’Azure Active Directory à EthicsPoint Incident Management (EPIM)
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’EthicsPoint Incident Management (EPIM) avec
 
 **Pour ajouter EthicsPoint Incident Management (EPIM) à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Pour configurer l’intégration d’EthicsPoint Incident Management (EPIM) avec
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **EthicsPoint Incident Management (EPIM)**, sélectionnez **EthicsPoint Incident Management (EPIM)** dans le volet de résultats, puis cliquez sur **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **EthicsPoint Incident Management (EPIM)** , sélectionnez **EthicsPoint Incident Management (EPIM)** dans le volet de résultats, puis cliquez sur **Ajouter** pour ajouter l’application.
 
      ![EthicsPoint Incident Management (EPIM) dans la liste des résultats](common/search-new-app.png)
 
@@ -89,7 +89,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec EthicsPoint Incident Management (EPIM), effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **EthicsPoint Incident Management (EPIM)**, sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **EthicsPoint Incident Management (EPIM)** , sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -123,7 +123,7 @@ Pour configurer l’authentification unique Azure AD avec EthicsPoint Incident M
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-6. Dans la section **Configurer EthicsPoint Incident Management (EPIM)**, copiez la ou les URL appropriées en fonction de vos besoins.
+6. Dans la section **Configurer EthicsPoint Incident Management (EPIM)** , copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -135,7 +135,7 @@ Pour configurer l’authentification unique Azure AD avec EthicsPoint Incident M
 
 ### <a name="configure-ethicspoint-incident-management-epim-single-sign-on"></a>Configurer l’authentification unique EthicsPoint Incident Management (EPIM)
 
-Pour configurer l’authentification unique du côté **EthicsPoint Incident Management (EPIM)**, vous devez envoyer le fichier **XML de métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe de support technique d’EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique du côté **EthicsPoint Incident Management (EPIM)** , vous devez envoyer le fichier **XML de métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe de support technique d’EthicsPoint Incident Management (EPIM)](https://www.navexglobal.com/company/contact-us). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -155,7 +155,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -166,11 +166,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à EthicsPoint Incident Management (EPIM).
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **EthicsPoint Incident Management (EPIM)**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **EthicsPoint Incident Management (EPIM)** .
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **EthicsPoint Incident Management (EPIM)**.
+2. Dans la liste des applications, sélectionnez **EthicsPoint Incident Management (EPIM)** .
 
     ![Lien EthicsPoint Incident Management (EPIM) dans la liste des applications.](common/all-applications.png)
 

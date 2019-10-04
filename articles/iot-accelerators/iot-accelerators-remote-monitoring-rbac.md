@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180753"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203160"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de supervision à distance
 
@@ -21,26 +21,26 @@ Cet article fournit des informations sur la façon de configurer les contrôles 
 
 ## <a name="default-settings"></a>Paramètres par défaut
 
-Lorsque vous déployez la solution de surveillance à distance pour la première fois, il existe deux rôles : **Administrateur** et **en lecture seule**.
+Quand vous déployez la solution de supervision à distance pour la première fois, il existe deux rôles : **Administrateur** et **Lecture seule**.
 
 Tout utilisateur ayant le rôle **administrateur** bénéficie d’un accès total à la solution, avec les autorisations suivantes ci-dessous. Un utilisateur ayant le rôle **lecture seule** a uniquement accès pour afficher la solution.
 
 | Autorisation            | Admin | Lecture seule |
 |----------------       |-------|-----------|
-| Afficher la solution         | Oui   | Oui       |
-| Mettre à jour des alarmes         | Oui   | Non         |
-| Supprimer des alarmes         | Oui   | Non         |
-| Créer des appareils        | Oui   | Non         |
-| Mettre à jour des appareils        | Oui   | Non         |
-| Supprimer des appareils        | Oui   | Non         |
-| Créer des groupes d’appareils  | Oui   | Non         |
-| Mettre à jour des groupes d’appareils  | Oui   | Non         |
-| Supprimer des groupes d’appareils  | Oui   | Non         |
-| Création de règles          | Oui   | Non         |
-| Mettre à jour des règles          | Oui   | Non         |
-| Supprimer des règles          | Oui   | Non         |
-| Créer des travaux           | Oui   | Non         |
-| Mettre à jour la gestion SIM | Oui   | Non         |
+| Afficher la solution         | OUI   | OUI       |
+| Mettre à jour des alarmes         | OUI   | Non        |
+| Supprimer des alarmes         | OUI   | Non        |
+| Créer des appareils        | OUI   | Non        |
+| Mettre à jour des appareils        | OUI   | Non        |
+| Supprimer des appareils        | OUI   | Non        |
+| Créer des groupes d’appareils  | OUI   | Non        |
+| Mettre à jour des groupes d’appareils  | OUI   | Non        |
+| Supprimer des groupes d’appareils  | OUI   | Non        |
+| Création de règles          | OUI   | Non        |
+| Mettre à jour des règles          | OUI   | Non        |
+| Supprimer des règles          | OUI   | Non        |
+| Créer des travaux           | OUI   | Non        |
+| Mettre à jour la gestion SIM | OUI   | Non        |
 
 Par défaut, l’utilisateur qui a déployé la solution se voit automatiquement assigner le rôle **administrateur** et est propriétaire de l’application Azure Active Directory. En tant que propriétaire de l’application, vous pouvez assigner des rôles à d’autres utilisateurs par le biais du portail Azure. Si vous souhaitez qu’un autre utilisateur assigne des rôles dans la solution, il doit également être défini en tant que propriétaire de l’application dans le Portail Azure.
 
@@ -91,11 +91,11 @@ Les étapes suivantes décrivent comment ajouter un rôle à une application dan
 
 1. Recherchez **l’inscription d’application** pour votre solution dans le Portail Azure. Le nom de l’application est celui de votre solution de supervision à distance. Dans la capture d’écran suivante, le nom d’affichage de la solution et de l’application est **contoso-rm4**.
 
-    ![Inscription d'application](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![Inscription d'application](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Sélectionnez votre application, puis cliquez sur **Manifeste**. Vous pouvez voir les deux [rôles d’application](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) existants définis pour l’application :
 
-    ![Affichage du manifeste](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![Affichage du manifeste](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Modifiez le manifeste pour ajouter un rôle appelé **ManageDevices** comme indiqué dans l’extrait de code suivant. Vous avez besoin d’une chaîne unique pour le nouvel ID de rôle, par exemple un GUID. Vous pouvez générer un nouveau GUID à l’aide d’un service tel que le [générateur de GUID en ligne](https://www.guidgenerator.com/) :
 

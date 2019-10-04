@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0c0ad6ea5a687d066c78533b45a7f531561661bf
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323664"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176930"
 ---
 Ce FAQ s’applique aux connexions P2S qui utilisent le modèle de déploiement classique.
 
@@ -31,7 +31,7 @@ Les systèmes d’exploitation clients pris en charge sont les suivants :
 
 ### <a name="can-i-use-any-software-vpn-client-that-supports-sstp-for-point-to-site"></a>Puis-je utiliser un client VPN logiciel qui prend en charge le protocole SSTP pour une connexion point à site ?
 
- Non. La prise en charge est limitée aux versions de système d’exploitation Windows répertoriées.
+Non. La prise en charge est limitée aux versions de système d’exploitation Windows répertoriées.
 
 ### <a name="how-many-vpn-client-endpoints-can-exist-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN ma configuration point à site peut-elle comporter ?
 
@@ -51,7 +51,7 @@ Par défaut, l’ordinateur client ne rétablit pas automatiquement la connexion
 
 ### <a name="does-point-to-site-support-auto-reconnect-and-ddns-on-the-vpn-clients"></a>La configuration point à site prend-elle en charge la reconnexion automatique et DDNS sur les clients VPN ?
 
- Non. La reconnexion automatique et DDNS ne sont actuellement pas pris en charge dans les configurations VPN point à site.
+Non. La reconnexion automatique et DDNS ne sont actuellement pas pris en charge dans les configurations VPN point à site.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-for-the-same-virtual-network"></a>Puis-je avoir des configurations site à site et point à site pour un même réseau virtuel ?
 

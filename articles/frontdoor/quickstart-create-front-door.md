@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 39e7626e6b4c545649e39ff2120d1f1fd105d764
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461984"
 ---
-# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Démarrage rapide : Créer une porte d’entrée pour une application web globale hautement disponible
+# <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Démarrage rapide : Créer une porte d’entrée pour une application web globale hautement disponible
 
 Ce guide de démarrage rapide décrit comment créer un profil Front Door qui assure une haute disponibilité et de hautes performances pour votre application web globale. 
 
@@ -39,7 +39,7 @@ Pour suivre ce guide de démarrage rapide, vous devez avoir déployé deux insta
 
      | Paramètre         | Valeur     |
      | ---              | ---  |
-     | NOM           | Entrez un nom unique pour votre application web  |
+     | Nom           | Entrez un nom unique pour votre application web  |
      | Groupe de ressources          | Sélectionnez **Nouveau**, puis tapez *myResourceGroupFD1* |
      | Plan/lieu App Service         | Sélectionnez **Nouveau**.  Dans le plan App Service, entrez *myAppServicePlanEastUS*, puis sélectionnez **OK**. 
      |      Lieu  |   USA Est        |
@@ -51,7 +51,7 @@ Pour suivre ce guide de démarrage rapide, vous devez avoir déployé deux insta
 
      | Paramètre         | Valeur     |
      | ---              | ---  |
-     | NOM           | Entrez un nom unique pour votre application web  |
+     | Nom           | Entrez un nom unique pour votre application web  |
      | Groupe de ressources          | Sélectionnez **Nouveau**, puis tapez *myResourceGroupFD2* |
      | Plan/lieu App Service         | Sélectionnez **Nouveau**.  Dans le plan App Service, entrez *myAppServicePlanEastUS*, puis sélectionnez **OK**. 
      |      Lieu  |   Europe Ouest      |
@@ -90,7 +90,7 @@ Une fois la porte d’entrée créée, le déploiement global de la configuratio
 ### <a name="view-front-door-handle-application-failover"></a>Voir comment Front Door gère le basculement d’application
 Si vous voulez tester un basculement instantané global effectué par Front Door, vous pouvez accéder à l’un des sites web que vous avez créés et l’arrêter. Selon le paramètre de sonde d’intégrité défini pour le pool de backends, nous basculons instantanément le trafic vers l’autre déploiement de site web. Vous pouvez aussi tester le comportement en désactivant le backend dans la configuration du pool de backends pour votre porte d’entrée. 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, les application web et toutes les ressources associées.
 
 ## <a name="next-steps"></a>Étapes suivantes

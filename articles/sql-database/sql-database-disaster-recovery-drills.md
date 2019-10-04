@@ -1,6 +1,6 @@
 ---
 title: Exercices de récupération d’urgence de SQL Database | Microsoft Docs
-description: Découvrez les conseils et meilleures pratiques pour l’utilisation d’Azure SQL Database pour effectuer des exercices de récupération d’urgence.
+description: Découvrez les conseils et bonnes pratiques pour l’utilisation d’Azure SQL Database pour effectuer des exercices de récupération d’urgence.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 5d754ae558d485036a9a55f573a3f40162ed9f84
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 2923ae8b9b25932ae214cfa45780dffb8780dd39
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561125"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568841"
 ---
 # <a name="performing-disaster-recovery-drill"></a>Exécution d'un exercice de récupération d'urgence
 
@@ -29,7 +28,7 @@ L'exécution d'un exercice de récupération d'urgence comprend :
 * la récupération
 * la validation de l'intégrité des applications après la récupération
 
-Le flux de travail à exécuter peut varier en fonction de la [conception de votre application pour la continuité des activités](sql-database-business-continuity.md). Cet article décrit les bonnes pratiques pour l’exécution d’un exercice de récupération d’urgence dans le contexte d’Azure SQL Database.
+Le flux de travail à exécuter peut varier en fonction de la [conception de votre application pour la continuité des activités](sql-database-business-continuity.md). Cet article décrit les bonnes pratiques pour effectuer une reprise d’activité après sinistre dans le contexte d’une base de données Azure SQL.
 
 ## <a name="geo-restore"></a>Géo-restauration
 
@@ -69,6 +68,6 @@ Terminez l’exercice en vérifiant l’intégrité de l’application après la
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur les scénarios de continuité d’activité, consultez [Scénarios de continuité](sql-database-business-continuity.md).
-* Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+* Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées SQL Database](sql-database-automated-backups.md)
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md).
 * Pour découvrir des options de récupération plus rapides, consultez [Géoréplication active](sql-database-active-geo-replication.md) et [Groupes de basculement automatique](sql-database-auto-failover-group.md).

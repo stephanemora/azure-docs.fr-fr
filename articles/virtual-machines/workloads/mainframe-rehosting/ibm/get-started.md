@@ -1,39 +1,43 @@
 ---
-title: Charges de travail IBM sur Azure | Microsoft Docs
-description: Utilisez un émulateur de macroordinateur et autres services de partenaires Microsoft à ré-héberger vos charges de travail IBM z/OS à l’aide de Microsoft Azure.
+title: Charges de travail IBM dans Azure | Microsoft Docs
+description: Utilisez un émulateur mainframe et d’autres services de partenaires Microsoft pour réhéberger vos charges de travail IBM z/OS en utilisant Microsoft Azure.
 services: virtual-machines-linux
+ms.service: virtual-machines-linux
 documentationcenter: ''
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: ccecfd6abe0e9418e217ad7f200ce980d73c7b45
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: 13c83c53cdad719d6a4bed4cc1852b85d62082e8
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740333"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834589"
 ---
-# <a name="ibm-workloads-on-azure"></a>Charges de travail IBM sur Azure
+# <a name="ibm-workloads-on-azure"></a>Charges de travail IBM dans Azure
 
-Nombreuses IBM mainframe charges de travail basés sur z/OS peuvent être répliqués dans Azure sans perte de fonctionnalité et sans que les utilisateurs de la même remarquer les modifications dans leurs systèmes sous-jacents. Réhébergement d’applications sur Azure vous offre les fonctionnalités de type mainframe que vous devez en outre la polyvalence, la disponibilité, et d’économies substantielles du cloud.
+Nombreuses sont les charges de travail mainframe IBM basées sur z/OS à pouvoir être répliquées dans Azure sans aucune perte de fonctionnalité et sans même que les utilisateurs ne remarquent la moindre modification dans leurs systèmes sous-jacents. En réhébergeant des applications dans Azure, vous bénéficiez des fonctionnalités de type mainframe dont vous avez besoin ainsi que de l’élasticité, de la disponibilité et des économies potentielles du cloud.
 
-Azure prend en charge l’intégration avec les environnements de macroordinateurs IBM existants, ce qui vous permet de migrer les applicates pertinentes, exécuter des solutions hybrides où nécessaires et migrer au fil du temps. Bien que vous pouvez réécrire complètement les programmes existants en fonction du macroordinateur pour Azure, il est plus courant de ré-héberger les. Réécriture ajoute coût, la complexité et le temps, pour les projets de migration. Avec réhébergement, vous pouvez :
+Azure prend en charge l’intégration avec les environnements mainframe IBM existants, ce qui vous permet de migrer les applications nécessaires, d’exécuter éventuellement des solutions hybrides et de migrer au fil du temps. Même si vous avez la possibilité de réécrire entièrement les programmes mainframe existants pour Azure, la pratique la plus courante consiste à les réhéberger. La réécriture a pour effet d’accroître les coûts, la complexité et la durée des projets de migration. Avec le réhébergement, vous pouvez :
 
-- Déplacer des applications vers un émulateur basé sur le cloud.
+- Déplacer des applications dans un émulateur cloud.
 
-- Migrer la base de données vers une base de données basée sur le cloud.
+- Migrer la base de données dans une base de données cloud.
 
-- Remplacez les modules et le code à l’aide de moteurs de transformation de code.
+- Remplacer des modules et du code à l’aide de moteurs de transformation de code.
 
-En outre, les logiciels IBM, incluant WebSphere et MQ, sont désormais dans la place de marché Azure. Avec une licence pour logiciel IBM, vous pouvez bénéficier de la mise à l’échelle de l’infrastructure à la demande fournie par Azure pour démarrer rapidement une machine virtuelle.
+Par ailleurs, les logiciels IBM, notamment WebSphere et MQ, se trouvent désormais dans la Place de marché Azure. Avec une licence pour logiciel IBM, vous pouvez bénéficier de la mise à l’échelle à la demande de l’infrastructure proposée par Azure pour démarrer rapidement une machine virtuelle.
 
-Un écosystème des partenaires est disponible pour vous aider à migrer des macroordinateurs IBM sur Azure. La plupart suivent une approche pragmatique de réutilisation autant que possible avant de passer à un déploiement échelonné de remplacer ou applications. Obtenir davantage de conseils et aide à partir de partenaires chez le [centre de Migration de macroordinateurs Azure](https://azure.microsoft.com/migration/mainframe/).
+Un écosystème de partenaires étendu se tient à votre disposition pour vous aider à migrer des systèmes mainframe IBM sur Azure. La plupart suivent une approche pragmatique qui consiste à réutiliser autant que possible l’existant avant de se lancer dans un déploiement progressif avec réécriture et remplacement d’applications. Obtenez des conseils et une aide supplémentaires auprès de partenaires dans le [centre de migration mainframe Azure](https://azure.microsoft.com/migration/mainframe/).
 
 **Étapes suivantes**
 
-- [Migration mainframe : mythes et les réalités](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [Installez IBM zD & environnement de développement/test T sur Azure](./install-ibm-z-environment.md)
-- [Valeur d’une Application aux développeurs sous contrôle de Distribution (ADCD) dans IBM zD & T v1](./demo.md)
-- [PureScale IBM DB2 sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
+- [Migration d’ordinateurs mainframe : mythes et réalités](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [Installer l’environnement de développement/test IBM zD&T sur Azure](./install-ibm-z-environment.md)
+- [Configurer une instance ADCD (Application Developers Controlled Distribution) dans IBM zD&T v1](./demo.md)
+- [IBM DB2 pureScale sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)

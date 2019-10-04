@@ -13,20 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 2df4cf994e118fef9048504daf40fabc1625c375
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: MT
+ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267681"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295557"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Requêtes de recherche dans les journaux d’activité Azure Monitor
-
-> [!NOTE]
-> Vous devez suivre le didacticiel [Prise en main des requêtes de journal Azure Monitor](get-started-queries.md) pour terminer ce cours.
-
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
-
 Les requêtes de journal Azure Monitor peuvent commencer par un nom de table ou une commande de recherche. Ce tutoriel couvre les requêtes basées sur la recherche. Chaque méthode présente des avantages.
 
 Les requêtes basées sur une table commencent par définir l’étendue de la requête, et ont donc tendance à être plus efficaces que les requêtes de recherche. Les requêtes de recherche étant moins structurées, elles constituent le meilleur choix pour rechercher une valeur spécifique dans des colonnes ou tables. La commande **search** peut rechercher la valeur spécifiée dans toutes les colonnes d’une table donnée ou de toutes les tables. La quantité de données traitées pouvant être énorme, ces requêtes peuvent prendre plus de temps et retourner des jeux de résultats très longs.

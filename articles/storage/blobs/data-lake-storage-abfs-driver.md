@@ -1,19 +1,19 @@
 ---
 title: Pilote Azure Blob File System pour Azure Data Lake Storage Gen2
 description: Pilote ABFS pour Hadoop FileSystem
-services: storage
-author: jamesbak
+author: normesta
 ms.topic: conceptual
-ms.author: jamesbak
+ms.author: normesta
+ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 83e2f6f42de5c729667f366a6e068f1c8bd71f02
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: ece85feff3c6eff9fc2348de70842204986952d5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011073"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855623"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Pilote Azure Blob FileSystem (ABFS) : un pilote Stockage Azure dédié pour Hadoop
 
@@ -54,11 +54,11 @@ Le pilote ABFS prend en charge deux types d’authentification. L’application 
 
 La configuration du pilote ABFS est entièrement stockée dans le fichier de configuration <code>core-site.xml</code>. Sur les distributions Hadoop proposant [Ambari](https://ambari.apache.org/), la configuration peut également être gérée à l’aide du portail web ou de l’API REST Ambari.
 
-Les détails de toutes les entrées de configuration prises en charge sont spécifiés dans la [documentation Hadoop officielle](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Les détails de toutes les entrées de configuration prises en charge sont spécifiés dans la [documentation Hadoop officielle](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
 
 ### <a name="hadoop-documentation"></a>Documentation Hadoop
 
-Le pilote ABFS est présenté au complet dans la [documentation Hadoop officielle](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Le pilote ABFS est présenté au complet dans la [documentation Hadoop officielle](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,7 +3,7 @@ title: Référence sur l’activité d’audit Azure Active Directory (Azure AD)
 description: Obtenez une vue d’ensemble des activités d’audit pouvant être enregistrées dans vos journaux d’audit dans Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/24/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66dd017e8f78f1e93c96262b42dc084c165cdef7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: aaa60a7737b7781a21e23516d139332f10bdf448
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437678"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70306007"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Référence sur l’activité d’audit Azure AD
 
@@ -32,7 +32,7 @@ L’architecture de création de rapports dans Azure AD comprend les composants 
 
 - **Rapports d’activité** 
     - [Connexions](concept-sign-ins.md) – Fournit des informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs
-    - [Journaux d’audit](concept-audit-logs.md) : traçabilité proposée via des journaux pour toutes les modifications effectuées par diverses fonctionnalités au sein d’Azure AD. 
+    - [Journaux d’audit](concept-audit-logs.md) : traçabilité proposée via des journaux d’activité pour toutes les modifications effectuées par diverses fonctionnalités au sein d’Azure AD. 
     
 - **Rapports de sécurité** 
     - [Connexions risquées](concept-risky-sign-ins.md) : une connexion risquée est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. 
@@ -348,10 +348,10 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 
 |Catégorie d’audit|Activité|
 |---|---|
-|Gestion des unités administratives|Télécharger un type d’événement à risque unique|
+|Gestion des unités administratives|Télécharger un seul type de détection d’événement à risque|
 |Gestion des unités administratives|Télécharger les administrateurs et l’état d’acceptation de synthèse hebdomadaire|
-|Gestion des unités administratives|Télécharger tous les types d’événements à risque|
-|Gestion des unités administratives|Télécharger les événements à risque d’utilisateur gratuit|
+|Gestion des unités administratives|Télécharger tous les types de détections d’événements à risque|
+|Gestion des unités administratives|Télécharger les détections d’événements à risque d’utilisateur gratuites|
 |Gestion des unités administratives|Télécharger les utilisateurs avec indicateur de risque|
 |Gestion des applications|Lot d’invitations traité|
 |Gestion des applications|Lot d’invitations chargé|
@@ -408,6 +408,14 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Gestion de répertoires|Obtenir des IDP pour un flux administrateur spécifique|
 |Gestion de répertoires|Obtenir une liste de tous les flux d’administration|
 |Gestion de répertoires|Obtenir une liste des balises de tous les flux d’administration pour l’ensemble des utilisateurs|
+|Gestion des groupes|Téléchargement en bloc des membres du groupe - démarré|
+|Gestion des groupes|Téléchargement en bloc des membres du groupe - terminé|
+|Gestion des groupes|Importation en bloc des membres du groupe - démarré|
+|Gestion des groupes|Importation en bloc des membres du groupe - terminé|
+|Gestion des groupes|Suppression en bloc des membres du groupe - démarré|
+|Gestion des groupes|Suppression en bloc des membres du groupe - terminé|
+|Gestion des groupes|Téléchargement en bloc des groupes - démarré|
+|Gestion des groupes|Téléchargement en bloc des groupes - terminé|
 |Gestion des groupes|Obtenir une liste des locataires pour un utilisateur|
 |Gestion des groupes|Obtenir des revendications déclarées automatiquement des comptes locaux|
 |Gestion des groupes|Obtenir une ressource json localisée|
@@ -454,28 +462,42 @@ Cet article répertorie les activités d’audit qui peuvent être enregistrées
 |Gestion des rôles|Supprimer la configuration de l’appareil|
 |Gestion des rôles|Un appareil n’est plus conforme|
 |Gestion des rôles|Un appareil n’est plus géré|
-|User Management|Supprimer un propriétaire enregistré d’un appareil|
-|User Management|Supprimer des utilisateurs enregistrés d’un appareil|
-|User Management|Mettre à jour un appareil|
-|User Management|Mettre à jour une configuration d’appareil|
-|User Management|Ajouter un membre éligible au rôle|
-|User Management|Ajouter un membre à un rôle|
-|User Management|Ajouter une attribution de rôle à une définition de rôle|
-|User Management|Ajouter un rôle à partir d’un modèle|
-|User Management|Ajouter un membre inclus dans une étendue à un rôle|
-|User Management|Supprimer un membre éligible d’un rôle|
-|User Management|Supprimer un membre d’un rôle|
-|User Management|Supprimer une attribution de rôle d’une définition de rôle|
-|User Management|Supprimer un membre inclus dans une étendue d’un rôle|
-|User Management|Mettre à jour un rôle|
 |User Management|AccessReview_Review|
 |User Management|AccessReview_Update|
 |User Management|ActivationAborted|
 |User Management|ActivationApproved|
 |User Management|ActivationCanceled|
 |User Management|ActivationRequested|
+|User Management|Ajouter un membre éligible au rôle|
+|User Management|Ajouter un membre à un rôle|
+|User Management|Ajouter une attribution de rôle à une définition de rôle|
+|User Management|Ajouter un rôle à partir d’un modèle|
+|User Management|Ajouter un membre inclus dans une étendue à un rôle|
 |User Management|Ajouté|
 |User Management|Assigner|
+|User Management|Création d’utilisateurs en bloc - démarré|
+|User Management|Création d’utilisateurs en bloc - terminé|
+|User Management|Suppression d’utilisateurs en bloc - démarré|
+|User Management|Suppression d’utilisateurs en bloc - terminé|
+|User Management|Téléchargement en bloc des utilisateurs - démarré|
+|User Management|Téléchargement en bloc des utilisateurs - terminé|
+|User Management|Restauration d’utilisateurs supprimés en bloc - démarré|
+|User Management|Restauration d’utilisateurs supprimés en bloc - terminé|
+|User Management|Invitation en bloc d’utilisateurs - démarré|
+|User Management|Invitation en bloc des utilisateurs - terminé|
+|User Management|Supprimer un propriétaire enregistré d’un appareil|
+|User Management|Supprimer des utilisateurs enregistrés d’un appareil|
+|User Management|Supprimer un membre éligible d’un rôle|
+|User Management|Supprimer un membre d’un rôle|
+|User Management|Supprimer une attribution de rôle d’une définition de rôle|
+|User Management|Supprimer un membre inclus dans une étendue d’un rôle|
+|User Management|Mettre à jour un appareil|
+|User Management|Mettre à jour une configuration d’appareil|
+|User Management|Mettre à jour un rôle|
+
+
+
+
 
 
 ## <a name="identity-protection"></a>Identity Protection

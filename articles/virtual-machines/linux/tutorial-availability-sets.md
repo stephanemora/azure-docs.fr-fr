@@ -4,26 +4,25 @@ description: Avec ce tutoriel, vous allez apprendre à utiliser Azure CLI pour d
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7fd671c77b4c0897134457f5aacaabc11d568694
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 8857e93aec883dc4b7fe0b71093184c3b604b24a
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756408"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103591"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutoriel : Créer et déployer des machines virtuelles hautement disponibles avec Azure CLI
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Didacticiel : Créer et déployer des machines virtuelles hautement disponibles avec Azure CLI
 
 Ce didacticiel explique comment améliorer la disponibilité et la fiabilité de vos solutions de machine virtuelle sur Azure en utilisant une fonctionnalité appelée Groupes à haute disponibilité. Les groupes à haute disponibilité veillent à ce que les machines virtuelles que vous déployez sur Azure soient distribuées sur plusieurs clusters matériels isolés. Leur utilisation garantit qu’en cas de défaillance matérielle ou logicielle dans Azure, seul un sous-ensemble de vos machines virtuelles est affecté et que votre solution globale reste disponible et opérationnelle.
 
@@ -38,14 +37,22 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
-## <a name="availability-set-overview"></a>Vue d’ensemble des groupes à haute disponibilité
+## <a name="high-availability-in-azure-overview"></a>Vue d’ensemble de la haute disponibilité dans Azure
+La haute disponibilité dans Azure peut être créée de nombreuses façons différentes. Deux options s’offrent à vous : les groupes à haute disponibilité et les zones de disponibilité. Si vous utilisez des groupes à haute disponibilité, vos machines virtuelles sont protégées des défaillances qui peuvent se produire dans un centre de données, notamment les défaillances matérielles et les défaillances logicielles Azure. Si vous utilisez des zones de disponibilité, vos machines virtuelles sont placées sur une infrastructure physiquement séparée sans ressources partagées. Elles sont donc complètement protégées des défaillances du centre de données.
+
+Utilisez des groupes à haute disponibilité ou des zones de disponibilité quand vous souhaitez déployer des solutions fiables basées sur des machines virtuelles dans Azure.
+
+### <a name="availability-set-overview"></a>Vue d’ensemble des groupes à haute disponibilité
 
 Un groupe à haute disponibilité est une fonctionnalité de regroupement logique que vous pouvez utiliser dans Azure pour vous assurer que les ressources de machine virtuelle que vous y incluez sont isolées les unes des autres lors de leur déploiement dans un centre de données Azure. Azure veille à ce que les machines virtuelles que vous placez dans un groupe à haute disponibilité s’exécutent sur plusieurs serveurs physiques, racks de calcul, unités de stockage et commutateurs réseau. En cas de défaillance matérielle ou logicielle dans Azure, seul un sous-ensemble de vos machines virtuelles est affecté et votre application globale reste opérationnelle et continue d’être disponible pour vos clients. Les groupes à haute disponibilité sont une fonctionnalité essentielle pour créer des solutions cloud fiables.
 
 Prenons l’exemple d’une solution basée sur une machine virtuelle classique dans laquelle vous disposez de quatre serveurs web frontaux et utilisez deux machines virtuelles principales hébergeant une base de données. Avec Azure, vous pouvez définir deux groupes à haute disponibilité avant de déployer vos machines virtuelles : l’un pour le niveau « web » et l’autre pour le niveau « base de données ». Lorsque vous créez une machine virtuelle, vous pouvez spécifier le groupe à haute disponibilité en tant que paramètre pour la commande az vm create, de sorte qu’Azure veille automatiquement à ce que les machines virtuelles que vous créez dans le groupe disponible soient isolées sur plusieurs ressources matérielles. Si le matériel sur lequel s’exécute l’une de vos machines virtuelles serveur web ou serveur de base de données rencontre un problème, vous savez que les autres instances de votre serveur web et de vos machines virtuelles de base de données continueront à s’exécuter parce qu’elles se trouvent sur d’autres éléments matériels.
 
-Utilisez des groupes à haute disponibilité quand vous souhaitez déployer des solutions fiables basées sur des machines virtuelles dans Azure.
+### <a name="availability-zone-overview"></a>Vue d’ensemble des zones de disponibilité
 
+Les Zones de disponibilité constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des Zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données. Les services redondants interzone répliquent vos applications et données entre des Zones de disponibilité pour les protéger contre des points uniques de panne. Avec les zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %.
+
+Comme nous l’avons fait pour les groupes à haute disponibilité, prenons l’exemple d’une solution basée sur une machine virtuelle classique dans laquelle vous disposez de quatre serveurs web front-end et utilisez deux machines virtuelles back-end hébergeant une base de données. Comme vous l’avez fait avec les groupes à haute disponibilité, vous allez déployer vos machines virtuelles dans deux zones de disponibilité distinctes : une pour le niveau « web » et une pour le niveau de « base de données ». Quand vous créez une machine virtuelle et spécifiez la zone de disponibilité en tant que paramètre pour la commande az vm create, Azure veille automatiquement à ce que les machines virtuelles créées soient isolées sur des zones de disponibilité totalement distinctes. Si un problème affecte l’ensemble du centre de données sur lequel s’exécute l’une de vos machines virtuelles de serveur web ou de serveur de base de données, vous savez que les autres instances de ces machines virtuelles continueront à s’exécuter. En effet, elles s’exécutent sur des centres de données totalement distincts.
 
 ## <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
 
@@ -117,3 +124,7 @@ Passez au didacticiel suivant pour en savoir plus sur les groupes de machines vi
 
 > [!div class="nextstepaction"]
 > [Créer un groupe de machines virtuelles identiques](tutorial-create-vmss.md)
+
+* Pour en savoir plus sur les zones de disponibilité, consultez la [documentation sur les zones de disponibilité](../../availability-zones/az-overview.md).
+* Vous trouverez de la documentation supplémentaire sur les groupes à haute disponibilité et les zones de disponibilité [ici](./manage-availability.md).
+* Pour tester les zones de disponibilité, consultez [Créer une machine virtuelle Linux dans une zone de disponibilité avec l’interface de ligne de commande Azure](./create-cli-availability-zone.md).

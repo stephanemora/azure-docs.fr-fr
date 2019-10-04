@@ -1,28 +1,20 @@
 ---
-title: API d’annulation d’opération | Microsoft Docs
-description: 'Annulez des opérations. '
+title: API Annuler une opération | Place de marché Azure
+description: Annulez des opérations.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806045"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935559"
 ---
-<a name="cancel-operation"></a>Annuler une opération 
-=================
+# <a name="cancel-operation"></a>Annuler une opération 
 
 Cette API annule une opération qui est en cours sur l’offre. Utilisez l’[API de récupération d’opérations](./cloud-partner-portal-api-retrieve-operations.md) pour obtenir un `operationId` à transmettre à cette API. L’annulation est généralement une opération synchrone, mais, dans certains scénarios complexes, une nouvelle opération peut être nécessaire pour annuler une opération existante. Dans ce cas, le corps de la réponse HTTP contient l’emplacement de l’opération qui doit être utilisé pour interroger l’état de la requête.
 
@@ -35,7 +27,7 @@ Vous pouvez fournir une liste d’adresses e-mail séparées par des virgules av
 
 |  **Nom**    |      **Description**                                  |    **Type de données**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherid  |  Identificateur du serveur de publication, par exemple `contoso`         |   Chaîne          |
+| publisherId  |  Identificateur du serveur de publication, par exemple `contoso`         |   Chaîne          |
 | offerId      |  Identificateur de l’offre                                     |   Chaîne          |
 | api-version  |  Version actuelle de l’API                               |    Date           |
 |  |  |  |

@@ -1,5 +1,5 @@
 ---
-title: Migration de base de données SQL Server vers une base de données unique/en pool dans Azure SQL Database | Microsoft Docs
+title: Migration de base de données SQL Server vers une base de données unique/mise en pool dans Azure SQL Database | Microsoft Docs
 description: Découvrez la procédure de migration d’une base de données SQL Server vers une base de données unique ou un pool élastique dans Azure SQL Database.
 keywords: migration de base de données, migration de base de données sql server, outils de migration de base de données, migrer la base de données, migrer la base de données sql
 services: sql-database
@@ -8,30 +8,29 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: 2feece21644f8b79b4e5fc74331944cdddbdee4a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: a156d73c7eedcbdf7c703b946a26d46ca9129632
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996417"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566605"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migration de base de données SQL Server vers Azure SQL Database
 
-Cet article décrit les méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers une base de données unique ou mise en pool Azure SQL Database. Pour plus d’informations sur la migration vers Managed Instance, consultez [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). Pour obtenir des informations sur la migration à partir d’autres plateformes, consultez le [Guide de migration des bases de données Azure](https://datamigration.microsoft.com/).
+Cet article décrit les méthodes principales de migration d’une base de données SQL Server 2005 ou ultérieur locale vers une base de données unique ou mise en pool dans Azure SQL Database. Pour plus d’informations sur la migration vers Managed Instance, consultez [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). Pour obtenir des informations sur la migration à partir d’autres plateformes, consultez le [Guide de migration des bases de données Azure](https://datamigration.microsoft.com/).
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrer vers une base de données unique ou une base de données mise en pool
 
-Il existe deux méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers une base de données unique ou mise en pool Azure SQL Database. La première méthode est plus simple, mais elle implique un temps d’arrêt potentiellement important pendant la migration. La seconde méthode est plus complexe, mais elle élimine en grande partie les temps d’arrêt lors de la migration.
+Il existe deux méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers une base de données unique ou mise en pool dans Azure SQL Database. La première méthode est plus simple, mais elle implique un temps d’arrêt potentiellement important pendant la migration. La seconde méthode est plus complexe, mais elle élimine en grande partie les temps d’arrêt lors de la migration.
 
 Dans les deux cas, vous devez vérifier que la base de données source est compatible avec Azure SQL Database à l’aide de [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 approche de la [parité des fonctionnalités](sql-database-features.md) avec SQL Server, à l’exception des problèmes liés aux opérations au niveau du serveur et sur plusieurs bases de données. Les bases de données et les applications qui reposent sur des [fonctions partiellement ou pas du tout prises en charge](sql-database-transact-sql-information.md) ont besoin d’une [nouvelle ingénierie pour corriger ces incompatibilités](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues) avant de pouvoir migrer la base de données SQL Server.
 
 > [!NOTE]
-> Pour migrer une base de données non SQL Server, notamment Microsoft Access, Sybase, MySQL Oracle et DB2, vers une base de données SQL Azure, consultez l’ [Assistant Migration SQL Server](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
+> Pour migrer une base de données non-SQL Server, notamment Microsoft Access, Sybase, MySQL Oracle et DB2, vers Azure SQL Database, consultez l’ [Assistant Migration SQL Server](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Méthode 1 : Migration avec un temps d’arrêt pendant l’opération
 
@@ -45,10 +44,10 @@ La liste suivante contient le workflow général pour la migration d’une base 
 2. Préparez les corrections nécessaires en tant que scripts Transact-SQL.
 3. Faites une copie cohérente de la base de données source en cours de migration ou interrompez les nouvelles transactions qui se produisent dans la base de données source pendant la migration. Les méthodes qui existent pour accomplir cette dernière option incluent la désactivation de la connectivité des clients ou la création d’un [instantané de base de données](https://msdn.microsoft.com/library/ms175876.aspx). Après la migration, vous pourrez peut-être utiliser la réplication transactionnelle pour mettre à jour les bases de données migrées avec les modifications qui se produisent après le point d’arrêt pour la migration. Consultez [Migration à l’aide de la migration transactionnelle](sql-database-single-database-migrate.md#method-2-use-transactional-replication).  
 4. Déployez les scripts Transact-SQL pour appliquer les correctifs à la copie de base de données.
-5. [Migrez](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) la copie de base de données vers une nouvelle base de données SQL Azure à l’aide de Data Migration Assistant.
+5. [Migrez](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) la copie de base de données vers une nouvelle base de données Azure SQL à l’aide de Data Migration Assistant.
 
 > [!NOTE]
-> Au lieu d’utiliser DMA, vous pouvez également utiliser un fichier BACPAC. Consultez [Importer un fichier BACPAC dans une nouvelle base de données Azure SQL Database](sql-database-import.md).
+> Au lieu d’utiliser DMA, vous pouvez également utiliser un fichier BACPAC. Consultez [Importer un fichier BACPAC dans une nouvelle base de données Azure SQL](sql-database-import.md).
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Optimisation des performances de transfert de données pendant la migration
 
@@ -59,7 +58,7 @@ La liste suivante contient des recommandations pour optimiser les performances p
 - Désactivez les statistiques automatiques pendant la migration.
 - Partitionnez les tables et les index.
 - Supprimez les vues indexées et recréez-les une fois la migration terminée.
-- Déplacez les données historiques rarement interrogées dans une autre base de données et migrez ces données historiques vers une base de données SQL Azure distincte. Vous pourrez ensuite interroger ces données historiques à l’aide de [requêtes élastiques](sql-database-elastic-query-overview.md).
+- Déplacez les données historiques rarement interrogées dans une autre base de données et migrez ces données historiques vers une base de données Azure SQL distincte. Vous pourrez ensuite interroger ces données historiques à l’aide de [requêtes élastiques](sql-database-elastic-query-overview.md).
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>Optimiser les performances une fois la migration terminée
 
@@ -69,14 +68,14 @@ La liste suivante contient des recommandations pour optimiser les performances p
 
 Quand vous ne pouvez pas vous permettre de sortir votre base de données SQL Server de la production pendant la migration, vous pouvez utiliser la réplication transactionnelle SQL Server comme solution de migration. Pour que vous puissiez utiliser cette méthode, la base de données source doit remplir les [conditions requises pour la réplication transactionnelle](https://msdn.microsoft.com/library/mt589530.aspx) et être compatible avec Azure SQL Database. Pour plus d’informations sur la réplication SQL avec Always On, consultez [Configurer la réplication pour les groupes de disponibilité Always On (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
-Pour utiliser cette solution, vous devez configurer votre base de données SQL Azure en tant qu’abonné à l’instance de SQL Server que vous souhaitez migrer. Le distributeur de réplication transactionnelle synchronise les données nécessaires de la base de données (l’éditeur), de nouvelles transactions continuant d’avoir lieu.
+Pour utiliser cette solution, vous devez configurer votre base de données Azure SQL en tant qu’abonné à l’instance de SQL Server que vous souhaitez migrer. Le distributeur de réplication transactionnelle synchronise les données nécessaires de la base de données (l’éditeur), de nouvelles transactions continuant d’avoir lieu.
 
-Avec la réplication transactionnelle, toutes les modifications apportées à vos données ou à votre schéma apparaissent dans votre Base de données SQL Azure. Une fois la synchronisation terminée, lorsque vous êtes prêt à migrer, modifiez la chaîne de connexion de vos applications de façon à ce qu’elle pointe vers votre Base de données SQL Azure. Une fois que la réplication transactionnelle a vidé toutes les modifications restant sur votre base de données source et que toutes vos applications pointent vers Azure SQL Database, vous pouvez désinstaller la réplication transactionnelle. Votre Base de données SQL Azure est maintenant votre système de production.
+Avec la réplication transactionnelle, toutes les modifications apportées à vos données ou à votre schéma apparaissent dans votre base de données Azure SQL. Une fois la synchronisation terminée, lorsque vous êtes prêt à migrer, modifiez la chaîne de connexion de vos applications de façon à ce qu’elle pointe vers votre base de données Azure SQL. Une fois que la réplication transactionnelle a vidé toutes les modifications restant sur votre base de données source et que toutes vos applications pointent vers Azure SQL Database, vous pouvez désinstaller la réplication transactionnelle. Votre base de données Azure SQL est maintenant votre système de production.
 
  ![Diagramme SeedCloudTR](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
 > [!TIP]
-> Vous pouvez également utiliser la réplication transactionnelle pour migrer un sous-ensemble de votre base de données source. La publication que vous répliquez vers une base de données SQL Azure peut être limitée à un sous-ensemble des tables dans la base de données en cours de réplication. Pour chaque table répliquée, vous pouvez limiter les données à un sous-ensemble de lignes et/ou un sous-ensemble de colonnes.
+> Vous pouvez également utiliser la réplication transactionnelle pour migrer un sous-ensemble de votre base de données source. La publication que vous répliquez sur Azure SQL Database peut être limitée à un sous-ensemble des tables dans la base de données en cours de réplication. Pour chaque table répliquée, vous pouvez limiter les données à un sous-ensemble de lignes et/ou un sous-ensemble de colonnes.
 
 ## <a name="migration-to-sql-database-using-transaction-replication-workflow"></a>Workflow de migration vers SQL Database à l’aide de la réplication transactionnelle
 
@@ -101,7 +100,7 @@ Quelques conseils et différences pour la migration vers SQL Database
   - Si l’impact sur les performances est inacceptable, vous pouvez utiliser un autre serveur, mais cela contribue à compliquer la gestion et l’administration.
 - Lorsque vous sélectionnez un dossier d’instantanés, assurez-vous qu’il est suffisamment grand pour contenir un BCP de chaque table que vous souhaitez répliquer.
 - La création d’instantanés verrouille les tables associées jusqu’à la fin de l’opération. Par conséquent, prenez soin de bien planifier votre instantané.
-- Seuls les abonnements par émission de données sont pris en charge dans Azure SQL Database. Vous pouvez uniquement ajouter des abonnés à partir de la base de données source.
+- Seuls les abonnements par push sont pris en charge dans Azure SQL Database. Vous pouvez uniquement ajouter des abonnés à partir de la base de données source.
 
 ## <a name="resolving-database-migration-compatibility-issues"></a>Résolution des problèmes de compatibilité de migration de la base de données
 
@@ -125,4 +124,4 @@ Outre les recherches sur Internet et ces ressources, utilisez les [forums de com
 - Utilisez le script fourni sur le blog Azure SQL EMEA Engineers pour [surveiller l’espace réservé au journal des transactions de votre base de données pendant la migration](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0).
 - Pour consulter le billet du blog SQL Server Customer Advisory Team sur la migration de SQL Server vers Azure SQL Database à l’aide de fichiers BACPAC (en anglais), rendez-vous [ici](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 - Pour plus d’informations sur l’utilisation de l’heure UTC après la migration, consultez [Modifying the default time zone for your local time zone](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/) (Modification du fuseau horaire par défaut pour votre fuseau horaire local).
-- Pour plus d’informations sur la modification de la langue par défaut d’une base de données après la migration, consultez [How to change the default language of Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/) (Modification de la langue par défaut d’Azure SQL Database).
+- Pour plus d’informations sur le changement de langue par défaut d’une base de données après la migration, consultez [Comment changer la langue par défaut d’Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).

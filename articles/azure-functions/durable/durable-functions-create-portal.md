@@ -6,16 +6,16 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.author: azfuncdf, glenga
-ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: glenga
+ms.reviewer: azfuncdf
+ms.openlocfilehash: b765e7a03f84211d4a86c4242e9484b3517c95f9
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108067"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933557"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Créer des fonctions Durable Functions à l’aide du portail Azure
 
@@ -23,7 +23,7 @@ L’extension [Fonctions durables](durable-functions-overview.md) d’Azure Func
 
 > [!NOTE]
 > 
-> * Si vous développez des fonctions durables dans C#, pensez plutôt à utiliser le [développement Visual Studio 2017](durable-functions-create-first-csharp.md).
+> * Si vous développez des fonctions durables dans C#, pensez plutôt à utiliser le [développement Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Si vous développez des fonctions durables dans JavaScript, pensez plutôt à utiliser le [développement Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
@@ -38,7 +38,7 @@ Par défaut, l’application de fonction créée utilise la version 2.x du runt
 
 Si vous créez des fonctions Durable Functions JavaScript, vous devez installer le [package npm `durable-functions`](https://www.npmjs.com/package/durable-functions).
 
-1. Sélectionnez le nom de votre application de fonction, puis **Fonctionnalités de la plateforme** et enfin **Outils avancés (Kudu)**.
+1. Sélectionnez le nom de votre application de fonction, puis **Fonctionnalités de la plateforme** et enfin **Outils avancés (Kudu)** .
 
    ![Les fonctionnalités de la plateforme Functions choisissent Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
 
@@ -139,4 +139,4 @@ Votre première fonction durable est maintenant opérationnelle dans Azure.
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Découvrez maintenant les modèles courants de fonctions durables](durable-functions-concepts.md)
+> [Découvrez maintenant les modèles courants de fonctions durables](durable-functions-overview.md#application-patterns)

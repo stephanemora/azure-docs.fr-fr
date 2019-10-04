@@ -11,18 +11,21 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8c1c96fdb1f4f42c7592791881b855f74d411171
+ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444800"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70018291"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Mettre à l’échelle automatiquement une instance du service Gestion des API Azure  
 
 Une instance du service Gestion des API Azure peut se mettre à l’échelle automatiquement en fonction d’un ensemble de règles. Ce comportement peut être activé et configuré via Azure Monitor, et il est pris en charge seulement dans les niveaux **Standard** et **Premium** du service Gestion des API Azure.
 
 Cet article décrit le processus de configuration de la mise à l’échelle automatique et suggère une configuration optimale des règles de cette mise à l’échelle.
+
+> [!NOTE]
+> Le service Gestion des API dans le niveau **Consommation** est automatiquement mis à l’échelle en fonction du trafic, sans nécessiter de configuration supplémentaire.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -33,7 +36,7 @@ Pour suivre les étapes décrites dans cet article, vous devez :
 + Comprendre le concept de [Capacité d’une instance du service Gestion des API Azure](api-management-capacity.md).
 + Comprendre le [processus de mise à l’échelle manuelle d’une instance du service Gestion des API Azure](upgrade-and-scale.md), notamment les conséquences en termes de coûts.
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-standard.md](../../includes/api-management-availability-premium-standard.md)]
 
 ## <a name="azure-api-management-autoscale-limitations"></a>Limitations de la mise à l’échelle automatique du service Gestion des API Azure
 

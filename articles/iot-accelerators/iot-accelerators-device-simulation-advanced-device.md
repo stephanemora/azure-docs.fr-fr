@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286123"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61449023"
 ---
 # <a name="create-an-advanced-device-model"></a>Créer un modèle d’appareil avancé
 
@@ -22,7 +22,7 @@ Ce guide décrit les fichiers JSON et JavaScript qui définissent un modèle d�
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre les étapes de ce guide pratique, vous avez besoin d’une instance déployée de la simulation d’appareil dans votre abonnement Azure.
 
@@ -149,7 +149,7 @@ Le service de simulation peut envoyer plusieurs types de données de télémétr
 ],
 ```
 
-Les espaces réservés utilisent une syntaxe spéciale **${NAME}**, où **NAME** est une clé de l’objet d’état de l’appareil retournée par la fonction **principale** de JavaScript. Les chaînes doivent être mises entre guillemets, mais pas les nombres.
+Les espaces réservés utilisent une syntaxe spéciale **${NAME}** , où **NAME** est une clé de l’objet d’état de l’appareil retournée par la fonction **principale** de JavaScript. Les chaînes doivent être mises entre guillemets, mais pas les nombres.
 
 #### <a name="message-schema"></a>Schéma du message
 
@@ -162,14 +162,14 @@ Les champs répertoriés dans le schéma peuvent avoir les types suivants :
 * Objet - sérialisé à l’aide de JSON
 * Binaire - sérialisé à l’aide de base64
 * Texte
-* Booléen
-* Entier 
+* Boolean
+* Entier
 * Double
-* DateTime
+* Datetime
 
 ### <a name="supported-methods"></a>Méthodes prises en charge
 
-Les appareils simulés peuvent également réagir aux appels de méthode, auquel cas ils exécutent une logique et fournissent une réponse. Comme pour la simulation, la logique de la méthode est stockée dans un fichier JavaScript et peut interagir avec l’état de l’appareil. Par exemple : 
+Les appareils simulés peuvent également réagir aux appels de méthode, auquel cas ils exécutent une logique et fournissent une réponse. Comme pour la simulation, la logique de la méthode est stockée dans un fichier JavaScript et peut interagir avec l’état de l’appareil. Par exemple :
 
 ```json
 "CloudToDeviceMethods": {
@@ -259,7 +259,7 @@ Les fichiers JavaScript doivent avoir une fonction **principale** qui accepte de
     * **deviceModel**. Par exemple, **Elevator**.
 * Un objet d’**état**, qui est la valeur retournée par la fonction dans l’appel précédent. Cet état de l’appareil est géré par le service de simulation et utilisé pour générer des messages de télémétrie.
 
-La fonction **principale** retourne le nouvel état de l’appareil. Par exemple : 
+La fonction **principale** retourne le nouvel état de l’appareil. Par exemple :
 
 ```JavaScript
 function main(context, state) {

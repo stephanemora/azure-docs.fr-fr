@@ -1,28 +1,30 @@
 ---
-title: Configurer un serveur de processus dans Azure pour la restauration automatique pendant la reprise d’activité de machines virtuelles VMware et serveurs physiques avec Azure Site Recovery | Microsoft Docs
-description: Cet article décrit comment configurer un serveur de processus dans Azure pour la restauration automatique sur une infrastructure locale à partir d’Azure, pendant la reprise d’activité de machines virtuelles VMware et serveurs physiques.
+title: Configurer un serveur de processus avec scale-out pendant la récupération d’urgence des machines virtuelles VMware et serveurs physiques avec Azure Site Recovery | Microsoft Docs
+description: Cet article décrit comment configurer un serveur de processus avec scale-out en puissance pendant la récupération d’urgence des machines virtuelles VMware et serveurs physiques.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362158"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64925489"
 ---
-# <a name="scale-for-failback-with-additional-process-servers"></a>Ajouter des serveurs de processus supplémentaires pour augmenter la capacité de restauration automatique
+# <a name="scale-with-additional-process-servers"></a>Mettre à l’échelle avec d’autres serveurs de processus
 
-Par défaut, lorsque vous répliquez des machines virtuelles VMware ou des serveurs physiques sur Azure avec [Site Recovery](site-recovery-overview.md), un serveur de processus est installé sur le serveur de configuration et permet de coordonner le transfert des données entre Site Recovery et votre infrastructure locale. Pour augmenter la capacité et faire évoluer votre déploiement de réplication, vous pouvez ajouter des serveurs de processus autonomes supplémentaires. Cet article décrit ce processus de reprotection.
+Par défaut, lorsque vous répliquez des machines virtuelles VMware ou des serveurs physiques sur Azure avec [Site Recovery](site-recovery-overview.md), un serveur de processus est installé sur le serveur de configuration et permet de coordonner le transfert des données entre Site Recovery et votre infrastructure locale. Pour augmenter la capacité et faire évoluer votre déploiement de réplication, vous pouvez ajouter des serveurs de processus autonomes supplémentaires. Cet article décrit comment configurer un serveur de processus avec montée en puissance.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
 ### <a name="capacity-planning"></a>planification de la capacité
 
 Assurez-vous d’avoir effectué la [planification de la capacité](site-recovery-plan-capacity-vmware.md) pour la réplication VMware. Cela vous aide à déterminer comment et quand déployer des serveurs de traitement supplémentaires.
+
+À partir de la version 9.24, des conseils sont ajoutés lors de la sélection du serveur de processus pour les nouvelles réplications. En fonction de certains critères, les états suivants seront attribués au serveur de processus : Sain, Avertissement et Critique. Pour comprendre les différents scénarios qui peuvent influencer l’état du serveur de processus, consultez l’article dédié aux [alertes du serveur de processus](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > L’utilisation d’un composant de serveur de processus cloné n’est pas prise en charge. Suivez les étapes décrites dans cet article pour chaque mise à l’échelle PS.
@@ -39,19 +41,17 @@ Vérifiez la configuration requise pour le dimensionnement, résumée dans le ta
 
 Où chaque machine source protégée est configurée avec 3 disques de 100 Go chacune.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 La configuration requise pour le serveur de traitement supplémentaire est résumée dans le tableau suivant.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
-
-
 ## <a name="download-installation-file"></a>Télécharger le fichier d’installation
 
 Téléchargez le fichier d’installation pour le serveur de processus comme suit :
 
-1. Connectez-vous au portail Azure, puis accédez à votre coffre Recovery Services.
+1. Connectez-vous au portail Azure et accédez à votre coffre Recovery Services.
 2. Ouvrez **Infrastructure Site Recovery** > **VMWare et machines physiques** > **Serveurs de configuration** (sous Pour VMware et machines physiques).
 3. Sélectionnez le serveur de configuration pour explorer les détails du serveur. Cliquez ensuite sur **+ Serveur de processus**.
 4. Dans **Ajouter un serveur de processus** >  **Indique où vous souhaitez déployer votre serveur de processus**, sélectionnez **Déployer un serveur de traitement de montée en puissance parallèle local**.
@@ -81,7 +81,7 @@ Avec les paramètres de ligne de commande suivants :
 
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
-Par exemple : 
+Par exemple :
 
 ```
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted

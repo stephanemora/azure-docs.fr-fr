@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 50a653648f3ae4b40e0bfe2c6f168cfb890bcc59
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077018"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839102"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Charger 1 To dans Azure SQL Data Warehouse en moins de 15 minutes avec Azure Data Factory
 > [!NOTE]
@@ -41,11 +41,11 @@ Cet article fournit des instructions détaillées pour déplacer les données da
 > [!NOTE]
 >  Pour des informations générales sur les fonctionnalités de Data Factory permettant de déplacer des données vers et depuis Azure SQL Data Warehouse, consultez [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md).
 >
-> Vous pouvez également créer des pipelines à l’aide du portail Azure, de Visual Studio, de PowerShell, etc. Consultez le [tutoriel : Copier des données d’Azure Blob Storage vers Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir une brève procédure pas à pas de l’utilisation de l’activité de copie dans Azure Data Factory.  
+> Vous pouvez également créer des pipelines à l’aide de Visual Studio, de PowerShell, etc. Consultez le [tutoriel : Copier des données d’Azure Blob vers Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir une brève procédure pas à pas de l’utilisation de l’activité de copie dans Azure Data Factory.  
 >
 >
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Stockage Blob Azure : cette expérience utilise le Stockage Blob Azure (GRS) pour stocker un jeu de données de test TPC-H.  Si vous ne possédez pas de compte de stockage Azure, découvrez [comment créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md).
 * Données [TPC-H](http://www.tpc.org/tpch/) : nous allons utiliser TPC-H comme jeu de données de test.  Pour ce faire, vous devez utiliser `dbgen` dans le kit d’outils TPC-H, qui vous permet de générer le jeu de données.  Vous pouvez télécharger le code source pour `dbgen` depuis [TPC Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) et le compiler vous-même, ou vous pouvez télécharger le fichier binaire compilé à partir de [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Exécutez dbgen.exe avec les commandes suivantes pour générer le fichier plat de 1 To pour la table `lineitem` répartie entre 10 fichiers :
 
@@ -199,7 +199,7 @@ La case **Autoriser Polybase** est cochée par défaut.  Cliquez sur **Suivant**
 
     Vous pouvez afficher les détails de l’exécution de la copie dans **l’Explorateur de fenêtres d’activité** dans le panneau de droite, notamment le volume de données lu à partir de la source et écrit dans la destination, la durée et le débit moyen de l’exécution.
 
-    Comme vous pouvez le voir à partir de la capture d’écran suivante, la copie de 1 To de stockage d’objets Blob Azure dans SQL Data Warehouse a pris 14 minutes, avec un débit de 1,22 Gbits/s !
+    Comme le montre la capture d’écran suivante, la copie de 1 To du Stockage Blob Azure vers SQL Data Warehouse a pris 14 minutes, soit un débit de 1,22 Gbit/s !
 
     ![Assistant Copie - Boîte de dialogue Succès](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

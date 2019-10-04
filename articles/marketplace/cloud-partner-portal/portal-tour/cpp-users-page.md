@@ -1,25 +1,18 @@
 ---
-title: Page Utilisateurs pour la Place de marché Azure | Microsoft Docs
-description: .
+title: Page Utilisateurs pour la Place de marché Azure
+description: Vue d'ensemble de la page Utilisateurs sur le Portail Cloud Partner pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 22768e90a419e7a5c3c9e286953afbf3ba2ab311
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.author: pabutler
+ms.openlocfilehash: 1c420a275efa4bb45ba952a04faafe25e30d64ef
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266320"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943417"
 ---
 # <a name="users-page"></a>Page Utilisateurs
 

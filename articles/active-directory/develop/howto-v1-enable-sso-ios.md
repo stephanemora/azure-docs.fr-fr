@@ -2,26 +2,26 @@
 title: Activation de l’authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL | Microsoft Docs
 description: En savoir plus sur l’utilisation des fonctionnalités de votre Kit de développement logiciel (SDK) ADAL pour activer l’authentification unique sur l’ensemble de vos applications.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448677"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65962626"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Activation Activer l’authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL
 
@@ -40,11 +40,11 @@ Cette procédure s’applique à :
 * Azure Active Directory B2B
 * Accès conditionnel Azure Active Directory
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cette procédure suppose que vous savez comment :
 
-* Configurer votre application à l’aide du portail hérité pour Azure AD. Pour plus d’informations, consultez l’article sur l’[inscription d’une application avec le point de terminaison Azure AD v1.0](quickstart-v1-add-azure-ad-app.md)
+* Configurer votre application à l’aide du portail hérité pour Azure AD. Pour plus d’informations, consultez [Inscrire une application](quickstart-register-app.md)
 * Intégrer votre application à [Kit de développement logiciel (SDK) iOS d’Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Concepts de l’authentification unique
@@ -231,7 +231,7 @@ Une fois que vous disposez des droits appropriés, un fichier nommé `entitlemen
 </plist>
 ```
 
-Une fois que vous avez l’éligibilité de trousseau activée dans chacune de vos applications, et vous êtes prêt à utiliser l’authentification unique, informez l’identité du Kit de développement logiciel votre trousseau de clés à l’aide de la définition dans votre `ADAuthenticationSettings` avec le paramètre suivant :
+Une fois que l’éligibilité au trousseau a été activée dans chacune de vos applications et que vous êtes prêt à utiliser l’authentification unique, communiquez votre trousseau au Kit de développement logiciel (SDK) d’identité en utilisant le paramètre suivant dans votre `ADAuthenticationSettings`, à l’aide du paramètre ci-dessous :
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

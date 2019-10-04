@@ -2,7 +2,7 @@
 title: Administration des services pour Recherche Azure sur le portail - Recherche Azure
 description: Gérez Recherche Azure, un service de recherche cloud hébergé sur Microsoft Azure, à l'aide du portail Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 2c4b2a03e7e5c818453eaf4ad6881b2caba3b93c
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775592"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647672"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration des services pour Azure Search dans le portail Azure
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ En termes d’informations générales relatives à votre service, vous pouvez o
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>surveiller l’utilisation des ressources ;
-Sur le tableau de bord, l’analyse des ressources se limite aux informations affichées dans le tableau de bord des services et à quelques mesures que vous pouvez obtenir en interrogeant le service. Dans la section Utilisation du tableau de bord des services, vous pouvez déterminer rapidement si les niveaux des ressources de partition sont adaptés à votre application. Vous pouvez approvisionner des ressources externes, telles que la surveillance Azure, si vous souhaitez capturer et conserver les événements enregistrés. Pour plus d’informations, consultez [surveillance Azure Search](search-monitor-usage.md).
+Sur le tableau de bord, l’analyse des ressources se limite aux informations affichées dans le tableau de bord des services et à quelques mesures que vous pouvez obtenir en interrogeant le service. Dans la section Utilisation du tableau de bord des services, vous pouvez déterminer rapidement si les niveaux des ressources de partition sont adaptés à votre application. Vous pouvez provisionner des ressources externes, telles que la supervision Azure, si vous souhaitez capturer et conserver les événements enregistrés. Pour plus d’informations, consultez [Supervision de la Recherche Azure](search-monitor-usage.md).
 
 L’API REST Search Service vous permet d’obtenir le nombre de documents et d’index par programmation : 
 

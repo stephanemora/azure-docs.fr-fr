@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7010ec16592fea2f530329916e00056ca03a70
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2dca71023cbed34ef3661ca980cf1eac4ca620c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176388"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65784297"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronisation d’Azure AD Connect : Attributs synchronisés avec Azure Active Directory
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.  
 Les attributs sont regroupés selon l’application Azure AD associée.
 
 ## <a name="attributes-to-synchronize"></a>Attributs à synchroniser
-Une question fréquente concerne *la liste des attributs dont la synchronisation est obligatoire*. L’approche recommandée consiste à conserver les attributs par défaut pour qu’une liste d’adresses globale complète puisse être construite dans le cloud et afin de disposer de toutes les fonctionnalités dans les charges de travail Office 365. Dans certains cas, votre organisation ne souhaitera pas synchroniser certains attributs sur le cloud, car ces attributs contiennent des données sensibles ou personnelles, comme dans cet exemple :   
+Une question fréquente concerne *la liste des attributs dont la synchronisation est obligatoire*. L’approche recommandée consiste à conserver les attributs par défaut pour qu’une liste d’adresses globale complète puisse être construite dans le cloud et afin de disposer de toutes les fonctionnalités dans les charges de travail Office 365. Dans certains cas, votre organisation ne souhaitera pas synchroniser certains attributs sur le cloud, car ces attributs contiennent des données sensibles ou personnelles, comme dans cet exemple :  
 ![mauvais attributs](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
 Dans ce cas, commencez par la liste des attributs dans cette rubrique et identifiez ceux qui contiennent des informations sensibles ou personnelles et ne peuvent pas être synchronisés. Ensuite, désélectionnez ces attributs lors de l’installation à l’aide de [l’application Azure AD et du filtrage des attributs](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
@@ -48,7 +48,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | pwdLastSet |X |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
 |samAccountName|X| |
 | sourceAnchor |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
-| usageLocation |X |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X |propriété mécanique. Pays/Région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
@@ -158,7 +158,6 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. Utilisé par la synchronisation de mot de passe et par la fédération. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Dérivé de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
 | st |X |X | | |
@@ -169,7 +168,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | thumbnailPhoto |X |X | | |
 | title |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/Région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userCertificate |X |X | | |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 | userSMIMECertificates |X |X | | |
@@ -241,7 +240,6 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Dérivé de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
 | st |X |X | | |
@@ -253,11 +251,12 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/Région de l’utilisateur
+. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 | wWWHomePage |X |X | | |
 
-## <a name="lync-online-subsequently-known-as-skype-for-business"></a>Lync Online (appelé par la suite Skype Entreprise)
+## <a name="teams-and-skype-for-business-online"></a>Teams et Skype for Business Online
 | Nom de l'attribut | Utilisateur | Contact | Groupe | Commentaire |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Détermine si un compte est activé. |
@@ -294,7 +293,6 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
-| securityEnabled | | |X |Dérivé de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
 | st |X |X | | |
@@ -302,7 +300,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | telephoneNumber |X |X | | |
 | thumbnailPhoto |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/Région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 | wWWHomePage |X |X | | |
 
@@ -317,9 +315,8 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | objectSID |X | |X |propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory. |
 | proxyAddresses |X |X |X |propriété mécanique. Utilisé par Azure AD. Contient toutes les adresses de messagerie secondaires pour l’utilisateur. |
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. |
-| securityEnabled | | |X |Dérivé de groupType. |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/Région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Ce nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
 ## <a name="intune"></a>Intune
@@ -336,9 +333,8 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | objectSID |X | |X |propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
-| securityEnabled | | |X |Dérivé de groupType |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/Région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
@@ -364,14 +360,13 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
-| securityEnabled | | |X |Dérivé de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
 | st |X |X | | |
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/Région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
 ## <a name="3rd-party-applications"></a>Applications tierces
@@ -387,6 +382,7 @@ Ce groupe est un ensemble d’attributs qui peut être utilisé si l’annuaire 
 | accountEnabled |X | | |Détermine si un compte est activé. |
 | cn |X | |X | |
 | displayName |X |X |X | |
+| employeeID |X |  |  | |
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
@@ -397,7 +393,7 @@ Ce groupe est un ensemble d’attributs qui peut être utilisé si l’annuaire 
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/Région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
 ## <a name="windows-10"></a>Windows 10
@@ -426,7 +422,7 @@ Ces attributs pour **l'utilisateur** s'ajoutent aux autres applications que vous
 ## <a name="exchange-hybrid-writeback"></a>Écriture différée d’Exchange hybride
 Ces attributs sont écrits en différé depuis Azure AD vers Active Directory local quand vous choisissez d’activer **Exchange hybride**. Selon votre version d’Exchange, il est possible que moins d’attributs soient synchronisés.
 
-| Nom d’attribut (interface utilisateur Connect) |Nom d’attribut (instance locale d’AD) | Utilisateur | Contact | Groupe | Commentaire |
+| Nom d’attribut (instance locale d’AD) | Nom d’attribut (interface utilisateur Connect) | Utilisateur | Contact | Groupe | Commentaire |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Dérivé de cloudAnchor dans Azure AD. Cet attribut est une nouveauté dans Exchange 2016 et Windows Server 2016 AD. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Archive en ligne : Permet aux clients d’archiver le courrier. |

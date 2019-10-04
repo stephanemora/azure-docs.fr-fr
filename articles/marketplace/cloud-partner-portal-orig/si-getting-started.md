@@ -1,25 +1,18 @@
 ---
-title: Prise en main de Seller Insights | Microsoft Docs
+title: Prise en main de Seller Insights
 description: Introduction à la fonctionnalité Seller Insights du portail Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f9bcc05fb02d2324d0546f2ed8286b27e5f8e296
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 6c903c87bc153864381a3f1763afaeeb7796090a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943059"
 ---
 <a name="getting-started-with-seller-insights"></a>Prise en main de Seller Insights
 ====================================
@@ -66,5 +59,5 @@ Seuls les utilisateurs avec les autorisations *propriétaire* peuvent voir les m
 
 - [Définitions Seller Insights](./si-insights-definitions-v4.md) : rechercher les définitions des données et des métriques
 
-- [Prise en main de Seller Insights](./si-getting-started.md) : présentation de la fonctionnalité Seller Insights.
+- [Getting started with Seller Insights](./si-getting-started.md) (Prise en main de Seller Insights) : présentation de la fonctionnalité Seller Insights.
 

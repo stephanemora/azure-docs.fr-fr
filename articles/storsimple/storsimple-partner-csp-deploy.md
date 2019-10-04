@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
 ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238928"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60629896"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Déployer StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 StorSimple Virtual Array peut être déployé par les partenaires Fournisseurs de solutions cloud (CSP) pour leurs clients. Un partenaire CSP peut créer un service StorSimple Device Manager. Ce service peut ensuite être utilisé pour déployer et gérer StorSimple Virtual Array et les partages, volumes et sauvegardes associés.
 
@@ -44,7 +44,7 @@ Si vous ajoutez un client, un abonnement est automatiquement créé. Pour ajoute
 
      ![Tableau de bord dans l’Espace Partenaires](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. Dans le panneau gauche, cliquez sur **Clients**. Dans le panneau droit, cliquez sur **Ajouter des clients**. Entrez les détails du client. Cliquez sur **Suivant : Abonnements** pour créer un abonnement client.
+2. Dans le panneau gauche, cliquez sur **Clients**. Dans le panneau droit, cliquez sur **Ajouter des clients**. Entrez les détails du client. Cliquez sur **Suivant : Abonnements** pour créer un abonnement client.
 
     ![Ajouter un client](./media/storsimple-partner-csp-deploy/image2.png)
 
@@ -103,5 +103,5 @@ Dans certains cas, vous avez peut-être un client existant et vous devez ajouter
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous avez des questions supplémentaires concernant StorSimple dans le programme des fournisseurs de solutions cloud, accédez à [StorSimple in CSP: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple dans le programme des fournisseurs de solutions cloud : Forum Aux Questions).
+- Si vous avez des questions supplémentaires concernant StorSimple dans le programme CSP, accédez à [StorSimple pour le programme des fournisseurs de solutions  cloud : questions fréquentes](storsimple-partner-csp-faq.md).
 - Si vous êtes prêt à déployer votre instance StorSimple, accédez à [Deploy StorSimple Virtual Array for Cloud Solution Provider Program](storsimple-partner-csp-deploy.md) (Déployer StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud).

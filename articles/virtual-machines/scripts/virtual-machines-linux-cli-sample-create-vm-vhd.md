@@ -3,8 +3,8 @@ title: Exemple de script Azure CLI - Créer une machine virtuelle avec un disque
 description: Exemple de script Azure CLI - Créez une machine virtuelle avec un disque dur virtuel (VHD).
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: allclark
-manager: douge
+author: cynthn
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/09/2017
-ms.author: allclark
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 331bf57c415922a6686ba733b5fbcee24699a152
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 93a94e9a32b33ffd1f52231546d6aa6a71c78df0
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118256"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841422"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Créer une machine virtuelle avec un disque dur virtuel (VHD)
 

@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 1fba8cc9ae40cf5539016bbd73de65f557a64136
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: f7b1b294e9500ef9e0aadd24cfe3cd4e61fddda1
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551630"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68426883"
 ---
 > [!IMPORTANT]
 > **Activez la synchronisation du hachage de mot de passe avec Azure AD Domain Services avant d’effectuer les tâches de cet article.**
 >
-> Suivez les instructions ci-dessous qui varient selon le type d’utilisateur de votre annuaire Azure AD. Effectuez les deux ensembles d’instructions si vous disposez d’une combinaison de comptes d’utilisateurs uniquement cloud et synchronisés dans votre annuaire Azure AD. Vous n’êtes peut-être pas en mesure d’effectuer les opérations suivantes dans le cas où vous essayez d’utiliser un compte invités de B2B (exemple, gmail ou MSA à partir d’un autre fournisseur d’identité qui nous autorisons), car nous n’avons pas le mot de passe pour ces utilisateurs synchronisés à un domaine géré en tant que ces sont des comptes d’invité dans le répertoire. Les informations complètes sur ces comptes, y compris leurs mots de passe serait en dehors d’Azure AD et que cette information n’est pas dans Azure AD, par conséquent, il ne pas encore synchronisée avec le domaine géré. 
+> Suivez les instructions ci-dessous qui varient selon le type d’utilisateur de votre annuaire Azure AD. Effectuez les deux ensembles d’instructions si vous disposez d’une combinaison de comptes d’utilisateurs uniquement cloud et synchronisés dans votre annuaire Azure AD. Vous pouvez ne pas être en mesure d’effectuer les opérations suivantes dans le cas où vous essayez d’utiliser un compte invité B2B (par exemple, gmail ou MSA à partir d’un autre fournisseur d’identité que nous autorisons), car le mot de passe de ces utilisateurs n’est pas synchronisé avec un domaine géré car il s’agit de comptes d’invité dans le répertoire. Les informations complètes sur ces comptes, y compris leurs mots de passe se trouvent en dehors d’Azure AD. Comme ces informations ne sont pas dans Azure AD, elles ne sont pas synchronisées avec le domaine géré. 
 > - [Instructions pour les comptes d’utilisateurs uniquement cloud](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)
 > - [Instructions pour les comptes d’utilisateurs synchronisés à partir d’un répertoire local](../articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md)

@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/29/2017
-ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 6feeab9b48715a8fe1f6c6fe11ae90b6be71a57a
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001997"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173480"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Utiliser Terraform pour créer un groupe de machines virtuelles Azure identiques à partir d’une image Packer personnalisée
 
@@ -42,9 +42,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Créez trois nouveaux fichiers dans un répertoire vide avec les noms suivants :
 
-- ```variables.tf``` Ce fichier contient les valeurs des variables utilisées dans le modèle.
-- ```output.tf``` Ce fichier décrit les paramètres qui s’affichent après le déploiement.
-- ```vmss.tf``` Ce fichier contient le code de l’infrastructure que vous déployez.
+- `variables.tf` : Ce fichier contient les valeurs des variables utilisées dans le modèle.
+- `output.tf` : Ce fichier décrit les paramètres qui s’affichent après le déploiement.
+- `vmss.tf` : Ce fichier contient le code de l’infrastructure que vous déployez.
 
 ##  <a name="create-the-variables"></a>Créer les variables 
 
@@ -52,7 +52,7 @@ Cette étape vous permet de définir les variables qui personnalisent les ressou
 
 Modifiez le fichier `variables.tf`, copiez le code suivant, puis enregistrez les modifications.
 
-```tf 
+```hcl
 variable "location" {
   description = "The location where resources are created"
   default     = "East US"
@@ -70,7 +70,7 @@ variable "resource_group_name" {
 
 Enregistrez le fichier .
 
-Lorsque vous déployez votre modèle Terraform, vous avez besoin de récupérer le nom de domaine complet utilisé pour accéder à l’application. Utilisez le type de ressource ```output``` de Terraform et dérivez la propriété ```fqdn``` de la ressource. 
+Lorsque vous déployez votre modèle Terraform, vous avez besoin de récupérer le nom de domaine complet utilisé pour accéder à l’application. Utilisez le type de ressource `output` de Terraform et dérivez la propriété `fqdn` de la ressource. 
 
 Modifiez le fichier `output.tf` et copiez le code suivant pour exposer le nom de domaine complet pour les machines virtuelles. 
 
@@ -89,9 +89,9 @@ Cette étape vous permet de créer l’infrastructure réseau suivante dans un n
 
 Vous avez également besoin d’un groupe de ressources où sont créées toutes les ressources. 
 
-Modifiez et copiez le code suivant dans le fichier ```vmss.tf``` : 
+Modifiez et copiez le code suivant dans le fichier `vmss.tf` : 
 
-```tf 
+```hcl
 
 resource "azurerm_resource_group" "vmss" {
   name     = "${var.resource_group_name}"
@@ -124,7 +124,7 @@ resource "azurerm_public_ip" "vmss" {
   name                         = "vmss-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}"
 
   tags {
@@ -145,7 +145,7 @@ Initialisez l’environnement Terraform en exécutant la commande suivante dans 
 terraform init 
 ```
  
-Les plug-ins du fournisseur sont téléchargés à partir du registre Terraform dans le dossier ```.terraform``` du répertoire où vous avez exécuté la commande.
+Les plug-ins du fournisseur sont téléchargés à partir du registre Terraform dans le dossier `.terraform` du répertoire où vous avez exécuté la commande.
 
 Exécutez la commande suivante pour déployer l’infrastructure dans Azure.
 
@@ -175,18 +175,17 @@ Suivez le didacticiel pour créer une image Ubuntu déprovisionnée avec NGINX i
 ## <a name="edit-the-infrastructure-to-add-the-virtual-machine-scale-set"></a>Modifier l’infrastructure pour ajouter le groupe de machines virtuelles identiques
 
 Cette étape vous permet de créer les ressources suivantes sur le réseau qui a déjà été déployé :
-- Un équilibrage de charge Azure pour prendre en charge l’application et l’attacher à l’adresse IP publique déployée à l’étape 4
+- Un équilibreur de charge Azure pour traiter l’application et l’attacher à l’adresse IP publique déployée précédemment.
 - Un équilibrage de charge Azure et des règles pour prendre en charge l’application et l’attacher à l’adresse IP publique configurée précédemment
-- Un pool d’adresses principales Azure qui est ensuite affecté à l’équilibrage de charge 
-- Un port de sonde d’intégrité utilisé par l’application et configuré sur l’équilibrage de charge 
-- Un groupe de machines virtuelles identiques derrière l’équilibrage de charge, exécuté sur le réseau virtuel déployé précédemment
-- [Nginx](https://nginx.org/) sur les nœuds du groupe de machines virtuelles identiques installé à partir de l’image personnalisée.
+- Un pool d’adresses back-end Azure qui est ensuite affecté à l’équilibrage de charge.
+- Un port de sonde d’intégrité utilisé par l’application et configuré sur l’équilibreur de charge.
+- Un groupe de machines virtuelles identiques situé derrière l’équilibreur de charge et s’exécutant sur le réseau virtuel déployé précédemment.
+- [Nginx](https://nginx.org/) sur les nœuds du groupe de machines virtuelles identiques installé à partir d’une image personnalisée.
 
 
 Ajoutez le code suivant à la fin du fichier `vmss.tf`.
 
-```tf
-
+```hcl
 
 resource "azurerm_lb" "vmss" {
   name                = "vmss-lb"
@@ -290,6 +289,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
       name                                   = "IPConfiguration"
       subnet_id                              = "${azurerm_subnet.vmss.id}"
       load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+      primary = true
     }
   }
   
@@ -302,7 +302,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
 Personnalisez le déploiement en ajoutant le code suivant à `variables.tf` :
 
-```tf 
+```hcl
 variable "application_port" {
     description = "The port that you want to expose to the external load balancer"
     default     = 80
@@ -355,7 +355,7 @@ resource "azurerm_public_ip" "jumpbox" {
   name                         = "jumpbox-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}-ssh"
 
   tags {

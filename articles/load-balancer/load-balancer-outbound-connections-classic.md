@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Cet article explique comment Azure permet aux services cloud de communiquer avec les services Internet publics.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
-ms.author: kumud
-ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 10af3b4838aae1565bac1d996997c117a74cedbc
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876940"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274668"
 ---
 # <a name="outbound-connections-classic"></a>Connexions sortantes (Classic)
 
@@ -39,7 +39,7 @@ Azure propose trois méthodes différentes pour réaliser des déploiements Clas
 
 | Scénario | Méthode | Protocoles IP | Description | Rôle de travail web | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. Machine virtuelle avec adresse IP publique de niveau d’instance](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé | TCP, UDP, ICMP, ESP | Azure utilise l’adresse IP publique affectée à la machine virtuelle. L’instance a tous les ports éphémères disponibles. | Non  | OUI |
+| [1. Machine virtuelle avec adresse IP publique de niveau d’instance](#ilpip) | Traduction d’adresses réseau sources, masquage de port non utilisé | TCP, UDP, ICMP, ESP | Azure utilise l’adresse IP publique affectée à la machine virtuelle. L’instance a tous les ports éphémères disponibles. | Non | OUI |
 | [2. Point de terminaison à charge équilibrée](#publiclbendpoint) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) sur le point de terminaison public | TCP, UDP | Azure partage le point de terminaison de l’adresse IP publique avec plusieurs points de terminaison privés. Azure utilise des ports éphémères du point de terminaison public pour la traduction d’adresse de port. | OUI | OUI |
 | [3. Machine virtuelle autonome](#defaultsnat) | Traduction d’adresses réseau sources avec masquage de port (traduction d’adresse de port) | TCP, UDP | Azure désigne automatiquement une adresse IP publique pour la traduction d’adresses réseau sources, partage cette adresse IP publique avec tout le déploiement et utilise des ports éphémères de l’adresse IP du point de terminaison public pour la traduction d’adresse de port. Il s’agit d’un scénario de secours pour les scénarios précédents. Nous vous le déconseillons si vous avez besoin de visibilité et de contrôle. | OUI | OUI |
 

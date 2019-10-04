@@ -1,35 +1,33 @@
 ---
-title: Démarrage rapide Azure Sentinel - Bien démarrer avec Azure Sentinel en préversion | Microsoft Docs
+title: Démarrage rapide Azure Sentinel - Bien démarrer avec Azure Sentinel | Microsoft Docs
 description: Démarrage rapide Azure Sentinel - Bien démarrer avec Azure Sentinel en préversion
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
-ms.assetid: 5a4ae93c-d648-41fb-8fb8-96a025d2f73e
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: a80c4db1b81dd2bc0b223a2781e28ccb1f5ba68e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: c81f4cacd4c93d681122f3c8cd692ca8645288af
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402879"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240083"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Démarrage rapide : Bien démarrer avec Azure Sentinel en préversion
-
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="quickstart-get-started-with-azure-sentinel"></a>Démarrage rapide : Bien démarrer avec Azure Sentinel
 
 
-Dans ce démarrage rapide, vous allez apprendre rapidement être capable d’afficher et de surveiller ce qui se passe au sein de votre environnement à l’aide d’Azure Sentinel. Une fois que vous avez connecté vos sources de données à Azure Sentinel, vous obtenez une visualisation et une analyse instantanées de ces données pour savoir ce qui se passe sur toutes vos sources de données connectées. Sentinel Azure vous propose des tableaux de bord qui vous donnent accès à toute la puissance des outils déjà disponibles dans Azure, ainsi que des tableaux et des graphiques intégrés pour vous fournir l’analytique pour vos journaux et requêtes. Vous pouvez utiliser les tableaux de bord intégrés ou en créer de nouveaux facilement, soit de toutes pièces ou soit en les basant sur des tableaux de bord existants. 
+
+
+Dans ce guide de démarrage rapide, vous allez apprendre à être rapidement capable d’afficher et de superviser ce qui se passe dans votre environnement à l’aide d’Azure Sentinel. Une fois que vous avez connecté vos sources de données à Azure Sentinel, vous obtenez une visualisation et une analyse instantanées de ces données pour savoir ce qui se passe sur toutes vos sources de données connectées. Sentinel Azure vous propose des classeurs qui vous donnent accès à toute la puissance des outils déjà disponibles dans Azure, ainsi que des tables et des graphiques intégrés pour vous fournir l’analytique pour vos journaux et requêtes. Vous pouvez utiliser les classeurs intégrés ou en créer de nouveaux facilement, soit de toutes pièces ou soit en les basant sur un classeur existant. 
 
 ## <a name="get-visualization"></a>Visualisation
 
@@ -52,49 +50,49 @@ Le corps de la page de vue d’ensemble donne un aperçu de l’état de la séc
    ![Carte Azure Sentinel](./media/qs-get-visibility/map.png)
 
 
-- **Incidents récents** : pour voir les incidents récents, leur niveau de gravité et le nombre d’alertes associés aux incidents. Si vous voyez des pics soudains dans un type spécifique d’alerte, cela peut signifier qu’une attaque est en cours. Par exemple, si vous constatez un pic soudain de 20 événements Pass-the-hash depuis Azure ATP, il est possible que quelqu’un tente actuellement une attaque.
+- **Incidents récents** : pour voir les incidents récents, leur niveau de gravité et le nombre d’alertes associées aux incidents. Si vous voyez des pics soudains dans un type spécifique d’alerte, cela peut signifier qu’une attaque est en cours. Par exemple, si vous constatez un pic soudain de 20 événements Pass-the-hash depuis Azure ATP, il est possible que quelqu’un tente actuellement une attaque.
 
 - **Anomalies de source de données** : les analystes de données de Microsoft ont créé des modèles qui recherchent constamment les anomalies dans les données de vos sources de données. S’il n’y a pas d’anomalie, rien ne s’affiche. Si des anomalies sont détectées, vous devez allez voir ce qui s’est produit. Par exemple, cliquez sur le pic d’activité Azure. Vous pouvez cliquer sur le **graphique** pour voir quand le pic s’est produit, puis filtrer les activités qui se sont produites pendant cette période pour voir ce qui a provoqué le pic.
 
    ![Carte Azure Sentinel](./media/qs-get-visibility/anomolies.png)
 
-## Utiliser les tableaux de bord intégrés<a name="dashboards"></a>
+## Utiliser des classeurs intégrés<a name="dashboards"></a>
 
-Les tableaux de bord intégrés fournissent des données intégrées à partir de vos sources de données connectées pour vous permettre de plonger dans les événements générés dans ces services. Les tableaux de bord intégrés comprennent l’ID Azure, les événements d’activité Azure et en local, qui peuvent être des données venant d’événements Windows sur les serveurs, d’alertes de premier niveau venant de tiers, par exemple les journaux de trafic des pare-feu, Office 365 et les protocoles non sécurisés basés sur les événements Windows.
+Les classeurs intégrés fournissent des données intégrées provenant de vos sources de données connectées pour vous permettre d’obtenir une présentation approfondie des événements générés dans ces services. Les classeurs intégrés comprennent l’ID Azure, les événements d’activité Azure et en local, qui peuvent être des données provenant d’événements Windows sur des serveurs, d’alertes internes, de tiers comme les journaux de trafic des pare-feu, Office 365 et les protocoles non sécurisés basés sur les événements Windows. Les classeurs sont basés sur les classeurs Azure Monitor pour vous offrir des possibilités de personnalisation et une flexibilité améliorées dans la conception de votre propre classeur. Pour plus d’informations, consultez [Classeurs](../azure-monitor/app/usage-workbooks.md).
 
-1. Sous **Paramètres**, sélectionnez **Tableaux de bord**. Sous **installé**, vous pouvez voir tous les tableaux de bord installés. Sous **Tous**, vous pouvez voir la galerie complète de tableaux de bord intégrés qu’il est possible d’installer. 
-2. Recherchez un tableau de bord spécifique pour afficher l’intégralité de la liste et la description de ce que chacun de ces tableaux propose. 
-3. En supposant que vous utilisiez Azure AD, pour être opérationnel avec Azure Sentinel, nous vous recommandons d’installer au moins les tableaux de bord suivants :
+1. Sous **Paramètres**, sélectionnez **Classeurs**. Sous **Installés**, vous pouvez voir tous vos classeurs installés. Sous **Tous**, vous pouvez voir la galerie complète de classeurs intégrés qu’il est possible d’installer. 
+2. Recherchez un classeur spécifique pour afficher l’intégralité de la liste et la description de ce que chacun de ces classeurs propose. 
+3. En supposant que vous utilisiez Azure AD, pour être opérationnel avec Azure Sentinel, nous vous recommandons d’installer au moins les classeurs suivants :
    - **Azure AD** : Utilisez une ou plusieurs des actions suivantes :
-       - **connexions Azure AD** analyse les connexions pour détecter les anomalies. Ce tableau de bord fournit les connexions ayant échoué venant des applications, des périphériques et des emplacements afin que vous puissiez vérifier en un clin d’œil s’il se produit quelque chose d’inhabituel. Faites attention lorsque plusieurs connexions échouent. 
+       - **connexions Azure AD** analyse les connexions pour détecter les anomalies. Ce classeur fournit les connexions ayant échoué à partir d’applications, d’appareils et d’emplacements afin que vous puissiez vérifier, en un clin d’œil, si quelque chose d’inhabituel se produit. Faites attention lorsque plusieurs connexions échouent. 
        - **Journaux d’audit Azure AD** analyse les activités d’administration, comme la modification des utilisateurs (ajout, suppression, etc.), la création de groupe et les modifications.  
 
-   - Ajouter un tableau de bord à votre pare-feu. Par exemple, ajoutez le tableau de bord Palo Alto. Le tableau de bord analyse le trafic de votre pare-feu et vous offre des corrélations entre les données du pare-feu et les événements concernant les menaces et met en évidence les événements suspects dans les entités. Les tableaux de bord vous fournissent des informations sur les tendances de votre trafic et vous permettent d’explorer au niveau du détail les résultats et de les filtrer. 
+   - Ajoutez un classeur pour votre pare-feu. Par exemple, ajoutez le classeur Palo Alto. Le classeur analyse le trafic de votre pare-feu et vous indique des corrélations entre les données du pare-feu et les événements de menaces. De plus, il met en évidence les événements suspects dans les entités. Les classeurs vous fournissent des informations sur les tendances de votre trafic, et vous permettent d’examiner les détails des résultats et de les filtrer. 
 
       ![Tableau de bord Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Vous pouvez personnaliser les tableaux de bord en modifiant la requête principale ![bouton](./media/qs-get-visibility/edit-query-button.png). Vous pouvez cliquer sur le bouton ![bouton](./media/qs-get-visibility/go-to-la-button.png) pour accéder à [Log Analytics et modifier la requête](../azure-monitor/log-query/get-started-portal.md). Vous pouvez sélectionner les points de suspension (...) et sélectionner **Personnaliser les données de la vignette**, pour modifier le filtre de temps ou supprimer certaines vignettes du tableau de bord.
+Vous pouvez personnaliser les classeurs en modifiant la requête principale ![bouton](./media/qs-get-visibility/edit-query-button.png). Vous pouvez cliquer sur le bouton ![bouton](./media/qs-get-visibility/go-to-la-button.png) pour accéder à [Log Analytics et y modifier la requête](../azure-monitor/log-query/get-started-portal.md). Vous pouvez sélectionner les points de suspension (...), puis **Personnaliser les données de la vignette** pour modifier le filtre de temps principal ou supprimer les vignettes spécifiques du classeur.
 
 Pour plus d’informations sur l’utilisation des requêtes, consultez [Tutoriel : Données visuelles dans Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Ajouter une nouvelle vignette
 
-Si vous souhaitez ajouter une nouvelle vignette, vous pouvez l’ajouter à un tableau de bord existant, à un tableau de bord que vous avez créé ou à un tableau de bord intégré d’Azure Sentinel. 
+Si vous souhaitez ajouter une nouvelle vignette, vous pouvez l’ajouter à un classeur existant, qu’il s’agisse d’un classeur que vous créez ou d’un classeur intégré d’Azure Sentinel. 
 1. Dans Log Analytics, créez une vignette selon les instructions figurant dans [Tutoriel : Données visuelles dans Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
-2. Une fois la vignette créée, sous **Épingler**, sélectionnez le tableau de bord dans lequel vous voulez que la vignette apparaisse.
+2. Une fois la vignette créée, sous **Épingler**, sélectionnez le classeur dans lequel vous voulez que la vignette apparaisse.
 
-## <a name="create-new-dashboards"></a>Créer des tableaux de bord
-Vous pouvez créer un nouveau tableau de bord de toutes pièces ou utiliser un tableau de bord intégré comme point de départ de votre nouveau tableau de bord.
+## <a name="create-new-workbooks"></a>Créer des classeurs
+Vous pouvez créer un classeur de toutes pièces ou utiliser un classeur intégré comme point de départ de votre nouveau classeur.
 
-1. Pour créer un tout nouveau tableau de bord, sélectionnez **Tableaux de bord**, puis **+Nouveau tableau de bord**.
-2. Sélectionnez l’abonnement dans lequel est créé dans le tableau de bord et donnez-lui un nom descriptif. Chaque tableau de bord est une ressource Azure comme n’importe quelle autre et vous pouvez affecter des rôles (RBAC) pour en définir et en limiter l’accès. 
-3. Pour l’activer et pour qu’il apparaisse dans vos tableaux de bord pour y épingler des visualisations, vous devez le partager. Cliquez sur **Partager**, puis sur **Gérer les utilisateurs**. 
+1. Pour créer un classeur de toutes pièces, sélectionnez **Classeurs**, puis **+Nouveau classeur**.
+2. Sélectionnez l’abonnement dans lequel le classeur est créé, puis donnez-lui un nom descriptif. Chaque classeur est une ressource Azure comme n’importe quelle autre, et vous pouvez lui affecter des rôles (RBAC) pour en définir et en limiter l’accès. 
+3. Pour lui permettre de s’afficher dans vos classeurs dans lesquels épingler des visualisations, vous devez le partager. Cliquez sur **Partager**, puis sur **Gérer les utilisateurs**. 
  
-1. Utilisez les options **Vérifier l’accès** et **Attributions de rôles** comme vous le feriez pour toute autre ressource Azure. Pour plus d’informations, consultez [Partager des tableaux de bord Azure avec le contrôle d’accès basé sur les rôles](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Utilisez les options **Vérifier l’accès** et **Attributions de rôles** comme vous le feriez pour toute autre ressource Azure. Pour plus d’informations, consultez [Partager des classeurs Azure avec le contrôle d’accès en fonction du rôle (RBAC)](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
-## <a name="new-dashboard-examples"></a>Exemples de nouveaux tableaux de bord
+## <a name="new-workbook-examples"></a>Nouveaux exemples de classeurs
 
 L’exemple de requête suivant vous permet de comparer les tendances dans le trafic entre les semaines. Vous pouvez facilement changer le fournisseur et la source de données où vous exécutez votre requête. Cet exemple utilise SecurityEvent dans Windows. Vous faire qu’il s’exécute sur AzureActivity ou CommonSecurityLog sur n’importe quel autre pare-feu.
 
@@ -116,7 +114,7 @@ Vous souhaitez peut-être créer une requête qui incorpore des données provena
     | project OperationName, RoleAssignmentTime = TimeGenerated, user = Caller) on user
     | project-away user1
 
-Vous pouvez créer différents tableaux de bord en fonction du rôle de la personne qui examine les données et de ce que cette personne recherche. Par exemple, vous pouvez créer pour votre administrateur réseau un tableau de bord qui reprend les données du pare-feu. Vous pouvez également créer des tableaux de bord en fonction de la fréquence à laquelle vous souhaitez les examiner, par exemple si certains éléments doivent être consultés tous les jours et d’autres toutes les heures. Vous pouvez aussi par exemple examiner les connexions Azure AD toutes les heures pour y rechercher les éventuelles anomalies. 
+Vous pouvez créer différents classeurs en fonction du rôle de la personne qui examine les données et de ce que cette personne recherche. Par exemple, vous pouvez créer pour votre administrateur réseau un classeur qui inclut les données du pare-feu. Vous pouvez également créer des classeurs en fonction de la fréquence à laquelle vous souhaitez les examiner, par exemple si certains éléments doivent être consultés tous les jours et d’autres toutes les heures. Vous pouvez aussi, par exemple, examiner les connexions Azure AD toutes les heures pour y rechercher d’éventuelles anomalies. 
 
 ## <a name="create-new-detections"></a>Créer de nouvelles détections
 
@@ -124,18 +122,14 @@ Générez des détections sur les [sources de données que vous avez connectées
 
 Quand vous créez une détection, tirez parti des détections intégrées élaborées par les chercheurs en sécurité de Microsoft qui sont adaptées aux sources de données que vous avez connectées.
 
-1. [Dans la communauté GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Detections), accédez au dossier **Detections** et sélectionnez les dossiers appropriés.
-   ![dossiers appropriés](./media/qs-get-visibility/detection-folders.png)
- 
-3.  Accédez à l’onglet **Analytique** et sélectionnez **Ajouter**.
-   ![créer la règle dans Log Analytics](./media/qs-get-visibility/query-params.png)
+Pour afficher toutes les détections prêtes à l’emploi, accédez à **Analytique**, puis à  **Modèles de règle**. Cet onglet contient toutes les règles intégrées Azure Sentinel.
 
-3.  Copiez tous les paramètres dans la règle et cliquez sur **Créer**.
-   ![créer une règle d’alerte](./media/qs-get-visibility/create-alert-rule.png)
+   ![Utiliser des détections intégrées pour identifier les menaces avec Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
+Pour plus d’informations sur l’obtention de détections prêtes à l’emploi, consultez [Tutoriel : Bénéficier de l’analytique intégrée](tutorial-detect-threats-built-in.md).
  
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce démarrage rapide, vous avez appris à prendre en main Azure Sentinel. Passez au tutoriel pour savoir [comment détecter les menaces](tutorial-detect-threats.md).
+Dans ce démarrage rapide, vous avez appris à prendre en main Azure Sentinel. Passez au tutoriel pour savoir [comment détecter les menaces](tutorial-detect-threats-built-in.md).
 > [!div class="nextstepaction"]
-> [Détecter les menaces](tutorial-detect-threats.md) pour automatiser vos réponses aux menaces.
+> [Créez des règles de détection des menaces personnalisées](tutorial-detect-threats-custom.md) pour automatiser vos réponses aux menaces.
 

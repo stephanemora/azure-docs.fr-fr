@@ -1,28 +1,28 @@
 ---
 title: Migrer vers l’API de traduction de texte Translator Text v3
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment migrer l’API de traduction de texte Translator Text de la V2 à la V3.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 9ce9dc330ec1b0c32ce045437fadb5d8c191529e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916714"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595247"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migration de l’API de traduction de texte Translator Text de la v2 à la v3
 
 > [!NOTE]
-> La V2 a été dépréciée le 30 avril 2018 et sera supprimée le 30 avril 2019.
+> La V2 a été déconseillée le 30 avril 2018. Migrez vos applications vers la V3 pour bénéficier des nouvelles fonctionnalités disponibles exclusivement dans la V3.
 > 
-> Microsoft Translator Hub seront supprimé le 30 avril 2019. [Afficher des dates et des informations sur la migration important](https://www.microsoft.com/translator/business/hub/).  
+> Le hub Microsoft Translator sera mis hors service le 17 mai 2019. [Consultez les dates et les informations importantes à propos de la migration](https://www.microsoft.com/translator/business/hub/).  
 
 L’équipe Microsoft Translator a publié la version 3 (v3) de l’API de traduction de texte Translator Text. Cette version inclut de nouvelles fonctionnalités, les méthodes déconseillées et un nouveau format pour l’envoi et la réception de données à partir du service de traduction de Microsoft. Ce document fournit des informations sur la modification des applications pour utiliser la V3. 
 
@@ -110,7 +110,7 @@ Globale
 
 > [!NOTE]
 > 
-> Microsoft Translator Hub seront supprimé le 30 avril 2019. [Afficher des dates et des informations sur la migration important](https://www.microsoft.com/translator/business/hub/).   
+> Le hub Microsoft Translator sera mis hors service le 17 mai 2019. [Consultez les dates et les informations importantes à propos de la migration](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 utilise par défaut la traduction automatique neuronale. Par conséquent, il ne peut pas être utilisé avec Microsoft Translator Hub. Translator Hub prend uniquement en charge la traduction automatique statistique héritée. La personnalisation de la traduction neuronale est désormais disponible à l’aide du traducteur personnalisé. [En savoir plus sur la personnalisation de la traduction automatique neuronale](custom-translator/overview.md)
 
@@ -118,8 +118,8 @@ La traduction neuronale avec l'API de texte v3 ne prend pas en charge l'utilisat
 
 | |Point de terminaison|    Conformité du processeur au RGPD|  Utiliser Translator Hub| Utiliser Custom Translator (préversion)|
 |:-----|:-----|:-----|:-----|:-----|
-|API de traduction de texte Translator Text version 2| api.microsofttranslator.com|    Non   |Oui    |Non |
-|API de traduction de texte Translator Text version 3| api.cognitive.microsofttranslator.com|  Oui|    Non | Oui|
+|API de traduction de texte Translator Text version 2| api.microsofttranslator.com|    Non  |OUI    |Non|
+|API de traduction de texte Translator Text version 3| api.cognitive.microsofttranslator.com|  OUI|    Non| OUI|
 
 **API de traduction de texte Translator Text version 3**
 * Est généralement disponible et entièrement prise en charge.
@@ -130,7 +130,6 @@ La traduction neuronale avec l'API de texte v3 ne prend pas en charge l'utilisat
 Vous utilisez la version 3 de l’API de traduction de texte Translator Text si vous utilisez le point de terminaison api.cognitive.microsofttranslator.com.
 
 **API de traduction de texte Translator Text version 2**
-* Est dépréciée. Elle ne sera plus disponible après le 30 avril 2019. 
 * Ne remplit pas toutes les conditions de certification aux normes ISO 20001, 20018 et SOC 3. 
 * Ne vous permet d’appeler les systèmes de traduction de réseau neuronal que vous avez personnalisés avec la fonctionnalité de personnalisation Translator.
 * Donne accès aux systèmes de traduction personnalisés créés à l’aide de Microsoft Translator Hub.

@@ -1,6 +1,6 @@
 - name: Documentation App Service
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Web Apps
       href: overview.md
@@ -9,7 +9,7 @@
     - name: À propos d’App Service Environments
       href: environment/intro.md
     - name: Comparer les options d’hébergement
-      href: overview-compare.md
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
 - name: Démarrages rapides
   expanded: true
   items:
@@ -55,7 +55,7 @@
       href: app-service-web-tutorial-auth-aad.md
 - name: Exemples
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: samples-cli.md
     - name: Azure PowerShell
       href: samples-powershell.md
@@ -63,21 +63,30 @@
       href: samples-resource-manager-templates.md
 - name: Concepts
   items:
-    - name: Fonctionnement d’App Service
-      href: app-service-how-works-readme.md
     - name: Plans App Service
       href: overview-hosting-plans.md
     - name: Fonctionnalités du système d’exploitation
       href: operating-system-functionality.md
+    - name: Bonnes pratiques de déploiement
+      href: deploy-best-practices.md
     - name: Sécurité
-      href: overview-security.md
       items:
+        - name: Recommandations
+          href: security-recommendations.md
         - name: Authentification et autorisation
           href: overview-authentication-authorization.md
         - name: Système d’exploitation et mise à jour corrective du runtime
           href: overview-patch-os-runtime.md
+        - name: Contrôles de sécurité intégrés
+          href: app-service-security-controls.md
+        - name: Présentation de la sécurité
+          href: overview-security.md
+    - name: Fonctionnalités réseau
+      href: networking-features.md
     - name: Adresses IP entrantes et sortantes
       href: overview-inbound-outbound-ips.md
+    - name: Intégration du réseau virtuel
+      href: web-sites-integrate-with-vnet.md
     - name: Connexions hybrides
       href: app-service-hybrid-connections.md
     - name: Intégration de Traffic Manager
@@ -90,14 +99,16 @@
   items:
     - name: Configurer l’application
       items:
-        - name: Utiliser les paramètres de l’application
-          href: web-sites-configure.md
+        - name: Configurer les paramètres courants
+          href: configure-common.md
         - name: Configurer PHP
           href: web-sites-php-configure.md
-        - name: Guide du développeur Java
+        - name: Configurer Java
           href: configure-language-java.md
         - name: Se connecter à des ressources locales
           href: web-sites-integrate-with-vnet.md
+        - name: Configurer Stockage Azure (conteneur)
+          href: configure-connect-to-azure-storage.md
     - name: Déployer dans Azure
       items:
         - name: Déployer l’application
@@ -159,7 +170,7 @@
     - name: Mettre à l’échelle une application
       items:
         - name: Faire monter en puissance la capacité du serveur
-          href: web-sites-scale.md
+          href: manage-scale-up.md
         - name: Configurer le niveau PremiumV2
           href: app-service-configure-premium-tier.md
         - name: Augmenter la taille de plusieurs instances
@@ -198,7 +209,7 @@
           href: webjobs-sdk-how-to.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
@@ -208,6 +219,8 @@
       href: /azure/templates/microsoft.web/allversions
 - name: Ressources
   items:
+    - name: Blog App Service
+      href: 'https://aka.ms/appserviceblog'
     - name: Développer vos compétences avec Microsoft Learn
       href: /learn/browse/
     - name: Feuille de route Azure
@@ -218,6 +231,8 @@
       href: '../azure-subscription-service-limits.md#app-service-limits'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=app-service'
+    - name: Guides de l’Assistant Migration
+      href: 'https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs'
     - name: Bonnes pratiques
       href: app-service-best-practices.md
     - name: Exemples
@@ -227,7 +242,7 @@
     - name: Livres de recettes
       items:
         - name: Architectures de référence
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications'
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
         - name: Scripts de déploiement
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Résolution de problèmes

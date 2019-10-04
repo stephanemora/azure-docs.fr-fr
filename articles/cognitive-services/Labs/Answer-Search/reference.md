@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: answer-search
 ms.topic: reference
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 09fab691ea04ad98472abc4f4dee5ecb4d22e660
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.author: rosh
+ROBOTS: NOINDEX
+ms.openlocfilehash: 28449435479aef0d6a1d8aee3e53de1a78f401b3
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527317"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705331"
 ---
 # <a name="project-answer-search-v7-reference"></a>Informations de référence sur le projet Recherche de réponses v7
 
@@ -35,7 +36,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>
 ```
 
 La demande doit utiliser le protocole HTTPS et inclure le paramètre de requête suivant :
--  `q=<URL>` -La requête qui identifie l’objet de recherche
+-  `q=<URL>` : requête identifiant l’objet de la recherche
 
 Pour des exemples montrant comment effectuer des demandes, voir [Démarrage rapide C#](c-sharp-quickstart.md) ou [Démarrage rapide Java](java-quickstart.md). 
 
@@ -85,11 +86,11 @@ La demande peut comporter les paramètres de requête suivants. Consultez la col
   
 |Nom|Valeur|Type|Obligatoire|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|Oui|  
-|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|Oui|  
-|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](https://json-ld.org/).|Chaîne|Non |  
-|<a name="safesearch" />safeSearch|Filtre utilisé pour filtrer le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Retourner les pages web comportant du texte, des images ou des vidéos pour adultes.<br /><br/></li><li>Modéré &mdash; Retourner les pages web comportant du texte pour adultes, mais pas des images ou des vidéos pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas retourner de pages web comportant du texte, des images ou des vidéos pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la demande provient d’un marché où la stratégie de Bing en matière de contenu pour adultes exige que `safeSearch` ait la valeur Strict, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes. |Chaîne|Non |  
-|<a name="setlang" />setLang|Langue à utiliser pour les chaînes de l’interface utilisateur. Spécifiez la langue en utilisant le code de langue ISO 639-1 à deux lettres. Par exemple, celui de l’anglais est EN. La valeur par défaut est EN (anglais).<br /><br /> Nous vous conseillons de toujours indiquer la langue, bien qu’elle soit facultative. En général, on définit `setLang` sur la langue spécifiée par `mkt`, sauf si l’utilisateur souhaite que les chaînes de l’interface utilisateur soient affichées dans une autre langue.<br /><br /> Ce paramètre et l’en-tête [Accept-Language](#acceptlanguage) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. En outre, les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée.|Chaîne|Non | 
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|OUI|  
+|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|OUI|  
+|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](https://json-ld.org/).|Chaîne|Non|  
+|<a name="safesearch" />safeSearch|Filtre utilisé pour filtrer le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Retourner les pages web comportant du texte, des images ou des vidéos pour adultes.<br /><br/></li><li>Modéré &mdash; Retourner les pages web comportant du texte pour adultes, mais pas des images ou des vidéos pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas retourner de pages web comportant du texte, des images ou des vidéos pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la demande provient d’un marché où la stratégie de Bing en matière de contenu pour adultes exige que `safeSearch` ait la valeur Strict, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes. |Chaîne|Non|  
+|<a name="setlang" />setLang|Langue à utiliser pour les chaînes de l’interface utilisateur. Spécifiez la langue en utilisant le code de langue ISO 639-1 à deux lettres. Par exemple, celui de l’anglais est EN. La valeur par défaut est EN (anglais).<br /><br /> Nous vous conseillons de toujours indiquer la langue, bien qu’elle soit facultative. En général, on définit `setLang` sur la langue spécifiée par `mkt`, sauf si l’utilisateur souhaite que les chaînes de l’interface utilisateur soient affichées dans une autre langue.<br /><br /> Ce paramètre et l’en-tête [Accept-Language](#acceptlanguage) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. En outre, les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée.|Chaîne|Non| 
 
 
 ## <a name="response-objects"></a>Objets de la réponse  
@@ -143,7 +144,7 @@ Définit une règle contractuelle pour l’attribution de la licence.
 |_type|Indicateur de type, défini sur LicenseAttribution.|Chaîne|  
 |license|Licence sous laquelle il est possible d’utiliser le contenu.|[License](#license)|  
 |licenseNotice|Licence à afficher à côté du champ ciblé. Par exemple, « Texte sous licence CC-BY-SA ».<br /><br /> Utilisez le nom de la licence et l’URL dans le champ `license` pour créer un lien hypertexte vers le site web décrivant les détails de la licence. Ensuite, remplacez le nom de la licence dans la chaîne `licenseNotice` (par exemple, CC-BY-SA) par le lien hypertexte que vous venez de créer.|Chaîne|  
-|mustBeCloseToContent|Valeur booléenne qui détermine si le contenu de la règle doit être placé à proximité du champ auquel la règle s’applique. Si la valeur est **true**, le contenu doit être à proximité immédiate. Si ce champ a la valeur **false** ou n’existe pas, l’emplacement du contenu est à la discrétion de l’appelant.|Booléen|  
+|mustBeCloseToContent|Valeur booléenne qui détermine si le contenu de la règle doit être placé à proximité du champ auquel la règle s’applique. Si la valeur est **true**, le contenu doit être à proximité immédiate. Si ce champ a la valeur **false** ou n’existe pas, l’emplacement du contenu est à la discrétion de l’appelant.|Boolean|  
 |targetPropertyName|Nom du champ auquel la règle s’applique.|Chaîne|  
   
 
@@ -153,7 +154,7 @@ Définit les composants d’un lien hypertexte.
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type.|Chaîne|  
-|texte|Texte d’affichage.|Chaîne|  
+|text|Texte d’affichage.|Chaîne|  
 |url|URL. Utilisez l’URL et le texte d’affichage pour créer un lien hypertexte.|Chaîne|  
   
 
@@ -163,9 +164,9 @@ Définit une règle contractuelle pour l’attribution du lien.
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur LinkAttribution.|Chaîne|  
-|mustBeCloseToContent|Valeur booléenne qui détermine si le contenu de la règle doit être placé à proximité du champ auquel la règle s’applique. Si la valeur est **true**, le contenu doit être à proximité immédiate. Si ce champ a la valeur **false** ou n’existe pas, l’emplacement du contenu est à la discrétion de l’appelant.|Booléen|  
+|mustBeCloseToContent|Valeur booléenne qui détermine si le contenu de la règle doit être placé à proximité du champ auquel la règle s’applique. Si la valeur est **true**, le contenu doit être à proximité immédiate. Si ce champ a la valeur **false** ou n’existe pas, l’emplacement du contenu est à la discrétion de l’appelant.|Boolean|  
 |targetPropertyName|Nom du champ auquel la règle s’applique.<br /><br /> Si aucune cible n’est spécifiée, l’attribution s’applique à l’entité dans son ensemble et devrait s’afficher juste après la présentation de l’entité. Si plusieurs règles d’attribution du texte et du lien ne spécifient pas de cible, concaténez-les et affichez-les avec une étiquette « Données provenant de : ». Par exemple, « Données provenant de <nom fournisseur1\> &#124; <nom fournisseur2\> ».|Chaîne|  
-|texte|Texte d’attribution.|Chaîne|  
+|text|Texte d’attribution.|Chaîne|  
 |url|URL du site web du fournisseur. Utilisez `text` et l’URL pour créer le lien hypertexte.|Chaîne|  
   
   
@@ -175,7 +176,7 @@ Définit une règle contractuelle pour l’attribution du média.
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur MediaAttribution.|Chaîne|  
-|mustBeCloseToContent|Valeur booléenne qui détermine si le contenu de la règle doit être placé à proximité du champ auquel la règle s’applique. Si la valeur est **true**, le contenu doit être à proximité immédiate. Si ce champ a la valeur **false** ou n’existe pas, l’emplacement du contenu est à la discrétion de l’appelant.|Booléen|  
+|mustBeCloseToContent|Valeur booléenne qui détermine si le contenu de la règle doit être placé à proximité du champ auquel la règle s’applique. Si la valeur est **true**, le contenu doit être à proximité immédiate. Si ce champ a la valeur **false** ou n’existe pas, l’emplacement du contenu est à la discrétion de l’appelant.|Boolean|  
 |targetPropertyName|Nom du champ auquel la règle s’applique.|Chaîne|  
 |url|URL utilisée pour créer le lien hypertexte du contenu multimédia. Par exemple, si la cible est une image, vous utiliserez l’URL pour rendre l’image cliquable.|Chaîne|  
   
@@ -201,7 +202,7 @@ Définit les informations concernant la page web dans l’aperçu.
 |Nom|Titre de la page (pas nécessairement le titre HTML).|Chaîne|
 |url|URL réellement analysée (potentiellement avec redirections de la demande).|Chaîne|  
 |description|Brève description de la page et de son contenu.|Chaîne|  
-|isFamilyFriendly|Précision maximale pour les éléments figurant dans l’index web ; les extractions en temps réel effectuent cette détection d’après l’URL uniquement, et non d’après le contenu de la page.|booléenne|
+|isFamilyFriendly|Précision maximale pour les éléments figurant dans l’index web ; les extractions en temps réel effectuent cette détection d’après l’URL uniquement, et non d’après le contenu de la page.|boolean|
 |primaryImageOfPage/contentUrl|URL d’une image représentative à inclure dans l’aperçu.|Chaîne| 
   
   
@@ -210,10 +211,10 @@ Définit le contexte de requête utilisé par Bing pour la demande.
   
 |Élément|Description|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Valeur booléenne qui indique si la requête spécifiée est destinée à des adultes. La valeur est **true** si c’est le cas, **false** sinon.|Booléen|  
+|adultIntent|Valeur booléenne qui indique si la requête spécifiée est destinée à des adultes. La valeur est **true** si c’est le cas, **false** sinon.|Boolean|  
 |alterationOverrideQuery|Chaîne de requête à utiliser pour forcer Bing à utiliser la chaîne d’origine. Par exemple, si la chaîne de requête est *saling downwind*, la chaîne de requête de remplacement sera *+saling downwind*. N’oubliez pas d’encoder la chaîne de requête, ce qui donne *%2Bsaling+downwind*.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|Chaîne|  
 |alteredQuery|Chaîne de requête utilisée par Bing pour exécuter la requête. Bing utilise la chaîne de requête modifiée si la chaîne de requête d’origine contenait des fautes d’orthographe. Par exemple, si la chaîne de requête est `saling downwind`, la chaîne de requête modifiée sera `sailing downwind`.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|Chaîne|  
-|askUserForLocation|Valeur booléenne qui indique si Bing exige que l’emplacement de l’utilisateur donne des résultats précis. Si vous avez spécifié l’emplacement de l’utilisateur à l’aide des en-têtes [X-MSEdge-ClientIP](#clientip) et [X-Search-Location](#location), vous pouvez ignorer ce champ.<br /><br /> Dans le cas des requêtes pour lesquelles l’emplacement de l’utilisateur doit fournir des résultats précis, comme « météo du jour » ou « restaurants proches », ce champ est défini sur **true**.<br /><br /> Dans le cas des requêtes qui précisent l’emplacement (par exemple, « météo Seattle »), ce champ est défini sur **false**. Ce champ est également défini sur **false** pour les requêtes qui ne dépendent pas de la localisation, comme « meilleurs ventes ».|Booléen|  
+|askUserForLocation|Valeur booléenne qui indique si Bing exige que l’emplacement de l’utilisateur donne des résultats précis. Si vous avez spécifié l’emplacement de l’utilisateur à l’aide des en-têtes [X-MSEdge-ClientIP](#clientip) et [X-Search-Location](#location), vous pouvez ignorer ce champ.<br /><br /> Dans le cas des requêtes pour lesquelles l’emplacement de l’utilisateur doit fournir des résultats précis, comme « météo du jour » ou « restaurants proches », ce champ est défini sur **true**.<br /><br /> Dans le cas des requêtes qui précisent l’emplacement (par exemple, « météo Seattle »), ce champ est défini sur **false**. Ce champ est également défini sur **false** pour les requêtes qui ne dépendent pas de la localisation, comme « meilleurs ventes ».|Boolean|  
 |originalQuery|Chaîne de requête telle que spécifiée dans la demande.|Chaîne|  
 
 ### <a name="identifiable"></a>Identifiable
@@ -234,7 +235,7 @@ Définit un élément de résultat de recherche à afficher.
 
 |Nom|Valeur|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Index base zéro de l’élément de la réponse à afficher. Si l’élément ne comporte pas ce champ, affiche tous les éléments de la réponse. Par exemple, affiche tous les articles dans la réponse Actualités.|Entier |
+|resultIndex|Index base zéro de l’élément de la réponse à afficher. Si l’élément ne comporte pas ce champ, affiche tous les éléments de la réponse. Par exemple, affiche tous les articles dans la réponse Actualités.|Entier|
 |answerType|Réponse qui contient l’élément à afficher. Par exemple, Actualités.<br /><br />Utilisez le type pour trouver la réponse dans l’objet SearchResponse. Le type est le nom d’un champ SearchResponse.<br /><br /> Toutefois, n’utilisez le type de réponse que si cet objet inclut le champ de valeur ; sinon, ignorez-le.|Chaîne|
 |textualIndex|Index de la réponse dans textualAnswers à afficher.| Entier non signé|
 |value|ID qui identifie une réponse ou un élément de réponse à afficher. Si l’ID identifie une réponse, affiche tous les éléments de la réponse.|Identifiable|
@@ -266,7 +267,7 @@ Définit une règle contractuelle pour l’attribution du texte brut.
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type, défini sur TextAttribution.|Chaîne|  
-|texte|Texte d’attribution.<br /><br /> L’attribution du texte s’applique à l’entité dans son ensemble et devrait s’afficher juste après la présentation de l’entité. Si plusieurs règles d’attribution du texte ou du lien ne spécifient pas de cible, concaténez-les et affichez-les avec une étiquette « Données provenant de : ».|Chaîne| 
+|text|Texte d’attribution.<br /><br /> L’attribution du texte s’applique à l’entité dans son ensemble et devrait s’afficher juste après la présentation de l’entité. Si plusieurs règles d’attribution du texte ou du lien ne spécifient pas de cible, concaténez-les et affichez-les avec une étiquette « Données provenant de : ».|Chaîne| 
 
 
 ## <a name="error-codes"></a>Codes d’erreur

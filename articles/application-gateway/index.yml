@@ -1,76 +1,69 @@
-### YamlMime:YamlDocument
-ms.openlocfilehash: 9b3a65446a6f55101e93fdee4c437cde7408b7ca
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973075"
-documentType: LandingData
-title: Documentation Application Gateway
+### YamlMime:Landing
+title: Documentation Azure Application Gateway
+summary: Découvrez comment créer des passerelles d’application. Cette documentation vous aide à planifier, déployer et gérer le trafic web dans vos ressources Azure.
 metadata:
-  title: Documentation Azure Application Gateway - Didacticiels, informations de référence sur les API
-  meta.description: Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.
+  title: Documentation Azure Application Gateway
+  description: Découvrez comment déployer un pare-feu Azure, un service de sécurité réseau basé sur le cloud.
   services: application-gateway
-  author: davidmu1
-  manager: jeconnocfte
   ms.service: application-gateway
   ms.topic: landing-page
-  ms.date: 02/01/2018
-  ms.author: davidmu
-abstract:
-  description: Apprenez à déployer Application Gateway, un contrôleur de remise d’applications sous forme de service. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer des services d’équilibrage de charge et de routage au niveau de l’application qui vous permettent de créer un serveur frontal web évolutif et hautement disponible.
-sections:
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: 'Apprenez à gérer le trafic web vers vos ressources à l’aide d’Application Gateway :'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: https://docs.microsoft.com/azure/application-gateway/media/index/portal.svg
-      text: Portail Azure
-      href: https://docs.microsoft.com/azure/application-gateway/quick-create-portal
-    - image:
-        src: https://docs.microsoft.com/azure/application-gateway/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/azure/application-gateway/quick-create-powershell
-    - image:
-        src: https://docs.microsoft.com/azure/application-gateway/media/index/cli.svg
-      text: Azure CLI
-      href: https://docs.microsoft.com/azure/application-gateway/quick-create-cli
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Découvrez comment déployer, gérer et surveiller des passerelles Application Gateway sur Azure
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/application-gateway/tutorial-manage-web-traffic-cli">Gérer le trafic web avec une passerelle Application Gateway.</a>
-    - html: <a href="/azure/application-gateway/tutorial-restrict-web-traffic-cli">Limiter le trafic web avec un pare-feu d’application web sur une passerelle Application Gateway.</a>
-    - html: <a href="/azure/application-gateway/tutorial-ssl-cli">Activer l’arrêt SSL sur une passerelle Application Gateway.</a>
-    - html: <a href="/azure/application-gateway/tutorial-multiple-sites-cli">Héberger plusieurs sites web à l’aide d’une passerelle Application Gateway.</a>
-    - html: <a href="/azure/application-gateway/tutorial-url-route-cli">Acheminer le trafic en fonction de l’URL dans une passerelle Application Gateway.</a>
-    - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Rediriger le trafic vers des serveurs spécifiques dans un pool de passerelles Application Gateway.</a>
-- title: Exemples
-  items:
-  - type: paragraph
-    text: Gérer le trafic web avec une passerelle Application Gateway.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/application-gateway/cli-samples">Interface de ligne de commande Azure</a>
-    - html: <a href="/azure/application-gateway/powershell-samples">Azure PowerShell</a>
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Ligne de commande
-      html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p><p><a href="/cli/azure/network/application-gateway">Interface de ligne de commande Azure</a></p>
-    - title: Langues
-      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network/ApplicationGateways">Node.JS</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-network/azure.mgmt.network.v2018_08_01.operations.application_gateways_operations.applicationgatewaysoperations?view=azure-python">Python</a></p>
-    - title: REST
-      html: <p><a href="https://msdn.microsoft.com/library/mt684941">Informations de référence complètes sur les API REST</a></p>
+  author: vhorne
+  ms.author: victorh
+  ms.date: 09/18/2019
+  ms.openlocfilehash: ff940f474c6d5d6fd96a03c45be18de39f065b97
+  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/17/2019
+  ms.locfileid: "71076028"
+landingContent:
+- title: En savoir plus sur Application Gateway
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Application Gateway ?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Questions fréquentes (FAQ)
+      url: application-gateway-faq.md
+- title: Déployer une passerelle d’application
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Diriger le trafic web avec Azure Application Gateway
+      url: quick-create-portal.md
+- title: Déployer avec la terminaison SSL
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Terminaison SSL et chiffrement SSL de bout en bout avec Application Gateway
+      url: ssl-overview.md
+    - text: Vue d’ensemble des stratégies SSL
+      url: application-gateway-ssl-policy-overview.md
+  - linkListType: tutorial
+    links:
+    - text: Configurer une passerelle d’application avec une terminaison SSL
+      url: create-ssl-portal.md
+- title: Passerelles d’application avec mise à l’échelle automatique et redondance interzone
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Application Gateway v2 avec mise à l’échelle automatique et redondance interzone
+      url: application-gateway-autoscaling-zone-redundant.md
+  - linkListType: tutorial
+    links:
+    - text: Créer une passerelle d'application qui améliore l'accès aux applications web
+      url: tutorial-autoscale-ps.md
+- title: Résoudre les problèmes d’Application Gateway
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vue d’ensemble de l’intégrité des ressources Application Gateway
+      url: resource-health-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Utiliser Azure Log Analytics pour examiner les journaux du pare-feu d’applications web sur Application Gateway
+      url: log-analytics.md
+    - text: Problèmes d’intégrité des back-ends dans Application Gateway
+      url: application-gateway-backend-health-troubleshooting.md

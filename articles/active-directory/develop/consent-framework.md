@@ -3,8 +3,8 @@ title: Infrastructure de consentement d’Azure Active Directory
 description: Découvrez l’infrastructure de consentement dans Azure Active Directory et comment elle facilite le développement d’applications web multi-locataires et d’applications clientes natives.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/30/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f01555933ca8b3d0c48a956d3deb4b3356b4e1a2
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: 7b9d272c8a01eeed58278a6e7f0cec147b01a10e
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564956"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482934"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Infrastructure de consentement d’Azure Active Directory
 
@@ -40,7 +40,7 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
 
 1. Supposons que vous ayez une application cliente web devant demander des autorisations spécifiques pour accéder à une ressource/API. Vous allez apprendre à effectuer cette configuration dans la section suivante, mais le portail Azure est essentiellement utilisé pour déclarer des demandes d’autorisation au moment de la configuration. Comme d’autres paramètres de configuration, elles sont incluses dans l’inscription Azure AD de l’application :
 
-    ![Autorisations pour d'autres applications](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
+    ![Autorisations pour d'autres applications](./media/consent-framework/permissions.png)
 
 1. Considérons que les autorisations de votre application ont été mises à jour, que l'application s'exécute et qu’un utilisateur s'apprête à l’utiliser pour la première fois. L’application doit tout d’abord obtenir un code d’autorisation du point de terminaison `/authorize` d’Azure AD. Le code d’autorisation peut ensuite être utilisé pour obtenir un nouvel accès et un jeton d’actualisation.
 
@@ -50,7 +50,7 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
 
 1. Une fois l'utilisateur connecté, Azure AD déterminera s’il est nécessaire d'afficher une page de consentement pour l’utilisateur. La détermination est différente selon que l’utilisateur (ou l’administrateur de son organisation), a déjà accordé ou non son consentement à l'application. Si l'autorisation n'a pas encore été accordée, Azure AD invite l'utilisateur à fournir son consentement et affiche les autorisations dont il a besoin pour fonctionner. L’ensemble des autorisations qui s’affichent dans la boîte de dialogue de consentement correspondent à celles sélectionnées dans la section **Autorisations déléguées** du portail Azure.
 
-    ![Expérience de consentement de l'utilisateur](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Montre un exemple d’autorisations affichées dans la boîte de dialogue de consentement](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. Une fois que l'utilisateur a donné son consentement, un code d'autorisation est retourné à votre application, qui est utilisé pour acquérir un jeton d'accès et un jeton d'actualisation. Pour plus d’informations sur ce flux, consultez [Type d’application API web](web-api.md).
 
@@ -58,11 +58,10 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
 
     **Pour donner son consentement pour les autorisations déléguées d’une application**
 
-   1. Accédez à la page **Paramètres** de votre application
-   1. Sélectionnez **Autorisations requises**.
-   1. Cliquez sur le bouton **Accorder des autorisations**.
+   1. Accédez à la page **Autorisations des API** de votre application
+   1. Cliquez sur le bouton **Accorder le consentement administrateur**.
 
-      ![Accorder des autorisations pour un consentement administrateur explicite](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Accorder des autorisations pour un consentement administrateur explicite](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
    > Pour les applications monopages (SPA) qui utilisent ADAL.js, vous devez accorder un consentement explicite à l’aide du bouton **Accorder des autorisations**. Sinon, l’application échoue lorsque le jeton d’accès est demandé.

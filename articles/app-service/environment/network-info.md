@@ -9,100 +9,102 @@ ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 73175b326c25d5d9a78155d0d9d888b655da1bfd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 9b7c63639eea7176af36593983b08ad0c5213613
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124131"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073230"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
 
-## <a name="overview"></a>Présentation ##
+## <a name="overview"></a>Vue d'ensemble ##
 
  [App Service Environment Azure][Intro] est un déploiement d’Azure App Service dans un sous-réseau d’un réseau virtuel Azure (VNet). Il existe deux types de déploiement pour un environnement App Service (ASE) :
 
-- **ASE externe** : expose les applications hébergées dans l’ASE sur une adresse IP accessible via Internet. Pour plus d’informations, consultez [Créer un environnement App Service externe][MakeExternalASE].
-- **ASE ILB** : expose les applications hébergées dans l’ASE sur une adresse IP à l’intérieur de votre réseau virtuel. Le point de terminaison interne est un équilibreur de charge interne (ILB), d’où cette appellation d’ASE ILB. Pour plus d’informations, consultez [Create and use an ILB ASE][MakeILBASE] (Créer et utiliser un ASE ILB).
+- **ASE externe** : expose les applications hébergées dans l’ASE sur une adresse IP accessible via Internet. Pour plus d’informations, consultez [Créer un App Service Environment externe][MakeExternalASE].
+- **ASE ILB** : expose les applications hébergées dans l’ASE sur une adresse IP à l’intérieur de votre réseau virtuel. Le point de terminaison interne est un équilibreur de charge interne (ILB), d’où cette appellation d’ASE ILB. Pour plus d’informations, consultez [Créer et utiliser un ASE ILB][MakeILBASE].
 
-Il existe deux versions d’App Service Environment : ASEv1 et ASEv2. Pour plus d’informations sur ASEv1, consultez la [Présentation de l’environnement App Service v1][ASEv1Intro]. Un ASEv1 peut être déployé dans un réseau virtuel classique ou Resource Manager. Un ASEv2 peut uniquement être déployé dans un réseau virtuel Resource Manager.
-
-Tous les appels d’un ASE à destination d’Internet quittent le réseau virtuel via une adresse IP virtuelle assignée à l’ASE. L’adresse IP publique de cette adresse IP virtuelle constitue l’adresse IP source de tous les appels de l’ASE à destination d’Internet. Si les applications hébergées dans votre environnement ASE appellent des ressources de votre réseau virtuel ou hébergées dans un VPN, l’adresse IP source sera l’une des adresses IP du sous-réseau utilisé par votre environnement ASE. Comme l’ASE se trouve à l’intérieur du réseau virtuel, il peut également accéder aux ressources de celui-ci sans configuration supplémentaire. Si le réseau virtuel est connecté à votre réseau local, les applications dans votre environnement ASE ont également accès aux ressources sans configuration supplémentaire.
+Tous les environnements ASE, externes et ILB ont une adresse IP virtuelle publique, qui est utilisée pour le trafic de gestion entrant et en tant qu’adresse de départ lors l’appels de l’ASE vers Internet. Tous les appels d’un ASE à destination d’Internet quittent le réseau virtuel via une adresse IP virtuelle assignée à l’ASE. L’adresse IP publique de cette adresse IP virtuelle constitue l’adresse IP source de tous les appels de l’ASE à destination d’Internet. Si les applications hébergées dans votre environnement ASE appellent des ressources de votre réseau virtuel ou hébergées dans un VPN, l’adresse IP source sera l’une des adresses IP du sous-réseau utilisé par votre environnement ASE. Comme l’ASE se trouve à l’intérieur du réseau virtuel, il peut également accéder aux ressources de celui-ci sans configuration supplémentaire. Si le réseau virtuel est connecté à votre réseau local, les applications dans votre environnement ASE ont également accès aux ressources sans configuration supplémentaire.
 
 ![ASE externe][1] 
 
 Si vous avez un ASE externe, l’adresse IP virtuelle publique est également le point de terminaison que vos applications ASE peuvent résoudre :
 
-* HTTP/S. 
-* FTP/S. 
-* Déploiement Web.
-* Débogage à distance.
+* HTTP/S 
+* FTP/S
+* Déploiement web
+* Débogage à distance
 
 ![ASE ILB][2]
 
-Si vous possédez un ASE ILB, l’adresse de l’équilibreur de charge interne est le point de terminaison pour les protocoles HTTP/S et FTP/S, le déploiement Web et le débogage à distance.
-
-Les ports d’accès normaux pour les applications sont les suivants :
-
-| Utilisation | À partir | À |
-|----------|---------|-------------|
-|  HTTP/HTTPS  | Configurable par l’utilisateur |  80, 443 |
-|  FTP/FTPS    | Configurable par l’utilisateur |  21, 990, 10001-10020 |
-|  Débogage distant de Visual Studio  |  Configurable par l’utilisateur |  4020, 4022, 4024 |
-|  Déployer le service Web | Configurable par l’utilisateur | 8172 |
-
-Ces ports s’appliquent aussi bien pour un ASE externe que pour un ASE ILB. Si vous êtes dans un ASE externe, appuyez sur ces ports sur l’adresse IP virtuelle publique. Si vous vous trouvez dans un ASE ILB, vous atteignez ces ports sur l’équilibreur de charge interne. Si vous verrouillez le port 443, certaines fonctionnalités exposées dans le portail peuvent être affectées. Pour plus d’informations, consultez la section [Dépendances du portail](#portaldep).
+Si vous possédez un ASE ILB, l’adresse de l’équilibreur de charge interne est le point de terminaison pour les protocoles HTTP/S et FTP/S, le déploiement web et le débogage à distance.
 
 ## <a name="ase-subnet-size"></a>Taille du sous-réseau de l’ASE ##
 
-La taille du sous-réseau utilisé pour héberger un ASE ne peut pas être modifiée une fois l’ASE déployé.  L’ASE utilise une adresse pour chaque rôle d’infrastructure, ainsi que pour chaque instance de plan App Service Isolé.  De plus, 5 adresses sont utilisées par Azure Networking pour chaque sous-réseau créé.  Un ASE sans aucun plan App Service utilise 12 adresses avant la création d’une application.  S’il s’agit d’un ASE ILB, il utilise 13 adresses avant la création d’une application dans cet ASE. Lorsque vous augmentez la taille des instances de votre ASE, les rôles d’infrastructure sont ajoutés à chaque fois que les instances de votre plan App Service sont multipliées par 15 ou 20.
+La taille du sous-réseau utilisé pour héberger un ASE ne peut pas être modifiée une fois l’ASE déployé.  L’ASE utilise une adresse pour chaque rôle d’infrastructure, ainsi que pour chaque instance de plan App Service Isolé.  De plus, cinq adresses sont utilisées par Azure Networking pour chaque sous-réseau créé.  Un ASE sans aucun plan App Service utilise 12 adresses avant la création d’une application.  S’il s’agit d’un ASE ILB, il utilise 13 adresses avant la création d’une application dans cet environnement. Lorsque vous augmentez la taille des instances de votre ASE, les rôles d’infrastructure sont ajoutés à chaque fois que les instances de votre plan App Service sont multipliées par 15 ou 20.
 
    > [!NOTE]
    > Le sous-réseau doit contenir uniquement l’ASE. Veillez à choisir un espace d’adressage qui permet une croissance future. Vous ne pouvez pas modifier ce paramètre par la suite. Nous vous recommandons une taille de `/24` avec 256 adresses.
 
-Lorsque vous montez ou descendez en puissance, de nouveaux rôles (de taille correspondante) sont ajoutés, puis vos charges de travail sont migrées depuis la taille actuelle vers la taille cible. Les machines virtuelles d’origine sont supprimées seulement après la migration de vos applications. En d’autres termes, si vous disposiez d’un ASE comportant 100 instances ASP, vous devez doubler le nombre de machines virtuelles pendant une certaine période.  C’est pourquoi nous vous recommandons d’utiliser « /24 » pour prendre en compte toutes les potentielles modifications.  
+Lorsque vous montez ou descendez en puissance, de nouveaux rôles (de taille correspondante) sont ajoutés, puis vos charges de travail sont migrées depuis la taille actuelle vers la taille cible. Les machines virtuelles d’origine sont supprimées uniquement une fois les charges de travail migrées. Si vous disposiez d’un ASE comportant 100 instances ASP, vous devez doubler le nombre de machines virtuelles pendant une certaine période.  C’est pourquoi nous vous recommandons d’utiliser « /24 » pour prendre en compte toutes les potentielles modifications.  
 
 ## <a name="ase-dependencies"></a>Dépendances d’un ASE ##
 
 ### <a name="ase-inbound-dependencies"></a>Dépendances entrantes d’un ASE ###
 
-Les dépendances d’accès entrantes d’un ASE sont les suivantes :
+Pour que l’ASE puisse fonctionner, les ports suivants doivent être ouverts :
 
 | Utilisation | À partir | À |
 |-----|------|----|
 | gestion | Adresses de gestion App Service | Sous-réseau de l’ASE : 454, 455 |
 |  Communications internes de l’ASE | Sous-réseau de l’ASE : Tous les ports | Sous-réseau de l’ASE : Tous les ports
-|  Autoriser le trafic entrant provenant d’Azure Load Balancer | Équilibrage de charge Azure | Sous-réseau de l’ASE : Tous les ports
-|  Adresses IP affectées par l’application | Adresses affectées par l’application | Sous-réseau de l’ASE : Tous les ports
+|  Autoriser le trafic entrant provenant d’Azure Load Balancer | Équilibrage de charge Azure | Sous-réseau de l’ASE : 16001
 
-Le trafic de gestion entrant fournit la commande et le contrôle de l’ASE en plus de la surveillance du système. Les adresses sources pour ce trafic sont répertoriées dans le document [Adresses de gestion App Service Environment][ASEManagement]. Par conséquent, la configuration de la sécurité réseau doit autoriser l’accès sur les ports 454 et 455 à partir de toutes les adresses IP. Si vous bloquez l’accès à partir de ces adresses, vous mettez en péril l’intégrité de votre ASE qui sera suspendu.
+Il existe 2 autres ports qui peuvent s’afficher comme ouverts lors d’une analyse des ports : 7654 et 1221. Ils répondent avec une adresse IP, rien de plus. Ils peuvent être bloqués, si vous le souhaitez. 
 
-Le sous-réseau de l’ASE comprend divers ports utilisés pour la communication des composants internes ; ces ports peuvent changer.  Tous les ports du sous-réseau de l’ASE doivent être accessibles à partir du sous-réseau de l’ASE. 
+Le trafic de gestion entrant fournit la commande et le contrôle de l’ASE en plus de la surveillance du système. Les adresses sources pour ce trafic sont répertoriées dans le document [Adresses de gestion App Service Environment][ASEManagement]. La configuration de la sécurité réseau doit autoriser l’accès des adresses de gestion de l’ASE sur les ports 454 et 455. Si vous bloquez l’accès à partir de ces adresses, vous mettez en péril l’intégrité de votre ASE qui sera suspendu. Le trafic TCP qui arrive sur les ports 454 et 455 doit repasser par la même adresse IP virtuelle, sans quoi vous rencontrerez un problème de routage asymétrique. 
 
-Pour permettre la communication entre l’équilibreur de charge Azure et le sous-réseau de l’ASE, les ports 454, 455 et 16001 (au minimum) doivent être ouverts. Le port 16001 sert à maintenir le trafic entre l’équilibreur de charge et le sous-réseau de l’ASE. Si vous utilisez un ASE ILB, vous pouvez limiter le trafic aux ports 454, 455 et 16001.  Si vous utilisez un ASE externe, vous devez prendre en compte les ports d’accès application normaux.  Si vous utilisez des adresses affectées par l’application, vous devez les ouvrir à tous les ports.  Quand une adresse est affectée à une application spécifique, l’équilibreur de charge utilise des ports qui ne sont pas connus à l’avance pour l’envoi du trafic HTTP et HTTPS à l’ASE.
+Le sous-réseau de l’ASE comprend divers ports utilisés pour la communication des composants internes ; ces ports peuvent changer. Tous les ports du sous-réseau de l’ASE doivent être accessibles à partir du sous-réseau de l’ASE. 
 
-Si vous utilisez des adresses IP affectées par l’application, vous devez autoriser le trafic entre les adresses IP affectées à vos applications et le sous-réseau de l’ASE.
+Pour permettre la communication entre l’équilibreur de charge Azure et le sous-réseau de l’ASE, les ports 454, 455 et 16001 (au minimum) doivent être ouverts. Le port 16001 sert à maintenir le trafic entre l’équilibreur de charge et le sous-réseau de l’ASE. Si vous utilisez un ASE ILB, vous pouvez limiter le trafic aux ports 454, 455 et 16001.  Si vous utilisez un ASE externe, vous devez prendre en compte les ports d’accès aux applications normaux.  
 
-Le trafic TCP qui arrive sur les ports 454 et 455 doit repasser par la même adresse IP virtuelle, sans quoi vous rencontrerez un problème de routage asymétrique. 
+Les autres ports dont vous devez vous préoccuper sont les ports d’applications :
+
+| Utilisation | Ports |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Débogage distant de Visual Studio  |  4020, 4022, 4024 |
+|  Service Web Deploy | 8172 |
+
+Si vous bloquez les ports d’applications, votre ASE peut continuer de fonctionner, mais votre application risque de ne plus être fonctionnelle.  Si vous utilisez des adresses IP affectées par l’application avec un ASE externe, vous devez autoriser le trafic entre les adresses IP affectées à vos applications au sous-réseau ASE sur les ports répertoriés dans le portail ASE, sur la page relative aux adresses IP.
 
 ### <a name="ase-outbound-dependencies"></a>Dépendances sortantes d’un ASE ###
 
 Pour l’accès sortant, un ASE dépend de plusieurs systèmes externes. Nombre de ces dépendances système sont définies avec des noms DNS et ne sont pas mappées à un ensemble fixe d’adresses IP. Par conséquent, l’ASE requiert un accès sortant vers toutes les adresses IP sur divers ports à partir de son sous-réseau. 
 
-La liste complète des dépendances sortantes est disponible dans le document portant sur le [verrouillage du trafic sortant d’App Service Environment](./firewall-integration.md). Si l’ASE perd l’accès à ses dépendances, il cesse de fonctionner. Si cela dure plus d’un certain temps, l’ASE est suspendu. 
+L’ASE communique avec les adresses Internet accessibles sur les ports suivants :
+
+| Utilisations | Ports |
+|-----|------|
+| DNS | 53 |
+| NTP | 123 |
+| 8CRL, mises à jour Windows, dépendances Linux, services Azure | 80/443 |
+| Azure SQL | 1433 | 
+| Surveillance | 12 000 |
+
+La liste des dépendances sortantes est disponible dans le document portant sur le [verrouillage du trafic sortant d’App Service Environment](./firewall-integration.md). Si l’ASE perd l’accès à ses dépendances, il cesse de fonctionner. Si cela dure plus d’un certain temps, l’ASE est suspendu. 
 
 ### <a name="customer-dns"></a>DNS client ###
 
-Si le réseau virtuel est configuré avec un serveur DNS défini par un client, les charges de travail du client l’utilisent. L’ASE a toujours besoin de communiquer avec le DNS Azure à des fins de gestion. 
+Si le réseau virtuel est configuré avec un serveur DNS défini par un client, les charges de travail du client l’utilisent. L’ASE utilise Azure DNS à des fins de gestion. Si le réseau virtuel est configuré avec un serveur DNS sélectionné par le client, le serveur DNS doit être accessible à partir du sous-réseau contenant l’ASE.
 
-Si le réseau virtuel est configuré avec un DNS client de l’autre côté d’un réseau VPN, le serveur DNS doit être accessible à partir du sous-réseau contenant l’ASE.
-
-Pour tester la résolution de votre application web, vous pouvez utiliser la commande de console *nameresolver*. Accédez à la fenêtre de débogage du site scm de votre application ou accédez à l’application dans le portail, puis sélectionnez la console. À partir de l’invite de l’interpréteur de commandes, vous pouvez émettre la commande *nameresolver* accompagnée de l’adresse que vous souhaitez rechercher. Le résultat que vous obtenez est identique à celui qu’obtiendrait l’application pour la même recherche. Si vous utilisez nslookup, vous effectuez plutôt une recherche à l’aide d’Azure DNS.
+Pour tester la résolution DNS de votre application web, vous pouvez utiliser la commande de console *nameresolver*. Accédez à la fenêtre de débogage du site scm de votre application ou accédez à l’application dans le portail, puis sélectionnez la console. À partir de l’invite de l’interpréteur de commandes, vous pouvez émettre la commande *nameresolver*, avec le nom DNS que vous souhaitez rechercher. Le résultat que vous obtenez est identique à celui qu’obtiendrait l’application pour la même recherche. Si vous utilisez nslookup, vous effectuez plutôt une recherche à l’aide d’Azure DNS.
 
 Si vous modifiez le paramètre DNS du réseau virtuel dans lequel figure votre environnement ASE, vous devrez redémarrer l’ASE. Pour éviter de redémarrer l’ASE, il est vivement recommandé de configurer les paramètres DNS de votre réseau virtuel avant de créer l’ASE.  
 
@@ -110,7 +112,7 @@ Si vous modifiez le paramètre DNS du réseau virtuel dans lequel figure votre e
 
 ## <a name="portal-dependencies"></a>Dépendances du portail ##
 
-Outre les dépendances fonctionnelles que présente un ASE, il existe quelques éléments supplémentaires liés à l’utilisation du portail. Certaines des fonctionnalités du portail Azure dépendent d’un accès direct au _site du Gestionnaire de contrôle des services (SCM)_. Pour chaque application dans Azure App Service, il existe deux URL. La première URL sert à accéder à votre application. La seconde permet d’accéder au site SCM, également désigné sous le nom de _console Kudu_. Voici quelques-unes des fonctionnalités qui utilisent le site SCM :
+Outre les dépendances fonctionnelles que présente un ASE, il existe quelques éléments supplémentaires liés à l’utilisation du portail. Certaines des fonctionnalités du portail Azure dépendent d’un accès direct au _site du Gestionnaire de contrôle des services (SCM)_ . Pour chaque application dans Azure App Service, il existe deux URL. La première URL sert à accéder à votre application. La seconde permet d’accéder au site SCM, également désigné sous le nom de _console Kudu_. Voici quelques-unes des fonctionnalités qui utilisent le site SCM :
 
 -   Tâches web
 -   Fonctions
@@ -120,19 +122,9 @@ Outre les dépendances fonctionnelles que présente un ASE, il existe quelques �
 -   Process Explorer
 -   Console
 
-Lorsque vous utilisez un ASE ILB, le site SCM n’est pas accessible depuis l’extérieur du réseau virtuel d’internet. Quand votre application est hébergée sur un ASE ILB, certaines fonctionnalités ne sont pas opérationnelles à partir du portail.  
+Lorsque vous utilisez un ASE ILB, le site SCM n’est pas accessible depuis l’extérieur du réseau virtuel. Certaines fonctionnalités ne fonctionneront pas sur le portail de l’application, car elles nécessitent un accès au site SCM d’une application. Vous pouvez vous connecter au site SCM directement, au lieu de passer par le portail. 
 
-La plupart des fonctionnalités qui dépendent du site SCM sont également disponibles dans la console Kudu. Vous pouvez vous y connecter directement au lieu d’utiliser le portail. Si votre application est hébergée dans un ASE ILB, vous devez vous connecter à l’aide de vos informations d’identification de publication. L’URL d’une application hébergée dans un ASE ILB permettant d’accéder au site SCM présente le format suivant : 
-
-```
-<appname>.scm.<domain name the ILB ASE was created with> 
-```
-
-Si votre ASE ILB est le nom de domaine *contoso.net* et le nom de votre application est *testapp*, l’application est atteinte sur *testapp.contoso.net*. Le site SCM qui le suit est atteinte sur *testapp.scm.contoso.net*.
-
-## <a name="functions-and-web-jobs"></a>Fonctions et tâches web ##
-
-Les fonctions et tâches web varient selon le site SCM mais elles sont prises en charge pour une utilisation dans le portail, même si vos applications sont dans un ASE ILB, tant que votre navigateur peut accéder au site SCM.  Si vous utilisez un certificat auto-signé avec votre ASE ILB, vous devez activer votre navigateur pour approuver ce certificat.  Pour Internet Explorer ou Microsoft Edge, cela signifie que le certificat doit se trouver dans le magasin d’approbations de l’ordinateur.  Si vous utilisez Chrome, cela signifie que vous avez préalablement accepté le certificat dans le navigateur, vraisemblablement en appuyant directement sur le site SCM.  La meilleure solution consiste à utiliser un certificat commercial qui se trouve dans la chaîne d’approbation du navigateur.  
+Si votre ASE ILB est le nom de domaine *contoso.appserviceenvironnment.net* et que le nom de votre application est *testapp*, le système atteint l’application sur *testapp.contoso.appserviceenvironment.net*. Le système atteint le site SCM qui le suit sur *testapp.scm.contoso.appserviceenvironment.net*.
 
 ## <a name="ase-ip-addresses"></a>Adresses IP d’un ASE ##
 
@@ -140,10 +132,10 @@ Un ASE présente quelques adresses IP qu’il est important de connaître. Il s'
 
 - **Adresse IP entrante publique** : utilisée pour le trafic d’applications dans un ASE externe et pour le trafic de gestion aussi bien dans un ASE externe que dans un ASE ILB.
 - **Adresse IP publique sortante**  : utilisée en tant qu’adresse IP source pour les connexions sortantes de l’ASE quittant le réseau virtuel, qui ne sont pas acheminées via un VPN.
-- **Adresse IP de l’ILB** : si vous utilisez un environnement ASE.
+- **Adresse IP de l’ILB** : L’adresse IP de l’ILB existe uniquement dans un ASE ILB.
 - **Adresse SSL basée sur IP attribuée par l’application** : uniquement possibles avec un ASE externe et lorsque le mode SSL basé sur IP est configuré.
 
-Toutes ces adresses IP sont facilement visibles pour un ASEv2 à partir de l’interface utilisateur de l’ASE dans le portail Azure. Si vous possédez un ASE ILB, l’adresse IP de l’ILB est répertoriée.
+Toutes ces adresses IP sont visibles dans le portail Microsoft Azure, à partir de l’interface utilisateur ASE. Si vous possédez un ASE ILB, l’adresse IP de l’ILB est répertoriée.
 
    > [!NOTE]
    > Ces adresses IP ne changent pas tant que votre ASE est en cours d’exécution.  Si votre ASE est suspendu et restauré, les adresses utilisées par votre ASE sont modifiées. En général, la suspension d’un ASE est due au blocage de l’accès de gestion entrant ou de l’accès à une dépendance de l’ASE. 
@@ -164,13 +156,34 @@ Dans un ASE, vous n’avez pas accès aux machines virtuelles utilisées pour h�
 
 Les groupes de sécurité réseau peuvent être configurés à l’aide du portail Azure ou via PowerShell. Seul le portail Azure est illustré ici. Les groupes de sécurité réseau sont créés et gérés en tant que ressources de niveau supérieur dans la section **Mise en réseau** du portail.
 
-En tenant compte des exigences liées au trafic entrant et sortant, les groupes de sécurité réseau doivent se ressembler aux groupes de sécurité réseau présentés dans cet exemple. La plage d’adresses du réseau virtuel est _192.168.250.0/23_, et le sous-réseau dans lequel l’ASE se trouve est _192.168.251.128/25_.
+Pour permettre à un ASE de fonctionner, les entrées nécessaires dans un groupe de sécurité réseau doivent autoriser le trafic :
 
-Les deux premières exigences liées au trafic entrant pour l’ASE figurent en haut de la liste dans cet exemple. Elles permettent la gestion de l’ASE et autorisent l’ASE à communiquer avec lui-même. Les autres entrées sont toutes configurables par le client et peuvent régir l’accès réseau aux applications hébergées dans l’ASE. 
+**Entrant**
+* depuis la balise de service IP nommée AppServiceManagement sur les ports 454, 455 ;
+* depuis l’équilibreur de charge, sur le port 16001 ;
+* depuis le sous-réseau ASE vers le sous-réseau ASE, sur tous les ports.
+
+**Sortante**
+* vers toutes les adresses IP sur le port 123 ;
+* vers toutes les adresses IP sur les ports 80 et 443 ;
+* vers la balise de service IP AzureSQL sur le port 1433 ;
+* vers toutes les adresses IP sur le port 12000 ;
+* vers le sous-réseau ASE sur tous les ports.
+
+Le port DNS n’a pas besoin d’être ajouté, car le trafic vers DNS n’est pas affecté par les règles NSG. Ces ports n’incluent pas ceux dont vos applications ont besoin pour fonctionner correctement. Les ports d’accès normaux pour les applications sont les suivants :
+
+| Utilisation | Ports |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Débogage distant de Visual Studio  |  4020, 4022, 4024 |
+|  Service Web Deploy | 8172 |
+
+En tenant compte des exigences liées au trafic entrant et sortant, les groupes de sécurité réseau doivent se ressembler aux groupes de sécurité réseau présentés dans cet exemple. 
 
 ![Règles de sécurité de trafic entrant][4]
 
-Une règle par défaut permet la communication entre les adresses IP dans le réseau virtuel avec le sous-réseau ASE. Une autre règle par défaut permet la communication entre l’équilibrage de charges, également appelé l’adresse IP virtuelle publique, et l’ASE. Vous pouvez afficher les règles par défaut en sélectionnant **Règles par défaut** en regard de l’icône **Ajouter**. Si vous placez une règle de refus pour toute autre communication après les règles de groupes de sécurité réseau illustrées, vous empêchez le trafic entre l’adresse IP virtuelle et l’ASE. Pour éviter le trafic provenant de l’intérieur du réseau virtuel, ajoutez votre propre règle pour autoriser le trafic entrant. Utilisez une source égale à AzureLoadBalancer avec une destination **Tout** et une plage de ports **\***. Étant donné que la règle de groupes de sécurité réseau est appliquée au sous-réseau de l’ASE, vous n’avez pas besoin de définir une destination spécifique.
+Une règle par défaut permet la communication entre les adresses IP dans le réseau virtuel avec le sous-réseau ASE. Une autre règle par défaut permet la communication entre l’équilibrage de charges, également appelé l’adresse IP virtuelle publique, et l’ASE. Vous pouvez afficher les règles par défaut en sélectionnant **Règles par défaut** en regard de l’icône **Ajouter**. Si vous placez une règle de refus pour toute autre communication avant les règles par défaut, vous bloquez le trafic entre l’adresse IP virtuelle et l’ASE. Pour éviter le trafic provenant de l’intérieur du réseau virtuel, ajoutez votre propre règle pour autoriser le trafic entrant. Utilisez une source égale à AzureLoadBalancer avec une destination **Tout** et une plage de ports **\*** . Étant donné que la règle de groupes de sécurité réseau est appliquée au sous-réseau de l’ASE, vous n’avez pas besoin de définir une destination spécifique.
 
 Si vous avez attribué une adresse IP à votre application, assurez-vous que vous conservez les ports ouverts. Vous pouvez consulter les ports utilisés en sélectionnant **App Service Environment** > **Adresses IP**.  
 
@@ -182,7 +195,7 @@ Une fois vos groupes de sécurité réseau définis, vous devez les attribuer au
 
 ## <a name="routes"></a>Itinéraires ##
 
-Le tunneling forcé consiste à définir des itinéraires dans un réseau virtuel de façon à ce que le trafic sortant n’accède pas directement à Internet, mais soit dirigé ailleurs, par exemple vers une passerelle ExpressRoute ou une appliance virtuelle.  Si vous souhaitez configurer ainsi votre environnement ASE, lisez le document [Configurer un environnement App Service Environment avec le tunneling forcé][forcedtunnel].  Il vous indiquera les options possibles pour travailler avec ExpressRoute et le tunneling forcé.
+Le tunneling forcé consiste à définir des itinéraires dans un réseau virtuel de façon à ce que le trafic sortant n’accède pas directement à Internet, mais soit dirigé ailleurs, par exemple vers une passerelle ExpressRoute ou une appliance virtuelle.  Si vous souhaitez configurer ainsi votre ASE, lisez le document [Configurer un environnement App Service Environment avec le tunneling forcé][forcedtunnel].  Il vous indiquera les options possibles pour travailler avec ExpressRoute et le tunneling forcé.
 
 Lorsque vous créez un environnement ASE sur le portail, nous créons également différentes tables d’itinéraires sur le sous-réseau créé avec l’environnement.  Ces itinéraires donnent simplement l’instruction d’envoyer directement le trafic sortant sur Internet.  
 Pour créer les mêmes itinéraires manuellement, procédez ainsi :
@@ -207,9 +220,9 @@ Pour créer les mêmes itinéraires manuellement, procédez ainsi :
 
 Les points de terminaison de service vous permettent de restreindre l’accès aux services multilocataires à un ensemble de sous-réseaux et de réseaux virtuels Azure. Pour en savoir plus sur les points de terminaison de service, consultez la documentation [Points de terminaison de service de réseau virtuel][serviceendpoints]. 
 
-Lorsque vous activez les points de terminaison de service sur une ressource, certains itinéraires sont créés avec une priorité plus élevée que d’autres. Si vous utilisez des points de terminaison de service avec un ASE tunnelisé de force, le trafic de gestion Azure SQL et Stockage Azure n’est pas tunnelisé de force. 
+Lorsque vous activez les points de terminaison de service sur une ressource, certains itinéraires sont créés avec une priorité plus élevée que d’autres. Si vous utilisez des points de terminaison de service sur n’importe quel service Azure avec un ASE avec tunneling forcé, le tunneling du trafic vers ces services n’est pas forcé. 
 
-Lorsque les points de terminaison de service sont activés sur un sous-réseau avec une instance Azure SQL, toutes les instances Azure SQL connectées à partir de ce sous-réseau doivent avoir des points de terminaison de service activés. Si vous souhaitez accéder à plusieurs instances Azure SQL à partir du même sous-réseau, vous ne pouvez pas activer les points de terminaison de service sur une instance Azure SQL et pas sur une autre. Stockage Azure ne se comporte pas de la même manière qu’Azure SQL. Lorsque vous activez les points de terminaison de service avec Stockage Azure, vous verrouillez l’accès à cette ressource à partir de votre sous-réseau, mais pourrez toujours accéder aux autres comptes Stockage Azure même si les points de terminaison de service ne sont pas activés.  
+Lorsque les points de terminaison de service sont activés sur un sous-réseau avec une instance Azure SQL, toutes les instances Azure SQL connectées à partir de ce sous-réseau doivent avoir des points de terminaison de service activés. Si vous souhaitez accéder à plusieurs instances Azure SQL à partir du même sous-réseau, vous ne pouvez pas activer les points de terminaison de service sur une instance Azure SQL et pas sur une autre. Aucun autre service Azure ne se comporte comme SQL Azure en ce qui concerne les points de terminaison de service. Lorsque vous activez les points de terminaison de service avec Stockage Azure, vous verrouillez l’accès à cette ressource à partir de votre sous-réseau, mais pourrez toujours accéder aux autres comptes Stockage Azure même si les points de terminaison de service ne sont pas activés.  
 
 ![Points de terminaison de service][8]
 

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/22/2019
+ms.openlocfilehash: 10030cf69009c59fa607ad68c3b7ab19c7a22860
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046034"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326726"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer
 
@@ -22,7 +22,7 @@ ms.locfileid: "59046034"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [Modèle ARM](create-cluster-database-resource-manager.md)
 
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Pour utiliser Azure Data Explorer, créez tout d’abord un cluster et une ou plusieurs bases de données dans ce cluster. Ensuite, ingérez (chargez) des données dans une base de données pour pouvoir exécuter des requêtes dessus. Dans ce guide de démarrage rapide, vous allez créer un cluster et une base de données.
@@ -47,16 +47,17 @@ Créez un cluster Azure Data Explorer avec un ensemble défini de ressources de 
 
 1. Remplissez les détails du cluster de base avec les informations suivantes.
 
-   ![Créer un formulaire de cluster](media/create-cluster-database-portal/create-cluster-form.png)
+   ![Créer un formulaire de cluster](media/create-cluster-database-portal/create-cluster-form2.png)
 
     **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
-    | Abonnement | Votre abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre cluster.|
-    | Groupe de ressources | *test-resource-group* | Utilisez un groupe de ressources existant ou créez-en un. |
-    | Nom du cluster | Nom de cluster unique | Choisissez un nom unique qui identifie votre cluster. Par exemple, *mydataexplorercluster*. Le nom de domaine *[Région].kusto.windows.net* est ajouté au nom de cluster que vous fournissez. Le nom doit être uniquement composé de lettres minuscules et de chiffres. Il doit comprendre entre 3 et 22 caractères.
-    | Lieu | *USA Ouest* | Pour ce guide de démarrage rapide, sélectionnez *USA Ouest*. Pour un système de production, sélectionnez la région qui répond le mieux à vos besoins.
+    | Subscription | Votre abonnement | Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour votre cluster.|
+    | Resource group | Votre groupe de ressources | Utilisez un groupe de ressources existant ou créez-en un. |
+    | Nom du cluster | Nom de cluster unique | Choisissez un nom unique qui identifie votre cluster. Le nom de domaine *[Région].kusto.windows.net* est ajouté au nom de cluster que vous fournissez. Le nom doit être uniquement composé de lettres minuscules et de chiffres. Il doit comprendre entre 4 et 22 caractères.
+    | Région | *USA Ouest* ou *USA Ouest 2* | Sélectionnez *USA Ouest* ou *USA Ouest 2* (si vous utilisez des zones de disponibilité) pour ce guide de démarrage rapide. Pour un système de production, sélectionnez la région qui répond le mieux à vos besoins.
+    | Zones de disponibilité | *1*, *2* et/ou *3* | Placez les instances de cluster dans différentes zones de disponibilité de la même région (facultatif). Les [zones de disponibilité Azure](/azure/availability-zones/az-overview) sont des emplacements physiques uniques au sein de la même région Azure. Elles protègent un cluster et des données Azure Data Explorer contre la défaillance partielle d’une région. Les nœuds de cluster sont créés, par défaut, dans le même centre de données. Le fait de sélectionner plusieurs zones de disponibilité vous permet d’éliminer un point de défaillance unique et de garantir une haute disponibilité. Le déploiement sur des zones de disponibilité est possible uniquement pendant la création du cluster et ne peut pas être modifié ultérieurement.
     | Spécifications de calcul | *D13_v2* | Sélectionnez la spécification du prix le plus bas pour ce guide de démarrage rapide. Pour un système de production, sélectionnez la spécification qui répond le mieux à vos besoins.
-    | | |
+    | | | |
 
 1. Sélectionnez **Vérifier + créer** pour passer en revue les détails de votre cluster, puis **Créer** pour le provisionner. Le provisionnement prend généralement environ 10 minutes.
 

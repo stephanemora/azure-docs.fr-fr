@@ -2,19 +2,19 @@
 title: Formats de documents et convention d’affectation de noms - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Ce guide présente les formats de documents et les convention d’affectation de noms en vigueur dans Custom Translator. Ce concept permet de mieux gérer les noms de documents et d’éviter les conflits de noms.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: dec5ce37aa3b4e9d4d6fcab964c1e48b606a4cd0
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338052"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595857"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guide sur les formats de documents et les conventions d’affectation de noms
 
@@ -31,13 +31,13 @@ Cette table comprend tous les formats de fichier pris en charge que vous pouvez 
 | Microsoft Word    | .DOCX        | Document Microsoft Word                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | .PDF         | Document de la version portable d’Adobe Acrobat                                                                                                                                                                                                                                                |
 | HTML              | .HTML, .HTM  | Document HTML                                                                                                                                                                                                                                                                  |
-| Fichier texte         | .TXT         | Fichiers texte codés à UTF-16 ou UTF-8. Le nom de fichier ne doit pas contenir de caractères japonais.                                                                                                                                                                                        |
+| Fichier texte         | .TXT         | Fichiers texte encodés en UTF-16 ou UTF-8. Le nom de fichier ne doit pas contenir de caractères japonais.                                                                                                                                                                                        |
 | Fichier d’alignement de textes | .ALIGN       | L’extension `.ALIGN` est une extension spéciale que vous pouvez utiliser si vous savez que des phrases de votre paire de documents se correspondent parfaitement. Si vous fournissez un fichier `.ALIGN`, Custom Translator n’aligne pas les phrases pour vous. |
 | Fichier Excel        | .XLSX        | Fichier Excel (2013 ou version ultérieure). La première ligne de la feuille de calcul doit être le code de langue.                                                                                                                                                                                                                                                      |
 
 ## <a name="dictionary-formats"></a>Formats de dictionnaires
 
-Custom Translator prend en charge tous les formats de fichier pris en charge pour le jeu d’apprentissage. Si vous utilisez le dictionnaire d’Excel, vérifiez que la première ligne de la feuille de calcul correspond aux codes de langue.
+Pour les dictionnaires, Custom Translator prend en charge tous les formats de fichier pris en charge pour les jeux d’entraînement. Si vous utilisez un dictionnaire d’Excel, la première ligne de la feuille de calcul doit correspondre à des codes de langue.
 
 ## <a name="zip-file-formats"></a>Formats de fichiers compressés
 

@@ -10,12 +10,13 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 183a307159adb5dfdb248eb0cf4862462a626db6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37a353fbb86ca199b2316dcfba5904f4b46b0276
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879188"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705061"
 ---
 # <a name="conference-instance-entity"></a>Entité Instance de conférence
 
@@ -23,7 +24,7 @@ ms.locfileid: "55879188"
 
 Nom    |Description                            |Type       | Opérations
 ------- | ------------------------------------- | --------- | ----------------------------
-ID      |L’ID d’entité                              |Int64      |Égal à
+Id      |L’ID d’entité                              |Int64      |Égal à
 CIN     |Nom normalisé de l’instance de conférence ({ConferenceSeriesNormalizedName} {ConferenceInstanceYear})        |Chaîne     |Égal à
 DCN     |Nom d’affichage de l’instance de conférence ({ConferenceSeriesName} : {ConferenceInstanceYear})       |Chaîne     |Aucun
 CIL     |Emplacement de l’instance de conférence    |Chaîne     |Equals,<br/>StartsWith

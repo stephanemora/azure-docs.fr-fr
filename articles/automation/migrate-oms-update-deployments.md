@@ -4,17 +4,17 @@ description: Cet article décrit comment migrer vos déploiements de mise à jou
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4d11dfcb66a545cbecc80b6bdad558ca6d328ed2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 2cc05dc0970211b066d9e431cc7aba06cbd126eb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999676"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478303"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrer vos déploiements de mises à jour OMS vers Azure
 
@@ -61,7 +61,7 @@ Pour les ordinateurs à mettre à jour, sélectionnez la recherche enregistrée 
 | --- | --- |
 |Nom |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Sélectionnez **Linux** ou **Windows**.|
-|Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux d’activité Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux d’activité Azure Monitor](../azure-monitor/platform/computer-groups.md). |
+|Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md). |
 |Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin. CentOS ne prend pas directement en charge cette fonction.|
 |Mises à jour à exclure|Entrez les mises à jour à exclure. Pour Windows, entrez la version KB sans le préfixe **KB**. Pour Linux, entrez le nom du package ou utilisez un caractère générique.  |
 |Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité (**Une fois** ou **Récurrent**). | 

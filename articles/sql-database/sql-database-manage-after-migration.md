@@ -1,5 +1,5 @@
 ---
-title: Gérer des bases de données uniques et en pool après la migration - Azure SQL Database | Microsoft Docs
+title: Gérer des bases de données uniques et mises en pool après la migration - Azure SQL Database | Microsoft Docs
 description: Découvrez comment gérer votre base de données après la migration vers Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,25 +10,25 @@ ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358418"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845607"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et en pool dans Azure SQL Database
+# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et mises en pool dans Azure SQL Database
 
-Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un environnement PaaS peut sembler un peu lourd dans un premier temps. En tant que développeur d’applications ou administrateur de base de données, vous avez besoin de connaître les principales fonctionnalités de la plateforme qui facilitent le maintien de la disponibilité, des performances, de la sécurité et de la résilience de votre application, en continu. Cet article va répondre précisément à ce besoin. L'article organise succinctement les ressources et vous fournit des conseils sur la façon de mieux utiliser les fonctionnalités clés de SQL Database avec des bases de données uniques et en pool pour gérer votre application, maintenir son efficacité et atteindre des résultats optimaux dans le cloud. Cet article vous intéresse si vous êtes dans les cas suivants :
+Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un environnement PaaS peut sembler un peu lourd dans un premier temps. En tant que développeur d’applications ou administrateur de base de données, vous avez besoin de connaître les principales fonctionnalités de la plateforme qui facilitent le maintien de la disponibilité, des performances, de la sécurité et de la résilience de votre application, en continu. Cet article va répondre précisément à ce besoin. L'article organise succinctement les ressources et vous fournit des conseils sur la façon de mieux utiliser les fonctionnalités clés de SQL Database avec des bases de données uniques et mises en pool pour gérer votre application, maintenir son efficacité et atteindre des résultats optimaux dans le cloud. Cet article vous intéresse si vous êtes dans les cas suivants :
 
 - Vous êtes en train d'évaluer la migration de vos applications vers Azure SQL Database - Modernisation de vos applications.
 - Vous êtes en train d’effectuer la migration de vos applications – Scénario de migration en cours.
 - Vous avez récemment terminé la migration vers Azure SQL DB – Nouvel administrateur de base de données dans le cloud.
 
-Cet article traite de certaines caractéristiques essentielles d'Azure SQL Database en tant que plateforme, auxquelles vous pouvez facilement avoir recours lorsque vous utilisez des bases de données uniques et des bases de données regroupées dans des pools élastiques. Ces caractéristiques sont les suivantes :
+Cet article traite de certaines caractéristiques essentielles d'Azure SQL Database en tant que plateforme, auxquelles vous pouvez facilement avoir recours lorsque vous utilisez des bases de données uniques et des bases de données mises en pool dans des pools élastiques. Ces caractéristiques sont les suivantes :
 
+- Analyser des bases de données au moyen du Portail Azure
 - Continuité d’activité et récupération d’urgence (BCDR)
 - Sécurité et conformité
 - Surveillance et maintenance de bases de données intelligentes
@@ -37,13 +37,32 @@ Cet article traite de certaines caractéristiques essentielles d'Azure SQL Datab
 > [!NOTE]
 > Cet article s'applique aux options de déploiement suivantes d'Azure SQL Database : bases de données uniques et pools élastiques. Il ne s'applique pas à l'option de déploiement des instances gérées de SQL Database.
 
+## <a name="monitor-databases-using-the-azure-portal"></a>Analyser des bases de données au moyen du portail Azure
+
+Dans le [Portail Azure](https://portal.azure.com/), vous pouvez superviser l’utilisation de bases de données individuelles en sélectionnant votre base de données et en cliquant sur le graphique **Surveillance**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+
+- Pourcentage UC
+- Pourcentage DTU
+- Pourcentage E/S des données
+- Pourcentage de la taille de la base de données
+
+Une fois que vous avez ajouté ces métriques, vous pouvez continuer à les afficher dans le graphique **Surveillance** avec plus d’informations dans la fenêtre **Métrique**. Les quatre mesures montrent le pourcentage d’utilisation moyen correspondant aux **DTU** de votre base de données. Consultez les articles [Modèle d’achat DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore](sql-database-service-tiers-vcore.md) pour en savoir plus sur les niveaux de service.  
+
+![Surveillance des niveaux de service des performances de la base de données.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+Vous pouvez également configurer des alertes sur les mesures de performances. Cliquez sur le bouton **Ajouter une alerte** situé dans la fenêtre **Métrique**. Suivez l'assistant pour configurer votre alerte. Vous avez la possibilité de configurer une alerte si les mesures dépassent un certain seuil ou si la mesure tombe en dessous d’un certain seuil.
+
+Par exemple, si vous pensez que la charge de travail dans votre base de données va augmenter, vous pouvez choisir de configurer une alerte par courrier électronique chaque fois que votre base de données atteint 80 % de n'importe quelle mesure de performances. Vous pouvez l’utiliser comme un avertissement anticipé pour déterminer le moment auquel vous devez passer à la taille de calcul supérieure.
+
+Les métriques de performances peuvent également vous aider à déterminer si vous pouvez passer à une taille de calcul inférieure. Supposons que vous utilisez une base de données standard S2 et que toutes les mesures de performance indiquent que la base de données n'utilise pas plus de 10 % des performances en moyenne. Cette base de données fonctionnerait très bien en version S1 standard. Toutefois, prenez en considération les éventuels pics ou baisses de charges de travail avant de passer à une taille de calcul inférieure.
+
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Continuité d’activité et récupération d’urgence (BCDR)
 
 Les possibilités de continuité d’activité et de récupération d’urgence vous permettent de poursuivre votre activité, comme à l’accoutumée, en cas de sinistre. Un sinistre peut correspondre à un événement au niveau de la base de données (par exemple, une personne supprime par erreur une table essentielle) ou à un événement au niveau du centre de données (catastrophe naturelle dans la région, un tsunami par exemple).
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Comment créer et gérer les sauvegardes dans SQL Database
 
-Vous ne créez pas de sauvegardes sur Azure SQL Database parce que vous n’avez pas à le faire. SQL Database sauvegarde automatiquement les bases de données pour vous, donc vous n’avez plus à vous inquiéter de leur planification, leur exécution et leur gestion. La plateforme effectue une sauvegarde complète toutes les semaines, une sauvegarde différentielle à l’issue de quelques heures et une sauvegarde de journal toutes les 5 minutes pour garantir l’efficacité de la récupération d’urgence et une perte de données minimale. La première sauvegarde complète se produit dès que vous créez une base de données. Ces sauvegardes sont à votre disposition pendant un certain temps appelé « période de conservation », qui varie selon la taille de calcul que vous choisissez. SQL Database vous offre la possibilité d’effectuer une restauration à partir de n’importe quel point dans le temps compris dans cette période de rétention à l’aide d’une [récupération jusqu’à une date et heure](sql-database-recovery-using-backups.md#point-in-time-restore).
+Vous ne créez pas de sauvegardes sur Azure SQL Database parce que vous n’avez pas à le faire. SQL Database sauvegarde automatiquement les bases de données pour vous, donc vous n’avez plus à vous inquiéter de leur planification, leur exécution et leur gestion. La plateforme effectue une sauvegarde complète toutes les semaines, une sauvegarde différentielle à l’issue de quelques heures et une sauvegarde de journal toutes les 5 minutes pour garantir l’efficacité de la récupération d’urgence et une perte de données minimale. La première sauvegarde complète se produit dès que vous créez une base de données. Ces sauvegardes sont à votre disposition pendant un certain temps appelé « période de conservation », qui varie selon la taille de calcul que vous choisissez. SQL Database vous offre la possibilité d’effectuer une restauration à partir de n’importe quel point dans le temps compris dans cette période de rétention à l’aide d’une [récupération jusqu’à une date et heure](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 |Niveau de service|Période de rétention en jours|
 |---|:---:|
@@ -111,7 +130,7 @@ Il existe plusieurs techniques à votre disposition pour garantir une organisati
 
 Un pare-feu empêche l’accès à votre serveur à partir d’une entité externe en autorisant uniquement l’accès à votre serveur SQL Database à des entités spécifiques. Par défaut, toutes les connexions et bases de données sont refusées au sein du serveur SQL Database, à l’exception des connexions provenant d’autres services Azure. Avec une règle de pare-feu, vous pouvez ouvrir l’accès à votre serveur à certaines entités uniquement (par exemple, un ordinateur de développeur) que vous approuvez, en autorisant l’adresse IP correspondante à traverser le pare-feu. Une règle vous permet également de spécifier une plage d’adresses IP auxquelles vous autorisez l’accès au serveur SQL Database. Par exemple, vous pouvez rapidement ajouter toutes les adresses IP des ordinateurs de développeur de votre organisation en spécifiant une plage dans la page des paramètres du pare-feu.
 
-Vous pouvez créer des règles de pare-feu au niveau du serveur ou de la base de données. Des règles de pare-feu IP de niveau serveur peuvent être créées à l'aide du portail Azure ou avec SSMS. Pour en savoir plus sur la façon de définir une règle de pare-feu au niveau du serveur et de la base de données, consultez : [Créer des règles de pare-feu IP dans SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
+Vous pouvez créer des règles de pare-feu au niveau du serveur ou de la base de données. Des règles de pare-feu IP de niveau serveur peuvent être créées à l’aide du portail Azure ou avec SSMS. Pour en savoir plus sur la façon de définir une règle de pare-feu au niveau du serveur et de la base de données, consultez : [Créer des règles de pare-feu IP dans SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Points de terminaison de service
 
@@ -123,11 +142,11 @@ Les points de terminaison de service vous permettent d’exposer vos ressources 
 
 #### <a name="reserved-ips"></a>IP réservées
 
-Vous pouvez également provisionner des [adresses IP réservées](../virtual-network/virtual-networks-reserved-public-ip.md) pour vos machines virtuelles, et mettre en liste verte ces adresses IP de machines virtuelles spécifiques dans les paramètres de pare-feu du serveur. En affectant des adresses IP réservées, vous évitez de devoir mettre à jour les règles du pare-feu en cas de changement des adresses IP.
+Vous pouvez également provisionner des [adresses IP réservées](../virtual-network/virtual-networks-reserved-public-ip.md) pour vos machines virtuelles, et ajouter ces adresses IP de machines virtuelles spécifiques dans les paramètres de pare-feu du serveur. En affectant des adresses IP réservées, vous évitez de devoir mettre à jour les règles du pare-feu en cas de changement des adresses IP.
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Sur quel port dois-je me connecter à SQL Database
 
-Port 1433. SQL Database communique par le biais de ce port. Pour vous connecter à partir d’un réseau d’entreprise, vous devez ajouter une règle de trafic sortant dans les paramètres du pare-feu de votre organisation. En règle générale, évitez d’exposer le port 1433 hors de la limite Azure. Vous pouvez exécuter SSMS dans Azure via [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps). Cela vous dispense d’ouvrir des connexions sortantes pour le port 1433. Comme l’adresse IP est statique, la base de données peut être ouverte uniquement pour RemoteApp. MFA (Multi-Factor Authentication) est pris en charge.
+Port 1433. SQL Database communique par le biais de ce port. Pour vous connecter à partir d’un réseau d’entreprise, vous devez ajouter une règle de trafic sortant dans les paramètres du pare-feu de votre organisation. En règle générale, évitez d’exposer le port 1433 hors de la limite Azure.
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>Comment superviser et réguler l’activité sur mon serveur et ma base de données dans SQL Database
 
@@ -152,7 +171,7 @@ Pour protéger vos données sensibles en transit et au repos, SQL Database propo
 |**Caractéristiques**|**Always Encrypted**|**Chiffrement transparent des données**|
 |---|---|---|
 |**Étendue de chiffrement**|Bout en bout|Données au repos|
-|**Le serveur de base de données peut accéder aux données sensibles**|Non |Oui, étant donné que le chiffrement concerne les données au repos|
+|**Le serveur de base de données peut accéder aux données sensibles**|Non|Oui, étant donné que le chiffrement concerne les données au repos|
 |**Opérations T-SQL autorisées**|Comparaison d’égalité|Toute la surface d’exposition T-SQL est disponible|
 |**Modifications de l’application exigées pour utiliser la fonctionnalité**|Minimales|Très minimes|
 |**Granularité de chiffrement**|Au niveau des colonnes|Au niveau de la base de données|
@@ -207,7 +226,7 @@ Express Route vous permet également de doubler la limite de bande passante que 
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Est-ce que SQL Database est conforme aux exigences réglementaires et comment cela peut-il répondre aux exigences de conformité de mon organisation
 
-SQL Database est conforme à un certain nombre d’exigences réglementaires. Pour afficher la dernière série d’en matière de confidentialité qui ont été remplies par la base de données SQL, visitez le [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) et détaille l’en matière de confidentialité qui est importants pour votre organisation pour voir si la base de données SQL est inclus sous le conforme Services Azure. Il est important de noter que même si SQL Database peut être certifié en tant que service conforme, il contribue à la conformité du service de votre organisation sans représenter pour autant une garantie automatique.
+SQL Database est conforme à un certain nombre d’exigences réglementaires. Pour voir quels sont les derniers points de conformité respectés par SQL Database, visitez [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) et recherchez les points de conformité importants pour votre organisation. Ainsi, vous pourrez déterminer si SQL Database fait partie des services Azure conformes. Il est important de noter que même si SQL Database peut être certifié en tant que service conforme, il contribue à la conformité du service de votre organisation sans représenter pour autant une garantie automatique.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Surveillance et maintenance de bases de données intelligentes après la migration
 
@@ -261,9 +280,9 @@ vous pouvez interroger la vue de gestion dynamique [sys.dm_db_resource_stats](/s
 
 ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Journaux d’Analytique SQL Azure (version préliminaire) dans Azure Monitor
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL Analytics (préversion) dans les journaux d'activité Azure Monitor
 
-[Journaux d’analyse Azure](../azure-monitor/insights/azure-sql.md) vous permet de collecter et visualiser les métriques de performance clés Azure SQL Azure, prenant en charge jusqu'à 150 000 bases de données SQL et 5 000 pools élastiques SQL par espace de travail. Vous pouvez l’utiliser à des fins de surveillance et pour recevoir des notifications. Vous pouvez surveiller les métriques de SQL Database et des pools élastiques de plusieurs abonnements Azure. De plus, vous pouvez utiliser les pools élastiques pour identifier les problèmes à chaque couche d’une pile d’applications.
+Les [journaux d'activité Azure Monitor](../azure-monitor/insights/azure-sql.md) vous permettent de collecter et de visualiser des indicateurs de performance clés Azure SQL, prenant en charge jusqu’à 150 000 bases de données SQL et 5 000 pools élastiques SQL par espace de travail. Vous pouvez l’utiliser à des fins de surveillance et pour recevoir des notifications. Vous pouvez surveiller les métriques de SQL Database et des pools élastiques de plusieurs abonnements Azure. De plus, vous pouvez utiliser les pools élastiques pour identifier les problèmes à chaque couche d’une pile d’applications.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Je constate des problèmes de performances : En quoi ma méthodologie de résolution de problèmes SQL Database est-elle différente de celle de SQL Server
 

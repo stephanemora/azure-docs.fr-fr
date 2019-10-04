@@ -6,20 +6,21 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.topic: conceptual
+ms.openlocfilehash: 9f90f373bd6f1cfd34de1605783bf3a7f0185f4c
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523917"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240335"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Règles et groupes de règles CRS de pare-feu d’applications web
 
-Le pare-feu d’applications web Application Gateway protège les applications web contre les vulnérabilités et failles de sécurité. Cela s’effectue via des règles définies basées sur les ensembles de règles OWASP core 3.0 ou 2.2.9. Ces règles peuvent être désactivées une par une. Cet article contient les règles et ensembles de règles actuellement proposées.
+Le pare-feu d’applications web Application Gateway protège les applications web contre les vulnérabilités et failles de sécurité. Cette protection s’effectue via des règles définies à partir des ensembles de règles de base OWASP 3.0 ou 2.2.9. Ces règles peuvent être désactivées une par une. Cet article contient les règles et ensembles de règles actuellement proposées.
 
-Les groupes de règles suivants et les règles sont disponibles lors de l’utilisation de la passerelle d’Application avec le pare-feu d’applications web.
+Les règles et groupes de règles suivants sont disponibles durant l’utilisation d’Application Gateway avec le pare-feu d’applications web.
 
-# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
 
 ## <a name="owasp30"></a> Ensembles de règles
 
@@ -52,7 +53,7 @@ Les groupes de règles suivants et les règles sont disponibles lors de l’util
 |---|---|
 |920100|Ligne de requête HTTP non valide|
 |920130|Échec de l’analyse du corps de la requête.|
-|920140|Échec de validation stricte de corps de la requête en plusieurs parties|
+|920140|Échec de la validation stricte du corps de la requête à parties multiples|
 |920160|L’en-tête HTTP Content-Length n’est pas numérique.|
 |920170|Requête GET ou HEAD avec contenu du corps.|
 |920180|En-tête Content-Length manquant dans la requête POST.|
@@ -90,7 +91,7 @@ Les groupes de règles suivants et les règles sont disponibles lors de l’util
 |920202|Plage = Champs trop nombreux pour la requête PDF (6 ou plus)|
 |920273|Caractère non valide dans la requête (en dehors de l’ensemble très strict)|
 |920274|Caractère non valide dans les en-têtes de requête (en dehors de l’ensemble très strict)|
-|920460|Caractères d’échappement anormale|
+|920460|Caractères d’échappement anormaux|
 
 ### <a name="crs921"></a> <p x-ms-format-detection="none">REQUEST-921-PROTOCOL-ATTACK</p>
 
@@ -162,17 +163,17 @@ Les groupes de règles suivants et les règles sont disponibles lors de l’util
 |941140|Filtre XSS - Catégorie 4 = vecteur URI Javascript|
 |941150|Filtre XSS - Catégorie 5 = attributs HTML non autorisés|
 |941180|Mots clés de la liste rouge du validateur de nœuds|
-|941190|XSS à l’aide de feuilles de style|
-|941200|XSS à l’aide d’images VML|
-|941210|XSS à l’aide de Javascript obscurci|
-|941220|À l’aide de XSS obscurcie Script VB|
-|941230|Balise XSS à l’aide de « incorporer »|
-|941240|XSS à l’aide d’attribut 'import' ou 'implementation'|
-|941260|XSS à l’aide de la balise « meta »|
-|941270|XSS à l’aide de href 'link /'|
-|941280|XSS à l’aide de la balise 'base'|
-|941290|XSS à l’aide de la balise « applet »|
-|941300|XSS à l’aide de la balise 'object'|
+|941190|XSS utilisant des feuilles de style|
+|941200|XSS utilisant des frames VML|
+|941210|XSS utilisant du JavaScript obfusqué|
+|941220|XSS utilisant du VB Script obfusqué|
+|941230|XSS utilisant la balise « embed »|
+|941240|XSS utilisant l’attribut « import » ou « implementation »|
+|941260|XSS utilisant la balise « meta »|
+|941270|XSS utilisant le href « link »|
+|941280|XSS utilisant la balise « base »|
+|941290|XSS utilisant la balise « applet »|
+|941300|XSS utilisant la balise « object »|
 |941310|Filtre XSS d’encodage incorrectement formé US-ASCII - Attaque détectée.|
 |941330|Filtre XSS IE - Attaque détectée.|
 |941340|Filtre XSS IE - Attaque détectée.|
@@ -196,6 +197,7 @@ Les groupes de règles suivants et les règles sont disponibles lors de l’util
 |942270|Recherche d’injection de code SQL de base. Chaîne d’attaque courante pour mysql oracle entre autres.|
 |942290|Recherche de tentatives d’injection de code SQL MongoDB de base|
 |942300|Détecte les commentaires MySQL, les conditions et les injections de ch(a)r|
+|942310|Détecte des tentatives d’injection de code SQL chaîné 2/2|
 |942320|Détecte des injections de fonctions/procédures stockées MySQL et PostgresSQL|
 |942330|Détecte les sondes d’injection SQL classiques 1/2|
 |942340|Détecte les tentatives de contournement d’authentification SQL de base 3/3|
@@ -218,7 +220,7 @@ Les groupes de règles suivants et les règles sont disponibles lors de l’util
 |943110|Possible attaque par fixation de session = Nom du paramètre SessionID avec référent hors domaine|
 |943120|Possible attaque par fixation de session = Nom du paramètre SessionID sans référent|
 
-# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
 
 ## <a name="owasp229"></a> Ensembles de règles
 
@@ -229,7 +231,7 @@ Les groupes de règles suivants et les règles sont disponibles lors de l’util
 |960911|Ligne de requête HTTP non valide|
 |981227|Erreur Apache = URI non valide dans la requête.|
 |960912|Échec de l’analyse du corps de la requête.|
-|960914|Échec de validation stricte de corps de la requête en plusieurs parties|
+|960914|Échec de la validation stricte du corps de la requête à parties multiples|
 |960915|L’analyseur multipart a détecté une possible limite sans correspondance.|
 |960016|L’en-tête HTTP Content-Length n’est pas numérique.|
 |960011|Requête GET ou HEAD avec contenu du corps.|
@@ -480,4 +482,4 @@ Les groupes de règles suivants et les règles sont disponibles lors de l’util
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment désactiver les règles de pare-feu d’applications Web : [Personnaliser les règles de pare-feu d’application web](application-gateway-customize-waf-rules-portal.md)
+Découvrez comment désactiver des règles WAF : [Personnaliser les règles de pare-feu d’application web](application-gateway-customize-waf-rules-portal.md)

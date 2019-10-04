@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à E Sales Manager Remix | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à E Sales Manager Remix | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et E Sales Manager Remix.
 services: active-directory
 documentationCenter: na
@@ -17,11 +17,11 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164147"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "65406949"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Intégrer Azure Active Directory à E Sales Manager Remix
 
@@ -103,14 +103,14 @@ Activez l’authentification unique Azure AD dans le portail Azure, et configure
 
     a. Dans le champ **URL d’authentification**, entrez une URL dans le format suivant : *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
 
-    b. Dans le champ **Identificateur**, entrez une URL dans le format suivant : *https://\<Server-Based-URL>/\<sub-domain>/*.
+    b. Dans le champ **Identificateur**, entrez une URL dans le format suivant : *https://\<Server-Based-URL>/\<sub-domain>/* .
 
     c. Notez la valeur **Identificateur** en vue d’une utilisation plus tard dans ce didacticiel.
     
     > [!NOTE] 
     > Les valeurs ci-dessus ne sont pas réelles. Mettez à jour les valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe de support technique d’E Sales Manager Remix](mailto:esupport@softbrain.co.jp).
 
-1. Sous **Certificat de signature SAML**, sélectionnez **Certificat (en base64)**, puis enregistrez le fichier du certificat sur votre ordinateur.
+1. Sous **Certificat de signature SAML**, sélectionnez **Certificat (en base64)** , puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Lien de téléchargement du certificat (en base64)](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
@@ -120,7 +120,7 @@ Activez l’authentification unique Azure AD dans le portail Azure, et configure
 
     La fenêtre **Modifier l’attribut** s’affiche.
 
-1. Copiez les valeurs **Espace de noms** et **Nom**. Générez la valeur dans le modèle *\<Namespace>/\<Name>*, et enregistrez-la en vue d’une utilisation plus tard dans ce didacticiel.
+1. Copiez les valeurs **Espace de noms** et **Nom**. Générez la valeur dans le modèle *\<Namespace>/\<Name>* , et enregistrez-la en vue d’une utilisation plus tard dans ce didacticiel.
 
     ![Fenêtre Modifier l’attribut](./media/esalesmanagerremix-tutorial/configure2.png)
 
@@ -158,9 +158,9 @@ Activez l’authentification unique Azure AD dans le portail Azure, et configure
     
     b. Dans la section **Éléments Collaboration**, dans la liste déroulante, sélectionnez **e-mail**.
 
-    c. Dans la zone **éléments Collaboration**, collez la valeur de revendication que vous avez copiée plus tôt à partir du portail Azure (c’est-à-dire **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. Dans la zone **éléments Collaboration**, collez la valeur de revendication que vous avez copiée plus tôt à partir du portail Azure (c’est-à-dire **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** ).
 
-    d. Dans le champ **Émetteur (ID d’entité)**, collez la valeur Identificateur que vous avez copiée plus tôt à partir de la section relative aux **domaine et adresses URL E Sales Manager Remix** du portail Azure.
+    d. Dans le champ **Émetteur (ID d’entité)** , collez la valeur Identificateur que vous avez copiée plus tôt à partir de la section relative aux **domaine et adresses URL E Sales Manager Remix** du portail Azure.
 
     e. Pour charger le certificat téléchargé à partir du portail Azure, sélectionnez **Sélection de fichiers**.
 

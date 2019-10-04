@@ -1,23 +1,37 @@
 ---
 title: Résoudre les problèmes d’un serveur de sauvegarde Azure
 description: Résolvez les problèmes d’installation et d’enregistrement du serveur de sauvegarde Azure, mais aussi de sauvegarde et de restauration des charges de travail applicatives.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
-ms.author: kasinh
-ms.openlocfilehash: 22507a1b89c6a7d6867e9b669e1a2e70106a4e41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 07/05/2019
+ms.author: dacurwin
+ms.openlocfilehash: 0f9c2d1d2081ec22898ed3a4fbc73305ff0995e3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880566"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954683"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Résoudre les problèmes d’un serveur de sauvegarde Azure
 
 Résolvez les erreurs se produisant lors de l’utilisation d’un serveur de sauvegarde Azure à l’aide des informations figurant dans les tables suivantes.
+
+## <a name="basic-troubleshooting"></a>Dépannage de base
+
+Nous vous recommandons d’effectuer les validations ci-dessous avant de résoudre les problèmes liés à Microsoft Azure Backup Server (MABS) :
+
+- [Vérifiez que l'agent Microsoft Azure Recovery Services (MARS) est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Vérifiez la connectivité réseau entre l’agent MARS et Azure](https://aka.ms/AB-A4dp50)
+- Assurez-vous que Microsoft Azure Recovery Services est en cours d’exécution (dans la console de service). Si nécessaire, redémarrez le système et retentez l’opération
+- [Vérifiez qu’il existe entre 5 et 10 % d’espace de volume disponible à l’emplacement du dossier de travail](https://aka.ms/AB-AA4dwtt)
+- En cas d'échec d'inscription, vérifiez si le serveur sur lequel vous essayez d’installer le serveur de sauvegarde Azure n’est pas déjà inscrit sur un autre coffre
+- Si l’installation push échoue, vérifiez si l’agent DPM est déjà présent. Si c’est le cas, désinstallez l’agent et recommencez l’installation
+- [Assurez-vous qu’aucun autre processus ou logiciel antivirus n’interfère avec la sauvegarde Azure](https://aka.ms/AA4nyr4)<br>
+- Vérifiez que le service SQL Agent est en cours d'exécution et défini sur automatique dans le serveur MAB<br>
+
 
 ## <a name="invalid-vault-credentials-provided"></a>Informations d’identification du coffre fournies non valides
 
@@ -29,7 +43,7 @@ Résolvez les erreurs se produisant lors de l’utilisation d’un serveur de sa
 
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Sauvegarde | Le réplica est incohérent. | Vérifiez que l’option de vérification automatique de la cohérence est activée dans l’Assistant Groupe de protection. Pour en savoir plus sur les causes d’incohérence du réplica et consulter des suggestions pertinentes, consultez l’article Microsoft TechNet [Replica is inconsistent](https://technet.microsoft.com/library/cc161593.aspx) (Le réplica est incohérent).<br> <ol><li> En cas de sauvegarde de l’état système/sauvegarde à des fins de récupération complète, vérifiez que la sauvegarde de Windows Server est installée sur le serveur protégé.</li><li> Recherchez d’éventuels problèmes liés au manque d’espace dans le pool de stockage DPM sur le serveur DPM/de sauvegarde Azure, et allouez le stockage selon les besoins.</li><li> Vérifiez l’état du service VVS (Volume Shadow Copy) sur le serveur protégé. S’il est désactivé, définissez la propriété pour démarrer manuellement. Démarrez le service sur le serveur. Ensuite, revenez à la console DPM/du serveur de sauvegarde Azure et démarrez la tâche de synchronisation avec vérification de la cohérence.</li></ol>|
+| Sauvegarde | Le réplica est incohérent. | Vérifiez que l’option de vérification automatique de la cohérence est activée dans l’Assistant Groupe de protection. Pour en savoir plus sur les causes d’incohérence du réplica et consulter des suggestions pertinentes, consultez l’article [Le réplica est incohérent](https://technet.microsoft.com/library/cc161593.aspx).<br> <ol><li> En cas de sauvegarde de l’état système/sauvegarde à des fins de récupération complète, vérifiez que la sauvegarde de Windows Server est installée sur le serveur protégé.</li><li> Recherchez d’éventuels problèmes liés au manque d’espace dans le pool de stockage DPM sur le serveur DPM/de sauvegarde Azure, et allouez le stockage selon les besoins.</li><li> Vérifiez l’état du service VVS (Volume Shadow Copy) sur le serveur protégé. S’il est désactivé, définissez la propriété pour démarrer manuellement. Démarrez le service sur le serveur. Ensuite, revenez à la console DPM/du serveur de sauvegarde Azure et démarrez la tâche de synchronisation avec vérification de la cohérence.</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>Échec de la création de points de récupération en ligne.
 
@@ -41,13 +55,13 @@ Résolvez les erreurs se produisant lors de l’utilisation d’un serveur de sa
 
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Restore | **Code d’erreur** : CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Message d’erreur** : Les informations d’identification du coffre fournies ne correspondent pas au coffre auprès duquel le serveur est enregistré. | **Cause** : ce problème se produit lorsque vous essayez de restaurer des fichiers vers un autre serveur que le serveur d’origine à l’aide de l'option de récupération DPM externe, et si le serveur en cours de récupération et le serveur d’origine à partir duquel les données sont sauvegardées ne sont pas associés au même coffre Recovery Services.<br/> <br/>**Solution de contournement** Pour résoudre ce problème, assurez-vous que le serveur d'origine et l'autre serveur sont enregistrés dans le même coffre.|
+| Restore | **Code d’erreur** : CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Message d’erreur** : Les informations d’identification du coffre fournies ne correspondent pas au coffre auprès duquel le serveur est enregistré. | **Cause** : Ce problème se produit quand vous essayez de restaurer des fichiers sur un autre serveur que le serveur d’origine à l’aide de l’option de récupération DPM externe, et si le serveur en cours de récupération et le serveur d’origine à partir duquel les données sont sauvegardées ne sont pas associés au même coffre Recovery Services.<br/> <br/>**Solution de contournement** Pour résoudre ce problème, assurez-vous que le serveur d'origine et l'autre serveur sont enregistrés dans le même coffre.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Les tâches de création de points de récupération en ligne pour les machines virtuelles VMware échouent.
 
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Sauvegarde | Les tâches de création de points de récupération en ligne pour les machines virtuelles VMware échouent. DPM a rencontré une erreur à partir de VMware alors qu’il essayait de récupérer des informations de suivi des modifications. Code d’erreur : FileFaultFault (ID 33621) |  <ol><li> Réinitialisez le processus CTK sur VMware pour les machines virtuelles affectées.</li> <li>Vérifiez que le disque indépendant n’est pas en place sur VMware.</li> <li>Arrêtez la protection pour les machines virtuelles affectées et redémarrez-la avec le bouton **d’actualisation**. </li><li>Exécutez une vérification de cohérence pour les machines virtuelles affectées.</li></ol>|
+| Sauvegarde | Les tâches de création de points de récupération en ligne pour les machines virtuelles VMware échouent. DPM a rencontré une erreur à partir de VMware alors qu’il essayait de récupérer des informations de suivi des modifications. ErrorCode - FileFaultFault (ID 33621) |  <ol><li> Réinitialisez le processus CTK sur VMware pour les machines virtuelles affectées.</li> <li>Vérifiez que le disque indépendant n’est pas en place sur VMware.</li> <li>Arrêtez la protection pour les machines virtuelles affectées et redémarrez-la avec le bouton **Actualiser**. </li><li>Exécutez une vérification de cohérence pour les machines virtuelles affectées.</li></ol>|
 
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>L’opération de l’agent a échoué en raison d’une erreur de communication avec le service Coordinateur d’agents DPM sur le serveur
@@ -68,7 +82,7 @@ Résolvez les erreurs se produisant lors de l’utilisation d’un serveur de sa
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
 | Envoi d’un ou de plusieurs agents à des serveurs protégés via une transmission de type push | Les informations d’identification spécifiées pour le serveur ne sont pas valides. | **Si l’action recommandée dans le produit ne fonctionne pas, procédez comme suit** : <br> Installez manuellement l’agent de protection sur le serveur de production, comme indiqué dans [cet article](https://technet.microsoft.com/library/hh758186(v=sc.12).aspx#BKMK_Manual).|
-| Azure Backup Agent n'a pas pu se connecter au service Sauvegarde Azure (ID : 100050) | Azure Backup Agent n’a pas pu se connecter au service Sauvegarde Azure. | **Si l’action recommandée dans le produit ne fonctionne pas, procédez comme suit** : <br>1. Exécutez la commande suivante à partir d’une invite avec élévation de privilèges : **psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**. Une fenêtre Internet Explorer s’ouvre. <br/> 2. Accédez à **Outils** > **Options Internet** > **Connexions** > **Paramètres réseau**. <br/> 3. Vérifiez les paramètres de proxy pour le compte système. Définissez l’adresse IP et le port de proxy. <br/> 4. Fermez Internet Explorer.|
+| Azure Backup Agent n'a pas pu se connecter au service Sauvegarde Azure (ID : 100050) | Azure Backup Agent n’a pas pu se connecter au service Sauvegarde Azure. | **Si l’action recommandée dans le produit ne fonctionne pas, procédez comme suit** : <br>1. Exécutez la commande suivante à partir d’une invite avec élévation de privilèges : **psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe**. Une fenêtre Internet Explorer s’ouvre. <br/> 2. Accédez à **Outils** > **Options Internet** > **Connexions** > **Paramètres réseau**. <br/> 3. Modifiez les paramètres pour utiliser un serveur proxy. Fournissez ensuite les détails du serveur proxy.<br/> 4. Si votre machine a un accès à Internet limité, assurez-vous que les paramètres du pare-feu sur la machine ou le proxy autorisent ces [URL](backup-configure-vault.md#verify-internet-access) et cette [adresse IP](backup-configure-vault.md#verify-internet-access).|
 | L’installation d’Azure Backup Agent a échoué | L’installation de Microsoft Azure Recovery Services a échoué. Toutes les modifications apportées par l’installation de Microsoft Azure Recovery Services au système ont été restaurées. (ID : 4024) | Installez l’agent Azure manuellement.
 
 
@@ -86,9 +100,9 @@ Résolvez les erreurs se produisant lors de l’utilisation d’un serveur de sa
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
 | Sauvegarde | Une erreur inattendue s’est produite pendant l’exécution de la tâche. Le périphérique n’est pas prêt. | **Si l’action recommandée dans le produit ne fonctionne pas, procédez comme suit :** <br> <ul><li>Définissez l’espace de stockage des clichés instantanés sur Illimité pour les éléments du groupe de protection, puis exécutez la vérification de la cohérence.<br></li> (OU) <li>Essayez de supprimer le groupe de protection existant et de créer plusieurs groupes. Chaque nouveau groupe de protection doit contenir un élément individuel.</li></ul> |
-| Sauvegarde | Si vous sauvegardez uniquement l’état du système, vérifiez que l’ordinateur présente un espace disponible suffisant pour stocker cette sauvegarde. | <ol><li>Vérifiez que la sauvegarde Windows Server est installée sur l’ordinateur protégé.</li><li>Vérifiez que l’ordinateur protégé dispose d’un espace suffisant pour l’état du système. Pour ce faire, le plus simple est d’accéder à l’ordinateur protégé, d’ouvrir la sauvegarde Windows Server, de cliquer sur les sélections, puis de sélectionner la récupération complète. L’interface utilisateur vous indique ensuite l’espace requis. Ouvrez la **sauvegarde Windows Server** > **, puis cliquez sur Sauvegarde locale** > **Planification de la sauvegarde** > **Sélectionner la configuration de sauvegarde** > **Serveur complet** (la taille est affichée). Utilisez cette taille à des fins de vérification.</li></ol>
+| Sauvegarde | Si vous sauvegardez uniquement l’état du système, vérifiez que l’ordinateur présente un espace disponible suffisant pour stocker cette sauvegarde. | <ol><li>Vérifiez que la sauvegarde Windows Server est installée sur l’ordinateur protégé.</li><li>Vérifiez que l’ordinateur protégé dispose d’un espace suffisant pour l’état du système. Pour ce faire, le plus simple est d’accéder à l’ordinateur protégé, d’ouvrir la sauvegarde Windows Server, de cliquer sur les sélections, puis de sélectionner la récupération complète. L’interface utilisateur vous indique ensuite l’espace requis. Ouvrez la **sauvegarde Windows Server** >  **, puis cliquez sur Sauvegarde locale** > **Planification de la sauvegarde** > **Sélectionner la configuration de sauvegarde** > **Serveur complet** (la taille est affichée). Utilisez cette taille à des fins de vérification.</li></ol>
 | Sauvegarde | Échec de la sauvegarde à des fins de récupération complète | Si la taille de la récupération complète est importante, déplacez certains fichiers d’application vers le disque du système d’exploitation et recommencez. |
-| Sauvegarde | L’option de renouvellement de la protection de machine virtuelle VMware sur un nouveau serveur de sauvegarde Azure n’est pas répertoriée comme disponible. | Les propriétés VMware sont pointés vers une ancienne instance du serveur de sauvegarde Microsoft Azure mise hors service. Pour résoudre ce problème :<br><ol><li>Dans VCenter (équivalent SC-VMM), accédez à l’onglet **Résumé**, puis **Attributs personnalisés**.</li>  <li>Supprimez le nom de l’ancien serveur de sauvegarde Microsoft Azure de la valeur **DPMServer**.</li>  <li>Revenez au nouveau serveur de sauvegarde Microsoft Azure et modifiez le groupe de protection.  Après un clic sur le bouton **Actualiser**, la machine virtuelle comporte une case à cocher indiquant qu’elle peut être ajoutée à la protection.</li></ol> |
+| Sauvegarde | L’option permettant de reprotéger une machine virtuelle VMware sur un nouveau serveur de sauvegarde Microsoft Azure ne s’affiche pas comme pouvant être ajoutée. | Les propriétés VMware sont pointés vers une ancienne instance du serveur de sauvegarde Microsoft Azure mise hors service. Pour résoudre ce problème :<br><ol><li>Dans VCenter (équivalent SC-VMM), accédez à l’onglet **Résumé**, puis **Attributs personnalisés**.</li>  <li>Supprimez le nom de l’ancien serveur de sauvegarde Microsoft Azure de la valeur **DPMServer**.</li>  <li>Revenez au nouveau serveur de sauvegarde Microsoft Azure et modifiez le groupe de protection.  Après un clic sur le bouton **Actualiser**, la machine virtuelle comporte une case à cocher indiquant qu’elle peut être ajoutée à la protection.</li></ol> |
 | Sauvegarde | Erreur lors de l’accès aux dossiers/fichiers partagés. | Essayez de modifier les paramètres d’antivirus comme indiqué dans l’article TechNet [Exécution d’un logiciel antivirus sur le serveur DPM](https://technet.microsoft.com/library/hh757911.aspx).|
 
 
@@ -104,4 +118,34 @@ Résolvez les erreurs se produisant lors de l’utilisation d’un serveur de sa
 
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Configuration des notifications par e-mail à l’aide d’un compte Office 365 |ID d'erreur : 2013| **Cause :**<br> Tentative d’utiliser le compte Office 365 <br>**Action recommandée :**<ol><li> La première chose à vérifier est que l’option permettant d’autoriser un relais anonyme sur un connecteur de réception pour votre serveur DPM est configurée sur Exchange. Pour plus d’informations sur cette configuration, consultez [Autoriser le relais anonyme sur un connecteur de réception](https://technet.microsoft.com/library/bb232021.aspx) sur TechNet.</li> <li> Si vous ne pouvez pas utiliser un relais SMTP interne et devez effectuer la configuration à l’aide de votre serveur Office 365, vous pouvez configurer IIS en tant que relais. Configurez le serveur DPM pour [relayer SMTP vers O365 en utilisant IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **IMPORTANT :** Veillez à utiliser l’utilisateur\@domaine.com format et *pas* domaine\utilisateur.<br><br><li>Faites en sorte que DPM utilise le nom du serveur local en guise de serveur SMTP, port 587. Ensuite, faites-lui utiliser l’adresse e-mail d’utilisateur dont doivent provenir les e-mails.<li> Le nom d’utilisateur et le mot de passe dans la page d’installation de DPM SMTP doivent correspondre à un compte de domaine rattaché au domaine où se trouve DPM. </li><br> **REMARQUE** : lorsque vous changez l'adresse du serveur SMTP, une fois les modifications effectuées, fermez la zone des paramètres, puis rouvrez-la pour vérifier qu'elle reflète la nouvelle valeur.  Se limiter à changer et à tester ne suffit pas toujours pour que les nouveaux paramètres soient pris en compte. C’est pourquoi effectuer un test de cette façon est une bonne pratique.<br><br>Au cours de ce processus, vous pouvez à tout moment supprimer ces paramètres en fermant la console DPM et en modifiant les clés de Registre suivantes : **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Supprimer les clés SMTPPassword et SMTPUserName**. Vous pouvez les rajouter à l’interface utilisateur quand vous la relancez.
+| Configuration des notifications par e-mail à l’aide d’un compte Office 365 |ID d'erreur : 2013| **Cause :**<br> Tentative d’utiliser le compte Office 365 <br>**Action recommandée :**<ol><li> La première chose à vérifier est que l’option permettant d’autoriser un relais anonyme sur un connecteur de réception pour votre serveur DPM est configurée sur Exchange. Pour plus d’informations sur cette configuration, consultez [Autoriser le relais anonyme sur un connecteur de réception](https://technet.microsoft.com/library/bb232021.aspx) sur TechNet.</li> <li> Si vous ne pouvez pas utiliser un relais SMTP interne et devez effectuer la configuration à l’aide de votre serveur Office 365, vous pouvez configurer IIS en tant que relais. Configurez le serveur DPM pour [relayer SMTP vers O365 en utilisant IIS](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx).<br><br> **IMPORTANT :** veillez à utiliser le format user\@domain.com et *non pas* le format domaine\utilisateur.<br><br><li>Faites en sorte que DPM utilise le nom du serveur local en guise de serveur SMTP, port 587. Ensuite, faites-lui utiliser l’adresse e-mail d’utilisateur dont doivent provenir les e-mails.<li> Le nom d’utilisateur et le mot de passe dans la page d’installation de DPM SMTP doivent correspondre à un compte de domaine rattaché au domaine où se trouve DPM. </li><br> **REMARQUE** : lorsque vous changez l'adresse du serveur SMTP, une fois les modifications effectuées, fermez la zone des paramètres, puis rouvrez-la pour vérifier qu'elle reflète la nouvelle valeur.  Se limiter à changer et à tester ne suffit pas toujours pour que les nouveaux paramètres soient pris en compte. C’est pourquoi effectuer un test de cette façon est une bonne pratique.<br><br>Au cours de ce processus, vous pouvez à tout moment supprimer ces paramètres en fermant la console DPM et en modifiant les clés de Registre suivantes : **HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Supprimer les clés SMTPPassword et SMTPUserName**. Vous pouvez les rajouter à l’interface utilisateur quand vous la relancez.
+
+
+## <a name="common-issues"></a>Problèmes courants
+
+Cette section décrit les erreurs courantes que vous pouvez rencontrer lors de l’utilisation du serveur de sauvegarde Azure.
+
+
+### <a name="cbpsourcesnapshotfailedreplicamissingorinvalid"></a>CBPSourceSnapshotFailedReplicaMissingOrInvalid
+
+Message d’erreur | Action recommandée |
+-- | --
+La sauvegarde a échoué, car le réplica de sauvegarde sur disque est non valide ou manquant. | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération : <br/> 1. Créez un point de récupération de disque<br/> 2. Exécutez une vérification de la cohérence sur la source de données <br/> 3. Arrêtez la protection de la source de données, puis reconfigurez la protection pour cette source de données
+
+### <a name="cbpsourcesnapshotfailedreplicametadatainvalid"></a>CBPSourceSnapshotFailedReplicaMetadataInvalid
+
+Message d’erreur | Action recommandée |
+-- | --
+La capture instantanée du volume source a échoué car les métadonnées du réplica ne sont pas valides. | Créer un point de récupération de disque de cette source de source et réessayer la sauvegarde en ligne
+
+### <a name="cbpsourcesnapshotfailedreplicainconsistent"></a>CBPSourceSnapshotFailedReplicaInconsistent
+
+Message d’erreur | Action recommandée |
+-- | --
+La capture instantanée du volume source a échoué en raison d’un réplica de source de données incohérent. | Exécutez une vérification de cohérence sur cette source de données et réessayez
+
+### <a name="cbpsourcesnapshotfailedreplicacloningissue"></a>CBPSourceSnapshotFailedReplicaCloningIssue
+
+Message d’erreur | Action recommandée |
+-- | --
+La sauvegarde a échoué car le réplica de sauvegarde de disque n’a pas pu être cloné.| S’assurer que tous les fichiers de réplica de sauvegarde de disque précédents (.vhdx) sont démontés et qu’aucune sauvegarde de disque à disque n’est en cours pendant les sauvegardes en ligne

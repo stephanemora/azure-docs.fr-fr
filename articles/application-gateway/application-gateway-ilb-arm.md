@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: 3b9108e08e1b1ad13fac75d00816755043d84672
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 70b350e228785e47a41cb83ce0d80b93c8a601c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308718"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66135221"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Créer une passerelle d’application avec un équilibreur de charge interne (ILB)
 
@@ -31,7 +31,7 @@ Cet article vous guidera au cours des étapes de configuration d’une passerell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Installez la dernière version du module Azure PowerShell en suivant le [instructions d’installation](/powershell/azure/install-az-ps).
+1. Installez la dernière version du module Azure PowerShell en suivant les [instructions d’installation](/powershell/azure/install-az-ps).
 2. Vous créez un réseau virtuel et un sous-réseau pour la passerelle Application Gateway. Assurez-vous qu’aucun ordinateur virtuel ou déploiement cloud n’utilise le sous-réseau. La passerelle Application Gateway doit être seule sur un sous-réseau virtuel.
 3. Les serveurs que vous configurez pour utiliser la passerelle Application Gateway doivent exister ou vous devez créer leurs points de terminaison sur le réseau virtuel ou avec une adresse IP/VIP publique affectée.
 

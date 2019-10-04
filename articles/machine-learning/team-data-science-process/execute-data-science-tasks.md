@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9d8ae3a95262b1554e7e97fac8375a44743bf4df
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: eb792034e49b0f8f663eb9ee968ea6fac1372373
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731459"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70278606"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Exécuter des tâches de science des données : exploration, modélisation et déploiement
 
 Les tâches courantes de science des données incluent l’exploration, la modélisation et le déploiement. Cet article explique comment recourir aux utilitaires **IDEAR (Interactive Data Exploration, Analysis, and Reporting)** et **AMAR (Automated Modeling and Reporting)** pour effectuer plusieurs tâches courantes de science des données, telles que l’exploration des données, l’analyse des données et la création de rapports interactives, ainsi que la création de modèles. Il décrit également les options de déploiement d’un modèle sur un environnement de production à l’aide d’un éventail de kits de ressources et de plateformes de données, tels que les suivants :
 
-- [Azure Machine Learning](../service/index.yml)
+- [Azure Machine Learning](../index.yml)
 - [SQL Server avec les services ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
 
@@ -73,7 +73,7 @@ Pour plus d’informations, consultez [Utilitaire de modélisation et de créati
 ### <a name="model-management"></a>Gestion des modèles
 Une fois que plusieurs modèles ont été générés, vous devez généralement vous doter d’un système qui vous permet de les inscrire et de les gérer. En règle générale, vous avez besoin d’une combinaison de scripts ou d’API et d’une base de données backend ou d’un système de gestion de versions. Voici quelques options que vous pouvez envisager pour ces tâches de gestion :
 
-1. [Azure Machine Learning - Service de gestion des modèles](../service/index.yml)
+1. [Azure Machine Learning - Service de gestion des modèles](../index.yml)
 2. [ModelDB de MIT](https://mitdbg.github.io/modeldb/) 
 3. [SQL Server comme système de gestion de modèle](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)

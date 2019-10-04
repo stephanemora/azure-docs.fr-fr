@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660883"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60743653"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Présentation de Service Fabric Cluster Resource Manager
 Jusqu’ici, pour gérer des systèmes informatiques ou des services en ligne, il fallait dédier des machines physiques ou virtuelles spécifiques à ces services ou systèmes spécifiques. Les services étaient conçus sous forme de niveaux : un niveau « web » et un niveau « données » ou « stockage ». Les applications comportaient un niveau de messagerie où les demandes étaient transmises ou reçues, ainsi qu’un ensemble de machines dédiées à la mise en cache. Chaque niveau ou type de charge de travail recevait des machines spécifiques dédiées : quelques machines pour la base de données, quelques-unes pour les serveurs web. Si un type particulier de charge de travail entraînait la surchauffe des machines sur lesquelles il était exécuté, alors vous ajoutiez davantage de machines avec cette même configuration à ce niveau. Toutefois, il n’était pas possible d’augmenter facilement toutes les charges de travail. Avec le niveau de données en particulier, vous deviez généralement remplacer les machines par des machines plus grandes. Facile. Si une machine venait à tomber en panne, cette partie de l’application globale s’exécutait alors à une capacité inférieure jusqu’à la restauration de la machine. Toujours aussi facile (mais pas forcément très amusant).
@@ -54,7 +54,7 @@ Bien que certaines de ces stratégies présentent un intérêt, Service Fabric C
 Étant donné que Cluster Resource Manager est responsable du déplacement des services, il contient un ensemble de fonctionnalités différentes par rapport à ce que vous trouveriez dans un équilibrage de charge réseau. Les équilibreurs de charge réseau acheminent le trafic réseau à des services déjà présents, même si leur emplacement n’est pas idéal pour l’exécution du service proprement dit. Service Fabric Cluster Resource Manager utilise des stratégies très différentes pour s’assurer que les ressources dans le cluster sont utilisées efficacement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour plus d’informations sur le flux de l’architecture et les informations dans Cluster Resource Manager, consultez [cet article](service-fabric-cluster-resource-manager-architecture.md)
+- Pour plus d’informations sur l’architecture et le flux d’informations dans Cluster Resource Manager, consultez [cet article](service-fabric-cluster-resource-manager-architecture.md)
 - Cluster Resource Manager comporte de nombreuses options permettant de décrire le cluster. Pour en savoir plus sur ces mesures, consultez cet article sur la [description d’un cluster Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 - Pour plus d’informations sur la configuration des services, consultez la rubrique [En savoir plus sur la configuration des services](service-fabric-cluster-resource-manager-configure-services.md)
 - Les métriques représentent la façon dont Service Fabric Cluster Resource Manager gère la consommation et la capacité du cluster. Pour en savoir plus sur ces mesures et la façon de les configurer, consultez [cet article](service-fabric-cluster-resource-manager-metrics.md)

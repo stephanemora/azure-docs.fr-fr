@@ -3,22 +3,22 @@ author: robinsh
 manager: philmea
 ms.author: robinsh
 ms.topic: include
-ms.date: 10/26/2018
-ms.openlocfilehash: 57a5de4c590ff98429aa1d4a0b96cebed6084a0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/20/2019
+ms.openlocfilehash: c164433efc6a34a3a06676a3145feb18d3de80b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803949"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66248895"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Ajouter un groupe de consommateurs à votre instance IoT Hub
 
-Les groupes de consommateurs sont utilisés par les applications pour extraire des données de l’instance Azure IoT Hub. Dans ce didacticiel, vous créez un groupe de consommateurs qu’un prochain service Azure utilisera pour lire les données à partir de votre instance IoT Hub.
+Les [Groupes de consommateurs](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) fournissent des vues indépendantes dans le flux d’événements qui permettent aux applications et services Azure de consommer indépendamment des données à partir du même point de terminaison Event Hub. Dans cette section, vous ajoutez un groupe de consommateurs à votre point de terminaison intégré utilisé ultérieurement dans ce didacticiel pour extraire les données du point de terminaison.
 
 Pour ajouter un groupe de consommateurs à votre instance IoT Hub, procédez comme suit :
 
 1. Dans le [portail Azure](https://portal.azure.com/), ouvrez votre instance IoT Hub.
 
-2. Dans le volet gauche, cliquez sur **Point de terminaison prédéfinis**, sélectionnez **Événements** dans le volet supérieur, puis entrez un nom sous **Groupes de consommateurs** dans le volet droit. Cliquez sur **Enregistrer** après avoir changé la valeur de **Durée de vie par défaut** et rétabli sa valeur d’origine.
+2. Dans le volet gauche, cliquez sur **Points de terminaison prédéfinis**, sélectionnez **Événements** dans le volet droit, puis entrez un nom sous **Groupes de consommateurs**. Sélectionnez **Enregistrer**.
 
    ![Créer un groupe de consommateurs dans votre IoT Hub](./media/iot-hub-get-started-create-consumer-group/iot-hub-create-consumer-group-azure.png)

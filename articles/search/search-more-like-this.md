@@ -2,41 +2,52 @@
 title: moreLikeThis dans la Recherche Azure (préversion) - Recherche Azure
 description: Documentation préliminaire pour la fonctionnalité moreLikeThis (préversion) exposée dans l’API REST Recherche Azure.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 10/27/2016
+ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d55a6d883e0dcd5ad4b1c1584b76bae06e6c742a
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: d7c816c545c6647907aa9d700a4eb6ed91277465
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569040"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70182300"
 ---
-# <a name="morelikethis-in-azure-search-preview"></a>moreLikeThis dans la Recherche Azure (préversion)
+# <a name="morelikethis-in-azure-search"></a>moreLikeThis dans la Recherche Azure
 
-`moreLikeThis=[key]` est un paramètre de requête dans l’[API Recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents). En spécifiant le paramètre `moreLikeThis` dans une requête de recherche, vous pouvez trouver des documents qui sont similaires au document spécifié par la clé de document. Lorsqu’une requête de recherche est formulée avec `moreLikeThis`, une demande est générée en utilisant les termes de recherche extraits du document donné et qui décrivent le mieux ce document. La demande générée est ensuite utilisée pour effectuer la requête de recherche. Par défaut, le contenu de tous les champs `searchable` est pris en compte, sauf si le paramètre `searchFields` est utilisé pour restreindre ces champs. Le paramètre `moreLikeThis` ne peut pas être utilisé avec le paramètre de recherche, `search=[string]`.
+> [!Note]
+> moreLikeThis est en préversion et n’a pas été conçu pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
+
+`moreLikeThis=[key]` est un paramètre de requête dans [L’API Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Recherche de documents) qui recherche des documents similaires au document spécifié par la clé de document. Lorsqu’une requête de recherche est formulée avec `moreLikeThis`, une demande est générée en utilisant les termes de recherche extraits du document donné et qui décrivent le mieux ce document. La demande générée est ensuite utilisée pour effectuer la requête de recherche. Par défaut, le contenu de tous les champs pouvant faire l’objet d’une recherche est pris en compte, à l’exception des champs restreints que vous avez spécifiés à l’aide du paramètre `searchFields`. Le paramètre `moreLikeThis` ne peut pas être utilisé avec le paramètre de recherche, `search=[string]`.
+
+Par défaut, le contenu de tous les champs de niveau supérieur pouvant faire l’objet d’une recherche est pris en compte. Si vous souhaitez spécifier des champs spécifiques à la place, vous pouvez utiliser le paramètre `searchFields`. 
+
+Vous ne pouvez pas utiliser moreLikeThis sur des sous-champs pouvant faire l’objet d’une recherche dans un [type complexe](search-howto-complex-data-types.md).
 
 ## <a name="examples"></a>Exemples 
 
 Voici l’exemple d’une requête moreLikeThis. La requête recherche les documents dont les champs de description sont les plus proches du champ du document source, tel que spécifié par le paramètre `moreLikeThis`.
 
 ```
-Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2016-09-01-Preview
+Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2019-05-06-Preview
 ```
 
 ```
-POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
+POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
     {
       "moreLikeThis": "1002",
       "searchFields": "description"
     }
 ```
 
-## <a name="feature-availability"></a>Disponibilité des fonctionnalités
 
-La fonctionnalité moreLikeThis est actuellement en préversion et uniquement prise en charge dans les versions d’API en préversion, `2015-02-28-Preview` et `2016-09-01-Preview`. Comme la version de l’API est spécifiée dans la requête, il est possible de combiner les API mises à la disposition générale (GA) et les API en version préliminaire disponibles dans la même application. Cependant, les API de versions préliminaires ne sont pas soumises à un contrat SLA, et les fonctionnalités peuvent changer ; par conséquent, nous ne recommandons pas de les utiliser dans des applications de production.
+## <a name="next-steps"></a>Étapes suivantes
+
+Vous pouvez utiliser n’importe quel outil de test web pour faire des essais avec cette fonctionnalité.  Nous vous recommandons d’utiliser Postman pour cet exercice.
+
+> [!div class="nextstepaction"]
+> [Explorer les API REST de la Recherche Azure avec Postman](search-get-started-postman.md)

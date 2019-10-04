@@ -1,32 +1,32 @@
 ---
-title: Glossaire
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Glossaire - LUIS
+titleSuffix: Azure Cognitive Services
 description: Le glossaire explique les termes que vous pourriez rencontrer en utilisant le service API LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: reference
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: ced83b83c2d64ba5c4816f378c66dae9f4210391
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874479"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638293"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Le glossaire Language Understanding (LUIS) explique les termes que vous pourriez rencontrer lors de l’utilisation du service API LUIS.
 
 ## <a name="active-version"></a>Version active
 
-La version active de LUIS est la version qui reçoit les modifications apportées au modèle. Sur le site web [LUIS](luis-reference-regions.md), si vous souhaitez modifier une version qui n’est pas la version active, vous devrez tout d’abord la définir comme étant la version active.
+La version active de LUIS est la version qui reçoit les modifications apportées au modèle. Dans le portail [LUIS](luis-reference-regions.md), si vous souhaitez modifier une version qui n’est pas la version active, vous devrez tout d’abord la définir comme étant la version active.
 
 ## <a name="authoring"></a>Création
 
-La création correspond à la possibilité de créer, de gérer et de déployer une [application LUIS](#luis-app), soit avec le site web [LUIS](luis-reference-regions.md), soit avec les [API de création](https://aka.ms/luis-authoring-api).
+La création correspond à la possibilité de créer, de gérer et de déployer une [application LUIS](#luis-app), soit avec le portail [LUIS](luis-reference-regions.md), soit avec les [API de création](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Clé de création
 
@@ -34,30 +34,12 @@ Cette clé, auparavant nommée clé « programmatique », est utilisée pour c
 
 ## <a name="batch-test-json-file"></a>Fichier JSON texte de commandes
 
-Le fichier de commandes est un tableau JSON. Chaque élément du tableau possède trois propriétés : `text`, `intent` et `entities`. La propriété `entities` est un tableau qui peut être vide. Si le tableau `entities` n’est pas vide, il doit identifier précisément les entités.
+Les tests par lot permettent de valider un modèle actuel d’application LUIS avec un ensemble cohérent et connu d’énoncés utilisateurs. Le test par lot est défini dans un [fichier au format JSON](luis-concept-batch-test.md#batch-file-format).
 
-```JSON
-[
-    {
-        "text": "drive me home",
-        "intent": "None",
-        "entities": []
-    },
-    {
-        "text": "book a flight to orlando on the 25th",
-        "intent": "BookFlight",
-        "entities": [
-            {
-                "entity": "orlando",
-                "type": "Location",
-                "startIndex": 18,
-                "endIndex": 25
-            }
-        ]
-    }
-]
-
-```
+Voir aussi : 
+* [Concepts](luis-concept-batch-test.md)
+* [Guide pratique](luis-how-to-batch-test.md)
+* [Tutoriel]luis-tutorial-batch-testing.md)
 
 
 ## <a name="collaborator"></a>Collaborateur
@@ -74,7 +56,7 @@ Dans le contexte de LUIS, un **domaine** est un champ de connaissances propre à
 
 ## <a name="endpoint"></a>Point de terminaison
 
-L’URL du [point de terminaison LUIS](https://aka.ms/luis-endpoint-apis) est celle à laquelle les requêtes LUIS sont envoyées après création et publication de [l’application LUIS](#luis-app). Elle contient la région de l’application publiée, ainsi que l’ID de l’application. Vous trouverez le point de terminaison dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-azure-subscription.md)** de votre application, ou vous pouvez obtenir l’URL de point de terminaison à partir de l’API [Obtenir des informations sur l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+L’URL du [point de terminaison LUIS](https://go.microsoft.com/fwlink/?linkid=2092356) est celle à laquelle les requêtes LUIS sont envoyées après création et publication de [l’application LUIS](#luis-app). Elle contient la région de l’application publiée, ainsi que l’ID de l’application. Vous trouverez le point de terminaison dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-azure-subscription.md)** de votre application, ou vous pouvez obtenir l’URL de point de terminaison à partir de l’API [Obtenir des informations sur l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Voici un exemple de point de terminaison :
 
@@ -114,7 +96,7 @@ Une [intention](luis-concept-intent.md) représente une tâche ou une action que
 
 ## <a name="labeling"></a>Étiquetage
 
-L’étiquetage est le processus d’association d’un mot ou une expression dans [l’énoncé](#utterance) d’une intention avec une [entité](#entity) (type de données).
+L’étiquetage, ou marquage, est le processus d’association d’un mot ou une expression dans [l’énoncé](#utterance) d’une intention avec une [entité](#entity) (type de données).
 
 ## <a name="luis-app"></a>Application LUIS
 
@@ -177,7 +159,7 @@ Identique à la [clé programmatique](#programmatic-key), renommée Clé de cré
 
 ## <a name="subscription-key"></a>Clé d’abonnement
 
-La clé d’abonnement est la clé de **point de terminaison** associée au service LUIS [créé dans Azure](luis-how-to-azure-subscription.md). Il ne s’agit pas de la [clé de création](#programmatic-key). Si vous avez une clé de point de terminaison, vous devrez l’utiliser pour toutes les demandes du point de terminaison au lieu de la clé de création. Vous pouvez voir votre clé de point de terminaison actuelle au sein de l’URL du point de terminaison en bas de la [page **Keys and endpoints (Clés et points de terminaison)**](luis-how-to-azure-subscription.md) sur le site web [LUIS](luis-reference-regions.md). Il s’agit de la valeur de la paire nom/valeur **subscription-key**.
+La clé d’abonnement est la clé de **point de terminaison** associée au service LUIS [créé dans Azure](luis-how-to-azure-subscription.md). Il ne s’agit pas de la [clé de création](#programmatic-key). Si vous avez une clé de point de terminaison, vous devrez l’utiliser pour toutes les demandes du point de terminaison au lieu de la clé de création. Vous pouvez voir votre clé de point de terminaison actuelle au sein de l’URL du point de terminaison en bas de la [page **Keys and endpoints (Clés et points de terminaison)** ](luis-how-to-azure-subscription.md) sur le site web [LUIS](luis-reference-regions.md). Il s’agit de la valeur de la paire nom/valeur **subscription-key**.
 
 ## <a name="test"></a>Test
 

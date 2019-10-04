@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
 ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571343"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61320235"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Informations conceptuelles sur les certificats de l’autorité de certification X.509 dans l’industrie IoT
 
@@ -29,7 +29,7 @@ Cet article aborde les points suivants :
 
 * Comment les appareils approuvés par l’autorité de certification X.509 se connectent à IoT Hub
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 L’authentification par l’autorité de certification X.509 est une approche permettant d’authentifier les appareils dans IoT Hub à l’aide d’une méthode qui simplifie considérablement la création d’une identité d’appareil et la gestion du cycle de vie dans la chaîne logistique.
 
@@ -39,7 +39,7 @@ Un autre attribut important de l’authentification de l’autorité de certific
 
 Cet article offre une vue complète de l’utilisation de l’authentification de l’autorité de certification X.509, de la configuration de la chaîne logistique à la connexion des appareils, tout en exploitant un exemple réel pour rendre la présentation plus claire.
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
 Le certificat de l’autorité de certification X.509 est un certificat numérique dont le titulaire peut signer d’autres certificats. Ce certificat numérique porte le nom X.509, car il est conforme à une norme de mise en forme des certificats prévue par la norme RFC 5280 de l’IETF. Il s’agit d’une autorité de certification, car son détenteur peut signer d’autres certificats.
 
@@ -57,7 +57,7 @@ L’utilisation de l’autorité de certification X.509 est plus simple à compr
 
 L’entreprise X a la possibilité d’acheter un certificat de l’autorité de certification X.509 auprès d’une autorité de certification racine publique ou d’en créer un via un processus auto-signé. Selon le scénario d’application, l’une des options peut être meilleure que l’autre. Quelle que soit l’option choisie, le processus implique deux étapes fondamentales : la génération d’une paire de clés publique/privée et la signature de la clé publique dans un certificat.
 
-![Flux pour générer un X509CA des certificats](./media/iot-hub-x509ca-concept/csr-flow.png)
+![Flux pour la génération d’un certificat X509CA](./media/iot-hub-x509ca-concept/csr-flow.png)
 
 La réalisation de ces étapes diffère en fonction des prestataires de services.
 
@@ -77,7 +77,7 @@ L’entreprise X doit inscrire l’autorité de certification X.509 dans IoT Hub
 
 L’inscription du certificat de l’autorité de certification X.509 est un processus en deux étapes, qui comprend le chargement du certificat et une preuve de possession du certificat.
 
-![L’inscription d’un certificat X509CA](./media/iot-hub-x509ca-concept/pop-flow.png)
+![Inscription d’un certificat X509CA](./media/iot-hub-x509ca-concept/pop-flow.png)
 
 ### <a name="x509-ca-certificate-upload"></a>Chargement du certificat de l’autorité de certification X.509
 
@@ -101,7 +101,7 @@ L’une des façons de procéder est de prégénérer des certificats pour les w
 
 L’authentification par certificat d’autorité de certification X.509 propose des solutions à tous les défis cités, grâce à l’utilisation de chaînes d’approbation. Une chaîne d’approbation est créée lorsqu’une autorité de certification signe une autorité de certification intermédiaire, qui à son tour signe une autre autorité de certification intermédiaire, et ainsi de suite jusqu’à ce qu’une autorité de certification intermédiaire finale signe un appareil. Dans notre exemple, l’entreprise X signe l’usine Y, qui à son tour signe le technicien Z, qui signe le widget Smart-X.
 
-![Hiérarchie de chaîne de certificats](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
+![Hiérarchie de la chaîne d’approbation](./media/iot-hub-x509ca-concept/cert-chain-hierarchy.png)
 
 La cascade de certificats ci-dessus correspond au transfert logique de l’autorité. De nombreuses chaînes logistiques suivent ce transfert logique, selon lequel chaque autorité de certification intermédiaire est signée dans la chaîne tout en recevant tous les certificats d’autorité de certification en amont, et la dernière autorité de certification intermédiaire signe chaque appareil et injecte tous les certificats de l’autorité de la chaîne dans l’appareil. Ce système est courant lorsque le fabricant sous contrat qui dispose d’une hiérarchie d’usines nomme une usine donnée pour la fabrication. Bien que la hiérarchie puisse comporter plusieurs niveaux (par exemple, par région/type de produit/ligne de fabrication), seule l’usine en bout de chaîne peut interagir avec l’appareil, mais la chaîne est conservée à partir du haut de la hiérarchie.
 
@@ -109,7 +109,7 @@ Dans d’autres chaînes, une autre autorité de certification intermédiaire pe
 
 Dans notre exemple, l’usine Y et le technicien Z interagissent tous deux avec le widget Smart-X. Bien que l’entreprise X soit propriétaire du widget Smart-X, elle n’interagit pas physiquement avec celui-ci dans la chaîne logistique. La chaîne d’approbation de confiance du widget Smart-X implique donc que l’entreprise X signe l’usine Y, qui à son tour signe le technicien Z, qui fournira ensuite la signature finale du widget Smart-X. La fabrication et l’installation du widget Smart-X nécessitent que l’usine Y et le technicien Z utilisent leurs certificats d’autorité de certification intermédiaires respectifs pour signer chaque widget Smart-X. Résultat final : les widgets Smart-X disposent de certificats d’appareil uniques et la chaîne d’approbation de confiance remonte jusqu’au certificat d’autorité de certification de l’entreprise X.
 
-![Chaîne d’approbation à partir de certificats d’une société pour les certificats d’une autre société](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
+![Chaîne d’approbation depuis les certificats d’une entreprise jusqu’aux certificats d’une autre entreprise](./media/iot-hub-x509ca-concept/cert-mfr-chain.png)
 
 Ce point permet d’évaluer la valeur de la méthode d’autorité de certification X.509. Au lieu de prégénérer et de transmettre les certificats pour chaque widget Smart-X dans la chaîne logistique, l’entreprise X doit simplement effectuer une transmission unique à l’usine Y. Plutôt que de suivre chaque appareil tout au long de son cycle de vie, l’entreprise X peut à présent suivre et gérer les appareils via des groupes qui découlent naturellement du processus de la chaîne logistique, par exemple, les appareils installés par le technicien Z après le mois de juillet d’une année donnée.
 
@@ -127,6 +127,6 @@ Au cours du chargement de la chaîne d’approbation, l’appareil charge son ce
 
 Dans notre exemple, chaque widget Smart-X chargerait son certificat d’appareil unique avec les certificats d’autorité de certification X.509 de l’usine Y et du technicien Z, et répondrait ensuite au défi de preuve de possession d’IoT Hub.
 
-![Flux à partir d’un certificat au défi d’une autre, vous pouvez afficher à partir du hub](./media/iot-hub-x509ca-concept/device-pop-flow.png)
+![Flux d’un certificat à un autre, négociation à partir du hub](./media/iot-hub-x509ca-concept/device-pop-flow.png)
 
 Notez que la base de la confiance réside dans la protection des clés privées, y compris les clés privées des appareils. Nous ne pourrons jamais insister suffisamment sur l’importance des puces en silicium sécurisées sous la forme de modèles de sécurité matériels afin de protéger les clés privées des appareils et la meilleure pratique globale consistant à ne jamais partager les clés privées, par exemple une usine confiant sa clé privée à une autre.

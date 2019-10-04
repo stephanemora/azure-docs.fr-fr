@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9f738ab5022d1378925d920818e3f89fc2a1ee6d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 6916eea26f03d7b9cd0b3792fa65354619f97f74
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670521"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828508"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ La procédure décrite dans cet article suppose que vous effectuez une installat
 L’installation du runtime Service Fabric et du Kit de développement logiciel (SDK) sur le sous-système Windows pour Linux n’est pas prise en charge. L’interface de ligne de commande (CLI) Azure Service Fabric est prise en charge. Elle vous permet de gérer les entités Service Fabric hébergées ailleurs dans le cloud ou en local. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez [Installation de l’interface de ligne de commande Service Fabric](./service-fabric-cli.md).
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Ces versions de système d’exploitation sont prises en charge pour le développement.
 
@@ -87,8 +87,7 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
 4. Ajoutez la nouvelle clé de protection de la confidentialité Gnu (GnuPG ou GPG) à votre porte-clés APT.
 
     ```bash
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 5. Ajoutez les clés GPG Docker officielles à votre porte-clés APT.
@@ -107,7 +106,7 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
 7. Ajouter la clé Azul JDK à votre porte-clés APT et configurer son référentiel.
 
     ```bash
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
@@ -179,8 +178,8 @@ Le runtime Service Fabric qui est fourni avec l’installation du SDK ci-dessus 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicite à partir de npm | le plus récent |
-RHEL | - | OpenJDK 1.8 | Implicite à partir de npm | le plus récent |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicite à partir de npm | latest |
+RHEL | - | OpenJDK 1.8 | Implicite à partir de npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>Configurer un cluster local
 Démarrez un cluster local une fois l’installation terminée.
@@ -216,19 +215,20 @@ Service Fabric fournit des outils de génération de modèles automatique qui vo
 1. Installez Node.js et npm sur votre machine.
 
     ```bash
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-    nvm install node
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo apt-get update
+    sudo apt-get install nodejs
     ```
 2. Installez le générateur de modèles [Yeoman](https://yeoman.io/) sur votre machine à partir de npm.
 
     ```bash
-    npm install -g yo
+    sudo npm install -g yo
     ```
 3. Installez le générateur de conteneurs Service Fabric Yeo et le générateur d’exécutables invités à partir de npm.
 
     ```bash
-    npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 Après avoir installé ces générateurs, vous devez être en mesure de créer un exécutable invité ou des services de conteneurs en exécutant respectivement `yo azuresfguest` ou `yo azuresfcontainer`.
@@ -276,7 +276,7 @@ Vous pouvez installer le plug-in Eclipse pour Service Fabric à partir de l’en
 
 2. Pour installer le plug-in Service Fabric, sélectionnez **Aide** > **Installer un nouveau logiciel**.
 
-3. Dans le champ **Work with** (Utiliser), tapez **https://dl.microsoft.com/eclipse**.
+3. Dans le champ **Work with** (Utiliser), tapez **https://dl.microsoft.com/eclipse** .
 
 4. Sélectionnez **Ajouter**.
 
@@ -333,7 +333,6 @@ Pour supprimer les Kits de développement logiciel (SDK) Service Fabric, exécut
 * [Préparer un environnement de développement Linux sur Windows](service-fabric-local-linux-cluster-windows.md)
 * [Gérer une application Azure Service Fabric à l’aide d’Azure Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 * [Différences entre Service Fabric sur Linux et Windows](service-fabric-linux-windows-differences.md)
-* [Automatiser la mise à jour corrective du système d’exploitation sur votre cluster Linux](service-fabric-patch-orchestration-application-linux.md)
 * [Prise en main de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
 
 <!-- Links -->

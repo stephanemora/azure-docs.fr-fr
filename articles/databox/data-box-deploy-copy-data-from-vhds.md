@@ -1,19 +1,19 @@
 ---
-title: Importer des données à partir de disques durs virtuels et les copier sur des disques managés avec Microsoft Azure Data Box | Microsoft Docs
+title: Tutoriel pour copier des données à partir de disques durs virtuels sur des disques managés avec Azure Data Box | Microsoft Docs
 description: Découvrez comment copier des données à partir de disques durs virtuels de charges de travail de machine virtuelle locales vers votre Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4b7182d1fa70a146da1c01273ffe1032f2982546
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282557"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70240457"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Didacticiel : Utiliser Data Box pour importer des données en tant que disque managé dans Azure
 
@@ -56,8 +56,8 @@ Le tableau suivant présente les chemins d’accès UNC aux partages sur votre D
  
 |        Protocole de connexion           |             Chemin d’accès UNC au partage                                               |
 |-------------------|--------------------------------------------------------------------------------|
-| SMB |`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Premium SSD>\file1.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard HDD>\file2.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard SSD>\file3.vhd` |  
-| NFS |`//<DeviceIPAddress>/<ResourceGroup1_MDisk>/<Premium SSD>/file1.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard HDD>/file2.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard SSD>/file3.vhd` |
+| SMB |`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<PremiumSSD>\file1.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<StandardHDD>\file2.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<StandardSSD>\file3.vhd` |  
+| NFS |`//<DeviceIPAddress>/<ResourceGroup1_MDisk>/<PremiumSSD>/file1.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<StandardHDD>/file2.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<StandardSSD>/file3.vhd` |
 
 La procédure de connexion varie selon que vous utilisez SMB ou NFS pour la connexion aux partages Azure Data Box.
 
@@ -79,7 +79,7 @@ Si vous utilisez un ordinateur hôte Windows Server, effectuez les étapes suiva
     
     ![Obtenir les informations d’identification du partage 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
-3. Pour accéder aux partages associés à votre ressource (*mydbmdrg1* dans l’exemple suivant) à partir de votre ordinateur hôte, ouvrez une fenêtre de commande.  À l’invite de commandes, tapez :
+3. Pour accéder aux partages associés à votre ressource (*mydbmdrg1* dans l’exemple suivant) à partir de votre ordinateur hôte, ouvrez une fenêtre de commande. À l’invite de commandes, tapez :
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 

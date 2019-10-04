@@ -1,6 +1,6 @@
 ---
-title: Créer une application
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Créer une nouvelle application - LUIS
+titleSuffix: Azure Cognitive Services
 description: Créez et gérez vos applications sur la page web de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,20 +8,21 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/16/2019
+ms.topic: conceptual
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: daffbe3f3158bb232f7db7ac90d766661e937643
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 5939886f68a877c4cfad752fe93c4f0eca8f80cf
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679642"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258509"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Créer une application LUIS dans le portail LUIS
 Il existe deux façons de créer une application LUIS. Vous pouvez créer une application LUIS dans le portail [LUIS](https://www.luis.ai) ou par le biais des [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de création LUIS.
 
 ## <a name="using-the-luis-portal"></a>Utilisation du portail LUIS
+
 Vous pouvez créer une application dans le portail LUIS de plusieurs manières :
 
 * Démarrez avec une application vide et créer des intentions, des énoncés et des entités.
@@ -40,6 +41,8 @@ Vous pouvez créer une application avec les API de création de deux manières 
 <a name="delete-app"></a>
  
 
+[!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
+
 ## <a name="create-new-app-in-luis"></a>Créer une application dans LUIS
 
 1. Sur la page **Mes applications**, sélectionnez **Créer une application**.
@@ -56,30 +59,30 @@ Vous pouvez créer une application avec les API de création de deux manières 
     > [!NOTE]
     > La culture ne peut pas être modifiée une fois que l’application est créée. 
 
-## <a name="import-an-app-from-file"></a>Importer une application à partir du fichier
+## <a name="import-an-app-from-file"></a>Importer une application à partir d’un fichier
 
 1. Sur la page **Mes applications**, sélectionnez **Import new app** (Importer une nouvelle application).
-1. Dans la boîte de dialogue contextuelle, sélectionnez un fichier JSON d’application valide, puis **fait**.
+1. Dans la boîte de dialogue contextuelle, sélectionnez un fichier JSON d’application valide, puis sélectionnez **Effectué**.
 
 ### <a name="import-errors"></a>Erreurs d’importation
 
-Erreurs possibles sont : 
+Plusieurs erreurs sont possibles : 
 
-* Une application portant ce nom existe déjà. Importer à nouveau l’application, puis définissez le **nom facultatif** vers un nouveau nom. 
+* Il existe déjà une application portant ce nom. Pour y remédier, réimportez l’application, puis définissez un autre **Nom facultatif**. 
 
-## <a name="export-app-for-backup"></a>Exporter l’application pour la sauvegarde
+## <a name="export-app-for-backup"></a>Exporter une application à des fins de sauvegarde
 
-1. Sur **mes applications** page, sélectionnez **exporter**.
-1. Sélectionnez **exporter au format JSON**. Votre navigateur télécharge la version active de l’application.
+1. Sur la page **Mes applications**, sélectionnez **Exporter**.
+1. Sélectionnez **Exporter au format JSON**. Votre navigateur télécharge la version active de l’application.
 1. Ajoutez ce fichier à votre système de sauvegarde pour archiver le modèle.
 
-## <a name="export-app-for-containers"></a>Exporter app pour conteneurs
+## <a name="export-app-for-containers"></a>Exporter une application pour les conteneurs
 
-1. Sur **mes applications** page, sélectionnez **exporter**.
-1. Sélectionnez **exporter en tant que conteneur** puis sélectionnez quel emplacement publié (production ou phase) que vous voulez exporter.
-1. Utiliser ce fichier avec votre [conteneur de LUIS](luis-container-howto.md). 
+1. Sur la page **Mes applications**, sélectionnez **Exporter**.
+1. Sélectionnez **Exporter en tant que conteneur**, puis sélectionnez l’emplacement publié (de production ou de préproduction) à exporter.
+1. Utilisez ce fichier avec votre [conteneur LUIS](luis-container-howto.md). 
 
-    Si vous êtes intéressé par exportation un formé, mais ne pas encore publié de modèle à utiliser avec le conteneur de LUIS, accédez à la **Versions** page et d’exportation à partir de là. 
+    Si vous souhaitez exporter un modèle entraîné, mais pas encore publié, pour l’utiliser avec le conteneur LUIS, faites-le sur la page **Versions**. 
 
 ## <a name="delete-app"></a>Supprimer l’application
 

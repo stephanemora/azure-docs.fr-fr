@@ -1,25 +1,18 @@
 ---
-title: Déployer une machine virtuelle à partir des disques durs virtuels pour la Place de marché Microsoft Azure | Microsoft Docs
+title: Déployer une machine virtuelle à partir des disques durs virtuels pour la Place de marché Microsoft Azure
 description: Explique comment inscrire une machine virtuelle à partir d’un disque dur virtuel déployé dans Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
-author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
+author: qianw211
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 08/08/2019
+ms.author: evansma
+ms.openlocfilehash: 1aa946c813de41423d4fb2ba5b3aa5274db90f39
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046680"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934966"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Déployer une machine virtuelle à partir de vos disques durs virtuels
 
@@ -66,12 +59,12 @@ Une fois votre machine virtuelle déployée, vous pouvez [certifier votre image 
    |  -------------              |   ---------------                                                            |
    | User Storage Account Name (Nom du compte de stockage de l’utilisateur)   | Nom du compte de stockage où se trouve le disque dur virtuel généralisé.                    |
    | User Storage Container Name (Nom du conteneur de stockage de l’utilisateur) | Nom du conteneur où se trouve le disque dur virtuel généralisé.                          |
-   | DNS Name for Public IP (Nom DNS pour adresse IP publique)      | Nom DNS d’adresse IP publique                                                           |
+   | DNS Name for Public IP (Nom DNS pour adresse IP publique)      | Nom DNS d’adresse IP publique. Vous définissez le nom DNS de la machine virtuelle dans le portail Azure, une fois l’offre déployée.  |
    | Nom d’utilisateur administrateur             | Nom d’utilisateur du compte administrateur pour une nouvelle machine virtuelle                                  |
    | Mot de passe d’administrateur              | Mot de passe du compte administrateur pour une nouvelle machine virtuelle                                  |
    | Type de système d’exploitation                     | Système d’exploitation de machine virtuelle : `Windows` \| `Linux`                                    |
    | Identifiant d’abonnement             | Identificateur de l’abonnement sélectionné                                      |
-   | Lieu                    | Emplacement géographique du déploiement                                        |
+   | Location                    | Emplacement géographique du déploiement                                        |
    | Taille de la machine virtuelle                     | [Taille de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), par exemple `Standard_A2` |
    | Nom de l’adresse IP publique      | Nom de votre adresse IP publique                                               |
    | Nom de la machine virtuelle                     | Nom de la nouvelle machine virtuelle                                                           |

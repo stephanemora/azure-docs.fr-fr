@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 84446090da2feaee3005b4ef90ace77b468a3f1a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b0a647fe3499590c0307b89d45d662ecf7e53392
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792588"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65827780"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Créer un IoT Hub avec un modèle Azure Resource Manager (.NET)
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser Azure Resource Manager pour créer et gérer des hubs Azure
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Visual Studio 2015 ou Visual Studio 2017.
+* Visual Studio.
 * Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
 * Un [compte Stockage Azure][lnk-storage-account] dans lequel vous pouvez stocker vos fichiers de modèles Azure Resource Manager.
 * [Azure PowerShell 1.0][lnk-powershell-install] ou version ultérieure.
@@ -38,7 +38,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="prepare-your-visual-studio-project"></a>Préparer votre projet Visual Studio
 
-1. Dans Visual Studio, créez un projet Visual C# Bureau classique Windows en utilisant le modèle de projet **Application console (.NET Framework)**. Nommez ce projet **CreateIoTHub**.
+1. Dans Visual Studio, créez un projet Visual C# Bureau classique Windows en utilisant le modèle de projet **Application console (.NET Framework)** . Nommez ce projet **CreateIoTHub**.
 
 2. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, puis cliquez sur **GÉRER LES PACKAGES NUGET**.
 
@@ -195,10 +195,10 @@ Vous pouvez maintenant terminer l’application en appelant la méthode **Create
 
 3. Cliquez sur **Déboguer**, puis **Démarrer le débogage** pour exécuter l’application. Le déploiement peut prendre plusieurs minutes.
 
-4. Pour vérifier que votre application a bien ajouté le nouvel IoT Hub, accédez au [portail Azure][lnk-azure-portal] et affichez votre liste de ressources. Vous pouvez également utiliser le **Get-AzResource** applet de commande PowerShell.
+4. Pour vérifier que votre application a bien ajouté le nouvel IoT Hub, accédez au [portail Azure][lnk-azure-portal] et affichez votre liste de ressources. Vous pouvez également utiliser la cmdlet PowerShell **Get-AzResource**.
 
 > [!NOTE]
-> Cet exemple d’application ajoute un IoT Hub S1 Standard qui vous est facturé. Vous pouvez supprimer le hub IoT via le [Azure portal] [ lnk-azure-portal] ou à l’aide de la **Remove-AzResource** applet de commande PowerShell lorsque vous avez terminé.
+> Cet exemple d’application ajoute un IoT Hub S1 Standard qui vous est facturé. Lorsque vous avez terminé, vous pouvez supprimer le hub IoT via le [portail Azure][lnk-azure-portal] ou à l’aide de la cmdlet PowerShell **Remove-AzResource**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez déployé un IoT Hub à l’aide d’un modèle Azure Resource Manager avec un programme C#, vous pouvez aller encore plus loin :

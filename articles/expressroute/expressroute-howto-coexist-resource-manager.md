@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 4a1f9556413df7ad8954171d2b446419d3bc2975
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: fdd267937db589156aa5eddc7608323b143266de
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092308"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508843"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurer ExpressRoute des connexions coexistantes de site à site en utilisant PowerShell
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Les étapes de configuration de ces deux scénarios sont décrites dans cet arti
 
 ## <a name="configuration-designs"></a>Modèles de configuration
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurer un réseau VPN de site à site comme un chemin d’accès de basculement pour ExpressRoute
-Vous pouvez configurer une connexion VPN de site à site en tant que sauvegarde pour ExpressRoute. Cette connexion s’applique uniquement aux réseaux virtuels liés au chemin d’homologation privé Azure. Il n’existe aucune solution de basculement basée sur des réseaux VPN pour les services accessibles via l’homologation Azure Microsoft. Le circuit ExpressRoute est toujours le lien principal. Si le circuit ExpressRoute échoue, les données circulent via le chemin du réseau VPN de site à site uniquement. Pour éviter un routage asymétrique, la configuration de votre réseau local doit également privilégier le circuit ExpressRoute via la connexion VPN de site à site. Vous pouvez préférer le chemin d’accès ExpressRoute en définissant une préférence locale plus élevée pour les itinéraires recevant ExpressRoute. 
+Vous pouvez configurer une connexion VPN de site à site en tant que sauvegarde pour ExpressRoute. Cette connexion s’applique uniquement aux réseaux virtuels liés au chemin de peering privé Azure. Il n’existe aucune solution de basculement basée sur des réseaux VPN pour les services accessibles via le peering Azure Microsoft. Le circuit ExpressRoute est toujours le lien principal. Si le circuit ExpressRoute échoue, les données circulent via le chemin du réseau VPN de site à site uniquement. Pour éviter un routage asymétrique, la configuration de votre réseau local doit également privilégier le circuit ExpressRoute via la connexion VPN de site à site. Vous pouvez préférer le chemin d’accès ExpressRoute en définissant une préférence locale plus élevée pour les itinéraires recevant ExpressRoute. 
 
 > [!NOTE]
 > Bien que le circuit ExpressRoute soit préférable au réseau VPN de site à site lorsque les deux itinéraires sont identiques, Azure utilise la correspondance de préfixe la plus longue pour choisir l’itinéraire vers la destination du paquet.
@@ -88,7 +88,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et de conne
 1. Connectez-vous et sélectionnez votre abonnement.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Définir les variables.
+2. Définissez les variables.
 
    ```azurepowershell-interactive
    $location = "Central US"
@@ -135,7 +135,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et de conne
    $azureVpn = New-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -IpConfigurations $gwConfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku "VpnGw1" -Asn $VNetASN
    ```
    
-    Vous pouvez trouver l’IP d’homologation BGP et le numéro AS qu’Azure utilise pour la passerelle VPN dans $azureVpn.BgpSettings.BgpPeeringAddress et $azureVpn.BgpSettings.Asn. Pour plus d’informations, consultez [Configurer BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md) pour la passerelle VPN Azure.
+    Vous pouvez trouver l’IP de peering BGP et le numéro AS qu’Azure utilise pour la passerelle VPN dans $azureVpn.BgpSettings.BgpPeeringAddress et $azureVpn.BgpSettings.Asn. Pour plus d’informations, consultez [Configurer BGP](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md) pour la passerelle VPN Azure.
 5. Créez une entité de passerelle VPN de site local. Cette commande ne configure pas votre passerelle VPN locale. Elle vous permet d’indiquer les paramètres de la passerelle locale, par exemple l’adresse IP publique et l’espace d’adressage local afin que la passerelle VPN Azure puisse s’y connecter.
    
     Si votre périphérique VPN local prend uniquement en charge le routage statique, vous pouvez configurer des itinéraires statiques de la façon suivante :
@@ -145,7 +145,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et de conne
    $localVpn = New-AzLocalNetworkGateway -Name "LocalVPNGateway" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -GatewayIpAddress *<Public IP>* -AddressPrefix $MyLocalNetworkAddress
    ```
    
-    Si votre périphérique VPN local prend en charge le protocole BGP et que vous souhaitez activer le routage dynamique, vous devez connaître l’IP d’homologation BGP et le numéro AS utilisé par votre périphérique VPN local.
+    Si votre périphérique VPN local prend en charge le protocole BGP et que vous souhaitez activer le routage dynamique, vous devez connaître l’IP de peering BGP et le numéro AS utilisé par votre périphérique VPN local.
 
    ```azurepowershell-interactive
    $localVPNPublicIP = "<Public IP>"
@@ -167,7 +167,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et de conne
 8. Si vous vous connectez à un circuit ExpressRoute existant, ignorez les étapes 8 et 9 et passez à l’étape 10. Configurez des circuits ExpressRoute. Pour plus d’informations sur la configuration du circuit ExpressRoute, consultez [Création d’un circuit ExpressRoute](expressroute-howto-circuit-arm.md).
 
 
-9. Configurez une homologation privée Azure via le circuit ExpressRoute. Pour plus d’informations sur la configuration de l’homologation privée Azure via le circuit ExpressRoute, consultez [configure peering](expressroute-howto-routing-arm.md) (Configurer l’homologation)
+9. Configurez un peering privé Azure via le circuit ExpressRoute. Pour plus d’informations sur la configuration de l’homologation privée Azure via le circuit ExpressRoute, consultez [configure peering](expressroute-howto-routing-arm.md) (Configurer l’homologation)
 
 10. <a name="gw"></a>Créez une passerelle ExpressRoute. Pour plus d'informations sur la configuration de la passerelle ExpressRoute, consultez la rubrique [Configuration de la passerelle ExpressRoute](expressroute-howto-add-gateway-resource-manager.md). La valeur de GatewaySKU doit être *Standard*, *HighPerformance*, ou *UltraPerformance*.
 
@@ -216,11 +216,34 @@ Les cmdlets que vous utilisez pour cette configuration peuvent être légèremen
    ```azurepowershell-interactive
    $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
-4. À ce stade, vous disposez d’un réseau virtuel sans passerelle. Pour créer de nouvelles passerelles et établir des connexions, suivez les étapes de la section précédente.
+4. À ce stade, vous disposez d’un réseau virtuel sans passerelle. Pour créer de nouvelles passerelles et établir les connexions, utilisez les exemples suivants :
+
+   Définissez les variables.
+
+    ```azurepowershell-interactive
+   $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+   $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+   $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+   ```
+
+   Créez la passerelle.
+
+   ```azurepowershell-interactive
+   $gw = New-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup> -Location <yourlocation) -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
+   ```
+
+   Créez la connexion.
+
+   ```azurepowershell-interactive
+   $ckt = Get-AzExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
+   New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
+   ```
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Pour ajouter une configuration point à site à la passerelle VPN
 
-Vous pouvez suivre les étapes ci-dessous pour ajouter une configuration point à site à votre passerelle VPN dans une configuration de coexistence. Pour télécharger le certificat racine VPN, vous devez installer PowerShell localement sur votre ordinateur, ou utiliser le portail Azure.
+Vous pouvez suivre les étapes ci-dessous pour ajouter une configuration point à site à votre passerelle VPN dans une configuration de coexistence. Pour télécharger le certificat racine du VPN, vous devez installer PowerShell localement sur votre ordinateur ou utiliser le Portail Azure.
 
 1. Ajoutez le pool d’adresses des clients VPN.
 
@@ -228,7 +251,7 @@ Vous pouvez suivre les étapes ci-dessous pour ajouter une configuration point �
    $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
    Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
    ```
-2. Téléchargez le certificat racine VPN dans Azure pour votre passerelle VPN. Dans cet exemple, il est supposé que le certificat racine est stocké dans l’ordinateur local où les applets de commande PowerShell suivantes sont exécutées et que vous exécutez PowerShell en local. Vous pouvez également télécharger le certificat à l’aide du portail Azure.
+2. Téléchargez le certificat racine VPN dans Azure pour votre passerelle VPN. Dans cet exemple, nous supposons que le certificat racine est stocké dans l'ordinateur local où sont exécutées les applets de commande PowerShell suivantes et que vous exécutez PowerShell localement. Vous pouvez également télécharger le certificat à l’aide du Portail Azure.
 
    ```powershell
    $p2sCertFullName = "RootErVpnCoexP2S.cer" 

@@ -1,5 +1,5 @@
 ---
-title: Points de terminaison de service et règles de réseau virtuel dans Azure Service Bus | Microsoft Docs
+title: Points de terminaison de service de réseau virtuel et règles de réseau virtuel dans Azure Service Bus | Microsoft Docs
 description: Ajoutez un point de terminaison de service Microsoft.ServiceBus à un réseau virtuel.
 services: service-bus
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
 ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57843563"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61471959"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Service Bus
 

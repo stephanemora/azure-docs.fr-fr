@@ -6,20 +6,19 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 5a4bc05e0a0b0b6a2c1b859caea2aadc12b8e0e0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331215"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096399"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Sélectionnez la version du runtime Azure Functions que vous utilisez : "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
@@ -35,7 +34,6 @@ Certains paramètres host.json sont uniquement utilisés lors de l’exécution 
 ## <a name="sample-hostjson-file"></a>Exemple de fichier host.json
 
 L’exemple de fichier *host.json* suivant contient toutes les options possibles spécifiées.
-
 
 ```json
 {
@@ -82,7 +80,10 @@ L’exemple de fichier *host.json* suivant contient toutes les options possibles
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -115,7 +116,7 @@ Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](.
 |Propriété  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|true|Active ou désactive l’échantillonnage.| 
-|maxTelemetryItemsPerSecond|5.|Seuil à partir duquel l’échantillonnage débute.| 
+|maxTelemetryItemsPerSecond|5\.|Seuil à partir duquel l’échantillonnage débute.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -145,7 +146,10 @@ Liste des fonctions que l’hôte de travail exécute. Un tableau vide désigne 
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indique la durée avant expiration du délai de toutes les fonctions. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes. Dans un plan App Service, il n’existe aucune limite globale et la valeur par défaut dépend de la version du runtime. Dans la version 2.x, la valeur par défaut pour un plan App Service plan est de 30 minutes. Dans la version 1.x, elle prend la valeur *null*, ce qui signifie l’absence de délai d’expiration.
+Indique la durée avant expiration du délai de toutes les fonctions. Il suit le format de chaîne TimeSpan. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes.  
+Dans un plan dédié (App Service), il n’existe aucune limite globale et la valeur par défaut dépend de la version du runtime : 
++ Version 1.x : la valeur par défaut est *null*, ce qui signifie l’absence de délai d’expiration.   
++ Version 2.x : la valeur par défaut est de 30 minutes. La valeur `-1` indique une exécution sans limite.
 
 ```json
 {
@@ -171,10 +175,10 @@ Paramètres de configuration de l’[analyse d’intégrité d’hôtes](https:/
 
 |Propriété  |Default | Description |
 |---------|---------|---------| 
-|Activé|true|Indique si la fonctionnalité est activée. | 
+|enabled|true|Indique si la fonctionnalité est activée. | 
 |healthCheckInterval|10 secondes|L’intervalle de temps entre les contrôles d’intégrité périodiques en arrière-plan. | 
 |healthCheckWindow|2 minutes|Une fenêtre de temps coulissante utilisée conjointement au paramètre `healthCheckThreshold`.| 
-|healthCheckThreshold|6.|Nombre maximal de fois où le contrôle d’intégrité peut échouer avant le lancement d’un recyclage de l’hôte.| 
+|healthCheckThreshold|6|Nombre maximal de fois où le contrôle d’intégrité peut échouer avant le lancement d’un recyclage de l’hôte.| 
 |counterThreshold|0.80|Le seuil auquel un compteur de performance est considéré comme non intègre.| 
 
 ## <a name="http"></a>http
@@ -193,6 +197,9 @@ Contrôle les comportements de journalisation de l’application de fonction, y 
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"
+    },
+    "console": {
+        ...
     },
     "applicationInsights": {
         ...
@@ -274,6 +281,18 @@ Ensemble de [répertoires de code partagé](functions-reference-csharp.md#watche
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+La dépendance managée est une fonctionnalité d’évaluation qui est actuellement prise en charge uniquement par les fonctions basées sur PowerShell. Elle permet au service de gérer automatiquement les dépendances. Lorsque la propriété activée est définie sur true, le fichier [requirements.psd1](functions-reference-powershell.md#dependency-management) est traité. Les dépendances sont mises à jour lorsque des versions mineures sont publiées.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

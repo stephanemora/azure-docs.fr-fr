@@ -15,63 +15,93 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2a1785b9c749a8c413987974446190aafc08ed3a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ebc6dd672fd180e22cc1edf5c9978e0985427e50
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105588"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991851"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
-La capacité *Event Hubs Dedicated* offre des déploiements à locataire unique pour les clients les plus exigeants. Lorsqu’ils sont complètement déployés, les Azure Event Hubs peuvent entrer plus de 2 millions d’événements par seconde ou jusqu’à 2 Go par seconde de télémétrie avec un stockage durable et une latence inférieure à une seconde. Cela permet également des solutions intégrées grâce au traitement en temps réel et par lot sur le même système. Avec [Event Hubs Capture](event-hubs-capture-overview.md) inclus dans l’offre, vous pouvez réduire la complexité de votre solution par le biais d’un seul flux prenant en charge des pipelines en temps réel et par lot.
+Les *clusters Event Hubs* offrent des déploiements à locataire unique pour les clients aux besoins de streaming les plus pointus. Cette offre à locataire unique a un SLA de 99,99 % garanti et n'est disponible sur que notre niveau de tarification dédié. Un cluster Event Hubs peut recevoir des millions d’événements par seconde avec une garantie de capacité et de latence inférieure à la seconde. Les espaces de noms et les Event Hubs créées au sein du cluster dédié comprennent toutes les fonctionnalités de l’offre standard et bien davantage, mais sans aucune limite d’entrée. Elle comprend également la fameuse fonctionnalité [Event Hubs Capture](event-hubs-capture-overview.md) sans supplément, ce qui permet de charger automatiquement par lots et de consigner des flux de données dans Stockage Azure ou Azure Data Lake. 
 
-Le tableau suivant compare les niveaux de service Event Hubs disponibles. L’offre Event Hubs Dedicated consiste en un tarif mensuel fixe par rapport à la tarification à l’utilisation pour la plupart des fonctionnalités de l’offre Standard. Le niveau Dedicated offre toutes les fonctionnalités du plan Standard, mais avec la capacité de mise à l’échelle de classe entreprise pour les clients avec des charges de travail exigeantes. 
+Les clusters sont mis en service et facturés par **unités de capacité (UC)** , une quantité pré-allouée d'UC et de ressources mémoire. Vous pouvez acheter 1, 2, 4, 8, 12, 16 ou 20 unités de capacité pour chaque cluster. Le volume que vous pouvez ingérer et diffuser par CU dépend d'une variété de facteurs, tels que le nombre de producteurs et de consommateurs, la forme de l’entité, le débit en sortie (voir les résultats de référence ci-dessous pour plus de détails). 
+
+> [!NOTE]
+> Par défaut, tous les clusters Event Hubs sont compatibles avec Kafka et prennent en charge les points de terminaison Kafka qui peuvent être utilisés par vos applications Kafka existantes. L’activation de Kafka sur votre cluster n'affecte pas vos cas d'utilisation non-Kafka ; il n'y a aucune option ou besoin de désactiver Kafka sur un cluster.
+
+## <a name="why-dedicated"></a>Pourquoi utiliser des clusters dédiés ?
+
+Event Hubs Dedicated offre trois avantages convaincants pour les clients qui ont besoin d’une capacité de niveau entreprise :
+
+#### <a name="single-tenancy-guarantees-capacity-for-better-performance"></a>L’architecture monolocation garantit la capacité pour de meilleures performances
+
+Un cluster dédié garantit une capacité à pleine échelle et peut gérer jusqu'à plusieurs gigaoctets de données en continu avec un stockage durable et une latence inférieure à la seconde pour s'adapter à un pic de trafic. 
+
+#### <a name="inclusive-and-exclusive-access-to-features"></a>Accès inclusif et exclusif aux fonctionnalités 
+L’offre dédiée comprend des fonctionnalités gratuites telles que Capture et fournit un accès exclusif à de futures fonctionnalités comme BYOK (Bring Your Own Key). Le service gère également l'équilibrage de charge, les mises à jour du système d'exploitation, les correctifs de sécurité et le partitionnement pour le client, afin que vous puissiez consacrer moins de temps à la maintenance de l'infrastructure et plus de temps à la création de fonctionnalités côté client.  
+
+#### <a name="cost-savings"></a>Réduction des coûts
+À des volumes d'entrée élevés (>100 unités de débit), un cluster coûte nettement moins cher par heure que l'achat d'une quantité comparable d'unités de débit avec l'offre Standard.
+
+
+## <a name="event-hubs-dedicated-quotas-and-limits"></a>Quotas et limites de l’offre Event Hubs Dedicated
+
+L’offre Event Hubs Dedicated est facturée à un tarif mensuel fixe, avec un minimum de 4 heures d’utilisation. Le niveau Dedicated offre toutes les fonctionnalités du plan Standard, mais avec la capacité de mise à l’échelle de classe entreprise et les limites pour les clients avec des charges de travail exigeantes. 
 
 | Fonctionnalité | standard | Dédié |
 | --- |:---:|:---:|
+| Bande passante | 20 unités de débit (jusqu'à 40 unités de débit) | 20 unités de capacité |
+| Espaces de noms |  1 | 50 par unité de capacité |
+| Event Hubs |  10 par espace de noms | 1 000 par espace de noms |
 | Événements d’entrée | Paiement par million d’événements | Inclus |
-| Unité de débit (1 Mo/s en entrée, 2 Mo/s en sortie) | Paiement par heure | Inclus |
-| Taille des messages | 1 Mo | 1 Mo |
-| Stratégies d’éditeur | Oui | Oui |   
-| Groupes de consommateurs | 20 | 20 |
-| Relecture des messages | Oui | Oui |
-| Unités de débit maximales | 20 (flexible jusqu’à 100)   | 1 unité de capacité ≈ 50 |
-| Connexions réparties | 1 000 inclus | 100 K inclus |
-| Connexions négociées supplémentaires | Oui | Oui |
-| Rétention des messages | 1 jour inclus | Jusqu’à 7 jours inclus |
+| Taille des messages | 1 million d’octets | 1 million d’octets |
+| Partitions | 40 par espace de noms | 2 000 par unité de capacité |
+| Groupes de consommateurs | 20 par hub d’événements | Aucune limite par unité de capacité, 1 000 par hub d’événements |
+| Connexions réparties | 1 000 inclus, 5 000 maximum | 100 000 inclus et maximum |
+| Rétention des messages | 7 jours, 84 Go inclus par unité de débit | 90 jours, 10 To inclus per unité de capacité |
 | Capture | Paiement par heure | Inclus |
-
-## <a name="benefits-of-event-hubs-dedicated-capacity"></a>Avantages de la capacité Event Hubs Dedicated
-
-Les avantages suivants sont disponibles lorsque vous utilisez Event Hubs Dedicated :
-
-* Hébergement à locataire unique ne subissant pas le bruit d’autres locataires.
-* Performances reproductibles chaque fois.
-* Garantie de la capacité à répondre à vos besoins en rafale.
-* Inclut la fonctionnalité [Capture](event-hubs-capture-overview.md) d’Event Hubs, pour permettre l’intégration aux microlots et à la rétention à long terme.
-* Aucune maintenance : le service gère l’équilibrage de la charge, les mises à jour du système d’exploitation, les correctifs de sécurité et le partitionnement.
-* Tarif horaire fixe.
-* Rétention des messages jusqu’à 7 jours, sans coûts supplémentaires.
-
-Les Event Hubs Dedicated suppriment également certaines des limites de débit de l’offre Standard. Les unités de débit du niveau Standard autorisent 1 000 événements par seconde ou 1 Mo par seconde en entrée par unité de débit, et deux fois cette quantité en sortie. L’offre de mise à l’échelle Dedicated n’impose aucune restriction sur le nombre d’événements d’entrée et de sortie. Ces limites sont uniquement régies par la capacité de traitement des concentrateurs d’événements achetés.
-
-Cet environnement dédié et réservé fournit d’autres fonctionnalités disponibles exclusivement avec ce niveau tarifaire. En voici certaines :
-
-* contrôle le nombre d’espaces de noms dans votre cluster ;
-* définit des limites de débit pour chaque espace de noms ;
-* configure le nombre d’Event Hubs sous chaque espace de noms ;
-* définit le nombre limite de partitions.
-
-Ce service est destiné aux grands utilisateurs de télémétrie et est disponible pour les clients disposant d’un contrat d’entreprise.
 
 ## <a name="how-to-onboard"></a>Intégration : mode d’emploi
 
-Vous pouvez faire évoluer votre capacité à la hausse ou à la baisse au cours du mois pour répondre à vos besoins en ajoutant ou en supprimant des unités de capacité. Le plan Dedicated est unique dans la mesure où vous bénéficiez d’une intégration plus pratique de la part de l’équipe produit Event Hubs pour obtenir le déploiement flexible qui vous convient. Pour commencer à utiliser cette référence SKU, [contactez le support de facturation](https://ms.portal.azure.com/#create/Microsoft.Support) ou votre représentant Microsoft.
+L’expérience en libre-service permettant de [créer un cluster Event Hubs](event-hubs-dedicated-cluster-create-portal.md) via le [Portail Azure](https://aka.ms/eventhubsclusterquickstart) est désormais en préversion. Si vous avez des questions ou si vous avez besoin d'aide pour l'intégration à Event Hubs Dedicated, veuillez contacter l'[équipe Event Hubs](mailto:askeventhubs@microsoft.com).
+
+## <a name="faqs"></a>FAQ
+
+#### <a name="what-can-i-achieve-with-a-cluster"></a>Que puis-je faire avec un cluster ?
+
+Pour un cluster Event Hubs, la quantité que vous pouvez ingérer et diffuser dépend de divers facteurs tels que vos producteurs, les consommateurs, la vitesse à laquelle vous ingérez et transformez, et bien plus encore. 
+
+Le tableau suivant présente les résultats de référence que nous avons obtenus au cours de nos tests :
+
+| Forme de la charge utile | Récepteurs | Bande passante en entrée| Messages en entrée | Bande passante en sortie | Messages en sortie | Nombre total d’unités de débit | Unités de débit par unité de capacité |
+| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
+| Lots de 100x1 Ko | 2 | 400 Mo/s | 400 000 messages par seconde | 800 Mo/s | 800 000 messages par seconde | 400 unités de débit | 100 unités de débit | 
+| Lots de 10x10 Ko | 2 | 666 Mo/s | 66 600 messages par seconde | 1,33 Go/s | 133 000 messages par seconde | 666 unités de débit | 166 unités de débit |
+| Lots de 6x32 Ko | 1 | 1,05 Go/s | 34 000 messages par seconde | 1,05 Go/s | 34 000 messages par seconde | 1 000 unités de débit | 250 unités de débit |
+
+Lors des tests, les critères suivants ont été utilisés :
+
+- Un cluster Event Hubs dédié avec quatre unités de capacité (UC) a été utilisé. 
+- Le hub d’événements utilisé pour l’ingestion possédait 200 partitions. 
+- Les données ingérées ont été reçues par deux applications réceptrices provenant de toutes les partitions.
+
+#### <a name="can-i-scale-updown-my-cluster"></a>Puis-je augmenter/réduire (scale-up/scale-down) la taille de mon cluster ?
+
+Une fois créés, vos clusters sont facturés pour un minimum de 4 heures d’utilisation. Dans la préversion de l'expérience en libre-service, vous pouvez soumettre une [demande de support](https://ms.portal.azure.com/#create/Microsoft.Support) à l'équipe Event Hubs sous *Technical > Quota > Request to Scale Up or Scale Down Dedicated Cluster* pour augmenter ou réduire la taille de votre cluster. La demande de réduction de la taille de votre cluster peut prendre jusqu’à 7 jours. 
+
+#### <a name="how-will-geo-dr-work-with-my-cluster"></a>Comment la géo-reprise fonctionnera-t-elle avec mon cluster ?
+
+Vous pouvez former une géopaire en combinant un espace de noms sous un cluster dédié avec un autre espace de noms sous un cluster dédié. Nous déconseillons l’association d'un espace de noms dédié avec un espace de noms dans notre offre Standard, car la limite de débit sera incompatible, ce qui entraînerait des erreurs. 
+
+#### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Puis-je migrer mes espaces de noms Standard vers un cluster dédié ?
+Nous n’offrons actuellement aucun processus de migration automatisé pour la migration des données de vos hubs d'événements d'un espace de noms Standard vers un espace dédié. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Contactez votre représentant commercial Microsoft ou le support technique Microsoft pour obtenir des informations supplémentaires sur la capacité des Event Hubs Dedicated. Vous pouvez également en apprendre plus sur les niveaux tarifaires Event Hubs en consultant les liens suivants :
+Contactez votre représentant commercial Microsoft ou le support technique Microsoft pour obtenir des informations supplémentaires sur Event Hubs Dedicated. Vous pouvez également créer un cluster ou en apprendre plus sur les niveaux tarifaires Event Hubs en consultant les liens suivants :
 
+- [Créer un cluster Event Hubs via le portail Azure](https://aka.ms/eventhubsclusterquickstart) 
 - [Tarification d’Event Hubs Dedicated](https://azure.microsoft.com/pricing/details/event-hubs/). Vous pouvez également contacter votre représentant commercial Microsoft ou le support technique Microsoft pour obtenir des informations supplémentaires sur la capacité Event Hubs Dedicated.
-- L’article [FAQ sur les hubs d’événements](event-hubs-faq.md) traite des informations de tarification et répond à certaines questions fréquemment posées sur Event Hubs. 
+- L’article [FAQ sur les hubs d’événements](event-hubs-faq.md) traite des informations de tarification et répond à certaines questions fréquemment posées sur Event Hubs.

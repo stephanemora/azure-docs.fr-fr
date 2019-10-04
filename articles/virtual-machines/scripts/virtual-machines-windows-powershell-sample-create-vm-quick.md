@@ -4,24 +4,23 @@ description: Exemple de script Azure PowerShell - Création d’une machine vir
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f2008a795addb035cf3f19606170dbac5ffd1a5b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: dbb0a0821b6a2c7465a518577e18d45488c1e7b4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993382"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090548"
 ---
 # <a name="create-a-virtual-machine-with-powershell"></a>Créer une machine virtuelle avec PowerShell
 
@@ -29,7 +28,7 @@ Ce script crée une machine virtuelle Azure exécutant Windows Server 2016. Une
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Exemple de script
 

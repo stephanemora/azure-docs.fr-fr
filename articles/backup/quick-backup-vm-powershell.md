@@ -1,21 +1,20 @@
 ---
 title: 'Démarrage rapide de Azure : sauvegarder une machine virtuelle avec PowerShell'
 description: Découvrez comment sauvegarder vos machines virtuelles avec Azure PowerShell
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 5aab5fea5a80eb3ab1b37e08a5e22ca296cb633e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: ea4f982409f339487cd570230ebbb75682f409ec
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680296"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69874595"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Sauvegarder une machine virtuelle dans Azure avec PowerShell
 
@@ -72,11 +71,11 @@ Lorsque vous créez le coffre :
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. Changez la configuration de redondance de stockage (LRS/GRS) du coffre avec [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0), comme suit :
+3. Modifiez la configuration de la redondance de stockage (LRS/GRS) du coffre avec [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty) comme suit :
     
     ```powershell
     Get-AzRecoveryServicesVault `
-        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
     > [!NOTE]
     > La redondance de stockage peut être modifiée uniquement si aucun élément de sauvegarde n’est protégé dans le coffre.
@@ -104,7 +103,6 @@ Configurez la sauvegarde de la façon suivante :
         -Name "myVM" `
         -Policy $policy
     ```
-
 
 ## <a name="start-a-backup-job"></a>Démarrer un travail de sauvegarde
 
@@ -146,7 +144,7 @@ Exécutez un travail de sauvegarde ad hoc de la façon suivante :
     ```
     Le résultat est similaire à l’exemple suivant, et montre la tâche **en cours** d’exécution :
 
-    ```
+    ```output
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
     ------------   ---------         ------       ---------              -------                -----
     myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14

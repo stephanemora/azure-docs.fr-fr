@@ -2,27 +2,27 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 03/05/2019
+ms.date: 06/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 216380cf7069468d13c4e533fc90b2596aa211c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 09d9b5bbf3f9ca7a4eef37891d03c9c865e7f74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58114332"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448628"
 ---
-Un certificat SSL approprié permet de s’assurer que vous envoyez des informations chiffrées au serveur adéquat. Outre le chiffrement, le certificat permet également pour l’authentification. Vous pouvez télécharger votre propre certificat SSL approuvé par le biais de l’interface PowerShell de l’appareil.
+Un certificat SSL correct vérifie que vous envoyez des données chiffrées au serveur adéquat. Outre le chiffrement, le certificat permet également l’authentification. Vous pouvez charger votre propre certificat SSL approuvé par l’intermédiaire de l’interface PowerShell de l’appareil.
 
-1. [Se connecter à l’interface PowerShell](#connect-to-the-powershell-interface).
-2. Utilisez le `Set-HcsCertificate` applet de commande pour charger le certificat. Lorsque vous y êtes invité, fournissez les paramètres suivants :
+1. [Connectez-vous à l’interface PowerShell](#connect-to-the-powershell-interface).
+2. Utilisez la cmdlet `Set-HcsCertificate` pour charger le certificat. À l’invite, fournissez les paramètres suivants :
 
-   - `CertificateFilePath` -Chemin d’accès au partage qui contient le fichier de certificat dans *.pfx* format.
-   - `CertificatePassword` -Mot de passe utilisé pour protéger le certificat.
-   - `Credentials` -Nom d’utilisateur et mot de passe pour accéder au partage qui contient le certificat.
+   - `CertificateFilePath` : chemin d’accès au partage qui contient le fichier de certificat, au format *.pfx*.
+   - `CertificatePassword` : mot de passe permettant de protéger le certificat.
+   - `Credentials` : nom d’utilisateur grâce auxquels vous pouvez accéder au partage qui contient le certificat. Renseignez le mot de passe du partage réseau lorsque vous y êtes invité.
 
-     L’exemple suivant illustre l’utilisation de cette applet de commande :
+     L’exemple suivant montre comment utiliser cette cmdlet :
 
      ```
-     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credentials "Username/Password"
+     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credential "Username"
      ```
 

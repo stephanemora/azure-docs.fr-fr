@@ -4,26 +4,25 @@ description: Dans ce tutoriel, vous allez apprendre à utiliser Azure CLI pour c
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c2be140e4d7156a1e23e1064436dda959c9cd14
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 83e378b9349bc3cec90bc0c80a801d452f2bf3db
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749999"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081738"
 ---
-# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Tutoriel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Didacticiel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI
 
 Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des configurations comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. Ce didacticiel explique comment créer votre propre image personnalisée d’une machine virtuelle Azure. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -51,6 +50,9 @@ Pour créer une image de machine virtuelle, vous devez préparer la machine virt
 ### <a name="deprovision-the-vm"></a>Annuler l’approvisionnement de la machine virtuelle 
 
 L’annulation de l’approvisionnement généralise la machine virtuelle en supprimant les informations spécifiques à la machine. Cette généralisation permet de déployer plusieurs machines virtuelles à partir d’une image unique. Au cours de l’annulation de l’approvisionnement, le nom d’hôte est réinitialisé sur *localhost.localdomain*. Les clés d’hôte SSH, les configurations de serveur de noms, le mot de passe racine et les baux DHCP mis en cache sont également supprimés.
+
+> [!WARNING]
+> Le déprovisionnement et le marquage de la machine virtuelle en tant que machine généralisée rendent la machine virtuelle source inutilisable et impossible à redémarrer. 
 
 Pour annuler l’approvisionnement de la machine virtuelle, utilisez l’agent de machine virtuelle Azure (waagent). L’agent de machine virtuelle Azure est installé sur la machine virtuelle et gère l’approvisionnement et l’interaction avec le contrôleur de structure Azure. Pour plus d’informations, consultez le [Guide d’utilisateur de l’agent Linux Azure](../extensions/agent-linux.md).
 

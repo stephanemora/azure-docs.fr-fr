@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895724"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60333949"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Déployer un service web Azure Machine Learning Studio
 
@@ -33,7 +33,7 @@ La saisie pour BES ressemble à la saisie de données utilisée par RRS. La prin
 D'un point de vue très général, vous déployez votre modèle en trois étapes :
 
 * **[Créez une expérience d'apprentissage]** : dans Studio, vous pouvez former et tester un modèle d’analytique prédictive à l’aide de données d’apprentissage que vous fournissez, en utilisant un grand ensemble d’algorithmes Machine Learning intégrés.
-* **[Convertissez-la en une expérience prédictive]**: lorsque votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
+* **[Convertissez-la en une expérience prédictive]** : lorsque votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
 * **Déployez** en tant que **[Nouveau service web]** ou **[service web classique]** : lorsque vous déployez votre expérience prédictive en tant que service web Azure, les utilisateurs peuvent envoyer des données à votre modèle et recevoir les prédictions de ce dernier.
 
 ## <a name="create-a-training-experiment"></a>Créez une expérience d'apprentissage
@@ -65,7 +65,7 @@ Les étapes suivantes décrivent le déploiement d’une expérience prédictive
 
 À présent que l’expérience prédictive a été correctement préparée, vous pouvez la déployer comme nouveau (basé sur Resource Manager) service web Azure. En accédant au service web, les utilisateurs peuvent envoyer des données à votre modèle, qui renvoie alors ses prédictions.
 
-Pour déployer votre expérience prédictive, cliquez sur **Exécuter** en bas de la zone de dessin de l’expérience. Une fois l’expérience terminée, cliquez sur **Déployer le service web**, puis sélectionnez **Déployer le service web [Nouveau]**.  La page de déploiement du portail de service web Machine Learning Studio s’ouvre.
+Pour déployer votre expérience prédictive, cliquez sur **Exécuter** en bas de la zone de dessin de l’expérience. Une fois l’expérience terminée, cliquez sur **Déployer le service web**, puis sélectionnez **Déployer le service web [Nouveau]** .  La page de déploiement du portail de service web Machine Learning Studio s’ouvre.
 
 > [!NOTE] 
 > Pour déployer un nouveau service web, vous devez disposer d’autorisations suffisantes dans l’abonnement dans lequel déployer le service web. Pour en savoir plus, consultez la rubrique [Gérer un service web à l’aide du portail des services web Azure Machine Learning](manage-new-webservice.md). 
@@ -93,17 +93,17 @@ La page de test RRS affiche les entrées, les sorties et tous les paramètres gl
 
 Pour tester le service en tant que Service de requête-réponse (RRS), en mode d’affichage liste, entrez les valeurs appropriées pour les entrées et cliquez sur **Test Request-Response**(Tester la requête-réponse). Vos résultats de prédiction s’affichent dans la colonne de sortie à gauche de la page.
 
-![Entrez les valeurs appropriées pour tester votre service web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![Entrer les valeurs appropriées pour tester votre service web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 Pour tester votre service d’exécution de lots (BES), cliquez sur **Lot**. Sur la page de test BES, cliquez sur Parcourir en dessous de votre entrée et sélectionnez un fichier CSV contenant les exemples de valeurs appropriés. Si vous n’avez pas de fichier CSV et que vous avez créé votre expérience prédictive à l’aide de Machine Learning Studio, vous pouvez télécharger le jeu de données à utiliser pour votre expérience prédictive.
 
 Pour télécharger le jeu de données, ouvrez Machine Learning Studio. Ouvrez votre expérience prédictive et cliquez avec le bouton droit sur l’entrée correspondant à votre expérience. Dans le menu contextuel, sélectionnez **Jeu de données**, puis **Télécharger**.
 
-![Télécharger votre jeu de données à partir de la zone de dessin de Studio](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Télécharger votre jeu de données à partir du canevas Studio](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 Cliquez sur **Test**. L’état de votre travail de traitement par lots s’affiche à droite sous **Test Batch Jobs**(Travaux de test de traitement par lots).
 
-![Tester votre travail de l’exécution par lots avec le portail de service web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![Tester votre travail d'exécution de lots avec le portail de services web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
@@ -181,7 +181,7 @@ Vous pouvez fournir une description de vos données d’entrée, de vos données
 
 Vous pouvez activer la journalisation pour diagnostiquer toute défaillance que vous observez lors de l’accès à votre service web. Pour plus d'informations, consultez [Activation de la journalisation pour les services web de Machine Learning Studio](web-services-logging.md).
 
-![Activer la journalisation dans le portail de services web](./media/publish-a-machine-learning-web-service/figure-4.png)
+![Activer la journalisation dans le portail des services](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 Vous pouvez également configurer les points de terminaison pour le service web dans le portail des services web Azure Machine Learning en procédant de façon similaire à la procédure décrite précédemment dans la section relative au nouveau service web. Les options sont différentes. Vous pouvez ajouter ou modifier la description du service, activer la journalisation et activer des exemples de données à des fins de test.
 

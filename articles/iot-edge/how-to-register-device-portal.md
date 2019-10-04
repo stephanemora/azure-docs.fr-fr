@@ -4,27 +4,27 @@ description: Utiliser le portail Azure pour inscrire un nouvel appareil IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/03/2019
+ms.date: 06/03/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6414f694296ce1f5a8b65ccab30cceaf2172dee7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7f3d0037bcf0fd33ae23c298679e3157046247cb
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974894"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983540"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-the-azure-portal"></a>Inscrire un nouvel appareil Azure IoT Edge à partir du portail Azure
 
-Avant d’utiliser vos appareils IoT avec Azure IoT Edge, vous devez les inscrire auprès de votre hub IoT. Une fois que vous avez inscrit un appareil, vous recevez une chaîne de connexion qui vous permet de le configurer pour les charges de travail Edge.
+Avant d’utiliser vos appareils IoT avec Azure IoT Edge, vous devez les inscrire auprès de votre hub IoT. Une fois que vous avez inscrit un appareil, vous recevez une chaîne de connexion qui vous permet de le configurer pour les charges de travail IoT Edge.
 
 Cet article explique comment inscrire un nouvel appareil IoT Edge à partir du portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) dans votre abonnement Azure.
+Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) gratuit ou standard dans votre abonnement Azure.
 
 ## <a name="create-a-device"></a>Créer un appareil
 
@@ -44,8 +44,8 @@ Tous les appareils compatibles avec Edge qui se connectent à votre hub IoT sont
 
 Pour configurer votre appareil, vous avez besoin de la chaîne de connexion qui établit un lien entre votre appareil physique et son identité dans le hub IoT.
 
-1. Dans la page **IoT Edge** du portail, cliquez sur l’ID de l’appareil dans la liste des appareils Edge.
-2. Copiez la valeur de **Chaîne de connexion (clé primaire)** ou **Chaîne de connexion (clé secondaire)**.
+1. Dans la page **IoT Edge** du portail, cliquez sur l’ID de l’appareil dans la liste des appareils IoT Edge.
+2. Copiez la valeur de **Chaîne de connexion (clé primaire)** ou **Chaîne de connexion (clé secondaire)** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

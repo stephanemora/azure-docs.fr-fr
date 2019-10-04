@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.openlocfilehash: d11445c3f31f9aced6fdb9783575d10a026de1f0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000146"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61424136"
 ---
 # <a name="useful-operators-in-azure-monitor-log-queries"></a>Opérateurs utiles dans les requêtes de journal Azure Monitor
 
@@ -46,4 +46,4 @@ Apprentissage automatique                        |`evaluate autocluster`, `baske
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Suivez un cours sur [l’écriture de requêtes de journal dans Azure Monitor](get-started-queries.md).
+- Suivez une leçon [d’écriture de requêtes de journal dans Azure Monitor](get-started-queries.md).

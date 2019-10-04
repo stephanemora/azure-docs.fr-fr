@@ -9,45 +9,45 @@ ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271677"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60256787"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
 > [!NOTE]
-> Cet article suppose que vous êtes familiarisé avec les fonctionnalités de base de Metrics Explorer. Si vous êtes un nouvel utilisateur et que vous souhaitez apprendre à créer votre premier graphique de métriques, consultez [prise en main Azure Metrics Explorer](metrics-getting-started.md).
+> Cet article part du principe que vous êtes familiarisé avec les fonctionnalités de base de Metrics Explorer. Si vous êtes un nouvel utilisateur et que vous souhaitez apprendre à créer votre premier graphique de métriques, veuillez consulter l’article [Prise en main d’Azure Metrics Explorer](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Métriques dans Azure
 
-Les [métriques dans Azure Monitor](data-platform-metrics.md) sont les séries de valeurs et de comptes mesurés qui sont collectées et stockées au fil du temps. Il existe des métriques standard (ou de « plateforme ») et des métriques personnalisées. Les métriques standards vous sont fournies par la plateforme Azure elle-même. Les métriques standards reflètent les statistiques d’intégrité et d’utilisation de vos ressources Azure. Tandis que les mesures personnalisées sont envoyés à Azure par vos applications à l’aide de la [API Application Insights pour les événements et mesures personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [extension Windows Azure Diagnostics (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), ou par [Azure Surveiller les API REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+Les [métriques dans Azure Monitor](data-platform-metrics.md) sont les séries de valeurs et de comptes mesurés qui sont collectées et stockées au fil du temps. Il existe des métriques standard (ou de « plateforme ») et des métriques personnalisées. Les métriques standards vous sont fournies par la plateforme Azure elle-même. Les métriques standards reflètent les statistiques d’intégrité et d’utilisation de vos ressources Azure. Tandis que vos applications envoient les mesures personnalisées à Azure à l’aide de l’[API Application Insights pour les événements et mesures personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [Extension Windows Azure Diagnostics (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), ou par l’[API REST Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
-## <a name="create-views-with-multiple-metrics-and-charts"></a>Créer des vues avec plusieurs mesures et graphiques
+## <a name="create-views-with-multiple-metrics-and-charts"></a>Créer des vues contenant plusieurs métriques et graphiques
 
-Vous pouvez créer des graphiques qui tracer plusieurs lignes de mesures ou d’affichent des graphiques de mesures plusieurs à la fois. Cette fonctionnalité vous permet de :
+Vous pouvez créer des graphiques constitués de plusieurs lignes de métriques ou afficher plusieurs graphiques de métriques à la fois. Cette fonctionnalité vous permet de :
 
-- mettre en corrélation les mesures associées sur le même graphique pour voir comment une valeur sont liée à un autre
-- afficher les métriques avec différentes unités de mesure à proximité
-- agréger visuellement et de comparer les mesures de plusieurs ressources
+- Mettre en corrélation les mesures associées sur le même graphique pour voir comment une valeur est liée à une autre
+- Afficher les métriques avec différentes unités de mesure à proximité les unes des autres
+- Agréger visuellement et comparer les métriques de plusieurs ressources
 
-Par exemple, si vous avez 5 comptes de stockage et vous souhaitez connaître la quantité d’espace total est consommée entre eux, vous pouvez créer un graphique en aires (empilées) qui illustre la personne et la somme de toutes les valeurs à un point particulier dans le temps.
+Par exemple, si vous avez 5 comptes de stockage et que vous souhaitez connaître la quantité d’espace total qu’ils consomment, vous pouvez créer un graphique en aires (empilées) qui illustre chaque valeur, individuellement, ainsi que leur somme, à différents moments dans le temps.
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Plusieurs métriques sur le même graphique
 
-Tout d’abord, [créer un nouveau graphique](metrics-getting-started.md#create-your-first-metric-chart). Cliquez sur **ajouter une métrique** et répétez les étapes pour ajouter une autre mesure sur le même graphique.
+D’abord, [créez un graphique](metrics-getting-started.md#create-your-first-metric-chart). Cliquez sur **Ajouter une métrique** et répétez les étapes pour ajouter une autre métrique sur le même graphique.
 
    > [!NOTE]
    > Vous ne souhaiterez normalement pas avoir des métriques avec des unités de mesure différentes (par exemple, « millisecondes » et « Ko ») ou d’échelles très différentes sur un même graphique. Au lieu de cela, envisagez d’utiliser plusieurs graphiques. Pour créer plusieurs graphiques dans Metrics Explorer, cliquez sur le bouton Ajouter un graphique.
 
 ### <a name="multiple-charts"></a>Plusieurs graphiques
 
-Cliquez sur le **ajouter un graphique** et créer un autre graphique avec une autre mesure.
+Cliquez sur **Ajouter un graphique** et créez un autre graphique avec une autre métrique.
 
-### <a name="order-or-delete-multiple-charts"></a>Définir ou supprimer plusieurs graphiques
+### <a name="order-or-delete-multiple-charts"></a>Ordonner ou supprimer plusieurs graphiques
 
-Pour définir ou supprimer plusieurs graphiques, cliquez sur le bouton de sélection ( **...**  ) symbole pour ouvrir le menu de graphique et choisissez l’élément de menu approprié de **déplacer vers le haut**, **Descendre**, ou **supprimer**.
+Pour ordonner ou supprimer plusieurs graphiques, cliquez sur le bouton de sélection ( **...** ) pour ouvrir le menu des graphiques, puis choisissez l’élément de menu approprié : **Monter**, **Descendre**, ou **Supprimer**.
 
 ## <a name="apply-filters-to-charts"></a>Appliquer des filtres aux graphiques
 
@@ -73,7 +73,7 @@ Vous pouvez appliquer des filtres à des graphiques qui montrent des métriques 
 
 
 
-## <a name="apply-splitting-to-a-chart"></a>Appliquer le fractionnement à un graphique
+## <a name="apply-splitting-to-a-chart"></a>Appliquer un fractionnement à un graphique
 
 Vous pouvez fractionner une métrique par dimension afin de visualiser la façon dont les différents segments de la métrique se comparent entre eux, et d’identifier des segments éloignés d’une dimension.
 
@@ -82,7 +82,7 @@ Vous pouvez fractionner une métrique par dimension afin de visualiser la façon
 1. Cliquez sur **Appliquer un fractionnement** au-dessus du graphique.
  
    > [!NOTE]
-   > Fractionnement ne peut pas être utilisé avec des graphiques qui ont plusieurs métriques. En outre, vous pouvez avoir plusieurs filtres mais qu’une seule dimension fractionnement appliqué à n’importe quel graphique unique.
+   > Le fractionnement ne peut pas être utilisé avec des graphiques qui ont plusieurs métriques. En outre, vous pouvez avoir plusieurs filtres mais une seule dimension de fractionnement appliquée à n’importe quel graphique unique.
 
 2. Choisissez la dimension sur laquelle vous souhaitez segmenter votre graphique :
 

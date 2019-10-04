@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507533"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60821675"
 ---
 # <a name="use-firewall-rules"></a>Utiliser les règles de pare-feu
 
@@ -54,7 +54,7 @@ Les règles de filtre IP sont appliquées dans l’ordre et la première règle
 > - Explorateur de données Azure
 >
 > Les services Microsoft suivants doivent être sur un réseau virtuel
-> - Azure Web Apps 
+> - Azure Web Apps
 > - Azure Functions
 
 ### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Création d’une règle de pare-feu avec des modèles Azure Resource Manager
@@ -149,7 +149,7 @@ Pour déployer le modèle, suivez les instructions pour [Azure Resource Manager]
 
 Pour limiter l’accès à Event Hubs aux réseaux virtuels Azure, consultez le lien suivant :
 
-- [Points de terminaison du service de réseau virtuel pour Event Hubs][lnk-vnet]
+- [Points de terminaison de service de réseau virtuel pour Event Hubs][lnk-vnet]
 
 <!-- Links -->
 

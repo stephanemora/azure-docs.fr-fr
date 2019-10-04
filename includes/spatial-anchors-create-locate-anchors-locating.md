@@ -1,13 +1,13 @@
 ---
 ms.openlocfilehash: 52dfbfca5f79a7f92848ea39eddc00aa10f05ff1
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632241"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176779"
 ---
-## <a name="locate-a-cloud-spatial-anchor"></a>Recherchez un ancrage spatial cloud
+## <a name="locate-a-cloud-spatial-anchor"></a>Localiser une ancre spatiale cloud
 
-Qui est en mesure de localiser un point d’ancrage spatial cloud précédemment téléchargé est une des raisons principales pour l’utilisation de la bibliothèque ancres Spatial Azure. Pour localiser les ancres spatial cloud, vous devez connaître leurs identificateurs. ID d’ancrage peuvent être stockées dans le service de back-end de votre application et accessible à tous les appareils qui peuvent s’authentifier correctement à ce dernier. Pour obtenir un exemple de cette consultez [didacticiel : Partager des ancres spatiales entre appareils](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
+La capacité à localiser une ancre spatiale cloud chargée précédemment constitue l’une des principales raisons d’utiliser la bibliothèque Azure Spatial Anchors. Pour localiser les ancres spatiales cloud, vous devez connaître leurs identificateurs. L’ID d’une ancre peut être stocké dans le service back-end de votre application, et est accessible à tous les appareils qui peuvent s’y authentifier correctement. Pour obtenir un exemple, consultez [Didacticiel : Partager des ancres spatiales sur des appareils](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
 
-Instancier un `AnchorLocateCriteria` d’objets, définir les identificateurs que vous cherchez et appelez le `CreateWatcher` méthode sur la session en fournissant votre `AnchorLocateCriteria`.
+Instanciez un objet `AnchorLocateCriteria`, définissez les identificateurs que vous recherchez, et invoquez la méthode `CreateWatcher` sur la session en fournissant votre `AnchorLocateCriteria`.

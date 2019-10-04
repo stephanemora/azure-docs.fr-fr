@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5182b621779cf31f3c7da99674ab24fe6efe702d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b912743c758f33173b568944341fab4e815300ed
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850807"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099985"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement de SGBD sur des machines virtuelles Azure pour une charge de travail SAP
 
@@ -30,7 +29,7 @@ ms.locfileid: "58850807"
 [826037]:https://launchpad.support.sap.com/#/notes/826037
 [965908]:https://launchpad.support.sap.com/#/notes/965908
 [1031096]:https://launchpad.support.sap.com/#/notes/1031096
-[1114181]:https://launchpad.support.sap.com/#/notes/1114181
+[1114181]: https://launchpad.support.sap.com/#/notes/1114181
 [1139904]:https://launchpad.support.sap.com/#/notes/1139904
 [1173395]:https://launchpad.support.sap.com/#/notes/1173395
 [1245200]:https://launchpad.support.sap.com/#/notes/1245200
@@ -39,7 +38,7 @@ ms.locfileid: "58850807"
 [1585981]:https://launchpad.support.sap.com/#/notes/1585981
 [1588316]:https://launchpad.support.sap.com/#/notes/1588316
 [1590719]:https://launchpad.support.sap.com/#/notes/1590719
-[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1597355]: https://launchpad.support.sap.com/#/notes/1597355
 [1605680]:https://launchpad.support.sap.com/#/notes/1605680
 [1619720]:https://launchpad.support.sap.com/#/notes/1619720
 [1619726]:https://launchpad.support.sap.com/#/notes/1619726
@@ -55,23 +54,23 @@ ms.locfileid: "58850807"
 [1882376]:https://launchpad.support.sap.com/#/notes/1882376
 [1909114]:https://launchpad.support.sap.com/#/notes/1909114
 [1922555]:https://launchpad.support.sap.com/#/notes/1922555
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [1941500]:https://launchpad.support.sap.com/#/notes/1941500
 [1956005]:https://launchpad.support.sap.com/#/notes/1956005
 [1973241]:https://launchpad.support.sap.com/#/notes/1973241
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2039619]:https://launchpad.support.sap.com/#/notes/2039619
-[2069760]:https://launchpad.support.sap.com/#/notes/2069760
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2039619]: https://launchpad.support.sap.com/#/notes/2039619
+[2069760]: https://launchpad.support.sap.com/#/notes/2069760
 [2121797]:https://launchpad.support.sap.com/#/notes/2121797
 [2134316]:https://launchpad.support.sap.com/#/notes/2134316
-[2171857]:https://launchpad.support.sap.com/#/notes/2171857
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2171857]: https://launchpad.support.sap.com/#/notes/2171857
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
@@ -367,7 +366,7 @@ Les lecteurs réseau ou les partages distants comme les services de fichiers Azu
 
 Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou sur la fonctionnalité Disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec Oracle Database.
 
-Il existe des quotas sur le débit d’IOPS pour les disques Azure. Ce concept est expliqué dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). Les quotas exacts dépendent du type de machine virtuelle que vous utilisez. Une liste des types de machines virtuelles avec leurs quotas est disponible dans [Tailles des machines virtuelles Windows dans Azure][virtual-machines-sizes-windows].
+Il existe des quotas sur le débit d’IOPS pour les disques Azure. Ce concept est expliqué dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). Les quotas exacts dépendent du type de machine virtuelle que vous utilisez. Pour obtenir la liste des types de machines virtuelles et des quotas correspondants, consultez [Tailles des machines virtuelles Windows dans Azure][virtual-machines-sizes-windows].
 
 Pour connaître les types de machines virtuelles Azure pris en charge, consultez la note SAP [1928533].
 
@@ -449,7 +448,7 @@ Pour les noyaux Oracle Linux UEK, UEK version 4 ou ultérieure est nécessaire 
 
 Nous vous recommandons vivement d’utiliser des [disques managés Azure](../../windows/managed-disks-overview.md). Nous vous recommandons également d'utiliser des [disques SSD Premium Azure](../../windows/disks-types.md) pour vos déploiements Oracle Database.
 
-Les lecteurs réseau ou les partages distants comme les services de fichiers Azure ne sont pas pris en charge pour les fichiers Oracle Database. Pour plus d’informations, consultez les rubriques suivantes :  
+Les lecteurs réseau ou les partages distants comme les services de fichiers Azure ne sont pas pris en charge pour les fichiers Oracle Database. Pour plus d’informations, consultez les rubriques suivantes : 
 
 - [Présentation de Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -457,7 +456,7 @@ Les lecteurs réseau ou les partages distants comme les services de fichiers Azu
 
 Si vous utilisez des disques basés sur le stockage d’objets blob de pages Azure ou la fonctionnalité Disques managés, les instructions figurant dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) s’appliquent également aux déploiements avec Oracle Database.
 
- Il existe des quotas sur le débit d’IOPS pour les disques Azure. Ce concept est expliqué dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). Les quotas exacts dépendent du type de machine virtuelle qui est utilisé. Pour obtenir une liste des types de machines virtuelles avec leurs quotas, consultez [Tailles des machines virtuelles Linux dans Azure][virtual-machines-sizes-linux].
+ Il existe des quotas sur le débit d’IOPS pour les disques Azure. Ce concept est expliqué dans [Facteurs à prendre en compte pour le déploiement de SGBD sur des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). Les quotas exacts dépendent du type de machine virtuelle qui est utilisé. Pour obtenir la liste des types de machines virtuelles et des quotas correspondants, consultez [Tailles des machines virtuelles Linux dans Azure][virtual-machines-sizes-linux].
 
 Pour connaître les types de machines virtuelles Azure pris en charge, consultez la note SAP [1928533].
 
@@ -465,10 +464,10 @@ Configuration minimale :
 
 | Composant | Disque | Mise en cache | Agrégation par bandes* |
 | --- | ---| --- | --- |
-| /Oracle/\<SID > / origlogaA & mirrlogB | Premium | Aucun | Inutile |
-| /Oracle/\<SID > / origlogaB & mirrlogA | Premium | Aucun | Inutile |
-| /Oracle/\<SID > / sapdata1... n | Premium | Lecture seule | Peut être utilisé |
-| /Oracle/\<SID > / oraarch | standard | Aucun | Inutile |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium | Aucun | Inutile |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium | Aucun | Inutile |
+| /oracle/\<SID>/sapdata1...n | Premium | Lecture seule | Peut être utilisé |
+| /oracle/\<SID>/oraarch | standard | Aucun | Inutile |
 | Oracle Home, saptrace, ... | Disque de système d’exploitation | | Inutile |
 
 *Agrégation par bandes : Volume LVM agrégé par bandes ou MDADM à l’aide de RAID0
@@ -479,13 +478,13 @@ Configuration des performances :
 
 | Composant | Disque | Mise en cache | Agrégation par bandes* |
 | --- | ---| --- | --- |
-| /Oracle/\<SID > / origlogaA | Premium | Aucun | Peut être utilisé  |
-| /Oracle/\<SID > / origlogaB | Premium | Aucun | Peut être utilisé |
-| /Oracle/\<SID > / mirrlogAB | Premium | Aucun | Peut être utilisé |
+| /oracle/\<SID>/origlogaA | Premium | Aucun | Peut être utilisé  |
+| /oracle/\<SID>/origlogaB | Premium | Aucun | Peut être utilisé |
+| /oracle/\<SID>/mirrlogAB | Premium | Aucun | Peut être utilisé |
 | /oracle/\<SID>/mirrlogBA | Premium | Aucun | Peut être utilisé |
-| /Oracle/\<SID > / sapdata1... n | Premium | Lecture seule | Recommandé  |
+| /oracle/\<SID>/sapdata1...n | Premium | Lecture seule | Recommandé  |
 | /oracle/\<SID>/sapdata(n+1)* | Premium | Aucun | Peut être utilisé |
-| /Oracle/\<SID > / oraarch * | Premium | Aucun | Inutile |
+| /oracle/\<SID>/oraarch* | Premium | Aucun | Inutile |
 | Oracle Home, saptrace, ... | Disque de système d’exploitation | Inutile |
 
 *Agrégation par bandes : Volume LVM agrégé par bandes ou MDADM à l’aide de RAID0

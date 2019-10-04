@@ -4,28 +4,27 @@ description: Dans ce guide de démarrage rapide, vous allez apprendre à utilise
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/12/2018
+ms.date: 8/20/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 693f9144d1cb454b0a9dd98b5ae63938abd7d26d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0c05eb59c42700394f755f226405f16a47edc73c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420402"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091549"
 ---
-# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Linux sur le Portail Azure
+# <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Linux dans le portail Azure
 
-Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. Le Portail Azure est une interface utilisateur basée sur un navigateur permettant de créer des machines virtuelles et leurs ressources associées. Ce démarrage rapide explique comment utiliser le Portail Azure pour déployer une machine virtuelle Linux exécutant Ubuntu 16.04 LTS. Pour voir votre machine virtuelle en action, vous établissez également une connexion SSH à la machine virtuelle et installez le serveur web NGINX.
+Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. Le portail Azure est une interface utilisateur basée sur un navigateur permettant de créer des ressources Azure. Ce démarrage rapide explique comment utiliser le portail Azure pour déployer une machine virtuelle Linux exécutant Ubuntu 18.04 LTS. Pour voir votre machine virtuelle en action, vous établissez également une connexion SSH à la machine virtuelle et installez le serveur web NGINX.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -33,35 +32,29 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous aurez besoin d’une paire de clés SSH pour suivre ce guide de démarrage rapide. Si vous disposez déjà d’une paire de clés SSH, vous pouvez ignorer cette étape.
 
-Ouvrez un interpréteur de commandes bash et utilisez [ssh-keygen](https://www.ssh.com/ssh/keygen/) pour créer une paire de clés SSH. Si vous n’avez pas d’interpréteur de commandes bash sur votre ordinateur local, vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com/bash).  
+Ouvrez un interpréteur de commandes bash et utilisez [ssh-keygen](https://www.ssh.com/ssh/keygen/) pour créer une paire de clés SSH. Si vous n’avez pas d’interpréteur de commandes bash sur votre ordinateur local, vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com/bash).
 
-```bash
-ssh-keygen -t rsa -b 2048
-```
 
-La commande ci-dessus génère des clés publiques et privées portant le nom par défaut `id_rsa` dans `~/.ssh directory`. La commande renvoie le chemin d’accès complet à la clé publique. Utilisez le chemin d’accès à la clé publique pour afficher son contenu avec `cat`.
-
-```bash 
-cat ~/.ssh/id_rsa.pub
-```
-
-Enregistrez la sortie de cette commande. Elle vous sera utile au moment de configurer votre compte administrateur pour vous connecter à votre machine virtuelle.
-
-Pour plus d’informations sur la création de paires de clés SSH, notamment l’utilisation de PuTTy, voir [Guide pratique pour utiliser des clés SSH avec Windows](ssh-from-windows.md).
-
-Si vous créez votre paire de clés SSH à l’aide de Cloud Shell, elle est stockée dans un partage de fichiers Azure qui est [automatiquement monté par Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Ne supprimez pas ce compte de stockage ou partage de fichiers tant que vous n’avez pas récupéré vos clés, faute de quoi vous perdrez votre accès à la machine virtuelle. 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Dans le menu situé en haut de la page, sélectionnez l’icône `>_` pour ouvrir Cloud Shell.
+1. Assurez-vous que Cloud Shell indique **Bash** dans l’angle supérieur gauche. S’il s’agit de PowerShell, utilisez la liste déroulante pour sélectionner **Bash** et sélectionnez **Confirmer** pour passer à l’interpréteur de commandes Bash.
+1. Tapez `ssh-keygen -t rsa -b 2048` pour créer la clé SSH. 
+1. Vous êtes invité à entrer un fichier dans lequel enregistrer la paire de clés. Appuyez simplement sur **Entrée** pour enregistrer dans l’emplacement par défaut, indiqué entre crochets. 
+1. Vous êtes invité à entrer une phrase secrète. Vous pouvez taper une phrase secrète pour votre clé SSH ou appuyer sur **Entrée** pour continuer sans phrase secrète.
+1. La commande `ssh-keygen` génère des clés publiques et privées portant le nom par défaut `id_rsa` dans `~/.ssh directory`. La commande renvoie le chemin d’accès complet à la clé publique. Utilisez le chemin d’accès à la clé publique pour afficher son contenu avec `cat` en tapant `cat ~/.ssh/id_rsa.pub`.
+1. Copiez la sortie de cette commande et enregistrez-la quelque part pour l’utiliser plus loin dans cet article. Il s’agit de votre clé publique. Elle vous sera utile au moment de configurer votre compte administrateur pour vous connecter à votre machine virtuelle.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
 1. Choisissez **Créer une ressource** en haut à gauche du Portail Azure.
 
-1. Dans la zone de recherche au-dessus de la liste des ressources de la Place de marché Azure, recherchez et sélectionnez **Ubuntu Server 16.04 LTS** de Canonical, puis choisissez **Créer**.
+1. Dans **Populaire**, sélectionnez **Ubuntu Server 18.04 LTS**.
 
-1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer** sous **Groupe de ressources** . Dans la fenêtre contextuelle, tapez *myResourceGroup* comme nom du groupe de ressources, puis choisissez **OK**. 
+1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer** sous **Groupe de ressources** . Tapez *myResourceGroup* comme nom du groupe de ressources, puis choisissez **OK**. 
 
     ![Créer un groupe de ressources pour votre machine virtuelle](./media/quick-create-portal/project-details.png)
 
@@ -69,7 +62,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
     ![Section Détails de l’instance](./media/quick-create-portal/instance-details.png)
 
-1. Sous **Compte d’administrateur**, sélectionnez **Clé publique SSH**, tapez votre nom d’utilisateur, puis collez votre clé publique dans la zone de texte. Supprimez les espaces blancs au début ou à la fin de votre clé publique.
+1. Sous **Compte d’administrateur**, sélectionnez **Clé publique SSH**, tapez votre nom d’utilisateur, puis collez votre clé publique. Supprimez les espaces blancs au début ou à la fin de votre clé publique.
 
     ![Compte d’administrateur](./media/quick-create-portal/administrator-account.png)
 
@@ -92,13 +85,13 @@ Créez une connexion SSH avec la machine virtuelle.
 
     ![Portail 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. Sur la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par adresse IP sur le port 22. Dans **Se connecter à l’aide d’un compte local de machine virtuelle**, une commande de connexion s’affiche. Cliquez sur le bouton pour copier la commande. L’exemple suivant montre la commande de connexion SSH :
+2. Sur la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par adresse IP sur le port 22. Dans **Se connecter à l’aide d’un compte local de machine virtuelle**, une commande de connexion s’affiche. Sélectionnez le bouton pour copier la commande. L’exemple suivant montre la commande de connexion SSH :
 
     ```bash
     ssh azureuser@10.111.12.123
     ```
 
-3. Avec le même interpréteur de commandes bash que celui utilisé pour créer votre paire de clés (comme [Azure Cloud Shell](https://shell.azure.com/bash) ou votre interpréteur de commandes bash local), collez la commande de connexion SSH dans l’interpréteur de commandes pour créer une session SSH. 
+3. Avec le même interpréteur de commandes Bash que celui utilisé pour créer votre paire de clés SSH (vous pouvez rouvrir Cloud Shell en sélectionnant `>_` à nouveau ou en accédant à https://shell.azure.com/bash) ), collez la commande de connexion SSH dans l’interpréteur de commandes pour créer une session SSH.
 
 ## <a name="install-web-server"></a>Installer le serveur web
 
@@ -116,7 +109,7 @@ Lorsque vous avez terminé, tapez `exit` pour quitter la session SSH.
 
 Utilisez le navigateur web de votre choix pour visualiser la page d’accueil NGINX par défaut. Entrez l’adresse IP publique de la machine virtuelle comme adresse web. Vous trouverez l’adresse IP publique sur la page de vue d’ensemble de la machine virtuelle ou en tant que partie de la chaîne de connexion SSH que vous avez utilisée précédemment.
 
-![Site par défaut NGINX](./media/quick-create-cli/nginx.png)
+![Site par défaut NGINX](./media/quick-create-portal/nginx.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

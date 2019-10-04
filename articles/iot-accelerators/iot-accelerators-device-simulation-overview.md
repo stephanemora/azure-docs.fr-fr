@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 173963470a77932186b3c51f17ccb406b32a13f3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f58eb05ed582cf18157a76f4d637d72a228f4e96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452222"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65464895"
 ---
 # <a name="device-simulation-solution-accelerator-overview"></a>Vue d’ensemble de l’accélérateur de solution Simulation d’appareil
 
@@ -38,7 +38,7 @@ La simulation d’appareil est gratuite. Cependant, la simulation d’appareil s
 
 Quand vous déployez la simulation d’appareil, vous recevez des exemples de simulations et d’appareils. Vous pouvez utiliser ces exemples pour apprendre à utiliser la simulation d’appareil. Pour commencer, exécutez un [exemple de simulation qui simule 10 camions](quickstart-device-simulation-deploy.md). Vous pouvez également [créer votre propre simulation en utilisant un des nombreux exemples d’appareils fournis](iot-accelerators-device-simulation-create-simulation.md).
 
-![Configuration de la simulation](media/iot-accelerators-device-simulation-overview/SampleSimulation.png)
+![Configuration de la simulation](media/iot-accelerators-device-simulation-overview/samplesimulation1.png)
 
 ## <a name="custom-simulated-devices"></a>Appareils simulés personnalisés
 

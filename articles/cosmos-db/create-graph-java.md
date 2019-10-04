@@ -1,21 +1,22 @@
 ---
-title: Créer une base de données de graphe Azure Cosmos DB avec Java
+title: Créer une base de données de graphe avec Java dans Azure Cosmos DB
 description: Cet article présente un exemple de code Java que vous pouvez utiliser pour vous connecter aux données graphiques et pour les interroger dans Azure Cosmos DB à l’aide de Gremlin.
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 03/26/2019
 ms.author: lbosq
-ms.openlocfilehash: db931a3a114be101eeb5e14fa7ba100a789e7cf5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 1b37475cfa8df38a00ea6017d47e90677ed457d2
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094989"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212626"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>Démarrage rapide : Créer une base de données de graphe dans Azure Cosmos DB à l’aide du SDK Java 
+# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-table-api"></a>Démarrage rapide : Créer une base de données de graphe avec le kit Java SDK et l’API Table d’Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -35,8 +36,7 @@ Ce guide de démarrage rapide crée une base de données de graphiques simple à
 
 Par ailleurs :
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * Sur Ubuntu, exécutez `apt-get install default-jdk` pour installer le JDK.
+* [Kit de développement Java (JDK), version 8](https://aka.ms/azure-jdks)
     * Veillez à définir la variable d’environnement JAVA_HOME pour qu’elle pointe vers le dossier dans lequel le JDK est installé.
 * [Téléchargement](https://maven.apache.org/download.cgi) et [installation](https://maven.apache.org/install.html) d’une archive binaire [Maven](https://maven.apache.org/)
     * Sur Ubuntu, vous pouvez exécuter `apt-get install maven` pour installer Maven.
@@ -106,11 +106,11 @@ Les extraits de code suivants sont tirés du fichier C:\git-samples\azure-cosmos
 
 Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de connexion et de les copier dans l’application. Ces paramètres permettent à votre application de communiquer avec votre base de données hébergée.
 
-1. Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Clés**. 
+1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Clés**. 
 
     Copiez la première partie de la valeur de l’URI.
 
-    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, page Clés](./media/create-graph-java/keys.png)
+    ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, page Clés](./media/create-graph-java/copy-access-key-azure-portal.png)
 2. Ouvrez le fichier src/remote.yaml et collez la valeur d’ID unique sur `$name$` dans `hosts: [$name$.graphs.azure.com]`.
 
     La ligne 1 du fichier remote.yaml doit maintenant ressembler à la ligne suivante : 
@@ -151,13 +151,13 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
 2. Dans la fenêtre de terminal git, utilisez la commande suivante pour installer les packages Java requis.
 
-   ```
+   ```git
    mvn package
    ```
 
 3. Dans la fenêtre de terminal git, utilisez la commande suivante pour démarrer l’application Java.
     
-    ```
+    ```git
     mvn exec:java -D exec.mainClass=GetStarted.Program
     ```
 
@@ -165,14 +165,14 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     
     Si vous rencontrez des erreurs de délai d’expiration, vérifiez que vous avez correctement mis à jour les informations de connexion dans [Mise à jour de vos informations de connexion](#update-your-connection-information) et essayez également de réexécuter la dernière commande. 
     
-    Une fois le programme terminé, appuyez sur Entrée, puis rebasculez vers le portail Azure dans votre navigateur Internet. 
+    Une fois le programme terminé, sélectionnez Entrée, puis rebasculez vers le portail Azure dans votre navigateur Internet. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Examiner et ajouter des exemples de données
 
 Vous pouvez à présent revenir à l’Explorateur de données et voir les vertex ajoutés au graphique, ainsi qu’ajouter des points de données supplémentaires.
 
-1. Cliquez sur **Explorateur de données**, développez **sample-graph**, cliquez sur **Graphique**, puis cliquez sur **Appliquer un filtre**. 
+1. Sélectionnez **Explorateur de données**, développez **sample-graph**, sélectionnez **Graph**, puis sélectionnez **Appliquer un filtre**. 
 
    ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
@@ -180,13 +180,13 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
    ![Nouveaux vertex dans le graphique de l’Explorateur de données du portail Azure](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Nous allons à présent ajouter quelques nouveaux utilisateurs. Cliquez sur le bouton **New Vertex (Nouveau vertex)** pour ajouter des données à votre graphique.
+3. Nous allons à présent ajouter quelques nouveaux utilisateurs. Sélectionnez **New Vertex (Nouveau vertex)** pour ajouter des données à votre graphique.
 
    ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
 4. Dans la zone d’étiquette, entrez *personne*.
 
-5. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphique. Seule la clé id est obligatoire.
+5. Sélectionnez **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphique. Seule la clé id est obligatoire.
 
     key|value|Notes
     ----|----|----
@@ -197,13 +197,13 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
     > [!NOTE]
     > Dans ce Démarrage rapide, vous créez une collection non partitionnée. Toutefois, si vous créez une collection partitionnée en spécifiant une clé de partition lors de la création de la collection, vous devez inclure la clé de partition en tant que clé dans chaque nouveau vertex. 
 
-6. Cliquez sur **OK**. Vous pouvez avoir besoin d’agrandir votre écran pour voir apparaître le bouton **OK** au bas de l’écran.
+6. Sélectionnez **OK**. Vous pouvez avoir besoin d’agrandir votre écran pour voir apparaître le bouton **OK** au bas de l’écran.
 
-7. Cliquez de nouveau sur **New Vertex (Nouveau vertex)** et ajoutez un nouvel utilisateur supplémentaire. 
+7. Sélectionnez de nouveau **New Vertex (Nouveau vertex)** et ajoutez un nouvel utilisateur supplémentaire. 
 
 8. Entrez l’étiquette *person*.
 
-9. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes :
+9. Sélectionnez **Ajouter une propriété** pour ajouter chacune des propriétés suivantes :
 
     key|value|Notes
     ----|----|----
@@ -211,23 +211,23 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
     gender|male| 
     school|MIT| 
 
-10. Cliquez sur **OK**. 
+10. Sélectionnez **OK**. 
 
-11. Cliquez sur le bouton **Appliquer un filtre** avec le filtre par défaut `g.V()` pour afficher toutes les valeurs dans le graphique. Tous les utilisateurs apparaissent désormais dans la liste **Résultats**. 
+11. Sélectionnez le bouton **Appliquer un filtre** avec le filtre par défaut `g.V()` pour afficher toutes les valeurs dans le graphique. Tous les utilisateurs apparaissent désormais dans la liste **Résultats**. 
 
-    À mesure que vous ajoutez d’autres données, vous pouvez utiliser des filtres pour limiter les résultats renvoyés. Par défaut, l’Explorateur de données utilise `g.V()` pour récupérer tous les vertex dans un graphique. Vous pouvez choisir une autre [requête de graphique](tutorial-query-graph.md) comme `g.V().count()` pour retourner le nombre total de vertex dans le graphique au format JSON. Si vous avez modifié le filtre, choisissez de nouveau le filtre `g.V()` et cliquez sur **Appliquer un filtre** pour afficher de nouveau l’ensemble des résultats.
+    À mesure que vous ajoutez d’autres données, vous pouvez utiliser des filtres pour limiter les résultats renvoyés. Par défaut, l’Explorateur de données utilise `g.V()` pour récupérer tous les vertex dans un graphique. Vous pouvez choisir une autre [requête de graphique](tutorial-query-graph.md) comme `g.V().count()` pour retourner le nombre total de vertex dans le graphique au format JSON. Si vous avez modifié le filtre, choisissez de nouveau le filtre `g.V()` et sélectionnez **Appliquer un filtre** pour afficher de nouveau l’ensemble des résultats.
 
-12. À présent, vous pouvez connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis cliquez sur ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-java/edit-pencil-button.png) en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour voir le bouton.
+12. À présent, vous pouvez connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis sélectionnez ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-java/edit-pencil-button.png) en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour voir le bouton.
 
-    ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Changer la cible d’un vertex dans un graphe - Azure Cosmos DB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. Dans la zone **Cible**, tapez *rakesh*. Dans la zone **Edge label** (Étiquette de relation), tapez *knows*, puis cochez la case.
+13. Dans la zone **Cible**, entrez *rakesh*, et dans la zone **Edge label (Étiquette de relation)** , entrez *knows*, puis cochez la case.
 
-    ![Ajouter une connexion entre ashley et rakesh dans l’Explorateur de données](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
+    ![Ajouter une connexion dans l’Explorateur de données - Azure Cosmos DB](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 
 14. À présent, sélectionnez **rakesh** dans la liste des résultats et vérifiez qu’ashley et rakesh sont connectés. 
 
-    ![Deux vertex connectés dans l’Explorateur de données](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    ![Deux vertex connectés dans l’Explorateur de données - Azure Cosmos DB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
     Ainsi s’achève la portion de ce didacticiel consacrée à la création de ressources. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
 

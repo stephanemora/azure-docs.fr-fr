@@ -2,20 +2,20 @@
 title: Surveillance des points de terminaison Azure Traffic Manager | Microsoft Docs
 description: Cet article explique comment Traffic Manager utilise la surveillance des points de terminaison et le basculement automatique des points de terminaison pour aider les clients Azure à déployer des applications haute disponibilité
 services: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: kumud
-ms.openlocfilehash: 083bdf9c5aec640fbbd7757b307ac47178e0b14b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: e06d2ce93ac7c534f2c729dce794e66e3ee894d8
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076137"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333816"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 
@@ -28,7 +28,7 @@ Pour configurer la surveillance des points de terminaison, vous devez spécifier
 * **Protocole**. Sélectionnez HTTP, HTTPS ou TCP comme protocole utilisé par Traffic Manager lors de la détection du point de terminaison pour contrôler son intégrité. Notez que la surveillance HTTPS ne vérifie pas si votre certificat SSL est valide, mais uniquement s’il est présent.
 * **Port**. Choisissez le port utilisé pour la requête.
 * **Chemin d’accès**. Ce paramètre de configuration est valide uniquement pour les protocoles HTTP et HTTPS pour lesquels la configuration du chemin est obligatoire. La configuration de ce paramètre pour le protocole de surveillance TCP provoque une erreur. Pour le protocole HTTP et HTTPS, indiquez le chemin relatif et le nom du fichier ou de la page web auxquels la surveillance accède. Une barre oblique (/) est une entrée valide pour le chemin d’accès relatif. Cette valeur indique que le fichier est dans le répertoire racine (par défaut).
-* **Paramètres d’en-tête personnalisé**. Ce paramètre de configuration vous permet d’ajouter des en-têtes HTTP spécifiques aux vérifications d’intégrité que Traffic Manager envoie aux points de terminaison par le biais d’un profil. Les en-têtes personnalisés peuvent être spécifiés au niveau du profil (pour s’appliquer à tous les points de terminaison de ce profil) et/ou au niveau du point de terminaison (applicable uniquement à ce point de terminaison). Vous pouvez utiliser des en-têtes personnalisés pour que les vérifications d’intégrité effectuées sur des points de terminaison d’un environnement multilocataire soient correctement acheminées vers leur destination en spécifiant un en-tête d’hôte. Vous pouvez également utiliser ce paramètre en ajoutant des en-têtes uniques qui peuvent servir à identifier les requêtes HTTP(S) provenant de Traffic Manager et les traiter différemment. Vous pouvez spécifier jusqu'à huit seprated de paires de valeur d’en-tête : par une virgule. Par exemple, « header1:value1, header2:value2 ». 
+* **Paramètres d’en-tête personnalisé**. Ce paramètre de configuration vous permet d’ajouter des en-têtes HTTP spécifiques aux vérifications d’intégrité que Traffic Manager envoie aux points de terminaison par le biais d’un profil. Les en-têtes personnalisés peuvent être spécifiés au niveau du profil (pour s’appliquer à tous les points de terminaison de ce profil) et/ou au niveau du point de terminaison (applicable uniquement à ce point de terminaison). Vous pouvez utiliser des en-têtes personnalisés pour que les vérifications d’intégrité effectuées sur des points de terminaison d’un environnement multilocataire soient correctement acheminées vers leur destination en spécifiant un en-tête d’hôte. Vous pouvez également utiliser ce paramètre en ajoutant des en-têtes uniques qui peuvent servir à identifier les requêtes HTTP(S) provenant de Traffic Manager et les traiter différemment. Vous pouvez spécifier jusqu’à huit paires header:value séparées par une virgule. Par exemple, « header1:value1,header2:value2 ». 
 * **Plages de code d’état prévues**. Ce paramètre vous permet de spécifier plusieurs plages de code de réussite au format 200-299, 301-301. Si, suite au lancement d’une vérification de l’intégrité, un point de terminaison envoie ces codes d’état en tant que réponse, Traffic Manager considère que ces points de terminaison sont sains. Vous pouvez spécifier un maximum de 8 plages de code d’état. Ce paramètre s’applique uniquement aux protocoles HTTP et HTTPS, et à tous les points de terminaison. Ce paramètre se trouve au niveau du profil Traffic Manager. Par défaut, la valeur du code d’état de réussite est définie sur 200.
 * **Intervalle de détection**. Cette valeur spécifie la fréquence à laquelle l’intégrité d’un point de terminaison est contrôlée par un agent de détection Traffic Manager. Vous pouvez spécifier deux valeurs ici : 30 secondes (détection normale) et 10 secondes (détection rapide). Si aucune valeur n’est fournie, le profil définit par défaut la valeur sur 30 secondes. Visitez la page [Tarification de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) pour en savoir plus sur la tarification pour la détection rapide.
 * **Nombre d’échecs tolérés**. Cette valeur spécifie le nombre d’échecs tolérés par un agent de détection de Traffic Manager avant que le point de terminaison soit considéré comme défectueux. La valeur peut être comprise entre 0 et 9. Une valeur égale à 0 signifie qu’il suffit d’un seul échec lors de l’analyse pour que le point de terminaison soit considéré comme défectueux. Si aucune valeur n’est spécifiée, la valeur par défaut est 3.
@@ -40,7 +40,7 @@ Pour configurer la surveillance des points de terminaison, vous devez spécifier
 
 ## <a name="how-endpoint-monitoring-works"></a>Fonctionnement de la surveillance des points de terminaison
 
-Si le protocole de surveillance est défini sur HTTP ou HTTPS, l’agent de détection de Traffic Manager effectue une requête GET vers le point de terminaison à l’aide du protocole, du port et du chemin d’accès relatif donnés. Si, il récupère une réponse 200-OK, ou une des réponses configuré dans le **prévu le code d’état \*plages**, ce point de terminaison est considéré comme sain. Si la réponse est une valeur différente, ou si aucune réponse n’est reçue dans le délai spécifié, l’agent de détection Traffic Manager refait une tentative en fonction du nombre d’échecs tolérés défini (aucune nouvelle tentative si cette valeur est définie sur 0). Si le nombre d’échecs consécutifs est supérieur au nombre d’échecs tolérés, ce point de terminaison est considéré comme défectueux. 
+Si le protocole de surveillance est défini sur HTTP ou HTTPS, l’agent de détection de Traffic Manager effectue une requête GET vers le point de terminaison à l’aide du protocole, du port et du chemin d’accès relatif donnés. S’il obtient la réponse 200-OK, ou l’une des réponses configurées dans les **plages\* de code d’état prévues**, alors ce point de terminaison est considéré comme sain. Si la réponse est une valeur différente, ou si aucune réponse n’est reçue dans le délai spécifié, l’agent de détection Traffic Manager refait une tentative en fonction du nombre d’échecs tolérés défini (aucune nouvelle tentative si cette valeur est définie sur 0). Si le nombre d’échecs consécutifs est supérieur au nombre d’échecs tolérés, ce point de terminaison est considéré comme défectueux. 
 
 Si le protocole de surveillance est TCP, l’agent de détection de Traffic Manager lance une demande de connexion TCP à l’aide du port spécifié. Si le point de terminaison répond positivement à la requête de connexion, le contrôle d’intégrité est considéré comme une réussite et l’agent de détection de Traffic Manager rétablit la connexion TCP. Si la réponse est différente ou si aucune réponse n’est reçue dans le délai spécifié, l’agent de détection Traffic Manager refait une tentative en fonction du nombre d’échecs tolérés défini (aucune nouvelle tentative si cette valeur est définie sur 0). Si le nombre d’échecs consécutifs est supérieur au nombre d’échecs tolérés, ce point de terminaison est considéré comme défectueux.
 
@@ -74,7 +74,7 @@ L’état de surveillance des points de terminaison est une valeur générée pa
 | activé |activé |En ligne |Le point de terminaison est surveillé et sain. Il est inclus dans les réponses DNS et peut recevoir le trafic. |
 | activé |activé |Détérioré |Les contrôles d’intégrité de surveillance des points de terminaison sont défaillants. Le point de terminaison n’est pas inclus dans les réponses DNS et ne reçoit pas de trafic. <br>Exception : si tous les points de terminaison sont défectueux, auquel cas l’on considère qu’ils sont tous renvoyés dans la réponse à la requête.</br>|
 | activé |activé |CheckingEndpoint |Le point de terminaison est surveillé, mais les résultats de la première analyse n’ont pas encore été reçus. CheckingEndpoint est un état temporaire qui survient généralement immédiatement après l’ajout ou l’activation d’un point de terminaison dans le profil. Un point de terminaison avec cet état est inclus dans les réponses DNS et peut recevoir le trafic. |
-| activé |activé |Arrêté |Le service cloud ou l’application web vers lequel/laquelle le point de terminaison pointe ne s’exécute pas. Vérifiez les paramètres du service cloud ou de l’application web. Cela peut également se produire si le point de terminaison est de type imbriqué et que le profil enfant est désactivé ou inactif. <br>Un point de terminaison avec l’état Arrêté n’est pas surveillé. Il n’est pas inclus dans les réponses DNS et ne reçoit pas de trafic. Exception : si tous les points de terminaison sont défectueux, auquel cas l’on considère qu’ils sont tous renvoyés dans la réponse à la requête.</br>|
+| activé |activé |Arrêté |L’application web vers laquelle le point de terminaison pointe ne s’exécute pas. Vérifiez les paramètres de l’application web. Cela peut également se produire si le point de terminaison est de type imbriqué et que le profil enfant est désactivé ou inactif. <br>Un point de terminaison avec l’état Arrêté n’est pas surveillé. Il n’est pas inclus dans les réponses DNS et ne reçoit pas de trafic. Exception : si tous les points de terminaison sont défectueux, auquel cas l’on considère qu’ils sont tous renvoyés dans la réponse à la requête.</br>|
 
 Pour savoir comment l’état de surveillance des points de terminaison est calculé pour les points de terminaison imbriqués, consultez la section relative aux [profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md).
 
@@ -98,10 +98,11 @@ L’état de surveillance du profil est une combinaison de l’état du profil c
 Traffic Manager vérifie périodiquement l’intégrité de chaque point de terminaison, y compris des points de terminaison défectueux. Traffic Manager détecte lorsque l’intégrité d’un point de terminaison est rétablie et ramène celui-ci en rotation.
 
 Un point de terminaison est défectueux lorsque l’un des événements suivants se produit :
+
 - Si le protocole de surveillance est HTTP ou HTTPS :
     - Une réponse autre que 200, ou une réponse qui n’inclut pas la plage spécifiée dans le paramètre **Plages de code d’état prévues**, est reçue (y compris un code 2xx différent ou une redirection 301/302).
 - Si le protocole de surveillance est TCP : 
-    - Réception d’une réponse autre que ACK ou SYN-ACK, en réponse à la requête SYNC envoyée par Traffic Manager pour tenter d’établir une connexion.
+    - Réception d’une réponse autre que ACK ou SYN-ACK, en réponse à la requête SYN envoyée par Traffic Manager pour tenter d’établir une connexion.
 - Délai d’expiration. 
 - Tout autre problème de connexion qui fait que le point de terminaison n’est ne pas accessible.
 
@@ -152,7 +153,45 @@ Pour plus d’informations, consultez la rubrique relative aux [méthodes de rou
 
 Pour plus d’informations sur le dépannage des contrôles d’intégrité, consultez la section [Résolution des problèmes liés à l’état Détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md).
 
+## <a name="faqs"></a>FAQ
 
+* [Traffic Manager est-il résistant aux défaillances de régions Azure ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-traffic-manager-resilient-to-azure-region-failures)
+
+* [En quoi le choix de l’emplacement du groupe de ressources affecte-t-il Traffic Manager ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-choice-of-resource-group-location-affect-traffic-manager)
+
+* [Comment déterminer l’état d’intégrité actuel de chaque point de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-determine-the-current-health-of-each-endpoint)
+
+* [Puis-je superviser les points de terminaison HTTPS ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-monitor-https-endpoints)
+
+* [Dois-je utiliser une adresse IP ou un nom DNS lors de l’ajout d’un point de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint)
+
+* [Quels types d’adresses IP puis-je utiliser lors de l’ajout d’un point de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint)
+
+* [Puis-je utiliser différents types d’adressage de point de terminaison dans un même profil ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-different-endpoint-addressing-types-within-a-single-profile)
+
+* [Que se passe-t-il quand le type d’enregistrement d’une requête entrante est différent du type d’enregistrement associé au type d’adressage des points de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints)
+
+* [Puis-je utiliser un profil avec des points de terminaison IPv4/IPv6 dans un profil imbriqué ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile)
+
+* [J’ai arrêté un point de terminaison d’application web dans mon profil Traffic Manager, mais je ne reçois pas de trafic même après un redémarrage. Comment puis-je résoudre ce problème ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this)
+
+* [Puis-je utiliser Traffic Manager même si mon application ne prend pas en charge HTTP ou HTTPS ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https)
+
+* [Quelles réponses spécifiques du point de terminaison sont obligatoires quand la surveillance TCP est utilisée ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring)
+
+* [Avec quelle rapidité Traffic Manager éloigne-t-il mes utilisateurs d’un point de terminaison non sain ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint)
+
+* [Comment spécifier différents paramètres de surveillance pour les différents points de terminaison dans un profil ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-specify-different-monitoring-settings-for-different-endpoints-in-a-profile)
+
+* [Comment puis-je attribuer des en-têtes HTTP aux contrôles d’intégrité Traffic Manager pour mes points de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints)
+
+* [Quel en-tête hôte est utilisé pour les contrôles d’intégrité des points de terminaison ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-host-header-do-endpoint-health-checks-use)
+
+* [Quelles sont les adresses IP à l’origine des contrôles d’intégrité ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-are-the-ip-addresses-from-which-the-health-checks-originate)
+
+* [Combien de contrôles d’intégrité de mon point de terminaison Traffic Manager effectue-t-il ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager)
+
+* [Comment être informé si l’un de mes points de terminaison tombe en panne ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-get-notified-if-one-of-my-endpoints-goes-down)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

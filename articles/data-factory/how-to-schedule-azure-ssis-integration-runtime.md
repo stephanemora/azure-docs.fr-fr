@@ -8,26 +8,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/9/2019
+ms.date: 8/2/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.openlocfilehash: d7a4a54f979cd4b14e12c5a57792241f1b2388d2
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621632"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734703"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Guide pratique pour démarrer et arrêter Azure-SSIS Integration Runtime selon une planification
-Cet article explique comment planifier le démarrage et l’arrêt d’Azure-SSIS Integration Runtime avec Azure Data Factory. Azure-SSIS Integration Runtime est une ressource de calcul d’Azure Data Factory dédiée à l’exécution de packages SSIS (SQL Server Integration Services). Un coût est associé à l’exécution d’Azure-SSIS Integration Runtime. Il est donc généralement souhaitable d’exécuter votre runtime d’intégration seulement quand vous devez exécuter des packages SSIS dans Azure et de l’arrêter quand vous n’en avez plus besoin. Vous pouvez utiliser l’interface utilisateur/application Azure Data Factory ou Azure PowerShell pour [démarrer ou arrêter manuellement votre runtime d’intégration](manage-azure-ssis-integration-runtime.md)).
+Cet article explique comment planifier le démarrage et l’arrêt d’Azure-SSIS Integration Runtime avec Azure Data Factory. Azure-SSIS Integration Runtime est un ressource de calcul d’Azure Data Factory dédiée à l’exécution de packages SSIS (SQL Server Integration Services). Un coût est associé à l’exécution d’Azure-SSIS Integration Runtime. Il est donc généralement souhaitable d’exécuter votre runtime d’intégration seulement quand vous devez exécuter des packages SSIS dans Azure et de l’arrêter quand vous n’en avez plus besoin. Vous pouvez utiliser l’interface utilisateur/application Azure Data Factory ou Azure PowerShell pour [démarrer ou arrêter manuellement votre runtime d’intégration](manage-azure-ssis-integration-runtime.md)).
 
 Vous pouvez aussi créer des activités web dans des pipelines Azure Data Factory pour démarrer/arrêter votre runtime d’intégration sur la planification, par exemple en le démarrant le matin avant l’exécution de vos charges de travail ETL quotidiennes, et en l’arrêtant dans l’après-midi une fois qu’elles sont terminées.  Vous pouvez également chaîner une activité Exécuter un package SSIS entre deux activités web qui démarrent et arrêtent votre runtime d’intégration : votre runtime d’intégration démarre/s’arrête donc à la demande, juste à temps avant/après l’exécution du package. Pour plus d’informations sur l’activité Exécuter un package SSIS, consultez l’article [Exécuter un package SSIS avec l’activité Exécuter un package SSIS dans Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Si vous n’avez pas déjà provisionné votre runtime d’intégration Azure SSIS, provisionnez-le en suivant les instructions données dans ce [tutoriel](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Créer et planifier des pipelines Azure Data Factory qui démarrent et/ou arrêtent Azure-SSIS Integration Runtime
@@ -94,7 +94,7 @@ Si vous créez un troisième déclencheur qui est planifié pour s’exécuter t
   
     2. Pour **Méthode**, sélectionnez **POST**. 
     3. Pour **Corps**, entrez `{"message":"Start my IR"}`. 
-    4. Pour **authentification**, sélectionnez **MSI** pour utiliser l’identité gérée pour votre ADF, consultez [identité gérée pour Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) article pour plus d’informations.
+    4. Pour **Authentification**, sélectionnez **MSI** afin d'utiliser l'identité managée de votre fabrique ADF. Pour plus d'informations, consultez l'article [Identité managée pour Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
     5. Pour **Ressource**, entrez `https://management.azure.com/`.
     
        ![Activité web Azure Data Factory - Planifier le runtime d’intégration SSIS](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -109,7 +109,7 @@ Si vous créez un troisième déclencheur qui est planifié pour s’exécuter t
 
    ![Activité web Azure Data Factory - Runtime d’intégration SSIS à la demande](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-on-demand-ssis-ir.png)
 
-5. Attribuez à l’identité managée pour votre fabrique Azure Data Factory un rôle **Contributeur** pour elle-même, afin que les activités web dans ses pipelines puissent appeler l’API REST pour démarrer/arrêter les runtimes d’intégration Azure-SSIS qui y sont provisionnés.  Dans votre page Azure Data Factory du portail Azure, cliquez sur **Contrôle d’accès (IAM)**, cliquez sur **+ Ajouter une attribution de rôle** puis, dans le panneau **Ajouter une attribution de rôle**, effectuez les actions suivantes.
+5. Attribuez à l’identité managée pour votre fabrique Azure Data Factory un rôle **Contributeur** pour elle-même, afin que les activités web dans ses pipelines puissent appeler l’API REST pour démarrer/arrêter les runtimes d’intégration Azure-SSIS qui y sont provisionnés.  Dans votre page Azure Data Factory du portail Azure, cliquez sur **Contrôle d’accès (IAM)** , cliquez sur **+ Ajouter une attribution de rôle** puis, dans le panneau **Ajouter une attribution de rôle**, effectuez les actions suivantes.
 
     1. Pour **Rôle**, sélectionnez **Contributeur**. 
     2. Pour **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou principal du service Azure AD**. 
@@ -118,7 +118,7 @@ Si vous créez un troisième déclencheur qui est planifié pour s’exécuter t
     
    ![Attribution de rôle d’identité managée Azure Data Factory](./media/how-to-schedule-azure-ssis-integration-runtime/adf-managed-identity-role-assignment.png)
 
-6. Validez votre fabrique Azure Data Factory et tous les paramètres des pipelines en cliquant sur **Valider tout/Valider** sur la barre d’outils de la fabrique/des pipelines. Fermez la fenêtre **Sortie de la validation de fabrique/pipeline** en cliquant sur le bouton **>>**.  
+6. Validez votre fabrique Azure Data Factory et tous les paramètres des pipelines en cliquant sur **Valider tout/Valider** sur la barre d’outils de la fabrique/des pipelines. Fermez la fenêtre **Sortie de la validation de fabrique/pipeline** en cliquant sur le bouton **>>** .  
 
    ![Valider le pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
 
@@ -131,7 +131,7 @@ Si vous créez un troisième déclencheur qui est planifié pour s’exécuter t
 2. Pour tester le troisième pipeline, lancez SQL Server Management Studio (SSMS). Dans la fenêtre **Se connecter au serveur**, effectuez les actions suivantes. 
 
     1. Pour **Nom du serveur**, entrez **&lt;nom de votre serveur Azure SQL Database&gt;.database.windows.net**.
-    2. Sélectionnez **Options >>**.
+    2. Sélectionnez **Options >>** .
     3. Pour **Se connecter à la base de données**, sélectionnez **SSISDB**.
     4. Sélectionnez **Connecter**. 
     5. Développez **Catalogues Integration Services** -> **SSISDB** -> Votre dossier -> **Projets** -> Votre projet SSIS -> **Packages**. 
@@ -156,7 +156,7 @@ Maintenant que vos pipelines fonctionnent comme prévu, vous pouvez créer des d
 
     1. Dans le champ **Nom**, entrez un nom pour le déclencheur. Dans l’exemple suivant, **Run daily** est le nom du déclencheur. 
     2. Pour **Type**, sélectionnez **Planification**. 
-    3. Pour **Date de début (UTC)**, sélectionnez une date et une heure de début au format UTC. 
+    3. Pour **Date de début (UTC)** , sélectionnez une date et une heure de début au format UTC. 
     4. Pour **Périodicité**, spécifiez la cadence du déclencheur. Dans l’exemple suivant, la cadence est une fois **Tous les jours**. 
     5. Pour **Fin**, sélectionnez **Pas de fin**, ou entrez une date et une heure de fin après avoir sélectionné **Date**. 
     6. Sélectionnez **Activé** pour activer le déclencheur dès que vous publiez tous les paramètres Azure Data Factory. 
@@ -330,7 +330,7 @@ La section suivante indique comment créer un runbook PowerShell. Le script asso
 
    ![Bouton Démarrer le runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-button.png)
     
-5. Dans **démarrer le Runbook** volet, effectuez les actions suivantes : 
+5. Dans le volet **Démarrer le Runbook**, procédez comme suit : 
 
     1. Pour **NOM DU GROUPE DE RESSOURCES**, entrez le nom du groupe de ressources ayant la fabrique Azure Data Factory avec Azure-SSIS Integration Runtime. 
     2. Pour **NOM DE LA FABRIQUE DE DONNÉES**, entrez le nom de votre fabrique Azure Data Factory avec Azure-SSIS Integration Runtime. 
@@ -340,11 +340,13 @@ La section suivante indique comment créer un runbook PowerShell. Le script asso
 
    ![Fenêtre Démarrer le runbook](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-window.png)
    
-6. Dans la fenêtre du travail, sélectionnez la vignette **Résultat**. Dans la fenêtre de résultat, attendez qu’apparaisse le message **##### Terminé #####**, après le message **##### Démarrage #####**. Le démarrage d’Azure-SSIS Integration Runtime prend 20 minutes environ. Fermez la fenêtre **Travail** et revenez à la fenêtre **Runbook**.
+6. Dans la fenêtre du travail, sélectionnez la vignette **Résultat**. Dans la fenêtre de résultat, attendez qu’apparaisse le message **##### Terminé #####** , après le message **##### Démarrage #####** . Le démarrage d’Azure-SSIS Integration Runtime prend 20 minutes environ. Fermez la fenêtre **Travail** et revenez à la fenêtre **Runbook**.
 
    ![Runtime d’intégration Azure SSIS - Démarré](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
-7. Répétez les deux étapes précédentes, mais en utilisant **STOP** comme valeur pour **OPERATION**. Redémarrez votre runbook en sélectionnant le bouton **Démarrer** dans la barre d’outils. Entrez les noms de votre groupe de ressources, de la fabrique Azure Data Factory et du runtime d’intégration Azure-SSIS. Pour **OPERATION**, entrez **STOP** (Arrêter). Dans la fenêtre de résultat, attendez qu’apparaisse le message **##### Terminé #####**, après le message **##### Arrêt #####**. L’arrêt d’Azure-SSIS Integration Runtime prend moins de temps que son démarrage. Fermez la fenêtre **Travail** et revenez à la fenêtre **Runbook**.
+7. Répétez les deux étapes précédentes, mais en utilisant **STOP** comme valeur pour **OPERATION**. Redémarrez votre runbook en sélectionnant le bouton **Démarrer** dans la barre d’outils. Entrez les noms de votre groupe de ressources, de la fabrique Azure Data Factory et du runtime d’intégration Azure-SSIS. Pour **OPERATION**, entrez **STOP** (Arrêter). Dans la fenêtre de résultat, attendez qu’apparaisse le message **##### Terminé #####** , après le message **##### Arrêt #####** . L’arrêt d’Azure-SSIS Integration Runtime prend moins de temps que son démarrage. Fermez la fenêtre **Travail** et revenez à la fenêtre **Runbook**.
+
+8. Vous pouvez également déclencher votre runbook via un webhook qui peut être créé en sélectionnant l’élément de menu **Webhooks** ou selon une planification qui peut être créée en sélectionnant l’élément de menu **Planifications** comme indiqué ci-dessous.  
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Créer des planifications pour que le runbook démarre ou arrête Azure-SSIS Integration Runtime
 
@@ -380,7 +382,7 @@ Dans la section précédente, vous avez créé un runbook Azure Automation qui p
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez le billet de blog suivant :
--   [Moderniser et étendre vos flux de travail ETL/ELT avec des activités SSIS dans des pipelines ADF](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
+-   [Moderniser et étendre vos flux de travail ETL/ELT avec des activités SSIS dans des pipelines ADF](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)
 
 Consultez les articles suivants de la documentation relative à SSIS : 
 

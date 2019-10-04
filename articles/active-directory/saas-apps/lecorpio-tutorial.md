@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0dec40027441432845d44828eb61e6b9e0ff081
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bd351191e780118fbce81cd804204bc4dfa00285
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281520"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Didacticiel : Intégration d’Azure Active Directory à Lecorpio
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Lecorpio à Azure AD, vous devez ajouter Le
 
 **Pour ajouter Lecorpio à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD auprès de Lecorpio, effect
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<instance name>.lecorpio.com/<customer name>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<instance name>.lecorpio.com/<customer name>`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<instance name>.lecorpio.com/<customer name>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Lecorpio](mailto:info@lecorpio.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.

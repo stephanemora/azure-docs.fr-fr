@@ -7,20 +7,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: d1751c47ad4507260d9f8d6ea44fcb32ed0e7338
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: e0b41850c149ff7095333cf77b780dec1f03b882
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66234411"
 ---
-# <a name="azure-data-factoryfilter-transformation"></a>Transformation de FactoryFilter de données Azure
+# <a name="azure-data-factory-filter-transformation"></a>Transformation de filtre Azure Data Factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Les transformations de filtre fournissent un filtrage des lignes. Créez une expression qui définit la condition de filtre. Cliquez sur la zone de texte pour lancer le Générateur d'expressions. Dans le Générateur d'expressions, créez une expression de filtre pour déterminer quelles lignes du flux de données actuel sont autorisées à passer (filtre) à la transformation suivante. Considérez la transformation de filtre en tant que la clause WHERE d’une instruction SQL.
+Les transformations de filtre fournissent un filtrage des lignes. Créez une expression qui définit la condition de filtre. Cliquez sur la zone de texte pour lancer le Générateur d'expressions. Dans le Générateur d'expressions, créez une expression de filtre pour déterminer quelles lignes du flux de données actuel sont autorisées à passer (filtre) à la transformation suivante. Considérez la transformation de filtre en tant que clause WHERE d’une instruction SQL.
 
-## <a name="filter-on-loanstatus-column"></a>Filtrer sur la colonne de loan_status :
+## <a name="filter-on-loanstatus-column"></a>Filtrer sur la colonne loan_status :
 
 ```
 in([‘Default’, ‘Charged Off’, ‘Fully Paid’], loan_status).
@@ -34,4 +34,4 @@ year > 1980
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez une colonne de filtrage de transformation, le [sélectionnez transformation](data-flow-select.md)
+Essayer une colonne de filtrage de transformation, [transformation de sélection](data-flow-select.md)

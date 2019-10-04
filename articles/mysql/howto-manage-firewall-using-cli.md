@@ -8,18 +8,18 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: dca7d09a5358f5e8b4025dc5e35e4465e21d77a2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795438"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61458465"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide de l’interface de ligne de commande Azure
-Règles de pare-feu de niveau serveur peuvent être utilisées pour gérer l’accès à une base de données Azure pour MySQL Server à partir d’une adresse IP spécifique ou une plage d’adresses IP. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour une vue d’ensemble de base de données Azure pour les pare-feu MySQL, consultez [base de données Azure pour les règles de pare-feu du serveur MySQL](./concepts-firewall-rules.md).
+Les règles de pare-feu au niveau du serveur peuvent être utilisées pour gérer l'accès à un serveur Azure Database pour MySQL à partir d'une adresse IP ou d'une plage d'adresses IP spécifique. À l’aide de commandes d’interface de ligne de commande Azure pratiques, vous pouvez créer, mettre à jour, supprimer, répertorier et afficher les règles de pare-feu pour gérer votre serveur. Pour une vue d'ensemble des pare-feu Azure Database pour MySQL, consultez [Règles de pare-feu d'Azure Database pour MySQL](./concepts-firewall-rules.md).
 
-Les règles de réseau virtuel peuvent également être utilisés pour sécuriser l’accès à votre serveur. En savoir plus sur [création et gestion de réseau virtuel de points de terminaison et des règles à l’aide de l’interface CLI Azure service](howto-manage-vnet-using-cli.md).
+Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l'accès à votre serveur. Découvrez-en plus sur [la création et la gestion des règles et des points de terminaison de service de réseau virtuel à l'aide d'Azure CLI](howto-manage-vnet-using-cli.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * [Installez l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * Un [serveur et une base de données Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
 
@@ -33,7 +33,7 @@ Commandes :
 - **show** : affichez les détails d’une règle de pare-feu du serveur Azure MySQL.
 - **update** : mettez à jour une règle de pare-feu du serveur Azure MySQL.
 
-## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Connectez-vous à Azure et répertorier votre base de données Azure pour les serveurs MySQL
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Se connecter à Azure et répertorier les serveurs Azure Database pour MySQL
 Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azure en exécutant la commande **az login**.
 
 1. Exécutez la commande suivante à partir de la ligne de commande :
@@ -44,7 +44,7 @@ Connectez-vous en toute sécurité à Azure CLI à l’aide de votre compte Azur
 
 2. Utilisez un navigateur web pour ouvrir la page [https://aka.ms/devicelogin](https://aka.ms/devicelogin), puis entrez le code.
 
-3. À l’invite, connectez-vous à l’aide de vos informations d’identification Azure.
+3. À l'invite, connectez-vous à l'aide de vos informations d'identification Azure.
 
 4. Une fois votre connexion autorisée, une liste des abonnements s’affiche dans la console. Copiez l’ID de l’abonnement souhaité pour définir l’abonnement actif à utiliser. Utilisez la commande [az account set](/cli/azure/account#az-account-set).
     ```azurecli-interactive
@@ -121,4 +121,4 @@ En cas de réussite, aucun résultat ne s’affiche. En cas d’échec, le texte
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [règles de pare-feu du serveur Azure Database pour MySQL](./concepts-firewall-rules.md).
 - [Créer et gérer des règles de pare-feu Azure Database pour MySQL à l’aide du portail Azure](./howto-manage-firewall-using-portal.md).
-- Sécuriser davantage l’accès à votre serveur par [création et gestion de réseau virtuel de points de terminaison et des règles à l’aide de l’interface CLI Azure service](howto-manage-vnet-using-cli.md).
+- Pour sécuriser davantage l'accès à votre serveur, [créez et gérez des règles et des points de terminaison de service de réseau virtuel à l'aide d'Azure CLI](howto-manage-vnet-using-cli.md).

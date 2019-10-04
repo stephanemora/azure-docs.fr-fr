@@ -1,29 +1,30 @@
 ---
-title: Opérations d’appel de l’API REST des services Stockage Azure, notamment l’authentification | Microsoft Docs
-description: Opérations d’appel de l’API REST des services Stockage Azure, notamment l’authentification
+title: Appel d’opérations de l’API REST des services Stockage Azure avec une autorisation de clé partagée | Microsoft Docs
+description: Utilisez l’API REST Stockage Azure pour effectuer une demande au Stockage Blob à l’aide de l’autorisation de clé partagée.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/19/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9f6698eebf184d1df80920b7779512e2fda83a0c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 1463a470c84d38ebc30e32cf539aa9d6f64a6854
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369086"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640661"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Utilisation de l’API REST Stockage Azure
 
-Cet article vous indique comment utiliser les API REST du service Stockage Blob et comment authentifier l’appel au service. Il est écrit du point de vue d’un développeur qui n’a aucune connaissance sur REST et sur la manière de passer un appel REST. Nous consultons la documentation de référence pour un appel REST et expliquons comment la traduire en un appel REST réel : quels champs sont à placer et où ? Après avoir appris comment configurer un appel REST, vous pouvez utiliser ces connaissances pour utiliser les autres API REST du service Stockage.
+Cet article vous indique comment utiliser les API REST du service Stockage Blob et comment autoriser l’appel au service. Il est écrit du point de vue d’un développeur qui n’a aucune connaissance sur REST et sur la manière de passer un appel REST. Nous consultons la documentation de référence pour un appel REST et expliquons comment la traduire en un appel REST réel : quels champs sont à placer et où ? Après avoir appris comment configurer un appel REST, vous pouvez utiliser ces connaissances pour utiliser les autres API REST du service Stockage.
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 
 L’application répertorie les conteneurs dans le Stockage Blob pour un compte de stockage. Pour tester le code de cet article, vous avez besoin des éléments suivants : 
 
-* Installez [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) avec la charge de travail suivante :
+* Installez [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) avec la charge de travail suivante :
     - Développement Azure
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -50,7 +51,7 @@ REST signifie *representational state transfer*. Consultez [Wikipedia](https://e
 
 En fait, REST est une architecture que vous pouvez utiliser lors de l’appel d’API ou lorsque vous rendez des API disponibles pour être appelées. L’architecture REST est indépendante de ce qui se passe de chaque côté d’elle et du logiciel utilisé lors de l’envoi ou de la réception d’appels REST. Vous pouvez écrire une application sur Mac, Windows, Linux, un téléphone ou une tablette Android, iPhone, iPod, ou un site web, et vous pouvez utiliser la même API REST pour toutes ces plateformes. Les données peuvent être reçues et/ou envoyées lorsque l’API REST est appelée. L’API REST ne se soucie pas de la plateforme à partir de laquelle elle est appelée ; ce qui est important, ce sont les informations transmises dans la requête et les données fournies dans la réponse.
 
-Savoir comment utiliser REST est une compétence utile. L’équipe produit Azure publie souvent de nouvelles fonctionnalités. Souvent, les nouvelles fonctionnalités sont accessibles via l’interface REST mais n’apparaissent pas encore dans **toutes** les bibliothèques clientes de stockage ou l’UI (comme le portail Azure). Si vous souhaitez toujours utiliser les fonctionnalités les plus récentes, vous devez apprendre REST. En outre, si vous voulez écrire votre propre bibliothèque pour interagir avec le Stockage Azure, ou si vous voulez accéder au Stockage Azure à l’aide d’un langage de programmation sans Kit SDK ou bibliothèque cliente de stockage, vous pouvez utiliser l’API REST.
+Savoir comment utiliser REST est une compétence utile. L’équipe produit Azure publie souvent de nouvelles fonctionnalités. De nombreux cas, les nouvelles fonctionnalités sont accessibles via l’interface REST. Parfois, cependant, les fonctionnalités ne sont pas exposées par **toutes** les bibliothèques clientes de stockage ou l’interface utilisateur (par exemple, le portail Azure). Si vous souhaitez toujours utiliser les fonctionnalités les plus récentes, vous devez apprendre REST. En outre, si vous voulez écrire votre propre bibliothèque pour interagir avec le Stockage Azure, ou si vous voulez accéder au Stockage Azure à l’aide d’un langage de programmation sans Kit SDK ou bibliothèque cliente de stockage, vous pouvez utiliser l’API REST.
 
 ## <a name="about-the-sample-application"></a>À propos de l’exemple d’application
 
@@ -60,7 +61,7 @@ Si vous regardez [l’API REST du service Blob](/rest/api/storageservices/Blob-S
 
 ## <a name="rest-api-reference-list-containers-api"></a>Référence d’API REST : API List Containers (Répertorier les conteneurs)
 
-Consultons la page dans la Référence d’API REST pour l’opération [ListContainers](/rest/api/storageservices/List-Containers2) pour que vous compreniez d’où proviennent certains champs dans la requête et la réponse dans la section suivante avec le code.
+Nous allons examiner la page dans les informations de référence sur l’API REST pour l’opération [ListContainers](/rest/api/storageservices/List-Containers2). Ces informations vous aideront à comprendre d’où certains champs proviennent dans la requête et la réponse.
 
 **Méthode de requête** : GET. Ce verbe est la méthode HTTP que vous spécifiez en tant que propriété de l’objet de requête. Les autres valeurs pour ce verbe incluent HEAD, PUT et DELETE en fonction de l’API que vous appelez.
 
@@ -78,19 +79,19 @@ Pour utiliser d’autres paramètres, ajoutez-les à la chaîne de ressource ave
 
 [En-têtes de requête](/rest/api/storageservices/List-Containers2#request-headers) **:** Cette section répertorie les en-têtes de requête obligatoires et facultatifs. Trois des en-têtes sont obligatoires : un en-tête *Authorization*, *x-ms-date* (contient l’heure UTC de la requête) et *x-ms-version* (spécifie la version de l’API REST à utiliser). Inclure *x-ms-client-request-id* dans les en-têtes est facultatif. Vous pouvez définir ce champ sur n’importe quelle valeur ; il est écrit dans les journaux d’activité d’analytique du stockage lorsque la journalisation est activée.
 
-[Corps de la requête](/rest/api/storageservices/List-Containers2#request-body) **:** Il n’existe pas de corps de requête pour ListContainers. Le paramètre Corps de la requête est utilisé pour toutes les opérations PUT lors de la mise à jour d’objets Blob, tout comme SetContainerAccessPolicy, qui vous permet d’envoyer une liste XML des stratégies d’accès stockées à appliquer. Les stratégies d’accès stockées sont traitées dans l’article [Utilisation des signatures d’accès partagé (SAP)](storage-dotnet-shared-access-signature-part-1.md).
+[Corps de la requête](/rest/api/storageservices/List-Containers2#request-body) **:** Il n’existe pas de corps de requête pour ListContainers. Le paramètre Corps de la requête est utilisé pour toutes les opérations PUT lors de la mise à jour d’objets Blob, tout comme SetContainerAccessPolicy, qui vous permet d’envoyer une liste XML des stratégies d’accès stockées à appliquer. Les stratégies d’accès stockées sont traitées dans l’article [Utilisation des signatures d’accès partagé (SAP)](storage-sas-overview.md).
 
 [Code d’état de la réponse](/rest/api/storageservices/List-Containers2#status-code) **:** Indique tous les codes d’état que vous devez connaître. Dans cet exemple, un code d’état HTTP de 200 est acceptable. Pour obtenir la liste complète des codes d’état HTTP, consultez [Définitions des codes d’état](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Pour consulter les codes d’erreur spécifiques aux API REST de Stockage, consultez [Codes d’erreur API REST courants](/rest/api/storageservices/common-rest-api-error-codes)
 
-[En-têtes de réponse](/rest/api/storageservices/List-Containers2#response-headers) **:** Ils incluent *Type de contenu* ; *x-ms-request-id* (l’ID de requête que vous avez transmis, le cas échéant) ; *x-ms-version* (indique la version du service Blob utilisé) et *Date* (format UTC, indique l’heure à laquelle la requête a été faite).
+[En-têtes de réponse](/rest/api/storageservices/List-Containers2#response-headers) **:** Ils incluent *Type de contenu* ; *x-ms-request-id*, à savoir l’ID de requête que vous avez transmis ; *x-ms-version*, qui indique la version du service BLOB utilisé, et *Date*, au format UTC, qui indique l’heure à laquelle la requête a été faite.
 
 [Corps de réponse](/rest/api/storageservices/List-Containers2#response-body) : Ce champ est une structure XML qui fournit les données demandées. Dans cet exemple, la réponse est une liste de conteneurs et leurs propriétés.
 
 ## <a name="creating-the-rest-request"></a>Création de la requête REST
 
-Quelques remarques avant de commencer : à des fins de sécurité lors de l’exécution en production, utilisez toujours HTTPS plutôt que HTTP. Pour cet exercice, nous vous recommandons d’utiliser HTTP pour pouvoir afficher la requête et les données de la réponse. Pour afficher la requête et les informations de la réponse dans les appels REST réels, vous pouvez télécharger [Fiddler](https://www.telerik.com/fiddler) ou une application similaire. Dans la solution Visual Studio, le nom et la clé du compte de stockage sont codés en dur dans la classe, et la méthode ListContainersAsyncREST transmet le nom du compte de stockage et la clé du compte de stockage aux méthodes utilisées pour créer les divers composants de la requête REST. Dans une application réelle, le nom et la clé du compte de stockage résident dans un fichier de configuration, des variables d’environnement ou sont récupérés à partir d’Azure Key Vault.
+Quelques remarques avant de commencer : à des fins de sécurité lors de l’exécution en production, utilisez toujours HTTPS plutôt que HTTP. Pour cet exercice, nous vous recommandons d’utiliser HTTP pour pouvoir afficher la requête et les données de la réponse. Pour afficher la requête et les informations de la réponse dans les appels REST réels, vous pouvez télécharger [Fiddler](https://www.telerik.com/fiddler) ou une application similaire. Dans la solution Visual Studio, le nom et la clé du compte de stockage sont codés en dur dans la classe. La méthode ListContainersAsyncREST transmet le nom du compte de stockage et la clé du compte de stockage aux méthodes utilisées pour créer les divers composants de la requête REST. Dans une application réelle, le nom et la clé du compte de stockage résident dans un fichier de configuration, des variables d’environnement ou sont récupérés à partir d’Azure Key Vault.
 
-Dans notre exemple de projet, le code pour créer l’en-tête Autorisation se trouve dans une classe séparée. L’idée est que vous pouvez ajouter l’ensemble de la classe à votre propre solution et l’utiliser « telle quelle ». Le code d’en-tête Autorisation fonctionne pour la plupart des appels d’API REST au Stockage Azure.
+Dans notre exemple de projet, le code pour créer l’en-tête d’autorisation se trouve dans une autre classe. L’idée est que vous pourriez prendre l’ensemble de la classe, l’ajouter à votre propre solution et l’utiliser « tel quel ». Le code d’en-tête Autorisation fonctionne pour la plupart des appels d’API REST au Stockage Azure.
 
 Pour générer la requête, qui est un objet HttpRequestMessage, accédez à ListContainersAsyncREST dans Program.cs. Les étapes de génération de la requête sont les suivantes : 
 
@@ -266,12 +267,13 @@ Maintenant que vous comprenez comment créer la requête, appeler le service et 
 ## <a name="creating-the-authorization-header"></a>Création de l’en-tête d’autorisation
 
 > [!TIP]
-> Stockage Azure prend désormais en charge l’intégration d’Azure Active Directory (Azure AD) pour les objets BLOB et files d’attente. Azure AD offre une expérience beaucoup plus simple pour autoriser une requête destinée au Stockage Azure. Pour plus d’informations sur l’utilisation d’Azure AD pour autoriser les opérations REST, consultez [s’authentifier avec Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Pour une vue d’ensemble de l’intégration d’Azure AD avec le stockage Azure, consultez [authentifier l’accès au stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
+> Le Stockage Azure prend désormais en charge l’intégration d’Azure Active Directory (Azure AD) pour les objets blob et les files d’attente. Azure AD offre une expérience beaucoup plus simple pour autoriser une requête destinée au Stockage Azure. Pour plus d’informations sur l’utilisation d’Azure AD pour autoriser les opérations REST, consultez [Autoriser avec Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory). Pour une vue d’ensemble de l’intégration d’Azure AD au Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).
 
-Il existe un article qui explique de manière conceptuelle (sans code) comment exécuter [l’authentification pour les services Stockage Azure](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
+Un article explique de manière conceptuelle (sans code) comment [autoriser les demandes à Stockage Azure](/rest/api/storageservices/authorize-requests-to-azure-storage).
+
 Examinons cet article de plus près pour montrer le code.
 
-Premièrement, utilisez l’authentification par clé partagée. Le format de l’en-tête d’autorisation ressemble à ce qui suit :
+Tout d’abord, utilisez une autorisation de clé partagée. Le format de l’en-tête d’autorisation ressemble à ce qui suit :
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
@@ -318,33 +320,35 @@ Voici le code utilisé pour créer cette sortie :
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
 {
     var headers = from kvp in httpRequestMessage.Headers
-                    where kvp.Key.StartsWith("x-ms-", StringComparison.OrdinalIgnoreCase)
-                    orderby kvp.Key
-                    select new { Key = kvp.Key.ToLowerInvariant(), kvp.Value };
+        where kvp.Key.StartsWith("x-ms-", StringComparison.OrdinalIgnoreCase)
+        orderby kvp.Key
+        select new { Key = kvp.Key.ToLowerInvariant(), kvp.Value };
 
-    StringBuilder sb = new StringBuilder();
+    StringBuilder headersBuilder = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
     //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
-        StringBuilder headerBuilder = new StringBuilder(kvp.Key);
+        headersBuilder.Append(kvp.Key);
         char separator = ':';
 
         // Get the value for each header, strip out \r\n if found, then append it with the key.
-        foreach (string headerValues in kvp.Value)
+        foreach (string headerValue in kvp.Value)
         {
-            string trimmedValue = headerValues.TrimStart().Replace("\r\n", String.Empty);
-            headerBuilder.Append(separator).Append(trimmedValue);
+            string trimmedValue = headerValue.TrimStart().Replace("\r\n", string.Empty);
+            headersBuilder.Append(separator).Append(trimmedValue);
 
-            // Set this to a comma; this will only be used 
-            //   if there are multiple values for one of the headers.
+            // Set this to a comma; this will only be used
+            // if there are multiple values for one of the headers.
             separator = ',';
         }
-        sb.Append(headerBuilder.ToString()).Append("\n");
+
+        headersBuilder.Append("\n");
     }
-    return sb.ToString();
-}      
+
+    return headersBuilder.ToString();
+}
 ```
 
 **Ressource rendue canonique**
@@ -355,9 +359,9 @@ Cette partie de la chaîne de signature représente le compte de stockage ciblé
 /contosorest/\ncomp:list
 ```
 
-Si vous avez des paramètres de requête, ils sont également inclus. Voici le code, qui traite aussi les paramètres de requête supplémentaires et les paramètres de requête avec plusieurs valeurs. N’oubliez pas que vous générez ce code pour qu’il fonctionne pour toutes les API REST, donc vous voulez inclure toutes les possibilités, même si la méthode ListContainers n’en a pas besoin.
+Si vous avez des paramètres de requête, cet exemple les inclut également. Voici le code, qui traite aussi les paramètres de requête supplémentaires et les paramètres de requête avec plusieurs valeurs. N’oubliez pas que vous générez ce code pour qu’il fonctionne avec toutes les API REST. Vous souhaitez inclure toutes les possibilités, même si la méthode ListContainers n’a pas besoin de toutes.
 
-```csharp 
+```csharp
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
 {
     // The absolute path will be "/" because for we're getting a list of containers.
@@ -373,7 +377,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
         sb.Append('\n').Append(item).Append(':').Append(values[item]);
     }
 
-    return sb.ToString();
+    return sb.ToString().ToLower();
 }
 ```
 
@@ -411,7 +415,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 }
 ```
 
-Lorsque vous exécutez ce code, le paramètre MessageSignature qui en résulte ressemble à ce qui suit :
+Lorsque vous exécutez ce code, le paramètre MessageSignature qui en résulte ressemble à cet exemple :
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
@@ -425,11 +429,11 @@ SharedKey contosorest:Ms5sfwkA8nqTRw7Uury4MPHqM6Rj2nfgbYNvUKOa67w=
 
 AuthorizationHeader est le dernier en-tête placé dans les en-têtes de la requête avant de publier la réponse.
 
-Ceci conclut tout ce que vous devez savoir, le code y compris, pour créer une classe que vous pouvez utiliser pour créer une requête à utiliser pour appeler l’API REST des services Stockage.
+Ceci conclut tout ce que vous devez savoir pour créer une classe grâce à laquelle vous pouvez créer une requête pour appeler les API REST des services Stockage.
 
 ## <a name="how-about-another-example"></a>Un autre exemple ? 
 
-Consultons comment changer le code pour appeler ListBlobs pour le conteneur *container-1*. Il est presque identique au code utilisé pour lister les conteneurs, les seules différences étant l’URI et la façon d’analyser la réponse. 
+Consultons comment changer le code pour appeler ListBlobs pour le conteneur *container-1*. Ce code est presque identique au code utilisé pour lister les conteneurs, les seules différences étant l’URI et la façon d’analyser la réponse. 
 
 Si vous consultez la documentation de référence pour [ListBlobs](/rest/api/storageservices/List-Blobs), vous constaterez que la méthode est *GET* et l’URI de la requête est :
 
@@ -561,10 +565,11 @@ Content-Length: 1135
 
 ## <a name="summary"></a>Résumé
 
-Dans cet article, vous avez appris à effectuer une requête à l’API REST du stockage Blob pour récupérer une liste de conteneurs ou une liste d’objets Blob dans un conteneur. Vous avez également appris à créer la signature d’autorisation pour l’appel de l’API REST, à l’utiliser dans la requête REST et à examiner la réponse.
+Dans cet article, vous avez appris à créer une requête vers l’API REST de stockage blob. Cette requête vous permet de récupérer une liste de conteneurs ou une liste d’objets blob dans un conteneur. Vous avez appris à créer la signature d’autorisation pour l’appel de l’API REST et à l’utiliser dans la requête REST. Enfin, vous avez appris à examiner la réponse.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [API REST du service Blob](/rest/api/storageservices/blob-service-rest-api)
 * [API REST du service de fichiers](/rest/api/storageservices/file-service-rest-api)
 * [API REST du service de File d’attente](/rest/api/storageservices/queue-service-rest-api)
+* [API REST du service de Table](/rest/api/storageservices/table-service-rest-api)

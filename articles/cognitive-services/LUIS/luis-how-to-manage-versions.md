@@ -1,6 +1,6 @@
 ---
-title: Gérer les versions
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Gérer les versions - LUIS
+titleSuffix: Azure Cognitive Services
 description: Les versions vous permettent de générer et de publier différents modèles. Une bonne pratique consiste à cloner le modèle actif en une version différente de l’application avant d’apporter des modifications au modèle.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/16/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 982dbf3555648c6a7c82da90a62740a584473c1e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678531"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932849"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Utiliser les versions pour modifier et tester sans impact sur les applications intermédiaires et de production
 
@@ -24,7 +24,7 @@ Les versions vous permettent de générer et de publier différents modèles. Un
 
 Pour utiliser des versions, ouvrez votre application en sélectionnant son nom dans la page **My Apps** (Mes applications), sélectionnez **Manage** (Gérer) dans la barre supérieure, puis **Versions** dans le volet de navigation gauche. 
 
-La liste des versions montre quelles versions sont publiées, où ils sont publiés, et quelle version est actuellement active. 
+La liste des versions montre quelles versions sont publiées, où elles sont publiées et quelle version est actuellement active. 
 
 [![Section gérer, page versions](./media/luis-how-to-manage-versions/versions-import.png "Section gérer, page versions")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -51,7 +51,7 @@ Sélectionnez une version dans la liste, puis sélectionnez **Make Active** (Act
 
 1. Sélectionnez **Import version** (Importer une version) dans la barre d’outils. 
 
-2. Dans la fenêtre contextuelle **Import new version (Importer une nouvelle version)**, entrez le nouveau nom de version à dix caractères. Vous n’avez qu’à définir un ID de version si la version dans le fichier JSON existe déjà dans l’application.
+2. Dans la fenêtre contextuelle **Import new version (Importer une nouvelle version)** , entrez le nouveau nom de version à dix caractères. Vous n’avez qu’à définir un ID de version si la version dans le fichier JSON existe déjà dans l’application.
 
     ![Section gérer, page versions, importation d’une nouvelle version](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
@@ -59,7 +59,7 @@ Sélectionnez une version dans la liste, puis sélectionnez **Make Active** (Act
 
 ### <a name="import-errors"></a>Erreurs d’importation
 
-* Erreurs du Générateur de jetons : Si vous obtenez un **erreur de générateur de jetons** lors de l’importation, vous essayez d’importer une version qui utilise un autre [Générateur de jetons](luis-language-support.md#custom-tokenizer-versions) que l’application utilise actuellement. Pour résoudre ce problème, consultez [migration entre les versions du Générateur de jetons](luis-language-support.md#migrating-between-tokenizer-versions).
+* Erreurs de générateur de jetons : Si vous obtenez une **erreur de générateur de jetons** lors de l'importation, vous essayez d'importer une version qui utilise un [générateur de jetons](luis-language-support.md#custom-tokenizer-versions) différent de celui actuellement utilisé par l'application. Pour résoudre ce problème, consultez [Changer de version du générateur de jetons](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 
@@ -67,5 +67,5 @@ Sélectionnez une version dans la liste, puis sélectionnez **Make Active** (Act
 
 * Pour **supprimer** une version, sélectionnez une version dans la liste, puis sélectionnez **Delete** (Supprimer) dans la barre d’outils. Sélectionnez **OK**. 
 * Pour **renommer** une version, sélectionnez une version dans la liste, puis sélectionnez **Rename** (Renommer) dans la barre d’outils. Entrez le nouveau nom, puis sélectionnez **Done** (Terminé). 
-* Pour **exporter** une version, sélectionnez une version dans la liste, puis sélectionnez **Export app** (Exporter l’application) dans la barre d’outils. Choisissez JSON à exporter pour la sauvegarde, choisissez **exporter pour conteneur** à [utiliser cette application dans un conteneur de LUIS](luis-container-howto.md).  
+* Pour **exporter** une version, sélectionnez une version dans la liste, puis sélectionnez **Export app** (Exporter l’application) dans la barre d’outils. Choisissez JSON pour exporter en vue d’une sauvegarde, ou **Export for container** (Exporter pour conteneur) pour [utiliser cette application dans un conteneur LUIS](luis-container-howto.md).  
 

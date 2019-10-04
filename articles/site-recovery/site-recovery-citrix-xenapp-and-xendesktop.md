@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310509"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61038193"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configurer la récupération d’urgence d’un déploiement Citrix XenApp et XenDesktop multiniveau
 
@@ -43,7 +43,7 @@ Une batterie de serveurs Citrix XenApp et XenDesktop présente généralement le
 
 **Modèle de déploiement**
 
-Déploiement Citrix XenApp et XenDesktop avec serveur DNS Active Directory, serveur de base de données SQL, Citrix Delivery Controller, serveur StoreFront, XenApp Master (VDA) et serveur de licences Citrix XenApp
+Déploiement Citrix XenApp et XenDesktop avec serveur DNS Active Directory, serveur SQL Database, Citrix Delivery Controller, serveur StoreFront, XenApp Master (VDA) et serveur de licences Citrix XenApp
 
 ![Modèle de déploiement 1](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-deployment.png)
 
@@ -56,9 +56,9 @@ Pour les besoins de cet article, des déploiements de Citrix sur des machines vi
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | Non compris | Oui
-**VMware** | Non compris | Oui
-**Serveur physique** | Non compris | Oui
+**Hyper-V** | Non compris | OUI
+**VMware** | Non compris | OUI
+**Serveur physique** | Non compris | OUI
 
 ### <a name="versions"></a>Versions
 Les clients peuvent déployer des composants XenApp en tant que machines virtuelles s’exécutant sur Hyper-V ou VMware ou en tant que serveurs physiques. Azure Site Recovery peut protéger des déploiements physiques et virtuels sur Azure.
@@ -81,7 +81,7 @@ Vous devez recréer ces clones à l’aide de l’approvisionnement Azure ARM à
 Les composants suivants du déploiement Citrix XenApp doivent être protégés pour activer la réplication et la récupération.
 
 * Protection du serveur DNS Active Directory
-* Protection du serveur de base de données SQL
+* Protection du serveur SQL Database
 * Protection de Citrix Delivery Controller
 * Protection du serveur StoreFront
 * Protection de XenApp Master (VDA)
@@ -90,9 +90,9 @@ Les composants suivants du déploiement Citrix XenApp doivent être protégés p
 
 **Réplication du serveur DNS Active Directory**
 
-Pour obtenir des instructions pour la réplication et la configuration d’un contrôleur de domaine dans Azure, consultez [Protéger Active Directory et DNS avec Azure Site Recovery](site-recovery-active-directory.md). 
+Pour obtenir des instructions pour la réplication et la configuration d’un contrôleur de domaine dans Azure, consultez [Protéger Active Directory et DNS avec Azure Site Recovery](site-recovery-active-directory.md).
 
-**Réplication du serveur de base de données SQL**
+**Réplication du serveur SQL Database**
 
 Pour obtenir des instructions techniques détaillées sur les options recommandées pour la protection des serveurs SQL, consultez [Protéger SQL Server avec la récupération d’urgence SQL Server et Azure Site Recovery](site-recovery-sql.md).
 

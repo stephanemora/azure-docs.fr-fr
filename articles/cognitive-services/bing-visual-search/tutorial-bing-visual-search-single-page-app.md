@@ -7,31 +7,31 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: aahi
-ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e0370be1c10bc0f5813bec833be78ad31a3d61a7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496554"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880646"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Créer une application Recherche visuelle d’une seule page
 
 L’API Recherche visuelle Bing retourne des insights pour une image. Vous pouvez charger une image ou fournir une URL vers une image. Les insights sont des images visuellement similaires, des sources d’achat, des pages web qui incluent l’image, etc. Les insights retournés par l’API Recherche visuelle Bing sont similaires à ceux qui apparaissent sur Bing.com/images.
 
-Ce didacticiel explique comment étendre une application web de page unique pour l’API de recherche d’images Bing. Pour afficher ce tutoriel ou obtenir le code source utilisé ici, consultez [Tutoriel : Créer une application monopage avec l’API Recherche d’images Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md).
+Ce didacticiel explique comment étendre une application web d’une seule page pour l’API Recherche d’images Bing. Pour afficher ce tutoriel ou obtenir le code source utilisé ici, consultez [Tutoriel : Créer une application monopage avec l’API Recherche d’images Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md).
 
 Le code source complet pour cette application (après son extension pour utiliser l’API Recherche visuelle Bing) est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Appeler l’API Recherche visuelle Bing et gérer la réponse
 
-Modifiez le didacticiel Recherche d’images Bing et ajoutez le code suivant à la fin de l’élément `<script>` (et devant la balise `</script>` de fermeture). Le code suivant gère une réponse de recherche visuelle de l’API, effectue une itération dans les résultats et les affiche :
+Modifiez le didacticiel Recherche d’images Bing et ajoutez le code suivant à la fin de l’élément `<script>` (et devant la balise `</script>` de fermeture). Le code suivant gère une réponse de recherche visuelle à partir de l’API, effectue une itération dans les résultats, et affiche ceux-ci :
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -63,7 +63,7 @@ function handleVisualSearchResponse(){
 }
 ```
 
-Le code suivant envoie une demande de recherche à l’API, à l’aide d’un écouteur d’événements pour appeler `handleVisualSearchResponse()`:
+Le code suivant envoie une demande de recherche à l’API, en utilisant un détecteur d’événements pour appeler `handleVisualSearchResponse()` :
 
 ```javascript
 function bingVisualSearch(insightsToken){
@@ -101,7 +101,7 @@ function bingVisualSearch(insightsToken){
 
 ## <a name="capture-insights-token"></a>Capturer le jeton d’insights
 
-Ajoutez le code suivant à la `searchItemsRenderer` objet. Ce code ajoute un lien **Rechercher semblables** qui appelle la fonction `bingVisualSearch` quand vous cliquez dessus. La fonction reçoit le `imageInsightsToken` en tant qu’argument.
+Ajoutez le code suivant à l’objet `searchItemsRenderer`. Ce code ajoute un lien **Rechercher semblables** qui appelle la fonction `bingVisualSearch` quand vous cliquez dessus. La fonction reçoit le `imageInsightsToken` en tant qu’argument.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
@@ -109,7 +109,7 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 
 ## <a name="display-similar-images"></a>Afficher des images similaires
 
-Ajoutez le code HTML suivant à la ligne 601. Ce code de balisage ajoute un élément pour afficher les résultats de l’appel d’API recherche visuelle Bing :
+Ajoutez le code HTML suivant à la ligne 601. Ce code de balisage ajoute un élément utilisé pour afficher les résultats de l’appel de l’API Recherche visuelle Bing :
 
 ``` html
 <div id="insights">
@@ -123,4 +123,4 @@ Avec l’ensemble du nouveau code JavaScript et des nouveaux éléments HTML en 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Rogner une image avec le SDK de recherche Bing Visual pourC#](tutorial-visual-search-crop-area-results.md)
+> [Tutoriel : Rogner une image avec le SDK Recherche visuelle Bing pour C#](tutorial-visual-search-crop-area-results.md)

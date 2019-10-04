@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 570200a3befbe6205025a2410c4083d38dd11eb9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 371ad2a8530de7b20427327d939bf164d871ab74
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262922"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Didacticiel : Intégration d'Azure Active Directory à OnTrack
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’OnTrack à Azure AD, vous devez ajouter On
 
 **Pour ajouter OnTrack à partir de la galerie, suivez ces étapes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -120,7 +120,7 @@ Pour configurer l’authentification unique Azure AD avec OnTrack, suivez ces �
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique OnTrack](mailto:CustomerService@insigniagroup.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Votre application OnTrack attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue  **Attributs utilisateur** .
+5. Votre application OnTrack attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
     ![image](common/edit-attribute.png)
 
@@ -223,7 +223,7 @@ Dans cette section, vous autorisez Britta Simon à utiliser l’authentification
 
 ### <a name="create-ontrack-test-user"></a>Créer un utilisateur de test OnTrack
 
-Dans cette section, vous créez un utilisateur appelé Britta Simon dans OnTrack. Collaborez avec l’ [équipe du support technique d’OnTrack](mailto:CustomerService@insigniagroup.com) pour ajouter les utilisateurs à la plateforme OnTrack. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé Britta Simon dans OnTrack. Collaborez avec [l’équipe du support technique OnTrack](mailto:CustomerService@insigniagroup.com) pour ajouter des utilisateurs à la plateforme OnTrack. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

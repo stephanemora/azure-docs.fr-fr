@@ -5,21 +5,21 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/20/2018
-ms.author: adgera
+ms.date: 09/30/2019
+ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 40ab53c941a7ac619ebb09d381a4ae0450f26e8b
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 1f4cdf45fb643499f7d6ab717c6f36395ad292c8
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53795883"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827689"
 ---
 Le `objectIdType` (ou le **type d’identificateur d’objet**) fait référence au type d’identité auquel un rôle est attribué. En dehors des types `DeviceId` et `UserDefinedFunctionId`, les types d’identificateur d’objet correspondent à des propriétés d’objets Azure Active Directory.
 
 Le tableau suivant contient les types d’identificateurs d’objet pris en charge dans Azure Digital Twins :
 
-| type | Description |
+| Type | Description |
 | --- | --- |
 | UserId | Attribue un rôle à un utilisateur. |
 | deviceId | Attribue un rôle à un appareil. |

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f72d00878e510a420b6974a7564ebc01fc09dcc3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b4a3b525cd2f9c4f28ad27154be2590fa6a96691
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259999"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Didacticiel : Intégration d'Azure Active Directory à Intralinks
 
@@ -53,7 +53,7 @@ Pour configurer son intégration à Azure AD, vous devez ajouter Intralinks à v
 
 **Pour ajouter Intralinks à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

@@ -1,19 +1,18 @@
 ---
 title: Installation sans assistance du serveur de sauvegarde Azure V2
 description: Utilisez un script PowerShell pour installer sans assistance le Serveur de sauvegarde Azure V2. Ce type d’installation est également appelé « installation silencieuse ».
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: raynew
-ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: dacurwin
+ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109846"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210166"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Effectuer une installation sans assistance du Serveur de sauvegarde Azure
 
@@ -27,7 +26,7 @@ Ces étapes ne s’appliquent pas si vous installez le Serveur de sauvegarde Azu
 
 2. Collez le code suivant dans le fichier MABSSetup.ini. Remplacez le texte entre crochets (\< \>) par des valeurs de votre environnement. Voici un exemple de texte :
 
-   ```
+   ```text
    [OPTIONS]
    UserName=administrator
    CompanyName=<Microsoft Corporation>
@@ -50,7 +49,7 @@ Ces étapes ne s’appliquent pas si vous installez le Serveur de sauvegarde Azu
 
 3. Enregistrez le fichier . Ensuite, à une invite de commandes avec élévation de privilèges, entrez la commande suivante :
 
-   ```
+   ```cmd
    start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
    ```
 

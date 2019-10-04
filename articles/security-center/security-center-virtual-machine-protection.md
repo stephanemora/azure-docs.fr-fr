@@ -3,26 +3,25 @@ title: Protection de vos machines et de vos applications dans Azure Security Cen
 description: Ce document traite des recommandations de Security Center qui peuvent vous aider à protéger vos machines virtuelles, vos ordinateurs, vos applications web et vos environnements App Service.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: monhaber
-ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.date: 03/20/2019
+ms.author: memildin
+ms.openlocfilehash: a3bce8d6312dd09a7f10f8d5d2eaebd4e312d95d
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403831"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200773"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protection de vos machines et de vos applications dans Azure Security Center
-Azure Security Center analyse l’état de sécurité de vos ressources Azure, les serveurs non-Azure et les machines virtuelles. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires. Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles et ordinateurs, applications, mise en réseau, SQL et Identité et accès.
+Azure Security Center analyse l’état de la sécurité de vos ressources Azure, de vos serveurs non-Azure et de vos machines virtuelles. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires. Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles et ordinateurs, applications, mise en réseau, SQL et Identité et accès.
 
 Cet article traite des recommandations qui s’appliquent aux machines et applications.
 
@@ -31,7 +30,7 @@ Vous pouvez surveiller l’état de sécurité de vos ressources dans le tableau
 
 Vous pouvez consulter une liste de tous les problèmes en sélectionnant **Recommandations**. Pour plus d’informations sur la façon d’appliquer des recommandations, consultez [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 
-Pour obtenir la liste complète des recommandations Compute et App services, consultez [Recommandations](security-center-virtual-machine-recommendations.md).
+Pour obtenir la liste complète des recommandations Compute et App services, consultez [Recommandations](security-center-virtual-machine-protection.md#compute-and-app-recommendations).
 
 Pour continuer, sélectionnez **Compute et applications** sous **Ressources**, ou dans le menu principal de Security Center.
 ![Tableau de bord Security Center](./media/security-center-virtual-machine-recommendations/overview.png)
@@ -53,7 +52,7 @@ Pour continuer, sous **Hygiène de sécurité de la ressource**, sélectionnez *
 Chaque onglet peut contenir plusieurs sections, et dans chaque section vous pouvez sélectionner une option afin d’afficher plus de détails sur les étapes recommandées pour résoudre le problème en question.
 
 ### Machines virtuelles et ordinateurs non surveillés <a name="unmonitored-vms-and-computers"></a>
-Une machine virtuelle ou un ordinateur n’est pas surveillé par Security Center si la machine n’exécute pas l’extension Microsoft Monitoring Agent. Un ordinateur peut avoir un agent local déjà installé, par exemple l’agent direct OMS ou l’agent de System Center Operations Manager. Les machines sur lesquelles sont installés ces agents sont considérées comme non surveillées, car ces agents ne sont pas entièrement pris en charge par Security Center. Pour tirer pleinement parti de toutes les fonctionnalités de Security Center, vous devez utiliser l’extension Microsoft Monitoring Agent.
+Une machine virtuelle ou un ordinateur n’est pas surveillé par Security Center si la machine n’exécute pas l’extension Microsoft Monitoring Agent. Un agent local peut être déjà installé sur une machine, par exemple l’agent direct OMS ou l’agent System Center Operations Manager. Les machines sur lesquelles sont installés ces agents sont considérées comme non surveillées, car ces agents ne sont pas entièrement pris en charge par Security Center. Pour tirer pleinement parti de toutes les fonctionnalités de Security Center, vous devez utiliser l’extension Microsoft Monitoring Agent.
 
 Vous pouvez installer l’extension sur la machine virtuelle ou l’ordinateur non surveillé, en plus de l’agent local déjà installé. Configurez les deux agents de la même manière en les connectant au même espace de travail. Ainsi, Security Center pourra interagir avec l’extension Microsoft Monitoring Agent et collecter des données. Consultez la section [Activer l’extension de machine virtuelle](../azure-monitor/learn/quick-collect-azurevm.md) pour obtenir des instructions sur la façon d’installer l’extension Microsoft Monitoring Agent.
 
@@ -85,7 +84,7 @@ Pour afficher des informations détaillées sur les recommandations, cliquez sur
 
 
 > [!NOTE]
-> Les recommandations de sécurité ci-dessus sont les mêmes que celles figurant sous la mosaïque **Recommandations**. Pour plus d’informations sur la résolution des recommandations, consultez l’article [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
+> Les recommandations de sécurité ci-dessus sont les mêmes que celles figurant sous la mosaïque **Recommandations**. Pour plus d’informations sur l’application de recommandations, consultez l’article [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 >
 >
 
@@ -103,12 +102,12 @@ Cette liste contient quatre types d’icônes :
 ![Machine virtuelle Azure Classic](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Machine virtuelle Azure Classic.
 
 
-![Machines virtuelles identifiées à partir de l’espace de travail](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) Machines virtuelles identifiées uniquement à partir de l’espace de travail qui fait partie de l’abonnement affiché. Cela inclut les machines virtuelles à partir d’autres abonnements ce rapport à l’espace de travail dans cet abonnement, ainsi que les machines virtuelles qui ont été installés avec l’agent direct Operations Manager et n’avoir aucun ID de ressource.
+![Machines virtuelles identifiées à partir de l’espace de travail](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) Machines virtuelles identifiées uniquement à partir de l’espace de travail qui fait partie de l’abonnement affiché. Cela inclut les machines virtuelles d’autres abonnements qui dépendent de l’espace de travail dans cet abonnement, et les machines virtuelles qui ont été installées avec l’agent direct Operations Manager et qui n’ont pas d’ID de ressource.
 
 L’icône qui s’affiche sous chaque recommandation vous aide à identifier rapidement la machine virtuelle et l’ordinateur qui requièrent votre attention, ainsi que le type de recommandation. Vous pouvez également utiliser les filtres pour rechercher dans la liste par **Type de ressource** et **Gravité**.
 
 Pour explorer au niveau du détail les suggestions de sécurité pour chaque machine virtuelle, cliquez sur celle-ci.
-Ce panneau comporte des informations détaillées sur la sécurité de la machine virtuelle ou de l’ordinateur. L’action recommandée et le niveau de gravité de chaque problème sont affichés en bas.
+Ce panneau comporte des informations détaillées sur la sécurité de la machine virtuelle ou de l’ordinateur. L’action recommandée et le niveau de gravité de chaque problème sont affichés en bas.
 ![Services cloud](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### <a name="cloud-services"></a>Services cloud
@@ -125,7 +124,7 @@ Pour voir une explication plus normative concernant cette recommandation, clique
 ![Mettre à jour la version du système d’exploitation](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services"></a>App Services
-Vous devez activer App Service dans votre abonnement pour afficher les informations App Service. Pour obtenir des instructions sur l’activation de cette fonctionnalité, consultez [Protéger App Service avec Azure Security Center](security-center-app-services.md).
+Pour afficher les informations App Service, vous devez activer App Service dans votre abonnement. Pour obtenir des instructions sur l’activation de cette fonctionnalité, consultez [Protéger App Service avec Azure Security Center](security-center-app-services.md).
 [!NOTE]
 > La surveillance d’App Service est uniquement disponible en préversion, au niveau Standard du Security Center.
 
@@ -160,7 +159,7 @@ Cette liste contient trois types d’icônes :
 
      ![Correction d’App Service](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles 
+## <a name="virtual-machine-scale-sets"></a>Groupes identiques de machines virtuelles
 Security Center détecte automatiquement si vous avez des groupes identiques et vous recommande d’installer Microsoft Monitoring Agent sur ceux-ci. 
 
 Pour installer Microsoft Monitoring Agent : 
@@ -170,9 +169,9 @@ Pour installer Microsoft Monitoring Agent :
 
    ![Installer MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-Si vous souhaitez définir de nouveaux groupes identiques pour installer automatiquement Microsoft Monitoring Agent :
+Pour définir de nouveaux groupes identiques afin d’installer automatiquement Microsoft Monitoring Agent :
 1. Accédez à Azure Policy et cliquez sur **Définitions**.
-2. Recherchez la stratégie **agent déployer une Analytique de journal pour les jeux de mise à l’échelle de machine virtuelle Windows** et cliquez dessus.
+2. Recherchez la stratégie **Déployer un agent Log Analytics pour des groupes de machines virtuelles identiques Windows**, puis cliquez sur celle-ci.
 3. Cliquez sur **Affecter**.
 4. Définir l’**Étendue** et l’**Espace de travail Log Analytics**, puis cliquez sur **Assigner**.
 
@@ -184,53 +183,50 @@ Si vous souhaitez paramétrer tous les groupes identiques existants pour install
 |----|----|----|----|
 |App Service|20|L'application web ne doit pas être accessible via HTTPS|Limitez l’accès des applications web via le protocole HTTPS uniquement.|
 |App Service|20|Function App ne doit pas être accessible via HTTPS|Limitez l’accès d’applications de fonction via HTTPS uniquement.|
-|App Service|5.|Activer les journaux de diagnostic dans App Service|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
+|App Service|5\.|Les journaux de diagnostic doivent être activés dans App Services|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
 |App Service|10|Le débogage à distance doit être désactivé pour l'application web|Désactivez le débogage pour les applications web si vous n’en avez plus besoin. Le débogage distant requiert que des ports d’entrée soient ouverts sur une Function App.|
 |App Service|10|Le débogage à distance devrait être désactivé pour Function App|Désactivez le débogage pour Function App si vous n’en avez plus besoin. Le débogage distant requiert que des ports d’entrée soient ouverts sur une Function App.|
-|App Service|10|Configurer des restrictions d’adresse IP pour l’application web|Définissez une liste d’adresses IP autorisées à accéder à votre application. L’utilisation de restrictions d’adresse IP protège une application web contre des attaques courantes.|
 |App Service|10|Ne pas autoriser toutes (’*’) les ressources à accéder à votre application| Ne pas autoriser la définition du paramètre WEBSITE_LOAD_CERTIFICATES sur "". La définition du paramètre sur ‘’ signifie que tous les certificats sont chargés dans votre magasin de certificats personnels d’applications web. Cela peut conduire à un abus du principe des privilèges minimum, car il est peu probable que le site ait besoin d’accéder à tous les certificats lors de l’exécution.|
 |App Service|20|CORS ne devrait pas autoriser toutes les ressources à accéder à vos applications web|Autorisez uniquement les domaines requis à interagir avec votre application web. Le partage des ressources cross-origin (CORS) ne devrait pas autoriser tous les domaines à accéder à votre application web.|
 |App Service|20|CORS ne devrait pas autoriser toutes les ressources à accéder à votre Function App| Recommande d’autoriser uniquement les domaines requis à interagir avec votre application de fonction. Le partage des ressources cross-origin (CORS) ne devrait pas autoriser tous les domaines à accéder à votre application de fonction.|
-|Ressources de calcul (Batch)|1|Configurer les règles d'alerte sur les métriques pour le compte Batch|Configurer les règles d'alerte pour les métriques sur le compte Batch et activer les métriques Pool Delete Complete Events et Pool Delete Start Events|
-|Ressources de calcul (Service Fabric)|10|Utiliser Azure Active Directory pour l'authentification cliente dans Service Fabric|Effectuez l'authentification cliente uniquement par le biais d'Azure Active Directory dans Service Fabric.|
-|Ressources de calcul (compte Automation)|5.| Activer le chiffrement du compte Automation|Activez le chiffrement des ressources variables du compte Automation lors du stockage de données sensibles.|
-|Ressources de calcul (Load Balancer)|5.|Activer les journaux de diagnostic dans Load Balancer|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
-|Ressources de calcul (recherche)|5.|Activer les journaux de diagnostic dans le service de recherche|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
-|Ressources de calcul (Service Bus)|5.|Activer les journaux de diagnostic dans Service Bus|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
-|Ressources de calcul (Stream Analytics)|5.|Activer les journaux de diagnostic dans Azure Stream Analytics|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
-|Ressources de calcul (Service Fabric)|5.|Activer les journaux de diagnostic dans Service Fabric|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
-|Ressources de calcul (Batch)|5.|Activer les journaux de diagnostic dans les comptes Batch|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
-|Ressources de calcul (Event Hub)|5.|Activer les journaux de diagnostic dans Event Hub|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
-|Ressources de calcul (Logic Apps)|5.|Activer les journaux de diagnostic dans Logic Apps|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
+|Ressources de calcul (Batch)|1|Des règles d’alerte de métrique doivent être configurées sur les comptes Batch|Configurer les règles d'alerte pour les métriques sur le compte Batch et activer les métriques Pool Delete Complete Events et Pool Delete Start Events|
+|Ressources de calcul (Service Fabric)|10|Les clusters Service Fabric ne doivent utiliser Azure Active Directory que pour l’authentification client|Effectuez l'authentification cliente uniquement par le biais d'Azure Active Directory dans Service Fabric.|
+|Ressources de calcul (compte Automation)|5\.|Les variables de compte Automation doivent être chiffrées|Activez le chiffrement des ressources variables du compte Automation lors du stockage de données sensibles.|
+|Ressources de calcul (recherche)|5\.|Auditer l’activation des journaux de diagnostic dans le service Recherche|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
+|Ressources de calcul (Service Bus)|5\.|Les journaux de diagnostic doivent être activés dans Service Bus|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
+|Ressources de calcul (Stream Analytics)|5\.|Les journaux de diagnostic dans Azure Stream Analytics doivent être activés|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
+|Ressources de calcul (Batch)|5\.|Activer les journaux de diagnostic dans les comptes Batch|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
+|Ressources de calcul (Event Hub)|5\.|Les journaux de diagnostic doivent être activés dans Event Hub|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
+|Ressources de calcul (Logic Apps)|5\.|Activer les journaux de diagnostic dans Logic Apps|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
 |Ressources de calcul (Service Fabric)|15|Définir la propriété ClusterProtectionLevel sur EncryptAndSign dans Service Fabric|Service Fabric fournit trois niveaux de protection (None, Sign et EncryptAndSign) pour la communication nœud à nœud à l’aide d’un certificat de cluster principal.  Définissez le niveau de protection pour vous assurer que tous les messages de nœud à nœud sont chiffrés et signés numériquement. |
 |Ressources de calcul (Service Bus)|1|Supprimer toutes les règles d'autorisation, sauf RootManageSharedAccessKey de l'espace de noms Service Bus |Les clients Service Bus ne doivent pas utiliser une stratégie d'accès au niveau de l'espace de noms qui donne accès à l'ensemble des files d'attente et rubriques d'un espace de noms. Pour respecter le modèle de sécurité basé sur le privilège minimum, vous devez créer des stratégies d'accès au niveau de l'entité pour les files d'attente et les rubriques afin de limiter l'accès à l'entité spécifique.|
-|Ressources de calcul (Event Hub)|1|Supprimer toutes les règles d'autorisation, sauf RootManageSharedAccessKey de l'espace de noms Event Hub |Les clients Event Hub ne doivent pas utiliser une stratégie d'accès au niveau de l'espace de noms qui donne accès à l'ensemble des files d'attente et rubriques d'un espace de noms. Pour respecter le modèle de sécurité basé sur le privilège minimum, vous devez créer des stratégies d'accès au niveau de l'entité pour les files d'attente et les rubriques afin de limiter l'accès à l'entité spécifique.|
-|Ressources de calcul (Event Hub)|5.|Définir des règles d'autorisation sur l'entité Event Hub|Auditez des règles d'autorisation sur l'entité Event Hub pour accorder un accès à privilèges minimum.|
+|Ressources de calcul (Event Hub)|1|Toutes les règles d’autorisation, sauf RootManageSharedAccessKey, doivent être supprimées de l’espace de noms Event Hub|Les clients Event Hub ne doivent pas utiliser une stratégie d'accès au niveau de l'espace de noms qui donne accès à l'ensemble des files d'attente et rubriques d'un espace de noms. Pour respecter le modèle de sécurité basé sur le privilège minimum, vous devez créer des stratégies d'accès au niveau de l'entité pour les files d'attente et les rubriques afin de limiter l'accès à l'entité spécifique.|
+|Ressources de calcul (Event Hub)|5\.|Des règles d’autorisation sur l’entité Event Hub doivent être définies|Auditez des règles d'autorisation sur l'entité Event Hub pour accorder un accès à privilèges minimum.|
 |Ordinateur|50|Installer l'agent d'analyse sur vos machines|Installer l'agent d'analyse pour activer la collecte de données, l'analyse des mises à jour, l'analyse de la ligne de base et la protection du point de terminaison sur chaque machine.|
 |Ordinateur|50|Activer le provisionnement et la collecte automatiques des données pour vos abonnements |Activez le provisionnement et la collecte automatiques des données pour les machines dans vos abonnements afin d’activer la collecte de données, l'analyse des mises à jour, l'analyse de la ligne de base et la protection du point de terminaison sur chaque machine ajoutée à vos abonnements.|
 |Ordinateur|40|Résoudre les problèmes d'intégrité de l'agent d'analyse sur vos machines|Pour une protection Security Center complète, corriger les problèmes de l’agent de surveillance sur vos machines en suivant les instructions du guide de résolution des problèmes| 
 |Ordinateur|40|Résoudre les problèmes d'intégrité de la protection du point de terminaison sur vos machines|Pour une protection Security Center complète, corrigez les problèmes de l’agent de surveillance sur vos machines en suivant les instructions du guide de résolution des problèmes.|
 |Ordinateur|40|Résoudre les problèmes de données d'analyse manquantes sur vos machines|Résolvez les problèmes de données d’analyse manquantes sur les machines virtuelles et les ordinateurs. Les données d’analyse manquantes sur vos machines entraînent des évaluations de sécurité manquantes telles que l'analyse des mises à jour, l'analyse de la ligne de base et un manque de solution d’analyse de protection du point de terminaison.|
-|Ordinateur|40|Installer les mises à jour système sur vos machines|Installer les mises à jour critiques et de sécurité système manquantes afin de sécuriser vos machines virtuelles et ordinateurs Windows et Linux
+|Ordinateur|40|Des mises à jour système doivent être installées sur vos machines|Installer les mises à jour critiques et de sécurité système manquantes afin de sécuriser vos machines virtuelles et ordinateurs Windows et Linux
 |Ordinateur|15|Ajouter un pare-feu d’applications web| Déployez une solution de pare-feu d’applications web (WAF) pour sécuriser vos applications web. |
 |Ordinateur|40|Mettre à jour la version du système d'exploitation pour vos rôles de service cloud|Mettez à jour la version du système d'exploitation (SE) pour les rôles de votre service cloud vers la version la plus récente disponible pour la gamme de votre SE.|
-|Ordinateur|35|Corriger les vulnérabilités dans la configuration de sécurité sur vos machines|Corrigez les vulnérabilités dans la configuration de la sécurité sur vos machines afin de les protéger des attaques. |
+|Ordinateur|35|Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées|Corrigez les vulnérabilités dans la configuration de la sécurité sur vos machines afin de les protéger des attaques.|
 |Ordinateur|35|Corriger les vulnérabilités dans la configuration de sécurité sur vos conteneurs|Corriger les vulnérabilités dans la configuration de sécurité sur les ordinateurs où Docker est installé afin de les protéger contre les attaques.|
 |Ordinateur|25|Activer les contrôles d'applications adaptatifs|Activez les contrôles d’applications pour contrôler les applications qui peuvent s’exécuter sur vos machines virtuelles hébergées dans Azure. Cela vous permet de renforcer la protection de vos machines virtuelles contre les logiciels malveillants. Security Center utilise le machine learning pour analyser les applications en cours d’exécution sur chaque machine virtuelle et vous permet d’appliquer des règles d’autorisation. Cette fonctionnalité simplifie le processus de configuration et de gestion des règles d’autorisation des applications.|
 |Ordinateur|20|Installer la solution de protection de point de terminaison sur vos machines|Installez une solution de protection de point de terminaison sur vos machines virtuelles pour les protéger des menaces et des vulnérabilités.|
 |Ordinateur|20|Redémarrer vos machines pour appliquer les mises à jour système|Redémarrez vos machines pour appliquer les mises à jour système et protéger la machine contre les vulnérabilités.|
-|Ordinateur|15|Appliquer le chiffrement de disque sur vos machines virtuelles|Chiffrez vos disques de machine virtuelle à l’aide d’Azure Disk Encryption à la fois pour les machines virtuelles Windows et Linux. zure Disk Encryption (ADE) s’appuie sur les fonctionnalités standard de l’industrie BitLocker de Windows et DM-Crypt de Linux pour fournir le chiffrement du disque de données et du système d’exploitation, afin de protéger vos données et de respecter les engagements de sécurité et de conformité de votre organisation dans le coffre de clés Azure client. Lorsque vos besoins de conformité et de sécurité vous imposent de chiffrer les données de bout en bout à l’aide de vos clés de chiffrement, y compris le chiffrement du disque éphémère (temporaire et attaché localement), utilisez Azure Disk Encryption. Par ailleurs, par défaut, les disques managés sont chiffrés au repos à l’aide d’Azure Storage Service Encryption, où les clés de chiffrement sont des clés gérées par Microsoft dans Azure. Si cela répond à vos exigences de sécurité et de conformité, vous pouvez utiliser le chiffrement de disque managé par défaut pour répondre à vos besoins.|
+|Ordinateur|15|Le chiffrement de disque doit être appliqué sur les machines virtuelles|Chiffrez vos disques de machine virtuelle à l’aide d’Azure Disk Encryption à la fois pour les machines virtuelles Windows et Linux. zure Disk Encryption (ADE) s’appuie sur les fonctionnalités standard de l’industrie BitLocker de Windows et DM-Crypt de Linux pour fournir le chiffrement du disque de données et du système d’exploitation, afin de protéger vos données et de respecter les engagements de sécurité et de conformité de votre organisation dans le coffre de clés Azure client. Lorsque vos besoins de conformité et de sécurité vous imposent de chiffrer les données de bout en bout à l’aide de vos clés de chiffrement, y compris le chiffrement du disque éphémère (temporaire et attaché localement), utilisez Azure Disk Encryption. Par ailleurs, par défaut, les disques managés sont chiffrés au repos à l’aide d’Azure Storage Service Encryption, où les clés de chiffrement sont des clés gérées par Microsoft dans Azure. Si cela répond à vos exigences de sécurité et de conformité, vous pouvez utiliser le chiffrement de disque managé par défaut pour répondre à vos besoins.|
 |Ordinateur|30|Installer une solution d'évaluation des vulnérabilités sur vos machines virtuelles|Installer une solution d'évaluation des vulnérabilités sur vos machines virtuelles|
 |Ordinateur|15|Ajouter un pare-feu d’applications web| Déployez une solution de pare-feu d’applications web (WAF) pour sécuriser vos applications web. |
-|Ordinateur|30|Corriger les vulnérabilités avec une solution d’évaluation des vulnérabilités|Les machines virtuelles pour lesquelles une solution tierce d’évaluation des vulnérabilités est déployée sont évaluées en permanence afin d’y détecter d’éventuelles vulnérabilités au niveau de l’application et du système d’exploitation. Chaque fois que ces vulnérabilités sont détectées, elles sont disponibles pour plus d’informations dans le cadre de la recommandation.|
+|Ordinateur|30|Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités|Les machines virtuelles pour lesquelles une solution tierce d’évaluation des vulnérabilités est déployée sont évaluées en permanence afin d’y détecter d’éventuelles vulnérabilités au niveau de l’application et du système d’exploitation. Chaque fois que ces vulnérabilités sont détectées, elles sont disponibles pour plus d’informations dans le cadre de la recommandation.|
 |Ordinateur|30|Installer une solution d'évaluation des vulnérabilités sur vos machines virtuelles|Installer une solution d'évaluation des vulnérabilités sur vos machines virtuelles|
-|Ordinateur|1|Migrer des machines virtuelles vers de nouvelles ressources Azure Resource Manager|Profitez des améliorations apportées à Azure Resource Manager pour renforcer la sécurité de vos machines virtuelles : contrôle d'accès plus puissant, audit amélioré, déploiement et gouvernance basés sur Resource Manager, accès aux identités managées, accès au coffre de clés pour les secrets, authentification basée sur Azure AD, prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité, etc. |
-|Ordinateur|30|Corriger les vulnérabilités avec une solution d’évaluation des vulnérabilités|Les machines virtuelles pour lesquelles une solution tierce d’évaluation des vulnérabilités est déployée sont évaluées en permanence afin d’y détecter d’éventuelles vulnérabilités au niveau de l’application et du système d’exploitation. Chaque fois que ces vulnérabilités sont détectées, elles sont disponibles pour plus d’informations dans le cadre de la recommandation.|
-|Jeu de mise à l’échelle de machine virtuelle |4|Activer les journaux de diagnostic dans Virtual Machine Scale Sets|Activez les journaux d’activité et conservez-les pendant jusqu’à un an. Cela vous permet de recréer les pistes d’activité à des fins d’investigation. Cela est utile lorsqu’un incident de sécurité se produit, ou quand votre réseau est compromis.|
-|Jeu de mise à l’échelle de machine virtuelle|35|Corriger les vulnérabilités dans la configuration de sécurité sur vos groupes de machines virtuelles identiques|Corriger les vulnérabilités dans la configuration de la sécurité sur vos groupes de machines virtuelles identiques afin de les protéger des attaques. |
-|Jeu de mise à l’échelle de machine virtuelle|5.|Corriger les échecs d’intégrité de la protection de point de terminaison sur les groupes de machines virtuelles identiques|Corrigez les échecs d’intégrité de la protection du point de terminaison sur vos groupes de machines virtuelles identiques afin de les protéger des menaces et des vulnérabilités. |
-|Jeu de mise à l’échelle de machine virtuelle|10|Installer la solution de protection de point de terminaison sur les groupes de machines virtuelles identiques|Installer une solution de protection de point de terminaison sur vos groupes de machines virtuelles identiques, pour les protéger des menaces et des vulnérabilités. |
-|Jeu de mise à l’échelle de machine virtuelle|40|Installer les mises à jour système sur les groupes de machines virtuelles identiques|Installer les mises à jour critiques et de sécurité système manquantes afin de sécuriser vos groupes de machines virtuelles identiques Windows et Linux. |
+|Ordinateur|1|Les machines virtuelles doivent être migrées vers de nouvelles ressources AzureRM|Profitez des améliorations apportées à Azure Resource Manager pour renforcer la sécurité de vos machines virtuelles : contrôle d'accès plus puissant, audit amélioré, déploiement et gouvernance basés sur Resource Manager, accès aux identités managées, accès au coffre de clés pour les secrets, authentification basée sur Azure AD, prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité, etc. |
+|Ordinateur|30|Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités|Les machines virtuelles pour lesquelles une solution tierce d’évaluation des vulnérabilités est déployée sont évaluées en permanence afin d’y détecter d’éventuelles vulnérabilités au niveau de l’application et du système d’exploitation. Chaque fois que ces vulnérabilités sont détectées, elles sont disponibles pour plus d’informations dans le cadre de la recommandation.|
+|Jeu de mise à l’échelle de machine virtuelle |4|Les journaux de diagnostic dans Virtual Machine Scale Sets doivent être activés|Activez les journaux d’activité et conservez-les pendant jusqu’à un an. Cela vous permet de recréer les pistes d’activité à des fins d’investigation. Cela est utile lorsqu’un incident de sécurité se produit, ou quand votre réseau est compromis.|
+|Jeu de mise à l’échelle de machine virtuelle|35|Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées|Corriger les vulnérabilités dans la configuration de la sécurité sur vos groupes de machines virtuelles identiques afin de les protéger des attaques. |
+|Jeu de mise à l’échelle de machine virtuelle|5\.|Corriger les échecs d’intégrité de la protection de point de terminaison sur les groupes de machines virtuelles identiques|Corrigez les échecs d’intégrité de la protection du point de terminaison sur vos groupes de machines virtuelles identiques afin de les protéger des menaces et des vulnérabilités. |
+|Jeu de mise à l’échelle de machine virtuelle|10|Endpoint Protection doit être installé sur les machines virtuelles|Installer une solution de protection de point de terminaison sur vos groupes de machines virtuelles identiques, pour les protéger des menaces et des vulnérabilités. |
+|Jeu de mise à l’échelle de machine virtuelle|40|Les mises à jour système doivent être installées sur les groupes de machines virtuelles identiques|Installer les mises à jour critiques et de sécurité système manquantes afin de sécuriser vos groupes de machines virtuelles identiques Windows et Linux. |
  
 
 
@@ -241,7 +237,7 @@ Si vous souhaitez paramétrer tous les groupes identiques existants pour install
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :
 
 
-* [Comprendre les recommandations d’Azure Security Center pour les machines virtuelles](security-center-virtual-machine-recommendations.md)
+* [Protection de vos machines et de vos applications dans Azure Security Center](security-center-virtual-machine-protection.md)
 * [Surveiller l’identité et l’accès dans Azure Security Center](security-center-identity-access.md)
 * [Protection de votre réseau dans Azure Security Center](security-center-network-recommendations.md)
 * [Protection de votre service SQL Azure dans Azure Security Center](security-center-sql-service-recommendations.md)

@@ -1,42 +1,44 @@
 ---
-title: Maintenir la connexion dans Azure Active Directory B2C | Microsoft Docs
+title: Maintenir la connexion dans Azure Active Directory B2C
 description: Découvrez comment configurer la fonctionnalité « Maintenir la connexion » dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/03/2018
-ms.author: davidmu
+ms.date: 08/29/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a8ad5c3091c3c78aa31dbf38eb6b3032e4dc7662
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 29cdf5e7723113b4673945bf5db3158680a44b79
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870960"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147040"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Activer la fonctionnalité « Maintenir la connexion » dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Vous pouvez activer la fonctionnalité « Maintenir la connexion » pour vos applications web et native dans Azure Active Directory (Azure AD) B2C. Cette fonctionnalité permet aux utilisateurs déjà inscrits d’accéder à l’application sans avoir à entrer une nouvelle fois leur nom d’utilisateur et leur mot de passe. Cet accès est révoqué lorsque l’utilisateur se déconnecte. 
+Vous pouvez activer la fonctionnalité Maintenir la connexion pour les utilisateurs de vos applications web et native qui ont des comptes locaux dans votre annuaire Azure AD B2C (Azure Active Directory B2C). Cette fonctionnalité accorde l’accès aux utilisateurs qui retournent dans votre application sans avoir à entrer une nouvelle fois leur nom d’utilisateur et leur mot de passe. Cet accès est révoqué lorsque l’utilisateur se déconnecte.
 
-Vous ne devez pas activer cette option sur les ordinateurs publics. 
+Vous ne devez pas activer cette option sur les ordinateurs publics.
 
-![Activer le maintien de la connexion](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
+![Exemple de page de connexion avec la case à cocher Maintenir la connexion](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Un locataire Azure AD B2C configuré pour permettre l’inscription et la connexion des comptes locaux. Si vous n’avez pas de locataire, vous pouvez en créer un en suivant les étapes décrites du [Tutoriel : Créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md).
+Un locataire Azure AD B2C configuré pour permettre la connexion à un compte local. La fonctionnalité Maintenir la connexion n’est pas prise en charge pour les comptes des fournisseurs d’identité externes.
 
-## <a name="add-a-content-definition-element"></a>Ajouter un élément de définition de contenu 
+Si vous n’avez pas de locataire, vous pouvez en créer un en suivant les étapes décrites du [Tutoriel : Créer un locataire Azure Active Directory B2C](tutorial-create-tenant.md).
 
-Sous l’élément **BuildingBlocks** de votre fichier d’extension, ajoutez un élément **ContentDefinitions**. 
+## <a name="add-a-content-definition-element"></a>Ajouter un élément de définition de contenu
+
+Sous l’élément **BuildingBlocks** de votre fichier d’extension, ajoutez un élément **ContentDefinitions**.
 
 1. Sous l’élément **ContentDefinitions**, ajoutez un élément **ContentDefinition** avec un identificateur `api.signuporsigninwithkmsi`.
-2. Sous l’élément **ContentDefinition**, ajoutez les éléments **LoadUri**, **RecoveryUri** et **DataUri**. La valeur `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` de l’élément **DataUri** est un identificateur compréhensible par une machine qui affiche une case à cocher « Maintenir la connexion » sur les pages de connexion. Cette valeur ne doit pas être modifiée. 
+2. Sous l’élément **ContentDefinition**, ajoutez les éléments **LoadUri**, **RecoveryUri** et **DataUri**. La valeur `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` de l’élément **DataUri** est un identificateur compréhensible par une machine qui affiche une case à cocher « Maintenir la connexion » sur les pages de connexion. Cette valeur ne doit pas être modifiée.
 
     ```XML
     <BuildingBlocks>
@@ -50,15 +52,15 @@ Sous l’élément **BuildingBlocks** de votre fichier d’extension, ajoutez un
           </Metadata>
         </ContentDefinition>
       </ContentDefinitions>
-    </BuildingBlocks>                       
+    </BuildingBlocks>
     ```
 
-## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>Ajouter un fournisseur de revendications de connexion à un compte local  
+## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>Ajouter un fournisseur de revendications de connexion à un compte local
 
 Vous pouvez définir la connexion du compte local comme un fournisseur de revendications à l’aide de l’élément **ClaimsProvider** dans le fichier d’extension de votre stratégie :
 
-1. Ouvrez le fichier *TrustFrameworkExtensions.xml* dans votre répertoire de travail. 
-2. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine. Le [pack de démarrage](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) comprend un fournisseur de revendications de connexion de compte local. 
+1. Ouvrez le fichier *TrustFrameworkExtensions.xml* dans votre répertoire de travail.
+2. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine. Le [pack de démarrage](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) comprend un fournisseur de revendications de connexion de compte local.
 3. Ajoutez un élément **ClaimsProvider** avec le **DisplayName** et le **TechnicalProfile**, comme indiqué dans l’exemple suivant :
 
     ```XML
@@ -87,7 +89,7 @@ Ajoutez les identificateurs d’application au fichier *TrustFrameworkExtensions
 
 1. Dans le fichier *TrustFrameworkExtensions.xml*, recherchez l’élément **TechnicalProfile** avec l’identificateur `login-NonInteractive`, et l’élément **TechnicalProfile** avec l’identificateur`login-NonInteractive-PasswordChange`, puis remplacez toutes les valeurs `IdentityExperienceFrameworkAppId` par l’identificateur de l’application Identity Experience Framework, comme décrit dans [Bien démarrer](active-directory-b2c-get-started-custom.md).
 
-    ```
+    ```XML
     <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
     ```
 
@@ -96,14 +98,14 @@ Ajoutez les identificateurs d’application au fichier *TrustFrameworkExtensions
 
 ## <a name="create-a-kmsi-enabled-user-journey"></a>Créer un parcours utilisateur avec une option Maintenir la connexion
 
-Ajoutez à votre parcours utilisateur le fournisseur de revendications de connexion pour un compte local. 
+Ajoutez à votre parcours utilisateur le fournisseur de revendications de connexion pour un compte local.
 
 1. Ouvrez le fichier de base de votre stratégie. Par exemple, ouvrez *TrustFrameworkBase.xml*.
 2. Recherchez l’élément **UserJourneys**, puis copiez l’intégralité du contenu de l’élément **UserJourney** qui utilise l’identificateur `SignUpOrSignIn`.
 3. Ouvrez le fichier d’extension. Par exemple, ouvrez *TrustFrameworkExtensions.xml*, puis recherchez l’élément **UserJourneys**. Si l’élément n’existe pas, ajoutez-en un.
 4. Collez l’intégralité de l’élément **UserJourney** que vous avez copié en tant qu’enfant de l’élément **UserJourneys**.
 5. Modifiez la valeur de l’identificateur pour le nouveau parcours utilisateur. Par exemple : `SignUpOrSignInWithKmsi`.
-6. Enfin, dans la première étape d’orchestration, remplacez la valeur **ContentDefinitionReferenceId** par `api.signuporsigninwithkmsi`. Lorsque vous définissez cette valeur, la case du parcours utilisateur est cochée. 
+6. Enfin, dans la première étape d’orchestration, remplacez la valeur **ContentDefinitionReferenceId** par `api.signuporsigninwithkmsi`. Lorsque vous définissez cette valeur, la case du parcours utilisateur est cochée.
 7. Enregistrez et chargez le fichier d’extension, puis vérifiez que toutes les validations ont réussi.
 
     ```XML
@@ -150,10 +152,10 @@ Mettez à jour le fichier de partie de confiance qui lance le parcours utilisate
 2. Ouvrez le nouveau fichier et définissez une valeur unique pour l’attribut **PolicyId** de **TrustFrameworkPolicy**. Il s’agit du nom de votre stratégie. Par exemple : `SignUpOrSignInWithKmsi`.
 3. Remplacez l’attribut **ReferenceId** par l’élément **DefaultUserJourney** pour correspondre à l’identificateur du nouveau parcours utilisateur que vous avez créé. Par exemple : `SignUpOrSignInWithKmsi`.
 
-    KMSI est configuré à l'aide de l'élément **UserJourneyBehaviors** avec **SingleSignOn**, **SessionExpiryType** et **SessionExpiryInSeconds** comme premiers éléments enfants. L’attribut **KeepAliveInDays** contrôle la durée pendant laquelle l’utilisateur reste connecté. Dans l’exemple suivant, la session Maintenir la connexion expire automatiquement après `7` jours, quelle que soit la fréquence à laquelle l’utilisateur effectue une authentification silencieuse. Si vous définissez la valeur **KeepAliveInDays** sur `0`, vous désactivez la fonctionnalité Maintenir la connexion. Par défaut, cette valeur est définie sur `0`. Si la valeur de **SessionExpiryType** est `Rolling`, la session Maintenir la connexion est prolongée de `7` jours chaque fois que l’utilisateur effectue une authentification silencieuse.  Si `Rolling` est sélectionné, le nombre de jours doit être minimal. 
+    KMSI est configuré à l'aide de l'élément **UserJourneyBehaviors** avec **SingleSignOn**, **SessionExpiryType** et **SessionExpiryInSeconds** comme premiers éléments enfants. L’attribut **KeepAliveInDays** contrôle la durée pendant laquelle l’utilisateur reste connecté. Dans l’exemple suivant, la session Maintenir la connexion expire automatiquement après `7` jours, quelle que soit la fréquence à laquelle l’utilisateur effectue une authentification silencieuse. Si vous définissez la valeur **KeepAliveInDays** sur `0`, vous désactivez la fonctionnalité Maintenir la connexion. Par défaut, cette valeur est définie sur `0`. Si la valeur de **SessionExpiryType** est `Rolling`, la session Maintenir la connexion est prolongée de `7` jours chaque fois que l’utilisateur effectue une authentification silencieuse.  Si `Rolling` est sélectionné, le nombre de jours doit être minimal.
 
-    La valeur de **SessionExpiryInSeconds** correspond au délai d’expiration d’une session SSO. Elle est utilisée en interne par Azure AD B2C pour vérifier si la session Maintenir la connexion a expiré ou non. La valeur de **KeepAliveInDays** détermine la valeur d’expiration ou d’âge maximal du cookie d’authentification unique dans le navigateur web. Contrairement à **SessionExpiryInSeconds**, **KeepAliveInDays** est utilisé pour empêcher le navigateur d’effacer le cookie au moment de sa fermeture. Un utilisateur peut se connecter en mode silencieux uniquement en présence d’un cookie de session SSO, ce qui est contrôlé par **KeepAliveInDays**, et uniquement s’il n’a pas expiré, ce qui est contrôlé par **SessionExpiryInSeconds**. 
-    
+    La valeur de **SessionExpiryInSeconds** correspond au délai d’expiration d’une session SSO. Elle est utilisée en interne par Azure AD B2C pour vérifier si la session Maintenir la connexion a expiré ou non. La valeur de **KeepAliveInDays** détermine la valeur d’expiration ou d’âge maximal du cookie d’authentification unique dans le navigateur web. Contrairement à **SessionExpiryInSeconds**, **KeepAliveInDays** est utilisé pour empêcher le navigateur d’effacer le cookie au moment de sa fermeture. Un utilisateur peut se connecter en mode silencieux uniquement en présence d’un cookie de session SSO, ce qui est contrôlé par **KeepAliveInDays**, et uniquement s’il n’a pas expiré, ce qui est contrôlé par **SessionExpiryInSeconds**.
+
     Si un utilisateur n’active pas **Maintenir la connexion** dans la page d’inscription et de connexion, une session expire au bout du délai indiqué par **SessionExpiryInSeconds** ou quand le navigateur est fermé. Si un utilisateur active **Maintenir la connexion**, la valeur de **KeepAliveInDays** remplace la valeur de **SessionExpiryInSeconds** et détermine le délai d’expiration de la session. Même si les utilisateurs ferment et rouvrent le navigateur, ils peuvent toujours se connecter en mode silencieux à condition de le faire dans le temps imparti par **KeepAliveInDays**. Nous vous recommandons de définir la valeur de **SessionExpiryInSeconds** sur une courte période (1 200 secondes), tandis que vous pouvez définir la valeur de **KeepAliveInDays** sur une période relativement longue (7 jours), comme l’illustre l’exemple suivant :
 
     ```XML
@@ -183,11 +185,3 @@ Mettez à jour le fichier de partie de confiance qui lance le parcours utilisate
 5. Pour tester la stratégie personnalisée que vous avez chargée, dans le portail Azure, accédez à la page Stratégie, puis sélectionnez **Exécuter maintenant**.
 
 Vous pouvez trouver l’exemple de stratégie [ici](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
-
-
-
-
-
-
-
-

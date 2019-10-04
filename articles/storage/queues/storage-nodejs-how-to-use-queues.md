@@ -1,28 +1,27 @@
 ---
-title: Utilisation du stockage de files d’attente à partir de Node.js | Microsoft Docs
+title: Utiliser le stockage File d’attente Azure à partir de Node.js - Stockage Azure
 description: Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Node.js.
-services: storage
-author: tamram
+author: mhopkins-msft
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: nodejs
-ms.topic: article
+ms.author: mhopkins
 ms.date: 12/08/2016
-ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 31f0be804085643d048a35dd61da9156f291f7da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: 83aecc9c05fec5869a82930f2d687ac907981c00
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006452"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858671"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Utilisation du stockage de files d'attente à partir de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de File d’attente Microsoft Azure. Les exemples sont écrits en utilisant l'API Node.js. Les scénarios traités incluent **l’insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -328,8 +327,8 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les bases du stockage des files d'attente, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-* Consultez le [Blog de l’équipe Stockage Azure][Azure Storage Team Blog].
-* Consultez le référentiel [Kit de développement logiciel (SDK) Stockage Azure pour Node][Azure Storage SDK for Node] sur GitHub.
+* Consultez le [Blog de l’équipe Azure Storage][Azure Storage Team Blog].
+* Consultez le référentiel [Kit de développement logiciel (SDK) Azure Storage pour Node][Azure Storage SDK for Node] sur GitHub.
 
 
 

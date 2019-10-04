@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 582533d23757de748b9cc7d40e45acc00240d384
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: 0d877dafc4ab4f8ec4edb0a94450fa9c5dfcd0bb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570315"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850246"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurer les serveurs à l’état souhaité et gérer la dérive
 
@@ -27,7 +27,7 @@ Azure Automation State Configuration vous permet de spécifier des configuration
 > - Attribuer une configuration de nœud à un nœud géré
 > - Vérifier l’état de conformité d’un nœud géré
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -63,6 +63,9 @@ configuration TestConfig {
    }
 }
 ```
+
+> [!NOTE]
+> Dans les scénarios plus avancés où vous devez importer plusieurs modules qui fournissent des ressources DSC, vérifiez que chaque module a une ligne `Import-DscResource` unique dans votre configuration.
 
 Appelez l’applet de commande `Import-AzureRmAutomationDscConfiguration` pour charger la configuration dans votre compte Automation :
 
@@ -131,6 +134,17 @@ Cette opération attribue la configuration de nœud nommée `TestConfig.WebServe
 Par défaut, le nœud DSC est vérifié pour la conformité avec la configuration de nœud toutes les 30 minutes.
 Pour obtenir des informations sur la modification de l’intervalle de vérification de conformité, consultez [Configuration du Gestionnaire de configuration local](/PowerShell/DSC/metaConfig).
 
+## <a name="working-with-partial-configurations"></a>Utilisation de configurations partielles
+
+Azure Automation State Configuration prend en charge l’utilisation de [configurations partielles](/powershell/dsc/pull-server/partialconfigs).
+Dans ce scénario, DSC est configuré pour gérer plusieurs configurations de manière indépendante, et chaque configuration est récupérée à partir d’Azure Automation.
+Toutefois, on ne peut affecter qu’une seule configuration à un nœud par compte Automation.
+Cela signifie que, si vous utilisez deux configurations pour un nœud, vous aurez besoin de deux comptes Automation.
+
+Pour plus d’informations sur la façon d’inscrire une configuration partielle à partir du service d’extraction, consultez la documentation relative aux [configurations partielles](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+
+Pour plus d’informations sur la façon dont les équipes peuvent travailler ensemble pour gérer les serveurs de façon collaborative à l’aide de la configuration en tant que code, consultez [Rôle de DSC dans un pipeline CI/CD](/powershell/dsc/overview/authoringadvanced).
+
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Vérifier l’état de conformité d’un nœud géré
 
 Vous pouvez obtenir des rapports sur l’état de conformité d’un nœud géré en appelant l’applet de commande `Get-AzureRmAutomationDscNodeReport` :
@@ -145,6 +159,27 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 # Display the most recent report
 $reports[0]
 ```
+
+## <a name="removing-nodes-from-service"></a>Suppression de nœuds d’un service
+
+Lorsque vous ajoutez un nœud dans Azure Automation State Configuration, les paramètres du Gestionnaire de configuration local sont définis de manière à être inscrits avec les configurations de service et d’extraction, et les modules requis pour configurer l’ordinateur.
+Si vous choisissez de supprimer le nœud à partir du service, vous pouvez le faire à l’aide du portail Microsoft Azure ou des cmdlets Az.
+
+> [!NOTE]
+> L’annulation de l’enregistrement d’un nœud à partir du service définit uniquement les paramètres du Gestionnaire de configuration local de sorte que le nœud ne se connecte plus au service.
+> Cela n’affecte pas la configuration actuellement appliquée au nœud.
+> Pour supprimer la configuration actuelle, utilisez [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) ou supprimez le fichier de configuration local (il s’agit de la seule option pour les nœuds Linux).
+
+### <a name="azure-portal"></a>Portail Azure
+
+À partir d’Azure Automation, cliquez sur **Configuration d'état (DSC)** dans la table des matières.
+Cliquez ensuite sur **Nœuds** pour afficher la liste de nœuds qui sont inscrits auprès du service.
+Cliquez sur le nom du nœud que vous souhaitez supprimer.
+Dans la vue du nœud qui s’ouvre, cliquez sur **Annuler l’enregistrement**.
+
+### <a name="powershell"></a>PowerShell
+
+Pour annuler l’inscription d’un nœud à partir du service Azure Automation State Configuration à l’aide de PowerShell, consultez la documentation relative à la cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

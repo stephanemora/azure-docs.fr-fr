@@ -1,6 +1,6 @@
 ---
-title: Règle personnalisée du pare-feu application Web pour Azure porte d’entrée
-description: Découvrez comment utiliser des règles personnalisées web application firewall (WAF) protection de vos applications web contre les attaques malveillantes.
+title: Règle personnalisée de pare-feu d’applications web pour Azure Front Door
+description: Découvrez comment utiliser des règles personnalisées de pare-feu d’applications web pour protéger vos applications web contre les attaques malveillantes.
 author: KumudD
 ms.service: frontdoor
 ms.devlang: na
@@ -8,42 +8,41 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/07/2019
-ms.author: kumud;tyao
-ms.openlocfilehash: 744c6fb9235c9daa2d5239ef9fd13679db943650
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 344e04985c52945b2917d3b5f616d5fca6051ab9
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783965"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839772"
 ---
-#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Règles personnalisées pour le pare-feu d’applications web avec Azure porte d’entrée
-Pare-feu d’applications Azure web (WAF) avec le service de la porte d’entrée vous permet de contrôler l’accès à vos applications web en fonction des conditions que vous définissez. Une règle de pare-feu d’applications Web personnalisée se compose d’un numéro de priorité, un type de règle, conditions de correspondance et une action. Il existe deux types de règles personnalisées : correspond aux règles et règles de restriction. Une règle de correspondance contrôle l’accès en fonction de conditions de correspondance alors qu’une règle de limite de taux contrôle d’accès basée sur la correspondance des conditions et les taux de demandes entrantes. Vous pouvez désactiver une règle personnalisée pour l’empêcher d’en cours d’évaluation, mais toujours conserver la configuration. Cet article décrit les règles de correspondance qui reposent sur les paramètres http.
+#  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Règles personnalisées pour le pare-feu d’applications web avec Azure Front Door
+Le pare-feu d’applications web Azure (WAF) doté du service Front Door vous permet de contrôler l’accès à vos applications web basées sur les conditions que vous définissez. Une règle WAF personnalisée se compose d’un numéro de priorité, d’un type de règle, de conditions de correspondance et d’une action. Il existe deux types de règles personnalisées : les règles de correspondance et les règles de limite de taux. Une règle de correspondance contrôle un accès en fonction de conditions de correspondance, alors qu’une règle de limite de taux contrôle d’accès basée sur la correspondance des conditions et les taux de requêtes entrantes. Vous pouvez désactiver une règle personnalisée pour l’empêcher d’être évaluée, tout en conservant la configuration. 
 
-## <a name="priority-match-conditions-and-action-types"></a>Priorité, les conditions de correspondance et les types d’action
-Vous pouvez contrôler l’accès avec une règle de pare-feu d’applications Web personnalisée qui définit un numéro de priorité, un type de règle, conditions de correspondance et une action. 
+## <a name="priority-match-conditions-and-action-types"></a>Priorité, conditions de correspondance et les types d’action
+Vous pouvez contrôler l’accès à l’aide d’une règle WAF personnalisée qui définit un numéro de priorité, un type de règle, des conditions de correspondance et une action. 
 
-- **Priorité :** est un entier unique qui décrit l’ordre d’évaluation des règles de pare-feu d’applications Web. Règles ayant des valeurs inférieures sont évaluées avant les règles des valeurs plus élevées
+- **Priorité :** est un entier unique qui décrit l’ordre des évaluation des règles de pare-feu d'applications web (WAF). Les règles avec des valeurs de priorité inférieure sont évaluées avant les règles avec des valeurs plus élevées. Les numéros de priorité doivent être uniques parmi toutes les règles personnalisées.
 
-- **Action :** définit comment acheminer une demande si une règle de pare-feu d’applications Web est mis en correspondance. Vous pouvez choisir parmi les actions ci-dessous pour appliquer quand une demande correspond à une règle personnalisée.
+- **Action :** définit comment acheminer une requête si une règle de pare-feu d'applications web (WAF) est mise en correspondance. Vous pouvez choisir parmi les actions ci-dessous pour qu’elle soit appliquée quand une requête correspond à une règle personnalisée.
 
-    - *Autoriser* -WAF transfère la quête pour le back-end, enregistre une entrée dans les journaux WAF et s’arrête.
-    - *Bloc* -demande est bloquée, WAF envoie la réponse au client sans la transférer la demande vers le back-end. WAF enregistre une entrée dans les journaux de pare-feu d’applications Web.
-    - *Journal* -journaux WAF une entrée dans le pare-feu d’applications Web se connecte et se poursuit évaluent la règle suivante.
-    - *Rediriger* -WAF redirige la requête à un URI spécifié, enregistre une entrée dans les journaux de pare-feu d’applications Web et se termine.
+    - *Autoriser :*  le pare-feu d'applications web (WAF) transfère la requête au back-end, enregistre une entrée dans ses journaux et s’arrête.
+    - *Bloquer :* la requête est bloquée, le pare-feu d'applications web (WAF) envoie la réponse au client sans la transférer au back-end. Le pare-feu d'applications web (WAF) journalise une entrée dans ses journaux.
+    - *Journaliser :* le pare-feu d'applications web (WAF) enregistre une entrée dans ses journaux, puis passe à l’évaluation de la règle suivante.
+    - *Rediriger :* le pare-feu d'applications web (WAF) redirige la requête vers un URI spécifié, enregistre une entrée dans ses journaux, puis s’arrête.
 
-- **Condition de correspondance :** définit une variable de correspondance, un opérateur et correspond à la valeur. Chaque règle peut contenir plusieurs conditions de correspondance. Une condition de correspondance peut être basée sur le ci-dessous *correspondent à des variables*:
-    - Remaddr (adresse IP du client)
+- **Condition de correspondance :** définit une variable de correspondance, un opérateur et une valeur de correspondance. Chaque règle peut contenir plusieurs conditions de correspondance. Une condition de correspondance peut être basée sur l’emplacement géographique, les adresses IP du client (CIDR), la taille ou la correspondance de chaîne. La correspondance de chaîne peut correspondre à une liste de variables de correspondance.
+  - **Variable de correspondance :**
     - RequestMethod
     - QueryString
     - PostArgs
     - RequestUri
     - RequestHeader
     - RequestBody
-
-- **Opérateur :** liste inclut les éléments suivants :
-    - Un : est souvent utilisée pour définir l’action par défaut si aucune règle n’est mises en correspondance. Tout est une correspondance opérateur all.
-    - IPMatch : définir des restrictions d’adresse IP pour remaddr variable
-    - GeoMatch : définir géo filtrage pour remaddr variable
+    - Cookies
+  - **Opérateur :**
+    - Any : souvent utilisé pour définir l’action par défaut si aucune règle n’est mise en correspondance. Any est un opérateur qui fait correspondre tous les éléments.
     - Égal à
     - Contains
     - LessThan : contrainte de taille
@@ -51,32 +50,52 @@ Vous pouvez contrôler l’accès avec une règle de pare-feu d’applications W
     - LessThanOrEqual : contrainte de taille
     - GreaterThanOrEqual : contrainte de taille
     - BeginsWith
-     - EndsWith
+    - EndsWith
+    - Expression régulière
+  
+  - **Regex** ne prend pas en charge les opérations ci-dessous : 
+    - Références arrière et capture de sous-expressions
+    - Assertions arbitraires de largeur nulle
+    - Références de sous-routines et modèles récursifs
+    - Modèles conditionnels
+    - Verbes de contrôle de retours sur trace
+    - La directive \C mono-octet
+    - La directive de correspondance de saut de ligne \R
+    - La directive de début de correspondance de réinitialisation \K
+    - Légendes et code incorporé
+    - Regroupement atomique et quantificateurs de possession
 
-Vous pouvez définir *negate* condition est true si le résultat d’une condition doit être inversé.
-
-*Correspond à la valeur* définit la liste de valeurs de correspondance possible.
-Prise en charge de la méthode de demande HTTP incluent des valeurs :
-- GET
-- POST
-- PUT
-- HEAD
-- SUPPRIMER
-- VERROU
-- DÉVERROUILLER
-- PROFIL
-- OPTIONS
-- PROPFIND
-- PROPPATCH
-- MKCOL
-- COPIE
-- DÉPLACER
+  - **Négation [facultatif] :** Vous pouvez définir la condition *negate* sur la valeur true si le résultat d’une condition doit être inversé.
+      
+  - **Transformation [facultatif] :** Liste de chaînes avec les noms des transformations à effectuer avant la tentative de la mise en correspondance. Il peut s’agir des transformations suivantes :
+     - Majuscules 
+     - Minuscules
+     - Trim
+     - RemoveNulls
+     - UrlDecode
+     - UrlEncode
+     
+   - **Valeur de correspondance :** Les valeurs de la méthode de requête HTTP prises en charge incluent :
+     - GET
+     - POST
+     - PUT
+     - HEAD
+     - SUPPRIMER
+     - LOCK
+     - UNLOCK
+     - PROFILE
+     - OPTIONS
+     - PROPFIND
+     - PROPPATCH
+     - MKCOL
+     - COPY
+     - MOVE
 
 ## <a name="examples"></a>Exemples
 
-### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Exemple de règles personnalisées WAF selon les paramètres http
+### <a name="waf-custom-rules-example-based-on-http-parameters"></a>Exemple de règles de pare-feu d'applications web (WAF) personnalisées selon les paramètres http
 
-Voici un exemple qui illustre la configuration d’une règle personnalisée avec deux conditions de correspondance. Les demandes sont à partir d’un site spécifié, tel que défini par le point d’accès et chaîne de requête ne contient-elle pas de « password ».
+Voici un exemple qui illustre la configuration d’une règle personnalisée avec deux conditions de correspondance. Les requêtes proviennent d’un site spécifié, tel que défini par le point d’accès et la chaîne de la requête ne contient pas le terme « password » (« mot de passe »).
 
 ```
 # http rules example
@@ -108,7 +127,7 @@ Voici un exemple qui illustre la configuration d’une règle personnalisée ave
 }
 
 ```
-Un exemple de configuration pour le blocage de méthode « PUT » s’affiche comme suit :
+Un exemple de configuration pour le blocage de la méthode « PUT » est présenté ci-dessous :
 
 ``` 
 # http Request Method custom rules
@@ -134,7 +153,7 @@ Un exemple de configuration pour le blocage de méthode « PUT » s’affiche 
 
 ### <a name="size-constraint"></a>Contrainte de taille
 
-Vous pouvez générer une règle personnalisée qui spécifie la contrainte de taille de la part d’une demande entrante. Par exemple, sous la règle bloque une Url qui est plus de 100 caractères.
+Vous pouvez générer une règle personnalisée qui spécifie la contrainte de taille de la part d’une requête entrante. Par exemple, la règle suivante bloque une URL qui dépasse les 100 caractères.
 
 ```
 # http parameters size constraint
@@ -159,6 +178,6 @@ Vous pouvez générer une règle personnalisée qui spécifie la contrainte de t
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur [pare-feu d’applications web](waf-overview.md)
+- [En savoir plus](waf-overview.md) sur le pare-feu d’application web
 - Découvrez comment [créer une porte d’entrée](quickstart-create-front-door.md).
 

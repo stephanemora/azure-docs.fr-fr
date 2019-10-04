@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1b67522834497a264d95fc9b80246b16841d6026
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602815"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594222"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutoriel : Ajouter Azure CDN à une application web Azure App Service
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Didacticiel : Ajouter Azure CDN à une application web Azure App Service
 
 Ce didacticiel montre comment ajouter [Azure Content Delivery Network (CDN)](cdn-overview.md) à une [application web dans Azure App Service](../app-service/overview.md). Web Apps est un service pour l’hébergement d’applications web, d’API REST et de backends mobiles. 
 
@@ -76,7 +76,7 @@ Dans la page **Azure Content Delivery Network**, fournissez les paramètres du *
 | ------- | --------------- | ----------- |
 | **Profil CDN** | myCDNProfile | Un profil CDN est une collection de points de terminaison CDN possédant le même niveau tarifaire. |
 | **Niveau tarifaire** | Standard Akamai | Le [niveau tarifaire](cdn-features.md) spécifie le fournisseur et les fonctionnalités disponibles. Ce didacticiel utilise *Akamai standard*. |
-| **Nom du point de terminaison CDN** | N’importe quel nom qui est unique dans le domaine azureedge.net | Vous accédez à vos ressources mises en cache au niveau du *&lt;Nom_Point_Terminaison&gt;*.azureedge.net. du domaine.
+| **Nom du point de terminaison CDN** | N’importe quel nom qui est unique dans le domaine azureedge.net | Vous accédez à vos ressources mises en cache au niveau du *&lt;Nom_Point_Terminaison&gt;* .azureedge.net. du domaine.
 
 Sélectionnez **Créer** pour créer un profil CDN.
 

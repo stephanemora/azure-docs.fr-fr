@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
-ms.author: ajaycode
-ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: agummadi
+ms.openlocfilehash: 68e84d8ac82d5cdd52bf92df858730315514c17c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59005934"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612856"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Modification de la tarification d’Azure Network Performance Monitor
 
@@ -38,7 +38,7 @@ Les sections suivantes expliquent les modifications de tarification des composan
 
 La facturation de NPM était basée sur l’utilisation et la consommation de deux composants :
 * **Nœuds** : toutes les transactions synthétiques commencent et se terminent au niveau des nœuds. Les nœuds sont également appelés agents ou Microsoft Management Agents.
-* **Données** : Les résultats des tests de réseau différentes sont stockés dans l’espace de travail Analytique de journal.
+* **Données** : les résultats des différents tests de réseau sont stockés dans l'espace de travail Log Analytics.
 
 Dans l’ancien modèle, la facture était calculée en fonction du nombre de nœuds et du volume de données généré. 
 
@@ -63,7 +63,7 @@ Pour connaître le coût de surveillance d’un seul lien de sous-réseau pour u
 
 **Quels sont les frais relatifs aux données générées par l’Analyseur de performances ?**
 
-Les frais d’ingestion (chargement des données à l’espace de travail Analytique de journal dans Azure Monitor, traitement et indexation) est disponible sur le [page de tarification](https://azure.microsoft.com/pricing/details/log-analytics/) pour l’Analytique de journal, dans la section Ingestion de données. Les frais de conservation des données (à savoir, les données conservées à la discrétion du client, après le premier mois) sont également disponibles sur la [page de tarification](https://azure.microsoft.com/pricing/details/log-analytics/) dans la section relative à la conservation des données.
+Les frais d'ingestion (chargement des données dans l'espace de travail Log Analytics d'Azure Monitor, traitement et indexation) sont disponibles sur la [page de tarification](https://azure.microsoft.com/pricing/details/log-analytics/) de Log Analytics, dans la section relative à l'ingestion des données. Les frais de conservation des données (à savoir, les données conservées à la discrétion du client, après le premier mois) sont également disponibles sur la [page de tarification](https://azure.microsoft.com/pricing/details/log-analytics/) dans la section relative à la conservation des données.
 
 
 ## <a name="expressroute-monitor"></a>Moniteur ExpressRoute
@@ -74,11 +74,11 @@ Les frais relatifs au moniteur ExpressRoute sont facturés en fonction du volume
 
 **J’utilise le Moniteur ExpressRoute pour surveiller plusieurs circuits ExpressRoute. Suis-je facturé en fonction du nombre de circuits surveillés ?**
 
-Vous n’êtes pas facturé en fonction du nombre de circuits ou du type d’homologation (par exemple, homologation privée, homologation Microsoft). Vous êtes facturé en fonction du volume de données, comme expliqué précédemment.
+Vous n’êtes pas facturé en fonction du nombre de circuits ou du type de peering (par exemple, peering privé, peering Microsoft). Vous êtes facturé en fonction du volume de données, comme expliqué précédemment.
 
 **Quel est le volume de données généré lorsque le service ExpressRoute surveille un seul circuit ?**
 
-Le volume de données généré par mois, lorsque le service ExpressRoute surveille une connexion d’homologation privée, est le suivant :
+Le volume de données généré par mois, lorsque le service ExpressRoute surveille une connexion de peering privé, est le suivant :
 
 |Percentile      |Données/mois (Mo)|
 | :---:          |           ---:|

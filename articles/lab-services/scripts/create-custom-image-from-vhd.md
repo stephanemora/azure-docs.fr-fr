@@ -1,5 +1,5 @@
 ---
-title: 'Script PowerShell : Créer une image personnalisée à partir d’un fichier de disque dur virtuel dans Azure Lab Services | Microsoft Docs'
+title: 'Script PowerShell : Créer une image personnalisée à partir d’un fichier VHD dans Azure Lab Services | Microsoft Docs'
 description: Ce script PowerShell crée une image personnalisée à partir d’un fichier VHD dans Azure Lab Services.
 services: lab-services
 author: spelluru
@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 2d0cc4012adf2c17b2f7a2e769f2d666b158a8c8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734725"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66160562"
 ---
 # <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Utilisez PowerShell pour créer une image personnalisée à partir d’un fichier VHD dans Azure Lab Services.
 
@@ -27,7 +27,7 @@ Cet exemple de script PowerShell crée une image personnalisée à partir d’un
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * **Un lab**. Le script vous demande d’avoir un lab. 
 
 ## <a name="sample-script"></a>Exemple de script

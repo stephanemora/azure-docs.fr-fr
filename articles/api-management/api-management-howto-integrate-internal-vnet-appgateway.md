@@ -10,16 +10,15 @@ ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: b994f75327cb78cd422d75682ee68ea7840a87e8
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521922"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193954"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway
 
@@ -35,7 +34,7 @@ Combiner la gestion des API configurée dans un réseau virtuel interne avec le 
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -49,15 +48,15 @@ Pour suivre les étapes décrites dans cet article, vous devez disposer des él�
 
 ## <a name="scenario"></a> Scénario
 
-Cet article explique comment utiliser un seul service de gestion des API pour les consommateurs internes et externes et le rend agissent comme un seul serveur frontal à la fois en local pour API et cloud. Vous allez également voir comment exposer uniquement un sous-ensemble de vos API (dans cet exemple, elles sont mises en surbrillance en vert) pour une consommation externe, à l’aide de la fonctionnalité disponible dans Application Gateway.
+Dans cet article, nous allons étudier comment utiliser un seul et même service Gestion des API pour les consommateurs internes et externes, et l’utiliser comme serveur frontal sur les API locales et cloud. Vous allez également voir comment exposer uniquement un sous-ensemble de vos API (dans cet exemple, elles sont mises en surbrillance en vert) pour une consommation externe, à l’aide de la fonctionnalité disponible dans Application Gateway.
 
-Dans le premier exemple de configuration, toutes vos API sont gérées uniquement à partir de votre réseau virtuel. Les consommateurs internes (mis en surbrillance en orange) peuvent accéder à toutes vos API internes et externes. Le trafic ne quitte jamais à internet. Connectivité de hautes performances est remise par le biais de circuits Express Route.
+Dans le premier exemple de configuration, toutes vos API sont gérées uniquement à partir de votre réseau virtuel. Les consommateurs internes (mis en surbrillance en orange) peuvent accéder à toutes vos API internes et externes. Le trafic ne sort jamais vers Internet. Une connectivité à haute performance est fournie via des circuits Express Route.
 
 ![itinéraire d’URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
 ## <a name="before-you-begin"></a> Avant de commencer
 
-* Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Consultez les instructions d’installation à [installer Azure PowerShell](/powershell/azure/install-az-ps). 
+* Assurez-vous que vous disposez de la version la plus récente d’Azure PowerShell. Consultez les instructions d’installation sur [Installer Azure PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Qu’est-ce qui est nécessaire pour créer une intégration entre le service Gestion des API et Application Gateway ?
 
@@ -85,6 +84,9 @@ Dans ce guide, nous allons également exposer le **portail des développeurs** �
 
 > [!WARNING]
 > Si vous utilisez Azure AD ou une authentification tierce partie, veuillez activer la fonctionnalité [Affinité de session basée sur les cookies](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) dans Application Gateway.
+
+> [!WARNING]
+> Pour empêcher le pare-feu d’applications web Application Gateway de rompre le téléchargement de la spécification OpenAPI dans le portail des développeurs, vous devez désactiver la règle de pare-feu `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Créer un groupe de ressources pour Resource Manager
 
@@ -185,7 +187,7 @@ Après la réussite de la commande ci-dessus, consultez la [configuration DNS re
 
 ### <a name="step-1"></a>Étape 1
 
-Initialisez les variables suivantes avec les détails des certificats avec des clés privées pour les domaines. Dans cet exemple, nous utiliserons `api.contoso.net` et `portal.contoso.net`.  
+Initialisez les variables suivantes avec les détails des certificats avec clés privées pour les domaines. Dans cet exemple, nous utiliserons `api.contoso.net` et `portal.contoso.net`.  
 
 ```powershell
 $gatewayHostname = "api.contoso.net"                 # API gateway host
@@ -202,7 +204,7 @@ $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainT
 
 ### <a name="step-2"></a>Étape 2
 
-Créez et définissez le nom d’hôte des objets de configuration pour le proxy et pour le portail.  
+Créez et définissez des objets de configuration de nom d’hôte pour le proxy et pour le portail.  
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
@@ -355,7 +357,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"></a> Résumé
-Gestion des API Azure configuré dans un réseau virtuel fournit une interface de passerelle unique pour toutes les API configurées, qu’elles soient hébergées en local ou dans le cloud. L’intégration d’Application Gateway au service Gestion des API vous permet d’activer facilement l’accessibilité d’API particulières sur Internet, tout en fournissant un pare-feu d’applications web en tant que pare-feu frontal pour votre instance de service Gestion des API.
+Le service Gestion des API Azure configuré dans un réseau virtuel fournit une interface de passerelle unique pour l’ensemble des API configurées, qu’elles soient hébergées en local ou dans le cloud. L’intégration d’Application Gateway au service Gestion des API vous permet d’activer facilement l’accessibilité d’API particulières sur Internet, tout en fournissant un pare-feu d’applications web en tant que pare-feu frontal pour votre instance de service Gestion des API.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur Azure Application Gateway

@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: afb64b799e826abc3e6aad661a97211b43304dc6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: e9b145b0786b2ab59552e5dfda6f0db63677443e
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873272"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706880"
 ---
 # <a name="quickstart-url-preview-with-python"></a>Démarrage rapide : URL Preview avec Python
 
@@ -23,7 +24,7 @@ L’exemple Python suivant crée un aperçu d’Url pour le site web de SwiftKey
 
 ## <a name="prerequisites"></a>Prérequis
 
-Obtenir une clé d’accès pour l’essai gratuit [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Obtenir une clé d’accès pour l’essai gratuit [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 Cet exemple utilise Python 3.6.
 

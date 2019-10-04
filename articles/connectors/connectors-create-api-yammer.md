@@ -11,12 +11,12 @@ ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9228a94dcf27d8987b16e2caa2681cf973db0657
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233325"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050642"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Superviser et gérer votre compte Yammer à l’aide d’Azure Logic Apps
 
@@ -30,7 +30,7 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre com
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 
 * Vos informations d’identification utilisateur et compte Yammer
 
@@ -60,10 +60,10 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre com
        -ou-
 
      * Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-     Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+     Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
      
        Dans la zone de recherche, entrez « yammer » comme filtre. 
-       Sous la liste des actions, sélectionnez l’action souhaitée.
+       Dans la liste des actions, sélectionnez l’action souhaitée.
 
 1. Si vous êtes invité à vous connecter à Yammer, faites-le maintenant afin de pouvoir autoriser l’accès.
 

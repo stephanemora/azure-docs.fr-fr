@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667444"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "60949135"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Présentation du contrôle d’intégrité de Service Fabric
 Azure Service Fabric introduit un modèle d’intégrité qui fournit une évaluation et des rapports d’intégrité riches, flexibles et extensibles. Ce modèle permet un contrôle quasiment en temps réel de l’état du cluster et des services qu’il exécute. Vous pouvez facilement obtenir les informations de contrôle d’intégrité et corriger les problèmes potentiels avant qu’ils ne s’enchaînent et ne provoquent des pannes massives. Dans le modèle standard, les services envoient des rapports en fonction de leur vue locale et les informations sont agrégées pour fournir une vue globale du cluster.
@@ -42,7 +42,7 @@ Les entités d’intégrité reflètent les entités Service Fabric (par ex., **
 Les entités d’intégrité et la hiérarchie permettent un processus efficace de création de rapports, de débogage et d’analyse du cluster et des applications. Le modèle d’intégrité permet une représentation précise et *granulaire* de l’intégrité de nombreux éléments mobiles du cluster.
 
 ![Entités d’intégrité.][1]
- Entités d’intégrité, organisées dans une hiérarchie basée sur les relations parent-enfant.
+Entités d’intégrité, organisées dans une hiérarchie basée sur les relations parent-enfant.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
@@ -211,7 +211,7 @@ Les [rapports d'intégrité](https://docs.microsoft.com/dotnet/api/system.fabric
 * **RemoveWhenExpired**. Valeur booléenne. Si cette valeur est définie sur true, le rapport d’intégrité expiré est automatiquement supprimé du magasin d’état, sans impact sur l’évaluation de l’intégrité de l’entité. Ce paramètre est utilisé lorsque le rapport est valide pour une période donnée uniquement et que le rapporteur n’a pas besoin d’effacer explicitement. Il est également utilisé pour supprimer des rapports du magasin d’intégrité (par exemple, un agent de surveillance est modifié et cesse d’envoyer des rapports avec la source et la propriété précédentes). Il peut envoyer un rapport avec une faible valeur TimeToLive et avec le paramètre RemoveWhenExpired pour effacer les états précédents dans le magasin d’intégrité. Si la valeur est définie sur false, le rapport expiré est traité comme une erreur pendant l’évaluation de l’intégrité. La valeur false indique au magasin d’intégrité que la source doit établir périodiquement un rapport sur cette propriété. Si ce n’est pas le cas, l’agent de surveillance pose certainement problème. L’intégrité de l’agent de surveillance est capturée en tenant compte de l’événement en tant qu’erreur.
 * **SequenceNumber**. Entier positif qui doit être croissant, car il représente l’ordre des rapports. Ce paramètre est utilisé par le magasin d’intégrité pour détecter les rapports obsolètes, qui ont été reçus tardivement en raison de délais sur le réseau ou d’autres problèmes. Un rapport est rejeté si le numéro de séquence est inférieur ou égal au dernier numéro appliqué aux mêmes entité, source et propriété. S’il n’est pas spécifié, le numéro de séquence est généré automatiquement. Il est nécessaire de le placer dans le numéro de séquence uniquement lors de la création de rapports sur les transitions d’état. Dans ce cas, la source doit mémoriser les rapports qu’elle a envoyés et conserver les informations de récupération en cas de basculement.
 
-Les informations SourceId, entity identifier, Property et HealthState sont requises pour tous les rapports d’intégrité. La chaîne SourceId ne doit pas commencer par le préfixe «**System.**», car il est réservé aux rapports système. Pour la même entité, un seul rapport couvre les mêmes source et propriété. Plusieurs rapports générés pour la même source et la même propriété se remplacent l’un l’autre, du côté du client d’intégrité (s’ils sont traités par lot) ou du côté du magasin d’intégrité. Le remplacement s’effectue en fonction du numéro de séquence : les rapports les plus récents (avec un numéro de séquence supérieur) remplacent les rapports les plus anciens.
+Les informations SourceId, entity identifier, Property et HealthState sont requises pour tous les rapports d’intégrité. La chaîne SourceId ne doit pas commencer par le préfixe «**System.** », car il est réservé aux rapports système. Pour la même entité, un seul rapport couvre les mêmes source et propriété. Plusieurs rapports générés pour la même source et la même propriété se remplacent l’un l’autre, du côté du client d’intégrité (s’ils sont traités par lot) ou du côté du magasin d’intégrité. Le remplacement s’effectue en fonction du numéro de séquence : les rapports les plus récents (avec un numéro de séquence supérieur) remplacent les rapports les plus anciens.
 
 ### <a name="health-events"></a>Événements d'intégrité
 En interne, le magasin d’intégrité conserve les [événements d’intégrité](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), qui contiennent toutes les informations des rapports, ainsi que d’autres métadonnées, lesquelles indiquent l’heure à laquelle le rapport a été remis au client d’intégrité et l’heure de sa modification côté serveur. Les événements d’intégrité sont retournés par des [requêtes d’intégrité](service-fabric-view-entities-aggregated-health.md#health-queries).

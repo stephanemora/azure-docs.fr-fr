@@ -1,27 +1,18 @@
 ---
 title: Convertir les disques non managés d’une machine virtuelle Linux dans Azure en disques managés - Azure Disques managés | Microsoft Docs
 description: Guide pratique pour convertir les disques non managés d’une machine virtuelle Linux en disques managés à l’aide d’Azure CLI dans le modèle de déploiement Resource Manager
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 39a42891a73bd64731dd19aa22214a62d913d975
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a0157e75d0c8d2c2493792bcd8d30a856f8072b6
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700823"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696069"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Linux en disques managés
 
@@ -34,6 +25,7 @@ Cet article explique comment convertir des machines virtuelles avec Azure CLI. S
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
+* Les disques durs virtuels et le compte de stockage d’origine utilisé par la machine virtuelle avant la conversion ne sont pas supprimés. Ils continuent à être facturés. Pour éviter la facturation de ces artefacts, supprimez les objets BLOB du disque dur virtuel d’origine après avoir vérifié que la conversion est terminée. Si vous avez besoin de trouver ces disques libres afin de les supprimer, consultez notre article [Rechercher et supprimer les disques managés et non managés Azure non attachés](find-unattached-disks.md).
 
 ## <a name="convert-single-instance-vms"></a>Convertir des machines virtuelles à instance unique
 Cette section explique comment convertir vos machines virtuelles Azure à instance unique à partir de disques non managés vers des disques managés. (Si vos machines virtuelles sont dans un groupe à haute disponibilité, voir la section suivante.) Vous pouvez utiliser ce processus pour convertir les machines virtuelles qui utilisent des disques non managés premium (SSD) afin qu’elles utilisent des disques managés premium, ou qui utilisent des disques non managés standard (HDD) afin qu’elles utilisent des disques managés standard.
@@ -98,5 +90,18 @@ Toutes les machines virtuelles dans le groupe à haute disponibilité doivent ê
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
+## <a name="convert-using-the-azure-portal"></a>Convertir à l’aide du portail Azure
+
+Vous pouvez également convertir des disques non managés en disques managés à l’aide du portail Azure.
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Sélectionnez la machine virtuelle dans la liste des machines virtuelles sur le portail.
+3. Dans le panneau de la machine virtuelle, sélectionnez **Disques** dans le menu.
+4. En haut du panneau **Disques**, sélectionnez **Migrer vers des disques managés**.
+5. Si votre machine virtuelle se trouve dans un groupe à haute disponibilité, un avertissement apparaît sur le panneau **Migrer vers des disques managés**, indiquant que vous devez commencer par convertir le groupe à haute disponibilité. L’avertissement doit avoir un lien sur lequel vous pouvez cliquer pour convertir le groupe à haute disponibilité. Une fois le groupe à haute disponibilité converti, ou si votre machine virtuelle ne se trouve pas dans un groupe à haute disponibilité, cliquez sur **Migrate** pour démarrer le processus de migration de vos disques vers des disques managés.
+
+Lorsque la migration est terminée, la machine virtuelle est arrêtée, puis redémarrée.
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur les options de stockage, voir la page [Vue d’ensemble d’Azure Disques managés](../windows/managed-disks-overview.md).

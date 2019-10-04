@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble du portail Mon profil (préversion) - Azure Active Directory | Microsoft Docs
-description: Vue d’ensemble du portail Mon profil, avec notamment des liens vers d’autres articles connexes.
+description: Vue d’ensemble générale et liens vers des informations complémentaires sur le portail Mon profil et ses fonctionnalités.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,33 +9,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/19/2019
+ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59bd14b52124282e1e07d60daa4b891c2bab938
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: d72cc4360025d50c6db55bf3029d1edeb538a040
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337819"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382955"
 ---
 # <a name="my-profile-preview-portal-overview"></a>Vue d’ensemble du portail Mon profil (préversion)
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
-Vous pouvez utiliser le portail **Mon profil** (préversion) afin de gérer votre compte professionnel ou scolaire pour :
-
-- Configurer et gérer vos informations de sécurité pour la vérification en deux étapes et la réinitialisation de mot de passe
-
-- Gérer vos organisations et appareils connectés
-
-- Afficher la façon dont votre organisation utilise vos données
+Le portail **Mon profil** (préversion) vous aide à gérer votre compte professionnel ou scolaire en configurant et en gérant vos informations de sécurité, en gérant vos organisations et vos appareils connectés, ainsi qu’en affichant l’utilisation de vos données par votre organisation.
 
 >[!Important]
 >Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-## <a name="access-the-my-profile-portal"></a>Accéder au portail Mon profil
-Vous pouvez accéder au portail **Mon profil** en accédant à https://myprofile.microsoft.com à partir de la dernière version de l’un des navigateurs suivants :
+![Page Vue d’ensemble du portail Mon Profil](media/myprofile-portal/myprofile-portal-overview.png)
+
+## <a name="go-to-the-my-profile-portal"></a>Accéder au portail Mon profil
+
+Vous pouvez accéder au portail **Mon profil** (https://myprofile.microsoft.com) à partir de la version actuelle de l’un des navigateurs suivants :
 
 - Chrome
 - Microsoft Edge
@@ -43,14 +40,13 @@ Vous pouvez accéder au portail **Mon profil** en accédant à https://myprofile
 - Firefox
 - Internet Explorer 11
 
-    ![Page Vue d’ensemble du portail Mon Profil](media/myprofile-portal/myprofile-portal-overview.png)
+## <a name="my-profile-portal-articles"></a>Articles sur le portail Mon profil
 
-## <a name="in-this-section"></a>Dans cette section
-Vous trouverez plus d’informations sur le portail **Mon profil** et ses pages dans les articles suivants.
+Pour obtenir des informations détaillées et des instructions sur les opérations qu’il est possible d’effectuer à partir du portail **Mon profil**, consultez les articles suivants :
 
 |Article |Description |
 |------|------------|
-|[Gérer vos informations de sécurité (préversion)](user-help-security-info-overview.md)|Décrit comment configurer et gérer vos informations de sécurité.|
-|[Gérer vos organisations](myprofile-portal-organizations-page.md)|Décrit comment gérer les organisations connectées à votre compte professionnel ou scolaire.|
-|[Gérer vos appareils connectés](myprofile-portal-devices-page.md)| Décrit comment gérer les appareils que vous avez connectés à votre compte professionnel ou scolaire.|
-|[Afficher vos informations de confidentialité](myprofile-portal-privacy-page.md)|Décrit comment passer en revue ce que votre organisation fait de vos données.|
+| [Ajouter vos informations de sécurité](user-help-security-info-overview.md) | Plusieurs articles contenant des instructions sur la façon de configurer l’application Microsoft Authenticator, la messagerie texte ou les appels téléphoniques comme méthode de vérification. Inclut également des articles sur l’ajout d’une adresse e-mail ou de questions de sécurité prédéfinies pour que vous puissiez réinitialiser votre mot de passe oublié, si nécessaire.|
+| [Afficher ou quitter vos organisations connectées](myprofile-portal-organizations-page.md) | Instructions sur la façon d’afficher ou de quitter des organisations connectées à votre compte professionnel ou scolaire.|
+| [Afficher ou désactiver vos appareils connectés](myprofile-portal-devices-page.md) | Instructions sur la façon d’afficher ou de désactiver des appareils que vous avez connectés à votre compte professionnel ou scolaire.|
+| [Afficher vos informations de confidentialité](myprofile-portal-privacy-page.md) | Instructions sur la façon d’afficher les services en ligne qui sont connectés à votre compte professionnel ou scolaire, ainsi que la déclaration des conditions d’utilisation de votre organisation.|

@@ -1,5 +1,5 @@
 ---
-title: Vérification en deux étapes Azure MFA et AD FS - Azure Active Directory
+title: Vérification en deux étapes - Azure MFA and AD FS - Azure Active Directory
 description: Ceci est la page d'Azure Multi-Factor Authentication qui explique la prise en main d’Azure MFA et des services AD FS.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,17 +12,17 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 58cfac56af9074e065431f6adbd44496adc7c7a6
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369681"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60414504"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Prise en main d’Azure Multi-Factor Authentication et des services de fédération Active Directory (AD FS)
 
 <center>
 
-![Azure MFA et AD FS de la mise en route](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+![Prise en main d'Azure MFA et d'ADFS](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 Si votre organisation a fédéré votre Active Directory local avec Azure Active Directory à l’aide d’AD FS, vous disposez de deux options pour l’utilisation d’Azure Multi-Factor Authentication.
 

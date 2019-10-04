@@ -1,5 +1,5 @@
 ---
-title: 'SSMS : Se connecter à une base de données Azure SQL et interroger les données | Microsoft Docs'
+title: 'SSMS : Se connecter à la base de données Azure SQL et interroger les données | Microsoft Docs'
 description: Découvrez comment vous connecter à Base de données SQL sur Azure avec SQL Server Management Studio (SSMS). Ensuite, exécutez des instructions Transact-SQL (T-SQL) pour interroger et modifier des données.
 keywords: connexion à une base de données sql, sql server management studio
 services: sql-database
@@ -11,14 +11,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0a08ee9d38065b0dff13f68a7b5473aa93787cf5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359984"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569182"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Démarrage rapide : Utilisez SQL Server Management Studio pour se connecter et interroger une base de données Azure SQL
 
@@ -26,7 +25,7 @@ Dans ce guide de démarrage rapide, vous allez utiliser [SQL Server Management S
 
 ## <a name="prerequisites"></a>Prérequis
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
@@ -37,7 +36,6 @@ Dans ce guide de démarrage rapide, vous allez utiliser [SQL Server Management S
   |||[Connectivité à partir d’une machine locale](sql-database-managed-instance-configure-p2s.md)
   |Charger des données|Adventure Works chargé dans le cadre du guide de démarrage rapide|[Restaurer Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Restaurer ou importer Adventure Works à partir du fichier [BACPAC](sql-database-import.md) disponible sur [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
 
   > [!IMPORTANT]
   > Les scripts fournis dans cet article utilisent la base de données Adventure Works. Avec une instance managée, vous devez importer la base de données Adventure Works dans une base de données d’instance, ou modifier les scripts fournis dans cet article pour utiliser la base de données Wide World Importers.
@@ -48,7 +46,7 @@ Avant de commencer, assurez-vous d'avoir installé la dernière version de [SSMS
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données SQL Azure. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -79,7 +77,7 @@ Dans SMSS, connectez-vous à votre serveur Azure SQL Database.
 
    ![connect to server](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. Sélectionnez **Options** dans la boîte de dialogue **Se connecter au serveur**. Dans le menu déroulant **Se connecter à une base de données**, sélectionnez **mySampleDatabase**.
+3. Sélectionnez **Options** dans la boîte de dialogue **Se connecter au serveur**. Dans le menu déroulant **Se connecter à la base de données**, sélectionnez **mySampleDatabase**.
 
    ![connexion à la base de données sur le serveur](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
@@ -87,7 +85,7 @@ Dans SMSS, connectez-vous à votre serveur Azure SQL Database.
 
 5. Pour afficher les objets de la base de données, développez **Bases de données**, puis **mySampleDatabase**.
 
-   ![afficher les objets de base de données](./media/sql-database-connect-query-ssms/connected.png)  
+   ![Objets mySampleDatabase](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>Données de requête
 
@@ -106,7 +104,7 @@ Exécutez ce code Transact-SQL [SELECT](https://msdn.microsoft.com/library/ms189
 
 3. Dans la barre d’outils, sélectionnez **Exécuter** pour récupérer des données à partir des tables `Product` et `ProductCategory`.
 
-    ![Requête pour récupérer des données à partir de 2 tables](./media/sql-database-connect-query-ssms/query2.png)
+    ![requête pour récupérer des données à partir de la table Product et ProductCategory](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Insertion des données
 
@@ -133,7 +131,7 @@ Exécutez ce code Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174
            ,GETDATE() );
    ```
 
-2. Sélectionnez **Exécuter** pour insérer une nouvelle ligne dans la table `Product`. Le volet **Messages** affiche **(1 ligne affectée)**.
+2. Sélectionnez **Exécuter** pour insérer une nouvelle ligne dans la table `Product`. Le volet **Messages** affiche **(1 ligne affectée)** .
 
 ## <a name="view-the-result"></a>Afficher le résultat
 
@@ -146,7 +144,7 @@ Exécutez ce code Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms174
 
 2. Sélectionnez **Exécuter**. Le résultat suivant s’affiche.
 
-   ![result](./media/sql-database-connect-query-ssms/result.png)
+   ![résultat de requête sur la table Product](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>Mettre à jour des données
 
@@ -160,7 +158,7 @@ Exécutez ce code Transact-SQL [UPDATE](https://msdn.microsoft.com/library/ms177
    WHERE Name = 'myNewProduct';
    ```
 
-2. Sélectionnez **Exécuter** pour mettre à jour la ligne spécifiée dans la table `Product`. Le volet **Messages** affiche **(1 ligne affectée)**.
+2. Sélectionnez **Exécuter** pour mettre à jour la ligne spécifiée dans la table `Product`. Le volet **Messages** affiche **(1 ligne affectée)** .
 
 ## <a name="delete-data"></a>Suppression de données
 
@@ -173,7 +171,7 @@ Exécutez ce code Transact-SQL [DELETE](https://msdn.microsoft.com/library/ms189
    WHERE Name = 'myNewProduct';
    ```
 
-2. Sélectionnez **Exécuter** pour supprimer la ligne spécifiée dans la table `Product`. Le volet **Messages** affiche **(1 ligne affectée)**.
+2. Sélectionnez **Exécuter** pour supprimer la ligne spécifiée dans la table `Product`. Le volet **Messages** affiche **(1 ligne affectée)** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

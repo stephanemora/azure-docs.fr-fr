@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
 ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359420"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66153826"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -136,7 +136,7 @@ Non. Les machines virtuelles de faible priorité ne sont pas prises en charge.
 Les procédés suivants permettent à votre application d’obtenir des informations d’identification pour s’authentifier auprès de Key Vault :
 
 R. Au cours de votre travail de génération/compression d’applications, vous pouvez extraire un certificat et l’utiliser dans le package de données de votre application SF en vue de l’authentification auprès de Key Vault.
-B. Pour les machines virtuelles identiques sur les hôtes MSI est activée, vous pouvez développer un PowerShell SetupEntryPoint simple pour votre application service Fabric pour obtenir [un jeton d’accès du point de terminaison MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), puis [extraire vos secrets KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+B. Pour les hôtes MSI d’un groupe de machines virtuelles identiques, vous pouvez développer un élément PowerShell SetupEntryPoint simple pour votre application SF afin d’obtenir [un jeton d’accès à partir du point de terminaison MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), puis [récupérer vos secrets à partir de Key Vault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>Conception des applications
 
@@ -192,4 +192,4 @@ Consultez le [blog Service Fabric](https://blogs.msdn.microsoft.com/azureservice
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [principaux concepts de Service Fabric](service-fabric-technical-overview.md) et [meilleures pratiques](service-fabric-best-practices-overview.md) Fabric concepts](service-fabric-technical-overview.md) de glace et [meilleures pratiques](service-fabric-best-practices-overview.md)
+En savoir plus sur les [principaux concepts](service-fabric-technical-overview.md) et les [meilleurs pratiques](service-fabric-best-practices-overview.md) ice Fabric concepts](service-fabric-technical-overview.md) de [Service Fabric](service-fabric-best-practices-overview.md)

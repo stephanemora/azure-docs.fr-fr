@@ -1,6 +1,6 @@
 ---
-title: Recherche de nom d’utilisateur au cours de l’authentification de connexion - Azure Active Directory | Microsoft Docs
-description: Comment l’écran messagerie reflète le nom d’utilisateur recherche pendant la connexion
+title: Recherche du nom d’utilisateur lors de l’authentification - Azure Active Directory | Microsoft Docs
+description: Comment les messages à l’écran reflètent la recherche de nom d’utilisateur en cours de connexion
 services: active-directory
 author: curtand
 manager: mtillman
@@ -13,48 +13,48 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: db627359b75aa0ea19e30a8d22bcacaa3409cb4a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608773"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66418152"
 ---
-# <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Découverte de domaine d’accueil pour les pages de connexion Azure Active Directory
+# <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Découverte du domaine d’accueil pour les pages de connexion Azure Active Directory
 
-Nous modifions notre comportement de connexion à Azure Active Directory (Azure AD) pour laisser place à de nouvelles méthodes d'authentification et améliorer la convivialité. Lors de la connexion, Azure AD détermine où un utilisateur doit s'authentifier. Azure AD prend des décisions intelligentes en lisant les paramètres d'organisation et d'utilisateur qui s'appliquent au nom d'utilisateur entré sur la page de connexion. Il s'agit d'un pas en avant vers un avenir sans mot de passe avec la possibilité d'utiliser des informations d'identification supplémentaires telles que FIDO 2.0.
+Nous modifions notre comportement de connexion à Azure Active Directory (Azure AD) pour laisser place à de nouvelles méthodes d’authentification et améliorer la convivialité. Lors de la connexion, Azure AD détermine où un utilisateur doit s’authentifier. Azure AD prend des décisions intelligentes en lisant les paramètres d’organisation et d’utilisateur qui s’appliquent au nom d’utilisateur entré sur la page de connexion. Il s’agit d’un pas en avant vers un avenir sans mot de passe avec la possibilité d’utiliser des informations d’identification supplémentaires telles que FIDO 2.0.
 
-## <a name="home-realm-discovery-behavior"></a>Comportement de découverte de domaine d’accueil
+## <a name="home-realm-discovery-behavior"></a>Comportement de la découverte du domaine d’accueil
 
-Historiquement, la découverte du domaine d’accueil a été régie par le domaine qui est fourni à la connexion ou par une stratégie de découverte du domaine domestique pour certaines applications héritées. Par exemple, dans notre comportement de découverte un utilisateur Azure Active Directory impossible faute de frappe dans leur nom d’utilisateur, mais toujours arrivent sur l’écran de collection d’informations d’identification de leur organisation. Cela se produit lorsque l’utilisateur répond correctement le nom de domaine de « contoso.com » l’organisation. Ce comportement n'offre pas la granularité nécessaire pour personnaliser l'expérience d'un utilisateur individuel.
+Historiquement, la découverte du domaine d’accueil était régie par le domaine fourni lors de la connexion ou par une politique de découverte du domaine d’accueil pour certaines applications héritées. Par exemple, dans notre comportement de découverte, lorsqu’un utilisateur Azure Active Directory saisit mal son nom d’utilisateur, il a quand même accès à l’écran de collecte des informations d’identification de son organisation. Cela se produit lorsque l’utilisateur entre correctement le nom de domaine de l’organisation « contoso.com ». Ce comportement n’offre pas la granularité nécessaire pour personnaliser l’expérience d’un utilisateur individuel.
 
-Pour prendre en charge un large éventail d’informations d’identification et de faciliter l’utilisation, le comportement de recherche de nom d’utilisateur Azure Active Directory pendant le processus de connexion est désormais mis à jour. Le nouveau comportement prend des décisions intelligentes en lisant les paramètres de niveau client et utilisateur basés sur le nom d’utilisateur entré sur la page de connexion. Pour ce faire, Azure Active Directory vérifie si le nom d’utilisateur est entré dans la page de connexion existe dans leur domaine spécifié ou qu’il redirige l’utilisateur pour fournir leurs informations d’identification.
+Afin de prendre en charge un plus grand nombre d’informations d’identification et d’augmenter la convivialité, le comportement de recherche de nom d’utilisateur d’Azure Active Directory pendant le processus de connexion est maintenant mis à jour. Le nouveau comportement prend des décisions intelligentes en lisant les paramètres des locataires et des utilisateurs en fonction du nom d’utilisateur entré sur la page de connexion. Pour que ceci soit possible, Azure Active Directory vérifiera si le nom d’utilisateur entré sur la page de connexion existe dans le domaine spécifié ou redirigera l’utilisateur pour qu’il fournisse ses informations d’identification.
 
-Un autre avantage de ce travail est l’amélioration des erreurs de messagerie. Voici quelques exemples de l’erreur améliorée messagerie lorsque vous vous connectez à une application qui prend en charge uniquement les utilisateurs Azure Active Directory.
+Un autre avantage de ce travail est l’amélioration de la messagerie d’erreur. Voici quelques exemples de la messagerie d’erreur améliorée lors de la connexion à une application qui supporte uniquement les utilisateurs Azure Active Directory.
 
-1. Le nom d’utilisateur est mal orthographiée ou le nom d’utilisateur n’a pas encore été synchronisé à Azure AD :
+- Le nom d’utilisateur est mal orthographié ou n’a pas encore été synchronisé avec Azure AD :
   
-    ![le nom d’utilisateur est mal orthographiée ou introuvable](./media/signin-realm-discovery/typo-username.png)
+    ![le nom d’utilisateur est mal orthographié ou introuvable](./media/signin-realm-discovery/typo-username.png)
   
-2. Le nom de domaine est mal tapé :
+- Le nom de domaine est mal orthographié :
   
-    ![le nom de domaine est mal orthographiée ou introuvable](./media/signin-realm-discovery/typo-domain.png)
+    ![le nom de domaine est mal orthographié ou introuvable](./media/signin-realm-discovery/typo-domain.png)
   
-3. Utilisateur tente de se connecter avec un domaine consommateur connus :
+- L’utilisateur tente de se connecter avec un domaine de consommateur connu :
   
-    ![Connectez-vous à l’aide d’un domaine consommateur connus](./media/signin-realm-discovery/consumer-domain.png)
+    ![connectez-vous avec un domaine de consommateur connu](./media/signin-realm-discovery/consumer-domain.png)
   
-4. Le mot de passe mal orthographié, mais le nom d’utilisateur est précis :  
+- Le mot de passe est mal orthographié, mais le nom d’utilisateur est correct :  
   
-    ![faute de frappe de mot de passe avec le bon nom d’utilisateur](./media/signin-realm-discovery/incorrect-password.png)
+    ![le mot de mot de passe est mal orthographié, tandis que le nom d’utilisateur est correct](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> Cette fonctionnalité peut avoir un impact sur les domaines fédérés ancien domaine au niveau de la découverte d’accueil pour forcer la fédération de partie de confiance. Pour les mises à jour sur la prise en charge du domaine fédéré lorsque sera ajouté, consultez [découverte du domaine d’accueil lors de la connexion pour les services Microsoft 365](https://azure.microsoft.com/en-us/updates/signin-hrd/). En attendant, certaines organisations ont formé leurs employés de se connecter avec un nom d’utilisateur qui n’existe pas dans Azure Active Directory mais qui contient le nom de domaine approprié, étant donné que les noms de domaine achemine les utilisateurs actuellement au point de terminaison de domaine de leur organisation. Le nouveau comportement de connexion ne permet pas cela. L’utilisateur est prévenu pour corriger le nom d’utilisateur, et ils ne sont pas autorisés à se connecter avec un nom d’utilisateur qui n’existe pas dans Azure Active Directory.
+> Cette fonctionnalité peut impacter les domaines fédérés s’appuyant sur l’ancien niveau de domaine de la découverte du domaine d’accueil pour forcer la fédération. Pour savoir quand les mises à jour permettant la prise en charge des domaines fédérés seront ajoutées, veuillez consulter [Découverte du domaine d’accueil lors de la connexion aux services Microsoft 365](https://azure.microsoft.com/updates/signin-hrd/). Entre-temps, certaines organisations ont formé leurs employés à se connecter avec un nom d’utilisateur qui n’existe pas dans Azure Active Directory mais qui contient le nom de domaine propre, car les noms de domaine acheminent actuellement les utilisateurs vers le point de terminaison du domaine de leur organisation. Le nouveau comportement de connexion ne le permet pas. L’utilisateur est invité à corriger son nom d’utilisateur, et il n’est pas autorisé à se connecter avec un nom d’utilisateur qui n’existe pas dans Azure Active Directory.
 >
-> Si vous ou votre organisation avez pratiques qui dépendent de l’ancien comportement, il est important que les administrateurs d’entreprise pour mettre à jour de la documentation de l’authentification et l’authentification par employé et pour l’apprentissage aux employés d’utiliser leur nom d’utilisateur Azure Active Directory pour vous connecter.
+> Si vos pratiques reposent sur l’ancien comportement, les administrateurs de votre organisation doivent mettre à jour la documentation de connexion et d’authentification des employés, et former ces derniers à utiliser leur nom d’utilisateur Azure Active Directory pour se connecter.
   
-Si vous avez des problèmes avec le nouveau comportement, laissez vos remarques dans le **commentaires** section de cet article.  
+Si vous avez des inquiétudes concernant le nouveau comportement, veuillez nous transmettre vos remarques dans la section **Commentaires** de cet article.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Personnaliser votre connexion de personnalisation](../fundamentals/add-custom-domain.md)
+[Ajouter votre nom de domaine personnalisé](../fundamentals/add-custom-domain.md)

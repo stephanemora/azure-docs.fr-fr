@@ -2,7 +2,6 @@
 title: Utiliser Azure Toolkit for IntelliJ avec Hortonworks Sandbox
 description: Découvrez comment utiliser HDInsight Tools dans le Kit de ressources Azure pour IntelliJ avec Hortonworks Sandbox.
 keywords: outils Hadoop, requête hive, intellij, hortonworks sandbox, kit de ressources azure pour intellij
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 98f22f531ca15bf88cd7d0a9add2851651e2eec7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 783d7fc8bc26ce2c715c774e63ecf60c5b75a439
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118321"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076254"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Utiliser HDInsight Tools pour IntelliJ avec Hortonworks Sandbox
 
@@ -23,9 +22,9 @@ Découvrez comment utiliser HDInsight Tools pour IntelliJ pour développer des a
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) est un environnement de développement Java intégré (IDE) pour développer des logiciels. Après avoir développé et testé vos applications sur Hortonworks Sandbox, vous pouvez les déplacer vers [Azure HDInsight](apache-hadoop-introduction.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 - Hortonworks Data Platform (HDP) 2.4 on Hortonworks Sandbox s’exécutant sur votre ordinateur local. Pour configurer HDP, consultez [Bien démarrer dans l’écosystème Apache Hadoop avec un bac à sable (sandbox) Hadoop sur une machine virtuelle](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
@@ -50,13 +49,13 @@ Dans cette section, vous créez un exemple de projet Scala à l’aide d’Intel
 
 1. Ouvrez IntelliJ IDEA sur votre ordinateur. Dans la boîte de dialogue **New Project** (Nouveau projet), suivez ces étapes :
 
-   1. Sélectionnez **HDInsight** > **Spark sur HDInsight (Scala)**.
+   1. Sélectionnez **HDInsight** > **Spark sur HDInsight (Scala)** .
    2. Dans la liste des **outils de génération**, sélectionnez l’une des options suivantes, en fonction de vos besoins :
 
       * **Maven** : pour la prise en charge de l’assistant de création de projets Scala.
       * **SBT**: pour gérer les dépendances et la génération du projet Scala
 
-   ![Boîte de dialogue Nouveau projet](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
+   ![IntelliJ - Créer un projet Scala](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
 2. Sélectionnez **Suivant**.
 3. Dans la boîte de dialogue suivante **New Project** (Nouveau projet), effectuez ces étapes :
@@ -142,8 +141,8 @@ Pour envoyer un projet à un émulateur :
 1. Dans l’**Explorateur de projets**, cliquez avec le bouton droit sur le nom du projet et sélectionnez **Submit Spark Application to HDInsight** (Envoyer l’application Spark à HDInsight).
 2. Effectuez ensuite les tâches suivantes :
 
-    1. Dans la liste déroulante **Cluster Spark (Linux uniquement)**, sélectionnez votre Hortonworks Sandbox local.
-    2. Dans la zone **Nom de la classe principale**, sélectionnez ou entrez le nom de la classe principale. Pour ce didacticiel, il s’agit de **GroupByTest**.
+    1. Dans la liste déroulante **Cluster Spark (Linux uniquement)** , sélectionnez votre Hortonworks Sandbox local.
+    2. Dans la zone **Nom de la classe principale**, sélectionnez ou entrez le nom de la classe principale. Dans le cas de cet article, il s’agit de **GroupByTest**.
 
 3. Sélectionnez **Envoyer**. Les journaux d’activité d’envoi de travaux sont affichés dans la fenêtre d’outil d’envoi Spark.
 

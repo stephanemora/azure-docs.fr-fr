@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 58c4f42859f735a81a3e3edc801daff5d26194a0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997646"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65953128"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gérer le calcul sur votre Azure Data Box Edge
 
 Cet article explique comment gérer le calcul sur votre Azure Data Box Edge. Vous pouvez gérer le calcul via le portail Azure ou l’interface utilisateur web locale. Le portail Azure vous permet de gérer les modules, les déclencheurs, la configuration du calcul et l’interface utilisateur pour la définition des paramètres de calcul.
-
-> [!IMPORTANT]
-> Data Box Edge est en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution.
-
 
 Dans cet article, vous apprendrez comment :
 
@@ -133,24 +129,6 @@ Pour synchroniser les clés d’accès pour votre appareil, procédez comme suit
 
 3. Fermez la boîte de dialogue une fois la synchronisation terminée.
 
-## <a name="enable-a-network-interface-for-compute"></a>Activer une interface réseau pour le computing
-
-Vous serez peut-être amené à accéder à un module s’exécutant sur votre appareil Data Box Edge. Pour accéder au module en externe, vous devez affecter une adresse IP à une interface réseau sur votre appareil. Vous pouvez gérer ces paramètres de computing à partir de votre interface utilisateur web locale.
-
-Effectuez les étapes suivantes sur votre interface utilisateur web locale pour configurer les paramètres de computing.
-
-1. Dans l’interface utilisateur web locale, accédez à **Configuration > Compute settings** (Paramètres de computing).  
-
-2. **Activez** l’interface réseau que vous souhaitez utiliser pour la connexion aux modules de computing sur l’appareil. 
-
-    - Si vous utilisez des adresses IP statiques, entrez une adresse IP pour l’interface réseau.
-    - Si vous utilisez DHCP, les adresses IP sont attribuées automatiquement.
-
-3. Sélectionnez **Apply** pour appliquer les paramètres.
-
-    ![Activer les paramètres de computing](media/data-box-edge-manage-compute/compute-settings-1.png)
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [gérer des utilisateurs via le Portail Azure](data-box-edge-manage-users.md).
+- Découvrez comment [Gérer le réseau du computing en périphérie via le portail Azure](data-box-edge-extend-compute-access-modules.md).

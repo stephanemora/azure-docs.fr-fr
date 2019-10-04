@@ -3,21 +3,20 @@ title: Exécuter des travaux de bout en bout à l’aide de modèles - Azure Bat
 description: Créez des pools, travails et tâches Batch avec des modèles de fichier et l’interface de ligne de commande Azure.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 4733cf1a83bec472baae42f2ac29636bff5fc324
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547675"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70095315"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utiliser des modèles d’interface de ligne de commande Azure Batch et le transfert de fichiers
 
@@ -25,7 +24,7 @@ Vous pouvez utiliser une extension Azure Batch de l’interface Azure CLI pour 
 
 Créez et utilisez des modèles de fichier JSON avec Azure CLI pour créer des pools, travaux et tâches Batch. Utilisez des commandes d’extension LCI pour charger facilement les fichiers d’entrée des travaux dans le compte de stockage associé au compte Batch, et télécharger les fichiers de sortie de travaux.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Une extension de l’interface Azure CLI permet aux utilisateurs qui ne sont pas des développeurs d’utiliser Batch de bout en bout. En utilisant juste des commandes CLI, vous pouvez créer un pool, charger des données d’entrée, créer des travaux et des tâches associées, et télécharger les données de sortie produites. Aucun code supplémentaire n’est nécessaire. Exécutez les commandes CLI directement, ou intégrez-les dans des scripts.
 
@@ -144,7 +143,7 @@ Si le fichier de modèle est nommé _pool-ffmpeg.json_, appelez le modèle de la
 az batch pool create --template pool-ffmpeg.json
 ```
 
-L’interface CLI vous invite à fournir des valeurs pour les paramètres `poolId` et `nodeCount`. Vous pouvez également définir les paramètres dans un fichier JSON. Par exemple : 
+L’interface CLI vous invite à fournir des valeurs pour les paramètres `poolId` et `nodeCount`. Vous pouvez également définir les paramètres dans un fichier JSON. Par exemple :
 
 ```json
 {

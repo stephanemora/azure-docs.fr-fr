@@ -1,22 +1,17 @@
 ---
 title: Meilleures pratiques relatives aux modèles Azure Resource Manager
 description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager. Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/05/2019
+ms.date: 09/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: bd3167b7f0daf7ebd595b2c33b1147140415c3de
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440470"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983819"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Meilleures pratiques relatives aux modèles Azure Resource Manager
 
@@ -28,7 +23,7 @@ Pour obtenir des suggestions sur la création de modèles qui fonctionnent dans 
 
 ## <a name="template-limits"></a>Limites de modèle
 
-Limitez la taille de votre modèle à 1 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 1 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres. 
+Limitez la taille de votre modèle à 4 Mo et celle de chaque fichier de paramètres à 64 ko. La limite de 4 Mo s’applique à l’état final du modèle une fois développé avec les définitions des ressources itératives et les valeurs des variables et des paramètres. 
 
 Vous devez également respecter les limites suivantes :
 
@@ -40,14 +35,15 @@ Vous devez également respecter les limites suivantes :
 
 Vous pouvez dépasser certaines limites de modèle en utilisant un modèle imbriqué. Pour plus d’informations, consultez l’article [Utilisation de modèles liés lors du déploiement des ressources Azure](resource-group-linked-templates.md). Pour réduire le nombre de paramètres, de variables ou de sorties, vous pouvez combiner plusieurs valeurs dans un même objet. Pour plus d’informations, consultez l’article [Objects as parameters](resource-manager-objects-as-parameters.md) (Utiliser un objet en tant que paramètre).
 
-## <a name="resource-group"></a>Groupe de ressources
+## <a name="resource-group"></a>Resource group
 
-Lorsque vous déployez des ressources à un groupe de ressources, le groupe de ressources stocke des métadonnées sur les ressources. Les métadonnées sont stockées dans l’emplacement du groupe de ressources.
+Lorsque vous déployez des ressources dans un groupe de ressources, celui-ci stocke des métadonnées relatives aux ressources. Les métadonnées sont stockées à l'emplacement du groupe de ressources.
 
-Si la région du groupe de ressources est temporairement indisponible, vous ne peut pas mettre à jour les ressources dans le groupe de ressources, car les métadonnées ne sont pas disponible. Les ressources dans d’autres régions vont continuer de fonctionner comme prévu, mais vous ne pouvez pas mettre à jour. Pour réduire le risque, localisez votre groupe de ressources et les ressources dans la même région.
+Si la région du groupe de ressources est temporairement indisponible, vous ne pourrez pas mettre à jour les ressources du groupe, car les métadonnées ne seront pas disponibles. Les ressources des autres régions continueront de fonctionner comme prévu, mais vous ne pourrez pas les mettre à jour. Pour réduire les risques, placez votre groupe de ressources et vos ressources dans la même région.
 
 ## <a name="parameters"></a>parameters
-Les informations de cette section peuvent être utiles lorsque vous travaillez avec des [paramètres](resource-group-authoring-templates.md#parameters).
+
+Les informations de cette section peuvent être utiles lorsque vous travaillez avec des [paramètres](template-parameters.md).
 
 ### <a name="general-recommendations-for-parameters"></a>Suggestions générales pour les paramètres
 
@@ -149,7 +145,9 @@ Les informations de cette section peuvent être utiles lorsque vous travaillez a
 
 ## <a name="variables"></a>variables
 
-Les informations suivantes peuvent être utiles lorsque vous travaillez avec des [variables](resource-group-authoring-templates.md#variables) :
+Les informations suivantes peuvent être utiles lorsque vous travaillez avec des [variables](template-variables.md) :
+
+* Utilisez la case mixte pour les noms de variables.
 
 * Utilisez des variables pour les valeurs que vous devez utiliser plusieurs fois dans un modèle. Si une valeur est utilisée une seule fois, une valeur codée en dur rend votre modèle plus facile à lire.
 
@@ -173,7 +171,7 @@ Lorsque vous décidez des [dépendances](resource-group-define-dependencies.md) 
 
 * Définissez une ressource enfant comme dépendante de sa ressource parent.
 
-* Les ressources avec l’[élément condition](resource-group-authoring-templates.md#condition) défini sur false sont automatiquement supprimées de l’ordre de dépendance. Définissez les dépendances comme si la ressource était toujours déployée.
+* Les ressources avec l’[élément condition](conditional-resource-deployment.md) défini sur false sont automatiquement supprimées de l’ordre de dépendance. Définissez les dépendances comme si la ressource était toujours déployée.
 
 * Ajoutez les dépendances l’une après l’autre sans les définir explicitement. Par exemple, votre machine virtuelle dépend d’une interface de réseau virtuel, et l’interface de réseau virtuelle dépend d’un réseau virtuel et d’adresses IP publiques. Par conséquent, la machine virtuelle est déployée après les trois ressources. Cependant, ne définissez pas explicitement la machine virtuelle comme dépendante de ces trois ressources. Cette approche permet de clarifier l’ordre des dépendances et de simplifier les modifications ultérieures du modèle.
 
@@ -190,7 +188,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
      {
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
+         "apiVersion": "2019-06-01",
          "location": "[resourceGroup().location]",
          "comments": "This storage account is used to store the VM disks.",
          ...
@@ -201,43 +199,32 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 * Si vous utilisez un *point de terminaison public* dans votre modèle (par exemple, un point de terminaison public Azure Blob Storage), *ne codez pas en dur* l’espace de noms. Utilisez la fonction **référence** pour récupérer l’espace de noms dynamiquement. Cette approche vous permet de déployer le modèle dans différents environnements d’espace de noms publics sans modifier manuellement le point de terminaison dans le modèle. Définissez la version d’API sur la version que vous utilisez pour le compte de stockage dans votre modèle :
    
    ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```
    
-   Si le compte de stockage est déployé dans le même modèle que celui que vous créez, vous n’avez pas besoin de spécifier l’espace de noms du fournisseur pendant le référencement de la ressource. L’exemple suivant montre la syntaxe simplifiée :
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   Si vous avez d’autres valeurs dans votre modèle configuré avec un espace de noms public, modifiez les valeurs de manière à ce qu’elles reflètent la même fonction de **référence**. Par exemple, vous pouvez définir la propriété **storageUri** du profil de diagnostic de la machine virtuelle :
+   Si le compte de stockage est déployé dans le même modèle que celui que vous créez et que le nom du compte de stockage n’est pas partagé avec une autre ressource dans le modèle, vous n’avez pas besoin de spécifier l’espace de noms du fournisseur ou la valeur apiVersion quand vous référencez la ressource. L’exemple suivant montre la syntaxe simplifiée :
    
    ```json
    "diagnosticsProfile": {
        "bootDiagnostics": {
            "enabled": "true",
-           "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
+           "storageUri": "[reference(variables('storageAccountName')).primaryEndpoints.blob]"
        }
    }
    ```
-   
+     
    Vous pouvez également référencer un compte de stockage existant dans un autre groupe de ressources :
 
    ```json
-   "osDisk": {
-       "name": "osdisk", 
-       "vhd": {
-           "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
+   "diagnosticsProfile": {
+       "bootDiagnostics": {
+           "enabled": "true",
+           "storageUri": "[reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('existingStorageAccountName')), '2019-06-01').primaryEndpoints.blob]"
        }
    }
    ```
@@ -295,7 +282,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 
 ## <a name="outputs"></a>Outputs
 
-Si vous utilisez un modèle pour créer des adresses IP publiques, il doit comporter une [section outputs](resource-group-authoring-templates.md#outputs) qui renvoie les détails de l’adresse IP et le nom de domaine complet (FQDN). Vous pouvez utiliser des valeurs de sortie pour récupérer facilement plus d’informations sur les adresses IP publiques et sur les noms de domaine complets après le déploiement.
+Si vous utilisez un modèle pour créer des adresses IP publiques, il doit comporter une [section outputs](template-outputs.md) qui renvoie les détails de l’adresse IP et le nom de domaine complet (FQDN). Vous pouvez utiliser des valeurs de sortie pour récupérer facilement plus d’informations sur les adresses IP publiques et sur les noms de domaine complets après le déploiement.
 
 ```json
 "outputs": {

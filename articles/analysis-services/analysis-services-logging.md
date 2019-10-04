@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: MT
+ms.openlocfilehash: b158545390dafa36e7dad285953c78243f891f28
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010920"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71259427"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurer la journalisation des diagnostics
 
-Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic des ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md), vous pouvez analyser et envoyer des journaux d’activité au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers les [journaux d’activité Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
+Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic des ressources Azure](../azure-monitor/platform/resource-logs-overview.md), vous pouvez analyser et envoyer des journaux d’activité au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers les [journaux d’activité Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Journalisation des diagnostics dans le Stockage, Event Hubs ou les journaux d’activité Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -29,7 +29,7 @@ Vous pouvez sélectionner les catégories **Moteur**, **Service** et **Métrique
 
 ### <a name="engine"></a>Engine (Moteur)
 
-L’option **Moteur** enregistre toutes les événements [xEvent](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Vous ne pouvez pas sélectionner des événements individuels. 
+L’option **Moteur** enregistre toutes les événements [xEvent](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Vous ne pouvez pas sélectionner des événements individuels. 
 
 |Catégories de XEvent |Nom de l'événement  |
 |---------|---------|
@@ -67,7 +67,7 @@ L’option **Moteur** enregistre toutes les événements [xEvent](https://docs.m
 
 ### <a name="all-metrics"></a>Toutes les métriques
 
-La catégorie Métriques journalise les mêmes [métriques serveur](analysis-services-monitor.md#server-metrics) que celles affichées dans les Métriques.
+La catégorie Métriques consigne les mêmes [métriques de serveur](analysis-services-monitor.md#server-metrics) dans la table AzureMetrics. Si vous utilisez un [scale-out](analysis-services-scale-out.md) de requête et devez séparer les métriques pour chaque réplica de lecture, utilisez plutôt la table AzureDiagnostics, où **OperationName** est égal à **LogMetric**.
 
 ## <a name="setup-diagnostics-logging"></a>Configurer la journalisation des diagnostics
 
@@ -83,7 +83,7 @@ La catégorie Métriques journalise les mêmes [métriques serveur](analysis-ser
 
     * **Archive vers un compte de stockage**. Pour utiliser cette option, vous avez besoin d’un compte de stockage existant auquel vous connecter. Voir [Créer un compte de stockage](../storage/common/storage-create-storage-account.md). Suivez les instructions pour créer un compte Resource Manager à usage général, puis sélectionnez votre compte de stockage en retournant sur cette page du portail. L’affichage des comptes de stockage nouvellement créés dans le menu déroulant peut prendre quelques minutes.
     * **Transmettre à un Event Hub**. Pour utiliser cette option, vous avez besoin d’un espace de noms Event Hub existant et d’un Event Hub auquel vous connecter. Pour plus d’informations, consultez [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le portail Azure](../event-hubs/event-hubs-create.md). Puis revenez à cette page dans le portail pour sélectionner l’espace de noms Event Hub et le nom de la stratégie.
-    * **Envoyer à Azure Monitor (espace de travail Log Analytics)**. Pour utiliser cette option, servez-vous d’un espace de travail existant ou [créez une ressource d’espace de travail](../azure-monitor/learn/quick-create-workspace.md) sur le portail. Pour savoir comment afficher vos journaux d’activité, voir [Afficher les journaux d’activité dans l’espace de travail Log Analytics](#view-logs-in-log-analytics-workspace) dans cet article.
+    * **Envoyer à Azure Monitor (espace de travail Log Analytics)** . Pour utiliser cette option, servez-vous d’un espace de travail existant ou [créez une ressource d’espace de travail](../azure-monitor/learn/quick-create-workspace.md) sur le portail. Pour savoir comment afficher vos journaux d’activité, voir [Afficher les journaux d’activité dans l’espace de travail Log Analytics](#view-logs-in-log-analytics-workspace) dans cet article.
 
     * **Moteur**. Sélectionnez cette option pour journaliser les événements XEvent. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux d’activité sont supprimés automatiquement après l’expiration de la période de rétention.
     * **Service**. Sélectionnez cette option pour journaliser les événements de niveau Service. Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux d’activité sont supprimés automatiquement après l’expiration de la période de rétention.
@@ -141,7 +141,7 @@ Découvrez comment [modifier les paramètres de diagnostic à l’aide de l’AP
 
 ### <a name="resource-manager-template"></a>Modèle Resource Manager
 
-Découvrez comment [activer les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md). 
+Découvrez comment [activer les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md). 
 
 ## <a name="manage-your-logs"></a>Gérer vos journaux d’activité
 
@@ -161,36 +161,62 @@ Pour afficher vos données de diagnostic, ouvrez **Journaux d’activité** dans
 
 Dans le Générateur de requêtes, développez **LogManagement** > **AzureDiagnostics**. AzureDiagnostics inclut les événements Moteur et Service. Notez qu’une requête est créée à la volée. Le champ EventClass\_s contient des noms xEvent, qui peuvent vous paraître familiers si vous avez utilisé des xEvent pour la journalisation locale. Cliquez sur **EventClass\_s** ou sur un des noms d’événement. L’espace de travail Log Analytics poursuit la création d’une requête. Veillez à enregistrer vos requêtes pour les réutiliser ultérieurement.
 
-### <a name="example-query"></a>Exemple de requête
-Cette requête calcule et retourne le processeur de chaque événement de fin de requête/d’actualisation pour un serveur et une base de données model :
+### <a name="example-queries"></a>Exemples de requêtes
+
+#### <a name="example-1"></a>Exemple 1
+
+La requête suivante retourne des durées pour chaque événement de fin de requête/fin d’actualisation pour un serveur et une base de données model. En cas de scale-out, les résultats sont décomposés par réplica, car le nombre de réplicas est inclus dans ServerName_s. Le regroupement par RootActivityId_g réduit le nombre de lignes extraites de l’API REST Azure Diagnostics et contribue à rester dans les limites décrites dans [Log Analytics - Limites de débit](https://dev.loganalytics.io/documentation/Using-the-API/Limits).
 
 ```Kusto
-let window =  AzureDiagnostics
-   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName" and DatabaseName_s =~ "MyDatabaseName" ;
 window
 | where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
 | where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
 | extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
-| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
-| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
-| join kind=leftouter (
-window
-    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
-    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
-    ) on RootActivityId_g
-| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
-
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs
+| order by StartTime_t asc
 ```
 
+#### <a name="example-2"></a>Exemple 2
+
+La requête suivante retourne la consommation de mémoire et de QPU pour un serveur. En cas de scale-out, les résultats sont décomposés par réplica, car le nombre de réplicas est inclus dans ServerName_s.
+
+```Kusto
+let window = AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where name_s == "memory_metric" or name_s == "qpu_metric"
+| project ServerName_s, TimeGenerated, name_s, value_s
+| summarize avg(todecimal(value_s)) by ServerName_s, name_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
+
+#### <a name="example-3"></a>Exemple 3
+
+La requête suivante retourne les compteurs de performances de moteur Analysis Services Lignes lues/s pour un serveur.
+
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and Resource =~ "MyServerName";
+window
+| where OperationName == "LogMetric" 
+| where parse_json(tostring(parse_json(perfobject_s).counters))[0].name == "Rows read/sec" 
+| extend Value = tostring(parse_json(tostring(parse_json(perfobject_s).counters))[0].value) 
+| project ServerName_s, TimeGenerated, Value
+| summarize avg(todecimal(Value)) by ServerName_s, bin(TimeGenerated, 1m)
+| order by TimeGenerated asc 
+```
 
 Il existe des centaines de requêtes que vous pouvez utiliser. Pour plus d’informations sur les requêtes, voir [Bien démarrer avec les requêtes de journal Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
 
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Activer la journalisation à l’aide de PowerShell
 
-Dans ce bref didacticiel, vous créez un compte de stockage dans le même abonnement et le même groupe de ressources que votre serveur Analysis Services. Vous montre ensuite comment utiliser Set-AzDiagnosticSetting pour activer les diagnostics de journalisation, l’envoi de la sortie vers le nouveau compte de stockage.
+Dans ce bref didacticiel, vous créez un compte de stockage dans le même abonnement et le même groupe de ressources que votre serveur Analysis Services. Ensuite, vous utilisez la requête Set-AzDiagnosticSetting pour activer la journalisation des diagnostics et envoyer la sortie au nouveau compte de stockage.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous avez besoin des ressources suivantes :
 
 * Un serveur Azure Analysis Services. Pour plus d’informations sur la création d’une ressource du serveur, consultez [Création d’un serveur Azure Analysis Services dans le portail Azure](analysis-services-create-server.md) ou [Créer un serveur Azure Analysis Services à l’aide de PowerShell](analysis-services-create-powershell.md).
@@ -244,7 +270,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 
 ### <a name="enable-logging"></a>Activation de la journalisation
 
-Pour activer la journalisation, utilisez l’applet de commande Set-AzDiagnosticSetting ainsi que les variables pour le nouveau compte de stockage, compte de serveur et la catégorie. Exécutez la commande suivante, en définissant l’indicateur **-Enabled** sur **$true** :
+Pour activer la journalisation, utilisez la cmdlet Set-AzDiagnosticSetting avec les variables du nouveau compte de stockage, du compte du serveur et de la catégorie. Exécutez la commande suivante, en définissant l’indicateur **-Enabled** sur **$true** :
 
 ```powershell
 Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
@@ -301,6 +327,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur la [journalisation des diagnostics de ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+En savoir plus sur la [journalisation des diagnostics de ressources Azure](../azure-monitor/platform/resource-logs-overview.md).
 
-Consultez [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) dans l’aide de PowerShell.
+Consultez la section [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) dans l’aide de PowerShell.

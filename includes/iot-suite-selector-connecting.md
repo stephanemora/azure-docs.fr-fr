@@ -9,11 +9,11 @@ ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: ca4bd3d3b40934323bab8036f3ce72e9281f1de4
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56751486"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177499"
 ---
 > [!div class="op_single_selector"]
 > * [C sur Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -58,9 +58,9 @@ Au terme du processus de déploiement de la solution de supervision à distance,
 
 Pour qu’un appareil puisse se connecter à l’accélérateur de solution, il doit s’identifier auprès d’IoT Hub à l’aide d’informations d’identification valides. Vous avez la possibilité d’enregistrer la chaîne de connexion de l’appareil qui contient ces informations d’identification lorsque vous ajoutez l’appareil à la solution. La chaîne de connexion de l’appareil sera ajoutée dans votre application cliente dans la suite de ce didacticiel.
 
-Pour ajouter un appareil à votre solution de surveillance à distance, procédez comme suit sur le **Device Explorer** page dans la solution :
+Pour ajouter un appareil à votre solution de supervision à distance, procédez comme suit dans la page **Explorateur d’appareils** de la solution :
 
-1. Choisissez **+ nouvel appareil**, puis choisissez **réel** en tant que le **type d’appareil**:
+1. Choisissez **+ Nouvel appareil**, puis **Réel** comme **Type d’appareil** :
 
     ![Ajouter un appareil réel](media/iot-suite-selector-connecting/devicesprovision.png)
 

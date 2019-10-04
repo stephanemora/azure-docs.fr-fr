@@ -14,18 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: c33ecce5610dbef0dce13aa95f04ae4f0620603b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: c15ca6d68512bc79ce4e5a27f5ce4f7ea6bc3080
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666934"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035431"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in Service Fabric pour le développement d’applications Java sous Eclipse
 Eclipse est l’un des environnements de développement intégrés (IDE) les plus largement utilisés par les développeurs Java. Dans cet article, nous décrivons comment configurer votre environnement de développement Eclipse pour utiliser Azure Service Fabric. Découvrez comment installer le plug-in Service Fabric, créer une application Service Fabric et déployer votre application Service Fabric dans un cluster Service Fabric local ou distant sur Eclipse. 
 
 > [!NOTE]
 > Le plug-in Eclipse n’est actuellement pas pris en charge sous Windows. 
+
+> [!IMPORTANT]
+> Assurez-vous que JDK 8 est installé sur le système et qu’il est sélectionné dans Eclipse.
 
 ## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse"></a>Installer ou mettre à jour le plug-in Service Fabric sur Eclipse
 Vous pouvez installer un plug-in Service Fabric sur Eclipse. Ce plug-in peut aider à simplifier le processus de génération et le déploiement des services Java.
@@ -36,12 +39,12 @@ Vous pouvez installer un plug-in Service Fabric sur Eclipse. Ce plug-in peut aid
 > Sur Ubuntu, nous vous recommandons de procéder à l’installation directement depuis le site Eclipse au lieu d’utiliser le programme d’installation d’un package (`apt` ou `apt-get`). Ceci vous assure d’obtenir la version la plus récente d’Eclipse. 
 
 Installez Eclipse Neon ou ultérieur à partir du [site d’Eclipse](https://www.eclipse.org).  Installez également la version 2.2.1 ou ultérieure du Buildship (le plug-in Service Fabric n’est pas compatible avec les versions antérieures de Buildship) :
--   Pour vérifier les versions des composants installés, dans Eclipse, accédez à **Aide** > **About Eclipse (Au sujet d’Eclipse)** > **Détails de l’installation**.
+-   Pour vérifier les versions des composants installés, dans Eclipse, accédez à **Aide** > **About Eclipse (Au sujet d’Eclipse)**  > **Détails de l’installation**.
 -   Pour mettre à jour Buildship, consultez [Eclipse Buildship : plug-ins Eclipse pour Gradle][buildship-update].
 -   Pour vérifier et installer les mises à jour pour Eclipse, accédez à **Aide** > **Rechercher les mises à jour**.
 
 Installez le plug-in Service Fabric : dans Eclipse, accédez à **Aide** > **Installer un nouveau logiciel**.
-1. Dans le **fonctionne avec** , entrez https :\//dl.microsoft.com/eclipse.
+1. Dans la zone **Work with** (Utiliser avec), entrez https:\//dl.microsoft.com/eclipse.
 2. Cliquez sur **Add**.
 
    ![Plug-in Service Fabric pour Eclipse][sf-eclipse-plugin-install]
@@ -49,12 +52,12 @@ Installez le plug-in Service Fabric : dans Eclipse, accédez à **Aide** > **Ins
 4. Terminez les étapes d’installation, puis acceptez les termes du contrat de licence du logiciel Microsoft.
   
 Si le plug-in Service Fabric est déjà installé, installez la dernière version. 
-1. Pour vérifier les mises à jour disponibles, accédez à **Aide** > **About Eclipse (Au sujet d’Eclipse)** > **Détails de l’installation**. 
+1. Pour vérifier les mises à jour disponibles, accédez à **Aide** > **About Eclipse (Au sujet d’Eclipse)**  > **Détails de l’installation**. 
 2. Dans la liste des plug-ins installés, sélectionnez Service Fabric, puis cliquez sur **Mettre à jour**. Les mises à jour disponibles seront installées.
 3. Lorsque vous mettez à jour le plug-in Service Fabric, actualisez également le projet Gradle.  Cliquez avec le bouton droit sur **build.gradle**, puis sélectionnez **Actualiser**.
 
 > [!NOTE]
-> La lenteur de l’installation ou de la mise à jour du plug-in Service Fabric peut être due à un paramètre d’Eclipse. Eclipse collecte des métadonnées sur toutes les modifications pour mettre à jour les sites enregistrés avec votre instance d’Eclipse. Pour accélérer le processus de vérification et l’installation d’une mise à jour du plug-in Service Fabric, accédez à **Sites logiciels disponibles**. Désactivez les cases à cocher pour tous les sites à l’exception de celui qui pointe vers l’emplacement du plug-in Service Fabric (https :\//dl.microsoft.com/eclipse/azure/servicefabric).
+> La lenteur de l’installation ou de la mise à jour du plug-in Service Fabric peut être due à un paramètre d’Eclipse. Eclipse collecte des métadonnées sur toutes les modifications pour mettre à jour les sites enregistrés avec votre instance d’Eclipse. Pour accélérer le processus de vérification et l’installation d’une mise à jour du plug-in Service Fabric, accédez à **Sites logiciels disponibles**. Désactivez les cases à cocher pour tous les sites, sauf pour celui qui pointe vers l’emplacement du plug-in Service Fabric (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
 
 > [!NOTE]
 >Si Eclipse ne fonctionne pas comme prévu sur votre Mac ou exige vous soyez un super utilisateur pour l’exécuter, accédez au dossier **ECLIPSE_INSTALLATION_PATH**, puis au sous-dossier **Eclipse.app/Contents/MacOS**. Démarrez Eclipse en exécutant `./eclipse`.
@@ -115,7 +118,7 @@ Pour savoir comment déboguer votre application dans Eclipse en utilisant le clu
 Vous pouvez également déployer votre application dans le cluster local à l’aide de la commande **Publier une application** :
 
 1. Cliquez avec le bouton droit de la souris sur votre application Service Fabric, puis sélectionnez **Service Fabric**.
-2. Dans le menu contextuel, cliquez sur **Publier une application...**.
+2. Dans le menu contextuel, cliquez sur **Publier une application...** .
 3. Dans la fenêtre **Publier une application**, choisissez **PublishProfiles/Local.json** comme profil cible, puis cliquez sur **Publier**.
 
     ![Boîte de dialogue Publier - Local](./media/service-fabric-get-started-eclipse/localjson.png)
@@ -154,7 +157,7 @@ Pour publier votre application dans le cloud, suivez les étapes ci-dessous :
      ```
 
 2. Cliquez avec le bouton droit de la souris sur votre application Service Fabric, puis sélectionnez **Service Fabric**.
-3. Dans le menu contextuel, cliquez sur **Publier une application...**.
+3. Dans le menu contextuel, cliquez sur **Publier une application...** .
 3. Dans la fenêtre **Publier une application**, choisissez **PublishProfiles/Cloud.json** comme profil cible, puis cliquez sur **Publier**.
 
     ![Boîte de dialogue Publier - Cloud](./media/service-fabric-get-started-eclipse/cloudjson.png)
@@ -219,7 +222,7 @@ Pour mettre à niveau votre application à l’aide d’Eclipse, vous pouvez cr�
 
 1.  Accédez à **Exécuter** > **Configurations d’exécution**. Dans le volet de gauche, cliquez sur la petite flèche à gauche de **Projet Gradle**.
 2.  Cliquez avec le bouton droit de la souris sur **ServiceFabricDeployer**, puis sélectionnez **Dupliquer**. Entrez un nouveau nom pour cette configuration, par exemple, **ServiceFabricUpgrader**.
-3.  Dans le volet de droite, sous l’onglet **Arguments**, remplacez **-Pconfig='deploy'** par **-Pconfig='upgrade'**, puis cliquez sur **Appliquer**.
+3.  Dans le volet de droite, sous l’onglet **Arguments**, remplacez **-Pconfig='deploy'** par **-Pconfig='upgrade'** , puis cliquez sur **Appliquer**.
 
 Ce processus crée et enregistre un profil de configuration d’exécution que vous pouvez utiliser à tout moment pour mettre à niveau votre application. Il permet également d’obtenir la dernière version mise à jour du type d’application à partir du fichier de manifeste d’application.
 

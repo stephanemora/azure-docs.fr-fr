@@ -1,5 +1,5 @@
 ---
-title: Prise en charge de l’administrateur d’un répertoire non géré - Azure Active Directory | Microsoft Docs
+title: Prise de contrôle administrateur d’un annuaire non géré Azure Active Directory | Microsoft Docs
 description: Comment prendre le contrôle d’un nom de domaine DNS dans un annuaire non géré (locataire fantôme) dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 44276c911768f588064245c37a1284adeda8138f
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202484"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315723"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 
@@ -37,13 +37,13 @@ Lors du processus de prise de contrôle par l’administrateur, vous pouvez prou
 
 Certains produits qui incluent SharePoint et OneDrive, comme Office 365, ne permettent pas la prise de contrôle externe. Si c’est votre scénario, ou si vous êtes administrateur et que vous voulez prendre le contrôle d’un locataire non géré ou « fantôme » créé par des utilisateurs ayant utilisé l’inscription en libre-service, vous pouvez le faire avec une prise de contrôle par administrateur interne.
 
-1. Créez un contexte utilisateur dans le locataire non géré, par exemple via une inscription auprès de Power BI. Par commodité pour l’exemple, cette procédure suppose que cette voie est choisie.
+1. Créez un contexte utilisateur dans le locataire non géré via une inscription auprès de Power BI. Par commodité pour l’exemple, cette procédure suppose que cette voie est choisie.
 
 2. Ouvrez le [site Power BI](https://powerbi.com) et sélectionnez **Démarrer gratuitement**. Entrez un compte d’utilisateur qui utilise le nom de domaine pour l’organisation ; par exemple, `admin@fourthcoffee.xyz`. Une fois que vous avez entré le code de vérification, vous recevez le code de confirmation dans votre messagerie.
 
 3. Dans l’e-mail de confirmation de Power BI, sélectionnez **Oui, c’est bien moi**.
 
-4. Se connecter à la [centre d’administration Microsoft 365](https://admin.microsoft.com) avec le compte d’utilisateur Power BI. Vous recevez un message qui vous indique de **devenir l’administrateur** du nom de domaine qui a été déjà vérifié dans le locataire non géré. Sélectionnez **Oui, je veux être l’administrateur**.
+4. Connectez-vous au [centre d’administration Microsoft 365](https://portal.office.com/admintakeover) avec le compte d’utilisateur Power BI. Vous recevez un message qui vous indique de **devenir l’administrateur** du nom de domaine qui a été déjà vérifié dans le locataire non géré. Sélectionnez **Oui, je veux être l’administrateur**.
   
    ![Première capture d’écran pour Devenir l’administrateur](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -58,22 +58,22 @@ Une fois les étapes précédentes terminées, vous êtes l’administrateur gé
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Ajout du nom de domaine à un locataire géré dans Azure AD
 
 1. Ouvrez le [centre d’administration Microsoft 365](https://admin.microsoft.com).
-2. Sélectionnez **utilisateurs** onglet et créer un nouveau compte d’utilisateur avec un nom tel que *utilisateur\@fourthcoffeexyz.onmicrosoft.com* qui n’utilise pas le nom de domaine personnalisé. 
+2. Sélectionnez l’onglet **Utilisateurs** et créez un compte d’utilisateur avec un nom comme *user\@fourthcoffeexyz.onmicrosoft.com* qui n’utilise pas le nom de domaine personnalisé. 
 3. Vérifiez que le compte d’utilisateur dispose des privilèges d’administrateur général pour le locataire Azure AD.
-4. Ouvrez **domaines** dans le centre d’administration Microsoft 365, sélectionnez le nom de domaine et sélectionnez **supprimer**. 
+4. Ouvrez l’onglet **Domaines** dans le centre d’administration Microsoft 365, sélectionnez le nom de domaine, puis sélectionnez **Supprimer**. 
   
    ![Supprimer le nom de domaine d’Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Si vous avez des utilisateurs ou des groupes dans Office 365 qui référencent le nom de domaine supprimés, ils doivent être renommés pour le domaine onmicrosoft.com. Si vous forcez la suppression du nom de domaine, tous les utilisateurs sont automatiquement renommés, dans cet exemple pour *utilisateur\@fourthcoffeexyz.onmicrosoft.com*.
+5. Si vous avez des utilisateurs ou des groupes dans Office 365 qui référencent le nom de domaine supprimés, ils doivent être renommés pour le domaine onmicrosoft.com. Si vous forcez la suppression du nom de domaine, tous les utilisateurs sont automatiquement renommés, dans cet exemple en *user\@fourthcoffeexyz.onmicrosoft.com*.
   
 6. Connectez-vous au [Centre d’administration d’Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) avec un compte d’administrateur général pour le locataire Azure AD.
   
 7. Sélectionnez **Noms de domaine personnalisés**, puis ajoutez le nom de domaine. Vous devrez entrer les enregistrements TXT DNS pour confirmer la propriété du nom de domaine. 
   
-   ![domaine vérifié comme ajoutées à Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![domaine vérifié comme ajouté à Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Les utilisateurs du service Power BI ou Azure Rights Management qui ont des licences affectées dans le locataire Office 365 doivent enregistrer leurs tableaux de bord si le nom de domaine est supprimé. Ils doivent se connecter avec un nom d’utilisateur comme *utilisateur\@fourthcoffeexyz.onmicrosoft.com* plutôt que *utilisateur\@fourthcoffee.xyz*.
+> Les utilisateurs du service Power BI ou Azure Rights Management qui ont des licences affectées dans le locataire Office 365 doivent enregistrer leurs tableaux de bord si le nom de domaine est supprimé. Ils doivent se connecter avec un nom d’utilisateur comme *user\@fourthcoffeexyz.onmicrosoft.com* plutôt que *user\@fourthcoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Prise de contrôle par administrateur externe
 
@@ -88,39 +88,33 @@ Quand vous confirmez la propriété du nom de domaine, Azure AD supprime le nom 
 ### <a name="support-for-external-admin-takeover"></a>Prise en charge de la prise de contrôle par administrateur externe
 La prise de contrôle par administrateur externe est prise en charge par les services en ligne suivants :
 
-- Power BI
 - Azure Rights Management
 - Exchange Online
 
 Les plans de service pris en charge sont les suivants :
 
-- Power BI Gratuit
-- Power BI Pro
 - PowerApps Gratuit
 - PowerFlow Gratuit
 - RMS pour les particuliers
 - Microsoft Stream
 - Version d’évaluation gratuite de Dynamics 365
 
-La prise de contrôle par administrateur externe n’est prise en charge par aucun service dont les plans de service incluent SharePoint, OneDrive ou Skype Entreprise, par exemple, via un abonnement gratuit Office ou la référence (SKU) de base Office. Sinon, vous pouvez recourir à l’option [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) pour retirer le nom de domaine du client non géré et le vérifier sur le client souhaité. L’option ForceTakeover ne déplace pas les utilisateurs ; elle ne conserve pas non plus l’accès à l’abonnement. Au lieu de cela, cette option déplace simplement le nom de domaine. 
+La prise de contrôle par administration externe n’est pas prise en charge pour les services dont les plans de service incluent SharePoint, OneDrive ou Skype entreprise, par exemple, via un abonnement gratuit à Office. 
+
+Sinon, vous pouvez recourir à l’option [**ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) pour retirer le nom de domaine du client non géré et le vérifier sur le client souhaité. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>En savoir plus sur RMS pour les particuliers
 
-Pour [RMS pour les particuliers](/azure/information-protection/rms-for-individuals), où le client non géré se trouve dans la même région que le client que vous détenez, la [clé de locataire Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) et les [modèles de protection par défaut](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) sont également déplacés avec le nom de domaine. 
+Pour [RMS pour les particuliers](/azure/information-protection/rms-for-individuals), où le client non géré se trouve dans la même région que le client que vous détenez, la [clé de locataire Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) et les [modèles de protection par défaut](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) sont également déplacés avec le nom de domaine.
 
-La clé et les modèles ne sont pas déplacés lorsque le client non géré se trouve dans une région différente. Par exemple, le client non géré est en Europe et le client que vous détenez se trouve en Amérique du Nord. 
+La clé et les modèles ne sont pas déplacés lorsque le client non géré se trouve dans une région différente. Par exemple, si le client non géré se trouve en Europe et votre organisation en Amérique du Nord.
 
-Bien que RMS pour les particuliers soit conçu pour prendre en charge l’authentification Azure AD sur le contenu protégé ouvert, cette solution n’empêche pas les utilisateurs de protéger également le contenu. Si les utilisateurs protègent le contenu avec l’abonnement RMS pour les particuliers et que la clé et les modèles n’ont pas été déplacés, le contenu ne sera plus accessible une fois le domaine pris en charge.
-
-#### <a name="more-information-about-power-bi"></a>Informations supplémentaires sur Power BI
-
-Quand vous effectuez une prise de contrôle externe, le contenu Power BI créé avant la prise de contrôle est placé dans un [espace de travail Power BI archivé](/power-bi/service-admin-power-bi-archived-workspace). Vous devez migrer manuellement tout contenu que vous souhaitez utiliser dans le nouveau locataire.
+Bien que RMS pour les particuliers soit conçu pour prendre en charge l’authentification Azure AD sur le contenu protégé ouvert, cette solution n’empêche pas les utilisateurs de protéger également le contenu. Si les utilisateurs protègent le contenu avec l’abonnement RMS pour les particuliers et que la clé et les modèles n’ont pas été déplacés, le contenu n’est plus accessible une fois le domaine pris en charge.
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Applets de commande Azure AD PowerShell pour l’option ForceTakeover
 Vous pouvez voir ces applets de commande utilisées dans un [exemple PowerShell](#powershell-example).
 
-
-Applet de commande | Usage 
+Applet de commande | Usage
 ------- | -------
 `connect-msolservice` | Quand vous y êtes invité, connectez-vous à votre locataire géré.
 `get-msoldomain` | Affiche vos noms de domaine associés au locataire actif.
@@ -129,6 +123,9 @@ Applet de commande | Usage
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fournit les informations à placer dans le nouvel enregistrement TXT DNS pour le domaine (MS=xxxxx). La vérification peut ne pas se produire immédiatement, car un certain temps est nécessaire à la propagation de l’enregistrement TXT : attendez donc quelques minutes avant d’envisager l’utilisation de l’option **-ForceTakeover**. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Si votre nom de domaine n’est pas encore vérifié, vous pouvez appliquer l’option **-ForceTakeover**. Elle vérifie que l’enregistrement TXT a été créé et lance le processus de prise de contrôle.<li>L’option **-ForceTakeover** doit être ajoutée à l’applet de commande seulement quand la prise de contrôle par administrateur externe est forcée, par exemple quand des services Office 365 bloquent la prise de contrôle du locataire non géré.
 `get-msoldomain` | La liste des domaines affiche maintenant le nom de domaine avec l’état **Vérifié**.
+
+> [!NOTE]
+> L’organisation Azure AD non gérée est supprimée 10 jours après l’utilisation de l’option prise de contrôle forcée externe.
 
 ### <a name="powershell-example"></a>Exemple PowerShell
 
@@ -153,7 +150,7 @@ Applet de commande | Usage
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Copiez la valeur (le test) qui est renvoyée depuis cette commande. Par exemple : 
+4. Copiez la valeur (le test) qui est renvoyée depuis cette commande. Par exemple :
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -164,7 +161,7 @@ Applet de commande | Usage
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
-   Par exemple : 
+   Par exemple :
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

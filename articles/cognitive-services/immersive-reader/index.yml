@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentation du lecteur immersif
+summary: Le lecteur immersif est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage. Vous pouvez utiliser le lecteur immersif dans votre application web à l’aide du SDK du lecteur immersif.
+metadata:
+  title: Documentation du lecteur immersif
+  description: Le lecteur immersif est un outil qui permet d’implémenter des techniques éprouvées pour améliorer la compréhension dans le cadre de l’apprentissage de la lecture, l’apprentissage d’une langue et pour les personnes avec des difficultés d’apprentissage. Vous pouvez utiliser le lecteur immersif dans votre application web à l’aide du SDK du lecteur immersif.
+  services: service
+  ms.service: cognitive-services
+  ms.subservice: immersive-reader
+  ms.topic: landing-page
+  ms.collection: collection
+  author: IEvangelist
+  ms.author: dapine
+  ms.date: 08/29/2019
+  ms.openlocfilehash: 50185a0bbfc3a9677ebc90f326b0c43ab2a2eb13
+  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/29/2019
+  ms.locfileid: "70164493"
+landingContent:
+- title: À propos du lecteur immersif
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que le lecteur immersif ?
+      url: overview.md
+- title: Prise en main
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: ASP.NET Core
+      url: quickstart.md
+    - text: Swift (iOS)
+      url: ios-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Node.js
+      url: tutorial-nodejs.md
+    - text: Python
+      url: tutorial-python.md
+    - text: Swift (iOS)
+      url: tutorial-ios-picture-immersive-reader.md
+- title: Explorer le lecteur immersif
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: S’authentifier à l’aide d’Azure Active Directory
+      url: azure-active-directory-authentication.md
+  - linkListType: reference
+    links:
+    - text: Kit de développement logiciel (SDK) JavaScript
+      url: reference.md
+    - text: Kit de développement logiciel (SDK) iOS
+      url: ios-reference.md

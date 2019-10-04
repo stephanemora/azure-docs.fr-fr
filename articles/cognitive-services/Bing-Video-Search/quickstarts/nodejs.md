@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et Node.js'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide de démarrage rapide pour envoyer des requêtes de recherche de vidéos à l’API REST Recherche de vidéos Bing en JavaScript.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: a4e3d37b2eb32fa0384986e37781f21b906bed42
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077307"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932955"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et Node.js
 
@@ -75,7 +75,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
        });
        ```
 
-# <a name="create-and-send-the-search-request"></a>Créer et envoyer la requête de recherche
+## <a name="create-and-send-the-search-request"></a>Créer et envoyer la requête de recherche
 
 1. Créez une fonction nommée `bing_video_search()`. Ajoutez les paramètres de votre requête, notamment votre nom d’hôte et les en-têtes. Encodez votre terme de recherche et ajoutez-le à votre paramètre de chemin avec le paramètre `?q=`. Ensuite, envoyez la requête avec `req.end()`.
 

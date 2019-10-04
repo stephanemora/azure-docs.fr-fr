@@ -10,16 +10,15 @@ ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 677e38f69729bba8caf1ec3f88b2e0a1a4f8c7e8
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793303"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073664"
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -38,8 +37,7 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 * [Pourquoi la stratégie que je souhaite ajouter n’est-elle pas disponible dans l’éditeur de stratégie ?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 * [Comment configurer plusieurs environnements dans une seule API ?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Puis-je utiliser SOAP avec le service Gestion des API ?](#can-i-use-soap-with-api-management)
-* [L’adresse IP de la passerelle de gestion des API est-elle constante ? Puis-je l’utiliser dans les règles de pare-feu ?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
-* Puis-je configurer un serveur d’autorisation OAuth 2.0 avec la sécurité AD FS ?
+* [Puis-je configurer un serveur d’autorisation OAuth 2.0 avec la sécurité AD FS ?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [Quelle méthode de routage la gestion des API utilise-t-elle lors de déploiements sur plusieurs emplacements géographiques ?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Puis-je utiliser un modèle Azure Resource Manager pour créer une instance de service Gestion des API ?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 * [Puis-je utiliser un certificat SSL auto-signé pour un service principal ?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
@@ -65,7 +63,7 @@ Il existe plusieurs manières de sécuriser la connexion entre la passerelle de 
 
 * Utilisez l’authentification HTTP de base. Pour plus d’informations, consultez [Importer et publier votre première API](import-and-publish.md).
 * Utiliser l’authentification mutuelle SSL telle que décrite dans [Comment sécuriser des services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](api-management-howto-mutual-certificates.md).
-* Utiliser une liste verte des adresses IP sur votre service principal. Dans tous les niveaux de gestion des API, l’adresse IP de la passerelle reste constante, avec quelques [mises en garde](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). Vous pouvez configurer votre liste verte pour autoriser cette adresse IP. Vous pouvez obtenir l’adresse IP de votre instance de gestion des API sur le tableau de bord du portail Azure.
+* Utiliser une liste verte des adresses IP sur votre service principal. Dans tous les niveaux de Gestion des API, sauf le niveau relatif à la consommation, l’adresse IP de la passerelle reste constante, avec quelques mises en garde dans l’[article de la documentation IP](api-management-howto-ip-addresses.md).
 * Connectez votre instance de gestion des API à un réseau virtuel Azure.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>Comment copier une instance de service Gestion des API vers une nouvelle instance ?
@@ -87,7 +85,7 @@ Pour ajouter un utilisateur au groupe d’administrateurs, procédez comme suit 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Accédez au groupe de ressources qui contient l’instance de gestion des API que vous souhaitez mettre à jour.
-3. Dans Gestion des API, attribuez le rôle **collaborateur de gestion des API** à l’utilisateur.
+3. Dans Gestion des API, attribuez le rôle **Contributeur de services de gestion d’API** à l’utilisateur.
 
 Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de commande](https://docs.microsoft.com/powershell/azure/overview) Azure PowerShell. Voici comment se connecter en tant qu’administrateur :
 
@@ -108,19 +106,6 @@ Il existe deux manières de configurer plusieurs environnements, par exemple un 
 ### <a name="can-i-use-soap-with-api-management"></a>Puis-je utiliser SOAP avec le service Gestion des API ?
 Les [requêtes SOAP directes](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) sont désormais prises en charge. Les administrateurs peuvent importer le WSDL de leur service SOAP afin que le service Gestion des API Azure puisse créer un composant frontal SOAP. Une documentation relative au portail des développeurs, une console de test, des stratégies et des outils d’analyse sont disponibles pour les services SOAP.
 
-### <a name="is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules"></a>L’adresse IP de la passerelle de gestion des API est-elle constante ? Puis-je l’utiliser dans les règles de pare-feu ?
-Dans tous les niveaux de la gestion des API, l’adresse IP publique (VIP, adresse IP virtuelle) du client de gestion des API est statique pour la durée de vie du client, avec néanmoins quelques exceptions. L’adresse IP est modifiée dans les cas suivants :
-
-* Le service est supprimé, puis recréé.
-* L’abonnement au service est [suspendu](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) ou [fait l’objet d’un avertissement ](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states)(par exemple pour non-paiement), puis réactivé.
-* Vous ajoutez ou supprimez le réseau virtuel Azure (vous pouvez utiliser le réseau virtuel uniquement au niveau Premium et Développeur).
-
-Pour les déploiements multirégion, l’adresse régionale change si la région est libérée, puis réactivée (vous pouvez utiliser le déploiement multirégion uniquement au niveau Premium).
-
-Les clients du niveau Premium configurés pour un déploiement multirégion se voient attribués une seule adresse IP publique par région.
-
-Vous pouvez obtenir votre adresse IP (ou vos adresses, dans le cas d’un déploiement multirégion) sur la page client dans le portail Azure.
-
 ### <a name="can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security"></a>Puis-je configurer un serveur d’autorisation OAuth 2.0 avec la sécurité AD FS ?
 Pour savoir comment configurer un serveur d’autorisation OAuth 2.0 avec la sécurité Active Directory Federation Services (AD FS), consultez [Utilisation d’AD FS dans Gestion des API](https://phvbaars.wordpress.com/2016/02/06/using-adfs-in-api-management/).
 
@@ -137,7 +122,7 @@ Oui. Vous pouvez utiliser PowerShell, ou l’envoyer directement à l’API. Cel
 Utilisez les cmdlets PowerShell [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (pour un nouveau back end) ou [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (pour un back end existant) et définissez le paramètre `-SkipCertificateChainValidation` sur `True`. 
 
 ```powershell
-$context = New-AApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 

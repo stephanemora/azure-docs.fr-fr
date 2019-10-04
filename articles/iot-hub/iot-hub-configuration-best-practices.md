@@ -3,30 +3,30 @@ title: Bonnes pratiques en matière de configuration d’appareil pour Azure IoT
 description: En savoir plus sur les bonnes pratiques pour la configuration des appareils IoT à grande échelle
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c97395981ea3af90c7b0c590cb049fccc7392304
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797190"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485809"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Bonnes pratiques en matière de configuration d’appareil dans une solution IoT
 
 La gestion automatique des appareils dans Azure IoT Hub automatise une grande partie des tâches répétitives et complexes liées à la gestion de grandes flottes d’appareils pendant tout leur cycle de vie. Cet article présente un grand nombre des bonnes pratiques pour les différents rôles impliqués dans le développement et l’exploitation d’une solution IoT.
 
-* **IoT fabricant/intégrateur de matériel :** Les fabricants de matériel IoT, intégrateurs qui assemblent le matériel à partir de différents fabricants ou de fournisseurs de matériel pour un déploiement IoT réalisé ou intégré par d’autres fournisseurs. Ils sont impliqués dans le développement et l’intégration de microprogrammes, de systèmes d’exploitation incorporés et de logiciels incorporés.
+* **Fabricant/intégrateur de matériel IoT** : Il s’agit de fabricants de matériel IoT, d’intégrateurs qui assemblent des matériels provenant de différents fabricants, ou de fournisseurs de matériels dédiés à un déploiement IoT réalisé ou intégré par d’autres fournisseurs. Ils sont impliqués dans le développement et l’intégration de microprogrammes, de systèmes d’exploitation incorporés et de logiciels incorporés.
 
-* **Développeur de solutions IoT :** Le développement d’une solution IoT est généralement effectué par un développeur de solutions. Ce développeur peut faire partie d’une équipe interne ou être un intégrateur système spécialisé dans cette activité. Le développeur de solutions IoT peut développer plusieurs composants de la solution IoT en partant de zéro, intégrer de nombreux composants standard ou open source, ou encore personnaliser un [accélérateur de solution IoT](/azure/iot-accelerators/).
+* **Développeur de solutions IoT** : Le développement d’une solution IoT est généralement assuré par un développeur de solutions. Ce développeur peut faire partie d’une équipe interne ou être un intégrateur système spécialisé dans cette activité. Le développeur de solutions IoT peut développer plusieurs composants de la solution IoT en partant de zéro, intégrer de nombreux composants standard ou open source, ou encore personnaliser un [accélérateur de solution IoT](/azure/iot-accelerators/).
 
-* **Opérateur de solutions IoT :** Une fois la solution IoT est déployée, elle nécessite des opérations à long terme, de surveillance, de mises à niveau et la maintenance. Ces tâches peuvent être assurées par une équipe interne comprenant des spécialistes en technologies de l’information, des équipes d’exploitation et de maintenance du matériel et des spécialistes du domaine qui contrôlent le comportement de l’infrastructure IoT globale.
+* **Opérateur de solutions IoT** : Une fois déployée, la solution IoT nécessite une exploitation, une surveillance, des mises à niveau et une maintenance sur le long terme. Ces tâches peuvent être assurées par une équipe interne comprenant des spécialistes en technologies de l’information, des équipes d’exploitation et de maintenance du matériel et des spécialistes du domaine qui contrôlent le comportement de l’infrastructure IoT globale.
 
 ## <a name="understand-automatic-device-management-for-configuring-iot-devices-at-scale"></a>Comprendre la gestion automatique des appareils pour la configuration des appareils IoT à grande échelle
 
-La gestion automatique des appareils inclut les nombreux avantages des [jumeaux d’appareil](iot-hub-devguide-device-twins.md) et des [jumeaux de module](iot-hub-devguide-module-twins.md) pour synchroniser les états souhaités et signalés entre le cloud et les appareils. [Configurations d’appareils automatique](iot-hub-auto-device-config.md) automatiquement mettre à jour de grands ensembles de représentations et résumer de progression et conformité. La procédure générale suivante décrit la façon dont la gestion automatique des appareils est développée et utilisée :
+La gestion automatique des appareils inclut les nombreux avantages des [jumeaux d’appareil](iot-hub-devguide-device-twins.md) et des [jumeaux de module](iot-hub-devguide-module-twins.md) pour synchroniser les états souhaités et signalés entre le cloud et les appareils. Les [configurations automatiques des appareils](iot-hub-auto-device-config.md) mettent automatiquement à jour de grands ensembles de jumeaux, et synthétisent la progression et la conformité. La procédure générale suivante décrit la façon dont la gestion automatique des appareils est développée et utilisée :
 
 * Le **fabricant ou intégrateur de matériel IoT** implémente les fonctionnalités de gestion des appareils dans une application incorporée à l’aide de [jumeaux d’appareil](iot-hub-devguide-device-twins.md). Ces fonctionnalités peuvent inclure des mises à jour de microprogramme, l’installation et la mise à jour de logiciels ainsi que la gestion des paramètres.
 
@@ -38,49 +38,51 @@ La gestion automatique des appareils inclut les nombreux avantages des [jumeaux 
 
 Voici les bonnes pratiques pour les fabricants de matériel et les intégrateurs qui traitent du développement de logiciels incorporés :
 
-* **Implémentez [jumeaux](iot-hub-devguide-device-twins.md):** Représentations d’appareil activer la synchronisation de configuration souhaitée à partir du cloud et pour les rapports de configuration actuelle et les propriétés de l’appareil. La meilleure façon d’implémenter des jumeaux d’appareil dans les applications incorporées consiste à utiliser les [SDK Azure IoT](https://github.com/Azure/azure-iot-sdks). Les jumeaux d’appareil sont mieux adaptés à la configuration, car ils :
+* **Implémenter des [jumeaux d’appareils](iot-hub-devguide-device-twins.md) :** Les jumeaux d’appareil permettent la synchronisation de la configuration souhaitée à partir du cloud, ainsi que le signalement des propriétés de l’appareil et de la configuration actuelle. La meilleure façon d’implémenter des jumeaux d’appareil dans les applications incorporées consiste à utiliser les [SDK Azure IoT](https://github.com/Azure/azure-iot-sdks). Les jumeaux d’appareil sont mieux adaptés à la configuration, car ils :
 
     * Prennent en charge la communication bidirectionnelle
     * Autorisent à la fois les états d’appareils connectés et déconnectés
     * Suivent le principe de cohérence éventuelle
     * Peuvent entièrement être interrogés dans le cloud
 
-* **Structure de la représentation d’appareil pour la gestion des appareils :** La représentation d’appareil doit être structurée telles que les propriétés de gestion de périphérique sont logiquement regroupées en sections. En procédant ainsi, les modifications de configuration sont isolées sans affecter les autres sections du jumeau. Par exemple, créez une section avec les propriétés souhaitées pour le microprogramme, une autre section pour les logiciels et une troisième pour les paramètres réseau. 
+* **Structurer le jumeau d’appareil pour la gestion des appareils :** Le jumeau d’appareil doit être structuré de façon à ce que les propriétés de gestion des appareils soient regroupées logiquement en sections. En procédant ainsi, les modifications de configuration sont isolées sans affecter les autres sections du jumeau. Par exemple, créez une section avec les propriétés souhaitées pour le microprogramme, une autre section pour les logiciels et une troisième pour les paramètres réseau. 
 
-* **Attributs de périphérique de rapport qui sont utiles pour la gestion des appareils :** Attributs tels que le périphérique physique marque et modèle, microprogramme, système d’exploitation, numéro de série, et les autres identificateurs sont utiles pour les rapports et en tant que paramètres pour le ciblage des modifications de configuration.
+* **Signaler les attributs d’appareil qui sont utiles pour la gestion des appareils :** Les attributs comme la marque et le modèle de l’appareil physique, le microprogramme, le système d’exploitation, le numéro de série et d’autres identificateurs sont utiles pour les rapports et en tant que paramètres pour le ciblage des modifications de configuration.
 
-* **Définir les principaux États de création de rapports d’état et la progression :** États de niveau supérieur doivent être énumérés afin qu’ils peuvent être signalées à l’opérateur. Par exemple, une mise à jour de microprogramme signale un état comme Actuel, Téléchargement, Application, En cours et Erreur. Définissez des champs supplémentaires pour plus d’informations sur chaque état.
+* **Définir les principaux états pour les rapports sur l’état et la progression :** Les états de plus haut niveau doivent être énumérés afin qu’ils puissent être signalés à l’opérateur. Par exemple, une mise à jour de microprogramme signale un état comme Actuel, Téléchargement, Application, En cours et Erreur. Définissez des champs supplémentaires pour plus d’informations sur chaque état.
 
 ## <a name="iot-solution-developer"></a>Développeur de solutions IoT
 
 Voici les bonnes pratiques pour les développeurs de solutions IoT qui génèrent des systèmes basés sur Azure :
 
-* **Implémentez [jumeaux](iot-hub-devguide-device-twins.md):** Représentations d’appareil activer la synchronisation de configuration souhaitée à partir du cloud et pour les rapports de configuration actuelle et les propriétés de l’appareil. La meilleure façon d’implémenter des jumeaux d’appareil dans les applications de solutions cloud consiste à utiliser les [kits de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdks). Les jumeaux d’appareil sont mieux adaptés à la configuration, car ils :
+* **Implémenter des [jumeaux d’appareils](iot-hub-devguide-device-twins.md) :** Les jumeaux d’appareil permettent la synchronisation de la configuration souhaitée à partir du cloud, ainsi que le signalement des propriétés de l’appareil et de la configuration actuelle. La meilleure façon d’implémenter des jumeaux d’appareil dans les applications de solutions cloud consiste à utiliser les [kits de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdks). Les jumeaux d’appareil sont mieux adaptés à la configuration, car ils :
 
     * Prennent en charge la communication bidirectionnelle
     * Autorisent à la fois les états d’appareils connectés et déconnectés
     * Suivent le principe de cohérence éventuelle
     * Peuvent entièrement être interrogés dans le cloud
 
-* **Organiser les appareils à l’aide de balises de jumeau d’appareil :** La solution doit autoriser l’opérateur définir des anneaux de qualité ou d’autres ensembles d’appareils en fonction de différentes stratégies de déploiement telles que contrôle de validité. L’organisation des appareils peut être implémentée dans votre solution à l’aide de balises de jumeau d’appareil et de [requêtes](iot-hub-devguide-query-language.md). Elle est nécessaire pour permettre des déploiements de configuration avec précision et en toute sécurité.
+* **Organiser les appareils en utilisant des étiquettes de jumeau d’appareil :** La solution doit permettre à l’opérateur de définir des anneaux de qualité ou d’autres ensembles d’appareils en fonction de différentes stratégies de déploiement, comme le contrôle de validité. L’organisation des appareils peut être implémentée dans votre solution à l’aide de balises de jumeau d’appareil et de [requêtes](iot-hub-devguide-query-language.md). Elle est nécessaire pour permettre des déploiements de configuration avec précision et en toute sécurité.
 
-* **Implémentez [configurations d’appareils automatique](iot-hub-auto-device-config.md):** Déploiement des configurations d’appareils automatique et la configuration du moniteur change à de larges groupes d’appareils IoT par le biais de représentations d’appareil. Les configurations automatiques des appareils ciblent des ensembles de jumeaux d’appareil via la **condition cible**, qui est une requête sur les balises ou propriétés signalées du jumeau d’appareil. Le **contenu cible** est l’ensemble des propriétés voulues qui seront définies dans les jumeaux d’appareil ciblés. Le contenu cible doit s’aligner sur la structure du jumeau d’appareil définie par le fabricant/l’intégrateur de matériel IoT.
+* **Implémenter des [configurations automatiques des appareils](iot-hub-auto-device-config.md) :** Les configurations automatiques des appareils déploient et supervisent les changements de configuration apportés à grands ensembles d’appareils IoT via des jumeaux d’appareil.
 
-   Les **métriques** sont des requêtes sur les propriétés signalées du jumeau d’appareil et doivent également être alignées sur la structure du jumeau d’appareil définie par le fabricant/l’intégrateur de matériel IoT. Les configurations automatiques des appareils bénéficient également d’IoT Hub qui effectue des opérations de jumeau d’appareil à une fréquence qui ne dépasse jamais les [seuils de limitation](iot-hub-devguide-quotas-throttling.md) pour les lectures et mises à jour de jumeaux d’appareil.
+   Les configurations automatiques des appareils ciblent des ensembles de jumeaux d’appareil via la **condition cible**, qui est une requête sur les balises ou propriétés signalées du jumeau d’appareil. Le **contenu cible** est l’ensemble des propriétés voulues qui seront définies dans les jumeaux d’appareil ciblés. Le contenu cible doit s’aligner sur la structure du jumeau d’appareil définie par le fabricant/l’intégrateur de matériel IoT. Les **métriques** sont des requêtes sur les propriétés signalées du jumeau d’appareil et doivent également être alignées sur la structure du jumeau d’appareil définie par le fabricant/l’intégrateur de matériel IoT.
 
-* **Utilisez le [Service Device Provisioning](../iot-dps/how-to-manage-enrollments.md):** Les développeurs de solutions doivent utiliser le Service Device Provisioning pour affecter des balises de jumeau d’appareil à de nouveaux périphériques, tels qu’ils seront automatiquement configurés par **configurations d’appareils automatique** qui visent les représentations associées à cette balise. 
+   Les configurations automatiques d’appareils s’exécutent pour la première fois peu de temps après la création de la configuration, puis à cinq minutes d’intervalle. Elles bénéficient également d’IoT Hub qui effectue des opérations de jumeau d’appareil à une fréquence qui ne dépasse jamais les [seuils de limitation](iot-hub-devguide-quotas-throttling.md) pour les lectures et mises à jour de jumeaux d’appareil.
+
+* **Utiliser le [service Device Provisioning](../iot-dps/how-to-manage-enrollments.md) :** Les développeurs de solutions doivent utiliser le service Device Provisioning pour affecter des étiquettes de jumeau d’appareil aux nouveaux appareils, de façon à ce qu’ils soient automatiquement configurés par des **configurations automatiques des appareils** ciblées au niveau des jumeaux avec cette étiquette. 
 
 ## <a name="iot-solution-operator"></a>Opérateur de solutions IoT
 
 Voici les bonnes pratiques pour les opérateurs de solutions IoT qui utilisent une solution IoT reposant sur Azure :
 
-* **Organiser les appareils pour la gestion :** La solution IoT doit définir ou autoriser pour la création de sonneries de qualité ou d’autres ensembles d’appareils en fonction de différentes stratégies de déploiement telles que contrôle de validité. Les ensembles d’appareils seront utilisés pour déployer les modifications de configuration et effectuer d’autres opérations de gestion des appareils à grande échelle.
+* **Organiser les appareils pour la gestion :** La solution IoT doit définir ou permettre la création d’anneaux de qualité ou d’autres ensembles d’appareils en fonction de différentes stratégies de déploiement, comme le contrôle de validité. Les ensembles d’appareils seront utilisés pour déployer les modifications de configuration et effectuer d’autres opérations de gestion des appareils à grande échelle.
 
-* **Effectuer des modifications de configuration à l’aide d’un lancement graduel :**  Déploiement progressif est un processus global par lequel un opérateur déploie les modifications apportées à un ensemble étendu d’appareils IoT. L’objectif est d’apporter des modifications progressivement afin de réduire le risque d’étendre les modifications avec rupture à une plus grande échelle.  L’opérateur doit utiliser l’interface de la solution pour créer une [configuration automatique de l’appareil](iot-hub-auto-device-config.md), et la condition de ciblage doit cibler un ensemble initial d’appareils (par exemple, un groupe de contrôle de validité). L’opérateur doit ensuite valider la modification de configuration dans l’ensemble initial d’appareils.
+* **Effectuer des changements de configuration en utilisant un déploiement par phases :**  Un déploiement par phases est un processus global par lequel un opérateur déploie les modifications sur un ensemble d’appareils IoT qui va en s’élargissant. L’objectif est d’apporter des modifications progressivement afin de réduire le risque d’étendre les modifications avec rupture à une plus grande échelle.  L’opérateur doit utiliser l’interface de la solution pour créer une [configuration automatique de l’appareil](iot-hub-auto-device-config.md), et la condition de ciblage doit cibler un ensemble initial d’appareils (par exemple, un groupe de contrôle de validité). L’opérateur doit ensuite valider la modification de configuration dans l’ensemble initial d’appareils.
 
    Une fois la validation terminée, l’opérateur met à jour la configuration automatique de l’appareil pour inclure un plus grand ensemble d’appareils. L’opérateur doit également définir une priorité pour la configuration qui soit supérieure à d’autres configurations actuellement ciblées sur ces appareils. Le déploiement peut être surveillé à l’aide des métriques signalées par la configuration automatique de l’appareil.
 
-* **Effectuez des restaurations dans le cas d’erreurs ou de mauvaises configurations :**  Une configuration automatique des appareils qui provoque des erreurs ou des erreurs de configuration peut être restaurée en modifiant le **condition de ciblage** afin que les appareils ne répondent pas à la condition de ciblage. Vérifiez qu’une autre configuration automatique de l’appareil de priorité inférieure est toujours ciblée sur ces appareils. Vérifiez que la restauration a réussi en consultant les mesures : La configuration restaurée ne doit plus afficher l’état pour les appareils non ciblées, et les mesures de la configuration du deuxième doivent désormais inclure des nombres pour les appareils qui sont toujours ciblés.
+* **Effectuer des restaurations en cas d’erreurs ou de problèmes de configuration :**  Une configuration automatique de l’appareil qui provoque des erreurs ou des problèmes de configuration peut être restaurée en modifiant la **condition de ciblage**, afin que les appareils ne répondent plus à cette condition. Vérifiez qu’une autre configuration automatique de l’appareil de priorité inférieure est toujours ciblée sur ces appareils. Vérifiez que la restauration a réussi en consultant les métriques suivantes : La configuration restaurée ne doit plus afficher d’état pour les appareils non ciblés, et les métriques de la deuxième configuration doivent maintenant inclure des comptages pour les appareils qui sont toujours ciblés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -88,4 +90,4 @@ Voici les bonnes pratiques pour les opérateurs de solutions IoT qui utilisent u
 
 * Suivez les étapes pour créer, mettre à jour ou supprimer une configuration automatique de l’appareil dans [Configurer et surveiller des appareils IoT à grande échelle](iot-hub-auto-device-config.md).
 
-* Implémenter un modèle de mise à jour du microprogramme à l’aide de jumeaux d’appareil et les configurations d’appareils automatique dans [didacticiel : Implémenter un processus de mise à jour de microprogramme de périphérique](tutorial-firmware-update.md).
+* Implémentez un modèle de mise à jour de microprogramme à l’aide de jumeaux d’appareil et de configurations automatiques des appareils dans [Tutoriel : Implémenter un processus de mise à jour de microprogramme d’appareil](tutorial-firmware-update.md).

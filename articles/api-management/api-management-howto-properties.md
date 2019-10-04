@@ -9,38 +9,38 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 07/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d71d71c4d289235e5b67a5201c1f7417274b8fca
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791624"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072329"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure
-Les stratégies Gestion des API sont une fonctionnalité puissante du système qui permet au portail Azure de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions de la stratégie peuvent être construites à l’aide de valeurs de texte littéral, d’expressions de stratégie et de valeurs nommées. 
 
-Chaque instance du service Gestion des API possède une collection de propriétés de paires clé/valeur, appelées « valeurs nommées », qui s’appliquent de manière globale à l’instance du service. Ces valeurs nommées peuvent être utilisées pour gérer les valeurs de chaîne constantes dans l’ensemble des stratégies et de la configuration des API. Chaque propriété peut avoir les attributs suivants :
+Les stratégies Gestion des API sont une fonctionnalité puissante du système qui permet au portail Azure de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions de la stratégie peuvent être construites à l’aide de valeurs de texte littéral, d’expressions de stratégie et de valeurs nommées.
 
-| Attribut | Type | Description |
-| --- | --- | --- |
-| Nom complet |string |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
-| Valeur |string |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
-|Secret|booléenne|Détermine si la valeur est un secret et doit être chiffrée.|
-| Balises |tableau de chaînes |Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
+Chaque instance du service Gestion des API possède une collection de propriétés de paires clé/valeur, appelées « valeurs nommées », qui s’appliquent de manière globale à l’instance du service. Il n’existe aucune limite imposée quant au nombre d’éléments que peut contenir une collection. Les valeurs nommées peuvent être utilisées pour gérer les valeurs de chaîne constantes dans l’ensemble des stratégies et de la configuration des API. Chaque valeur nommée peut avoir les attributs suivants :
+
+| Attribut      | Type            | Description                                                                                                                         |
+| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `Display name` | string          | Utilisé pour référencer la propriété dans les stratégies. Chaîne de 1 à 256 caractères. Seuls les lettres, les chiffres, les points et les tirets sont autorisés. |
+| `Value`        | string          | Valeur réelle. Ne peut pas être vide ni se composer uniquement d’espaces blancs. Longueur maximale de 4 096 caractères.                                     |
+| `Secret`       | boolean         | Détermine si la valeur est un secret et doit être chiffrée.                                                            |
+| `Tags`         | tableau de chaînes | Utilisé pour filtrer la liste des propriétés. Jusqu’à 32 étiquettes.                                                                                    |
 
 ![Valeurs nommées](./media/api-management-howto-properties/named-values.png)
 
-Les valeurs de propriété peuvent contenir des chaînes littérales et des [expressions de stratégie](/azure/api-management/api-management-policy-expressions). Par exemple, la valeur de `ExpressionProperty` est une expression de stratégie qui retourne une chaîne contenant la date et l’heure actuelles. La propriété `ContosoHeaderValue` est marquée en tant que secret. Sa valeur ne s’affiche donc pas.
+Les valeurs nommées peuvent contenir des chaînes littérales et des [expressions de stratégie](/azure/api-management/api-management-policy-expressions). Par exemple, la valeur de `Expression` est une expression de stratégie qui retourne une chaîne contenant la date et l’heure actuelles. La valeur nommée `Credential` est marquée en tant que secret. Par défaut, cette valeur n’est donc pas affichée.
 
-| Nom | Valeur | Secret | Balises |
-| --- | --- | --- | --- |
-| ContosoHeader |TrackingId |False |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
-| ExpressionProperty |@(DateHeure.Now.ToString()) |False | |
+| Nom       | Valeur                      | Secret | Balises          |
+| ---------- | -------------------------- | ------ | ------------- |
+| Valeur      | 42                         | False  | vital-numbers |
+| Informations d'identification | ••••••••••••••••••••••     | True   | security      |
+| Expression | @(DateHeure.Now.ToString()) | False  |               |
 
 ## <a name="to-add-and-edit-a-property"></a>Pour ajouter et modifier une propriété
 
@@ -50,12 +50,13 @@ Les valeurs de propriété peuvent contenir des chaînes littérales et des [exp
 2. Sélectionnez **Valeurs nommées**.
 3. Appuyez sur **+ Ajouter**.
 
-   Nom et Valeur doivent être renseignés. Si la valeur de propriété est un secret, cochez la case Il s’agit d’une clé secrète. Entrez une ou plusieurs balises facultatives pour aider à organiser vos valeurs nommées, puis cliquez sur Enregistrer.
+    Nom et Valeur doivent être renseignés. Si la valeur de propriété est un secret, cochez la case Il s’agit d’une clé secrète. Entrez une ou plusieurs balises facultatives pour aider à organiser vos valeurs nommées, puis cliquez sur Enregistrer.
+
 4. Cliquez sur **Créer**.
 
 Une fois que la propriété est créée, vous pouvez le modifier en cliquant sur la propriété. Si vous modifiez le nom de propriété, toutes les stratégies qui font référence à cette propriété sont automatiquement mises à jour pour utiliser le nouveau nom.
 
-Pour plus d’informations sur la modification d’une propriété à l’aide de l’API REST, consultez [Modifier une propriété à l’aide de l’API REST](/rest/api/apimanagement/property?Patch).
+Pour plus d’informations sur la modification d’une propriété à l’aide de l’API REST, consultez [Modifier une propriété à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/property?patch).
 
 ## <a name="to-delete-a-property"></a>Pour supprimer une propriété
 
@@ -63,10 +64,8 @@ Pour supprimer une propriété, cliquez sur **Supprimer** en regard de la propri
 
 > [!IMPORTANT]
 > Si la propriété est référencée par des stratégies, vous ne pouvez pas la supprimer correctement tant que vous ne l’avez pas supprimée de toutes les stratégies qui l’utilisent.
-> 
-> 
 
-Pour plus d’informations sur la suppression d’une propriété à l’aide de l’API REST, consultez [Supprimer une propriété à l’aide de l’API REST](/rest/api/apimanagement/property?Delete).
+Pour plus d’informations sur la suppression d’une propriété à l’aide de l’API REST, consultez [Supprimer une propriété à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Pour rechercher et filtrer des valeurs nommées
 
@@ -109,12 +108,12 @@ Si vous examinez le [suivi de l’inspecteur d’API](api-management-howto-api-i
 Alors que les valeurs de propriété peuvent contenir des expressions de stratégie, elles ne peuvent pas contenir d’autres valeurs nommées. Si le texte contenant une référence de propriété est utilisé pour une valeur de propriété, comme `Property value text {{MyProperty}}`, cette référence de propriété n’est pas remplacée et est incluse dans la valeur de propriété.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur l’utilisation des stratégies
-  * [Stratégies dans Gestion des API](api-management-howto-policies.md)
-  * [Référence de stratégie](/azure/api-management/api-management-policies)
-  * [Expressions de stratégie](/azure/api-management/api-management-policy-expressions)
+
+-   En savoir plus sur l’utilisation des stratégies
+    -   [Stratégies dans Gestion des API](api-management-howto-policies.md)
+    -   [Référence de stratégie](/azure/api-management/api-management-policies)
+    -   [Expressions de stratégie](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
-

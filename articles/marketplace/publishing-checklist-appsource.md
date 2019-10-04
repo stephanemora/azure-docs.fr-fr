@@ -1,27 +1,22 @@
 ---
-title: Publication de check-lists pour AppSource | Azure
+title: Check-list de publication pour AppSource | Place de marché Azure
 description: Publication de check-lists pour AppSource.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5521602331b50c70ab31e6ea2f5eec8f6a3911ad
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: 7df88c941c1d42bc4a49e391fa3d64273237bd08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736521"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937571"
 ---
 # <a name="publishing-checklist-for-appsource"></a>Publication de check-lists pour AppSource  
+
 Passez en revue les composants requis avant de commencer le processus de publication.  
 
 Les artefacts suivants sont nécessaires pour publier votre application sur AppSource.  

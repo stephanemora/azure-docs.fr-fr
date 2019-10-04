@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 932587afcffcb3b1a259a02a98c648e938e99931
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60256407"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight
 
@@ -65,7 +65,7 @@ Ces blocs-notes doivent être exécutés dans le noyau pySpark3 du serveur de Bl
 
 Pour obtenir des conseils sur l’utilisation d’un modèle Spark 2.0 et la consommation de modèle à des fins de notation, consultez le [document Spark 1.6 sur la consommation](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-model-consumption.ipynb) pour obtenir un exemple des étapes requises. Pour utiliser cette option sur Spark 2.0, remplacez le fichier de code Python par [ce fichier](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py).
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Les procédures ci-dessous sont relatives à Spark 1.6. Pour la version Spark 2.0, utilisez les blocs-notes décrits et référencés précédemment.
 
@@ -130,7 +130,7 @@ Nous avons pris un échantillon représentant 0,1 % de ces fichiers, et joint l
 | dropoff_longitude |Longitude d’arrivée |
 | dropoff_latitude |Latitude d’arrivée |
 | direct_distance |Distance directe entre les emplacements de départ et d’arrivée |
-| payment_type |Type de paiement (espèces, etc. de carte de crédit). |
+| payment_type |Type de paiement (espèces, carte de crédit, etc.). |
 | fare_amount |Montant du trajet |
 | surcharge |Surcharge |
 | mta_tax |Taxe du MTA |

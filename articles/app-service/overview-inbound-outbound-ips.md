@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 96f580532d9ea45dd767e32c2451243e83af66ea
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 2508090fa8831c8fefb0e710c28e512ec0c94c6e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480802"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074152"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Adresses IP entrantes et sortantes dans Azure App Service
 
@@ -35,9 +34,17 @@ Quel que soit le nombre d’instances scale-out, chaque application a une seule 
 - Supprimer la dernière application dans une combinaison de groupe de ressources _et_ de région, puis la recréer.
 - Supprimer une liaison SSL existante, comme pendant un renouvellement de certificat (voir [Renouveler des certificats](app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-## <a name="get-static-inbound-ip"></a>Obtenir une adresse IP entrante statique
+## <a name="find-the-inbound-ip"></a>Rechercher l’IP entrante
 
-Vous pouvez avoir besoin d’une adresse IP statique dédiée pour votre application. Pour obtenir une adresse IP entrante statique, vous devez configurer une [liaison SSL basée sur l’adresse IP](app-service-web-tutorial-custom-ssl.md#bind-your-ssl-certificate). Si vous n’avez pas besoin de la fonctionnalité SSL pour sécuriser votre application, vous pouvez même télécharger un certificat auto-signé pour cette liaison. Dans une liaison SSL basée sur l’adresse IP, le certificat est lié à l’adresse IP elle-même. App Service fournit donc une adresse IP statique pour que cela se produise. 
+Il vous suffit d’exécuter la commande suivante dans un terminal local :
+
+```bash
+nslookup <app-name>.azurewebsites.net
+```
+
+## <a name="get-a-static-inbound-ip"></a>Obtenir une adresse IP entrante statique
+
+Vous pouvez avoir besoin d’une adresse IP statique dédiée pour votre application. Pour obtenir une adresse IP entrante statique, vous devez configurer une [liaison SSL basée sur l’adresse IP](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). Si vous n’avez pas besoin de la fonctionnalité SSL pour sécuriser votre application, vous pouvez même télécharger un certificat auto-signé pour cette liaison. Dans une liaison SSL basée sur l’adresse IP, le certificat est lié à l’adresse IP elle-même. App Service fournit donc une adresse IP statique pour que cela se produise. 
 
 ## <a name="when-outbound-ips-change"></a>Lorsque les adresses IP sortantes changent
 
@@ -45,11 +52,11 @@ Quel que soit le nombre d’instances scale-out, chaque application a un nombre 
 
 L’ensemble d’adresses IP sortantes de votre application change lorsque vous faites évoluer votre application entre les niveaux inférieurs (**De base**, **Standard** et **Premium**) et le niveau **Premium V2**.
 
-Vous pouvez trouver l’ensemble de toutes les adresses IP sortantes votre application peut utiliser, quel que soit le niveaux de tarification, en recherchant le `possibleOutboundIPAddresses` propriété ou dans le **des adresses IP sortantes supplémentaires** champ dans le **propriétés**  panneau dans le portail Azure. Consultez [Trouver des adresses IP sortantes](#find-outbound-ips).
+Vous pouvez trouver toutes les adresses IP sortantes que votre application est susceptible d’utiliser, indépendamment des niveaux de tarification, en recherchant la propriété `possibleOutboundIPAddresses`, ou à l’aide du champ **Adresses IP sortantes supplémentaires** du panneau **Propriétés** du portail Azure. Consultez [Trouver des adresses IP sortantes](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Trouver des adresses IP sortantes
 
-Pour trouver les adresses IP sortantes actuellement utilisées par votre application dans le portail Azure, cliquez sur **Propriétés** dans le volet de navigation gauche de votre application. Ils sont répertoriés dans le **des adresses IP sortantes** champ.
+Pour trouver les adresses IP sortantes actuellement utilisées par votre application dans le portail Azure, cliquez sur **Propriétés** dans le volet de navigation gauche de votre application. Elles sont répertoriées dans le champ **Adresses IP sortantes**.
 
 Vous pouvez obtenir les mêmes informations en exécutant la commande suivante dans [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -61,7 +68,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Pour rechercher _tous les_ des adresses IP sortantes possibles pour votre application, quel que soit le niveaux de tarification, cliquez sur **propriétés** de navigation de gauche de votre application. Ils sont répertoriés dans le **des adresses IP sortantes supplémentaires** champ.
+Pour rechercher _toutes_ les adresses IP sortantes possibles pour votre application, indépendamment des niveaux de tarification, cliquez sur **Propriétés** dans la navigation à gauche de votre application. Elles sont répertoriées dans le champ **Adresses IP sortantes supplémentaires**.
 
 Vous pouvez obtenir les mêmes informations en exécutant la commande suivante dans [Cloud Shell](../cloud-shell/quickstart.md).
 

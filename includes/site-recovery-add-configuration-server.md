@@ -10,11 +10,11 @@ ms.date: 02/28/2019
 ms.author: mayg
 ms.custom: include file
 ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57343569"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176777"
 ---
 1. Exécutez le fichier d’installation unifiée.
 2. Dans **Avant de commencer**, sélectionnez **Installer le serveur de configuration et le serveur de traitement**.
@@ -35,7 +35,7 @@ ms.locfileid: "57343569"
      ![Pare-feu](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. Dans **Vérification de la configuration requise**, le programme d’installation procède à une vérification afin de garantir le bon déroulement de l’installation. Si un avertissement s’affiche à propos de la **vérification de la synchronisation globale**, vérifiez que l’heure de l’horloge système (paramètres **Date et heure**) est identique à celle du fuseau horaire.
 
-    ![Conditions préalables](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+    ![Prérequis](./media/site-recovery-add-configuration-server/combined-wiz5.png)
 7. Dans **Configuration MySQL**, créez des informations d’identification pour vous connecter à l’instance de serveur MySQL installée.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
@@ -43,7 +43,7 @@ ms.locfileid: "57343569"
 9. Dans **Emplacement d’installation**, sélectionnez l’emplacement où vous voulez installer les fichiers binaires et stocker le cache. Le lecteur sélectionné doit présenter au moins 5 Go d’espace disque disponible. Toutefois, nous vous recommandons d’utiliser un lecteur de cache présentant au moins 600 Go d’espace disponible.
 
     ![Emplacement d’installation](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. Dans **sélection du réseau**, sélectionnez d’abord la carte réseau par le serveur de processus intégré pour l’installation push et la découverte du service mobilité sur les machines sources, puis sélectionnez la carte réseau qui utilise le serveur Configuration pour la connectivité avec Azure. Le port 9443 est le port utilisé par défaut pour envoyer et recevoir le trafic de réplication, mais vous pouvez le modifier en fonction des exigences de votre environnement. Outre le port 9443, nous ouvrons également le port 443, qui est utilisé par un serveur web pour orchestrer les opérations de réplication. N’utilisez pas le port 443 pour envoyer ou recevoir le trafic de réplication.
+10. Dans **Sélection du réseau**, commencez par sélectionner la carte réseau que le serveur de processus intégré utilise pour l’installation push du service Mobilité sur les machines sources, puis sélectionnez la carte réseau que le serveur de configuration utilise pour la connectivité avec Azure. Le port 9443 est le port utilisé par défaut pour envoyer et recevoir le trafic de réplication, mais vous pouvez le modifier en fonction des exigences de votre environnement. Outre le port 9443, nous ouvrons également le port 443, qui est utilisé par un serveur web pour orchestrer les opérations de réplication. N’utilisez pas le port 443 pour envoyer ou recevoir le trafic de réplication.
 
     ![Sélection du réseau](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 

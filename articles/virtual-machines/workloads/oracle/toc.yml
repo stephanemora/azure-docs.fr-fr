@@ -1,35 +1,38 @@
-items:
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
-  - name: Considérations relatives aux machines virtuelles Oracle
-    href: oracle-considerations.md
+    - name: Vue d’ensemble des solutions Oracle
+      href: oracle-overview.md
+    - name: Solutions sur machines virtuelles Azure
+      href: oracle-vm-solutions.md
+    - name: Solutions avec OCI - Aperçu
+      href: oracle-oci-overview.md
 - name: Démarrages rapides
   items:
-  - name: Créer une base de données Oracle
-    href: oracle-database-quick-create.md
+    - name: Créer une base de données Oracle
+      href: oracle-database-quick-create.md
 - name: Tutoriels
   items:
-  - name: Configurer Oracle ASM
-    href: configure-oracle-asm.md
-  - name: Configurer Oracle DataGuard
-    href: configure-oracle-dataguard.md
-  - name: Configurer Oracle GoldenGate
-    href: configure-oracle-golden-gate.md
+    - name: Configurer Oracle ASM
+      href: configure-oracle-asm.md
+    - name: Configurer Oracle Data Guard
+      href: configure-oracle-dataguard.md
+    - name: Configurer Oracle GoldenGate
+      href: configure-oracle-golden-gate.md
 - name: Concepts
   items:
-  - name: Créer l’architecture d’une base de données Oracle
-    href: oracle-design.md
-  - name: Stratégie de sauvegarde d’une base de données Oracle
-    href: oracle-backup-recovery.md
-  - name: Options de reprise d’activité après sinistre Oracle
-    href: oracle-disaster-recovery.md
+    - name: Architectures d’applications Oracle
+      href: oracle-oci-applications.md
+    - name: Créer l’architecture d’une base de données Oracle
+      href: oracle-design.md
+    - name: Stratégie de sauvegarde d’une base de données Oracle
+      href: oracle-backup-recovery.md
+    - name: Options de reprise d’activité après sinistre Oracle
+      href: oracle-disaster-recovery.md
+- name: Guides pratiques
+  items:
+    - name: Interconnecter Azure et OCI - Préversion
+      href: configure-azure-oci-networking.md
 - name: Ressources
   items:
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 9c8aba887e728904aed51d3db2db5bb02c03d7b8
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340606"
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'

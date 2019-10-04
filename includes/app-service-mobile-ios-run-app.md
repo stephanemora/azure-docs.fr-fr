@@ -4,24 +4,41 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: f4ba467b6d80c9ccafba0a91c1f04152b92cf869
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: a5bde1a56bf6a1f5fca4b775c7c8e9bb7477eb6b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58115477"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66240271"
 ---
-1. Sur votre Mac, accédez au [Portail Azure]. Cliquez sur **Tous les services** > **App Services** > le serveur principal que vous venez de créer. Dans les paramètres de l’application mobile, choisissez votre langue par défaut :
+1. Ouvrez le projet client téléchargé à l’aide de Xcode.
 
-   - Objective-C &ndash; **Démarrage rapide** > **iOS (Objective-C)**
-   - Swift &ndash; **Démarrage rapide** > **iOS (Swift)**
+2. Ouvrez le [Portail Microsoft Azure](https://portal.azure.com/), puis accédez à l’application mobile que vous avez créée. Sur le panneau `Overview`, recherchez l’URL qui correspond au point de terminaison public pour votre application mobile. Exemple : la valeur sitename relative au nom de l’application « test123 » est https://test123.azurewebsites.net.
 
-     Sous **3. Configurer votre application cliente**, cliquez sur **Télécharger**. Cette opération télécharge un projet Xcode complet préconfiguré pour se connecter à votre serveur principal. Ouvrez le projet à l’aide de Xcode.
+3. Dans le cas d’un projet Swift, ouvrez le fichier `ToDoTableViewController.swift` dans le dossier ZUMOAPPNAME/ZUMOAPPNAME/ToDoTableViewController.swift. Le nom de l’application est `ZUMOAPPNAME`.
 
-1. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l’application dans le simulateur iOS.
+4. Dans la méthode `viewDidLoad()`, remplacez le paramètre `ZUMOAPPURL` par le point de terminaison public ci-dessus.
 
-1. Dans l’application, cliquez sur l’icône du signe plus (**+**), tapez un texte explicite comme *Suivre le tutoriel*, puis cliquez sur le bouton Enregistrer. Cette action envoie une requête POST au serveur principal Azure déployé précédemment. Le backend insère les données de la requête dans la table SQL TodoItem et renvoie des informations sur les éléments récemment stockés à l’application mobile. L’application mobile affiche ces données dans la liste.
+    `let client = MSClient(applicationURLString: "ZUMOAPPURL")`
+
+    devient
+    
+    `let client = MSClient(applicationURLString: "https://test123.azurewebsites.net")`
+    
+5. Dans le cas d’un projet Objective-C, ouvrez le fichier `QSTodoService.m` dans le dossier ZUMOAPPNAME/ZUMOAPPNAME. Le nom de l’application est `ZUMOAPPNAME`.
+
+6. Dans la méthode `init`, remplacez le paramètre `ZUMOAPPURL` par le point de terminaison public ci-dessus.
+
+    `self.client = [MSClient clientWithApplicationURLString:@"ZUMOAPPURL"];`
+
+    devient
+    
+    `self.client = [MSClient clientWithApplicationURLString:@"https://test123.azurewebsites.net"];`
+
+7. Appuyez sur le bouton **Exécuter** pour générer le projet et démarrer l’application dans le simulateur iOS.
+
+8. Dans l’application, cliquez sur l’icône du signe plus ( **+** ), tapez un texte explicite comme *Suivre le tutoriel*, puis cliquez sur le bouton Enregistrer. Cette action envoie une requête POST au serveur principal Azure déployé précédemment. Le backend insère les données de la requête dans la table SQL TodoItem et renvoie des informations sur les éléments récemment stockés à l’application mobile. L’application mobile affiche ces données dans la liste.
 
    ![Application de démarrage rapide en cours d’exécution sur iOS](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
-[Portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

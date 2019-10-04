@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 82910bf5c42629c2d4f077ad6df2adbfc9dcf021
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271626"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989992"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -24,7 +24,7 @@ Cet article décrit certains modèles adaptés aux solutions de service de Table
 Le plan des modèles ci-dessus met en évidence les relations entre les modèles (bleus) et les anti-modèles (orange) qui sont décrits dans ce guide. Il existe bien d’autres modèles qui méritent votre attention. Par exemple, l’un des principaux scénarios pour un service de Table consiste à utiliser des [modèles d’affichages matérialisés](https://msdn.microsoft.com/library/azure/dn589782.aspx) à partir du modèle [Répartition de la responsabilité de requête de commande](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS).  
 
 ## <a name="intra-partition-secondary-index-pattern"></a>Modèle d’index secondaire intra-partition
-Stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**. La cohérence des mises à jour entre les copies peut être assurée à l’aide d’une EGT.  
+Stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**. La cohérence des mises à jour entre les copies peut être assurée à l’aide d’EGT.  
 
 ### <a name="context-and-problem"></a>Contexte et problème
 Le service de Table indexe automatiquement les entités en utilisant les valeurs de **PartitionKey** et de **RowKey**. Ainsi, une application cliente peut récupérer une entité efficacement à l'aide de ces valeurs. Par exemple, à l’aide de la structure de table ci-dessous, une application cliente peut utiliser une requête de pointage pour récupérer une entité d’employé individuelle en utilisant le nom de service et l’ID d’employé (**PartitionKey** et **RowKey**). Un client peut aussi récupérer des entités triées par ID d’employé au sein de chaque service.
@@ -34,7 +34,7 @@ Le service de Table indexe automatiquement les entités en utilisant les valeurs
 Si vous voulez également pouvoir trouver une entité d'employé en fonction de la valeur d'une autre propriété, comme l'adresse de messagerie, vous devez utiliser une analyse de partition moins efficace pour rechercher une correspondance. En effet, le service de Table ne fournit pas d'index secondaires. De plus, vous ne pouvez pas demander une liste des employés triés dans un ordre différent de celui de **RowKey** .  
 
 ### <a name="solution"></a>Solution
-Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs copies de chaque entité avec chaque copie en utilisant une autre valeur de **RowKey** . Si vous stockez une entité avec les structures indiquées ci-dessous, vous pouvez récupérer efficacement des entités d’employé selon leur adresse e-mail ou leur ID d’employé. Les valeurs de préfixe pour **RowKey**, « empid » et « email » permettent d’interroger un seul employé ou une plage d’employés à l’aide d’une plage d’adresses de messagerie ou d’ID d’employé.  
+Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs copies de chaque entité avec chaque copie en utilisant une autre valeur de **RowKey** . Si vous stockez une entité avec les structures indiquées ci-dessous, vous pouvez récupérer efficacement des entités d’employé selon leur adresse e-mail ou leur ID d’employé. Les valeurs de préfixe pour **RowKey**, « empid » et « email » permettent d’interroger un seul employé ou une plage d’employés à l’aide d’une plage d’adresses de messagerie ou d’ID d’employé.  
 
 ![Entités d’employé](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
@@ -48,7 +48,7 @@ Si vous interrogez un ensemble d’entités d’employé, vous pouvez spécifier
 * Pour rechercher tous les employés du service des ventes avec un ID d’employé compris entre 000100 et 000199, utilisez : $filter=(PartitionKey eq ’Sales’) and (RowKey ge ’empid_000100’) and (RowKey le ’empid_000199’)  
 * Pour rechercher tous les employés du service des ventes dont l’adresse de messagerie commence par la lettre « a », utilisez : $filter=(PartitionKey eq ’Sales’) and (RowKey ge ’email_a’) and (RowKey lt ’email_b’)  
   
-  Notez que la syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST Service de Table. Pour en savoir plus, consultez [Interrogation d’entités](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  La syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST Service de Table. Pour en savoir plus, consultez [Interrogation d’entités](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
@@ -86,7 +86,7 @@ Le service de Table indexe automatiquement les entités en utilisant les valeurs
 
 Si vous voulez également pouvoir trouver une entité d'employé en fonction de la valeur d'une autre propriété, comme l'adresse de messagerie, vous devez utiliser une analyse de partition moins efficace pour rechercher une correspondance. En effet, le service de Table ne fournit pas d'index secondaires. De plus, vous ne pouvez pas demander une liste des employés triés dans un ordre différent de celui de **RowKey** .  
 
-Vous prévoyez un volume très élevé de transactions sur ces entités et vous souhaitez réduire le risque de limitation de votre client par le service de Table.  
+Vous prévoyez un volume élevé de transactions sur ces entités et vous souhaitez réduire le risque de limitation de votre client par le service de Table.  
 
 ### <a name="solution"></a>Solution
 Pour contourner l’absence d’index secondaires, vous pouvez stocker plusieurs copies de chaque entité avec chaque copie à l’aide de différentes valeurs de **PartitionKey** et de **RowKey**. Si vous stockez une entité avec les structures indiquées ci-dessous, vous pouvez récupérer efficacement des entités d’employé selon leur adresse e-mail ou leur ID d’employé. Les valeurs de préfixe pour **PartitionKey**, « empid » et « email » permettent d’identifier l’index à utiliser pour une requête.  
@@ -104,7 +104,7 @@ Si vous interrogez un ensemble d’entités d’employé, vous pouvez spécifier
 * Pour rechercher tous les employés du service des ventes avec un ID d’employé compris entre **000100** et **000199**, utilisez : $filter=(PartitionKey eq ’empid_Sales’) and (RowKey ge ’000100’) and (RowKey le ’000199’)  
 * Pour rechercher tous les employés du service des ventes ayant une adresse de messagerie qui commence par « a » triés dans l’ordre des adresses de messagerie, utilisez : $filter=(PartitionKey eq ’email_Sales’) and (RowKey ge ’a’) and (RowKey lt ’b’)  
 
-Notez que la syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST Service de Table. Pour en savoir plus, consultez [Interrogation d’entités](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+La syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST Service de Table. Pour en savoir plus, consultez [Interrogation d’entités](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
@@ -117,7 +117,7 @@ Prenez en compte les points suivants lorsque vous choisissez comment implémente
   
    ![Entité d’employé (index secondaire)](media/storage-table-design-guide/storage-table-design-IMAGE11.png)
 
-* Il est généralement préférable de stocker les données en double et de vous assurer que vous pouvez récupérer toutes les données dont vous avez besoin en utilisant une seule requête, plutôt que d'utiliser une requête pour rechercher une entité à l'aide de l'index secondaire et une autre pour rechercher les données requises dans l'index primaire.  
+* Il est généralement préférable de stocker les données en double et de vous assurer que vous pouvez récupérer toutes les données dont vous avez besoin en utilisant une seule requête, plutôt que d’utiliser une requête pour rechercher une entité à l’aide de l’index secondaire et une autre pour rechercher les données requises dans l’index primaire.  
 
 ### <a name="when-to-use-this-pattern"></a>Quand utiliser ce modèle
 Utilisez ce modèle lorsque votre application cliente a besoin de récupérer des entités en utilisant des clés différentes, lorsque votre client a besoin de récupérer des entités dans différents ordres de tri et où vous pouvez identifier chaque entité à l'aide d'une variété de valeurs uniques. Utilisez ce modèle si vous voulez éviter le dépassement des limites d’extensibilité de partition quand vous effectuez des recherches d’entité à l’aide des différentes valeurs de **RowKey** .  
@@ -162,7 +162,7 @@ Certaines erreurs provenant des services de Table et de File d'attente sont des 
 ### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
 
-* Cette solution ne fournit pas d'isolation des transactions. Par exemple, un client peut lire les tables **Current** et **Archive** quand le rôle de travail est entre les étapes **4** et **5**, et voir des données incohérentes affichées. Notez que les données seront cohérentes par la suite.  
+* Cette solution ne fournit pas d'isolation des transactions. Par exemple, un client peut lire les tables **Current** et **Archive** quand le rôle de travail est entre les étapes **4** et **5**, et voir des données incohérentes affichées. Les données seront cohérentes par la suite.  
 * Vous pouvez être amené à vérifier que les étapes 4 et 5 sont idempotent afin d'assurer la cohérence.  
 * Vous pouvez mettre à l'échelle la solution en utilisant plusieurs files d'attente et instances de rôle de travail.  
 
@@ -191,7 +191,7 @@ Le service de Table indexe automatiquement les entités en utilisant les valeurs
 Si vous voulez également récupérer la liste des entités d'employés en fonction de la valeur d'une autre propriété qui n'est pas unique (par exemple, son nom), vous devez utiliser une analyse de partition moins efficace pour rechercher des correspondances, plutôt que d'utiliser un index pour rechercher directement. En effet, le service de Table ne fournit pas d'index secondaires.  
 
 ### <a name="solution"></a>Solution
-Pour permettre la recherche par nom de famille en utilisant la structure d'entité indiquée ci-dessus, vous devez gérer des listes des ID d'employés. Si vous voulez récupérer les entités d'employés ayant un nom donné (comme Jones), vous devez d'abord localiser la liste des ID d'employés dont le nom est Jones, puis récupérer ces entités d'employés. Il existe trois méthodes principales pour stocker les listes d'ID d'employés :  
+Pour permettre la recherche par nom de famille en utilisant la structure d’entité indiquée ci-dessus, vous devez gérer des listes d’ID d’employés. Si vous voulez récupérer les entités d’employés ayant un nom donné (comme Jones), vous devez d’abord localiser la liste d’ID d’employés dont le nom est Jones, puis récupérer ces entités d’employés. Il existe trois méthodes principales pour stocker les listes d’ID d’employés :  
 
 * Le stockage d'objets blob.  
 * La création d'entités d'index dans la même partition que les entités des employés.  
@@ -199,7 +199,7 @@ Pour permettre la recherche par nom de famille en utilisant la structure d'entit
 
 <u>Option 1 : Utiliser le Stockage Blob</u>  
 
-Pour la première option, vous créez un objet blob pour chaque nom unique et dans chaque magasin d’objets blob vous stockez une liste des valeurs de **PartitionKey** (service) et **RowKey** (ID d’employé) pour les employés de ce nom. Lorsque vous ajoutez ou supprimez un employé, vous devez vous assurer que le contenu de l'objet blob adéquat est cohérent avec les entités de l'employé.  
+Pour la première option, vous créez un objet blob pour chaque nom unique et dans chaque magasin d’objets blob vous stockez une liste des valeurs de **PartitionKey** (service) et **RowKey** (ID d’employé) pour les employés de ce nom. Lorsque vous ajoutez ou supprimez un employé, vous devez vous assurer que le contenu de l’objet blob adéquat est cohérent avec les entités de l’employé.  
 
 <u>Option 2 :</u> Créer des entités d’index dans la même partition  
 
@@ -207,9 +207,9 @@ Pour la seconde méthode, utilisez les entités d'index stockant les données su
 
 ![Entité d’index d’employé](media/storage-table-design-guide/storage-table-design-IMAGE14.png)
 
-La propriété **EmployeeIDs** contient une liste des ID d’employés pour les employés portant le nom stocké dans la **RowKey**.  
+La propriété **EmployeeIDs** contient une liste d’ID d’employés pour les employés portant le nom stocké dans la **RowKey**.  
 
-Les étapes suivantes décrivent le processus à suivre lorsque vous ajoutez un nouvel employé si vous utilisez la deuxième option. Dans cet exemple, nous ajoutons au service des ventes un employé ayant l'ID 000152 et dont le nom de famille est Jones :  
+Les étapes suivantes décrivent le processus à suivre lorsque vous ajoutez un nouvel employé si vous utilisez la deuxième option. Dans cet exemple, nous ajoutons au service des ventes un employé ayant l’ID 000152 et dont le nom de famille est Jones :  
 
 1. Récupérez l’entité de l’index par la valeur de **PartitionKey** « Sales » et la valeur de **RowKey** « Jones ». Enregistrez l'ETag de cette entité pour l'utiliser lors de l'étape 2.  
 2. Créez une transaction de groupe d’entités (c’est-à-dire une opération par lots) qui insère la nouvelle entité d’employé (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « 000152 ») et met à jour l’entité d’index (valeur de **PartitionKey** « Sales » et valeur de **RowKey** « Jones ») en ajoutant l’ID d’employé à la liste du champ EmployeeIDs. Pour plus d’informations sur les transactions de groupe d’entités, consultez Transactions de groupe d’entités.  
@@ -230,21 +230,21 @@ Pour cette troisième méthode, utilisez les entités d'index qui stockent les d
 ![Entité d’index d’employé dans une partition distincte](media/storage-table-design-guide/storage-table-design-IMAGE15.png)
 
 
-La propriété **EmployeeIDs** contient une liste des ID d’employés pour les employés portant le nom stocké dans la **RowKey**.  
+La propriété **EmployeeIDs** contient une liste d’ID d’employés pour les employés portant le nom stocké dans la **RowKey**.  
 
-Dans la troisième méthode, vous ne pouvez pas utiliser des EGT pour maintenir la cohérence, car les entités d'index sont dans une partition distincte des entités d'employé. Vous devez vérifier que les entités d'index sont cohérentes avec les entités d'employé.  
+Dans la troisième méthode, vous ne pouvez pas utiliser des EGT pour maintenir la cohérence, car les entités d'index sont dans une partition distincte des entités d'employé. Vérifiez que les entités d’index sont cohérentes avec les entités d’employé.  
 
 ### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
 
 * Cette solution nécessite au moins deux requêtes pour récupérer des entités correspondantes : une pour interroger les entités d’index afin d’obtenir la liste des valeurs **RowKey** , puis des requêtes pour récupérer chaque entité dans la liste.  
-* Étant donné qu'une entité a une taille maximale de 1 Mo, l'utilisation des méthodes #2 et #3 dans la solution supposent que la liste des ID d'employés pour n'importe quel nom donné n'est jamais supérieure à 1 Mo. Si la liste des ID d'employés est susceptible d'être supérieure à 1 Mo, utilisez la méthode #1 et stockez les données d'index dans le stockage d'objet blob.  
+* Étant donné qu’une entité a une taille maximale de 1 Mo, l’utilisation des méthodes #2 et #3 dans la solution supposent que la liste d’ID d’employés pour n’importe quel nom donné n’est jamais supérieure à 1 Mo. Si la liste d’ID d’employés est susceptible d’être supérieure à 1 Mo, utilisez la méthode #1 et stockez les données d’index dans le stockage d’objets blob.  
 * Si vous utilisez l’option #2 (à l’aide des EGT pour gérer l’ajout et la suppression des employés et la modification du nom d’un employé), vous devez évaluer si le volume des transactions atteint les limites de l’évolutivité dans une partition donnée. Si c'est le cas, vous devez envisager une solution cohérente (méthode 1# ou #3) qui utilisera des files d'attente pour gérer les demandes de mise à jour et vous permettra de stocker vos entités d'index dans une partition distincte à partir des entités d'employés.  
 * La méthode #2 de cette solution part du principe que vous souhaitez effectuer une recherche par nom de famille dans un service : par exemple, si vous souhaitez récupérer une liste des employés avec un nom de famille Jones dans le service des ventes. Si vous souhaitez être en mesure de rechercher dans toute l'organisation tous les employés portant le nom de famille Jones, suivez la méthode # 1 ou # 3.
 * Vous pouvez implémenter une solution basée sur la file d’attente qui assure la cohérence éventuelle (pour plus d’informations, voir le [modèle de transactions cohérentes](#eventually-consistent-transactions-pattern) ).  
 
 ### <a name="when-to-use-this-pattern"></a>Quand utiliser ce modèle
-Utilisez ce modèle lorsque vous souhaitez rechercher un jeu d'entités qui partagent toutes une valeur de propriété courante, comme l'ensemble des employés dont le nom de famille est Jones.  
+Utilisez ce modèle lorsque vous souhaitez rechercher un jeu d’entités qui partagent toutes une valeur de propriété courante, comme l’ensemble des employés dont le nom de famille est Jones.  
 
 ### <a name="related-patterns-and-guidance"></a>Conseils et modèles connexes
 Les modèles et les conseils suivants peuvent également être pertinents lors de l'implémentation de ce modèle :  
@@ -263,7 +263,7 @@ Dans une base de données relationnelle, vous normalisez généralement des donn
 ![Entité de service et entité d’employé](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>Solution
-Au lieu de stocker les données dans les deux entités distinctes, dénormalisez les données et conservez une copie des détails du responsable dans l’entité du service. Par exemple :   
+Au lieu de stocker les données dans les deux entités distinctes, dénormalisez les données et conservez une copie des détails du responsable dans l’entité du service. Par exemple :  
 
 ![Entité de service](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
@@ -289,7 +289,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Utilisez les valeurs de **RowKey** composée pour permettre à un client de rechercher des données associées en utilisant une seule requête de pointage.  
 
 ### <a name="context-and-problem"></a>Contexte et problème
-Dans une base de données relationnelle, il est naturel d'utiliser des jointures dans les requêtes pour renvoyer les ensembles de données au client dans une seule requête. Par exemple, vous pouvez utiliser l’ID d’employé pour rechercher une liste d’entités associées qui contiennent des données de performances et d’évaluation de cet employé.  
+Dans une base de données relationnelle, il est naturel d’utiliser des jointures dans les requêtes pour renvoyer les ensembles de données au client dans une seule requête. Par exemple, vous pouvez utiliser l’ID d’employé pour rechercher une liste d’entités associées qui contiennent des données de performances et d’évaluation de cet employé.  
 
 Supposons que vous stockiez des entités relatives aux employés dans le service de Table à l'aide de la structure suivante :  
 
@@ -333,12 +333,12 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Récupérez les *n* entités récemment ajoutées à une partition en utilisant une valeur de **RowKey** qui effectue un tri dans l’ordre inverse de la date et de l’heure.  
 
 ### <a name="context-and-problem"></a>Contexte et problème
-Une exigence courante est de pouvoir récupérer les entités plus récemment créées, par exemple les dix dernières dépenses revendications soumises par un employé. Les requêtes de table prennent en charge une opération de requête **$top** pour retourner les *n* premières entités en provenance d’un ensemble. Il n’existe aucune opération de requête équivalente pour retourner les n dernières entités d’un ensemble.  
+Une exigence courante était de pouvoir récupérer les entités plus récemment créées, par exemple les 10 dernières notes de frais soumises par un employé. Les requêtes de table prennent en charge une opération de requête **$top** pour retourner les *n* premières entités en provenance d’un ensemble. Il n’existe aucune opération de requête équivalente pour retourner les n dernières entités d’un ensemble.  
 
 ### <a name="solution"></a>Solution
 Stockez les entités en utilisant une **RowKey** qui trie naturellement l’ordre inverse de date et d’heure par utilisation, pour que l’entrée la plus récente soit toujours la première dans la table.  
 
-Par exemple, pour être en mesure de récupérer les dix notes de frais les plus récentes soumises par un employé, vous pouvez utiliser une valeur de graduation inverse dérivée de l'heure actuelle. L’exemple de code C# suivant montre une méthode de création d’une valeur de « graduation inverse » adéquate pour une **RowKey** qui procède à un tri du plus récent au plus ancien :  
+Par exemple, pour être en mesure de récupérer les 10 dernières notes de frais soumises par un employé, vous pouvez utiliser une valeur de graduation inverse dérivée de l’heure actuelle. L’exemple de code C# suivant montre une méthode de création d’une valeur de « graduation inverse » adéquate pour une **RowKey** qui procède à un tri du plus récent au plus ancien :  
 
 `string invertedTicks = string.Format("{0:D19}", DateTime.MaxValue.Ticks - DateTime.UtcNow.Ticks);`  
 
@@ -369,13 +369,13 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Activez la suppression d'un volume élevé d'entités en stockant toutes les entités pour les supprimer simultanément dans leur propre table distincte ; vous supprimez les entités en supprimant la table.  
 
 ### <a name="context-and-problem"></a>Contexte et problème
-De nombreuses applications suppriment les anciennes données qui n'ont plus besoin d'être disponibles pour une application cliente ou archivées par l'application sur un autre support de stockage. Vous identifiez généralement ces données à une date : par exemple, vous devez supprimer les enregistrements de toutes les demandes de connexion datant de plus de 60 jours.  
+De nombreuses applications suppriment les anciennes données qui n’ont plus besoin d’être disponibles pour une application cliente ou archivées par l’application sur un autre support de stockage. Vous identifiez généralement ces données à une date : par exemple, vous devez supprimer les enregistrements de toutes les demandes de connexion datant de plus de 60 jours.  
 
 Une conception possible consiste à utiliser la date et l’heure de la demande de connexion dans la **RowKey**:  
 
 ![Date et heure de la tentative de connexion](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
 
-Cette approche évite les zones sensibles de partition, car l'application peut insérer et supprimer des entités de connexion pour chaque utilisateur dans une partition séparée. Toutefois, cette approche peut être coûteuse et fastidieuse si vous avez beaucoup d'entités, car vous devez d'abord analyser la table pour identifier toutes les entités à supprimer, avant de supprimer chaque ancienne entité. Notez que vous pouvez réduire le nombre d'allers-retours vers le serveur requis pour supprimer les anciennes entités en traitant par lots plusieurs demandes de suppression dans les TGE.  
+Cette approche évite les zones sensibles de partition, car l'application peut insérer et supprimer des entités de connexion pour chaque utilisateur dans une partition séparée. Toutefois, cette approche peut être coûteuse et fastidieuse si vous avez beaucoup d'entités, car vous devez d'abord analyser la table pour identifier toutes les entités à supprimer, avant de supprimer chaque ancienne entité. Vous pouvez réduire le nombre d’allers-retours vers le serveur requis pour supprimer les anciennes entités en traitant par lots plusieurs demandes de suppression dans les TGE.  
 
 ### <a name="solution"></a>Solution
 Utilisez une table distincte pour chaque jour de tentative de connexion. Vous pouvez utiliser la conception de l'entité ci-dessus afin d'éviter les zones sensibles lorsque vous insérez des entités et la suppression des anciennes entités consiste désormais à simplement supprimer une table tous les jours (une seule opération de stockage) au lieu de rechercher et de supprimer des centaines de milliers d'entités de connexion individuelle chaque jour.  
@@ -489,7 +489,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Augmentez l'évolutivité lorsque vous avez un volume élevé d'insertions en répartissant les insertions sur plusieurs partitions.  
 
 ### <a name="context-and-problem"></a>Contexte et problème
-L'ajout d'entité ou de suffixe d'entité à vos entités stockées pousse généralement l'application à ajouter de nouvelles entités à la première ou à la dernière partition d'une séquence. Dans ce cas, toutes les insertions à tout moment ont lieu dans la même partition, créant une zone sensible qui empêche le service de Table d'équilibrer la charge sur plusieurs nœuds et éventuellement de pousser votre application à atteindre les objectifs d'évolutivité pour la partition. Par exemple, si vous avez une application qui journalise l’accès au réseau et aux ressources des employés, une structure d’entité semblable à celle affichée ci-dessous peut transformer la partition de l’heure actuelle en zone sensible si le volume des transactions atteint l’objectif d’évolutivité pour une partition individuelle :  
+L'ajout d'entité ou de suffixe d'entité à vos entités stockées pousse généralement l'application à ajouter de nouvelles entités à la première ou à la dernière partition d'une séquence. Dans ce cas, toutes les insertions à tout moment ont lieu dans la même partition, créant une zone sensible qui empêche le service de Table d'équilibrer la charge sur plusieurs nœuds et éventuellement de pousser votre application à atteindre les objectifs d'extensibilité pour la partition. Par exemple, si vous avez une application qui journalise l’accès au réseau et aux ressources des employés, une structure d’entité semblable à celle affichée ci-dessous peut transformer la partition de l’heure actuelle en zone sensible si le volume des transactions atteint l’objectif d’évolutivité pour une partition individuelle :  
 
 ![Structure des entités](media/storage-table-design-guide/storage-table-design-IMAGE26.png)
 
@@ -574,7 +574,25 @@ if (retrieveResult.Result != null)
 Notez que cet exemple part du principe que l’entité extraite doit être de type **EmployeeEntity**.  
 
 ### <a name="retrieving-multiple-entities-using-linq"></a>Récupération de plusieurs entités à l’aide de LINQ
-Vous pouvez extraire plusieurs entités à l’aide de LINQ avec la bibliothèque cliente de stockage et en spécifiant une requête avec une clause **where** . Pour éviter une analyse de table, vous devez toujours inclure la valeur de **PartitionKey** dans la clause where, et si possible la valeur de **RowKey** afin d’éviter les analyses de table et de partition. Le service de Table prend en charge un ensemble limité d'opérateurs de comparaison (greater than, greater than or equal, less than or equal, equal et not equal) (supérieur à, supérieure ou égal à, inférieur ou égal à, égal et différent de). L’extrait de code C# suivant recherche tous les employés dont le nom commence par « B » (en supposant que la **RowKey** stocke le nom de famille) dans le service des ventes (en supposant que la **PartitionKey** stocke le nom du service) :  
+Vous pouvez utiliser LINQ pour récupérer plusieurs entités à partir du service de Table lorsque vous travaillez avec la bibliothèque standard de tables Microsoft Azure Cosmos. 
+
+```cli
+dotnet add package Microsoft.Azure.Cosmos.Table
+```
+
+Pour que les exemples ci-dessous fonctionnent, vous devez inclure des espaces de noms :
+
+```csharp
+using System.Linq;
+using Microsoft.Azure.Cosmos.Table;
+using Microsoft.Azure.Cosmos.Table.Queryable;
+```
+
+EmployeeTable est un objet CloudTable qui implémente une méthode CreateQuery\<ITableEntity>(), qui renvoie un élément TableQuery\<ITableEntity>. Les objets de ce type implémentent IQueryable et permettent d’utiliser la syntaxe de notation par points et les expressions de requête LINQ.
+
+Vous pouvez récupérer plusieurs entités en spécifiant une requête avec une clause **where**. Pour éviter une analyse de table, vous devez toujours inclure la valeur de **PartitionKey** dans la clause where, et si possible la valeur de **RowKey** afin d’éviter les analyses de table et de partition. Le service de Table prend en charge un ensemble limité d'opérateurs de comparaison (greater than, greater than or equal, less than or equal, equal et not equal) (supérieur à, supérieure ou égal à, inférieur ou égal à, égal et différent de). 
+
+L’extrait de code C# suivant recherche tous les employés dont le nom commence par « B » (en supposant que la **RowKey** stocke le nom de famille) dans le service des ventes (en supposant que la **PartitionKey** stocke le nom du service) :  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();
@@ -589,7 +607,7 @@ var employees = query.Execute();
 
 Notez comment la requête spécifie à la fois une **RowKey** et une **PartitionKey** pour garantir des performances optimales.  
 
-L’exemple de code suivant montre les fonctionnalités équivalentes sans utiliser la syntaxe LINQ :  
+L’exemple de code suivant montre des fonctionnalités équivalentes sans utiliser la syntaxe LINQ :  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = 
@@ -685,9 +703,9 @@ foreach (var e in entities)
 Notez comment la valeur de **RowKey** est disponible même si elle ne figurait pas dans la liste de propriétés à récupérer.  
 
 ## <a name="modifying-entities"></a>Modification des entités
-La bibliothèque cliente de stockage vous permet de modifier les entités stockées dans votre service de Table pour les insérer, les supprimer et les mettre à jour. Vous pouvez utiliser EGTs pour traiter par lot plusieurs opérations d'insertion, mise à jour et suppression afin de réduire le nombre d'allers-retours requis et améliorer les performances de votre solution.  
+La bibliothèque cliente de stockage vous permet de modifier les entités stockées dans votre service de Table pour les insérer, les supprimer et les mettre à jour. Vous pouvez utiliser EGTs pour traiter par lot plusieurs opérations d’insertion, mise à jour et suppression afin de réduire le nombre d’allers-retours requis et améliorer les performances de votre solution.  
 
-Notez que les exceptions levées lorsque la bibliothèque cliente de stockage exécute une EGT incluent généralement l'index de l'entité qui a provoqué l'échec du lot. Cela est utile lorsque vous déboguez du code qui utilise des EGT.  
+Les exceptions levées lorsque la bibliothèque cliente de stockage exécute une EGT incluent généralement l’index de l’entité qui a provoqué l’échec du lot. Cela est utile lorsque vous déboguez du code qui utilise des EGT.  
 
 Nous vous conseillons de réfléchir également à la façon dont votre conception affecte la méthode de votre application cliente pour gérer les opérations d'accès concurrentiel et de mises à jour.  
 
@@ -794,7 +812,7 @@ Le service de Table est un magasin de tables *sans schéma* , ce qui signifie qu
 </tr>
 </table>
 
-Notez que chaque entité doit toujours avoir les valeurs **PartitionKey**, **RowKey** et **Timestamp**, mais elle peut aussi avoir n’importe quel ensemble de propriétés. De plus, il n'y a rien pour indiquer le type d'une entité, sauf si vous choisissez de stocker ces informations quelque part. Il existe deux options pour identifier le type d'une entité :  
+Chaque entité doit toujours avoir les valeurs **PartitionKey**, **RowKey** et **Timestamp**, mais elle peut aussi avoir n’importe quel ensemble de propriétés. De plus, il n'y a rien pour indiquer le type d'une entité, sauf si vous choisissez de stocker ces informations quelque part. Il existe deux options pour identifier le type d'une entité :  
 
 * Ajout d’un préfixe de type d’entité à la **RowKey** (ou éventuellement à la **PartitionKey**). Par exemple, **EMPLOYEE_000123** ou **DEPARTMENT_SALES** en tant que valeurs de **RowKey**.  
 * Utilisez une propriété distincte pour enregistrer le type d'entité comme indiqué dans le tableau ci-dessous.  
@@ -941,7 +959,7 @@ foreach (var e in entities)
 }  
 ```
 
-Notez que pour récupérer d’autres propriétés, vous devez utiliser la méthode **TryGetValue** sur la propriété **Properties** de la classe **DynamicTableEntity**.  
+Pour récupérer d’autres propriétés, vous devez utiliser la méthode **TryGetValue** sur la propriété **Properties** de la classe **DynamicTableEntity**.  
 
 Une troisième option consiste à effectuer une combinaison à l’aide du type **DynamicTableEntity** et d’une instance **EntityResolver**. Cela vous permet de résoudre plusieurs types POCO dans la même requête. Dans cet exemple, le délégué **EntityResolver** utilise la propriété **EntityType** pour faire la distinction entre les deux types d’entités renvoyés par la requête. La méthode **Resolve** utilise le délégué **resolver** pour résoudre les instances de **DynamicTableEntity** en instances **TableEntity**.  
 
@@ -1012,7 +1030,7 @@ Vous pouvez utiliser des jetons de signature d’accès partagé (SAP) pour perm
 * Vous pouvez décharger certaines tâches effectuées par les rôles web et de travail lors de la gestion de vos entités sur les périphériques clients tels que les ordinateurs et appareils mobiles des utilisateurs finaux.  
 * Vous pouvez affecter un ensemble d'autorisations contraintes et limitées dans le temps à un client (par exemple, pour autoriser l'accès en lecture seule à des ressources spécifiques).  
 
-Pour plus d’informations sur l’utilisation de jetons SAP avec le service de Table, consultez [Utilisation des signatures d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+Pour plus d’informations sur l’utilisation de jetons SAP avec le service de Table, consultez [Utilisation des signatures d’accès partagé (SAP)](../../storage/common/storage-sas-overview.md).  
 
 Toutefois, vous devez toujours générer les jetons SAP qui permettent à une application cliente d'accéder aux entités du service de Table : vous devez le faire dans un environnement qui dispose d'un accès sécurisé à vos clés de compte de stockage. En règle générale, vous utilisez un rôle web ou de travail pour générer les jetons SAP et les transmettre vers les applications clientes qui ont besoin d'accéder à vos entités. Comme il existe toujours une surcharge impliquée dans la génération et l'envoi de jetons SAP aux clients, vous devez envisager la meilleure méthode pour réduire cette surcharge, en particulier dans les scénarios à volumes élevés.  
 
@@ -1073,7 +1091,7 @@ Dans cet exemple asynchrone, vous pouvez voir les modifications suivantes par ra
 
 L’application cliente peut appeler cette méthode plusieurs fois (avec des valeurs différentes pour le paramètre **department** ) et chaque requête s’exécute sur un thread distinct.  
 
-Notez qu’il n’existe aucune version asynchrone de la méthode **Execute** dans la classe **TableQuery**, car l’interface **IEnumerable** ne prend pas en charge l’énumération asynchrone.  
+Il n’existe aucune version asynchrone de la méthode **Execute** dans la classe **TableQuery**, car l’interface **IEnumerable** ne prend pas en charge l’énumération asynchrone.  
 
 Vous pouvez également insérer, mettre à jour et supprimer des entités de façon asynchrone. L'exemple C# suivant indique une méthode simple et synchrone pour insérer ou remplacer une entité d'employé :  
 

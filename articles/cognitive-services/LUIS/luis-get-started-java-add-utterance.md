@@ -1,6 +1,6 @@
 ---
-title: Modifier, effectuer l'apprentissage d'une application, Java
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Démarrage rapide : Modifier, effectuer l’apprentissage d’une application, Java - LUIS'
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide de Java, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’apprentissage de l’application.
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 43af108b821daaf0d8b030879816ec339e432dee
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 934ec14356448fc03d501a407c45086035ab3e04
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872303"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307533"
 ---
 # <a name="quickstart-change-model-using-java"></a>Démarrage rapide : Modifier un modèle à l'aide de Java 
 
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

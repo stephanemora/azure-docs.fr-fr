@@ -1,92 +1,177 @@
 ---
 title: Découvrez comment gérer les conflits entre les régions dans Azure Cosmos DB
 description: Découvrez comment gérer les conflits dans Azure Cosmos DB
-author: christopheranderson
+author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: c7edc9bd20b42725903201fae6349a37a8c0d9eb
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.topic: conceptual
+ms.date: 08/05/2019
+ms.author: mjbrown
+ms.openlocfilehash: c58828fd8ed0de73c03e9e741d14705ad88b1333
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548817"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093227"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gérer les stratégies de résolution des conflits dans Azure Cosmos DB
 
-Avec les écritures multi-régions, lorsqu’il y a un conflit de données, vous pouvez le résoudre à l’aide de diverses stratégies de résolution de conflit. Cet article décrit la façon de gérer les stratégies de résolution de conflit à l’aide de différentes plateformes de langage.
+Avec les écritures multirégions, quand plusieurs clients écrivent dans le même élément, des conflits peuvent se produire. Quand un conflit se produit, vous pouvez le résoudre à l’aide des différentes stratégies de résolution de conflit. Cet article explique comment gérer les stratégies de résolution de conflit.
 
-## <a name="create-a-custom-conflict-resolution-policy"></a>Créer une stratégie de résolution de conflits personnalisée
+## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Créer une stratégie de résolution de conflit de type last-writer-wins (dernière version valide)
 
-Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflits personnalisée. Ces conflits apparaissent dans le flux de conflit.
+Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflit de type last-writer-wins (dernière version valide). Le chemin par défaut de la stratégie last-writer-wins est le champ d’horodatage ou la propriété `_ts`. Pour l’API SQL, il peut aussi s’agir d’un chemin défini par l’utilisateur avec un type numérique. En cas de conflit, la valeur la plus élevée l’emporte. Si le chemin n’est pas défini ou n’est pas valide, il suit par défaut la propriété `_ts`. Les conflits résolus avec cette stratégie ne s’affichent pas dans le flux de conflit. Cette stratégie peut être utilisée par toutes les API.
 
-### <a id="create-custom-conflict-resolution-policy-dotnet"></a>Kit SDK .NET
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>Kit SDK .NET V2
 
 ```csharp
-DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
+DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
   UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
   {
-      Id = this.manualCollectionName,
+      Id = this.lwwCollectionName,
       ConflictResolutionPolicy = new ConflictResolutionPolicy
       {
-          Mode = ConflictResolutionMode.Custom,
+          Mode = ConflictResolutionMode.LastWriterWins,
+          ConflictResolutionPath = "/myCustomId",
       },
   });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-java-async"></a>Kit SDK Java Async
+### <a id="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>Kit SDK .NET V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.lwwCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.LastWriterWins,
+            ResolutionPath = "/myCustomId",
+        }
+    });
+```
+
+### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Kit SDK Java Async
 
 ```java
 DocumentCollection collection = new DocumentCollection();
 collection.setId(id);
-ConflictResolutionPolicy policy = ConflictResolutionPolicy.createCustomPolicy();
+ConflictResolutionPolicy policy = ConflictResolutionPolicy.createLastWriterWinsPolicy("/myCustomId");
 collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-### <a id="create-custom-conflict-resolution-policy-java-sync"></a>Kit SDK Java Sync
+### <a id="create-custom-conflict-resolution-policy-lww-java-sync"></a>Kit SDK Java Sync
 
 ```java
-DocumentCollection manualCollection = new DocumentCollection();
-manualCollection.setId(this.manualCollectionName);
-ConflictResolutionPolicy customPolicy = ConflictResolutionPolicy.createCustomPolicy(null);
-manualCollection.setConflictResolutionPolicy(customPolicy);
-DocumentCollection createdCollection = client.createCollection(database.getSelfLink(), collection, null).getResource();
+DocumentCollection lwwCollection = new DocumentCollection();
+lwwCollection.setId(this.lwwCollectionName);
+ConflictResolutionPolicy lwwPolicy = ConflictResolutionPolicy.createLastWriterWinsPolicy("/myCustomId");
+lwwCollection.setConflictResolutionPolicy(lwwPolicy);
+DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, lwwCollection);
 ```
 
-### <a id="create-custom-conflict-resolution-policy-javascript"></a>Kit SDK Node.js/JavaScript/TypeScript
+### <a id="create-custom-conflict-resolution-policy-lww-javascript"></a>Kit SDK Node.js/JavaScript/TypeScript
 
 ```javascript
 const database = client.database(this.databaseName);
-const {
-  container: manualContainer
-} = await database.containers.createIfNotExists({
-  id: this.manualContainerName,
-  conflictResolutionPolicy: {
-    mode: "Custom"
+const { container: lwwContainer } = await database.containers.createIfNotExists(
+  {
+    id: this.lwwContainerName,
+    conflictResolutionPolicy: {
+      mode: "LastWriterWins",
+      conflictResolutionPath: "/myCustomId"
+    }
   }
-});
+);
 ```
 
-### <a id="create-custom-conflict-resolution-policy-python"></a>Kit SDK Python
+### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Kit SDK Python
 
 ```python
-database = client.ReadDatabase("dbs/" + self.database_name)
-manual_collection = {
-                    'id': self.manual_collection_name,
-                    'conflictResolutionPolicy': {
-                          'mode': 'Custom'
-                        }
-                    }
-manual_collection = client.CreateContainer(database['_self'], collection)
+udp_collection = {
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'LastWriterWins',
+        'conflictResolutionPath': '/myCustomId'
+    }
+}
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
-## <a name="create-a-custom-conflict-resolution-policy-with-a-stored-procedure"></a>Créer une stratégie de résolution de conflits personnalisée avec une procédure stockée
+## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Créer une stratégie de résolution de conflit personnalisée à l’aide d’une procédure stockée
 
-Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflits personnalisée et une procédure stockée pour résoudre le conflit. Ces conflits n’apparaissent pas dans le flux de conflit, sauf s’il existe une erreur dans votre procédure stockée.
+Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflits personnalisée et une procédure stockée pour résoudre le conflit. Ces conflits n’apparaissent pas dans le flux de conflit, sauf s’il existe une erreur dans votre procédure stockée. Une fois la stratégie créée avec le conteneur, vous devez créer la procédure stockée. L’exemple de kit de développement logiciel (SDK) .NET ci-dessous montre un exemple. Cette stratégie est prise en charge uniquement par l’API Core (SQL).
 
-### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>Kit SDK .NET
+### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Exemple de procédure stockée de résolution de conflit personnalisée
+
+Les procédures stockées de résolution de conflit personnalisées doivent être implémentées en utilisant la signature de fonction présentée ci-dessous. Le nom de fonction ne doit pas nécessairement correspondre au nom utilisé pendant l’inscription de la procédure stockée auprès du conteneur, mais l’affectation de noms est simplifiée. Voici une description des paramètres qui doivent être implémentés pour cette procédure stockée.
+
+- **incomingItem** : élément inséré ou mis à jour dans la validation qui génère les conflits. A la valeur null pour les opérations de suppression.
+- **existingItem** : élément en cours de validation. Cette valeur est non Null dans une mise à jour et Null pour une insertion ou des suppressions.
+- **isTombstone** : valeur booléenne indiquant si l’élément incomingItem est en conflit avec un élément supprimé précédemment. Quand sa valeur est true, existingItem a aussi la valeur null.
+- **conflictingItems** : Tableau de la version validée de tous les éléments du conteneur qui sont en conflit avec incomingItem concernant l’ID ou d’autres propriétés de l’index unique.
+
+> [!IMPORTANT]
+> Comme n’importe quelle procédure stockée, une procédure de résolution de conflit personnalisée peut accéder à des données avec la même clé de partition et peut effectuer une opération d’insertion, de mise à jour ou de suppression pour résoudre des conflits.
+
+Cet exemple de procédure stockée résout des conflits en sélectionnant la valeur la plus basse dans le chemin `/myCustomId`.
+
+```javascript
+function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
+  var collection = getContext().getCollection();
+
+  if (!incomingItem) {
+      if (existingItem) {
+
+          collection.deleteDocument(existingItem._self, {}, function (err, responseOptions) {
+              if (err) throw err;
+          });
+      }
+  } else if (isTombstone) {
+      // delete always wins.
+  } else {
+      if (existingItem) {
+          if (incomingItem.myCustomId > existingItem.myCustomId) {
+              return; // existing item wins
+          }
+      }
+
+      var i;
+      for (i = 0; i < conflictingItems.length; i++) {
+          if (incomingItem.myCustomId > conflictingItems[i].myCustomId) {
+              return; // existing conflict item wins
+          }
+      }
+
+      // incoming item wins - clear conflicts and replace existing with incoming.
+      tryDelete(conflictingItems, incomingItem, existingItem);
+  }
+
+  function tryDelete(documents, incoming, existing) {
+      if (documents.length > 0) {
+          collection.deleteDocument(documents[0]._self, {}, function (err, responseOptions) {
+              if (err) throw err;
+
+              documents.shift();
+              tryDelete(documents, incoming, existing);
+          });
+      } else if (existing) {
+          collection.replaceDocument(existing._self, incoming,
+              function (err, documentCreated) {
+                  if (err) throw err;
+              });
+      } else {
+          collection.createDocument(collection.getSelfLink(), incoming,
+              function (err, documentCreated) {
+                  if (err) throw err;
+              });
+      }
+  }
+}
+```
+
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>Kit SDK .NET V2
 
 ```csharp
 DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -99,9 +184,33 @@ DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIf
           ConflictResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver"),
       },
   });
+
+//Create the stored procedure
+await clients[0].CreateStoredProcedureAsync(
+UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "resolver"), new StoredProcedure
+{
+    Id = "resolver",
+    Body = File.ReadAllText(@"resolver.js")
+});
 ```
 
-Après la création de votre conteneur, vous devez créer la procédure stockée `resolver`.
+### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet-v3"></a>Kit SDK .NET V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.udpCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom,
+            ResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver")
+        }
+    });
+
+await container.Scripts.CreateStoredProcedureAsync(
+    new StoredProcedureProperties("resolver", File.ReadAllText(@"resolver.js"))
+);
+```
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>Kit SDK Java Async
 
@@ -151,94 +260,126 @@ Après la création de votre conteneur, vous devez créer la procédure stockée
 
 ```python
 udp_collection = {
-  'id': self.udp_collection_name,
-  'conflictResolutionPolicy': {
-    'mode': 'Custom',
-    'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
+    'id': self.udp_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom',
+        'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
     }
 }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+udp_collection = self.try_create_document_collection(
+    create_client, database, udp_collection)
 ```
 
 Après la création de votre conteneur, vous devez créer la procédure stockée `resolver`.
 
-## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Créer une stratégie de résolution de conflit de type last-writer-wins (dernière version valide)
+## <a name="create-a-custom-conflict-resolution-policy"></a>Créer une stratégie de résolution de conflits personnalisée
 
-Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflit de type last-writer-wins (dernière version valide). Si le chemin n’est pas défini ou n’est pas valide, il suit par défaut la propriété `_ts`. Cette propriété est le champ timestamp. Ces conflits n’apparaissent dans le flux de conflit.
+Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflits personnalisée. Ces conflits apparaissent dans le flux de conflit.
 
-### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>Kit SDK .NET
+### <a id="create-custom-conflict-resolution-policy-dotnet"></a>Kit SDK .NET V2
 
 ```csharp
-DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
+DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
   UriFactory.CreateDatabaseUri(this.databaseName), new DocumentCollection
   {
-      Id = this.lwwCollectionName,
+      Id = this.manualCollectionName,
       ConflictResolutionPolicy = new ConflictResolutionPolicy
       {
-          Mode = ConflictResolutionMode.LastWriterWins,
-          ConflictResolutionPath = "/regionId",
+          Mode = ConflictResolutionMode.Custom,
       },
   });
 ```
 
-### <a id="create-custom-conflict-resolution-policy-lww-java-async"></a>Kit SDK Java Async
+### <a id="create-custom-conflict-resolution-policy-dotnet-v3"></a>Kit SDK .NET V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.manualCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom
+        }
+    });
+```
+
+### <a id="create-custom-conflict-resolution-policy-java-async"></a>Kit SDK Java Async
 
 ```java
 DocumentCollection collection = new DocumentCollection();
 collection.setId(id);
-ConflictResolutionPolicy policy = ConflictResolutionPolicy.createLastWriterWinsPolicy(conflictResolutionPath);
+ConflictResolutionPolicy policy = ConflictResolutionPolicy.createCustomPolicy();
 collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-### <a id="create-custom-conflict-resolution-policy-lww-java-sync"></a>Kit SDK Java Sync
+### <a id="create-custom-conflict-resolution-policy-java-sync"></a>Kit SDK Java Sync
 
 ```java
-DocumentCollection lwwCollection = new DocumentCollection();
-lwwCollection.setId(this.lwwCollectionName);
-ConflictResolutionPolicy lwwPolicy = ConflictResolutionPolicy.createLastWriterWinsPolicy("/regionId");
-lwwCollection.setConflictResolutionPolicy(lwwPolicy);
-DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, lwwCollection);
+DocumentCollection manualCollection = new DocumentCollection();
+manualCollection.setId(this.manualCollectionName);
+ConflictResolutionPolicy customPolicy = ConflictResolutionPolicy.createCustomPolicy(null);
+manualCollection.setConflictResolutionPolicy(customPolicy);
+DocumentCollection createdCollection = client.createCollection(database.getSelfLink(), collection, null).getResource();
 ```
 
-### <a id="create-custom-conflict-resolution-policy-lww-javascript"></a>Kit SDK Node.js/JavaScript/TypeScript
+### <a id="create-custom-conflict-resolution-policy-javascript"></a>Kit SDK Node.js/JavaScript/TypeScript
 
 ```javascript
 const database = client.database(this.databaseName);
-const { container: lwwContainer } = await database.containers.createIfNotExists(
-  {
-    id: this.lwwContainerName,
-    conflictResolutionPolicy: {
-      mode: "LastWriterWins",
-      conflictResolutionPath: "/regionId"
-    }
+const {
+  container: manualContainer
+} = await database.containers.createIfNotExists({
+  id: this.manualContainerName,
+  conflictResolutionPolicy: {
+    mode: "Custom"
   }
-);
+});
 ```
 
-Si vous omettez la propriété `conflictResolutionPath`, la propriété `_ts` est prise par défaut.
-
-### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Kit SDK Python
+### <a id="create-custom-conflict-resolution-policy-python"></a>Kit SDK Python
 
 ```python
-udp_collection = {
-                'id': self.udp_collection_name,
-                'conflictResolutionPolicy': {
-                    'mode': 'Custom',
-                    'conflictResolutionProcedure': 'dbs/' + self.database_name + "/colls/" + self.udp_collection_name + '/sprocs/resolver'
-                    }
-                }
-udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
+database = client.ReadDatabase("dbs/" + self.database_name)
+manual_collection = {
+    'id': self.manual_collection_name,
+    'conflictResolutionPolicy': {
+        'mode': 'Custom'
+    }
+}
+manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
 ## <a name="read-from-conflict-feed"></a>Lire le flux de conflit
 
-Ces exemples montrent comment lire le flux de conflit d’un conteneur. Les conflits apparaissent dans le flux de conflit uniquement s’ils n’ont pas été résolus automatiquement.
+Ces exemples montrent comment lire le flux de conflit d’un conteneur. Les conflits figurent dans le flux de conflit uniquement s’ils n’ont pas été résolus automatiquement ou si une stratégie de conflit personnalisée a été utilisée.
 
-### <a id="read-from-conflict-feed-dotnet"></a>Kit SDK .NET
+### <a id="read-from-conflict-feed-dotnet"></a>Kit SDK .NET V2
 
 ```csharp
 FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
+```
+
+### <a id="read-from-conflict-feed-dotnet-v3"></a>Kit SDK .NET V3
+
+```csharp
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictIterator();
+while (conflictFeed.HasMoreResults)
+{
+    FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();
+    foreach (ConflictProperties conflict in conflicts)
+    {
+        // Read the conflicted content
+        MyClass intendedChanges = container.Conflicts.ReadConflictContent<MyClass>(conflict);
+        MyClass currentState = await container.Conflicts.ReadCurrentAsync<MyClass>(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Do manual merge among documents
+        await container.ReplaceItemAsync<MyClass>(intendedChanges, intendedChanges.Id, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Delete the conflict
+        await container.Conflicts.DeleteAsync(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+    }
+}
 ```
 
 ### <a id="read-from-conflict-feed-java-async"></a>Kit SDK Java Async
@@ -285,6 +426,10 @@ while conflict:
 
 Découvrez les concepts Azure Cosmos DB suivants :
 
-* [Guide pratique pour configurer les fonctionnalités multimaîtres dans vos applications](how-to-multi-master.md).
-* [Partitionnement et distribution des données](partition-data.md)
-* [Indexation dans Azure Cosmos DB](indexing-policies.md)
+- [Article relatif au principe de la distribution mondiale d’Azure Cosmos DB](global-dist-under-the-hood.md)
+- [Configurer la fonction multimaître dans vos applications](how-to-multi-master.md)
+- [Configurer les clients pour la multirésidence](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Ajouter ou supprimer des régions de votre compte Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [Guide pratique pour configurer les fonctionnalités multimaîtres dans vos applications](how-to-multi-master.md).
+- [Partitionnement et distribution des données](partition-data.md)
+- [Indexation dans Azure Cosmos DB](indexing-policies.md)

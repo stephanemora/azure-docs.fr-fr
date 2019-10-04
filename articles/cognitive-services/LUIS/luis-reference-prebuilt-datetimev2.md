@@ -1,6 +1,6 @@
 ---
-title: Entités prédéfinies DatetimeV2
-titleSuffix: Azure
+title: Entités prédéfinies DatetimeV2 - LUIS
+titleSuffix: Azure Cognitive Services
 description: Cet article contient des informations sur l’entité prédéfinie datetimev2 dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 02/28/2019
+ms.topic: conceptual
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6b4c3f7445d18ab1548fd63b1f4d12c5901cf949
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: c4e83ed15c2b15ccb3339ff775b08c8d2dab4c32
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339519"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932518"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie datetimeV2 pour une application LUIS
 
@@ -31,16 +31,16 @@ L’exemple suivant de réponse JSON a une entité `datetimeV2` avec un sous-typ
 ```json
 "entities": [
   {
-    "entity": "8am on may 2nd 2017",
+    "entity": "8am on may 2nd 2019",
     "type": "builtin.datetimeV2.datetime",
     "startIndex": 0,
     "endIndex": 18,
     "resolution": {
       "values": [
         {
-          "timex": "2017-05-02T08",
+          "timex": "2019-05-02T08",
           "type": "datetime",
-          "value": "2017-05-02 08:00:00"
+          "value": "2019-05-02 08:00:00"
         }
       ]
     }
@@ -82,7 +82,7 @@ Chaque élément du tableau `values` peut comprendre les champs suivants :
 |Nom de la propriété|Description de la propriété|
 |--|--|
 |timex|Heure, date ou plage de dates exprimées au format TIMEX qui suit la [norme ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et les attributs TIMEX3 pour l’annotation à l’aide du langage TimeML. Cette annotation est décrite dans les [recommandations TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|Type|Sous-type qui peut être l’un des éléments suivants : datetime, date, time, daterange, timerange, datetimerange, duration, set.|
+|Type|Sous-type, à savoir l’un des éléments suivants : `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration` ou `set`.|
 |value|**Facultatif.** Objet datetime au format aaaa:MM:jj (date), HH:mm:ss (heure), aaaa:MM:dd HH:mm:ss (dateheure). Si `type` est `duration`, la valeur est le nombre de secondes (durée). <br/> Utilisé uniquement si `type` est `datetime`, `date`, `time` ou une durée.|
 
 ## <a name="valid-date-values"></a>Valeurs de date valides
@@ -116,12 +116,12 @@ Les `X` dans le champ `timex` correspondent à des parties de la date qui ne son
           {
             "timex": "XXXX-05-02",
             "type": "date",
-            "value": "2017-05-02"
+            "value": "2019-05-02"
           },
           {
             "timex": "XXXX-05-02",
             "type": "date",
-            "value": "2018-05-02"
+            "value": "2020-05-02"
           }
         ]
       }
@@ -145,14 +145,8 @@ L’entité `datetimeV2` extrait les plages de dates et d’heures. Les champs `
           {
             "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
             "type": "daterange",
-            "start": "2017-05-02",
-            "end": "2017-05-05"
-          },
-          {
-            "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-            "type": "daterange",
-            "start": "2018-05-02",
-            "end": "2018-05-05"
+            "start": "2019-05-02",
+            "end": "2019-05-05"
           }
         ]
       }
@@ -176,14 +170,8 @@ L’exemple suivant montre comment LUIS utilise **datetimev2** pour résoudre l�
           {
             "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
             "type": "daterange",
-            "start": "2017-06-13",
-            "end": "2017-06-15"
-          },
-          {
-            "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
-            "type": "daterange",
-            "start": "2017-06-20",
-            "end": "2017-06-22"
+            "start": "2019-04-30",
+            "end": "2019-05-02"
           }
         ]
       }
@@ -216,6 +204,89 @@ L’exemple suivant montre comment LUIS utilise **datetimev2** pour résoudre l�
       }
     }
   ]
+```
+
+## <a name="preview-api-version-3x"></a>API 3.x en préversion
+
+La réponse JSON DatetimeV2 a changé dans l’API v3. 
+
+Changements par rapport à l’API V2 :
+* La propriété `datetimeV2.timex.type` n’est plus renvoyée, car elle est retournée au niveau du parent, `datetimev2.type`. 
+* La propriété `datetimeV2.timex` a été renommée en `datetimeV2.value`.
+
+Pour l’énoncé, `8am on may 2nd 2017` la version v3 de DatetimeV2 est la suivante :
+
+```JSON
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6826963
+            }
+        },
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "values": [
+                        {
+                            "timex": "2017-05-02T08",
+                            "value": "2017-05-02 08:00:00"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+
+Le code JSON suivant a le paramètre `verbose` défini sur `false` :
+
+```json
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6826963
+            }
+        },
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "values": [
+                        {
+                            "timex": "2017-05-02T08",
+                            "value": "2017-05-02 08:00:00"
+                        }
+                    ]
+                }
+            ],
+            "$instance": {
+                "datetimeV2": [
+                    {
+                        "type": "builtin.datetimeV2.datetime",
+                        "text": "8am on may 2nd 2017",
+                        "startIndex": 0,
+                        "length": 19,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
 ```
 
 ## <a name="deprecated-prebuilt-datetime"></a>Désapprobation de l’entité prédéfinie datetime

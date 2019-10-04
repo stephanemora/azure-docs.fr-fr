@@ -1,7 +1,7 @@
 ---
-title: Soumettre un workflow à l’aide d’un fichier BAM input - Microsoft Genomics
+title: Soumettre un workflow à l’aide d’une entrée de fichier BAM - Microsoft Genomics
 titleSuffix: Azure
-description: Cet article suppose que vous avez le client msgen est installé et que vous avez exécuté les exemples de données via le service.
+description: Cet article part du principe que le client msgen est installé et que vous avez exécuté l’échantillon de données dans le service.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -10,18 +10,18 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.openlocfilehash: 329ac374edbffa65a1b654a05a4934828f25d5de
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435080"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60780840"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Soumettre un workflow à l’aide d’une entrée de fichier BAM
 
-Cet article montre comment soumettre un workflow dans le service Microsoft Genomics si votre fichier d’entrée est un fichier BAM unique. Cette rubrique suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à poursuivre cet article. 
+Cet article montre comment soumettre un workflow dans le service Microsoft Genomics si votre fichier d’entrée est un fichier BAM unique. Cette rubrique suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à appliquer la procédure décrite dans cet article. 
 
-## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Configuration : Télécharger votre fichier BAM vers le stockage Azure
-Supposons que vous disposiez d’un fichier BAM unique, *reads.bam*, et que vous l’ayez chargé dans votre compte de stockage *myaccount* dans Azure, sous **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>**. Vous disposez de l’URL d’API et de votre clé d’accès. Vos sorties doivent être hébergées sous **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
+## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Configuration : Charger votre fichier BAM vers Stockage Azure
+Supposons que vous disposiez d’un fichier BAM unique, *reads.bam*, et que vous l’ayez chargé dans votre compte de stockage *myaccount* dans Azure, sous **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>** . Vous disposez de l’URL d’API et de votre clé d’accès. Vos sorties doivent être hébergées sous **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
 
 
 

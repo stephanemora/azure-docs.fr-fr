@@ -4,24 +4,23 @@ description: Exemple de script Azure PowerShell - NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: edf4a3fe1f21e65e266b74a7be530cf11b30d1dd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: a82f2a7b5ff0160e1bf37e48faca836e5665e2d4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981812"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081122"
 ---
 # <a name="create-an-nginx-vm-with-powershell"></a>Créer une machine virtuelle NGINX avec PowerShell
 
@@ -31,7 +30,7 @@ Ce script crée une machine virtuelle Azure, puis utilise l’extension du scrip
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Exemple de script
 

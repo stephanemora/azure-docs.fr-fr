@@ -1,22 +1,21 @@
 ---
 title: Surveiller les performances du cluster - Azure HDInsight
-description: Découvrez comment surveiller la capacité et les performances d’un cluster HDInsight.
-services: hdinsight
-author: maxluk
+description: Découvrez comment superviser l’intégrité et les performances des clusters Apache Hadoop dans Azure HDInsight.
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: arindamc
-ms.openlocfilehash: 83cbb2a54ed712f8aa5084408ab852432470b73c
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: MT
+ms.date: 05/29/2019
+ms.openlocfilehash: 7a7544ef9fe5724d1f6c11918411a76461d908e5
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742471"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104398"
 ---
-# <a name="monitor-cluster-performance"></a>Surveiller les performances du cluster
+# <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Superviser les performances des clusters dans Azure HDInsight
 
 La surveillance de l’intégrité et des performances d’un cluster HDInsight est essentielle à l’optimisation continue des performances et de l’utilisation des ressources. La surveillance peut également vous aider à détecter et résoudre les erreurs de configuration du cluster ainsi que les problèmes de code utilisateur.
 
@@ -31,17 +30,17 @@ Pour obtenir une vue d’ensemble des nœuds de votre cluster et de leur charge,
 | Couleur | Description |
 | --- | --- |
 | Rouge | Au moins un composant maître de l’hôte est défaillant. Pointez sur l’indicateur pour visualiser une info-bulle répertoriant les composants concernés. |
-| Orange | Au moins un composant subordonné de l’hôte est défaillant. Pointez sur l’indicateur pour visualiser une info-bulle répertoriant les composants concernés. |
+| Orange | Au moins un composant secondaire de l’hôte est défaillant. Pointez sur l’indicateur pour visualiser une info-bulle répertoriant les composants concernés. |
 | Jaune | Le serveur Ambari n’a reçu aucune pulsation de l’hôte depuis plus de 3 minutes. |
 | Vert | L’état de fonctionnement est normal. |
 
 Le tableau de bord comporte également des colonnes indiquant le nombre de cœurs et la quantité de RAM de chaque hôte, ainsi que l’utilisation du disque et la charge moyenne.
 
-![Onglet Hosts (Hôtes)](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
+![Apache Ambari - Vue d’ensemble de l’onglet hôtes](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
 
 Sélectionnez l’un des noms d’hôte pour obtenir une vue d’ensemble détaillée des composants en cours d’exécution sur cet hôte et de leurs métriques. Les métriques sont présentés en fonction d’une chronologie configurable et concernent l’utilisation du processeur, la charge, l’utilisation du disque, l’utilisation de la mémoire, l’utilisation du réseau et les nombres de processus.
 
-![Détails d’un hôte](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
+![Apache Ambari - Vue d’ensemble des détails de l’hôte](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-host-details.png)
 
 Pour plus d’informations sur la configuration d’alertes et sur la visualisation des métriques, consultez l’article [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -57,7 +56,7 @@ Lorsque plusieurs locataires partagent un cluster volumineux, ils entrent en con
 
 YARN nous permet également d’allouer des ressources à ces files d’attente et vous indique si toutes vos ressources disponibles sont ou non attribuées. Pour visualiser les informations concernant vos files d’attente, connectez-vous à l’interface utilisateur web Ambari, puis sélectionnez **YARN Queue Manager** (Gestionnaire de files d’attente YARN) dans le menu supérieur.
 
-![Gestionnaire de files d’attente YARN](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
+![Apache Ambari - Gestionnaire de files d’attente YARN](./media/hdinsight-key-scenarios-to-monitor/apache-yarn-queue-manager.png)
 
 La page YARN Queue Manager (Gestionnaire de files d’attente YARN) répertorie vos files d’attente sur la gauche et indique le pourcentage de capacité attribué à chacune.
 
@@ -65,11 +64,11 @@ La page YARN Queue Manager (Gestionnaire de files d’attente YARN) répertorie 
 
 Pour obtenir une vue d’ensemble plus détaillée de vos files d’attente, dans le tableau de bord Ambari, sélectionnez le service **YARN** (YARN) dans la liste de gauche. Ensuite, dans le menu déroulant **Quick Links** (Liens rapides), sélectionnez **Resource Manager UI** (Interface utilisateur Resource Manager) sous votre nœud actif.
 
-![Lien du menu de l’interface utilisateur Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Liens du menu de l’interface utilisateur Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
 Dans l’interface utilisateur Resource Manager, sélectionnez **Scheduler** (Planificateur) à partir du menu de gauche. La liste de vos files d’attente s’affiche sous *Application Queues* (Files d’attente d’application). Cette zone présente la capacité utilisée pour chacune de vos files d’attente, ainsi que l’efficacité de la répartition des travaux entre ces files d’attente, et indique si des travaux sont limités en ressources.
 
-![Lien du menu de l’interface utilisateur Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Apache Hadoop - Menu de l’interface utilisateur Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>Limitation du stockage
 
@@ -87,6 +86,6 @@ Si la banque de stockage de votre cluster est Azure Data Lake Storage (ADLS), vo
 
 Pour plus d’informations sur la résolution des problèmes et la surveillance de vos clusters, cliquez sur les liens suivants :
 
-* [Analyse des journaux de HDInsight](hdinsight-debug-jobs.md)
-* [Déboguer des applications avec les journaux Apache Hadoop YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Analyse des journaux d’activité de HDInsight](hdinsight-debug-jobs.md)
+* [Déboguer des applications avec les journaux d’activité Apache Hadoop YARN](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

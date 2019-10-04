@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 835f23f98ebe56e0b19081f07dc3302ef93b27b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a601b0c40f84832101e97a7abf7dd7418a0a5c69
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109217"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673333"
 ---
 Vous pouvez créer un réseau virtuel avec le modèle de déploiement Resource Manager et le portail Azure en suivant ces étapes. Pour plus d’informations sur les réseaux virtuels, consultez [Présentation du réseau virtuel](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,7 +22,7 @@ Vous pouvez créer un réseau virtuel avec le modèle de déploiement Resource M
 >
 >
 
-1. Connectez-vous au [portail Azure](http://portal.azure.com) et sélectionnez **Créer une ressource**. La page **Nouveau** s’ouvre.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et sélectionnez **Créer une ressource**. La page **Nouveau** s’ouvre.
 
 2. Dans le champ **Rechercher dans la Place de marché**, entrez *réseau virtuel* et sélectionnez **Réseau virtuel** dans la liste retournée. La page **Réseau virtuel** s’ouvre.
 

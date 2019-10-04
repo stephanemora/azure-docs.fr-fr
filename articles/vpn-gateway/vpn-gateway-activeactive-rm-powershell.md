@@ -6,13 +6,14 @@ author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/24/2018
-ms.author: yushwang, cherylmc
-ms.openlocfilehash: 4c5a7a138a2b491867c5c4ba7234415036c8ba0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: yushwang
+ms.reviewer: cherylmc
+ms.openlocfilehash: 6d973d81e0de407893beb5c5808962562f091d4c
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100834"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871840"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurer des connexions VPN S2S en mode actif/actif avec des passerelles VPN Azure
 
@@ -150,7 +151,7 @@ PS D:\> $vnet1gw.BgpSettingsText
 }
 ```
 
-L’ordre des adresses IP publiques pour les instances de passerelle et celui des adresses d’homologation BGP correspondantes sont identiques. Dans cet exemple, la machine virtuelle de passerelle dont l’adresse IP publique est 40.112.190.5 utilise 10.12.255.4 en tant qu’adresse d’homologation BGP, et la passerelle dont l’adresse est 138.91.156.129 utilise 10.12.255.5. Ces informations sont nécessaires lorsque vous configurez vos périphériques VPN locaux se connectant à la passerelle en mode actif/actif. La passerelle est présentée dans le diagramme ci-dessous avec toutes les adresses :
+L’ordre des adresses IP publiques pour les instances de passerelle et celui des adresses de peering BGP correspondantes sont identiques. Dans cet exemple, la machine virtuelle de passerelle dont l’adresse IP publique est 40.112.190.5 utilise 10.12.255.4 en tant qu’adresse de peering BGP, et la passerelle dont l’adresse est 138.91.156.129 utilise 10.12.255.5. Ces informations sont nécessaires lorsque vous configurez vos périphériques VPN locaux se connectant à la passerelle en mode actif/actif. La passerelle est présentée dans le diagramme ci-dessous avec toutes les adresses :
 
 ![active-active-gateway](./media/vpn-gateway-activeactive-rm-powershell/active-active-gw.png)
 
@@ -220,7 +221,7 @@ L’exemple ci-dessous répertorie les paramètres que vous devez saisir dans la
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-La connexion doit s’établir après quelques minutes, et la session d’homologation BGP débute une fois la connexion IPsec établie. Cet exemple a jusqu’à présent configuré un seul périphérique VPN local, produisant le diagramme ci-dessous :
+La connexion doit s’établir après quelques minutes, et la session de peering BGP débute une fois la connexion IPsec établie. Cet exemple a jusqu’à présent configuré un seul périphérique VPN local, produisant le diagramme ci-dessous :
 
 ![active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
@@ -228,7 +229,7 @@ La connexion doit s’établir après quelques minutes, et la session d’homolo
 Si vous avez deux appareils VPN sur le même réseau local, vous pouvez obtenir une redondance double en connectant la passerelle VPN Azure au deuxième périphérique VPN.
 
 #### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. Créer la deuxième passerelle de réseau local pour Site5
-L’adresse IP de la passerelle, le préfixe d’adresse et l’adresse d’homologation BGP pour la seconde passerelle de réseau local ne doivent pas chevaucher la passerelle de réseau local précédente pour le même réseau local.
+L’adresse IP de la passerelle, le préfixe d’adresse et l’adresse de peering BGP pour la seconde passerelle de réseau local ne doivent pas chevaucher la passerelle de réseau local précédente pour le même réseau local.
 
 ```powershell
 $LNGName52 = "Site5_2"
@@ -363,7 +364,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 > 
 > 
 
-Une fois ces étapes terminées, la connexion s’établit en quelques minutes, et la session d’homologation BGP est ouverte dès la connexion de réseau virtuel à réseau virtuel établie avec une redondance double :
+Une fois ces étapes terminées, la connexion s’établit en quelques minutes, et la session de peering BGP est ouverte dès la connexion de réseau virtuel à réseau virtuel établie avec une redondance double :
 
 ![active-active-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 

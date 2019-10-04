@@ -1,6 +1,6 @@
 ---
-title: Surveiller les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire | Microsoft Docs
-description: Surveiller et gérer les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire
+title: Surveiller les performances d’une base de données Azure SQL multi-locataire partitionnée dans une application SaaS multi-locataire | Microsoft Docs
+description: Surveiller et gérer les performances d’une base de données Azure SQL multi-locataire partitionnée dans une application SaaS multi-locataire
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: be7dbe35800bbe911bc56d1883462534a16499a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 50fab6afe837ad409f05dbb0f3a8a44d089a894e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083179"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570325"
 ---
-# <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire
+# <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances d’une base de données Azure SQL multi-locataire partitionnée dans une application SaaS multi-locataire
 
 Ce didacticiel aborde plusieurs scénarios de gestion de performance clés utilisés dans les applications SaaS. Les fonctionnalités intégrées de surveillance et d’alerte de base de données de SQL Database sont illustrés à l’aide d’un générateur de charge destiné à simuler l’activité de plusieurs bases de données multi-locataires partitionnées.
 
@@ -52,7 +51,7 @@ La gestion des performances des bases de données se compose des opérations sui
 
 Le [portail Azure](https://portal.azure.com) offre des fonctionnalités intégrées de surveillance et d’alerte sur la plupart des ressources. Pour SQL Database, la surveillance et les alertes sont disponibles pour les bases de données. Ces fonctionnalités de surveillance et d’alertes intégrées sont propres à la ressource. Par conséquent, il est pratique de les utiliser pour un petit nombre de ressources, mais pas pour de nombreuses ressources.
 
-Pour les scénarios à volumes élevés, où vous travaillez avec de nombreuses ressources, [Azure Monitor enregistre](https://azure.microsoft.com/services/log-analytics/) peut être utilisé. Il s’agit d’un service Azure distinct qui fournit des analytique sur les journaux de diagnostic et de télémétrie collectées dans un espace de travail Analytique de journal. Journaux d’Azure Monitor peuvent collecter des données de télémétrie à partir de nombreux services et être utilisés pour interroger et définir des alertes.
+Pour les scénarios à volume important où vous travaillez avec de nombreuses ressources, vous pouvez utiliser les [journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/). Il s’agit d’un service Azure distinct offrant l’analytique des journaux de diagnostic et des données de télémétrie rassemblés dans un espace de travail Log Analytics. Les journaux Azure Monitor peuvent collecter des données de télémétrie à partir de nombreux services, et être utilisés pour interroger et définir des alertes.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obtenir les scripts et le code source de l’application de base de données multi-locataire SaaS Wingtip Tickets
 
@@ -80,8 +79,8 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simule une charge de tra
 |:--|:--|
 | 2 | Générer une charge d’intensité normale (environ 30 DTU) |
 | 3 | Générer une charge avec des pics plus longs par locataire|
-| 4 | Générer une charge avec des pics de DTU supérieurs par locataire (environ 70 DTU)|
-| 5. | Générer une intensité élevée (environ 90 DTU) sur un seul client, plus une charge d’intensité normale sur tous les autres locataires |
+| 4 | Générer une charge avec des pics de DTU plus élevés par locataire (environ 70 DTU)|
+| 5\. | Générer une intensité élevée (environ 90 DTU) sur un locataire unique, plus une charge d’intensité normale sur tous les autres locataires |
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en DTU), la durée et les intervalles varient selon les bases de données pour simuler l’activité d’un locataire imprévisible.
 
@@ -98,7 +97,7 @@ L’application de base de données multi-locataire SaaS Wingtip Tickets est une
 
 Pour surveiller l’utilisation de ressources qui résulte de la charge appliquée, dans le portail, ouvrez la base de données multi-locataire **tenants1** contenant les locataires :
 
-1. Ouvrez le [portail Azure](https://portal.azure.com), puis accédez au serveur *tenants1-mt-&lt;USER&gt;*.
+1. Ouvrez le [portail Azure](https://portal.azure.com), puis accédez au serveur *tenants1-mt-&lt;USER&gt;* .
 1. Faites défiler vers le bas, recherchez les bases de données, puis cliquez sur **tenants1**. Cette base de données multi-locataire partitionnée contient tous les locataires créés jusqu’à présent.
 
 ![Graphique de base de données](./media/saas-multitenantdb-performance-monitoring/multitenantdb.png)
@@ -109,7 +108,7 @@ Observez le graphique **DTU**.
 
 Définissez une alerte sur la base de données, qui se déclenche quand \>l’utilisation atteint 75 % comme suit :
 
-1. Ouvrez la base de données *tenants1* (sur le serveur *tenants1-mt-&lt;USER&gt;*) dans le [portail Azure](https://portal.azure.com).
+1. Ouvrez la base de données *tenants1* (sur le serveur *tenants1-mt-&lt;USER&gt;* ) dans le [portail Azure](https://portal.azure.com).
 1. Cliquez sur **Règles d’alerte**, puis sur **+ Ajouter une alerte**.
 
    ![ajouter une alerte](media/saas-multitenantdb-performance-monitoring/add-alert.png)
@@ -120,7 +119,7 @@ Définissez une alerte sur la base de données, qui se déclenche quand \>l’ut
    * **Condition = supérieur à**
    * **Seuil = 75**.
    * **Période = Au cours des 30 dernières minutes**
-1. Ajoutez une adresse e-mail à la zone *Adresse(s) e-mail administrateur supplémentaire(s)*, puis cliquez sur **OK**.
+1. Ajoutez une adresse e-mail à la zone *Adresse(s) e-mail administrateur supplémentaire(s)* , puis cliquez sur **OK**.
 
    ![définir une alerte](media/saas-multitenantdb-performance-monitoring/set-alert.png)
 
@@ -155,7 +154,7 @@ Le modèle multi-locataire partitionné vous permet de choisir s’il faut provi
 Si vous avez déjà provisionné un nouveau locataire dans sa propre base de données, ignorez les étapes suivantes.
 
 1. Dans **PowerShell ISE**, ouvrez …\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*. 
-1. Modifiez **$TenantName = "Salix Salsa"** et **$VenueType  = "dance"**.
+1. Modifiez **$TenantName = "Salix Salsa"** et **$VenueType  = "dance"** .
 1. Définissez **$Scenario** = **2**, _Provisionner un locataire dans une base de données à locataire unique_
 1. Appuyez sur **F5** pour exécuter le script.
 
@@ -168,7 +167,7 @@ Si un locataire unique dans une base de données multi-locataire fait l’objet 
 Cet exercice simule l’effet de Salix Salsa qui subit une charge élevée quand des tickets sont mis en vente pour un événement populaire.
 
 1. Ouvrez le script …\\*Demo-PerformanceMonitoringAndManagement.ps1*.
-1. Définissez **$DemoScenario = 5**, _générer une charge normale et une charge élevée sur un seul locataire (environ 90 DTU)._
+1. Définissez **$DemoScenario = 5**, _Générer une charge normale et une charge élevée sur un locataire unique (environ 90 DTU)._
 1. Définissez **$SingleTenantName = Salix Salsa**.
 1. Exécutez le script en appuyant sur **F5**.
 

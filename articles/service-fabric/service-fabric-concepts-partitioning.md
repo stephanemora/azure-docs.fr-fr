@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/30/2017
 ms.author: atsenthi
 ms.openlocfilehash: 833d87dab59890b9903ea8eecf2334d7dd1c7436
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666220"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60711894"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionnement des services fiables Service Fabric
 Cet article présente les concepts de base pour le partitionnement des services fiables d’Azure Service Fabric. Le code source utilisé dans cet article est également disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -32,7 +32,7 @@ Pour les services sans état, vous pouvez considérer une partition comme une un
 
 ![Service sans état](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-Il existe en réalité deux types de solutions de service sans état. Le premier est un service qui conserve son état en externe, par exemple dans une base de données SQL Azure (comme un site web qui stocke les données et les informations de la session). Le second est un service de calcul uniquement (comme une calculatrice ou la miniaturisation des images) qui ne gère aucun état persistant.
+Il existe en réalité deux types de solutions de service sans état. Le premier est un service qui conserve son état en externe, par exemple dans une base de données Azure SQL (comme un site web qui stocke les données et les informations de la session). Le second est un service de calcul uniquement (comme une calculatrice ou la miniaturisation des images) qui ne gère aucun état persistant.
 
 Dans les deux cas, le partitionnement d’un service sans état constitue un scénario extrêmement rare. L’évolutivité et la disponibilité passent normalement par une augmentation du nombre d’instances. Il n’y a que lorsque vous devez répondre à des demandes de routage spéciales qu’il est judicieux d’envisager plusieurs partitions pour des instances de service sans état.
 
@@ -59,7 +59,7 @@ Avant d’implémenter un service, vous devez toujours envisager la stratégie d
 
 Une bonne approche consiste à réfléchir de prime abord à la structure de l’état qui doit être partitionné.
 
-Prenons un exemple simple : Si vous deviez créer un service pour une interrogation à l’échelle de la région, vous pouvez créer une partition pour chaque ville dans la région. Puis, vous pouvez stocker les votes pour chaque personne dans une ville dans la partition correspondant à cette ville. La figure 3 présente une liste de personnes associées au nom de la ville dans laquelle elles résident.
+Prenons un exemple simple : Si vous devez créer un service pour un sondage à l’échelle d’une région, vous pouvez créer une partition pour chaque ville de la région. Puis, vous pouvez stocker les votes pour chaque personne dans une ville dans la partition correspondant à cette ville. La figure 3 présente une liste de personnes associées au nom de la ville dans laquelle elles résident.
 
 ![Partition simple](./media/service-fabric-concepts-partitioning/cities.png)
 

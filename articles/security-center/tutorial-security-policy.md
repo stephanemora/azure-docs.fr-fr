@@ -3,9 +3,8 @@ title: Utilisation de stratégies de sécurité | Microsoft Docs
 description: Cet article décrit comment utiliser des stratégies de sécurité dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -13,14 +12,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
-ms.author: monhaber
-ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.date: 07/18/2019
+ms.author: memildin
+ms.openlocfilehash: 488210e4f2c5d3a8a978079d0c7293ce091d998b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578439"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338774"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -32,7 +31,7 @@ Pour obtenir des instructions sur la façon de définir des stratégies à l’a
 > L'intégration de Security Center avec Azure Policy a débuté. Les clients existants migreront automatiquement vers la nouvelle initiative intégrée dans Azure Policy, plutôt que vers les stratégies de sécurité précédentes dans Security Center. Cette modification n’affectera ni vos ressources ni votre environnement, exception faite de la présence de la nouvelle initiative dans Azure Policy.
 
 ## <a name="what-are-security-policies"></a>Que sont les stratégies de sécurité ?
-Une stratégie de sécurité définit la configuration souhaitée de vos charges de travail, tout en garantissant leur conformité aux exigences de sécurité réglementaires. Dans Azure Policy, vous pouvez définir des stratégies pour vos abonnements Azure, et les adapter à votre type de charge de travail ou à la sensibilité de vos données. Par exemple, les applications qui utilisent des données réglementées, telles que les informations d’identification personnelle, peuvent nécessiter un niveau de sécurité plus élevé que d’autres charges de travail. Pour définir des stratégies sur des abonnements ou des groupes d’administration, configurez-les dans [Azure Policy](../governance/policy/overview.md).
+Une stratégie de sécurité définit la configuration souhaitée de vos charges de travail, tout en garantissant leur conformité aux exigences de sécurité réglementaires. Dans Azure Policy, vous pouvez définir des stratégies pour vos abonnements Azure, et les adapter à votre type de charge de travail ou à la sensibilité de vos données. Par exemple, les applications qui utilisent des données réglementées, telles que les données personnelles ou client, peuvent nécessiter un niveau de sécurité plus élevé que d’autres charges de travail. Pour définir des stratégies sur des abonnements ou des groupes d’administration, configurez-les dans [Azure Policy](../governance/policy/overview.md).
 
 Vos stratégies de sécurité sont à la source des suggestions de sécurité que vous obtenez dans Azure Security Center. Vous pouvez surveiller la conformité avec elles pour mieux identifier les vulnérabilités potentielles et atténuer les menaces. Pour plus d’informations sur la façon de déterminer l’option adaptée à votre situation, consultez la liste des [stratégies de sécurité intégrées](security-center-policy-definitions.md).
 
@@ -43,7 +42,7 @@ Lorsque vous activez Security Center, la stratégie de sécurité intégrée à 
 Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin d’un moyen de gérer efficacement l’accès, les stratégies et la conformité de ces abonnements. Les groupes d’administration Azure fournissent un niveau d’étendue au-dessus des abonnements. Vous organisez les abonnements en conteneurs appelés « groupes d’administration » et vous appliquez vos stratégies de gouvernance aux groupes d’administration. Tous les abonnements d’un groupe d’administration héritent automatiquement des stratégies appliquées à ce groupe d’administration. Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique appelé groupe d’administration « racine ». Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des affectations RBAC au niveau de l’annuaire. Pour configurer des groupes d’administration à utiliser avec Azure Security Center, suivez les instructions fournies dans [Gagner en visibilité au niveau locataire dans Azure Security Center](security-center-management-groups.md).
 
 > [!NOTE]
-> Il est important de bien comprendre la hiérarchie des groupes d’administration et des abonnements. Pour en savoir plus sur les groupes d’administration, l’administration racine et l’accès aux groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/index.md#root-management-group-for-each-directory).
+> Il est important de bien comprendre la hiérarchie des groupes d’administration et des abonnements. Pour en savoir plus sur les groupes d’administration, l’administration racine et l’accès aux groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/overview.md#root-management-group-for-each-directory).
 >
 
 ## <a name="how-security-policies-work"></a>Fonctionnement des stratégies de sécurité
@@ -71,15 +70,8 @@ Pour afficher vos stratégies de sécurité dans Security Center :
    Dans l’écran **Gestion de stratégie**, vous pouvez voir le nombre de groupes d’administration, d’abonnements et d’espaces de travail, ainsi que votre structure de groupes d’administration.
 
    > [!NOTE]
-   > - Le tableau de bord Security Center peut afficher sous **Couverture de l’abonnement** un nombre d’abonnements plus élevé que celui indiqué sous **Gestion de stratégie**. Couverture de l’abonnement montre le nombre d’abonnements Standard, Gratuits et « Non couverts ». Security Center n’est pas activé pour les abonnements « Non couverts », et ceux-ci ne sont pas affichés sous **Gestion de stratégie**.
+   > Le tableau de bord Security Center peut afficher sous **Couverture de l’abonnement** un nombre d’abonnements plus élevé que celui indiqué sous **Gestion de stratégie**. Couverture de l’abonnement montre le nombre d’abonnements Standard, Gratuits et « Non couverts ». Security Center n’est pas activé pour les abonnements « Non couverts », et ceux-ci ne sont pas affichés sous **Gestion de stratégie**.
    >
-
-   Le tableau contient les colonnes suivantes :
-
-   - **Affectation d’initiative de stratégie** – [Stratégies](security-center-policy-definitions.md) et initiatives intégrées Security Center qui sont affectées à un groupe d’administration ou un abonnement.
-   - **Couverture** – Identifie le niveau tarifaire (Gratuit ou Standard) sur lequel s’exécute le groupe d’administration, l’abonnement ou l’espace de travail.  Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
-   - **Paramètres** – Les abonnements disposent du lien **Modifier les paramètres**. En sélectionnant **Modifier les paramètres**, vous pouvez mettre à jour vos [paramètres Security Center](security-center-policies-overview.md) pour chaque groupe d’administration ou abonnement.
-   - **Degré de sécurisation** - Le [degré de sécurisation](security-center-secure-score.md) fournit une mesure relative à la sécurisation de votre charge de travail en termes de posture et vous permet de hiérarchiser les suggestions à des fins d’amélioration.
 
 2. Sélectionnez le groupe d’administration ou l’abonnement dont vous souhaitez afficher les stratégies.
 
@@ -91,36 +83,39 @@ Pour afficher vos stratégies de sécurité dans Security Center :
    ![Écran des stratégies](./media/security-center-policies/policy-screen.png)
 
 > [!NOTE]
-> - Lorsque vous affichez les stratégies attribuées, vous pouvez voir plusieurs affectations et comment chacune d’elles est configurée individuellement.
+> Lorsque vous affichez les stratégies attribuées, vous pouvez voir plusieurs affectations et comment chacune d’elles est configurée individuellement.
 
 ## <a name="edit-security-policies"></a>Modifier des stratégies de sécurité
-Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos groupes d’administration et abonnements Azure dans [Azure Policy](../governance/policy/tutorials/create-and-manage.md). Pour modifier une stratégie de sécurité, vous devez avoir le rôle d’administrateur de la sécurité, de propriétaire ou de collaborateur pour l’abonnement concerné ou le groupe de gestion dans laquelle elle se trouve.
+Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos groupes d’administration et abonnements Azure dans [Azure Policy](../governance/policy/tutorials/create-and-manage.md). Pour modifier une stratégie de sécurité, vous devez avoir le rôle de propriétaire ou d’administrateur de la sécurité pour l’abonnement concerné ou le groupe de gestion dans laquelle elle se trouve.
 
 Pour obtenir des instructions sur la façon de modifier une stratégie de sécurité dans Azure Policy, consultez [Créer et gérer des stratégies pour appliquer la conformité](../governance/policy/tutorials/create-and-manage.md).
 
 Vous pouvez modifier les stratégies de sécurité sur le portail Azure Policy, par l’intermédiaire de l’API REST ou à l’aide de Windows PowerShell. L’exemple suivant fournit des instructions pour la modification à l’aide de l’API REST.
 
 
-## <a name="disable-security-policies"></a>Désactiver les stratégies de sécurité
-Si la stratégie de sécurité par défaut génère une recommandation qui n’est pas pertinente pour votre environnement, vous pouvez l’arrêter en désactivant la définition de stratégie qui envoie la recommandation.
-Pour plus d’informations sur les recommandations, consultez [gestion des recommandations de sécurité](security-center-recommendations.md).
+## <a name="disable-security-policies"></a>Désactiver des stratégies de sécurité
+Si la stratégie de sécurité par défaut génère une suggestion qui n’est pas adaptée à votre environnement, vous pouvez l’arrêter en désactivant la définition de stratégie qui envoie la suggestion.
+Pour plus d’informations sur les recommandations, consultez [Gestion des recommandations de sécurité](security-center-recommendations.md).
 
-1. Dans le centre de sécurité, à partir de la **stratégie et conformité** , cliquez sur **stratégie de sécurité**.
+1. Dans la section **Politique et conformité** de Security Center, cliquez sur **Stratégie de sécurité**.
 
-   ![Gestion des stratégies](./media/tutorial-security-policy/policy-management.png)
+   ![gestion des stratégies](./media/tutorial-security-policy/policy-management.png)
 
-2. Cliquez sur le groupe d’abonnement ou de gestion pour lequel vous souhaitez désactiver la recommandation.
+2. Cliquez sur le groupe d’abonnements ou d’administration pour lequel vous souhaitez désactiver la suggestion.
+
+   > [!Note]
+   > N’oubliez pas qu’un groupe d’administration applique ses stratégies à ses abonnements. Par conséquent, si vous désactivez la stratégie d’un abonnement, et que l’abonnement appartient à un groupe d’administration qui utilise toujours la même stratégie, vous continuerez à recevoir les suggestion de la stratégie. La stratégie sera toujours appliquée à partir du niveau d’administration, et les suggestions seront toujours générées.
 
 1. Cliquez sur la stratégie affectée.
 
-   ![désactiver la stratégie](./media/tutorial-security-policy/security-policy.png)
+   ![désactiver une stratégie](./media/tutorial-security-policy/security-policy.png)
 
-1. Dans le **paramètres** section, recherche de la stratégie qui appelle la recommandation que vous souhaitez désactiver et dans la liste déroulante, sélectionnez **désactivé**
+1. Dans la section **PARAMÈTRES**, recherchez la stratégie qui appelle la suggestion que vous souhaitez désactiver, puis sélectionnez **Désactiver** dans la liste déroulante.
 
-   ![désactiver la stratégie](./media/tutorial-security-policy/disable-policy.png)
+   ![désactiver une stratégie](./media/tutorial-security-policy/disable-policy.png)
 1. Cliquez sur **Enregistrer**.
    > [!Note]
-   > Les modifications de stratégie de désactivation peuvent prendre jusqu'à 12 heures en vigueur.
+   > La désactivation d’une stratégie peut prendre jusqu’à 12 heures pour entrer en vigueur.
 
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Configurer une stratégie de sécurité à l’aide de l’API REST
@@ -129,13 +124,13 @@ Dans le cadre de l’intégration native à Azure Policy, Azure Security Center 
 
 Concepts importants utilisés dans Azure Policy : 
 
-- Une  **définition de stratégie**  est une règle 
+- Une **définition de stratégie** est une règle 
 
-- Une  **initiative**  est une collection de définitions de stratégies (règles) 
+- Une **initiative** est une collection de définitions de stratégie (règles) 
 
-- Une  **affectation**  est une application d’une initiative ou d’une stratégie à une étendue spécifique (groupe d’administration, abonnement, etc.) 
+- Une **affectation** est l’application d’une initiative ou d’une stratégie à une étendue spécifique (groupe d’administration, abonnement, etc.) 
 
-Security Center dispose d’une initiative intégrée qui inclut toutes ses stratégies de sécurité. Afin d’évaluer les stratégies de Security Center sur vos ressources Azure, vous devez créer une affectation sur le groupe d’administration ou un abonnement que vous voulez évaluer.  
+Security Center dispose d’une initiative intégrée qui inclut toutes ses stratégies de sécurité. Afin d’évaluer les stratégies de Security Center sur vos ressources Azure, vous devez créer une affectation sur le groupe d’administration ou un abonnement que vous voulez évaluer.
 
 L’initiative intégrée a toutes les stratégies de Security Center activées par défaut. Vous pouvez choisir de désactiver certaines stratégies de l’initiative intégrée. Par exemple, vous pouvez appliquer toutes les stratégies de Security Center à l’exception du **pare-feu d’applications web** en définissant la valeur du paramètre d’effet de la stratégie sur **Désactivé**. 
 
@@ -149,6 +144,7 @@ Dans les exemples suivants, remplacez les variables suivantes :
 
 Cet exemple vous montre comment affecter l’initiative Security Center intégrée sur un abonnement ou un groupe d’administration :
  
+ ```
     PUT  
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
@@ -173,6 +169,7 @@ Cet exemple vous montre comment affecter l’initiative Security Center intégr�
     } 
 
     } 
+ ```
 
 Cet exemple vous montre comment affecter l’initiative Security Center intégrée sur un abonnement, avec les stratégies suivantes désactivées : 
 
@@ -182,16 +179,16 @@ Cet exemple vous montre comment affecter l’initiative Security Center intégr�
 
 - Protection du point de terminaison (« endpointProtectionMonitoringEffect ») 
 
-
+ ```
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
     
-    Corps de la demande (JSON) 
+    Request Body (JSON) 
     
     { 
     
       "properties":{ 
     
-    « displayName » : « Activer la surveillance dans Azure Security Center », 
+    "displayName":"Enable Monitoring in Azure Security Center", 
     
     "metadata":{ 
     
@@ -201,7 +198,7 @@ Cet exemple vous montre comment affecter l’initiative Security Center intégr�
     
     "policyDefinitionId":"/providers/Microsoft.Authorization/policySetDefinitions/1f3afdf9-d0c9-4c3d-847f-89da613e70a8", 
     
-    « parameters » : {} 
+    "parameters":{ 
     
     "systemUpdatesMonitoringEffect":{"value":"Disabled"}, 
     
@@ -214,12 +211,12 @@ Cet exemple vous montre comment affecter l’initiative Security Center intégr�
      } 
     
     } 
-
+ ```
 Cet exemple vous montre comment supprimer une affectation :
-
+ ```
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
-
+ ```
 
 ### Informations de référence sur les noms de stratégies <a name="policy-names"></a>
 

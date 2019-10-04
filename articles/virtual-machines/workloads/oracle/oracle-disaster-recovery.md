@@ -4,23 +4,22 @@ description: Scénario de récupération d’urgence pour une base de données O
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f525e68502e32a3f9c7e7cebe6d45627f9077c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f6f678f91e74ea9b0b68127c1786fee745508b99
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495007"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101457"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Récupération d’urgence pour une base de données Oracle Database 12c dans votre environnement Azure
 
@@ -32,7 +31,7 @@ ms.locfileid: "39495007"
 ## <a name="goals"></a>Objectifs
 - Concevoir la topologie et la configuration adaptées à vos besoins de récupération d’urgence (DR).
 
-## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Scénario 1 : site principal et site de récupération d’urgence sur Azure
+## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Scénario 1 : site principal et site de récupération d’urgence sur Azure
 
 Un client dispose d’une configuration de base de données Oracle sur le site principal. Un site de récupération d’urgence se trouve dans une autre région. Le client utilise Oracle Data Guard pour une récupération rapide entre ces sites. Le site principal possède également une base de données secondaire pour la création de rapports et d’autres utilisations. 
 
@@ -52,13 +51,13 @@ Voici un résumé de la configuration Azure :
 
 ![Capture d’écran de la page de topologie de récupération d’urgence](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
-## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Scénario 2 : site principal local et site de récupération d’urgence sur Azure
+## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Scénario 2 : site principal local et site de récupération d’urgence sur Azure
 
 Un client dispose d’une configuration de base de données Oracle locale (site principal). Le site de récupération d’urgence est sur Azure. Oracle Data Guard permet une récupération rapide entre ces sites. Le site principal possède également une base de données secondaire pour la création de rapports et d’autres utilisations. 
 
 Deux approches sont possibles pour cette configuration.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Approche 1 : connexions directes entre un site local et un site sur Azure, nécessitant des ports TCP ouverts sur le pare-feu 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Approche 1 : connexions directes entre un site local et un site sur Azure, nécessitant des ports TCP ouverts sur le pare-feu 
 
 Nous ne recommandons pas des connexions directes, car ils exposent les ports TCP au monde extérieur.
 
@@ -78,7 +77,7 @@ Voici un résumé de la configuration Azure :
 
 ![Capture d’écran de la page de topologie de récupération d’urgence](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
-### <a name="approach-2-site-to-site-vpn"></a>Approche 2 : VPN de site à site
+### <a name="approach-2-site-to-site-vpn"></a>Approche 2 : VPN de site à site
 La meilleure approche consiste à utiliser des VPN de site à site. Pour plus d’informations sur la configuration d’un VPN, consultez [Créer un réseau virtuel avec une connexion VPN de Site à Site à l’aide de CLI](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli).
 
 #### <a name="topology"></a>Topologie
@@ -106,5 +105,5 @@ Voici un résumé de la configuration Azure :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Didacticiel : créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
+- [Tutoriel : Créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
 - [Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)

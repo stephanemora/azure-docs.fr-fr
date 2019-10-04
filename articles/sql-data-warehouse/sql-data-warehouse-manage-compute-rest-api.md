@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 658b35163e20d024118bc7a3142c86614540f00c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 5b8652a0b08b426e708a909ff988e51eee9c0821
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790244"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66476064"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>API REST pour Azure SQL Data Warehouse
 API REST pour gérer le calcul dans Azure SQL Data Warehouse.
@@ -52,20 +52,23 @@ POST https://management.azure.com/subscriptions/{subscription-id}/resourceGroups
 
 ## <a name="check-database-state"></a>Vérifier l’état de la base de données
 
+> [!NOTE]
+> Vérifier à cet instant l’état de la base de données peut retourner ONLINE alors que la base de données effectue le workflow en ligne, ce qui entraîne des erreurs de connexion. Vous devrez peut-être ajouter un délai de 2 à 3 minutes à votre code d’application si vous utilisez cet appel d’API pour déclencher des tentatives de connexion.
+
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
-## <a name="get-maintenance-schedule"></a>Obtenir la planification de maintenance
-Vérifiez la planification de maintenance a été définie pour un entrepôt de données. 
+## <a name="get-maintenance-schedule"></a>Obtenir la planification de la maintenance
+Vérifiez la planification de la maintenance qui a été définie pour un entrepôt de données. 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
 
 ```
 
-## <a name="set-maintenance-schedule"></a>Planification de la maintenance
-Pour définir et mettre à jour une planification maintnenance sur un entrepôt de données.
+## <a name="set-maintenance-schedule"></a>Définir la planification de la maintenance
+Pour définir et mettre à jour une planification de la maintenance sur un entrepôt de données existant.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

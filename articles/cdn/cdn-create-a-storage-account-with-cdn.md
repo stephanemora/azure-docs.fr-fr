@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ea4134c486310592f1f0f344ae26a11276143faf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: d8e1c3f845af6edf274aa95797523ace07cf820c
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193362"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594026"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Démarrage rapide : Intégrer un compte de stockage Azure à Azure CDN
 Dans ce guide de démarrage rapide, vous allez activer [Azure Content Delivery Network (CDN)](cdn-overview.md) pour mettre en cache le contenu du stockage Azure. Azure CDN offre aux développeurs une solution globale pour fournir du contenu à bande passante élevée. Il peut mettre en cache les objets blob et le contenu statique des instances de calcul au niveau de nœuds physiques aux États-Unis, ainsi qu’en Europe, Asie, Australie et Amérique du Sud.
@@ -55,7 +55,7 @@ Vous pouvez utiliser plusieurs méthodes pour créer un compte de stockage, y co
    
     Cette valeur devient le nom d’hôte contenu dans l’URI utilisé pour adresser les ressources d’objets blob, de files d’attente et de tables pour l’abonnement. Pour résoudre une ressource de conteneur dans le stockage Blob, utilisez un URI au format suivant :
    
-    http://*&lt;LibelléCompteStockage&gt;*.blob.core.windows.net/*&lt;mycontainer&gt;*
+    http:// *&lt;LibelléCompteStockage&gt;* .blob.core.windows.net/ *&lt;mycontainer&gt;*
 
     où *&lt;StorageAccountLabel&gt;* fait référence à la valeur que vous avez entrée dans la zone **Nom**.
    
@@ -98,7 +98,7 @@ Vous pouvez activer Azure CDN pour votre compte de stockage directement depuis v
     | -------- | ----- |
     | **Profil CDN** | Sélectionnez **Créer** et entrez votre nom de profil, par exemple *my-cdn-profile-123*. Ce nom doit être globalement unique.  |
     | **Niveau tarifaire** | Sélectionnez **Standard Verizon** dans la liste déroulante. |
-    | **Nom du point de terminaison CDN** | Entrez votre nom d’hôte de point de terminaison, à savoir *my-endpoint-123*. Ce nom doit être globalement unique. Ce nom sert à accéder à vos ressources en cache au niveau du domaine _&lt;endpoint name&gt;_.azureedge.net. |
+    | **Nom du point de terminaison CDN** | Entrez votre nom d’hôte de point de terminaison, à savoir *my-endpoint-123*. Ce nom doit être globalement unique. Ce nom sert à accéder à vos ressources en cache au niveau du domaine _&lt;endpoint name&gt;_ .azureedge.net. |
     | **Nom d’hôte de l’origine** | Par défaut, le nouveau point de terminaison CDN utilise le nom d’hôte de votre compte de stockage en tant que serveur d’origine. |
 
 3. Sélectionnez **Créer**. Une fois le point de terminaison créé, il s'affiche dans la liste des points de terminaison.

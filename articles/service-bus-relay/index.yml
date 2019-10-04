@@ -1,57 +1,65 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation Azure Service Bus Relay
+### YamlMime:Landing
+title: Documentation Azure Relay
+summary: Découvrez comment le service Azure Relay vous permet d’exposer de manière sécurisée les services exécutés dans votre réseau d’entreprise sur le cloud public.
 metadata:
-  title: Documentation Azure Service Bus Relay
-  meta.description: 'Learn how the Azure Relay service work in a hybrid cloud and on-premises environment, complete with how to, Tutorials, videos, API references, and more.'
+  title: Documentation Azure Relay
+  description: Découvrez comment le service Azure Relay vous permet d’exposer de manière sécurisée les services exécutés dans votre réseau d’entreprise sur le cloud public.
   services: service-bus-relay
-  author: spelluru
-  manager: femila
   ms.service: service-bus-relay
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: 
   ms.topic: landing-page
-  ms.date: 08/21/2018
+  ms.collection: collection
+  author: spelluru
   ms.author: spelluru
-abstract:
-  description: 'Le service Azure Relay facilite la mise en œuvre d’applications hybrides entre des environnements locaux et cloud dans un réseau d’entreprise et le cloud public, sans avoir à ouvrir une connexion de pare-feu ni à exiger de modifications intrusives dans une infrastructure de réseau d’entreprise.'
-sections:
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: '<b>Connexions hybrides :</b>'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">Envoyer et recevoir des messages - Web Sockets .NET</a>
-          - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started">Envoyer et recevoir des messages - HTTP .NET</a>
-          - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-node-get-started">Envoyer et recevoir des messages - Web Sockets Node.js</a>
-          - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started">Envoyer et recevoir des messages - HTTP Node.js</a>
-      - type: paragraph
-        text: '<b>Relais Windows Communication Foundation (WCF) :</b>'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay">Exposer un service WCF sur site à une application web dans le cloud</a>
-          - html: <a href="/azure/service-bus-relay/service-bus-relay-tutorial">Exposer un service WCF sur site à un client WCF à l’extérieur de votre réseau</a>
-          - html: <a href="/azure/service-bus-relay/service-bus-relay-rest-tutorial">Exposer un service WCF sur site à une application WCF à l’extérieur de votre réseau</a>
-  - title: Exemples
-    items:
-      - type: paragraph
-        text: Exemples sur GitHub
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections">connexions hybrides</a>'
-          - html: '<a href="https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay">Windows Communication Foundation (WCF)</a>'
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Languages
-            html: <p><a href="/dotnet/api/microsoft.azure.relay?view=azure-dotnet">.NET Framework</a></p>
-          - title: REST
-            html: "<p><a href=\"/rest/api/servicebus/\">Référence d’API\_REST</a></p>"
+  ms.date: 09/06/2019
+  ms.openlocfilehash: f4d186169998aad628dc8efa4781dc55f457edd4
+  ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/06/2019
+  ms.locfileid: "70770427"
+landingContent:
+- title: À propos d’Azure Relay
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Relay ?
+      url: relay-what-is-it.md
+- title: Connexions hybrides
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Envoyer et recevoir des messages avec Websockets - .NET
+      url: relay-hybrid-connections-dotnet-get-started.md
+    - text: Envoyer et recevoir des messages avec HTTP - .NET
+      url: relay-hybrid-connections-http-requests-dotnet-get-started.md
+    - text: Envoyer et recevoir des messages avec Websockets - Node.js
+      url: relay-hybrid-connections-node-get-started.md
+    - text: Envoyer et recevoir des messages avec HTTP - Node.js
+      url: relay-hybrid-connections-http-requests-node-get-started.md
+  - linkListType: download
+    links:
+    - text: Exemples sur GitHub
+      url: https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections
+- title: Relais WCF
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Exposer un service WCF local sur une application web dans le cloud
+      url: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+    - text: Exposer un service WCF local sur un service WCF à l’extérieur de votre réseau
+      url: service-bus-relay-tutorial.md
+    - text: Exposer un service REST WCF local sur un client à l’extérieur de votre réseau
+      url: service-bus-relay-rest-tutorial.md
+  - linkListType: download
+    links:
+    - text: Exemples sur GitHub
+      url: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+- title: Informations de référence des API
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: .NET
+      url: /dotnet/api/microsoft.azure.relay?view=azure-dotnet
+    - text: REST
+      url: /rest/api/relay/

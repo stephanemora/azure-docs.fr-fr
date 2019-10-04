@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 46232afcaf9504d4cfbd80160e2d7e7ea958d600
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a79fa40568502a73194e467de2227d54931d0100
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272767"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568942"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Conception de services disponibles à l’échelle mondiale à l’aide d’Azure SQL Database
 
@@ -113,7 +112,7 @@ Dans ce scénario, l’application a les caractéristiques suivantes :
 
 Afin de remplir ces conditions, vous devez faire en sorte que l’appareil de l’utilisateur se connecte **toujours** à l’application déployée dans la même zone géographique pour les opérations en lecture seule, telles que l’exploration de données, l’analytique etc. Quant aux opérations OLTP, elles sont traitées dans la même zone géographique **la plupart du temps**. Par exemple, durant la journée, les opérations OLTP sont traitées dans la même zone géographique, mais pendant les heures creuses, elles peuvent être traitées dans une zone géographique différente. Si l’activité de l’utilisateur final a lieu principalement pendant les heures de travail, vous pouvez garantir des performances optimales pour la majorité des utilisateurs presque tout le temps. Le diagramme qui suit montre cette topologie :
 
-Les ressources de l’application doivent être déployées dans chaque zone géographique pour laquelle vous avez une demande importante. Par exemple, si votre application est activement utilisée aux États-Unis, en Europe et en Asie du Sud-Est, l’application doit être déployée sur l’ensemble de ces zones géographiques. La base de données primaire doit être basculée dynamiquement d’une zone géographique à la suivante à la fin des heures de travail. Cette méthode est appelée « follow the sun » (suivre le soleil). La charge de travail OLTP se connecte toujours à la base de données via l’écouteur en lecture-écriture **&lt;nom-groupe-basculement&gt;.database.windows.net** (1). La charge de travail en lecture seule se connecte directement à la base de données locale à l’aide du point de terminaison de serveur de bases de données **&lt;nom-serveur&gt;.database.windows.net** (2). Traffic Manager est configuré avec la [méthode de routage de performances](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Ainsi, l’utilisateur final est connecté au service web de la région la plus proche. La surveillance des points de terminaison doit être activée dans Traffic Manager pour chaque point de terminaison de service web (3).
+Les ressources de l’application doivent être déployées dans chaque zone géographique pour laquelle vous avez une demande importante. Par exemple, si votre application est activement utilisée aux États-Unis, en Europe et en Asie Sud-Est, l’application doit être déployée sur l’ensemble de ces zones géographiques. La base de données primaire doit être basculée dynamiquement d’une zone géographique à la suivante à la fin des heures de travail. Cette méthode est appelée « follow the sun » (suivre le soleil). La charge de travail OLTP se connecte toujours à la base de données via l’écouteur en lecture-écriture **&lt;nom-groupe-basculement&gt;.database.windows.net** (1). La charge de travail en lecture seule se connecte directement à la base de données locale à l’aide du point de terminaison de serveur de bases de données **&lt;nom-serveur&gt;.database.windows.net** (2). Traffic Manager est configuré avec la [méthode de routage de performances](../traffic-manager/traffic-manager-configure-performance-routing-method.md). Ainsi, l’utilisateur final est connecté au service web de la région la plus proche. La surveillance des points de terminaison doit être activée dans Traffic Manager pour chaque point de terminaison de service web (3).
 
 > [!NOTE]
 > La configuration du groupe de basculement définit la région qui est utilisée pour le basculement. Étant donné que la nouvelle base de données primaire se trouve dans une zone géographique différente, le basculement entraîne une latence plus longue pour les charges de travail OLTP et les charges en lecture seule, jusqu’à ce que la région impactée soit de nouveau en ligne.

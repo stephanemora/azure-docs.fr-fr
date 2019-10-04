@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: b588a1eb-ab69-4fc7-ae4d-157c3e46f4a8
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b665c2f72f50b2d72fd625b49c4212785ab3301d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799233"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593272"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Dépannage des points de terminaison de CDN Azure renvoyant un code d’état 404
 Cet article vous permet de résoudre les problèmes liés aux points de terminaison du réseau de distribution de contenu (CDN) Azure qui retournent des codes d’état HTTP 404.
@@ -73,7 +73,7 @@ Vérifiez que les valeurs du **type d’origine** et du **nom d’hôte d’orig
 #### <a name="http-and-https-ports"></a>Ports HTTP et HTTPS
 Vérifiez vos ports **HTTP** et **HTTPS**. Dans la plupart des cas, les ports 80 et 443 sont corrects, et aucune modification n’est nécessaire.  Toutefois, si le serveur d’origine est à l’écoute sur un port différent, cela doit être représenté ici. En cas de doute, affichez l’URL de votre fichier d’origine. Les spécifications HTTP et HTTPS utilisent les ports 80 et 443 par défaut. Dans l’exemple d’URL https:\//cdndocdemo.blob.core.windows.net/publicblob/lorem.txt, aucun port n’est spécifié. La valeur par défaut 443 est donc supposée et les paramètres sont corrects.  
 
-Toutefois, supposons que l’URL du fichier d’origine que vous avez testé précédemment est http:\//www.contoso.com:8080/file.txt. Remarquez la partie *:8080* qui termine le segment du nom d’hôte. Que nombre indique au navigateur d’utiliser le port 8080 pour vous connecter au serveur web à l’adresse www\.contoso.com, par conséquent, vous devrez donc entrer *8080* dans le **port HTTP** champ. Il est important de noter que ces paramètres de port affectent uniquement le port utilisé par le point de terminaison pour récupérer des informations à partir de l’origine.
+Toutefois, supposons que l’URL du fichier d’origine que vous avez testé précédemment est http:\//www.contoso.com:8080/file.txt. Remarquez la partie *:8080* qui termine le segment du nom d’hôte. Elle indique au navigateur d’utiliser le port 8080 pour se connecter au serveur web sur \.www.contoso.com. Vous devez donc entrer *8080* dans le champ **Port HTTP**. Il est important de noter que ces paramètres de port affectent uniquement le port utilisé par le point de terminaison pour récupérer des informations à partir de l’origine.
 
 > [!NOTE]
 > Les points de terminaison **CDN Azure Standard fourni par Akamai** n’autorisent pas la plage de ports TCP complète pour les origines.  Pour obtenir la liste des ports d’origine non autorisés, consultez l’article [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100))(Ports d’origine autorisés du CDN Azure fourni par Akamai).  

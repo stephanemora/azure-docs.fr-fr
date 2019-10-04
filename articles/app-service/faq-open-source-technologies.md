@@ -4,24 +4,23 @@ description: Découvrez les réponses aux questions fréquemment posées sur les
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 7831e5e989835b2c9432dbd61a242584a7b6244d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 941a218dbda2c27a598e5a53f2b947184ee78085
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082940"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121222"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>FAQ sur les technologies open source pour Azure Web Apps
 
@@ -37,7 +36,7 @@ Pour activer la journalisation PHP :
 2. Dans le menu principal, sélectionnez **Console de débogage** > **CMD**.
 3. Sélectionnez le dossier **Site**.
 4. Sélectionnez le dossier **wwwroot**.
-5. Sélectionnez l’icône **+**, puis sélectionnez **Nouveau fichier**.
+5. Sélectionnez l’icône **+** , puis sélectionnez **Nouveau fichier**.
 6. Définissez le nom de fichier sur **.user.ini**.
 7. Sélectionnez l’icône du crayon en regard de **.user.ini**.
 8. Dans le fichier, ajoutez ce code : `log_errors=on`

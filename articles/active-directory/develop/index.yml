@@ -1,256 +1,235 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Plateforme d’identités Microsoft (Azure Active Directory pour développeurs)
+### YamlMime:Landing
+title: Plateforme d’identités Microsoft (anciennement Azure Active Directory pour développeurs)
+summary: 'La plateforme d’identités Microsoft est une évolution de la plateforme de développement Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler des API Microsoft comme Microsoft Graph ou des API que des développeurs ont créées. C’est une plateforme complète qui se compose des éléments suivants : OAuth 2.0 et service d’authentification conforme aux normes OpenID Connect, bibliothèques open source, inscription et configuration d’applications, solide documentation conceptuelle de référence, exemples de démarrage rapide, exemples de code, tutoriels et guides pratiques.'
 metadata:
-  title: Plateforme d’identités Microsoft (Azure Active Directory pour développeurs)
-  description: 'Découvrez comment vous pouvez utiliser la plateforme d’identités Microsoft pour générer des applications qui connectent les utilisateurs de manière sécurisée dans toutes les identités Microsoft et obtiennent des jetons afin d’appeler Microsoft Graph, d’autres API Microsoft ou des API que des développeurs ont créées.'
-  services: active-directory
+  ms.topic: landing-page
+  ms.date: 06/22/2019
   author: CelesteDG
-  manager: mtillman
   ms.service: active-directory
   ms.subservice: develop
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: celested
-abstract:
-  description: "La plateforme d’identités Microsoft est une évolution de la plateforme de développeur et de service d’identité Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler des API Microsoft comme Microsoft Graph ou des API que des développeurs ont créées. C’est une plateforme complète qui se compose des éléments suivants\_: OAuth\_2.0 et service d’authentification conforme aux normes OpenID Connect, bibliothèques open source, inscription et configuration d’applications, solide documentation conceptuelle de référence, exemples de démarrage rapide, exemples de code, tutoriels et guides pratiques."
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/video-featured.png
-      width: 250
-    title: 'Génération de solutions d’application web avec authentification (9:31)'
-    href: 'https://www.youtube.com/watch?v=QWh5HZK9vRA'
-    width: 250
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/active-directory/develop/about-microsoft-identity-platform
-            html: <p>Découvrez la plateforme d’identités Microsoft et ses fonctionnalités.</p>
-            image:
-              src: ./media/index/i_get-started.svg
-            title: À propos de la plateforme d’identités Microsoft
-          - href: /azure/active-directory/develop/azure-ad-developers-guide/
-            html: '<p>Authentifiez les identités Azure AD (comptes professionnels et scolaires) en demandant des jetons auprès du point de terminaison Azure AD v1.0, à l’aide de la bibliothèque d’authentification Active Directory (ADAL), du portail Azure et de l’API Graph Azure AD.</p>'
-            image:
-              src: ./media/index/i_advanced.svg
-            title: v1.0
-          - href: /azure/active-directory/develop/v2-overview
-            html: '<p>Authentifiez un ensemble plus large d’identités Microsoft via ce qui est connu sous le nom de point de terminaison Azure AD v2.0, à l’aide de la bibliothèque d’authentification Microsoft (MSAL), du portail Azure et de l’API Microsoft Graph.</p>'
-            image:
-              src: ./media/index/i_investigate.svg
-            title: v2.0
-  - title: Démarrages rapides
-    items:
-      - type: paragraph
-        text: 'Suivez ces guides de démarrage rapide pour rapidement générer une application et ajouter des fonctionnalités telles que l’obtention de jetons, l’actualisation de jetons, la connexion d’un utilisateur et l’affichage des informations utilisateur et bien plus encore.'
-      - type: paragraph
-        text: <b>Applications monopages</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/angularjs-shield.svg
-            title: AngularJS
-          - image:
-              src: ./media/index/logo_js.svg
-            title: JavaScript
-        rows:
-          - title: v1.0
-            values:
-              - href: quickstart-v1-angularjs-spa.md
-              - href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
-          - title: v2.0
-            values:
-              - href: null
-              - href: quickstart-v2-javascript.md
-      - type: paragraph
-        text: "<b>Applications\_Web</b>"
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: ASP .NET
-          - image:
-              src: ./media/index/logo_NETcore.svg
-            title: ASP .NET Core
-          - image:
-              src: ./media/index/logo_java.svg
-            title: Java
-          - image:
-              src: ./media/index/logo_nodejs.svg
-            title: NodeJS
-          - image:
-              src: ./media/index/logo_python.svg
-            title: Python
-        rows:
-          - title: v1.0
-            values:
-              - href: quickstart-v1-aspnet-webapp.md
-              - href: null
-              - href: 'https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect'
-              - href: quickstart-v1-openid-connect-code.md
-              - href: 'https://github.com/Azure-Samples/active-directory-python-webapp-graphapi'
-          - title: v2.0
-            values:
-              - href: quickstart-v2-aspnet-webapp.md
-              - href: quickstart-v2-aspnet-core-webapp.md
-              - href: null
-              - href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
-              - href: null
-      - type: paragraph
-        text: <b>API web</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: ASP .NET
-          - image:
-              src: ./media/index/logo_NETcore.svg
-            title: ASP .NET Core
-          - image:
-              src: ./media/index/logo_nodejs.svg
-            title: NodeJS
-        rows:
-          - title: v1.0
-            values:
-              - href: quickstart-v1-dotnet-webapi.md
-              - href: null
-              - href: quickstart-v1-nodejs-webapi.md
-          - title: v2.0
-            values:
-              - href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
-              - href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
-              - href: null
-      - type: paragraph
-        text: <b>Applications mobiles et de bureau</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_android.svg
-            title: Android
-          - image:
-              src: ./media/index/logo_ios.svg
-            title: iOS
-          - image:
-              src: ./media/index/logo_Windows.svg
-            title: Plateforme Windows universelle
-          - image:
-              src: ./media/index/logo_Windows.svg
-            title: Windows Desktop .NET
-          - image:
-              src: ./media/index/logo_xamarin.svg
-            title: Xamarin
-        rows:
-          - title: v1.0
-            values:
-              - href: quickstart-v1-android.md
-              - href: quickstart-v1-ios.md
-              - href: null
-              - href: quickstart-v1-dotnet.md
-              - href: quickstart-v1-xamarin.md
-          - title: v2.0
-            values:
-              - href: quickstart-v2-android.md
-              - href: quickstart-v2-ios.md
-              - href: quickstart-v2-uwp.md
-              - href: quickstart-v2-windows-desktop.md
-              - href: null
-      - type: paragraph
-        text: <b>Applications de démon et de service à service</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: .NET
-        rows:
-          - title: v1.0
-            values:
-              - href: sample-v1-code.md
-          - title: v2.0
-            values:
-              - href: quickstart-v2-netcore-daemon.md
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: 'Utilisez la plateforme d’identités Microsoft et suivez les procédures détaillées et basées sur des scénarios pour vous familiariser avec les principales tâches d’authentification destinées au développeur telles que l’obtention de jetons d’accès, l’implémentation de la connexion avec Microsoft et bien plus encore.'
-      - type: paragraph
-        text: <b>Applications monopages</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_js.svg
-            title: JavaScript
-        rows:
-          - title: v1.0
-            values:
-              - href: null
-          - title: v2.0
-            values:
-              - href: tutorial-v2-javascript-spa.md
-      - type: paragraph
-        text: "<b>Applications\_Web</b>"
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_NET.svg
-            title: ASP .NET
-        rows:
-          - title: v1.0
-            values:
-              - href: null
-          - title: v2.0
-            values:
-              - href: tutorial-v2-asp-webapp.md
-      - type: paragraph
-        text: <b>Applications mobiles et de bureau</b>
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: ./media/index/logo_android.svg
-            title: Android
-          - image:
-              src: ./media/index/logo_ios.svg
-            title: iOS
-          - image:
-              src: ./media/index/logo_Windows.svg
-            title: Plateforme Windows universelle
-          - image:
-              src: ./media/index/logo_Windows.svg
-            title: Windows Desktop .NET
-        rows:
-          - title: v1.0
-            values:
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-          - title: v2.0
-            values:
-              - href: tutorial-v2-android.md
-              - href: tutorial-v2-ios.md
-              - href: tutorial-v2-windows-uwp.md
-              - href: tutorial-v2-windows-desktop.md
-  - title: Exemples
-    items:
-      - type: paragraph
-        text: 'Recherchez des exemples de code en fonction du type d’application que vous développez, de votre plateforme et des API que vous utilisez.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/develop/sample-v1-code">Exemples de code v1.0 par scénario</a>
-          - html: <a href="/azure/active-directory/develop/sample-v2-code">Exemples de code v2.0 par scénario</a>
+  ms.workload: identity
+  ms.openlocfilehash: a558bbd114bdaa2046bd0bfb8ffd846d0804b9a3
+  ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 07/10/2019
+  ms.locfileid: "67785600"
+landingContent:
+- title: À propos de la plateforme d’identités Microsoft
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Évolution de la plateforme d’identités Microsoft
+      url: about-microsoft-identity-platform.md
+    - text: Plateforme d’identité Microsoft (v2.0)
+      url: v2-overview.md
+    - text: Azure Active Directory pour les développeurs (v1.0)
+      url: v1-overview.md
+  - linkListType: learn
+    links:
+    - text: One Dev Minute - Plateforme d’identité Microsoft
+      url: https://youtu.be/y_fgJAatVhk
+- title: Générer une application monopage
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Présentation du scénario
+      url: scenario-spa-overview.md
+  - linkListType: quickstart
+    links:
+    - text: JavaScript
+      url: quickstart-v2-javascript.md
+  - linkListType: tutorial
+    links:
+    - text: JavaScript
+      url: tutorial-v2-javascript-spa.md
+  - linkListType: deploy
+    links:
+    - text: Intégration d’applications de test
+      url: identity-platform-integration-checklist.md
+  - linkListType: download
+    links:
+    - text: Exemples - JavaScript, Angular
+      url: sample-v2-code.md#single-page-applications
+    - text: Exemple - SPA avec Azure AD B2C
+      url: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
+- title: Générer une application web qui connecte les utilisateurs
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Présentation du scénario
+      url: scenario-web-app-sign-user-overview.md
+  - linkListType: quickstart
+    links:
+    - text: ASP.NET Core
+      url: quickstart-v2-aspnet-core-webapp.md
+    - text: ASP.NET
+      url: quickstart-v2-aspnet-webapp.md
+  - linkListType: tutorial
+    links:
+    - text: ASP.NET Core
+      url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2
+  - linkListType: deploy
+    links:
+    - text: Intégration d’applications de test
+      url: identity-platform-integration-checklist.md
+  - linkListType: download
+    links:
+    - text: Exemples - ASP.NET Core, ASP.NET
+      url: sample-v2-code.md#web-applications
+- title: Générer une application web qui appelle des API web
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Présentation du scénario
+      url: scenario-web-app-call-api-overview.md
+  - linkListType: tutorial
+    links:
+    - text: ASP.NET Core
+      url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2#scope-of-this-tutorial
+  - linkListType: deploy
+    links:
+    - text: Intégration d’applications de test
+      url: identity-platform-integration-checklist.md
+  - linkListType: download
+    links:
+    - text: Exemples - ASP.NET Core, ASP.NET, Node.js, Ruby
+      url: sample-v2-code.md#web-applications
+- title: Générer une API web protégée
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Présentation du scénario
+      url: scenario-protected-web-api-overview.md
+  - linkListType: tutorial
+    links:
+    - text: API web ASP.NET Core
+      url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2
+  - linkListType: deploy
+    links:
+    - text: Intégration d’applications de test
+      url: identity-platform-integration-checklist.md
+  - linkListType: download
+    links:
+    - text: Exemple - ASP.NET
+      url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2
+- title: API web qui appelle des API web
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Présentation du scénario
+      url: scenario-web-api-call-api-overview.md
+  - linkListType: tutorial
+    links:
+    - text: API web ASP.NET Core qui appelle Microsoft Graph
+      url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph
+  - linkListType: deploy
+    links:
+    - text: Intégration d’applications de test
+      url: identity-platform-integration-checklist.md
+- title: Générer une application de bureau qui appelle des API web
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Présentation du scénario
+      url: scenario-desktop-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Acquérir un jeton et appeler l’API Microsoft Graph (Windows Desktop)
+      url: quickstart-v2-windows-desktop.md
+    - text: Acquérir un jeton et appeler l’API Microsoft Graph (UWP)
+      url: quickstart-v2-uwp.md
+  - linkListType: tutorial
+    links:
+    - text: Appeler l’API Microsoft Graph (Windows Desktop)
+      url: tutorial-v2-windows-desktop.md
+    - text: Appeler l’API Microsoft Graph (UWP)
+      url: tutorial-v2-windows-uwp.md
+  - linkListType: deploy
+    links:
+    - text: Intégration d’applications de test
+      url: identity-platform-integration-checklist.md
+  - linkListType: download
+    links:
+    - text: Exemple - .NET, .NET Core
+      url: sample-v2-code.md#desktop-and-mobile-public-client-apps
+- title: Générer une application démon qui appelle des API web
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Présentation du scénario
+      url: scenario-daemon-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Acquérir un jeton et appeler l’API Microsoft Graph (console .NET Core)
+      url: quickstart-v2-netcore-daemon.md
+    - text: Acquérir un jeton et appeler l’API Microsoft Graph (application web ASP.NET)
+      url: https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp
+  - linkListType: deploy
+    links:
+    - text: Intégration d’applications de test
+      url: identity-platform-integration-checklist.md
+  - linkListType: download
+    links:
+    - text: Exemples - console ASP.NET, application web ASP.NET
+      url: sample-v2-code.md#daemon-applications
+- title: Générer une application mobile qui appelle des API web
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Présentation du scénario
+      url: scenario-mobile-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Acquérir un jeton et appeler l’API Microsoft Graph (Android)
+      url: quickstart-v2-android.md
+    - text: Acquérir un jeton et appeler l’API Microsoft Graph (iOS)
+      url: quickstart-v2-ios.md
+    - text: Acquérir un jeton et appeler l’API Microsoft Graph (Xamarin iOS et Android)
+      url: https://github.com/Azure-Samples/active-directory-xamarin-native-v2
+  - linkListType: tutorial
+    links:
+    - text: Connecter des utilisateurs et appeler l’API Microsoft Graph (Android)
+      url: tutorial-v2-android.md
+    - text: Connecter des utilisateurs et appeler l’API Microsoft Graph (iOS)
+      url: tutorial-v2-ios.md
+  - linkListType: deploy
+    links:
+    - text: Intégration d’applications de test
+      url: identity-platform-integration-checklist.md
+  - linkListType: download
+    links:
+    - text: Exemple - Android, iOS, Xamarin
+      url: sample-v2-code.md#desktop-and-mobile-public-client-apps
+- title: Appeler l’API Microsoft Graph
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: À propos de Microsoft Graph
+      url: https://docs.microsoft.com/graph/overview
+  - linkListType: quickstart
+    links:
+    - text: Soyez opérationnel en 3 minutes
+      url: https://developer.microsoft.com/graph/get-started
+  - linkListType: learn
+    links:
+    - text: Utilisation de l’API
+      url: https://docs.microsoft.com/graph/use-the-api
+    - text: API REST Microsoft Graph v1.0
+      url: https://docs.microsoft.com/graph/api/overview?toc=.%2Fref%2Ftoc.json&view=graph-rest-1.0
+    - text: API REST Microsoft Graph bêta
+      url: https://docs.microsoft.com/graph/api/overview?toc=.%2Fref%2Ftoc.json&view=graph-rest-beta
+  - linkListType: deploy
+    links:
+    - text: Afficheur Graph
+      url: https://developer.microsoft.com/graph/graph-explorer/
+- title: Générer une application destinée aux clients qui se connecte à des identités sociales et locales
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: À propos d’Azure AD B2C
+      url: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
+  - linkListType: tutorial
+    links:
+    - text: Ajouter des fournisseurs d’identité à vos applications dans Azure AD B2C
+      url: https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers

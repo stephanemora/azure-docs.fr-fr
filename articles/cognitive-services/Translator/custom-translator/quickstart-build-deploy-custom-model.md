@@ -2,19 +2,19 @@
 title: 'Démarrage rapide : Générer, déployer et utiliser un modèle personnalisé - Custom Translator'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez être guidé pas à pas dans le processus de création d’un système de traduction avec Custom Translator.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: 7875a32274ddf0ea886727cdc55a0bbb874b2296
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a450a91f29a9118c9e4c83f6bb964bac2d6ffb3c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762991"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595540"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Démarrage rapide : Générer, déployer et utiliser un modèle personnalisé pour la traduction
 

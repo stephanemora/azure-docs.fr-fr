@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f3d1fb393138aeb590bc0645d6abe93652a52a5b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: ddfa93328fb3533a937cc7f0d81482b66275faf3
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052579"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848949"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Préparer votre environnement de développement et de test pour IoT Edge
 
@@ -60,13 +60,13 @@ Les modèles de modules pour certains langages et services imposent des conditio
 | C# | [SDK .NET Core 2.1](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Définir la variable d’environnement JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.JS](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Générateur de module Node.js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
-### <a name="visual-studio-2017-extension"></a>Extension Visual Studio 2017
+### <a name="visual-studio-20172019-extension"></a>Extension Visual Studio 2017/2019
 
-Les outils Azure IoT Edge pour Visual Studio fournissent un modèle de module IoT Edge basé sur C#. 
+Les outils Azure IoT Edge pour Visual Studio fournissent un modèle de module IoT Edge basé sur C# et C. 
 
-Pour plus d’informations et pour télécharger, voir [Outils Azure IoT Edge pour Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools).
+Pour plus d’informations et pour télécharger, voir [Outils Azure IoT Edge pour Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) ou [Outils Azure IoT Edge pour Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 
 ### <a name="iot-edge-dev-tool"></a>Outil de développement IoT Edge
 
@@ -109,7 +109,7 @@ Pour plus d’informations, voir [Exécution d’Azure IoT Edge dans un conteneu
 
 ### <a name="iot-edge-device-container"></a>Conteneur d’appareil IoT Edge
 
-Le conteneur d’appareil IoT Edge est un appareil IoT Edge complet, prêt pour lancement sur tout ordinateur disposant d’un moteur de conteneur. Le conteneur d’appareil inclut le runtime IoT Edge et un moteur de conteneur. Chaque instance du conteneur est un appareil IoT Edge s’auto-approvisionnant entièrement fonctionnel. Le conteneur d’appareil prend en charge le débogage à distance de modules tant qu’il existe un itinéraire réseau vers le module. Le conteneur d’appareil convient bien pour créer rapidement de grands nombres d’appareils IoT Edge afin de tester des scénarios ou des pipelines de DevOps à grande échelle. Il prend également en charge le déploiement vers Kubernetes via Helm. 
+Le conteneur d’appareil IoT Edge est un appareil IoT Edge complet, prêt pour lancement sur tout ordinateur disposant d’un moteur de conteneur. Le conteneur d’appareil inclut le runtime IoT Edge et un moteur de conteneur. Chaque instance du conteneur est un appareil IoT Edge s’auto-approvisionnant entièrement fonctionnel. Le conteneur d’appareil prend en charge le débogage à distance de modules tant qu’il existe un itinéraire réseau vers le module. Le conteneur d’appareil convient bien pour créer rapidement de grands nombres d’appareils IoT Edge afin de tester des scénarios ou Azure Pipelines à grande échelle. Il prend également en charge le déploiement vers Kubernetes via Helm. 
 
 Pour plus d’informations, voir [Conteneur d’appareil Azure IoT Edge](https://github.com/toolboc/azure-iot-edge-device-container).
 

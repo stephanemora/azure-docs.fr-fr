@@ -1,6 +1,6 @@
 ---
-title: Migrer d’Azure Service Bus Standard espaces de noms existants au niveau Premium | Microsoft Docs
-description: Guide pour permettre la migration d’Azure Service Bus Standard espaces de noms existants vers Premium
+title: Migrer des espaces de noms Standard Service Bus existants vers le niveau Premium| Microsoft Docs
+description: Guide pour permettre la migration d’espaces de noms Standard Service Bus Azure existants vers le niveau Premium
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,223 +11,217 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 7b153c36e10f1d4e2be2a0cf42f998c31cb6473a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896423"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69611923"
 ---
-# <a name="migrate-existing-azure-service-bus-standard-namespaces-to-premium-tier"></a>Migrer d’Azure Service Bus Standard espaces de noms existants au niveau Premium
+# <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrer des espaces de noms Standard Service Bus existants vers le niveau Premium
+Auparavant, Azure Service Bus offrait des espaces de noms uniquement pour le niveau Standard. Les espaces de noms sont des configurations multi-locataires optimisées pour les environnements à faible débit et les environnements de développement. Le niveau Premium offre des ressources dédiées par espace de noms pour une latence prévisible et un débit accru à un prix fixe. Le niveau Premium est optimisé pour les environnements à haut débit et de production qui nécessitent des fonctionnalités d’entreprise supplémentaires.
 
-Précédemment, Azure Service Bus proposé des espaces de noms uniquement sur le niveau Standard. Il s’agissait de configurations d’architecture mutualisées qui ont été optimisées pour les environnements de développement et de faible débit.
-
-Récemment, Azure Service Bus a développé pour offrir le niveau Premium qui offre des ressources dédiées par espace de noms pour la latence prévisible et un débit plus élevé à un prix fixe qui est optimisé pour un débit élevé et les environnements de production nécessitant des fonctionnalités d’entreprise supplémentaires.
-
-Le ci-dessous outils permet existantes des espaces de noms de niveau Standard pour être migrés vers le niveau Premium.
+Cet article explique comment migrer des espaces de noms de niveau Standard existants vers le niveau Premium.  
 
 >[!WARNING]
-> Migration est destinée à l’espace de noms Service Bus Standard pour être ***mis à niveau*** vers le niveau Premium.
->
-> Les outils de migration ***pas*** vers une version antérieure.
->[!NOTE]
-> Cette migration est censée se produire ***en place***.
->
-> Cela implique que l’expéditeur existant et les applications de destinataire ne nécessitent pas toute modification de code ou la configuration.
->
-> La chaîne de connexion existante pointent automatiquement vers le nouvel espace de noms premium.
->
-> En outre, toutes les entités dans l’espace de noms Standard sont **copiées** dans l’espace de noms Premium pendant le processus de migration.
->
->
-> Nous prenons en charge ***1 000 entités par unité de messagerie*** sur Premium, vous devez effectuer les opérations suivantes pour identifier le nombre d’unités de messagerie, démarrez avec le nombre d’entités que vous disposez sur votre espace de noms Standard actuel.
+> La migration s’adresse aux espaces de noms Standard Service Bus qui doivent être mis à niveau vers le niveau Premium. L'outil de migration ne prend pas en charge la rétrogradation.
+
+Quelques points à noter : 
+- Cette migration est censée se produire sur place, ce qui signifie que les applications émettrices et réceptrices existantes **n'exigent aucun changement de code ou de configuration**. La chaîne de connexion existante pointe automatiquement vers le nouvel espace de noms Premium.
+- L'espace de noms **Premium** ne doit contenir **aucune entité** pour que la migration réussisse. 
+- Toutes les **entités** dans l'espace de noms Standard sont **copiées** vers l'espace de noms Premium pendant le processus de migration. 
+- La migration prend en charge **1 000 entités par unité de messagerie** sur le niveau Premium. Pour déterminer le nombre d'unités de messagerie dont vous avez besoin, commencez par le nombre d'entités dont vous disposez sur votre espace de noms Standard actuel. 
+- Vous ne pouvez pas migrer directement du **niveau De base** vers le **niveau Premium**, mais vous pouvez le faire indirectement en migrant d'abord du niveau De base vers Standard, puis de Standard à Premium à l'étape suivante.
 
 ## <a name="migration-steps"></a>Étapes de la migration
+Certaines conditions sont associées au processus de migration. Familiarisez-vous avec les étapes suivantes pour réduire les risques d'erreurs. Ces étapes décrivent le processus de migration, et les détails étape par étape sont énumérés dans les sections suivantes.
+
+1. Créez un espace de noms Premium.
+1. Associez les espaces de noms Standard et Premium.
+1. Synchronisez (par copier-coller) les entités du niveau Standard avec l'espace de noms Premium.
+1. Validez la migration.
+1. Videz les entités de l’espace de noms Standard en utilisant l’espace de noms post-migration.
+1. Supprimez l’espace de noms Standard.
 
 >[!IMPORTANT]
-> Il existe certains inconvénients associés au processus de migration. Nous vous demandons d’entièrement vous familiariser avec les étapes réduire les possibilités d’erreurs.
+> Une fois la migration validée, accédez à l'ancien espace de noms Standard et videz les files d'attente et les abonnements. Une fois les messages vidés, ils peuvent être envoyés vers le nouvel espace de noms Premium pour y être traités par les applications réceptrices. Une fois les files d'attente et les abonnements vidés, nous vous recommandons de supprimer l'ancien espace de noms Standard.
 
-Le processus de migration d’étape par étape concret est détaillé dans les guides ci-dessous.
+### <a name="migrate-by-using-the-azure-cli-or-powershell"></a>Migrer en utilisant l’interface de ligne de commande Azure (CLI) ou PowerShell
 
-Les étapes logiques sont-
+Pour migrer votre espace de noms Standard Service Bus vers Premium à l'aide de l'outil Azure CLI ou PowerShell, procédez comme suit.
 
-1. Créer un nouvel espace de noms Premium.
-2. Associer l’espace de noms Standard et Premium à l’autre.
-3. Entités de synchronisation (copie pointage) à partir de Standard à l’espace de noms Premium
-4. Validez la migration
-5. Vider les entités dans l’espace de noms Standard en utilisant le nom après la migration de l’espace de noms
-6. Supprimer l’espace de noms Standard
+1. Créez un espace de noms Premium Service Bus. Vous pouvez référencer les [modèles Azure Resource Manager](service-bus-resource-manager-namespace.md) ou [utilisez le portail Azure](service-bus-create-namespace-portal.md). Veillez à sélectionner **Premium** pour le paramètre **serviceBusSku**.
 
->[!NOTE]
-> Une fois la migration a été validée, il est extrêmement important pour accéder à l’ancien espace de noms Standard et vider les files d’attente et les abonnements.
->
-> Une fois que les messages ont été purgées qu’ils peuvent être envoyés vers le nouvel espace de noms premium pour être traités par les applications de destinataire.
->
-> Une fois que les files d’attente et les abonnements ont été purgées, nous vous recommandons de supprimer l’ancien espace de noms Standard. Vous n’être qui en ont besoin !
-
-### <a name="migrate-using-azure-cli-or-powershell"></a>Migrer à l’aide d’Azure CLI ou PowerShell
-
-Pour migrer votre espace de noms Service Bus Standard vers Premium à l’aide de l’outil Azure CLI ou PowerShell, reportez-vous à la ci-dessous guide.
-
-1. Créer un nouvel espace de noms Service Bus Premium. Vous pouvez référencer le [modèles Azure Resource Manager](service-bus-resource-manager-namespace.md) ou [utiliser le portail Azure](service-bus-create-namespace-portal.md). Veillez à sélectionner « Premium » pour le **serviceBusSku** paramètre.
-
-2. Définir le ci-dessous les variables d’environnement pour simplifier les commandes de migration.
-   ```
+1. Définissez les variables d'environnement suivantes pour simplifier les commandes de migration.
+   ```azurecli
    resourceGroup = <resource group for the standard namespace>
    standardNamespace = <standard namespace to migrate>
-   premiumNamespaceArmId = <Azure Resource Manager ID of the Premium namespace to migrate to>
-   postMigrationDnsName = <post migration DNS name entry to access the Standard namespace>
+   premiumNamespaceArmId = <Azure Resource Manager ID of the premium namespace to migrate to>
+   postMigrationDnsName = <post migration DNS name entry to access the standard namespace>
    ```
 
     >[!IMPORTANT]
-    > Le nom de la post-migration (post_migration_dns_name) sera utilisé pour accéder à l’espace de noms Standard ancien après la migration. Vous devez utiliser cela pour vider les files d’attente et les abonnements, puis supprimez l’espace de noms.
+    > L'alias/nom post-migration (post_migration_dns_name) sera utilisé pour accéder à l'ancien espace de noms Standard post-migration. Utilisez cette variable pour vider les files d'attente et les abonnements, puis supprimez l'espace de noms.
 
-3. **Paire** les espaces de noms Standard et Premium et **démarrer la synchronisation** à l’aide de la commande - ci-dessous
+1. Associez les espaces de noms Standard et Premium, puis lancez la synchronisation à l'aide de la commande suivante :
 
-    ```
+    ```azurecli
     az servicebus migration start --resource-group $resourceGroup --name $standardNamespace --target-namespace $premiumNamespaceArmId --post-migration-name $postMigrationDnsName
     ```
 
 
-4. Vérifier l’état de la migration à l’aide de la commande - ci-dessous
-    ```
+1. Vérifiez l'état de la migration à l'aide de la commande suivante :
+    ```azurecli
     az servicebus migration show --resource-group $resourceGroup --name $standardNamespace
     ```
 
-    La migration est considérée comme terminée quand
+    La migration est considérée comme terminée lorsque les valeurs suivantes s'affichent :
     * MigrationState = "Active"
     * pendingReplicationsOperationsCount = 0
-    * provisioningState = « Réussi »
+    * provisioningState = "Succeeded"
 
-    Cette commande affiche également la configuration de la migration. Veuillez Vérifiez par deux fois pour vous assurer que les valeurs sont définies comme précédentes est déclaré.
+    Cette commande affiche également la configuration de la migration. Vérifiez que les valeurs sont correctement définies. Vérifiez également l'espace de noms Premium dans le portail pour vous assurer que toutes les files d'attente et rubriques ont été créées et correspondent à celles qui existaient dans l'espace de noms Standard.
 
-    En outre, vérifiez également l’espace de noms Premium dans le portail pour vous assurer que toutes les files d’attente et rubriques ont été créés et qu’ils correspondent à ce qui existe sur l’espace de noms Standard.
-
-5. Validez la migration en exécutant la commande ci-dessous
-   ```
+1. Validez la migration en exécutant la commande complète suivante :
+   ```azurecli
    az servicebus migration complete --resource-group $resourceGroup --name $standardNamespace
    ```
 
-### <a name="migrate-using-azure-portal"></a>Migrer à l’aide du portail Azure
+### <a name="migrate-by-using-the-azure-portal"></a>Migration en utilisant le portail Azure
 
-Migration via le portail Azure a le même flux logique en tant que la migration à l’aide des commandes. Reportez-vous à la ci-dessous un guide pour le processus étape par étape pour migrer à l’aide du portail.
+La migration à l’aide du portail Azure suit le même flux logique que la migration avec les commandes. Suivez ces étapes pour migrer à l’aide du portail Azure.
 
-1. Choisir le **'Migrer vers Premium'** option de menu dans le menu de Navigation dans le volet gauche. Cliquez sur le **'Démarrer'** bouton pour passer à la page suivante.
+1. Dans le menu **Navigation** du volet de gauche, sélectionnez **Migrer vers Premium**. Cliquez sur le bouton **Commencer** pour passer à la page suivante.
     ![Page d’accueil de migration][]
 
-2. Complète **le programme d’installation**.
-   ![Espace de noms le programme d’installation][]
-   1. Créez et affectez l’espace de noms Premium pour migrer l’espace de noms Standard existant vers.
-        ![Configurer l’espace de noms : créer l’espace de noms premium][]
-   2. Choisir le **'Nom après la Migration'** accéder à l’espace de noms Standard en une fois la migration est terminée.
-        ![Configurer l’espace de noms : choisir le nom de la migration post][]
-   3. Cliquez sur **'Next'** pour continuer.
-3. **Synchronisation** entités entre l’espace de noms Standard et Premium.
-    ![Le programme d’installation de l’espace de noms - synchronisation entités - début][]
+1. Exécutez l’**installation**.
+   ![Configurer l'espace de noms][]
+   1. Créez et attribuez l'espace de noms Premium vers lequel migrer l'espace de noms Standard existant.
+        ![Créer un espace de noms - créer un espace de noms Premium][]
+   1. Choisissez un **nom de post- migration**. Vous utiliserez ce nom pour accéder à l'espace de noms Standard une fois la migration terminée.
+        ![Configurer un espace de noms - choisir le nom de la post-migration][]
+   1. Sélectionnez **Suivant** pour continuer.
+1. Synchronisez les entités entre les espaces de noms Standard et Premium.
+    ![Configurer un espace de noms - synchroniser les entités - démarrer][]
 
-   1. Cliquez sur **'Démarrer la synchronisation'** pour commencer la synchronisation d’entités.
-   2. Cliquez sur **'Yes'** dans la fenêtre contextuelle confirmant pour démarrer la synchronisation.
-   3. Attendez que le **synchronisation** est terminée. L’état est mis à disposition sur la barre d’état.
-        ![Espace de noms - synchronisation entités - progression de l’installation][]
+   1. Sélectionnez **Démarrer la synchronisation** pour lancer la synchronisation des entités.
+   1. Sélectionnez **Oui** dans la boîte de dialogue pour confirmer et démarrer la synchronisation.
+   1. Attendez la fin de la synchronisation. Le statut est disponible dans la barre d'état.
+        ![Configurer l'espace de noms - synchroniser les entités - avancement][]
         >[!IMPORTANT]
-        > Si vous avez besoin pour **abandonner** pour une raison quelconque, veuillez consulter le flux d’abandon dans la section Forum aux questions de ce document.
-   4. Une fois la synchronisation est terminée, cliquez sur le **'Next'** bouton en bas de la page.
+        > Si vous avez besoin d'interrompre la migration pour une raison quelconque, veuillez consulter la section FAQ de ce document.
+   1. Une fois la synchronisation terminée, sélectionnez **Suivant** en bas de la page.
 
-4. Passez en revue les modifications sur la page de résumé.
-    ![Espace de noms de commutateur - menu du commutateur][]
+1. Examinez les changements sur la page Résumé. Sélectionnez **Terminer la migration** pour changer d'espace de noms et terminer la migration.
+    ![Changer d'espace de noms - changer de menu][].  
+    La page de confirmation s'affiche lorsque la migration est terminée.
+    ![Changer d'espace de noms - réussite][]
 
-5. Cliquez sur **« Terminer la Migration »** pour basculer des espaces de noms et terminer la migration.
-    ![Espace de noms de commutateur - réussite][]
+## <a name="caveats"></a>Mises en garde
+
+Certaines des fonctionnalités fournies par le niveau Azure Service Bus Standard ne sont pas prises en charge par le niveau Azure Service Bus Premium. Cela est intentionnel, car le niveau Premium offre des ressources dédiées pour un débit et une latence prévisibles.
+
+Voici la liste des fonctionnalités non prises en charge par le niveau Premium et la manière dont elles sont traitées – 
+
+### <a name="express-entities"></a>Entités Express
+
+   Les entités Express qui n’enregistrent aucune donnée de message dans le stockage ne sont pas prises en charge au niveau Premium. Les ressources dédiées ont permis d’améliorer considérablement le débit tout en garantissant une persistance des données, telle qu’on peut l’attendre de tout système de messagerie d’entreprise.
+   
+   Durant la migration, toutes les entités Express dans votre espace de noms Standard sont créées sur l’espace de noms Premium en tant qu’entités non-Express.
+   
+   Si vous utilisez des modèles Azure Resource Manager (ARM), veillez à supprimer l’indicateur « enableExpress » de la configuration du déploiement afin que vos flux de travail automatisés s’exécutent sans erreur.
+
+### <a name="partitioned-entities"></a>Entités partitionnées
+
+   Les entités partitionnées étaient prises en charge au niveau Standard pour offrir une meilleure disponibilité dans une configuration multi-locataire. Avec l’approvisionnement de ressources dédiées disponibles par espace de noms au niveau Premium, cela n’est plus nécessaire.
+   
+   Pendant la migration, toute entité partitionnée dans l’espace de noms Standard est créée sur l’espace de noms Premium en tant qu’entité non partitionnée.
+   
+   Si votre modèle ARM définit « enablePartitioning » sur « true » pour une file d’attente ou une rubrique spécifiques, le répartiteur l’ignore.
 
 ## <a name="faqs"></a>FAQ
 
 ### <a name="what-happens-when-the-migration-is-committed"></a>Que se passe-t-il lorsque la migration est validée ?
 
-Une fois la migration est validée, la chaîne de connexion qui pointe vers l’espace de noms Standard pointera vers l’espace de noms Premium.
+Une fois la migration validée, la chaîne de connexion qui pointait vers l'espace de noms Standard pointera vers l'espace de noms Premium.
 
-Les applications de l’expéditeur et le destinataire seront Déconnectez le Namespace Standard et se reconnecter automatiquement à l’espace de noms Premium.
+Les applications émettrices et réceptrices se déconnecteront de l'espace de noms Standard et se reconnecteront automatiquement à l'espace de noms Premium.
 
-### <a name="what-do-i-do-after-the-standard-to-premium-migration-is-complete"></a>Que faire faire une fois terminée la norme pour la migration Premium ?
+### <a name="what-do-i-do-after-the-standard-to-premium-migration-is-complete"></a>Que dois-je faire une fois la migration du niveau Standard vers Premium terminée ?
 
-La norme pour la migration Premium permet de s’assurer que les métadonnées d’entité (rubriques, abonnements, filtres, et al.) sont copiés à partir de la norme dans l’espace de noms Premium. Les données du message qui a été validées dans l’espace de noms Standard ne sont pas copiées à partir de la norme à l’espace de noms Premium.
+La migration du niveau Standard vers Premium garantit que les métadonnées de l'entité, notamment les rubriques, les abonnements et les filtres, sont copiées de l'espace de noms Standard vers l'espace de noms Premium. Les données du message qui ont été validées dans l'espace de noms Standard ne sont pas copiées de l'espace de noms Standard vers l'espace de noms Premium.
 
-Pour cette raison, l’espace de noms Standard peut avoir des messages qui ont été envoyés et validées lors de la migration en cours d’exécution. Ces messages doivent être purgées à partir de la norme Namespace manuellement et envoyés sur le Namespace Premium manuellement.
+L'espace de noms Standard peut contenir des messages qui ont été envoyés et validés pendant la migration. Videz manuellement ces messages de l’espace de noms Standard et envoyez-les manuellement vers l'espace de noms Premium. Pour vider manuellement les messages, utilisez une application console ou un script qui vide les entités d'espace de noms Standard en utilisant le nom DNS post-migration que vous avez spécifié dans les commandes de migration. Envoyez ces messages à l'espace de noms Premium afin qu'ils puissent être traités par les destinataires.
 
-Pour ce faire, vous ***doit*** utiliser une application console ou un script qui drainer les entités de l’espace de noms Standard en utilisant le **nom DNS de Migration Post** spécifié dans les commandes de migration et d’envoyer ces messages sur le Namespace Premium, afin qu’ils peuvent être traités par les destinataires.
-
-Une fois que les messages ont été purgées, passez à supprimer l’espace de noms Standard.
+Une fois les messages vidés, supprimez l'espace de noms Standard.
 
 >[!IMPORTANT]
-> Notez qu’une fois que les messages à partir de l’espace de noms Standard ont été purgées, vous **doit** supprimer l’espace de noms Standard.
->
-> Ceci est important, car la chaîne de connexion initialement appelée à l’espace de noms Standard fait en fait référence à l’espace de noms Premium. Vous ne besoin cette Namespace Standard plus.
->
-> Suppression de l’espace de noms Standard que vous avez migré permet réduit la confusion à une date ultérieure. 
+> Une fois les messages de l’espace de noms Standard vidés, supprimez l'espace de noms Standard. Cette étape est importante car la chaîne de connexion qui se référait initialement à l'espace de noms Standard se réfère maintenant à l'espace de noms Premium. Vous n'aurez plus besoin de l'espace de noms Standard. La suppression de l'espace de noms Standard que vous avez migré vous facilitera la tâche par la suite.
 
-### <a name="how-much-downtime-do-i-expect"></a>Le temps d’inactivité attendre ?
-Le processus de migration décrit ci-dessus est destiné à réduire le temps d’arrêt attendus pour les applications. Cela permet à l’aide de la chaîne de connexion que les applications de l’expéditeur et récepteur utilisent pour pointer vers le nouvel espace de noms Premium.
+### <a name="how-much-downtime-do-i-expect"></a>Combien durera le temps d'arrêt ?
+Le processus de migration vise à réduire le temps d'arrêt prévu au niveau des applications. Le temps d'arrêt est réduit grâce à la chaîne de connexion que les applications émettrices et réceptrices utilisent pour pointer vers le nouvel espace de noms Premium.
 
-Le temps d’arrêt rencontrés par l’application est limitée à la quantité de temps que nécessaire pour mettre à jour l’entrée DNS pour pointer vers l’espace de noms Premium.
+Le temps d’arrêt de l'application est limité au délai nécessaire à la mise à jour de l'entrée DNS afin qu’elle pointe vers l'espace de noms Premium. Le temps d'arrêt est d'environ 5 minutes.
 
-Cela peut être considéré comme pour être ***environ 5 minutes***.
+### <a name="do-i-have-to-make-any-configuration-changes-while-doing-the-migration"></a>Dois-je modifier ma configuration lors de la migration ?
+Non, aucun changement de code ou de configuration n'est nécessaire pour effectuer la migration. La chaîne de connexion utilisée par les applications émettrices et réceptrices pour accéder à l'espace de noms Standard est automatiquement mappée pour servir d'alias à l'espace de noms Premium.
 
-### <a name="do-i-have-to-make-any-configuration-changes-while-performing-the-migration"></a>Je dois apporter des modifications de configuration lors de l’exécution de la migration ?
-Non, il n’existe aucune modification de code/configuration nécessaires pour effectuer cette migration. La chaîne de connexion que les applications de l’expéditeur et récepteur utilisent pour accéder le Namespace Standard est automatiquement mappée pour agir comme un **alias** pour le Namespace Premium.
+### <a name="what-happens-when-i-abort-the-migration"></a>Que se passe-t-il lorsque j'annule la migration ?
+La migration peut être interrompue en utilisant la commande `Abort` ou à l’aide du portail Azure. 
 
-### <a name="what-happens-when-i-abort-the-migration"></a>Que se passe-t-il lorsque j’ai abandonner la migration ?
-Migration peut être annulée à l’aide de la commande « Abandonner » ou via le portail Azure. 
+#### <a name="azure-cli"></a>D’Azure CLI
 
-#### <a name="azure-cli-or-powershell"></a>Azure CLI ou PowerShell
-
-    az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
+```azurecli
+az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
+```
 
 #### <a name="azure-portal"></a>Portail Azure
 
 ![Abandonner le flux - abandonner la synchronisation][]
-![abandonner flux - abandonner terminée][]
+![Abandonner le flux - abandon terminé][]
 
-Lorsque le processus de migration est abandonné, elle réellement interrompt le processus de copie sur les entités (rubriques, abonnements et les filtres) à partir de Standard à l’espace de noms Premium et rompt l’association.
+Lorsque le processus de migration est abandonné, il interrompt le processus de copie des entités (rubriques, abonnements et filtres) de l'espace de noms Standard vers l'espace de noms Premium et interrompt aussi le jumelage.
 
-La chaîne de connexion **n’est pas** mis à jour pour pointer vers l’espace de noms Premium. Vos applications existantes continuent de fonctionner comme avant de commencer la migration.
+La chaîne de connexion n'est pas mise à jour pour pointer vers l'espace de noms Premium. Vos applications existantes continuent de fonctionner comme avant le début de la migration.
 
-Toutefois, il **pas** supprimer les entités dans l’espace de noms Premium ou de supprimer l’espace de noms Premium lui-même. Cela doit être effectuée manuellement si vous ayez décidé de ne pas entamer la migration après tout.
+Cependant, ni les entités de l'espace de noms Premium ni l'espace de nom Premium ne sont supprimés. Supprimez les entités manuellement si vous choisissez de ne pas effectuer la migration.
 
 >[!IMPORTANT]
-> Si vous décidez d’abandonner la migration, supprimez le Namespace Premium que vous aviez configuré pour la migration, afin que vous n’êtes pas facturé pour les ressources.
+> Si vous décidez d'abandonner la migration, supprimez l'espace de noms Premium que vous aviez préparé pour la migration afin que les ressources ne vous soient pas facturées.
 
-#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Je ne veux pas obligé de vider les messages. Que faire ?
+#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Je ne souhaite pas vider les messages. Que faire ?
 
-Il peut y avoir des messages qui sont envoyés par les applications de l’expéditeur et validées vers le stockage sur le Namespace Standard pendant que la migration est en cours, et juste avant la migration est validée.
+Certains messages sont envoyés par les applications émettrices et validés pour être stockés dans l'espace de noms Standard pendant la migration et juste avant que cette migration ne soit validée.
 
-Étant donné que pendant la migration, la message réel/charge utile de données ne seront pas copiée à partir de la norme dans Premium, ceux-ci doivent être purgées manuellement et ensuite envoyées à l’espace de noms Premium.
+Pendant la migration, les données/charges utiles réelles du message ne sont pas copiées de l’espace de noms Standard vers l'espace de noms Premium. Les messages doivent être manuellement vidés puis envoyés vers l'espace de noms Premium.
 
-Toutefois, si vous pouvez migrer pendant une fenêtre de maintenance planifiée/ménage et que vous ne souhaitez pas vider manuellement et d’envoyer les messages, les applications, suivez les étapes - ci-dessous
+Cependant, si vous pouvez migrer au cours d'une fenêtre de maintenance planifiée et que vous ne souhaitez pas vider et envoyer les messages manuellement, procédez comme suit :
 
-1. Arrêtez les applications de l’expéditeur, et autoriser les destinataires traiter les messages qui sont actuellement dans l’espace de noms Standard et vider la file d’attente.
-2. Une fois que les files d’attente et les abonnements dans le Namespace Standard sont vides, suivez la procédure décrite ci-dessus pour exécuter la migration à partir de Standard à l’espace de noms Premium.
-3. Une fois la migration terminée, vous pouvez redémarrer les applications de l’expéditeur.
-4. Les expéditeurs et les destinataires seront désormais se connecter automatiquement avec l’espace de noms Premium.
+1. Arrêtez les applications émettrices. Les applications réceptrices traiteront les messages qui se trouvent actuellement dans l'espace de noms Standard et videront la file d'attente.
+1. Une fois les files d'attente et les abonnements dans l'espace de noms Standard vides, suivez la procédure décrite précédemment pour migrer l'espace de noms Standard vers l'espace de noms Premium.
+1. Une fois la migration terminée, vous pouvez redémarrer les applications émettrices.
+1. Les expéditeurs et les destinataires se connecteront désormais automatiquement à l'espace de noms Premium.
 
     >[!NOTE]
-    > Le récepteur ne doive pas être arrêté pour la migration.
+    > Vous n'avez pas besoin d'arrêter les applications réceptrices pour la migration.
     >
-    > Une fois la migration terminée, les destinataires seront vous déconnecter de l’espace de noms Standard et se connecter automatiquement à l’espace de noms Premium.
+    > Une fois la migration terminée, les applications réceptrices se déconnecteront de l'espace de noms Standard et se connecteront automatiquement à l'espace de noms Premium.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la [différences entre Standard et Premium Messaging](./service-bus-premium-messaging.md)
-* En savoir plus sur les aspects de récupération géo-préparation et de haute disponibilité pour Service Bus Premium [ici](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium)
+* En savoir plus sur les [différences entre les messageries Standard et Premium](./service-bus-premium-messaging.md).
+* En savoir plus sur les [Aspects liés à la haute disponibilité et à la géo-reprise d'activité après sinistre pour Service Bus Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).
 
 [Page d’accueil de migration]: ./media/service-bus-standard-premium-migration/1.png
-[Espace de noms le programme d’installation]: ./media/service-bus-standard-premium-migration/2.png
-[Configurer l’espace de noms : créer l’espace de noms premium]: ./media/service-bus-standard-premium-migration/3.png
-[Configurer l’espace de noms : choisir le nom de la migration post]: ./media/service-bus-standard-premium-migration/4.png
-[Le programme d’installation de l’espace de noms - synchronisation entités - début]: ./media/service-bus-standard-premium-migration/5.png
-[Espace de noms - synchronisation entités - progression de l’installation]: ./media/service-bus-standard-premium-migration/8.png
-[Espace de noms de commutateur - menu du commutateur]: ./media/service-bus-standard-premium-migration/9.png
-[Espace de noms de commutateur - réussite]: ./media/service-bus-standard-premium-migration/12.png
+[Configurer l'espace de noms]: ./media/service-bus-standard-premium-migration/2.png
+[Créer un espace de noms - créer un espace de noms Premium]: ./media/service-bus-standard-premium-migration/3.png
+[Configurer un espace de noms - choisir le nom de la post-migration]: ./media/service-bus-standard-premium-migration/4.png
+[Configurer un espace de noms - synchroniser les entités - démarrer]: ./media/service-bus-standard-premium-migration/5.png
+[Configurer l'espace de noms - synchroniser les entités - avancement]: ./media/service-bus-standard-premium-migration/8.png
+[Changer d'espace de noms - changer de menu]: ./media/service-bus-standard-premium-migration/9.png
+[Changer d'espace de noms - réussite]: ./media/service-bus-standard-premium-migration/12.png
 
 [Abandonner le flux - abandonner la synchronisation]: ./media/service-bus-standard-premium-migration/abort1.png
-[Abandonner le flux - abandonner terminée]: ./media/service-bus-standard-premium-migration/abort3.png
+[Abandonner le flux - abandon terminé]: ./media/service-bus-standard-premium-migration/abort3.png

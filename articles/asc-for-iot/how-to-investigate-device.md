@@ -1,81 +1,78 @@
 ---
-title: Azure Security Center pour le guide d’investigation appareil IoT Preview | Microsoft Docs
-description: Cette procédure traitant explique comment utiliser Azure Security Center pour IoT pour examiner un appareil IoT suspect à l’aide d’Analytique de journal.
+title: Guide d’enquête des appareils Azure Security Center pour IoT | Microsoft Docs
+description: Ce guide pratique explique comment utiliser Azure Security Center pour l’IoT afin d’examiner un appareil IoT suspect avec Log Analytics.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: b18b48ae-b445-48f8-9ac0-365d6e065b64
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 6182662cb0da7fa5bcd3f329ada9ca5851490724
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 8d2fe8d63c7ece6f3b3426d8fc5a3454a61826f8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007880"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596240"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Examiner un appareil IoT suspect
 
-> [!IMPORTANT]
-> Azure Security Center pour IoT est disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Les alertes du service d’Azure Security Center pour IoT donnent des indications claires lorsqu’il est possible qu’un appareil IoT soit impliqué dans des activités suspectes ou compromis. 
 
-Azure Security Center (ASC) pour les preuves, ainsi que les alertes de service IoT fournissent des indications clair lorsque les appareils IoT sont suspectés d’implication dans les activités suspectes ou lorsque les indications existent qu’un appareil est compromis. 
-
-Dans ce guide, utilisez les suggestions d’investigation fournies pour aider à déterminer les risques potentiels pour votre organisation, choisissez comment corriger et découvrir des meilleurs moyens d’éviter des attaques similaires à l’avenir.  
+Dans ce guide, utilisez les suggestions d’enquête fournies afin de déterminer les risques potentiels pour votre organisation, de choisir le mode de correction adéquat et de vous prémunir au mieux contre des attaques similaires.  
 
 > [!div class="checklist"]
 > * Rechercher les données de votre appareil
 > * Effectuer l’examen à l’aide de requêtes kql
 
 
-## <a name="how-can-i-access-my-data"></a>Comment puis-je accéder à mes données ?
+## <a name="how-can-i-access-my-data"></a>Accéder à ses données
 
-Par défaut, ASC pour IoT stocke vos recommandations et alertes de sécurité dans votre espace de travail Log Analytics. Vous pouvez également choisir de stocker vos données de sécurité brutes.
+Par défaut, Azure Security Center pour IoT stocke vos suggestions et vos alertes de sécurité dans votre espace de travail Log Analytics. Vous pouvez également choisir de stocker vos données de sécurité brutes.
 
-Pour rechercher l’espace de travail Log Analytics abritant les données :
+Pour rechercher votre espace de travail Log Analytics pour le stockage des données :
 
 1. Ouvrez votre hub IoT. 
-1. Sous **sécurité**, cliquez sur **vue d’ensemble**, puis sélectionnez **paramètres**.
+1. Sous **Sécurité**, cliquez sur **Vue d’ensemble**, puis sélectionnez **Paramètres**.
 1. Changez les détails de la configuration de votre espace de travail Log Analytics. 
 1. Cliquez sur **Enregistrer**. 
 
 Une fois la configuration effectuée, procédez comme suit pour accéder aux données stockées dans votre espace de travail Log Analytics :
 
-1. Dans votre hub IoT, cliquez sur une alerte ASC pour IoT. 
+1. Dans votre IoT Hub, sélectionnez et cliquez sur une alerte Azure Security Center pour IoT. 
 1. Cliquez sur **Investigation poussée**. 
 1. Sélectionnez **Pour voir quels sont les appareils qui ont cette alerte, cliquez ici et consultez la colonne DeviceId**.
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Étapes de l’examen des appareils IoT suspects
 
-Pour accéder aux informations et les données brutes sur vos appareils IoT, accédez à votre espace de travail Analytique de journal [accéder à vos données](#how-can-i-access-my-data).
+Pour accéder aux données brutes et aux insights de vos appareils IoT, allez dans votre espace de travail Log Analytics [pour accéder à vos données](#how-can-i-access-my-data).
 
-Vérifiez et recherchez les données d’appareil pour les informations suivantes et les activités à l’aide de requêtes kql suivantes.
+Consultez les exemples de requêtes kql ci-dessous pour commencer à examiner les alertes et les activités sur votre appareil.
 
 ### <a name="related-alerts"></a>Alertes associées
 
 Pour savoir si d’autres alertes ont été déclenchées à peu près au même moment, utilisez la requête kql suivante :
 
-  ~~~
+  ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityAlert
   | where ExtendedProperties contains device and ResourceId contains tolower(hub)
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
-  ~~~
+  ```
 
-### <a name="users-with-access"></a>Utilisateurs avec accès
+### <a name="users-with-access"></a>Utilisateurs disposant d’un accès
 
 Pour savoir quels utilisateurs ont accès à un appareil spécifique, utilisez la requête kql suivante : 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -87,16 +84,16 @@ Pour savoir quels utilisateurs ont accès à un appareil spécifique, utilisez l
      GroupNames=extractjson("$.GroupNames", EventDetails, typeof(string)),
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
-  ~~~
+ ```
 Ces données répondent aux questions suivantes : 
-  1. Quels sont les utilisateurs ayant accès à l’appareil ?
-  2. Est-ce que les utilisateurs avec accès ont les niveaux d’autorisation comme prévu ? 
+- Quels sont les utilisateurs ayant accès à l’appareil ?
+- Les utilisateurs y ayant accès ont-ils les niveaux d’autorisation prévus ?
 
 ### <a name="open-ports"></a>Ouvrir les ports
 
-Pour savoir quels ports dans l’appareil sont actuellement en cours d’utilisation ou a été utilisés, utilisez la requête kql suivante : 
+Pour savoir quels ports de l’appareil sont en cours d’utilisation ou ont été utilisés, exécutez la requête kql suivante : 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -112,18 +109,18 @@ Pour savoir quels ports dans l’appareil sont actuellement en cours d’utilisa
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      RemotePort=extractjson("$.RemotePort", EventDetails, typeof(string))
   | summarize MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), AllowedRemoteIPAddress=makeset(RemoteAddress), AllowedRemotePort=makeset(RemotePort) by Protocol, LocalPort
-  ~~~
+ ```
 
-    Use this data to discover:
-  1. Quels sont les sockets d’écoute actifs sur l’appareil ?
-  2. L’écoute des sockets qui sont actuellement actives doivent être autorisés ?
-  3. Existe-t-il des toutes les adresses à distance suspectes connectés à l’appareil ?
+Ces données répondent aux questions suivantes :
+- Quels sont les sockets d’écoute actifs sur l’appareil ?
+- Les sockets d’écoute actuellement actifs sont-ils censés être autorisés ?
+- Y a-t-il des adresses distantes suspectes connectées à l’appareil ?
 
 ### <a name="user-logins"></a>Connexions utilisateur
 
-Pour en savoir plus les utilisateurs connectés à l’appareil utilisent la requête kql suivante : 
+Pour savoir quels utilisateurs se sont connectés à l’appareil, utilisez la requête kql suivante : 
  
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -143,18 +140,18 @@ Pour en savoir plus les utilisateurs connectés à l’appareil utilisent la req
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      Result=extractjson("$.Result", EventDetails, typeof(string))
   | summarize CntLoginAttempts=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), CntIPAddress=dcount(RemoteAddress), IPAddress=makeset(RemoteAddress) by UserName, Result, LoginHandler
-  ~~~
+ ```
 
-    Use the query results to discover:
-  1. Quels sont les utilisateurs qui se sont connectés à l’appareil ?
-  2. Les utilisateurs connectés, sont-ils censés se connecter ?
-  3. Ces utilisateurs se sont-ils connectés à partir d’adresses IP attendues ou inattendues ?
+Les résultats de la requête répondent aux questions suivantes :
+- Quels sont les utilisateurs qui se sont connectés à l’appareil ?
+- Les utilisateurs qui se sont connectés sont-ils censés le faire ?
+- Ces utilisateurs se sont-ils connectés à partir d’adresses IP attendues ou inattendues ?
   
-### <a name="process-list"></a>Liste des processus
+### <a name="process-list"></a>Liste de processus
 
-Pour savoir si la liste de processus est comme prévu, utilisez la requête kql suivante : 
+Pour savoir si la liste de processus est conforme à ce qui est attendu, utilisez la requête kql suivante : 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -179,13 +176,13 @@ Pour savoir si la liste de processus est comme prévu, utilisez la requête kql 
   ) on UserId
   | extend UserIdName = strcat("Id:", UserId, ", Name:", UserName)
   | summarize CntExecutions=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), ExecutingUsers=makeset(UserIdName), ExecutionCommandLines=makeset(CommandLine) by Executable
-  ~~~
+```
 
-    Use the query results to discover:
+Les résultats de la requête répondent aux questions suivantes :
 
-  1. Des processus suspects se sont-ils exécutés sur l’appareil ?
-  2. Les processus ont-ils été exécutés par les utilisateurs appropriés ?
-  3. Les exécutions de ligne de commande contenaient-elles les arguments corrects et attendus ?
+- Des processus suspects se sont-ils exécutés sur l’appareil ?
+- Les processus ont-ils été exécutés par les utilisateurs appropriés ?
+- Les exécutions de ligne de commande contenaient-elles les arguments corrects et attendus ?
 
 ## <a name="next-steps"></a>Étapes suivantes
 

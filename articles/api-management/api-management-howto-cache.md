@@ -10,16 +10,15 @@ ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: a0459eb67b5a79219e556cb03473a5ddf691b49d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 76a87d539e19acc30944a6a896cb0e01f431fa37
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577014"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073575"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Ajout de mise en cache pour améliorer les performances dans Gestion des API Azure
 
@@ -40,7 +39,7 @@ Ce que vous allez apprendre :
 > [!NOTE]
 > Le cache interne n’est pas disponible dans le niveau **Consommation** de Gestion des API Azure. Vous pouvez [utiliser un Cache Azure pour Redis externe](api-management-howto-cache-external.md) à la place.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel :
 
@@ -57,7 +56,7 @@ Avec les stratégies de mise en cache montrées dans cet exemple, la première r
 4. Cliquez sur **API de conférence de démonstration** dans votre liste d’API.
 5. Sélectionnez **GetSpeakers**.
 6. Sélectionnez l’onglet **Conception** en haut de l’écran.
-7. Dans la section **Traitement entrant**, cliquez sur l’icône **</>**.
+7. Dans la section **Traitement entrant**, cliquez sur l’icône **</>** .
 
     ![éditeur de code](media/api-management-howto-cache/code-editor.png)
 

@@ -11,22 +11,21 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
-ms.author: njray
-ms.openlocfilehash: 1622de0cccdbc8fee0681e209e756b30da292d3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: edprice
+ms.openlocfilehash: c597bb47ba6d075523b2eb2ca4d146fa22a97a2e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003492"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083091"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale sur Azure
 
 L’environnement IBM DB2 pureScale fournit un cluster de bases de données pour Azure avec haute disponibilité et scalabilité sur les systèmes d’exploitation Linux. Cet article présente une architecture d’exécution de DB2 pureScale sur Azure.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Les entreprises ont longtemps utilisé des plateformes de système de gestion de base de données relationnelle (SGBDR) pour répondre à leurs besoins en matière de traitement transactionnel en ligne (OLTP). Aujourd’hui, nombreuses sont celles qui migrent leur environnement de base de données reposant sur un ordinateur central vers Azure afin d’étendre la capacité, de réduire les coûts et de maintenir une structure de coûts d’exploitation stable.
 

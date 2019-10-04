@@ -1,6 +1,6 @@
 ---
-title: Mettre à jour vos informations de groupes à partir du portail mes applications - Azure Active Directory | Microsoft Docs
-description: Découvrez comment afficher et mettre à jour vos informations liés en groupes, notamment l’affichage des groupes que vous possédez, création de nouveaux groupes, affichage des groupes auxquels vous êtes déjà un membre et rejoindre les groupes dont vous n’êtes pas déjà partie de.
+title: Mettre à jour les informations relatives à vos groupes sur le portail Mes applications - Azure Active Directory | Microsoft Docs
+description: Apprenez à afficher et à mettre à jour les informations relatives à vos groupes, notamment à afficher la liste des groupes dont vous êtes propriétaire, à créer des groupes, à afficher la liste des groupes dont vous êtes membre et à rejoindre des groupes dont vous ne faites pas encore partie.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,146 +13,172 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af86ad12eed4901e577149b9f20216d5004663b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: a11b43d040dec838de350c23614ae42b6756ec6e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340460"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383169"
 ---
-# <a name="update-your-groups-info-from-the-my-apps-portal"></a>Mettre à jour vos informations de groupes à partir du portail mes applications
-Vous pouvez utiliser votre compte professionnel ou scolaire avec basée sur le web **mes applications** portal, pour afficher et démarrer la plupart des applications de cloud de votre organisation, à mettre à jour certaines de vos informations de compte et un profil pour voir votre **groupes** plus d’informations et d’effectuer **révisions d’accès** pour vos applications et les groupes. Si vous n’avez pas accès à la **mes applications** portail, vous devez contacter votre support technique pour obtenir l’autorisation.
+# <a name="update-your-groups-info-from-the-my-apps-portal"></a>Mettre à jour les informations relatives à vos groupes sur le portail Mes applications
+
+Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur comment configurer et gérer vos applications cloud dans le [Documentation gestion des Application](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Ce contenu est destiné aux utilisateurs. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
-## <a name="view-your-groups-information"></a>Afficher vos informations de groupes
-Si votre administrateur vous a donné l’autorisation d’afficher le **groupes** vignette, vous pouvez :
+## <a name="view-your-groups-information"></a>Afficher les informations relatives à vos groupes
 
-- **En tant qu’un membre du groupe.** Afficher les détails ou laisser un groupe.
+Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Groupes**, vous pouvez :
 
-- **En tant que propriétaire d’un groupe.** Afficher les détails, créer un nouveau groupe, ajouter ou supprimer des membres ou supprimer votre groupe.
+- **En tant que membre d'un groupe.** Afficher les informations relatives à un groupe ou quitter celui-ci.
 
-### <a name="to-view-your-groups-information"></a>Afficher vos informations de groupes
+- **En tant que propriétaire d'un groupe.** Afficher les informations, créer un groupe, ajouter ou supprimer des membres, ou supprimer votre groupe.
 
-1.  Connectez-vous à votre compte professionnel ou scolaire.
+### <a name="to-view-your-groups-information"></a>Pour afficher les informations relatives à vos groupes
 
-2.  Ouvrez votre navigateur web et accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pourrez être dirigé vers une page personnalisée pour votre organisation, tel que https://myapps.microsoft.com/contoso.com.
+1. Connectez-vous à votre compte professionnel ou scolaire.
 
-    Le **applications** page apparaît, affichant toutes les applications cloud détenus par votre organisation et que vous pouvez utiliser.
+2. Ouvrez votre navigateur web et accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
-    ![Page applications dans le portail mes applications](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
+    La page **Applications** s'affiche, avec toutes les applications cloud de votre organisation que vous pouvez utiliser.
 
-3. Sélectionnez le **groupes** vignette pour voir vos informations de groupe.
+    ![Page Applications du portail Mes applications](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
 
-    ![Page groupes avec à la fois détenus et les groupes de membres](media/my-apps-portal/my-apps-portal-groups-page.png)
+3. Sélectionnez la vignette **Groupes** pour afficher les informations relatives à vos groupes.
 
-4. Selon vos autorisations, vous pouvez utiliser la **groupes** page à :
+    ![Page Groupes présentant les groupes dont vous êtes propriétaire et les groupes dont vous êtes membres](media/my-apps-portal/my-apps-portal-groups-page.png)
 
-    - **Passez en revue les groupes que vous possédez.** Vue informations sur les groupes dont vous êtes propriétaire au sein de votre organisation à partir de la **groupes dont je suis propriétaire** zone. Sélection d’un nom de groupe spécifique vous offre plus de détails sur le groupe, y compris le type de groupe, le nombre de membres, la stratégie de jointure et la liste de membres actifs.
+4. Selon les autorisations dont vous disposez, vous pouvez utiliser la page **Groupes** pour :
 
-    - **Créer un nouveau groupe.** Créer un nouveau groupe avec vous en tant que le propriétaire de la **groupes dont je suis propriétaire** zone. Pour obtenir des instructions spécifiques, consultez [créer un nouveau groupe](#create-a-new-group) section de cet article.
+    - **Passer en revue les groupes dont vous êtes propriétaire.** Consultez les informations relatives aux groupes dont vous êtes propriétaire au sein de votre organisation dans la zone **Groupes dont je suis propriétaire**. La sélection d'un nom de groupe spécifique affiche des détails supplémentaires sur le groupe : type, nombre de membres, stratégie d'adhésion, liste des membres actifs, etc.
 
-    - **Modifier un groupe existant.** Modifier les détails d’un de vos propres groupes. Pour obtenir des instructions spécifiques, consultez [modifier un groupe existant](#edit-an-existing-group) section de cet article.
+    - **Créer un groupe.** Créez un groupe dans la zone **Groupes dont je suis propriétaire**. Pour obtenir des instructions spécifiques, consultez la section [Créer un groupe](#create-a-new-group) de cet article.
 
-    - **Ajouter ou supprimer des membres.** Ajouter ou supprimer des membres pour les groupes que vous possédez. Pour obtenir des instructions spécifiques, consultez [ajouter ou supprimer un membre](#add-or-remove-a-member) section de cet article.
+    - **Modifier un groupe existant.** Modifiez les détails d'un groupe dont vous êtes propriétaire. Pour obtenir des instructions spécifiques, consultez la section [Modifier un groupe existant](#edit-an-existing-group) de cet article.
 
-    - **Supprimer un groupe.** Supprimer tous les groupes que vous possédez. Pour obtenir des instructions spécifiques, consultez [supprimer un groupe](#delete-a-group) section de cet article.
+    - **Ajouter ou supprimer des membres.** Ajoutez ou supprimez des membres dans les groupes dont vous êtes propriétaire. Pour obtenir des instructions spécifiques, consultez la section [Ajouter ou supprimer un membre](#add-or-remove-a-member) de cet article.
 
-    - **Passez en revue les groupes que vous êtes un membre de.** Afficher les noms de tous les groupes auxquels vous êtes un membre de la **groupes auxquels j’appartiens** zone. Sélection d’un nom de groupe spécifique vous offre plus de détails sur le groupe, y compris le type de groupe, le nombre de membres, la stratégie de jointure et la liste de membres actifs.
+    - **Renouveler un groupe Office 365.** Si votre organisation l'autorise, vous pouvez renouveler vos groupes Office 365. Pour obtenir des instructions spécifiques, consultez la section [Renouveler un groupe Office 365](#renew-an-office-365-group) de cet article. 
 
-    - **Rejoindre un groupe.** Joindre un groupe existant pour lequel vous n’êtes pas déjà un membre, à partir de la **groupes auxquels j’appartiens** zone. Pour obtenir des instructions spécifiques, consultez [joindre un groupe existant](#join-an-existing-group).
+    - **Supprimer un groupe**. Supprimez un groupe dont vous êtes propriétaire. Pour obtenir des instructions spécifiques, consultez la section [Supprimer un groupe](#delete-a-group) de cet article.
+
+    - **Passer en revue les groupes dont vous êtes membre.** Affichez les noms des groupes dont vous êtes un membre dans la zone **Groupes dont je suis membre**. La sélection d'un nom de groupe spécifique affiche des détails supplémentaires sur le groupe : type, nombre de membres, stratégie d'adhésion, liste des membres actifs, etc.
+
+    - **Rejoindre un groupe.** Rejoignez un groupe existant, dont vous n'êtes pas membre, à partir de la zone **Groupes dont je suis membre**. Pour obtenir des instructions spécifiques, consultez la section [Rejoindre un groupe existant](#join-an-existing-group).
 
 ## <a name="create-a-new-group"></a>Créer un groupe
-1. Sur le **groupes** page, sélectionnez **créer un groupe** à partir de la **groupes dont je suis propriétaire** zone.
 
-    Le **créer un groupe** boîte s’affiche.
+1. Sur la page **Groupes**, sélectionnez **Créer un groupe** à partir de la zone **Groupes dont je suis propriétaire**.
 
-    ![Créer la zone de groupe](media/my-apps-portal/my-apps-portal-create-group-page.png)
+    La boîte de dialogue **Créer un groupe** s'affiche.
+
+    ![Boîte de dialogue Créer un groupe](media/my-apps-portal/my-apps-portal-create-group-page.png)
 
 2. Entrez les informations requises :
 
     - **Type du groupe :**
-        
+
         - **Sécurité.** Utilisé pour gérer l’accès de membres et d’ordinateurs aux ressources partagées d’un groupe d’utilisateurs. Par exemple, vous pouvez créer un groupe de sécurité pour une stratégie de sécurité particulière. En procédant ainsi, vous pouvez donner un ensemble d’autorisations à tous les membres à la fois, au lieu de devoir ajouter des autorisations individuellement à chaque membre.
 
-        - **Office 365.** Fournit des opportunités de collaboration en donnant aux membres l’accès à des éléments partagés : une boîte aux lettres, un calendrier, des fichiers, un site SharePoint et bien plus encore. Cette option vous permet également de donner à des personnes extérieures à votre organisation un accès au groupe.
+        - **Office 365.** Fournit des opportunités de collaboration en donnant aux membres l’accès à des éléments partagés : une boîte aux lettres, un calendrier, des fichiers, un site SharePoint et bien plus encore. Cette option vous permet également de donner à des personnes extérieures à votre organisation un accès au groupe.
 
     - **Nom du groupe**. Ajoutez le nom du groupe, quelque chose dont vous vous souviendrez et qui est évocateur.
 
-    - **Description du groupe (facultative).** Ajoutez une description facultative à votre groupe.
+    - **Description du groupe (facultatif).** Ajoutez une description facultative à votre groupe.
 
-    - **Stratégie de groupe.** Choisir d’autoriser toutes les personnes à rejoindre le groupe ou d’autoriser uniquement le propriétaire du groupe ajouter des membres.
+    - **Stratégie de groupe.** Choisissez d'autoriser tout le monde à rejoindre le groupe, ou d'autoriser uniquement le propriétaire du groupe à ajouter des membres.
 
 3. Sélectionnez **Créer**.
 
-    Le nouveau groupe est créé avec vous en tant que le propriétaire et il apparaît dans votre **groupes dont je suis propriétaire** liste. Étant donné que vous êtes le propriétaire, ce groupe s’affiche également dans le **groupes auxquels j’appartiens** liste.
+    Votre nouveau groupe est créé. Il apparaît alors dans votre liste **Groupes dont je suis propriétaire**. Comme vous en êtes le propriétaire, ce groupe apparaît également dans la liste **Groupes dont je suis membre**.
 
 ## <a name="edit-an-existing-group"></a>Modifier un groupe existant
-Après avoir créé un groupe, vous pouvez modifier ses détails, y compris la mise à jour les informations existantes.
 
-### <a name="to-edit-your-details"></a>Pour modifier les détails de votre
-1. Sélectionnez le groupe que vous souhaitez modifier dans le **groupes** page, puis sélectionnez **modifier les détails** sur le *&lt;nom_groupe&gt;* page.
+Après avoir créé un groupe, vous pouvez modifier les détails de celui-ci, y compris mettre à jour des informations existantes.
 
-    Le **modifier les détails** case s’affiche et vous pouvez mettre à jour les informations que vous avez ajouté lorsque vous avez créé initialement le groupe.
+### <a name="to-edit-your-details"></a>Pour modifier vos détails
 
-2. Effectuer toutes vos modifications, puis sélectionnez **mise à jour**.
+1. Sélectionnez le groupe que vous souhaitez modifier sur la page **Groupes**, puis choisissez **Modifier les détails** sur la page *&lt;nom_groupe&gt;* .
+
+    La boîte de dialogue **Modifier les détails** s'affiche et vous pouvez mettre à jour les informations que vous avez ajoutées lors de la création du groupe.
+
+2. Apportez vos modifications, puis sélectionnez **Mettre à jour**.
 
 ## <a name="add-or-remove-a-member"></a>Ajouter ou supprimer un membre
-Vous pouvez ajouter ou supprimer des membres pour une de vos propres groupes.
+
+Vous pouvez ajouter ou supprimer des membres des groupes dont vous êtes propriétaire.
 
 ### <a name="to-add-or-remove-a-member"></a>Pour ajouter ou supprimer un membre
-1. Sélectionnez le groupe que vous souhaitez ajouter des membres, puis sélectionnez **+** sur le *&lt;nom_groupe&gt;* page.
 
-    ![Ajouter un membre du groupe, avec + mise en surbrillance de la connexion](media/my-apps-portal/my-apps-portal-add-member-link.png)
+1. Sélectionnez le groupe auquel vous souhaitez ajouter des membres, puis choisissez **+** sur la page *&lt;nom_groupe&gt;* .
 
-2. Recherchez le membre que vous souhaitez ajouter, à partir de la **ajouter des membres** zone, puis sélectionnez **ajouter**.
+    ![Ajouter un membre au groupe, avec le signe + mis en évidence](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
-    ![Ajouter la zone membres, avec un nouveau membre à ajouter](media/my-apps-portal/my-apps-portal-add-member-page.png)
+2. Recherchez le membre que vous souhaitez ajouter dans la boîte de dialogue **Ajouter des membres**, puis sélectionnez **Ajouter**.
 
-    Une invitation est envoyée au nouveau membre, à la prise en main de l’accès aux applications de l’organisation.
+    ![Boîte de dialogue Ajouter des membres, avec nouveau membre à ajouter](media/my-apps-portal/my-apps-portal-add-member-page.png)
 
-3. Si vous avez ajouté un membre par erreur, ou si un membre a quitté votre organisation, vous pouvez supprimer le membre en sélectionnant **supprimer un membre** en regard du nom du membre sur le *&lt;nom_groupe&gt;* page.
+    Une invitation est envoyée au nouveau membre pour lui donner accès aux applications de l'organisation.
 
-    ![Supprimer un membre, avec le lien de suppression mis en surbrillance](media/my-apps-portal/my-apps-portal-remove-member-link.png)
+3. Si vous avez ajouté un membre par erreur, ou si un membre a quitté votre organisation, vous pouvez le supprimer en sélectionnant **Supprimer le membre** en regard de son nom sur la page *&lt;nom_groupe&gt;* .
+
+    ![Supprimer un membre, avec le lien de suppression mis en évidence](media/my-apps-portal/my-apps-portal-remove-member-link.png)
+
+## <a name="renew-an-office-365-group"></a>Renouveler un groupe Office 365
+
+Si votre organisation l'autorise, vous pouvez renouveler un groupe Office 365 en repoussant la date d'expiration.
+
+### <a name="to-renew-a-group"></a>Pour renouveler un groupe
+
+1. Sélectionnez le groupe Office 365 que vous souhaitez renouveler, puis choisissez **Renouveler un groupe**.
+
+    ![Renouveler un groupe Office 365, en repoussant la date d'expiration](media/my-apps-portal/my-apps-portal-renew-group-link.png)
+
+2. Cliquez sur **OK** pour fermer le message de confirmation.
+
+    Une fois la page actualisée, les dates de **Dernier renouvellement** et d'**Expiration du groupe** s'affichent.
 
 ## <a name="delete-a-group"></a>Supprimer un groupe
-Vous pouvez supprimer un de vos propres groupes à tout moment. Toutefois, si vous supprimez un groupe par erreur vous devrez le créer et ajouter des membres à nouveau.
+
+Vous pouvez à tout moment supprimer un groupe dont vous êtes propriétaire. Toutefois, si vous supprimez un groupe par erreur, vous devrez à nouveau le créer et y ajouter des membres.
 
 ### <a name="to-delete-the-group"></a>Pour supprimer le groupe
-1. Sélectionnez le groupe que vous souhaitez supprimer définitivement, puis sélectionnez **supprimer le groupe** sur le *&lt;nom_groupe&gt;* page.
 
-    ![page de < nom_groupe > avec le lien de groupe Supprimer mis en surbrillance](media/my-apps-portal/my-apps-portal-delete-group-link.png)
+1. Sélectionnez le groupe que vous souhaitez définitivement supprimer, puis choisissez **Supprimer le groupe** sur la page *&lt;nom_groupe&gt;* .
+
+    ![Page <nom_groupe> avec le lien Supprimer le groupe mis en évidence](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 
 2. Sélectionnez **Oui** sur le message de confirmation.
 
-    Le groupe est supprimé définitivement. 
-    
-## <a name="join-an-existing-group"></a>Joindre un groupe existant
-Vous pouvez joindre un groupe déjà existant à partir de la **groupes** page.
+    Le groupe est définitivement supprimé.
+
+## <a name="join-an-existing-group"></a>Rejoindre un groupe existant
+
+Vous pouvez rejoindre un groupe existant à partir de la page **Groupes**.
 
 ### <a name="to-join-or-leave-a-group"></a>Pour rejoindre ou quitter un groupe
 
-1. Sur le **groupes** page, sélectionnez **rejoindre le groupe** à partir de la **groupes auxquels j’appartiens** zone.
+1. Sur la page **Groupes**, sélectionnez **Rejoindre le groupe** à partir de la zone **Groupes dont je suis membre**.
 
-    Le **rejoindre groupes** page s’affiche.
+    La page **Rejoindre des groupes** s'affiche.
 
-    ![Joindre la page groupes, avec le bouton de groupe de jointure mis en surbrillance](media/my-apps-portal/my-apps-portal-join-group-link.png)
+    ![Page Rejoindre des groupes, avec le bouton Rejoindre le groupe mis en évidence](media/my-apps-portal/my-apps-portal-join-group-link.png)
 
-2. Sur le **rejoindre groupes** page, sélectionnez le nom du groupe que vous souhaitez rejoindre, afficher les détails du groupe associé et, si le groupe est disponible, sélectionnez **rejoindre le groupe**.
+2. Sur la page **Rejoindre des groupes**, sélectionnez le nom du groupe que vous souhaitez rejoindre, consultez les détails relatifs à ce groupe et, s'il est disponible, choisissez **Rejoindre le groupe**.
 
-    Si le groupe nécessite le propriétaire du groupe à approuver l’appartenance, vous êtes invité à entrer une justification pour pourquoi vous devez joindre le groupe, puis sélectionnez **demande**. Si le groupe ne nécessite pas d’approbation, vous êtes immédiatement ajouté en tant que membre et le groupe apparaît dans votre **groupes auxquels j’appartiens** liste.
+    Si le groupe exige que son propriétaire approuve la demande d'adhésion, vous êtes invité à entrer une justification métier expliquant pourquoi vous souhaitez rejoindre le groupe, puis à sélectionner **Demander**. Si aucune approbation n'est requise, vous rejoignez immédiatement le groupe et celui-ci apparaît dans votre liste **Groupes dont je suis membre**.
 
-3. Si vous avez rejoint un groupe par erreur ou si vous n’avez plus besoin de faire partie de celui-ci, vous pouvez sélectionner le nom du groupe à partir de la **rejoindre groupes** page, puis sélectionnez **quitter le groupe**.
+3. Si vous avez rejoint un groupe par erreur ou si vous ne souhaitez plus en être membre, vous pouvez sélectionner son nom sur la page **Rejoindre des groupes**, puis choisir **Quitter le groupe**.
 
-    ![Joindre la page groupes, avec le bouton de groupe laissez le champ mis en surbrillance](media/my-apps-portal/my-apps-portal-leave-group-link.png)    
+    ![Page Rejoindre des groupes, avec le bouton Quitter le groupe mis en évidence](media/my-apps-portal/my-apps-portal-leave-group-link.png)    
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Accéder à et utiliser des applications sur le portail mes applications](my-apps-portal-end-user-access.md).
+- [Accéder aux applications et les utiliser sur le portail Mes applications](my-apps-portal-end-user-access.md).
 
 - [Modifier vos informations de profil](my-apps-portal-end-user-update-profile.md).
 
-- [Effectuer votre propre révisions d’accès](my-apps-portal-end-user-access-reviews.md).
+- [Effectuer vos propres révisions d'accès](my-apps-portal-end-user-access-reviews.md).

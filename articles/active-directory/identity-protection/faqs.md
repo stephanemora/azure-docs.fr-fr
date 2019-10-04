@@ -2,40 +2,34 @@
 title: Azure Active Directory Identity Protection | Microsoft Docs
 description: Forum Aux Questions relatif à Azure AD Identity Protection
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bea455371938ccc4d512bdb7ffddd72eb9508da
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: e30f8264870272fc12dcb7e15b37e5fd30688bcb
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522228"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126521"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>FAQ Azure Active Directory Identity Protection
 
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Identity Protection. Pour plus d’informations, consultez [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). 
 
+## <a name="why-do-some-risk-detections-have-closed-system-status"></a>Pourquoi certaines détections de risque ont-elles le statut « Clôturé (système) » ?
 
-## <a name="why-do-some-risk-events-have-closed-system-status"></a>Pourquoi certains événements à risque ont-ils le statut de « Clôturé (système) » ?
-
-**R :** Ces événements de risque sont détectés par Identity Protection et clôturés ultérieurement, car ils n’ont plus été considérés comme dangereux. Ces événements ne sont pas comptabilisés dans le niveau de risque de l’utilisateur. 
+**R :** Ces détections de risques sont détectées par Identity Protection et clôturées ultérieurement, car les événements n’ont plus été considérés comme dangereux. Ces événements ne sont pas comptabilisés dans le niveau de risque de l’utilisateur. 
 
 ---
 
 ## <a name="do-i-need-to-be-a-global-admin-to-use-identity-protection-in-the-azure-portal"></a>Dois-je être administrateur général pour utiliser la protection d’identité dans le portail Azure ?
-**R :** Non. Vous pouvez être un lecteur de sécurité, un administrateur de sécurité ou un administrateur général pour utiliser la protection d’identité.
+**R :**  Non. Vous pouvez être un lecteur de sécurité, un administrateur de sécurité ou un administrateur général pour utiliser la protection d’identité.
 
 ---
 

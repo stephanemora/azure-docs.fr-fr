@@ -3,19 +3,20 @@ title: Comment déployer un bot Apprenant de conversation - Microsoft Cognitive 
 titleSuffix: Azure
 description: Découvrez comment déployer un bot Apprenant de conversation.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 05fd83506aac26df33f18bec83dcadac8dee2d90
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994641"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705285"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Comment déployer un bot Apprenant de conversation
 
@@ -94,7 +95,7 @@ Le robot est maintenant en cours d’exécution locale.  Vous pouvez y accéder 
 
 Publiez votre robot d’Apprenant de conversation de la même façon que vous publieriez n’importe quel autre bot. À un niveau élevé, vous chargez votre code sur un site web hébergé, définissez les valeurs de configuration appropriées, puis enregistrez le bot avec différents canaux. Cette vidéo donne des instructions détaillées pour publier votre bot à l’aide d’Azure Bot Service.
 
-Une fois que le robot est déployé et en cours d’exécution vous y connecter différents canaux tels que Facebook, Teams, Skype etc. à l’aide d’une inscription de canal de robot Azure. Pour voir de la documentation sur ce processus, consultez : https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Une fois que le bot est déployé et en cours d’exécution, vous pouvez y connecter différents canaux tels que Facebook, Microsoft Teams, Skype, etc., à l’aide d’une inscription aux canaux de bots Azure. Pour voir de la documentation sur ce processus, consultez : https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 Vous trouverez ci-dessous des instructions pas à pas pour le déploiement d’un bot Apprenant de Conversation sur Azure.  Ces instructions supposent que votre source de bot est disponible à partir d’une source basée sur le cloud, telle que Azure DevOps Services, GitHub, BitBucket ou OneDrive, et configure votre bot pour le déploiement continu.
 

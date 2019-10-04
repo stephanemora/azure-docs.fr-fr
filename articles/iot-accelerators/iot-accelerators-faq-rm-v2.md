@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
 ms.openlocfilehash: 746d21c7ff4d5b939eea7690193ac07425b4001c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602628"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447906"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>Questions fréquentes (FAQ) sur l’accélérateur de solution de supervision à distance
 
@@ -46,7 +46,7 @@ La version précédente de l’accélérateur de solution de supervision à dist
 
 Vous pouvez également explorer certaines des autres fonctionnalités des accélérateurs de solution IoT :
 
-* [Explorer les fonctionnalités de l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md)
+* [Explorer les fonctionnalités de l’accélérateur de solution de supervision à distance](quickstart-remote-monitoring-deploy.md)
 * [Présentation de l’accélérateur de solution de maintenance prédictive](iot-accelerators-predictive-overview.md)
 * [Déployer l’accélérateur de solution Usine connectée](quickstart-connected-factory-deploy.md)
 * [Sécurisation de l’Internet des objets de bout en bout](/azure/iot-fundamentals/iot-security-ground-up)

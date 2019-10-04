@@ -1,29 +1,22 @@
 ---
-title: Prérequis pour l’offre Dynamics 365 for Customer Engagement - Place de marché Azure | Microsoft Docs
+title: Prérequis pour l’offre Dynamics 365 for Customer Engagement | Place de marché Azure
 description: Conditions préalables à la publication d’une offre Azure Application sur la Place de marché Microsoft Azure.
 services: Dynamics 365 for Customer Engagement offer, Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: b08312040f9702b8a9100886c198138431012e3f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 9cfec65843012e781c8a8dd06cbc4d1225b0dd36
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007378"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67338908"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Prérequis pour Dynamics 365 for Customer Engagement
 
-Cet article décrit les prérequis techniques et métier pour la publication d’une offre d’application Dynamics 365 for Customer Engagement sur la Place de marché AppSource.  Si vous ne le n'avez pas déjà fait, passez en revue la [Office 365, Dynamics 365, PowerApps et Power BI offrent Guide de publication](../../appsource-offer-publishing-guide.md).
+Cet article décrit les prérequis techniques et métier pour la publication d’une offre d’application Dynamics 365 for Customer Engagement sur la Place de marché AppSource.  Si vous ne l’avez pas déjà fait, passez en revue le [Guide de publication des offres Office 365, Dynamics 365, PowerApps et Power BI](../../appsource-offer-publishing-guide.md).
 
 
 ## <a name="technical-requirements"></a>Exigences techniques
@@ -47,7 +40,7 @@ Votre application Dynamics 365 for Customer Engagement doit être conforme aux 
 
 Les exigences de l’entreprise incluent des obligations procédurales, contractuelles et légales suivantes :
 
-* Vous devez être inscrit au réseau [MPN (Microsoft Partner Network)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) ou être un éditeur sur la Place de marché dans le cloud inscrit. Si vous n’êtes pas inscrit, suivez les étapes décrites dans [Devenir un éditeur sur la Place de marché dans le cloud](../../become-publisher.md).  (Pour la troisième étape, utilisez plutôt le [formulaire de candidature pour partenaire AppSource](https://appsource.microsoft.com/partners/signup)). 
+* Vous devez être inscrit au réseau [MPN (Microsoft Partner Network)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) ou être un éditeur sur la Place de marché dans le cloud inscrit. Si vous n’êtes pas inscrit, suivez les étapes décrites dans [Devenir un éditeur sur la Place de marché dans le cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Vous pouvez également contacter [l’équipe d’intégration de Dynamics 365 for Customer Engagement](https://experience.dynamics.com/isvengage/)).
 
     >[!NOTE]
     >Vous devez utiliser le même compte d’inscription au Centre de développement Microsoft pour vous connecter au Portail Cloud Partner. Vous ne devez utiliser qu'un seul compte Microsoft pour vos offres Azure Marketplace. Ce compte ne doit pas être propre à des services ou des offres spécifiques.

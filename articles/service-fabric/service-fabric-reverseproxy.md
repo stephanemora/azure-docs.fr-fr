@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
 ms.openlocfilehash: 6ce6f1f6559b43a64fb7edd0773a20f8ee0cf8a3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661919"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60837939"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverse dans Azure Service Fabric
 Le proxy inverse intégré à Azure Service Fabric permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services détenant des points de terminaison http et de communiquer avec ces services.
@@ -77,7 +77,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **http(s) :** le proxy inverse peut être configuré pour accepter le trafic HTTP ou HTTPS. Pour le transfert HTTPS, reportez-vous à [Se connecter à un service sécurisé avec le proxy inverse](service-fabric-reverseproxy-configure-secure-communication.md) une fois que vous avez configuré le proxy inverse pour écouter sur HTTPS.
 * **Nom de domaine complet du cluster | IP interne :** pour les clients externes, vous pouvez configurer le proxy inverse de façon à le rendre accessible par le biais du domaine du cluster, par exemple mycluster.eastus.cloudapp.azure.com. Par défaut, le proxy inverse s’exécute sur chacun des nœuds. Pour le trafic interne, le proxy inverse est accessible sur l’hôte local ou sur n’importe quelle adresse IP de nœud interne, par exemple 10.0.0.1.
 * **Port :** port (par exemple 19081) qui est spécifié pour le proxy inverse.
-* **ServiceInstanceName :** nom complet de l’instance de service déployée que vous tentez d’atteindre sans le schéma « fabric:/ ». Par exemple, pour atteindre le service *fabric:/myapp/myservice/*, vous pouvez utiliser *myapp/myservice*.
+* **ServiceInstanceName :** nom complet de l’instance de service déployée que vous tentez d’atteindre sans le schéma « fabric:/ ». Par exemple, pour atteindre le service *fabric:/myapp/myservice/* , vous pouvez utiliser *myapp/myservice*.
 
     Le nom d’instance de service respecte la casse. L’utilisation d’une casse différente pour le nom d’instance de service dans l’URL entraîne l’échec des demandes avec l’erreur 404 (Introuvable).
 * **Suffix path :** chemin de l’URL, par exemple *myapi/values/add/3*,qui est associée au service auquel vous souhaitez vous connecter.

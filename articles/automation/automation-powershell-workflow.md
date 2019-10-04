@@ -4,17 +4,17 @@ description: Cet article est une rapide leçon expliquant aux auteurs familiaris
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c5764c36a646b9639c0eb6463c39b9f014c4272d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 085fcd6269663cb0055aaefe11ddc9434e8da7a1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168083"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476995"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Découvrir les principaux concepts de workflow Windows PowerShell pour les runbooks Automation
 
@@ -226,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Points de contrôle
 
-Un *point de contrôle* est un instantané de l'état actuel du workflow qui inclut la valeur actuelle des variables et toute sortie générée à ce stade. Si un flux de travail se termine par erreur ou est suspendu, il démarrera à la prochaine exécution à partir de son dernier point de contrôle et non depuis le début du worfklow.  Vous pouvez définir un point de contrôle dans un workflow avec l'activité **Checkpoint-Workflow** . Azure Automation dispose d’une fonctionnalité appelée [équitable](automation-runbook-execution.md#fair-share), où n’importe quel runbook qui s’exécute pendant 3 heures est déchargée pour permettre l’exécution des autres runbooks. Finalement, le runbook déchargé sera rechargé, et lorsqu’il s’agit, il reprend l’exécution à partir du dernier point de contrôle prise dans le runbook. Afin de garantir que le runbook se termine finalement, vous devez ajouter des points de contrôle à des intervalles qui s’exécutent depuis moins de 3 heures. Si lors de chaque exécution un point de contrôle est ajouté, et si le runbook obtient supprimé au bout de 3 heures en raison d’une erreur, le runbook va reprendre indéfiniment.
+Un *point de contrôle* est un instantané de l'état actuel du workflow qui inclut la valeur actuelle des variables et toute sortie générée à ce stade. Si un flux de travail se termine par erreur ou est suspendu, il démarrera à la prochaine exécution à partir de son dernier point de contrôle et non depuis le début du worfklow.  Vous pouvez définir un point de contrôle dans un workflow avec l'activité **Checkpoint-Workflow** . Azure Automation dispose d’une fonctionnalité appelée [répartition équilibrée](automation-runbook-execution.md#fair-share), grâce à laquelle tout runbook s’exécutant depuis plus de 3 heures est déchargé pour permettre l’exécution des autres runbooks. Ensuite, le runbook déchargé est rechargé, puis reprend son exécution à partir du dernier point de contrôle enregistré dans le runbook. Pour que le runbook s’exécute jusqu’au bout, vous devez ajouter des points de contrôle à des intervalles inférieurs à 3 heures. Si un point de contrôle est ajouté lors de chaque exécution, et si le runbook est évincé au bout de 3 heures en raison d’une erreur, le runbook sera exécuté indéfiniment.
 
 Dans l'exemple de code suivant, une exception se produit après qu'Activity2 a provoqué l'arrêt du workflow. Lorsque le workflow est réexécuté, il commence par exécuter Activity2, juste après le dernier point de contrôle défini.
 

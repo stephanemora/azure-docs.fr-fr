@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: MT
+ms.openlocfilehash: ae467e3def65d446a8c331c4f15033b4c01886ae
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262759"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219492"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Guide pratique pour intégrer la Gestion des API Azure avec Azure Application Insights
 
@@ -51,7 +50,7 @@ Pour pouvoir utiliser Azure Application Insights, il faut commencer par créer u
     ![Enregistreur d'événements App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> En arrière-plan, une entité [Enregistreur d’événements](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) est créée dans votre instance de gestion des API, qui contient la clé d’instrumentation de l’instance Application Insights.
+> En arrière-plan, une entité [Enregistreur d’événements](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) est créée dans votre instance de gestion des API, qui contient la clé d’instrumentation de l’instance Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Activer la journalisation Application Insights pour l’API
 
@@ -70,16 +69,17 @@ Pour pouvoir utiliser Azure Application Insights, il faut commencer par créer u
 > Le remplacement de la valeur par défaut **0** dans le champ **Premiers octets du corps** peut considérablement réduire les performances de vos API.
 
 > [!NOTE]
-> En arrière-plan, une entité [Diagnostic](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) nommée « applicationinsights » est créée au niveau de l’API.
+> En arrière-plan, une entité [Diagnostic](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) nommée « applicationinsights » est créée au niveau de l’API.
 
 | Nom du paramètre                        | Type de valeur                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Activer                              | booléenne                           | Indique si la journalisation de cette API est activée.                                                                                                                                                                                                                                                                                                |
+| Activer                              | boolean                           | Indique si la journalisation de cette API est activée.                                                                                                                                                                                                                                                                                                |
 | Destination                         | Enregistreur d'événements Azure Application Insights | Indique l’enregistreur d'événements Azure Application Insights utilisé.                                                                                                                                                                                                                                                                                           |
 | Échantillonnage (%)                        | décimal                           | Valeurs comprises entre 0 et 100 (%). <br/> Indique le pourcentage de demandes qui seront consignées dans Azure Application Insights. Un échantillonnage à 0 % signifie qu’aucune demande ne sera consignée, tandis qu’un échantillonnage à 100 % indique qu’elles le seront toutes. <br/> Ce paramètre permet de réduire les conséquences des demandes de journalisation sur les performances d’Azure Application Insights (voir la section ci-dessous). |
-| Toujours consigner les erreurs                   | booléenne                           | Si ce paramètre est sélectionné, toutes les défaillances seront consignées dans Azure Application Insights, quel que soit le paramètre **Échantillonnage**.                                                                                                                                                                                                                  |
+| Toujours consigner les erreurs                   | boolean                           | Si ce paramètre est sélectionné, toutes les défaillances seront consignées dans Azure Application Insights, quel que soit le paramètre **Échantillonnage**.                                                                                                                                                                                                                  |
 | Options de base : headers              | list                              | Précise quels en-têtes seront consignés dans Azure Application Insights pour les demandes et les réponses.  Par défaut, aucun en-tête n’est consigné.                                                                                                                                                                                                             |
-| Options de base : Premiers octets du corps  | integer                           | Indique combien de premiers octets du corps seront consignés dans Azure Application Insights pour les demandes et les réponses.  Par défaut, le corps n’est pas consigné.                                                                                                                                                                                              |
+| Options de base : Premiers octets du corps  | integer                           | Indique combien de premiers octets du corps seront consignés dans Azure Application Insights pour les demandes et les réponses.  Par défaut, le corps n’est pas consigné.                                                                                                                                                                                                    |
+| Options avancées : Commentaires         |                                   | Spécifie le niveau de verbosité. Seules les traces personnalisées avec un niveau de gravité supérieur sont journalisées. Valeur par défaut : Information.                                                                                                                                                                                                                               |
 | Options avancées : Demande du serveur frontal  |                                   | Précise si des *demandes frontales* seront consignées dans Azure Application Insights et, si oui, comment. Une *demande frontale* est une demande entrante dans le service Gestion des API Azure.                                                                                                                                                                        |
 | Options avancées : Réponse du serveur frontal |                                   | Précise si des *réponses frontales* seront consignées dans Azure Application Insights et, si oui, comment. Une *réponse frontale* est une réponse sortante du service Gestion des API Azure.                                                                                                                                                                   |
 | Options avancées : Demande principale   |                                   | Précise si des *demandes principales* seront consignées dans Azure Application Insights et, si oui, comment. Une *demande principale* est une demande sortante du service Gestion des API Azure.                                                                                                                                                                        |

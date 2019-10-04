@@ -4,17 +4,17 @@ description: 'Décrit les différents types de Runbooks que vous pouvez utiliser
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: e655e286c3aebe28bcb09c8723516c2ff52ad20e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454899"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850356"
 ---
 # <a name="azure-automation-runbook-types"></a>Types de Runbooks Azure Automation
 
@@ -34,18 +34,18 @@ Azure Automation prend en charge plusieurs types de Runbook qui sont brièvemen
 
 ### <a name="advantages"></a>Avantages
 
-* Insertion visuelle/lien/configuration d’un modèle de création  
-* Concentration sur la circulation des flux de données dans le processus  
-* Représentation visuelle des processus de gestion  
-* Inclusion d’autres Runbooks en tant que Runbooks enfants pour créer des flux de travail de niveau élevé  
-* Programmation modulaire favorisée  
+* Insertion visuelle/lien/configuration d’un modèle de création
+* Concentration sur la circulation des flux de données dans le processus
+* Représentation visuelle des processus de gestion
+* Inclusion d’autres Runbooks en tant que Runbooks enfants pour créer des flux de travail de niveau élevé
+* Programmation modulaire favorisée
 
 ### <a name="limitations"></a>Limites
 
 * Impossible de modifier le Runbook en dehors du portail Azure.
 * Peut nécessiter une activité de code contenant le code PowerShell pour exécuter une logique complexe.
 * Impossible d'afficher ou de modifier directement le code PowerShell créé par le workflow graphique. Vous pouvez afficher le code créé dans toute activité de code.
-* Ne peut pas être exécuté sur un Runbook Worker hybride de Linux
+* Ne peut pas être exécuté sur un runbook Worker hybride Linux
 
 ## <a name="powershell-runbooks"></a>Runbooks PowerShell
 
@@ -55,7 +55,7 @@ Les Runbooks PowerShell sont basés sur Windows PowerShell.  Vous modifiez direc
 
 * Implémentez tout type de la logique complexe avec le code PowerShell sans la complexité supplémentaire liée au workflow PowerShell.
 * Le Runbook démarre plus rapidement que les Runbooks de workflow PowerShell dans la mesure où il n'a pas besoin d'être compilé avant l'exécution.
-* Peut être exécuté dans Azure ou sur Linux et Windows des runbooks Workers hybrides
+* Peut être exécuté dans Azure, ou sur des runbooks Worker hybrides Linux et Windows
 
 ### <a name="limitations"></a>Limites
 
@@ -69,7 +69,7 @@ Les Runbooks PowerShell sont basés sur Windows PowerShell.  Vous modifiez direc
 Voici les problèmes connus actuels rencontrés avec les Runbooks PowerShell.
 
 * Les Runbooks PowerShell ne peuvent pas récupérer une [ressource variable](automation-variables.md) non chiffrée avec une valeur null.
-* Les runbooks PowerShell ne peuvent pas récupérer une [ressource variable](automation-variables.md) dont le nom contient le symbole *~*.
+* Les runbooks PowerShell ne peuvent pas récupérer une [ressource variable](automation-variables.md) dont le nom contient le symbole *~* .
 * Get-Process dans une boucle d’un Runbook PowerShell peut se bloquer après environ 80 itérations.
 * Un runbook PowerShell peut échouer s’il tente d'écrire une grande quantité de données à la fois dans le flux de sortie.   Vous pouvez généralement contourner ce problème en exportant uniquement les informations dont vous avez besoin lorsque vous travaillez avec des objets volumineux.  Par exemple, au lieu d’exporter un contenu de type *Get-Process*, vous pouvez exporter uniquement les champs requis avec *Get-Process | Select ProcessName, CPU*.
 
@@ -90,7 +90,7 @@ Les Runbooks de workflow PowerShell sont des Runbooks texte basés sur un [workf
 * Un Runbook doit pouvoir gérer la complexité supplémentaire liée au workflow PowerShell, notamment les [objets désérialisés](automation-powershell-workflow.md#code-changes).
 * Un Runbook prend plus de temps à démarrer que les Runbooks PowerShell car il doit être compilé avant l'exécution.
 * Les runbooks PowerShell peuvent uniquement être inclus en tant que runbooks enfants à l'aide de l'applet de commande Start-AzureAutomationRunbook, ce qui crée un travail.
-* Ne peut pas être exécuté sur un Runbook Worker hybride de Linux
+* Ne peut pas être exécuté sur un runbook Worker hybride Linux
 
 ## <a name="python-runbooks"></a>Runbooks Python
 
@@ -99,7 +99,7 @@ Compilation de runbooks Python sous Python 2.  Vous pouvez modifier directement 
 ### <a name="advantages"></a>Avantages
 
 * Utilisez les bibliothèques Python robustes.
-* Peut être exécuté dans Azure ou sur les deux Workers hybrides de Linux. Runbooks Workers hybrides de Windows sont prises en charge avec [Python 2.7](https://www.python.org/downloads/release/latest/python2) installé.
+* Peut être exécuté dans Azure, ou sur des runbooks Worker hybrides Linux. Les runbooks Worker hybrides Windows sont pris en charge si [Python 2.7](https://www.python.org/downloads/release/latest/python2) est installé.
 
 ### <a name="limitations"></a>Limites
 
@@ -119,4 +119,4 @@ Prenez en compte les considérations supplémentaires suivantes pour déterminer
 * Pour en savoir plus sur la création de Runbooks graphiques, consultez [Création de graphiques dans Azure Automation](automation-graphical-authoring-intro.md)
 * Pour comprendre les différences entre PowerShell et les workflows PowerShell pour les Runbooks, consultez [Apprentissage du workflow Windows PowerShell](automation-powershell-workflow.md)
 * Pour en savoir plus sur la création ou l’importation d’un Runbook, consultez [Création ou importation d’un Runbook](manage-runbooks.md)
-
+* Pour plus d’informations sur PowerShell, notamment le langage de référence et les modules d’apprentissage, consultez la [Documentation PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).

@@ -1,22 +1,22 @@
 ---
 title: Comprendre le langage de requête d’Azure IoT Hub | Microsoft Docs
 description: Guide du développeur - Description du langage de requête IoT Hub de type SQL utilisé pour récupérer des informations sur les jumeaux d’appareil/de module et les travaux à partir de votre hub IoT.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
-ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
-ms.translationtype: MT
+ms.author: robinsh
+ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730592"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450060"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil et de module, les travaux et le routage des messages
 
-IoT Hub fournit un puissant langage de type SQL pour récupérer des informations concernant les [jumeaux d’appareil](iot-hub-devguide-device-twins.md), les [travaux](iot-hub-devguide-jobs.md) et le [routage des messages](iot-hub-devguide-messages-d2c.md). Cet article présente les éléments suivants :
+IoT Hub fournit un puissant langage de type SQL pour récupérer des informations concernant les [jumeaux d’appareil](iot-hub-devguide-device-twins.md), les [jumeaux de module](iot-hub-devguide-module-twins.md), les [travaux](iot-hub-devguide-jobs.md) et le [routage de messages](iot-hub-devguide-messages-d2c.md). Cet article présente les éléments suivants :
 
 * Une introduction aux principales fonctionnalités du langage de requête d’IoT Hub
 * Une description détaillée du langage Pour plus d’informations sur le langage de requête pour le routage des messages, consultez [Requêtes dans le routage des messages](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ IoT Hub fournit un puissant langage de type SQL pour récupérer des information
 
 ## <a name="device-and-module-twin-queries"></a>Requêtes de jumeaux de l’appareil et du module
 
-Des [jumeaux d’appareil](iot-hub-devguide-device-twins.md) et des jumeaux de module peuvent contenir des objets JSON arbitraires tels que des étiquettes et des propriétés. IoT Hub vous permet d’interroger des jumeaux d’appareil et des jumeaux de module sous la forme d’un seul document JSON contenant toutes les informations sur les jumeaux.
+Des [jumeaux d’appareil](iot-hub-devguide-device-twins.md) et des [jumeaux de module](iot-hub-devguide-module-twins.md) peuvent contenir des objets JSON arbitraires tels que des étiquettes et des propriétés. IoT Hub vous permet d’interroger des jumeaux d’appareil et des jumeaux de module sous la forme d’un seul document JSON contenant toutes les informations sur les jumeaux.
 
 Par exemple, supposons que les jumeaux d’appareil de votre hub IoT ont la structure suivante (qui serait similaire dans le cas d’un jumeau de module, avec simplement un ID de module supplémentaire) :
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Requêtes de jumeaux de module
 
-L’interrogation de jumeaux de module est similaire à l’interrogation de jumeaux d’appareil, à la différence que vous utilisez une collection/un espace de noms différent. En d’autres termes, au lieu d’utiliser « from devices », vous pouvez interroger device.modules :
+L’interrogation de jumeaux de module est similaire à l’interrogation de jumeaux d’appareil, à la différence que vous utilisez une collection/un espace de noms différent. En d’autres termes, au lieu d’utiliser **devices**, vous interrogez **device.modules** :
 
 ```sql
 SELECT * FROM devices.modules
@@ -315,7 +315,7 @@ Actuellement, les requêtes sur **devices.jobs** ne prennent pas en charge :
 
 ## <a name="basics-of-an-iot-hub-query"></a>Principes de base d’une requête IoT Hub
 
-Chaque requête IoT Hub se compose de clauses SELECT et FROM, avec des clauses WHERE et GROUP BY facultatives. Chaque requête est exécutée sur un regroupement de documents JSON, par exemple des jumeaux d’appareil. La clause FROM indique le regroupement de documents sur lequel elle doit être itérée (**devices** ou **devices.jobs**). Ensuite, le filtre dans la clause WHERE est appliqué. Avec des agrégations, les résultats de cette étape sont regroupés tel que spécifié dans la clause GROUP BY. Pour chaque groupe, une ligne est générée tel que spécifié dans la clause SELECT.
+Chaque requête IoT Hub se compose de clauses SELECT et FROM, avec des clauses WHERE et GROUP BY facultatives. Chaque requête est exécutée sur un regroupement de documents JSON, par exemple des jumeaux d’appareil. La clause FROM indique le regroupement de documents sur lequel elle doit être itérée (**devices**, **devices.modules** ou **devices.jobs**). Ensuite, le filtre dans la clause WHERE est appliqué. Avec des agrégations, les résultats de cette étape sont regroupés tel que spécifié dans la clause GROUP BY. Pour chaque groupe, une ligne est générée tel que spécifié dans la clause SELECT.
 
 ```sql
 SELECT <select_list>
@@ -326,17 +326,17 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Clause FROM
 
-La clause **FROM <from_specification>** ne peut supposer que deux valeurs : **FROM devices** pour interroger les jumeaux d’appareil ou **FROM devices.jobs** pour interroger les détails de travaux par appareil.
-
+La clause **FROM <from_specification>** ne peut supposer que trois valeurs : **FROM devices** pour interroger les jumeaux d’appareil, **FROM devices.modules** pour interroger les jumeaux de module ou **FROM devices.jobs** pour interroger les détails de travaux par appareil.
 
 ## <a name="where-clause"></a>Clause WHERE
+
 La clause **WHERE <filter_condition>** est facultative. Elle indique une ou plusieurs conditions que les documents JSON du regroupement FROM doivent remplir pour être inclus dans le résultat. Pour être inclus dans le résultat, chaque document JSON doit évaluer les conditions spécifiées comme « true ».
 
 Les conditions autorisées sont décrites dans la section [Expressions et conditions](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="select-clause"></a>Clause SELECT
 
-La clause **SELECT <select_list>**) est obligatoire. Elle spécifie les valeurs qui sont récupérées de la requête. Elle spécifie les valeurs JSON à utiliser pour générer de nouveaux objets JSON.
+La clause **SELECT <select_list>** ) est obligatoire. Elle spécifie les valeurs qui sont récupérées de la requête. Elle spécifie les valeurs JSON à utiliser pour générer de nouveaux objets JSON.
 Pour chaque élément du sous-ensemble filtré (et éventuellement groupé) du regroupement FROM, la phase de projection génère un nouvel objet JSON. Cet objet est construit avec les valeurs spécifiées dans la clause SELECT.
 
 La grammaire de la clause SELECT est la suivante :
@@ -366,6 +366,7 @@ SELECT [TOP <max number>] <projection list>
 Actuellement, les clauses de sélection autres que **SELECT*** sont prises en charge uniquement dans les requêtes d’agrégation sur des jumeaux d’appareil.
 
 ## <a name="group-by-clause"></a>Clause GROUP BY
+
 La clause **GROUP BY <spécification_groupe>** est une étape facultative exécutée après le filtre spécifié dans la clause WHERE et avant la projection spécifiée dans la clause SELECT. Elle groupe des documents en fonction de la valeur d’un attribut. Ces groupes sont utilisés pour générer des valeurs agrégées comme spécifié dans la clause SELECT.
 
 Voici un exemple de requête utilisant la clause GROUP BY :
@@ -393,9 +394,9 @@ Actuellement, la clause GROUP BY est prise en charge uniquement lors de l’inte
 > [!IMPORTANT]
 > Le terme `group` est actuellement traité comme un mot clé spécial dans les requêtes. Si vous utilisez `group` comme nom de propriété, vous pouvez l’encadrer entre doubles crochets pour éviter les erreurs, par exemple, `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## <a name="expressions-and-conditions"></a>Expressions et conditions
+
 À un niveau élevé, une *expression* :
 
 * prend la valeur d’une instance d’un type JSON (par exemple, Boolean, number, string, array ou object) ;
@@ -443,6 +444,7 @@ Pour comprendre ce que signifie chaque symbole dans la syntaxe des expressions, 
 | string_literal |Les littéraux de chaîne sont des chaînes Unicode représentées par une séquence de zéro ou plusieurs caractères Unicode ou séquences d’échappement. Les littéraux de chaîne sont placés entre guillemets simples ou guillemets doubles. Échappements autorisés : `\'`, `\"`, `\\`, `\uXXXX` pour les caractères Unicode définis par 4 chiffres hexadécimaux. |
 
 ### <a name="operators"></a>Opérateurs
+
 Les opérateurs suivants sont pris en charge :
 
 | Famille | Operators |
@@ -452,6 +454,7 @@ Les opérateurs suivants sont pris en charge :
 | Opérateurs de comparaison |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Fonctions
+
 Lors des requêtes de jumeaux ou de travaux, la seule fonction prise en charge est :
 
 | Fonction | Description |

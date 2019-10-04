@@ -1,27 +1,22 @@
 ---
-title: Promouvoir votre entreprise avec Microsoft | Azure
+title: Promouvoir votre entreprise avec Microsoft | Place de marché Azure
 description: Promouvoir votre entreprise à l’aide de la Place de marché Azure et d’AppSource pour les éditeurs d’applications et de services
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738145"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64937645"
 ---
-# <a name="promote-your-business-with-microsoft"></a>Promouvoir votre entreprise avec Microsoft  
+# <a name="promote-your-business-with-microsoft"></a>Promouvoir votre entreprise avec Microsoft 
+
 Microsoft a pour objectif de soutenir ses partenaires (vous) et de simplifier la vente de votre application ou offre dans les vitrines de la Place de marché. Grâce au référencement sur la Place de marché, vous accédez aux programmes et ressources sur la Place de marché. 
 
 Si vous n’êtes pas encore inscrit au Microsoft Partner Network (MPN), veuillez vous inscrire avant de continuer.  

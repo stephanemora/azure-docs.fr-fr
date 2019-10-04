@@ -1,39 +1,37 @@
 ---
 title: Définition d’interface pour des compétences personnalisées dans une recherche cognitive - Recherche Azure
 description: Interface d’extraction de données personnalisée pour compétence personnalisée d’API web dans un pipeline de recherche cognitive dans Recherche Azure
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 2c43a6b64f7b7f4f1adae78dca77fe71cf538e5e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: b5529babfae37fa0d9f4de46018bb3b107ce4eae
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870855"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265821"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Comment ajouter une compétence personnalisée à un pipeline de recherche cognitive
 
 Dans Recherche Azure, un [pipeline d'indexation de recherche cognitive](cognitive-search-concept-intro.md) peut être assemblé à partir de [compétences prédéfinies](cognitive-search-predefined-skills.md) ainsi que de [compétences personnalisées](cognitive-search-custom-skill-web-api.md) que vous avez personnellement créées et ajoutées au pipeline. Dans cet article, découvrez comment créer une compétence personnalisée qui présente une interface lui permettant de faire partie d’un pipeline de recherche cognitive. 
 
-Construire une compétence personnalisée vous donne un moyen d’insérer des transformations uniques dans votre contenu. Une compétence personnalisée s’exécute de façon indépendante, en appliquant l’étape d’enrichissement dont vous avez besoin. Par exemple, vous pouvez définir des entités personnalisées spécifiques de votre domaine, créer des modèles de classification personnalisés pour différencier des contrats et documents commerciaux et financiers, ou ajouter une compétence de reconnaissance vocale pour explorer plus profondément des fichiers audio afin d’en extraire du contenu pertinent. Pour un exemple pas à pas, voir [Exemple : création d’une compétence personnalisée](cognitive-search-create-custom-skill-example.md).
+Construire une compétence personnalisée vous donne un moyen d’insérer des transformations uniques dans votre contenu. Une compétence personnalisée s’exécute de façon indépendante, en appliquant l’étape d’enrichissement dont vous avez besoin. Par exemple, vous pouvez définir des entités personnalisées spécifiques de votre domaine, créer des modèles de classification personnalisés pour différencier des contrats et documents commerciaux et financiers, ou ajouter une compétence de reconnaissance vocale pour explorer plus profondément des fichiers audio afin d’en extraire du contenu pertinent. Pour obtenir un exemple pas à pas, consultez [Exemple : Création d’une compétence personnalisée pour la recherche cognitive](cognitive-search-create-custom-skill-example.md).
 
  Quelle que soit la capacité personnalisée dont vous avez besoin, il existe une interface simple et claire pour connecter une compétence personnalisée au reste du pipeline d’enrichissement. La seule exigence pour l’inclusion d’une capacité dans un [jeu de compétences](cognitive-search-defining-skillset.md) est la possibilité d’accepter des entrées et de générer des sorties de manières exploitables dans le jeu de compétences dans son ensemble. Cet article se concentre sur les formats d’entrée et de sortie que le pipeline d’enrichissement exige.
 
 ## <a name="web-api-custom-skill-interface"></a>Interface de compétence personnalisée d’API web
 
-Par défaut, les points de terminaison des compétences WebAPI personnalisées expirent si aucune réponse n'est renvoyée dans les 30 secondes. Le pipeline d'indexation est synchrone et l'indexation produit une erreur de délai d'expiration si aucune réponse n'est reçue au terme de ces 30 secondes.  Le paramètre d'expiration peut être allongé (jusqu'à 90 secondes) :
+Par défaut, les points de terminaison des compétences WebAPI personnalisées expirent si aucune réponse n'est renvoyée dans les 30 secondes. Le pipeline d'indexation est synchrone et l'indexation produit une erreur de délai d'expiration si aucune réponse n'est reçue au terme de ces 30 secondes.  Le paramètre d'expiration peut être allongé jusqu'à 230 secondes en définissant le paramètre Expiration :
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "This skill has a 90 second timeout",
+        "description": "This skill has a 230 second timeout",
         "uri": "https://[your custom skill uri goes here]",
-        "timeout": "PT90S",
+        "timeout": "PT230S",
 ```
 
 Actuellement, le seul mécanisme d’interaction avec une compétence personnalisée est l’interface d’API web. L’API web doit satisfaire les exigences décrites dans cette section.
@@ -156,7 +154,7 @@ Lorsque vous créez un enrichisseur d’API web, vous pouvez décrire des en-tê
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ [Exemple : Création d’une compétence personnalisée pour l’API Traduire le texte](cognitive-search-create-custom-skill-example.md)
++ [Exemple : Création d’une compétence personnalisée pour la recherche cognitive](cognitive-search-create-custom-skill-example.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Créer un jeu de compétences (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Guide pratique pour mapper des champs enrichis](cognitive-search-output-field-mapping.md)

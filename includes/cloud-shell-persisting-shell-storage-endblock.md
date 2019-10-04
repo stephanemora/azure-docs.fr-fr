@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cynthn
 ms.openlocfilehash: c2ed33aea77b5478e8d17f6bd0213ef3e778b806
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572076"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177400"
 ---
 ## <a name="transfer-local-files-to-cloud-shell"></a>Transférer des fichiers locaux vers Cloud Shell
 Le répertoire `clouddrive` se synchronise dans le panneau Stockage du portail Azure. Utilisez ce panneau pour échanger des fichiers avec votre partage de fichiers. La mise à jour des fichiers à partir de Cloud Shell se reflète dans l’interface graphique du stockage de fichiers quand vous actualisez le panneau.

@@ -1,21 +1,21 @@
 ---
-title: Commander une Microsoft Azure Data Box | Microsoft Docs
+title: Tutoriel - Commander Azure Data Box | Microsoft Docs
 description: En savoir plus sur les conditions préalables au déploiement et la commande d’une Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834266"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604093"
 ---
-# <a name="tutorial-order-azure-data-box"></a>Tutoriel : Commander Azure Data Box
+# <a name="tutorial-order-azure-data-box"></a>Didacticiel : Commander Azure Data Box
 
 Azure Data Box est une solution hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers un périphérique de stockage de 80 To (capacité utilisable) fourni par Microsoft, puis renvoyez l’appareil. Ces données sont ensuite chargées dans Azure.
 
@@ -66,10 +66,10 @@ Procédez comme suit dans le portail Azure pour commander un appareil.
     |---------|---------|
     |Abonnement     | Sélectionnez un abonnement EA, CSP ou Azure pour le service Data Box. <br> L’abonnement est lié à votre compte de facturation.       |
     |Type de transfert     | Sélectionnez **Importer vers Azure**.        |
-    |Pays source     |   Sélectionnez le pays où vos données se trouvent actuellement.         |
+    |Pays source     |   Sélectionnez le pays ou la région où vos données se trouvent actuellement.         |
     |Région Azure de destination     |     Sélectionnez la région Azure où vous souhaitez transférer des données.        |
 
-5. Sélectionnez **Data Box**. La capacité maximale utilisable pour une commande unique est de 786 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
+5. Sélectionnez **Data Box**. La capacité maximale utilisable pour une commande unique est de 80 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
 
       [![Sélectionner Data Box, option 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 

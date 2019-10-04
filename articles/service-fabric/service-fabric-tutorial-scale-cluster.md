@@ -3,7 +3,7 @@ title: Mettre à l’échelle un cluster Service Fabric dans Azure | Microsoft D
 description: Dans ce tutoriel, vous allez découvrir comment effectuer une mise à l’échelle d’un cluster Service Fabric dans Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2019
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6b1f226fba43428cdf5f46d41425ac534219de7f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278698"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619055"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à l’échelle un cluster Service Fabric dans Azure
 
@@ -95,7 +95,7 @@ Le scale in ou scale out, ou mise à l’échelle horizontale, modifie le nombre
 
 Ainsi, en mettant à jour la valeur de *nt1InstanceCount*, vous modifiez le nombre de nœuds dans le deuxième type de nœud.  N’oubliez pas que vous ne pouvez pas effectuer de scale out d’un type de nœud à plus de 100 nœuds.  Les types de nœuds non principaux exécutant des charges de travail de production avec état doivent toujours comporter au moins cinq nœuds. Les types de nœuds non principaux exécutant des charges de travail de production sans état doivent toujours comporter au moins deux nœuds.
 
-Si vous effectuez un scale in et supprimez des nœuds à partir d’un type de nœud de [niveau de durabilité][durability] Bronze, vous devez [effacer manuellement l’état de ces nœuds](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Pour les niveaux de durabilité Silver et Gold, ces étapes sont effectuées automatiquement par la plateforme.
+Si vous effectuez un scale-in et supprimez des nœuds à partir d’un type de nœud de [niveau de durabilité][durability] Bronze, vous devez [effacer manuellement l’état de ces nœuds](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Pour les niveaux de durabilité Silver et Gold, ces étapes sont effectuées automatiquement par la plateforme.
 
 ### <a name="deploy-the-updated-template"></a>Déployer le modèle mis à jour
 Enregistrez les modifications apportées aux fichiers *template.json* et *parameters.json*.  Pour déployer le modèle mis à jour, exécutez la commande suivante :
@@ -888,7 +888,7 @@ Maintenant, passez au didacticiel suivant pour savoir comment mettre à niveau l
 [reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-et scale-in))
+
 > * Ajouter et supprimer des types de nœuds (scale out et scale in)
 > * Augmenter les ressources de nœud (scale up)
 

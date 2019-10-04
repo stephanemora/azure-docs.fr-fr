@@ -1,6 +1,6 @@
 ---
 title: Tester une application dans le portail LUIS
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez LUIS (Language Understanding) pour travailler en continu sur votre application afin d’affiner et d’améliorer sa compréhension de la langue.
 services: cognitive-services
 author: diberry
@@ -8,18 +8,20 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 5736667acfa510d89e549afd4d0f5c61a833dd1c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893620"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932736"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>Tester votre application LUIS dans le portail LUIS
 <a name="train-your-app"></a>
+
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Tester votre application LUIS dans le portail LUIS
+
 [Le test](luis-concept-test.md) d’une application est un processus itératif. Après avoir formé votre application LUIS, testez-la avec des exemples d’énoncés afin de voir si les intentions et les entités sont reconnues correctement. Si ce n’est pas le cas, apportez des mises à jour à l’application LUIS, puis formez-la et testez-la à nouveau. 
 
 <!-- anchors for H2 name changes -->
@@ -31,13 +33,13 @@ ms.locfileid: "58893620"
 
 1. Accédez à votre application en sélectionnant son nom dans la page **My Apps** (Mes applications). 
 
-2. Pour accéder au panneau déroulant **Test**, sélectionnez **Test** dans le panneau supérieur de votre application.
+1. Pour accéder au panneau déroulant **Test**, sélectionnez **Test** dans le panneau supérieur de votre application.
 
     ![Page Train & Test App (Former et tester l’application)](./media/luis-how-to-interactive-test/test.png)
 
-3. Entrez un énoncé dans la zone de texte, puis sélectionnez Entrée. Vous pouvez entrer autant d’énoncés de test que vous le souhaitez dans **Test**, mais uniquement un énoncé à la fois.
+1. Entrez un énoncé dans la zone de texte, puis sélectionnez Entrée. Vous pouvez entrer autant d’énoncés de test que vous le souhaitez dans **Test**, mais uniquement un énoncé à la fois.
 
-4. L’énoncé, son intention principale et son score sont ajoutés à la liste des énoncés sous la zone de texte.
+1. L’énoncé, son intention principale et son score sont ajoutés à la liste des énoncés sous la zone de texte.
 
     ![Le test interactif identifie l’intention incorrecte](./media/luis-how-to-interactive-test/test-weather-1.png)
 
@@ -49,7 +51,7 @@ Vous inspectez les détails du résultat du test dans le panneau **Inspecter**.
 
     ![Sélectionnez le bouton Inspecter pour voir plus de détails sur les résultats de test](./media/luis-how-to-interactive-test/inspect.png)
 
-2. Le panneau **Inspection** s’affiche. Le panneau inclut l’intention de score la plus élevée, ainsi que toutes les entités identifiées. Le panneau affiche le résultat de l’énoncé sélectionné.
+1. Le panneau **Inspection** s’affiche. Le panneau inclut l’intention de score la plus élevée, ainsi que toutes les entités identifiées. Le panneau affiche le résultat de l’énoncé sélectionné.
 
     ![Le panneau inclut l’intention de score la plus élevée, ainsi que toutes les entités identifiées. Le panneau affiche le résultat de l’énoncé sélectionné.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -57,13 +59,13 @@ Vous inspectez les détails du résultat du test dans le panneau **Inspecter**.
 
 1. Si l’intention avec le score le plus élevé est incorrecte, sélectionnez le bouton **Modifier**.
 
-2.  Dans la liste déroulante, sélectionnez l’intention appropriée pour l’énoncé.
+1.  Dans la liste déroulante, sélectionnez l’intention appropriée pour l’énoncé.
 
     ![Sélectionner l’intention correcte](./media/luis-how-to-interactive-test/intent-select.png)
 
 ## <a name="view-sentiment-results"></a>Afficher les résultats des sentiments
 
-Si **Analyse des sentiments** est configurée sur la page **[Publier](luis-how-to-publish-app.md#enable-sentiment-analysis)**, les résultats du test incluent le sentiment trouvé dans l’énoncé. 
+Si **Analyse des sentiments** est configurée sur la page **[Publier](luis-how-to-publish-app.md#enable-sentiment-analysis)** , les résultats du test incluent le sentiment trouvé dans l’énoncé. 
 
 ![Image du panneau Test avec l’analyse des sentiments](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -103,16 +105,14 @@ Utilisez la procédure suivante pour inclure le service [Vérification orthograp
 
 1. Dans le panneau **Test**, entrez un énoncé. Lorsque l’énoncé est prédit, sélectionnez **[Inspecter](#inspect-score)** sous l’énoncé entré. 
 
-2. Lorsque le panneau **Inspecter** s’affiche, sélectionnez **[Comparer avec la version publiée](#compare-with-published-version)**. 
+1. Lorsque le panneau **Inspecter** s’affiche, sélectionnez **[Comparer avec la version publiée](#compare-with-published-version)** . 
 
-3. Lorsque le panneau **Publié** s’ouvre, sélectionnez **[Paramètres supplémentaires](#additional-settings-in-test-panel)**.
+1. Lorsque le panneau **Publié** s’ouvre, sélectionnez **[Paramètres supplémentaires](#additional-settings-in-test-panel)** .
 
-4. Dans la boîte de dialogue contextuelle, entrez votre clé du service **Vérification orthographique Bing**. 
-    ![Entrer la clé du service Vérification orthographique Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+1. Dans la boîte de dialogue contextuelle, cochez **Activer la vérification orthographique Bing** et entrez la clé, puis sélectionnez **Terminé**. 
+    ![Entrer la clé du service Vérification orthographique Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-5. Entrez une requête avec une orthographe incorrecte comme `book flite to seattle` et appuyez sur Entrée. L’orthographe incorrecte du mot `flite` est remplacée dans la requête envoyée au LUIS et le JSON obtenu affiche à la fois la requête d’origine, `query`, et l’orthographe corrigée dans la requête, `alteredQuery`.
-
-    ![JSON avec orthographe corrigée](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
+1. Entrez une requête avec une orthographe incorrecte comme `book flite to seattle` et appuyez sur Entrée. L’orthographe incorrecte du mot `flite` est remplacée dans la requête envoyée au LUIS et le JSON obtenu affiche à la fois la requête d’origine, `query`, et l’orthographe corrigée dans la requête, `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>

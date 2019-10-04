@@ -1,21 +1,21 @@
 ---
-title: 'Tutoriel : Copier des données vers votre appareil Microsoft Azure Data Box via le service de copie des données | Microsoft Docs'
+title: Tutoriel pour copier des données vers votre appareil Azure Data Box via le service de copie des données | Microsoft Docs
 description: Dans ce tutoriel, vous allez apprendre à copier des données vers votre appareil Azure Data Box via le service de copie des données.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343525"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206061"
 ---
-# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutoriel : Utiliser le service de copie des données pour copier des données dans Azure Data Box (préversion)
+# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Didacticiel : Utiliser le service de copie des données pour copier des données dans Azure Data Box (préversion)
 
 Ce tutoriel explique comment ingérer des données par l’intermédiaire du service de copie des données, sans l’aide d’un hôte intermédiaire. Ce service s’exécute localement sur Microsoft Azure Data Box, se connecte à votre appareil NAS via SMB, puis copie les données vers Data Box.
 
@@ -59,7 +59,7 @@ Pour copier des données par l’intermédiaire du service de copie des données
     |-------------------------------|---------|
     |**Nom du travail**                       |Nom unique contenant moins de 230 caractères pour le travail. Ces caractères ne sont pas autorisés dans le nom d’un travail : \<, \>, \|, \?, \*, \\, \:, \/ et \\\.         |
     |**Emplacement source**                |Indiquez le chemin SMB vers la source de données au format : `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>`.        |
-    |**Nom d’utilisateur**                       |Nom d’utilisateur au format `\\<DomainName><UserName>` pour accéder à la source de données.        |
+    |**Nom d’utilisateur**                       |Nom d’utilisateur au format `\\<DomainName><UserName>` pour accéder à la source de données. Si un administrateur local se connecte, il aura besoin d’autorisations de sécurité explicites. Cliquez avec le bouton droit, sélectionnez **Propriétés** , puis **Sécurité**. Cela devrait ajouter l’administrateur local dans l’onglet **Sécurité**.       |
     |**Mot de passe**                       |Mot de passe pour accéder à la source de données.           |
     |**Compte de stockage de destination**    |Sélectionnez le compte de stockage cible sur lequel charger les données à partir de la liste.         |
     |**Type de destination**       |Sélectionnez le type du stockage cible dans la liste : **Objet blob de blocs**, **Objet blob de pages** ou **Azure Files**.        |

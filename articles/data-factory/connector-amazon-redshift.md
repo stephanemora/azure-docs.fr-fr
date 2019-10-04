@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 09/04/2018
 ms.author: jingwang
-ms.openlocfilehash: 9e1dde57dc1903e87704bd55fb0b942b7cc349e5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c4f04bf8e1003e33a98c44e6776f8cf887a4645b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010572"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090556"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copier des données d’Amazon Redshift à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Version actuelle](connector-amazon-redshift.md)
 
@@ -29,6 +29,11 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fa
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
+Ce connecteur Amazon Redshift est pris en charge pour les activités suivantes :
+
+- [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
+
 Vous pouvez copier les données de Amazon Redshift dans tout magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Plus précisément, ce connecteur Amazon Redshift prend en charge la récupération de données à partir de Redshift en utilisant une requête ou le support UNLOAD intégré de Redshift.
@@ -36,7 +41,7 @@ Plus précisément, ce connecteur Amazon Redshift prend en charge la récupérat
 > [!TIP]
 > Pour obtenir de meilleures performances lors de la copie de grandes quantités de données à partir de Redshift, utilisez le mécanisme Redshift intégré UNLOAD via Amazon S3. Consultez la section [Utiliser UNLOAD pour copier des données à partir d’Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift) pour plus d’informations.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous copiez des données vers une banque de données locale à l’aide du [runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md), accordez au runtime d’intégration (en utilisant l’adresse IP de l’ordinateur) l’accès au cluster Amazon Redshift. Pour davantage d’instructions, consultez la rubrique [Authorize access to the cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) (Autoriser l’accès au cluster).
 * Si vous copiez des données vers une banque de données Azure, consultez la page [Plages IP des centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) pour connaître les plages d’adresses IP de calcul et SQL utilisées par les centres de données Azure.
@@ -53,13 +58,13 @@ Les propriétés prises en charge pour le service lié Amazon Redshift sont les 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **AmazonRedshift** | Oui |
-| serveur |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |Oui |
+| type | La propriété type doit être définie sur : **AmazonRedshift** | OUI |
+| server |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
 | port |Le numéro du port TCP utilisé par le serveur Amazon Redshift pour écouter les connexions clientes. |Non, la valeur par défaut est 5439 |
-| database |Nom de la base de données Amazon Redshift. |Oui |
-| username |Nom d’utilisateur ayant accès à la base de données. |Oui |
+| database |Nom de la base de données Amazon Redshift. |OUI |
+| username |Nom d’utilisateur ayant accès à la base de données. |OUI |
 | password |Mot de passe du compte d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 **Exemple :**
 
@@ -89,14 +94,16 @@ Les propriétés prises en charge pour le service lié Amazon Redshift sont les 
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les jeux de données. Cette section fournit la liste des propriétés prises en charge par le jeu de données Amazon Redshift.
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article sur les [jeux de données](concepts-datasets-linked-services.md). Cette section fournit la liste des propriétés prises en charge par le jeu de données Amazon Redshift.
 
-Pour copier des données d’Amazon Redshift, affectez la valeur **RelationalTable** à la propriété type du jeu de données. Les propriétés prises en charge sont les suivantes :
+Pour copier des données à partir d’Amazon Redshift, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
-| TableName | Nom de la table dans Amazon Redshift. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **AmazonRedshiftTable** | OUI |
+| schema | Nom du schéma. |Non (si « query » dans la source de l’activité est spécifié)  |
+| table | Nom de la table. |Non (si « query » dans la source de l’activité est spécifié)  |
+| tableName | Nom de la table avec le schéma. Cette propriété est prise en charge pour la compatibilité descendante. Utilisez `schema` et `table` pour une nouvelle charge de travail. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -105,15 +112,18 @@ Pour copier des données d’Amazon Redshift, affectez la valeur **RelationalTab
     "name": "AmazonRedshiftDataset",
     "properties":
     {
-        "type": "RelationalTable",
+        "type": "AmazonRedshiftTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Amazon Redshift linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
+
+Si vous utilisiez un dataset typé `RelationalTable`, il reste pris en charge tel quel, mais nous vous suggérons d’utiliser désormais le nouveau dataset.
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
@@ -125,9 +135,9 @@ Pour copier des données d’Amazon Redshift, définissez **AmazonRedshiftSource
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **AmazonRedshiftSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **AmazonRedshiftSource** | OUI |
 | query |Utilise la requête personnalisée pour lire des données. Par exemple : select * from MyTable. |Non (si « tableName » est spécifié dans dataset) |
-| redshiftUnloadSettings | Groupe de propriétés lors de l’utilisation du mécanisme UNLOAD d’Amazon Redshift. | Non  |
+| redshiftUnloadSettings | Groupe de propriétés lors de l’utilisation du mécanisme UNLOAD d’Amazon Redshift. | Non |
 | s3LinkedServiceName | Fait référence à un service Amazon S3 à utiliser comme magasin temporaire en spécifiant un nom de service lié de type « AmazonS3 ». | Oui, en cas d’utilisation de UNLOAD |
 | bucketName | Indiquez le compartiment S3 pour stocker les données intermédiaires. S’il n’est pas spécifié, le service Data Factory le génère automatiquement.  | Oui, en cas d’utilisation de UNLOAD |
 
@@ -210,17 +220,21 @@ Lors de la copie de données à partir d’Amazon Redshift, les mappages suivant
 | Type de données d’Amazon Redshift | Type de données intermédiaires de Data Factory |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |Chaîne |
-| CHAR |Chaîne |
+| BOOLEAN |String |
+| CHAR |String |
 | DATE |DateTime |
-| DÉCIMAL |Decimal |
+| DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |
-| TEXTE |Chaîne |
+| TEXT |String |
 | TIMESTAMP |DateTime |
 | VARCHAR |Chaîne |
+
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
+
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

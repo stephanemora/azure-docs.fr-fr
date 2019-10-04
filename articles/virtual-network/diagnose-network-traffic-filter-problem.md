@@ -3,8 +3,8 @@ title: Diagnostiquer un problème de filtre de trafic réseau sur une machine vi
 description: Découvrez comment diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle en consultant les règles de sécurité effectives pour une machine virtuelle.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: a54feccf-0123-4e49-a743-eb8d0bdd1ebc
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
-ms.author: jdial
-ms.openlocfilehash: fecab4dc3a0674b0b64638676f4538af145b52ac
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: f84e8a24e8f28cdccc987afbd1449cb17422ce0c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652643"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64712673"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle
 
@@ -79,9 +79,9 @@ Bien que les règles de sécurité effectives aient été affichées au moyen de
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell à partir de votre ordinateur, vous devez le module Azure PowerShell, version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Connect-AzAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell sur votre ordinateur, vous devez utiliser le module Azure PowerShell version 1.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable Az` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Connect-AzAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
-Obtenir les règles de sécurité effectives pour une interface réseau avec [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). L’exemple suivant obtient les règles de sécurité effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
+Obtenez les règles de sécurité effectives pour une interface réseau avec [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup). L’exemple suivant obtient les règles de sécurité effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
 ```azurepowershell-interactive
 Get-AzEffectiveNetworkSecurityGroup `
@@ -190,7 +190,7 @@ Si des problèmes de communication subsistent, consultez [Considérations](#cons
 Lors de la résolution de problèmes de connectivité, considérez les points suivants :
 
 * Des règles de sécurité par défaut bloquent l’accès entrant à partir d’internet et n’autorisent que le trafic entrant à partir du réseau virtuel. Pour autoriser le trafic entrant à partir d’internet, ajoutez des règles de sécurité avec une priorité plus élevée que les règles par défaut. En savoir plus sur les [règles de sécurité par défaut](security-overview.md#default-security-rules), ou comment [ajouter une règle de sécurité](manage-network-security-group.md#create-a-security-rule).
-* Si vous avez des réseaux virtuels homologues, par défaut, la balise de service **VIRTUAL_NETWORK** s’étend automatiquement pour inclure les préfixes des réseaux virtuels homologues. Pour résoudre des problèmes liés à la l’homologation de réseau virtuel, vous pouvez consulter les préfixes dans la liste **ExpandedAddressPrefix**. En savoir plus sur l’[homologation de réseaux virtuels](virtual-network-peering-overview.md) et les [balises de service](security-overview.md#service-tags).
+* Si vous avez des réseaux virtuels homologues, par défaut, la balise de service **VIRTUAL_NETWORK** s’étend automatiquement pour inclure les préfixes des réseaux virtuels homologues. Pour résoudre des problèmes liés au peering de réseau virtuel, vous pouvez consulter les préfixes dans la liste **ExpandedAddressPrefix**. En savoir plus sur le [peering de réseaux virtuels](virtual-network-peering-overview.md) et les [balises de service](security-overview.md#service-tags).
 * Les règles de sécurité effectives sont uniquement affichées pour une interface réseau s’il existe un groupe de sécurité réseau associé à l’interface réseau de la machine virtuelle et/ ou au sous-réseau, et si la machine virtuelle est en cours d’exécution.
 * Si aucun groupe de sécurité réseau n’est associé à la carte réseau ou au sous-réseau, et si une [adresse IP publique](virtual-network-public-ip-address.md) est affectée à une machine virtuelle, tous les ports sont ouverts pour les accès entrants et sortants pour toutes les destinations. Si la machine virtuelle possède une adresse IP publique, nous vous recommandons d’appliquer un groupe de sécurité réseau au sous-réseau de l’interface réseau.
 

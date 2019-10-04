@@ -1,5 +1,5 @@
 ---
-title: Créer une application Java sur Service Fabric dans Azure | Microsoft Docs
+title: 'Démarrage rapide : Créer une application Java sur Azure Service Fabric'
 description: Dans le cadre de ce démarrage rapide, vous créez une application Java pour Azure à l’aide d’un exemple d’application de services fiables Service Fabric.
 services: service-fabric
 documentationcenter: java
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter
-ms.openlocfilehash: ddd56b8479678b288424dd896baadea6a41a2aef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: ca6a1063f6ddd5c42d0d08f43b87a3387cc46a14
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008143"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859269"
 ---
-# <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Démarrage rapide : Déployer une application de services fiables Java sur Service Fabric
+# <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Démarrage rapide :  Déployer une application Java dans Azure Service Fabric sur Linux
+
+Ce guide de démarrage rapide montre comment déployer votre première application Java dans Azure Service Fabric à l’aide de l’IDE Eclipse sur un ordinateur de développement Linux. Lorsque vous avez terminé, vous disposez d’une application de vote avec un frontend Java qui enregistre les résultats de vote dans un service backend avec état dans le cluster.
 
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs.
-
-Ce démarrage rapide montre comment déployer votre première application Java dans Service Fabric à l’aide de l’IDE Eclipse sur un ordinateur de développement Linux. Lorsque vous avez terminé, vous disposez d’une application de vote avec un frontend Java qui enregistre les résultats de vote dans un service backend avec état dans le cluster.
 
 ![Capture d’écran de l’application](./media/service-fabric-quickstart-java/votingapp.png)
 
@@ -60,18 +60,18 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer à l’adresse **http://localhost:19080**. Les cinq nœuds sains indiquent que le cluster local est opérationnel.
+    Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer à l’adresse **http://localhost:19080** . Les cinq nœuds sains indiquent que le cluster local est opérationnel.
 
     ![Cluster local sain](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Ouvrez Eclipse.
-3. Cliquez sur Fichier -> Importer -> Gradle -> projet Gradle existant et suivez l’assistant.
-4. Cliquez sur Répertoire, puis sélectionnez le répertoire `Voting` dans le dossier `service-fabric-java-quickstart` que vous avez cloné à partir de GitHub. Cliquez sur Finish.
+3. Cliquez sur **Fichier** > **Importer** > **Gradle** > **Projet Gradle existant** et suivez l’assistant.
+4. Cliquez sur **Répertoire**, puis sélectionnez le répertoire `Voting` dans le dossier `service-fabric-java-quickstart` que vous avez cloné à partir de GitHub. Sélectionnez **Terminer**.
 
     ![Boîte de dialogue Importer - Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
 
 5. Le projet `Voting` se trouve désormais dans l’Explorateur de package pour Eclipse.
-6. Cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier l’application...** dans la liste déroulante **Service Fabric**. Choisissez **PublishProfiles/Local.json** comme profil cible, puis cliquez sur Publier.
+6. Cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier l’application** dans la liste déroulante **Service Fabric**. Choisissez **PublishProfiles/Local.json** comme profil cible, puis cliquez sur **Publier**.
 
     ![Boîte de dialogue Publier - Local](./media/service-fabric-quickstart-java/localjson.png)
 
@@ -90,14 +90,14 @@ Service Fabric Explorer s’exécute dans tous les clusters Service Fabric et es
 Pour mettre à l’échelle le service web frontal, procédez comme suit :
 
 1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `https://localhost:19080`.
-2. Cliquez sur le bouton de sélection (points de suspension) à côté du nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis choisissez **Scale Service** (Mettre à l’échelle le service).
+2. Cliquez sur le bouton de sélection ( **...** ) à côté du nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis sélectionnez **Scale Service** (Mettre à l’échelle le service).
 
     ![Mettre à l’échelle le service dans Service Fabric Explorer](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
 
     Vous pouvez maintenant choisir de mettre à l’échelle le nombre d’instances du service frontal web.
 
-3. Définissez le nombre sur **2**, puis cliquez sur **Scale Service** (Mettre à l’échelle le service).
-4. Cliquez sur le nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis développez le nœud de la partition (représenté par un GUID).
+3. Définissez le nombre sur **2**, puis sélectionnez **Scale Service**.
+4. Sélectionnez le nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis développez le nœud de la partition (représenté par un GUID).
 
     ![Mettre à l’échelle le service dans Service Fabric Explorer - Terminé](./media/service-fabric-quickstart-java/servicescaled.png)
 

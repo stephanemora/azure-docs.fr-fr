@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: dacc4179483de5d5ef8a05fd836e4241c161deac
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382949"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741280"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solution Alert Management dans Azure Log Analytics
 
@@ -54,9 +54,9 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | Source connectée | Support | Description |
 |:--- |:--- |:--- |
-| [Agents Windows](agent-windows.md) | Non  |Les agents Windows directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Windows. |
-| [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non  |Les agents Linux directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Linux.  Les alertes Nagios et Zabbix sont collectées à partir de ces serveurs qui requièrent l’agent Linux. |
-| [Groupe d’administration de Microsoft System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |Oui |Les alertes générées sur des agents Operations Manager sont remises au groupe d’administration, puis transférées à Log Analytics.<br><br>Une connexion directe entre des agents Operations Manager et Log Analytics n’est pas obligatoire. Les données des alertes sont transférées du groupe d’administration dans Log Analytics. |
+| [Agents Windows](agent-windows.md) | Non |Les agents Windows directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Windows. |
+| [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non |Les agents Linux directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Linux.  Les alertes Nagios et Zabbix sont collectées à partir de ces serveurs qui requièrent l’agent Linux. |
+| [Groupe d’administration de Microsoft System Center Operations Manager](../../azure-monitor/platform/om-agents.md) |OUI |Les alertes générées sur des agents Operations Manager sont remises au groupe d’administration, puis transférées à Log Analytics.<br><br>Une connexion directe entre des agents Operations Manager et Log Analytics n’est pas obligatoire. Les données des alertes sont transférées du groupe d’administration dans Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
@@ -89,26 +89,26 @@ Cette solution importe également les alertes de System Center Operations Manage
 
 | Propriété | Description |
 |:--- |:--- |
-| type |*Alert* |
-| SourceSystem |*OpsManager* |
-| AlertContext |Détails de l’élément de données à l’origine de l’alerte générée au format XML. |
-| AlertDescription |Description détaillée de l’alerte. |
-| AlertId |GUID de l’alerte. |
-| AlertName |Nom de l’alerte. |
-| AlertPriority |Niveau de priorité de l’alerte. |
-| AlertSeverity |Niveau de gravité de l’alerte. |
-| AlertState |Dernier état de résolution de l’alerte. |
-| LastModifiedBy |Nom de l’utilisateur ayant apporté la dernière modification à l’alerte. |
-| ManagementGroupName |Nom du groupe d’administration dans lequel l’alerte a été générée. |
-| RepeatCount |Nombre de fois que l’alerte a été générée pour le même objet analysé depuis sa résolution. |
-| ResolvedBy |Nom de l’utilisateur ayant résolu l’alerte. Vide si l’alerte n’a pas encore été résolue. |
-| SourceDisplayName |Nom d’affichage de l’objet d’analyse ayant généré l’alerte. |
-| SourceFullName |Nom complet de l’objet d’analyse ayant généré l’alerte. |
-| TicketId |ID de ticket de l’alerte si l’environnement System Center Operations Manager est intégré à un processus d’affectation de tickets pour les alertes.  Vide si aucun ID ticket n’est affecté. |
-| TimeGenerated |Date et heure de la création de l’alerte. |
-| TimeLastModified |Date et heure de la dernière modification de l’alerte. |
-| TimeRaised |Date et heure de la génération de l’alerte. |
-| TimeResolved |Date et heure de la résolution de l’alerte. Vide si l’alerte n’a pas encore été résolue. |
+| `Type` |*Alert* |
+| `SourceSystem` |*OpsManager* |
+| `AlertContext` |Détails de l’élément de données à l’origine de l’alerte générée au format XML. |
+| `AlertDescription` |Description détaillée de l’alerte. |
+| `AlertId` |GUID de l’alerte. |
+| `AlertName` |Nom de l’alerte. |
+| `AlertPriority` |Niveau de priorité de l’alerte. |
+| `AlertSeverity` |Niveau de gravité de l’alerte. |
+| `AlertState` |Dernier état de résolution de l’alerte. |
+| `LastModifiedBy` |Nom de l’utilisateur ayant apporté la dernière modification à l’alerte. |
+| `ManagementGroupName` |Nom du groupe d’administration dans lequel l’alerte a été générée. |
+| `RepeatCount` |Nombre de fois que l’alerte a été générée pour le même objet analysé depuis sa résolution. |
+| `ResolvedBy` |Nom de l’utilisateur ayant résolu l’alerte. Vide si l’alerte n’a pas encore été résolue. |
+| `SourceDisplayName` |Nom d’affichage de l’objet d’analyse ayant généré l’alerte. |
+| `SourceFullName` |Nom complet de l’objet d’analyse ayant généré l’alerte. |
+| `TicketId` |ID de ticket de l’alerte si l’environnement System Center Operations Manager est intégré à un processus d’affectation de tickets pour les alertes.  Vide si aucun ID ticket n’est affecté. |
+| `TimeGenerated` |Date et heure de la création de l’alerte. |
+| `TimeLastModified` |Date et heure de la dernière modification de l’alerte. |
+| `TimeRaised` |Date et heure de la génération de l’alerte. |
+| `TimeResolved` |Date et heure de la résolution de l’alerte. Vide si l’alerte n’a pas encore été résolue. |
 
 ## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
 Le tableau suivant fournit des exemples de recherches dans les journaux pour les enregistrements d’alerte collectés par cette solution : 

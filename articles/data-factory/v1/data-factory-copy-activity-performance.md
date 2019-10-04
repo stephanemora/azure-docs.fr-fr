@@ -14,15 +14,15 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812087"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60488226"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-copy-activity-performance.md)
 > * [Version 2 (version actuelle)](../copy-activity-performance.md)
 
@@ -186,7 +186,7 @@ Lorsque vous copiez des données entre une banque de données source et une banq
 
 1. **Vous voulez recevoir des données à partir de divers magasins de données dans SQL Data Warehouse via PolyBase**. SQL Data Warehouse utilise PolyBase comme un mécanisme de haut débit pour charger des données volumineuses dans SQL Data Warehouse. Toutefois, la source de données doit se trouver dans le stockage Blob, et se conformer à des critères supplémentaires. Lorsque vous chargez des données à partir d’une banque de données autre que le stockage Blob, vous pouvez activer la copie de données via un stockage Blob intermédiaire. Dans ce cas, Data Factory effectue les transformations de données requises pour garantir la conformité vis-à-vis des exigences de PolyBase. Ensuite, il utilise PolyBase pour charger des données dans SQL Data Warehouse. Pour plus d’informations, consultez [Utiliser PolyBase pour charger des données dans Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse). Consultez [Charger 1 To dans Azure SQL Data Warehouse en moins de 15 minutes avec Azure Data Factory](data-factory-load-sql-data-warehouse.md) pour obtenir une procédure pas à pas avec un cas d’utilisation.
 2. **Il peut être assez long parfois d’effectuer des déplacements de données hybrides (c’est-à-dire, de copier entre une banque de données locale et une banque de données cloud) sur une connexion réseau lente**. Pour améliorer les performances, vous pouvez compresser les données locales afin de réduire le temps nécessaire pour déplacer des données vers la banque de données intermédiaire dans le cloud. Ensuite, vous pouvez décompresser les données dans la banque intermédiaire avant de les charger dans la banque de données de destination.
-3. **Vous ne souhaitez pas ouvrir les ports autres que le port 80 et le port 443 dans votre pare-feu, en raison des stratégies informatiques d’entreprise**. Par exemple, lorsque vous copiez des données d’une banque de données locale vers un récepteur de base de données SQL Azure ou un récepteur Azure SQL Data Warehouse, vous devez activer les communications TCP sortantes sur le port 1433 pour le pare-feu Windows et votre pare-feu d’entreprise. Dans ce scénario, tirez parti de la passerelle pour commencer par copier les données dans une instance de stockage blob intermédiaire via HTTP ou HTTPS sur le port 443. Ensuite, chargez les données dans SQL Database ou SQL Data Warehouse à partir du stockage Blob intermédiaire. Dans ce flux, vous n’avez pas besoin d’activer le port 1433.
+3. **Vous ne souhaitez pas ouvrir les ports autres que le port 80 et le port 443 dans votre pare-feu, en raison des stratégies informatiques d’entreprise**. Par exemple, lorsque vous copiez des données d’une banque de données locale vers un récepteur Azure SQL Database ou un récepteur Azure SQL Data Warehouse, vous devez activer les communications TCP sortantes sur le port 1433 pour le pare-feu Windows et votre pare-feu d’entreprise. Dans ce scénario, tirez parti de la passerelle pour commencer par copier les données dans une instance de stockage blob intermédiaire via HTTP ou HTTPS sur le port 443. Ensuite, chargez les données dans SQL Database ou SQL Data Warehouse à partir du stockage Blob intermédiaire. Dans ce flux, vous n’avez pas besoin d’activer le port 1433.
 
 ### <a name="how-staged-copy-works"></a>Fonctionnement de la copie intermédiaire
 Lorsque vous activez la fonctionnalité intermédiaire, tout d’abord les données sont copiées à partir de la banque de données source vers la banque de données intermédiaire (indiquez la vôtre). Ensuite, les données sont copiées à partir de la banque de données intermédiaire dans la banque de données de réceptrice. Data Factory gère automatiquement le flux à deux étapes pour vous. Data Factory nettoie également les données temporaires du stockage intermédiaire une fois le déplacement de données terminé.
@@ -209,8 +209,8 @@ Configurez le paramètre **enableStaging** sur l’activité de copie pour spéc
 | Propriété | Description | Valeur par défaut | Requis |
 | --- | --- | --- | --- |
 | **enableStaging** |Indiquez si vous souhaitez copier les données via un magasin de données intermédiaire. |False |Non |
-| **linkedServiceName** |Spécifiez le nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous utilisez comme banque de données intermédiaire. <br/><br/>  Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
-| **path** |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/>  Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
+| **linkedServiceName** |Spécifiez le nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous utilisez comme banque de données intermédiaire. <br/><br/> Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
+| **path** |Spécifiez le chemin du stockage Blob où vous souhaitez placer les données intermédiaires. Si vous ne renseignez pas le chemin d’accès, le service crée un conteneur pour stocker les données temporaires. <br/><br/> Ne spécifiez un chemin d’accès que si vous utilisez le stockage avec une signature d’accès partagé, ou si vous avez besoin de données temporaires dans un emplacement spécifique. |N/A |Non |
 | **enableCompression** |Spécifie si les données doivent être compressées avant d’être copiées vers la destination. Ce paramètre réduit le volume de données transférées. |False |Non |
 
 Voici un exemple de définition de l’activité de copie avec les propriétés qui sont décrites dans le tableau précédent :
@@ -418,7 +418,7 @@ Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du 
 Voici des références relatives à la surveillance et au réglage des performances pour quelques banques de données prises en charge :
 
 * Stockage Azure (le Stockage Blob et le Stockage Table) : [Objectifs d’évolutivité du Stockage Azure](../../storage/common/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité du Stockage Azure](../../storage/common/storage-performance-checklist.md)
-* Azure SQL Database : vous pouvez [surveiller les performances](../../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU)
+* Azure SQL Database : vous pouvez [surveiller les performances](../../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU)
 * Azure SQL Data Warehouse : sa capacité est mesurée en Data Warehouse Units (DWU) ; voir [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB : [Niveaux de performances dans Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * Serveur SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx)

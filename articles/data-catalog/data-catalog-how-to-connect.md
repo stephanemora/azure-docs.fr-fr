@@ -1,22 +1,20 @@
 ---
 title: Guide pratique pour se connecter aux sources de données dans Azure Data Catalog
 description: Article de procédure relatif à la connexion aux sources de données détectées avec Azure Data Catalog.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 4e6b27a5-cf75-4012-b88c-333c1fe638e8
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: c64340491dba11870364610a6c2ff62e25c1328a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000570"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976786"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Connexion aux sources de données
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 **Microsoft Azure Data Catalog** est un service cloud entièrement géré qui sert de système d'inscription et de détection des sources de données d'entreprise. En d'autres termes, **Microsoft Azure Data Catalog** vise essentiellement à aider les utilisateurs à détecter, comprendre et utiliser des sources de données et permet aux organisations de mieux exploiter leurs données. L’utilisation des données représente un aspect clé de ce scénario. Lorsqu’un utilisateur détecte une source de données et en comprend l’objet, l’étape suivante consiste à se connecter à la source de données pour pouvoir exploiter les données correspondantes.
 
 ## <a name="data-source-locations"></a>Emplacements des sources de données
@@ -30,7 +28,7 @@ Lorsque vous utilisez l’affichage en mosaïque par défaut, ce menu est dispon
 
 Lorsque vous utilisez l’affichage par liste, le menu est disponible dans la barre de recherche, en haut de la fenêtre du portail.
 
- ![Ouverture d’un rapport SQL Server Reporting Services dans le Gestionnaire de rapports à partir de la barre de recherche](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Ouverture d’un rapport SQL Server Reporting Services dans le Gestionnaire de rapports](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>Applications clientes prises en charge
 Lorsque vous utilisez le menu « Ouvrir dans... » pour les sources de données dans le portail Azure Data Catalog, l’application cliente appropriée doit être installée sur l’ordinateur client.

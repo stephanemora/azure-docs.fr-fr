@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b817346c37ec43fd66d166684f5d51ecb5a9718
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799429"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65952846"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Authentification par code secret à usage unique d’e-mail (préversion)
 
@@ -26,7 +26,7 @@ ms.locfileid: "59799429"
 | Le code secret à usage unique d’e-mail est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Cet article décrit comment activer l’authentification d’E-mail du code secret à usage unique pour les utilisateurs invités B2B. La fonctionnalité de code secret à usage unique d’e-mail authentifie les utilisateurs invités B2B lorsqu’ils ne peuvent pas être authentifiés via d’autres moyens, comme Azure AD, un compte Microsoft (MSA) ou la fédération Google. Avec l’authentification par code secret à usage unique, il est inutile de créer un compte Microsoft. Lorsque l’utilisateur invité accepte une invitation ou accède à une ressource partagée, il peut demander un code temporaire, qui est envoyé à son adresse e-mail. Puis, il entre ce code pour se connecter.
+Cet article décrit comment activer l’authentification par code secret à usage unique par e-mail pour les utilisateurs invités B2B. La fonctionnalité de code secret à usage unique d’e-mail authentifie les utilisateurs invités B2B lorsqu’ils ne peuvent pas être authentifiés via d’autres moyens, comme Azure AD, un compte Microsoft (MSA) ou la fédération Google. Avec l’authentification par code secret à usage unique, il est inutile de créer un compte Microsoft. Lorsque l’utilisateur invité accepte une invitation ou accède à une ressource partagée, il peut demander un code temporaire, qui est envoyé à son adresse e-mail. Puis, il entre ce code pour se connecter.
 
 Cette fonctionnalité est actuellement disponible en préversion (consultez [Choix de la préversion](#opting-in-to-the-preview) ci-dessous). Après la préversion, cette fonctionnalité sera activée par défaut pour tous les locataires.
 
@@ -36,11 +36,11 @@ Cette fonctionnalité est actuellement disponible en préversion (consultez [Cho
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Expérience utilisateur pour les utilisateurs invités avec code secret à usage unique
 Avec l’authentification par code secret à usage unique, l’utilisateur invité peut accepter votre invitation en cliquant sur un lien direct ou à l’aide de l’e-mail d’invitation. Dans les deux cas, un message dans le navigateur indique qu’un code sera envoyé à l’adresse e-mail de l’utilisateur invité. L’utilisateur invité sélectionne **Envoyer le code** :
  
-   ![Capture d’écran montrant le bouton de code d’envoi](media/one-time-passcode/otp-send-code.png)
+   ![Capture d’écran montrant le bouton Envoyer le code](media/one-time-passcode/otp-send-code.png)
  
 Un code secret est envoyé à l’adresse e-mail de l’utilisateur. L’utilisateur récupère le code secret à partir de l’e-mail et le saisit dans la fenêtre du navigateur :
  
-   ![Capture d’écran montrant la page de codes d’entrée](media/one-time-passcode/otp-enter-code.png)
+   ![Capture d’écran montrant le bouton Entrer le code](media/one-time-passcode/otp-enter-code.png)
  
 L’utilisateur invité est maintenant authentifié, et il peut voir la ressource partagée ou continuer à se connecter. 
 
@@ -58,7 +58,7 @@ Au moment de l’invitation, rien n’indique que l’utilisateur que vous invit
 
 Vous pouvez afficher les utilisateurs invités qui s’authentifient à l’aide de codes secrets à usage unique dans le portail Azure en accédant à **Azure Active Directory** > **Relations organisationnelles** > **Utilisateurs d’autres organisations**.
 
-![Capture d’écran montrant un utilisateur de code secret à usage unique avec la valeur de la Source de secret à usage unique](media/one-time-passcode/otp-users.png)
+![Capture d’écran montrant un utilisateur de code secret à usage unique avec la valeur Source définie sur Code secret à usage unique](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > Lorsqu’un utilisateur accepte un code secret à usage unique, puis obtient un compte Azure AD, MSA, ou un autre compte fédéré, il continue d’être authentifié à l’aide d’un code secret à usage unique. Si vous souhaitez mettre à jour leur méthode d’authentification, vous pouvez supprimer le compte d’utilisateur invité et les inviter à nouveau.
@@ -74,7 +74,7 @@ Quelques minutes peuvent être nécessaires à la validation du choix. Après ce
 2.  Dans le volet de navigation, sélectionnez **Azure Active Directory**.
 3.  Sous **Gérer**, sélectionnez **Relations organisationnelles**.
 4.  Sélectionnez **Paramètres**.
-5.  Sous **Activer le mot de passe e-mail à usage unique pour les invités (préversion)**, sélectionnez **Oui**.
+5.  Sous **Activer le mot de passe e-mail à usage unique pour les invités (préversion)** , sélectionnez **Oui**.
  
 ### <a name="to-opt-in-using-powershell"></a>Pour choisir à l’aide de PowerShell
 
@@ -141,7 +141,7 @@ Quelques minutes peuvent être nécessaires à la validation du refus. Si vous d
 2.  Dans le volet de navigation, sélectionnez **Azure Active Directory**.
 3.  Sous **Gérer**, sélectionnez **Relations organisationnelles**.
 4.  Sélectionnez **Paramètres**.
-5.  Sous **Activer le mot de passe e-mail à usage unique pour les invités (préversion)**, sélectionnez **Non**.
+5.  Sous **Activer le mot de passe e-mail à usage unique pour les invités (préversion)** , sélectionnez **Non**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Pour désactiver la préversion à l’aide de PowerShell
 Installez le dernier module AzureADPreview si vous ne l’avez pas déjà fait (consultez [Configuration requise : Installez la dernière version du module AzureADPreview](#prerequisite-install-the-latest-azureadpreview-module) ci-dessus). Ensuite, vérifiez que la stratégie de préversion de code secret à usage unique existe en exécutant la commande suivante :

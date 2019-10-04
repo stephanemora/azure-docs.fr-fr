@@ -2,18 +2,19 @@
 title: Recommandations en matière d’optimisation des performances d’Azure Data Lake Storage Gen2 Spark | Microsoft Docs
 description: Recommandations en matière d’optimisation des performances d’Azure Data Lake Storage Gen2 Spark
 services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
-ms.openlocfilehash: bfd6e715e907925a1ba3db3b60c0d3eccb637930
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: normesta
+ms.reviewer: stewu
+ms.openlocfilehash: feefcf4f9f4448ab2b36c415cb745fd98277eb28
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866098"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64939333"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Recommandations en matière d’optimisation des performances pour Spark sur HDInsight et Azure Data Lake Storage Gen2
 

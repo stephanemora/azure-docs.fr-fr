@@ -1,76 +1,72 @@
 ---
-title: Dérive de schéma de la fonctionnalité de mappage de flux de données dans Azure Data Factory
+title: Dérive de schéma dans le flux de données de mappage | Azure Data Factory
 description: Construire des flux de données résilients dans Azure Data Factory avec dérive de schéma
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.date: 09/12/2019
+ms.openlocfilehash: 68c0da5a7fe2b02c6115a8c1bbc24feb95e12adb
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547142"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003702"
 ---
-# <a name="mapping-data-flow-schema-drift"></a>Dérive de schéma de mappage de flux de données
+# <a name="schema-drift-in-mapping-data-flow"></a>Dérive de schéma dans le flux de données de mappage
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Il y a dérive de schéma lorsque les métadonnées de vos sources sont fréquemment mises à jour. Les champs, colonnes, types, etc. peuvent être ajoutés, supprimés ou modifiés à la volée. Sans la gestion de la dérive des schémas, votre flux de données devient vulnérable aux modifications apportées aux sources de données en amont. En cas de modification des colonnes et des champs entrants, les modèles ETL typiques échouent car ils sont généralement liés à ces noms de source.
+Il y a dérive de schéma quand les métadonnées de vos sources sont fréquemment mises à jour. Des champs, colonnes et types peuvent être ajoutés, supprimés ou modifiés à la volée. Sans gestion de la dérive de schéma, votre flux de données devient vulnérable aux modifications apportées aux sources de données en amont. En cas de modification des colonnes et des champs entrants, les modèles ETL types échouent, car ils sont généralement liés à ces noms de source.
 
-Afin de vous protéger contre la dérive de schéma, il est important de disposer d’un outil Data Flow vous permettant, en tant qu’ingénieur de données, de :
+Pour vous protéger contre la dérive de schéma, il est important de disposer d’un outil de flux de données vous permettant, en tant qu’ingénieur de données, de :
 
 * Définir les sources dont les noms de champs, les types de données, les valeurs et les tailles sont modifiables
 * Définir des paramètres de transformation qui peuvent fonctionner avec des modèles de données et non avec des champs et des valeurs codés en dur
 * Définir des expressions qui comprennent les modèles pour correspondre aux champs entrants, au lieu d’utiliser des champs nommés
 
-## <a name="how-to-implement-schema-drift"></a>Comment implémenter une dérive du schéma
+Azure Data Factory prend en charge en mode natif des schémas flexibles qui passent d’une exécution à une autre pour que vous puissiez générer une logique de transformation de données générique sans devoir recompiler vos flux de données.
 
-* Choisissez « Allow Schema Drift » (« Autoriser la dérive de schéma ») dans votre transformation de la source
+Vous devez prendre une décision relative à l’architecture de votre flux de données pour accepter la dérive de schéma dans celui-ci. Lorsque vous effectuez cette opération, vous pouvez vous protéger contre les modifications de schéma à partir des sources. Toutefois, vous perdez alors la liaison anticipée de vos colonnes et types tout au long de votre flux de données. Azure Data Factory traite les flux d’une dérive de schéma en tant que flux de la liaison tardive. Ainsi, quand vous générez vos transformations, les noms des colonnes dérivées ne sont pas disponibles dans les vues de schéma dans le flux.
 
-<img src="media/data-flow/schemadrift001.png" width="400">
+## <a name="schema-drift-in-source"></a>Dérive de schéma dans la source
 
-* Lorsque vous avez sélectionné cette option, tous les champs entrants sont lus dans votre source à chaque exécution du flux de données et transmis au récepteur dans tout le flux.
+Dans une transformation de source, la dérive de schéma est définie sous forme de colonnes de lecture qui ne sont pas définies dans votre schéma de jeu de données. Pour autoriser la dérive de schéma, cochez la case **Autoriser la dérive de schéma** dans la transformation de la source.
 
-* Assurez-vous d’utiliser « Auto-Map » (« Mappage automatique ») pour mapper tous les nouveaux champs dans la transformation du récepteur afin que tous les nouveaux champs soient sélectionnés et dirigés dans votre destination :
+![Dérive de schéma dans la source](media/data-flow/schemadrift001.png "Dérive de schéma dans la source")
 
-<img src="media/data-flow/automap.png" width="400">
+Quand la dérive de schéma est autorisée, tous les champs entrants sont lus à partir de votre source pendant l’exécution et transmis au récepteur via l’ensemble du flux. Par défaut, toutes les colonnes nouvellement détectées (*colonnes dérivées*) arrivent en tant que type de données chaîne. Si vous souhaitez que votre flux de données déduise automatiquement les types de données des colonnes dérivées, cochez la case **Déduire les types des colonnes dérivées** dans les paramètres de la source.
 
-* Tout fonctionnera lorsque de nouveaux champs seront introduits dans ce scénario avec un simple mappage Source -> Détecteur (également appelé Copie).
+## <a name="schema-drift-in-sink"></a>Dérive de schéma dans le récepteur
 
-* Pour ajouter des transformations dans le flux de travail qui gère la dérive de schéma, vous pouvez utiliser la correspondance de modèles pour faire correspondre les colonnes par nom, type et valeur.
+Dans une transformation de récepteur, il y a dérive de schéma quand vous écrivez des colonnes supplémentaires, en plus de ce qui est défini dans le schéma de données du récepteur. Pour autoriser la dérive de schéma, cochez la case **Autoriser la dérive de schéma** dans la transformation du récepteur.
 
-* Cliquez sur « Add Column Pattern » (« Ajouter un modèle de colonne ») dans la transformation « Colonne dérivée » ou « Agrégat » si vous souhaitez créer une transformation qui comprend la « dérive de schéma ».
+![Dérive de schéma dans le récepteur](media/data-flow/schemadrift002.png "Dérive de schéma dans le récepteur")
 
-<img src="media/data-flow/columnpattern.png" width="400">
+Si la dérive de schéma est autorisée, assurez-vous que le curseur **Mappage automatique** est activé dans l’onglet Mappage. Quand ce curseur est activé, toutes les colonnes entrantes sont écrites dans votre destination. Dans le cas contraire, vous devez utiliser le mappage basé sur des règles pour écrire des colonnes dérivées.
 
-> [!NOTE]
-> Vous devez prendre une décision relative à l’architecture de votre flux de données pour accepter la dérive de schéma dans celui-ci. Lorsque vous effectuez cette opération, vous pouvez vous protéger contre les modifications de schéma à partir des sources. Toutefois, vous allez perdre la liaison anticipée de vos colonnes et les types tout au long de votre flux de données. Azure Data Factory traite les flux d’une dérive de schéma en tant que flux de la liaison tardive ; par conséquent, lorsque vous générez vos transformations, les noms de colonnes ne seront pas disponibles dans les affichages de schémas dans le flux.
+![Récepteur - Mappage automatique](media/data-flow/automap.png "Récepteur - Mappage automatique")
 
-<img src="media/data-flow/taxidrift1.png" width="400">
+## <a name="transforming-drifted-columns"></a>Transformation de colonnes dérivées
 
-L’exemple Data Flow Taxi Demo comporte un exemple de dérive de schéma dans le flux de données inférieur avec la source TripFare. Dans la transformation d’agrégat, notez que nous utilisons la conception « modèle de colonnes » pour les champs d’agrégation. Au lieu de nommer des colonnes spécifiques ou de rechercher des colonnes par position, nous supposons que les données peuvent être modifiées et ne pas apparaître dans le même ordre d’une exécution à l’autre.
+Quand votre flux de données contient des colonnes dérivées, vous pouvez y accéder dans vos transformations à l’aide des méthodes suivantes :
 
-Dans cet exemple de gestion de dérive de schéma de flux de données Azure Data Factory, nous avons construit une agrégation qui analyse les colonnes de type « double », sachant que le domaine de données contient les prix pour chaque course. Nous pouvons alors effectuer un calcul mathématique agrégé pour tous les champs doubles de la source, indépendamment de l’emplacement et du nom de la colonne.
+* Utilisez les expressions `byPosition` et `byName` pour référencer explicitement une colonne par nom ou numéro de position.
+* Ajoutez un modèle de colonne dans une colonne dérivée ou une transformation d’agrégation pour mettre en correspondance n’importe quelle combinaison de nom, de flux, de position ou de type.
+* Ajoutez un mappage basé sur des règles dans une transformation de sélection ou de récepteur pour faire correspondre les colonnes dérivées aux alias de colonnes par le biais d’un modèle.
 
-La syntaxe de flux de données Azure Data Factory utilise $$ pour représenter chaque colonne correspondante dans votre modèle. Vous pouvez également rechercher des noms de colonnes à l’aide de fonctions complexes de recherche de chaînes de caractères et d’expressions régulières. Dans ce cas, nous allons créer un nouveau nom de champ agrégé basé sur chaque correspondance d’une colonne de type « double » et ajouter le texte ```_total``` à chacun de ces noms correspondants : 
+Pour plus d’informations sur la façon d’implémenter des modèles de colonne, consultez [Modèles de colonne de flux de données de mappage](concepts-data-flow-column-pattern.md).
 
-```concat($$, '_total')```
+### <a name="map-drifted-columns-quick-action"></a>Action rapide pour mapper des colonnes dérivées
 
-Ensuite, nous arrondirons et additionnerons les valeurs pour chacune de ces colonnes correspondantes :
+Pour référencer explicitement des colonnes dérivées, vous pouvez générer rapidement des mappages pour ces colonnes à l’aide d’une action rapide d’aperçu des données. Une fois le [mode débogage](concepts-data-flow-debug-mode.md) activé, accédez à l’onglet Aperçu des données, puis cliquez sur **Actualiser** pour obtenir un aperçu des données. Si la fabrique de données détecte l’existence de colonnes dérivées, vous pouvez cliquer sur **Mapper les éléments dérivés** et générer une colonne dérivée qui vous permet de référencer toutes les colonnes dérivées dans des vues de schéma en aval.
 
-```round(sum ($$))```
+![Mapper les éléments dérivés](media/data-flow/mapdrifted1.png "Mapper les éléments dérivés")
 
-Vous pouvez tester cela avec l’exemple Data Flow « Taxi Demo » d’Azure Data Factory. Activez la session de débogage à l’aide du bouton Déboguer en haut de la surface de conception du flux de données pour afficher vos résultats de manière interactive :
+Dans la transformation de colonne dérivée générée, chaque colonne dérivée est mappée au nom et au type de données correspondants détectés. Dans l’aperçu des données ci-dessus, la colonne « movieId » est détectée en tant qu’entier. Une fois que vous avez cliqué sur **Mapper les éléments dérivés**, movieId est défini dans la colonne dérivée comme `toInteger(byName('movieId'))` et inclus dans les vues de schéma des transformations en aval.
 
-<img src="media/data-flow/taxidrift2.png" width="800">
-
-## <a name="access-new-columns-downstream"></a>Accéder aux nouvelles colonnes en aval
-
-Lorsque vous générez de nouvelles colonnes avec le modèle de colonne, vous pouvez accéder à ces nouvelles colonnes plus loin dans vos transformations du flux de données à l’aide de la fonction d’expression « byName ».
+![Mapper les éléments dérivés](media/data-flow/mapdrifted2.png "Mapper les éléments dérivés")
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Dans le [langage d’Expression de flux de données](data-flow-expression-functions.md) vous trouverez des fonctionnalités supplémentaires pour les modèles de colonne et une dérive du schéma, y compris « byName » et « byPosition ».
+Dans l’article sur le [langage d’expression de flux de données](data-flow-expression-functions.md), vous trouverez des fonctionnalités supplémentaires pour les modèles de colonnes et la dérive de schéma, notamment « byName » et « byPosition ».

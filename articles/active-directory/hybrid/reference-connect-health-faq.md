@@ -16,11 +16,11 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852958"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62096113"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -59,7 +59,7 @@ Exemple :
 | 2 | 26| 1 serveur Azure AD Connect et 1 contrôleur de domaine |
 | 3 | 51 | 1 serveur Active Directory Federation Services (AD FS), 1 proxy AD FS et 1 contrôleur de domaine |
 | 4 | 76 | 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
-| 5. | 101 | 1 serveur Azure AD Connect, 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
+| 5\. | 101 | 1 serveur Azure AD Connect, 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
 
 **Q : Azure AD Connect Health prend-il en charge Azure Cloud Germany ?**
 
@@ -67,10 +67,10 @@ Azure AD Connect Health n’est pas pris en charge dans Germany Cloud à l’exc
 
 | contrôleur | Caractéristiques | Prise en charge dans Germany Cloud |
 | ------ | --------------- | --- |
-| Connect Health pour la synchronisation | Supervision/Insight/Alertes/Analyse | Non  |
-|  | Rapport d’erreurs de synchronisation | Oui |
-| Connect Health pour ADFS | Supervision/Insight/Alertes/Analyse | Non  |
-| Connect Health pour ADDS | Supervision/Insight/Alertes/Analyse | Non  |
+| Connect Health pour la synchronisation | Supervision/Insight/Alertes/Analyse | Non |
+|  | Rapport d’erreurs de synchronisation | OUI |
+| Connect Health pour ADFS | Supervision/Insight/Alertes/Analyse | Non |
+| Connect Health pour ADDS | Supervision/Insight/Alertes/Analyse | Non |
 
 Pour garantir la connectivité de l’agent de Connect Health pour la synchronisation, configurez [l’installation requise](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) en conséquence.
 
@@ -95,7 +95,7 @@ Les données suivantes sont fournies uniquement à titre approximatif :
 
 **Q : Devrai-je redémarrer mes serveurs durant l’installation des agents Azure AD Connect Health ?**
 
- Non. Vous ne devrez pas redémarrer les serveurs durant l’installation des agents. Toutefois, l’exécution de certaines des étapes pré-requises peut nécessiter un redémarrage du serveur.
+Non. Vous ne devrez pas redémarrer les serveurs durant l’installation des agents. Toutefois, l’exécution de certaines des étapes pré-requises peut nécessiter un redémarrage du serveur.
 
 Par exemple, sur Windows Server 2008 R2, l’installation de .NET 4.5 Framework requiert un redémarrage du serveur.
 
@@ -112,7 +112,7 @@ Si vous devez configurer un proxy lors de l’inscription de l’agent, il vous 
 
 **Q : Le service Azure AD Connect Health prend-il en charge l’authentification de base lors des connexions à des proxys HTTP ?**
 
- Non. Aucun mécanisme de définition de nom d’utilisateur/mot de passe arbitraire pour l’authentification De base n’est actuellement pris en charge.
+Non. Aucun mécanisme de définition de nom d’utilisateur/mot de passe arbitraire pour l’authentification De base n’est actuellement pris en charge.
 
 **Q : Quels paramètres de pare-feu dois-je ouvrir pour permettre le bon fonctionnement de l’agent Azure AD Connect Health ?**
 
@@ -155,7 +155,7 @@ Azure AD Connect Health pour AD FS génère cette alerte lorsque l’agent d’i
 
 Le plus souvent, ce test échoue lorsque l’agent d’intégrité ne parvient pas à résoudre le nom de la batterie de serveurs AD FS. Cela peut se produire si les serveurs AD FS se trouvent derrière un équilibreur de charge réseau et si la requête est lancée depuis un nœud qui se trouve également derrière l’équilibreur de charge (par opposition à un client normal qui est placé devant l’équilibreur). Pour corriger ce problème, mettez à jour le fichier « hosts » situé sous « C:\Windows\System32\drivers\etc » en incluant l’adresse IP du serveur AD FS ou une adresse IP de bouclage (127.0.0.1) pour le nom de la batterie de serveurs AD FS (par exemple, sts.contoso.com). L’ajout du fichier hôte a pour effet de court-circuiter l’appel réseau, ce qui permet à l’agent d’intégrité d’obtenir le jeton.
 
-**Q : J’ai reçu un e-mail indiquant que mes machines ne sont pas corrigées pour récentes attaques ransomware. Pourquoi ai-je reçu cet e-mail ?**
+**Q : J’ai reçu un e-mail m’informant que mes machines ne disposaient PAS du correctif destiné à les protéger des dernières attaques de type rançongiciel. Pourquoi ai-je reçu cet e-mail ?**
 
 Le service Azure AD Connect Health a analysé toutes les machines qu’il surveille pour vérifier que les correctifs nécessaires y ont été installés. L’e-mail est envoyé à l’administrateur des locataires si au moins l’une des machines qu’il gère ne dispose pas des correctifs nécessaires. La logique suivante a été utilisée pour déterminer si les correctifs ont été installés sur les machines :
 1. Rechercher tous les correctifs logiciels installés sur la machine
@@ -193,8 +193,8 @@ CheckForMS17-010
 
 Utilisez l’applet de commande PowerShell <i>Get-AdfsProperties - AuditLevel</i> pour vérifier que les journaux d’audit ne sont pas désactivés. En savoir plus sur les [journaux d’audit ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Notez que si des paramètres d’audit avancés sont transmis au serveur ADFS, les modifications apportés à auditpol.exe seront écrasées (même si l’application générée n’est pas configurée). Dans ce cas, définissez la stratégie de sécurité locale pour enregistrer les succès et échecs de l’application générée.
 
-**Q : Lorsque le certificat de l’agent sera renouvelée avant l’expiration automatique ?**
-La certification de l’agent sera automatique renouvelé **6 mois** avant sa date d’expiration. Si elle n’est pas renouvelé, vérifiez que la connexion réseau de l’agent est stable. Redémarrez les services de l’agent ou la mise à jour vers la dernière version peut également résoudre le problème.
+**Q : Quand le certificat d’agent est-il renouvelé automatiquement avant expiration ?**
+La certification d’agent est renouvelée automatiquement **6 mois** avant sa date d’expiration. Si elle n’est pas renouvelée, vérifiez que la connexion réseau de l’agent est stable. Le redémarrage des services de l’agent ou une mise à jour vers la version la plus récente peut également résoudre le problème.
 
 
 ## <a name="related-links"></a>Liens connexes

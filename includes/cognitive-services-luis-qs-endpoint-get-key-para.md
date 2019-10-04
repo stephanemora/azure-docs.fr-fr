@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: ef8dae8219eaf1a85a5c112705517b992e25a50f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741595"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177374"
 ---
 L’accès au point de terminaison de prédiction est fourni avec une clé de point de terminaison. Pour les besoins de ce guide de démarrage rapide, utilisez la clé de démarrage gratuite associée à votre compte LUIS. 
  

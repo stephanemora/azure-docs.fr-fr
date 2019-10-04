@@ -1,5 +1,5 @@
 ---
-title: Diffuser en continu à l’aide d’Azure Media Services pour créer des flux multidébit avec le portail Azure | Microsoft Docs
+title: Effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux multidébit avec le portail Azure | Microsoft Docs
 description: Ce didacticiel vous guide tout au long des étapes de création d’un canal qui reçoit un flux en temps réel à vitesse de transmission unique et qui l’encode en flux à vitesses de transmission multiples à l’aide du portail Azure.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 88a66cae00bcd1256f6c3ad76a04d1333d1db9db
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 3217a2d5ba3d45a069eacdb67a8d69e9abc674b8
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917088"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015204"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Diffuser en continu à l’aide de Media Services pour créer des flux multidébit avec le portail Azure  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Effectuer une diffusion dynamique en continu à l’aide de Media Services pour créer des flux à vitesses de transmission multiples avec le portail Azure  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -29,7 +29,7 @@ ms.locfileid: "58917088"
 > 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 Ce didacticiel vous guide tout au long des étapes de création d’un **canal** qui reçoit un flux continu à débit binaire unique et qui l’encode en flux à débit binaire multiple.
 
@@ -39,11 +39,11 @@ Pour obtenir des informations conceptuelles sur les canaux prenant en charge l�
 Ci-après figurent les étapes générales impliquées dans la création d’applications courantes de diffusion en continu dynamique.
 
 > [!NOTE]
-> Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez envoyer un message à l’adresse amslived@microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+> Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez envoyer un message à l’adresse amshelp@microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
 
 1. Connectez une caméra vidéo à un ordinateur. <br/>Pour obtenir des idées de configuration, consultez [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT).
 
-    Si vous n’avez pas accès à un appareil photo, des outils tels que [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) peut être utilisé générer un flux en direct à partir d’un fichier vidéo.
+    Si vous n’avez pas accès à une caméra, des outils tels que [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) peuvent être utilisés pour générer un flux en direct à partir d’un fichier vidéo.
 1. Lancez et configurez un encodeur live local qui peut générer un flux à débit unique dans l’un des protocoles suivants : RTMP ou Smooth Streaming. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Consultez également ce billet de blog : [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT).
 
     Cette étape peut également être effectuée après la création du canal.
@@ -61,7 +61,7 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 1. Arrêtez l’événement chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
 1. Supprimez l’événement (et éventuellement l’élément multimédia).   
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les éléments suivants sont requis pour suivre le didacticiel.
 
@@ -118,7 +118,7 @@ Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous
 
 ## <a name="create-and-manage-events"></a>Créer et gérer des événements
 
-### <a name="overview"></a>Présentation
+### <a name="overview"></a>Vue d'ensemble
 Un canal est associé à des événements/programmes vous permettant de contrôler la publication et le stockage des segments dans un flux dynamique. Les canaux gèrent des événements/programmes. La relation entre canal et programme est très similaire au contenu multimédia traditionnel où un canal a un flux de contenu constant et un programme est limité à un événement minuté sur ce canal.
 
 Vous pouvez spécifier le nombre d’heures pendant lesquelles vous souhaitez conserver le contenu enregistré pour l’événement en définissant la durée de la **fenêtre d’archivage** . Cette valeur peut être comprise entre 5 minutes et 25 heures. La durée de la fenêtre d’archivage détermine également la plage maximale de temps dans laquelle les clients peuvent effectuer des recherches en arrière à partir de la position dynamique actuelle. Les événements peuvent durer davantage que le laps de temps spécifié, mais le contenu qui se situe en dehors de la longueur de fenêtre est ignoré en permanence. La valeur de cette propriété détermine également la longueur maximale que les manifestes de client peuvent atteindre.
@@ -149,7 +149,7 @@ Il existe deux façons de démarrer un événement :
 
     Spécifiez le nom de l’événement, le nom de l’élément multimédia, la fenêtre d’archivage et l’option de chiffrement.
 
-    ![Créer un programme](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![Créer le programme](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     Si vous avez laissé la case **Publier cet événement en direct maintenant** cochée, l’événement de publication des URL est créé.
 
@@ -186,7 +186,7 @@ Pour gérer vos éléments multimédias, cliquez sur **Paramètre** puis sur **�
 ![Éléments multimédias](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Considérations
-* Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez envoyer un message à l’adresse amslived@microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
+* Actuellement, la durée maximale recommandée d’un événement en direct est de 8 heures. Veuillez envoyer un message à l’adresse amshelp@microsoft.com si vous avez besoin d’exécuter un canal sur de plus longues périodes.
 * Assurez-vous que le point de terminaison de streaming à partir duquel vous souhaitez diffuser votre contenu se trouve à l’état **En cours d’exécution**.
 
 ## <a name="next-step"></a>Étape suivante

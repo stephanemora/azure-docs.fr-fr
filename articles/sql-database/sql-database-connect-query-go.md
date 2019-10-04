@@ -1,6 +1,6 @@
 ---
 title: Utiliser Go pour interroger Azure SQL Database | Microsoft Docs
-description: Utilisez Go pour créer un programme qui se connecte à une base de données SQL Azure, et utilisez des instructions Transact-SQL pour interroger et modifier des données.
+description: Utilisez Go pour créer un programme qui se connecte à une base de données Azure SQL, et utilisez des instructions Transact-SQL pour interroger et modifier des données.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -8,26 +8,25 @@ ms.custom: ''
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
-ms.author: v-daveng
+ms.author: craigg
 ms.reviewer: MightyPen
-manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 0014dc0edde0eafc153b40eec06c6bd6dc8446b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: baa43a93ff0c1e814478bdc195b2fd525d4dbbf3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447868"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569250"
 ---
-# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Démarrage rapide : Utiliser Golang pour interroger une base de données SQL Azure
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Démarrage rapide : Utiliser Golang pour interroger une base de données Azure SQL
 
-Dans ce guide de démarrage rapide, vous allez utiliser le langage de programmation [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) pour vous connecter à une base de données SQL Azure. Vous exécuterez ensuite des instructions Transact-SQL pour interroger et modifier des données. [Golang](https://golang.org/) est un langage de programmation open source qui permet de créer facilement des logiciels simples, fiables et efficaces.  
+Dans ce guide de démarrage rapide, vous allez utiliser le langage de programmation [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) pour vous connecter à une base de données Azure SQL. Vous exécuterez ensuite des instructions Transact-SQL pour interroger et modifier des données. [Golang](https://golang.org/) est un langage de programmation open source qui permet de créer facilement des logiciels simples, fiables et efficaces.  
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
@@ -51,7 +50,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données SQL Azure. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -328,7 +327,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
+- [Concevoir votre première base de données Azure SQL](sql-database-design-first-database.md)
 - [Pilote Golang pour Microsoft SQL Server](https://github.com/denisenkom/go-mssqldb)
 - [Signaler des problèmes ou poser des questions](https://github.com/denisenkom/go-mssqldb/issues)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: b97753e6f1b67e3c8d247281c5e5208033a56eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62127178"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour gérer le catalogue de sauvegarde
 
@@ -56,7 +56,7 @@ Vous pouvez afficher le catalogue de sauvegarde en développant le nœud **Catal
 ## <a name="restore-a-volume"></a>Restaurer un volume
 Pour restaurer un volume à partir d’une sauvegarde, procédez comme suit.
 
-#### <a name="prerequisites"></a>Composants requis
+#### <a name="prerequisites"></a>Prérequis
 Si ce n’est pas déjà fait, créez un volume et un groupe de volumes, puis supprimez le volume. Par défaut, le Gestionnaire d’instantanés StorSimple sauvegarde un volume avant d’autoriser sa suppression. Cette précaution permet d’éviter la perte de données si le volume est supprimé par inadvertance ou si les données doivent être récupérées pour une raison quelconque. 
 
 Le Gestionnaire d’instantanés StorSimple affiche le message suivant pendant la création de la sauvegarde préventive.
@@ -92,8 +92,8 @@ Pour dupliquer (cloner) un volume ou un groupe de volumes, procédez comme suit.
    
    1. Dans la zone de texte **Nom** , tapez un nom pour le volume cloné. Ce nom sera affiché dans le nœud **Volumes** . 
    2. (Facultatif) Sélectionnez **Lecteur**, puis sélectionnez une lettre de lecteur dans la liste déroulante.
-   3. (Facultatif) Sélectionnez **Dossier (NTFS)**, puis tapez un chemin de dossier ou cliquez sur Parcourir et sélectionnez un emplacement pour le dossier. 
-   4. Cliquez sur **Create**.
+   3. (Facultatif) Sélectionnez **Dossier (NTFS)** , puis tapez un chemin de dossier ou cliquez sur Parcourir et sélectionnez un emplacement pour le dossier. 
+   4. Cliquez sur **Créer**.
 5. Une fois le processus de clonage terminé, vous devez initialiser le volume cloné. Démarrez le Gestionnaire de serveur, puis l’outil Gestion des disques. Pour obtenir des instructions détaillées, consultez la section [Monter les volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Une fois initialisé, le volume est répertorié sous le nœud **Volumes** dans le volet **Étendue**. Si le volume n’est pas répertorié, actualisez la liste des volumes (cliquez avec le bouton droit sur le nœud **Volumes**, puis cliquez sur **Actualiser**).
 
 ## <a name="delete-a-backup"></a>Supprimer une sauvegarde
@@ -112,7 +112,7 @@ Pour supprimer un instantané du catalogue de sauvegarde, procédez comme suit.
 ## <a name="recover-a-file"></a>Récupérer un fichier
 Si un fichier est supprimé accidentellement d’un volume, vous pouvez le restaurer en récupérant un instantané antérieur à la suppression, en utilisant cet instantané pour créer un clone du volume, puis en copiant le fichier du volume cloné dans le volume d’origine.
 
-#### <a name="prerequisites"></a>Composants requis
+#### <a name="prerequisites"></a>Prérequis
 Avant de commencer, assurez-vous que vous disposez d’une sauvegarde actuelle du groupe de volumes. Ensuite, supprimez un fichier stocké sur un des volumes de ce groupe de volumes. Enfin, procédez comme suit pour restaurer le fichier supprimé de votre sauvegarde. 
 
 #### <a name="to-recover-a-deleted-file"></a>Pour récupérer un fichier supprimé
@@ -125,8 +125,8 @@ Avant de commencer, assurez-vous que vous disposez d’une sauvegarde actuelle d
    
    1. Dans la zone de texte **Nom** , tapez un nom pour le volume cloné. Ce nom sera affiché dans le nœud **Volumes** . 
    2. (Facultatif) Sélectionnez **Lecteur**, puis sélectionnez une lettre de lecteur dans la liste déroulante. 
-   3. (Facultatif) Sélectionnez **Dossier (NTFS)**, puis tapez un chemin de dossier ou cliquez sur **Parcourir** et sélectionnez un emplacement pour le dossier. 
-   4. Cliquez sur **Create**. 
+   3. (Facultatif) Sélectionnez **Dossier (NTFS)** , puis tapez un chemin de dossier ou cliquez sur **Parcourir** et sélectionnez un emplacement pour le dossier. 
+   4. Cliquez sur **Créer**. 
 5. Une fois le processus de clonage terminé, vous devez initialiser le volume cloné. Démarrez le Gestionnaire de serveur, puis l’outil Gestion des disques. Pour obtenir des instructions détaillées, consultez la section [Monter les volumes](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Une fois initialisé, le volume est répertorié sous le nœud **Volumes** dans le volet **Étendue**. 
    
     Si le volume n’est pas répertorié, actualisez la liste des volumes (cliquez avec le bouton droit sur le nœud **Volumes**, puis cliquez sur **Actualiser**).

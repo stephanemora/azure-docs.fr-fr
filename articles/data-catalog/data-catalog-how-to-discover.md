@@ -5,19 +5,19 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b21bf1b50152130d7b6edd227c87fcaca28c1e6a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: b12cb94832a1ea977fb13f5f2271984dc8780cee
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007863"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736375"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Comment détecter les sources de données dans Azure Data Catalog
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
-Azure Data Catalog est un service cloud entièrement géré qui permet d’inscrire et de détecter les sources de données d’entreprise. En d’autres termes, Data Catalog permet personnes détecter, comprendre et utiliser des sources de données. Il permet aux organisations de mieux exploiter leurs données existantes. Une fois qu’une source de données a été inscrite auprès d’Azure Data Catalog, ses métadonnées sont indexées par le service. Vous pouvez donc effectuer des recherches pour détecter les données dont vous avez besoin.
+Azure Data Catalog est un service cloud entièrement géré qui permet d’inscrire et de détecter les sources de données d’entreprise. En d’autres termes, Data Catalog aide les gens à détecter, à comprendre et à utiliser des sources de données. Il permet aux organisations de mieux exploiter leurs données existantes. Une fois qu’une source de données a été inscrite auprès d’Azure Data Catalog, ses métadonnées sont indexées par le service. Vous pouvez donc effectuer des recherches pour détecter les données dont vous avez besoin.
 
 ## <a name="searching-and-filtering"></a>Recherche et filtrage
 
@@ -50,7 +50,7 @@ Lorsque vous affichez les résultats de la recherche, les propriétés affichée
 > [!NOTE]
 > Pour désactiver la mise en surbrillance des correspondances, utilisez le bouton **Mettre en surbrillance** dans le portail Data Catalog.
 
-Lorsque vous affichez les résultats de recherche, il ne pouvez pas toujours évident raison pour laquelle une ressource de données est incluse, même avec la mise en surbrillance est activée. Étant donné que, par défaut, toutes les propriétés font l’objet de la recherche, une ressource de données peut être retournée si une correspondance avec une propriété de colonne est détectée. Et étant donné que plusieurs utilisateurs peuvent annoter des ressources de données inscrites avec leurs propres balises et descriptions, pas toutes les métadonnées s’affiche dans la liste des résultats de recherche.
+Quand vous affichez les résultats de la recherche, il n’est pas toujours évident de comprendre pourquoi une ressource de données a été retournée, même quand la mise en surbrillance des correspondances est activée. Étant donné que, par défaut, toutes les propriétés font l’objet de la recherche, une ressource de données peut être retournée si une correspondance avec une propriété de colonne est détectée. Et dans la mesure où plusieurs utilisateurs peuvent annoter des ressources de données inscrites avec leurs propres balises et descriptions, les métadonnées ne sont pas toutes affichées dans la liste des résultats de la recherche.
 
 Dans l’affichage en mosaïque par défaut, chaque vignette affichée dans les résultats de recherche inclut l’icône **Afficher les correspondances des termes recherchés**. Vous pouvez ainsi visualiser rapidement le nombre de correspondances, ainsi que leur emplacement, et y accéder si vous le souhaitez.
 

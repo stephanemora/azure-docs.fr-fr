@@ -1,37 +1,36 @@
 ---
 title: Exécuter des tâches Apache Sqoop avec PowerShell et Azure HDInsight
-description: Découvrez comment utiliser Azure PowerShell à partir d’un poste de travail pour exécuter des commandes Apache Sqoop import et export entre un cluster Apache Hadoop et une base de données SQL Azure.
+description: Découvrez comment utiliser Azure PowerShell à partir d’un poste de travail pour exécuter des commandes Apache Sqoop import et export entre un cluster Apache Hadoop et une base de données Azure SQL.
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: hrasheed
-ms.openlocfilehash: fb15a6389577e8d132b9c5a895a9995a9f7da208
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: f178d07666eda3552c18f581a926305e76ecb697
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607357"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450126"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Exécuter des tâches Apache Sqoop avec Azure PowerShell pour Apache Hadoop dans HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Découvrez comment utiliser Azure PowerShell pour exécuter des tâches Apache Sqoop dans HDInsight Azure pour importer et exporter des données entre un cluster HDInsight et une base de données SQL Azure ou la base de données SQL Server. Cet exemple exporte des données à partir de `/tutorials/usesqoop/data/sample.log` dans le compte de stockage par défaut, puis les importations pour une table appelée `log4jlogs` dans une base de données SQL Server. Cet article est la suite de [Use Apache Sqoop avec Hadoop dans HDInsight](./hdinsight-use-sqoop.md).
+Découvrez comment utiliser Azure PowerShell pour exécuter des tâches Apache Sqoop dans Azure HDInsight permettant d’effectuer des importations/exportations de données entre un cluster HDInsight et une base de données Azure SQL ou SQL Server. Cet exemple exporte les données du `/tutorials/usesqoop/data/sample.log` compte de stockage par défaut, puis les importe dans une table nommée `log4jlogs` dans une base de données SQL Server. Cet article est la suite de [Utiliser Apache Sqoop avec Hadoop dans HDInsight](./hdinsight-use-sqoop.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
+Avant de commencer cet article, vous devez disposer des éléments suivants :
 
-* Une station de travail avec Azure PowerShell [AZ Module](https://docs.microsoft.com/powershell/azure/overview) installé.
+* Une station de travail dans laquelle le [module Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/overview) est installé.
 
-* Saisie semi-automatique de [configurer d’environnement de test](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) de [Use Apache Sqoop avec Hadoop dans HDInsight](./hdinsight-use-sqoop.md).
+* Avoir effectué [Configurer un environnement de test](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) dans [Utiliser Apache Sqoop avec Hadoop dans HDInsight](./hdinsight-use-sqoop.md).
 
 
 ## <a name="run-apache-sqoop-by-using-powershell"></a>Exécuter Apache Sqoop avec PowerShell
-Le script PowerShell suivant prétraite le fichier source, puis l’exporte vers une base de données SQL Azure à la table `log4jlogs`. Remplacez `CLUSTERNAME`, `CLUSTERPASSWORD`, et `SQLPASSWORD` avec les valeurs que vous avez utilisé par les conditions préalables.
+Le script PowerShell suivant prétraite le fichier source, puis l’exporte dans une base de données Azure SQL vers la table `log4jlogs`. Remplacer `CLUSTERNAME`, `CLUSTERPASSWORD` et `SQLPASSWORD` avec les valeurs que vous avez utilisées à partir de la condition préalable.
 
 ```powershell 
 <#------ BEGIN USER INPUT ------#>

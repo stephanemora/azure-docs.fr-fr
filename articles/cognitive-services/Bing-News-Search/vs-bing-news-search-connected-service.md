@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 03/01/2018
+ms.date: 06/18/2019
 ms.author: ghogen
-ms.openlocfilehash: 2925ca5a303876a68b6d605c7312d43af102b6e0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 85afae087b1b1e572759943142412743744ee806
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088466"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203416"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>Tutoriel : Se connecter à l’API Recherche d’actualités Bing avec les Services connectés dans Visual Studio et C#
 
@@ -26,13 +26,13 @@ Cet article donne des détails sur l’utilisation de la fonctionnalité Service
 ## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 version 15.7 avec installation de la charge de travail Développement web. [Téléchargez-le maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 avec installation de la charge de travail Développement web. [Téléchargez-le maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
 ## <a name="add-support-to-your-project-for-bing-news-search-api"></a>Ajouter la prise en charge de l’API Recherche d’actualités Bing à un projet
 
-1. Créez un projet web ASP.NET Core nommé « MyWebApplication ». Utilisez le modèle de projet **Application web (modèle-vue-contrôleur)**, avec tous les paramètres par défaut. Il est important de nommer le projet MyWebApplication, afin que l’espace de noms corresponde lors de la copie du code dans le projet. 
+1. Créez un projet web ASP.NET Core nommé « MyWebApplication ». Utilisez le modèle de projet **Application web (modèle-vue-contrôleur)** , avec tous les paramètres par défaut. Il est important de nommer le projet MyWebApplication, afin que l’espace de noms corresponde lors de la copie du code dans le projet. 
 
 1. Dans **l’Explorateur de solutions**, choisissez **Ajouter** > **Service connecté**.
    La page Service connecté s’affiche et montre les services qui peuvent être ajoutés au projet.

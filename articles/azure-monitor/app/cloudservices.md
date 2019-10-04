@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: MT
+ms.openlocfilehash: 9325d2dd6c897f4c8dacb3dcf3a382f9f0e856a8
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267230"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933007"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
 [Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
@@ -41,7 +41,7 @@ Cette option instrumente votre application au moment de l’exécution, ce qui v
 
 Si cette option vous suffit, vous avez terminé. 
 
-Les étapes suivantes sont la [consultation des métriques de votre application](../../azure-monitor/app/metrics-explorer.md), l’[interrogation de vos données avec Analytics](../../azure-monitor/app/analytics.md) et éventuellement la configuration d’un [tableau de bord](../../azure-monitor/app/app-insights-dashboards.md). 
+Les étapes suivantes sont la [consultation des métriques de votre application](../../azure-monitor/app/metrics-explorer.md), l’[interrogation de vos données avec Analytics](../../azure-monitor/app/analytics.md). 
 
 Pour superviser les performances dans le navigateur, vous pouvez configurer des [tests de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) et [ajouter du code à vos pages web](../../azure-monitor/app/javascript.md).
 
@@ -61,7 +61,7 @@ Les données de télémétrie de votre application sont stockées, analysées et
 Chaque ressource appartient à un groupe de ressources. Les groupes de ressources servent à gérer les coûts, à accorder l’accès aux membres d’équipe et à déployer des mises à jour dans une seule transaction coordonnée. Par exemple, vous pouvez [écrire un script pour déployer](../../azure-resource-manager/resource-group-template-deploy.md) un service cloud Azure et ses ressources de supervision Application Insights en une seule opération.
 
 ### <a name="resources-for-components"></a>Ressources pour les composants
-Nous vous recommandons de créer une ressource distincte pour chaque composant de votre application. Autrement dit, vous créez une ressource pour chaque rôle web et rôle de travail. Vous pouvez analyser chaque composant séparément, mais vous créez un [tableau de bord](../../azure-monitor/app/app-insights-dashboards.md) qui réunit les principaux graphiques de tous les composants, pour pouvoir les comparer et les superviser ensemble dans une même vue. 
+Nous vous recommandons de créer une ressource distincte pour chaque composant de votre application. Autrement dit, vous créez une ressource pour chaque rôle web et rôle de travail. Vous pouvez analyser chaque composant séparément, mais vous créez un [tableau de bord](../../azure-monitor/app/overview-dashboard.md) qui réunit les principaux graphiques de tous les composants, pour pouvoir les comparer et les superviser ensemble dans une même vue. 
 
 Une autre approche consiste à envoyer les données de télémétrie de plusieurs rôles à la même ressource, mais en [ajoutant une propriété de dimension à chaque élément de télémétrie](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) qui identifie son rôle source. Dans cette approche, les graphiques de métriques comme les exceptions affichent normalement une agrégation des décomptes des différents rôles, mais vous pouvez segmenter le graphique en fonction de l’identificateur de rôle si nécessaire. Vous pouvez également filtrer les recherches sur la même dimension. Cette solution facilite légèrement la consultation simultanée de tous les éléments, mais elle peut aussi entraîner une certaine confusion entre les rôles.
 
@@ -84,14 +84,15 @@ Si vous avez décidé de créer une ressource distincte pour chaque rôle (et é
 
     ![Volet Application Insights](./media/cloudservices/01-new.png)
 
-1. Dans la liste déroulante **Type d’application**, sélectionnez **Application web ASP.NET**.  
-    Chaque ressource est identifiée par une clé d’instrumentation. Vous pouvez avoir besoin de cette clé plus tard pour configurer ou vérifier manuellement la configuration du SDK.
+1. Dans la liste déroulante **Type d’application**, sélectionnez **Application web ASP.NET**.
+
+Chaque ressource est identifiée par une clé d’instrumentation. Vous pouvez avoir besoin de cette clé plus tard pour configurer ou vérifier manuellement la configuration du SDK.
 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurer Diagnostics Azure pour chaque rôle
 Définissez cette option pour surveiller votre application avec Application Insights. Pour les rôles web, cette option permet de superviser les performances, de recevoir des alertes, des diagnostics et d’analyser l’utilisation. Pour d’autres rôles, vous pouvez rechercher et superviser des diagnostics Azure comme le redémarrage, les compteurs de performances et les appels à System.Diagnostics.Trace. 
 
-1. Dans l’Explorateur de solutions Visual Studio, sous **\<votre_service_cloud>** > **Rôles**, ouvrez les propriétés de chaque rôle.
+1. Dans l’Explorateur de solutions Visual Studio, sous **\<votre_service_cloud>**  > **Rôles**, ouvrez les propriétés de chaque rôle.
 
 1. Dans **Configuration**, cochez la case **Envoyer des données de diagnostic à Application Insights** et sélectionnez la ressource Application Insights que vous avez créée plus tôt.
 
@@ -133,26 +134,61 @@ Dans Visual Studio, configurez le Kit de développement logiciel (SDK) Applicat
     * [Rôle de travail](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
     * [Pour les pages web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 
-1. Définissez le fichier *ApplicationInsights.config* pour qu’il soit toujours copié dans le répertoire de sortie.  
-    Un message dans le fichier *.config* vous demande de placer ici la clé d’instrumentation. Toutefois, pour les applications cloud, définissez-la à partir du fichier *.cscfg*. De cette façon, le rôle est identifié correctement dans le portail.
+1. Définissez le fichier *ApplicationInsights.config* pour qu’il soit toujours copié dans le répertoire de sortie.
 
-#### <a name="run-and-publish-the-app"></a>Exécution et publication de l’application
+   Un message dans le fichier *.config* vous demande de placer ici la clé d’instrumentation. Toutefois, pour les applications cloud, définissez-la à partir du fichier *.cscfg*. De cette façon, le rôle est identifié correctement dans le portail.
+
+## <a name="set-up-status-monitor-to-collect-full-sql-queries-optional"></a>Configurer Status Monitor pour collecter des requêtes SQL complètes (facultatif)
+
+Cette étape est uniquement nécessaire si vous voulez capturer des requêtes SQL complètes sur .NET Framework. 
+
+1. Dans le fichier `\*.csdef`, ajoutez une [tâche de démarrage](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks) pour chaque rôle similaire à 
+
+    ```xml
+    <Startup>
+      <Task commandLine="AppInsightsAgent\InstallAgent.bat" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="ApplicationInsightsAgent.DownloadLink" value="http://go.microsoft.com/fwlink/?LinkID=522371" />
+          <Variable name="RoleEnvironment.IsEmulated">
+            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+          </Variable>
+        </Environment>
+      </Task>
+    </Startup>
+    ```
+    
+2. Téléchargez [InstallAgent.bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) et [InstallAgent.ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), et placez-les dans le dossier `AppInsightsAgent` de chaque projet de rôle. Veillez à les copier dans le répertoire de sortie par le biais des propriétés de fichier Visual Studio ou de scripts de build.
+
+3. Sur tous les workers, ajoutez les variables d’environnement : 
+
+    ```xml
+      <Environment>
+        <Variable name="COR_ENABLE_PROFILING" value="1" />
+        <Variable name="COR_PROFILER" value="{324F817A-7420-4E6D-B3C1-143FBED6D855}" />
+        <Variable name="MicrosoftInstrumentationEngine_Host" value="{CA487940-57D2-10BF-11B2-A3AD5A13CBC0}" />
+      </Environment>
+    ```
+    
+## <a name="run-and-publish-the-app"></a>Exécution et publication de l’application
 
 1. Exécutez votre application et connectez-vous à Azure. 
 
-1. Ouvrez la ressource Application Insights que vous avez créée.  
-    Les points de données individuels sont affichés dans [Recherche](../../azure-monitor/app/diagnostic-search.md) et les données agrégées sont affichées dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md). 
+1. Ouvrez la ressource Application Insights que vous avez créée.
+
+   Les points de données individuels sont affichés dans [Recherche][diagnostic] et les données agrégées sont affichées dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md).
 
 1. Ajoutez plus de données de télémétrie (voir les sections suivantes) et publiez votre application pour obtenir en direct des diagnostics et un retour sur l’utilisation. 
 
 S’il n’y a pas de données, effectuez ce qui suit :
+
 1. Pour voir les événements individuels, ouvrez la vignette [Rechercher][diagnostic].
 1. Dans l’application, ouvrez différentes pages pour générer des données de télémétrie.
 1. Attendez quelques secondes, puis cliquez sur **Actualiser**.  
-    Pour plus d’informations, consultez [Résolution des problèmes][qna].
+
+Pour plus d’informations, consultez la page [Dépannage][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Voir les événements Diagnostics Azure
-Les informations de [Diagnostics Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) sont disponibles dans Application Insights aux emplacements suivants :
+Les informations d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) sont disponibles dans Application Insights aux emplacements suivants :
 
 * Les compteurs de performances s’affichent comme mesures personnalisées. 
 * Les journaux des événements Windows s’affichent comme traces et événements personnalisés.
@@ -160,9 +196,9 @@ Les informations de [Diagnostics Azure](https://docs.microsoft.com/azure/monitor
 
 Pour voir les compteurs de performances et le nombre d’événements, ouvrez [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) et ajoutez le graphique suivant :
 
-![Données Diagnostics Azure](./media/cloudservices/23-wad.png)
+![Données Azure Diagnostics](./media/cloudservices/23-wad.png)
 
-Pour rechercher dans les différents journaux d’activité de trace envoyés par Azure Diagnostics, utilisez [Recherche](../../azure-monitor/app/diagnostic-search.md) ou une [requête Analytics](../../azure-monitor/log-query/get-started-portal.md). Par exemple, supposons qu’une exception non prise en charge a provoqué le blocage et le recyclage d’un rôle. Cette information s’affiche dans le canal Application du Journal des événements Windows. Vous pouvez utiliser Recherche pour voir l’erreur du Journal des événements Windows et obtenir la trace complète de l’exception. De cette façon, vous pouvez identifier la cause racine du problème.
+Pour rechercher dans les différents journaux de trace envoyés par Azure Diagnostics, utilisez [Recherche](../../azure-monitor/app/diagnostic-search.md) ou une [requête Analytics](../../azure-monitor/log-query/get-started-portal.md). Par exemple, supposons qu’une exception non prise en charge a provoqué le blocage et le recyclage d’un rôle. Cette information s’affiche dans le canal Application du Journal des événements Windows. Vous pouvez utiliser Recherche pour voir l’erreur du Journal des événements Windows et obtenir la trace complète de l’exception. De cette façon, vous pouvez identifier la cause racine du problème.
 
 ![Recherche de Diagnostics Azure](./media/cloudservices/25-wad.png)
 
@@ -194,18 +230,18 @@ Pour les rôles de travail, il existe deux façons de suivre les exceptions :
 ## <a name="performance-counters"></a>Compteurs de performances
 Les compteurs suivants sont collectés par défaut :
 
-    * \Processus(??APP_WIN32_PROC??)\% Temps processeur
-    * \Memory\Octets disponibles
-    * \.Exceptions .NET CLR(??APP_CLR_PROC??)\# Nombre d'exceptions levées/s
-    * \Processus(??APP_WIN32_PROC??)\Octets privés
-    * \Processus(??APP_WIN32_PROC??)\Nombre d’octets de données E/S par s
-    * \Processor(_Total)\% temps processeur
+* \Processus(??APP_WIN32_PROC??)\% Temps processeur
+* \Memory\Octets disponibles
+* \.Exceptions .NET CLR(??APP_CLR_PROC??)\# Nombre d'exceptions levées/s
+* \Processus(??APP_WIN32_PROC??)\Octets privés
+* \Processus(??APP_WIN32_PROC??)\Nombre d’octets de données E/S par s
+* \Processor(_Total)\% temps processeur
 
 Pour les rôles web, ces compteurs sont également collectés :
 
-    * \Applications ASP.NET(??APP_W3SVC_PROC??)\Demandes/s
-    * \Applications ASP.NET (??APP_W3SVC_PROC??)\Durée d’exécution de la demande
-    * \Applications ASP.NET (??APP_W3SVC_PROC??)\Demandes dans la file d’attente d’application
+* \Applications ASP.NET(??APP_W3SVC_PROC??)\Demandes/s
+* \Applications ASP.NET (??APP_W3SVC_PROC??)\Durée d’exécution de la demande
+* \Applications ASP.NET (??APP_W3SVC_PROC??)\Demandes dans la file d’attente d’application
 
 Vous pouvez spécifier des compteurs de performances personnalisés ou d’autres compteurs de performances Windows en modifiant *ApplicationInsights.config* [comme indiqué dans cet exemple](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
@@ -229,7 +265,7 @@ Pour obtenir des données de télémétrie basées sur un navigateur, comme le n
 Pour vérifier que votre application est en ligne et réactive, [Configurez des tests web][availability].
 
 ## <a name="display-everything-together"></a>Afficher tous les éléments ensemble
-Pour une vue d’ensemble de votre système, vous pouvez rassembler les principaux graphiques de supervision sur un même [tableau de bord](../../azure-monitor/app/app-insights-dashboards.md). Vous pouvez par exemple épingler le décompte des demandes et des échecs de chaque rôle. 
+Pour une vue d’ensemble de votre système, vous pouvez rassembler les principaux graphiques de supervision sur un même [tableau de bord](../../azure-monitor/app/overview-dashboard.md). Vous pouvez par exemple épingler le décompte des demandes et des échecs de chaque rôle. 
 
 Si votre système utilise d’autres services Azure, comme Stream Analytics, ajoutez également leurs graphiques de supervision. 
 

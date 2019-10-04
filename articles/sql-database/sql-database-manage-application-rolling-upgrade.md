@@ -1,6 +1,6 @@
 ---
 title: Déploiement des mises à niveau d’applications - Azure SQL Database | Microsoft Docs
-description: Découvrez comment utiliser la géo-réplication de la base de données SQL pour prendre en charge les mises à niveau en ligne de votre application cloud.
+description: Découvrez comment utiliser la géo-réplication Azure SQL Database pour prendre en charge les mises à niveau en ligne de votre application cloud.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 47fd6c1e2bb342bc1a31fb16a45a5ebc749dca69
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.openlocfilehash: 55b23b8d8e03a79aa0806a68306017f89c747760
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621445"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567768"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gérer les mises à niveau propagées des applications cloud à l’aide de la géoréplication active Azure SQL Database
 
@@ -110,7 +109,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Arrêter la géo-réplication en déconnectant la base de données secondaire (11). Cette action crée une copie indépendante mais entièrement synchronisée de la base de données de production. Cette base de données est alors mise à niveau. L’exemple suivant utilise Transact-SQL mais [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) est également disponible. 
+2. Arrêtez la géoréplication en déconnectant la base de données secondaire (11). Cette action crée une copie indépendante mais entièrement synchronisée de la base de données de production. Cette base de données est alors mise à niveau. L’exemple suivant utilise Transact-SQL mais [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) est également disponible. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication

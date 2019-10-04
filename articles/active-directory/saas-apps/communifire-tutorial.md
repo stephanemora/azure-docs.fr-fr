@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Communifire | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Communifire | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Communifire.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb82c3112634163328e08b330083f5b4942798ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: afa8c451790331e81a96485c7965110c968fe249
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880951"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104987"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutoriel : Intégration d’Azure Active Directory à Communifire
+# <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Didacticiel : Intégration d’Azure Active Directory à Communifire
 
 Dans ce didacticiel, vous allez apprendre à intégrer Communifire à Azure Active Directory (Azure AD).
 L’intégration de Communifire à Azure AD vous offre les avantages suivants :
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Communifire à Azure AD, vous devez ajouter 
 
 **Pour ajouter Communifire à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -166,7 +166,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

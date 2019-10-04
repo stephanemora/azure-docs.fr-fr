@@ -1,19 +1,19 @@
 ---
 title: 'Démarrage rapide : Utiliser .NET pour créer une file d’attente dans le stockage Azure'
 description: Ce guide de démarrage rapide explique comment utiliser la bibliothèque de client Stockage Azure pour .NET afin de créer une file d’attente et d’y ajouter des messages. Il explique ensuite comment lire et traiter des messages de la file d’attente.
-services: storage
-author: tamram
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: f16c4438dfb2feb70dece0b95f8afc701c5a3d66
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.service: storage
+ms.subservice: queues
+ms.topic: quickstart
+ms.reviewer: cbrooks
+ms.openlocfilehash: d3706f8585c2644a31bf1f418f5425e0fa58d2a0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009306"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721255"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Démarrage rapide : Utiliser .NET pour créer une file d’attente dans le stockage Azure
 
@@ -25,7 +25,7 @@ Ce guide de démarrage rapide explique comment utiliser la bibliothèque de clie
 
 Ensuite, téléchargez et installez .NET Core 2.0 pour votre système d’exploitation. Si vous exécutez Windows, vous pouvez installer Visual Studio et utiliser .NET Framework. Vous pouvez aussi, si vous voulez, installer un éditeur à utiliser avec votre système d’exploitation.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 - Installez [.NET Core pour Windows](https://www.microsoft.com/net/download/windows) ou [.NET Framework](https://www.microsoft.com/net/download/windows) (inclus avec Visual Studio pour Windows)
 - Installez [Visual Studio pour Windows](https://www.visualstudio.com/). Si vous utilisez .NET Core, l’installation de Visual Studio est facultative.  
@@ -62,7 +62,7 @@ Pour exécuter l’application, vous devez fournir la chaîne de connexion de vo
 
 Après avoir copié votre chaîne de connexion, écrivez-la dans une variable d’environnement sur l’ordinateur local exécutant l’application. Pour définir la variable d’environnement, ouvrez une fenêtre de console et suivez les instructions pour votre système d’exploitation. Remplacez `<yourconnectionstring>` par votre chaîne de connexion :
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
@@ -92,7 +92,7 @@ Après avoir ajouté la variable d’environnement, exécutez `source .bash_prof
 
 L’exemple d’application crée une file d’attente et y ajoute un message. L’application commence par lire le message sans le supprimer de la file d’attente, puis elle récupère le message et le supprime de la file d’attente.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Si vous utilisez Visual Studio comme éditeur, vous pouvez appuyer sur **F5** pour exécuter. 
 
@@ -144,7 +144,7 @@ Ensuite, explorez l’exemple de code pour comprendre son fonctionnement.
 
 ### <a name="try-parsing-the-connection-string"></a>Essayez d’analyser la chaîne de connexion.
 
-L’exemple vérifie d’abord si la variable d’environnement contient une chaîne de connexion à analyser pour créer un objet [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) pointant vers le compte de stockage. Pour vérifier si la chaîne de connexion est valide, l’exemple utilise la méthode [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse). Si la méthode **TryParse** réussit, la variable *storageAccount* est initialisée et la valeur **true** est retournée.
+L’exemple vérifie d’abord si la variable d’environnement contient une chaîne de connexion à analyser pour créer un objet [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) pointant vers le compte de stockage. Pour vérifier si la chaîne de connexion est valide, l’exemple utilise la méthode [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Si la méthode **TryParse** réussit, la variable *storageAccount* est initialisée et la valeur **true** est retournée.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -186,9 +186,9 @@ Console.WriteLine();
 
 Ensuite, l’exemple ajoute un message en bas de la file d’attente. 
 
-Un message doit être dans un format utilisable dans une requête XML avec encodage UTF-8 et avoir une taille maximale de 64 Ko. Si un message contient des données binaires, Microsoft recommande de l’encoder au format Base64.
+Un message doit être dans un format utilisable dans une requête XML avec encodage UTF-8 et avoir une taille maximale de 64 Ko. Si un message contient des données binaires, nous recommandons de l’encoder au format Base64.
 
-Par défaut, un message peut être conservé pendant une durée maximale de 7 jours. Vous pouvez entrer n’importe quel nombre positif pour le délai d’expiration, ou la valeur -1 si vous souhaitez que le message n’expire jamais.
+Par défaut, un message peut être conservé pendant une durée maximale de 7 jours. Vous pouvez spécifier n’importe quel nombre positif pour la durée de vie du message.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -198,6 +198,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+Pour ajouter un message qui n’expire pas, utilisez `Timespan.FromSeconds(-1)` dans votre appel à [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### <a name="peek-a-message-from-the-queue"></a>Afficher l’aperçu d’un message de la file d’attente
@@ -256,7 +262,9 @@ Consultez ces ressources supplémentaires sur le développement .NET avec les fi
 
 ### <a name="binaries-and-source-code"></a>Fichiers binaires et code source
 
-- Téléchargez le package NuGet pour obtenir la dernière version de la [bibliothèque de client .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) pour le stockage Azure. 
+- Téléchargez les packages NuGet pour obtenir la dernière version de la [bibliothèque de client Stockage Azure pour .NET](/dotnet/api/overview/azure/storage/client)
+    - [Commun](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [Files d’attente](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Consultez le [code source de la bibliothèque de client .NET](https://github.com/Azure/azure-storage-net) sur GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Référence et exemples de la bibliothèque de client

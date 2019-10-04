@@ -1,7 +1,6 @@
 ---
-title: Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques de sécurité et DevOps
+title: Effectuer la migration de clusters Apache Hadoop locaux vers Azure HDInsight - Sécurité
 description: Découvrez les bonnes pratiques concernant la sécurité et DevOps pour la migration des clusters Hadoop locaux vers Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7cfb327a3eb6cbf2ae90c9d258a470797732acaa
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: c1523ccb3952bce904deac375d11de692ac235ef
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437501"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70736134"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques de sécurité et DevOps
 
@@ -53,7 +52,7 @@ Utilisez les étapes suivantes pour déployer le cluster HDInsight joint au doma
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Introduction aux fonctions de sécurité Apache Hadoop sur la base de clusters HDInsight joints à un domaine](../domain-joined/apache-domain-joined-introduction.md)
+- [Introduction aux fonctions de sécurité Apache Hadoop sur la base de clusters HDInsight joints à un domaine](../domain-joined/hdinsight-security-overview.md)
 
 - [Planifier des clusters Apache Hadoop Azure joints à un domaine dans HDInsight](../domain-joined/apache-domain-joined-architecture.md)
 - [Configurer un cluster HDInsight joint à un domaine avec Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)

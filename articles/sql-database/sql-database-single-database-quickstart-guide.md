@@ -10,14 +10,13 @@ ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 0dc9d18ea4dae6ea0f45d1a91392eb1994e6e80e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.date: 07/29/2019
+ms.openlocfilehash: 45b0b2bc7a2ef5c3cb6ca801668f7b5be7c8ac73
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757203"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640000"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Bien démarrer avec des bases de données uniques dans Azure SQL Database
 
@@ -44,6 +43,14 @@ Vous pouvez utiliser PowerShell ou Azure CLI pour créer, configurer et mettre �
 
 Ces guides de démarrage rapide vous permettent de créer ou d’importer votre base de données dans Azure avec un fichier `.bacpac`. Cependant, les fichiers `.bacpac` et `.dacpac` sont conçus pour déplacer rapidement des bases de données entre des versions différentes de SQL Server et des options de déploiement dans Azure SQL Database, ou pour implémenter l’intégration continue dans votre pipeline DevOps. Toutefois, cette méthode n’est pas conçue pour la migration de vos bases de données de production avec un temps d’arrêt minimal dans la mesure où vous devez cesser d’ajouter de nouvelles données, attendre la fin de l’exportation de la base de données source vers un fichier `.bacpac`, puis attendre la fin de l’importation dans Azure SQL Database. Toute cette attente entraîne des temps d’arrêt pour votre application, en particulier si les bases de données sont volumineuses. Pour déplacer votre base de données de production, vous devez trouver une meilleure méthode de migration garantissant un temps d’arrêt minimal. Pour cela, utilisez [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql?toc=/azure/sql-database/toc.json) pour migrer votre base de données avec un temps d’arrêt minimal. Pour y parvenir, DMS envoie (push) les changements effectués dans votre base de données source à la base de données unique en cours de restauration. De cette façon, vous pouvez basculer rapidement votre application de la base de données source vers la base de données cible avec un temps d’arrêt minimal.
 
+## <a name="hands-on-learning-modules"></a>Modules d’apprentissage pratique
+
+Les modules Microsoft Learn suivants vous aident à vous familiariser gratuitement avec Azure SQL Database.
+
+- [Approvisionner une base de données Azure SQL pour stocker des données d’application](https://docs.microsoft.com/learn/modules/provision-azure-sql-db/)
+- [Développer et configurer une application ASP.NET qui interroge une base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+- [Sécuriser votre base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez une [liste générale des fonctionnalités prises en charge dans Azure SQL Database](sql-database-features.md).
@@ -51,3 +58,4 @@ Ces guides de démarrage rapide vous permettent de créer ou d’importer votre 
 - Consultez l’article sur l’[utilisation d’une base de données unique dans Azure SQL Database](sql-database-howto-single-database.md) pour accéder à des guides pratiques plus avancés.
 - Découvrez plus d’exemples de scripts écrits en [PowerShell](sql-database-powershell-samples.md) et [Azure CLI](sql-database-cli-samples.md).
 - Découvrez plus d’informations sur l’[API de gestion](sql-database-single-databases-manage.md) que vous pouvez utiliser pour configurer vos bases de données.
+- [Identifiez la bonne référence SKU d’Azure SQL Database/Managed Instance pour votre base de données locale](/sql/dma/dma-sku-recommend-sql-db/).

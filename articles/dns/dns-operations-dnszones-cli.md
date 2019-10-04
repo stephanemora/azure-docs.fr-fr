@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: victorh
-ms.openlocfilehash: 7f132c513354a87b4f1bd37db4c6c6ed8e0fd041
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: df741b34e1268c547723af87401760197d395780
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949959"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61293827"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Gérer des zones DNS à l’aide de l’interface de ligne de commande Azure
 
 > [!div class="op_single_selector"]
-> * [Portail](dns-operations-dnszones-portal.md)
+> * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Interface de ligne de commande Azure](dns-operations-dnszones-cli.md)
 
@@ -68,8 +68,8 @@ Parmi vos abonnements Azure, choisissez celui que vous souhaitez utiliser.
 az account set --subscription "subscription name"
 ```
 
-### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Facultatif : pour installer/utiliser la fonctionnalité Azure DNS Private Zones (préversion publique)
-La fonctionnalité Azure DNS Private Zones est proposée dans la préversion publique via une extension d’Azure CLI. Installer l’extension d’Azure CLI « dns » 
+### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>Facultatif : Pour installer/utiliser la fonctionnalité des zones DNS privées Azure (version préliminaire publique)
+La fonctionnalité des zones DNS privées Azure est proposée dans la version préliminaire publique via une extension Azure CLI. Installer l’extension d’Azure CLI « dns » 
 ```
 az extension add --name dns
 ``` 
@@ -86,7 +86,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Obtenir de l’aide
 
-Toutes les commandes Azure CLI liées à Azure DNS commencent par `az network dns`. Une aide est disponible pour chaque commande avec l’option `--help` (forme abrégée : `-h`).  Par exemple : 
+Toutes les commandes Azure CLI liées à Azure DNS commencent par `az network dns`. Une aide est disponible pour chaque commande avec l’option `--help` (forme abrégée : `-h`).  Par exemple :
 
 ```azurecli
 az network dns --help

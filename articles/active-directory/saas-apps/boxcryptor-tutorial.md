@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Boxcryptor | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Boxcryptor | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Boxcryptor.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc04a307779b47b50cd16a81c0566b72bafab95
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 384a0d1161197bbe4d4335e27b72ed50755980f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860553"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106058"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>Tutoriel : Intégration d’Azure Active Directory à Boxcryptor
+# <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>Didacticiel : Intégration d’Azure Active Directory à Boxcryptor
 
 Dans ce didacticiel, vous allez apprendre à intégrer Boxcryptor à Azure Active Directory (Azure AD).
 L’intégration de Boxcryptor dans Azure AD vous offre les avantages suivants :
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Boxcryptor avec Azure AD, vous devez ajouter
 
 **Pour ajouter Boxcryptor depuis la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Boxcryptor, effectuez 
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL : `https://www.boxcryptor.com/app`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez la valeur : `boxcryptor`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez la valeur : `boxcryptor`
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -146,7 +146,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

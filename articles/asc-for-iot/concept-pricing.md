@@ -1,90 +1,89 @@
 ---
-title: Comprendre Azure Security Center pour IoT coûte Preview | Microsoft Docs
-description: En savoir plus sur les coûts associés à Azure Security Center pour IoT et comment vous pouvez les contrôler.
+title: Comprendre les coûts d’Azure Security Center pour IoT | Microsoft Docs
+description: En savoir plus sur les coûts associés à Azure Security Center pour IoT et la manière dont vous pouvez les contrôler.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: ef839708-4574-4a40-bc45-07005f8e9daf
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862707"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933806"
 ---
 # <a name="pricing-and-associated-costs"></a>Tarifs et coûts associés
 
-> [!IMPORTANT]
-> Azure Security Center pour IoT est disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Cet article explique Azure Security Center (ASC) pour le modèle de tarification IoT, récapitule tous les coûts associés et explique comment les gérer.
+Cet article explique le modèle de tarification d’Azure Security Center (ASC) pour IoT, récapitule tous les coûts associés et explique comment les gérer.
 
 ## <a name="pricing"></a>Tarifs
 
-L’ASC pour IoT, modèle de tarification se compose de deux parties et est facturée une fois un IoT Hub [activé](quickstart-onboard-iot-hub.md) dans ASC pour IoT :
+Le modèle de tarification Azure Security Center pour IoT se compose de deux parties et est facturé une fois qu’un IoT Hub est [activé](quickstart-onboard-iot-hub.md) dans Azure Security Center pour IoT :
 
-- Coût par appareil - fonctionnalités de sécurité intégrées basées sur l’analyse des journaux de IoT Hub.
+- Coût par appareil : fonctionnalités de sécurité intégrées basées sur l’analyse des journaux IoT Hub.
 
-- Coût par message - les capacités améliorées de sécurité basées sur les messages de sécurité à partir d’appareils IoT Edge ou feuille.
+- Coût par message : fonctionnalités de sécurité améliorées basées sur les messages de sécurité à partir d’appareils IoT Edge ou leaf.
 
   >[!Note]
-  > Messages de sécurité entraîne également la consommation de quota sur IoT Hub.
+  > Les messages de sécurité entraînent également une consommation du quota sur IoT Hub.
 
-Pour plus d’informations, consultez [tarification de Security Center](https://azure.microsoft.com/en-us/pricing/details/security-center/).
+Pour plus d’informations, consultez la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Coûts associés
 
-ASC pour IoT a deux types de coûts associés, qui ne font pas partie de la tarification directe :
+Deux types de coûts, qui ne font pas partie de la tarification directe, sont associés à Azure Security Center pour IoT :
 
-- Consommation de quota de IoT Hub
+- Consommation de quota IoT Hub
 
-- Les coûts de stockage Analytique de journal
+- Coûts de stockage Log Analytics
 
-Vous pouvez réduire les coûts associés en n’optant pas certaines fonctionnalités, en modifiant vos paramètres.
+Vous pouvez réduire les coûts associés en désactivant certaines fonctionnalités, en modifiant vos paramètres.
 
-Pour modifier vos paramètres :
+Pour changer vos paramètres :
 
 1. Ouvrez IoT Hub.
 
-2. Sous **sécurité**, cliquez sur **vue d’ensemble**.
+2. Sous **Sécurité**, cliquez sur **Vue d’ensemble**.
 
 3. Cliquez sur **Settings**.
 
-Le tableau suivant fournit un récapitulatif des coûts associés et les implications de chaque option.
+Le tableau suivant fournit un récapitulatif des coûts associés et des implications de chaque option.
 
 |     | Usage | Commentaire |
 | --- | --- | --- |
-| **Consommation de quota de IoT Hub** |  |
-| [Exporter l’appareil](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) travail (exportation de représentation) | 1 par jour | Désactiver _collection de métadonnées de représentations réussies_ |
-| **Stockage d’Analytique de journal** |  |
-| Alertes et des recommandations de l’appareil| Recommandation de sécurité et les alertes générées par le service | Non facultatif |
-| Données de sécurité brute| Données de sécurité brute à partir d’appareils IoT, collectées par les agents de sécurité | Désactiver _stocker les événements de sécurité de périphérique brut_ |
+| **Consommation de quota IoT Hub** |  |
+| Travail [Exporter l’appareil](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) (exportation de représentation) | 1 par jour | Désactiver la _collection de métadonnées de représentations_ |
+| **Stockage Log Analytics** |  |
+| Alertes et recommandations de l’appareil| Alertes et recommandations de sécurité générées par le service | Obligatoire |
+| Données de sécurité brutes| Données de sécurité brutes des appareils IoT, collectées par des agents de sécurité | Désactiver le _stockage d’événements bruts de sécurité d’appareil_ |
+|
 
 >[!Important]
-> Opt-out a des conséquences importantes pour les fonctionnalités de sécurité disponibles.
+> La désactivation a des implications graves pour la disponibilité des fonctionnalités de sécurité Azure Security Center pour IoT. 
   
 | Désactiver | Implications |
 | --- | --- |
-| _Collection de métadonnées de représentation_ | Désactiver [alertes personnalisées](quickstart-create-custom-alerts.md) |
+| _Collection de métadonnées de représentations_ | Désactiver les [alertes personnalisées](quickstart-create-custom-alerts.md) |
 | | Désactiver les recommandations de manifeste IoT Edge |
-| | Désactiver les alertes et les recommandations basée sur l’identité d’appareil |
-| _Événements de sécurité de périphérique brut Store_ | Plus d’informations sur les recommandations de périphérique du système d’exploitation de base ne sont pas disponibles |
-| | Détails sur [alerte](concept-security-alerts.md) et [recommandation](concept-recommendations.md) enquêtes ne sont pas disponibles |
+| | Désactiver les alertes et les recommandations basées sur l’identité d’appareil |
+| _Stocker les événements bruts de sécurité d’appareil_ | Les détails des recommandations de base du système d’exploitation d’appareil ne sont pas disponibles |
+| | Les détails sur les enquêtes relatives à [l’alerte](concept-security-alerts.md) et à la [recommandation](concept-recommendations.md) ne sont pas disponibles |
+|
 
 
 ## <a name="see-also"></a>Voir aussi
 
-- Accès votre [les données de sécurité brute](how-to-security-data-access.md)
-- [Examiner un appareil](how-to-investigate-device.md)
-- Comprendre et Explorer [recommandations de sécurité](concept-recommendations.md)
-- Comprendre et Explorer [alertes de sécurité](concept-security-alerts.md)
+- Accéder à vos [données de sécurité brutes](how-to-security-data-access.md)
+- [Investiguer un appareil](how-to-investigate-device.md)
+- Comprendre et explorer les [recommandations de sécurité](concept-recommendations.md)
+- Comprendre et explorer les [alertes de sécurité](concept-security-alerts.md)

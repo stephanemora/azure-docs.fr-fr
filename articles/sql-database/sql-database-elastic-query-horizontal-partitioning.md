@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 3b2b472407175df307c569704d4c7611737c4ea1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1416cbdc29d355e2ed83737140b46306de734127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040368"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568579"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Création de rapports sur des bases de données cloud mises à l’échelle (version préliminaire)
 
@@ -36,7 +35,7 @@ Pour les bases de données non partitionnées, consultez [Interroger plusieurs b
 * L’utilisateur doit posséder l’autorisation ALTER ANY EXTERNAL DATA SOURCE. Cette autorisation est incluse dans l’autorisation ALTER DATABASE.
 * Les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires pour faire référence à la source de données sous-jacente.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Ces instructions créent une représentation des métadonnées de votre couche de données partitionnées dans la base de données de requête élastique.
 
@@ -55,7 +54,7 @@ Les informations d'identification sont utilisées par la requête élastique pou
     [;]
 
 > [!NOTE]
-> Vérifiez que *« \<username\> »* ne contient pas le suffixe *"\@servername"*.
+> Vérifiez que *« \<username\> »* ne contient pas le suffixe *"\@servername"* .
 
 ## <a name="12-create-external-data-sources"></a>1.2 Créer des sources de données externes
 
@@ -143,7 +142,7 @@ Les clauses SCHEMA\_NAME et OBJECT\_NAME mappent la définition de table externe
 
 La clause DISTRIBUTION spécifie la distribution des données utilisée pour cette table. Le processeur de requêtes utilise les informations fournies dans la clause DISTRIBUTION pour créer les plans de requête les plus efficaces.
 
-1. **SHARDED** signifie que les données sont partitionnées horizontalement entre les bases de données. La clé de partitionnement pour la distribution des données figure dans le paramètre **<nom_colonne_partitionnement>**.
+1. **SHARDED** signifie que les données sont partitionnées horizontalement entre les bases de données. La clé de partitionnement pour la distribution des données figure dans le paramètre **<nom_colonne_partitionnement>** .
 2. **REPLICATED** signifie que des copies identiques de la table sont présentes sur chaque base de données. La responsabilité de vous assurer que les réplicas sont identiques d’une base de données à l’autre vous incombe.
 3. **ROUND\_ROBIN** signifie que la table est partitionnée horizontalement à l’aide d’une méthode de distribution liée à l’application.
 

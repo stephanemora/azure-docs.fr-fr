@@ -8,18 +8,19 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: bae180e2ceae6fe0768a5f7951c18dc5147870fa
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: c39db870e44d4e810817b70e2793b8805088180e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545244"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70932543"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
+> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.JS](sql-api-sdk-node.md)
 > * [Java asynchrone](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
@@ -27,32 +28,54 @@ ms.locfileid: "59545244"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Exécuteur en bloc – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**Documentation de l’API**|[Documentation de référence sur l’API .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**Exemples**|[Exemples de code .NET](sql-api-dotnet-samples.md)|
-|**Prise en main**|[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](sql-api-dotnet-core-get-started-preview.md)|
+|**Prise en main**|[Prise en main de .NET Azure Cosmos DB](sql-api-sdk-dotnet.md)|
 |**Didacticiel d’application web**|[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Infrastructure actuellement prise en charge**|[.NET Standard 1.6 et .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Notes de publication
 
-Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la parité des fonctions avec la dernière version du [kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-sdk-dotnet.md).
+> [!NOTE]
+> Si vous utilisez .NET Core, consultez la dernière version 3. x du [SDK .NET](sql-api-sdk-dotnet-standard.md), qui cible .NET Standard. 
 
-### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
-* Préversion 1 de la [version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) du kit SDK .NET pour la préversion publique.
-* .NET Standard cible, prenant en charge .NET framework 4.6.1+ et .NET Core 2.0+
-* Nouveau modèle d’objet, avec le CosmosClient de niveau supérieur et les méthodes réparties entre les classes CosmosDatabases, CosmosContainers et CosmosItems appropriées.
-* Prise en charge des flux.
-* Mise à jour de CosmosResponseMessage à partir du serveur pour renvoyer le code d’état, et levée d’une seule exception si aucune réponse n’est retournée.
+### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
 
+* Ajout de PortReusePolicy à ConnectionPolicy
+* Correction du problème TypeLoadException pour ntdll!RtlGetVersion quand le kit SDK est utilisé dans une application UWP
+
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* La version System.Net.Http du Kit de développement logiciel (SDK) correspond désormais à celle définie dans le package NuGet.
+* Les demandes d’écriture sont autorisées à basculer vers une autre région en cas de défaillance de la région d’origine.
+* Une stratégie de nouvelles tentatives dans une session a été ajoutée pour une requête d’écriture.
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+
+* La condition de concurrence de traçage a été corrigée pour les requêtes ayant généré des pages vides
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+
+* Augmentation de taille de précision décimale pour les requêtes LINQ.
+* Ajout de nouvelles classes CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType et PartitionKeyDefinitionVersion
+* Ajout de TimeToLivePropertyPath à DocumentCollection
+* Ajout de CompositeIndexes et SpatialIndexes à IndexPolicy
+* Ajout de Version à PartitionKeyDefinition
+* Ajout de None à PartitionKey
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+
+ * Ajout de IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection et MaxTcpConnectionsPerEndpoint à ConnectionPolicy.
+ 
 ### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
 
-* Améliorations des Diagnostics
+* Amélioration des diagnostics
 
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
 
@@ -214,7 +237,7 @@ Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la pari
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
-* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](how-to-sql-query.md#Aggregates).
+* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](sql-query-aggregates.md).
 * Débit minimal réduit sur les collections partitionnées de 10 100 unités de demande/s à 2 500 unités de demande/s.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -234,11 +257,28 @@ La version préliminaire du kit de développement logiciel (SDK) .NET Core Azure
 Si vous avez des questions liées à ce kit SDK, postez sur [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb) ou signalez un problème sur le dépôt [GitHub](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
+Microsoft envoie une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
+
+Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible. 
+
+Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
+
+> [!WARNING]
+> Toutes les versions **1.x** du kit SDK .NET Core pour l’API SQL seront supprimées le **30 août 2020**.
+> 
+>
+<br/>
+
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [2.2.3](#2.2.3) |11 mars 2019 |--- |
-| [2.2.2](#2.2.2) |06 février 2019 |--- |
+| [2.6.0](#2.6.0) |30 août 2019 |--- |
+| [2.5.1](#2.5.1) |2 juillet 2019 |--- |
+| [2.4.1](#2.4.1) |20 juin 2019 |--- |
+| [2.4.0](#2.4.0) |5 mai 2019 |--- |
+| [2.3.0](#2.3.0) |4 avril 2019 |--- |
+| [2.2.3](#2.2.3) |11 mars 2019 |--- |
+| [2.2.2](#2.2.2) |6 février 2019 |--- |
 | [2.2.1](#2.2.1) |24 décembre 2018 |--- |
 | [2.2.0](#2.2.0) |7 décembre 2018 |--- |
 | [2.1.3](#2.1.3) |15 octobre 2018 |--- |
@@ -246,26 +286,26 @@ Si vous avez des questions liées à ce kit SDK, postez sur [StackOverflow](http
 | [2.1.1](#2.1.1) |27 septembre 2018 |--- |
 | [2.1.0](#2.1.0) |21 septembre 2018 |--- |
 | [2.0.0](#2.0.0) |07 septembre 2018 |--- |
-| [1.9.1](#1.9.1) |09 mars 2018 |--- |
-| [1.8.2](#1.8.2) |21 février 2018 |--- |
-| [1.8.1](#1.8.1) |05 février 2018 |--- |
-| [1.7.1](#1.7.1) |16 novembre 2017 |--- |
-| [1.7.0](#1.7.0) |10 novembre 2017 |--- |
-| [1.6.0](#1.6.0) |17 octobre 2017 |--- |
-| [1.5.1](#1.5.1) |2 octobre 2017 |--- |
-| [1.5.0](#1.5.0) |10 août 2017 |--- | 
-| [1.4.1](#1.4.1) |7 août 2017 |--- |
-| [1.4.0](#1.4.0) |2 août 2017 |--- |
-| [1.3.2](#1.3.2) |12 juin 2017 |--- |
-| [1.3.1](#1.3.1) |23 mai 2017 |--- |
-| [1.3.0](#1.3.0) |10 mai 2017 |--- |
-| [1.2.2](#1.2.2) |19 avril 2017 |--- |
-| [1.2.1](#1.2.1) |29 mars 2017 |--- |
-| [1.2.0](#1.2.0) |25 mars 2017 |--- |
-| [1.1.2](#1.1.2) |20 mars 2017 |--- |
-| [1.1.1](#1.1.1) |14 mars 2017 |--- |
-| [1.1.0](#1.1.0) |16 février 2017 |--- |
-| [1.0.0](#1.0.0) |21 décembre 2016 |--- |
+| [1.9.1](#1.9.1) |09 mars 2018 |30 août 2020 |
+| [1.8.2](#1.8.2) |21 février 2018 |30 août 2020 |
+| [1.8.1](#1.8.1) |05 février 2018 |30 août 2020 |
+| [1.7.1](#1.7.1) |16 novembre 2017 |30 août 2020 |
+| [1.7.0](#1.7.0) |10 novembre 2017 |30 août 2020 |
+| [1.6.0](#1.6.0) |17 octobre 2017 |30 août 2020 |
+| [1.5.1](#1.5.1) |2 octobre 2017 |30 août 2020 |
+| [1.5.0](#1.5.0) |10 août 2017 |30 août 2020 | 
+| [1.4.1](#1.4.1) |7 août 2017 |30 août 2020 |
+| [1.4.0](#1.4.0) |2 août 2017 |30 août 2020 |
+| [1.3.2](#1.3.2) |12 juin 2017 |30 août 2020 |
+| [1.3.1](#1.3.1) |23 mai 2017 |30 août 2020 |
+| [1.3.0](#1.3.0) |10 mai 2017 |30 août 2020 |
+| [1.2.2](#1.2.2) |19 avril 2017 |30 août 2020 |
+| [1.2.1](#1.2.1) |29 mars 2017 |30 août 2020 |
+| [1.2.0](#1.2.0) |25 mars 2017 |30 août 2020 |
+| [1.1.2](#1.1.2) |20 mars 2017 |30 août 2020 |
+| [1.1.1](#1.1.1) |14 mars 2017 |30 août 2020 |
+| [1.1.0](#1.1.0) |16 février 2017 |30 août 2020 |
+| [1.0.0](#1.0.0) |21 décembre 2016 |30 août 2020 |
 | [0.1.0-preview](#0.1.0-preview) |15 novembre 2016 |31 décembre 2016 |
 
 ## <a name="see-also"></a>Voir aussi

@@ -1,6 +1,6 @@
 ---
 title: Supervision des performances d’Azure SQL Database à l’aide de vues DMV | Microsoft Docs
-description: Apprenez à détecter et à diagnostiquer des problèmes de performances courants à l’aide de vues de gestion dynamique pour surveiller une base de données SQL Microsoft Azure.
+description: Apprenez à détecter et à diagnostiquer des problèmes de performances courants avec des vues de gestion dynamique permettant de superviser Microsoft Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 371632a28d22583f8b206e4d8b9d2b6b4e510ab0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563947"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881555"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Supervision des performances d’Azure SQL Database à l’aide de vues de gestion dynamique
 
-La Base de données SQL Microsoft Azure active un sous-ensemble de vues de gestion dynamique permettant de diagnostiquer des problèmes de performances qui peuvent être causés par des requêtes bloquées ou longues, des goulots d’étranglement des ressources, des plans de requête médiocres, et ainsi de suite. Cette rubrique fournit des informations sur la façon de détecter des problèmes de performances courants à l’aide des vues de gestion dynamique.
+Microsoft Azure SQL Database active un sous-ensemble de vues de gestion dynamique permettant de diagnostiquer des problèmes de performances qui peuvent être causés par des requêtes bloquées ou longues, des goulots d’étranglement des ressources, des plans de requête médiocres, et ainsi de suite. Cette rubrique fournit des informations sur la façon de détecter des problèmes de performances courants à l’aide des vues de gestion dynamique.
 
 La base de données SQL prend partiellement en charge trois catégories de vues de gestion dynamique :
 
@@ -29,7 +28,7 @@ La base de données SQL prend partiellement en charge trois catégories de vues 
 - vues de gestion dynamique liées à l’exécution ;
 - vues de gestion dynamique liées à la transaction.
 
-Pour plus d’informations sur les vues de gestion dynamique, voir [Fonctions et vues de gestion dynamique (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) dans la documentation en ligne de SQL Server.
+Pour plus d’informations sur les vues de gestion dynamique, voir [Fonctions et vues de gestion dynamique (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) dans la documentation en ligne de SQL Server. 
 
 ## <a name="permissions"></a>Autorisations
 
@@ -244,7 +243,7 @@ Pour une contention tempdb, il est courant de réduire ou réécrire le code d�
 
 - Tables temporaires
 - Variables de table
-- Paramètres de table
+- Paramètres table
 - Utilisation du magasin de version (spécifiquement associé aux transactions longues)
 - Requêtes comportant des plans de requête qui utilisent des tris, des jointures hachées et des files d’attente
 
@@ -335,7 +334,7 @@ ORDER BY start_time ASC;
 
 Si votre principal type d’attente est `RESOURCE_SEMAHPORE` et que vous n’avez pas de problème d’utilisation élevée de l’UC, vous avez peut-être un problème d’attente d’allocation de mémoire.
 
-### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Déterminer si une attente `RESOURCE_SEMAHPORE` est une attente principale
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Déterminer si une attente `RESOURCE_SEMAHPORE` est une attente principale
 
 Utilisez la requête suivante pour déterminer si une attente `RESOURCE_SEMAHPORE` est une attente principale
 
@@ -485,7 +484,7 @@ GO
 
 ## <a name="monitoring-connections"></a>Analyse des connexions
 
-La vue [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) permet de récupérer des informations sur les connexions établies avec un serveur de base de données SQL Azure spécifique et les détails de chaque connexion. En outre, la vue [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) permet de récupérer des informations sur toutes les connexions utilisateur et tâches internes actives.
+La vue [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) permet de récupérer des informations sur les connexions établies avec un serveur Azure SQL Database spécifique et les détails de chaque connexion. En outre, la vue [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) permet de récupérer des informations sur toutes les connexions utilisateur et tâches internes actives.
 La requête suivante récupère des informations sur la connexion en cours :
 
 ```sql
@@ -513,7 +512,7 @@ Vous pouvez également surveiller l’utilisation à l’aide de ces deux vues 
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 Vous pouvez utiliser la vue [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) dans chaque SQL Database. La vue **sys.dm_db_resource_stats** représente les données d’utilisation récente des ressources par rapport au niveau de service. Les pourcentages moyens d’UC, d’E/S des données, d’écritures du journal et de mémoire sont enregistrés toutes les 15 secondes et conservés pendant une heure.
 
@@ -534,7 +533,7 @@ FROM sys.dm_db_resource_stats;
 
 Pour les autres requêtes, consultez les exemples dans [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### <a name="sysresourcestats"></a>sys.resource_stats
+### <a name="sysresource_stats"></a>sys.resource_stats
 
 La vue [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) de la base de données **master** fournit des informations supplémentaires vous permettant de superviser les performances de votre base de données SQL par rapport à son niveau de service et à sa taille de calcul. Les données, qui sont collectées toutes les cinq minutes, sont conservées pendant environ 14 jours. Cette vue est utile pour une analyse historique de plus long terme sur l’utilisation des ressources par votre base de données SQL.
 
@@ -546,7 +545,7 @@ D’après les données, cette base de données présente actuellement une charg
 
 D’autres types d’applications peuvent interpréter différemment le même graphique. Par exemple, si une application essaie de traiter les données de paie chaque jour et obtient le même graphique, ce genre de modèle de « traitement par lot » peut convenir avec une taille de calcul P1. La taille de calcul P1 comprend 100 DTU, contre 200 DTU pour la taille de calcul P2. La taille de calcul P1 fournit la moitié des performances de la taille de calcul P2. Par conséquent, 50 % d’utilisation de l’UC au niveau P2 correspond à 100 % d’utilisation de l’UC au niveau de performance P1. Si l’application n’a pas de délai d’expiration, le fait qu’une tâche volumineuse s’exécute en 2 h ou 2 h 30 peut ne pas avoir d’importance à condition qu’elle soit effectuée le jour même. Une application de cette catégorie peut probablement utiliser une taille de calcul P1. Vous pouvez tirer parti du fait qu’il y a des périodes pendant la journée où l’utilisation des ressources est moindre, ce qui signifie que toute période de pointe peut déborder sur l’un des creux plus tard dans la journée. La taille de calcul P1 peut convenir pour une application de ce type (et permettre de réaliser des économies) tant que les travaux peuvent se terminer à temps chaque jour.
 
-La SQL Database Azure expose les informations sur les ressources utilisées pour chaque base de données active dans la vue **sys.resource_stats** de la base de données **master** dans chaque serveur. Les données de la table sont agrégées par intervalle de 5 minutes. Avec les niveaux de service De base, Standard et Premium, les données peuvent prendre plus de 5 minutes pour apparaître dans la table, ce qui signifie qu’elles conviennent mieux aux analyses historiques qu’aux analyses en temps réel. L’interrogation de la vue **sys.resource_stats** affiche l’historique récent d’une base de données et confirme si la réservation sélectionnée a fourni la performance souhaitée lorsque c’était nécessaire.
+Azure SQL Database expose les informations sur les ressources utilisées pour chaque base de données active dans la vue **sys.resource_stats** de la base de données **master** dans chaque serveur. Les données de la table sont agrégées par intervalle de 5 minutes. Avec les niveaux de service De base, Standard et Premium, les données peuvent prendre plus de 5 minutes pour apparaître dans la table, ce qui signifie qu’elles conviennent mieux aux analyses historiques qu’aux analyses en quasi-temps réel. L’interrogation de la vue **sys.resource_stats** affiche l’historique récent d’une base de données et confirme si la réservation sélectionnée a fourni la performance souhaitée lorsque c’était nécessaire.
 
 > [!NOTE]
 > Vous devez être connecté à la base de données **master** de votre serveur SQL Database pour interroger **sys.resource_stats** dans les exemples suivants.
@@ -707,7 +706,7 @@ L’exemple suivant renvoie des informations relatives aux cinq premières requ�
 
 ### <a name="monitoring-blocked-queries"></a>Surveillance des requêtes bloquées
 
-Des requêtes lentes ou longues peuvent contribuer à une consommation excessive de ressources et être la conséquence de requêtes bloquées. La cause du blocage peut être une conception médiocre d’application, de mauvais plans de requête, le manque d’index utiles, et ainsi de suite. La vue sys.dm_tran_locks permet d’obtenir des informations sur l’activité de verrouillage actuelle dans votre base de données SQL Azure. Pour un exemple de code, voir [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) dans la documentation en ligne de SQL Server.
+Des requêtes lentes ou longues peuvent contribuer à une consommation excessive de ressources et être la conséquence de requêtes bloquées. La cause du blocage peut être une conception médiocre d’application, de mauvais plans de requête, le manque d’index utiles, et ainsi de suite. La vue sys.dm_tran_locks permet d’obtenir des informations sur l’activité de verrouillage actuelle dans votre base de données Azure SQL. Pour un exemple de code, voir [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) dans la documentation en ligne de SQL Server.
 
 ### <a name="monitoring-query-plans"></a>Analyse des plans de requête
 

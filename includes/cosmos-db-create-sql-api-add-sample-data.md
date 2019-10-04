@@ -5,23 +5,23 @@ services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 08/07/2019
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 92b739424d1d6f0e1eb89d5993718f5c36162204
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f80efbac256871af073354f23317c447d6a85f1e
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733766"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020171"
 ---
-Vous pouvez maintenant ajouter des données à votre nouvelle collection grâce à l’Explorateur de données.
+Vous pouvez maintenant ajouter des données à votre nouveau conteneur grâce à l’Explorateur de données.
 
-1. Dans l’Explorateur de données, la nouvelle base de données apparaît dans le volet Collections. Développez la base de données **Tâches**, développez la collection **Éléments**, cliquez sur **Documents**, puis cliquez sur **Nouveaux documents**. 
+1. Dans l’**Explorateur de données**, développez la base de données **Tâches**, puis développez le conteneur **Éléments**. Sélectionnez **Éléments**, puis sélectionnez **Nouvel élément**.
 
    ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   
-2. À présent, ajoutez un document à la collection avec la structure suivante.
+2. À présent, ajoutez un document au conteneur avec la structure suivante.
 
      ```json
      {
@@ -33,8 +33,8 @@ Vous pouvez maintenant ajouter des données à votre nouvelle collection grâce 
      }
      ```
 
-3. Une fois le fichier json ajouté à l’onglet **Documents**, cliquez sur **Enregistrer**.
+3. Une fois le fichier json ajouté à l’onglet **Documents**, sélectionnez **Enregistrer**.
 
-    ![Copiez dans les données json, puis cliquez sur Enregistrer dans l’Explorateur de données du portail Azure](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-save-document.png)
+    ![Copiez les données json, puis sélectionnez Enregistrer dans l’Explorateur de données dans le portail Azure.](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-save-document.png)
 
 4.  Créez et enregistrez un document supplémentaire dans lequel vous insérez une valeur unique pour la propriété `id` et modifiez les autres propriétés selon vos besoins. Vos nouveaux documents peuvent avoir la structure de votre choix car Azure Cosmos DB n’impose aucun schéma pour vos données.

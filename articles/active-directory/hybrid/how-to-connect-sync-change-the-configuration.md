@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122975"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60244330"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronisation Azure AD Connect : modifier la configuration par défaut
 L’objectif de cet article est d’expliquer comment apporter des modifications à la configuration par défaut dans la synchronisation Azure Active Directory (Azure AD) Connect. Elle explique pas à pas la procédure pour les scénarios courants. À la fin, vous serez capable d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.
@@ -71,7 +71,7 @@ Par défaut, le [planificateur](how-to-connect-sync-feature-scheduler.md) s’ex
    ![Filtre d’étendue des règles entrantes](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
    Cette section permet de préciser à quels objets la règle s’applique. Si vous la laissez vide, la règle s’appliquera à tous les objets utilisateurs, y compris les salles de conférence, les comptes de service et d’autres objets utilisateurs non humains.
 4. Sur la page **Règles de jointure**, laissez le champ vide.
-5. Sur la page **Transformations**, définissez le **FlowType** sur **Expression**. Pour **Attribut cible**, sélectionnez **givenName**. Et, pour **Source**, entrez **PCase([givenName])**.
+5. Sur la page **Transformations**, définissez le **FlowType** sur **Expression**. Pour **Attribut cible**, sélectionnez **givenName**. Et, pour **Source**, entrez **PCase([givenName])** .
    ![Transformations des règles entrantes](./media/how-to-connect-sync-change-the-configuration/transformations.png)  
    Le moteur de synchronisation respecte la casse aussi bien pour le nom de la fonction que pour celui de l’attribut. Si vous faites une erreur de saisie, un message d’avertissement s’affiche lorsque vous ajoutez la règle. Vous pouvez enregistrer et continuer, mais vous devrez ouvrir à nouveau la règle pour la corriger.
 6. Cliquez sur **Ajouter** pour enregistrer la règle.
@@ -101,7 +101,7 @@ Ouvrez le **Service de synchronisation** dans le menu **Démarrer**. Les étapes
    3. Utilisez **l’Étendue** pour trouver l’objet que vous souhaitez utiliser dans le but de tester la modification. Sélectionnez l’objet et cliquez sur **Aperçu**. 
    4. Sur le nouvel écran, sélectionnez **Aperçu Validation**.  
    ![Commit preview](./media/how-to-connect-sync-change-the-configuration/commitpreview.png)  
-    La modification est maintenant validée dans le métaverse.
+   La modification est maintenant validée dans le métaverse.
 
 **Afficher l’objet dans le métaverse**  
 
@@ -119,7 +119,7 @@ Dans la section précédente, nous avons vu comment apporter des modifications �
 ### <a name="use-an-attribute-other-than-the-default"></a>Utiliser un attribut autre que l’attribut par défaut
 Dans ce scénario Fabrikam, il existe une forêt où l’alphabet local est utilisé pour le prénom, le nom de famille et le nom complet. La représentation sous forme de caractères latins de ces attributs est stockée dans les attributs d’extension. Pour créer la liste globale des adresses dans Azure AD et Office 365, l’organisation souhaite utiliser ces attributs.
 
-Avec une configuration par défaut, un objet de la forêt locale ressemble à ceci :   
+Avec une configuration par défaut, un objet de la forêt locale ressemble à ceci :  
 ![Flux d’attributs 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
 
 Pour créer une règle avec d’autres flux d’attributs, procédez comme suit :
@@ -135,7 +135,7 @@ Pour créer une règle avec d’autres flux d’attributs, procédez comme suit�
 7. Cliquez sur **Ajouter** pour enregistrer la règle.
 8. Accédez à **Synchronization Service Manager**. Sous **Connecteurs**, sélectionnez le connecteur auquel vous avez ajouté la règle. Sélectionnez **Exécuter**, puis **Synchronisation complète**. Une synchronisation complète recalcule tous les objets à partir des règles actives.
 
-Il s’agit du résultat obtenu pour le même objet avec cette règle personnalisée :   
+Il s’agit du résultat obtenu pour le même objet avec cette règle personnalisée :  
 ![Flux d’attributs 4](./media/how-to-connect-sync-change-the-configuration/attributeflowjp4.png)
 
 ### <a name="length-of-attributes"></a>Longueur des attributs

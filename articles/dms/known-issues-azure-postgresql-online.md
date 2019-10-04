@@ -10,30 +10,35 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: f52eb1699b980e84195ec34eb543c4523328c893
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 08/06/2019
+ms.openlocfilehash: 56758e2962adb41c9876171c89b37263a70ed0e4
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181994"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70743550"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure DB pour PostgreSQL
 
-Les sections suivantes décrivent les problèmes connus et limitations associés aux migrations en ligne de PostgreSQL vers Azure Database pour PostgreSQL. 
+Les sections suivantes décrivent les problèmes connus et limitations associés aux migrations en ligne de PostgreSQL vers Azure Database pour PostgreSQL.
 
 ## <a name="online-migration-configuration"></a>Configuration d’une migration en ligne
+
 - Le serveur PostgreSQL source doit exécuter la version 9.5.11, 9.6.7 ou 10.3, ou une version ultérieure. Pour plus d’informations, consultez l’article [Versions de bases de données PostgreSQL prises en charge](../postgresql/concepts-supported-versions.md).
 - Seules les migrations dans la même région sont prises en charge. Par exemple, une migration PostgreSQL 9.5.11 à Azure Database pour PostgreSQL 9.6.7 n’est pas prise en charge.
-- Pour activer la réplication logique dans le fichier **postgresql.config PostgreSQL source**, définissez les paramètres suivants :
-    - **wal_level** = logique
-    - **max_replication_slots** = [nombre maximum de bases de données pour la migration] ; si vous souhaitez migrer 4 bases de données, définissez la valeur sur 4
-    - **max_wal_senders** = [nombre de bases de données exécutées simultanément] ; la valeur recommandée est 10
-- Ajouter une adresse IP d’agent DMS au fichier pg_hba.conf PostgresSQL source
-    1. Notez l’adresse IP DMS après avoir terminé l’approvisionnement d’une instance de DMS.
-    2. Ajoutez l’adresse IP dans le fichier pg_hba.conf comme indiqué :
 
-        host    all     172.16.136.18/10    md5  host    replication postgres    172.16.136.18/10    md5
+    > [!NOTE]
+    > Pour PostgreSQL version 10, DMS prend uniquement en charge la migration de la version 10.3 vers Azure Database pour PostgreSQL. Nous prévoyons très prochainement de prendre en charge des versions plus récentes de PostgreSQL.
+
+- Pour activer la réplication logique dans le fichier **postgresql.config PostgreSQL source**, définissez les paramètres suivants :
+  - **wal_level** = logique
+  - **max_replication_slots** = [nombre maximum de bases de données pour la migration] ; si vous souhaitez migrer 4 bases de données, définissez la valeur sur 4
+  - **max_wal_senders** = [nombre de bases de données exécutées simultanément] ; la valeur recommandée est 10
+- Ajouter une adresse IP d’agent DMS au fichier pg_hba.conf PostgreSQL source
+  1. Notez l’adresse IP DMS après avoir terminé l’approvisionnement d’une instance de DMS.
+  2. Ajoutez l’adresse IP dans le fichier pg_hba.conf comme indiqué :
+
+        host    all     172.16.136.18/10    md5    host    replication postgres    172.16.136.18/10    md5
 
 - L’utilisateur doit disposer de l’autorisation de super utilisateur sur le serveur hébergeant la base de données source
 - Hormis ENUM dans le schéma de base de données source, les schémas de bases de données source et cible doivent correspondre.
@@ -82,14 +87,17 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
 
 - **Limitation** : En l’absence de clé primaire sur les tables, la synchronisation continue échouera.
 
-    **Solution de contournement** : Définissez temporairement une clé primaire pour la table afin de continuer la migration. Vous pouvez supprimer la clé primaire à l’issue de la migration de données.
+    **Solution de contournement** : définissez temporairement une clé primaire pour la table afin de poursuivre la migration. Vous pouvez supprimer la clé primaire à l’issue de la migration de données.
+
+- **Limitation** : Type de données JSONB non pris en charge pour la migration.
 
 ## <a name="lob-limitations"></a>Limitations relatives aux objets LOB
+
 Les colonnes LOB (Large Object) peuvent devenir volumineuses. Pour PostgreSQL, les exemples de types de données LOB incluent XML, JSON, IMAGE, TEXTE, etc.
 
 - **Limitation** : Si des types de données LOB sont utilisés comme clés primaires, la migration échouera.
 
-    **Solution de contournement** : Remplacez la clé primaire par d’autres types de données ou par des colonnes qui ne sont pas de type LOB.
+    **Solution de contournement** : remplacez la clé primaire par d’autres types de données ou par des colonnes qui ne sont pas de type LOB.
 
 - **Limitation** : Si la longueur de la colonne LOB (Large Object) dépasse 32 Ko, les données peuvent être tronquées au niveau de la cible. Vous pouvez vérifier la longueur de la colonne LOB à l’aide de cette requête :
 
@@ -97,13 +105,14 @@ Les colonnes LOB (Large Object) peuvent devenir volumineuses. Pour PostgreSQL, l
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Solution de contournement** : Si vous disposez d’objet métier qui est supérieure à 32 Ko, contactez l’équipe d’ingénierie à [poser de Migrations de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Solution de contournement** : si vous disposez d’un objet LOB de plus de 32 Ko, contactez l’équipe d’ingénierie en cliquant ici : [Demander à l’équipe de migration de base de données Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Limitation** : Si la table contient des colonnes LOB et si aucune clé primaire n’est définie pour la table, les données de cette table peuvent ne pas être migrées.
 
     **Solution de contournement** : Définissez temporairement une clé primaire pour la table afin de continuer la migration. Vous pouvez supprimer la clé primaire à l’issue de la migration de données.
 
 ## <a name="postgresql10-workaround"></a>Solution de contournement PostgreSQL10
+
 PostgreSQL 10.x apporte différentes modifications de noms de dossiers pg_xlog, la migration ne fonctionne donc pas comme prévu. Si vous effectuez une migration depuis PostgreSQL 10.x vers Azure Database pour PostgreSQL 10.3, exécutez le script suivant sur la base de données PostgreSQL source pour créer la fonction wrapper autour des fonctions pg_xlog.
 
 ```
@@ -144,7 +153,32 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 COMMIT;
 ```
 
+## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>Limitations lors de la migration en ligne depuis AWS RDS PostgreSQL
+
+Lorsque vous essayez d’effectuer une migration en ligne depuis AWS RDS PostgreSQL vers Azure Database pour PostgreSQL, vous pouvez rencontrer les erreurs suivantes.
+
+- **Erreur** : La valeur par défaut de la colonne '{colonne}' dans la table '{table}' de la base de données '{base de données}' est différente sur les serveurs source et cible. Elle est '{valeur sur la source}' sur la source et '{valeur sur la cible}' sur la cible.
+
+  **Limitation** : Cette erreur se produit quand la valeur par défaut sur un schéma de colonne est différente entre les bases de données source et cible.
+  **Solution de contournement** : Vérifiez que le schéma sur la cible correspond au schéma sur la source. Pour en savoir plus sur la migration de schéma, reportez-vous à la [documentation sur la migration en ligne Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+
+- **Erreur** : La base de données cible '{base de données}' a '{nombre de tables}' tables alors que la base de données source '{base de données}' en a '{nombre de tables}'. Les bases de données source et cible doivent avoir le même nombre de tables.
+
+  **Limitation** : Cette erreur se produit quand le nombre de tables est différent entre les bases de données source et cible.
+  **Solution de contournement** : Vérifiez que le schéma sur la cible correspond au schéma sur la source. Pour en savoir plus sur la migration de schéma, reportez-vous à la [documentation sur la migration en ligne Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+
+- **Erreur :** La base de données source {database} est vide.
+
+  **Limitation** : Cette erreur se produit quand la base de données source est vide. Il est fort probable que vous ayez sélectionné la mauvaise base de données comme source.
+  **Solution de contournement** : Revérifiez la base de données source que vous avez sélectionnée pour la migration, puis réessayez.
+
+- **Erreur :** La base de données cible {database} est vide. Migrez le schéma.
+
+  **Limitation** : Cette erreur se produit quand il n’y a pas de schéma dans la base de données cible. Vérifiez que le schéma sur la cible correspond au schéma sur la source.
+  **Solution de contournement** : Vérifiez que le schéma sur la cible correspond au schéma sur la source. Pour en savoir plus sur la migration de schéma, reportez-vous à la [documentation sur la migration en ligne Azure PostgreSQL](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+
 ## <a name="other-limitations"></a>Autres limitations
+
 - Le nom de la base de données ne peut pas contenir un point-virgule (;).
 - Une chaîne de mot de passe contenant des accolades ouvrantes et fermantes { } n’est pas prise en charge. Cette limitation s’applique à la connexion à la base de données PostgreSQL source et à la base de données cible dans Azure Database pour PostgreSQL.
 - Une table capturée doit avoir une clé primaire. Si une table n’a pas de clé primaire, le résultat des opérations d’enregistrement DELETE et UPDATE est imprévisible.
@@ -164,7 +198,9 @@ COMMIT;
     ```
 
 - Le traitement des modifications (synchronisation continue) d’opérations TRUNCATE n’est pas pris en charge. La migration de tables partitionnées n’est pas prise en charge. Lorsqu’une table partitionnée est détectée, les événements suivants se produisent :
-    - La base de données signale une liste de tables parent et enfant.
-    - La table est créée sur la cible comme une table normale avec les mêmes propriétés que les tables sélectionnées.
-    - Si la table parent dans la base de données source a la même valeur de clé primaire que ses tables enfants, une erreur « clé en double » est renvoyée.
+
+  - La base de données signale une liste de tables parent et enfant.
+  - La table est créée sur la cible comme une table normale avec les mêmes propriétés que les tables sélectionnées.
+  - Si la table parent dans la base de données source a la même valeur de clé primaire que ses tables enfants, une erreur « clé en double » est renvoyée.
+
 - Dans DMS, le nombre de bases de données pouvant migrer dans le cadre d’une activité de migration unique est limité à quatre.

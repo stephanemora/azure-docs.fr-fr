@@ -1,32 +1,31 @@
 ---
-title: Utiliser PHP pour interroger Azure SQL Database | Microsoft Docs
-description: Explique comment utiliser PHP pour créer un programme qui se connecte à une base de données SQL Azure et pour l’interroger à l’aide d’instructions T-SQL.
+title: Utiliser PHP pour interroger une base de données Azure SQL | Microsoft Docs
+description: Explique comment utiliser PHP pour créer un programme qui se connecte à une base de données Azure SQL et pour l’interroger à l’aide d’instructions T-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.devlang: php
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 4a53d733b30c06cb48fe2a57f7be232d914dc79c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: a7da65438ffd7db6c43cf2ede7cc52378af056f1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448950"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569220"
 ---
-# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de PHP pour interroger une base de données SQL Azure
+# <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de PHP pour interroger une base de données Azure SQL
 
-Cet article explique comment utiliser [PHP](https://php.net/manual/en/intro-whatis.php) pour se connecter à une base de données SQL Azure. Vous pouvez ensuite utiliser les instructions T-SQL pour interroger des données.
+Cet article explique comment utiliser [PHP](https://php.net/manual/en/intro-whatis.php) pour se connecter à une base de données Azure SQL. Vous pouvez ensuite utiliser les instructions T-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cet exemple, vérifiez que les conditions préalables ci-dessous sont bien remplies :
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
@@ -52,7 +51,7 @@ Pour suivre cet exemple, vérifiez que les conditions préalables ci-dessous son
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données SQL Azure. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -103,7 +102,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
+- [Concevoir votre première base de données Azure SQL](sql-database-design-first-database.md)
 
 - [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/) (Pilotes PHP Microsoft pour SQL Server)
 

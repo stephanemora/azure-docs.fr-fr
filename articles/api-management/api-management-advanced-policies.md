@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 166ff5f8866fca955cbe99c5896eb509f52261f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756615"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219553"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 
@@ -39,8 +38,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   [Set request method](#SetRequestMethod) : permet de modifier la méthode HTTP d’une demande.
 -   [Set status code](#SetStatus) : permet de donner la valeur spécifiée au code d’état HTTP.
 -   [Set variable](api-management-advanced-policies.md#set-variable) : conserve une valeur dans une variable de [contexte](api-management-policy-expressions.md#ContextVariables) nommée pour permettre d’y accéder ultérieurement.
--   [Trace](#Trace) : ajoute une chaîne à la sortie de l’[inspecteur d’API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/).
--   [Wait](#Wait) : attend l’exécution des stratégies incluses [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) et [Control flow](api-management-advanced-policies.md#choose) pour continuer.
+-   [Trace](#Trace) : ajoute des traces personnalisées à la sortie [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/), aux données de télémétrie Application Insights et aux journaux de diagnostic.
+-   [Wait](#Wait) : attend l’exécution des stratégies [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey) ou [Control flow](api-management-advanced-policies.md#choose) pour continuer.
 
 ## <a name="choose"></a> Control flow
 
@@ -107,7 +106,7 @@ La deuxième stratégie de flux de contrôle se trouve dans la section outbound 
 
 #### <a name="example"></a>Exemples
 
-Cet exemple montre comment effectuer un filtrage du contenu en supprimant des éléments de données de la réponse reçue du service principal en cas d’utilisation du produit `Starter`. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 34 min 30 s. Commencez à 31 min 50 s afficher une vue d’ensemble de [le Dark Sky prévision API](https://developer.forecast.io/) utilisée pour cette démonstration.
+Cet exemple montre comment effectuer un filtrage du contenu en supprimant des éléments de données de la réponse reçue du service principal en cas d’utilisation du produit `Starter`. Pour une démonstration de la configuration et de l’utilisation de cette stratégie, consultez [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (Cloud Cover, épisode 177 : Plus de fonctionnalités de la Gestion des API avec Vlad Vinogradsky) et rendez-vous directement à 34 min 30 s. Commencez à 31 min 50 s pour voir une présentation de [l’API The Dark Sky Forecast](https://developer.forecast.io/) utilisée pour cette démonstration.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -129,15 +128,15 @@ Cet exemple montre comment effectuer un filtrage du contenu en supprimant des é
 
 | Élément   | Description                                                                                                                                                                                                                                                               | Obligatoire |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| choose    | Élément racine.                                                                                                                                                                                                                                                             | Oui      |
-| when      | Condition à utiliser pour les parties `if` ou `ifelse` de la stratégie `choose`. Si la stratégie `choose` possède plusieurs sections `when`, elles sont évaluées de façon séquentielle. Une fois la `condition` d’un élément when évaluée à `true`, aucune autre condition `when` n’est évaluée. | Oui      |
-| otherwise | Contient l’extrait de stratégie à utiliser si aucune des conditions `when` n’est évaluée à `true`.                                                                                                                                                                               | Non        |
+| choose    | Élément racine.                                                                                                                                                                                                                                                             | OUI      |
+| when      | Condition à utiliser pour les parties `if` ou `ifelse` de la stratégie `choose`. Si la stratégie `choose` possède plusieurs sections `when`, elles sont évaluées de façon séquentielle. Une fois la `condition` d’un élément when évaluée à `true`, aucune autre condition `when` n’est évaluée. | OUI      |
+| otherwise | Contient l’extrait de stratégie à utiliser si aucune des conditions `when` n’est évaluée à `true`.                                                                                                                                                                               | Non       |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut                                              | Description                                                                                               | Obligatoire |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| condition="Boolean expression &#124; Boolean constant" | Constante ou expression booléenne à évaluer lorsque la déclaration de stratégie `when` qui l’englobe est évaluée. | Oui      |
+| condition="Boolean expression &#124; Boolean constant" | Constante ou expression booléenne à évaluer lorsque la déclaration de stratégie `when` qui l’englobe est évaluée. | OUI      |
 
 ### <a name="ChooseUsage"></a> Utilisation
 
@@ -149,7 +148,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 
 ## <a name="ForwardRequest"></a> Forward request
 
-La stratégie `forward-request` transfère la demande entrante au service principal spécifié dans le [contexte](api-management-policy-expressions.md#ContextVariables) de la demande. L’URL du service principal est spécifié dans l’API [paramètres](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) et peut être modifié à l’aide de la [définir le service principal](api-management-transformation-policies.md) stratégie.
+La stratégie `forward-request` transfère la demande entrante au service principal spécifié dans le [contexte](api-management-policy-expressions.md#ContextVariables) de la demande. L’URL du service back-end est spécifiée dans les [paramètres](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) de l’API et peut être modifiée à l’aide de la stratégie [set backend service](api-management-transformation-policies.md).
 
 > [!NOTE]
 > En cas de suppression cette stratégie, la demande n’est pas transférée au service principal et les stratégies de la section outbound sont évaluées immédiatement après la réussite des stratégies de la section inbound.
@@ -164,7 +163,7 @@ La stratégie `forward-request` transfère la demande entrante au service princi
 
 #### <a name="example"></a>Exemples
 
-La stratégie de niveau API suivante transfère toutes les demandes d’API au service principal avec un intervalle de délai d’expiration de 60 secondes.
+La stratégie au niveau de l’API suivante transfère toutes les demandes d’API au service back-end avec un délai d’expiration de 60 secondes.
 
 ```xml
 <!-- api level -->
@@ -247,15 +246,15 @@ Cette stratégie au niveau de l’opération ne transmet pas de demandes au serv
 
 | Élément         | Description   | Obligatoire |
 | --------------- | ------------- | -------- |
-| forward-request | Élément racine. | Oui      |
+| forward-request | Élément racine. | OUI      |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut                               | Description                                                                                                      | Obligatoire | Default     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | La quantité de temps en secondes à attendre pour les en-têtes de réponse HTTP à retourner par le service principal avant une erreur de délai d’expiration est levée. Valeur minimale est 0 seconde. Valeurs supérieures à 240 secondes ne peut pas être honorés en tant que l’infrastructure réseau sous-jacente peuvent supprimer des connexions inactives après cette date. | Non        | Aucun |
-| follow-redirects="true &#124; false"    | Indique si les redirections à partir du service principal sont suivies par la passerelle ou renvoyées à l’appelant.      | Non        | false       |
-| buffer-request-body="true &#124; false" | Lorsque la valeur « true » demande est mis en mémoire tampon et sera réutilisée sur [de nouvelle tentative](api-management-advanced-policies.md#Retry). | Non        | false       |
+| timeout="integer"                       | Durée, en secondes, de l’attente du retour des en-têtes de réponse HTTP par le service back-end avant de déclencher une erreur de délai d’expiration. La valeur minimale est 0 seconde. Il est possible que les valeurs supérieures à 240 secondes ne soient pas prises en compte, car l’infrastructure réseau sous-jacente peut supprimer des connexions inactives après ce délai. | Non       | Aucun |
+| follow-redirects="true &#124; false"    | Indique si les redirections à partir du service principal sont suivies par la passerelle ou renvoyées à l’appelant.      | Non       | false       |
+| buffer-request-body="true &#124; false" | Quand la valeur est « true », la demande est mise en mémoire tampon et sera réutilisée lors d’une [nouvelle tentative](api-management-advanced-policies.md#Retry). | Non       | false       |
 
 ### <a name="usage"></a>Usage
 
@@ -298,14 +297,14 @@ L’exemple suivant montre comment limiter le nombre de requêtes transmises à 
 
 | Élément           | Description   | Obligatoire |
 | ----------------- | ------------- | -------- |
-| limit-concurrency | Élément racine. | Oui      |
+| limit-concurrency | Élément racine. | OUI      |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut | Description                                                                                        | Obligatoire | Default |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies. | Oui      | S.O.     |
-| max-count | Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.           | Oui      | S.O.     |
+| key       | Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies. | OUI      | N/A     |
+| max-count | Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.           | OUI      | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -351,13 +350,13 @@ Toute chaîne peut être utilisée comme valeur à consigner dans Event Hubs. Da
 
 | Élément         | Description                                                                     | Obligatoire |
 | --------------- | ------------------------------------------------------------------------------- | -------- |
-| log-to-eventhub | Élément racine. La valeur de cet élément est la chaîne à consigner dans votre Event Hub. | Oui      |
+| log-to-eventhub | Élément racine. La valeur de cet élément est la chaîne à consigner dans votre Event Hub. | OUI      |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut     | Description                                                               | Obligatoire                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| logger-id     | ID de l’Enregistreur d’événements inscrit auprès de votre service Gestion des API.         | Oui                                                                  |
+| logger-id     | ID de l’Enregistreur d’événements inscrit auprès de votre service Gestion des API.         | OUI                                                                  |
 | partition-id  | Spécifie l’index de la partition où les messages sont envoyés.             | facultatif. Cet attribut peut ne pas être utilisé si `partition-key` est utilisé. |
 | partition-key | Spécifie la valeur utilisée pour l’affectation de partitions lorsque des messages sont envoyés. | facultatif. Cet attribut peut ne pas être utilisé si `partition-id` est utilisé.  |
 
@@ -396,14 +395,14 @@ status code and media type. If no example or schema found, the content is empty.
 
 | Élément       | Description   | Obligatoire |
 | ------------- | ------------- | -------- |
-| mock-response | Élément racine. | Oui      |
+| mock-response | Élément racine. | OUI      |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut    | Description                                                                                           | Obligatoire | Default |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| status-code  | Spécifie le code d’état de réponse et permet de sélectionner l’exemple ou le schéma correspondant.                 | Non        | 200     |
-| content-type | Spécifie la valeur d’état de réponse `Content-Type` et permet de sélectionner l’exemple ou le schéma correspondant. | Non        | Aucun    |
+| status-code  | Spécifie le code d’état de réponse et permet de sélectionner l’exemple ou le schéma correspondant.                 | Non       | 200     |
+| content-type | Spécifie la valeur d’état de réponse `Content-Type` et permet de sélectionner l’exemple ou le schéma correspondant. | Non       | Aucun    |
 
 ### <a name="usage"></a>Usage
 
@@ -415,7 +414,7 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 
 ## <a name="Retry"></a> Retry
 
-Le `retry` stratégie exécute ses stratégies enfants une fois et puis retente leur exécution jusqu'à ce que la nouvelle tentative `condition` devient `false` ou réessayez `count` est épuisée.
+La stratégie `retry` exécute ses stratégies enfants une fois, puis retente leur exécution jusqu’à ce que la `condition` de la nouvelle tentative devienne `false` ou que le `count` de nouvelles tentatives soit épuisé.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
@@ -455,18 +454,18 @@ Dans l’exemple suivant, le transfert de la demande est retenté jusqu’à dix
 
 | Élément | Description                                                         | Obligatoire |
 | ------- | ------------------------------------------------------------------- | -------- |
-| retry   | Élément racine. Peut contenir n’importe quelle autre stratégie sous forme d’élément enfant. | Oui      |
+| retry   | Élément racine. Peut contenir n’importe quelle autre stratégie sous forme d’élément enfant. | OUI      |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut        | Description                                                                                                                                           | Obligatoire | Default |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| condition        | [Expression](api-management-policy-expressions.md) ou littéral booléen spécifiant si les nouvelles tentatives doivent être arrêtées (`false`) ou poursuivies (`true`).      | Oui      | S.O.     |
-| count            | Nombre positif spécifiant le nombre maximal de nouvelles tentatives à effectuer.                                                                                | Oui      | S.O.     |
-| interval         | Nombre positif en secondes spécifiant le délai d’attente entre les tentatives.                                                                 | Oui      | S.O.     |
-| max-interval     | Nombre positif en secondes spécifiant le délai d’attente maximal entre les tentatives. Il est utilisé pour implémenter un algorithme de nouvelles tentatives exponentiel. | Non        | S.O.     |
-| delta            | Nombre positif en secondes spécifiant l’incrément du délai d’attente. Il est utilisé pour implémenter les algorithmes de nouvelles tentatives linéaires et exponentiels.             | Non        | S.O.     |
-| first-fast-retry | Si la valeur `true` , la première nouvelle tentative est effectuée immédiatement.                                                                                  | Non        | `false` |
+| condition        | [Expression](api-management-policy-expressions.md) ou littéral booléen spécifiant si les nouvelles tentatives doivent être arrêtées (`false`) ou poursuivies (`true`).      | OUI      | N/A     |
+| count            | Nombre positif spécifiant le nombre maximal de nouvelles tentatives à effectuer.                                                                                | OUI      | N/A     |
+| interval         | Nombre positif en secondes spécifiant le délai d’attente entre les tentatives.                                                                 | OUI      | N/A     |
+| max-interval     | Nombre positif en secondes spécifiant le délai d’attente maximal entre les tentatives. Il est utilisé pour implémenter un algorithme de nouvelles tentatives exponentiel. | Non       | N/A     |
+| delta            | Nombre positif en secondes spécifiant l’incrément du délai d’attente. Il est utilisé pour implémenter les algorithmes de nouvelles tentatives linéaires et exponentiels.             | Non       | N/A     |
+| first-fast-retry | S’il a la valeur `true`, la première des nouvelles tentatives est effectuée immédiatement.                                                                                  | Non       | `false` |
 
 > [!NOTE]
 > Lorsque seul `interval` est spécifié, les nouvelles tentatives sont effectuées à intervalles **fixes**.
@@ -512,10 +511,10 @@ La stratégie `return-response` abandonne l’exécution du pipeline et renvoie 
 
 | Élément         | Description                                                                               | Obligatoire |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
-| return-response | Élément racine.                                                                             | Oui      |
-| set-header      | Instruction de stratégie [set-header](api-management-transformation-policies.md#SetHTTPheader). | Non        |
-| set-body        | Instruction de stratégie [set-body](api-management-transformation-policies.md#SetBody).         | Non        |
-| set-status      | Instruction de stratégie [set-status](api-management-advanced-policies.md#SetStatus).           | Non        |
+| return-response | Élément racine.                                                                             | OUI      |
+| set-header      | Instruction de stratégie [set-header](api-management-transformation-policies.md#SetHTTPheader). | Non       |
+| set-body        | Instruction de stratégie [set-body](api-management-transformation-policies.md#SetBody).         | Non       |
+| set-status      | Instruction de stratégie [set-status](api-management-advanced-policies.md#SetStatus).           | Non       |
 
 ### <a name="attributes"></a>Attributs
 
@@ -582,20 +581,20 @@ Cet exemple de stratégie montre un exemple d’utilisation de la stratégie `se
 
 | Élément                    | Description                                                                                                 | Obligatoire                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| send-one-way-request       | Élément racine.                                                                                               | Oui                             |
+| send-one-way-request       | Élément racine.                                                                                               | OUI                             |
 | url                        | URL de la demande.                                                                                     | Non si mode=copy ; sinon, oui. |
 | method                     | Méthode HTTP de la demande.                                                                            | Non si mode=copy ; sinon, oui. |
-| en-tête                     | En-tête de demande. Utilisez un élément d’en-tête pour chaque en-tête de demande.                                  | Non                               |
-| body                       | Corps de la demande.                                                                                           | Non                               |
-| authentication-certificate | [Certificat à utiliser pour l’authentification du client](api-management-authentication-policies.md#ClientCertificate) | Non                               |
+| en-tête                     | En-tête de demande. Utilisez un élément d’en-tête pour chaque en-tête de demande.                                  | Non                              |
+| body                       | Corps de la demande.                                                                                           | Non                              |
+| authentication-certificate | [Certificat à utiliser pour l’authentification du client](api-management-authentication-policies.md#ClientCertificate) | Non                              |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatoire | Default  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string" | Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Non        | Nouveau      |
-| Nom          | Spécifie le nom de l’en-tête à définir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Oui      | S.O.      |
-| exists-action | Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> -override : remplace la valeur de l’en-tête existant.<br />-skip : ne remplace pas la valeur d’en-tête existant.<br />-append : ajoute la valeur à la valeur d’en-tête existant.<br />-delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat. | Non        | override |
+| mode="string" | Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Non       | Nouveau      |
+| Nom          | Spécifie le nom de l’en-tête à définir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | OUI      | N/A      |
+| exists-action | Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat. | Non       | override |
 
 ### <a name="usage"></a>Usage
 
@@ -666,23 +665,23 @@ Cet exemple montre un moyen de vérifier un jeton de référence avec un serveur
 
 | Élément                    | Description                                                                                                 | Obligatoire                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| send-request               | Élément racine.                                                                                               | Oui                             |
+| send-request               | Élément racine.                                                                                               | OUI                             |
 | url                        | URL de la demande.                                                                                     | Non si mode=copy ; sinon, oui. |
 | method                     | Méthode HTTP de la demande.                                                                            | Non si mode=copy ; sinon, oui. |
-| en-tête                     | En-tête de demande. Utilisez un élément d’en-tête pour chaque en-tête de demande.                                  | Non                               |
-| body                       | Corps de la demande.                                                                                           | Non                               |
-| authentication-certificate | [Certificat à utiliser pour l’authentification du client](api-management-authentication-policies.md#ClientCertificate) | Non                               |
+| en-tête                     | En-tête de demande. Utilisez un élément d’en-tête pour chaque en-tête de demande.                                  | Non                              |
+| body                       | Corps de la demande.                                                                                           | Non                              |
+| authentication-certificate | [Certificat à utiliser pour l’authentification du client](api-management-authentication-policies.md#ClientCertificate) | Non                              |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatoire | Default  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="string"                   | Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Non        | Nouveau      |
-| response-variable-name="string" | Nom de la variable contextuelle qui recevra un objet Response. Si la variable n’existe pas, elle est créée après l’exécution réussie de la stratégie, et devient accessible par le biais de la collection [`context.Variable`](api-management-policy-expressions.md#ContextVariables).                                                                                                                                                                                                                                                                                                                          | Oui      | S.O.      |
-| timeout="integer"               | Délai d’expiration en secondes avant l’échec de l’appel à l’URL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Non        | 60       |
-| ignore-error                    | S’il a la valeur true et que la demande aboutit à une erreur :<br /><br /> -Si le nom de variable de réponse a été spécifié, il contiendra une valeur null.<br />-Si le nom de variable de réponse n’est pas spécifié, contexte. Demande ne sera pas mis à jour.                                                                                                                                                                                                                                                                                                                                                                                   | Non        | false    |
-| Nom                            | Spécifie le nom de l’en-tête à définir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Oui      | S.O.      |
-| exists-action                   | Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> -override : remplace la valeur de l’en-tête existant.<br />-skip : ne remplace pas la valeur d’en-tête existant.<br />-append : ajoute la valeur à la valeur d’en-tête existant.<br />-delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat. | Non        | override |
+| mode="string"                   | Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Non       | Nouveau      |
+| response-variable-name="string" | Nom de la variable contextuelle qui recevra un objet Response. Si la variable n’existe pas, elle est créée après l’exécution réussie de la stratégie, et devient accessible par le biais de la collection [`context.Variable`](api-management-policy-expressions.md#ContextVariables).                                                                                                                                                                                                                                                                                                                          | OUI      | N/A      |
+| timeout="integer"               | Délai d’expiration en secondes avant l’échec de l’appel à l’URL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Non       | 60       |
+| ignore-error                    | S’il a la valeur true et que la demande aboutit à une erreur :<br /><br /> - Si response-variable-name a été spécifié, il contiendra une valeur Null.<br />- Si response-variable-name n’est pas spécifié, context.Request ne sera pas mis à jour.                                                                                                                                                                                                                                                                                                                                                                                   | Non       | false    |
+| Nom                            | Spécifie le nom de l’en-tête à définir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | OUI      | N/A      |
+| exists-action                   | Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat. | Non       | override |
 
 ### <a name="usage"></a>Usage
 
@@ -716,15 +715,15 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 
 | Élément | Description  | Obligatoire |
 | ------- | ------------ | -------- |
-| proxy   | Élément racine | Oui      |
+| proxy   | Élément racine | OUI      |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut         | Description                                            | Obligatoire | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| url="chaîne"      | URL du proxy sous la forme http://host:port.             | Oui      | S.O.     |
-| username="chaîne" | Nom d’utilisateur à utiliser pour l’authentification auprès du proxy. | Non        | S.O.     |
-| password="chaîne" | Mot de passe à utiliser pour l’authentification auprès du proxy. | Non        | S.O.     |
+| url="chaîne"      | URL du proxy sous la forme http://host:port.             | OUI      | N/A     |
+| username="chaîne" | Nom d’utilisateur à utiliser pour l’authentification auprès du proxy. | Non       | N/A     |
+| password="chaîne" | Mot de passe à utiliser pour l’authentification auprès du proxy. | Non       | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -779,7 +778,7 @@ Cet exemple de stratégie, qui utilise la stratégie `set-method`, montre un exe
 
 | Élément    | Description                                                       | Obligatoire |
 | ---------- | ----------------------------------------------------------------- | -------- |
-| set-method | Élément racine. La valeur de l’élément spécifie la méthode HTTP. | Oui      |
+| set-method | Élément racine. La valeur de l’élément spécifie la méthode HTTP. | OUI      |
 
 ### <a name="usage"></a>Usage
 
@@ -822,14 +821,14 @@ Cet exemple montre comment renvoyer une réponse 401 si le jeton d’autorisatio
 
 | Élément    | Description   | Obligatoire |
 | ---------- | ------------- | -------- |
-| set-status | Élément racine. | Oui      |
+| set-status | Élément racine. | OUI      |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut       | Description                                                | Obligatoire | Default |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
-| code="integer"  | Code d’état HTTP à renvoyer.                            | Oui      | S.O.     |
-| reason="string" | Description du motif pour lequel le code d’état est renvoyé. | Oui      | S.O.     |
+| code="integer"  | Code d’état HTTP à renvoyer.                            | OUI      | N/A     |
+| reason="string" | Description du motif pour lequel le code d’état est renvoyé. | OUI      | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -860,14 +859,14 @@ L’exemple suivant montre une stratégie set variable dans la section inbound. 
 
 | Élément      | Description   | Obligatoire |
 | ------------ | ------------- | -------- |
-| set-variable | Élément racine. | Oui      |
+| set-variable | Élément racine. | OUI      |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut | Description                                                              | Obligatoire |
 | --------- | ------------------------------------------------------------------------ | -------- |
-| Nom      | Nom de la variable.                                                | Oui      |
-| value     | Valeur de la variable. Peut être une expression ou une valeur littérale. | Oui      |
+| Nom      | Nom de la variable.                                                | OUI      |
+| value     | Valeur de la variable. Peut être une expression ou une valeur littérale. | OUI      |
 
 ### <a name="usage"></a>Usage
 
@@ -914,29 +913,49 @@ Les expressions utilisées dans la stratégie `set-variable` doivent renvoyer un
 
 ## <a name="Trace"></a> Trace
 
-Le `trace` stratégie ajoute une chaîne à la [inspecteur d’API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) sortie. La stratégie s’exécute uniquement lorsque le traçage est déclenché, c’est-à-dire que l’en-tête de la demande `Ocp-Apim-Trace` est présent et a la valeur `true` et que l’en-tête de la demande `Ocp-Apim-Subscription-Key` est présent et contient une clé valide associée au compte Administrateur.
+La stratégie `trace` ajoute une trace personnalisée à la sortie API Inspector, aux données de télémétrie Application Insights et/ou aux journaux de diagnostic. 
+
+* La stratégie ajoute une trace personnalisée à la sortie [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) quand le suivi est déclenché, c.-à-d. que l’en-tête de demande `Ocp-Apim-Trace` est présent et a la valeur true et que l’en-tête de requête `Ocp-Apim-Subscription-Key` est présent et contient une clé valide qui autorise le suivi. 
+* La stratégie crée des données de télémétrie [Trace](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) dans Application Insights, quand l’intégration à [Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) est activée et que le niveau `severity` spécifié dans la stratégie est supérieur ou égal au niveau `verbosity` spécifié dans le paramètre du diagnostic. 
+* La stratégie ajoute une propriété dans l’entrée du journal quand les [journaux de diagnostic](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) sont activés et que le niveau de gravité spécifié dans la stratégie est supérieur ou égal au niveau de verbosité spécifié dans le paramètre du diagnostic.  
+
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
 ```xml
 
-<trace source="arbitrary string literal">
-    <!-- string expression or literal -->
+<trace source="arbitrary string literal" severity="verbose|information|error">
+    <message>String literal or expressions</message>
+    <metadata name="string literal or expressions" value="string literal or expressions"/>
 </trace>
 
+```
+
+### <a name="traceExample"></a> Exemple
+
+```xml
+<trace source="PetStore API" severity="verbose">
+    <message>@((string)context.Variables["clientConnectionID"])</message>
+    <metadata name="Operation Name" value="New-Order"/>
+</trace>
 ```
 
 ### <a name="elements"></a>Éléments
 
 | Élément | Description   | Obligatoire |
 | ------- | ------------- | -------- |
-| trace   | Élément racine. | Oui      |
+| trace   | Élément racine. | OUI      |
+| message | Chaîne ou expression à journaliser. | OUI |
+| metadata | Ajoute une propriété personnalisée aux données de télémétrie [Trace](https://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-trace-telemetry) Application Insights. | Non |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut | Description                                                                             | Obligatoire | Default |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
-| source    | Littéral chaîne significatif pour la visionneuse de trace, qui spécifie la source du message. | Oui      | S.O.     |
+| source    | Littéral chaîne significatif pour la visionneuse de trace, qui spécifie la source du message. | OUI      | N/A     |
+| severity    | Spécifie le niveau de gravité de la trace. Les valeurs autorisées sont `verbose`, `information` et `error` (de la plus petite à la plus élevée). | Non      | Détaillé     |
+| Nom    | Nom de la propriété. | OUI      | N/A     |
+| value    | Valeur de la propriété. | OUI      | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -1000,13 +1019,13 @@ Dans l’exemple suivant, deux stratégies `choose` sont les stratégies enfants
 
 | Élément | Description                                                                                                   | Obligatoire |
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
-| wait    | Élément racine. Ne peut contenir comme éléments enfants que les stratégies `send-request`, `cache-lookup-value` et `choose`. | Oui      |
+| wait    | Élément racine. Ne peut contenir comme éléments enfants que les stratégies `send-request`, `cache-lookup-value` et `choose`. | OUI      |
 
 ### <a name="attributes"></a>Attributs
 
 | Attribut | Description                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatoire | Default |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | Détermine si la stratégie `wait` attend la fin de toutes les stratégies enfants immédiates ou d’une seule. Les valeurs autorisées sont les suivantes :<br /><br /> - `all` : attend la fin de toutes les stratégies enfants immédiates.<br />-any : attend de la stratégie enfant immédiate terminer. Une fois la première stratégie enfant immédiate terminée, la stratégie `wait` se termine et l’exécution de toutes les autres stratégies enfants immédiates est arrêtée. | Non        | tout     |
+| for       | Détermine si la stratégie `wait` attend la fin de toutes les stratégies enfants immédiates ou d’une seule. Les valeurs autorisées sont les suivantes :<br /><br /> - `all` : attend la fin de toutes les stratégies enfants immédiates.<br />- any : attend la fin d’une stratégie enfant immédiate. Une fois la première stratégie enfant immédiate terminée, la stratégie `wait` se termine et l’exécution de toutes les autres stratégies enfants immédiates est arrêtée. | Non       | tout     |
 
 ### <a name="usage"></a>Usage
 

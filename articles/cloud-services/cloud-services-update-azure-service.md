@@ -2,24 +2,17 @@
 title: Mise à jour d’un service cloud | Microsoft Docs
 description: Découvrez comment mettre à jour des services cloud dans Azure. Découvrez comment mettre à jour un service cloud se poursuit pour garantir la disponibilité.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: jeconnoc
-ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917223"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945349"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Mettre à jour un service cloud
 
@@ -28,7 +21,7 @@ La mise à jour d’un service cloud, et notamment de ses rôles et du système 
 ## <a name="update-an-azure-service"></a>Mettre à jour un Service Azure
 Azure organise vos instances de rôle en regroupements logiques appelés domaines de mise à niveau (UD). Les domaines de mise à niveau (UD) sont des ensembles logiques d’instances de rôle qui sont mis à jour en tant que groupe.  Azure met à jour un domaine de mise à niveau de Service Cloud à la fois, ce qui permet aux instances présentes sur les autres domaines de mise à niveau de maintenir le trafic.
 
-Le nombre de domaines de mise à niveau par défaut est de 5. Vous pouvez spécifier un nombre différent de domaines de mise à niveau en incluant l’attribut upgradeDomainCount dans le fichier de définition du service (.csdef). Pour plus d’informations sur l’attribut upgradeDomainCount, consultez [Schéma WebRole](/previous-versions/azure/reference/gg557553(v=azure.100)) ou [Schéma WorkerRole](/previous-versions/azure/reference/gg557552(v=azure.100)).
+Le nombre de domaines de mise à niveau par défaut est de 5. Vous pouvez spécifier un nombre différent de domaines de mise à niveau en incluant l’attribut upgradeDomainCount dans le fichier de définition du service (.csdef). Pour plus d’informations sur l’attribut upgradeDomainCount, consultez [Schéma de définition Microsoft Azure Cloud Services (fichier .csdef)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
 
 Lorsque vous effectuez la mise à jour sur place d’un ou de plusieurs rôles dans votre service, Azure met à jour les ensembles d’instances de rôle en fonction du domaine de mise à niveau auquel ils appartiennent. Azure met à jour toutes les instances dans un domaine de mise à niveau donné (les arrête, les met à jour, les remet en ligne) puis passe au domaine suivant. En arrêtant uniquement les instances en cours d’exécution dans le domaine de mise à niveau en cours, Azure garantit que l’opération aura un impact minimal sur le service en cours d’exécution. Pour plus d’informations, consultez [Déroulement de la mise à niveau](#howanupgradeproceeds) plus loin dans cet article.
 
@@ -54,18 +47,18 @@ Le tableau suivant présente les modifications de service autorisées au cours d
 
 | Modifications autorisées de l’hébergement, des services et des rôles | Mise à jour sur place | Intermédiaire (échange d’adresses IP virtuelles) | Supprimer et redéployer |
 | --- | --- | --- | --- |
-| Version de système d’exploitation |Oui |OUI |Oui |
-| Niveau de confiance .NET |Oui |OUI |Oui |
-| Taille de la machine virtuelle<sup>1</sup> |Oui<sup>2</sup> |Oui |Oui |
-| Paramètres de stockage locaux |Augmentation uniquement<sup>2</sup> |Oui |Oui |
-| Ajouter et supprimer les rôles dans un service |Oui |OUI |Oui |
-| Nombre d’instances d’un rôle particulier |Oui |OUI |Oui |
-| Nombre ou type de points de terminaison pour un service |Oui<sup>2</sup> |Non  |Oui |
-| Noms et valeurs de paramètres de configuration |Oui |OUI |Oui |
-| Valeurs (et non noms) des paramètres de configuration |Oui |OUI |Oui |
-| Ajouter de nouveau certificats |Oui |OUI |Oui |
-| Modifier les certificats existants |Oui |OUI |Oui |
-| Déployer un nouveau code |Oui |OUI |Oui |
+| Version de système d’exploitation |OUI |OUI |OUI |
+| Niveau de confiance .NET |OUI |OUI |OUI |
+| Taille de la machine virtuelle<sup>1</sup> |Oui<sup>2</sup> |OUI |OUI |
+| Paramètres de stockage locaux |Augmentation uniquement<sup>2</sup> |OUI |OUI |
+| Ajouter et supprimer les rôles dans un service |OUI |OUI |OUI |
+| Nombre d’instances d’un rôle particulier |OUI |OUI |OUI |
+| Nombre ou type de points de terminaison pour un service |Oui<sup>2</sup> |Non |OUI |
+| Noms et valeurs de paramètres de configuration |OUI |OUI |OUI |
+| Valeurs (et non noms) des paramètres de configuration |OUI |OUI |OUI |
+| Ajouter de nouveau certificats |OUI |OUI |OUI |
+| Modifier les certificats existants |OUI |OUI |OUI |
+| Déployer un nouveau code |OUI |OUI |OUI |
 
 <sup>1</sup> Modification de la taille limitée au sous-ensemble des tailles disponibles pour le service cloud.
 
@@ -141,7 +134,7 @@ Cette fonction est assurée par les fonctionnalités suivantes :
   1. L’élément Verrouillé permet de détecter si une opération de mutation peut être appelée sur un déploiement donné.
   2. L’élément RollbackAllowed vous permet de détecter lorsque l’opération de [restauration de mise à jour ou de mise à niveau](/previous-versions/azure/reference/hh403977(v=azure.100)) peut être appelée sur un déploiement donné.
 
-  Pour effectuer une restauration, il est inutile de vérifier les éléments Verrouillés et RollbackAllowed. Il suffit de vérifier que RollbackAllowed est défini sur true. Ces éléments sont retournés uniquement si ces méthodes sont appelées à l’aide de l’en-tête de demande défini sur « x-ms-version : 2011-10-01 » ou une version ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](/previous-versions/azure/gg592580(v=azure.100)).
+  Pour effectuer une restauration, il est inutile de vérifier les éléments Verrouillés et RollbackAllowed. Il suffit de vérifier que RollbackAllowed est défini sur true. Ces éléments sont retournés uniquement si ces méthodes sont appelées avec l’en-tête de requête défini sur « x-ms-version : 2011-10-01 » ou version ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](/previous-versions/azure/gg592580(v=azure.100)).
 
 Dans certaines situations, la restauration d’une mise à jour ou d’une mise à niveau n’est pas prise en charge, notamment les suivantes :
 
@@ -162,11 +155,11 @@ Une fois que le contrôleur de structure Azure a reçu la demande initiale de mi
 
 Le lancement d’une deuxième opération de mise à jour pendant que la première mise à jour est en cours permet d’effectuer une opération similaire à l’opération de restauration. Si la deuxième mise à jour est en mode automatique, le premier domaine de mise à niveau sera immédiatement, mis à niveau, ce qui pourra éventuellement provoquer la mise hors ligne de plusieurs domaines de mise à niveau hors ligne au même moment dans le temps.
 
-Les opérations de mutation sont les suivantes : [Modifier la Configuration de déploiement](/previous-versions/azure/reference/ee460809(v=azure.100)), [mise à niveau de déploiement](/previous-versions/azure/reference/ee460793(v=azure.100)), [mettre à jour d’état du déploiement](/previous-versions/azure/reference/ee460808(v=azure.100)), [supprimer le déploiement](/previous-versions/azure/reference/ee460815(v=azure.100)), et [Rollback Mettre à jour ou de mettre à niveau](/previous-versions/azure/reference/hh403977(v=azure.100)).
+Les opérations de mutation sont les suivantes : [Modification de la configuration du déploiement](/previous-versions/azure/reference/ee460809(v=azure.100)), [Mise à niveau du déploiement](/previous-versions/azure/reference/ee460793(v=azure.100)), [Mise à jour de l’état du déploiement](/previous-versions/azure/reference/ee460808(v=azure.100)), [Suppression du déploiement](/previous-versions/azure/reference/ee460815(v=azure.100)) et [Restauration de mise à jour ou de mise à niveau](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
 Deux opérations, [Obtention du déploiement](/previous-versions/azure/reference/ee460804(v=azure.100)) et [Obtention des propriétés de service cloud](/previous-versions/azure/reference/ee460806(v=azure.100)), retournent l’indicateur Verrouillé qui peut être examiné pour déterminer si une opération de mutation peut être appelée sur un déploiement donné.
 
-Pour appeler la version de ces méthodes qui renvoie un indicateur verrouillé, vous devez définir l’en-tête de demande sur « x-ms-version : 2011-10-01 » ou une version ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](/previous-versions/azure/gg592580(v=azure.100)).
+Pour appeler la version de ces méthodes qui retourne un indicateur Verrouillé, vous devez définir un en-tête de requête « x-ms-version: 2011-10-01 » ou version ultérieure. Pour plus d’informations sur les en-têtes de contrôle de version, consultez [Contrôle de version de gestion de service](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 

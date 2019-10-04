@@ -4,21 +4,21 @@ description: Cet article fournit des informations sur la résolution des problè
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a6610b5cb3f01fc70b1737fc4492e09d9a7637b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: beb0b89bdbf143c89a83c0813313a8bbda7235d4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507332"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564848"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Résolution des problèmes avec la fonction Suivi des modifications et inventaire
 
-## <a name="windows"></a> Windows
+## <a name="windows"></a>Windows
 
 ### <a name="records-not-showing-windows"></a>Scénario : Les enregistrements Change Tracking n’apparaissent pas pour les ordinateurs Windows
 
@@ -51,7 +51,7 @@ Si ces solutions ne résolvent pas votre problème et que vous contactez le supp
 Sur l’ordinateur agent, accédez à `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` et exécutez les commandes suivantes :
 
 ```cmd
-set stop healthservice
+net stop healthservice
 StopTracing.cmd
 StartTracing.cmd VER
 net start healthservice

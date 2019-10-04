@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 1b86bc015b187fe75e79ba04df60a6bc5257a9b8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: f101a8885d9bf67e8bd589d7cf932b0d35cdfe32
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994012"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744497"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Supervision continue avec Azure Monitor
 
@@ -34,7 +34,7 @@ Afin d’obtenir l’observabilité sur l’ensemble de votre environnement, vou
 - [Azure DevOps Projects](../devops-project/overview.md) vous offre une expérience simplifiée avec votre code et dépôt Git existants, mais vous pouvez choisir d’utiliser un des exemples d’application pour créer un pipeline d’intégration continue (CI) et de déploiement continu (CD) vers Azure.
 - La [supervision continue dans votre pipeline de mise en production DevOps](../azure-monitor/app/continuous-monitoring.md) vous permet de réguler ou de restaurer votre déploiement en fonction des données de supervision.
 - [Status Monitor](../azure-monitor/app/monitor-performance-live-website-now.md) vous permet d’instrumenter une application .NET dynamique sur Windows avec Azure Application Insights, sans avoir besoin de modifier ou de redéployer votre code.
-- Si vous avez accès au code de votre application, activez la supervision complète avec [Application Insights](../azure-monitor/app/app-insights-overview.md) en installant le kit SDK Azure Monitor Application Insights pour [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md) ou d’[autres langages de programmation](../azure-monitor/app/platforms.md). Vous pouvez alors spécifier des événements, métriques ou vues de page personnalisés qui correspondent à votre application et à votre activité.
+- Si vous avez accès au code de votre application, activez la supervision complète avec [Application Insights](../azure-monitor/app/app-insights-overview.md) en installant le kit SDK Azure Monitor Application Insights pour [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/app/java-get-started.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md) ou d’[autres langages de programmation](../azure-monitor/app/platforms.md). Vous pouvez alors spécifier des événements, métriques ou vues de page personnalisés qui correspondent à votre application et à votre activité.
 
 
 

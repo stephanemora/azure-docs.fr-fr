@@ -1,26 +1,25 @@
 ---
 title: Utiliser Azure Functions pour effectuer une tâche de nettoyage de base de données | Microsoft Docs
-description: Utilisez Azure Functions pour planifier une tâche qui se connecte à Azure SQL Database pour nettoyer des lignes périodiquement.
+description: Utilisez Azure Functions pour planifier une tâche qui se connecte à Azure SQL Database pour nettoyer des lignes régulièrement.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: MT
+ms.openlocfilehash: 0388c712d6f44755e768e491944df1a9451653b7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608577"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085251"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 
-Cet article vous montre comment utiliser Azure Functions pour créer un travail planifié qui se connecte à une instance Azure SQL Database. Le code de fonction nettoie les lignes d’une table de la base de données. La fonction C# est créée selon un modèle de déclencheur de minuteur prédéfini dans Visual Studio 2017. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre d’application dans l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. 
+Cet article vous montre comment utiliser Azure Functions pour créer un travail planifié qui se connecte à une instance Azure SQL Database. Le code de fonction nettoie les lignes d’une table de la base de données. La fonction C# est créée selon un modèle de déclencheur de minuteur prédéfini dans Visual Studio 2019. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre d’application dans l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. 
 
 Si c’est la première fois que vous utilisez Azure Functions pour C#, vous devez consulter les [Informations de référence pour les développeurs C# sur Azure Functions](functions-dotnet-class-library.md).
 
@@ -28,13 +27,13 @@ Si c’est la première fois que vous utilisez Azure Functions pour C#, vous dev
 
 + Suivez les étapes de l’article [Créer votre première fonction à l’aide de Visual Studio](functions-create-your-first-function-visual-studio.md) pour créer une application de fonction locale qui cible le runtime version 2.x. Vous devez également avoir publié votre projet sur une application de fonction dans Azure.
 
-+ Cette article montre une commande Transact-SQL qui exécute une opération de nettoyage en bloc dans la table nommée **SalesOrderHeader** de l’exemple de base de données AdventureWorksLT. Pour créer l’exemple de base de données AdventureWorksLT, effectuez les étapes de l’article [Création d’une base de données SQL Azure dans le portail Azure](../sql-database/sql-database-get-started-portal.md).
++ Cette article montre une commande Transact-SQL qui exécute une opération de nettoyage en bloc dans la table nommée **SalesOrderHeader** de l’exemple de base de données AdventureWorksLT. Pour créer l’exemple de base de données AdventureWorksLT, effectuez les étapes de l’article [Création d’une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started-portal.md).
 
 + Vous devez ajouter une [règle de pare-feu au niveau du serveur](../sql-database/sql-database-get-started-portal-firewall.md) pour l’adresse IP publique de l’ordinateur que vous utilisez pour ce guide de démarrage rapide. Cette règle vous permet d’accéder à l’instance de base de données SQL à partir de votre ordinateur local.  
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
 
-Vous devez obtenir la chaîne de connexion pour la base de données que vous avez créée quand vous avez effectué les étapes de [Création d’une base de données SQL Azure dans le portail Azure](../sql-database/sql-database-get-started-portal.md).
+Vous devez obtenir la chaîne de connexion pour la base de données que vous avez créée quand vous avez effectué les étapes de [Créer une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started-portal.md).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -64,7 +63,7 @@ Vous devez avoir publié votre application sur Azure. Si ce n’est déjà fait,
 
 Vous devez ajouter le package NuGet qui contient la bibliothèque SqlClient. Cette bibliothèque d’accès aux données est nécessaire pour la connexion à une base de données SQL.
 
-1. Ouvrez votre projet d’application de fonction locale dans Visual Studio 2017.
+1. Ouvrez votre projet d’application de fonction locale dans Visual Studio 2019.
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet d’application de fonction, puis choisissez **Gérer les packages NuGet**.
 
@@ -127,7 +126,7 @@ Vous devez ajouter le package NuGet qui contient la bibliothèque SqlClient. Cet
 
     À la première exécution, vous devez mettre à jour 32 lignes de données. Les exécutions suivantes ne mettent à jour aucune ligne de données, sauf si vous apportez aux données de la table SalesOrderHeader des modifications qui entraînent la sélection de lignes supplémentaires par l’instruction `UPDATE`.
 
-Si vous envisagez de [publier cette fonction](functions-develop-vs.md#publish-to-azure), pensez à délaisser l’attribut `TimerTrigger` au profit d’une [planification cron](functions-bindings-timer.md#cron-expressions) plus raisonnable qu’une exécution toutes les 15 secondes.
+Si vous envisagez de [publier cette fonction](functions-develop-vs.md#publish-to-azure), pensez à délaisser l’attribut `TimerTrigger` au profit d’une [planification cron](functions-bindings-timer.md#ncrontab-expressions) plus raisonnable qu’une exécution toutes les 15 secondes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -139,6 +138,6 @@ Si vous envisagez de [publier cette fonction](functions-develop-vs.md#publish-to
 Pour plus d’informations sur Functions, consultez les articles suivants :
 
 + [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
-   Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
+  Référence du programmeur pour le codage de fonctions et la définition de déclencheurs et de liaisons.
 + [Test d’Azure Functions](functions-test-a-function.md)  
-   décrit plusieurs outils et techniques permettant de tester vos fonctions.  
+  décrit plusieurs outils et techniques permettant de tester vos fonctions.  

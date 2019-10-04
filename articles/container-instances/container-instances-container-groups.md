@@ -1,20 +1,20 @@
 ---
 title: Groupes de conteneurs Azure Container Instances
-description: Comprendre comment les conteneurs multiples groupes Professionnel dans Azure Container Instances
+description: Découvrez comment fonctionnent les groupes à plusieurs conteneurs dans Azure Container Instances
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: cc9b11ba5fe0cd015d0879f28b9e85fb46b11955
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784991"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178579"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Groupes de conteneurs dans Azure Container Instances
 
@@ -22,7 +22,7 @@ La ressource de niveau supérieur dans Azure Container Instances est un *groupe 
 
 ## <a name="how-a-container-group-works"></a>Fonctionnement d’un groupe de conteneurs
 
-Un groupe de conteneurs est une collection de conteneurs qui sont planifiés sur le même ordinateur hôte. Les conteneurs dans un groupe de conteneurs partagent un cycle de vie, de ressources, de réseau local et de volumes de stockage. Il est semblable dans son concept à un *pod* dans [Kubernetes][kubernetes-pod].
+Un groupe de conteneurs est une collection de conteneurs qui sont planifiés sur le même ordinateur hôte. Les conteneurs d’un groupe de conteneurs partagent un cycle de vie, des ressources, un réseau local et les volumes de stockage. Il s’apparente conceptuellement à un *pod* dans [Kubernetes][kubernetes-pod].
 
 Le diagramme suivant montre un exemple de groupe de conteneurs incluant plusieurs conteneurs :
 
@@ -37,41 +37,43 @@ Le groupe de conteneurs donné en exemple :
 * Inclut deux partages de fichiers Azure en tant que montages de volume, et chaque conteneur monte l’un des partages localement.
 
 > [!NOTE]
-> Groupes de plusieurs conteneurs actuellement en charge uniquement les conteneurs Linux. Pour les conteneurs Windows, Azure Container Instances prend uniquement en charge le déploiement d’une instance unique. Bien que nous nous efforçons de proposer toutes ces fonctionnalités pour les conteneurs Windows, vous pouvez trouver les différences actuelles de la plateforme dans le service [vue d’ensemble](container-instances-overview.md#linux-and-windows-containers).
+> Les groupes à plusieurs conteneurs ne prennent actuellement en charge que les conteneurs Linux. Pour les conteneurs Windows, Azure Container Instances prend uniquement en charge le déploiement d’une instance unique. Nous travaillons actuellement à proposer toutes ces fonctionnalités dans des conteneurs Windows. En attendant, nous vous invitons à découvrir les différences actuelles de la plateforme dans le service [Vue d’ensemble](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="deployment"></a>Déploiement
 
-Voici deux méthodes courantes pour déployer un groupe de conteneurs : utiliser un [modèle Resource Manager] [ resource-manager template] ou un [fichier YAML][yaml-file]. Un modèle Resource Manager est recommandé lorsque vous avez besoin déployer des ressources de service Azure supplémentaires (par exemple, un [partage Azure Files][azure-files]) lorsque vous déployez les instances de conteneur. En raison de nature plus concis au format YAML, un fichier YAML est recommandé lorsque votre déploiement inclut uniquement les instances de conteneur.
+Voici deux méthodes courantes de déploiement d’un groupe à plusieurs conteneurs : utilisez un [modèle Resource Manager][resource-manager template] ou un [fichier YAML][yaml-file]. Un modèle Resource Manager est recommandé si vous avez besoin de déployer des ressources de service Azure supplémentaires (par exemple, un [partage Azure Files][azure-files]) lorsque vous déployez les instances de conteneur. En raison de la nature plus concise du format YAML, un fichier YAML est recommandé lorsque le déploiement comprend uniquement les instances de conteneur. Pour plus d'informations sur les propriétés que vous pouvez définir, consultez la documentation [Informations de référence sur les modèles Resource Manager](/azure/templates/microsoft.containerinstance/containergroups) ou [Informations de référence sur YAML](container-instances-reference-yaml.md).
 
-Pour conserver la configuration d’un groupe conteneur, vous pouvez exporter la configuration dans un fichier YAML à l’aide de la commande CLI Azure [exportation du conteneur az][az-container-export]. Exportation vous permet de stocker vos configurations de groupe conteneur dans le contrôle de version pour « configuration en tant que code ». Vous pouvez également utiliser le fichier exporté comme point de départ pour développer une nouvelle configuration dans YAML.
+Pour conserver la configuration d’un groupe de conteneurs, vous pouvez exporter la configuration dans un fichier YAML avec la commande Azure CLI [az container export][az-container-export]. L’exportation permet de stocker ces configurations de groupe de conteneurs dans la gestion de version pour la « configuration en tant que code ». Vous pouvez également utiliser le fichier exporté comme point de départ pour développer une nouvelle configuration dans YAML.
+
+
 
 ## <a name="resource-allocation"></a>Allocation des ressources
 
-Azure Container Instances alloue des ressources telles que les processeurs, mémoire et éventuellement [GPU] [ gpus] (version préliminaire) et un groupe de conteneurs en ajoutant le [demandes de ressources] [ resource-requests] des instances dans le groupe. En prenant des ressources processeur par exemple, si vous créez un groupe de conteneurs avec deux instances, chaque demande 1 processeur, puis le groupe de conteneurs est allouée à 2 processeurs.
+Azure Container Instances alloue des ressources telles que UC, mémoire et éventuellement [GPU][gpus] (préversion) à un groupe de conteneurs en ajoutant les [demandes de ressources][resource-requests] des instances du groupe. Par exemple, pour les ressources d’UC, si vous créez un groupe de conteneurs avec deux instances, chacune demandant 1 UC, le groupe de conteneurs se voit allouer 2 UC.
 
-Les ressources maximales disponibles pour un groupe de conteneurs varient selon le [région Azure] [ region-availability] utilisé pour le déploiement.
+Le nombre maximum de ressources disponibles pour un groupe de conteneurs varie selon la [région Azure][region-availability] utilisée pour le déploiement.
 
-### <a name="container-resource-requests-and-limits"></a>Les limites et les demandes de ressources de conteneur
+### <a name="container-resource-requests-and-limits"></a>Demandes et limites de ressources de conteneur
 
-* Par défaut, les instances de conteneur dans un groupe partagent les ressources demandées du groupe. Dans un groupe avec deux instances de chaque demande 1 processeur, le groupe dans son ensemble a accès à 2 processeurs. Chaque instance peut utiliser jusqu'à 2 processeurs et les instances peuvent entrer en concurrence pour les ressources de processeur sont en cours.
+* Par défaut, les instances de conteneur d’un groupe partagent les ressources demandées du groupe. Dans un groupe avec deux instances dont chacune demande 1 UC, le groupe dans son ensemble a accès à 2 UC. Chaque instance peut utiliser jusqu’à 2 UC et les instances en cours d’exécution peuvent entrer en concurrence pour les ressources d’UC.
 
-* Pour limiter l’utilisation des ressources par une instance d’un groupe, vous pouvez également définir un [limite de ressource] [ resource-limits] pour l’instance. Dans un groupe avec deux instances demandant 1 processeur, un de vos conteneurs peut nécessiter plus de processeurs à exécuter à l’autre.
+* Pour limiter l’utilisation des ressources par une instance d’un groupe, vous pouvez également définir une [limite de ressource][resource-limits]pour l’instance. Dans un groupe avec deux instances demandant 1 UC, un de vos conteneurs peut nécessiter plus d’UC que l’autre.
 
-  Dans ce scénario, vous pouvez définir une limite de ressource de 0,5 processeur pour une instance et une limite de 2 processeurs pour la deuxième. Cette configuration limite l’utilisation des ressources du conteneur premier 0,5 processeur, ce qui permet le second conteneur à utiliser les 2 UC s’il est disponible.
+  Dans ce scénario, vous pouvez définir une limite de ressource de 0,5 UC pour une instance et une limite de 2 UC pour la deuxième. Cette configuration limite l’utilisation des ressources du premier conteneur à 0,5 UC, permettant ainsi au deuxième d’utiliser complètement, si elles sont disponibles, les 2 UC.
 
-Pour plus d’informations, consultez le [ResourceRequirements] [ resource-requirements] propriété dans le conteneur de groupes de l’API REST.
+Pour plus d’informations, consultez la propriété [ResourceRequirements][resource-requirements] dans l’API REST des groupes de conteneurs.
 
-### <a name="minimum-and-maximum-allocation"></a>Minimale et maximale d’allocation
+### <a name="minimum-and-maximum-allocation"></a>Allocation minimale et maximale
 
-* Allouer un **minimale** 1 processeur et 1 Go de mémoire à un groupe de conteneurs. Instances de conteneur individuels au sein d’un groupe peuvent être configurées avec moins de 1 processeur et 1 Go de mémoire. 
+* Allouez un **minimum** d’1 UC et de 1 Go de mémoire à un groupe de conteneurs. Il est possible d’approvisionner des instances de conteneur individuelles avec moins de 1 processeur virtuel et de 1 Go de mémoire. 
 
-* Pour le **maximale** des ressources dans un groupe de conteneurs, consultez la [disponibilité des ressources] [aci-région-disponibilité] pour Azure Container Instances dans la région de déploiement.
+* Pour les ressources **maximales** d’un groupe de conteneurs, consultez la [disponibilité des ressources][region-availability] pour Azure Container Instances dans la région de déploiement.
 
 ## <a name="networking"></a>Mise en réseau
 
-Les groupes du conteneur partagent une adresse IP et un espace de noms de port sur cette adresse IP. Pour que les clients externes puissent atteindre un conteneur au sein du groupe, vous devez exposer le port sur l’adresse IP et à partir du conteneur. Étant donné que les conteneurs au sein du groupe partagent un espace de noms de port, le mappage de port n’est pas pris en charge. Conteneurs au sein d’un groupe peuvent atteindre mutuellement via localhost sur les ports qu’ils ont exposés, même si ces ports ne sont pas exposés en externe sur l’adresse IP du groupe.
+Les groupes du conteneur partagent une adresse IP et un espace de noms de port sur cette adresse IP. Pour que les clients externes puissent atteindre un conteneur au sein du groupe, vous devez exposer le port sur l’adresse IP et à partir du conteneur. Étant donné que les conteneurs au sein du groupe partagent un espace de noms de port, le mappage de port n’est pas pris en charge. Les conteneurs au sein d’un groupe peuvent s’atteindre les uns les autres via localhost sur les ports qu’ils ont exposés, même si ces ports ne sont pas exposés en externe sur l’adresse IP du groupe.
 
-Si vous le souhaitez déployer des groupes de conteneurs dans un [réseau virtuel Azure] [ virtual-network] (version préliminaire) pour permettre aux conteneurs de communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel.
+Déployez éventuellement des groupes de conteneurs dans un [réseau virtuel Azure][virtual-network] (préversion) pour permettre à vos conteneurs de communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel.
 
 ## <a name="storage"></a>Stockage
 
@@ -86,7 +88,7 @@ Exemples d’utilisation :
 * Un conteneur servant une application web et un conteneur extrayant le contenu le plus récent du contrôle de code source.
 * Un conteneur d’applications et un conteneur de journalisation. Le conteneur de journalisation collecte les journaux d’activité et les métriques générés par l’application principale, puis les écrit dans le stockage à long terme.
 * Un conteneur d’applications et un conteneur d’analyse. Le conteneur de surveillance émet régulièrement une demande à destination de l’application pour vérifier qu’elle s’exécute et répond correctement, et déclenche une alerte si ce n’est pas le cas.
-* Un conteneur frontal et un conteneur de serveur principal. Le serveur frontal sont susceptibles de servir une application web, avec le serveur principal exécutant un service pour récupérer des données. 
+* Un conteneur frontal et un conteneur principal. Le conteneur frontal peut servir d’application web, le conteneur principal exécutant un service pour récupérer des données. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

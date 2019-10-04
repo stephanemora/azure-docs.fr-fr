@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084808"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61436475"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Recommandations en matière d’optimisation des performances pour Storm sur HDInsight et Azure Data Lake Storage Gen1
 
 Comprendre les facteurs à prendre en compte lorsque vous optimisez les performances d’une topologie Storm dans Azure. Par exemple, il est important de comprendre les caractéristiques du travail effectué par les Spouts et les Bolts (si le travail est intensif en E/S ou en mémoire). Cet article aborde diverses recommandations d’optimisation des performances, y compris la résolution des problèmes courants.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, voir [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
@@ -132,7 +132,7 @@ Vous pouvez constater des échecs de tâche si vous atteignez les limites de la 
 
 Pour vérifier si une limitation est appliquée, activez la journalisation du débogage côté client :
 
-1. Dans **Ambari** > **Storm** > **Config** > **Avancé storm-worker-log4j**, remplacez **&lt;root level="info"&gt;** par **&lt;root level=”debug”&gt;**. Redémarrez tous les nœuds/le service pour que la configuration prenne effet.
+1. Dans **Ambari** > **Storm** > **Config** > **Avancé storm-worker-log4j**, remplacez **&lt;root level="info"&gt;** par **&lt;root level=”debug”&gt;** . Redémarrez tous les nœuds/le service pour que la configuration prenne effet.
 2. Surveillez les journaux d’activité de topologie Storm sur les nœuds Worker (sous /var/log/storm/worker-artifacts/&lt;NomTopologie&gt;/&lt;port&gt;/worker.log) pour les exceptions de limitation de Data Lake Storage Gen1.
 
 ## <a name="next-steps"></a>Étapes suivantes

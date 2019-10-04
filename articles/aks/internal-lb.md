@@ -2,30 +2,32 @@
 title: Créer un équilibreur de charge interne dans Azure Kubernetes Service (AKS)
 description: Découvrez comment créer et utiliser un équilibreur de charge interne pour exposer vos services avec Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: a26eab83f567a46f613e3bfda95fd99aba2b79c0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.author: mlearned
+ms.openlocfilehash: 5842003d43d4268d0f663e8a57e40562a480e252
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404312"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "67615147"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS)
 
 Pour restreindre l’accès à vos applications dans Azure Kubernetes Service (AKS), vous pouvez créer et utiliser un équilibreur de charge interne. Un équilibreur de charge interne rend un service Kubernetes accessible uniquement aux applications qui s’exécutent dans le même réseau virtuel que le cluster Kubernetes. Cet article explique comment créer et utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer se décline en deux références SKU : *De base* et *Standard*. AKS prend en charge la référence SKU *De base*. Si vous souhaitez utiliser la référence SKU *Standard*, vous pouvez utiliser le moteur [aks-engine][aks-engine] en amont. Pour plus d’informations, consultez [Comparaison des références SKU de Azure Load Balancer][azure-lb-comparison].
+> Azure Load Balancer se décline en deux références SKU : *De base* et *Standard*. Par défaut, la référence SKU *De base* est utilisée lorsqu’un manifeste de service est utilisé pour créer un équilibreur de charge sur AKS. Pour plus d’informations, consultez [Comparaison des références SKU de Load Balancer][azure-lb-comparison].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
-Vous également besoin d’Azure CLI version 2.0.59 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installer l’interface de ligne de commande Microsoft Azure][install-azure-cli].
+
+Le principal de service du cluster AKS a besoin de l’autorisation de gérer les ressources réseau si vous utilisez un sous-réseau ou un groupe de ressources existant. De façon générale, attribuez le rôle *Contributeur de réseau* au principal de service sur les ressources déléguées. Pour plus d’informations sur les autorisations, consultez [Delegate access to other Azure resources][aks-sp] (Déléguer l’accès à d’autres ressources Azure).
 
 ## <a name="create-an-internal-load-balancer"></a>Créer un équilibrage de charge interne
 
@@ -46,7 +48,7 @@ spec:
     app: internal-app
 ```
 
-Déployer l’équilibreur de charge interne à l’aide du [kubectl appliquer] kubectl-appliquer] et spécifiez le nom de votre manifeste YAML :
+Déployez l’exemple d’équilibreur de charge interne avec la commande [kubectl apply][kubectl-apply] et spécifiez le nom de votre manifeste YAML :
 
 ```console
 kubectl apply -f internal-lb.yaml
@@ -54,7 +56,7 @@ kubectl apply -f internal-lb.yaml
 
 Un équilibreur de charge Azure est créé dans le groupe de ressources de nœud et connecté au même réseau virtuel que le cluster AKS.
 
-Quand vous affichez les détails du service, l’adresse IP de l’équilibreur de charge interne apparaît dans la colonne *EXTERNAL-IP*. Dans ce contexte, *externe* n’en relation avec l’interface externe de l’équilibreur de charge, qu’il reçoit une adresse IP publique externe. Le passage de l’adresse IP de l’état *\<en attente\>* à une adresse IP interne réelle peut prendre une ou deux minutes, comme indiqué dans l’exemple suivant :
+Quand vous affichez les détails du service, l’adresse IP de l’équilibreur de charge interne apparaît dans la colonne *EXTERNAL-IP*. Dans ce contexte, *Externe* fait référence à l’interface externe de l’équilibreur de charge, pas au fait qu’il reçoit une adresse IP publique externe. Le passage de l’adresse IP de l’état *\<en attente\>* à une adresse IP interne réelle peut prendre une ou deux minutes, comme indiqué dans l’exemple suivant :
 
 ```
 $ kubectl get service internal-app
@@ -83,7 +85,7 @@ spec:
     app: internal-app
 ```
 
-Lors du déploiement et vous permet d’afficher les détails du service, l’adresse IP dans le *EXTERNAL-IP* colonne reflète votre adresse IP spécifiée :
+Une fois déployé et quand vous affichez les détails du service, l’adresse IP dans la colonne *EXTERNAL-IP* reflète votre adresse IP spécifiée :
 
 ```
 $ kubectl get service internal-app
@@ -94,7 +96,7 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 ## <a name="use-private-networks"></a>Utiliser des réseaux privés
 
-Lorsque vous créez votre cluster AKS, vous pouvez configurer des paramètres de réseau avancés. Cette méthode vous permet de déployer le cluster sur un réseau virtuel Azure existant et ses sous-réseaux. L’un des scénarios possibles consiste à déployer votre cluster AKS sur un réseau privé connecté à votre environnement local, et à exécuter des services accessibles uniquement en interne. Pour plus d’informations, consultez configurer vos propres sous-réseaux du réseau virtuel avec [Kubenet] [ use-kubenet] ou [Azure CNI][advanced-networking].
+Lorsque vous créez votre cluster AKS, vous pouvez configurer des paramètres de réseau avancés. Cette méthode vous permet de déployer le cluster sur un réseau virtuel Azure existant et ses sous-réseaux. L’un des scénarios possibles consiste à déployer votre cluster AKS sur un réseau privé connecté à votre environnement local, et à exécuter des services accessibles uniquement en interne. Pour plus d’informations, découvrez comment configurer vos propres sous-réseaux de réseau virtuel avec [Kubenet][use-kubenet] ou [Azure CNI][advanced-networking].
 
 Vous pouvez utiliser les étapes précédentes pour déployer un équilibreur de charge interne dans un cluster AKS qui utilise un réseau privé. L’équilibreur de charge est créé dans le même groupe de ressources que votre cluster AKS, mais il est connecté à votre réseau privé virtuel et à son sous-réseau, comme indiqué dans l’exemple suivant :
 
@@ -106,7 +108,7 @@ internal-app   LoadBalancer   10.1.15.188   10.0.0.35     80:31669/TCP   1m
 ```
 
 > [!NOTE]
-> Vous devrez peut-être accorder au principal de service de votre cluster AKS le rôle de *Contributeur de réseaux* pour le groupe de ressources où sont déployées vos ressources de réseau virtuel Azure. Affichez le principal du service avec [az aks show][az-aks-show], par exemple : `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Pour créer une attribution de rôle, utilisez la commande [az role assignment create][az-role-assignment-create].
+> Vous devrez peut-être accorder au principal de service de votre cluster AKS le rôle de *Contributeur de réseaux* pour le groupe de ressources où sont déployées vos ressources de réseau virtuel Azure. Affichez le principal de service avec [az aks show][az-aks-show], par exemple : `az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId"`. Pour créer une attribution de rôle, utilisez la commande [az role assignment create][az-role-assignment-create].
 
 ## <a name="specify-a-different-subnet"></a>Spécifier un autre sous-réseau
 
@@ -139,6 +141,7 @@ Vous pouvez aussi directement supprimer un service à l’image de toute ressour
 En savoir plus sur les services Kubernetes dans la [documentation des services Kubernetes][kubernetes-services].
 
 <!-- LINKS - External -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [aks-engine]: https://github.com/Azure/aks-engine
 
@@ -151,3 +154,4 @@ En savoir plus sur les services Kubernetes dans la [documentation des services K
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources

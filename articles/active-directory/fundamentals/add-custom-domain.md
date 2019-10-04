@@ -2,26 +2,26 @@
 title: Ajouter votre domaine personnalisé – Azure Active Directory | Microsoft Docs
 description: Ces instructions expliquent comment ajouter un domaine personnalisé avec Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb29fb5ef2e755ff456ad177b66349792b2fa21c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.openlocfilehash: b3f90e594e69c58364b699299964273ce371e525
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418854"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561726"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory
-Chaque nouveau locataire Azure AD est fourni avec un nom de domaine initial au format *nom_de_domaine*.onmicrosoft.com. Vous ne pouvez pas modifier ni supprimer le nom de domaine initial, mais vous pouvez ajouter des noms de votre organisation à la liste. Ajout des noms de domaines personnalisés vous aide à créer des noms d’utilisateur qui sont familiers à vos utilisateurs, tel que *alain\@contoso.com*.
+Chaque nouveau locataire Azure AD est fourni avec un nom de domaine initial au format *nom_de_domaine*.onmicrosoft.com. Vous ne pouvez pas modifier ni supprimer le nom de domaine initial, mais vous pouvez ajouter des noms de votre organisation à la liste. L’ajout de noms de domaine personnalisés vous permet de créer des noms d’utilisateur qui sont familiers à vos utilisateurs, par exemple *alain\@contoso.com*.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Avant de pouvoir ajouter un nom de domaine personnalisé, vous devez créer votre nom de domaine avec un bureau d’enregistrement de domaines. Pour trouver un bureau d’enregistrement de domaines agréé, consultez la page [ICANN-Accredited Registrars](https://www.icann.org/registrar-reports/accredited-list.html) (Bureaux d’enregistrement agréés par l’ICANN).
@@ -31,7 +31,7 @@ Après avoir obtenu votre nom de domaine, vous pouvez créer votre premier annua
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) de votre annuaire avec un compte disposant du rôle **Propriétaire** de l’abonnement, puis sélectionnez **Azure Active Directory**. Pour plus d’informations sur les rôles d’abonnement, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    ![Écran du portail Azure, montrant l’option Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Option Azure AD affichée dans l’écran du Portail Azure](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > Si vous envisagez de fédérer votre instance locale de Windows Server Active Directory avec Azure AD, vous devez cocher la case **Je prévois de configurer ce domaine pour l’authentification unique avec mon annuaire Active Directory local** lorsque vous exécutez l’outil Azure AD Connect pour synchroniser vos annuaires. Vous devez également inscrire le même nom de domaine que celui que vous comptez fédérer avec votre annuaire local lors de l’étape **Domaine Azure AD** de l’Assistant. Vous pouvez voir à quoi cette étape de l’assistant ressemble [dans ces instructions](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Si vous ne disposez pas de l’outil Azure AD Connect, vous pouvez [le télécharger ici](https://go.microsoft.com/fwlink/?LinkId=615771).
@@ -46,7 +46,7 @@ Après avoir créé votre annuaire, vous pouvez ajouter votre nom de domaine per
 
 1. Sélectionnez **Noms de domaine personnalisés**, puis **Ajouter un domaine personnalisé**.
 
-    ![Page des noms de domaine personnalisé, à ajouter un domaine personnalisé indiqué](media/add-custom-domain/add-custom-domain.png)
+    ![Option Ajouter un domaine personnalisé affichée dans la page Noms de domaine personnalisés](media/add-custom-domain/add-custom-domain.png)
 
 2. Tapez le nouveau nom de domaine de votre organisation dans la zone **Nom de domaine personnalisé** (par exemple, _contoso.com_), puis sélectionnez **Ajouter un domaine**.
 
@@ -55,7 +55,7 @@ Après avoir créé votre annuaire, vous pouvez ajouter votre nom de domaine per
     >[!Important]
     >Vous devez inclure .com, .net ou toute autre extension de niveau supérieur pour que le processus fonctionne correctement.
 
-    ![Page des noms de domaine personnalisé, avec la page Ajouter un domaine personnalisé](media/add-custom-domain/add-custom-domain-blade.png)
+    ![Page Ajouter un domaine personnalisé affichée dans la page Noms de domaine personnalisés](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. Copiez les informations DNS de la page **Contoso**. Par exemple, MS=ms64983159.
 

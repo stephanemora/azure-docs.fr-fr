@@ -3,20 +3,20 @@ title: 'Démarrage rapide : API de traduction de conversation Translator Speech
 titlesuffix: Azure Cognitive Services
 description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API de traduction de conversation Translator Speech.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
-ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.date: 04/26/2019
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a76c11341d0e145e6d2e9f86a7300ddb9319f6f5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 359d962db8b7d8cfdc17c230351bc5556604ebbe
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673885"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965420"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>Démarrage rapide : API de traduction de conversation Translator Speech avec C#
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ Cet article explique comment utiliser l’API de traduction de conversation Tran
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour exécuter ce code sur Windows. (La version Community Edition gratuite fonctionne.) Si vous utilisez Mac OS ou Linux, vous pouvez également utiliser l’éditeur de texte [Visual Studio Code](https://code.visualstudio.com/Download) comme alternative.
+Vous devez disposer de [Visual Studio 2019](https://www.visualstudio.com/downloads/) pour exécuter ce code sous Windows. (La version Community Edition gratuite fonctionne.) Si vous utilisez Mac OS ou Linux, vous pouvez également utiliser l’éditeur de texte [Visual Studio Code](https://code.visualstudio.com/Download) comme alternative.
 
 Vous devez disposer d’un fichier .wav nommé « speak.wav » dans le même dossier que le fichier exécutable que vous compilez à partir du code ci-dessous. Ce fichier .wav doit être au format PCM standard 16 bits, 16kHz, monocanal.
 

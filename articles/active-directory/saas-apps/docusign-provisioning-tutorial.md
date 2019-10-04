@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer DocuSign pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer DocuSign pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et DocuSign.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 121d147a3f8c91f17e955120b2c14f7dbd3da592
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191841"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60280113"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Didacticiel : Configurer DocuSign pour l’approvisionnement automatique d’utilisateurs
 

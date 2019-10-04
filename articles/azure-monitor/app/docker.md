@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996475"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62098029"
 ---
-# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Analyse des applications Docker dans Application Insights (déconseillée)
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Analyse des applications Docker dans Application Insights (déconseillé)
 
 > [!NOTE]
 > Cette solution a été dépréciée. Pour en savoir plus sur nos investissements actuels dans la supervision des conteneurs, nous vous recommandons de consulter [Azure Monitor pour conteneurs](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).

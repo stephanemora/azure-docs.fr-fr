@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a59dbd934ba1a449f7671d433529513b9f14c80
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c9aa77b539d91d328736dca2b0f7d040f6b4b5f5
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282880"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à Cisco Cloud
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Cisco Cloud à Azure AD, vous devez ajouter 
 
 **Pour ajouter Cisco Cloud à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -118,7 +118,7 @@ Pour configurer l’authentification unique Azure AD avec Cisco Cloud, procédez
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez [l’équipe du support client Cisco Cloud](mailto:cpr-ops@cisco.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. L’application Cisco Cloud attend les assertions SAML dans un certain format, ce qui oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
+6. L’application Cisco Cloud attend les assertions SAML dans un certain format, ce qui oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
     ![image](common/edit-attribute.png)
 
@@ -209,7 +209,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-cisco-cloud-test-user"></a>Créer un utilisateur de test Cisco Cloud
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Cisco Cloud. Collaborez avec l' [équipe de support technique de Cisco Cloud](mailto:cpr-ops@cisco.com) pour ajouter des utilisateurs dans la plateforme Cisco Cloud. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Cisco Cloud. Travaillez avec l’[équipe de support technique de Cisco Cloud](mailto:cpr-ops@cisco.com) pour ajouter des utilisateurs dans la plateforme Cloud de Cisco. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

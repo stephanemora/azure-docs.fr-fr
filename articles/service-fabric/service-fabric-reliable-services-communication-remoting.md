@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: f9cd6e2fee738d2d42c790b4eb7b9a876a44b01d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: a9ef2cd695f9591f299bb85b95d14d60b987c38d
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670793"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258689"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Communication à distance des services en C# avec Reliable Services
 
@@ -320,6 +320,11 @@ Procédez comme suit :
 ## <a name="upgrade-from-remoting-v1-to-remoting-v2-interface-compatible"></a>Mise à niveau de la version V1 vers la version V2 de communication à distance (compatible avec l’interface)
 
 Pour mettre à niveau de la version V1 vers la version V2 (compatible avec l’interface, appelée V2_1), des mises à niveau en deux étapes sont nécessaires. Suivez les étapes dans l’ordre indiqué.
+
+> [!NOTE]
+> Lors de la mise à niveau de V1 vers V2, assurez-vous que l'espace de nom `Remoting` est mis à jour pour utiliser V2. Exemple : « Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client »
+>
+>
 
 1. Procédez à la mise à niveau du service V1 vers le service V2_1 à l’aide de l’attribut suivant.
 Cette modification permet de s’assurer que le service écoute sur les écouteurs V1 et V2_1.

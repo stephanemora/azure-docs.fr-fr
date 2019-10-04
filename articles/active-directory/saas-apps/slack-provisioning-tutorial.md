@@ -3,9 +3,8 @@ title: 'Tutoriel : Configurer Slack pour l’attribution automatique d’utilis
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur Slack.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,21 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser-msft
-ms.reviewer: asmalser
+ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50bcada8cfc72c06804793850f1f28a288f5248
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 4a294254bd52db89179c5644ea7a0f0f04027f30
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272918"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932490"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutoriel : Configurer Slack pour l’attribution automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Slack et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Slack.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -118,11 +116,13 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
   * Les caractères non anglais, les espaces et les majuscules sont pris en charge. 
   
-  * Les signes de ponctuation autorisés sont notamment les points, traits de soulignement, traits d’union, apostrophes, crochets (par exemple, **( [ { } ] )**) et séparateurs (par exemple, **, / ;**).
+  * Les signes de ponctuation autorisés sont notamment les points, traits de soulignement, traits d’union, apostrophes, crochets (par exemple, **( [ { } ] )** ) et séparateurs (par exemple, **, / ;** ).
   
   * La mise à jour n’est effectuée que si ces deux paramètres sont configurés dans l’espace de travail/organisation de Slack : **Profile syncing is enabled** (La synchronisation des profils est activée) et **Users cannot change their display name** (Les utilisateurs ne peuvent pas changer leur nom d’affichage).
   
-  * L’attribut **userName** ne doit pas dépasser 21 caractères et sa valeur doit être unique.
+* L’attribut **userName** ne doit pas dépasser 21 caractères et sa valeur doit être unique.
+
+* Slack n’autorise que la correspondance avec les attributs **userName** et **email**.  
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

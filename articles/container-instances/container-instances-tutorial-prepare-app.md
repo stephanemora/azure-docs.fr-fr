@@ -3,17 +3,18 @@ title: Tutoriel - Préparer l’image conteneur pour Azure Container Instances
 description: Tutoriel Azure Container Instances (partie 1 sur 3) - Préparer une application dans une image conteneur pour le déploiement sur Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f5d6ac81cc2553cc4a2d7b86c21417aa5ab1d572
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990646"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68325583"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutoriel : Créer une image conteneur à déployer sur Azure Container Instances
 
@@ -59,13 +60,13 @@ RUN npm install
 CMD node /usr/src/app/index.js
 ```
 
-Utilisez la commande [docker build][docker-build] pour créer l’image de conteneur, et balisez-la *aci-tutorial-app* :
+Utilisez la commande [docker build][docker-build] pour créer l’image conteneur, et étiquetez-la *aci-tutorial-app* :
 
 ```bash
 docker build ./aci-helloworld -t aci-tutorial-app
 ```
 
-Le résultat de la commande [docker build][docker-build] est similaire à ce qui suit (tronqué pour une meilleure lisibilité) :
+Le résultat de la commande [docker build][docker-build] est similaire à ce qui suit (tronqué pour une meilleure lisibilité) :
 
 ```console
 $ docker build ./aci-helloworld -t aci-tutorial-app
@@ -87,7 +88,7 @@ Successfully built 6edad76d09e9
 Successfully tagged aci-tutorial-app:latest
 ```
 
-Utilisez la commande [docker images][docker-images] pour voir l’image générée :
+Utilisez la commande [docker images][docker-images] pour voir l’image générée :
 
 ```bash
 docker images
@@ -103,7 +104,7 @@ aci-tutorial-app    latest    5c745774dfa9    39 seconds ago    68.1 MB
 
 ## <a name="run-the-container-locally"></a>Exécutez localement le conteneur
 
-Avant d’essayer de déployer le conteneur dans Azure Container Instances, exécutez-le localement à l’aide de [docker run][docker-run] et vérifiez qu’il fonctionne. Le commutateur `-d` permet l’exécution du conteneur en arrière-plan, tandis que `-p` vous permet de mapper un port arbitraire sur votre ordinateur vers le port 80 du conteneur.
+Avant de déployer le conteneur dans Azure Container Instances, utilisez [docker run][docker-run] pour l’exécuter localement et vérifiez qu’il fonctionne. Le commutateur `-d` permet l’exécution du conteneur en arrière-plan, tandis que `-p` vous permet de mapper un port arbitraire sur votre ordinateur vers le port 80 du conteneur.
 
 ```bash
 docker run -d -p 8080:80 aci-tutorial-app

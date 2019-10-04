@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: 62eb51e48ab688abcf39ba3c8d57aaccf6f47cb6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: 38a9f3a7020e866ccb000ed0c54499258f5e651a
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003426"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734670"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approche et processus d’adoption d’Azure Data Catalog
 
@@ -54,7 +54,7 @@ Voici quelques conseils pour vous aider à définir votre vision du projet :
 
 Voici un exemple d’énoncé de vision pour un plan d’adoption de Data Catalog pour la société fictive Adventure Works :
 
-**Azure Data Catalog** encourage l’équipe Finances d’Adventure Works à collaborer sur les principales sources de données, pour chaque membre de l’équipe puisse facilement trouver et utiliser les données ils ont besoin et partagent ses connaissances avec l’équipe dans sa globalité.
+**Azure Data Catalog** autorise l’équipe Finances d’Adventure Works à collaborer sur les principales sources de données afin que chaque membre de l’équipe puisse facilement trouver et utiliser les données dont elle a besoin et partager ses connaissances avec le reste de l’équipe.
 
 Une fois que vous avez indiqué un énoncé de vision clair, vous devez identifier un projet pilote approprié pour Data Catalog. En règle générale, il existe plusieurs scénarios pour Data Catalog. La section suivante présente donc quelques conseils afin d’identifier les cas d’utilisation appropriés.
 
@@ -91,7 +91,7 @@ Votre plan pilote doit mettre en œuvre les objectifs d’entreprise que vous so
 
 ### <a name="target-the-right-team"></a>Cibler l’équipe appropriée
 
-Lorsque vous choisissez votre projet pilote, sélectionnez une équipe avec les scénarios les plus intéressants, qui résout un problème d’entreprise existant. Par exemple, un analyste d’entreprise crée des rapports à partir d’une base de données SQL Server. Le problème est qu’ils se rende compte de la source de données uniquement après avoir discuté avec plusieurs collègues. Enfin, après avoir perdu du temps à essayer de trouver les sources de données à utiliser, il a découvert sur un classeur Excel, qui contient une description de chaque source de données. Bien que le classeur Excel décrit correctement les tables dont ils ont besoin, ils aurait rapidement trouvé ces sources de données si elles ont été inscrites et annotées dans **Azure Data Catalog**.
+Lorsque vous choisissez votre projet pilote, sélectionnez une équipe avec les scénarios les plus intéressants, qui résout un problème d’entreprise existant. Par exemple, un analyste d’entreprise crée des rapports à partir d’une base de données SQL Server. Le problème tient au fait qu’il ne connaît la source de données qu’après avoir discuté avec plusieurs collègues. Pour finir, après avoir perdu du temps à essayer de trouver les sources de données à utiliser, il découvre un classeur Excel qui contient une description de chacune d’elles. Même si le classeur Excel décrit correctement les tables dont il a besoin, il aurait trouvé ces sources de données rapidement si elles avaient été inscrites et annotées dans **Azure Data Catalog**.
 
 ### <a name="identify-data-heroes"></a>Identifier les personnes clés en termes de données
 
@@ -101,7 +101,7 @@ Votre premier projet pilote doit être associé à quelques personnes, qui produ
 
 **consommateurs de données** sont des personnes disposant de connaissances sur l’utilisation de données pour résoudre les problèmes d’entreprise. Par exemple, Nancy est une analyste d’entreprise, qui utilise des sources de données SQL Server Adventure Works pour analyser les données.
 
-L’un des problèmes d’entreprise traités par **Azure Data Catalog** est de connecter les **producteurs de données** aux **consommateurs de données**. Pour ce faire, il fait office de référentiel central pour les informations sur les sources de données d’entreprise. À l’aide de Data Catalog, David inscrit les sources de données SQL Server Adventure Works. À l’aide de marketing participatif tout utilisateur qui découvre cette source de données peut partager son avis sur les données, en plus d’utiliser les données qu’ils ont découverts. Par exemple, Nancy découvre les sources de données en effectuant une recherche dans le catalogue, puis partage ses connaissances approfondies relatives aux données.  À présent, les autres utilisateurs de l’organisation tirent parti des connaissances partagées par une recherche dans le catalogue de données.
+L’un des problèmes d’entreprise traités par **Azure Data Catalog** est de connecter les **producteurs de données** aux **consommateurs de données**. Pour ce faire, il fait office de référentiel central pour les informations sur les sources de données d’entreprise. À l’aide de Data Catalog, David inscrit les sources de données SQL Server Adventure Works. À l’aide du crowdsourcing, tout utilisateur qui découvre cette source de données peut partager son avis sur les données, en plus d’utiliser les données qu’il a découvertes. Par exemple, Nancy découvre les sources de données en effectuant une recherche dans le catalogue, puis partage ses connaissances approfondies relatives aux données.  À présent, les autres utilisateurs de l’organisation tirent parti des connaissances partagées par une recherche dans le catalogue de données.
 
 * Pour en savoir plus sur l’inscription des sources de données, consultez la section [Inscrire des sources de données](data-catalog-get-started.md).
 * Pour en savoir plus sur la découverte des sources de données, consultez la section [Rechercher des sources de données](data-catalog-get-started.md).
@@ -116,7 +116,7 @@ La section suivante décrit un exemple de projet de la société Adventure Works
 
 ### <a name="an-example-project"></a>Exemple de projet
 
-Pour cet exemple, Nancy, l’analyste d’entreprise, crée des rapports pour son équipe, en se servant des données d’une base de données SQL Server. Le problème est qu’ils se rende compte de la source de données uniquement après avoir discuté avec plusieurs collègues. Ils aurait rapidement trouvé ces sources de données si elles ont été inscrites et annotées dans un emplacement central tel que **Azure Data Catalog**.
+Pour cet exemple, Nancy, l’analyste d’entreprise, crée des rapports pour son équipe, en se servant des données d’une base de données SQL Server. Le problème tient au fait qu’il ne connaît la source de données qu’après avoir discuté avec plusieurs collègues. Ils auraient rapidement trouvé ces sources de données si elles avaient été inscrites et annotées dans un emplacement central, par exemple **Azure Data Catalog**.
 
 Pour illustrer la façon dont Nancy et son équipe peuvent trouver des sources de données de valeur élevée, vous utilisez l’outil d’inscription des sources de données pour remplir Data Catalog d’informations (métadonnées) sur les sources de données. De cette façon, les informations sur la base de données sont à la disposition de l’équipe et de l’entreprise, et pas seulement d’une poignée de personnes. Une fois que les sources de données sont inscrites dans Data Catalog, Nancy et son équipe peuvent facilement les utiliser. Le résultat est un catalogue de données plus complet et mieux approprié pour son équipe et l’entreprise. Comme de plus en plus d’équipes adoptent Data Catalog, les sources de données métier deviennent plus faciles à trouver et à utiliser, ce qui permet donc une culture plus centrée sur les données pour en tirer davantage parti.
 
@@ -165,4 +165,4 @@ Cet article concernait la prise en main **d’Azure Data Catalog** dans votre or
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer un catalogue de données Azure](data-catalog-get-started.md)
+[Créer un catalogue Azure Data Catalog](data-catalog-get-started.md)

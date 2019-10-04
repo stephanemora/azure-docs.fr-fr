@@ -3,16 +3,17 @@ title: Exemples de modèles Azure Resource Manager - Azure Container Instances
 description: Exemples de modèles Azure Resource Manager pour Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 2089f024e1de2e92f6e401549c5876e26db17ebb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006464"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325692"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modèles Azure Resource Manager pour Azure Container Instances
 
@@ -25,7 +26,7 @@ Pour plus d’options de déploiement, consultez la section [Déploiement](#depl
 | | |
 |-|-|
 | **Applications** ||
-| [WordPress][app-wp] | Crée un site Web WordPress et sa base de données MySQL dans un groupe de conteneurs. Le contenu du site WordPress et de la base de données MySQL est conservé sur un partage Azure Files. Crée également une passerelle d’application pour exposer l’accès réseau public pour WordPress. |
+| [WordPress][app-wp] | Crée un site web WordPress et sa base de données MySQL dans un groupe de conteneurs. Le contenu du site WordPress et de la base de données MySQL est conservé sur un partage Azure Files. Crée également une passerelle d’application pour exposer l’accès réseau public pour WordPress. |
 | [MS NAV avec SQL Server et IIS][app-nav] | Déploie un conteneur Windows avec un environnement Dynamics NAV/Dynamics 365 Business Central autonome, riche en fonctionnalités. |
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Déploie deux conteneurs Linux qui partagent un volume emptyDir. |
@@ -34,7 +35,7 @@ Pour plus d’options de déploiement, consultez la section [Déploiement](#depl
 | **Mise en réseau** ||
 | [Conteneur avec exposition UDP][net-udp] | Déploie un conteneur Windows ou Linux qui expose un port UDP. |
 | [Conteneur Linux avec adresse IP publique][net-publicip] | Déploie un conteneur Linux accessible via une adresse IP publique. |
-| [Déployer un groupe de conteneurs avec un réseau virtuel (version préliminaire)][net-vnet] | Déploie un nouveau réseau virtuel, un sous-réseau, un profil de réseau et un groupe de conteneurs. |
+| [Déployer un groupe de conteneurs dans un réseau virtuel (préversion)][net-vnet] | Déploie un nouveau réseau virtuel, un nouveau sous-réseau, un nouveau profil de réseau et un nouveau groupe de conteneurs. |
 | **Ressources Azure** ||
 | [Créer un compte de stockage Azure et un partage de fichiers][az-files] | Utilise l’interface de ligne de commande Azure dans une instance de conteneur pour créer un compte de stockage et un partage Azure Files.
 
@@ -42,7 +43,7 @@ Pour plus d’options de déploiement, consultez la section [Déploiement](#depl
 
 Vous disposez de plusieurs options pour déployer des ressources à l’aide de modèles Resource Manager :
 
-[Azure CLI][deploy-cli]
+[Interface de ligne de commande Azure][deploy-cli]
 
 [Azure PowerShell][deploy-powershell]
 

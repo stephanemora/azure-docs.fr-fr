@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e734b932976896b2fb4d86e2627b7827d40a2545
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 056d0caf2bfc6e99d5d659a2561bc41844feb79a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189887"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64918793"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planifier l'amélioration de la sécurité des données grâce à une solution d'identité solide
 La première étape de la protection des données est d’identifier qui peut accéder à ces données. En outre, vous devez disposer d’une solution d’identité qui peut s’intégrer à votre système pour fournir des fonctionnalités d’authentification et d’autorisation. Authentification et autorisation sont souvent confondues et leurs rôles mal compris. En réalité elles sont différentes, comme l'illustre la figure ci-dessous :
 
-![](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
+![cycle de vie des appareils mobiles](./media/plan-hybrid-identity-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Étapes du cycle de vie de gestion des appareils mobiles**
 
@@ -44,7 +44,7 @@ Lorsque vous planifiez votre solution d'identité hybride, vous devez comprendre
 Toutefois, certains aspects de la sécurité devraient être examinés et validés, indépendamment du secteur.
 
 ## <a name="data-protection-paths"></a>Chemins de protection des données
-![](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
+![chemins de protection des données](./media/plan-hybrid-identity-design-considerations/data-protection-paths.png)
 
 **Chemins de protection des données**
 

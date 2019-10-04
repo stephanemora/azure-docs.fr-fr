@@ -3,17 +3,18 @@ title: 'Tutoriel : Générer des images conteneurs dans le cloud - Azure Contai
 description: Dans ce didacticiel, vous allez apprendre comment générer une image de conteneur Docker dans Azure avec Azure Container Registry Tasks (ACR Tasks), puis la déployer dans Azure Container Instances.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 091c1a4c9e6adae69ec1c8b3e507624b9f5e6a96
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893705"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057496"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks
 
@@ -30,11 +31,11 @@ Ce didacticiel est la première partie d’une série d’étapes :
 > * Générer une image de conteneur dans Azure
 > * Déployer un conteneur sur Azure Container Instances
 
-Dans les didacticiels suivants, vous apprendrez comment utiliser ACR Tasks pour les générations automatisées d’images conteneur lors de la validation du code et la mise à jour des images de base. ACR Tasks peut également exécuter des [tâches à plusieurs étapes](container-registry-tasks-multi-step.md) à l’aide d’un fichier YAML pour définir les étapes permettant de générer, d’envoyer en mode push et éventuellement de tester plusieurs conteneurs.
+Dans les didacticiels suivants, vous apprendrez comment utiliser ACR Tasks pour les générations automatisées d’images conteneur lors de la validation du code et la mise à jour des images de base. ACR Tasks peut également exécuter des [tâches multiétapes](container-registry-tasks-multi-step.md) à l’aide d’un fichier YAML pour définir les étapes permettant de générer, d’envoyer en mode push et éventuellement de tester plusieurs conteneurs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous souhaitez utiliser l’interface Azure CLI en local, vous devez avoir installé la version **2.0.46** d’Azure CLI ou une version ultérieure et être connecté avec [az login][az-login]. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installer Azure CLI 2.0][azure-cli].
+Si vous voulez utiliser l’interface Azure CLI en local, vous devez avoir installé la version **2.0.46** d’Azure CLI ou ultérieure, et être connecté avec [az login][az-login]. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau l’interface CLI, consultez l’article [Installer Azure CLI 2.0][azure-cli].
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -74,7 +75,7 @@ Les commandes de cette suite de didacticiels sont formatées pour l’interprét
 
 Maintenant que vous avez enregistré le code source sur votre machine, exécutez cette procédure pour créer un registre de conteneurs et générer l’image conteneur avec ACR Tasks.
 
-Pour simplifier l’exécution des exemples de commandes, les didacticiels de cette suite utilisent les variables d’environnement de l’interpréteur de commandes. Exécutez la commande suivante pour définir la variable `ACR_NAME`. Remplacez **\<registry-name\>** par un nom unique à associer à votre nouveau registre de conteneurs. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Les autres ressources créées dans ce didacticiel étant basées sur ce nom, vous devriez avoir besoin de modifier uniquement cette première variable.
+Pour simplifier l’exécution des exemples de commandes, les didacticiels de cette suite utilisent les variables d’environnement de l’interpréteur de commandes. Exécutez la commande suivante pour définir la variable `ACR_NAME`. Remplacez **\<registry-name\>** par un nom unique à associer à votre nouveau registre de conteneurs. Le nom de registre doit être unique dans Azure et contenir uniquement des lettres minuscules et entre 5 et 50 caractères alphanumériques. Les autres ressources créées dans ce didacticiel étant basées sur ce nom, vous devriez avoir besoin de modifier uniquement cette première variable.
 
 ```azurecli-interactive
 ACR_NAME=<registry-name>
@@ -89,7 +90,7 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Maintenant que vous disposez d’un registre, utilisez ACR Tasks pour générer une image conteneur à partir de l’exemple de code. Exécutez la commande [az acr build][az-acr-build] afin d’effectuer une *tâche rapide* :
+Maintenant que vous disposez d’un registre, utilisez ACR Tasks pour générer une image conteneur à partir de l’exemple de code. Exécutez la commande [az acr build][az-acr-build] afin d’effectuer une *tâche rapide* :
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -175,7 +176,7 @@ Dans cette section, vous créez une instance Azure Key Vault et un principal du 
 
 ### <a name="configure-registry-authentication"></a>Configurer l’authentification du registre
 
-L’ensemble des scénarios de production doivent utiliser les [principaux du service][service-principal-auth] pour accéder à un registre de conteneurs Azure. Les principaux de service vous permettent de fournir un contrôle d’accès basé sur des rôles à vos images conteneur. Par exemple, vous pouvez configurer un principal de service avec uniquement un accès d’extraction à un registre.
+Tous les scénarios de production doivent utiliser les [principaux du service][service-principal-auth] pour accéder à un registre de conteneurs Azure. Les principaux de service vous permettent de fournir un contrôle d’accès basé sur des rôles à vos images conteneur. Par exemple, vous pouvez configurer un principal de service avec uniquement un accès d’extraction à un registre.
 
 #### <a name="create-a-key-vault"></a>Création d’un coffre de clés
 
@@ -229,7 +230,7 @@ Vous pouvez maintenant référencer ces secrets par nom lorsque vous ou vos appl
 
 Maintenant que les informations d’identification du principal de service sont stockées en tant que secrets de Azure Key Vault, vos applications et vos services peuvent les utiliser pour accéder à votre registre privé.
 
-Exécutez la commande [az container create][az-container-create] suivante pour déployer une instance de conteneur. La commande utilise les informations d’identification du principal du service stockées dans Azure Key Vault pour s’authentifier sur votre registre de conteneurs.
+Exécutez la commande [az container create][az-container-create]suivante pour déployer une instance de conteneur. La commande utilise les informations d’identification du principal du service stockées dans Azure Key Vault pour s’authentifier sur votre registre de conteneurs.
 
 ```azurecli-interactive
 az container create \
@@ -266,7 +267,7 @@ Consignez le nom de domaine complet du conteneur, car vous allez vous en servir 
 
 ### <a name="verify-the-deployment"></a>Vérifier le déploiement
 
-Pour contrôler le processus de démarrage du conteneur, exécutez la commande [az container attach][az-container-attach] :
+Pour contrôler le processus de démarrage du conteneur, utilisez la commande [az container attach][az-container-attach] :
 
 ```azurecli-interactive
 az container attach --resource-group $RES_GROUP --name acr-tasks
@@ -294,7 +295,7 @@ Pour dissocier votre console du conteneur, appuyez sur `Control+C`.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Arrêtez l’instance de conteneur avec la commande [az container delete][az-container-delete] :
+Arrêtez l’instance de conteneur avec la commande [az container delete][az-container-delete] :
 
 ```azurecli-interactive
 az container delete --resource-group $RES_GROUP --name acr-tasks

@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: overview
-ms.date: 11/03/2017
+ms.date: 05/20/2019
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 69d2eb1627d42c12a0af024bf1c80e787ed5eca7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 37249d904343a4eddb0d1e82f451c3b9e95a479d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044499"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953504"
 ---
 # <a name="azure-table-storage-overview"></a>Vue d’ensemble du stockage de table Azure
 
@@ -30,7 +30,7 @@ Vous pouvez utiliser le Stockage Table pour stocker des jeux de données flexibl
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
 
-* [Getting Started with Azure Table Storage in .NET (Prise en main de Stockage Table Azure dans .NET)](table-storage-how-to-use-dotnet.md)
+* [Bien démarrer avec l’API Table d’Azure Cosmos DB et le stockage Table Azure à l’aide du SDK .NET](table-storage-how-to-use-dotnet.md)
 
 * Pour plus d'informations sur les API disponibles, consultez la documentation de référence du service de Table :
 

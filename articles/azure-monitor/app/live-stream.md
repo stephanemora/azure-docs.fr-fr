@@ -10,19 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 4e1d83d99f6df9407e24e2ae57af70f68858092d
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009963"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70012756"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
-Sondez le cœur de votre application web dynamique en production en utilisant les flux de métriques temps réel depuis [Application Insights](../../azure-monitor/app/app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. En combinaison avec le [profileur](../../azure-monitor/app/profiler.md), le [débogueur d’instantané](../../azure-monitor/app/snapshot-debugger.md) et les [tests de performances](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests), les flux de métriques temps réel constituent un outil de diagnostic puissant et non invasif pour votre site web dynamique.
+Sondez le cœur de votre application web dynamique en production en utilisant les flux de métriques temps réel depuis [Application Insights](../../azure-monitor/app/app-insights-overview.md). Sélectionnez et filtrez les métriques et les compteurs de performances à surveiller en temps réel, sans aucune perturbation de votre service. Inspectez les traces de pile à partir d’échantillons de demandes en échec et d’exceptions. Avec [Profiler](../../azure-monitor/app/profiler.md), le [Débogueur de capture instantanée](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream fournit un outil de diagnostic puissant et non invasif pour votre site web actif.
 
 Avec les flux de métriques temps réel, vous pouvez :
 
@@ -36,7 +36,7 @@ Avec les flux de métriques temps réel, vous pouvez :
 
 [![Vidéo sur les flux de métriques temps réel](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Métriques en temps réel sont actuellement pris en charge pour les applications ASP.NET, ASP.NET Core, Azure Functions, Java et Node.js.
+Les métriques temps réel sont actuellement prises en charge pour les applications ASP.NET, ASP.NET Core, Azure Functions, Java et Node.js.
 
 ## <a name="get-started"></a>Prise en main
 
@@ -50,10 +50,13 @@ Métriques en temps réel sont actuellement pris en charge pour les applications
 
 4. [Sécurisez le canal de contrôle](#secure-the-control-channel) si vous utilisez des données sensibles comme des noms de clients dans vos filtres.
 
+### <a name="nodejs"></a>Node.js
+
+Pour utiliser les métriques temps réel avec Node.js, vous devez mettre à jour vers la version 1.30 ou ultérieure du Kit de développement logiciel (SDK). Les métriques temps réel sont désactivées par défaut dans le Kit de développement logiciel (SDK) Node.js. Pour activer les métriques temps réel, ajoutez `setSendLiveMetrics(true)` à vos [méthodes de configuration](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) lorsque vous initialisez le Kit de développement logiciel (SDK).
+
 ### <a name="no-data-check-your-server-firewall"></a>Pas de données ? Vérifier le pare-feu de votre serveur
 
 Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../azure-monitor/app/ip-addresses.md#outgoing-ports) sont ouverts dans le pare-feu de vos serveurs. 
-
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>En quoi les flux de métriques temps réel diffèrent-ils de Metrics Explorer et d’Analytique ?
 
@@ -65,7 +68,6 @@ Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../
 |Gratuit|Pas de facturation pour les données du flux temps réel|Soumis à [tarification](../../azure-monitor/app/pricing.md)
 |échantillonnage|Tous les compteurs et métriques sélectionnés sont transmis. Les échecs et les traces de pile sont échantillonnés. Les processeurs de télémétrie ne sont pas appliqués.|Les événements peuvent être [échantillonnés](../../azure-monitor/app/api-filtering-sampling.md)|
 |Canal de contrôle|Les signaux de contrôle de filtre sont envoyés au SDK. Nous vous recommandons de sécuriser ce canal.|La communication est unidirectionnelle vers le portail|
-
 
 ## <a name="select-and-filter-your-metrics"></a>Sélectionner et filtrer vos métriques
 
@@ -105,7 +107,12 @@ Si vous voulez surveiller une instance de rôle serveur spécifique, vous pouvez
 ![Échecs dynamiques échantillonnés](./media/live-stream/live-stream-filter.png)
 
 ## <a name="sdk-requirements"></a>Configuration requise du Kit de développement logiciel (SDK)
+
+### <a name="net"></a>.NET
 Le flux de métriques temps réel personnalisé est disponible avec la version 2.4.0-beta2 ou plus récente du [Kit de développement logiciel (SDK) Application Insights pour le web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/). N’oubliez pas de sélectionner l’option « Inclure la version préliminaire » dans le gestionnaire de package NuGet.
+
+### <a name="nodejs"></a>Node.js
+Le flux de métriques temps réel est disponible avec la version 1.3.0 ou plus récente du [SDK Application Insights pour Node.js](https://npmjs.com/package/applicationinsights). N’oubliez pas d’utiliser `setSendLiveMetrics(true)` lors de la configuration du SDK dans votre code.
 
 ## <a name="secure-the-control-channel"></a>Sécuriser le canal de contrôle
 Les critères de filtres personnalisés que vous spécifiez sont renvoyés au composant de métriques temps réel dans le Kit de développement logiciel (SDK) Application Insights. Les filtres peuvent potentiellement contenir des informations sensibles telles que des ID clients. Vous pouvez sécuriser le canal avec une clé API secrète en plus de la clé d’instrumentation.
@@ -173,13 +180,13 @@ Modifiez votre fichier startup.cs comme suit :
 
 Tout d’abord ajouter
 
-``` C#
+```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
 Ensuite, dans la méthode ConfigureServices, ajoutez :
 
-``` C#
+```csharp
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
@@ -190,15 +197,6 @@ Toutefois, si vous connaissez et faites confiance à tous les serveurs connecté
 >[!NOTE]
 >Nous vous recommandons vivement de configurer le canal authentifié avant d’entrer des informations potentiellement sensibles comme un ID client dans les critères de filtre.
 >
-
-## <a name="generating-a-performance-test-load"></a>Génération d’un test de performances de charge
-
-Si vous voulez observer l’effet d’une augmentation de la charge, utilisez le panneau Test de performances. Il simule des demandes à partir d’un certain nombre d’utilisateurs simultanés. Il peut s’exécuter des « tests manuels » (tests de ping) d’une URL unique, ou il peut exécuter un [test de performances web multi-étape](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) que vous chargez (de la même façon qu’un test de disponibilité).
-
-> [!TIP]
-> Après avoir créé le test de performances, ouvrez le test et le panneau Flux temps réel dans des fenêtres distinctes. Vous pouvez voir quand le test de performances en file d’attente démarre, et observer le flux dynamique en même temps.
->
-
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

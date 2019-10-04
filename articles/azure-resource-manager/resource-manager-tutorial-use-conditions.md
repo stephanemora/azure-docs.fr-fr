@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 023be5d0a5320163b3eabfe80f35894763ab89fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 50c6c2a1f8be979d10b77793adb168e6bd276e49
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099608"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70258863"
 ---
-# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutoriel : Utiliser une condition dans des modèles Azure Resource Manager
+# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Didacticiel : Utiliser une condition dans des modèles Azure Resource Manager
 
 Découvrez comment déployer des ressources Azure en fonction des conditions.
 
-Dans le didacticiel [Définir l’ordre de déploiement des ressources](./resource-manager-tutorial-create-templates-with-dependent-resources.md), vous créez une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes, y compris un compte de stockage. Plutôt que de créer un compte de stockage à chaque fois, vous laissez le choix aux utilisateurs de créer un compte de stockage ou d’utiliser un compte de stockage existant. Vous définissez pour cela un paramètre supplémentaire. Si la valeur du paramètre est « nouveau », un nouveau compte de stockage est créé.
+Dans le didacticiel [Définir l’ordre de déploiement des ressources](./resource-manager-tutorial-create-templates-with-dependent-resources.md), vous créez une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes, y compris un compte de stockage. Plutôt que de créer un compte de stockage à chaque fois, vous laissez le choix aux utilisateurs de créer un compte de stockage ou d’utiliser un compte de stockage existant. Vous définissez pour cela un paramètre supplémentaire. Si la valeur du paramètre est « nouveau », un nouveau compte de stockage est créé. Sinon, un compte de stockage existant avec le nom fourni est utilisé.
 
 ![Diagramme de condition d’utilisation d’un modèle Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -35,6 +35,13 @@ Ce tutoriel décrit les tâches suivantes :
 > * Modifier le modèle
 > * Déployer le modèle
 > * Supprimer des ressources
+
+Ce tutoriel traite uniquement d’un scénario de base d’utilisation de conditions. Pour plus d'informations, consultez les pages suivantes :
+
+* [Structure de fichiers de modèle : Condition](conditional-resource-deployment.md).
+* [Déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Fonction de modèle : If](./resource-group-template-functions-logical.md#if).
+* [Fonctions de comparaison pour les modèles Azure Resource Manager](./resource-group-template-functions-comparison.md)
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -48,6 +55,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault a été conçu pour protéger les clés et autres secrets de chiffrement. Pour plus d’informations, consultez [Tutoriel : Intégrer Azure Key Vault à un déploiement de modèle Resource Manager](./resource-manager-tutorial-use-key-vault.md). Nous vous recommandons également de mettre à jour votre mot de passe tous les trois mois.
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
@@ -60,6 +68,7 @@ Modèles de démarrage rapide Azure est un référentiel pour les modèles Resou
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Sélectionnez **Ouvrir** pour ouvrir le fichier.
 4. Il existe cinq ressources définies par le modèle :
 
@@ -77,17 +86,16 @@ Modèles de démarrage rapide Azure est un référentiel pour les modèles Resou
 Apportez deux modifications au modèle existant :
 
 * Ajoutez un paramètre de nom de compte de stockage. Les utilisateurs peuvent spécifier un nouveau nom de compte de stockage ou un nom de compte de stockage existant.
-* Ajoutez un nouveau paramètre appelé **newOrExisting**. Le déploiement utilise ce paramètre pour déterminer où créer un compte de stockage ou utiliser un compte de stockage existant.
+* Ajoutez un nouveau paramètre appelé **newOrExisting**. Le déploiement utilise ce paramètre pour déterminer s’il faut créer un compte de stockage ou utiliser un compte de stockage existant.
 
 Voici la procédure pour apporter les modifications :
 
 1. Ouvrez **azuredeploy.json** dans Visual Studio Code.
-2. Remplacez **variables('storageAccountName')** par **parameters('storageAccountName')** dans le modèle entier.  **variables('storageAccountName')** peut avoir trois apparences.
+2. Remplacez les trois **variables('storageAccountName')** par **parameters('storageAccountName')** dans le modèle entier.
 3. Supprimez la définition de variable suivante :
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
-    ```
+    ![Diagramme de condition d’utilisation d’un modèle Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+
 4. Ajoutez les deux paramètres suivants au modèle :
 
     ```json
@@ -95,13 +103,14 @@ Voici la procédure pour apporter les modifications :
       "type": "string"
     },
     "newOrExisting": {
-      "type": "string", 
+      "type": "string",
       "allowedValues": [
-        "new", 
+        "new",
         "existing"
       ]
     },
     ```
+
     La définition de paramètres mise à jour ressemble à :
 
     ![Condition d’utilisation de Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
@@ -117,7 +126,7 @@ Voici la procédure pour apporter les modifications :
     La définition du compte de stockage mise à jour ressemble à :
 
     ![Condition d’utilisation de Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Mettez à jour **storageUri** avec la valeur suivante :
+6. Mettez à jour la propriété **storageUri** de la définition de ressource de machine virtuelle avec la valeur suivante :
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -129,11 +138,7 @@ Voici la procédure pour apporter les modifications :
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Suivez les instructions de la section [Déployer le modèle](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) pour déployer le modèle.
-
-Lorsque vous déployez le modèle à l’aide d’Azure PowerShell, vous devez spécifier un paramètre supplémentaire. Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Consultez les [Conditions préalables](#prerequisites).
+Suivez les instructions fournies dans [Déployer le modèle](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) pour ouvrir Cloud Shell et charger le modèle modifié, puis exécutez le script PowerShell suivant pour déployer le modèle.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -158,16 +163,16 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > Le déploiement échoue si **newOrExisting** est **nouveau**, mais le compte de stockage avec le nom de compte de stockage spécifié déjà existe.
 
-Essayez d’effectuer un autre déploiement avec **newOrExisting** défini sur « existant » et spécifiez un compte de stockage existant. Pour créer un compte de stockage au préalable, consultez [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
+Essayez d’effectuer un autre déploiement avec **newOrExisting** défini sur « existing » (existant) et spécifiez un compte de stockage existant. Pour créer un compte de stockage au préalable, consultez [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous avez déployées en supprimant le groupe de ressources.
+Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous avez déployées en supprimant le groupe de ressources. Pour supprimer le groupe de ressources, sélectionnez **Essayez-le** afin d’ouvrir Cloud Shell. Pour coller le script PowerShell, cliquez sur le volet de l’interpréteur de commandes, puis sélectionnez **Coller**.
 
-1. Dans le portail Azure, sélectionnez **Groupe de ressources** dans le menu de gauche.
-2. Entrez le nom du groupe de ressources dans le champ **Filtrer par nom**.
-3. Sélectionnez le nom du groupe de ressources.  Vous devriez voir six ressources au total dans le groupe de ressources.
-4. Sélectionnez **Supprimer le groupe de ressources** dans le menu supérieur.
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

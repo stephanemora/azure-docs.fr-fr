@@ -4,23 +4,22 @@ description: Événements planifiés avec le service de métadonnées Azure sur 
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 2ed92486b55aa4fd7dce32f54f0b6567c7bb3cf2
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 087f27b3857363c0b5f244ecd52ebd64105626b5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486731"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102396"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Instance Metadata Service : Événements planifiés pour les machines virtuelles Windows
 
@@ -45,10 +44,10 @@ De nombreuses applications peuvent bénéficier d’un délai pour se préparer 
 Avec Événements planifiés, votre application peut savoir quand une maintenance aura lieu et déclencher des tâches pour limiter son impact. Les événements planifiés laissent à votre machine virtuelle une période minimale avant l’activité de maintenance. Pour plus d’informations, voir la section Planification d’événements ci-dessous.
 
 Le service Événements planifiés fournit des événements dans les cas d’usage suivants :
-- Maintenance lancée par la plateforme (par exemple, mise à jour du système d’exploitation hôte)
+- [Maintenance lancée par la plateforme](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (par exemple, redémarrage de machine virtuelle, migration dynamique ou mémoire conservant les mises à jour pour l’hôte)
 - Matériel détérioré
 - Maintenance lancée par l’utilisateur (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle)
-- [Éviction de la machine virtuelle basse priorité](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) dans la mise à l’échelle définit
+- [Éviction de machine virtuelle basse priorité](https://azure.microsoft.com/blog/low-priority-scale-sets) dans des groupes identiques
 
 ## <a name="the-basics"></a>Concepts de base  
 
@@ -66,9 +65,9 @@ Les versions du service Événements planifiés sont gérées. Les versions sont
 
 | Version | Type de version | Régions | Notes de publication | 
 | - | - | - | - |
-| 2017-11-01 | Disponibilité générale | Tous | <li> Prise en charge pour une suppression de machine virtuelle basse priorité EventType 'Preempt'<br> | 
+| 2017-11-01 | Disponibilité générale | Tous | <li> Ajout de la prise en charge de l’éviction de machine virtuelle, EventType « Preempt »<br> | 
 | 2017-08-01 | Disponibilité générale | Tous | <li> Suppression du trait de soulignement ajouté au début des noms de ressources pour les machines virtuelles IaaS<br><li>Spécification d’en-tête de métadonnées appliquée à toutes les requêtes | 
-| 2017-03-01 | VERSION PRÉLIMINAIRE | Tous |<li>Version initiale
+| 2017-03-01 | PRÉVERSION | Tous |<li>Version initiale
 
 > [!NOTE] 
 > Les préversions précédentes des événements planifiés prenaient en charge {dernière version} en tant que version de l’api. Ce format n’est plus pris en charge et sera déconseillé à l’avenir.
@@ -119,7 +118,7 @@ DocumentIncarnation est un ETag qui permet d’inspecter facilement la charge ut
 |Propriété  |  Description |
 | - | - |
 | EventId | GUID pour cet événement. <br><br> Exemple : <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Type d’événement | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze`: une pause de quelques secondes est planifiée pour la machine virtuelle. Le processeur est mis en pause, mais cela n’a aucun impact sur la mémoire, les fichiers ouverts ou les connexions réseau. <li>`Reboot`: un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy`: un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). <li>`Preempt`: La Machine virtuelle de faible priorité est en cours de suppression (disques éphémères sont perdues).|
+| Type d’événement | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze`: une pause de quelques secondes est planifiée pour la machine virtuelle. L’UC et la connectivité réseau peuvent être suspendus, mais cela n’a aucun impact sur la mémoire ni sur les fichiers ouverts. <li>`Reboot`: un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy`: un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). <li>`Preempt`: la machine virtuelle basse priorité est supprimée (le contenu des disques éphémères est perdu).|
 | ResourceType | Type de ressource affecté par cet événement. <br><br> Valeurs : <ul><li>`VirtualMachine`|
 | Ressources| Liste des ressources affectées par cet événement. Elle contient à coup sûr des machines d’au plus un [domaine de mise à jour](manage-availability.md), mais elle peut ne pas contenir toutes les machines du domaine utilisateur. <br><br> Exemple : <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | État de cet événement. <br><br> Valeurs : <ul><li>`Scheduled`: cet événement est planifié pour démarrer après l’heure spécifiée dans la propriété `NotBefore`.<li>`Started`: cet événement a démarré.</ul> Aucun état `Completed` ou similaire n’est jamais fourni, car l’événement n’est plus retourné une fois qu’il est terminé.
@@ -133,10 +132,11 @@ Chaque événement est planifié à un minimum de temps dans le futur, en foncti
 | Freeze| 15 minutes |
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
-| Préempter | 30 secondes |
+| Preempt | 30 secondes |
 
 ### <a name="event-scope"></a>Portée de l’événement     
-Les événements planifiés sont remis à :        
+Les événements planifiés sont remis à :
+ - Machines virtuelles autonomes
  - Toutes les machines virtuelles d’un service cloud      
  - Toutes les machines virtuelles d’un groupe à haute disponibilité      
  - Toutes les machines virtuelles d’un groupe de placement de groupe identique.         

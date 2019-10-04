@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: edb6a84762ce65e65ff33492f3a7bcebbce60777
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670470"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390376"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Vue d’ensemble des clusters Service Fabric sur Azure
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou machine virtuelle faisant partie d’un cluster est appelée un nœud de cluster. Les clusters peuvent être mis à l’échelle pour des milliers de nœuds. Si vous ajoutez des nœuds au cluster, Service Fabric rééquilibre les réplicas de partition du service et les instances sur le nombre de nœuds augmenté. Les performances globales de l’application s’améliorent tandis que le conflit d’accès à la mémoire diminue. Si les nœuds du cluster ne sont pas utilisés efficacement, vous pouvez diminuer le nombre de nœuds dans le cluster. Service Fabric rééquilibre à nouveau les réplicas de partition et les instances sur le nombre réduit de nœuds afin de mieux utiliser le matériel sur chaque nœud.
@@ -55,7 +55,7 @@ Vous pouvez utiliser des groupes identiques pour déployer et gérer une collect
 Pour plus d’informations, consultez [Types de nœuds Service Fabric et groupes de machines virtuelles identiques](service-fabric-cluster-nodetypes.md).
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
-Les instances de machine virtuelle sont jointes derrière un [équilibreur de charge Azure](/azure/load-balancer/load-balancer-overview), qui est associé à une [adresse IP publique](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) et à des étiquette DNS.  Quand vous configurez un cluster avec *&lt;nom_cluster&gt;*, le nom DNS, *&lt;nom_cluster&gt;.&lt;emplacement&gt;.cloudapp.azure.com* est l’étiquette DNS associée à l’équilibreur de charge placé devant le groupe identique.
+Les instances de machine virtuelle sont jointes derrière un [équilibreur de charge Azure](/azure/load-balancer/load-balancer-overview), qui est associé à une [adresse IP publique](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) et à des étiquette DNS.  Quand vous configurez un cluster avec *&lt;nom_cluster&gt;* , le nom DNS, *&lt;nom_cluster&gt;.&lt;emplacement&gt;.cloudapp.azure.com* est l’étiquette DNS associée à l’équilibreur de charge placé devant le groupe identique.
 
 Les machines virtuelles d’un cluster ont seulement des [adresses IP privées](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses).  Le trafic de gestion et le trafic de service sont routés par le biais de l’équilibreur de charge public.  Le trafic réseau est routé vers ces machines à l’aide de règles NAT (les clients se connectent à des instances/nœuds spécifiques) ou de règles d’équilibrage de charge (le trafic est dirigé vers des machines virtuelles par tourniquet (Round Robin)).  Un équilibreur de charge a une adresse IP publique associée avec un nom DNS au format suivant : *&lt;nom_cluster&gt;.&lt;emplacement&gt;.cloudapp.azure.com*.  Une adresse IP publique est une autre ressource Azure dans le groupe de ressources.  Si vous définissez plusieurs types de nœuds dans un cluster, un équilibreur de charge est créé pour chaque type de nœud/groupe identique. Vous pouvez aussi configurer un seul équilibreur de charge pour plusieurs types de nœuds.  Le type de nœud principal a l’étiquette DNS *&lt;nom_cluster&gt;.&lt;emplacement&gt;.cloudapp.azure.com*. Les autres types de nœuds ont l’étiquette DNS *&lt;nom_cluster&gt;-&lt;type_nœud&gt;.&lt;emplacement&gt;.cloudapp.azure.com*.
 
@@ -103,12 +103,17 @@ Pour plus d’informations, consultez [Mise à niveau des clusters](service-fabr
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 Vous pouvez créer des clusters sur des machines virtuelles qui exécutent ces systèmes d’exploitation :
 
-* Windows Server 2012 R2
-* Windows Server 2016 
-* Windows Server 1709
-* Windows Server 1803
-* Linux Ubuntu 16.04
-* Red Hat Enterprise Linux 7.4 (support de la préversion)
+| Système d’exploitation | Version prise en charge de Service Fabric la plus ancienne |
+| --- | --- |
+| Windows Server 2012 R2 | Toutes les versions |
+| Windows Server 2016 | Toutes les versions |
+| Windows Server 1709 | 6.0 |
+| Windows Server 1803 | 6.4. |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+
+Pour plus d’informations, consultez [Versions de cluster prises en charge dans Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-operating-systems)
 
 > [!NOTE]
 > Si vous décidez de déployer Service Fabric sur Windows Server 1709, notez que (1) ce n’est pas une branche destinée à des services à long terme, ce qui vous obligera probablement à changer de versions à l’avenir, et (2) si vous déployez des conteneurs, les conteneurs reposant sur Windows Server 2016 ne fonctionnent pas sur Windows Server 1709, et vice versa (vous devez les régénérer pour les déployer).

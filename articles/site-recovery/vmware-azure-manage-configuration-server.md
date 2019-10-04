@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 66022b5e4885c515bd6117f9a44b8108ff84ae5c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149493"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250095"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d’urgence de machines virtuelles VMware
 
@@ -109,7 +109,7 @@ Vous pouvez réinscrire le serveur de configuration dans le même coffre, si né
    ```
 
     >[!NOTE]
-    >Afin d’**extraire les certificats les plus récents** à partir du serveur de configuration pour évoluer le serveur de traitement, exécutez la commande *« <Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe> »--registermt*
+    >Afin d’**extraire les certificats les plus récents** du serveur de configuration au serveur de traitement avec scale-out, exécutez la commande *« \<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe> »--registermt*
 
 8. Enfin, redémarrez la machine en exécutant la commande suivante.
    ```
@@ -135,7 +135,7 @@ Vous pouvez réinscrire le serveur de configuration dans le même coffre, si né
 
 ## <a name="upgrade-the-configuration-server"></a>Mettre à niveau le serveur de configuration
 
-Vous exécutez des correctifs cumulatifs pour mettre à jour le serveur de configuration. Les mises à jour peuvent être appliquées jusqu’aux versions N-4. Par exemple : 
+Vous exécutez des correctifs cumulatifs pour mettre à jour le serveur de configuration. Les mises à jour peuvent être appliquées jusqu’aux versions N-4. Par exemple :
 
 - Si vous exécutez la version 9.7, 9.8, 9.9 ou 9.10, vous pouvez mettre à niveau directement vers la version 9.11.
 - Si vous exécutez la version 9.6 ou une version antérieure, et souhaitez mettre à niveau vers la version 9.11, vous devez d’abord mettre à niveau vers la version 9.7, avant de mettre à niveau vers la version 9.11.
@@ -183,7 +183,7 @@ Exécutez le fichier d’installation de la manière suivante :
 
 ### <a name="parameters"></a>parameters
 
-|Nom du paramètre| type | Description| Valeurs|
+|Nom du paramètre| Type | Description| Valeurs|
 |-|-|-|-|
 | /ServerMode|Obligatoire|Spécifie si les serveurs de configuration et de processus doivent être installés ou si seul le serveur de processus doit être installé|CS<br>PS|
 |/InstallLocation|Obligatoire|Dossier d’installation des composants| N’importe quel dossier sur l’ordinateur|
@@ -258,7 +258,7 @@ Vous pouvez également supprimer le serveur de configuration à l’aide de Powe
     `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> Vous pouvez utiliser la **-Force** option dans Remove-AzSiteRecoveryFabric pour forcer la suppression du serveur de configuration.
+> Vous pouvez utiliser l’option **-Force** dans Remove-AzSiteRecoveryFabric pour forcer la suppression du serveur de configuration.
 
 ## <a name="generate-configuration-server-passphrase"></a>Générer la phrase secrète du serveur de configuration
 

@@ -2,32 +2,32 @@
 title: Ajouter ou supprimer des utilisateurs - Azure Active Directory | Microsoft Docs
 description: Instructions pour ajouter de nouveaux utilisateurs ou supprimer des utilisateurs existants à l’aide d’Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: a8b436fbdb0d70318e6820d3f59f1e198c639e5a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009595"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561698"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory
-Ajouter de nouveaux utilisateurs ou supprimer des utilisateurs existants à partir de votre organisation Azure Active Directory (Azure AD).
+Ajoutez de nouveaux utilisateurs ou supprimez des utilisateurs existants de votre organisation Azure Active Directory (Azure AD).
 
 ## <a name="add-a-new-user"></a>Ajouter un nouvel utilisateur
 Vous pouvez créer un utilisateur à l’aide du portail Azure Active Directory.
 
 ### <a name="to-add-a-new-user"></a>Ajouter un nouvel utilisateur
-1. Se connecter à la [portail](https://portal.azure.com/) en tant qu’utilisateur administrateur pour l’organisation.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu'administrateur d'utilisateurs de l'organisation.
 
 2. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Nouvel utilisateur**.
 
@@ -47,7 +47,7 @@ Vous pouvez créer un utilisateur à l’aide du portail Azure Active Directory.
 
    - **Groupes.** Si vous le souhaitez, vous pouvez ajouter l’utilisateur à un ou plusieurs groupes existants. Vous pouvez également ajouter l’utilisateur à des groupes ultérieurement. Pour plus d’informations sur l’ajout d’utilisateurs à des groupes, consultez [Créer un groupe de base et ajouter des membres](active-directory-groups-create-azure-portal.md).
 
-   - **Rôle de répertoire.** Si vous le souhaitez, vous pouvez ajouter l’utilisateur à un rôle d’administrateur Azure AD. Vous pouvez affecter l’utilisateur soit un administrateur général ou un ou plusieurs des rôles administrateur limité dans Azure AD. Pour plus d’informations sur l’affectation de rôles, consultez [Attribuer des rôles aux utilisateurs](active-directory-users-assign-role-azure-portal.md).
+   - **Rôle de répertoire.** Si vous le souhaitez, vous pouvez attribuer un rôle d'administrateur Azure AD à l'utilisateur. Vous pouvez attribuer à l'utilisateur le rôle d'Administrateur général, ou lui confier un ou plusieurs des rôles d'administrateur limités dans Azure AD. Pour plus d’informations sur l’affectation de rôles, consultez [Attribuer des rôles aux utilisateurs](active-directory-users-assign-role-azure-portal.md).
 
 4. Copiez le mot de passe généré automatiquement fourni dans le champ **Mot de passe**. Vous devrez donner ce mot de passe à l’utilisateur pour qu’il se connecte la première fois.
 
@@ -62,7 +62,7 @@ Si vous avez un environnement avec Azure Active Directory (cloud) et Windows Ser
 Vous pouvez supprimer un utilisateur existant à l’aide du portail Azure Active Directory.
 
 ### <a name="to-delete-a-user"></a>Pour supprimer un utilisateur
-1. Se connecter à la [Azure portal](https://portal.azure.com/) à l’aide d’un compte d’utilisateur administrateur pour l’organisation.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l'aide d'un compte d'administrateur d'utilisateurs de l'organisation.
 
 2. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis recherchez et sélectionnez l’utilisateur que vous souhaitez supprimer de votre client Azure AD. Par exemple, _Mary Parker_.
 
@@ -70,7 +70,7 @@ Vous pouvez supprimer un utilisateur existant à l’aide du portail Azure Activ
 
     ![Page Utilisateurs - Tous avec l’option Supprimer l’utilisateur mis en surbrillance](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-    L’utilisateur est supprimé et n’apparaît plus sur la page **Utilisateurs : Tous les utilisateurs**. L’utilisateur est affiché sur la page **Utilisateurs supprimés** pendant 30 jours et peut être restauré durant cette période. Pour plus d’informations sur la restauration d’un utilisateur, consultez [Restaurer ou supprimer de façon définitive un utilisateur supprimé](active-directory-users-restore.md). Lorsqu’un utilisateur est supprimé, les licences consommées par l’utilisateur sont rendus disponibles pour d’autres utilisateurs à être consommés.
+    L’utilisateur est supprimé et n’apparaît plus sur la page **Utilisateurs : Tous les utilisateurs**. L’utilisateur est affiché sur la page **Utilisateurs supprimés** pendant 30 jours et peut être restauré durant cette période. Pour plus d’informations sur la restauration d’un utilisateur, consultez [Restaurer ou supprimer de façon définitive un utilisateur supprimé](active-directory-users-restore.md). Lorsqu'un utilisateur est supprimé, toutes les licences utilisées par celui-ci sont mises à la disposition d'autres utilisateurs.
 
     >[!Note]
     >Vous devez utiliser Windows Server Active Directory pour mettre à jour l’identité, les informations de contact ou sur l’emploi des utilisateurs dont la source d’autorité est Windows Server Active Directory. Une fois la mise à jour terminée, vous devez attendre la fin du prochain cycle de synchronisation pour constater les modifications.

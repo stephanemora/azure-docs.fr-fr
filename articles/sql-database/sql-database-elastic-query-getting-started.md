@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561992"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568602"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Créer des rapports sur des bases de données cloud avec montée en charge (version préliminaire)
 
-Vous pouvez créer des rapports tirés de plusieurs bases de données SQL Azure à partir d’un point de connexion unique par le biais d’une [requête élastique](sql-database-elastic-query-overview.md). Les bases de données doivent être partitionnées horizontalement.
+Vous pouvez créer des rapports tirés de plusieurs bases de données Azure SQL à partir d’un point de connexion unique par le biais d’une [requête élastique](sql-database-elastic-query-overview.md). Les bases de données doivent être partitionnées horizontalement.
 
 Si vous avez déjà une base de données, consultez [Migrer des bases de données existantes vers des bases de données mises à l’échelle](sql-database-elastic-convert-to-use-elastic-tools.md).
 
@@ -48,7 +47,7 @@ Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs pa
 
 ## <a name="create-an-elastic-query-database"></a>Créez une base de données de requête élastique
 1. Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous.
-2. Créez une nouvelle base de données SQL Azure dans le même serveur que votre partition configurée. Nommez la base de données « ElasticDBQuery ».
+2. Créez une nouvelle base de données Azure SQL dans le même serveur que votre partition configurée. Nommez la base de données « ElasticDBQuery ».
 
     ![Portail Azure et tarification][3]
 

@@ -1,5 +1,5 @@
 ---
-title: Classement des images - Vision par ordinateur
+title: Catégorisation des images - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
 description: Découvrez les concepts liés à la fonction de catégorisation d’images de l’API Vision par ordinateur.
 services: cognitive-services
@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 2b9b8da550d80b027da919ba0834e43e2c83d4b4
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995572"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945307"
 ---
 # <a name="categorize-images-by-subject-matter"></a>Catégoriser les images par sujet
 
-Outre les balises et les descriptions, Vision par ordinateur renvoie des catégories basées sur la taxonomie détectées dans une image. Contrairement aux balises, les catégories sont organisées selon une hiérarchie héréditaire parent/enfant, et elles sont moins nombreuses (86 contre des milliers de balises). Tous les noms de catégorie sont en anglais. La catégorisation peut se faire par elle-même ou à côté du modèle de balises plus récentes.
+En plus des étiquettes et les descriptions, Vision par ordinateur retourne des catégories basées sur la taxonomie détectées dans une image. Contrairement aux étiquettes, les catégories sont organisées selon une hiérarchie héréditaire parent/enfant, et elles sont moins nombreuses (86 contre des milliers d’étiquettes). Tous les noms de catégorie sont en anglais. La catégorisation peut se faire par elle-même ou à côté du modèle d’étiquettes plus récentes.
 
 ## <a name="the-86-category-concept"></a>Concept des 86 catégories
 
-Vision par ordinateur permet de classer une image largement ou plus précisément, à l’aide de la liste des 86 catégories dans le diagramme suivant. Pour consulter la taxonomie complète au format texte, consultez [Taxonomie des catégories](category-taxonomy.md).
+Vision par ordinateur peut catégoriser une image de manière large ou spécifique, en utilisant la liste de 86 catégories dans le diagramme suivant. Pour consulter la taxonomie complète au format texte, consultez [Taxonomie des catégories](category-taxonomy.md).
 
 ![Listes groupées de toutes les catégories de la taxonomie des catégories](./Images/analyze_categories-v2.png)
 
@@ -62,4 +62,4 @@ Le tableau suivant illustre un ensemble d’images type et la catégorie renvoy�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez les concepts de [balisage d’images](concept-tagging-images.md) et de [classement des images](concept-describing-images.md).
+Découvrez les concepts d’[étiquetage d’images](concept-tagging-images.md) et de [description d’images](concept-describing-images.md).

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: cef2eb2cde2a26239b774729fa72b4f3ba367df7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737075"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "67176874"
 ---
 > [!NOTE]
-> Azure propose deux modèles de déploiement que vous pouvez utiliser pour créer et utiliser des ressources : [Azure Resource Manager et classique](../articles/azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement Resource Manager. Nous recommandons le modèle de déploiement Resource Manager pour les nouveaux déploiements au lieu du modèle de déploiement classique.
+> Azure dispose de deux modèles de déploiement différents vous permettant de créer et d’utiliser des ressources : [Azure Resource Manager et classique](../articles/azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons le modèle de déploiement Resource Manager pour les nouveaux déploiements, plutôt que le modèle de déploiement classique.

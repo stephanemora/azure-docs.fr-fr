@@ -1,10 +1,13 @@
 - name: Documentation Notification Hubs
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Notification Hubs
       href: notification-hubs-push-notification-overview.md
+    - name: Intégration d’App Service Mobile Apps
+      href: notification-hubs-app-service.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Créer un hub de notification - Portail Azure
       href: create-notification-hub-portal.md
@@ -14,28 +17,32 @@
   items:
     - name: Android
       items:
-        - name: Notifications Push avec Firebase Cloud Messaging
-          href: notification-hubs-android-push-notification-google-fcm-get-started.md
-        - name: Notifications Push avec Google Cloud Messaging
-          href: notification-hubs-android-push-notification-google-gcm-get-started.md
-        - name: Notifications Push sur des appareils spécifiques
-          href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-        - name: Notifications Push pour des utilisateurs spécifiques
-          href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-        - name: Notifications Push sur les applications Xamarin Android
-          href: xamarin-notification-hubs-push-notifications-android-gcm.md
-    - name: Baidu
-      items:
-        - name: Notifications Push avec le push cloud Baidu
-          href: notification-hubs-baidu-china-android-notifications-get-started.md
-    - name: Chrome
-      items:
-        - name: Notifications Push sur les applications Chrome
-          href: notification-hubs-chrome-push-notifications-get-started.md
+        - name: Firebase Cloud Messaging
+          items:
+            - name: Notifications Push pour toutes les inscriptions
+              href: notification-hubs-android-push-notification-google-fcm-get-started.md
+            - name: Notifications Push sur des appareils spécifiques
+              href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
+            - name: Notifications Push pour des utilisateurs spécifiques
+              href: push-notifications-android-specific-users-firebase-cloud-messaging.md
+            - name: Notifications Push sur les applications Xamarin Android
+              href: xamarin-notification-hubs-push-notifications-android-gcm.md
+        - name: Google Cloud Message (déprécié)
+          items:
+            - name: Notifications Push pour toutes les inscriptions
+              href: notification-hubs-android-push-notification-google-gcm-get-started.md
+            - name: Notifications Push sur des appareils spécifiques
+              href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+            - name: Notifications Push pour des utilisateurs spécifiques
+              href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: iOS
       items:
         - name: Notifications Push sur les applications iOS
-          href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+          items:
+            - name: Objective-c
+              href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+            - name: Swift
+              href: notification-hubs-ios-push-notifications-swift-apps-get-started.md
         - name: Notifications Push sur des appareils spécifiques
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Notifications Push pour des utilisateurs spécifiques
@@ -44,17 +51,13 @@
           href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
         - name: Notifications Push localisées sur les appareils iOS
           href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-    - name: Kindle
-      items:
-        - name: Notifications Push avec Amazon Device Messaging
-          href: notification-hubs-kindle-amazon-adm-push-notification.md
     - name: Windows Phone
       items:
         - name: Notifications Push sur les applications
           href: notification-hubs-windows-mobile-push-notifications-mpns.md
         - name: Notifications Push sur des appareils spécifiques
           href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-    - name: ' Windows'
+    - name: Windows
       items:
         - name: Notifications Push sur les applications de la plateforme Windows universelle
           href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
@@ -123,8 +126,6 @@
           href: configure-windows-push-notification-service.md
         - name: Configurer les services de notifications Push Microsoft
           href: configure-microsoft-push-notification-service.md
-        - name: Configurer Android Device Messaging
-          href: configure-android-device-messaging.md
         - name: Configurer Baidu Cloud Push
           href: configure-baidu-cloud-push.md
     - name: S’inscrire auprès du principal d’application
@@ -133,6 +134,8 @@
       href: notification-hubs-push-notification-http2-token-authentification.md
     - name: Résoudre les problèmes de notifications rejetées
       href: notification-hubs-push-notification-fixer.md
+    - name: Notifications Push avec le push cloud Baidu
+      href: notification-hubs-baidu-china-android-notifications-get-started.md
 - name: Informations de référence
   items:
     - name: .NET

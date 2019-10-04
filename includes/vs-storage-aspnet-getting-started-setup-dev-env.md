@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: a7c696870e22e1692ca5ed778e47f8e4cc00615a
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610133"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176964"
 ---
 ## <a name="set-up-the-development-environment"></a>Configuration de l’environnement de développement
 
@@ -25,7 +25,7 @@ Cette section explique les étapes à effectuer pour configurer l’environnemen
 
 1. Dans le menu principal, sélectionnez **Fichier** > **Nouveau** > **Projet**.
 
-1. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Web** > **Application web ASP.NET (.NET Framework)**. Dans le champ **Nom**, spécifiez **StorageAspNet**. Sélectionnez **OK**.
+1. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Web** > **Application web ASP.NET (.NET Framework)** . Dans le champ **Nom**, spécifiez **StorageAspNet**. Sélectionnez **OK**.
 
     ![Capture d’écran de la boîte de dialogue Nouveau projet](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
@@ -45,7 +45,7 @@ Cette section explique les étapes à effectuer pour configurer l’environnemen
 
 1. Dans la boîte de dialogue **Stockage Azure**, sélectionnez le compte de stockage Azure à utiliser dans le cadre de ce didacticiel. Pour créer un compte de stockage Azure, sélectionnez **Créer un compte de stockage** et remplissez le formulaire. Après avoir sélectionné un compte de stockage existant ou en avoir créé un, sélectionnez **Ajouter**. Visual Studio installe le package NuGet pour le Stockage Azure et une chaîne de connexion de stockage pour **Web.config**.
 
-1. Dans **l’Explorateur de solutions**, avec le bouton droit sur **dépendances**, choisissez **gérer les Packages NuGet**et ajoutez une référence de package NuGet pour la dernière version de Microsoft.Azure.ConfigurationManager.
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **Dépendances**, choisissez **Gérer les packages NuGet**et ajoutez une référence de package NuGet à la dernière version de Microsoft.Azure.ConfigurationManager.
 
 > [!TIP]
 > Pour apprendre à créer un compte de stockage avec le [portail Azure](https://portal.azure.com), consultez [Créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).

@@ -3,21 +3,22 @@ title: Mesures des utilisateurs réels dans Azure Traffic Manager avec Visual St
 description: Configurez votre application mobile développée à l’aide de Visual Studio Mobile Center pour envoyer des mesures d’utilisateurs réels à Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 1a5b883a8c9688d4545c0e98c00f78a2e982a611
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 95207cea5988a22b0b3caa23be39b481f9fd687b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079710"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071251"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Comment envoyer les mesures des utilisateurs réels à Traffic Manager avec Visual Studio Mobile Center
 
@@ -40,7 +41,7 @@ Pour obtenir la clé de mesures des utilisateurs réels via le portail Azure, ut
         
    ![Générer une clé de mesures des utilisateurs réels](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figure 1 : Génération de la clé de mesures des utilisateurs réelle**
+   **Figure 1 : Génération de la clé de Mesures utilisateur réelles**
 
 5. La page affiche maintenant la clé de mesures des utilisateurs réels générée et un extrait de code JavaScript qui doit être incorporé à votre page HTML.
  
@@ -50,7 +51,7 @@ Pour obtenir la clé de mesures des utilisateurs réels via le portail Azure, ut
  
 6. Cliquez sur le bouton **Copier** pour copier la clé de mesures des utilisateurs réels. 
 
-## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Étape 2 : Instrumenter votre application avec le package de mesures des utilisateurs réels du SDK Mobile Center
+## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Étape 2 : Instrumenter votre application avec le package Mesures utilisateur réelles du SDK Mobile Center
 
 Si vous utilisez les services Visual Studio Mobile Center, consultez leur [site web](https://mobile.azure.com). Pour obtenir des instructions détaillées sur l’intégration du SDK, consultez [Bien démarrer avec Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android).
 

@@ -1,5 +1,5 @@
 ---
-title: Surveillance et la journalisation dans la Protection de mot de passe Azure AD - Azure Active Directory
+title: Surveillance et journalisation de protection par mot de passe dans Azure AD – Azure Active Directory
 description: Comprendre la supervision et la journalisation dans la protection par mot de passe Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: a763f15b57bf7f23eeb52c81dd48de7f02adc5e4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479722"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853554"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Supervision et journalisation dans la protection par mot de passe Azure AD
 
 Après le déploiement de la protection par mot de passe Azure AD, la supervision et la génération de rapports sont des tâches essentielles. Cet article détaillé vous aide à comprendre plusieurs techniques de supervision, notamment en vous expliquant où chaque service journalise les informations et en vous montrant comment créer des rapports sur l’utilisation de la protection par mot de passe Azure AD.
 
-Analyse et rapports sont effectuées par les messages de journal des événements ou en exécutant les applets de commande PowerShell. Les contrôleur de domaine agent proxy services et à la fois enregistrer les messages de journal des événements. Toutes les applets de commande PowerShell décrites ci-dessous sont disponibles uniquement sur le serveur proxy (voir le module PowerShell de AzureADPasswordProtection). Le logiciel de l’agent du contrôleur de domaine n’installe pas un module PowerShell.
+La surveillance et la création de rapports sont effectuées soit par des messages du journal des événements, soit en exécutant des cmdlets PowerShell. L'agent DC et les services proxy consignent tous deux les messages du journal des événements. Toutes les cmdlets PowerShell décrites ci-dessous sont uniquement disponibles sur le serveur proxy (voir le module AzureADPasswordProtection PowerShell). Le logiciel de l'agent DC n'installe pas de module PowerShell.
 
 ## <a name="dc-agent-event-logging"></a>Journalisation des événements de l’agent de contrôleur de domaine (DC)
 
@@ -271,6 +271,27 @@ Si la valeur HeartbeatUTC est périmée, cela peut indiquer que l’agent DC de
 
 Si la valeur PasswordPolicyDateUTC est périmée, cela peut indiquer que l’agent DC de la protection par mot de passe Azure AD sur cette machine ne fonctionne pas correctement.
 
+## <a name="dc-agent-newer-version-available"></a>Version plus récente de l’agent DC disponible
+
+Le service de l’agent DC enregistre un événement d’avertissement 30034 dans le journal des opérations lors de la détection d’une version plus récente du logiciel de l’agent DC, par exemple :
+
+```text
+An update for Azure AD Password Protection DC Agent is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+```
+
+L’événement ci-dessus ne spécifie pas la version du logiciel le plus récent. Vous devez accéder au lien dans le message d’événement pour obtenir ces informations.
+
+> [!NOTE]
+> Malgré les références à « AutoUpgrade » dans le message d’événement ci-dessus, le logiciel de l’agent DC ne prend pas en charge cette fonctionnalité pour le moment.
+
 ## <a name="proxy-service-event-logging"></a>Journalisation des événements du service Proxy
 
 Le service Proxy émet un jeu minimal d’événements pour les journaux d’événements suivants :
@@ -314,7 +335,7 @@ Le journal texte est désactivé par défaut. Un redémarrage du service Proxy e
 
 Les applets de commande PowerShell qui connaissent un changement d’état (par exemple, Register-AzureADPasswordProtectionProxy) consignent normalement un événement de résultat dans le journal des opérations.
 
-En outre, la plupart des applets de commande PowerShell de Protection de mot de passe Azure AD s’écrire dans un journal de texte qui se trouve sous :
+De plus, la plupart des applets de commande PowerShell de la protection par mot de passe Azure AD consignent un événement dans un journal texte sous :
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
@@ -339,6 +360,27 @@ Les différentes propriétés sont mises à jour par chaque service Proxy enviro
 La portée de la requête de la cmdlet peut être influencée à l’aide des paramètres –Forest ou –Domain.
 
 Si la valeur HeartbeatUTC est périmée, cela peut indiquer que le service Proxy de la protection par mot de passe Azure AD sur cette machine n’est pas actuellement exécuté ou qu’il a été désinstallé.
+
+## <a name="proxy-agent-newer-version-available"></a>Version plus récente de l’agent proxy disponible
+
+Le service proxy enregistre un événement d’avertissement 20002 dans le journal des opérations lors de la détection d’une version plus récente du logiciel proxy, par exemple :
+
+```text
+An update for Azure AD Password Protection Proxy is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+.
+```
+
+L’événement ci-dessus ne spécifie pas la version du logiciel le plus récent. Vous devez accéder au lien dans le message d’événement pour obtenir ces informations.
+
+Cet événement est émis même si l’agent proxy est configuré avec la mise à jour automatique activée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

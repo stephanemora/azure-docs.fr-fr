@@ -1,73 +1,104 @@
 ---
 title: Compte de stockage managé Azure Key Vault - version PowerShell
-description: La fonctionnalité de compte de stockage managé assure une intégration transparente entre Azure Key Vault et un compte de stockage Azure.
+description: La fonctionnalité de compte de stockage managé assure une intégration fluide entre Azure Key Vault et un compte de stockage Azure.
 ms.topic: conceptual
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
-ms.date: 03/01/2019
-ms.openlocfilehash: 9b6089aa828b5667f100c1a8cbff3e69345e4512
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+manager: rkarlin
+ms.date: 09/10/2019
+ms.openlocfilehash: 225d9b715c56e4813a8e26d881c876e7bd498155
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405094"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71204215"
 ---
-# <a name="azure-key-vault-managed-storage-account---powershell"></a>Compte de stockage managé Azure Key Vault - PowerShell
+# <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gérer les clés de compte de stockage avec Key Vault et Azure PowerShell
 
-> [!NOTE]
-> [L’intégration du stockage Azure avec Azure Active Directory (Azure AD) est désormais disponible en préversion](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Nous recommandons d’utiliser Azure AD pour l’authentification et l’autorisation, offrant un accès au stockage Azure via un jeton OAuth2, à l’instar d’Azure Key Vault. Vous pouvez ainsi :
-> - Authentifier votre application cliente en utilisant une identité d’application ou d’utilisateur plutôt que les informations d’identification du compte de stockage. 
-> - Utiliser une [identité Azure AD managée](/azure/active-directory/managed-identities-azure-resources/) lors de l’exécution sur Azure. Les identités managées suppriment totalement l’authentification du client ainsi que le stockage des informations d’identification dans ou avec votre application.
-> - Utiliser le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.
+Un compte de stockage Azure utilise des informations d’identification comprenant un nom de compte et une clé. La clé qui est générée automatiquement sert de mot de passe et non pas de clé de chiffrement. Key Vault gère les clés de compte de stockage en les stockant en tant que [secrets Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+
+Vous pouvez utiliser la fonctionnalité de clé de compte de stockage gérée de Key Vault pour lister (synchroniser) les clés avec un compte de stockage Azure et regénérer (faire tourner) régulièrement les clés. Vous pouvez gérer les clés des comptes de stockage et des comptes de stockage classiques.
+
+Lorsque vous utilisez la fonctionnalité de clé de compte de stockage managé, tenez compte des points suivants :
+
+- Les valeurs de clés ne sont jamais retournées en réponse à l’appelant.
+- Seul Key Vault doit gérer vos clés de compte de stockage. Ne gérez pas les clés vous-même et évitez d’interférer avec les processus de Key Vault.
+- Un seul objet Key Vault doit gérer les clés de compte de stockage. Vous ne devez pas autoriser la gestion des clients par des objets multiples.
+- Vous pouvez demander à Key Vault de gérer votre compte de stockage avec un principal utilisateur, mais pas avec un principal de service.
+- Régénérez les clés à l’aide de Key Vault uniquement. Ne régénérez pas manuellement vos clés de compte de stockage.
+
+Nous vous recommandons d’utiliser l’intégration de Stockage Azure avec Azure Active Directory (Azure AD), le service Microsoft basé sur le cloud qui gère les identités et les accès. L’intégration d’Azure AD est disponible pour les [objets blob et les files d’attente Azure](../storage/common/storage-auth-aad.md) et fournit un accès basé sur les jetons OAuth2 au Stockage Azure (comme Azure Key Vault).
+
+Azure AD vous permet d’authentifier votre application cliente en utilisant une identité d’application ou d’utilisateur plutôt que les informations d’identification du compte de stockage. Vous pouvez utiliser une [identité Azure AD managée](/azure/active-directory/managed-identities-azure-resources/) lors de l’exécution sur Azure. Les identités managées suppriment l’authentification du client ainsi que le stockage des informations d’identification dans ou avec votre application.
+
+Azure AD utilise le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Un [compte de stockage Azure](/azure/storage/storage-create-storage-account) utilise des informations d’identification qui se composent d’un nom de compte et d’une clé. La clé est générée automatiquement et sert plus de « mot de passe » que de clé de chiffrement. Key Vault peut gérer ces clés de compte de stockage en les stockant en tant que [secrets Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+## <a name="service-principal-application-id"></a>ID d’application du principal de service
 
-## <a name="overview"></a>Présentation
+Un locataire Azure AD fournit à chaque application inscrite un [principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object), Le principal de service fait office d’ID d’application, qui est utilisé lors de la configuration des autorisations pour l’accès aux autres ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC).
 
-La fonctionnalité de compte de stockage Key Vault managé exécute plusieurs fonctions de gestion interne à votre place :
+Key Vault est une application Microsoft préinscrite dans tous les locataires Azure AD. Key Vault est inscrit sous le même ID d’application dans chaque cloud Azure.
 
-- Répertorie (synchronise) les clés avec un compte de stockage Azure.
-- Regénère (fait tourner) les clés régulièrement.
-- Gère les clés des comptes de stockage et des comptes de stockage classiques.
-- Les valeurs de clés ne sont jamais retournées en réponse à l’appelant.
+| Locataires | Cloud | ID de l'application |
+| --- | --- | --- |
+| Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| Azure AD | Azure public | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Autres  | Quelconque | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-Lorsque vous utilisez la fonctionnalité de clé de compte de stockage managé :
+## <a name="prerequisites"></a>Prérequis
 
-- **Autorisez uniquement Key Vault à gérer vos clés de compte de stockage.** N’essayez pas de les gérer vous-même, vous interféreriez avec les processus de Key Vault.
-- **Ne permettez pas que les clés de compte de stockage soient gérées par plusieurs objets Key Vault**.
-- **Ne régénérez pas manuellement vos clés de compte de stockage**. Nous vous recommandons de les régénérer via Key Vault.
+Pour suivre ce guide, vous devez d’abord effectuer ce qui suit :
 
-L’exemple suivant vous montre comment autoriser Key Vault à gérer vos clés de compte de stockage.
+- [Installer le module Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
+- [Création d’un coffre de clés](quick-create-powershell.md)
+- [Création d’un compte de stockage Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell). Le nom du compte de stockage doit contenir uniquement des lettres minuscules et des chiffres. Le nom doit compter 3 à 24 caractères.
+      
 
-## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Autoriser Key Vault à accéder à votre compte de stockage
+## <a name="manage-storage-account-keys"></a>Gérer les clés de compte de stockage
 
-> [!IMPORTANT]
-> Un locataire Azure AD fournit à chaque application inscrite un **[principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object)**, qui représente l’identité de l’application. L’ID d’application du principal de service est utilisé quand il reçoit l’autorisation d’accéder à d’autres ressources Azure, via le contrôle d’accès en fonction du rôle (RBAC). Key Vault étant une application Microsoft, elle est préinscrite dans tous les locataires Azure AD sous le même ID d’application dans chaque cloud Azure :
-> - Les locataires Azure AD dans le cloud Azure Government utilisent l’ID d’application `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
-> - Les locataires Azure AD dans le cloud public Azure et tous les autres utilisent l’ID d’application `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+### <a name="connect-to-your-azure-account"></a>Se connecter au compte Azure
 
-Pour permettre à Key Vault d’accéder et de gérer vos clés de compte de stockage, vous devez l’autoriser à accéder à votre compte de stockage. L’application Key Vault a besoin d’autorisations afin de *répertorier* et de *regénérer* des clés pour votre compte de stockage. Ces autorisations sont activées par le biais du rôle RBAC intégré [Rôle de service d’opérateur de clé de compte de stockage](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
-
-Attribuez ce rôle au principal de service Key Vault, en limitant la portée à votre compte de stockage, à l’aide des étapes ci-dessous. Veillez à mettre à jour les variables `$resourceGroupName`, `$storageAccountName`, `$storageAccountKey` et `$keyVaultName` avant d’exécuter le script :
+Authentifiez votre session PowerShell à l’aide de l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0). 
 
 ```azurepowershell-interactive
-# TODO: Update with the resource group where your storage account resides, your storage account name, the name of your active storage account key, and your Key Vault instance name
-$resourceGroupName = "rgContoso"
-$storageAccountName = "sacontoso"
-$storageAccountKey = "key1"
-$keyVaultName = "kvContoso"
-$keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # See "IMPORTANT" block above for information on Key Vault Application IDs
+Connect-AzAccount
+```
+Si vous avez plusieurs abonnements Azure, vous pouvez les lister à l’aide de l’applet de commande [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0), puis spécifier l’abonnement que vous souhaitez utiliser avec l’applet de commande [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0). 
 
-# Authenticate your PowerShell session with Azure AD, for use with Azure Resource Manager cmdlets
-$azureProfile = Connect-AzAccount
+```azurepowershell-interactive
+Set-AzContext -SubscriptionId <subscriptionId>
+```
+
+### <a name="set-variables"></a>Définition des variables
+
+Commencez par définir les variables utilisées par les cmdlets PowerShell dans les étapes suivantes. Veillez à mettre à jour les espaces réservés <YourResourceGroupName>, <YourStorageAccountName> et <YourKeyVaultName>, et définissez $keyVaultSpAppId sur `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (comme indiqué dans [ID d’application du principal de service](#service-principal-application-id), ci-dessus).
+
+Nous utiliserons également les cmdlets Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) et [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) pour récupérer votre ID d’utilisateur et le contexte de votre compte de stockage Azure.
+
+```azurepowershell-interactive
+$resourceGroupName = <YourResourceGroupName>
+$storageAccountName = <YourStorageAccountName>
+$keyVaultName = <YourKeyVaultName>
+$keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093"
+$storageAccountKey = "key1"
+
+# Get your User Id
+$userId = (Get-AzContext).Account.Id
 
 # Get a reference to your Azure storage account
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+```
 
+### <a name="give-key-vault-access-to-your-storage-account"></a>Octroyer un accès Key Vault à votre compte de stockage
+
+Pour permettre à Key Vault d’accéder et de gérer vos clés de compte de stockage, vous devez l’autoriser à accéder à votre compte de stockage. L’application Key Vault a besoin d’autorisations afin de *répertorier* et de *regénérer* des clés pour votre compte de stockage. Ces autorisations sont activées par le biais du rôle RBAC intégré [Rôle de service d’opérateur de clé de compte de stockage](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
+
+Attribuez ce rôle au principal de service Key Vault, en limitant la portée à votre compte de stockage, à l’aide de la cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) Azure PowerShell.
+
+```azurepowershell-interactive
 # Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
 New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
@@ -86,29 +117,27 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-Si Key Vault a déjà été ajouté au rôle sur votre compte de stockage, vous recevrez un message d’erreur *« L'attribution de rôle existe déjà »*. erreur. Vous pouvez également vérifier l’attribution du rôle à la page « Contrôle d’accès (IAM) » du compte de stockage sur le portail Azure.  
+Si Key Vault a déjà été ajouté au rôle sur votre compte de stockage, vous recevrez un message d’erreur *« L'attribution de rôle existe déjà »* . erreur. Vous pouvez également vérifier l’attribution du rôle à la page « Contrôle d’accès (IAM) » du compte de stockage sur le portail Azure.  
 
-## <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Autoriser votre compte d’utilisateur à accéder à des comptes de stockage managés
+### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Autoriser votre compte d’utilisateur à accéder à des comptes de stockage managés
 
->[!TIP] 
-> Tout comme Azure AD fournit un **principal de service** pour l’identité d’une application, un **utilisateur principal** est fourni pour l’identité d’un utilisateur. L’utilisateur principal peut ainsi être autorisé à accéder à Key Vault via les stratégie d’accès Key Vault.
-
-Dans la même session PowerShell, mettez à jour la stratégie d’accès Key Vault pour les comptes de stockage managés. Cette étape applique des autorisations de compte de stockage à votre compte d’utilisateur pour garantir votre accès aux fonctionnalités du compte de stockage managé : 
+Utilisez la cmdlet Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.6.0) pour mettre à jour la stratégie d’accès au coffre de clés et accorder des autorisations de compte de stockage à votre compte d’utilisateur.
 
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, backup, restore, purge
 ```
 
 Notez que les autorisations pour les comptes de stockage ne sont pas disponibles sur la page « Stratégies d’accès » du compte de stockage dans le portail Azure.
 
-## <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Ajouter un compte de stockage managé à votre instance Key Vault
+### <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Ajouter un compte de stockage managé à votre instance Key Vault
 
-Dans la même session PowerShell, créez un compte de stockage managé dans votre instance Key Vault. Le commutateur `-DisableAutoRegenerateKey` spécifie de ne PAS régénérer les clés de compte de stockage.
+Utilisez la cmdlet Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) pour créer un compte de stockage géré dans votre instance Key Vault. Le commutateur `-DisableAutoRegenerateKey` spécifie de ne PAS régénérer les clés de compte de stockage.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
+
 Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
 
@@ -130,10 +159,11 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Activer la régénération des clés
 
-Si vous souhaitez que Key Vault régénère régulièrement les clés de votre compte de stockage, vous pouvez définir une période de régénération. Dans l’exemple suivant, nous définissons une période de régénération de trois jours. Après trois jours, Key Vault regénère « key1 » et remplace la clé active « key2 » par « key1 ».
+Pour permettre à Key Vault de régénérer régulièrement vos clés de compte de stockage, utilisez la cmdlet Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) afin de définir une période de régénération. Dans cet exemple, nous définissons une période de régénération de trois jours. Après trois jours, Key Vault regénère « key2 » et change la clé active « key2 » pour « key1 ».
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
+
 Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 
@@ -152,6 +182,85 @@ Created             : 11/19/2018 11:54:47 PM
 Updated             : 11/19/2018 11:54:47 PM
 Tags                : 
 ```
+
+## <a name="shared-access-signature-tokens"></a>Jetons de signature d’accès partagé
+
+Vous pouvez également demander à Key Vault de générer des jetons de signature d’accès partagé. Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Vous pouvez accorder aux clients l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. Une signature d’accès partagé constitue un moyen sécurisé de partager vos ressources de stockage sans compromettre vos clés de compte.
+
+Les commandes figurant dans cette section effectuent les actions suivantes :
+
+- Définissez une définition de signature d’accès partagé. 
+- Créez un jeton de signature d’accès partagé pour les services Blob, Fichier, Table et File d’attente. Le jeton est créé pour les types de ressource Service, Conteneur et Objet. Le jeton est créé avec toutes les autorisations, via le protocole https et avec les dates de début et de fin spécifiées.
+- Définissez une définition de signature d’accès partagé au stockage géré par Key Vault dans le coffre. La définition comporte l’URI du modèle du jeton de signature d’accès partagé créé. La définition possède le type de signature d’accès partagé `account` et est valide pendant N jours.
+- Vérifiez que la signature d’accès partagé a été enregistrée dans votre coffre de clés en tant que secret.
+- 
+### <a name="set-variables"></a>Définition des variables
+
+Commencez par définir les variables utilisées par les cmdlets PowerShell dans les étapes suivantes. Veillez à mettre à jour les espaces réservés <YourStorageAccountName> et <YourKeyVaultName>.
+
+Nous utiliserons également les cmdlets Azure PowerShell [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) pour obtenir le contexte de votre compte de stockage Azure.
+
+```azurepowershell-interactive
+$storageAccountName = <YourStorageAccountName>
+$keyVaultName = <YourKeyVaultName>
+
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1
+```
+
+### <a name="create-a-shared-access-signature-token"></a>Créer un jeton de signature d’accès partagé
+
+Créez une définition de signature d’accès partagé à l’aide des cmdlets Azure PowerShell [New-AzStorageAccountSASToken](/powershell/module/az.storage/new-azstorageaccountsastoken?view=azps-2.6.0).
+ 
+```azurepowershell-interactive
+$start = [System.DateTime]::Now.AddDays(-1)
+$end = [System.DateTime]::Now.AddMonths(1)
+
+$sasToken = New-AzStorageAccountSasToken -Service blob,file,Table,Queue -ResourceType Service,Container,Object -Permission "racwdlup" -Protocol HttpsOnly -StartTime $start -ExpiryTime $end -Context $storageContext
+```
+La valeur de $sasToken se présente comme suit.
+
+```console
+?sv=2018-11-09&sig=5GWqHFkEOtM7W9alOgoXSCOJO%2B55qJr4J7tHQjCId9S%3D&spr=https&st=2019-09-18T18%3A25%3A00Z&se=2019-10-19T18%3A25%3A00Z&srt=sco&ss=bfqt&sp=racupwdl
+```
+
+### <a name="generate-a-shared-access-signature-definition"></a>Générer une définition de signature d’accès partagé
+
+Utilisez la cmdlet Azure PowerShell [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) pour créer une définition de signature d’accès partagé.  Vous pouvez fournir le nom de votre choix au paramètre `-Name`.
+
+```azurepowershell-interactive
+Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))
+```
+
+### <a name="verify-the-shared-access-signature-definition"></a>Vérifier la définition de la signature d’accès partagé
+
+Vous pouvez vérifier que la définition de la signature d’accès partagé a été stockée dans votre coffre de clés à l’aide de la cmdlet [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret?view=azps-2.6.0) Azure PowerShell.
+
+Commencez par rechercher la définition de signature d’accès partagé dans votre coffre de clés.
+
+```azurepowershell-interactive
+Get-AzKeyVaultSecret -vault-name <YourKeyVaultName>
+```
+
+Le secret correspondant à votre définition SAP a les propriétés suivantes :
+
+```console
+Vault Name   : <YourKeyVaultName>
+Name         : <SecretName>
+...
+Content Type : application/vnd.ms-sastoken-storage
+Tags         :
+```
+
+Vous pouvez maintenant utiliser la cmdlet [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) et la propriété `Name` secret pour afficher le contenu de ce secret.
+
+```azurepowershell-interactive
+$secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>
+
+Write-Host $secret.SecretValueText
+```
+
+La sortie de cette commande affiche la chaîne de votre définition SAP.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

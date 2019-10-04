@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2018
+ms.date: 05/21/2019
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 6ebd25dc65f86e5e028c1c56943756b46d0db9a8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 02a03adb128c140343032075ec334cbd6d88729b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011795"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66002025"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Forum aux questions (FAQ) sur Cloudyn
 
@@ -59,7 +59,7 @@ Si vous ne pouvez pas afficher les données de recommandation de l’optimiseur,
 
 Pour activer un compte :
 
-1.  Dans le portail Cloudyn, cliquez sur **Settings (Paramètres)** dans le coin supérieur droit et sélectionnez **Cloud Accounts (comptes cloud)**.
+1.  Dans le portail Cloudyn, cliquez sur **Settings (Paramètres)** dans le coin supérieur droit et sélectionnez **Cloud Accounts (comptes cloud)** .
 2.  Dans l’onglet Comptes Microsoft Azure, recherchez les comptes dont l’abonnement est **désactivé**.
 3.  À la droite d’un compte désactivé, cliquez sur le symbole **Modifier** qui ressemble à un crayon.
 4.  Vos ID client et ID taux sont détectés automatiquement. Cliquez sur **Suivant**.
@@ -74,8 +74,8 @@ Après avoir effectué les étapes précédentes, vous pouvez afficher les recom
 
 Examinons tout d’abord le scénario le plus courant qui met les comptes d’utilisateur à l’état *initiallySuspended*.
 
-> L’administrateur 1 peut être un programme fournisseur de solutions Microsoft Cloud ou un utilisateur de contrat d’entreprise. Son organisation est prête à commencer à utiliser Cloudyn.  Il s’inscrit via le portail Azure et se connecte au portail Cloudyn. En tant que la personne qui inscrit le service Cloudyn et qui se connecte au portail Cloudyn, il devient *l’administrateur principal*. L’administrateur 1 ne crée pas de comptes utilisateur. Toutefois, à l’aide du portail Cloudyn, il crée des comptes Azure et définit une hiérarchie d’entité. L’administrateur 1 informe l’administrateur 2, un administrateur locataire, qu’il doit s’inscrire auprès de Cloudyn et se connecter au portail Cloudyn.
-> 
+> L’administrateur 1 peut être un fournisseur de solutions Microsoft Cloud ou un utilisateur de contrat d’entreprise. Son organisation est prête à commencer à utiliser Cloudyn.  Il s’inscrit via le portail Azure et se connecte au portail Cloudyn. En tant que la personne qui inscrit le service Cloudyn et qui se connecte au portail Cloudyn, l'administrateur 1 devient *l’administrateur principal*. L’administrateur 1 ne crée pas de comptes utilisateur. Toutefois, à l’aide du portail Cloudyn, il crée des comptes Azure et définit une hiérarchie d’entité. L’administrateur 1 informe l’administrateur 2, un administrateur locataire, qu’il doit s’inscrire auprès de Cloudyn et se connecter au portail Cloudyn.
+>
 > L’administrateur 2 s’inscrit via le portail Azure. Toutefois, lorsqu’il tente de se connecter au portail Cloudyn, il reçoit un message d’erreur indiquant que son compte est **suspendu**. L’administrateur principal, ou administrateur 1, est averti de la suspension du compte. L’administrateur 1 doit activer le compte de l’administrateur 2 et accorder l’*accès à l’entité administrateur* pour les entités appropriées, autorise l’accès à la gestion utilisateur et active le compte d’utilisateur.
 
 
@@ -118,9 +118,9 @@ Pour ajouter des comptes CSP supplémentaires à une entité, sélectionnez **MS
 
 Vous pouvez avoir plusieurs comptes Azure utilisant des devises différentes. Toutefois, les rapports de coût dans Cloudyn n’affichent pas plus d’un type de devise par rapport.
 
-Si vous disposez de plusieurs abonnements avec des devises différentes, une entité parente et ses devises d’entité enfant sont affichées en dollars USD (**$**). La bonne pratique que nous suggérons est d’éviter d’utiliser des devises différentes dans la même hiérarchie d’entité. En d’autres termes, tous vos abonnements organisés dans une structure d’entités doivent utiliser la même devise.
+Si vous disposez de plusieurs abonnements avec des devises différentes, une entité parente et ses devises d’entité enfant sont affichées en dollars USD ( **$** ). La bonne pratique que nous suggérons est d’éviter d’utiliser des devises différentes dans la même hiérarchie d’entité. En d’autres termes, tous vos abonnements organisés dans une structure d’entités doivent utiliser la même devise.
 
-Cloudyn détecte automatiquement la devise de votre abonnement Contrat Entreprise et la présente correctement dans les rapports.  En revanche, Cloudyn affiche uniquement les dollars USD (**$**) pour les comptes Azure directs web et les comptes CSP.
+Cloudyn détecte automatiquement la devise de votre abonnement Contrat Entreprise et la présente correctement dans les rapports.  En revanche, Cloudyn affiche uniquement les dollars USD ( **$** ) pour les comptes Azure directs web et les comptes CSP.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Que sont les chronologies d’actualisation des données de Cloudyn ?
 
@@ -150,11 +150,11 @@ Pour obtenir des instructions, consultez [Configurer l’accès CSP indirect dan
 
 ## <a name="what-causes-the-optimizer-menu-item-to-appear"></a>Pourquoi l’élément de menu Optimizer (Optimiseur) apparaît-il ?
 
-Après l’ajout de l’accès à Azure Resource Manager et la collection des données, vous devriez voir l’option **Optimizer (Optimiseur)**. Pour activer l’accès à Azure Resource Manager, consultez [Activation de comptes désactivés avec les informations d’identification Azure](#how-do-i-activate-unactivated-accounts-with-azure-credentials).
+Après l’ajout de l’accès à Azure Resource Manager et la collection des données, vous devriez voir l’option **Optimizer (Optimiseur)** . Pour activer l’accès à Azure Resource Manager, consultez [Activation de comptes désactivés avec les informations d’identification Azure](#how-do-i-activate-unactivated-accounts-with-azure-credentials).
 
 ## <a name="is-cloudyn-agent-based"></a>L’agent Cloudyn est-il utilisé ?
 
- Non. Les agents ne sont pas utilisés. Les données métriques de machine virtuelle Azure pour les machines virtuelles sont collectées à partir de l’API Microsoft Insights. Si vous souhaitez collecter des données métriques à partir de machines virtuelles Azure, ces dernières doivent avoir les paramètres de diagnostic activés.
+Non. Les agents ne sont pas utilisés. Les données métriques de machine virtuelle Azure pour les machines virtuelles sont collectées à partir de l’API Microsoft Insights. Si vous souhaitez collecter des données métriques à partir de machines virtuelles Azure, ces dernières doivent avoir les paramètres de diagnostic activés.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Les rapports Cloudyn affichent-ils plusieurs locataires AD par rapport ?
 

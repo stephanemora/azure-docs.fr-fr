@@ -1,27 +1,27 @@
 ---
-title: Comment déployer des dépendances de cloud OPC représentation dans Azure | Microsoft Docs
-description: Comment déployer des dépendances OPC Twin Azure.
+title: Guide pratique pour déployer des dépendances cloud OPC Twin dans Azure | Microsoft Docs
+description: Comment déployer des dépendances Azure OPC Twin.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: cb07899b51280cff8613d637640c0da23debbc8e
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491984"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016512"
 ---
-# <a name="deploying-dependencies-for-local-development"></a>Déploiement des dépendances pour un développement local
+# <a name="deploying-dependencies-for-local-development"></a>Déploiement de dépendances pour un développement local
 
-Cet article explique comment déployer uniquement les Services de plateforme Azure devoir faire du développement et débogage.   À la fin, avoir un groupe de ressources déployé qui contient tout ce dont vous avez besoin pour le développement local et le débogage.
+Cet article explique comment déployer seulement les services de plateforme Azure nécessaires pour le développement et le débogage local.   À la fin, vous aurez un groupe de ressources déployé qui contient tout ce dont vous avez besoin pour le développement et le débogage local.
 
 ## <a name="deploy-azure-platform-services"></a>Déployer des services de plateforme Azure
 
-1. Vérifiez que vous disposez de PowerShell et [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) extensions installées.  Ouvrez une invite de commandes ou un terminal et exécutez :
+1. Vérifiez que PowerShell et les extensions [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) sont installés.  Ouvrez une invite de commandes ou un terminal, et exécutez :
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components
@@ -32,27 +32,27 @@ Cet article explique comment déployer uniquement les Services de plateforme Azu
    deploy -type local
    ```
 
-2. Suivez les invites pour attribuer un nom au groupe de ressources pour votre déploiement.  Le script déploie uniquement les dépendances sur ce groupe de ressources dans votre abonnement Azure, mais pas les services micro-charges.  Le script enregistre également une Application dans Azure Active Directory.  Cela est nécessaire pour prendre en charge l’authentification OAUTH.  Déploiement peut prendre plusieurs minutes.
+2. Suivez les invites pour affecter un nom au groupe de ressources pour votre déploiement.  Le script déploie seulement les dépendances sur ce groupe de ressources dans votre abonnement Azure, mais pas les microservices.  Le script inscrit également une application dans Azure Active Directory.  Ceci est nécessaire pour la prise en charge de l’authentification OAUTH.  Le déploiement peut prendre plusieurs minutes.
 
-3. Une fois le script terminé, vous pouvez sélectionner pour enregistrer le fichier .env.  Le fichier d’environnement .env est le fichier de configuration de tous les services et outils que vous souhaitez exécuter sur votre ordinateur de développement.  
+3. Une fois le script terminé, vous pouvez choisir d’enregistrer le fichier .env.  Le fichier d’environnement .env est le fichier de configuration de tous les services et outils que vous voulez exécuter sur votre machine de développement.  
 
-## <a name="troubleshooting-deployment-failures"></a>Résolution des problèmes de déploiement
+## <a name="troubleshooting-deployment-failures"></a>Dépannage des échecs de déploiement
 
 ### <a name="resource-group-name"></a>Nom de groupe ressources
 
-Vérifiez que vous utilisez un nom de groupe de ressources à court et simple.  Le nom est également utilisé pour les ressources de nom en tant que tel qu'il doit être conforme aux exigences de noms de ressource.  
+Veillez à utiliser un nom de groupe de ressources court et simple.  Le nom est également utilisé pour nommer les ressources : il doit donc être conforme aux spécifications de nommage des ressources.  
 
-### <a name="azure-active-directory-aad-registration"></a>Inscription Azure Active Directory (AAD)
+### <a name="azure-active-directory-aad-registration"></a>Inscription Azure Active Directory
 
-Le script de déploiement essaie d’inscrire des applications AAD dans Azure Active Directory.  En fonction de vos droits au locataire AAD sélectionné, cette opération peut échouer.   Il existe 3 options :
+Le script de déploiement essaie d’inscrire les applications AAD dans Azure Active Directory.  En fonction de vos droits sur le locataire AAD sélectionné, cette opération peut échouer.   Vous disposez de trois options :
 
-1. Si vous avez choisi un locataire AAD à partir d’une liste de locataires, redémarrez le script et choisissez une option différente dans la liste.
-2. Vous pouvez également déployer un locataire AAD privé, redémarrer le script et sélectionnez cette option pour l’utiliser.
-3. Continuer sans authentification.  Étant donné que vous exécutez vos services micro-charges localement, cela est acceptable, mais ne reproduit pas les environnements de production.  
+1. Si vous avez choisi un locataire AAD dans une liste de locataires, redémarrez le script et choisissez un autre locataire dans la liste.
+2. Vous pouvez aussi déployer un locataire AAD privé, redémarrer le script et choisir de l’utiliser.
+3. Continuer sans authentification.  Comme vous exécutez vos microservices localement, ceci est acceptable, mais ne reproduit pas les environnements de production.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez correctement déployé les services du jumeau d’OPC à un projet existant, voici l’étape suivante suggérée :
+Maintenant que vous avez déployé des services OPC Twin sur un projet existant, voici l’étape suivante suggérée :
 
 > [!div class="nextstepaction"]
-> [Découvrez comment déployer des modules de représentations d’OPC](howto-opc-twin-deploy-modules.md)
+> [Découvrir comment déployer des modules OPC Twin](howto-opc-twin-deploy-modules.md)

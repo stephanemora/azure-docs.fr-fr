@@ -5,41 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/16/2019
+ms.date: 09/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c6f9065786879749eee6187e93283f4c026b7fff
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 1c2525b352c25f470814ce909a8d10ff821d9e32
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568802"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70961615"
 ---
-La configuration informatique suivante a été utilisée pour les étapes ci-dessous :
-
-  | | |
-  |---|---|
-  |Ordinateur| Ubuntu Server 16.04<br>ID_LIKE=debian<br>PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>VERSION_ID="16.04" |
-  |Les dépendances| strongSwan |
-
-#### <a name="1-install-strongswan"></a>1. Installer strongSwan
-
-Utilisez les commandes suivantes pour installer la configuration strongSwan requise :
-
-```
-apt-get install strongswan-ikev2 strongswan-plugin-eap-tls
-```
-
-```
-apt-get install libstrongswan-standard-plugins
-```
-
-```
-apt-get install strongswan-pki
-```
-
-#### <a name="2-generate-keys-and-certificate"></a>2. Générer des clés et un certificat
-
 Générez le certificat d’autorité de certification.
 
   ```
@@ -47,7 +22,7 @@ Générez le certificat d’autorité de certification.
   ipsec pki --self --in caKey.pem --dn "CN=VPN CA" --ca --outform pem > caCert.pem
   ```
 
-Imprimez le certificat d’autorité de certification au format base64. C’est le format pris en charge par Azure. Vous le téléchargerez plus tard vers Azure dans le cadre de votre configuration P2S.
+Imprimez le certificat d’autorité de certification au format base64. C’est le format pris en charge par Azure. Vous chargez ce certificat dans Azure dans le cadre des [étapes de configuration de P2S](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
   ```
   openssl x509 -in caCert.pem -outform der | base64 -w0 ; echo

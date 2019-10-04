@@ -1,25 +1,18 @@
 ---
-title: Créer des offres sur une place de marché - Place de marché Microsoft Azure | Microsoft Docs
+title: Créer des offres sur une place de marché | Place de marché Azure
 description: Créer des offres sur les places de marché Microsoft Azure et AppSource à l’aide du Portail Cloud Partner
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: pbutlerm
-ms.openlocfilehash: af9b34d90098409135020fa8a45ecd0253f25b22
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: cc0d8e68578500d4fa5f1b167790d60c8f7c5067
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454542"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942178"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Créer des offres sur la Place de marché Microsoft Azure et AppSource
 

@@ -1,21 +1,23 @@
 ---
 title: Connecter une application cliente Node.js générique à Azure IoT Central | Microsoft Docs
-description: En tant que périphérique développeur, comment connecter un appareil Node.js générique à votre application Azure IoT Central.
+description: En tant que développeur d’appareils, comment connecter un appareil Node.js générique à votre application Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/05/2019
+ms.date: 09/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: ccded68cfaa00e6e13e2bb32e114b81108742829
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617935"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686665"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connecter une application cliente Node.js générique à votre application Azure IoT Central (Node.js)
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Cet article vous explique comment, en tant que développeur d’appareils, connecter une application Node.js générique représentant un appareil réel à votre application Microsoft Azure IoT Central.
 
@@ -23,16 +25,16 @@ Cet article vous explique comment, en tant que développeur d’appareils, conne
 
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
 
-1. Une application Azure IoT Central. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
-1. Une machine de développement où [Node.js](https://nodejs.org/) version 4.0.0 ou ultérieure est installé. Vous pouvez exécuter `node --version` sur la ligne de commande pour vérifier la version. Node.js est disponible pour un large éventail de systèmes d’exploitation.
+- Une application Azure IoT Central. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
+- Une machine de développement où [Node.js](https://nodejs.org/) version 4.0.0 ou ultérieure est installé. Vous pouvez exécuter `node --version` sur la ligne de commande pour vérifier la version. Node.js est disponible pour un large éventail de systèmes d’exploitation.
 
 ## <a name="create-a-device-template"></a>Créer un modèle d’appareil
 
-Dans votre application Azure IoT Central, vous avez besoin d’un modèle de périphérique avec les mesures, propriétés de l’appareil, paramètres et commandes suivantes :
+Dans votre application Azure IoT Central, vous avez besoin d’un modèle d’appareil avec les mesures, les propriétés d’appareil, les paramètres et les commandes suivantes :
 
 ### <a name="telemetry-measurements"></a>Mesures de télémétrie
 
-Ajouter les données de télémétrie suivantes sur le **mesures** page :
+Ajoutez la télémétrie suivante dans la page **Mesures** :
 
 | Nom d’affichage | Nom du champ  | Units | Min | max | Nombre de décimales |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
@@ -43,11 +45,11 @@ Ajouter les données de télémétrie suivantes sur le **mesures** page :
 > [!NOTE]
 > La mesure de télémétrie est représentée par un nombre à virgule flottante.
 
-Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms de champs ne correspondent pas les noms de propriété dans le code d’appareil correspondant, les données de télémétrie ne peut pas être affichée dans l’application.
+Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms des champs ne correspondent pas aux noms des propriétés dans le code de l’appareil, les données de télémétrie ne peuvent pas être affichées dans l’application.
 
 ### <a name="state-measurements"></a>Mesures d’état
 
-Ajouter l’état suivant sur le **mesures** page :
+Ajoutez l’état suivant dans la page **Mesures** :
 
 | Nom d’affichage | Nom du champ  | Valeur 1 | Nom d’affichage | Valeur 2 | Nom d’affichage |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
@@ -56,66 +58,80 @@ Ajouter l’état suivant sur le **mesures** page :
 > [!NOTE]
 > Le type de données de la mesure État est « chaîne ».
 
-Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms de champs ne correspondent pas les noms de propriété dans le code d’appareil correspondant, l’état ne peut pas être affichée dans l’application.
+Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms des champs ne correspondent pas aux noms des propriétés dans le code de l’appareil, l’état ne peut pas être affiché dans l’application.
 
 ### <a name="event-measurements"></a>Mesures d’événement
 
-Ajoutez l’événement suivant sur le **mesures** page :
+Ajoutez l’événement suivant dans la page **Mesures** :
 
-| Nom d’affichage | Nom du champ  | Severity |
+| Nom d’affichage | Nom du champ  | severity |
 | ------------ | ----------- | -------- |
 | Surchauffe  | overheat    | Error    |
 
 > [!NOTE]
 > Le type de données de la mesure Événement est « chaîne ».
 
+### <a name="location-measurements"></a>Mesures d’emplacement
+
+Ajoutez la mesure d’emplacement suivante à la page **Mesures** :
+
+| Nom d’affichage | Nom du champ  |
+| ------------ | ----------- |
+| Location     | location    |
+
+Le type de données de la mesure d’emplacement comporte deux nombres à virgule flottante pour la latitude et la longitude et un nombre à virgule flottante facultatif pour l’altitude.
+
+Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms des champs ne correspondent pas aux noms des propriétés dans le code de l’appareil correspondant, l’emplacement ne peut pas être affiché dans l’application.
+
 ### <a name="device-properties"></a>Propriétés de l’appareil
 
-Ajouter les propriétés d’appareil suivantes sur le **propriétés** page :
+Ajoutez les propriétés d’appareil suivantes dans la page **Propriétés** :
 
 | Nom d’affichage        | Nom du champ        | Type de données |
 | ------------------- | ----------------- | --------- |
-| Numéro de série       | serialNumber      | texte      |
-| Fabricant de l’appareil | manufacturer      | texte      |
+| Numéro de série       | serialNumber      | text      |
+| Fabricant de l’appareil | manufacturer      | text      |
 
-Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms de champs ne correspondent pas les noms de propriété dans le code d’appareil correspondant, les propriétés ne peuvent pas être affichées dans l’application.
+Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms des champs ne correspondent pas aux noms des propriétés dans le code de l’appareil, les propriétés ne peuvent pas être affichées dans l’application.
 
 ### <a name="settings"></a>Paramètres
 
-Ajoutez le code suivant **nombre** paramètres sur le **paramètres** page :
+Ajoutez les paramètres **numériques** suivants dans la page **Paramètres** :
 
 | Nom d’affichage    | Nom du champ     | Units | Décimales | Min | max  | Initial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Vitesse du ventilateur       | fanSpeed       | tr/min   | 0        | 0   | 3000 | 0       |
 | Température définie | setTemperature | F     | 0        | 20  | 200  | 80      |
 
-Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms de champs ne correspondent pas les noms de propriété dans le code d’appareil correspondant, l’appareil ne peut pas recevoir la valeur du paramètre.
+Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms des champs ne correspondent pas aux noms des propriétés dans le code de l’appareil, l’appareil ne peut pas recevoir la valeur du paramètre.
 
 ### <a name="commands"></a>Commandes
 
-Ajoutez la commande suivante sur le **commandes** page :
+Ajoutez la commande suivante dans la page **Commandes** :
 
 | Nom d’affichage    | Nom du champ     | Délai d’expiration par défaut | Type de données |
 | --------------- | -------------- | --------------- | --------- |
 | Compte à rebours       | countdown      | 30              | number    |
 
-Ajoutez le champ d’entrée suivant à la commande de compte à rebours :
+Ajoutez le champ d’entrée suivant à la commande Compte à rebours :
 
 | Nom d’affichage    | Nom du champ     | Type de données | Valeur |
 | --------------- | -------------- | --------- | ----- |
-| Nombre à partir de      | countFrom      | number    | 10    |
+| Compter à partir de      | countFrom      | number    | 10    |
 
-Entrez les noms de champs exactement comme indiqué dans les tables dans le modèle de périphérique. Si les noms de champs ne correspondent pas les noms de propriété dans le code d’appareil correspondant, l’appareil ne peut pas traiter la commande.
+Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans les tableaux. Si les noms des champs ne correspondent pas aux noms des propriétés dans le code de l’appareil, l’appareil ne peut pas traiter la commande.
 
 ## <a name="add-a-real-device"></a>Ajouter un appareil réel
 
-Dans votre application Azure IoT Central, ajoutez un appareil réel pour le modèle d’appareil que vous avez créé dans la section précédente.
+Dans votre application Azure IoT Central, ajoutez un appareil réel au modèle d’appareil que vous avez créé dans la section précédente.
 
-Puis suivez les instructions dans le didacticiel « Ajouter un appareil » à [générer une chaîne de connexion pour le périphérique réel](tutorial-add-device.md#generate-connection-string). Vous utilisez cette chaîne de connexion dans la section suivante :
+Prenez note des informations de connexion de l’appareil sur la page **Connexion de l'appareil** : **ID de portée**, **ID d’appareil** et **Clé primaire**. Vous ajoutez ces valeurs dans votre code d’appareil plus loin dans ce guide pratique :
+
+![Informations de connexion de l’appareil](./media/howto-connect-nodejs/device-connection.png)
 
 ### <a name="create-a-nodejs-application"></a>Création d’une application Node.js
 
-Les étapes suivantes montrent comment créer une application cliente qui implémente l’appareil réel que vous avez ajouté à l’application. Ici, l’application Node.js représente l’appareil réel. 
+Les étapes suivantes montrent comment créer une application cliente qui implémente l’appareil réel que vous avez ajouté à l’application. Ici, l’application Node.js représente l’appareil réel.
 
 1. Sur votre machine, créez un dossier nommé `connected-air-conditioner-adv`. Accédez à ce dossier dans votre environnement de ligne de commande.
 
@@ -123,7 +139,7 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
 
     ```cmd/sh
     npm init
-    npm install azure-iot-device azure-iot-device-mqtt --save
+    npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
 1. Créez un fichier nommé **connectedAirConditionerAdv.js** dans le dossier `connected-air-conditioner-adv`.
@@ -134,22 +150,33 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
     "use strict";
 
     // Use the Azure IoT device SDK for devices that connect to Azure IoT Central.
-    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
+    var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
+    var Client = require('azure-iot-device').Client;
     var Message = require('azure-iot-device').Message;
-    var ConnectionString = require('azure-iot-device').ConnectionString;
+    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
+    var SymmetricKeySecurityClient = require('azure-iot-security-symmetric-key').SymmetricKeySecurityClient;
+    var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
     ```
 
 1. Ajoutez les déclarations de variable ci-après au fichier :
 
     ```javascript
-    var connectionString = '{your device connection string}';
+    var provisioningHost = 'global.azure-devices-provisioning.net';
+    var idScope = '{your Scope ID}';
+    var registrationId = '{your Device ID}';
+    var symmetricKey = '{your Primary Key}';
+    var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
+    var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
+    var hubClient;
+
     var targetTemperature = 0;
-    var client = clientFromConnectionString(connectionString);
+    var locLong = -122.1215;
+    var locLat = 47.6740;
     ```
 
-    Mettre à jour de l’espace réservé `{your device connection string}` avec la [chaîne de connexion de périphérique](tutorial-add-device.md#generate-connection-string). Dans cet exemple, vous initialisez `targetTemperature` à zéro, vous pouvez utiliser la lecture en cours à partir de l’appareil ou une valeur à partir de la représentation d’appareil.
+    Mettez à jour les espaces réservés `{your Scope ID}`, `{your Device ID}` et `{your Primary Key}` avec les valeurs que vous avez notées précédemment. Dans cet exemple, vous initialisez `targetTemperature` à zéro, mais vous pourriez utiliser la valeur actuelle lue sur l’appareil ou une valeur du jumeau d’appareil.
 
-1. Pour envoyer des données de télémétrie, l’état et mesures de l’événement à votre application Azure IoT Central, ajoutez la fonction suivante au fichier :
+1. Pour envoyer des mesures de télémétrie, d’état, d’événement et d’emplacement à votre application Azure IoT Central, ajoutez la fonction suivante au fichier :
 
     ```javascript
     // Send device measurements.
@@ -158,14 +185,20 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
       var humidity = 70 + (Math.random() * 10);
       var pressure = 90 + (Math.random() * 5);
       var fanmode = 0;
+      var locationLong = locLong - (Math.random() / 100);
+      var locationLat = locLat - (Math.random() / 100);
       var data = JSON.stringify({
         temperature: temperature,
         humidity: humidity,
         pressure: pressure,
         fanmode: (temperature > 25) ? "1" : "0",
-        overheat: (temperature > 35) ? "ER123" : undefined });
+        overheat: (temperature > 35) ? "ER123" : undefined,
+        location: {
+            lon: locationLong,
+            lat: locationLat }
+        });
       var message = new Message(data);
-      client.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
+      hubClient.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
         (err ? `; error: ${err.toString()}` : '') +
         (res ? `; status: ${res.constructor.name}` : '')));
     }
@@ -240,14 +273,14 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
     // Handle countdown command
     function onCountdown(request, response) {
       console.log('Received call to countdown');
-
+    
       var countFrom = (typeof(request.payload.countFrom) === 'number' && request.payload.countFrom < 100) ? request.payload.countFrom : 10;
-
+    
       response.send(200, (err) => {
         if (err) {
           console.error('Unable to send method response: ' + err.toString());
         } else {
-          client.getTwin((err, twin) => {
+          hubClient.getTwin((err, twin) => {
             function doCountdown(){
               if ( countFrom >= 0 ) {
                 var patch = {
@@ -260,7 +293,7 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
                 setTimeout(doCountdown, 2000 );
               }
             }
-
+    
             doCountdown();
           });
         }
@@ -279,13 +312,13 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
         console.log('Device successfully connected to Azure IoT Central');
 
         // Create handler for countdown command
-        client.onDeviceMethod('countdown', onCountdown);
+        hubClient.onDeviceMethod('countdown', onCountdown);
 
         // Send telemetry measurements to Azure IoT Central every 1 second.
         setInterval(sendTelemetry, 1000);
 
         // Get device twin from Azure IoT Central.
-        client.getTwin((err, twin) => {
+        hubClient.getTwin((err, twin) => {
           if (err) {
             console.log(`Error getting device twin: ${err.toString()}`);
           } else {
@@ -303,8 +336,20 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
       }
     };
 
-    // Start the device (connect it to Azure IoT Central).
-    client.open(connectCallback);
+    // Start the device (register and connect to Azure IoT Central).
+    provisioningClient.register((err, result) => {
+      if (err) {
+        console.log('Error registering device: ' + err);
+      } else {
+        console.log('Registration succeeded');
+        console.log('Assigned hub=' + result.assignedHub);
+        console.log('DeviceId=' + result.deviceId);
+        var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';SharedAccessKey=' + symmetricKey;
+        hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
+
+        hubClient.open(connectCallback);
+      }
+    });
     ```
 
 ## <a name="run-your-nodejs-application"></a>Exécuter votre application Node.js
@@ -321,18 +366,22 @@ En tant qu’opérateur dans votre application Azure IoT Central, pour votre app
 
     ![Afficher les données de télémétrie](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Voir les valeurs de propriété d’appareil envoyées depuis votre appareil dans la page **Propriétés**. La propriété de l’appareil dispose en mosaïque mise à jour lorsque l’appareil se connecte :
+* Afficher la télémétrie sur la page **Mesures** :
+
+    ![Afficher les mesures d’emplacement](media/howto-connect-nodejs/viewlocation.png)
+
+* Voir les valeurs de propriété d’appareil envoyées depuis votre appareil dans la page **Propriétés**. Les vignettes de propriétés de l’appareil se mettent à jour quand l’appareil se connecte :
 
     ![Voir les propriétés de l’appareil](media/howto-connect-nodejs/viewproperties.png)
 
-* Définir la température de vitesse et la cible de ventilateur à partir de la **paramètres** page :
+* Définissez la vitesse du ventilateur et la température cible dans la page **Paramètres** :
 
     ![Définir la vitesse du ventilateur](media/howto-connect-nodejs/setfanspeed.png)
 
-* Appelez la commande de compte à rebours à partir de la **commandes** page :
+* Appelez la commande de compte à rebours à partir de la page **Commandes** :
 
-    ![Compte à rebours des appels, commande](media/howto-connect-nodejs/callcountdown.png)
+    ![Appeler la commande de compte à rebours](media/howto-connect-nodejs/callcountdown.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à connecter un client Node.js générique à votre application Azure IoT Central, l’étape suivante suggérée consiste à apprendre comment [définir un modèle d’appareil personnalisé](howto-set-up-template.md) pour votre propre appareil IoT.
+Maintenant que vous avez découvert comment connecter un client Node.js générique à votre application Azure IoT Central, l’étape suivante suggérée est de découvrir comment [définir un modèle d’appareil personnalisé](howto-set-up-template.md) pour votre propre appareil IoT.

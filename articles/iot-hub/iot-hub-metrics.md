@@ -1,24 +1,27 @@
 ---
 title: Utiliser des métriques pour surveiller Azure IoT Hub | Microsoft Docs
 description: Guide d’utilisation des métriques Azure IoT Hub pour évaluer et surveiller l’intégrité globale de votre IoT Hub.
-author: nberdy
+author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/25/2017
-ms.author: nberdy
-ms.openlocfilehash: 34a561c5bb523b914f4b88dc8c6edc2bd00627d0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.date: 04/24/2019
+ms.author: jlian
+ms.openlocfilehash: f0bcf12a43a4732b371dd2d64c0b174a0087bea9
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741927"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71098935"
 ---
 # <a name="understand-iot-hub-metrics"></a>Comprendre les métriques IoT Hub
 
 Les métriques IoT Hub vous offrent de meilleures données sur l’état des ressources Azure IoT de votre abonnement Azure. Grâce aux métriques IoT Hub, vous pouvez évaluer l’intégrité globale du service et des appareils connectés à ce dernier. Les statistiques accessibles à l’utilisateur sont importantes, car elles vous permettent d’effectuer le suivi de votre hub IoT et de connaître les causes des problèmes sans contacter le support Azure.
 
 Les métriques sont activées par défaut. Vous pouvez afficher les métriques IoT Hub à partir du portail Azure.
+
+> [!NOTE]
+> Vous pouvez utiliser les métriques IoT Hub pour afficher des informations sur les appareils IoT Plug-and-Play connectés à votre IoT Hub. Les appareils IoT Plug-and-Play font partie de la [préversion publique d’IoT Plug-and-Play](../iot-pnp/overview-iot-plug-and-play.md).
 
 ## <a name="how-to-view-iot-hub-metrics"></a>Affichage des métriques IoT Hub
 
@@ -60,12 +63,14 @@ IoT Hub fournit plusieurs métriques afin de vous donner une vue d’ensemble de
 |d2c<br>.endpoints<br>.latency<br>.serviceBusQueues|Routage : latence des messages de la file d’attente Service Bus|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans un point de terminaison de file d’attente Service Bus.|Aucune dimension|
 |d2c<br>.endpoints<br>.egress<br>.serviceBusTopics|Routage : messages remis à la rubrique Service Bus|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages à des points de terminaison de rubrique Service Bus.|Aucune dimension|
 |d2c<br>.endpoints<br>.latency<br>.serviceBusTopics|Routage : latence des messages de la rubrique Service Bus|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans un point de terminaison de rubrique Service Bus.|Aucune dimension|
-|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|Routage : messages remis à des messages/événements|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages au point de terminaison intégré (messages/événements).|Aucune dimension|
-|d2c<br>.endpoints<br>.latency<br>.builtIn.events|Routage : latence des messages de messages/d’événements|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans le point de terminaison intégré (messages/événements).|Aucune dimension|
+|d2c<br>.endpoints<br>.egress<br>.builtIn<br>.events|Routage : messages remis à des messages/événements|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages au point de terminaison intégré (messages/événements). Cette métrique démarre uniquement lorsque le routage est activé (https://aka.ms/iotrouting) pour IoT Hub).|Aucune dimension|
+|d2c<br>.endpoints<br>.latency<br>.builtIn.events|Routage : latence des messages de messages/d’événements|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans le point de terminaison intégré (messages/événements). Cette métrique démarre uniquement lorsque le routage est activé (https://aka.ms/iotrouting) pour IoT Hub).|Aucune dimension|
 |d2c<br>.endpoints<br>.egress<br>.storage|Routage : messages remis au stockage|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages à des points de terminaison de stockage.|Aucune dimension|
 |d2c<br>.endpoints<br>.latency<br>.storage|Routage : latence des messages du stockage|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans un point de terminaison de stockage.|Aucune dimension|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|Routage : données remises au stockage|Octets|Total|Quantité de données (octets) que le routage IoT Hub a remis aux points de terminaison de stockage.|Aucune dimension|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|Routage : objets blob remis au stockage|Count|Total|Nombre de fois où le routage IoT Hub a remis des objets blob à des points de terminaison de stockage.|Aucune dimension|
+|EventGridDeliveries|Remises Event Grid (préversion)|Count|Total|Nombre d’événements IoT Hub publiés dans Event Grid. Utilisez la dimension Résultat pour le nombre de requêtes ayant réussi et ayant échoué. La dimension EventType représente le type de l’événement (https://aka.ms/ioteventgrid) ). Pour afficher l’origine des demandes, utilisez la dimension Type d’événement.|Résultat, Type d’événement|
+|EventGridLatency|Latence d’Event Grid (préversion)|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre le moment où l’événement Iot Hub a été généré et le moment où l’événement a été publié dans Event Grid. Ce nombre est une moyenne de tous les types d’événement. Utilisez la dimension Type d’événement pour afficher la latence d’un type d’événement spécifique.|Type d’événement|
 |d2c<br>.twin<br>.read<br>.success|Lectures de représentations réussies d’appareils|Count|Total|Total des lectures de représentations réussies initiées par un appareil.|Aucune dimension|
 |d2c<br>.twin<br>.read<br>.failure|Lectures de représentations d’appareils en échec|Count|Total|Total des lectures de représentations en échec initiées par un appareil.|Aucune dimension|
 |d2c<br>.twin<br>.read<br>.size|Taille de la réponse des lectures de représentations des appareils|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un appareil.|Aucune dimension|
@@ -76,7 +81,7 @@ IoT Hub fournit plusieurs métriques afin de vous donner une vue d’ensemble de
 |c2d<br>.methods<br>.failure|Appels de méthode directe en échec|Count|Total|Total des appels de méthode directe en échec.|Aucune dimension|
 |c2d<br>.methods<br>.requestSize|Taille de demande des appels de méthode directe|Octets|Moyenne|Moyenne, minimum et maximum de toutes les demandes de méthode directe réussies.|Aucune dimension|
 |c2d<br>.methods<br>.responseSize|Taille de réponse des appels de méthode directe|Octets|Moyenne|Moyenne, minimum et maximum de toutes les réponses de méthode directe réussies.|Aucune dimension|
-|c2d<br>.twin<br>.read<br>.success|Lectures de représentations réussies de serveur principal|Count|Total|Total des lectures de représentations réussies initiées par un serveur principal.|Aucune dimension|
+|c2d<br>.twin<br>.read<br>.success|Lectures de représentations réussies de serveur principal|Count|Total|Total des lectures de représentations réussies initiées par un serveur principal. Ce nombre n’inclut pas les lectures de représentations lancées à partir de requêtes de jumeaux.|Aucune dimension|
 |c2d<br>.twin<br>.read<br>.failure|Lectures de représentations de serveur principal en échec|Count|Total|Total des lectures de représentations en échec initiées par un serveur principal.|Aucune dimension|
 |c2d<br>.twin<br>.read<br>.size|Taille de la réponse des lectures de représentations de serveur principal|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un serveur principal.|Aucune dimension|
 |c2d<br>.twin<br>.update<br>.success|Mises à jour de représentations réussies de serveur principal|Count|Total|Total des mises à jour de représentations réussies initiées par un serveur principal.|Aucune dimension|
@@ -99,8 +104,7 @@ IoT Hub fournit plusieurs métriques afin de vous donner une vue d’ensemble de
 |jobs<br>.failed|Travaux en échec|Count|Total|Total des travaux en échec.|Aucune dimension|
 |d2c<br>.telemetry<br>.ingress<br>.sendThrottle|Nombre d’erreurs de limitation|Count|Total|Nombre d’erreurs de limitation causées par des limitations de débit d’appareil|Aucune dimension|
 |dailyMessage<br>QuotaUsed|Nombre total de messages utilisés|Count|Moyenne|Nombre total de messages utilisés aujourd’hui. Il s’agit d’une valeur cumulative qui est réinitialisée sur zéro à 00h00 UTC chaque jour.|Aucune dimension|
-|deviceDataUsage|Utilisation totale des données d’appareil (déprécié)|Octets|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
-|deviceDataUsageV2|Utilisation totale des données d’appareil (préversion)|Octets|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
+|deviceDataUsage|Utilisation totale des données d’appareil|Octets|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
 |totalDeviceCount|Nombre total d’appareils (préversion)|Count|Moyenne|Nombre d’appareils enregistrés sur votre hub IoT|Aucune dimension|
 |connected<br>DeviceCount|Appareils connectés (préversion)|Count|Moyenne|Nombre d’appareils connectés à votre hub IoT|Aucune dimension|
 |configurations|Métriques de configuration|Count|Total|Métriques pour les opérations de configuration|Aucune dimension|

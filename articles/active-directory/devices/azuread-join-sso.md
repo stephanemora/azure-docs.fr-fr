@@ -2,27 +2,21 @@
 title: Fonctionnement de l’authentification unique auprès de ressources locales sur des appareils joints à Azure AD | Microsoft Docs
 description: Découvrez comment configurer des appareils hybrides joints à Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/20/2018
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45941de6a90a5824ebc1e5d31b18b68f5fd9d493
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 14e7a4389c192dde8d086a69a35114f3b8b33e96
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520545"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562192"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Fonctionnement de l’authentification unique auprès de ressources locales sur des appareils joints à Azure AD
 
@@ -34,21 +28,17 @@ Cet article explique comment cela fonctionne.
 
 Comme vous ne devez mémoriser qu’un seul nom d’utilisateur et un seul mot de passe, l’authentification unique simplifie l’accès à vos ressources et améliore la sécurité de votre environnement. Avec un appareil joint à Azure AD, vos utilisateurs ont déjà une expérience de l’authentification unique après des applications cloud de votre environnement. Si votre environnement comporte un annuaire Azure AD et un annuaire AD local, vous voudrez probablement élargir l’étendue de votre expérience de l’authentification unique à vos applications métier locales, aux partages de fichiers et aux imprimantes.  
 
-
 Les appareils joints à AD Azure n’ont pas connaissance de votre environnement AD local, car ils n’y sont pas joints. Cependant, vous pouvez fournir à ces appareils des informations supplémentaires sur votre annuaire AD local avec Azure AD Connect.
 Un environnement qui a à la fois un annuaire Azure AD et un annuaire AD local est également appelé « environnement hybride ». Si vous avez un environnement hybride, il est probable que vous avez déjà déployé Azure AD Connect pour synchroniser vos informations d’identité locales vers le cloud. Dans le cadre du processus de synchronisation, Azure AD Connect synchronise les informations du domaine local avec Azure AD. Quand un utilisateur se connecte à un appareil joint à Azure AD dans un environnement hybride :
 
 1. Azure AD renvoie le nom du domaine local dont l’utilisateur est membre à l’appareil. 
-
-2. Le service de l’autorité de sécurité locale active l’authentification Kerberos sur l’appareil.
+1. Le service de l’autorité de sécurité locale active l’authentification Kerberos sur l’appareil.
 
 Lors d’une tentative d’accès à une ressource dans le domaine local de l’utilisateur, l’appareil :
 
 1. Utilise les informations du domaine pour localiser un contrôleur de domaine. 
-
-2. Envoie les informations du domaine local et les informations d’identification au contrôleur de domaine localisé pour authentifier l’utilisateur.
-
-3. Reçoit un [ticket TGT (Ticket-Granting Ticket)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) Kerberos qui est utilisé pour accéder aux ressources jointes à AD.
+1. Envoie les informations du domaine local et les informations d’identification au contrôleur de domaine localisé pour authentifier l’utilisateur.
+1. Reçoit un [ticket TGT (Ticket-Granting Ticket)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) Kerberos qui est utilisé pour accéder aux ressources jointes à AD.
 
 Toutes les applications qui sont configurées pour l’**authentification Windows intégrée** bénéficient automatiquement de l’authentification unique quand un utilisateur tente d’y accéder.  
 
@@ -59,19 +49,14 @@ Windows Hello Entreprise nécessite une configuration supplémentaire pour activ
 Avec l’authentification unique, sur un appareil joint à Azure AD, vous pouvez : 
 
 - Accéder à un chemin UNC sur un serveur membre d’AD
-
 - Accéder à un serveur web membre d’AD configuré pour la sécurité intégrée de Windows 
 
-
-
-Si vous voulez gérer votre annuaire AD local à partir d’un appareil Windows, installez les [Outils d’administration de serveur distant pour Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
+Si vous voulez gérer votre annuaire AD local à partir d’un appareil Windows, installez les [Outils d’administration de serveur distant pour Windows 10](https://www.microsoft.com/download/details.aspx?id=45520).
 
 Vous pouvez utiliser :
 
 - Le composant logiciel enfichable ADUC (Active Directory Users and Computers) pour administrer tous les objets AD. Cependant, vous devez spécifier manuellement le domaine auquel vous voulez vous connecter.
-
 - Le composant logiciel enfichable DHCP pour administrer un serveur DHCP joint à AD. Cependant, il peut être nécessaire de spécifier le nom ou l’adresse du serveur DHCP.
-
  
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 

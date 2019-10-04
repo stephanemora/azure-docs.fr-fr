@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5ccff22a74b0cb1edcbae40fca087fe3197cb6ca
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121241"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867709"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente - anomalies de performances
 
@@ -58,7 +58,7 @@ Les notifications incluent des informations de diagnostic. Voici un exemple :
 
 ## <a name="configure-email-notifications"></a>Configurer les notifications par courrier électronique
 
-Les notifications de détection intelligente sont activées par défaut et envoyées aux personnes disposant d’un [accès propriétaire, collaborateur ou lecteur à la ressource Application Insights](../../azure-monitor/app/resources-roles-access-control.md). Pour le modifier, cliquez sur **Configurer** dans la notification par courrier électronique ou ouvrez Paramètres de détection intelligente dans Application Insights. 
+Les notifications de détection intelligente sont activées par défaut et envoyées aux personnes disposant d’un accès de [lecteur Monitoring](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) et de [contributeur Monitoring](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) à l’abonnement dans lequel se trouve la ressource Application Insights. Pour le modifier, cliquez sur **Configurer** dans la notification par courrier électronique ou ouvrez Paramètres de détection intelligente dans Application Insights. 
   
   ![Paramètres de détection intelligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -69,7 +69,7 @@ Les courriers électroniques relatifs aux anomalies de performances de détectio
 ## <a name="faq"></a>Forum Aux Questions
 
 * *Les équipes Microsoft consultent-elles mes données ?*
-  *  Non. Le service est entièrement automatique. Vous seul obtenez ces notifications. Vos données sont [privées](../../azure-monitor/app/data-retention-privacy.md).
+  * Non. Le service est entièrement automatique. Vous seul obtenez ces notifications. Vos données sont [privées](../../azure-monitor/app/data-retention-privacy.md).
 * *Analysez-vous toutes les données collectées par Application Insights ?*
   * Pas à l'heure actuelle. Actuellement, nous analysons le temps de réponse des demandes, le temps de réponse des dépendances et le temps de chargement des pages. L’analyse d’autres métriques se trouve sur notre liste de travaux en souffrance.
 
@@ -85,7 +85,7 @@ Les courriers électroniques relatifs aux anomalies de performances de détectio
 
   * Nous exécutons l’analyse tous les jours sur la télémétrie du jour précédent (jour complet en heure UTC).
 * *Cela remplace-t-il les [alertes de métrique](../../azure-monitor/app/alerts.md)?*
-  *  Non.  Nous ne détectons pas tous les comportements que vous pouvez considérer comme étant anormaux.
+  * Non.  Nous ne détectons pas tous les comportements que vous pouvez considérer comme étant anormaux.
 
 
 * *Si je ne fais rien suite à une notification, un rappel me sera-t-il envoyé ?*

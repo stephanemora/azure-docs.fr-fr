@@ -1,7 +1,9 @@
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’une machine virtuelle SQL\_Server\_?"
       href: virtual-machines-windows-sql-server-iaas-overview.md
+    - name: "Quelle option SQL dois-je choisir\_?"
+      href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json&bc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2fbreadcrumb%2ftoc.json
     - name: Notes de publication
       href: virtual-machines-windows-sql-server-iaas-release-notes.md
 - name: Démarrages rapides
@@ -34,6 +36,12 @@
           href: virtual-machines-windows-sql-automated-backup-v2.md
     - name: gestion
       items:
+        - name: Hôte dédié
+          href: virtual-machines-windows-sql-dedicated-host.md
+        - name: Avec le portail Azure
+          href: virtual-machines-windows-sql-manage-portal.md
+        - name: "Étendre la prise en charge pour SQL\_2008 et R2"
+          href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
         - name: Se connecter à une machine virtuelle
           href: virtual-machines-windows-sql-connect.md
         - name: Configurer le stockage
@@ -50,16 +58,22 @@
   items:
     - name: "Créer une machine virtuelle\_SQL"
       items:
-        - name: "Utiliser le portail\_"
+        - name: Utiliser le portail
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Utilisation d'Azure PowerShell
           href: virtual-machines-windows-ps-sql-create.md
+    - name: S’inscrire auprès du fournisseur de ressources
+      href: virtual-machines-windows-sql-register-with-resource-provider.md
     - name: Modifier le modèle de licence pour une machine virtuelle SQL
       href: virtual-machines-windows-sql-ahb.md
+    - name: Changer d’édition de SQL Server
+      href: virtual-machines-windows-sql-change-edition.md
     - name: Migrer
       items:
         - name: Migrer une base de données SQL Server
           href: virtual-machines-windows-migrate-sql.md
+        - name: Machine virtuelle vers une nouvelle région
+          href: virtual-machines-windows-sql-move-different-region.md
     - name: Configurer la haute disponibilité
       items:
         - name: Utiliser le Stockage Azure pour la sauvegarde et la restauration
@@ -92,7 +106,7 @@
   items:
     - name: Azure PowerShell
       href: /powershell/azure/overview
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/
     - name: T-SQL
       href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
@@ -106,8 +120,6 @@
       href: virtual-machines-windows-sql-server-iaas-faq.md
     - name: Tarifs
       href: virtual-machines-windows-sql-server-pricing-guidance.md
-    - name: "PaaS ou IaaS\_?"
-      href: ../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsql%2ftoc.json
     - name: Outils SQL Server Data Tools (SSDT)
       href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
     - name: SQL Server Management Studio (SSMS)

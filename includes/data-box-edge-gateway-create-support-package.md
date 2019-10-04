@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556791"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177522"
 ---
-Si vous rencontrez des problèmes d’appareil, vous pouvez créer un package de prise en charge dans les journaux système. Le Support Microsoft utilise ce package pour résoudre les problèmes. Suivez ces étapes pour créer un package de prise en charge :
+Si vous rencontrez des problèmes avec l’appareil, vous pouvez créer un package de support dans les journaux système. Le support Microsoft utilise ce package pour résoudre les problèmes. Pour créer un package de support, effectuez les étapes suivantes :
 
-1. [Se connecter à l’interface PowerShell de votre appareil](#connect-to-the-powershell-interface).
-2. Utilisez le `Get-HcsNodeSupportPackage` commande pour créer un package de prise en charge. L’utilisation de l’applet de commande est la suivante :
+1. [Connectez-vous à l’interface PowerShell de votre appareil](#connect-to-the-powershell-interface).
+2. Utilisez la commande `Get-HcsNodeSupportPackage` pour créer un package de support. Utilisez la cmdlet comme suit :
 
     ```powershell
     Get-HcsNodeSupportPackage [-Path] <string> [-Zip] [-ZipFileName <string>] [-Include {None | RegistryKeys | EtwLogs
@@ -27,15 +27,15 @@ Si vous rencontrez des problèmes d’appareil, vous pouvez créer un package de
             [-IncludeArchived] [-IncludePeriodicStats] [-Credential <pscredential>]  [<CommonParameters>]
     ```
 
-    L’applet de commande collecte les journaux à partir de votre appareil et copie ces journaux à un réseau spécifié ou à un partage local.
+    La cmdlet collecte les journaux à partir de votre appareil et les copie vers un réseau ou un partage local spécifié.
 
-    Les paramètres utilisés sont comme suit :
+    Les paramètres utilisés sont les suivants :
 
-    - `-Path` -Spécifiez le réseau ou le chemin d’accès local pour copier le package de prise en charge. (obligatoire)
-    - `-Credential` -Spécifiez les informations d’identification pour accéder au chemin protégé.
-    - `-Zip` -Spécifiez pour générer un fichier zip.
-    - `-Include` -Spécifier afin d’inclure les composants à inclure dans le package de prise en charge. Si non spécifié, `Default` est supposé.
-    - `-IncludeArchived` -Spécifiez pour inclure les journaux archivés dans le package de prise en charge.
-    - `-IncludePeriodicStats` -Spécifiez pour inclure les journaux stat périodiques dans le package de prise en charge.
+    - `-Path` : permet de spécifier le réseau ou le chemin d’accès local vers lequel y copier le package de support. (obligatoire)
+    - `-Credential` : permet de spécifier les informations d’identification pour accéder au chemin protégé.
+    - `-Zip` : permet de générer un fichier zip.
+    - `-Include` : permet d’inclure les composants à inclure dans le package de support. S’il n’est pas renseigné, la valeur `Default` est supposée.
+    - `-IncludeArchived` : permet d’inclure des journaux archivés dans le package de support.
+    - `-IncludePeriodicStats` : permet d’inclure des journaux de statistiques périodiques dans le package de support.
 
     

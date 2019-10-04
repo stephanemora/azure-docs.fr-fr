@@ -1,21 +1,19 @@
 ---
-ms.assetid: ''
 title: Configurer les pare-feux et réseaux virtuels d’Azure Key Vault – Azure Key Vault
 description: Instructions détaillées pour configurer les pare-feux et réseaux virtuels d’Azure Key Vault
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.workload: identity
-ms.date: 01/02/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: c54b78a24068758fabb0918cfeb7d6516fd1bce5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 60378632a55fe4578bb376a3a00de5efffc5d275
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487233"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976952"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurer les pare-feux et réseaux virtuels d’Azure Key Vault
 

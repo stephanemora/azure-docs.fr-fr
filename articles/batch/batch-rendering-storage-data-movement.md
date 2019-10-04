@@ -8,11 +8,11 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790244"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60773993"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Options de stockage et de déplacement des données pour les fichiers d’éléments multimédias et de sortie destinés au rendu
 

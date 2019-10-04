@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 17acd4eebe53704699d3ec9a3f4f121eed79794d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1533ceebcda15c45a71c04580c35432de4125ccd
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310385"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70984984"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -30,6 +30,10 @@ Ce tutoriel vous montre comment migrer des machines virtuelles Amazon Web Servic
 > * Exécuter un basculement unique vers Azure
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
+
+
+> [!NOTE]
+    > Vous pouvez maintenant utiliser le service Azure Migrate pour migrer des instances AWS vers Azure. [Plus d’informations](../migrate/tutorial-migrate-physical-virtual-machines.md)
 
 ## <a name="prerequisites"></a>Prérequis
 - Assurez-vous que les machines virtuelles que vous voulez migrer exécutent une version du système d’exploitation prise en charge. Les versions prises en charge incluent : 
@@ -91,13 +95,15 @@ Quand les machines virtuelles Azure sont créées après la migration (basculeme
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Mise en réseau** >
    **Réseau virtuel**.
 3. Dans **Nom**, entrez **myMigrationNetwork**.
-4. Laissez la valeur par défaut pour **Espace d’adressage**.
+4. Conservez la valeur par défaut pour **Espace d’adressage** (vous devez entrer une valeur).
 5. Dans **Abonnement**, sélectionnez l’abonnement que vous voulez utiliser.
 6. Pour le **Groupe de ressources**, sélectionnez **Existant** puis **migrationRG**.
 7. Pour **Emplacement**, sélectionnez **Europe Ouest**.
-8. Sous **Sous-réseau**, laissez les valeurs par défaut pour le **Nom** et la **Plage d’adresses IP**.
-9. Laissez l’option **Points de terminaison de Service** désactivée.
-10. Sélectionnez **Créer** lorsque vous avez terminé.
+8. Sous **Sous-réseau**, conservez les valeurs par défaut pour le **Nom** et la **Plage d’adresses IP** (vous devez entrer une valeur).
+9. Ajoutez des instructions pour les paramètres de protection DDoS.
+10. Laissez l’option **Points de terminaison de Service** désactivée.
+11. Ajoutez des instructions pour les paramètres du pare-feu.
+12. Sélectionnez **Créer** lorsque vous avez terminé.
 
 ## <a name="prepare-the-infrastructure"></a>Préparer l’infrastructure
 
@@ -111,11 +117,16 @@ Dans la page **Objectif de protection**, sélectionnez les valeurs suivantes :
 |---------|-----------|
 | Où se trouvent vos machines ? |Sélectionnez **Locale**.|
 | Sur quelle cible souhaitez-vous répliquer vos machines ? |Sélectionnez **Vers Azure**.|
+| Effectuez-vous une migration ? | Sélectionnez **Oui**, puis cochez la case en regard de **Je comprends, mais je souhaite continuer avec Azure Site Recovery.**
 | Vos machines sont-elles virtualisées ? |Sélectionnez **Non virtualisée / Autre**.|
 
 Quand vous avez terminé, sélectionnez **OK** pour passer à la section suivante.
 
-### <a name="2-prepare-source"></a>2 : Préparer la source
+### <a name="2-select-deployment-planning"></a>2 : Sélectionner la planification d’un déploiement
+
+Dans **Avez-vous effectué la planification du déploiement ?** , sélectionnez **Je le ferai plus tard**, puis sélectionnez **OK**.
+
+### <a name="3-prepare-source"></a>3 : Préparer la source
 
 Dans la page **Préparer la source**, sélectionnez **+ Serveur de configuration**.
 
@@ -140,7 +151,7 @@ Dans la page **Préparer la source**, sélectionnez **+ Serveur de configuration
 
 Quand vous avez terminé la configuration du serveur de configuration, revenez au portail et sélectionnez le serveur que vous avez créer pour le **serveur de configuration**. Sélectionnez **OK** pour passer à l’étape 3 : Préparer la cible.
 
-### <a name="3-prepare-target"></a>3 : Préparer la cible
+### <a name="4-prepare-target"></a>4 : Préparer la cible
 
 Dans cette section, vous entrez des informations sur les ressources que vous avez créées dans [Préparer les ressources Azure](#prepare-azure-resources), plus tôt dans ce tutoriel.
 
@@ -149,21 +160,15 @@ Dans cette section, vous entrez des informations sur les ressources que vous ave
 3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes de stockage Azure compatibles. Il doit s’agir des ressources que vous avez créées dans [Préparer les ressources Azure](#prepare-azure-resources), plus tôt dans ce tutoriel.
 4. Quand vous avez terminé, sélectionnez **OK**.
 
-
-### <a name="4-prepare-replication-settings"></a>4 : Préparer les paramètres de réplication
+### <a name="5-prepare-replication-settings"></a>5 : Préparer les paramètres de réplication
 
 Vous devez créer une stratégie de réplication avant de pouvoir activer la réplication.
 
-1. Sélectionnez **Répliquer et associer**.
+1. Sélectionnez **Créer et associer**.
 2. Dans **Nom**, entrez **myReplicationPolicy**.
 3. Conservez les autres paramètres par défaut puis sélectionnez **OK** pour créer la stratégie. La nouvelle stratégie est automatiquement associée au serveur de configuration.
 
-### <a name="5-select-deployment-planning"></a>5 : Sélectionner la planification d’un déploiement
-
-Dans **Avez-vous effectué la planification du déploiement ?**, sélectionnez **Je le ferai plus tard**, puis sélectionnez **OK**.
-
 Lorsque vous en avez terminé avec les cinq sections sous **Préparer l’infrastructure**, sélectionnez **OK**.
-
 
 ## <a name="enable-replication"></a>Activer la réplication
 

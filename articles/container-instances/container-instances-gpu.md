@@ -3,26 +3,26 @@ title: Déployer des instances de conteneur Azure compatibles GPU
 description: Découvrez comment déployer des instances de conteneur Azure à exécuter sur les ressources GPU.
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: 5073b68f6ef3de330671e3ea25056e0cae976360
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 300e9b82d578663a4d2ada3889a07d8b03051cc5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000655"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325949"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Déployer des instances de conteneur qui utilisent des ressources GPU
 
 Pour exécuter certaines charges de travail nécessitant beaucoup de ressources système sur Azure Container Instances, déployez vos [groupes de conteneurs](container-instances-container-groups.md) avec des *ressources GPU*. Les instances de conteneur dans le groupe peuvent accéder à un ou plusieurs GPU NVIDIA Tesla pendant l’exécution de charges de travail de conteneur comme CUDA et les applications de Deep Learning.
 
-Cet article montre comment ajouter des ressources GPU lorsque vous déployez un groupe de conteneurs en utilisant un [fichier YAML](container-instances-multi-container-yaml.md) ou [modèle Resource Manager](container-instances-multi-container-group.md). Vous pouvez également spécifier des ressources GPU lorsque vous déployez une instance de conteneur à l’aide du portail Azure.
+Cet article indique comment ajouter des ressources GPU lorsque vous déployez un groupe de conteneurs avec un [fichier YAML](container-instances-multi-container-yaml.md) ou un [modèle Resource Manager](container-instances-multi-container-group.md). Vous pouvez également spécifier des ressources GPU lorsque vous déployez une instance de conteneur à l’aide du portail Azure.
 
 > [!IMPORTANT]
-> Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+> Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
@@ -53,7 +53,7 @@ Pour utiliser des GPU dans une instance de conteneur, vous devez spécifier une 
 
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-Lors du déploiement des ressources GPU, définir des ressources processeur et mémoire appropriées pour la charge de travail, jusqu'à les valeurs maximales indiqué dans le tableau précédent. Ces valeurs sont actuellement plus de ressources de processeur et mémoire disponibles dans les groupes de conteneur sans ressources GPU.  
+Lors du déploiement des ressources GPU, définissez des ressources UC et mémoire appropriées pour la charge de travail, jusqu’aux valeurs maximales indiquées dans le tableau précédent. Ces valeurs sont actuellement supérieures aux ressources disponibles pour l’UC et la mémoire dans les groupes de conteneurs sans ressources GPU.  
 
 ### <a name="things-to-know"></a>À savoir
 
@@ -65,9 +65,9 @@ Lors du déploiement des ressources GPU, définir des ressources processeur et m
 
 * **Pilotes CUDA** : les instances de conteneur avec ressources GPU sont préconfigurées avec des pilotes NVIDIA CUDA et des runtimes de conteneur. Vous pouvez donc utiliser des images de conteneur développées pour les charges de travail CUDA.
 
-  Nous prenons en charge CUDA 9.0 à ce stade. Par exemple, vous pouvez utiliser suivant des images de base pour votre fichier Docker :
-  * [NVIDIA/CUDA:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
-  * [tensorflow/tensorflow : 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+  Nous prenons en charge CUDA 9.0 à ce stade. Par exemple, vous pouvez utiliser suivant les images de base suivantes pour votre fichier Docker :
+  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
     
 ## <a name="yaml-example"></a>Exemple YAML
 
@@ -99,7 +99,7 @@ Déployez le groupe de conteneurs avec la commande [az container create][az-cont
 az container create --resource-group myResourceGroup --file gpu-deploy-aci.yaml --location eastus
 ```
 
-Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute une opération d’ajout de vecteur CUDA. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal d’activité :
+Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute une opération d’ajout de vecteur CUDA. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal d’activité :
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
@@ -118,7 +118,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Exemple de modèle Resource Manager
 
-Une autre façon de déployer un groupe de conteneurs avec des ressources GPU est d’utiliser un [modèle Resource Manager](container-instances-multi-container-group.md). Commencez par créer un fichier nommé `gpudeploy.json`, puis copiez-y le code JSON suivant. Cet exemple déploie une instance de conteneur avec un GPU V100 qui exécute un travail de formation [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) pour le [jeu de données MNIST](http://yann.lecun.com/exdb/mnist/). Les requêtes de ressources sont suffisantes pour exécuter la charge de travail.
+Une autre façon de déployer un groupe de conteneurs avec des ressources GPU est d’utiliser un [modèle Resource Manager](container-instances-multi-container-group.md). Commencez par créer un fichier nommé `gpudeploy.json`, puis copiez-y le code JSON suivant. Cet exemple déploie une instance de conteneur avec un GPU V100 qui exécute un travail de formation [TensorFlow](https://www.tensorflow.org/) pour le jeu de données MNIST. Les requêtes de ressources sont suffisantes pour exécuter la charge de travail.
 
 ```JSON
 {
@@ -176,7 +176,7 @@ Déployez ensuite le modèle avec la commande [az group deployment create][az-gr
 az group deployment create --resource-group myResourceGroup --template-file gpudeploy.json
 ```
 
-Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute le travail TensorFlow. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal d’activité :
+Le déploiement prend plusieurs minutes. Ensuite, le conteneur démarre et exécute le travail TensorFlow. Exécutez la commande [az container logs][az-container-logs] pour afficher la sortie du journal d’activité :
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
@@ -211,7 +211,7 @@ Adding run metadata for 999
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Étant donné que l’utilisation des ressources GPU peut être onéreuse, assurez-vous que vos conteneurs ne s’exécutent pas de manière inattendue pendant de longues périodes. Surveillez vos conteneurs sur le Portail Azure ou vérifiez l’état d’un groupe de conteneurs avec la commande [az container show][az-container-show]. Par exemple : 
+Étant donné que l’utilisation des ressources GPU peut être onéreuse, assurez-vous que vos conteneurs ne s’exécutent pas de manière inattendue pendant de longues périodes. Surveillez vos conteneurs sur le Portail Azure ou vérifiez l’état d’un groupe de conteneurs avec la commande [az container show][az-container-show]. Par exemple :
 
 ```azurecli
 az container show --resource-group myResourceGroup --name gpucontainergroup --output table

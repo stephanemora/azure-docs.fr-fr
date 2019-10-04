@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 760bb5b62e9bba9b7a83f99760f7fe5d8c399dfb
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227264"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177014"
 ---
 1. Dans le Gestionnaire du cluster de basculement, développez les **Rôles**, puis mettez votre groupe de disponibilité en surbrillance.  
 
@@ -31,7 +31,7 @@ ms.locfileid: "50227264"
 
 8. Démarrez SQL Server Management Studio, puis connectez-vous au réplica principal.
 
-9. Accédez à **Haute disponibilité AlwaysOn** > **Groupes de disponibilité** > **\<AvailabilityGroupName\>** > **Écouteurs de groupe de disponibilité**.  
+9. Accédez à **Haute disponibilité AlwaysOn** > **Groupes de disponibilité** >  **\<AvailabilityGroupName\>**  > **Écouteurs de groupe de disponibilité**.  
     Le nom de l’écouteur que vous avez créé dans le Gestionnaire du cluster de basculement doit être affiché.
 
 10. Cliquez avec le bouton droit sur le nom de l’écouteur, puis cliquez sur **Propriétés**.

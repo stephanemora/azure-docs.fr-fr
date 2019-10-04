@@ -1,22 +1,22 @@
 ---
-title: 'Démarrage rapide : Ingérer des données depuis Logstash vers Azure Data Explorer'
-description: Dans ce guide de démarrage rapide, vous découvrez comment ingérer (charger) des données dans Azure Data Explorer depuis Logstash.
+title: Ingérer des données depuis Logstash vers Azure Data Explorer
+description: Dans cet article, vous allez apprendre à ingérer (charger) des données dans Azure Data Explorer depuis Logstash.
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 01/14/2019
-ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.topic: conceptual
+ms.date: 06/03/2019
+ms.openlocfilehash: 86f6732cbf2409d3c79a3d7709100e8af24988a0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046408"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66494541"
 ---
-# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Démarrage rapide : Ingérer des données depuis Logstash vers Azure Data Explorer
+# <a name="ingest-data-from-logstash-to-azure-data-explorer"></a>Ingérer des données depuis Logstash vers Azure Data Explorer
 
-[Logstash](https://www.elastic.co/products/logstash) est un pipeline open source de traitement de données côté serveur qui ingère simultanément des données provenant de nombreuses sources, les transforme, puis les envoie à votre « remise » préférée. Dans ce guide de démarrage rapide, vous allez envoyer ces données à Azure Data Explorer, c’est-à-dire à un service rapide et hautement scalable d’exploration de données de journal et de télémétrie. Vous allez commencer par créer une table et un mappage de données dans un cluster de test, puis vous allez demander à Logstash d’envoyer des données dans la table et valider les résultats.
+[Logstash](https://www.elastic.co/products/logstash) est un pipeline open source de traitement de données côté serveur qui ingère simultanément des données provenant de nombreuses sources, les transforme, puis les envoie à votre « remise » préférée. Dans cet article, vous allez envoyer ces données à Azure Data Explorer, c’est-à-dire à un service rapide et hautement scalable d’exploration de données de journal et de télémétrie. Vous allez commencer par créer une table et un mappage de données dans un cluster de test, puis vous allez demander à Logstash d’envoyer des données dans la table et valider les résultats.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -146,5 +146,4 @@ Exécutez la commande suivante dans votre base de données pour nettoyer la tabl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Écrire des requêtes](write-queries.md)
+* [Écrire des requêtes](write-queries.md)

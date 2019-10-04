@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a7ddc6b9f4a8638d18262e458d61108c00b618d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 5fba7498f724c13297d05fc66fc57e331f096188
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564551"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Didacticiel : Intégration d’Azure Active Directory avec Zscaler Three
 
@@ -38,7 +38,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour configurer l’intégration d’Azure AD à Zscaler Three, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
 * Un abonnement Zscaler Three pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Zscaler Three à Azure AD, vous devez ajoute
 
 **Pour ajouter Zscaler Three à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler Three, effect
 
     Dans la zone de texte **URL de connexion**, tapez une URL : `https://login.zscalerthree.net/sfc_sso`
 
-5. Votre application Zscaler Three s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue  **Attributs utilisateur** .
+5. Votre application Zscaler Three s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
     ![image](common/edit-attribute.png)
 
@@ -154,9 +154,17 @@ Pour configurer l’authentification unique Azure AD avec Zscaler Three, effect
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Configurer l’authentification unique de Zscaler Three
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zscaler Three en tant qu’administrateur.
+1. Pour automatiser la configuration dans Zscaler Three, vous devez installer l’**extension de connexion sécurisée à Mes applications** en cliquant sur **Installer l’extension**.
 
-2. Sélectionnez **Administration > Authentification > Paramètres d'authentification** et procédez comme suit :
+    ![Extension Mes applications](common/install-myappssecure-extension.png)
+
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Zscaler Three** pour être orienté vers l’application Zscaler Three. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Zscaler Three. L’extension de navigateur configure automatiquement l’application pour vous et automatise les étapes 3 à 6.
+
+    ![Configurer l’authentification unique](common/setup-sso.png)
+
+3. Si vous souhaitez configurer manuellement Zscaler Three, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise Zscaler Three en tant qu’administrateur et procédez comme suit :
+
+4. Sélectionnez **Administration > Authentification > Paramètres d'authentification** et procédez comme suit :
    
     ![Administration](./media/zscaler-three-tutorial/ic800206.png "Administration")
 
@@ -164,7 +172,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler Three, effect
 
     b. Cliquez sur **Configure SAML**.
 
-3. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit, puis cliquez sur Enregistrer.  
+5. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit, puis cliquez sur Enregistrer.  
             
     ![Gérer les utilisateurs et l’authentification](./media/zscaler-three-tutorial/ic800208.png "Gérer les utilisateurs et l’authentification")
     
@@ -184,7 +192,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler Three, effect
 
     h. Cliquez sur **Enregistrer**.
 
-4. Dans la page **Configure User Authentication** , procédez comme suit :
+6. Dans la page **Configure User Authentication** , procédez comme suit :
 
     ![Administration](./media/zscaler-three-tutorial/ic800207.png)
 
@@ -241,7 +249,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 

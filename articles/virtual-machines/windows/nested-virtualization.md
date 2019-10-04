@@ -4,19 +4,19 @@ description: Guide d’activation de la virtualisation imbriquée dans les machi
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 ms.author: cynthn
 ms.date: 10/09/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f90ca51349eef92bd25095f5a2a10d7d181fdb2c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766527"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720213"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Guide d’activation de la virtualisation imbriquée dans une machine virtuelle Azure
 
@@ -26,7 +26,7 @@ Cet article parcourt l’activation de Hyper-V sur une machine virtuelle Azure e
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Créer une machine virtuelle Azure prenant en charge l’imbrication
 
-Créer une machine virtuelle Azure Windows Server 2016.  Pour référence rapide, toutes les machines virtuelles de v3 prend en charge la virtualisation imbriquée. Pour obtenir la liste complète des tailles de machine virtuelle prenant en charge l’imbrication, consultez l’[article sur l’unité Compute Azure](acu.md).
+Créer une machine virtuelle Azure Windows Server 2016.  Pour référence, toutes les machines virtuelles v3 prennent en charge la virtualisation imbriquée. Pour obtenir la liste complète des tailles de machine virtuelle prenant en charge l’imbrication, consultez l’[article sur l’unité Compute Azure](acu.md).
 
 Veillez à choisir une taille de machine virtuelle suffisante pour prendre en charge les demandes d’une machine virtuelle invitée. Dans cet exemple, nous utilisons une machine virtuelle Azure de taille D3_v3. 
 
@@ -80,7 +80,7 @@ Créez une nouvelle carte réseau virtuelle pour la machine virtuelle invitée e
 2. Créez un commutateur interne.
 
     ```powershell
-    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNAT" -SwitchType Internal
     ```
 
 3. Affichez les propriétés du commutateur et notez l’ifIndex de la nouvelle carte.
@@ -119,6 +119,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 
 ## <a name="create-the-guest-virtual-machine"></a>Créer la machine virtuelle invitée
+
+>[!IMPORTANT] 
+>
+>L’agent invité Azure n’est pas pris en charge sur les machines virtuelles imbriquées et peut entraîner des problèmes à la fois sur l’hôte et sur les machines virtuelles imbriquées. N’installez pas l’agent Azure sur des machines virtuelles imbriquées et n’utilisez pas une image pour la création de machines virtuelles imbriquées qui ont déjà installé l’agent invité Azure.
 
 1. Ouvrez le Gestionnaire Hyper-V et créez une machine virtuelle. Configurez la machine virtuelle pour utiliser le nouveau réseau interne que vous avez créé.
     

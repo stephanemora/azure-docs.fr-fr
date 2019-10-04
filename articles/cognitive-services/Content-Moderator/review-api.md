@@ -1,7 +1,7 @@
 ---
-title: Révisions, flux de travail et les concepts de travaux - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: En savoir plus sur les révisions, les flux de travail et les travaux
+title: Concepts des révisions, flux de travail et travaux - Content Moderator
+titleSuffix: Azure Cognitive Services
+description: En savoir plus sur les révisions, flux de travail et travaux
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,36 +10,36 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: a77b93c46c9989181cf4473e8b908571a3df2f20
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756290"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565541"
 ---
-# <a name="content-moderation-reviews-workflows-and-jobs"></a>Révisions de modération du contenu, les flux de travail et les travaux
+# <a name="content-moderation-reviews-workflows-and-jobs"></a>Révisions, flux de travail et travaux avec modération du contenu
 
-Content Moderator associe de modération assistée par ordinateur avec les capacités humaines en boucle pour créer un processus de modération optimal pour les scénarios réels. Pour cela, via le nuage [outil de vérification](https://contentmoderator.cognitive.microsoft.com). Dans ce guide, vous allez découvrir les concepts fondamentaux de l’outil de vérification : révisions, les flux de travail et les travaux.
+Content Moderator combine la modération assistée par ordinateur et les capacités d’intervention humaine pour créer un processus de modération optimal adapté à des scénarios concrets. Il utilise pour cela l’[outil de révision](https://contentmoderator.cognitive.microsoft.com) dans le cloud. Dans ce guide, vous découvrirez les concepts fondamentaux de l’outil de révision : révisions, flux de travail et travaux.
 
 ## <a name="reviews"></a>Révisions
 
-Dans une révision, le contenu est chargé dans l’outil de vérification et apparaît sous le **Examinez** onglet. À ce stade, les utilisateurs peuvent modifier les balises appliquées et s’appliquent leurs propres balises personnalisées comme il convient. Lorsqu’un utilisateur soumet une revue, les résultats sont envoyés à un point de terminaison de rappel spécifiée et le contenu est supprimé à partir du site.
+Dans une révision, le contenu est chargé dans l’outil de révision et apparaît sous l’onglet **Révision**. De là, les utilisateurs peuvent modifier les balises appliquées et appliquer leurs propres balises personnalisées selon leurs besoins. Lorsqu’un utilisateur soumet une révision, les résultats sont envoyés à un point de terminaison de rappel spécifié, puis le contenu est retiré du site.
 
-![Site Web outil de révision ouvrir dans un navigateur, sous l’onglet Révision](./Review-Tool-user-Guide/images/image-workflow-review.png)
+![Site web avec outil de révision ouvert dans un navigateur, sous l’onglet Révision](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-Consultez le [guide l’outil de révision](./review-tool-user-guide/review-moderated-images.md) pour commencer à créer des révisions, ou consultez le [guide de l’API REST](./try-review-api-review.md) pour apprendre à le faire par programmation.
+Consultez le [guide de l’outil de révision](./review-tool-user-guide/review-moderated-images.md) pour commencer à créer des révisions, ou le [guide de l’API REST](./try-review-api-review.md) pour apprendre à le faire par programmation.
 
-## <a name="workflows"></a>Flux de travail
+## <a name="workflows"></a>Workflows
 
-Un flux de travail est un filtre personnalisé basé sur le cloud pour le contenu. Flux de travail peut se connecter à une variété de services pour filtrer le contenu de différentes façons et puis exécutez l’action appropriée. Avec le connecteur Content Moderator, un flux de travail peut automatiquement appliquer des balises de modération et créez révisions avec contenu soumis.
+Un flux de travail est un filtre personnalisé basé sur le cloud pour le contenu. Flux de travail peut se connecter à une variété de services pour filtrer le contenu de différentes façons et puis exécutez l’action appropriée. Avec le connecteur Content Moderator, un flux de travail peut automatiquement appliquer des balises de modération et créer révisions avec le contenu soumis.
 
-### <a name="view-workflows"></a>Affichage des workflows
+### <a name="view-workflows"></a>Afficher des flux de travail
 
-Pour afficher vos flux de travail existant, accédez à la [outil de révision](https://contentmoderator.cognitive.microsoft.com/) et sélectionnez **paramètres** > **des flux de travail**.
+Pour afficher vos flux de travail existants, accédez à l’[outil de révision](https://contentmoderator.cognitive.microsoft.com/), puis sélectionnez **Paramètres** > **Flux de travail**.
 
 ![Flux de travail par défaut](images/default-workflow-listed.PNG)
 
-Flux de travail peut être décrit complètement en tant que chaînes JSON, ce qui les rend accessibles par programmation. Si vous sélectionnez le **modifier** option pour votre flux de travail, puis sélectionnez le **JSON** onglet, vous verrez une expression JSON comme suit :
+Les flux de travail peuvent être décrits complètement en tant que chaînes JSON, ce qui les rend accessibles par programmation. Si vous choisissez l’option **Modifier** pour votre flux de travail, puis choisissez sélectionnez l’onglet **JSON**, une expression JSON similaire à ce qui suit s’affiche :
 
 ```json
 {
@@ -64,11 +64,11 @@ Flux de travail peut être décrit complètement en tant que chaînes JSON, ce q
 }
 ```
 
-Consultez le [guide l’outil de révision](./review-tool-user-guide/workflows.md) pour commencer la création et l’utilisation des flux de travail, ou consultez le [guide de l’API REST](./try-review-api-workflow.md) pour apprendre à le faire par programmation.
+Consultez le [guide de l’outil de révision](./review-tool-user-guide/workflows.md) pour commencer à créer et à utiliser des flux de travail, ou le [guide de l’API REST](./try-review-api-workflow.md) pour apprendre à le faire par programmation.
 
 ## <a name="jobs"></a>Tâches
 
-Un travail de modération sert un type de wrapper pour la fonctionnalité de modération du contenu, les workflows et les révisions. La tâche analyse votre contenu à l’aide de la modération de l’image modérateur de contenu API ou API de modération de texte et il vérifie ensuite sur le workflow désigné. Selon les résultats de flux de travail, il peut ou ne peut pas créer une révision pour le contenu dans le [outil de vérification](./review-tool-user-guide/human-in-the-loop.md). Tandis que révisions et flux de travail peut être créé et configuré avec leurs API respectifs, la tâche API permet de vous permettent d’obtenir un rapport détaillé de l’ensemble du processus (qui peuvent être envoyé à un point de terminaison de rappel spécifiés).
+Un travail de modération est un type de wrapper permettant d’obtenir une modération du contenu, des flux de travail et des révisions. Le travail analyse votre contenu à l’aide de l’API Modération des images ou de l’API Modération du texte de Content Moderator, puis compare le résultat obtenu au flux de travail désigné. Selon les résultats de flux de travail, il crée ou non une révision pour le contenu dans l’[outil de révision](./review-tool-user-guide/human-in-the-loop.md). Même s’il est possible de créer et de configurer des révisions et des flux de travail avec leurs API respectives, l'API de travail vous permet d'obtenir un rapport détaillé de l'ensemble du processus (qui peut être envoyé à un point de terminaison de rappel spécifié).
 
 Consultez le [guide de l’API REST](./try-review-api-job.md) pour commencer à utiliser des travaux.
 

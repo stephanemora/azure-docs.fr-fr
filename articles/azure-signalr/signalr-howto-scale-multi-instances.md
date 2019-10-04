@@ -1,30 +1,30 @@
 ---
-title: Mise à l’échelle avec plusieurs instances de Service Azure SignalR
-description: Dans de nombreux scénarios de mise à l’échelle, le client doit souvent gérer plusieurs instances et configurer pour les utiliser ensemble, pour créer un déploiement à grande échelle. Par exemple, partitionnement nécessite que la prise en charge de plusieurs instances.
+title: Guide pratique pour effectuer une mise à l’échelle avec plusieurs instances d’Azure SignalR Service
+description: Dans de nombreux scénarios de mise à l’échelle, le client doit souvent provisionner plusieurs instances et les configurer pour les utiliser ensemble, afin de créer un déploiement à grande échelle. Par exemple, le partitionnement nécessite la prise en charge de plusieurs instances.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: e284a0492774e02cab79db6d9006c1718a7fcfc9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623182"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60809130"
 ---
-# <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Mise à l’échelle SignalR Service avec plusieurs instances ?
-La dernière version du SDK de Service de SignalR prend en charge plusieurs points de terminaison pour les instances de SignalR Service. Vous pouvez utiliser cette fonctionnalité à l’échelle les connexions simultanées, ou utiliser pour la messagerie entre les régions.
+# <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Comment mettre à l’échelle SignalR Service avec plusieurs instances ?
+La dernière version du SDK de SignalR Service prend en charge plusieurs points de terminaison pour les instances de SignalR Service. Vous pouvez utiliser cette fonctionnalité pour la messagerie multirégion ou pour mettre à l’échelle des connexions simultanées.
 
 ## <a name="for-aspnet-core"></a>Pour ASP.NET Core
 
 ### <a name="how-to-add-multiple-endpoints-from-config"></a>Comment ajouter plusieurs points de terminaison à partir de la configuration ?
 
-Configuration avec la clé `Azure:SignalR:ConnectionString` ou `Azure:SignalR:ConnectionString:` pour la chaîne de connexion de SignalR Service.
+Effectuez la configuration avec la clé `Azure:SignalR:ConnectionString` ou `Azure:SignalR:ConnectionString:` pour la chaîne de connexion de SignalR Service.
 
-Si la clé commence par `Azure:SignalR:ConnectionString:`, il doit être au format `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, où `Name` et `EndpointType` sont des propriétés de la `ServiceEndpoint` de l’objet et sont accessibles à partir du code.
+Si la clé commence par `Azure:SignalR:ConnectionString:`, elle doit être au format `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, où `Name` et `EndpointType` sont des propriétés de l’objet `ServiceEndpoint` et sont accessibles à partir du code.
 
-Vous pouvez ajouter plusieurs chaînes de connexion d’instance à l’aide de ce qui suit `dotnet` commandes :
+Vous pouvez ajouter plusieurs chaînes de connexion d’instance à l’aide des commandes `dotnet` suivantes :
 
 ```batch
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
@@ -34,8 +34,8 @@ dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <Connect
 
 ### <a name="how-to-add-multiple-endpoints-from-code"></a>Comment ajouter plusieurs points de terminaison à partir du code ?
 
-Un `ServicEndpoint` classe est introduite pour décrire les propriétés d’un point de terminaison de Service Azure SignalR.
-Vous pouvez configurer plusieurs points de terminaison instance lors de l’utilisation du SDK de Service Azure SignalR via :
+Une classe `ServicEndpoint` est introduite pour décrire les propriétés d’un point de terminaison Azure SignalR Service.
+Vous pouvez configurer plusieurs points de terminaison d’instance quand vous utilisez le SDK de Service Azure SignalR au moyen du code suivant :
 ```cs
 services.AddSignalR()
         .AddAzureSignalR(options => 
@@ -53,23 +53,23 @@ services.AddSignalR()
         });
 ```
 
-### <a name="how-to-customize-endpoint-router"></a>Comment personnaliser le routeur de point de terminaison ?
+### <a name="how-to-customize-endpoint-router"></a>Comment personnaliser le routeur des points de terminaison ?
 
-Par défaut, le SDK utilise le [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) pour sélectionner des points de terminaison.
+Par défaut, le SDK utilise le [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) pour sélectionner les points de terminaison.
 
 #### <a name="default-behavior"></a>Comportement par défaut 
-1. Routage des demandes de client
+1. Routage des demandes clientes
 
-    Lorsque client `/negotiate` avec le serveur d’application. Par défaut, le Kit de développement logiciel **sélectionne de manière aléatoire** un point de terminaison de l’ensemble de points de terminaison de service disponibles.
+    Quand le client négocie (`/negotiate`) avec le serveur d’applications, par défaut, le SDK **sélectionne de manière aléatoire** un point de terminaison dans l’ensemble de points de terminaison de service disponibles.
 
 2. Routage des messages de serveur
 
-    Lors de la * envoi de message à un spécifique ** connexion *** et la connexion cible est acheminé vers le serveur actuel, le message est envoyé directement à ce point de terminaison connecté. Sinon, les messages sont diffusées à chaque point de terminaison Azure SignalR.
+    Quand un message est envoyé à une connexion spécifique et que la connexion cible est routée vers le serveur actuel, le message parvient directement à ce point de terminaison connectée. Sinon, les messages sont diffusés à chaque point de terminaison Azure SignalR.
 
 #### <a name="customize-routing-algorithm"></a>Personnaliser l’algorithme de routage
-Vous pouvez créer votre propre routeur lorsque vous avez des connaissances spéciales pour identifier les messages doivent accéder à quels points de terminaison.
+Vous pouvez créer votre propre routeur si vous avez suffisamment de connaissances pour identifier les points de terminaison vers lesquels les messages doivent être envoyés.
 
-Un routeur personnalisé est défini ci-dessous, par exemple lorsque groupes commençant par `east-` toujours accéder au point de terminaison nommé `east`:
+Dans l’exemple de routeur personnalisé ci-dessous, les groupes commençant par `east-` accèdent toujours au point de terminaison nommé `east` :
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -87,7 +87,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Un autre exemple ci-dessous, qui remplace la valeur par défaut négocier le comportement, pour sélectionner les points de terminaison dépend où se trouve le serveur d’applications.
+Dans l’autre exemple ci-dessous, le comportement de négociation par défaut est remplacé afin que les points de terminaison soient sélectionnés en fonction de l’emplacement du serveur d’applications.
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -110,7 +110,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-N’oubliez pas d’inscrire le routeur pour le conteneur d’injection de dépendances à l’aide :
+N’oubliez pas d’inscrire le routeur sur le conteneur d’injection de dépendances comme suit :
 
 ```cs
 services.AddSingleton(typeof(IEndpointRouter), typeof(CustomRouter));
@@ -131,11 +131,11 @@ services.AddSignalR()
 
 ### <a name="how-to-add-multiple-endpoints-from-config"></a>Comment ajouter plusieurs points de terminaison à partir de la configuration ?
 
-Configuration avec la clé `Azure:SignalR:ConnectionString` ou `Azure:SignalR:ConnectionString:` pour la chaîne de connexion de SignalR Service.
+Effectuez la configuration avec la clé `Azure:SignalR:ConnectionString` ou `Azure:SignalR:ConnectionString:` pour la chaîne de connexion de SignalR Service.
 
-Si la clé commence par `Azure:SignalR:ConnectionString:`, il doit être au format `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, où `Name` et `EndpointType` sont des propriétés de la `ServiceEndpoint` de l’objet et sont accessibles à partir du code.
+Si la clé commence par `Azure:SignalR:ConnectionString:`, elle doit être au format `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, où `Name` et `EndpointType` sont des propriétés de l’objet `ServiceEndpoint` et sont accessibles à partir du code.
 
-Vous pouvez ajouter plusieurs chaînes de connexion d’instance pour `web.config`:
+Vous pouvez ajouter plusieurs chaînes de connexion d’instance à `web.config` :
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -152,8 +152,8 @@ Vous pouvez ajouter plusieurs chaînes de connexion d’instance pour `web.confi
 
 ### <a name="how-to-add-multiple-endpoints-from-code"></a>Comment ajouter plusieurs points de terminaison à partir du code ?
 
-Un `ServicEndpoint` classe est introduite pour décrire les propriétés d’un point de terminaison de Service Azure SignalR.
-Vous pouvez configurer plusieurs points de terminaison instance lors de l’utilisation du SDK de Service Azure SignalR via :
+Une classe `ServicEndpoint` est introduite pour décrire les propriétés d’un point de terminaison Azure SignalR Service.
+Vous pouvez configurer plusieurs points de terminaison d’instance quand vous utilisez le SDK de Service Azure SignalR au moyen du code suivant :
 
 ```cs
 app.MapAzureSignalR(
@@ -173,9 +173,9 @@ app.MapAzureSignalR(
 
 ### <a name="how-to-customize-router"></a>Comment personnaliser le routeur ?
 
-La seule différence entre ASP.NET SignalR et ASP.NET Core SignalR est le type de contexte http pour `GetNegotiateEndpoint`. Pour ASP.NET SignalR, il s’agit de [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) type.
+La seule différence entre ASP.NET SignalR et ASP.NET Core SignalR est le type de contexte http pour `GetNegotiateEndpoint`. Pour ASP.NET SignalR, il s’agit du type [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19).
 
-Voici personnalisé négocier exemple SignalR ASP.NET :
+Voici l’exemple de négociation personnalisé pour SignalR ASP.NET :
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -197,7 +197,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-N’oubliez pas d’inscrire le routeur pour le conteneur d’injection de dépendances à l’aide :
+N’oubliez pas d’inscrire le routeur sur le conteneur d’injection de dépendances comme suit :
 
 ```cs
 var hub = new HubConfiguration();
@@ -213,33 +213,33 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 });
 ```
 
-## <a name="configuration-in-cross-region-scenarios"></a>Configuration dans les scénarios entre les régions
+## <a name="configuration-in-cross-region-scenarios"></a>Configuration dans les scénarios inter-régions
 
-Le `ServiceEndpoint` objet possède un `EndpointType` propriété avec la valeur `primary` ou `secondary`.
+L’objet `ServiceEndpoint` a une propriété `EndpointType` avec la valeur `primary` ou `secondary`.
 
-`primary` points de terminaison sont des points de terminaison préférés pour recevoir le trafic de client et sont considérés comme ayant des connexions réseau plus fiables ; `secondary` points de terminaison sont considérés comme ayant des connexions réseau moins fiables et sont utilisés uniquement pour le serveur prise au trafic de client, par exemple, diffusion des messages, mais pas pour le client prise pour le trafic du serveur.
+Les points de terminaison `primary` sont des points de terminaison par défaut pour la réception du trafic client et sont considérés comme ayant des connexions réseau plus fiables ; les points de terminaison `secondary` sont considérés comme ayant des connexions réseau moins fiables et sont utilisés uniquement pour l’acheminement du trafic entre le serveur et le client, par exemple, pour la diffusion de messages, mais pas pour l’acheminement du trafic entre le client et le serveur.
 
-Dans le cas de plusieurs régions, le réseau peut être instable. Pour le serveur une seule application situé dans *est des États-Unis*, le point de terminaison de SignalR Service situé dans le même *est des États-Unis* région peut être configurée en tant que `primary` et points de terminaison dans d’autres régions marquées comme `secondary`. Dans cette configuration, les points de terminaison de service dans d’autres régions peuvent **réception** messages à partir de ce *est des États-Unis* du serveur d’applications, mais il n’y aura aucune **inter-régions** clients acheminé vers ce serveur d’applications. L’architecture est illustrée dans le diagramme ci-dessous :
+Dans les cas impliquant plusieurs régions, le réseau peut être instable. Pour un même serveur d’applications situé dans la région *USA Est*, le point de terminaison SignalR Service situé dans la même région *USA Est* peut être configuré en tant que `primary` et les points de terminaison dans d’autres régions peuvent être marqués comme `secondary`. Dans cette configuration, les points de terminaison de service dans les autres régions peuvent **recevoir** les messages de ce serveur d’applications *USA Est*, mais aucun client **inter-régions** n’est routé vers ce serveur d’applications. L’architecture est illustrée dans le diagramme ci-après :
 
-![Géo-Infra](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
+![Infrastructure multigéographique](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-Quand un client tente de `/negotiate` avec le serveur d’application, avec le routeur par défaut, Kit de développement logiciel **sélectionne de manière aléatoire** un point de terminaison de l’ensemble de disponible `primary` points de terminaison. Lorsque le point de terminaison est disponible, puis SDK **sélectionne de manière aléatoire** à partir de tous disponibles `secondary` points de terminaison. Le point de terminaison est marqué comme **disponible** lorsque la connexion entre le serveur et le point de terminaison de service est active.
+Quand un client tente de négocier (`/negotiate`) avec le serveur d’applications, avec le routeur par défaut, le SDK **sélectionne de manière aléatoire** un point de terminaison dans l’ensemble de points de terminaison `primary` disponibles. Si aucun point de terminaison n’est disponible, le SDK **effectue une sélection aléatoire** parmi tous les points de terminaison `secondary` disponibles. Le point de terminaison est marqué comme **disponible** quand la connexion entre le serveur et le point de terminaison de service est active.
 
-Dans le scénario entre les régions, quand un client tente de `/negotiate` avec le serveur d’application hébergé dans *est des États-Unis*, par default il retourne toujours le `primary` point de terminaison situés dans la même région. Lorsque tous les *est des États-Unis* points de terminaison ne sont pas disponibles, le client est redirigé vers les points de terminaison dans d’autres régions. Section de basculement ci-dessous décrit le scénario en détail.
+Dans un scénario multirégion, quand un client tente de négocier (`/negotiate`) avec le serveur d’applications hébergé dans la région *USA Est*, par défaut, il retourne toujours le point de terminaison `primary` situé dans la même région. Si aucun point de terminaison *USA Est* n’est disponible, le client est redirigé vers des points de terminaison dans d’autres régions. La section Basculement ci-dessous décrit le scénario en détail.
 
-![Négocier normal](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
+![Négociation normale](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 
 ## <a name="fail-over"></a>Basculement
 
-Lorsque tous les `primary` points de terminaison ne sont pas disponibles, de client `/negotiate` sélectionne parmi les `secondary` points de terminaison. Ce mécanisme de basculement requiert que chaque point de terminaison doit servir `primary` du serveur d’applications au moins un point de terminaison.
+Si aucun point de terminaison `primary` n’est disponible, le comportement de négociation du client (`/negotiate`) consiste à effectuer une sélection parmi les points de terminaison `secondary`. Ce mécanisme de basculement demande que chaque point de terminaison fasse office de point de terminaison `primary` sur au moins un serveur d’applications.
 
 ![Basculement](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide, vous avez appris comment configurer plusieurs instances dans la même application pour la mise à l’échelle, partitionnement et les scénarios entre les régions.
+Dans ce guide, vous avez appris à configurer plusieurs instances dans la même application pour les scénarios de mise à l’échelle, de partitionnement et multirégions.
 
-Prend en charge de plusieurs points de terminaison permettre également servir dans les scénarios de récupération d’urgence et disponibilité élevées.
+Les prises en charge de plusieurs points de terminaison peuvent également être utilisées dans les scénarios de haute disponibilité et reprise d’activité.
 
 > [!div class="nextstepaction"]
-> [Le programme d’installation SignalR Service pour la récupération d’urgence et haute disponibilité](./signalr-concept-disaster-recovery.md)
+> [Configurer SignalR Service pour la reprise d’activité et la haute disponibilité](./signalr-concept-disaster-recovery.md)

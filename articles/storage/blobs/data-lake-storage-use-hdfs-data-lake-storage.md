@@ -2,29 +2,30 @@
 title: Utilisation de l'interface CLI HDFS avec Azure Data Lake Storage Gen2
 description: Présentation de l'interface CLI HDFS pour Data Lake Storage Gen2
 services: storage
-author: artemuwka
+author: normesta
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: artek
+ms.author: normesta
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d1c9eff08a7b9cc50ccdca4ce798ac4d0f3d35f2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.reviewer: artek
+ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678018"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992215"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilisation de l’interface CLI HDFS avec Data Lake Storage Gen2
 
-Vous pouvez accéder et gérer les données dans votre compte de stockage à l’aide d’une interface de ligne de commande comme vous le feriez avec un [Hadoop HDFS Distributed File System ()](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Cet article fournit quelques exemples qui vous aideront à démarrer.
+Vous pouvez accéder aux données et les gérer dans votre compte de stockage à l’aide d’une interface de ligne de commande comme vous le feriez avec un [Système de fichiers DFS Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Cet article fournit quelques exemples qui vous aideront à démarrer.
 
-HDInsight permet d'accéder au système de fichiers distribués (DFS) connecté localement aux nœuds de calcul. Vous pouvez accéder à ce système de fichiers à l’aide de l’interpréteur de commandes qui interagit directement avec le HDFS et les autres systèmes de fichiers Hadoop prend en charge.
+HDInsight permet d’accéder au conteneur distribué connecté localement aux nœuds de calcul. Ce conteneur est accessible à l’aide de l’interpréteur de commandes qui interagit directement avec HDFS et d’autres systèmes de fichiers pris en charge par Hadoop.
 
-Pour plus d’informations sur HDFS CLI, consultez le [documentation officielle](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) et le [Guide des autorisations HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+Pour plus d’informations sur l’interface de ligne de commande HDFS, voir la [documentation officielle](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) et le [Guide des autorisations HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
 >[!NOTE]
->Si vous utilisez Azure Databricks au lieu de HDInsight, et que vous souhaitez interagir avec vos données à l’aide d’une interface de ligne de commande, vous pouvez utiliser la CLI Databricks pour interagir avec le système de fichiers Databricks. Consultez [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+>Si vous utilisez Azure Databricks au lieu de HDInsight, et souhaitez interagir avec vos données à l’aide d’une interface de ligne de commande, vous pouvez utiliser celle de Databricks pour interagir avec le système de fichiers Databricks. Voir [Interface de ligne de commande Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Utiliser l’interface CLI HDFS avec un cluster HDInsight Hadoop sur Linux
 
@@ -43,11 +44,11 @@ La chaîne de connexion se trouve dans la section « Connexion SSH + Cluster » 
 >[!IMPORTANT]
 >La facturation du cluster HDInsight démarre après la création du cluster et s’arrête à sa suppression. La facturation est effectuée au prorata des minutes écoulées. Par conséquent, vous devez toujours supprimer votre cluster lorsqu’il n’est plus utilisé. Pour découvrir comment supprimer un cluster, consultez notre [article à ce sujet](../../hdinsight/hdinsight-delete-cluster.md). Toutefois, les données stockées dans un compte de stockage avec Azure Data Lake Storage Gen2 persistent même après la suppression du cluster HDInsight.
 
-## <a name="create-a-file-system"></a>Créer un système de fichiers
+## <a name="create-a-container"></a>Créez un conteneur.
 
-    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
-* Remplacez l’espace réservé `<file-system-name>` par le nom que vous souhaitez donner à votre système de fichiers.
+* Remplacez l’espace réservé `<container-name>` par le nom que vous souhaitez donner à votre conteneur.
 
 * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
@@ -55,7 +56,7 @@ La chaîne de connexion se trouve dans la section « Connexion SSH + Cluster » 
 
     hdfs dfs -ls <path>
 
-Remplacez l'espace réservé `<path>` par l'URI du système de fichiers ou du dossier du système de fichiers.
+Remplacez l’espace réservé `<path>` par l’URI du conteneur ou du dossier du conteneur.
 
 Par exemple : `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
@@ -63,7 +64,7 @@ Par exemple : `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.win
 
     hdfs dfs -mkdir [-p] <path>
 
-Remplacez l'espace réservé `<path>` par le nom du système de fichiers racine ou par un dossier de votre système de fichiers.
+Remplacez l’espace réservé `<path>` par le nom du conteneur racine ou par un dossier de votre conteneur.
 
 Par exemple : `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 

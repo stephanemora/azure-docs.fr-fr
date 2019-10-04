@@ -2,32 +2,32 @@
 title: Predicates et PredicateValidations - Azure Active Directory B2C | Microsoft Docs
 description: Exemples de transformations de revendications de comptes sociaux pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ecec18945b53711094307162c4aeab2e0580bd5e
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880999"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71063850"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates et PredicateValidations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Les éléments **Predicates** et **PredicateValidations** vous permettent d’effectuer un processus de validation afin de vous assurer que seules des données correctement formées sont entrées dans votre locataire Azure Active Directory (Azure AD) B2C.  
+Les éléments **Predicates** et **PredicateValidations** vous permettent d’effectuer un processus de validation afin de vous assurer que seules des données correctement formées sont entrées dans votre locataire Azure Active Directory B2C (Azure AD B2C).
 
-Le diagramme suivant illustre la relation entre les éléments :  
+Le diagramme suivant illustre la relation entre les éléments :
 
-![Prédicats](./media/predicates/predicates.png)
+![Diagramme montrant la relation entre les prédicats et les validations de prédicat](./media/predicates/predicates.png)
 
-## <a name="predicates"></a>Prédicats  
+## <a name="predicates"></a>Prédicats
 
 L’élément **Predicate** définit une validation de base pour vérifier la valeur d’un type de revendication et retourne `true` ou `false`. La validation est effectuée en utilisant un élément **Method** et un ensemble d’éléments **Parameter** pertinents à la méthode. Par exemple, un prédicat peut vérifier si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés, ou si une valeur de revendication de chaîne contient un jeu de caractères. L’élément **UserHelpText** fournit un message d’erreur présenté aux utilisateurs si la vérification échoue. La valeur de l’élément **UserHelpText** peut être localisée à l’aide de la [personnalisation de la langue](localization.md).
 
@@ -35,33 +35,33 @@ L’élément **Predicates** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Predicate | 1:n | Liste de prédicats. | 
+| Predicate | 1:n | Liste de prédicats. |
 
 L’élément **Predicate** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur utilisé pour le prédicat. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
-| Méthode | Oui | Type de la méthode à utiliser pour la validation. Valeurs possibles : **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** ou **IsDateRange**. La valeur **IsLengthRange** vérifie si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés. La valeur **MatchesRegex** vérifie si une valeur de revendication de chaîne correspond à une expression régulière. La valeur **IncludesCharacters** vérifie si une valeur de revendication de chaîne contient un jeu de caractères. La valeur **IsDateRange** vérifie si une valeur de revendication de date est dans la plage des paramètres minimaux et maximaux spécifiés. |
+| Id | OUI | Identificateur utilisé pour le prédicat. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
+| Méthode | OUI | Type de la méthode à utiliser pour la validation. Valeurs possibles : **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** ou **IsDateRange**. La valeur **IsLengthRange** vérifie si la longueur d’une valeur de revendication de chaîne est dans la plage des paramètres minimaux et maximaux spécifiés. La valeur **MatchesRegex** vérifie si une valeur de revendication de chaîne correspond à une expression régulière. La valeur **IncludesCharacters** vérifie si une valeur de revendication de chaîne contient un jeu de caractères. La valeur **IsDateRange** vérifie si une valeur de revendication de date est dans la plage des paramètres minimaux et maximaux spécifiés. |
 
 L’élément **Predicate** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | Message d’erreur présenté aux utilisateurs si la vérification échoue. Vous pouvez localiser cette chaîne à l’aide de la [personnalisation de la langue](localization.md). |
-| parameters | 1:1 | Paramètres pour le type de méthode de la validation de chaîne. | 
+| parameters | 1:1 | Paramètres pour le type de méthode de la validation de chaîne. |
 
 L’élément **Parameters** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Paramètre | 1:n | Paramètres pour le type de méthode de la validation de chaîne. | 
+| Paramètre | 1:n | Paramètres pour le type de méthode de la validation de chaîne. |
 
 L’élément **Parameter** contient les attributs suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ID | 1:1 | Identificateur du paramètre. |
+| Id | 1:1 | Identificateur du paramètre. |
 
 L’exemple suivant montre une méthode `IsLengthRange` avec les paramètres `Minimum` et `Maximum` qui spécifient la plage de la longueur de la chaîne :
 
@@ -108,7 +108,7 @@ L’exemple suivant montre une méthode `IsDateRange` avec les paramètres `Mini
 </Predicate>
 ```
 
-## <a name="predicatevalidations"></a>PredicateValidations 
+## <a name="predicatevalidations"></a>PredicateValidations
 
 Alors que les prédicats définissent la validation à effectuer par rapport à un type de revendication, les **PredicateValidations** regroupent un ensemble de prédicats pour former une validation de l’entrée utilisateur qui peut être appliquée à un type de revendication. Chaque élément **PredicateValidation** contient un ensemble d’éléments **PredicateGroup** qui contiennent un ensemble d’éléments **PredicateReference** qui pointe vers un **Predicate**. Pour que la validation réussisse, la valeur de la revendication doit réussir tous les tests des prédicats qui se trouvent sous tous les éléments **PredicateGroup** avec leur ensemble d’éléments **PredicateReference**.
 
@@ -134,61 +134,61 @@ L’élément **PredicateValidations** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| PredicateValidation | 1:n | Liste de validations de prédicat. | 
+| PredicateValidation | 1:n | Liste de validations de prédicat. |
 
 L’élément **PredicateValidation** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur utilisé pour la validation de prédicat. L’élément **ClaimType** peut utiliser cet identificateur dans la stratégie. |
+| Id | OUI | Identificateur utilisé pour la validation de prédicat. L’élément **ClaimType** peut utiliser cet identificateur dans la stratégie. |
 
 L’élément **PredicateValidation** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| PredicateGroups | 1:n | Liste de groupes de prédicats. | 
+| PredicateGroups | 1:n | Liste de groupes de prédicats. |
 
 L’élément **PredicateGroups** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| PredicateGroup | 1:n | Liste de prédicats. | 
+| PredicateGroup | 1:n | Liste de prédicats. |
 
 L’élément **PredicateGroup** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur utilisé pour le groupe de prédicats.  |
+| Id | OUI | Identificateur utilisé pour le groupe de prédicats.  |
 
 L’élément **PredicateGroup** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| UserHelpText | 1:1 |  Description du prédicat qui peut être aider les utilisateurs à déterminer quelle valeur ils doivent taper. | 
-| PredicateReferences | 1:n | Liste de références de prédicats. | 
+| UserHelpText | 1:1 |  Description du prédicat qui peut être aider les utilisateurs à déterminer quelle valeur ils doivent taper. |
+| PredicateReferences | 1:n | Liste de références de prédicats. |
 
 L’élément **PredicateReferences** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| MatchAtLeast | Non  | Indique que la valeur doit correspondre au moins à cette quantité de définitions de prédicat pour que l’entrée soit acceptée. |
+| MatchAtLeast | Non | Indique que la valeur doit correspondre au moins à cette quantité de définitions de prédicat pour que l’entrée soit acceptée. |
 
 L’élément **PredicateReferences** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| PredicateReference | 1:n | Référence à un prédicat. | 
+| PredicateReference | 1:n | Référence à un prédicat. |
 
 L’élément **PredicateReference** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | Oui | Identificateur utilisé pour la validation de prédicat.  |
+| Id | OUI | Identificateur utilisé pour la validation de prédicat.  |
 
 
 ## <a name="configure-password-complexity"></a>Configurer la complexité du mot de passe
 
-Avec **Predicates** et **PredicateValidationsInput**, vous pouvez contrôler les exigences de complexité des mots de passe fournis par un utilisateur lors de la création d’un compte. Par défaut, Azure AD B2C utilise des mots de passe forts. Azure AD B2C prend également en charge les options de configuration permettant de contrôler la complexité des mots de passe utilisables par les clients. Vous pouvez définir la complexité du mot de passe à l’aide de ces éléments de prédicats : 
+Avec **Predicates** et **PredicateValidationsInput**, vous pouvez contrôler les exigences de complexité des mots de passe fournis par un utilisateur lors de la création d’un compte. Par défaut, Azure AD B2C utilise des mots de passe forts. Azure AD B2C prend également en charge les options de configuration permettant de contrôler la complexité des mots de passe utilisables par les clients. Vous pouvez définir la complexité du mot de passe à l’aide de ces éléments de prédicats :
 
 - **IsLengthBetween8And64** à l’aide de la méthode `IsLengthRange` valide le fait que le mot de passe doit compter entre 8 et 64 caractères.
 - **Lowercase** à l’aide de la méthode `IncludesCharacters` valide le fait que le mot de passe contient une lettre minuscule.
@@ -348,7 +348,7 @@ Dans votre type de revendication, ajoutez l’élément **PredicateValidationRef
 
 Le schéma suivant montre comment les éléments sont organisés quand Azure AD B2C affiche le message d’erreur :
 
-![Processus de prédicat](./media/predicates/predicates-pass.png)
+![Diagramme montrant des exemples de complexité de mot de passe PredicateGroup Predicate](./media/predicates/predicates-pass.png)
 
 ## <a name="configure-a-date-range"></a>Configurer une plage de dates
 
@@ -382,8 +382,8 @@ Ajoutez un **PredicateValidation** avec une référence au prédicat `DateRange`
 </PredicateValidations>
 ```
 
-Dans votre type de revendication, ajoutez un élément**PredicateValidationReference** et spécifiez l’identificateur en tant que `CustomDateRange`. 
-    
+Dans votre type de revendication, ajoutez un élément**PredicateValidationReference** et spécifiez l’identificateur en tant que `CustomDateRange`.
+
 ```XML
 <ClaimType Id="dateOfBirth">
   <DisplayName>Date of Birth</DisplayName>

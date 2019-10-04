@@ -3,8 +3,8 @@ title: Présentation du tronçon suivant dans Azure Network Watcher | Microsoft 
 description: Cet article fournit une vue d’ensemble de la fonctionnalité de tronçon suivant de Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: febf7bca-e0b7-41d5-838f-a5a40ebc5aac
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 40f1790806aac6756979f28ad29442b7abf96019
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.author: kumud
+ms.openlocfilehash: eb613455ccd6b6630d0d75b5a8458f812bb36846
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096889"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64730210"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Utiliser le tronçon suivant pour diagnostiquer les problèmes de routage de machines virtuelles
 

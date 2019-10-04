@@ -3,7 +3,7 @@ title: Connexion hybride avec une application à 2 niveaux | Microsoft Docs
 description: Découvrez comment déployer des appliances virtuelles et un UDR pour créer un environnement d’application multiniveau dans Azure
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 manager: carmonm
 editor: tysonn
 ms.assetid: 1f509bec-bdd1-470d-8aa4-3cf2bb7f6134
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
-ms.author: jdial
-ms.openlocfilehash: 544ba6484b23da425d53594622122b1e18b92359
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.author: kumud
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2017
-ms.locfileid: "23643863"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64575593"
 ---
 # <a name="virtual-appliance-scenario"></a>Scénario d’appliance virtuelle
 Pour les clients Azure volumineux, il faut souvent fournir une application à deux niveaux exposée à Internet, tout en autorisant l’accès au niveau d’arrière-plan à partir d’un centre de données local. Ce document vous guide dans un scénario utilisant des itinéraires définis par l’utilisateur (UDR), une passerelle VPN et des appliances virtuelles de réseau pour déployer un environnement à deux niveaux conforme aux exigences suivantes :
@@ -30,14 +30,14 @@ Pour les clients Azure volumineux, il faut souvent fournir une application à de
 * Tout le trafic envoyé au serveur d’applications doit transiter par une appliance virtuelle de pare-feu. Cette appliance virtuelle sera utilisée pour accéder au serveur principal depuis le réseau local via une passerelle VPN.
 * Les administrateurs doivent pouvoir gérer les appliances virtuelles de pare-feu à partir de leurs ordinateurs locaux, en utilisant une troisième appliance virtuelle de pare-feu exclusivement à des fins de gestion.
 
-Il s’agit d’un scénario avec une zone DMZ et un réseau protégé. Ce scénario peut être mis en œuvre dans Azure à l’aide de groupes de sécurité réseau, d’appliances virtuelles de pare-feu ou d’une combinaison des deux. Le tableau ci-dessous présente certains avantages et inconvénients des groupes de sécurité réseau et appliances virtuelles de pare-feu.
+Il s’agit d’un scénario de réseau de périmètre standard (également nommé DMZ) avec une zone DMZ et un réseau protégé. Ce scénario peut être mis en œuvre dans Azure à l’aide de groupes de sécurité réseau, d’appliances virtuelles de pare-feu ou d’une combinaison des deux. Le tableau ci-dessous présente certains avantages et inconvénients des groupes de sécurité réseau et appliances virtuelles de pare-feu.
 
 |  | Avantages | Inconvénients |
 | --- | --- | --- |
-| Groupe de sécurité réseau |Aucun coût. <br/>Intégré dans Azure RBAC. <br/>Possibilité de créer des règles dans les modèles ARM. |Complexité variable dans les environnements de grande taille. |
+| Groupe de sécurité réseau |Aucun coût. <br/>Intégré dans Azure RBAC. <br/>Il est possible de créer des règles dans les modèles Azure Resource Manager. |Complexité variable dans les environnements de grande taille. |
 | Pare-feu |Contrôle total sur le plan des données. <br/>Gestion centralisée via la console du pare-feu. |Coût de l’appliance de pare-feu. <br/>Non intégré dans Azure RBAC. |
 
-La solution ci-dessous utilise des appliances virtuelles de pare-feu pour implémenter un scénario de zone DMZ/réseau protégé.
+La solution ci-dessous utilise des appliances virtuelles de pare-feu pour implémenter un scénario de réseau de périmètre (DMZ)/réseau protégé.
 
 ## <a name="considerations"></a>Considérations
 Vous pouvez déployer l’environnement décrit ci-dessus dans Azure à l’aide de différentes fonctionnalités disponibles aujourd’hui, comme suit.
@@ -46,7 +46,7 @@ Vous pouvez déployer l’environnement décrit ci-dessus dans Azure à l’aide
 * **Appliance virtuelle**. Plusieurs partenaires fournissent des appliances virtuelles dans Azure Marketplace, utilisables pour les trois pare-feu décrits ci-dessus. 
 * **Itinéraires définis par l’utilisateur**. Les tables peuvent contenir des itinéraires définis par l’utilisateur, utilisés par la mise en réseau Azure pour contrôler le flux de paquets dans un réseau virtuel. Ces tables d’itinéraires peuvent être appliquées à des sous-réseaux. L’une des fonctionnalités les plus récentes d’Azure consiste à appliquer une table d’itinéraires au sous-réseau GatewaySubnet, pour transférer tout le trafic entrant dans le réseau virtuel Azure entre la connexion hybride et une appliance virtuelle.
 * **Transfert IP**. Par défaut, le moteur de mise en réseau Azure ne transfère les paquets aux cartes réseau que si l’adresse IP de destination des paquets correspond à l’adresse IP de la carte réseau. Par conséquent, si un itinéraire défini par l’utilisateur détermine qu’un paquet doit être envoyé à une appliance virtuelle donnée, le moteur de mise en réseau Azure supprime ce paquet. Pour vérifier que le paquet est envoyé à une machine virtuelle (dans ce cas, une appliance virtuelle) qui n’est pas la destination réelle du paquet, vous devez activer le transfert IP pour l’appliance virtuelle.
-* **Groupes de sécurité réseau (NSG)**. L’exemple ci-dessous ne fait pas l’utilisation de groupes de sécurité réseau, mais vous pouvez utiliser des NSG appliqués aux sous-réseaux ou des cartes réseau dans cette solution pour filtrer le trafic vers et depuis ces sous-réseaux et cartes réseau.
+* **Groupes de sécurité réseau (NSG)** . L’exemple ci-dessous ne fait pas l’utilisation de groupes de sécurité réseau, mais vous pouvez utiliser des NSG appliqués aux sous-réseaux ou des cartes réseau dans cette solution pour filtrer le trafic vers et depuis ces sous-réseaux et cartes réseau.
 
 ![Connectivité IPv6](./media/virtual-network-scenario-udr-gw-nva/figure01.png)
 
@@ -167,5 +167,5 @@ Pour déployer ce scénario, suivez la procédure générale suivante.
 2. Si vous souhaitez déployer un réseau virtuel pour imiter le réseau local, approvisionnez les ressources qui font partie de **ONPREMRG**.
 3. Approvisionnez les ressources qui font partie de **AZURERG**.
 4. Approvisionnez le tunnel reliant **onpremvnet** à **azurevnet**.
-5. Une fois toutes les ressources approvisionnées, ouvrez une session sur **onpremvm2** et envoyez la commande ping 10.0.3.101 pour tester la connectivité entre **onpremsn2** et **azsn3**.
+5. Une fois toutes les ressources approvisionnées, connectez-vous sur **onpremvm2** et envoyez la commande ping 10.0.3.101 pour tester la connectivité entre **onpremsn2** et **azsn3**.
 

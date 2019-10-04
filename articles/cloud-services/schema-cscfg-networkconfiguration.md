@@ -3,22 +3,17 @@ title: Schéma NetworkConfiguration d’Azure Cloud Services | Microsoft Docs
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
 caps.latest.revision: 28
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: ed071d1da30a598eef830b4485c246ffae09c950
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: c5a6501c71420ca5b43c4c08c2a29ae5f27b4af5
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004112"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945925"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Schéma NetworkConfiguration de configuration d’Azure Cloud Services
 
@@ -49,7 +44,7 @@ L’exemple suivant illustre l’élément `NetworkConfiguration` et ses éléme
         <DnsServer name="<server-name>" IPAddress="<server-address>" />
       </DnsServers>
     </Dns>
-    <VirtualNetworkSite name="<site-name>"/>
+    <VirtualNetworkSite name="Group <RG-VNet> <VNet-name>"/>
     <AddressAssignments>
       <InstanceAddress roleName="<role-name>">
         <Subnets>
@@ -74,7 +69,7 @@ La table suivante décrit les éléments enfants de l’élément `NetworkConfig
 | DnsServer | facultatif. Spécifie les paramètres d’un serveur DNS. Vous pouvez spécifier des paramètres pour des serveurs DNS sans réseau virtuel. Le nom du serveur DNS est défini par une chaîne pour l’attribut `name`. L’adresse IP du serveur DNS est définie par une chaîne pour l’attribut `IPAddress`. L'adresse IP doit être une adresse IPv4 valide.|
 | VirtualNetworkSite | facultatif. Spécifie le nom du site de réseau virtuel dans lequel vous souhaitez déployer votre service cloud. Ce paramètre ne crée pas de site de réseau virtuel. Il fait référence à un site qui a été défini précédemment dans le fichier réseau pour votre réseau virtuel. Un service cloud ne peut faire partie que d’un seul réseau virtuel. Si vous ne spécifiez pas ce paramètre, le service cloud ne sera pas déployé sur un réseau virtuel. Le nom du site de réseau virtuel est défini par une chaîne pour l’attribut `name`.|
 | InstanceAddress | facultatif. Spécifie l’association d’un rôle à un sous-réseau ou à un ensemble de sous-réseaux du réseau virtuel. Quand vous associez un nom de rôle à une adresse d’instance, vous pouvez spécifier les sous-réseaux auxquels vous souhaitez associer ce rôle. L’élément `InstanceAddress` contient un élément Subnets. Le nom du rôle associé aux sous-réseaux est défini par une chaîne pour l’attribut `roleName`.|
-| Sous-réseau | facultatif. Spécifie le sous-réseau qui correspond au nom du sous-réseau dans le fichier de configuration réseau. Le nom du sous-réseau est défini par une chaîne pour l’attribut `name`.|
+| Subnet | facultatif. Spécifie le sous-réseau qui correspond au nom du sous-réseau dans le fichier de configuration réseau. Le nom du sous-réseau est défini par une chaîne pour l’attribut `name`.|
 | ReservedIP | facultatif. Spécifie l’adresse IP réservée à associer au déploiement. Vous devez utiliser l’action Créer une adresse IP réservée pour créer l’adresse IP réservée. Chaque déploiement dans un service cloud peut être associé à une adresse IP réservée. Le nom de l’adresse IP réservée est défini par une chaîne pour l’attribut `name`.|
 
 ## <a name="see-also"></a>Voir aussi

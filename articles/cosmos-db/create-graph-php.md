@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 01/05/2018
+ms.date: 01/05/2019
 ms.author: lbosq
-ms.openlocfilehash: aace9b61ae7625f1d3bbed5181fd88e367ea8f12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082753"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736646"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Démarrage rapide : Créer une base de données de graphe dans Azure Cosmos DB à l’aide de PHP et du portail Azure
 
@@ -113,7 +113,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/<db>/colls/<coll>',
         'password' => 'your_primary_key'
         ,'port' => '443'
@@ -123,9 +123,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     ]);
     ```
 
-3. Si votre compte de base de données de graphiques a été créé le 20 décembre 2017 ou après, modifiez `graphs.azure.com` dans le nom d’hôte pour le remplacer par `gremlin.cosmosdb.azure.com`.
-
-4. Remplacez le paramètre `username` dans l’objet de connexion par le nom de votre base de données et de votre graphe. Si vous avez utilisé les valeurs recommandées `sample-database` et `sample-graph`, vous devriez avoir le code suivant :
+3. Remplacez le paramètre `username` dans l’objet de connexion par le nom de votre base de données et de votre graphe. Si vous avez utilisé les valeurs recommandées `sample-database` et `sample-graph`, vous devriez avoir le code suivant :
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -133,7 +131,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
     ```php
     $db = new Connection([
-        'host' => 'testgraphacct.graphs.azure.com',
+        'host' => 'testgraphacct.gremlin.cosmosdb.azure.com',
         'username' => '/dbs/sample-database/colls/sample-graph',
         'password' => 'your_primary_key',
         'port' => '443'
@@ -143,7 +141,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     ]);
     ```
 
-5. Dans le portail Azure, utilisez le bouton de copie pour copier la CLÉ PRIMAIRE, puis collez-la sur `your_primary_key` dans le paramètre de mot de passe.
+4. Dans le portail Azure, utilisez le bouton de copie pour copier la CLÉ PRIMAIRE, puis collez-la sur `your_primary_key` dans le paramètre de mot de passe.
 
     L’initialisation de l’objet de connexion doit maintenant ressembler au code ci-après :
 
@@ -159,7 +157,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     ]);
     ```
 
-6. Enregistrez le fichier `connect.php`.
+5. Enregistrez le fichier `connect.php`.
 
 ## <a name="run-the-console-app"></a>Exécution de l’application console
 
@@ -206,13 +204,13 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
 4. Entrez l’étiquette *person*.
 
-5. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphique. Seule la clé id est obligatoire.
+5. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphique. Seule la clé **id** est obligatoire.
 
-    key|value|Notes
+    Clé | Valeur | Notes
     ----|----|----
-    id|ashley|Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
-    gender|female| 
-    tech | java | 
+    **id** | ashley | Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
+    **gender** | female | 
+    **tech** | java | 
 
     > [!NOTE]
     > Dans ce Démarrage rapide, vous créez une collection non partitionnée. Toutefois, si vous créez une collection partitionnée en spécifiant une clé de partition lors de la création de la collection, vous devez inclure la clé de partition en tant que clé dans chaque nouveau vertex. 
@@ -224,12 +222,12 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 8. Entrez l’étiquette *person*.
 
 9. Cliquez sur **Ajouter une propriété** pour ajouter chacune des propriétés suivantes :
-
-    key|value|Notes
+    
+    Clé | Valeur | Notes
     ----|----|----
-    id|rakesh|Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
-    gender|male| 
-    school|MIT| 
+    **id** | rakesh | Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
+    **gender** | male | 
+    **school** | MIT | 
 
 10. Cliquez sur **OK**. 
 

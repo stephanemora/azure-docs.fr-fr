@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
 ms.openlocfilehash: 07f3b60b9218f74bb3a778daa27f31687c4538b2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60868449"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Créer une image personnalisée à partir d’une machine virtuelle
 
@@ -39,7 +39,7 @@ Vous pouvez créer une image personnalisée à partir d’une machine virtuelle 
  
 1. Dans le volet **Mes machines virtuelles**, sélectionnez la machine virtuelle à partir de laquelle vous souhaitez créer l’image personnalisée.
 
-1. Sur le volet de gestion de la machine virtuelle, sélectionnez **Créer une image personnalisée (VHD)**.
+1. Sur le volet de gestion de la machine virtuelle, sélectionnez **Créer une image personnalisée (VHD)** .
 
     ![Élément de menu Créer une image personnalisée](./media/devtest-lab-create-template/create-custom-image.png)
 

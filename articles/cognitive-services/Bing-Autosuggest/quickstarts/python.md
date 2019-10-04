@@ -1,21 +1,21 @@
 ---
 title: 'Démarrage rapide : Suggérer des requêtes de recherche avec l’API REST Suggestion automatique Bing et Python'
-titlesuffix: Azure Cognitive Services
-description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Suggestion automatique Bing.
+titleSuffix: Azure Cognitive Services
+description: Découvrez comment démarrer rapidement en suggérant des termes de recherche en temps réel avec l’API Suggestion automatique Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 463ace3aa9004bdffe07a16a062a4871b8daf699
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 5f6d92037bd588f96e9345ad1c7bc2e1f49e580c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008404"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564658"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Démarrage rapide : Suggérer des requêtes de recherche avec l’API REST Suggestion automatique Bing et Python
 
@@ -35,7 +35,7 @@ Utilisez ce démarrage rapide pour commencer des appels à l’API Suggestion au
     import http.client, urllib.parse, json
     ```
 
-2. Créer des variables pour votre hôte d’API et le chemin d’accès, [code marché](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes) et une requête de recherche partielle.
+2. Créer des variables pour votre hôte d’API et le chemin d’accès, [code marché](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) et une requête de recherche partielle.
 
     ```python
     subscriptionKey = 'enter key here'
@@ -151,4 +151,4 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 ## <a name="see-also"></a>Voir aussi
 
 - [Qu’est-ce que la Suggestion automatique Bing ?](../get-suggested-search-terms.md)
-- [Informations de référence sur l’API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Informations de référence sur l’API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

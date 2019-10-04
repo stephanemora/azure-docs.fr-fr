@@ -2,18 +2,19 @@
 title: Stockage géo-redondant (GRS) pour une durabilité interrégion du stockage Azure | Microsoft Docs
 description: Le stockage géo-redondant (GRS) réplique vos données entre deux régions séparées par des milliers de kilomètres. GRS protège contre les défaillances matérielles dans le data center et contre certains sinistres régionaux.
 services: storage
-author: tolandmike
+author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/20/2018
-ms.author: jeking
+ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2dc409743ce94ecb73e351b839a5a2fb09eadab2
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 16a5f214495025d16d10ee01a7b2a40b78f7a17a
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512100"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670802"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Stockage géoredondant (GRS) : réplication interrégion pour Stockage Azure
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]

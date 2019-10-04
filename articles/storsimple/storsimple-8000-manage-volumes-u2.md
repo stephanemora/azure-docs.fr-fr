@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093328"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60634816"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utiliser le service StorSimple Device Manager pour gérer des volumes (Update 3 ou versions ultérieures)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Ce didacticiel explique comment utiliser le service StorSimple Device Manager pour créer et gérer des volumes sur les appareils de la gamme 8000 StorSimple exécutant Update 3 et versions ultérieures.
 
@@ -40,7 +40,7 @@ Un volume d’archivage est un type de volume hiérarchisé. La grande taille de
 
 Si nécessaire, vous pouvez modifier le type de volume local en volume hiérarchisé, et inversement. Pour plus d’informations, consultez [Modification du type de volume](#change-the-volume-type).
 
-### <a name="locally-pinned-volumes"></a>Volumes épinglés localement 
+### <a name="locally-pinned-volumes"></a>Volumes épinglés localement
 
 Les volumes épinglés localement sont des volumes entièrement configurés qui ne hiérarchisent pas les données dans le cloud, garantissant ainsi que les données principales restent en local, indépendantes de la connexion au cloud. Les données des volumes épinglés localement ne sont pas dédupliquées ni compressées, mais les instantanés des volumes épinglés localement sont dédupliqués. 
 
@@ -48,7 +48,7 @@ Les volumes épinglés localement sont totalement configurés. Vous devez donc d
 
 Si vous créez un volume épinglé localement, l’espace disponible pour la création de volumes hiérarchisés est réduit. L’inverse est également vrai : si vous disposez de volumes hiérarchisés, l’espace disponible pour la création des volumes épinglés localement sera inférieur, dans les limites maximales susmentionnées. Pour plus d’informations sur les volumes locaux, reportez-vous au [forum aux questions sur les volumes épinglés localement](storsimple-8000-local-volume-faq.md).
 
-### <a name="tiered-volumes"></a>Volumes hiérarchisés 
+### <a name="tiered-volumes"></a>Volumes hiérarchisés
 
 Les volumes hiérarchisés sont des volumes alloués dynamiquement dans lesquels les données fréquemment sollicitées restent locales sur l’appareil alors que les données moins fréquemment utilisées sont hiérarchisées automatiquement vers le cloud. L’allocation dynamique est une technologie de virtualisation dans laquelle le stockage disponible semble dépasser les ressources physiques. Plutôt que de réserver un espace de stockage suffisant à l’avance, StorSimple utilise l’allocation dynamique pour allouer juste assez d’espace pour répondre aux besoins actuels. La nature évolutive du stockage cloud simplifie cette approche, car StorSimple peut augmenter ou diminuer le stockage cloud pour répondre aux demandes changeantes.
 
@@ -65,8 +65,8 @@ Reportez-vous au tableau suivant pour connaître la capacité maximale allouée 
 | 8100 |64 To |8 To |
 | 8600 |64 To |20 To |
 | **Appareils virtuels** | | |
-| 8010 |30 To |S.O. |
-| 8020 |64 To |S.O. |
+| 8010 |30 To |N/A |
+| 8020 |64 To |N/A |
 
 ## <a name="the-volumes-blade"></a>Panneau Volumes
 
@@ -303,7 +303,7 @@ Pour supprimer un volume, procédez comme indiqué ci-dessous.
    > [!NOTE]
    > Si vous supprimez un volume épinglé localement, l'espace disponible pour les nouveaux volumes ne sera peut-être pas mis à jour immédiatement. Le service StorSimple Device Manager met à jour l’espace local disponible régulièrement. Nous vous recommandons de patienter quelques minutes avant d’essayer de créer le volume.
    >
-   >  En outre, les tâches de suppression de volume s’exécutent de façon séquentielle si vous supprimez un volume épinglé localement, puis un autre volume du même type immédiatement après. La première tâche de suppression de volume doit se terminer pour que la deuxième puisse commencer.
+   > En outre, les tâches de suppression de volume s’exécutent de façon séquentielle si vous supprimez un volume épinglé localement, puis un autre volume du même type immédiatement après. La première tâche de suppression de volume doit se terminer pour que la deuxième puisse commencer.
 
 ## <a name="monitor-a-volume"></a>Analyse d’un volume
 

@@ -1,84 +1,83 @@
 ---
-title: Optimisation des performances pour les clusters Apache Kafka HDInsight
+title: Optimisation des performances pour les clusters Kafka HDInsight Apache
 description: Fournit une vue d’ensemble des techniques pour optimiser les charges de travail Apache Kafka sur Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 8226d1f49b8ba73870dba009e97ff2718a0eee27
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64689353"
 ---
-# <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimisation des performances pour les clusters Apache Kafka HDInsight
+# <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimisation des performances pour les clusters Kafka HDInsight Apache
 
-Cet article donne des suggestions pour optimiser les performances de vos charges de travail Apache Kafka dans HDInsight. Le focus est sur le réglage de producteur et la configuration du service broker. Il existe différentes façons de mesurer les performances et les optimisations que vous appliquez dépend de vos besoins.
+Cet article contient des suggestions pour optimiser les performances de vos charges de travail Apache Kafka dans HDInsight. L’accent est mis sur l’optimisation de la configuration du producteur et du répartiteur. Il existe différentes façons de mesurer les performances, et les optimisations que vous appliquez dépendent de vos besoins.
 
 ## <a name="architecture-overview"></a>Présentation de l'architecture
 
-Les rubriques Kafka sont utilisés pour organiser des enregistrements. Enregistrements sont produits par les producteurs et consommées par les consommateurs. Producteurs envoie des enregistrements au répartiteurs Kafka, qui ensuite stockent les données. Chaque nœud Worker dans votre cluster HDInsight est un répartiteur Kafka.
+Les rubriques Kafka sont utilisées pour organiser des enregistrements. Les enregistrements sont produits par des producteurs et utilisés par des consommateurs. Les producteurs envoient des enregistrements aux répartiteurs Kafka, qui stockent alors les données. Chaque nœud Worker dans votre cluster HDInsight est un répartiteur Kafka.
 
 Les rubriques partitionnent les enregistrements entre les répartiteurs. Au cours de l’utilisation des enregistrements, il est possible d’utiliser jusqu’à un consommateur par partition pour effectuer un traitement parallèle des données.
 
-La réplication permet de dupliquer des partitions entre les nœuds. Cela protège contre les pannes de nœud (broker). Une seule partition entre le groupe de réplicas est désignée comme le leader de la partition. Le trafic de producteur est acheminé vers le leader de chaque nœud, en utilisant l’état géré par ZooKeeper.
+La réplication est utilisée pour dupliquer des partitions entre les nœuds. Ceci protège contre les pannes des nœuds (du répartiteur). Une seule partition parmi le groupe de réplicas est désignée comme partition « leader ». Le trafic de producteur est acheminé vers le leader de chaque nœud, en utilisant l’état géré par ZooKeeper.
 
 ## <a name="identify-your-scenario"></a>Identifier votre scénario
 
-Performances d’Apache Kafka a deux aspects principaux : débit et la latence. Le débit est le taux maximal auquel les données peuvent être traitées. Un débit plus élevé est généralement préférable. La latence est le temps que nécessaire pour les données à stocker ou à récupérer. Une latence plus faible est généralement préférable. Trouver le juste équilibre entre le débit, la latence et le coût de l’infrastructure de l’application peut être difficile. Vos exigences de performances probablement correspond à l’une des trois courantes situations suivantes, selon si vous avez besoin d’un débit élevé, faible latence ou les deux :
+Les performances d’Apache Kafka ont deux aspects principaux : le débit et la latence. Le débit est vitesse de traitement maximale des données de votre application. Un débit plus élevé est généralement préférable. La latence est le temps nécessaire pour que les données soient stockées ou récupérées. Une latence plus faible est généralement préférable. Trouver le juste équilibre entre le débit, la latence et le coût de l’infrastructure de l’application peut être difficile. Vos exigences en matière de performances vont probablement correspondre à une des trois situations courantes suivantes, selon que vous avez besoin d’un débit élevé, d’une latence faible ou des deux :
 
-* Débit élevé, faible latence. Ce scénario nécessite un débit élevé et faible latence (environ 100 millisecondes). Un exemple de ce type d’application est service analyse des disponibilités.
-* Un débit élevé, latence élevée. Ce scénario nécessite un débit élevé (~1.5 Gbits/s), mais peut tolérer une latence plus élevée (< 250 ms). Un exemple de ce type d’application est l’ingestion des données de télémétrie pour près de processus en temps réel, tels que les applications de détection des intrusions et de sécurité.
-* Faible débit, la faible latence. Ce scénario nécessite une faible latence (< 10 ms) pour le traitement en temps réel, mais peut tolérer un débit inférieur. Un exemple de ce type d’application est les vérifications de grammaire et en ligne.
+* Débit élevé, latence faible. Ce scénario nécessite à la fois un débit élevé et une latence faible (environ 100 millisecondes). La supervision de la disponibilité des services est un exemple de ce type d’application.
+* Débit élevé, latence élevée. Ce scénario nécessite un débit élevé (environ 1,5 Gbits/s), mais peut tolérer une latence plus élevée (< 250 ms). L’ingestion de données de télémétrie pour des processus en quasi temps réel, comme des applications de sécurité et de détection des intrusions, est un exemple de ce type d’application.
+* Débit faible, latence faible. Ce scénario nécessite une latence faible (< 10 ms) pour le traitement en temps réel, mais peut tolérer un débit inférieur. Les vérifications de l’orthographe et de la grammaire en ligne sont un exemple de ce type d’application.
 
-## <a name="producer-configurations"></a>Configurations de producteur
+## <a name="producer-configurations"></a>Configurations du producteur
 
-Les sections suivantes met en évidence certaines des propriétés de configuration plus importantes pour optimiser les performances de votre producteurs de Kafka. Pour obtenir une explication détaillée de toutes les propriétés de configuration, consultez [documentation Apache Kafka sur les configurations de producteur](https://kafka.apache.org/documentation/#producerconfigs).
+Les sections suivantes sont consacrées à certaines des propriétés de configuration les plus importantes pour optimiser les performances de vos producteurs Kafka. Pour obtenir une explication détaillée de toutes les propriétés de configuration, consultez la [documentation Apache Kafka sur les configurations de producteur](https://kafka.apache.org/documentation/#producerconfigs).
 
 ### <a name="batch-size"></a>Taille du lot
 
-Producteurs d’Apache Kafka assembler des groupes de messages (appelés lots) qui sont envoyés en tant qu’unité à stocker dans une partition de stockage unique. Taille de lot : le nombre d’octets qui doivent être présents avant la transmission de ce groupe. Augmentant la `batch.size` paramètre peut augmenter le débit, car il réduit le traitement du traitement des demandes d’e/s et de réseau. Sous une charge faible, taille de lot accrue peut augmenter la latence d’envoi Kafka comme le producteur attend qu’un lot soit prête. Sous une charge importante, il est recommandé d’augmenter la taille de lot pour améliorer le débit et la latence.
+Les producteurs Apache Kafka assemblent des groupes de messages (appelés lots) qui sont envoyés en tant qu’unité à stocker dans une même partition de stockage. La taille de lot représente le nombre d’octets qui doivent être présents avant que ce groupe soit transmis. Augmenter la valeur du paramètre `batch.size` peut augmenter le débit, car il réduit la surcharge du traitement due aux demandes du réseau et des E/S. Avec une charge faible, une taille de lot augmentée peut augmenter la latence des envois de Kafka, car le producteur attend qu’un lot soit prêt. Avec une charge importante, il est recommandé d’augmenter la taille de lot pour améliorer le débit et la latence.
 
-### <a name="producer-required-acknowledgements"></a>Accusés de réception de producteur requis
+### <a name="producer-required-acknowledgements"></a>Accusés de réception requis par le producteur
 
-Le producteur requis `acks` configuration détermine le nombre d’accusés de réception requis par le responsable de la partition avant qu’une demande d’écriture est considéré comme terminé. Ce paramètre affecte la fiabilité des données et il prend les valeurs de `0`, `1`, ou `-1`. La valeur de `-1` signifie qu’un accusé de réception doit être reçue à partir de tous les réplicas avant la fin de l’écriture. Paramètre `acks = -1` fournit les meilleures garanties contre la perte de données, mais également des résultats dans une latence plus élevée et la réduction du débit. Si votre application exigent un débit plus élevé, essayez de définir `acks = 0` ou `acks = 1`. N’oubliez pas, ce qui peut réduire la fiabilité des données ne reconnaissent ne pas tous les réplicas.
+La configuration des accusés de réception (`acks`) requis par le producteur détermine le nombre d’accusés de réception requis par la partition « leader » avant qu’une demande d’écriture soit considérée comme terminée. Ce paramètre affecte la fiabilité des données et il peut prendre les valeurs suivantes : `0`, `1` ou `-1`. La valeur `-1` signifie qu’un accusé de réception doit être reçu de tous les réplicas avant que l’écriture soit terminée. Définir cette valeur sur `acks = -1` offre de meilleures garanties contre la perte de données, mais elle résulte également en une latence plus élevée et un débit inférieur. Si les spécifications de votre application demandent un débit plus élevé, essayez en définissant `acks = 0` ou `acks = 1`. Gardez à l’esprit que ne pas accuser réception pour tous les réplicas peut réduire la fiabilité des données.
 
 ### <a name="compression"></a>Compression
 
-Un producteur Kafka peut être configuré pour compresser les messages avant de les envoyer aux courtiers. Le `compression.type` paramètre spécifie le codec de compression à utiliser. Les codecs de compression pris en charge sont « gzip », « rapide » et « lz4. » La compression est utile et doit être considéré comme s’il existe une restriction sur la capacité du disque.
+Un producteur Kafka peut être configuré de façon à compresser les messages avant de les envoyer aux répartiteurs. Le paramètre `compression.type` spécifie le codec de compression à utiliser. Les codecs de compression pris en charge sont « gzip », « snappy » et « lz4 ». La compression est utile et doit être envisagée si la capacité du disque est limitée.
 
-Parmi les codecs de compression couramment utilisés deux, `gzip` et `snappy`, `gzip` a un taux de compression plus élevé, ce qui entraîne l’utilisation du disque inférieur au prix d’une charge plus élevée du processeur. Le `snappy` codec fournit moins de compression avec moins de surcharge du processeur. Vous pouvez décider du codec à utiliser en fonction des limitations de processeur de disque ou le producteur broker. `gzip` Compresser les données à un rythme cinq fois supérieure à `snappy`.
+Parmi les deux codecs de compression couramment utilisés, `gzip` et `snappy`, `gzip` a un taux de compression plus élevé, ce qui entraîne une utilisation inférieure du disque, au prix d’une charge plus élevée pour le processeur. Le codec `snappy` offre une compression inférieure, avec moins de charge pour le processeur. Vous pouvez décider du codec à utiliser en fonction des limitations du disque du répartiteur ou du processeur du producteur. `gzip` peut compresser les données à une vitesse cinq fois supérieure à celle de `snappy`.
 
-À l’aide de la compression de données augmentera le nombre d’enregistrements qui peuvent être stockées sur un disque. Elle peut également augmenter une surcharge du processeur dans les cas où il existe une incompatibilité entre les formats de compression utilisés par le producteur et le service broker. les données doivent être compressées avant d’envoyer et décompresser avant leur traitement.
+L’utilisation de la compression des données va augmenter le nombre d’enregistrements qui peuvent être stockés sur un disque. Elle peut également augmenter la charge du processeur dans les cas où les formats de compression utilisés par le producteur et par le répartiteur ne correspondent pas. Les données doivent en effet être compressées avant l’envoi et décompressées avant leur traitement.
 
-## <a name="broker-settings"></a>Paramètres du service Broker
+## <a name="broker-settings"></a>Paramètres du répartiteur
 
-Les sections suivantes met en évidence certains des paramètres plus importantes pour optimiser les performances de votre répartiteurs Kafka. Pour obtenir une explication détaillée de tous les paramètres du service broker, consultez [documentation Apache Kafka sur les configurations de producteur](https://kafka.apache.org/documentation/#producerconfigs).
+Les sections suivantes sont consacrées à certaines des propriétés les plus importantes pour optimiser les performances de vos répartiteurs Kafka. Pour obtenir une explication détaillée de tous les paramètres des répartiteurs, consultez la [documentation Apache Kafka sur les configurations de répartiteur](https://kafka.apache.org/documentation/#producerconfigs).
 
 
 ### <a name="number-of-disks"></a>Nombre de disques
 
-Disques de stockage ont limité les e/s (entrée/sortie opérations par seconde) et en lecture/écriture d’octets par seconde. Lorsque vous créez de nouvelles partitions, Kafka stocke chaque nouvelle partition sur le disque avec moins de partitions existantes pour les équilibrer les disques disponibles. En dépit de la stratégie de stockage, lors du traitement des centaines de réplicas de partition sur chaque disque, de Kafka peut saturer facilement le débit de disque disponible. L’inconvénient ici est entre le débit et de coût. Si votre application nécessite un débit supérieur, créer un cluster avec plusieurs gérés disques par service broker. HDInsight ne prend pas en charge l’ajout de disques gérés à un cluster en cours d’exécution. Pour plus d’informations sur la façon de configurer le nombre de disques gérés, consultez [configurer le stockage et l’extensibilité pour Apache Kafka sur HDInsight](apache-kafka-scalability.md). Comprendre les implications en matière de coût croissant d’espace de stockage pour les nœuds de votre cluster.
+Les disques de stockage sont sujets à des limitations des IOPS (opérations d’entrée/sortie par seconde) et des octets lus/écrits par seconde. Lors de la création de partitions, Kafka stocke chaque nouvelle partition sur le disque ayant le moins de partitions existantes, de façon à les équilibrer entre les disques disponibles. En dépit de cette stratégie de stockage, lors du traitement de centaines de partitions de réplica sur chaque disque, Kafka peut facilement saturer le débit des disques disponibles. Le compromis se fait ici entre le débit et de coût. Si votre application nécessite un débit supérieur, créer un cluster avec plusieurs disques managés par répartiteur. HDInsight ne prend actuellement pas en charge l’ajout de disques managés à un cluster en cours d’exécution. Pour plus d’informations sur la façon de configurer le nombre de disques managés, consultez [Configurer le stockage et la scalabilité pour Apache Kafka sur HDInsight](apache-kafka-scalability.md). Vous devez bien comprendre les implications en termes de coût de l’augmentation de l’espace de stockage pour les nœuds de votre cluster.
 
-### <a name="number-of-topics-and-partitions"></a>Nombre de rubriques et partitions
+### <a name="number-of-topics-and-partitions"></a>Nombre de rubriques et de partitions
 
-Écrivent des producteurs de Kafka vers des rubriques. Les consommateurs Kafka lire à partir de rubriques. Une rubrique est associée à un journal, qui est une structure de données sur le disque. Kafka ajoute les enregistrements à partir d’un ou à la fin d’un journal de la rubrique. Un journal de la rubrique se compose de nombreuses partitions réparties sur plusieurs fichiers. Ces fichiers sont, à son tour, réparties sur plusieurs nœuds de cluster Kafka. Les consommateurs lire à partir des rubriques Kafka à leur rythme et peuvent choisir de leur position (offset) dans le journal de la rubrique.
+Les producteurs Kafka écrivent dans des rubriques. Les consommateurs Kafka lisent dans des rubriques. Une rubrique est associée à un journal, qui est une structure de données sur le disque. Kafka ajoute les enregistrements provenant d’un ou plusieurs producteurs à la fin du journal d’une rubrique. Un journal de rubrique se compose de nombreuses partitions qui sont réparties en plusieurs fichiers. Ces fichiers sont à leur tour répartis entre plusieurs nœuds de cluster Kafka. Les consommateurs lisent dans des rubriques Kafka à leur rythme, et ils peuvent choisir leur position (décalage) dans le journal de la rubrique.
 
-Chaque partition Kafka est un fichier journal sur le système, et les threads producteur peuvent écrire dans plusieurs journaux simultanément. De même, étant donné que chaque thread de consommateur lit les messages à partir d’une seule partition, consommation à partir de plusieurs partitions est gérée en parallèle ainsi.
+Chaque partition Kafka est un fichier journal sur le système, et les threads des producteurs peuvent écrire simultanément dans plusieurs journaux. De même, comme chaque thread de consommateur lit les messages à partir d’une seule partition, la consommation à partir de plusieurs partitions est également gérée en parallèle.
 
-En augmentant la densité de la partition (le nombre de partitions par service broker) ajoute une surcharge liée aux opérations de métadonnées et par partition demande/réponse entre le responsable de la partition et ses abonnés. Même en l’absence de données transitant par, les réplicas de partition extrait toujours les données de leaders, ce qui entraîne un traitement supplémentaire pour envoyer et recevoir des demandes via le réseau.
+L’augmentation de la densité de partitions (le nombre de partitions par répartiteur) ajoute une charge liée aux opérations de métadonnées et aux demandes/réponses par partition entre la partition « leader » et celles qui la suivent. Même en l’absence de données en transition, les réplicas de partition continuent d’extraire des données des « leaders », ce qui aboutit à un traitement supplémentaire pour envoyer et recevoir des demandes sur le réseau.
 
-Pour Apache Kafka clusters 1.1 et ci-dessus dans HDInsight, nous vous recommandons d’avoir un maximum de 1 000 partitions par service broker, y compris les réplicas. Augmentation du nombre de partitions par service broker diminue le débit et peut également entraîner l’indisponibilité de la rubrique. Pour plus d’informations sur la prise en charge de la partition Kafka, consultez [le billet de blog officiel Apache Kafka sur l’augmentation du nombre de partitions pris en charge dans la version 1.1.0](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions). Pour plus d’informations sur la modification des rubriques, consultez [Apache Kafka : modification des rubriques](https://kafka.apache.org/documentation/#basic_ops_modify_topic).
+Pour les clusters Apache Kafka 1.1 et ultérieurs dans HDInsight, nous vous recommandons d’avoir un maximum de 1 000 partitions par répartiteur, y compris les réplicas. L’augmentation du nombre de partitions par répartiteur diminue le débit et peut également entraîner l’indisponibilité de rubriques. Pour plus d’informations sur la prise en charge des partitions dans Kafka, consultez [le billet de blog Apache Kafka officiel sur l’augmentation du nombre de partitions prises en charge dans la version 1.1.0](https://blogs.apache.org/kafka/entry/apache-kafka-supports-more-partitions). Pour plus d’informations sur la modification des rubriques, consultez [Apache Kafka : modification des rubriques](https://kafka.apache.org/documentation/#basic_ops_modify_topic).
 
 ### <a name="number-of-replicas"></a>Nombre de réplicas
 
-Facteur de réplication plus élevée entraîne des demandes supplémentaires entre le responsable de la partition et les abonnés. Par conséquent, un facteur de réplication supérieure consomme plus de disque et de processeur pour gérer les demandes supplémentaires, augmentant écrire la latence et la diminution de débit.
+Un facteur de réplication plus élevé entraîne des demandes supplémentaires entre la partition « leader » et celles qui la suivent. Par conséquent, un facteur de réplication supérieur consomme plus de disque et de processeur pour gérer les demandes supplémentaires, en augmentant la latence des écritures et en diminuant le débit.
 
-Nous vous recommandons d’utiliser au moins 3 réplications pour Kafka dans Azure HDInsight. Régions plus Azure disposent de trois domaines d’erreur, mais dans des régions avec uniquement deux domaines d’erreur, les utilisateurs doivent utiliser la réplication x 4.
+Nous vous recommandons d’utiliser au moins une réplication 3x pour Kafka dans Azure HDInsight. La plupart des régions Azure ont trois domaines d’erreur, mais dans les régions avec seulement deux domaines d’erreur, les utilisateurs doivent utiliser une réplication 4x.
 
 Pour plus d’informations sur la réplication, consultez [Apache Kafka : réplication](https://kafka.apache.org/documentation/#replication) et [Apache Kafka : augmentation du facteur de réplication](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor).
 

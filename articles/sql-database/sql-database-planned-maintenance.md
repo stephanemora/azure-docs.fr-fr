@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/30/2019
-ms.openlocfilehash: 928338a911efae051df7164239dbd19f9317338a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1bb88d6f74ab4b93e226fe8630f07f0a96f4ba47
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824958"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567037"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planification des événements de maintenance Azure dans Azure SQL Database
 
-Apprenez à anticiper les événements de maintenance planifiée pour votre instance Azure SQL Database.
+Apprenez à anticiper les événements de maintenance planifiée pour votre base de données Azure SQL.
 
 ## <a name="what-is-a-planned-maintenance-event"></a>Qu’est-ce qu’un événement de maintenance planifiée ?
 
@@ -41,7 +40,7 @@ En moyenne, 1,7 événement de maintenance planifiée se produit par mois.
 
 ## <a name="resource-health"></a>Intégrité des ressources
 
-Si votre base de données SQL rencontre des échecs de connexion, consultez la fenêtre [Resource Health](../service-health/resource-health-overview.md#getting-started) dans le [portail Azure](https://portal.azure.com) pour connaître l’état actuel. La section Health History (Historique d’intégrité) contient le motif du temps d’arrêt pour chaque événement (le cas échéant).
+Si votre base de données SQL rencontre des échecs de connexion, consultez la fenêtre [Resource Health](../service-health/resource-health-overview.md#get-started) dans le [portail Azure](https://portal.azure.com) pour connaître l’état actuel. La section Health History (Historique d’intégrité) contient le motif du temps d’arrêt pour chaque événement (le cas échéant).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

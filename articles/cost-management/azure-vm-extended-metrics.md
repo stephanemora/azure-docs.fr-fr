@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 03/14/2018
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: c7b5472c6a10e7a184d6db9d4c889b8fd37a9186
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 6a4f7f5671562679a245d97ad8491764657cbb34
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000789"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "66242464"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Ajouter des métriques étendues pour les machines virtuelles Azure
 
@@ -28,7 +28,7 @@ Une fois que vous avez activé la collecte de métriques, vous pouvez :
 - Contrôler les coûts en effectuant un redimensionnement en fonction de l’utilisation.
 - Obtenir des recommandations d’optimisation du dimensionnement à moindre frais provenant de Cloudyn.
 
-Par exemple, vous pouvez souhaiter surveiller les pourcentages d’utilisation de l’UC et de la mémoire de vos machines virtuelles Azure. Les métriques des machines virtuelles Azure correspondent à _[Hôte] Pourcentage d’UC_ et _[Invité] Pourcentage de mémoire_.
+Par exemple, vous pouvez souhaiter surveiller les pourcentages d’utilisation de l’UC et de la mémoire de vos machines virtuelles Azure. Les métriques des machines virtuelles Azure correspondent à _Pourcentage d’UC_ et _\Mémoire\% octets validés en cours d’utilisation_.
 
 > [!NOTE]
 > La collecte de données de métriques étendue est prise en charge uniquement avec la supervision d’invités Azure. Cloudyn n’est pas compatible avec l’extension de machine virtuelle de journaux Azure Monitor.
@@ -44,7 +44,7 @@ Dans l’exemple précédent, un ensemble limité de métriques standard est dis
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Activer les métriques étendues dans le portail Azure
 
-Les métriques standard sont des métriques d’hôte. La métrique _[Hôte] Pourcentage d’UC_ en est un exemple. Il existe également des métriques de base pour les machines virtuelles invitées ; elles sont également appelées « métriques étendues ». Parmi les métriques étendues, citons _[Invité] Pourcentage de mémoire_ et _[Invité] Mémoire disponible_.
+Les métriques standard sont des métriques d’hôte. La métrique _Pourcentage d’UC_ en est un exemple. Il existe également des métriques de base pour les machines virtuelles invitées ; elles sont également appelées « métriques étendues ». Voici quelques exemples de métriques étendues : _\Mémoire\% octets validés en cours d’utilisation_ et _\Mémoire\Octets disponibles_.
 
 L’activation des métriques étendues est simple. Pour chaque machine virtuelle, activez la surveillance d’invités. Quand vous activez la surveillance d’invités, l’agent de diagnostics Azure est installé sur la machine virtuelle. Par défaut, un ensemble de métriques étendues de base est ajouté. Le processus suivant est le même pour les machines virtuelles classiques et normales et le même pour les machines virtuelles Windows et Linux.
 
@@ -58,7 +58,7 @@ N’oubliez pas que la supervision d’invités Azure et Linux nécessite un com
     ![Activer la surveillance d’invités dans la page Vue d’ensemble](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. Après quelques minutes, l’agent de diagnostics Azure est installé sur la machine virtuelle. Un ensemble de métriques de base est ajouté. Actualisez la page. Les compteurs de performances ajoutés s’affichent sous l’onglet Vue d’ensemble.
 5. Sous Supervision, sélectionnez **Métriques**.
-6. Dans le graphique des métriques, sous **Espace de noms de la métrique**, sélectionnez **Invité (classique)**.
+6. Dans le graphique des métriques, sous **Espace de noms de la métrique**, sélectionnez **Invité (classique)** .
 7. Dans la liste Métriques, vous pouvez afficher tous les compteurs de performances disponibles pour la machine virtuelle invitée.  
     ![liste d’exemples de métriques étendues](./media/azure-vm-extended-metrics/extended-metrics.png)
 

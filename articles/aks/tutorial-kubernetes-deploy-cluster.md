@@ -2,20 +2,20 @@
 title: Didacticiel Kubernetes sur Azure – Déployer un cluster
 description: Dans ce didacticiel Azure Kubernetes Service (AKS), vous créez un cluster AKS et utilisez kubectl pour vous connecter au nœud principal Kubernetes.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 54872a1c5a40cdb3f51c17362daed93c3892001e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: bd3f31f4247a9d80615634a64fee0c6eb3297fe5
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754555"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70147243"
 ---
-# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutoriel : Déployer un cluster Azure Kubernetes Service (AKS)
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Didacticiel : Déployer un cluster Azure Kubernetes Service (AKS)
 
 Kubernetes fournit une plateforme distribuée destinée aux applications en conteneur. Avec AKS, vous pouvez créer rapidement un cluster Kubernetes prêt pour la production. Dans ce tutoriel (troisième d’une série de sept), un cluster Kubernetes est déployé dans AKS. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -29,9 +29,9 @@ Dans d’autres tutoriels, l’application Azure Vote est déployée sur le clus
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dans les tutoriels précédents, une image conteneur a été créée et chargée dans une instance Azure Container Registry. Si vous n’avez pas effectué ces étapes et que vous souhaitez suivre cette procédure, commencez par le [Tutoriel 1 : Créer des images conteneurs][aks-tutorial-prepare-app].
+Dans les tutoriels précédents, une image conteneur a été créée et chargée dans une instance Azure Container Registry. Si vous n’avez pas effectué ces étapes et que vous souhaitez suivre cette procédure, commencez par le [Tutoriel 1 : Créer des images conteneur][aks-tutorial-prepare-app].
 
-Ce tutoriel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Ce didacticiel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service
 
@@ -83,7 +83,7 @@ Créez un cluster AKS à l’aide de [az aks create][]. L’exemple suivant cré
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --node-count 1 \
+    --node-count 2 \
     --service-principal <appId> \
     --client-secret <password> \
     --generate-ssh-keys
@@ -91,9 +91,12 @@ az aks create \
 
 Après quelques minutes, le déploiement se termine et retourne des informations au format JSON concernant le déploiement AKS.
 
+> [!NOTE]
+> Pour garantir un fonctionnement fiable de votre cluster, vous devez exécuter au moins 2 (deux) nœuds.
+
 ## <a name="install-the-kubernetes-cli"></a>Installer l’interface de ligne de commande Kubernetes
 
-Pour vous connecter au cluster Kubernetes à partir de votre ordinateur local, vous utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes.
+Pour vous connecter au cluster Kubernetes à partir de votre ordinateur local, utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes.
 
 Si vous utilisez Azure Cloud Shell, `kubectl` est déjà installé. Vous pouvez également l’installer en local à l’aide de la commande [az aks install-cli][] :
 
@@ -109,13 +112,13 @@ Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, ex
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Pour vérifier la connexion à votre cluster, exécutez la commande [kubectl get nodes][kubectl-get] :
+Pour vérifier la connexion à votre cluster, exécutez la commande [kubectl get nodes][kubectl-get] :
 
 ```
 $ kubectl get nodes
 
-NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
+NAME                       STATUS   ROLES   AGE   VERSION
+aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

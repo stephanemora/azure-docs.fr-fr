@@ -2,19 +2,19 @@
 title: Pour télécharger un document - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: À l’aide de la fonctionnalité de chargement de documents, vous pouvez télécharger le document parallèle pour vos formations. Les documents parallèles sont des paires de documents dont un document est la traduction de l'autre. Un document de la paire contient des phrases dans la langue source et l’autre document contient ces phrases traduites dans la langue cible.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 7df7dd44716e98c74282bd0f0700ec7881ef31ef
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: f2bd6103c27d455265ee967554fb27513f78a472
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766942"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595649"
 ---
 # <a name="upload-a-document"></a>Charger un document
 

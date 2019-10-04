@@ -11,11 +11,11 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 8bacc3940cebaf9c62179cee0788e5903e56a310
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369205"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751816"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copier le travail d’autres personnes pour des projets de science des données
 ## <a name="video-5-data-science-for-beginners-series"></a>Vidéo 5 : série Science des données pour les débutants
@@ -52,14 +52,14 @@ L’une des pierres d’angle de la science des données est d’amener d’autr
 
 Microsoft propose un service cloud appelé [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) que vous êtes invité à essayer gratuitement. Il fournit un espace de travail dans lequel essayer différents algorithmes d’apprentissage automatique et, lorsque votre solution est en place, vous permet de la lancer en tant que service web.
 
-Une partie de ce service s’appelle **[Azure AI Gallery](https://gallery.azure.ai/)**. Elle contient des ressources, notamment une collection d’expériences Azure Machine Learning Studio ou encore des modèles créés et fournis par les utilisateurs. Ces expériences sont un excellent moyen d’exploiter la réflexion et les efforts d’autres personnes pour vous aider dans vos propres solutions. N’hésitez pas à aller la découvrir.
+Une partie de ce service s’appelle **[Azure AI Gallery](https://gallery.azure.ai/)** . Elle contient des ressources, notamment une collection d’expériences Azure Machine Learning Studio ou encore des modèles créés et fournis par les utilisateurs. Ces expériences sont un excellent moyen d’exploiter la réflexion et les efforts d’autres personnes pour vous aider dans vos propres solutions. N’hésitez pas à aller la découvrir.
 
 ![Galerie Azure AI](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
 Si vous cliquez sur **Expériences** en haut de la page, vous découvrirez les expériences les plus récentes et les plus populaires de la galerie. Vous pouvez parcourir le reste des expériences en cliquant sur **Parcourir tout** en haut de l’écran, puis entrer des termes de recherche et sélectionner des filtres de recherche.
 
 ## <a name="find-and-use-a-clustering-algorithm-example"></a>Rechercher et utiliser un exemple d’algorithme de clustering
-Par exemple, si vous souhaitez voir un exemple de fonctionnement du clustering, recherchez des expériences de **« clustering sweep »**.
+Par exemple, si vous souhaitez voir un exemple de fonctionnement du clustering, recherchez des expériences de **« clustering sweep »** .
 
 ![Rechercher des expériences de clustering](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 

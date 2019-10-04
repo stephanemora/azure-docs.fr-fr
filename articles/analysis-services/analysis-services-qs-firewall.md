@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 198e7d8d32e7142a266881e2f4ddbc3ed573c521
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 52ccaa17b9994751bb9dfd54848e20aef90146c3
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187281"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69905876"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Démarrage rapide : Configurer un pare-feu de serveur - Portail
 
@@ -23,6 +23,7 @@ Ce démarrage rapide vous aide à configurer un pare-feu pour votre serveur Azur
 
 - Un serveur Analysis Services dans votre abonnement. Pour en savoir plus, consultez [Démarrage rapide : Créer un serveur - Portail](analysis-services-create-server.md) ou [Démarrage rapide : Créer un serveur - PowerShell](analysis-services-create-powershell.md)
 - Une ou plusieurs plages d’adresses IP pour les ordinateurs clients (si nécessaire).
+- Notez que le scénario d’importation à partir de Power BI Premium n’est pas pris en charge actuellement.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure. 
 
@@ -33,7 +34,7 @@ Ce démarrage rapide vous aide à configurer un pare-feu pour votre serveur Azur
 1. Cliquez sur votre serveur pour ouvrir la page Vue d’ensemble. 
 2. Dans **Paramètres** > **Pare-feu** > **Activer le pare-feu**, cliquez sur **Activé**.
 3. Pour autoriser l’accès DirectQuery à partir du service Power BI, dans **Allow access from Power BI** (Autoriser l’accès à partir de Power BI), cliquez sur **Activé**.  
-4. (Facultatif) Spécifiez une ou plusieurs plages d’adresses IP. Entrez un nom et une adresse IP de début et de fin pour chaque plage. 
+4. (Facultatif) Spécifiez une ou plusieurs plages d’adresses IP. Entrez un nom et une adresse IP de début et de fin pour chaque plage. Le nom de la règle de pare-feu doit être limité à 128 caractères et peut uniquement contenir des caractères majuscules, des minuscules, des chiffres, le trait de soulignement et le trait d’union. Les espaces et caractères spéciaux ne sont pas autorisés.
 5. Cliquez sur **Enregistrer**.
 
      ![Paramètres du pare-feu](./media/analysis-services-qs-firewall/aas-qs-firewall.png)

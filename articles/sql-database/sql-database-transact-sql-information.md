@@ -7,23 +7,22 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 4d3f27d48819a4bd997cbb62177f5aae4afc85eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 0f64642d04504770415c0d2243ec77b44bde05f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993154"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566298"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Résolution des différences de Transact-SQL durant la migration vers SQL Database
 
 Au moment de [migrer votre base de données](sql-database-single-database-migrate.md) SQL Server vers Azure SQL Server, vous découvrirez peut-être que sa conception est à revoir avant de pouvoir effectuer la migration. Cet article comprend des informations vous permettant d’apporter les révisions nécessaires et de comprendre les raisons sous-jacentes à ces changements. Pour détecter les incompatibilités, utilisez [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 La plupart des fonctionnalités Transact-SQL utilisées par les applications sont entièrement prises en charge dans Microsoft SQL Server et Azure SQL Database. Par exemple, les principaux composants SQL tels que les types de données, les opérateurs ainsi que les fonctions de chaîne, arithmétiques, logiques et de curseur, fonctionnent de la même façon dans SQL Server et SQL Database. Il existe toutefois quelques différences au niveau des éléments du langage de définition de données (DDL) et des éléments du langage de manipulation de données (DML). Ceux-ci génèrent en effet des instructions et des requêtes T-SQL qui ne sont que partiellement prises en charge (nous y reviendrons plus loin dans cet article).
 
@@ -31,7 +30,7 @@ Par ailleurs, Azure SQL Database étant conçu pour isoler les fonctionnalités 
 
 Par exemple, la haute disponibilité est intégrée à Azure SQL Database à l’aide d’une technologie similaire aux [groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Les instructions T-SQL relatives aux groupes de disponibilité ne sont pas prises en charge par SQL Database, de même que les vues de gestion dynamique associées aux groupes de disponibilité Always On.
 
-Pour obtenir la liste des fonctionnalités prises en charge et non prises en charge par SQL Database, consultez  [Comparaison des fonctionnalités d’Azure SQL Database](sql-database-features.md). Cette liste, qui porte sur les instructions Transact-SQL, vient compléter l’article traitant des instructions et des fonctionnalités.
+Pour obtenir la liste des fonctionnalités prises en charge et non prises en charge par SQL Database, consultez  [Comparaison des fonctionnalités Azure SQL Database](sql-database-features.md). Cette liste, qui porte sur les instructions Transact-SQL, vient compléter l’article traitant des instructions et des fonctionnalités.
 
 ## <a name="transact-sql-syntax-statements-with-partial-differences"></a>Instructions Transact-SQL avec des différences partielles
 
@@ -43,7 +42,7 @@ Les principales instructions DDL sont disponibles, mais certaines présentent de
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Syntaxe Transact-SQL non prise en charge dans Azure SQL Database
 
-Outre les instructions Transact-SQL liées aux fonctionnalités non prises en charge décrites dans  [Comparaison des fonctionnalités d’Azure SQL Database](sql-database-features.md), les instructions et groupes d’instructions suivants ne sont pas pris en charge. Si la base de données à migrer utilise les fonctionnalités et instructions T-SQL suivantes, vous devez donc changer votre code T-SQL pour les éliminer.
+Outre les instructions Transact-SQL liées aux fonctionnalités non prises en charge décrites dans  [Comparaison des fonctionnalités Azure SQL Database](sql-database-features.md), les instructions et groupes d’instructions suivants ne sont pas pris en charge. Si la base de données à migrer utilise les fonctionnalités et instructions T-SQL suivantes, vous devez donc changer votre code T-SQL pour les éliminer.
 
 - Classement des objets système
 - Relatif à la connexion : instructions relatives aux points de terminaison. SQL Database ne prend pas en charge l’authentification Windows, mais prend en charge l’authentification Azure Active Directory similaire. Certains types d’authentification nécessitent la version la plus récente de SSMS. Pour plus d’informations, voir [Connexion à SQL Database ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md).
@@ -83,10 +82,10 @@ Pour plus d'informations sur la grammaire, l'utilisation et les exemples Transac
 
 ### <a name="about-the-applies-to-tags"></a>À propos des balises « S’applique à »
 
-La référence sur Transact-SQL comprend des articles relatifs aux versions de SQL Server de 2008 jusqu'à présent. Sous le titre de l’article se trouve une barre d’icônes qui répertorie les quatre plateformes SQL Server et indique l’applicabilité. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. L’article  [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  indique que l’instruction s’applique à  **SQL Server (à partir de 2012)**. L’instruction ne s’applique pas à SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse ni à Parallel Data Warehouse.
+La référence sur Transact-SQL comprend des articles relatifs aux versions de SQL Server de 2008 jusqu'à présent. Sous le titre de l’article se trouve une barre d’icônes qui répertorie les quatre plateformes SQL Server et indique l’applicabilité. Par exemple, la fonction des groupes de disponibilité ont été introduits dans SQL Server 2012. L’article  [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx)  indique que l’instruction s’applique à  **SQL Server (à partir de 2012)** . L’instruction ne s’applique pas à SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse ou Parallel Data Warehouse.
 
 Dans certains cas, le sujet général d’un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Dans certains cas, le sujet général d’un article peut être utilisé dans un produit, mais il existe des différences mineures entre les produits. Les différences sont indiquées dans l’article comme il convient. Par exemple, l’article CREATE TRIGGER est disponible dans SQL Database. Mais l’option **ALL SERVER** pour les déclencheurs de niveau serveur indique que ces derniers ne peuvent pas être utilisés dans SQL Database. Utilisez plutôt des déclencheurs de niveau base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir la liste des fonctionnalités prises en charge et non prises en charge par SQL Database, consultez  [Comparaison des fonctionnalités d’Azure SQL Database](sql-database-features.md). Cette liste, qui porte sur les instructions Transact-SQL, vient compléter l’article traitant des instructions et des fonctionnalités.
+Pour obtenir la liste des fonctionnalités prises en charge et non prises en charge par SQL Database, consultez  [Comparaison des fonctionnalités Azure SQL Database](sql-database-features.md). Cette liste, qui porte sur les instructions Transact-SQL, vient compléter l’article traitant des instructions et des fonctionnalités.

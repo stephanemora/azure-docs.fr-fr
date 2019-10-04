@@ -9,17 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
-manager: craigg
+ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: ed9fbdd3e999cfd262ecbcf05a843c19cc969ed1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 133110d015ac7a26f18f14f6ff957729a4f079b5
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360424"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060657"
 ---
-# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à Azure SQL Database Managed Instance
+# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à l’instance gérée Azure SQL Database
 
 Aujourd’hui, plusieurs choix s’offrent à vous pour déterminer comment et où héberger votre application.
 
@@ -42,10 +41,10 @@ Il existe deux options pour connecter des réseaux virtuels :
 - [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 - Passerelle VPN de réseau virtuel à réseau virtuel ([portail Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-L’option d’homologation est préférable car elle utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel homologué et dans le même réseau virtuel. L’homologation de réseau virtuel est limité aux réseaux d’une même région.  
+L’option de peering est préférable car elle utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel appairé et dans le même réseau virtuel. Le peering de réseau virtuel est limité aux réseaux d’une même région.  
 
 > [!IMPORTANT]
-> Le scénario d’homologation de réseau virtuel pour Managed Instance est limité aux réseaux de la même région en raison de [contraintes de l’homologation de réseau virtuel globale](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> Le scénario de peering de réseau virtuel pour Managed Instance est limité aux réseaux de la même région en raison de [contraintes du peering de réseau virtuel global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consultez également la section appropriée de l’article [Forum Aux Questions sur les réseaux virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) pour plus d’informations. 
 
 ## <a name="connect-an-on-premises-application"></a>Connecter une application locale
 
@@ -56,22 +55,22 @@ Vous avez deux options pour la connexion locale à un réseau virtuel Azure :
 - Connexion VPN de site à site ([portail Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Connexion [ExpressRoute](../expressroute/expressroute-introduction.md)  
 
-Si vous avez établi une connexion locale à Azure et que vous ne parvenez pas à établir une connexion à Managed Instance, vérifiez si votre pare-feu dispose d’une connexion sortante ouverte sur le port SQL 1 433 et la plage de ports 11 000 à 12 000 à des fins de redirection.
+Si vous avez établi une connexion locale à Azure et que vous ne parvenez pas à établir une connexion à Managed Instance, vérifiez si votre pare-feu dispose d’une connexion sortante ouverte sur le port SQL 1433 et la plage de ports 11000 à 11999 à des fins de redirection.
 
 ## <a name="connect-an-application-on-the-developers-box"></a>Connecter une application dans la box de développeur
 
 Managed Instance est uniquement accessible par le biais d’une adresse IP privée, donc pour y accéder à partir de votre box de développeur, vous devez d’abord établir une connexion entre cette dernière et le réseau virtuel Managed Instance. Pour cela, configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native. Pour plus d’informations, consultez [Configurer une connexion point à site pour se connecter à Azure SQL Database Managed Instance à partir d’un ordinateur local](sql-database-managed-instance-configure-p2s.md).
 
-## <a name="connect-from-on-premises-with-vnet-peering"></a>Se connecter à partir d’un ordinateur local avec l’appairage VNet
+## <a name="connect-from-on-premises-with-vnet-peering"></a>Se connecter à partir d’un ordinateur local avec le peering VNet
 
 Un autre scénario utilisé par les clients est celui où la passerelle VPN est installée sur un réseau virtuel et dans un abonnement différents de ceux où est hébergé Managed Instance. Les deux réseaux virtuels sont ensuite appairés. Le diagramme d’architecture suivant montre comment ce scénario peut être implémenté.
 
-![Homologation de réseaux virtuels](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
+![Peering de réseaux virtuels](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
 
-Une fois que vous avez configuré l’infrastructure de base, vous devez modifier certains paramètres afin que la passerelle VPN puisse voir les adresses IP dans le réseau virtuel qui héberge Managed Instance. Pour ce faire, apportez les modifications très spécifiques qui suivent dans **Paramètres d’homologation**.
+Une fois que vous avez configuré l’infrastructure de base, vous devez modifier certains paramètres afin que la passerelle VPN puisse voir les adresses IP dans le réseau virtuel qui héberge Managed Instance. Pour ce faire, apportez les modifications très spécifiques qui suivent dans **Paramètres de peering**.
 
-1. Dans le réseau virtuel qui héberge la passerelle VPN, accédez à **Homologations**, puis à la connexion de réseau virtuel appairée à l’instance managée, et cliquez sur **Autoriser le transit par passerelle**.
-2. Dans le réseau virtuel qui héberge l’instance managée, accédez à **Homologations**, puis à la connexion de réseau virtuel appairée à la passerelle VPN, et cliquez sur **Utiliser des passerelles distantes**.
+1. Dans le réseau virtuel qui héberge la passerelle VPN, accédez à **Peerings**, puis à la connexion de réseau virtuel appairée à l’instance managée, et cliquez sur **Autoriser le transit par passerelle**.
+2. Dans le réseau virtuel qui héberge l’instance managée, accédez à **Peerings**, puis à la connexion de réseau virtuel appairée à la passerelle VPN, et cliquez sur **Utiliser des passerelles distantes**.
 
 ## <a name="connect-an-azure-app-service-hosted-application"></a>Connecter une application hébergée Azure App Service
 
@@ -87,7 +86,7 @@ L’intégration d’Azure App Service à un réseau homologué avec un réseau 
 
 Ce scénario est illustré dans le diagramme suivant :
 
-![homologation d’applications intégrées](./media/sql-database-managed-instance/integrated-app-peering.png)
+![peering d’applications intégrées](./media/sql-database-managed-instance/integrated-app-peering.png)
 
 >[!NOTE]
 >La fonctionnalité d’intégration au réseau virtuel n’intègre pas d’application à un réseau virtuel doté d’une passerelle ExpressRoute. Même si la passerelle ExpressRoute est configurée en mode de coexistence, l’intégration du réseau virtuel ne fonctionnera pas. S'il vous faut accéder aux ressources via une connexion ExpressRoute, vous pouvez utiliser un App Service Environment s’exécutant dans votre réseau virtuel.
@@ -96,7 +95,7 @@ Ce scénario est illustré dans le diagramme suivant :
 
 Pour résoudre les problèmes de connectivité, lisez ce qui suit :
 
-- Si vous ne parvenez pas à vous connecter à Managed Instance à partir d’une machine virtuelle Azure appartenant au même réseau virtuel mais à un sous-réseau différent, vérifiez qu’un groupe de sécurité réseau défini dans le sous-réseau de la machine virtuelle ne bloque pas l’accès. En outre, notez que vous devez ouvrir une connexion sortante sur le port SQL 1433, ainsi que des ports dans la plage 11000-12000, car ceux-ci sont nécessaires pour se connecter via une redirection à l’intérieur des limites Azure.
+- Si vous ne parvenez pas à vous connecter à Managed Instance à partir d’une machine virtuelle Azure appartenant au même réseau virtuel mais à un sous-réseau différent, vérifiez qu’un groupe de sécurité réseau défini dans le sous-réseau de la machine virtuelle ne bloque pas l’accès. En outre, notez que vous devez ouvrir une connexion sortante sur le port SQL 1433, ainsi que des ports dans la plage 11000-11999, car ceux-ci sont nécessaires pour se connecter via une redirection à l’intérieur des limites Azure.
 - Pour la table de routage associée au réseau virtuel, vérifiez que la propagation BGP est définie sur **Activé**.
 - Si vous utilisez une connexion VPN point à site, accédez à la configuration dans le portail Azure pour voir si les sections **Entrée/Sortie** contiennent des chiffres. La présence de chiffres autres que zéro indiquent qu’Azure achemine le trafic entrant et sortant sur l’ordinateur local.
 
@@ -132,7 +131,7 @@ Pour résoudre les problèmes de connectivité, lisez ce qui suit :
    None
    ```
 
-- Si vous utilisez l’appairage VNet, suivez les instructions concernant la configuration des options [Autoriser le transit par passerelle et Utiliser des passerelles distantes](#connect-from-on-premises-with-vnet-peering).
+- Si vous utilisez le peering VNet, suivez les instructions concernant la configuration des options [Autoriser le transit par passerelle et Utiliser des passerelles distantes](#connect-from-on-premises-with-vnet-peering).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versions exigées de pilotes et d’outils
 
@@ -146,7 +145,8 @@ Les versions minimales suivantes des outils et des pilotes sont recommandées si
 |Pilote JDBC| 6.4.0 |
 |Pilote Node.js| 2.1.1 |
 |Pilote OLEDB| 18.0.2.0 |
-|SSMS| 17.8.1 ou [version ultérieure](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|SSMS| 18.0 ou [ultérieur](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou ultérieur |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

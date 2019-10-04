@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 22d6999b2a69aceb4421cea070d784f693bdf9c4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017257"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839295"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Déplacer des données à partir d’une source HTTP à l’aide d’Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-http-connector.md)
 > * [Version 2 (version actuelle)](../connector-http.md)
 
@@ -45,7 +45,7 @@ Vous pouvez créer un pipeline avec une activité de copie qui déplace les donn
 
 - Le moyen le plus simple de créer un pipeline consiste à utiliser l’Assistant Copier des données. Pour une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données, consultez la page [Tutoriel : Créez un pipeline à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md).
 
-- Vous pouvez également utiliser les outils suivants pour créer un pipeline : le **portail Azure**, **Visual Studio**, **Azure PowerShell**, un **modèle Azure Resource Manager**, **l’API .NET** et **l’API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline ayant une activité de copie, consultez le [tutoriel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Pour accéder à des exemples JSON sur la copie de données d’une source HTTP vers le stockage Blob Azure, consultez [Exemples JSON](#json-examples).
+- Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, un **modèle Azure Resource Manager**, l’**API .NET** et l’**API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline ayant une activité de copie, consultez le [tutoriel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Pour accéder à des exemples JSON sur la copie de données d’une source HTTP vers le stockage Blob Azure, consultez [Exemples JSON](#json-examples).
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 
@@ -53,12 +53,12 @@ Le tableau suivant décrit les éléments JSON qui sont propres au service lié 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type | La propriété **type** doit être définie sur **Http**. | Oui |
-| url | URL de base du serveur web. | Oui |
-| authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont : **Anonyme**, **De base**, **Digest**, **Windows** et **ClientCertificate**. <br><br> Consultez les sections plus loin dans cet article pour accéder à d’autres propriétés et à des exemples JSON relatifs à ces types d’authentification. | Oui |
-| enableServerCertificateValidation | Spécifie si la validation du certificat SSL du serveur doit être activée si la source est un serveur web HTTPS. Quand votre serveur HTTPS utilise un certificat auto-signé, définissez cette propriété sur **false**. | Non <br /> (la valeur par défaut est **true**) |
+| type | La propriété **type** doit être définie sur **Http**. | OUI |
+| url | URL de base du serveur web. | OUI |
+| authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont : **Anonyme**, **De base**, **Digest**, **Windows** et **ClientCertificate**. <br><br> Consultez les sections plus loin dans cet article pour accéder à d’autres propriétés et à des exemples JSON relatifs à ces types d’authentification. | OUI |
+| enableServerCertificateValidation | Spécifie si la validation du certificat SSL du serveur doit être activée si la source est un serveur web HTTPS. Quand votre serveur HTTPS utilise un certificat auto-signé, définissez cette propriété sur **false**. | Non<br /> (la valeur par défaut est **true**) |
 | gatewayName | Nom de l’instance de passerelle de gestion des données à utiliser pour se connecter à une source HTTP locale. | Oui, dans le cas de copie de données à partir d’une source HTTP locale |
-| Encryptedcredential | Informations d’identification chiffrées pour accéder au point de terminaison HTTP. La valeur est générée automatiquement quand vous configurez les informations d’authentification dans l’Assistant de copie ou la boîte de dialogue **ClickOnce**. | Non <br /> (s’applique uniquement pour la copie de données à partir d’un serveur HTTP local) |
+| encryptedCredential | Informations d’identification chiffrées pour accéder au point de terminaison HTTP. La valeur est générée automatiquement quand vous configurez les informations d’authentification dans l’Assistant de copie ou la boîte de dialogue **ClickOnce**. | Non<br /> (s’applique uniquement pour la copie de données à partir d’un serveur HTTP local) |
 
 Pour plus d’informations sur la définition des informations d’identification pour une source de données de connecteur HTTP local, consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -68,8 +68,8 @@ Définissez la valeur **authenticationType** sur **De base**, **Digest** ou **Wi
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| username | Nom d’utilisateur à utiliser pour accéder au point de terminaison HTTP. | Oui |
-| password | Mot de passe de l’utilisateur (**username**). | Oui |
+| userName | Nom d’utilisateur à utiliser pour accéder au point de terminaison HTTP. | OUI |
+| password | Mot de passe de l’utilisateur (**username**). | OUI |
 
 **Exemple : Utilisation de l’authentification De base, Digest ou Windows**
 
@@ -98,7 +98,7 @@ Pour utiliser l’authentification de base, définissez **authenticationType** s
 | --- | --- | --- |
 | embeddedCertData | Contenu encodé en Base64 des données binaires du fichier PFX. | Spécifiez **embeddedCertData** ou **certThumbprint** |
 | certThumbprint | Empreinte du certificat qui a été installé dans le magasin de certificats de votre ordinateur de passerelle. S’applique uniquement pour la copie de données à partir d’une source HTTP locale. | Spécifiez **embeddedCertData** ou **certThumbprint** |
-| password | Mot de passe associé au certificat. | Non  |
+| password | Mot de passe associé au certificat. | Non |
 
 Si vous utilisez **certThumbprint** pour l’authentification et que le certificat est installé dans le magasin personnel de l’ordinateur local, accordez des autorisations de lecture au service de passerelle :
 
@@ -152,7 +152,7 @@ Ce service lié lie votre fabrique de données à un serveur web HTTP local. Il 
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Certaines sections d’un fichier JSON de jeu de données, comme la structure, la disponibilité et la stratégie, sont similaires pour tous les types de jeux de données (par exemple, Azure SQL Database, stockage Blob Azure et stockage de tables Azure).
+Certaines sections d’un fichier JSON de jeu de données, comme la structure, la disponibilité et la stratégie, sont similaires pour tous les types de jeux de données (par exemple, Azure SQL Database, stockage Blob Azure et stockage Table Azure).
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md).
 
@@ -160,13 +160,13 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **Http**. | Oui |
-| relativeUrl | URL relative de la ressource qui contient les données. Quand le chemin n’est pas spécifié, seule l’URL indiquée dans la définition du service lié est utilisée. <br><br> Pour construire une URL dynamique, vous pouvez utiliser les [variables système et fonctions Data Factory](data-factory-functions-variables.md). Exemple : **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | Non  |
-| requestMethod | Méthode HTTP. Les valeurs autorisées sont **GET** et **POST**. | Non  <br />(la valeur par défaut est **GET**) |
-| additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non  |
-| RequestBody | Corps de la requête HTTP. | Non  |
-| format | Si vous souhaitez *récupérer les données d’un point de terminaison HTTP en l’état*, sans les analyser, ignorez le paramètre de **format**. <br><br> Si vous voulez analyser le contenu de la réponse HTTP pendant la copie, les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Pour plus d’informations, consultez [Format Texte](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [Format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Non  |
-| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non  |
+| type | La propriété **type** du jeu de données doit être définie sur **Http**. | OUI |
+| relativeUrl | URL relative de la ressource qui contient les données. Quand le chemin n’est pas spécifié, seule l’URL indiquée dans la définition du service lié est utilisée. <br><br> Pour construire une URL dynamique, vous pouvez utiliser les [variables système et fonctions Data Factory](data-factory-functions-variables.md). Exemple : **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)** . | Non |
+| requestMethod | Méthode HTTP. Les valeurs autorisées sont **GET** et **POST**. | Non <br />(la valeur par défaut est **GET**) |
+| additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
+| requestBody | Corps de la requête HTTP. | Non |
+| format | Si vous souhaitez *récupérer les données d’un point de terminaison HTTP en l’état*, sans les analyser, ignorez le paramètre de **format**. <br><br> Si vous voulez analyser le contenu de la réponse HTTP pendant la copie, les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Pour plus d’informations, consultez [Format Texte](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [Format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Non |
+| compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non |
 
 **Exemple : Utilisation de la méthode GET (par défaut)**
 
@@ -223,7 +223,7 @@ Actuellement, quand la source de l’activité de copie est de type **HttpSource
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse. | Non <br />(Valeur par défaut : **00:01:40**) |
+| httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse. | Non<br />(Valeur par défaut : **00:01:40**) |
 
 ## <a name="supported-file-and-compression-formats"></a>Formats de fichier et de compression pris en charge
 
@@ -231,7 +231,7 @@ Consultez [Formats de fichiers et de compression pris en charge dans Azure Data 
 
 ## <a name="json-examples"></a>Exemples JSON
 
-Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide [du Portail Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [d’Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Les exemples montrent comment copier des données d’une source HTTP vers le stockage Blob Azure. Toutefois, les données peuvent être copiées *directement* d’une source quelconque vers l’un des récepteurs [pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) à l’aide de l’activité de copie d’Azure Data Factory.
+Les exemples suivants présentent des exemples de définitions de JSON que vous pouvez utiliser pour créer un pipeline à l’aide de [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou d’[Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Les exemples montrent comment copier des données d’une source HTTP vers le stockage Blob Azure. Toutefois, les données peuvent être copiées *directement* d’une source quelconque vers l’un des récepteurs [pris en charge](data-factory-data-movement-activities.md#supported-data-stores-and-formats) à l’aide de l’activité de copie d’Azure Data Factory.
 
 **Exemple : Copier des données d’une source HTTP vers Stockage Blob Azure**
 

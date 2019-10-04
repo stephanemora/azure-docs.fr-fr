@@ -1,5 +1,5 @@
 ---
-title: Didacticiel SaaS monolocataire – Azure SQL Database | Microsoft Docs
+title: Tutoriel SaaS monolocataire – Azure SQL Database | Microsoft Docs
 description: Déployer et explorer une application SaaS à client unique autonome qui utilise Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,24 +10,23 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 2e6b18e53358cad1bfe89e8c0ae7fbacec24d179
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012683"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570203"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database
 
-Ce didacticiel décrit comment déployer et explorer l’exemple d’application SaaS Wingtip Tickets développé à l’aide du modèle application autonome ou d’application par client.  L’application est conçue pour présenter des fonctionnalités d’Azure SQL Database qui simplifient l’activation de scénarios SaaS mutualisés.
+Ce didacticiel décrit comment déployer et explorer l’exemple d’application SaaS Wingtip Tickets développé à l’aide du modèle application autonome ou d’application par client.  L’application est conçue pour présenter des fonctionnalités Azure SQL Database qui simplifient la prise en charge de scénarios SaaS mutualisés.
 
 Le modèle application autonome ou d’application par client déploie une instance d’application pour chaque client.  Chaque application est configurée pour un client spécifique, et déployée dans un groupe de ressources Azure distinct. Plusieurs instances de l’application sont approvisionnées pour fournir une solution mutualisée. Ce modèle convient parfaitement pour des nombres restreints de clients où l’isolation des clients est une priorité de premier plan. Azure disposent de programmes partenaires qui permettent le déploiement de ressources dans un abonnement du client et leur gestion par un fournisseur de services pour le compte du client. 
 
-Dans le cadre de ce didacticiel, vous allez déployer les trois applications autonomes pour trois clients dans votre abonnement Azure.  Vous avez un accès complet pour explorer et utiliser les composants d’application individuels.
+Dans le cadre de ce didacticiel, vous allez déployer trois applications autonomes pour trois clients dans votre abonnement Azure.  Vous avez un accès complet pour explorer et utiliser les composants d’application individuels.
 
-Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp). L’application a été créée à l’aide de Visual Studio 2015. Il est impossible de l’ouvrir ou de la compiler correctement dans Visual Studio 2017 sans la mettre à jour.
+Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp). L’application a été créée à l’aide de Visual Studio 2015. Il est impossible de l’ouvrir ou de la compiler correctement dans Visual Studio 2019 sans mise à jour.
 
 
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
@@ -76,16 +75,16 @@ L’application présente les lieux qui hébergent des événements.  Les lieux 
 
 1. Ouvrez la page d’événements pour chacun des trois clients dans des onglets de navigateur distincts :
 
-   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt ;user&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt ;user&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt ;user&gt;.trafficmanager.net
 
      (Dans chaque URL, remplacez &lt;user&gt; par la valeur d’utilisateur de votre déploiement.)
 
    ![Événements](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Pour contrôler la distribution des demandes entrantes, l’application utilise [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Chaque instance d’application propre au locataire comprend le nom du locataire en tant que partie du nom de domaine dans l’URL. Toutes les URL de locataire comprennent votre valeur **Utilisateur** spécifique. Les URL respectent le format suivant :
-- http://events.&lt;nomsalle&gt;.&lt;utilisateur&gt;.trafficmanager.net
+- http://events.&lt ;nomsalle&gt;.&lt; utilisateur&gt;.trafficmanager.net
 
 **L’emplacement** de base de données de chaque locataire est inclus dans les paramètres d’application de l’application déployée correspondante.
 
@@ -107,7 +106,7 @@ Chaque base de données client est une base de données *autonome* de 50 DTU.
 <!--
 * Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](elastic-jobs-overview.md)
 -->
 
 - Pour de plus amples informations sur les applications SaaS mutualisées, consultez [Modèles de location de base de données SaaS multi-locataire](saas-tenancy-app-design-patterns.md).
@@ -126,6 +125,6 @@ Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
 > * Explorer les serveurs et les bases de données qui composent l’application.
 > * Comment supprimer les exemples de ressources pour arrêter la facturation associée.
 
-Essayez ensuite le didacticiel [fourniture et catalogue](saas-standaloneapp-provision-and-catalog.md) dans lequel vous allez explorer l’utilisation d’un catalogue de clients qui active un éventail de scénarios inter-clients tels que la gestion des schémas et l’analyse des clients.
+Essayez ensuite le didacticiel [Approvisionnement et catalogue](saas-standaloneapp-provision-and-catalog.md) dans lequel vous allez explorer l’utilisation d’un catalogue de clients qui active un éventail de scénarios inter-clients tels que la gestion des schémas et l’analyse des clients.
  
 

@@ -1,5 +1,5 @@
 ---
-title: Tests par lot
+title: 'Didacticiel : Tests par lot – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Ce tutoriel montre comment utiliser des tests par lot pour rechercher et résoudre les problèmes de prédiction d’énoncés dans votre application.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/29/2019
+ms.topic: tutorial
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: a0aa4d334dc5a42da8a3a8f269f70c874c9ad54d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523135"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375513"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Didacticiel : Tester des jeux de données par lot
 
@@ -28,7 +28,7 @@ Exigences des tests de lots :
 
 * 1 000 énoncés maximum par test. 
 * Pas de doublons. 
-* Types d’entités autorisées : seules les entités apprises automatiquement de type simple, hiérarchique (parent uniquement) et composite. Les tests de lots ne sont utiles que pour les entités et les intentions apprises automatiquement.
+* Types d’entités autorisés : seules les entités apprises automatiquement de type simple et composite. Les tests de lots ne sont utiles que pour les entités et les intentions apprises automatiquement.
 
 Si vous utilisez une application autre que ce tutoriel, *n’utilisez pas* les exemples d’énoncés déjà ajoutés à une intention. 
 
@@ -55,7 +55,7 @@ Procédez comme suit :
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `batchtest`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
+3. À partir de la section **Manage (Gérer)** , sous l’onglet **Versions**, clonez la version et nommez-la `batchtest`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
 
 4. Effectuez l’apprentissage de l’application.
 
@@ -95,7 +95,7 @@ Procédez comme suit :
 
 ## <a name="review-batch-results"></a>Passer en revue les résultats du test par lot
 
-Le graphique de lot présente quatre quadrants de résultats. À droite du graphique se trouve un filtre. Par défaut, il est défini sur la première intention de la liste. Il contient tous les intentions et seulement les entités simples, hiérarchiques (parent uniquement) et composites. Lorsque vous sélectionnez un point ou une [section du graphique](luis-concept-batch-test.md#batch-test-results), le ou les énoncés associés s’affichent sous le graphique. 
+Le graphique de lot présente quatre quadrants de résultats. À droite du graphique se trouve un filtre. Le filtre contient des intentions et des entités. Lorsque vous sélectionnez un point ou une [section du graphique](luis-concept-batch-test.md#batch-test-results), le ou les énoncés associés s’affichent sous le graphique. 
 
 Au passage de la souris sur le graphique, la roulette permet d’agrandir ou de réduire l’affichage du graphique, ce qui est utile en présence de nombreux points très rapprochés. 
 
@@ -103,27 +103,27 @@ Le graphique est divisé en quatre quadrants, dont deux s’affichent en rouge. 
 
 ### <a name="getjobinformation-test-results"></a>Résultats de test GetJobInformation
 
-Les résultats de test **GetJobInformation** présentés dans le filtre indiquent que deux des quatre prédictions ont réussi. Sélectionnez le nom **Faux positif** au-dessus du quadrant supérieur droit pour afficher les énoncés sous le graphique. 
+Les résultats de test **GetJobInformation** présentés dans le filtre indiquent que deux des quatre prédictions ont réussi. Sélectionnez le nom **Faux négatif** dans le quadrant inférieur gauche pour afficher les énoncés sous le graphique. 
 
-![Énoncés de test de lot de LUIS](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
+Appuyez sur les touches Ctrl+E pour passer en mode étiquette et voir le texte exact de l’énoncé d’utilisateur. 
 
-Pourquoi deux des énoncés ont-ils reçu la prédiction **ApplyForJob**au lieu de l’intention **GetJobInformation** ? Les deux intentions sont très proches du point de vue du choix et de l’ordre des mots. Par ailleurs, il y a presque trois fois plus d’exemples d’énoncés pour **ApplyForJob** que pour **GetJobInformation**. Ce déséquilibre joue en faveur de l’intention **ApplyForJob**. 
+L’énoncé `Is there a database position open in Los Colinas?` est étiqueté _GetJobInformation_, mais le modèle actuel a prédit l’énoncé _ApplyForJob_. 
+
+Il y a presque trois fois plus d’exemples d’énoncés pour **ApplyForJob** que pour **GetJobInformation**. Ce déséquilibre joue en faveur de l’intention **ApplyForJob**, ce qui entraîne une prédiction incorrecte. 
 
 Comme on peut le constater, les deux intentions comportent le même nombre d’erreurs. Une prédiction incorrecte dans l’une affecte l’autre. Elles présentent toutes deux des erreurs, car les énoncés ont été prédits à tort pour une intention, et non prédits à tort également pour l’autre. 
 
-![Erreurs de filtre du test de lot de LUIS](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
+<a name="fix-the-app"></a>
 
-Les énoncés correspondant au point le plus élevé de la section **Faux positif** sont `Can I apply for any database jobs with this resume?` et `Can I apply for any database jobs with this resume?`. Dans le premier, le mot `resume` n’a été utilisé que dans **ApplyForJob**. Même chose pour le second, dont le mot `apply` n’a servi que pour l’intention **ApplyForJob**.
-
-## <a name="fix-the-app"></a>Corriger l’application
+## <a name="how-to-fix-the-app"></a>Comment corriger l’application
 
 L’objectif de cette section est de corriger l’application afin que tous les énoncés soient correctement prédits pour **GetJobInformation**. 
 
-Il serait en apparence tout aussi rapide de résoudre le problème en ajoutant ces énoncés de fichier de lot à la bonne intention. Mais ce n’est pas ce que l’on souhaite faire. Le but est que LUIS prédise correctement ces énoncés sans les ajouter comme exemples. 
+Il serait en apparence tout aussi rapide de résoudre le problème en ajoutant ces énoncés de fichier de lot à la bonne intention. Mais ce n’est pas ce que vous souhaitez faire. Le but est que LUIS prédise correctement ces énoncés sans les ajouter comme exemples. 
 
 On peut aussi envisager de supprimer des énoncés de **ApplyForJob** jusqu’à ce que la quantité d’énoncés soit identique à **GetJobInformation**. Cela corrigerait peut-être les résultats de test, mais LUIS ne parviendrait pas à prédire correctement cette intention la fois suivante. 
 
-La première correction consiste à ajouter des énoncés à **GetJobInformation**. La deuxième supposera de réduire le poids de mots tels que `resume` et `apply` pour l’intention **ApplyForJob**. 
+La correction consiste à ajouter des énoncés à **GetJobInformation**. N’oubliez pas de modifier la longueur de l’énoncé, ainsi que le choix et la disposition des mots, tout en visant l’objectif de rechercher des informations de travail ne s’appliquant _pas_ au travail.
 
 ### <a name="add-more-utterances"></a>Ajouter des énoncés
 
@@ -161,15 +161,13 @@ Pour vérifier que les énoncés du test de lot sont correctement prédits, rée
 
 1. Sélectionnez **Test** dans la barre de navigation supérieure. Si les résultats du lot sont toujours ouverts, sélectionnez **Revenir à la liste**.  
 
-2. Sélectionnez les points de suspension (***…***) à droite du nom du lot, puis **Exécuter le jeu de données**. Attendez la fin du test par lot. Vous remarquerez que le bouton **Voir les résultats** est maintenant vert. Cela signifie que l’exécution de l’ensemble du lot a réussi.
+1. Sélectionnez les points de suspension (***…***) à droite du nom du lot, puis **Exécuter**. Attendez la fin du test par lot. Vous remarquerez que le bouton **Voir les résultats** est maintenant vert. Cela signifie que l’exécution de l’ensemble du lot a réussi.
 
-3. Sélectionnez **Afficher les résultats**. Des icônes vertes doivent s’afficher à gauche du nom des intentions. 
-
-    ![Capture d’écran de LUIS avec le bouton Résultats du lot en surbrillance](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+1. Sélectionnez **Afficher les résultats**. Des icônes vertes doivent s’afficher à gauche du nom des intentions. 
 
 ## <a name="create-batch-file-with-entities"></a>Créer un fichier de lot avec des entités 
 
-Les entités doivent être étiquetées dans le fichier JSON de lot pour pouvoir être vérifiées dans le test de lot. Seules les entités apprises automatiquement sont utilisées : simples, hiérarchiques (parent uniquement) et composites. N’ajoutez pas d’autres types d’entités, car elles sont toujours trouvées, soit par expression régulière, soit par correspondance de texte explicite.
+Les entités doivent être étiquetées dans le fichier JSON de lot pour pouvoir être vérifiées dans le test de lot. 
 
 Les variations du nombre total de mots ([tokens](luis-glossary.md#token)) dans les entités peuvent avoir un impact sur la qualité des prédictions. Veillez à ce que les données d’apprentissage fournies à l’intention avec des énoncés étiquetés présentent des longueurs variables d’entité. 
 
@@ -178,7 +176,6 @@ Il est préférable de commencer à écrire et à tester des fichiers de lots av
 La valeur d’une entité **Job**, fournie dans les énoncés de test, est généralement composée d’un ou deux mots, ou plus dans quelques exemples. Si _votre_ application de ressources humaines comporte en général des noms de postes longs, les exemples d’énoncés étiquetés avec l’entité **Job** dans cette application ne fonctionneront pas correctement.
 
 1. Créez `HumanResources-entities-batch.json` dans un éditeur de texte comme [VSCode](https://code.visualstudio.com/) ou [téléchargez-le](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
-
 
 2. Dans le fichier de lot au format JSON, ajoutez un tableau d’objets comportant des énoncés liés à **l’Intention** à prédire dans le test, ainsi que les emplacements des éventuelles entités de l’énoncé. Dans la mesure où les entités se présentent sous forme de tokens, commencez-les et terminez-les par un caractère et non par un espace, car cela provoquerait une erreur lors de l’importation du fichier de lot.  
 
@@ -201,11 +198,9 @@ La valeur d’une entité **Job**, fournie dans les énoncés de test, est gén�
 
 7. Sélectionnez **Afficher les résultats**.
 
-[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
-
 ## <a name="review-entity-batch-results"></a>Vérifier les résultats du lot d’entités
 
-Le graphique s’ouvre sur toutes les intentions correctement prédites. Faites défiler le filtre de droite vers le bas pour trouver les prédictions d’entités erronées. 
+Le graphique s’ouvre sur toutes les intentions correctement prédites. Faites défiler le filtre de droite pour trouver les prédictions d’entités erronées. 
 
 1. Sélectionnez l’entité **Job** dans le filtre.
 

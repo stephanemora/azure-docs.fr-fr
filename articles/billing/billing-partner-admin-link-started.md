@@ -5,22 +5,22 @@ services: billing
 author: dhirajgandhi
 manager: dhgandhi
 ms.author: banders
-ms.date: 03/12/2018
+ms.date: 10/01/2019
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 00b44b62e5ce666a8cd6d4b02270e6d9de6897e8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270181"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719829"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Lier un ID partenaire à vos comptes Azure
 
-En tant que partenaire, vous pouvez suivre votre impact dans tous vos engagements avec les clients. Vous pouvez lier votre ID partenaire aux comptes utilisés pour gérer les ressources d’un client.
+Les partenaires de Microsoft fournissent des services qui aident les clients à atteindre leurs objectifs commerciaux et stratégiques, à l’aide de produits Microsoft. Lorsqu’il agit au nom du client pour la gestion, la configuration et le support des services Azure, le partenaire doit accéder à l’environnement du client. À l’aide du lien d’administrateur partenaire, les partenaires peuvent associer leur ID Microsoft Partner Network aux informations d’identification utilisées pour la remise du service.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -54,32 +54,32 @@ Lorsque vous avez accès aux ressources du client, utilisez le portail Azure, Po
 
 ### <a name="use-powershell-to-link-to-a-new-partner-id"></a>Utiliser PowerShell pour lier vers un nouvel ID partenaire
 
-1. Installez le module PowerShell [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner).
+1. Installez le module PowerShell [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/).
 
 2. Connectez-vous au locataire du client avec le compte d’utilisateur ou le principal du service. Pour plus d’informations, consultez [Se connecter avec PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
- 
+
    ```azurepowershell-interactive
-    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
    ```
 
 3. Définissez le lien vers le nouvel ID partenaire. L’ID partenaire est l’ID [Microsoft Partner Network](https://partner.microsoft.com/) de votre organisation.
 
     ```azurepowershell-interactive
-    C:\> new-AzureRmManagementPartner -PartnerId 12345 
+    C:\> new-AzManagementPartner -PartnerId 12345
     ```
 
 #### <a name="get-the-linked-partner-id"></a>Obtenir l’ID partenaire lié
 ```azurepowershell-interactive
-C:\> get-AzureRmManagementPartner 
+C:\> get-AzManagementPartner
 ```
 
 #### <a name="update-the-linked-partner-id"></a>Mettre à jour l’ID partenaire lié
 ```azurepowershell-interactive
-C:\> Update-AzureRmManagementPartner -PartnerId 12345 
+C:\> Update-AzManagementPartner -PartnerId 12345
 ```
 #### <a name="delete-the-linked-partner-id"></a>Supprimer l’ID partenaire lié
 ```azurepowershell-interactive
-C:\> remove-AzureRmManagementPartner -PartnerId 12345 
+C:\> remove-AzManagementPartner -PartnerId 12345
 ```
 
 ### <a name="use-the-azure-cli-to-link-to-a-new-partner-id"></a>Utiliser Azure CLI pour définir un lien vers un nouvel ID partenaire
@@ -87,13 +87,13 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 
     ```azurecli-interactive
     C:\ az extension add --name managementpartner
-    ``` 
+    ```
 
 2. Connectez-vous au locataire du client avec le compte d’utilisateur ou le principal du service. Pour plus d’informations, consultez [Se connecter avec Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
-    ``` 
+    ```
 
 3. Définissez le lien vers le nouvel ID partenaire. L’ID partenaire est l’ID [Microsoft Partner Network](https://partner.microsoft.com/) de votre organisation.
 
@@ -104,17 +104,17 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 #### <a name="get-the-linked-partner-id"></a>Obtenir l’ID partenaire lié
 ```azurecli-interactive
 C:\ az managementpartner show
-``` 
+```
 
 #### <a name="update-the-linked-partner-id"></a>Mettre à jour l’ID partenaire lié
 ```azurecli-interactive
 C:\ az managementpartner update --partner-id 12345
-``` 
+```
 
 #### <a name="delete-the-linked-partner-id"></a>Supprimer l’ID partenaire lié
 ```azurecli-interactive
 C:\ az managementpartner delete --partner-id 12345
-``` 
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -136,26 +136,25 @@ Le lien entre l’ID partenaire et le compte est établi pour chaque locataire c
 
 **D’autres partenaires ou clients peuvent-ils modifier ou supprimer le lien vers l’ID partenaire ?**
 
-Le lien est associé au niveau du compte d'utilisateur. Vous seul pouvez modifier ou supprimer le lien vers l’ID partenaire. Le client et les autres partenaires ne peuvent pas modifier le lien vers l’ID partenaire. 
+Le lien est associé au niveau du compte d'utilisateur. Vous seul pouvez modifier ou supprimer le lien vers l’ID partenaire. Le client et les autres partenaires ne peuvent pas modifier le lien vers l’ID partenaire.
 
 
-**Les ID MPN dois-je utiliser si ma société possède plusieurs ?**
+**Quel ID MPN utiliser si ma société en possède plusieurs ?**
 
-Vous pouvez utiliser n’importe quel ID MPN valide à l’exception virtuelle orgnization(v-org) ID MPN. La plupart des partenaires choisissent d’utiliser l’ID MPN pour la zone géographique dans lequel est basé le client ou les services sont remis.
+Les comptes associés aux emplacements partenaire et les ID MPN associés doivent être utilisés pour la liaison de l’ID du partenaire.  En savoir plus sur les [comptes de partenaires](https://docs.microsoft.com/partner-center/account-structure)
 
-**Où puis-je trouver influencé chiffre d’affaires reporting pour l’ID de partenaire lié ?**
+**Où trouver un rapport sur le chiffre d’affaires influencé pour l’ID de partenaire lié ?**
 
-Vous pouvez trouver des rapports de ventes influencé chez [tableau de bord Insights Mes](https://partner.microsoft.com/membership/reports/myinsights). Vous devez sélectionner le lien d’administrateur partenaire en tant que le type d’association de partenaire.
+Les partenaires peuvent accéder aux rapports sur les performances des produits cloud en consultant le [tableau de bord Mes Insights](https://partner.microsoft.com/membership/reports/myinsights) de Partner Central. Vous devez sélectionner le lien d’administrateur partenaire en tant que le type d’association partenaire.
 
 **Pourquoi ne puis-je pas voir mon client dans les rapports ?**
 
-Vous ne voyez pas le client dans les rapports en raison des raisons suivantes
+Vous ne voyez pas le client dans les rapports pour les raisons suivantes
 
-1. Le compte d’utilisateur lié n’a pas [accès en fonction de rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) sur n’importe quel abonnement Azure du client ou de la ressource.
+1. Le compte d’utilisateur lié n’a pas d’[accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) à un abonnement ou à une ressource Azure du client.
 
-2. L’abonnement Azure où l’utilisateur a [accès en fonction de rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) toute utilisation n’a pas accès.
+2. L’abonnement Azure auquel l’utilisateur a [accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) n’est d’aucune utilité.
 
-**Fournit un lien partenaire QU'ID fonctionne avec Azure Stack ?**
+**L’option Lier un ID partenaire fonctionne-t-elle avec Azure Stack ?**
 
 Oui, vous pouvez lier votre ID partenaire pour Azure Stack.
-

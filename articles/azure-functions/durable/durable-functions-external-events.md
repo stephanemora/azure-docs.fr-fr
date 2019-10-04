@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: eb024e11b78d13d5ab4544c634acef2ade8141c2
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: e38f118e10c9d0e2347edb7cbaa5d7b68a0e63f2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608979"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933413"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Gestion des événements externes dans Fonctions durables (Azure Functions)
 
@@ -202,10 +201,7 @@ En interne, `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) met en file d�
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Configurer des orchestrations externes](durable-functions-eternal-orchestrations.md)
-
-> [!div class="nextstepaction"]
-> [Exécuter un exemple qui attend des événements externes](durable-functions-phone-verification.md)
+> [En savoir plus sur l’implémentation de la gestion des erreurs](durable-functions-error-handling.md)
 
 > [!div class="nextstepaction"]
 > [Exécuter un exemple qui attend une interaction humaine](durable-functions-phone-verification.md)

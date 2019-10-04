@@ -1,30 +1,29 @@
 ---
-title: Installer et configurer Terraform pour une utilisation avec Azure | Microsoft Docs
+title: Installer et configurer Terraform pour provisionner des ressources Azure | Microsoft Docs
 description: Découvrez comment installer et configurer Terraform pour créer des ressources Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: echuvyrov
-manager: jeconnoc
+author: tomarchermsft
+manager: gwallace
 editor: na
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/19/2018
-ms.author: echuvyrov
-ms.openlocfilehash: 71cf07b227a75e53119f2f35e79ccd7926b551e7
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 09/20/2019
+ms.author: tarcher
+ms.openlocfilehash: cd3c8d7d862788f626356b4cfcdccccca36227b3
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200698"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168737"
 ---
-# <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure
+# <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Installer et configurer Terraform pour provisionner des ressources Azure
  
-Terraform fournit un moyen simple de définir, de prévisualiser et de déployer l’infrastructure cloud à l’aide d’un [langage simple basé sur des templates](https://www.terraform.io/docs/configuration/syntax.html). Cet article décrit les étapes nécessaires pour utiliser Terraform pour provisionner des ressources dans Azure. 
+Terraform fournit un moyen simple de définir, de prévisualiser et de déployer l’infrastructure cloud à l’aide d’un [langage simple basé sur des templates](https://www.terraform.io/docs/configuration/syntax.html). Cet article décrit les étapes nécessaires pour utiliser Terraform pour provisionner des ressources dans Azure.
 
 Pour en savoir plus sur l’utilisation de Terraform avec Azure, visitez [Terraform Hub](/azure/terraform).
 
@@ -38,7 +37,7 @@ Pour installer Terraform, [téléchargez](https://www.terraform.io/downloads.htm
 
 Vérifiez la configuration de votre chemin d’accès à l’aide de la commande `terraform`. Une liste des options Terraform disponibles apparaît, comme dans l’exemple de sortie suivant :
 
-```bash
+```console
 azureuser@Azure:~$ terraform
 Usage: terraform [--version] [--help] <command> [args]
 ```
@@ -47,10 +46,10 @@ Usage: terraform [--version] [--help] <command> [args]
 
 Créez un [principal de service Azure AD](/cli/azure/create-an-azure-service-principal-azure-cli) pour permettre à Terraform d’approvisionner des ressources dans Azure. Le principal de service autorise vos scripts Terraform à approvisionner des ressources dans votre abonnement Azure.
 
-Si vous avez plusieurs abonnements Azure, commencez par interroger votre compte avec [az account show](/cli/azure/account#az-account-show) pour obtenir une liste des valeurs d’ID d’abonnement et d’ID abonné :
+Si vous avez plusieurs abonnements Azure, commencez par interroger votre compte avec [az account list](/cli/azure/account#az-account-list) pour obtenir une liste des valeurs d’ID d’abonnement et d’ID abonné :
 
 ```azurecli-interactive
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 Pour utiliser un abonnement sélectionné, paramétrez l’abonnement de cette session avec [az account set](/cli/azure/account#az-account-set). Définissez la variable d’environnement `SUBSCRIPTION_ID` pour qu’elle contienne la valeur du champ `id` retourné à partir de l’abonnement que vous souhaitez utiliser :
@@ -95,7 +94,7 @@ export ARM_ENVIRONMENT=public
 
 Créez un fichier `test.tf` dans un répertoire vide et collez-y le script suivant.
 
-```tf
+```hcl
 provider "azurerm" {
 }
 resource "azurerm_resource_group" "rg" {
@@ -112,7 +111,7 @@ terraform init
 
 Le résultat ressemble à l’exemple suivant :
 
-```bash
+```console
 * provider.azurerm: version = "~> 0.3"
 
 Terraform has been successfully initialized!
@@ -126,7 +125,7 @@ terraform apply
 
 Le résultat ressemble à l’exemple suivant :
 
-```bash
+```console
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create

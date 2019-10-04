@@ -4,9 +4,9 @@ description: Dans ce didacticiel, vous découvrirez comment utiliser Azure Notif
 services: notification-hubs
 documentationcenter: android
 keywords: notifications push,notification push,notification push android
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,19 +15,24 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 6e82ec9563832c7569fa1cff735a46dad50a8b3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 36af79b90722041ddb16bb90a73175a8635531fd
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887576"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212364"
 ---
-# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Tutoriel : Notifications Push vers des appareils Android avec Azure Notification Hubs et Google Cloud Messaging
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Didacticiel : Notifications Push aux appareils Android via Azure Notification Hubs et Google Cloud Messaging (déconseillé)
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+> [!WARNING]
+> À compter du 10 avril 2018, Google a déconseillé Google Cloud Messaging (GCM). Le serveur GCM et les API clientes sont déconseillés et seront supprimés dès le 29 mai 2019. Pour plus d’informations, consultez [GCM et FCM dans la foire aux questions](https://developers.google.com/cloud-messaging/faq).
+
+## <a name="overview"></a>Vue d'ensemble
 
 Ce didacticiel montre comment utiliser Azure Notification Hubs pour envoyer des notifications Push vers une application Android.
 Vous allez créer une application Android vide qui reçoit des notifications Push à l’aide de Google Cloud Messaging (GCM).
@@ -107,7 +112,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
 
 ### <a name="updating-the-projects-androidmanifestxml"></a>Mise à jour du fichier AndroidManifest.xml du projet
 
-1. Pour prendre en charge GCM, implémentez un service d’écoute d’ID d’instance dans le code utilisé afin [d’obtenir des jetons d’inscription](https://developers.google.com/cloud-messaging/android/client#sample-register) à l’aide de [l’API d’ID d’instance Google](https://developers.google.com/instance-id/). Dans ce didacticiel, le nom de la classe est `MyInstanceIDService`.
+1. Pour prendre en charge GCM, implémentez un service d’écoute d’ID d’instance dans le code utilisé afin [d’obtenir des jetons d’inscription](https://developers.google.com/cloud-messaging/) à l’aide de [l’API d’ID d’instance Google](https://developers.google.com/instance-id/). Dans ce didacticiel, le nom de la classe est `MyInstanceIDService`.
 
     Ajoutez la définition de service suivante au fichier AndroidManifest.xml, dans la balise `<application>` . Remplacez l’espace réservé `<your package>` par le nom de votre package actuel, qui apparaît en haut du fichier `AndroidManifest.xml`.
   
@@ -141,7 +146,7 @@ Votre hub de notification est à présent configuré pour GCM, et vous disposez 
     ```
 4. Ajoutez les autorisations GCM nécessaires suivantes sous la balise `</application>`. Remplacez `<your package>` par le nom du package qui apparaît en haut du fichier `AndroidManifest.xml`.
 
-    Pour plus d’informations sur ces autorisations, consultez la rubrique [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/android/client#manifest)(Configuration d’une application cliente GCM pour Android).
+    Pour plus d’informations sur ces autorisations, consultez la rubrique [Setup a GCM Client app for Android](https://developers.google.com/cloud-messaging/)(Configuration d’une application cliente GCM pour Android).
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>

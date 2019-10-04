@@ -15,14 +15,16 @@ ms.workload: TBD
 ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cc3c0ad193af7625c8c4c1c2e82b6bdc8be33310
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 70f2d9542082ddf7ecf1d1e7361b0ecdb14c5ef8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23108247"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963385"
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>Quelles sont les limites système de l’appareil StorSimple série 8000 ?
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -36,7 +38,7 @@ StorSimple fournit un stockage évolutif et flexible pour votre centre de donné
 | Nombre maximal de volumes épinglés localement |32 | |
 | Nombre maximal de planifications par modèle de bande passante |168 |Une planification par heure, tous les jours de la semaine (24*7). |
 | Taille maximale d'un volume à plusieurs niveaux sur les appareils physiques |64 To pour 8100 et 8600 |8100 et 8600 sont des appareils physiques. |
-| Taille maximale d'un volume à plusieurs niveaux sur les appareils virtuels dans Azure |30 To pour 8010  <br></br> 64 To pour 8020 |8010 et 8020 sont des appareils virtuels dans Azure qui utilisent le stockage Standard et Premium respectivement. |
+| Taille maximale d'un volume à plusieurs niveaux sur les appareils virtuels dans Azure |30 To pour 8010 <br></br> 64 To pour 8020 |8010 et 8020 sont des appareils virtuels dans Azure qui utilisent le stockage Standard et Premium respectivement. |
 | Taille maximale d'un volume épinglé localement sur les appareils physiques |8,5 To pour 8100 <br></br> 22,5 To pour 8600 |8100 et 8600 sont des appareils physiques. |
 | Nombre maximal de connexions iSCSI |512 | |
 | Nombre maximal de connexions iSCSI à partir d'initiateurs |512 | |

@@ -1,10 +1,10 @@
 ---
-title: Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels - tutoriel - Portail Azure | Microsoft Docs
-description: Dans ce tutoriel, vous apprendrez à connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant le portail Azure.
+title: Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels - tutoriel - Portail Azure | Microsoft Docs
+description: Dans ce tutoriel, vous apprendrez à connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant le portail Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -15,22 +15,22 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 08/16/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 943cad871330e2f3b6e13b33dca582ab545fe4be
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014510"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726567"
 ---
-# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Didacticiel : Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant le portail Azure
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Didacticiel : Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant le portail Azure
 
-Vous pouvez connecter des réseaux virtuels entre eux à l’aide de l’appairage de réseaux virtuels. Ces réseaux virtuels peuvent appartenir à la même région ou à des régions différentes (connexion également appelée Global VNet Peering). Une fois que les deux réseaux virtuels sont appairés, leurs ressources peuvent communiquer entre elles avec les mêmes bande passante et latence, comme si elles se trouvaient sur le même réseau virtuel. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Vous pouvez connecter des réseaux virtuels entre eux à l’aide du peering de réseaux virtuels. Ces réseaux virtuels peuvent appartenir à la même région ou à des régions différentes (connexion également appelée Global VNet Peering). Une fois que les deux réseaux virtuels sont appairés, leurs ressources peuvent communiquer entre elles avec les mêmes bande passante et latence, comme si elles se trouvaient sur le même réseau virtuel. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer deux réseaux virtuels
-> * Connecter deux réseaux virtuels à l’aide de l’homologation de réseaux virtuels
+> * Connecter deux réseaux virtuels à l’aide du peering de réseaux virtuels
 > * Déployer une machine virtuelle sur chaque réseau virtuel
 > * Établir une communication entre les machines virtuelles
 
@@ -74,7 +74,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 1. Dans la zone de recherche en haut du portail Azure, commencez à taper *MyVirtualNetwork1*. Quand la mention **myVirtualNetwork1** apparaît dans les résultats de recherche, sélectionnez-la.
 2. Sélectionnez **Peerings** (Appairages) sous **PARAMÈTRES**, puis **+ Ajouter**, comme indiqué dans l’image suivante :
 
-    ![Créer un appairage](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
+    ![Créer un peering](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
 3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
 
@@ -84,11 +84,11 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
     |Abonnement| Sélectionnez votre abonnement.|
     |Réseau virtuel|myVirtualNetwork2 : Pour sélectionner le réseau virtuel *myVirtualNetwork2*, sélectionnez **Réseau virtuel**, puis **myVirtualNetwork2**. Vous pouvez sélectionner un réseau virtuel figurant dans la même région ou dans une région différente.|
 
-    ![Paramètres d’appairage](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
+    ![Paramètres de peering](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
     **L’ÉTAT D’APPAIRAGE** est *Initié*, comme indiqué dans l’image suivante :
 
-    ![État d’appairage](./media/tutorial-connect-virtual-networks-portal/peering-status.png)
+    ![État de peering](./media/tutorial-connect-virtual-networks-portal/peering-status.png)
 
     Si vous ne voyez pas l’état, actualisez votre navigateur.
 
@@ -100,7 +100,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
     |Nom|myVirtualNetwork2-myVirtualNetwork1|
     |Réseau virtuel|myVirtualNetwork1|
 
-    **L’ÉTAT D’APPAIRAGE** est *Connecté*. Azure a également changé l’état *Initié* de l’appairage *myVirtualNetwork2-myVirtualNetwork1* en *Connecté*. L’appairage de réseaux virtuels n’est pas entièrement établi tant que l’état d’appairage pour les deux réseaux virtuels n’est pas *Connecté*. 
+    **L’ÉTAT D’APPAIRAGE** est *Connecté*. Azure a également changé l’état *Initié* du peering *myVirtualNetwork2-myVirtualNetwork1* en *Connecté*. Le peering de réseaux virtuels n’est pas entièrement établi tant que l’état de peering pour les deux réseaux virtuels n’est pas *Connecté*. 
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
@@ -184,6 +184,6 @@ Quand vous n’avez plus besoin du groupe de ressources, supprimez-le ainsi que 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à connecter deux réseaux situés dans la même région Azure à l’aide de l’appairage de réseaux virtuels. Vous pouvez également appairer des réseaux virtuels situés dans des [régions différentes](virtual-network-manage-peering.md#cross-region) et dans des [abonnements Azure différents](create-peering-different-subscriptions.md#portal). Vous pouvez aussi créer des [conceptions réseau hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec l’appairage. Pour en savoir plus sur l’appairage de réseaux virtuels, consultez [Aperçu de présentation de l’appairage de réseaux virtuels](virtual-network-peering-overview.md) et [Gérer les appairages de réseau virtuels](virtual-network-manage-peering.md).
+Dans ce tutoriel, vous avez appris à connecter deux réseaux situés dans la même région Azure à l’aide du peering de réseaux virtuels. Vous pouvez également appairer des réseaux virtuels situés dans des [régions différentes](virtual-network-manage-peering.md#cross-region) et dans des [abonnements Azure différents](create-peering-different-subscriptions.md#portal). Vous pouvez aussi créer des [conceptions réseau hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec le peering. Pour en savoir plus sur le peering de réseaux virtuels, consultez [Aperçu de présentation du peering de réseaux virtuels](virtual-network-peering-overview.md) et [Gérer les peerings de réseau virtuels](virtual-network-manage-peering.md).
 
 Pour connecter votre propre ordinateur à un réseau virtuel via un VPN et interagir avec des ressources d’un réseau virtuel ou de réseaux virtuels appairés, consultez [Connecter votre ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

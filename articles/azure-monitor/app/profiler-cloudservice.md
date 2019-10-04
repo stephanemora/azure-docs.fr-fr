@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 8ad472b9c92e3bc2164146191a63985fd26becab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 93392e379cbb03508fefc1877d5d50e04436b79c
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492513"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737227"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profiler des services cloud Azure en production avec Application Insights
 
@@ -29,11 +29,11 @@ Vous pouvez aussi déployer Application Insights Profiler sur ces services :
 Application Insights Profiler est installé avec l’extension Diagnostics Azure. Vous devez simplement configurer Diagnostics Azure pour installer Profiler et envoyer des profils à votre ressource Application Insights.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Activer Profiler pour Azure Cloud Services
-1. Veillez à utiliser [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou ultérieur. Il suffit de confirmer que les fichiers *ServiceConfiguration\*.cscfg* ont une valeur `osFamily` au moins égale à « 5 ».
+1. Veillez à utiliser [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou une version plus récente. Si vous utilisez la famille OS 4, vous devez installer .NET Framework 4.6.1 ou une version plus récente avec une [tâche de démarrage](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-install-dotnet). La famille OS 5 comprend une version compatible de .NET Framework par défaut. 
 
 1. Ajoutez le [SDK Application Insights à Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-    **Le bogue dans le profileur fourni avec le Diagnostics Windows AZURE pour les Services Cloud a été résolu.** La dernière version de WAD (1.12.2.0) pour les Services Cloud fonctionne avec toutes les versions récentes du SDK d’application Insights. Hôtes de Service cloud met à niveau WAD automatiquement, mais il n’est pas immédiate. Pour forcer une mise à niveau, vous pouvez redéployer votre service ou redémarrer le nœud.
+    **Le bogue du profileur fourni avec WAD pour les Services cloud a été corrigé.** La dernière version de WAD (1.12.2.0) pour les Services cloud fonctionne avec toutes les versions récentes du kit de développement logiciel (SDK) App Insights. Les hôtes des Services cloud mettent automatiquement à niveau WAD, mais ce n'est pas immédiat. Pour forcer une mise à niveau, vous pouvez redéployer votre service ou redémarrer le nœud.
 
 1. Effectuer le suivi des requêtes avec Application Insights :
 
@@ -41,9 +41,9 @@ Application Insights Profiler est installé avec l’extension Diagnostics Azure
 
     * Pour les rôles de travail, [ajoutez du code pour suivre les demandes](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json).
 
-1. Configurer l’extension Azure Diagnostics pour activer Profiler :
+1. Configurez l'extension Diagnostics Azure pour activer Profiler :
 
-    a. Recherchez le fichier *diagnostics.wadcfgx* [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) pour votre rôle d’application, comme indiqué ici :  
+    a. Recherchez le fichier *diagnostics.wadcfgx*[Diagnostics Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) pour votre rôle d’application, comme indiqué ici :  
 
       ![Recherche du fichier config de diagnostics](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 

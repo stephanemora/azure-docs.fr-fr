@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085318"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694922"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -36,7 +36,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps 
 
-Pour effectuer les étapes de ce tutoriel, vous devez tout d’abord lire [Gérer le compte et les clés](how-to-manage-account-keys.md) afin de créer et de gérer votre abonnement de compte avec le niveau tarifaire S1.
+Pour effectuer les étapes de ce tutoriel, suivez les instructions mentionnées dans [Gérer le compte](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin d’obtenir la clé primaire d’abonnement pour votre compte.
 
 ## <a name="upload-geofences"></a>Charger des limites géographiques
 
@@ -56,7 +56,7 @@ Ouvrez l’application Postman et suivez les étapes pour charger la limite géo
     
     Dans le chemin d’URL, le paramètre GEOJSON représente le format des données en cours de chargement.
 
-3. Cliquez sur **Params**, puis entrez les paires clé/valeur suivantes à utiliser pour l’URL de la requête POST. Remplacez la valeur subscription-key par votre clé d’abonnement Azure Maps.
+3. Cliquez sur **Params**, puis entrez les paires clé/valeur suivantes à utiliser pour l’URL de la requête POST. Remplacez la valeur subscription-key par votre clé primaire d’abonnement Azure Maps.
    
     ![Paramètres clé/valeur dans Postman](./media/tutorial-geofence/postman-key-vals.png)
 
@@ -148,10 +148,24 @@ Ouvrez l’application Postman et suivez les étapes pour charger la limite géo
    }
    ```
 
-5. Cliquez sur Send (Envoyer), puis examinez l’en-tête de la réponse. L’en-tête d’emplacement contient l’URI permettant d’accéder aux données ou de les télécharger pour une utilisation ultérieure. Il contient également la valeur unique `udId` pour les données chargées.
+5. Cliquez sur Send (Envoyer), puis examinez l’en-tête de la réponse. Quand une requête réussit, l’en-tête **Location** (Emplacement) contient l’URI d’état qui sert à vérifier l’état actuel de la requête de chargement. L’URI d’état sera au format suivant. 
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   ```
+
+6. Copiez votre URI d’état et ajoutez-lui un paramètre `subscription-key`. La valeur de ce paramètre doit correspondre à la clé d’abonnement de votre compte Azure Maps. Le format de l’URI d’état doit être semblable à celui ci-dessous :
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+7. Pour obtenir la valeur `udId`, ouvrez un nouvel onglet dans l’application Postman, sélectionnez la méthode HTTP GET sous l’onglet Builder (Générateur), puis effectuez une requête GET sur l’URI d’état. Si le chargement de données réussit, vous recevez un udId dans le corps de la réponse. Copiez la valeur udId pour une utilisation ultérieure.
+
+   ```JSON
+   {
+    "udid" : "{udId}"
+   }
    ```
 
 ## <a name="set-up-an-event-handler"></a>Configurer un gestionnaire d’événements

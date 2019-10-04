@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 871cca9fe2b3ff50202feb4925a267b93d432700
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20cb5f65ed33bc3e737bbba902ed2d891eaf83be
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842071"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823370"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Démarrage rapide : Effectuer des recherches sur le web à l'aide de l'API REST Recherche Web Bing et de C#
 
@@ -26,7 +26,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 
 Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage rapide :
 
-* Windows : [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* Windows : [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/downloads/)
 * Linux/macOS : [Mono](https://www.mono-project.com/)  
 * Une clé d’abonnement
 

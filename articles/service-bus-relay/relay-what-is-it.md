@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 964a472a5c0a6350090f83755747a12e89a1650e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776306"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422918"
 ---
 # <a name="what-is-azure-relay"></a>Qu’est-ce qu’Azure Relay ?
 Le service Azure Relay vous permet d’exposer en toute sécurité les services exécutés dans votre réseau d’entreprise sur le cloud public. Vous pouvez le faire sans ouvrir de port sur votre pare-feu ni apporter de changements intrusifs à votre infrastructure réseau d’entreprise. 
@@ -56,7 +56,7 @@ Pour plus d’informations sur le protocole Connexions hybrides, consultez le [g
 > Connexions hybrides d’Azure Relay remplace l’ancienne fonctionnalité Connexions hybrides de BizTalk Services. La fonctionnalité Connexions hybrides dans BizTalk Services repose sur WCF Relay d’Azure Service Bus. La fonctionnalité Connexions hybrides dans Azure Relay vient compléter la fonctionnalité de WCF Relay existante. Ces deux fonctionnalités du service (WCF Relay et Connexions hybrides) coexistent dans le service Azure Relay. Elles partagent une passerelle commune, mais ont des implémentations différentes.
 
 ## <a name="wcf-relay"></a>Relais WCF
-WCF Relay fonctionne avec l’ensemble de .NET Framework et pour WCF. Vous établissez une connexion entre votre service local et le service de relais à l’aide d’une suite de liaisons de « relais » WCF. Les liaisons de relais mappent à de nouveaux éléments de liaison de transport destinés à créer des composants de canal WCF qui s’intègrent à Service Bus dans le cloud. Pour plus d’informations, consultez la page [Prise en main des relais WCF](relay-wcf-dotnet-get-started.md).
+WCF Relay fonctionne avec l’ensemble de .NET Framework et pour WCF. Vous établissez une connexion entre votre service local et le service de relais à l’aide d’une suite de liaisons de « relais » WCF. Les liaisons de relais mappent à de nouveaux éléments de liaison de transport destinés à créer des composants de canal WCF qui s’intègrent à Service Bus dans le cloud. Pour plus d’informations, consultez la page [Prise en main des relais WCF](service-bus-relay-tutorial.md).
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>Connexions hybrides et Relais WCF
 Connexions hybrides et WCF Relay permettent une connexion sécurisée aux actifs existants au sein d’un réseau d’entreprise. L’utilisation de l’un par rapport à l’autre dépend de vos besoins particuliers, comme décrit dans le tableau suivant :
@@ -82,7 +82,7 @@ Le diagramme suivant illustre comment les requêtes de relais entrantes sont gé
 5. La passerelle transfère la requête de connexion à la passerelle appropriée mentionnée dans le magasin de passerelles. 
 6. La passerelle envoie une requête au client d’écoute pour qu’il crée un canal temporaire au nœud de passerelle le plus proche du client d’envoi. 
 7. Le client d’écoute crée un canal temporaire vers la passerelle la plus proche du client d’envoi. Maintenant que la connexion entre les clients est établie via une passerelle, ils peuvent échanger des messages entre eux. 
-8. La passerelle transfère tous les messages à partir du client écoute pour le client d’envoi. 
+8. La passerelle transfère tous les messages du client d’écoute au client d’envoi. 
 9. La passerelle transfère tous les messages du client d’envoi au client d’écoute.  
 
 ## <a name="next-steps"></a>Étapes suivantes

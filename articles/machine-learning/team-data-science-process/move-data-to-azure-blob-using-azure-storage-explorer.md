@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8ec4289c641b3f140950575ac2f8016f894f2c9c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57879852"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61430751"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>Déplacer des données vers et depuis le Stockage Blob Azure à l’aide de l’Explorateur de stockage Azure
 Azure Storage Explorer est un outil Microsoft gratuit qui vous permet d’exploiter les données Azure Storage sous Windows, macOS et Linux. Cette rubrique décrit comment l’utiliser pour charger et télécharger des données depuis le stockage d’objets blob Azure. Vous pouvez télécharger l’outil sur le site [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
@@ -31,7 +31,7 @@ Azure Storage Explorer est un outil Microsoft gratuit qui vous permet d’exploi
 > 
 > 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Ce document suppose que vous disposez d’un abonnement Azure, d’un compte de stockage et de la clé de stockage correspondante pour ce compte. Avant de charger ou télécharger des données, vous devez connaître le nom et la clé de votre compte Azure Storage. 
 
 * Pour configurer un abonnement Azure, consultez [Essai gratuit pendant un mois](https://azure.microsoft.com/pricing/free-trial/).
@@ -44,7 +44,7 @@ Ce document suppose que vous disposez d’un abonnement Azure, d’un compte de 
 Les étapes suivantes expliquent comment charger ou télécharger des données à l’aide d’Azure Storage Explorer. 
 
 1. Lancez Microsoft Azure Storage Explorer.
-2. Pour ouvrir l’Assistant **Connectez-vous à votre compte...**, sélectionnez l’icône **Paramètres de compte Azure**, puis **Ajouter un compte** et tapez vos informations d’identification. ![Ajouter un compte de stockage Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
+2. Pour ouvrir l’Assistant **Connectez-vous à votre compte...** , sélectionnez l’icône **Paramètres de compte Azure**, puis **Ajouter un compte** et tapez vos informations d’identification. ![Ajouter un compte de stockage Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
 3. Pour ouvrir l’Assistant **Connectez-vous à Azure Storage**, sélectionnez l’icône **Se connecter à Azure Storage**. ![Cliquer sur « Se connecter au Stockage Azure »](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
 4. Entrez la clé d’accès de votre compte de stockage Azure dans l’Assistant **Connectez-vous à Azure Storage**, puis cliquez sur **Suivant**. ![Saisir une clé d’accès au compte de stockage Azure](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
 5. Entrez le nom du compte de stockage dans la zone **Nom du compte**, puis sélectionnez **Suivant**. ![Attacher un stockage externe](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: cab04a7eafbc21e0d26cd5a287f3dbee8d3d22b7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: d20ef44fd5c117e4e3a568542bb022c451ac23fc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "31805098"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176989"
 ---
 ## <a name="scenario"></a>Scénario
 Ce document décrit pas à pas un déploiement qui utilise plusieurs cartes d’interface réseau dans des machines virtuelles dans le cadre d’un scénario spécifique. Dans ce scénario, vous avez une charge de travail IaaS à deux niveaux hébergée dans Azure. Chaque niveau est déployé dans son propre sous-réseau dans un réseau virtuel (VNet). Le niveau frontal est composé de plusieurs serveurs web, regroupés dans un équilibreur de charge configuré pour la haute disponibilité. Le niveau principal est constitué de plusieurs serveurs de base de données. Ces serveurs de base de données sont déployés avec deux cartes d’interface réseau chacun, l’une pour l’accès à la base de données et l’autre pour la gestion. Le scénario inclut également les groupes de sécurité réseau (NSG) pour contrôler le trafic autorisé sur chaque sous-réseau, ainsi que la carte d’interface réseau dans le déploiement. La figure ci-après illustre l’architecture de base de ce scénario :

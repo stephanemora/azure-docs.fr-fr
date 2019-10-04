@@ -16,11 +16,11 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258910"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60290786"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Guide pratique de l’utilisation d’identités managées pour ressources Azure sur une machine virtuelle Azure afin d’acquérir un jeton d’accès 
 
@@ -30,7 +30,7 @@ Les identités managées pour ressources Azure fournissent des services Azure av
 
 Cet article fournit divers exemples de code et de script pour l’acquisition de jeton, ainsi que des conseils sur les rubriques importantes telles que la gestion des erreurs HTTP et des expirations de jeton. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -43,7 +43,7 @@ Si vous envisagez d’utiliser les exemples de Azure PowerShell dans cet article
 > [!IMPORTANT]
 > - La limite de sécurité des identités managées pour ressources Azure est la ressource sur laquelle elles sont utilisées. Tous les scripts et codes exécutés sur une machine virtuelle peuvent demander et récupérer des jetons pour les identités disponibles sur celle-ci. 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Une application cliente peut demander un [jeton d’accès pour l’application uniquement](../develop/developer-glossary.md#access-token) des identités managées pour ressources Azure afin d’accéder à une ressource donnée. Le jeton est [basé sur le principal du service des identités managées pour ressources Azure](overview.md#how-does-it-work). Par conséquent, il n’est pas nécessaire que le client s’inscrive pour obtenir un jeton d’accès sous son propre principal du service. Le jeton peut être utilisé comme un jeton du porteur dans [les appels de service à service nécessitant des informations d’identification du client](../develop/v1-oauth2-client-creds-grant-flow.md).
 
@@ -79,7 +79,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | Un champ d’en-tête de requête HTTP, requis par les identités managées pour ressources Azure afin d’atténuer une attaque par falsification de requête côté serveur (SSRF). Cette valeur doit être définie sur « true », en minuscules. |
 | `object_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément object_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|
 | `client_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément client_id de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur.|
-| `mi_res_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant le mi_res_id (ID de ressource Azure) de l’identité gérée que vous souhaitez que le jeton pour. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur. |
+| `mi_res_id` | (Facultatif) Un paramètre de chaîne de requête, indiquant l’élément mi_res_id (ID de la ressource Azure) de l’identité managée pour laquelle vous souhaitez obtenir le jeton. Obligatoire, si votre machine virtuelle possède plusieurs identités managées affectées par l’utilisateur. |
 
 Exemple de requête utilisant le point de terminaison d’extension de machine virtuelle d’identités managées pour ressources Azure *(dont l’abandon est prévu en janvier 2019)* :
 
@@ -373,7 +373,7 @@ Cette section documente les réponses possibles aux erreurs. Un état « 200 OK 
 
 | Code d’état | Error | Description de l’erreur | Solution |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Demande incorrecte | invalid_resource | AADSTS50001 : L’application nommée *\<URI\>* est introuvable dans le tenant nommé *\<TENANT-ID\>*. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.\ | (Linux uniquement) |
+| 400 Demande incorrecte | invalid_resource | AADSTS50001 : L’application nommée *\<URI\>* est introuvable dans le tenant nommé *\<TENANT-ID\>* . Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.\ | (Linux uniquement) |
 | 400 Demande incorrecte | bad_request_102 | En-tête de métadonnées requis non spécifié | Le champ d’en-tête de métadonnées `Metadata` est absent de votre requête, ou bien il n’est pas correctement formaté. La valeur spécifiée doit être `true`, en minuscules. Un « Exemple de requête » est disponible à la section REST précédente.|
 | 401 Non autorisé | unknown_source | *\<URI\>* de source inconnue | Vérifiez que votre URI de requête HTTP GET est correctement mise en forme. La partie `scheme:host/resource-path` doit être spécifiée comme `http://localhost:50342/oauth2/token`. Un « Exemple de requête » est disponible à la section REST précédente.|
 |           | invalid_request | Il manque un paramètre nécessaire à la requête, elle comprend une valeur de paramètre non valide, plus d’un paramètre à la fois, ou bien elle est incorrecte. |  |
@@ -393,7 +393,7 @@ Pour une nouvelle tentative, nous vous recommandons la stratégie suivante :
 
 | **Stratégie de nouvelle tentative** | **Paramètres** | **Valeurs** | **Fonctionnement** |
 | --- | --- | --- | --- |
-|ExponentialBackoff |Nombre de tentatives<br />Temporisation min<br />Temporisation max<br />Temporisation delta<br />Première nouvelle tentative rapide |5.<br />0 seconde<br />60 secondes<br />2 secondes<br />false |Tentative 1 - délai 0 s<br />Tentative 2 - délai ~2 s<br />Tentative 3 - délai ~6 s<br />Tentative 4 - délai ~14 s<br />Tentative 5 - délai ~30 s |
+|ExponentialBackoff |Nombre de tentatives<br />Temporisation min<br />Temporisation max<br />Temporisation delta<br />Première nouvelle tentative rapide |5\.<br />0 seconde<br />60 secondes<br />2 secondes<br />false |Tentative 1 - délai 0 s<br />Tentative 2 - délai ~2 s<br />Tentative 3 - délai ~6 s<br />Tentative 4 - délai ~14 s<br />Tentative 5 - délai ~30 s |
 
 ## <a name="resource-ids-for-azure-services"></a>ID de ressource pour les services Azure
 

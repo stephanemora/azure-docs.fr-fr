@@ -1,31 +1,25 @@
 ---
-title: Entités de données | Microsoft Docs
+title: Entités de données
 description: Une vue d’ensemble des entités de données.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 579856ab87aaf8d051f2e3c161bb2d0e2f693ed5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.author: pabutler
+ms.openlocfilehash: a382f9b3ce08bba266311c2cc1d5f868f1bc3143
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446576"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64934929"
 ---
 # <a name="data-entities"></a>Entités de données
 
 Cet article définit et fournit une vue d’ensemble des entités de données. Il fournit des informations sur les fonctionnalités des entités de données, les scénarios qu’ils prennent en charge, les catégories utilisées, ainsi que les méthodes permettant de les créer.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Une entité de données est une abstraction de l’implémentation physique des tables de base de données. Par exemple, dans des tables normalisées, une grande partie des données de chaque client peut être stockée dans une table client, et le reste peut-être réparti sur un petit ensemble de tables associées. Dans ce cas, l’entité de données pour le concept de client apparaît sous la forme d’une vue dénormalisée, dans laquelle chaque ligne contient toutes les données de la table client et de ses tables associées. Une entité de données encapsule un concept métier dans un format qui facilite le développement et l’intégration. La nature abstraite d’une entité de données peut simplifier le développement et la personnalisation d’applications. Par la suite, l’abstraction isole également code d’application de l’activité inévitable des tables physiques entre les versions.
 

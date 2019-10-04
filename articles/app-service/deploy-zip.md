@@ -9,17 +9,17 @@ editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
-ms.author: cephalin;sisirap
+ms.date: 08/12/2019
+ms.author: cephalin
+ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: a48a72fe36b7925936758e844d959968ea921c65
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 83951f6408094b8d1e04d19650a5f2ef596be988
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544056"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70801153"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Déployer votre application sur Azure App Service avec un fichier ZIP ou WAR
 
@@ -31,7 +31,7 @@ Ce déploiement de fichier ZIP utilise le même service Kudu que celui qui pilot
 - Option pour activer le processus de génération par défaut, qui inclut la restauration de package
 - [Personnalisation du déploiement](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), notamment exécution de scripts de déploiement  
 - Journaux d’activité de déploiement 
-- Une limite de taille de 2 048 Mo.
+- La taille de fichier ne doit pas dépasser 2 048 Mo.
 
 Pour plus d’informations, consultez la [documentation Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
@@ -39,7 +39,7 @@ Le fichier [WAR](https://wikipedia.org/wiki/WAR_(file_format)) est déployé sur
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour accomplir les étapes décrites dans cet article :
 
@@ -66,6 +66,7 @@ Compress-Archive -Path * -DestinationPath <file-name>.zip
 ``` 
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
+Le point de terminaison ci-dessus ne fonctionne pas pour App Services Linux. Envisagez plutôt d’utiliser FTP ou l’[API de déploiement ZIP](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment).
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Déployer le fichier ZIP avec Azure CLI
 
@@ -81,7 +82,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 Cette commande déploie les fichiers et répertoires du fichier ZIP vers votre dossier d’applications App Service par défaut (`\home\site\wwwroot`), puis redémarre l’application.
 
-Par défaut, le moteur de déploiement suppose qu’un fichier ZIP est prêt à s’exécuter en tant que-est et ne s’exécute pas l’automatisation de build. Pour activer la même build automation comme dans un [déploiement Git](deploy-local-git.md), définissez le `SCM_DO_BUILD_DURING_DEPLOYMENT` paramètre d’application en exécutant la commande suivante dans le [Cloud Shell](https://shell.azure.com):
+Par défaut, le moteur de déploiement suppose qu’un fichier ZIP est prêt à s’exécuter en l’état et n’effectue aucune automatisation de build. Pour permettre la même automatisation de build que dans un [déploiement Git](deploy-local-git.md), définissez le paramètre d’application `SCM_DO_BUILD_DURING_DEPLOYMENT` en exécutant la commande suivante dans [Azure Cloud Shell](https://shell.azure.com) :
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -95,29 +96,24 @@ Pour plus d’informations, consultez la [documentation Kudu](https://github.com
 
 ## <a name="deploy-war-file"></a>Déployer un fichier WAR
 
-Pour déployer un fichier WAR sur App Service, envoyez une requête POST à https://<app_name>.scm.azurewebsites.net/api/wardeploy. La requête POST doit contenir le fichier .war dans le corps du message. Les informations d’identification de déploiement pour votre application sont fournies dans la demande avec l’authentification de base HTTP. 
+Pour déployer un fichier WAR sur App Service, envoyez une requête POST à `https://<app_name>.scm.azurewebsites.net/api/wardeploy`. La requête POST doit contenir le fichier .war dans le corps du message. Les informations d’identification de déploiement pour votre application sont fournies dans la demande avec l’authentification de base HTTP.
 
 Pour l’authentification HTTP BASIC, vous avez besoin de vos informations d’identification de déploiement App Service. Pour découvrir comment définir les informations d’identification de votre déploiement, consultez [Définir et réinitialiser les informations d’identification de niveau utilisateur](deploy-configure-credentials.md#userscope).
 
 ### <a name="with-curl"></a>With cURL
 
-L’exemple suivant utilise l’outil cURL pour déployer un fichier .war. Remplacez les espaces réservés `<username>`, `<war_file_path>` et `<app_name>`. Quand vous y êtes invité par cURL, tapez le mot de passe.
+L’exemple suivant utilise l’outil cURL pour déployer un fichier .war. Remplacez les espaces réservés `<username>`, `<war-file-path>` et `<app-name>`. Quand vous y êtes invité par cURL, tapez le mot de passe.
 
 ```bash
-curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
+curl -X POST -u <username> --data-binary @"<war-file-path>" https://<app_name>.scm.azurewebsites.net/api/wardeploy
 ```
 
 ### <a name="with-powershell"></a>Avec PowerShell
 
-L’exemple suivant utilise [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) pour envoyer une requête qui contient le fichier .war. Remplacez les espaces réservés `<deployment_user>`, `<deployment_password>`, `<zip_file_path>` et `<app_name>`.
+L’exemple suivant utilise [Publish-AzWebapp](/powershell/module/az.websites/publish-azwebapp) pour charger le fichier .war. Remplacez les espaces réservés `<group-name>`, `<app-name>` et `<war-file-path>`.
 
 ```powershell
-$username = "<deployment_user>"
-$password = "<deployment_password>"
-$filePath = "<war_file_path>"
-$apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
-$base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
-Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
+Publish-AzWebapp -ResourceGroupName <group-name> -Name <app-name> -ArchivePath <war-file-path>
 ```
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]

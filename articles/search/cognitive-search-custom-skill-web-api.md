@@ -2,21 +2,19 @@
 title: Compétence de recherche cognitive personnalisée - Recherche Azure
 description: Étendre les fonctionnalités des compétences de recherche cognitive en appelant des API web
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seojan2018
-ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 89539d42e9ac9456c7ee971f6ea607b6b2c6befa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757320"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266323"
 ---
 # <a name="custom-web-api-skill"></a>Compétence API web personnalisée
 
@@ -26,6 +24,7 @@ La structure des charges utiles JSON est décrite plus bas dans ce document.
 
 > [!NOTE]
 > L’indexeur réessaie deux fois pour certains codes d’état HTTP standard retournés par l’API web. Ces codes d’état HTTP sont les suivants : 
+> * `502 Bad Gateway`
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
@@ -41,7 +40,7 @@ Les paramètres respectent la casse.
 | URI | URI de l’API web à laquelle la charge utile _JSON_ est envoyée. Seul le schéma d’URI **https** est autorisé |
 | httpMethod | Méthode à utiliser pour envoyer la charge utile. Les méthodes autorisées sont `PUT` ou `POST` |
 | httpHeaders | Collection de paires clé-valeur où les clés représentent les noms d’en-tête et les valeurs représentent les valeurs d’en-tête à envoyer à votre API web avec la charge utile. Les en-têtes suivants sont interdits dans cette collection : `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
-| timeout | (Facultatif) Si spécifié, indique le délai d’expiration pour le client http qui effectue l’appel d’API. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Par exemple, `PT60S` pour 60 secondes. S’il n’est pas défini, une valeur par défaut de 30 secondes est choisie. Le délai d’expiration peut être défini sur 90 secondes maximum et 1 seconde minimum. |
+| timeout | (Facultatif) Si spécifié, indique le délai d’expiration pour le client http qui effectue l’appel d’API. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Par exemple, `PT60S` pour 60 secondes. S’il n’est pas défini, une valeur par défaut de 30 secondes est choisie. Le délai d’expiration peut être défini sur 230 secondes maximum et 1 seconde minimum. |
 | batchSize | (Facultatif) Indique le nombre « d’enregistrements de données » (voir la structure de charge utile _JSON_ ci-dessous) à envoyer par appel d’API. S’il n’est pas défini, une valeur par défaut de 1000 est choisie. Nous vous recommandons d’utiliser ce paramètre pour avoir un compromis entre le débit d’indexation et la charge sur votre API |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
@@ -139,7 +138,7 @@ Elle suit toujours ces contraintes :
 
 ## <a name="sample-output-json-structure"></a>Exemple de structure JSON de sortie
 
-« output » correspond à la réponse renvoyée par votre API web. L’API web doit retourner uniquement une charge utile _JSON_ (vérifiée en examinant l’en-tête de réponse `Content-Type`) et doit satisfaire les contraintes suivantes :
+« output » correspond à la réponse renvoyée par votre API web. L’API web doit retourner uniquement une charge utile _JSON_ (vérifiée en examinant l’en-tête de réponse `Content-Type`) et doit satisfaire les contraintes suivantes :
 
 * Il doit y avoir une entité de niveau supérieur appelée `values` qui doit être un tableau d’objets.
 * Le nombre d’objets dans le tableau doit être le même que le nombre d’objets envoyés à l’API web.
@@ -205,4 +204,4 @@ Quand l’API web n’est pas disponible ou retourne une erreur HTTP, une erreur
 
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Ajouter une compétence personnalisée à la recherche cognitive](cognitive-search-custom-skill-interface.md)
-+ [Créer une compétence personnalisée à l’aide de l’API Traduire le texte](cognitive-search-create-custom-skill-example.md)
++ [Exemple : Création d’une compétence personnalisée pour la recherche cognitive](cognitive-search-create-custom-skill-example.md)

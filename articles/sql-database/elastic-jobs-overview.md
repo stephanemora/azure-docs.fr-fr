@@ -1,6 +1,6 @@
 ---
-title: Travaux de base de données élastiques SQL Azure | Microsoft Docs
-description: Configurer des travaux de base de données élastiques pour exécuter des scripts T-SQL (Transact-SQL) sur une ou plusieurs bases de données SQL Azure
+title: Travaux de base de données élastique SQL Azure (préversion) | Microsoft Docs
+description: Configurer des travaux de base de données élastique (préversion) pour exécuter des scripts T-SQL (Transact-SQL) sur une ou plusieurs bases de données Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 3a0aa6e28ea4c40d5cad5ba99edec344c7979acf
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264418"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935093"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Créer, configurer et gérer des travaux élastiques
 
@@ -76,7 +75,7 @@ La préversion est actuellement limitée à 100 travaux simultanés.
 
 Pour éviter la surcharge des ressources durant l’exécution de travaux sur des bases de données dans un pool élastique SQL, vous pouvez configurer les travaux de manière à limiter le nombre de bases de données sur lesquelles un travail peut s’exécuter simultanément.
 
-Définir le nombre de bases de données simultanées une tâche s’exécute sur en définissant le `sp_add_jobstep` procédure stockée `@max_parallelism` paramètre dans T-SQL, ou `Add-AzSqlElasticJobStep -MaxParallelism` dans PowerShell.
+Définissez le nombre de bases de données simultanées sur lesquelles un travail s’exécute en définissant le paramètre `@max_parallelism` de la procédure stockée `sp_add_jobstep`dans T-SQL, ou `Add-AzSqlElasticJobStep -MaxParallelism` dans PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Bonnes pratiques relatives à la création de travaux
 

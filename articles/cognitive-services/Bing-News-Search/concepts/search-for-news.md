@@ -1,6 +1,6 @@
 ---
 title: Rechercher des actualités avec l’API Recherche d’actualités Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment envoyer des requêtes de recherche pour trouver des articles d’actualités générales, des rubriques tendance et des gros titres.
 services: cognitive-services
 author: swhite-msft
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
-ms.openlocfilehash: 612a3961d901f53147ab2f3cfeea20f9c11d96b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b70cf50bb33ca7962116586a347c508b15abcd0c
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087854"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423872"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Rechercher des actualités avec l’API Recherche d’actualités Bing
 
@@ -27,7 +27,7 @@ L’API Recherche d’actualités Bing recherche et retourne naturellement des a
 
 Si vous fournissez une zone de recherche dans laquelle l’utilisateur entre son terme de recherche, utilisez [l’API Suggestion automatique Bing](../../bing-autosuggest/get-suggested-search-terms.md) pour améliorer l’expérience. À mesure que l’utilisateur tape des termes de recherche, l’API suggère des chaînes de requête.
 
-Une fois que l’utilisateur a entré son terme de recherche, encodez-le sous forme d’URL avant de définir le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query). Par exemple, si l’utilisateur entre *sailing dinghies*, définissez `q` avec la valeur `sailing+dinghies` ou `sailing%20dinghies`.
+Une fois que l’utilisateur a entré son terme de recherche, encodez-le sous forme d’URL avant de définir le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Par exemple, si l’utilisateur entre *sailing dinghies*, définissez `q` avec la valeur `sailing+dinghies` ou `sailing%20dinghies`.
 
 ## <a name="get-general-news"></a>Obtenir des actualités générales
 
@@ -51,7 +51,7 @@ Pour obtenir des actualités à partir d’un domaine spécifique, utilisez l’
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-Le code suivant affiche la réponse à la requête précédente. Pour respecter les [conditions d’utilisation et d’affichage](../useanddisplayrequirements.md) des API de recherche Bing, vous devez afficher chaque article d’actualités dans l’ordre dans lequel il apparaît dans la réponse. Si l’article comporte un cluster d’articles, vous devez indiquer qu’il existe des articles associés et les afficher sur demande.
+L’exemple de code JSON suivant affiche la réponse à la requête précédente. Pour respecter les [conditions d’utilisation et d’affichage](../useanddisplayrequirements.md) des API de recherche Bing, vous devez afficher chaque article d’actualités dans l’ordre dans lequel il apparaît dans la réponse. Si l’article comporte un cluster d’articles, vous devez indiquer qu’il existe des articles associés et les afficher sur demande.
 
 ```json
 {
@@ -99,15 +99,15 @@ Le code suivant affiche la réponse à la requête précédente. Pour respecter 
 }
 ```
 
-La réponse de type [actualités](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#news) répertorie les articles d’actualités que Bing considère comme pertinents vis-à-vis de la requête. Le champ `totalEstimatedMatches` contient une estimation du nombre d’articles disponibles pour visualisation. Pour plus d’informations sur la pagination des articles, consultez [Pagination des actualités](../paging-news.md).
+La réponse de type [actualités](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#news) répertorie les articles d’actualités que Bing considère comme pertinents vis-à-vis de la requête. Le champ `totalEstimatedMatches` contient une estimation du nombre d’articles disponibles pour visualisation. Pour plus d’informations sur la pagination des articles, consultez [Pagination des actualités](../paging-news.md).
 
-Chaque [article d’actualités](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference#newsarticle) de la liste inclut le nom de l’article, une description et l’URL de l’article sur le site web de l’hôte. Si l’article contient une image, l’objet inclut une miniature de l’image. Utilisez `name` et `url` pour créer un lien hypertexte permettant à l’utilisateur d’accéder à l’article d’actualité sur le site de l’hôte. Si l’article inclut une image, rendez-la également interactive en utilisant `url`. Veillez à utiliser `provider` pour attribuer l’article.
+Chaque [article d’actualités](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v5-reference#newsarticle) de la liste inclut le nom de l’article, une description et l’URL de l’article sur le site web de l’hôte. Si l’article contient une image, l’objet inclut une miniature de l’image. Utilisez `name` et `url` pour créer un lien hypertexte permettant à l’utilisateur d’accéder à l’article d’actualité sur le site de l’hôte. Si l’article inclut une image, rendez-la également interactive en utilisant `url`. Veillez à utiliser `provider` pour attribuer l’article.
 
 Si Bing peut déterminer la catégorie d’un article d’actualités, l’article inclut le champ `category`.
 
 ## <a name="get-todays-top-news"></a>Obtenir les principales actualités du jour
 
-Pour obtenir les principales actualités du jour, vous devez effectuer la même requête que pour obtenir des actualités générales, mais sans définir `q`.
+Pour obtenir les articles les plus populaires du jour, vous pouvez envoyer la même demande d’actualités générales qu’auparavant, en laissant le paramètre `q` non défini.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-La réponse à une requête portant sur les principales actualités est presque identique à celle concernant les actualités générales. Toutefois, la réponse `news` n’inclut pas le champ `totalEstimatedMatches`, car il existe un nombre fixe de résultats. Le nombre d’articles d’actualités principales peut varier en fonction du cycle d’actualités. Veillez à utiliser `provider` pour attribuer l’article.
+La réponse à une requête portant sur les principales actualités est presque identique à celle concernant les actualités générales. Toutefois, la réponse `news` n’inclut pas le champ `totalEstimatedMatches`, car il existe un nombre fixe de résultats. Le nombre d’articles d’actualités principales peut varier en fonction du cycle d’actualités. Veillez à utiliser le champ `provider` pour attribuer l’article.
 
 ## <a name="get-news-by-category"></a>Obtenir des actualités par catégorie
 
@@ -135,7 +135,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Utilisez le paramètre de requête [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) pour spécifier la catégorie d’articles à obtenir. Pour connaître la liste des catégories d’actualités que vous pouvez spécifier, consultez [News Categories by Market](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-categories-by-market).
+Utilisez le paramètre de requête [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) pour spécifier la catégorie d’articles à obtenir. Pour connaître la liste des catégories d’actualités que vous pouvez spécifier, consultez [News Categories by Market](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news-categories-by-market).
 
 La réponse à une requête portant sur les actualités par catégorie est presque identique à celle concernant les actualités générales. Toutefois, les articles appartiennent tous à la catégorie spécifiée.
 
@@ -153,11 +153,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-N’incluez pas le paramètre de requête [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category).
+N’incluez pas le paramètre de requête [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category).
 
 La réponse à une requête portant sur les titres de l’actualité est identique à celle concernant les principales actualités du jour. Si l’article est un article de « gros titre », son champ `headline` est défini sur **true**.
 
-Par défaut, la réponse inclut jusqu’à 12 articles de gros titre. Pour changer le nombre d’articles de gros titre à retourner, spécifiez le paramètre de requête [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headlinecount). La réponse inclut également jusqu’à quatre articles « hors gros titre » par catégorie d’actualités.
+Par défaut, la réponse inclut jusqu’à 12 articles de gros titre. Pour changer le nombre d’articles de gros titre à retourner, spécifiez le paramètre de requête [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headlinecount). La réponse inclut également jusqu’à quatre articles « hors gros titre » par catégorie d’actualités.
 
 La réponse comptabilise les clusters comme un seul article. Un cluster pouvant avoir plusieurs articles, la réponse peut inclure plus de 12 articles de gros titre et plus de quatre articles hors gros titre par catégorie.
 
@@ -223,7 +223,7 @@ Le code JSON suivant est la réponse à la requête précédente. Chaque article
 
 ## <a name="getting-related-news"></a>Obtention des actualités associées
 
-S’il existe d’autres articles associés à un article d’actualités, celui-ci peut-être inclure le champ [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle-clusteredarticles). L’exemple suivant montre un article avec des articles en cluster.
+S’il existe d’autres articles associés à un article d’actualités, celui-ci peut-être inclure le champ [clusteredArticles](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle-clusteredarticles). L’exemple suivant montre un article avec des articles en cluster.
 
 ```json
     {

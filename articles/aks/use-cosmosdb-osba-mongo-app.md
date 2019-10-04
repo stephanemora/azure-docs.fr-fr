@@ -11,11 +11,11 @@ ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker pour Azure
 ms.openlocfilehash: 46fa5564e5dd3429f812b263295044d867a8511c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991979"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61028410"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>Intégrer une application MongoDB existante avec l’API Azure Cosmos DB pour MongoDB et Open Service Broker pour Azure (OSBA)
 
@@ -23,7 +23,7 @@ Azure Cosmos DB est un service de base de données multimodèle distribué à l�
 
 Dans cet article, vous allez prendre une application Java qui utilise une base de données MongoDB et la mettre à jour de façon à utiliser une base de données Cosmos DB à l’aide d’Open Service Broker pour Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de continuer, vous devez avoir effectué les opérations suivantes :
     
@@ -189,7 +189,7 @@ Accédez à `http://localhost:8080` dans votre navigateur. Notez que les donnée
 
 ## <a name="run-your-application-on-your-aks-cluster"></a>Exécuter votre application sur votre cluster AKS
 
-Vous pouvez utiliser [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) pour déployer l’application sur votre cluster AKS. Les espaces de développement Azure vous permettent de générer des artefacts, tels que les graphiques Dockerfiles et Helm et de déployer et exécuter une application dans AKS.
+Vous pouvez utiliser [Azure Dev Spaces](../dev-spaces/azure-dev-spaces.md) pour déployer l’application sur votre cluster AKS. Azure Dev Spaces vous aide à générer des artefacts, tels que des fichiers Dockerfile et charts Helm, et à déployer et exécuter une application dans AKS.
 
 Pour activer Azure Dev Spaces dans votre cluster AKS :
 
@@ -204,7 +204,7 @@ Utilisez les outils Azure Dev Spaces pour préparer votre application à s’ex�
 azds prep --public
 ```
 
-Cette commande génère plusieurs artefacts, notamment un dossier *charts/*, qui est votre graphique Helm, à la racine du projet. Cette commande ne peut pas générer de *Dockerfile* pour ce projet spécifique ; vous devez donc le créer.
+Cette commande génère plusieurs artefacts, notamment un dossier *charts/* , qui est votre graphique Helm, à la racine du projet. Cette commande ne peut pas générer de *Dockerfile* pour ce projet spécifique ; vous devez donc le créer.
 
 Créez un fichier à la racine de votre projet nommé *Dockerfile* avec ce contenu :
 
@@ -267,7 +267,7 @@ press Ctrl+C to detach
 ...
 ```
 
-Accédez à l’URL affichée dans les journaux d’activité. Dans l’exemple précédent, vous utiliseriez *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/*. 
+Accédez à l’URL affichée dans les journaux d’activité. Dans l’exemple précédent, vous utiliseriez *http://spring-music.1234567890abcdef1234.eastus.aksapp.io/* . 
 
 Vérifiez que l’application est visible, avec vos modifications.
 

@@ -4,23 +4,22 @@ description: Commandes de base d’Azure Classic CLI vous permettant de commence
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: rclaus
-ms.openlocfilehash: 46413c53fc296782aa635d6dcd7b297db3a837a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a3afc514cba28e0fd2facb9476503b542077d29
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960411"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083979"
 ---
 # <a name="common-azure-classic-cli-commands-on-linux-and-mac"></a>Commandes courantes d’Azure Classic CLI sur Mac et Linux
 [!INCLUDE [virtual-machines-common-cli-manage-nodejs](../../../includes/virtual-machines-common-cli-manage-nodejs.md)]

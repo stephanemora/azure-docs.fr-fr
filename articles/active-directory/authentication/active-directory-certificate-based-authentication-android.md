@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60416169"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Authentification par certificat Azure Active Directory sur Android
 
@@ -35,16 +35,16 @@ Cette fonctionnalité est disponible en version préliminaire dans les plans Off
 
 | Applications | Support |
 | --- | --- |
-| Application Azure Information Protection |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Portail d’entreprise Intune |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Microsoft Teams |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| OneNote |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| OneDrive |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Outlook |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Power BI |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Skype Entreprise |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Word / Excel / PowerPoint |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
-| Yammer |![Case à cocher ce qui signifie la prise en charge pour cette application][1] |
+| Application Azure Information Protection |![Coche qui signifie la prise en charge de cette application][1] |
+| Portail d’entreprise Intune |![Coche qui signifie la prise en charge de cette application][1] |
+| Microsoft Teams |![Coche qui signifie la prise en charge de cette application][1] |
+| OneNote |![Coche qui signifie la prise en charge de cette application][1] |
+| OneDrive |![Coche qui signifie la prise en charge de cette application][1] |
+| Outlook |![Coche qui signifie la prise en charge de cette application][1] |
+| Power BI |![Coche qui signifie la prise en charge de cette application][1] |
+| Skype Entreprise |![Coche qui signifie la prise en charge de cette application][1] |
+| Word / Excel / PowerPoint |![Coche qui signifie la prise en charge de cette application][1] |
+| Yammer |![Coche qui signifie la prise en charge de cette application][1] |
 
 ### <a name="implementation-requirements"></a>Conditions requises pour la mise en œuvre
 

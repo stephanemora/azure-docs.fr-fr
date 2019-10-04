@@ -11,20 +11,20 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: e9fb06b8ba34566689f769ca9a69328eee37e3c1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60747572"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Facilité de gestion et surveillance avec Azure SQL Data Warehouse
 
 Découvrez ce qui est disponible pour vous aider à gérer et à surveiller SQL Data Warehouse. Les articles suivants présentent différentes façons d’optimiser les performances et l’utilisation de votre entrepôt de données.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 * [En savoir plus sur la gestion du calcul et l’élasticité][manage compute]
-* [Découvrir les métriques et les journaux disponibles dans le portail Azure][resource utilization]
+* [Découvrir les métriques et les journaux d’activité disponibles dans le portail Azure][resource utilization]
 * [En savoir plus sur les fonctionnalités de sauvegarde et de restauration][data protection]
 * [En savoir plus sur les recommandations et l’intelligence intégrée][recommendations]
 * [En savoir plus sur les périodes de maintenance et ce qui est disponible pour réduire le temps d’arrêt de votre entrepôt de données][maintenance]

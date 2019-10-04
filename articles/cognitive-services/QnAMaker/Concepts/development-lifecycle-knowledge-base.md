@@ -3,20 +3,20 @@ title: Cycle de vie d’une base de connaissances – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker apprend mieux dans un cycle itératif de modifications du modèle, d’énoncés d’exemples, de publication et de collecte des données à partir de requêtes du point de terminaison.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684019"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955172"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Cycle de vie d’une base de connaissances dans QnA Maker
 QnA Maker apprend mieux dans un cycle itératif de modifications du modèle, d’énoncés d’exemples, de publication et de collecte des données à partir de requêtes du point de terminaison. 
@@ -28,14 +28,14 @@ Le point de terminaison de la base de connaissances QnA Maker recherche une rép
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Test et mise à jour de la base de connaissances
 
-La base de connaissances peut être testée dès qu’elle contient des données, qui ont été ajoutées manuellement ou par le biais d’une extraction automatique. Test interactive peut être effectué dans le portail QnA Maker via le **Test** panneau en entrant des requêtes utilisateur courantes et en vérifiant que les réponses retournées avec la réponse correcte et le score de confiance suffisant. 
+La base de connaissances peut être testée dès qu’elle contient des données, qui ont été ajoutées manuellement ou par le biais d’une extraction automatique. Vous pouvez effectuer un test interactif à partir du panneau **Test** du portail QnA Maker en entrant les requêtes utilisateur courantes et en vérifiant que les réponses retournées sont correctes et affichent un score de confiance suffisant. 
 
-* **Pour corriger les scores de confiance faible**: ajouter d’autres questions. 
-* **Lorsqu’une requête retourne incorrectement le [réponse par défaut](confidence-score.md#change-default-answer)**: ajouter de nouvelles réponses à la question correcte. 
+* **Pour améliorer les scores de confiance faibles** : ajoutez des questions alternatives. 
+* **Si une requête retourne par erreur la [réponse par défaut](confidence-score.md#change-default-answer)**  : ajoutez de nouvelles réponses à la bonne question. 
 
 Poursuivez cette boucle de test-mise à jour jusqu’à ce que vous soyez satisfait des résultats. Découvrez comment [tester votre base de connaissances](../How-To/test-knowledge-base.md).
 
-Pour les grandes bases de connaissances, utilisez les tests automatisés avec le [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) et le `isTest` corps de la propriété qui interroge le `test` base de connaissances au lieu de la base de connaissances publiée. 
+Pour les grandes bases de connaissances, utilisez les tests automatisés avec l’[API generateAnswer](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) et la propriété de corps `isTest` qui interroge la base de connaissances `test` au lieu de la base de connaissances publiée. 
 
 ```json
 {
@@ -51,7 +51,7 @@ Une fois que vous avez testé la base de connaissances, vous pouvez la publier. 
 
 De cette manière, les modifications apportées à la version de test de la base de connaissances n’impactent pas la version publiée qui est potentiellement utilisée dans une application de production.
 
-Chacune de ces bases de connaissances peut être ciblée séparément pour le test. À l’aide de l’API, vous pouvez cibler la version de test de la base de connaissances avec `isTest` corps de la propriété dans l’appel de generateAnswer.
+Chacune de ces bases de connaissances peut être ciblée séparément pour le test. À l’aide des API, vous pouvez cibler la version de test de la base de connaissances en utilisant la propriété de corps `isTest` dans l’appel generateAnswer.
 
 Découvrez comment [publier votre base de connaissances](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 

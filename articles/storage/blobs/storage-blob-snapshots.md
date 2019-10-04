@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: ac13b40ae58054b091963de198213c1a68fcdc05
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0da3373ba2c13bd6a00a92a6b38bead86fc9a5ea
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244842"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69897013"
 ---
 # <a name="create-a-blob-snapshot"></a>Création d’un instantané d’objet blob
 
@@ -34,7 +34,7 @@ Aucun bail associé à l’objet blob de base n’a d’incidence sur l’instan
 Un fichier de disque dur virtuel est utilisé pour stocker les informations et l’état actuels d’un disque de machine virtuelle. Vous pouvez détacher un disque de la machine virtuelle ou arrêter la machine virtuelle, puis prendre une capture instantanée de son fichier de disque dur virtuel. Vous pourrez par la suite utiliser ce fichier de capture instantanée pour récupérer le fichier de disque dur virtuel à ce moment précis et recréer la machine virtuelle.
 
 ## <a name="create-a-snapshot"></a>Créer un instantané
-L’exemple de code suivant montre comment créer une capture instantanée à l’aide de la [bibliothèque cliente de stockage Azure pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Cet exemple spécifie des métadonnées supplémentaires pour la capture instantanée lors de sa création.
+L’exemple de code suivant montre comment créer une capture instantanée à l’aide de la [bibliothèque cliente de stockage Azure pour .NET](/dotnet/api/overview/azure/storage/client). Cet exemple spécifie des métadonnées supplémentaires pour la capture instantanée lors de sa création.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
@@ -78,12 +78,12 @@ Les opérations de copie impliquant des objets blob et des instantanés respecte
 * Quand vous créez un instantané d'un objet blob de blocs, la liste des blocs validés de l'objet blob est également copiée dans l'instantané. Les blocs non validés ne sont pas copiés.
 
 ## <a name="specify-an-access-condition"></a>Spécification d'une condition d'accès
-Lorsque vous appelez [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], vous pouvez spécifier une condition d’accès pour que la capture instantanée ne soit créée que si la condition est remplie. Pour spécifier une condition d’accès, utilisez le paramètre [AccessCondition][dotnet_AccessCondition]. Si la condition spécifiée n’est pas remplie, la capture instantanée n’est pas créée et le service Blob retourne le code d’état [HTTPStatusCode][dotnet_HTTPStatusCode].PreconditionFailed.
+Lorsque vous appelez [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], vous pouvez spécifier une condition d'accès pour que la capture instantanée ne soit créée que si la condition est remplie. Pour spécifier une condition d'accès, utilisez le paramètre [AccessCondition][dotnet_AccessCondition]. Si la condition spécifiée n'est pas remplie, la capture instantanée n'est pas créée et le service Blob renvoie le code d'état [HTTPStatusCode][dotnet_HTTPStatusCode].PreconditionFailed.
 
 ## <a name="delete-snapshots"></a>Suppression d'instantanés
 Un objet blob auquel sont associées des captures instantanées ne peut pas être supprimé, à moins de supprimer aussi les captures instantanées. Vous pouvez supprimer un instantané individuellement, ou spécifier que tous les instantanés doivent être supprimés lors de la suppression de l’objet blob source. Si vous essayez de supprimer un objet blob auquel des instantanés sont encore associés, une erreur se produit.
 
-L’exemple de code suivant montre comment supprimer un objet blob et ses captures instantanées dans .NET, où `blockBlob` est un objet de type [CloudBlockBlob][dotnet_CloudBlockBlob] :
+L'exemple de code suivant montre comment supprimer un objet blob et ses captures instantanées dans .NET, où `blockBlob` est un objet de type [CloudBlockBlob][dotnet_CloudBlockBlob] :
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
@@ -127,7 +127,7 @@ La liste suivante contient des points clés à prendre en compte lors de la cré
 
 * Des frais s’appliquent à votre compte de stockage pour des pages ou des blocs uniques, qu’ils soient dans l’objet blob ou dans l’instantané. Aucuns frais supplémentaires ne sont imputés à votre compte pour les instantanés associés à un objet blob tant que vous n'avez pas mis à jour l’objet blob sur lequel ils sont basés. Une fois que vous avez mis à jour l’objet blob de base, il diffère de ses instantanés. Dans ce cas, vous êtes facturé pour les blocs ou pages uniques de chaque objet blob ou instantané.
 * Quand vous remplacez un bloc au sein d’un objet blob de bloc, ce bloc est ensuite facturé comme un bloc unique. Cela est vrai même si le bloc a le même ID de bloc et les mêmes données que dans l'instantané. Une fois le bloc revalidé, il diffère de son homologue dans tous les instantanés et vous serez facturé pour ses données. Il en va de même pour une page dans un objet blob de pages qui est mise à jour avec des données identiques.
-* Le remplacement d’un objet blob de blocs en appelant la méthode [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] ou [UploadFromByteArray][dotnet_UploadFromByteArray] remplace tous les blocs de l’objet blob. Si vous avez une capture instantanée associée à cet objet blob, tous les blocs dans l’objet blob de base et la capture instantanée seront désormais différents et vous serez facturé pour tous les blocs des deux objets blob. Cela est vrai même si les données de l’objet blob de base et l’instantané restent identiques.
+* Le remplacement d'un objet blob de blocs en appelant la méthode [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] ou [UploadFromByteArray][dotnet_UploadFromByteArray] remplace tous les blocs de l'objet blob. Si vous avez une capture instantanée associée à cet objet blob, tous les blocs dans l’objet blob de base et la capture instantanée seront désormais différents et vous serez facturé pour tous les blocs des deux objets blob. Cela est vrai même si les données de l’objet blob de base et l’instantané restent identiques.
 * Le service blob Azure ne dispose d'aucun moyen pour déterminer si deux blocs contiennent des données identiques. Chaque bloc qui est téléchargé et validé est traité comme étant unique, même s’il a les mêmes données et le même ID de bloc. Comme des frais sont applicables aux blocs uniques, il est important de savoir que la mise à jour d’un objet blob qui a une capture instantanée entraîne la création de blocs uniques supplémentaires et donc des frais supplémentaires.
 
 ### <a name="minimize-cost-with-snapshot-management"></a>Réduire les coûts grâce à la gestion des captures instantanées
@@ -135,7 +135,7 @@ La liste suivante contient des points clés à prendre en compte lors de la cré
 Nous vous recommandons de gérer vos captures instantanées avec soin pour éviter des frais supplémentaires. Vous pouvez suivre ces meilleures pratiques pour réduire les coûts liés au stockage de vos captures instantanées :
 
 * Supprimez et recréez les instantanés associés à un objet blob chaque fois que vous mettez à jour l'objet blob, même si vous le mettez à jour avec des données identiques, sauf si la conception de votre application exige de tenir à jour des instantanés. En supprimant et en recréant les captures instantanées de l’objet blob, vous pouvez vous assurer que l’objet blob et les captures instantanées ne diffèrent pas.
-* Si vous tenez à jour des captures instantanées d’un objet blob, évitez d’appeler [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] ou [UploadFromByteArray][dotnet_UploadFromByteArray] pour mettre à jour l’objet blob. Ces méthodes remplacent tous les blocs dans l’objet blob. Ainsi, votre objet blob de base et vos captures instantanées diffèrent de façon significative. Mettez plutôt à jour le moins de blocs possible en utilisant les méthodes [PutBlock][dotnet_PutBlock] et [PutBlockList][dotnet_PutBlockList].
+* Si vous tenez à jour les captures instantanées d'un objet blob, évitez d'appeler [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] ou [UploadFromByteArray][dotnet_UploadFromByteArray] pour mettre à jour l'objet blob. Ces méthodes remplacent tous les blocs dans l’objet blob. Ainsi, votre objet blob de base et vos captures instantanées diffèrent de façon significative. Mettez plutôt à jour le moins de blocs possible en utilisant les méthodes [PutBlock][dotnet_PutBlock] et [PutBlockList][dotnet_PutBlockList].
 
 ### <a name="snapshot-billing-scenarios"></a>Scénarios de facturation d’instantanés
 Les scénarios suivants illustrent l’accumulation des coûts pour un objet blob de blocs et ses instantanés.
@@ -160,7 +160,7 @@ Dans le scénario 3, l'objet blob de base a été mis à jour, mais pas l'insta
 
 **Scénario 4**
 
-Dans le scénario 4, l'objet blob de base a été complètement mis à jour et ne contient aucun de ses blocs d'origine. Par conséquent, des frais pour les huit blocs uniques sont facturés au compte. Ce scénario peut se produire si vous utilisez une méthode de mise à jour [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] ou [UploadFromByteArray][dotnet_UploadFromByteArray], car ces méthodes remplacent tout le contenu d’un objet blob.
+Dans le scénario 4, l'objet blob de base a été complètement mis à jour et ne contient aucun de ses blocs d'origine. Par conséquent, des frais pour les huit blocs uniques sont facturés au compte. Ce scénario peut se produire si vous utilisez une méthode de mise à jour telle que [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream][dotnet_UploadFromStream] ou [UploadFromByteArray][dotnet_UploadFromByteArray], car ces méthodes remplacent tout le contenu d'un objet blob.
 
 ![Ressources Azure Storage](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
@@ -170,13 +170,13 @@ Dans le scénario 4, l'objet blob de base a été complètement mis à jour et n
 
 * Pour obtenir des exemples de code supplémentaires d’utilisation du Stockage Blob, consultez [Exemples de code Azure](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Vous pouvez télécharger un exemple d’application et l’exécuter ou parcourir le code sur GitHub.
 
-[dotnet_AccessCondition]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.accesscondition.aspx
-[dotnet_CloudBlockBlob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx
-[dotnet_CreateSnapshotAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.createsnapshotasync.aspx
-[dotnet_HTTPStatusCode]: https://msdn.microsoft.com/library/system.net.httpstatuscode(v=vs.110).aspx
-[dotnet_PutBlockList]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.putblocklist.aspx
-[dotnet_PutBlock]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.putblock.aspx
-[dotnet_UploadFromByteArray]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfrombytearray.aspx
-[dotnet_UploadFromFile]: https://msdn.microsoft.com/library/azure/mt705654.aspx
-[dotnet_UploadFromStream]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstream.aspx
-[dotnet_UploadText]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadtext.aspx
+[dotnet_AccessCondition]: https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.accesscondition
+[dotnet_CloudBlockBlob]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob
+[dotnet_CreateSnapshotAsync]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.createsnapshotasync
+[dotnet_HTTPStatusCode]: https://docs.microsoft.com/java/api/com.microsoft.store.partnercenter.network.httpstatuscode
+[dotnet_PutBlockList]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblocklist
+[dotnet_PutBlock]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblock
+[dotnet_UploadFromByteArray]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.uploadfrombytearray
+[dotnet_UploadFromFile]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.uploadfromfile
+[dotnet_UploadFromStream]: /dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadfromstream
+[dotnet_UploadText]: /dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadtext

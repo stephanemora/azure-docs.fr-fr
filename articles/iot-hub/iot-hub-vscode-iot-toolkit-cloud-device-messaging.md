@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 5b74524a05317cf22160561a4a001e88f9215953
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
-ms.translationtype: MT
+ms.openlocfilehash: 1289e9c8f8cfc9360c9b2325507b43bab3a69028
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571093"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838505"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utiliser Azure IoT Tools pour Visual Studio Code afin d’envoyer et de recevoir des messages entre votre appareil et un hub IoT
 
@@ -41,7 +41,7 @@ Vous allez découvrir comment utiliser Azure IoT Tools pour Visual Studio Code a
 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-* [Azure IoT Tools pour VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [ouvrir ce lien dans Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [Azure IoT Tools pour VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) ou [ouvrez ce lien dans Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>Se connecter pour accéder à votre hub ioT
 
@@ -56,17 +56,17 @@ Vous allez découvrir comment utiliser Azure IoT Tools pour Visual Studio Code a
 5. La liste des appareils apparaît quelques secondes plus tard sous l’onglet **Appareils Azure IoT Hub**.
 
    > [!Note]
-   > Vous pouvez également effectuer la configuration en choisissant **Définir la chaîne de connexion IoT Hub**. Entrez la chaîne de connexion IoT Hub à laquelle se connecte votre appareil IoT dans la fenêtre contextuelle.
+   > Vous pouvez également effectuer la configuration en choisissant **Définir la chaîne de connexion IoT Hub**. Entrez la chaîne de connexion de stratégie **iothubowner**IoT Hub à laquelle se connecte votre appareil IoT dans la fenêtre contextuelle.
 
 ## <a name="monitor-device-to-cloud-messages"></a>Analyse de messages appareil vers cloud
 
 Pour analyser les messages envoyés à partir de votre appareil à votre instance IoT H+ub, procédez comme suit :
 
-1. Cliquez avec le bouton droit sur votre appareil et sélectionnez **Démarrer la supervision des messages appareil-à-cloud**.
+1. Cliquez avec le bouton droit sur votre appareil et sélectionnez **Start Monitoring Built-in Event Endpoint** (Démarrer la surveillance du point de terminaison d’événements intégré).
 
 2. Les messages supervisés seront affichés dans la vue **SORTIE** > **Azure IoT Hub Toolkit**.
 
-3. Pour arrêter la supervision, cliquez avec le bouton droit sur la vue **SORTIE**, puis sélectionnez **Arrêter la supervision des messages appareil-à-cloud**.
+3. Pour arrêter la surveillance, cliquez avec le bouton droit sur la vue **SORTIE**, puis sélectionnez **Stop Monitoring Built-in Event Endpoint** (Arrêter la surveillance du point de terminaison d’événements intégré).
 
 ## <a name="send-cloud-to-device-messages"></a>Envoi de messages cloud vers appareil
 

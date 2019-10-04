@@ -3,23 +3,17 @@ title: Surveillance d’Azure Cloud Service | Microsoft Docs
 description: Décrit ce que la surveillance d’Azure Cloud Service implique et certaines des options à votre disposition.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: ''
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: jeconnoc
-ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789464"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359111"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduction à la surveillance des services cloud
 
@@ -60,7 +54,7 @@ Lorsque chaque rôle est créé, Visual Studio lui ajoute l’extension Diagnost
 
 Pour commencer, si vous ne disposez pas d'un compte de stockage **classique**, [créez-en un](../storage/common/storage-quickstart-create-account.md). Assurez-vous que le compte de stockage est créé avec le **modèle de déploiement classique** spécifié.
 
-Ensuite, accédez à la ressource **Compte de stockage (classique)**. Sélectionnez **Paramètres** > **Clés d’accès** et copiez la valeur de **Chaîne de connexion principale**. Vous avez besoin de cette valeur pour le service cloud. 
+Ensuite, accédez à la ressource **Compte de stockage (classique)** . Sélectionnez **Paramètres** > **Clés d’accès** et copiez la valeur de **Chaîne de connexion principale**. Vous avez besoin de cette valeur pour le service cloud. 
 
 Pour activer les diagnostics avancés, vous devez modifier deux fichiers de configuration, **ServiceDefinition.csdef** et **ServiceConfiguration.cscfg**.
 

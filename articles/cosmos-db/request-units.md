@@ -4,37 +4,37 @@ description: Découvrez comment spécifier et estimer les besoins en unités de 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 07/23/2019
 ms.author: rimman
-ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a1143f912d894c1219de05b03a2338dc4e5bdc5f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798961"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467655"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 
-Avec Azure Cosmos DB, vous payez pour le débit que vous provisionnez et le stockage que vous utilisez sur une base horaire. Débit doit être configuré pour vous assurer que suffisamment de ressources système est disponibles pour votre base de données Azure Cosmos à tout moment. Vous avez besoin de suffisamment de ressources pour atteindre ou dépasser le [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
+Avec Azure Cosmos DB, vous payez pour le débit que vous provisionnez et le stockage que vous utilisez sur une base horaire. Le débit doit être approvisionné de sorte qu’il y ait assez de ressources système disponibles en permanence pour la base de données Azure Cosmos. L’objectif est d’atteindre ou de dépasser les [contrats de niveau de service Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
 Azure Cosmos DB prend en charge de nombreuses API, notamment SQL, MongoDB, Cassandra, Gremlin et Table. Chaque API possède son propre ensemble d’opérations de base de données, qui vont de simples opérations ponctuelles de lecture et d'écriture à des requêtes complexes. Chaque opération de base de données consomme des ressources système en fonction de sa complexité. 
 
-Le coût de toutes les opérations de base de données est normalisé par Azure Cosmos DB et est exprimé en *unités de requête* (ou unités de requête, en abrégé). Vous pouvez considérer les RU/s comme la devise du débit, qui dépend de la vitesse. Elles représentent une abstraction des ressources système (processeur, IOPS et mémoire, notamment) nécessaires pour effectuer les opérations de base de données prises en charge par Azure Cosmos DB. 
+Le coût de toutes les opérations de base de données, normalisé par Azure Cosmos DB, est exprimé en *unités de requête* (RU). Vous pouvez considérer les RU/s comme la devise du débit, qui dépend de la vitesse. Elles représentent une abstraction des ressources système (processeur, IOPS et mémoire, notamment) nécessaires pour effectuer les opérations de base de données prises en charge par Azure Cosmos DB. 
 
-Le coût de lecture une base de connaissances 1 élément 1 unité de demande (ou 1 RU). Toutes les autres opérations de base de données sont de même affectées à un coût à l’aide d’unités de requête. Quelle que soit l’API utilisée pour interagir avec le conteneur Azure Cosmos, les coûts sont toujours mesurés en unités de requête, que l’opération de base de données soit une opération d’écriture, de lecture ou de requête.
+Le coût de lecture d’un élément de 1 Ko est d’une unité de requête (1 RU). Toutes les autres opérations de base de données se voient aussi attribuer un coût en unités de requête. Quelle que soit l’API utilisée pour interagir avec le conteneur Azure Cosmos, les coûts sont toujours mesurés en unités de requête, que l’opération de base de données soit une opération d’écriture, de lecture ou de requête.
 
-L’illustration suivante montre l’idée générale des unités de requête :
+L’image suivante illustre l’idée générale des unités de requête :
 
 ![Les opérations de base de données consomment des unités de requête](./media/request-units/request-units.png)
 
-Pour gérer et planifier la capacité, Azure Cosmos DB veille à ce que le nombre d’unités de requête d’une opération de base de données spécifique sur un jeu de données spécifique soit déterministe. Vous pouvez examiner l’en-tête de réponse pour suivre le nombre d’unités de requête qui sont consommées par une opération de base de données. Lorsque vous aurez la [les facteurs qui affectent les frais de RU](request-units.md#request-unit-considerations) et exigences de débit de votre application, vous pouvez exécuter votre application à moindre coût.
+Pour gérer et planifier la capacité, Azure Cosmos DB veille à ce que le nombre d’unités de requête d’une opération de base de données spécifique sur un jeu de données spécifique soit déterministe. Vous pouvez examiner l’en-tête de réponse pour suivre le nombre d’unités de requête consommées par une opération de base de données. Une fois que vous avez compris [quels facteurs ont un impact sur les frais d’unités de requête](request-units.md#request-unit-considerations) et cerné les besoins de débit de l’application, vous pouvez exécuter l’application de la manière la plus rentable possible.
 
-Le nombre d’unités de requête d’une application est approvisionné par seconde et par incréments de 100 RU/s. Si vous souhaitez faire évoluer le débit approvisionné pour votre application, vous pouvez à tout moment augmenter ou diminuer le nombre d’unités de requête, Vous pouvez faire évoluer dans incrémente ou décrémente de 100 unités de requête. soit programmatiquement soit sur le Portail Azure. Vous êtes facturé sur une base horaire.
+Le nombre d’unités de requête d’une application est approvisionné par seconde et par incréments de 100 RU/s. Si vous souhaitez faire évoluer le débit approvisionné pour votre application, vous pouvez à tout moment augmenter ou diminuer le nombre d’unités de requête, Vous pouvez procéder par incréments ou décréments de 100 unités de requête, soit programmatiquement soit sur le Portail Azure. Les frais sont facturés à l’heure.
 
 Vous pouvez configurer le débit selon deux niveaux de granularité distincts : 
 
 * **Conteneurs** : Pour plus d’informations, voir [Approvisionner le débit sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md).
-* **Bases de données**: Pour plus d’informations, voir [Approvisionner le débit sur une base de données Azure Cosmos](how-to-provision-database-throughput.md).
+* **Bases de données** : Pour plus d’informations, voir [Approvisionner le débit sur une base de données Azure Cosmos](how-to-provision-database-throughput.md).
 
 ## <a name="request-unit-considerations"></a>Considérations relatives aux unités de requête
 
@@ -44,7 +44,7 @@ Lorsque vous estimez le nombre d’unités de requête par seconde à approvisio
 
 * **Indexation de l’élément** : Par défaut, chaque élément est indexé automatiquement. Moins d’unités de requête sont consommées si vous choisissez de ne pas indexer tous les éléments d’un conteneur.
 
-* **Nombre de propriétés de l’élément** : En supposant que l’indexation par défaut se trouve sur toutes les propriétés, le nombre d’unités de requête consommées pour écrire qu'un élément augmente en même temps que l’élément propriété count.
+* **Nombre de propriétés de l’élément** : en supposant que l’indexation par défaut concerne toutes les propriétés, le nombre d’unités de requête consommées pour écrire un élément augmente avec le nombre de propriétés de l’élément.
 
 * **Propriétés indexées** : Une stratégie d’indexation sur chaque conteneur détermine quelles propriétés sont indexées par défaut. Pour réduire la consommation d’unités de requête des opérations d’écriture, limitez le nombre de propriétés indexées.
 
@@ -52,17 +52,17 @@ Lorsque vous estimez le nombre d’unités de requête par seconde à approvisio
 
 * **Modèles de requête** : la complexité d’une requête a une incidence sur le nombre d’unités de requête consommées pour une opération. Les facteurs qui influent sur le coût des opérations de requête sont les suivants : 
     
-    - Le nombre de résultats de requête
-    - Le nombre de prédicats
-    - La nature des prédicats
-    - Le nombre de fonctions définies par l’utilisateur
-    - La taille de la source de données
-    - La taille du jeu de résultats
+    - le nombre de résultats de la requête ;
+    - le nombre de prédicats ;
+    - la nature des prédicats ;
+    - le nombre de fonctions définies par l’utilisateur ;
+    - la taille des données sources ;
+    - la taille du jeu de résultats.
     - Projections
 
   Azure Cosmos DB garantit qu’une même requête portant sur les mêmes données coûte toujours le même nombre d’unités de requête en cas d’exécutions répétées.
 
-* **Utilisation de scripts** : comme avec les requêtes, les procédures stockées et les déclencheurs consomment plus ou moins d'unités de requête en fonction de la complexité des opérations effectuées. Lorsque vous développez votre application, inspecter la [en-tête frais de requête](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) pour mieux comprendre la capacité de RU chaque opération consomme.
+* **Utilisation de scripts** : comme avec les requêtes, les procédures stockées et les déclencheurs consomment plus ou moins d'unités de requête en fonction de la complexité des opérations effectuées. Lors du développement de l’application, inspectez [l’en-tête des frais de requêtes](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) pour mieux comprendre la capacité en unités de requête consommée par opération.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -71,7 +71,8 @@ Lorsque vous estimez le nombre d’unités de requête par seconde à approvisio
 * Découvrez comment [mettre à l’échelle le débit approvisionné au niveau global](scaling-throughput.md).
 * Découvrez comment [approvisionner le débit sur un conteneur Azure Cosmos](how-to-provision-container-throughput.md).
 * Découvrez comment [approvisionner le débit sur une base de données Azure Cosmos](how-to-provision-database-throughput.md).
-* Découvrez comment [de trouver les frais d’unités de demande pour une opération](find-request-unit-charge.md).
+* Découvrez comment [rechercher les frais d’unités de requête pour une opération](find-request-unit-charge.md).
 * Découvrez comment [optimiser le coût du débit approvisionné dans Azure Cosmos DB](optimize-cost-throughput.md).
-* Découvrez comment [optimiser les lectures et écritures de coût dans Azure Cosmos DB](optimize-cost-reads-writes.md).
-* Découvrez comment [optimiser le coût de la requête dans Azure Cosmos DB](optimize-cost-queries.md).
+* Découvrez comment [optimiser les coûts de lecture et d’écriture dans Azure Cosmos DB](optimize-cost-reads-writes.md).
+* Découvrez comment [optimiser les coûts de requête dans Azure Cosmos DB](optimize-cost-queries.md).
+* Découvrez comment [utiliser des mesures pour surveiller le débit](use-metrics.md).

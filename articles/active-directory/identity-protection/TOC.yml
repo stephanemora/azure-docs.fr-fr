@@ -1,6 +1,6 @@
 - name: "Documentation relative à\_Identity\_Protection"
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure AD Identity Protection\_?"
       href: overview.md
@@ -17,6 +17,8 @@
       href: notifications.md
     - name: "Quelle est votre expérience de connexion\_?"
       href: flows.md
+    - name: Utilisateurs Identity Protection et B2B
+      href: concept-identity-protection-b2b.md
 - name: Guides pratiques
   expanded: true
   items:
@@ -30,33 +32,33 @@
           href: howto-sign-in-risk-policy.md
         - name: Configurer la stratégie en matière de risque à l’utilisateur
           href: howto-user-risk-policy.md
-        - name: Fermer les événements à risque actifs
+        - name: Fermer les détections de risques actives
           href: howto-close-active-risk-events.md
         - name: Débloquer des utilisateurs
           href: howto-unblock-user.md
-        - name: Simuler des événements à risque
+        - name: Simuler des détections de risques
           href: playbook.md
         - name: FAQ
           href: faqs.md
     - name: Identity Protection (actualisé)
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: overview-v2.md
         - name: Présentation de la sécurité
           href: security-overview.md
-        - name: Examiner les utilisateurs et les connexions à risque
-          href: howto-investigate-risky-users-signins.md
+        - name: Examiner les risques
+          href: howto-investigate-risk.md
+        - name: Fournir des commentaires sur les détections de risques
+          href: howto-provide-risk-event-feedback.md
         - name: Configurer des stratégies en matière de risque
           href: howto-configure-risk-policies.md
-        - name: Améliorer la précision de la détection
-          href: howto-improve-detection-accuracy.md
         - name: FAQ et problèmes connus
           href: known-issues.md
 - name: Informations de référence
   items:
     - name: Utiliser l’API Microsoft Graph
       href: graph-get-started.md
-    - name: Événements à risque
+    - name: Détections de risques
       href: risk-events-reference.md
     - name: Glossaire
       href: glossary.md

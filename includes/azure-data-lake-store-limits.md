@@ -9,16 +9,16 @@ ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: f328de00d206b58037fda800354e9634b1c374d6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553551"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "67177454"
 ---
-Azure Data Lake Storage Gen1 est un référentiel d’entreprise à très grande échelle pour les charges de travail d’analyse du Big Data. Vous pouvez utiliser Data Lake Storage Gen1 pour capturer des données quels que soient leur taille, type et l’ingestion dans un emplacement unique pour l’analytique opérationnelle et exploratoire. Il n’existe aucune limite à la quantité de données que vous pouvez stocker dans un compte Data Lake Storage Gen1.
+Azure Data Lake Storage Gen1 est un référentiel d’entreprise à très grande échelle pour les charges de travail d’analyse du Big Data. Vous pouvez utiliser Data Lake Storage Gen1 pour capturer des données indépendamment de leur taille, leur type et leur vitesse d’ingestion au même endroit pour les analyser d’un point de vue opérationnel et exploratoire. Aucune limite ne s’applique à la quantité de données que vous pouvez stocker dans un compte Data Lake Storage Gen1.
 
 | **Ressource** | **Limite par défaut** | **Commentaires** |
 | --- | --- | --- |
-| Nombre maximal de comptes Data Lake Storage Gen1, par abonnement, par région |10 | Pour demander une augmentation de cette limite, contactez le support technique. |
-| Nombre maximal d’accès (ACL), par fichier ou dossier |32 | Il s’agit d’une limite inconditionnelle. Utiliser des groupes pour gérer l’accès avec moins d’entrées. |
-| Nombre maximal d’ACL par défaut, par fichier ou dossier |32 | Il s’agit d’une limite inconditionnelle. Utiliser des groupes pour gérer l’accès avec moins d’entrées. |
+| Nombre maximal de comptes Data Lake Storage Gen1 par abonnement, par région |10 | Pour demander une augmentation de cette limite, contactez le Support. |
+| Nombre maximal de listes de contrôle d’accès (ACL) par fichier ou dossier |32 | Il s’agit d’une limite inconditionnelle. Utilisez des groupes pour gérer l’accès avec moins d’entrées. |
+| Nombre maximal de listes de contrôle d’accès (ACL) par défaut, par fichier ou dossier |32 | Il s’agit d’une limite inconditionnelle. Utilisez des groupes pour gérer l’accès avec moins d’entrées. |

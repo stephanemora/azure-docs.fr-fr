@@ -3,7 +3,7 @@ title: Bien démarrer avec Stockage File d’attente et les services connectés 
 description: Guide pratique pour bien démarrer avec Azure Stockage File d’attente dans un projet ASP.NET Core dans Visual Studio
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 04977069-5b2d-4cba-84ae-9fb2f5eb1006
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 8a91614e7dfb804e6a902967ce60f898ed0e54ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d8e370c6f7c59da8522bb4fb1403b6107a9c9c41
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999770"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510983"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Bien démarrer avec Stockage File d’attente et les services connectés de Visual Studio (ASP.NET Core)
 
@@ -66,7 +66,7 @@ Pour accéder à des files d’attente dans des projets ASP.NET Core, incluez le
 
 ### <a name="create-a-queue-in-code"></a>Créer une file d’attente dans le code
 
-Pour créer la file d’attente Azure dans le code, appelez `CreateIfNotExistsAsync`:
+Pour créer la file d’attente Azure dans le code, appelez `CreateIfNotExistsAsync` :
 
 ```cs
 // Create the CloudQueue if it does not exist.

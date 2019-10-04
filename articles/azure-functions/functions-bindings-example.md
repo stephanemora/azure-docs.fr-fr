@@ -1,25 +1,24 @@
 ---
-title: Exemple de déclencheur et la liaison de fonctions Azure
-description: Apprenez à configurer les liaisons de fonction Azure
+title: Exemples de liaison et de déclencheur Azure Functions
+description: Apprenez à configurer les liaisons d’Azure Functions
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 6d5f9b171a4efc5e52d281655de143ac9d40d437
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: d1959792823e04cf34d65ab775ae8c51e741e293
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740092"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097465"
 ---
-# <a name="azure-functions-trigger-and-binding-example"></a>Exemple de déclencheur et la liaison de fonctions Azure
+# <a name="azure-functions-trigger-and-binding-example"></a>Exemples de liaison et de déclencheur Azure Functions
 
-Cet article montre comment configurer un [déclencheur et les liaisons](./functions-triggers-bindings.md) dans une fonction Azure.
+Cet article montre comment configurer un [déclencheur et des liaisons](./functions-triggers-bindings.md) dans une fonction Azure.
 
 Imaginons que vous souhaitiez écrire une nouvelle ligne dans Stockage Table Azure à chaque fois qu’un nouveau message s’affiche dans Stockage File d’attente Azure. Ce scénario peut être implémenté à l’aide d’un déclencheur Stockage de file d’attente Azure et d’une liaison de sortie Stockage Table. 
 
@@ -87,7 +86,7 @@ public class Person
 
 ## <a name="javascript-example"></a>Exemple JavaScript
 
-Le même *function.json* fichier peut être utilisé avec une fonction JavaScript :
+Le même fichier *function.json* peut être utilisé avec une fonction JavaScript :
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -135,9 +134,9 @@ public class Person
 }
 ```
 
-Vous disposez maintenant d’une fonction de travail qui est déclenchée par stockage Table Azure qui envoie des données à une file d’attente.
+Vous disposez maintenant d’une fonction qui fonctionne et qui est déclenchée par une file d’attente Azure et génère des données dans le stockage Table Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Les modèles d’expression de liaison d’Azure Functions](./functions-bindings-expressions-patterns.md)
+> [Modèles d’expressions de liaison Azure Functions](./functions-bindings-expressions-patterns.md)

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3424b46dff8f2904f41d0e8c1acf96788c51773f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: cd31d1c40f30ebc8341c2126da22f8a74cb05438
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994467"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69640514"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour créer un objet blob dans le stockage d’objets
 
@@ -31,11 +31,11 @@ Au premier lancement, la fenêtre **Explorateur Stockage Microsoft Azure - Se co
 
 |Tâche|Objectif|
 |---|---|
-|Ajouter un compte Azure | Vous redirige vers votre page de connexion aux organisations afin de vous authentifier sur Azure. |
+|Ajouter un compte Azure | Vous redirige vers la page de connexion de votre organisation afin de vous authentifier sur Azure. |
 |Utiliser un URI de chaîne de connexion ou de signature d’accès partagé | Peut être utilisé pour accéder directement à un conteneur ou un compte de stockage avec un jeton SAP ou une chaîne de connexion partagée. |
 |Utiliser le nom et la clé d’un compte de stockage| Utilisez le nom et la clé et de votre compte de stockage pour vous connecter à Stockage Azure.|
 
-Sélectionnez **Ajouter un compte Azure**, puis cliquez sur **Connexion..**. Suivez les instructions de connexion à votre compte Azure qui s’affichent à l’écran.
+Sélectionnez **Ajouter un compte Azure**, puis cliquez sur **Connexion..** . Suivez les instructions de connexion à votre compte Azure qui s’affichent à l’écran.
 
 ![Fenêtre de connexion à l’Explorateur Stockage Microsoft Azure](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -47,7 +47,7 @@ Une fois que la connexion est établie, l’Explorateur Stockage Azure se charge
 
 Les objets blob sont toujours chargés dans un conteneur. Cela vous permet d’organiser des groupes d’objets blob comme vous organisez vos fichiers dans des dossiers sur votre ordinateur.
 
-Pour créer un conteneur, développez le compte de stockage créé lors de l’étape précédente. Sélectionnez **Conteneurs d’objets blob**, cliquez avec le bouton droit, puis sélectionnez **Créer un conteneur d’objets blob**. Entrez le nom de votre conteneur d’objets blob. Consultez la section [Créer le conteneur et définir les autorisations](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) pour obtenir la liste des règles et restrictions applicables aux noms de conteneurs d’objets blob. Lorsque vous avez terminé, appuyez sur **Entrée** pour créer le conteneur d’objets blob. Une fois le conteneur créé, il apparaît sous le dossier **Conteneurs d’objets blob** correspondant au compte de stockage sélectionné.
+Pour créer un conteneur, développez le compte de stockage créé lors de l’étape précédente. Sélectionnez **Conteneurs d’objets blob**, cliquez avec le bouton droit, puis sélectionnez **Créer un conteneur d’objets blob**. Entrez le nom de votre conteneur d’objets blob. Consultez la section [Créer un conteneur](storage-quickstart-blobs-dotnet.md#create-a-container) pour obtenir la liste des règles et restrictions applicables aux noms de conteneurs d’objets blob. Lorsque vous avez terminé, appuyez sur **Entrée** pour créer le conteneur d’objets blob. Une fois le conteneur créé, il apparaît sous le dossier **Conteneurs d’objets blob** correspondant au compte de stockage sélectionné.
 
 ## <a name="upload-blobs-to-the-container"></a>Charger des objets blob dans le conteneur
 
@@ -57,7 +57,7 @@ Dans le ruban du conteneur, sélectionnez **Télécharger**. Ce faisant, vous av
 
 Choisissez les fichiers ou le dossier à télécharger. Sélectionnez le **type d’objet blob**. Les choix acceptables sont **Ajout**, **Page** ou **Bloc**.
 
-Si vous téléchargez un fichier .vhd or .vhdx, sélectionnez **Charger les fichiers .vhd/.vhdx en tant qu'objets blob de pages (recommandé)**.
+Si vous téléchargez un fichier .vhd or .vhdx, sélectionnez **Charger les fichiers .vhd/.vhdx en tant qu'objets blob de pages (recommandé)** .
 
 Dans le champ **Charger dans le dossier** (facultatif), sélectionnez un nom de dossier dans lequel stocker les fichiers ou de sous-dossiers, sous le conteneur. Si aucun dossier n’est sélectionné, les fichiers sont chargés automatiquement dans le conteneur.
 
@@ -83,13 +83,13 @@ L’Explorateur Stockage Azure vous permet de prendre et de gérer des [instanta
 
 ## <a name="manage-access-policies"></a>Gérer les stratégies d’accès
 
-L’Explorateur de stockage vous permet de gérer les stratégies d’accès pour les conteneurs au sein de cette interface utilisateur. Il existe 2 types de stratégies d’accès sécurisées, au niveau du service et au niveau du compte. Une stratégie d’accès de niveau compte cible le compte de stockage ; elle peut s’appliquer à plusieurs services et ressources. Une stratégie d’accès de niveau service est définie sur une ressource hébergée sous un service spécifique. Pour générer une stratégie d’accès de niveau service, cliquez avec le bouton droit sur un conteneur, puis sélectionnez **Gérer les stratégies d’accès...**. Pour générer une stratégie d’accès de niveau compte, cliquez avec le bouton droit sur le compte de stockage.
+L’Explorateur de stockage vous permet de gérer les stratégies d’accès pour les conteneurs au sein de cette interface utilisateur. Il existe 2 types de stratégies d’accès sécurisées, au niveau du service et au niveau du compte. Une stratégie d’accès de niveau compte cible le compte de stockage ; elle peut s’appliquer à plusieurs services et ressources. Une stratégie d’accès de niveau service est définie sur une ressource hébergée sous un service spécifique. Pour générer une stratégie d’accès de niveau service, cliquez avec le bouton droit sur un conteneur, puis sélectionnez **Gérer les stratégies d’accès...** . Pour générer une stratégie d’accès de niveau compte, cliquez avec le bouton droit sur le compte de stockage.
 
 Sélectionnez **Ajouter** pour ajouter une stratégie d’accès et définir les autorisations associées. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour enregistrer la stratégie d’accès. La stratégie est désormais disponible pour la configuration des signatures d’accès partagé.
 
 ## <a name="work-with-shared-access-signatures"></a>Utiliser les signatures d’accès partagé
 
-Les signatures d’accès partagé sont à récupérer via l’Explorateur Stockage. Cliquez sur un compte de stockage, sur un conteneur ou sur un objet blob, puis sélectionnez **Obtenir une signature d’accès partagé...**. Sélectionnez l’heure de départ et d’expiration, ainsi que les autorisations pour l’URL de la stratégie d’accès partagé, puis sélectionnez **Créer**. L’URL complète avec la chaîne de requête, ainsi que la chaîne de requête individuellement sont fournies ; ces valeurs peuvent être copiées à partir de l’écran suivant.
+Les signatures d’accès partagé sont à récupérer via l’Explorateur Stockage. Cliquez sur un compte de stockage, sur un conteneur ou sur un objet blob, puis sélectionnez **Obtenir une signature d’accès partagé...** . Sélectionnez l’heure de départ et d’expiration, ainsi que les autorisations pour l’URL de la stratégie d’accès partagé, puis sélectionnez **Créer**. L’URL complète avec la chaîne de requête, ainsi que la chaîne de requête individuellement sont fournies ; ces valeurs peuvent être copiées à partir de l’écran suivant.
 
 ![Explorateur Stockage Microsoft Azure - Liste des objets blob dans un conteneur](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
 

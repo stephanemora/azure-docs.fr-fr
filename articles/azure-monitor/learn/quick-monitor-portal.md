@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1edb83fcbe03fd113c59986bdbb6afcf2a0970bb
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805344"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916102"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Démarrer la surveillance de votre application web ASP.NET
 
@@ -26,7 +26,7 @@ Ce guide de démarrage rapide montre comment ajouter Application Insights à une
 ## <a name="prerequisites"></a>Prérequis
 Pour suivre ce guide de démarrage rapide :
 
-- Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
+- Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
     - Développement web et ASP.NET
     - Développement Azure
 
@@ -35,7 +35,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="enable-application-insights"></a>Activer Application Insights
 
-1. Ouvrez votre projet dans Visual Studio 2017.
+1. Ouvrez votre projet dans Visual Studio 2019.
 2. Sélectionnez **Configurer Application Insights** dans le menu Projet. Visual Studio ajoute le SDK Application Insights à votre application.
 
     > [!IMPORTANT]
@@ -47,7 +47,9 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 4. Sélectionnez votre abonnement et cliquez sur **S’inscrire**.
 
-5. Exécutez votre application en sélectionnant **Démarrer le débogage** dans le menu **Déboguer** ou en appuyant sur la touche F5.
+5. Sélectionnez **Projet** > **Gérer les packages NuGet** > **Source du package : nuget.org** > **Mettre à jour** les packages du SDK Application Insights vers la version stable la plus récente.
+
+6. Exécutez votre application en sélectionnant **Démarrer le débogage** dans le menu **Déboguer** ou en appuyant sur la touche F5.
 
 ## <a name="confirm-app-configuration"></a>Confirmer la configuration de l’application
 
@@ -63,13 +65,13 @@ Vous pouvez maintenant ouvrir Application Insights dans le portail Azure pour af
 
 1. Développez le dossier **Services connectés** (icône d’une prise branchée au cloud) dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Application Insights**, puis cliquez sur **Ouvrir le portail Application Insights**.  Vous voyez des informations sur votre application et diverses options.
 
-    ![Mise en correspondance d'applications](media/quick-monitor-portal/4overview.png)
+    ![Mise en correspondance d'applications](media/quick-monitor-portal/04-overview.png)
 
 2. Cliquez sur **cartographie d’application** pour obtenir une présentation visuelle des relations de dépendance entre les composants de votre application.  Chaque composant affiche des indicateurs de performance clés comme la charge, les performances, les échecs et les alertes.
 
-    ![Mise en correspondance d'applications](media/quick-monitor-portal/5appmap.png)
+    ![Mise en correspondance d'applications](media/quick-monitor-portal/05-appmap.png)
 
-3. Cliquez sur l’icône **Analyse d’application** ![Mise en correspondance d’applications](media/quick-monitor-portal/app-analytics-icon.png) **Voir dans Analytics** sur l’un des composants de l’application. Vous ouvrez ainsi **Application Insights - Analyses**, qui fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights.  Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
+3. Cliquez sur l’icône **Analyse d’application** ![Mise en correspondance d’applications](media/quick-monitor-portal/app-viewinlogs-icon.png) **Voir dans Logs (Analytics)** sur l’un des composants de l’application. Vous ouvrez ainsi **Logs (Analytics)** , lequel fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
 
     ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 

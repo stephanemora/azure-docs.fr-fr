@@ -5,15 +5,15 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 03/22/2019
+ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 28eac814364b56f59b8edc6f59209a6d742ff403
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 60d5d8efb10cce54743038599238cc6f61922369
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407837"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "70934099"
 ---
 ## <a name="create-the-webapi-project"></a>Création du projet WebAPI
 
@@ -40,7 +40,7 @@ Pour créer le serveur principal WebAPI ASP.NET, procédez comme suit :
 2. Sélectionnez **Explorateur de serveurs** et connectez-vous à votre compte Azure. Pour créer les ressources du site web sur votre compte, vous devez être connecté.
 
 3. Dans Visual Studio, cliquez avec le bouton droit de la souris sur la solution Visual Studio, pointez sur **Ajouter**, puis cliquez sur **Nouveau projet**.
-4. Développez **Visual C#**, sélectionnez **Web** puis cliquez sur **Application web ASP.NET**.
+4. Développez **Visual C#** , sélectionnez **Web** puis cliquez sur **Application web ASP.NET**.
 
 5. Dans la zone **Nom**, tapez **AppBackend**, puis sélectionnez **OK**.
 
@@ -158,7 +158,7 @@ Dans cette section, vous ajoutez un nouveau contrôleur au serveur principal Web
 
 3. Dans la liste de résultats, sélectionnez **Microsoft Azure Notification Hubs**, puis **Installer**. Procédez à l’installation, puis fermez la fenêtre du Gestionnaire de package NuGet.
 
-    Cette action ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du [package NuGet Microsoft.Azure.Notification Hubs](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    Cette action ajoute une référence au Kit de développement logiciel (SDK) Azure Notification Hubs à l’aide du [package NuGet Microsoft.Azure.Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 4. Créez un nouveau fichier de classe qui représente la connexion avec le hub de notification utilisé pour envoyer des notifications. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Modèles**, sélectionnez **Ajouter**, puis **Classe**. Nommez la nouvelle classe **Notifications.cs**, puis sélectionnez **Ajouter** pour générer la classe.
 
@@ -170,7 +170,7 @@ Dans cette section, vous ajoutez un nouveau contrôleur au serveur principal Web
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. Remplacez la définition de classe `Notifications` par le code suivant et les deux espaces réservés par la chaîne de connexion (avec accès complet) de votre centre Notification Hubs et le nom du hub (disponible sur le [Portail Azure](http://portal.azure.com)) :
+6. Remplacez la définition de classe `Notifications` par le code suivant et les deux espaces réservés par la chaîne de connexion (avec accès complet) de votre centre Notification Hubs et le nom du hub (disponible sur le [Portail Azure](https://portal.azure.com)) :
 
     ```csharp
     public class Notifications
@@ -185,6 +185,9 @@ Dans cette section, vous ajoutez un nouveau contrôleur au serveur principal Web
         }
     }
     ```
+    > [!IMPORTANT]
+    > Entrez le **nom** et la **DefaultFullSharedAccessSignature** de votre hub avant de continuer. 
+    
 7. Ensuite, créez un contrôleur nommé **RegisterController**. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier **Contrôleurs**, sélectionnez **Ajouter**, puis **Contrôleur**.
 
 8. Sélectionnez **Contrôleur API 2 web - Vide**, puis **Ajouter**.
@@ -389,7 +392,7 @@ Ensuite, vous déployez l’application sur un site web Azure afin de la rendre
 
 3. Dans la fenêtre **Créer App Service**, sélectionnez votre compte Azure. Sélectionnez **Modifier le type** > **Application web**. Conservez le **nom de l’application web** par défaut et sélectionnez l’**abonnement**, le **groupe de ressources** et le **plan App Service**.
 
-4. Sélectionnez **Créer**.
+4. Sélectionnez **Create** (Créer).
 
 5. Notez la valeur de la propriété **URL du site** dans la section **Résumé**. Cette URL constitue le *point de terminaison de votre serveur principal* plus loin dans ce didacticiel.
 

@@ -1,4 +1,3 @@
-items:
 - name: Création d’une demande de support Azure
   href: how-to-create-azure-support-request.md
 - name: Charger des fichiers pour une demande de support
@@ -6,24 +5,30 @@ items:
 - name: Droits d’accès pour la création et la gestion des demandes de support
   href: create-manage-support-requests-using-access-control.md
 - name: Demandes d’augmentation de quota
-  href: resource-manager-core-quotas-request.md
+  items:
+    - name: Calculer l’augmentation de la limite des processeurs virtuels
+      items:
+        - name: Modèle de déploiement Resource Manager
+          items:
+            - name: Augmentation de la limite des processeurs virtuels de séries de machines virtuelles
+              href: per-vm-quota-requests.md
+            - name: Augmentation de la limite totale régionale des processeurs virtuels
+              href: regional-quota-requests.md
+        - name: Modèle de déploiement classique
+          href: classic-deployment-model-quota-increase-requests.md
+    - name: Augmentation de la limite réseau
+      href: networking-quota-requests.md
 - name: Résolution des problèmes d’abonnement de région ou de référence SKU
   href: sku-series-unavailable.md
 - name: Informations de référence
   items:
-  - name: Azure CLI
-    href: /cli/azure
-  - name: Azure PowerShell
-    href: /powershell/azure
+    - name: D’Azure CLI
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
 - name: Ressources
   items:
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
-  - name: Calculatrice de prix
-    href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 31120ea857d0e080bc9629d781ac2cdd73d31bc0
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340912"
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'

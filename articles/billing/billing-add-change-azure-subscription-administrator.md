@@ -1,51 +1,56 @@
 ---
-title: Ajouter ou modifier des administrateurs d'abonnement Azure | Microsoft Docs
+title: Ajout ou modification des administrateurs d’abonnements Azure
 description: Explique comment ajouter ou modifier un administrateur d'abonnement Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC).
-services: ''
-documentationcenter: ''
 author: genlin
-manager: adpick
-editor: ''
+manager: dcscontentpm
 tags: billing
-ms.assetid: 13a72d76-e043-4212-bcac-a35f4a27ee26
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 09/24/2019
 ms.author: banders
-ms.openlocfilehash: 6cc965f8e775e02e9dec9f610516739a9a2c1936
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 2054fbb7d0a9f450ad487fc0f03d0af920c6cc4b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448005"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260925"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ajout ou modification des administrateurs d’abonnements Azure
 
-Pour gérer l’accès aux ressources Azure, vous devez disposer du rôle d’administrateur approprié. Azure repose sur un système d'autorisation appelé contrôle d'accès en fonction du rôle (RBAC) et vous pouvez faire votre choix parmi les différents rôles intégrés. Vous pouvez attribuer ces rôles à différents niveaux (ou étendues) : groupe de gestion, abonnement, groupe de ressources, etc.
 
-Microsoft vous recommande de gérer l'accès aux ressources à l'aide du RBAC. Toutefois, si vous utilisez encore le modèle de déploiement classique et que vous gérez les ressources classiques à l'aide du [module PowerShell d'Azure Service Management](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure), vous devez utiliser un administrateur classique. 
-
-> [!TIP]
-> Si vous utilisez uniquement le portail Azure pour gérer les ressources classiques, vous n'avez pas besoin d'utiliser l'administrateur classique.
-
-Pour plus d'informations, consultez [Déploiement Azure Resource Manager et déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md) et [Administrateurs d'abonnements classiques Azure](../role-based-access-control/classic-administrators.md).
+Pour gérer l’accès aux ressources Azure, vous devez disposer du rôle d’administrateur approprié. Azure a un système d’autorisation appelé [contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md) (RBAC) avec plusieurs rôles intégrés parmi lesquels vous pouvez choisir. Vous pouvez attribuer ces rôles à différents niveaux (ou étendues) : groupe de gestion, abonnement, groupe de ressources, etc. Par défaut, la personne qui crée un abonnement Azure peut attribuer à d’autres utilisateurs un accès d’administration à un abonnement.
 
 Cet article explique comment ajouter ou modifier le rôle d'administrateur pour un utilisateur qui a recours au RBAC au niveau de l'abonnement.
 
+Microsoft vous recommande de gérer l'accès aux ressources à l'aide du RBAC. Toutefois, si vous utilisez encore le modèle de déploiement classique et que vous gérez les ressources classiques à l'aide du [module PowerShell d'Azure Service Management](https://docs.microsoft.com/powershell/module/servicemanagement/azure), vous devez utiliser un administrateur classique.
+
+> [!TIP]
+> Si vous utilisez le portail Azure seulement pour gérer les ressources classiques, vous n’avez pas besoin d’utiliser l’administrateur classique.
+
+Pour plus d'informations, consultez [Déploiement Azure Resource Manager et déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md) et [Administrateurs d'abonnements classiques Azure](../role-based-access-control/classic-administrators.md).
+
 <a name="add-an-admin-for-a-subscription"></a>
 
-## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Attribuer à un utilisateur en tant qu’administrateur d’un abonnement
+## <a name="assign-a-subscription-administrator"></a>Attribuer un administrateur d’abonnement
 
-Pour qu'un utilisateur devienne administrateur d'un abonnement Azure, attribuez-lui le rôle de [Propriétaire](../role-based-access-control/built-in-roles.md#owner) (rôle RBAC) au niveau de l'abonnement. Le rôle Propriétaire donne à l’utilisateur un accès total à toutes les ressources de l’abonnement, ainsi que le droit de déléguer l’accès à d’autres personnes. Ces étapes sont les mêmes que celles de n’importe quelle autre attribution de rôle.
+Pour qu’un utilisateur devienne administrateur d’un abonnement Azure, un administrateur existant lui attribue le rôle de [Propriétaire](../role-based-access-control/built-in-roles.md#owner) (un rôle RBAC) au niveau de l’abonnement. Le rôle Propriétaire donne à l’utilisateur un accès total à toutes les ressources de l’abonnement, ainsi que le droit de déléguer l’accès à d’autres personnes. Ces étapes sont les mêmes que celles de n’importe quelle autre attribution de rôle.
 
-1. Sur le portail Azure, ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Si vous ne savez pas qui est l’administrateur de compte d’un abonnement, procédez comme suit pour le découvrir.
+
+1. Ouvrez la [page Abonnements dans le portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Sélectionnez l’abonnement que vous souhaitez vérifier, puis regardez sous **Paramètres**.
+1. Sélectionner **Propriétés**. L’administrateur de compte de l’abonnement s’affiche dans la zone **Administrateur de compte** .
+
+### <a name="to-assign-a-user-as-an-administrator"></a>Pour attribuer un utilisateur en tant qu’administrateur
+
+1. Connectez-vous au portail Azure en tant que propriétaire de l’abonnement et ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 1. Cliquez sur l’abonnement pour lequel vous souhaitez accorder l’accès.
 
-1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 
 1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cet abonnement.
 

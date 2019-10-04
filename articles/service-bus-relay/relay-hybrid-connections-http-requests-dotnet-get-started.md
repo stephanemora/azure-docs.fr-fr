@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5bb45ff87f558e1142b68af01147ad55386ee28f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 37227b7d0ea1b3630a3c2ce991a61543e6a1503d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888057"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66428250"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Bien démarrer avec les requêtes HTTP de connexions hybrides Relay dans .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -34,7 +34,7 @@ Ce démarrage rapide comporte les étapes suivantes :
 4. Écrire une application de console (expéditeur) de client pour envoyer des messages.
 5. Exécuter les applications. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -67,7 +67,7 @@ Dans Visual Studio, écrivez une application console C# pour envoyer des message
 1. Exécuter l’application cliente. Vous voyez `hello!` dans la fenêtre du client. Le client a envoyé une requête HTTP au serveur, et ce dernier a répondu par `hello!`. 
 3. Maintenant, pour fermer les fenêtres de console, appuyez sur **ENTRÉE** dans les deux les fenêtres de console. 
 
-Vous avez créé une application de connexions hybrides complète : félicitations !
+Félicitations, vous avez créé une application de connexions hybrides complète !
 
 ## <a name="next-steps"></a>Étapes suivantes
 

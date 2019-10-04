@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 09/17/2019
 ms.author: alkohli
-ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a3e27cf427de3a33f71d6f4a0af9b1590abeb573
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117742"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066998"
 ---
 # <a name="what-is-azure-data-box"></a>Qu’est-ce qu’Azure Data Box ?
 
@@ -109,13 +109,9 @@ Tout au long de ce processus, vous êtes averti par courrier électronique de to
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
-Data Box peut transférer des données en fonction de la région dans laquelle le service est déployé, du pays dans lequel l’appareil est livré et du compte de stockage Azure cible vers lequel vous transférez les données. 
+Data Box peut transférer des données en fonction de la région dans laquelle le service est déployé, du pays/de la région où l’appareil est livré et du compte de stockage Azure cible vers lequel vous transférez les données. 
 
-- **Disponibilité du service** : pour cette version, le service Data Box est disponible dans les régions suivantes :
-    - Toutes les régions des États-Unis : USA Centre-Ouest, USA Ouest 2, USA Ouest, USA Centre Sud, USA Centre, USA Centre Nord, USA Est et USA Est 2.
-    - Union européenne : Europe Ouest et Europe Nord.
-    - Royaume-Uni : Royaume-Uni Sud et Royaume-Uni Ouest.
-    - France : France Centre et France Sud.
+- **Disponibilité du service** - Pour plus d’informations sur la disponibilité régionale, accédez à [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Vous pouvez aussi déployer Data Box Disk dans le cloud Azure Government. Pour plus d’informations, consultez [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Comptes de stockage de destination** : les comptes de stockage qui stockent les données sont disponibles dans toutes les régions Azure où le service est disponible.  
 

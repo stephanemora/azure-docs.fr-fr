@@ -3,27 +3,24 @@ title: Appeler des programmes Spark à partir d’Azure Data Factory | Microsoft
 description: Apprenez à appeler des programmes Spark à partir d’une fabrique de données Azure à l’aide de l’activité MapReduce.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: ''
-editor: ''
-ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: MT
+ms.openlocfilehash: 08aa1303aeaa0a80f0825f45e037109b98e9771e
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015812"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70135333"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Activités de transformation"]
 > * [Activité Hive](data-factory-hive-activity.md)
 > * [Activité pig](data-factory-pig-activity.md)
 > * [Activité MapReduce](data-factory-map-reduce.md)
@@ -81,7 +78,7 @@ Pour créer une fabrique de données, procédez comme suit :
 
 1. Cochez la case **Épingler au tableau de bord**.
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
    > [!IMPORTANT]
    > Pour créer des instances Data Factory, vous devez avoir un rôle de [contributeur de fabrique de données](../../role-based-access-control/built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
@@ -267,7 +264,8 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 
     ![Résultats de la requête Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Pour obtenir des instructions détaillées, consultez la section [Exécuter une requête Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
+Pour obtenir des instructions détaillées, consultez la section [Exécuter une requête Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>Résolution de problèmes
 Étant donné que vous définissez getDebugInfo sur **Toujours**, un sous-dossier log apparaît dans le dossier pyFiles de votre conteneur d’objets Blob. Le fichier journal figurant dans ce dossier fournit des informations supplémentaires. Ce fichier journal est particulièrement utile en cas d’erreur. Dans un environnement de production, vous souhaiterez peut-être définir cette propriété sur **Échec**.
@@ -305,7 +303,7 @@ Voici l’exemple de définition JSON d’un pipeline avec une activité Spark 
                     "arguments": [ "arg1", "arg2" ],
                     "sparkConfig": {
                         "spark.python.worker.memory": "512m"
-                    }
+                    },
                     "getDebugInfo": "Always"
                 },
                 "outputs": [
@@ -328,33 +326,33 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| Nom | Nom de l'activité dans le pipeline. | Oui |
-| description | Texte qui décrit l’activité. | Non  |
-| Type | Cette propriété doit être définie sur HDInsightSpark. | Oui |
-| linkedServiceName | Nom d’un service lié HDInsight sur lequel s’exécute le programme Spark. | Oui |
-| rootPath | Conteneur d’objets Blob et dossier contenant le fichier Spark. Le nom de fichier est sensible à la casse. | Oui |
-| entryFilePath | Chemin d’accès relatif au dossier racine du code/package Spark. | Oui |
-| className | Classe principale Java/Spark de l’application. | Non  |
-| arguments | Liste d’arguments de ligne de commande du programme Spark. | Non  |
-| proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non  |
-| sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark lisétes dans la rubrique [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non  |
-| getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Les valeurs autorisées sont Aucun, Toujours ou Échec. La valeur par défaut est Aucun. | Non  |
-| sparkJobLinkedService | Service lié Stockage qui contient le fichier de travail, les dépendances et les journaux d’activité Spark. Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non  |
+| name | Nom de l'activité dans le pipeline. | OUI |
+| description | Texte qui décrit l’activité. | Non |
+| type | Cette propriété doit être définie sur HDInsightSpark. | OUI |
+| linkedServiceName | Nom d’un service lié HDInsight sur lequel s’exécute le programme Spark. | OUI |
+| rootPath | Conteneur d’objets Blob et dossier contenant le fichier Spark. Le nom de fichier est sensible à la casse. | OUI |
+| entryFilePath | Chemin d’accès relatif au dossier racine du code/package Spark. | OUI |
+| className | Classe principale Java/Spark de l’application. | Non |
+| arguments | Liste d’arguments de ligne de commande du programme Spark. | Non |
+| proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non |
+| sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark lisétes dans la rubrique [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non |
+| getDebugInfo | Spécifie quand les fichiers journaux de Spark sont copiés vers le stockage utilisé par le cluster HDInsight (ou) spécifié par sparkJobLinkedService. Les valeurs autorisées sont Aucun, Toujours ou Échec. La valeur par défaut est Aucun. | Non |
+| sparkJobLinkedService | Service lié Stockage qui contient le fichier de travail, les dépendances et les journaux d’activité Spark. Si vous ne spécifiez pas de valeur pour cette propriété, le stockage associé au cluster HDInsight est utilisé. | Non |
 
 ## <a name="folder-structure"></a>Structure de dossiers
 L’activité Spark ne prend pas en charge un script en ligne, contrairement aux activités Pig et Hive. Les travaux Spark sont également plus extensibles que les travaux Pig/Hive. Pour les travaux Spark, vous pouvez fournir plusieurs dépendances, telles que des packages jar (placés dans le CLASSPATH Java), des fichiers Python (placés dans le PYTHONPATH) et tout autre fichier.
 
 Créez la structure de dossiers suivante dans le stockage Blob référencé par le service lié HDInsight. Chargez ensuite les fichiers dépendants dans les sous-dossiers appropriés dans le dossier racine représenté par **entryFilePath**. Par exemple, chargez les fichiers Python dans le sous-dossier pyFiles et les fichiers jar dans le sous-dossier jars du dossier racine. Lors de l’exécution, le service Data Factory attend la structure de dossiers suivante dans le stockage Blob : 
 
-| path | Description | Obligatoire | type |
+| Path | Description | Obligatoire | type |
 | ---- | ----------- | -------- | ---- |
-| . | Chemin d’accès racine du travail Spark dans le service lié de stockage. | Oui | Dossier |
-| &lt;défini par l’utilisateur &gt; | Chemin d’accès qui pointe vers le fichier d’entrée du travail Spark. | Oui | Fichier |
-| ./jars | Tous les fichiers dans ce dossier sont chargés et placés dans le classpath Java du cluster. | Non  | Dossier |
-| ./pyFiles | Tous les fichiers dans ce dossier sont chargés et placés dans le PYTHONPATH du cluster. | Non  | Dossier |
-| ./files | Tous les fichiers dans ce dossier sont chargés et placés dans le répertoire de travail de l’exécuteur. | Non  | Dossier |
-| ./archives | Tous les fichiers dans ce dossier sont décompressés. | Non  | Dossier |
-| ./logs | Dossier dans lequel sont stockés les journaux d’activité du cluster Spark| Non  | Dossier |
+| . | Chemin d’accès racine du travail Spark dans le service lié de stockage. | OUI | Dossier |
+| &lt;défini par l’utilisateur &gt; | Chemin d’accès qui pointe vers le fichier d’entrée du travail Spark. | OUI | Fichier |
+| ./jars | Tous les fichiers dans ce dossier sont chargés et placés dans le classpath Java du cluster. | Non | Dossier |
+| ./pyFiles | Tous les fichiers dans ce dossier sont chargés et placés dans le PYTHONPATH du cluster. | Non | Dossier |
+| ./files | Tous les fichiers dans ce dossier sont chargés et placés dans le répertoire de travail de l’exécuteur. | Non | Dossier |
+| ./archives | Tous les fichiers dans ce dossier sont décompressés. | Non | Dossier |
+| ./logs | Dossier dans lequel sont stockés les journaux d’activité du cluster Spark| Non | Dossier |
 
 Voici un exemple de stockage qui contient deux fichiers de travail Spark dans le stockage Blob référencé par le service lié HDInsight :
 

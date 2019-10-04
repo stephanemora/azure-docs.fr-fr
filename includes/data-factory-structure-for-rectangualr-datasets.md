@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572103"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177733"
 ---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Spécification de la définition de la structure des jeux de données rectangulaires
 La section structure dans les jeux de données JSON est une section **facultative** pour les tables rectangulaires (avec des lignes et colonnes) et contient une collection de colonnes de la table. Vous allez utiliser la section structure pour indiquer des informations de type pour les conversions de type ou pour effectuer des mappages de colonnes. Les sections suivantes décrivent ces fonctionnalités en détail. 
@@ -18,10 +18,10 @@ Chaque colonne contient les propriétés suivantes :
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de la colonne. |Oui |
-| Type |Type de données de la colonne. Pour plus d’informations sur le moment où vous devez spécifier les informations de type, consultez la section des conversions de type ci-dessous. |Non  |
-| culture |Culture .NET à utiliser lorsque le type est spécifié et qu’il est de type .NET Datetime ou Datetimeoffset. La valeur par défaut est « fr-fr ». |Non  |
-| format |Chaîne de format à utiliser lorsque le type est spécifié et qu’il est de type .NET Datetime ou Datetimeoffset. |Non  |
+| name |Nom de la colonne. |OUI |
+| type |Type de données de la colonne. Pour plus d’informations sur le moment où vous devez spécifier les informations de type, consultez la section des conversions de type ci-dessous. |Non |
+| culture |Culture .NET à utiliser lorsque le type est spécifié et qu’il est de type .NET Datetime ou Datetimeoffset. La valeur par défaut est « fr-fr ». |Non |
+| format |Chaîne de format à utiliser lorsque le type est spécifié et qu’il est de type .NET Datetime ou Datetimeoffset. |Non |
 
 L’exemple suivant présente la section JSON structure d’une table qui comporte trois colonnes : userid, name et lastlogindate.
 
@@ -39,7 +39,7 @@ Suivez les recommandations suivantes pour savoir quand inclure les informations 
 * **Pour les sources de données structurées** qui stockent le schéma de données et les informations de type, ainsi que les données proprement dites (sources telles qu’une table Azure, SQL Server, Oracle, etc.), vous devez spécifier la section « structure » uniquement si vous voulez effectuer un mappage des colonnes sources spécifiques aux colonnes spécifiques du récepteur et si leurs noms ne sont pas identiques (voir les détails de la section de mappage des colonnes ci-dessous). 
   
     Comme mentionné ci-dessus, les informations de type sont facultatives dans la section « structure ». Pour les sources structurées, les informations de type sont déjà disponibles dans le cadre de la définition du jeu de données dans le magasin de données. Vous ne devez donc pas les inclure lorsque vous incluez la section « structure ».
-* **Pour un schéma des sources de données de lecture (en particulier les objets blob Azure)**, vous pouvez choisir de stocker des données sans les informations de type ou de schéma. Pour ces types de source de données, vous devez inclure « structure » dans les 2 cas suivants :
+* **Pour un schéma des sources de données de lecture (en particulier les objets blob Azure)** , vous pouvez choisir de stocker des données sans les informations de type ou de schéma. Pour ces types de source de données, vous devez inclure « structure » dans les 2 cas suivants :
   * Vous souhaitez effectuer un mappage de colonnes.
   * Si le jeu de données est une source dans une activité de copie, vous pouvez fournir des informations de type dans la « structure », et la fabrique de données utilisera ces informations de type pour la conversion en types natifs pour le récepteur. Pour plus d’informations, consultez l’article [Déplacer des données vers et depuis un stockage d’objets blob Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) .
 
@@ -51,7 +51,7 @@ La fabrique de données prend en charge les valeurs de type .NET conformes CLS 
 * Int64
 * Single
 * Double
-* Décimal
+* Decimal
 * Byte[]
 * Bool
 * Chaîne 

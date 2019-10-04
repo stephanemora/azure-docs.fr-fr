@@ -1,24 +1,25 @@
 ---
-title: Se connecter à Facebook – Azure Logic Apps | Microsoft Docs
+title: Se connecter à Facebook – Azure Logic Apps
 description: Gérer votre chronologie et la page avec les API REST de Facebook et Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 11/07/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+manager: carmonm
+ms.reviewer: klam, LADocs
+ms.topic: conceptual
+ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 985f3cf70a07b3080f34181e64c5bb1419d530bd
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 83431184d7e9c5970ece6af143ee9b5166da96d5
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295004"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050951"
 ---
-# <a name="get-started-with-the-facebook-connector"></a>Prise en main du connecteur Facebook
+# <a name="manage-your-facebook-timeline-and-page-by-using-azure-logic-apps"></a>Gérer votre page et votre chronologie Facebook à l’aide d'Azure Logic Apps
+
 Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page et bien plus encore. Avec Facebook, vous pouvez effectuer les opérations suivantes :
 
 * Créer votre flux d’activité en fonction des données que vous obtenez de Facebook. 
@@ -28,18 +29,20 @@ Connectez-vous à Facebook et publiez dans un journal, obtenez un flux de page e
 Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-facebook"></a>Créer une connexion à Facebook
+
 Quand vous ajoutez ce connecteur à vos applications logiques, vous devez autoriser celles-ci à se connecter à votre compte Facebook.
 
 1. Connectez-vous à votre compte Facebook.
+
 2. Sélectionnez **Autoriser**et permettez à vos applications logiques de se connecter à votre compte Facebook et de l’utiliser. 
 
 > [!INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
 > 
 
+## <a name="connector-reference"></a>Référence de connecteur
 
-## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/facebook/).
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/facebook/).
+## <a name="next-steps"></a>Étapes suivantes
 
-## <a name="more-connectors"></a>Autres connecteurs
-Revenir à la [liste des API](apis-list.md).
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

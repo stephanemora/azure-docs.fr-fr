@@ -1,40 +1,59 @@
 ---
 title: Tester la définition d’interface utilisateur pour les applications managées Azure | Microsoft Docs
 description: Décrit comment tester l’expérience utilisateur de création de votre application gérée Azure via le portail.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/22/2018
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 54eb2df06df56c33e1a3cd74e7a4a93c07aab682
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747086"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575667"
 ---
-# <a name="test-azure-portal-interface-for-your-managed-application"></a>Tester l’interface de portail Azure pour votre application managée
-Après la [création du fichier createUiDefinition.json](create-uidefinition-overview.md) pour votre application gérée Azure, vous devez tester l’expérience utilisateur. Pour simplifier le test, utilisez un script qui charge votre fichier dans le portail. Vous n’avez pas besoin de déployer votre application managée.
+# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Tester votre interface de portail pour Applications managées Azure
+
+Après la [création du fichier createUiDefinition.json](create-uidefinition-overview.md) pour votre application managée, vous devez tester l’expérience utilisateur. Pour simplifier le test, utilisez un environnement de bac à sable qui charge votre fichier dans le portail. Vous n’avez pas besoin de déployer votre application managée. Le bac à sable présente votre interface utilisateur dans l’expérience portail actuelle et en plein écran. Ou, vous pouvez utiliser un script pour tester l’interface. Les deux approches sont présentées dans cet article. Le bac à sable constitue la méthode recommandée pour afficher un aperçu de l’interface.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un fichier **createUiDefinition.json**. Si vous n’avez pas ce fichier, copiez l’[exemple de fichier](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) et enregistrez-le en local.
+* Un fichier **createUiDefinition.json**. Si vous n’avez pas ce fichier, copiez l’[exemple de fichier](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
 * Un abonnement Azure. Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="download-test-script"></a>Télécharger le script de test
+## <a name="use-sandbox"></a>Utiliser le bac à sable
+
+1. Ouvrez [Créer un bac à sable (sandbox) de définition d’interface utilisateur](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
+
+   ![Afficher le bac à sable](./media/test-createuidefinition/show-sandbox.png)
+
+1. Remplacez la définition vide par le contenu de votre fichier createUiDefinition.json. Sélectionnez **Aperçu**.
+
+   ![Sélectionner l’aperçu](./media/test-createuidefinition/select-preview.png)
+
+1. Le formulaire que vous avez créé s’affiche. Vous pouvez parcourir l’expérience utilisateur et renseigner les valeurs.
+
+   ![Afficher le formulaire](./media/test-createuidefinition/show-ui-form.png)
+
+### <a name="troubleshooting"></a>Résolution de problèmes
+
+Si votre formulaire ne s’affiche après la sélection de l’option **Aperçu**, cela signifie peut-être que vous avez fait une erreur de syntaxe. Recherchez l’indicateur rouge dans la barre de défilement sur la droite et accédez à ce dernier.
+
+![Afficher une erreur de syntaxe](./media/test-createuidefinition/show-syntax-error.png)
+
+Si votre formulaire ne s’affiche pas, et si à la place vous voyez une icône représentant un nuage avec une larme, cela signifie que votre formulaire comporte une erreur, comme une propriété manquante. Ouvrez Web Developer Tools dans votre navigateur. La **Console** affiche des messages importants sur votre interface.
+
+![Afficher l’erreur](./media/test-createuidefinition/show-error.png)
+
+## <a name="use-test-script"></a>Utiliser le script de test
 
 Pour tester votre interface dans le portail, copiez un des scripts suivants sur votre ordinateur local :
 
-* [Script PowerShell side-load](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
+* [Script PowerShell side-load - Module Az](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-AzCreateUIDefinition.ps1)
+* [Script PowerShell side-load - Module Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Script Azure CLI side-load](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
-
-## <a name="run-script"></a>Exécuter le script
 
 Pour afficher votre fichier d’interface dans le portail, exécutez le script téléchargé. Le script crée un compte de stockage dans votre abonnement Azure et charge votre fichier createUiDefinition.json dans le compte de stockage. Le compte de stockage est créé quand vous exécutez le script pour la première fois, ou si le compte de stockage a été supprimé. Si le compte de stockage existe déjà dans votre abonnement Azure, le script le réutilise. Le script ouvre le portail et charge votre fichier à partir du compte de stockage.
 
@@ -43,7 +62,7 @@ Indiquez un emplacement pour le compte de stockage et spécifiez le dossier cont
 Pour PowerShell, utilisez la commande suivante :
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1 `
+.\SideLoad-AzCreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
   -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
@@ -61,7 +80,7 @@ Si votre fichier createUiDefinition.json se trouve dans le même dossier que le 
 Pour PowerShell, utilisez la commande suivante :
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1
+.\SideLoad-AzCreateUIDefinition.ps1
 ```
 
 Pour l’interface de ligne de commande Azure, consultez :
@@ -70,35 +89,15 @@ Pour l’interface de ligne de commande Azure, consultez :
 ./sideload-createuidef.sh
 ```
 
-## <a name="test-your-interface"></a>Tester votre interface
-
 Le script ouvre un nouvel onglet dans votre navigateur. Il affiche le portail avec votre interface de création de l’application managée.
 
-![Afficher le portail](./media/test-createuidefinition/view-portal.png)
-
-Avant de remplir les champs, ouvrez les outils de développement web dans votre navigateur. La **Console** affiche des messages importants sur votre interface.
-
-![Sélectionner la console](./media/test-createuidefinition/select-console.png)
-
-Si votre définition d’interface comporte une erreur, vous voyez la description dans la console.
-
-![Afficher l’erreur](./media/test-createuidefinition/show-error.png)
-
-Donnez des valeurs aux champs. Lorsque vous avez terminé, vous voyez les valeurs qui sont transmises au modèle.
+Donnez des valeurs aux champs. Quand vous avez terminé, vous voyez les valeurs qui sont passées au modèle se trouvant dans la console des outils de développement de votre navigateur.
 
 ![Afficher les valeurs](./media/test-createuidefinition/show-json.png)
 
 Vous pouvez utiliser ces valeurs en tant que fichier de paramètres pour tester votre modèle de déploiement.
 
-## <a name="troubleshooting-the-interface"></a>Résolution des problèmes liés à l’interface
-
-Voici certaines erreurs courantes que vous pouvez voir :
-
-* Le portail ne charge pas votre interface. À la place, il affiche une icône représentant un nuage avec une larme. En règle générale, cette icône apparaît quand votre fichier contient une erreur de syntaxe. Ouvrez le fichier dans Visual Studio Code (ou un autre éditeur JSON doté de la fonctionnalité de validation de schéma) et recherchez les erreurs de syntaxe.
-
-* Le portail se bloque à l’écran récapitulatif. En règle générale, cette interruption se produit quand la section de sortie contient un bogue. Par exemple, vous avez référencé un contrôle inexistant.
-
-* Un paramètre dans la sortie est vide. Le paramètre peut faire référence à une propriété inexistante. Par exemple, la référence au contrôle est valide, mais pas la référence à la propriété.
+Si le portail se bloque sur l’écran récapitulatif, cela signifie qu’il y a peut-être un bogue dans la section de sortie. Par exemple, vous avez référencé un contrôle inexistant. Si un paramètre de la sortie est vide, ce paramètre peut faire référence à une propriété inexistante. Par exemple, la référence au contrôle est valide, mais pas la référence à la propriété.
 
 ## <a name="test-your-solution-files"></a>Tester vos fichiers de solution
 

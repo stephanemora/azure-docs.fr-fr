@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/9/2017
-ms.author: rajraj
-ms.openlocfilehash: 98032291d9b9d1b0885e7442b882a7f62f9ccd59
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: jeconnoc
+ms.openlocfilehash: 46ca46c99187b14974b78ccc4acc134a5f716b05
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123434"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326703"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Utilisation de grands groupes de machines virtuelles identiques
 Vous pouvez désormais créer des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure d’une capacité maximum de 1 000 machines virtuelles. Dans ce document, un _grand groupe de machines virtuelles identiques_ est défini comme un groupe identique pouvant contenir plus de 100 machines virtuelles. Cette fonctionnalité est définie par une propriété de groupe identique (_singlePlacementGroup=False_). 
@@ -42,7 +42,7 @@ Pour déterminer si votre application peut utiliser efficacement de grands group
 - L’équilibrage de charge de type Couche 4 avec les groupes identiques composés de plusieurs groupes de placement nécessite la [Référence SKU standard d’Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md). La référence SKU standard Load Balancer fournit des avantages supplémentaires, tels que la possibilité d’équilibrer la charge parmi plusieurs groupes identiques. La référence (SKU) standard requiert également que le groupe identique soit associé à un groupe de sécurité réseau, sans quoi les pools NAT ne fonctionneront pas correctement. Si vous devez utiliser la référence SKU de base Azure Load Balancer, veillez à ce que le groupe identique soit configuré pour utiliser un seul groupe de placement, ce qui est le paramètre par défaut.
 - L’équilibrage de charge de type Couche 7 avec Azure Application Gateway est pris en charge pour tous les groupes identiques.
 - Un groupe identique est défini avec un seul sous-réseau. Vérifiez que votre sous-réseau dispose d’un espace d’adressage suffisamment grand pour toutes les machines virtuelles requises. Par défaut, un groupe identique surprovisionne (c’est-à-dire qu’il crée des machines virtuelles supplémentaires au moment du déploiement ou de la montée en charge pour lesquelles vous n’êtes pas facturé) afin d’améliorer les performances et la fiabilité du déploiement. Prévoyez un espace d’adressage 20 % supérieur au nombre de machines virtuelles que vous envisagez d’atteindre.
-- Les domaines d’erreur et de mise à niveau sont cohérents uniquement au sein d’un groupe de placement. Cette architecture ne modifie pas la disponibilité globale d’un groupe identique, car les machines virtuelles sont réparties uniformément sur une infrastructure physique distincte. Toutefois, si vous avez besoin de garantir deux machines virtuelles sur des infrastructures différentes, assurez-vous qu’elles se trouvent dans des domaines d’erreur différents au sein du même groupe de placement. Reportez-vous à ce lien [Régions et disponibilité dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability/). 
+- Les domaines d’erreur et de mise à niveau sont cohérents uniquement au sein d’un groupe de placement. Cette architecture ne modifie pas la disponibilité globale d’un groupe identique, car les machines virtuelles sont réparties uniformément sur une infrastructure physique distincte. Toutefois, si vous avez besoin de garantir deux machines virtuelles sur des infrastructures différentes, assurez-vous qu’elles se trouvent dans des domaines d’erreur différents au sein du même groupe de placement. Reportez-vous à ce lien : [Options de disponibilité](/azure/virtual-machines/windows/availability). 
 - Les identifiants du groupe de placement et du domaine d’erreur sont indiqués dans la _vue d’instance_ d’une machine virtuelle de groupe identique. Vous pouvez afficher la vue d’instance d’un groupe de machines virtuelles identiques dans [Azure Resource Explorer](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Création d’un grand groupe identique

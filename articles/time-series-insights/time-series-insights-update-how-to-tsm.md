@@ -2,20 +2,20 @@
 title: Modélisation des données dans la préversion de Azure Time Series Insights | Microsoft Docs
 description: Découvrez la modélisation des données dans Azure Time Series Insights (préversion).
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 09/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1686b52c9dacf5c78335f76bd19b41c4c7d15cee
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 245a69f5e5834e68bbbd17a96859a93bc16eacbe
+ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555402"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70744370"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modélisation des données dans Azure Time Series Insights (préversion)
 
@@ -29,12 +29,12 @@ Pour en savoir plus sur l’utilisation de la mise à jour, consultez la page su
 
 1. Accédez au panneau du sélecteur de modèles Time Series, puis sélectionnez **Types** dans le menu. Réduisez le panneau pour ne garder que les types de modèles Time Series.
 
-    ![Portal_one][1]
+    [![Créer un type unique](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
 1. Sélectionnez **Ajouter**.
 1. Entrez tous les détails se rapportant aux types, puis sélectionnez **Créer**. Cette action crée des types dans l’environnement.
 
-    ![Portal_two][2]
+    [![Ajouter un type](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-types"></a>Charger un ou plusieurs types en bloc
 
@@ -42,19 +42,21 @@ Pour en savoir plus sur l’utilisation de la mise à jour, consultez la page su
 1. Sélectionnez le fichier qui contient la charge utile de type.
 1. Sélectionnez **Télécharger**.
 
-    ![Portal_three][3]
+    [![Charger un fichier JSON](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
 
 ### <a name="edit-a-single-type"></a>Modifier un type unique
 
-Sélectionnez le type, puis **Modifier**. Apportez les modifications nécessaires, puis sélectionnez **Enregistrer**.
+1. Sélectionnez le type, puis **Modifier**. 
+1. Apportez les modifications nécessaires, puis sélectionnez **Enregistrer**.
 
-![Portal_four][4]
+    [![Modifier un type](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
 
 ### <a name="delete-a-type"></a>Supprimer un type
 
-Sélectionnez le type, puis **Supprimer**. Si aucune instance n’est associée aux types, ils sont supprimés.
+1. Sélectionnez le type, puis **Supprimer**.
+1. Si aucune instance n’est associée aux types, ils sont supprimés.
 
-![Portal_five][5]
+    [![Supprimer un type](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
 
 ## <a name="hierarchies"></a>Hiérarchies
 
@@ -62,19 +64,19 @@ Sélectionnez le type, puis **Supprimer**. Si aucune instance n’est associée 
 
 1. Accédez au panneau du sélecteur de modèles Time Series, puis sélectionnez **Hiérarchies** dans le menu. Réduisez le panneau pour ne garder que les hiérarchies de modèles Time Series.
 
-    ![Portal_six][6]
+    [![Sélectionner des hiérarchies](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
 1. Sélectionnez **Ajouter**.
 
-    ![Portal_seven][7]
+    [![Ajouter une hiérarchie](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
-1. Sélectionnez **Ajouter un niveau** dans le volet droit.
+1. Sélectionnez **+ Ajouter un niveau** dans le volet droit.
 
-    ![Portal_eight][8]
+    [![Ajouter un niveau](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 
 1. Entrez les détails de la hiérarchie, puis sélectionnez **Créer**.
 
-    ![Portal_nine][9]
+    [![Créer un niveau](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>Charger une ou plusieurs hiérarchies en bloc
 
@@ -82,19 +84,21 @@ Sélectionnez le type, puis **Supprimer**. Si aucune instance n’est associée 
 1. Sélectionnez le fichier qui contient la charge utile de hiérarchie.
 1. Sélectionnez **Télécharger**.
 
-    ![Portal_ten][10]
+    [![Chargement de hiérarchies en bloc](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
 
 ### <a name="edit-a-single-hierarchy"></a>Modifier une hiérarchie unique
 
-Sélectionnez la hiérarchie, puis **Modifier**. Apportez les modifications nécessaires, puis sélectionnez **Enregistrer**.
+1. Sélectionnez la hiérarchie, puis **Modifier**.
+1. Apportez les modifications nécessaires, puis sélectionnez **Enregistrer**.
 
-![Portal_eleven][11]
+    [![Modifier une hiérarchie unique](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
 
 ### <a name="delete-a-hierarchy"></a>Supprimer une hiérarchie
 
-Sélectionnez la hiérarchie, puis **Supprimer**. Si aucune instance n’est associée à la hiérarchie, elle est supprimée.
+1. Sélectionnez la hiérarchie, puis **Supprimer**. 
+1. Si aucune instance n’est associée à la hiérarchie, elle est supprimée.
 
-![Portal_twelve][12]
+    [![Supprimer une hiérarchie](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
 
 ## <a name="instances"></a>Instances
 
@@ -102,11 +106,11 @@ Sélectionnez la hiérarchie, puis **Supprimer**. Si aucune instance n’est ass
 
 1. Accédez au panneau du sélecteur de modèles Time Series, puis sélectionnez **Instances** dans le menu. Réduisez le panneau pour ne garder que les instances de modèles Time Series.
 
-    ![Portal_thirteen][13]
+    [![Créer une instance unique](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
 
 1. Sélectionnez **Ajouter**.
 
-    ![Portal_fourteen][14]
+    [![Ajouter une instance](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
 
 1. Entrez les détails de l’instance, sélectionnez l’association de type et de hiérarchie, puis cliquez sur **Créer**.
 
@@ -115,40 +119,21 @@ Sélectionnez la hiérarchie, puis **Supprimer**. Si aucune instance n’est ass
 1. Sélectionnez **Charger un fichier JSON**.
 1. Sélectionnez le fichier qui contient la charge utile des instances.
 
-    ![Portal_fifteen][15]
+    [![Charger une ou plusieurs instances en bloc](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
 
 1. Sélectionnez **Télécharger**.
 
 ### <a name="edit-a-single-instance"></a>Modifier une instance unique
 
-Sélectionnez l’instance, puis **Modifier**. Apportez les modifications nécessaires, puis sélectionnez **Enregistrer**.
+1. Sélectionnez l’instance, puis **Modifier**. 
+1. Apportez les modifications nécessaires, puis sélectionnez **Enregistrer**.
 
-![Portal_sixteen][16]
-
-### <a name="delete-an-instance"></a>Supprimer une instance
-
-Sélectionnez l’instance, puis **Supprimer**. Si aucun événement n’est associé aux instances, elles sont supprimées.
+    [![Modifier une instance unique](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les modèles Time Series, consultez [Modélisation des données](./time-series-insights-update-tsm.md).
-- Pour en savoir plus sur la préversion, consultez [Visualiser les données dans l’Explorateur de la préversion d’Azure Time Series Insights](./time-series-insights-update-explorer.md).
-- Pour en savoir plus sur les structures JSON prises en charge, consultez [Structures JSON prises en charge](./time-series-insights-send-events.md#json).
 
-<!-- Images -->
-[1]: media/v2-update-how-to-tsm/portal_one.png
-[2]: media/v2-update-how-to-tsm/portal_two.png
-[3]: media/v2-update-how-to-tsm/portal_three.png
-[4]: media/v2-update-how-to-tsm/portal_four.png
-[5]: media/v2-update-how-to-tsm/portal_five.png
-[6]: media/v2-update-how-to-tsm/portal_six.png
-[7]: media/v2-update-how-to-tsm/portal_seven.png
-[8]: media/v2-update-how-to-tsm/portal_eight.png
-[9]: media/v2-update-how-to-tsm/portal_nine.png
-[10]: media/v2-update-how-to-tsm/portal_ten.png
-[11]: media/v2-update-how-to-tsm/portal_eleven.png
-[12]: media/v2-update-how-to-tsm/portal_twelve.png
-[13]: media/v2-update-how-to-tsm/portal_thirteen.png
-[14]: media/v2-update-how-to-tsm/portal_fourteen.png
-[15]: media/v2-update-how-to-tsm/portal_fifteen.png
-[16]: media/v2-update-how-to-tsm/portal_sixteen.png
+- Pour en savoir plus sur la préversion, consultez [Visualiser les données dans l’Explorateur de la préversion d’Azure Time Series Insights](./time-series-insights-update-explorer.md).
+
+- Pour en savoir plus sur les structures JSON prises en charge, consultez [Structures JSON prises en charge](./time-series-insights-send-events.md#json).

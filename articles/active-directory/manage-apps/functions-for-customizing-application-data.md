@@ -3,23 +3,23 @@ title: Écriture d’expressions pour les mappages d’attributs dans Azure Acti
 description: Découvrez comment utiliser les mappages d’expressions pour transformer des valeurs d’attributs dans un format acceptable lors de l’approvisionnement automatique des objets d’application SaaS dans Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2019
-ms.author: chmutali
+ms.date: 07/31/2019
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed081b32fd8ac464f7ec66f97c6867708a6f8533
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: cd7abdeef7c13c272a0e4bbf2075c6eda8f73a07
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991478"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162392"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -29,7 +29,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 * L’expression entière doit être définie en termes de fonctions, qui sont constituées d’un nom suivi d’arguments entre parenthèses : <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* Vous pouvez imbriquer des fonctions dans d’autres. Par exemple :  <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* Vous pouvez imbriquer des fonctions dans d’autres. Par exemple : <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * Vous pouvez passer trois différents types d’arguments dans des fonctions :
   
   1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom_attribut]
@@ -40,11 +40,11 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 ## <a name="list-of-functions"></a>Liste des fonctions
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
-- - -
+---
 ### <a name="append"></a>Append
-**Fonction :**<br>  Append(source, suffixe)
+**Fonction :**<br> Append(source, suffixe)
 
-**Description :**<br>  prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
+**Description :**<br> prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
 
 **Paramètres :**<br> 
 
@@ -53,11 +53,11 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
 | **suffix** |Obligatoire |Chaîne |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
 
-- - -
+---
 ### <a name="formatdatetime"></a>FormatDateTime
-**Fonction :**<br>  FormatDateTime(source, inputFormat, outputFormat)
+**Fonction :**<br> FormatDateTime(source, inputFormat, outputFormat)
 
-**Description :**<br>  prend une chaîne de date dans un format et la convertit dans un autre format.
+**Description :**<br> prend une chaîne de date dans un format et la convertit dans un autre format.
 
 **Paramètres :**<br> 
 
@@ -67,9 +67,9 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 | **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obligatoire |Chaîne |Format de la date de sortie. |
 
-- - -
+---
 ### <a name="join"></a>Join
-**Fonction :**<br>  Join(séparateur, source1, source2, …)
+**Fonction :**<br> Join(séparateur, source1, source2, …)
 
 **Description :**<br> Join() est similaire à Append(), mais elle peut combiner plusieurs valeurs de chaîne **sources** dans une même chaîne et chaque valeur sera séparée par une chaîne de **séparation**.
 
@@ -82,11 +82,11 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | **separator** |Obligatoire |Chaîne |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
 | **source1  … sourceN** |Requis, nombre de fois variable |Chaîne |Valeurs de chaîne à joindre ensemble. |
 
-- - -
+---
 ### <a name="mid"></a>Mid
-**Fonction :**<br>  Mid(source, début, longueur)
+**Fonction :**<br> Mid(source, début, longueur)
 
-**Description :**<br>  retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
+**Description :**<br> retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
 
 **Paramètres :**<br> 
 
@@ -96,7 +96,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | **start** |Obligatoire |integer |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
 | **length** |Obligatoire |integer |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source**, la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
 
-- - -
+---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
 **Fonction :**<br> NormalizeDiacritics(source)
 
@@ -108,9 +108,9 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne | Généralement un attribut de nom ou de prénom. |
 
-- - -
+---
 ### <a name="not"></a>not
-**Fonction :**<br>  Not(source)
+**Fonction :**<br> Not(source)
 
 **Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne «*False* ». Sinon, elle retourne «*True*».
 
@@ -120,48 +120,53 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
 
-- - -
+---
 ### <a name="replace"></a>Replace
 **Fonction :**<br> Remplacer (source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Description :**<br>
- Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
+Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
 
 * Quand **oldValue** et **replacementValue** sont fournis :
   
-  * Remplace toutes les occurrences d’oldValue dans la source par  replacementValue.
+  * Remplace toutes les occurrences d’**oldValue** dans la **source** par  **replacementValue**.
 * Quand **oldValue** et **template** sont fournis :
   
   * Remplace toutes les occurrences d’**oldValue** dans le **template** par la valeur **source**.
+* Quand **regexPattern** et **replacementValue** sont fournis :
+
+  * La fonction applique **regexPattern** à la chaîne **source** et vous pouvez utiliser les noms de groupes regex pour construire la chaîne pour **replacementValue**.
 * Quand **regexPattern**, **regexGroupName** et **replacementValue** sont fournis :
   
-  * Remplace toutes les valeurs correspondant à oldValueRegexPattern dans la chaîne source par replacementValue.
-* Quand **regexPattern**, **regexGroupName**, **replacementPropertyName** sont fournis :
+  * La fonction applique **regexPattern** à la chaîne **source** et remplace toutes les valeurs correspondant à **regexGroupName** par **replacementValue**.
+* Quand **regexPattern**, **regexGroupName** et **replacementAttributeName** sont fournis :
   
   * Si **source** n’a pas de valeur, **source** est retourné
-  * Si **source** a une valeur, la fonction utilise **regexPattern** et **regexGroupName** pour extraire la valeur de remplacement de la propriété avec **replacementPropertyName**. La valeur de remplacement est retournée comme résultat.
+  * Si **source** a une valeur, la fonction applique **regexPattern** à la chaîne **source** et remplace toutes les valeurs correspondant à **regexGroupName** par la valeur associée à **replacementAttributeName**.
 
 **Paramètres :**<br> 
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
+| **source** |Obligatoire |Chaîne |Généralement, nom de l’attribut de l’objet **source**. |
 | **oldValue** |Facultatif |Chaîne |Valeur à remplacer dans **source** ou **template**. |
-| **regexPattern** |Facultatif |Chaîne |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand replacementPropertyName est utilisé, modèle pour extraire la valeur de la propriété de remplacement. |
-| **regexGroupName** |Facultatif |Chaîne |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe comme replacementValue à partir de la propriété de remplacement uniquement quand replacementPropertyName est utilisé. |
+| **regexPattern** |Facultatif |Chaîne |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand **replacementPropertyName** est utilisé, modèle pour extraire la valeur de **replacementPropertyName**. |
+| **regexGroupName** |Facultatif |Chaîne |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe en tant que **replacementValue** à partir de **replacementPropertyName** uniquement quand **replacementPropertyName** est utilisé. |
 | **replacementValue** |Facultatif |Chaîne |Nouvelle valeur par laquelle remplacer l’ancienne. |
-| **replacementAttributeName** |Facultatif |Chaîne |Nom de l’attribut à utiliser pour la valeur de remplacement, quand la source n’a aucune valeur. |
-| **template** |Facultatif |Chaîne |Lorsque la valeur **template** est fournie, nous recherchons **oldValue** dans le modèle et la remplaçons par la valeur source. |
+| **replacementAttributeName** |Facultatif |Chaîne |Nom de l’attribut à utiliser pour la valeur de remplacement. |
+| **template** |Facultatif |Chaîne |Lorsque la valeur **template** est fournie, nous recherchons la valeur **oldValue** dans le modèle et la remplaçons par la valeur **source**. |
 
-- - -
+---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
 **Fonction :**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
 
 **Description :**<br> Nécessite un minimum de deux arguments, qui sont définis à l’aide d’expressions de règles de génération de valeur unique. La fonction évalue chaque règle, puis vérifie la valeur générée pour l’unicité dans le répertoire/application cible. La première valeur unique trouvée est celle retournée. Si toutes les valeurs existent déjà dans la cible, l’entrée sera déposée et le motif de cette action consigné dans les journaux d’audit. Il n’existe aucune limite supérieure au nombre d’arguments qui peuvent être fournis.
 
 > [!NOTE]
->1. Il s’agit d’une fonction de niveau supérieur, vous ne pouvez donc pas l’imbriquer.
->2. Cette fonction est uniquement destinée à être utilisée pour les créations d’entrées. Lorsque vous l’utilisez avec un attribut, définissez la propriété **Appliquer le mappage** sur **Uniquement durant la création d’objet**.
+> - Il s’agit d’une fonction de niveau supérieur, vous ne pouvez donc pas l’imbriquer.
+> - Cette fonction ne peut pas s’appliquer à des attributs qui ont une priorité de correspondance.  
+> - Cette fonction est uniquement destinée à être utilisée pour les créations d’entrées. Lorsque vous l’utilisez avec un attribut, définissez la propriété **Appliquer le mappage** sur **Uniquement durant la création d’objet**.
+> - Cette fonction est actuellement prise en charge uniquement pour le « Provisionnement d’utilisateurs de Workday vers Active Directory ». Elle ne peut pas être utilisée avec d’autres applications de provisionnement. 
 
 
 **Paramètres :**<br> 
@@ -171,7 +176,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |Chaîne | Liste des règles de génération de valeur unique à évaluer. |
 
 
-- - -
+---
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Fonction :**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -181,13 +186,13 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 | Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obligatoire |Chaîne |Objet **[appRoleAssignments]**. |
+| **[appRoleAssignments]** |Obligatoire |Chaîne |Objet **[appRoleAssignments]** . |
 
-- - -
+---
 ### <a name="split"></a>Split
 **Fonction :**<br> Split (source, délimiteur)
 
-**Description :**<br> Fractionne une chaîne en un tableau de multi-valeur, en utilisant le caractère délimiteur spécifié.
+**Description :**<br> Fractionne une chaîne en un tableau à plusieurs valeurs, en utilisant le caractère délimiteur spécifié.
 
 **Paramètres :**<br> 
 
@@ -196,11 +201,11 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
 | **délimiteur** |Obligatoire |Chaîne |Spécifie le caractère qui sera utilisé pour fractionner la chaîne (exemple : « , ») |
 
-- - -
+---
 ### <a name="stripspaces"></a>StripSpaces
-**Fonction :**<br>  StripSpaces(source)
+**Fonction :**<br> StripSpaces(source)
 
-**Description :**<br>  supprime tous les caractères d’espacement (" ") de la chaîne source.
+**Description :**<br> supprime tous les caractères d’espacement (" ") de la chaîne source.
 
 **Paramètres :**<br> 
 
@@ -208,9 +213,9 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
 
-- - -
+---
 ### <a name="switch"></a>Switch
-**Fonction :**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Fonction :**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description :**<br> quand la valeur **source** correspond à une **clé**, retourne la **valeur** de cette **clé**. Si la valeur **source** ne correspond à aucune clé, retourne **defaultValue**.  Les paramètres **key** et **value** doivent toujours être fournis par paires. La fonction attend toujours un nombre pair de paramètres.
 
@@ -223,7 +228,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | **key** |Obligatoire |Chaîne |**Key** avec laquelle comparer la valeur **source**. |
 | **value** |Obligatoire |Chaîne |Valeur de remplacement pour la **source** correspondant à la clé. |
 
-- - -
+---
 ### <a name="tolower"></a>ToLower
 **Fonction :**<br> ToLower(source, culture)
 
@@ -236,7 +241,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source |
 | **culture** |Facultatif |Chaîne |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
 
-- - -
+---
 ### <a name="toupper"></a>ToUpper
 **Fonction :**<br> ToUpper(source, culture)
 
@@ -252,7 +257,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 ## <a name="examples"></a>Exemples
 ### <a name="strip-known-domain-name"></a>Supprimer un nom de domaine connu
 Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un utilisateur pour obtenir un nom d’utilisateur. <br>
- Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
+Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
 
 **Expression :** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -309,7 +314,7 @@ Split([extensionAttribute5], ",")
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
 Vous souhaitez envoyer des dates à une application SaaS dans un format donné. <br>
- Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
+Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
 
 **Expression :** <br>
 
@@ -323,7 +328,7 @@ Vous souhaitez envoyer des dates à une application SaaS dans un format donné. 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Remplacer une valeur en fonction d’un ensemble d’options prédéfini
 
 Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d’état stocké dans Azure AD. <br>
- Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
+Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
 
 **Expression :** <br>
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
@@ -363,7 +368,7 @@ En fonction du prénom, du deuxième prénom et du nom de famille de l’utilisa
 
     SelectUniqueValue( 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
-        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
     )
 

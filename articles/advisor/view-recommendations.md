@@ -1,5 +1,5 @@
 ---
-title: Afficher les recommandations Azure Advisor vous concerner
+title: Consultation des recommandations Azure Advisor vous concernant
 description: Afficher et filtrer les recommandations Azure Advisor pour réduire le bruit.
 services: advisor
 author: kasparks
@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: 9f599a63fd5f52420f1b79e769d4f7bca9683b32
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59052836"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60467846"
 ---
-# <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Afficher les recommandations Azure Advisor vous concerner
+# <a name="view-azure-advisor-recommendations-that-matter-to-you"></a>Consultation des recommandations Azure Advisor vous concernant
 
-Azure fournit des recommandations pour vous aider à optimiser vos déploiements Azure. Dans l’Assistant, vous avez accès à certaines fonctionnalités qui vous aident à affiner vos recommandations uniquement à ceux qui vous intéressent pour vous.
+Azure Advisor fournit des recommandations pour vous aider à optimiser vos déploiements Azure. Dans Advisor, vous avez accès à quelques fonctionnalités qui vous aident à affiner vos recommandations pour ne voir que celles qui vous intéressent.
 
 ## <a name="configure-subscriptions-and-resource-groups"></a>Configurer les abonnements et les groupes de ressources
 
-L’Assistant vous donne la possibilité de sélectionner les abonnements et les groupes de ressources qui vous intéressent pour vous et votre organisation. Vous voyez uniquement des recommandations pour les abonnements et les groupes de ressources que vous sélectionnez. Par défaut, toutes sont sélectionnées. Paramètres de configuration s’appliquent à l’abonnement ou groupe de ressources, les mêmes paramètres s’appliquent à tous les utilisateurs ayant accès à ce groupe de ressources ou abonnement. Paramètres de configuration peuvent être modifiés dans le portail Azure ou par programmation.
+Advisor vous offre la possibilité de sélectionner les abonnements et les groupes de ressources qui vous intéressent, vous et votre organisation. Vous voyez uniquement les recommandations pour les abonnements et les groupes de ressources que vous sélectionnez. Par défaut, tous les éléments sont sélectionnés. Les paramètres de configuration s’appliquent à l’abonnement ou au groupe de ressources : les mêmes paramètres s’appliquent donc à tous les utilisateurs ayant accès à ce groupe de ressources ou à cet abonnement. Les paramètres de configuration peuvent être modifiés dans le portail Azure ou par programmation.
 
 Pour apporter des modifications dans le portail Azure :
 
@@ -28,71 +28,71 @@ Pour apporter des modifications dans le portail Azure :
 
 1. Sélectionnez **Configuration** dans le menu.
 
-   ![Menu de configuration de l’Assistant](./media/view-recommendations/configuration.png)
+   ![Menu de configuration d’Advisor](./media/view-recommendations/configuration.png)
 
-1. Cochez la case la **Include** colonne pour les abonnements ou les groupes de ressources pour recevoir des recommandations d’Advisor. Si la zone est désactivée, vous peut-être pas autorisé à modifier la configuration sur ce groupe de ressources ou abonnement. En savoir plus sur [autorisations dans Azure Advisor](permissions.md).
+1. Activez la case à cocher dans la colonne **Inclure** pour les abonnements ou les groupes de ressources pour lesquels vous souhaitez recevoir des recommandations d’Advisor. Si cette case à cocher est désactivée, vous ne disposez peut-être pas de l’autorisation nécessaire pour modifier la configuration sur cet abonnement ou ce groupe de ressources. En savoir plus sur les [autorisations dans Azure Advisor](permissions.md).
 
-1. Cliquez sur **appliquer** en bas une fois que vous apportez une modification.
+1. Cliquez sur **Appliquer** en bas après avoir apporté une modification.
 
 ## <a name="filtering-your-view-in-the-azure-portal"></a>Filtrage de l’affichage dans le portail Azure
 
-Paramètres de configuration restent actifs jusqu'à ce que modifié. Si vous souhaitez restreindre l’affichage des recommandations pour un affichage unique, vous pouvez utiliser les listes déroulantes en haut du Panneau de l’Assistant. À partir de la vue d’ensemble, la haute disponibilité, sécurité, performances, coût et recommandation tous les panneaux, vous pouvez sélectionner les abonnements, Types de ressources et état de recommandation que vous souhaitez voir.
+Les paramètres de configuration restent actifs jusqu’à ce qu’ils soient modifiés. Si vous souhaitez limiter l’affichage des recommandations sur un seule affichage, vous pouvez utiliser les listes déroulantes en haut du panneau d’Advisor. Dans les panneaux Vue d’ensemble, Haute disponibilité, Sécurité, Performances, Coût et Recommandation, vous pouvez sélectionner les abonnements, les types de ressources et le statut des recommandations que vous souhaitez voir.
 
-   ![Menu de filtrage de l’Assistant](./media/view-recommendations/filtering.png)
+   ![Menu de filtrage d’Advisor](./media/view-recommendations/filtering.png)
 
-## <a name="dismissing-and-postponing-recommendations"></a>Faire disparaître et différer des recommandations
+## <a name="dismissing-and-postponing-recommendations"></a>Ignorer et reporter des recommandations
 
-Azure Advisor vous permet d’ignorer ou de reporter des recommandations sur une ressource unique. Si vous ignorez une recommandation, vous ne voyez pas il à nouveau, sauf si vous l’activer manuellement. Toutefois, différer une recommandation vous permet de spécifier une durée après laquelle la recommandation est automatiquement réactivée. Report de peut être effectué dans le portail Azure ou par programmation.
+Azure Advisor vous permet d’ignorer ou de reporter des recommandations sur une ressource. Si vous ignorez une recommandation, vous ne la verrez plus, sauf si vous l’activez manuellement. Toutefois, le fait de reporter une recommandation vous permet de spécifier une durée après laquelle la recommandation est automatiquement réactivée. Vous pouvez reporter les recommandations dans le portail Azure ou par programme.
 
-### <a name="postpone-a-single-recommendation-in-the-azure-portal"></a>Reporter une recommandation unique dans le portail Azure 
-
-1. Ouvrez [Azure Advisor](https://aka.ms/azureadvisordashboard) dans le portail Azure.
-1. Sélectionnez une catégorie de recommandation pour afficher vos recommandations
-1. Sélectionnez une recommandation dans la liste des recommandations
-1. Sélectionnez reporter ou ignorer pour la recommandation que vous souhaitez reporter ou ignorer
-
-     ![Menu de filtrage de l’Assistant](./media/view-recommendations/postpone-dismiss.png)
-
-### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Reporter ou ignorer une plusieurs recommandations dans le portail Azure
+### <a name="postpone-a-single-recommendation-in-the-azure-portal"></a>Reporter une seule recommandation dans le portail Azure 
 
 1. Ouvrez [Azure Advisor](https://aka.ms/azureadvisordashboard) dans le portail Azure.
-1. Sélectionnez une catégorie de recommandation pour afficher vos recommandations.
+1. Sélectionner une catégorie de recommandations pour voir vos recommandations
 1. Sélectionnez une recommandation dans la liste des recommandations.
-1. Sélectionnez la case à cocher à gauche de la ligne pour toutes les ressources que vous souhaitez reporter ou ignorer la recommandation.
-1. Sélectionnez **reporter** ou **Dismiss** en haut à gauche de la table.
+1. Sélectionner Reporter ou Ignorer pour la recommandation que vous souhaitez reporter ou ignorer
 
-     ![Menu de filtrage de l’Assistant](./media/view-recommendations/postpone-dismiss-multiple.png)
+     ![Menu de filtrage d’Advisor](./media/view-recommendations/postpone-dismiss.png)
+
+### <a name="postpone-or-dismiss-a-multiple-recommendations-in-the-azure-portal"></a>Reporter ou ignorer plusieurs recommandations dans le portail Azure
+
+1. Ouvrez [Azure Advisor](https://aka.ms/azureadvisordashboard) dans le portail Azure.
+1. Sélectionnez une catégorie de recommandations pour voir vos recommandations.
+1. Sélectionnez une recommandation dans la liste des recommandations.
+1. Sélectionnez la case à cocher à gauche de la ligne pour toutes les ressources pour lesquelles vous souhaitez reporter ou ignorer la recommandation.
+1. Sélectionnez **Reporter** ou **Ignorer** en haut à gauche de la table.
+
+     ![Menu de filtrage d’Advisor](./media/view-recommendations/postpone-dismiss-multiple.png)
 
 > [!NOTE]
-> Vous avez besoin d’autorisations de collaborateur ou propriétaire d’ignorer ou de reporter une recommandation. En savoir plus sur les autorisations dans Azure Advisor.
+> Vous devez disposer d’une autorisation de contributeur ou de propriétaire pour pouvoir ignorer ou reporter une recommandation. En savoir plus sur les autorisations dans Azure Advisor.
 
 > [!NOTE]
-> Si les boîtes de sélection sont désactivés, recommandations peuvent être chargés. Veuillez attendre que toutes les recommandations charger avant d’essayer de reporter ou ignorer.
+> Si les zones de sélection sont désactivées, les recommandations sont peut-être encore en cours de chargement. Attendez que toutes les recommandations soient chargées avant d’essayer de les reporter ou de les ignorer.
 
-### <a name="reactivate-a-postponed-or-dismissed-recommendation"></a>Réactiver une recommandation différée ou ignorée
+### <a name="reactivate-a-postponed-or-dismissed-recommendation"></a>Réactiver une recommandation reportée ou ignorée
 
-Vous pouvez activer une recommandation qui a été reporté à plus tard ou fermée. Cette action peut être effectuée dans le portail Azure ou par programmation. Dans le portail Azure :
+Vous pouvez activer une recommandation qui a été reporté ou ignorée. Cette action peut être effectuée dans le portail Azure ou par programme. Dans le portail Azure :
 
 1. Ouvrez [Azure Advisor](https://aka.ms/azureadvisordashboard) dans le portail Azure.
 
-1. Modifiez le filtre dans le panneau de vue d’ensemble de **Postponed**. Advisor affiche ensuite des recommandations différées ou ignorées.
+1. Modifiez le filtre dans le panneau de vue d’ensemble des recommandations **reportées**. Advisor affiche alors les recommandations reportées ou ignorées.
 
-    ![Menu de filtrage de l’Assistant](./media/view-recommendations/activate-postponed.png)
+    ![Menu de filtrage d’Advisor](./media/view-recommendations/activate-postponed.png)
 
-1. Sélectionnez une catégorie pour voir **Postponed** et **ignoré** recommandations.
+1. Sélectionnez une catégorie pour voir les recommandations **Reportée** et **Ignorée**.
 
-1. Sélectionnez une recommandation dans la liste des recommandations. Cette opération ouvre des recommandations avec le **reporté à plus tard & fermée** onglet déjà choisi d’afficher les ressources pour lequel cette recommandation a été reporté à plus tard ou fermée.
+1. Sélectionnez une recommandation dans la liste des recommandations. Cette opération ouvre des recommandations avec l’onglet **Reportée et ignorée** déjà choisi, afin de montrer les ressources pour lesquelles cette recommandation a été reporté ou ignorée.
 
-1. Cliquez sur **activer** à la fin de la ligne. Une fois que vous cliquez dessus, la recommandation est active pour cette ressource et donc supprimé de cette table. La recommandation est désormais visible dans le **Active** onglet.
+1. Cliquez sur **Activer** à la fin de la ligne. Une fois que vous cliquez dessus, la recommandation est active pour cette ressource et elle est donc supprimée. La recommandation est désormais visible dans l’onglet **Actives**.
  
-     ![Menu de filtrage de l’Assistant](./media/view-recommendations/activate-postponed-2.png)
+     ![Menu de filtrage d’Advisor](./media/view-recommendations/activate-postponed-2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article explique comment vous pouvez afficher les recommandations qui vous intéressent pour vous dans Azure Advisor. Pour en savoir plus sur Advisor, consultez les ressources suivantes : 
+Cet article explique comment vous pouvez consulter les recommandations qui vous intéressent dans Azure Advisor. Pour en savoir plus sur Advisor, consultez les ressources suivantes : 
 
 - [Présentation d’Azure Advisor](advisor-overview.md)
-- [Mise en route avec l’Assistant](advisor-get-started.md)
+- [Prise en main d’Advisor](advisor-get-started.md)
 - [Autorisations dans Azure Advisor](permissions.md)
 
 

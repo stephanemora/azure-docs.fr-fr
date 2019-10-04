@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.openlocfilehash: 1692e8acda88a51173eb0eabcd90c377b431a3c3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620748"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955038"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -25,6 +25,11 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |Vérifications exécutées|
 |---|
 |<ul><li>Est-ce que le service Gestion des API est opérationnel ?</li></ul>|
+
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
+|Vérifications exécutées|
+|---|
+|<ul><li>Le compte Batch est-il opérationnel ?</li><li>Le quota de pools a-t-il été dépassé pour ce compte Batch ?</li></ul>|
 
 ## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
 |Vérifications exécutées|
@@ -51,15 +56,15 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Est-ce que le serveur d’hébergement de cette machine virtuelle est en cours d’exécution ?</li><li>Le démarrage du système d’exploitation hôte est-il terminé ?</li><li>Le conteneur de machine virtuelle est-il configuré et sous tension ?</li><li>Existe-t-il une connectivité réseau entre l’hôte et le compte de stockage ?</li><li>Le démarrage du système d’exploitation invité est-il terminé ?</li><li>Y a-t-il une maintenance planifiée régulière ?</li></ul>|
 
-## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/Factories
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
 |Vérifications exécutées|
 |---|
-|<ul><li>Y a-t-il eu que des échecs d’exécution du pipeline ?</li><li>Le cluster héberge la fabrique de données intègres ?</li></ul>|
+|<ul><li>Y a-t-il eu des échecs d’exécution du pipeline ?</li><li>Le cluster hébergeant la fabrique de données est-il sain ?</li></ul>|
 
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Vérifications exécutées|
 |---|
-|<ul><li>Les utilisateurs ont-ils rencontré des problèmes lors de l’envoi ou du listage de leurs travaux Data Lake Analytics ?</li><li>Les travaux Data Lake Analytique sont impossible en raison d’erreurs système ?</li></ul>|
+|<ul><li>Les utilisateurs ont-ils rencontré des problèmes lors de l’envoi ou du listage de leurs travaux Data Lake Analytics ?</li><li>Les travaux Data Lake Analytics sont-ils incapables de se terminer en raison d’erreurs système ?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
@@ -70,22 +75,27 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/services
 |Vérifications exécutées|
 |---|
-|<ul><li>Le service de migration de base de données a échoué approvisionner ?</li><li>Le service de migration de base de données s’est arrêté en raison d’inactivité ou l’utilisateur demande ?</li></ul>|
+|<ul><li>Votre service de migration de base de données a-t-il été incapable de procéder au provisionnement ?</li><li>Votre service de migration de base de données s’est-il arrêté pour cause d’inactivité ou à la suite d’une requête effectuée par l’utilisateur ?</li></ul>|
+
+## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/accounts
+|Vérifications exécutées|
+|---|
+|<ul><li>Le compte Data Share est-il opérationnel ?</li><li>Le cluster hébergeant Data Share est-il disponible ?</li></ul>|
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 |Vérifications exécutées|
 |---|
-|<ul><li>Le serveur n’est pas disponible en raison d’une maintenance ?</li><li>Le serveur n’est pas disponible en raison d’une reconfiguration ?</li></ul>|
+|<ul><li>Le serveur est-il non disponible en raison d’une maintenance ?</li><li>Le serveur est-il non disponible en raison d’une reconfiguration ?</li></ul>|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 |Vérifications exécutées|
 |---|
-|<ul><li>Le serveur n’est pas disponible en raison d’une maintenance ?</li><li>Le serveur n’est pas disponible en raison d’une reconfiguration ?</li></ul>|
+|<ul><li>Le serveur est-il non disponible en raison d’une maintenance ?</li><li>Le serveur est-il non disponible en raison d’une reconfiguration ?</li></ul>|
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 |Vérifications exécutées|
 |---|
-|<ul><li>Le serveur n’est pas disponible en raison d’une maintenance ?</li><li>Le serveur n’est pas disponible en raison d’une reconfiguration ?</li></ul>|
+|<ul><li>Le serveur est-il non disponible en raison d’une maintenance ?</li><li>Le serveur est-il non disponible en raison d’une reconfiguration ?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |Vérifications exécutées|
@@ -100,22 +110,32 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
 |Vérifications exécutées|
 |---|
-|<ul><li>L’espace de noms Event Hubs rencontre des erreurs générées par l’utilisateur ?</li><li>Est l’espace de noms Event Hubs actuellement mis à niveau ?</li></ul>|
+|<ul><li>L’espace de noms Event Hubs rencontre-t-il des erreurs générées par l’utilisateur ?</li><li>L’espace de noms Event Hubs est-il en cours de mise à niveau ?</li></ul>|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
 |Vérifications exécutées|
 |---|
-|<ul><li>Services principaux sont disponibles sur le cluster HDInsight ?</li><li>Le cluster HDInsight peut accéder à la clé de chiffrement BYOK au repos ?</li></ul>|
+|<ul><li>Les services principaux sont-ils disponibles dans le cluster HDInsight ?</li><li>Le cluster HDInsight peut-il accéder à la clé pour le chiffrement BYOK au repos ?</li></ul>|
 
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Vérifications exécutées|
 |---|
 |<ul><li>Les demandes de coffre de clés échouent-elles en raison de problèmes de plateforme Azure KeyVault ?</li><li>Les demandes de coffre de clés sont-elles limitées en raison de trop de requêtes effectuées par le client ?</li></ul>|
 
+## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
+|Vérifications exécutées|
+|---|
+|<ul><li>Le service web est-il opérationnel ?</li></ul>|
+
+## <a name="microsoftmediamediaservices"></a>Microsoft.Media/mediaservices
+|Vérifications exécutées|
+|---|
+|<ul><li>Le service multimédia est-il opérationnel ?</li></ul>|
+
 ## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
 |Vérifications exécutées|
 |---|
-|<ul><li>Sont les performances de la passerelle d’Application détérioré ?</li><li>La passerelle d’Application est disponible ?</li></ul>|
+|<ul><li>Les performances de la passerelle d’application se sont-elles dégradées ?</li><li>La passerelle d’application est-elle disponible ?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Vérifications exécutées|
@@ -125,12 +145,17 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
 |Vérifications exécutées|
 |---|
-|<ul><li>Le circuit ExpressRoute est intègre ?</li></ul>|
+|<ul><li>Le circuit ExpressRoute est-il sain ?</li></ul>|
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
 |Vérifications exécutées|
 |---|
-|<ul><li>Les serveurs principaux de la porte d’entrée répondent avec des erreurs aux sondes d’intégrité ?</li><li>Modifications de configuration sont retardées ?</li></ul>|
+|<ul><li>Les back-ends Front Door répondent-ils avec des erreurs aux sondes d’intégrité ?</li><li>Les modifications de configuration sont-elles retardées ?</li></ul>|
+
+## <a name="microsoftnetworkloadbalancers"></a>Microsoft.network/LoadBalancers
+|Vérifications exécutées|
+|---|
+|<ul><li>Les points de terminaison d’équilibrage de charge sont-ils disponibles ?</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Vérifications exécutées|
@@ -145,7 +170,7 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
 |Vérifications exécutées|
 |---|
-|<ul><li>Y a-t-il des délais pour l’espace de travail d’indexation ?</li></ul>|
+|<ul><li>Y a-t-il des retards d’indexation pour l’espace de travail ?</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |Vérifications exécutées|
@@ -155,7 +180,7 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Vérifications exécutées|
 |---|
-|<ul><li>Le système d’exploitation hôte est-il en cours d’exécution ?</li><li>WorkspaceCollection est-elle accessible depuis l’extérieur du centre de données ?</li><li>Le fournisseur de ressources Power BI est disponible ?</li><li>Est le Service Power BI disponibles dans la région appropriée ?</li></ul>|
+|<ul><li>Le système d’exploitation hôte est-il en cours d’exécution ?</li><li>WorkspaceCollection est-elle accessible depuis l’extérieur du centre de données ?</li><li>Le fournisseur de ressources Power BI est-il disponible ?</li><li>Le service Power BI est-il disponible dans la région appropriée ?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Vérifications exécutées|
@@ -167,10 +192,15 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Les clients rencontrent-ils des erreurs Service Bus générées par les utilisateurs ?</li><li>Les utilisateurs rencontrent-ils une augmentation des erreurs transitoires dues à une mise à niveau de l’espace de nommage Service Bus ?</li></ul>|
 
-## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
+## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.SQL/managedInstances/databases
 |Vérifications exécutées|
 |---|
-|<ul><li> Y a-t-il eu des connexions à la base de données ?</li></ul>|
+|<ul><li>La base de données est-elle opérationnelle ?</li></ul>|
+
+## <a name="microsoftsqlserverdatabases"></a>Microsoft.SQL/Server/databases
+|Vérifications exécutées|
+|---|
+|<ul><li>Y a-t-il eu des connexions à la base de données ?</li></ul>|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 |Vérifications exécutées|
@@ -192,7 +222,7 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Le serveur hôte est-il en cours d’exécution ?</li><li>Le serveur Internet Information est-il en cours d’exécution ?</li><li>L’équilibreur de charge est-il en cours d’exécution ?</li><li>L’application web peut-elle être jointe à partir du centre de données ?</li><li>Le compte de stockage hébergeant le contenu du site est-il disponible ?</li></ul>|
 
-# <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 -  Pour en savoir plus à leur sujet, voir [Présentation du tableau de bord d’Azure Service Health](service-health-overview.md) et [Présentation d’Azure Resource Health](resource-health-overview.md). 
 -  [Forum aux questions sur Azure Resource Health](resource-health-faq.md)
 - Configurez des alertes afin d’être averti des problèmes d’intégrité. Pour plus d’informations, voir [Configurer des alertes pour les événements d’intégrité du service](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

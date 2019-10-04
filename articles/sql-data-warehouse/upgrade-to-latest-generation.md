@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: a8bd260db7a141ce845ce7fb5b7e10f642907b82
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 2864e3d29a0beccd2ef52732a85ea1495e1efab8
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788166"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575288"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimiser les performances en mettant à niveau SQL Data Warehouse
 
@@ -63,7 +63,7 @@ Cette mise à niveau s’applique aux entrepôts de données de niveau Gen1 opti
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Migration à partir de la génération 1 vers Gen2 via le portail Azure est définitive. Il n’est pas un processus de retour à la génération 1.  
+> La migration de Gen1 vers Gen2 via le portail Azure est définitive. Il est impossible de revenir à Gen1.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -185,7 +185,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-2. Accédez à l’entrepôt de données SQL pour lequel vous voulez créer un point de restauration.
+2. Accédez à l’entrepôt SQL Data Warehouse pour lequel vous voulez créer un point de restauration.
 
 3. En haut de la section Vue d’ensemble, sélectionnez **+Nouveau point de restauration**.
 
@@ -198,7 +198,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Restaurer une base de données active ou interrompue à l’aide du portail Azure
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Accédez à l’entrepôt de données SQL à partir duquel effectuer la restauration.
+2. Accédez à l’entrepôt SQL Data Warehouse à partir duquel vous souhaitez effectuer la restauration.
 3. En haut de la section Vue d’ensemble, sélectionnez **Restaurer**.
 
     ![ Présentation de la restauration](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
@@ -215,7 +215,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pour récupérer une base de données, utilisez le [AzSqlDatabase de restauration](/powershell/module/az.sql/restore-azsqldatabase) applet de commande.
+Pour récupérer une base de données, utilisez la cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
 > [!NOTE]
 > Vous pouvez effectuer une géorestauration vers Gen2 ! Pour ce faire, spécifiez une valeur ServiceObjectiveName Gen2 (par exemple, DW1000**c**) comme paramètre facultatif.

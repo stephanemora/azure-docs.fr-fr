@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 05/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 3799496d13259c943847625a2cf6a39a8edb1d35
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361368"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207249"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -56,6 +56,9 @@ Créer, lire, mettre à jour et supprimer des attributs utilisateur | Administra
 Créer, lire, mettre à jour et supprimer des utilisateurs | Administrateur général ([consultez la documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
 Lire toute la configuration | Administrateur général | 
 Lire les journaux d’audit B2C | Administrateur général ([consultez la documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+
+> [!NOTE]
+> Les administrateurs généraux Azure AD B2C n’ont pas les mêmes autorisations que les administrateurs généraux Azure AD. Si vous disposez de privilèges d’administrateur général Azure AD B2C, vérifiez que vous vous trouvez dans un annuaire Azure AD B2C et non un annuaire Azure AD.
 
 ## <a name="company-branding"></a>Marque de société
 
@@ -108,7 +111,7 @@ Lire toute la configuration | Lecteurs d’annuaires | Rôle d’utilisateur par
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
 Créer une instance Azure AD Domain Services | Administrateur général | 
-Effectuer toutes les tâches Azure AD Domain Services | Groupe Administrateurs de contrôleur de domaine Azure AD ([consultez la documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Effectuer toutes les tâches Azure AD Domain Services | Groupe Administrateurs de contrôleur de domaine Azure AD ([consultez la documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
 Lire toute la configuration | Lecteur sur l’abonnement Azure contenant le service AD DS | 
 
 ## <a name="devices"></a>Appareils
@@ -140,6 +143,13 @@ Mettre à jour le provisionnement d’une application d’entreprise | Propriét
 Mettre à jour le libre-service d’une application d’entreprise | Propriétaire d’une application d’entreprise ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’application cloud, administrateur d’application
 Mettre à jour les propriétés de l’authentification unique | Propriétaire d’une application d’entreprise ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’application cloud, administrateur d’application
 
+## <a name="entitlement-management"></a>Gestion des droits d’utilisation
+Tâche | Rôle moins privilégié | Autres rôles
+---- | --------------------- | ----------------
+Ajouter des ressources à un catalogue | Administrateur d’utilisateurs | Avec la gestion des droits d’utilisation, vous pouvez déléguer cette tâche au propriétaire du catalogue ([voir la documentation](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+Ajouter des sites SharePoint Online au catalogue | Administrateur général
+
+
 ## <a name="groups"></a>Groupes
 
 Tâche | Rôle moins privilégié | Autres rôles
@@ -150,8 +160,8 @@ Créer, mettre à jour ou supprimer la révision d’accès d’un groupe ou d�
 Gérer l’expiration des groupes | Administrateur d’utilisateurs | 
 Gérer les paramètres de groupe | Administrateur général | 
 Lire toutes les configurations (à l’exception de l’appartenance masquée) | Lecteurs d’annuaires | Rôle d’utilisateur par défaut ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
-Lire l’appartenance masquée | Membre de groupe | Propriétaire du groupe, mots de passe administrateur, administrateur Exchange, SharePoint administrateur, administrateur d’équipes, administrateur de l’utilisateur
-Lire l’appartenance des groupes avec une appartenance masquée | Administrateur du support technique | Utilisateur, administrateur équipes
+Lire l’appartenance masquée | Membre de groupe | Propriétaire de groupe, administrateur de mot de passe, administrateur Exchange, administrateur de services SharePoint, administrateur Teams, administrateur d’utilisateurs
+Lire l’appartenance des groupes avec une appartenance masquée | Administrateur du support technique | Administrateur d’utilisateurs, administrateur Teams
 Révoquer une licence | Administrateur de licence | Administrateur d’utilisateurs
 Mettre à jour l’appartenance à un groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’utilisateurs
 Mettre à jour les propriétaires de groupe | Propriétaire de groupe ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrateur d’utilisateurs
@@ -166,10 +176,10 @@ Configurer et activer ou désactiver la stratégie MFA| Security Administrator |
 Configurer et activer ou désactiver la stratégie de connexion à risque| Security Administrator | 
 Configurer et activer ou désactiver la stratégie d’utilisateur à risque | Security Administrator | 
 Configurer des synthèses hebdomadaires | Security Administrator| 
-Ignorance de tous les événements à risque | Security Administrator | 
+Ignorer toutes les détections de risques | Security Administrator | 
 Corriger ou ignorer des vulnérabilités | Security Administrator | 
 Lire toute la configuration | Lecteur de sécurité | 
-Lire tous les événements à risque | Lecteur de sécurité | 
+Lire toutes les détections de risques | Lecteur de sécurité | 
 Lire les vulnérabilités | Lecteur de sécurité | 
 
 ## <a name="licenses"></a>Licences
@@ -267,7 +277,7 @@ Tâche | Rôle moins privilégié | Autres rôles
 Configurer les méthodes d’authentification | Administrateur général | 
 Lire toute la configuration | Administrateur général | 
 
-## <a name="security---conditional-access"></a>Sécurité - Accès conditionnel
+## <a name="security---conditional-access"></a>Sécurité – Accès conditionnel
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
@@ -338,7 +348,7 @@ Mettre à jour les paramètres utilisateur | Administrateur général |
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
-Envoyer un ticket de support | Administrateur de services | Administrateur d’application, administrateur de facturation, administrateur d’application cloud, administrateur de conformité, administrateur Dynamics 365, administrateur Desktop Analytics, administrateur Exchange, administrateur de mot de passe, administrateur Information Protection, administrateur Intune, administrateur Skype Entreprise, administrateur Power BI, administrateur d’authentification privilégié, administrateur SharePoint, administrateur des communications Teams, administrateur Teams, administrateur d’utilisateur, administrateur Analyse du temps de travail
+Envoyer un ticket de support | Administrateur de services | Administrateur d’application, administrateur Azure Information Protection, administrateur de facturation, administrateur d’application cloud, administrateur de conformité, administrateur Dynamics 365, administrateur Desktop Analytics, administrateur Exchange, administrateur de mot de passe, administrateur Intune, administrateur Skype Entreprise, administrateur Power BI, administrateur d’authentification privilégié, administrateur SharePoint, administrateur des communications Teams, administrateur Teams, administrateur des utilisateurs, administrateur Analyse du temps de travail
 
 ## <a name="next-steps"></a>Étapes suivantes
 

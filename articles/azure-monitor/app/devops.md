@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
 ms.openlocfilehash: 24b0bc01b5cb4f1d2696a7c9526d586c9b42d0fc
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674580"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60899636"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostic approfondi des applications et services web avec Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Pourquoi ai-je besoin d’Application Insights ?
@@ -133,7 +133,7 @@ Par exemple, les opérations suivantes sont faciles :
 * Analyser les sessions et les temps de réponse de certains utilisateurs pour permettre aux équipes de support et d’exploitation d’aider les clients instantanément.
 * Déterminer les fonctionnalités d’application fréquemment utilisées pour répondre aux questions sur la hiérarchisation des fonctionnalités.
 
-Notre client DNN a déclaré : « Application Insights a représenté pour nous la pièce manquante du puzzle, en offrant la possibilité de combiner, de trier, d’interroger et de filtrer les données selon les besoins. Le fait que notre équipe puisse utiliser sa propre ingéniosité et sa propre expérience pour trouver des données grâce à un puissant langage d’interrogation nous a permis de mettre au jour des informations et de résoudre des problèmes dont nous-même ignorions l’existence. Beaucoup de réponses intéressantes font suite à des questions commençant par *'' Je me demande si...'' .*»
+Notre client DNN a déclaré : « Application Insights a représenté pour nous la pièce manquante du puzzle, en offrant la possibilité de combiner, de trier, d’interroger et de filtrer les données selon les besoins. Le fait que notre équipe puisse utiliser sa propre ingéniosité et sa propre expérience pour trouver des données grâce à un puissant langage d’interrogation nous a permis de mettre au jour des informations et de résoudre des problèmes dont nous-même ignorions l’existence. Beaucoup de réponses intéressantes font suite à des questions commençant par *'' Je me demande si...'' .* »
 
 ## <a name="development-tools-integration"></a>Intégration d’outils de développement
 ### <a name="configuring-application-insights"></a>Configuration d'Application Insights
@@ -166,7 +166,7 @@ Lorsqu’une alerte est émise, Application Insights peut automatiquement créer
 ## <a name="next-steps"></a>Étapes suivantes
 La prise en main d’Application Insights est simple. Les principales options sont les suivantes :
 
-* [Serveurs IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)et également pour [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
+* [Serveurs IIS](../../azure-monitor/app/monitor-performance-live-website-now.md) ainsi que pour [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
 * Instrumenter votre projet pendant le développement. Vous pouvez effectuer cette tâche pour des applications [ASP.NET](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md) et [Node.js](../../azure-monitor/app/nodejs.md) et une multitude d’[autres types](../../azure-monitor/app/platforms.md). 
 * Instrumenter [n’importe quelle page web](../../azure-monitor/app/javascript.md) en y ajoutant un court extrait de code.
 

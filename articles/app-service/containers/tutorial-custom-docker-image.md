@@ -1,5 +1,5 @@
 ---
-title: Créer une image personnalisée pour Web App pour conteneurs - Azure App Service | Microsoft Docs
+title: Créer une image personnalisée et l’exécuter dans App Service à partir d’un Registre privé
 description: Comment utiliser une image Docker personnalisée pour Web App pour conteneurs.
 keywords: azure app service, application web, linux, docker, conteneur
 services: app-service
@@ -11,21 +11,20 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 07d5b718cb96a938cb6e796e1cf4864851433516
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545600"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070933"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Didacticiel : Créer une image personnalisée et l’exécuter dans App Service à partir d’un Registre privé
 
-[App Service](app-service-linux-intro.md) fournit des images Docker intégrées sur Linux avec prise en charge de versions spécifiques, telles que PHP 7.0 et Node.js 4.5. App Services utilise la technologie de conteneur Docker pour héberger à la fois des images intégrées et des images personnalisées en tant que service PaaS (platform as a service). Dans ce tutoriel, vous allez apprendre à créer une image personnalisée et à l’exécuter dans App Service. Ce modèle est utile quand les images intégrées n’incluent pas la langue de votre choix ou quand votre application nécessite une configuration spécifique qui n’est pas fournie dans les images intégrées.
+[App Service](app-service-linux-intro.md) fournit des images Docker intégrées sur Linux avec prise en charge de versions spécifiques, telles que PHP 7.3 et Node.js 10.14. App Services utilise la technologie de conteneur Docker pour héberger à la fois des images intégrées et des images personnalisées en tant que service PaaS (platform as a service). Dans ce tutoriel, vous allez apprendre à créer une image personnalisée et à l’exécuter dans App Service. Ce modèle est utile quand les images intégrées n’incluent pas la langue de votre choix ou quand votre application nécessite une configuration spécifique qui n’est pas fournie dans les images intégrées.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -155,7 +154,7 @@ Vérifiez que la connexion est bien établie.
 
 ### <a name="push-image-to-azure-container-registry"></a>Envoyer l’image à Azure Container Registry
 
-Marquez votre image locale pour Azure Container Registry. Par exemple : 
+Marquez votre image locale pour Azure Container Registry. Par exemple :
 ```bash
 docker tag mydockerimage <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
@@ -211,7 +210,7 @@ Une fois l’application web créée, Azure CLI affiche une sortie similaire �
 
 ### <a name="configure-registry-credentials-in-web-app"></a>Configurer les informations d’identification du Registre dans l’application web
 
-Pour extraire l’image privée, App Service a besoin d’informations sur votre Registre et sur l’image. Dans Cloud Shell, fournissez-lui la commande [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Remplacez *\<app-name>*, *\<azure-container-registry-name>*, _\<registry-username>_ et _\<password>_.
+Pour extraire l’image privée, App Service a besoin d’informations sur votre Registre et sur l’image. Dans Cloud Shell, fournissez-lui la commande [`az webapp config container set`](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Remplacez *\<app-name>* , *\<azure-container-registry-name>* , _\<registry-username>_ et _\<password>_ .
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group myResourceGroup --docker-custom-image-name <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0 --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -278,7 +277,7 @@ SSH permet d’établir une communication sécurisée entre un conteneur et un c
     > [!NOTE]
     > Cette configuration n’autorise pas les connexions externes avec le conteneur. SSH est disponible uniquement via le site Kudu/SCM. Le site Kudu/SCM est authentifié avec votre compte Azure.
 
-* Le fichier [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) copie [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config file in the repository) dans le répertoire */etc/ssh/*.
+* Le fichier [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) copie le fichier [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) du référentiel dans le répertoire */etc/ssh/* .
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
@@ -292,20 +291,20 @@ SSH permet d’établir une communication sécurisée entre un conteneur et un c
 
 * Le [script d’entrée](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/init.sh#L5) démarre le serveur SSH.
 
-      ```bash
-      #!/bin/bash
-      service ssh start
+    ```bash
+    #!/bin/bash
+    service ssh start
     ```
 
-### Open SSH connection to container
+### <a name="open-ssh-connection-to-container"></a>Ouvrir la connexion SSH au conteneur
 
-SSH connection is available only through the Kudu site, which is accessible at `https://<app-name>.scm.azurewebsites.net`.
+La connexion SSH est disponible seulement via le site Kudu, qui est accessible sur `https://<app-name>.scm.azurewebsites.net`.
 
-To connect, browse to `https://<app-name>.scm.azurewebsites.net/webssh/host` and sign in with your Azure account.
+Pour vous connecter, accédez à `https://<app-name>.scm.azurewebsites.net/webssh/host` et connectez-vous avec votre compte Azure.
 
-You are then redirected to a page displaying an interactive console.
+Vous êtes ensuite redirigé vers une page affichant une console interactive.
 
-You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, issue the `top` command at the prompt.
+Vous pouvez vérifier que certaines applications sont en cours d’exécution dans le conteneur. Pour inspecter le conteneur et vérifier les processus en cours d’exécution, exécutez `top` à l’invite de commandes.
 
 ```bash
 top

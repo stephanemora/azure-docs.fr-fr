@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe7a7a548050d8d5d81ccecf17b4240ebcea10b3
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: e8ae2fd99ee57062a0bf99f0550e58a5bb4857a3
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295944"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68426881"
 ---
 Le tableau suivant liste les régions prises en charge disponibles pour les fonctionnalités qui sont en disponibilité générale.
 
@@ -24,10 +24,10 @@ Le tableau suivant liste les régions prises en charge disponibles pour les fonc
 | Europe | France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |
 | Asie | Asie Est, Asie Sud-Est |
 | Japon  | Japon Ouest, Japon Est |
-| Australie | Australie Sud-Est | Australie Est | 
+| Australie | Australie Sud-Est, Australie Est | 
 | Gouvernement australien | Australie Centre, Australie Centre 2 |
 | Inde | Inde Ouest, Inde Centre, Inde Sud |
 | Corée du Sud | Centre de la Corée, Corée du Sud |
+| Afrique du Sud | Afrique du Sud Nord, Afrique du Sud Ouest |
 
 * Pour plus d’informations sur la préversion d’ExpressRoute, consultez [Virtual WAN et ExpressRoute - préversion](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register).
-* Pour plus d’informations sur la préversion de la connexion point à site, consultez [Virtual WAN et la connexion point à site - préversion](../articles/virtual-wan/virtual-wan-point-to-site-portal.md#register).

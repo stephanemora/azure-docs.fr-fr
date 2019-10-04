@@ -1,29 +1,29 @@
 ---
-title: 'Sauvegarde Azure : gérer les travaux de sauvegarde à l’aide de l’API REST'
+title: "Sauvegarde Azure : Gérer les travaux de sauvegarde à l'aide de l'API REST"
 description: Gérer les tâches de sauvegarde et de restauration de Sauvegarde Azure avec une API REST
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: API REST ; sauvegarde des machines virtuelles Azure ; restauration des machines virtuelles Azure ;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b10283c2946d01101b941d53b6bf03be3a12e99e
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289426"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954907"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Suivi des tâches de sauvegarde et de restauration à l’aide de l’API REST
 
-Le service Azure Backup déclenche des tâches qui s’exécutent en arrière-plan dans divers scénarios tels que le déclenchement de la sauvegarde, les opérations de restauration, la désactivation de la sauvegarde. Ces tâches peuvent être suivies à l’aide de leurs ID.
+Le service Sauvegarde Azure déclenche des tâches qui s’exécutent en arrière-plan dans divers scénarios tels que le déclenchement de la sauvegarde, les opérations de restauration et la désactivation de la sauvegarde. Ces tâches peuvent être suivies à l’aide de leurs ID.
 
 ## <a name="fetch-job-information-from-operations"></a>Récupérer les informations sur tâches à partir des opérations
 
-Une opération telle que le déclenchement d’une sauvegarde renvoie toujours un ID de tâche (jobID). Par exemple, voici réponse finale d’une [opération d’API REST de sauvegarde de déclenchement](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) :
+Une opération telle que le déclenchement d’une sauvegarde renvoie toujours un ID de tâche (jobID). Par exemple :  voici la réponse finale d'une [opération de déclenchement de l'API REST de sauvegarde](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) :
 
 ```http
 {
@@ -51,7 +51,7 @@ L’`{jobName}` est « jobId » comme indiqué précédemment. La réponse est
 
 ### <a name="response"></a>response
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

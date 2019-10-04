@@ -1,25 +1,18 @@
 ---
-title: Créer une offre de machine virtuelle dans la Place de marché Microsoft Azure | Microsoft Docs
+title: Créer une offre de machine virtuelle dans la Place de marché Azure
 description: Répertorie les étapes requises pour créer une offre de machine virtuelle pour la Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a3124ca2f163291d266fba77255d2ee98d30fd23
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 4cd635c6f664a5260b79e62ea72bbb86fc4e1e4f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888806"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938353"
 ---
 # <a name="create-virtual-machine-offer"></a>Créer une offre de machine virtuelle
 

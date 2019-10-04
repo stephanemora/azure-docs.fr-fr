@@ -2,17 +2,17 @@
 title: Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 description: Découvrez comment créer et utiliser une adresse IP statique avec l’équilibreur de charge d’Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: d2e4314948eeda0c82c004414f894dafc4d4cff6
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.author: mlearned
+ms.openlocfilehash: 9e32715766734bcbb150d70aeed2dc5b06a4bcbb
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408681"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "67614466"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP statique avec l’équilibreur de charge d’Azure Kubernetes Service (AKS)
 
@@ -22,17 +22,17 @@ Cet article vous montre comment créer une adresse IP publique statique et l’a
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
-Vous également besoin d’Azure CLI version 2.0.59 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installer Azure CLI][install-azure-cli].
 
-Actuellement, seuls *référence SKU de base IP*est pris en charge. Travail est en cours d’exécution pour prendre en charge la *IP Standard* référence SKU de ressource. Pour plus d’informations, consultez [types et méthodes d’allocation dans Azure d’adresses IP][ip-sku].
+Actuellement, seule la *référence SKU d’adresse IP de base* est prise en charge. Nous travaillons actuellement à la prise en charge de la référence SKU de ressource d’*adresse IP standard*. Pour plus d’informations, consultez [Types d’adresses IP et méthodes d’allocation dans Azure][ip-sku].
 
 ## <a name="create-a-static-ip-address"></a>Créer une adresse IP statique
 
-Quand vous créez une adresse IP publique statique pour l’utiliser avec AKS, la ressource d’adresse IP doit de préférence être créée dans le groupe de ressources du **nœud**. Si vous souhaitez séparer les ressources, consultez la section suivante pour [utiliser une adresse IP statique en dehors du groupe de ressources de nœud](#use-a-static-ip-address-outside-of-the-node-resource-group).
+Quand vous créez une adresse IP publique statique pour l’utiliser avec AKS, la ressource d’adresse IP doit de préférence être créée dans le groupe de ressources du **nœud**. Si vous souhaitez séparer les ressources, consultez la section suivante pour [utiliser une adresse IP statique en dehors du groupe de ressources du nœud](#use-a-static-ip-address-outside-of-the-node-resource-group).
 
-Tout d’abord, obtenir le nom de groupe de ressources de nœud avec le [show d’ACS az] [ az-aks-show] commande et ajoutez le `--query nodeResourceGroup` paramètre de requête. L’exemple suivant obtient les le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
+Récupérez d’abord le nom du groupe de ressources du nœud avec la commande [az aks show][az-aks-show] et ajoutez le paramètre de requête `--query nodeResourceGroup`. L’exemple suivant obtient les le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -49,7 +49,7 @@ az network public-ip create \
     --allocation-method static
 ```
 
-L’adresse IP s’affiche, comme illustré dans l’exemple condensé suivant :
+L’adresse IP apparaît, comme illustré dans l’exemple de sortie condensée suivante :
 
 ```json
 {
@@ -127,7 +127,7 @@ spec:
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
-Si l’adresse IP statique défini dans le *loadBalancerIP* propriété du manifeste de service Kubernetes n’existe pas ou n’a pas été créée dans le groupe de ressources de nœud et aucune délégation supplémentaires configurée, le service d’équilibrage de charge Échec de la création. Pour résoudre les problèmes, examinez les événements de création du service avec la commande [kubectl describe][kubectl-describe]. Spécifiez le nom du service tel qu’il est spécifié dans le manifeste YAML, comme indiqué dans l’exemple suivant :
+Si l’adresse IP statique définie dans la propriété *loadBalancerIP* du manifeste du service Kubernetes n’existe pas ou n’a pas été créée dans le groupe de ressources du nœud et qu’aucune autre délégation n’est configurée, la création du service d’équilibreur de charge échoue. Pour résoudre les problèmes, examinez les événements de création du service avec la commande [kubectl describe][kubectl-describe]. Spécifiez le nom du service tel qu’il est spécifié dans le manifeste YAML, comme indiqué dans l’exemple suivant :
 
 ```console
 kubectl describe service azure-load-balancer
@@ -159,7 +159,7 @@ Events:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus de contrôle du trafic réseau vers vos applications, vous pouvez à la place [créer un contrôleur d’entrée][aks-ingress-basic]. Vous pouvez aussi [créer un contrôleur d’entrée avec une adresse IP publique statique][aks-static-ingress].
+Pour plus de contrôle du trafic réseau vers vos applications, vous pouvez plutôt [créer un contrôleur d’entrée][aks-ingress-basic]. Vous pouvez aussi [créer un contrôleur d’entrée avec une adresse IP publique statique][aks-static-ingress].
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

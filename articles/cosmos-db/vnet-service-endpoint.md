@@ -1,18 +1,18 @@
 ---
-title: Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service Réseau virtuel Azure
+title: Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service de réseau virtuel Azure
 description: Ce document présente le contrôle d’accès à un réseau virtuel et à un sous-réseau pour un compte Azure Cosmos.
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: dfc3ebc0274c87466d6dc27c93880483df023085
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894933"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66242470"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accéder à Azure Cosmos DB à partir de réseaux virtuels (VNet)
 
@@ -24,9 +24,9 @@ Par défaut, un compte Azure Cosmos est accessible depuis n’importe quelle sou
 
 Voici quelques questions fréquemment posées sur la configuration de l’accès à partir de réseaux virtuels :
 
-### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Puis-je spécifier à la fois le point de terminaison du service de réseau virtuel et la stratégie de contrôle d’accès IP sur un compte Azure Cosmos ? 
+### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Puis-je spécifier à la fois le point de terminaison de service de réseau virtuel et la stratégie de contrôle d’accès IP sur un compte Azure Cosmos ? 
 
-Vous pouvez activer à la fois le point de terminaison du service de réseau virtuel et une stratégie de contrôle d’accès IP (également appelé pare-feu) sur votre compte Azure Cosmos. Ces deux fonctionnalités sont complémentaires et garantissent collectivement l’isolation et la sécurité de votre compte Azure Cosmos. L’utilisation du pare-feu IP permet de s’assurer que les adresses IP statiques peuvent accéder à votre compte. 
+Vous pouvez activer à la fois le point de terminaison de service de réseau virtuel et une stratégie de contrôle d’accès IP (également appelé pare-feu) sur votre compte Azure Cosmos. Ces deux fonctionnalités sont complémentaires et garantissent collectivement l’isolation et la sécurité de votre compte Azure Cosmos. L’utilisation du pare-feu IP permet de s’assurer que les adresses IP statiques peuvent accéder à votre compte. 
 
 ### <a name="how-do-i-limit-access-to-subnet-within-a-virtual-network"></a>Comment limiter l’accès à un sous-réseau au sein d’un réseau virtuel ? 
 
@@ -47,7 +47,7 @@ Seuls le réseau virtuel et ses sous-réseaux ajoutés au compte Azure Cosmos y 
 Actuellement, vous pouvez avoir au maximum 64 sous-réseaux autorisés pour un compte Azure Cosmos.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>Puis-je activer l’accès à partir d’un VPN et d’Express Route ? 
-Pour accéder au compte Azure Cosmos via Express route à partir en local, vous devez activer l’homologation Microsoft. Lorsque vous activez un pare-feu IP ou définissez des règles d’accès à un réseau virtuel, vous pouvez ajouter les adresses IP publiques utilisées pour l’homologation Microsoft au pare-feu IP de votre compte Azure Cosmos afin d’autoriser l’accès des services locaux au compte Azure Cosmos. 
+Pour accéder localement au compte Azure Cosmos via ExpressRoute, vous devez activer le Peering Microsoft. Lorsque vous activez un pare-feu IP ou définissez des règles d’accès à un réseau virtuel, vous pouvez ajouter les adresses IP publiques utilisées pour le peering Microsoft au pare-feu IP de votre compte Azure Cosmos afin d’autoriser l’accès des services locaux au compte Azure Cosmos. 
 
 ### <a name="do-i-need-to-update-the-network-security-groups-nsg-rules"></a>Dois-je mettre à jour les règles des groupes de sécurité réseau (NSG) ? 
 Les règles des groupes de sécurité réseau permettent de limiter la connectivité vers et depuis un sous-réseau de réseau virtuel. Lorsque vous ajoutez un point de terminaison de service pour Azure Cosmos DB au sous-réseau, inutile d’ouvrir la connectivité sortante dans le groupe de sécurité réseau pour votre compte Azure Cosmos. 

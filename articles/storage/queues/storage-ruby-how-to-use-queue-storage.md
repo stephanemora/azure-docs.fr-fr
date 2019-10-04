@@ -1,28 +1,26 @@
 ---
-title: Utilisation du stockage de files d’attente à partir de Ruby | Microsoft Docs
+title: Utilisation du stockage de files d’attente à partir de Ruby - Stockage Azure
 description: Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Ruby.
-services: storage
-author: tamram
-ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: ruby
-ms.topic: article
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 12/08/2016
-ms.author: tamram
+ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 7ebb4326a8ec8a3382a5488ce3b966526bef446a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.topic: conceptual
+ms.reviewer: cbrooks
+ms.openlocfilehash: c7211bc805f4ed1d026faedbfdc9d53d3c1dfd93
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456270"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721288"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Utilisation du stockage de files d'attente à partir de Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l’utilisation du service de stockage de files d’attente Microsoft Azure. Les exemples sont écrits à l'aide de l'API Ruby Azure.
 Les scénarios traités incluent **l’insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
 
@@ -88,7 +86,7 @@ azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Procédure : Lecture furtive du message suivant
-Vous pouvez lire furtivement le message au début de la file d’attente sans l’enlever de la file d’attente en appelant la méthode **peek\_messages()**. Par défaut, **peek\_messages()** lit furtivement un seul message. Vous pouvez également spécifier le nombre de messages que vous souhaitez lire furtivement.
+Vous pouvez lire furtivement le message au début de la file d’attente sans l’enlever de la file d’attente en appelant la méthode **peek\_messages()** . Par défaut, **peek\_messages()** lit furtivement un seul message. Vous pouvez également spécifier le nombre de messages que vous souhaitez lire furtivement.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
@@ -98,8 +96,8 @@ result = azure_queue_service.peek_messages("test-queue",
 ## <a name="how-to-dequeue-the-next-message"></a>Procédure : Suppression du message suivant de la file d’attente
 Vous pouvez supprimer un message d'une file d'attente en deux étapes.
 
-1. Lorsque vous appelez **list\_messages()**, vous obtenez le message suivant dans une file d’attente par défaut. Vous pouvez également spécifier le nombre de messages que vous souhaitez obtenir. Les messages renvoyés par **list\_messages()** deviennent invisibles aux autres codes lisant les messages de cette file d’attente. Vous transmettez le délai d'expiration de la visibilité en secondes en tant que paramètre.
-2. Pour finaliser la suppression du message de la file d’attente, vous devez aussi appeler **delete_message()**.
+1. Lorsque vous appelez **list\_messages()** , vous obtenez le message suivant dans une file d’attente par défaut. Vous pouvez également spécifier le nombre de messages que vous souhaitez obtenir. Les messages renvoyés par **list\_messages()** deviennent invisibles aux autres codes lisant les messages de cette file d’attente. Vous transmettez le délai d'expiration de la visibilité en secondes en tant que paramètre.
+2. Pour finaliser la suppression du message de la file d’attente, vous devez aussi appeler **delete_message()** .
 
 Ce processus de suppression d’un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d’une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete\_message()** juste après le traitement du message.
 

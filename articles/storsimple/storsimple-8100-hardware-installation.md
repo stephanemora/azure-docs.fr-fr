@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0b2301c1c9b846e2ea005f049c5aadb3d4634a81
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701940"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963585"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8100
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Vue d'ensemble
 Votre appareil Microsoft Azure StorSimple 8100 doit être monté en rack sur un boîtier unique. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8100 avant de configurer et de déployer l’appareil StorSimple.
 
@@ -52,7 +55,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
    |   2 |Polystyrène de protection inférieur |
    |   3 |Appareil |
    |   4 |Polystyrène de protection supérieur |
-   |   5. |Carton contenant les accessoires |
+   |   5\. |Carton contenant les accessoires |
 3. Une fois le carton déballé, vous devez disposer des éléments suivants :
    
    * 1 appareil dans son boîtier
@@ -128,7 +131,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
    |   2 |Ouverture carrée pour vis du poteau avant du rack |
    |   3 |Ergots de positionnement avant du rail gauche |
    |   4 |Vis de serrage |
-   |   5. |Ergots de positionnement arrière du rail gauche |
+   |   5\. |Ergots de positionnement arrière du rail gauche |
 
 ### <a name="mounting-the-device-in-the-rack"></a>Montage de l’appareil dans le rack
 À l’aide des rails du rack qui viennent d’être installés, procédez comme suit pour monter l’appareil dans le rack.
@@ -192,7 +195,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
    | --- | --- |
    |   0/1/4/5 |Interfaces réseau de 1 Gigabit Ethernet |
    |   2/3 |Interfaces réseau de 10 Gigabit Ethernet |
-   |   6. |Ports série |
+   |   6 |Ports série |
 2. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. La configuration supplémentaire requise pour une disponibilité et des performances élevées est représentée par des lignes en pointillés.)
 
     ![Câble réseau de votre appareil 2U](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
@@ -240,7 +243,7 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 6. Vérifiez que la connexion fonctionne en appuyant sur Entrée sur la console. Un menu de la console série doit apparaître.
 
 > [!NOTE]
-> **Gestion en service réduit :** lorsque l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, assurez-vous que les connexions série sur les deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruptions du réseau ou en cas de défaillance inattendue.
+> **Gestion en service réduit** : quand l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, vérifiez que les connexions série aux deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruptions du réseau ou en cas de défaillance inattendue.
 > 
 > 
 

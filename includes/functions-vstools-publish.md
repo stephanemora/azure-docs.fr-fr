@@ -3,44 +3,46 @@ title: Fichier Include
 description: Fichier Include
 services: functions
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3ac7d8cc4705fe1b6e80f1e0c7e26d847d761cf6
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54356996"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70197130"
 ---
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**.
 
-2. Sélectionnez **Application Azure Function**, choisissez **Créer**, puis sélectionnez **Publier**.
+2. Dans la boîte de dialogue **Choisir une cible de publication**, utilisez les options de publication comme indiqué dans le tableau sous l’image : 
 
     ![Choisir une cible de publication](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
-    Quand vous activez l’option **Exécuter à partir du ZIP**, votre application de fonction dans Azure passe en mode lecture seule et s’exécute directement à partir du package de déploiement. Pour plus d’informations, consultez l’article [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md) (Exécuter vos fonctions Azure à partir d’un fichier de package).
-     
-    >[!CAUTION]
-    >Lorsque vous choisissez **Sélectionner existant**, tous les fichiers de l’application de fonction existante dans Azure sont remplacés par les fichiers du projet local. N’utilisez cette option que lorsque vous réappliquez des mises à jour à une application de fonction existante.
+    | Option      | Description                                |
+    | ------------ |  -------------------------------------------------- |
+    | **Plan Consommation Azure Functions** |   Quand vous publiez votre projet dans une application de fonction qui s'exécute dans un [Plan Consommation](../articles/azure-functions/functions-scale.md#consumption-plan), vous payez uniquement pour les exécutions de votre application. D’autres plans d’hébergement occasionnent des coûts plus élevés. Pour en savoir plus, voir [Mise à l’échelle et hébergement d’Azure Functions](../articles/azure-functions/functions-scale.md). | 
+    | **Créer** | Une nouvelle application de fonction, avec les ressources associées, est créée dans Azure. Lorsque vous choisissez **Sélectionner existant**, tous les fichiers de l’application de fonction existante dans Azure sont remplacés par les fichiers du projet local. N’utilisez cette option que lorsque vous réappliquez des mises à jour à une application de fonction existante. |
+    | **Exécuter à partir d’un fichier de package** | Votre application de fonction est déployée en utilisant [Zip Deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) avec le mode [Exécuter à partir du fichier de package](../articles/azure-functions/run-functions-from-deployment-package.md) activé. Il s’agit de la méthode recommandée pour exécuter vos fonctions, car elle produit de meilleures performances. Quand vous n’utilisez pas cette option, veillez à ce que votre projet d’application de fonction ne s’exécute pas localement avant de publier sur Azure. |
 
-3. Si vous n’avez pas déjà connecté Visual Studio à votre compte Azure, sélectionnez **Ajouter un compte...**.
 
-4. Dans la boîte de dialogue **Créer App Service**, utilisez les paramètres d’**hébergement** comme spécifiés dans le tableau sous l’image :
+3. Sélectionnez **Publier**. Si vous ne vous êtes pas encore connecté à votre compte Azure à partir de Visual Studio, sélectionnez **Connexion**. Vous pouvez également créer un compte Azure gratuit.
+
+4. Dans la boîte de dialogue **App Service : Créer nouveau**, utilisez les paramètres **Hébergement** comme indiqué dans le tableau situé sous l’image :
 
     ![Boîte de dialogue Créer App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Nom de l’application** | Nom globalement unique | Nom qui identifie uniquement votre nouvelle application de fonction. |
+    | **Nom** | Nom globalement unique | Nom qui identifie uniquement votre nouvelle application de fonction. Les caractères valides sont `a-z`, `0-9` et `-`. |
     | **Abonnement** | Choisissez votre abonnement | Sélectionnez l’abonnement Azure à utiliser. |
     | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nom du groupe de ressources où créer votre application de fonction. Choisissez **Nouveau** pour créer un groupe de ressources.|
-    | **[Plan App Service](../articles/azure-functions/functions-scale.md)** | Plan de consommation | Veillez à choisir **Consommation** sous **Taille** après avoir cliqué sur **Nouveau** pour créer un plan serverless. Choisissez également un **Emplacement** dans une [région](https://azure.microsoft.com/regions/) près de chez vous ou près d’autres services auxquels ont accès vos fonctions. Si vous exécutez un plan autre que le plan **Consommation**, vous devez gérer la [mise à l’échelle de votre application de fonction](../articles/azure-functions/functions-scale.md).  |
-    | **[Compte de stockage](../articles/storage/common/storage-quickstart-create-account.md)** | Compte de stockage à usage général | Un compte de stockage Azure est obligatoire par le runtime Functions. Cliquez sur **Nouveau** pour créer un compte de stockage à usage général. Vous pouvez également utiliser un compte existant qui répond aux [exigences relatives aux comptes de stockage](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
+    | **[Plan d’hébergement](../articles/azure-functions/functions-scale.md)** | Plan de consommation | Après avoir sélectionné **Nouveau** pour créer un plan serverless, veillez à choisir **Consommation** sous **Taille**. Choisissez également un **Emplacement** dans une [région](https://azure.microsoft.com/regions/) près de chez vous ou près d’autres services auxquels ont accès vos fonctions. Si vous exécutez un plan autre que le plan **Consommation**, vous devez gérer la [mise à l’échelle de votre application de fonction](../articles/azure-functions/functions-scale.md).  |
+    | **[Stockage Azure](../articles/storage/common/storage-quickstart-create-account.md)** | Compte de stockage à usage général | Un compte de stockage Azure est obligatoire par le runtime Functions. Sélectionnez **Nouveau** pour créer un compte de stockage universel. Vous pouvez également utiliser un compte existant qui répond aux [exigences relatives aux comptes de stockage](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
 
-5. Cliquez sur **Créer** pour créer une application de fonctions et les ressources associées dans Azure avec ces paramètres et déployer votre code de projet de fonction. 
+5. Sélectionnez **Créer** pour créer une application de fonction et les ressources associées dans Azure avec ces paramètres et déployer votre code de projet de fonction. 
 
 6. Une fois le déploiement terminé, notez la valeur **URL du site**, qui est l’adresse de votre application de fonctions dans Azure.
 

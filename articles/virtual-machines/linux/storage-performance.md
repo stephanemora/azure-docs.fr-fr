@@ -1,110 +1,113 @@
 ---
-title: Optimiser les performances sur les machines virtuelles de série Lsv2 Azure - stockage | Microsoft Docs
-description: Découvrez comment optimiser les performances de votre solution sur les machines virtuelles de série Lsv2.
+title: Optimiser les performances sur les machines virtuelles de la série Azure Lsv2 – Stockage | Microsoft Docs
+description: Découvrez comment optimiser les performances de votre solution sur les machines virtuelles de la série Lsv2.
 services: virtual-machines-linux
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: 7be86c8934b8766217f9fca432327d254204f0c4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ea64a4274eda947aebf0f693657c17a120bec560
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60014044"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081799"
 ---
-# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimiser les performances sur les machines virtuelles de série Lsv2
+# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimiser les performances sur les machines virtuelles de la série Lsv2
 
-Machines virtuelles de série Lsv2 prend en charge une variété de charges de travail nécessitant des e/s élevé et le débit sur le stockage local sur un large éventail d’applications et de secteurs.  La série Lsv2 est idéale pour les Big Data, SQL, NoSQL bases de données, l’entreposage de données et grandes bases de données transactionnelles, y compris Cassandra, MongoDB, Cloudera et Redis.
+Les machines virtuelles de la série Lsv2 prennent en charge diverses charges de travail qui nécessitant des E/S et des débits élevés au niveau du stockage local pour un large éventail d’applications et de secteurs d’activité.  La série Lsv2 est idéale pour le Big Data, SQL, les bases de données NoSQL, l’entreposage de données et les bases de données transactionnelles volumineuses, notamment Cassandra, MongoDB, Cloudera et Redis.
 
-La conception de la série Lsv2 Machines () optimise le processeur AMD EPYC™ 7551 afin d’améliorer les performances entre le processeur, mémoire, les périphériques NVMe et les machines virtuelles. Outre optimiser les performances de matériel, les machines virtuelles de série Lsv2 sont conçus pour fonctionner avec les besoins des systèmes d’exploitation Linux pour de meilleures performances avec le matériel et le logiciel.
+La conception des machines virtuelles de la série Lsv2 exploite au maximum le processeur AMD EPYC™ 7551 pour offrir des performances optimales entre le processeur, la mémoire, les appareils NVMe et les machines virtuelles. Grâce à une collaboration avec des partenaires autour de Linux, plusieurs builds sont disponibles sur la Place de marché Azure, qui sont optimisées pour les performances de la série Lsv2 :
 
-Les logiciels et matériels de paramétrage a entraîné la version optimisée de [de Canonical Ubuntu 18.04 et 16.04](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer?tab=Overview)publiée en début décembre 2018 à la place de marché Azure, qui prend en charge des performances maximales sur les périphériques NVMe dans Machines virtuelles de série Lsv2.
+- Ubuntu 18.04
+- Ubuntu 16.04
+- RHEL 8.0
+- Debian 9
+- Debian 10
 
-Cet article fournit des conseils et des suggestions pour vous assurer de vos applications et charges de travail atteindre des performances maximales conçue dans les machines virtuelles. Les informations sur cette page seront continuellement mises à jour comme images Lsv2 optimisé plus sont ajoutés à la place de marché Azure.
+Cet article fournit des conseils et des suggestions pour faire en sorte que vos charges de travail et vos applications atteignent les performances maximales dans les machines virtuelles. Les informations contenues dans cette page seront constamment mises à jour à mesure que de nouvelles images optimisées Lsv2 seront ajoutées à la Place de marché Azure.
 
-## <a name="amd-eypc-chipset-architecture"></a>Architecture de circuit microprogrammé AMD EYPC™
+## <a name="amd-eypc-chipset-architecture"></a>Architecture du circuit microprogrammé AMD EYPC™
 
-Machines virtuelles de série Lsv2 utilisent des processeurs de serveur AMD EYPC™ selon la microarchitecture Zen. AMD développé infini Fabric (le cas) pour EYPC™ comme évolutives d’interconnexion pour son modèle NUMA qui pourrait être utilisée pour les communications sur matrice et sur package packages multi. Comparées aux QPI (chemin d’accès rapide d’interconnexion) et de paiement (interconnexion Ultra-Path) utilisé sur les processeurs Intel modernes monolithique lancers, architecture de puce petite NUMA de plusieurs d’AMD peut afficher les deux avantages de performances, ainsi que des défis. L’impact réel de contraintes de bande passante et latence de mémoire peut varier selon le type de charges de travail en cours d’exécution.
+Les machines virtuelles de la série Lsv2 utilisent des processeurs serveur AMD EYPC™ basés sur la microarchitecture Zen. AMD a développé Infinity Fabric (IF) pour EYPC™ en tant qu’interconnexion scalable pour son modèle NUMA qui peut être utilisé pour les communications au niveau du die, du package et entre plusieurs packages. Par rapport à QPI (Quick-Path Interconnect) et à UPI (Ultra-Path Interconnect), tous deux utilisés sur les processeurs modernes Intel à dies monolithiques, l’architecture AMD constituée de nombreux dies de petite taille NUMA peut offrir des avantages sur le plan des performances, mais créer aussi des difficultés. L’impact réel des contraintes de bande passante et de latence de la mémoire peut varier selon le type des charges de travail exécutées.
 
 ## <a name="tips-to-maximize-performance"></a>Conseils pour optimiser les performances
 
-* Si vous téléchargez un Linux GuestOS personnalisé pour votre charge de travail, notez que mise en réseau accélérée est **OFF** par défaut. Si vous envisagez d’activer la mise en réseau accélérée, l’activer au moment de la création de machines virtuelles pour de meilleures performances.
+* Si vous chargez un système d’exploitation invité Linux personnalisé pour votre charge de travail, notez que la mise en réseau accélérée est **désactivée** par défaut. Si vous avez l’intention d’activer la mise en réseau accélérée, pour bénéficier de performances optimales, faites-le pendant la création de machines virtuelles.
 
-* Le matériel qui alimente les machines virtuelles de série Lsv2 utilise des périphériques NVMe avec huit paires de file d’attente d’e/s (QP) s. Chaque file d’attente du périphérique d’e/s NVMe est en fait une paire : une file d’attente de soumission et une file d’attente d’achèvement. Le pilote NVMe est configuré pour optimiser l’utilisation de ces huit requêtes par seconde d’e/s en distribuant I / O dans une répétition alternée planifier. Pour obtenir des performances maximales, exécutez huit travaux par appareil pour faire correspondre.
+* Le matériel qui fait tourner les machines virtuelles de la série Lsv2 utilise des appareils NVMe avec huit paires de files d’attente d’E/S. Chaque file d’attente d’E/S d’appareil NVMe est en fait une paire : une file d’attente d’envoi et une file d’attente d’achèvement. Le pilote NVMe est configuré pour optimiser l’utilisation de ces huit paires de files d’attente d’E/S : les E/S sont distribuées selon un programme de tourniquet (round robin). Pour obtenir des performances maximales, exécutez huit tâches par appareil.
 
-* Évitez de mélanger NVMe des commandes d’administration (par exemple, SMART NVMe requête info, etc.) avec les commandes NVMe d’e/s au cours des charges de travail actives. Périphériques Lsv2 NVMe sont soutenues par la technologie Hyper-V NVMe Direct, qui passe en « mode lent » chaque fois que les commandes d’administration NVMe sont en attente. Lsv2 utilisateurs pourraient observer une spectaculaire des performances drop dans les performances d’e/s NVMe si cela se produit.
+* Évitez de combiner des commandes d’administration NVMe (par exemple, une requête d’information NVMe SMART, etc.) avec des commandes d’E/S NVMe pendant que des charges de travail sont actives. Les appareils NVMe Lsv2 reposent sur la technologie Hyper-V NVMe Direct, qui passe en « mode lent » chaque fois que des commandes d’administration NVMe sont en attente. Dans ce cas, les utilisateurs Lsv2 risquent d’observer une baisse considérable des performances des E/S NVMe.
 
-* Les utilisateurs de Lsv2 ne doivent pas compter informations sur les appareils NUMA (toutes les 0) signalées à partir de la machine virtuelle pour les lecteurs de données pour déterminer l’affinité NUMA pour leurs applications. La méthode recommandée pour de meilleures performances consiste à répartir des charges de travail sur les processeurs si possible.
+* Pour définir l’affinité NUMA de leurs applications, les utilisateurs Lsv2 ne doivent pas se fier aux informations NUMA des appareils présentées dans les machines virtuelles pour les lecteurs de données (valeurs 0). Pour de meilleures performances, il est recommandé de répartir les charges de travail entre les UC, dans la mesure du possible.
 
-* La profondeur de file d’attente pris en charge maximale par paire de file d’attente d’e/s pour les périphériques NVMe de machine virtuelle Lsv2 est 1024 (Visual Studio. Amazon i3 QD 32 limite). Les utilisateurs Lsv2 doivent limiter leurs charges de travail de benchmarking (synthétiques) à la profondeur de file d’attente 1024 ou plus basse à ne pas déclencher de conditions complète de file d’attente, ce qui peuvent réduire les performances.
+* La profondeur de file d’attente maximale prise en charge par paire de files d’attente d’E/S pour les appareils NVMe de machines virtuelles Lsv2 est de 1 024 (pour une limite de 32 dans le cas d’Amazon i3). Les utilisateurs Lsv2 doivent limiter leurs charges de travail de benchmarking (synthétique) à une profondeur de file d’attente de 1 024 ou moins pour éviter de déclencher des conditions de file d’attente saturée, ce qui peut faire baisser les performances.
 
 ## <a name="utilizing-local-nvme-storage"></a>Utilisation du stockage NVMe local
 
-Stockage local sur le disque de NVMe to 1,92 sur toutes les machines virtuelles de Lsv2 est éphémère. Les données sur le disque local de NVMe persistera lors du redémarrage standard réussi de la machine virtuelle. Les données ne seront pas conservées sur le NVMe si la machine virtuelle est redéployée, désallouée ou supprimée. Données ne seront pas conservées si un autre problème provoque la machine virtuelle ou du matériel, qu'il est en cours d’exécution, pour devenir défectueux. Lorsque cela se produit, toutes les données sur l’ancien hôte sont en toute sécurité effacées.
+Le stockage local sur le disque NVMe de 1,92 To est éphémère pour toutes les machines virtuelles Lsv2. Lors d’un redémarrage standard réussi de la machine virtuelle, les données présentes sur le disque NVMe local sont conservées. Les données ne sont pas conservées sur le NVMe si la machine virtuelle est redéployée, désallouée ou supprimée. Les données ne sont pas conservées si la machine virtuelle ou le matériel sur lequel elle s’exécute n’est pas sain à cause d’un autre problème. Quand cela se produit, toutes les données présentes sur l’ancien hôte sont effacées de manière sécurisée.
 
-Il y aura également cas lorsque la machine virtuelle doit être déplacé vers un autre ordinateur hôte, par exemple, lors d’une opération de maintenance planifiée. Opérations de maintenance planifiée et certaines défaillances matérielles peuvent être anticipées avec [événements planifiés](scheduled-events.md). Événements planifiés doivent être utilisés pour rester informé sur toute maintenance prédite et les opérations de récupération.
+Dans certains cas, il peut aussi être nécessaire de déplacer la machine virtuelle sur une autre machine hôte, par exemple, à l’occasion d’une opération de maintenance planifiée. Les opérations de maintenance planifiée et certaines défaillances matérielles peuvent être anticipées avec [Scheduled Events](scheduled-events.md). Il est recommandé d’utiliser Scheduled Events pour rester informé des opérations de maintenance et de récupération prévues.
 
-Dans le cas où un événement de maintenance planifiée nécessite la machine virtuelle pour être recréé sur un hôte avec des disques locaux vides, les données devez doit être resynchronisée (là encore, avec toutes les données sur l’ancien hôte effacé en toute sécurité). Cela se produit, car les machines virtuelles de série Lsv2 ne pas prennent en charge la migration dynamique sur le disque local de NVMe.
+Si un événement de maintenance planifiée exige la récréation de la machine virtuelle sur un nouvel hôte avec des disques locaux vides, les données doivent être resynchronisées (là encore, les données présentes sur l’ancien hôte seront effacées de manière sécurisée). Cela s’explique par le fait que les machines virtuelles de la série Lsv2 ne prennent pas actuellement en charge la migration dynamique sur le disque NVMe local.
 
-Il existe deux modes pour la maintenance planifiée.
+Il existe deux modes de maintenance planifiée.
 
-### <a name="standard-vm-customer-controlled-maintenance"></a>Maintenance de contrôlés par le client standard de machine virtuelle
+### <a name="standard-vm-customer-controlled-maintenance"></a>Maintenance standard contrôlée par le client de la machine virtuelle
 
-- La machine virtuelle est déplacée vers un hôte mis à jour pendant une fenêtre de 30 jours.
-- Données de stockage local Lsv2 peuvent être perdues, donc recommandées de sauvegarder les données avant l’événement.
+- La machine virtuelle est déplacée sur un hôte mis à jour sur une fenêtre de 30 jours.
+- Le risque de perte de données sur le stockage local Lsv2 n’étant pas à écarter, il est recommandé de sauvegarder les données avant l’événement.
 
 ### <a name="automatic-maintenance"></a>Maintenance automatique
 
-- Se produit si le client n’exécute pas de maintenance contrôlés par le client, ou en cas de procédures d’urgence comme un événement de zéro jour de sécurité.
-- Destiné à conserver les données client, mais il existe un petit risque d’un blocage de la machine virtuelle ou un redémarrage.
-- Données de stockage local Lsv2 peuvent être perdues, donc recommandées de sauvegarder les données avant l’événement.
+- Intervient en l’absence de maintenance contrôlée par le client ou en cas de procédure d’urgence à la suite d’un événement de sécurité zero-day, par exemple.
+- Destinée à préserver les données client, la machine virtuelle présente un léger risque de blocage ou de redémarrage.
+- Le risque de perte de données sur le stockage local Lsv2 n’étant pas à écarter, il est recommandé de sauvegarder les données avant l’événement.
 
-Pour tous les événements à venir de service, utilisez le processus de maintenance contrôlée pour sélectionner une heure la plus pratique à vous pour la mise à jour. Avant l’événement, vous pouvez sauvegarder vos données dans le stockage premium. Une fois l’événement de maintenance est terminée, vous pouvez revenir à vos données sur le stockage de NVMe local des machines virtuelles Lsv2 actualisé.
+Pour les événements de maintenance à venir, utilisez le processus de maintenance contrôlée afin de sélectionner le moment le plus opportun pour effectuer la mise à jour. Avant l’événement, vous pouvez sauvegarder vos données sur un stockage premium. À l’issue de l’événement de maintenance, vous pouvez renvoyer vos données vers le stockage NVMe local des machines virtuelles Lsv2 actualisées.
 
-Les scénarios qui conservent les données sur les disques NVMe locaux sont les suivantes :
+Voici quelques scénarios où les données sont conservées sur les disques NVMe locaux :
 
-- La machine virtuelle est en cours d’exécution et sain.
-- La machine virtuelle est redémarrée en place (par vous ou Azure).
-- La machine virtuelle est suspendue (arrêté sans désallocation).
-- La majorité de la maintenance planifiée, les opérations de traitement.
+- La machine virtuelle est en cours d’exécution et saine.
+- La machine virtuelle est redémarrée sur place (par vous ou Azure).
+- La machine virtuelle est mise en pause (arrêtée sans désallocation).
+- La majorité des opérations de maintenance planifiée.
 
-Les scénarios qui effacement en toute sécurité des données pour protéger le client :
+Voici quelques scénarios où les données du client sont effacées par mesure de sécurité :
 
-- La machine virtuelle est redéployée, arrêtée (désallouée,) ou de suppression (par vous).
-- La machine virtuelle devient non intègre et qu’il a au service sont réparées vers un autre nœud en raison d’un problème matériel.
-- Un petit nombre de la maintenance des opérations de maintenance planifiée qui nécessite la machine virtuelle pour être réaffectée à un autre ordinateur hôte pour la maintenance.
+- La machine virtuelle est redéployée, arrêtée (désallouée) ou supprimée (par vous).
+- L’état de la machine virtuelle devient non sain et le service doit être réparé sur un autre nœud en raison d’un problème matériel.
+- Nombre limité d’opérations de maintenance planifiée qui nécessitent la réallocation de la machine virtuelle vers un autre hôte pour la maintenance.
 
-Pour en savoir plus sur les options de sauvegarde de données dans le stockage local, consultez [sauvegarde et récupération d’urgence pour les disques Azure IaaS](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Pour en savoir plus sur les options de sauvegarde des données sur le stockage local, consultez [Sauvegarde et récupération d’urgence pour les disques IaaS Azure](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-* **Démarrage d’un déploiement de machines virtuelles de série Lsv2 ?**  
-   Beaucoup comme toute autre machine virtuelle, utilisez le [Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), ou [PowerShell](quick-create-powershell.md) pour créer une machine virtuelle.
+* **Comment lancer le déploiement de machines virtuelles de la série Lsv2 ?**  
+   Comme n’importe quelle autre machine virtuelle, utilisez le [portail](quick-create-portal.md), [Azure CLI](quick-create-cli.md) ou [PowerShell](quick-create-powershell.md) pour créer une machine virtuelle.
 
-* **Une défaillance de disque unique NVMe entraîne toutes les machines virtuelles sur l’ordinateur hôte échoue ?**  
-   Si une défaillance de disque est détectée sur le nœud de matériel, le matériel est en état d’échec. Lorsque cela se produit, toutes les machines virtuelles sur le nœud sont automatiquement désallouées et déplacés vers un nœud sain. Pour les machines virtuelles de série Lsv2, cela signifie que les données du client sur le nœud défaillant sont effacées de façon sécurisée et doivent être recréée par le client sur le nouveau nœud. Comme indiqué, avant la migration dynamique est disponible sur Lsv2, les données sur le nœud défaillant proactive va avec les machines virtuelles comme ils sont transférés vers un autre nœud.
+* **La défaillance d’un disque NVMe unique peut-elle entraîner la défaillance de toutes les machines virtuelles présentes sur l’hôte ?**  
+   Si une défaillance de disque est détectée sur le nœud matériel, le matériel est à l’état d’échec. Quand cela se produit, toutes les machines virtuelles du nœud sont automatiquement désallouées et déplacées vers un nœud sain. Pour les machines virtuelles de la série Lsv2, cela signifie que les données du client qui se trouvaient sur le nœud défaillant sont effacées de manière sécurisée et doivent être recréées par le client sur le nouveau nœud. Comme indiqué auparavant, tant que la migration dynamique ne sera pas disponible sur la série Lsv2, les données qui se trouvent sur le nœud défaillant seront préalablement déplacées avec les machines virtuelles pendant leur transfert sur un autre nœud.
 
-* **Je dois apporter des ajustements à rq_affinity pour les performances ?**  
-   Le paramètre rq_affinity est un ajustement mineur lorsque vous utilisez les opérations d’entrée/sortie maximales absolues par seconde (IOPS). Une fois que tout le reste fonctionne bien, puis essayez de définir rq_affinity à 0 pour voir si cela a son importance.
+* **Dois-je apporter des modifications à rq_affinity pour bénéficier de meilleures performances ?**  
+   Le paramètre rq_affinity a une incidence limitée quand le nombre maximal absolu d’opérations d’entrée/sortie par seconde (IOPS) est utilisé. Une fois que tout le reste fonctionne correctement, essayez de définir rq_affinity sur 0 pour voir si cela apporte quelque chose.
 
-* **Je dois modifier les paramètres de blk_mq ?**  
-   RHEL/CentOS 7.x utilise automatiquement blk-mq pour les périphériques NVMe. Aucune des modifications de configuration ou les paramètres ne sont nécessaires. Le paramètre scsi_mod.use_blk_mq est uniquement pour SCSI et a été utilisé pendant la version préliminaire Lsv2, car les périphériques NVMe étaient visibles dans les machines virtuelles invitées en tant que périphériques SCSI. Actuellement, les périphériques NVMe sont visibles en tant que périphériques NVMe, donc le paramètre de blk-mq SCSI est sans importance.
+* **Ai-je besoin de modifier les paramètres blk_mq ?**  
+   RHEL/CentOS 7.x utilise automatiquement blk-mq pour les appareils NVMe. Il n’est pas utile de modifier la configuration ou des paramètres. Le paramètre scsi_mod.use_blk_mq est destiné uniquement à SCSI et était utilisé dans la version préliminaire de Lsv2, car les appareils NVMe étaient présentés dans les machines virtuelles invitées comme des appareils SCSI. Comme les appareils NVMe se présentent désormais en tant qu’appareils NVMe, le paramètre blk-mq SCSI n’a donc aucun intérêt.
 
-* **Je dois modifier « fio » ?**  
-   Pour obtenir le nombre maximal d’IOPS avec un outil tel que « fio » dans les tailles L64v2 et de la machine virtuelle L80v2 des mesures de performance, la valeur est « rq_affinity » 0 sur chaque appareil NVMe.  Par exemple, cette ligne de commande définit « rq_affinity » à zéro pour tous les périphériques NVMe 10 dans une machine virtuelle L80v2 :
+* **Ai-je besoin de modifier « fio » ?**  
+   Pour obtenir le maximum d’IOPS avec un outil de mesure de performances comme « fio » dans les tailles de machine virtuelle L64v2 et L80v2, définissez « rq_affinity » sur 0 sur chaque appareil NVMe.  Par exemple, cette ligne de commande définit « rq_affinity » sur zéro pour les 10 appareils NVMe d’une machine virtuelle L80v2 :
 
    ```console
    for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
    ```
 
-   Notez également que les meilleures performances sont obtenue lors de l’e/s est effectuée directement à chacun des périphériques NVMe brutes avec aucun ne partitionnement, aucun système de fichiers, pas de RAID 0 config, etc. Avant de commencer une session de test, vérifiez la configuration est dans un état connu/nettoyer de nouveau en exécutant `blkdiscard` sur chacun des périphériques NVMe.
+   De même, notez que les meilleures performances sont obtenues quand les E/S se produisent directement au niveau de chaque appareil NVMe brut sans aucun partitionnement, aucun système de fichiers, aucune configuration RAID 0, etc. Avant de démarrer une session de test, vérifiez que la configuration se trouve dans un état nouveau/propre connu en exécutant `blkdiscard` sur chaque appareil NVMe.
    
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez les spécifications pour toutes les [optimisés pour les performances de stockage des machines virtuelles](sizes-storage.md) sur Azure
+* Consultez les spécifications pour toutes les [machines virtuelles à stockage optimisé](sizes-storage.md) sur Azure

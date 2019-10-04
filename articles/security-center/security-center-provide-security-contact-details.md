@@ -3,23 +3,22 @@ title: Fournir les détails du contact de sécurité dans Azure Security Center 
 description: Ce document vous montre comment fournir les détails du contact de sécurité dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/9/2018
-ms.author: rkarlin
-ms.openlocfilehash: b6babf7d5d5a0f5796efa9418044366c6a135ed9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 08/09/2019
+ms.author: memildin
+ms.openlocfilehash: fabccb7a3f49442a009fd69ee6d3b831760751d2
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107931"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201025"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Fournir les détails du contact de sécurité dans Azure Security Center
 Azure Security Center vous recommande de fournir les détails du contact de sécurité pour votre abonnement Azure, si vous ne l’avez pas déjà fait. Ces informations seront être utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que vos données client ont été utilisées par un tiers illégal ou non autorisé. MSRC procède à une surveillance de la sécurité sur l'infrastructure et le réseau Azure et reçoit des plaintes concernant l’intelligence des menaces et des mauvaises utilisations de tiers.
@@ -33,18 +32,18 @@ Des notifications d’alertes par courrier électronique sont envoyées :
 - Chaque message contient une seule alerte, et non un ensemble d’alertes
  
 Par exemple, si un message a été déjà envoyé pour vous alerter d’une attaque RDP, vous ne recevrez pas d’autre message concernant une attaque RDP le même jour, même si une autre alerte est déclenchée. 
- 
 
 > [!NOTE]
 > Ce document présente le service à l’aide d’un exemple de déploiement.  Il ne s’agit pas d’un guide pas à pas.
->
->
 
-## <a name="implement-the-recommendation"></a>Implémenter la recommandation
-1. Sous **Recommandations**, sélectionnez **Fournissez les détails du contact de sécurité**.
-   ![Fournir le contact de sécurité][1]
-2. Sélectionnez l’abonnement Azure pour lequel fournir les informations du contact.
-3. Les **Notifications par e-mail** s’ouvrent.
+## Configurer des notifications par e-mail pour les alertes <a name="email"></a>
+
+1. Dans le portail, sélectionnez **Tarification et paramètres**.
+1. Cliquez sur l'abonnement.
+1. Cliquez sur **Notifications par e-mail**.
+
+> [!NOTE]
+> Si vous implémentez une recommandation, sous **Recommandations**, sélectionnez **Fournir les informations de contact de sécurité**, et sélectionnez l’abonnement Azure auquel vous souhaitez les ajouter. Les **Notifications par e-mail** s’ouvrent.
 
    ![Fournir des informations de contact de sécurité][2]
 

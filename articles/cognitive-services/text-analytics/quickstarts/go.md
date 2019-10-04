@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 08/28/2019
 ms.author: aahi
-ms.openlocfilehash: e6d641109bafdc3dba05a30fd627a3246c7edef5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 5c97648bd11a506d3c818584ed7d82d0a12d2e2c
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002768"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70387486"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : Utilisation de Go pour appeler le service cognitif Analyse de texte 
 <a name="HOLTop"></a>
@@ -28,7 +28,8 @@ Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) p
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Vous devez également avoir le [point de terminaison et la clé d’accès](../How-tos/text-analytics-how-to-access-key.md) générée pendant le processus d’inscription.
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
 
 <a name="Detect"></a>
 
@@ -36,10 +37,9 @@ Vous devez également avoir le [point de terminaison et la clé d’accès](../H
 
 L’API Détection de langue détecte la langue d’un document texte à l’aide de la [méthode Detect Language](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
+1. Créez les variables d’environnement `TEXT_ANALYTICS_SUBSCRIPTION_KEY` et `TEXT_ANALYTICS_ENDPOINT` pour le point de terminaison et la clé d’abonnement Azure de votre ressource. Si vous avez créé ces variables d’environnement après avoir commencé à modifier l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou l’interpréteur de commandes que vous utilisez pour accéder aux variables d’environnement.
 1. Créez un projet Go dans votre éditeur de code favori.
 1. Ajoutez le code ci-dessous.
-1. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
-1. Remplacez l’emplacement dans `uriBase` (actuellement `westcentralus`) par la région sur laquelle porte votre inscription.
 1. Enregistrez le fichier avec une extension .go.
 1. Ouvrez une invite de commandes à partir de votre dossier racine sur un ordinateur où Go est installé.
 1. Générez le fichier, par exemple : `go build detect.go`.
@@ -52,29 +52,28 @@ import (
     "encoding/json"
     "fmt"
     "io/ioutil"
+    "log"
     "net/http"
+    "os"
     "strings"
     "time"
 )
 
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
+    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
+    if "" == os.Getenv(subscriptionKeyVar) {
+        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
+    }
+    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
+    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
+    if "" == os.Getenv(endpointVar) {
+        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
+    }
+    var endpoint string = os.Getenv(endpointVar)
 
-    /*
-    Replace or verify the region.
-
-    You must use the same region in your REST API call as you used to obtain your access keys.
-    For example, if you obtained your access keys from the westus region, replace 
-    "westcentralus" in the URI below with "westus".
-
-    NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    a free trial access key, you should not need to change this region.
-    */
-    const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
     const uriPath = "/text/analytics/v2.1/languages"
 
-    const uri = uriBase + uriPath
+    var uri = endpoint + uriPath
 
     data := []map[string]string{
         {"id": "1", "text": "This is a document written in English."},
@@ -179,10 +178,9 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 
 L’API Analyse des sentiments détecte les sentiments d’un ensemble d’enregistrements de texte à l’aide de la [méthode Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). L’exemple suivant évalue deux documents, l’un en anglais, l’autre en espagnol.
 
+1. Créez les variables d’environnement `TEXT_ANALYTICS_SUBSCRIPTION_KEY` et `TEXT_ANALYTICS_ENDPOINT` pour le point de terminaison et la clé d’abonnement Azure de votre ressource. Si vous avez créé ces variables d’environnement après avoir commencé à modifier l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou l’interpréteur de commandes que vous utilisez pour accéder aux variables d’environnement.
 1. Créez un projet Go dans votre éditeur de code favori.
 1. Ajoutez le code ci-dessous.
-1. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
-1. Remplacez l’emplacement dans `uriBase` (actuellement `westcentralus`) par la région sur laquelle porte votre inscription.
 1. Enregistrez le fichier avec une extension .go.
 1. Ouvrez une invite de commandes à partir de votre dossier racine sur un ordinateur où Go est installé.
 1. Générez le fichier, par exemple : `go build sentiment.go`.
@@ -195,29 +193,28 @@ import (
     "encoding/json"
     "fmt"
     "io/ioutil"
+    "log"
     "net/http"
+    "os"
     "strings"
     "time"
 )
 
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
+    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
+    if "" == os.Getenv(subscriptionKeyVar) {
+        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
+    }
+    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
+    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
+    if "" == os.Getenv(endpointVar) {
+        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
+    }
+    var endpoint string = os.Getenv(endpointVar)
 
-    /*
-    Replace or verify the region.
-
-    You must use the same region in your REST API call as you used to obtain your access keys.
-    For example, if you obtained your access keys from the westus region, replace 
-    "westcentralus" in the URI below with "westus".
-
-    NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    a free trial access key, you should not need to change this region.
-    */
-    const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
     const uriPath = "/text/analytics/v2.1/sentiment"
 
-    const uri = uriBase + uriPath
+    var uri = endpoint + uriPath
 
     data := []map[string]string{
         {"id": "1", "language": "en", "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."},
@@ -297,10 +294,9 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 
 L’API Extraction de phrases clés extrait des phrases clés d’un document texte à l’aide de la [méthode Phrases clés](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). L’exemple suivant extrait les expressions clés du document en anglais et du document en espagnol.
 
+1. Créez les variables d’environnement `TEXT_ANALYTICS_SUBSCRIPTION_KEY` et `TEXT_ANALYTICS_ENDPOINT` pour le point de terminaison et la clé d’abonnement Azure de votre ressource. Si vous avez créé ces variables d’environnement après avoir commencé à modifier l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou l’interpréteur de commandes que vous utilisez pour accéder aux variables d’environnement.
 1. Créez un projet Go dans votre éditeur de code favori.
 1. Ajoutez le code ci-dessous.
-1. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
-1. Remplacez l’emplacement dans `uriBase` (actuellement `westcentralus`) par la région sur laquelle porte votre inscription.
 1. Enregistrez le fichier avec une extension .go.
 1. Ouvrez une invite de commandes sur un ordinateur sur lequel Go est installé.
 1. Générez le fichier, par exemple : `go build key-phrases.go`.
@@ -313,29 +309,28 @@ import (
     "encoding/json"
     "fmt"
     "io/ioutil"
+    "log"
     "net/http"
+    "os"
     "strings"
     "time"
 )
 
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    /*
-    Replace or verify the region.
-
-    You must use the same region in your REST API call as you used to obtain your access keys.
-    For example, if you obtained your access keys from the westus region, replace 
-    "westcentralus" in the URI below with "westus".
-
-    NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    a free trial access key, you should not need to change this region.
-    */
-    const uriBase =    "https://westcentralus.api.cognitive.microsoft.com"
+    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
+    if "" == os.Getenv(subscriptionKeyVar) {
+        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
+    }
+    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
+    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
+    if "" == os.Getenv(endpointVar) {
+        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
+    }
+    var endpoint string = os.Getenv(endpointVar)
+    
     const uriPath = "/text/analytics/v2.1/keyPhrases"
 
-    const uri = uriBase + uriPath
+    var uri = endpoint + uriPath
 
     data := []map[string]string{
         {"id": "1", "language": "en", "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."},
@@ -435,10 +430,9 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 
 L’API Entités identifie les entités bien connues dans un document texte à l’aide de la [méthode Entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). Les [entités](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraient les mots du texte, comme « United States », puis vous donnent le type et/ou un lien Wikipédia pour ce ou ces mots. Le type pour « United States » est `location`, alors que le lien Wikipédia est `https://en.wikipedia.org/wiki/United_States`.  L’exemple suivant identifie les entités dans les documents en anglais.
 
+1. Créez les variables d’environnement `TEXT_ANALYTICS_SUBSCRIPTION_KEY` et `TEXT_ANALYTICS_ENDPOINT` pour le point de terminaison et la clé d’abonnement Azure de votre ressource. Si vous avez créé ces variables d’environnement après avoir commencé à modifier l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou l’interpréteur de commandes que vous utilisez pour accéder aux variables d’environnement.
 1. Créez un projet Go dans votre éditeur de code favori.
 1. Ajoutez le code ci-dessous.
-1. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
-1. Remplacez l’emplacement dans `uriBase` (actuellement `westcentralus`) par la région sur laquelle porte votre inscription.
 1. Enregistrez le fichier avec une extension .go.
 1. Ouvrez une invite de commandes sur un ordinateur sur lequel Go est installé.
 1. Générez le fichier, par exemple : `go build entities.go`.
@@ -451,32 +445,31 @@ import (
     "encoding/json"
     "fmt"
     "io/ioutil"
+    "log"
     "net/http"
+    "os"
     "strings"
     "time"
 )
 
 func main() {
-    // Replace the subscriptionKey string value with your valid subscription key
-    const subscriptionKey = "<Subscription Key>"
-
-    /*
-    Replace or verify the region.
-
-    You must use the same region in your REST API call as you used to obtain your access keys.
-    For example, if you obtained your access keys from the westus region, replace 
-    "westus" in the URI below with "westcentralus".
-
-    NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-    a free trial access key, you should not need to change this region.
-    */
-    const uriBase =    "https://westus.api.cognitive.microsoft.com"
+    var subscriptionKeyVar string = "TEXT_ANALYTICS_SUBSCRIPTION_KEY"
+    if "" == os.Getenv(subscriptionKeyVar) {
+        log.Fatal("Please set/export the environment variable " + subscriptionKeyVar + ".")
+    }
+    var subscriptionKey string = os.Getenv(subscriptionKeyVar)
+    var endpointVar string = "TEXT_ANALYTICS_ENDPOINT"
+    if "" == os.Getenv(endpointVar) {
+        log.Fatal("Please set/export the environment variable " + endpointVar + ".")
+    }
+    var endpoint string = os.Getenv(endpointVar)
+    
     const uriPath = "/text/analytics/v2.1/entities"
 
-    const uri = uriBase + uriPath
+    var uri = endpoint + uriPath
 
     data := []map[string]string{
-        {"id": "1", "language": "en", "text": "Microsoft is an It company."}
+        {"id": "1", "language": "en", "text": "Microsoft is an It company."},
     }
 
     documents, err := json.Marshal(&data)

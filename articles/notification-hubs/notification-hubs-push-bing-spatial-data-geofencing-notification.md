@@ -4,9 +4,9 @@ description: Ce didacticiel vous présente comment envoyer des notifications Pus
 services: notification-hubs
 documentationcenter: windows
 keywords: notification push, notification push
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,15 +15,17 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 84e52feb6e30e0b9b693019b671906fad8c908db
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118304"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213244"
 ---
-# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Tutoriel : Notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing
+# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Didacticiel : Notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing
 
 Ce didacticiel vous présente comment envoyer des notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing.
 
@@ -101,7 +103,7 @@ Dans ce didacticiel, vous effectuez les étapes suivantes :
 
 ## <a name="set-up-the-uwp-application"></a>Configurer l’application UWP
 
-1. Dans Visual Studio, démarrez un nouveau projet de type **Application vide (application Windows universelle)**.
+1. Dans Visual Studio, démarrez un nouveau projet de type **Application vide (application Windows universelle)** .
 
     ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
 

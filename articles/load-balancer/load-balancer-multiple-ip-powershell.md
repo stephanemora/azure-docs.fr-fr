@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: annahar
-ms.openlocfilehash: 1b130dff9d290dcce566570fd015d227d44a1310
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.author: anavin
+ms.openlocfilehash: bbd21ffeffeaf036909b5ab89f1a07909a03c3f0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191899"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621709"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Équilibrage de charge sur plusieurs configurations IP avec PowerShell
 
@@ -143,4 +143,4 @@ Pour accomplir le scénario décrit dans cet article, suivez les étapes ci-dess
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour en savoir plus sur la combinaison de services d’équilibrage de charge dans Azure, consultez [Utilisation des services d’équilibrage de charge dans Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Découvrez comment vous pouvez utiliser différents types de journaux dans Azure pour gérer et dépanner l’équilibrage de charge [Azure Monitor enregistre pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Pour savoir comment gérer et dépanner l’équilibreur de charge à l’aide de différents types de journaux d’activité dans Azure, consultez [Journaux d’activité Azure Monitor pour Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

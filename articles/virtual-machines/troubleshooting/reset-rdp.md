@@ -4,7 +4,7 @@ description: Découvrez comment réinitialiser un mot de passe de compte ou des 
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
-ms.translationtype: MT
+ms.openlocfilehash: 580ec443dc087f270e30856c336a5699bbf1ae71
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407689"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058439"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Réinitialiser les Services Bureau à distance ou le mot de passe administrateur associé dans une machine virtuelle Windows
 Si vous ne pouvez pas vous connecter à une machine virtuelle Windows, vous pouvez réinitialiser le mot de passe d’administrateur local ou la configuration du service Bureau à distance (pas de prise en charge sur les contrôleurs de domaine Windows). Pour réinitialiser le mot de passe, utilisez le Portail Azure ou l’extension d’accès aux machines virtuelles dans Azure PowerShell. Une fois connecté à la machine virtuelle, réinitialisez le mot de passe de cet administrateur local.  
@@ -45,7 +45,7 @@ Commencez par vous connecter au [Portail Azure](https://portal.azure.com), puis,
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Réinitialiser la configuration des Services Bureau à distance**
 
-Ce processus sera activer le service Bureau à distance dans la machine virtuelle et créer une règle de pare-feu pour le port de protocole RDP par défaut 3389.
+Ce processus a pour effet d’activer le service Bureau à distance dans la machine virtuelle et de créer une règle de pare-feu pour le port RDP par défaut (3389).
 
 1. Sélectionnez votre machine virtuelle Windows, puis **Réinitialiser le mot de passe** sous **Support + dépannage**. La fenêtre **Réinitialiser le mot de passe** s’affiche. 
 

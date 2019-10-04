@@ -16,11 +16,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 19b347423c28b4c615f90f325ead462b9d3e8e9e
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990032"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60822581"
 ---
 # <a name="azure-event-hubs---authentication-and-security-model"></a>Azure Event Hubs - Modèle de sécurité et d’authentification
 
@@ -68,7 +68,7 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>Générer des jetons
 
-Vous pouvez générer des jetons à l'aide de la clé SAS. Vous ne devez produire qu’un seul jeton par client. Les jetons peuvent ensuite être générés à l'aide de la méthode suivante. Tous les jetons sont générés à l'aide de la clé **EventHubSendKey** . Une URI unique est affectée à chaque jeton. Le paramètre « resource » correspond au point de terminaison URI du service (concentrateur d’événements dans le cas présent).
+Vous pouvez générer des jetons à l'aide de la clé SAS. Vous ne devez produire qu’un seul jeton par client. Les jetons peuvent ensuite être générés à l'aide de la méthode suivante. Tous les jetons sont générés à l'aide de la clé **EventHubSendKey** . Une URI unique est affectée à chaque jeton. Le paramètre « resource » correspond au point de terminaison d’URI du service (hub d’événements dans le cas présent).
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)

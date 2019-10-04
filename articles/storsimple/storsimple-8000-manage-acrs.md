@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
-ms.openlocfilehash: 9173e34f889ce1c082b20bb382cb6ca9a03dd797
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ade7da25d2307a382c17e7a3cbb26b601c34ef78
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597495"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64693233"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>Utiliser le service StorSimple Manager pour gérer les enregistrements de contrôle d’accès
 
@@ -59,7 +59,7 @@ Effectuez les opérations suivantes pour ajouter un enregistrement de contrôle 
 
     1. Saisissez un nom pour votre ACR.
     
-    2. Sous **Nom d’initiateur iSCSI (IQN)**, indiquez le nom IQN de votre hôte Windows Server.
+    2. Sous **Nom d’initiateur iSCSI (IQN)** , indiquez le nom IQN de votre hôte Windows Server.
 
     3. Cliquez sur **Ajouter** pour créer l’ACR.
 

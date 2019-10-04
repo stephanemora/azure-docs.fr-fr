@@ -3,23 +3,23 @@ title: Présentation des licences basées sur le groupe - Azure Active Directory
 description: Apprenez-en plus sur les licences basées sur les groupes Azure Active Directory, leur fonctionnement et les bonnes pratiques
 services: active-directory
 keywords: Gestion des licences Azure AD
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/29/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: a455f0e1959ad496a04f531cc0c3ece240c757ad
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183150"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987144"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>À quoi correspondent les licences basées sur les groupes dans Azure Active Directory ?
 
@@ -32,9 +32,9 @@ Pour relever ces défis, Azure AD inclut maintenant une gestion des licences par
 ## <a name="licensing-requirements"></a>Exigences en termes de licence
 Vous devez disposer d’une des licences suivantes pour utiliser les licences basées sur le groupe :
 
-- Abonnement d’essai ou payant pour Azure AD Basic
+- Abonnement d’essai ou payant pour Azure AD Premium P1 et versions ultérieures
 
-- Édition d’essai ou payante d’Office 365 Enterprise E3 ou Office 365 A3 et versions ultérieures
+- Édition d’essai ou payante d’Office 365 Enterprise E3 ou Office 365 A3 ou Office 365 GCC G3 et versions ultérieures
 
 ### <a name="required-number-of-licenses"></a>Nombre de licences requis
 Pour tous les groupes auxquels une licence est attribuée, chaque membre unique doit également disposer d’une licence. Même si vous n’êtes pas obligé d’attribuer une licence à chaque membre du groupe, vous devez disposer de suffisamment de licences pour inclure tous les membres. Par exemple, si vous avez 1 000 membres uniques dans des groupes sous licence dans votre locataire, vous devez disposer d’au moins 1 000 licences pour respecter le contrat de licence.
@@ -49,7 +49,7 @@ Voici les principales fonctionnalités de la gestion des licences par groupe :
 
 - Tous les services de cloud computing Microsoft nécessitant des licences au niveau des utilisateurs sont pris en charge. Cette prise en charge comprend tous les produits Office 365, Enterprise Mobility + Security et Dynamics 365.
 
-- Gestion des licences par groupe sont actuellement disponible uniquement via le [Azure portal](https://portal.azure.com). Si vous utilisez principalement autres portails de gestion pour la gestion des utilisateurs et groupe, tel que le [centre d’administration Microsoft 365](https://admin.microsoft.com), vous pouvez continuer à le faire. Vous devez toutefois utiliser le portail Azure pour gérer les licences au niveau du groupe.
+- Pour le moment, les licences basées sur les groupes sont uniquement accessibles via le [portail Azure](https://portal.azure.com). Si vous utilisez principalement d'autres portails pour la gestion des utilisateurs et des groupes, comme le [Centre d'administration Microsoft 365](https://admin.microsoft.com), vous pouvez continuer à le faire. Vous devez toutefois utiliser le portail Azure pour gérer les licences au niveau du groupe.
 
 - Azure AD gère automatiquement les modifications de licences qui résultent de modifications de l’appartenance aux groupes. En règle générale, les modifications de licence sont effectives quelques minutes après une modification d’appartenance.
 

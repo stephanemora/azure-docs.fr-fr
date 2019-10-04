@@ -3,7 +3,7 @@ title: Codes d’erreur des rapports d’activité des connexions dans le portai
 description: Informations de référence des codes d’erreur des rapports d’activité des connexions.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/18/2018
-ms.author: markvi
+ms.date: 08/08/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996167"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383168"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -66,7 +66,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50001|Le nom de principal du service est introuvable dans ce locataire. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ou si le principal de la ressource est introuvable dans le répertoire ou non valide.|
 |50002|La connexion a échoué en raison de l’accès proxy restreint sur le locataire. Si s’agit de votre propre stratégie de locataire, vous pouvez modifier les paramètres de locataire restreints pour résoudre ce problème.|
 |50003|La connexion a échoué en raison d’une clé de signature ou d’un certificat manquant. Il n’existe peut-être aucune clé de signature configurée dans l’application. Découvrez les procédures de résolution décrites à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Si le problème persiste, contactez le propriétaire de l’application ou l’administrateur de l’application.|
-|50005|L’utilisateur a essayé de se connecter à un appareil à partir d’une plateforme qui n’est actuellement pas prise en charge via la stratégie d’accès conditionnel.|
+|50005|L’utilisateur a essayé de se connecter à un appareil à partir d’une plateforme qui n’est pas prise en charge via la stratégie d’accès conditionnel.|
 |50006| La vérification de la signature a échoué en raison d’une signature non valide. Découvrez la procédure de résolution décrite à la rubrique [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Si le problème persiste, contactez le propriétaire de l’application ou l’administrateur de l’application.|
 |50007|Le certificat de chiffrement de partenaire pour cette application est introuvable. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) auprès de Microsoft pour résoudre ce problème.|
 |50008|L’assertion SAML est manquante ou configurée de façon incorrecte dans le jeton. Contactez votre fournisseur de fédération.|
@@ -79,7 +79,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50027|Jeton JWT non valide pour l’une des raisons suivantes :<ul><li>Aucune (sous-)revendication nonce</li><li>Non-concordance de l’identificateur du sujet</li><li>Revendication en double pour idToken</li><li>Émetteur inattendu</li><li>Audience inattendue</li><li>Intervalle de temps non valide </li><li>format de jeton incorrect</li><li>Échec du jeton d’ID externe de l’émetteur lors de la vérification de la signature.</li></ul>Contactez le propriétaire de l’application.|
 |50029|URI non valide. Le nom du domaine contient des caractères non valides. Contactez l’administrateur du locataire.|
 |50034|L’utilisateur n’existe pas dans le répertoire. Contactez l’administrateur du locataire.|
-|50042|Il manque la valeur salt nécessaire pour générer un identificateur par paire en principe. Contactez l’administrateur du locataire.|
+|50042|La valeur salt nécessaire pour générer un identificateur par paire est manquante dans le principal. Contactez l’administrateur du locataire.|
 |50048|L’objet ne correspond pas à la revendication d’émetteur dans l’assertion du client. Contactez l’administrateur du locataire.|
 |50050|Le format de la requête est incorrect. Contactez le propriétaire de l’application.|
 |50053|Le compte est verrouillé, car l’utilisateur a essayé de se connecter un trop grand nombre de fois avec un ID d’utilisateur ou un mot de passe incorrect.|
@@ -127,9 +127,10 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50177|La vérification externe n’est pas prise en charge pour les utilisateurs PassThrough.|
 |50178|Le contrôle de session n’est pas pris en charge pour les utilisateurs PassThrough.|
 |50180|L’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente.|
+|50201|Ce message d’invite s’affiche lors de la connexion quand des informations supplémentaires doivent être fournies à l’utilisateur.|
 |51001|L’indicateur de domaine n’est pas présent avec identificateur de sécurité local - UPN local.|
 |51004|Le compte d’utilisateur n’existe pas dans le répertoire.|
-|51006|L’authentification Windows intégrée est nécessaire. Utilisateur connecté à l’aide du jeton de session est manquant via la revendication. Demandez à l’utilisateur de se connecter à nouveau.|
+|51006|L’authentification Windows intégrée est nécessaire. L’utilisateur s’est connecté à l’aide d’un jeton de session qui ne se trouve pas dans la revendication. Demandez à l’utilisateur de se connecter à nouveau.|
 |52004|L’utilisateur n’a pas donné son consentement pour l’accès aux ressources de LinkedIn. |
 |53000|Une stratégie d’accès conditionnel nécessite un appareil conforme, or l’appareil n’est pas conforme. Demandez à l’utilisateur d’inscrire ses appareils auprès d’un fournisseur approuvé de gestion des appareils mobiles, comme Intune.|
 |53001|Une stratégie d’accès conditionnel nécessite un appareil de jonction de domaine, or l’appareil n’est pas conforme. Demandez à l’utilisateur d’utiliser un appareil de jonction de domaine.|
@@ -152,6 +153,8 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |70018|Le code de vérification n’est pas valide, car l’utilisateur a saisi un code utilisateur incorrect pour le flux de code d’appareil. L’autorisation n’est pas approuvée.|
 |70019|Le code de vérification a expiré. Demandez à l’utilisateur de réessayer de se connecter.|
 |70037|La réponse donnée à la question de vérification est incorrecte. La session d’authentification à distance a été refusée.|
+|70043|La gestion des sessions d'accès conditionnel Azure force l'expiration de la session|
+|70044|La gestion des sessions d'accès conditionnel Azure force l'expiration de la session|
 |75001|Une erreur s’est produite lors de la liaison de message SAML.|
 |75003|L’application a renvoyé une erreur relative à une liaison non prise en charge (impossible d’envoyer une réponse de protocole SAML via des liaisons autres que HTTP POST). Contactez le propriétaire de l’application.|
 |75005|Azure AD ne prend pas en charge les demandes SAML envoyées par l’application pour l’authentification unique. Contactez le propriétaire de l’application.|
@@ -174,11 +177,18 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |81012|Ce n’est pas un état d’erreur. Cela indique que l’utilisateur qui tente de se connecter à Azure AD est différent de l’utilisateur connecté à l’appareil. Vous pouvez ignorer sans problème ce code dans les journaux d’activité.|
 |90010|La requête n’est pas prise en charge pour diverses raisons. Par exemple, la requête est effectuée à l’aide d’une méthode de requête non prise en charge (seule la méthode POST est prise en charge) ou l’algorithme de signature de jeton demandé n’est pas pris en charge. Contactez le développeur de l’application.|
 |90014| Un champ obligatoire du message de protocole n’a pas été renseigné. Contactez le propriétaire de l’application. Si vous êtes le propriétaire de l’application, vérifiez que vous disposez de tous les paramètres nécessaires pour la requête de connexion. |
-|90051| Jeton de délégation non valide. ID de Cloud national non valide ({cloudId}) est spécifié.|
+|90051| Jeton de délégation non valide. L’ID cloud national non valide ({cloudId}) a été spécifié.|
 |90072| Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous, puis connectez-vous avec un autre compte Azure AD.|
 |90094| L’accès nécessite des autorisations d’administrateur. Demandez à l’administrateur de votre locataire de donner son consentement pour cette application.|
+|500021|Le locataire est restreint par le proxy de l’entreprise. L’accès aux ressources est refusé.|
+|500121| Échec de l’authentification lors d’une requête d’authentification forte.|
 |500133| L’intervalle de temps de l’assertion n’est pas valide. Vérifiez que le jeton d’accès n’est pas arrivé à expiration avant de l’utiliser pour l’assertion de l’utilisateur, ou demandez-en un nouveau.|
-|530021|Application ne respecte pas les exigences d’applications approuvées de l’accès conditionnel.|
+|530021|L’application ne répond pas aux conditions d’accès conditionnel des applications approuvées.|
+|530032|Bloqué par la stratégie de sécurité.| 
+|700016|L’application associée à l’identificateur « {appIdentifier} » est introuvable dans le répertoire « {tenantName} ». Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.|
+|900432|Le client confidentiel n’est pas pris en charge dans une requête intercloud.|
+|7000218|Le corps de la requête doit contenir le paramètre « client_assertion » ou « client_secret ».|
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

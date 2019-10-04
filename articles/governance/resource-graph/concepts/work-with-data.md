@@ -7,23 +7,25 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d04f46dbc60a7242e44d76915e15281cc6248d20
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788236"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786535"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
 Azure Resource Graph est conçu pour obtenir et utiliser des informations sur des ressources dans votre environnement Azure. Resource Graph permet d’obtenir ces données rapidement, même en cas d’interrogation de milliers d’enregistrements. Resource Graph offre plusieurs options pour utiliser ces jeux de données volumineux.
+
+Pour obtenir des conseils sur l’utilisation des requêtes à une fréquence élevée, voir [Instructions pour les requêtes limitées](./guidance-for-throttled-requests.md).
 
 ## <a name="data-set-result-size"></a>Taille du jeu de résultats
 
 Par défaut, Resource Graph limite à **100** le nombre d’enregistrements que retourne toute requête. Ce contrôle protège l’utilisateur et le service contre des requêtes involontaires qui auraient pour effet de retourner des jeux de données volumineux. Cela se produit le plus souvent quand un client expérimente des requêtes pour rechercher et filtrer des ressources d’une manière correspondant à ses besoins particuliers. Ce contrôle diffère de l’utilisation des opérateurs linguistiques [top](/azure/kusto/query/topoperator) ou [limit](/azure/kusto/query/limitoperator) d’Azure Data Explorer pour limiter les résultats.
 
 > [!NOTE]
-> Lorsque vous utilisez **première**, il est recommandé de classer les résultats au moins une colonne avec `asc` ou `desc`. Sans effectuer de tri, les résultats retournés sont aléatoires et pas reproductibles.
+> Lorsque vous utilisez **First**, il est recommandé d’ordonner les résultats sur au moins une colonne avec `asc` ou `desc`. À défaut de tri, les résultats retournés sont aléatoires et non reproductibles.
 
 La limite par défaut peut être modifiée via toutes les méthodes d’interaction avec Resource Graph. Les exemples suivants montrent comment modifier la limite de taille de jeu de données en la définissant sur _200_ :
 
@@ -46,7 +48,7 @@ La valeur maximale autorisée de l’opérateur **First** est actuellement de _5
 L’option suivante pour la manipulation de jeux de données volumineux est l’utilisation du contrôle **Skip**. Ce contrôle permet à votre requête d’omettre ou d’ignorer le nombre défini d’enregistrements avant de retourner les résultats. Le contrôle **Skip** est utile pour les requêtes qui trient les résultats de façon explicite lorsque l’intention est d’accéder à des enregistrements quelque part au milieu de jeu de résultats. Si les résultats nécessaires figurent à la fin du jeu de données retourné, il est plus efficace d’utiliser une configuration de tri différente afin de récupérer à la place les résultats à partir de la partie supérieure du jeu de données.
 
 > [!NOTE]
-> Lorsque vous utilisez **Skip**, il est recommandé de classer les résultats au moins une colonne avec `asc` ou `desc`. Sans effectuer de tri, les résultats retournés sont aléatoires et pas reproductibles.
+> Lorsque vous utilisez **Skip**, il est recommandé d’ordonner les résultats sur au moins une colonne avec `asc` ou `desc`. À défaut de tri, les résultats retournés sont aléatoires et non reproductibles.
 
 Les exemples suivants montrent comment ignorer les _10_ premiers enregistrements qu’une requête retournerait, en retournant le jeu de résultats à partir du 11e enregistrement :
 
@@ -62,18 +64,28 @@ Dans l’[API REST](/rest/api/azureresourcegraph/resources/resources), le contr�
 
 ## <a name="paging-results"></a>Résultats de pagination
 
-Lorsqu’il est nécessaire de diviser un jeu de résultats en jeux d’enregistrements pour le traitement de plus petits ou, car un jeu de résultats dépasse la valeur maximale autorisée de _1000_ enregistrements retournés, utilisez la pagination. Pour indiquer qu’un jeu de résultats a été divisé, l’[API REST](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** fournit les valeurs **resultTruncated** et **$skipToken**.
+S’il est nécessaire de diviser un jeu de résultats en jeux d’enregistrements plus petits à des fins de traitement ou parce que le jeu de résultats dépasse la valeur maximale autorisée de _1000_ enregistrements retournés, utilisez une pagination. Pour indiquer qu’un jeu de résultats a été divisé, l’[API REST](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** fournit les valeurs **resultTruncated** et **$skipToken**.
 La valeur **resultTruncated** est une valeur booléenne qui informe l’utilisateur de l’existence d’enregistrements supplémentaires non retournés dans la réponse. Cette condition peut également être identifiée lorsque la valeur de la propriété **count** est inférieure à celle de la propriété **totalRecords**. La valeur **totalRecords** définit le nombre d’enregistrements correspondant à la requête.
 
 Lorsque la valeur **resultTruncated** est **true**, la propriété **$skipToken** est définie dans la réponse. Cette valeur est utilisée avec les mêmes valeurs de requête et d’abonnement pour obtenir le jeu d’enregistrements suivant correspondant à la requête.
 
-> [!IMPORTANT]
-> Pour que la pagination fonctionne, la requête doit **projeter** le champ **id**. S’il est manquant à partir de la requête, la réponse de l’API REST n’inclut pas le **$skipToken**.
+Les exemples suivants montrent comment **ignorer** (skip) les 3 000 premiers enregistrements et retourner les 1 000 **premiers** (first) enregistrements suivants avec Azure CLI et Azure PowerShell :
 
-Pour obtenir un exemple, voir [Requête Page suivante](/rest/api/azureresourcegraph/resources/resources#next_page_query) dans la documentation de l’API REST.
+```azurecli-interactive
+az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+```
+
+> [!IMPORTANT]
+> Pour que la pagination fonctionne, la requête doit **projeter** le champ **id**. S’il est absent de la requête, la réponse n’inclut pas le **$skipToken**.
+
+Pour obtenir un exemple, voir [Requête Page suivante](/rest/api/azureresourcegraph/resources/resources#next-page-query) dans la documentation de l’API REST.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Voir l’utilisation du langage dans les [requêtes de démarrage](../samples/starter.md)
-- Voir les utilisations avancées dans les [Requêtes avancées](../samples/advanced.md)
-- Apprendre à [explorer les ressources](explore-resources.md)
+- Examinez le langage utilisé dans les [requêtes de démarrage](../samples/starter.md).
+- Examinez les utilisations avancées dans les [Requêtes avancées](../samples/advanced.md).
+- Apprenez à [explorer les ressources](explore-resources.md).

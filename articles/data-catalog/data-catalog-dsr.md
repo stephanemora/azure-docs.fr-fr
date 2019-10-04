@@ -1,18 +1,17 @@
 ---
 title: Sources de données prises en charge dans Azure Data Catalog
-description: Cet article répertorie les spécifications des sources de données prises en charge actuellement.
-services: data-catalog
+description: Cet article répertorie les spécifications des sources de données prises en charge actuellement pour Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 8b584e06697f9f4212fe0d1d59c29e4670a87eda
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: 8f148bfe08d5f7933857eb46cf0d13d4582da108
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008611"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950278"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Sources de données prises en charge dans Azure Data Catalog
 
@@ -30,7 +29,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
        <td><b>Remarques</b></td>
     </tr>
     <tr>
-      <td>Répertoire Azure Data Lake Store (génération 1 uniquement)</td>
+      <td>Répertoire Azure Data Lake Store (Gen 1 uniquement)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -38,7 +37,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td></td>
     </tr>
     <tr>
-      <td>Fichier Azure Data Lake Store (génération 1 uniquement)</td>
+      <td>Fichier Azure Data Lake Store (Gen 1 uniquement)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -67,10 +66,8 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>
-        <font size="2">
       </td>
       <td>
-        <font size="2">
       </td>
     </tr>
     <tr>
@@ -154,7 +151,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td></td>
     </tr>
     <tr>
-      <td>Vue SQL Data Warehouse</td>
+      <td>Affichage Azure SQL Data Warehouse</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -167,7 +164,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Indicateur de performance clé de SQL Server Analysis Services</td>
@@ -175,7 +172,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Mesure SQL Server Analysis Services</td>
@@ -183,7 +180,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Table SQL Server Analysis Services</td>
@@ -191,7 +188,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Rapport SQL Server Reporting Services</td>
@@ -199,7 +196,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Serveurs en mode natif uniquement. Le mode SharePoint n’est pas pris en charge.</td>
+      <td>Serveurs en mode natif uniquement. Le mode SharePoint n’est pas pris en charge. SQL Server 2008 et versions ultérieures uniquement</td>
     </tr>
     <tr>
       <td>Table SQL Server</td>
@@ -207,7 +204,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Vue SQL Server</td>
@@ -215,7 +212,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server Data Tools</td>
-      <td></td>
+      <td>SQL Server 2008 et versions ultérieures.</td>
     </tr>
     <tr>
       <td>Table Teradata</td>
@@ -232,6 +229,14 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>Excel</td>
       <td></td>
+    </tr>
+    <tr>
+      <td>SAP Business Warehouse</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td>Fonctionne uniquement en anglais. Les mesures ne sont pas prises en charge.</td>
     </tr>
     <tr>
       <td>Vue SAP HANA</td>

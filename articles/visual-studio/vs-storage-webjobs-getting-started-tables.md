@@ -3,7 +3,7 @@ title: Prise en main du stockage Azure et des services connectés Visual Studio 
 description: Comment prendre en main le stockage de tables Azure dans un projet WebJobs Azure dans Visual Studio après s'être connecté à un compte de stockage à l'aide des services connectés de Visual Studio
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,17 +12,17 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a9a4475465fefb01ec53e6e0eb814f9b8f192a1b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8875f680c8bb83c2375d6fe767f376cbb35d5a0a
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799324"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510670"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Prise en main d’Azure Storage (projets de tâche web Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Cet article fournit des exemples de code C# qui montrent comment utiliser la version 1.x du Kit de développement logiciel (SDK) Azure WebJobs avec le service de stockage de tables Azure. Les exemples de code utilisent le [Kit de développement logiciel (SDK) WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) version 1.x.
 
 Le service de stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles.  Pour plus d’informations, consultez la section [Prise en main d’Azure Table Storage à l’aide de .NET](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) .
@@ -30,7 +30,7 @@ Le service de stockage de tables Azure vous permet de stocker de grandes quantit
 Certains extraits de code illustrent l’attribut **Table** utilisé dans des fonctions appelées manuellement, c’est-à-dire sans utiliser l’un des attributs de déclenchement.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Ajout d’une entité à une table
-Pour ajouter des entités à une table, utilisez l’attribut **Table** avec un paramètre **ICollector<T>** ou **IAsyncCollector<T>**, où **T** spécifie le schéma des entités que vous souhaitez ajouter. Le constructeur d’attribut prend un paramètre de chaîne qui spécifie le nom de la table.
+Pour ajouter des entités à une table, utilisez l’attribut **Table** avec un paramètre **ICollector\<T>** où **IAsyncCollector\<T>** , où **T** spécifie le schéma des entités que vous souhaitez ajouter. Le constructeur d’attribut prend un paramètre de chaîne qui spécifie le nom de la table.
 
 L’exemple de code suivant ajoute des entités **Person** à une table nommée *Ingress*.
 
@@ -79,7 +79,7 @@ Lorsque l’exécution de la fonction se termine, la page **Détails des appels*
 ![Arrêt de la fonction d’entrée](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Lecture de plusieurs entrées à partir d’une table
-Pour lire une table, utilisez l’attribut **Table** avec un paramètre **IQueryable<T>** où le type **T** est dérivé de **TableEntity** ou implémente **ITableEntity**.
+Pour lire une table, utilisez l’attribut **Table** avec un paramètre **IQueryable\<T>** où le type **T** est dérivé de **TableEntity** ou implémente **ITableEntity**.
 
 L’exemple de code suivant lit et enregistre toutes les lignes de la table **Ingress** :
 

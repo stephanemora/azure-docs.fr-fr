@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 23275bc639b445b55cafb72c929514541ba00660
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 3955b84df401e5832668fa091274caea9af2466e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105945"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876603"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connecter une application Mongoose Node.js à Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Ce tutoriel montre comment utiliser le [framework Mongoose](https://mongoosejs.c
 
 Cosmos DB est le service de base de données multi-modèle de Microsoft, distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur de Cosmos DB.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -65,11 +65,11 @@ Passons à la création d’un compte Cosmos. Si vous avez déjà un compte que 
     var env = require('dotenv').load();    //Use the .env file to load the variables
     ```
 
-1. Ajoutez la chaîne de connexion Cosmos DB et le nom Cosmos DB au fichier ```.env```.
+1. Ajoutez la chaîne de connexion Cosmos DB et le nom Cosmos DB au fichier ```.env```. Remplacez les espaces réservés {cosmos-account-name} et {dbname} par le nom de votre compte Cosmos et le nom de la base de données, sans les symboles de l’accolade.
 
     ```JavaScript
-    COSMOSDB_CONNSTR=mongodb://{cosmos-user}.documents.azure.com:10255/{dbname}
-    COSMODDB_USER=cosmos-user
+    COSMOSDB_CONNSTR=mongodb://{cosmos-account-name}.documents.azure.com:10255/{dbname}
+    COSMODDB_USER=cosmos-account-name
     COSMOSDB_PASSWORD=cosmos-secret
     ```
 
@@ -183,7 +183,7 @@ Le comportement par défaut de Mongoose consiste à créer une collection MongoD
 
 1. Dans le portail Azure, vous remarquez que deux collections ont été créées dans Cosmos DB.
 
-    ![La base de données de nœud de - capture d’écran du portail Azure, présentant un compte Azure Cosmos DB, avec plusieurs noms de collection en surbrillance - didacticiel Node.js][multiple-coll]
+    ![Tutoriel Node.js - Capture d’écran du portail Azure montrant un compte Azure Cosmos DB avec plusieurs noms de collections en surbrillance (Node database)][multiple-coll]
 
 1. Pour finir, nous allons lire les données à partir de Cosmos DB. Étant donné que nous utilisons le modèle de fonctionnement par défaut de Mongoose, la lecture est identique à n’importe quelle autre lecture avec Mongoose.
 
@@ -288,7 +288,7 @@ Nous créons ici un modèle d’objet de base, définissons une clé de différe
 
 1. De retour dans le portail Azure, vous remarquez qu’il n’existe qu’une seule collection appelée ```alldata``` contenant les données de « Family » et de « VacationDestinations ».
 
-    ![La base de données de nœud de - capture d’écran du portail Azure, présentant un compte Azure Cosmos DB, avec le nom de la collection en surbrillance - didacticiel Node.js][alldata]
+    ![Tutoriel Node.js - Capture d’écran du portail Azure montrant un compte Azure Cosmos DB avec le nom de la collection en surbrillance (Node database)][alldata]
 
 1. Vous remarquez également que chaque objet possède un autre attribut nommé ```__type```, qui vous permet de différencier les deux modèles d’objet.
 

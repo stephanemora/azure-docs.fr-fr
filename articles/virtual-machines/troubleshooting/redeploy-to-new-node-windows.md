@@ -4,22 +4,21 @@ description: Comment redéployer des machines virtuelles Windows dans Azure pour
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 tags: azure-resource-manager,top-support-issue
 ms.assetid: 0ee456ee-4595-4a14-8916-72c9110fc8bd
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: b10c0be91a4b12af72d48124b225dac777c4d936
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 36af0eeb43fb209ed65f950576f2dc9e97ec3633
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982656"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058637"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>Redéployer des machines virtuelles Windows dans un nouveau nœud Azure
 Si vous avez été confronté à des difficultés pour la résolution des problèmes de connexion de Bureau à distance ou l’accès des applications à une machine virtuelle Azure basée sur Windows, le redéploiement de la machine virtuelle peut vous aider. Lorsque vous redéployez une machine virtuelle, Azure ferme la machine virtuelle, la déplace vers un nouveau nœud au sein de l’infrastructure Azure, puis la remet sous tension, en conservant toutes vos options de configuration et ressources associées. Cet article vous montre comment redéployer une machine virtuelle à l’aide d’Azure PowerShell ou du portail Azure.

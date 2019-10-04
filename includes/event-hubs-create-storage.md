@@ -9,11 +9,11 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b84b0a8e09bf739ce62dee167ff751b491765c66
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684665"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177599"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Créer un compte de stockage pour Event Processor Host
 Event Processor Host est un agent intelligent qui simplifie la réception d’événements provenant d’Event Hubs en gérant les points de contrôle persistants et les destinataires parallèles. Pour les points de contrôle, Event Processor Host nécessite un compte de stockage. L’exemple suivant montre comment créer un compte de stockage et comment obtenir ses clés pour l’accès :
@@ -37,7 +37,7 @@ Event Processor Host est un agent intelligent qui simplifie la réception d’é
 4. Sur la page **Vérifier + créer**, vérifiez les valeurs, puis sélectionnez **Créer**. 
 
     ![Vérifier les paramètres de compte de stockage et créer](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. Une fois que vous voyez le **déploiements réussis** message, sélectionnez **accéder à la ressource** en haut de la page. Vous pouvez également afficher la page Compte de stockage en sélectionnant votre compte de stockage dans la liste des ressources.  
+5. Après l’affichage du message **Déploiements réussis**, sélectionnez **Accéder à la ressource** en haut de la page. Vous pouvez également afficher la page Compte de stockage en sélectionnant votre compte de stockage dans la liste des ressources.  
 
     ![Sélectionner le compte de stockage dans le déploiement](./media/event-hubs-create-storage/select-storage-deployment.png) 
 7. Dans la fenêtre **Bases**, sélectionnez **Objets blob**. 

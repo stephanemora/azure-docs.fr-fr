@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57991927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66002088"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Utiliser les alertes de coût pour surveiller l’utilisation et les dépenses
 
@@ -35,21 +35,21 @@ Les alertes de crédit vous préviennent lorsque les engagements monétaires de 
 
 Les alertes de quota de dépense du service vous avertissent lorsque les dépenses du service atteignent un seuil fixe du quota. Les quotas de dépenses sont configurés dans le portail EA. Chaque fois qu’un seuil est atteint, un e-mail est envoyé aux propriétaires de service et cela apparaît dans les alertes de coût. Par exemple, 50 % ou 75 % du quota.
 
-## <a name="supported-alert-features-by-offer-categories"></a>Prise en charge des fonctionnalités d’alerte par catégories de l’offre
+## <a name="supported-alert-features-by-offer-categories"></a>Fonctionnalités d’alerte prises en charge par catégories d’offres
 
-Prise en charge des types d’alerte varie selon le type de compte Azure que vous avez (Microsoft) offrent. Le tableau suivant présente les fonctionnalités d’alerte qui sont pris en charge par les différentes offres de Microsoft. Vous pouvez afficher la liste complète des offres de Microsoft à [les données de gestion des coûts comprendre](understand-cost-mgt-data.md).
+La prise en charge des types d’alerte varie en fonction de votre type de compte Azure (offre Microsoft). Le tableau suivant présente les fonctionnalités d’alerte qui sont prises en charge par les différentes offres Microsoft. Vous pouvez consulter la liste complète des offres Microsoft dans l’article [Comprendre les données Cost Management](understand-cost-mgt-data.md).
 
-| Type d’alerte | Contrat Entreprise | Contrat client Microsoft | Web direct/paiement-As-You-Go |
+| Type d’alerte | Contrat Entreprise | Contrat client Microsoft | Direct web/Paiement à l’utilisation |
 |---|---|---|---|
 | Budget | ✔ | ✔ | ✔ |
 | Crédit | ✔ |✘ | ✘ |
-| Quota de dépenses du service | ✔ | ✘ | ✘ |
+| Quota de dépenses des services | ✔ | ✘ | ✘ |
 
 
 
 ## <a name="view-cost-alerts"></a>Afficher les alertes de coût
 
-Pour afficher les alertes de coût, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Budgets** dans le menu. Utilisez le **étendue** pilule pour basculer vers une étendue différente. Sélectionnez **coût alertes** dans le menu. Pour plus d’informations sur les étendues, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
+Pour afficher les alertes de coût, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Budgets** dans le menu. Utilisez le paramètre **Étendue** pour passer à une autre étendue. Sélectionnez **Alertes de coût** dans le menu. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 ![Exemple d’images d’alertes affichées dans Azure Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

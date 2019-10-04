@@ -9,23 +9,22 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 6a386096d8a94c240e9a00457d87d04254e02920
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448575"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102009"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Recommandations de performances pour SQL Server dans les machines virtuelles Azure
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cet article donne des conseils pour optimiser les performances de SQL Server dans la machine virtuelle Microsoft Azure. Lorsque vous exécutez SQL Server dans Microsoft Azure Virtual Machines, nous vous recommandons de continuer à utiliser les mêmes options de réglage des performances de base de données qui s’appliquent à SQL Server dans un environnement serveur local. Toutefois, les performances d’une base de données relationnelle dans un cloud public dépendent de nombreux facteurs, comme la taille de la machine virtuelle et la configuration des disques de données.
 
@@ -42,7 +41,7 @@ Voici une liste de vérification rapide pour optimiser les performances de SQL S
 | --- | --- |
 | [Taille de la machine virtuelle](#vm-size-guidance) | - [DS3 version 2](../sizes-general.md) ou supérieure pour l’édition SQL Server Entreprise.<br/><br/> - [DS2 version 2](../sizes-general.md) ou supérieure pour les éditions SQL Server Standard ou Web. |
 | [Stockage](#storage-guidance) | - Utilisez des [disques SSD premium](../disks-types.md). Le stockage standard n’est recommandé que pour le développement et le test.<br/><br/> - Conservez le [compte de stockage](../../../storage/common/storage-create-storage-account.md) et la machine virtuelle SQL Server dans la même région.<br/><br/> * Désactivez le [stockage géo-redondant](../../../storage/common/storage-redundancy.md) (géo-réplication) d’Azure sur le compte de stockage. |
-| [Disques](#disks-guidance) | - Utilisez au moins 2 [disques P30](../disks-types.md#premium-ssd) (1 pour les fichiers journaux et 1 pour les fichiers de données notamment TempDB). Pour les charges de travail nécessitant ~50 000 E/S par seconde, envisagez d’utiliser un disque SSD Ultra. <br/><br/> - Évitez d’utiliser des disques de système d’exploitation ou temporaires pour le stockage ou la journalisation des bases de données.<br/><br/> - Activez la mise en cache de lecture sur le ou les disques hébergeant les fichiers de données et TempDB.<br/><br/> - N’activez pas la mise en cache sur le ou les disques hébergeant le fichier journal.  **Important !** Arrêtez le service SQL Server lorsque vous modifiez le paramètre de cache d’un disque de machine virtuelle Azure.<br/><br/> - Entrelacez plusieurs disques de données Azure pour obtenir un débit d’E/S plus élevé.<br/><br/> - Formatez avec des tailles d’allocation documentées. <br/><br/> - Placez TempDB sur le disque SSD local pour les charges de travail SQL Server stratégiques (après avoir choisi la taille de machine virtuelle appropriée). |
+| [Disques](#disks-guidance) | - Utilisez au moins 2 [disques P30](../disks-types.md#premium-ssd) (1 pour les fichiers journaux et 1 pour les fichiers de données notamment TempDB). Pour les charges de travail nécessitant ~50 000 E/S par seconde, envisagez d’utiliser un disque SSD Ultra. <br/><br/> - Évitez d’utiliser des disques de système d’exploitation ou temporaires pour le stockage ou la journalisation des bases de données.<br/><br/> - Activez la mise en cache de lecture sur le ou les disques hébergeant les fichiers de données et TempDB.<br/><br/> - N’activez pas la mise en cache sur le ou les disques hébergeant le fichier journal.  **Important !** Arrêtez le service SQL Server lorsque vous modifiez le paramètre de cache d’un disque de machine virtuelle Azure.<br/><br/> - Entrelacez plusieurs disques de données Azure pour obtenir un débit d’E/S plus élevé.<br/><br/> - Formatez avec des tailles d’allocation documentées. <br/><br/> - Placez TempDB sur le lecteur `D:\` SSD local pour les charges de travail SQL Server stratégiques (après avoir choisi la taille de machine virtuelle appropriée). Plus d’informations sur le billet de blog [Using SSDs to store TempDB](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).  |
 | [E/S](#io-guidance) |- Activez la compression des pages de base de données.<br/><br/> - Activez l’initialisation de fichiers instantanée pour les fichiers de données.<br/><br/> - Limitez la croissance automatique sur la base de données.<br/><br/> - Désactivez la réduction automatique sur la base de données.<br/><br/> - Déplacez toutes les bases de données vers des disques de données, y compris les bases de données système.<br/><br/> - Déplacez les répertoires des journaux d’erreurs et des fichiers de trace SQL Server vers des disques de données.<br/><br/> - Configurez les emplacements par défaut du fichier de sauvegarde et du fichier de base de données.<br/><br/> - Activez les pages verrouillées.<br/><br/> - Appliquez les correctifs de performances de SQL Server. |
 | [Spécifique aux fonctionnalités](#feature-specific-guidance) | - Sauvegardez directement dans le stockage d’objets blob. |
 
@@ -55,7 +54,7 @@ Pour les applications sensibles aux performances, il est recommandé d’utilise
 * **SQL Server Édition Entreprise** : DS3_v2 ou ultérieur
 * **SQL Server Éditions Standard et Web** : DS2_v2 ou ultérieur
 
-Les machines virtuelles de la [série DSv2](../sizes-general.md#dsv2-series) prennent en charge le stockage premium, recommandé pour obtenir des performances optimales. Les tailles recommandées ici sont des bases de référence, mais la taille de machine que vous sélectionnez vraiment dépend des exigences de votre charge de travail. Les machines virtuelles de la série DSv2 sont des machines virtuelles universelles appropriées pour un large éventail de charges de travail, tandis que les tailles des autres machines sont optimisées pour des types de charge de travail spécifiques. Par exemple, la [série M](../sizes-memory.md#m-series) offre le nombre de processeurs virtuels et la quantité de mémoire les plus élevés pour les plus grandes charges de travail SQL Server. La [série GS](../sizes-memory.md#gs-series) et la [série DSv2-11-15](../sizes-memory.md#dsv2-series-11-15) conviennent si la mémoire requise est volumineuse. Ces deux séries sont également disponibles dans des [tailles de cœur restreintes](../../windows/constrained-vcpu.md), réduisant le coût des charges de travail ayant des exigences de calcul moindres. Les machines de la [série Ls](../sizes-storage.md) sont optimisées pour un débit et des E/S de disque élevés. Il est important d’évaluer votre charge de travail SQL Server et d’en tenir compte au moment de choisir une taille et une série de machines virtuelles.
+Les machines virtuelles de la [série DSv2](../sizes-general.md#dsv2-series) prennent en charge le stockage premium, recommandé pour obtenir des performances optimales. Les tailles recommandées ici sont des bases de référence, mais la taille de machine que vous sélectionnez vraiment dépend des exigences de votre charge de travail. Les machines virtuelles de la série DSv2 sont des machines virtuelles universelles appropriées pour un large éventail de charges de travail, tandis que les tailles des autres machines sont optimisées pour des types de charge de travail spécifiques. Par exemple, la [série M](../sizes-memory.md#m-series) offre le nombre de processeurs virtuels et la quantité de mémoire les plus élevés pour les plus grandes charges de travail SQL Server. La [série GS](../sizes-previous-gen.md#gs-series) et la [série DSv2-11-15](../sizes-memory.md#dsv2-series-11-15) conviennent si la mémoire requise est volumineuse. Ces deux séries sont également disponibles dans des [tailles de cœur restreintes](../../windows/constrained-vcpu.md), réduisant le coût des charges de travail ayant des exigences de calcul moindres. Les machines de la [série Ls](../sizes-storage.md) sont optimisées pour un débit et des E/S de disque élevés. Il est important d’évaluer votre charge de travail SQL Server et d’en tenir compte au moment de choisir une taille et une série de machines virtuelles.
 
 ## <a name="storage-guidance"></a>Conseils liés au stockage
 
@@ -90,11 +89,11 @@ Sur les machines virtuelles de série D, Dv2 et G, le lecteur temporaire réside
 
 Pour les machines virtuelles qui prennent en charge les disques SSD premium (de série DS, DSv2 et GS), nous vous recommandons de stocker TempDB sur un disque qui prend en charge les disques SSD premium avec la mise en cache en lecture activée.
 
-Il existe une exception à cette recommandation : _si votre utilisation de TempDB est intensive en écriture, vous pouvez obtenir des performances supérieures en stockant TempDB sur le lecteur **D** local, qui est également un disque SSD sur ces tailles de machines._
+Il existe une exception à cette recommandation : _si votre utilisation de TempDB est intensive en écriture, vous pouvez obtenir des performances supérieures en stockant TempDB sur le lecteur **D** local, qui est également un disque SSD sur ces tailles de machines._ Pour plus d’informations, consultez le billet de blog [Using SSDs with TempDB](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/). 
 
 ### <a name="data-disks"></a>Disques de données
 
-* **Utilisez des disques de données pour les fichiers journaux et de données** : Si vous n’utilisez pas l’entrelacement de disques, utilisez au moins deux disques P30 SSD premium, l’un pour contenir le ou les fichiers journaux et l’autre pour contenir le ou les fichiers TempDB et les données. Chaque disque SSD premium fournit un nombre d’opérations d’E/S par seconde et une bande passante (Mo/s) en fonction de sa taille, comme décrit dans l’article, [Sélectionner un type de disque](../disks-types.md). Si vous utilisez une technique d’entrelacement de disques, comme des espaces de stockage, vous obtenez des performances optimales en ayant deux pools, un pour les fichiers journaux et l’autre pour les fichiers de données. Toutefois, si vous envisagez d’utiliser des instances de cluster de basculement SQL Server, vous devez configurer un pool.
+* **Utilisez des disques de données pour les fichiers journaux et de données** : Si vous n’utilisez pas l’entrelacement de disques, utilisez deux disques P30 SSD premium, l’un pour contenir le ou les fichiers journaux et l’autre pour contenir les données et TempDB (sauf pour les charges de travail stratégiques et nécessitant beaucoup d’écritures, comme indiqué plus haut). Chaque disque SSD premium fournit un nombre d’opérations d’E/S par seconde et une bande passante (Mo/s) en fonction de sa taille, comme décrit dans l’article, [Sélectionner un type de disque](../disks-types.md). Si vous utilisez une technique d’entrelacement de disques, comme des espaces de stockage, vous obtenez des performances optimales en ayant deux pools, un pour les fichiers journaux et l’autre pour les fichiers de données. Toutefois, si vous envisagez d’utiliser des instances de cluster de basculement SQL Server, vous devez configurer un pool.
 
    > [!TIP]
    > - Pour obtenir les résultats des tests sur différentes configurations de disque et de charge de travail, consultez le billet de blog suivant : [Instructions pour la configuration du stockage pour SQL Server sur une machine virtuelle Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
@@ -179,11 +178,22 @@ Il existe une exception à cette recommandation : _si votre utilisation de TempD
 
 Certains déploiements peuvent bénéficier de plus grands avantages en termes de performances à l’aide de techniques de configuration avancées. La liste suivante présente certaines fonctionnalités SQL Server qui peuvent vous aider à améliorer les performances :
 
-* **Sauvegarde sur Stockage Azure** : Durant la création de sauvegardes pour un serveur SQL Server s’exécutant sur des machines virtuelles Azure, vous pouvez vous référer à [Sauvegarde de SQL Server vers une URL](https://msdn.microsoft.com/library/dn435916.aspx). Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés. Lors de la sauvegarde ou la restauration vers/depuis Azure Storage, suivez les recommandations indiquées dans [Meilleures pratiques et résolution des problèmes pour la sauvegarde de SQL Server vers une URL et Restauration à partir de sauvegardes stockées dans Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-automated-backup.md).
+### <a name="backup-to-azure-storage"></a>Sauvegarde sur Stockage Azure
+Durant la création de sauvegardes pour un serveur SQL Server s’exécutant sur des machines virtuelles Azure, vous pouvez vous référer à [Sauvegarde de SQL Server vers une URL](https://msdn.microsoft.com/library/dn435916.aspx). Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés. Lors de la sauvegarde ou la restauration vers/depuis Azure Storage, suivez les recommandations indiquées dans [Meilleures pratiques et résolution des problèmes pour la sauvegarde de SQL Server vers une URL et Restauration à partir de sauvegardes stockées dans Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-automated-backup.md).
 
-    Pour les versions antérieures à SQL Server 2012, vous pouvez utiliser l’ [outil de sauvegarde SQL Server vers Azure](https://www.microsoft.com/download/details.aspx?id=40740). Cet outil peut augmenter le débit de sauvegarde à l’aide de plusieurs cibles d’entrelacement de sauvegarde.
+Pour les versions antérieures à SQL Server 2012, vous pouvez utiliser l’ [outil de sauvegarde SQL Server vers Azure](https://www.microsoft.com/download/details.aspx?id=40740). Cet outil peut augmenter le débit de sauvegarde à l’aide de plusieurs cibles d’entrelacement de sauvegarde.
 
-* **Fichiers de données SQL Server dans Azure** : Cette nouvelle fonctionnalité, [Fichiers de données SQL Server dans Azure](https://msdn.microsoft.com/library/dn385720.aspx), est disponible à partir de SQL Server 2014. L’exécution de SQL Server avec des fichiers de données dans Azure offre des caractéristiques de performances comparables à l’utilisation de disques de données Azure.
+### <a name="sql-server-data-files-in-azure"></a>Fichiers de données SQL Server dans Azure
+
+Cette nouvelle fonctionnalité, [Fichiers de données SQL Server dans Azure](https://msdn.microsoft.com/library/dn385720.aspx), est disponible à partir de SQL Server 2014. L’exécution de SQL Server avec des fichiers de données dans Azure offre des caractéristiques de performances comparables à l’utilisation de disques de données Azure.
+
+### <a name="failover-cluster-instance-and-storage-spaces"></a>Instance de cluster de basculement et espaces de stockage
+
+Si vous utilisez des espaces de stockage, lors de l’ajout de nœuds dans le cluster sur la page **Confirmation**, désélectionnez la case à cocher **Ajouter la totalité du stockage disponible au cluster**. 
+
+![Décochez la case du stockage éligible](media/virtual-machines-windows-sql-performance/uncheck-eligible-cluster-storage.png)
+
+Si vous utilisez des espaces de stockage et que vous ne désactivez pas la case à cocher **Ajouter la totalité du stockage disponible au cluster**, Windows détache les disques virtuels pendant le processus de mise en cluster. Par conséquent, ils n’apparaissent pas dans le Gestionnaire de disque ou dans l’Explorateur, jusqu’à ce que les espaces de stockage soient supprimés du cluster et rattachés à l’aide de PowerShell. Les espaces de stockage regroupent plusieurs disques dans des pools de stockage. Pour plus d’informations, consultez la page [Espaces de stockage](/windows-server/storage/storage-spaces/overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 59088d8351bf89c859312774e3e9e396be8dd532
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518080"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904251"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gérer un serveur VMware vCenter
 
@@ -71,51 +71,51 @@ Modifiez les informations d’identification utilisées pour se connecter au ser
 
    ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
 
-## <a name="modify-the-vcenter-ip-address-and-port"></a>Modifier l’adresse IP de vCenter et le port
+## <a name="modify-the-vcenter-ip-address-and-port"></a>Modifier le port et l’adresse IP de vCenter
 
 1. Connectez-vous au portail Azure.
-2. Accédez à **coffre Recovery Services** > **Infrastructure Site Recovery** > **serveurs de Configuration**.
-3. Cliquez sur le serveur de configuration le vCenter est assigné à.
-4. Dans le **serveurs vCenter** section, cliquez sur le serveur vCenter que vous souhaitez modifier.
-5. Dans la page de résumé vCenter, mettre à jour l’adresse IP et le port du vCenter dans les champs respectifs, puis enregistrez vos modifications.
+2. Accédez à **Coffre Recovery Services** > **Infrastructure Site Recovery** > **Serveurs de Configuration**.
+3. Cliquez sur le serveur de configuration auquel vCenter est affecté.
+4. Dans la section **Serveurs vCenter**, cliquez sur le serveur vCenter que vous souhaitez modifier.
+5. Dans la page récapitulative du serveur vCenter, mettez à jour l’adresse IP et le port dans les champs respectifs, puis enregistrez vos modifications.
 
    ![add_ip_new_vcenter](media/vmware-azure-manage-vcenter/add-ip.png)
 
-6. Modifications entrent en vigueur, attendez 15 minutes ou [actualiser le serveur de configuration](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
+6. Afin que les modifications soient prises en compte, attendez 15 minutes ou [actualisez le serveur de configuration](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
-## <a name="migrate-all-protected-virtual-machines-to-a-new-vcenter"></a>Migrer des machines virtuelles protégées tout vers un nouveau serveur vCenter
+## <a name="migrate-all-protected-virtual-machines-to-a-new-vcenter"></a>Migrer toutes les machines virtuelles protégées vers un nouveau serveur vCenter
 
-Pour migrer tous les ordinateurs virtuels vers le nouveau serveur vCenter, n’ajoutez pas d’un autre compte vCenter. Cela peut entraîner d’entrées en double. Simplement mettre à jour l’adresse IP du nouveau vCenter :
+Pour migrer toutes les machines virtuelles sur le nouveau serveur vCenter, n’ajoutez pas d’autre compte vCenter. Des entrées en double peuvent en découler. Contentez-vous de mettre à jour l’adresse IP du nouveau serveur vCenter :
 
 1. Connectez-vous au portail Azure.
-2. Accédez à **coffre Recovery Services** > **Infrastructure Site Recovery** > **serveurs de Configuration**.
-3. Cliquez sur le serveur de configuration anciennes vCenter est assigné à.
-4. Dans le **serveurs vCenter** section, cliquez sur le serveur vCenter que vous envisagez de migrer à partir de.
-5. Dans la page de résumé vCenter, mettre à jour l’adresse IP du nouveau serveur vCenter dans le champ **vCenter server/vSphere hostname ou l’adresse IP**. Enregistrez vos modifications.
+2. Accédez à **Coffre Recovery Services** > **Infrastructure Site Recovery** > **Serveurs de Configuration**.
+3. Cliquez sur le serveur de configuration auquel l’ancien serveur vCenter est affecté.
+4. Dans la section **Serveurs vCenter**, cliquez sur le serveur vCenter à partir duquel vous prévoyez de procéder à la migration.
+5. Dans la page récapitulative du serveur vCenter, mettez à jour l’adresse IP du nouveau serveur vCenter dans le champ **serveur vCenter/nom d’hôte ou adresse IP de vSphere**. Enregistrez vos modifications.
 
-Dès que l’adresse IP est mise à jour, les composants de Site Recovery démarre recevoir des informations de découverte des machines virtuelles à partir du nouveau serveur vCenter. Cela n’affectera pas les activités de réplication en cours.
+Aussitôt l’adresse IP mise à jour, les composants Site Recovery commencent à recevoir les informations de découverte des machines virtuelles du nouveau serveur vCenter. Les activités de réplication en cours ne s’en trouvent pas affectées.
 
 ## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>Migrer plusieurs machines virtuelles protégées vers un nouveau serveur vCenter
 
 > [!NOTE]
-> Cette section s’applique uniquement lorsque vous effectuez une migration quelques-uns de vos machines virtuelles protégées à un nouveau serveur vCenter. Si vous souhaitez protéger un nouvel ensemble de machines virtuelles à partir d’un nouveau serveur vCenter, [ajouter de nouveaux détails de vCenter au serveur de configuration](#add-vmware-server-to-the-vault) et commencer par  **[activer la protection](vmware-azure-tutorial.md#enable-replication)**.
+> Cette section s’applique uniquement lorsque vous effectuez la migration de quelques machines virtuelles protégées vers un nouveau serveur vCenter. Si vous souhaitez protéger un nouvel ensemble de machines virtuelles à partir d’un nouveau serveur vCenter, [ajoutez des détails vCenter supplémentaires au serveur de configuration](#add-vmware-server-to-the-vault) et commencez par **[activer la protection](vmware-azure-tutorial.md#enable-replication)** .
 
 Pour déplacer plusieurs machines virtuelles vers un nouveau serveur vCenter :
 
-1. [Ajouter les nouveaux détails de vCenter au serveur de configuration](#add-vmware-server-to-the-vault).
-2. [Désactiver la réplication des machines virtuelles](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) vous envisagez de migrer.
-3. Effectuer la migration de machines virtuelles sélectionnées vers le nouveau serveur vCenter.
-4. À présent, protéger les ordinateurs virtuels migrés par [en sélectionnant le nouveau serveur vCenter lorsque vous activez la protection](vmware-azure-tutorial.md#enable-replication).
+1. [Ajoutez les nouveaux détails vCenter au serveur de configuration](#add-vmware-server-to-the-vault).
+2. [Désactivez la réplication des machines virtuelles](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) que vous prévoyez de migrer.
+3. Effectuez la migration des machines virtuelles sélectionnées vers le nouveau serveur vCenter.
+4. Protégez maintenant les machines virtuelles migrées en [ sélectionnant le nouveau serveur vCenter lorsque vous activez la protection](vmware-azure-tutorial.md#enable-replication).
 
 > [!TIP]
-> Si le nombre de machines virtuelles en cours de migration est **supérieur** que le nombre de machines virtuelles conservées dans l’ancien vCenter, mettre à jour l’adresse IP du nouveau vCenter en suivant les instructions fournies ici. Pour les quelques ordinateurs virtuels qui sont conservés sur le serveur vCenter ancien, [désactiver la réplication](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [ajouter de nouveaux détails de vCenter au serveur de configuration](#add-vmware-server-to-the-vault)et démarrez  **[activer la protection](vmware-azure-tutorial.md#enable-replication)**.
+> Si le nombre de machines virtuelles en cours de migration est **supérieur** au nombre de machines virtuelles conservées dans l’ancien vCenter, mettez à jour l’adresse IP du nouveau serveur vCenter en suivant les instructions fournies ici. Pour les quelques machines virtuelles qui sont conservées sur l’ancien serveur vCenter, [désactivez la réplication](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure), [ajoutez de nouveaux détails vCenter au serveur de configuration](#add-vmware-server-to-the-vault) et démarrez **[Activer la protection](vmware-azure-tutorial.md#enable-replication)** .
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
-1. Si les machines virtuelles protégées sont déplacés à partir d’un hôte ESXi à l’autre, il n’affectera la réplication ?
+1. Y a-t-il une incidence sur la réplication si les machines virtuelles protégées sont déplacées entre des hôtes ESXi ?
 
-    Non, cela n’affectera pas la réplication en cours. Toutefois, [prenez soin de déployer le serveur cible maître avec des privilèges suffisants](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)
+    Non, cette opération n’affecte pas la réplication en cours. Toutefois, [prenez soin de déployer le serveur cible maître avec des privilèges suffisants](vmware-azure-reprotect.md#deploy-a-separate-master-target-server).
 
-2. Quels sont les numéros de port utilisé pour la communication entre le serveur vCenter et autres Site Recovery composants ?
+2. Quels sont les numéros de port utilisés pour la communication entre le serveur vCenter et d’autres composants Site Recovery ?
 
-    Le port par défaut est 443. Serveur de configuration accède aux informations de l’hôte vCenter/vSphere via ce port. Si vous souhaitez mettre à jour ces informations, cliquez sur [ici](#modify-the-vcenter-ip-address-and-port).
+    Par défaut, il s’agit du port 443. Le serveur de configuration accède aux informations de l’hôte vCenter/vSphere via ce port. Si vous souhaitez mettre à jour ces informations, cliquez [ici](#modify-the-vcenter-ip-address-and-port).

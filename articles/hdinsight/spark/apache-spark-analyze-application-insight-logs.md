@@ -1,7 +1,6 @@
 ---
 title: Analyser les journaux d’activité d’Application Insights avec Spark - Azure HDInsight
 description: Découvrez comment exporter des journaux d’activité d’Application Insight pour le stockage d’objets blob, puis comment analyser les journaux d’activité avec Spark sur HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 806e5b6f764797d2e038cc7ed58ec1d04f678e2b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: MT
+ms.openlocfilehash: 737b049aa94ede2ffb0c1035b4cadfbed32d7dc4
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120374"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71145589"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>Analyser les journaux d’activité de télémétrie Application Insights avec Apache Spark sur HDInsight
 
@@ -28,9 +27,6 @@ Apprenez à utiliser [Apache Spark](https://spark.apache.org/) sur HDInsight pou
 
 * Maîtrise de la création d’un cluster HDInsight sous Linux. Pour plus d’informations, voir [Créer Apache Spark sur HDInsight](apache-spark-jupyter-spark-sql.md).
 
-  > [!IMPORTANT]  
-  > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 * Un navigateur Web.
 
 Les ressources suivantes ont été utilisées lors du développement et du test de ce document :
@@ -43,7 +39,7 @@ Les ressources suivantes ont été utilisées lors du développement et du test 
 
 Le schéma suivant illustre l'architecture du service dans cet exemple :
 
-![diagramme montrant les données transmises par Application Insights vers le stockage d’objets blob, puis traitées par Spark sur HDInsight](./media/apache-spark-analyze-application-insight-logs/appinsightshdinsight.png)
+![Flux de données allant d’Application Insights au Stockage Blob, puis à Spark](./media/apache-spark-analyze-application-insight-logs/application-insights.png)
 
 ### <a name="azure-storage"></a>Stockage Azure
 
@@ -76,7 +72,7 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre Spark sur le cluster HDInsight. Dans la section **Liens rapides**, sélectionnez **Tableaux de bord du cluster**, puis **Bloc-notes Jupyter** dans la section Tableau de bord du cluster.
 
-    ![Les tableaux de bord du cluster](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
+    ![Portail Azure - Tableaux de bord du cluster - Pyspark](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
 
 2. Dans l’angle supérieur droit de la page Jupyter, sélectionnez **Nouveau**, puis **PySpark**. Un nouvel onglet de navigateur s’ouvre, contenant un notebook Jupyter basé sur Python.
 
@@ -219,7 +215,8 @@ Pour ajouter le compte de stockage Azure à un cluster existant, utilisez les in
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez votre Spark sur le cluster HDInsight. Dans la section **Liens rapides**, sélectionnez **Tableaux de bord du cluster**, puis **Bloc-notes Jupyter** dans la section Tableau de bord du cluster.
 
-    ![Les tableaux de bord du cluster](./media/apache-spark-analyze-application-insight-logs/clusterdashboards.png)
+    ![Portail Azure - Tableaux de bord du cluster - Scala](./media/apache-spark-analyze-application-insight-logs/hdi-cluster-dashboards.png)
+
 2. Dans l’angle supérieur droit de la page Jupyter, sélectionnez **Nouveau**, puis **Scala**. Un nouvel onglet de navigateur s’ouvre, contenant un bloc-notes Jupyter basé sur Scala.
 3. Dans le premier champ (appelé **cellule**) de la page, entrez le texte suivant :
 

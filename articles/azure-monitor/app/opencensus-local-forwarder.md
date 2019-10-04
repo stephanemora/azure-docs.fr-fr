@@ -1,5 +1,5 @@
 ---
-title: Azure OpenCensus de Insights d’Application distribuée suivi redirecteur local (version préliminaire) | Docs de Microsoft
+title: Redirecteur local de traçage distribué OpenCensus Azure Application Insights (Préversion) | Microsoft docs
 description: Découvrez comment transférer des traces et étendues distribuées OpenCensus à partir de langages tels que Python et Go vers Azure Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002821"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348153"
 ---
-# <a name="local-forwarder-preview"></a>Redirecteur local (version préliminaire)
+# <a name="local-forwarder-preview"></a>Redirecteur local (préversion)
 
 Le redirecteur local est un agent qui collecte des données de télémétrie Application Insights ou [OpenCensus](https://opencensus.io/) à partir de plusieurs SDK, et les achemine vers Application Insights. Il peut être exécuté sous Windows et Linux. Vous pouvez également l’exécuter sous macOS, mais la prise en charge n’est pas encore officielle.
 
@@ -27,7 +27,7 @@ Le redirecteur local est un agent qui collecte des données de télémétrie App
 
 Le redirecteur local est un [projet Open Source sur GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Plusieurs méthodes permettent d’exécuter un redirecteur local sur des plateformes différentes.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 #### <a name="windows-service"></a>Service Windows
 
@@ -35,7 +35,7 @@ Pour exécuter un redirecteur local sur Windows, le moyen le plus simple consist
 
 > [!NOTE]
 > .NET Framework 4.7 (au minimum) doit être installé pour que le service du redirecteur local fonctionne. Si .NET Framework 4.7 n’est pas installé, le service se charge de l’installation mais ne démarre pas. Pour accéder à la dernière version de .NET Framework, **[rendez-vous sur la page de téléchargement de .NET Framework](
-https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
+https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Téléchargez le fichier LF.WindowsServiceHost.zip à partir de la [page de mise en production du redirecteur local](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) sur GitHub.
 
@@ -146,7 +146,7 @@ systemctl enable localforwarder
 systemctl start localforwarder
 ```
 
-* Surveillez le service en examinant les fichiers **.log* du répertoire /home/SAMPLE_USER/LOCALFORWARDER_DIR.
+* Surveillez le service en examinant les fichiers * *.log* du répertoire /home/SAMPLE_USER/LOCALFORWARDER_DIR.
 
 ### <a name="mac"></a>Mac
 Le redirecteur local peut fonctionner avec macOS, mais il n’est pas officiellement pris en charge.
@@ -154,7 +154,7 @@ Le redirecteur local peut fonctionner avec macOS, mais il n’est pas officielle
 ### <a name="self-hosting"></a>Auto-hébergement
 Le redirecteur local est également distribué sous forme de package NuGet .NET Standard, ce qui vous permet de l’héberger au sein de votre propre application .NET.
 
-```C#
+```csharp
 using Library;
 ...
 Host host = new Host();
@@ -177,7 +177,7 @@ host.Stop();
 
 ## <a name="monitoring-local-forwarder"></a>Surveillance du redirecteur local
 
-Les traces sont écrites dans le système de fichiers à côté de l’exécutable pour le redirecteur local (recherchez les fichiers **.log*). Vous pouvez placer un fichier intitulé *NLog.config* à côté de l’exécutable pour utiliser votre propre configuration à la place de la configuration par défaut. Consultez la [documentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) pour obtenir la description du format.
+Les traces sont écrites dans le système de fichiers à côté de l’exécutable pour le redirecteur local (recherchez les fichiers * *.log*). Vous pouvez placer un fichier intitulé *NLog.config* à côté de l’exécutable pour utiliser votre propre configuration à la place de la configuration par défaut. Consultez la [documentation](https://github.com/NLog/NLog/wiki/Configuration-file#configuration-file-format) pour obtenir la description du format.
 
 Si aucun fichier de configuration n’est fourni (cas par défaut), le redirecteur local utilise la configuration par défaut, qui se trouve [ici](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
 

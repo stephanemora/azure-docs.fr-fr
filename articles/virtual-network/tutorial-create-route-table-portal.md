@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: Dans ce didacticiel, découvrez comment acheminer le trafic réseau avec une table de routage à l’aide du portail Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 855adccf036f731de12810fe0f5287186048ddb0
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 153c692a8fb0fa538ec49c6eafa11815dd794b5d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095955"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681539"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Didacticiel : Acheminer le trafic réseau avec une table de routage à l’aide du portail Azure
 
@@ -54,7 +54,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | NOM | Entrez *myRouteTablePublic*. |
+    | Nom | Entrez *myRouteTablePublic*. |
     | Abonnement | Sélectionnez votre abonnement. |
     | Groupe de ressources | Sélectionnez **Créer**, entrez *myResourceGroup* et sélectionnez *OK*. |
     | Lieu | Conservez la valeur par défaut **USA Est**.
@@ -95,7 +95,7 @@ Avant de pouvoir associer une table de routage à un sous-réseau, vous devez cr
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | NOM | Entrez *myVirtualNetwork*. |
+    | Nom | Entrez *myVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.0.0.0/16*. |
     | Abonnement | Sélectionnez votre abonnement. |
     | Groupe de ressources | Sélectionnez ***Sélectionner*** > **myResourceGroup**. |
@@ -119,7 +119,7 @@ Avant de pouvoir associer une table de routage à un sous-réseau, vous devez cr
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | NOM | Entrez *Privé*. |
+    | Nom | Entrez *Privé*. |
     | Espace d’adressage | Entrez *10.0.1.0/24*. |
 
 1. Laissez les autres valeurs par défaut et sélectionnez **OK**.
@@ -128,7 +128,7 @@ Avant de pouvoir associer une table de routage à un sous-réseau, vous devez cr
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | NOM | Entrez *DMZ*. |
+    | Nom | Entrez *DMZ*. |
     | Espace d’adressage | Entrez *10.0.2.0/24*. |
 
 1. Comme précédemment, conservez les autres valeurs par défaut et sélectionnez **OK**.
@@ -193,7 +193,7 @@ Les NVA sont des machines virtuelles qui facilitent des fonctions réseau telles
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | NOM | Entrez *mynvastorageaccount*. |
+    | Nom | Entrez *mynvastorageaccount*. |
     | Type de compte | Conservez la valeur par défaut **Stockage (usage général v1)**. |
     | Performances | Conservez la valeur par défaut **Standard**. |
     | Réplication | Conservez la valeur par défaut **Stockage localement redondant (LRS)**.

@@ -9,13 +9,13 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
 ms.openlocfilehash: e80b03f696a78887676e9f16750055a4dcfac230
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401596"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60755192"
 ---
-# <a name="azure-data-box-gateway-limits"></a>Limites de la passerelle de zone de données Azure
+# <a name="azure-data-box-gateway-limits"></a>Limites d’Azure Data Box Gateway
 
 Tenez compte de ces limites quand vous déployez et utilisez votre solution Microsoft Azure Data Box Gateway. 
 

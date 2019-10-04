@@ -5,15 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 10/17/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 722907328fe17c4116f4f8d948e081f9582ca712
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099169"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266572"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
 
@@ -27,7 +26,7 @@ Cet article vous explique comment connecter des réseaux virtuels classiques à 
 
 La connexion d’un réseau virtuel classique à un réseau virtuel Resource Manager est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Vous pouvez créer une connexion entre des réseaux virtuels situés dans des abonnements différents et des régions différentes. Vous pouvez également connecter des réseaux virtuels qui disposent déjà de connexions à des réseaux locaux, à condition que la passerelle avec laquelle ils ont été configurés soit dynamique ou basée sur un itinéraire. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article. 
 
-Si vous n’avez pas encore de passerelle de réseau virtuel et si vous ne souhaitez pas en créer une, vous voudrez peut-être connecter vos réseaux virtuels en utilisant l’homologation de réseaux virtuels. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+Si vous n’avez pas encore de passerelle de réseau virtuel et que vous ne souhaitez pas en créer une, vous voudrez peut-être connecter vos réseaux virtuels en utilisant le peering de réseaux virtuels. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez l’article [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="before"></a>Avant de commencer
 
@@ -144,20 +143,13 @@ Dans cette section, vous créez la passerelle de réseau virtuel et la passerell
 * Nom du sous-réseau = Subnet-1 <br>
 * Plage d’adresses = 192.168.1.0/24 <br>
 
-
 Si vous n’avez pas de réseau virtuel Resource Manager et que vous exécutez ces étapes en guise d’exercice, créez un réseau virtuel à l’aide des étapes de l’article [Création d’un réseau virtuel](../virtual-network/quick-create-portal.md) et en utilisant les exemples de valeurs.
 
-### <a name="2-create-a-gateway-subnet"></a>2. Créer un sous-réseau de passerelle
+### <a name="creategw"></a>2. Créer une passerelle de réseau virtuel
 
-**Exemple de valeur :** Sous-réseau de passerelle = 192.168.0.0/26
+Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée.
 
-Vous devez d’abord créer un sous-réseau de passerelle pour pouvoir configurer une passerelle de réseau virtuel. Créez un sous-réseau de passerelle avec un nombre CIDR de /28 ou plus (/27, /26, etc.). Si vous le créez dans le cadre d’un exercice, vous pouvez utiliser les exemples de valeurs.
-
-[!INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
-
-[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
-
-### <a name="creategw"></a>3. Créer une passerelle de réseau virtuel
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
 **Exemples de valeurs :**
 
@@ -167,11 +159,14 @@ Vous devez d’abord créer un sous-réseau de passerelle pour pouvoir configure
 * Référence (SKU) = VpnGw1 <br>
 * Emplacement = USA Est <br>
 * Réseau virtuel = RMVNet <br>
+* Sous-réseau de passerelle = 192.168.0.0/26 <br>
 * Première configuration IP = rmgwpip <br>
 
 [!INCLUDE [vpn-gateway-add-gw-rm-portal](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
-### <a name="createlng"></a>4. Créer une passerelle de réseau local
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
+### <a name="createlng"></a>3. Créer une passerelle de réseau local
 
 **Exemples de valeurs :** Passerelle de réseau local = ClassicVNetLocal
 

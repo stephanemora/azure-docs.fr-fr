@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541381"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176738"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -18,16 +18,16 @@ ms.locfileid: "58541381"
 
 Maintenant que vous avez une table, intéressons-nous à la manière de gérer les entités, ou lignes, dans cette table. 
 
-Entités peuvent avoir jusqu'à 255 propriétés, y compris trois propriétés système : **PartitionKey**, **RowKey**, et **Timestamp**. Vous êtes chargé d’insérer et de la mise à jour les valeurs de **PartitionKey** et **RowKey**. Le serveur gère la valeur de **Timestamp**, qui ne peut pas être modifié. Les propriétés **PartitionKey** et **RowKey** identifient de manière unique chaque entité d’une table.
+Ces entités peuvent avoir jusqu’à 255 propriétés, dont trois propriétés système : **PartitionKey**, **RowKey** et **Timestamp**. Vous êtes chargé d’insérer et de mettre à jour les valeurs de **PartitionKey** et **RowKey**. Le serveur gère la valeur de **Timestamp**, qui ne peut pas être modifiée. Les propriétés **PartitionKey** et **RowKey** identifient de manière unique chaque entité d’une table.
 
-* **PartitionKey** : Détermine la partition de l’entité est stockée dans.
-* **RowKey** : Identifie de façon unique l’entité au sein de la partition.
+* **PartitionKey** : détermine la partition dans laquelle l’entité est stockée.
+* **RowKey** : identifie de façon unique l’entité dans la partition.
 
 Vous pouvez définir au maximum 252 propriétés personnalisées par entité. 
 
 ### <a name="add-table-entities"></a>Ajouter des entités de table
 
-Ajouter des entités à une table à l’aide **Add-AzTableRow**. Ces exemples utilisent des clés de partition avec des valeurs `partition1` et `partition2`, et les clés de ligne est égal à abréviations d’état. Les propriétés de chaque entité sont `username` et `userid`. 
+Ajouter des entités à une table à l’aide de **Add-AzTableRow**. Ces exemples utilisent des clés de partition avec des valeurs `partition1` et `partition2`, ainsi que des clés de ligne équivalant à des abréviations d’état. Les propriétés de chaque entité sont `username` et `userid`. 
 
 ```powershell
 $partitionKey1 = "partition1"
@@ -57,10 +57,10 @@ Add-AzTableRow `
 
 ### <a name="query-the-table-entities"></a>Interroger les entités de table
 
-Vous pouvez interroger les entités dans une table en utilisant le **Get-AzTableRow** commande.
+Vous pouvez interroger les entités dans une table avec la commande **Get-AzTableRow**.
 
 > [!NOTE]
-> Les applets de commande **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**, et  **Get-AzureStorageTableRowByCustomFilter** sont déconseillés et seront supprimés dans une mise à jour de la version futures.
+> Les cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get-AzureStorageTableRowByColumnName**, et **Get-AzureStorageTableRowByCustomFilter** sont déconseillées et seront supprimées dans une mise à jour ultérieure.
 
 #### <a name="retrieve-all-entities"></a>Récupérer toutes les entités
 
@@ -127,7 +127,7 @@ Cette requête récupère un seul enregistrement.
 
 ### <a name="updating-entities"></a>Mise à jour des entités 
 
-Trois étapes sont nécessaires pour mettre à jour des entités. La première consiste à récupérer l’entité à modifier. La deuxième à apporter la modification. Troisièmement, validez la modification à l’aide **AzTableRow de mise à jour**.
+Trois étapes sont nécessaires pour mettre à jour des entités. La première consiste à récupérer l’entité à modifier. La deuxième à apporter la modification. La troisième à valider la modification à l’aide de la commande **Update-AzTableRow**.
 
 Mettez à jour l’entité dont le nom d’utilisateur est « Jessie » pour que le nom d’utilisateur devienne « Jessie2 ». Cet exemple montre également une autre façon de créer un filtre personnalisé à l’aide de types .NET.
 
@@ -166,7 +166,7 @@ Vous pouvez supprimer une entité ou toutes les entités dans une table.
 
 #### <a name="deleting-one-entity"></a>Suppression d’une seule entité
 
-Pour supprimer une entité unique, obtenir une référence à cette entité et redirigez-la vers **Remove-AzTableRow**.
+Pour supprimer une seule entité, obtenez une référence à cette entité et redirigez-la vers **Remove-AzTableRow**.
 
 ```powershell
 # Set filter.

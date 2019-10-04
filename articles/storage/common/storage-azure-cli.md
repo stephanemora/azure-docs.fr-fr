@@ -2,19 +2,20 @@
 title: Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage | Microsoft Docs
 description: Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure (CLI) avec Microsoft Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure.
 services: storage
-author: roygara
+author: tamram
 ms.service: storage
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: rogarana
+ms.author: tamram
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
+ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816847"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70259382"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage
 
@@ -23,6 +24,8 @@ L’interface Azure CLI multiplateforme et open source offre un ensemble de comm
 Dans ce guide, nous vous montrons comment utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) pour effectuer plusieurs tâches avec les ressources dans votre compte de stockage Azure. Avant de commencer ce guide, nous vous recommandons de télécharger et d’installer la dernière version d’Azure CLI, ou d’effectuer la mise à niveau vers cette version.
 
 Les exemples dans le guide partent du principe que vous utilisez le shell Bash sur Ubuntu, mais les autres plateformes devraient fonctionner de manière similaire. 
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
@@ -192,6 +195,8 @@ az storage account create \
   * `Standard_LRS`
   * `Standard_RAGRS`
   * `Standard_ZRS`
+  * `Standard_GZRS` (préversion)
+  * `Standard_RAGZRS` (préversion)
 
 ### <a name="set-default-azure-storage-account-environment-variables"></a>Définition des variables d’environnement par défaut pour le compte de stockage Azure
 
@@ -322,6 +327,17 @@ Pour supprimer un objet blob, utilisez la commande `blob delete` :
 
 ```azurecli
 az storage blob delete --container-name <container_name> --name <blob_name>
+```
+
+### <a name="set-the-content-type"></a>Définir le type de contenu
+
+Le type de contenu, également appelé type MIME, identifie le format des données dans le blob. Les navigateurs et les autres logiciels utilisent le type de contenu pour déterminer comment traiter les données. Par exemple, le type de contenu pour les images PNG est `image/png`. Pour définir le type de contenu, utilisez la commande `blob update` :
+
+```azurecli
+az storage blob update
+    --container-name <container_name> 
+    --name <blob_name>
+    --content-type <content_type>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Créer et gérer des partages de fichiers

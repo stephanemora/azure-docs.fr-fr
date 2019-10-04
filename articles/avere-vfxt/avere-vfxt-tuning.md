@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5e780dcab20befe19ca34020908eee93c290516
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 17e55dbe84cda87ee902c94e0024c9a3aad8b31b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197435"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698339"
 ---
 # <a name="cluster-tuning"></a>Paramétrage du cluster
 
@@ -46,8 +46,6 @@ Ces modifications peuvent être recommandées selon les qualités du jeu de donn
 Pour tirer parti des vitesses de données plus élevées entre le cluster vFXT et le stockage cloud dans un scénario de serveur NAS ou de passerelle cloud (où le cluster vFXT fournit un accès de style NAS à un conteneur cloud), le technicien peut vous conseiller de modifier des paramètres semblables à ceux-ci pour effectuer de manière plus intense une transmission des données de type push vers le volume de stockage à partir du cache :
 
 * Augmenter le nombre de connexions TCP entre le cluster et le conteneur de stockage
-* Diminuer la valeur de délai d’expiration REST pour la communication entre le cluster et stockage afin de réessayer des écritures plus tôt si elles n’aboutissent pas immédiatement  
-* Augmenter la taille de segment afin que chaque segment d’écriture back-end transfère un bloc de données de 8 Mo au lieu de 1 Mo
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Optimisations de réseau étendu hybride ou de cloud bursting
 

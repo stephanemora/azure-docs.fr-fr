@@ -1,23 +1,23 @@
 ---
 title: Azure IoT device SDK pour C - Serializer | Microsoft Docs
 description: Guide d’utilisation de la bibliothèque Serializer dans Azure IoT device SDK pour C pour créer des applications d’appareil qui communiquent avec un IoT Hub.
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
-ms.author: yizhon
-ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.author: robinsh
+ms.openlocfilehash: a18f52f0d0979477ff8d6de6745694676f4b4d0e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024856"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883162"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer
 
-Le premier article de cette série a introduit la [Présentation du Azure IoT device SDK pour C](iot-hub-device-sdk-c-intro.md). L’article suivant donne une description plus détaillée [d’Azure IoT device SDK for C -- IoTHubClient](iot-hub-device-sdk-c-iothubclient.md). Dans cet article, nous terminerons sur le sujet du Kit de développement logiciel (SDK) avec une description plus détaillée du composant restant : la bibliothèque **sérialiseur** .
+Le premier article de cette série a introduit la [Présentation du Azure IoT device SDK pour C](iot-hub-device-sdk-c-intro.md). L’article suivant donne une description plus détaillée [d’Azure IoT device SDK for C -- IoTHubClient](iot-hub-device-sdk-c-iothubclient.md). Dans cet article, nous terminerons sur le sujet du Kit de développement logiciel (SDK) avec une description plus détaillée du composant restant : la bibliothèque **serializer** .
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -25,7 +25,7 @@ L’article d’introduction décrit comment utiliser la bibliothèque **sérial
 
 En conclusion, nous reverrons certains des sujets abordés dans les articles précédents, notamment la gestion des messages et des propriétés. Mais comme vous allez le voir, ces fonctionnalités fonctionnent de la même manière que celles de la bibliothèque **serializer** ou la bibliothèque **IoTHubClient**.
 
-Toutes les procédures décrites dans cet article sont basées sur des exemples du Kit de développement logiciel (SDK) du **sérialiseur** . Si vous souhaitez approfondir, consultez les applications **simplesample\_amqp** et **simplesample\_http** incluses dans le Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C.
+Toutes les procédures décrites dans cet article sont basées sur des exemples du Kit de développement logiciel (SDK) du **serializer** . Si vous souhaitez approfondir, consultez les applications **simplesample\_amqp** et **simplesample\_http** incluses dans le Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C.
 
 Vous trouverez [**Azure IoT device SDK pour C**](https://github.com/Azure/azure-iot-sdk-c) dans le référentiel GitHub. Vous pouvez consulter les détails de l’[API dans Référence de l’API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
@@ -64,7 +64,7 @@ Cet exemple n’illustre pas les types de données supplémentaires pris en char
 
 Les types de données suivants sont pris en charge dans les modèles créés avec la bibliothèque **serializer** :
 
-| type | Description |
+| Type | Description |
 | --- | --- |
 | double |nombre à virgule flottante double précision |
 | int |entier 32 bits |
@@ -74,11 +74,11 @@ Les types de données suivants sont pris en charge dans les modèles créés ave
 | int16\_t |entier 16 bits |
 | int32\_t |entier 32 bits |
 | int64\_t |entier 64 bits |
-| bool |booléenne |
+| bool |boolean |
 | ascii\_char\_ptr |Chaîne ASCII |
 | EDM\_DATE\_TIME\_OFFSET |décalage de date et d’heure |
 | EDM\_GUID |GUID |
-| EDM\_BINARY |binaire |
+| EDM\_BINARY |binary |
 | DECLARE\_STRUCT |type de données complexe |
 
 Commençons par ce dernier type de données. L’argument **DECLARE\_STRUCT** vous permet de définir des types de données complexes, qui sont des regroupements des autres types primitifs. Ces regroupements permettent de définir un modèle qui ressemble à ceci :
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Notez que le modèle inclut deux événements de données : **Temperature** et **Humidity**. Contrairement aux exemples précédents, le type de chaque événement est une structure définie à l’aide de l’instruction **DECLARE\_STRUCT**. **TemperatureEvent** comprend une mesure de température et un horodatage ; **HumidityEvent** contient une mesure d’humidité et un horodatage. Ce modèle propose une façon naturelle de modéliser les données du scénario décrit ci-dessus. Quand nous envoyons un événement dans le cloud, il s’agit soit d’une paire température/horodatage, soit d’une paire humidité/horodatage.
+Notez que le modèle inclut deux événements de données : **Température** et **Humidité**. Contrairement aux exemples précédents, le type de chaque événement est une structure définie à l’aide de l’instruction **DECLARE\_STRUCT**. **TemperatureEvent** comprend une mesure de température et un horodatage ; **HumidityEvent** contient une mesure d’humidité et un horodatage. Ce modèle propose une façon naturelle de modéliser les données du scénario décrit ci-dessus. Quand nous envoyons un événement dans le cloud, il s’agit soit d’une paire température/horodatage, soit d’une paire humidité/horodatage.
 
 Nous pouvons envoyer un événement de température dans le cloud à l’aide d’un code similaire tel que celui qui suit :
 
@@ -514,7 +514,7 @@ Si vous envoyez un message sur un appareil, cela se fait via le Kit de développ
 {"Name" : "", "Parameters" : "" }
 ```
 
-Vous envoyez un objet JSON sérialisé avec deux propriétés : **Name** est le nom de l’action (message) et **Parameters** contient les paramètres de cette action.
+Vous envoyez un objet JSON sérialisé avec deux propriétés : **Nom** correspond au nom de l’action (message) et **Paramètres** contient les paramètres de cette action.
 
 Par exemple, pour invoquer **SetAirResistance** , vous pouvez envoyer ce message sur un appareil :
 

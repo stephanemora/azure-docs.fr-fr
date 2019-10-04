@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: f1dc43b6fea4ebfb47439ec64b573cc471614d98
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0c3bc3f2995131c7777bfc48269a17fceda33192
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31531733"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176987"
 ---
 > [!div class="op_single_selector"]
 > * [Portail Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
-> * [interface de ligne de commande Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
+> * [Interface de ligne de commande Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 >
 
 Une ou plusieurs cartes réseau sont attachées à une machine virtuelle Azure. Une ou plusieurs adresses IP publiques ou privées, statiques ou dynamiques, peuvent être affectées à chaque carte réseau. L’affectation de plusieurs adresses IP à une machine virtuelle permet :

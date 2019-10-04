@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: rajani-janaki-ram
-ms.openlocfilehash: c22acb1ae82e5c1e781598e8545c7f1625cc1c09
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 06/18/2019
+ms.author: rajanaki
+ms.openlocfilehash: a411fc9a95bef595a8fc49cad77189bb88fb7661
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122788"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875796"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Supprimer des serveurs et désactiver la protection
 
@@ -30,10 +30,10 @@ Si vous répliquez des machines virtuelles VMware ou des serveurs physiques Wind
 ## <a name="unregister-a-vmm-server"></a>Annuler l’inscription d’un serveur VMM
 
 1. Arrêtez la réplication des machines virtuelles dans les clouds sur le serveur VMM que vous souhaitez supprimer.
-2. Supprimez tous les mappages réseau utilisés par les clouds sur le serveur VMM que vous souhaitez supprimer. Dans **Infrastructure Site Recovery** > **For System Center VMM (Pour System Center VMM)** > **Mappage réseau**, cliquez avec le bouton droit sur le mappage réseau et sélectionnez **Supprimer**.
+2. Supprimez tous les mappages réseau utilisés par les clouds sur le serveur VMM que vous souhaitez supprimer. Dans **Infrastructure Site Recovery** > **For System Center VMM (Pour System Center VMM)**  > **Mappage réseau**, cliquez avec le bouton droit sur le mappage réseau et sélectionnez **Supprimer**.
 3. Notez l’ID du serveur VMM.
-4. Dissociez les stratégies de réplication des clouds sur le serveur VMM que vous souhaitez supprimer.  Dans **Infrastructure Site Recovery** > **For System Center VMM (Pour System Center VMM)** >  **Stratégies de réplication**, double-cliquez sur la stratégie associée. Cliquez avec le bouton droit sur le cloud et sélectionnez **Dissocier**.
-5. Supprimez le serveur VMM ou le nœud actif. Dans **Infrastructure Site Recovery** > **For System Center VMM (Pour System Center VMM)** > **Serveurs VMM**, cliquez avec le bouton droit sur le serveur et sélectionnez **Supprimer**.
+4. Dissociez les stratégies de réplication des clouds sur le serveur VMM que vous souhaitez supprimer.  Dans **Infrastructure Site Recovery** > **For System Center VMM (Pour System Center VMM)**  >  **Stratégies de réplication**, double-cliquez sur la stratégie associée. Cliquez avec le bouton droit sur le cloud et sélectionnez **Dissocier**.
+5. Supprimez le serveur VMM ou le nœud actif. Dans **Infrastructure Site Recovery** > **For System Center VMM (Pour System Center VMM)**  > **Serveurs VMM**, cliquez avec le bouton droit sur le serveur et sélectionnez **Supprimer**.
 6. Si votre serveur VMM était dans un état déconnecté, téléchargez et exécutez le [script de nettoyage](https://aka.ms/asr-cleanup-script-vmm) sur le serveur VMM. Ouvrez PowerShell avec l’option **Exécuter en tant qu’administrateur** pour modifier la stratégie d’exécution associée à l’étendue par défaut (LocalMachine). Dans le script, spécifiez l’ID du serveur VMM que vous souhaitez supprimer. Le script supprime du serveur l’inscription et les informations de pairage de cloud.
 5. Exécutez le script de nettoyage sur tous les serveurs VMM secondaires.
 6. Exécutez le script de nettoyage sur les autres nœuds de cluster VMM passifs sur lesquels le fournisseur est installé.
@@ -45,9 +45,9 @@ Si vous répliquez des machines virtuelles VMware ou des serveurs physiques Wind
 Les hôtes Hyper-V non gérés par VMM sont rassemblés dans un site Hyper-V. Pour supprimer un hôte d’un site Hyper-V, procédez comme suit :
 
 1. Désactivez la réplication des machines virtuelles Hyper-V situées sur l’hôte.
-2. Dissociez les stratégies du site Hyper-V. Dans **Infrastructure Site Recovery** > **For Hyper-V Sites (Pour les sites Hyper-V)** >  **Stratégies de réplication**, double-cliquez sur la stratégie associée. Cliquez avec le bouton droit sur le site et sélectionnez **Dissocier**.
-3. Supprimez les hôtes Hyper-V. Dans **Infrastructure Site Recovery** > **For Sites Hyper-V (Pour sites Hyper-V)** > **Hyper-V Hosts (Hôtes Hyper-V)**, cliquez avec le bouton droit sur le serveur et sélectionnez **Supprimer**.
-4. Supprimez le site Hyper-V après avoir supprimé tous les hôtes de celui-ci. Dans **Infrastructure Site Recovery** > **For Sites Hyper-V (Pour sites Hyper-V)** > **Hyper-V Sites (Sites Hyper-V)**, cliquez avec le bouton droit sur le site et sélectionnez **Supprimer**.
+2. Dissociez les stratégies du site Hyper-V. Dans **Infrastructure Site Recovery** > **For Hyper-V Sites (Pour les sites Hyper-V)**  >  **Stratégies de réplication**, double-cliquez sur la stratégie associée. Cliquez avec le bouton droit sur le site et sélectionnez **Dissocier**.
+3. Supprimez les hôtes Hyper-V. Dans **Infrastructure Site Recovery** > **For Sites Hyper-V (Pour sites Hyper-V)**  > **Hyper-V Hosts (Hôtes Hyper-V)** , cliquez avec le bouton droit sur le serveur et sélectionnez **Supprimer**.
+4. Supprimez le site Hyper-V après avoir supprimé tous les hôtes de celui-ci. Dans **Infrastructure Site Recovery** > **For Sites Hyper-V (Pour sites Hyper-V)**  > **Hyper-V Sites (Sites Hyper-V)** , cliquez avec le bouton droit sur le site et sélectionnez **Supprimer**.
 5. Si votre hôte Hyper-V se trouvait dans un état **Déconnecté**, exécutez le script suivant sur chaque hôte Hyper-V que vous avez supprimé. Ce script nettoie les paramètres sur le serveur et annule son inscription dans le coffre.
 
 
@@ -151,6 +151,14 @@ Les hôtes Hyper-V non gérés par VMM sont rassemblés dans un site Hyper-V. Po
 > [!NOTE]
 > Aucune des deux options n’entraînant la désinstallation du service Mobilité des serveurs protégés, vous devez le désinstaller manuellement. Si vous envisagez de reprotéger le serveur en utilisant le même serveur de configuration, vous pouvez ignorer la désinstallation du service Mobilité.
 
+> [!NOTE]
+> Si vous avez déjà fait basculer une machine virtuelle et qu’elle s’exécute dans Azure, notez que la désactivation de la protection ne supprime/affecte pas la machine virtuelle ayant basculé.
+## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>Désactiver la protection d’une machine virtuelle Azure (Azure vers Azure)
+
+-  Dans **Éléments protégés** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine et sélectionnez **Désactiver la réplication**.
+> [!NOTE]
+> Le service Mobilité des serveurs protégés ne sera pas désinstallé, vous devez le faire manuellement. Si vous envisagez de reprotéger le serveur, vous pouvez ignorer la désinstallation du service Mobilité.
+
 ## <a name="disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure"></a>Désactiver la protection d’une machine virtuelle Hyper-V (Hyper-V vers Azure)
 
 > [!NOTE]
@@ -161,8 +169,12 @@ Les hôtes Hyper-V non gérés par VMM sont rassemblés dans un site Hyper-V. Po
    - **Désactiver la réplication et supprimer (recommandé)** : cette option supprime l’élément répliqué d’Azure Site Recovery, puis la réplication de la machine est arrêtée. La configuration de la réplication sur la machine virtuelle locale est nettoyée et la facturation de Site Recovery pour ce serveur protégé est arrêtée.
    - **Supprimer** : cette option n’est censée être utilisée que si l’environnement source est supprimé ou est inaccessible (non connecté). Elle supprime l’élément répliqué d’Azure Site Recovery (la facturation est arrêtée). La configuration de la réplication sur la machine virtuelle locale **n’est pas** nettoyée. 
 
-     > [!NOTE]
+ > [!NOTE]
      > Si vous avez choisi l’option **Supprimer**, exécutez le jeu de scripts suivant pour nettoyer les paramètres de réplication du serveur Hyper-V local.
+
+> [!NOTE]
+> Si vous avez déjà fait basculer une machine virtuelle et qu’elle s’exécute dans Azure, notez que la désactivation de la protection ne supprime/affecte pas la machine virtuelle ayant basculé.
+
 1. Sur le serveur hôte Hyper-V source, pour supprimer la réplication de la machine virtuelle, remplacez SQLVM1 par le nom de votre machine virtuelle, puis exécutez le script à partir d’une console PowerShell d’administration.
 
 ```powershell

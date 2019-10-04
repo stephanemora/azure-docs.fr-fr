@@ -1,29 +1,29 @@
 ---
-title: 'Démarrage rapide : Liste voix, Node.js - Services de reconnaissance vocale'
+title: 'Démarrage rapide : Répertorier les voix de la synthèse vocale, Node.js – Service Speech'
 titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, vous allez apprendre à obtenir la liste complète des voix standard et neuronaux pour une région/le point de terminaison que l’aide de Node.js. La liste est retournée au format JSON, et la disponibilité de voix varie selon la région.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à obtenir la liste complète des voix standard et neuronales pour une région/un point de terminaison avec Node.js. La liste est retournée au format JSON, et la disponibilité des voix varie selon la région.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 04/02/2019
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 62187ddbe587a81038f8424b079e3c0c313d1ae2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 1044519110d8b0ae7b5a50860c8116d73b6b70bc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58887096"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559378"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>Démarrage rapide : Obtenir la liste des voix de synthèse vocale à l’aide de Node.js
 
-Dans ce démarrage rapide, vous allez apprendre à obtenir la liste complète des voix standard et neuronaux pour une région/le point de terminaison que l’aide de Node.js. La liste est retournée au format JSON, et la disponibilité de voix varie selon la région. Pour obtenir la liste des régions prises en charge, consultez [régions](regions.md).
+Dans ce guide de démarrage rapide, vous allez apprendre à obtenir la liste complète des voix standard et neuronales pour une région/un point de terminaison avec Node.js. La liste est retournée au format JSON, et la disponibilité des voix varie selon la région. Pour obtenir la liste des régions prises en charge, consultez [Régions](regions.md).
 
-Ce démarrage rapide nécessite un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource de Services de reconnaissance vocale. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
+Ce guide de démarrage rapide nécessite un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Speech Services. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](get-started.md) pour obtenir une clé d’abonnement.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Ce démarrage rapide nécessite :
 
@@ -39,7 +39,7 @@ Créez un projet Node.js à l’aide de votre éditeur ou IDE favori. Copiez cet
 // Requires request and request-promise for HTTP requests
 // e.g. npm install request request-promise
 const rp = require('request-promise');
-// Requires fs to write the list of languagesto a file
+// Requires fs to write the list of languages to a file
 const fs = require('fs');
 ```
 
@@ -48,9 +48,9 @@ const fs = require('fs');
 
 ## <a name="get-an-access-token"></a>Obtention d’un jeton d’accès
 
-L’API REST Synthèse vocale nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cette fonction remplace votre clé d’abonnement de Services de reconnaissance vocale pour un jeton accès à l’aide du `issueToken` point de terminaison.
+L’API REST Synthèse vocale nécessite un jeton d’accès pour l’authentification. Pour obtenir un jeton d’accès, un échange est nécessaire. Cette fonction échange votre clé d’abonnement Speech Services contre un jeton d’accès utilisant le point de terminaison `issueToken`.
 
-Cet exemple suppose que votre abonnement aux Services de reconnaissance vocale est dans la région ouest des États-Unis. Si vous utilisez une autre région, mettez à jour la valeur de `uri`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Cet exemple suppose que votre abonnement Speech Services se situe dans la région USA Ouest. Si vous utilisez une autre région, mettez à jour la valeur de `uri`. Pour obtenir la liste complète, consultez [Régions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copiez ce code dans votre projet :
 
@@ -71,13 +71,13 @@ function getAccessToken(subscriptionKey) {
 > [!NOTE]
 > Pour plus d’informations sur l’authentification, consultez [S’authentifier avec un jeton d’accès](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
-Dans la section suivante, nous allons créer la fonction pour obtenir la liste des voix et enregistrer la sortie JSON au fichier.
+Dans la section suivante, nous allons créer la fonction permettant d’obtenir la liste des voix et enregistrer la sortie JSON dans le fichier.
 
 ## <a name="make-a-request-and-save-the-response"></a>Effectuer une requête et enregistrer la réponse
 
-Ici, vous allez à la demande de build et enregistrer la liste des voix retourné. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `uri`. Pour plus d’informations, consultez [régions des Services de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Ici, vous allez créer la requête et enregistrer la liste de voix retournée. Cet exemple part du principe que vous utilisez le point de terminaison USA Ouest. Si votre ressource est inscrite dans une autre région, veillez à mettre à jour la valeur `uri`. Pour plus d’informations, consultez [Régions Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-Ensuite, ajoutez les en-têtes requis pour la demande. Enfin, vous envoyez une requête au service. Si la demande réussit, et un code de 200 état est retourné, la réponse est écrite dans le fichier.
+Ajoutez ensuite les en-têtes nécessaires pour la requête. Enfin, vous envoyez une requête au service. Si la requête aboutit et qu’un code d’état 200 est retourné, la réponse est écrite dans un fichier.
 
 ```javascript
 function textToSpeech(accessToken) {
@@ -104,9 +104,9 @@ function textToSpeech(accessToken) {
 
 ## <a name="put-it-all-together"></a>Assemblage
 
-Vous avez presque terminé. La dernière étape consiste à créer une fonction asynchrone. Cette fonction sera lire votre clé d’abonnement à partir d’une variable d’environnement, obtenir un jeton, attendez que la demande s’achève, puis écrire la réponse JSON au fichier.
+Vous avez presque terminé. La dernière étape consiste à créer une fonction asynchrone. Cette fonction lira votre clé d’abonnement à partir d’une variable d’environnement, obtiendra un jeton, attendra que la requête aboutisse, puis écrira la réponse JSON dans le fichier.
 
-Si vous n’êtes pas familiarisé avec les variables d’environnement ou que vous préférez tester avec votre codée en dur clé abonnement sous forme de chaîne, remplacez `process.env.SPEECH_SERVICE_KEY` avec votre clé d’abonnement sous forme de chaîne.
+Si les variables d’environnement ne vous sont pas familières ou si vous préférez tester avec votre clé abonnement codée en dur sous forme de chaîne, remplacez `process.env.SPEECH_SERVICE_KEY` par votre clé d’abonnement sous forme de chaîne.
 
 ```javascript
 // Use async and await to get the token before attempting

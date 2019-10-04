@@ -9,16 +9,15 @@ editor: mattfarm
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793269"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104964"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 
@@ -53,11 +52,11 @@ Pour afficher et configurer vos paramètres de configuration Git, cliquez sur le
 ![Activer GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Tous les secrets qui ne sont pas définies en tant que valeurs nommé seront stockées dans le référentiel et resteront dans son historique jusqu'à ce que vous désactivez et réactivez l’accès de Git. Valeurs nommées fournissent un emplacement sécurisé pour gérer les valeurs de chaîne constante, notamment des secrets, dans toutes les stratégies et configuration de l’API afin que vous n’êtes pas obligé de les stocker directement dans vos instructions de stratégie. Pour plus d’informations, consultez [l’utilisation de valeurs nommé dans les stratégies de gestion des API Azure](api-management-howto-properties.md).
+> Les secrets qui ne sont pas définis comme valeurs nommées sont stockés dans le dépôt et restent dans son historique jusqu’à ce que vous désactiviez et réactiviez l’accès à Git. Les valeurs nommées offrent un emplacement sécurisé pour gérer les valeurs de chaîne constante, notamment les secrets, dans toutes les stratégies et configurations d’API ; vous n’êtes donc pas obligé de les stocker directement dans les déclarations de votre stratégie. Pour plus d’informations, consultez [Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure](api-management-howto-properties.md).
 >
 >
 
-Pour plus d’informations sur l’activation ou la désactivation de l’accès à Git en utilisant l’API REST, consultez [Activer ou désactiver l’accès à Git à l’aide de l’API REST](/rest/api/apimanagement/tenantaccess?EnableGit).
+Pour plus d’informations sur l’activation ou la désactivation de l’accès à Git en utilisant l’API REST, consultez [Activer ou désactiver l’accès à Git à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/tenantaccess?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Pour enregistrer la configuration du service dans le dépôt Git
 
@@ -69,7 +68,7 @@ Après quelques instants, la configuration est enregistrée, et l’état de con
 
 Une fois la configuration enregistrée dans le dépôt, elle peut être clonée.
 
-Pour plus d’informations sur l’exécution de cette opération avec l’API REST, consultez [Valider l’instantané de configuration à l’aide de l’API REST](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
+Pour plus d’informations sur l’exécution de cette opération avec l’API REST, consultez [Valider l’instantané de configuration à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Pour cloner le dépôt sur votre ordinateur local
 
@@ -100,7 +99,7 @@ git clone https://username:password@{name}.scm.azure-api.net/
 En cas d’erreur, essayez d’appliquer un encodage URL à la partie mot de passe de la commande. Pour effectuer cette opération rapidement, vous pouvez ouvrir Visual Studio et exécuter la commande ci-dessous dans la **Fenêtre Exécution**. Pour ouvrir la **Fenêtre Exécution**, ouvrez une solution ou un projet dans Visual Studio (ou créez une application console vide), puis choisissez **Fenêtres**, **Exécution** dans le menu **Déboguer**.
 
 ```
-?System.NetWebUtility.UrlEncode("password from the Azure portal")
+?System.Net.WebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Pour construire la commande git, utilisez le mot de passe codé, avec votre nom d’utilisateur et l’emplacement du dépôt.
@@ -143,7 +142,7 @@ git push
 
 Une fois vos modifications locales validées et transférées vers le dépôt du serveur, vous pouvez les déployer sur votre instance du service Gestion des API.
 
-Pour plus d’informations sur l’exécution de cette opération en utilisant l’API REST, consultez [Déployer les modifications Git dans votre base de données de configuration à l’aide de l’API REST](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
+Pour plus d’informations sur l’exécution de cette opération en utilisant l’API REST, consultez [Déployer les modifications Git dans votre base de données de configuration à l’aide de l’API REST](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/tenantconfiguration).
 
 ## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Référence de la structure des fichiers et des dossiers du dépôt Git local
 
@@ -165,7 +164,7 @@ Chaque dossier peut contenir un ou plusieurs fichiers et, dans certains cas, un 
 | --- | --- |
 | json |Informations de configuration sur l’entité concernée |
 | html |Descriptions de l’entité, souvent affichées dans le portail des développeurs |
-| xml |Policy statements |
+| Xml |Policy statements |
 | css |Feuilles de style pour la personnalisation du portail des développeurs |
 
 Ces fichiers peuvent être créés, supprimés, modifiés et gérés dans votre système de fichiers local, et les modifications peuvent être redéployées sur votre instance du service Gestion des API.
@@ -173,9 +172,9 @@ Ces fichiers peuvent être créés, supprimés, modifiés et gérés dans votre 
 > [!NOTE]
 > Les entités suivantes ne se trouvent pas dans le dépôt Git et ne peuvent pas être configurées à l’aide de Git.
 >
-> * [Utilisateurs](https://docs.microsoft.com/en-us/rest/api/apimanagement/user)
-> * [Abonnements](https://docs.microsoft.com/en-us/rest/api/apimanagement/subscription)
-> * [Valeurs nommées](https://docs.microsoft.com/en-us/rest/api/apimanagement/property)
+> * [Utilisateurs](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user)
+> * [Abonnements](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription)
+> * [Valeurs nommées](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/property)
 > * Entités du portail des développeur autres que les styles
 >
 
@@ -223,14 +222,14 @@ Le dernier paramètre, `$ref-policy`, correspond au fichier d’instructions de 
 ### <a name="apis-folder"></a>Dossier apis
 Le dossier `apis` contient un dossier pour chaque API dans l’instance de service, qui renferme les éléments suivants.
 
-* `apis\<api name>\configuration.json` : cet élément représente la configuration de l’API et contient des informations sur l’URL du service principal et sur les opérations. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir une API spécifique](https://docs.microsoft.com/rest/api/apimanagement/apis/get) avec `export=true` au format `application/json`.
+* `apis\<api name>\configuration.json` : cet élément représente la configuration de l’API et contient des informations sur l’URL du service principal et sur les opérations. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir une API spécifique](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) avec `export=true` au format `application/json`.
 * `apis\<api name>\api.description.html` : cet élément décrit l’API et correspond à la propriété `description` de [l’entité API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\` : ce dossier contient des fichiers `<operation name>.description.html` correspondant aux opérations dans l’API. Chaque fichier contient la description d’une opération unique dans l’API, qui correspond à la propriété `description` de [l’entité Operation](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) dans l’API REST.
 
 ### <a name="groups-folder"></a>Dossier groups
 Le dossier `groups` contient un dossier pour chaque groupe défini dans l’instance de service.
 
-* `groups\<group name>\configuration.json` : cet élément correspond à la configuration du groupe. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un groupe spécifique](https://docs.microsoft.com/rest/api/apimanagement/group/get) .
+* `groups\<group name>\configuration.json` : cet élément correspond à la configuration du groupe. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un groupe spécifique](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/group/get) .
 * `groups\<group name>\description.html` : cet élément décrit le groupe et correspond à la propriété `description` de [l’entité groupe](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>Dossier policies
@@ -250,7 +249,7 @@ Le dossier `portalStyles` contient la configuration et les feuilles de style pou
 ### <a name="products-folder"></a>Dossier products
 Le dossier `products` contient un dossier pour chaque produit défini dans l’instance de service.
 
-* `products\<product name>\configuration.json` : cet élément correspond à la configuration du produit. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un produit spécifique](https://docs.microsoft.com/rest/api/apimanagement/product/get) .
+* `products\<product name>\configuration.json` : cet élément correspond à la configuration du produit. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un produit spécifique](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) .
 * `products\<product name>\product.description.html` : cet élément décrit le produit et correspond à la propriété `description` de [l’entité produit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) dans l’API REST.
 
 ### <a name="templates"></a>modèles

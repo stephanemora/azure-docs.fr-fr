@@ -1,44 +1,44 @@
 ---
-title: 'Démarrage rapide : se connecter à Azure SQL Database et interroger la base de données | Microsoft Docs'
-description: Cet article de démarrage rapide sur Azure SQL Database explique comment se connecter à une base de données SQL Azure et l’interroger.
+title: 'Guides de démarrage rapide : se connecter à une base de données Azure SQL et l’interroger | Microsoft Docs'
+description: Ces guides de démarrage rapide Azure SQL Database expliquent comment se connecter à une base de données Azure SQL et l’interroger.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1bf9c0b1393abfcad6646624301c4f131c8790a6
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 63ed2c5c334aef8f6281ee34ec4ed6e47ca8521a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447971"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569102"
 ---
-# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Guides de démarrage rapide : se connecter à une base de données SQL Azure et l’interroger
+# <a name="quickstarts-azure-sql-database-connect-and-query"></a>Guides de démarrage rapide : Se connecter à une base de données Azure SQL et l’interroger
 
-Le document suivant contient des liens vers des exemples Azure expliquant comment se connecter à une base de données SQL Azure et l’interroger. Il contient également des recommandations pour la sécurité de niveau transport.
+Le document suivant contient des liens vers des exemples Azure expliquant comment se connecter à une base de données Azure SQL et l’interroger. Il contient également des recommandations pour la sécurité de niveau transport.
 
 ## <a name="quickstarts"></a>Démarrages rapides
 
 | |  |
 |---|---|
-|[SQL Server Management Studio](sql-database-connect-query-ssms.md)|Ce guide de démarrage rapide montre comment utiliser SSMS pour se connecter à une base de données SQL Azure, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
-|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Ce guide de démarrage rapide explique comment utiliser Azure Data Studio pour se connecter à une base de données SQL Azure, puis recourir à des instructions T-SQL (Transact-SQL) pour créer le TutorialDB utilisé dans les tutoriels Azure Data Studio.|
+|[SQL Server Management Studio](sql-database-connect-query-ssms.md)|Ce guide de démarrage rapide montre comment utiliser SSMS pour se connecter à une base de données Azure SQL, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Ce guide de démarrage rapide explique comment utiliser Azure Data Studio pour se connecter à une base de données Azure SQL, puis recourir à des instructions T-SQL (Transact-SQL) pour créer le TutorialDB utilisé dans les tutoriels Azure Data Studio.|
 |[Portail Azure](sql-database-connect-query-portal.md)|Ce guide de démarrage rapide indique comment utiliser l’éditeur de requête pour se connecter à une base de données SQL, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
-|[Visual Studio Code](sql-database-connect-query-vscode.md)|Ce guide de démarrage rapide explique comment utiliser Visual Studio Code pour se connecter à une base de données SQL Azure, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
-|[.NET avec Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|Ce démarrage rapide explique comment utiliser .NET Framework pour créer un programme C# avec Visual Studio en vue de se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données.|
-|[.NET Core](sql-database-connect-query-dotnet-core.md)|Ce démarrage rapide explique comment utiliser .NET Core sur Windows/Linux/macOS pour créer un programme C# en vue de se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données.|
-|[Go](sql-database-connect-query-go.md)|Ce démarrage rapide explique comment utiliser Go pour se connecter à une base de données SQL Azure. Les instructions Transact-SQL permettant d’interroger et de modifier des données sont également présentées.|
-|[Java](sql-database-connect-query-java.md)|Ce démarrage rapide explique comment utiliser Java pour se connecter à une base de données SQL Azure et se servir d’instructions Transact-SQL pour interroger des données.|
-|[Node.JS](sql-database-connect-query-nodejs.md)|Ce démarrage rapide explique comment utiliser Node.js pour créer un programme en vue de se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données.|
-|[PHP](sql-database-connect-query-php.md)|Ce démarrage rapide explique comment utiliser PHP pour créer un programme en vue de se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données.|
-|[Python](sql-database-connect-query-python.md)|Ce démarrage rapide explique comment utiliser Python pour se connecter à une base de données SQL Azure et se servir d’instructions Transact-SQL pour interroger des données. |
-|[Ruby](sql-database-connect-query-ruby.md)|Ce démarrage rapide explique comment utiliser Ruby pour créer un programme en vue de se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données.|
+|[Visual Studio Code](sql-database-connect-query-vscode.md)|Ce guide de démarrage rapide explique comment utiliser Visual Studio Code pour se connecter à une base de données Azure SQL, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
+|[.NET avec Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|Ce guide de démarrage rapide explique comment utiliser le .NET Framework pour créer un programme C# avec Visual Studio en vue de se connecter à une base de données Azure SQL et recourir à des instructions Transact-SQL pour interroger des données.|
+|[.NET Core](sql-database-connect-query-dotnet-core.md)|Ce guide de démarrage rapide explique comment utiliser .NET Core sur Windows/Linux/macOS pour créer un programme C# en vue de se connecter à une base de données Azure SQL et recourir à des instructions Transact-SQL pour interroger des données.|
+|[Go](sql-database-connect-query-go.md)|Ce guide de démarrage rapide explique comment utiliser Go pour se connecter à une base de données Azure SQL. Les instructions Transact-SQL permettant d’interroger et de modifier des données sont également présentées.|
+|[Java](sql-database-connect-query-java.md)|Ce guide de démarrage rapide explique comment utiliser Java pour se connecter à une base de données Azure SQL et se servir d’instructions Transact-SQL pour interroger des données.|
+|[Node.JS](sql-database-connect-query-nodejs.md)|Ce guide de démarrage rapide explique comment utiliser Node.js pour créer un programme en vue de se connecter à une base de données Azure SQL et recourir à des instructions Transact-SQL pour interroger des données.|
+|[PHP](sql-database-connect-query-php.md)|Ce guide de démarrage rapide explique comment utiliser PHP pour créer un programme en vue de se connecter à une base de données Azure SQL et recourir à des instructions Transact-SQL pour interroger des données.|
+|[Python](sql-database-connect-query-python.md)|Ce guide de démarrage rapide explique comment utiliser Python pour se connecter à une base de données Azure SQL et se servir d’instructions Transact-SQL pour interroger des données. |
+|[Ruby](sql-database-connect-query-ruby.md)|Ce guide de démarrage rapide explique comment utiliser Ruby pour créer un programme en vue de se connecter à une base de données Azure SQL et recourir à des instructions Transact-SQL pour interroger des données.|
+|[R](sql-database-connect-query-r.md)|Ce guide de démarrage rapide explique comment utiliser R avec Machine Learning Services pour créer un programme afin de se connecter à une base de données Azure SQL et utiliser des instructions Transact-SQL pour interroger des données.|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>Considérations relatives au protocole TLS pour la connectivité de SQL Database
@@ -93,8 +93,8 @@ Le tableau suivant répertorie des exemples de frameworks de mappage relationnel
   - [Connexion à SQL Database à l’aide de Python](sql-database-connect-query-python.md)
   - [Connexion à SQL Database à l’aide de Ruby](sql-database-connect-query-ruby.md)
 - Exemples de code de logique de nouvelle tentative :
-  - [Connexion résiliente à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-  - [Connexion résiliente à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+  - [Se connecter de façon robuste à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+  - [Se connecter de façon robuste à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <!-- Link references. -->
 

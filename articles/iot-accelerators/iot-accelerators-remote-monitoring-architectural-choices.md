@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464219"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61447169"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Choix d’architecture de la surveillance à distance
 
@@ -66,7 +66,7 @@ En ce qui concerne le stockage, l’accélérateur de solution de supervision à
 Azure Cosmos DB est la solution recommandée de stockage à chaud à usage général pour les applications IoT. Cependant, les solutions comme Azure Time Series Insights et Azure Data Lake sont appropriées pour nombreux cas d’utilisation. Avec Azure Time Series Insight, vous bénéficiez d’informations plus détaillées sur les données de vos capteurs Time Series et vous identifiez rapidement les tendances et les anomalies. Cette fonctionnalité vous permet d’effectuer des analyses de la cause première et d’éviter des temps d’arrêt coûteux.
 
 > [!NOTE]
-> Time Series Insights n’est pas encore disponible dans le cloud Azure Chine. Les nouveaux déploiements d’accélérateurs de solution de supervision à distance dans le cloud Azure en Chine utilisent Cosmos DB pour la totalité du stockage.
+> Time Series Insights n’est pas encore disponible dans le cloud Azure Chine. Les nouveaux déploiements d’accélérateur de solution de supervision à distance dans le cloud Azure Chine utilisent Cosmos DB pour l’intégralité du stockage.
 
 ### <a name="business-integration"></a>Intégration d’entreprise
 

@@ -160,7 +160,7 @@ Ensuite, répertoriez les classes de services disponibles. Les classes de servic
 ./svcat get classes
 ```
 
-Enfin, répertoriez tous les plans de services disponibles. Les plans de services sont les niveaux de service pour les services gérés par Azure. Par exemple, pour Azure Database pour MySQL, les plans sont compris entre `basic50` pour le niveau De base avec 50 DTU et `standard800` pour le niveau Standard avec 800 DTU.
+Enfin, répertoriez tous les plans de services disponibles. Les plans de services sont les niveaux de service des services gérés par Azure. Par exemple, pour Azure Database pour MySQL, les plans sont compris entre `basic50` pour le niveau De base avec 50 DTU et `standard800` pour le niveau Standard avec 800 DTU.
 
 ```azurecli-interactive
 ./svcat get plans

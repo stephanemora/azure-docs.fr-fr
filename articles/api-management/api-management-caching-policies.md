@@ -10,16 +10,15 @@ ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 08b6f803d6994015432bf68c7b3edae14af8f976
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 06c4ede12f939e48973d3e0b502d90b848d199bb
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579255"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70072625"
 ---
 # <a name="api-management-caching-policies"></a>Stratégies de mise en cache dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -103,26 +102,26 @@ Pour plus d’informations, consultez les pages [Expressions de stratégie](api-
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|cache-lookup|Élément racine.|Oui|
-|vary-by-header|Commence par mettre en cache les réponses selon la valeur d’en-tête spécifiée, telle que Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host, If-Match.|Non |
-|vary-by-query-parameter|Commencer la mise en cache des réponses selon la valeur des paramètres de requête spécifiés. Entrez un ou plusieurs paramètres. Utilisez un point-virgule comme séparateur. Si vous n’en spécifiez aucun, tous les paramètres de la requête sont utilisés.|Non |
+|cache-lookup|Élément racine.|OUI|
+|vary-by-header|Commence par mettre en cache les réponses selon la valeur d’en-tête spécifiée, telle que Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host, If-Match.|Non|
+|vary-by-query-parameter|Commencer la mise en cache des réponses selon la valeur des paramètres de requête spécifiés. Entrez un ou plusieurs paramètres. Utilisez un point-virgule comme séparateur. Si vous n’en spécifiez aucun, tous les paramètres de la requête sont utilisés.|Non|
 
 ### <a name="attributes"></a>Attributs
 
 | Nom                           | Description                                                                                                                                                                                                                                                                                                                                                 | Obligatoire | Default           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| allow-private-response-caching | Lorsque l’attribut est défini sur `true`, permet la mise en cache des requêtes qui contiennent un en-tête d’autorisation.                                                                                                                                                                                                                                                                        | Non        | false             |
-| caching-type               | Choisissez entre les valeurs suivantes de l’attribut :<br />- `internal` pour utiliser le cache Gestion des API intégré ;<br />- `external` pour utiliser le cache externe (voir [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md)),<br />- `prefer-external` pour utiliser un cache externe (si configuré) ou un cache interne sinon. | Non        | `prefer-external` |
-| downstream-caching-type        | Cet attribut doit avoir l’une des valeurs suivantes.<br /><br /> - none : la mise en cache en aval n’est pas autorisée.<br />- private : la mise en cache privée en aval est autorisée.<br />- public : la mise en cache privée et partagée en aval est autorisée.                                                                                                          | Non        | Aucun              |
-| must-revalidate                | Lorsque la mise en cache en aval est activée, cet attribut active ou désactive la directive de contrôle de cache `must-revalidate` dans les réponses de la passerelle.                                                                                                                                                                                                                      | Non        | true              |
-| vary-by-developer              | Attribut défini sur `true` pour mettre en cache des réponses par [clé d’abonnement](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | Oui      |         False          |
-| vary-by-developer-groups       | Attribut défini sur `true` pour mettre en cache des réponses par [groupe d’utilisateurs](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | Oui      |       False            |
+| allow-private-response-caching | Lorsque l’attribut est défini sur `true`, permet la mise en cache des requêtes qui contiennent un en-tête d’autorisation.                                                                                                                                                                                                                                                                        | Non       | false             |
+| caching-type               | Choisissez entre les valeurs suivantes de l’attribut :<br />- `internal` pour utiliser le cache Gestion des API intégré ;<br />- `external` pour utiliser le cache externe (voir [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md)),<br />- `prefer-external` pour utiliser un cache externe (si configuré) ou un cache interne sinon. | Non       | `prefer-external` |
+| downstream-caching-type        | Cet attribut doit avoir l’une des valeurs suivantes.<br /><br /> - none : la mise en cache en aval n’est pas autorisée.<br />- private : la mise en cache privée en aval est autorisée.<br />- public : la mise en cache privée et partagée en aval est autorisée.                                                                                                          | Non       | Aucun              |
+| must-revalidate                | Lorsque la mise en cache en aval est activée, cet attribut active ou désactive la directive de contrôle de cache `must-revalidate` dans les réponses de la passerelle.                                                                                                                                                                                                                      | Non       | true              |
+| vary-by-developer              | Attribut défini sur `true` pour mettre en cache des réponses par [clé d’abonnement](https://docs.microsoft.com/azure/api-management/api-management-subscriptions).                                                                                                                                                                                                                                                                                                         | OUI      |         False          |
+| vary-by-developer-groups       | Attribut défini sur `true` pour mettre en cache des réponses par [groupe d’utilisateurs](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups).                                                                                                                                                                                                                                                                                                             | OUI      |       False            |
 
 ### <a name="usage"></a>Usage
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound
-- **Étendues de la stratégie :** API, operation, product (API, opération, produit)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="StoreToCache"></a> Store to cache
 La stratégie `cache-store` met en cache la réponse en fonction des paramètres de cache spécifiés. Cette stratégie peut être appliquée dans les cas où le contenu de la réponse reste statique pendant un certain temps. La mise en cache de la réponse réduit les besoins en bande passante et en calcul imposés par le serveur web principal et limite la latence perçue par les consommateurs de l’API.
@@ -182,19 +181,19 @@ Pour plus d’informations, consultez les pages [Expressions de stratégie](api-
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|cache-store|Élément racine.|Oui|
+|cache-store|Élément racine.|OUI|
 
 ### <a name="attributes"></a>Attributs
 
 | Nom             | Description                                                                                                                                                                                                                                                                                                                                                 | Obligatoire | Default           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| duration         | Durée de vie des entrées mises en cache (en secondes).                                                                                                                                                                                                                                                                                                   | Oui      | S.O.               |
+| duration         | Durée de vie des entrées mises en cache (en secondes).                                                                                                                                                                                                                                                                                                   | OUI      | N/A               |
 
 ### <a name="usage"></a>Usage
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) suivantes.
 
 - **Sections de la stratégie :** outbound (sortant)
-- **Étendues de la stratégie :** API, operation, product (API, opération, produit)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="GetFromCacheByKey"></a> Get value from cache
 La stratégie `cache-lookup-value` permet d’effectuer une recherche dans le cache par clé et de renvoyer une valeur mise en cache. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie.
@@ -225,22 +224,22 @@ Pour plus d’informations et d’exemples sur cette stratégie, consultez [Mise
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|cache-lookup-value|Élément racine.|Oui|
+|cache-lookup-value|Élément racine.|OUI|
 
 ### <a name="attributes"></a>Attributs
 
 | Nom             | Description                                                                                                                                                                                                                                                                                                                                                 | Obligatoire | Default           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| caching-type | Choisissez entre les valeurs suivantes de l’attribut :<br />- `internal` pour utiliser le cache Gestion des API intégré ;<br />- `external` pour utiliser le cache externe (voir [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md)),<br />- `prefer-external` pour utiliser un cache externe (si configuré) ou un cache interne sinon. | Non        | `prefer-external` |
-| default-value    | Valeur attribuée à la variable si la recherche de clés de cache a échoué. Si cet attribut n’est pas spécifié, `null` est attribué.                                                                                                                                                                                                           | Non        | `null`            |
-| key              | Valeur de clé de cache à utiliser dans la recherche.                                                                                                                                                                                                                                                                                                                       | Oui      | S.O.               |
-| variable-name    | Nom de la [variable contextuelle](api-management-policy-expressions.md#ContextVariables) à laquelle la valeur recherchée est attribuée, si la recherche réussit. Si la recherche aboutit à un échec, la variable reçoit la valeur de l’attribut `default-value` ou `null`, si l’attribut `default-value` est omis.                                       | Oui      | S.O.               |
+| caching-type | Choisissez entre les valeurs suivantes de l’attribut :<br />- `internal` pour utiliser le cache Gestion des API intégré ;<br />- `external` pour utiliser le cache externe (voir [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md)),<br />- `prefer-external` pour utiliser un cache externe (si configuré) ou un cache interne sinon. | Non       | `prefer-external` |
+| default-value    | Valeur attribuée à la variable si la recherche de clés de cache a échoué. Si cet attribut n’est pas spécifié, `null` est attribué.                                                                                                                                                                                                           | Non       | `null`            |
+| key              | Valeur de clé de cache à utiliser dans la recherche.                                                                                                                                                                                                                                                                                                                       | OUI      | N/A               |
+| variable-name    | Nom de la [variable contextuelle](api-management-policy-expressions.md#ContextVariables) à laquelle la valeur recherchée est attribuée, si la recherche réussit. Si la recherche aboutit à un échec, la variable reçoit la valeur de l’attribut `default-value` ou `null`, si l’attribut `default-value` est omis.                                       | OUI      | N/A               |
 
 ### <a name="usage"></a>Usage
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound, outbound, backend, on-error
-- **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="StoreToCacheByKey"></a> Store value in cache
 La stratégie `cache-store-value` effectue le stockage du cache par clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie.
@@ -268,21 +267,21 @@ Pour plus d’informations et d’exemples sur cette stratégie, consultez [Mise
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|cache-store-value|Élément racine.|Oui|
+|cache-store-value|Élément racine.|OUI|
 
 ### <a name="attributes"></a>Attributs
 
 | Nom             | Description                                                                                                                                                                                                                                                                                                                                                 | Obligatoire | Default           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| caching-type | Choisissez entre les valeurs suivantes de l’attribut :<br />- `internal` pour utiliser le cache Gestion des API intégré ;<br />- `external` pour utiliser le cache externe (voir [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md)),<br />- `prefer-external` pour utiliser un cache externe (si configuré) ou un cache interne sinon. | Non        | `prefer-external` |
-| duration         | La valeur est mise en cache pendant la durée spécifiée en secondes.                                                                                                                                                                                                                                                                                 | Oui      | S.O.               |
-| key              | Clé de cache sous laquelle la valeur est stockée.                                                                                                                                                                                                                                                                                                                   | Oui      | S.O.               |
-| value            | Valeur à mettre en cache.                                                                                                                                                                                                                                                                                                                                     | Oui      | S.O.               |
+| caching-type | Choisissez entre les valeurs suivantes de l’attribut :<br />- `internal` pour utiliser le cache Gestion des API intégré ;<br />- `external` pour utiliser le cache externe (voir [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md)),<br />- `prefer-external` pour utiliser un cache externe (si configuré) ou un cache interne sinon. | Non       | `prefer-external` |
+| duration         | La valeur est mise en cache pendant la durée spécifiée en secondes.                                                                                                                                                                                                                                                                                 | OUI      | N/A               |
+| key              | Clé de cache sous laquelle la valeur est stockée.                                                                                                                                                                                                                                                                                                                   | OUI      | N/A               |
+| value            | Valeur à mettre en cache.                                                                                                                                                                                                                                                                                                                                     | OUI      | N/A               |
 ### <a name="usage"></a>Usage
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound, outbound, backend, on-error
-- **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)
+- **Étendues de la stratégie :** toutes les étendues
 
 ### <a name="RemoveCacheByKey"></a> Remove value from cache
 `cache-remove-value` supprime un élément en cache identifié par sa clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie.
@@ -307,20 +306,20 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|cache-remove-value|Élément racine.|Oui|
+|cache-remove-value|Élément racine.|OUI|
 
 #### <a name="attributes"></a>Attributs
 
 | Nom             | Description                                                                                                                                                                                                                                                                                                                                                 | Obligatoire | Default           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| caching-type | Choisissez entre les valeurs suivantes de l’attribut :<br />- `internal` pour utiliser le cache Gestion des API intégré ;<br />- `external` pour utiliser le cache externe (voir [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md)),<br />- `prefer-external` pour utiliser un cache externe (si configuré) ou un cache interne sinon. | Non        | `prefer-external` |
-| key              | Clé de la valeur précédemment mise en cache à supprimer du cache.                                                                                                                                                                                                                                                                                        | Oui      | S.O.               |
+| caching-type | Choisissez entre les valeurs suivantes de l’attribut :<br />- `internal` pour utiliser le cache Gestion des API intégré ;<br />- `external` pour utiliser le cache externe (voir [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md)),<br />- `prefer-external` pour utiliser un cache externe (si configuré) ou un cache interne sinon. | Non       | `prefer-external` |
+| key              | Clé de la valeur précédemment mise en cache à supprimer du cache.                                                                                                                                                                                                                                                                                        | OUI      | N/A               |
 
 #### <a name="usage"></a>Usage
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound, outbound, backend, on-error
-- **Étendues de la stratégie :** global, API, opération, produit (global, API, opération, produit)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,18 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: storage
-author: luywang
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 06/05/2018
-ms.author: luywang
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443434"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177060"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Sauvegarde et récupération d’urgence pour les disques IaaS Azure
 
@@ -148,7 +148,7 @@ Utilisez les étapes suivantes pour activer les sauvegardes de vos machines virt
 
     b. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter** et suivez les étapes pour créer un coffre dans la même région que la machine virtuelle. Par exemple, si votre machine virtuelle est située dans la région USA Ouest, vous pouvez choisir USA Ouest pour le coffre.
 
-1.  Vérifiez la réplication du stockage pour le nouveau coffre. Accédez au coffre sous **Coffres Recovery Services** puis sélectionnez **Paramètres** > **Configuration de la sauvegarde**. Vérifiez que l’option de **stockage géoredondant** est sélectionnée par défaut. Cette option garantit que votre coffre est automatiquement répliqué vers un centre de données secondaire. Par exemple, votre coffre de la région USA Ouest est automatiquement répliqué vers la région USA Est.
+1.  Vérifiez la réplication du stockage pour le nouveau coffre. Accédez au coffre sous **Coffres Recovery Services** puis sélectionnez **Propriétés** > **Configuration de la sauvegarde** > **Mettre à jour**. Vérifiez que l’option de **stockage géoredondant** est sélectionnée par défaut. Cette option garantit que votre coffre est automatiquement répliqué vers un centre de données secondaire. Par exemple, votre coffre de la région USA Ouest est automatiquement répliqué vers la région USA Est.
 
 1.  Configurez la stratégie de sauvegarde et sélectionnez la machine virtuelle à partir de la même interface utilisateur.
 

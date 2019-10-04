@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 92825a9ef84edc30b6b34aa875f8a207c70c8511
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260933"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60350445"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Surveiller AD FS avec Azure AD Connect Health
 La documentation suivante est spécifique à la surveillance de votre infrastructure AD FS avec Azure AD Connect Health. Pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](how-to-connect-health-sync.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-health-adds.md).
@@ -54,11 +54,11 @@ Pour sélectionner des mesures supplémentaires, spécifiez un intervalle de tem
 | Application | Regroupe la totalité des demandes en fonction de la partie de confiance cible. Ce regroupement permet de comprendre le pourcentage du trafic total reçu par chaque application. |
 |  Serveur |Regroupe la totalité des demandes en fonction du serveur qui a traité la demande. Ce regroupement permet de mieux comprendre la distribution de charge du trafic total.
 | Jonction d’espace de travail |Regroupe la totalité des demandes en fonction de la provenance des demandes, selon qu’elles soient ou non issues d’appareils joints à un espace de travail (connu). Ce regroupement permet de comprendre si vos ressources sont consultées à l’aide d’appareils inconnus de l’infrastructure d’identité. |
-|  Méthode d'authentification | Regroupe la totalité des demandes en fonction de la méthode d’authentification utilisée. Ce regroupement permet de mieux comprendre la méthode courante d’authentification utilisée. Voici les méthodes d’authentification possibles :  <ol> <li>Authentification Windows intégrée (Windows)</li> <li>Authentification basée sur les formulaires (Formulaires)</li> <li>SSO (Authentification unique)</li> <li>Authentification par certificat X509 (Certificat)</li> <br>Si les serveurs de fédération reçoivent la requête avec un cookie d’authentification unique, cette requête est considérée comme une authentification unique (SSO). Le cas échéant, si le cookie est valide, l’utilisateur ne doit pas fournir d’informations d’identification et bénéficie d’un accès transparent à l’application. Ce comportement est courant si vous disposez de multiples parties de confiance protégées par les serveurs de fédération. |
+|  Méthode d'authentification | Regroupe la totalité des demandes en fonction de la méthode d’authentification utilisée. Ce regroupement permet de mieux comprendre la méthode courante d’authentification utilisée. Voici les méthodes d’authentification possibles : <ol> <li>Authentification Windows intégrée (Windows)</li> <li>Authentification basée sur les formulaires (Formulaires)</li> <li>SSO (Authentification unique)</li> <li>Authentification par certificat X509 (Certificat)</li> <br>Si les serveurs de fédération reçoivent la requête avec un cookie d’authentification unique, cette requête est considérée comme une authentification unique (SSO). Le cas échéant, si le cookie est valide, l’utilisateur ne doit pas fournir d’informations d’identification et bénéficie d’un accès transparent à l’application. Ce comportement est courant si vous disposez de multiples parties de confiance protégées par les serveurs de fédération. |
 | Emplacement réseau | Regroupe la totalité des demandes en fonction de l’emplacement du réseau de l’utilisateur. Il peut s’agir d’un réseau intranet ou extranet. Ce regroupement permet de comparer les pourcentages de trafic issus de l’intranet et de l’extranet. |
 
 
-**Métrique : Nombre total de requêtes échouées** : nombre total de requêtes échouées traitées par le service de fédération.  (Cette métrique est disponible uniquement sur AD FS pour Windows Server 2012 R2)
+**Métrique : Nombre total de requêtes échouées** : nombre total de requêtes échouées traitées par le service de fédération. (Cette métrique est disponible uniquement sur AD FS pour Windows Server 2012 R2)
 
 |Regroupement | En quoi consiste le regroupement ? Quel est son intérêt ? |
 | --- | --- |
@@ -120,5 +120,5 @@ Ce rapport fournit les informations suivantes :
 ## <a name="related-links"></a>Liens connexes
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installation de l’agent Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Rapport d’adresse IP à risque](how-to-connect-health-adfs-risky-ip.md)
+* [Rapport de l’adresse IP risquée](how-to-connect-health-adfs-risky-ip.md)
 

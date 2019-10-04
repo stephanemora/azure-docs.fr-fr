@@ -6,19 +6,18 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7501982f90cd145e0fc918bf976a840323a31127
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976713"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972573"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planifier la capacité pour la reprise d’activité de machines virtuelles Hyper-V 
 
-Une nouvelle version améliorée du [Planificateur de déploiement Azure Site Recovery de Hyper-V vers déploiement Azure](site-recovery-hyper-v-deployment-planner.md) est désormais disponible. Il remplace l’ancien outil. Utilisez le nouvel outil pour la planification de votre déploiement.
-L’outil fournit les recommandations suivantes :
+Le [Planificateur de déploiement Azure Site Recovery] (site-recovery-hyper-v-deployment-planner.md) pour le déploiement d’Hyper-V sur Azure fournit ce qui suit :
 
 * Évaluation de l’éligibilité de la machine virtuelle en fonction du nombre de disques, de la taille du disque, des E/S par seconde, de l’activité et de quelques caractéristiques de machine virtuelle
 * Besoin de bande passante réseau et évaluation d’objectif de point de récupération
@@ -78,7 +77,7 @@ Vous pouvez exécuter l’outil en deux modes :
    * **Nombre de serveurs de traitement supplémentaires requis** : Indique si des serveurs de processus supplémentaires sont nécessaires en plus du serveur de processus qui est exécuté sur le serveur de configuration par défaut.
    * **100 % de stockage supplémentaire sur la source** : Indique si un stockage supplémentaire est nécessaire dans l’emplacement source.
 
-      ![Sortie](./media/site-recovery-capacity-planner/output.png)
+      ![Output](./media/site-recovery-capacity-planner/output.png)
 
 ## <a name="run-the-detailed-planner"></a>Exécuter Detailed Planner
 

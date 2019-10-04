@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: 6753b3a76ff5d3e0266f238d8e354943dec694a8
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480456"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60788909"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Exemple d’application pour une utilisation avec des réseaux de périmètre
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
@@ -42,7 +42,7 @@ Si vous utilisez les scripts suivants, l’ajout de cette règle de pare-feu est
 Ce script :
 
 1. ouvre IMCPv4 (Ping) sur le Pare-feu Windows du serveur local pour faciliter les tests ;
-2. Installer IIS et le .NET Framework 4.5
+2. Installer IIS et le .NET Framework 4.5
 3. crée une page web ASP.NET et un fichier Web.config ;
 4. modifie le pool d’applications par défaut pour faciliter l’accès aux fichiers ;
 5. affecte votre compte d’administrateur et votre mot de passe à l’utilisateur Anonyme.

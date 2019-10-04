@@ -9,22 +9,22 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs
-ms.openlocfilehash: 9fe29e8717c76c353f3e95d4693011f3925c4e1b
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.openlocfilehash: 900529d54a26729d9d0fb949d9217d5e2d618254
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66515294"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Guide pratique pour gérer les secrets en utilisant un espace Azure Dev Spaces
 
 Vos services peuvent exiger certains mots de passe, chaînes de connexion et autres secrets, comme c’est le cas avec les bases de données ou d’autres services Azure sécurisés. En définissant les valeurs de ces secrets dans des fichiers de configuration, vous pouvez les rendre accessibles dans votre code en tant que variables d’environnement.  Celles-ci doivent être traitées avec soin pour éviter de compromettre la sécurité des secrets.
 
-Azure Dev Spaces propose deux options recommandées pour le stockage des secrets : dans le fichier values.dev.yaml ou directement inclus dans azds.yaml. Il est déconseillé de stocker les secrets dans values.yaml.
- 
+Azure Dev Spaces propose deux options rationalisées recommandées pour le stockage des secrets dans les graphiques Helm générés par les outils client Azure Dev Spaces : dans le fichier values.dev.yaml ou directement inclus dans azds.yaml. Il est déconseillé de stocker les secrets dans values.yaml. En dehors des deux approches pour les graphiques Helm générés par les outils client définis dans cet article, si vous créez votre propre graphique Helm, vous pouvez l’utiliser directement pour gérer et stocker des secrets.
+
 ## <a name="method-1-valuesdevyaml"></a>Méthode 1 : values.dev.yaml
 1. Ouvrez VS Code avec votre projet, qui est activé pour Azure Dev Spaces.
-2. Ajoutez un fichier nommé _values.dev.yaml_ dans le même dossier que le fichier _values.yaml_ existant, puis définissez votre clé secrète et les valeurs comme dans l’exemple suivant :
+2. Ajoutez un fichier nommé _values.dev.yaml_ dans le même dossier que le fichier _azds.yaml_ existant, puis définissez votre clé secrète et les valeurs comme dans l’exemple suivant :
 
     ```yaml
     secrets:
@@ -34,12 +34,13 @@ Azure Dev Spaces propose deux options recommandées pour le stockage des secrets
         key: "secretkeyhere"
     ```
      
-3. Mettez à jour _azds.yaml_ pour demander à Azure Dev Spaces d’utiliser votre nouveau fichier _values.dev.yaml_. Pour cela, ajoutez cette configuration sous la section configurations.develop.container :
+3. _azds.yaml_ fait déjà référence au fichier _values.dev.yaml_ s’il existe. Si vous préférez un nom de fichier différent, mettez à jour la section install.values :
 
     ```yaml
-           container:
-             values:
-             - "charts/webfrontend/values.dev.yaml"
+    install:
+      values:
+      - values.dev.yaml?
+      - secrets.dev.yaml?
     ```
  
 4. Modifiez le code de votre service pour référencer ces secrets en tant que variables d’environnement, comme dans l’exemple suivant :
@@ -76,17 +77,17 @@ Azure Dev Spaces propose deux options recommandées pour le stockage des secrets
           set:
             secrets:
               redis:
-                port: "$REDIS_PORT_DEV"
-                host: "$REDIS_HOST_DEV"
-                key: "$REDIS_KEY_DEV"
+                port: "$REDIS_PORT"
+                host: "$REDIS_HOST"
+                key: "$REDIS_KEY"
     ```
      
 2.  Créez un fichier _.env_ dans le même dossier que _azds.yaml_. Entrez les secrets en utilisant la notation standard clé=valeur. Ne validez pas le fichier _.env_ dans le contrôle de code source. (Pour le soustraire au contrôle de code source dans les systèmes de gestion de versions basés sur git, ajoutez-le au fichier _.gitignore_.) L’exemple suivant représente un fichier _.env_ :
 
     ```
-    REDIS_PORT_DEV=3333
-    REDIS_HOST_DEV=myredishost
-    REDIS_KEY_DEV=myrediskey
+    REDIS_PORT=3333
+    REDIS_HOST=myredishost
+    REDIS_KEY=myrediskey
     ```
 2.  Modifiez le code source de votre service pour référencer ces secrets dans le code, comme dans l’exemple suivant :
 

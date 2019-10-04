@@ -1,65 +1,66 @@
 ---
 title: Principes de conception avec simulation acoustique
 titlesuffix: Azure Cognitive Services
-description: Cette vue d’ensemble conceptuelle explique comment projet acoustique incorpore acoustique simulation pour le processus de conception.
+description: Cette vue d’ensemble conceptuelle explique comment Project Acoustics intègre la simulation acoustique au processus de conception sonore.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
-ms.openlocfilehash: 4a1a0b15da091a1c020eb132f6b14b9ee14d334c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.author: noelc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 11e1e3f45b5198ddedb6c31fcd354185adef445d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316066"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854309"
 ---
-# <a name="project-acoustics-design-process-concepts"></a>Concepts de processus de conception d’acoustique de projet
+# <a name="project-acoustics-design-process-concepts"></a>Concepts du processus de conception de Project Acoustics
 
-Cette vue d’ensemble conceptuelle explique comment projet acoustique incorpore les simulation acoustique physique dans le processus de conception.
+Cette vue d’ensemble conceptuelle explique comment Project Acoustics intègre la simulation acoustique physique au processus de conception sonore.
 
-## <a name="sound-design-with-audio-dsp-parameters"></a>Sonorisation avec les paramètres audio DSP
+## <a name="sound-design-with-audio-dsp-parameters"></a>Conception sonore avec les paramètres DSP audio
 
-Les titres 3D interactives atteindre leur son particulier à l’aide de blocs (DSP) hébergés dans un moteur audio de traitement du signal numérique audio. Plage de ces blocs en termes de complexité à partir de la simple mélange au réverbération, echo, délai, égalisation, la compression et la limitation et d’autres effets. Sélection, la réorganisation et la définition des paramètres dans ces effets sont la responsabilité du son concepteur, qui génère un graphique d’audio qui accomplit les objectifs esthétique et le jeu de l’expérience.
+Les titres interactifs 3D tirent leur son particulier de blocs de traitement numérique du signal (DSP) hébergés dans un moteur audio, soit, du plus simple au plus complexe : mixage simple, réverbération, écho, délai, égalisation, compression et limitation, parmi d’autres effets. C’est au concepteur sonore qu’il revient de sélectionner, d’arranger et de paramétrer ces effets : il crée un graphe audio qui atteint les objectifs d’esthétique et de jouabilité de l’expérience.
 
-Dans un titre interactif, comme les sons et l’écouteur déplacent tout au long de l’espace 3D, comment ces paramètres s’adapter aux évolutions ? Le concepteur son souvent Réorganiser tout au long de l’espace des volumes qui sont programmées pour déclencher des modifications de paramètre pour obtenir des modifications dans les effets de réverbération, par exemple, ou pour les sons de canard dans la combinaison lors de l’écouteur du déplace d’une partie de la scène à un autre. Acoustique systèmes sont également disponibles qui peuvent automatiser une partie de ces effets.
+Dans un titre interactif, où les sons et l’écouteur se déplacent dans l’espace 3D, comment ces paramètres s’adaptent-ils à l’évolution des conditions ? Le concepteur sonore arrange souvent des volumes dans l’espace, programmés pour déclencher des modifications de paramètres qui changent les effets de réverbération, par exemple, ou baissent les sons du mix lorsque l’écouteur du déplace d’une partie de la scène à une autre. Il existe également des systèmes acoustiques capables d’automatiser certains de ces effets.
 
-Titres 3D utilisent des systèmes physique cinématique et d’éclairage qui sont dans un monde physique, mais ajustée de concepteur pour obtenir une combinaison d’objectifs immersion et le jeu. Un concepteur visuel ne définit pas les valeurs de pixel individuelles, mais plutôt ajuste les modèles 3D, des matériels et des systèmes de transport clair qui sont des physiquement compromis esthétique et les coûts de processeur. Quel est le processus équivalent pour l’audio ? Projet acoustique est une première étape dans l’exploration de cette question. Tout d’abord, je parlerai plus tard sur ce que signifie l’énergie acoustique via un espace de transport.
+Les titres 3D utilisent des systèmes de cinématique et d’éclairage animés par des mouvements physiques, mais ajustés par le concepteur de façon à allier immersion et jouabilité. Un concepteur visuel ne définit pas des valeurs de pixel individuelles, mais ajuste des modèles 3D, des matériaux et des systèmes de transport léger qui représentent un compromis physique entre esthétique et coûts de processeur. Quel serait le processus équivalent pour l’audio ? Project Acoustics constitue une première étape dans l’exploration de cette question. Nous allons tout d’abord étudier ce que signifie transporter de l’énergie acoustique dans un espace.
 
-![Scène de capture d’écran de AltSpace superposée aux zones de réverbération](media/reverb-zones-altspace.png)
+![Capture d’écran de la scène AltSpace sur laquelle sont superposées les zones de réverbération](media/reverb-zones-altspace.png)
 
-## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Réponses impulsionnelles : Acoustique reliant deux points dans l’espace
+## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Réponses impulsionnelles : le lien acoustique entre deux points dans l’espace
 
-Si vous êtes familiarisé avec la conception audio, vous connaissez peut-être des réponses impulsionnelles acoustique. Une réponse impulsionnelle acoustique modélise le transport d’un son à partir d’une source à un écouteur. Par conséquent, une réponse impulsionnelle peut capturer chaque effet intéressant de tels qu’occlusion et réverbération acoustique de la pièce. Réponses impulsionnelles possèdent également des propriétés puissants qui permettent des effets audio DSP à l’échelle. Additionner des deux signaux audio et de traitement avec une réponse impulsionnelle donne le même résultat que l’application de la réponse impulsionnelle séparément à chaque signal et en ajoutant les résultats. La propagation acoustique et des réponses impulsionnelles également ne dépendent pas l’audio en cours de traitement, uniquement sur la scène en cours de modélisation, ainsi que les emplacements source et l’écouteur. En bref, une réponse impulsionnelle rassemble effet de la scène sur la propagation audio ;
+Si vous connaissez la conception audio, les réponses impulsionnelles acoustiques vous sont peut-être familières. Une réponse impulsionnelle acoustique modélise le transport d’un son d’une source vers un écouteur. Elle peut donc capturer chacun des effets intéressants de l’acoustique d’une pièce, comme l’occlusion et la réverbération. Elle possède également de puissantes propriétés qui permettent d’utiliser des effets DSP audio à grande échelle. Il revient au même d’ajouter deux signaux audio et de les traiter avec une réponse impulsionnelle que d’appliquer la réponse impulsionnelle séparément pour chaque signal et d’ajouter les résultats. La propagation acoustique et les réponses impulsionnelles ne dépendent pas non plus de l’audio traité, mais seulement de la scène modélisée et de l’emplacement de la source et de l’écouteur. En bref, une réponse impulsionnelle condense l’effet de la scène sur la propagation audio.
 
-Une réponse impulsionnelle capture chaque salle acoustique un effet intéressant et nous pouvons l’appliquer au format audio efficacement avec un filtre, et nous pouvons obtenir des réponses impulsionnelles à partir de la mesure ou de simulation. Mais que se passe-t-il si nous ne souhaitez tout à fait l’acoustique pour correspondre exactement à la physique, mais plutôt de moule pour correspondre à des demandes d’une scène émotionnels ? Mais à l’instar valeurs en pixels, une réponse impulsionnelle est une simple liste de milliers de nombres, comment pouvons-nous nous éventuellement ajuster pour répondre aux besoins esthétiques ? Et que se passe-t-il si nous voulons occlusion/obstruction qui fait varier sans heurts durant le passage par le biais guichets ou derrière les obstacles, nombre de réponses impulsionnelle avons-nous besoin obtenir un effet sans heurts ? Que se passe-t-il si la source déplace rapidement ? Comment nous interpoler ?
+Une réponse impulsionnelle capture chacun des effets intéressants de l’acoustique d’une pièce : il est alors possible de l’appliquer efficacement au son avec un filtre et d’obtenir des réponses impulsionnelles de la mesure ou de la simulation. Mais comment faire en sorte que l’acoustique ne corresponde pas exactement à la physique, mais la modèle pour répondre aux exigences émotionnelles d’une scène ? Tout comme les valeurs en pixels, une réponse impulsionnelle est une simple liste de milliers de nombres : comment, dans ce cas, peut-on l’adapter aux besoins esthétiques ? Et comment obtenir une occlusion/obstruction qui varie de manière fluide au moment de franchir des portes ou des obstacles ? Combien de réponses impulsionnelles faut-il pour que l’effet soit harmonieux ? Que se passe-t-il si la source se déplace rapidement ? Comment interpoler ?
 
-Il semble difficile à utiliser la simulation et réponses impulsionnelles concernant certains aspects d’acoustiques dans les titres interactives. Mais nous pouvons créer un système de transport audio qui prend en charge des ajustements concepteurs si nous pouvons nous connecter nos réponses impulsionnelles à partir de la simulation avec nos paramètres d’effet audio DSP familiers.
+Il semble difficile d’utiliser la simulation et les réponses impulsionnelles pour certains aspects acoustiques des titres interactifs. Cependant, nous pouvons créer un système de transport audio qui gère les ajustements du concepteur, à condition de pouvoir connecter les réponses impulsionnelles issues de la simulation aux paramètres d’effet DSP audio que nous connaissons bien.
 
-## <a name="connecting-simulation-to-audio-dsp-with-parameters"></a>Connexion de simulation à audio DSP avec des paramètres
+## <a name="connecting-simulation-to-audio-dsp-with-parameters"></a>Connecter la simulation aux traitements DSP audio avec des paramètres
 
-Une réponse impulsionnelle contient chaque intéressantes (et chaque inintéressants) acoustique effet. Les blocs audio DSP, lorsque leurs paramètres sont définis correctement, peuvent rendre un effet acoustique intéressant. À l’aide de la simulation acoustique pour piloter un bloc DSP audio pour automatiser le transport audio dans une scène 3D n'est qu’une question de mesurer les paramètres DSP audio à partir d’une réponse impulsionnelle. Cette mesure est bien entendue pour certains effets acoustiques courantes et importantes, notamment occlusion, obstruction, portalling et réverbération.
+Une réponse impulsionnelle contient chacun des effets acoustiques intéressants (et non intéressants). Les blocs DSP audio dont les paramètres sont définis correctement peuvent donner un effet acoustique intéressant. Utiliser la simulation acoustique pour piloter un bloc DSP audio qui automatise le transport audio dans une scène 3D revient simplement à mesurer les paramètres DSP audio d’une réponse impulsionnelle. Cette mesure est bien comprise pour certains effets acoustiques courants et importants, notamment l’occlusion, l’obstruction, le portalling et la réverbération.
 
-Mais si la simulation est connectée directement aux paramètres DSP audio, où est l’ajustement de concepteur ? Ce qu’obtenir ? Eh bien, nous obtenons une quantité importante de mémoire en supprimant les réponses impulsionnelles et en conservant quelques paramètres DSP. Et pour donner le concepteur du courant sur le résultat final, nous devons uniquement trouver un moyen d’insérer le concepteur entre la simulation et l’audio DSP.
+Mais, si la simulation est connectée directement aux paramètres DSP audio, où est l’ajustement du concepteur ? Qu'y avons-nous gagné ? Nous avons récupéré une quantité importante de mémoire en abandonnant les réponses impulsionnelles et en conservant quelques paramètres DSP. Pour donner au concepteur une certaine maîtrise du résultat final, il suffit de trouver un moyen de l’insérer entre la simulation et le DSP.
 
-![L’API Graph à réponse impulsionnelle stylisés avec des paramètres à superposer](media/acoustic-parameters.png)
+![Graphe avec réponse impulsionnelle stylisée et paramètres superposés](media/acoustic-parameters.png)
 
-## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Sonorisation en transformant des paramètres DSP audio à partir de la simulation
+## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Conception sonore en transformant des paramètres DSP audio de la simulation
 
-Prendre en compte les effets que votre lunettes de soleil sur votre vue du monde. Un jour lumineux, les lunettes peuvent réduire l’éclat à quelque chose de plus à l’aise. Dans une salle foncée, vous ne serez peut-être pas en mesure de voir rien du tout. Les lunettes ne définissez pas un certain niveau de luminosité dans toutes les situations ; celles-ci permettent simplement de tous les éléments plus sombre.
+Prenons les effets qu’ont des lunettes de soleil sur la vision du monde. S’il y a du soleil, elles peuvent réduire son éclat à un niveau plus confortable. On risque en revanche de ne rien y voir dans une pièce sombre. Les lunettes ne définissent pas un certain niveau de luminosité dans toutes les situations ; elles rendent simplement tout plus sombre.
 
-Si nous utilisons la simulation pour piloter notre DSP audio à l’aide des paramètres d’occlusion et réverbération, nous pouvons ajouter un filtre après le simulateur d’ajuster les paramètres DSP « voit ». Le filtre n’aurait pas appliquer un certain niveau d’occlusion ou réverbération beaucoup de longueur de fin, comme lunettes de soleil n’effectuez pas la même luminosité chaque salle. Le filtre peut le mettre chaque OCCLUSION occlude inférieur. Ou occlude bien plus encore. En ajoutant et en ajustant un filtre de paramètre occlusion « assombrissement », les salles de grande taille, ouvrez n’aurait toujours peu à aucun effet occlusion, tandis que les guichets augmenterait à partir d’un support à un effet d’occlusion fort, tout en conservant le lissage en vigueur transitions que la simulation fournit.
+Si nous utilisons la simulation pour piloter notre DSP audio avec des paramètres d’occlusion et de réverbération, nous pouvons ajouter un filtre après le simulateur afin d’ajuster les paramètres que le DSP « voit ». Le filtre n’appliquerait pas un certain niveau d’occlusion ou une certaine longueur de réverbération, de même que les lunettes de soleil ne donnent pas la même luminosité à chaque pièce. Le filtre peut simplement limiter ou augmenter l’occlusion de chaque dispositif d’occlusion. En ajoutant et en ajustant un filtre de paramètre d’occlusion « assombrissant », les grandes pièces ouvertes n’auraient toujours pas (ou peu) d’effet d’occlusion, tandis que les portes passeraient d’un effet d’occlusion moyen à un effet fort tout en maintenant la fluidité des transitions d’effets de la simulation.
 
-Dans ce paradigme, les tâches du concepteur change de choisir les paramètres acoustiques pour chaque situation, de sélection et l’ajustement des filtres à appliquer aux paramètres DSP plus importantes en provenance de simulation. Elle élève les activités du concepteur à partir des préoccupations étroites des transitions sans heurts pour les problèmes plus élevées de l’intensité des effets occlusion et réverbération et la présence de sources dans la combinaison de configuration. Bien sûr, lorsque la situation le requiert, un seul filtre toujours disponible est simplement revenir en arrière pour choisir les paramètres DSP pour une source spécifique dans une situation spécifique.
+Dans ce paradigme, la tâche du concepteur évolue : au lieu de choisir les paramètres acoustiques de chaque situation, il sélectionne et ajuste les filtres à appliquer aux paramètres DSP les plus importants de la simulation. Les activités du concepteur s’éloignent ainsi des considérations étroites liées à la configuration de transitions fluides pour toucher à des problématiques supérieures : l’intensité des effets d’occlusion et de réverbération et la présence des sources dans le mix. Bien sûr, lorsque la situation l’impose, il existe un filtre qui reste toujours disponible : revenir en arrière pour choisir les paramètres DSP d’une source spécifique dans une situation donnée.
 
-## <a name="sound-design-in-project-acoustics"></a>Sonorisation dans le projet acoustique
+## <a name="sound-design-in-project-acoustics"></a>Conception sonore dans Project Acoustics
 
-Le package de projet acoustique s’intègre à chacun des composants décrites ci-dessus : un simulateur, un encodeur qui extrait les paramètres et génère l’élément multimédia acoustiques, audio DSP et une sélection de filtres. Sonorisation avec projet acoustique implique en choisissant l’option paramètres pour les filtres qui ajustent les paramètres de l’occlusion et réverbération dérivée de simulation et appliqué à l’audio DSP, avec des contrôles dynamiques exposées à l’intérieur de l’éditeur de jeu et le moteur audio.
+Le package Project Acoustics intègre chacun des composants décrits ci-dessus : un simulateur, un encodeur qui extrait les paramètres et génère l’élément acoustique, le DSP audio et une sélection de filtres. La conception sonore avec Project Acoustics implique de choisir des filtres qui ajustent les paramètres d’occlusion et de réverbération dérivés de la simulation et appliqués au DSP audio, avec des contrôles dynamiques exposés à l’intérieur de l’éditeur de jeu et du moteur audio.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Essayer le paradigme de conception à l’aide de la [acoustique de projet Guide de démarrage rapide pour Unity](unity-quickstart.md) ou le [acoustique de projet Guide de démarrage rapide pour Unreal](unreal-quickstart.md)
-* Explorez le [projet acoustique concevoir des contrôles pour Unity](unity-workflow.md) ou le [projet acoustique concevoir des contrôles pour Unreal](unreal-workflow.md)
+* Essayez le paradigme de conception avec le [Démarrage rapide Project Acoustics pour Unity](unity-quickstart.md) ou le [Démarrage rapide Project Acoustics pour Unreal](unreal-quickstart.md)
+* Explorez les [Contrôles de conception Project Acoustics pour Unity](unity-workflow.md) ou les [Contrôles de conception Project Acoustics pour Unreal](unreal-workflow.md)
 

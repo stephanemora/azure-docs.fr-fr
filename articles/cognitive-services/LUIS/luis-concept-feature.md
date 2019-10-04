@@ -1,6 +1,6 @@
 ---
-title: Caractéristiques
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Fonctionnalités – LUIS
+titleSuffix: Azure Cognitive Services
 description: Ajoutez des fonctionnalités à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522851"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624569"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Caractéristiques de liste d’expressions dans votre application LUIS
 
@@ -35,7 +35,7 @@ Les listes d’expressions ne sont pas liées à une intention ou à une entité
 
 ## <a name="how-to-use-phrase-lists"></a>Comment utiliser des listes d’expressions
 
-Vous pouvez créer une liste d’expressions lorsque votre application comprend des mots ou des expressions qui sont importants pour elle, par exemple :
+Vous pouvez [créer une liste d’expressions](luis-how-to-add-features.md) lorsque votre application comprend des mots ou des expressions qui sont importants pour elle, par exemple :
 
 * Terminologie du secteur
 * Argot
@@ -79,7 +79,7 @@ N’ajoutez pas tous les mots ou expressions possibles à la liste d’expressio
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Les listes d’expressions permettent d’identifier les entités interchangeables simples
+## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>Les listes d’expressions permettent de détecter les entités interchangeables simples
 Les listes d’expressions interchangeables sont une bonne méthode pour optimiser la performance de votre application LUIS. Si votre application rencontre des difficultés à prédire des énoncés sur l’intention appropriée, ou à reconnaître des entités, vérifiez si les énoncés contiennent des mots inhabituels, ou des mots dont le sens peut être ambigu. Ces mots sont de bons candidats à inclure dans une liste d’expressions.
 
 ## <a name="phrase-lists-help-identify-intents-by-better-understanding-context"></a>Les listes d’expressions permettent d’identifier les intentions grâce à une meilleure compréhension du contexte
@@ -88,12 +88,12 @@ Une liste d’expressions n’est pas une instruction pour que LUIS effectue une
 L’ajouter d’une liste d’expressions est une alternative à l’ajout de plusieurs exemples d’énoncés à une intention. 
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Quand utiliser des listes d’expressions et des entités de liste
-Même si une liste d’expressions et des entités de liste peuvent affecter des énoncés dans toutes les intentions, chacune le fait d’une manière différente. Utilisez une liste d’expressions pour affecter le score de prédiction d’intention. Utilisez une entité de liste pour affecter l’extraction d’entité pour une correspondance texte exacte. 
+Même si une liste d’expressions et des [entités de liste](reference-entity-list.md) peuvent avoir un impact sur les énoncés dans toutes les intentions, chacune le fait d’une manière différente. Utilisez une liste d’expressions pour affecter le score de prédiction d’intention. Utilisez une entité de liste pour affecter l’extraction d’entité pour une correspondance texte exacte. 
 
 ### <a name="use-a-phrase-list"></a>Utiliser une liste d’expressions
 Avec une liste d’expressions, LUIS peut toujours prendre en compte le contexte et généraliser afin d’identifier les éléments qui sont similaires, mais pas une correspondance exacte, à des éléments d’une liste. Si votre application LUIS doit être en mesure de généraliser et d’identifier les nouveaux éléments dans une catégorie, utilisez une liste d’expressions. 
 
-Lorsque vous souhaitez être en mesure de reconnaître les nouvelles instances d’une entité, comme un planificateur de réunion qui doit reconnaître les noms de nouveaux contacts, ou une application d’inventaire qui doit reconnaître les nouveaux produits, utilisez un autre type de machine a appris une entité telle qu’une entité simple. Créez ensuite une liste d’expressions de mots et d’expressions qui permet à LUIS de rechercher d’autres mots similaires à l’entité. Cette liste guide LUIS afin qu’il reconnaisse des exemples de l’entité en ajoutant une précision supplémentaire à la valeur de ces mots. 
+Si vous souhaitez pouvoir reconnaître les nouvelles instances d’une entité, (par exemple, pour un planificateur de réunions qui doit reconnaître les noms de nouveaux contacts ou une application d’inventaire qui doit reconnaître de nouveaux produits), utilisez un autre type d’entité apprise automatiquement, comme une entité simple. Créez ensuite une liste d’expressions de mots et d’expressions qui permet à LUIS de rechercher d’autres mots similaires à l’entité. Cette liste guide LUIS afin qu’il reconnaisse des exemples de l’entité en ajoutant une précision supplémentaire à la valeur de ces mots. 
 
 Les listes d’expression sont comme du vocabulaire spécifique à un domaine qui permet d’améliorer la qualité de compréhension des intentions et des entités. Une utilisation courante d’une liste d’expressions s’applique aux noms propres comme les noms de villes. Un nom de ville peut contenir plusieurs mots avec des traits d’union ou des apostrophes.
  

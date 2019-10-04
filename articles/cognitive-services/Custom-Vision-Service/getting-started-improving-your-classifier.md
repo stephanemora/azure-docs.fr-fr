@@ -1,6 +1,6 @@
 ---
 title: 'Améliorer votre classifieur : Service Vision personnalisée'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment améliorer la qualité de votre classifieur.
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d71c750185589fd488df70b63fd48e9e674ee3dc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883071"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561044"
 ---
 # <a name="how-to-improve-your-classifier"></a>Comment améliorer votre classifieur
 
@@ -39,7 +39,7 @@ Pour corriger ce problème, suivez les instructions ci-après afin d’effectuer
 
 ## <a name="data-quantity"></a>Quantité de données
 
-Le nombre d’images d’entraînement est le facteur le plus important. Nous vous recommandons d’utiliser des images au moins 50 par étiquette comme point de départ. Avec moins d’images, il existe un risque plus élevé de surajustement. Et même si vos chiffres de performance suggèrent une bonne qualité, votre modèle aura peut-être du mal avec des données réelles. 
+Le nombre d’images d’entraînement est le facteur le plus important. Nous recommandons d’utiliser au moins 50 images par étiquette pour commencer. Avec moins d’images, il existe un risque plus élevé de surajustement. Et même si vos chiffres de performance suggèrent une bonne qualité, votre modèle aura peut-être du mal avec des données réelles. 
 
 ## <a name="data-balance"></a>Équilibre des données
 
@@ -73,7 +73,7 @@ Pour corriger ce problème, incluez des images très diverses pour garantir une 
 
     ![Exemples d’images (style)](./media/getting-started-improving-your-classifier/style.png)
 
-## <a name="negative-images"></a>Images négatif
+## <a name="negative-images"></a>Images négatives
 
 À un moment donné dans votre projet, il peut être nécessaire d’ajouter des _exemples négatifs_ pour rendre votre classifieur plus précis. Les exemples négatifs sont ceux qui ne correspondent à aucune des autres balises. Quand vous chargez ces images, appliquez l’étiquette spéciale **Negative** (Négatif) à celles-ci.
 

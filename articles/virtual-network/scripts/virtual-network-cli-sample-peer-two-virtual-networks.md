@@ -3,8 +3,8 @@ title: Exemple de script Azure CLI - Homologuer deux réseaux virtuels | Documen
 description: Exemple de script Azure CLI - Homologuer deux réseaux virtuels.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,17 +14,17 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
-ms.author: jdial
-ms.openlocfilehash: 142b36e5c1f0908ccfc1bf2e475442028e02edf7
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.author: kumud
+ms.openlocfilehash: 82f4f06cd4e615df38f2251be9aef9e8578b9df4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55728450"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726781"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>Exemple de script : Homologuer deux réseaux virtuels
 
-Cet exemple de script crée et connecte deux réseaux virtuels situés dans la même région via le réseau Azure. Après exécution du script, vous obtenez une homologation entre deux réseaux virtuels.
+Cet exemple de script crée et connecte deux réseaux virtuels situés dans la même région via le réseau Azure. Après exécution du script, vous obtenez un peering entre deux réseaux virtuels.
 
 Vous pouvez exécuter le script à partir d’Azure [Cloud Shell](https://shell.azure.com/bash) ou à partir d’une installation Azure CLI locale. Si vous utilisez l’interface CLI localement, ce script nécessite que vous exécutiez la version 2.0.28 ou une version ultérieure. Pour trouver la version installée, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez la CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
@@ -51,7 +51,7 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 |---|---|
 | [az group create](/cli/azure/group) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az network vnet create](/cli/azure/network/vnet) | Crée un réseau virtuel et un sous-réseau Azure. |
-| [az network vnet peering create](/cli/azure/network/vnet/peering) | Crée une homologation entre deux réseaux virtuels.  |
+| [az network vnet peering create](/cli/azure/network/vnet/peering) | Crée un peering entre deux réseaux virtuels.  |
 | [az group delete](/cli/azure/vm/extension) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
 ## <a name="next-steps"></a>Étapes suivantes

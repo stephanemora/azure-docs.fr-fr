@@ -4,21 +4,20 @@ description: Découvrez comment résoudre les problèmes d’échec de RDP dus �
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 154160f9a3fbd485ee6383bf3d5ff1c291520a75
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913851"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088522"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Le serveur de licences des services Bureau à distance n’est pas disponible lorsque vous vous connectez à une machine virtuelle Azure
 
@@ -63,17 +62,17 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 
     Si vous ne pouvez pas vous connecter à la machine virtuelle à l’aide d’une session d’administration, vous pouvez utiliser la [console série de la machine virtuelle sur Azure](serial-console-windows.md) pour accéder à la machine virtuelle comme suit :
 
-    1. Accéder à la Console série en sélectionnant **Support & Troubleshooting (Support et dépannage)** > **Console série (préversion)**. Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine virtuelle.
+    1. Accéder à la Console série en sélectionnant **Support & Troubleshooting (Support et dépannage)**  > **Console série (préversion)** . Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine virtuelle.
 
     2. Créez un canal pour une instance CMD. Entrez **CMD** pour démarrer le canal et en obtenir le nom.
 
-    3. Basculez vers le canal qui exécute l’instance CMD. Dans ce cas, il doit s’agir du canal 1 :
+    3. Basculez vers le canal qui exécute l’instance CMD. Dans ce cas, il devrait s’agir du canal 1 :
 
        ```
        ch -si 1
        ```
 
-    4. Sélectionnez de nouveau **Entrée** et entrez un nom d’utilisateur et un mot de passe valides, un ID local ou de domaine, pour la machine virtuelle.
+    4. Sélectionnez de nouveau **Entrée** et entrez un nom d’utilisateur et un mot de passe valides ainsi qu’un ID local ou de domaine pour la machine virtuelle.
 
 2. Vérifiez si un rôle Hôte de session Bureau à distance est activé sur la machine virtuelle. Si le rôle est activé, assurez-vous qu’il fonctionne correctement. Ouvrez une instance CMD avec élévation de privilèges et procédez comme suit :
 
@@ -123,10 +122,10 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
        telnet <FQDN / IP License Server> 135
        ```
 
-3. S’il n’y a aucun serveur de licences des services Bureau à distance dans l’environnement et que vous en souhaitez un, vous pouvez [installer un service de rôle Gestionnaire de licences des services Bureau à distance](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). [Configurer ensuite les licences des services Bureau à distance](https://blogs.technet.microsoft.com/askperf/2013/09/20/rd-licensing-configuration-on-windows-server-2012/).
+3. S’il n’y a aucun serveur de licences des services Bureau à distance dans l’environnement et que vous en souhaitez un, vous pouvez [installer un service de rôle Gestionnaire de licences des services Bureau à distance](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731765(v=ws.11)). [Configurer ensuite les licences des services Bureau à distance](https://techcommunity.microsoft.com/t5/Ask-The-Performance-Team/RD-Licensing-Configuration-on-Windows-Server-2012/ba-p/375383).
 
 4. Si un serveur de licences des services Bureau à distance est configuré et intègre, assurez-vous qu’il est activé avec des licences d’accès client.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
-Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge de votre problème.
+Si vous avez toujours besoin d’aide, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre votre problème.

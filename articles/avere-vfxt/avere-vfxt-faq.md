@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264452"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65595407"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Questions fréquentes (FAQ) sur Avere vFXT pour Azure
 
@@ -63,7 +63,7 @@ Avere vFXT est un cache. Il ne stocke pas spécifiquement de données. Il utilis
 
 ### <a name="what-regions-are-supported"></a>Quelles sont les régions prises en charge ?
 
-VFXT AVERE pour Azure est pris en charge dans toutes les régions à l’exception des régions souveraines (Chine, Allemagne). Vérifiez que la région que vous souhaitez utiliser peut prendre en charge le grand nombre de cœurs de calcul et les instances de machines virtuelles nécessaires à la création du cluster Avere vFXT.
+Avere vFXT pour Azure est pris en charge dans toutes les régions à l’exception des régions souveraines (Chine et Allemagne). Vérifiez que la région que vous souhaitez utiliser peut prendre en charge le grand nombre de cœurs de calcul et les instances de machines virtuelles nécessaires à la création du cluster Avere vFXT.
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>Comment obtenir de l'aide sur le système Avere vFXT ?
 
@@ -88,7 +88,7 @@ Le système Avere vFXT est une appliance en cluster constituée de plusieurs mac
 
 ### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Sur quels types de machines virtuelles le système Azure Avere vFXT s'exécute-t-il ?  
 
-Un vFXT Avere pour un cluster Azure utilise des machines virtuelles Microsoft Azure E32s_v3. 
+Un cluster Avere vFXT pour Azure utilise des machines virtuelles Microsoft Azure E32s_v3. 
 
 <!-- ### Can I mix and match virtual machine types for my cluster?
 
@@ -177,7 +177,7 @@ Oui, vous pouvez créer votre système Avere vFXT sur un autre réseau virtuel. 
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Le système Avere vFXT nécessite-t-il son propre sous-réseau ?
 
-Oui. AVERE vFXT s’exécute de manière stricte comme un cluster à haute disponibilité (HA) et nécessite plusieurs adresses IP pour fonctionner. Si le cluster est dans son propre sous-réseau, vous évitez tout risque de conflits d’adresses IP, lesquels peuvent entraîner des problèmes pour l’installation et le fonctionnement normal. Le sous-réseau du cluster peut se trouver sur le réseau virtuel existant tant que les adresses IP ne se chevauchent pas.
+Oui. Avere vFXT s’exécute exactement comme un cluster haute disponibilité (HA) et nécessite plusieurs adresses IP pour fonctionner. Si le cluster est dans son propre sous-réseau, vous évitez tout risque de conflits d’adresses IP, lesquels peuvent entraîner des problèmes pour l’installation et le fonctionnement normal. Le sous-réseau du cluster peut se trouver sur le réseau virtuel existant tant que les adresses IP ne se chevauchent pas.
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>Puis-je exécuter le système Avere vFXT sur InfiniBand ?
 
@@ -200,13 +200,13 @@ Pour les environnements sensibles à la latence, vous devez utiliser une solutio
 
 Non, le système Avere vFXT est destiné à être utilisé dans un environnement réseau sécurisé en respectant des bonnes pratiques.  
 
-### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>Puis-je restreindre l’accès à internet à partir du réseau virtuel de mon cluster ? 
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>Puis-je restreindre l’accès à Internet à partir du réseau virtuel du cluster ? 
 
-En règle générale, vous pouvez configurer la sécurité supplémentaire sur votre réseau virtuel en fonction des besoins, mais certaines restrictions peuvent interférer avec le fonctionnement du cluster.
+En règle générale, vous pouvez configurer une sécurité supplémentaire sur votre réseau virtuel en fonction des besoins, mais certaines restrictions peuvent interférer avec le fonctionnement du cluster.
 
-Par exemple, limiter l’accès internet sortant à partir de votre réseau virtuel provoque des problèmes pour le cluster, sauf si vous ajoutez également les règles qui autorisent explicitement l’accès pour AzureConnectors et AzureCloud. Cette situation est décrite dans [documentation supplémentaire sur GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+Par exemple, limiter l’accès Internet sortant à partir de votre réseau virtuel provoque des problèmes pour le cluster, sauf si vous ajoutez également une règle qui autorise explicitement l’accès à AzureCloud. Cette situation est décrite dans la [documentation supplémentaire sur GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
 
-Aide sur la sécurité personnalisée, contactez le support technique comme décrit dans [obtenir de l’aide avec votre système](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+Pour obtenir de l’aide liée à la sécurité personnalisée, contactez le support comme décrit dans [Get help with your system](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) (Obtenir de l’aide avec votre système).
 
 ## <a name="technical-back-end-storage-core-filers"></a>Technique : Stockage back-end (système de stockage principal)
 
@@ -226,7 +226,7 @@ En général, Avere vFXT pour Azure prend en charge les systèmes suivants comme
 * NetApp ONTAP (Cluster Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) et (7-Mode 7.*, 8.0 - 8.3) 
 
   > [!NOTE] 
-  > Les fichiers NetApp Azure n’est actuellement pas possible. 
+  > Pour le moment, Azure NetApp Files n’est pas pris en charge. 
 
 * Conteneurs d'objets blob Azure (stockage localement redondant uniquement) 
 * Compartiments AWS S3 

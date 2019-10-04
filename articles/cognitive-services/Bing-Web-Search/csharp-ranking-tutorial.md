@@ -3,20 +3,20 @@ title: Utilisation du classement pour afficher les résultats de la recherche
 titleSuffix: Azure Cognitive Services
 description: Montre comment utiliser la réponse RankingResponse Bing pour afficher les résultats de la recherche dans un ordre de classement.
 services: cognitive-services
-author: bradumbaugh
+author: aahill
 manager: nitinme
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: conceptual
-ms.date: 05/08/2017
-ms.author: bking
-ms.openlocfilehash: 7c074d5d25453e2b2a1ddfc32422790235815f1c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.topic: tutorial
+ms.date: 06/18/2019
+ms.author: aahi
+ms.openlocfilehash: cfe198352cae95227a76535544d55a6be0c66abc
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872517"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203249"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Générer un client de recherche d’application console en C#
 
@@ -38,7 +38,7 @@ Pour suivre le tutoriel, vous avez besoin des éléments suivants :
 
 Dans Visual Studio, créez un projet avec `Ctrl`+`Shift`+`N`.
 
-Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C# > Bureau classique Windows > Application console (.NET Framework)**.
+Dans la boîte de dialogue **Nouveau projet**, cliquez sur **Visual C# > Bureau classique Windows > Application console (.NET Framework)** .
 
 Nommez l’application **MyConsoleSearchApp**, puis cliquez sur **OK**.
 
@@ -46,7 +46,7 @@ Nommez l’application **MyConsoleSearchApp**, puis cliquez sur **OK**.
 
 Json.NET vous permet d’utiliser les réponses JSON retournées par l’API. Ajoutez son package NuGet à votre projet :
 
-- Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet...**.
+- Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet...** .
 - Sous l’onglet **Parcourir**, recherchez `Newtonsoft.Json`. Sélectionnez la version la plus récente, puis cliquez sur **Installer**.
 - Cliquez sur le bouton **OK** dans la fenêtre **Examiner les modifications**.
 - Fermez l’onglet de Visual Studio intitulé **NuGet : MyConsoleSearchApp**.
@@ -221,7 +221,7 @@ Avant de voir comment afficher les résultats dans un ordre de classement, exami
 }
 ```
 
-L’objet JSON `rankingResponse` ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) décrit l’ordre d’affichage approprié pour les résultats de la recherche. Il contient un ou plusieurs des groupes suivants, classés par ordre de priorité :
+L’objet JSON `rankingResponse` ([documentation](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)) décrit l’ordre d’affichage approprié pour les résultats de la recherche. Il contient un ou plusieurs des groupes suivants, classés par ordre de priorité :
 
 - `pole`: Résultats de la recherche qui doivent être les plus visibles (par exemple, affichés au-dessus de la partie principale et de l’encadré).
 - `mainline`: Résultats de la recherche à afficher dans la partie principale.

@@ -3,7 +3,7 @@ title: 'Exemple CLI : Équilibrer la charge des machines virtuelles au sein d’
 description: Cet exemple de script Azure CLI montre comment équilibrer la charge du trafic vers les machines virtuelles dans une zone de disponibilité spécifique
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -15,15 +15,15 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
-ms.author: kumud
-ms.openlocfilehash: 888808c94115e2ea136e90eb635faf28e7d92fd2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: allensu
+ms.openlocfilehash: 29671283a1ef2906e03685a59d62ccc13c1307fe
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431016"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273731"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemple de script CLI Azure : équilibrage de charge du trafic vers les machines virtuelles pour haute disponibilité
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemple de script Azure CLI : Équilibrer le trafic sur les machines virtuelles pour la haute disponibilité
 
 Cet exemple de script CLI Azure crée tous les éléments nécessaires pour exécuter plusieurs machines virtuelles Ubuntu configurées dans une configuration haute disponibilité avec équilibrage de la charge dans une zone de disponibilité spécifique. Une fois que vous avez exécuté le script, vous obtenez trois machines virtuelles dans une zone de disponibilité unique dans une région, qui sont accessibles par le biais d’Azure Load Balancer Standard. 
 

@@ -9,16 +9,16 @@ ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
 ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084740"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60563843"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installer le client Chef à partir du portail Azure
 Vous pouvez ajouter l’extension du client Chef directement sur une machine Linux ou Windows à partir du portail Azure. Cet article vous guide tout au long du processus, qui utilise une machine virtuelle Linux.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
@@ -55,7 +55,7 @@ Dans cette section, vous allez utiliser le portail Azure pour créer une machine
    - **Nom** : Entrez le nom de la nouvelle machine virtuelle.
    - **Type de disque de machine virtuelle** : spécifiez **SSD** ou **HDD** pour le type de disque de stockage. Pour plus d’informations sur les types de disques de machine virtuelle dans Azure, consultez l’article [Sélectionner un type de disque](../virtual-machines/windows/disks-types.md).
    - **Nom d’utilisateur** : entrez le nom d’un utilisateur qui dispose de privilèges d’administrateur sur la machine virtuelle.
-   - **Authentication type (Type d’authentification)** : sélectionnez **Password (Mot de passe)**. Vous pouvez également sélectionner **Clé publique SSH** et fournir une valeur pour cette clé. Pour cette démonstration (et dans les captures d’écran), **Mot de passe** est sélectionné.
+   - **Authentication type (Type d’authentification)** : sélectionnez **Password (Mot de passe)** . Vous pouvez également sélectionner **Clé publique SSH** et fournir une valeur pour cette clé. Pour cette démonstration (et dans les captures d’écran), **Mot de passe** est sélectionné.
    - **Mot de passe** et **Confirmer le mot de passe** : entrez un mot de passe pour l’utilisateur.
    - **Se connecter avec Azure Active Directory** : sélectionnez **Désactivé**.
    - **Abonnement** : sélectionnez l’abonnement Azure que vous souhaitez utiliser, si vous en avez plusieurs.
@@ -74,7 +74,7 @@ Dans cette section, vous allez utiliser le portail Azure pour créer une machine
 
      ![Sélection de l’option Ajouter une extension pour ajouter une extension à une machine virtuelle](./media/chef-extension-portal/add-vm-add-extension.png)
 
-1. Sous l’onglet **Nouvelle ressource**, sélectionnez **Linux Chef Extension (1.2.3)**.
+1. Sous l’onglet **Nouvelle ressource**, sélectionnez **Linux Chef Extension (1.2.3)** .
 
      ![Chef comprend des extensions pour les machines virtuelles Linux et Windows](./media/chef-extension-portal/select-linux-chef-extension.png)
 
@@ -82,7 +82,7 @@ Dans cette section, vous allez utiliser le portail Azure pour créer une machine
 
 1. Sous l’onglet **Installer l’extension**, spécifiez les valeurs suivantes, puis sélectionnez **OK**.
 
-    - **URL du serveur Chef** : entrez l’URL du serveur Chef qui comprend le nom de l’organisation, par exemple, *https://api.chef.io/organization/mycompany*.
+    - **URL du serveur Chef** : entrez l’URL du serveur Chef qui comprend le nom de l’organisation, par exemple, *https://api.chef.io/organization/mycompany* .
     - **Chef Node Name** (Nom du nœud Chef) : entrez le nom du nœud Chef. Vous pouvez utiliser n’importe quelle valeur.
     - **Run List** (Liste d’exécution) : entrez la liste d’exécution Chef qui est ajoutée à la machine. Cela champ peut être vide.
     - **Validation Client Name** (Nom du client de validation) : entrez le nom du client de validation Chef. Par exemple, *tarcher-validator*.

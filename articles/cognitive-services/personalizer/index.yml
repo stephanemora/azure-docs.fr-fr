@@ -1,0 +1,123 @@
+### YamlMime:Landing
+title: Documentation Personalizer
+summary: Apprenez à utiliser Personalizer pour permettre à votre application de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement en temps réel.
+metadata:
+  ms.topic: landing-page
+  ms.date: 09/10/2019
+  ms.author: nitinme
+  author: nitinme
+  ms.service: cognitive-services
+  ms.subservice: personalizer
+  services: cognitive-services
+  title: Documentation Personalizer
+  titleSuffix: Azure Cognitive Services
+  description: Azure Personalizer est un service d’API cloud qui vous permet de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement en temps réel.
+  ms.openlocfilehash: fd1b4a7c093beeb8d33579accee9178744b6fe50
+  ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/11/2019
+  ms.locfileid: "70882904"
+landingContent:
+- title: À propos de Personalizer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Personalizer ?
+      url: what-is-personalizer.md
+  - linkListType: concept
+    links:
+    - text: Fonctionnement de Personalizer
+      url: how-personalizer-works.md
+    - text: Où utiliser Personalizer ?
+      url: where-can-you-use-personalizer.md
+    - text: Éthique et utilisation responsable
+      url: ethics-responsible-use.md
+- title: Créer et utiliser une boucle Personalizer
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Choix des fonctionnalités et des actions à personnaliser
+      url: concepts-features.md
+    - text: Guide pratique pour calculer une récompense
+      url: concept-rewards.md
+  - linkListType: how-to-guide
+    links:
+    - text: Guide pratique pour créer et configurer Personalizer
+      url: how-to-settings.md
+  - linkListType: quickstart
+    links:
+    - text: Utilisation de .NET
+      url: csharp-quickstart-commandline-feedback-loop.md
+    - text: Utilisation de Python
+      url: python-quickstart-commandline-feedback-loop.md
+    - text: Node.js
+      url: quickstart-command-line-feedback-loop-nodejs-sdk.md
+- title: Développement avec Personalizer
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Développer une boucle Personalizer avec .NET
+      url: csharp-quickstart-commandline-feedback-loop.md
+    - text: Package NuGet
+      url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
+    - text: Documentation de référence sur NuGet
+      url: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
+  - linkListType: get-started
+    links:
+    - text: Développer une boucle Personalizer avec Node.js
+      url: quickstart-command-line-feedback-loop-nodejs-sdk.md
+    - text: Package NPM
+      url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
+  - linkListType: get-started
+    links:
+    - text: Développer une boucle Personalizer avec Python
+      url: python-quickstart-commandline-feedback-loop.md
+    - text: Package Pypi
+      url: https://pypi.org/project/azure-cognitiveservices-personalizer/
+  - linkListType: get-started
+    links:
+    - text: Exemples de code
+      url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
+    - text: API REST
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
+- title: À propos de l’apprentissage par renforcement
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que l’apprentissage par renforcement ?
+      url: concepts-reinforcement-learning.md
+  - linkListType: concept
+    links:
+    - text: Exploration
+      url: concepts-exploration.md
+    - text: Caractéristiques, action et contexte
+      url: concepts-features.md
+    - text: Apprentissage actif
+      url: concept-active-learning.md
+    - text: Récompenses
+      url: concept-rewards.md
+- title: Évaluer et améliorer le service
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Améliorer une boucle avec des évaluations hors connexion
+      url: concepts-offline-evaluation.md
+    - text: Apprentissage actif
+      url: concept-active-learning.md
+    - text: Scalabilité et performance
+      url: concepts-scalability-performance.md
+  - linkListType: how-to-guide
+    links:
+    - text: Analyser le succès avec une évaluation hors connexion
+      url: how-to-offline-evaluation.md
+- title: Aide et commentaires
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Résolution de problèmes
+      url: troubleshooting.md
+    - text: Poser des questions sur Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/personalizer
+    - text: Influencer le service avec UserVoice
+      url: https://cognitive.uservoice.com/forums/921562-personalizer

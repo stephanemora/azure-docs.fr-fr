@@ -7,12 +7,12 @@ author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756073"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65073784"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Didacticiel : Effectuer un déploiement sur Azure Kubernetes Service (AKS) à partir de GitHub avec l’intégration continue et le déploiement continu Jenkins
 
@@ -27,7 +27,7 @@ Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 > * Créer un travail de build Jenkins et un webhook GitHub pour les builds automatisées
 > * Tester le pipeline CI/CD pour mettre à jour une application dans AKS en fonction des validations de code GitHub
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour les besoins de ce tutoriel, vous devez disposer des éléments suivants :
 
@@ -48,6 +48,9 @@ Pour les besoins de ce tutoriel, vous devez disposer des éléments suivants :
 ## <a name="prepare-your-app"></a>Préparation de votre application
 
 Dans cet article, vous utilisez un exemple d’application de vote Azure qui contient une interface web hébergée dans un pod ou plus, un second pod qui héberge Redis pour du stockage de données temporaires. Avant d’intégrer Jenkins et AKS pour les déploiements automatisés, préparez et déployez d’abord manuellement l’application de vote Azure sur votre cluster AKS. Ce déploiement manuel est la version une de l’application, et vous permet de voir l’application en action.
+
+> [!NOTE]
+> L’exemple d’application de vote Azure utilise un pod Linux programmé pour s’exécuter sur un nœud Linux. Le flux décrit dans cet article fonctionne également pour un pod Windows Server programmé sur un nœud Windows Server.
 
 Dupliquez le référentiel GitHub suivant pour l’exemple d’application : [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis). Pour répliquer le référentiel dans votre propre compte GitHub, cliquez sur le bouton **Bifurcation** en haut à droite.
 
@@ -208,7 +211,7 @@ az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role
 
 Avec l’attribution de rôle créée dans Azure, stockez maintenant vos informations d’identification ACR dans un objet d’identification Jenkins. Ces informations d’identification sont référencées lors de la tâche de génération Jenkins.
 
-De retour à gauche du portail Jenkins, cliquez sur **Informations d’identification** > **Jenkins** > **Informations d’identification globales (sans restriction)** > **Ajouter des informations d’identification**
+De retour à gauche du portail Jenkins, cliquez sur **Informations d’identification** > **Jenkins** > **Informations d’identification globales (sans restriction)**  > **Ajouter des informations d’identification**
 
 Assurez-vous que le genre d’informations d’identification correspond à **Mot de passe avec nom d’utilisateur** puis entrez les informations suivantes :
 
@@ -227,8 +230,8 @@ Cliquez sur **OK** et retournez sur le portail Jenkins.
 Dans la page d’accueil de votre portail Jenkins, sélectionnez **Nouvel élément** à gauche :
 
 1. Entrez *azure-vote* comme nom du travail. Choisissez **Projet libre**, puis sélectionnez **OK**
-1. Sous le **général** section, sélectionnez **projet GitHub** et entrez l’URL de votre référentiel BIFURQUÉ, tel que *https :\//github.com/\<your-github-account\>/azure-voting-app-redis*
-1. Sous le **gestion du code Source** section, sélectionnez **Git**, entrez votre référentiel BIFURQUÉ *.git* URL, tel que *https :\//github.com/\<votre compte-github\>/azure-voting-app-redis.git*
+1. Dans la section **Général**, sélectionnez **GitHub project** (Projet GitHub), puis entrez l’URL de votre référentiel dupliqué, par exemple *https:\//github.com/\<your-github-account\>/azure-voting-app-redis*
+1. Dans la section **Gestion du code source**, sélectionnez **Git**, puis entrez l’URL *.git* de votre référentiel dupliqué, par exemple *https:\//github.com/\<your-github-account\>/azure-voting-app-redis.git*
 
 1. Dans la section **Déclencheurs de génération**, sélectionnez **Déclencher un hook GitHub pour l’interrogation GITScm**
 1. Sous **Environnement de build**, sélectionnez **Utiliser des textes ou fichiers secrets**

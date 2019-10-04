@@ -1,55 +1,73 @@
 ---
 title: Ajouter une couche de bulles dans Azure Maps | Microsoft Docs
-description: Comment ajouter une couche de bulles à une carte Javascript
+description: Guide pratique pour ajouter une couche de bulles au SDK web Azure Maps.
 author: rbrundritt
 ms.author: richbrun
-ms.date: 10/30/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 5cc5dbdc89f629c09d47ef683b7ff7fff61d2f49
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281486"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976571"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Ajouter une couche de bulles à une carte
 
-Cet article vous montre comment vous pouvez afficher des données de point sur une carte, à partir d’une source de données telle qu’une couche de bulles. Les couches de bulles affichent sur la carte des points sous la forme de cercles, avec un rayon de pixels fixe. 
+Cet article vous montre comment vous pouvez afficher des données de point sur une carte à partir d’une source de données telle qu’une couche de bulles. Les couches de bulles affichent sur la carte des points sous la forme de cercles, avec un rayon de pixels fixe. 
 
 > [!TIP]
-> Les couches de bulles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche, telle qu’elle s’affiche uniquement des point geometry fonctionnalités ensemble la `filter` propriété de la couche pour `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si vous souhaitez inclure également les fonctionnalités MultiPoint.
+> Les couches de bulles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche afin qu’elle n’affiche que les fonctionnalités de géométrie de point, définissez la propriété `filter` de la couche sur `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si vous voulez également inclure les fonctionnalités MultiPoint.
 
 ## <a name="add-a-bubble-layer"></a>Ajouter un calque de bulles
+
+Le code suivant charge un tableau de points dans une source de données et le connecte à une [couche de bulles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). La couche de bulles bénéficie d’options permettant d’afficher le rayon de chaque bulle à cinq pixels, le blanc comme couleur de remplissage, le bleu comme couleur de trait et une largeur de trait de six pixels. 
+
+```javascript
+//Add point locations.
+var points = [
+    new atlas.data.Point([-73.985708, 40.75773]),
+    new atlas.data.Point([-73.985600, 40.76542]),
+    new atlas.data.Point([-73.985550, 40.77900]),
+    new atlas.data.Point([-73.975550, 40.74859]),
+    new atlas.data.Point([-73.968900, 40.78859])
+];
+
+//Create a data source and add it to the map.
+var dataSource = new atlas.source.DataSource();
+map.sources.add(dataSource);
+
+//Add multiple points to the data source.
+dataSource.add(points);
+
+//Create a bubble layer to render the filled in area of the circle, and add it to the map.
+map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
+    radius: 5,
+    strokeColor: "#4288f7",
+    strokeWidth: 6, 
+    color: "white" 
+}));
+```
+
+Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonctionnalité ci-dessus.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='BubbleLayer DataSource' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>BubbleLayer DataSource</a> (Source de données de la couche de bulles) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur le site <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Dans le code ci-dessus, le premier bloc de code construit un objet de carte. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
-
-Dans le deuxième bloc de code, un tableau d’objets [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) est défini puis ajouté à l’objet [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest).
-
-Une [couche de bulles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) affiche les données basées sur les points, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que cercles sur la carte. Le dernier bloc de code crée une couche de bulles et l’ajoute à la carte. Consultez les propriétés d’une couche de bulles dans [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
-
-Le tableau d’objets Point, la source de données et la couche de bulles sont créés et ajoutés à la carte dans la fonction [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events), pour garantir que le cercle s’affichera après le chargement complet de la carte.
-
 ## <a name="show-labels-with-a-bubble-layer"></a>Afficher les étiquettes avec une couche de bulles
+
+Le code suivant vous montre comment utiliser une couche de bulles pour afficher un point sur la carte et une couche de symboles pour afficher une étiquette. Pour masquer l’icône de la couche de symboles, affectez la valeur `'none'` à la propriété `image` des options d’icône.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='MultiLayer DataSource' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>MultiLayer DataSource</a> (Source de données multicouche) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur le site <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-Le code ci-dessus montre comment visualiser et étiqueter des données sur la carte. Le premier bloc de code ci-dessus construit un objet carte. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
-
-Le deuxième bloc de code crée un objet [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest). Il crée ensuite un objet source de données à l’aide de la classe [data source](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest), puis ajoute le point à la source de données.
-
-Une [couche de bulles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) affiche les données basées sur les points, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que cercles sur la carte. Le troisième bloc de code crée une couche de bulles et l’ajoute à la carte. Consultez les propriétés d’une couche de bulles dans [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions).
-
-Une [couche de symboles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) utilise du texte ou des icônes pour afficher les données basées sur le point, qui sont wrappées dans la [source de données](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) en tant que symboles sur la carte. Le dernier bloc de code crée et ajoute une couche de symboles à la carte qui affiche l’étiquette de texte de la bulle. Consultez les propriétés d’une couche de symboles à la page [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions).
-
-La source de données et les couches sont créées et ajoutées à la carte dans la fonction [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events), pour garantir que les données s’afficheront après le chargement complet de la carte.
 
 ## <a name="customize-a-bubble-layer"></a>Personnaliser une couche de bulles
 
@@ -73,7 +91,13 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
+> [Créer une source de données](create-data-source-web-sdk.md)
+
+> [!div class="nextstepaction"]
 > [Ajouter une couche de symboles](map-add-pin.md)
 
 > [!div class="nextstepaction"]
 > [Utiliser des expressions de style basées sur les données](data-driven-style-expressions-web-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Exemples de code](https://docs.microsoft.com/samples/browse/?products=azure-maps)

@@ -1,21 +1,21 @@
 ---
 title: Présentation de l’intégration des messages Azure Blockchain Workbench
-description: Présentation de l’utilisation des messages dans Azure Blockchain Workbench.
+description: Vue d’ensemble de l’utilisation des messages dans Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/21/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: f0a9e90f1208d690c2423196be7f59dce71eb78b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878079"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844062"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Intégration des messages Azure Blockchain Workbench
 
@@ -69,7 +69,7 @@ Blockchain Workbench retourne une réponse avec les champs suivants :
 | connectionId          | Identificateur unique de la connexion blockchain|
 | messageSchemaVersion  | Version du schéma de messagerie |
 | messageName           | **CreateUserUpdate** |
-| status                | État de la demande de création d’utilisateur.  En cas de réussite, la valeur est **Succès**. En cas d’échec, la valeur est **Échec**.     |
+| status                | État de la demande de création d’utilisateur.  En cas de réussite, la valeur est **Success**. En cas d’échec, la valeur est **Failure**.     |
 | additionalInformation | Informations supplémentaires fournies en fonction de l’état |
 
 Exemple de réponse **create user** réussie de Blockchain Workbench :
@@ -171,7 +171,7 @@ Exemple d’une réponse **create contract** envoyée à partir de Blockchain Wo
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractUpdate",
-    "status": "Submitted"
+    "status": "Submitted",
     "additionalInformation": { }
 }
 ```
@@ -201,7 +201,7 @@ Si la demande a échoué, les détails sur l’échec sont inclus dans les infor
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractUpdate",
-    "status": "Failure"
+    "status": "Failure",
     "additionalInformation": {
         "errorCode": 4000,
         "errorMessage": "Contract cannot be provisioned on connection."
@@ -287,7 +287,7 @@ Exemple d’une réponse **create contract action** validée à partir de Blockc
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractActionUpdate",
-    "status": "Committed"
+    "status": "Committed",
     "additionalInformation": { }
 }
 ```
@@ -301,7 +301,7 @@ Si la demande a échoué, les détails sur l’échec sont inclus dans les infor
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractActionUpdate",
-    "status": "Failure"
+    "status": "Failure",
     "additionalInformation": {
         "errorCode": 4000,
         "errorMessage": "Contract action cannot be provisioned on connection."
@@ -368,14 +368,14 @@ Des rubriques Service Bus peuvent être utilisées pour informer les utilisateur
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>Consommation des messages Service Bus avec Logic Apps
 
 1. Créez une **application logique Azure** dans le portail Azure.
-2. Lorsque vous ouvrez l’application logique Azure dans le portail, vous êtes invité à sélectionner un déclencheur. Tapez **Service Bus** dans la zone de recherche et sélectionnez le déclencheur approprié pour le type d’interaction que vous souhaitez avoir avec Service Bus. Par exemple, **Service Bus -- Quand une rubrique abonnement reçoit un message (saisie semi-automatique)**.
+2. Lorsque vous ouvrez l’application logique Azure dans le portail, vous êtes invité à sélectionner un déclencheur. Tapez **Service Bus** dans la zone de recherche et sélectionnez le déclencheur approprié pour le type d’interaction que vous souhaitez avoir avec Service Bus. Par exemple, **Service Bus -- Quand une rubrique abonnement reçoit un message (saisie semi-automatique)** .
 3. Lorsque le Concepteur de flux de travail s’affiche, spécifiez les informations de connexion à Service Bus.
 4. Sélectionnez votre abonnement et spécifiez la rubrique de **workbench-external**.
 5. Développez la logique de votre application qui utilise le message à partir de ce déclencheur.
 
 ## <a name="notification-message-reference"></a>Référence sur les messages de notification
 
-Selon le **messageName**, les messages de notification ont un des types de messages suivants.
+En fonction de **messageName**, les messages de notification ont l’un des types suivants.
 
 ### <a name="block-message"></a>Message de bloc
 
@@ -415,7 +415,7 @@ Exemple de *BlockMessage* de Blockchain Workbench :
 ``` json
 {
     "block": {
-        "blockId": 123
+        "blockId": 123,
         "blockNumber": 1738312,
         "blockHash": "0x03a39411e25e25b47d0ec6433b73b488554a4a5f6b1a253e0ac8a200d13fffff",
         "previousBlockHash": null,
@@ -423,14 +423,14 @@ Exemple de *BlockMessage* de Blockchain Workbench :
     },
     "transactions": [
         {
-            "transactionId": 234
+            "transactionId": 234,
             "transactionHash": "0xa4d9c95b581f299e41b8cc193dd742ef5a1d3a4ddf97bd11b80d123fec27ffff",
             "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
             "to": null,
             "provisioningStatus": 1
         },
         {
-            "transactionId": 235
+            "transactionId": 235,
             "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
             "from": "0xadd97e1e595916e29ea94fda894941574000ffff",
             "to": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff",
@@ -678,7 +678,7 @@ Contient des informations indiquant quand une application est chargée sur Workb
 | id | Identificateur unique pour le workflow d’application dans Azure Blockchain Workbench |
 | Nom | Nom du workflow d’application |
 | displayName | Nom d’affichage du workflow d’application |
-| functions | Collection de [fonctions pour le flux de travail d’application](#workflow-function-information)|
+| functions | Collection de [fonctions pour le workflow d’application](#workflow-function-information)|
 | unis | Collection d’[états pour le workflow d’application](#workflow-state-information) |
 | properties | [Informations des propriétés de workflow](#workflow-property-information) d’application |
 
@@ -715,7 +715,7 @@ Exemple de *EventMessage ApplicationIngestion* de Blockchain Workbench :
     "applicationName": "AssetTransfer",
     "applicationDisplayName": "Asset Transfer",
     "applicationVersion": “1.0”,
-    "applicationDefinitionLocation": "http://url"
+    "applicationDefinitionLocation": "http://url",
     "contractCodes": [
         {
             "id": 23,
@@ -805,7 +805,7 @@ Exemple de *EventMessage ApplicationIngestion* de Blockchain Workbench :
                 }
             ]
         }
-    ]
+    ],
     "connectionId": [ ],
     "messageSchemaVersion": "1.0.0",
     "messageName": "EventMessage",
@@ -817,7 +817,7 @@ Exemple de *EventMessage ApplicationIngestion* de Blockchain Workbench :
                     "Name": "BuyerAccepted",
                     "Transitions": [
                         {
-                            "DisplayName": "Accept"
+                            "DisplayName": "Accept",
                             "AllowedRoles": [ ],
                             "AllowedInstanceRoles": [ "InstanceOwner" ],
                             "Function": "Accept",

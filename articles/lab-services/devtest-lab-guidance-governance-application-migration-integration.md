@@ -14,11 +14,11 @@ ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 75ce5d6a88b5398bd010cc363b4241bc90068f55
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436573"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60192997"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Gouvernance de l’infrastructure d’Azure DevTest Labs - Migration et intégration d’applications
 Une vois votre environnement de développement/test en place, posez-vous les questions suivantes :
@@ -117,7 +117,7 @@ Existe-t-il une règle spécifiant le nombre de machines virtuelles à définir 
 Pour évaluer le nombre de machines virtuelles par utilisateur ou par labo, trois facteurs principaux sont à prendre en compte :
 
 - Le **coût total** que l’équipe peut consacrer aux ressources du labo. Avec de nombreuses machines, il est facile de mettre en place une rotation. Pour maîtriser les coûts, il est possible de limiter le nombre de machines virtuelles par utilisateur et/ou par labo
-- Le nombre totale de machines virtuelles dans un labo est fonction des [quotas d’abonnement](../azure-subscription-service-limits.md) disponibles. L’une des limites supérieures est de 800 groupes de ressources par abonnement. Actuellement, DevTest Labs crée un groupe de ressources pour chaque machine virtuelle (sauf si des adresses IP publiques partagées sont utilisées). S’il existe 10 labs dans un abonnement, laboratoires peut contenir environ 79 des machines virtuelles dans chaque laboratoire (limite supérieure 800 – 10 groupes de ressources pour les 10 laboratoires eux-mêmes) = 79 machines virtuelles par laboratoire.
+- Le nombre totale de machines virtuelles dans un labo est fonction des [quotas d’abonnement](../azure-subscription-service-limits.md) disponibles. L’une des limites supérieures est de 800 groupes de ressources par abonnement. Actuellement, DevTest Labs crée un groupe de ressources pour chaque machine virtuelle (sauf si des adresses IP publiques partagées sont utilisées). Si un abonnement compte 10 labos, ceux-ci peuvent accueillir chacun environ 79 machines virtuelles (limite supérieure de 800 – 10 groupes de ressources pour les 10 labos) = 79 machines virtuelles par labo.
 - Si le labo est connecté localement par Express Route (par exemple), des **espaces d’adressage IP sont définis** pour le réseau virtuel/sous-réseau. Pour vérifier que les machines virtuelles du labo sont effectivement créés (erreur : impossible d’obtenir l’adresse IP), les propriétaires de labo peuvent spécifier un nombre maximum de machines virtuelles par labo correspondant à l’espace d’adressage IP disponible.
 
 ## <a name="use-resource-manager-templates"></a>Utiliser des modèles Resource Manager

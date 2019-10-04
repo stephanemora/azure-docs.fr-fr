@@ -1,10 +1,10 @@
 ---
-title: Inscrire une application à l’aide de la plateforme d’identités Microsoft (préversion) | Azure
+title: Inscrire une application avec la plateforme d’identités Microsoft | Plateforme d’identités Microsoft
 description: Découvrez comment ajouter et inscrire une application à l’aide de la plateforme d’identités Microsoft.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
-ms.author: celested
-ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.date: 05/09/2019
+ms.author: ryanwi
+ms.custom: aaddev, identityplatformtop40
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 80040aab0ea9d1444e1afd77d45d990f3d05f0de
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090710"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853022"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft (préversion)
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
 Les développeurs et les fournisseurs de logiciels en tant que service (SaaS) peuvent développer des services cloud commerciaux ou des applications métier qui peuvent être intégrés à la plateforme d’identités Microsoft pour fournir un processus de connexion et d’autorisation sécurisé à leurs services.
 
-Ce guide de démarrage rapide vous explique comment ajouter et inscrire une application à l’aide de l’expérience **Inscriptions d’applications (préversion)** dans le portail Azure, afin de l’intégrer à la plateforme d’identités Microsoft. Pour en savoir plus sur les nouvelles fonctionnalités et les améliorations de la nouvelle expérience permettant d’inscrire des applications, consultez [ce billet de blog](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
-
-## <a name="prerequisite"></a>Configuration requise
-
-Pour démarrer, vous devez intégrer l’expérience de préversion pour les inscriptions d’applications dans le portail Azure. Les étapes figurant dans ce démarrage rapide correspondent à la nouvelle interface utilisateur et ne fonctionnent que si vous participez à l’expérience de préversion.
+Ce guide de démarrage rapide vous explique comment ajouter et inscrire une application à l’aide de l’expérience **Inscriptions d’applications** dans le portail Azure afin de l’intégrer à la plateforme d’identités Microsoft. Pour en savoir plus sur les nouvelles fonctionnalités et les améliorations de la nouvelle expérience permettant d’inscrire des applications, consultez [ce billet de blog](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Inscrire une nouvelle application à l’aide du Portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, puis sélectionnez **Inscriptions d’applications (préversion) > Nouvelle inscription**.
+1. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis sélectionnez **Inscriptions d’applications > Nouvelle inscription**.
 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
 
    - **Nom** : saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application.
@@ -50,19 +46,19 @@ Pour démarrer, vous devez intégrer l’expérience de préversion pour les ins
        | **Comptes dans un annuaire organisationnel** | Sélectionnez cette option si vous voulez cibler tous les clients professionnels ou du domaine éducatif.<br><br>Cette option ne mappe qu’à un compte Azure AD multi-locataire.<br><br>Si vous avez inscrit l’application comme compte Azure AD à locataire unique seulement, vous pouvez le mettre à jour vers un compte Azure AD multi-locataire et inversement via le panneau **Authentification**. |
        | **Comptes dans un annuaire organisationnel et comptes personnels Microsoft** | Sélectionnez cette option pour cibler l’ensemble le plus large de clients.<br><br>Cette option mappe à des comptes Microsoft personnels et Azure AD multi-locataires.<br><br>Si vous avez inscrit l’application comme comptes Microsoft personnels et Azure AD multi-locataires, vous ne pouvez pas modifier cela dans l’interface utilisateur. Vous devez utiliser l’éditeur de manifeste de l’application pour modifier les types de compte pris en charge. |
 
-   - **URI de redirection (facultatif)** : sélectionnez le type d’application que vous créez, **Web** ou **Client public (mobile et bureau)**, puis entrez l’URI de redirection (ou URL de réponse).
+   - **URI de redirection (facultatif)** : sélectionnez le type d’application que vous créez, **Web** ou **Client public (mobile et bureau)** , puis entrez l’URI de redirection (ou URL de réponse).
        - Pour les applications web, indiquez l’URL de base de votre application. Par exemple, `http://localhost:31544` peut être l’URL pour une application web en cours d’exécution sur votre ordinateur local. Les utilisateurs peuvent utiliser cette URL pour se connecter à une application web cliente.
        - Pour les applications de client public, indiquez l’URI utilisé par Azure AD pour retourner les réponses de jeton. Entrez une valeur spécifique de votre application, par exemple, `myapp://auth`.
 
-     Pour voir des exemples spécifiques pour les applications web ou natives, consultez les [Guides de démarrage rapides](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).
+     Pour voir des exemples spécifiques pour les applications web ou natives, consultez les [Guides de démarrage rapides](https://docs.microsoft.com/azure/active-directory/develop).
 
 1. Lorsque vous avez terminé, sélectionnez **Inscrire**.
 
-    [![Inscrire une nouvelle application dans le portail Azure](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
+    [![Affiche l’écran d’enregistrement d’une nouvelle application dans le portail Azure](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
 Azure AD assigne un ID d’application unique (client) à votre application, et vous êtes redirigé vers la page **Vue d’ensemble** de votre application. Pour ajouter des fonctionnalités supplémentaires à votre application, vous pouvez sélectionner d’autres options de configuration, dont la personnalisation, les certificats et les secrets, les autorisations API, et plus encore.
 
-[![Page Vue d’ensemble d’une application nouvellement inscrite](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+[![Exemple de page de vue d’ensemble d’application nouvellement inscrite](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -71,6 +67,6 @@ Azure AD assigne un ID d’application unique (client) à votre application, et 
     - [Configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md)
     - [Configurer une application pour exposer les API web](quickstart-configure-app-expose-web-apis.md)
     - [Modifier les comptes pris en charge par une application](quickstart-modify-supported-accounts.md)
-- Choisissez un [guide de démarrage rapide](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts) pour rapidement générer une application et ajouter des fonctionnalités telles que l’obtention de jetons, l’actualisation de jetons, la connexion d’un utilisateur et l’affichage des informations utilisateur et bien plus encore.
+- Choisissez un [guide de démarrage rapide](https://docs.microsoft.com/azure/active-directory/develop) pour rapidement générer une application et ajouter des fonctionnalités telles que l’obtention de jetons, l’actualisation de jetons, la connexion d’un utilisateur et l’affichage des informations utilisateur et bien plus encore.
 - Pour en savoir plus sur les deux objets Azure AD représentant une application inscrite et la relation entre ces objets, consultez [Objets application et principal du service dans Azure Active Directory (Azure AD)](app-objects-and-service-principals.md).
 - Pour en savoir plus sur les directives de personnalisation que vous devez suivre lors du développement d’applications, consultez [Directives de personnalisation des applications](howto-add-branding-in-azure-ad-apps.md).

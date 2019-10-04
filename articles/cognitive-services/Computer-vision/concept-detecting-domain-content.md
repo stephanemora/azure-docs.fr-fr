@@ -1,5 +1,5 @@
 ---
-title: Détecter du contenu spécifique à un domaine - Vision par ordinateur
+title: Contenu spécifique à un domaine - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
 description: Apprenez à spécifier un domaine de catégorisation d'image pour renvoyer des informations plus détaillées sur une image.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994484"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946337"
 ---
 # <a name="detect-domain-specific-content"></a>Détecter le contenu spécifique à un domaine
 
@@ -30,7 +30,7 @@ Vous pouvez analyser une image à l'aide du modèle spécifique au domaine chois
 
 Voici un exemple de réponse JSON renvoyé par l'API **models/celebrities/analyze** pour l'image donnée :
 
-![Satya Nadella permanent, souriant](./images/satya.jpeg)
+![Satya Nadella debout, souriant](./images/satya.jpeg)
 
 ```json
 {
@@ -100,7 +100,7 @@ La réponse JSON suivante montre comment une analyse spécifique à un domaine p
 
 Le service Vision par ordinateur prend actuellement en charge les modèles spécifiques à un domaine suivants :
 
-| Name | Description |
+| Nom | Description |
 |------|-------------|
 | celebrities | Reconnaissance des célébrités, prise en charge pour les images classées dans la catégorie `people_` |
 | landmarks | Reconnaissance des points de repère, prise en charge pour les images classées dans les catégories `outdoor_` ou `building_` |

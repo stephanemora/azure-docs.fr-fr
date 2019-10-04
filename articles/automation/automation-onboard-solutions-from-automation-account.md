@@ -3,18 +3,18 @@ title: Découvrez comment intégrer les solutions Update Management, Change Trac
 description: Découvrez comment intégrer une machine virtuelle Azure avec Update Management, Change Tracking et Inventory qui font partie d’Azure Automation.
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 3c27c268ed2a1c369c9b42bd1cd5a2365547c52f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578439"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667456"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -28,31 +28,14 @@ Se connecter à Azure à https://portal.azure.com
 
 Accédez à votre compte Automation et sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**.
 
-Choisissez l’espace de travail Analytique de journal et le compte Automation puis cliquez sur **activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
+Choisissez l’espace de travail Log Analytics et un compte Automation, puis cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
 
 ![Intégrer la solution Inventory](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Lorsque vous activez des solutions, uniquement dans certaines régions sont prises en charge pour la liaison d’un espace de travail Analytique de journal et un compte Automation.
-
-Le tableau suivant renseigne sur les mappages pris en charge :
-
-|**Région de l’espace de travail Log Analytics**|**Région Azure Automation**|
-|---|---|
-|AustralieSudEst|AustralieSudEst|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|USAEst2|
-|JaponEst|JaponEst|
-|AsieSudEst|AsieSudEst|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|RoyaumeUniSud|RoyaumeUniSud|
-|USGovVirginie|USGovVirginie|
-|EastUS2EUAP<sup>1</sup>|USACentreEUAP|
-
-<sup>1</sup> EastUS2EUAP et EastUS des mappages d’espaces de travail Analytique de journal aux comptes Automation ne sont pas un mappage précis de la région à une autre, mais est le mappage correct.
-
-<sup>2</sup> en raison des restrictions de capacité la région n’est pas disponible lors de la création de nouvelles ressources. Cela inclut les espaces de travail comptes Automation et d’Analytique de journal. Toutefois, les ressources liées préexistants dans la région doivent continuer à fonctionner.
+> [!NOTE]
+> Lors de l’activation de solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
+>
+> Pour obtenir la liste des paires de mappages prises en charge, consultez [Mappage de région pour un compte Automation et l’espace de travail Log Analytics](how-to/region-mappings.md).
 
 La solution Change Tracking et Inventory fournit la possibilité de [suivre les changements](automation-vm-change-tracking.md) et de [faire l’inventaire](automation-vm-inventory.md) de vos machines virtuelles. Dans cette étape, vous activez la solution sur une machine virtuelle.
 
@@ -60,7 +43,7 @@ Quand vous recevez la notification d’intégration de la solution Change Tracki
 
 La solution Update Management vous permet de gérer les mises à jour et les correctifs pour vos machines virtuelles Microsoft Azure. Vous pouvez évaluer l’état des mises à jour disponibles, planifier l’installation des mises à jour obligatoires et examiner les résultats des déploiements pour vérifier que les mises à jour ont été appliquées à la machine virtuelle. Cette action a permis d’activer la solution pour votre machine virtuelle.
 
-Sélectionnez **Update Management** sous **UPDATE MANAGEMENT**. L’espace de travail Analytique de journal sélectionné est le même espace de travail utilisé dans l’étape précédente. Cliquez sur **Activer** pour intégrer la solution Update Management. L’activation de la solution prend jusqu’à 15 minutes.
+Sélectionnez **Update Management** sous **UPDATE MANAGEMENT**. L’espace de travail Log Analytics sélectionné est le même que celui utilisé à l’étape précédente. Cliquez sur **Activer** pour intégrer la solution Update Management. L’activation de la solution prend jusqu’à 15 minutes.
 
 ![Intégrer la solution Update](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
@@ -121,6 +104,8 @@ Pour activer la solution sur toutes les machines disponibles, sélectionnez **Ac
 
 Pour activer la solution sur toutes les machines disponibles et les futures machines, sélectionnez **Activer sur tous les ordinateurs disponibles et à venir**. Cette option supprime les recherches enregistrées et les configurations d’étendue de l’espace de travail. Cette action ouvre la solution à toutes les machines Azure et non-Azure qui envoient des informations à l’espace de travail. Quand cette option est sélectionnée, le bouton **Gérer des machines** est désactivé définitivement, car il n’existe plus aucune configuration d’étendue.
 
+Vous pouvez rajouter les configurations d’étendue en rajoutant les recherches enregistrées initiales. Pour plus d'informations, consultez [Recherches enregistrées](#saved-searches).
+
 ### <a name="selected-machines"></a>Machines sélectionnées
 
 Pour activer la solution sur une ou plusieurs machines, sélectionnez **Activer sur les machines sélectionnées** et cliquez sur **Ajouter** en regard de chaque machine à ajouter à la solution. Cette tâche ajoute les noms de machine sélectionnés à la requête de recherche enregistrée de groupe d’ordinateurs pour la solution.
@@ -133,7 +118,7 @@ Les solutions ci-après sont tributaires d’un espace de travail Log Analytics 
 * [Suivi des modifications](automation-change-tracking.md)
 * [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
 
-Si vous décidez que vous ne souhaitez plus intégrer votre compte Automation à un espace de travail Analytique de journal, vous pouvez dissocier votre compte directement depuis le portail Azure.  Avant de poursuivre, vous devez d’abord supprimer les solutions mentionnées précédemment, sinon la procédure ne peut pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
+Si vous ne souhaitez plus intégrer votre compte Automation à un espace de travail Log Analytics, vous pouvez supprimer son lien directement dans le portail Azure.  Avant de poursuivre, vous devez d’abord supprimer les solutions mentionnées précédemment, sinon la procédure ne peut pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
 
 Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivantes pour supprimer le lien de votre compte Automation.
 
@@ -161,6 +146,8 @@ Si vous avez utilisé la solution Démarrer et Arrêter des machines virtuelles 
 * Start and stop VM runbook schedules (Démarrer et arrêter les planifications de Runbook de machine virtuelle)
 * Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
 * variables
+
+Vous pouvez également dissocier votre espace de travail de votre compte Automation à partir de votre espace de travail Log Analytics. Dans votre espace de travail, sélectionnez **Compte Automation** sous **Ressources connexes**. Sur la page du compte Automation, sélectionnez **Dissocier le compte**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -2,7 +2,7 @@
 title: Activation de la synchronisation hors connexion pour votre application Azure Mobile App (Cordova) | Microsoft Docs
 description: Découvrez comment utiliser App Service Mobile App pour mettre en cache et synchroniser des données hors connexion dans votre application Cordova
 documentationcenter: cordova
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,18 +12,23 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-ms.openlocfilehash: 44c54b570a38eb1a3b9ca773893599d1d497dfa2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 04c8e7b2b60a60f17c49862d5c17793c16456032
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972148"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443519"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Activation de la synchronisation hors connexion pour votre application mobile Cordova
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
+> [!NOTE]
+> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-offline-data) dès aujourd’hui.
+>
+
+## <a name="overview"></a>Vue d'ensemble
 Ce didacticiel présente la fonctionnalité de synchronisation hors connexion d’Azure Mobile Apps pour Cordova. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile &mdash;pour afficher, ajouter ou modifier des données&mdash;, même lorsqu’il n’existe aucune connexion réseau. Les modifications sont stockées dans une base de données locale.  Une fois l'appareil de nouveau en ligne, ces modifications sont synchronisées avec le service distant.
 
 Ce didacticiel est basé sur la solution de démarrage rapide de Cordova pour les applications mobiles créées en suivant le didacticiel [Démarrage rapide Apache Cordova]. Dans ce didacticiel, vous allez mettre à jour la solution de démarrage rapide pour ajouter les fonctionnalités hors connexion d’Azure Mobile Apps.  Vous en découvrez également plus sur le code hors connexion spécifique dans l’application.
@@ -128,7 +133,7 @@ Le code de synchronisation hors connexion doit être ajouté à l’application.
           syncContext.pull(new WindowsAzure.Query('todoitem'));
         }
 
-    Vous décidez du moment auquel envoyer les modifications au serveur principal Mobile App en appelant **syncContext.push()**. Par exemple, vous pouvez appeler **syncBackend** dans un gestionnaire d’événement de bouton lié à un bouton de synchronisation.
+    Vous décidez du moment auquel envoyer les modifications au serveur principal Mobile App en appelant **syncContext.push()** . Par exemple, vous pouvez appeler **syncBackend** dans un gestionnaire d’événement de bouton lié à un bouton de synchronisation.
 
 ## <a name="offline-sync-considerations"></a>Considérations relatives à la synchronisation hors connexion
 

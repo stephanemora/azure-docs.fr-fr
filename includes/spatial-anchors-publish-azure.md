@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305361"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176752"
 ---
 ### <a name="open-the-publish-wizard"></a>Ouvrir l’Assistant de publication
 
@@ -44,8 +44,8 @@ Dans la boîte de dialogue **Configurer le plan d’hébergement**, utilisez ces
 | Paramètre | Valeur suggérée | Description |
 |-|-|-|
 |Plan App Service| MySharingServicePlan | Nom du plan App Service. |
-| Lieu | USA Ouest | Centre de données dans lequel l’application web est hébergée. |
-| Taille | Gratuit | [Niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) déterminant les fonctionnalités d’hébergement. |
+| Location | USA Ouest | Centre de données dans lequel l’application web est hébergée. |
+| Size | Gratuit | [Niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) déterminant les fonctionnalités d’hébergement. |
 
 Sélectionnez **OK**.
 

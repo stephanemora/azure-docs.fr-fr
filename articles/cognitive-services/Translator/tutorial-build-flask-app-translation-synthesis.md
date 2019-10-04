@@ -3,19 +3,19 @@ title: 'Didacticiel : Créer une application Flask pour traduire, synthétiser e
 titleSuffix: Azure Cognitive Services
 description: 'Dans ce tutoriel, vous allez créer une application web Flask qui utilise Azure Cognitive Services pour traduire du texte, analyser les sentiments et synthétiser du texte traduit en voix. Notre objectif principal est le code Python et les routes Flask qui servent de base à notre application. Nous ne passerons pas beaucoup de temps sur le code Javascript qui contrôle l’application : nous fournissons tous les fichiers, que vous pouvez examiner.'
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.author: erhopf
-ms.openlocfilehash: 69e6797e91fc645e3bd3e3b300cea6852a662214
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.date: 06/04/2019
+ms.author: swmachan
+ms.openlocfilehash: 8d85db0e9aa9da48713ca0c119a12160cc99dbff
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59007401"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671841"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Didacticiel : Créer une application Flask avec Azure Cognitive Services
 
@@ -42,13 +42,13 @@ Flask est un microframework pour la création d’applications web. Cela signifi
 Pour ceux d’entre vous qui souhaitent plus d’informations après ce tutoriel, voici quelques liens utiles :
 
 * [Documentation de Flask](http://flask.pocoo.org/)
-* [Flask for Dummies - A Beginner’s Guide to Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
+* [Flask for Dummies - A Beginner’s Guide to Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
 ## <a name="prerequisites"></a>Prérequis
 
 Passons en revue les logiciels et les clés d’abonnement dont vous avez besoin pour ce tutoriel.
 
-* [Python 3.5.2 ou ultérieur](https://www.python.org/downloads/)
+* [Python version 3.5.2 ou ultérieure](https://www.python.org/downloads/)
 * [Outils Git](https://git-scm.com/downloads)
 * Un IDE ou un éditeur de texte, comme [Visual Studio Code](https://code.visualstudio.com/) ou [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) ou [Firefox](https://www.mozilla.org/firefox)
@@ -95,7 +95,7 @@ Créons un environnement virtuel pour notre application Flask avec `virtualenv`.
    ```
    Nous avons déclaré explicitement que l’environnement virtuel devait utiliser Python 3. Ceci garantit que les utilisateurs ayant plusieurs installations de Python utilisent la version correcte.
 
-   **Windows CMD / Windows Bash :**
+   **Windows CMD / Windows Bash :**
    ```
    virtualenv venv
    ```
@@ -106,7 +106,7 @@ Créons un environnement virtuel pour notre application Flask avec `virtualenv`.
    | Plateforme | Shell | Commande |
    |----------|-------|---------|
    | macOS/Linux | bash/zsh | `source venv/bin/activate` |
-   |  Windows | bash | `source venv/Scripts/activate` |
+   | Windows | bash | `source venv/Scripts/activate` |
    | | Ligne de commande | `venv\Scripts\activate.bat` |
    | | PowerShell | `venv\Scripts\Activate.ps1` |
 
@@ -262,7 +262,8 @@ La première chose à faire est d’écrire une fonction pour appeler l’API Tr
    # Don't forget to replace with your Cog Services subscription key!
    # If you prefer to use environment variables, see Extra Credit for more info.
    subscription_key = 'YOUR_TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
-
+   
+   # Don't forget to replace with your Cog Services location!
    # Our Flask route will supply two arguments: text_input and language_output.
    # When the translate text button is pressed in our Flask app, the Ajax request
    # will grab these values from our web app, and use them in the request.
@@ -275,6 +276,7 @@ La première chose à faire est d’écrire une fonction pour appeler l’API Tr
 
        headers = {
            'Ocp-Apim-Subscription-Key': subscription_key,
+           'Ocp-Apim-Subscription-Region': 'location',
            'Content-type': 'application/json',
            'X-ClientTraceId': str(uuid.uuid4())
        }
@@ -667,7 +669,7 @@ Dans cette section, vous allez effectuer quelques opérations :
 
 ### <a name="call-the-text-to-speech-api"></a>Appeler l’API Synthèse vocale
 
-Écrivons une fonction pour convertir du texte en voix. Cette fonction prend deux arguments : `input_text` et `voice_font`. Cette fonction est appelée chaque fois qu’un utilisateur appuie sur le bouton Convert text-to-speech (Convertir du texte en voix) dans votre application. `input_text` est le résultat de la traduction retournée par l’appel pour traduire du texte, `voice_font` est la valeur du sélecteur de police de la voix dans le HTML.
+Écrivons une fonction pour convertir du texte en voix. Cette fonction prend deux arguments : `input_text` et `voice_font`. Cette fonction est appelée chaque fois qu’un utilisateur appuie sur le bouton Convert text-to-speech (Convertir du texte en voix) dans votre application. `input_text` est le résultat de la traduction retournée par l’appel pour traduire du texte ; `voice_font` est la valeur du sélecteur de police de la voix dans le code HTML.
 
 1. Créons un fichier appelé `synthesize.py` à la racine de votre répertoire de travail.
 
@@ -959,6 +961,6 @@ Le code source de ce projet est disponible sur [GitHub](https://github.com/Micro
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Informations de référence sur l’API Traduction de texte](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Référence d’API Translator Text](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
 * [Informations de référence sur l’API Analyse de texte](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [Référence de l’API Conversion de texte par synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
+* [Référence sur l’API conversion de texte par synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)

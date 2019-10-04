@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452655"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60562529"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gérer les formules Azure DevTest Labs
 
@@ -44,7 +44,7 @@ Les étapes suivantes vous guideront tout au long du processus de création d’
 
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
 
-4. Dans la page du laboratoire, sélectionnez **Formules (bases réutilisables)**.
+4. Dans la page du laboratoire, sélectionnez **Formules (bases réutilisables)** .
    
     ![Menu de formule](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
@@ -69,7 +69,7 @@ Les étapes suivantes vous guideront tout au long du processus de création d’
     - **Configuration de l’adresse IP** - Spécifiez si vous souhaitez que les adresses IP soient partagées, privées ou publiques. Pour plus d’informations sur les adresses IP partagées, consultez [Comprendre les adresses IP partagées dans Azure DevTest Labs](./devtest-lab-shared-ip.md).
     - **Date et heure d’expiration** : spécifiez la date et l’heure d’expiration de la machine virtuelle afin qu’elle soit automatiquement supprimée. 
     - **Make this machine claimable** (Rendre cette machine exigible) - Lorsqu’une machine est « exigible », cela signifie qu’aucune propriété ne lui sera affectée au moment de la création. En revanche, les utilisateurs du laboratoire seront en mesure de prendre possession de la machine (de la « revendiquer ») dans la page du laboratoire.     
-    - **Nombre d’instances exigibles** -spécifier combien d’instances exigibles que vous souhaitez créer. 
+    - **Nombre d’instances revendicables** : indiquez le nombre d’instances revendicables à créer. 
 8. Sélectionnez **Envoyer** pour créer la formule.
 
 9. Une fois la formule créée, elle s’affiche dans la liste de la page **Formules**.
@@ -88,7 +88,7 @@ Les étapes suivantes vous guident dans le processus de création d’une formul
 4. Dans la page **Vue d’ensemble** du laboratoire, sélectionnez la machine virtuelle à partir de laquelle vous souhaitez créer la formule.
    
     ![Machines virtuelles de labo](./media/devtest-lab-create-formulas/my-vms.png)
-5. Dans la page de la machine virtuelle, cliquez sur **Créer une formule (base réutilisable)**.
+5. Dans la page de la machine virtuelle, cliquez sur **Créer une formule (base réutilisable)** .
    
     ![Créer une formule](./media/devtest-lab-create-formulas/create-formula-menu.png)
 6. Dans la page **Créer une formule**, entrez un **Nom** et une **Description** pour votre nouvelle formule.
@@ -102,7 +102,7 @@ Pour modifier une formule, procédez comme suit :
 1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
-4. Dans la page du laboratoire, sélectionnez **Formules (bases réutilisables)**.
+4. Dans la page du laboratoire, sélectionnez **Formules (bases réutilisables)** .
    
     ![Menu de formule](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Dans la page des **formules de laboratoire**, sélectionnez la formule à modifier.

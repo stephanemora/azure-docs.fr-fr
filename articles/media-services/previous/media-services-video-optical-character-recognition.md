@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315128"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60825606"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique  
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Si vous devez extraire le contenu texte de vos fichiers vidéo et générer un texte numérique modifiable et pouvant faire l’objet d’une recherche, vous devez utiliser Azure Media Analytics OCR (reconnaissance optique de caractères). Ce processeur multimédia Azure détecte le contenu texte de vos fichiers vidéo et génère les fichiers texte à utiliser. La reconnaissance optique de caractères vous permet d’automatiser l’extraction de métadonnées explicites à partir du signal vidéo de votre contenu multimédia.
 
 Lorsque vous l’utilisez conjointement avec un moteur de recherche, vous pouvez facilement indexer vos données multimédia par texte et améliorer ainsi la détectabilité du contenu. Cela est particulièrement utile dans une vidéo contenant beaucoup de texte, comme un enregistrement vidéo ou une capture d’écran de diaporama. Le processeur multimédia Azure OCR est optimisé pour le texte numérique.
@@ -119,7 +119,7 @@ La sortie contient les attributs suivants :
 | Langage |langue du texte détecté dans une région |
 | orientation |orientation du texte détecté dans une région |
 | lignes |tableau de lignes de texte détecté dans une région |
-| texte |le texte réel |
+| text |le texte réel |
 
 ### <a name="json-output-example"></a>Exemple de sortie JSON
 L’exemple de sortie suivant contient des informations générales sur la vidéo et plusieurs fragments vidéo. Chaque fragment vidéo contient toutes les régions détectées par le processeur multimédia OCR selon la langue et l’orientation du texte choisies. La région contient également toutes les lignes de mots de cette région, avec le texte et la position de chaque ligne, et des informations sur chaque mot (contenu, position et niveau de confiance du mot). En voici un exemple (avec mes commentaires).

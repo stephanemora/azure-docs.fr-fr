@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1c2c5cbee91ddaee5f1f6af8ec17c48326f68e84
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755057"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "65073963"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la sécurité des pods dans Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,9 @@ Vous pouvez également consulter les meilleures pratiques relatives à la [sécu
 
 **Meilleures pratiques** : pour changer d’utilisateur ou de groupe et limiter l’accès aux services et processus de nœud sous-jacents, définissez les paramètres du contexte de sécurité des pods. Affectez le nombre minimal de privilèges requis.
 
-Pour que vos applications s’exécutent correctement, les pods doivent s’exécuter en tant qu’utilisateur ou groupe défini, et non en tant que *racine*. Le `securityContext` pour un pod ou un conteneur vous permet de définir des paramètres tels que *runAsUser* ou *fsGroup* pour assumer les autorisations appropriées. Affectez uniquement les autorisations requises pour l’utilisateur ou le groupe et n’utilisez pas le contexte de sécurité pour assumer des autorisations supplémentaires. Lorsque vous vous connectez en tant qu’utilisateur non root, les conteneurs ne peuvent pas établir de liaison avec les ports privilégiés inférieurs à 1024. Dans ce scénario, Kubernetes Services peut être utilisé pour masquer le fait qu’une application s’exécute sur un port particulier.
+Pour que vos applications s’exécutent correctement, les pods doivent s’exécuter en tant qu’utilisateur ou groupe défini, et non en tant que *racine*. Le `securityContext` pour un pod ou un conteneur vous permet de définir des paramètres tels que *runAsUser* ou *fsGroup* pour assumer les autorisations appropriées. Affectez uniquement les autorisations requises pour l’utilisateur ou le groupe et n’utilisez pas le contexte de sécurité pour assumer des autorisations supplémentaires. Le *runAsUser*, élévation des privilèges, et d’autres paramètres de fonctionnalités Linux sont uniquement disponibles sur les pods et nœuds Linux.
+
+Lorsque vous vous connectez en tant qu’utilisateur non root, les conteneurs ne peuvent pas établir de liaison avec les ports privilégiés inférieurs à 1024. Dans ce scénario, Kubernetes Services peut être utilisé pour masquer le fait qu’une application s’exécute sur un port particulier.
 
 Un contexte de sécurité de pod peut également permettre de définir des fonctionnalités ou autorisations supplémentaires pour accéder à des processus et services. Vous pouvez utiliser les définitions de contexte de sécurité courantes ci-dessous :
 
@@ -66,16 +68,16 @@ Consultez votre opérateur de cluster pour déterminer les paramètres de contex
 
 ## <a name="limit-credential-exposure"></a>Limiter l’exposition des informations d’identification
 
-**Meilleures pratiques** -ne définissez pas d’informations d’identification dans le code de votre application. Utilisez des identités managées pour les ressources Azure pour permettre à votre pod de demander l’accès à d’autres ressources. Vous devez également utiliser un coffre-fort numérique, tel qu’Azure Key Vault, pour stocker et récupérer des clés numériques et informations d’identification.
+**Meilleures pratiques** -ne définissez pas d’informations d’identification dans le code de votre application. Utilisez des identités managées pour les ressources Azure pour permettre à votre pod de demander l’accès à d’autres ressources. Vous devez également utiliser un coffre-fort numérique, tel qu’Azure Key Vault, pour stocker et récupérer des clés numériques et informations d’identification. Les identités managées sont conçues pour être utilisées avec des images conteneurs et des pods Linux uniquement.
 
 Pour limiter le risque d’exposition d’informations d’identification dans le code de votre application, évitez d’utiliser des informations d’identification fixes ou partagées. Vous ne devez inclure aucune information d’identification ou clé directement dans votre code. Si ces informations d’identification sont exposées, l’application doit être mise à jour et redéployée. Une meilleure approche consiste à attribuer aux pods leur propre identité ainsi qu’un moyen de s’authentifier d’eux-mêmes, ou de récupérer automatiquement les informations d’identification à partir d’un coffre numérique.
 
-Ce qui suit [AKS associés projets open source] [ aks-associated-projects] vous permettent d’authentifier automatiquement pods ou les informations d’identification de la demande et les clés à partir d’un coffre numérique :
+Les [projets open source AKS associés][aks-associated-projects] suivants vous permettent d’authentifier automatiquement les pods ou informations d’identification de requête et clés issus d’un coffre numérique :
 
 * Identités managées pour les ressources Azure
 * Pilote Azure Key Vault FlexVol
 
-Projets d’open source AKS associés ne sont pas pris en charge par le support technique Azure. Elles sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Ces projets ne sont pas recommandées pour la production.
+Les projets open source AKS associés ne sont pas pris en charge par le support technique Azure. Ils sont fournis pour que notre communauté puisse faire part de ses commentaires et des bogues éventuels. Ces projets ne sont pas recommandés pour une utilisation en production.
 
 ### <a name="use-pod-managed-identities"></a>Utiliser des identités de pod managées
 
@@ -85,7 +87,7 @@ Une identité gérée pour les ressources Azure permet à un pod de s’authenti
 
 Avec une identité managée, il n’est pas nécessaire d’inclure des informations d’identification dans le code de votre application pour accéder à un service, tel que Stockage Azure. Puisque chaque pod s’authentifie avec sa propre identité, vous pouvez contrôler et réviser les accès. Si votre application se connecte auprès d’autres services Azure, utilisez des identités managées pour limiter la réutilisation d’informations d’identification et le risque d’exposition.
 
-Pour plus d’informations sur les identités de pod, consultez [configurer un cluster AKS pour utiliser des identités de pod géré et avec vos applications][aad-pod-identity]
+Pour plus d’informations sur les identités de pod, consultez [Configure an AKS cluster to use pod managed identities][aad-pod-identity] (Configurer un cluster AKS pour utiliser des identités de pod managées)
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>Utiliser Azure Key Vault avec FlexVol
 
@@ -96,6 +98,8 @@ Lorsque les applications ont besoin d’informations d’identification, elles c
 ![Workflow simplifié pour récupérer des informations d’identification dans Key Vault à l’aide d’une identité de pod managée](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
 Key Vault vous permet de stocker et faire tourner régulièrement les secrets, tels que les informations d’identification, les clés de compte de stockage ou les certificats. Vous pouvez intégrer Azure Key Vault à un cluster AKS à l’aide d’un FlexVolume. Le pilote FlexVolume permet au cluster AKS de récupérer en mode natif les informations d’identification dans Key Vault et de les remettre uniquement au pod demandeur, en toute sécurité. Consultez votre opérateur de cluster pour déployer le pilote Key Vault FlexVol sur les nœuds AKS. Vous pouvez utiliser une identité de pod managée pour demander l’accès à Key Vault et récupérer les informations d’identification dont vous avez besoin via le pilote FlexVolume.
+
+Azure Key Vault avec FlexVol est destinée à être utilisé avec les applications et services qui s’exécutent sur les nœuds et pods Linux.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -6,23 +6,20 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 12/15/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 80146c7ec7b496b33bede8172d9945c78b26511e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2a6f12bfe7aa3de028039d00c259a606d028a0e5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039025"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614601"
 ---
-# <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Tutoriel : Créer une application Java avec le kit SDK Java Async pour gérer les données stockées dans un compte d’API SQL
+# <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>Didacticiel : Créer une application Java avec le kit SDK Java Async pour gérer les données stockées dans un compte d’API SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET (préversion)](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core (préversion)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Java asynchrone](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
@@ -117,7 +114,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>Créer une base de données
 
-Créez votre base de données Azure Cosmos DB en utilisant la méthode `createDatabaseIfNotExists()` de la classe DocumentClient. Une base de données est le conteneur logique de stockage de documents JSON partitionné entre les collections.
+Créez votre base de données Azure Cosmos en utilisant la méthode `createDatabaseIfNotExists()` de la classe DocumentClient. Une base de données est le conteneur logique de stockage de documents JSON partitionné entre les collections.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 

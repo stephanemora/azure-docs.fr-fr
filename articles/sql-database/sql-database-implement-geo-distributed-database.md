@@ -1,6 +1,6 @@
 ---
-title: Implémenter une solution de base de données SQL Azure géodistribuée | Microsoft Docs
-description: Découvrez comment configurer votre application et votre base de données SQL Azure pour le basculement sur une base de données répliquée et comment tester le basculement.
+title: Implémenter une solution de base de données Azure SQL géodistribuée | Microsoft Docs
+description: Découvrez comment configurer votre application et votre base de données Azure SQL pour le basculement sur une base de données répliquée et comment tester le basculement.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,36 +10,35 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 4a21fe3ed15d1dc2550f6863611b27d2b36c5c51
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844141"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568098"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutoriel : Implémenter une base de données géo-distribuée
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Didacticiel : Implémenter une base de données géo-distribuée
 
-Configurez une application et une base de données SQL Azure pour le basculement sur une région distante, puis testez un plan de basculement. Vous allez apprendre à effectuer les actions suivantes :
+Configurez une application et une base de données Azure SQL pour le basculement sur une région distante, puis testez un plan de basculement. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > - Créer un [groupe de basculement](sql-database-auto-failover-group.md)
-> - Exécuter une application Java pour interroger une base de données SQL Azure
+> - Exécuter une application Java pour interroger une base de données Azure SQL
 > - Test de basculement
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Pour suivre le tutoriel, vérifiez que les éléments suivants sont installés :
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- base de données SQL Azure. Pour en créer une :
+- Une base de données unique dans Azure SQL Database Pour en créer une :
   - [Portal](sql-database-single-database-get-started.md)
   - [INTERFACE DE LIGNE DE COMMANDE](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
@@ -332,11 +331,11 @@ Pour tester un basculement :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré une application et une base de données SQL Azure pour le basculement sur une région distante, puis testé votre plan de basculement. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez configuré une application et une base de données Azure SQL pour le basculement sur une région distante, puis testé votre plan de basculement. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > - Créer un groupe de basculement de géoréplication
-> - Exécuter une application Java pour interroger une base de données SQL Azure
+> - Exécuter une application Java pour interroger une base de données Azure SQL
 > - Test de basculement
 
 Passez au tutoriel suivant sur la migration à l’aide de DMS.

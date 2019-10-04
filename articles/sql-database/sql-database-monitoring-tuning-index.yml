@@ -1,12 +1,6 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 51bec37f6b052d51d6cc8f5a8667789bec9e6881
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235963"
 documentType: LandingData
-title: 'Azure SQL Database : Analyse et réglage'
+title: "Azure SQL Database\_: Analyse et réglage"
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL Database - Supervision et paramétrage
@@ -17,47 +11,47 @@ metadata:
   manager: craigg
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
   ms.date: 02/08/2019
   ms.author: jovanpop
 sections:
-- items:
-  - type: paragraph
-    text: Azure SQL Database vous permet de superviser et de paramétrer facilement votre charge de travail de base de données.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: Azure SQL Database vous permet de superviser et de paramétrer facilement votre charge de travail de base de données.
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Query Performance Insight
+            href: /azure/sql-database/sql-database-query-performance
+            html: <p>Supervisez facilement l’utilisation des ressources dans votre base de données Azure SQL (unique ou mise en pool) à l’aide des fonctionnalités de supervision intégrées au portail Azure.</p>
+          - title: Azure SQL Analytics
+            href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json'
+            html: '<p>Azure SQL Analytics vous permet de superviser facilement une flotte importante de bases de données, de pools élastiques et d’instances dans une même fenêtre.</p>'
+          - title: Réglage automatique
+            href: /azure/sql-database/sql-database-automatic-tuning
+            html: '<p>Le paramétrage automatique effectue automatiquement des recommandations et résout les problèmes liés aux plans de requête, puis crée et supprime des index pour améliorer les performances.</p>'
+          - title: Analyse intelligente des performances
+            href: /azure/sql-database/sql-database-intelligent-insights
+            html: <p>Les capacités d’intelligence intégrées à Azure SQL Database permettent de détecter les événements perturbateurs qui nuisent aux performances de vos bases de données et fournit des recommandations pour en atténuer les effets quand cela est possible.</p>
+          - title: Recommandations en matière de performances
+            href: /azure/sql-database/sql-database-advisor
+            html: <p>Azure SQL Database fournit des recommandations qui peuvent vous aider à optimiser votre base de données dans le portail Azure.</p>
+          - title: Mesures et journalisation
+            href: /azure/sql-database/sql-database-metrics-diag-logging
+            html: '<p>Diffusez en continu les données de télémétrie de diagnostic de votre base de données vers Azure SQL Analytics, Azure Event Hubs ou le Stockage Blob Azure pour des intégrations personnalisées.</p>'
+  - title: Autres ressources
     items:
-    - title: Query Performance Insight
-      href: /azure/sql-database/sql-database-query-performance
-      html: <p>Supervisez facilement l’utilisation des ressources dans votre base de données (unique ou regroupée) SQL Azure à l’aide des fonctionnalités de supervision intégrées au portail Azure.</p>
-    - title: Azure SQL Analytics
-      href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql?toc=/azure/sql-database/toc.json
-      html: <p>Azure SQL Analytics vous permet de superviser facilement une flotte importante de bases de données, de pools élastiques et d’instances dans une même fenêtre.</p>
-    - title: Réglage automatique
-      href: /azure/sql-database/sql-database-automatic-tuning
-      html: <p>Le paramétrage automatique effectue automatiquement des recommandations et résout les problèmes liés aux plans de requête, puis crée et supprime des index pour améliorer les performances.</p>
-    - title: Analyse intelligente des performances
-      href: /azure/sql-database/sql-database-intelligent-insights
-      html: <p>Les capacités d’intelligence intégrées à Azure SQL Database permettent de détecter les événements perturbateurs qui nuisent aux performances de vos bases de données et fournit des recommandations pour en atténuer les effets quand cela est possible.</p>
-    - title: Recommandations en matière de performances
-      href: /azure/sql-database/sql-database-advisor
-      html: <p>Azure SQL Database fournit des recommandations qui peuvent vous aider à optimiser votre base de données dans le portail Azure.</p>
-    - title: Mesures et journalisation
-      href: /azure/sql-database/sql-database-metrics-diag-logging
-      html: <p>Diffusez en continu les données de télémétrie de diagnostic de votre base de données vers Azure SQL Analytics, Azure Event Hubs ou le Stockage Blob Azure pour des intégrations personnalisées.</p>
-- title: Autres ressources
-  items:
-  - type: paragraph
-    text: Découvrez d’autres fonctionnalités qui peuvent vous aider à optimiser les performances de votre base de données.
-  - type: list
-    style: unordered
-    items:
-    - html: Découvrez plus en détail la <a href="sql-database-monitor-tune-overview.md">supervision et le paramétrage</a> dans Azure SQL Database.
-    - html: Découvrez comment le <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">traitement intelligent des requêtes</a> peut améliorer les performances de votre base de données.
-    - html: Configurez et exploitez un <a href="sql-database-operate-query-store.md">magasin des requêtes</a>, la technologie clé de SQL Server qui vous permet de bénéficier d’insights en temps réel sur les performances des requêtes.
-    - html: Découvrez comment utiliser les <a href="sql-database-operate-query-store.md">vues de gestion dynamique</a> pour analyser les performances de votre charge de travail.
-    - html: Découvrez comment superviser les activités de base de données avec <a href="sql-database-xevent-db-diff-from-svr.md">XEvents</a>.
-    - html: Découvrez comment <a href="sql-database-performance-guidance.md">paramétrer manuellement votre base de données</a>.
+      - type: paragraph
+        text: Découvrez d’autres fonctionnalités qui peuvent vous aider à optimiser les performances de votre base de données.
+      - type: list
+        style: unordered
+        items:
+          - html: Découvrez plus en détail la <a href="sql-database-monitor-tune-overview.md">supervision et le paramétrage</a> dans Azure SQL Database.
+          - html: 'Découvrez comment le <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json">traitement intelligent des requêtes</a> peut améliorer les performances de votre base de données.'
+          - html: 'Configurez et exploitez un <a href="sql-database-operate-query-store.md">magasin des requêtes</a>, la technologie clé de SQL Server qui vous permet de bénéficier d’insights en temps réel sur les performances des requêtes.'
+          - html: Découvrez comment utiliser les <a href="sql-database-operate-query-store.md">vues de gestion dynamique</a> pour analyser les performances de votre charge de travail.
+          - html: Découvrez comment superviser les activités de base de données avec <a href="sql-database-xevent-db-diff-from-svr.md">XEvents</a>.
+          - html: Découvrez comment <a href="sql-database-performance-guidance.md">paramétrer manuellement votre base de données</a>.

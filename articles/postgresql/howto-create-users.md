@@ -1,20 +1,22 @@
 ---
-title: Créer des utilisateurs dans Azure Database pour PostgreSQL
-description: Cet article décrit comment vous pouvez créer des comptes d’utilisateurs pour interagir avec un serveur Azure Database pour PostgreSQL.
+title: Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
+description: Cet article décrit comment vous pouvez créer des comptes d’utilisateurs pour interagir avec un serveur Azure Database pour PostgreSQL - Serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/16/2018
-ms.openlocfilehash: 33c107c46b314136fa3d43f8e7881e096afa374c
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.date: 09/22/2019
+ms.openlocfilehash: 91ba485347aeb19ce9b173bd4cec944a655a56dc
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351080"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203500"
 ---
-# <a name="create-users-in-azure-database-for-postgresql-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL 
-Cet article décrit comment vous pouvez créer des utilisateurs dans un serveur Azure Database pour PostgreSQL.
+# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Serveur unique
+Cet article décrit comment créer des utilisateurs dans un serveur Azure Database pour PostgreSQL. 
+
+Si vous souhaitez en savoir plus sur la création et la gestion des utilisateurs ayant un abonnement Azure et de leurs privilèges, consultez l’article [Contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/built-in-roles.md) ou lisez [comment personnaliser les rôles](../role-based-access-control/custom-roles.md).
 
 ## <a name="the-server-admin-account"></a>Compte d’administrateur de serveur
 Quand vous avez créé votre serveur Azure Database pour PostgreSQL, vous avez fourni un nom d’utilisateur et un mot de passe d’administrateur de serveur. Pour plus d’informations, vous pouvez suivre la procédure détaillée du [Guide de démarrage rapide](quickstart-create-server-database-portal.md). Étant donné que le nom d’utilisateur administrateur de serveur est un nom personnalisé, vous pouvez rechercher le nom d’utilisateur administrateur de serveur choisi à partir du portail Azure.
@@ -64,7 +66,7 @@ Le compte d’utilisateur administrateur de serveur peut être utilisé pour cr�
    GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
-4. À l’aide d’un compte administrateur, vous devrez peut-être accorder des privilèges supplémentaires pour sécuriser les objets dans la base de données. Reportez-vous à la section [Documentation sur PostgreSQL](https://www.postgresql.org/docs/current/static/ddl-priv.html) pour en savoir plus sur les rôles et privilèges de base de données. Par exemple :  
+4. À l’aide d’un compte administrateur, vous devrez peut-être accorder des privilèges supplémentaires pour sécuriser les objets dans la base de données. Reportez-vous à la section [Documentation sur PostgreSQL](https://www.postgresql.org/docs/current/static/ddl-priv.html) pour en savoir plus sur les rôles et privilèges de base de données. Par exemple : 
    ```sql
    GRANT ALL PRIVILEGES ON DATABASE <newdb> TO <db_user>;
    ```

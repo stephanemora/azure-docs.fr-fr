@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/12/2019
 ms.author: aschhab
 ms.openlocfilehash: a893cdf49792a8df624786804ec0ca4d8f043ec4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764785"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60714487"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Créer un espace de noms Service Bus à l’aide du Portail Azure
 
@@ -27,7 +27,7 @@ Un espace de noms est un conteneur d’étendue pour tous les composants de mess
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Félicitations ! Vous venez de créer un espace de noms de messagerie Service Bus.
+Félicitations ! Vous venez de créer un espace de noms de messagerie Service Bus.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

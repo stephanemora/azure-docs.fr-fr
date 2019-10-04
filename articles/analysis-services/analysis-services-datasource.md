@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698723"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70993387"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -23,18 +23,18 @@ Les sources de données et connecteurs affichés dans Obtenir des données ou l�
 
 |Source de données  |En mémoire  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   Oui      |    Oui      |
-|Azure SQL Data Warehouse     |   Oui      |   Oui       |
-|Stockage Blob Azure<sup>[1](#tab1400a)</sup>     |   Oui       |    Non       |
-|Stockage Table Azure<sup>[1](#tab1400a)</sup>    |   Oui       |    Non       |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Oui        |  Non         |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Oui       |    Non       |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Oui     |   Non        |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Oui       |   Non        |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   OUI      |    OUI      |
+|Azure SQL Data Warehouse     |   OUI      |   OUI       |
+|Stockage Blob Azure<sup>[1](#tab1400a)</sup>     |   OUI       |    Non      |
+|Stockage Table Azure<sup>[1](#tab1400a)</sup>    |   OUI       |    Non      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  OUI        |  Non        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   OUI       |    Non      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     OUI     |   Non       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   OUI       |   Non       |
 ||||
 
 <a name="tab1400a">1</a> - Modèles tabulaires 1400 ou supérieurs uniquement.   
-<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance est pris en charge. Une instance gérée s'exécutant au sein du réseau virtuel Azure avec une adresse IP privée, une passerelle de données locale est requise.   
+<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance est pris en charge. Comme l'instance gérée s'exécute dans Azure VNet avec une adresse IP privée, le point de terminaison public doit être activé sur l'instance. Si cette option n'est pas activée, une passerelle de données locale est requise.    
 <a name="databricks">3</a> - Azure Databricks avec connecteur Spark n’est actuellement pas pris en charge.   
 <a name="gen2">4</a> - ADLS Gen2 n’est actuellement pas pris en charge.
 
@@ -42,7 +42,7 @@ Les sources de données et connecteurs affichés dans Obtenir des données ou l�
 **Fournisseur**   
 Les modèles en mémoire et DirectQuery qui se connectent aux sources de données Azure utilisent le fournisseur de données .NET Framework pour SQL Server.
 
-## <a name="on-premises-data-sources"></a>Sources de données locales
+## <a name="other-data-sources"></a>Autres sources de données
 
 La connexion aux sources de données locales et au serveur Azure AS requiert une passerelle locale. Lorsque vous utilisez une passerelle, des fournisseurs 64 bits sont requis.
 
@@ -52,7 +52,7 @@ La connexion aux sources de données locales et au serveur Azure AS requiert une
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Fournisseur Microsoft OLE DB pour SQL Server, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, Fournisseur Microsoft OLE DB pour SQL Server, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
-| Oracle |Fournisseur Microsoft OLE DB pour Oracle, Fournisseur de données Oracle pour .NET |Fournisseur de données Oracle pour .NET |
+| Oracle | Fournisseur OLE DB pour Oracle, Fournisseur de données Oracle pour .NET |Fournisseur de données Oracle pour .NET |
 | Teradata |Fournisseur OLE DB pour Teradata, Fournisseur de données Teradata pour .NET |Fournisseur de données Teradata pour .NET |
 | | | |
 
@@ -76,23 +76,23 @@ La connexion aux sources de données locales et au serveur Azure AS requiert une
 |Flux OData<sup>[1](#tab1400b)</sup>     |  
 |Requête ODBC     | 
 |OLE DB     |   
-|Base de données Postgre SQL<sup>[1](#tab1400b)</sup>    | 
+|Base de données PostgreSQL<sup>[1](#tab1400b)</sup>    | 
 |Objets Salesforce<sup>[1](#tab1400b)</sup> |  
 |Rapports Salesforce<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|Liste SharePoint<sup>[1](#tab1400b)</sup>, <sup> [2](#filesSP)</sup>     |   
+|Liste SharePoint<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Base de données Sybase     |  
 |Fichier TXT  |
 |Table XML<sup>[1](#tab1400b)</sup>    |  
 ||
  
 <a name="tab1400b">1</a> - Modèles tabulaires 1400 ou supérieurs uniquement.   
-<a name="filesSP">2</a> -fichiers dans SharePoint en local ne sont pas pris en charge.
+<a name="filesSP">2</a> - Les fichiers contenus dans SharePoint en local ne sont pas pris en charge.
 
 ## <a name="specifying-a-different-provider"></a>Spécifier un autre fournisseur
 
-Les modèles de données dans Azure Analysis Services peuvent nécessiter différents fournisseurs de données lors de la connexion à certaines sources de données. Dans certains cas, les modèles tabulaires de connexion aux sources de données à l’aide de fournisseurs natifs tels que SQL Server Native Client (SQLNCLI11) peuvent renvoyer une erreur. Si vous utilisez des fournisseurs natifs autres que SQLOLEDB, vous pouvez avoir le message d’erreur suivant : **Le fournisseur 'SQLNCLI11.1' n’est pas inscrit**. Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et si vous utilisez des fournisseurs natifs, vous pouvez avoir le message d’erreur suivant : **Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMIT'**.
+Les modèles de données dans Azure Analysis Services peuvent nécessiter différents fournisseurs de données lors de la connexion à certaines sources de données. Dans certains cas, les modèles tabulaires de connexion aux sources de données à l’aide de fournisseurs natifs tels que SQL Server Native Client (SQLNCLI11) peuvent renvoyer une erreur. Si vous utilisez des fournisseurs natifs autres que SQLOLEDB, vous pouvez avoir le message d’erreur suivant : **Le fournisseur 'SQLNCLI11.1' n’est pas inscrit**. Ou bien, si vous disposez d’un modèle de requête directe (DirectQuery) de connexion à des sources de données locales et si vous utilisez des fournisseurs natifs, vous pouvez avoir le message d’erreur suivant : **Erreur lors de la création du jeu de lignes OLE DB. Syntaxe incorrecte à proximité de 'LIMIT'** .
 
 Lorsque vous migrez un modèle tabulaire SQL Server Analysis Services local vers Azure Analysis Services, il peut être nécessaire de modifier le fournisseur.
 
@@ -113,6 +113,10 @@ Pour les sources de données locales :
 Pour les sources de données cloud :
 
 * Si vous utilisez l’authentification SQL, l’emprunt d’identité doit être le compte de service.
+
+## <a name="oauth-credentials"></a>Informations d’identification OAuth
+
+Pour les modèles tabulaires au niveau de compatibilité 1 400 ou plus, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 et la liste SharePoint prennent en charge les informations d’identification OAuth. Azure Analysis Services gère l’actualisation des jetons pour les sources de données OAuth afin d’éviter un dépassement des délais d’expiration pour les opérations d’actualisation de longue durée. Pour générer des jetons valides, définissez les informations d’identification à l’aide de SSMS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Passerelle locale](analysis-services-gateway.md)   

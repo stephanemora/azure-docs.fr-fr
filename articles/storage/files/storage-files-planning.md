@@ -1,19 +1,18 @@
 ---
 title: Planification d’un déploiement Azure Files | Microsoft Docs
 description: Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
-ms.date: 03/25/2019
+ms.topic: conceptual
+ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: beb9e1344f5dd3bf4b3c3d293e38a7a28170771c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998451"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212010"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -27,7 +26,7 @@ ms.locfileid: "59998451"
 
 * **Compte de stockage** : Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-* **Partage** : un partage Stockage Fichier est un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans la limite de la capacité totale de 5 Tio du partage de fichiers.
+* **Partage** : un partage Stockage Fichier est un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans la limite de la capacité totale du partage de fichiers. Pour les partages de fichiers standard, la capacité totale peut atteindre 5 TiO (GA) ou 100 TiO (préversion), pour les partages de fichiers Premium, la capacité totale peut atteindre 100 TiO.
 
 * **Répertoire** : hiérarchie facultative de répertoires.
 
@@ -59,8 +58,8 @@ Le tableau suivant illustre la façon dont vos utilisateurs et les applications 
 Azure Files propose plusieurs options intégrées pour garantir la sécurité des données :
 
 * Prise en charge du chiffrement dans les deux protocoles réseau : chiffrement SMB 3.0 et File REST via le protocole HTTPS. Par défaut : 
-    * Les clients qui prennent en charge le chiffrement SMB 3.0 envoient et recevoir des données via un canal chiffré.
-    * Les clients qui ne prennent pas en charge SMB 3.0 avec chiffrement peuvent communiquer intra-centre de données sur SMB 2.1 ou SMB 3.0 sans chiffrement. Les clients SMB ne sont pas autorisés à communiquer entre centres de données sur SMB 2.1 ou SMB 3.0 sans chiffrement.
+    * Les clients qui prennent en charge le chiffrement SMB 3.0 envoient et reçoivent des données sur un canal chiffré.
+    * Les clients qui ne prennent pas en charge SMB 3.0 avec chiffrement peuvent communiquer au sein du centre de données sur SMB 2.1 ou SMB 3.0 sans chiffrement. Les clients SMB ne sont pas autorisés à communiquer entre centres de données sur SMB 2.1 ou SMB 3.0 sans chiffrement.
     * Les clients peuvent communiquer sur l’API REST de fichier avec HTTP ou HTTPS.
 * Chiffrement au repos ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)) : Storage Service Encryption (SSE) est activé pour tous les comptes de stockage. Les données au repos sont chiffrées avec des clés entièrement gérées. Le chiffrement au repos n’augmente pas les coûts de stockage, ni ne réduit le niveau de performance. 
 * Spécification facultative des données chiffrées en transit : quand Azure Files est sélectionné, il refuse l’accès aux données sur des canaux non chiffrés. Plus précisément, seules les connexions HTTPS et SMB 3.0 avec chiffrement sont autorisées.
@@ -74,90 +73,91 @@ Si vous utilisez Azure File Sync pour accéder à votre partage de fichiers Azur
 
 ## <a name="file-share-performance-tiers"></a>Niveaux de performances de partage de fichiers
 
-Azure Files offre deux niveaux de performances : standard et premium.
+Azure Files offre deux niveaux de performances : Standard et Premium.
 
-* Les **partages de fichiers Standard** s’appuient sur des lecteurs de disque dur (HDD) rotatifs qui offrent des performances fiables pour les charges de travail d’E/S moins sensibles à la variabilité des performances, telles que les partages de fichiers à usage général et les environnements de Dev/Test. Les partages de fichiers standard sont disponibles uniquement dans le cadre d’un modèle de facturation avec paiement à l’utilisation.
-* Les **partages de fichiers Premium (préversion)** s’appuient sur des disques SSD qui offrent de façon constante des performances élevées et une faible latence (à un chiffre en millisecondes pour la plupart des opérations d’E/S) pour les charges de travail les plus gourmandes en E/S. Ils sont ainsi adaptés à un vaste éventail de charges de travail telles que les bases de données, l’hébergement de site web, les environnements de développement, etc. Les partages de fichiers Premium sont disponibles uniquement dans le cadre d’un modèle de facturation avec approvisionnement. Partages de fichiers Premium utilisent un modèle de déploiement distinct à partir de partages de fichiers standard. Si vous souhaitez apprendre à créer un partage de fichiers premium, consultez notre article sur le sujet : [Comment créer un compte de stockage Azure premium fichier](storage-how-to-create-premium-fileshare.md).
+### <a name="standard-file-shares"></a>Partages de fichiers Standard
+
+Les partages de fichiers Standard s’appuient sur des disques durs (HDD). Les partages de fichiers Standard offrent des performances fiables pour les charges de travail d’E/S moins sensibles à la variabilité des performances, telles que les partages de fichiers à usage général et les environnements de Dev/Test. Les partages de fichiers standard sont disponibles uniquement dans le cadre d’un modèle de facturation avec paiement à l’utilisation.
+
+Les partages de fichiers Standard d’une taille de 5 Tio maximum sont disponibles sous la forme d’une offre GA. Les partages de fichiers plus volumineux, dépassant 5 Tio et pouvant atteindre 100 Tio, sont actuellement disponibles dans une offre de préversion.
 
 > [!IMPORTANT]
-> Fichier Premium partages sont toujours en version préliminaire, disponible uniquement pour le stockage LRS et sont uniquement disponibles dans un sous-ensemble de régions avec prise en charge de sauvegarde Azure soient disponibles dans Sélectionnez les régions :
+> Consultez la section relative à l’[intégration des partages de fichiers plus grands (niveau Standard)](#onboard-to-larger-file-shares-standard-tier) pour connaître les étapes de l’incorporation, ainsi que la portée et les restrictions de la préversion.
 
-|Région disponible  |Support Sauvegarde Azure  |
-|---------|---------|
-|Est des États-Unis 2      | Oui|
-|USA Est       | Oui|
-|USA Ouest       | Non  |
-|Ouest des États-Unis 2      | Non  |
-|USA Centre    | Non  |
-|Europe Nord  | Non  |
-|Europe Ouest   | Oui|
-|Asie       | Oui|
-|Asie Est     | Non  |
-|Japon Est    | Non  |
-|Japon Ouest    | Non  |
-|Centre de la Corée | Non  |
-|Australie Est| Non  |
+### <a name="premium-file-shares"></a>Partages de fichiers Premium
 
-### <a name="provisioned-shares"></a>Partages approvisionnés
+Les partages de fichiers Premium s’appuient sur des disques SSD. Les partages de fichiers Premium offrent de façon constante des performances élevées et une faible latence (à un chiffre en millisecondes pour la plupart des opérations d’E/S) pour les charges de travail gourmandes en E/S. Ils sont ainsi adaptés à un vaste éventail de charges de travail, telles que les bases de données, l’hébergement de site web et les environnements de développement. Les partages de fichiers Premium sont disponibles uniquement dans le cadre d’un modèle de facturation avec approvisionnement. Les partages de fichiers Premium utilisent un modèle de déploiement distinct des partages de fichiers Standard.
 
-Partages de fichiers Premium (version préliminaire) sont configurés selon un ratio Gio/IOPS/débit fixe. Pour chaque Gio approvisionné, le partage reçoit un débit d’une IOPS et de 0,1 Mio/s, dans les limites maximales autorisées par partage. L’approvisionnement minimal autorisé est de 100 Gio avec un minimum d’E/S par seconde/débit.
+La sauvegarde Azure est disponible pour les partages de fichiers Premium, sachant qu’Azure Kubernetes Service prend en charge les partages de fichiers Premium dans la version 1.13 et versions ultérieures.
+
+Si vous souhaitez savoir comment créer un partage de fichiers Premium, consultez notre article sur le sujet : [Guide pratique pour créer un compte de stockage de fichiers Premium Azure](storage-how-to-create-premium-fileshare.md).
+
+Actuellement, vous ne pouvez pas convertir directement un partage de fichiers Standard en partage de fichiers Premium, et vice-versa. Si vous souhaitez basculer vers l’un ou l’autre de ces niveaux, vous devez créer un nouveau partage de fichiers dans le niveau voulu, puis copier manuellement les données depuis votre partage d’origine sur le partage que vous avez créé. Vous pouvez effectuer cette opération en utilisant un des outils de copie pris en charge par Azure Files, tel que Robocopy ou AzCopy.
+
+> [!IMPORTANT]
+> Les partages de fichiers Premium sont disponibles avec le stockage LRS dans la plupart des régions qui offrent des comptes de stockage et avec le stockage ZRS dans moins de régions. Pour savoir si les partages de fichiers Premium sont actuellement disponibles dans votre région, consultez la page des [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pour Azure. Pour connaître les régions qui prennent en charge ZRS, consultez [Couverture du support et disponibilité régionale](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+
+#### <a name="provisioned-shares"></a>Partages approvisionnés
+
+Les partages de fichiers Premium sont approvisionnés selon un ratio Gio/IOPS/débit fixe. Pour chaque Gio approvisionné, le partage reçoit un débit d’une IOPS et de 0,1 Mio/s, dans les limites maximales autorisées par partage. L’approvisionnement minimal autorisé est de 100 Gio avec un minimum d’E/S par seconde/débit.
 
 Dans la mesure du possible, tous les partages peuvent atteindre en rafale jusqu’à trois IOPS par Gio de stockage approvisionné pendant 60 minutes ou plus, selon la taille du partage. Les nouveaux partages démarrent avec le crédit de rafale complète basé sur la capacité approvisionnée.
 
-Partages doivent être approvisionnés incréments de 1 Go. Taille minimale est de 100 Go, la taille suivante est GIO 101 et ainsi de suite.
+Les partages doivent être provisionnés par incréments de 1 Gio. La taille minimale est de 100 Gio, la taille suivante de 101 Gio, et ainsi de suite.
 
 > [!TIP]
-> Ligne de base d’e/s = 1 * approvisionné Gio. (Jusqu'à un maximum de 100 000 e/s).
+> IOPS de base = 1 * par Gio provisionné. (Jusqu’à 100 000 IOPS maximum).
 >
-> Limite de rafale = 3 * ligne de base d’e/s. (Jusqu'à un maximum de 100 000 e/s).
+> Limite de rafale = 3 * IOPS de base. (Jusqu’à 100 000 IOPS maximum).
 >
-> taux de sortie = 60 Mio/s + 0,06 * approvisionné Gio
+> Débit de sortie = 60 Mio/s + 0,06 * Gio provisionnés
 >
-> taux d’entrée = 40 Mio/s + 0.04 * approvisionné Gio
+> Débit d’entrée = 40 Mio/s + 0,04 * Gio provisionnés
 
-Taille du partage peut être augmentée à tout moment, mais peut être diminuée uniquement après 24 heures depuis l’augmentation de la dernière. Après avoir attendu sans augmenter la taille des dernières 24 heures, vous pouvez réduire la taille du partage autant de fois jusqu'à ce que vous l’augmentez à nouveau. Modifications de mise à l’échelle d’IOPS/débit entreront en vigueur après quelques minutes après le changement de taille.
+La taille de partage approvisionnée est spécifiée par le quota de partage. Le quota du partage peut être augmenté à tout moment, mais il ne peut être réduit qu’au bout des 24 heures suivant la dernière augmentation. À l’issue des 24 heures sans augmentation de quota, vous pouvez diminuer le quota du partage autant de fois que vous le souhaitez, jusqu’à ce que vous l’augmentiez à nouveau. Les modifications de mise à l’échelle IOPS/débit prennent effet quelques minutes après le changement de taille.
 
-Le tableau suivant illustre quelques exemples de ces formules pour les tailles de partage configuré :
+Il est possible de diminuer la taille de votre partage provisionné en dessous de votre Gio utilisé. Si vous faites cela, vous ne perdez pas les données, mais vous êtes toujours facturé pour la taille utilisée et recevez les performances (IOPS de base, débit et IOPS en rafale) du partage provisionné, pas de la taille utilisée.
 
-(Tailles dénoté par un * sont en version préliminaire publique limitée)
+Le tableau suivant illustre quelques exemples de ces formules pour les tailles de partage provisionné :
 
-|Capacité (Go) | IOPS de base | Rafale d’e/s | Sortie (Mio/s) | Entrée (Mio/s) |
+|Capacité (Gio) | IOPS de base | IOPS en rafale | Sortie (Mio/s) | Entrée (Mio/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Jusqu’à 300     | 66   | 44   |
-|500         | 500     | Jusqu'à 1 500   | 90   | 60   |
-|1 024       | 1 024   | Jusqu'à 3 072   | 122   | 81   |
-|5 120       | 5 120   | Jusqu'à 15 360  | 368   | 245   |
-|10,240 *     | 10,240  | Jusqu'à 30 720  | 675 | 450   |
-|33,792 *     | 33,792  | Jusqu'à 100 000 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | Jusqu'à 100 000 | 3 132 | 2,088   |
-|102,400 *    | 100 000 | Jusqu'à 100 000 | 6,204 | 4,136   |
+|500         | 500     | Jusqu’à 1 500   | 90   | 60   |
+|1 024       | 1 024   | Jusqu’à 3 072   | 122   | 81   |
+|5 120       | 5 120   | Jusqu’à 15 360  | 368   | 245   |
+|10 240      | 10 240  | Jusqu’à 30 720  | 675 | 450   |
+|33 792      | 33 792  | Jusqu’à 100 000 | 2 088 | 1 392   |
+|51 200      | 51 200  | Jusqu’à 100 000 | 3 132 | 2 088   |
+|102 400     | 100 000 | Jusqu’à 100 000 | 6 204 | 4 136   |
 
-Actuellement, taille de partage de fichier jusqu'à 5 To est en version préliminaire publique, tandis que les tailles jusqu'à 100 To sont en version préliminaire publique limitée, pour demander l’accès à la version préliminaire publique limitée complète [cette enquête.](https://aka.ms/azurefilesatscalesurvey)
+> [!NOTE]
+> Les performances des partages de fichiers sont soumises aux limites du réseau des machines, à la bande passante réseau disponible, aux tailles d’e/s, au parallélisme, entre autres nombreux facteurs. Pour obtenir une mise à l’échelle des performances maximales, répartissez la charge entre plusieurs machines virtuelles. Reportez-vous au [guide de résolution des problèmes](storage-troubleshooting-files-performance.md) pour certains problèmes de performances courants et leurs solutions de contournement.
 
-### <a name="bursting"></a>Rupture
+#### <a name="bursting"></a>Mode en rafales
 
-Partages de fichiers Premium peuvent croître leur IOPS jusqu'à un facteur de trois. Rupture est automatisé et fonctionne selon un système de crédit. Fonctionne sur une mesure du possible et la limite de croissance de rupture n’est pas une garantie, de partages de fichiers peuvent croître *jusqu'à* la limite.
+Les partages de fichiers Premium peuvent rapidement accroître leur IOPS jusqu’à multiplier leur nombre par trois. Ce mode en rafales est automatisé et fonctionne selon un système de crédits. Il fonctionne dans la mesure des possibilités et la limite de rafale n’est pas une garantie : les partages de fichiers peuvent croître par rafales *jusqu’à* cette limite.
 
-Crédits s’accumulent dans un compartiment de rafale chaque fois que le trafic pour votre partage de fichiers est sous la ligne de base e/s. Par exemple, un partage de Gio 100 a planifié 100 e/s. Si le trafic réel sur le partage a été 40 e/s pour un intervalle de 1 seconde spécifique, les IOPS inutilisés 60 sont créditées dans un compartiment en rafale. Ces crédits seront ensuite être utilisées lors d’opérations dépasserait la ligne de base e/s.
+Des crédits s’accumulent dans un compartiment à rafales chaque fois que le trafic de votre partage de fichiers se trouve en dessous des IOPS de base. Par exemple, un partage de 100 Gio dispose de 100 IOPS de base. Si le trafic réel sur le partage est de 40 IOPS pour un intervalle spécifique de 1 seconde, les 60 IOPS inutilisées sont créditées dans un compartiment à rafales. Ces crédits sont ensuite utilisés lorsque des opérations dépassent les IOPS de base.
 
 > [!TIP]
-> Taille du compartiment en rafale = Baseline_IOPS * 2 * 3600.
+> Taille du compartiment à rafales = IOPS de base * 2 * 3600.
 
-Chaque fois qu’un partage dépasse la ligne de base e/s et a des crédits dans un compartiment de rafale, il sera expédié. Partages peuvent continuer à croître tant que restant crédits, bien que les partages inférieures à 50 TIO restera uniquement atteint la limite de croissance pour atteindre une heure. Partages supérieur à 50 TIO techniquement de dépasser cette limite d’une heure, les deux heures, mais cela repose sur le nombre de crédits de rafale à recevoir. Chaque e/s au-delà de la ligne de base e/s consomme un crédit et une fois que tous les crédits consommés le partage retourne à la ligne de base e/s.
+Chaque fois qu’un partage dépasse les IOPS de base et qu’il dispose de crédits dans un compartiment à rafales, il est augmenté par rafales. Les partages peuvent continuer à croître tant qu’il reste des crédits, même si les partages inférieurs à 50 Tio ne demeureront à la limite de la rafale de croissance que sur une durée pouvant atteindre une heure. Les partages supérieurs à 50 Tio peuvent techniquement dépasser cette limite d’une heure, pour atteindre deux heures, mais cela dépend du nombre de crédits de rafale accumulés. Chaque e/s située au-delà des IOPS de base consomme un crédit ; une fois que tous les crédits sont consommés, le partage retourne aux IOPS de base.
 
-Les crédits de partage ont trois états :
+Les crédits de partage présentent trois états :
 
-- Comptabiliser, lorsque le partage de fichiers est inférieure à la ligne de base e/s à l’aide.
-- En baisse, lorsque le partage de fichiers est de rupture.
-- E/s reste constante, lorsqu’il n’y a aucune ligne de base ou crédits sont en cours d’utilisation.
+- En hausse, lorsque le partage de fichiers utilise un nombre inférieur à celui des IOPS de base.
+- En baisse, lorsque le partage de fichiers s’accroît.
+- Constant, lorsqu’il n’y a aucun crédit ou IOPS de base en cours d’utilisation.
 
-Nouveau début de partages de fichier avec le nombre total de crédits dans le compartiment de sa croissance. Les crédits de rafale ne seront pas provisionnées si le partage IOPS chutent en dessous de la ligne de base e/s en raison de la limitation par le serveur.
+Au départ, les nouveaux partages de fichiers se voient attribuer un nombre total de crédits dans leur compartiment à rafales. Les crédits de rafale ne seront pas augmentés si les IOPS du partage chutent en dessous des IOPS de base, en raison de la limitation par le serveur.
 
 ## <a name="file-share-redundancy"></a>Redondance de partage de fichiers
 
-Les partages standards de fichiers Azure prend en charge trois options de redondance de données : stockage localement redondant (LRS), stockage redondant (ZRS) et stockage géo-redondant (GRS).
+Les partages Azure Files prennent en charge quatre options de redondance des données : le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant interzone (GZRS) (préversion).
 
-Azure premium de fichiers partage uniquement prend en charge stockage localement redondant (LRS).
+Les partages Premium Azure Files prennent en charge les stockages LRS et ZRS, ZRS étant actuellement disponible dans moins de régions.
 
 Les sections suivantes décrivent les différences entre les différentes options de redondance :
 
@@ -176,23 +176,92 @@ Les sections suivantes décrivent les différences entre les différentes option
 
 Le stockage géoredondant (GRS) est conçu pour fournir au moins 99,99999999999999 % de durabilité des objets sur une année données en répliquant vos données vers une région secondaire se situant à des centaines de kilomètres de la région primaire. Si le GRS est activé pour votre compte de stockage, vos données restent durables, même en cas de panne régionale totale ou d’incident empêchant la récupération depuis la région primaire.
 
-Si vous optez pour le stockage géo-redondant avec accès en lecture (RA-GRS), vous devez savoir que fichiers Azure ne prend pas en charge le stockage géo-redondant avec accès en lecture (RA-GRS) dans n’importe quelle région pour l’instant. Partages de fichiers dans le compte de stockage RA-GRS travailler comme ils le feraient dans les comptes GRS et sont facturés à prix GRS.
+Si vous optez pour le stockage géoredondant avec accès en lecture (RA-GRS), vous devez savoir qu’Azure Files ne prend en charge ce type de stockage dans aucune région pour l’instant. Les partages de fichiers dans le compte de stockage RA-GRS fonctionnent comme ils le feraient dans des comptes GRS, et ils sont facturés au tarif GRS.
 
 Le stockage géoredondant réplique les données vers un autre centre de données dans une région secondaire, mais elles ne peuvent être lues que si Microsoft initie un basculement de la région primaire vers la région secondaire.
 
-Pour un compte de stockage avec GRS activé, toutes les données sont d’abord répliquées avec le stockage localement redondant (LRS). Une mise à jour est au préalable validée dans la région primaire et répliquée avec le stockage localement redondant. Elle est ensuite répliquée de manière asynchrone dans la région secondaire avec le stockage géoredondant. Lors de l’écriture des données dans l’emplacement secondaire, celles-ci sont également répliquées au sein de cet emplacement avec le stockage localement redondant.
+Dans le cas d’un compte de stockage GRS, toutes les données sont d’abord répliquées avec le stockage localement redondant (LRS). Une mise à jour est au préalable validée dans la région primaire et répliquée avec le stockage localement redondant. Elle est ensuite répliquée de manière asynchrone dans la région secondaire avec le stockage géoredondant. Lors de l’écriture des données dans l’emplacement secondaire, celles-ci sont également répliquées au sein de cet emplacement avec le stockage localement redondant.
 
-Les régions primaire et secondaire gèrent les réplicas dans des domaines d’erreur et de mise à niveau distincts, au sein d’une unité d’échelle de stockage. Cette unité représente l’unité de réplication de base au sein du centre de données. Réplication à ce niveau est fournie par LRS ; Pour plus d’informations, consultez [stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure](../common/storage-redundancy-lrs.md).
+Les régions primaire et secondaire gèrent les réplicas dans des domaines d’erreur et de mise à niveau distincts, au sein d’une unité d’échelle de stockage. Cette unité représente l’unité de réplication de base au sein du centre de données. La réplication à ce niveau est assurée par le stockage localement redondant ; pour en savoir plus, voir [Stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure](../common/storage-redundancy-lrs.md).
 
 Gardez ces points à l’esprit au moment de choisir une option de réplication :
 
-* Stockage redondant dans une zone (ZRS) fournit haute disponibilité avec réplication synchrone et peut être un meilleur choix pour des scénarios que GRS. Pour plus d’informations sur le stockage redondant dans une zone, voir [ZRS](../common/storage-redundancy-zrs.md).
+* Le stockage géoredondant interzone (GZRS) (préversion) offre une haute disponibilité et une durabilité maximale en répliquant les données de manière synchrone sur trois zones de disponibilité Azure, puis en répliquant les données de manière asynchrone dans la région secondaire. Vous pouvez également activer l’accès en lecture à la région secondaire. Le stockage GZRS est conçu pour fournir une durabilité des objets d’au moins 99,99999999999999 % (16 chiffres 9) sur une année donnée. Pour plus d’informations sur le stockage GZRS, consultez l’article [Stockage géo-redondant dans une zone pour la haute disponibilité et la durabilité maximale (préversion)](../common/storage-redundancy-gzrs.md).
+* Le stockage redondant interzone (ZRS), qui assure la haute disponibilité avec réplication synchrone, peut représenter dans certains scénarios un meilleur choix que le stockage géoredondant. Pour plus d’informations sur le stockage redondant dans une zone, voir [ZRS](../common/storage-redundancy-zrs.md).
 * Une réplication asynchrone implique un délai entre le moment où les données sont écrites dans la région primaire et celui où elles sont répliquées dans la région secondaire. En cas de sinistre régional, les modifications qui n’ont pas encore été répliquées vers la région secondaire risquent d’être perdues si ces données ne peuvent pas être récupérées à partir de la région primaire.
 * Avec le stockage géoredondant, le réplica n’est disponible pour l’accès en lecture ou écriture que si Microsoft lance un basculement vers la région secondaire. En cas de basculement, vous aurez accès en lecture et écriture à ces données après le basculement. Pour plus d’informations, voir [Conseils sur la récupération d’urgence](../common/storage-disaster-recovery-guidance.md).
 
+## <a name="onboard-to-larger-file-shares-standard-tier"></a>Intégrer à des partages de fichiers plus grands (niveau Standard)
+
+Cette section s’applique uniquement aux partages de fichiers Standard. Tous les partages de fichiers Premium sont disponibles avec 100 Tio, sous la forme d’une offre GA.
+
+### <a name="restrictions"></a>Restrictions
+
+- Les [Conditions d’utilisation supplémentaires des Préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) s’appliquent aux partages de fichiers volumineux en préversion, y compris lorsqu’ils sont utilisés avec des déploiements Azure File Sync.
+- Vous oblige à créer un compte de stockage à usage général (impossibilité de développer des comptes de stockage existants).
+- La conversion de comptes LRS/ZRS en GRS/GZRS ne sera pas possible sur les nouveaux comptes de stockage, créés après l’acceptation de l’abonnement pour la préversion de partages de fichiers plus volumineux.
+
+
+### <a name="regional-availability"></a>Disponibilité régionale
+
+Le partage de fichiers Standard est disponible dans toutes les régions, jusqu’à 5 Tio. Dans certaines régions, il est disponible avec une limite de 100 Tio ; ces régions sont listées dans le tableau suivant :
+
+|Région |Redondance prise en charge |Prend en charge les comptes de stockage existants |Prise en charge du portail* |
+|-------|---------|---------|---------|
+|Australie Est |LRS     |Non    |OUI|
+|Sud-Australie Est|LRS     |Non    |Pas encore|
+|Inde centrale  |LRS     |Non    |Pas encore|
+|Asie Est      |LRS     |Non    |Pas encore|
+|USA Est        |LRS     |Non    |Pas encore|
+|France Centre |LRS, ZRS|Non    |LRS - Oui, ZRS - pas encore|
+|France Sud   |LRS     |Non    |OUI|
+|Europe Nord   |LRS     |Non    |Pas encore|
+|Inde Sud    |LRS     |Non    |Pas encore|
+|Asie Sud-Est |LRS, ZRS|Non    |OUI|
+|Centre-USA Ouest|LRS     |Non    |Pas encore|
+|Europe Ouest    |LRS, ZRS|Non    |OUI|
+|USA Ouest        |LRS     |Non    |Pas encore|
+|USA Ouest 2      |LRS, ZRS|Non    |OUI|
+
+
+*Pour les régions sans prise en charge du portail, vous pouvez toujours utiliser PowerShell ou l’interface de ligne de commande (CLI) Azure pour créer plus de 5 partages TiO. Vous pouvez également créer un nouveau partage via le portail sans spécifier le quota. Cette opération crée un partage avec une taille par défaut de 100 TiO, qui peut être mis à jour ultérieurement via PowerShell ou Azure CLI.
+
+Pour nous aider à hiérarchiser les nouvelles régions et les nouvelles fonctionnalités, veuillez répondre à ce [sondage](https://aka.ms/azurefilesatscalesurvey).
+
+### <a name="steps-to-onboard"></a>Étapes pour l’intégration
+
+Pour inscrire votre abonnement à la préversion de partages de fichiers plus volumineux, vous devez utiliser Azure PowerShell. Vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com/) ou installer le [module Azure PowerShell localement](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) pour exécuter les commandes PowerShell suivantes :
+
+Tout d’abord, assurez-vous que l’abonnement que vous souhaitez inscrire dans la préversion est sélectionné :
+
+```powershell
+$context = Get-AzSubscription -SubscriptionId ...
+Set-AzContext $context
+```
+
+Ensuite, inscrivez-vous dans la préversion à l’aide des commandes suivantes :
+
+```powershell
+Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+```
+Votre abonnement est approuvé automatiquement dès que les deux commandes sont exécutées.
+
+Pour vérifier l’état de votre inscription, vous pouvez exécuter la commande suivante :
+
+```powershell
+Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
+```
+
+La mise à jour de votre état vers **inscrit** peut prendre jusqu’à 15 minutes. Une fois votre état défini sur **inscrit**, vous devez être en mesure d’utiliser la fonctionnalité.
+
+### <a name="use-larger-file-shares"></a>Utiliser des partages de fichiers plus volumineux
+
+Pour commencer à utiliser des partages de fichiers plus volumineux, créez un compte de stockage v2 à usage général et un partage de fichiers.
+
 ## <a name="data-growth-pattern"></a>Modèle de croissance des données
 
-Aujourd'hui, la taille maximale d’un partage de fichiers Azure est 5 To (100 To pour le fichier de premium partagent une version préliminaire publique limitée). En raison de cette limitation actuelle, vous devez prendre en compte la croissance attendue des données quand vous déployez un partage de fichiers Azure.
+Aujourd’hui, la taille maximale d’un partage de fichiers Azure est de 5 Tio (100 Tio en préversion). En raison de cette limitation actuelle, vous devez prendre en compte la croissance attendue des données quand vous déployez un partage de fichiers Azure.
 
 Vous pouvez synchroniser plusieurs partages de fichiers Azure sur un même serveur de fichiers Windows avec Azure File Sync. Cela vous permet d’inclure dans Azure File Sync des partages de fichiers plus anciens et très volumineux que vous pouvez avoir localement. Pour plus d’informations, voir [Planification d’un déploiement Azure File Sync](storage-files-planning.md).
 
@@ -203,7 +272,7 @@ Il existe de nombreuses options pour facilement transférer en bloc les données
 * **Azure File Sync** : lors de la première synchronisation entre un partage de fichiers Azure (un « point de terminaison cloud ») et un espace de noms de répertoire Windows (un « point de terminaison de serveur »), Azure File Sync réplique toutes les données du partage de fichiers existant sur Azure Files.
 * **[Azure Import Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : Le service Azure Import/Export permet de transférer en toute sécurité des volumes importants de données dans un partage de fichiers Azure en expédiant des disques durs vers un centre de données Azure. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy est un outil de copie bien connu fourni avec Windows et Windows Server. Robocopy peut servir à transférer des données dans Azure Files en montant le partage de fichiers localement, puis en utilisant l’emplacement monté comme destination de la commande Robocopy.
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)** : AzCopy est un utilitaire de ligne de commande conçu pour copier des données à destination et à partir d’Azure Files, ou d’un stockage blob Azure, en utilisant des commandes simples avec des performances optimales. AzCopy est disponible pour Windows et Linux.
+* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy est un utilitaire de ligne de commande conçu pour copier des données à destination et à partir d’Azure Files, ou d’un stockage blob Azure, en utilisant des commandes simples avec des performances optimales.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md)

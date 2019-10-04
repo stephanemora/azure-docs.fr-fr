@@ -1,27 +1,22 @@
 ---
-title: Installer et utiliser Giraph sur HDInsight (Hadoop) - Azure
-description: Découvrez comment installer Giraph sur des clusters HDInsight basés sur Linux à l’aide des actions de script. Les actions de script vous permettent de personnaliser le cluster pendant la création, en modifiant la configuration du cluster ou en installant des services et des utilitaires.
-services: hdinsight
+title: Installer et utiliser Giraph sur Azure HDInsight
+description: Découvrez comment installer Giraph sur des clusters HDInsight à l’aide d’actions de script. Vous pouvez utiliser Giraph pour traiter des graphiques dans Apache Hadoop dans le cloud Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: hrasheed
-ms.openlocfilehash: a2f964915efda6ce83439c3c1970de58b0467456
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: f1ca536ffa2166df4ef6cf51654b7b410e72ea66
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201719"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962070"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installation d’Apache Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
 
 Découvrez comment installer Apache Giraph sur un cluster HDInsight. La fonctionnalité d’action de script de HDInsight vous permet de personnaliser votre cluster en exécutant un script bash. Les scripts peuvent être utilisés pour personnaliser des clusters pendant et après la création du cluster.
-
-> [!IMPORTANT]  
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>Présentation de Giraph
 
@@ -58,7 +53,7 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 > [!NOTE]  
 > Les actions de script peuvent être appliquées selon les méthodes suivantes :
 > * Azure PowerShell
-> * Azure Classic CLI
+> * L’interface Azure CLI
 > * Le kit de développement logiciel (SDK) HDInsight .NET
 > * Modèles Microsoft Azure Resource Manager
 > 
@@ -116,7 +111,7 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
 
     Dessinées en utilisant la valeur (ou la pondération) comme la distance entre les objets, les données peuvent ressembler au schéma ci-après :
 
-    ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph.png)
+    ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph.png)
 
 3. Pour enregistrer le fichier, utilisez **Ctrl+X**, puis **Y**, et enfin **Entrée** pour accepter le nom de fichier.
 
@@ -148,7 +143,7 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
 
     Pour plus d’informations sur ces éléments et d’autres paramètres utilisés avec des exemples Giraph, consultez la section [Démarrage rapide de Giraph](https://giraph.apache.org/quick_start.html).
 
-6. Une fois la tâche terminée, les résultats sont stockés dans le répertoire **/example/out/shotestpaths**. Les noms de fichiers de sortie commencent par **part-m-** et se terminent par un nombre indiquant s’il s’agit du premier fichier, du deuxième fichier, etc. Pour afficher la sortie, utilisez la commande suivante :
+6. Une fois la tâche terminée, les résultats sont stockés dans le répertoire **/example/out/shortestpaths**. Les noms de fichiers de sortie commencent par **part-m-** et se terminent par un nombre indiquant s’il s’agit du premier fichier, du deuxième fichier, etc. Pour afficher la sortie, utilisez la commande suivante :
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*
@@ -166,7 +161,7 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
 
     En visualisant ces données, vous pouvez vérifier les résultats en parcourant les chemins les plus courts entre l’ID 1 et tous les autres objets. Le chemin le plus court entre ID 1 et ID 4 est 5. La valeur correspond à la distance totale entre <span style="color:orange">ID 1 et 3</span>, puis entre <span style="color:red">ID 3 et 4</span>.
 
-    ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph-out.png)
+    ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install-linux/hdinsight-giraph-graph-out.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

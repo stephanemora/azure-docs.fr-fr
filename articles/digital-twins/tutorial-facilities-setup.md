@@ -2,22 +2,22 @@
 title: 'Didacticiel : Déployer Azure Digital Twins | Microsoft Docs'
 description: Découvrez comment déployer votre instance d’Azure Digital Twins et configurer vos ressources spatiales en suivant les étapes de ce tutoriel.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/17/2018
-ms.author: dkshir
-ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 09/17/2019
+ms.author: alinast
+ms.openlocfilehash: 1ab3f30f035f8099ab50f827e559e56b31d7f1f6
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537454"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219744"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutoriel : Déployer Azure Digital Twins et configurer un graphique spatial
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Didacticiel : Déployer la préversion d’Azure Digital Twins et configurer un graphique spatial
 
-Vous pouvez utiliser le service Azure Digital Twins pour rassembler des personnes, des lieux et des appareils dans un système spatial homogène. Cette série de tutoriels montre comment utiliser Azure Digital Twins pour détecter l’occupation d’une salle avec des conditions optimales de qualité d’air et de température. 
+Vous pouvez utiliser le service Azure Digital Twins en préversion pour rassembler des personnes, des lieux et des appareils dans un système spatial homogène. Cette série de tutoriels montre comment utiliser Azure Digital Twins pour détecter l’occupation d’une salle avec des conditions optimales de qualité d’air et de température. 
 
 Ces tutoriels vous guident dans une application de console .NET pour créer un scénario de bâtiment hébergeant des bureaux. L’immeuble comprend plusieurs étages et plusieurs salles à chaque étage. Dans les salles se trouvent des appareils auxquels sont reliés des capteurs qui détectent les mouvements, la température ambiante et la qualité de l’air. 
 
@@ -43,15 +43,11 @@ Ces didacticiels utilisent et modifient les mêmes exemples que ceux du [démarr
 
 - [Visual Studio Code](https://code.visualstudio.com/) pour explorer l’exemple de code. 
 
-<a id="deploy"></a>
-
 ## <a name="deploy-digital-twins"></a>Déployer Digital Twins
 
 Utilisez les étapes de cette section pour créer une instance du service Azure Digital Twins. Une seule instance peut être créée par abonnement. Passez à la section suivante si vous en avez déjà une en cours d’exécution. 
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
-
-<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>Accorder des autorisations à votre application
 
@@ -76,7 +72,7 @@ Si vous avez déjà les exemples téléchargés pour le [démarrage rapide de re
 
 Dans l’exemple de dossier extrait, ouvrez le fichier **digital-twins-samples-csharp\digital-twins-samples.code-workspace** dans Visual Studio Code. Il inclut deux projets :
 
-* Vous pouvez utiliser l’exemple de provisionnement **occupancy-quickstart** pour configurer et provisionner un [graphe d’intelligence spatiale](concepts-objectmodel-spatialgraph.md#graph). Ce graphe constitue l’image numérisée de vos espaces physiques et des ressources qu’ils contiennent. Il utilise un [modèle objet](concepts-objectmodel-spatialgraph.md#model) qui définit les objets d’un bâtiment intelligent. Pour obtenir une liste complète des objets et API REST Digital Twins, consultez [cette documentation sur les API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) ou l’URL de l’API de gestion qui a été créée pour [votre instance](#deploy).
+* Vous pouvez utiliser l’exemple de provisionnement **occupancy-quickstart** pour configurer et provisionner un [graphe d’intelligence spatiale](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). Ce graphe constitue l’image numérisée de vos espaces physiques et des ressources qu’ils contiennent. Il utilise un [modèle objet](concepts-objectmodel-spatialgraph.md#digital-twins-object-models) qui définit les objets d’un bâtiment intelligent. Pour obtenir une liste complète des objets et API REST Digital Twins, consultez [cette documentation sur les API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) ou l’URL de l’API de gestion qui a été créée pour [votre instance](#deploy-digital-twins).
 
    Pour explorer l’exemple et voir comment il communique avec votre instance Digital Twins, vous pouvez commencer avec le dossier **src\actions**. Les fichiers dans ce dossier implémentent les commandes que vous allez utiliser dans ces tutoriels :
     - Le fichier **provisionSample.cs** montre comment provisionner votre graphe spatial.
@@ -84,7 +80,7 @@ Dans l’exemple de dossier extrait, ouvrez le fichier **digital-twins-samples-c
     - Le fichier **getAvailableAndFreshSpaces.cs** récupère les résultats d’une fonction personnalisée appelée fonction définie par l’utilisateur.
     - Le fichier **createEndpoints.cs** crée des points de terminaison pour interagir avec d’autres services.
 
-* L’exemple de simulation **device-connectivity** simule les données de capteur et les envoie au hub IoT qui est provisionné pour votre instance Digital Twins. Vous allez utiliser cet exemple dans [le tutoriel suivant, après avoir provisionné votre graphe spatial](tutorial-facilities-udf.md#simulate). Les identificateurs d’appareils et de capteurs que vous utilisez pour configurer cet exemple doivent être les mêmes que ceux que vous allez utiliser pour provisionner votre graphe.
+* L’exemple de simulation **device-connectivity** simule les données de capteur et les envoie au hub IoT qui est provisionné pour votre instance Digital Twins. Vous allez utiliser cet exemple dans [le tutoriel suivant, après avoir provisionné votre graphe spatial](tutorial-facilities-udf.md#simulate-sensor-data). Les identificateurs d’appareils et de capteurs que vous utilisez pour configurer cet exemple doivent être les mêmes que ceux que vous allez utiliser pour provisionner votre graphe.
 
 ### <a name="configure-the-provisioning-sample"></a>Configurer l’exemple d’approvisionnement
 
@@ -101,17 +97,15 @@ Dans l’exemple de dossier extrait, ouvrez le fichier **digital-twins-samples-c
     ```
 
 1. Dans Visual Studio Code, ouvrez le fichier [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) dans le projet **occupancy-quickstart**. Mettez à jour les valeurs suivantes :
-   * **ClientId** : entrez l’ID d’application de l’inscription de votre application Azure AD. Vous avez noté cet ID à la section où vous avez [défini des autorisations d’application](#permissions).
-   * **Tenant** : entrez l’ID de répertoire de votre [locataire Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Vous avez également noté cet ID à la section où vous avez [défini des autorisations d’application](#permissions).
-   * **BaseUrl** : entrez l’URL de votre instance Digital Twins. Pour obtenir cette URL, remplacez les espaces réservés dans cette URL par les valeurs de votre instance : `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Vous pouvez également obtenir cette URL en modifiant l’URL API de gestion depuis [la section de déploiement](#deploy). Remplacez **swagger/** par **api/v1.0/**.
+   * **ClientId** : entrez l’ID d’application de l’inscription de votre application Azure AD. Vous avez noté cet ID à la section où vous avez [défini des autorisations d’application](#grant-permissions-to-your-app).
+   * **Tenant** : entrez l’ID de répertoire de votre [locataire Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Vous avez également noté cet ID à la section où vous avez [défini des autorisations d’application](#grant-permissions-to-your-app).
+   * **BaseUrl** : entrez l’URL de votre instance Digital Twins. Pour obtenir cette URL, remplacez les espaces réservés dans cette URL par les valeurs de votre instance : `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Vous pouvez également obtenir cette URL en modifiant l’URL API de gestion depuis [la section de déploiement](#deploy-digital-twins). Remplacez **swagger/** par **api/v1.0/** .
 
 1. Affichez la liste des fonctionnalités Digital Twins que vous pouvez explorer à l’aide de l’exemple. Exécutez la commande suivante :
 
     ```cmd/sh
     dotnet run
     ```
-
-<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>Comprendre le processus de provisionnement
 
@@ -137,7 +131,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-Cette fonction utilise le fichier [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) dans le même dossier. Ouvrez ce fichier et notez la hiérarchie d’un bâtiment hébergeant des bureaux : *Venue (Lieu)*, *Floor (Étage)*, *Area (Zone)* et *Rooms (Salles)*. Tous ces espaces physiques peuvent contenir des *appareils* et des *capteurs*. Chaque entrée est dotée d’un élément `type` prédéfini, par exemple Floor (Étage), Room (Salle).
+Cette fonction utilise le fichier [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) dans le même dossier. Ouvrez ce fichier et notez la hiérarchie d’un bâtiment hébergeant des bureaux : *Venue (Lieu)* , *Floor (Étage)* , *Area (Zone)* et *Rooms (Salles)* . Tous ces espaces physiques peuvent contenir des *appareils* et des *capteurs*. Chaque entrée est dotée d’un élément `type` prédéfini, par exemple Floor (Étage), Room (Salle).
 
 L’exemple de fichier **yaml** montre un graphe spatial qui utilise le modèle objet Digital Twins `Default`. Ce modèle fournit des noms génériques pour la plupart des types. Les noms génériques sont suffisants pour un bâtiment. Les exemples sont Temperature (Température) pour SensorDataType (TypeDonnéesCapteur), et Map (Carte) pour SpaceBlobType (TypeObjetBlobEspace). Un exemple de type d’espace est Room (Salle) avec des sous-types, tels que FocusRoom (SalleTravail), ConferenceRoom (SalleRéunion) et ainsi de suite. 
 

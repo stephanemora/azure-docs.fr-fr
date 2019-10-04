@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 6/15/2019
 ms.author: victorh
-ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bb5c4d508344f391d610aeaa7e0be54a93c997dc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905713"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080019"
 ---
 # <a name="azure-dns-faq"></a>FAQ Azure DNS
 
@@ -42,7 +42,7 @@ Pour plus d’informations, consultez la [page du contrat de niveau de service (
 
 Un domaine est un nom unique dans le système de noms de domaine. contoso.com en est un exemple.
 
-Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Par exemple, le domaine contoso.com peut contenir plusieurs enregistrements DNS. Les enregistrements peuvent inclure mail.contoso.com pour un serveur de messagerie et le www\.contoso.com pour un site Web. Ces enregistrements sont hébergés dans la zone DNS contoso.com.
+Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Par exemple, le domaine contoso.com peut contenir plusieurs enregistrements DNS. Les enregistrements peuvent inclure mail.contoso.com pour un serveur de messagerie et www\.contoso.com pour un site web. Ces enregistrements sont hébergés dans la zone DNS contoso.com.
 
 Un nom de domaine est *juste un nom*. Une zone DNS est une ressource de données contenant les enregistrements DNS pour un nom de domaine. Azure DNS vous permet d’héberger une zone DNS et de gérer les enregistrements DNS pour un domaine dans Azure. Il fournit également des serveurs de noms DNS pour répondre aux requêtes DNS provenant d’Internet.
 
@@ -118,7 +118,7 @@ Les jeux d’enregistrements d’alias sont pris en charge pour les types d’en
 
 - **Pointer vers une ressource d’adresse IP publique à partir d’un jeu d’enregistrements A/AAAA DNS.** Vous pouvez créer un jeu d’enregistrements A/AAAA et en faire un jeu d’enregistrements d’alias pour pointer vers une ressource d’adresse IP publique.
 - **Pointer vers un profil Traffic Manager à partir d’un jeu d’enregistrements A/AAAA/CNAME DNS.** Vous pouvez pointer vers le CNAME d’un profil Traffic Manager à partir d’un jeu d’enregistrements CNAME DNS. contoso.trafficmanager.net en est un exemple. Maintenant, vous pouvez également pointer vers un profil Traffic Manager qui a des points de terminaison externes à partir d’un jeu d’enregistrements A ou AAAA dans votre zone DNS.
-- **Pointez sur un point de terminaison Azure Content Delivery Network (CDN)**. Cela est utile lorsque vous créez des sites Web statiques à l’aide du stockage Azure et Azure CDN.
+- **Pointer vers un point de terminaison Azure CDN (Content Delivery Network)** . C’est utile quand vous créez des sites web statiques à l’aide du Stockage Azure et d’Azure CDN.
 - **Pointer vers un autre jeu d’enregistrements DNS au sein de la même zone.** Les enregistrements d’alias peuvent faire référence à d’autres jeux d’enregistrements du même type. Par exemple, un jeu d’enregistrements CNAME DNS peut être un alias pour un autre jeu d’enregistrements CNAME du même type. Cette disposition est utile si vous voulez que certains jeux d’enregistrements d’alias soient des alias et d’autres des non-alias.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Puis-je créer et mettre à jour des enregistrements d’alias à partir du portail Azure ?
@@ -143,11 +143,11 @@ Les enregistrements d’alias sont une qualification sur un jeu d’enregistreme
 
 ## <a name="use-azure-dns"></a>Utiliser Azure DNS
 
-### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>J’ai peuvent cohabiter sur un domaine à l’aide d’Azure DNS et un autre fournisseur DNS ?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Puis-je cohéberger un domaine en utilisant Azure DNS et un autre fournisseur DNS ?
 
 Oui. Azure DNS prend en charge le co-hébergement de domaines avec d’autres services DNS.
 
-Pour configurer le co-hébergement, modifier les enregistrements NS pour le domaine pointer vers les serveurs de noms des deux fournisseurs. Les enregistrements de serveur de noms (NS) déterminent quels fournisseurs reçoivent des requêtes DNS pour le domaine. Vous pouvez modifier ces enregistrements NS dans Azure DNS, dans l’autre fournisseur et dans la zone parente. Cette dernière est généralement configurée par le biais du bureau d’enregistrement de noms de domaine. Pour plus d’informations sur la délégation DNS, consultez [Délégation de domaine DNS](dns-domain-delegation.md).
+Pour configurer le cohébergement, modifiez les enregistrements NS du domaine pour qu’ils pointent vers les serveurs de noms des deux fournisseurs. Les enregistrements de serveur de noms (NS) déterminent quels fournisseurs reçoivent des requêtes DNS pour le domaine. Vous pouvez modifier ces enregistrements NS dans Azure DNS, dans l’autre fournisseur et dans la zone parente. Cette dernière est généralement configurée par le biais du bureau d’enregistrement de noms de domaine. Pour plus d’informations sur la délégation DNS, consultez [Délégation de domaine DNS](dns-domain-delegation.md).
 
 Vérifiez également que les enregistrements DNS du domaine sont synchronisés entre les deux fournisseurs DNS. Azure DNS ne prend actuellement pas en charge les transferts de zone DNS. Les enregistrements DNS doivent être synchronisés à l’aide du [portail de gestion Azure DNS](dns-operations-recordsets-portal.md), de [l’API REST](https://docs.microsoft.com/powershell/module/az.dns), du [SDK](dns-sdk.md), des [applets de commande PowerShell](dns-operations-recordsets.md) ou de [l’outil CLI](dns-operations-recordsets-cli.md).
 
@@ -194,87 +194,6 @@ Oui. Les serveurs de noms DNS Azure sont à double pile. Cela signifie qu’ils 
 Les noms de domaines internationaux (IDN) encodent chaque nom DNS à l’aide de [punycode](https://en.wikipedia.org/wiki/Punycode). Les requêtes DNS sont effectuées à l’aide de ces noms codés en punycode.
 
 Pour configurer des noms de domaines internationaux (IDN) dans Azure DNS, convertissez le nom de zone ou de jeu d’enregistrements en punycode. Azure DNS ne prend actuellement pas en charge la conversion intégrée vers le format punycode ou à partir de celui-ci.
-
-## <a name="private-dns"></a>DNS privé
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
-
-### <a name="does-azure-dns-support-private-domains"></a>Azure DNS prend-il en charge les domaines privés ?
-
-La prise en charge de domaines privés est implémentée à l’aide de la fonctionnalité Private Zones. Cette fonctionnalité est actuellement disponible en préversion publique. Les zones privées sont gérées à l’aide des mêmes outils que les zones Azure DNS accessibles sur Internet. Elles peuvent être résolues uniquement à partir de vos réseaux virtuels spécifiés. Pour plus d’informations, consultez la [Vue d’ensemble](private-dns-overview.md).
-
-Actuellement, les zones privées ne sont pas prises en charge sur le portail Azure.
-
-Pour plus d’informations sur les autres options DNS internes dans Azure, consultez [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-### <a name="whats-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>Quelle est la différence entre le réseau virtuel d’inscription et le réseau virtuel de résolution dans le contexte des zones privées ?
-
-Vous pouvez lier des réseaux virtuels à une zone privée DNS en tant que réseau virtuel d’inscription ou en tant que réseau virtuel de résolution. Dans les deux cas, les machines virtuelles sur le réseau virtuel effectuent une résolution correcte par rapport aux enregistrements de la zone privée. Avec un réseau virtuel d’inscription, les enregistrements DNS sont automatiquement inscrits dans la zone pour les machines virtuelles du réseau virtuel. Quand une machine virtuelle sur un réseau virtuel d’inscription est supprimée, l’enregistrement DNS correspondant de la zone privée liée est automatiquement supprimé. 
-
-### <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>Azure DNS Private Zones fonctionne-il d’une région Azure à une autre ?
-
-Oui. La fonctionnalité Private Zones est prise en charge pour la résolution DNS entre les réseaux virtuels de différentes régions Azure. Elle fonctionne même sans l’appairage explicite des réseaux virtuels. Tous les réseaux virtuels doivent être spécifiés en tant que réseaux virtuels de résolution pour la zone privée. Les clients peuvent avoir besoin que les réseaux virtuels soient appairés pour que le trafic TCP/HTTP circule d’une région à une autre.
-
-### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>La connectivité à Internet à partir de réseaux virtuels est-elle nécessaire pour les zones privées ?
-
-Non. Les zones privées fonctionnent avec les réseaux virtuels. Les clients les utilisent pour gérer les domaines pour les machines virtuelles ou d’autres ressources dans et entre les réseaux virtuels. Une connectivité à Internet n’est pas nécessaire pour la résolution de noms. 
-
-### <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>La même zone privée peut-elle être utilisée pour plusieurs réseaux virtuels pour la résolution ?
-
-Oui. Les clients peuvent associer jusqu’à 10 réseaux virtuels de résolution à une même zone privée.
-
-### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Un réseau virtuel qui appartient à un autre abonnement peut-il être ajouté en tant que réseau virtuel de résolution à une zone privée ?
-
-Oui. Vous devez disposer d'une autorisation d'écriture sur les réseaux virtuels ainsi que sur la zone DNS privée. L’autorisation d’accès en écriture peut être accordée à plusieurs rôles RBAC. Par exemple, le rôle RBAC Contributeur de réseaux classiques dispose d’autorisations d’écriture sur les réseaux virtuels. Pour plus d’informations sur les rôles RBAC, consultez [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
-
-### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Les enregistrements DNS de machines virtuelles inscrits automatiquement dans une zone privée sont-ils supprimés automatiquement quand les machines virtuelles sont supprimées par le client ?
-
-Oui. Si vous supprimez une machine virtuelle sur un réseau virtuel d’inscription, les enregistrements DNS qui ont été inscrits dans la zone sont automatiquement supprimés. 
-
-### <a name="can-an-automatically-registered-virtual-machine-record-in-a-private-zone-from-a-registration-virtual-network-be-deleted-manually"></a>Un enregistrement de machine virtuelle inscrit automatiquement dans une zone privée à partir d’un réseau virtuel d’inscription peut-il être supprimé manuellement ?
-
-Non. Les enregistrements DNS de machine virtuelle qui sont inscrits automatiquement dans une zone privée à partir d’un réseau virtuel d’inscription ne sont pas visibles ou modifiables par les clients. Vous pouvez remplacer les enregistrements DNS inscrits automatiquement par un enregistrement DNS créé manuellement dans la zone. La question et la réponse suivantes traitent de ce sujet.
-
-### <a name="what-happens-when-we-try-to-manually-create-a-new-dns-record-into-a-private-zone-that-has-the-same-hostname-as-an-automatically-registered-existing-virtual-machine-in-a-registration-virtual-network"></a>Que se passe-t-il quand nous essayons de créer manuellement un enregistrement DNS dans une zone privée qui a le même nom d’hôte qu’une machine virtuelle existante inscrite automatiquement sur un réseau virtuel d’inscription ?
-
-Vous essayez de créer manuellement un enregistrement DNS dans une zone privée qui a le même nom d’hôte qu’une machine virtuelle inscrite automatiquement existante sur un réseau virtuel d’inscription. Dans ce cas, le nouvel enregistrement DNS remplace l’enregistrement de machine virtuelle inscrit automatiquement. Si vous essayez de supprimer à nouveau cet enregistrement DNS créé manuellement de la zone, la suppression réussit. L’inscription automatique se produit à nouveau tant que la machine virtuelle existe encore et qu’une adresse IP privée lui est attachée. L’enregistrement DNS est automatiquement recréé dans la zone.
-
-### <a name="what-happens-when-we-unlink-a-registration-virtual-network-from-a-private-zone-will-the-automatically-registered-virtual-machine-records-from-the-virtual-network-be-removed-from-the-zone-too"></a>Que se passe-t-il quand nous dissocions un réseau virtuel d’inscription d’une zone privée ? Les enregistrements de machines virtuelles du réseau virtuel inscrits automatiquement sont-ils également supprimés de la zone ?
-
-Oui. Pour dissocier un réseau virtuel d’inscription d’une zone privée, vous mettez à jour la zone DNS pour supprimer le réseau virtuel d’inscription associé. Dans ce processus, les enregistrements de machines virtuelles qui ont été inscrits automatiquement sont supprimés de la zone. 
-
-### <a name="what-happens-when-we-delete-a-registration-or-resolution-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-registration-or-resolution--virtual-network-from-the-zone"></a>Que se passe-t-il quand nous supprimons un réseau virtuel d’inscription ou de résolution qui est lié à une zone privée ? Devons-nous mettre manuellement à jour la zone privée afin de dissocier le réseau virtuel en tant que réseau virtuel d’inscription ou de résolution de la zone ?
-
-Oui. Quand vous supprimez un réseau virtuel d’inscription ou de résolution sans le dissocier au préalable d’une zone privée, votre opération de suppression réussit. Toutefois, le réseau virtuel n’est pas automatiquement dissocié de votre zone privée, le cas échéant. Vous devez dissocier manuellement le réseau virtuel de la zone privée. C’est pourquoi vous devez dissocier votre réseau virtuel de votre zone privée avant de le supprimer.
-
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>Résolution DNS en utilisant le nom de domaine complet (internal.cloudapp.net) par défaut continue de fonctionner même si une zone privée (par exemple, private.contoso.com) est liée à un réseau virtuel ?
-
-Oui. La fonctionnalité Private Zones ne remplace pas les résolutions DNS par défaut à l’aide de la zone internal.cloudapp.net fournie par Azure. Elle est proposée en tant qu’amélioration ou fonctionnalité supplémentaire. Que vous vous appuyiez sur la zone internal.cloudapp.net fournie par Azure ou sur votre propre zone privée, utilisez le nom de domaine complet de la zone par rapport à laquelle vous souhaitez effectuer la résolution. 
-
-### <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>Le suffixe DNS sur les machines virtuelles au sein d’un réseau virtuel lié est-il remplacé par celui de la zone privée ?
-
-Non. Le suffixe DNS sur les machines virtuelles de votre réseau virtuel lié reste le suffixe par défaut fourni par Azure (« *.internal.cloudapp.net »). Vous pouvez changer manuellement ce suffixe DNS sur vos machines virtuelles en le remplaçant par celui de la zone privée. 
-
-### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>Existe-t-il des limitations pour les zones privées pendant cette préversion ?
-
-Oui. La préversion publique a les limitations suivantes.
-* Un réseau virtuel d’inscription par zone privée.
-* Jusqu’à 10 réseaux virtuels de résolution par zone privée.
-* Un réseau virtuel donné n’est lié qu’à une seule zone privée en tant que réseau virtuel d’inscription.
-* Un réseau virtuel donné est lié jusqu’à 10 zones privées en tant que réseau virtuel de résolution.
-* Si un réseau virtuel d’inscription est spécifié, les enregistrements DNS pour les machines virtuelles de ce réseau virtuel qui sont inscrits dans la zone privée ne sont pas visibles ou récupérables à partir de PowerShell, de l’interface CLI ou des API. Les enregistrements de machine virtuelle sont enregistrés et résolus avec succès.
-* Le DNS inversé fonctionne uniquement pour l’espace IP privé sur le réseau virtuel d’inscription.
-* Le DNS inversé pour une adresse IP privée qui n’est pas inscrite dans la zone privée retourne « internal.cloudapp.net » comme suffixe DNS. Ce suffixe ne peut pas être résolu. Il peut s’agir, par exemple, d’une adresse IP privée pour une machine virtuelle dans un réseau virtuel qui est lié en tant qu’un réseau virtuel de résolution à une zone privée.
-* Un réseau virtuel doit être vide lorsqu'il est lié pour la première fois à une zone privée en tant que réseau virtuel d'inscription ou de résolution. Le réseau virtuel peut ensuite être non vide pour les liaisons ultérieures à d’autres zones privées en tant que réseau virtuel d’inscription ou de résolution.
-* Le transfert conditionnel n’est pas pris en charge, par exemple pour activer la résolution entre les réseaux Azure et les réseaux locaux. Découvrez comment les clients peuvent implémenter ce scénario par le biais d’autres mécanismes. Consultez [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Existe-t-il des quotas ou des limites applicables aux zones ou aux enregistrements pour les zones privées ?
-
-Il n’existe aucune limite quant au nombre de zones autorisées par abonnement pour les zones privées. Il n’existe aucune limite quant au nombre de jeux d’enregistrements par zone pour les zones privées. Les zones publiques et privées sont prises en compte pour les limites DNS globales. Pour plus d’informations, consultez les [Limites de service et d’abonnement Azure](../azure-subscription-service-limits.md#azure-dns-limits).
-
-### <a name="is-there-portal-support-for-private-zones"></a>Existe-t-il une prise en charge du portail pour les zones privées ?
-
-Les zones privées qui sont déjà créées par le biais des API, de PowerShell, de l’interface CLI et des SDK sont visibles sur le portail Azure. Mais les clients ne peuvent pas créer des zones privées ou gérer des associations avec des réseaux virtuels. Pour les réseaux virtuels associés en tant que réseaux virtuels d’inscription, les enregistrements de machines virtuelles inscrits automatiquement ne sont pas visibles à partir du portail. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

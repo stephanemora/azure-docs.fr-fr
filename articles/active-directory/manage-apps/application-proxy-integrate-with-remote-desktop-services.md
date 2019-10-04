@@ -3,25 +3,25 @@ title: Publier le Bureau à distance avec le proxy d’application Azure AD | M
 description: Couvre les bases sur les connecteurs de proxy d’application Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.author: celested
+ms.date: 05/23/2019
+ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111104"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108464"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
 
@@ -58,6 +58,8 @@ Dans un déploiement RDS, le rôle Site Web Bureau à distance et le rôle Passe
 
 - Dans Internet Explorer, activez le module complémentaire ActiveX Service de données distant.
 
+- Pour le flux de préauthentification d’Azure AD, les utilisateurs peuvent se connecter uniquement aux ressources dont la publication est à leur disposition dans le volet **RemoteApp et Bureaux**. Les utilisateurs ne peuvent pas se connecter à un Bureau à l’aide du volet **Se connecter à un ordinateur distant**.
+
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Déploiement du scénario associant RDS et proxy d’application
 
 Après avoir configuré RDS et le proxy d’application Azure AD pour votre environnement, suivez les étapes permettant de combiner les deux solutions. Ces étapes expliquent comment publier les deux points de terminaison RDS orientés Web (Site Web Bureau à distance et Passerelle Bureau à distance) en tant qu’applications, puis diriger le trafic de votre RDS pour qu’il traverse le proxy d’application.
@@ -68,11 +70,12 @@ Après avoir configuré RDS et le proxy d’application Azure AD pour votre env
    - URL interne : `https://\<rdhost\>.com/`, où `\<rdhost\>` est la racine commune partagée par Site Web Bureau à distance et Passerelle Bureau à distance.
    - URL externe : Ce champ est automatiquement renseigné en fonction du nom de l’application, mais vous pouvez le modifier. Vos utilisateurs accéderont à cet URL en accédant à RDS.
    - Méthode de préauthentification : Azure Active Directory
-   - Traduire l’URL dans les en-têtes : Non 
+   - Traduire l’URL dans les en-têtes : Non
 2. Affectez des utilisateurs à l’application Bureau à distance publiée. Assurez-vous également qu’ils ont tous accès à RDS.
 3. Conservez la méthode d’authentification unique de l’application **Authentification unique Azure AD désactivée**. Les utilisateurs sont invités à s’authentifier une fois sur Azure AD et une fois sur Site Web Bureau à distance, mais profitent de l’authentification unique pour Passerelle Bureau à distance.
-4. Accédez à **Azure Active Directory** > **Inscriptions des applications** > *Votre application* > **Paramètres**.
-5. Sélectionnez **Propriétés** et mettez à jour le champ **URL de la page d’accueil** pour pointer vers votre point de terminaison Site Web Bureau à distance (par ex., `https://\<rdhost\>.com/RDWeb`).
+4. Sélectionnez **Azure Active Directory**, puis **Inscription des applications**. Choisissez votre application dans la liste.
+5. Dans **Gérer**, sélectionnez **Personnalisation**.
+6. Mettez à jour le champ **URL de la page d’accueil** pour pointer vers votre point de terminaison Site Web Bureau à distance (par ex., `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Trafic RDS direct vers le proxy d’application
 
@@ -126,7 +129,7 @@ La configuration décrite dans cet article est destinée aux utilisateurs Window
 | Pré-authentification    | Windows 7/10 avec Internet Explorer + module complémentaire ActiveX Service de données distant |
 | PassThrough | Tout autre système d’exploitation prenant en charge l’application Bureau à distance Microsoft |
 
-Le flux de pré-authentification offre plus d’avantages en matière de sécurité que le flux PassThrough. Avec la pré-authentification, vous pouvez utiliser les fonctionnalités d’authentification Azure AD, telles que l’authentification unique, l’accès conditionnel et la vérification en deux étapes pour vos ressources locales. Vous garantissez également que seul le trafic authentifié atteint votre réseau.
+Le flux de pré-authentification offre plus d’avantages en matière de sécurité que le flux PassThrough. Avec la préauthentification, vous pouvez utiliser les fonctionnalités d’authentification Azure AD, telles que l’authentification unique, l’accès conditionnel et la vérification en deux étapes pour vos ressources locales. Vous garantissez également que seul le trafic authentifié atteint votre réseau.
 
 Pour utiliser l’authentification PassThrough, seulement deux modifications doivent être apportées aux étapes répertoriées dans cet article :
 1. Dans [Publication du point de terminaison hôte Bureau à distance](#publish-the-rd-host-endpoint), à l’étape 1, définissez la méthode de pré-authentification **PassThrough**.

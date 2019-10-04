@@ -1,21 +1,34 @@
 ---
-title: Configurer une Azure Data Box | Microsoft Docs
+title: Didacticiel - Configurer une Azure Data Box | Microsoft Docs
 description: Découvrez comment brancher des câbles et se connecter à une Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/08/2019
+ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.localizationpriority: high
+ms.openlocfilehash: 528be96f95523089c78562814c292fb0f40849e1
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895751"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70240236"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutoriel : Branchement des câbles et connexion à une Azure Data Box
+::: zone target="docs"
+
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Didacticiel : Branchement des câbles et connexion à une Azure Data Box
+
+::: zone-end
+
+::: zone target="chromeless"
+
+# <a name="cable-and-connect-to-your-device"></a>Brancher votre appareil et vous y connecter
+
+::: zone-end
+
+::: zone target="docs"
 
 Ce didacticiel explique le raccordement, la connexion et le démarrage d’une Azure Data Box.
 
@@ -64,6 +77,38 @@ Procédez comme suit pour brancher les câbles de l’appareil.
 
     ![Bouton d’alimentation de la Data Box](media/data-box-deploy-set-up/data-box-powered-door-open.png)
 
+::: zone-end
+
+::: zone target="chromeless"
+
+Une fois que vous avez reçu l’appareil, vous devez le brancher et vous y connecter. 
+
+## <a name="cable-your-device"></a>Raccordement de l'appareil
+
+1. S’il existe des preuves que l’appareil a été trafiqué ou endommagé, arrêtez-vous. Contactez le support Microsoft pour demander un appareil de remplacement.
+2. Avant de brancher votre appareil, assurez-vous d’avoir les câbles suivants :
+    
+    - Un cordon d’alimentation relié à la terre (inclus) de 10 A ou plus, muni d’un connecteur IEC60320 C-13 à une extrémité pour se connecter à l’appareil.
+    - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
+    - Deux câbles en cuivre Twinax SFP+ 10 GbE (à utiliser avec les interfaces réseau 10 Gbit/s DATA 1 et DATA 2)
+    - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA 3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
+
+3. Retirez et placez l’appareil sur une surface plane. 
+    
+4. Branchez l’appareil comme indiqué ci-dessous.  
+
+    ![Vue arrière d’une Data Box raccordée](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
+
+    1. Connectez le câble d'alimentation à l'appareil.
+    2. Utilisez le câble réseau RJ-45 CAT 6 pour connecter votre ordinateur hôte au port de gestion (MGMT) sur l'appareil. 
+    3. Utilisez le câble en cuivre Twinax SFP+ pour connecter au moins une interface réseau de 10 Gbit/s (de préférence supérieure à 1 Gbit/s), DATA 1 ou DATA 2 pour les données. 
+    4. Allumez l'appareil. Le bouton d’alimentation est situé sur le panneau avant de l’appareil.
+
+::: zone-end
+
+::: zone target="docs"
+
+
 ## <a name="connect-to-your-device"></a>Connexion à l’appareil
 
 Procédez comme suit pour configurer votre appareil à l’aide de l’interface utilisateur web locale et de l’interface utilisateur du portail.
@@ -92,6 +137,22 @@ Une fois que les interfaces réseau de données sont configurées, vous pouvez �
 
 Une fois que l’appareil est configuré, vous pouvez vous connecter aux partages de l’appareil et copier les données de votre ordinateur vers l’appareil. 
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="connect-your-device"></a>Connexion de votre appareil
+
+1. Pour obtenir le mot de passe du support, accédez à **Général > Détails du support** dans le [portail Azure](https://portal.azure.com).
+2. Assignez une adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0 à la carte Ethernet de l’ordinateur que vous utilisez pour vous connecter à Data Box. Accédez à l’interface utilisateur web locale de l’appareil à l’adresse `https://192.168.100.10`. Une fois l’appareil sous tension, la connexion peut prendre jusqu'à 5 minutes. 
+3. Connectez-vous avec le mot de passe à partir du portail Azure. Une erreur vous signale un problème avec le certificat de sécurité du site web. Suivez les instructions spécifiques au navigateur pour afficher la page web.
+4. Par défaut, les paramètres réseau de l’interface de données 10 Gbit/s (ou 1 Gbit/s) sont configurés en mode DHCP. Si nécessaire, vous pouvez configurer cette interface en mode statique et fournir une adresse IP. 
+
+::: zone-end
+
+
+::: zone target="docs"
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
@@ -104,4 +165,6 @@ Passez au didacticiel suivant pour découvrir comment copier des données sur vo
 
 > [!div class="nextstepaction"]
 > [Copier des données sur une Azure Data Box](./data-box-deploy-copy-data.md)
+
+::: zone-end
 

@@ -10,18 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 2cbc8843d41b760c52b9ca5ccfb6d940bd454136
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445454"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164824"
 ---
 # <a name="azure-resource-providers-and-types"></a>Fournisseurs et types de ressources Azure
 
-Lorsque vous déployez des ressources, vous devez fréquemment récupérer des informations sur les fournisseurs et les types de ressources. Dans cet article, vous apprendrez comment :
+Lorsque vous déployez des ressources, vous devez fréquemment récupérer des informations sur les fournisseurs et les types de ressources. Par exemple, si vous voulez stocker des clés et des secrets, vous utilisez le fournisseur de ressources Microsoft.KeyVault. Ce fournisseur de ressources offre un type de ressource appelé vaults pour créer le coffre de clés.
+
+Le nom d’un type de ressource est au format : **{fournisseur de ressources}/{type de ressource}** . Le type de ressource pour un coffre de clés est **Microsoft.KeyVault/vaults**.
+
+Dans cet article, vous apprendrez comment :
 
 * Afficher tous les fournisseurs de ressources dans Azure
 * Vérifier l’état de l’inscription d’un fournisseur de ressources
@@ -31,6 +35,8 @@ Lorsque vous déployez des ressources, vous devez fréquemment récupérer des i
 * Afficher les versions d’API valides pour un type de ressource
 
 Vous pouvez effectuer ces étapes via le portail Azure, Azure PowerShell ou Azure CLI.
+
+Pour obtenir la liste qui mappe les fournisseurs de ressources aux services Azure, consultez [Fournisseurs de ressources pour les services Azure](azure-services-resource-providers.md).
 
 ## <a name="azure-portal"></a>Portail Azure
 
@@ -46,9 +52,9 @@ Pour afficher tous les fournisseurs de ressources et l'état d'inscription de vo
 
     ![afficher les fournisseurs de ressources](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement. Toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à faire la `/register/action` opération pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Pour inscrire un fournisseur de ressources, sélectionnez **Inscrire**. Dans la capture d'écran précédente, le lien **Inscrire** est mis en surbrillance pour **Microsoft.Blueprint**.
+6. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement. Toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à effectuer l’opération `/register/action` pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Pour inscrire un fournisseur de ressources, sélectionnez **Inscrire**. Dans la capture d'écran précédente, le lien **Inscrire** est mis en surbrillance pour **Microsoft.Blueprint**.
 
-    Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources lorsque vous avez encore des types de ressources à partir de ce fournisseur de ressources dans votre abonnement.
+    Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources quand vous avez encore des types de ressources de ce fournisseur de ressources dans votre abonnement.
 
 Pour afficher des informations pour un fournisseur de ressources particulier :
 
@@ -96,7 +102,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement. Toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à faire la `/register/action` opération pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire.
+L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement. Toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à effectuer l’opération `/register/action` pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire.
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -111,7 +117,7 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources lorsque vous avez encore des types de ressources à partir de ce fournisseur de ressources dans votre abonnement.
+Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources quand vous avez encore des types de ressources de ce fournisseur de ressources dans votre abonnement.
 
 Pour afficher des informations pour un fournisseur de ressources particulier, utilisez :
 
@@ -181,7 +187,7 @@ West US
 ...
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 
 Pour afficher tous les fournisseurs de ressources dans Azure et l’état de l’inscription de votre abonnement, utilisez :
 
@@ -201,7 +207,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement. Toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à faire la `/register/action` opération pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire.
+L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement. Toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à effectuer l’opération `/register/action` pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire.
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -209,7 +215,7 @@ az provider register --namespace Microsoft.Batch
 
 Qui retourne un message indiquant que l’inscription est en cours.
 
-Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources lorsque vous avez encore des types de ressources à partir de ce fournisseur de ressources dans votre abonnement.
+Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources quand vous avez encore des types de ressources de ce fournisseur de ressources dans votre abonnement.
 
 Pour afficher des informations pour un fournisseur de ressources particulier, utilisez :
 
@@ -291,5 +297,5 @@ West US
 
 * Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md). 
 * Pour afficher les schémas liés aux modèles de fournisseurs de ressources, consultez [Référence au modèle](/azure/templates/).
-* Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
+* Pour obtenir la liste qui mappe les fournisseurs de ressources aux services Azure, consultez [Fournisseurs de ressources pour les services Azure](azure-services-resource-providers.md).
 * Pour afficher les opérations pour un fournisseur de ressources, consultez [API REST Azure](/rest/api/).

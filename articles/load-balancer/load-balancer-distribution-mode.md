@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Comment configurer le mode de distribution pour Azure Load Balancer pour prendre en charge l’affinité d’IP source.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: afa840bd0b48cc9df1e9711caa035b85e8ec3855
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 0d3ddf2e005338a19972cfcdef025579764f7f23
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883659"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114715"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configuration du mode de distribution pour Azure Load Balancer
 
@@ -32,7 +32,7 @@ Par défaut, le mode de distribution pour Azure Load Balancer est un hachage à 
 
 ## <a name="source-ip-affinity-mode"></a>Mode d’affinité d’IP source
 
-Load Balancer peut également être configuré à l’aide du mode de distribution d’affinité d’IP source. Ce mode de distribution est également connu sous le nom d’affinité de session ou d’affinité d’IP client. Il utilise un hachage à 2 tuples (IP source et IP de destination) ou à 3 tuples (IP source, IP de destination et type de protocole) pour mapper le trafic vers les serveurs disponibles. En utilisant l’affinité d’IP source, les connexions initiées depuis le même ordinateur client s’orientent vers le même point de terminaison DIP.
+Load Balancer peut également être configuré à l’aide du mode de distribution d’affinité d’IP source. Ce mode de distribution est également connu sous le nom d’affinité de session ou d’affinité d’IP client. Il utilise un hachage à 2 tuples (IP source et IP de destination) ou à 3 tuples (IP source, IP de destination et type de protocole) pour mapper le trafic vers les serveurs disponibles. En utilisant l’affinité d’IP source, les connexions démarrées depuis le même ordinateur client s’orientent vers le même point de terminaison DIP.
 
 L’image suivante illustre une configuration à 2 tuples. Notez comment la distribution à 2 tuples passe de l’équilibrage de charge à la machine virtuelle 1 (VM1). La machine virtuelle VM1 est ensuite sauvegardée par VM2 et VM3.
 
@@ -42,7 +42,7 @@ Le mode d’affinité d’IP source permet de résoudre une incompatibilité ent
 
 Le chargement de médias constitue un autre scénario d’utilisation. Le chargement des données se produit via UDP, mais le plan de contrôle est obtenu via TCP :
 
-* Un client initie une session TCP à l’adresse publique à charge équilibrée et est dirigé vers une adresse DIP spécifique. Ce canal reste actif, de sorte que l’intégrité de la connexion puisse être surveillée.
+* Un client démarre une session TCP à l’adresse publique à charge équilibrée et est dirigé vers une adresse DIP spécifique. Ce canal reste actif, de sorte que l’intégrité de la connexion puisse être surveillée.
 * Une nouvelle session UDP issue du même ordinateur client est initiée sur le même point de terminaison public d’équilibrage de charge. La connexion est dirigée vers le même point de terminaison DIP que la connexion TCP précédente. Le chargement de médias peut être exécuté à débit élevé alors que le canal de contrôle via TCP est maintenu.
 
 > [!NOTE]
@@ -50,9 +50,26 @@ Le chargement de médias constitue un autre scénario d’utilisation. Le charge
 
 ## <a name="configure-source-ip-affinity-settings"></a>Configurer les paramètres d’affinité IP source
 
-Pour les machines virtuelles déployées avec Resource Manager, utilisez PowerShell pour modifier les paramètres de distribution de l’équilibreur de charge et utiliser une règle d’équilibrage de charge existante. Cela met à jour le mode de distribution : 
+### <a name="azure-portal"></a>Portail Azure
 
-```powershell
+Vous pouvez modifier la configuration du mode de distribution en changeant la règle d’équilibrage de charge dans le portail.
+
+1. Connectez-vous au portail Azure et recherchez le groupe de ressources contenant l’équilibreur de charge que vous souhaitez modifier en cliquant sur **Groupes de ressources**.
+2. Dans le panneau Vue d’ensemble de Load Balancer, sous **Paramètres**, cliquez sur **Règles d’équilibrage de charge**.
+3. Dans le panneau Règles d’équilibrage de charge, cliquez sur la règle d’équilibrage de charge dont vous souhaitez modifier le mode de distribution.
+4. Sous la règle, modifiez le mode de distribution en changeant la sélection dans la zone de liste déroulante **Persistance de session**.  Les options suivantes sont disponibles :
+    
+    * **Aucun (basé sur le hachage)**  : spécifie que les demandes successives provenant du même client peuvent être gérées par n’importe quelle machine virtuelle.
+    * **Adresse IP du client (tuple de 2 éléments d’affinité d’adresse IP source)** : spécifie que les demandes successives provenant de la même adresse IP du client seront gérées par le même ordinateur virtuel.
+    * **Adresse IP et protocole du client (tuple de 3 éléments d’affinité d’adresse IP source)** : spécifie que les demandes successives provenant de la même combinaison d’adresse IP et de protocole du client seront gérées par le même ordinateur virtuel.
+
+5. Choisissez le mode de distribution, puis cliquez sur **Enregistrer**.
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Pour les machines virtuelles déployées avec Resource Manager, utilisez PowerShell pour modifier les paramètres de distribution de l’équilibreur de charge et utiliser une règle d’équilibrage de charge existante. La commande suivante met à jour le mode de distribution : 
+
+```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
 $lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
 Set-AzLoadBalancer -LoadBalancer $lb
@@ -60,7 +77,7 @@ Set-AzLoadBalancer -LoadBalancer $lb
 
 Pour les machines virtuelles classiques, utilisez Azure PowerShell pour modifier les paramètres de distribution. Ajoutez un point de terminaison Azure à une machine virtuelle et configurez le mode de distribution de l’équilibreur de charge :
 
-```powershell
+```azurepowershell-interactive
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
@@ -88,13 +105,13 @@ Récupérez la configuration du mode de distribution d’équilibrage de charge 
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-Si l’élément `LoadBalancerDistribution` n’est pas présent, Azure Load Balancer utilise l’algorithme par défaut à 5 tuples.
+Si l’élément `LoadBalancerDistribution` n’est pas présent, Azure Load Balancer utilise l’algorithme par défaut de tuples à 5 éléments.
 
 ### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>Configurer le mode de distribution sur un jeu de points de terminaison d’équilibrage de charge
 
 Lorsque les points de terminaison font partie d’un jeu de points de terminaison d’équilibrage de charge, le mode de distribution doit être configuré sur ce jeu :
 
-```azurepowershell
+```azurepowershell-interactive
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 

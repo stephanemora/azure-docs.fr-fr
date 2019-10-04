@@ -3,8 +3,8 @@ title: Applications natives dans Azure Active Directory
 description: Décrit les applications natives et les principes de base sur le flux de protocole, l’inscription et l’expiration du jeton pour ce type d’application.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c15890a5693235e8f2554ba8d0fdefc161770f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165006"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65545837"
 ---
 # <a name="native-apps"></a>Applications natives
 
@@ -52,7 +52,7 @@ Consultez les exemples de code pour les scénarios du type application native ve
 
 ## <a name="app-registration"></a>Inscription d'application
 
-Pour inscrire une application auprès du point de terminaison Azure AD v1.0, consultez [Inscrire une application auprès du point de terminaison Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Pour inscrire une application auprès du point de terminaison Azure AD v1.0, consultez [Inscrire une application](quickstart-register-app.md).
 
 * Application à client unique : l’application native et l’API web doivent être inscrites dans le même répertoire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application native à ses ressources. L’application cliente sélectionne ensuite les autorisations souhaitées dans le menu déroulant « Autorisations pour d’autres applications » du portail Azure.
 * Application mutualisée : premièrement, l’application native est toujours inscrite dans l’annuaire du développeur ou de l’éditeur. Deuxièmement, l’application native est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations au niveau utilisateur pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Quand un utilisateur ou un administrateur donne son consentement, seule l’API web est inscrite dans son annuaire. 

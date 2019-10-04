@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 06/26/2019
+ms.openlocfilehash: 39c19661a71a8b466aa6ff25be9e895189dfbfb3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567126"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566370"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Prise en main des tables temporelles dans Azure SQL Database
 
@@ -189,12 +188,13 @@ ALTER TABLE dbo.WebsiteUserInfo
 Vous pouvez également utiliser la dernière version de [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) pour modifier un schéma de table temporelle quand vous êtes connecté à la base de données (mode en ligne) ou dans le cadre du projet de base de données (mode hors connexion).
 
 ## <a name="controlling-retention-of-historical-data"></a>Contrôle de la rétention des données historiques
-Avec les tables temporelles avec versions gérées par le système, la table d’historique peut augmenter la taille de la base de données davantage que les tables normales. Une table d’historique volumineuse qui continue à croître peut devenir un problème non seulement en raison des coûts de stockage, mais aussi parce qu’elle a un impact négatif sur les performances de l’interrogation temporelle. Par conséquent, le développement d’une stratégie de rétention des données pour gérer les données dans la table d’historique est un aspect important de la planification et de la gestion du cycle de vie de chaque table temporelle. Avec Azure SQL Database, vous bénéficiez des approches suivantes pour gérer les données historiques dans la table temporelle :
+Avec les tables temporelles avec versions gérées par le système, la table d’historique peut augmenter la taille de la base de données davantage que les tables normales. Une table d’historique volumineuse qui continue à croître peut devenir un problème non seulement en raison des coûts de stockage, mais aussi parce qu’elle a un impact négatif sur les performances de l’interrogation temporelle. Par conséquent, le développement d’une stratégie de rétention des données pour gérer les données dans la table d’historique est un aspect important de la planification et de la gestion du cycle de vie de chaque table temporelle. Avec Azure SQL Database, vous bénéficiez des approches suivantes pour gérer les données historiques dans la table temporelle :
 
 * [Partitionnement de tables](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
 * [Script de nettoyage personnalisé](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les tables temporelles, consultez la [documentation MSDN](https://msdn.microsoft.com/library/dn935015.aspx).
-Visitez Channel 9 pour écouter le [témoignage d’un client sur l’implémentation temporelle](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) et regardez une [démonstration de table temporelle en direct](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+
+- Pour plus d’informations sur les tables temporelles, consultez [Tables temporelles](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
+- Visitez Channel 9 pour écouter le [témoignage d’un client sur l’implémentation temporelle](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) et regardez une [démonstration de table temporelle en direct](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

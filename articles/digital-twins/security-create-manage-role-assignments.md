@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
-ms.author: lyrana
+ms.date: 07/29/2019
+ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 968ae62344f99edf8eb46eb62a4cf13f300c868f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905305"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815633"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Créer et gérer des attributions de rôle dans Azure Digital Twins
 
@@ -41,10 +41,10 @@ Le tableau suivant décrit chaque attribut :
 
 | Attribut | Nom | Obligatoire | Type | Description |
 | --- | --- | --- | --- | --- |
-| roleId | Identificateur de la définition de rôle | Oui | Chaîne | ID unique de l’attribution de rôle souhaitée. Pour connaître les définitions de rôles et leurs identificateurs, interrogez l’API système ou reportez-vous au tableau ci-dessous. |
-| objectId | Identificateur d’objet | Oui | Chaîne | ID Azure Active Directory, ID objet de principal de service ou nom de domaine. À quoi ou à qui le rôle est attribué. L’attribution de rôle doit être mise en forme en fonction du type qui lui est associé. Pour l’objectIdType `DomainName`, objectId doit commencer par le caractère `“@”`. |
-| objectIdType | Type d’identificateur d’objet | Oui | Chaîne | Type d’identificateur d’objet utilisé. Consultez **ObjectIdTypes pris en charge** ci-dessous. |
-| chemin d’accès | Chemin d’espace | Oui | Chaîne | Chemin complet de l’objet `Space`. Par exemple `/{Guid}/{Guid}`. Si l’identificateur a besoin de l’attribution de rôle pour l’intégralité du graphe, spécifiez `"/"`. Ce caractère désigne la racine. Cependant, il est déconseillé de l’utiliser. Suivez toujours le principe des privilèges minimum. |
+| roleId | Identificateur de la définition de rôle | OUI | Chaîne | ID unique de l’attribution de rôle souhaitée. Pour connaître les définitions de rôles et leurs identificateurs, interrogez l’API système ou reportez-vous au tableau ci-dessous. |
+| objectId | Identificateur d’objet | OUI | Chaîne | ID Azure Active Directory, ID objet de principal de service ou nom de domaine. À quoi ou à qui le rôle est attribué. L’attribution de rôle doit être mise en forme en fonction du type qui lui est associé. Pour l’objectIdType `DomainName`, objectId doit commencer par le caractère `“@”`. |
+| objectIdType | Type d’identificateur d’objet | OUI | Chaîne | Type d’identificateur d’objet utilisé. Consultez **ObjectIdTypes pris en charge** ci-dessous. |
+| chemin d’accès | Chemin d’espace | OUI | Chaîne | Chemin complet de l’objet `Space`. Par exemple `/{Guid}/{Guid}`. Si l’identificateur a besoin de l’attribution de rôle pour l’intégralité du graphe, spécifiez `"/"`. Ce caractère désigne la racine. Cependant, il est déconseillé de l’utiliser. Suivez toujours le principe des privilèges minimum. |
 | tenantId | Identificateur de locataire | Varie | Chaîne | Dans la plupart des cas, un ID de locataire Azure Active Directory. Interdit pour les ObjectIdTypes `DeviceId` et `TenantId`. Obligatoire pour les ObjectIdTypes `UserId` et `ServicePrincipalId`. Facultatif pour l’ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificateurs de définition de rôle pris en charge

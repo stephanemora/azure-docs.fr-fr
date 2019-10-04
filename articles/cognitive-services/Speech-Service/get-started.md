@@ -1,22 +1,22 @@
 ---
-title: Essayer les services Speech gratuitement
+title: Essayer le service Speech gratuitement
 titleSuffix: Azure Cognitive Services
-description: La prise en main des services Speech est simple et économique. Un essai gratuit de 30 jours vous permet de découvrir les fonctionnalités du service et de décider s’il est adapté aux besoins de votre application.
+description: La prise en main du service Speech est simple et économique. Un essai gratuit de 30 jours vous permet de découvrir les fonctionnalités du service et de décider s’il est adapté aux besoins de votre application.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 09cc38cd5343e8b01b3e704191ea40c133d724f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 41d12013ec7eaa4e2aae59e1b366cc511a41f749
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103721"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535112"
 ---
 # <a name="try-speech-services-for-free"></a>Essayer les services Speech gratuitement
 
@@ -38,7 +38,7 @@ Pour vous inscrire pour un essai gratuit de 30 jours :
 
    ![Onglet Services vocaux](media/index/try-speech-api-free-trial1.png)
 
-1. Sous **Services Speech**, sélectionnez le bouton **Obtenir la clé API**.
+1. Sous **Services Speech**, sélectionnez **Obtenir une clé API**.
 
    ![Clé API](media/index/try-speech-api-free-trial2.png)
 
@@ -48,7 +48,7 @@ Pour vous inscrire pour un essai gratuit de 30 jours :
 
 1. Connectez-vous à l’aide de votre compte Microsoft, Facebook, LinkedIn ou GitHub.
 
-    Vous pouvez vous inscrire pour obtenir un compte Microsoft gratuit sur le [portail Compte Microsoft](https://account.microsoft.com/account). Pour commencer, cliquez sur **Se connecter avec Microsoft** puis, à l’invite de connexion, cliquez sur **Créez-en un**. Suivez les étapes pour créer et vérifier votre nouveau compte Microsoft.
+    Vous pouvez vous inscrire pour obtenir un compte Microsoft gratuit sur le [portail Compte Microsoft](https://account.microsoft.com/account). Pour commencer, sélectionnez **Se connecter avec Microsoft** puis, à l’invite de connexion, sélectionnez **Créer**. Suivez les étapes pour créer et vérifier votre nouveau compte Microsoft.
 
 Une fois connecté à Essayez Cognitive Services, votre essai gratuit commence. La page web affichée répertorie tous les services Azure Cognitive Services pour lesquels vous disposez actuellement d’un abonnement d’essai. Deux clés d'abonnement sont répertoriées en regard de **Services Speech**. Vous pouvez utiliser n’importe laquelle de ces clés dans vos applications.
 
@@ -59,9 +59,9 @@ Une fois connecté à Essayez Cognitive Services, votre essai gratuit commence. 
 
 Les nouveaux comptes Azure reçoivent un crédit de service de 200 $ disponible jusqu’à 30 jours. Vous pouvez utiliser ce crédit pour explorer plus en détail les services Speech ou pour commencer à développer des applications.
 
-Pour obtenir un nouveau compte Azure, accédez à la [page d’inscription Azure](https://azure.microsoft.com/free/ai/), cliquez sur **Démarrer gratuitement** et créez un compte Azure à l’aide de votre compte Microsoft.
+Pour obtenir un nouveau compte Azure, accédez à la [page d’inscription Azure](https://azure.microsoft.com/free/ai/), sélectionnez **Démarrer gratuitement** et créez un compte Azure à l’aide de votre compte Microsoft.
 
-Vous pouvez vous inscrire pour obtenir un compte Microsoft gratuit sur le [portail Compte Microsoft](https://account.microsoft.com/account). Pour commencer, cliquez sur **Se connecter avec Microsoft** puis, à l’invite de connexion, cliquez sur **Créez-en un**. Suivez les étapes pour créer et vérifier votre nouveau compte Microsoft.
+Vous pouvez vous inscrire pour obtenir un compte Microsoft gratuit sur le [portail Compte Microsoft](https://account.microsoft.com/account). Pour commencer, sélectionnez **Se connecter avec Microsoft** puis, à l’invite de connexion, sélectionnez **Créer**. Suivez les étapes pour créer et vérifier votre nouveau compte Microsoft.
 
 Une fois que vous avez crée votre compte Azure, suivez les étapes de la section suivante pour démarrer un abonnement aux services Speech.
 
@@ -89,8 +89,8 @@ Pour ajouter une ressource des services Speech (niveau gratuit ou payant) à vot
 
    * Un nom pour la nouvelle ressource. Ce nom vous permet de faire la distinction entre plusieurs abonnements au même service.
    * Choisissez l’abonnement Azure associé à la nouvelle ressource pour déterminer la façon dont les frais sont facturés.
-   * Choisissez la région où la ressource sera utilisée. Actuellement, les services Speech sont disponibles dans les régions Asie Est, Europe Nord et USA Ouest.
-   * Choisissez soit un niveau tarifaire payant ou gratuit. Cliquez sur **Afficher tous les détails de la tarification** pour plus d’informations sur la tarification et les quotas d’utilisation pour chaque niveau.
+   * Choisissez la [région](regions.md) où la ressource sera utilisée.
+   * Choisissez soit un niveau tarifaire payant ou gratuit. Sélectionnez **Afficher tous les détails de la tarification** pour des informations complètes sur la tarification et les quotas d’utilisation pour chaque niveau.
    * Créez un groupe de ressources pour cet abonnement Speech ou affectez l’abonnement à un groupe de ressources existant. Les groupes de ressources vous permettent d’organiser vos différents abonnements Azure.
    * Pour accéder facilement à votre abonnement à l’avenir, cochez la case **Épingler au tableau de bord**.
    * Sélectionnez **Créer**.
@@ -101,7 +101,7 @@ Pour ajouter une ressource des services Speech (niveau gratuit ou payant) à vot
 
      ![Panneau Démarrage rapide](media/index/try-speech-api-create-speech5.png)
 
-1. Sous **Démarrage rapide**, cliquez sur le lien **Clés** sous l’étape 1 pour afficher vos clés d’abonnement. Chaque abonnement dispose de deux clés ; vous pouvez utiliser l’une ou l’autre dans votre application. Sélectionnez le bouton en regard de chaque clé pour la copier dans le Presse-papiers et la coller dans votre code.
+1. Sous **Démarrage rapide**, sélectionnez le lien **Clés** sous l’étape 1 pour afficher vos clés d’abonnement. Chaque abonnement dispose de deux clés ; vous pouvez utiliser l’une ou l’autre dans votre application. Sélectionnez le bouton en regard de chaque clé pour la copier dans le Presse-papiers et la coller dans votre code.
 
 > [!NOTE]
 > Vous pouvez créer autant d’abonnements de niveau standard que vous le souhaitez dans une ou plusieurs régions. Toutefois, vous ne pouvez créer qu’un seul abonnement de niveau gratuit. Les déploiements de modèle au niveau gratuit qui restent inutilisés durant sept jours sont supprimés automatiquement.

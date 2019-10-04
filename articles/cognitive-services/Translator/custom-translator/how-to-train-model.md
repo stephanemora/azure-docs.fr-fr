@@ -2,19 +2,19 @@
 title: Effectuer l'apprentissage d'un modèle - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: L'apprentissage est une étape importante lors de la création d'un modèle de traduction. L'apprentissage repose sur les documents que vous sélectionnez.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2045041a9ee4872e4510e5ee0deba258b0342557
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: a875cc8f5e69be8b940f9d177d3b915bfaa2c973
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437286"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595684"
 ---
 # <a name="train-a-model"></a>Effectuer l’apprentissage d’un modèle
 
@@ -53,7 +53,7 @@ Pour effectuer l'apprentissage d'un modèle :
     ![Page Effectuer l'apprentissage d'un modèle](media/how-to/how-to-train-model-3.png)
 
 >[!Note]
->Traducteur personnalisé prend en charge 10 formations simultanées au sein d’un espace de travail à tout moment dans le temps.
+>Custom Translator prend en charge 10 formations simultanées au sein d’un espace de travail à tout moment.
 
 
 ## <a name="edit-a-model"></a>Modifier un modèle

@@ -1,6 +1,6 @@
 ---
-title: Modifier, effectuer l’apprentissage d’application, Python
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 'Démarrage rapide : Modifier, entraîner l’application, Python - LUIS'
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide de Python, vous allez ajouter des exemples d’énoncés à une application de domotique et entraîner l’application.
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 01/23/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: a5ab90baf06dce79248d5da90b01b8651ab498b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 32c87c0ec78c57aee83b15f13a4d5240eedc1239
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873323"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375404"
 ---
 # <a name="quickstart-change-model-using-python"></a>Démarrage rapide : Changer de modèle à l’aide de Python
 
-[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

@@ -5,36 +5,54 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a4110d68dc8aa921d647f90de654d2ebb4e17d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 2bc5602011ed64b11b1b8c96b7e69a8d5ee9bf32
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395540"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133055"
 ---
 ## <a name="premium-ssd"></a>SSD Premium
 
-Les disques SSD Premium Azure offrent une prise en charge très performante et une faible latence pour les machines virtuelles avec des charges de travail qui utilisent beaucoup d’entrée/sortie (E/S). Pour tirer parti de la vitesse et des performances des disques de stockage Premium, vous pouvez migrer les disques de machines virtuelles existantes vers des disques SSD Premium. Les disques SSD Premium sont adaptés aux applications de production critiques.
+Les disques SSD Premium Azure offrent une prise en charge très performante et une faible latence pour les machines virtuelles avec des charges de travail qui utilisent beaucoup d’entrée/sortie (E/S). Pour tirer parti de la vitesse et des performances des disques de stockage Premium, vous pouvez migrer les disques de machines virtuelles existantes vers des disques SSD Premium. Les disques SSD Premium sont adaptés aux applications de production critiques. Ces disques sont utilisables uniquement avec des séries de machines virtuelles compatibles avec le stockage Premium.
+
+Pour en savoir plus sur les types et les tailles de machines virtuelles individuelles dans Azure pour Windows, notamment les tailles compatibles avec le stockage Premium, consultez [Tailles des machines virtuelles Windows](../articles/virtual-machines/windows/sizes.md). Pour en savoir plus sur les types et les tailles de machines virtuelles individuelles dans Azure pour Linux, notamment les tailles compatibles avec le stockage Premium, consultez [Tailles des machines virtuelles Linux](../articles/virtual-machines/linux/sizes.md).
 
 ### <a name="disk-size"></a>Taille du disque
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
+Lorsque vous configurez un disque de stockage Premium, contrairement au stockage standard, la capacité, les E/S par seconde et le débit de ce disque sont assurés. Par exemple, si vous créez un disque P50, Azure configure une capacité de stockage de 4 095 Go, 7 500 E/S par seconde et un débit de 250 Mo/s pour ce disque. Votre application peut utiliser tout ou partie de la capacité et des performances. Les disques SSD Premium sont conçus pour fournir des latences faibles de quelques millisecondes ainsi que l’IOPS et le débit cibles décrits dans le précédent tableau 99,9 % du temps.
+
+### <a name="transactions"></a>Transactions
+
+Pour les disques SSD Premium, chaque opération d’E/S inférieure ou égale à 256 Kio de débit est considérée comme une seule opération d’E/S. Les opérations d’E/S supérieures à 256 Kio de débit sont considérées comme plusieurs opérations d’E/S de 256 Kio chacune.
+
 ## <a name="standard-ssd"></a>SSD Standard
 
-Les disques SSD Azure Standard constituent une option de stockage économique optimisée pour les charges de travail nécessitant des performances cohérentes à des niveaux d’IOPS bas. Les disques SSD Standard offrent une bonne expérience de niveau d’entrée pour ceux qui souhaitent migrer vers le cloud, en particulier si vous rencontrez des problèmes de variation avec les charges de travail exécutées sur vos solutions HDD locales. Les disques SSD standard offrent une meilleure disponibilité, cohérence, fiabilité et latence par rapport aux disques HDD. Les disques SSD Standard sont adaptés aux serveurs web, serveurs d’applications avec peu d’IOPS, applications d’entreprise peu utilisées et charges de travail Dev/Test.
+Les disques SSD Azure Standard constituent une option de stockage économique optimisée pour les charges de travail nécessitant des performances cohérentes à des niveaux d’IOPS bas. Les disques SSD Standard offrent une bonne expérience de niveau d’entrée pour ceux qui souhaitent migrer vers le cloud, en particulier si vous rencontrez des problèmes de variation avec les charges de travail exécutées sur vos solutions HDD locales. Par rapport aux disques HDD Standard, les disques SSD Standard offrent une meilleure disponibilité, cohérence, fiabilité et latence. Les disques SSD Standard sont adaptés aux serveurs web, serveurs d’applications avec peu d’IOPS, applications d’entreprise peu utilisées et charges de travail Dev/Test. Comme les disques HDD Standard, les disques SSD Standard sont disponibles sur toutes les machines virtuelles Azure.
 
 ### <a name="disk-size"></a>Taille du disque
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
+Les disques SSD Standard sont conçus pour fournir des latences de quelques millisecondes ainsi qu’un IOPS et un débit dans les limites décrites dans le tableau précédent 99 % du temps. L’IOPS et le débit réels peuvent varier selon les modèles de trafic. Les disques SSD Standard offrent des performances plus cohérentes que les disques HDD avec une latence plus faible.
+
+### <a name="transactions"></a>Transactions
+
+Pour les disques SSD Standard, chaque opération d’E/S inférieure ou égale à 256 Kio de débit est considérée comme une seule opération d’E/S. Les opérations d’E/S supérieures à 256 Kio de débit sont considérées comme plusieurs opérations d’E/S de 256 Kio chacune. Ces transactions ont un impact sur la facturation.
+
 ## <a name="standard-hdd"></a>HDD Standard
 
-Les disques HDD standard Azure offrent une prise en charge fiable et économique des disques des machines virtuelles exécutant des charges de travail non sensibles aux latences. Il prend également en charge les objets blob, les tables, les files d’attente et les fichiers. Dans le cadre d’un stockage Standard, les données sont stockées sur des disques durs. Lorsque vous utilisez des machines virtuelles, vous pouvez utiliser des disques SSD et HDD Standard pour les scénarios Dev/Test et les charges de travail moins critiques. Le stockage Standard est disponible dans toutes les régions Azure.
+Les disques HDD standard Azure offrent une prise en charge fiable et économique des disques des machines virtuelles exécutant des charges de travail non sensibles aux latences. Dans le cadre d’un stockage Standard, les données sont stockées sur des disques durs. La latence, l’IOPS et le débit sur les disques HDD Standard peuvent varier beaucoup plus que sur les disques SSD. Les disques HDD Standard sont conçus pour offrir une latence inférieure à 10 ms en écriture et à 20 ms en lecture pour la plupart des opérations d’E/S. Toutefois, les performances réelles peuvent varier en fonction de la taille d’E/S et du modèle de charge de travail. Avec des machines virtuelles, vous pouvez utiliser des disques HDD Standard pour les scénarios Dev/Test et les charges de travail moins critiques. Les disques HDD Standard sont disponibles dans toutes les régions Azure et peuvent être utilisés avec toutes les machines virtuelles Azure.
 
 ### <a name="disk-size"></a>Taille du disque
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
+
+### <a name="transactions"></a>Transactions
+
+Pour les disques SSD Standard, chaque opération d’E/S est considérée comme une seule transaction, indépendamment de la taille des E/S. Ces transactions ont un impact sur la facturation.
 
 ## <a name="billing"></a>Facturation
 

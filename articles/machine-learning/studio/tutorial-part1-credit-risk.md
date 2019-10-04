@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f9746dae4cdf10a10922be41602f4ecd7f032f5b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904505"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949792"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Tutoriel 1 : Prédire le risque de crédit - Azure Machine Learning Studio
 
@@ -47,7 +47,7 @@ Si vous n’avez jamais utilisé **Azure Machine Learning Studio**, vous pouvez 
 
 
 > [!TIP] 
-> Vous pouvez obtenir une copie de travail de l’expérience que vous développez dans ce tutoriel dans [Azure AI Gallery](https://gallery.azure.ai). Accédez à **[Tutoriel - Prédire le risque de crédit](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)**, puis cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
+> Vous pouvez obtenir une copie de travail de l’expérience que vous développez dans ce tutoriel dans [Azure AI Gallery](https://gallery.azure.ai). Accédez à **[Tutoriel - Prédire le risque de crédit](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** , puis cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
 > 
 
 
@@ -128,7 +128,7 @@ Une fois les données converties au format CSV, vous devez les charger sur Machi
 
 7. Entrez le nom du jeu de données. Pour ce tutoriel, appelez-le « Données de carte de crédit allemande UCI ».
 
-8. Pour le type de données, sélectionnez **Fichier CSV générique sans en-tête (.nh.csv)**.
+8. Pour le type de données, sélectionnez **Fichier CSV générique sans en-tête (.nh.csv)** .
 
 9. Ajoutez la description de votre choix.
 
@@ -174,7 +174,7 @@ L’étape suivante de ce tutoriel consiste à créer une expérience dans Machi
 
 Vous pouvez afficher les 100 premières lignes des données et quelques informations statistiques sur l’ensemble du jeu de données : Cliquez sur le port de sortie du jeu de données (le petit cercle en bas) et sélectionnez **Visualiser**.  
 
-Le fichier de données étant dépourvu d’en-têtes de colonne, Studio a fourni des en-têtes génériques (Col1, Col2, *etc.*). Des en-têtes explicites ne sont pas essentiels pour créer un modèle, mais ils facilitent l’utilisation des données dans l’expérience. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l’utilisateur du service d’identifier les colonnes.  
+Le fichier de données étant dépourvu d’en-têtes de colonne, Studio a fourni des en-têtes génériques (Col1, Col2, *etc.* ). Des en-têtes explicites ne sont pas essentiels pour créer un modèle, mais ils facilitent l’utilisation des données dans l’expérience. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l’utilisateur du service d’identifier les colonnes.  
 
 Vous pouvez ajouter des en-têtes de colonne en utilisant le module [Modifier les métadonnées][edit-metadata].
 

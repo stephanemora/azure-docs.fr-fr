@@ -1,94 +1,90 @@
-items:
 - name: Documentation de l’API Vérification orthographique Bing
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
-  - name: Qu’est-ce que l’API Vérification orthographique Bing ?
-    href: overview.md
-  - name: Comparer les API Recherche Bing
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
+    - name: "Qu’est-ce que l’API Vérification orthographique Bing\_?"
+      href: overview.md
+    - name: Comparer les API Recherche Bing
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Démarrages rapides
   items:
-  - name: API REST
-    items:
-    - name: Utilisation de C#
-      href: quickstarts/csharp.md
-    - name: Utilisation de Java
-      href: quickstarts/java.md
-    - name: Utilisation de Node.js
-      href: quickstarts/nodejs.md
-    - name: Utilisation de PHP
-      href: quickstarts/php.md
-    - name: Utilisation de Python
-      href: quickstarts/python.md
-    - name: Utilisation de Ruby
-      href: quickstarts/ruby.md
-    expanded: true
-  - name: 'Kit SDK '
-    items:
-    - name: Utilisation de C#
-      href: sdk-quickstart-spell-check.md
+    - name: API REST
+      expanded: true
+      items:
+        - name: 'Utilisation de C#'
+          href: quickstarts/csharp.md
+        - name: Utilisation de Java
+          href: quickstarts/java.md
+        - name: Utilisation de Node.js
+          href: quickstarts/nodejs.md
+        - name: Utilisation de PHP
+          href: quickstarts/php.md
+        - name: Utilisation de Python
+          href: quickstarts/python.md
+        - name: Utilisation de Ruby
+          href: quickstarts/ruby.md
+    - name: Kit SDK
+      items:
+        - name: 'Utilisation de C#'
+          href: sdk-quickstart-spell-check.md
 - name: Tutoriels
   items:
-  - name: Créer une application web de vérification orthographique
-    href: tutorials/spellcheck.md
+    - name: Créer une application web de vérification orthographique
+      href: tutorials/spellcheck.md
 - name: Guides pratiques
   items:
-  - name: Mettre à niveau de v5 vers v7
-    href: bing-spell-check-upgrade-guide-v5-to-v7.md
+    - name: Mettre à niveau de v5 vers v7
+      href: bing-spell-check-upgrade-guide-v5-to-v7.md
 - name: Concepts
   items:
-  - name: Envoi de demandes à l’API Vérification orthographique Bing
-    href: concepts/sending-requests.md
-  - name: Utilisation de l’API Vérification orthographique Bing
-    href: concepts/using-spell-check.md
+    - name: Envoi de demandes à l’API Vérification orthographique Bing
+      href: concepts/sending-requests.md
+    - name: Utilisation de l’API Vérification orthographique Bing
+      href: concepts/using-spell-check.md
 - name: Exemples
   items:
-  - name: Exemples de code
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Spell+Check
+    - name: Exemples de code
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Spell+Check'
 - name: Informations de référence
   items:
-  - name: API Vérification orthographique Bing v7
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference
-  - name: API Vérification orthographique Bing v5 (ancienne version)
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference
-  - name: Kits SDK
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet
-    - name: Node.js
-      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/spellcheck?view=azure-node-latest
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python
-    - name: Go
-      href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/spellcheck?view=azure-java-stable
-  - name: Conditions d’utilisation et d’affichage
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: "API Vérification orthographique Bing\_v7"
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference'
+    - name: "API Vérification orthographique Bing\_v5 (ancienne version)"
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v5-reference'
+    - name: Kits SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/spellcheck?view=azure-node-latest'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python'
+        - name: Go
+          href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-java-stable'
+    - name: Conditions d’utilisation et d’affichage
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Ressources
   items:
-  - name: Analytique pour l’API Vérification orthographique Bing
-    href: bing-spell-check-stats.md
-  - name: Prise en charge de la région et de la langue
-    href: language-support.md
-  - name: Tarifs
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/
-  - name: Disponibilité régionale
-    href: https://azure.microsoft.com/global-infrastructure/services/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/bing-api
-  - name: Clé d’abonnement
-    href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
-  - name: Essayez !
-    href: https://azure.microsoft.com/services/cognitive-services/spell-check/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/598195-bing-spell-check
-ms.openlocfilehash: 132901c3bf159054519658893f1f05438852afcb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890043"
+    - name: Analytique pour l’API Vérification orthographique Bing
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
+    - name: Prise en charge de la région et de la langue
+      href: language-support.md
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-api'
+    - name: Clé d’abonnement
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+    - name: "Essayez\_!"
+      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy/'

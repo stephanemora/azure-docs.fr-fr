@@ -3,8 +3,8 @@ title: Erreur inattendue lors du consentement à une application | Microsoft Doc
 description: Aborde les erreurs qui peuvent se produire durant le processus de consentement à une application et ce que vous pouvez faire
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89c01202e0d7d7ca0f37b89d5473f96873c52606
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6dff3be9a9bc7fd897f340e5fe6a4775a4914810
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210898"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65824938"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Erreur inattendue lors du consentement à une application
 
@@ -32,7 +32,7 @@ Pour fonctionner, de nombreuses applications qui s’intègrent à Azure Active 
 Certaines conditions doivent être réunies pour qu’un utilisateur consente aux autorisations exigées par une application. Si ces conditions ne sont pas remplies, les erreurs suivantes peuvent se produire.
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Erreur : demande d’autorisations dont l’octroi n’est pas autorisé
-* **AADSTS90093 :**&lt;clientAppDisplayName&gt; demande une ou plusieurs autorisations que vous ne pouvez pas accorder. Contactez un administrateur qui peut donner son consentement à cette application en votre nom.
+* **AADSTS90093 :** &lt;clientAppDisplayName&gt; demande une ou plusieurs autorisations que vous ne pouvez pas accorder. Contactez un administrateur qui peut donner son consentement à cette application en votre nom.
 
 Cette erreur se produit quand un utilisateur, qui n’est pas un administrateur d’entreprise, tente d’utiliser une application qui demande des autorisations pouvant uniquement être accordées par un administrateur. Pour résoudre cette erreur, un administrateur peut accorder l’accès à l’application au nom de son organisation.
 
@@ -52,7 +52,7 @@ Cette erreur indique qu’un problème intermittent côté service s’est produ
 Contactez le développeur de l’application.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>Erreur : ressource non disponible dans le locataire
-* **AADSTS65005:**&lt;clientAppDisplayName&gt; demande l’accès à une ressource &lt;resourceAppDisplayName&gt; qui n’est pas disponible dans votre organisation &lt;tenantDisplayName&gt;. 
+* **AADSTS65005:** &lt;clientAppDisplayName&gt; demande l’accès à une ressource &lt;resourceAppDisplayName&gt; qui n’est pas disponible dans votre organisation &lt;tenantDisplayName&gt;. 
 
 Vérifiez que cette ressource est disponible ou contactez un administrateur de &lt;tenantDisplayName&gt;.
 

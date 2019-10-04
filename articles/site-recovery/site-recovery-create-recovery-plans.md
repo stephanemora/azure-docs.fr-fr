@@ -1,19 +1,18 @@
 ---
-title: Créer et personnaliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec Azure Site Recovery | Microsoft Docs
+title: Créer et personnaliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec Azure Site Recovery
 description: Découvrez comment créer et personnaliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec le service Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: d52aa3b39a17c42c0f0e0cb669c69d336b41ba48
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2ca44ffd26e1b87dd201ed6f274791eadfeb0737
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973200"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814406"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Créer et personnaliser des plans de récupération
 
@@ -21,7 +20,7 @@ Cet article décrit la création et la personnalisation d’un plan de récupér
 
 ## <a name="create-a-recovery-plan"></a>Créer un plan de récupération
 
-1. Dans le coffre Recovery Services, sélectionnez **Recovery Plans (Site Recovery) (Plans de récupération (Site Recovery))** > **+Plan de récupération**.
+1. Dans le coffre Recovery Services, sélectionnez **Recovery Plans (Site Recovery) (Plans de récupération (Site Recovery))**  >  **+Plan de récupération**.
 2. Dans **Créer un plan de récupération**, spécifiez un nom pour le plan.
 3. Choisissez une source et une cible basées sur les ordinateurs dans le plan, puis sélectionnez **Resource Manager** comme modèle de déploiement. Le basculement et la récupération doivent être activés sur les ordinateurs de l’emplacement source. 
 
@@ -70,13 +69,16 @@ Vous pouvez personnaliser un plan de récupération en ajoutant un script ou une
     Entre un site Hyper-V et Microsoft Azure | Runbook | N/D
     Site VMM vers site VMM secondaire | Script | Script
 
-1. Dans le plan de récupération, cliquez sur l’étape à laquelle l’action doit être ajoutée et spécifiez quand l’action doit se produire : a. Si vous souhaitez que l’action se produise avant que les ordinateurs du groupe démarrent après le basculement, sélectionnez **Ajouter une action préalable**.
-    b. Si vous souhaitez que l’action se produise après que les ordinateurs du groupe démarrent après le basculement, sélectionnez **Ajouter une action postérieure**. Pour déplacer l’action dans la liste, utilisez les boutons **Monter** et **Descendre**.
+1. Dans le plan de récupération, cliquez sur l’étape à laquelle l’action doit être ajoutée et spécifiez quand l’action doit se produire :
+    1. Si vous souhaitez que l’action se produise avant que les ordinateurs du groupe démarrent après le basculement, sélectionnez **Ajouter une action préalable**.
+    1. Si vous souhaitez que l’action se produise après que les ordinateurs du groupe démarrent après le basculement, sélectionnez **Ajouter une action postérieure**. Pour déplacer l’action dans la liste, utilisez les boutons **Monter** et **Descendre**.
 2. Dans **Insérer une action**, sélectionnez **Script** ou **Action manuelle**.
-3. Si vous souhaitez ajouter une action manuelle, procédez comme suit : a. Tapez un nom pour l’action, ainsi que les instructions de l’action. La personne qui exécute le basculement verra ces instructions.
-    b. Spécifiez si vous souhaitez ajouter l’action manuelle pour tous les types de basculement (Test, Basculement, Basculement planifié (le cas échéant)). Cliquez ensuite sur **OK**.
-4. Si vous souhaitez ajouter un script, procédez comme suit : a. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**, puis dans **Chemin du script**, entrez le chemin d’accès relatif au partage. Par exemple, si le partage est situé à l’emplacement \\<VMMServerName>\MSSCVMMLibrary\RPScripts, spécifiez le chemin d’accès : \RPScripts\RPScript.PS1.
-    b. Si vous ajoutez un Runbook Azure Automation, spécifiez le **Compte Azure Automation** dans lequel se trouve le Runbook, puis sélectionnez le **Script Runbook Azure** approprié.
+3. Si vous souhaitez ajouter une action manuelle, procédez comme suit :
+    1. Tapez un nom pour l’action, ainsi que les instructions de l’action. La personne qui exécute le basculement verra ces instructions.
+    1. Spécifiez si vous souhaitez ajouter l’action manuelle pour tous les types de basculement (Test, Basculement, Basculement planifié (le cas échéant)). Cliquez ensuite sur **OK**.
+4. Si vous souhaitez ajouter un script, procédez comme suit :
+    1. Si vous ajoutez un script VMM, sélectionnez **Basculement vers script VMM**, puis dans **Chemin du script**, entrez le chemin d’accès relatif au partage. Par exemple, si le partage est situé à l’emplacement \\\<VMMServerName>\MSSCVMMLibrary\RPScripts, specify the path: \RPScripts\RPScript.PS1.
+    1. Si vous ajoutez un Runbook Azure Automation, spécifiez le **Compte Azure Automation** dans lequel se trouve le Runbook, puis sélectionnez le **Script Runbook Azure** approprié.
 5. Afin de vous assurer du bon fonctionnement du script, effectuez un test de basculement du plan de récupération.
 
 ## <a name="watch-a-video"></a>Regarder une vidéo

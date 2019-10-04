@@ -1,6 +1,6 @@
 ---
-title: Exemples de bons énoncés
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Bons exemples d’énoncés - LUIS
+titleSuffix: Azure Cognitive Services
 description: Les énoncés sont des entrées de l’utilisateur que votre application doit interpréter. Collectez des phrases dont vous pensez que les utilisateurs les entreront. Incluez des énoncés de sens identique, mais construits différemment sur le plan de la longueur et du positionnement des mots.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792536"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638330"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprendre ce que sont les bons énoncés pour votre application LUIS
 
@@ -74,13 +74,51 @@ LUIS génère des modèles efficaces avec des énoncés soigneusement sélection
 
 Il est préférable de commencer avec quelques énoncés, puis d’[examiner les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md) pour vérifier le bon fonctionnement de la prédiction d’intention et de l’extraction entité.
 
-## <a name="punctuation-marks"></a>Signes de ponctuation
+## <a name="utterance-normalization"></a>Normalisation de l’énoncé
 
-Par défaut, LUIS n’ignore pas les marques de ponctuation, car certaines applications clientes peuvent leur accorder une importance. Veillez à ce que vos exemples d’énoncés soient à la fois avec et sans signe de ponctuation afin que les deux styles retournent les mêmes scores relatifs. Si la ponctuation n’a aucune signification spécifique dans votre application cliente, vous pouvez [ignorer les signes de ponctuation](#ignoring-words-and-punctuation) à l’aide de modèles. 
+La normalisation de l’énoncé est le processus qui consiste à ignorer les effets de la ponctuation et des signes diacritiques au cours de la formation et de la prédiction.
 
-## <a name="ignoring-words-and-punctuation"></a>Ignorer les mots et les signes de ponctuation
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalisation de l’énoncé pour les signes diacritiques et la ponctuation
 
-Si vous souhaitez ignorer des mots ou des signes de ponctuation spécifiques dans l’exemple d’énoncé, utilisez un [modèle](luis-concept-patterns.md#pattern-syntax) avec la syntaxe _ignore_. 
+La normalisation de l’énoncé est définie lorsque vous créez ou importez l’application, car il s’agit d’un paramètre dans le fichier JSON de l’application. Les paramètres de normalisation de l’énoncé sont désactivés par défaut. 
+
+Les signes diacritiques sont des marques ou des signes dans le texte, par exemple : 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+Si votre application active la normalisation, les scores dans le volet **Test**, les tests par lot et les requêtes de point de terminaison changent pour tous les énoncés utilisant des signes diacritiques ou de la ponctuation.
+
+Activez la normalisation de l’énoncé pour les signes diacritiques ou la ponctuation dans votre fichier d’application LUIS JSON avec le paramètre `settings`.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+La normalisation de la **ponctuation** signifie qu’avant la formation de vos modèles et avant la prédiction de vos requêtes de point de terminaison, la ponctuation est retirée des énoncés. 
+
+La normalisation des **signes diacritiques** remplace les caractères avec des signes diacritiques dans les énoncés par des caractères normaux. Par exemple : `Je parle français` devient `Je parle francais`. 
+
+La normalisation ne signifie pas que la ponctuation et les signes diacritiques ne s’affichent pas dans vos exemples d’énoncés ou de réponses de prédiction, mais ils seront ignorés pendant la formation et la prédiction.
+
+
+### <a name="punctuation-marks"></a>Signes de ponctuation
+
+La ponctuation est un jeton distinct dans LUIS. Un énoncé qui se termine par un point et un énoncé qui n’en comporte pas sont deux énoncés distincts, qui sont susceptibles d’obtenir deux prédictions différentes. 
+
+Si la ponctuation n’est pas normalisée, LUIS n’ignore pas les marques de ponctuation, par défaut, car certaines applications clientes peuvent leur accorder une importance. Veillez à ce que vos exemples d’énoncés soient à la fois avec et sans signe de ponctuation afin que les deux styles retournent les mêmes scores relatifs. 
+
+Veillez à ce que le modèle gère la ponctuation soit dans les [exemples d’énoncés](luis-concept-utterance.md) (avec ou sans ponctuation), soit dans les [modèles](luis-concept-patterns.md) où il est plus facile d’ignorer la ponctuation avec la syntaxe spéciale : `I am applying for the {Job} position[.]`
+
+Si la ponctuation n’a aucune signification spécifique dans votre application cliente, vous pouvez [ignorer les signes de ponctuation](#utterance-normalization) en normalisant la ponctuation. 
+
+### <a name="ignoring-words-and-punctuation"></a>Ignorer les mots et les signes de ponctuation
+
+Si vous souhaitez ignorer des mots ou des signes de ponctuation spécifiques dans des modèles, utilisez un [modèle](luis-concept-patterns.md#pattern-syntax) avec la syntaxe _ignore_ ou des crochets, `[]`. 
 
 ## <a name="training-utterances"></a>Énoncés de formation
 

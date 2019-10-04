@@ -1,25 +1,27 @@
 ---
-title: Exemples de Hubs de Notification Azure
+title: Exemples Azure Notification Hubs
 description: Liste des kits de développement logiciel (SDK) Microsoft Azure Notification Hubs disponibles
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.author: jowargo
 ms.date: 03/28/2019
-ms.openlocfilehash: 1d035513418147b8fae1d8e2f217d20d19f02f2e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/28/2019
+ms.openlocfilehash: 5c7c2b073d0684d908b677d3dda1586f6baa8f61
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524841"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213307"
 ---
-# <a name="azure-notification-hubs-samples"></a>Exemples de Hubs de Notification Azure
-Cet article fournit des liens vers des exemples qui illustrent des fonctionnalités clés dans Azure Notification Hubs.
+# <a name="azure-notification-hubs-samples"></a>Exemples Azure Notification Hubs
+Cet article fournit des liens vers des exemples qui illustrent des fonctionnalités clés disponibles dans Azure Notification Hubs.
 
 ## <a name="samples"></a>Exemples
 
@@ -30,4 +32,4 @@ Cet article fournit des liens vers des exemples qui illustrent des fonctionnalit
 - [iOS](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les didacticiels dans la **didacticiels** section de la table des matières (table des matières).
+Consultez les tutoriels listés dans la section **Tutoriels** de la table des matières.

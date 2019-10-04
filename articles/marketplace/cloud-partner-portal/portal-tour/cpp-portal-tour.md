@@ -1,32 +1,25 @@
 ---
-title: Visite guidée du portail Microsoft Cloud Partner pour Azure | Microsoft Docs
-description: .
+title: Visite guidée du portail Microsoft Cloud Partner | Place de marché Azure
+description: Vue d'ensemble de l’expérience utilisateur du portail Cloud Partner pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 01b93a667fef8c56d6b7c78e8c6346357a2ff36c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.author: pabutler
+ms.openlocfilehash: b0bf7af9b81025202c2fffa2a264982c9986e10b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266309"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943400"
 ---
 # <a name="cloud-partner-portal-tour"></a>Visite guidée du portail Microsoft Cloud Partner
 
 Cet article est une introduction au [portail Microsoft Cloud Partner](https://cloudpartner.azure.com) : il présente son contenu, ses mécanismes de navigation et ses fonctionnalités.   À partir de ce portail, les partenaires inscrits peuvent créer des offres et gérer les offres existantes pour la [Place de marché Azure](https://azuremarketplace.microsoft.com) et la [Place de marché AppSource](https://azuremarketplace.microsoft.com).  Le portail Microsoft Cloud Partner est uniquement accessible aux partenaires inscrits. Pour plus d’informations, consultez [Devenir un éditeur sur la Place de marché dans le cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).
 
 [![Portail Cloud Partner affichant la page Profil](./media/portal-window_001a.png)](./media/portal-window_001b.png#lightbox)
-<br/>   (*Cliquez sur l’image pour l’agrandir.*)
+<br/>   (*Cliquez sur l’image pour l’agrandir.* )
 
 
 ## <a name="section-contents"></a>Contenu de la section

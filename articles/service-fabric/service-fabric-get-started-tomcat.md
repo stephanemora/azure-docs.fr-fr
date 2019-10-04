@@ -8,25 +8,24 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
-ms.author: v-jamebr
-ms.openlocfilehash: 5ae2ca352c6d3cbe02b659a97fe3147c1a31128f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.author: chackdan
+ms.openlocfilehash: 165dc95681b75e98d91c66b490e15c2e96608299
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664571"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098934"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Créer un conteneur Service Fabric exécutant un serveur Apache Tomcat sur Linux
 Apache Tomcat est une implémentation open source populaire des technologies Java Servlet et Java Server. Cet article montre comment créer un conteneur avec Apache Tomcat et une application web simple, déployer le conteneur sur un cluster Service Fabric exécutant Linux, et se connecter à l’application web.  
 
 Pour en savoir plus sur Apache Tomcat, voir la [page d’accueil Apache Tomcat](https://tomcat.apache.org/). 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Un ordinateur de développement exécutant :
   * [Outils et SDK Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE pour Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -93,7 +92,7 @@ Suivez les étapes décrites dans cette section pour créer une image Docker bas
 
    Pour en savoir plus sur d’autres paramètres, voir la [documentation sur l’exécution du Docker](https://docs.docker.com/engine/reference/commandline/run/).
 
-1. Pour tester votre conteneur, ouvrez un navigateur, puis entrez l’une des URL suivantes. Vous verrez une variante de « Hello World ! » écran d’accueil pour chaque URL.
+1. Pour tester votre conteneur, ouvrez un navigateur, puis entrez l’une des URL suivantes. Vous verrez une variante de l’écran d’accueil de « Hello World ! » sur chaque URL.
 
    - `http://localhost:8080/hello` 
    - `http://localhost:8080/hello/sayhello` 
@@ -111,9 +110,9 @@ Suivez les étapes décrites dans cette section pour créer une image Docker bas
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Envoyer l’image Tomcat à votre registre de conteneurs
 À présent que vous avez vérifié que l’image de Tomcat s’exécute dans un conteneur sur votre ordinateur de développement, envoyez-la à un référentiel dans un registre de conteneurs. Cet article utilise Azure Container Registry pour stocker l’image mais, en apportant quelques modifications aux étapes, vous pouvez utiliser le registre de conteneur de votre choix. Dans cet article, le nom de registre est supposé être *myregistry*, et le nom de registre complet est myregistry.azurecr.io. Modifiez ces noms de façon appropriée pour votre scénario. 
 
-1. Exécutez `docker login` pour vous connecter à votre Registre de conteneur à l’aide de vos [informations d’identification du Registre](../container-registry/container-registry-authentication.md).
+1. Exécutez `docker login` pour vous connecter à votre registre de conteneurs à l’aide de vos [informations d’identification du Registre](../container-registry/container-registry-authentication.md).
 
-   L’exemple suivant transmet l’ID et le mot de passe d’un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory . Par exemple, vous pouvez avoir affecté un principal du service à votre Registre pour un scénario d’automatisation. Ou bien, vous pouvez vous connecter à l’aide de votre nom d’utilisateur de registre et mot de passe.
+   L’exemple suivant transmet l’ID et le mot de passe d’un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory . Par exemple, vous pouvez avoir affecté un principal du service à votre Registre pour un scénario d’automatisation. Vous pouvez aussi vous connecter à l’aide de votre nom d’utilisateur du registre et votre mot de passe.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -141,11 +140,11 @@ Suivez les étapes décrites dans cette section pour créer une image Docker bas
    ```
    Entrez les valeurs suivantes lorsque vous y êtes invité :
 
-   * Nommez votre application : ServiceFabricTomcat
-   * Nom du service d’application : TomcatService
-   * Entrez le nom de l’Image : Fournissez l’URL de l’image de conteneur dans votre Registre de conteneurs ; par exemple, myregistry.azurecr.io/samples/tomcattest.
+   * Donnez à votre application le nom suivant : ServiceFabricTomcat
+   * Nom du service d’application : TomcatService
+   * Indiquez le nom de l’image : fournissez l’URL de l’image conteneur dans votre registre de conteneurs. Par exemple, myregistry.azurecr.io/samples/tomcattest.
    * Commandes : Laissez ce champ vide. Cette image possède un point d’entrée de charge de travail défini, vous n’avez donc pas à spécifier des commandes d’entrée explicitement (les commandes s’exécutent dans le conteneur et garderont le conteneur en exécution après le démarrage).
-   * Nombre d’instances de l’application de conteneur invité : 1
+   * Nombre d’instances de l’application conteneur invitée : 1
 
    ![Générateur Yeoman Service Fabric pour les conteneurs](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
@@ -162,7 +161,7 @@ Suivez les étapes décrites dans cette section pour créer une image Docker bas
    </Resources>
    ```
 
-11. Dans le manifeste de l’application (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sous la balise **ServiceManifestImport**, ajoutez le code XML suivant. Remplacez **AccountName** et **Password** dans la balise **RepositoryCredentials** portant le nom de votre registre de conteneurs et le mot de passe requis pour vous connecter à celui-ci.
+11. Dans le manifeste de l’application (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sous la balise **ServiceManifestImport**, ajoutez le code XML suivant. Remplacez les paramètres **AccountName** et **Password** de la balise **RepositoryCredentials** par le nom de votre registre de conteneurs et le mot de passe requis pour vous connecter à celui-ci.
 
    ```xml
    <Policies>
@@ -219,7 +218,7 @@ Suivez les étapes décrites dans cette section pour créer une image Docker bas
    ![Service Fabric Explorer](./media/service-fabric-get-started-tomcat/service-fabric-explorer.png)
 
 
-1. Pour accéder à l’application sur le serveur Tomcat, ouvrez une fenêtre de navigateur, puis entrez l’une des URL suivantes. Si vous avez déployé sur le cluster local, utilisez *localhost* pour *PublicIPorFQDN*. Vous verrez une variante de « Hello World ! » écran d’accueil pour chaque URL.
+1. Pour accéder à l’application sur le serveur Tomcat, ouvrez une fenêtre de navigateur, puis entrez l’une des URL suivantes. Si vous avez déployé sur le cluster local, utilisez *localhost* pour *PublicIPorFQDN*. Vous verrez une variante de l’écran d’accueil de « Hello World ! » sur chaque URL.
 
    * http://PublicIPorFQDN:8080/hello  
    * http://PublicIPorFQDN:8080/hello/sayhello

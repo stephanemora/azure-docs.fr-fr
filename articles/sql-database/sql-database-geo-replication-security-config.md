@@ -1,5 +1,5 @@
 ---
-title: Configurer la sécurité d’Azure SQL Database pour la récupération d’urgence | Microsoft Docs
+title: Configurer la sécurité d’Azure SQL Database pour la reprise d’activité | Microsoft Docs
 description: Découvrez les considérations de sécurité pour la configuration et la gestion de la sécurité après une restauration de base de données ou un basculement vers un serveur secondaire.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4d4939b7a0179216d11f594ce12f384276d15e05
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858278"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568132"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement
 
@@ -89,7 +88,9 @@ La dernière étape consiste à accéder au(x) serveur(s) cible, et à générer
 > [!NOTE]
 > Si vous souhaitez accorder un accès utilisateur à la base de données secondaire, mais pas au serveur principal, vous pouvez le faire en modifiant la connexion de l’utilisateur sur le serveur principal à l’aide de la syntaxe suivante.
 >
+> ```sql
 > ALTER LOGIN <login name> DISABLE
+> ```
 >
 > DISABLE ne modifie pas le mot de passe, pour que vous puissiez toujours l’activer si nécessaire.
 

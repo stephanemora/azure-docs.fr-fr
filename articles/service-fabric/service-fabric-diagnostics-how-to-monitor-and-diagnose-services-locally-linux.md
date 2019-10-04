@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: f0b850038a29dd0949def97b359b2b7a5ce920bc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58659744"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60392855"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
 
@@ -60,7 +60,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 Cette configuration se traduit par la collecte des journaux d’activité suivant une rotation dans `/tmp/servicefabric/logs/`. Dans ce cas, le fichier journal est nommé mysfapp%u.%g.log, où :
 * **%u** est un nombre unique utilisé pour résoudre les conflits entre des processus Java simultanés.
-* **%g** est le numéro de génération permettant de différencier des journaux de rotation.
+* **%g** est le numéro de génération permettant de différencier des journaux d’activité de rotation.
 
 Si aucun gestionnaire n’est configuré explicitement, le gestionnaire de la console est inscrit. Les journaux d’activité sont accessible sous /var/log/syslog.
 
@@ -143,4 +143,4 @@ Les exemples dans [C# Samples](https://github.com/Azure-Samples/service-fabric-d
 
 ## <a name="next-steps"></a>Étapes suivantes
 Le code de suivi ajouté à votre application fonctionne également pour le diagnostic de votre application sur un cluster Microsoft Azure. Consultez ces articles qui traitent des différentes options pour les outils et décrivent comment les configurer.
-* [Collecte des journaux avec Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md)
+* [Collecte des journaux avec Diagnostics Azure](service-fabric-diagnostics-how-to-setup-lad.md)

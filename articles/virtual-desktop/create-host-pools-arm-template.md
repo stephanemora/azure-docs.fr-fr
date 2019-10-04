@@ -1,72 +1,66 @@
 ---
-title: Créer un pool d’hôte de Windows Virtual Desktop Preview avec un modèle Azure Resource Manager - Azure
-description: Comment créer un pool d’hôte dans la version préliminaire de Windows Virtual Desktop avec un modèle Azure Resource Manager.
+title: Créer un pool d’hôtes Windows Virtual Desktop en préversion avec un modèle Azure Resource Manager - Azure
+description: Comment créer un pool d’hôtes dans la préversion de Windows Virtual Desktop avec un modèle Azure Resource Manager.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
-ms.date: 04/05/2019
+ms.topic: conceptual
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 27fe19c2b1f92b67e02b4e09d5fcd607759d8abd
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796424"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163743"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Créer un pool d’hôtes avec le modèle Azure Resource Manager
 
 Les pools d’hôtes sont une collection d’une ou de plusieurs machines virtuelles identiques dans des environnements de locataires Windows Virtual Desktop Preview. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique.
 
-Suivez les instructions de cette section pour créer un pool d’hôte pour un client de bureau virtuel Windows avec un modèle Azure Resource Manager fourni par Microsoft. Cet article vous indique comment créer un pool de l’hôte dans un bureau virtuel Windows, créez un groupe de ressources avec des machines virtuelles dans un abonnement Azure, joindre ces machines virtuelles au domaine AD et inscrire les machines virtuelles avec le bureau virtuel Windows.
+Suivez les instructions de cette section afin de créer un pool d’hôtes pour un locataire Windows Virtual Desktop avec un modèle Azure Resource Manager fourni par Microsoft. Cet article explique comment créer un pool d’hôtes dans Windows Virtual Desktop, créer un groupe de ressources avec des machines virtuelles dans un abonnement Azure, joindre ces machines virtuelles au domaine AD et inscrire les machines virtuelles auprès de Windows Virtual Desktop.
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Ce que vous devez exécuter le modèle Azure Resource Manager
+## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Exécution du modèle Azure Resource Manager
 
-Vérifiez que vous connaissez les opérations suivantes avant d’exécuter le modèle Azure Resource Manager :
+Vérifiez les points suivants avant d’exécuter le modèle Azure Resource Manager :
 
-- Lorsque la source de l’image que vous souhaitez utiliser est. Il est à partir de la galerie Azure ou est personnalisée ?
-- Vos informations d’identification de jonction de domaine.
-- Vos informations d’identification de bureau virtuel Windows.
+- Emplacement de la source de l’image que vous voulez utiliser. Provient-elle de la galerie Azure ou est-elle personnalisée ?
+- Informations d’identification de jonction de domaine.
+- Informations d’identification Windows Virtual Desktop.
 
-Lorsque vous créez un pool d’hôte de bureau virtuel Windows avec le modèle Azure Resource Manager, vous pouvez créer une machine virtuelle à partir de la galerie Azure, d’une image managée ou d’une image non managée. Pour en savoir plus sur la création d’images de machine virtuelle, consultez [préparer un disque dur virtuel Windows à charger sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) et [créer une image managée d’une machine virtuelle généralisée dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
+Lorsque vous créez un pool d’hôtes Windows Virtual Desktop avec le modèle Azure Resource Manager, vous pouvez créer une machine virtuelle à partir de la galerie Azure, d’une image managée ou d’une image non managée. Pour en savoir plus sur la création d’images de machines virtuelles, voir [Préparer un disque dur virtuel Windows à charger sur Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) et [Créer une image managée d’une machine virtuelle généralisée dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource).
 
-## <a name="run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool"></a>Exécutez le modèle Azure Resource Manager pour l’approvisionnement d’un nouveau pool d’hôte
+## <a name="run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool"></a>Exécuter le modèle Azure Resource Manager pour l’approvisionnement du nouveau pool d’hôtes
 
 Pour commencer, accédez à [cette URL GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool).
 
 ### <a name="deploy-the-template-to-azure"></a>Déployer le modèle sur Azure
 
-Si vous effectuez un déploiement dans un abonnement entreprise, faites défiler vers le bas et sélectionnez **déployer sur Azure**, puis ahead skip renseignez les paramètres en fonction de votre source de l’image.
+Si vous effectuez un déploiement dans un abonnement Entreprise, faites défiler vers le bas et sélectionnez **Déployer sur Azure**, puis renseignez les paramètres en fonction de la source de votre image.
 
-Si vous effectuez un déploiement dans un abonnement de fournisseur de solutions Cloud, suivez ces étapes pour déployer sur Azure :
+Si vous effectuez un déploiement dans un abonnement de fournisseur de solutions cloud, suivez ces étapes pour déployer sur Azure :
 
-1. Faites défiler et cliquez sur **déployer sur Azure**, puis sélectionnez **emplacement du lien de copie**.
+1. Faites défiler vers le bas et cliquez sur **Déployer sur Azure**, puis sélectionnez **Copier l’adresse du lien**.
 2. Ouvrez un éditeur de texte tel que le bloc-notes et collez le lien.
-3. Juste après « https://portal.azure.com/» et avant le mot-dièse (#), entrez un arobase (@) suivi du nom de domaine de locataire. Voici un exemple du format que vous devez utiliser : https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
-4. Connectez-vous au portail Azure en tant qu’utilisateur avec des autorisations d’administrateur/contributeur à l’abonnement fournisseur de solutions Cloud.
-5. Collez le lien que vous avez copié à l’éditeur de texte dans la barre d’adresses.
+3. Juste après « https://portal.azure.com/  » et avant le mot-dièse (#), entrez un arobase (@) suivi du nom de domaine du locataire. Voici un exemple du format que vous devez utiliser : https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
+4. Connectez-vous au portail Azure en tant qu’utilisateur avec des autorisations d’administrateur/contributeur pour l’abonnement du fournisseur de solutions cloud.
+5. Collez le lien que vous avez copié dans l’éditeur de texte dans la barre d’adresse.
 
-Pour obtenir des conseils sur les paramètres, vous devez entrer pour votre scénario, voir le bureau virtuel Windows [fichier Lisez-moi](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool/README.md). Le fichier Lisez-moi est toujours mis à jour avec les dernières modifications.
+Pour obtenir des conseils sur les paramètres à entrer pour votre scénario, voir le [fichier Lisez-moi](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool/README.md) de Windows Virtual Desktop. Le fichier Lisez-moi est toujours mis à jour avec les dernières modifications.
 
 ## <a name="assign-users-to-the-desktop-application-group"></a>Affecter des utilisateurs au groupe d’applications de bureau
 
-Une fois le modèle GitHub Azure Resource Manager est terminée, attribuer l’accès utilisateur avant de commencer à tester les bureaux de session complète sur vos machines virtuelles.
+Une fois le modèle GitHub Azure Resource Manager terminé, attribuez l’accès aux utilisateurs avant de commencer à tester les bureaux de session complète sur vos machines virtuelles.
 
 Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell.
 
-Pour affecter des utilisateurs au groupe d’applications de bureau, ouvrez une fenêtre PowerShell et exécutez la commande suivante pour vous connecter à l’environnement de bureau virtuel Windows :
+Pour affecter des utilisateurs au groupe d’applications de bureau, ouvrez une fenêtre PowerShell et exécutez la cmdlet suivante pour vous connecter à l’environnement Windows Virtual Desktop :
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
-Ensuite, définissez le contexte pour le groupe de client spécifié dans le modèle Azure Resource Manager avec cette applet de commande :
-
-```powershell
-Set-RdsContext -TenantGroupName <Tenant Group name>
-```
-
-Après cela, ajoutez les utilisateurs au groupe d’applications de bureau avec cette applet de commande :
+Ensuite, ajoutez des utilisateurs au groupe d’applications de bureau avec cette cmdlet :
 
 ```powershell
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
@@ -77,4 +71,4 @@ L’UPN (nom d’utilisateur principal) de l’utilisateur doit correspondre à 
 Une fois ces étapes terminées, les utilisateurs ajoutés au groupe d’applications de bureau peuvent se connecter à Windows Virtual Desktop avec les clients Bureau à distance pris en charge et voir une ressource pour le bureau d’une session.
 
 >[!IMPORTANT]
->Pour contribuer à sécuriser votre environnement Windows Virtual Desktop dans Azure, nous vous recommandons de ne pas ouvrir le port entrant 3389 sur vos machines virtuelles. Windows Virtual Desktop ne nécessite pas l’ouverture du port entrant 3389 pour permettre aux utilisateurs d’accéder aux machines virtuelles du pool hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser un [accès à la machine virtuelle juste-à-temps](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>Pour contribuer à sécuriser votre environnement Windows Virtual Desktop dans Azure, nous vous recommandons de ne pas ouvrir le port entrant 3389 sur vos machines virtuelles. Windows Virtual Desktop ne nécessite pas l’ouverture du port entrant 3389 pour permettre aux utilisateurs d’accéder aux machines virtuelles du pool hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser un [accès à la machine virtuelle juste-à-temps](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

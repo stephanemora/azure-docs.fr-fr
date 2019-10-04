@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 3dfc72ff0347a93c6c6dce0e7ec763dd8241c55b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: be71b269e618d13a126e4005754b307e9c6517d7
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958807"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177057"
 ---
 ## <a name="azure-backup"></a>Sauvegarde Azure
 
@@ -34,7 +34,7 @@ Vous pouvez commencer par [répliquer vos machines virtuelles](https://aka.ms/a2
 
 ## <a name="managed-snapshots"></a>Captures instantanées gérées 
 
-Dans les environnements de développement et de test, les captures instantanées constituent une option rapide et simple pour la sauvegarde de machines virtuelles qui utilisent Managed Disks. Une capture instantanée gérée est une copie intégrale en lecture seule d’un disque géré. Les captures instantanées existent indépendamment du disque source et peuvent être utilisées pour créer des disques gérés afin de régénérer une machine virtuelle. Elles sont facturées en fonction de la portion utilisée sur le disque. Par exemple, si vous créez une capture instantanée d’un disque géré avec une capacité approvisionnée de 64 Go et une taille des données utilisées réelle de 10 Go, la capture instantanée sera facturée uniquement pour la taille des données utilisées de 10 Go.  
+Dans les environnements de développement et de test, les captures instantanées constituent une option rapide et simple pour la sauvegarde de machines virtuelles qui utilisent la fonctionnalité Disques managés. Une capture instantanée gérée est une copie intégrale en lecture seule d’un disque géré. Les captures instantanées existent indépendamment du disque source et peuvent être utilisées pour créer des disques managés afin de régénérer une machine virtuelle. Elles sont facturées en fonction de la portion utilisée sur le disque. Par exemple, si vous créez une capture instantanée d’un disque géré avec une capacité approvisionnée de 64 Go et une taille des données utilisées réelle de 10 Go, la capture instantanée sera facturée uniquement pour la taille des données utilisées de 10 Go.  
 
 Pour plus d’informations sur la création de captures instantanées, consultez :
 

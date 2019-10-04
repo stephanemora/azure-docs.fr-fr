@@ -4,15 +4,15 @@ description: Apprenez à vous connecter à Azure Cosmos DB et à gérer ses ress
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 8700d0988927b221ace82a492e9902f1f36a562b
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6c3c8aee51a4484013126a5959d3d275a88aa1cc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731368"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66242641"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Utiliser des données à l’aide de l’Explorateur Stockage Azure
 
@@ -223,7 +223,7 @@ Lorsque l’Explorateur de stockage rencontre l’un de ces « certificats auto-
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (n’importe quelle version légère convient)
      - Mac et Linux : doit être inclus dans votre système d’exploitation
 2. Exécutez Open SSL.
-    - Windows : accédez au répertoire d’installation, puis **/bin/**, puis double-cliquez sur **openssl.exe**.
+    - Windows : accédez au répertoire d’installation, puis **/bin/** , puis double-cliquez sur **openssl.exe**.
     - Mac et Linux : exécutez **openssl** à partir d’un terminal
 3. Exécutez `s_client -showcerts -connect microsoft.com:443`
 4. Recherchez les certificats auto-signés. Si vous ne savez pas lesquels sont auto-signés, recherchez ceux dont le sujet (« s: ») et l’émetteur (« i: ») sont identiques.

@@ -1,116 +1,112 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Riskware | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Riskware | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Riskware.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 81866167-b163-4695-8978-fd29a25dac7a
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/27/2018
+ms.topic: tutorial
+ms.date: 03/25/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: b2bfbed33433521fd086d474ea4b754f5435f5e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842530"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092919"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutoriel : Intégration d’Azure Active Directory à Riskware
+# <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Didacticiel : Intégration d’Azure Active Directory à Riskware
 
 Dans ce tutoriel, vous allez apprendre à intégrer Riskware à Azure Active Directory (Azure AD).
-
 L’intégration de Riskware dans Azure AD offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à Riskware.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à Riskware (par le biais de l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Dans Azure AD, vous pouvez contrôler qui a accès à Riskware.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Riskware (par le biais de l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Riskware, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement Riskware pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
+* Abonnement Riskware pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de Riskware à partir de la galerie
-1. Configuration et test de l’authentification unique Azure AD
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
+
+* Riskware prend en charge l’authentification unique lancée par le **fournisseur de services**
 
 ## <a name="adding-riskware-from-the-gallery"></a>Ajout de Riskware à partir de la galerie
+
 Pour configurer l’intégration de Riskware à Azure AD, vous devez ajouter Riskware à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Riskware à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![Panneau Applications d’entreprise][2]
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![Bouton Nouvelle application][3]
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
-1. Dans la zone de recherche, tapez **Riskware**, sélectionnez **Riskware** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Riskware**, sélectionnez **Riskware** dans le panneau des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Riskware dans la liste des résultats](./media/riskware-tutorial/tutorial_riskware_addfromgallery.png)
+    ![Riskware dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec Riskware, avec un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur Riskware équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur Riskware associé doit être établie.
+Dans cette section, vous configurez et testez l’authentification unique Azure AD avec Riskware pour un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur associé dans Riskware.
 
 Pour configurer et tester l’authentification unique Azure AD avec Riskware, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur de test Riskware](#create-a-riskware-test-user)** pour avoir dans Riskware un équivalent de Britta Simon lié à la représentation Azure AD associée.
-1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+2. **[Configurer l’authentification unique Riskware](#configure-riskware-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Riskware](#create-riskware-test-user)** pour avoir dans Riskware un équivalent de Britta Simon lié à la représentation Azure AD associée.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail de gestion Azure et configurer l’authentification unique dans votre application Riskware.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec Riskware, effectuez les étapes suivantes :**
+Pour configurer l’authentification unique Azure AD avec Riskware, effectuez les étapes suivantes :
 
-1. Dans le portail Azure, dans la page d’intégration de l’application **Riskware**, cliquez sur **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Riskware**, sélectionnez **Authentification unique**.
 
-    ![Lien Configurer l’authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-    ![Boîte de dialogue Authentification unique](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-1. Dans la section **Domaine et URL Riskware**, effectuez les étapes suivantes :
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    ![Informations d’authentification unique dans Domaine et URL Riskware](./media/riskware-tutorial/tutorial_riskware_url.png)
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant :
+4. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
+    ![Informations d’authentification unique dans Domaine et URL Riskware](common/sp-identifier.png)
+
+    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant :
+    
     | Environnement| Modèle d’URL|
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -118,7 +114,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une URL :
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez l’URL :
     
     | Environnement| Modèle d’URL|
     |--|--|
@@ -128,19 +124,23 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     |||
 
     > [!NOTE]
-    > La valeur d’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de Riskware](mailto:support@pansoftware.com.au).
+    > La valeur d’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique de Riskware](mailto:support@pansoftware.com.au). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    ![Lien Téléchargement de certificat](./media/riskware-tutorial/tutorial_riskware_certificate.png) 
+    ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-1. Cliquez sur le bouton **Enregistrer** .
+6. Dans la section **Configurer Riskware**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/riskware-tutorial/tutorial_general_400.png)
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-1. Dans la section **Configuration de Riskware**, cliquez sur **Configurer Riskware** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+    a. URL de connexion
 
-    ![Configuration de Riskware](./media/riskware-tutorial/tutorial_riskware_configure.png)
+    b. Identificateur Azure AD
+
+    c. URL de déconnexion
+
+### <a name="configure-riskware-single-sign-on"></a>Configurer l’authentification unique pour Riskware
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Riskware en tant qu’administrateur.
 
@@ -162,9 +162,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     c. Dans la zone de texte **Description**, tapez votre description, par exemple Configuration d’Azure pour l’authentification unique.
 
-    d. Dans la zone de texte de la page **Single Sign On Page** (Page d’authentification unique), collez la valeur de l’**URL du service d’authentification unique SAML** que vous avez copiée à partir du portail Azure.
+    d. Dans la zone de texte **Single Sign On page** (Page d’authentification unique), collez l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
-    e. Dans la zone de texte **Sign out Page** (Page de déconnexion), collez la valeur de l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
+    e. Dans la zone de texte **Sign out Page** (Page de déconnexion), collez l’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
     f. Dans la zone de texte **Post Form Field** (Champ de formulaire de notification), tapez le nom du champ présent dans Post Response qui contient SAML, comme SAMLResponse.
 
@@ -189,35 +189,54 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Bouton Azure Active Directory](./media/riskware-tutorial/create_aaduser_01.png)
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/riskware-tutorial/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`  
+    Par exemple, BrittaSimon@contoso.com
 
-    ![Bouton Ajouter](./media/riskware-tutorial/create_aaduser_03.png)
-
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/riskware-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Cliquez sur **Créer**.
 
-### <a name="create-a-riskware-test-user"></a>Créer un utilisateur de test Riskware
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Riskware.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Riskware**.
+
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
+2. Dans la liste des applications, sélectionnez **Riskware**.
+
+    ![Lien Riskware dans la liste des applications](common/all-applications.png)
+
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+### <a name="create-riskware-test-user"></a>Créer un utilisateur de test Riskware
 
 Pour se connecter à Riskware, les utilisateurs Azure AD doivent être provisionnés dans Riskware. Dans Riskware, le provisionnement est une tâche manuelle.
 
@@ -249,7 +268,7 @@ Pour se connecter à Riskware, les utilisateurs Azure AD doivent être provision
 
     a. Dans la section **Authentication**, sélectionnez le mode **Authentication**, que vous avez configuré comme Configuration d’Azure pour l’authentification unique.
 
-    b. Sous **les détails d’ouverture de session** section, dans le **ID utilisateur** zone de texte, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
+    b. Sous la section **Logon Details** (Informations de connexion), dans la zone de texte **User ID** (ID utilisateur), entrez l’adresse e-mail de l’utilisateur, par exemple `brittasimon@contoso.com`.
 
     c. Dans la zone de texte **Password**, tapez le mot de passe de l’utilisateur.
 
@@ -263,63 +282,18 @@ Pour se connecter à Riskware, les utilisateurs Azure AD doivent être provision
 
     c. Dans la section **Employee**, sélectionnez Casual comme **Employee Status**.
 
-1. Cliquez sur **Enregistrer**.
+    d. Cliquez sur **Enregistrer**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Riskware.
-
-![Attribuer le rôle utilisateur][200]
-
-**Pour affecter Britta Simon à Riskware, effectuez les étapes suivantes :**
-
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
-
-    ![Affecter des utilisateurs][201] 
-
-1. Dans la liste des applications, sélectionnez **Riskware**.
-
-    ![Lien Riskware dans la liste des applications](./media/riskware-tutorial/tutorial_riskware_app.png)  
-
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
-
-    ![Lien « Utilisateurs et groupes »][202]
-
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
-
-    ![Volet Ajouter une attribution][203]
-
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
-
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
-
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Si vous cliquez sur la vignette Riskware dans le volet d’accès, vous devez être connecté automatiquement à votre application Riskware.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quand vous cliquez sur la vignette Riskware dans le volet d’accès, vous devez être connecté automatiquement à l’application Riskware pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/riskware-tutorial/tutorial_general_01.png
-[2]: ./media/riskware-tutorial/tutorial_general_02.png
-[3]: ./media/riskware-tutorial/tutorial_general_03.png
-[4]: ./media/riskware-tutorial/tutorial_general_04.png
-
-[100]: ./media/riskware-tutorial/tutorial_general_100.png
-
-[200]: ./media/riskware-tutorial/tutorial_general_200.png
-[201]: ./media/riskware-tutorial/tutorial_general_201.png
-[202]: ./media/riskware-tutorial/tutorial_general_202.png
-[203]: ./media/riskware-tutorial/tutorial_general_203.png
-
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

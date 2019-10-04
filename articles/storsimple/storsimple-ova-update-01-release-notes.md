@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
-ms.openlocfilehash: c4ccde9635b3874864baa9d4d262ff5ddcf2a425
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: aad60024187ca180c002f119f4b975e8f69796e5
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23109977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60629286"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>Notes de publication de StorSimple Virtual Array Update 0.2 et 0.1
 ## <a name="overview"></a>Vue d'ensemble
@@ -44,12 +44,12 @@ Update 0.2 inclut toutes les modifications de Update 0.1 en plus du correctif d�
 ## <a name="whats-new-in-the-update-01"></a>Nouveautés d’Update 0.1
 Update 0.1 contient les améliorations et correctifs de bogues suivants. 
 
-* **Résilience optimisée en cas de panne du cloud**: cette version corrige plusieurs bogues autour de la récupération d’urgence, de la sauvegarde, de la restauration et de la hiérarchisation en cas d’interruption de la connectivité au cloud. 
-* **Amélioration des performances de restauration**: cette version comporte des correctifs de bogues qui ont considérablement réduit la durée d’exécution des tâches de restauration.
-* **Optimisation automatique de la récupération d’espace**: lorsque des données sont supprimées dans des volumes alloués de façon dynamique, les blocs de stockage inutilisés doivent être récupérés. Cette version améliore le processus de récupération d’espace à partir du cloud de manière à accélérer la disponibilité de l’espace inutilisé par rapport aux versions précédentes.
-* **Nouvelles images de disque virtuel**: de nouveaux VHD, VHDX et VMDK sont désormais disponibles par le bais du portail Azure Classic. Vous pouvez télécharger ces images pour configurer de nouveaux appareils Update 0.1.
-* **Amélioration la précision de l’état des tâches dans le portail**: dans la version antérieure du logiciel, les rapports d’état de la tâche générés dans le portail n’étaient pas précis. Ce problème a été résolu dans cette version.
-* **Expérience de jonction de domaine**: correctifs de bogues liés à la jonction de domaine et au changement de nom de l’appareil.
+* **Résilience améliorée en cas d’indisponibilité du cloud** : cette version corrige plusieurs bogues autour de la récupération d’urgence, de la sauvegarde, de la restauration et de la hiérarchisation en cas d’interruption de la connectivité du cloud. 
+* **Performances de restauration améliorées** : cette version comporte des correctifs de bogues qui ont considérablement réduit la durée d’exécution des tâches de restauration.
+* **Optimisation de la récupération d’espace automatisée** : quand des données sont supprimées dans des volumes alloués de façon dynamique, les blocs de stockage non utilisés doivent être récupérés. Cette version améliore le processus de récupération d’espace à partir du cloud de manière à accélérer la disponibilité de l’espace inutilisé par rapport aux versions précédentes.
+* **Nouvelles images de disque virtuel** : de nouveaux VHD, VHDX et VMDK sont désormais disponibles via le portail Azure Classic. Vous pouvez télécharger ces images pour configurer de nouveaux appareils Update 0.1.
+* **Amélioration de la précision de l’état des tâches sur le portail** : dans la version antérieure du logiciel, les rapports d’état des tâches générés sur le portail n’étaient pas précis. Ce problème a été résolu dans cette version.
+* **Expérience de jonction de domaine** : correctifs de bogues liés à la jonction de domaine et au changement de nom de l’appareil.
 
 ## <a name="issues-fixed-in-the-update-01"></a>Problèmes résolus dans Update 0.1
 Le tableau suivant récapitule les problèmes corrigés dans cette version.
@@ -60,7 +60,7 @@ Le tableau suivant récapitule les problèmes corrigés dans cette version.
 | 2 |Serveur iSCSI |Dans la dernière version, l’utilisateur devait spécifier une passerelle pour chaque interface réseau activée de l’appareil virtuel StorSimple. Ce comportement a été modifié dans cette version afin que l’utilisateur ait à configurer au moins une passerelle pour toutes les interfaces réseau activées. |
 | 3 |Package de prise en charge |Dans la version antérieure du logiciel, la collecte du package Support échouait dès lors que la taille du package excédait 1 Go. Ce problème a été résolu dans cette version. |
 | 4 |Accès au cloud |Dans la dernière version, si le StorSimple Virtuel Array était redémarré alors qu’il ne disposait pas de connectivité réseau, l’interface utilisateur locale rencontrait des problèmes de connectivité. Ce problème a été résolu dans cette version. |
-| 5. |Graphiques de surveillance |Dans la version précédente, après un basculement de l’appareil, les graphiques d’utilisation de la capacité du cloud affichaient des valeurs incorrectes dans le portail Azure Classic. Ce problème a été résolu dans la version actuelle. |
+| 5\. |Graphiques de surveillance |Dans la version précédente, après un basculement de l’appareil, les graphiques d’utilisation de la capacité du cloud affichaient des valeurs incorrectes dans le portail Azure Classic. Ce problème a été résolu dans la version actuelle. |
 
 ## <a name="known-issues-in-the-update-01"></a>Problèmes connus dans Update 0.1
 Le tableau suivant récapitule les problèmes connus pour StorSimple Virtual Array et décrit les problèmes signalés dans les notes de version des versions précédentes. **Les problèmes signalés dans la note de version sont repérés par un astérisque. Presque tous les problèmes de cette liste portent sur la version en disponibilité générale de StorSimple Virtual Array.**
@@ -72,17 +72,16 @@ Le tableau suivant récapitule les problèmes connus pour StorSimple Virtual Arr
 | **3.** |Stratégie de groupe |Lorsqu’un appareil est joint à un domaine, le fait d’appliquer une stratégie de groupe peut avoir un impact négatif sur son fonctionnement. |Assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Active Directory et qu'aucun objet de stratégie de groupe (GPO) ne lui est appliqué. |
 | **4.** |Interface utilisateur web locale |Si les fonctionnalités de sécurité améliorées sont activées dans Internet Explorer (IE ESC), certaines pages de l’interface utilisateur web locale, comme Dépannage ou Maintenance, peuvent ne pas fonctionner correctement. Les boutons sur ces pages peuvent également ne pas fonctionner. |Désactivez les fonctionnalités de sécurité améliorées d'Internet Explorer. |
 | **5.** |Interface utilisateur web locale |Sur une machine virtuelle Hyper-V, les interfaces réseau de l'interface utilisateur web sont affichées sous forme d'interfaces 10 Gbits/s. |Ce comportement est le reflet de Hyper-V. Hyper-V affiche toujours 10 Gbits/s pour les cartes de réseau virtuel. |
-| **6.** |Partages ou volumes à plusieurs niveaux |Le verrouillage de la plage d'octets pour les applications qui fonctionnent avec les volumes à plusieurs niveaux StorSimple n'est pas pris en charge. Si le verrouillage de la plage d'octets est activé, la hiérarchisation StorSimple ne fonctionnera pas. |Mesures recommandées :  <br></br>Désactivez le verrouillage de plage d'octets dans la logique de votre application.<br></br>Choisissez de placer les données de cette application dans des volumes épinglés localement par opposition à des volumes à plusieurs niveaux.<br></br>*Inconvénient*: si le verrouillage de la plage d’octets est activé avec l’utilisation de volumes localement épinglés, soyez conscient que le volume localement épinglé peut être en ligne avant même que la restauration ne soit terminée. Dans ce cas, si une restauration est en cours, vous devez attendre que l'opération se termine. |
+| **6.** |Partages ou volumes à plusieurs niveaux |Le verrouillage de la plage d'octets pour les applications qui fonctionnent avec les volumes à plusieurs niveaux StorSimple n'est pas pris en charge. Si le verrouillage de la plage d'octets est activé, la hiérarchisation StorSimple ne fonctionnera pas. |Mesures recommandées : <br></br>Désactivez le verrouillage de plage d'octets dans la logique de votre application.<br></br>Choisissez de placer les données de cette application dans des volumes épinglés localement par opposition à des volumes à plusieurs niveaux.<br></br>*Inconvénient* : si le verrouillage de la plage d’octets est activé avec l’utilisation de volumes localement épinglés, sachez que le volume épinglé localement peut être en ligne même avant la fin de la restauration. Dans ce cas, si une restauration est en cours, vous devez attendre que l'opération se termine. |
 | **7.** |Partages à plusieurs niveaux |L'utilisation de fichiers volumineux peut entraîner montée en charge de niveau lente. |Lorsque vous utilisez des fichiers volumineux, vérifiez que la taille du plus grand fichier est inférieure à 3 % de la taille du partage. |
 | **8.** |Capacité utilisée pour les partages |Vous pouvez constater la consommation du partage en l'absence de données sur le partage. Ceci est dû au fait que la capacité utilisée pour les partages inclut des métadonnées. | |
 | **9.** |Récupération d'urgence |La récupération d'urgence d'un serveur de fichiers ne peut s'effectuer que dans le même domaine que celui de l'appareil source. La récupération d'urgence vers un appareil cible dans un autre domaine n'est pas prise en charge dans cette version. |Ceci sera implémenté dans une version ultérieure. |
-| **10.** |Azure PowerShell |Les appareils virtuels StorSimple ne peuvent pas être gérés via Azure PowerShell dans cette version. |La gestion des appareils virtuels doit être effectuée par le biais du portail Azure Classic et l'interface utilisateur web locale. |
+| **10.** |Azure PowerShell |Les appareils virtuels StorSimple ne peuvent pas être gérés via Azure PowerShell dans cette version. |La gestion des appareils virtuels doit être effectuée par le biais du portail Azure Classic et l'interface utilisateur web locale. |
 | **11.** |Modification de mot de passe |La console de l’appareil exécutant le tableau virtuel accepte uniquement les entrées au format de clavier en-US. | |
 | **12.** |CHAP |Il est impossible de supprimer les informations d’identification CHAP une fois qu’elles ont été créées. En outre, si vous modifiez les informations d’identification CHAP, vous devrez mettre les volumes hors connexion, puis les remettre en ligne pour que la modification prenne effet. |Ceci sera résolu dans une version ultérieure. |
 | **13.** |Serveur iSCSI |Le « stockage utilisé » affiché pour un volume iSCSI peut différer entre le service StorSimple Manager et l’hôte iSCSI. |L’hôte iSCSI dispose de la vue du système de fichiers.<br></br>L’appareil voit les blocs alloués lorsque le volume était à sa taille maximale. |
 | **14.** |Serveur de fichiers* |Si un fichier d’un dossier est associé à un flux de données alternatif (ADS), l’ADS n’est pas sauvegardé ou restauré lors des opérations de récupération d’urgence, de clonage ou de récupération au niveau de l’élément. | |
 
-## <a name="next-step"></a>Étapes suivantes
-
+## <a name="next-step"></a>Étape suivante
 [Installation de mises à jour](storsimple-ova-install-update-01.md) sur votre instance StorSimple Virtual Array.
 

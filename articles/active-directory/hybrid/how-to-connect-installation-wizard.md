@@ -13,19 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 07/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: 5440c54b01f62b3ad61b355f4c622a31910a65c1
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191985"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290933"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Synchronisation d’Azure AD Connect : Exécuter l’Assistant Installation une deuxième fois
 La première fois que vous exécutez l’Assistant Installation d’Azure AD Connect, il vous guide dans la procédure de configuration de votre installation. Si vous réexécutez l’Assistant Installation, il vous propose des options de maintenance.
+
+>[!IMPORTANT]
+>N’oubliez pas que vous ne pouvez pas exécuter l’Assistant Installation pendant qu’une synchronisation est en cours.  Avant de lancer l’Assistant, vérifiez qu’aucune synchronisation n’est en cours d’exécution.
 
 Vous trouverez l’Assistant Installation dans le menu Démarrer sous le nom **Azure Connect AD**.
 
@@ -75,7 +78,7 @@ Lorsque vous sélectionnez cette option, tous les annuaires de votre configurati
 ## <a name="configure-staging-mode"></a>Configurer le mode de préproduction
 Cette option permet d’activer et de désactiver le mode de préproduction sur le serveur. Vous trouverez plus d’informations sur le mode de préproduction et son utilisation dans [Opérations](how-to-connect-sync-staging-server.md).
 
-L’option s’affiche si la préproduction est actuellement activée ou désactivée :   
+L’option s’affiche si la préproduction est actuellement activée ou désactivée :  
 ![Option qui affiche également l’état actuel du mode de préproduction](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 Pour modifier l’état, sélectionnez cette option et cochez ou décochez la case.  

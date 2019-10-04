@@ -9,19 +9,18 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1db56ad31991b85ffad415818c7c67f0ee30808d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: bccaf45cf617bd31a584b6c73f3dd08877bc8587
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328076"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266073"
 ---
 # <a name="sap-hana-high-availability-for-azure-virtual-machines"></a>Haute disponibilité de SAP HANA pour les machines virtuelles Azure
 
@@ -59,10 +58,11 @@ En plus de vous familiariser avec le déploiement de machines virtuelles dans Az
 
 Azure propose différents contrats SLA de disponibilité pour différents composants, comme la mise en réseau, le stockage et les machines virtuelles. Tous les contrats SLA sont documentés. Pour plus d'informations, consultez la page [Contrats de niveau de service Microsoft Azure](https://azure.microsoft.com/support/legal/sla/). 
 
-[Contrat SLA pour les machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/) décrit deux contrats de niveau de service, pour deux configurations différentes :
+[Contrat SLA pour les machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) décrit trois contrats de niveau de service, pour trois configurations différentes :
 
-- Une seule machine virtuelle qui utilise des [disques SSD Premium Azure](../../windows/disks-types.md) pour le disque du système d'exploitation et tous les disques de données. Cette option fournit une durée de fonctionnement mensuelle de 99,9 %.
+- Une seule machine virtuelle qui utilise des [disques SSD Premium Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) pour le disque du système d'exploitation et tous les disques de données. Cette option fournit une durée de fonctionnement mensuelle de 99,9 %.
 - Plusieurs machines virtuelles (au moins deux) qui sont organisées dans un [groupe à haute disponibilité Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Cette option fournit une durée de fonctionnement mensuelle de 99,95 %.
+- Plusieurs machines virtuelles (au moins deux) qui sont organisées dans une [zone de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview). Cette option fournit une durée de fonctionnement mensuelle de 99,99 %.
 
 Mesurez vos exigences de disponibilité par rapport aux contrats SLA que les composants Azure peuvent fournir. Ensuite, choisissez vos scénarios pour SAP HANA pour atteindre le niveau de disponibilité requis.
 

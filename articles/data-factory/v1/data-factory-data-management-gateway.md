@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487785"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65143300"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -38,7 +38,7 @@ Vous pouvez augmenter le nombre des instances d’une passerelle de gestion des 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 ### <a name="capabilities-of-data-management-gateway"></a>Fonctionnalités de la passerelle de gestion des données
 La passerelle de gestion des données offre les fonctionnalités suivantes :
 
@@ -72,7 +72,7 @@ Voici le flux de données global et un résumé des étapes pour la copie à l�
 * Vous devez **utiliser la passerelle** même si la banque de données se trouve dans le cloud sur une **machine virtuelle IaaS Azure**.
 
 ## <a name="installation"></a>Installation
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 * Les versions de **système d’exploitation** prises en charge sont Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 et Windows Server 2012 R2. L’installation de la passerelle de gestion des données sur un contrôleur de domaine n’est pas prise en charge.
 * .NET framework 4.5.1 ou version ultérieure est requis. Si vous installez la passerelle sur un ordinateur Windows 7, installez .NET Framework 4.5 ou une version ultérieure. Consultez [Configuration système requise pour .NET Framework](https://msdn.microsoft.com/library/8z6watww.aspx) pour plus d’informations.
 * La **configuration** recommandée pour l’ordinateur de passerelle est la suivante : au moins 2 GHz, 4 cœurs, 8 Go de RAM et 80 Go d’espace disque.
@@ -93,7 +93,7 @@ La passerelle de gestion des données peut être installée comme suit :
 
 ### <a name="install-the-gateway-from-download-center"></a>Installer la passerelle à partir du Centre de téléchargement
 1. Accédez à la [page de téléchargement de la passerelle de gestion des données Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Cliquez sur **télécharger**, sélectionnez le **64 bits** version (32 bits n’est pas plus pris en charge), puis cliquez sur **suivant**.
+2. Cliquez sur **Télécharger**, sélectionnez la version **64 bits** (la version 32 bits n’est plus prise en charge), puis cliquez sur **Suivant**.
 3. Exécutez le **MSI** directement ou enregistrez-le sur votre disque dur avant de l’exécuter.
 4. Dans la page **Bienvenue**, sélectionnez une **langue** et cliquez sur **Suivant**.
 5. **Acceptez** le Contrat de Licence Utilisateur Final et cliquez sur **Suivant**.
@@ -205,8 +205,8 @@ Vous pouvez afficher et mettre à jour le proxy HTTP à l’aide de l’outil Ge
 ### <a name="configure-proxy-server-settings"></a>Configurer les paramètres du serveur proxy
 Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy HTTP, la passerelle utilise le paramètre du proxy dans diahost.exe.config et diawp.exe.config. Si aucun proxy n’est spécifié dans diahost.exe.config et diawp.exe.config, la passerelle se connecte au service cloud directement sans passer par le proxy. La procédure suivante fournit des instructions pour mettre à jour le fichier de configuration diahost.exe.config.
 
-1. Dans l’Explorateur de fichiers, effectuez une copie de sauvegarde de C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config pour sauvegarder le fichier d’origine.
-2. Lancez Notepad.exe en tant qu’administrateur, puis ouvrez le fichier texte C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. La balise par défaut pour system.net apparaît dans le code suivant :
+1. Dans l’Explorateur de fichiers, effectuez une copie de sauvegarde de *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config* pour sauvegarder le fichier d’origine.
+2. Lancez Notepad.exe en tant qu’administrateur, puis ouvrez le fichier texte *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared\\diahost.exe.config*. La balise par défaut pour system.net apparaît dans le code suivant :
 
     ```
     <system.net>
@@ -250,7 +250,7 @@ Si vous utilisez un pare-feu tiers, vous pouvez ouvrir manuellement le port 805
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-Si vous préférez ne pas ouvrir le port 8050 sur l’ordinateur passerelle, utilisez d’autres mécanismes que l’application **Définition des informations d’identification** pour configurer les informations d’identification de la banque de données. Par exemple, vous pouvez utiliser [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) applet de commande PowerShell. Consultez la section Configuration des informations d’identification et de la sécurité pour savoir comment configurer les informations d’identification de la banque de données.
+Si vous préférez ne pas ouvrir le port 8050 sur l’ordinateur passerelle, utilisez d’autres mécanismes que l’application **Définition des informations d’identification** pour configurer les informations d’identification de la banque de données. Vous pouvez par exemple utiliser la cmdlet PowerShell [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue). Consultez la section Configuration des informations d’identification et de la sécurité pour savoir comment configurer les informations d’identification de la banque de données.
 
 ## <a name="update"></a>Mettre à jour
 Par défaut, la passerelle de gestion des données est automatiquement mise à jour lorsqu’une version plus récente est disponible. La passerelle n’est pas mise à jour tant que toutes les tâches planifiées ne sont pas terminées. Aucune autre tâche n’est traitée par la passerelle avant la fin de l’opération de mise à jour. Si la mise à jour échoue, la passerelle est restaurée vers son ancienne version.
@@ -280,7 +280,7 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
 
 [Pour une passerelle à nœud unique]
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
-2. Accédez au dossier C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
+2. Accédez au dossier *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* .
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.
 
     ```powershell
@@ -293,7 +293,7 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
     ```
    [Pour une passerelle multinœud à haute disponibilité et scalable](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Lancez Windows PowerShell sur l’ordinateur de passerelle.
-2. Accédez au dossier C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\.
+2. Accédez au dossier *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* .
 3. Exécutez la commande suivante pour désactiver la fonctionnalité de mise à jour automatique.
 
     Pour une passerelle avec une fonctionnalité de haute disponibilité, un paramètre AuthKey supplémentaire est nécessaire.
@@ -310,7 +310,7 @@ Vous pouvez désactiver/activer la fonctionnalité de mise à jour automatique c
 Une fois la passerelle installée, vous pouvez lancer le Gestionnaire de configuration de passerelle de gestion des données de l’une des manières suivantes :
 
 1. Dans la fenêtre **Rechercher**, saisissez **passerelle de gestion de données** pour accéder à cet utilitaire.
-2. Exécutez le fichier exécutable **ConfigManager.exe** dans le dossier : **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+2. Exécutez le fichier exécutable *ConfigManager.exe* dans le dossier : *C:\\\\Program Files\\Microsoft Data Management Gateway\\2.0\\Shared*.
 
 ### <a name="home-page"></a>page d'accueil
 La page d’accueil permet d’effectuer les actions suivantes :
@@ -471,7 +471,7 @@ Pour chiffrer les informations d’identification dans Data Factory Editor, proc
 
 Quand vous utilisez l’application **Définition des informations d’identification**, le portail chiffre les informations d’identification avec le certificat que vous avez spécifié dans l’onglet **Certificat** du **Gestionnaire de configuration de passerelle** sur l’ordinateur de passerelle.
 
-Si vous recherchez une approche basée sur les API pour chiffrer les informations d’identification, vous pouvez utiliser la [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) applet de commande PowerShell pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous ajoutez des informations d’identification chiffrées pour l’élément **EncryptedCredential** de **connectionString** dans JSON. Vous utilisez JSON avec le [New-AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) applet de commande ou dans l’éditeur de la fabrique de données.
+Si vous recherchez une approche basée sur une API pour chiffrer les informations d’identification, vous pouvez utiliser la cmdlet PowerShell [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous ajoutez des informations d’identification chiffrées pour l’élément **EncryptedCredential** de **connectionString** dans JSON. Vous utilisez JSON avec la cmdlet [New-AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) ou dans Data Factory Editor.
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -488,7 +488,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
     ```powershell
     Connect-AzAccount
     ```
-3. Utilisez le **New-AzDataFactoryGateway** applet de commande pour créer une passerelle logique comme suit :
+3. Utilisez la cmdlet **New-AzDataFactoryGateway** pour créer une passerelle logique, comme suit :
 
     ```powershell
     $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
@@ -511,7 +511,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Dans Azure PowerShell, basculez vers le dossier : **C:\\programme Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**. Exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
+1. Dans Azure PowerShell, accédez au dossier : *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\* . Exécutez le script *RegisterGateway.ps1* associé à la variable locale **$Key**, comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
@@ -524,12 +524,12 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
     ```powershell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
-2. Vous pouvez utiliser la **Get-AzDataFactoryGateway** pour obtenir la liste des passerelles dans votre fabrique de données. Lorsque **l’état** est **online**, cela signifie que votre passerelle est prête.
+2. Vous pouvez utiliser la cmdlet **Get-AzDataFactoryGateway** pour obtenir la liste des passerelles dans votre fabrique de données. Lorsque **l’état** est **online**, cela signifie que votre passerelle est prête.
 
     ```powershell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-   Vous pouvez supprimer une passerelle en utilisant la **Remove-AzDataFactoryGateway** applet de commande et de mise à jour la description d’une passerelle en utilisant la **AzDataFactoryGateway de jeu** applets de commande. Pour obtenir la syntaxe et d’autres détails sur ces applets de commande, consultez la rubrique Référence des applets de commande Azure Data Factory.  
+   Vous pouvez supprimer une passerelle à l’aide de la cmdlet **Remove-AzDataFactoryGateway** et mettre à jour la description de la passerelle en utilisant les cmdlets **Set-AzDataFactoryGateway**. Pour obtenir la syntaxe et d’autres détails sur ces applets de commande, consultez la rubrique Référence des applets de commande Azure Data Factory.  
 
 ### <a name="list-gateways-using-powershell"></a>Répertorier les passerelles à l’aide de PowerShell
 

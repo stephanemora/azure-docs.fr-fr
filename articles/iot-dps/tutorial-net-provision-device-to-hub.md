@@ -10,16 +10,16 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 8602f020481249282756a952a46b32bd9e768372
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4a6a074c3f677023928fefa5c09eb305b5441dfe
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241317"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303989"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Inscrire l’appareil à un hub IoT avec le client du service IoT Hub Provisioning (.NET)
 
-Dans le didacticiel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous allez apprendre à utiliser ce service pour approvisionner votre appareil sur un seul hub IoT à l’aide d’une **_inscription individuelle_** et des **_groupes d’inscriptions_**. Ce didacticiel vous explique les procédures suivantes :
+Dans le didacticiel précédent, vous avez appris à configurer un appareil pour vous connecter à votre service Device Provisioning. Dans ce didacticiel, vous allez apprendre à utiliser ce service pour approvisionner votre appareil sur un seul hub IoT à l’aide d’une **_inscription individuelle_** et des **_groupes d’inscriptions_** . Ce didacticiel vous explique les procédures suivantes :
 
 > [!div class="checklist"]
 > * Inscrire l’appareil
@@ -30,7 +30,7 @@ Dans le didacticiel précédent, vous avez appris à configurer un appareil pour
 
 Avant de continuer, assurez-vous de configurer votre appareil et son *module de sécurité matériel* comme indiqué dans le didacticiel [Configurer un appareil à approvisionner à l’aide du service IoT Hub Device Provisioning](./tutorial-set-up-device.md).
 
-* Visual Studio 2015 ou Visual Studio 2017
+* Visual Studio
 
 > [!NOTE]
 > Visual Studio n’est pas nécessaire. L’installation de [.NET](https://www.microsoft.com/net) suffit, et les développeurs peuvent utiliser leur éditeur préféré sur Windows ou Linux.  
@@ -60,7 +60,7 @@ Il existe deux façons d’inscrire l’appareil auprès du service Device Provi
 
 1. Dans Visual Studio, créez un projet d’application de console Visual C# à l’aide du modèle de projet **d’application de console**. Nommez le projet **DeviceProvisioning**.
     
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **DeviceProvisioning**, puis cliquez sur **Gérer les packages NuGet...**.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **DeviceProvisioning**, puis cliquez sur **Gérer les packages NuGet...** .
 
 1. Dans la fenêtre **Gestionnaire de package NuGet**, sélectionnez **Parcourir**, puis recherchez **microsoft.azure.devices.provisioning.service**. Sélectionnez l’entrée et cliquez sur **Installer** pour installer le package **Microsoft.Azure.Devices.Provisioning.Service**, puis acceptez les conditions d’utilisation. Cette procédure télécharge, installe et ajoute une référence au package NuGet [Azure IoT Device Provisioning Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) et ses dépendances.
 
@@ -121,16 +121,16 @@ Il existe deux façons d’inscrire l’appareil auprès du service Device Provi
         SetRegistrationDataAsync().GetAwaiter().GetResult();
             
         Console.WriteLine("Done, hit enter to exit.");
-        Console.ReadLine();
     }
     catch (Exception ex)
     {
         Console.WriteLine();
         Console.WriteLine("Error in sample: {0}", ex.Message);
     }
+    Console.ReadLine();
     ```
         
-1. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur votre solution, puis sur **Définir les projets de démarrage...**. Sélectionnez **Projet de démarrage unique**, puis sélectionnez le projet **DeviceProvisioning** dans le menu déroulant.  
+1. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur votre solution, puis sur **Définir les projets de démarrage...** . Sélectionnez **Projet de démarrage unique**, puis sélectionnez le projet **DeviceProvisioning** dans le menu déroulant.  
 
 1. Exécutez l’application pour l’appareil .NET **DeviceProvisioning**. Elle doit configurer l’approvisionnement de l’appareil : 
 

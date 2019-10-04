@@ -8,12 +8,12 @@ ms.topic: include
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: 6af620f54acb3bf782f05b81f12aca2103cddf47
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 46a7eb25152c8c7e9ac22c5b4df67bbf6416df4d
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654928"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69894100"
 ---
 >[!IMPORTANT]
 >Les ressources que vous avez créées peuvent faire office de prérequis dans d’autres didacticiels et articles de procédure relatifs au service Azure Machine Learning. 
@@ -23,7 +23,7 @@ Si vous n’avez pas l’intention d’utiliser les ressources que vous avez cr�
 
 1. Dans le portail Azure, sélectionnez **Groupes de ressources** tout à gauche.
  
-   ![Supprimer dans le portail Azure](./media/aml-delete-resource-group/delete-resources.png)
+   [![Supprimer dans le portail Azure](./media/aml-delete-resource-group/delete-resources.png)](./media/aml-delete-resource-group/delete-resources-expanded.png)
 
 1. À partir de la liste, sélectionnez le groupe de ressources créé.
 

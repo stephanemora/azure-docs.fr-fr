@@ -3,19 +3,20 @@ title: API Synthèse vocale du service Microsoft Speech | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Permet d’utiliser l’API Synthèse vocale pour convertir du texte en parole en temps réel dans différentes voix et différentes langues.
 services: cognitive-services
-author: priyaravi20
-manager: yanbo
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: priyar
-ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ee9b0b47fb88cba948bc06db6eb83fe9c076fe40
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215858"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966869"
 ---
 # <a name="bing-text-to-speech-api"></a>API Synthèse vocale Bing
 
@@ -31,7 +32,7 @@ Avec l’API Synthèse vocale Bing, votre application peut envoyer des requêtes
 
 Chaque requête de synthèse vocale requiert un jeton d’accès JSON Web Token (JWT). Celui-ci est transmis dans l’en-tête de la requête. Il expire dans un délai de 10 minutes. Pour plus d’informations sur la façon de vous abonner et d’obtenir des clés API permettant de récupérer des jetons d’accès JWT valides, consultez la page [Abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
-La clé API est transmise au service de jetons. Par exemple : 
+La clé API est transmise au service de jetons. Par exemple :
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -40,11 +41,11 @@ Content-Length: 0
 
 Les informations d’en-tête requises pour l’accès du jeton sont décrites ci-après.
 
-NOM| Format | Description
+Nom| Format | Description
 ----|----|----
 Ocp-Apim-Subscription-Key | ASCII | Votre clé d’abonnement
 
-Le service de jetons renvoie le jeton d’accès JWT sous la forme `text/plain`. Par la suite, le jeton JWT est transmis en tant que `Base64 access_token` au point de terminaison de synthèse vocale sous la forme d’un en-tête d’autorisation ayant pour préfixe la chaîne `Bearer`. Par exemple : 
+Le service de jetons renvoie le jeton d’accès JWT sous la forme `text/plain`. Par la suite, le jeton JWT est transmis en tant que `Base64 access_token` au point de terminaison de synthèse vocale sous la forme d’un en-tête d’autorisation ayant pour préfixe la chaîne `Bearer`. Par exemple :
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -70,7 +71,7 @@ Authorization | Jeton d’autorisation |  Consultez la section <a href="#Subscri
 
 ### <a name="InputParam"></a>Paramètres d’entrée
 
-Les requêtes envoyées à l’API Synthèse vocale Bing le sont par l’intermédiaire des appels HTTP POST. Les en-têtes sont indiqués dans la section précédente. Le corps contient l’entrée SSML (Speech Synthesis Markup Language) qui représente le texte à synthétiser. Pour obtenir une description de la balise utilisée pour contrôler des aspects de reconnaissance vocale comme la langue et le sexe de l’orateur, consultez la section [Spécification SSML W3C](http://www.w3.org/TR/speech-synthesis/).
+Les requêtes envoyées à l’API Synthèse vocale Bing le sont par l’intermédiaire des appels HTTP POST. Les en-têtes sont indiqués dans la section précédente. Le corps contient l’entrée SSML (Speech Synthesis Markup Language) qui représente le texte à synthétiser. Pour obtenir une description de la balise utilisée pour contrôler des aspects de reconnaissance vocale comme la langue et le sexe de l’orateur, consultez la section [Spécification SSML W3C](https://www.w3.org/TR/speech-synthesis/).
 
 >[!NOTE]
 >La taille maximale de l’entrée SSML prise en charge est de 1 024 caractères, balises comprises.
@@ -140,43 +141,43 @@ Voice name not supported
 
 ## <a name="ChangeSSML"></a>Modification d’une sortie vocale via SSML
 
-L’API Synthèse vocale de Microsoft prend en charge le protocole SSML 1.0 tel que défini dans le document [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) du consortium W3C. Cette section présente des exemples de modification de certaines caractéristiques des sorties vocales générées (par exemple, le débit, la prononciation, etc.) à l’aide de balises SSML.
+L’API Synthèse vocale de Microsoft prend en charge le protocole SSML 1.0 tel que défini dans le document [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) du consortium W3C. Cette section présente des exemples de modification de certaines caractéristiques des sorties vocales générées (par exemple, le débit, la prononciation, etc.) à l’aide de balises SSML.
 
 1. Ajout d’une pause
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
+   ```
 
 2. Modification du débit
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 3. Prononcer
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
+   ```
 
 4. Modifier le volume
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 5. Modification de la tonalité
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+   ```
 
 6. Modification du contour prosodique
 
-  ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
-  ```
+   ```
+   <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
+   ```
 
 > [!NOTE]
 > Notez que les données audio doivent être des fichiers .wav 8k ou 16k au format suivant : **code CRC** (CRC-32) : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0xFFFFFFFF ; **Indicateur de format audio** : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0xFFFFFFFF ; **Nombre d’échantillons** : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0x7FFFFFFF ; **Taille du corps binaire** : 4 octets (DWORD) avec plage valide 0x00000000 ~ 0x7FFFFFFF ; **Corps binaire** : n octets.
@@ -269,6 +270,7 @@ zh-HK | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft 
 zh-TW | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-TW, Yating, Apollo) »
 zh-TW | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-TW, HanHanRUS) »
 zh-TW | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-TW, Zhiwei, Apollo) »
+
  *ar-EG prend en charge l’arabe standard moderne (MSA).
 
 > [!NOTE]

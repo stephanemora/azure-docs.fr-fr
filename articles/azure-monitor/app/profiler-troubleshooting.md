@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495394"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341673"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -71,7 +71,7 @@ Pour que Profiler fonctionne correctement :
 
     |Paramètre d'application    | Valeur    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey de votre ressource Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey pour votre ressource Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -83,12 +83,12 @@ Pour que Profiler fonctionne correctement :
    
       ![profiler-webjob]   
    
-   1. Pour afficher les détails de la tâche Web, y compris le journal, sélectionnez le **ApplicationInsightsProfiler3** lien.  
+   1. Pour voir les détails de la tâche web, notamment le journal, sélectionnez le lien **ApplicationInsightsProfiler3**.  
      Le volet **Détails de la tâche web continue** s’ouvre.
 
       ![profiler-webjob-log]
 
-Si vous ne pouvez pas déterminer pourquoi Profiler ne fonctionne pas, téléchargez le journal et envoyez-le à notre équipe pour obtenir de l’aide. 
+Si vous ne pouvez pas déterminer pourquoi Profiler ne fonctionne pas, téléchargez le journal et envoyez-le à notre équipe pour obtenir de l’aide, serviceprofilerhelp@microsoft.com. 
     
 ### <a name="manual-installation"></a>Installation manuelle
 
@@ -96,14 +96,14 @@ Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramè
 
 1. Dans le **volet de contrôle de l’application web**, ouvrez **Paramètres**.
 
-1. Définissez **version du .NET Framework** à **v4.6**.
+1. Définissez **Version du .NET Framework** sur **4.6**.
 
-1. **Activez** l’option **Toujours actif**.
-1. Créez ces paramètres d’application :
+1. Activez l’option **Toujours actif**.
+1. Créez les paramètres d’application suivants :
 
     |Paramètre d'application    | Valeur    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey de votre ressource Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey pour votre ressource Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -131,7 +131,7 @@ Profiler s’exécute comme une tâche web continue dans l’application web. Vo
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Résoudre les problèmes de Profiler et de Diagnostics Azure
 
->**Le bogue dans le profileur fourni avec le Diagnostics Windows AZURE pour les Services Cloud a été résolu.** La dernière version de WAD (1.12.2.0) pour les Services Cloud fonctionne avec toutes les versions récentes du SDK d’application Insights. Hôtes de Service cloud met à niveau WAD automatiquement, mais il n’est pas immédiate. Pour forcer une mise à niveau, vous pouvez redéployer votre service ou redémarrer le nœud.
+>**Le bogue dans le profileur fourni avec WAD pour les Services cloud a été résolu.** La dernière version de WAD (1.12.2.0) pour les Services cloud fonctionne avec toutes les versions récentes du kit de développement logiciel (SDK) App Insights. Les hôtes des Services cloud mettent automatiquement à niveau WAD, mais ce n'est pas immédiat. Pour forcer une mise à niveau, vous pouvez redéployer votre service ou redémarrer le nœud.
 
 Pour voir si Profiler est correctement configuré par Diagnostics Azure, effectuez les trois actions suivantes : 
 1. Premièrement, vérifiez si le contenu de la configuration Diagnostics Azure qui est déployé est celui que vous attendez. 
@@ -142,7 +142,7 @@ Pour voir si Profiler est correctement configuré par Diagnostics Azure, effectu
 
 Pour vérifier les paramètres qui ont été utilisés pour configurer Diagnostics Azure :
 
-1. Connectez-vous à la machine virtuelle (VM) et ouvrez le fichier journal à cet emplacement. (Le lecteur peut être c: ou d: et la version du plug-in peut être différents).
+1. Connectez-vous à la machine virtuelle, puis ouvrez le fichier journal à cet emplacement. (Le lecteur peut être c: ou d:, et la version du plug-in peut être différente.)
 
     ```
     c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
@@ -154,7 +154,7 @@ Pour vérifier les paramètres qui ont été utilisés pour configurer Diagnosti
 
 1. Dans ce fichier, vous pouvez rechercher la chaîne **WadCfg** pour voir les paramètres qui ont été passés à la machine virtuelle pour configurer Diagnostics Azure. Vous pouvez vérifier si l’iKey utilisée par le récepteur de Profiler est correcte.
 
-1. Vérifiez la ligne de commande qui permet de démarrer Profiler. Les arguments qui sont utilisés pour lancer Profiler sont dans le fichier suivant. (Le lecteur peut être c: ou d:)
+1. Vérifiez la ligne de commande qui permet de démarrer Profiler. Les arguments qui sont utilisés pour lancer Profiler se trouvent dans le fichier suivant. (Le lecteur peut être c: ou d:)
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json

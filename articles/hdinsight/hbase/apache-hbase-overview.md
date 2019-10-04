@@ -1,26 +1,25 @@
 ---
-title: Présentation de HBase dans Azure HDInsight
+title: Qu’est-ce qu’Azure HDBase dans Azure HDInsight ?
 description: Présentation d’Apache HBase dans HDInsight, une base de données NoSQL reposant sur Hadoop. En savoir plus sur les cas d'utilisation et la comparaison de HBase sur d'autres clusters Hadoop.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 02/22/2018
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: e48a0c69dc04325c3f3c2ff7b73a26c6366816c9
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337344"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137459"
 ---
-# <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>Apache HBase dans HDInsight : Une base de données NoSQL fournissant des fonctionnalités similaires à BigTable pour Apache Hadoop
+# <a name="what-is-apache-hbase-in-azure-hdinsight"></a>Qu’est-ce qu’Azure HDBase dans Azure HDInsight
+
 [Apache HBase](https://hbase.apache.org/) est une base de données NoSQL open source, basée sur [Apache Hadoop](https://hadoop.apache.org/) et modélisée d’après [Google BigTable](https://cloud.google.com/bigtable/). HBase fournit un accès aléatoire et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées, dans une base de données sans schéma, organisée par familles de colonnes.
 
 Du point de vue de l’utilisateur, HBase est similaire à une base de données. Les données sont stockées dans les lignes et colonnes d’une table et les données au sein d’une ligne sont regroupées par familles de colonnes. HBase est une base de données sans schéma dans le sens où ni les colonnes ni le type de données qui y sont stockées ne doivent être définis avant de pouvoir les utiliser. Le code open source peut être mis à l'échelle de façon linéaire pour gérer des pétaoctets de données dans des milliers de nœuds. Il peut reposer sur la redondance des données, le traitement par lots et d'autres fonctionnalités qui sont fournies par des applications distribuées dans l'écosystème Hadoop.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="how-is-apache-hbase-implemented-in-azure-hdinsight"></a>Implémentation d’Apache HBase dans Azure HDInsight
 
@@ -51,12 +50,7 @@ Les recherches Web sont le cas d’utilisation canonique pour lequel BigTable, e
     Les applications peuvent fonctionner par-dessus HBase, en l'utilisant comme banque de données. Exemples : Phoenix, [OpenTSDB](http://opentsdb.net/), Kiji et Titan. Les applications peuvent également s'intégrer à HBase. Exemples : [Apache Hive](https://hive.apache.org/), [Apache Pig](https://pig.apache.org/), [Solr](https://lucene.apache.org/solr/), [Apache Storm](https://storm.apache.org/), [Apache Flume](https://flume.apache.org/), [Apache Impala](https://impala.apache.org/), [Apache Spark](https://spark.apache.org/) , [Ganglia](http://ganglia.info/) et [Apache Drill](https://drill.apache.org/).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Bien démarrer avec l’utilisation d’Apache HBase et d’Apache Hadoop dans HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Création de clusters HBase sur Azure Virtual Network](./apache-hbase-provision-vnet.md)
 * [Configurer la réplication Apache HBase dans HDInsight](apache-hbase-replication.md)
-* [Utiliser Apache Maven pour créer des applications Java utilisant Apache HBase avec HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md)
-
-## <a name="see-also"></a>Voir aussi
-* [Apache HBase](https://hbase.apache.org/)
-* [Guide de référence d’Apache HBase](https://hbase.apache.org/book.html)
-* [Bigtable : Un système de stockage distribué pour les données structurées](https://research.google.com/archive/bigtable.html)

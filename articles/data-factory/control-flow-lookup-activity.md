@@ -3,21 +3,20 @@ title: Activité de recherche dans Azure Data Factory | Microsoft Docs
 description: Découvrez comment utiliser l’activité Lookup pour rechercher une valeur à partir d’une source externe. Cette sortie peut être référencée davantage par des activités complémentaires.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: shlo
-ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9658987092027b38ab0cab1feb3df4be0a91e350
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019306"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141659"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 
@@ -53,14 +52,15 @@ Les sources de données suivantes sont prises en charge pour l’activité Look
 ```
 
 ## <a name="type-properties"></a>Propriétés type
-NOM | Description | type | Requis ?
+
+Nom | Description | type | Requis ?
 ---- | ----------- | ---- | --------
 dataset | Fournit la référence de jeu de données pour la recherche. Pour plus d’informations, voir la section **Propriétés du jeu de données** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
 source | Contient des propriétés sources spécifiques au jeu de données, identiques à la source de l’activité Copy. Pour plus d’informations, consultez la section **Propriétés de l’activité Copy** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
-firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou toutes les lignes. | Booléen |  Non. Par défaut, il s’agit de `true`.
+firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou toutes les lignes. | Booléen | Non. Par défaut, il s’agit de `true`.
 
 > [!NOTE]
-
+> 
 > * Les colonnes sources avec le type **ByteArray** ne sont pas prises en charge.
 > * Il n’y a pas de prise en charge pour **Structure** dans les définitions des jeux de données. Pour les fichiers de format texte, utilisez la ligne d’en-tête pour mentionner le nom de la colonne.
 > * Si votre source de recherche est un fichier JSON, le paramètre `jsonPathDefinition` pour la mise en forme de l’objet JSON n’est pas pris en charge. Les objets entiers sont récupérés.
@@ -69,7 +69,7 @@ firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou to
 
 Le résultat de la recherche est retourné dans la section `output` du résultat de l’exécution d’activité.
 
-* **Quand `firstRowOnly` a la valeur `true` (par défaut)**, le format de la sortie se présente comme dans le code suivant. Le résultat de la recherche se trouve dans une clé `firstRow` fixe. Pour utiliser le résultat dans une activité suivante, utilisez le modèle `@{activity('MyLookupActivity').output.firstRow.TableName}`.
+* **Quand `firstRowOnly` a la valeur `true` (par défaut)** , le format de la sortie se présente comme dans le code suivant. Le résultat de la recherche se trouve dans une clé `firstRow` fixe. Pour utiliser le résultat dans une activité suivante, utilisez le modèle `@{activity('MyLookupActivity').output.firstRow.TableName}`.
 
     ```json
     {
@@ -81,7 +81,7 @@ Le résultat de la recherche est retourné dans la section `output` du résultat
     }
     ```
 
-* **Quand `firstRowOnly` a la valeur `false`**, le format de la sortie se présente comme dans le code suivant. Un champ `count` indique le nombre d’enregistrements qui sont retournés. Les valeurs détaillées sont affichées sous un tableau `value` fixe. Dans ce cas, l’activité Lookup est suivie d’une [activité Foreach](control-flow-for-each-activity.md). Vous passez le tableau `value` au champ `items` de l’activité ForEach en utilisant le modèle `@activity('MyLookupActivity').output.value`. Pour accéder aux éléments du tableau `value`, utilisez la syntaxe suivante : `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Par exemple `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Quand `firstRowOnly` a la valeur `false`** , le format de la sortie se présente comme dans le code suivant. Un champ `count` indique le nombre d’enregistrements qui sont retournés. Les valeurs détaillées sont affichées sous un tableau `value` fixe. Dans ce cas, l’activité Lookup est suivie d’une [activité Foreach](control-flow-for-each-activity.md). Vous passez le tableau `value` au champ `items` de l’activité ForEach en utilisant le modèle `@activity('MyLookupActivity').output.value`. Pour accéder aux éléments du tableau `value`, utilisez la syntaxe suivante : `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Par exemple `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -248,7 +248,7 @@ Ce compte de stockage contient le fichier JSON avec les noms des tables SQL.
 }
 ```
 
-### <a name="azure-sql-database-linked-service"></a>Service lié pour base de données SQL Azure
+### <a name="azure-sql-database-linked-service"></a>Service lié Azure SQL Database
 Cette instance Azure SQL Database contient les données à copier dans le stockage Blob. 
 
 ```json

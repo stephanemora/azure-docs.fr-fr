@@ -1,26 +1,19 @@
 ---
 title: Guide de prise en main pour les opérateurs informatiques Azure | Microsoft Docs
 description: Guide de prise en main pour les opérateurs informatiques Azure
-services: ''
-documentationcenter: ''
-author: themichaelbender-ms
-manager: timlt
-editor: tysonn
+author: RicksterCDN
+ms.author: rclaus
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
-ms.devlang: ''
 ms.topic: overview
-ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b225052daa61932f3b8b868789cfb3c204eca88f
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051168"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543429"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -73,7 +66,7 @@ Azure fournit plusieurs offres de calcul PaaS, notamment le composant Web Apps d
 
 #### <a name="saas-software-as-a-service"></a>SaaS : Software as a service
 
-SaaS est un logiciel qui est hébergé et géré de manière centralisée. Il s’appuie généralement sur une architecture multilocataire, où une seule version de l’application est utilisée pour tous les clients. Il peut être monté en charge parallèle sur plusieurs instances pour garantir des performances optimales dans tous les emplacements. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Les éditeurs de logiciels SaaS sont responsables de tous les composants de la pile logicielle afin de vous faire gérer uniquement les services fournis.
+SaaS est un logiciel qui est hébergé et géré de manière centralisée. Il s’appuie généralement sur une architecture multilocataire, où une seule version de l’application est utilisée pour tous les clients. Il peut être monté en charge parallèle sur plusieurs instances pour garantir des performances optimales dans tous les emplacements. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Les éditeurs de logiciels SaaS sont responsables de tous les composants de la pile logicielle afin de vous faire gérer uniquement les services fournis.
 
 Microsoft Office 365 constitue un bon exemple pour illustrer une offre SaaS. Les abonnés payent un abonnement mensuel ou annuel pour obtenir Microsoft Exchange, Microsoft OneDrive et le reste de la suite Microsoft Office en tant que service. Les abonnés bénéficient toujours de la version la plus récente et n’ont pas besoin de gérer le serveur Exchange. Par rapport à l’installation et à la mise à jour annuelle d’Office, cette solution est moins onéreuse et demande moins d’efforts.
 
@@ -145,7 +138,7 @@ Pour obtenir une documentation détaillée des services Azure, consultez [Docume
 
 Azure est une plateforme cloud mondiale, disponible dans de nombreuses régions du monde. Lorsque vous configurez un service, une application ou une machine virtuelle dans Azure, vous êtes invité à sélectionner une région. La région sélectionnée représente un centre de données spécifique dans lequel votre application s’exécute. Pour plus d’informations, consultez [Régions Azure](https://azure.microsoft.com/regions/).
 
-L’un des avantages à utiliser Azure est de pouvoir déployer des applications dans différents centres de données du monde. La région que vous choisissez peut affecter les performances de votre application. Il est préférable de choisir une région plus proche de la majorité de vos clients pour réduire la latence des demandes réseau. Vous pouvez également sélectionner une région pour respecter la réglementation de distribution de votre application dans certains pays.
+L’un des avantages à utiliser Azure est de pouvoir déployer des applications dans différents centres de données du monde. La région que vous choisissez peut affecter les performances de votre application. Il est préférable de choisir une région plus proche de la majorité de vos clients pour réduire la latence des demandes réseau. Vous pouvez également sélectionner une région pour respecter les exigences légales de distribution de votre application dans certains pays et certaines régions.
 
 ### <a name="azure-portal"></a>Portail Azure
 

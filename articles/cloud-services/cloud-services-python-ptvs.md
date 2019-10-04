@@ -3,40 +3,35 @@ title: Prise en main des services cloud Azure et Python | Microsoft Docs
 description: Présentation des outils Python pour Visual Studio pour la création de services cloud Azure comprenant des rôles web et de travail.
 services: cloud-services
 documentationcenter: python
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 2cfb8f922819802834d9833ae614f5bc5b4ff886
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: 981b1cc4a7adb98ba68ebf3a7673b7116479e704
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764463"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68359577"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Rôles Web et rôles de travail Python avec Python Tools pour Visual Studio
 
 Cet article fournit une vue d’ensemble de l’utilisation des rôles Web et de travail Python avec [Python Tools pour Visual Studio][Python Tools for Visual Studio]. Apprenez à utiliser Visual Studio pour créer et déployer un service cloud de base utilisant Python.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * [Visual Studio 2013, 2015 ou 2017](https://www.visualstudio.com/)
 * [Python Tools pour Visual Studio][Python Tools for Visual Studio] (PTVS)
-* [Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2013][Azure SDK Tools for VS 2013] ou  
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2015][Azure SDK Tools for VS 2015] ou  
-[Outils du Kit de développement logiciel (SDK) Azure pour Visual Studio 2017][Azure SDK Tools for VS 2017]
+* [Azure SDK Tools pour VS 2013][Azure SDK Tools for VS 2013] ou  
+[Azure SDK Tools pour VS 2015][Azure SDK Tools for VS 2015] ou  
+[Azure SDK Tools pour VS 2017][Azure SDK Tools for VS 2017]
 * [Python 2.7 32 bits][Python 2.7 32-bit] ou [Python 3.5 32 bits][Python 3.5 32-bit]
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Présentation des rôles web et de travail Python
-Azure propose trois modèles de calcul pour l’exécution des applications : [La fonctionnalité Web Apps dans Azure App Service][execution model-web sites], [Machines virtuelles Azure][execution model-vms] et [Azure Cloud Services][execution model-cloud services]. Ils prennent tous les trois en charge Python. Azure Cloud Services, qui inclut les rôles Web et de travail, fournit la fonctionnalité *PaaS (Platform as a Service)*. Au sein d'un service cloud, un rôle web fournit un serveur web IIS (Internet Information Services) dédié permettant d'héberger des applications web frontales, tandis qu'un rôle de travail peut exécuter des tâches asynchrones, de longue durée ou perpétuelles indépendamment de l’interaction ou de la saisie de l’utilisateur.
+Azure propose trois modèles de calcul pour l’exécution des applications : [Fonctionnalité Web Apps dans Azure App Service][execution model-web sites], [Machines virtuelles Azure][execution model-vms] et [Azure Cloud Services][execution model-cloud services]. Ils prennent tous les trois en charge Python. Azure Cloud Services, qui inclut les rôles Web et de travail, fournit la fonctionnalité *PaaS (Platform as a Service)* . Au sein d'un service cloud, un rôle web fournit un serveur web IIS (Internet Information Services) dédié permettant d'héberger des applications web frontales, tandis qu'un rôle de travail peut exécuter des tâches asynchrones, de longue durée ou perpétuelles indépendamment de l’interaction ou de la saisie de l’utilisateur.
 
 Pour en savoir plus, voir [Présentation d’un service Cloud].
 
@@ -337,11 +332,11 @@ Pour plus d'informations sur l'utilisation des rôles web et de travail dans les
 
 Pour plus d’informations sur l’utilisation des services Azure à partir de vos rôles web et de travail, telles que l’utilisation d’Azure Storage ou Service Bus, consultez les articles suivants :
 
-* [service BLOB][Blob Service]
-* [Service de Table][Table Service]
-* [Service de File d’attente][Queue Service]
-* [Files d’attente Service Bus][Service Bus Queues]
-* [Rubriques de Service Bus][Service Bus Topics]
+* [Service BLOB][Blob Service]
+* [Service de Table][Table Service]
+* [Service de File d’attente][Queue Service]
+* [Files d’attente Service Bus][Service Bus Queues]
+* [Rubriques de Service Bus][Service Bus Topics]
 
 <!--Link references-->
 

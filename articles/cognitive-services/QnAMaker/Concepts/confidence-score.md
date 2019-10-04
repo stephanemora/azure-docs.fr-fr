@@ -3,20 +3,20 @@ title: Score de confiance - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Le score de confiance indique la probabilité que la réponse corresponde à la requête de l’utilisateur.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.topic: conceptual
+ms.date: 08/30/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 14339a61e48866d51089db9a0008a3de982b1710
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282574"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70277107"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Score de confiance d’une base de connaissances QnA Maker
 Quand une requête d’utilisateur trouve une correspondance dans une base de connaissances, QnA Maker renvoie des réponses pertinentes, ainsi qu’un score de confiance. Ce score indique la probabilité que la réponse corresponde à la requête de l’utilisateur. 
@@ -46,19 +46,25 @@ Le tableau suivant indique la confiance généralement associée à un score don
 |0|Aucune correspondance, donc aucune réponse retournée.|« Combien coûte le service ? »|
 
 ## <a name="choose-a-score-threshold"></a>Choisir un seuil de score
-Le tableau ci-dessus présente les scores attendus sur la plupart des bases de connaissances. Cependant, chaque base de connaissances étant différente et comprenant différents types de mots, d’intentions et d’objectifs, nous vous recommandons de tester et choisir le seuil optimal pour vous. Le seuil par défaut et recommandé qui devrait fonctionner pour la plupart des bases de connaissances est **50**.
+Le tableau ci-dessus présente les scores attendus sur la plupart des bases de connaissances. Cependant, comme chaque base de connaissances est différente et qu’elle comporte différents types de mots, d’intentions et d’objectifs, nous vous recommandons de tester et de choisir le seuil qui vous convient le mieux. Par défaut, le seuil est défini sur 0, afin que toutes les réponses possibles soient retournées. Le seuil recommandé qui devrait fonctionner pour la plupart des bases de connaissances est **50**.
 
 Lorsque vous choisissez votre seuil, n’oubliez pas l’équilibre entre exactitude et couverture, et ajustez votre seuil à vos besoins.
 
 - Si l’**exactitude** (ou précision) est primordiale pour votre scénario, augmentez votre seuil. Ainsi, chaque fois que vous retournerez une réponse, celle-ci sera beaucoup plus FIABLE et susceptible d’être celle qu’attendent les utilisateurs. Dans ce cas, vous risquez de laisser davantage de questions sans réponse. *Exemple :* si vous fixez le seuil à **70**, vous risquez de passer à côté d’exemples ambigus tels que « qu’est-ce qu’enregistrer et former ? ».
 
-- Si la **couverture** (ou rappel) est primordiale et que vous souhaitez répondre au plus grand nombre possible de questions, même si la réponse n’a qu’une relation très vague ou lointaine avec la question, ABAISSEZ le seuil. Cela signifie qu’il pourrait y avoir davantage de cas où la réponse ne correspond pas à la requête réelle de l’utilisateur, mais fournit des informations vaguement associées à la question. *Par exemple :* si vous fixez le seuil à **30**, vous risquez de fournir des réponses n’ayant qu’un lointain rapport à des requêtes telles que « Où puis-je modifier ma base de connaissances ? »
+- Si la **couverture** (ou rappel) est primordiale et que vous souhaitez répondre au plus grand nombre possible de questions, même si la réponse n’a qu’une relation très vague ou lointaine avec la question, ABAISSEZ le seuil. Cela signifie qu’il pourrait y avoir davantage de cas où la réponse ne correspond pas à la requête réelle de l’utilisateur, mais fournit des informations vaguement associées à la question. *Par exemple :* si vous définissez le seuil sur **30**, vous pouvez donner des réponses aux requêtes comme « Où puis-je modifier ma base de connaissances ? »
 
 > [!NOTE]
-> Les nouvelles versions de QnA Maker incluent des améliorations à la logique de notation, et pourraient affecter votre seuil. Chaque fois que vous mettez à jour le service, assurez-vous de tester et d’ajuster le seuil si nécessaire. Vous pouvez vérifier votre version du service QnA [ici](https://www.qnamaker.ai/UserSettings) et voir comment obtenir les dernières mises à jour [ici](../How-To/troubleshooting-runtime.md).
+> Les nouvelles versions de QnA Maker incluent des améliorations à la logique de notation, et pourraient affecter votre seuil. Chaque fois que vous mettez à jour le service, assurez-vous de tester et d’ajuster le seuil si nécessaire. Vous pouvez vérifier votre version du service QnA [ici](https://www.qnamaker.ai/UserSettings) et voir comment obtenir les dernières mises à jour [ici](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+
+## <a name="set-threshold"></a>Définir le seuil 
+
+Définissez le score de seuil en tant que propriété du [corps JSON de l’API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Cela signifie que vous le définissez pour chaque appel à GenerateAnswer. 
+
+À partir de Bot Framework, définissez le score au niveau de l’objet options avec [C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) ou [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Améliorer les scores de confiance
-Pour améliorer le score de confiance d’une réponse spécifique à une question de l’utilisateur, vous pouvez ajouter la question de l’utilisateur à la base de connaissances en tant que question alternative liée à cette réponse. Vous pouvez également utiliser des [altérations d’un mot](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) (ignorant la casse) pour ajouter des synonymes aux mots clés dans votre base de connaissances.
+Pour améliorer le score de confiance d’une réponse spécifique à une question de l’utilisateur, vous pouvez ajouter la question de l’utilisateur à la base de connaissances en tant que question alternative liée à cette réponse. Vous pouvez également utiliser des [altérations d’un mot](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) (ignorant la casse) pour ajouter des synonymes aux mots clés dans votre base de connaissances.
 
 
 ## <a name="similar-confidence-scores"></a>Scores de confiance similaires
@@ -72,7 +78,7 @@ Si vous avez une base de connaissances dans différentes régions, chacune d’e
 
 
 ## <a name="no-match-found"></a>Aucune correspondance trouvée
-Si aucune bonne correspondance n’est trouvée par la fonction de classement, le score de confiance de 0,0 ou « None » est retourné, et la réponse par défaut est « Aucune bonne correspondance trouvée dans la base de connaissances ». Vous pouvez remplacer cette valeur [réponse par défaut](#change-default-answer) dans le code de robot ou une application appelant le point de terminaison. Vous pouvez également définir la réponse de remplacement dans Azure, et cela modifie la valeur par défaut pour toutes les bases de connaissances déployées dans un service QnA Maker particulier.
+Si aucune bonne correspondance n’est trouvée par la fonction de classement, le score de confiance de 0,0 ou « None » est retourné, et la réponse par défaut est « Aucune bonne correspondance trouvée dans la base de connaissances ». Vous pouvez remplacer cette [réponse par défaut](#change-default-answer) dans le code du bot ou de l’application appelant le point de terminaison. Vous pouvez également définir la réponse de remplacement dans Azure, et cela modifie la valeur par défaut pour toutes les bases de connaissances déployées dans un service QnA Maker particulier.
 
 ## <a name="change-default-answer"></a>Modifier la réponse par défaut
 

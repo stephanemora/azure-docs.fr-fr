@@ -4,23 +4,22 @@ description: Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Az
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: c49200dba33d4a3b9ad1f582841adb04c2dd1c41
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577793"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099559"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -28,8 +27,8 @@ ms.locfileid: "59577793"
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-not-requiring-a-reboot
-[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#maintenance-not-requiring-a-reboot
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
@@ -37,7 +36,7 @@ Pour configurer un cluster Pacemaker dans Azure, deux options s’offrent à vou
 
 L’appareil SBD nécessite au moins une machine virtuelle supplémentaire pour jouer le rôle de serveur cible iSCSI et fournir un appareil SBD. Ces serveurs cibles iSCSI peuvent toutefois être partagés avec d’autres clusters Pacemaker. L’utilisation d’un appareil SBD présente l’avantage de garantir un temps de basculement plus rapide et, si vous faites appel à des appareils SBD en local, de ne pas vous obliger à revoir la façon dont vous exploitez le cluster Pacemaker. Vous pouvez utiliser jusqu’à trois appareils SBD pour qu’un cluster Pacemaker autorise l’indisponibilité d’un appareil SBD, par exemple lors de la mise à jour corrective du système d’exploitation du serveur cible iSCSI. Si vous souhaitez utiliser plusieurs appareil SBD par Pacemaker, veillez à déployer plusieurs serveurs cibles iSCSI et à connecter un SBD depuis chaque serveur cible iSCSI. Nous vous recommandons d’utiliser soit un appareil SBD, soit trois appareils SBD. Pacemaker n’est pas en mesure d’isoler automatiquement un nœud de cluster si vous ne configurez que deux appareils SBD et que l’un d’eux n’est pas disponible. Si vous souhaitez pouvoir procéder à une isolation lorsqu’un serveur cible iSCSI est inactif, vous devez utiliser trois appareils SBD, et donc trois serveurs cibles iSCSI.
 
-Si vous ne voulez pas investir dans une machine virtuelle supplémentaire, vous pouvez également utiliser l’agent d’isolation Azure. L’inconvénient, c’est qu’un basculement peut prendre entre 10 et 15 minutes si une ressource échoue ou si les nœuds de cluster ne peuvent plus communiquer entre eux.
+Si vous ne voulez pas investir dans une machine virtuelle supplémentaire, vous pouvez également utiliser l’agent Azure Fence. L’inconvénient, c’est qu’un basculement peut prendre entre 10 et 15 minutes si une ressource échoue ou si les nœuds de cluster ne peuvent plus communiquer entre eux.
 
 ![Vue d’ensemble de Pacemaker sur SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
@@ -53,7 +52,7 @@ Si vous souhaitez utiliser un appareil SBD pour l’isolation, procédez comme s
 
 Vous devez tout d’abord créer les machines virtuelles cibles iSCSI. Les serveurs cibles iSCSI peuvent être partagés avec plusieurs clusters Pacemaker.
 
-1. Déployez de nouvelles machines virtuelles SLES 12 SP1 ou version ultérieure, et connectez-vous à ces machines via le protocole SSH. Les tailles des machines n’ont pas besoin d’être importantes. Une taille de machine virtuelle telle que Standard_E2s_v3 ou Standard_D2s_v3 est suffisante. Veillez à utiliser le disque de système d’exploitation en stockage Premium.
+1. Déployez de nouvelles machines virtuelles SLES 12 SP1 ou version ultérieure, et connectez-vous à ces machines via le protocole SSH. Les machines n’ont pas besoin d’être volumineuses. Une taille de machine virtuelle telle que Standard_E2s_v3 ou Standard_D2s_v3 est suffisante. Veillez à utiliser le disque de système d’exploitation en stockage Premium.
 
 Exécutez les commandes suivantes sur toutes les **machines virtuelles cibles iSCSI**.
 
@@ -84,7 +83,7 @@ Exécutez les commandes suivantes sur toutes les **machines virtuelles cibles iS
 
 Exécutez les commandes suivantes sur toutes les **machines virtuelles cibles iSCSI** pour créer les disques iSCSI des clusters utilisés par vos systèmes SAP. Dans l’exemple suivant, des appareils SBD sont créés pour plusieurs clusters. Il vous montre comment utiliser un serveur cible iSCSI pour plusieurs clusters. Les appareils SBD sont placés sur le disque de système d’exploitation. Assurez-vous d’avoir suffisamment d’espace.
 
-**`nfs`** est utilisé pour identifier le cluster NFS, **ascsnw1** est utilisé pour identifier le cluster ASCS de **NW1**, **dbnw1** est utilisé pour identifier le cluster de base de données de **NW1** , **nfs-0** et **nfs-1** sont les noms d’hôtes des nœuds du cluster NFS, **nw1-xscs-0** et **nw1-xscs-1**sont les noms d’hôte de le **NW1** nœuds, de cluster ASCS et **nw1-db-0** et **nw1-db-1** sont les noms d’hôte de la base de données des nœuds de cluster. Remplacez-les par les noms d’hôte de vos nœuds de cluster, et par le SID de votre système SAP.
+**`nfs`** est utilisé pour identifier le cluster NFS, **ascsnw1** est utilisé pour identifier le cluster ASCS de **NW1**, **dbnw1** est utilisé pour identifier le cluster de base de données de **NW1** ; **nfs-0** et **nfs-1** sont les noms d’hôte des nœuds du cluster NFS, **nw1-xscs-0** et **nw1-xscs-1** sont les noms d’hôte des nœuds du cluster ASCS **NW1** et **nw1-db-0** et **nw1-db-1** sont les noms d’hôte des nœuds du cluster de base de données. Remplacez-les par les noms d’hôte de vos nœuds de cluster, et par le SID de votre système SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +301,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Créer le `softdog` fichier de configuration
+   Créez le fichier de configuration `softdog`
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -321,7 +320,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]**  Configurer le système d’exploitation
+1. **[A]** Configurer le système d’exploitation
 
    Dans certains cas, Pacemaker crée de nombreux processus, et de ce fait dépasse le nombre autorisé de processus. Dans ce genre de situation, une pulsation entre les nœuds du cluster peut échouer et entraîner le basculement de vos ressources. Nous vous recommandons d’augmenter le nombre maximal autorisé de processus en définissant le paramètre suivant.
 
@@ -348,9 +347,9 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]**  Configurer netconfig de cloud computing azure pour le Cluster à haute disponibilité
+1. **[A]**  Configurer cloud-netconfig-azure pour un cluster haute disponibilité
 
-   Modifiez le fichier de configuration pour l’interface réseau comme indiqué ci-dessous pour empêcher le plug-in du réseau cloud à partir de la suppression de l’adresse IP virtuelle (Pacemaker doit contrôler l’attribution d’adresses IP virtuelles). Pour plus d’informations, consultez [SUSE Ko 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+   Modifiez le fichier de configuration de l’interface réseau comme illustré ci-dessous pour empêcher le plug-in du réseau cloud de supprimer l'adresse IP virtuelle (Pacemaker doit contrôler l’attribution des adresses IP virtuelles). Pour plus d’informations, consultez [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -397,6 +396,28 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
+
+   >[!IMPORTANT]
+   > Si vous utilisez Suse Linux Enterprise Server pour SAP 15, sachez que vous devez activer le module supplémentaire et installer un composant supplémentaire, ce qui est la condition préalable à l’utilisation de l’agent Azure Fence. Pour en savoir plus sur les extensions et les modules SUSE, consultez [Modules et extensions expliqués](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Suivez les instructions pour installer le kit de développement logiciel (SDK) Azure Python. 
+
+   Les instructions suivantes sur l’installation du kit de développement logiciel (SDK) Azure Python s’appliquent **uniquement**à Suse Enterprise Server pour SAP 15.  
+
+    - Si vous utilisez un abonnement Apportez votre propre licence, suivez ces instructions.  
+
+    <pre><code>
+    #Activate module PackageHub/15/x86_64
+    sudo SUSEConnect -p PackageHub/15/x86_64
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
+     - Si vous utilisez un abonnement Paiement à l’utilisation, suivez ces instructions.  
+
+    <pre><code>#Activate module PackageHub/15/x86_64
+    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
 
 1. **[A]** Configurer la résolution de nom d’hôte
 
@@ -495,21 +516,22 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 L’appareil STONITH utilise un principal de service pour l’autorisation sur Microsoft Azure. Pour créer un principal de service, effectuez les étapes suivantes.
 
-1. Accédez à [https://portal.azure.com](https://portal.azure.com)
+1. Accédez à <https://portal.azure.com>
 1. Ouvrez le panneau Azure Active Directory  
    Accédez aux propriétés et notez l’ID de répertoire. Il s’agit de **l’ID du locataire**.
 1. Cliquez sur Inscriptions d’applications
-1. Cliquez sur Ajouter.
-1. Entrez un nom, sélectionnez le type d’application « Application web/API », entrez une URL de connexion (par exemple http\://localhost), puis cliquez sur Créer
-1. L’URL de connexion n’est pas utilisée et peut être une URL valide
-1. Sélectionnez la nouvelle application et cliquez sur Clés dans l’onglet Paramètres
-1. Entrez une description pour la nouvelle clé, sélectionnez « N’expire jamais » et cliquez sur Enregistrer
+1. Cliquez sur Nouvelle inscription
+1. Entrez un nom, sélectionnez « Comptes dans cet annuaire d’organisation uniquement » 
+2. Sélectionnez le type d’application « Web », entrez une URL de connexion (par exemple http:\//localhost), puis cliquez sur Ajouter  
+   L’URL de connexion n’est pas utilisée et peut être une URL valide
+1. Sélectionnez Certificats et secrets, puis sélectionnez Nouveau secret client
+1. Entrez une description pour la nouvelle clé, sélectionnez « N’expire jamais » et cliquez sur Ajouter
 1. Notez la valeur. Cette valeur est utilisée comme **mot de passe** pour le principal de service
-1. Notez l’ID de l’application. Cet identifiant est utilisé comme nom d’utilisateur (**ID de connexion** dans la procédure ci-dessous) du principal de service
+1. Sélectionnez Vue d’ensemble. Notez l’ID de l’application. Cet identifiant est utilisé comme nom d’utilisateur (**ID de connexion** dans la procédure ci-dessous) du principal de service
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Créer un rôle personnalisé pour l’agent d’isolation
 
-Par défaut, le principal de service ne possède pas les autorisations d’accéder à vos ressources Azure. Vous devez accorder au principal de service les autorisations de démarrer et arrêter (libérer) toutes les machines virtuelles du cluster. Si vous n’avez pas encore créé le rôle personnalisé, vous pouvez le créer à l’aide de [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) ou de l’[interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+Par défaut, le principal de service ne possède pas les autorisations d’accéder à vos ressources Azure. Vous devez accorder au principal de service les autorisations de démarrer et arrêter (libérer) toutes les machines virtuelles du cluster. Si vous n’avez pas encore créé le rôle personnalisé, vous pouvez le créer à l’aide de [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) ou de l’[interface de ligne de commande Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli).
 
 Utilisez le contenu suivant pour le fichier d’entrée. Vous devez adapter le contenu à vos abonnements, c’est-à-dire remplacer c276fc76-9cd4-44c9-99a7-4fd71546436e et e91d47c4-76f3-4271-a796-21b4ecfe3624 par les ID de vos abonnements. Si vous n’avez qu’un seul abonnement, supprimez la deuxième entrée dans AssignableScopes.
 
@@ -576,16 +598,16 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    op monitor interval="15" timeout="15"
 </code></pre>
 
-## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuration de pacemaker pour les événements planifiés Azure
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuration Pacemaker pour les événements planifiés Azure
 
-Offres Azure [événements planifiés](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events). Événements planifiés sont fournies via le service de métadonnées et attendez que l’application pour vous préparer à des événements tels que l’arrêt de la machine virtuelle, redéploiement des machines virtuelles, etc. Agent de ressource **[azure-événements](https://github.com/ClusterLabs/resource-agents/pull/1161)** les moniteurs d’événements Azure planifiés. Si des événements sont détectées, l’agent va tenter d’arrêter toutes les ressources sur la machine virtuelle concernée et de les déplacer vers un autre nœud du cluster. Pour atteindre ces ressources Pacemaker supplémentaires doit être configurés. 
+Azure propose des [événements planifiés](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Les événements planifiés sont fournis via le service de métadonnées et permettent à l'application de préparer des événements tels que l'arrêt d'une machine virtuelle, le redéploiement d'une machine virtuelle, etc. L'agent de ressource **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervise les événements planifiés Azure. Si des événements sont détectés, l’agent tente d'arrêter toutes les ressources sur la machine virtuelle concernée et de les déplacer vers un autre nœud du cluster. Pour y parvenir, des ressources Pacemaker supplémentaires doivent être configurées. 
 
-1. **[A]**  Installer le **azure-événements** agent. 
+1. **[A]** Installez l'agent **azure-events**. 
 
 <pre><code>sudo zypper install resource-agents
 </code></pre>
 
-2. **[1]**  Configurer les ressources dans Pacemaker. 
+2. **[1]**  Configurez les ressources dans Pacemaker. 
 
 <pre><code>
 #Place the cluster in maintenance mode
@@ -600,10 +622,10 @@ sudo crm configure property maintenance-mode=false
 </code></pre>
 
    > [!NOTE]
-   > Après avoir configuré les ressources Pacemaker pour l’agent d’événements d’azure, lorsque vous placez le cluster dans ou hors du mode de maintenance, vous pouvez recevoir des messages d’avertissement comme :  
-     Avertissement : cib-bootstrap-options : attribut inconnu ' hostName_  <strong>nom d’hôte</strong>'  
-     Avertissement : cib-bootstrap-options : attribut inconnu 'azure-events_globalPullState'  
-     Avertissement : cib-bootstrap-options : attribut inconnu ' hostName_ <strong>nom d’hôte</strong>'  
+   > Une fois les ressources configurées pour l'agent azure-events, lorsque vous placez le cluster à l'intérieur ou à l'extérieur du mode de maintenance, des messages d'avertissement comme les suivants peuvent s'afficher :  
+     WARNING: cib-bootstrap-options: unknown attribute 'hostName_  <strong>hostname</strong>'  
+     WARNING: cib-bootstrap-options: unknown attribute 'azure-events_globalPullState'  
+     WARNING: cib-bootstrap-options: unknown attribute 'hostName_ <strong>hostname</strong>'  
    > Ces messages d’avertissement peuvent être ignorés.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -613,4 +635,4 @@ sudo crm configure property maintenance-mode=false
 * [Déploiement SGBD de machines virtuelles Azure pour SAP][dbms-guide]
 * [Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server][sles-nfs-guide]
 * [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP][sles-guide]
-* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur des machines virtuelles Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha].
+* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur des machines virtuelles Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha]

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: e7f3f80c886f90a8bc3ae8c38e7d101c506439a6
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e683d17422321b780a1c01b3011292f2e2c631cb
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35250220"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177110"
 ---
 Pour supprimer un conteneur de volumes, vous devez
  - supprimer les volumes du conteneur de volumes. Si le conteneur de volumes a des volumes associés, commencez par mettre ces volumes hors connexion. Suivez les étapes de la [Mise hors connexion d’un volume](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Une fois les volumes hors connexion, vous pouvez les supprimer. 
@@ -26,7 +26,7 @@ Lorsque le conteneur de volumes n’est associé à aucun volume, aucune straté
 
     ![Panneau Conteneurs de volumes](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)
 
-2. Dans la liste tabulaire des conteneurs de volumes, sélectionnez le conteneur de volumes à supprimer, cliquez avec le bouton droit sur **...**, puis sélectionnez **Supprimer**.
+2. Dans la liste tabulaire des conteneurs de volumes, sélectionnez le conteneur de volumes à supprimer, cliquez avec le bouton droit sur **...** , puis sélectionnez **Supprimer**.
 
     ![Supprimer un conteneur de volumes](./media/storsimple-8000-delete-volume-container/deletevolumecontainer1.png)
 

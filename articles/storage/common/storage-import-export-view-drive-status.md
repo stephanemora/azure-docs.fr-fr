@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467745"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61478021"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Voir l’état des tâches Azure Import/Export
 
@@ -65,7 +65,7 @@ Le tableau suivant décrit les états associés aux défaillances de disque et l
 | NeverReceived (Jamais reçu) | Un lecteur marqué comme **NeverReceived** (parce qu’il n’a pas été reçu dans le cadre de l’expédition de la tâche) arrive dans un autre colis. | L’équipe des opérations passe le lecteur à l’état **Reçu**. |
 | N/A | Un lecteur qui n’est associé à aucune tâche arrive au centre de données dans le cadre d’une autre tâche. | Le lecteur est marqué comme disque supplémentaire et est renvoyé au client une fois effectuée la tâche associée au colis d’origine. |
 
-## <a name="time-to-process-job"></a>Temps de traitement du travail 
+## <a name="time-to-process-job"></a>Temps de traitement du travail
 La durée de traitement d’une tâche d’importation/exportation varie en fonction de plusieurs facteurs comme les suivants :
 
 -  Délai d’expédition

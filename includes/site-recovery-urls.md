@@ -8,20 +8,20 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: ae8eebf9667f2bc03fdc1082fb38c19c5c645c10
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f4cd9cad3813378fcdc3f06e8ab1c28eced4f93c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060941"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177588"
 ---
-**Name** | **URL commerciale**  | **URL du gouvernement** | **Description** |
+Nom | URL commerciale | URL du gouvernement | Description
 --- | --- | --- | ---
-Azure AD | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Élément utilisé pour la gestion des identités et le contrôle d’accès avec AAD 
-Sauvegarde | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Élément utilisé pour la coordination et le transfert des données de réplication 
-Réplication | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication 
-Stockage | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Élément utilisé pour l’accès au compte de stockage qui stocke les données répliquées 
-Données de télémétrie (facultatif) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | Élément utilisé pour la télémétrie 
-Synchronisation temporelle | ``time.windows.com`` | ``time.nist.gov`` | Élément utilisé pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale lors de tous les déploiements.
+Azure Active Directory | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Azure Active Directory utilise ces adresses pour le contrôle d’accès et la gestion des identités. 
+Sauvegarde | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Élément utilisé pour la coordination et le transfert des données de réplication.
+Réplication | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication.
+Stockage | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Élément utilisé pour l’accès au compte de stockage qui stocke les données répliquées.
+Données de télémétrie (facultatif) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | Adresses utilisées pour la télémétrie.
+Synchronisation temporelle | ``time.windows.com`` | ``time.nist.gov`` | Adresses utilisées pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale lors de tous les déploiements.
 
 

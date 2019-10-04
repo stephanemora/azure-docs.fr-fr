@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: 0d15aa4d7b8a922f7606b7c4d1b357a80b3cbfab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359137"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60311044"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utiliser PowerShell pour gérer les ressources Service Bus
 
@@ -29,7 +29,7 @@ Vous pouvez également gérer les entités Service Bus à l’aide de modèles A
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que les prérequis suivants sont respectés :
 
@@ -43,7 +43,7 @@ La première étape consiste à utiliser PowerShell pour vous connecter à votre
 
 ## <a name="provision-a-service-bus-namespace"></a>Approvisionner un espace de noms Service Bus
 
-Lorsque vous travaillez avec des espaces de noms Service Bus, vous pouvez utiliser la [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)et [ Set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) applets de commande.
+Lorsque vous travaillez avec des espaces de noms Service Bus, vous pouvez utiliser les cmdlets [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace), et [Set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace).
 
 Cet exemple crée quelques variables locales dans le script ; `$Namespace` et `$Location`.
 
@@ -83,7 +83,7 @@ Cette partie du script effectue les opérations suivantes :
 
 ### <a name="create-a-namespace-authorization-rule"></a>Créer une règle d’autorisation d’espace de noms
 
-L’exemple suivant montre comment gérer l’espace de noms des règles d’autorisation à l’aide de la [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [ Set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule), et [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) applets de commande.
+L’exemple suivant montre comment gérer les règles d’autorisation d’espace de noms à l’aide des cmdlets [New-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [Get-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [Set-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule), and [Remove-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule).
 
 ```powershell
 # Query to see if rule exists
@@ -147,7 +147,7 @@ else
 
 ### <a name="modify-queue-properties"></a>Modifier les propriétés de la file d’attente
 
-Après l’exécution du script dans la section précédente, vous pouvez utiliser la [Set-AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) applet de commande pour mettre à jour les propriétés d’une file d’attente, comme dans l’exemple suivant :
+Après l’exécution du script de la manière décrite dans la section précédente, vous pouvez utiliser la cmdlet de commande [Set-AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) pour mettre à jour les propriétés d’une file d’attente, comme dans l’exemple suivant :
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True

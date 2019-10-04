@@ -4,18 +4,18 @@ description: Comment résoudre les redémarrages inattendus des machines virtuel
 keywords: connexion ssh refusée, erreur ssh, ssh azure, échec de connexion SSH
 services: virtual-machines
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6273087e28be8b784168d5808918d04d0e4cf303
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d3b54941d38424e71ac800d2e750ac9bbc96cde9
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748151"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086863"
 ---
 # <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Résoudre les problèmes de redémarrage inattendu de machines virtuelles avec VHD joints
 

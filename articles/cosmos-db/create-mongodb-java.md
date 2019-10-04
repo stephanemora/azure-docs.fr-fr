@@ -1,21 +1,22 @@
 ---
-title: Générer une application console en utilisant l’API Azure Cosmos DB pour MongoDB et le kit de développement logiciel (SDK) Java
+title: 'Démarrage rapide : Générer une application web à l’aide du Kit de développement logiciel (SDK) API Azure pour MongoDB et Java - Azure Cosmos DB'
 description: Cet article présente un exemple de code Java que vous pouvez utiliser pour vous connecter à l’API Azure Cosmos DB pour MongoDB et pour l’interroger.
 author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/26/2017
+ms.date: 12/26/2018
 ms.author: rimman
-ms.openlocfilehash: 2fcd5f9e68d7f8bfa15cd596407c78af7fc8976b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.custom: seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 7129819b6cec068420b0b265d878078622721812
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587257"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965385"
 ---
-# <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>Démarrage rapide : Générer une application web en utilisant l’API Azure Cosmos DB pour MongoDB et le kit de développement logiciel (SDK) Java
+# <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Démarrage rapide : Créer une application console avec Java et l’API MongoDB dans Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -26,14 +27,14 @@ ms.locfileid: "56587257"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur de Cosmos DB. 
+Dans ce guide de démarrage rapide, vous allez utiliser l’API Azure Cosmos DB pour Mongo DB et le SDK Java pour créer une application web de console. Azure Cosmos DB vous permet de créer et d’interroger rapidement des documents, des paires clé/valeur, et des bases de données de graphe, tous bénéficiant de la distribution à l’échelle mondiale et des fonctionnalités de mise à l’échelle horizontale au cœur de Cosmos DB.
 
 Ce démarrage rapide montre comment créer un compte Cosmos avec l’[API d’Azure Cosmos DB pour MongoDB](mongodb-introduction.md). Vous allez ensuite créer et déployer une application console à l’aide du [pilote Java MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de pouvoir exécuter cet exemple, vous devez posséder les composants requis suivants :
-* JDK 1.7 + (exécutez `apt-get install default-jdk` si vous ne possédez pas JDK)
+* [Installer le kit JDK pour Azure et le kit JDK Azure Stack version 8](https://aka.ms/azure-jdks)
 * Maven (exécutez `apt-get install maven` si vous ne possédez pas Maven)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -111,9 +112,9 @@ Tous les extraits de code suivants proviennent du fichier Program.java.
 
 ## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
 
-Maintenant, retournez sur le Portail Azure afin d’obtenir vos informations de chaîne de connexion, et copiez-les dans l’application.
+Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. À partir du compte, sélectionnez **Démarrage rapide**et Java, puis copiez la chaîne de connexion dans votre presse-papiers
+1. À partir du compte, sélectionnez **Démarrage rapide** et **Java**, puis copiez la chaîne de connexion dans votre Presse-papiers.
 
 2. Ouvrez le fichier `Program.java`, remplacez l’argument au constructeur MongoClientURI par la chaîne de connexion. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
     

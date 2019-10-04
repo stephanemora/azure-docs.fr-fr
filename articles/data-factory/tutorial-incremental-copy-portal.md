@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle une table en utilisant Azure Data Factory | Microsoft Docs
-description: Dans ce didacticiel, vous allez créer un pipeline de fabrique de données Azure qui copie de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure.
+description: Dans ce tutoriel, vous allez créer un pipeline de fabrique de données Azure qui copie de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -8,19 +8,18 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 3626e68c8cedfdd2d22f47cd92d6e7c4b8b5d180
+ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447231"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70806397"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure
-Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données SQL Azure vers un stockage Blob Azure. 
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure
+Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données Azure SQL vers un stockage Blob Azure. 
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
@@ -39,7 +38,7 @@ Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 > * Passer en revue les résultats de la deuxième exécution
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Voici le diagramme général de la solution : 
 
 ![Chargement incrémentiel de données](media/tutorial-Incremental-copy-portal/incrementally-load.png)
@@ -63,7 +62,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-* **Base de données SQL Azure**. Vous utilisez la base de données comme magasin de données source. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une.
+* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données source. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une.
 * **Stockage Azure**. Vous utilisez le stockage d’objets blob comme magasin de données récepteur. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) pour découvrir comment en créer un. Créez un conteneur sous le nom adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Créer une table de source de données dans votre base de données SQL
@@ -150,34 +149,28 @@ END
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
-1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Données + Analytique** > **Data Factory** : 
+2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analyse** > **Data Factory** : 
    
-   ![Sélection Data Factory dans le volet « Nouveau »](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-2. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialOnPremDF** comme **nom**. 
-      
-     ![Page Nouvelle fabrique de données](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
+3. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialOnPremDF** comme **nom**. 
  
    Le nom de la fabrique de données Azure doit être un nom **global unique**. Si vous voyez un point d’exclamation rouge avec l’erreur suivante, changez le nom de la fabrique de données (par exemple, votrenomADFIncCopyTutorialDF), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
   
        `Data factory name "ADFIncCopyTutorialDF" is not available`
-3. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données. 
-4. Pour le **groupe de ressources**, effectuez l’une des opérations suivantes :
+4. Sélectionnez l’**abonnement** Azure dans lequel vous voulez créer la fabrique de données. 
+5. Pour le **groupe de ressources**, effectuez l’une des opérations suivantes :
      
       - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante. 
       - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.   
          
         Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Sélectionnez **V2** pour la **version**.
-5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
-6. Sélectionnez **Épingler au tableau de bord**.     
-7. Cliquez sur **Créer**.      
-8. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**. 
-
-    ![mosaïque déploiement de fabrique de données](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
+6. Sélectionnez **V2** pour la **version**.
+7. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
+8. Cliquez sur **Créer**.      
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
-   ![Page d'accueil Data Factory](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
+   ![Page d'accueil Data Factory](./media/doc-common-process/data-factory-home-page.png)
 10. Cliquez sur le titre **Créer et surveiller** pour lancer l’interface utilisateur de Azure Data Factory dans un onglet séparé.
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
@@ -185,76 +178,59 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
 1. Sur la page **Prise en main** de l’interface utilisateur de Data Factory, cliquez sur la vignette **Créer un pipeline**. 
 
-   ![Page de prise en main de l’interface utilisateur de Data Factory](./media/tutorial-incremental-copy-portal/get-started-page.png)    
+   ![Page de prise en main de l’interface utilisateur de Data Factory](./media/doc-common-process/get-started-page.png)    
 3. Sur la page **Général** de la fenêtre **Propriétés** pour le pipeline, entrez le nom **IncrementalCopyPipeline**. 
 
-   ![Nom du pipeline](./media/tutorial-incremental-copy-portal/pipeline-name.png)
 4. Vous allez ajouter la première activité de recherche pour obtenir l’ancienne valeur de filigrane. Dans la boîte à outils **Activités**, Développez **Général**, puis faites glisser et déposez une activité **Recherche** sur la surface du concepteur de pipeline. Changez le nom de l’activité par **LookupOldWaterMarkActivity**.
 
    ![Première activité de recherche - nom](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Basculez vers l’onglet **Paramètres**, puis cliquez sur **+ Nouveau** comme **jeu de données source**. Dans cette étape, vous créez un jeu de données pour représenter des données dans la **table filigrane**. Cette table contient l’ancien filigrane utilisé dans l’opération de copie précédente. 
 
-   ![Menu de nouveau jeu de données - ancien filigrane](./media/tutorial-incremental-copy-portal/new-dataset-old-watermark.png)
-6. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Base de données SQL Azure**, puis cliquez sur **Terminer**. Vous voyez un nouvel onglet ouvert pour le jeu de données. 
+6. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Azure SQL Database**, puis cliquez sur **Continuer**. Vous voyez une nouvelle fenêtre ouverte pour le jeu de données. 
 
-   ![Sélectionner une base de données SQL Azure](./media/tutorial-incremental-copy-portal/select-azure-sql-database-old-watermark.png)
-7. Dans la fenêtre Propriétés pour le jeu de données, entrez **WatermarkDataset** comme **nom**.
+7. Dans la fenêtre **Définir des propriétés** pour le jeu de données, entrez **WatermarkDataset** comme **nom**.
 
-   ![Jeu de données de filigrane - nom](./media/tutorial-incremental-copy-portal/watermark-dataset-name.png)
-8. Basculez vers l’onglet **Connexion**, puis cliquez sur **+ Nouveau** pour établir une connexion (créer un service lié) à votre base de données SQL Azure. 
+8. Pour **Service lié**, sélectionnez **Nouveau**, puis procédez comme suit :
 
-   ![Bouton de nouveau service lié](./media/tutorial-incremental-copy-portal/watermark-dataset-new-connection-button.png)
-9. Dans la fenêtre **Nouveau service lié**, procédez comme suit :
-
-    1. Entrez **AzureSqlDatabaseLinkedService** comme **nom**. 
+    1. Entrez **AzureSqlDatabaseLinkedService** pour **Nom**. 
     2. Sélectionnez votre serveur SQL Azure comme **nom de serveur**.
-    3. Entrez le **nom d’utilisateur** pour accéder au serveur SQL Azure. 
-    4. Entrez le **mot de passe** correspondant à l’utilisateur. 
-    5. Pour tester la connexion à la base de données SQL Azure, cliquez sur **Tester la connexion**.
-    6. Cliquez sur **Enregistrer**.
-    7. Dans l’onglet **Connexion**, vérifiez que **AzureSqlDatabaseLinkedService** est sélectionné comme **service lié**.
+    3. Sélectionnez le **nom de la base de données** dans la liste déroulante. 
+    4. Entrez vos **nom d’utilisateur** & **mot de passe**. 
+    5. Pour tester la connexion à la base de données Azure SQL, cliquez sur **Tester la connexion**.
+    6. Cliquez sur **Terminer**.
+    7. Vérifiez que **AzureSqlDatabaseLinkedService** est sélectionné comme **service lié**.
        
         ![Fenêtre du nouveau service lié](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
-10. Sélectionnez **[dbo].[ watermarktable]** comme **Table**. Si vous souhaitez afficher un aperçu des données de la table, cliquez sur **Aperçu des données**.
+    8. Sélectionnez **Terminer**.
+9. Sous l’onglet **Connexion**, sélectionnez **[dbo].[watermarktable]** pour **Table**. Si vous souhaitez afficher un aperçu des données de la table, cliquez sur **Aperçu des données**.
 
     ![Jeu de données de filigrane - paramètres de connexion](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
-11. Basculez vers l’éditeur de pipeline en cliquant sur l’onglet du pipeline en haut ou bien en cliquant sur le nom du pipeline dans l’arborescence à gauche. Dans la fenêtre Propriétés pour l’activité de **recherche**, vérifiez que **WatermarkDataset** est sélectionné dans le champ **Jeu de données source**. 
+10. Basculez vers l’éditeur de pipeline en cliquant sur l’onglet du pipeline en haut ou bien en cliquant sur le nom du pipeline dans l’arborescence à gauche. Dans la fenêtre Propriétés pour l’activité de **recherche**, vérifiez que **WatermarkDataset** est sélectionné dans le champ **Jeu de données source**. 
 
-    ![Pipeline - ancien jeu de données de filigrane](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. Dans la boîte à outils **Activités**, développez **Général**et faites glisser et déposez une autre activité de **recherche** sur la surface du concepteur de pipeline, puis saisissez le nom **LookupNewWaterMarkActivity** dans l’onglet **Général** de la fenêtre Propriétés. Cette activité de recherche obtient la nouvelle valeur de filigrane à partir de la table avec les données sources à copier vers la destination. 
+11. Dans la boîte à outils **Activités**, développez **Général**et faites glisser et déposez une autre activité de **recherche** sur la surface du concepteur de pipeline, puis saisissez le nom **LookupNewWaterMarkActivity** dans l’onglet **Général** de la fenêtre Propriétés. Cette activité de recherche obtient la nouvelle valeur de filigrane à partir de la table avec les données sources à copier vers la destination. 
 
-    ![Deuxième activité de recherche - nom](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
-13. Dans la fenêtre Propriétés pour la deuxième activité de **recherche**, basculez vers l’onglet **Paramètres**, puis cliquez sur **Nouveau**. Vous créez un jeu de données pour pointer vers la table source qui contient la nouvelle valeur du filigrane (valeur maximale de LastModifyTime). 
+12. Dans la fenêtre Propriétés pour la deuxième activité de **recherche**, basculez vers l’onglet **Paramètres**, puis cliquez sur **Nouveau**. Vous créez un jeu de données pour pointer vers la table source qui contient la nouvelle valeur du filigrane (valeur maximale de LastModifyTime). 
 
-    ![Deuxième activité de recherche - nouveau jeu de données](./media/tutorial-incremental-copy-portal/second-lookup-activity-settings-new-button.png)
-14. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Base de données SQL Azure**, puis cliquez sur **Terminer**. Vous voyez un nouvel onglet ouvert pour ce jeu de données. Vous voyez également le jeu de données dans l’arborescence. 
-15. Dans l’onglet **Général** de la fenêtre Propriétés, entrez **SourceDataset** comme **nom**. 
-
-    ![Jeu de données source - nom](./media/tutorial-incremental-copy-portal/source-dataset-name.png)
-16. Basculez vers l’onglet **Connexions**, et procédez comme suit : 
-
-    1. Sélectionnez **AzureSqlDatabaseLinkedService** comme **service lié**.
-    2. Sélectionnez **[dbo].[ data_source_table]** comme table. Vous allez spécifier une requête sur ce jeu de données plus loin dans le didacticiel. La requête a la priorité sur la table spécifiée à cette étape. 
-
-        ![Deuxième activité de recherche - nouveau jeu de données](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
+13. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Azure SQL Database**, puis cliquez sur **Continuer**. 
+14. Dans la fenêtre **Définir des propriétés**, entrez **SourceDataset** comme **nom**. Sélectionnez **AzureSqlDatabaseLinkedService** pour **Service lié**.
+15. Sélectionnez **[dbo].[ data_source_table]** comme table. Vous allez spécifier une requête sur ce jeu de données plus loin dans le didacticiel. La requête a la priorité sur la table spécifiée à cette étape.
+16. Sélectionnez **Terminer**. 
 17. Basculez vers l’éditeur de pipeline en cliquant sur l’onglet du pipeline en haut ou bien en cliquant sur le nom du pipeline dans l’arborescence à gauche. Dans la fenêtre Propriétés pour l’activité de **recherche**, vérifiez que **SourceDataset** est sélectionné dans le champ **Jeu de données source**. 
-18. Sélectionnez **Requête** pour le champ **Utiliser une requête** et saisissez la requête suivante : vous sélectionnez uniquement la valeur maximale de **LastModifytime** à partir de **data_table_source**. Si vous n’avez pas cette requête, le jeu de données obtient toutes les lignes de la table étant donné que vous avez spécifié le nom de table (data_source_table) dans la définition du jeu de données.
+18. Sélectionnez **Requête** pour le champ **Utiliser une requête** et saisissez la requête suivante : vous sélectionnez uniquement la valeur maximale de **LastModifytime** à partir de **data_table_source**. Vérifiez que vous avez également coché **Première ligne uniquement**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
     ```
 
     ![Deuxième activité de recherche - requête](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
-19. Dans la boîte à outils **Activités**, développez **Flux de données**et glissez-déposez l’activité de **copie** à partir de la boîte à outils Activités et saisissez le nom  **IncrementalCopyActivity**. 
+19. Dans la boîte à outils **Activités**, développez **Déplacer et transformer**, glissez-déposez l’activité de **copie** à partir de la boîte à outils Activités, puis définissez le nom **IncrementalCopyActivity**. 
 
-    ![Activité de copie - nom](./media/tutorial-incremental-copy-portal/copy-activity-name.png)
 20. **Connecter les deux activités de recherche à l’activité de copie** en faisant glisser le **bouton vert** attaché aux activités de recherche vers l’activité de copie. Relâchez le bouton de la souris lorsque la couleur de bordure de l’activité de copie passe en bleu. 
 
     ![Connexion des activités de recherche à l’activité de copie](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
 21. Sélectionnez l’**activité de copie** et vérifiez que vous vouez les propriétés de l’activité dans la fenêtre **Propriétés**. 
 
-    ![Propriétés de l’activité de copie](./media/tutorial-incremental-copy-portal/back-to-copy-activity-properties.png)
-22. Basculez vers l’onglet **Source** dans la fenêtre**Propriétés**, et procédez comme suit :
+22. Basculez vers l’onglet **Source** onglet dans la fenêtre**Propriétés**, et procédez comme suit :
 
     1. Sélectionnez **SourceDataset** pour le champ **Jeu de données source**. 
     2. Sélectionnez **Requête** pour le champ **Utiliser la requête**. 
@@ -267,40 +243,27 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
         ![Activité de copie - source](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
 23. Basculez vers l’onglet **Récepteur**, puis cliquez sur **+ Nouveau** pour le champ **Jeu de données récepteur**. 
 
-    ![Bouton Nouveau jeu de données](./media/tutorial-incremental-copy-portal/new-sink-dataset-button.png)
-24. Dans ce didacticiel, le magasin de données récepteur est de type Stockage Blob Azure. Par conséquent, sélectionnez **Stockage Blob Azure**, puis cliquez sur **Terminer** dans la fenêtre **Nouveau jeu de données**. 
+24. Dans ce didacticiel, le magasin de données récepteur est de type Stockage Blob Azure. Par conséquent, sélectionnez **Stockage Blob Azure**, puis cliquez sur **Continuer** dans la fenêtre **Nouveau jeu de données**. 
+25. Dans la fenêtre **Sélectionner le format**, sélectionnez le type de format de vos données et cliquez sur **Continuer**.
+25. Dans la fenêtre **Définir des propriétés**, entrez **SinkDataset** comme **nom**. Pour **Service lié**, sélectionnez **+ Nouveau**. Dans cette étape, vous créez une connexion (service lié) à votre **stockage Blob Azure**.
+26. Dans la fenêtre **Nouveau service lié (Stockage Blob Azure)** , effectuez les étapes suivantes : 
 
-    ![Sélectionner Stockage Blob Azure](./media/tutorial-incremental-copy-portal/select-azure-blob-storage.png)
-25. Dans l’onglet **Général** de la fenêtre Propriétés pour le jeu de données, entrez **SinkDataset** comme **nom**. 
-
-    ![Jeu de données récepteur - nom](./media/tutorial-incremental-copy-portal/sink-dataset-name.png)
-26. Basculez vers l’onglet **Connexion**, puis cliquez sur **+ Nouveau**. Dans cette étape, vous créez une connexion (service lié) à votre **stockage Blob Azure**.
-
-    ![Jeu de données récepteur - nouvelle connexion](./media/tutorial-incremental-copy-portal/sink-dataset-new-connection.png)
-26. Dans la fenêtre **Nouveau service lié**, procédez comme suit : 
-
-    1. Entrez **AzureStorageLinkedService** comme **Nom**. 
+    1. Entrez **AzureStorageLinkedService** pour **Nom**. 
     2. Sélectionnez votre compte de stockage Azure comme **Nom du compte de stockage**.
-    3. Cliquez sur **Enregistrer**. 
+    3. Testez la connexion, puis cliquez sur **Terminer**. 
 
-        ![Service lié Stockage Azure - paramètres](./media/tutorial-incremental-copy-portal/azure-storage-linked-service-settings.png)
-27. Dans l’onglet **Connexions**, procédez comme suit :
+27. Dans la fenêtre **Définir des propriétés**, vérifiez que **AzureStorageLinkedService** est sélectionné comme **service lié**. Sélectionnez ensuite **Terminer**.
+28. Accédez à l’onglet **Connexion** de SinkDataset et procédez comme suit :
+    1. Pour le champ **Chemin de fichier**, entrez **adftutorial/incrementalcopy**. **adftutorial** est le nom du conteneur d’objets blob et **incrementalcopy** est le nom du dossier. Cet extrait de code suppose que vous disposez d’un conteneur d’objets blob nommé adftutorial dans le stockage d’objets blob. Créez le conteneur s’il n’existe pas ou attribuez-lui le nom d’un conteneur existant. Azure Data Factory crée automatiquement le dossier de sortie **incrementalcopy** s’il n’existe pas. Vous pouvez également utiliser le bouton **Parcourir** pour le **chemin d’accès du fichier** afin d’accéder à un dossier dans un conteneur d’objets blob.
+    2. Pour la partie **Fichier** du champ **Chemin de fichier**, sélectionnez **Ajouter du contenu dynamique [Alt+P]** , puis entrez `@CONCAT('Incremental-', pipeline().RunId, '.txt')` dans la fenêtre ouverte. Sélectionnez ensuite **Terminer**. Le nom de fichier est généré dynamiquement à l’aide de l’expression. Chaque exécution de pipeline possède un ID unique. L’activité de copie utilise l’ID d’exécution pour générer le nom de fichier. 
 
-    1. Vérifiez que **AzureStorageLinkedService** est sélectionné comme **service lié**. 
-    2. Pour la partie **dossier** du champ **chemin d’accès du fichier**, entrez **adftutorial/incrementalcopy**. **adftutorial** est le nom du conteneur d’objets blob et **incrementalcopy** est le nom du dossier. Cet extrait de code suppose que vous disposez d’un conteneur d’objets blob nommé adftutorial dans le stockage d’objets blob. Créez le conteneur s’il n’existe pas ou attribuez-lui le nom d’un conteneur existant. Azure Data Factory crée automatiquement le dossier de sortie **incrementalcopy** s’il n’existe pas. Vous pouvez également utiliser le bouton **Parcourir** pour le **chemin d’accès du fichier** afin d’accéder à un dossier dans un conteneur d’objets blob. .RunId, '.txt')`.
-    3. Pour la partie **Nom de fichier** dans le champ **Chemin d’accès du fichier**, saisissez `@CONCAT('Incremental-', pipeline().RunId, '.txt')`. Le nom de fichier est généré dynamiquement à l’aide de l’expression. Chaque exécution de pipeline possède un ID unique. L’activité de copie utilise l’ID d’exécution pour générer le nom de fichier. 
-
-        ![Jeu de données récepteur - paramètres de connexion](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. Basculez vers l’éditeur de **pipeline** en cliquant sur l’onglet du pipeline en haut ou bien en cliquant sur le nom du pipeline dans l’arborescence à gauche. 
 29. Dans la boîte à outils **Activités**, développez **Général**, et faites glisser et déposez l’activité **Procédure stockée** de la boîte à outils **Activités** sur la surface du concepteur de pipeline. **Connectez** le résultat vert (succès) de l’activité de **copie** à l’activité **Procédure stockée**. 
-    
-    ![Activité de copie - source](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
+
 24. Sélectionnez **Activité de procédure stockée** dans le concepteur de pipeline, remplacez son nom par **StoredProceduretoWriteWatermarkActivity**. 
 
-    ![Activité de procédure stockée - nom](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
-25. Basculez vers l’onglet **Compte SQL** et sélectionnez *AzureSqlDatabaseLinkedService** pour **Service lié**. 
+25. Passez à l’onglet **Compte SQL** et sélectionnez **AzureSqlDatabaseLinkedService** comme **service lié**. 
 
-    ![Activité de procédure stockée - Compte SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Basculez vers l’onglet **Procédure stockée**, et procédez comme suit : 
 
     1. Pour **Nom de la procédure stockée**, sélectionnez **usp_write_watermark**. 
@@ -314,25 +277,20 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     ![Activité de procédure stockée- paramètres de procédure stockée](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Pour valider les paramètres du pipeline, cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Pour fermer la fenêtre **Rapport de validation de pipeline**, cliquez sur >>.   
 
-    ![Valider le pipeline](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
 28. Publiez des entités (services liés, jeux de données et pipelines) pour le service Azure Data Factory en sélectionnant le bouton **Publier tout**. Patientez jusqu’à voir le message de réussite de la publication. 
 
-    ![Bouton Publier](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Déclencher une exécution du pipeline
-1. Cliquez sur **Déclencher** dans la barre d’outils, cliquez sur **Déclencher maintenant**. 
+1. Cliquez sur **Ajouter un déclencheur** dans la barre d’outils, puis sur **Déclencher maintenant**. 
 
-    ![Bouton Déclencher maintenant](./media/tutorial-incremental-copy-portal/trigger-now.png)
 2. Dans la fenêtre **Exécution du pipeline**, sélectionnez **Terminer**. 
 
 ## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline.
 
 1. Basculez vers l’onglet **Surveiller** sur la gauche. Vous pouvez voir l’état de l’exécution du pipeline déclenchée par le déclencheur manuel. Cliquez sur le bouton **Actualiser** pour actualiser la liste. 
     
-    ![Exécutions de pipeline](./media/tutorial-incremental-copy-portal/pipeline-runs.png)
 2. Pour voir des exécutions d’activité associées à l’exécution de ce pipeline, cliquez sur le premier lien (**Voir les exécutions d’activités**) dans la colonne **Actions**. Vous pouvez revenir à la vue précédente en cliquant sur **Pipelines** en haut. Cliquez sur le bouton **Actualiser** pour actualiser la liste.
 
-    ![Exécutions d’activités](./media/tutorial-incremental-copy-portal/activity-runs.png)
 
 ## <a name="review-the-results"></a>Passer en revue les résultats.
 1. Connectez-vous à votre compte de Stockage Azure à l’aide des outils tels que [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Vérifiez qu’un fichier de sortie est créé dans le dossier **incrementalcopy** du conteneur **adftutorial**.
@@ -389,19 +347,15 @@ PersonID | Name | LastModifytime
 ## <a name="trigger-another-pipeline-run"></a>Déclencher une autre exécution de pipeline
 1. Basculez vers l’onglet **Modifier**. Cliquez sur le pipeline dans l’arborescence s’il n’est pas ouvert dans le concepteur. 
 
-    ![Bouton Déclencher maintenant](./media/tutorial-incremental-copy-portal/edit-tab.png)
-2. Cliquez sur **Déclencher** dans la barre d’outils, cliquez sur **Déclencher maintenant**. 
+2. Cliquez sur **Ajouter un déclencheur** dans la barre d’outils, puis sur **Déclencher maintenant**. 
 
-    ![Bouton Déclencher maintenant](./media/tutorial-incremental-copy-portal/trigger-now.png)
 
 ## <a name="monitor-the-second-pipeline-run"></a>Surveiller la deuxième exécution du pipeline
 
 1. Basculez vers l’onglet **Surveiller** sur la gauche. Vous pouvez voir l’état de l’exécution du pipeline déclenchée par le déclencheur manuel. Cliquez sur le bouton **Actualiser** pour actualiser la liste. 
     
-    ![Exécutions de pipeline](./media/tutorial-incremental-copy-portal/pipeline-runs-2.png)
 2. Pour voir des exécutions d’activité associées à l’exécution de ce pipeline, cliquez sur le premier lien (**Voir les exécutions d’activités**) dans la colonne **Actions**. Vous pouvez revenir à la vue précédente en cliquant sur **Pipelines** en haut. Cliquez sur le bouton **Actualiser** pour actualiser la liste.
 
-    ![Exécutions d’activités](./media/tutorial-incremental-copy-portal/activity-runs-2.png)
 
 ## <a name="verify-the-second-output"></a>Vérifier la deuxième sortie
 

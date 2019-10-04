@@ -2,24 +2,17 @@
 title: Services de conseil dans la Place de marché Azure et AppSource
 description: Cet article décrit les critères d’éligibilité et les exigences de publication des nouvelles offres de services de conseil dans la Place de marché Azure.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nuno costa
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
-ms.author: yijenj
-ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078756"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147289"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
@@ -31,15 +24,17 @@ Ces offres de services de conseil sont des engagements propres au client. Les é
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Services de conseil de la Place de marché Azure et vitrine AppSource
 Les vitrines de la Place de marché s’adaptent au public visé et aux produits cloud de Microsoft, pour que les clients puissent trouver ce dont ils ont besoin. Chaque vitrine propose des options de publication spécifiques, destinées à optimiser vos efforts de publication. Ces options sont décrites dans le tableau suivant :
 
-|         |Place de marché Azure  |AppSource |
+|         |Place de marché Azure  |Microsoft AppSource |
 |---------|---------|---------|
 |**Public ciblé**   |**IT Pros et développeurs cloud**|**Utilisateurs professionnels/Décideurs métier**|
 |Pertinence de la solution     |Applications techniques générées pour ou reposant sur Azure|Applications métier qui optimisent/étendent D365, Power BI, O365, Azure (applications finies sous la forme de complément ou d’extension)|
-|Options de publication     |Me contacter, Version d’essai, Transaction ou Services de conseil|Me contacter, Version d’essai ou Services de conseil|
+|Options de publication     |Me contacter, Essai gratuit, Transact ou Services pour Azure|Me contacter, Essai gratuit ou Services pour Dynamics 365 et Power BI|
 |Expérience du produit      |Portail de gestion Azure|Dynamics 365, Office 365, applications clientes Office| 
-|Autres      |Publication locale via Azure Stack|Services de conseil pour Dynamics et Power BI|
+|Autres      |Publication locale par le biais d’Azure Stack, Services de conseil pour Azure, Services managés pour Azure|Services de conseil pour Dynamics et Power BI|
 
-Les offres de services qui sont basées sur Microsoft Dynamics 365, Office 365 et Power BI peuvent être répertoriées sur AppSource. Pour plus d’informations, consultez [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Instructions de référencement des services de conseil Microsoft AppSource). 
+Les offres de services de conseil qui sont basées sur Microsoft Dynamics 365 et Power BI peuvent être listées sur Microsoft AppSource. Pour plus d’informations, consultez [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Instructions de référencement des services de conseil Microsoft AppSource). 
+
+Les offres de services de conseil et de services managés basées sur Microsoft Azure peuvent être listées sur la Place de marché Azure. Pour plus d’informations, consultez les articles sur la [publication d’un service de conseil Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) et sur la [publication d’une offre de services managés sur la Place de marché Azure](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
 > Les services de conseil de la Place de marché Azure doivent tirer parti des offres destinées à un **public technique axé sur des *solutions et services techniques Azure.* ** Les services de conseil dans AppSource doivent tirer parti des offres destinées à des experts souhaitant fournir des solutions de qualité pour Dynamics 365, Power BI ou PowerApps pour référencer leurs offres de services de conseil dans AppSource
@@ -48,7 +43,7 @@ Les offres de services qui sont basées sur Microsoft Dynamics 365, Office 365 e
 > [!TIP]
 > Pour publier une offre dans la vitrine Place de marché, vous effectuerez cette sélection en choisissant « Azure » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner. Pour publier une offre sur AppSource, vous procéderez à cette sélection en choisissant « Dynamics 365 », « Power BI » ou « Power Apps » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner.
 
-## <a name="eligible-partners-and-supported-countries"></a>Partenaires éligibles et pays pris en charge
+## <a name="eligible-partners-and-supported-countriesregions"></a>Partenaires éligibles et pays/région pris en charge
 
 Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine de leur service. 
 
@@ -74,9 +69,9 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 <b>Pour plus d’informations, consultez les [compétences via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  
 
-**Les partenaires intégrateurs de systèmes peuvent envoyer des offres de services de conseil pour les 18 pays suivants**
+**Les partenaires intégrateurs de systèmes peuvent envoyer des offres de services de conseil pour les 18 pays/régions suivant(e)s**
 
-|Pays éligibles |   |   |   |
+|Pays/régions éligibles |   |   |   |
 |---------|----------|----------|----------|
 |Australie |France  |     Mexique          |Espagne       |
 |Belgique   |Allemagne |     Pays-bas     |Suède       |
@@ -84,10 +79,10 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 |Danemark   |Italie   |     Norvège          |États-Unis |
 |Finlande   |Japon   |     Pologne          
 
-Le lancement des services de conseil sera effectué dans une région géographique spécifique. Le premier lancement aura lieu dans les régions suivantes : États-Unis, Canada, Royaume-Uni et Australie. Les catalogues pour les autres pays seront lancés une fois qu’un nombre significatif et qu’une sélection attrayante d’offres de services auront été envoyés par les partenaires et approuvés par Microsoft.
+Le lancement des services de conseil sera effectué dans une région géographique spécifique. Le premier lancement aura lieu dans les régions suivantes : États-Unis, Canada, Royaume-Uni et Australie. Les catalogues pour les autres pays/régions seront lancés une fois qu’un nombre significatif et qu’une sélection attrayante d’offres de services auront été envoyés par les partenaires et approuvés par Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Comment s’inscrire aux services de conseil dans la Place de marché Azure et AppSource
-Commencez par [inscrire](https://azuremarketplace.microsoft.com/sell/signup) votre entreprise dans la Place de marché. Les éditeurs peuvent consulter [Devenir éditeur sur la Place de marché](https://docs.microsoft.com/azure/marketplace/become-publisher), pour obtenir une liste de vérification complète des conditions d’inscription. 
+Commencez par [inscrire](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) votre entreprise dans la Place de marché. Les éditeurs peuvent consulter [Devenir éditeur sur la Place de marché](https://docs.microsoft.com/azure/marketplace/become-publisher), pour obtenir une liste de vérification complète des conditions d’inscription. 
 
 **À quoi s’attendre après l’inscription** L’équipe d’intégration vous enverra un e-mail de bienvenue dans un délai de 1 à 3 jours ouvrables, qui inclut vos informations de connexion au Portail Cloud Partner (CPP). [Portail Cloud Partner](https://cloudpartner.azure.com) est le portail de référencement des offres où les éditeurs soumettent les informations de référencement et les envois. 
 
@@ -124,7 +119,7 @@ Le référencement de votre offre de services de conseil dans la Place de march�
 3. **Envoi** : fournissez les informations nécessaires qui sont indiquées dans les instructions. Tout le contenu et les documents de prise en charge doivent être envoyés en anglais. 
 4. **Révision** : notre équipe marketing et éditoriale examine votre envoi et optimise sa lisibilité, sa syntaxe et sa fluidité. 
 5. **Préproduction** : votre envoi vous est renvoyé pour révision. 
-6. **Publication** : une fois que Microsoft et vous-même êtes satisfaits du contenu intermédiaire, votre référencement est prêt à être mis en ligne sur la place de marché. La date de lancement de votre annonce varie selon le pays spécifié dans votre offre. Si le catalogue pour le pays sélectionné est déjà en ligne sur la Place de marché Azure ou AppSource, votre référencement s’affiche au bout de quelques heures. Sinon, l’annonce s’affiche dès que le catalogue est en ligne.
+6. **Publication** : une fois que Microsoft et vous-même êtes satisfaits du contenu intermédiaire, votre référencement est prêt à être mis en ligne sur la place de marché. La date de lancement de votre annonce varie selon le pays/la région spécifié(e) dans votre offre. Si le catalogue pour le pays/la région sélectionné(e) est déjà en ligne sur la Place de marché Azure ou AppSource, votre référencement s’affiche au bout de quelques heures. Sinon, l’annonce s’affiche dès que le catalogue est en ligne.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Référencements des offres et critères de révision du contenu
 Les offres doivent correspondre à l’un des cinq types de services suivants (vous pouvez en répertorier plus d’un) : 
@@ -173,7 +168,7 @@ Dans le Portail Cloud Partner, vous pouvez ajouter une mise en forme à votre r�
 * ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>espace pour le titre (par ex. : ###(space)Agenda/Deliverables)
 * Saut de ligne après le titre
 * ** = gras 
-* * Résumé de l’offre en italique
+* \* Résumé de l’offre en italique
 
 
 ## <a name="next-steps"></a>Étapes suivantes

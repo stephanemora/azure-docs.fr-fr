@@ -3,20 +3,20 @@ title: Concepts de la reconnaissance vocale Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
 description: Concepts de base utilisés dans le service Microsoft Speech.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: fba1bbdeaf68bdd45524b336011627a27cd024da
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670417"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965713"
 ---
 # <a name="basic-concepts"></a>Concepts de base
 
@@ -32,7 +32,7 @@ Si pour la première fois vous créez une application à fonctionnalités vocale
 
 Le *flux audio* figure au premier rang des concepts de base des fonctionnalités vocales. Contrairement à un appui sur une touche, qui se produit à un instant unique et qui contient un seul élément d’information, une demande parlée s’étend sur des centaines de millisecondes et contient de nombreux kilo-octets d’informations. La durée des énoncés parlés présente certaines difficultés aux développeurs qui souhaitent fournir une expérience vocale rationalisée et élégante pour leur application. Aujourd'hui, les ordinateurs et les algorithmes effectuent la transcription de la parole dans approximativement la moitié de la durée de l’énoncé, si bien qu’un énoncé de 2 secondes peut être transcrit en environ 1 seconde, mais une application qui présente 1 seconde de délai de traitement de l’utilisateur n’est ni rationalisée, ni élégante.
 
-Heureusement, il existe des façons de « masquer » la durée de transcription en effectuant la transcription d’une partie de l’énoncé pendant que l’utilisateur énonce une autre partie. Par exemple, en divisant un énoncé de 1 seconde en 10 segments de 100 millisecondes et en effectuant la transcription de chaque segment, l’un après l’autre. Plus de 450 des 500 millisecondes au total à transcrire peuvent être « masquées », afin que l’utilisateur n’ait pas conscience que la transcription est en cours de réalisation pendant qu’il parle. Dans le cadre de cet exemple, n’oubliez pas que le service effectue la transcription sur les 100 millisecondes précédentes de données audio pendant que l’utilisateur énonce les 100 millisecondes suivantes, si bien que lorsque l’utilisateur arrête de parler, le service n’a plus qu’à transcrire environ 100 millisecondes de données audio pour produire un résultat.
+Heureusement, il existe des façons de « masquer » la durée de transcription en effectuant la transcription d’une partie de l’énoncé pendant que l’utilisateur énonce une autre partie. Par exemple, en divisant un énoncé d’une seconde en 10 segments de 100 millisecondes et en effectuant la transcription de chaque segment, l’un après l’autre, plus de 450 des 500 millisecondes au total à transcrire peuvent être « masquées », de sorte que l’utilisateur n’a pas conscience que la transcription s’effectue pendant qu’il parle. Dans le cadre de cet exemple, n’oubliez pas que le service effectue la transcription sur les 100 millisecondes précédentes de données audio pendant que l’utilisateur énonce les 100 millisecondes suivantes, si bien que lorsque l’utilisateur arrête de parler, le service n’a plus qu’à transcrire environ 100 millisecondes de données audio pour produire un résultat.
 
 Pour réaliser une telle expérience utilisateur, les informations audio énoncées sont collectées dans des segments et transcrites au fur et à mesure que l’utilisateur parle. Ces segments audio sont extraits collectivement du *flux audio* et le processus d’envoi de ces segments audio au service est appelé *streaming audio.* Le streaming audio est une partie importante de toute application à fonctionnalités vocales. Le réglage de la taille des segments et l’optimisation de l’implémentation de streaming sont quelques-unes des manières les plus efficaces d’améliorer l’expérience des utilisateurs de votre application.
 
@@ -81,10 +81,10 @@ Le service de reconnaissance vocale Microsoft fournit aux développeurs deux fa�
 
 | Cas d'utilisation | [API REST](GetStarted/GetStartedREST.md) | [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | Oui | Oui |
-| Convertir un long énoncé (> 15 s) | Non  | Oui |
-| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non  | Oui |
-| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non  | Oui |
+| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | OUI | OUI |
+| Convertir un long énoncé (> 15 s) | Non | OUI |
+| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non | OUI |
+| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non | OUI |
 
  Si votre langage ou plateforme n’a pas encore de kit SDK, vous pouvez créer votre propre implémentation basée sur la [documentation du protocole](API-Reference-REST/websocketprotocol.md).
 

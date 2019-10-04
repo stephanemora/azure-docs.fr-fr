@@ -1,22 +1,22 @@
 ---
 title: 'Démarrage rapide : Rechercher des images - Kit de développement logiciel (SDK) Recherche d’images Bing pour Node.js'
-description: Utilisez ce guide de démarrage rapide pour effectuer votre première recherche d’images à l’aide du SDK Recherche d’images Bing, qui est un wrapper de l’API et contient les mêmes fonctionnalités. Cette application Node.js simple envoie une requête de recherche d’image, analyse la réponse JSON et affiche l’URL de la première image retournée.
 titleSuffix: Azure Cognitive Services
+description: Utilisez ce guide de démarrage rapide pour effectuer votre première recherche d’images à l’aide du SDK Recherche d’images Bing, qui est un wrapper de l’API et contient les mêmes fonctionnalités. Cette application Node.js simple envoie une requête de recherche d’image, analyse la réponse JSON et affiche l’URL de la première image retournée.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 641247a0ddc08f15fa70006e280426fda083241f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d7a3d92322fed44086fd72bbb1c19e10de605b6
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58083026"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70034690"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>Démarrage rapide : Rechercher des images avec SDK Recherche d’images Bing pour Node.js
 
@@ -40,7 +40,7 @@ Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try
 
     ```javascript
     'use strict';
-    const Search = require('azure-cognitiveservices-imagesearch');
+    const ImageSearchAPIClient = require('azure-cognitiveservices-imagesearch');
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     ```
 
@@ -55,7 +55,7 @@ Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try
 
     //instantiate the image search client 
     let credentials = new CognitiveServicesCredentials(serviceKey);
-    let imageSearchApiClient = new Search.ImageSearchAPIClient(credentials);
+    let imageSearchApiClient = new ImageSearchAPIClient(credentials);
 
     ```
 
@@ -104,4 +104,4 @@ Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try
 * [Obtenir une clé d’accès Cognitive Services gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Exemples Node.js pour le SDK Azure Cognitive Services](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 * [Documentation Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Informations de référence sur l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Informations de référence sur l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

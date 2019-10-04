@@ -1,6 +1,6 @@
 ---
 title: Répertorier les affectations de refus relatives aux ressources Azure à l'aide de l'API REST - Azure | Microsoft Docs
-description: Apprenez à dresser la liste des affectations de refus pour les utilisateurs, groupes et applications à l'aide de l'API REST et du contrôle d'accès en fonction du rôle (RBAC) pour les ressources Azure.
+description: Apprenez à dresser la liste des affectations de refus pour les utilisateurs, groupes et applications à l’aide de l’API REST et du contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -12,28 +12,28 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 0bc49456f5965846a2de542b4a063bab2d1838bf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998409"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67118285"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Répertorier les affectations de refus relatives aux ressources Azure à l'aide de l'API REST
 
-Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Cet article décrit comment utiliser l’API REST pour la liste des affectations de refuser.
+Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Cet article décrit comment lister les affectations de refus existantes à l’aide de l’API REST.
 
 > [!NOTE]
-> À ce stade, la seule façon, vous pouvez ajouter vos propres refuser affectations est à l’aide de plans d’Azure. Pour plus d’informations, consultez [protéger les nouvelles ressources des verrous de ressources Azure plans](../governance/blueprints/tutorials/protect-new-resources.md).
+> Vous ne pouvez pas directement créer vos propres affectations de refus. Pour en savoir sur la création des affectations de refus, consultez [Affectations de refus](deny-assignments.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Pour obtenir des informations sur une affectation de refus, vous devez disposer de :
+Pour obtenir des informations sur une affectation de refus, vous devez disposer de :
 
-- `Microsoft.Authorization/denyAssignments/read` autorisation, qui est incluse dans la plupart des [rôles intégrés pour les ressources Azure](built-in-roles.md).
+- l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés pour les ressources Azure](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Lister une seule affectation de refus
 

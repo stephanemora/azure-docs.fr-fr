@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: 2ed74a4ba19af3a441bcf26a48890f033e6c365f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a4af53e035929a44f74a95b8e9897cb1dc0c6d8e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002252"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66814897"
 ---
 [!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
@@ -29,7 +29,7 @@ Vous pouvez changer le nombre de nœuds d’agent dans un cluster DC/OS, Docker 
 
 ## <a name="scale-with-the-azure-cli"></a>Mise à l’échelle avec Azure CLI
 
-Vérifiez que vous avez [installé](/cli/azure/install-az-cli2) la dernière version d’Azure CLI et que vous êtes connecté à un compte Azure (`az login`).
+[Installez l’interface de ligne de commande Azure](/cli/azure/install-azure-cli) et connectez-vous à un compte Azure avec `az login`.
 
 ### <a name="see-the-current-agent-count"></a>Affichage du nombre actuel d’agents
 Pour afficher le nombre d’agents actuellement dans le cluster, exécutez la commande `az acs show`. Elle permet d’afficher la configuration du cluster. Par exemple, la commande suivante affiche la configuration du service de conteneur nommé `containerservice-myACSName` dans le groupe de ressources `myResourceGroup` :

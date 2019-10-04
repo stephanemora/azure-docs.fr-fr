@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
 ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295740"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61363464"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux de module dans IoT Hub
 
@@ -47,9 +47,9 @@ Un jumeau de module est un document JSON incluant les éléments suivants :
 
 * **Tags** (balises). Une section du document JSON accessible en lecture et en écriture par le serveur principal de solution. Les balises ne sont pas visibles pour les modules sur l’appareil. Les balises sont définies à des fins d’interrogation.
 
-* **Propriétés souhaitées (Desired)**. Utilisées en même temps que les propriétés signalées pour synchroniser une configuration ou une condition de module. Le backend de solution peut définir les propriétés souhaitées, et l’application de module peut les lire. L’application de module peut également recevoir des notifications sur les changements des propriétés souhaitées.
+* **Propriétés souhaitées (Desired)** . Utilisées en même temps que les propriétés signalées pour synchroniser une configuration ou une condition de module. Le backend de solution peut définir les propriétés souhaitées, et l’application de module peut les lire. L’application de module peut également recevoir des notifications sur les changements des propriétés souhaitées.
 
-* **Propriétés signalées (Reported)**. Utilisées en même temps que les propriétés souhaitées pour synchroniser une configuration ou une condition de module. L’application de module peut définir les propriétés signalées, et le backend de solution peut les lire et les interroger.
+* **Propriétés signalées (Reported)** . Utilisées en même temps que les propriétés souhaitées pour synchroniser une configuration ou une condition de module. L’application de module peut définir les propriétés signalées, et le backend de solution peut les lire et les interroger.
 
 * **Propriétés d’identité des modules**. La racine du document JSON du jumeau de module contient les propriétés en lecture seule de l’identité de module correspondante stockées dans le [registre des identités](iot-hub-devguide-identity-registry.md).
 
@@ -113,7 +113,7 @@ Dans l’exemple précédent, le jumeau de module contient une propriété `batt
 
 ### <a name="desired-property-example"></a>Exemple de propriété souhaitée
 
-Dans l’exemple précédent, les propriétés souhaitées et signalées du jumeau de module `telemetryConfig` sont utilisées par le serveur principal d’application et l’application de module pour synchroniser la configuration de la télémétrie pour ce module. Par exemple : 
+Dans l’exemple précédent, les propriétés souhaitées et signalées du jumeau de module `telemetryConfig` sont utilisées par le serveur principal d’application et l’application de module pour synchroniser la configuration de la télémétrie pour ce module. Par exemple :
 
 1. Le serveur principal de solution définit la propriété souhaitée avec la valeur de configuration souhaitée. Voici la partie du document contenant la propriété souhaitée (Desired) définie :
 
@@ -224,9 +224,9 @@ L’application de module opère sur le jumeau de module en utilisant les opéra
 
 * **Récupérer le jumeau de module**. Cette opération retourne le contenu du document du jumeau de module, à savoir les Tags (Balises) et les propriétés système souhaitées (Desired) et signalées (Reported), pour le module connecté.
 
-* **Mettre à jour partiellement les propriétés signalées (Reported)**. Cette opération permet la mise à jour partielle des propriétés signalées du module connecté. Cette opération utilise le même format de mise à jour JSON que le serveur principal de solution utilise pour une mise à jour partielle des propriétés souhaitées.
+* **Mettre à jour partiellement les propriétés signalées (Reported)** . Cette opération permet la mise à jour partielle des propriétés signalées du module connecté. Cette opération utilise le même format de mise à jour JSON que le serveur principal de solution utilise pour une mise à jour partielle des propriétés souhaitées.
 
-* **Observer les propriétés souhaitées (Desired)**. Le module connecté peut choisir d’être informé des mises à jour des propriétés souhaitées au moment où elles se produisent. Le module reçoit la forme de mise à jour (remplacement partiel ou complet) exécutée par le backend de la solution.
+* **Observer les propriétés souhaitées (Desired)** . Le module connecté peut choisir d’être informé des mises à jour des propriétés souhaitées au moment où elles se produisent. Le module reçoit la forme de mise à jour (remplacement partiel ou complet) exécutée par le backend de la solution.
 
 Toutes les opérations précédentes nécessitent l’autorisation **ModuleConnect**, comme défini dans l’article [Contrôler l’accès à IoT Hub](iot-hub-devguide-security.md).
 
@@ -275,7 +275,7 @@ IoT Hub rejette en générant une erreur toute opération susceptible d’augmen
 ## <a name="module-twin-metadata"></a>Métadonnées de jumeau de module
 
 IoT Hub tient à jour l’horodateur de la dernière mise à jour de chaque objet JSON dans les propriétés souhaitées et signalées du jumeau de module. Les horodateurs sont exprimés en UTC et codés au format [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) `YYYY-MM-DDTHH:MM:SS.mmmZ`.
-Par exemple : 
+Par exemple :
 
 ```json
 {

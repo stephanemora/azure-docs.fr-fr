@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 4/9/2019
+ms.date: 08/29/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0892bde09891d2edbd7f8cc8715ccc0d2f047ed4
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492309"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113474"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -61,11 +61,14 @@ Le groupe de ressources contient toutes les ressources utilisées dans ce didact
 3. Pour **Nom du groupe de ressources**, entrez **Test-FW-RG**.
 4. Pour **Abonnement**, sélectionnez votre abonnement.
 5. Pour **Emplacement du groupe de ressources**, sélectionnez un emplacement. Toutes les ressources suivantes que vous créez doivent se trouver dans le même emplacement.
-6. Sélectionnez **Créer**.
+6. Sélectionnez **Create** (Créer).
 
 ### <a name="create-a-vnet"></a>Créer un réseau virtuel
 
 Ce réseau virtuel contient trois sous-réseaux.
+
+> [!NOTE]
+> La taille du sous-réseau AzureFirewallSubnet est /26. Pour plus d’informations sur la taille du sous-réseau, consultez le [FAQ Pare-feu Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
 1. Dans la page d’accueil du portail Azure, sélectionnez **Créer une ressource**.
 2. Sous **Mise en réseau**, sélectionnez **Réseau virtuel**.
@@ -75,11 +78,8 @@ Ce réseau virtuel contient trois sous-réseaux.
 7. Pour **Groupe de ressources**, sélectionnez **Test-FW-RG**.
 8. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
 9. Sous **Sous-réseau**, pour **Nom**, entrez **AzureFirewallSubnet**. Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
-10. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.
+10. Pour **Plage d’adresses**, tapez **10.0.1.0/26**.
 11. Acceptez les autres paramètres par défaut, puis sélectionnez **Créer**.
-
-> [!NOTE]
-> La taille minimale du sous-réseau AzureFirewallSubnet est /26.
 
 ### <a name="create-additional-subnets"></a>Créer des sous-réseaux supplémentaires
 
@@ -87,7 +87,7 @@ Ensuite, créez des sous-réseaux pour le serveur de rebond et un sous-réseau p
 
 1. Dans la page d’accueil du portail Azure, sélectionnez **Groupes de ressources** > **Test-FW-RG**.
 2. Sélectionnez le réseau virtuel **Test-FW-VN**.
-3. Sélectionnez **Sous-réseaux** > **+Sous-réseau**.
+3. Sélectionnez **Sous-réseaux** >  **+Sous-réseau**.
 4. Pour **Nom**, entrez **Workload-SN**.
 5. Pour **Plage d’adresses**, entrez **10.0.2.0/24**.
 6. Sélectionnez **OK**.
@@ -104,14 +104,14 @@ Maintenant créez les machines virtuelles de rebond et de charge de travail, et 
 
    |Paramètre  |Valeur  |
    |---------|---------|
-   |Groupe de ressources     |**Test-FW-RG**|
+   |Resource group     |**Test-FW-RG**|
    |Nom de la machine virtuelle     |**Srv-Jump**|
    |Région     |Identique au précédent|
    |Nom d’utilisateur de l’administrateur     |**azureuser**|
    |Mot de passe     |**Azure123456!**|
 
 4. Sous **Règles des ports d’entrée**, pour **Ports d’entrée publics**, sélectionnez **Autoriser les ports sélectionnés**.
-5. Pour **Sélectionner des ports d’entrée**, sélectionnez **RDP (3389)**.
+5. Pour **Sélectionner des ports d’entrée**, sélectionnez **RDP (3389)** .
 
 6. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Disques**.
 7. Acceptez les disques par défaut, puis sélectionnez **Suivant : Mise en réseau**.
@@ -125,7 +125,7 @@ Utilisez les informations du tableau suivant pour configurer une autre machine v
 
 |Paramètre  |Valeur  |
 |---------|---------|
-|Sous-réseau|**Workload-SN**|
+|Subnet|**Workload-SN**|
 |Adresse IP publique|**Aucun**|
 |Aucun port d’entrée public|**Aucun**|
 
@@ -140,10 +140,10 @@ Déployez le pare-feu dans le réseau virtuel.
 
    |Paramètre  |Valeur  |
    |---------|---------|
-   |Abonnement     |\<votre abonnement\>|
-   |Groupe de ressources     |**Test-FW-RG** |
+   |Subscription     |\<votre abonnement\>|
+   |Resource group     |**Test-FW-RG** |
    |Nom     |**Test-FW01**|
-   |Lieu     |Sélectionnez le même emplacement que celui utilisé précédemment|
+   |Location     |Sélectionnez le même emplacement que celui utilisé précédemment|
    |Choisir un réseau virtuel     |**Utiliser l’existant** : **Test-FW-VN**|
    |Adresse IP publique     |**Créer un nouveau**. L’adresse IP publique doit être le type de référence (SKU) Standard.|
 
@@ -165,7 +165,7 @@ Pour le sous-réseau **Workload-SN**, configurez l’itinéraire sortant par dé
 5. Pour **Abonnement**, sélectionnez votre abonnement.
 6. Pour **Groupe de ressources**, sélectionnez **Test-FW-RG**.
 7. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
-8. Sélectionnez **Créer**.
+8. Sélectionnez **Create** (Créer).
 9. Sélectionnez **Actualiser**, puis la table d’itinéraires **Firewall-route**.
 10. Sélectionnez **Sous-réseaux**, puis **Associer**.
 11. Sélectionnez **Réseau virtuel** > **Test-FW-VN**.
@@ -236,12 +236,12 @@ Testez maintenant le pare-feu pour vérifier qu’il fonctionne comme prévu.
 1. À partir du portail Azure, passez en revue les paramètres réseau de la machine virtuelle **Srv-Work** et notez l’adresse IP privée.
 2. Connectez un bureau à distance à la machine virtuelle **Srv-Jump**, puis connectez-vous. De là, ouvrez une connexion Bureau à distance à l’adresse IP privée **Srv-Work**.
 
-3. Ouvrez Internet Explorer et accédez à http://www.google.com.
+3. Ouvrez Internet Explorer et accédez à https://www.google.com.
 4. Sélectionnez **OK** > **Fermer** sur les alertes de sécurité d’Internet Explorer.
 
    La page d’accueil Google doit s’afficher.
 
-5. Accédez à http://www.microsoft.com.
+5. Accédez à https://www.microsoft.com.
 
    Vous devriez être bloqué par le pare-feu.
 
@@ -257,4 +257,4 @@ Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Superviser les journaux du Pare-feu Azure](./tutorial-diagnostics.md)
+> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)

@@ -1,34 +1,52 @@
 ---
-title: Mettre à l’échelle des applications web Azure App Service avec Ansible
-description: Découvrez comment utiliser Ansible pour créer une application web avec Java 8 et le runtime du conteneur Tomcat dans App Service sur Linux
-ms.service: azure
+title: 'Tutoriel : Mettre des applications à l’échelle dans Azure App Service avec Ansible | Microsoft Docs'
+description: Découvrez comment monter en puissance une application dans Azure App Service.
 keywords: ansible, azur, devops, bash, playbook, Azure App Service, Web App, scale, Java
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/08/2018
-ms.openlocfilehash: 2bafb73afa35c7670ac45f7027545277c70075ef
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: d63708cd87afa426f2712da6d0fcb11c84590798
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792274"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230953"
 ---
-# <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Mettre à l’échelle des applications web Azure App Service avec Ansible
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (ou simplement Web Apps) héberge des applications web, des API REST et le backend mobile. Vous pouvez développer dans votre langage préféré&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Didacticiel : Mettre des applications à l’échelle dans Azure App Service avec Ansible
 
-Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Cet article explique comment utiliser Ansible pour mettre à l’échelle une application dans Azure App Service.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-app-service.md](../../includes/open-source-devops-intro-app-service.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Obtenir les faits d'un plan App Service existant
+> * Monter en puissance le plan App Service en passant à S2 avec trois rôles de travail
 
 ## <a name="prerequisites"></a>Prérequis
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **Azure App Service Web Apps** - Si vous ne disposez pas encore d'application web Azure App Service, vous pouvez [Créer des applications web Azure avec Ansible](ansible-create-configure-azure-web-apps.md).
 
-## <a name="scale-up-an-app-in-app-service"></a>Montée en puissance d’une application dans App Service
-Vous pouvez monter en puissance en modifiant le niveau tarifaire du plan App Service auquel appartient votre application. Cette section présente un exemple de playbook Ansible qui définit l'opération suivante :
-- Obtenir les faits d'un plan App Service existant
-- Mettre à jour le plan App Service vers S2 avec trois rôles de travail
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+- **Application Azure App Service** : si vous n’avez pas d’application Azure App Service, [configurez une application dans Azure App Service avec Ansible](ansible-create-configure-azure-web-apps.md).
+
+## <a name="scale-up-an-app"></a>Monter en puissance une application
+
+Il existe deux workflows de mise à l'échelle : la montée en puissance (*scale up*) et la montée en charge (*scale out*).
+
+**Scale up :** acquérir davantage de ressources (processeur, mémoire, espace disque, machines virtuelles, etc.). Il s’agit de modifier le niveau tarifaire du plan App Service de l’application. 
+**Scale out :** augmenter le nombre d’instances de machines virtuelles qui exécutent l’application (jusqu’à 20 instances selon le niveau tarifaire du plan App Service). La [mise à l'échelle automatique](/azure/azure-monitor/platform/autoscale-get-started) permet de mettre automatiquement à l’échelle le nombre d’instances en fonction des planifications et des règles prédéfinies.
+
+Le code du playbook de cette section définit l’opération suivante :
+
+* Obtenir les faits d'un plan App Service existant
+* Mettre à jour le plan App Service vers S2 avec trois rôles de travail
+
+Enregistrez le playbook suivant en tant que `webapp_scaleup.yml` :
 
 ```yml
 - hosts: localhost
@@ -66,26 +84,26 @@ Vous pouvez monter en puissance en modifiant le niveau tarifaire du plan App Ser
       var: facts.appserviceplans[0].sku
 ```
 
-Enregistrez ce playbook en tant que fichier *webapp_scaleup.yml*.
+Exécutez le playbook avec la commande `ansible-playbook` :
 
-Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-Une fois le playbook exécuté, une sortie similaire à l’exemple suivant montre que le plan App Service a été correctement mis à jour vers S2 avec trois rôles de travail :
-```Output
-PLAY [localhost] **************************************************************
+Le playbook devrait alors donner une sortie de ce type :
 
-TASK [Gathering Facts] ********************************************************
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Get facts of existing App service plan] **********************************************************
+TASK [Get facts of existing App service plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
 
-TASK [debug] ******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 1,
@@ -96,13 +114,13 @@ ok: [localhost] => {
     }
 }
 
-TASK [Scale up the App service plan] *******************************************
+TASK [Scale up the App service plan] 
 changed: [localhost]
 
-TASK [Get facts] ***************************************************************
+TASK [Get facts] 
 ok: [localhost]
 
-TASK [debug] *******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 3,
@@ -113,10 +131,11 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP **********************************************************************
+PLAY RECAP 
 localhost                  : ok=6    changed=1    unreachable=0    failed=0 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 > [!div class="nextstepaction"] 
-> [Ansible sur Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible sur Azure](/azure/ansible/)

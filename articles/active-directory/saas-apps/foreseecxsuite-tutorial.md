@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 14732b02e56d56baa032b8a3728ca892f4ad7d2f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563581"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutoriel : Intégration d’Azure Active Directory à ForeSee CX Suite
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de ForeSee CX Suite à Azure AD, vous devez ajo
 
 **Pour ajouter ForeSee CX Suite à partir de la galerie, suivez les étapes ci-dessous :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -119,7 +119,7 @@ Pour configurer l’authentification unique Azure AD avec ForeSee CX Suite, ef
 
     a. Dans la zone de texte **URL de connexion**, tapez une URL : `https://cxsuite.foresee.com/`
 
-    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : https://www.okta.com/saml2/service-provider/<UniqueID>
+    b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : https:\//www.okta.com/saml2/service-provider/\<UniqueID>
 
     > [!Note]
     > Si la valeur **Identificateur** n’est pas automatiquement renseignée, renseignez-la manuellement conformément au modèle ci-dessus. La valeur de l'identificateur n'est pas réelle. Mettez à jour cette valeur avec l’identificateur réel. Pour obtenir cette valeur, contactez [l’équipe de support client de ForeSee CX Suite](mailto:support@foresee.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -194,7 +194,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-foresee-cx-suite-test-user"></a>Créer un utilisateur de test ForeSee CX Suite
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans ForeSee CX Suite. Rapprochez-vous de [l’équipe de support de ForeSee CX Suite](mailto:support@foresee.com) pour ajouter les utilisateurs ou le domaine à mettre sur liste verte sur la plateforme ForeSee CX Suite. Si le domaine est ajouté par l’équipe, les utilisateurs sont automatiquement attribués à la plateforme ForeSee CX Suite. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans ForeSee CX Suite. Collaborez avec l’[équipe de support de LoginRadius](mailto:support@foresee.com) pour ajouter les utilisateurs ou le domaine à mettre sur liste verte sur la plateforme ForeSee CX Suite. Si le domaine est ajouté par l’équipe, les utilisateurs sont automatiquement attribués à la plateforme ForeSee CX Suite. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

@@ -1,5 +1,5 @@
 - name: Documentation Service d’exploration des connaissances
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: En savoir plus sur le Service d’exploration des connaissances

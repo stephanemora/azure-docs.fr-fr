@@ -2,8 +2,8 @@
 title: Architecture de déploiement - Module HSM dédié Azure | Microsoft Docs
 description: Considérations de base relatives à la conception lors de l’utilisation d’un module HSM dédié Azure en tant que partie d’une architecture d’application
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: barclayn
-ms.openlocfilehash: 1e00e1f06f2409c94174a752a799cd4c1b7b23ef
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.author: mbaldwin
+ms.openlocfilehash: 93755ded8f9db27cf8e78079f32e90cccfac2831
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539970"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883838"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Architecture de déploiement Azure HSM dédié
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Architecture de déploiement Azure Dedicated HSM
 
 Un HSM dédié Azure permet le stockage de clés de chiffrement dans Azure. Il satisfait à des exigences de sécurité strictes. Les clients tireront un bénéfice de l’utilisation du HSM dédié Azure s’ils :
 
@@ -32,7 +32,7 @@ Les HSM sont répartis entre les centres de données de Microsoft et peuvent êt
 * USA Est
 * USA Est 2
 * USA Ouest
-* USA Centre Sud
+* États-Unis - partie centrale méridionale
 * Asie Sud-Est
 * Asie Est
 * Europe Nord
@@ -42,7 +42,7 @@ Les HSM sont répartis entre les centres de données de Microsoft et peuvent êt
 * Centre du Canada
 * Est du Canada
 * Australie Est
-* Australie Sud-Est
+* Sud-Australie Est
 
 Chacune de ces régions a des racks HSM déployés dans deux centres de données indépendants ou dans au moins deux zones de disponibilité indépendantes. L’Asie Sud-Est a trois zones de disponibilité et USA Est 2 en a deux. Huit régions au total en Europe, en Asie et aux États-Unis proposent le service HSM dédié. Pour plus d’informations sur les régions Azure, consultez les [informations sur les régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).
 L’emplacement/la latence, une haute disponibilité et la prise en charge d’autres applications distribuées font partie des facteurs de conception pour une solution HSM dédié.

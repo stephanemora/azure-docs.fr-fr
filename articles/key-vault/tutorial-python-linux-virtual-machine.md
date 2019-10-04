@@ -2,24 +2,21 @@
 title: 'Tutoriel : Utiliser une machine virtuelle Linux et une application Python pour stocker des secrets dans Azure Key Vault | Microsoft Docs'
 description: Dans ce tutoriel, vous allez découvrir comment configurer une application Python pour qu’elle lise un secret dans Azure Key Vault.
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: msmbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: b7077653ec959f99491cecd71573c091772448f4
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 48095a2d446c8f85bab9d9268e924e29fe9a9f21
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749628"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71003892"
 ---
-# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutoriel : Utiliser une machine virtuelle Linux et une application Python pour stocker des secrets dans Azure Key Vault
+# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Didacticiel : Utiliser une machine virtuelle Linux et une application Python pour stocker des secrets dans Azure Key Vault
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données nécessaires pour accéder à vos applications, services et ressources informatiques.
 
@@ -33,7 +30,7 @@ Dans ce tutoriel, vous allez configurer une application web Azure pour lire des 
 > * Octroyer les autorisations nécessaires à l’application console pour lire les données provenant du coffre de clés
 > * Récupérer un secret dans votre coffre de clés
 
-Avant d’aller plus loin, assurez-vous d’avoir bien compris les [concepts de base sur Key Vault](key-vault-whatis.md#basic-concepts).
+Avant d’aller plus loin, assurez-vous d’avoir bien compris les [concepts de base sur Key Vault](basic-concepts.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -102,7 +99,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 Créez une machine virtuelle avec la commande `az vm create`.
 
-L’exemple suivant crée une machine virtuelle nommée **myVM** et ajoute un compte d’utilisateur nommé **azureuser**. Le paramètre `--generate-ssh-keys` génère automatiquement une clé SSH qu’il place dans l’emplacement de clé par défaut (**~/.ssh**). Pour créer un ensemble spécifique de clés à la place, utilisez l’option `--ssh-key-value`.
+L’exemple suivant crée une machine virtuelle nommée **myVM** et ajoute un compte d’utilisateur nommé **azureuser**. Le paramètre `--generate-ssh-keys` génère automatiquement une clé SSH qu’il place dans l’emplacement de clé par défaut ( **~/.ssh**). Pour créer un ensemble spécifique de clés à la place, utilisez l’option `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \

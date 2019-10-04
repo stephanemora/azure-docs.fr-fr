@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6775f6e37a5b282afcfcdce7f93751e852923366
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168356"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64571376"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect : Quand vous avez un locataire existant
 La plupart des rubriques sur l’utilisation d’Azure AD Connect suppose que vous démarrez avec un nouveau client Azure AD qui ne contient aucun utilisateur ni autres objets. Mais si vous avez démarré avec un client Azure AD, auquel vous avez ajouté des utilisateurs et d’autres objets, et que vous souhaitez désormais utiliser Connect, alors cette rubrique est faite pour vous.
@@ -34,7 +34,7 @@ Vous pouvez gérer certains utilisateurs en local et d’autres dans le cloud. U
 Si vous avez commencé à gérer des utilisateurs dans Azure AD qui se trouvent également dans un répertoire AD local et que vous souhaitez ultérieurement utiliser Connect, il existe des considérations supplémentaires que vous devez prendre en compte.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Synchroniser avec les utilisateurs existants dans Azure AD
-Lorsque vous installez Azure AD Connect et démarrez la synchronisation, le service de synchronisation Azure AD (dans Azure AD) effectue une vérification de chaque nouvel objet et essaie de trouver un objet existant correspondant. Il existe trois attributs utilisés pour ce processus : **userPrincipalName**, **proxyAddresses** et **sourceAnchor**/**immutableID**. Une correspondance avec **userPrincipalName** et avec **proxyAddresses** est appelée une **correspondance souple**. Une correspondance avec **sourceAnchor** est appelée une **correspondance exacte**. Pour l’attribut **proxyAddresses**, seule la valeur avec **SMTP :**, c’est-à-dire l’adresse e-mail principale, est utilisée pour l’évaluation.
+Lorsque vous installez Azure AD Connect et démarrez la synchronisation, le service de synchronisation Azure AD (dans Azure AD) effectue une vérification de chaque nouvel objet et essaie de trouver un objet existant correspondant. Il existe trois attributs utilisés pour ce processus : **userPrincipalName**, **proxyAddresses** et **sourceAnchor**/**immutableID**. Une correspondance avec **userPrincipalName** et avec **proxyAddresses** est appelée une **correspondance souple**. Une correspondance avec **sourceAnchor** est appelée une **correspondance exacte**. Pour l’attribut **proxyAddresses**, seule la valeur avec **SMTP :** , c’est-à-dire l’adresse e-mail principale, est utilisée pour l’évaluation.
 
 La correspondance est évaluée uniquement pour les nouveaux objets provenant de Connect. Si vous modifiez un objet existant afin qu’il corresponde à l’un de ces attributs, une erreur s’affiche à la place.
 
@@ -58,6 +58,15 @@ Pour une nouvelle installation de Connect, il n’existe aucune différence prat
 
 ### <a name="other-objects-than-users"></a>Objets autres que des utilisateurs
 Pour les groupes et les contacts activés pour le courrier, vous pouvez établir une correspondance souple en fonction de proxyAddresses. La correspondance exacte n’est pas applicable dans la mesure où vous pouvez seulement mettre à jour sourceAnchor/immutableID (à l’aide de PowerShell) sur les utilisateurs uniquement. Pour les groupes qui ne sont pas activés pour le courrier, il n’existe actuellement aucune prise en charge pour la correspondance souple ou la correspondance exacte.
+
+### <a name="admin-role-considerations"></a>Considérations relatives au rôle d’administrateur
+Pour empêcher les utilisateurs locaux non approuvés d’établir une correspondance avec un utilisateur cloud qui a un rôle d’administrateur, Azure AD Connect ne met pas en correspondance des objets utilisateur locaux avec des objets qui ont un rôle d’administrateur. Il s’agit du comportement par défaut. Pour contourner ce comportement, vous pouvez procéder comme suit :
+
+1.  Supprimez les rôles d’annuaire de l’objet utilisateur cloud uniquement
+2.  Déclenchez une synchronisation
+3.  Rétablissez éventuellement les rôles d’annuaire dans l’objet utilisateur cloud une fois que la mise en correspondance s’est produite.
+
+
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Créer un nouveau répertoire Active Directory local à partir des données dans Azure AD
 Certains clients démarrent avec une solution cloud uniquement avec Azure AD et ils ne disposent pas d’un répertoire AD local. Ensuite, ils souhaitent consommer des ressources locales et créer un répertoire AD local basé sur les données d’Azure AD. Azure AD Connect ne peut pas vous aider dans ce scénario. Il ne crée pas d’utilisateurs locaux et il ne peut pas définir le mot de passe local pour qu’il soit le même que dans Azure AD.

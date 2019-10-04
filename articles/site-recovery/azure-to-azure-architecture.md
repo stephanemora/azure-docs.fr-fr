@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 09/03/2019
 ms.author: raynew
-ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: d415f303976ae454cb99f07e8d6e15e338e24d7d
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540718"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231453"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architecture pour la récupération d’urgence d’Azure vers Azure
 
@@ -31,7 +31,7 @@ Les composants impliqués dans la reprise d’activité des machines virtuelles 
 **Machines virtuelles dans la région source** | Une ou plusieurs machines virtuelles Azure dans une [région source prise en charge](azure-to-azure-support-matrix.md#region-support).<br/><br/> Les machines virtuelles peuvent exécuter tout type de [système d’exploitation pris en charge](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Stockage de machines virtuelles sources** | Les machines virtuelles Azure peuvent avoir des disques managés ou non managés répartis sur plusieurs comptes de stockage.<br/><br/>[En savoir plus](azure-to-azure-support-matrix.md#replicated-machines---storage) sur le stockage Azure pris en charge
 **Réseaux machines virtuelles sources** | Les machines virtuelles peuvent se trouver dans un ou plusieurs sous-réseaux d’un réseau virtuel de la région source. [En savoir plus](azure-to-azure-support-matrix.md#replicated-machines---networking) sur les exigences réseau
-**Compte de stockage de cache** | Vous avez besoin d’un compte de stockage de cache dans le réseau source. Lors de la réplication, les modifications apportées aux machines virtuelles sont stockées dans le cache avant d’être envoyées vers le stockage cible.<br/><br/> L’utilisation d’un cache garantit un impact minimal sur les applications de production qui sont exécutées sur une machine virtuelle.<br/><br/> [En savoir plus](azure-to-azure-support-matrix.md#cache-storage) sur les exigences de stockage de cache 
+**Compte de stockage de cache** | Vous avez besoin d’un compte de stockage de cache dans le réseau source. Lors de la réplication, les modifications apportées aux machines virtuelles sont stockées dans le cache avant d’être envoyées vers le stockage cible.  Les comptes de stockage de cache doivent être Standard.<br/><br/> L’utilisation d’un cache garantit un impact minimal sur les applications de production qui sont exécutées sur une machine virtuelle.<br/><br/> [En savoir plus](azure-to-azure-support-matrix.md#cache-storage) sur les exigences de stockage de cache 
 **Ressources cibles** | Les ressources cibles sont utilisées pendant la réplication et lors d’un basculement. Site Recovery peut configurer une ressource cible par défaut. Vous pouvez également en créer ou en personnaliser une.<br/><br/> Dans la région cible, vérifiez que vous pouvez créer des machines virtuelles, et que votre abonnement dispose de suffisamment de ressources pour prendre en charge les machines virtuelles qui seront nécessaires dans la région cible. 
 
 ![Réplication source et cible](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
@@ -66,7 +66,7 @@ Par défaut, lorsque vous activez la réplication de machines virtuelles Azure, 
 **Paramètre de stratégie** | **Détails** | **Par défaut**
 --- | --- | ---
 **Conservation des points de récupération** | Spécifie la durée pendant laquelle Site Recovery conserve les points de récupération. | 24 heures
-**Fréquence des instantanés de cohérence des applications** | Fréquence à laquelle Site Recovery prend des instantanés de cohérence des applications. | Toutes les 60 minutes.
+**Fréquence des instantanés de cohérence des applications** | Fréquence à laquelle Site Recovery prend des instantanés de cohérence des applications. | Toutes les quatre heures
 
 ### <a name="managing-replication-policies"></a>Gestion des stratégies de réplication
 
@@ -139,12 +139,13 @@ Si un accès sortant aux machines virtuelles est contrôlé à l’aide d’URL,
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connectivité sortante pour les plages d’adresses IP
 
 Pour contrôler la connectivité sortante des machines virtuelles à l’aide d’adresses IP, vous devez autoriser ces adresses.
+Veuillez noter que les détails des exigences de connectivité réseau sont disponibles dans le [livre blanc de la mise en réseau](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges) 
 
 #### <a name="source-region-rules"></a>Règles de la région source
 
 **Règle** |  **Détails** | **Balise du service**
 --- | --- | --- 
-Autoriser le trafic HTTPS sortant : port 443 | Autorise toutes les plages qui correspondent aux comptes de stockage de la région source | Stockage. \<région-name >.
+Autoriser le trafic HTTPS sortant : port 443 | Autorise toutes les plages qui correspondent aux comptes de stockage de la région source | Storage.\<region-name>.
 Autoriser le trafic HTTPS sortant : port 443 | Autorise les plages qui correspondent à Azure Active Directory (Azure AD).<br/><br/> Si des adresses Azure AD sont ajoutées par la suite, vous devez créer des règles de groupe de sécurité réseau (NSG).  | AzureActiveDirectory
 Autoriser le trafic HTTPS sortant : port 443 | Autorise l’accès aux [points de terminaison Site Recovery](https://aka.ms/site-recovery-public-ips) qui correspondent à l’emplacement cible. 
 
@@ -152,7 +153,7 @@ Autoriser le trafic HTTPS sortant : port 443 | Autorise l’accès aux [points 
 
 **Règle** |  **Détails** | **Balise du service**
 --- | --- | --- 
-Autoriser le trafic HTTPS sortant : port 443 | Autorise toutes les plages qui correspondent aux comptes de stockage de la région cible. | Stockage. \<région-name >.
+Autoriser le trafic HTTPS sortant : port 443 | Autorise toutes les plages qui correspondent aux comptes de stockage de la région cible. | Storage.\<region-name>.
 Autoriser le trafic HTTPS sortant : port 443 | Autorise les plages qui correspondent à Azure AD.<br/><br/> Si des adresses Azure AD sont ajoutées par la suite, vous devez créer des règles NSG.  | AzureActiveDirectory
 Autoriser le trafic HTTPS sortant : port 443 | Autorise l’accès aux [points de terminaison Site Recovery](https://aka.ms/site-recovery-public-ips) qui correspondent à l’emplacement source. 
 

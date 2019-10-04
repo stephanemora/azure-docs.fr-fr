@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869545"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60350488"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Fédération avec Azure AD Connect
 Azure Active Directory (Azure AD) Connect vous permet de configurer la fédération avec Active Directory Federation Services (AD FS) et Azure AD au niveau local. Avec l’authentification de fédération, vous pouvez autoriser les utilisateurs à se connecter aux services Azure AD avec leurs mots de passe locaux sans avoir à les saisir de nouveau, et ce, alors qu’ils sont sur le réseau d’entreprise. En utilisant l’option de fédération AD FS, vous pouvez déployer un nouveau service AD FS ou spécifier une installation existante dans une batterie de serveurs Windows Server 2012 R2.
@@ -36,7 +36,7 @@ Cette rubrique présente les fonctions associées à la fédération pour Azure 
 | **Installation d’AD FS avec Azure AD Connect** | |
 | [Composants requis](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Consultez les conditions préalables à l’installation d’AD FS via Azure AD Connect |
 | [Configurer une batterie de serveurs AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Installation d’une nouvelle batterie de serveurs AD FS avec Azure AD Connect |
-| [Fédérer avec Azure AD à l’aide des ID de connexion alternatif](how-to-connect-fed-management.md#alternateid) | Configurer la fédération à l’aide d’un ID de connexion de substitution  |
+| [Fédérer avec Azure AD à l’aide d’un ID de connexion de substitution](how-to-connect-fed-management.md#alternateid) | Configurer la fédération à l’aide d’un ID de connexion de substitution  |
 | **Modifier la configuration AD FS** | |
 | [Réparation de l’approbation](how-to-connect-fed-management.md#repairthetrust) |Rétablissement de l’approbation actuelle entre AD FS et Office 365/Azure au niveau local. |
 | [Ajouter un nouveau serveur AD FS](how-to-connect-fed-management.md#addadfsserver) |Extension d’une batterie de serveurs AD FS avec l’ajout d’un serveur AD FS après l’installation initiale |

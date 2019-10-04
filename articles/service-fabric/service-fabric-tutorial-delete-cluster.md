@@ -3,7 +3,7 @@ title: Supprimer un cluster Service Fabric dans Azure | Microsoft Docs
 description: Dans ce didacticiel, vous allez découvrir comment supprimer un cluster Service Fabric hébergé par Azure et toutes ses ressources. Vous pouvez supprimer le groupe de ressources contenant le cluster ou supprimer des ressources de manière sélective.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 0e5137a8183f378ee5960846e281222c6ecaaa47
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c6fd4234257cbb19580a5b406750cc72d03609c0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995708"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598870"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Didacticiel : Supprimer un cluster Service Fabric dans Azure
 

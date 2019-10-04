@@ -1,44 +1,23 @@
 ---
-title: Créer une offre Microsoft Dynamics 365 Business Central | Microsoft Docs
-description: Explique comment créer une offre Microsoft Dynamics 365 Business Central à l’aide du portail Cloud Partner.
+title: Créer une offre Microsoft Dynamics 365 Business Central | Place de marché Azure
+description: Article déprécié avec des liens vers des articles de PC correspondants ; auparavant « Explique comment créer une offre Microsoft Dynamics 365 Business Central à l’aide du portail Cloud Partner ».
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
-author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
+author: ChJenk
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: bc6ca73d7cfbef73350d24be60c078994ea761c3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 09/18/2019
+ms.author: pabutler
+ms.openlocfilehash: 165406f2cf7ad6087febebdfdc67896527d23961
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853203"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105591"
 ---
-<a name="how-to-create-your-new-microsoft-dynamics-365-business-central-offer"></a>Créer une offre Microsoft Dynamics 365 Business Central
-====================================================================
+# <a name="how-to-create-your-new-microsoft-dynamics-365-business-central-offer"></a>Créer une offre Microsoft Dynamics 365 Business Central
 
-Une fois votre application créée, vous devez définir tous les attributs déterminant comment celle-ci sera répertoriée dans Microsoft AppSource. Par exemple, vous devez fournir les informations relatives à votre société, votre offre et vos plans, des informations marketing, les coordonnées du support et les catégories Microsoft AppSource. 
+Le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/) ne prend plus en charge la création et la gestion des offres Dynamics 365 Business Central. Cette fonctionnalité a été déplacée vers le [portail de l’Espace partenaires](https://partner.microsoft.com/) Microsoft. Pour plus d’informations, consultez [Créer une offre Dynamics 365 Business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer).
 
-Pour définir les attributs, connectez-vous au [portail Microsoft Cloud Partner](https://cloudpartner.azure.com/) à l'aide du compte Microsoft que vous avez utilisé pour l’inscription dans le Centre de développement.
+## <a name="next-steps"></a>Étapes suivantes
 
-1. Sur le portail Cloud Partner, accédez à la barre de navigation gauche, puis cliquez sur **+ Nouvelle offre** et sélectionnez **Dynamics 365 Business Central** dans la liste des applications.
-
-   ![Créer une offre](./media/d365-financials/image003.png)
-
-2. Un « Éditeur » de nouvelle offre s’affiche, et vous voilà prêt à commencer.
-
-   ![Séquence de publication d’offre](./media/d365-financials/image005.png)
-
-3. L'affichage « Éditeur » présente une vue d’ensemble des onglets à terminer. Chaque onglet se compose d’un ensemble de champs à compléter. Les champs obligatoires sont signalés par un astérisque rouge (\*). Vous ne pourrez pas passer à l’étape de publication suivante avant d'avoir complété ces champs. Pour une application Dynamics 365 Business Central, les onglets suivants apparaissent :
-
--   **Paramètres de l’offre**
--   **Informations techniques**
--   **Informations sur les vitrines**
--   **Contacts**
+Avant de créer des offres Dynamics 365 Business Central, veillez à d’abord lire l’article [Créer un compte Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), puis ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/directory) et sélectionnez la page **Présentation**. Suivez les instructions fournies dans [Créer une offre Dynamics 365 Business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) pour créer votre offre.

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181981"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60245503"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Synchronisation d’Azure AD Connect : Comprendre les expressions d’approvisionnement déclaratif
 Azure AD Connect sync s’appuie sur l’approvisionnement déclaratif introduit pour la première fois dans Forefront Identity Manager 2010. Il vous permet d’implémenter toute votre logique métier d’intégration des identités sans avoir à écrire de code compilé.
@@ -62,10 +62,10 @@ Le connecteur Active Directory fournissait les paramètres suivants pour les rè
 | Forest.FQDN |Format FQDN du nom de forêt en cours d’importation, par exemple, fabrikam.com |
 | Forest.LDAP |Format LDAP du nom de forêt en cours d’importation, par exemple, DC=fabrikam,DC=com |
 
-Le système fournit le paramètre suivant, qui est utilisé pour obtenir l'identificateur du connecteur en cours d'exécution :   
+Le système fournit le paramètre suivant, qui est utilisé pour obtenir l'identificateur du connecteur en cours d'exécution :  
 `Connector.ID`
 
-Voici un exemple qui remplira le domaine d’attribut du métaverse avec le nom netbios du domaine où se trouve l’utilisateur :   
+Voici un exemple qui remplira le domaine d’attribut du métaverse avec le nom netbios du domaine où se trouve l’utilisateur :  
 `domain` <- `%Domain.Netbios%`
 
 ### <a name="operators"></a>Operators
@@ -74,7 +74,7 @@ Vous pouvez utiliser les opérateurs suivants :
 * **Opérateurs de comparaison** : &lt;, &lt;=, &lt;&gt;, =, &gt;, &gt;=
 * **Mathématiques** : +, -, \*, -
 * **Chaîne** : &amp; (concaténation)
-* **Logiques** : &&amp;amp; (et), || (ou)
+* **Logiques** : &&amp;amp;amp;amp; (et), || (ou)
 * **Ordre d’évaluation**: ( )
 
 Les opérateurs sont évalués de la gauche vers la droite et ont la même priorité d'évaluation. Par exemple, le \* (signe multiplicateur) n’est pas évalué avant - (soustraction). 2\*(5+3) n’est pas la même chose que 2\*5+3. Les parenthèses ( ) sont utilisées pour modifier l’ordre d’évaluation lorsqu’un ordre d’évaluation de la gauche vers la droite n’est pas approprié.
@@ -82,7 +82,7 @@ Les opérateurs sont évalués de la gauche vers la droite et ont la même prior
 ## <a name="multi-valued-attributes"></a>Attributs à valeurs multiples
 Les fonctions peuvent fonctionner sur des attributs à valeur unique et à valeurs multiples. Pour les attributs à valeurs multiples, la fonction fonctionne sur toutes les valeurs et applique la même fonction à chaque valeur.
 
-Par exemple,   
+Par exemple,  
 `Trim([proxyAddresses])` supprime les espaces de gauche à droite dans chaque valeur de l’attribut proxyAddress.  
 `Word([proxyAddresses],1,"@") & "@contoso.com"` Pour chaque valeur comportant un signe @-sign, remplacez le domaine par @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Recherchez l’adresse SIP et supprimez-la des valeurs.

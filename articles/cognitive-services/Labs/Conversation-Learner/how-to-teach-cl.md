@@ -3,19 +3,20 @@ title: Formation avec Conversation Learner - Microsoft Cognitive Services | Micr
 titleSuffix: Azure
 description: Apprenez à former avec Conversation Learner.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 8c55bb27ce5a413c5ceae22371ad61a5acf47281
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: a18d4c31da4ffeefebd4bda9aa441fdfec062be9
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220261"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705261"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Formation avec Conversation Learner 
 
@@ -54,7 +55,7 @@ Correspondance exacte des mots dans l’énoncé actuel de l’utilisateur actue
 Mots similaires dans l’énoncé actuel de l’utilisateur | 3 | 
 Actions du système avant la fois précédente | 4 |
 Entités présentes les fois précédentes | 4 | 
-Énoncés précédents de l’utilisateur | 5. | 
+Énoncés précédents de l’utilisateur | 5\. | 
 
 > [!NOTE]
 > La sélection d’action ne prend pas le contenu des actions du système (texte, contenu de carte, ou bien nom ou comportement d’API), mais uniquement l’identité de l’action du système.  Par conséquent, la modification du contenu d’une action ne modifiera pas le comportement du modèle de sélection d’action.

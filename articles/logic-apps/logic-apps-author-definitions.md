@@ -10,16 +10,16 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: daeb900abc3f24a408fc1b5f6e989e5181f2a463
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: a96cc56c85db6726bf2cdaff72904e76ecbaf087
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862741"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164650"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Créer, modifier ou étendre JSON pour les définitions d’applications logiques dans Azure Logic Apps
 
-Lorsque vous créez des solutions d’intégration d’entreprise avec des flux de travail automatisés dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), les définitions d’application logique sous-jacentes utilisent le JavaScript Object Notation (JSON) avec le [schéma Langue de la définition du flux de travail (WDL)](../logic-apps/logic-apps-workflow-definition-language.md) pour leur description et validation. Ces formats simplifient la lecture et la compréhension des définitions d’application sans en savoir beaucoup sur le code. Lorsque vous désirez automatiser la création et le déploiement des applications logiques, vous pouvez inclure des définitions d’application logique en tant que [Ressources Azure](../azure-resource-manager/resource-group-overview.md) dans des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment). Pour créer, gérer et déployer des applications logiques, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) ou les [API REST Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
+Lorsque vous créez des solutions d’intégration d’entreprise avec des flux de travail automatisés dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), les définitions d’application logique sous-jacentes utilisent le JavaScript Object Notation (JSON) avec le [schéma Langue de la définition du flux de travail (WDL)](../logic-apps/logic-apps-workflow-definition-language.md) pour leur description et validation. Ces formats simplifient la lecture et la compréhension des définitions d’application sans en savoir beaucoup sur le code. Lorsque vous désirez automatiser la création et le déploiement des applications logiques, vous pouvez inclure des définitions d’application logique en tant que [Ressources Azure](../azure-resource-manager/resource-group-overview.md) dans des [modèles Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md). Pour créer, gérer et déployer des applications logiques, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) ou les [API REST Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
 
 Pour utiliser des définitions d’application logique dans JSON, ouvrez l’éditeur en mode Code lorsque vous travaillez dans le portail Azure ou dans Visual Studio ou copiez la définition dans tout éditeur de votre choix. Si vous débutez avec les applications logiques, consultez [procédure de création de votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -45,11 +45,14 @@ Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment 
 
 1. Ouvrez la solution Visual Studio ou le projet [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), qui contient votre application logique.
 
-2. Recherchez et ouvrez la définition de votre application logique, qui par défaut s’affiche dans un [modèle Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), nommé **LogicApp.json**. Vous pouvez utiliser et personnaliser ce modèle pour le déploiement vers différents environnements.
+2. Recherchez et ouvrez la définition de votre application logique, qui par défaut s’affiche dans un [modèle Resource Manager](../azure-resource-manager/template-deployment-overview.md), nommé **LogicApp.json**. Vous pouvez utiliser et personnaliser ce modèle pour le déploiement vers différents environnements.
 
 3. Ouvrez le menu contextuel de la définition et du modèle de votre application logique. Sélectionnez **Ouvrir avec le Concepteur d’application logique**.
 
    ![Ouvrir une application logique dans une solution Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Si vous n’avez pas cette commande dans Visual Studio 2019, vérifiez que vous avez les dernières mises à jour pour Visual Studio.
 
 4. En bas du concepteur, choisissez **Mode Code**. 
 
@@ -59,108 +62,21 @@ Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment 
 
 ## <a name="parameters"></a>parameters
 
-Les paramètres vous permettent de réutiliser des valeurs dans l’ensemble de votre application logique. Ils conviennent également au remplacement des valeurs que vous êtes susceptible de modifier souvent. Par exemple, si vous possédez une adresse e-mail que vous souhaitez utiliser dans plusieurs emplacements, vous devez la définir en tant que paramètre.
+Le cycle de vie du déploiement a généralement des environnements différents pour le développement, le test, la mise en lots et la production. Si vous souhaitez réutiliser des valeurs dans votre application logique sans codage en dur ou qui varient en fonction de vos besoins en matière de déploiement, vous pouvez créer un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) pour votre définition de flux de travail afin de pouvoir également automatiser le déploiement d’applications logiques. 
 
-Les paramètres sont également utiles si vous devez remplacer des paramètres dans des environnements différents. En savoir plus sur les [paramètres de déploiement](#deployment-parameters) et [la documentation de l’API REST pour Azure Logic Apps](https://docs.microsoft.com/rest/api/logic).
+Suivez ces étapes générales pour *paramétrer*, ou définir et utiliser des paramètres, pour ces valeurs à la place. Vous pouvez ensuite fournir les valeurs dans un fichier de paramètres distinct qui transmet ces valeurs à votre modèle. De cette façon, vous pouvez modifier ces valeurs plus facilement sans avoir à mettre à jour et à redéployer votre application logique. Pour obtenir tous les détails, consultez [Vue d’ensemble : Automatiser le déploiement pour les applications logiques avec des modèles Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
-> [!NOTE]
-> Les paramètres sont uniquement disponibles en mode Code.
+1. Dans votre modèle, définissez les paramètres de modèle et les paramètres de définition de flux de travail pour accepter les valeurs à utiliser au moment du déploiement et de l’exécution, respectivement.
 
-Dans le [premier exemple d’application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md), vous avez créé un flux de travail qui envoie des e-mails lorsque de nouvelles publications s’affichent dans le flux RSS d’un site web. L’URL du flux étant codée en dur, cet exemple montre comment remplacer la valeur de la requête par un paramètre afin que vous puissiez modifier plus facilement l’URL du flux.
+   Les paramètres de modèle sont définis dans une section de paramètres en dehors de votre définition de flux de travail, tandis que les paramètres de définition de flux de travail sont définis dans une section de paramètres à l’intérieur de votre définition de flux de travail.
 
-1. En mode code, recherchez l’objet `parameters : {}` et ajoutez un objet `currentFeedUrl` :
+1. Remplacez les valeurs codées en dur par des expressions qui font référence à ces paramètres. Les expressions de modèle utilisent une syntaxe différente des expressions de définition de flux de travail.
 
-   ``` json
-   "currentFeedUrl" : {
-      "type" : "string",
-      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
-   }
-   ```
+   Évitez de compliquer votre code en n’utilisant pas d’expressions de modèle, qui sont évaluées au moment du déploiement, à l’intérieur d’expressions de définition de flux de travail, qui sont évaluées au moment de l’exécution. Utilisez uniquement des expressions de modèle en dehors de votre définition de flux de travail. Utilisez uniquement des expressions de définition de flux de travail à l’intérieur de votre définition de flux de travail.
 
-2. Dans l’action `When_a_feed-item_is_published`, recherchez la section `queries` et remplacez la valeur de la requête par `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
+   Lorsque vous spécifiez les valeurs de vos paramètres de définition de flux de travail, vous pouvez référencer des paramètres de modèle à l’aide de la section de paramètres en dehors de votre définition de flux de travail, mais toujours à l’intérieur de la définition de ressource pour votre application logique. De cette façon, vous pouvez transmettre les valeurs de paramètre de modèle dans les paramètres de définition de votre flux de travail.
 
-   **Avant**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
-       }
-   },
-   ```
-
-   **Après**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "#@{parameters('currentFeedUrl')}"
-       }
-   },
-   ```
-
-   Pour joindre deux chaînes ou plus, vous pouvez également utiliser la fonction `concat`. 
-   Par exemple, `"@concat('#',parameters('currentFeedUrl'))"` fonctionne de la même façon que l’exemple précédent.
-
-3.  Une fois ces opérations effectuées, sélectionnez **Enregistrer**.
-
-Vous pouvez maintenant modifier le flux RSS du site web en transmettant une autre URL via l’objet `currentFeedURL`.
-
-<a name="deployment-parameters"></a>
-
-## <a name="deployment-parameters-for-different-environments"></a>Paramètres de déploiement pour différents environnements
-
-En règle générale, les cycles de vie de déploiement présentent des environnements de développement, intermédiaires et de production. Par exemple, vous pouvez mettre en œuvre la même définition d’application logique dans tous ces environnements, tout en utilisant des bases de données distinctes. De même, vous pouvez vouloir utiliser la même définition dans plusieurs régions à des fins de haute disponibilité, tout en souhaitant que chaque instance de l’application logique utilise la base de données d’une région spécifique.
-
-> [!NOTE]
-> Ce scénario diffère de l’utilisation de paramètres au moment de *l’exécution* dans lequel il est conseillé d’utiliser la fonction `trigger()`.
-
-Voici une définition de base :
-
-``` json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-Puis, dans la requête `PUT` réelle pour les applications logiques, vous pouvez fournir le paramètre `uri`. Vous pouvez fournir une valeur différente pour le paramètre `connection` dans chaque environnement. Étant donné qu’il n’existe plus de valeur par défaut, la charge utile d’application logique nécessite le paramètre suivant :
-
-``` json
-{
-    "properties": {},
-        "definition": {
-          /// Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
-}
-```
-
-Pour plus d’informations, consultez la [documentation de l’API REST pour Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
+1. Stockez les valeurs de vos paramètres dans un [fichier de paramètres](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) séparé et incluez ce fichier dans votre déploiement.
 
 ## <a name="process-strings-with-functions"></a>Traiter des chaînes avec des fonctions
 

@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dbf0aea50f382a0b325bf068a200cde42098733
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 204183fa25203a094eecd8df85a8bfd5dcf271cc
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547588"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593972"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilisation d’Azure CDN avec CORS
 ## <a name="what-is-cors"></a>Présentation de CORS
@@ -30,13 +30,13 @@ Il existe deux types de demandes CORS : les *demandes simples* et *les demandes 
 
 ### <a name="for-simple-requests"></a>Pour les demandes simples :
 
-1. Le navigateur envoie la demande CORS avec un en-tête de demande HTTP d’**origine** supplémentaire. La valeur de cet en-tête est l’origine qui a servi la page mère, définie comme la combinaison du *protocole,* du *domaine* et du *port*.  Quand une page de https://www.contoso.com tente d’accéder aux données d’un utilisateur dans l’origine fabrikam.com, l’en-tête de la requête suivant est envoyé à fabrikam.com :
+1. Le navigateur envoie la demande CORS avec un en-tête de demande HTTP d’**origine** supplémentaire. La valeur de cet en-tête est l’origine qui a servi la page mère, définie comme la combinaison du *protocole,* du *domaine* et du *port*.  Lorsqu’une page du site https\://www.contoso.com tente d’accéder aux données d’un utilisateur dans l’origine fabrikam.com, l’en-tête de requête suivant est envoyé à fabrikam.com :
 
-   `Origin: https:\//www.contoso.com`
+   `Origin: https://www.contoso.com`
 
 2. Le serveur peut renvoyer les éléments suivants :
 
-   * Un en-tête **Access-Control-Allow-Origin** indiquant le site d’origine autorisé. Par exemple : 
+   * Un en-tête **Access-Control-Allow-Origin** indiquant le site d’origine autorisé. Par exemple :
 
      `Access-Control-Allow-Origin: https://www.contoso.com`
 
@@ -85,7 +85,7 @@ Si l’expression régulière correspond, votre règle remplace l’en-tête **A
 ![Exemple de règles avec expression régulière](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>Règle d’en-tête de demande pour chaque origine
-Au lieu de recourir à des expressions régulières, vous pouvez créer une règle pour chaque origine à autoriser en utilisant la [condition de correspondance](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1) **Request Header Wildcard** (Caractère générique pour l’en-tête de la demande). Comme dans le cas de la méthode des expressions régulières, seul le moteur de règles définit les en-têtes CORS. 
+Au lieu de recourir à des expressions régulières, vous pouvez créer une règle pour chaque origine à autoriser en utilisant la [condition de correspondance](/previous-versions/azure/mt757336(v=azure.100)#match-conditions) **Request Header Wildcard** (Caractère générique pour l’en-tête de la demande). Comme dans le cas de la méthode des expressions régulières, seul le moteur de règles définit les en-têtes CORS. 
 
 ![Exemple de règles sans expression régulière](./media/cdn-cors/cdn-cors-no-regex.png)
 

@@ -2,9 +2,9 @@
 title: Notifications Push vers des utilisateurs spécifiques à l’aide d’Azure Notification Hubs | Microsoft Docs
 description: Découvrez comment envoyer des notifications Push à des utilisateurs spécifiques à l’aide de Azure Notification Hubs.
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethm
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
 ms.service: notification-hubs
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 85461f72d4385805e2aa13691a574a2161036ca5
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084410"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212222"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des utilisateurs spécifiques à l’aide d’Azure Notification Hubs
 
@@ -38,7 +40,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Modification de votre application iOS
 > * Test de l’application
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Ce didacticiel repose sur l'hypothèse que vous avez créé et configuré votre hub de notification comme décrit dans [Prise en main de Notification Hubs (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md). Ce didacticiel est également un prérequis pour le didacticiel sur les [notifications Push sécurisées (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) .
 Si vous souhaitez utiliser Mobile Apps comme service principal, voir l’article [Mobile Apps concernant la prise en main des notifications Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
@@ -54,7 +56,7 @@ Si vous souhaitez utiliser Mobile Apps comme service principal, voir l’article
 
 2. Dans le fichier `Main.storyboard`, ajoutez les composants indiqués dans la capture d’écran de la bibliothèque d’objets.
 
-    ![Modifier la table de montage séquentiel dans le Générateur d’interface Xcode][1]
+    ![Modifier la table de montage séquentiel dans le générateur d’interface Xcode][1]
 
    * **Nom d’utilisateur** : champ UITextField avec du texte d’espace réservé, *Entrer le nom d’utilisateur*, juste en dessous de l’étiquette des résultats d’envoi et entre les marges gauche et droite, en dessous de l’étiquette des résultats d’envoi.
    * **Mot de passe** : champ UITextField avec du texte d’espace réservé, *Entrer le mot de passe*, juste en dessous du champ de texte du nom d’utilisateur et entre les marges gauche et droite, en dessous du champ de texte du nom d’utilisateur. Cochez l'option **Sécuriser l'entrée de texte** dans l'inspecteur d'attributs sous *Touche Retour*.

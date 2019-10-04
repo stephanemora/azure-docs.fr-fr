@@ -8,11 +8,11 @@ ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57789588"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60775387"
 ---
 # <a name="rendering-applications"></a>Applications de rendu
 
@@ -33,7 +33,7 @@ Outre les renderers intégrés à 3ds Max, les renderers suivants sont disponibl
 
 Appelez l’application `3dsmaxcmdio.exe` pour effectuer un rendu par ligne de commande sur un nœud du pool.  Cette application se situe sur le chemin d’accès lorsque la tâche est exécutée. Les paramètres disponibles dans l’application `3dsmaxcmdio.exe` sont les mêmes que ceux disponibles dans l’application `3dsmaxcmd.exe`. Pour en savoir plus à ce sujet, reportez-vous à la [documentation d’aide de 3ds Max](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (Rendering (Rendu) | Section Command-Line Rendering (Rendu par ligne de commande)).
 
-Par exemple : 
+Par exemple :
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"

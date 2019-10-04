@@ -12,18 +12,18 @@ ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
 ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078055"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60790502"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
 Voici quelques conseils de dépannage pour certains des problèmes courants que vous pouvez rencontrer lors de l’utilisation du service Microsoft Genomics, ou MSGEN.
 
  Pour accéder aux questions fréquentes (FAQ), qui ne sont pas liées à la résolution des problèmes, consultez [Questions courantes](frequently-asked-questions-genomics.md).
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Étape 1 : Recherchez des codes d’erreur associés au workflow
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Étape 1 : Rechercher les codes d’erreur associés au flux de travail
 
 Vous pouvez localiser les messages d’erreur associés au flux de travail en :
 
@@ -93,14 +93,14 @@ Recherchez le conteneur de sortie pour le flux de travail en question. MSGEN cr�
 Pour la résolution des problèmes, examinez le contenu de standardoutput.txt et notez les messages d’erreur qui s’affichent.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>Étape 2 : Essayez les étapes recommandées pour les erreurs courantes
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>Étape 2 : Essayer les étapes recommandées pour les erreurs courantes
 
 Cette section présente brièvement les résultats d’erreurs courantes obtenus par le service Microsoft Genomics (msgen) et les stratégies que vous pouvez utiliser pour les résoudre. 
 
 Le service Microsoft Genomics (msgen) peut lever les deux types d’erreurs suivants :
 
-1. Erreurs de Service interne : Erreurs qui sont internes au service, qui ne peut pas être résolu en corrigeant les paramètres ou les fichiers d’entrée. Un renvoi du flux de travail peut parfois corriger ces erreurs.
-2. Erreurs d’entrée : Erreurs qui peuvent être résolus en utilisant les arguments corrects ou de résolution des formats de fichier.
+1. Erreurs internes de service : erreurs qui sont internes au service et qui peuvent ne pas être résolues en corrigeant des paramètres ou des fichiers d’entrée. Un renvoi du flux de travail peut parfois corriger ces erreurs.
+2. Erreurs d’entrée : erreurs qui peuvent être résolues en utilisant les arguments corrects ou en corrigeant des formats de fichiers.
 
 ### <a name="1-internal-service-errors"></a>1. Erreurs internes de service
 
@@ -137,7 +137,7 @@ Ces erreurs sont actionnables par l’utilisateur. Selon le type de fichier et l
 | FASTQ        | 308        |  Erreur de lecture FASTQ. Les lectures des deux extrémités ont généré des réponses différentes. Avez-vous choisi les fichiers FASTQ corrects ?                                                                                       | Corrigez le format du fichier FASTQ et renvoyez le workflow.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>Étape 3 : Contactez le support technique de Microsoft Genomics
+## <a name="step-3-contact-microsoft-genomics-support"></a>Étape 3 : Contacter le support Microsoft Genomics
 
 Si vos tâches continuent d’échouer, ou si vous avez d’autres questions, contactez le support Microsoft Genomics sur le portail Azure. Pour en savoir plus sur la procédure d’envoi d’une demande de support, cliquez [ici](file-support-ticket-genomics.md).
 

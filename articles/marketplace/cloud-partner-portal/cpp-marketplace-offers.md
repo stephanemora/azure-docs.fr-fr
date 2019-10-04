@@ -1,31 +1,24 @@
 ---
-title: Offres des places de marché Azure et AppSource | Microsoft Docs
+title: Offres des places de marché Azure et AppSource
 description: Création et gestion des offres des places de marché Azure et AppSource
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: pbutlerm
-ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 746b1b51d593b21bdf85bca4eeb75c135196093a
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010570"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962853"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Offres des places de marché Azure et AppSource
 
 La première partie de cette section présente les opérations générales utilisées pour créer et gérer les offres sur les places de marché Azure et AppSource.  Cette partie fournit les informations de base que vous devez comprendre pour gérer des types d’offre spécifiques, ainsi que des informations techniques qui sont communes à tous les types d’offres.  La majorité de cette section contient des instructions détaillées sur la façon de créer et gérer des types d’offre spécifiques.  
 
-La vidéo suivante présente les différentes fonctionnalités et les différents types d’offre disponibles dans la Place de marché Microsoft Azure ou AppSource.  Elle aborde également les techniques importantes et les aspects commerciaux de la publication d’une application ou service dans ces places de marché.
+La vidéo suivante présente les différentes fonctionnalités et les différents types d’offre disponibles dans la Place de marché Azure ou AppSource.  Elle aborde également les techniques importantes et les aspects commerciaux de la publication d’une application ou service dans ces places de marché.
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513/player]
 
@@ -43,7 +36,7 @@ Le processus de création d’une nouvelle offre diffère considérablement entr
 
 *Version d’évaluation* est une fonctionnalité de la place de marché qui propose aux clients une option de démonstration avec essai avant achat pour chaque offre ainsi activée.  La fonctionnalité Version d'évaluation est limitée au sous-ensemble de types d'offre suivant : [applications Azure](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 pour la finance et les opérations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [ applications SaaS](./saas-app/cpp-saas-offer.md), et [machines virtuelles](./virtual-machine/cpp-virtual-machine-offer.md).  Cette fonctionnalité implique que l'éditeur crée un modèle Version d'évaluation personnalisé pour son offre.  Pour plus d’informations, consultez la section [Version d'évaluation](./test-drive/what-is-test-drive.md).
 
-Vous pouvez parcourir les offres de la place de marché proposant des démonstrations Version d'évaluation en appliquant le [filtre version d'évaluation](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
+Vous pouvez parcourir les offres de la place de marché proposant des démonstrations Version d'évaluation en appliquant le [filtre version d'évaluation](https://azuremarketplace.microsoft.com/marketplace/apps?filters=test-drive). 
 
 
 ## <a name="azure-marketplace-and-appsource-offer-types"></a>Types d’offre de la Place de marché Microsoft Azure et d’AppSource
@@ -56,11 +49,11 @@ Le tableau suivant répertorie les types d’offre actuels pris en charge par le
 | [Service de conseil](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Les deux | Les consultants agréés Microsoft peuvent annoncer leurs services spécifiques à un domaine sur la Place de marché Microsoft Azure ou AppSource.  Leur expertise aide les clients à évaluer leurs problèmes et à créer et à déployer des solutions adaptées à leurs objectifs métier.  |
 | [Conteneur](./containers/cpp-containers-offer.md)  | Azure | La solution est une image conteneur Docker provisionnée en tant que service Kubernetes ou instances Azure Container. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Package qui étend ce système ERP (Enterprise Resource Planning) et de gestion d’entreprise. |
-| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Un package qui étend ce client système de gestion (CRM) de ressources, via ses ventes, service, service de projet et les modules de service de champ  |
-| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Un package qui étend ce planning (ERP) avancée du service qui prend en charge des ressources d’entreprise finance, opérations, fabrication et la gestion de la chaîne logistique |
-| [Module IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Conteneur compatible Docker qui s’exécute sur un appareil IoT Edge.  Il contient de petits modules de calculs qui utilisent une combinaison de code personnalisé, d’autres services Azure et de services tiers. |
-| [Application Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Une application Power BI utilisées par les packages de contenu Power BI personnalisable, y compris les jeux de données, des rapports et tableaux de bord |
-| [Application SaaS](./saas-app/cpp-saas-offer.md) | Azure | Solution est un abonnement de software-as-a-service, géré par le serveur de publication, les utilisateurs se connectent via une interface personnalisée qui utilise Azure Active Directory. |
+| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Package qui étend ce système CRM (Customer Resource Management), par le biais de ses modules de ventes, de service, de service de projet et de service sur le terrain  |
+| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Package qui étend ce service ERP (Enterprise Resource Planning) qui gère les aspects avancés de la finance, des opérations, de la fabrication et de la gestion de la chaîne logistique |
+| [Module IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Conteneur compatible Docker qui s’exécute sur un appareil IoT Edge.  Il comprend de petits modules de calculs qui utilisent une combinaison de code personnalisé, d’autres services Azure et de services tiers. |
+| [Application Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Application Power BI utilisée regroupant le contenu Power BI personnalisable, notamment les jeux de données, les rapports et les tableaux de bord |
+| [Application SaaS](./saas-app/cpp-saas-offer.md) | Azure | La solution est un abonnement SaaS, gérée par l’éditeur, à laquelle les utilisateurs se connectent via une interface personnalisée qui utilise Azure Active Directory. |
 | [Machine virtuelle](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | La solution est contenue dans une seule machine virtuelle déployée sur l’abonnement du client.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |
 
@@ -69,4 +62,4 @@ Pour plus d’informations, consultez [Guide de publication par type d’offre](
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous allez découvrir les opérations générales que vous pouvez effectuer sur les offres place de marché et leurs attributs techniques courants et les ressources dans l’article [gestion des offres](./manage-offers/cpp-manage-offers.md).
+Vous allez découvrir, dans l’article [Gérer les offres](./manage-offers/cpp-manage-offers.md), les opérations générales que vous pouvez effectuer sur les offres de place de marché et leurs ressources et attributs techniques communs.

@@ -7,17 +7,17 @@ author: jeffhollan
 manager: jpconnock
 keywords: azure functions, fonctions, traitement des événements, calcul, architecture serverless, java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
+ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b2f5567e037c65d7650b3f95a2ee81b93ac987b7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881424"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085866"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Créer votre première fonction avec Java et Eclipse 
 
@@ -43,15 +43,15 @@ Il est vivement recommandé d’installer également [Azure Functions Core Tools
 
 ## <a name="create-a-functions-project"></a>Créer un projet Functions
 
-1. Dans Eclipse, sélectionnez le menu **Fichier**, puis **Projet**. 
-1. Dans la fenêtre **Nouveau projet**, ouvrez le dossier **Projet Java**, sélectionnez **Projet Maven**, puis sélectionnez **Suivant**.
+1. Dans Eclipse, sélectionnez le menu **Fichier**, puis **Nouveau -&gt; Projet Maven**. 
 1. Acceptez les valeurs par défaut de la boîte de dialogue **Nouveau projet Maven**, puis sélectionnez **Suivant**.
 1. Sélectionnez **Add Archetype** (Ajouter un archétype), puis ajoutez les entrées pour [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype Group ID (ID de groupe d’archétypes) : com.microsoft.azure
     - Archetype Artifact ID (ID d’artefact d’archétype) : azure-functions-archetype
-    - Version : Utiliser la dernière version à partir de [le référentiel central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Eclipse Maven créer](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Cliquez sur **OK**, entrez les détails du projet actuel, puis cliquez sur **Terminer**.
+    - Version : Utilisez la version **1.22** la plus récente du [référentiel central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Création de projet Maven dans Eclipse](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
+1. Cliquez sur **OK**, puis sur **Suivant** pour entrer des valeurs comme indiqué sur l’instantané suivant (utilisez un autre nom d’application appName qui n’est pas **fabrikam-fonction-20170920120101928**). Enfin, sélectionnez **Terminer**.
+    ![Création de projet Maven dans Eclipse2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven crée les fichiers projet dans un nouveau dossier avec le nom de _artifactId_. Le code généré dans le projet est une fonction simple [déclenchée par HTTP](/azure/azure-functions/functions-bindings-http-webhook) qui retourne le corps de la demande HTTP à l’origine du déclenchement.
 
@@ -68,7 +68,7 @@ Lorsque vous avez fini de tester votre fonction, terminez le runtime dans la fen
 
 ### <a name="debug-the-function-in-eclipse"></a>Déboguer la fonction dans Eclipse
 
-Dans votre configuration **Exécuter en tant que** définie à l’étape précédente, remplacez `azure-functions:run` par `mvn azure-functions:run -DenableDebug`, puis exécutez la configuration mise à jour pour démarrer l’application de fonction en mode débogage.
+Dans votre configuration **Exécuter en tant que** définie à l’étape précédente, remplacez `azure-functions:run` par `azure-functions:run -DenableDebug`, puis exécutez la configuration mise à jour pour démarrer l’application de fonction en mode débogage.
 
 Sélectionnez le menu **Exécuter**, puis ouvrez **Déboguer les configurations**. Choisissez **Application Java distante** et créez une configuration. Donnez un nom à votre configuration et renseignez les paramètres. Le port doit être cohérent avec le port de débogage ouvert par l’hôte de fonction, qui correspond par défaut à `5005`. Après la configuration, cliquez sur `Debug` pour démarrer le débogage.
 

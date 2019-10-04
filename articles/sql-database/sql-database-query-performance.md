@@ -1,6 +1,6 @@
 ---
 title: Query Performance Insight pour Azure SQL Database | Microsoft Docs
-description: La supervision des performances de requêtes identifie les requêtes consommant le plus de processeur pour une base de données SQL Azure.
+description: La supervision des performances de requêtes identifie les requêtes consommant le plus de processeur pour une base de données Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 5d892005881436dec89c0d0d010f7f02e7bdebf9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 659022f625604fe31c2ce47978d1132b20b7ffc8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039195"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567032"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight pour Azure SQL Database
 
@@ -35,7 +34,7 @@ La gestion et de réglage des performances des bases de données relationnelles 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Il est automatiquement activé pour toutes les bases de données SQL Azure par défaut. Si le magasin de requêtes n’est pas exécuté, le portail Azure vous invite à l’activer.
+Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Il est automatiquement activé pour toutes les bases de données Azure SQL par défaut. Si le magasin de requêtes n’est pas exécuté, le portail Azure vous invite à l’activer.
 
 > [!NOTE]
 > Si le message « Le magasin de requêtes n’est pas correctement configuré sur cette base de données » s’affiche dans le portail, consultez [Optimisation de la configuration du magasin de requêtes](#optimize-the-query-store-configuration-for-query-performance-insight).

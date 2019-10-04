@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec l’audit de bases de données SQL Azure | Microsoft Docs
+title: Prise en main de l’audit Azure SQL Database | Microsoft Docs
 description: Utilisez la fonctionnalité d’audit d’Azure SQL Database pour effectuer le suivi des événements de base de données dans un journal d’audit.
 services: sql-database
 ms.service: sql-database
@@ -7,25 +7,24 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-manager: craigg
-ms.date: 04/16/2019
-ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.date: 08/22/2019
+ms.openlocfilehash: cc12579a4932894b730b04cdc77acc0151168bdb
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680368"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010213"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
-L’audit pour Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure, votre espace de travail OMS ou Event Hubs. Par ailleurs, l’audit :
+L’audit pour Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) suit les événements de base de données et les écrit dans un journal d’audit dans votre compte de stockage Azure, votre espace de travail Log Analytics ou Event Hubs. Par ailleurs, l’audit :
 
 - peut vous aider à respecter une conformité réglementaire, à comprendre l’activité de la base de données ainsi qu’à découvrir des discordances et anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité ;
 
-- permet et facilite le respect de normes de conformité, même s’il ne garantit pas cette conformité. Pour plus d’informations sur Azure de programmes de la conformité aux normes de cette prise en charge, consultez le [centre de confidentialité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité de base de données SQL.
+- permet et facilite le respect de normes de conformité, même s’il ne garantit pas cette conformité. Pour plus d’informations sur les programmes Azure qui prennent en charge la conformité aux normes, consultez le [Centre de confidentialité Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) où vous trouverez la liste actualisée des certifications de conformité SQL Database.
 
 
 > [!NOTE] 
@@ -34,7 +33,7 @@ L’audit pour Azure [SQL Database](sql-database-technical-overview.md) et [SQL 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
-## <a id="subheading-1"></a>Vue d’ensemble de l’audit be bases de données SQL Azure
+## <a id="subheading-1"></a>Vue d’ensemble de l’audit de bases de données Azure SQL
 
 Vous pouvez utiliser l’audit de bases de données SQL pour :
 
@@ -87,22 +86,25 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 
     ![Volet de navigation][3]
 
-5. **Nouveau** : Vous disposez désormais de plusieurs options pour configurer l’emplacement d’écriture des journaux d’audit. Vous pouvez écrire des journaux à un compte de stockage Azure, à un espace de travail Analytique de journal pour la consommation par les journaux d’Azure Monitor ou à un concentrateur d’événements pour la consommation à l’aide du hub d’événements. Vous pouvez associer ces options comme vous le souhaitez. Les journaux d’audit seront écrits dans chacun des emplacements choisis.
+5. **Nouveau** : Vous disposez désormais de plusieurs options pour configurer l’emplacement d’écriture des journaux d’audit. Vous pouvez écrire des journaux d’activité dans un compte de stockage Azure ou dans un espace de travail Log Analytics pour qu’ils soient consommés par des journaux Azure Monitor, ou dans un hub d’événements pour qu’ils soient consommés par ce hub. Vous pouvez associer ces options comme vous le souhaitez. Les journaux d’audit seront écrits dans chacun des emplacements choisis.
 
    > [!WARNING]
-   > Activation de l’audit pour l’Analytique de journal est des frais selon les taux d’ingestion. Notez que le coût associé à l’aide de ce [option](https://azure.microsoft.com/en-us/pricing/details/monitor/), ou envisagez de stocker l’audit consigne dans un compte de stockage Azure.
+   > L’activation de l’audit sur Log Analytics implique des frais selon les taux d’ingestion. Notez le coût associé à l’utilisation de cette [option](https://azure.microsoft.com/pricing/details/monitor/), ou envisagez de stocker les journaux d’audit dans un compte de stockage Azure.
 
     ![Options de stockage](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
 6. Pour configurer l’écriture des journaux d’audit dans un compte de stockage, sélectionnez **Stockage**, puis ouvrez **Détails du stockage**. Sélectionnez le compte de stockage Azure dans lequel les journaux d’activité seront enregistrés, puis sélectionnez la période de rétention. Les anciens journaux d’activité seront supprimés. Cliquez ensuite sur **OK**.
 
+   > [!IMPORTANT]
+   > La valeur par défaut de la période de conservation est 0 (conservation illimitée). Vous pouvez changer cette valeur en déplaçant le curseur **Rétention (jours)** dans **Paramètres de stockage** lors de la configuration du compte de stockage à des fins d’audit.
+
     ![compte de stockage](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Pour configurer l’écriture des journaux d’audit dans un espace de travail Log Analytics, sélectionnez **Log Analytics (préversion)**, puis ouvrez **Détails de Log Analytics**. Sélectionnez ou créez l’espace de travail Log Analytics où les journaux d’activité doivent être écrits, puis cliquez sur **OK**.
+7. Pour configurer l’écriture des journaux d’audit dans un espace de travail Log Analytics, sélectionnez **Log Analytics (préversion)** , puis ouvrez **Détails de Log Analytics**. Sélectionnez ou créez l’espace de travail Log Analytics où les journaux d’activité doivent être écrits, puis cliquez sur **OK**.
 
     ![Espace de travail Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
-8. Pour configurer l’écriture des journaux d’audit dans un hub d’événements, sélectionnez **Hub d’événements (préversion)**, puis ouvrez **Détails du hub d’événements**. Sélectionnez le hub d’événements dans lequel les journaux d’activité doivent être écrits, puis cliquez sur **OK**. Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
+8. Pour configurer l’écriture des journaux d’audit dans un hub d’événements, sélectionnez **Hub d’événements (préversion)** , puis ouvrez **Détails du hub d’événements**. Sélectionnez le hub d’événements dans lequel les journaux d’activité doivent être écrits, puis cliquez sur **OK**. Veillez à ce que le hub d’événements se trouve dans la même région que votre base de données et votre serveur.
 
     ![Event Hub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
@@ -110,25 +112,37 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 10. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire avec des [applets de commande PowerShell](#subheading-7) ou [l’API REST](#subheading-9).
 11. Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité de détection des menaces et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour plus d’informations, consultez [Bien démarrer avec la détection des menaces](sql-database-threat-detection-get-started.md).
 
-
 > [!IMPORTANT]
->L’activation de l’audit sur un entrepôt Azure SQL Data Warehouse ou sur un serveur avec un entrepôt Azure SQL Data Warehouse, **entraîne la reprise de l’entrepôt Data Warehouse**, même s’il avait précédemment été interrompu. **Veillez à suspendre l’entrepôt Data Warehouse à nouveau après l’activation de l’audit**.
+> L’activation de l’audit sur un Azure SQL Data Warehouse interrompu est impossible. Pour l’activer, annulez l’interruption de l’entrepôt de données.
 
+> [!WARNING]
+> L’activation de l’audit sur un serveur avec un entrepôt Azure SQL Data Warehouse, **entraîne la reprise de l’entrepôt Data Warehouse**, même s’il avait précédemment été interrompu, ce qui peut entraîner des frais de facturation.
 
 ## <a id="subheading-3"></a>Analyse des journaux et des rapports d’audit
 
-Si vous avez choisi écrire des journaux d’audit dans les journaux Azure Monitor :
+Si vous avez choisi d’écrire les journaux d’audit dans des journaux Azure Monitor :
 
 - Utilisez le [portail Azure](https://portal.azure.com).  Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, cliquez sur **Afficher les journaux d’audit**.
 
-    ![Afficher les journaux d’audit](./media/sql-database-auditing-get-started/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Afficher les journaux d’audit](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
-- Ensuite, cliquez sur **Ouvrir dans OMS** en haut de la page **Enregistrements d’audit** pour ouvrir la vue Journaux d’activité dans Log Analytics, où vous pouvez personnaliser la plage de temps et la requête de recherche.
+- Ensuite, vous avez deux façons d’afficher les journaux :
+    
+    Cliquez sur **Log Analytics** en haut de la page **Enregistrements d’audit** pour ouvrir la vue Journaux d’activité dans l’espace de travail Log Analytics, où vous pouvez personnaliser la plage de temps et la requête de recherche.
+    
+    ![ouvrir dans l’espace de travail Log Analytics](./media/sql-database-auditing-get-started/auditing-log-analytics.png)
 
-    ![Ouvrir dans Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    Cliquer sur **Afficher le tableau de bord** en haut de la page **Enregistrements d’audit** ouvre un tableau de bord affichant les informations des journaux d’audit, dans lequel vous pouvez accéder aux insights de sécurité, l’accès aux données sensibles et plus encore. Ce tableau de bord est conçu pour vous aider à obtenir des Insights sur la sécurité de vos données.
+    Vous pouvez également personnaliser l’intervalle de temps et la requête de recherche. 
+    ![Afficher le tableau de bord Log Analytics](media/sql-database-auditing-get-started/auditing-view-dashboard.png)
+
+    ![Tableau de bord Log Analytics](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard.png)
+
+    ![Insights sur la sécurité Log Analytics](media/sql-database-auditing-get-started/auditing-log-analytics-dashboard-data.png)
+ 
 
 - Vous pouvez également accéder aux journaux d’audit à partir du panneau Log Analytics. Ouvrez votre espace de travail Log Analytics, puis, dans la section **Général**, cliquez sur **Journaux d’activité**. Vous pouvez démarrer par une requête simple, telle que : *search "SQLSecurityAuditEvents"* pour afficher les journaux d’audit.
-    À ce stade, vous pouvez également utiliser [Azure Monitor enregistre](../log-analytics/log-analytics-log-search.md) pour exécuter des recherches avancées sur vos données de journal d’audit. Journaux d’Azure Monitor vous donne des informations opérationnelles en temps réel à l’aide de la recherche intégrée et des tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements toutes vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage de recherche de journaux Azure Monitor et les commandes, consultez [Azure Monitor enregistre la référence de recherche](../log-analytics/log-analytics-log-search.md).
+    Vous pouvez également utiliser les [journaux Azure Monitor](../log-analytics/log-analytics-log-search.md) pour exécuter des recherches avancées sur les données de votre journal d’audit. Les journaux Azure Monitor vous donnent des insights opérationnels en temps réel à l’aide d’une recherche intégrée et de tableaux de bord personnalisés permettant d’analyser facilement des millions d’enregistrements dans l’ensemble de vos charges de travail et serveurs. Pour plus d’informations utiles sur le langage et les commandes de recherche des journaux Azure Monitor, consultez [Informations de référence sur la recherche dans les journaux Azure Monitor](../log-analytics/log-analytics-log-search.md).
 
 Si vous avez choisi d’écrire les journaux d’audit dans un hub d’événements :
 
@@ -137,13 +151,13 @@ Si vous avez choisi d’écrire les journaux d’audit dans un hub d’événeme
 
 Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage Azure, plusieurs méthodes existent pour afficher les journaux d’activité :
 
-- Les journaux d’audit sont agrégés dans le compte choisi lors de la configuration. Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/). Dans le stockage Azure, les journaux d’activité d’audit sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs**. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
+- Les journaux d’audit sont agrégés dans le compte choisi lors de la configuration. Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/). Dans le stockage Azure, les journaux d’activité d’audit sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs**. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions d’affectation de noms et sur le format de journal, consultez la documentation relative au [Format des journaux d’audit SQL Database](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Utilisez le [portail Azure](https://portal.azure.com).  Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, cliquez sur **Afficher les journaux d’audit**.
 
     ![Volet de navigation][7]
 
-    La page **Enregistrements d’audit** s’ouvre et vous y voyez les journaux.
+    La page **Enregistrements d’audit** s’ouvre et vous y voyez les journaux d’activité.
 
   - Vous pouvez afficher des dates spécifiques en cliquant sur **Filtrer** en haut de la page **Enregistrements d’audit**.
   - Vous pouvez basculer entre les enregistrements d’audit qui ont été créés par la *stratégie d’audit de serveur* et la *stratégie d’audit de base de données* en choisissant la **Source de l’audit**.
@@ -190,8 +204,6 @@ Avec les bases de données géorépliquées, lorsque vous activez l’audit dans
 
     >[!IMPORTANT]
     >Avec l’audit au niveau de la base de données, les paramètres de stockage de la base de données secondaire sont identiques à ceux de la base de données primaire, ce qui entraîne un trafic entre régions. Il est conseillé d’activer uniquement l’audit d’objets blob au niveau du serveur et de laisser l’audit au niveau de la base de données désactivé pour toutes les bases de données.
-    > [!WARNING]
-    > À l’aide du hub d’événements ou journaux Azure Monitor en tant que cibles pour les journaux d’audit au niveau du serveur n’est actuellement pas pris en charge pour les bases de données secondaires géo-répliquée.
 
 ### <a id="subheading-6">Régénération des clés de stockage</a>
 
@@ -211,7 +223,7 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 - Pour plus d’informations sur le format du journal, la hiérarchie du dossier de stockage et les conventions d’affectation de nom,consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
     > [!IMPORTANT]
-    > Azure SQL Database stocke 4 000 caractères de données pour des champs caractères dans un enregistrement d’audit. Lorsque l’**instruction** ou les valeurs **data_sensitivity_information** retournées à partir d’une action pouvant être auditée contiennent plus de 4 000 caractères, toutes les données au-delà des 4 000 premiers caractères sont  **tronquées et ne sont pas auditées**.
+    > L’audit Azure SQL Database stocke 4 000 caractères de données pour des champs de caractères dans un enregistrement d’audit. Lorsque l’**instruction** ou les valeurs **data_sensitivity_information** retournées à partir d’une action pouvant être auditée contiennent plus de 4 000 caractères, toutes les données au-delà des 4 000 premiers caractères sont  **tronquées et ne sont pas auditées**.
 
 - Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure :
   - **Stockage Premium** n’est actuellement  **pas pris en charge** par l’ajout d’objets blob.
@@ -232,10 +244,12 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 
 **Applets de commande PowerShell (y compris prise en charge de la clause WHERE pour un filtrage supplémentaire)**  :
 
-- [Créer ou mettre à jour de la base de données (Set-AzSqlDatabaseAuditing) de stratégie d’audit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Créer ou mettre à jour de la stratégie d’audit de serveur (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
-- [Obtenir une stratégie d’audit de base de données (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Pour obtenir le serveur de stratégie d’audit (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Créer ou mettre à jour une stratégie d’audit de base de données (Set-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [Créer ou mettre à jour une stratégie de serveur (Set-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit)
+- [Obtenir une stratégie d’audit de base de données (Get-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseaudit)
+- [Obtenir une stratégie d’audit de serveur (Get-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveraudit)
+- [Supprimer une stratégie d’audit de base de données (Remove-AzSqlDatabaseAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseaudit)
+- [Supprimer une stratégie d’audit de serveur (Remove-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserveraudit)
 
 Pour obtenir un exemple de script, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -250,21 +264,21 @@ Pour obtenir un exemple de script, consultez [Configurer l’audit et la détect
 
 Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage supplémentaire :
 
-- [Créer ou mettre à jour de la base de données *étendu* stratégie d’audit](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Créer ou mettre à jour serveur *étendu* stratégie d’audit](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Obtenir la base de données *étendu* stratégie d’audit](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Obtenir serveur *étendu* stratégie d’audit](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Créer ou mettre à jour la stratégie d’audit *étendue* de base de données](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [Créer ou mettre à jour la stratégie d’audit *étendue* de serveur](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Obtenir la stratégie d’audit *étendue* de base de données](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [Obtenir la stratégie d’audit *étendue* de serveur](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Gérer l’audit de base de données SQL à l’aide de modèles ARM
+## <a id="subheading-10"></a>Gérer l’audit des bases de données SQL à l’aide des modèles Azure Resource Manager
 
-Vous pouvez gérer l’audit de base de données SQL Azure à l’aide de modèles [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), comme indiqué dans ces exemples :
+Vous pouvez gérer l’audit de bases de données Azure SQL à l’aide de modèles [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), comme indiqué dans ces exemples :
 
 - [Déployer un serveur Azure SQL Server avec l’audit activé pour écrire des journaux d’audit dans le compte de stockage blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 > [!NOTE]
-> Les exemples liés se trouvent sur un dépôt public externe et sont fournis « en tant qu’est », sans garantie et ne sont pas pris en charge sous n’importe quel programme/service de prise en charge de Microsoft.
+> Les exemples liés se trouvent sur un référentiel public externe et sont fournis « en l’état », sans garantie et ne sont pas pris en charge dans n’importe quel service/programme de support Microsoft.
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

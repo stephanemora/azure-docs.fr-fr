@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524364"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66243270"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Joindre votre appareil professionnel au réseau de votre organisation
 Joignez votre appareil Windows 10 professionnel au réseau de votre organisation afin de pouvoir accéder à des ressources potentiellement restreintes.
@@ -26,7 +26,7 @@ Joignez votre appareil Windows 10 professionnel au réseau de votre organisation
 ## <a name="what-happens-when-you-join-your-device"></a>Ce qui se passe quand vous joignez votre appareil
 Quand vous joignez votre appareil Windows 10 au réseau de votre organisation, les actions suivantes se produisent :
 
-- Windows inscrit votre appareil au réseau de votre organisation, ce qui vous permet d’accéder à vos ressources à l’aide de votre compte personnel. Une fois votre appareil inscrit, Windows le joint au réseau ; vous pouvez alors utiliser le nom d’utilisateur et le mot de passe de votre organisation pour vous connecter et accéder aux ressources restreintes.
+- Windows inscrit votre appareil sur le réseau de votre organisation, vous permettant d’accéder à vos ressources à l’aide de votre compte personnel. Une fois votre appareil inscrit, Windows le joint au réseau ; vous pouvez alors utiliser le nom d’utilisateur et le mot de passe de votre organisation pour vous connecter et accéder aux ressources restreintes.
 
 - Selon les choix de votre organisation, vous devrez peut-être configurer une vérification en deux étapes à travers [l’authentification multifacteur](multi-factor-authentication-end-user-first-time.md) ou des [informations de sécurité](user-help-security-info-overview.md).
 
@@ -62,7 +62,7 @@ Vous pouvez vérifier que vous êtes joint en examinant vos paramètres.
 
     ![Comptes dans l’écran Paramètres](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Sélectionnez **accès scolaire ou Professionnel**et vérifiez que vous voyez le texte, par exemple, **connecté à  *\<votre_organisation >* Azure AD**.
+2. Sélectionnez **Accès Professionnel ou Scolaire** et vérifiez que vous voyez un texte similaire à **Connecté à *\<<votre_organisation>>* Azure AD**.
 
     ![Écran Accès Professionnel ou Scolaire avec compte contoso connecté](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ Vous pouvez vérifier que vous êtes joint en examinant vos paramètres.
 
     ![Comptes dans l’écran Paramètres](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Sélectionnez **accès scolaire ou Professionnel**et vérifiez que vous voyez le texte, par exemple, **connecté à  *\<votre_organisation >* Azure AD**.
+2. Sélectionnez **Accès Professionnel ou Scolaire** et vérifiez que vous voyez un texte similaire à **Connecté à *\<<votre_organisation>>* Azure AD**.
 
     ![Écran Accès Professionnel ou Scolaire avec compte contoso connecté](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
@@ -116,3 +116,4 @@ Après avoir joint votre appareil au réseau de votre organisation, vous devriez
 
 - Si votre organisation vous demande d’inscrire votre appareil personnel, tel que votre téléphone, consultez [Inscrire votre appareil personnel sur le réseau de votre organisation](user-help-register-device-on-network.md).
 
+- Si votre organisation est managée à l’aide de Microsoft Intune et que vous avez des questions sur l’inscription, l'ouverture de session ou tout autre problème lié à Intune, consultez l’[aide utilisateur Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

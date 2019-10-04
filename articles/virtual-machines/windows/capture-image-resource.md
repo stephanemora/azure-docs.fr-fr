@@ -4,35 +4,34 @@ description: Créer une image managée d’une machine virtuelle ou d’un disqu
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1858a27d4df413deb562391251a523c28673ad
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787937"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273867"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
 Une ressource d’image managée peut être créée à partir d’une machine virtuelle généralisée stockée en tant que disque managé ou non managé dans un compte de stockage. L’image peut ensuite être utilisée pour créer plusieurs machines virtuelles. Pour plus d'informations sur la facturation des images managées, reportez-vous à [Tarification de la fonctionnalité Disques managés](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Généraliser la machine virtuelle Windows à l’aide de Sysprep
 
 Sysprep supprime toutes vos informations de compte personnel et de sécurité, puis prépare la machine en vue de son utilisation en tant qu’image. Pour plus d’informations sur Sysprep, voir [Vue d’ensemble de Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge par Sysprep. Pour plus d’informations, voir [Prise en charge de Sysprep pour les rôles serveur](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles).
+Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge par Sysprep. Pour plus d’informations, voir [Prise en charge de Sysprep pour les rôles serveur](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) et [Scénarios non pris en charge](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios).
 
 > [!IMPORTANT]
 > Après que vous avez exécuté Sysprep sur une machine virtuelle, celle-ci est considérée comme *généralisée* et ne peut plus être redémarrée. Le processus de généralisation d’une machine virtuelle n’est pas réversible. Si vous devez conserver le fonctionnement de machine virtuelle d’origine, vous devez créer une [copie de la machine virtuelle](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) et généraliser la copie. 
@@ -47,7 +46,7 @@ Pour généraliser votre machine virtuelle Windows, procédez comme suit :
    
 2. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur. Remplacez le répertoire par %windir%\system32\sysprep, puis exécutez `sysprep.exe`.
    
-3. Dans la boîte de dialogue **Outil de préparation du système**, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience)**, puis activez la case à cocher **Généraliser**.
+3. Dans la boîte de dialogue **Outil de préparation du système**, sélectionnez **Entrer en mode OOBE (Out-of-Box Experience)** , puis activez la case à cocher **Généraliser**.
    
 4. Dans **Options d’arrêt**, sélectionnez **Arrêter**.
    
@@ -206,9 +205,9 @@ Vous pouvez créer une image gérée à partir d’une capture instantanée d’
     ``` 
 
 
-## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>Créer une image à partir d’un disque dur virtuel dans un compte de stockage
+## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>Créer une image à partir d’une machine virtuelle qui utilise un compte de stockage
 
-Créez une image gérée à partir d’un disque dur virtuel de système d’exploitation généralisé dans un compte de stockage. Vous devez utiliser l’URI du disque dur virtuel dans le compte de stockage, dont le format est le suivant : https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. Dans cet exemple, le disque dur virtuel se trouve dans *mystorageaccount*, dans un conteneur nommé *vhdcontainer*, et le nom de fichier du disque dur virtuel est *vhdfilename.vhd*.
+Pour créer une image managée à partir d’une machine virtuelle qui n’utilise pas de disques managés, vous devez disposer de l’URI du VHD (disque dur virtuel) de système d’exploitation dans le compte de stockage, au format suivant : https://*moncomptedestockage*.blob.core.windows.net/*conteneurvhd*/*nomdefichiervhd.vhd*. Dans cet exemple, le disque dur virtuel se trouve dans *mystorageaccount*, dans un conteneur nommé *vhdcontainer*, et le nom de fichier du disque dur virtuel est *vhdfilename.vhd*.
 
 
 1.  Définissez des variables.

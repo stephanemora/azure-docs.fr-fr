@@ -1,59 +1,59 @@
 ---
-title: La mise à niveau de débogueur de captures instantanées Application Insights Azure pour les applications .NET | Microsoft Docs
-description: Comment mettre à niveau le débogueur de capture instantanée vers la dernière version sur Azure App Services, ou via les packages Nuget
+title: Mise à niveau du Débogueur de capture instantanée Azure Application Insights pour les applications .NET | Microsoft Docs
+description: Guide pratique pour mettre à niveau le Débogueur de capture instantanée vers la dernière version sur Azure App Services ou par le biais de packages NuGet
 services: application-insights
 author: MarioHewardt
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: Mario.Hewardt
+ms.author: marioh
 ms.reviewer: mbullwin
-ms.openlocfilehash: 54b79897ee378cda52106fe704e25c50a4325f38
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 2dcf719e6c276c5641dc4c0040d8d7a808eeb3f2
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632372"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706364"
 ---
-# <a name="upgrading-the-snapshot-debugger"></a>Le débogueur de capture instantanée de la mise à niveau
+# <a name="upgrading-the-snapshot-debugger"></a>Mise à niveau du Débogueur de capture instantanée
 
-Pour fournir la meilleure sécurité possible pour vos données, Microsoft se déplace en dehors de TLS 1.0 et TLS 1.1, qui se sont vulnérables aux pirates déterminés. Si vous utilisez une version antérieure de l’extension de site, elle nécessitera une mise à niveau pour continuer à travailler. Ce document décrit les étapes nécessaires pour mettre à niveau votre débogueur de capture instantanée vers la dernière version. Il existe deux chemins de mise à niveau principales en fonction de si vous avez activé le débogueur de capture instantanée à l’aide d’une extension de site ou si vous avez utilisé un kit de développement logiciel/Nuget ajouté à votre application. Les deux chemins de mise à niveau sont décrites ci-dessous. 
+Pour assurer une sécurité optimale de vos données, Microsoft abandonne les protocoles TLS 1.0 et TLS 1.1, qui se sont révélés vulnérables aux attaquants les plus déterminés. Si vous utilisez une version antérieure de l’extension de site, elle nécessitera une mise à niveau pour continuer à fonctionner. Ce document décrit les étapes nécessaires pour mettre à niveau votre Débogueur de capture instantanée vers la dernière version. Il existe deux chemins de mise à niveau principaux selon que vous avez activé le Débogueur de capture instantanée à l’aide d’une extension de site ou que vous avez utilisé un SDK/NuGet ajouté à votre application. Ces deux chemins de mise à niveau sont décrits ci-dessous. 
 
-## <a name="upgrading-the-site-extension"></a>La mise à niveau de l’extension de site
+## <a name="upgrading-the-site-extension"></a>Mise à niveau de l’extension de site
 
-Si vous avez activé le débogueur de capture instantanée à l’aide de l’extension de site, vous pouvez facilement mettre à niveau à l’aide de la procédure suivante :
+Si vous avez activé le Débogueur de capture instantanée à l’aide de l’extension de site, vous pouvez facilement effectuer la mise à niveau en effectuant les étapes suivantes :
 
 1. Connectez-vous au portail Azure.
-2. Accédez à votre ressource avec Application Insights et débogueur de capture instantanée est activée. Par exemple, pour une application Web, accédez à la ressource App Service :
+2. Accédez à votre ressource pour laquelle Application Insights et le Débogueur de capture instantanée sont activés. Par exemple, pour une application web, accédez à la ressource App Service :
 
-   ![Capture d’écran de la ressource App Service individuelle nommée DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
+   ![Capture d’écran d’une ressource App Service individuelle nommée DiagService01](./media/snapshot-debugger-upgrade/app-service-resource.png)
 
-3. Une fois que vous avez accédé à votre ressource, cliquez sur Application Insights dans le panneau de vue d’ensemble :
+3. Une fois que vous avez accédé à votre ressource, cliquez sur Application Insights dans le panneau Vue d’ensemble :
 
-   ![Capture d’écran de trois boutons. Bouton Centrer avec nom Application Insights est sélectionné.](./media/snapshot-debugger-upgrade/application-insights-button.png)
+   ![Capture d’écran de trois boutons. Bouton Centrer avec le nom Application Insights sélectionné](./media/snapshot-debugger-upgrade/application-insights-button.png)
 
-4. Un nouveau panneau s’ouvre avec les paramètres actuels. Sauf si vous souhaitez en profiter pour modifier vos paramètres, vous pouvez les laisser en l’état. Le **appliquer** bouton en bas du panneau n’est pas activé par défaut et vous devrez activer/désactiver un des paramètres pour activer le bouton. Vous n’êtes pas obligé de modifier des paramètres réels, au lieu de cela vous pouvez modifier le paramètre, puis la modifier de nouveau immédiatement. Nous vous recommandons de basculer le Profiler définissant, puis en sélectionnant **appliquer**.
+4. Un nouveau panneau s’ouvre avec les paramètres actuels. Vous pouvez les conserver en l’état, sauf si vous voulez en profiter pour modifier vos paramètres. Le bouton **Appliquer** en bas du panneau n’est pas activé par défaut et vous devez activer/désactiver l’un des paramètres pour activer le bouton. Vous n’avez pas besoin de changer les paramètres réels. Au lieu de cela, vous pouvez changer le paramètre, puis le rétablir immédiatement. Nous vous recommandons d’activer/de désactiver le paramètre de Profiler, puis de sélectionner **Appliquer**.
 
-   ![Capture d’écran de Application Insights application page Configuration de Service avec le bouton Appliquer mis en surbrillance en rouge](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
+   ![Capture d’écran de la page Configuration d’Application Insights App Service avec le bouton Appliquer surligné en rouge](./media/snapshot-debugger-upgrade/view-application-insights-data.png)
 
-5. Une fois que vous cliquez sur **appliquer**, vous devrez confirmer les modifications.
+5. Une fois que vous cliquez sur **Appliquer**, vous devez confirmer les changements apportés.
 
     > [!NOTE]
     > Le site sera redémarré dans le cadre du processus de mise à niveau.
 
-   ![Capture d’écran de d’App Service s’appliquent à invite de surveillance. Zone de texte affiche le message : « Nous maintenant appliquer des modifications à vos paramètres d’application et installe nos outils pour lier votre ressource Application Insights à l’application web. Cette opération redémarre le site. Voulez-vous continuer ?](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
+   ![Capture d’écran de l’invite d’application de la supervision d’App Service. La zone de texte affiche le message : « Nous allons maintenant appliquer les changements de vos paramètres d’application et installer nos outils pour lier votre ressource Application Insights à l’application web. Cette opération redémarre le site. Voulez-vous continuer ?](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
 
-6. Cliquez sur **Oui** pour appliquer les modifications. Au cours du processus, une notification s’affiche indiquant que les modifications sont appliquées :
+6. Cliquez sur **Oui** pour appliquer les changements. Pendant le processus, une notification s’affiche, indiquant que les changements sont appliqués :
 
-   ![Capture d’écran d’appliquer les modifications - message d’extensions qui s’affiche dans le coin supérieur droit de la mise à jour](./media/snapshot-debugger-upgrade/updating-extensions.png)
+   ![Capture d’écran du message Appliquer les changements - Mise à niveau des extensions qui s’affiche en haut à droite](./media/snapshot-debugger-upgrade/updating-extensions.png)
 
-Une fois terminée, un **« Les modifications sont appliquées »** notification s’affiche.
+Une fois l’opération terminée, une notification **« Les changements sont appliqués. »** s’affiche.
 
-   ![Capture d’écran de message indiquant que les modifications sont appliquées.](./media/snapshot-debugger-upgrade/changes-are-applied.png)
+   ![Capture d’écran d’un message indiquant que les changements sont appliqués](./media/snapshot-debugger-upgrade/changes-are-applied.png)
 
-Le site a maintenant été mis à niveau et est prêt à utiliser.
+Le site a maintenant été mis à niveau et est prêt à être utilisé.
 
-## <a name="upgrading-snapshot-debugger-using-sdknuget"></a>Débogueur de capture instantanée à l’aide du Kit de développement logiciel/Nuget de la mise à niveau
+## <a name="upgrading-snapshot-debugger-using-sdknuget"></a>Mise à niveau du Débogueur de capture instantanée à l’aide d’un SDK/NuGet
 
-Si l’application utilise une version de `Microsoft.ApplicationInsights.SnapshotCollector` inférieur à la version 1.3.1, elle devra être mis à niveau vers un [version plus récente](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pour continuer à travailler.
+Si l’application utilise une version de `Microsoft.ApplicationInsights.SnapshotCollector` antérieure à la version 1.3.1, elle devra être mise à niveau vers une [version plus récente](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pour continuer à fonctionner.

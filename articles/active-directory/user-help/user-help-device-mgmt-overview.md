@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a99488025dc79a16006af4088555a67b23704cb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fd89d70bfe7a7f5e72e7fcabe167bafac5777672
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162813"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382258"
 ---
 # <a name="manage-my-devices-overview"></a>Aperçu de la gestion de mes appareils
 
@@ -28,5 +28,5 @@ Vérifiez que vous êtes en mesure d’accéder à toutes les ressources potenti
 
 |Article |Description |
 |------|------------|
-|[Joindre votre appareil de travail](user-help-join-device-on-network.md)|Apprenez comment joindre votre appareil professionnel au réseau de votre organisation.|
-|[Inscrire votre appareil personnel](user-help-register-device-on-network.md)|Apprenez comment inscrire votre appareil personnel au réseau de votre organisation.|
+| [Joindre votre appareil professionnel](user-help-join-device-on-network.md) ]Découvrez comment joindre votre appareil professionnel au réseau de votre organisation.|
+| [Inscrire votre appareil personnel](user-help-register-device-on-network.md) ]Découvrez comment inscrire votre appareil personnel au réseau de votre organisation.|

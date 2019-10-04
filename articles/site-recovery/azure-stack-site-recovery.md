@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/27/2018
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 1932221e18241d8a2d921f61375019f969e61912
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002369"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782679"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
 
@@ -59,7 +59,7 @@ La réplication fonctionne comme suit :
 5. Le serveur de configuration orchestre la gestion de la réplication avec Azure (port de sortie HTTPS 443).
 6. Le serveur de processus optimise et chiffre les données qu’il reçoit des machines sources, puis les envoie à Stockage Azure via le (port de sortie 443).
 7. Les machines répliquées communiquent avec le serveur de configuration (port d’entrée HTTPS 443) pour gérer la réplication. Les machines envoient les données de réplication au serveur de processus (port d’entrée HTTPS 9443 ; modifiable).
-8. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. Une autre solution consiste à utiliser une homologation publique Azure ExpressRoute. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
+8. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. Une autre solution consiste à utiliser un peering public Azure ExpressRoute. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -68,7 +68,7 @@ Voici les éléments requis pour configurer ce scénario.
 **Exigence** | **Détails**
 --- | ---
 **Compte d’abonnement Azure** | Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
-**Autorisations du compte Azure** | Le compte Azure que vous utilisez doit être autorisé à effectuer les actions suivantes :<br/><br/> - Créer un coffre Recovery Services<br/><br/> - Créer une machine virtuelle dans le groupe de ressources et le réseau virtuel que vous utilisez pour le scénario<br/><br/> - Écrire dans le compte de stockage que vous spécifiez<br/><br/> Notez les points suivants :<br/><br/> - Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> - Si vous utilisez un abonnement existant dont vous n’êtes pas l’administrateur, vous devez collaborer avec l’administrateur pour qu’il vous accorde les autorisations Propriétaire ou Contributeur.<br/><br/> - Si vous avez besoin d’autorisations plus précises, voir [cet article](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
+**Autorisations du compte Azure** | Le compte Azure que vous utilisez doit être autorisé à effectuer les actions suivantes :<br/><br/> - Créer un coffre Recovery Services<br/><br/> - Créer une machine virtuelle dans le groupe de ressources et le réseau virtuel que vous utilisez pour le scénario<br/><br/> - Écrire dans le compte de stockage que vous spécifiez<br/><br/> Notez les points suivants :<br/><br/> \- Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> - Si vous utilisez un abonnement existant dont vous n’êtes pas l’administrateur, vous devez collaborer avec l’administrateur pour qu’il vous accorde les autorisations Propriétaire ou Contributeur.<br/><br/> - Si vous avez besoin d’autorisations plus précises, voir [cet article](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
 **Machine virtuelle Azure Stack** | Vous avez besoin d’une machine virtuelle Azure Stack dans l’abonnement du locataire, qui sera déployée en tant que serveur de configuration Site Recovery. 
 
 
@@ -142,7 +142,7 @@ Pour chaque machine à répliquer, recherchez son adresse IP :
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Étape 2 : Créer un coffre et sélectionner un objectif de réplication
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Outils de gestion** > **Backup and Site Recovery (Sauvegarde et Site Recovery)**.
+1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Outils de gestion** > **Backup and Site Recovery (Sauvegarde et Site Recovery)** .
 2. Dans **Name**, entrez un nom convivial pour identifier le coffre. 
 3. Dans **Groupe de ressources**, créez ou sélectionnez un groupe de ressources. Nous utilisons **contosoRG**.
 4. Dans **Emplacement**, entrez la région Azure. Nous utilisons **Europe Ouest**.
@@ -214,7 +214,7 @@ Sélectionnez et vérifiez les ressources cibles.
 4. Dans **Rétention des points de récupération**, spécifiez le temps de rétention de chaque point de récupération. Les machines virtuelles répliquées peuvent être restaurées à n’importe quel point de récupération dans la fenêtre de temps spécifiée.
 5. Dans **Fréquence des captures instantanées de cohérence d’application**, spécifiez la fréquence de création d’instantanés de cohérence de l’application.
 
-    - Un instantané cohérent au niveau de l’application est un instantané de point-à-temps des données de l’application à l’intérieur de la machine virtuelle.
+    - Un instantané de cohérence d’application est une capture instantanée à un point dans le temps des données d’application à l’intérieur de la machine virtuelle.
     - Le service VSS s’assure que les applications sur la machine virtuelle sont dans un état cohérent au moment de la capture instantanée.
 6. Sélectionnez **OK** pour créer la stratégie.
 

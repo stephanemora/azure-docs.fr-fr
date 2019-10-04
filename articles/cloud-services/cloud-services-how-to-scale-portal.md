@@ -2,24 +2,17 @@
 title: Mise à l’échelle automatique d’un service cloud dans le portail | Microsoft Docs
 description: Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour le rôle web ou de travail d’un service cloud dans Azure.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 701d4404-5cc0-454b-999c-feb94c1685c0
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 29ee71e7946145e50cc875df96b674abec3e12df
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.author: gwallace
+ms.openlocfilehash: 7e106dbd237be79be924afadbe893669c4f3daf8
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004334"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359628"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Configuration de la mise à l’échelle automatique d’un service cloud dans le portail
 
@@ -41,14 +34,14 @@ Vous devez tenir compte des informations suivantes avant de configurer la mise �
 
 * Pour activer la fonction de haute disponibilité de votre application, vous devez vous assurer qu’elle est déployée avec plusieurs instances de rôle. Pour plus d'informations, consultez la page [Contrats de niveau de service](https://azure.microsoft.com/support/legal/sla/).
 
-* La mise à l’échelle automatique se produit uniquement lorsque tous les rôles sont dans un état **Prêt**.  
+* La mise à l’échelle automatique se produit uniquement lorsque tous les rôles sont dans un état **Prêt**.  
 
 
 ## <a name="where-scale-is-located"></a>Emplacement de la mise à l’échelle
 Une fois votre service cloud sélectionné, le panneau du service cloud doit s’afficher.
 
 1. Dans le panneau du service cloud, sélectionnez le nom du service cloud dans la vignette **Rôles et instances** .   
-   **IMPORTANT**: veillez à cliquer sur le rôle de service cloud, non sur l’instance de rôle qui se trouve sous le rôle.
+   **IMPORTANT** : veillez à cliquer sur le rôle de service cloud, non sur l’instance de rôle qui se trouve sous le rôle.
 
     ![](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. Sélectionnez la vignette **Mise à l’échelle** .

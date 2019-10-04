@@ -1,25 +1,18 @@
 ---
-title: Offre Dynamics 365 for Finance and Operations sur la Place de marché Azure | Microsoft Docs
+title: Offre Dynamics 365 for Finance and Operations sur la Place de marché Azure
 description: Explique comment créer une offre Dynamics 365 for Finance and Operations sur le Portail Cloud Partner.
 services: Azure Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 231df5fa10f0d3b4c085502432008ee6c37cc3e5
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.author: pabutler
+ms.openlocfilehash: bd19723b80fdf4e4fc7e4581a9b8dcb80ca42045
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038738"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962908"
 ---
 # <a name="dynamics-365-for-finance-and-operations-offer"></a>Offre Dynamics 365 for Finance and Operations
 
@@ -30,7 +23,7 @@ ms.locfileid: "51038738"
 
 Suivez les étapes ci-dessous pour développer votre application Dynamics 365 for Finance and Operations et la publier sur AppSource :
 
-1. Vous devez disposer d’une [certification Centre de développement](https://dev.windows.com/en-us/registration?accountProgram=Azure).
+1. Vous devez disposer d’une [certification Centre de développement](https://dev.windows.com/registration?accountProgram=Azure).
 2. Mettez à niveau votre code.
 3. Générez, packagez et déployez vos données avec [Lifecycle Services](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lifecycle-services/lcs) (LCS).
 4. Créez une méthodologie d’implémentation dans LCS.

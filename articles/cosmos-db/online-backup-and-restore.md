@@ -4,15 +4,15 @@ description: Cet article décrit le fonctionnement de la sauvegarde automatique 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 6ed968b1613a96a2f4ab449c7b52488e066a38ab
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 066549f1343eaceb9a47fccc3b5d4508f226a89b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991816"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65967480"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB
 
@@ -20,17 +20,17 @@ Azure Cosmos DB sauvegarde automatiquement vos données à intervalles régulier
 
 ## <a name="automatic-and-online-backups"></a>Sauvegardes automatiques et en ligne
 
-Avec Azure Cosmos DB, vos données et leurs sauvegardes sont rendues hautement redondantes et résilientes aux sinistres régionaux. Les étapes suivantes montrent comment Azure Cosmos DB effectue la sauvegarde de données :
+Avec Azure Cosmos DB, vos données et leurs sauvegardes sont rendues hautement redondantes et résilientes aux sinistres régionaux. Les étapes suivantes montrent comment Azure Cosmos DB sauvegarde les données :
 
-* Azure Cosmos DB prend automatiquement une sauvegarde de votre base de données toutes les 4 heures et à tout moment, seules les dernières 2 sauvegardes sont stockées. Toutefois, si le conteneur ou la base de données est supprimé, Azure Cosmos DB conserve les captures instantanées existantes du conteneur ou de la base de données pendant 30 jours.
+* Azure Cosmos DB sauvegarde automatiquement votre base de données toutes les 4 heures et à tout moment, seules les dernières 2 sauvegardes sont stockées. Toutefois, si le conteneur ou la base de données est supprimé, Azure Cosmos DB conserve les captures instantanées existantes du conteneur ou de la base de données pendant 30 jours.
 
-* Azure Cosmos DB stocke ces sauvegardes dans le stockage Blob Azure, tandis que les données réelles résident localement dans Azure Cosmos DB.
+* Azure Cosmos DB stocke ces sauvegardes dans Stockage Blob Azure, tandis que les données réelles résident localement dans Azure Cosmos DB.
 
-*  Pour garantir une faible latence, l’instantané de votre sauvegarde est stocké dans le stockage Blob Azure dans la même région que la région d’écriture actuel (ou l’une des régions d’écriture, au cas où vous avez une configuration multimaître) de votre Cosmos Azure compte base de données. Pour assurer la résilience contre les sinistres régionaux, chaque capture instantanée de vos données de sauvegarde dans le stockage blob Azure est à nouveau répliqué vers une autre région par le biais du stockage géoredondant (GRS). La région vers laquelle la sauvegarde est répliquée dépend de votre région source et de la paire régionale associée à la région source. Pour plus d’informations, consultez la [liste des paires de régions Azure géoredondantes](../best-practices-availability-paired-regions.md). Vous ne pouvez pas accéder directement à cette sauvegarde. Azure Cosmos DB utilise cette sauvegarde uniquement si une restauration de sauvegarde est lancée.
+*  Pour garantir une latence faible, la capture instantanée de votre sauvegarde est stockée dans le stockage Blob Azure dans la même région que la région d’écriture actuelle (ou l’une des régions d’écriture, si vous avez une configuration multimaître) de votre compte de base de données Azure Cosmos DB. Pour assurer la résilience contre les sinistres régionaux, chaque capture instantanée de vos données de sauvegarde dans le stockage blob Azure est à nouveau répliqué vers une autre région par le biais du stockage géoredondant (GRS). La région vers laquelle la sauvegarde est répliquée dépend de votre région source et de la paire régionale associée à la région source. Pour plus d’informations, consultez la [liste des paires de régions Azure géoredondantes](../best-practices-availability-paired-regions.md). Vous ne pouvez pas accéder directement à cette sauvegarde. Azure Cosmos DB utilise cette sauvegarde uniquement si une restauration de sauvegarde est lancée.
 
 * Les sauvegardes sont effectuées sans affecter les performances ou la disponibilité de votre application. Azure Cosmos DB effectue la sauvegarde des données en arrière-plan sans consommer de débit (RU) provisionné supplémentaire et sans affecter les performances ou la disponibilité de votre base de données.
 
-* Si vous avez accidentellement supprimé ou endommagé vos données, vous devez contacter [prise en charge Azure](https://azure.microsoft.com/support/options/) dans les 8 heures pour que l’équipe Azure Cosmos DB peut aider à vous restaurez les données à partir des sauvegardes.
+* Si vous avez accidentellement supprimé ou endommagé vos données, vous devez contacter le [support Azure](https://azure.microsoft.com/support/options/) dans les 8 heures afin que l’équipe Azure Cosmos DB puisse vous aider à les restaurer à partir des sauvegardes.
 
 L’image suivante montre comment un conteneur Azure Cosmos avec les trois partitions physiques principales dans la région USA Ouest est sauvegardé dans un compte Stockage Blob Azure distant dans la région USA Ouest, puis répliqué dans la région USA Est :
 

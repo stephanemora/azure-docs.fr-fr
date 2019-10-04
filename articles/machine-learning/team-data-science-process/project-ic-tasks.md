@@ -11,11 +11,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a52907fa6c0e2483479031fbb3d1ad68a121d95
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475556"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61043305"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tâches pour un contributeur individuel dans TDSP (Team Data Science Process)
 
@@ -94,7 +94,7 @@ Vérifiez la présence des trois dossiers sous votre répertoire de projet.
 
 Vérifiez la présence des trois dossiers sous votre répertoire de projet.
 
-![5.](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
+![5\.](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
 ## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Étapes 4-5 : Monter un stockage de fichiers Azure sur votre instance DSVM (facultatif)
 

@@ -10,11 +10,11 @@ ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
 ms.openlocfilehash: 5439de30b02b0ce05853c8112f9e29239743ef98
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124625"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177683"
 ---
 1. Dans votre navigateur, ouvrez [l’image de Place de marché Azure pour Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
@@ -30,7 +30,7 @@ ms.locfileid: "58124625"
 
     ![Installez l’image de Place de marché Jenkins.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-create.png)
 
-1. Dans l’onglet **Basics (De base)**, spécifiez les valeurs suivantes :
+1. Dans l’onglet **Basics (De base)** , spécifiez les valeurs suivantes :
 
    - **Name (Nom)** : entrez `Jenkins`.
    - **User name (Nom d’utilisateur)** : entrez le nom d’utilisateur à utiliser pour la connexion à la machine virtuelle sur laquelle Jenkins est exécuté. Le nom d’utilisateur doit répondre aux [exigences spécifiques](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
@@ -65,7 +65,7 @@ ms.locfileid: "58124625"
         - **Application ID** (ID d’application) et **Secret** : Si vous sélectionnez l’option `Manual` pour l’option **Service Principal** (Principal du service), vous devez spécifier les valeurs `Application ID` et `Secret` de votre principal du service. Lors de la [création d’un principal de service](/cli/azure/create-an-azure-service-principal-azure-cli), le rôle par défaut est celui de **Contributeur**, ce qui suffit pour utiliser les ressources Azure.
     - **Enable Cloud Agents** (Activer les agents cloud) : Spécifiez le modèle cloud par défaut pour les agents dans lesquels `ACI` référence Azure Container Instance, et `VM` référence des machines virtuelles. Vous pouvez également spécifier `No` si vous ne souhaitez pas activer d’agent cloud.
 
-1. Sélectionnez **OK** pour accéder à l’onglet **Summary (Résumé)**.
+1. Sélectionnez **OK** pour accéder à l’onglet **Summary (Résumé)** .
 
 1. Lorsque l’onglet **Summary (Résumé)** s’affiche, les informations saisies sont validées. Lorsque le message **Validation passed** (Validation réussie) s’affiche (en haut de l’onglet), cliquez sur **OK**. 
 

@@ -1,20 +1,19 @@
 ---
 title: Définir des autorisations pour Data Lake Storage Gen2 avec l’Explorateur de stockage Azure
 description: Dans cette procédure, vous allez apprendre à définir des autorisations avec l’Explorateur Stockage Azure sur des fichiers et des répertoires à l’intérieur de votre compte de stockage compatible Azure Data Lake Storage Gen2.
-services: storage
-author: roygara
-ms.custom: mvc
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
-ms.author: rogarana
-ms.openlocfilehash: d1e941e41871de4a11641254f40c53285b096807
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: normesta
+ms.reviewer: stewu
+ms.openlocfilehash: 2cc93ad9ae1d9d6d21064a2a80c3d62bf661dabc
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546302"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992281"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Définir des autorisations au niveau de fichiers et de répertoires à l’aide de l’Explorateur Stockage Azure avec Azure Data Lake Storage Gen2
 
@@ -29,11 +28,11 @@ Dans cet article, vous apprenez à utiliser l’Explorateur de stockage Azure po
 
 ## <a name="prerequisites"></a>Prérequis
 
-Afin de mieux décrire le processus, nous vous demandons de terminer notre [guide de démarrage rapide pour l’explorateur de stockage Azure](data-lake-storage-Explorer.md). Cela garantit que votre compte de stockage sera dans l’état le plus approprié (système de fichiers créé et données chargées dedans).
+Afin de mieux décrire le processus, nous vous demandons de terminer notre [guide de démarrage rapide pour l’explorateur de stockage Azure](data-lake-storage-Explorer.md). Cela garantit que votre compte de stockage sera dans l’état le plus approprié (conteneur créé et données chargées dedans).
 
 ## <a name="managing-access"></a>Gestion de l’accès
 
-Vous pouvez définir des autorisations à la racine de votre système de fichiers. Pour ce faire, vous devez être connecté à l’Explorateur de stockage Azure avec votre compte spécifique disposant des droits adaptés (par opposition à une chaîne de connexion). Faites un clic droit sur votre système de fichiers, puis sélectionnez **Gérer les autorisations**, ce qui fait apparaître la boîte de dialogue **Gérer les autorisations**.
+Vous pouvez définir des autorisations à la racine de votre conteneur. Pour ce faire, vous devez être connecté à l’Explorateur de stockage Azure avec votre compte spécifique disposant des droits adaptés (par opposition à une chaîne de connexion). Cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Gérer les autorisations**, ce qui fait apparaître la boîte de dialogue **Gérer les autorisations**.
 
 ![Explorateur de stockage Microsoft Azure - Gérer l’accès au répertoire](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

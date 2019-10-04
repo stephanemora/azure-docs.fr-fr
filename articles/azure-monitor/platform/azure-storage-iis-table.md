@@ -1,6 +1,6 @@
 ---
-title: Utilisation du stockage blob pour IIS et un stockage table pour les événements dans Azure Monitor | Microsoft Docs
-description: Azure Monitor peut lire les journaux pour les services Azure qui écrivent des diagnostics dans le stockage de tables ou journaux IIS écrits dans le stockage blob.
+title: Utilisation d’un Stockage Blob pour IIS et d’un Stockage Table pour les événements dans Azure Monitor | Microsoft Docs
+description: Azure Monitor peut lire les journaux d’activité pour des services Azure qui écrivent des diagnostics dans un Stockage Table ou des journaux d’activité IIS écrits dans un Stockage Blob.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,30 +13,30 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 901544886e0a0c90c29e83fc71f7a7a25ffc6862
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66244883"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Utilisation du stockage blob Azure pour IIS et table le stockage Azure pour les événements avec Azure Monitor
+# <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>Collecter les journaux de diagnostic Azure depuis le Stockage Azure
 
-Azure Monitor peut lire les journaux pour les services suivants qui écrivent des diagnostics dans le stockage de tables ou journaux IIS écrits dans le stockage blob :
+Azure Monitor peut lire les journaux d’activité pour des services suivants qui écrivent des diagnostics dans un Stockage Table ou des journaux d’activité IIS écrits dans un Stockage Blob :
 
 * Clusters Service Fabric (version préliminaire)
 * Virtual Machines
 * Rôle de travail/web
 
-Avant Azure Monitor peut collecter des données dans un espace de travail Analytique de journal pour ces ressources, Azure diagnostics doit être activés.
+Avant qu’Azure Monitor puisse collecter des données dans un espace de travail Log Analytics pour ces ressources, les diagnostics Azure doivent être activés.
 
-Une fois les diagnostics sont activés, vous pouvez utiliser le portail Azure ou PowerShell pour configurer l’espace de travail pour collecter les journaux.
+Une fois les diagnostics activés, vous pouvez utiliser le Portail Microsoft Azure ou PowerShell pour configurer l’espace de travail afin de collecter les journaux d’activité.
 
-Les diagnostics Azure sont une extension vous permettant de collecter des données de diagnostic à partir d’un rôle de travail, d’un rôle Web ou d’une machine virtuelle exécuté dans Azure. Les données sont stockées dans un compte de stockage Azure et peuvent ensuite être collectées par Azure Monitor.
+Les diagnostics Azure sont une extension vous permettant de collecter des données de diagnostic à partir d’un rôle de travail, d’un rôle Web ou d’une machine virtuelle exécuté dans Azure. Les données sont stockées dans un compte de stockage Azure à partir duquel Azure Monitor peut les collecter.
 
-Pour Azure Monitor collecter ces journaux de Diagnostics Azure, les journaux doivent être dans les emplacements suivants :
+Pour qu’Azure Monitor collecte ces journaux de diagnostics Azure, ceux-ci doivent être dans les emplacements suivants :
 
-| Type de journal | Type de ressource | Lieu |
+| Type de journal | Type de ressource | Location |
 | --- | --- | --- |
 | Journaux d’activité IIS |Virtual Machines <br> Rôles web <br> Rôles de travail |wad-iis-logfiles (Stockage Blob) |
 | syslog |Virtual Machines |LinuxSyslogVer2v0 (Stockage Table) |
@@ -120,11 +120,11 @@ Assurez-vous que votre paramètres ConfigurationSettings spécifient un compte d
 
 Les valeurs **AccountName** et **AccountKey** figurent dans le portail Azure, sur le tableau de bord du compte de stockage, sous Gérer les clés d’accès. Le protocole de la chaîne de connexion doit être **https**.
 
-Une fois la configuration de diagnostique mis à jour est appliquée à votre service cloud et écrit des diagnostics dans le stockage Azure, vous êtes prêt à configurer l’espace de travail Analytique de journal.
+Une fois que la configuration de diagnostic mise à jour est appliquée à votre service cloud et écrit des diagnostics dans Stockage Azure, vous êtes prêt à configurer l’espace de travail Log Analytics.
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Utiliser le portail Azure pour collecter les journaux d’activité à partir de Stockage Azure
 
-Vous pouvez utiliser le portail Azure pour configurer un espace de travail Analytique de journal dans Azure Monitor pour collecter les journaux pour les services Azure suivants :
+Vous pouvez utiliser le Portail Microsoft Azure pour configurer un espace de travail Log Analytics dans Azure Monitor afin de collecter les journaux d’activité pour les services Azure suivants :
 
 * Clusters Service Fabric
 * Virtual Machines
@@ -141,9 +141,9 @@ Dans le portail Azure, accédez à votre espace de travail Log Analytics, puis e
 5. La valeur de Source est automatiquement complétée selon le type de données, et ne peut pas être modifiée
 6. Cliquez sur OK pour enregistrer la configuration.
 
-Répétez les étapes 2 à 6 pour les types de données que vous souhaitez collecter dans l’espace de travail et les comptes de stockage supplémentaires.
+Répétez les étapes 2 à 6 pour les autres comptes de stockage et types de données que vous voulez collecter dans l’espace de travail.
 
-Après environ 30 minutes, vous êtes en mesure de voir les données du compte de stockage dans l’espace de travail Analytique de journal. Vous voyez les données écrites dans le stockage uniquement après application de la configuration. L’espace de travail ne lit pas les données préexistantes du compte de stockage.
+Après environ 30 minutes, vous pourrez voir les données du compte de stockage dans l’espace de travail Log Analytics. Vous voyez les données écrites dans le stockage uniquement après application de la configuration. L’espace de travail ne lit pas les données préexistantes du compte de stockage.
 
 > [!NOTE]
 > Le portail ne valide pas l’existence de la Source dans le compte de stockage ou le fait que de nouvelles données sont écrites.
@@ -154,7 +154,7 @@ Après environ 30 minutes, vous êtes en mesure de voir les données du compte d
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Utilisez les étapes de [configuration d’Azure Monitor pour indexer les diagnostics Azure](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage) à utiliser PowerShell pour lire à partir d’Azure diagnostics qui sont écrits dans stockage table.
+Utilisez les étapes de [Configuration d’Azure Monitor pour indexer les diagnostics Azure](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage) pour utiliser PowerShell afin de lire à partir des diagnostics Azure écrits dans le stockage de table.
 
 Vous pouvez spécifier les événements écrits dans Azure Storage plus précisément à l’aide d’Azure PowerShell.
 Pour plus d'informations, consultez la page [Activation des diagnostics dans les machines virtuelles Azure](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
@@ -200,6 +200,6 @@ Examinez l’exemple de script suivant, copiez-le et modifiez-le si nécessaire,
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Collecter les journaux et les indicateurs de performance des services Azure](collect-azure-metrics-logs.md) pour les services pris en charge par Azure.
+* [Collecter les journaux d’activité et les indicateurs de performance des services Azure](collect-azure-metrics-logs.md) pour les services pris en charge par Azure.
 * [Activer les solutions](../../azure-monitor/insights/solutions.md) pour fournir des informations sur les données.
 * [Utiliser les requêtes de recherche](../../azure-monitor/log-query/log-query-overview.md) pour analyser les données.

@@ -4,14 +4,14 @@ description: Découvrez comment utiliser le pilote ODBC Azure Cosmos DB pour cr�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b859d01a39f906f518a82d468c3c9267545b9a07
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851055"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616898"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -23,9 +23,9 @@ Le pilote ODBC Azure Cosmos DB est conforme à ODBC 3.8 et prend en charge la s
 > La connexion à Azure Cosmos DB avec le pilote ODBC est actuellement prise en charge uniquement pour les comptes de l’API SQL Azure Cosmos DB.
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>Pourquoi dois-je normaliser mes données ?
-Azure Cosmos DB est une base de données sans schéma, ce qui permet le développement rapide d’applications et donne la possibilité d’effectuer une itération sur les modèles de données sans être limité à un schéma strict. Une même base de données Azure Cosmos DB peut contenir des documents JSON de différentes structures. C’est une solution idéale pour le développement rapide d’applications, mais si vous souhaitez analyser et créer des rapports de vos données à l’aide d’outils d’analyse de données et décisionnels, les données doivent souvent être aplaties et respecter un schéma spécifique.
+Azure Cosmos DB est une base de données sans schéma, ce qui permet le développement rapide d’applications et donne la possibilité d’effectuer une itération sur les modèles de données sans être limité à un schéma strict. Une même base de données Azure Cosmos peut contenir des documents JSON de différentes structures. C’est une solution idéale pour le développement rapide d’applications, mais si vous souhaitez analyser et créer des rapports de vos données à l’aide d’outils d’analyse de données et décisionnels, les données doivent souvent être aplaties et respecter un schéma spécifique.
 
-C’est là qu’intervient le pilote ODBC. Grâce au pilote ODBC, vous pouvez à présent renormaliser les données d’Azure Cosmos DB dans des tables et des vues adaptées à vos besoins d’analytique données et de création de rapports. Les schémas renormalisés n’ont aucun impact sur les données sous-jacentes et il n’est pas obligatoire pour les développeurs de les respecter ; au lieu de cela, ils permettent de tirer parti d’outils compatibles ODBC pour accéder aux données. Désormais, votre base de données Azure Cosmos DB ne sera pas uniquement l’un des outils favoris de votre équipe de développement. Vos analystes de données vont l’adorer eux aussi.
+C’est là qu’intervient le pilote ODBC. Grâce au pilote ODBC, vous pouvez à présent renormaliser les données d’Azure Cosmos DB dans des tables et des vues adaptées à vos besoins d’analytique données et de création de rapports. Les schémas renormalisés n’ont aucun impact sur les données sous-jacentes et il n’est pas obligatoire pour les développeurs de les respecter ; au lieu de cela, ils permettent de tirer parti d’outils compatibles ODBC pour accéder aux données. Désormais, votre base de données Azure Cosmos ne sera pas uniquement l’un des outils favoris de votre équipe de développement. Vos analystes de données vont l’adorer eux aussi.
 
 Familiarisons-nous avec le pilote ODBC.
 
@@ -48,13 +48,13 @@ Familiarisons-nous avec le pilote ODBC.
 
     ![Administrateur de sources de données ODBC Azure Cosmos DB](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Étape 2 : Vous connecter à votre base de données Azure Cosmos DB
+## <a id="connect"></a>Étape 2 : Vous connecter à votre base de données Azure Cosmos
 
 1. Après l’[installation du pilote ODBC Azure Cosmos DB](#install), dans la fenêtre **Administrateur de sources de données ODBC**, cliquez sur **Ajouter**. Vous pouvez créer un DSN utilisateur ou système. Dans cet exemple, vous allez créer un DSN utilisateur.
 
-1. Dans la fenêtre **Créer une nouvelle source de données**, sélectionnez **Microsoft Azure Cosmos DB ODBC Driver (Pilote ODBC Microsoft Azure Cosmos DB)**, puis cliquez sur **Terminer**.
+1. Dans la fenêtre **Créer une nouvelle source de données**, sélectionnez **Microsoft Azure Cosmos DB ODBC Driver (Pilote ODBC Microsoft Azure Cosmos DB)** , puis cliquez sur **Terminer**.
 
-1. Dans la fenêtre **Azure Cosmos DB ODBC Driver SDN Setup (Configuration DSN du pilote ODBC Azure Cosmos DB)**, indiquez les informations suivantes : 
+1. Dans la fenêtre **Azure Cosmos DB ODBC Driver SDN Setup (Configuration DSN du pilote ODBC Azure Cosmos DB)** , indiquez les informations suivantes : 
 
     ![Fenêtre de configuration DSN du pilote ODBC Azure Cosmos DB](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Nom de source de données** : le nom convivial de votre DSN ODBC. Ce nom étant spécifique à votre compte Azure Cosmos DB, choisissez-le de manière appropriée si vous possédez plusieurs comptes.
@@ -82,7 +82,7 @@ Familiarisons-nous avec le pilote ODBC.
 
 Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser : **mappage de la collection** ou **délimiteurs de la table**. Une session d’échantillonnage peut utiliser les deux méthodes d’échantillonnage, mais chaque collection peut uniquement utiliser une méthode d’échantillonnage spécifique. Les étapes ci-dessous créent un schéma pour les données d’une ou plusieurs collections à l’aide de la méthode de mappage de la collection. Cette méthode d’échantillonnage récupère les données dans la page d’une collection pour déterminer la structure des données. Elle transpose une collection dans une table du côté ODBC. Cette méthode d’échantillonnage est rapide et efficace lorsque les données d’une collection sont homogènes. Si une collection contient des données hétérogènes, nous vous recommandons d’utiliser la [méthode de mappage par délimiteurs de table](#table-mapping) car elle fournit une méthode d’échantillonnage plus robuste pour déterminer les structures des données de la collection. 
 
-1. Après avoir terminé les étapes 1 à 4 de la rubrique [Se connecter à votre base de données Azure Cosmos DB](#connect), cliquez sur **Éditeur de schéma** dans la fenêtre de **configuration DSN du pilote ODBC Azure Cosmos DB**.
+1. Après avoir terminé les étapes 1 à 4 de la rubrique [Vous connecter à votre base de données Azure Cosmos](#connect), cliquez sur **Éditeur de schéma** dans la fenêtre **Configuration DSN du pilote ODBC Azure Cosmos DB**.
 
     ![Bouton Éditeur de schéma dans la fenêtre de configuration du DSN du pilote ODBC Azure Cosmos DB](./media/odbc-driver/odbc-driver-schema-editor.png)
 1. Dans la fenêtre **Éditeur de schéma**, cliquez sur **Créer**.
@@ -97,7 +97,7 @@ Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser�
 
 1. Une fois que vous avez terminé la définition du schéma, cliquez sur **Fichier** | **Enregistrer**, accédez au répertoire d’enregistrement du schéma, puis cliquez sur **Enregistrer**.
 
-1. Pour utiliser ce schéma avec un DSN, ouvrez le **fenêtre de configuration du DSN du pilote ODBC Azure Cosmos DB** (via l’administrateur données ODBC Source), cliquez sur **Options avancées**, puis, dans le **le fichier de schéma** , accédez au schéma enregistré. L’enregistrement d’un fichier de schéma dans une source de données existante modifie la connexion de DSN afin de définir l’étendue des données et de la structure définie par le schéma.
+1. Pour utiliser ce schéma avec un nom de source de données (DSN), ouvrez la **fenêtre de configuration du DSN du pilote ODBC Azure Cosmos DB** (par le biais de l’Administrateur de sources de données ODBC), cliquez sur **Options avancées**, puis, dans la boîte de dialogue **Fichier de schéma**, accédez au schéma enregistré. L’enregistrement d’un fichier de schéma dans une source de données existante modifie la connexion de DSN afin de définir l’étendue des données et de la structure définie par le schéma.
 
 ## <a id="table-mapping"></a>Étape 4 : Créer une définition de schéma à l’aide de la méthode de mappage des délimiteurs de table
 
@@ -105,7 +105,7 @@ Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser�
 
 Les étapes suivantes créent un schéma pour les données d’une ou plusieurs collections à l’aide de la méthode des **délimiteurs de table**. Nous vous recommandons d’utiliser cette méthode d’échantillonnage lorsque vos collections contiennent des données hétérogènes. Vous pouvez utiliser cette méthode pour définir l’étendue de l’échantillonnage sur un ensemble d’attributs et ses valeurs correspondantes. Par exemple, si un document contient une propriété « Type », vous pouvez étendre l’échantillonnage aux valeurs de cette propriété. Le résultat final de l’échantillonnage serait un ensemble de tables pour chacune des valeurs du type que vous avez spécifié. Par exemple, Type = Voiture produira une table Voiture tandis que Type = Avion produira une table Avion.
 
-1. Après avoir terminé les étapes 1 à 4 de la rubrique [Se connecter à votre base de données Azure Cosmos DB](#connect), cliquez sur **Éditeur de schéma** dans la fenêtre de configuration DSN du pilote ODBC Azure Cosmos DB.
+1. Après avoir terminé les étapes 1 à 4 de la rubrique [Vous connecter à votre base de données Azure Cosmos](#connect), cliquez sur **Éditeur de schéma** dans la fenêtre Configuration DSN du pilote ODBC Azure Cosmos DB.
 
 1. Dans la fenêtre **Éditeur de schéma**, cliquez sur **Créer**.
     La fenêtre **Générer le schéma** affiche toutes les collections du compte Azure Cosmos DB. 

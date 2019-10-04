@@ -14,53 +14,341 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 9e5bdb574439378b91a243d5d36ebddeb8520d49
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088041"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71037450"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
-Cet article contient les notes de publication de l’Explorateur Stockage Azure 1.4.3, ainsi que celles des versions précédentes.
+Cet article contient les notes de publication de l’Explorateur Stockage Azure 1.10.0, ainsi que celles des versions précédentes.
 
 [L’Explorateur Stockage Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome qui vous permet d’utiliser facilement les données du Stockage Azure sur Windows, maOS et Linux.
 
-## <a name="version-170"></a>Version 1.7.0
-3/5/2019
+## <a name="version-1100"></a>Version 1.10.0
+12/9/2019
 
-### <a name="download-azure-storage-explorer-170"></a>Télécharger Explorateur stockage Azure 1.7.0
-- [Explorateur de stockage Azure 1.7.0 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorateur de stockage Azure 1.7.0 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorateur de stockage Azure 1.7.0 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-1100"></a>Télécharger l’Explorateur Stockage Azure 1.10.0
+- [Explorateur Stockage Azure 1.10.0 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur Stockage Azure 1.10.0 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur Stockage Azure 1.10.0 dans le Snap Store](https://snapcraft.io/storage-explorer)
+- [Explorateur Stockage Azure 1.10.0 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nouveau
 
-* Vous pouvez maintenant modifier le propriétaire et le groupe propriétaire lors de la gestion des accès pour un conteneur d’ADLS Gen2, un fichier ou un dossier.
-* Sous Windows, mise à jour à partir de l’Explorateur de stockage au sein du produit est désormais une installation incrémentielle. Cela doit entraîner une expérience de mise à jour plus rapide. Si vous préférez une nouvelle installation, vous pouvez télécharger le [programme d’installation](https://azure.microsoft.com/en-us/features/storage-explorer/) vous-même, puis installez manuellement. #1089
+* L’Explorateur Stockage a désormais une interface utilisateur dédiée aux paramètres. Vous pouvez y accéder en sélectionnant Modifier → Paramètres ou en cliquant sur l’icône Paramètres (engrenage) dans la barre d’outils verticale située à gauche. Cette fonctionnalité est la première étape que nous prenons pour proposer une variété de [paramètres demandés par l’utilisateur](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate). À compter de cette version, les paramètres suivants sont pris en charge :
+    * Thème
+    * Proxy
+    * Se déconnecter en quittant [6](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6)
+    * Activer la connexion du flux de code de l’appareil
+    * Actualisation automatique [1526](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1526)
+    * Activer AzCopy
+    * Durée SAS AzCopy
 
-### <a name="preview-features"></a>Fonctionnalités préliminaires
+    Pour ajouter d’autres paramètres, [ouvrez un problème sur GitHub décrivant le paramètre que vous souhaitez afficher](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%3Abulb%3A%20setting%20candidate&template=feature_request.md&title=).
+* L’Explorateur Stockage prend maintenant en charge les disques managés. Vous pouvez :
+    * Charger un disque dur virtuel local sur un nouveau disque
+    * Télécharger un disque
+    * Copier et coller des disques dans des groupes de ressources et des régions
+    * Supprimer des disques
+    * Créer un instantané d’un disque
 
-* APPAREIL code connexion flux est à présent disponible pour afficher un aperçu. Pour l’activer, accédez à « Preview » → utilisation périphérique Code flux de « connexion ». Nous encourageons tous les utilisateurs qui ont eu des problèmes avec les fenêtres de connexion vides pour essayer cette fonctionnalité, car elle peut s’avérer pour être une forme plus fiable de la connexion. #938
-* Explorateur de stockage intégré avec AzCopy est actuellement disponible pour afficher un aperçu. Pour l’activer, accédez à « Preview » → « Utilisez AzCopy pour amélioré Blob charger et télécharger ». Transferts d’objets BLOB s’est terminées avec AzCopy doivent être plus rapides et plus performant.
+    Le chargement, le téléchargement et la copie entre régions des disques reposent sur AzCopy v10.
+* Vous pouvez désormais installer l’Explorateur Stockage par le biais du Snap Store sur Linux. Si vous effectuez l’installation par le biais du Snap Store, toutes les dépendances sont installées pour vous, même .NET Core ! À l’heure actuelle, nous savons que Explorateur Stockage s’exécute correctement sur Ubuntu et CentOS. Si vous rencontrez des problèmes lors de l’installation à partir du Snap Store sur d’autres distributions Linux, [signalez le problème sur GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=snaps&template=bug-report.md&title=). Pour en savoir plus sur l’installation à partir du Snap Store, consultez notre [guide de démarrage rapide](https://aka.ms/storageexplorer/snapinformation). [68](https://www.github.com/Microsoft/AzureStorageExplorer/issues/68)
+* Deux changements majeurs ont été apportés à l’attachement à Azure Active Directory (Azure AD) pour rendre la fonctionnalité plus utile pour les utilisateurs d’ADLS Gen2 : * Vous sélectionnez à présent le locataire dans lequel se trouve la ressource que vous attachez. Vous n’avez donc plus besoin d’un accès RBAC à l’abonnement de la ressource.
+        * Si vous attachez un conteneur d’objets BLOB ADLS Gen2, vous pouvez désormais effectuer l’attachement à un chemin spécifique dans le conteneur.
+* Quand vous gérez des listes de contrôle d’accès pour des fichiers et des dossiers ADLS Gen2, l’Explorateur Stockage affiche désormais les noms conviviaux des entités dans la liste de contrôle d’accès. [957](https://www.github.com/Microsoft/AzureStorageExplorer/issues/957)
+* Lors de l’ajout par le biais d’OID à une liste de contrôle d’accès ADLS Gen2, l’Explorateur Stockage vérifie à présent que l’OID appartient à une entité valide dans votre locataire. [1603](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1603)
+* Les raccourcis clavier permettant de naviguer entre les onglets utilisent désormais plus de combinaisons de touches standard. [1018](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1018)
+* Cliquez sur le bouton central de la souris dans un onglet pour le fermer. [1348](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1348)
+* Si un transfert AzCopy contient des omissions et zéro échec, l’Explorateur Stockage affiche désormais une icône d’avertissement pour mettre en évidence les omissions. [1490](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1490)
+* L’outil AzCopy intégré a été mis à jour vers la version 10.2.1. Par ailleurs, vous pouvez maintenant afficher la version de AzCopy installée dans la boîte de dialogue À propos de. [1343](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1343)
 
 ### <a name="fixes"></a>Correctifs
 
-* Vous pouvez maintenant choisir le type d’objet blob à télécharger en tant que lorsque AzCopy est activé. #1111
-* Auparavant, si vous avez activé les sites Web statiques pour un compte de stockage de Gen2 ADLS et joint ensuite avec le nom et la clé, Explorateur de stockage ne sont pas ont détectées que cet espace de noms hiérarchique a été activée. Ce problème a été résolu. #1081
-* Dans l’éditeur d’objets blob, de tri par jours de rétention restants ou état a été interrompue. Ce problème a été résolu. #1106
-* Après 1.5.0, Explorateur de stockage n’est plus attendue pour les copies de côté serveur à terminer avant de signaler la réussite pendant un changement de nom ou la copier et coller. Ce problème a été résolu. #976
-* Lorsque vous utilisez la fonctionnalité de AzCopy expérimentale, la commande copiée après avoir cliqué sur « Copier la commande dans le Presse-papiers » n’était pas toujours exécutable sur sa propre. À présent, toutes les commandes nécessaires pour exécuter le transfert manuellement seront copiés. #1079
-* Auparavant, objets BLOB ADLS Gen2 n’était pas accessible si vous étiez derrière un proxy. Cela était dû à un bogue dans une nouvelle bibliothèque de mise en réseau utilisé par le SDK de stockage. Dans 1.7.0, une tentative pour atténuer ce problème a été effectuée, mais certaines personnes peuvent continuer à voir les problèmes. Un correctif complet sera disponible dans une prochaine mise à jour. #1090
-* Dans 1.7.0, l’enregistrement boîte de dialogue fichier désormais correctement mémorise le dernier emplacement que vous avez enregistré un fichier. #16
-* Dans le volet Propriétés, le niveau de référence (SKU) d’un compte de stockage a été affiché en tant que type du compte. Ce problème a été résolu. #654
-* Parfois, il était impossible de résilier le bail d’un objet blob, même si vous avez correctement entré le nom de l’objet blob. Ce problème a été résolu. #1070
+* De nombreux utilisateurs se heurtent à des erreurs du type « impossible de lire la version de non défini » ou « impossible de lire la connexion de non défini » lors de l’utilisation de comptes de stockage attachés. Bien que nous continuions toujours à étudier la cause racine de ce problème, nous avons amélioré la gestion des erreurs concernant le chargement des comptes de stockage attachés dans la version 1.10.0. [1626](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1626), [985](https://www.github.com/Microsoft/AzureStorageExplorer/issues/985) et [1532](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1532)
+* Il était possible pour l’arborescence de l’explorateur (côté gauche) d’entrer dans un état dans lequel le focus passait de manière répétée au nœud supérieur. Ce problème a été résolu. [1596](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1596)
+* Lors de la gestion des instantanés d’un objet blob, les lecteurs d’écran ne lisaient pas l’horodatage associé à l’instantané. Ce problème a été résolu. [1202](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1202)
+* Le paramètre de proxy sur macOS n’était pas défini à temps pour que le processus d’authentification les utilise. Ce problème a été résolu. [1567](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1567)
+* Si un compte de stockage dans un cloud souverain était attaché à l’aide du nom et de la clé, AzCopy ne fonctionnait pas. Ce problème a été résolu. [1544](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1544)
+* En cas d’attachement par le biais d’une chaîne de connexion, l’Explorateur Stockage supprime désormais les espaces de fin. [1387](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1387)
 
 ### <a name="known-issues"></a>Problèmes connus
 
-* Lorsque vous utilisez RBAC, Explorateur de stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
-* Tente d’accéder aux objets BLOB de Gen2 ADLS lorsque derrière un proxy peut échouer.
+* Le paramètre Actualisation automatique n’affecte pas encore toutes les opérations de l’Explorateur d’objets blob.
+* Les fonctionnalités des disques managés ne sont pas encore prises en charge dans Azure Stack.
+* Si un chargement ou un collage sur disque échoue et qu’un disque a été créé avant l’échec, l’Explorateur Stockage ne supprime pas le disque pour vous.
+* Selon que vous annulez un chargement ou un collage sur disque, il est possible de conserver le nouveau disque dans un état endommagé. Dans ce cas, vous devez supprimer le nouveau disque ou appeler manuellement les API de disque pour remplacer le contenu du disque de manière à ce qu’il ne soit plus endommagé.
+* Lorsque vous effectuez un téléchargement d’objets Blob non-AzCopy, le hachage MD5 pour les fichiers volumineux n’est pas vérifié. Cela est dû à un bogue dans le SDK de stockage. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
+* Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
+* Azurite n’a pas encore totalement implémenté toutes les API de stockage. C’est pourquoi vous risquez de rencontrer des erreurs ou un comportement inattendus quand vous utilisez Azurite pour le stockage de développement.
+* Dans de rares cas, le focus de l’arborescence peut être bloqué sur un accès rapide. Pour débloquer le focus, vous pouvez tout actualiser.
+* Le chargement à partir de votre dossier OneDrive ne fonctionne pas en raison d’un bogue dans NodeJS. Le bogue a été résolu, mais pas encore intégré à Electron. Pour contourner ce problème pendant le chargement ou le téléchargement dans un conteneur d’objets blob, vous pouvez utiliser la fonctionnalité expérimentale AzCopy.
+* Lorsque vous ciblez Azure Stack, le chargement de certains fichiers en tant qu’objets blob ajoutés peut échouer.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». C’est parce que nous utilisons la solution de contournement du filtre Annuler décrite ici.
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
+* Azure Stack ne prend pas en charge les fonctionnalités suivantes. Toute tentative d’utilisation de ces fonctionnalités lors de l’utilisation de ressources Azure Stack peut provoquer des erreurs inattendues.
+   * Partages de fichiers
+   * Niveaux d’accès
+   * Suppression réversible
+   * ADLS Gen2
+   * Disques managés
+* L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
+
+## <a name="previous-releases"></a>Versions précédentes
+
+* [Version 1.9.0](#version-190)
+* [Version 1.8.1](#version-181)
+* [Version 1.8.0](#version-180)
+* [Version 1.7.0](#version-170)
+* [Version 1.6.2](#version-162)
+* [Version 1.6.1](#version-161)
+* [Version 1.6.0](#version-160)
+* [Version 1.5.0](#version-150)
+* [Version 1.4.4](#version-144)
+* [Version 1.4.3](#version-143)
+* [Version 1.4.2](#version-142)
+* [Version 1.4.1](#version-141)
+* [Version 1.3.0](#version-130)
+* [Version 1.2.0](#version-120)
+* [Version 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Versions 0.9.4 et 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Versions 0.9.1 et 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Versions 0.8.12, 0.8.11 et 0.8.10](#version-0812-and-0811-and-0810)
+* [Versions 0.8.9 et 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
+
+## <a name="version-190"></a>Version 1.9.0
+1/7/2019
+
+### <a name="download-azure-storage-explorer-190"></a>Télécharger l’Explorateur Stockage Azure 1.9.0
+- [Explorateur Stockage Azure 1.9.0 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur Stockage Azure 1.9.0 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur Stockage Azure 1.9.0 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nouveau
+
+* Vous pouvez désormais joindre des conteneurs d’objets blob via Azure AD (autorisations RBAC ou ACL). Cette fonctionnalité est destinée à aider les utilisateurs qui ont accès à des conteneurs, mais non aux comptes de stockage qu’ils incluent. Consultez notre guide de prise en main pour en savoir plus sur cette fonctionnalité.
+* Vous pouvez désormais acquérir ou résilier un bail avec le contrôle d’accès en fonction du rôle. [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
+* La gestion des stratégies d’accès et la définition du niveau d’accès public sont désormais possibles avec le contrôle d’accès en fonction du rôle. [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
+* Le contrôle d’accès en fonction du rôle permet désormais de supprimer des dossiers d’objets blob. [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
+* Le contrôle d’accès en fonction du rôle permet désormais de modifier le niveau d’accès aux objets blob. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
+* Vous pouvez maintenant réinitialiser rapidement l’accès rapide en cliquant sur Aide → Réinitialiser. [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
+
+### <a name="preview-features"></a>Fonctionnalités de préversion
+
+* La connexion par flux de code d’appareil est à présent disponible en préversion. Pour l’activer, accédez à « Préversion » → « Use Device Code Flow Sign-in » (Utiliser la connexion par flux de code d’appareil). Nous encourageons tous les utilisateurs qui ont eu des problèmes avec des fenêtres de connexion vides à essayer cette fonctionnalité, car elle peut s’avérer être une forme plus fiable de connexion.
+* L’Explorateur Stockage intégré à AzCopy est actuellement disponible en préversion. Pour l’activer, accédez à « Préversion » → « Use AzCopy for Improved Blob Upload and Download » (Utiliser AzCopy pour améliorer le chargement et le téléchargement des objets blob). Les transferts d’objets blob effectués avec AzCopy doivent être plus rapides et plus performants.
+
+### <a name="fixes"></a>Correctifs
+
+* Il est désormais possible de charger plus de 50 abonnements pour un seul compte. [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
+* Désormais, le bouton Connexion fonctionne sur la barre d’informations qui s’affiche en cas d’échec d’un lien direct. [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
+* Vous pouvez à présent charger des fichiers .app sur un ordinateur macOS. [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
+* À présent, la fonction Réessayer tout fonctionne lors du changement de nom d’un objet blob ayant échoué. [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
+* L’opération Annuler fonctionne désormais lors de l’ouverture d’un objet blob. [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
+* Correction de plusieurs fautes d’orthographe et de problèmes liés à des info-bulles dans l’ensemble du produit. Merci à toutes les personnes qui nous ont signalé ces problèmes ! [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303), [#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328), [#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329), [#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331), [#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336), [#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352), [#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368), [#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
+
+### <a name="known-issues"></a>Problèmes connus
+
+* Lorsque vous effectuez un téléchargement d’objets Blob non-AzCopy, le hachage MD5 pour les fichiers volumineux n’est pas vérifié. Cela est dû à un bogue dans le SDK de stockage. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* La tentative d’accès aux objets Blob Gen2 ADLS derrière un proxy peut échouer.
+* Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
+* Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
+* Azurite n’a pas encore totalement implémenté toutes les API de stockage. C’est pourquoi vous risquez de rencontrer des erreurs ou un comportement inattendus quand vous utilisez Azurite pour le stockage de développement.
+* Dans de rares cas, le focus de l’arborescence peut être bloqué sur un accès rapide. Pour débloquer le focus, vous pouvez tout actualiser.
+* Le chargement à partir de votre dossier OneDrive ne fonctionne pas en raison d’un bogue dans NodeJS. Le bogue a été résolu, mais pas encore intégré à Electron. Pour contourner ce problème pendant le chargement ou le téléchargement dans un conteneur d’objets blob, vous pouvez utiliser la fonctionnalité expérimentale AzCopy.
+* Lorsque vous ciblez Azure Stack, le chargement de certains fichiers en tant qu’objets blob ajoutés peut échouer.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». C’est parce que nous utilisons la solution de contournement du filtre Annuler décrite ici.
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
+* Azure Stack ne prend pas en charge les fonctionnalités suivantes. Toute tentative d’utilisation de ces fonctionnalités lors de l’utilisation de ressources Azure Stack peut provoquer des erreurs inattendues.
+   * Partages de fichiers
+   * Niveaux d’accès
+   * Suppression réversible
+   * ADLS Gen2
+* L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
+
+## <a name="version-181"></a>Version 1.8.1
+13/05/2019
+
+### <a name="hotfixes"></a>Correctifs logiciels
+* Dans certains cas, en cliquant sur « Charger plus » au niveau de la ressource ne permet pas de renvoyer la page suivante de ressources. Ce problème a été résolu. [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
+* Sous Windows, les téléchargements AzCopy échouaient si un seul fichier ou dossier était téléchargé et que son nom contenait un caractère non valide pour un chemin d’accès Windows. Ce problème a été résolu. [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
+* Dans de très rares cas, lors du changement de nom d’un partage de fichiers ou d’un changement de nom dans un partage de fichiers, si les copies pour le changement de nom échouaient, ou si l’Explorateur Stockage ne pouvait pas confirmer la réussite des copies avec Azure, il pouvait arriver que l’Explorateur Stockage supprime des fichiers d’origine avant la fin de la copie. Ce problème a été résolu.
+
+### <a name="new"></a>Nouveau
+
+* La version d’AzCopy intégrée a été mise à jour vers la version 10.1.0.
+* Les raccourcis Ctrl/Cmd+R peuvent maintenant être utilisés pour actualiser l’éditeur ayant le focus. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* La version de l’API de Stockage Azure Stack a été remplacée par 2017-04-17.
+* La boîte de dialogue de gestion des accès pour ADLS Gen2 maintiendra désormais la synchronisation du masque d’une manière semblable aux autres outils d’autorisations POSIX. L’interface utilisateur vous avertira aussi si une modification fait que les autorisations d’un utilisateur ou d’un groupe dépassent les limites du masque. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* Pour les chargements d’AzCopy, l’indicateur permettant de calculer et de définir le hachage MD5 est maintenant activé. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>Fonctionnalités de préversion
+
+* La connexion par flux de code d’appareil est à présent disponible en préversion. Pour l’activer, accédez à « Préversion » → « Use Device Code Flow Sign-in » (Utiliser la connexion par flux de code d’appareil). Nous encourageons tous les utilisateurs qui ont eu des problèmes avec des fenêtres de connexion vides à essayer cette fonctionnalité, car elle peut s’avérer être une forme plus fiable de connexion.
+* L’Explorateur Stockage intégré à AzCopy est actuellement disponible en préversion. Pour l’activer, accédez à « Préversion » → « Use AzCopy for Improved Blob Upload and Download » (Utiliser AzCopy pour améliorer le chargement et le téléchargement des objets blob). Les transferts d’objets blob effectués avec AzCopy doivent être plus rapides et plus performants.
+
+### <a name="fixes"></a>Correctifs
+
+* La boîte de dialogue des stratégies d’accès ne définit plus de date d’expiration sur les stratégies d’accès au stockage qui n’expirent pas. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Certaines modifications ont été apportées à la boîte de dialogue de génération de SAP pour garantir que les stratégies d’accès stockées sont utilisées correctement lors de la génération d’une SAP. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* Lors d’une tentative de chargement d’un fichier aligné de 512 octets dans un objet Blob de page, l’Explorateur Stockage affiche à présent une erreur plus pertinente. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* La copie d’un conteneur d’objets Blob qui utilisait un nom d’affichage échouait. À présent, le nom réel du conteneur d’objets Blob est utilisé. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* Il était impossible d’effectuer certaines actions sur un dossier ADLS Gen2 dont le nom contenait des caractères Unicode. Toutes les actions devraient désormais fonctionner. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>Problèmes connus
+
+* Lorsque vous effectuez un téléchargement d’objets Blob non-AzCopy, le hachage MD5 pour les fichiers volumineux n’est pas vérifié. Cela est dû à un bogue dans le SDK de stockage. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* La tentative d’accès aux objets Blob Gen2 ADLS derrière un proxy peut échouer.
+* Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
+* Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
+* Azurite n’a pas encore totalement implémenté toutes les API de stockage. C’est pourquoi vous risquez de rencontrer des erreurs ou un comportement inattendus quand vous utilisez Azurite pour le stockage de développement.
+* Dans de rares cas, le focus de l’arborescence peut être bloqué sur un accès rapide. Pour débloquer le focus, vous pouvez tout actualiser.
+* Le chargement à partir de votre dossier OneDrive ne fonctionne pas en raison d’un bogue dans NodeJS. Le bogue a été résolu, mais pas encore intégré à Electron. Pour contourner ce problème pendant le chargement ou le téléchargement dans un conteneur d’objets blob, vous pouvez utiliser la fonctionnalité expérimentale AzCopy.
+* Lorsque vous ciblez Azure Stack, le chargement de certains fichiers en tant qu’objets blob ajoutés peut échouer.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». C’est parce que nous utilisons la solution de contournement du filtre Annuler décrite ici.
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
+* Azure Stack ne prend pas en charge les fonctionnalités suivantes. Toute tentative d’utilisation de ces fonctionnalités lors de l’utilisation de ressources Azure Stack peut provoquer des erreurs inattendues.
+   * Partages de fichiers
+   * Niveaux d’accès
+   * Suppression réversible
+   * ADLS Gen2
+* L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
+
+## <a name="version-180"></a>Version 1.8.0
+01/05/2019
+
+### <a name="new"></a>Nouveau
+
+* La version d’AzCopy intégrée a été mise à jour vers la version 10.1.0.
+* Les raccourcis Ctrl/Cmd+R peuvent maintenant être utilisés pour actualiser l’éditeur ayant le focus. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* La version de l’API de Stockage Azure Stack a été remplacée par 2017-04-17.
+* La boîte de dialogue de gestion des accès pour ADLS Gen2 maintiendra désormais la synchronisation du masque d’une manière semblable aux autres outils d’autorisations POSIX. L’interface utilisateur vous avertira aussi si une modification fait que les autorisations d’un utilisateur ou d’un groupe dépassent les limites du masque. [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* Pour les chargements d’AzCopy, l’indicateur permettant de calculer et de définir le hachage MD5 est maintenant activé. [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>Fonctionnalités de préversion
+
+* La connexion par flux de code d’appareil est à présent disponible en préversion. Pour l’activer, accédez à « Préversion » → « Use Device Code Flow Sign-in » (Utiliser la connexion par flux de code d’appareil). Nous encourageons tous les utilisateurs qui ont eu des problèmes avec des fenêtres de connexion vides à essayer cette fonctionnalité, car elle peut s’avérer être une forme plus fiable de connexion.
+* L’Explorateur Stockage intégré à AzCopy est actuellement disponible en préversion. Pour l’activer, accédez à « Préversion » → « Use AzCopy for Improved Blob Upload and Download » (Utiliser AzCopy pour améliorer le chargement et le téléchargement des objets blob). Les transferts d’objets blob effectués avec AzCopy doivent être plus rapides et plus performants.
+
+### <a name="fixes"></a>Correctifs
+
+* La boîte de dialogue des stratégies d’accès ne définit plus de date d’expiration sur les stratégies d’accès au stockage qui n’expirent pas. [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* Certaines modifications ont été apportées à la boîte de dialogue de génération de SAP pour garantir que les stratégies d’accès stockées sont utilisées correctement lors de la génération d’une SAP. [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* Lors d’une tentative de chargement d’un fichier aligné de 512 octets dans un objet Blob de page, l’Explorateur Stockage affiche à présent une erreur plus pertinente. [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* La copie d’un conteneur d’objets Blob qui utilisait un nom d’affichage échouait. À présent, le nom réel du conteneur d’objets Blob est utilisé. [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* Il était impossible d’effectuer certaines actions sur un dossier ADLS Gen2 dont le nom contenait des caractères Unicode. Toutes les actions devraient désormais fonctionner. [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>Problèmes connus
+
+* Lorsque vous effectuez un téléchargement d’objets Blob non-AzCopy, le hachage MD5 pour les fichiers volumineux n’est pas vérifié. Cela est dû à un bogue dans le SDK de stockage. [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* La tentative d’accès aux objets Blob Gen2 ADLS derrière un proxy peut échouer.
+* Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
+* Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
+* Azurite n’a pas encore totalement implémenté toutes les API de stockage. C’est pourquoi vous risquez de rencontrer des erreurs ou un comportement inattendus quand vous utilisez Azurite pour le stockage de développement.
+* Dans de rares cas, le focus de l’arborescence peut être bloqué sur un accès rapide. Pour débloquer le focus, vous pouvez tout actualiser.
+* Le chargement à partir de votre dossier OneDrive ne fonctionne pas en raison d’un bogue dans NodeJS. Le bogue a été résolu, mais pas encore intégré à Electron. Pour contourner ce problème pendant le chargement ou le téléchargement dans un conteneur d’objets blob, vous pouvez utiliser la fonctionnalité expérimentale AzCopy.
+* Lorsque vous ciblez Azure Stack, le chargement de certains fichiers en tant qu’objets blob ajoutés peut échouer.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». C’est parce que nous utilisons la solution de contournement du filtre Annuler décrite ici.
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
+* Azure Stack ne prend pas en charge les fonctionnalités suivantes. Toute tentative d’utilisation de ces fonctionnalités lors de l’utilisation de ressources Azure Stack peut provoquer des erreurs inattendues.
+   * Partages de fichiers
+   * Niveaux d’accès
+   * Suppression réversible
+   * ADLS Gen2
+* L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* L’exécution de l’Explorateur Stockage sous Linux requiert l’installation préalable de certaines dépendances. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) de l’Explorateur Stockage pour plus d’informations.
+
+## <a name="version-170"></a>Version 1.7.0
+05/03/2019
+
+### <a name="download-azure-storage-explorer-170"></a>Télécharger l’Explorateur Stockage Azure 1.7.0
+- [Explorateur Stockage Azure 1.7.0 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur Stockage Azure 1.7.0 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur Stockage Azure 1.7.0 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nouveau
+
+* Vous pouvez maintenant modifier le propriétaire et le groupe propriétaire lors de la gestion des accès pour un conteneur ADLS Gen2, un fichier ou un dossier.
+* Sous Windows, la mise à jour à partir de l’Explorateur Stockage au sein du produit est désormais une installation incrémentielle. Cela doit entraîner une expérience de mise à jour plus rapide. Si vous préférez une nouvelle installation, vous pouvez télécharger le [programme d’installation](https://azure.microsoft.com/features/storage-explorer/) vous-même, puis l’installez manuellement. #1089
+
+### <a name="preview-features"></a>Fonctionnalités de préversion
+
+* La connexion par flux de code d’appareil est à présent disponible en préversion. Pour l’activer, accédez à « Préversion » → « Use Device Code Flow Sign-in » (Utiliser la connexion par flux de code d’appareil). Nous encourageons tous les utilisateurs qui ont eu des problèmes avec des fenêtres de connexion vides à essayer cette fonctionnalité, car elle peut s’avérer être une forme plus fiable de connexion. #938
+* L’Explorateur Stockage intégré à AzCopy est actuellement disponible en préversion. Pour l’activer, accédez à « Préversion » → « Use AzCopy for Improved Blob Upload and Download » (Utiliser AzCopy pour améliorer le chargement et le téléchargement des objets blob). Les transferts d’objets blob effectués avec AzCopy doivent être plus rapides et plus performants.
+
+### <a name="fixes"></a>Correctifs
+
+* Vous pouvez maintenant choisir le type d’objet blob à charger que lorsque AzCopy est activé. #1111
+* Auparavant, si vous aviez activé les sites web statiques pour un compte de stockage ADLS Gen2, puis l’aviez associé à un nom et à une clé, l’Explorateur Stockage n’aurait pas détecté que cet espace de noms hiérarchique avait été activé. Ce problème a été résolu. #1081
+* Dans l’éditeur d’objets blob, le tri par jours de rétention restants ou état ne fonctionnait pas. Ce problème a été résolu. #1106
+* Après la version 1.5.0, L’Explorateur Stockage n’attendait plus la fin des copies côté serveur avant de signaler la réussite d’un changement de nom ou d’un copier-coller. Ce problème a été résolu. #976
+* Lorsque vous utilisiez la fonctionnalité AzCopy expérimentale, la commande copiée après avoir cliqué sur « Copier la commande dans le Presse-papiers » n’était pas toujours exécutable telle quelle. À présent, toutes les commandes nécessaires pour exécuter le transfert manuellement seront copiées. #1079
+* Auparavant, les objets blob ADLS Gen2 n’étaient pas accessibles si vous étiez derrière un proxy. Cela était dû à un bogue dans une nouvelle bibliothèque de mise en réseau utilisée par le SDK de stockage. Dans la version 1.7.0, nous avons tenté d’atténuer ce problème, mais il persiste pour certaines personnes. Un correctif complet sera disponible dans une prochaine mise à jour. #1090
+* Dans la version 1.7.0, la boîte de dialogue d’enregistrement de fichier mémorise désormais correctement le dernier emplacement où vous avez enregistré un fichier. #16
+* Dans le volet des propriétés, le niveau de référence (SKU) d’un compte de stockage était affiché en tant que type du compte. Ce problème a été résolu. #654
+* Parfois, il était impossible de résilier le bail d’un objet blob, même si vous aviez correctement entré le nom de l’objet blob. Ce problème a été résolu. #1070
+
+### <a name="known-issues"></a>Problèmes connus
+
+* Lorsque vous utilisez RBAC, l’Explorateur Stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* La tentative d’accès aux objets Blob Gen2 ADLS derrière un proxy peut échouer.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Pour plus d’informations, consultez #537.
 * Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, commentez ce problème.
@@ -96,43 +384,6 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versions précédentes
-
-* [Version 1.6.2](#version-162)
-* [Version 1.6.1](#version-161)
-* [Version 1.6.0](#version-160)
-* [Version 1.5.0](#version-150)
-* [Version 1.4.4](#version-144)
-* [Version 1.4.3](#version-143)
-* [Version 1.4.2](#version-142)
-* [Version 1.4.1](#version-141)
-* [Version 1.3.0](#version-130)
-* [Version 1.2.0](#version-120)
-* [Version 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [Version 0.9.6](#version-096)
-* [Version 0.9.5](#version-095)
-* [Versions 0.9.4 et 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Versions 0.9.1 et 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Versions 0.8.12, 0.8.11 et 0.8.10](#version-0812-and-0811-and-0810)
-* [Versions 0.8.9 et 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-162"></a>Version 1.6.2
 1/9/2019
@@ -1155,7 +1406,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 
 * Mise à jour vers la version Électron 1.7.2 afin de bénéficier de plusieurs mises à jour de sécurité critiques
 * Vous pouvez maintenant accéder rapidement au guide de dépannage en ligne depuis le menu d’aide
-* [Guide][2] de dépannage de l’explorateur de stockage
+* [Guide][2] de dépannage de l’Explorateur Stockage Microsoft Azure
 * [Instructions][3] sur la connexion à un abonnement Azure Stack
 
 ### <a name="known-issues"></a>Problèmes connus
@@ -1180,7 +1431,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 
 #### <a name="new"></a>Nouveau
 
-* [Guide][2] de dépannage de Storage Explorer
+* [Guide][2] de dépannage de l’Explorateur Stockage Microsoft Azure
 * [Instructions][3] sur la connexion à un abonnement Azure Stack
 
 #### <a name="fixes"></a>Correctifs

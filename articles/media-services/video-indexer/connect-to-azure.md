@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796543"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815673"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Créer un compte Video Indexer connecté à Azure
 
@@ -22,7 +23,7 @@ Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’
 
 Cet article explique comment créer un compte Video Indexer connecté à un abonnement Azure et un compte Azure Media Services. Cette rubrique indique les étapes permettant de se connecter à Azure via le flux automatique (par défaut). Elle explique également comment se connecter à Azure manuellement (option avancée).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure.
 
@@ -32,7 +33,7 @@ Cet article explique comment créer un compte Video Indexer connecté à un abo
 
     Si vous n’avez pas de domaine Azure AD, créez-en un avec votre abonnement Azure. Pour plus d’informations, consultez la rubrique [Gestion des noms de domaine personnalisés dans Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md).
 
-* Un utilisateur et un membre dans votre domaine Azure AD. Vous allez utiliser ce membre lors de la connexion de votre compte Video Indexer à Azure.
+* Un utilisateur de votre domaine Azure AD avec un rôle d'**administrateur d’application**. Vous allez utiliser ce membre lors de la connexion de votre compte Video Indexer à Azure.
 
     Cet utilisateur doit être un utilisateur Azure AD avec un compte professionnel ou scolaire, et non un compte personnel, tel que outlook.com, live.com ou hotmail.com.
 
@@ -58,9 +59,12 @@ Recherchez **Microsoft.Media** et **Microsoft.EventGrid**. S’il n’a pas l’
 
 ## <a name="connect-to-azure"></a>Connexion à Azure
 
+> [!NOTE]
+> Si votre abonnement Azure utilise l’authentification multifacteur basée sur des certificats, il est essentiel d’effectuer les opérations suivantes sur un appareil sur lequel les certificats requis sont installés.
+
 1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
 
-2. Cliquez sur le **créer le nouveau compte** bouton :
+2. Cliquez sur le bouton **Créer un compte** :
 
     ![Connexion à Azure](./media/create-account/connect-to-azure.png)
 
@@ -90,7 +94,7 @@ Recherchez **Microsoft.Media** et **Microsoft.EventGrid**. S’il n’a pas l’
 
     ![Nouveau compte](./media/create-account/new-account.png)
 
-7. Accédez à votre nouveau compte
+7. Accéder à votre nouveau compte
 
 ## <a name="connect-to-azure-manually-advanced-option"></a>Se connecter à Azure manuellement (option avancée)
 

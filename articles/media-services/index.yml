@@ -38,7 +38,7 @@ sections:
             image:
               src: /azure/cdn/media/index/cdn.svg
             title: CDN
-          - href: 'http://amp.azure.net/libs/amp/latest/docs/index.html'
+          - href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
             html: <p>Lisez du contenu multimédia à partir de Microsoft Azure Media Services sur une grande variété de navigateurs et d’appareils.</p>
             image:
               src: /azure/media-services/latest/media/index/AMSIcons-Player.svg

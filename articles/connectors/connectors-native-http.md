@@ -1,90 +1,170 @@
 ---
-title: Se connecter à un point de terminaison HTTP avec Azure Logic Apps | Microsoft Docs
-description: Automatiser les tâches et les flux de travail qui communiquent avec n’importe quel point de terminaison HTTP à l’aide d’Azure Logic Apps
+title: Appeler des points de terminaison HTTP ou HTTPS – Azure Logic Apps
+description: Envoyer des requêtes sortantes à des points de terminaison HTTP et HTTPS avec Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
-ms.topic: article
+ms.topic: conceptual
+ms.date: 07/05/2019
 tags: connectors
-ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442203"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122695"
 ---
-# <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Appeler des points de terminaison HTTP ou HTTPS avec Azure Logic Apps
+# <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Envoyer des appels sortants à des points de terminaison HTTP ou HTTPS avec Azure Logic Apps
 
-Avec Azure Logic Apps et le connecteur HTTP (Hypertext Transfer Protocol), vous pouvez automatiser les flux de travail qui communiquent avec n’importe quel point de terminaison HTTP ou HTTPS en générant des applications logiques. Par exemple, vous pouvez superviser le point de terminaison de service pour votre site web. Quand un événement se produit à ce point de terminaison, tel qu’une panne de votre site web, l’événement déclenche le flux de travail de votre application logique et exécute les actions spécifiées. 
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur ou l’action HTTP intégrés, vous pouvez créer des tâches et des workflows automatisés qui envoient régulièrement des requêtes à un point de terminaison HTTP ou HTTPS quelconque. Pour recevoir et répondre aux appels HTTP ou HTTPS entrants, utilisez le [déclencheur de requête ou l’action Réponse](../connectors/connectors-native-reqres.md) intégrés.
 
-Vous pouvez utiliser le déclencheur HTTP comme première étape de votre flux de travail pour vérifier ou *interroger* un point de terminaison selon une planification régulière. À chaque vérification, le déclencheur envoie un appel ou une *demande* au point de terminaison. La réponse du point de terminaison détermine si le flux de travail de votre application logique s’exécute. Le déclencheur transmet le contenu de la réponse aux actions de votre application logique. 
+Par exemple, vous pouvez surveiller le point de terminaison de service pour votre site web en vérifiant ce point de terminaison selon une planification définie. Lorsqu’un événement se produit au niveau de ce point de terminaison, tel qu’une panne de votre site web, l’événement déclenche le flux de travail de votre application logique et exécute les actions spécifiées.
+
+Vous pouvez utiliser le déclencheur HTTP comme première étape de votre flux de travail pour vérifier ou *interroger* un point de terminaison selon une planification régulière. À chaque vérification, le déclencheur envoie un appel ou une *demande* au point de terminaison. La réponse du point de terminaison détermine si le flux de travail de votre application logique s’exécute. Le déclencheur transmet le contenu de la réponse aux actions de votre application logique.
 
 Vous pouvez utiliser l’action HTTP comme toute autre étape de votre flux de travail pour appeler le point de terminaison quand vous le souhaitez. La réponse du point de terminaison détermine la façon dont s’exécutent les actions restantes de votre flux de travail.
 
-Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
+En fonction des capacités du point de terminaison cible, le connecteur HTTP prend en charge les versions 1.0, 1.1 et 1.2 du protocole TLS (Transport Layer Security). Logic Apps négocie avec le point de terminaison en utilisant la version prise en charge la plus récente possible. Si, par exemple, le point de terminaison prend en charge la version 1.2, le connecteur commence par utiliser celle-ci. Sinon, le connecteur utilise la version prise en charge juste inférieure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* L’URL du point de terminaison cible que vous souhaitez appeler 
+* L’URL du point de terminaison cible que vous souhaitez appeler
 
-* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-* L’application logique à partir de laquelle vous voulez appeler le point de terminaison cible. Pour démarrer avec le déclencheur HTTP, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser l’action HTTP, démarrez votre application logique avec un déclencheur.
+* L’application logique à partir de laquelle vous souhaitez appeler le point de terminaison cible. Pour démarrer avec un déclencheur HTTP, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser l’action HTTP, démarrez votre application logique avec le déclencheur de votre choix. Cet exemple utilise le déclencheur HTTP en tant que première étape.
 
-## <a name="add-http-trigger"></a>Ajouter un déclencheur HTTP
+## <a name="add-an-http-trigger"></a>Ajouter un déclencheur HTTP
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique vide dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
+Ce déclencheur intégré effectue un appel HTTP vers l’URL spécifiée d’un point de terminaison et renvoie une réponse.
 
-1. Dans la zone de recherche, entrez « http » en tant que filtre. Sous la liste des déclencheurs, sélectionnez le déclencheur **HTTP**. 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Ouvrez votre application logique vide dans le Concepteur d’applications logiques.
+
+1. Dans la zone de recherche du Concepteur, saisissez le filtre « http ». Dans la liste **Déclencheurs**, sélectionnez le déclencheur **HTTP**.
 
    ![Sélectionner le déclencheur HTTP](./media/connectors-native-http/select-http-trigger.png)
 
-1. Indiquez les [paramètres et valeurs du déclencheur HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) à inclure dans l’appel au point de terminaison cible. Configurer la périodicité pour la fréquence à laquelle vous souhaitez que le déclencheur pour vérifier le point de terminaison cible.
+   Cet exemple renomme le déclencheur « Déclencheur HTTP » afin que l’étape ait un nom plus descriptif. En outre, il ajoute ultérieurement une action HTTP, et les deux noms doivent être uniques.
+
+1. Indiquez les valeurs des [paramètres du déclencheur HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) à inclure dans l’appel au point de terminaison cible. Configurez la fréquence à laquelle le déclencheur doit vérifier le point de terminaison cible.
 
    ![Entrer les paramètres du déclencheur HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
-   Pour plus d’informations sur le déclencheur HTTP, les paramètres et les valeurs, consultez [Informations de référence sur les types d’actions et de déclencheurs](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger).
+   Pour en savoir plus sur les types d’authentification disponibles pour HTTP, voir [Authentifier les actions et déclencheurs HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+
+1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 
 1. Continuez à générer le flux de travail de votre application logique avec des actions qui s’exécutent quand le déclencheur se déclenche.
 
-## <a name="add-http-action"></a>Ajouter une action HTTP
+1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+## <a name="add-an-http-action"></a>Ajouter une action HTTP
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
+Cette action intégrée effectue un appel HTTP à l’URL spécifiée d’un point de terminaison et renvoie une réponse.
 
-1. Sous la dernière étape où vous souhaitez ajouter l’action HTTP, choisissez **Nouvelle étape**. 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Ouvrez votre application logique dans le Concepteur d’applications logiques.
 
-   Dans cet exemple, l’application logique démarre avec le déclencheur HTTP en tant que première étape.
+   Cet exemple utilise le déclencheur HTTP en tant que première étape.
 
-1. Dans la zone de recherche, entrez « http » en tant que filtre. Dans la liste des actions, sélectionnez l’action **HTTP**.
+1. Sous l’étape à laquelle vous souhaitez ajouter l’action HTTP, choisissez **Nouvelle étape**.
+
+   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
+
+1. Dans la zone de recherche du Concepteur, saisissez le filtre « http ». Dans la liste **Actions**, sélectionnez **HTTP**.
 
    ![Sélection de l’action HTTP](./media/connectors-native-http/select-http-action.png)
 
-   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-   Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   Cet exemple renomme l’action « Action HTTP » afin qu’elle ait un nom plus descriptif.
 
-1. Indiquez les [paramètres et valeurs de l’action HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) à inclure dans l’appel au point de terminaison cible. 
+1. Indiquez les valeurs des [paramètres d’actions HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) à inclure dans l’appel au point de terminaison cible.
 
    ![Entrer les paramètres de l’action HTTP](./media/connectors-native-http/http-action-parameters.png)
 
-1. Quand vous avez terminé, veillez à enregistrer votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
+   Pour en savoir plus sur les types d’authentification disponibles pour HTTP, voir [Authentifier les actions et déclencheurs HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-## <a name="authentication"></a>Authentication
+1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 
-Pour définir l’authentification, choisissez **Afficher les options avancées** à l’intérieur de l’action ou du déclencheur. Pour plus d’informations sur les types d’authentification disponibles pour les déclencheurs et les actions HTTP, consultez [Informations de référence sur les types d’actions et de déclencheurs](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
-## <a name="get-support"></a>Obtenir de l’aide
+## <a name="content-with-multipartform-data-type"></a>Contenu avec type multipart/form-data
 
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+Pour gérer le contenu qui a le type `multipart/form-data` dans les requêtes HTTP, vous pouvez ajouter un objet JSON qui comprend les attributs `$content-type` et `$multipart` dans le corps de la requête HTTP à l’aide de ce format.
+
+```json
+"body": {
+   "$content-type": "multipart/form-data",
+   "$multipart": [
+      {
+         "body": "<output-from-trigger-or-previous-action>",
+         "headers": {
+            "Content-Disposition": "form-data; name=file; filename=<file-name>"
+         }
+      }
+   ]
+}
+```
+
+Par exemple, supposons que vous ayez une application logique qui envoie une requête HTTP POST pour un fichier Excel sur un site web à l’aide de l’API de ce site, qui prend en charge le type `multipart/form-data`. Voici comment cette action peut se présenter :
+
+![Données de formulaire en plusieurs parties](./media/connectors-native-http/http-action-multipart.png)
+
+Voici le même exemple qui montre la définition JSON de l’action HTTP dans la définition de flux de travail sous-jacente :
+
+```json
+{
+   "HTTP_action": {
+      "body": {
+         "$content-type": "multipart/form-data",
+         "$multipart": [
+            {
+               "body": "@trigger()",
+               "headers": {
+                  "Content-Disposition": "form-data; name=file; filename=myExcelFile.xlsx"
+               }
+            }
+         ]
+      },
+      "method": "POST",
+      "uri": "https://finance.contoso.com"
+   },
+   "runAfter": {},
+   "type": "Http"
+}
+```
+
+## <a name="connector-reference"></a>Référence de connecteur
+
+Pour en savoir plus sur les paramètres des déclencheurs et des actions, consultez les sections suivantes :
+
+* [Paramètres de déclencheurs HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger)
+* [Paramètres d’actions HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action)
+
+### <a name="output-details"></a>Détails des résultats
+
+Voici d’autres informations sur les sorties d’un déclencheur ou d’une action HTTP qui renvoient les données suivantes :
+
+| Nom de la propriété | type | Description |
+|---------------|------|-------------|
+| headers | object | En-têtes de la requête |
+| body | object | Objet JSON | Objet avec le contenu du corps de la requête |
+| Code d’état | int | Code d’état de la requête |
+|||
+
+| Code d’état | Description |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Acceptée |
+| 400 | Demande incorrecte |
+| 401 | Non autorisé |
+| 403 | Interdit |
+| 404 | Introuvable |
+| 500 | Erreur interne du serveur. Une erreur inconnue s’est produite. |
+|||
 
 ## <a name="next-steps"></a>Étapes suivantes
 

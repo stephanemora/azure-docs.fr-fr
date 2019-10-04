@@ -7,17 +7,16 @@ manager: craigg
 ms.date: 12/5/2018
 ms.topic: conceptual
 tags: azure-service-management
-ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 468db9d62a98e079fbe6954843e23a518eaabd0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: cd87477da15d5c18f94b66cac855672b4a2a3523
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011723"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091345"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Approvisionnement d’une machine virtuelle Linux SQL Server dans le portail Azure
 
@@ -34,7 +33,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 * [Modifier le mot de passe d’administrateur](#password)
 * [Configurer des connexions à distance](#remote)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
@@ -66,7 +65,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     > [!Note]
     > Pour les nouvelles charges de travail, utilisez **Resource Manager**. Pour vous connecter à un réseau virtuel existant, sélectionnez la méthode de déploiement du réseau virtuel pour votre charge de travail. Pour plus d’informations sur les modèles de déploiement, consultez [Modèles de déploiement Azure Resource Manager et modèles de déploiement classique](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 ### <a name="set-up-your-linux-vm"></a>Configurer votre machine virtuelle Linux
 

@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 75a7424f6c3bb6ef13de9e44b46489ab1ef0fbcc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 1779a33e4ac021c1807ce10dc224e0b8c8c53ebb
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792978"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200522"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurer la récupération d’urgence dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et de Azure Resource Manager
 
@@ -38,7 +38,7 @@ Vous n’avez pas besoin d’être un expert de PowerShell pour utiliser cet art
 Assurez-vous que les conditions préalables sont remplies :
 
 * Un compte [Microsoft Azure](https://azure.microsoft.com/) . Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). Vous pouvez aussi consulter la [Tarification Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
-* Azure PowerShell. Pour plus d’informations sur cette version et comment l’installer, consultez [installer Azure PowerShell](/powershell/azure/install-az-ps).
+* Azure PowerShell. Pour plus d’informations sur cette version et la méthode d’installation, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps).
 
 De plus, l’exemple décrit dans cet article présente les conditions préalables suivantes :
 
@@ -47,7 +47,7 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Étape 1 : Connexion à votre compte Azure
 
-1. Ouvrez une console PowerShell et exécutez la commande suivante pour vous connecter à votre compte Azure. L’applet de commande permet d’afficher une page web qui vous demande les informations d’identification de votre compte : **Se connecter-AzAccount**.
+1. Ouvrez une console PowerShell et exécutez la commande suivante pour vous connecter à votre compte Azure. L’applet de commande permet d’afficher une page web qui vous demande les informations d’identification de votre compte : **Connect-AzAccount**.
     - Vous pouvez également inclure les informations d'identification de votre compte en tant que paramètre dans la cmdlet **Connect-AzAccount** à l'aide du paramètre **-Credential**.
     - Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire à l’aide de son ID locataire ou de son nom de domaine principal. Par exemple :  **Connect-AzAccount -Tenant "fabrikam.com"**
 2. Associez l’abonnement que vous souhaitez utiliser avec le compte, car un compte peut compter plusieurs abonnements :
@@ -66,21 +66,21 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
 
     `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
-## <a name="step-2-set-up-the-vault"></a>Étape 2 : Configurer le coffre
+## <a name="step-2-set-up-the-vault"></a>Étape 2 : Configurer le coffre
 
 1. Créez un groupe de ressources Azure Resource Manager dans lequel vous allez créer le coffre, ou utilisez un groupe de ressources existant. Créez un nouveau groupe de ressources de la manière suivante. La variable $ResourceGroupName contient le nom du groupe de ressources que vous souhaitez créer et la variable $Geo contient la région Azure dans laquelle créer le groupe de ressources (par exemple, « Brésil Sud »).
 
     `New-AzResourceGroup -Name $ResourceGroupName -Location $Geo`
 
-2. Pour obtenir une liste des groupes de ressources dans votre abonnement, exécutez le **Get-AzResourceGroup** applet de commande.
+2. Pour obtenir une liste de groupes de ressources dans votre abonnement, exécutez l’applet de commande **Get-AzResourceGroup**.
 2. Créez un coffre Azure Recovery Services de la manière suivante :
 
         $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
-    Vous pouvez récupérer la liste des coffres existants avec la **Get-AzRecoveryServicesVault** applet de commande.
+    Vous pouvez récupérer la liste des coffres existants avec l’applet de commande **Get-AzRecoveryServicesVault**.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>Étape 3 : Définir le contexte du coffre Recovery Services
+## <a name="step-3-set-the-recovery-services-vault-context"></a>Étape 3 : Définir le contexte du coffre Recovery Services
 
 Définissez le contexte d’archivage comme suit :
 
@@ -107,14 +107,23 @@ Définissez le contexte d’archivage comme suit :
 ## <a name="step-5-install-the-provider-and-agent"></a>Étape 5 : Installer le fournisseur et l’agent
 
 1. Téléchargez le programme d’installation de la dernière version du fournisseur sur le site de [Microsoft](https://aka.ms/downloaddra).
-2. Exécutez le programme d’installation sur l’ordinateur hôte Hyper-V.
+2. Exécutez le programme d’installation sur l’hôte Hyper-V.
 3. À la fin de l’installation, passez à l’étape d’inscription.
 4. Quand vous y êtes invité, renseignez la clé que vous avez téléchargée et terminez l’inscription de l’hôte Hyper-V.
 5. Vérifiez que l’hôte Hyper-V a bien été inscrit sur le site comme suit :
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
-## <a name="step-6-create-a-replication-policy"></a>Étape 6 : Créer une stratégie de réplication
+Si vous exécutez un serveur Hyper-V (installation minimale), téléchargez le fichier d’installation et effectuez les étapes suivantes :
+1. Extrayez les fichiers d’AzureSiteRecoveryProvider.exe dans un répertoire local en exécutant cette commande : ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. Exécutez ```.\setupdr.exe /i``` Les résultats sont enregistrés dans %Programdata%\ASRLogs\DRASetupWizard.log.
+
+3. Inscrivez le serveur en exécutant cette commande :
+
+    ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
+
+
+## <a name="step-6-create-a-replication-policy"></a>Étape 6 : Créer une stratégie de réplication
 
 Avant de commencer, notez que le compte de stockage spécifié doit se trouver dans la même région Azure que le coffre et doit utiliser la fonction de géo-réplication.
 
@@ -134,11 +143,15 @@ Avant de commencer, notez que le compte de stockage spécifié doit se trouver d
         $protectionContainer = Get-AsrProtectionContainer
 3. Associez le conteneur de protection avec la stratégie de réplication comme suit :
 
-     $Policy = Get-AsrPolicy -FriendlyName $PolicyName   $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
-
+        $Policy = Get-AsrPolicy -FriendlyName $PolicyName
+        $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
 4. Attendez que la tâche d’association se termine.
 
-## <a name="step-7-enable-vm-protection"></a>Étape 7 : Activer la protection des machines virtuelles
+5. Récupérez le mappage de conteneurs de protection.
+
+        $ProtectionContainerMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $protectionContainer
+
+## <a name="step-7-enable-vm-protection"></a>Étape 7 : Activer la protection des machines virtuelles
 
 1. Récupérez l’élément protégeable correspondant à la machine virtuelle que vous souhaitez protéger comme suit :
 
@@ -146,8 +159,8 @@ Avant de commencer, notez que le compte de stockage spécifié doit se trouver d
         $ProtectableItem = Get-AsrProtectableItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
 2. Protéger la machine virtuelle. Si la machine virtuelle que vous protégez possède plusieurs disques, spécifiez le disque de système d’exploitation à l’aide du paramètre *OSDiskName* .
 
-        $Ostype = "Windows"                                 # "Windows" or "Linux"
-        $DRjob = New-AsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS Windows -RecoveryResourceGroupId
+        $OSType = "Windows"                                 # "Windows" or "Linux"
+        $DRjob = New-AsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID
 
 3. Attendez que les machines virtuelles basculent à l’état protégé après la réplication initiale. Cette opération prendra un certain temps compte tenu de certains facteurs, notamment la quantité de données à répliquer et la bande passante en amont disponible pour Azure. Lorsque l’état protégé est en place, les paramètres State et StateDescription de la tâche s’actualisent comme suit :
 

@@ -3,18 +3,18 @@ title: Qu’est-ce que Azure IoT Central | Microsoft Docs
 description: Azure IoT Central est une solution SaaS de bout en bout que vous pouvez utiliser pour créer et gérer votre solution IoT personnalisée. Cet article donne une vue d’ensemble des fonctionnalités de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 9fc565996797c90a6d2ac9b3851ac3408f1842c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5c1f36e77e24b598aa777d384462ee4538bd486
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183269"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70048935"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,16 +25,18 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>Qu’est-ce que Azure IoT Central
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 Azure IoT Central est une solution IoT Software-as-a-Service (SaaS) complètement managée qui permet de créer facilement des produits qui connectent les mondes physiques et numériques. Vous pouvez donner vie à votre vision du produit connecté par :
 
 - L’obtention de nouveaux insights depuis des périphériques connectés pour améliorer les produits et les expériences de vos clients.
 - La création de nouvelles opportunités commerciales pour votre organisation.
 
-Azure IoT Central, par rapport à un projet IoT standard, simplifie la gestion d’une solution IoT par :
+Comparaison d’Azure IoT Central à un projet IoT classique :
 
-- La réduction de la charge de travail.
-- La réduction des frais généraux et des coûts d’exploitation.
-- La simplification de la personnalisation de votre application, tout en tirant parti :
+- Réduit la charge de travail.
+- Réduit les frais généraux et les coûts d’exploitation.
+- Simplifie la personnalisation de votre application, tout en travaillant avec :
   - Des technologies avancées telles que [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) et [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).
   - Des fonctionnalités de classe affaires, comme le chiffrement de bout en bout.
 
@@ -42,7 +44,7 @@ La vidéo suivante donne une vue d’ensemble de Azure IoT Central :
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-Le reste de cet article présente Azure IoT Central :
+Cet article décrit, en ce qui concerne Azure IoT Central :
 
 - Les personnages types associés à un projet.
 - La procédure de création de votre application.
@@ -51,7 +53,7 @@ Le reste de cet article présente Azure IoT Central :
 
 ## <a name="personas"></a>Rôles
 
-La documentation de Azure IoT Central fait référence à quatre personnages classiques qui interagissent avec une application Azure IoT Central :
+La documentation d’Azure IoT Central fait référence à quatre personnages qui interagissent avec une application Azure IoT Central :
 
 - Un _générateur_ est chargé de définir les types d’appareils qui se connectent à l’application et de la personnalisation de l’application pour l’opérateur.
 - Un _opérateur_ gère les périphériques connectés à l’application.
@@ -65,7 +67,7 @@ En tant que générateur, vous utilisez Azure IoT Central pour créer une soluti
 - Une application basée sur le cloud qui reçoit des données de télémétrie de vos appareils et qui vous permet de gérer ces appareils.
 - Un code personnalisé exécuté sur plusieurs appareils, connecté à votre application basée sur le cloud.
 
-Vous pouvez déployer rapidement une nouvelle application Azure IoT Central, puis la personnaliser selon vos propres exigences, directement depuis dans votre navigateur. En tant que générateur d’Azure IoT Central, vous pouvez utiliser les outils web pour créer un _modèle d’appareil_ pour les appareils qui se connectent à votre application. Un modèle d’appareil est le blueprint du modèle d’un appareil. Tous les appareils créés depuis le même modèle d’appareil partagent le modèle. Un modèle d’appareil définit les caractéristiques et le comportement d’un type d’appareils tel que :
+Vous pouvez déployer rapidement une nouvelle application Azure IoT Central, puis la personnaliser selon vos propres exigences, depuis dans votre navigateur. En tant que générateur, vous utilisez les outils web pour créer un _modèle d’appareil_ pour les appareils qui se connectent à votre application. Un modèle d’appareil est le blueprint qui définit les caractéristiques et le comportement d’un type d’appareils tel que :
 
 - Les données de télémétrie qu’il envoie.
 - Les propriétés commerciales qu’un opérateur peut modifier.
@@ -83,7 +85,7 @@ En tant que générateur, vous pouvez également personnaliser l’interface uti
 
 ## <a name="connect-your-devices"></a>Connecter vos appareils
 
-Une fois que le générateur définit les types d’appareils pouvant se connecter à l’application, un développeur d’appareil crée le code à exécuter sur les appareils. En tant que développeur d’appareil, vous utilisez les [kits de développement logiciel Azure IoT](https://github.com/Azure/azure-iot-sdks) open source de Microsoft pour créer votre code d’appareil. Ces kits de développement logiciel disposent d’une prise en charge étendue des langages, des plateformes et des protocoles afin de répondre à vos besoins pour connecter vos appareils à votre application Azure IoT Central. Les kits de développement vous aident à effectuer les tâches suivantes sur l’appareil connecté à Azure IoT Central :
+Une fois que le générateur définit les types d’appareils pouvant se connecter à l’application, un développeur d’appareil crée le code à exécuter sur les appareils. En tant que développeur d’appareil, vous utilisez les [kits de développement logiciel Azure IoT](https://github.com/Azure/azure-iot-sdks) open source de Microsoft pour créer votre code d’appareil. Ces kits de développement logiciel disposent d’une prise en charge étendue des langages, des plateformes et des protocoles afin de répondre à vos besoins pour connecter vos appareils à votre application Azure IoT Central. Les Kits de développement logiciel (SDK) vous aident à implémenter les fonctionnalités suivantes des appareils :
 
 - Créer une connexion sécurisée.
 - Envoyer des données de télémétrie.
@@ -96,15 +98,15 @@ Pour plus d’informations, voir l’article de blog [Avantages de l’utilisati
 
 Les applications Azure IoT Central sont entièrement hébergées par Microsoft, ce qui réduit la surcharge administrative liée à la gestion de vos applications.
 
-En tant qu’opérateur, vous utilisez l’application Azure IoT Central pour gérer les appareils dans votre solution Azure IoT Central. Les opérateurs peuvent effectuer des tâches telles que :
+En tant qu’opérateur, vous utilisez l’application Azure IoT Central pour gérer les appareils dans votre solution Azure IoT Central. Les opérateurs effectuent des tâches telles que :
 
 - Surveiller les appareils connectés à l’application.
 - La résolution et la correction des problèmes avec des appareils.
 - La configuration de nouveaux appareils.
 
-Un générateur peut définir des règles et des actions personnalisées qui s’exécutent sur des données diffusées en continu au niveau du modèle d’appareils. Un opérateur peut activer ou désactiver ces règles au niveau de l’appareil pour contrôler et automatiser des tâches au sein de l’application.
+En tant que générateur, vous pouvez définir des règles et des actions personnalisées qui s’exécutent sur les flux de données d’appareils connectés. Un opérateur peut activer ou désactiver ces règles au niveau de l’appareil pour contrôler et automatiser des tâches au sein de l’application.
 
-Les administrateurs peuvent gérer l’accès à votre application avec des [rôles d’utilisateur et des autorisations](howto-administer.md).
+Les administrateurs gèrent l’accès à votre application avec des [rôles d’utilisateur et des autorisations](howto-administer.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

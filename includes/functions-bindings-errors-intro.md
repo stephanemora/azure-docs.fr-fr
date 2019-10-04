@@ -4,14 +4,32 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: c1784111cd2fc2c93b67510f310b9e513cf2b86e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f771b6b0416c5777c1ebde7e2cf2c4ffc6f375ff
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978824"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155294"
 ---
-Les [déclencheurs et les liaisons](../articles/azure-functions/functions-triggers-bindings.md) Azure Functions communiquent avec divers services Azure. Lors de l’intégration avec ces services, vous pouvez des erreurs qui proviennent des API des services Azure sous-jacents peuvent être déclenchées. Des erreurs peuvent également se produire lorsque vous tentez de communiquer avec d’autres services à partir de votre code de fonction à l’aide des bibliothèques REST ou clientes. Pour éviter la perte de données et garantir un comportement correct de vos fonctions, il est important de gérer les erreurs provenant de chaque source.
+Les erreurs signalées dans Azure Functions peuvent avoir l’une des origines suivantes :
+
+- Utilisation des [déclencheurs et liaisons intégrés](..\articles\azure-functions\functions-triggers-bindings.md) Azure Functions
+- Appels aux API des services Azure sous-jacents
+- Appels aux points de terminaison REST
+- Appels aux bibliothèques clientes, aux packages ou aux API tierces
+
+Il est important de suivre des pratiques de gestion des erreurs solides afin d’éviter de perdre des données ou de manquer des messages. Les pratiques recommandées concernant la gestion des erreurs impliquent les actions suivantes :
+
+- [Activer Application Insights](../articles/azure-functions/functions-monitoring.md)
+- [Utiliser la gestion structurée des erreurs](#use-structured-error-handling)
+- [Concevoir en ayant en vue l’idempotence](../articles/azure-functions/functions-idempotent.md)
+- Implémenter des stratégies relatives aux nouvelles tentatives (si nécessaire)
+
+### <a name="use-structured-error-handling"></a>Utiliser la gestion structurée des erreurs
+
+La capture et la publication des erreurs sont essentielles pour superviser l’intégrité de votre application. Le niveau le plus élevé de tout code de fonction doit inclure un bloc try/catch. Dans le bloc catch, vous pouvez capturer et publier des erreurs.
+
+### <a name="retry-support"></a>Prise en charge des nouvelles tentatives
 
 Les déclencheurs suivants prennent en charge les nouvelles tentatives intégrées :
 
@@ -19,8 +37,6 @@ Les déclencheurs suivants prennent en charge les nouvelles tentatives intégré
 * [Stockage File d’attente Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (file d’attente/rubrique)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Par défaut, ces déclencheurs sont retentés jusqu’à cinq fois. Après la cinquième tentative, ces déclencheurs écrivent un message à une [file d’attente de messages incohérents](../articles/azure-functions/functions-bindings-storage-queue.md#trigger---poison-messages) spéciale.
+Par défaut, ces déclencheurs retentent les requêtes jusqu’à cinq fois. Après la cinquième tentative, les deux déclencheurs écrivent un message dans une [file d’attente de messages incohérents](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
 
-Pour les autres déclencheurs Fonctions, il n’y a pas de nouvelle tentative intégrée quand des erreurs se produisent au moment de l’exécution d’une fonction. Pour éviter la perte d’informations de déclencheur en cas d’erreur dans votre fonction, nous vous recommandons d’utiliser des blocs try-catch dans votre code de fonction pour détecter les erreurs. Lorsqu’une erreur se produit, écrivez les informations transmises par le déclencheur dans la fonction dans une « file d’attente de messages incohérents » spéciale. Cette approche est le même que celle utilisée par le [déclencheur du stockage Blob](../articles/azure-functions/functions-bindings-storage-blob.md#trigger---poison-blobs).
-
-De cette façon, vous pouvez capturer les événements déclencheurs qui pourraient être perdus en raison d’erreurs et les retenter ultérieurement à l’aide d’une autre fonction pour traiter les messages à partir de la file d’attente de messages incohérent en utilisant les informations stockées.  
+Pour tous les autres types de déclencheurs ou de liaisons, vous devez implémenter manuellement les stratégies de nouvelle tentative. Les implémentations manuelles peuvent impliquer l’écriture d’informations sur les erreurs dans une [file d’attente de messages incohérents](..\articles\azure-functions\functions-bindings-storage-blob.md#trigger---poison-blobs). Le fait d’écrire des données dans une file d’attente de messages incohérents vous permet de retenter des opérations ultérieurement. Cette approche est la même que celle utilisée par le déclencheur du stockage Blob.

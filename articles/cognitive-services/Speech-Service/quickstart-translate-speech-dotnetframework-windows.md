@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : reconnaissance vocale, .C# (.NET Framework Windows) - Services Speech'
+title: 'Démarrage rapide : Traduction vocale, .C# (.NET Framework Windows) – Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez créer une application .NET Framework simple pour capturer les paroles de l’utilisateur, les traduire dans une autre langue et générer le texte à la ligne de commande. Ce guide est conçu pour les utilisateurs de Windows.
 services: cognitive-services
@@ -8,16 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 34161989bf98f2605cbc2e238cb832523b2f23cb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e62756ab428135ca3d5d9107f37e61813097d21f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843321"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553458"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Démarrage rapide : traduire une entrée vocale à l’aide du SDK Speech pour .NET Framework
+
+Des guides de démarrage rapide sont également disponibles pour la [reconnaissance vocale](quickstart-csharp-dotnet-windows.md) et la [synthèse vocale](quickstart-text-to-speech-dotnet-windows.md).
 
 Dans ce guide de démarrage rapide, vous allez créer une application .NET Framework simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis transcrit le texte traduit à la ligne de commande en temps réel. Cette application est conçue pour fonctionner sur Windows 64 bits et est générée avec le [package NuGet du SDK Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017.
 

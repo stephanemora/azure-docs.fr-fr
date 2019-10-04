@@ -1,0 +1,70 @@
+- name: Documentation Azure Lighthouse
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce qu’Azure Lighthouse\_?"
+      displayName: 'management at scale, service providers'
+      href: overview.md
+- name: Exemples
+  items:
+    - name: Index
+      displayName: 'template, sample'
+      href: ./samples/index.md
+- name: Concepts
+  items:
+    - name: Gestion des ressources déléguées Azure
+      displayName: delegation
+      href: ./concepts/azure-delegated-resource-management.md
+    - name: Expériences de la gestion multilocataire
+      displayName: scenarios
+      href: ./concepts/cross-tenant-management-experience.md
+    - name: Offres de services managés dans la Place de marché Azure
+      displayName: 'azure marketplace, marketplace, managed service, private, plan'
+      href: ./concepts/managed-services-offers.md
+    - name: Pratiques de sécurité recommandées
+      displayName: 'mfa, authentication, secure, group'
+      href: ./concepts/recommended-security-practices.md
+    - name: Considérations sur le programme des fournisseurs de solutions cloud
+      displayName: 'csp, aobo, partner'
+      href: ./concepts/cloud-solution-provider.md
+    - name: Azure Lighthouse dans les scénarios d’entreprise
+      displayName: 'corporation, IT, consolidate'
+      href: ./concepts/enterprise.md
+- name: Guides pratiques
+  items:
+    - name: Intégrer un client dans la gestion des ressources déléguées Azure
+      displayName: resource management
+      href: ./how-to/onboard-customer.md
+    - name: Publier des offres de services managés sur la Place de marché Azure
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/publish-managed-services-offers.md
+    - name: Voir et gérer les clients
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/view-manage-customers.md
+    - name: Voir et gérer les fournisseurs de services
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/view-manage-service-providers.md
+- name: Informations de référence
+  items:
+    - name: D’Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/managedservices?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.managedservices/?view=azps-2.4.0#managed_services'
+    - name: Kit SDK Azure pour .NET
+      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet'
+    - name: Kit SDK Azure pour .NET (NuGet)
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/'
+    - name: Kit SDK Azure pour Python
+      href: 'https://docs.microsoft.com/python/api/azure-mgmt-managedservices'
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/managedservices/'
+    - name: OpenAPI
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview'
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: UserVoice
+      href: 'https://feedback.azure.com/forums/922753'

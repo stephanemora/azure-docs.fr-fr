@@ -3,9 +3,8 @@ title: Gérer les problèmes de protection du point de terminaison avec Azure Se
 description: Découvrez comment gérer les problèmes de protection du point de terminaison dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
-ms.author: rkarlin
-ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: memildin
+ms.openlocfilehash: b1bcce1e94a64253986ad9b1fd77874ba0a39839
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789649"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202071"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gérer les problèmes de protection du point de terminaison avec Azure Security Center
 Azure Security Center surveille l’état de protection des logiciels anti-programme malveillant et l’indique dans le panneau Endpoint protection issues (Problèmes de protection du point de terminaison). Security Center met en évidence les problèmes, tels que les menaces détectées et une protection insuffisante, qui peuvent rendre vos machines virtuelles et ordinateurs vulnérables aux menaces des logiciels anti-programme malveillant. En utilisant les informations dans **Endpoint protection issues** (Problèmes de protection du point de terminaison), vous pouvez déterminer un plan pour résoudre les problèmes identifiés.
@@ -31,12 +30,12 @@ Security Center signale les problèmes de protection du point de terminaison sui
 - Intégrité de la protection du point de terminaison :
 
   - Signature obsolète : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle ne dispose pas des dernières signatures de logiciels anti-programme malveillant.
-  - Pas de protection en temps réel : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle n’est pas configurée pour la protection en temps réel.   Le service peut être désactivé ou Security Center peut ne pas être en mesure d’obtenir l’état, car la solution n’est pas prise en charge. Consultez [Intégration des partenaires dans Azure Security Center](security-center-os-coverage.md#supported-endpoint-protection-solutions) pour obtenir la liste de solutions prises en charge.
+  - Pas de protection en temps réel : une solution anti-programme malveillant est installée sur ces machines virtuelles et ordinateurs, mais elle n’est pas configurée pour la protection en temps réel.   Le service peut être désactivé ou Security Center peut ne pas être en mesure d’obtenir l’état, car la solution n’est pas prise en charge. Consultez [Intégration des partenaires dans Azure Security Center](security-center-services.md#endpoint-supported) pour obtenir la liste de solutions prises en charge.
   - Pas de rapport : une solution anti-programme malveillant est installée, mais ne crée pas de rapport de données.
   - Inconnu : une solution anti-programme malveillant est installée, mais son état est inconnu ou signale une erreur inconnue.
 
     > [!NOTE]
-    > Consultez [Intégrer des solutions de sécurité](security-center-os-coverage.md#supported-endpoint-protection-solutions) pour obtenir la liste des solutions de sécurité de protection de point de terminaison intégrées à Security Center.
+    > Consultez [Intégrer des solutions de sécurité](security-center-services.md#endpoint-supported) pour obtenir la liste des solutions de sécurité de protection de point de terminaison intégrées à Security Center.
     >
     >
 
@@ -47,7 +46,7 @@ Dans cet exemple, nous utilisons **Calcul**.  Nous allons examiner comment insta
 
 ## <a name="install-antimalware-on-azure-vms"></a>Installer des logiciels anti-programme malveillant sur des machines virtuelles Azure
 
-1. Sélectionnez **Compute et applications** dans le menu principal de Security Center ou **vue d’ensemble**.
+1. Sélectionnez **Compute et applications** dans le menu principal de Security Center, ou **Vue d’ensemble**.
 
    ![Sélectionner Calcul][1]
 
@@ -60,7 +59,7 @@ Dans cet exemple, nous utilisons **Calcul**.  Nous allons examiner comment insta
    - Installed endpoint protection providers (Fournisseurs de protection du point de terminaison installé) : répertorie les différents fournisseurs identifiés par Security Center.
    - Installed endpoint protection health state (État d’intégrité de protection du point de terminaison installé) : affiche l’état d’intégrité des machines virtuelles et des ordinateurs ayant une solution de protection du point de terminaison installée. Le graphique montre le nombre de machines virtuelles et d’ordinateurs sains et le nombre de machines virtuelles et d’ordinateurs ayant une protection insuffisante.
    - Programmes malveillants détectés : affiche le nombre de machines virtuelles et d’ordinateurs pour lesquels Security Center a détecté un programme malveillant.
-   - Ordinateurs attaqués – indique le nombre de machines virtuelles et les ordinateurs où Security Center signale des attaques par des logiciels malveillants.
+   - Ordinateurs attaqués : affiche le nombre de machines virtuelles et d’ordinateurs pour lesquels Security Center signale des attaques par des programmes malveillants.
 
    Une liste des problèmes de protection du point de terminaison se trouve dans la partie inférieure du tableau de bord. Elle comprend les informations suivantes :  
 
@@ -76,7 +75,7 @@ Dans cet exemple, nous utilisons **Calcul**.  Nous allons examiner comment insta
 
 4. Dans **Endpoint protection not installed on Azure VMs** (Protection du point de terminaison non installée sur des machines virtuelles Azure) se trouve une liste des machines virtuelles Azure n’ayant pas de logiciel anti-programme malveillant installé.  Vous pouvez choisir d’installer des logiciels anti-programme malveillant sur toutes les machines virtuelles de la liste ou vous pouvez sélectionner chaque machine virtuelle pour y installer des logiciels anti-programme malveillant en cliquant sur la machine virtuelle spécifique.
 5. Dans **Sélectionner Endpoint Protection**, sélectionnez la solution de protection du point de terminaison de votre choix. Dans cet exemple, sélectionnez **Microsoft Antimalware**.
-6. Des informations supplémentaires sur la solution Endpoint Protection s’affichent. Sélectionnez **Créer**.
+6. Des informations supplémentaires sur la solution Endpoint Protection s’affichent. Sélectionnez **Create** (Créer).
 
 ## <a name="install-antimalware-on-non-azure-computers"></a>Installer des logiciels anti-programme malveillant sur des ordinateurs autres qu’Azure
 
@@ -84,13 +83,13 @@ Dans cet exemple, nous utilisons **Calcul**.  Nous allons examiner comment insta
 
    ![Sélectionner Endpoint protection not installed on non-Azure computers (Protection du point de terminaison non installée sur des ordinateurs autres qu’Azure)][4]
 
-2. Dans **Endpoint protection not installed on non-Azure computers** (Protection du point de terminaison non installée sur des ordinateurs autres qu’Azure), sélectionnez un espace de travail. Une requête de recherche de journaux Azure Monitor filtrée à l’espace de travail s’ouvre et répertorie les ordinateurs sans logiciel anti-programme malveillant. Sélectionnez un ordinateur dans la liste pour plus d’informations.
+2. Dans **Endpoint protection not installed on non-Azure computers** (Protection du point de terminaison non installée sur des ordinateurs autres qu’Azure), sélectionnez un espace de travail. Une requête de recherche Journaux Azure Monitor filtrée sur l’espace de travail s’ouvre et liste les ordinateurs n’ayant pas de logiciel anti-programme malveillant installé. Sélectionnez un ordinateur dans la liste pour plus d’informations.
 
-   ![Recherche de journaux de Azure Monitor][5]
+   ![Recherche Journaux Azure Monitor][5]
 
 Un autre résultat de recherche s’ouvre avec les informations filtrées uniquement pour cet ordinateur.
 
-  ![Recherche de journaux de Azure Monitor][6]
+  ![Recherche Journaux Azure Monitor][6]
 
 > [!NOTE]
 > Nous recommandons l’approvisionnement de la protection du point de terminaison pour toutes les machines virtuelles Windows, afin d’identifier et de supprimer les virus, les logiciels espions et autres logiciels malveillants.
@@ -100,7 +99,7 @@ Un autre résultat de recherche s’ouvre avec les informations filtrées unique
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré comment implémenter la recommandation de Security Center « Installer Endpoint Protection ». Pour en savoir plus sur l’activation de Microsoft Antimalware dans Azure, consultez le document suivant :
 
-* [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/azure-security-antimalware.md) : découvrez comment déployer Microsoft Antimalware.
+* [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](../security/fundamentals/antimalware.md) : découvrez comment déployer Microsoft Antimalware.
 
 Pour plus d’informations sur Security Center, consultez les documents suivants :
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: b60d8a8fb9b9300a6914ad33b2f760fb5adde3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 019f9f2019619053f87a7923d656513a419d4675
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792451"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231446"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configurer et gérer des stratégies de réplication pour la récupération d’urgence VMware sur Azure
 Cet article explique comment configurer une stratégie de réplication pour la réplication d’une machine virtuelle VMware sur Azure avec [Azure Site Recovery](site-recovery-overview.md).
@@ -24,7 +24,7 @@ Cet article explique comment configurer une stratégie de réplication pour la r
 3. Cliquez sur **+ Stratégie de réplication**, et spécifiez le nom de la stratégie.
 4. Dans le champ **Seuil d’objectif de point de récupération**, spécifiez la limite de l’objectif de point de récupération. Des alertes sont générées lorsque la réplication continue dépasse cette limite.
 5. Dans **Rétention des points de récupération**, spécifiez la durée (en heures) de la fenêtre de rétention pour chaque point de récupération. Les machines protégées peuvent être récupérées à tout moment pendant cette fenêtre de rétention. Les machines virtuelles répliquées vers le Stockage Premium peuvent prendre en charge jusqu’à 24 heures de rétention. Le stockage standard prend en charge jusqu’à 72 heures de rétention.
-6. Dans **fréquence des captures instantanées cohérentes de l’application**, choisissez dans la liste déroulante la fréquence (en heures) des points de récupération qui contiennent des instantanés cohérents au niveau de l’application doivent être créées. Si vous souhaitez désactiver la génération de points de cohérence d’application, choisissez « Off » la valeur dans la liste déroulante.
+6. Dans **Fréquence des captures instantanées de cohérence d’application**, choisissez dans la liste déroulante la fréquence (en heures) à laquelle doivent être créés des points de récupération qui contiennent des instantanés de cohérence d’application. Pour désactiver la génération de points de cohérence d’application, choisissez la valeur « Désactivé » dans la liste déroulante.
 7. Cliquez sur **OK**. La création de la stratégie devrait prendre entre 30 et 60 secondes.
 
 Lorsque vous créez une stratégie de réplication, une stratégie de correspondance est automatiquement créée pour la restauration automatique, avec le suffixe « failback ». Une fois la stratégie créée, vous pouvez la modifier en sélectionnant **Modifier les paramètres**.
@@ -42,11 +42,19 @@ Associez la stratégie de réplication à votre serveur de configuration local.
 
 ## <a name="edit-a-policy"></a>Modifier une stratégie
 
-1. Sélectionnez **gérer** > **Infrastructure Site Recovery** > **stratégies de réplication**.
-2. Sélectionnez la stratégie de réplication que vous souhaitez modifier.
-3. Cliquez sur **modifier les paramètres**et mettre à jour les champs fréquence RPO/récupération du seuil du point de rétention instantané heures/cohérent de l’application en fonction des besoins.
-4. Si vous souhaitez désactiver la génération de points de cohérence d’application, choisissez « Off » la valeur dans la liste déroulante du champ **fréquence des captures instantanées cohérentes de l’application**.
-5. Cliquez sur **Enregistrer**. La stratégie doit être mis à jour entre 30 et 60 secondes.
+Vous pouvez modifier une stratégie de réplication après l’avoir créée.
+
+- Les modifications apportées à la stratégie sont appliquées à toutes les machines utilisant la stratégie.
+- Si vous souhaitez associer des machines répliquées à une stratégie de réplication différente, vous devez désactiver et réactiver la protection pour les machines concernées.
+
+Modifiez une stratégie comme suit :
+1. Sélectionnez **Gérer** > **Infrastructure Site Recovery** > **Stratégies de réplication**.
+2. Sélectionnez la stratégie de réplication à modifier.
+3. Cliquez sur **Modifier les paramètres** et mettez à jour les champs Seuil d’objectif de point de récupération/Délai de rétention des points de récupération en heures/Fréquence des captures instantanées de cohérence d’application selon vos besoins.
+4. Si vous souhaitez désactiver la génération de points de cohérence d’application, choisissez la valeur « Désactivé » dans la liste déroulante du champ **Fréquence des captures instantanées de cohérence d’application**.
+5. Cliquez sur **Enregistrer**. La mise à jour de la stratégie devrait prendre entre 30 et 60 secondes.
+
+
 
 ## <a name="disassociate-or-delete-a-replication-policy"></a>Dissocier ou supprimer une stratégie de réplication
 

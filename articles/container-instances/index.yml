@@ -1,71 +1,80 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation d’Azure Container Instances
+### YamlMime:Landing
+title: Documentation sur Azure Container Instances
+summary: Exécutez des conteneurs Docker à la demande dans un environnement Azure serverless géré. Azure Container Instances est une solution adaptée à tous les scénarios qui peut fonctionner dans des conteneurs isolés, sans orchestration. Exécutez des applications pilotées par des événements, déployez-les rapidement à partir de vos pipelines de développement conteneur, puis exécutez des tâches de traitement de données et de build.
 metadata:
-  title: Documentation d’Azure Container Instances - Didacticiels | Microsoft Docs
-  description: 'Azure Container Instances propose la façon la plus simple et rapide d’exécuter un conteneur dans Azure, sans avoir à configurer des machines virtuelles et sans avoir à adopter un service de niveau supérieur.'
-  services: container-instances
-  author: czeumault
-  manager: carolz
+  title: Documentation sur Azure Container Instances - conteneurs serverless, à la demande
+  description: Exécutez des conteneurs Docker dans un environnement Azure serverless géré.
+  services: 
   ms.service: container-instances
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/26/2017
-  ms.author: carolz
-abstract:
-  description: 'Azure Container Instances propose la façon la plus simple et rapide d’exécuter un conteneur dans Azure, sans avoir à configurer des machines virtuelles et sans avoir à adopter un service de niveau supérieur. Découvrez comment créer et gérer des instances de conteneurs avec nos démarrages rapides, nos didacticiels et nos exemples.<p>Si vous avez besoin d’une solution d’orchestration de conteneur complète, consultez la <a href="/azure/aks/">documentation de Azure Kubernetes Service (AKS)</a>.</p>'
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: Découvrez comment déployer des images conteneur à l’aide d’Azure Container Instances.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Azure CLI
-            href: /azure/container-instances/container-instances-quickstart
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Portail Azure
-            href: /azure/container-instances/container-instances-quickstart-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/container-instances/container-instances-quickstart-powershell
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: Découvrez comment packager du code dans une image conteneur et l’exécuter dans Azure Container Instances.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Packager une application dans une image conteneur</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Créer un registre Azure Container Registry et charger l’image conteneur</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Déployer l’image conteneur dans une instance Azure Container Instances</a>
-  - title: Développer vos compétences avec Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Exécuter les conteneurs Docker avec Azure Container Instances
-            href: /learn/modules/run-docker-with-azure-container-instances/
-            image:
-              src: /learn/achievements/run-docker-with-azure-container-instances.svg
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-container-instances">Plus de formations interactives...</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Ligne de commande
-            html: <p><a href="/cli/azure/container">Interface de ligne de commande Azure</a></p><p><a href="/powershell/module/az.containerinstance">PowerShell</a></p>
-          - title: Languages
-            html: <p><a href="/dotnet/api/overview/azure/containerinstance">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstances">Node.JS</a></p>
-          - title: REST
-            html: "<p><a href=\"/rest/api/container-instances\">Référence d’API\_REST</a></p><p><a href=\"/azure/templates/microsoft.containerinstance/containergroups\">modèle Azure Resource Manager</a></p>"
+  ms.collection: collection
+  author: dlepow
+  ms.author: danlep
+  ms.date: 09/25/2019
+  ms.openlocfilehash: a031f70cfaad9369f79a0e18f3527250eb82bfeb
+  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71326948"
+landingContent:
+- title: À propos d’Azure Container Instances
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation d’Azure Container Instances
+      url: container-instances-overview.md
+    - text: Groupes de conteneur
+      url: container-instances-container-groups.md
+    - text: Forum Aux Questions
+      url: container-instances-faq.md
+- title: Prise en main
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Déployer une instance de conteneur - CLI
+      url: container-instances-quickstart.md
+    - text: Déployer une instance de conteneur - Portail
+      url: container-instances-quickstart-portal.md
+  - linkListType: learn
+    links:
+    - text: Exécuter les conteneurs Docker avec Azure Container Instances
+      url: /learn/modules/run-docker-with-azure-container-instances/
+- title: Créer des groupes de plusieurs conteneurs
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Déployer un groupe de conteneurs - YAML
+      url: container-instances-multi-container-yaml.md
+    - text: Déployer un groupe de conteneurs - modèle
+      url: container-instances-multi-container-group.md
+- title: Scénarios de déploiement
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Se connecter à un réseau virtuel
+      url: container-instances-vnet.md
+    - text: Configurer la stratégie de redémarrage
+      url: container-instances-restart-policy.md
+    - text: Définition des variables d'environnement
+      url: container-instances-environment-variables.md
+- title: Gérer les applications de conteneur
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Arrêter et démarrer des conteneurs
+      url: container-instances-stop-start.md
+    - text: Mettre à jour des conteneurs en cours d’exécution
+      url: container-instances-update.md
+    - text: Partager des données entre conteneurs
+      url: container-instances-volume-emptydir.md
+- title: Intégrer à Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Déployer une image à partir d’Azure Container Registry
+      url: container-instances-using-azure-container-registry.md
+    - text: Utiliser l’identité managée
+      url: container-instances-managed-identity.md
+    - text: Monter un partage de fichiers Azure
+      url: container-instances-volume-azure-files.md

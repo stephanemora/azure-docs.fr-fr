@@ -4,225 +4,147 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: caa96ea2-da21-4529-8fab-0e06367beb40
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fadebc689f10b40131bb0feb12d846d3bdde704
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8b94592f78a3aba46406d25d95de3a8847831eeb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206682"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880181"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Tutoriel : Intégration d’Azure Active Directory à SafetyNet
+# <a name="tutorial-integrate-safetynet-with-azure-active-directory"></a>Didacticiel : Intégrer SafetyNet à Azure Active Directory
 
-L’objectif de ce didacticiel est de vous apprendre à intégrer SafetyNet à Azure Active Directory (Azure AD).
+L’objectif de ce didacticiel est de vous apprendre à intégrer SafetyNet à Azure Active Directory (Azure AD). Quand vous intégrez SafetyNet à Azure AD, vous pouvez :
 
-L’intégration de SafetyNet dans Azure AD vous offre les avantages suivants :
+* Contrôler dans Azure AD qui a accès à SafetyNet.
+* Permettre à vos utilisateurs de se connecter automatiquement à SafetyNet avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à SafetyNet.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à SafetyNet (par le biais de l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
-
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour configurer l’intégration d’Azure AD à SafetyNet, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-- Un abonnement Azure AD
-- Un abonnement SafetyNet pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
+* Un abonnement SafetyNet pour lequel l’authentification unique (SSO) est activée.
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de SafetyNet à partir de la gallerie
-1. Configuration et test de l’authentification unique Azure AD
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
+
+* SafetyNet prend en charge l’authentification unique lancée par le **fournisseur de services et le fournisseur d’identité**
 
 ## <a name="adding-safetynet-from-the-gallery"></a>Ajout de SafetyNet à partir de la gallerie
+
 Pour configurer l’intégration de SafetyNet à Azure AD, vous devez ajouter SafetyNet, disponible dans la galerie, à votre liste d’applications SaaS gérées.
 
-**Pour ajouter SafetyNet à partir de la galerie, procédez comme suit :**
-
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
-
-    ![Bouton Azure Active Directory][1]
-
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
-
-    ![Panneau Applications d’entreprise][2]
-    
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
-
-    ![Bouton Nouvelle application][3]
-
-1. Dans la zone de recherche, tapez **SafetyNet**, sélectionnez **SafetyNet** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
-
-    ![SafetyNet dans la liste des résultats](./media/safetynet-tutorial/tutorial_safetynet_addfromgallery.png)
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **SafetyNet** dans la zone de recherche.
+1. Sélectionnez **SafetyNet** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec SafetyNet avec un utilisateur de test appelé « Britta Simon ».
+Configurez et testez l’authentification unique Azure AD avec SafetyNet pour un utilisateur de test nommé **B. Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur SafetyNet associé.
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur SafetyNet équivalent dans Azure AD. En d’autres termes, une relation entre l’utilisateur Azure AD et l’utilisateur SafetyNet associé doit être établie.
+Pour configurer et tester l’authentification unique Azure AD avec SafetyNet, suivez les indications des sections ci-après :
 
-Pour configurer et tester l’authentification unique Azure AD avec SafetyNet, vous devez suivre les indications des sections suivantes :
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique SafetyNet](#configure-safetynet-sso)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test SafetyNet](#create-safetynet-test-user)** pour avoir un équivalent de B. Simon dans SafetyNet lié à la représentation Azure AD associée.
+6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur de test SafetyNet](#create-a-safetynet-test-user)** pour avoir un équivalent de Britta Simon dans SafetyNet lié à la représentation Azure AD associée.
-1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application SafetyNet.
+1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **SafetyNet**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
-**Pour configurer l’authentification unique Azure AD avec SafetyNet, procédez comme suit :**
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans le Portail Azure, sur la page d’intégration de l’application **SafetyNet**, cliquez sur **Authentification unique**.
-
-    ![Lien Configurer l’authentification unique][4]
-
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
-    ![Boîte de dialogue Authentification unique](./media/safetynet-tutorial/tutorial_safetynet_samlbase.png)
-
-1. Dans la section **Domaines et URL SafetyNet**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode initié par **IDP** :
-
-    ![Informations d’authentification unique dans Domaine et URL SafetyNet](./media/safetynet-tutorial/tutorial_safetynet_url.png)
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
     a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<subdomain>.predictivesolutions.com/sp`
 
-    b. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<subdomain>.predictivesolutions.com/CRMApp/saml/SSO`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<subdomain>.predictivesolutions.com/CRMApp/saml/SSO`
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de service**, cochez **Afficher les paramètres d’URL avancés**, puis effectuez les étapes suivantes :
-
-    ![Informations d’authentification unique dans Domaine et URL SafetyNet](./media/safetynet-tutorial/tutorial_safetynet_url1.png)
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<subdomain>.predictivesolutions.com`
-     
-    > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique SafetyNet](mailto:dev@predictivesolutions.com).
 
-1. Dans la section  **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
+    > [!NOTE]
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique SafetyNet](mailto:dev@predictivesolutions.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-    ![Lien Téléchargement de certificat](./media/safetynet-tutorial/tutorial_safetynet_certificate.png)
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
-1. Cliquez sur le bouton **Enregistrer** .
+    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
-    ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/safetynet-tutorial/tutorial_general_400.png)
+### <a name="configure-safetynet-sso"></a>Configurer l’authentification unique SafetyNet
 
-1. Pour configurer l’authentification unique côté **SafetyNet**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** à [l’équipe du support technique SafetyNet](mailto:dev@predictivesolutions.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **SafetyNet**, vous devez envoyer **l’URL des métadonnées de fédération de l’application** à [l’équipe du support technique SafetyNet](mailto:dev@predictivesolutions.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
 
-   ![Créer un utilisateur de test Azure AD][100]
-
-**Pour créer un utilisateur de test dans Azure AD, procédez comme suit :**
-
-1. Dans le volet gauche du Portail Azure, cliquez sur le bouton **Azure Active Directory**.
-
-    ![Bouton Azure Active Directory](./media/safetynet-tutorial/create_aaduser_01.png)
-
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/safetynet-tutorial/create_aaduser_02.png)
-
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
-
-    ![Bouton Ajouter](./media/safetynet-tutorial/create_aaduser_03.png)
-
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
-
-    ![Boîte de dialogue Utilisateur](./media/safetynet-tutorial/create_aaduser_04.png)
-
-    a. Dans la zone **Nom**, tapez **BrittaSimon**.
-
-    b. Dans la zone **Nom d’utilisateur** , tapez l’adresse e-mail de l’utilisateur Britta Simon.
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
-
-    d. Cliquez sur **Créer**.
- 
-### <a name="create-a-safetynet-test-user"></a>Créer un utilisateur de test SafetyNet
-
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SafetyNet. Collaborez avec l’ [équipe du support technique de SafetyNet](mailto:dev@predictivesolutions.com) pour ajouter des utilisateurs à la plateforme SafetyNet. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SafetyNet.
+Dans cette section, vous allez autoriser B. Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SafetyNet.
 
-![Attribuer le rôle utilisateur][200] 
-
-**Pour affecter Britta Simon à SafetyNet, procédez comme suit :**
-
-1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
-
-    ![Affecter des utilisateurs][201] 
-
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **SafetyNet**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
-    ![Lien SafetyNet dans la liste des applications](./media/safetynet-tutorial/tutorial_safetynet_app.png)  
+   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![Lien « Utilisateurs et groupes »][202]
+    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-    ![Volet Ajouter une attribution][203]
+### <a name="create-safetynet-test-user"></a>Créer un utilisateur de test SafetyNet
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans SafetyNet. Collaborez avec l’[équipe du support technique SafetyNet](mailto:dev@predictivesolutions.com) pour ajouter des utilisateurs dans la plate-forme SafetyNet. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
-
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Quand vous cliquez sur la mosaïque SafetyNet dans le volet d’accès, vous devez être connecté automatiquement à votre application SafetyNet.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Le fait de cliquer sur la vignette SafetyNet dans le panneau d’accès doit vous connecter automatiquement à l’application SafetyNet pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/safetynet-tutorial/tutorial_general_01.png
-[2]: ./media/safetynet-tutorial/tutorial_general_02.png
-[3]: ./media/safetynet-tutorial/tutorial_general_03.png
-[4]: ./media/safetynet-tutorial/tutorial_general_04.png
-
-[100]: ./media/safetynet-tutorial/tutorial_general_100.png
-
-[200]: ./media/safetynet-tutorial/tutorial_general_200.png
-[201]: ./media/safetynet-tutorial/tutorial_general_201.png
-[202]: ./media/safetynet-tutorial/tutorial_general_202.png
-[203]: ./media/safetynet-tutorial/tutorial_general_203.png
-
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

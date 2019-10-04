@@ -2,20 +2,20 @@
 title: Basculement vers un locataire B2C dans Azure Active Directory B2C | Microsoft Docs
 description: Comment basculer dans le contexte de votre locataire Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/13/2017
-ms.author: davidmu
+ms.date: 04/13/2017
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9315b3a5e1641098daf2c7dadf9fa4f09d0cb2a7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: cbf0e928ae05e723902d41a340aebf4f5781fde5
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438498"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654124"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Basculement vers votre locataire Azure AD B2C
 
@@ -36,8 +36,8 @@ Le portail Azure est actualisé.  Vous êtes à présent connecté au portail Az
 1. Cliquez sur **Parcourir** dans le volet de navigation de gauche.
 1. Cliquez sur **Tous les services**, puis recherchez `Azure AD B2C` dans le volet de navigation de gauche.  (Pour l’épingler à votre Tableau d’accueil sur la gauche, cliquez sur l’étoile située à gauche d’Azure AD B2C.)
 1. Cliquez sur **Azure AD B2C** pour accéder au panneau de fonctionnalités B2C.
-   
-    ![Capture d’écran d’accédez au panneau de fonctionnalités B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
+
+    ![Capture d’écran du volet d’accès aux fonctionnalités B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
 > Vous devez être administrateur général du client B2C pour accéder au volet des fonctionnalités B2C. L’administrateur général ou l’utilisateur de tout autre client ne pourra pas y accéder.  Vous pouvez basculer vers votre client B2C en utilisant le sélecteur de client dans le coin supérieur droit du portail Azure.

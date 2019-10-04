@@ -7,25 +7,25 @@ author: zhangmanling
 manager: zhangmanling
 editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
-ms.service: cdn
+ms.service: azure-cdn
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918890"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593387"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Sécurisation des ressources CDN Azure avec l’authentification du jeton
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 L’authentification du jeton est un mécanisme qui vous permet d’empêcher Azure Content Delivery Network (CDN) de fournir des ressources à des clients non autorisés. L’authentification par jeton vise généralement à empêcher le *hotlinking* de contenu, dans le cadre duquel un autre site web, par exemple, un forum de discussion, utilise vos ressources sans autorisation. Le « hotlinking » peut avoir un impact sur vos coûts de distribution de contenu. En activant l’authentification du jeton sur CDN, les requêtes sont authentifiées par le serveur de périphérie CDN avant que CDN livre le contenu. 
 
@@ -33,13 +33,13 @@ L’authentification du jeton est un mécanisme qui vous permet d’empêcher Az
 
 L’authentification du jeton s’assure que les requêtes sont générées par un site de confiance en vérifiant qu’elles comportent une valeur de jeton contenant des informations codées sur le demandeur. Le contenu est fourni à un demandeur uniquement si les informations codées respectent les exigences définies. Dans le cas contraire, les requêtes sont refusées. Vous pouvez procéder à la configuration à l’aide d’un ou de plusieurs des paramètres suivants :
 
-- Pays : Autoriser ou refuser les demandes provenant des pays spécifiés par leurs [code pays](/previous-versions/azure/mt761717(v=azure.100)).
-- URL : Autoriser uniquement les demandes qui correspondent à l’élément multimédia spécifié ou le chemin d’accès.
-- Hôte : Autoriser ou refuser les demandes qui utilisent les ordinateurs hôtes indiqués dans l’en-tête de demande.
-- Référent : Autoriser ou refuser la demande provenant du référent spécifié.
-- Adresse IP : Autoriser uniquement les demandes provenant d’une adresse IP spécifique ou sous-réseau IP.
-- Protocole : Autoriser ou refuser les demandes basées sur le protocole utilisé pour demander le contenu.
-- Délai d’expiration : Affecter une date et une période pour s’assurer qu’un lien reste valide uniquement pour une période limitée.
+- Pays : autorisez ou refusez les requêtes provenant des pays/régions spécifiés par leur [code pays](/previous-versions/azure/mt761717(v=azure.100)).
+- URL : autorisez uniquement les requêtes qui correspondent à la ressource ou au chemin d’accès spécifique.
+- Hôte : autorisez ou refusez les requêtes utilisant les hôtes spécifiés dans l’en-tête de requête.
+- Référent : autorisez ou refusez une requête provenant du référent spécifié.
+- Adresse IP : autorisez uniquement les requêtes provenant d’une adresse ou d’un sous-réseau IP spécifique.
+- Protocole : autorisez ou refusez des requêtes en fonction du protocole utilisé pour demander le contenu.
+- Date/heure d’expiration : attribuez une période de date et d’heure pour vous assurer qu’un lien reste valide uniquement pendant une période limitée.
 
 Pour plus d’informations, consultez les exemples de configuration détaillés pour chaque paramètre dans [Configuration de l’authentification du jeton](#setting-up-token-authentication).
 
@@ -72,7 +72,7 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
 
       ```rand -hex <key length>```
 
-      Par exemple : 
+      Par exemple :
 
       ```OpenSSL> rand -hex 32``` 
 
@@ -80,13 +80,13 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
     
    2. Entrez une clé de chiffrement unique dans la zone **Clé primaire**, puis tapez éventuellement une clé de sauvegarde dans la zone **Clé de sauvegarde**.
 
-   3. Sélectionnez la version minimale de chiffrement pour chaque clé dans sa liste **Minimum Encryption Version (Version minimale de chiffrement)**, puis sélectionnez **Update (Mettre à jour)** :
-      - **V2**: Indique que la clé peut être utilisée pour générer des jetons de version 2.0 et 3.0. Utilisez cette option uniquement si vous effectuez la transition depuis une clé de chiffrement version 2.0 héritée vers une clé de version 3.0.
-      - **V3**: (Recommandé) Indique que la clé peut uniquement être utilisée pour générer des jetons de version 3.0.
+   3. Sélectionnez la version minimale de chiffrement pour chaque clé dans sa liste **Minimum Encryption Version (Version minimale de chiffrement)** , puis sélectionnez **Update (Mettre à jour)** :
+      - **V2** : indique que la clé peut être utilisée pour générer des jetons de version 2.0 et version 3.0. Utilisez cette option uniquement si vous effectuez la transition depuis une clé de chiffrement version 2.0 héritée vers une clé de version 3.0.
+      - **V3** : (recommandé) indique que la clé peut être uniquement utilisée pour générer des jetons de version 3.0.
 
       ![Clé de configuration de l’authentification du jeton CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Utilisez l’outil de chiffrement pour définir les paramètres de chiffrement et générer un jeton. Avec l’outil de chiffrement, vous pouvez autoriser ou refuser des requêtes en fonction de la date/heure d’expiration, du pays, du référent, du protocole et de l’IP du client (dans toute combinaison). Bien qu’il n’existe aucune restriction sur le nombre et la combinaison de paramètres pouvant être associés pour former un jeton, la longueur totale d’un jeton est limitée à 512 caractères. 
+   4. Utilisez l’outil de chiffrement pour définir les paramètres de chiffrement et générer un jeton. Avec l’outil de chiffrement, vous pouvez autoriser ou refuser des requêtes en fonction de la date/heure d’expiration, du pays/de la région, du référent, du protocole et de l’IP du client (dans toute combinaison). Bien qu’il n’existe aucune restriction sur le nombre et la combinaison de paramètres pouvant être associés pour former un jeton, la longueur totale d’un jeton est limitée à 512 caractères. 
 
       ![Outil de chiffrement CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -108,23 +108,23 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
       >    <td>Permet d’adapter les jetons à une ressource ou à un chemin d’accès particulier. Ce paramètre restreint l’accès aux demandes dont l’URL commence par un chemin d’accès relatif spécifique. Les URL sont sensibles à la casse. Entrez plusieurs chemins d’accès en les séparant par une virgule ; n’ajoutez pas d’espaces. Selon vos exigences, vous pouvez définir des valeurs différentes pour fournir différents niveaux d’accès.> 
       >    Par exemple, pour l’URL `http://www.mydomain.com/pictures/city/strasbourg.png`, ces requêtes sont autorisées pour les valeurs d’entrée suivantes : 
       >    <ul>
-      >       <li>Valeur d’entrée `/`: Toutes les demandes sont autorisées.</li>
+      >       <li>Valeur d’entrée `/` : toutes les requêtes sont autorisées.</li>
       >       <li>Valeur d’entrée `/pictures` : les requêtes suivantes sont autorisées : <ul>
       >          <li>`http://www.mydomain.com/pictures.png`</li>
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Valeur d’entrée `/pictures/`: Seules les requêtes contenant le `/pictures/` chemin d’accès sont autorisés. Par exemple : `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
-      >       <li>Valeur d’entrée `/pictures/city/strasbourg.png`: Seules les requêtes pour ce chemin d’accès spécifique et les actifs sont autorisés.</li>
+      >       <li>Valeur d’entrée `/pictures/` : seules les requêtes contenant le chemin d’accès `/pictures/` sont autorisées. Par exemple : `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Valeur d’entrée `/pictures/city/strasbourg.png` : seules les requêtes concernant ce chemin d’accès et cette ressource spécifiques sont autorisées.</li>
       >    </ul>
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Autorise uniquement les requêtes provenant d’un ou de plusieurs pays spécifiés. Les requêtes provenant de tous les autres pays sont refusées. Utilisez un [code de pays ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) de deux lettres pour chaque pays, en séparant les codes par une virgule ; n’ajoutez pas d’espace. Par exemple, pour autoriser l’accès aux requêtes provenant uniquement des États-Unis et de France, entrez `US,FR`.</td>
+      >    <td>Autorise uniquement les requêtes provenant d’un ou de plusieurs pays (ou régions) spécifiés. Les requêtes provenant de tous les autres pays/régions sont refusées. Utilisez un [code de pays ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) de deux lettres pour chaque pays, en séparant les codes par une virgule ; n’ajoutez pas d’espace. Par exemple, pour autoriser l’accès aux requêtes provenant uniquement des États-Unis et de France, entrez `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Refuse les requêtes provenant d’un ou de plusieurs pays spécifiés. Les requêtes provenant de tous les autres pays sont autorisées. L’implémentation est identique à celle du paramètre <b>ec_country_allow</b>. Si un code de pays est présent dans les paramètres <b>ec_country_allow</b> et <b>ec_country_deny</b>, le paramètre <b>ec_country_allow</b> est prioritaire.</td>
+      >    <td>Refuse les requêtes provenant d’un ou de plusieurs pays (ou régions) spécifiés. Les requêtes provenant de tous les autres pays/régions sont autorisées. L’implémentation est identique à celle du paramètre <b>ec_country_allow</b>. Si un code de pays est présent dans les paramètres <b>ec_country_allow</b> et <b>ec_country_deny</b>, le paramètre <b>ec_country_allow</b> est prioritaire.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
@@ -156,34 +156,34 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
       > </tr>
       > </table>
 
-   5. Après avoir entré les valeurs des paramètres de chiffrement, sélectionnez une clé à chiffrer (si vous avez créé à la fois une clé primaire et une clé de sauvegarde) dans la liste **Key To Encrypt (Clé à chiffrer)**.
+   5. Après avoir entré les valeurs des paramètres de chiffrement, sélectionnez une clé à chiffrer (si vous avez créé à la fois une clé primaire et une clé de sauvegarde) dans la liste **Key To Encrypt (Clé à chiffrer)** .
     
-   6. Sélectionnez une version de chiffrement dans le **chiffrement Version** liste : **V2** pour la version 2 ou **V3** pour la version 3 (recommandé). 
+   6. Sélectionnez une version de chiffrement dans la liste **Version de chiffrement** liste : **V2** pour la version 2 ou **V3** pour la version 3 (recommandé). 
 
    7. Sélectionnez **Encrypt (Chiffrer)** pour générer le jeton.
 
-      Lorsque le jeton est généré, il est affiché dans la zone **Generated Token (Jeton généré)**. Pour utiliser le jeton, ajoutez-le en tant que chaîne de requête à la fin du fichier dans le chemin de l’URL. Par exemple : `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+      Lorsque le jeton est généré, il est affiché dans la zone **Generated Token (Jeton généré)** . Pour utiliser le jeton, ajoutez-le en tant que chaîne de requête à la fin du fichier dans le chemin de l’URL. Par exemple : `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-   8. Vous pouvez tester votre jeton avec l’outil de déchiffrement afin d’afficher les paramètres de votre jeton. Collez la valeur du jeton dans la zone **Token to Decrypt (Jeton à déchiffrer)**. Sélectionnez la clé de chiffrement à utiliser dans la liste **Key To Decrypt (Clé pour déchiffrer)**, puis sélectionnez **Decrypt (Déchiffrer)**.
+   8. Vous pouvez tester votre jeton avec l’outil de déchiffrement afin d’afficher les paramètres de votre jeton. Collez la valeur du jeton dans la zone **Token to Decrypt (Jeton à déchiffrer)** . Sélectionnez la clé de chiffrement à utiliser dans la liste **Key To Decrypt (Clé pour déchiffrer)** , puis sélectionnez **Decrypt (Déchiffrer)** .
 
-      Une fois que le jeton est déchiffré, ses paramètres sont affichés dans la zone **Original Parameters (Paramètres d’origine)**.
+      Une fois que le jeton est déchiffré, ses paramètres sont affichés dans la zone **Original Parameters (Paramètres d’origine)** .
 
-   9. Personnalisez éventuellement le type de code de réponse qui est retourné lorsqu’une requête est refusée. Sélectionnez **Enabled (Activé)**, puis sélectionnez le code de réponse dans la liste **Code de réponse**. Le **Header Name (Nom d’en-tête)** est automatiquement défini sur **Location (Emplacement)**. Sélectionnez **Save (Enregistrer)** pour implémenter le nouveau code de réponse. Pour certains codes de réponse, vous devez également entrer l’URL de votre page d’erreur dans la zone **Header Value (Valeur d’en-tête)**. Le code de réponse **403** (Interdit) est sélectionné par défaut. 
+   9. Personnalisez éventuellement le type de code de réponse qui est retourné lorsqu’une requête est refusée. Sélectionnez **Enabled (Activé)** , puis sélectionnez le code de réponse dans la liste **Code de réponse**. Le **Header Name (Nom d’en-tête)** est automatiquement défini sur **Location (Emplacement)** . Sélectionnez **Save (Enregistrer)** pour implémenter le nouveau code de réponse. Pour certains codes de réponse, vous devez également entrer l’URL de votre page d’erreur dans la zone **Header Value (Valeur d’en-tête)** . Le code de réponse **403** (Interdit) est sélectionné par défaut. 
 
 3. Sélectionnez **Rules Engine (Moteur de règles)** sous **HTTP Large**. Le moteur de règles permet de définir les chemins d’accès pour appliquer la fonctionnalité, d’activer la fonctionnalité d’authentification du jeton et d’activer d’autres fonctionnalités associées à l’authentification du jeton. Pour plus d’informations, consultez [Moteur des règles Azure CDN](cdn-rules-engine-reference.md).
 
    1. Sélectionnez une règle existante ou créez-en une pour définir la ressource ou le chemin d’accès pour lesquels vous souhaitez appliquer l’authentification du jeton. 
-   2. Pour activer l’authentification du jeton sur une règle, sélectionnez **[Token Auth (Authentification du jeton)](cdn-rules-engine-reference-features.md#token-auth)** dans la liste **Fonctionnalités**, puis sélectionnez **Enabled (Activé)**. Sélectionnez **Update (Mettre à jour)** si vous mettez à jour une règle ou **Add (Ajouter)** si vous en créez une.
+   2. Pour activer l’authentification du jeton sur une règle, sélectionnez **[Token Auth (Authentification du jeton)](cdn-verizon-premium-rules-engine-reference-features.md#token-auth)** dans la liste **Fonctionnalités**, puis sélectionnez **Enabled (Activé)** . Sélectionnez **Update (Mettre à jour)** si vous mettez à jour une règle ou **Add (Ajouter)** si vous en créez une.
         
       ![Exemple d’activation de l’authentification du jeton via le moteur de règles dans CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. Dans le moteur de règles, vous pouvez également activer d’autres fonctionnalités associées à l’authentification. Pour activer l’une des fonctionnalités suivantes, sélectionnez-la dans la liste **Features (Fonctionnalités)**, puis sélectionnez **Enabled (Activé)**.
+4. Dans le moteur de règles, vous pouvez également activer d’autres fonctionnalités associées à l’authentification. Pour activer l’une des fonctionnalités suivantes, sélectionnez-la dans la liste **Features (Fonctionnalités)** , puis sélectionnez **Enabled (Activé)** .
     
-   - **[Token Auth Denial Code](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: Détermine le type de réponse est renvoyé à un utilisateur lorsqu’une demande est refusée. Les règles définies ici remplacent les codes de réponse de la section **Custom Denial Handling (Gestion personnalisée des refus)** de la page d’authentification basée sur le jeton.
+   - **[Token Auth Denial Code (Code de refus d’authentification du jeton)](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-denial-code)**  : détermine le type de réponse à retourner à un utilisateur quand une requête est refusée. Les règles définies ici remplacent les codes de réponse de la section **Custom Denial Handling (Gestion personnalisée des refus)** de la page d’authentification basée sur le jeton.
 
-   - **[Authentification de jeton ignorer la casse de l’URL](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: Détermine si l’URL utilisée pour valider le jeton respecte la casse.
+   - **[Token Auth Ignore URL Case (Ignorer la casse de l’URL pour l’authentification du jeton)](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-ignore-url-case)**  : détermine si la casse de l’URL utilisée pour valider le jeton est prise en compte.
 
-   - **[Paramètre d’authentification de jeton](cdn-rules-engine-reference-features.md#token-auth-parameter)**: Renomme le paramètre de chaîne de requête de jeton d’authentification qui s’affiche dans l’URL demandée. 
+   - **[Token Auth Parameter (Paramètre d’authentification du jeton)](cdn-verizon-premium-rules-engine-reference-features.md#token-auth-parameter)**  : renomme le paramètre de chaîne de requête d’authentification du jeton affiché dans l’URL demandée. 
         
      ![Exemple de paramètres d’authentification du jeton via le moteur de règles dans CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 

@@ -10,23 +10,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: brahmnes
-ms.date: 03/07/2019
+ms.date: 08/06/2019
 ms.author: mbullwin
-ms.openlocfilehash: 669b4d65798a553188a2b99080b72ffc7cd9e898
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 02d72ab877577e97592dfdd763a58cb01b201d8b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890574"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839353"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée (préversion) dans [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](../../azure-monitor/app/asp-net-exceptions.md) dans le portail Application Insights.
 
-Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Pour améliorer la puissance de débogage du code source, ouvrez les instantanés avec Visual Studio 2017 Entreprise. Dans Visual Studio, vous pouvez également [définir des points de capture instantanée pour prendre des captures instantanées de manière interactive](https://aka.ms/snappoint) sans attendre la levée d’une exception.
+Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Pour améliorer la puissance de débogage du code source, ouvrez les instantanés avec Visual Studio 2019 Entreprise. Dans Visual Studio, vous pouvez également [définir des points de capture instantanée pour prendre des captures instantanées de manière interactive](https://aka.ms/snappoint) sans attendre la levée d’une exception.
 
 Les captures instantanées de débogage sont stockées pendant sept jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
 
-## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>Activer le débogueur de captures instantanées Application Insights pour votre application
+## <a name="enable-application-insights-snapshot-debugger-for-your-application"></a>Activer le Débogueur de capture instantanée Application Insights pour votre application
 La collecte de captures instantanées est disponible pour :
 * les applications .NET framework et ASP.NET exécutant .NET Framework 4.5 ou version ultérieure ;
 * les applications .NET core 2.0 et ASP.NET Core 2.0 s’exécutant sous Windows.
@@ -34,15 +34,15 @@ La collecte de captures instantanées est disponible pour :
 Les environnements suivants sont pris en charge :
 
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant la famille de système d’exploitation 4 ou version ultérieure
-* [Services Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) en cours d’exécution sur Windows Server 2012 R2 ou version ultérieure
-* [Machine virtuelle et les Machines virtuelles Azure identiques](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant Windows Server 2012 R2 ou version ultérieure
-* [Machines virtuelles ou physiques locales](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant Windows Server 2012 R2 ou version ultérieure
+* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant la famille de systèmes d’exploitation 4 ou ultérieur
+* [Services Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant Windows Server 2012 R2 ou ultérieur
+* [Machines virtuelles Azure et groupes de machines virtuelles identiques](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant Windows Server 2012 R2 ou ultérieur
+* [Machines locales physiques ou virtuelles](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant Windows Server 2012 R2 ou version ultérieure
 
 > [!NOTE]
 > Les applications clientes (par exemple, WPF, Windows Forms ou UWP) ne sont pas prises en charge.
 
-Si vous avez activé le débogueur de capture instantanée mais que vous ne voyez pas des captures instantanées, consultez notre [Troubleshooting guide](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+Si vous avez activé le Débogueur de capture instantanée et que vous ne voyez pas les instantanés, consultez notre [Guide de résolution des problèmes](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
 ## <a name="grant-permissions"></a>Accorder des autorisations
 
@@ -54,7 +54,7 @@ L’accès aux captures instantanées est protégé par le contrôle d’accès 
 Les propriétaires d’abonnement doivent attribuer le rôle `Application Insights Snapshot Debugger` aux utilisateurs chargés d’examiner les captures instantanées. Ce rôle peut être attribué à des utilisateurs ou à des groupes par les propriétaires d’abonnements pour la ressource Application Insights cible, ou pour son groupe de ressources ou son abonnement.
 
 1. Accédez à la ressource Application Insights dans le portail Azure.
-1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 1. Cliquez sur le bouton **+Ajouter une attribution de rôle**.
 1. Sélectionnez **Débogueur de capture instantanée d’Application Insights** dans la liste déroulante **Rôles**.
 1. Entrez le nom de l’utilisateur à ajouter.
@@ -66,11 +66,11 @@ Les propriétaires d’abonnement doivent attribuer le rôle `Application Insigh
 
 ## <a name="view-snapshots-in-the-portal"></a>Afficher les instantanés dans le portail
 
-Après une exception s’est produite dans votre application et un instantané a été créé, vous devez avoir des captures instantanées à afficher. Il peut prendre 5 à 10 minutes à partir d’une exception qui se produit à un instantané de prêt et peuvent être consulté à partir du portail. Pour afficher les captures instantanées, dans le **échec** volet, sélectionnez le **opérations** bouton lors de l’affichage le **opérations** onglet, ou sélectionnez le **Exceptions**bouton lorsque vous affichez le **Exceptions** onglet :
+Lorsqu’une exception s’est produite dans votre application et qu’un instantané a été créé, des captures instantanées devraient s’afficher. Il peut s’écouler 5 à 10 minutes entre le moment où une exception se produit et celui où un instantané est prêt et peut être consulté à partir du portail. Pour afficher les captures instantanées, dans le volet **Échec**, sélectionnez le bouton **Opérations** lors de l’affichage de l’onglet **Opérations**, ou sélectionnez le bouton **Exceptions** lorsque vous affichez l’onglet **Exceptions** :
 
-![Page d’échecs](./media/snapshot-debugger/failures-page.png)
+![Page Échecs](./media/snapshot-debugger/failures-page.png)
 
-Sélectionnez une opération ou une exception dans le volet droit pour ouvrir le **détails de Transaction de bout en bout** volet, puis sélectionnez l’événement d’exception. Si un instantané est disponible pour l’exception donnée, un **ouvrir la capture instantanée de débogage** bouton s’affiche dans le volet droit avec des détails pour le [exception](../../azure-monitor/app/asp-net-exceptions.md).
+Sélectionnez une opération ou une exception dans le volet droit pour ouvrir le volet **Détails de la transaction de bout en bout**, puis sélectionnez l’événement d’exception. Si une capture instantanée est disponible pour l’exception donnée, le bouton **Ouvrir la capture instantanée de débogage** s’affiche dans le volet de droite avec les détails de [l’exception](../../azure-monitor/app/asp-net-exceptions.md).
 
 ![Bouton Ouvrir la capture instantanée de débogage sur l’exception](./media/snapshot-debugger/e2e-transaction-page.png)
 
@@ -81,9 +81,9 @@ Une pile d’appel et un volet de variables s’affichent dans la vue Capture in
 Les captures instantanées peuvent contenir des informations sensibles. Par défaut, elles ne sont pas visibles. Pour afficher les captures instantanées, le rôle `Application Insights Snapshot Debugger` doit vous être attribué.
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Afficher les instantanés dans Visual Studio 2017 Enterprise ou une version ultérieure
-1. Cliquez sur le bouton **Télécharger la capture instantanée** pour télécharger un fichier `.diagsession`, qui peut être ouvert par Visual Studio 2017 Enterprise.
+1. Cliquez sur le bouton **Télécharger la capture instantanée** pour télécharger un fichier `.diagsession`, qui peut être ouvert par Visual Studio Enterprise.
 
-2. Pour ouvrir le fichier `.diagsession`, vous devez avoir installé le composant Débogueur de capture instantanée VS. Le composant Débogueur de capture instantanée est un composant obligatoire de la charge de travail ASP.NET dans Visual Studio qui peut être sélectionné dans la liste des composants individuels de Visual Studio Installer. Si vous utilisez une version de Visual Studio 2017 antérieures à 15.5, vous devrez installer l’extension à partir de la [place de marché Visual Studio](https://aka.ms/snapshotdebugger).
+2. Pour ouvrir le fichier `.diagsession`, vous devez avoir installé le composant Débogueur de capture instantanée Visual Studio. Le composant Débogueur de capture instantanée est un composant obligatoire de la charge de travail ASP.NET dans Visual Studio qui peut être sélectionné dans la liste des composants individuels de Visual Studio Installer. Si vous utilisez une version de Visual Studio antérieure à Visual Studio 2017 version 15.5, vous devez installer l’extension à partir de [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. Une fois le fichier de capture instantanée ouvert, la page de débogage de minidump s’affiche dans Visual Studio. Cliquez sur **Debug Managed Code** (Déboguer le code managé) pour démarrer le débogage de la capture instantanée. La capture instantanée s’ouvre sur la ligne de code où l’exception a été levée et vous permet de déboguer l’état actuel du processus.
 
@@ -112,7 +112,7 @@ Le processus principal continue à s’exécuter et à assurer le trafic pour le
 
 ## <a name="limitations"></a>Limites
 
-La période de rétention de données par défaut est de 7 jours. Pour chaque instance Application Insights, un nombre maximal de 50 instantanés est autorisé par jour.
+Par défaut, la période de conservation des données est de 15 jours. Pour chaque instance Application Insights, un nombre maximal de 50 instantanés est autorisé par jour.
 
 ### <a name="publish-symbols"></a>Publier des symboles
 Le débogueur de captures instantanées nécessite que des fichiers de symboles se trouvent sur le serveur de production pour le décodage des variables et pour fournir une fonctionnalité de débogage dans Visual Studio.
@@ -124,6 +124,10 @@ La version 15.2 de Visual Studio 2017 (ou ultérieure) publie les symboles des 
 
 Pour Calcul Azure et d’autres types, vérifiez que les fichiers de symboles se trouvent dans le même dossier que le fichier .dll de l’application principale (généralement `wwwroot/bin`), ou sont disponibles dans le chemin d’accès actuel.
 
+> [!NOTE]
+> Pour plus d’informations sur les différentes options de symbole disponibles, voir la [documentation de Visual Studio](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+). Pour optimiser les résultats, nous vous recommandons d’utiliser les options « Full », « Portable » ou « Embedded ».
+
 ### <a name="optimized-builds"></a>Optimisation des versions
 Dans certains cas, des variables locales sont invisibles dans les builds de mise en production en raison d’optimisations appliquées par le compilateur JIT.
 Toutefois, dans Azure App Services, le collecteur de captures instantanées peut « désoptimiser » des méthodes de levée d’exception faisant partie de son Plan de collecte.
@@ -132,15 +136,15 @@ Toutefois, dans Azure App Services, le collecteur de captures instantanées peut
 > Installez l’extension de site Application Insights dans votre App Service pour obtenir un support de « désoptimisation ».
 
 ## <a name="next-steps"></a>Étapes suivantes
-Activer le débogueur de captures instantanées Application Insights pour votre application :
+Activez le Débogueur de capture instantanée Application Insights pour votre application :
 
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Services Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Machines virtuelles Azure et Virtual Machine Scale Sets](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Machines virtuelles ou physiques en local](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Machines virtuelles ou physiques locales](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
-Au-delà de débogueur de capture instantanée Application Insights :
+Au-delà du Débogueur de capture instantanée d’Application Insights :
  
 * [Définir des points de capture instantanée dans votre code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) afin obtenir des captures instantanées sans attendre la levée d’une exception.
 * [Diagnostiquer des exceptions dans vos applications web](../../azure-monitor/app/asp-net-exceptions.md) explique comment rendre visible à Application Insights un plus grand nombre d’exceptions.

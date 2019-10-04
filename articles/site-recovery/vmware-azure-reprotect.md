@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 3/12/2019
 ms.author: mayg
 ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771807"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60482941"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotéger et effectuer une reprise automatique des machines vers un site local après le basculement vers Azure
 
@@ -49,13 +49,13 @@ Vous aurez peut-être besoin d’un serveur de processus dans Azure avant de res
 - Un réseau à faible latence est requis entre le serveur de processus et la machine virtuelle protégée. En règle générale, vous devez tenir compte de la latence pour déterminer si vous avez besoin d’un serveur de processus dans Azure :
     - Si vous avez configuré une connexion Azure ExpressRoute, vous pouvez utiliser un serveur de processus local pour envoyer des données, car la latence entre la machine virtuelle et le serveur de processus est faible.
     - Toutefois, si vous avez uniquement un VPN S2S, nous vous recommandons de déployer le serveur de processus dans Azure.
-    - Nous vous recommandons d’utiliser un serveur de processus basé sur Azure lors de la restauration automatique. Les performances de réplication sont plus élevées si le serveur de processus est plus proche de la machine virtuelle de réplication (machine basculée dans Azure). Pour une preuve de concept, vous pouvez utiliser le serveur de processus local et ExpressRoute avec un appairage privé.
+    - Nous vous recommandons d’utiliser un serveur de processus basé sur Azure lors de la restauration automatique. Les performances de réplication sont plus élevées si le serveur de processus est plus proche de la machine virtuelle de réplication (machine basculée dans Azure). Pour une preuve de concept, vous pouvez utiliser le serveur de processus local et ExpressRoute avec un peering privé.
 
 Pour déployer un serveur de processus dans Azure :
 
 1. Si vous avez besoin de déployer un serveur de processus dans Azure, consultez [Configurer un serveur de processus dans Azure pour la restauration automatique](vmware-azure-set-up-process-server-azure.md).
 2. Les machines virtuelles Azure envoient les données de réplication au serveur de processus. Configurez les réseaux de sorte que les machines virtuelles Azure puissent atteindre le serveur de processus.
-3. N’oubliez pas que la réplication depuis Azure vers un site local peut se produire uniquement via le VPN S2S ou l’appairage privé de votre réseau ExpressRoute. Assurez-vous de disposer de suffisamment de bande passante sur ce réseau.
+3. N’oubliez pas que la réplication depuis Azure vers un site local peut se produire uniquement via le VPN S2S ou le peering privé de votre réseau ExpressRoute. Assurez-vous de disposer de suffisamment de bande passante sur ce réseau.
 
 ## <a name="deploy-a-separate-master-target-server"></a>Déployer un serveur cible maître distinct
 

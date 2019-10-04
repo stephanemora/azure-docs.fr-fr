@@ -3,9 +3,8 @@ title: Feuille de route de préparation de Azure Security Center | Microsoft Doc
 description: Ce document vous fournit une feuille de route de préparation pour démarrer sur Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: ndicola
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 7de085766ae700b5c76d9eca49c1127aabdddb9b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.openlocfilehash: a5d11be7d4fbe7f23b5584775c5d9a57c2214155
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244640"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200980"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Feuille de route de préparation de Azure Security Center
 Ce document fournit une feuille de route de préparation qui vous aidera à prendre en main Azure Security Center.
@@ -67,9 +66,8 @@ Utilisez les ressources suivantes pour vous aider à gérer les alertes de sécu
 
 Articles    
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [Protection de vos machines virtuelles dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-recommendations)
+* [Protection de vos machines et de vos applications dans Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protection de votre réseau dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [Protection de vos applications dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-application-recommendations)
 * [Protection des données et du service SQL Azure dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
@@ -114,11 +112,11 @@ Articles
 * [Page de documentation de l’API REST de Security Center](https://msdn.microsoft.com/library/mt704034.aspx)
 * [FAQ de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-faq)
 * [Page de tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/)
-* [Meilleures pratiques relatives à la sécurité d’identité](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
-* [Meilleures pratiques en matière de sécurité réseau](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
+* [Meilleures pratiques relatives à la sécurité d’identité](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+* [Meilleures pratiques en matière de sécurité réseau](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [Recommandations de PaaS](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Conformité](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
-* [Les clients analytique de journal peuvent maintenant utiliser Azure Security Center pour protéger leurs charges de travail de cloud hybride](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Les clients Log Analytics peuvent désormais utiliser Azure Security Center pour protéger leurs charges de travail de Cloud hybride](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Ressources de la Communauté
 

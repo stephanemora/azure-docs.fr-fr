@@ -1,157 +1,169 @@
 ---
-title: Réécrire des en-têtes HTTP dans Azure Application Gateway | Microsoft Docs
-description: Cet article fournit présente la possibilité de réécrire des en-têtes HTTP dans Azure Application Gateway.
+title: Réécrire des en-têtes HTTP avec Azure Application Gateway | Microsoft Docs
+description: Cet article offre une vue d’ensemble de la réécriture d’en-têtes HTTP dans Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 08/08/2019
 ms.author: absha
-ms.openlocfilehash: 20c484779e7ffe74ae01e33472b4cf8761d81b66
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b6f26eca0592017306eaefd3f5fecb544dc6fb36
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682678"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932187"
 ---
-# <a name="rewrite-http-headers-with-application-gateway"></a>Réécrire les en-têtes HTTP avec Application Gateway
+# <a name="rewrite-http-headers-with-application-gateway"></a>Réécrire des en-têtes HTTP avec Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Les en-têtes HTTP permettent au client et au serveur de passer des informations supplémentaires avec la requête ou la réponse. Réécriture de ces en-têtes HTTP vous permet d’accomplir plusieurs scénarios importants tels que l’ajout de champs d’en-tête liées à la sécurité comme HSTS / X-XSS-Protection, en-tête de réponse de suppression des champs qui peut révéler des informations sensibles, suppression des informations de port à partir de En-têtes X-Forwarded-For, etc. Passerelle d’application prend en charge la possibilité d’ajouter, supprimer ou mettre à jour des en-têtes de demande et de réponse HTTP lors de la demande et les paquets de réponse se déplacent entre les pools de client et serveur principal. Il vous permet d’ajouter des conditions pour vous assurer que les en-têtes spécifiés sont réécrites uniquement lorsque certaines conditions sont remplies. La fonctionnalité prend également en charge plusieurs [variables serveur](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) qui contribuent à stocker des informations supplémentaires sur les demandes et réponses, ce qui permet de rendre les règles de réécriture puissantes.
+Les en-têtes HTTP permettent à un client et à un serveur de transmettre des informations supplémentaires avec une requête ou une réponse. En réécrivant ces en-têtes, vous pouvez effectuer des tâches importantes, comme ajouter des champs d’en-tête liés à la sécurité comme HSTS/X-XSS-Protection, supprimer des champs d’en-tête de réponse susceptibles de révéler des informations sensibles et supprimer les informations de port des en-têtes X-Forwarded-For.
+
+Application Gateway vous permet d’ajouter, de supprimer et de mettre à jour les en-têtes de requête et de réponse HTTP pendant le déplacement des paquets de requête et de réponse entre le pool client et le pool back-end. Il vous permet également d’ajouter des conditions afin que les en-têtes spécifiés soient réécrits uniquement quand certaines conditions sont remplies.
+
+Application Gateway prend aussi en charge plusieurs [variables serveur](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) qui vous permettent de stocker des informations supplémentaires sur les requêtes et les réponses. Vous pouvez ainsi créer plus facilement des règles de réécriture puissantes.
+
 > [!NOTE]
 >
-> La prise en charge de la réécriture d’en-tête HTTP n’est disponible que pour la [nouvelle référence SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+> La prise en charge de la réécriture d’en-tête HTTP n’est disponible que pour [Standard_V2 et WAF_v2 SKU](application-gateway-autoscaling-zone-redundant.md).
 
-![Réécriture des en-têtes](media/rewrite-http-headers/rewrite-headers.png)
+![Réécriture d’en-têtes](media/rewrite-http-headers/rewrite-headers.png)
 
-## <a name="headers-supported-for-rewrite"></a>Réécriture des en-têtes pris en charge pour
+## <a name="supported-headers"></a>En-têtes pris en charge
 
-La fonctionnalité vous permet de réécrire tous les en-têtes de demande et de réponse à l’exception des en-têtes d’hôte, la connexion et mise à niveau. Vous pouvez également utiliser la passerelle d’application pour créer des en-têtes personnalisés et les ajouter à la demande et les réponses qui est acheminées vers lui. 
+Vous pouvez réécrire tous les en-têtes des requêtes et des réponses, à l’exclusion des en-têtes d’hôte, de connexion et de mise à niveau. Vous pouvez aussi utiliser la passerelle d’application pour créer des en-têtes personnalisés et les ajouter aux requêtes et réponses qui transitent par elle.
 
 ## <a name="rewrite-conditions"></a>Conditions de réécriture
 
-À l’aide de la réécriture de conditions, vous pouvez évaluer le contenu des requêtes HTTP (S) et des réponses et effectuer un en-tête réécrire uniquement si une ou plusieurs conditions sont remplies. Les 3 types de variables suivants sont utilisés par la passerelle d’application pour évaluer le contenu des requêtes HTTP (S) et des réponses :
+Vous pouvez utiliser des conditions de réécriture pour évaluer le contenu des requêtes et des réponses HTTP(S) et procéder à une réécriture d’en-tête uniquement quand une ou plusieurs conditions sont remplies. La passerelle d’application utilise ces types de variables pour évaluer le contenu des requêtes et des réponses HTTP(S) :
 
-- En-têtes HTTP dans la demande
-- En-têtes HTTP dans la réponse
-- Variables de serveur de passerelle application
+- En-têtes HTTP de la requête.
+- En-têtes HTTP de la réponse.
+- Variables du serveur Application Gateway.
 
-Une condition peut être utilisée pour déterminer si la variable spécifiée est présente, si la variable spécifiée correspond exactement à une valeur spécifique, ou si la variable spécifiée correspond exactement à un modèle spécifique. [Bibliothèque d’Expressions régulières Compatible (PCRE) Perl](https://www.pcre.org/) est utilisé pour implémenter le modèle d’expression régulière dans les conditions de correspondance. Pour en savoir plus sur la syntaxe d’expression régulière, consultez le [page de manuel des expressions régulières Perl](https://perldoc.perl.org/perlre.html).
+Vous pouvez utiliser une condition pour déterminer si une variable spécifiée est présente, si elle correspond à une valeur spécifique ou si elle correspond à des critères spéciaux. Vous devez utilisez la [bibliothèque PCRE (Perl Compatible Regular Expressions) Perl](https://www.pcre.org/) pour configurer des critères spéciaux d’expression régulière dans les conditions. Pour en savoir plus sur la syntaxe des expressions régulières, consultez la [page principale des expressions régulières Perl](https://perldoc.perl.org/perlre.html).
 
 ## <a name="rewrite-actions"></a>Actions de réécriture
 
-Réécriture d’actions sont utilisées pour spécifier les en-têtes de demande et de réponse que vous souhaitez réécrire et la nouvelle valeur que les en-têtes d’origine doivent être réécrites pour. Vous pouvez créer un nouvel en-tête, modifiez la valeur d’un en-tête existant ou supprimer un en-tête existant. La valeur d’un en-tête existant ou d’un nouvel en-tête peut être définie pour les types de valeurs suivants :
+Les actions de réécriture permettent de spécifier les en-têtes de requête et de réponse que vous souhaitez réécrire ainsi que la nouvelle valeur de ces en-têtes. Vous pouvez créer un nouvel en-tête, modifiez la valeur d’un en-tête existant ou supprimer un en-tête existant. La valeur d’un nouvel en-tête ou d’un en-tête existant peut être définie avec ces types de valeur :
 
-- Texte 
-- En-tête de demande : Pour spécifier un en-tête de requête, vous devez utiliser la syntaxe {http_req_*headerName*}
-- En-tête de réponse : Pour spécifier un en-tête de réponse, vous devez utiliser la syntaxe {http_resp_*headerName*}
-- Variable de serveur : Pour spécifier une variable de serveur, vous devez utiliser la syntaxe {var_*serverVariable*}
-- Combinaison de texte, en-tête de requête, en-tête de réponse et une variable de serveur.
+- Texte.
+- En-tête de demande. Pour spécifier un en-tête de requête, vous devez utiliser la syntaxe {http_req_*headerName*}.
+- En-tête de réponse. Pour spécifier un en-tête de réponse, vous devez utiliser la syntaxe {http_resp_*headerName*}.
+- Variable de serveur. Pour spécifier une variable de serveur, vous devez utiliser la syntaxe {var_*serverVariable*}.
+- Texte, en-tête de requête, en-tête de réponse et variable de serveur combinés.
 
 ## <a name="server-variables"></a>Variables de serveur
 
-Application gateway utilise les variables de serveur pour stocker des informations utiles sur le serveur, la connexion avec le client et la demande en cours sur la connexion, telles que l’adresse IP du client ou le type de navigateur web. Ces variables sont modifiées dynamiquement, telles que lorsqu’une nouvelle page est chargée, ou un formulaire est publié. Vous pouvez utiliser ces variables de serveur pour évaluer les conditions de réécriture et réécrire les en-têtes. 
+Application Gateway utilise des variables de serveur pour stocker des informations utiles sur le serveur, la connexion avec le client et la requête active sur la connexion. L’adresse IP du client et le type de navigateur web sont quelques exemples d’informations stockées. Les variables de serveur changent dynamiquement, par exemple, quand une nouvelle page est chargée ou qu’un formulaire est posté. Vous pouvez utiliser ces variables pour évaluer les conditions de réécriture et réécrire des en-têtes.
 
-Passerelle d’application prend en charge les variables de serveur suivantes :
+Application Gateway prend en charge ces variables de serveur :
 
-| Variables de serveur prises en charge | Description                                                  |
+| Nom de la variable | Description                                                  |
 | -------------------------- | :----------------------------------------------------------- |
-| add_x_forwarded_for_proxy  | Contient le « X-Forwarded-For » client demande champ d’en-tête avec le `client_ip` (procédure expliquée dans le tableau ci-dessous) variable est ajoutée dans le format (IP1, IP2, IP3,...). Si le champ « X-Forwarded-For » n’est pas présent dans l’en-tête de demande client, le `add_x_forwarded_for_proxy` variable est égale à la `$client_ip` variable. Cette variable est particulièrement utile dans les scénarios où les clients envisagez de réécrire l’en-tête X-Forwarded-For définie par la passerelle d’Application, telles que l’en-tête contient uniquement l’adresse IP sans les informations de port. |
-| ciphers_supported          | retourne la liste de chiffrements pris en charge par le client          |
-| ciphers_used               | retourne la chaîne de chiffrements utilisés pour une connexion SSL établie |
-| client_ip                  | Adresse IP du client à partir de laquelle la passerelle d’application a reçu la demande. S’il est un proxy inverse avant de la passerelle d’application et le client d’origine, puis *client_ip* retournera l’adresse IP du proxy inverse. |
-| client_port                | port client                                                  |
-| client_tcp_rtt             | informations sur la connexion TCP client ; disponibles sur les systèmes qui prennent en charge l’option de socket TCP_INFO |
-| client_user                | lorsque vous utilisez une authentification HTTP, nom d’utilisateur fourni pour l’authentification |
-| host                       | dans cet ordre de priorité : nom d’hôte de la ligne de demande, ou nom d’hôte du champ d’en-tête de demande « Host », ou nom de serveur correspondant à une demande |
-| cookie_*nom*              | le *nom* cookie                                            |
-| http_method                | méthode utilisée pour établir la demande d’URL. Par exemple GET, POST, etc. |
-| HTTP_STATUS                | état de session, par exemple : 200, 400, 403, etc.                       |
-| http_version               | protocole de demande, généralement « HTTP/1.0 », « HTTP/1.1 » ou « HTTP/2.0 » |
-| query_string               | liste de paires variable-valeur qui suivent le « ? » dans l’URL demandée. |
-| received_bytes             | longueur de la demande (incluant la ligne de demande, l’en-tête et le corps de la demande) |
-| request_query              | arguments dans la ligne de demande                                |
-| request_scheme             | schéma de demande, « http » ou « https »                            |
-| request_uri                | URI complète de la demande d’origine (avec arguments)                   |
-| sent_bytes                 | nombre d’octets envoyés à un client                             |
-| server_port                | port du serveur, qui a accepté une demande                 |
-| ssl_connection_protocol    | retourne le protocole d’une connexion SSL établie        |
-| ssl_enabled                | « on » si la connexion opère en mode SSL, ou chaîne vide dans le cas contraire |
+| add_x_forwarded_for_proxy  | Champ d’en-tête de requête client X-Forwarded-For auquel la variable `client_ip` (voir l’explication plus loin dans ce tableau) est ajoutée au format IP1, IP2, IP3 et ainsi de suite. Si le champ X-Forwarded-For ne se trouve pas dans l’en-tête de la requête cliente, la variable `add_x_forwarded_for_proxy` est égale à la variable `$client_ip`. Cette variable est particulièrement utile quand vous voulez réécrire l’en-tête X-Forwarded-For défini par Application Gateway de sorte que l’en-tête contienne uniquement l’adresse IP sans les informations de port. |
+| ciphers_supported          | Liste de chiffrements pris en charge par le client.          |
+| ciphers_used               | Chaîne de chiffrements utilisés pour une connexion SSL établie. |
+| client_ip                  | Adresse IP du client à partir duquel la passerelle d’application a reçu la requête. S’il existe un proxy inverse devant la passerelle d’application et le client d’origine, *client_ip* retourne l’adresse IP du proxy inverse. |
+| client_port                | Port client.                                                  |
+| client_tcp_rtt             | Informations sur la connexion TCP cliente. Disponible sur les systèmes qui prennent en charge l’option de socket TCP_INFO. |
+| client_user                | Quand l’authentification HTTP est utilisée, nom d’utilisateur fourni pour l’authentification. |
+| host                       | Dans cet ordre de priorité : nom d’hôte de la ligne de la requête, nom d’hôte du champ d’en-tête de requête d’hôte ou nom de serveur correspondant à une requête. |
+| cookie_*name*              | Cookie *name*.                                            |
+| http_method                | Méthode utilisée pour effectuer la requête d’URL. Par exemple, GET ou POST. |
+| HTTP_STATUS                | État de session. Par exemple, 200, 400 ou 403.                       |
+| http_version               | Protocole de requête. Généralement, HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
+| query_string               | Liste de paires variable/valeur qui suivent le « ? » dans l’URL demandée. |
+| received_bytes             | Longueur de la requête (incluant la ligne, l’en-tête et le corps de la requête). |
+| request_query              | Arguments dans la ligne de la requête.                                |
+| request_scheme             | Schéma de requête : « http » ou « https ».                            |
+| request_uri                | URI complet de la requête d’origine (avec les arguments).                   |
+| sent_bytes                 | Nombre d’octets envoyés à un client.                             |
+| server_port                | Port du serveur qui a accepté une requête.                 |
+| ssl_connection_protocol    | Protocole d’une connexion SSL établie.        |
+| ssl_enabled                | Valeur « On » si la connexion opère en mode SSL. Sinon, chaîne vide. |
 
-## <a name="rewrite-configuration"></a>Configuration de réécriture
+## <a name="rewrite-configuration"></a>Configuration de la réécriture
 
-Pour configurer la réécriture d’en-tête HTTP, vous devez :
+Pour configurer la réécriture d’en-tête HTTP, vous devez effectuer ces étapes.
 
-1. Créer les nouveaux objets requis pour réécrire les en-têtes HTTP :
+1. Créez les objets nécessaires à la réécriture d’en-tête HTTP :
 
-   - **Réécriture d’Action**: permet de spécifier la demande et les champs d’en-tête de demande que vous avez l’intention de réécrire et la nouvelle valeur que les en-têtes d’origine doivent être réécrites pour. Vous pouvez choisir d’associer à un ou plus réécriture condition avec une action de réécriture.
+   - **Action de réécriture** : permet de spécifier la requête et les champs d’en-tête de requête que vous souhaitez réécrire ainsi que la nouvelle valeur des en-têtes. Vous pouvez associer une ou plusieurs conditions de réécriture à une action de réécriture.
 
-   - **Réécrivez la Condition**: Il est une configuration facultative. Si une condition de la réécriture est ajoutée, il est évalué le contenu des requêtes HTTP (S) et des réponses. La décision d’exécuter l’action de réécriture associée à la condition de réécriture reposera si la demande de HTTP (S) ou la réponse mise en correspondance avec la condition de réécriture. 
+   - **Condition de réécriture** : configuration facultative. Les conditions de réécriture évaluent le contenu des requêtes et réponses HTTP(S). L’action de réécriture se produit si la requête ou la réponse HTTP(S) correspondent à la condition de réécriture.
 
-     Si plusieurs conditions sont associé à une action, puis l’action sera exécutée uniquement lorsque toutes les conditions sont remplies, par exemple, une opération AND logique sera effectuée.
+     Si vous associez plusieurs conditions à une action, cette dernière ne se produit que lorsque toutes les conditions sont remplies. En d’autres termes, il s’agit d’une opération AND logique.
 
-   - **Règle de réécriture**: règle de réécriture contient plusieurs réécriture action - réécrire les combinaisons de condition.
+   - **Règle de réécriture** : contient plusieurs combinaisons d’actions/conditions de réécriture.
 
-   - **Séquence de règle**: permet de déterminer l’ordre dans lequel les différentes règles de réécriture sont exécutées. Cela est utile lorsqu’il existe plusieurs règles de réécriture dans un ensemble de réécriture. La règle de réécriture avec la valeur de séquence de règle inférieure obtient exécutée en premier. Si vous fournissez la même séquence de règle à deux règles de réécriture, l’ordre d’exécution sera non déterministe.
+   - **Séquence de règle** : permet de déterminer l’ordre dans lequel les règles de réécriture s’exécutent. Cette configuration est utile quand vous disposez de plusieurs règles de réécriture dans un jeu de réécritures. Une règle de réécriture qui présente une valeur de séquence de règle inférieure s’exécute en premier. Si vous attribuez la même séquence de règle à deux règles de réécriture, l’ordre d’exécution n’est pas déterministe.
 
-   - **Réécrire ensemble**: contient plusieurs règles de réécriture qui seront associés à une règle de routage de demande.
+   - **Jeu de réécritures** : contient plusieurs règles de réécriture qui seront associées à une règle de routage de requête.
 
-2. Vous serez invité à joindre le jeu de réécriture (*rewriteRuleSet*) avec une règle de routage. Il s’agit, car la configuration de la réécriture est attachée à l’écouteur source via la règle de routage. Lorsque vous utilisez une règle d’acheminement de base, la configuration de réécriture de l’en-tête est associée à un écouteur de la source et est une réécriture de l’en-tête global. Lorsqu’une règle d’acheminement basée sur le chemin d’accès est utilisée, la configuration de réécriture de l’en-tête est définie sur le mappage de chemin d’accès d’URL. Elle s’applique donc exclusivement à la zone de chemin d’accès spécifique d’un site.
+2. Attachez le jeu de réécritures (*RewriteRuleSet*) à une règle de routage. La configuration de réécriture est attachée à l’écouteur source via la règle de routage. Quand vous utilisez une règle de routage de base, la configuration de réécriture d’en-tête est associée à un écouteur source et correspond à une réécriture d’en-tête globale. Quand vous utilisez une règle de routage basée sur le chemin, la configuration de réécriture d’en-tête est définie sur le mappage du chemin d’URL. Dans ce cas, elle s’applique uniquement à la zone de chemin spécifique d’un site.
+   > [!NOTE]
+   > La réécriture d’URL modifie les en-têtes ; elle ne change pas l’URL du chemin.
 
-Vous pouvez créer plusieurs jeux de réécriture d’en-tête http et chaque jeu de réécriture peut être appliqué à plusieurs écouteurs. Toutefois, vous pouvez appliquer uniquement un ensemble à un port d’écoute spécifique de réécriture.
+Vous pouvez créer plusieurs jeux de réécritures d’en-tête HTTP et appliquer chacun d’eux à différents écouteurs. En revanche, vous ne pouvez appliquer qu’un seul jeu de réécritures à un écouteur spécifique.
 
 ## <a name="common-scenarios"></a>Scénarios courants
 
-Certains des scénarios courants qui nécessitent la réécriture de l’en-tête sont indiquées ci-dessous.
+Voici quelques scénarios courants d’utilisation de la réécriture d’en-tête.
 
 ### <a name="remove-port-information-from-the-x-forwarded-for-header"></a>Supprimer les informations de port de l’en-tête X-Forwarded-For
 
-Passerelle d’application insère l’en-tête X-Forwarded-For à toutes les demandes avant qu’il transfère les demandes au serveur principal. Le format de cet en-tête est une liste séparée par des virgules des IP : port. Toutefois, il est peut-être les scénarios où les serveurs principaux requièrent l’en-tête à contenir uniquement des adresses IP. Pour accomplir ces scénarios, réécriture de l’en-tête peut être utilisé pour supprimer les informations de port de l’en-tête X-Forwarded-For. Pour ce faire consiste à définir l’en-tête sur la variable de serveur add_x_forwarded_for_proxy. 
+Application Gateway insère un en-tête X-Forwarded-For dans toutes les requêtes avant de les transférer au back-end. Cet en-tête est une liste sont séparées par des virgules de ports IP. Dans certains scénarios, les serveurs back-end n’exigent pas que les en-têtes contiennent des adresses IP. Vous pouvez utiliser la réécriture d’en-tête pour supprimer les informations de port de l’en-tête X-Forwarded-For. Une façon d’y parvenir est de définir l’en-tête sur la variable de serveur add_x_forwarded_for_proxy :
 
 ![Supprimer le port](media/rewrite-http-headers/remove-port.png)
 
-### <a name="modify-the-redirection-url"></a>Modifier l’URL de redirection
+### <a name="modify-a-redirection-url"></a>Modifier une URL de redirection
 
-Lorsqu’une application de serveur principal envoie une réponse de redirection, vous souhaiterez rediriger le client vers une URL différente de celle spécifiée par l’application principale. Un tel scénario est lorsqu’un service d’application est hébergé derrière une passerelle d’application et, le client doit effectuer une redirection vers son chemin d’accès relatif (redirection à partir de contoso.azurewebsites.net/path1 vers contoso.azurewebsites.net/path2). 
+Quand une application back-end envoie une réponse de redirection, vous pouvez souhaiter rediriger le client vers une URL différente de celle spécifiée par l’application back-end. Par exemple, cela peut être le cas quand un service d’application est hébergé derrière une passerelle d’application et demande au client d’effectuer une redirection vers son chemin relatif. (Par exemple, une redirection de contoso.azurewebsites.net/path1 vers contoso.azurewebsites.net/path2.)
 
-Dans la mesure où app service est un service mutualisé, il utilise l’en-tête d’hôte dans la demande pour router vers le point de terminaison correct. Services d’application ont le nom de domaine par défaut *. azurewebsites.net (par exemple, contoso.azurewebsites.net) qui est différent du nom de domaine de la passerelle d’application (par exemple, contoso.com). Dans la mesure où la demande d’origine à partir du client a un nom de domaine de contoso.com la passerelle d’application comme nom d’hôte, la passerelle d’application modifie le nom d’hôte pour contoso.azurewebsites.net, afin que le service de l’application peut router vers le point de terminaison correct. Lorsque le service d’application envoie une réponse de redirection, il utilise le même nom d’hôte dans l’en-tête location de sa réponse que celui de la demande qu’il reçoit à partir de la passerelle d’application. Par conséquent, le client effectuer la demande directement à contoso.azurewebsites.net/path2, au lieu de passer par la passerelle d’application (contoso.com/path2). En ignorant la passerelle d’application n’est pas souhaitable. 
+App Service étant un service multilocataire, il utilise l’en-tête d’hôte de la requête pour router celle-ci vers le point de terminaison approprié. Les services d’application ont un nom de domaine par défaut *.azurewebsites.net (par exemple, contoso.azurewebsites.net) qui est différent du nom de domaine de la passerelle d’application (par exemple, contoso.com). Sachant que le nom d’hôte de la requête d’origine du client est le nom de domaine de la passerelle d’application (contoso.com), la passerelle d’application remplace le nom d’hôte par contoso.azurewebsites.net. Ce changement vise à permettre au service d’application de router la requête vers le point de terminaison approprié.
 
-Ce problème peut être résolu en définissant le nom d’hôte dans l’en-tête d’emplacement au nom de domaine de la passerelle d’application. Pour ce faire, vous pouvez créer une règle de réécriture avec une condition qui évalue si l’en-tête d’emplacement dans la réponse contient azurewebsites.net en entrant `(https?):\/\/.*azurewebsites\.net(.*)$` comme modèle et exécute une action pour la réécriture de l’en-tête d’emplacement pour que la passerelle d’application nom d’hôte en entrant `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` en tant que la valeur d’en-tête.
+Quand le service d’application envoie une réponse de redirection, il utilise le nom d’hôte qui figure dans l’en-tête d’emplacement de sa réponse, qui est identique à celui situé dans la requête qu’il reçoit de la passerelle d’application. Par conséquent, le client adresse directement la requête à contoso.azurewebsites.net/path2 au lieu de passer par la passerelle d’application (contoso.com/path2). Or, il n’est pas souhaitable de contourner la passerelle d’application.
+
+Vous pouvez résoudre ce problème en définissant le nom d’hôte de l’en-tête d’emplacement sur le nom de domaine de la passerelle d’application.
+
+Voici les étapes à suivre pour remplacer le nom d’hôte :
+
+1. Créez une règle de réécriture avec une condition qui détermine si l’en-tête d’emplacement de la réponse contient azurewebsites.net. Entrez le modèle `(https?):\/\/.*azurewebsites\.net(.*)$`.
+1. Exécutez une action de façon à réécrire l’en-tête d’emplacement et lui attribuer le nom d’hôte de la passerelle d’application. Pour ce faire, entrez `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` comme valeur d’en-tête.
 
 ![Modifier l’en-tête d’emplacement](media/rewrite-http-headers/app-service-redirection.png)
 
-### <a name="implement-security-http-headers-to-prevent-vulnerabilities"></a>Implémenter des en-têtes de sécurité HTTP pour éviter les vulnérabilités
+### <a name="implement-security-http-headers-to-prevent-vulnerabilities"></a>Implémenter des en-têtes HTTP de sécurité pour éviter les vulnérabilités
 
-Plusieurs vulnérabilités de sécurité peuvent être résolues en implémentant les en-têtes nécessaires dans la réponse de l’application. Certaines de ces en-têtes de sécurité sont X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, etc. Vous pouvez utiliser la passerelle d’application pour définir ces en-têtes pour toutes les réponses.
+Vous pouvez corriger plusieurs vulnérabilités de sécurité en implémentant les en-têtes nécessaires dans la réponse de l’application. Il s’agit notamment des en-têtes de sécurité X-XSS-Protection, Strict-Transport-Security et Content-Security-Policy. Vous pouvez utiliser Application Gateway pour définir ces en-têtes pour toutes les réponses.
 
 ![En-tête de sécurité](media/rewrite-http-headers/security-header.png)
 
-### <a name="delete-unwanted-headers"></a>Supprimer des en-têtes indésirables
+### <a name="delete-unwanted-headers"></a>Supprimer les en-têtes indésirables
 
-Voulez-vous supprimer ces en-têtes de la réponse HTTP qui révèlent des informations sensibles telles que le nom du serveur principal, système d’exploitation, les détails de bibliothèque, etc. Vous pouvez utiliser la passerelle d’application pour les supprimer.
+Vous pouvez souhaiter supprimer les en-têtes d’une réponse HTTP qui présentent des informations sensibles. Par exemple, vous pouvez souhaiter supprimer certaines informations comme les détails concernant le système d’exploitation, la bibliothèque ou le nom du serveur back-end. Vous pouvez utiliser la passerelle d’application pour supprimer ces en-têtes :
 
-![La suppression d’en-tête](media/rewrite-http-headers/remove-headers.png)
+![Suppression d’en-tête](media/rewrite-http-headers/remove-headers.png)
 
-### <a name="check-presence-of-a-header"></a>Vérifiez la présence d’un en-tête
+### <a name="check-for-the-presence-of-a-header"></a>Vérifier la présence d’un en-tête
 
-Vous pouvez évaluer l’en-tête de demande ou réponse HTTP pour la présence d’une variable de l’en-tête ou le serveur. Cela est utile lorsque vous souhaitez effectuer une réécriture de l’en-tête uniquement quand un en-tête spécifique est présent.
+Vous pouvez évaluer un en-tête de requête ou de réponse HTTP pour déterminer s’il contient une variable d’en-tête ou de serveur. Cette évaluation est utile si vous voulez procéder à une réécriture d’en-tête qu’en présence d’un certain en-tête.
 
 ![Vérification de la présence d’un en-tête](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Limites
 
-- Réécrire les en-têtes de connexion, de mise à niveau et d’hôte n'est pas encore pris en charge.
+- Si une réponse contient plusieurs en-têtes de même nom, la réécriture de la valeur de l’un de ces en-têtes entraîne la suppression des autres en-têtes de la réponse. Cela peut généralement se produire avec l’en-tête Set-Cookie, car une réponse peut en contenir plusieurs. Tel est le cas quand vous utilisez un service d’application avec une passerelle d’application et que vous avez configuré l’affinité de session basée sur les cookies sur la passerelle d’application. Dans ce cas, la réponse contient deux en-têtes Set-Cookie : un utilisé par le service d’application, par exemple `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net`, et un autre pour l’affinité de la passerelle d’application, par exemple `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. La réécriture de l’un des en-têtes Set-Cookie dans ce scénario peut entraîner la suppression de l’autre en-tête Set-Cookie de la réponse.
 
-- Les noms d’en-tête peuvent contenir tout caractère alphanumérique et symbole spécifique définis dans la norme [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Toutefois, nous avons ne prenons pas en charge actuellement le caractère spécial « soulignement » (\_) dans le nom d’en-tête. 
+- La réécriture des en-têtes de connexion, de mise à niveau et d’hôte n’est actuellement pas prise en charge.
 
-## <a name="need-help"></a>Vous avez besoin d’aide ?
-
-Contactez-nous à l’adresse [AGHeaderRewriteHelp@microsoft.com](mailto:AGHeaderRewriteHelp@microsoft.com) au cas où vous avez besoin d’aide avec cette fonctionnalité.
+- Les noms d’en-tête peuvent contenir n’importe quel caractère alphanumérique et des symboles spécifiques tels que définis dans la [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Nous ne prenons actuellement pas en charge le caractère spécial de soulignement (\_) dans le nom d’en-tête.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour savoir comment réécrire les en-têtes HTTP, consultez :
 
--  [Réécrire les en-têtes HTTP à l’aide du portail Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
--  [Réécrire les en-têtes HTTP à l’aide d’Azure PowerShell](add-http-header-rewrite-rule-powershell.md)
+- [Réécrire les en-têtes HTTP à partir du portail Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Réécrire les en-têtes HTTP à partir d’Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

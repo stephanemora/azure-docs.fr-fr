@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/23/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005813"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65510752"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Réseau consortium de Fabric Hyperledger
 
@@ -100,7 +100,7 @@ Dans **Paramètres réseau**, spécifiez les entrées pour créer ou rejoindre u
 **Configuration réseau** |Vous pouvez choisir de créer un nouveau réseau ou de rejoindre un réseau existant. Si vous choisissez *Rejoindre existant*, vous devez fournir des valeurs supplémentaires. |Nouveau réseau <br/> Rejoindre existant |
 **Mot de passe d’autorité de certification HLF** |Mot de passe utilisé pour les certificats générés par les autorités de certification qui sont créés dans le cadre du déploiement. Le mot de passe doit contenir trois des types de caractères suivants : une majuscule, une minuscule, un chiffre et un caractère spécial.<br /><br />Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement.|Entre 1 et 25 caractères |
 **Paramètres de l’organisation** |Vous pouvez personnaliser le nom et le certificat de votre organisation ou utiliser des valeurs par défaut.|Default <br/> Avancé |
-**Paramètres de réseau VPN** | Configurer une passerelle de tunnel VPN pour accéder aux machines virtuelles | Oui <br/> Non  |
+**Paramètres de réseau VPN** | Configurer une passerelle de tunnel VPN pour accéder aux machines virtuelles | OUI <br/> Non |
 
 Sélectionnez **OK**.
 

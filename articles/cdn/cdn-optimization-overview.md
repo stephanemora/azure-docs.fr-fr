@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: da8f17da9225da1d2b92bd8515d645bce9a1bbaa
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435598"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593646"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimiser Azure CDN pour le type de distribution de contenu
 
@@ -39,7 +39,7 @@ Les profils **Azure CDN Standard fourni par Microsoft** prennent en charge les o
 * [Livraison web générale](#general-web-delivery). Cette optimisation est également utilisée pour le streaming de contenu multimédia et le téléchargement de fichiers volumineux.
 
 > [!NOTE]
-> Accélération de site dynamique à partir de Microsoft est proposée via [Azure porte Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
+> L’accélération de site dynamique à partir de Microsoft est proposée par le biais d’[Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 Les profils **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon** prennent en charge les optimisations suivantes :
 
@@ -124,7 +124,7 @@ Pour plus d’informations sur l’optimisation des fichiers volumineux, consult
  L’accélération de site dynamique est disponible pour les profils **Azure CDN Standard fourni par Akamai**, **Azure CDN Standard fourni par Verizon** et **Azure CDN Premium fourni par Verizon**. Cette optimisation implique des frais supplémentaires d’utilisation. Pour plus d’informations, consultez [Tarification Content Delivery Network](https://azure.microsoft.com/pricing/details/cdn/).
 
 > [!NOTE]
-> Accélération de site dynamique à partir de Microsoft est proposée via [Azure porte Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) qui est global [anycast](https://en.wikipedia.org/wiki/Anycast) en tirant parti de réseau global privé de Microsoft pour fournir vos charges de travail d’application de service.
+> L’accélération de site dynamique à partir de Microsoft est proposée par le biais d’[Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview), service [anycast](https://en.wikipedia.org/wiki/Anycast) global tirant parti du réseau mondial privé de Microsoft pour fournir vos charges de travail d’application.
 
 L’accélération de site dynamique inclut diverses techniques bénéfiques pour la latence et les performances du contenu dynamique. Ces techniques incluent l’optimisation d’itinéraire et de réseau, l’optimisation TCP, et bien plus. 
 

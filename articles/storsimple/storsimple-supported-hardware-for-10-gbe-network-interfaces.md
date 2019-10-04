@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7fafe177ea0c6c618dc4ab0727ba14c83cbb0102
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110567"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965012"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>Matériel pris en charge pour les interfaces réseau 10 GbE sur votre appareil StorSimple
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Vue d'ensemble
 Cet article fournit des informations sur le matériel supplémentaire fonctionnant avec votre appareil Microsoft Azure StorSimple.
 
@@ -34,7 +37,7 @@ Microsoft a testé les câbles, les commutateurs et les transmetteurs enfichable
 | Cisco |SFP-10G-SR |
 
 ### <a name="cables"></a>Câbles
-| S. Non. | Make | Modèle |
+| S. Non. | Marque | Modèle |
 | --- | --- | --- |
 | 1. |Cisco |SFP-H10GB-CU1M |
 | 2. |Cisco |SFP-H10GB-CU2M |
@@ -42,7 +45,7 @@ Microsoft a testé les câbles, les commutateurs et les transmetteurs enfichable
 | 4. |Tripp-Lite |N820 - 05M (OM3) |
 
 ### <a name="switches"></a>Commutateurs
-| S. Non. | Make | Modèle |
+| S. Non. | Marque | Modèle |
 | --- | --- | --- |
 | 1. |Cisco |N3K C3172PQ-10-GE |
 | 2. |Cisco |N3K-C3048-ZM-F |
@@ -58,9 +61,9 @@ Cette section contient la liste des appareils qui ont été déployés sur site 
 | Version de système d’exploitation du commutateur |JunOS 12.3R9.4 |
 | Modèle de panneau |Ports intégrés (PIC 0) |
 | Marque du transmetteur |Juniper |
-| Modèle de transmetteur |Numéro de référence 740-021308  <br></br> Numéro de référence 740-030658 |
+| Modèle de transmetteur |Numéro de référence 740-021308 <br></br> Numéro de référence 740-030658 |
 | Version du microprogramme du transmetteur |Rev 01 Version 0.0 (indiqué) |
-| Modèle de câble |Cavalier duplex LC/LC 50/125µ, OM3, LSZH |
+| Modèle de câble |Câbles de liaison duplex LC/LC 50/125µ, OM3, LSZH |
 | Modèle StorSimple |8600 |
 | Version du logiciel StorSimple |6.3.9600.17491 |
 
@@ -70,7 +73,7 @@ Mellanox a testé les câbles, les commutateurs et les transmetteurs enfichables
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Câbles et modules pris en charge par Mellanox
 Le tableau suivant répertorie les câbles et les modules pris en charge par Mellanox. Ils n'ont pas été testés par Microsoft, mais sont susceptibles de fonctionner avec votre appareil StorSimple.
 
-| S. Non. | Vitesse | Modèle | Description | Make |
+| S. Non. | Vitesse | Modèle | Description | Marque |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |CAB-SFP-SFP - 1M |câble en cuivre passif SFP+ 10 Gbit/s, 1 m |Arista |
 | 2. |10 GbE |CAB-SFP-SFP-2M |câble en cuivre passif SFP+ 10 Gbit/s, 2 m |Arista |
@@ -111,7 +114,7 @@ Le tableau suivant répertorie les câbles et les modules pris en charge par Mel
 ### <a name="switches-supported-by-mellanox"></a>Liste des commutateurs pris en charge par Mellanox
 Le tableau suivant répertorie les commutateurs pris en charge par Mellanox. Ils n'ont pas été testés par Microsoft, mais sont susceptibles de fonctionner avec votre appareil StorSimple.
 
-| S. Non. | Vitesse | Modèle | Description | Make |
+| S. Non. | Vitesse | Modèle | Description | Marque |
 | --- | --- | --- | --- | --- |
 | 1. |10 GbE |516733-B21 |Commutateur Ethernet Blade 6120XG 10 GbE HP ProCurve |HP |
 | 2. |10 GbE |538113-B21 |Module de passerelle HP 10 GbE (PTM) |HP |

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524087"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66161411"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Créer des clusters HDInsight avec Data Lake Storage Gen1 comme stockage par défaut à l’aide de PowerShell
 
@@ -37,7 +37,7 @@ Voici quelques considérations importantes pour l’utilisation de HDInsight ave
 
 Pour configurer HDInsight de façon à fonctionner avec Data Lake Storage Gen1 à l’aide de PowerShell, suivez les instructions des cinq prochaines sections.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -109,7 +109,7 @@ Pour créer un compte Data Lake Storage Gen1, procédez comme suit :
         Location                    : East US 2
         Tags                        : {}
 
-4. Utiliser Data Lake Storage Gen1 en tant que stockage par défaut vous oblige à spécifier un chemin d’accès racine où les fichiers spécifiques au cluster sont copiés lors de la création du cluster. Pour créer un chemin d’accès racine, qui, dans l’extrait de code ci-dessous est **hdiadlcluster/clusters/**, utilisez les applets de commande ci-dessous :
+4. Utiliser Data Lake Storage Gen1 en tant que stockage par défaut vous oblige à spécifier un chemin d’accès racine où les fichiers spécifiques au cluster sont copiés lors de la création du cluster. Pour créer un chemin d’accès racine, qui, dans l’extrait de code ci-dessous est **hdiadlcluster/clusters/** , utilisez les applets de commande ci-dessous :
 
         $myrootdir = "/"
         New-AzDataLakeStoreItem -Folder -AccountName $dataLakeStorageGen1Name -Path $myrootdir/clusters/hdiadlcluster
@@ -215,7 +215,7 @@ Dans cette section, vous allez créer un cluster HDInsight Hadoop Linux avec Dat
     Après exécution de l’applet de commande, le résultat énumère les détails du cluster.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Exécuter des tâches de test sur le cluster HDInsight pour utiliser Data Lake Storage Gen1
-Une fois que vous avez configuré un cluster HDInsight, vous pouvez exécuter des tâches de test sur le cluster pour vérifier qu’il peut accéder à Data Lake Storage Gen1. Pour ce faire, exécutez un exemple de tâche Hive pour créer une table qui utilise les exemples de données qui sont déjà disponibles dans Data Lake Storage Gen1 à  *\<racine du cluster > /example/data/sample.log*.
+Une fois que vous avez configuré un cluster HDInsight, vous pouvez exécuter des tâches de test sur le cluster pour vérifier qu’il peut accéder à Data Lake Storage Gen1. Pour ce faire, exécutez un exemple de tâche Hive qui crée une table avec les exemples de données déjà disponibles dans Data Lake Storage Gen1 dans *\<cluster root>/example/data/sample.log*.
 
 Dans cette section, vous établissez une connexion SSH (Secure Shell) au cluster HDInsight Linux que vous avez créé, puis vous exécutez l’exemple de requête Hive.
 
@@ -240,7 +240,7 @@ Dans cette section, vous établissez une connexion SSH (Secure Shell) au cluster
     >
 
 ## <a name="access-data-lake-storage-gen1-by-using-hdfs-commands"></a>Accéder à Data Lake Storage Gen1 avec les commandes HDFS
-Une fois que vous avez configuré le cluster HDInsight pour qu’il utilise Data Lake Storage Gen1, vous pouvez utiliser les commande de l’interpréteur de commandes HDFS (Hadoop Distributed File System) pour accéder au magasin.
+Une fois que vous avez configuré le cluster HDInsight pour qu’il utilise Data Lake Storage Gen1, vous pouvez utiliser les commandes de l’interpréteur de commandes HDFS (Hadoop Distributed File System) pour accéder au magasin.
 
 Dans cette section, vous établissez une connexion SSH au cluster HDInsight Linux que vous avez créé, puis vous exécutez les commandes HDFS.
 

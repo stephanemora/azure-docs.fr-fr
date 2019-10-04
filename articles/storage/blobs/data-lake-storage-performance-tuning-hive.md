@@ -1,19 +1,19 @@
 ---
 title: Recommandations en matière de réglage des performances Hive d’Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Recommandations en matière de réglage des performances Hive d’Azure Data Lake Storage Gen2
-services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
-ms.openlocfilehash: 9e5570b937fe97cc9b6ccd9ac804a35ff8e07d6f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: normesta
+ms.reviewer: stewu
+ms.openlocfilehash: 1290174fb87306b34be81ed7fa4fb5de3bfba43c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883064"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847131"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Recommandations en matière de réglage des performances pour Hive sur HDInsight et Azure Data Lake Storage Gen2
 

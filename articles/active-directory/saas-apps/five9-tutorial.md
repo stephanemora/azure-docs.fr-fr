@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: daec6e169805c193b48781dfecbabd9349bdc59b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: dd4eab2d8e877cac468097c0a6ed6aa3cfb750b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565629"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102454"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Didacticiel : Intégration d’Azure Active Directory avec Five9 Plus Adapter (CTI, agents de centre de contacts)
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Five9 Plus Adapter (CTI, agents de centre de
 
 **Pour ajouter Five9 Plus Adapter (CTI, agents de centre de contacts) à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Pour configurer l’intégration de Five9 Plus Adapter (CTI, agents de centre de
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Five9 Plus Adapter (CTI, agents de centre de contacts)**, sélectionnez **Five9 Plus Adapter (CTI, agents de centre de contacts)** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Five9 Plus Adapter (CTI, agents de centre de contacts)** , sélectionnez **Five9 Plus Adapter (CTI, agents de centre de contacts)** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![Five9 Plus Adapter (CTI, agents de centre de contacts) dans la liste des résultats](common/search-new-app.png)
 
@@ -89,7 +89,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique Azure AD avec Five9 Plus Adapter (CTI, agents de centre de contacts), effectuez les étapes suivantes :
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Five9 Plus Adapter (CTI, agents de centre de contacts)**, sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Five9 Plus Adapter (CTI, agents de centre de contacts)** , sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -125,7 +125,7 @@ Pour configurer l’authentification unique Azure AD avec Five9 Plus Adapter (CT
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-7. Dans la section **Configurer Five9 Plus Adapter (CTI, agents de centre de contacts)**, copiez la ou les URL appropriées en fonction de vos besoins.
+7. Dans la section **Configurer Five9 Plus Adapter (CTI, agents de centre de contacts)** , copiez la ou les URL appropriées en fonction de vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -137,7 +137,7 @@ Pour configurer l’authentification unique Azure AD avec Five9 Plus Adapter (CT
 
 ### <a name="configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on"></a>Configurer l’authentification unique Five9 Plus Adapter (CTI, agents de centre de contacts)
 
-1. Pour configurer l’authentification unique côté **Five9 Plus Adapter (CTI, agents de centre de contacts)**, vous devez envoyer le **Certificat (en base64)** téléchargé et la ou les URL copiées correspondantes à l’[équipe du support Five9 Plus Adapter (CTI, agents de centre de contacts)](https://www.five9.com/about/contact). En outre, pour poursuivre la configuration de l’authentification unique, suivez les étapes ci-dessous en fonction de l’adaptateur :
+1. Pour configurer l’authentification unique côté **Five9 Plus Adapter (CTI, agents de centre de contacts)** , vous devez envoyer le **Certificat (en base64)** téléchargé et la ou les URL copiées correspondantes à l’[équipe du support Five9 Plus Adapter (CTI, agents de centre de contacts)](https://www.five9.com/about/contact). En outre, pour poursuivre la configuration de l’authentification unique, suivez les étapes ci-dessous en fonction de l’adaptateur :
 
     a. Guide de l’administrateur « Five9 Plus Adapter for Agent Desktop Toolkit » : [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
     
@@ -173,11 +173,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en accordant l’accès à Five9 Plus Adapter (CTI, agents de centre de contacts).
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Five9 Plus Adapter (CTI, agents de centre de contacts)**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Five9 Plus Adapter (CTI, agents de centre de contacts)** .
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Five9 Plus Adapter (CTI, agents de centre de contacts)**.
+2. Dans la liste des applications, sélectionnez **Five9 Plus Adapter (CTI, agents de centre de contacts)** .
 
     ![Lien Five9 Plus Adapter (CTI, agents de centre de contacts) dans la liste des applications](common/all-applications.png)
 

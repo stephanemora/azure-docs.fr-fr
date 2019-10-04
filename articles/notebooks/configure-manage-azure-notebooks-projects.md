@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268005"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65596745"
 ---
 # <a name="manage-and-configure-projects"></a>Gérer et configurer des projets
 
@@ -37,38 +37,7 @@ Azure Notebooks démarre la machine virtuelle sous-jacente dès que vous exécut
 
 ## <a name="compute-tier"></a>Niveau de calcul
 
-La liste déroulante **Exécuter** qui se trouve sur le tableau de bord du projet permet de sélectionner le niveau de calcul du projet. Par défaut, les projets se trouvent au niveau de **calcul Gratuit**, limité à 4 Go de mémoire et à 1 Go de données pour éviter les abus :
-
-![Liste déroulante du niveau de calcul sur le tableau de bord du projet](media/project-compute-tier-list.png)
-
-Vous pouvez contourner ces limitations en utilisant une autre machine virtuelle configurée dans un abonnement Azure. Vous devez installer et exécuter JupyterHub sur cette machine virtuelle. Les images Data Science Virtual Machine (quel que soit le système d’exploitation) conviennent, car elles incluent JupyterHub par défaut.
-
-Une fois que vous avez une machine virtuelle Azure correctement configurée, sélectionnez l’option **Calcul direct** dans la liste déroulante. Vous êtes alors invité à entrer un nom (à afficher dans la liste), l’adresse IP et le port (généralement le port 8000, qui est le port par défaut sur lequel JupyterHub écoute) de la machine virtuelle, ainsi que les informations d’identification de cette dernière :
-
-![Invite à collecter des informations sur le serveur pour l’option Calcul direct](media/project-compute-tier-direct.png)
-
-Si les conditions suivantes sont remplies, la liste déroulante affiche également les instances [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine). (Sinon, vous pouvez toujours vous connecter à la machine virtuelle DSVM avec l’option Calcul direct, en entrant les valeurs obtenues sur le Portail Azure.)
-
-- Vous avez ouvert une session Azure Notebooks avec un compte qui utilise Azure Active Directory (AAD), par exemple un compte professionnel.
-- Votre compte est connecté à un abonnement Azure.
-- Vous disposez d’au moins une machine virtuelle dans cet abonnement, avec au minimum un accès en lecture, qui utilise l’image Data Science Virtual Machine pour Linux (Ubuntu).
-
-![Instances Data Science Virtual Machine dans la liste déroulante sur le tableau de bord du projet](media/project-compute-tier-dsvm.png)
-
-Lorsque vous sélectionnez une instance DSVM, Azure Notebooks peut vous demander les informations d’identification de l’ordinateur utilisé lors de la création de la machine virtuelle.
-
-Pour créer une instance DSVM, suivez les instructions de la section [Créer une machine virtuelle Data Science Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Utilisez l’image **Data Science Virtual Machine pour Linux (Ubuntu)** si vous voulez que la machine DSVM apparaissent dans la liste déroulante dans Azure Notebooks.  Si, pour d’autres raisons, vous devez utiliser l’image Windows ou CentOS, vous pouvez faire appel à l’option **Calcul direct** pour vous connecter manuellement à la machine DSVM.
-
-> [!IMPORTANT]
-> Lorsque vous utilisez des machines virtuelles de calcul Direct ou de la science des données, les ordinateurs portables que vous exécutez dessus doivent être entièrement autonomes. À l’heure actuelle, Azure Notebooks copie uniquement la *.ipynb* fichier à la machine virtuelle, mais ne copie pas les autres fichiers dans le projet. Par conséquent, blocs-notes s’exécuter sur d’autres machines virtuelles échouent rechercher d’autres fichiers de projet.
->
-> Vous pouvez contourner ce problème de deux manières :
->
-> 1. Copier manuellement les fichiers projet à la machine virtuelle.
->
-> 2. Incorporer les fichiers au sein d’un bloc-notes le programme d’installation que vous exécutez avant de l’ordinateur portable principal. Dans le bloc-notes le programme d’installation, créez une cellule de code pour chaque fichier dans lequel la cellule contient le contenu du fichier. Puis, en haut de chaque cellule, insérez la commande `%%writefile <filename>`, où `<filename>` est le nom du fichier à recevoir le contenu. Lorsque vous exécutez le bloc-notes, il crée tous les fichiers sur la machine virtuelle. Pour obtenir un exemple, consultez le [fichier setup.ipynb dans la démonstration de Microsoft Pet détecteur](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
->
->     ![À l’aide un %% commande writefile au début d’une cellule de code](media/setup-notebook-writefile-command.png)
+Par défaut, les projets se trouvent au niveau de **calcul Gratuit**, limité à 4 Go de mémoire et à 1 Go de données pour éviter les abus. Vous pouvez contourner ces limitations et augmenter la puissance de calcul en utilisant une autre machine virtuelle configurée dans un abonnement Azure. Pour plus d’informations, consultez la page [How to use Data Science Virtual Machines](use-data-science-virtual-machine.md) (Comment utiliser les machines virtuelles Science des données).
 
 ## <a name="edit-project-metadata"></a>Modifier les métadonnées de projet
 
@@ -77,7 +46,7 @@ Dans le tableau de bord du projet, sélectionnez **Paramètres du projet**, puis
 | Paramètre | Description |
 | --- | --- |
 | Nom du projet | Nom convivial de votre projet utilisé par Azure Notebooks pour l’affichage. par exemple « Hello World dans Python ». |
-| ID du projet | Identificateur personnalisé qui devient partie intégrante de l’URL que vous utilisez pour partager un projet. Cet ID peut utiliser uniquement des lettres, des chiffres et des traits d’union, est limité à 30 caractères et ne peut pas être un [réservé ID de projet](create-clone-jupyter-notebooks.md#reserved-project-ids). Si vous ne savez pas quoi utiliser, il est d’usage d’employer une version en minuscules du nom de votre projet où les espaces sont transformés en traits d’union, par exemple « mon-projet-notebook » (nom tronqué si nécessaire pour l’adapter à la limite de longueur). |
+| ID du projet | Identificateur personnalisé qui devient partie intégrante de l’URL que vous utilisez pour partager un projet. Cet ID peut utiliser uniquement des lettres, des chiffres et des traits d’union, et est limité à 30 caractères. Il ne peut pas s’agir de l’[ID d’un projet réservé](create-clone-jupyter-notebooks.md#reserved-project-ids). Si vous ne savez pas quoi utiliser, il est d’usage d’employer une version en minuscules du nom de votre projet où les espaces sont transformés en traits d’union, par exemple « mon-projet-notebook » (nom tronqué si nécessaire pour l’adapter à la limite de longueur). |
 | Projet public | Si ce paramètre est défini, permet à toute personne disposant du lien d’accéder au projet. Quand vous créez un projet privé, désactivez cette option. |
 | Hide clones (Masquer les clones) | Si ce paramètre est défini, les autres utilisateurs ne peuvent pas afficher la liste des clones qui ont été créés pour ce projet. Il est utile de masquer les clones pour les projets qui sont partagés avec beaucoup de personnes qui ne font pas partie de la même organisation, comme quand vous utilisez un notebook pour enseigner à une classe. |
 
@@ -115,14 +84,14 @@ Chaque élément dans la liste des fichiers du projet fournit des commandes via 
 | Exécuter | r (ou clic) | Exécute un fichier notebook. D’autres types de fichiers sont ouverts pour être affichés.  |
 | Copier le lien | y | Copie un lien vers le fichier dans le Presse-papiers. |
 | Exécuter dans JupyterLab | j | Exécute un notebook dans JupyterLab, qui est une interface plus orientée développeur que celle fournie normalement par Jupyter. |
-| VERSION PRÉLIMINAIRE | p | Ouvre un aperçu HTML du fichier ; pour les notebooks, l’aperçu est un rendu en lecture seule du notebook. Pour plus d’informations, consultez la section [Aperçu](#preview). |
+| PRÉVERSION | p | Ouvre un aperçu HTML du fichier ; pour les notebooks, l’aperçu est un rendu en lecture seule du notebook. Pour plus d’informations, consultez la section [Aperçu](#preview). |
 | Modifier le fichier | i | Ouvre le fichier pour modification. |
 | Téléchargement | d | Télécharge un fichier zip qui contient le fichier ou le contenu d’un dossier. |
 | Renommer | a | Demande un nouveau nom pour le fichier ou dossier. |
 | Supprimer | x | Demande une confirmation, puis supprime définitivement le fichier du projet. Les suppressions ne peuvent pas être annulées. |
 | Déplacer | m | Déplace un fichier vers un autre dossier dans le même projet. |
 
-#### <a name="preview"></a>VERSION PRÉLIMINAIRE
+#### <a name="preview"></a>PRÉVERSION
 
 Un aperçu d’un fichier ou d’un notebook est une vue en lecture seule du contenu ; l’exécution des cellules de notebook est désactivée. Un aperçu est affiché pour toute personne qui a un lien vers le fichier ou le notebook, mais qui ne s’est pas connectée à Azure Notebooks. Une fois connecté, un utilisateur peut cloner le notebook sur son propre compte ou le télécharger sur son ordinateur local.
 

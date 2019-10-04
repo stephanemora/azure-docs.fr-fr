@@ -1,19 +1,18 @@
 ---
 title: Utilisation du stockage d’objets (blob) à partir de C++ - Azure | Microsoft Docs
 description: Stockez des données non structurées dans le cloud avec le stockage d’objet blob Azure.
-services: storage
-author: MichaelHauss
-ms.service: storage
-ms.topic: conceptual
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 03/21/2018
-ms.author: michaelhauss
+ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: d86b2c71515900405b0e7714d2c36cd8e4cbc7fc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.topic: conceptual
+ms.openlocfilehash: f64856d5b0140d529e939d92d4be61b074928d6e
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993223"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726422"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Utilisation du stockage d’objets blob à partir de C++
 
@@ -67,7 +66,7 @@ Pour démarrer l’émulateur de stockage Azure, sélectionnez le bouton **Déma
 
 Les exemples ci-dessous partent du principe que vous avez utilisé l’une de ces deux méthodes pour obtenir la chaîne de connexion de stockage.  
 
-## <a name="retrieve-your-connection-string"></a>Récupération de votre chaîne de connexion
+## <a name="retrieve-your-storage-account"></a>Récupérer votre compte de stockage
 Vous pouvez utiliser la classe **cloud_storage_account** pour représenter les informations de votre compte de stockage. Pour extraire les informations de votre compte de stockage de la chaîne de connexion de stockage, vous pouvez utiliser la méthode **parse** .  
 
 ```cpp

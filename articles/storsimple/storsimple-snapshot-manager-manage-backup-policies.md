@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 218c89e403673c16c72da95aa2c1d685bbed5a86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109277"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64687276"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour créer et gérer des stratégies de sauvegarde
 ## <a name="overview"></a>Vue d'ensemble
@@ -67,7 +67,7 @@ Une fois la stratégie de sauvegarde créée, les informations suivantes apparai
 * **Groupe de volumes** : groupe de volumes associé à la stratégie.
 * **Rétention** : nombre d’instantanés conservés ; le maximum est 64.
 * **Créé** : date à laquelle cette stratégie a été créée.
-* **Activée** : indique si la stratégie est en vigueur. La valeur **True** indique qu’elle est en vigueur, la valeur **False** qu’elle ne l’est pas.
+* **Activé** : indique si la stratégie est actuellement en vigueur : La valeur **True** indique qu’elle est en vigueur ; la valeur **False** indique qu’elle ne l’est pas.
 
 ## <a name="edit-a-backup-policy"></a>Modifier une stratégie de sauvegarde
 Pour modifier une stratégie de sauvegarde existante, procédez comme suit.

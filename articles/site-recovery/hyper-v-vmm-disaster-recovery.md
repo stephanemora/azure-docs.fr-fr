@@ -1,20 +1,19 @@
 ---
-title: Configurer la récupération d’urgence pour les machines virtuelles Hyper-V entre des sites locaux et Azure Site Recovery | Microsoft Docs
+title: Configurer la reprise d’activité après sinistre pour les machines virtuelles Hyper-V entre des sites locaux avec Azure Site Recovery
 description: Découvrez comment configurer la récupération d’urgence pour les machines virtuelles Hyper-V entre vos sites locaux et Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a2eb8bf10454ee01953ddd37025f0c0048d00a0a
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794513"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813761"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurer la récupération d’urgence des machines virtuelles Hyper-V vers un site local secondaire
 
@@ -123,7 +122,7 @@ Sélectionnez le cloud et le serveur VMM cible :
 
 Avant de commencer, assurez-vous que tous les hôtes qui utilisent la stratégie possèdent le même système d’exploitation. Si les hôtes exécutent différentes versions de Windows Server, vous avez besoin de plusieurs stratégies de réplication.
 
-1. Pour créer une stratégie de réplication, cliquez sur **Préparer l’infrastructure** > **Paramètres de réplication** > **+Créer et associer**.
+1. Pour créer une stratégie de réplication, cliquez sur **Préparer l’infrastructure** > **Paramètres de réplication** >  **+Créer et associer**.
 2. Dans **Créer et associer une stratégie**, indiquez le nom de la stratégie. Le type source et cible doit être **Hyper-V**.
 3. Dans **Version de l’hôte Hyper-V**, sélectionnez le système d’exploitation sous lequel fonctionne l’hôte.
 4. Dans **Type d’authentification** et **Port d’authentification**, indiquez le mode d’authentification du trafic entre les serveurs hôtes Hyper-V principaux et de récupération.

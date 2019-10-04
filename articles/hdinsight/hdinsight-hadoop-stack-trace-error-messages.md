@@ -2,7 +2,6 @@
 title: Messages d’erreur de l’arborescence des appels de procédure Hadoop - Azure HDInsight
 description: Index des messages d’erreur d’arborescence des appels de procédure Hadoop dans Azure HDInsight. Recherchez l’erreur dans la liste pour afficher des informations de dépannage.
 keywords: arborescence des appels de procédure, messages d’erreur
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 20d13f3df730ff4a81c7304ae1ad7e4158403521
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 0fb884c46525c0d5d14deb1521f086451a969656
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64691705"
 ---
 # <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>Index d’articles de résolution des problèmes avec Apache Hadoop dans HDInsight
 Les articles sont organisés par types d’erreur.
@@ -25,7 +24,7 @@ Les articles sont organisés par types d’erreur.
 
 ## <a name="apache-hive-query-performance"></a>Performances des requêtes Apache Hive
 * [Optimiser les requêtes Apache Hive pour Apache Hadoop dans HDInsight](hdinsight-hadoop-optimize-hive-query.md) : Cet article présente quelques-unes des méthodes d’optimisation des performances Hive courantes que vous pouvez appliquer aux requêtes Hive.
-* [Résoudre les problèmes d’Apache Hive à l’aide d’Azure HDInsight](hdinsight-troubleshoot-hive.md).
+* [Résoudre les problèmes relatifs à Apache Hive à l’aide d’Azure HDInsight](hdinsight-troubleshoot-hive.md).
 
 ## <a name="more-troubleshooting-articles"></a>Autres articles de résolution des problèmes
 * [Informations sur l’utilisation de HDInsight sous Linux](hdinsight-hadoop-linux-information.md)

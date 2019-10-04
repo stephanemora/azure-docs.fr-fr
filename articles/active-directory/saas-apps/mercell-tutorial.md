@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 2411a036cd56d88e261317ae523d8186b85b5a15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b37e35eb0314de25dad2ce07175a774f921fe4cf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097461"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Didacticiel : Intégration d’Azure Active Directory à Mercell
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Mercell à Azure AD, vous devez ajouter Merc
 
 **Pour ajouter Mercell à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

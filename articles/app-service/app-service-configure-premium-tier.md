@@ -11,23 +11,22 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: aa1e522e395f869f73c0b250623665a9b175384e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486867"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70067227"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurer le niveau PremiumV2 pour Azure App Service
 
 Le nouveau niveau tarifaire **PremiumV2** offre des processeurs plus rapides, un stockage SSD et le double de ratio mémoire-cœur des niveaux tarifaires précédents. Avec cet avantage de performances, vous pouvez économiser de l’argent en exécutant vos applications sur moins d’instances. Dans cet article, vous allez apprendre à créer une application dans le niveau **PremiumV2** ou à monter en puissance une application en la passant au niveau **PremiumV2**.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer un scale-up d’une application en la passant au niveau **PremiumV2**, vous devez disposer d’une application Azure App Service qui s’exécute dans un niveau tarifaire inférieur à **PremiumV2** et dans un déploiement App Service prenant en charge PremiumV2.
 
@@ -66,7 +65,7 @@ Selon votre environnement d’hébergement, la montée en puissance peut nécess
 
 Dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, ouvrez la page de votre application App Service.
 
-Dans le volet de navigation de gauche dans la page de votre application App Service, sélectionnez **Monter en puissance (plan App Service)**.
+Dans le volet de navigation de gauche dans la page de votre application App Service, sélectionnez **Monter en puissance (plan App Service)** .
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
@@ -99,7 +98,7 @@ Si votre application s’exécute dans un déploiement App Service où **Premium
 
 Vous pouvez automatiser la création d’application dans le niveau **PremiumV2** à l’aide de scripts, en utilisant [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 La commande suivante crée un plan App Service dans _P1V2_. Vous pouvez l’exécuter dans Cloud Shell. Les options possibles pour `--sku` sont P1V2, _P2V2_ et _P3V2_.
 
@@ -125,5 +124,5 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ```
 ## <a name="more-resources"></a>Autres ressources
 
-[Montée en puissance d’une application dans Azure](web-sites-scale.md)  
+[Montée en puissance d’une application dans Azure](manage-scale-up.md)  
 [Mise à l’échelle manuelle ou automatique du nombre d’instances](../monitoring-and-diagnostics/insights-how-to-scale.md)

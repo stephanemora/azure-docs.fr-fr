@@ -1,6 +1,6 @@
 ---
-title: Gérer le schéma Azure SQL Database dans une application mutualisée | Microsoft Docs
-description: Gérer un schéma pour plusieurs locataires dans une application mutualisée qui utilise Azure SQL Database
+title: Gérer le schéma Azure SQL Database dans une application multilocataire | Microsoft Docs
+description: Gérer un schéma pour plusieurs locataires dans une application multilocataire qui utilise Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: db6f471438324e984434704a2cab01d57c800ba5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878072"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570253"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données SQL mutualisées partitionnées
 
@@ -31,7 +30,7 @@ Ce didacticiel explore les deux scénarios suivants :
 - Déployer des mises à jour des données de référence pour tous les locataires.
 - Régénérer un index sur la table qui contient les données de référence.
 
-La fonctionnalité [Tâches élastiques](sql-database-elastic-jobs-overview.md) d’Azure SQL Database est utilisée pour exécuter ces opérations sur les bases de données de locataire. Les travaux fonctionnent également sur la base de données de client « modèle ». Dans l’exemple d’application Wingtip Tickets, cette base de données modèle est copiée pour provisionner une nouvelle base de données client.
+La fonctionnalité [Tâches élastiques](elastic-jobs-overview.md) d’Azure SQL Database est utilisée pour exécuter ces opérations sur les bases de données de locataire. Les travaux fonctionnent également sur la base de données de client « modèle ». Dans l’exemple d’application Wingtip Tickets, cette base de données modèle est copiée pour provisionner une nouvelle base de données client.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -41,10 +40,10 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Mettre à jour les données de référence dans toutes les bases de données client.
 > * Créer un index sur une table dans toutes les bases de données de locataire.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - L’application de bases de données mutualisées Wingtip Tickets doit déjà être déployée :
-    - Pour obtenir des instructions, consultez le premier didacticiel qui introduit l’application de bases de données mutualisées SaaS Wingtip Tickets :<br />[Déployer et explorer une application mutualisée partitionnée qui utilise Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
+    - Pour obtenir des instructions, consultez le premier didacticiel qui introduit l’application de bases de données mutualisées SaaS Wingtip Tickets :<br />[Déployer et explorer une application multilocataire partitionnée qui utilise Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
         - Le processus de déploiement dure moins de cinq minutes.
     - Vous devez avoir la version *mutualisée partitionnée* de Wingtip installée. Les versions *Autonome* et *Base de données par client* ne prennent pas en charge ce didacticiel.
 
@@ -53,11 +52,11 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 - Azure PowerShell doit être installé. Pour plus d’informations, consultez [Prise en main d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Ce didacticiel utilise des fonctionnalités du service Azure SQL Database en préversion limitée ([tâches de base de données élastiques](sql-database-elastic-database-client-library.md)). Si vous souhaitez réaliser ce didacticiel, indiquez votre ID d’abonnement à *SaaSFeedback\@microsoft.com* avec l’objet = préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette préversion est limitée, par conséquent, contactez *SaaSFeedback\@microsoft.com* pour toute question ou associée prise en charge.
+> Ce tutoriel utilise des fonctionnalités du service Azure SQL Database en préversion limitée ([tâches de base de données élastiques](sql-database-elastic-database-client-library.md)). Si vous souhaitez réaliser ce didacticiel, envoyez votre ID d’abonnement à *SaaSFeedback\@microsoft.com* avec l’objet Préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette préversion est limitée. Contactez *SaaSFeedback\@microsoft.com* pour toute question ou demande de support associée.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Présentation des modèles de gestion de schéma SaaS
 
-Le modèle de base de données partitionnée mutualisée utilisé dans cet exemple permet à une base de données de locataire de contenir un ou plusieurs locataires. Cet exemple présente la possibilité d’utiliser une combinaison de bases de données mutualisées et à locataire unique, créant ainsi un modèle de gestion de locataire *hybride*. La gestion des modifications apportées à ces bases de données peut être compliquée. Les [travaux élastiques](sql-database-elastic-jobs-overview.md) facilitent l’administration et la gestion d’un grand nombre de bases de données. Les tâches vous permettent d’exécuter de façon sécurisée et fiable des scripts Transact-SQL en tant que tâches, sur un groupe de bases de données de locataire. Les tâches sont indépendants de la saisie ou de l’interaction utilisateur. Cette méthode peut être utilisée pour déployer les modifications de schéma ou de données de référence commune sur tous les locataires d’une application. Les Tâches élastiques permettent également de conserver une copie du modèle finale de la base de données. Le modèle est utilisé pour créer de nouveaux locataires, afin de s’assurer que le schéma et les données de référence les plus récents sont utilisés.
+Le modèle de base de données partitionnée mutualisée utilisé dans cet exemple permet à une base de données de locataire de contenir un ou plusieurs locataires. Cet exemple présente la possibilité d’utiliser une combinaison de bases de données mutualisées et à locataire unique, créant ainsi un modèle de gestion de locataire *hybride*. La gestion des modifications apportées à ces bases de données peut être compliquée. Les [travaux élastiques](elastic-jobs-overview.md) facilitent l’administration et la gestion d’un grand nombre de bases de données. Les tâches vous permettent d’exécuter de façon sécurisée et fiable des scripts Transact-SQL en tant que tâches, sur un groupe de bases de données de locataire. Les tâches sont indépendants de la saisie ou de l’interaction utilisateur. Cette méthode peut être utilisée pour déployer les modifications de schéma ou de données de référence commune sur tous les locataires d’une application. Les Tâches élastiques permettent également de conserver une copie du modèle finale de la base de données. Le modèle est utilisé pour créer de nouveaux locataires, afin de s’assurer que le schéma et les données de référence les plus récents sont utilisés.
 
 ![Écran](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -73,7 +72,7 @@ Les scripts de base de données Wingtip Tickets SaaS mutualisée et le code sour
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Créer une base de données d’agent de travail et un nouvel agent de travail
 
-Ce didacticiel nécessite l’utilisation de PowerShell pour créer la base de données de l’agent de travail et l’agent de travail. Comme la base de données MSDB utilisée par SQL Agent, un agent de travail utilise une base de données SQL Azure pour stocker les définitions, l’état et l’historique des travaux. Une fois l’agent de travail créé, vous pouvez immédiatement créer et surveiller des travaux.
+Ce didacticiel nécessite l’utilisation de PowerShell pour créer la base de données de l’agent de travail et l’agent de travail. Comme la base de données MSDB utilisée par SQL Agent, un agent de travail utilise une base de données Azure SQL pour stocker les définitions, l’état et l’historique des travaux. Une fois l’agent de travail créé, vous pouvez immédiatement créer et surveiller des travaux.
 
 1. Dans **PowerShell ISE**, ouvrez *...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1*.
 2. Appuyez sur **F5** pour exécuter le script.
@@ -125,7 +124,7 @@ Observez les éléments suivants dans le script *DeployReferenceData.sql* :
     - Un type de membre cible *serveur*.
         - Il s’agit du serveur *tenants1-mt-&lt;user&gt;* qui contient les bases de données de locataire.
         - Y compris le serveur contient les bases de données client qui existent au moment de l'exécution du travail.
-    - Un type de membre cible *base de données* pour la base de données modèle (*basetenantdb*) qui réside sur le serveur *catalog-mt-&lt;utilisateur&gt;*,
+    - Un type de membre cible *base de données* pour la base de données modèle (*basetenantdb*) qui réside sur le serveur *catalog-mt-&lt;utilisateur&gt;* ,
     - Un type de membre cible *base de données* pour inclure la base de données *adhocreporting* utilisée dans un autre didacticiel.
 
 - **sp\_add\_job** crée une tâche appelée *Reference Data Deployment* (Déploiement des données de référence).
@@ -134,7 +133,7 @@ Observez les éléments suivants dans le script *DeployReferenceData.sql* :
 
 - Les autres vues dans le script indiquent l’existence des objets et contrôlent l’exécution du travail. Utilisez ces requêtes pour passer en revue la valeur d’état dans la colonne **cycle de vie** afin de déterminer la fin du travail. La tâche met à jour la base de données de locataire et met à jour les deux bases de données supplémentaires contenant la table de référence.
 
-Dans SSMS, accédez à la base de données de locataire sur le serveur *tenants1-mt -&lt;user&gt;*. Interrogez la table *VenueTypes* pour confirmer que *Motorcycle Racing* et *Swimming Club* sont désormais dans la liste des résultats. Le nombre total de types de lieux doit avoir augmenté par deux unités.
+Dans SSMS, accédez à la base de données de locataire sur le serveur *tenants1-mt -&lt;user&gt;* . Interrogez la table *VenueTypes* pour confirmer que *Motorcycle Racing* et *Swimming Club* sont désormais dans la liste des résultats. Le nombre total de types de lieux doit avoir augmenté par deux unités.
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Créer une tâche pour gérer l’index de la table de référence
 
@@ -161,8 +160,7 @@ Observez les éléments suivants dans le script *OnlineReindex.sql* :
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Gestion des bases de données cloud avec montée en charge](sql-database-elastic-jobs-overview.md)
-* [Créer et gérer des bases de données cloud avec montée en charge](sql-database-elastic-jobs-create-and-manage.md)
+* [Gestion des bases de données cloud avec montée en charge](elastic-jobs-overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -173,5 +171,5 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Mettre à jour les données de référence dans toutes les bases de données de locataire
 > * Créer un index sur une table dans toutes les bases de données de locataire
 
-Ensuite, essayez le [didacticiel sur les rapports Ad hoc](saas-multitenantdb-adhoc-reporting.md) pour Explorer l’exécution des requêtes distribuées entre les clients de bases de données.
+Ensuite, consultez le [didacticiel de génération d’états ad hoc](saas-multitenantdb-adhoc-reporting.md) pour explorer l’exécution de requêtes distribuées dans les bases de données de locataire.
 

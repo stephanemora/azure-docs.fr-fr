@@ -1,52 +1,23 @@
 ---
-title: Comment remplir le formulaire Paramètres de l’offre | Microsoft Docs
-description: Explique les différents champs qui requièrent des valeurs dans le formulaire des paramètres de l’offre pour une nouvelle application Dynamics 365 Business Central.
-services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
-author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
+title: Comment remplir le formulaire Paramètres de l’offre | Place de marché Azure
+description: Article déprécié avec des liens vers des articles de PC ; auparavant « Explique les différents champs qui requièrent des valeurs dans le formulaire des paramètres de l’offre pour une nouvelle application Dynamics 365 Business Central ».
+services: Azure, Marketplace, Cloud Partner Portal
+author: ChJenk
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a050a8cfdd67f662786fc0b9b7ed5451c88dccb1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 09/18/2019
+ms.author: pabutler
+ms.openlocfilehash: 84932d693c9c74c74095eb78e750f8d3b1452068
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806652"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105546"
 ---
-<a name="how-to-fill-out-the-offer-settings-form"></a>Comment remplir le formulaire Paramètres de l’offre
-=======================================
+# <a name="how-to-fill-out-the-offer-settings-form"></a>Comment remplir le formulaire Paramètres de l’offre
 
-Le formulaire Paramètres de l’offre est un formulaire de base.
-Les champs obligatoires sont décrits ci-dessous.
+Le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/) ne prend plus en charge la création et la gestion des offres Dynamics 365 Business Central. Cette fonctionnalité a été déplacée vers le [portail de l’Espace partenaires](https://partner.microsoft.com/) Microsoft. Pour plus d’informations, consultez [Créer une offre Dynamics 365 Business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer).
 
-### <a name="offer-id"></a>ID de l’offre
+## <a name="next-steps"></a>Étapes suivantes
 
-`OfferId` est un identificateur unique de l’offre au sein du profil du serveur de publication.
-Cet ID sera visible dans les URL de produit. Il ne peut comprendre que des caractères alphanumériques en minuscules ou des tirets (-). Il ne peut pas se terminer par un tiret et ne peut pas comprendre plus de 50 caractères. Ce champ est verrouillé une fois l’offre publiée.
-
-Par exemple, si le partenaire « Contoso » crée un ID d’offre appelé « sample-Web App », il s’affichera dans AppSource en tant que :
-
-&emsp;`https://appsource.microsoft.com/marketplace/apps/contoso.sample-Web App?tab=Overview`
-
-
-### <a name="publisher-id"></a>ID de l’éditeur
-
-Cette liste déroulante vous permet de choisir le profil d’éditeur sous lequel vous voulez publier cette offre. Ce champ est verrouillé une fois l’offre publiée.
-
-
-### <a name="name"></a>NOM
-
-Il s’agit du nom d’affichage pour votre application/offre, qui sera affiché dans Microsoft [AppSource](https://appsource.microsoft.com/). Il ne peut pas comprendre plus de 50 caractères.
-
-> [!NOTE]
-> Le nom court doit être le même que le nom du serveur de publication spécifié dans le manifeste d’application.
-
-Cliquez sur **Enregistrer** pour enregistrer votre progression. L’étape suivante consiste à ajouter des informations techniques à votre offre.
+Avant de créer des offres Dynamics 365 Business Central, veillez à d’abord lire l’article [Créer un compte Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), puis ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/directory) et sélectionnez la page **Présentation**. Suivez les instructions fournies dans [Créer une offre Dynamics 365 Business Central](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) pour créer votre offre.

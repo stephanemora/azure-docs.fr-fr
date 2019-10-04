@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008209"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164764"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Développer des modèles Azure Resource Manager de cohérence du cloud
 
@@ -47,7 +47,7 @@ Le reste de ce guide décrit les domaines à prendre en compte lors de la planif
 * Vérifiez que les paramètres de modèle que vous utilisez fonctionnent dans les clouds cibles.
 * Vérifiez que les propriétés propres aux ressources sont disponibles pour les clouds cibles.
 
-Pour une présentation des modèles Azure Resource Manager, consultez [Déploiement de modèle](resource-group-overview.md#template-deployment).
+Pour une présentation des modèles Azure Resource Manager, consultez [Déploiement de modèle](template-deployment-overview.md).
 
 ## <a name="ensure-template-functions-work"></a>Assurer le fonctionnement des fonctions des modèles
 
@@ -154,7 +154,7 @@ Dans le modèle, les liens sont générés en combinant l’URI de base (à part
 
 Avec cette approche, la valeur par défaut est utilisée pour le paramètre `_artifactsLocation`. Si les modèles liés doivent être récupérés à partir d’un autre emplacement, l’entrée du paramètre peut être utilisée au moment du déploiement pour remplacer la valeur par défaut. Aucune modification du modèle n’est nécessaire.
 
-### <a name="use-artifactslocation-instead-of-hardcoding-links"></a>Utiliser _artifactsLocation à la place de liens de codage en dur
+### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Utiliser _artifactsLocation à la place de liens de codage en dur
 
 Outre son utilisation pour les modèles imbriqués, l’URL du paramètre `_artifactsLocation` est utilisé comme base pour tous les artefacts associés d’un modèle de déploiement. Certaines extensions de machine virtuelle contiennent un lien vers un script stocké en dehors du modèle. Pour ces extensions, vous ne devez pas coder les liens en dur. Par exemple, les extensions de Script personnalisé et de DSC PowerShell peuvent établir un lien vers un script externe sur GitHub comme suit : 
 
@@ -493,13 +493,13 @@ Pour récupérer la liste des images de machine virtuelle disponibles dans un em
 az vm image list -all
 ```
 
-Vous pouvez récupérer la même liste à l’aide de l’applet de commande Azure PowerShell [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) et spécifier l’emplacement de votre choix avec le paramètre `-Location`. Par exemple : 
+Vous pouvez récupérer la même liste à l’aide de l’applet de commande Azure PowerShell [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) et spécifier l’emplacement de votre choix avec le paramètre `-Location`. Par exemple :
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
 ```
 
-Cette commande prend quelques minutes pour retourner toutes les images disponibles dans la région Europe de l’Ouest du cloud Azure global.
+Cette commande prend quelques minutes pour retourner toutes les images disponibles dans la région Europe Ouest du cloud Azure global.
 
 Si vous avez mis ces images de machine virtuelle à disposition dans Azure Stack, la totalité du stockage disponible doit être utilisée. Pour prendre en compte même la plus petite unité d’échelle, Azure Stack vous permet de sélectionner les images que vous souhaitez ajouter à un environnement.
 
@@ -596,7 +596,7 @@ Pour obtenir une liste des extensions de machine virtuelle disponibles pour une 
 az vm extension image list --location myLocation
 ```
 
-Vous pouvez également exécuter l’applet de commande [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) PowerShell Azure et utiliser `-Location` pour spécifier l’emplacement de l’image de machine virtuelle. Par exemple : 
+Vous pouvez également exécuter l’applet de commande [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) PowerShell Azure et utiliser `-Location` pour spécifier l’emplacement de l’image de machine virtuelle. Par exemple :
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

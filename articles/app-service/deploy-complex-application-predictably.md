@@ -10,17 +10,16 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: b13bc43595c09b3700798935f70c401c9311651c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820312"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70070875"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Mise en service et déploiement de microservices de manière prévisible dans Azure
 Ce didacticiel explique comment mettre en service et déployer une application composée de [microservices](https://en.wikipedia.org/wiki/Microservices) dans [Azure App Service](https://azure.microsoft.com/services/app-service/) sous la forme d'une unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et des scripts PowerShell. 
@@ -193,7 +192,7 @@ Là encore, les ressources imbriquées doivent présenter une hiérarchie très 
 Le bouton **Déployer dans Azure** est très utile, mais il vous permet uniquement de déployer le modèle de groupe de ressources dans azuredeploy.json si vous avez déjà envoyé ce dernier à GitHub. Le Kit de développement logiciel (SDK) Microsoft Azure .NET fournit également des outils vous permettant de déployer un fichier de modèle JSON directement à partir de votre ordinateur local. Pour ce faire, procédez comme suit :
 
 1. Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
-2. Cliquez sur **Visual C#** > **Cloud** > **Groupe de ressources Azure**, puis cliquez sur **OK**.
+2. Cliquez sur **Visual C#**  > **Cloud** > **Groupe de ressources Azure**, puis cliquez sur **OK**.
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. Dans **Sélectionner un modèle Azure**, choisissez **Modèle vide** et cliquez sur **OK**.

@@ -3,26 +3,25 @@ title: Utiliser des machines virtuelles Azure nécessitant beaucoup de ressource
 description: Guide pratique pour tirer parti des tailles de machines virtuelles HPC et GPU dans des pools Azure Batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c3c54b003017f7512cd40c7798fc351e4e4a3f69
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975557"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094915"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utiliser des instances RDMA ou GPU dans des pools Batch
 
-Pour exécuter certains travaux Batch, vous pouvez tirer parti des tailles de machines virtuelles Azure conçues pour le calcul à grande échelle. Par exemple : 
+Pour exécuter certains travaux Batch, vous pouvez tirer parti des tailles de machines virtuelles Azure conçues pour le calcul à grande échelle. Par exemple :
 
 * Pour exécuter des [charges de travail MPI](batch-mpi.md) multi-instances, choisissez des tailles de série H ou autres qui ont une interface réseau pour l’accès direct à la mémoire à distance (RDMA). Ces tailles se connectent à un réseau InfiniBand pour la communication entre les nœuds, ce qui peut accélérer les applications MPI. 
 
@@ -43,21 +42,21 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Pools Linux - Configuration de machine virtuelle
 
-| Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
+| Size | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS ou<br/>HPC basé sur CentOS<br/>(Place de marché Azure) | Intel MPI 5<br/><br/>Pilotes RDMA Linux | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
-| [Séries NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Ubuntu 16.04 LTS ou<br/>CentOS 7.3 ou 7.4<br/>(Place de marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit | S.O. | 
-| [Séries NV, NVv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS ou<br/>CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA GRID | S.O. |
+| [Séries NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Ubuntu 16.04 LTS ou<br/>CentOS 7.3 ou 7.4<br/>(Place de marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit | N/A | 
+| [Séries NV, NVv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS ou<br/>CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA GRID | N/A |
 
 <sup>*</sup>Les tailles de série N compatibles RDMA incluent également des GPU NVIDIA Tesla.
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pools Windows - Configuration de machine virtuelle
 
-| Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
+| Size | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, ou<br/>2012 (Place de Marché Azure) | Microsoft MPI 2012 R2 ou ultérieur, ou<br/> Intel MPI 5<br/><br/>Pilotes RDMA Windows | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
-| [Séries NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Windows Server 2016 ou <br/>2012 R2 (Place de Marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit| S.O. | 
-| [Séries NV, NVv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 ou<br/>2012 R2 (Place de Marché Azure) | Pilotes NVIDIA GRID | S.O. |
+| [Séries NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Windows Server 2016 ou <br/>2012 R2 (Place de Marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit| N/A | 
+| [Séries NV, NVv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 ou<br/>2012 R2 (Place de Marché Azure) | Pilotes NVIDIA GRID | N/A |
 
 <sup>*</sup>Les tailles de série N compatibles RDMA incluent également des GPU NVIDIA Tesla.
 
@@ -67,7 +66,7 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 > Les tailles de série N ne sont pas prises en charge dans les pools Batch avec la configuration de service cloud.
 >
 
-| Taille | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
+| Size | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012, ou<br/>2008 R2 (Famille de système d’exploitation invité) | Microsoft MPI 2012 R2 ou ultérieur, ou<br/>Intel MPI 5<br/><br/>Pilotes RDMA Windows | Activer la communication entre les nœuds,<br/> désactiver l’exécution simultanée des tâches |
 

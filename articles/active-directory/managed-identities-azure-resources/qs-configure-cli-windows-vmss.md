@@ -1,6 +1,6 @@
 ---
-title: Comment configurer le système et affectée à l’utilisateur des identités gérées à l’échelle de machine virtuelle Azure définie à l’aide d’Azure CLI
-description: Instructions pour la configuration système et affectée à l’utilisateur des identités gérées à l’échelle de machine virtuelle Azure définie étape par étape, à l’aide d’Azure CLI.
+title: Guide pratique pour configurer des identités managées affectées par le système et par l'utilisateur sur un groupe de machines virtuelles identiques à l'aide d'Azure CLI
+description: Instructions détaillées pour la configuration d'identités managées affectées par le système et par l'utilisateur sur un groupe de machines virtuelles identiques Azure à l'aide de PowerShell.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04a3c9eba1f6498796a7e617b400649963c996d1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 895d914226014a0f43bc7f8ff24d3e7dff24ef37
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444472"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310044"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques en utilisant Azure CLI
 
@@ -28,14 +28,14 @@ ms.locfileid: "58444472"
 
 Les identités managées pour ressources Azure fournissent des services Azure avec une identité managée automatiquement dans Azure Active Directory. Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. 
 
-Dans cet article, vous allez apprendre à effectuer les identités gérées suivantes pour les opérations de ressources Azure sur un jeu de mise à l’échelle de machine virtuelle Azure, à l’aide de l’interface CLI :
+Dans cet article, vous allez apprendre à effectuer les opérations suivantes afin de configurer les identités managées pour ressources Azure sur un groupe de machines virtuelles identiques Azure à l'aide d'Azure CLI :
 - Activer et désactiver l’identité managée affectée par le système sur un groupe de machines virtuelles identiques Azure
 - Ajouter et supprimer une identité managée affectée par l’utilisateur sur un groupe de machines virtuelles identiques Azure
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, voir la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer de ces affectations de contrôle d'accès basé sur les rôles Azure :
 
@@ -44,7 +44,7 @@ Dans cet article, vous allez apprendre à effectuer les identités gérées suiv
 
     - [Contributeur de machine virtuelle](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) pour créer un groupe de machines virtuelles identiques, puis activer ou supprimer l’identité managée affectée par le système et/ou par l’utilisateur à partir d’un groupe de machines virtuelles identiques.
     - [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) pour créer une identité managée affectée par l’utilisateur.
-    - [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator) pour attribuer et supprimer une identité managée affectée par l’utilisateur dans un groupe de machines virtuelles identiques.
+    - [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator), pour attribuer et supprimer une identité managée affectée par l’utilisateur dans un groupe de machines virtuelles identiques.
 - Pour exécuter les exemples de script d’Azure CLI, vous disposez de trois options :
     - Utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) à partir du portail Azure (voir section suivante).
     - Utilisez l’interface intégrée Azure Cloud Shell via le bouton « Essayer », situé dans le coin supérieur droit de chaque bloc de code.
@@ -57,7 +57,7 @@ Dans cet article, vous allez apprendre à effectuer les identités gérées suiv
 
 ## <a name="system-assigned-managed-identity"></a>Identité managée affectée par le système
 
-Dans cette section, vous allez apprendre à activer et désactiver l’identité gérée attribué par le système pour une échelle de machine virtuelle Azure définie à l’aide d’Azure CLI.
+Dans cette section, vous allez apprendre à activer et désactiver l'identité managée affectée par le système pour un groupe de machines virtuelles identiques Azure à l'aide d'Azure CLI.
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Activer une identité managée affectée par le système lors de la création d’un groupe de machines virtuelles identiques Azure
 
@@ -114,8 +114,7 @@ Si vous disposez d’une machine virtuelle qui n’a plus besoin de l’identit�
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-> [!NOTE]
-> Si vous avez configuré l’identité gérée pour les ressources Azure VM extension (déconseillé), vous devez supprimer à l’aide de [delete de az vmss extension](https://docs.microsoft.com/cli/azure/vm/). Pour plus d’informations, consultez [migrer vers IMDS Azure pour l’authentification à partir de l’extension de machine virtuelle](howto-migrate-vm-extension.md).
+
 
 ## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
 
@@ -123,7 +122,7 @@ Dans cette section, vous allez découvrir comment activer et supprimer une ident
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Attribuer une identité managée affectée par l’utilisateur lors de la création d’un groupe de machines virtuelles identiques
 
-Cette section vous guide la création d’un jeu de mise à l’échelle de machine virtuelle et l’affectation d’une identité gérée affectée à l’utilisateur pour les machines virtuelles identiques. Si vous avez déjà un jeu de mise à l’échelle de machine virtuelle à utiliser, ignorez cette section et passez à la suivante.
+Cette section explique en détail comment créer un groupe de machines virtuelles identiques et lui attribuer une identité managée affectée par l'utilisateur. Si vous disposez déjà d'un groupe de machines virtuelles identiques que vous souhaitez utiliser, ignorez cette section et passez à la suivante.
 
 1. Vous pouvez ignorer cette étape si vous disposez déjà d’un groupe de ressources que vous souhaitez utiliser. Créez un [groupe de ressources](~/articles/azure-resource-manager/resource-group-overview.md#terminology) pour contenir et déployer votre identité managée affectée par l’utilisateur en utilisant la commande [az group create](/cli/azure/group/#az-group-create). N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<LOCATION>` par vos propres valeurs. :
 
@@ -155,13 +154,13 @@ Cette section vous guide la création d’un jeu de mise à l’échelle de mach
    }
    ```
 
-3. Créer une échelle de machine virtuelle à l’aide de [créer az vmss](/cli/azure/vmss/#az-vmss-create). L’exemple suivant crée un jeu de mise à l’échelle de machine virtuelle associé à la nouvelle affectée à l’utilisateur gérée identité, tel que spécifié par le `--assign-identity` paramètre. N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` et `<USER ASSIGNED IDENTITY>` par vos propres valeurs. 
+3. Créez un groupe de machines virtuelles identiques à l'aide de la commande [az vmss create](/cli/azure/vmss/#az-vmss-create). L'exemple suivant crée un groupe de machines virtuelles identiques associé à la nouvelle identité managée affectée par l'utilisateur, comme spécifié par le paramètre `--assign-identity`. N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` et `<USER ASSIGNED IDENTITY>` par vos propres valeurs. 
 
    ```azurecli-interactive 
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
    ```
 
-### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>Attribuer une identité managée affectée par l’utilisateur à un groupe de machines virtuelles identiques existant
+### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>Attribuer une identité managée affectée par le système à un groupe de machines virtuelles identiques existant
 
 1. Créez une identité managée affectée par l’utilisateur en utilisant la commande [az identity create](/cli/azure/identity#az-identity-create).  Le paramètre `-g` spécifie le groupe de ressources où l’identité managée affectée par l’utilisateur est créée, et le paramètre `-n` spécifie son nom. N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<USER ASSIGNED IDENTITY NAME>` par vos propres valeurs :
 
@@ -185,7 +184,7 @@ Cette section vous guide la création d’un jeu de mise à l’échelle de mach
    }
    ```
 
-2. Attribuer l’identité gérée affectée à l’utilisateur à l’échelle de vos machines virtuelles définies à l’aide [affecter d’identité de vmss az](/cli/azure/vmss/identity). N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<VIRTUAL MACHINE SCALE SET NAME>` par vos propres valeurs. `<USER ASSIGNED IDENTITY>` est la propriété `name` de ressource de l’identité managée affectée par l’utilisateur, telle que créée à l’étape précédente :
+2. Attribuez l'identité managée affectée par l'utilisateur à votre groupe de machines virtuelles identiques en utilisant la commande [az vmss identity assign](/cli/azure/vmss/identity). N’oubliez pas de remplacer les valeurs des paramètres `<RESOURCE GROUP>` et `<VIRTUAL MACHINE SCALE SET NAME>` par vos propres valeurs. `<USER ASSIGNED IDENTITY>` est la propriété `name` de ressource de l’identité managée affectée par l’utilisateur, telle que créée à l’étape précédente :
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VIRTUAL MACHINE SCALE SET NAME> --identities <USER ASSIGNED IDENTITY>

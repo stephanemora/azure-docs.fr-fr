@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: dad497978de7187177998524db3b2f2ee448c717
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524512"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464781"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Guide pratique pour paramétrer les fichiers de configuration dans Service Fabric
 
@@ -27,7 +27,7 @@ Cet article vous explique comment paramétrer un fichier de configuration dans S
 
 Dans cet exemple, vous remplacez une valeur de configuration à l’aide de paramètres dans le déploiement de votre application.
 
-1. Ouvrez le  *\<MyService > \PackageRoot\Config\Settings.xml* fichier dans votre projet de service.
+1. Ouvrez le fichier *\<MyService>\PackageRoot\Config\Settings.xml* dans votre projet de service.
 1. Définissez un nom de paramètre de configuration et une valeur, par exemple la taille du cache égale à 25, en ajoutant le code XML suivant :
 
    ```xml
@@ -37,7 +37,7 @@ Dans cet exemple, vous remplacez une valeur de configuration à l’aide de para
    ```
 
 1. Enregistrez et fermez le fichier.
-1. Ouvrez le  *\<MyApplication > \ApplicationPackageRoot\ApplicationManifest.xml* fichier.
+1. Ouvrez le fichier *\<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml*.
 1. Dans le fichier ApplicationManifest.xml, déclarez une valeur de paramètre et une valeur par défaut dans l’élément `Parameters`.  Il est recommandé que le nom du paramètre contienne le nom du service (par exemple, « MyService »).
 
    ```xml
@@ -45,7 +45,7 @@ Dans cet exemple, vous remplacez une valeur de configuration à l’aide de para
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
    ```
-1. Dans la section `ServiceManifestImport` du fichier ApplicationManifest.xml, ajoutez un élément `ConfigOverride`, qui référence le package de configuration, la section et le paramètre.
+1. Dans la section `ServiceManifestImport` du fichier ApplicationManifest.xml, ajoutez des éléments `ConfigOverrides` et `ConfigOverride` référençant le package de configuration, la section et le paramètre.
 
    ```xml
     <ConfigOverrides>

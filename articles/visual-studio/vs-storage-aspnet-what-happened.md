@@ -1,9 +1,9 @@
 ---
 title: Qu’est-il arrivé à mon projet ASP.NET ? | Microsoft Docs
-description: Décrit ce qui se passe après que l’ajout de stockage Azure à un projet ASP.NET à l’aide de Visual Studio des services connectés
+description: Décrit ce qui se produit quand Azure Storage est ajouté à un projet ASP.NET à l’aide des services connectés de Visual Studio
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: e1fe1b6d-4e3d-476d-8b2f-f7ade050515e
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: e0e065b23581f297ee4ae2288a6e437da461a19f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 74db2e1e15c282f4393715c67561b2ed61bbcdfb
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998355"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512070"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>Qu’est-il arrivé à mon projet ASP.NET (service connecté Azure Storage de Visual Studio) ?
 ## <a name="references-added"></a>Références ajoutées

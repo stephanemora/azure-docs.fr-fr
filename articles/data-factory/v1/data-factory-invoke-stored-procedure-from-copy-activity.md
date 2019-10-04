@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 35e9347039a7b9939ab4d2719f9738429dec168c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016064"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60824250"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Appeler une procédure stockée à partir d’une activité de copie dans Azure Data Factory
 > [!NOTE]
@@ -30,7 +30,7 @@ Lorsque vous copiez des données dans [SQL Server](data-factory-sqlserver-connec
 L’exemple suivant montre comment invoquer une procédure stockée dans une base de données SQL Server à partir d’un pipeline Data Factory (activité de copie) :  
 
 ## <a name="output-dataset-json"></a>JSON du jeu de données de sortie
-Dans le JSON du jeu de données de sortie, définissez le **type** sur : **SqlServerTable**. Affectez-lui la valeur **AzureSqlTable** pour l’utiliser avec une base de données SQL Azure. La valeur de la propriété **tableName** doit correspondre au nom du premier paramètre de la procédure stockée.  
+Dans le JSON du jeu de données de sortie, définissez le **type** sur : **SqlServerTable**. Affectez-lui la valeur **AzureSqlTable** pour l’utiliser avec une base de données Azure SQL. La valeur de la propriété **tableName** doit correspondre au nom du premier paramètre de la procédure stockée.  
 
 ```json
 {
@@ -94,5 +94,5 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ## <a name="next-steps"></a>Étapes suivantes
 Pour accéder à des exemples JSON complets, consultez les articles suivants sur les connecteurs : 
 
-- [Base de données SQL Azure](data-factory-azure-sql-connector.md)
+- [Azure SQL Database](data-factory-azure-sql-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

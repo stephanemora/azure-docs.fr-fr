@@ -2,28 +2,28 @@
 title: À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C | Microsoft Docs
 description: Découvrez comment sont utilisés les résolveurs de revendication dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/25/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 44ac4a5fd14d262fdbd1f6fcd36bb2351d08f754
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692440"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064395"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
-Les résolveurs de revendication dans les [stratégies personnalisées](active-directory-b2c-overview-custom.md) d’Azure Active Directory (Azure AD) B2C fournissent des informations de contexte sur une demande d’autorisation, telles que le nom de la stratégie, l’ID de corrélation de la demande ou la langue de l’interface utilisateur.
+Les résolveurs de revendication dans les [stratégies personnalisées](active-directory-b2c-overview-custom.md) d’Azure Active Directory B2C (Azure AD B2C) fournissent des informations de contexte sur une demande d’autorisation, telles que le nom de la stratégie, l’ID de corrélation de la demande ou la langue de l’interface utilisateur, entre autres.
 
-Pour utiliser un résolveur de revendication dans une revendication d’entrée ou de sortie, vous définissez une chaîne **ClaimType** sous l’élément [ClaimsSchema](claimsschema.md), puis vous définissez **DefaultValue** sur le résolveur de revendication dans l’élément de la revendication d’entrée ou de sortie. Azure AD B2C lit la valeur du résolveur de revendication, puis l’utilise dans le profil technique. 
+Pour utiliser un résolveur de revendication dans une revendication d’entrée ou de sortie, vous définissez une chaîne **ClaimType** sous l’élément [ClaimsSchema](claimsschema.md), puis vous définissez **DefaultValue** sur le résolveur de revendication dans l’élément de la revendication d’entrée ou de sortie. Azure AD B2C lit la valeur du résolveur de revendication, puis l’utilise dans le profil technique.
 
-Dans l’exemple suivant, un type de revendication nommé `correlationId` est défini avec un **DataType** de `string`.  
+Dans l’exemple suivant, un type de revendication nommé `correlationId` est défini avec un **DataType** de `string`.
 
 ```XML
 <ClaimType Id="correlationId">
@@ -107,7 +107,7 @@ Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2
 
 ### <a name="restful-technical-profile"></a>Profil technique RESTful
 
-Dans un profil technique [RESTful](restful-technical-profile.md), vous pouvez envoyer la langue de l’utilisateur, le nom de la stratégie, l’étendue et l’ID client. Selon ces revendications, l’API REST peut exécuter une logique métier personnalisée et éventuellement déclencher un message d’erreur localisé. 
+Dans un profil technique [RESTful](restful-technical-profile.md), vous pouvez envoyer la langue de l’utilisateur, le nom de la stratégie, l’étendue et l’ID client. Selon ces revendications, l’API REST peut exécuter une logique métier personnalisée et éventuellement déclencher un message d’erreur localisé.
 
 L’exemple suivant montre un profil technique RESTful :
 

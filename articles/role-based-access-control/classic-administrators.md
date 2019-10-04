@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: c2096b6c5ddb72c8ab5c5d3203a05c94db51f6c5
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889322"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444331"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
 
@@ -30,7 +30,7 @@ Cet article décrit comment ajouter ou modifier les rôles Coadministrateur et A
 ## <a name="add-a-co-administrator"></a>Ajouter un coadministrateur
 
 > [!TIP]
-> Vous devez ajouter un coadministrateur uniquement si l’utilisateur a besoin de gérer les déploiements Azure Classic à l’aide du [module PowerShell de gestion des services Azure](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure). Si l’utilisateur utilise uniquement le portail Azure pour gérer les ressources classiques, vous n’avez pas besoin d’ajouter l’administrateur classique pour l’utilisateur.
+> Vous devez ajouter un coadministrateur uniquement si l’utilisateur a besoin de gérer les déploiements Azure Classic à l’aide du [module PowerShell de gestion des services Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Si l’utilisateur utilise uniquement le portail Azure pour gérer les ressources classiques, vous n’avez pas besoin d’ajouter l’administrateur classique pour l’utilisateur.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de service.
 
@@ -38,7 +38,7 @@ Cet article décrit comment ajouter ou modifier les rôles Coadministrateur et A
 
     Les coadministrateurs peuvent uniquement être attribués à l’étendue de l’abonnement.
 
-1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 
 1. Cliquez sur l’onglet **Administrateurs classiques**.
 
@@ -71,7 +71,7 @@ Notez que les [rôles intégrés pour les ressources Azure](../role-based-access
 
 1. Ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et sélectionnez un abonnement.
 
-1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 
 1. Cliquez sur l’onglet **Administrateurs classiques**.
 
@@ -91,7 +91,7 @@ Il existe deux façons de modifier l’Administrateur de service. Vous pouvez mo
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Assurez-vous que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de Service.
+1. Vérifiez que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de services fédérés.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte.
 
@@ -109,7 +109,7 @@ Il existe deux façons de modifier l’Administrateur de service. Vous pouvez mo
 
 ### <a name="account-center"></a>Centre des comptes
 
-1. Assurez-vous que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de Service.
+1. Vérifiez que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de services fédérés.
 
 1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/subscriptions) en tant qu’administrateur de compte.
 
@@ -129,12 +129,12 @@ Il existe deux façons de modifier l’Administrateur de service. Vous pouvez mo
 
 Chaque abonnement est associé à un annuaire Azure AD. Pour identifier l’annuaire auquel est associé l’abonnement, ouvrez **Abonnements** dans le portail Azure, puis sélectionnez un abonnement pour voir l’annuaire.
 
-Si vous êtes connecté avec un compte professionnel ou scolaire, vous pouvez ajouter d’autres comptes à votre organisation en tant qu’Administrateur de service. Par exemple, abby@contoso.com peut ajouter bob@contoso.com en tant qu’administrateur de services fédérés, mais ne peut pas ajouter john@notcontoso.com, sauf si john@notcontoso.com est présent dans l’annuaire de contoso.com. Les utilisateurs connectés avec des comptes professionnels ou scolaires peuvent continuer à ajouter des utilisateurs de comptes Microsoft en tant qu’Administrateur de service.
+Si vous êtes connecté avec un compte professionnel ou scolaire, vous pouvez ajouter d’autres comptes à votre organisation en tant qu’Administrateur de service. Par exemple, abby@contoso.com peut ajouter bob@contoso.com en tant qu’administrateur de services fédérés, mais ne peut pas ajouter john@notcontoso.com, sauf si john@notcontoso.com est présent dans l’annuaire de contoso.com. Les utilisateurs connectés avec des comptes professionnels ou scolaires peuvent continuer à ajouter des utilisateurs de comptes Microsoft en tant qu’Administrateur de service. Il ne peut y avoir qu’un seul administrateur de service par abonnement Azure.
 
   | Méthode de connexion | Ajouter l’utilisateur de compte Microsoft en tant qu’administrateur de service ? | Ajouter le compte professionnel ou scolaire de la même organisation comme Administrateur de service ? | Ajouter le compte professionnel ou scolaire de la même organisation comme Administrateur de service ? |
   | --- | --- | --- | --- |
-  |  Compte Microsoft |Oui |Non  |Non  |
-  |  Comptes professionnels ou scolaires |Oui |Oui |Non  |
+  |  Compte Microsoft |OUI |Non |Non |
+  |  Comptes professionnels ou scolaires |OUI |OUI |Non |
 
 ## <a name="view-the-account-administrator"></a>Voir l’administrateur de compte
 

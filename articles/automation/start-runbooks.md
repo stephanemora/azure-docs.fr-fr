@@ -4,17 +4,17 @@ description: Résume les différentes méthodes qui peuvent être utilisées pou
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b065b611c923c4a28dc79c390ffb56ed97b316fd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: a42ba0a385b73032e3d4045094bc88613016b849
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918448"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850342"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Démarrer un Runbook dans Azure Automation
 
@@ -84,7 +84,7 @@ Le service web Azure Automation fournit des fonctionnalités spécifiques pour l
 
 ### <a name="named-values"></a>Valeurs nommées
 
-Si le paramètre est un type de données [object], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs nommées : *{Nom1:'Valeur1', Nom2:'Valeur2', Nom3:'Valeur3'}*. Ces valeurs doivent avoir des types simples. Le Runbook reçoit le paramètre comme [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) avec des propriétés correspondant à chaque valeur nommée.
+Si le paramètre est un type de données [object], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs nommées : *{Nom1:'Valeur1', Nom2:'Valeur2', Nom3:'Valeur3'}* . Ces valeurs doivent avoir des types simples. Le Runbook reçoit le paramètre comme [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) avec des propriétés correspondant à chaque valeur nommée.
 
 Considérez le Runbook de test suivant qui accepte un paramètre nommé user.
 
@@ -121,7 +121,7 @@ Smith
 
 ### <a name="arrays"></a>Tableaux
 
-Si le paramètre est un tableau comme [array] ou [string[]], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs : *[Valeur1, Valeur2, Valeur3]*. Ces valeurs doivent avoir des types simples.
+Si le paramètre est un tableau comme [array] ou [string[]], vous pouvez utiliser le format JSON suivant pour lui envoyer une liste de valeurs : *[Valeur1, Valeur2, Valeur3]* . Ces valeurs doivent avoir des types simples.
 
 Considérez le Runbook de test suivant qui accepte un paramètre nommé *user*.
 
@@ -187,3 +187,4 @@ jsmith
 
 * L’architecture des Runbooks dans cet article fournit une vue d’ensemble globale des ressources de gestion des Runbooks dans Azure et localement avec Runbook Worker hybride. Pour en savoir plus sur l’exécution des Runbooks Automation dans votre centre de données, consultez l’article [Runbooks Workers hybrides](automation-hybrid-runbook-worker.md).
 * Pour en savoir plus sur la création de Runbooks modulaires à utiliser par d’autres Runbooks pour des fonctions spécifiques ou communes, consultez [Runbooks enfants](automation-child-runbooks.md).
+* Pour plus d’informations sur PowerShell, notamment le langage de référence et les modules d’apprentissage, consultez la [Documentation PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview).

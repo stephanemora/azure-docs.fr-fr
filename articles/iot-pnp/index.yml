@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation sur la préversion d’IoT Plug-and-Play
+metadata:
+  title: "Documentation sur la préversion d’IoT Plug-and-Play – Didacticiels, Référence d’API | Microsoft\_Docs"
+  description: 'Découvrez comment utiliser IoT Plug-and-Play à l’aide de didacticiels, de références d’API, de vidéos et d’autres sources de documentation.'
+  author: dominicbetts
+  manager: philmea
+  ms.service: iot-pnp
+  services: iot-pnp
+  ms.topic: landing-page
+  ms.date: 07/23/2019
+  ms.author: dobett
+abstract:
+  description: 'Découvrez comment utiliser la préversion d’IoT Plug-and-Play pour définir un modèle d’appareil qui permet aux solutions cloud de comprendre automatiquement votre appareil et de commencer à interagir avec celui-ci, le tout sans devoir écrire de code pour l’appareil. Des didacticiels, des références d’API, des vidéos et d’autres sources de documentation vous aident à connecter des appareils à des solutions cloud telles qu’Azure IoT Central ou des applications de partenaires.'
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: media/index/video-thumb-pnp-introduction.png
+      width: 250
+    title: 'Présentation d’IoT Plug-and-Play. (11:54)'
+    href: 'https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player'
+    width: 250
+sections:
+  - title: "Démarrages en 5\_minutes"
+    items:
+      - type: paragraph
+        text: Découvrez comment <a href="quickstart-create-pnp-device">utiliser un modèle de fonctionnalité d’appareil mobile pour créer un appareil</a>.
+      - type: paragraph
+        text: Découvrez comment <a href="quickstart-connect-pnp-device-solution">connecter un appareil à votre solution</a>.
+  - title: Didacticiels pas à pas
+    items:
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-pnp-visual-studio-code">Créer un appareil avec Visual Studio Code</a>
+          - html: <a href="tutorial-build-device-certification">Créer un appareil prêt pour la certification</a>
+          - html: <a href="tutorial-certification-test">Certifier votre appareil</a>

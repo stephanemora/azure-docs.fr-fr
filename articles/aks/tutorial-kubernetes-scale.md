@@ -2,18 +2,18 @@
 title: Didacticiel Kubernetes sur Azure – Mise à l’échelle d’une application
 description: Dans ce didacticiel Azure Kubernetes Service (AKS), vous découvrez comment mettre à l’échelle des nœuds et pods dans Kubernetes, et comment implémenter la mise à l’échelle automatique de pod horizontal.
 services: container-service
-author: zr-msft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: zarhoads
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 2a962b5bdb6eeb139275ea6a7f585b36ff84b61f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4e36362fd42a147ee900005d84b0af1b4839aae1
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784123"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965128"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)
 
@@ -28,13 +28,13 @@ Dans d’autres tutoriels, une nouvelle version de l’application Azure Vote es
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dans les tutoriels précédents, une application a été empaquetée dans une image conteneur. Cette image a été chargée dans Azure Container Registry et vous avez créé un cluster AKS. L’application a ensuite été déployée sur le cluster AKS. Si vous n’avez pas effectué ces étapes et que vous souhaitez suivre cette procédure, commencez par le [Tutoriel 1 : Créer des images conteneurs][aks-tutorial-prepare-app].
+Dans les tutoriels précédents, une application a été empaquetée dans une image conteneur. Cette image a été chargée dans Azure Container Registry et vous avez créé un cluster AKS. L’application a ensuite été déployée sur le cluster AKS. Si vous n’avez pas effectué ces étapes et si vous souhaitez suivre cette procédure, commencez par [Tutoriel 1 : Créer des images conteneur][aks-tutorial-prepare-app].
 
-Ce tutoriel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Ce didacticiel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ## <a name="manually-scale-pods"></a>Mettre à l’échelle des pods manuellement
 
-Lorsque le serveur frontal Azure Vote et l’instance Redis ont été déployés dans des didacticiels précédents, un seul réplica a été créé. Pour afficher le nombre et l’état de pods dans votre cluster, utilisez la commande [kubectl get][kubectl-get] comme suit :
+Lorsque le serveur frontal Azure Vote et l’instance Redis ont été déployés dans des didacticiels précédents, un seul réplica a été créé. Pour voir le nombre et l’état des pods de votre cluster, utilisez la commande [kubectl get][kubectl-get] comme suit :
 
 ```console
 kubectl get pods
@@ -48,13 +48,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Pour modifier manuellement le nombre de pods dans le déploiement *azure-vote-front*, utilisez la commande [kubectl scale][kubectl-scale]. L’exemple suivant augmente le nombre de pods de serveur frontal à *5* :
+Pour changer manuellement le nombre de pods dans le déploiement *azure-vote-front*, utilisez la commande [kubectl scale][kubectl-scale]. L’exemple suivant augmente le nombre de pods de serveur frontal à *5* :
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Exécutez à nouveau la commande [kubectl get pods][kubectl-get] pour vérifier qu’AKS crée les pods supplémentaires. Au bout d’une minute environ, les pods supplémentaires sont disponibles dans votre cluster :
+Réexécutez la commande [kubectl get pods][kubectl-get] pour vérifier qu’AKS crée les pods supplémentaires. Au bout d’une minute environ, les pods supplémentaires sont disponibles dans votre cluster :
 
 ```console
 $ kubectl get pods
@@ -70,20 +70,21 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Mettre à l’échelle les pods automatiquement
 
-Kubernetes prend en charge la [mise à l’échelle automatique des pods horizontaux][kubernetes-hpa] pour ajuster le nombre de pods dans un déploiement en fonction de l’utilisation du processeur ou d’autres métriques. [Metrics Server][metrics-server] est utilisé pour indiquer l’utilisation des ressources à Kubernetes et automatiquement déployé dans les clusters AKS 1.10 et versions ultérieures. Pour afficher la version de votre cluster AKS, utilisez la commande [az aks show][az-aks-show], comme indiqué dans l’exemple suivant :
+Kubernetes prend en charge la [mise à l’échelle automatique des pods horizontaux][kubernetes-hpa] pour ajuster le nombre de pods dans un déploiement en fonction de l’utilisation du processeur ou d’autres métriques. [Metrics Server][metrics-server] est utilisé pour indiquer l’utilisation des ressources à Kubernetes et est automatiquement déployé dans les clusters AKS versions 1.10 et ultérieures. Pour voir la version de votre cluster AKS, utilisez la commande [az aks show][az-aks-show], comme indiqué dans l’exemple suivant :
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-Si la version de votre cluster AKS est inférieure à *1.10*, installez Metrics Server. Sinon, ignorez cette étape. Pour effectuer l’installation, clonez le dépôt GitHub `metrics-server` et installez les exemples de définitions de ressources. Pour afficher le contenu de ces définitions YAML, consultez [Metrics Server for Kubernetes 1.8+][metrics-server-github] (Serveur de mesures pour Kubernetes 1.8+).
+> [!NOTE]
+> Si votre cluster AKS est inférieur à *1.10*, Metrics Server n’est pas installé automatiquement. Pour effectuer l’installation, clonez le dépôt GitHub `metrics-server` et installez les exemples de définitions de ressources. Pour voir le contenu de ces définitions YAML, consultez [Serveur de métriques pour Kubernetes 1.8+][metrics-server-github].
+> 
+> ```console
+> git clone https://github.com/kubernetes-incubator/metrics-server.git
+> kubectl create -f metrics-server/deploy/1.8+/
+> ```
 
-```console
-git clone https://github.com/kubernetes-incubator/metrics-server.git
-kubectl create -f metrics-server/deploy/1.8+/
-```
-
-Pour utiliser la mise à l’échelle automatique, vos pods doivent avoir des demandes et limites de processeur définies. Dans le déploiement `azure-vote-front`, le conteneur front-end demande déjà 0,25 processeur, avec une limite de 0,5 processeur. Ces demandes et limites de ressources sont définies comme indiqué dans l’exemple d’extrait suivant :
+Pour utiliser la mise à l’échelle automatique, tous les conteneurs de vos pods et vos pods doivent avoir des demandes et limites de processeur définies. Dans le déploiement `azure-vote-front`, le conteneur front-end demande déjà 0,25 processeur, avec une limite de 0,5 processeur. Ces demandes et limites de ressources sont définies comme indiqué dans l’exemple d’extrait suivant :
 
 ```yaml
 resources:
@@ -93,7 +94,7 @@ resources:
      cpu: 500m
 ```
 
-L’exemple suivant utilise la commande [kubectl autoscale][kubectl-autoscale] pour mettre automatiquement à l’échelle le nombre de pods dans le déploiement *azure-vote-front*. Si l’utilisation du processeur dépasse 50 %, l’outil de mise à l’échelle automatique augment le nombre de pods jusqu’à un maximum de *10* instances. Un minimum de *3* instances est ensuite défini pour le déploiement :
+L’exemple suivant utilise la commande [kubectl autoscale][kubectl-autoscale] pour effectuer un scaling automatique du nombre de pods dans le déploiement *azure-vote-front*. Si l’utilisation moyenne du processeur sur tous les pods dépasse 50 % de l’utilisation demandée, l’outil de mise à l’échelle automatique (ou « autoscaler ») fait passer le nombre de pods à *10* instances, au maximum. Un minimum de *3* instances est ensuite défini pour le déploiement :
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10

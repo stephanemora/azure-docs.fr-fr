@@ -4,26 +4,25 @@ description: Avec ce didacticiel, vous allez apprendre à utiliser le portail Az
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/27/2017
+ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7c6f5e199041af7d0ecd829ace2b56f5789f4955
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 8eaa96dd92ab0f18b590b284d59dd7b775738602
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890447"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101734"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Didacticiel : sauvegarder et restaurer des fichiers pour des machines virtuelles Windows dans Azure
+# <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>Didacticiel : Sauvegarder et restaurer des fichiers pour des machines virtuelles Windows dans Azure
 
 Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers spécifiques. Cet article explique comment restaurer un fichier unique sur une machine virtuelle exécutant Windows Server et IIS. Si vous ne disposez d’aucune machine virtuelle, vous pouvez en créer une à l’aide du [démarrage rapide Windows](quick-create-portal.md). Ce didacticiel vous explique comment effectuer les opérations suivantes :
 
@@ -40,20 +39,19 @@ Lorsque de la prise d’un instantané de machines virtuelles Windows, le servic
 
 Une fois le transfert de données terminé, l’instantané est supprimé et un point de récupération est créé.
 
-
 ## <a name="create-a-backup"></a>Création d'une sauvegarde
 Créez une simple sauvegarde quotidienne planifiée dans un coffre Recovery Services. 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Dans le menu de gauche, sélectionnez **Machines virtuelles**. 
-3. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez sauvegarder.
-4. Dans le panneau de la machine virtuelle, dans la section **Opérations**, cliquez sur **Sauvegarde**. Le panneau **Activer la sauvegarde** s’ouvre.
-5. Dans **Coffre Recovery Services**, cliquez sur **Créer** et fournissez le nom du nouveau coffre. Un coffre est créé dans le même groupe de ressources et au même emplacement que la machine virtuelle.
-6. Cliquez sur **Stratégie de sauvegarde**. Pour cet exemple, conservez les valeurs par défaut et cliquez sur **OK**.
-7. Dans le panneau **Activer la sauvegarde**, cliquez sur **Activer la sauvegarde**. Cette opération crée une sauvegarde quotidienne selon la planification par défaut.
-10. Pour créer un point de récupération initial, dans le panneau **Sauvegarde**, cliquez sur **Sauvegarder maintenant**.
-11. Dans le panneau **Sauvegarder maintenant**, cliquez sur l’icône de calendrier. Utilisez le contrôle de calendrier pour sélectionner le dernier jour de conservation de ce point de récupération, puis cliquez sur **Sauvegarder**.
-12. Le panneau **Sauvegarde** de votre machine virtuelle affiche le nombre de points de récupération terminés.
+1. Dans le menu de gauche, sélectionnez **Machines virtuelles**. 
+1. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez sauvegarder.
+1. Dans le panneau de la machine virtuelle, dans la section **Opérations**, cliquez sur **Sauvegarde**. Le panneau **Activer la sauvegarde** s’ouvre.
+1. Dans **Coffre Recovery Services**, cliquez sur **Créer** et fournissez le nom du nouveau coffre. Un coffre est créé dans le même groupe de ressources et au même emplacement que la machine virtuelle.
+1. Sous **Choisir une stratégie de sauvegarde**, conservez la valeur par défaut **(Nouveau) DailyPolicy**, puis cliquez sur **Activer la sauvegarde**.
+1. Pour créer un point de récupération initial, dans le panneau **Sauvegarde**, cliquez sur **Sauvegarder maintenant**.
+1. Dans le panneau **Sauvegarder maintenant**, cliquez sur l’icône de calendrier, utilisez le contrôle de calendrier pour choisir la durée de conservation du point de restauration, puis cliquez sur **OK**.
+1. Dans le panneau **Sauvegarde** de votre machine virtuelle, vous voyez le nombre de points de restauration complets.
+
 
     ![Points de récupération](./media/tutorial-backup-vms/backup-complete.png)
     
@@ -69,25 +67,28 @@ Dans cet exemple, vous découvrirez comment récupérer le fichier image qui est
 
     ![Page web IIS par défaut](./media/tutorial-backup-vms/iis-working.png)
 
-2. Connectez-vous à la machine virtuelle.
-3. Sur la machine virtuelle, ouvrez **Explorateur de fichiers**, accédez à \inetpub\wwwroot et supprimez le fichier **iisstart.png**.
-4. Sur votre ordinateur local, actualisez le navigateur pour confirmer que cette image sur la page IIS par défaut a disparu.
+1. Connectez-vous à la machine virtuelle.
+1. Sur la machine virtuelle, ouvrez **Explorateur de fichiers**, accédez à \inetpub\wwwroot et supprimez le fichier **iisstart.png**.
+1. Sur votre ordinateur local, actualisez le navigateur pour confirmer que cette image sur la page IIS par défaut a disparu.
 
     ![Page web IIS par défaut](./media/tutorial-backup-vms/iis-broken.png)
 
-5. Sur votre ordinateur local, ouvrez un nouvel onglet et accédez au [portail Azure](https://portal.azure.com).
-6. Dans le menu de gauche, sélectionnez **Machines virtuelles** et cliquez sur la machine virtuelle dans la liste.
-8. Dans le panneau de la machine virtuelle, au niveau de la section **Paramètres**, cliquez sur **Sauvegarde**. Le panneau **Sauvegarde** s’ouvre. 
-9. Dans le menu en haut du panneau, sélectionnez **Récupération de fichier**. Le panneau **Récupération de fichier** s’affiche.
-10. Dans **Étape 1 : Sélectionner un point de récupération**, sélectionnez un point de récupération dans la liste déroulante.
-11. Dans **Étape 2 : Télécharger le script pour parcourir et restaurer des fichiers**, cliquez sur le bouton **Télécharger le fichier exécutable**. Enregistrez le fichier dans votre dossier **Téléchargements**.
-12. Sur votre ordinateur local, ouvrez **Explorateur de fichiers** et accédez à votre dossier**Téléchargements**, puis copiez le fichier .exe téléchargé. Le nom du fichier commence par le nom de votre machine virtuelle. 
-13. Sur votre machine virtuelle (via la connexion RDP), collez le fichier .exe sur le bureau de la machine virtuelle. 
-14. Accédez au bureau de votre machine virtuelle et double-cliquez sur le fichier .exe. Cela lance une invite de commandes et monte le point de récupération en tant que partage de fichier auquel vous pouvez accéder. Après avoir créé le partage, entrez **q** pour fermer l’invite de commandes.
-15. Sur votre machine virtuelle, ouvrez **Explorateur de fichiers** et accédez à la lettre de lecteur qui a été utilisée pour le partage de fichiers.
-16. Accédez à \inetpub\wwwroot, copiez **iisstart.png** à partir du partage de fichier et collez-le dans \inetpub\wwwroot. Par exemple, copiez F:\inetpub\wwwroot\iisstart.png et collez-le dans c:\inetpub\wwwroot pour récupérer le fichier.
-17. Sur votre ordinateur local, ouvrez l’onglet du navigateur avec lequel vous êtes connecté à l’adresse IP de la machine virtuelle affichant la page IIS par défaut. Appuyez sur CTRL + F5 pour actualiser la page du navigateur. Vous devriez maintenant voir que l’image a été restaurée.
-18. Sur votre ordinateur local, revenez à l’onglet du navigateur pour afficher le portail Azure, puis dans **Étape 3 : Démonter les disques après la récupération**, cliquez sur le bouton **Démonter les disques**. Si vous avez omis cette étape, la connexion au point de montage est automatiquement fermée après 12 heures. Une fois ces 12 heures écoulées, vous devez télécharger un nouveau script pour créer un nouveau point de montage.
+1. Sur votre ordinateur local, ouvrez un nouvel onglet et accédez au [portail Azure](https://portal.azure.com).
+1. Dans le menu de gauche, sélectionnez **Machines virtuelles** et cliquez sur la machine virtuelle dans la liste.
+1. Dans le panneau de la machine virtuelle, dans la section **Opérations**, cliquez sur **Sauvegarde**. Le panneau **Sauvegarde** s’ouvre. 
+1. Dans le menu en haut du panneau, sélectionnez **Récupération de fichier**. Le panneau **Récupération de fichier** s’affiche.
+1. À l’**Étape 1 : Sélectionner un point de récupération**, sélectionnez un point de récupération dans la liste déroulante.
+1. À l’**Étape 2 : Télécharger le script pour parcourir et restaurer des fichiers**, cliquez sur le bouton **Télécharger le fichier exécutable**. Copiez le mot de passe pour le fichier et enregistrez-le à un endroit sûr.
+1. Sur votre ordinateur local, ouvrez **Explorateur de fichiers** et accédez à votre dossier**Téléchargements**, puis copiez le fichier .exe téléchargé. Le nom du fichier commence par le nom de votre machine virtuelle. 
+1. Sur votre machine virtuelle (en utilisant la connexion RDP), collez le fichier .exe sur le Bureau. 
+1. Accédez au bureau de votre machine virtuelle et double-cliquez sur le fichier .exe. Une invite de commandes démarre. Le programme monte le point de récupération sous forme de partage de fichiers auquel vous pouvez accéder. Après avoir créé le partage, entrez **q** pour fermer l’invite de commandes.
+1. Sur votre machine virtuelle, ouvrez **Explorateur de fichiers** et accédez à la lettre de lecteur qui a été utilisée pour le partage de fichiers.
+1. Accédez à \inetpub\wwwroot, copiez **iisstart.png** à partir du partage de fichier et collez-le dans \inetpub\wwwroot. Par exemple, copiez F:\inetpub\wwwroot\iisstart.png et collez-le dans c:\inetpub\wwwroot pour récupérer le fichier.
+1. Sur votre ordinateur local, ouvrez l’onglet du navigateur avec lequel vous êtes connecté à l’adresse IP de la machine virtuelle affichant la page IIS par défaut. Appuyez sur CTRL + F5 pour actualiser la page du navigateur. Vous devriez maintenant voir que l’image a été restaurée.
+1. Sur votre ordinateur local, revenez à l’onglet du navigateur du portail Azure et à l’**Étape 3 : Démonter les disques après la récupération** cliquez sur le bouton **Démonter les disques**. Si vous avez omis cette étape, la connexion au point de montage est automatiquement fermée après 12 heures. Une fois ces 12 heures écoulées, vous devez télécharger un nouveau script pour créer un point de montage.
+
+
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

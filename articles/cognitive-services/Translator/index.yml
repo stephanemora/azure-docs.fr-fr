@@ -1,100 +1,109 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation de l’API de traduction de texte Translator Text
+### YamlMime:Landing
+title: Documentation sur la traduction de texte
+summary: L’API de traduction de texte Translator Text est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST. L’API utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de l’API de traduction de texte qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec l’API de traduction de texte ou les Services Microsoft Speech.
 metadata:
-  title: 'Documentation de l’API de traduction de texte Translator Text - Démarrages rapides, tutoriels, informations de référence de l’API - Azure Cognitive Services | Microsoft Docs'
-  description: Découvrez comment utiliser l’API de traduction de texte Translator Text pour traduire du texte dans plusieurs langues.
+  title: Documentation Traduction de texte Translator Text - guides de démarrage rapide, tutoriels, informations de référence sur les API
+  titleSuffix: Azure Cognitive Services
+  description: L’API de traduction de texte Translator Text est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST. L’API utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de l’API de traduction de texte qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec l’API de traduction de texte ou les Services Microsoft Speech.
   services: cognitive-services
-  author: v-pawal
-  manager: Chris.Wendt
+  author: erhopf
+  manager: nitinme
+  layout: LandingPage
   ms.service: cognitive-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: translator-text
   ms.topic: landing-page
-  ms.date: 02/21/2019
-  ms.author: v-jansko
-abstract:
-  description: 'L’API de traduction de texte Translator Text est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST. L’API utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de l’API de traduction de texte Translator Text qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec l’API de traduction de texte Translator Text ou les <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Services Voix de Microsoft</a>. Pour obtenir la liste des langues prises en charge pour la traduction automatique neuronale et pour la traduction automatique statistique, consultez <a href="languages.md">Langues prises en charge</a>.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/translator/translator-info-overview
-            html: <p>En savoir plus sur l’API de traduction de texte Translator Text</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Qu’est-ce que l’API de traduction de texte Translator Text ?
-          - href: /azure/cognitive-services/translator/custom-translator/overview
-            html: <p>En savoir plus sur Custom Translator</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: "Qu’est-ce que Custom Translator\_?"
-          - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
-            html: <p>Découvrez comment bien démarrer avec Custom Translator</p>
-            image:
-              src: ../media/index/i_get-started.svg
-            title: Démarrage rapide avec Custom Translator
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: 'Prise en main de l’API de traduction de texte Translator Text :'
-      - type: table
-        style: dataMatrix
-        columns:
-          - image:
-              src: media/index/logo_csharp.svg
-            title: 'C#'
-          - image:
-              src: media/index/logo_java.svg
-            title: Java
-          - image:
-              src: media/index/logo_nodejs.svg
-            title: Node.js
-          - image:
-              src: media/index/logo_python.svg
-            title: Python
-          - image:
-              src: media/index/logo_go.svg
-            title: Go
-        rows:
-          - title: Traduire du texte d’une langue vers une autre
-            values:
-              - href: quickstart-csharp-translate
-              - href: quickstart-java-translate
-              - href: quickstart-nodejs-translate
-              - href: quickstart-python-translate
-              - href: quickstart-go-translate
-          - title: Convertir du texte d’un script à un autre
-            values:
-              - href: quickstart-csharp-transliterate
-              - href: quickstart-java-transliterate
-              - href: quickstart-nodejs-transliterate
-              - href: quickstart-python-transliterate
-              - href: quickstart-go-transliterate
-          - title: Identifier la langue du texte
-            values:
-              - href: quickstart-csharp-detect
-              - href: quickstart-java-detect
-              - href: quickstart-nodejs-detect
-              - href: quickstart-python-detect
-              - href: quickstart-go-detect
-          - title: Obtenir des traductions et des usages alternatifs
-            values:
-              - href: quickstart-csharp-dictionary
-              - href: quickstart-java-dictionary
-              - href: quickstart-nodejs-dictionary
-              - href: quickstart-python-dictionary
-              - href: quickstart-go-dictionary
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: "Découvrez comment développer des applications à l’aide de l’API de traduction de texte Translator Text\_:"
-      - type: paragraph
-        text: '<li><a href="tutorial-wpf-translation-csharp.md">Créer une application WPF pour la traduction de texte,C#</a></li><li><a href="tutorial-build-flask-app-translation-synthesis.md">Créer une application de traduction Flask, Python</a></li>'
-  - title: Informations de référence
-    items:
-      - type: paragraph
-        text: <p><a href="reference/v3-0-reference.md">Référence sur l’API</a></p>
+  ms.date: 09/05/2019
+  ms.author: erhopf
+  ms.openlocfilehash: 7bbe487ff6ed545f40cccc5abb041f54ea5f319d
+  ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/29/2019
+  ms.locfileid: "71672553"
+landingContent:
+- title: Traducteur
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: API de traduction de texte Translator Text
+      url: translator-info-overview.md
+    - text: Custom Translator
+      url: translator-info-overview.md
+    - text: Tarifs
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
+    - text: Conformité
+      url: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    - text: Création d’un abonnement
+      url: translator-text-how-to-signup.md
+    - text: Forum Aux Questions
+      url: https://www.microsoft.com/translator/faq.aspx
+- title: API de traduction de texte Translator Text
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Traduire le texte
+      url: quickstart-translate.md
+    - text: Translittérer du texte
+      url: quickstart-transliterate.md
+    - text: Détection de la langue
+      url: quickstart-detect.md
+    - text: Recherche dans le dictionnaire
+      url: quickstart-dictionary.md
+    - text: Déterminer la longueur des phrases
+      url: quickstart-sentences.md
+    - text: Lister les langages pris en charge
+      url: quickstart-languages.md
+  - linkListType: tutorial
+    links:
+    - text: Créer une application de traduction WPF, C#
+      url: tutorial-wpf-translation-csharp.md
+    - text: Créer une application de traduction flask, REST
+      url: tutorial-build-flask-app-translation-synthesis.md
+  - linkListType: reference
+    links:
+    - text: Informations de référence sur l’API de traduction de texte (v3)
+      url: reference/v3-0-reference.md
+    - text: Limites de requête
+      url: request-limits.md
+    - text: Prise en charge de la région et de la langue
+      url: language-support.md
+- title: Custom Translator
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer et déployer un modèle personnalisé
+      url: custom-translator/quickstart-build-deploy-custom-model.md
+  - linkListType: get-started
+    links:
+    - text: Création d’un projet
+      url: custom-translator/how-to-create-project.md
+    - text: Gérer vos projets
+      url: custom-translator/how-to-search-edit-delete-projects.md
+    - text: Chargement de documents
+      url: custom-translator/how-to-upload-document.md
+    - text: Entraîner votre modèle
+      url: custom-translator/how-to-train-model.md
+  - linkListType: learn
+    links:
+    - text: Espace de travail et projets
+      url: custom-translator/workspace-and-project.md
+    - text: Documents parallèles
+      url: custom-translator/what-are-parallel-documents.md
+    - text: Dictionnaire
+      url: custom-translator/what-is-dictionary.md
+    - text: Formats de document pris en charge
+      url: custom-translator/document-formats-naming-convention.md
+  - linkListType: reference
+    links:
+    - text: Support multilingue
+      url: language-support.md
+    - text: Glossaire
+      url: custom-translator/glossary.md
+- title: Ressources
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Exemples sur GitHub
+      url: https://aka.ms/TranslatorGitHub
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/microsoft-translator

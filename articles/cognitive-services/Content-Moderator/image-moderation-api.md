@@ -1,6 +1,6 @@
 ---
 title: Modération d’image - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez la modération de l'image assistée par ordinateur de Content Moderator ainsi que l'outil de révision pour une intervention humaine afin de modérer les images incluant du contenu pour adultes et osé.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9f1df23d1f0f24787bb9267064ffd647eda2cb74
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 8b3449edb539ab56fcf206a367f9b81e43290733
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756043"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564910"
 ---
 # <a name="learn-image-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération d'image
 
@@ -66,7 +66,7 @@ Exemple d’extrait :
 
 ## <a name="detecting-faces"></a>Détection des visages
 
-Détection de visages permet de détecter les données personnelles, telles que des visages dans les images. Vous détectez les visages potentiels et le nombre de visages potentiels dans chaque image.
+La détection des visages permet de détecter des données personnelles dans les images, par exemple les visages. Vous détectez les visages potentiels et le nombre de visages potentiels dans chaque image.
 
 Les réponses incluent ces informations :
 

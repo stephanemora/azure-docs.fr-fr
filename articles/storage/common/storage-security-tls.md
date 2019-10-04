@@ -2,18 +2,19 @@
 title: Activer le protocole TLS sécurisé pour le client du stockage Azure | Microsoft Docs
 description: Découvrez comment activer TLS 1.2 dans le client du stockage Azure.
 services: storage
-author: fhryo-msft
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 06/25/2018
-ms.author: fryu
+ms.author: tamram
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 4af86b570dfb24f990f1d8b4ff501d1a222bd21d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 218708ffc9a680150d7b6bf559a00ca87054bbe8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65152965"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Activer le protocole TLS sécurisé pour le client du stockage Azure
 

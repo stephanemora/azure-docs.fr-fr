@@ -1,9 +1,9 @@
 ---
-title: Notifications dans PIM - Azure Active Directory par courrier électronique | Microsoft Docs
+title: Notifications par courrier électronique dans PIM - Azure Active Directory | Microsoft Docs
 description: Explique ce que sont les notifications par e-mail dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 01/05/2019
-ms.author: rolyon
+ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: f0db4828ef7a6d3392ce53b2f2f95b0f7f014d65
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576945"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804547"
 ---
 # <a name="email-notifications-in-pim"></a>Notifications par e-mail dans PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) vous informe lorsque des événements importants se produisent, par exemple quand un rôle est affecté ou activé. Pour vous tenir informé, PIM envoie des notifications par e-mail qui vous sont adressées à vous et à d’autres participants. Ces e-mails peuvent également inclure des liens vers des tâches appropriées, comme l’activation ou le renouvellement d’un rôle. Cet article décrit à quoi ressemblent ces e-mails, quand ils sont envoyés et qui les reçoit.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) vous informe quand des événements importants se produisent, par exemple l’attribution ou l’activation d’un rôle. Pour vous tenir informé, PIM envoie des notifications par e-mail qui vous sont adressées à vous et à d’autres participants. Ces e-mails peuvent également inclure des liens vers des tâches appropriées, comme l’activation ou le renouvellement d’un rôle. Cet article décrit à quoi ressemblent ces e-mails, quand ils sont envoyés et qui les reçoit.
 
 ## <a name="sender-email-address-and-subject-line"></a>Adresse e-mail de l’expéditeur et ligne Objet
 
@@ -50,9 +50,9 @@ Les destinataires de ces e-mails pour les rôles Azure AD varient selon votre r
 
 | Utilisateur | Une activation d’un rôle est en attente d’approbation | Une demande d’activation de rôle est terminée | PIM est activé |
 | --- | --- | --- | --- |
-| Administrateur de rôle privilégié</br>(Activé/éligible) | Oui</br>(uniquement si aucun approbateur explicite n’est spécifié) | Oui* | Oui |
-| Security Administrator</br>(Activé/éligible) | Non  | Oui* | Oui |
-| Administrateur général</br>(Activé/éligible) | Non  | Oui* | Oui |
+| Administrateur de rôle privilégié</br>(Activé/éligible) | OUI</br>(uniquement si aucun approbateur explicite n’est spécifié) | Oui* | OUI |
+| Security Administrator</br>(Activé/éligible) | Non | Oui* | OUI |
+| Administrateur général</br>(Activé/éligible) | Non | Oui* | OUI |
 
 \* Si le paramètre [**Notifications**](pim-how-to-change-default-settings.md#notifications) a la valeur **Activer**.
 
@@ -101,5 +101,5 @@ L’exemple suivant montre un exemple d’e-mail envoyé quand un utilisateur se
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer les paramètres de rôle Azure AD dans PIM](pim-how-to-change-default-settings.md)
-- [Approuver ou refuser les demandes pour les rôles d’Azure AD dans PIM](azure-ad-pim-approval-workflow.md)
+- [Configurer des paramètres de rôles Azure AD dans PIM](pim-how-to-change-default-settings.md)
+- [Approuver ou rejeter les requêtes de rôles Azure AD dans PIM](azure-ad-pim-approval-workflow.md)

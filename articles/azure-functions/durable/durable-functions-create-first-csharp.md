@@ -7,22 +7,21 @@ author: jeffhollan
 manager: jeconnoc
 keywords: azure functions, functions, traitement des événements, calcul, architecture sans serveur
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 11/07/2018
+ms.date: 07/19/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1579a4dfbab1ec9d9aa6bb3995bd88d948d6d5e2
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038147"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933971"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Créer votre première fonction durable dans C\#
 
 *Durable Functions* est une extension d’[Azure Functions](../functions-overview.md) qui vous permet d’écrire des fonctions avec état dans un environnement serverless. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
 
-Dans cet article, vous allez découvrir comment utiliser les outils Visual Studio 2017 pour Azure Functions afin de créer et tester localement une fonction durable appelée « Hello World ».  Cette fonction orchestre et chaîne des appels à d’autres fonctions. Vous allez ensuite publier le code de la fonction dans Azure. Ces outils sont disponibles dans le cadre de la charge de travail de développement Azure dans Visual Studio 2017.
+Cet article explique comment utiliser Visual Studio 2019 pour créer et tester en local une fonction durable « Hello World ».  Cette fonction orchestre et chaîne des appels à d’autres fonctions. Vous allez ensuite publier le code de la fonction dans Azure. Ces outils sont disponibles dans le cadre de la charge de travail de développement Azure dans Visual Studio 2019.
 
 ![Exécution d’une fonction durable dans Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -30,9 +29,7 @@ Dans cet article, vous allez découvrir comment utiliser les outils Visual Studi
 
 Pour suivre ce tutoriel :
 
-* Installez [Visual Studio 2017](https://azure.microsoft.com/downloads/). Vérifiez que la charge de travail de **développement Azure** est également installée.
-
-* Assurez-vous de disposer des [derniers outils Azure Functions](../functions-develop-vs.md#check-your-tools-version).
+* Installez [Visual Studio 2019](https://visualstudio.microsoft.com/vs/). Vérifiez que la charge de travail de **développement Azure** est également installée. Visual Studio 2017 prend également en charge le développement de fonctions durables, mais l’interface utilisateur et les étapes diffèrent.
 
 * Vérifiez que l’[émulateur de stockage Azure](../../storage/common/storage-use-emulator.md) est installé et démarré.
 
@@ -44,13 +41,15 @@ Le modèle Azure Functions crée un projet qui peut être publié dans une appli
 
 1. Dans Visual Studio, sélectionnez **Nouveau** > **Projet** dans le menu **Fichier**.
 
-2. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Installé**, développez **Visual C#** > **Cloud**, sélectionnez **Azure Functions**, tapez un **Nom** pour votre projet, puis cliquez sur **OK**. Le nom d’application de la fonction doit être valide en tant qu’espace de noms C#, afin de ne pas utiliser des traits d’union, des traits de soulignement ou d’autres caractères non alphanumériques.
+1. Dans la boîte de dialogue **Ajouter un nouveau projet**, recherchez `functions`, choisissez le modèle **Azure Functions**, puis sélectionnez **Suivant**. 
 
     ![Boîte de dialogue Nouveau projet pour créer une fonction dans Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-3. Utilisez les paramètres spécifiés dans le tableau à la suite de l’image.
+1. Entrez un **Nom du projet**, puis sélectionnez **OK**. Le nom de projet devant être valide en tant qu’espace de noms C#, n’utilisez ni traits d’union, ni traits de soulignement, ni aucun autre caractère non alphanumérique.
 
-    ![Boîte de dialogue Nouvelle fonction dans Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
+1. Dans **Créer une application Azure Functions**, utilisez les paramètres spécifiés dans le tableau sous l’image.
+
+    ![Boîte de dialogue Créer une application Azure Functions dans Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
     | Paramètre      | Valeur suggérée  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -58,7 +57,7 @@ Le modèle Azure Functions crée un projet qui peut être publié dans une appli
     | **Modèle** | Vide | Crée une application de fonction vide. |
     | **Compte de stockage**  | Émulateur de stockage | Un compte de stockage est nécessaire pour la gestion des états de fonction durable. |
 
-4. Cliquez sur **OK** pour créer un projet de fonction vide. Ce projet contient les fichiers de configuration de base nécessaires à l’exécution de vos fonctions.
+4. Sélectionnez **Créer** pour créer un projet de fonction vide. Ce projet contient les fichiers de configuration de base nécessaires à l’exécution de vos fonctions.
 
 ## <a name="add-functions-to-the-app"></a>Ajouter des fonctions à l’application
 
@@ -68,9 +67,9 @@ Les étapes suivantes utilisent un modèle pour créer le code de fonction durab
 
     ![Ajouter une nouvelle fonction](./media/durable-functions-create-first-csharp/functions-vs-add-new-function.png)
 
-2. Vérifiez qu’**Azure Function** est sélectionné dans le menu Ajouter et nommez votre fichier C#.  Cliquez sur **Ajouter**.
+1. Vérifiez qu’**Azure Function** est sélectionné dans le menu Ajouter, tapez un nom pour votre fichier C#, puis sélectionnez **Ajouter**.
 
-3. Sélectionnez le modèle **Orchestration Durable Functions** et cliquez sur **OK**.
+1. Sélectionnez le modèle **Orchestration Durable Functions**, puis sélectionnez **OK**.
 
     ![Sélectionner un modèle durable](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
@@ -145,4 +144,4 @@ Vous devez disposer d’une application de fonction dans votre abonnement Azure 
 Vous avez utilisé Visual Studio pour créer et publier une application de fonction durable C#.
 
 > [!div class="nextstepaction"]
-> [Découvrez maintenant les modèles courants de fonctions durables.](durable-functions-concepts.md)
+> [Découvrez maintenant les modèles courants de fonctions durables](durable-functions-overview.md#application-patterns)

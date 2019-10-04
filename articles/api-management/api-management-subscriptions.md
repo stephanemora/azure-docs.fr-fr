@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 9144af131e1427d0b3226655c871921ac1d91665
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526586"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073421"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Abonnements dans Gestion des API Azure
 
@@ -42,7 +41,7 @@ Les abonnements peuvent être associés à différentes étendues : un produit,
 
 ### <a name="subscriptions-for-a-product"></a>Abonnements pour un produit
 
-Habituellement, les abonnements dans la Gestion des API sont toujours associés à une seule étendue de [produit d’API](api-management-terminology.md). Les développeurs trouvent la liste des produits sur le portail des développeurs. Puis, ils soumettent des requêtes d’abonnement pour les produits qu’ils souhaitent utiliser. Dès qu’une requête d’abonnement est approuvée, automatiquement ou par les éditeurs d’API, le développeur peut utiliser les clés contenues pour accéder à toutes les API du produit.
+Habituellement, les abonnements dans la Gestion des API sont toujours associés à une seule étendue de [produit d’API](api-management-terminology.md). Les développeurs trouvent la liste des produits sur le portail des développeurs. Puis, ils soumettent des requêtes d’abonnement pour les produits qu’ils souhaitent utiliser. Dès qu’une requête d’abonnement est approuvée, automatiquement ou par les éditeurs d’API, le développeur peut utiliser les clés contenues pour accéder à toutes les API du produit. Actuellement, le portail des développeurs affiche uniquement les abonnements avec étendue du produit sous la section Profil utilisateur. 
 
 ![Abonnements de produit](./media/api-management-subscriptions/product-subscription.png)
 

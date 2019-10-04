@@ -13,15 +13,15 @@ ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b5dba1f7e71149c37edc909d2bb43d708192bdbb
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662545"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385230"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Didacticiel : Créer des images conteneurs sur un cluster Service Fabric Linux
 
@@ -116,9 +116,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 Dans le reste de ce tutoriel, nous utilisons « acrName ». Ce nom correspond au registre de conteneurs que vous avez choisi. Prenez note de cette valeur.
 
-## <a name="log-in-to-your-container-registry"></a>Se connecter au registre de conteneurs
+## <a name="sign-in-to-your-container-registry"></a>Se connecter à votre registre de conteneurs
 
-Connectez-vous à votre instance ACR avant de lui transmettre des images. Utilisez la commande **az acr login** pour terminer l’opération. Fournissez le nom unique qui a été donné au registre de conteneurs au moment de sa création.
+Connectez-vous à votre instance ACR avant de lui envoyer (push) des images. Utilisez la commande **az acr login** pour terminer l’opération. Fournissez le nom unique qui a été donné au registre de conteneurs au moment de sa création.
 
 ```bash
 az acr login --name <acrName>

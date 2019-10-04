@@ -2,21 +2,21 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 01/07/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: c7e5231650ec1afb97a72ec0cf26cb8f80088b63
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1d52117440028c75b249f469f2b3576c2ab1c5c5
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440428"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "67177727"
 ---
 La dernière étape consiste à préparer l’appareil pour l’expédition. Pour cela, tous les partages de l’appareil sont mis hors connexion. Une fois que ce processus aura débuté, vous ne pourrez plus accéder aux partages.
 
 > [!IMPORTANT]
-> La préparation de l’expédition est nécessaire, car elle signale les données qui ne sont pas conformes aux conventions de nommage Azure. Si vous ignorez cette étape, vous risquez de ne pas pouvoir charger vos données en raison de leur non conformité.
+> La préparation de l’expédition est nécessaire, car elle signale les données qui ne sont pas conformes aux conventions de nommage Azure. Si vous ignorez cette étape, vous risquez de ne pas pouvoir charger vos données en raison de leur non-conformité.
 
-1. Accédez à la page **Prepare to ship** (Préparer l’expédition) et cliquez sur **Démarrer la préparation**. Par défaut, les sommes de contrôle sont calculées par le biais d’une fonction inline pendant la préparation de l’expédition. Le calcul des sommes de contrôle peut prendre plusieurs heures, selon la taille de vos données. 
+1. Accédez à la page **Prepare to ship** (Préparer l’expédition) et cliquez sur **Démarrer la préparation**. Par défaut, les sommes de contrôle sont calculées pendant la copie des données. La préparation de l’expédition procède au calcul des sommes de contrôle et crée la liste des fichiers (*fichiers -BOM*). Le calcul des sommes de contrôle peut prendre plusieurs heures, selon la taille de vos données. 
    
     ![Préparer l’expédition 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
@@ -36,7 +36,7 @@ La dernière étape consiste à préparer l’appareil pour l’expédition. Pou
 
     Si des erreurs se produisent lors de cette étape, vous devrez télécharger le journal des erreurs et résoudre les problèmes. Une fois les erreurs résolues, exécutez **Préparer l’expédition**.
 
-4. Lorsque la préparation de l’expédition s’est terminée correctement (sans erreur), téléchargez la liste des fichiers (ou « manifeste ») qui ont été copiés lors de ce processus. Vous pourrez utiliser cette liste ultérieurement pour vérifier les fichiers téléchargés vers Azure.
+4. Lorsque la préparation de l’expédition s’est terminée correctement (sans erreur), téléchargez la liste des fichiers (ou « manifeste ») qui ont été copiés lors de ce processus. Vous pourrez utiliser cette liste ultérieurement pour vérifier les fichiers téléchargés vers Azure. Pour plus d’informations, consultez [Inspecter les fichiers BOM pendant la préparation de l’expédition](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
     ![Préparer l’expédition 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 

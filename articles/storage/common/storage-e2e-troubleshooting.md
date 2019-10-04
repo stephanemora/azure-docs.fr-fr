@@ -1,20 +1,19 @@
 ---
 title: Résolution des problèmes de stockage Azure avec les diagnostics et Message Analyzer | Microsoft Docs
 description: Didacticiel illustrant la résolution des problèmes de bout en bout avec Azure Storage Analytics, AzCopy et Microsoft Message Analyzer
-services: storage
-author: tamram
+author: normesta
 ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2017
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 2ca81280bed52508c606a5a693fe0162837ac117
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351879"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854623"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Résolution des problèmes de bout en bout avec les métriques et la journalisation Stockage Azure, AzCopy et Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -79,7 +78,7 @@ Dans ce didacticiel, nous allons utiliser Message Analyzer pour travailler avec 
 * Le **journal de suivi du réseau HTTP**, qui collecte les données sur les données des demandes et réponses HTTP/HTTPS, notamment pour les opérations sur Azure Storage. Dans ce didacticiel, nous allons générer le suivi réseau via Message Analyzer.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configuration de la journalisation et des métriques côté serveur
-Tout d’abord, nous allons devoir configurer la journalisation de stockage Azure et des mesures, afin que nous avons des données à partir du côté service à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : via le [portail Azure](https://portal.azure.com), à l’aide de PowerShell ou par programme. Consultez [activer les métriques](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) et [activer la journalisation](storage-analytics-logging.md#enable-storage-logging) pour plus d’informations sur la configuration de journalisation et les métriques.
+Tout d’abord, nous allons devoir configurer la journalisation et les métriques du stockage Azure afin d’avoir des données du côté client à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : via le [portail Azure](https://portal.azure.com), à l’aide de PowerShell ou par programme. Consultez [Activer les métriques](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) et [Activer la journalisation](storage-analytics-logging.md#enable-storage-logging) pour plus d’informations sur la configuration de la journalisation et des métriques.
 
 ### <a name="configure-net-client-side-logging"></a>Configuration de la journalisation côté client .NET
 Pour configurer la journalisation côté client pour une application .NET, activez les diagnostics .NET dans le fichier de configuration de l'application (web.config ou app.config). Pour plus d’informations, consultez les pages [Journalisation côté client avec la bibliothèque cliente de stockage .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) et [Journalisation côté client avec le Kit de développement logiciel (SDK) Microsoft Azure Storage pour Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) sur MSDN.
@@ -93,18 +92,18 @@ Vous pouvez utiliser Message Analyzer pour collecter un suivi réseau HTTP/HTTPS
 
 1. Installez [Fiddler](https://www.telerik.com/download/fiddler).
 2. Lancez Fiddler.
-3. Sélectionnez **Tools | Fiddler Options (Outils | Options de Fiddler)**.
+3. Sélectionnez **Tools | Fiddler Options (Outils | Options de Fiddler)** .
 4. Dans la boîte de dialogue Options (Options), vérifiez que **Capture HTTPS CONNECTs (Capturer les CONNECT HTTPS)** et **Decrypt HTTPS Traffic (Déchiffrer le trafic HTTPS)** sont tous deux activés, comme illustré ci-dessous.
 
 ![Configuration des options de Fiddler](./media/storage-e2e-troubleshooting/fiddler-options-1.png)
 
 Dans le didacticiel, collectez et enregistrez d’abord un suivi réseau dans Message Analyzer, puis créez une session d’analyse pour analyser le suivi et les journaux d’activité. Pour collecter un suivi réseau dans Message Analyzer :
 
-1. Dans Message Analyzer, sélectionnez **File | Quick Trace | Unencrypted HTTPS (Fichier | Suivi rapide | HTTPS non chiffré)**.
+1. Dans Message Analyzer, sélectionnez **File | Quick Trace | Unencrypted HTTPS (Fichier | Suivi rapide | HTTPS non chiffré)** .
 2. Le suivi commence immédiatement. Cliquez sur **Arrêter** pour arrêter le suivi afin que nous puissions le configurer pour le suivi du trafic de stockage uniquement.
 3. Cliquez sur **Modifier** pour modifier la session de suivi.
 4. Cliquez sur le lien **Configure (Configurer)** à droite du fournisseur ETW **Microsoft-performance-WebProxy**.
-5. Dans la boîte de dialogue **Advanced Settings (Paramètres avancés)**, cliquez sur l’onglet **Provider (Fournisseur)**.
+5. Dans la boîte de dialogue **Advanced Settings (Paramètres avancés)** , cliquez sur l’onglet **Provider (Fournisseur)** .
 6. Dans le champ **Filtre de nom d'hôte** , indiquez vos points de terminaison de stockage séparés par des espaces. Par exemple, vous pouvez spécifier vos points de terminaison comme suit (remplacez `storagesample` par le nom de votre compte de stockage) :
 
     ```   
@@ -114,7 +113,7 @@ Dans le didacticiel, collectez et enregistrez d’abord un suivi réseau dans Me
 7. Fermez la boîte de dialogue, puis cliquez sur **Redémarrer** pour commencer à collecter le suivi avec le filtre de nom d'hôte en place, afin que seul le trafic réseau d'Azure Storage soit inclus dans le suivi.
 
 > [!NOTE]
-> Après avoir terminé la collecte de votre suivi réseau, nous vous recommandons fortement de rétablir les paramètres que vous avez éventuellement modifiés dans Fiddler pour déchiffrer le trafic HTTPS. Dans la boîte de dialogue Fiddler Options (Options de Fiddler), désactivez les cases à cocher **Capture HTTPS CONNECTs (Capturer les CONNECT HTTPS)** et **Decrypt HTTPS Traffic (Déchiffrer le trafic HTTPS)**.
+> Après avoir terminé la collecte de votre suivi réseau, nous vous recommandons fortement de rétablir les paramètres que vous avez éventuellement modifiés dans Fiddler pour déchiffrer le trafic HTTPS. Dans la boîte de dialogue Fiddler Options (Options de Fiddler), désactivez les cases à cocher **Capture HTTPS CONNECTs (Capturer les CONNECT HTTPS)** et **Decrypt HTTPS Traffic (Déchiffrer le trafic HTTPS)** .
 >
 >
 
@@ -154,7 +153,7 @@ Message Analyzer inclut des ressources pour Azure Storage qui vous aident à ana
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Téléchargement et installation de Message Analyzer et des ressources Azure Storage
 1. Téléchargez [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) depuis le Centre de téléchargement de Microsoft et exécutez le programme d'installation.
 2. Lancez Message Analyzer.
-3. Dans le menu **Tools (Outils)**, sélectionnez **Asset Manager (Gestionnaire de biens)**. Dans la boîte de dialogue **Asset Manager (Gestionnaire de biens)**, sélectionnez **Downloads (Téléchargements)**, puis filtrez sur **Azure Storage**. Vous verrez les ressources Azure Storage, comme illustré ci-après.
+3. Dans le menu **Tools (Outils)** , sélectionnez **Asset Manager (Gestionnaire de biens)** . Dans la boîte de dialogue **Asset Manager (Gestionnaire de biens)** , sélectionnez **Downloads (Téléchargements)** , puis filtrez sur **Azure Storage**. Vous verrez les ressources Azure Storage, comme illustré ci-après.
 4. Cliquez sur **Synchroniser tous les éléments affichés** pour installer les ressources Azure Storage. Les ressources disponibles sont les suivantes :
    * **Règles de couleur de stockage Azure :** Les règles de couleur de stockage Azure permettent de définir des filtres spéciaux qui utilisent des styles de texte, de couleur et de police pour mettre en évidence les messages contenant des informations spécifiques dans une trace.
    * **Graphiques de stockage Azure :** Il s’agit de graphiques prédéfinis qui représentent les données du journal du serveur. Notez que pour utiliser des graphiques Azure Storage à ce stade, vous pouvez uniquement charger le journal du serveur dans la grille d'analyse.
@@ -173,11 +172,11 @@ Message Analyzer inclut des ressources pour Azure Storage qui vous aident à ana
 ### <a name="import-your-log-files-into-message-analyzer"></a>Importation de vos fichiers journaux dans Message Analyzer
 Vous pouvez importer tous vos fichiers journaux enregistrés (côté serveur, côté client et réseau) dans une session de Microsoft Message Analyzer pour l'analyse.
 
-1. Dans le menu **File (Fichier)** de Microsoft Message Analyzer, cliquez sur **New Session (Nouvelle session)**, puis sur **Blank Session (Session vide)**. Dans la boîte de dialogue **Nouvelle session** , entrez un nom pour votre session d'analyse. Dans le panneau **Session Details (Détails de la session)**, cliquez sur le bouton **Files (Fichiers)**.
-2. Pour charger les données de suivi du réseau générées par Message Analyzer, cliquez sur **Add Files (Ajouter des fichiers)**, accédez à l’emplacement où vous avez enregistré votre fichier .matp à partir de votre session de suivi web, sélectionnez ce fichier, puis cliquez sur **Open (Ouvrir)**.
-3. Pour charger les données du journal d’activité côté serveur, cliquez sur **Add Files (Ajouter des fichiers)**, accédez à l’emplacement où vous avez téléchargé vos journaux d’activité côté serveur, sélectionnez ceux de la période que vous souhaitez analyser, puis cliquez sur **Open (Ouvrir)**. Ensuite, dans le panneau **Session Details (Détails de la session)**, réglez le menu déroulant **Text Log Configuration (Configuration du journal texte)** correspondant à chaque fichier journal côté serveur sur **AzureStorageLog** pour vous assurer que Microsoft Message Analyzer peut analyser le fichier journal correctement.
-4. Pour charger les données du journal d’activité côté client, cliquez sur **Add Files (Ajouter des fichiers)**, accédez à l’emplacement où vous avez enregistré vos journaux d’activité côté client, sélectionnez ceux que vous souhaitez analyser, puis cliquez sur **Ouvrir**. Ensuite, dans le panneau **Session Details (Détails de la session)**, réglez le menu déroulant **Text Log Configuration (Configuration du journal texte)** correspondant à chaque fichier journal côté client sur **AzureStorageClientDotNetV4** pour vous assurer que Microsoft Message Analyzer peut analyser le fichier journal correctement.
-5. Dans la boîte de dialogue **New Session (Nouvelle session)**, cliquez sur **Start (Démarrer)** pour charger et analyser les données du journal. Les données du journal s'affichent dans la grille d'analyse de Message Analyzer.
+1. Dans le menu **File (Fichier)** de Microsoft Message Analyzer, cliquez sur **New Session (Nouvelle session)** , puis sur **Blank Session (Session vide)** . Dans la boîte de dialogue **Nouvelle session** , entrez un nom pour votre session d'analyse. Dans le panneau **Session Details (Détails de la session)** , cliquez sur le bouton **Files (Fichiers)** .
+2. Pour charger les données de suivi du réseau générées par Message Analyzer, cliquez sur **Add Files (Ajouter des fichiers)** , accédez à l’emplacement où vous avez enregistré votre fichier .matp à partir de votre session de suivi web, sélectionnez ce fichier, puis cliquez sur **Open (Ouvrir)** .
+3. Pour charger les données du journal d’activité côté serveur, cliquez sur **Add Files (Ajouter des fichiers)** , accédez à l’emplacement où vous avez téléchargé vos journaux d’activité côté serveur, sélectionnez ceux de la période que vous souhaitez analyser, puis cliquez sur **Open (Ouvrir)** . Ensuite, dans le panneau **Session Details (Détails de la session)** , réglez le menu déroulant **Text Log Configuration (Configuration du journal texte)** correspondant à chaque fichier journal côté serveur sur **AzureStorageLog** pour vous assurer que Microsoft Message Analyzer peut analyser le fichier journal correctement.
+4. Pour charger les données du journal d’activité côté client, cliquez sur **Add Files (Ajouter des fichiers)** , accédez à l’emplacement où vous avez enregistré vos journaux d’activité côté client, sélectionnez ceux que vous souhaitez analyser, puis cliquez sur **Ouvrir**. Ensuite, dans le panneau **Session Details (Détails de la session)** , réglez le menu déroulant **Text Log Configuration (Configuration du journal texte)** correspondant à chaque fichier journal côté client sur **AzureStorageClientDotNetV4** pour vous assurer que Microsoft Message Analyzer peut analyser le fichier journal correctement.
+5. Dans la boîte de dialogue **New Session (Nouvelle session)** , cliquez sur **Start (Démarrer)** pour charger et analyser les données du journal. Les données du journal s'affichent dans la grille d'analyse de Message Analyzer.
 
 L'illustration ci-dessous présente un exemple de session configurée avec les fichiers journaux du serveur, du client et de suivi du réseau.
 
@@ -187,7 +186,7 @@ Notez que Message Analyzer charge les fichiers journaux en mémoire. Si l'ensemb
 
 Tout d'abord, déterminez l'intervalle de temps que vous souhaitez examiner en veillant à ce qu'il soit le plus petit possible. Dans de nombreux cas, vous devez examiner une période de quelques minutes ou quelques heures au maximum. Importez le plus petit ensemble de journaux d’activité qui puisse répondre à vos besoins.
 
-Si vous avez encore une grande quantité de données de journal, vous pouvez spécifier un filtre de session afin de les filtrer avant de les charger. Dans la zone **Session Filter (Filtre de session)**, cliquez sur le bouton **Library (Bibliothèque)** pour choisir un filtre prédéfini. Par exemple, choisissez **Global Time Filter I (Filtre de temps global I)** dans les filtres Azure Storage pour filtrer sur un intervalle de temps. Vous pouvez ensuite modifier les critères de filtre afin de spécifier l'horodatage de début et de fin pour l'intervalle que vous souhaitez afficher. Vous pouvez également filtrer sur un code d'état spécifique ; par exemple, vous pouvez choisir de charger uniquement les entrées de journal où le code d'état est 404.
+Si vous avez encore une grande quantité de données de journal, vous pouvez spécifier un filtre de session afin de les filtrer avant de les charger. Dans la zone **Session Filter (Filtre de session)** , cliquez sur le bouton **Library (Bibliothèque)** pour choisir un filtre prédéfini. Par exemple, choisissez **Global Time Filter I (Filtre de temps global I)** dans les filtres Azure Storage pour filtrer sur un intervalle de temps. Vous pouvez ensuite modifier les critères de filtre afin de spécifier l'horodatage de début et de fin pour l'intervalle que vous souhaitez afficher. Vous pouvez également filtrer sur un code d'état spécifique ; par exemple, vous pouvez choisir de charger uniquement les entrées de journal où le code d'état est 404.
 
 Pour plus d'informations sur l'importation des données de journal dans Microsoft Message Analyzer, consultez la page [Récupération des données des messages](https://technet.microsoft.com/library/dn772437.aspx) sur TechNet.
 
@@ -199,7 +198,7 @@ Les sections ci-dessous expliquent comment utiliser des vues avec des dispositio
 ### <a name="select-a-view-layout-to-display-in-the-analysis-grid"></a>Sélection d'une disposition de vue à afficher dans la grille d'analyse
 Les ressources de stockage de Message Analyzer incluent les dispositions de vue Azure Storage, qui sont des vues préconfigurées que vous pouvez utiliser pour afficher vos données avec des regroupements et des colonnes utiles dans différents scénarios. Vous pouvez également créer des dispositions de vue personnalisées et les enregistrer pour pouvoir les réutiliser.
 
-L’illustration ci-dessous présente le menu **View Layout (Disposition de vue)**, auquel vous pouvez accéder en sélectionnant **View Layout (Disposition de vue)** dans le ruban de la barre d’outils. Les dispositions de vue Azure Storage sont regroupées sous le nœud **Azure Storage** dans le menu. Vous pouvez rechercher `Azure Storage` dans la zone de recherche pour filtrer les disposition de vue et afficher uniquement celles d’Azure Storage. Vous pouvez également sélectionner l'étoile en regard d'une disposition de vue pour l'ajouter aux Favoris et l'afficher au début du menu.
+L’illustration ci-dessous présente le menu **View Layout (Disposition de vue)** , auquel vous pouvez accéder en sélectionnant **View Layout (Disposition de vue)** dans le ruban de la barre d’outils. Les dispositions de vue Azure Storage sont regroupées sous le nœud **Azure Storage** dans le menu. Vous pouvez rechercher `Azure Storage` dans la zone de recherche pour filtrer les disposition de vue et afficher uniquement celles d’Azure Storage. Vous pouvez également sélectionner l'étoile en regard d'une disposition de vue pour l'ajouter aux Favoris et l'afficher au début du menu.
 
 ![Menu Disposition de vue](./media/storage-e2e-troubleshooting/view-layout-menu.png)
 
@@ -219,7 +218,7 @@ Outre les dispositions de vue Azure Storage, vous pouvez également définir et 
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>Application de règles de couleur à la grille d'analyse
 Les ressources de stockage incluent également des règles de couleur, qui offrent un moyen visuel d'identifier les différents types d'erreur dans la grille d'analyse. Les règles de couleur prédéfinies s'appliquent aux erreurs HTTP et n'apparaissent par conséquent que pour le suivi du serveur et du réseau.
 
-Pour appliquer des règles de couleur, sélectionnez **Règles de couleur** à partir du ruban de la barre d'outils. Les règles de couleur Azure Storage apparaissent dans le menu. Pour le didacticiel, sélectionnez **Erreurs du client (StatusCode entre 400 et 499)**, comme illustré dans l'image ci-dessous.
+Pour appliquer des règles de couleur, sélectionnez **Règles de couleur** à partir du ruban de la barre d'outils. Les règles de couleur Azure Storage apparaissent dans le menu. Pour le didacticiel, sélectionnez **Erreurs du client (StatusCode entre 400 et 499)** , comme illustré dans l'image ci-dessous.
 
 ![Disposition de vue Azure Storage](./media/storage-e2e-troubleshooting/color-rules-menu.png)
 
@@ -228,10 +227,10 @@ Outre les règles de couleur Azure Storage, vous pouvez également définir et e
 ### <a name="group-and-filter-log-data-to-find-400-range-errors"></a>Regroupement et filtrage des données de journal pour rechercher les erreurs de la plage 400
 Nous allons ensuite regrouper et filtrer les données de journal pour rechercher toutes les erreurs dans la plage 400.
 
-1. Recherchez la colonne **StatusCode** dans la grille d’analyse, cliquez avec le bouton droit sur le titre de la colonne et sélectionnez **Group (Grouper)**.
+1. Recherchez la colonne **StatusCode** dans la grille d’analyse, cliquez avec le bouton droit sur le titre de la colonne et sélectionnez **Group (Grouper)** .
 2. Effectuez ensuite un regroupement sur la colonne **ClientRequestId** . Vous pouvez constater que les données dans la grille d'analyse sont désormais organisées par code d'état et par ID de demande client.
-3. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Dans le ruban de la barre d’outils, sélectionnez **Tool Windows (Fenêtres d’outil)**, puis **View Filter (Filtre d’affichage)**.
-4. Pour filtrer les données de journal de manière à n’afficher que les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **View Filter (Filtre d’affichage)**, puis cliquez sur **Apply (Appliquer)**  :
+3. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Dans le ruban de la barre d’outils, sélectionnez **Tool Windows (Fenêtres d’outil)** , puis **View Filter (Filtre d’affichage)** .
+4. Pour filtrer les données de journal de manière à n’afficher que les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **View Filter (Filtre d’affichage)** , puis cliquez sur **Apply (Appliquer)**  :
 
     ```   
     (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
@@ -255,9 +254,9 @@ Après avoir appliqué ce filtre, vous verrez que les lignes du journal du clien
 ### <a name="filter-log-data-to-find-404-errors"></a>Filtrage des données du journal pour rechercher les erreurs 404
 Les ressources de stockage incluent les filtres prédéfinis que vous pouvez utiliser pour limiter les données du journal afin de trouver les erreurs ou les tendances que vous recherchez. Ensuite, nous allons appliquer deux filtres prédéfinis : un qui filtre les journaux d’activité de suivi du serveur et du réseau pour rechercher les erreurs 404 et l’autre qui filtre les données sur une période spécifiée.
 
-1. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Dans le ruban de la barre d’outils, sélectionnez **Tool Windows (Fenêtres d’outil)**, puis **View Filter (Filtre d’affichage)**.
+1. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Dans le ruban de la barre d’outils, sélectionnez **Tool Windows (Fenêtres d’outil)** , puis **View Filter (Filtre d’affichage)** .
 2. Dans la fenêtre View Filter (Filtre d’affichage), sélectionnez **Library (Bibliothèque)** et effectuez une recherche sur `Azure Storage` pour trouver les filtres Azure Storage. Sélectionnez le filtre pour **Messages 404 (Introuvable) dans tous les journaux d’activité**.
-3. Affichez de nouveau le menu **Library (Bibliothèque)**, puis localisez et sélectionnez **Global Time Filter (Filtre de temps global)**.
+3. Affichez de nouveau le menu **Library (Bibliothèque)** , puis localisez et sélectionnez **Global Time Filter (Filtre de temps global)** .
 4. Modifiez l'horodatage indiqué dans le filtre en indiquant la plage que vous souhaitez afficher. Cela vous aidera à limiter la plage de données à analyser.
 5. Le filtre doit apparaître comme dans l'exemple ci-dessous. Cliquez sur **Appliquer** pour appliquer le filtre à la grille d'analyse.
 
@@ -277,10 +276,10 @@ L'illustration ci-dessous montre une demande spécifique où une opération Get 
 
 Ensuite, nous allons mettre en corrélation cet ID de demande du client avec les données du journal du client pour voir quelles étaient les actions exécutées par le client lorsque l'erreur est survenue. Vous pouvez afficher une nouvelle vue Grille d'analyse pour cette session afin de consulter les données du journal du client, qui s'ouvre sous un deuxième onglet :
 
-1. Tout d'abord, copiez la valeur du champ **ClientRequestId** dans le Presse-papiers. Pour ce faire, sélectionnez une ligne, recherchez le champ **ClientRequestId**, cliquez avec le bouton droit sur la valeur des données et choisissez **Copy 'ClientRequestId' (Copier 'ClientRequestId')**.
+1. Tout d'abord, copiez la valeur du champ **ClientRequestId** dans le Presse-papiers. Pour ce faire, sélectionnez une ligne, recherchez le champ **ClientRequestId**, cliquez avec le bouton droit sur la valeur des données et choisissez **Copy 'ClientRequestId' (Copier 'ClientRequestId')** .
 2. Dans le ruban de la barre d’outils, sélectionnez **New Viewer (Nouvelle visionneuse)** puis **Analysis Grid (Grille d’analyse)** pour ouvrir un nouvel onglet. Sous le nouvel onglet s'affichent toutes les données de vos fichiers journaux, sans regroupement, filtrage ni règles de couleur.
-3. Dans le ruban de la barre d’outils, sélectionnez **View Layout (Disposition de vue)**, puis **All .NET Client Columns (Toutes les colonnes de client .NET)** sous la section **Azure Storage**. Cette disposition de la vue affiche les données à partir du journal du client ainsi que les journaux d’activité de suivi du serveur et du réseau. Par défaut, elle est triée en fonction de la colonne **MessageNumber** .
-4. Ensuite, recherchez le journal du client pour l'ID de demande client. Dans le ruban de la barre d’outils, sélectionnez **Find Messages (Rechercher des messages)**, puis spécifiez un filtre personnalisé sur l’ID de demande client dans le champ **Find (Rechercher)**. Utilisez cette syntaxe pour le filtre en indiquant votre propre ID de demande client :
+3. Dans le ruban de la barre d’outils, sélectionnez **View Layout (Disposition de vue)** , puis **All .NET Client Columns (Toutes les colonnes de client .NET)** sous la section **Azure Storage**. Cette disposition de la vue affiche les données à partir du journal du client ainsi que les journaux d’activité de suivi du serveur et du réseau. Par défaut, elle est triée en fonction de la colonne **MessageNumber** .
+4. Ensuite, recherchez le journal du client pour l'ID de demande client. Dans le ruban de la barre d’outils, sélectionnez **Find Messages (Rechercher des messages)** , puis spécifiez un filtre personnalisé sur l’ID de demande client dans le champ **Find (Rechercher)** . Utilisez cette syntaxe pour le filtre en indiquant votre propre ID de demande client :
 
     ```
     *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
@@ -290,7 +289,7 @@ Message Analyzer localise et sélectionne la première entrée de journal dans l
 
 ![Journal client affichant des erreurs 404](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
 
-À l'aide des données affichées dans les dispositions de vue sous ces deux onglets, vous pouvez analyser les données de la demande pour déterminer ce qui peut avoir provoqué l'erreur. Vous pouvez également consulter les demandes qui ont précédé celle-ci pour voir si un événement antérieur a pu conduire à l'erreur 404. Par exemple, vous pouvez consulter les entrées du journal du client précédant cet ID de demande client pour déterminer si l'objet blob a été supprimé, ou si l'erreur est due à l'appel par l'application cliente d'une API CreateIfNotExists sur un conteneur ou un objet blob. Dans le journal du client, vous pouvez trouver l’adresse de l’objet blob dans le champ **Description (Description)**. Dans les journaux d’activité de suivi du serveur et du réseau, cette information s’affiche dans le champ **Summary (Résumé)**.
+À l'aide des données affichées dans les dispositions de vue sous ces deux onglets, vous pouvez analyser les données de la demande pour déterminer ce qui peut avoir provoqué l'erreur. Vous pouvez également consulter les demandes qui ont précédé celle-ci pour voir si un événement antérieur a pu conduire à l'erreur 404. Par exemple, vous pouvez consulter les entrées du journal du client précédant cet ID de demande client pour déterminer si l'objet blob a été supprimé, ou si l'erreur est due à l'appel par l'application cliente d'une API CreateIfNotExists sur un conteneur ou un objet blob. Dans le journal du client, vous pouvez trouver l’adresse de l’objet blob dans le champ **Description (Description)** . Dans les journaux d’activité de suivi du serveur et du réseau, cette information s’affiche dans le champ **Summary (Résumé)** .
 
 Une fois que vous connaissez l'adresse de l'objet blob qui a généré l'erreur 404, vous pouvez effectuer un examen plus approfondi. Si vous recherchez les entrées du journal pour les autres messages associés à des opérations sur le même objet blob, vous pouvez vérifier si le client a précédemment supprimé l'entité.
 

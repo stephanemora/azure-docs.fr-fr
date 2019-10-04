@@ -1,56 +1,71 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation relative à l’accès conditionnel dans Azure AD
+### YamlMime:Landing
+title: Documentation relative à l’Accès conditionnel Azure Active Directory
+summary: Découvrez comment configurer et tester l’Accès conditionnel Azure Active Directory
 metadata:
-  document_id: null
-  title: 'Documentation relative à l’accès conditionnel dans Azure AD - Tutoriels, guides de démarrage rapide, concepts, références | Microsoft Docs'
-  description: Découvrez comment configurer et tester l’accès conditionnel dans Azure Active Directory.
+  title: Documentation relative à l’Accès conditionnel Azure Active Directory
+  description: Découvrez comment configurer et tester l’Accès conditionnel Azure Active Directory
   services: active-directory
-  ms.subservice: conditional-access
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: conditional-access
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: "Apprenez à maîtriser l’équilibre entre sécurité et productivité en configurant l’accès conditionnel dans Azure AD. Les stratégies d’accès conditionnel permettent de factoriser la manière dont vos applications cloud sont accessibles dans vos décisions d’accès. Par exemple, vous pouvez traiter dans vos décisions d’accès les questions suivantes\_:<ul><li>Quel est l’emplacement réseau de l’utilisateur\_?</li><li>La tentative d’accès provient-elle d’un appareil géré\_?</li><li>À partir de quelle application cliente la tentative de connexion a-t-elle été lancée\_?</li><li>Une tentative d’accès a-t-elle été effectuée à partir d’une connexion à risque\_?</li></ul>Les ressources suivantes permettent une prise en main rapide."
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/video.png
-      width: 246
-    title: Explication de l’accès conditionnel
-    href: 'https://www.youtube.com/watch?v=XruceejcCKQ'
-    width: 246
-sections:
-  - title: "Démarrages rapides en\_5\_minutes"
-    items:
-      - type: paragraph
-        text: Découvrez comment configurer des stratégies d’accès conditionnel pour les scénarios d’accès courants.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Exiger l’authentification multifacteur pour les applications spécifiques
-            href: app-based-mfa.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Bloquer l’accès lorsqu’un risque de session est détecté
-            href: app-sign-in-risk.md
-          - image:
-              src: ./media/index/i_security-management.png
-            text: Exiger l’acceptation des conditions d’utilisation
-            href: require-tou.md
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: Découvrez comment migrer vos stratégies d’accès conditionnel classiques.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Migrer une stratégie classique nécessitant l’authentification multifacteur</a>
+  ms.date: 08/20/2019
+  ms.collection: M365-identity-device-management
+  ms.openlocfilehash: 39f9cf3e64e343c2da98f2c4f4b403ccdc0f3f20
+  ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/21/2019
+  ms.locfileid: "69874261"
+landingContent:
+- title: À propose de l’accès conditionnel
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que l’accès conditionnel ?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Quelles sont les conditions ?
+      url: conditions.md
+    - text: Comment définir des emplacements ?
+      url: location-condition.md
+    - text: Que sont les contrôles ?
+      url: controls.md
+    - text: Dépendances du service d’accès conditionnel
+      url: service-dependencies.md
+- title: Déployer l’accès conditionnel
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planifier un déploiement d’accès conditionnel
+      url: plan-conditional-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: Bloquer l’authentification héritée
+      url: block-legacy-authentication.md
+    - text: Résoudre des problèmes avec l’outil What If
+      url: troubleshoot-conditional-access-what-if.md
+- title: Stratégies d’accès conditionnel courantes
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Stratégies d’accès conditionnel courantes
+      url: concept-conditional-access-policy-common.md
+  - linkListType: how-to-guide
+    links:
+    - text: Exiger MFA pour les administrateurs
+      url: howto-conditional-access-policy-admin-mfa.md
+    - text: Exiger MFA pour la gestion Azure
+      url: howto-conditional-access-policy-azure-management.md
+    - text: Bloquer l’authentification héritée
+      url: howto-conditional-access-policy-block-legacy.md
+    - text: Accès conditionnel basé sur le risque (requiert Azure AD Premium P2)
+      url: howto-conditional-access-policy-risk.md
+    - text: Exiger un emplacement approuvé pour l’inscription MFA
+      url: howto-conditional-access-policy-registration.md
+    - text: Bloquer l’accès par emplacement
+      url: howto-conditional-access-policy-location.md
+    - text: Exiger un appareil conforme
+      url: howto-conditional-access-policy-compliant-device.md

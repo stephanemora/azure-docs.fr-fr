@@ -17,13 +17,13 @@ ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450564"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65738263"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutoriel : Intégration d’Azure Active Directory à plusieurs comptes Amazon Web Services (AWS)
+# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Didacticiel : Intégration d’Azure Active Directory à plusieurs comptes Amazon Web Services (AWS)
 
 Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) à plusieurs comptes Amazon Web Services (AWS).
 
@@ -50,7 +50,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 
 * Tous les comptes AWS utilisent le même fichier XML de métadonnées de fédération. Ainsi, au moment de la substitution de certificat, vous devez procéder à ce gros travail de mise à jour du certificat sur tous les comptes AWS en même temps.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec Amazon Web Services (AWS), vous avez besoin des éléments suivants :
 
@@ -77,7 +77,7 @@ Pour configurer l’intégration d’Amazon Web Services (AWS) avec Azure AD,
 
 **Pour ajouter Amazon Web Services (AWS) à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -89,7 +89,7 @@ Pour configurer l’intégration d’Amazon Web Services (AWS) avec Azure AD,
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Amazon Web Services (AWS)**, sélectionnez **Amazon Web Services (AWS)** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Amazon Web Services (AWS)** , sélectionnez **Amazon Web Services (AWS)** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![Amazon Web Services (AWS) dans la liste des résultats](common/search-new-app.png)
 
@@ -117,7 +117,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 **Pour configurer l’authentification unique Azure AD avec Amazon Web Services (AWS), procédez comme suit :**
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Amazon Web Services (AWS)**, sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **Amazon Web Services (AWS)** , sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 

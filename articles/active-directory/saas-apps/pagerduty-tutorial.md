@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: ded5854c5e669ab1982641169f13a9cb400d5d6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b7a522aaf35303bbd87e7aafe65b1302f1b98bc0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270113"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095331"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Didacticiel : Intégration d’Azure Active Directory à Pagerduty
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de PagerDuty à Azure AD, vous devez ajouter Pa
 
 **Pour ajouter PagerDuty à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec PagerDuty, effectuez l
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<tenant-name>.pagerduty.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<tenant-name>.pagerduty.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<tenant-name>.pagerduty.com`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique PagerDuty](https://www.pagerduty.com/support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -138,7 +138,7 @@ Pour configurer l’authentification unique Azure AD avec PagerDuty, effectuez l
 
     ![Authentification unique](./media/pagerduty-tutorial/ic778536.png "Authentification unique")
 
-4. Dans la page **Enable Single Sign-on (SSO)**, effectuez les étapes suivantes :
+4. Dans la page **Enable Single Sign-on (SSO)** , effectuez les étapes suivantes :
 
     ![Activer l’authentification unique](./media/pagerduty-tutorial/ic778537.png "activer l’authentification unique")
 

@@ -3,18 +3,17 @@ title: Guide du développeur de coffre de clés Azure
 description: Les développeurs peuvent utiliser le coffre de clés Azure pour gérer les clés de chiffrement dans l'environnement Microsoft Azure.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 06fd66c3fb9e90e0198d40253f3c554fe8596c3d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 1ebf4feb0687d9580bba29cd8213030e542a06da
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543361"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268850"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guide du développeur de coffre de clés Azure
 
@@ -25,31 +24,11 @@ Key Vault vous permet d’accéder en toute sécurité aux informations sensible
 - Votre application peut utiliser des clés pour la signature et le chiffrement, tandis que la gestion des clés s’effectue à l’extérieur de l’application, de sorte que votre solution convient parfaitement pour une application distribuée géographiquement.
 - Depuis la version de septembre 2016 de Key Vault, vos applications peuvent désormais gérer des certificats Key Vault. Pour plus d’informations, consultez [À propos des clés, des secrets et des certificats](/rest/api/keyvault/about-keys--secrets-and-certificates).
 
-Pour des informations plus générales sur le coffre de clés Azure Key Vault, voir [Qu’est-ce qu’Azure Key Vault ?](key-vault-whatis.md).
+Pour des informations plus générales sur le coffre de clés Azure Key Vault, voir [Qu’est-ce qu’Azure Key Vault ?](key-vault-overview.md).
 
 ## <a name="public-previews"></a>Préversions publiques
 
 Nous publions régulièrement la préversion publique d’une nouvelle fonctionnalité de Key Vault. Essayez-les et envoyez votre avis à azurekeyvault@microsoft.com, notre adresse e-mail dédiée aux commentaires.
-
-### <a name="storage-account-keys---july-10-2017"></a>Clés de compte de stockage - 10 juillet 2017
-
->[!NOTE]
->Pour cette mise à jour d’Azure Key Vault, seule la fonctionnalité **Clés de compte de stockage** est en préversion.
-
-Cette préversion inclut notre nouvelle fonctionnalité Clés de compte de stockage, disponible par le biais de ces interfaces : [.NET/C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) et [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
-
-Pour plus d’informations sur la nouvelle fonctionnalité Clés de compte de stockage, consultez la page [Vue d’ensemble des clés de compte de stockage Azure Key Vault](key-vault-ovw-storage-keys.md).
-
-## <a name="videos"></a>Videos
-
-Cette vidéo vous montre comment créer votre propre coffre de clés et comment l'utiliser à partir de l'exemple d'application « Hello Key Vault ».
-
-- [Développeur Key Vault - guide de démarrage rapide](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
-
-Ressources mentionnées dans la vidéo ci-dessus :
-
-- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Exemple de code de coffre de clés Azure](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>Création et gestion des coffres de clés
 

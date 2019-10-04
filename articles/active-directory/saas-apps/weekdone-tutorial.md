@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d067d36ea41f80648fcb06fe3b0e51e4f5b3a1a6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 43ade2035e6f831f9d665d2b53dabb3afb96f41d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273445"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087354"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Didacticiel : Intégration d’Azure Active Directory à Weekdone
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Weekdone à Azure AD, vous devez ajouter We
 
 **Pour ajouter Weekdone à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

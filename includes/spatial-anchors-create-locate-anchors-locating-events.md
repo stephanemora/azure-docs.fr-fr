@@ -1,9 +1,14 @@
 ---
-ms.openlocfilehash: c4339aa8548ef66c862200ad61b6aaca90332ad0
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+author: ramonarguelles
+ms.service: azure-spatial-anchors
+ms.topic: include
+ms.date: 08/23/2019
+ms.author: rgarcia
+ms.openlocfilehash: 9a02dfbf3f2976489c10ccfeb935915a65d8dc84
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632361"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71180047"
 ---
-Une fois votre Observateur est créé, le `AnchorLocated` événement est déclenché pour chaque point d’ancrage demandé. Cet événement se déclenche lorsqu’une ancre est située, ou si le point d’ancrage ne peut pas être localisé. Si cette situation se produit, la raison est indiquée dans l’état. Après le traitement de tous les points d’ancrage pour un observateur, ou introuvable, la `LocateAnchorsCompleted` événement se déclenche.
+Une fois votre ressource Watcher créée, l’événement `AnchorLocated` se déclenche pour chaque ancre demandée. Cet événement se déclenche lorsqu’une ancre est localisée, ou si l’ancre ne peut pas être localisée. Si cette situation se produit, la raison est indiquée dans l’état. Après le traitement de toutes les ancres d’une ressource Watcher, trouvées ou non, l’événement `LocateAnchorsCompleted` se déclenche. Il y a une limite de 35 identificateurs par ressource Watcher. 

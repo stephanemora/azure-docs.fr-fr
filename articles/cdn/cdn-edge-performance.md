@@ -7,24 +7,24 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 7dfa252c29121adca2ecc77c08b2fca81d56e575
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320072"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593894"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analyser les performances du nœud de périmètre dans Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Edge Performance Analytics fournit des informations précises sur le trafic et la bande passante utilisés pour le CDN. Ces informations peuvent ensuite être exploitées pour générer des statistiques de tendances, ce qui vous permet d’obtenir des informations sur la manière dont vos ressources sont mises en cache et distribuées à vos clients. Vous pouvez ensuite formuler une stratégie sur la façon d’optimiser la distribution de votre contenu et déterminer les problèmes à résoudre afin de mieux tirer parti du CDN. Vous pourrez ainsi non seulement améliorer les performances de diffusion des données mais également réduire vos coûts CDN.
 
 > [!NOTE]

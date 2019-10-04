@@ -3,19 +3,20 @@ title: Guide pratique pour créer un modèle Conversation Learner avec Node.js �
 titleSuffix: Azure
 description: Découvrez comment créer un modèle Conversation Learner avec Node.js.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7ab32fb421a2c0db72652d1bbf12d312bffd5d1e
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994372"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706531"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Guide pratique pour créer un modèle Conversation Learner avec Node.js
 
@@ -27,7 +28,7 @@ Conversation Learner simplifie la création de bots. Il permet un flux de travai
 
 Project Conversation Learner se compose d’un kit de développement logiciel (SDK) que vous ajoutez à votre bot et d’un service cloud auquel le kit de développement logiciel (SDK) accède pour la Machine Learning.  Actuellement, l’accès au service cloud Project Conversation Learner nécessite une invitation.  Si vous n’avez pas encore été invité, [demandez une invitation](https://aka.ms/conversation-learner-request-invite).  Si vous n’avez pas reçu d’invitation, vous ne pourrez pas accéder à l’API cloud.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Node 8.5.0 ou version ultérieure et npm 5.3.0 ou version ultérieure. Installer à partir de [https://nodejs.org](https://nodejs.org).
   

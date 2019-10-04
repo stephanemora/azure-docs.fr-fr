@@ -3,7 +3,7 @@ title: Déployer une application Service Fabric sur un cluster dans Azure | Micr
 description: Apprenez à déployer une application sur un cluster à partir de Visual Studio.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: msfussell
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/14/2019
-ms.author: aljo,mikhegn
+ms.date: 07/22/2019
+ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 451cfde133955b987b97bc2447724d2e00010892
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d637b01eb9e4d1664def9eb537b810603eea18ea
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667376"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598815"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Didacticiel : déployer une application Service Fabric sur un cluster dans Azure
 
@@ -44,7 +44,7 @@ Dans cette série de didacticiels, nous allons aborder les points suivants :
 Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Installez Visual Studio 2017](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
+* [Installez Visual Studio 2019](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 * [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md).
 
 ## <a name="download-the-voting-sample-application"></a>Télécharger l’exemple d’application de vote
@@ -86,7 +86,7 @@ Sous l’onglet **Cluster**, entrez le **Nom du cluster** (par exemple, « myte
 
 ![Créer un cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
-Sous l’onglet **Certificat**, entrez le mot de passe et le chemin de sortie du certificat de cluster. Un certificat auto-signé est créé en tant que fichier PFX et enregistré dans le chemin de sortie spécifié.  Le certificat est utilisé pour la sécurité nœud à nœud et client à nœud.  N’utilisez pas un certificat auto-signé pour des clusters de production.  Ce certificat est utilisé par Visual Studio pour l’authentification auprès du cluster et le déploiement d’applications. Sélectionnez **Importer un certificat** pour installer le fichier PFX dans le magasin de certificats CurrentUser\My de votre ordinateur.  Cliquez sur **Suivant**.
+Sous l’onglet **Certificat**, entrez le mot de passe et le chemin de sortie du certificat de cluster. Un certificat auto-signé est créé en tant que fichier PFX et enregistré dans le chemin de sortie spécifié.  Le certificat est utilisé pour la sécurité nœud à nœud et client à nœud.  N’utilisez pas un certificat auto-signé pour les clusters de production.  Ce certificat est utilisé par Visual Studio pour l’authentification auprès du cluster et le déploiement d’applications. Sélectionnez **Importer un certificat** pour installer le fichier PFX dans le magasin de certificats CurrentUser\My de votre ordinateur.  Cliquez sur **Suivant**.
 
 ![Créer un cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 

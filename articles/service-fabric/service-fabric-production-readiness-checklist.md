@@ -3,7 +3,7 @@ title: Liste de contrôle de l’état préparation à la production d’Azure S
 description: Préparez votre application Service Fabric et votre cluster de production en suivant les meilleures pratiques.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 ms.assetid: ''
@@ -12,28 +12,22 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/10/2018
-ms.author: aljo
-ms.openlocfilehash: e94280f9df1d4ac59856a73f6f6c2b7f7a0b9cc0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 6/05/2019
+ms.author: atsenthi
+ms.openlocfilehash: 9e86f7306ee70bee2e084b967867e2a9be5b66e1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107489"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599357"
 ---
 # <a name="production-readiness-checklist"></a>Liste de vérification de disponibilité de la production
 
 Votre application et le cluster sont prêts à accepter le trafic de production ? Le fait que vous exécutiez et testiez votre application et votre cluster ne signifie pas nécessairement qu’il sont prêts à passer en production. Continuez à exécuter votre application et votre cluster en douceur tout en passant en revue la liste de contrôle suivante. Nous recommandons vivement de vérifier tous ces points. Bien sûr, vous pouvez choisir d’utiliser d’autres solutions pour une ligne (par exemple, vos propres infrastructures de diagnostic).
 
 
-## <a name="pre-requisites-for-production"></a>Conditions préalables à la production
-1. Les [bonnes pratiques en matière de sécurité Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) sont les suivantes : 
-1. Utiliser des certificats X.509
-1. Configurer des stratégies de sécurité
-1. Configurer SSL pour Azure Service Fabric
-1. Utiliser la sécurité et l’isolement réseau avec Azure Service Fabric
-1. Configurer Azure Key Vault pour la sécurité
-1. Microsoft.Network/loadBalancers - Affecter des utilisateurs aux rôles
+## <a name="prerequisites-for-production"></a>Conditions préalables à la production
+1. Les meilleures pratiques Service Fabric sont : [Conception d’applications](./service-fabric-best-practices-applications.md), [Sécurité](./service-fabric-best-practices-security.md), [Mise en réseau](./service-fabric-best-practices-networking.md), [Planification de la capacité et mise à l’échelle](./service-fabric-best-practices-capacity-scaling.md), [Infrastructure as code](./service-fabric-best-practices-infrastructure-as-code.md), et [Surveillance et diagnostics](./service-fabric-best-practices-monitoring.md). 
 1. Implémenter la configuration de sécurité de Reliable Actors si vous utilisez le modèle de programmation Actors
 1. Pour les clusters comprenant plus de 20 cœurs ou 10 nœuds, créez un type de nœud principal dédié aux services système. Ajoutez des [contraintes de placement](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) pour réserver le type de nœud principal aux services système.
 1. Utilisez une référence (SKU) D2v2 ou supérieure pour le type de nœud principal. Il est recommandé de choisir une référence (SKU) avec une capacité de disque dur d’au moins 50 Go.
@@ -42,9 +36,9 @@ Votre application et le cluster sont prêts à accepter le trafic de production�
 1. Comprenez et définissez le [niveau de durabilité](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Le niveau de durabilité Silver ou un niveau supérieur sont recommandés pour les types de nœuds exécutant des charges de travail avec état. Le type de nœud principal doit avoir le niveau de durabilité Silver ou un niveau supérieur.
 1. Comprenez et choisissez le [niveau de fiabilité](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) du type de nœud. Une fiabilité de niveau Silver ou d’un niveau supérieur est recommandée.
 1. Chargez vos charges de travail et testez-les à l’échelle afin d’identifier les [besoins en capacité](service-fabric-cluster-capacity.md) pour votre cluster. 
-1. Vos services et applications sont surveillés, et les journaux des applications sont générés et stockés avec génération d’alertes. Par exemple, consultez [ajouter la journalisation à votre application Service Fabric](service-fabric-how-to-diagnostics-log.md) et [surveiller les conteneurs avec Azure Monitor journaux](service-fabric-diagnostics-oms-containers.md).
-1. Le cluster est surveillé avec génération d’alertes (par exemple, avec [Azure Monitor enregistre](service-fabric-diagnostics-event-analysis-oms.md)). 
-1. L’infrastructure de jeu de mise à l’échelle machine virtuelle sous-jacente est surveillé avec génération d’alertes (par exemple, avec [Azure Monitor enregistre](service-fabric-diagnostics-oms-agent.md).
+1. Vos services et applications sont surveillés, et les journaux des applications sont générés et stockés avec génération d’alertes. Consultez, par exemple, [Ajouter la journalisation à votre application Service Fabric](service-fabric-how-to-diagnostics-log.md) et [Surveiller les conteneurs avec les journaux Azure Monitor](service-fabric-diagnostics-oms-containers.md).
+1. Le cluster est surveillé avec un dispositif de génération d’alertes (par exemple, les [journaux Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)). 
+1. L’infrastructure de groupe de machines virtuelles identiques sous-jacente est surveillée avec un dispositif de génération d’alertes (par exemple, les [journaux Azure Monitor](service-fabric-diagnostics-oms-agent.md)).
 1. Le cluster a toujours des [certificats primaire et secondaire](service-fabric-cluster-security-update-certs-azure.md) (de sorte que vous n’êtes verrouillé).
 1. Conservez des clusters distincts pour le développement, la préproduction et la production. 
 1. Les [mises à niveau d’application](service-fabric-application-upgrade.md) et les [mises à niveau de cluster](service-fabric-tutorial-upgrade-cluster.md) sont testées d’abord dans des clusters de développement et de préproduction. 

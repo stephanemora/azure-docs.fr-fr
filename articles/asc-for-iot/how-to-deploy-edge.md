@@ -1,82 +1,80 @@
 ---
-title: Déployer Azure Security Center pour le module IoT Edge | Microsoft Docs
-description: Découvrez comment déployer un centre de sécurité pour l’agent de sécurité IoT sur IoT Edge.
+title: Déployer le module Azure Security Center pour IoT Edge | Microsoft Docs
+description: Découvrez comment déployer un agent de sécurité Azure Security Center pour IoT sur IoT Edge.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 32a9564d-16fd-4b0d-9618-7d78d614ce76
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/1/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: d72980d6e27600cb844d5477d3b9a61d9e1573e4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bb6a975d2a2fc2cc3e65fa8969f8b005be8b1417
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59505615"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299718"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Déployer un module de sécurité sur votre appareil IoT Edge
 
-> [!IMPORTANT]
-> Azure Security Center pour IoT est disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-**Azure Security Center (ASC) pour IoT** module fournit une solution de sécurité complète pour votre appareil IoT Edge.
-Module de sécurité collecte, agrège et analyse les données de sécurité brute à partir de votre système d’exploitation et le conteneur système dans les alertes et les recommandations de sécurité actionnables.
-Pour plus d’informations, consultez [module de sécurité pour IoT Edge](security-edge-architecture.md).
+Le module **Azure Security Center pour IoT** constitue une solution de sécurité complète pour vos appareils IoT Edge.
+Ce module de sécurité collecte, agrège et analyse des données de sécurité brutes tirées du système d’exploitation et du système de conteneur pour produire des alertes et des suggestions de sécurité actionnables.
+Pour plus d’informations, consultez [Module de sécurité pour IoT Edge](security-edge-architecture.md).
 
-Dans ce guide, vous allez apprendre à déployer un module de sécurité sur votre appareil IoT Edge.
+Dans ce article, vous apprendrez à déployer un module de sécurité sur votre appareil IoT Edge.
 
-## <a name="deploy-security-module"></a>Déployer le module de sécurité
+## <a name="deploy-security-module"></a>Déployer un module de sécurité
 
-Utilisez les étapes suivantes pour déployer un ASC pour le module de sécurité IoT pour IoT Edge.
+Procédez comme suit pour déployer un module de sécurité Azure Security Center pour IoT sur IoT Edge.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
-- Dans votre IoT Hub, assurez-vous que votre appareil est [enregistré comme un appareil IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
+1. Dans votre instance d’IoT Hub, assurez-vous que votre appareil est [inscrit en tant qu’appareil IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
-- ASC pour le module IoT Edge nécessite [AuditD framework](https://linux.die.net/man/8/auditd) est installé sur l’appareil IoT Edge.
+1. Le module d’Azure Security Center pour IoT Edge nécessite l’installation de [l’infrastructure AuditD](https://linux.die.net/man/8/auditd) sur l’appareil IoT Edge.
 
-    - Installer le framework en exécutant la commande suivante sur votre appareil IoT Edge :
+    - Installez le framework en exécutant la commande suivante sur votre appareil IoT Edge :
    
-      `sudo apt-get install auditd audispd-plugins`
-   
-    - Vérifiez Qu'auditd est active en exécutant la commande suivante :
-   
-      `sudo systemctl status auditd`
-      
-        La réponse attendue est `active (running)`. 
+    `sudo apt-get install auditd audispd-plugins`
 
-### <a name="deployment-using-azure-portal"></a>Déploiement à l’aide du portail Azure
+    - Exécutez la commande suivante pour vérifier qu’AuditD est actif : 
+   
+    `sudo systemctl status auditd`<br>
+    - La réponse attendue est : `active (running)` 
+        
 
-1. À partir du portail Azure, ouvrez **place de marché**.
+### <a name="deployment-using-azure-portal"></a>Déploiement à l’aide du Portail Microsoft Azure
+
+1. À partir du portail Microsoft Azure, ouvrez la **Place de marché**.
 
 1. Sélectionnez **Internet des objets**, puis recherchez **Azure Security Center pour IoT** et sélectionnez-le.
 
-   ![Sélectionnez Azure Security Center pour IoT](media/howto/edge-onboarding-8.png)
+   ![Sélection d’Azure Security Center pour IoT](media/howto/edge-onboarding-8.png)
 
-1. Cliquez sur **créer** pour configurer le déploiement. 
+1. Cliquez sur **Créer** pour configurer le déploiement. 
 
-1. Choisissez Azure **abonnement** de votre IoT Hub, puis sélectionnez votre **IoT Hub**.<br>Sélectionnez **déployer sur un appareil** pour cibler un appareil unique ou sélectionnez **déployer à l’échelle** pour cibler plusieurs appareils, puis cliquez sur **créer**. Pour plus d’informations sur le déploiement à grande échelle, consultez [comment déployer](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor). 
+1. Choisissez l’**abonnement** Azure de votre instance d’IoT Hub, puis sélectionnez votre instance d’**IoT Hub**.<br>Sélectionnez **Déployer sur un appareil** pour cibler un appareil unique ou **Déployer à l’échelle** pour cibler plusieurs appareils, puis cliquez sur **Créer**. Pour plus d’informations sur le déploiement à l’échelle, consultez [Comment déployer](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor). 
 
     >[!Note] 
-    >Si vous avez sélectionné **déployer à l’échelle**, ajoutez le nom de l’appareil et les détails avant de poursuivre la **ajouter des Modules** onglet dans les instructions suivantes.     
+    >Si vous avez sélectionné **Déployer à l’échelle**, ajoutez le nom de l’appareil et d’autres informations avant d’accéder à l’onglet **Ajouter des modules** dans les instructions suivantes.     
 
-Il existe trois étapes pour créer un déploiement IoT Edge d’Azure Security Center pour IoT. Les sections suivantes les décrivent en détail. 
+La création d’un déploiement IoT Edge pour Azure Security Center pour IoT s’effectue en trois étapes. Les sections suivantes les décrivent en détail. 
 
-#### <a name="step-1-add-modules"></a>Étape 1 : Ajouter des modules
+#### <a name="step-1-add-modules"></a>Étape 1 : Ajouter des modules
 
-1. À partir de la **ajouter des Modules** onglet, **Modules de déploiement** zone, cliquez sur **AzureSecurityCenterforIoT**. 
+1. À partir de l’onglet **Ajouter des modules**, dans la zone **Modules de déploiement**, cliquez sur **AzureSecurityCenterforIoT**. 
    
-1. Modifier le **nom** à **azureiotsecurity**.
-1. Modifier le **URI d’Image** à **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**.
-1. Vérifiez le **Options de création de conteneur** a la valeur :      
+1. Remplacez **nom** par **azureiotsecurity**.
+1. Remplacez **URI d’Image** par **mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
+1. Vérifiez que la valeur du champ **Options de création de conteneur** est définie sur :      
     ``` json
     {
         "NetworkingConfig": {
@@ -94,86 +92,84 @@ Il existe trois étapes pour créer un déploiement IoT Edge d’Azure Security 
         }
     }    
     ```
-1. Vérifiez que **propriétés souhaitées des représentations de module de jeu** est sélectionné et modifiez l’objet de configuration pour :
+1. Vérifiez que l’option **Définir les propriétés souhaitées du jumeau de module** est activée, puis remplacez l’objet de configuration par :
       
     ``` json
-      "properties.desired": {
-        "azureiot*com^securityAgentConfiguration^1*0*0": {
+    "desired": {
+        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
+          } 
         }
-      }
-      ```
+    ```
 
 1. Cliquez sur **Enregistrer**.
-1. Faites défiler vers le bas de l’onglet et sélectionnez **configurer les paramètres du Runtime Edge avancés**.
+1. Faites défiler l’écran vers le bas de l’onglet, puis sélectionnez **Configurer les paramètres avancés du runtime Edge**. 
    
-   >[!Note]
-   > Faire **pas** désactiver la communication AMQP pour IoT Edge Hub.
-   > Azure Security Center pour le module IoT requiert une communication de AMQP avec IoT Edge Hub.
-   
-1. Modifier le **Image** sous **Edge Hub** à **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
+1. Remplacez **Image** sous **Edge Hub** par **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2**.
 
-   >[!Note]
-   > Azure Security Center pour le module IoT nécessite une version dupliquée de IoT Edge Hub, basé sur le SDK version 1.20.
-   > En modifiant l’image de IoT Edge Hub, vous demandez votre appareil IoT Edge pour remplacer la dernière version stable par la version dupliquée du Hub IoT Edge, qui n’est pas officiellement pris en charge par le service IoT Edge.
-
-1. Vérifiez **Options créer** est définie sur : 
+1. Vérifiez que la valeur du champ **Options de création** est définie sur : 
          
     ``` json
-    {
-      "HostConfig": {
-        "PortBindings": {
-          "8883/tcp": [{"HostPort": "8883"}],
-          "443/tcp": [{"HostPort": "443"}],
-          "5671/tcp": [{"HostPort": "5671"}]
+    { 
+    "HostConfig":{
+                    "PortBindings":{
+                    "8883/tcp": [{"HostPort": "8883"}],
+                    "443/tcp": [{"HostPort": "443"}],
+                    "5671/tcp": [{"HostPort": "5671"}]
+                    }
         }
-      }
     }
     ```
-      
 1. Cliquez sur **Enregistrer**.
    
 1. Cliquez sur **Suivant**.
 
-#### <a name="step-2-specify-routes"></a>Étape 2 : Spécifier des routes 
+#### <a name="step-2-specify-routes"></a>Étape 2 : Spécifier des routes 
 
-1. Dans le **spécifier des itinéraires** onglet, définissez la **ASCForIoTToIoTHub** router vers **» à partir / messages/modules/azureiotsecurity/\* dans $ en amont »**, puis cliquez sur  **Suivant**.
+1. Dans l’onglet **Spécifier les itinéraires**, vérifiez que vous disposez d’un itinéraire (explicite ou implicite) qui transférera les messages depuis le module **azureiotsecurity** vers **$upstream**. 
+1. Cliquez sur **Suivant**.
 
-   ![Spécifier des routes](media/howto/edge-onboarding-9.png)
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream" 
+    ~~~
 
-#### <a name="step-3-review-deployment"></a>Étape 3 : Vérifier le déploiement
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+    ~~~
 
-1. Dans le **passez en revue le déploiement** onglet, passez en revue les informations de votre déploiement, puis sélectionnez **Submit** pour procéder au déploiement.
+#### <a name="step-3-review-deployment"></a>Étape 3 : Vérifier le déploiement
+
+- Sous l’onglet **Vérifier le déploiement**, examinez les informations sur votre déploiement, puis sélectionnez **Envoyer** pour procéder au déploiement.
 
 ## <a name="diagnostic-steps"></a>Étapes de diagnostic
 
 Si vous rencontrez un problème, les journaux de conteneur sont la meilleure façon d’en savoir plus sur l’état d’un appareil de module de sécurité IoT Edge. Utilisez les commandes et les outils de cette section pour recueillir des informations.
 
-### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>Vérifiez que les conteneurs requis sont installés et qu’il fonctionne comme prévu
+### <a name="verify-the-required-containers-are-installed-and-functioning-as-expected"></a>Vérifiez que les conteneurs requis sont installés et qu’ils fonctionnent comme prévu
 
-1. Exécutez la commande suivante sur votre appareil IoT Edge :
+1. Exécutez les commandes suivantes sur votre appareil IoT Edge :
     
-     `sudo docker ps`
+    `sudo docker ps`
    
 1. Vérifiez que les conteneurs suivants sont en cours d’exécution :
    
    | Nom | IMAGE |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
-   | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
+   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
-   Si la configuration minimale requise conteneurs ne sont pas présents, vérifiez si votre manifeste de déploiement IoT Edge est aligné avec les paramètres recommandés. Pour plus d’informations, consultez [module déployer IoT Edge](#deployment-using-azure-portal).
+   Si les conteneurs minimum requis ne sont pas présents, vérifiez si votre manifeste de déploiement IoT Edge correspond aux paramètres recommandés. Pour plus d’informations, consultez [Déployer votre module IoT Edge](#deployment-using-azure-portal).
 
-### <a name="inspect-the-module-logs-for-errors"></a>Examinez les journaux de module pour les erreurs
+### <a name="inspect-the-module-logs-for-errors"></a>Recherchez d’éventuelles erreurs dans journaux de module
    
-1. Exécutez la commande suivante sur votre appareil IoT Edge :
+1. Exécutez les commandes suivantes sur votre appareil IoT Edge :
 
    `sudo docker logs azureiotsecurity`
    
-1. Pour les journaux plus détaillés, ajoutez la variable d’environnement suivante à **azureiotsecurity** du déploiement du module : `logLevel=Debug`.
+1. Pour consulter des journaux d’activité plus détaillés, ajoutez la variable d’environnement suivante au déploiement du module **azureiotsecurity** : `logLevel=Debug`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les options de configuration, continuer au guide pratique pour la configuration du module. 
+Pour en savoir plus sur les options de configuration, accédez au guide pratique de configuration du module. 
 > [!div class="nextstepaction"]
-> [Guide pratique de configuration de module](./how-to-agent-configuration.md)
+> [Guide pratique de configuration du module](./how-to-agent-configuration.md)

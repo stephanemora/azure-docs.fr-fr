@@ -2,18 +2,18 @@
 title: Didacticiel Kubernetes sur Azure - Mettre à jour une application
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez apprendre à mettre à jour un déploiement d’application existant vers ACS avec une nouvelle version du code d’application.
 services: container-service
-author: zr-msft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: zarhoads
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5415778713261fbb3e57695573c8486cb32da781
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b645fc9f67229d087a5d1655f733e2f3e50d4471
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756132"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614376"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Didacticiel : Mettre à jour une application dans Azure Kubernetes Service (AKS)
 
@@ -31,9 +31,9 @@ Dans ce didacticiel (le sixième d’une série de sept), l’exemple de l’app
 
 Dans les tutoriels précédents, une application a été empaquetée dans une image conteneur. Cette image a été chargée dans Azure Container Registry et vous avez créé un cluster AKS. L’application a ensuite été déployée sur le cluster AKS.
 
-Un référentiel d’application a également été cloné, ce qui inclut le code source de l’application et un fichier Docker Compose préalablement créé utilisé dans ce didacticiel. Vérifiez que vous avez cloné le référentiel et changé des répertoires dans le répertoire cloné. Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, commencez par le [Tutoriel 1 : Créer des images conteneurs][aks-tutorial-prepare-app].
+Un référentiel d’application a également été cloné, ce qui inclut le code source de l’application et un fichier Docker Compose préalablement créé utilisé dans ce didacticiel. Vérifiez que vous avez cloné le référentiel et changé des répertoires dans le répertoire cloné. Si vous n’avez pas effectué ces étapes et si vous souhaitez suivre cette procédure, commencez par [Tutoriel 1 : Créer des images conteneur][aks-tutorial-prepare-app].
 
-Ce tutoriel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Ce didacticiel nécessite l’exécution de l’interface de ligne de commande Azure CLI version 2.0.53 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ## <a name="update-an-application"></a>Mettre à jour une application
 
@@ -57,7 +57,7 @@ Enregistrez et fermez le fichier. Dans `vi`, utilisez `:wq`.
 
 ## <a name="update-the-container-image"></a>Mettre à jour l’image conteneur
 
-Pour recréer l’image frontale et tester l’application mise à jour, utilisez [docker-compose][docker-compose]. L’argument `--build` est utilisé pour indiquer à Docker Compose de recréer l’image d’application :
+Pour recréer l’image front-end et tester l’application mise à jour, utilisez [docker-compose][docker-compose]. L’argument `--build` est utilisé pour indiquer à Docker Compose de recréer l’image d’application :
 
 ```console
 docker-compose up --build -d
@@ -85,7 +85,10 @@ Utilisez [docker tag][docker-tag] pour ajouter une balise à l’image. Remplace
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-À présent, utilisez [docker push][docker-push] pour charger l’image dans votre registre. Remplacez `<acrLoginServer>` par le nom de votre serveur de connexion ACR. Si vous rencontrez des problèmes en exécutant un push vers votre registre ACR, vérifiez que vous avez exécuté la commande [az acr login][az-acr-login].
+À présent, utilisez [docker push][docker-push] pour charger l’image dans votre registre. Remplacez `<acrLoginServer>` par le nom de votre serveur de connexion ACR.
+
+> [!NOTE]
+> Si vous rencontrez des problèmes en exécutant un push vers votre registre ACR, vérifiez que vous êtes toujours connecté. Exécutez la commande [az acr login][az-acr-login] en utilisant le nom du registre Azure Container Registry que vous avez créé à l’étape [Créer un registre Azure Container Registry](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry). Par exemple : `az acr login --name <azure container registry name>`.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -93,7 +96,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## <a name="deploy-the-updated-application"></a>Déployer l’application mise à jour
 
-Pour fournir une disponibilité maximale, vous devez exécuter plusieurs instances du pod d’application. Vérifiez le nombre d’instances frontales en cours d’exécution avec la commande [kubectl get pods][kubectl-get] :
+Pour fournir une disponibilité maximale, vous devez exécuter plusieurs instances du pod d’application. Vérifiez le nombre d’instances front-end en cours d’exécution avec la commande [kubectl get pods][kubectl-get] :
 
 ```
 $ kubectl get pods

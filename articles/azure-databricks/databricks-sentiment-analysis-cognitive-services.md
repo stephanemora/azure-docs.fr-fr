@@ -1,24 +1,24 @@
 ---
 title: "Tutoriel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks"
-description: Découvrez comment utiliser Azure Databricks avec les API Event Hubs et Cognitive Services pour exécuter des analyses d’opinions sur des données de diffusion en continu en temps quasi-réel.
+description: Découvrez comment utiliser Azure Databricks avec les API Event Hubs et Cognitive Services pour exécuter des analyses d’opinions sur des données de streaming en temps quasi-réel.
 services: azure-databricks
 author: lenadroid
 ms.author: alehall
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 12/07/2018
-ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 07/29/2019
+ms.openlocfilehash: 9718a6e394c7628cdf7bb62b2dafea2f3d59a3ca
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080537"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "68619479"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutoriel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Didacticiel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks
 
-Dans ce tutoriel, vous allez apprendre à exécuter des analyses d'opinions sur un flux de données en temps quasi-réel à l'aide d'Azure Databricks. Vous allez configurer le système d’ingestion des données avec Azure Event Hubs. Vous allez lire des messages à partir d’Event Hubs dans Azure Databricks à l’aide du connecteur Spark Event Hubs. Enfin, vous allez utiliser les API Microsoft Cognitive Services pour exécuter des analyses d’opinions sur les données diffusées.
+Dans ce tutoriel, vous allez apprendre à exécuter des analyses d'opinions sur un flux de données en temps quasi-réel à l'aide d'Azure Databricks. Vous allez configurer le système d’ingestion des données avec Azure Event Hubs. Vous allez lire des messages à partir d’Event Hubs dans Azure Databricks à l’aide du connecteur Spark Event Hubs. Enfin, vous allez utiliser les API Cognitive Services pour exécuter des analyses d’opinions sur les données diffusées.
 
 À la fin de ce didacticiel, vous disposerez de tweets diffusés de Twitter comprenant le terme « Azure » et qui exécuterez des analyses d’opinions sur les tweets.
 
@@ -33,17 +33,17 @@ Ce tutoriel décrit les tâches suivantes :
 > * Créer un cluster Spark dans Azure Databricks
 > * Créer une application Twitter pour accéder aux données de diffusion en continu
 > * Créer des notebooks dans Azure Databricks
-> * Joindre des bibliothèques pour les API Event Hubs et Twitter
-> * Créer un compte Microsoft Cognitive Services et récupérer la clé d’accès
+> * Joindre des bibliothèques pour Event Hubs et les API Twitter
+> * Créer un compte Cognitive Services et récupérer la clé d’accès
 > * Envoyer des tweets vers Event Hubs
 > * Lire des tweets à partir d’Event Hubs
 > * Exécuter des analyses d’opinions sur des tweets
 
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=sparkeventhubs-docs-alehall) avant de commencer.
 
 > [!Note]
-> Ce tutoriel ne peut pas être effectué à l’aide d’un **abonnement d’essai gratuit Azure**.
-> Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/).
+> Ce tutoriel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
+> Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -55,9 +55,9 @@ Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 
 Vous pouvez obtenir tous ces éléments en terminant les étapes de l’article [Créer un espace de noms et un concentrateur d’événements Azure Event Hubs](../event-hubs/event-hubs-create.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Créer un espace de travail Azure Databricks
 
@@ -78,8 +78,8 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     |**Nom de l’espace de travail**     | Renseignez un nom pour votre espace de travail Databricks.        |
     |**Abonnement**     | Sélectionnez votre abonnement Azure dans la liste déroulante.        |
     |**Groupe de ressources**     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md). |
-    |**Lieu**     | Sélectionnez **USA Est**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
-    |**Niveau tarifaire**     |  Choisissez entre **Standard** ou **Premium**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Lieu**     | Sélectionnez **USA Est**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/?WT.mc_id=sparkeventhubs-docs-alehall).        |
+    |**Niveau tarifaire**     |  Choisissez entre **Standard** ou **Premium**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall).       |
 
     Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
 
@@ -102,24 +102,28 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
    * Entrez un nom pour le cluster.
-   * Pour cet article, créez un cluster avec le runtime **4.0 (bêta)**.
+   * Pour cet article, créez un cluster avec le runtime **5.2**.
    * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
+
+   Sélectionnez la taille des nœuds worker et de pilote adaptée à vos critères techniques et à votre [budget](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall).
 
      Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
 ## <a name="create-a-twitter-application"></a>Création d'une application Twitter
 
-Pour recevoir un flux de tweets, vous devez créer une application dans Twitter. Suivez les étapes pour créer une application Twitter et enregistrez les valeurs dont vous avez besoin pour terminer ce didacticiel.
+Pour recevoir un flux de tweets, vous créez une application dans Twitter. Suivez les instructions pour créer une application Twitter et enregistrez les valeurs dont vous avez besoin pour terminer ce didacticiel.
 
-1. À partir d’un navigateur web, accédez à [Gestion des applications Twitter](https://apps.twitter.com/), et sélectionnez **Créer une application**.
+1. Dans un navigateur web, accédez à [Twitter For Developers](https://developer.twitter.com/en/apps), puis sélectionnez **Create an app** (Créer une application). Vous voyez normalement un message indiquant que vous devez demander un compte de développeur Twitter. N’hésitez pas à le faire et, une fois votre application approuvée, vous devez voir un e-mail de confirmation. L’approbation d’un compte de développeur peut prendre plusieurs jours.
 
-    ![Créer une application Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-twitter-app.png "Créer une application Twitter")
+    ![Confirmation de compte de développeur Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-twitter-dev-confirmation.png "Confirmation de compte de développeur Twitter")
 
 2. Sur la page **Créer une application**, renseignez les informations de la nouvelle application, puis sélectionnez **Créer votre application Twitter**.
 
     ![Détails de l’application de Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details.png "Détails de l’application de Twitter")
 
-3. Sur la page de l’application, sélectionnez l’onglet **Clés et jetons d’accès** et copiez les valeurs de **Clé de consommation** et **Secret de consommation**. Sélectionnez aussi **Créer mon jeton d’accès** pour générer des jetons d’accès. Copiez les valeurs de **Jeton d’accès** et **Secret du jeton d’accès**.
+    ![Détails de l’application de Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-provide-twitter-app-details-create.png "Détails de l’application de Twitter")
+
+3. Dans la page de l’application, sélectionnez l’onglet **Keys and Tokens** (Clés et jetons), et copiez les valeurs de **Consumer API Key** (Clé d’API du consommateur) et **Consumer API Secret Key** (Clé secrète d’API du consommateur). Sélectionnez aussi **Create** (Créer) sous **Access Token and Access Token Secret** (Jeton d’accès et secret du jeton d’accès) pour générer les jetons d’accès. Copiez les valeurs de **Jeton d’accès** et **Secret du jeton d’accès**.
 
     ![Détails de l’application de Twitter](./media/databricks-sentiment-analysis-cognitive-services/twitter-app-key-secret.png "Détails de l’application de Twitter")
 
@@ -127,36 +131,36 @@ Enregistrez les valeurs que vous avez récupérées pour l’application Twitter
 
 ## <a name="attach-libraries-to-spark-cluster"></a>Joindre des bibliothèques au cluster Spark
 
-Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets à Event Hubs. Vous allez aussi utiliser le [connecteur Apache Spark Event Hubs](https://github.com/Azure/azure-event-hubs-spark) pour lire et écrire des données dans Azure Event Hubs. Pour utiliser ces API au sein de votre cluster, ajoutez-les en tant que bibliothèques à Azure Databricks puis associez-les à votre cluster Spark. Les instructions suivantes expliquent comment ajouter la bibliothèque au dossier **Partagé** dans votre espace de travail.
+Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets à Event Hubs. Vous allez aussi utiliser le [connecteur Apache Spark Event Hubs](https://github.com/Azure/azure-event-hubs-spark?WT.mc_id=sparkeventhubs-docs-alehall) pour lire et écrire des données dans Azure Event Hubs. Pour utiliser ces API au sein de votre cluster, ajoutez-les en tant que bibliothèques à Azure Databricks et associez-les à votre cluster Spark. Les instructions suivantes indiquent comment ajouter une bibliothèque.
 
-1. Dans l’espace de travail Azure Databricks, sélectionnez **Espace de travail**, puis cliquez avec le bouton droit sur **Partagé**. Dans le menu contextuel, sélectionnez **Créer** > **Bibliothèque**.
+1. Dans l’espace de travail Azure Databricks, sélectionnez **Clusters**, puis choisissez votre cluster Spark existant. Dans le menu du cluster, choisissez **Bibliothèques**, puis cliquez sur **Installer**.
 
-   ![Boîte de dialogue Ajouter une bibliothèque](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Boîte de dialogue Ajouter une bibliothèque")
+   ![Boîte de dialogue Ajouter une bibliothèque](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-locate-cluster.png "Ajouter une bibliothèque - Localiser le cluster")
 
-2. Sur la page Nouvelle bibliothèque, sélectionnez **Coordonnées Maven** comme **Source**. Pour **Coordonnées**, saisissez les coordonnées du package que vous voulez ajouter. Voici les coordonnées Maven des bibliothèques utilisées dans ce didacticiel :
+   ![Boîte de dialogue Ajouter une bibliothèque](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-install-new.png "Ajouter une bibliothèque - Installer")
 
-   * Connecteur Spark Event Hubs : `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
-   * API Twitter : `org.twitter4j:twitter4j-core:4.0.6`
+2. Dans la page Nouvelle bibliothèque, pour **Source**, sélectionnez **Maven**. Pour **Coordonnées**, cliquez sur **Rechercher des packages** pour le package que vous voulez ajouter. Voici les coordonnées Maven des bibliothèques utilisées dans ce didacticiel :
 
-     ![Renseigner des coordonnées Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Renseigner des coordonnées Maven")
+   * Connecteur Spark Event Hubs : `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * API Twitter : `org.twitter4j:twitter4j-core:4.0.7`
 
-3. Sélectionnez **Créer une bibliothèque**.
+     ![Renseigner des coordonnées Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search.png "Renseigner des coordonnées Maven")
 
-4. Sélectionnez le dossier dans lequel vous avez ajouté la bibliothèque, puis sélectionnez le nom de la bibliothèque.
+     ![Renseigner les coordonnées Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search-dialogue.png "Rechercher des coordonnées Maven")
 
-    ![Sélectionner la bibliothèque à ajouter](./media/databricks-sentiment-analysis-cognitive-services/select-library.png "Sélectionner la bibliothèque à ajouter")
+3. Sélectionnez **Installer**.
 
-5. Sur la page de la bibliothèque, sélectionnez le cluster dans lequel vous voulez utiliser la bibliothèque. Une fois que vous avez associé la bibliothèque au cluster, le statut change immédiatement en **Jointe**.
+4. Dans le menu du cluster, vérifiez que les deux bibliothèques sont installées et attachées correctement.
 
-    ![Joindre une bibliothèque à un cluster](./media/databricks-sentiment-analysis-cognitive-services/databricks-library-attached.png "Joindre une bibliothèque à un cluster")
+    ![Vérifier les bibliothèques](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-check.png "Vérifier les bibliothèques")
 
-6. Répétez ces étapes pour le package Twitter, `twitter4j-core:4.0.6`.
+6. Répétez ces étapes pour le package Twitter, `twitter4j-core:4.0.7`.
 
 ## <a name="get-a-cognitive-services-access-key"></a>Obtenir une clé d’accès Cognitive Services
 
-Dans ce tutoriel, vous allez utiliser les [API Analyse de texte de Microsoft Cognitive Services](../cognitive-services/text-analytics/overview.md) pour exécuter des analyses d'opinions sur un flux de tweets en temps quasi-réel. Avant d'utiliser les API, vous devez créer un compte Microsoft Cognitive Services sur Azure et récupérer une clé d'accès pour utiliser les API Analyse de texte.
+Dans ce tutoriel, vous allez utiliser les [API Analyse de texte d’Azure Cognitive Services](../cognitive-services/text-analytics/overview.md) pour exécuter des analyses d’opinions sur un flux de tweets en temps quasi-réel. Avant d’utiliser les API, vous devez créer un compte Azure Cognitive Services sur Azure et récupérer une clé d’accès pour utiliser les API Analyse de texte.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 2. Sélectionnez **+ Créer une ressource**.
 
@@ -171,10 +175,10 @@ Dans ce tutoriel, vous allez utiliser les [API Analyse de texte de Microsoft Cog
    - Saisissez un nom pour le compte Cognitive Services.
    - Sélectionnez un abonnement sous lequel est créé le compte.
    - Sélectionnez un emplacement Azure.
-   - Sélectionnez un niveau tarifaire pour le service. Pour en savoir plus sur la tarification de Cognitive Services, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/).
+   - Sélectionnez un niveau tarifaire pour le service. Pour en savoir plus sur la tarification de Cognitive Services, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/?WT.mc_id=sparkeventhubs-docs-alehall).
    - Indiquez si vous souhaitez créer un groupe de ressources Azure ou sélectionner un groupe existant.
 
-     Sélectionnez **Créer**.
+     Sélectionnez **Create** (Créer).
 
 5. Une fois le compte créé, sélectionnez **Afficher les clés d'accès** dans l'onglet **Vue d'ensemble**.
 
@@ -203,87 +207,114 @@ Dans cette section, vous allez créer deux notebooks dans l’espace de travail 
 
     ![Créer un notebook dans Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "Créer un notebook dans Databricks")
 
-    Sélectionnez **Créer**.
+    Sélectionnez **Create** (Créer).
 
 3. Répétez les étapes pour créer le notebook **AnalyzeTweetsFromEventHub**.
 
 ## <a name="send-tweets-to-event-hubs"></a>Envoyer des tweets vers Event Hubs
 
-Dans le notebook **SendTweetsToEventHub**, collez le code suivant, et remplacez l'espace réservé par les valeurs de votre espace de noms Event Hubs et de l'application Twitter que vous avez créés précédemment. Ce notebook diffuse les tweets avec le mot-clé « Azure » dans Event Hubs en temps réel.
+Dans le notebook **SendTweetsToEventHub**, collez le code suivant, puis remplacez les espaces réservés par les valeurs de votre espace de noms Event Hubs et de l’application Twitter que vous avez créés précédemment. Ce notebook diffuse les tweets avec le mot-clé « Azure » dans Event Hubs en temps réel.
+
+> [!NOTE]
+> L’API Twitter a certaines restrictions et [quotas](https://developer.twitter.com/en/docs/basics/rate-limiting.html) pour les demandes. Si vous n’êtes pas satisfait de la limitation du débit standard dans l’API Twitter, vous pouvez générer du contenu texte sans utiliser l’API Twitter dans cet exemple. Pour cela, définissez la variable **dataSource** sur `test` au lieu de `twitter` et renseignez la liste **testSource** avec l’entrée de test par défaut.
 
 ```scala
-import java.util._
-import scala.collection.JavaConverters._
-import com.microsoft.azure.eventhubs._
-import java.util.concurrent._
+    import scala.collection.JavaConverters._
+    import com.microsoft.azure.eventhubs._
+    import java.util.concurrent._
+    import scala.collection.immutable._
+    import scala.concurrent.Future
+    import scala.concurrent.ExecutionContext.Implicits.global
 
-val namespaceName = "<EVENT HUBS NAMESPACE>"
-val eventHubName = "<EVENT HUB NAME>"
-val sasKeyName = "<POLICY NAME>"
-val sasKey = "<POLICY KEY>"
-val connStr = new ConnectionStringBuilder()
-            .setNamespaceName(namespaceName)
-            .setEventHubName(eventHubName)
-            .setSasKeyName(sasKeyName)
-            .setSasKey(sasKey)
+    val namespaceName = "<EVENT HUBS NAMESPACE>"
+    val eventHubName = "<EVENT HUB NAME>"
+    val sasKeyName = "<POLICY NAME>"
+    val sasKey = "<POLICY KEY>"
+    val connStr = new ConnectionStringBuilder()
+                .setNamespaceName(namespaceName)
+                .setEventHubName(eventHubName)
+                .setSasKeyName(sasKeyName)
+                .setSasKey(sasKey)
 
-val pool = Executors.newFixedThreadPool(1)
-val eventHubClient = EventHubClient.create(connStr.toString(), pool)
+    val pool = Executors.newScheduledThreadPool(1)
+    val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
-def sendEvent(message: String) = {
-  val messageData = EventData.create(message.getBytes("UTF-8"))
-  eventHubClient.get().send(messageData)
-  System.out.println("Sent event: " + message + "\n")
-}
+    def sleep(time: Long): Unit = Thread.sleep(time)
 
-import twitter4j._
-import twitter4j.TwitterFactory
-import twitter4j.Twitter
-import twitter4j.conf.ConfigurationBuilder
-
-// Twitter configuration!
-// Replace values below with yours
-
-val twitterConsumerKey = "<CONSUMER KEY>"
-val twitterConsumerSecret = "<CONSUMER SECRET>"
-val twitterOauthAccessToken = "<ACCESS TOKEN>"
-val twitterOauthTokenSecret = "<TOKEN SECRET>"
-
-val cb = new ConfigurationBuilder()
-  cb.setDebugEnabled(true)
-  .setOAuthConsumerKey(twitterConsumerKey)
-  .setOAuthConsumerSecret(twitterConsumerSecret)
-  .setOAuthAccessToken(twitterOauthAccessToken)
-  .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
-
-val twitterFactory = new TwitterFactory(cb.build())
-val twitter = twitterFactory.getInstance()
-
-// Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
-
-val query = new Query(" #Azure ")
-query.setCount(100)
-query.lang("en")
-var finished = false
-while (!finished) {
-  val result = twitter.search(query)
-  val statuses = result.getTweets()
-  var lowestStatusId = Long.MaxValue
-  for (status <- statuses.asScala) {
-    if(!status.isRetweet()){
-      sendEvent(status.getText())
+    def sendEvent(message: String, delay: Long) = {
+      sleep(delay)
+      val messageData = EventData.create(message.getBytes("UTF-8"))
+      eventHubClient.get().send(messageData)
+      System.out.println("Sent event: " + message + "\n")
     }
-    lowestStatusId = Math.min(status.getId(), lowestStatusId)
-    Thread.sleep(2000)
-  }
-  query.setMaxId(lowestStatusId - 1)
-}
 
-// Closing connection to the Event Hub
- eventHubClient.get().close()
+    // Add your own values to the list
+    val testSource = List("Azure is the greatest!", "Azure isn't working :(", "Azure is okay.")
+
+    // Specify 'test' if you prefer to not use Twitter API and loop through a list of values you define in `testSource`
+    // Otherwise specify 'twitter'
+    val dataSource = "test"
+
+    if (dataSource == "twitter") {
+
+      import twitter4j._
+      import twitter4j.TwitterFactory
+      import twitter4j.Twitter
+      import twitter4j.conf.ConfigurationBuilder
+
+      // Twitter configuration!
+      // Replace values below with you
+
+      val twitterConsumerKey = "<CONSUMER API KEY>"
+      val twitterConsumerSecret = "<CONSUMER API SECRET>"
+      val twitterOauthAccessToken = "<ACCESS TOKEN>"
+      val twitterOauthTokenSecret = "<TOKEN SECRET>"
+
+      val cb = new ConfigurationBuilder()
+        cb.setDebugEnabled(true)
+        .setOAuthConsumerKey(twitterConsumerKey)
+        .setOAuthConsumerSecret(twitterConsumerSecret)
+        .setOAuthAccessToken(twitterOauthAccessToken)
+        .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
+
+      val twitterFactory = new TwitterFactory(cb.build())
+      val twitter = twitterFactory.getInstance()
+
+      // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
+      val query = new Query(" #Azure ")
+      query.setCount(100)
+      query.lang("en")
+      var finished = false
+      while (!finished) {
+        val result = twitter.search(query)
+        val statuses = result.getTweets()
+        var lowestStatusId = Long.MaxValue
+        for (status <- statuses.asScala) {
+          if(!status.isRetweet()){
+            sendEvent(status.getText(), 5000)
+          }
+          lowestStatusId = Math.min(status.getId(), lowestStatusId)
+        }
+        query.setMaxId(lowestStatusId - 1)
+      }
+
+    } else if (dataSource == "test") {
+      // Loop through the list of test input data
+      while (true) {
+        testSource.foreach {
+          sendEvent(_,5000)
+        }
+      }
+
+    } else {
+      System.out.println("Unsupported Data Source. Set 'dataSource' to \"twitter\" or \"test\"")
+    }
+
+    // Closing connection to the Event Hub
+    eventHubClient.get().close()
 ```
 
-Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez alors une sortie, comme montré dans l’extrait de code suivant. Chaque événement de la sortie représente un tweet ingéré par Event Hubs.
+Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez une sortie identique à l’extrait de code ci-dessous. Chaque événement de la sortie représente un tweet ingéré par Event Hubs contenant le terme « Azure ».
 
     Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
@@ -305,27 +336,36 @@ Appuyez sur **Maj+Entrée** pour exécuter le notebook. Vous verrez alors une so
 Dans le notebook **AnalyzeTweetsFromEventHub**, collez le code suivant, et remplacez l’espace réservé par les valeurs du concentrateur d’événements Azure Event Hubs que vous avez créé précédemment. Ce notebook lit les tweets que vous avez diffusés précédemment dans Event Hubs à l’aide du notebook **SendTweetsToEventHub**.
 
 ```scala
-import org.apache.spark.eventhubs._
 
-// Build connection string with the above information
-val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
-  .setEventHubName("<EVENT HUB NAME>")
-  .build
+    import org.apache.spark.eventhubs._
+    import com.microsoft.azure.eventhubs._
 
-val customEventhubParameters =
-  EventHubsConf(connectionString)
-  .setMaxEventsPerTrigger(5)
+    // Build connection string with the above information
+    val namespaceName = "<EVENT HUBS NAMESPACE>"
+    val eventHubName = "<EVENT HUB NAME>"
+    val sasKeyName = "<POLICY NAME>"
+    val sasKey = "<POLICY KEY>"
+    val connStr = new com.microsoft.azure.eventhubs.ConnectionStringBuilder()
+                .setNamespaceName(namespaceName)
+                .setEventHubName(eventHubName)
+                .setSasKeyName(sasKeyName)
+                .setSasKey(sasKey)
 
-val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
+    val customEventhubParameters =
+      EventHubsConf(connStr.toString())
+      .setMaxEventsPerTrigger(5)
 
-incomingStream.printSchema
+    val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
 
-// Sending the incoming stream into the console.
-// Data comes in batches!
-incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+    incomingStream.printSchema
+
+    // Sending the incoming stream into the console.
+    // Data comes in batches!
+    incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 ```
 
 Vous obtenez la sortie suivante :
+
 
     root
      |-- body: binary (nullable = true)
@@ -354,22 +394,22 @@ Vous obtenez la sortie suivante :
 Étant donné que la sortie est en mode binaire, utilisez l’extrait de code suivant pour la convertir en chaîne.
 
 ```scala
-import org.apache.spark.sql.types._
-import org.apache.spark.sql.functions._
+    import org.apache.spark.sql.types._
+    import org.apache.spark.sql.functions._
 
-// Event Hub message format is JSON and contains "body" field
-// Body is binary, so we cast it to string to see the actual content of the message
-val messages =
-  incomingStream
-  .withColumn("Offset", $"offset".cast(LongType))
-  .withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType))
-  .withColumn("Timestamp", $"enqueuedTime".cast(LongType))
-  .withColumn("Body", $"body".cast(StringType))
-  .select("Offset", "Time (readable)", "Timestamp", "Body")
+    // Event Hub message format is JSON and contains "body" field
+    // Body is binary, so we cast it to string to see the actual content of the message
+    val messages =
+      incomingStream
+      .withColumn("Offset", $"offset".cast(LongType))
+      .withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType))
+      .withColumn("Timestamp", $"enqueuedTime".cast(LongType))
+      .withColumn("Body", $"body".cast(StringType))
+      .select("Offset", "Time (readable)", "Timestamp", "Body")
 
-messages.printSchema
+    messages.printSchema
 
-messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+    messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 ```
 
 La sortie ressemble maintenant à l’extrait de code suivant :
@@ -399,7 +439,7 @@ La sortie ressemble maintenant à l’extrait de code suivant :
     ...
     ...
 
-Vous avez diffusé en continu les données issues d'Azure Event Hubs sur Azure Databricks presque en temps réel à l'aide du connecteur Event Hubs pour Apache Spark. Pour plus d’informations sur la façon d’utiliser le connecteur Event Hubs pour Spark, consultez la [documentation relative au connecteur](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs).
+Vous avez diffusé en continu les données issues d'Azure Event Hubs sur Azure Databricks presque en temps réel à l'aide du connecteur Event Hubs pour Apache Spark. Pour plus d’informations sur la façon d’utiliser le connecteur Event Hubs pour Spark, consultez la [documentation relative au connecteur](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Exécuter des analyses d’opinions sur des tweets
 
@@ -423,7 +463,7 @@ case class RequestToTextApi(documents: Array[RequestToTextApiDocument]) extends 
 case class RequestToTextApiDocument(id: String, text: String, var language: String = "") extends Serializable
 ```
 
-Ajoutez une nouvelle cellule de code et collez l’extrait de code fourni ci-dessous. Cet extrait de code définit un objet qui contient des fonctions pour appeler l’API Analyse de texte à exécuter la détection de langage et l’analyse d’opinions. Veillez à remplacer les espaces réservés, `<PROVIDE ACCESS KEY HERE>` et `<PROVIDE REGION HERE>`, par les valeurs que vous avez récupérées pour votre compte Cognitive Services.
+Ajoutez une nouvelle cellule de code et collez l’extrait de code fourni ci-dessous. Cet extrait de code définit un objet qui contient des fonctions pour appeler l’API Analyse de texte à exécuter la détection de langage et l’analyse d’opinions. Veillez à remplacer l’espace réservé `<PROVIDE ACCESS KEY HERE>` par la valeur que vous avez récupérée pour votre compte Cognitive Services.
 
 ```scala
 import javax.net.ssl.HttpsURLConnection
@@ -437,9 +477,9 @@ object SentimentDetector extends Serializable {
 
     // Cognitive Services API connection settings
     val accessKey = "<PROVIDE ACCESS KEY HERE>"
-    val host = "https://<PROVIDE REGION HERE>.api.cognitive.microsoft.com"
-    val languagesPath = "/text/analytics/v2.0/languages"
-    val sentimentPath = "/text/analytics/v2.0/sentiment"
+    val host = "https://cognitive-docs.cognitiveservices.azure.com/"
+    val languagesPath = "/text/analytics/v2.1/languages"
+    val sentimentPath = "/text/analytics/v2.1/sentiment"
     val languagesUrl = new URL(host+languagesPath)
     val sentimenUrl = new URL(host+sentimentPath)
     val g = new Gson

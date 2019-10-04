@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: b7ace0718ea0fad0b746a40c90acff487ae314d5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 81f2cc32ee10e891ffab127d6ecd7909eb75abd6
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035693"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71177088"
 ---
 # <a name="routing-events-and-messages"></a>Routage des événements et des messages
 
@@ -21,7 +21,7 @@ Les solutions IoT unifient souvent plusieurs services puissants, incluant le sto
 
 ## <a name="route-types"></a>Types de routage  
 
-Azure Digital Twins propose deux façons d’intégrer les événements IoT à d’autres applications métier ou services Azure :
+Azure Digital Twins propose deux façons de relier des événements IoT à d’autres services ou applications métier Azure :
 
 * **Routage des événements Azure Digital Twins** : Un changement d’objet du graphe spatial, la réception de données de télémétrie ou une notification basée sur des conditions prédéfinies créée par une fonction définie par l’utilisateur peut déclencher des événements Azure Digital Twins. Les utilisateurs peuvent envoyer ces événements à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), à des [rubriques Azure Service Bus](https://azure.microsoft.com/services/service-bus/) ou à [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) pour les traiter ultérieurement.
 
@@ -29,7 +29,7 @@ Azure Digital Twins propose deux façons d’intégrer les événements IoT à d
 
 Les utilisateurs peuvent spécifier un ou plusieurs points de sortie pour envoyer des événements ou transférer des messages. Les événements et les messages sont envoyés aux points de terminaison en fonction de ces préférences de routage prédéfinies. En d’autres termes, les utilisateurs peuvent spécifier un point de terminaison pour la réception des événements d’opération de graphe, un autre pour la réception des événements de télémétrie d’appareil, et ainsi de suite.
 
-![Routage des événements Azure Digital Twins][1]
+[![Routage des événements Azure Digital Twins](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
 Le routage vers Event Hubs conserve l’ordre dans lequel les messages de télémétrie sont envoyés. Ainsi, ces derniers arrivent au point de terminaison dans l’ordre dans lequel ils ont été initialement reçus. Event Grid et Service Bus ne garantissent pas que les points de terminaison recevront les événements dans l’ordre dans lequel ils se sont produits. Toutefois, le schéma d’événement comprend un horodatage que vous pouvez utiliser pour identifier l’ordre une fois les événements arrivés au point de terminaison.
 
@@ -67,6 +67,3 @@ Azure Digital Twins prend en charge les types d’événement (**EventTypes**) s
 - Pour en savoir plus sur les limites de la préversion publique d’Azure Digital Twins, consultez [Limites de service de la préversion publique](concepts-service-limits.md).
 
 - Pour tester un exemple Azure Digital Twins, consultez [Démarrage rapide : Rechercher des salles disponibles](quickstart-view-occupancy-dotnet.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-events-routing.png

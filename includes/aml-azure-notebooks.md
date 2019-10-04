@@ -9,14 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: d90034e3de77f67ec3a74123c9655fda95b113fe
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b53d3d6ad5471cfe4ce105a3aace3bc55390a610
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302189"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843195"
 ---
-1. Suivez le [Guide de démarrage rapide du portail Azure Machine Learning](../articles/machine-learning/service/quickstart-get-started.md) pour créer un espace de travail et lancer Azure Notebooks. Si vous le souhaitez, vous pouvez ignorer la section **Utiliser le bloc-notes**.
-1. Si vous avez déjà effectué le [démarrage rapide](../articles/machine-learning/service/quickstart-get-started.md), reconnectez-vous à [Azure Notebooks](https://notebooks.azure.com/) et ouvrez le projet de **prise en main**.  
-1. N’oubliez pas démarrer le projet s’il a l’état Arrêté.
-    ![Démarrer le projet](./media/aml-azure-notebooks/start-project.png)
+* Suivre le [Tutoriel : Configurer l’environnement et l’espace de travail](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md) pour créer un espace de travail et lancer la page web du notebook. 
+

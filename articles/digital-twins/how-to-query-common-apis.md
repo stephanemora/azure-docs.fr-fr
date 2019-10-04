@@ -1,19 +1,19 @@
 ---
 title: Modèles de requête courants Azure Digital Twins | Microsoft Docs
 description: Découvrez les modèles courants permettant d’interroger les API de gestion Azure Digital Twins.
-author: dsk-2015
+author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
-ms.author: dkshir
-ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 08/29/2019
+ms.author: v-adgera
+ms.openlocfilehash: 55b0676ce0a0dc6d4347ddcadf43b7b650f0f9a1
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198641"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172808"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Guide pratique pour interroger les API Azure Digital Twins pour les tâches courantes
 
@@ -238,4 +238,4 @@ Cette section présente quelques exemples de requêtes d’API pour la gestion d
 
 Pour savoir comment vous authentifier auprès de votre API de gestion, consultez [Authentification auprès des API](./security-authenticating-apis.md).
 
-Pour voir tous les points de terminaison d’API, consultez [Guide pratique pour utiliser Digital Twins Swagger](./how-to-use-swagger.md).
+Pour en savoir plus sur vos points de terminaison d’API, consultez [Comment utiliser Digital Twins Swagger](./how-to-use-swagger.md).

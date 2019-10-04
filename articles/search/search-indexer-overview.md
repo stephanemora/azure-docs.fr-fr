@@ -2,36 +2,34 @@
 title: Indexeurs pour l’analyse des sources de données lors de l’indexation - Recherche Azure
 description: Analysez une base de données Azure SQL, Cosmos DB ou le stockage Azure pour extraire les données pouvant faire l’objet d’une recherche et remplir un index Recherche Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/02/2019
+ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: b485b6b7f6ddbdb45d3ca6170c29a9af3c5b63dc
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: e50d88181a27dcc46da858f220404eb09ad9b4bd
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407984"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70308966"
 ---
 # <a name="indexers-in-azure-search"></a>Indexeurs dans Azure Search
 
-Dans Azure Search, un *indexeur* est un analyseur qui extrait les données et métadonnées pouvant faire l’objet d’une recherche d’une source de données Azure externe et renseigne un index en fonction des mappages champ à champ entre l’index et votre source de données. Cette approche est parfois appelée un modèle d’extraction, car le service extrait des données sans avoir à écrire du code qui ajoute des données à un index.
+Dans Azure Search, un *indexeur* est un analyseur qui extrait les données et métadonnées pouvant faire l’objet d’une recherche d’une source de données Azure externe et renseigne un index en fonction des mappages champ à champ entre l’index et votre source de données. Cette approche est parfois appelée « modèle d’extraction », car le service extrait des données sans que vous ayez à écrire un code qui ajoute des données à un index.
 
-Les indexeurs sont basées sur les plateformes, avec des indexeurs individuels pour SQL Server sur Azure, Cosmos DB, stockage Table Azure et stockage d’objets Blob ou les types de sources de données. Indexeurs de stockage d’objets BLOB ont des propriétés supplémentaires spécifiques aux types de contenu d’objet blob.
+Les indexeurs sont basés sur des types de sources de données ou des plateformes, avec des indexeurs individuels pour SQL Server sur Azure, Cosmos DB, Stockage Table Azure et Stockage Blob. Les indexeurs de stockage d’objets blob ont des propriétés supplémentaires spécifiques aux types de contenu d’objet blob.
 
 Vous pouvez utiliser un indexeur comme seul moyen d’ingestion des données ou utiliser une combinaison de techniques qui incluent l’utilisation d’un indexeur pour charger uniquement certains champs dans l’index.
 
-Vous pouvez exécuter des indexeurs à la demande ou en fonction d’une planification d’actualisation des données périodique qui s’exécute jusqu’à une fois toutes les quinze minutes. Des mises à jour plus fréquentes requièrent un modèle d’émission qui met à jour simultanément les données dans Azure Search et dans votre source de données externe.
+Vous pouvez exécuter des indexeurs à la demande ou en fonction d’une planification d’actualisation des données périodique qui s’exécute jusqu’à une fois toutes les cinq minutes. Des mises à jour plus fréquentes requièrent un modèle d’émission qui met à jour simultanément les données dans Azure Search et dans votre source de données externe.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Méthodes de création et de gestion des indexeurs
 
 Vous pouvez créer et gérer des indexeurs en suivant l’une de ces approches :
 
-* [Portail > Assistant Importation de données](search-import-data-portal.md)
+* [Portail > Assistant Importer des données](search-import-data-portal.md)
 * [API REST du service](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations)
 
@@ -39,7 +37,7 @@ Au départ, un nouvel indexeur est annoncé comme une fonctionnalité d’aperç
 
 ## <a name="permissions"></a>Autorisations
 
-Toutes les opérations liées aux indexeurs, y compris les demandes GET pour l’état ou des définitions, nécessitent un [clé api admin](search-security-api-keys.md). 
+Toutes les opérations liées aux indexeurs, notamment les requêtes GET d’état ou de définitions, nécessitent une [admin api-key](search-security-api-keys.md). 
 
 <a name="supported-data-sources"></a>
 
@@ -50,51 +48,47 @@ Les indexeurs analysent les magasins de données sur Azure.
 * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
-* [Stockage de tables Azure](search-howto-indexing-azure-tables.md) 
-
-> [!Note]
-> Stockage Table Azure n’est pas pris en charge pour [recherche cognitive](cognitive-search-concept-intro.md).
->
+* [Stockage de tables Azure](search-howto-indexing-azure-tables.md)
 
 ## <a name="basic-configuration-steps"></a>Étapes de configuration de base
 Les indexeurs peuvent offrir des fonctionnalités propres à la source de données. À cet égard, certains aspects de la configuration de l’indexeur ou de la source de données varient en fonction du type d’indexeur. Cependant, tous les indexeurs présentent une composition et des exigences de base identiques. Les étapes communes à tous les indexeurs sont décrites ci-dessous.
 
 ### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
-Un indexeur obtient la connexion de source de données à partir d’un *source de données* objet. La définition de source de données fournit une chaîne de connexion et éventuellement les informations d’identification. Appelez l’API REST de [création de source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source) ou la [classe DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) pour créer la ressource.
+Un indexeur obtient une connexion de source de données à partir d’un objet *source de données*. La définition de source de données fournit une chaîne de connexion et éventuellement des informations d’identification. Appelez l’API REST de [création de source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source) ou la [classe DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) pour créer la ressource.
 
 Les sources de données sont configurées et gérées indépendamment des indexeurs qui les utilisent. Autrement dit, une source de données peut être utilisée par plusieurs indexeurs pour charger plusieurs index à la fois.
 
 ### <a name="step-2-create-an-index"></a>Étape 2 : Création d'un index
-Un indexeur automatise certaines tâches liées à l’ingestion des données, mais la création d’un index n’en fait généralement pas partie. Au préalable, vous devez disposer d’un index prédéfini présentant des champs qui correspondent à ceux de votre source de données externe. Champs doivent correspondre par nom et type de données. Pour plus d’informations sur la structuration d’un index, consultez l’article [Create an Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index)(Création d’un index (API REST Azure Search)) ou [Index class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index) (Classe Index). Pour plus d’informations sur les associations de champ, consultez [Mappages de champs dans les indexeurs de Recherche Azure](search-indexer-field-mappings.md).
+Un indexeur automatise certaines tâches liées à l’ingestion des données, mais la création d’un index n’en fait généralement pas partie. Au préalable, vous devez disposer d’un index prédéfini présentant des champs qui correspondent à ceux de votre source de données externe. Les champs doivent correspondre par nom et type de données. Pour plus d’informations sur la structuration d’un index, consultez l’article [Create an Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Index)(Création d’un index (API REST Azure Search)) ou [Index class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index) (Classe Index). Pour plus d’informations sur les associations de champ, consultez [Mappages de champs dans les indexeurs de Recherche Azure](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Bien que les indexeurs ne puissent pas générer d’index pour vous, l’Assistant **Importation des données** du portail peut vous aider. Dans la plupart des cas, l’Assistant peut déduire un schéma d’index à partir des métadonnées existantes dans la source, en présentant un schéma d’index préliminaire que vous pouvez modifier en ligne pendant que l’Assistant est actif. Une fois que l’index est créé sur le service, les modifications supplémentaires dans le portail sont principalement limitées à l’ajout de nouveaux champs. Pensez à utiliser l’Assistant pour créer un index (mais pas pour le réviser). Pour mettre vos connaissances en pratique, parcourez la [procédure pas à pas dans le portail](search-get-started-portal.md).
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Étape 3 : Créer et planifier l’indexeur
-La définition de l’indexeur est une construction qui rassemble tous les éléments liés à l’ingestion de données. Éléments requis incluent une source de données et les index. Éléments facultatifs incluent des mappages de planification et de champ. Mappage de champ sont uniquement facultatifs si les champs sources et les champs d’index correspondent clairement. Un indexeur peut faire référence à une source de données d’un autre service, à condition que celle-ci appartienne au même abonnement. Pour plus d’informations sur la structuration d’un indexeur, consultez l’article [Create Indexer (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)(Création d’un indexeur (API REST Azure Search)).
+La définition de l’indexeur est une construction qui rassemble tous les éléments liés à l’ingestion des données. Les éléments obligatoires incluent une source de données et un index. Les éléments facultatifs incluent une planification et des mappages de champs. Le mappage de champs n’est facultatif que si les champs source et les champs d’index correspondent parfaitement. Un indexeur peut faire référence à une source de données d’un autre service, à condition que celle-ci appartienne au même abonnement. Pour plus d’informations sur la structuration d’un indexeur, consultez l’article [Create Indexer (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)(Création d’un indexeur (API REST Azure Search)).
 
 <a id="RunIndexer"></a>
 
 ## <a name="run-indexers-on-demand"></a>Exécuter des indexeurs à la demande
 
-S’il est courant pour planifier l’indexation, un indexeur peut également être appelé à la demande à l’aide du [exécuter la commande](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
+Bien qu’il soit courant de planifier l’indexation, un indexeur peut également être appelé à la demande à l’aide de la [commande Exécuter](https://docs.microsoft.com/rest/api/searchservice/run-indexer) :
 
-    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2019-05-06
     api-key: [Search service admin key]
 
 > [!NOTE]
 > Lors de l’API s’exécute avec succès, l’appel de l’indexeur a été planifié, mais le traitement réel se produit de façon asynchrone. 
 
-Vous pouvez surveiller l’état de l’indexeur dans le portail ou via l’API Get Indexer Status. 
+Vous pouvez surveiller l’état de l’indexeur dans le portail ou à l’aide de l’API Get Indexer Status. 
 
 <a name="GetIndexerStatus"></a>
 
-## <a name="get-indexer-status"></a>Obtenir l’état de l’indexeur
+## <a name="get-indexer-status"></a>Get indexer status
 
-Vous pouvez récupérer l’historique d’état et d’exécution d’un indexeur via le [les commandes Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+Vous pouvez récupérer l’état et l’historique d’exécution d’un indexeur à l’aide de la [commande Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) :
 
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
     api-key: [Search service admin key]
 
 La réponse contient l'état d'intégrité global de l'indexeur, le dernier appel de l'indexeur (ou celui en cours), ainsi que l'historique des appels récents de l'indexeur.
@@ -130,7 +124,7 @@ L'historique d'exécution contient les 50 exécutions les plus récentes, class
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez la structure de base, l’étape suivante consiste à passer en revue les exigences et les tâches propres à chaque type de source de données.
 
-* [Base de données SQL Azure ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [Azure SQL Database ou SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
 * [Stockage de tables Azure](search-howto-indexing-azure-tables.md)

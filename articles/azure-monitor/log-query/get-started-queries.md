@@ -11,26 +11,28 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 6eb066e04cfa561a4fa443b8c8f9582e286a4d7b
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871636"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076756"
 ---
-# <a name="get-started-with-azure-monitor-log-queries"></a>Bien démarrer avec les requêtes de journal Azure Monitor
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Bien démarrer avec les requêtes de journal dans Azure Monitor
 
 
 > [!NOTE]
-> Vous devez effectuer [prise en main Azure Monitor Log Analytique](get-started-portal.md) avant la fin de ce didacticiel.
+> Vous devez terminer [Bien démarrer avec l’analytique des journaux d’activité Azure Monitor](get-started-portal.md) avant de suivre ce tutoriel.
 
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+> [!NOTE]
+> Vous pouvez effectuer cet exercice dans votre propre environnement si vous collectez des données à partir d’au moins une machine virtuelle. Si ce n’est pas le cas, utilisez notre [environnement de démonstration](https://portal.loganalytics.io/demo), qui comporte de nombreux exemples de données.
 
-Dans ce didacticiel, vous allez apprendre à écrire des requêtes de journal Azure Monitor. Au terme du tutoriel, vous saurez :
 
-- Comprendre la structure des requêtes
+Dans ce didacticiel, vous allez apprendre à écrire des requêtes de journal dans Azure Monitor. Au terme du tutoriel, vous saurez :
+
+- Comprendre la structure d’une requête
 - Trier les résultats d’une requête
 - Filtrer les résultats d’une requête
 - Spécifier un intervalle de temps
@@ -38,6 +40,8 @@ Dans ce didacticiel, vous allez apprendre à écrire des requêtes de journal Az
 - Définir et utiliser des champs personnalisés
 - Agréger et regrouper des résultats
 
+Pour obtenir un didacticiel sur l’utilisation de Log Analytics dans le portail Azure, consultez [Bien démarrer avec Azure Monitor Log Analytics](get-started-portal.md).<br>
+Pour plus d’informations sur les requêtes de journal dans Azure Monitor, consultez [Vue d’ensemble des requêtes de journal dans Azure Monitor](log-query-overview.md).
 
 ## <a name="writing-a-new-query"></a>Écriture d’une nouvelle requête
 Les requêtes peuvent commencer par un nom de table ou la commande *search*. Vous devez commencer par un nom de table, dans la mesure où il définit une étendue précise pour la requête et améliore les performances de la requête et la pertinence des résultats.
@@ -71,8 +75,8 @@ search in (SecurityEvent) "Cryptographic"
 
 Cette requête recherche dans la table *SecurityEvent* les enregistrements qui contiennent l’expression « Cryptographic ». De ces enregistrements, dix sont retournés et affichés. Si nous omettons la partie `in (SecurityEvent)` et exécutons simplement `search "Cryptographic"`, la recherche parcourt *toutes* les tables, opération qui peut prendre plus de temps et être moins efficace.
 
-> [!NOTE]
-> Par défaut, un intervalle de temps couvrant les _dernières 24 heures_ est défini. Pour utiliser un autre intervalle, utilisez le sélecteur d’heure (situé en regard du bouton *OK*) ou ajoutez un filtre d’intervalle de temps explicite à votre requête.
+> [!WARNING]
+> Les requêtes de recherche sont généralement plus lentes que les requêtes basées sur une table car elles doivent traiter plus de données. 
 
 ## <a name="sort-and-top"></a>Sort et top
 Bien que **take** soit utile pour obtenir quelques enregistrements, les résultats ne sont pas sélectionnés et affichés dans un ordre particulier. Pour obtenir un affichage ordonné, vous pourriez **trier** (sort) en fonction de la colonne par défaut :
@@ -179,12 +183,12 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** conserve toutes les colonnes d’origine dans le jeu de résultats et en définit de nouvelles. La requête suivante utilise **extend** pour ajouter une colonne *localtime* qui contient une valeur TimeGenerated localisée.
+**extend** conserve toutes les colonnes d’origine dans le jeu de résultats et en définit de nouvelles. La requête suivante utilise **extend** pour ajouter la colonne *EventCode*. Notez que cette colonne peut ne pas s’afficher à la fin des résultats de la table, auquel cas vous devrez développer les détails d’un enregistrement pour l’afficher.
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend EventCode=substring(Activity, 0, 4)
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Summarize : agréger des groupes de lignes

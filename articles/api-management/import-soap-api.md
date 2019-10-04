@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 108758751b7c8ef5906cb55495a2604f918b2714
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 22b7b79426829b57f15263f7792dca6596c6641f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488912"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073242"
 ---
 # <a name="import-soap-api"></a>Importer une API SOAP
 
@@ -33,7 +32,7 @@ Dans cet article, vous apprendrez comment :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
+Effectuez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -49,7 +48,7 @@ Suivez le guide de démarrage rapide suivant : [Créer une instance du service G
     ![Requête directe](./media/import-soap-api/pass-through.png)
 5. Appuyez sur la touche de tabulation.
 
-    Les champs suivants sont automatiquement remplis avec les informations de l’API SOAP : Nom complet, Nom, Description.
+    Les champs suivants sont automatiquement remplis avec les informations de l’interface de programmation d’applications SOAP : Nom d’affichage, nom et description.
 6. Ajoutez un suffixe d’URL d’API. Le suffixe est un nom qui identifie cette API spécifique dans cette instance APIM. Il doit être unique dans cette instance APIM.
 9. Publiez l’API en l’associant à un produit. Dans ce cas, le produit « *Illimité* » est utilisé.  Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.
 
@@ -59,7 +58,7 @@ Suivez le guide de démarrage rapide suivant : [Créer une instance du service G
 
     * **Starter**
     * **Illimité**   
-10. Sélectionnez **Créer**.
+10. Sélectionnez **Create** (Créer).
 
 ### <a name="test-the-new-apim-api-in-the-administrative-portal"></a>Tester la nouvelle API APIM dans le portail d’administration
 

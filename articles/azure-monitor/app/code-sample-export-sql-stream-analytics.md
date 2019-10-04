@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: eecd2a50607fa42562a9ae6a7fb950a253655a45
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65872704"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
-Cet article explique comment déplacer vos données de télémétrie à partir d’[Azure Application Insights][start] vers une base de données SQL Azure à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+Cet article explique comment déplacer vos données de télémétrie à partir d’[Azure Application Insights][start] vers une base de données Azure SQL à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 L’exportation continue déplace vos données de télémétrie vers le stockage Azure au format JSON. Nous analyserons les objets JSON à l’aide d’Azure Stream Analytics et créerons des lignes dans une table de base de données.
 
@@ -81,7 +81,7 @@ Comme l’exportation continue génère toujours des données vers un compte de 
 
 Les événements sont écrits dans des fichiers blob au format JSON. Chaque fichier peut contenir un ou plusieurs événements. Donc, nous devons lire les données d’événement et filtrer les champs voulus. Nous pourrions effectuer toutes sortes d’opérations avec les données, mais notre objectif aujourd’hui est d’utiliser Stream Analytics pour déplacer les données vers une base de données SQL. Cette action va simplifier l’exécution d’un grand nombre de requêtes intéressantes.
 
-## <a name="create-an-azure-sql-database"></a>Création d’une base de données SQL Azure
+## <a name="create-an-azure-sql-database"></a>Création d’une base de données Azure SQL
 Là encore, à partir de votre abonnement dans le [portail Azure][portal], créez la base de données (et un serveur si ce n’est déjà fait) dans laquelle vous allez écrire les données.
 
 ![Nouveau, Données, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
@@ -179,10 +179,10 @@ Pour obtenir le nom et l’iKey de votre ressource Application Insights, ouvrez 
 
 > [!TIP]
 > Utilisez l’exemple de fonction pour vérifier que vous avez correctement défini le chemin d’accès d’entrée. En cas d’échec, vérifiez qu’il y a des données dans le stockage pour l’exemple de période que vous avez choisi. Modifiez la définition de l’entrée et vérifiez que vous avez correctement défini le compte de stockage, le préfixe de chemin d’accès et le format de date.
-> 
-> 
-> ## <a name="set-query"></a>Définition d’une requête
-> Ouvrez la section de la requête :
+
+ 
+## <a name="set-query"></a>Définition d’une requête
+Ouvrez la section de la requête :
 
 Remplacez la requête par défaut par :
 

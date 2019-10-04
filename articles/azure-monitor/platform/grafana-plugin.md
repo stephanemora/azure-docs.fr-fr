@@ -9,24 +9,22 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b9a9d0a16a31d06d0d4edc1b6f0617a5771b179e
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850674"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69872839"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Surveiller vos services Azure dans Grafana
 Maintenant, vous pouvez superviser les services et applications Azure à partir de [Grafana](https://grafana.com/) en utilisant le [plug-in Azure Monitor de source de données](https://grafana.com/plugins/grafana-azure-monitor-datasource). Le plug-in rassemble des données de performance d’application collectées par Azure Monitor, y compris divers journaux d’activité et métriques. Vous pouvez ensuite afficher ces données dans votre tableau de bord Grafana.
-
-Le plug-in est actuellement en préversion.
 
 Utilisez les étapes suivantes pour configurer un serveur Grafana et générer des tableaux de bord pour les métriques et les journaux d’activité depuis Azure Monitor.
 
 ## <a name="set-up-a-grafana-server"></a>Configurer un serveur Grafana
 
 ### <a name="set-up-grafana-locally"></a>Configurer Grafana localement
-Pour configurer un serveur Grafana local, [téléchargez et installez Grafana dans votre environnement local](https://grafana.com/grafana/download). Pour utiliser l’intégration du plug-in Azure Monitor, installer Grafana version 5.3 ou version ultérieure.
+Pour configurer un serveur Grafana local, [téléchargez et installez Grafana dans votre environnement local](https://grafana.com/grafana/download). Pour utiliser l’intégration Azure Monitor du plug-in, installez Grafana version 5.3 ou ultérieure.
 
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Configurer Grafana sur Azure par l’intermédiaire de la Place de marché Azure
 1. Accédez à la Place de marché Azure et choisissez Grafana, de Grafana Labs.
@@ -53,7 +51,7 @@ Pour configurer un serveur Grafana local, [téléchargez et installez Grafana da
 
     ![Écran de connexion Grafana](./media/grafana-plugin/grafana-login-screen.png)
 
-2. Connectez-vous avec le nom d’utilisateur *administrateur* et le mot de passe administrateur de serveur Grafana que vous avez créée. Si vous utilisez une configuration locale, le mot de passe par défaut doit être *administrateur* ; il vous est demandé de le changer lors de votre première connexion.
+2. Connectez-vous avec le nom d’utilisateur *admin* et le mot de passe d’administrateur du serveur Grafana que vous avez créé précédemment. Si vous utilisez une configuration locale, le mot de passe par défaut doit être *administrateur* ; il vous est demandé de le changer lors de votre première connexion.
 
 ## <a name="configure-data-source-plugin"></a>Configurer le plug-in de source de données
 
@@ -71,7 +69,7 @@ Lorsque vous êtes correctement connecté, vous devez voir que le plug-in Azure 
     L’API Log Analytics a besoin du [rôle Lecteur Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) qui inclut les autorisations du rôle de lecteur et les lui ajoute.
 
 4. Fournissez les informations de connexion aux API que vous souhaitez utiliser. Vous pouvez vous connecter à l’intégralité de ces API ou à certaines d’entre elles. 
-    * Si vous vous connectez à des métriques et journaux dans Azure Monitor, vous pouvez réutiliser les mêmes informations d’identification en sélectionnant **mêmes détails comme les API Azure Monitor**.
+    * Si vous vous connectez aux métriques et aux journaux dans Azure Monitor, vous pouvez réutiliser les mêmes informations d’identification en sélectionnant **Same details as Azure Monitor API (Mêmes détails que l’API Azure Monitor)** .
     * Lors de la configuration du plug-in, vous pouvez indiquer quel cloud Azure vous souhaitez que le plug-in supervise (Public, Azure - US Government, Azure - Allemagne ou Azure - Chine).
     * Si vous utilisez Application Insights, vous pouvez également inclure votre API Application Insights et l’ID de l’application pour collecter les métriques se rapportant à Application Insights. Pour plus d’informations, consultez [Récupération de votre clé API et de votre ID d’application](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
@@ -98,12 +96,12 @@ Lorsque vous êtes correctement connecté, vous devez voir que le plug-in Azure 
 4. Sélectionnez la source de données Azure Monitor que vous avez configurée.
    * Collecte des métriques Azure Monitor - Sélectionnez **Azure Monitor** dans la liste déroulante du service. Une liste de sélecteurs s’affiche, dans laquelle vous pouvez sélectionner les ressources et le métrique à superviser dans ce graphe. Pour collecter les métriques à partir d’une machine virtuelle, utilisez l’espace de noms **Microsoft.Compute/VirtualMachines**. Après avoir sélectionné les machines virtuelles et les métriques, vous pouvez commencer à voir leurs données s’afficher dans le tableau de bord.
      ![Grafana - Configuration du graphe pour Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-   * Azure Monitor collecte des données du journal - sélectionner **Analytique de journal Azure** dans la liste déroulante de service. Sélectionnez l’espace de travail que vous souhaitez interroger et définissez le texte de la requête. Vous pouvez copier ici n’importe quelle requête de journal, vous avez déjà ou que vous créez un nouveau. Au fur et à mesure que vous tapez votre requête, IntelliSense apparaît en suggérant des options de saisie semi-automatique. Sélectionnez le type de visualisation, **Time series** (Série chronologique) **Table** (Tableau), et exécutez la requête.
+   * Collecte des données de journal Azure Monitor - Sélectionnez **Azure Log Analytics** dans la liste déroulante du service. Sélectionnez l’espace de travail que vous souhaitez interroger et définissez le texte de la requête. Vous pouvez copier ici n’importe quelle requête de journal que vous avez déjà, ou en créer une nouvelle. Au fur et à mesure que vous tapez votre requête, IntelliSense apparaît en suggérant des options de saisie semi-automatique. Sélectionnez le type de visualisation, **Time series** (Série chronologique) **Table** (Tableau), et exécutez la requête.
     
      > [!NOTE]
      >
      > La requête par défaut fournie avec le plug-in utilise deux macros : "$__timeFilter() et $__interval. 
-     > Lorsque vous effectuez un zoom sur une partie d’un graphe, ces macros permettent à Grafana de calculer dynamiquement la plage de temps et le fragment de temps. Vous pouvez supprimer ces macros et utiliser un filtre d’heure standard, tel que *TimeGenerated > ago(1h)*, mais cela signifie que le graphe ne prend plus en charge la fonctionnalité de zoom.
+     > Lorsque vous effectuez un zoom sur une partie d’un graphe, ces macros permettent à Grafana de calculer dynamiquement la plage de temps et le fragment de temps. Vous pouvez supprimer ces macros et utiliser un filtre d’heure standard, tel que *TimeGenerated > ago(1h)* , mais cela signifie que le graphe ne prend plus en charge la fonctionnalité de zoom.
     
      ![Grafana - Configuration du graphe pour Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
@@ -120,9 +118,7 @@ Vous pouvez également réutiliser cette configuration pour inclure des métriqu
 Voici des articles de référence sur l’utilisation de Telegraf, InfluxDB, Prometheus et Docker
  - [Guide pratique pour surveiller les métriques système avec TICK Stack sur Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
 
- - [Surveiller les métriques de ressources Docker avec Grafana, InfluxDB et Telegraf](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
-
- - [Une solution de surveillance pour les hôtes, conteneurs et services en conteneur Docker](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
+ - [Une solution de supervision pour les hôtes, conteneurs et services en conteneur Docker](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 Voici l’image d’un tableau de bord Grafana complet qui comporte des métriques provenant d’Azure Monitor et d’Application Insights.
 ![Exemple de métriques de Grafana](media/grafana-plugin/grafana8.png)

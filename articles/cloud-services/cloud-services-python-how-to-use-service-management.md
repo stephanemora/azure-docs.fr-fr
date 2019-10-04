@@ -14,18 +14,18 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 573c6d3ded8fea58e0c9ba1afa7da2d8dd0fce91
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 50501413a63921a9a34be1c04ed259990922b686
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531831"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70141468"
 ---
 # <a name="use-service-management-from-python"></a>Utiliser la gestion des services de Python
-Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](https://github.com/Azure/azure-sdk-for-python) prend en charge l’accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail Azure][management-portal]. Vous pouvez utiliser cette fonctionnalité pour créer, mettre à jour et supprimer des services cloud, des déploiements, des services de gestion de données et des machines virtuelles. Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
+Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](https://github.com/Azure/azure-sdk-for-python) prend en charge l’accès par programmation à une grande partie des fonctionnalités liées au management des services disponibles dans le [portail Azure][management-portal]. Vous pouvez utiliser cette fonctionnalité pour créer, mettre à jour et supprimer des services cloud, des déploiements, des services de gestion de données et des machines virtuelles. Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
 
 ## <a name="WhatIs"> </a>Qu’est-ce que la gestion des services ?
-L’API Gestion des services Azure fournit un accès par programme aux fonctionnalités de gestion des services disponibles par le biais du [portail Azure][management-portal]. Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour Python pour gérer vos services cloud et comptes de stockage.
+L’API Gestion des services Azure fournit un accès par programmation aux fonctionnalités de management des services disponibles par le biais du [portail Azure][management-portal]. Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour Python pour gérer vos services cloud et comptes de stockage.
 
 Pour utiliser l'API de gestion des services, vous devez [créer un compte Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -33,7 +33,7 @@ Pour utiliser l'API de gestion des services, vous devez [créer un compte Azure]
 Le Kit de développement logiciel (SDK) Azure pour Python inclut l’[API Gestion des services][svc-mgmt-rest-api], qui est une API REST. Toutes les opérations de l’API sont effectuées au moyen du protocole SSL et sont mutuellement authentifiées au moyen de certificats X.509 v3. Le service de gestion est accessible à partir d’un service s’exécutant dans Azure. Il est également accessible directement via Internet à partir de toute application capable d’envoyer une demande HTTPS et de recevoir une réponse HTTPS.
 
 ## <a name="Installation"></a>Installation
-Toutes les fonctionnalités décrites dans cet article sont disponibles dans le package `azure-servicemanagement-legacy` que vous pouvez installer à l’aide de pip. Pour plus d’informations sur l’installation (par exemple si vous ne connaissez pas Python), voir [Installation de Python et du SDK Azure](../python-how-to-install.md).
+Toutes les fonctionnalités décrites dans cet article sont disponibles dans le package `azure-servicemanagement-legacy` que vous pouvez installer à l’aide de pip. Pour plus d’informations sur l’installation (par exemple si vous ne connaissez pas Python), voir [Installation de Python et du SDK Azure](/azure/python/python-sdk-azure-install).
 
 ## <a name="Connect"> </a>Se connecter à la gestion du service
 Pour vous connecter au point de terminaison de gestion du service, vous avez besoin de votre ID d’abonnement Azure et d’un certificat de gestion valide. Vous pouvez obtenir votre ID d’abonnement dans le [portail Azure][management-portal].
@@ -108,18 +108,18 @@ Quand vous créez un service cloud ou un service de stockage, vous devez fournir
 * Asie Sud-Est
 * Asie Est
 * USA Centre
-* USA Centre Nord
-* USA Centre Sud
+* Centre-Nord des États-Unis
+* États-Unis - partie centrale méridionale
 * USA Ouest
 * USA Est
 * Japon Est
-* Japon Ouest
+* OuJapon Est
 * Brésil Sud
 * Australie Est
-* Australie Sud-Est
+* Sud-Australie Est
 
 ## <a name="CreateCloudService"> </a>Créer un service cloud
-Lorsque vous créez une application et l’exécutez dans Azure, l’ensemble formé par le code et la configuration dans Azure est appelé [service cloud][cloud service]. (on l’appelle également *service hébergé* dans les versions antérieures d’Azure). Vous pouvez utiliser la méthode **create\_hosted\_service** pour créer un service hébergé. Créez le service en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement.
+Quand vous créez une application et l’exécutez dans Azure, l’ensemble formé par le code et la configuration dans Azure est appelé [service cloud][cloud service]. (on l’appelle également *service hébergé* dans les versions antérieures d’Azure). Vous pouvez utiliser la méthode **create\_hosted\_service** pour créer un service hébergé. Créez le service en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement.
 
     from azure import *
     from azure.servicemanagement import *

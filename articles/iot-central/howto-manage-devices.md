@@ -3,19 +3,21 @@ title: Gérer les appareils dans votre application Azure IoT Central | Microsoft
 description: En tant qu’opérateur, apprenez à gérer des appareils dans votre application Azure IoT Central.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/30/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 364bd4dd0781c5fd74d0e4bdbfe3b4372a3d3ca0
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679030"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69876011"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Cet article explique comment gérer, en tant qu’opérateur, des appareils dans une application Azure IoT Central. En tant qu’opérateur, vous pouvez :
 
@@ -66,7 +68,7 @@ Pour l’inscription en masse d’appareils :
 
 1. Sélectionnez **Importer**.
 
-    ![Action d’importation](./media/howto-manage-devices/BulkImport1.png)
+    ![Action d’importation](./media/howto-manage-devices/bulkimport1a.png)
 
 1. Sélectionnez le fichier CSV contenant la liste des ID d’appareil à importer.
 
@@ -74,7 +76,7 @@ Pour l’inscription en masse d’appareils :
 
 1. Une fois l’importation terminée, un message de réussite s’affiche sur la grille de l’appareil.
 
-    ![Importation réussie](./media/howto-manage-devices/BulkImport3.png)
+    ![Importation réussie](./media/howto-manage-devices/bulkimport3a.png)
 
 Si l’importation d’appareils échoue, un message d’erreur s’affiche sur la grille de l’appareil. Un fichier journal capturant toutes les erreurs est généré et vous pouvez le télécharger.
 
@@ -86,15 +88,15 @@ Si vous enregistrez des appareils en démarrant l’importation sous **Appareils
 
 1. Dans le volet gauche, choisissez **Appareils non associés** :
 
-    ![Appareils non associés](./media/howto-manage-devices/UnassociatedDevices1.png)
+    ![Appareils non associés](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. Sélectionnez les appareils que vous souhaitez associer à un modèle :
 
-1. Sélectionnez **associer**:
+1. Sélectionnez **Associer** :
 
-    ![Associer des appareils](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![Associer des appareils](./media/howto-manage-devices/unassociateddevices2a.png)
 
-1. Cliquez sur le modèle à partir de la liste des modèles disponibles et sélectionnez **associer**.
+1. Choisissez le modèle à partir de la liste des modèles disponibles, puis sélectionnez **Associer**.
 
 1. Les appareils sélectionnés sont associés au modèle d’appareil que vous avez choisi.
 
@@ -103,7 +105,7 @@ Si vous enregistrez des appareils en démarrant l’importation sous **Appareils
 
 ## <a name="export-devices"></a>Exporter des appareils
 
-Pour connecter un appareil réel à IoT Central, vous avez besoin de sa chaîne de connexion. Vous pouvez exporter les détails de l’appareil en bloc pour obtenir les informations que vous avez besoin créer des chaînes de connexion de périphérique. Le processus d’exportation crée un fichier CSV avec l’identité d’appareil, nom de l’appareil et les clés pour tous les périphériques sélectionnés.
+Pour connecter un appareil réel à IoT Central, vous avez besoin de sa chaîne de connexion. Vous pouvez exporter en bloc les détails de l’appareil pour obtenir les informations dont vous avez besoin afin de créer les chaînes de connexion de l'appareil. Le processus d’exportation crée un fichier CSV avec l’identité de l’appareil, le nom de l’appareil et les clés pour tous les appareils sélectionnés.
 
 Pour exporter en bloc des appareils à partir de votre application :
 
@@ -111,17 +113,17 @@ Pour exporter en bloc des appareils à partir de votre application :
 
 1. Dans le volet gauche, choisissez le modèle d’appareil à partir duquel vous souhaitez exporter les appareils.
 
-1. Sélectionnez les appareils que vous souhaitez exporter, puis sélectionnez le **exporter** action.
+1. Sélectionnez les appareils que vous souhaitez exporter, puis l’action **Exporter**.
 
-    ![Exportation](./media/howto-manage-devices/Export1.png)
+    ![Exportation](./media/howto-manage-devices/export1a.png)
 
 1. Le processus d’exportation démarre. Vous pouvez suivre l’état en haut de la grille.
 
 1. Une fois l’exportation terminée, un message de réussite s’affiche avec un lien pour télécharger le fichier généré.
 
-1. Sélectionnez le **message de réussite** pour télécharger le fichier vers un dossier local sur le disque.
+1. Cliquez sur le **message de réussite** pour télécharger le fichier vers un dossier local sur le disque.
 
-    ![Exportation réussie](./media/howto-manage-devices/Export2.png)
+    ![Exportation réussie](./media/howto-manage-devices/export2a.png)
 
 1. Le fichier CSV exporté contient les colonnes suivantes : ID de l’appareil, nom de l’appareil, clés d’appareil et empreintes numériques de certificat X509 :
 
@@ -132,7 +134,7 @@ Pour exporter en bloc des appareils à partir de votre application :
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-Consultez [connectivité des appareils dans Azure IoT Central](concepts-connectivity.md), pour plus d’informations sur les chaînes de connexion et des appareils réels qui se connectés à votre application IoT Central.
+Pour plus d'informations sur les chaînes de connexion et la connexion d'appareils réels à votre application IoT Central, consultez [Connectivité des appareils dans Azure IoT Central](concepts-connectivity.md).
 
 ## <a name="delete-a-device"></a>Suppression d’un appareil
 

@@ -3,8 +3,8 @@ title: Autorisations dans Azure Active Directory | Microsoft Docs
 description: Découvrez les autorisations dans Azure Active Directory et leur utilisation.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee58c2a3bed7544ff68e7d6ec756c35bee1d05b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103160"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65545191"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorisations et consentement dans le point de terminaison Azure Active Directory v1.0
 
@@ -106,7 +106,7 @@ Les applications dans Azure AD reposent sur un consentement pour obtenir l’acc
   - `Permission` correspond à l’action qu’un utilisateur peut effectuer sur ces données
   - `Modifier` est éventuellement utilisé pour décrire les spécialisations d’une autre autorisation
     
-    Par exemple : 
+    Par exemple :
   - Mail.Read : autorise les utilisateurs à lire des messages.
   - Mail.ReadWrite : autorise les utilisateurs à lire ou écrire des messages.
   - Mail.ReadWrite.All : autorise un administrateur ou utilisateur à accéder à tous les messages de l’organisation.

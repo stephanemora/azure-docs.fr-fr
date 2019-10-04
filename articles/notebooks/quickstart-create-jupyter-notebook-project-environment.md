@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 954bbc22e42865991ca7f38fbf3f6f0e8e78a437
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262004"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66754030"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Démarrage rapide : Créer un projet avec un environnement personnalisé
 
@@ -43,7 +43,7 @@ Dans Azure Notebooks, un projet est une collection de fichiers : notebooks, fich
     - **Projet public** : (désactivé)
     - **Créer un fichier README.md** : (désactivé)
 
-1. Après quelques instants, Azure Notebooks accède au nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+**), puis **Notebook**.
+1. Après quelques instants, Azure Notebooks accède au nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+** ), puis **Notebook**.
 
 1. Donnez au notebook un nom comme *Custom environment.ipynb*, sélectionnez **Python 3.6** comme langage, puis sélectionnez **Nouveau**.
 

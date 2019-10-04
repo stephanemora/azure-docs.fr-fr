@@ -14,30 +14,34 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: a15b4e10938c39ba599ffb1ce7437feb788b1115
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579578"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71075961"
 ---
-# <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Démarrage rapide : Créer une fonction Azure avec App Configuration
+# <a name="quickstart-create-an-azure-function-with-azure-app-configuration"></a>Démarrage rapide : Créer une fonction Azure avec Azure App Configuration
 
-Azure App Configuration est un service de configuration managée dans Azure. Vous pouvez vous en servir pour stocker et gérer facilement tous les paramètres de votre application dans un seul endroit, indépendamment de votre code. Ce guide de démarrage rapide montre comment intégrer le service à une fonction Azure. 
-
-Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce guide de démarrage rapide. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
-
-![Démarrage rapide complet local](./media/quickstarts/dotnet-core-function-launch-local.png)
+Dans ce guide de démarrage rapide, vous allez intégrer le service Azure App Configuration dans une fonction Azure pour centraliser le stockage et la gestion de tous vos paramètres d’application en dehors de votre code.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Vérifiez que la charge de travail de **développement Azure** est également installée. Installez également les [derniers outils Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) avec la charge de travail **Développement Azure**
+- [Outils Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
 ## <a name="create-an-app-configuration-store"></a>Créer un magasin de configuration d’application
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Sélectionnez **Explorateur de configurations** >  **+ Créer** pour ajouter les paires clé-valeur suivantes :
+
+    | Clé | Valeur |
+    |---|---|
+    | TestApp:Settings:Message | Data from Azure App Configuration |
+
+    Laissez **Étiquette** et **Type de contenu** vides pour l’instant.
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
 
@@ -48,12 +52,13 @@ Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2017](https
 1. Cliquez avec le bouton droit sur votre projet, puis sélectionnez **Gérer les packages NuGet**. Sous l’onglet **Parcourir**, recherchez et ajoutez les packages NuGet suivants à votre projet. Si vous ne les trouvez pas, cochez la case **Inclure les préversions**.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
-2. Ouvrez *Function1.cs* et ajoutez une référence à un fournisseur de configuration .NET Core App Configuration.
+2. Ouvrez *Function1.cs*, puis ajoutez une référence au fournisseur de configuration générale .NET Core et au fournisseur App Configuration .NET Core.
 
     ```csharp
+    using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
@@ -114,4 +119,4 @@ Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2017](https
 En suivant ce guide de démarrage rapide, vous avez créé un magasin de configuration d’application et vous l’avez utilisé avec une fonction Azure. Pour en savoir plus sur la façon d’utiliser App Configuration, passez au tutoriel suivant et découvrez l’authentification.
 
 > [!div class="nextstepaction"]
-> [Identités managées pour l’intégration des ressources Azure](./integrate-azure-managed-service-identity.md)
+> [Intégration des identités managées](./howto-integrate-azure-managed-service-identity.md)

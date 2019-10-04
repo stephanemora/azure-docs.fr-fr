@@ -3,20 +3,20 @@ title: Présentation du service de traduction de conversation Translator Speech
 titleSuffix: Azure Cognitive Services
 description: Utilisez l’API du service de traduction de conversation Translator Speech pour ajouter la traduction voix-voix et voix-texte à vos applications.
 services: cognitive-services
-author: Jann-Skotdal
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
-ms.author: v-jansko
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 24014bb06a779c214f18f966dfb1d26d61adee8d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: eaa6e9a7e8e7edd4241594ad7c2188c3fb50295e
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674852"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966437"
 ---
 # <a name="what-is-translator-speech-api"></a>Qu’est-ce que l’API de traduction de conversation Translator Speech ?
 

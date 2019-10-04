@@ -1,25 +1,24 @@
 ---
-title: 'Didacticiel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight '
-description: Découvrez comment charger des données et exécuter des requêtes interactives sur des clusters Spark dans Azure HDInsight.
-services: azure-hdinsight
+title: 'Didacticiel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight'
+description: Didacticiel - Découvrez comment charger des données et exécuter des requêtes interactives sur des clusters Spark dans Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 04/03/2019
-ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/16/2019
+ms.openlocfilehash: 109ed1a2ef22e498c2d19fd2e4f1848f289e9b55
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274006"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735269"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Didacticiel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight
 
 Dans ce tutoriel, vous allez apprendre à créer une trame de données à partir d’un fichier CSV et à exécuter des requêtes interactives SQL Spark sur un cluster [Apache Spark](https://spark.apache.org/) dans Azure HDInsight. Dans Spark, une trame de données est une collection distribuée de données organisées en colonnes nommées. D’un point de vue conceptuel, une trame de données équivaut à une table d’une base de données relationnelle ou à une trame de données dans R/Python.
- 
+
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Créer une trame de données à partir d’un fichier CSV
@@ -27,7 +26,22 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Effectuez la procédure décrite dans [Créer un cluster Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+Un cluster Apache Spark sur HDInsight. Consultez [Créer un cluster Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
+
+## <a name="create-a-jupyter-notebook"></a>Créer un bloc-notes Jupyter
+
+Jupyter Notebook est un environnement de Notebook interactif qui prend en charge plusieurs langages de programmation. Le Notebook vous permet d’interagir avec vos données, de combiner du code avec le texte Markdown et d’effectuer des visualisations simples. 
+
+1. Modifiez l'URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` en remplaçant `SPARKCLUSTER` par le nom de votre cluster Spark. Entrez ensuite l'URL modifiée dans un navigateur web. À l’invite (le cas échéant), entrez les informations d’identification du cluster.
+
+2. Sur la page web de Jupyter, sélectionnez **Nouveau** > **PySpark** pour créer un notebook. 
+
+   ![Créer un bloc-notes Jupyter Notebook pour exécuter une requête interactive Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Créer un bloc-notes Jupyter Notebook pour exécuter une requête interactive Spark SQL")
+
+   Un nouveau notebook est créé et ouvert sous le nom Untitled(`Untitled.ipynb`).
+
+    > [!NOTE]  
+    > Lorsque vous utilisez le noyau PySpark pour créer un bloc-notes, la session `spark` est automatiquement créée lorsque vous exécutez la première cellule de code. Vous n’avez pas besoin de créer explicitement la session.
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Créer une trame de données à partir d’un fichier CSV
 
@@ -35,13 +49,7 @@ Les applications peuvent créer des tableaux de données directement à partir d
     
 ![Instantané des données pour les requêtes Spark SQL interactives](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "instantané des données pour les requêtes Spark SQL interactives")
 
-
-1. Ouvrez le notebook Jupyter que vous avez créé dans la section des prérequis, puis créez un notebook avec PySpark.
-
-    > [!NOTE]  
-    > Lorsque vous utilisez le noyau PySpark pour créer un bloc-notes, la session `spark` est automatiquement créée lorsque vous exécutez la première cellule de code. Vous n’avez pas besoin de créer explicitement la session.
-
-2. Collez l’exemple de code suivant dans une cellule vide du bloc-notes, puis appuyez sur **MAJ + ENTRÉE** pour exécuter le code. Le code importe les types requis pour ce scénario :
+1. Collez l'exemple de code suivant dans une cellule vide du notebook Jupyter, puis appuyez sur **MAJ + ENTRÉE** pour exécuter le code. Le code importe les types requis pour ce scénario :
 
     ```python
     from pyspark.sql import *
@@ -52,7 +60,7 @@ Les applications peuvent créer des tableaux de données directement à partir d
 
     ![État de la requête interactive Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "État de la requête interactive Spark SQL")
 
-3. Exécutez le code suivant pour créer une trame de données et une table temporaire (**hvac**). 
+2. Exécutez le code suivant pour créer une trame de données et une table temporaire (**hvac**). 
 
     ```python
     # Create a dataframe and table from sample data
@@ -95,11 +103,7 @@ Vous pouvez également sélectionner le nom du groupe de ressources pour ouvrir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
-> [!div class="checklist"]
-> * Créez une trame de données Apache Spark.
-> * Exécuter une requête SQL Spark sur la trame de données.
+Dans ce didacticiel, vous avez appris à créer une trame de données à partir d'un fichier CSV et à exécuter des requêtes SQL Spark interactives sur un cluster Apache Spark dans Azure HDInsight. Passez à l’article suivant pour découvrir comment les données que vous avez inscrites dans Apache Spark peuvent être tirées (pull) et placées dans un outil analytique décisionnel tel que Power BI.
 
-Passez à l’article suivant pour découvrir comment les données que vous avez inscrites dans Apache Spark peuvent être tirées (pull) et placées dans un outil analytique décisionnel tel que Power BI. 
 > [!div class="nextstepaction"]
 > [Analyser des données à l’aide d’outils décisionnels](apache-spark-use-bi-tools.md)

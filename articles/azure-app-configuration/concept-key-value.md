@@ -4,22 +4,22 @@ description: Vue d’ensemble de la façon dont les données de configuration so
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 352bc20bb4082dd14b810a6afe85653cfd67e7e1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c7a7e7994ef5e16640f59efdc672f6793bc4f18d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224467"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706467"
 ---
-# <a name="key-value-store"></a>stockage clé-valeur
+# <a name="keys-and-values"></a>Clés et valeurs
 
 Azure App Configuration stocke les données de configuration sous la forme de paires clé-valeur. Les paires clé-valeur constituent un moyen simple mais souple de représenter divers types de paramètres d’application que les développeurs connaissent bien.
 
@@ -27,7 +27,7 @@ Azure App Configuration stocke les données de configuration sous la forme de pa
 
 Les clés servent de nom pour les paires clé-valeur ; elles sont utilisées pour stocker et récupérer des valeurs correspondantes. Il est courant d’organiser les clés dans un espace de noms hiérarchique en utilisant un caractère délimiteur, comme `/` ou `:`. Utilisez la convention qui convient le mieux à votre application. App Configuration traite les clés dans leur ensemble. Il n’analyse pas les clés pour déterminer la structure de leur nom ou pour appliquer une règle quelconque.
 
-L’utilisation du magasin de configuration dans les frameworks d’application peut exiger des schémas de nommage spécifiques pour les valeurs des clés. Par exemple, le framework Spring Cloud de Java définit des ressources `Environment` qui fournissent des paramètres à une application Spring pour qu’elle soit paramétrée par des variables qui incluent le *nom de l’application* et le *profil*. Les clés des données de configuration associées à Spring Cloud commencent généralement par ces deux éléments, séparés par un délimiteur.
+L’utilisation des données de configuration dans des frameworks d’application peut exiger des schémas de nommage spécifiques pour les valeurs des clés. Par exemple, le framework Spring Cloud de Java définit des ressources `Environment` qui fournissent des paramètres à une application Spring pour qu’elle soit paramétrée par des variables qui incluent le *nom de l’application* et le *profil*. Les clés des données de configuration associées à Spring Cloud commencent généralement par ces deux éléments, séparés par un délimiteur.
 
 Les clés stockées dans App Configuration sont des chaînes Unicode qui respectent la casse. Les clés *app1* et *App1* sont des clés distinctes dans un magasin de configuration d’application. Gardez cette précision à l’esprit quand vous utilisez des paramètres de configuration au sein d’une application, car certains frameworks gèrent les clés de configuration sans tenir compte de la casse. Par exemple, le système de configuration ASP.NET Core traite les clés comme des chaînes qui ne respectent pas la casse. Pour éviter tout comportement inattendu quand vous interrogez App Configuration au sein d’une application ASP.NET Core, n’utilisez pas de clés qui diffèrent uniquement par leur casse.
 
@@ -45,29 +45,27 @@ Vous pouvez organiser hiérarchiquement les clés dans App Configuration de nomb
 
 Voici plusieurs exemples de la façon dont vous pouvez structurer vos noms de clé dans une hiérarchie :
 
-* Selon les environnements
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * Selon les services de composants
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * Selon les régions de déploiement
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### <a name="label-keys"></a>Clés d’étiquette
+
+Les valeurs de clé peuvent accessoirement porter un attribut d’étiquette dans App Configuration. Les étiquettes sont utilisées pour différencier des valeurs de clé pour une même clé. Une clé *app1* avec des étiquettes *A* et *B* forme deux clés distinctes dans un magasin de configuration d’application. Par défaut, l’étiquette d’une valeur de clé est vide ou `null`.
+
+Label offre un moyen pratique de créer des variantes d’une clé. Les étiquettes sont souvent utilisées pour spécifier plusieurs environnements pour la même clé :
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### <a name="version-key-values"></a>Gestion des versions des valeurs de clé
-
-Les valeurs de clé peuvent accessoirement porter un attribut d’étiquette dans App Configuration. Les étiquettes sont utilisées pour différencier des valeurs de clé pour une même clé. Une clé *app1* avec des étiquettes *v1* et *v2* forment deux valeurs de clé distinctes dans un magasin de configuration d’application. Par défaut, l’étiquette d’une valeur de clé est vide ou `null`.
 
 App Configuration ne gère pas automatiquement les versions des valeurs de clé quand vous les modifiez. Utilisez les étiquettes comme un moyen de créer plusieurs versions d’une valeur de clé. Par exemple, vous pouvez entrer un numéro de version d’application ou un ID de validation Git dans des étiquettes pour identifier les valeurs de clé associées à une build logicielle particulière.
 
@@ -96,7 +94,7 @@ Vous pouvez également inclure les modèles d’étiquette suivants :
 | `label=1.0.*` | Correspond aux étiquettes qui commencent par **1.0.** |
 | `label=*.0.0` | Correspond aux étiquettes qui finissent par **.0.0** |
 | `label=*.0.*` | Correspond aux étiquettes qui contiennent **.0.** |
-| `label=%00,1.0.0` | Correspond aux étiquettes `null` ou **1.0.1**, limitées à cinq valeurs séparées par des virgules (CSV) |
+| `label=%00,1.0.0` | Correspond aux étiquettes `null` ou **1.0.0**, limitées à cinq valeurs séparées par des virgules (CSV) |
 
 ## <a name="values"></a>Valeurs
 
@@ -106,4 +104,5 @@ Les données de configuration stockées dans un magasin de configuration d’app
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Concept : Capture instantanée à un point dans le temps](concept-point-time-snapshot.md)  
+* [Capture instantanée à un point dans le temps](./concept-point-time-snapshot.md)  
+* [Gestion des fonctionnalités](./concept-feature-management.md)  

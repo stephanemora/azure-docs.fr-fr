@@ -1,22 +1,21 @@
 ---
 title: Apache Phoenix dans HDinsight - Azure HDInsight
-description: ''
-services: hdinsight
+description: Présentation d’Apache Phoenix
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.author: ashishth
-ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 09/05/2019
+ms.openlocfilehash: becb4e4787c21e18455144108274f585ba25cb72
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744332"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71105379"
 ---
-# <a name="apache-phoenix-in-hdinsight"></a>Apache Phoenix dans HDInsight
+# <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix dans Azure HDInsight
 
 [Apache Phoenix](https://phoenix.apache.org/) est une couche de base de données relationnelle massivement parallèle open source basée sur [Apache HBase](hbase/apache-hbase-overview.md). Phoenix vous donne les moyens d’utiliser des requêtes de type SQL sur HBase. Phoenix utilise en dessous des pilotes JDBC pour permettre aux utilisateurs de créer, supprimer et modifier des tables SQL, index, vues et séquences, ainsi que des lignes d’upsert individuellement et en bloc. Phoenix utilise une compilation native noSQL au lieu de MapReduce pour compiler les requêtes, ce qui permet de créer des applications à faible latence sur HBase. Phoenix ajoute des co-processeurs pour prendre en charge le code fourni par le client en cours d’exécution dans l’espace d’adressage du serveur, en exécutant le code colocalisé avec les données. Cette approche réduit le transfert de données client/serveur.
 
@@ -101,7 +100,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 Un *« hotspotting du serveur de la région »* peut se produire lors de l’écriture d’enregistrements avec des clés séquentielles sur HBase. Bien que vous puissiez disposer de plusieurs serveurs de région dans votre cluster, vos écritures s’exécutent toutes dans un seul d’entre eux. Cette concentration génère la problématique du « hotspotting » au cours de laquelle un seul serveur gère la charge de travail des écritures, qui n’est donc pas distribuée entre toutes les instances disponibles. Dans la mesure où chaque région présente une taille maximale prédéfinie, une région atteignant sa taille limite est divisée en plusieurs régions de taille plus réduite. Le cas échéant, l’une de ces nouvelles régions stocke l’ensemble des nouveaux enregistrements, en devenant de fait le nouveau point d’accès.
 
-Pour pallier ce problème et atteindre de meilleures performances, divisez au préalable les tables de manière à ce que l’ensemble des serveurs de région soient utilisés de la même manière. Phoenix fournit des *tables « salted »*, qui ajoutent de manière transparente l’octet de « salting » à la clé de ligne d’une table particulière. La table est pré-fractionnée sur les limites de l’octet de « salting », ceci pour garantir une distribution égale de la charge entre les serveurs de région durant la phase initiale de la table. Cette approche distribue la charge de travail d’écriture entre tous les serveurs de région disponibles, améliorant de fait les performances d’écriture et de lecture. Pour « saler » une table, spécifiez la propriété de table `SALT_BUCKETS` une fois que la table est créée :
+Pour pallier ce problème et atteindre de meilleures performances, divisez au préalable les tables de manière à ce que l’ensemble des serveurs de région soient utilisés de la même manière. Phoenix fournit des *tables « salted »* , qui ajoutent de manière transparente l’octet de « salting » à la clé de ligne d’une table particulière. La table est pré-fractionnée sur les limites de l’octet de « salting », ceci pour garantir une distribution égale de la charge entre les serveurs de région durant la phase initiale de la table. Cette approche distribue la charge de travail d’écriture entre tous les serveurs de région disponibles, améliorant de fait les performances d’écriture et de lecture. Pour « saler » une table, spécifiez la propriété de table `SALT_BUCKETS` une fois que la table est créée :
 
 ```sql
 CREATE TABLE Saltedweblogs (
@@ -130,11 +129,11 @@ Un cluster HDInsight HBase comprend l’[interface utilisateur Ambari](hdinsight
 
 2. Sélectionnez **HBase** dans la liste des services du menu de gauche, puis sélectionnez l’onglet **Configurations**.
 
-    ![Configuration Ambari HBase](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config.png)
+    ![Apache Ambari - Configurations HBase](./media/hdinsight-phoenix-in-hdinsight/ambari-hbase-config1.png)
 
 3. Recherchez la section de configuration **Phoenix SQL** pour activer ou désactiver Phoenix, puis définissez la temporisation des requêtes.
 
-    ![Section de configuration Ambari Phoenix SQL](./media/hdinsight-phoenix-in-hdinsight/ambari-phoenix.png)
+    ![Section de configuration Ambari Phoenix SQL](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
 ## <a name="see-also"></a>Voir aussi
 

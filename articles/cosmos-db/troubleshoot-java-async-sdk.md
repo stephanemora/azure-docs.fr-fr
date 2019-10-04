@@ -3,18 +3,18 @@ title: Diagnostiquer et résoudre les problèmes du kit SDK Java Async Azure Cos
 description: Utilisez des fonctionnalités telles que la journalisation côté client et d’autres outils tiers pour identifier, diagnostiquer et résoudre les problèmes liés à Azure Cosmos DB.
 author: moderakh
 ms.service: cosmos-db
-ms.topic: troubleshooting
-ms.date: 10/28/2018
+ms.date: 04/30/2019
 ms.author: moderakh
 ms.devlang: java
 ms.subservice: cosmosdb-sql
+ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 0a2bbb33182fcdef3cc6ed7ff213557f90be4544
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 572139743c66546622450cef8f8a0fa264d24779
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880041"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65519976"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Résoudre les problèmes quand vous utilisez le SDK Java Async avec des comptes d’API SQL Azure Cosmos DB
 Cet article traite des problèmes courants, des solutions de contournement, des étapes de diagnostic et des outils quand vous utilisez le [SDK Java Async](sql-api-sdk-async-java.md) avec des comptes d’API SQL Azure Cosmos DB.
@@ -57,6 +57,16 @@ Si votre application est déployée sur Machine virtuelle Azure sans adresse IP 
 
     Quand le point de terminaison de service est activé, les requêtes ne sont plus envoyées d’une adresse IP publique à Azure Cosmos DB. Au lieu de cela, les identités du réseau virtuel et du sous-réseau sont envoyées. Cette modification peut entraîner des problèmes de pare-feu si seules les adresses IP publiques sont autorisées. Si vous utilisez un pare-feu, quand vous activez le point de terminaison de service, ajoutez un sous-réseau au pare-feu à l’aide de [Listes de contrôle d’accès de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Assignez une adresse IP publique à votre machine virtuelle Azure.
+
+##### <a name="cant-connect"></a>Impossible d’atteindre le service - pare-feu
+``ConnectTimeoutException`` indique que le Kit de développement logiciel (SDK) ne peut pas atteindre le service.
+Vous pouvez recevoir une erreur semblable à ce qui suit lorsque vous utilisez le mode direct :
+```
+GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.documents.azure.com:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-westus-fd4.documents.azure.com/101.13.12.5:14940]
+```
+
+Si un pare-feu est en cours d’exécution sur l’ordinateur hébergeant l’application, ouvrez la plage de ports 10 000 à 20 000 (utilisée par le mode direct).
+Respectez également la [limite de connexion sur un ordinateur hôte](#connection-limit-on-host).
 
 #### <a name="http-proxy"></a>Serveur proxy HTTP
 
@@ -151,23 +161,23 @@ Cet échec est une erreur côté serveur. Il indique que vous avez consommé vot
 
 Le certificat HTTPS de l’émulateur Azure Cosmos DB est auto-signé. Pour que le SDK fonctionne avec l’émulateur, importez le certificat de l’émulateur dans Java TrustStore. Pour plus d’informations, consultez [Exporter les certificats de l’émulateur Azure Cosmos DB](local-emulator-export-ssl-certificates.md).
 
-### <a name="dependency-conflict-issues"></a>Problèmes de conflit de dépendance
+### <a name="dependency-conflict-issues"></a>Problèmes de conflits de dépendances
 
 ```console
 Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
 ```
 
-L’exception ci-dessus vous suggère de qu'avoir une dépendance sur une version antérieure de RxJava lib (par exemple, 1.2.2). Notre SDK s’appuie sur RxJava 1.3.8 ayant des API non disponible dans une version antérieure de RxJava. 
+L’exception ci-dessus suggère qu’il existe une dépendance avec une version plus ancienne de la bibliothèque RxJava (par exemple, 1.2.2). Notre Kit de développement logiciel (SDK) s’appuie sur RxJava 1.3.8, qui inclut des API non compatibles avec une version antérieure de RxJava. 
 
-La solution de contournement pour ce type issuses consiste à identifier les autres dépendances permet d’utiliser RxJava-1.2.2 et exclure la dépendance transitive sur RxJava-1.2.2 et permettre CosmosDB SDK mettre une version plus récente.
+La solution de contournement pour ce type de problème consiste à identifier les autres dépendances qui importent RxJava 1.2.2 et à exclure la dépendance transitive à RxJava 1.2.2, puis à autoriser le Kit de développement logiciel (SDK) Cosmos DB à importer la version la plus récente.
 
-Pour identifier la bibliothèque qui permet d’utiliser RxJava-1.2.2, exécutez la commande suivante en regard de votre fichier pom.xml de projet :
+Pour identifier la bibliothèque qui importe RxJava-1.2.2, exécutez la commande suivante en regard du fichier pom.xml de votre projet :
 ```bash
 mvn dependency:tree
 ```
-Pour plus d’informations, consultez le [guide d’arborescence de la dépendance maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
+Pour en savoir plus, consultez le [guide d’arborescence des dépendances maven](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html).
 
-Une fois que vous identifiez RxJava-1.2.2 est dépendance transitive de quels autres dépendances de votre projet, vous pouvez modifier la dépendance sur qui lib dans votre fichier pom et l’exclusion dépendance transitive RxJava il :
+Une fois que vous identifiez les autres dépendances de votre projet pour lesquelles RxJava-1.2.2 est une dépendance transitive, vous pouvez modifier la dépendance sur cette bibliothèque dans votre fichier pom, et exclure la dépendance transitive à RxJava :
 
 ```xml
 <dependency>
@@ -183,7 +193,7 @@ Une fois que vous identifiez RxJava-1.2.2 est dépendance transitive de quels au
 </dependency>
 ```
 
-Pour plus d’informations, consultez le [exclure le guide de dépendance transitive](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
+Pour en savoir plus, consultez le guide relatif à [l’exclusion de dépendances transitives](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html).
 
 
 ## <a name="enable-client-sice-logging"></a>Activer la journalisation de SDK client

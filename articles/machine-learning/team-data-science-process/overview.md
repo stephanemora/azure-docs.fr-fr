@@ -12,11 +12,11 @@ ms.date: 10/20/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 3b4e8c78d7402c254c91c3e100814e1f3eafc41b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867199"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61429414"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Qu’est-ce que le processus Team Data Science Process ?
 
@@ -50,7 +50,7 @@ Le cycle de vie expose les principales phases que les projets exécutent génér
 * **Déploiement**
 * **Acceptation du client**
 
-Voici une représentation visuelle du **cycle de vie du processus TDSP (Team Data Science Process)**. 
+Voici une représentation visuelle du **cycle de vie du processus TDSP (Team Data Science Process)** . 
 
 ![TDSP-Lifecycle2](./media/overview/tdsp-lifecycle2.png) 
 
@@ -63,7 +63,7 @@ Les objectifs, tâches et artefacts de documentation de chaque phase du cycle de
 
 Le diagramme suivant présente la grille des tâches (en bleu) et des artefacts (en vert) associés à chaque étape du cycle de vie (sur l’axe horizontal) pour ces rôles (sur l’axe vertical). 
 
-[![TDSP-roles-and-tasks](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
+[![rôles-et-tâches-du-processus-TDSP](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>Structure de projet normalisée
 
@@ -77,7 +77,7 @@ Nous fournissons des modèles de structure de dossiers et des documents requis d
 - des modèles de métriques de performances, par exemple les courbes ROC ou MSE.
 
 
-[![Répertoires de TDSP](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
+[![répertoires-TDSP](./media/overview/tdsp-dir-structure.png)](./media/overview/tdsp-dir-structure.png#lightbox)
 
 La structure de répertoires peut être clonée à partir de [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
 
@@ -94,7 +94,7 @@ L’infrastructure de stockage et d’analytique peut se trouver sur le cloud ou
 
 Voici l’exemple d’une équipe qui travaille sur plusieurs projets et partage différents composants de l’infrastructure d’analytique cloud.
 
-[![Infrastructure de TDSP](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
+[![infrastructure-TDSP](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Outils et utilitaires pour mener à bien le projet

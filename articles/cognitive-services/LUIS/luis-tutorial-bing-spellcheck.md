@@ -1,6 +1,6 @@
 ---
-title: Corriger les mots mal orthographiés
-titleSuffix: Azure
+title: Corriger les mots mal orthographiés – LUIS
+titleSuffix: Azure Cognitive Services
 description: Corrigez les mots mal orthographiés dans les énoncés en ajoutant l’API Vérification orthographique Bing v7 aux requêtes de point de terminaison LUIS.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/04/2019
+ms.topic: conceptual
+ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1e5536b08b3b78f35426207369f444e6eb21c87d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: 3bde609c83425d660c867939e034247d7e6898c5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341786"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300272"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corriger les mots mal orthographiés avec la vérification orthographique Bing
 
@@ -89,7 +89,13 @@ L’URL de point de terminaison a plusieurs valeurs qui doivent être transmises
 ```
 
 ## <a name="ignore-spelling-mistakes"></a>Ignorer les fautes d’orthographe
-Si vous ne souhaitez pas utiliser le service d’API Vérification orthographique Bing v7, vous pouvez étiqueter les énoncés qui présentent des fautes d’orthographe afin que LUIS puisse apprendre orthographe adéquate, ainsi que les fautes de frappe. Cette option requiert davantage d’efforts en matière d’étiquetage que l’utilisation d’un vérificateur d’orthographe.
+
+Si vous ne souhaitez pas utiliser le service API Vérification orthographique Bing v7, vous devez ajouter l’orthographe correcte et incorrecte. 
+
+Pour ce faire, il existe deux solutions :
+
+* Étiquetez les exemples d'énoncés présentant toutes les orthographes différentes pour permettre à LUIS d'apprendre l’orthographe correcte et les fautes de frappe. Cette option requiert davantage d’efforts en matière d’étiquetage que l’utilisation d’un vérificateur d’orthographe.
+* Créez une liste d’expressions avec toutes les variantes de mot. Avec cette solution, vous n’êtes pas tenu d’étiqueter les variantes de mot dans les exemples d’énoncés. 
 
 ## <a name="publishing-page"></a>Page de publication
 La page de [publication](luis-how-to-publish-app.md) comporte une case à cocher permettant d’**activer la vérification orthographique Bing**. Cela est pratique pour créer la clé et de comprendre comment l’URL de point de terminaison change. Vous devez toujours utiliser les paramètres de point de terminaison appropriés afin de disposer de l’orthographe corrigée pour chaque énoncé. 

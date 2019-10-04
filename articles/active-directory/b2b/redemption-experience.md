@@ -5,60 +5,73 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 06/12/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 2d32818f9e96e931f9e8c3c13554752327c5c456
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046493"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622624"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
-Pour collaborer avec des utilisateurs d’organisations partenaires via Azure Active Directory (Azure AD) B2B Collaboration, vous pouvez inviter des utilisateurs à accéder à des applications partagées. Une fois ajouté à l’annuaire via l’interface utilisateur ou invité via PowerShell, l’utilisateur doit passer par un processus de consentement initial pour accepter les [conditions de confidentialité](#privacy-policy-agreement). Ce processus se déroule de l’une des manières suivantes :
+Cet article décrit les différentes façons dont les utilisateurs invités peuvent accéder à vos ressources, et le processus de consentement qu’ils vont rencontrer. Si vous envoyez un e-mail d’invitation à l’invité, l’invitation comprend un lien que l’invité peut utiliser pour obtenir l’accès à votre application ou portail. L’e-mail d’invitation n’est qu’une des possibilités permettant aux invités d’obtenir l’accès à vos ressources. Comme alternative, vous pouvez ajouter des invités à votre annuaire et leur donner un lien direct vers le portail ou l’application que vous souhaitez partager. Quelle que soit la méthode qu’ils utilisent, les invités sont guidés dans un processus de consentement initial. Ce processus garantit que vos invités sont d’accord avec les conditions de confidentialité, et qu’ils acceptent les [conditions d’utilisation](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou) que vous avez définies.
 
-- L’inviteur envoie un lien direct vers une application partagée. L’invité clique sur le lien pour se connecter, accepte les conditions de confidentialité et accède sans encombre à la ressource partagée. (L’utilisateur invité reçoit toujours un e-mail d’invitation avec une URL d’échange mais, sauf dans des cas particuliers, il n’est plus tenu d’utiliser l’e-mail d’invitation.)  
-- L’utilisateur invité reçoit un e-mail d’invitation et clique sur l’URL d’échange. Lors de la première connexion, il est invité à accepter les conditions de confidentialité.
-
-## <a name="redemption-through-a-direct-link"></a>Échange via un lien direct
-
-Un inviteur peut inviter un utilisateur en lui envoyant un [lien direct vers une application partagée](../manage-apps/end-user-experiences.md#direct-sign-on-links). Pour l’utilisateur invité, l’expérience d’échange est aussi simple que de se connecter à l’application partagée avec lui. Ils peut cliquer sur un lien vers l’application, consulter et accepter les conditions de confidentialité, puis accéder sans encombre à l’application. Dans la plupart des cas, l’utilisateur invité n’a plus besoin de cliquer sur une URL d’échange dans un e-mail d’invitation.
-
-Que vous ayez invité un utilisateur via l’interface utilisateur ou choisi d’envoyer un e-mail d’invitation dans le cadre de l’expérience d’invitation de PowerShell, l’utilisateur invité reçoit toujours un e-mail d’invitation. Cet e-mail est utile dans les cas particuliers suivants :
-
-- L’utilisateur n’a pas de compte Azure AD ou Microsoft (MSA). Dans ce cas, l’utilisateur doit créer un MSA avant de cliquer sur le lien, ou utiliser l’URL d’échange figurant dans l’e-mail d’invitation. Le processus d’invitation propose automatiquement à l’utilisateur de créer un MSA.
-- Parfois, l’objet utilisateur invité n’a pas d’adresse e-mail en raison d’un conflit avec un objet contact (par exemple, un objet contact Outlook). Dans ce cas, l’utilisateur doit cliquer sur l’URL d’échange dans l’e-mail d’invitation.
-- L’utilisateur peut se connecter avec un alias de l’adresse e-mail via laquelle il a été invité (un alias est une adresse e-mail supplémentaire associée à un compte de courrier). Dans ce cas, l’utilisateur doit cliquer sur l’URL d’acceptation de l’e-mail d’invitation.
-
-Si ces cas particuliers sont importants pour votre organisation, nous vous recommandons d’inviter des utilisateurs à l’aide de méthodes qui envoient toujours l’e-mail d’invitation. Par ailleurs, si un utilisateur ne tombe pas dans l’un de ces cas particuliers, il peut toujours cliquer sur l’URL dans un e-mail d’invitation pour obtenir l’accès.
+Lorsque vous ajoutez un utilisateur invité à votre annuaire, le compte d’utilisateur invité présente un état de consentement (affichable dans PowerShell) qui est initialement défini sur **PendingAcceptance**. Ce paramètre est maintenu jusqu’à ce que l’invité accepte votre invitation et approuve votre politique de confidentialité ainsi que vos conditions d’utilisation. Après cela, l’état de consentement passe à **Accepté**, et les pages de consentement ne sont plus présentées à l’invité.
 
 ## <a name="redemption-through-the-invitation-email"></a>Acceptation via l’e-mail d’invitation
 
-Si un utilisateur est invité via une méthode consistant à envoyer un e-mail d’invitation, il peut également accepter une invitation via cet e-mail. Un utilisateur invité peut cliquer sur l’URL d’acceptation dans l’e-mail, puis consulter et accepter les conditions de confidentialité. Le processus est décrit plus en détail ici :
+Lorsque vous ajoutez un utilisateur invité à votre annuaire en [utilisant le portail Azure](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal), un e-mail d’invitation est envoyé à l’invité dans le processus. Vous pouvez également choisir d’envoyer des e-mails d’invitation lorsque vous [utilisez PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell) pour ajouter des utilisateurs invités à votre annuaire. Voici une description de l’expérience de l’invité lorsqu’il accepte le lien dans l’e-mail.
 
-1.  L’invité reçoit une invitation par e-mail envoyée dans **Invitations Microsoft**.
-2.  L’invité sélectionne **Prise en main** dans l’e-mail.
-3.  Si l’invité n’a pas de compte Azure AD ou de MSA, il est invité à créer un MSA.
-4.  L’invité est redirigé vers l’écran **Révision des autorisations**, dans lequel il peut consulter la déclaration de confidentialité de l’organisation invitante et en accepter les termes.
+1. L’invité reçoit un [e-mail d’invitation](https://docs.microsoft.com/azure/active-directory/b2b/invitation-email-elements) qui est envoyé depuis **Invitations Microsoft**.
+2. L’invité sélectionne **Démarrer** dans l’e-mail.
+3. Si l’invité n’a pas de compte Azure AD, ni de compte Microsoft (MSA) ou de compte e-mail dans une organisation fédérée, il est invité à créer un compte de service administré (MSA), sauf si la fonctionnalité de [code secret à usage unique](https://docs.microsoft.com/azure/active-directory/b2b/one-time-passcode) est activée, ce qui ne nécessite pas de MSA.
+4. L’invité est guidé tout au long de l’[expérience de consentement](#consent-experience-for-the-guest) décrite ci-dessous.
 
-## <a name="privacy-policy-agreement"></a>Contrat de politique de confidentialité
+## <a name="redemption-through-a-direct-link"></a>Échange via un lien direct
 
-Après s’être connecté pour accéder aux ressources d’une organisation partenaire pour la première fois, l’utilisateur invité voit un écran **Révision des autorisations**. Il peut y consulter la déclaration de confidentialité de l’organisation invitante. Pour continuer, l’utilisateur doit accepter l’utilisation de ses informations conformément à la politique de confidentialité de l’organisation invitante.
+Comme alternative à l’e-mail d’invitation, vous pouvez donner à un invité un lien direct à votre application ou à votre portail. Vous devez d’abord ajouter l’utilisateur invité à votre annuaire par le biais du [portail Azure](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) ou de [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell). Ensuite, vous pouvez utiliser un des [moyens personnalisables de votre choix pour déployer des applications vers les utilisateurs](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences), notamment les liens d’authentification directe. Lorsqu’un invité utilise un lien direct au lieu de l’e-mail d’invitation, il est toujours guidé dans l’expérience de consentement initial.
 
-![Capture d’écran des paramètres utilisateur dans le Panneau d’accès](media/redemption-experience/ConsentScreen.png) 
+> [!IMPORTANT]
+> Le lien direct doit être spécifique au locataire. Autrement dit, il doit inclure un ID de locataire ou un domaine vérifié, afin que l’invité puisse être authentifié dans votre locataire, là où se trouve l’application partagée. Une URL ordinaire, telle que https://myapps.microsoft.com ne fonctionne pas pour un invité, car elle redirige vers son locataire de base pour l’authentification. Voici quelques exemples de liens directs avec contexte de locataire :
+ > - Panneau d’accès des applications : https://myapps.microsoft.com/?tenantid=&lt;id de locataire&gt; 
+ > - Panneau d’accès des applications pour un domaine vérifié : https://myapps.microsoft.com/&lt; domaine vérifié&gt;
+ > - Portail Azure : https://portal.azure.com/&lt; id de locataire&gt;
+ > - Application individuelle : voir comment utiliser un [lien d’authentification directe](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
-Pour plus d’informations sur la manière dont vous pouvez, en tant qu’administrateur de locataire, créer un lien vers la déclaration de confidentialité de votre organisation, consultez le [Guide pratique pour ajouter les informations de confidentialité de votre organisation dans Azure Active Directory](https://aka.ms/adprivacystatement).
+Il existe certains cas où l’e-mail d’invitation est recommandé par rapport à un lien direct. Si ces cas particuliers sont importants pour votre organisation, nous vous conseillons d’inviter les utilisateurs par l’intermédiaire de méthodes qui envoient toujours l’e-mail d’invitation :
+ - L’utilisateur n’a pas de compte Azure AD, de MSA ni de compte d’e-mail dans une organisation fédérée. À moins d’utiliser la fonctionnalité de code secret à usage unique, l’invité doit accepter l’e-mail d’invitation pour être guidé à travers les étapes de la création d’un MSA.
+ - Parfois, l’objet utilisateur invité n’a pas d’adresse e-mail en raison d’un conflit avec un objet contact (par exemple, un objet contact Outlook). Dans ce cas, l’utilisateur doit cliquer sur l’URL d’échange dans l’e-mail d’invitation.
+ - L’utilisateur peut se connecter avec un alias de l’adresse e-mail via laquelle il a été invité (un alias est une adresse e-mail supplémentaire associée à un compte de courrier). Dans ce cas, l’utilisateur doit cliquer sur l’URL d’acceptation de l’e-mail d’invitation.
 
-## <a name="terms-of-use"></a>Conditions d’utilisation
+## <a name="consent-experience-for-the-guest"></a>Expérience de consentement de l’invité
 
-Vous pouvez présenter les conditions d’utilisation à l’utilisateur invité pendant le processus d’acceptation initial à l’aide de la fonctionnalité Conditions d’utilisation Azure AD. Dans Azure Active Directory, accédez à cette fonctionnalité sous **Gérer** > **Relations organisationnelles** > **Conditions d’utilisation** ou sous **Sécurité** > **Accès conditionnel** > **Conditions d’utilisation**. Pour plus d’informations, consultez [Fonctionnalité Conditions d’utilisation Azure AD](../conditional-access/terms-of-use.md).
+Lorsqu’un invité se connecte la première fois pour accéder aux ressources d’une organisation partenaire, il est guidé dans les pages suivantes. 
 
-![Capture d’écran montrant les nouvelles conditions d’utilisation](media/redemption-experience/organizational-relationships-terms-of-use.png) 
+1. L’invité passe en revue la page **Révision des autorisations** décrivant la déclaration de confidentialité de l’organisation qui invite. Pour continuer, l’utilisateur doit **Accepter** l’utilisation de ses informations conformément à la politique de confidentialité de l’organisation invitante.
+
+   ![Capture d’écran montrant la page Passer en revue les autorisations](media/redemption-experience/review-permissions.png) 
+
+   > [!NOTE]
+   > Pour plus d’informations sur la manière dont vous pouvez, en tant qu’administrateur de locataire, créer un lien vers la déclaration de confidentialité de votre organisation, consultez le [Guide pratique pour ajouter les informations de confidentialité de votre organisation dans Azure Active Directory](https://aka.ms/adprivacystatement).
+
+2. Si les conditions d’utilisation sont configurées, l’invité ouvre et passe en revue les conditions d’utilisation, puis il sélectionne **Accepter**. 
+
+   ![Capture d’écran montrant les nouvelles conditions d’utilisation](media/redemption-experience/terms-of-use-accept.png) 
+
+   > [!NOTE]
+   > Vous pouvez configurer les [conditions d’utilisation](../governance/active-directory-tou.md) dans **Gérer** > **Relations organisationnelles** > **Conditions d’utilisation**.
+
+3. Sauf indication contraire, l’invité est redirigé vers le panneau d’accès des applications qui liste les applications auxquelles l’invité peut accéder.
+
+   ![Capture d’écran montrant le panneau d’accès des applications](media/redemption-experience/myapps.png) 
+
+Dans votre annuaire, la valeur de **Invitation acceptée** de l’invité passe à **Oui**. Si un MSA a été créé, la **Source** de l’invité affiche **Compte Microsoft**. Pour plus d’informations sur les propriétés du compte d’utilisateur invité, consultez [Propriétés d’un utilisateur B2B Collaboration Azure AD](user-properties.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891584"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60750458"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Évaluation des performances d’un modèle dans Azure Machine Learning Studio
 
@@ -56,7 +56,7 @@ Connectez les ports comme illustré ci-après à la Figure 1, puis définissez 
 
 ![Évaluation d’un modèle de régression](./media/evaluate-model-performance/1.png)
 
- Figure 1. évaluation d’un modèle de régression
+Figure 1. évaluation d’un modèle de régression
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspection des résultats de l’évaluation
 Après avoir exécuté l’expérience, vous pouvez cliquer sur le port de sortie du module [Évaluer le modèle][evaluate-model] et sélectionner *Visualiser* pour visualiser les résultats de l’évaluation. Les mesures d’évaluation disponibles pour les modèles de régression sont les suivantes : *Erreur d’absolue moyenne*, *Erreur d’absolue moyenne racine*, *Erreur d’absolue relative*, *Erreur carrée relative* et *Coefficient de détermination*.
@@ -115,7 +115,7 @@ Revenons au problème de classification du revenu et posons-nous plusieurs quest
 
 ![Résultats de l’évaluation de la classification binaire](./media/evaluate-model-performance/7.png)
 
- Figure 7. résultats de l’évaluation de la classification binaire
+Figure 7. résultats de l’évaluation de la classification binaire
 
 Un autre métrique connexe fréquemment utilisé est la métrique **F1 Score**(F-mesure), qui prend en compte à la fois la précision et le rappel. Il s’agit de la moyenne harmonique de ces 2 métriques, calculée comme suit : F1 = 2 (précision x rappel) / (précision + rappel). La mesure F1 offre un bon moyen de résumer l’évaluation en une seule valeur ; toutefois, il est recommandé d’examiner systématiquement la précision et le rappel simultanément afin de mieux comprendre le comportement d’un classifieur.
 

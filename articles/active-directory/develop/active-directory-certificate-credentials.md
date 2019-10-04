@@ -3,8 +3,8 @@ title: Informations d’identification de certificat dans Azure AD | Microsoft D
 description: Cet article traite de l’inscription et de l’utilisation des informations d’identification de certificat pour l’authentification d’application.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/24/2018
-ms.author: celested
+ms.topic: conceptual
+ms.date: 05/21/2019
+ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4ee1ce56723e4a2c9ab80c12456bbc1b66f6d5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0aa63a8f06b71455b7f00d2ce5842f0da851789b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162796"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835478"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Informations d’identification de certificat pour l’authentification d’application
 
@@ -98,11 +98,10 @@ Vous pouvez associer les informations d’identification du certificat à l’ap
 ### <a name="uploading-the-certificate-file"></a>Chargement du fichier de certificat
 
 Dans l’inscription d’application Azure pour l’application cliente :
-1. Sélectionnez **Paramètres > Clés**, puis **Télécharger la clé publique**. 
-2. Sélectionnez le fichier de certificat à charger.
-3. Sélectionnez **Enregistrer**. 
-   
-   Une fois enregistré, le certificat est chargé et les valeurs de l’empreinte numérique, de la date de début et d’expiration sont affichées. 
+1. Cliquez sur **Certificats et secrets**. 
+2. Cliquez sur **Charger un certificat** et sélectionnez le fichier de certificat à charger.
+3. Cliquez sur **Add**.
+  Une fois le certificat chargé, les valeurs d'empreinte numérique, de date de début et d’expiration s'affichent. 
 
 ### <a name="updating-the-application-manifest"></a>Mise à jour du manifeste d’application
 
@@ -114,7 +113,7 @@ Sur la base de votre certificat, vous devez calculer :
 Vous devez également fournir un GUID pour identifier la clé dans le manifeste de l’application (`$keyId`).
 
 Dans l’inscription d’application Azure pour l’application cliente :
-1. Ouvrez le manifeste d’application.
+1. Sélectionnez **Manifeste** pour ouvrir le manifeste d’application.
 2. Remplacez la propriété *keyCredentials* par les nouvelles informations de votre certificat, en utilisant le schéma suivant.
 
    ```

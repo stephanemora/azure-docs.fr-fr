@@ -2,24 +2,26 @@
 title: Configurer les notifications Push dans Azure Notification Hubs | Microsoft Docs
 description: Découvrez comment configurer Azure Notification Hubs sur le portail Azure à l’aide de paramètres PNS (Platform Notification System).
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
-ms.author: jowargo
-ms.openlocfilehash: 04108c4b5a8ce04b971a0529393ea442cb1cf226
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: 9a17b96da376843c07a4324856bf8943aa385cac
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480121"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212465"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Configurer les notifications Push dans un hub de notification sur le portail Azure
 
-Azure Notification Hubs propose un moteur Push facile à utiliser et à mettre à l’échelle horizontalement (« scale-out »). Utilisez Notification Hubs pour envoyer des notifications à n’importe quelle plateforme (iOS, Android, Windows, Kindle, Baidu) et à partir de n’importe quel back-end (cloud ou local). Pour plus d’informations, consultez [Présentation d’Azure Notification Hubs](notification-hubs-push-notification-overview.md).
+Azure Notification Hubs propose un moteur Push facile à utiliser et à mettre à l’échelle horizontalement (« scale-out »). Utilisez Notification Hubs pour envoyer des notifications à n’importe quelle plateforme (iOS, Android, Windows, Baidu) et à partir de n’importe quel back-end (cloud ou local). Pour plus d’informations, consultez [Présentation d’Azure Notification Hubs](notification-hubs-push-notification-overview.md).
 
 Dans ce guide de démarrage rapide, vous allez utiliser les paramètres PNS (Platform Notification System) de Notification Hubs pour configurer des notifications Push sur plusieurs plateformes. Le guide de démarrage rapide vous montre les étapes à suivre sur le portail Azure.
 
@@ -91,21 +93,10 @@ Pour configurer les services de notifications Push Microsoft (MPNS) pour Windows
       * Sélectionnez l’icône de fichier, puis le fichier de certificat.
       * Entrez le mot de passe du certificat.
       * Sélectionnez **OK**.
-      * Dans la page **Windows Phone (MPNS)**, sélectionnez **Enregistrer**.
+      * Dans la page **Windows Phone (MPNS)** , sélectionnez **Enregistrer**.
 
 Pour plus d’informations, consultez [Notifications Push vers des applications Windows Phone avec Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md).
       
-## <a name="amazon-device-messaging"></a>Amazon Device Messaging
-
-Pour configurer des notifications Push pour Amazon Device Messaging (ADM) :
-
-1. Dans la page **Hub de notification** du portail Azure, sélectionnez **Amazon (ADM)** dans le menu de gauche.
-2. Entrez des valeurs pour **ID client** et **Secret client**.
-3. Sélectionnez **Enregistrer**.
-    
-   ![Capture d’écran des paramètres ADM sur le portail Azure](./media/notification-hubs-kindle-get-started/notification-hub-adm-settings.png)
-
-Pour plus d’informations, consultez [Prendre en main Notification Hubs pour les applications Kindle](notification-hubs-kindle-amazon-adm-push-notification.md).
 
 ## <a name="baidu-android-china"></a>Baidu (Android China)
 
@@ -131,5 +122,4 @@ Pour en savoir plus sur l’envoi de notifications Push vers différentes platef
 - [Notifications Push vers des appareils Android avec Notification Hubs et Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md)
 - [Notifications Push vers une application UWP sur un appareil Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 - [Notifications Push vers une application Windows Phone 8 avec MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
-- [Notifications Push vers une application Kindle](notification-hubs-kindle-amazon-adm-push-notification.md)
 - [Notifications Push avec Notification Hubs et le push cloud Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)

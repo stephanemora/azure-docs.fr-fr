@@ -7,21 +7,21 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 04/16/2019
+ms.topic: quickstart
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: ad4b40d649d4e4cbc17d6aec5d8bc7308012b927
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b698b40546ee1655ebbef3980692ede6b51fc7f1
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677423"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803022"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Démarrage rapide : Obtenir une réponse d’une base de connaissances en utilisant cURL
 
 Ce démarrage rapide basé sur cURL vous montre pas à pas comment obtenir une réponse de votre base de connaissances.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Dernière version de [**cURL**](https://curl.haxx.se/).
 * Vous devez disposer d’un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md) et d’une [base de connaissances avec des questions et des réponses](../Tutorials/create-publish-query-in-portal.md).
@@ -52,7 +52,7 @@ Pour générer une réponse avec CURL, effectuez les étapes suivantes :
           "questions": [
             "How do I programmatically update my Knowledge Base?"
           ],
-          "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+          "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
           "score": 100.0,
           "id": 18,
           "source": "Custom Editorial",
@@ -69,7 +69,7 @@ Pour générer une réponse avec CURL, effectuez les étapes suivantes :
 
 ## <a name="use-staging-endpoint-with-curl"></a>Utiliser le point de terminaison de mise en lots avec cURL
 
-Si vous souhaitez obtenir une réponse du point de terminaison de mise en lots, utilisez le `isTest` corps de la propriété.
+Si vous voulez obtenir une réponse du point de terminaison de mise en lots, utilisez la propriété de corps `isTest`.
 
 ```json
 isTest:true

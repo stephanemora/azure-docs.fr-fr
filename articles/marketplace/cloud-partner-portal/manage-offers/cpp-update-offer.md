@@ -1,25 +1,18 @@
 ---
-title: Mettre à jour des offres sur une place de marché - Place de marché Microsoft Azure | Microsoft Docs
+title: Mettre à jour des offres sur une place de marché | Place de marché Microsoft Azure
 description: Mettre à jour des offres sur les places de marché Microsoft Azure et AppSource à l’aide du Portail Cloud Partner
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 73e2812c678dca7e21089ee9cc091db756d7e25a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102143"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942355"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Mettre à jour des offres sur la Place de marché Microsoft Azure et AppSource
 

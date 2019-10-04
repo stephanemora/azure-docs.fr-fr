@@ -1,32 +1,32 @@
 ---
-title: Types d’applications pouvant être utilisés dans Azure Active Directory B2C | Microsoft Docs
-description: Découvrez les types d’applications que vous pouvez utiliser dans Azure Active Directory B2C.
+title: Types d’applications pouvant être utilisés dans Azure Active Directory B2C
+description: Découvrez les types d’applications que vous pouvez utiliser avec Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.author: davidmu
+ms.date: 07/24/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5324f1ed92ae4513dcd877853cb6fa2f4c7dd8f3
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: b0472b10de3641f1575f7f9a5c223ab5032f0e16
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497956"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066149"
 ---
-# <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Azure Active Directory B2C
+# <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C prend en charge l’authentification pour une large gamme d’architectures d’applications modernes. Toutes sont basées sur les protocoles standard [OAuth 2.0](active-directory-b2c-reference-protocols.md) ou [OpenID Connect](active-directory-b2c-reference-protocols.md). Ce document décrit les types d’applications que vous pouvez créer, indépendamment de votre langage et de votre plateforme préférés. Il vous permet également de comprendre les principaux scénarios avant de commencer à créer des applications.
+Azure Active Directory B2C (Azure AD B2C) prend en charge l’authentification pour une large gamme d’architectures d’applications modernes. Toutes sont basées sur les protocoles standard [OAuth 2.0](active-directory-b2c-reference-protocols.md) ou [OpenID Connect](active-directory-b2c-reference-protocols.md). Cet article décrit les types d’applications que vous pouvez créer, indépendamment de votre langage et de votre plateforme préférés. Il vous permet également de comprendre les principaux scénarios avant de commencer à créer des applications.
 
 Chaque application qui utilise Azure AD B2C doit être inscrite auprès de votre [locataire Azure AD B2C](active-directory-b2c-get-started.md) dans le [portail Azure](https://portal.azure.com/). Le processus d’inscription des applications collecte et attribue des valeurs, par exemple :
 
 * Un **ID d’application** qui identifie de manière unique votre application
 * Une **URL de réponse**  pouvant être utilisé pour rediriger les réponses vers votre application
 
-Chaque requête envoyée à Azure AD B2C spécifie un **flux d’utilisateur**, qui est une stratégie contrôlant le comportement d’Azure AD. Vous pouvez également utiliser ces points de terminaison pour créer un ensemble d’expériences utilisateur hautement personnalisable. Nous fournissons un ensemble de flux d’utilisateur qui vous aident à configurer des stratégies courantes, notamment des stratégies d’inscription, de connexion et de modification de profil. Toutefois, vous pouvez également créer vos propres stratégies personnalisées. Si vous n’êtes pas familiarisé avec les stratégies, consultez l’article décrivant [l’infrastructure de stratégie extensible](active-directory-b2c-reference-policies.md) d’Azure AD B2C avant de continuer.
+Chaque requête envoyée à Azure AD B2C spécifie un **flux d’utilisateur** (une stratégie intégrée) ou une **stratégie personnalisée** qui contrôle le comportement d’Azure AD B2C. Ces types de stratégies vous permettent de créer un ensemble d’expériences utilisateur hautement personnalisable.
 
 Le mode d’interaction de chaque application suit un modèle général similaire :
 
@@ -43,7 +43,7 @@ Ces étapes peuvent varier légèrement selon le type d’application que vous c
 
 Pour les applications web (notamment .NET, PHP, Java, Ruby, Python et Node.js) qui sont hébergées sur un serveur et accessibles par le biais d’un navigateur, Azure AD B2C prend en charge [OpenID Connect](active-directory-b2c-reference-protocols.md) pour toutes les expériences utilisateur. Dans l’implémentation Azure AD B2C d’OpenID Connect, votre application web déclenche les expériences utilisateur en envoyant des demandes d’authentification à Azure AD. Le résultat de la demande est un élément `id_token`. Ce jeton de sécurité représente l’identité de l’utilisateur. Il fournit également des informations sur l’utilisateur sous forme de revendications :
 
-```
+```json
 // Partial raw id_token
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
@@ -98,7 +98,7 @@ Une API web peut recevoir des jetons de tous types de clients, notamment des app
 6. Le `access_token` et le `refresh_token` sont retournés au serveur web.
 7. L’API web est appelée avec le `access_token` dans un en-tête d’autorisation.
 8. L’API web valide le jeton.
-9. Les données sécurisées sont retournées au serveur web.
+9. Les données sécurisées sont retournées à l’application web.
 
 Pour plus d’informations sur les codes d’autorisation, les jetons d’actualisation et les étapes d’obtention des jetons, voir l’article concernant le [protocole OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
 
@@ -106,19 +106,19 @@ Pour savoir comment sécuriser une API web avec Azure AD B2C, consultez les dida
 
 ## <a name="mobile-and-native-applications"></a>Applications mobiles et natives
 
-Les applications installées sur des appareils, comme les applications de bureau et les applications mobiles, nécessitent souvent que vous accédiez aux services backend ou aux API web pour le compte de l’utilisateur. Vous pouvez ajouter des expériences personnalisées de gestion des identités à vos applications natives et appeler de manière sécurisée les services backend à l’aide d’Azure AD B2C et du [flux de code d’autorisation OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
+Les applications installées sur des appareils, comme les applications de bureau et les applications mobiles, nécessitent souvent que vous accédiez aux services backend ou aux API web pour le compte de l’utilisateur. Vous pouvez ajouter des expériences personnalisées de gestion des identités à vos applications natives et appeler de manière sécurisée les services backend à l’aide d’Azure AD B2C et du [flux de code d’autorisation OAuth 2.0](active-directory-b2c-reference-oauth-code.md).
 
 Dans ce flux, l’application exécute des [stratégies](active-directory-b2c-reference-policies.md) et reçoit un `authorization_code` d’Azure AD une fois que l’utilisateur a exécuté la stratégie. `authorization_code` représente l’autorisation de l’application à appeler les services backend pour le compte de l’utilisateur actuellement connecté. L’application peut ensuite échanger `authorization_code` en arrière-plan contre `access_token` et `refresh_token`.  L’application peut utiliser `access_token` pour s’authentifier auprès d’une API web backend dans les requêtes HTTP. Elle peut également utiliser l’élément `refresh_token` pour obtenir un nouvel élément `access_token` lorsque le précédent arrive à expiration.
 
 ## <a name="current-limitations"></a>Limitations actuelles
 
-### <a name="application-not-supported"></a>Application non prise en charge 
+### <a name="unsupported-application-types"></a>Types d'applications non pris en charge
 
 #### <a name="daemonsserver-side-applications"></a>Démons et applications côté serveur
 
 Les applications qui contiennent des processus de longue durée ou qui fonctionnent sans la présence d’un utilisateur doivent également disposer d’un moyen d’accès aux ressources sécurisées, comme les API web. Ces applications peuvent s’authentifier et obtenir des jetons à l’aide de l’identité d’application (plutôt qu’avec l’identité déléguée d’un utilisateur), et à l’aide du flux des informations d’identification du client OAuth 2.0. Le flux d’informations d’identification du client n’est pas le même que celui avec emprunt d’identité, et celui-ci ne doit pas être utilisé pour l’authentification de serveur à serveur.
 
-Même si le flux d’informations d’identification du client n’est pas pris en charge par Azure AD B2C, vous pouvez le configurer à l’aide d’Azure AD. Un locataire Azure AD B2C partage certaines fonctionnalités avec les locataires d’entreprise Azure AD.  Le flux d’informations d’identification du client est pris en charge par la fonctionnalité Azure AD du locataire Azure AD B2C. 
+Même si le flux d’informations d’identification du client n’est pas pris en charge par Azure AD B2C, vous pouvez le configurer à l’aide d’Azure AD. Un locataire Azure AD B2C partage certaines fonctionnalités avec les locataires d’entreprise Azure AD.  Le flux d’informations d’identification du client est pris en charge par la fonctionnalité Azure AD du locataire Azure AD B2C.
 
 Pour configurer le flux d’informations d’identification du client, consultez [Azure Active Directory v2.0 et le flux d’informations d’identification du client OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). Une authentification réussie entraîne la réception d’un jeton mis en forme de telle sorte qu’il peut être utilisé par Azure AD, comme décrit dans la [documentation de référence sur les jetons Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -132,10 +132,13 @@ Ce scénario d’API web chaînée peut être pris en charge à l’aide de la c
 
 Ne modifiez pas les applications Azure AD B2C comme suit :
 
-- Sur les autres portails de gestion des applications tels que le  [Portail d’inscription des applications](https://apps.dev.microsoft.com/)
+- Sur les autres portails de gestion des applications tels que le  [Portail d’inscription des applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
 - À l’aide de l’API Graph ou de PowerShell
 
 Si vous modifiez l’application Azure AD B2C en dehors du portail Azure, elle devient défaillante et n'est plus utilisable avec Azure AD B2C. Supprimer l’application, puis recréez-la.
 
-Pour supprimer l’application, accédez au [Portail d’inscription des applications](https://apps.dev.microsoft.com/), puis supprimez l’application à cet emplacement. Pour que l’application soit visible, vous devez en être le propriétaire (et non simplement un administrateur du locataire).
+Pour supprimer l’application, accédez au [Portail d’inscription des applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade), puis supprimez l’application à cet emplacement. Pour que l’application soit visible, vous devez en être le propriétaire (et non simplement un administrateur du locataire).
 
+## <a name="next-steps"></a>Étapes suivantes
+
+En savoir plus sur les stratégies intégrées fournies par [Flux d’utilisateur dans Azure Active Directory B2C](active-directory-b2c-reference-policies.md).

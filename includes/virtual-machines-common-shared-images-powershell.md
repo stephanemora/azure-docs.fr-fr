@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/10/2018
+ms.date: 05/21/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: bae66078a1bcb1d80f0798b1d501598fa785fb80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188318"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66241196"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 
@@ -21,17 +21,6 @@ Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vo
 
 Pour ouvrir Cloud Shell, sélectionnez simplement **Essayer** en haut à droite d’un bloc de code. Vous pouvez également lancer Cloud Shell dans un onglet distinct du navigateur en accédant à [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Sélectionnez **Copier** pour copier les blocs de code, collez-les dans Cloud Shell, puis appuyez sur Entrée pour les exécuter.
 
-
-## <a name="preview-register-the-feature"></a>Aperçu : Inscrire la fonctionnalité
-
-La galerie d’images partagées est en préversion, mais vous devez l’inscrire pour pouvoir l’utiliser. Pour inscrire la fonctionnalité de galerie d’images partagées :
-
-```azurepowershell-interactive
-Register-AzProviderFeature `
-   -FeatureName GalleryPreview `
-   -ProviderNamespace Microsoft.Compute
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
 
 ## <a name="get-the-managed-image"></a>Obtenir l'image managée
 
@@ -45,7 +34,9 @@ $managedImage = Get-AzImage `
 
 ## <a name="create-an-image-gallery"></a>Créer une galerie d’images 
 
-Une galerie d’images est la ressource principale utilisée pour activer le partage d’image. Les noms de galerie doivent être uniques dans votre abonnement. Créez une galerie d’images à l’aide de [New-AzureRmGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). L’exemple suivant crée une galerie nommée *myGallery* dans le groupe de ressources *myGalleryRG*.
+Une galerie d’images est la ressource principale utilisée pour activer le partage d’image. Les caractères autorisés pour le nom de galerie sont les lettres majuscules ou minuscules, les chiffres et les points. Le nom de galerie ne peut pas contenir de tirets. Les noms de galerie doivent être uniques dans votre abonnement. 
+
+Créez une galerie d’images à l’aide de [New-AzureRmGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). L’exemple suivant crée une galerie nommée *myGallery* dans le groupe de ressources *myGalleryRG*.
 
 ```azurepowershell-interactive
 $resourceGroup = New-AzResourceGroup `
@@ -60,7 +51,9 @@ $gallery = New-AzGallery `
    
 ## <a name="create-an-image-definition"></a>Créer une définition d’image 
 
-Créez la définition d’image de galerie à l’aide de [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Dans cet exemple, l’image de galerie est nommée *myGalleryImage*.
+Les définitions d’image créent un regroupement logique des images. Elles sont utilisées pour gérer les informations sur les versions d’image créées au sein de celles-ci. Les noms de définition d’image peuvent contenir des lettres majuscules ou minuscules, des chiffres, des tirets et des points. Pour plus d’informations sur les valeurs que vous pouvez spécifier pour une définition d’image, consultez [Définitions d’image](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+
+Créez la définition d’image à l’aide de [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Dans cet exemple, l’image de galerie est nommée *myGalleryImage*.
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -74,30 +67,15 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-### <a name="using-publisher-offer-and-sku"></a>À l’aide du serveur de publication, offre et référence (SKU) 
-Pour les clients envisageant sur l’implémentation des images partagées, **dans une prochaine version**, vous serez en mesure d’utiliser votre personnellement défini **-serveur de publication**, **-offrent** et **- Sku** pour rechercher et spécifier une définition de l’image, puis créer une machine virtuelle à l’aide de la dernière version de l’image à partir de la mise en correspondance les valeurs de définition de l’image. Par exemple, voici trois définitions d'image et leurs valeurs :
 
-|Définition de l’image|Publisher|Offre|Sku|
-|---|---|---|---|
-|myImage1|myPublisher|myOffer|mySku|
-|myImage2|myPublisher|standardOffer|mySku|
-|myImage3|Test|standardOffer|testSku|
-
-Ces trois définitions présentent des ensembles de valeurs uniques. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois. **Dans une prochaine version**, vous serez en mesure de combiner ces valeurs pour demander la dernière version d’une image spécifique. **Cela ne fonctionne pas dans la version actuelle**, mais seront disponibles à l’avenir. Lors de la publication, à l’aide de la syntaxe suivante doit être utilisé pour définir l’image source en tant que *myImage1* dans le tableau ci-dessus.
-
-```powershell
-$vmConfig = Set-AzVMSourceImage `
-   -VM $vmConfig `
-   -PublisherName myPublisher `
-   -Offer myOffer `
-   -Skus mySku 
-```
-
-Ceci est similaire à la façon dont vous pouvez spécifier actuellement utiliser publisher, offre et référence (SKU) pour [images Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) pour obtenir la dernière version d’une image de place de marché. Dans cet esprit, chaque définition d'image doit disposer d'un ensemble unique de ces valeurs.  
 
 ## <a name="create-an-image-version"></a>Créer une version d’image
 
-Créez une version d’image à partir d’une image managée à l’aide de [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Dans cet exemple, la version d'image, *1.0.0*, elle est répliquée dans les deux centres de données *USA Centre-Ouest* et *USA Centre Sud*.
+Créez une version d’image à partir d’une image managée à l’aide de [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format : *MajorVersion*.*MinorVersion*.*Patch*.
+
+Dans cet exemple, la version d'image, *1.0.0*, elle est répliquée dans les deux centres de données *USA Centre-Ouest* et *USA Centre Sud*. Lors du choix des régions cibles pour la réplication, n’oubliez pas que vous devez également inclure la région *source* en tant que cible pour la réplication.
 
 
 ```azurepowershell-interactive
@@ -122,3 +100,25 @@ La réplication de l'image dans toutes les régions cibles peut nécessiter un c
 $job.State
 ```
 
+> [!NOTE]
+> Vous devez attendre que la version d’image soit totalement intégrée et répliquée avant de pouvoir utiliser la même image managée pour créer une autre version d’image. 
+>
+> Vous pouvez également stocker votre version d’image dans un [stockage redondant interzone](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) en ajoutant `-StorageAccountType Standard_ZRS` lorsque vous créez la version d’image.
+>
+
+
+## <a name="share-the-gallery"></a>Partager la galerie
+
+Nous vous recommandons de partager l’accès au niveau de la galerie d’image. Utilisez une adresse e-mail et la cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) pour obtenir l’ID d’objet de l’utilisateur, puis utilisez [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) pour leur donner accès à la galerie. Remplacez l’exemple d’e-mail, alinne_montes@contoso.com dans cet exemple, par vos propres informations.
+
+```azurepowershell-interactive
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
+```

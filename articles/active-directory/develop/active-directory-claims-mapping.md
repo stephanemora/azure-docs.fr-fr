@@ -1,24 +1,26 @@
 ---
-title: Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire Azure AD (préversion publique)
+title: Personnaliser des revendications pour une application dans un locataire Azure AD (préversion publique)
 description: Cette page décrit le mappage de revendications Azure Active Directory.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f9350a30ac6258664b3a8405923467a8468a6758
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791334"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835458"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Activation Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -177,7 +179,7 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| username |
+| userName |
 | uti |
 | ver |
 | verified_primary_email |
@@ -284,7 +286,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tableau 3 : Valeurs d’ID valides par source
 
-| Source | ID | Description |
+| Source | id | Description |
 |-----|-----|-----|
 | Utilisateur | surname | Nom de famille |
 | Utilisateur | givenname | Prénom |
@@ -293,10 +295,10 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | Utilisateur | mail | Adresse de messagerie |
 | Utilisateur | userPrincipalName | Nom d’utilisateur principal |
 | Utilisateur | department|department|
-| Utilisateur | onpremisessamaccountname | Nom du compte SAM local |
+| Utilisateur | onpremisessamaccountname | Nom de compte SAM local |
 | Utilisateur | netbiosname| Nom NetBios |
 | Utilisateur | dnsdomainname | Nom du domaine DNS |
-| Utilisateur | onpremisesecurityidentifier | Identificateur de sécurité locale |
+| Utilisateur | onpremisesecurityidentifier | Identificateur de sécurité local |
 | Utilisateur | companyname| Nom de l’organisation |
 | Utilisateur | streetaddress | Adresse postale |
 | Utilisateur | postalcode | Code postal |
@@ -319,7 +321,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | Utilisateur | extensionattribute14 | Attribut d’extension 14 |
 | Utilisateur | extensionattribute15 | Attribut d’extension 15 |
 | Utilisateur | othermail | Autre adresse e-mail |
-| Utilisateur | country | Pays |
+| Utilisateur | country | Country |
 | Utilisateur | city | City |
 | Utilisateur | state | État |
 | Utilisateur | jobtitle | Poste |
@@ -384,7 +386,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tableau 5 : Attributs autorisés en tant que sources de données pour NameID SAML
 
-|Source|ID|Description|
+|Source|id|Description|
 |-----|-----|-----|
 | Utilisateur | mail|Adresse de messagerie|
 | Utilisateur | userPrincipalName|Nom d’utilisateur principal|
@@ -415,7 +417,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 ### <a name="custom-signing-key"></a>Clé de signature personnalisée
 
-Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes.  Les applications qui ont activé de mappage doit vérifier un URI spécial pour leur en ajoutant des clés de signature de jeton de revendications `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes.  Les applications pour lesquelles le mappage de revendications est activé doivent vérifier un URI spécial pour leurs clés de signature de jeton en ajoutant `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Scénarios inter-locataires
 
@@ -429,7 +431,7 @@ Des stratégies de mappage de revendications peuvent être attribuées uniquemen
 
 Dans Azure AD, de nombreux scénarios sont possibles où vous pouvez personnaliser des revendications émises dans des jetons pour des principaux du service spécifiques. Cette section décrit quelques scénarios courants qui peuvent vous aider à comprendre comment utiliser le type de stratégie de mappage de revendications.
 
-#### <a name="prerequisites"></a>Conditions préalables
+#### <a name="prerequisites"></a>Prérequis
 
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies pour les principaux du service. Si vous débutez avec Azure AD, nous vous recommandons de vous [documenter sur l’obtention d’un locataire Azure Active Directory](quickstart-create-new-tenant.md) avant de continuer avec ces exemples.
 
@@ -447,7 +449,7 @@ Pour commencer, suivez les étapes ci-dessous :
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie pour omettre les revendications de base à partir des jetons émis pour un service principal
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie pour omettre les revendications de base des jetons émis pour un principal du service
 
 Dans cet exemple, vous créez une stratégie qui supprime l’ensemble de revendications de base des jetons émis pour des principaux du service liés.
 
@@ -520,4 +522,4 @@ Dans cet exemple, vous créez une stratégie qui émet une revendication personn
 
 ## <a name="see-also"></a>Voir aussi
 
-Pour savoir comment personnaliser les revendications émises dans le jeton SAML via le portail Azure, consultez [Comment : Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise](active-directory-saml-claims-customization.md)
+Pour savoir comment personnaliser les revendications émises dans le jeton SAML via le portail Azure, consultez [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md) (Comment : Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise)

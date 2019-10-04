@@ -1,7 +1,6 @@
 ---
 title: Spark Streaming dans Azure HDInsight
-description: Utilisation d’applications Spark Streaming sur des clusters HDInsight Spark
-services: hdinsight
+description: Utilisation d’applications Apache Spark Streaming sur des clusters HDInsight Spark.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: 3ecabd683ed4303a7ff54780299ed0e83aa14c26
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f990e5eb2761f1743c2731f499ecc341990edf53
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892077"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813997"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Vue d’ensemble d’Apache Spark Streaming
 
@@ -146,7 +145,7 @@ stream.foreachRDD { rdd =>
 ssc.start()
 ```
 
-Attendez environ 30 secondes après le démarrage de l’application ci-dessus.  Ensuite, vous pouvez interroger la trame de données régulièrement afin de vérifier l’ensemble actuel de valeurs présentes dans le lot, par exemple à l’aide de cette requête SQL :
+Attendez environ 30 secondes après le démarrage de l’application ci-dessus.  Vous pouvez ensuite interroger la trame de données régulièrement, afin de vérifier l’ensemble actuel de valeurs présentes dans le lot, par exemple à l’aide de cette requête SQL :
 
 ```sql
 %%sql
@@ -229,8 +228,8 @@ Après la première minute, 12 entrées sont obtenues, à savoir 6 entrées de c
 | 2 | 1497316299158
 | 3 | 1497316304178
 | 4 | 1497316309204
-| 5. | 1497316314224
-| 6. | 1497316319243
+| 5\. | 1497316314224
+| 6 | 1497316319243
 | 7 | 1497316324260
 | 8 | 1497316329278
 | 9 | 1497316334293

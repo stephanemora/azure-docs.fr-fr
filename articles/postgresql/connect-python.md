@@ -1,21 +1,21 @@
 ---
-title: Se connecter à Azure Database pour PostgreSQL à partir de Python
-description: Ce guide de démarrage rapide fournit un exemple de code Python que vous pouvez utiliser pour vous connecter et interroger des données de la base de données Azure pour PostgreSQL.
+title: Utiliser Python pour se connecter à Azure Database pour PostgreSQL (serveur unique)
+description: Ce démarrage rapide fournit un exemple de code Python que vous pouvez utiliser pour vous connecter et interroger des données à partir d’Azure Database pour PostgreSQL (serveur unique).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: eb6b23d8f8c476ba41bea918456fdf7fb9782920
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d7988ad590e6d57d9da37f46557f99fccaad294
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541130"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067224"
 ---
-# <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database pour PostgreSQL : Utiliser Python pour se connecter et interroger des données
+# <a name="azure-database-for-postgresql---single-server-use-python-to-connect-and-query-data"></a>Azure Database pour PostgreSQL (serveur unique) : Utiliser Python pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure pour PostgreSQL. Il explique aussi comment utiliser des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données de la base de données sur des plateformes Mac OS, Ubuntu Linux et Windows. Cet article suppose que vous connaissez les bases du développement via Python, et que vous ne savez pas utiliser la base de données Azure pour PostgreSQL.
 
 ## <a name="prerequisites"></a>Prérequis

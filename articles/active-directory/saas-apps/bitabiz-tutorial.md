@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration de Azure Active Directory à BitaBIZ | Microsoft Docs'
+title: 'Didacticiel : Intégration de Azure Active Directory à BitaBIZ | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et BitaBIZ.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19e46c77d3204cc6cd037e5ef8252aa7598d624d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e52b5478bc4b483b793f155eab2f41246552d49
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880702"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106367"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Tutoriel : Intégration de Azure Active Directory à BitaBIZ
+# <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Didacticiel : Intégration de Azure Active Directory à BitaBIZ
 
 Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) dans BitaBIZ.
 L’intégration de BitaBIZ dans Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration de BitaBIZ avec Azure AD, vous devez ajouter Bi
 
 **Pour ajouter BitaBIZ à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -152,7 +152,7 @@ Pour configurer l’authentification unique Azure AD avec BitaBIZ, effectuez le
 
     c. Dans la zone de texte **Azure AD SAML Entity ID** (ID d’entité SAML Azure AD), collez l’**Identificateur Azure AD** que vous avez copié dans le portail Azure.
 
-    d. Ouvrez dans le Bloc-notes votre fichier **Certificate(Base64)** téléchargé, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat de signature Azure AD (encodé Base64)**.
+    d. Ouvrez dans le Bloc-notes votre fichier **Certificate(Base64)** téléchargé, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat de signature Azure AD (encodé Base64)** .
 
     e. Ajoutez le nom de domaine de messagerie de votre entreprise, ici « mycompany.com » dans la zone de texte **Nom de domaine** pour attribuer l’authentification unique aux utilisateurs de votre société avec ce domaine de messagerie (NON OBLIGATOIRE).
 
@@ -178,7 +178,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

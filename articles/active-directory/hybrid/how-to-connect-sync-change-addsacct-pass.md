@@ -18,18 +18,18 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35e04be046e20883f60c576745a29342add68a81
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196359"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60241587"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Modifier le mot de passe du compte AD DS
 Le compte AD DS fait référence au compte d’utilisateur utilisé par Azure AD Connect pour communiquer avec le répertoire Active Directory local. Si vous modifiez le mot de passe du compte AD DS, vous devez mettre à jour le service de synchronisation Azure AD Connect avec le nouveau mot de passe. Dans le cas contraire, la synchronisation avec le répertoire Active Directory local ne s’effectue plus correctement et les erreurs suivantes apparaissent :
 
 * Dans Synchronization Service Manager, toute opération d’importation ou d’exportation avec le répertoire local Active Directory échoue avec une erreur **no-start-credentials**.
 
-* Dans l’Observateur d’événements Windows, le journal d’événement d’application contient une erreur avec l’**ID d’événement 6000** et le message **«  failed to run because the credentials were invalid « contoso.com » en raison d'informations d'identification non valides. »**.
+* Dans l’Observateur d’événements Windows, le journal d’événement d’application contient une erreur avec l’**ID d’événement 6000** et le message **«  failed to run because the credentials were invalid « contoso.com » en raison d'informations d'identification non valides. »** .
 
 
 ## <a name="how-to-update-the-synchronization-service-with-new-password-for-ad-ds-account"></a>Mise à jour du service de synchronisation avec un nouveau mot de passe pour le compte AD DS

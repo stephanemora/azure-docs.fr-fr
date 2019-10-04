@@ -1,6 +1,6 @@
 ---
-title: Référence pour les fonctions de langage de définition de flux de travail - Azure Logic Apps et Microsoft Flow
-description: Guide de référence pour les fonctions dans les expressions créées avec le langage de définition de flux de travail pour Azure Logic Apps et Microsoft Flow
+title: 'Référence de fonctions du langage de définition de flux de travail : Azure Logic Apps et Microsoft Flow'
+description: Guide de référence de fonctions dans les expressions créées à l’aide du langage de définition de flux de travail pour Azure Logic Apps et Microsoft Flow
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,22 +8,22 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 08/15/2018
-ms.openlocfilehash: d7ea62c51065cbe85a905b4ff78743fdc11c1e10
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.date: 08/23/2019
+ms.openlocfilehash: 484e2776d96d9beaca703f93b22c51299ccf63a7
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618207"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208405"
 ---
-# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Référence aux fonctions de langage de définition de flux de travail dans Azure Logic Apps et Microsoft Flow
+# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Référence de fonctions du langage de définition de flux de travail dans Azure Logic Apps et Microsoft Flow
 
-Pour les définitions de flux de travail dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), certaines [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtiennent leurs valeurs à partir d’actions runtime qui n’existent pas encore lorsque votre flux de travail commence à s’exécuter. Pour faire référence à ces valeurs ou les valeurs dans ces expressions de processus, vous pouvez utiliser *fonctions* fournie par le [langage de définition de flux de travail](../logic-apps/logic-apps-workflow-definition-language.md). 
+Pour les définitions de flux de travail dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), certaines [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtiennent leurs valeurs à partir d’actions runtime qui peuvent ne pas encore exister au début de l’exécution de votre flux de travail. Pour référencer ou traiter ces valeurs dans ces expressions, vous pouvez faire appel à des *fonctions* fournies par le [Langage de définition de workflow](../logic-apps/logic-apps-workflow-definition-language.md). 
 
 > [!NOTE]
-> Cette page de référence s’applique à Azure Logic Apps et Microsoft Flow, mais il apparaît dans la documentation Azure Logic Apps. Bien que cette page se réfère spécifiquement à des applications logiques, ces fonctions s’utilisent pour les flux et les applications logiques. Pour plus d’informations sur les fonctions et expressions dans Microsoft Flow, consultez [utiliser des expressions dans des conditions](https://docs.microsoft.com/flow/use-expressions-in-conditions).
+> Cette page de référence s’applique à Azure Logic Apps et à Microsoft Flow, mais apparaît dans la documentation Azure Logic Apps. Bien que cette page se rapporte spécifiquement aux applications logiques, ces fonctions fonctionnement pour les flux et les applications logiques. Pour plus d’informations sur les fonctions et expressions dans Microsoft Flow, consultez [Utiliser des expressions dans des conditions](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
-Par exemple, vous pouvez calculer des valeurs en utilisant les fonctions mathématiques, telles que la [add() fonction](../logic-apps/workflow-definition-language-functions-reference.md#add), lorsque vous souhaitez la somme à partir d’entiers ou valeurs float. Voici quelques autres exemples de tâche que vous pouvez effectuer avec des fonctions :
+Par exemple, vous pouvez calculer des valeurs à l’aide de fonctions mathématiques, telles que la [fonction add()](../logic-apps/workflow-definition-language-functions-reference.md#add), lorsque vous souhaitez la somme d’entiers ou de nombres décimaux. Voici d’autres exemples de tâches que vous pouvez réaliser avec les fonctions :
 
 | Tâche | Syntaxe de la fonction | Résultat |
 | ---- | --------------- | ------ |
@@ -31,7 +31,7 @@ Par exemple, vous pouvez calculer des valeurs en utilisant les fonctions mathém
 | Renvoyer un identificateur global unique (GUID). | guid() |« c2ecc88d-88c8-4096-912c-d6f2e2b138ce » |
 ||||
 
-Pour rechercher des fonctions [selon leur usage général](#ordered-by-purpose), passez en revue les tableaux suivants. Ou, pour plus d’informations sur chaque fonction, consultez la [liste alphabétique](#alphabetical-list).
+Pour rechercher des fonctions [selon leur usage général](#ordered-by-purpose), examinez les tables suivantes. Ou, pour plus d’informations sur chaque fonction, consultez la [liste alphabétique](#alphabetical-list).
 
 > [!NOTE]
 > Dans la syntaxe des définitions de paramètres, un point d’interrogation (?) affiché après un paramètre signifie que ce paramètre est facultatif.
@@ -93,7 +93,7 @@ Les fonctions de chaîne sont uniquement utilisables sur des chaînes.
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Renvoyer les caractères d’une chaîne, en commençant à partir de la position spécifiée. |
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retourne une chaîne en minuscules. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Retourne une chaîne en majuscules. |
-| [découper](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Supprime les espaces blancs de début et de fin d’une chaîne et retourne la chaîne mise à jour. |
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Supprime les espaces blancs de début et de fin d’une chaîne et retourne la chaîne mise à jour. |
 |||
 
 <a name="collection-functions"></a>
@@ -126,15 +126,15 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 
 | Fonction de comparaison logique | Tâche |
 | --------------------------- | ---- |
-| [et](../logic-apps/workflow-definition-language-functions-reference.md#and) | Vérifie si toutes les expressions sont vraies. |
+| [and](../logic-apps/workflow-definition-language-functions-reference.md#and) | Vérifie si toutes les expressions sont vraies. |
 | [equals](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Vérifier si les deux valeurs sont équivalentes. |
 | [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Vérifie si la première valeur est supérieure à la seconde. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Vérifie si la première valeur est supérieure ou égale à la seconde. |
-| [si](../logic-apps/workflow-definition-language-functions-reference.md#if) | Vérifie si une expression est vraie ou fausse. En fonction du résultat, retourne une valeur spécifiée. |
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Vérifie si une expression est vraie ou fausse. En fonction du résultat, retourne une valeur spécifiée. |
 | [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Vérifie si la première valeur est inférieure à la seconde. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Vérifie si la première valeur est inférieure ou égale à la seconde. |
-| [non](../logic-apps/workflow-definition-language-functions-reference.md#not) | Vérifie si une expression est fausse. |
-| [ou](../logic-apps/workflow-definition-language-functions-reference.md#or) | Vérifie si au moins une expression est vraie. |
+| [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Vérifie si une expression est fausse. |
+| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Vérifie si au moins une expression est vraie. |
 |||
 
 <a name="conversion-functions"></a>
@@ -143,7 +143,7 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 
 Pour modifier le type ou le format d’une valeur, vous pouvez utiliser ces fonctions de conversion.
 Par exemple, vous pouvez convertir une valeur booléenne en entier.
-Pour plus d’informations sur comment Logic Apps gère les types de contenu lors de la conversion, consultez [gérer les types de contenu](../logic-apps/logic-apps-content-type.md).
+Pour plus d’informations sur la manière dont Logic Apps gère les types de contenu lors de la conversion, consultez [Gérer les types de contenu](../logic-apps/logic-apps-content-type.md).
 Pour obtenir des informations complètes sur chaque fonction, consultez la [liste alphabétique](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
 | Fonction de conversion | Tâche |
@@ -181,7 +181,7 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 
 | Fonction mathématique | Tâche |
 | ------------- | ---- |
-| [ajouter](../logic-apps/workflow-definition-language-functions-reference.md#add) | Retourne le résultat de l’addition de deux nombres. |
+| [add](../logic-apps/workflow-definition-language-functions-reference.md#add) | Retourne le résultat de l’addition de deux nombres. |
 | [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Renvoyer le résultat de la division de deux nombres. |
 | [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Renvoyer la valeur la plus élevée d’un ensemble de nombres ou d’un tableau. |
 | [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Retourne la plus petite valeur d’un ensemble de nombres ou d’un tableau. |
@@ -230,7 +230,7 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 Grâce à ces fonctions de flux de travail, vous pouvez :
 
 * Obtenir des informations sur une instance de flux de travail au moment de l’exécution
-* Travailler avec les entrées que ceux utilisées pour instancier des applications logiques ou des flux.
+* Travaillez avec les entrées utilisées pour l’instanciation de flux ou applications logiques.
 * Référencer les sorties de déclencheurs et d’actions
 
 Par exemple, vous pouvez référencer les sorties d’une action et utiliser ces données lors d’une action ultérieure.
@@ -240,16 +240,19 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 | ----------------- | ---- |
 | [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | Renvoyer la sortie de l’action lors de l’exécution ou les valeurs d’autres paires nom-valeur JSON. Voir aussi [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Renvoyer la sortie `body` d’une action lors de l’exécution. Voir aussi [body](../logic-apps/workflow-definition-language-functions-reference.md#body). |
-| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Renvoyer la sortie d’une action lors de l’exécution. Voir [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Retourne la sortie d’une action lors de l’exécution. Consultez les [sorties](../logic-apps/workflow-definition-language-functions-reference.md#outputs) et les [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Renvoyer la sortie d’une action lors de l’exécution ou les valeurs d’autres paires nom-valeur JSON. Voir aussi [action](../logic-apps/workflow-definition-language-functions-reference.md#action).  |
 | [body](#body) | Retourne la sortie `body` d’une action lors de l’exécution. Voir aussi [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Créer un tableau contenant les valeurs qui correspondent à un nom de clé dans la sortie *form-data* ou *form-encoded* d’une action. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Renvoyer une valeur unique qui correspond à un nom de clé dans la sortie *form-data* ou *form-encoded output* d’une action. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | À l’intérieur d’une action répétée sur un tableau, renvoyer l’élément actuel du tableau au cours de l’itération actuelle de l’action. |
-| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | À l’intérieur d’une boucle for-each ou do-until, renvoyer l’élément actuel de la boucle spécifiée.|
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | À l’intérieur d’une boucle Foreach ou Until, retourne l’élément actuel de la boucle spécifiée.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | À l’intérieur d’une boucle Until, retourne la valeur d’index de l’itération actuelle. Vous pouvez utiliser cette fonction à l’intérieur de boucles Until imbriquées. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Renvoyer l’« URL de rappel » qui appelle un déclencheur ou une action. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Renvoyer le corps correspondant à une partie spécifique de la sortie d’une action qui comporte plusieurs parties. |
-| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retourner la valeur pour un paramètre qui est décrit dans votre définition de workflow. |
+| [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Retourne la sortie d’une action lors de l’exécution. |
+| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retourne la valeur d’un paramètre décrit dans la définition de votre flux de travail. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Retourne les entrées et les sorties de toutes les actions à l’intérieur de l’action délimitée spécifiée, comme `For_each`, `Until` et `Scope`. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Renvoyer la sortie d’un déclencheur lors de l’exécution ou d’autres paires nom-valeur JSON. Voir aussi [triggerOutputs](#triggerOutputs) et [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Renvoyer la sortie `body` d’un déclencheur lors de l’exécution. Voir [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Renvoyer une valeur unique correspondant à un nom de clé dans la sortie *form-data* ou *form-encoded* d’un déclencheur. |
@@ -294,6 +297,11 @@ Pour obtenir des informations complètes sur chaque fonction, consultez la [list
 |||
 
 <a name="alphabetical-list"></a>
+
+## <a name="all-functions---alphabetical-list"></a>Toutes les fonctions (liste alphabétique)
+
+Cette section répertorie toutes les fonctions disponibles par ordre alphabétique.
+
 <a name="action"></a>
 
 ### <a name="action"></a>action
@@ -315,7 +323,7 @@ action().outputs.body.<property>
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | Non  | Chaîne | Nom de propriété de l’objet d’action dont vous souhaitez la valeur : **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** et **clientTrackingId**. Vous trouverez ces propriétés dans le portail Azure en passant en revue les détails d’un historique des exécutions spécifique. Pour plus d’informations, consultez [API REST - Actions d’exécution du workflow](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
+| <*property*> | Non | Chaîne | Nom de propriété de l’objet d’action dont vous souhaitez la valeur : **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** et **clientTrackingId**. Vous trouverez ces propriétés dans le portail Azure en passant en revue les détails d’un historique des exécutions spécifique. Pour plus d’informations, consultez [API REST - Actions d’exécution du workflow](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -337,7 +345,7 @@ actionBody('<actionName>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Oui | Chaîne | Nom de la sortie `body` de l’action souhaitée |
+| <*actionName*> | OUI | Chaîne | Nom de la sortie `body` de l’action souhaitée |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -374,9 +382,7 @@ Et retourne ce résultat :
 
 ### <a name="actionoutputs"></a>actionOutputs
 
-Retourne la sortie d’une action lors de l’exécution.
-Raccourci de `actions('<actionName>').outputs`.
-Voir [actions()](#actions).
+Retourne la sortie d’une action lors de l’exécution.  Raccourci de `actions('<actionName>').outputs`. Voir [actions()](#actions). La fonction `actionOutputs()` est résolue en`outputs()` dans le concepteur d’application logique. Pensez donc à utiliser [outputs()](#outputs), plutôt que `actionOutputs()`. Bien que les deux fonctions agissent de manière identique, la fonction `outputs()` est préférée.
 
 ```
 actionOutputs('<actionName>')
@@ -384,7 +390,7 @@ actionOutputs('<actionName>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Oui | Chaîne | Nom de la sortie de l’action souhaitée |
+| <*actionName*> | OUI | Chaîne | Nom de la sortie de l’action souhaitée |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -454,8 +460,8 @@ actions('<actionName>').outputs.body.<property>
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Oui | Chaîne | Nom de l’objet d’action dont vous souhaitez la sortie  |
-| <*property*> | Non  | Chaîne | Nom de propriété de l’objet d’action dont vous souhaitez la valeur : **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** et **clientTrackingId**. Vous trouverez ces propriétés dans le portail Azure en passant en revue les détails d’un historique des exécutions spécifique. Pour plus d’informations, consultez [API REST - Actions d’exécution du workflow](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
+| <*actionName*> | OUI | Chaîne | Nom de l’objet d’action dont vous souhaitez la sortie  |
+| <*property*> | Non | Chaîne | Nom de propriété de l’objet d’action dont vous souhaitez la valeur : **name**, **startTime**, **endTime**, **inputs**, **outputs**, **status**, **code**, **trackingId** et **clientTrackingId**. Vous trouverez ces propriétés dans le portail Azure en passant en revue les détails d’un historique des exécutions spécifique. Pour plus d’informations, consultez [API REST - Actions d’exécution du workflow](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -485,7 +491,7 @@ add(<summand_1>, <summand_2>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*summand_1*>, <*summand_2*> | Oui | Entier, flottant ou mixte | Nombres à ajouter |
+| <*summand_1*>, <*summand_2*> | OUI | Entier, flottant ou mixte | Nombres à ajouter |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -515,9 +521,9 @@ addDays('<timestamp>', <days>, '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*days*> | Oui | Entier  | Nombre de jours positif ou négatif à ajouter |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*days*> | OUI | Integer | Nombre de jours positif ou négatif à ajouter |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -557,9 +563,9 @@ addHours('<timestamp>', <hours>, '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*hours*> | Oui | Entier  | Nombre d’heures positif ou négatif à ajouter |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*hours*> | OUI | Integer | Nombre d’heures positif ou négatif à ajouter |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -599,9 +605,9 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*minutes*> | Oui | Entier  | Nombre de minutes positif ou négatif à ajouter |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*minutes*> | OUI | Integer | Nombre de minutes positif ou négatif à ajouter |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -633,7 +639,7 @@ Et retourne ce résultat : `"2018-03-15T00:15:00.0000000Z"`
 
 ### <a name="addproperty"></a>addProperty
 
-Ajouter une propriété et sa valeur, ou paire nom-valeur, à un objet JSON et renvoyer l’objet mis à jour. Si l’objet existe déjà lors de l’exécution, la fonction génère une erreur.
+Ajouter une propriété et sa valeur, ou paire nom-valeur, à un objet JSON et renvoyer l’objet mis à jour. Si la propriété existe déjà lors de l’exécution, la fonction échoue et génère une erreur.
 
 ```
 addProperty(<object>, '<property>', <value>)
@@ -641,9 +647,9 @@ addProperty(<object>, '<property>', <value>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | Oui | Object | Objet JSON dans lequel vous souhaitez ajouter une propriété |
-| <*property*> | Oui | Chaîne | Nom de la propriété à ajouter |
-| <*value*> | Oui | Quelconque | Valeur de la propriété |
+| <*object*> | OUI | Object | Objet JSON dans lequel vous souhaitez ajouter une propriété |
+| <*property*> | OUI | Chaîne | Nom de la propriété à ajouter |
+| <*value*> | OUI | Quelconque | Valeur de la propriété |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -651,13 +657,81 @@ addProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | Objet JSON mis à jour avec la propriété spécifiée |
 ||||
 
-*Exemple*
-
-Cet exemple illustre l’ajoute de la propriété `accountNumber` à l’objet `customerProfile`, qui est converti au format JSON avec la fonction [JSON()](#json).
-La fonction attribue une valeur qui est générée par la fonction [guid()](#guid), et retourne l’objet mis à jour :
+Pour ajouter une propriété enfant à une propriété existante, utilisez cette syntaxe :
 
 ```
-addProperty(json('customerProfile'), 'accountNumber', guid())
+addProperty(<object>['<parent-property>'], '<child-property>', <value>)
+```
+
+| Paramètre | Obligatoire | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*object*> | OUI | Object | Objet JSON dans lequel vous souhaitez ajouter une propriété |
+| <*parent-property*> | OUI | Chaîne | Nom de la propriété parente où vous voulez ajouter la propriété enfant |
+| <*child-property*> | OUI | Chaîne | Nom de la propriété enfant à ajouter |
+| <*value*> | OUI | Quelconque | Valeur à définir pour la propriété spécifiée |
+|||||
+
+| Valeur de retour | Type | Description |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Object | Objet JSON mis à jour dont vous définissez la propriété |
+||||
+
+*Exemple 1*
+
+Cet exemple ajoute la propriété `middleName` à un objet JSON, qui est converti d’une chaîne en un format JSON avec la fonction [JSON()](#json). L’objet contient déjà les propriétés `firstName` et `surName`. La fonction affecte la valeur spécifiée à la nouvelle propriété et retourne l’objet mis à jour :
+
+```
+addProperty(json('{ "firstName": "Sophia", "lastName": "Owen" }'), 'middleName', 'Anne')
+```
+
+Voici l’objet JSON actuel :
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+Voici l’objet JSON mis à jour :
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+*Exemple 2*
+
+Cet exemple ajoute la propriété enfant `middleName` à la propriété `customerName` existante dans un objet JSON, qui est converti d’une chaîne en un format JSON avec la fonction [JSON()](#json). La fonction affecte la valeur spécifiée à la nouvelle propriété et retourne l’objet mis à jour :
+
+```
+addProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'middleName', 'Anne')
+```
+
+Voici l’objet JSON actuel :
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+Voici l’objet JSON mis à jour :
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
 ```
 
 <a name="addSeconds"></a>
@@ -672,9 +746,9 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*seconds*> | Oui | Entier  | Nombre de secondes positif ou négatif à ajouter |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*seconds*> | OUI | Integer | Nombre de secondes positif ou négatif à ajouter |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -715,10 +789,10 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*interval*> | Oui | Entier  | Nombre d’unités de temps spécifiées à ajouter |
-| <*timeUnit*> | Oui | Chaîne | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*interval*> | OUI | Integer | Nombre d’unités de temps spécifiées à ajouter |
+| <*timeUnit*> | OUI | Chaîne | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -734,7 +808,7 @@ Cet exemple illustre l’ajout d’un jour à l’horodatage spécifié :
 addToTime('2018-01-01T00:00:00Z', 1, 'Day')
 ```
 
-Et retourne ce résultat : `"2018-01-02T00:00:00:0000000Z"`
+Et retourne ce résultat : `"2018-01-02T00:00:00.0000000Z"`
 
 *Exemple 2*
 
@@ -759,12 +833,12 @@ and(<expression1>, <expression2>, ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>... | Oui | Booléen | Expressions à vérifier |
+| <*expression1*>, <*expression2*>... | OUI | Boolean | Expressions à vérifier |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | -----| ----------- |
-| true ou false | Booléen | Retourne la valeur true si toutes les expressions sont vraies. Retourne la valeur false si au moins une expression est fausse. |
+| true ou false | Boolean | Retourne la valeur true si toutes les expressions sont vraies. Retourne la valeur false si au moins une expression est fausse. |
 ||||
 
 *Exemple 1*
@@ -812,12 +886,12 @@ array('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne permettant de créer un tableau |
+| <*value*> | OUI | Chaîne | Chaîne permettant de créer un tableau |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*valeur*>] | Tableau | Tableau qui contient l’entrée spécifiée unique |
+| [<*valeur*>] | Array | Tableau qui contient l’entrée spécifiée unique |
 ||||
 
 *Exemple*
@@ -842,7 +916,7 @@ base64('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne d’entrée |
+| <*value*> | OUI | Chaîne | Chaîne d’entrée |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -872,7 +946,7 @@ base64ToBinary('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne encodée en Base64 à convertir |
+| <*value*> | OUI | Chaîne | Chaîne encodée en Base64 à convertir |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -906,7 +980,7 @@ base64ToString('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne encodée en Base64 à décoder |
+| <*value*> | OUI | Chaîne | Chaîne encodée en Base64 à décoder |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -926,7 +1000,7 @@ Et retourne ce résultat : `"hello"`
 
 <a name="binary"></a>
 
-### <a name="binary"></a>binaire
+### <a name="binary"></a>binary
 
 Retourne la version binaire d’une chaîne.
 
@@ -936,7 +1010,7 @@ binary('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne à convertir |
+| <*value*> | OUI | Chaîne | Chaîne à convertir |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -970,7 +1044,7 @@ body('<actionName>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Oui | Chaîne | Nom de la sortie `body` de l’action souhaitée |
+| <*actionName*> | OUI | Chaîne | Nom de la sortie `body` de l’action souhaitée |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1015,12 +1089,12 @@ bool(<value>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Quelconque | Valeur à convertir |
+| <*value*> | OUI | Quelconque | Valeur à convertir |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false | Booléen | Version booléenne de la valeur spécifiée |
+| true ou false | Boolean | Version booléenne de la valeur spécifiée |
 ||||
 
 *Exemple*
@@ -1050,7 +1124,7 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object_1*>, <*object_2*>... | Oui | N’importe lequel, possibilité de combiner plusieurs types | Recherche de la valeur Null dans un ou plusieurs éléments |
+| <*object_1*>, <*object_2*>... | OUI | N’importe lequel, possibilité de combiner plusieurs types | Recherche de la valeur Null dans un ou plusieurs éléments |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1086,12 +1160,12 @@ concat('<text1>', '<text2>', ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text1*>, <*text2*>... | Oui | Chaîne | Au moins deux chaînes à combiner |
+| <*text1*>, <*text2*>... | OUI | Chaîne | Au moins deux chaînes à combiner |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*text1text2...*> | Chaîne | Chaîne créée à partir des chaînes d’entrée combinées |
+| <*text1text2...* > | Chaîne | Chaîne créée à partir des chaînes d’entrée combinées |
 ||||
 
 *Exemple*
@@ -1125,13 +1199,13 @@ Plus précisément, cette fonction agit sur ces types de collection :
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | Oui | Chaîne, tableau ou ensemble de clés | Collection à vérifier |
-| <*value*> | Oui | Respectivement, chaîne, tableau ou ensemble de clés | Élément à rechercher |
+| <*collection*> | OUI | Chaîne, tableau ou ensemble de clés | Collection à vérifier |
+| <*value*> | OUI | Respectivement, chaîne, tableau ou ensemble de clés | Élément à rechercher |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false | Booléen | Retourne la valeur true lorsque l’élément est trouvé. Retourne la valeur false lorsqu’elle est introuvable. |
+| true ou false | Boolean | Retourne la valeur true lorsque l’élément est trouvé. Retourne la valeur false lorsqu’elle est introuvable. |
 ||||
 
 *Exemple 1*
@@ -1162,9 +1236,9 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*destinationTimeZone*> | Oui | Chaîne | Nom du fuseau horaire cible. Pour plus d’informations, consultez [ID de fuseau horaire](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*destinationTimeZone*> | OUI | Chaîne | Nom du fuseau horaire cible. Pour plus d’informations sur les noms des fuseaux horaires, consultez [Valeurs d’index des fuseaux horaires Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1204,10 +1278,10 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*sourceTimeZone*> | Oui | Chaîne | Nom du fuseau horaire source. Pour plus d’informations, consultez [ID de fuseau horaire](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
-| <*destinationTimeZone*> | Oui | Chaîne | Nom du fuseau horaire cible. Pour plus d’informations, consultez [ID de fuseau horaire](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*sourceTimeZone*> | OUI | Chaîne | Nom du fuseau horaire source. Pour plus d’informations sur les noms des fuseaux horaires, consultez [Valeurs d’index des fuseaux horaires Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*destinationTimeZone*> | OUI | Chaîne | Nom du fuseau horaire cible. Pour plus d’informations sur les noms des fuseaux horaires, consultez [Valeurs d’index des fuseaux horaires Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1247,9 +1321,9 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*sourceTimeZone*> | Oui | Chaîne | Nom du fuseau horaire source. Pour plus d’informations, consultez [ID de fuseau horaire](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*sourceTimeZone*> | OUI | Chaîne | Nom du fuseau horaire source. Pour plus d’informations sur les noms des fuseaux horaires, consultez [Valeurs d’index des fuseaux horaires Microsoft](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1290,12 +1364,12 @@ createArray('<object1>', '<object2>', ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object1*>, <*object2*>... | Oui | N’importe lequel, mais pas de combinaison | Au moins deux éléments pour créer le tableau |
+| <*object1*>, <*object2*>... | OUI | N’importe lequel, mais pas de combinaison | Au moins deux éléments pour créer le tableau |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*object1*>, <*object2*>...] | Tableau | Tableau créé à partir de tous les éléments d’entrée |
+| [<*object1*>, <*object2*>...] | Array | Tableau créé à partir de tous les éléments d’entrée |
 ||||
 
 *Exemple*
@@ -1320,7 +1394,7 @@ dataUri('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne à convertir |
+| <*value*> | OUI | Chaîne | Chaîne à convertir |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1344,7 +1418,7 @@ Et retourne ce résultat : `"data:text/plain;charset=utf-8;base64,aGVsbG8="`
 
 Retourne la version binaire d’un URI (Uniform Resource Identifier) de données.
 Utilisez cette fonction plutôt que la fonction [decodeDataUri()](#decodeDataUri).
-Bien que les deux fonctions agissent de manière identique, la fonction `decodeDataUri()` est préférée.
+Bien que les deux fonctions agissent de manière identique, la fonction `dataUriBinary()` est préférée.
 
 ```
 dataUriToBinary('<value>')
@@ -1352,7 +1426,7 @@ dataUriToBinary('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | URI de données à convertir |
+| <*value*> | OUI | Chaîne | URI de données à convertir |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1387,7 +1461,7 @@ dataUriToString('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | URI de données à convertir |
+| <*value*> | OUI | Chaîne | URI de données à convertir |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1417,12 +1491,12 @@ dayOfMonth('<timestamp>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*day-of-month*> | Entier  | Jour du mois de l’horodatage spécifié |
+| <*day-of-month*> | Integer | Jour du mois de l’horodatage spécifié |
 ||||
 
 *Exemple*
@@ -1447,12 +1521,12 @@ dayOfWeek('<timestamp>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*day-of-week*> | Entier  | Jour de la semaine à partir de l’horodatage spécifié où dimanche représente 0, lundi représente 1, etc. |
+| <*day-of-week*> | Integer | Jour de la semaine à partir de l’horodatage spécifié où dimanche représente 0, lundi représente 1, etc. |
 ||||
 
 *Exemple*
@@ -1477,12 +1551,12 @@ dayOfYear('<timestamp>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*day-of-year*> | Entier  | Jour de l’année à partir de l’horodatage spécifié |
+| <*day-of-year*> | Integer | Jour de l’année à partir de l’horodatage spécifié |
 ||||
 
 *Exemple*
@@ -1509,7 +1583,7 @@ decodeBase64('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne encodée en Base64 à décoder |
+| <*value*> | OUI | Chaîne | Chaîne encodée en Base64 à décoder |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1541,7 +1615,7 @@ decodeDataUri('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne d’URI de données à décoder |
+| <*value*> | OUI | Chaîne | Chaîne d’URI de données à décoder |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1576,7 +1650,7 @@ decodeUriComponent('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne contenant les caractères d’échappement à décoder |
+| <*value*> | OUI | Chaîne | Chaîne contenant les caractères d’échappement à décoder |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1607,13 +1681,13 @@ div(<dividend>, <divisor>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*dividend*> | Oui | Entier ou flottant | Nombre à diviser par le *diviseur* |
-| <*divisor*> | Oui | Entier ou flottant | Nombre qui divise le *dividende*, mais qui ne peut pas être égal à 0 |
+| <*dividend*> | OUI | Entier ou flottant | Nombre à diviser par le *diviseur* |
+| <*divisor*> | OUI | Entier ou flottant | Nombre qui divise le *dividende*, mais qui ne peut pas être égal à 0 |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Entier  | Entier résultant de la division du premier nombre par le second nombre |
+| <*quotient-result*> | Integer | Entier résultant de la division du premier nombre par le second nombre |
 ||||
 
 *Exemple*
@@ -1641,7 +1715,7 @@ encodeUriComponent('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne à convertir au format encodé sous forme d’URI |
+| <*value*> | OUI | Chaîne | Chaîne à convertir au format encodé sous forme d’URI |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1673,12 +1747,12 @@ empty([<collection>])
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | Oui | Chaîne, tableau ou objet | Collection à vérifier |
+| <*collection*> | OUI | Chaîne, tableau ou objet | Collection à vérifier |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false | Booléen | Retourne la valeur true lorsque la collection est vide. Retourne la valeur false lorsque la collection n’est pas vide. |
+| true ou false | Boolean | Retourne la valeur true lorsque la collection est vide. Retourne la valeur false lorsque la collection n’est pas vide. |
 ||||
 
 *Exemple*
@@ -1709,13 +1783,13 @@ endsWith('<text>', '<searchText>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Oui | Chaîne | Chaîne à vérifier |
-| <*searchText*> | Oui | Chaîne | Sous-chaîne de fin à rechercher |
+| <*text*> | OUI | Chaîne | Chaîne à vérifier |
+| <*searchText*> | OUI | Chaîne | Sous-chaîne de fin à rechercher |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false  | Booléen | Retourne la valeur true lorsque la sous-chaîne de fin est trouvée. Retourne la valeur false lorsqu’elle est introuvable. |
+| true ou false  | Boolean | Retourne la valeur true lorsque la sous-chaîne de fin est trouvée. Retourne la valeur false lorsqu’elle est introuvable. |
 ||||
 
 *Exemple 1*
@@ -1751,12 +1825,12 @@ equals('<object1>', '<object2>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object1*>, <*object2*> | Oui | Divers | Valeurs, expressions ou objets à comparer |
+| <*object1*>, <*object2*> | OUI | Divers | Valeurs, expressions ou objets à comparer |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false | Booléen | Retourne la valeur true lorsque les deux sont équivalents. Retourne la valeur false lorsque les deux ne sont pas équivalents. |
+| true ou false | Boolean | Retourne la valeur true lorsque les deux sont équivalents. Retourne la valeur false lorsque les deux ne sont pas équivalents. |
 ||||
 
 *Exemple*
@@ -1786,7 +1860,7 @@ first([<collection>])
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | Oui | Chaîne ou tableau | Collection dans laquelle rechercher le premier élément |
+| <*collection*> | OUI | Chaîne ou tableau | Collection dans laquelle rechercher le premier élément |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1813,7 +1887,7 @@ Et retournent les résultats suivants :
 ### <a name="float"></a>float
 
 Convertit une version de type chaîne d’un nombre à virgule flottante en nombre réel à virgule flottante.
-Vous pouvez utiliser cette fonction uniquement lors du passage de paramètres personnalisés à une application, par exemple, une application logique ou un flux.
+Vous pouvez utiliser cette fonction uniquement lors de la transmission de paramètres personnalisés à une application, telle qu’une application logique ou un flux.
 
 ```
 float('<value>')
@@ -1821,7 +1895,7 @@ float('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne qui contient un nombre valide à virgule flottante à convertir |
+| <*value*> | OUI | Chaîne | Chaîne qui contient un nombre valide à virgule flottante à convertir |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1851,8 +1925,8 @@ formatDateTime('<timestamp>', '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1882,13 +1956,13 @@ formDataMultiValues('<actionName>', '<key>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Oui | Chaîne | Action dont la sortie contient la valeur de clé souhaitée |
-| <*key*> | Oui | Chaîne | Nom de la clé dont vous souhaitez la valeur |
+| <*actionName*> | OUI | Chaîne | Action dont la sortie contient la valeur de clé souhaitée |
+| <*key*> | OUI | Chaîne | Nom de la clé dont vous souhaitez la valeur |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*array-with-key-values*>] | Tableau | Tableau contenant toutes les valeurs qui correspondent à la clé spécifiée |
+| [<*array-with-key-values*>] | Array | Tableau contenant toutes les valeurs qui correspondent à la clé spécifiée |
 ||||
 
 *Exemple*
@@ -1914,8 +1988,8 @@ formDataValue('<actionName>', '<key>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Oui | Chaîne | Action dont la sortie contient la valeur de clé souhaitée |
-| <*key*> | Oui | Chaîne | Nom de la clé dont vous souhaitez la valeur |
+| <*actionName*> | OUI | Chaîne | Action dont la sortie contient la valeur de clé souhaitée |
+| <*key*> | OUI | Chaîne | Nom de la clé dont vous souhaitez la valeur |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1945,9 +2019,9 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Oui | Entier  | Nombre d’unités de temps spécifiées à soustraire |
-| <*timeUnit*> | Oui | Chaîne | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*interval*> | OUI | Integer | Nombre d’unités de temps spécifiées à soustraire |
+| <*timeUnit*> | OUI | Chaîne | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -1989,9 +2063,9 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | Oui | Entier  | Nombre d’unités de temps spécifiées à soustraire |
-| <*timeUnit*> | Oui | Chaîne | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*interval*> | OUI | Integer | Nombre d’unités de temps spécifiées à soustraire |
+| <*timeUnit*> | OUI | Chaîne | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2035,13 +2109,13 @@ greater('<value>', '<compareTo>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Entier, flottant ou chaîne | Première valeur à vérifier pour déterminer si elle est supérieure à la seconde |
-| <*compareTo*> | Oui | Respectivement entier, flottant ou chaîne | Valeur de comparaison |
+| <*value*> | OUI | Entier, flottant ou chaîne | Première valeur à vérifier pour déterminer si elle est supérieure à la seconde |
+| <*compareTo*> | OUI | Respectivement entier, flottant ou chaîne | Valeur de comparaison |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false | Booléen | Retourne la valeur true si la première valeur est supérieure à la seconde. Retourne la valeur false si la première valeur est égale ou inférieure à la seconde. |
+| true ou false | Boolean | Retourne la valeur true si la première valeur est supérieure à la seconde. Retourne la valeur false si la première valeur est égale ou inférieure à la seconde. |
 ||||
 
 *Exemple*
@@ -2072,13 +2146,13 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Entier, flottant ou chaîne | Première valeur à vérifier pour déterminer si elle est supérieure ou égale à la seconde |
-| <*compareTo*> | Oui | Respectivement entier, flottant ou chaîne | Valeur de comparaison |
+| <*value*> | OUI | Entier, flottant ou chaîne | Première valeur à vérifier pour déterminer si elle est supérieure ou égale à la seconde |
+| <*compareTo*> | OUI | Respectivement entier, flottant ou chaîne | Valeur de comparaison |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false | Booléen | Retourne la valeur true si la première valeur est supérieure ou égale à la seconde. Retourne la valeur false si la première valeur est inférieure à la seconde. |
+| true ou false | Boolean | Retourne la valeur true si la première valeur est supérieure ou égale à la seconde. Retourne la valeur false si la première valeur est inférieure à la seconde. |
 ||||
 
 *Exemple*
@@ -2113,7 +2187,7 @@ guid('<format>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | Non  | Chaîne | Un seul [spécificateur de format](https://msdn.microsoft.com/library/97af8hh4) pour le GUID retourné. Par défaut, il s’agit du format « D », mais vous pouvez utiliser « N », « D », « B », « P » ou « X ». |
+| <*format*> | Non | Chaîne | Un seul [spécificateur de format](https://msdn.microsoft.com/library/97af8hh4) pour le GUID retourné. Par défaut, il s’agit du format « D », mais vous pouvez utiliser « N », « D », « B », « P » ou « X ». |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2144,9 +2218,9 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression*> | Oui | Booléen | Expression à vérifier |
-| <*valueIfTrue*> | Oui | Quelconque | Valeur à retourner lorsque l’expression est vraie |
-| <*valueIfFalse*> | Oui | Quelconque | Valeur à retourner lorsque l’expression est fausse |
+| <*expression*> | OUI | Boolean | Expression à vérifier |
+| <*valueIfTrue*> | OUI | Quelconque | Valeur à retourner lorsque l’expression est vraie |
+| <*valueIfFalse*> | OUI | Quelconque | Valeur à retourner lorsque l’expression est fausse |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2176,13 +2250,13 @@ indexOf('<text>', '<searchText>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Oui | Chaîne | Chaîne comportant la sous-chaîne à rechercher |
-| <*searchText*> | Oui | Chaîne | Sous-chaîne à rechercher |
+| <*text*> | OUI | Chaîne | Chaîne comportant la sous-chaîne à rechercher |
+| <*searchText*> | OUI | Chaîne | Sous-chaîne à rechercher |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*index-value*>| Entier  | Position ou valeur d’index de départ de la sous-chaîne spécifiée. <p>Si la chaîne est introuvable, retourne le chiffre -1. |
+| <*index-value*>| Integer | Position ou valeur d’index de départ de la sous-chaîne spécifiée. <p>Si la chaîne est introuvable, retourne le chiffre -1. |
 ||||
 
 *Exemple*
@@ -2207,12 +2281,12 @@ int('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne à convertir |
+| <*value*> | OUI | Chaîne | Chaîne à convertir |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*integer-result*> | Entier  | Version de type entier de la chaîne spécifiée |
+| <*integer-result*> | Integer | Version de type entier de la chaîne spécifiée |
 ||||
 
 *Exemple*
@@ -2262,7 +2336,7 @@ items('<loopName>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*loopName*> | Oui | Chaîne | Nom de la boucle for-each |
+| <*loopName*> | OUI | Chaîne | Nom de la boucle for-each |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2278,6 +2352,96 @@ Cet exemple illustre l’obtention de l’élément actuel à partir de la boucl
 items('myForEachLoopName')
 ```
 
+<a name="iterationIndexes"></a>
+
+### <a name="iterationindexes"></a>iterationIndexes
+
+Retourne la valeur d’index de l’itération actuelle à l’intérieur d’une boucle Until. Vous pouvez utiliser cette fonction à l’intérieur de boucles Until imbriquées. 
+
+```
+iterationIndexes('<loopName>')
+```
+
+| Paramètre | Obligatoire | Type | Description | 
+| --------- | -------- | ---- | ----------- | 
+| <*loopName*> | OUI | Chaîne | Le nom de la boucle Until | 
+||||| 
+
+| Valeur de retour | Type | Description | 
+| ------------ | ---- | ----------- | 
+| <*index*> | Integer | La valeur d’index de l’itération actuelle à l’intérieur d’une boucle Until spécifique | 
+|||| 
+
+*Exemple* 
+
+Cet exemple crée une variable de compteur et incrémente cette variable par un au cours de chaque itération dans une boucle Until jusqu’à ce que la valeur du compteur atteigne 5. L’exemple crée également une variable qui assure le suivi de l’index actuel pour chaque itération. Lors de chaque itération, l’exemple incrémente le compteur dans la boucle Until, assigne la valeur du compteur à la valeur d’index actuelle, puis incrémente le compteur. Vous pouvez déterminer à tout moment le numéro d’itération actuel en récupérant la valeur d’index actuelle.
+
+```
+{
+   "actions": {
+      "Create_counter_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [ 
+               {
+                  "name": "myCounter",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {}
+      },
+      "Create_current_index_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [
+               {
+                  "name": "myCurrentLoopIndex",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {
+            "Create_counter_variable": [ "Succeeded" ]
+         }
+      },
+      "Until": {
+         "type": "Until",
+         "actions": {
+            "Assign_current_index_to_counter": {
+               "type": "SetVariable",
+               "inputs": {
+                  "name": "myCurrentLoopIndex",
+                  "value": "@variables('myCounter')"
+               },
+               "runAfter": {
+                  "Increment_variable": [ "Succeeded" ]
+               }
+            },
+            "Increment_variable": {
+               "type": "IncrementVariable",
+               "inputs": {
+                  "name": "myCounter",
+                  "value": 1
+               },
+               "runAfter": {}
+            }
+         },
+         "expression": "@equals(variables('myCounter'), 5),
+         "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+         },
+         "runAfter": {
+            "Create_current_index_variable": [ "Succeeded" ]
+         }
+      }
+   }
+}
+```
+
 <a name="json"></a>
 
 ### <a name="json"></a>json
@@ -2290,7 +2454,7 @@ json('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne ou élément XML | Chaîne ou élément XML à convertir |
+| <*value*> | OUI | Chaîne ou élément XML | Chaîne ou élément XML à convertir |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2362,7 +2526,7 @@ intersection('<collection1>', '<collection2>', ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>... | Oui | Tableau ou objet, mais pas les deux | Collections à partir desquelles vous souhaitez *uniquement* les éléments communs |
+| <*collection1*>, <*collection2*>... | OUI | Tableau ou objet, mais pas les deux | Collections à partir desquelles vous souhaitez *uniquement* les éléments communs |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2392,8 +2556,8 @@ join([<collection>], '<delimiter>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | Oui | Tableau | Tableau qui comporte les éléments à joindre |
-| <*delimiter*> | Oui | Chaîne | Séparateur affiché entre chaque caractère de la chaîne obtenue |
+| <*collection*> | OUI | Array | Tableau qui comporte les éléments à joindre |
+| <*delimiter*> | OUI | Chaîne | Séparateur affiché entre chaque caractère de la chaîne obtenue |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2424,7 +2588,7 @@ last([<collection>])
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | Oui | Chaîne ou tableau | Collection dans laquelle rechercher le dernier élément |
+| <*collection*> | OUI | Chaîne ou tableau | Collection dans laquelle rechercher le dernier élément |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2459,13 +2623,13 @@ lastIndexOf('<text>', '<searchText>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Oui | Chaîne | Chaîne comportant la sous-chaîne à rechercher |
-| <*searchText*> | Oui | Chaîne | Sous-chaîne à rechercher |
+| <*text*> | OUI | Chaîne | Chaîne comportant la sous-chaîne à rechercher |
+| <*searchText*> | OUI | Chaîne | Sous-chaîne à rechercher |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*ending-index-value*> | Entier  | Retourne la position de départ ou la valeur d’index de la dernière occurrence de la sous-chaîne spécifiée. <p>Si la chaîne est introuvable, retourne le chiffre -1. |
+| <*ending-index-value*> | Integer | Retourne la position de départ ou la valeur d’index de la dernière occurrence de la sous-chaîne spécifiée. <p>Si la chaîne est introuvable, retourne le chiffre -1. |
 ||||
 
 *Exemple*
@@ -2491,12 +2655,12 @@ length([<collection>])
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | Oui | Chaîne ou tableau | Collection contenant les éléments à comptabiliser |
+| <*collection*> | OUI | Chaîne ou tableau | Collection contenant les éléments à comptabiliser |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*length-or-count*> | Entier  | Nombre d’éléments de la collection |
+| <*length-or-count*> | Integer | Nombre d’éléments de la collection |
 ||||
 
 *Exemple*
@@ -2524,13 +2688,13 @@ less('<value>', '<compareTo>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Entier, flottant ou chaîne | Première valeur à vérifier pour déterminer si elle est inférieure à la seconde |
-| <*compareTo*> | Oui | Respectivement entier, flottant ou chaîne | Élément de comparaison |
+| <*value*> | OUI | Entier, flottant ou chaîne | Première valeur à vérifier pour déterminer si elle est inférieure à la seconde |
+| <*compareTo*> | OUI | Respectivement entier, flottant ou chaîne | Élément de comparaison |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false | Booléen | Retourne la valeur true si la première valeur est inférieure à la seconde. Retourne la valeur false si la première valeur est égale ou supérieure à la seconde. |
+| true ou false | Boolean | Retourne la valeur true si la première valeur est inférieure à la seconde. Retourne la valeur false si la première valeur est égale ou supérieure à la seconde. |
 ||||
 
 *Exemple*
@@ -2561,13 +2725,13 @@ lessOrEquals('<value>', '<compareTo>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Entier, flottant ou chaîne | Première valeur à vérifier pour déterminer si elle est inférieure ou égale à la seconde |
-| <*compareTo*> | Oui | Respectivement entier, flottant ou chaîne | Élément de comparaison |
+| <*value*> | OUI | Entier, flottant ou chaîne | Première valeur à vérifier pour déterminer si elle est inférieure ou égale à la seconde |
+| <*compareTo*> | OUI | Respectivement entier, flottant ou chaîne | Élément de comparaison |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false  | Booléen | Retourne la valeur true si la première valeur est inférieure ou égale à la seconde. Retourne la valeur false si la première valeur est supérieure à la seconde. |
+| true ou false  | Boolean | Retourne la valeur true si la première valeur est inférieure ou égale à la seconde. Retourne la valeur false si la première valeur est supérieure à la seconde. |
 ||||
 
 *Exemple*
@@ -2619,8 +2783,8 @@ max([<number1>, <number2>, ...])
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*number1*>, <*number2*>... | Oui | Entier, flottant ou les deux | Ensemble de nombres dont vous voulez la valeur la plus élevée |
-| [<*number1*>, <*number2*>...] | Oui | Tableau : entier, flottant ou les deux | Tableau de nombres dont vous voulez la valeur la plus élevée |
+| <*number1*>, <*number2*>... | OUI | Entier, flottant ou les deux | Ensemble de nombres dont vous voulez la valeur la plus élevée |
+| [<*number1*>, <*number2*>...] | OUI | Tableau : entier, flottant ou les deux | Tableau de nombres dont vous voulez la valeur la plus élevée |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2652,8 +2816,8 @@ min([<number1>, <number2>, ...])
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*number1*>, <*number2*>... | Oui | Entier, flottant ou les deux | Ensemble de nombres dont vous voulez la valeur la plus petite |
-| [<*number1*>, <*number2*>...] | Oui | Tableau : entier, flottant ou les deux | Tableau de nombres dont vous voulez la valeur la plus petite |
+| <*number1*>, <*number2*>... | OUI | Entier, flottant ou les deux | Ensemble de nombres dont vous voulez la valeur la plus petite |
+| [<*number1*>, <*number2*>...] | OUI | Tableau : entier, flottant ou les deux | Tableau de nombres dont vous voulez la valeur la plus petite |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2685,8 +2849,8 @@ mod(<dividend>, <divisor>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*dividend*> | Oui | Entier ou flottant | Nombre à diviser par le *diviseur* |
-| <*divisor*> | Oui | Entier ou flottant | Nombre qui divise le *dividende*, mais qui ne peut pas être égal à 0. |
+| <*dividend*> | OUI | Entier ou flottant | Nombre à diviser par le *diviseur* |
+| <*divisor*> | OUI | Entier ou flottant | Nombre qui divise le *dividende*, mais qui ne peut pas être égal à 0. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2716,8 +2880,8 @@ mul(<multiplicand1>, <multiplicand2>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*multiplicand1*> | Oui | Entier ou flottant | Nombre à multiplier par *multiplicand2* |
-| <*multiplicand2*> | Oui | Entier ou flottant | Nombre qui multiplie *multiplicand1* |
+| <*multiplicand1*> | OUI | Entier ou flottant | Nombre à multiplier par *multiplicand2* |
+| <*multiplicand2*> | OUI | Entier ou flottant | Nombre qui multiplie *multiplicand1* |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2751,8 +2915,8 @@ multipartBody('<actionName>', <index>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*actionName*> | Oui | Chaîne | Nom de l’action dont la sortie compte plusieurs parties |
-| <*index*> | Oui | Entier  | Valeur d’index pour la partie que vous souhaitez |
+| <*actionName*> | OUI | Chaîne | Nom de l’action dont la sortie compte plusieurs parties |
+| <*index*> | OUI | Integer | Valeur d’index pour la partie que vous souhaitez |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2773,12 +2937,12 @@ not(<expression>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression*> | Oui | Booléen | Expression à vérifier |
+| <*expression*> | OUI | Boolean | Expression à vérifier |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false | Booléen | Retourne la valeur true lorsque l’expression est fausse. Retourne la valeur false lorsque l’expression est vraie. |
+| true ou false | Boolean | Retourne la valeur true lorsque l’expression est fausse. Retourne la valeur false lorsque l’expression est vraie. |
 ||||
 
 *Exemple 1*
@@ -2822,12 +2986,12 @@ or(<expression1>, <expression2>, ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*expression1*>, <*expression2*>... | Oui | Booléen | Expressions à vérifier |
+| <*expression1*>, <*expression2*>... | OUI | Boolean | Expressions à vérifier |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false | Booléen | Retourne la valeur true si au moins une expression est vraie. Retourne la valeur false lorsque toutes les expressions sont fausses. |
+| true ou false | Boolean | Retourne la valeur true si au moins une expression est vraie. Retourne la valeur false lorsque toutes les expressions sont fausses. |
 ||||
 
 *Exemple 1*
@@ -2858,11 +3022,74 @@ Et retournent les résultats suivants :
 * Premier exemple : comme au moins une expression est vraie, la fonction retourne `true`.
 * Deuxième exemple : comme les deux expressions sont fausses, la fonction retourne `false`.
 
+<a name="outputs"></a>
+
+### <a name="outputs"></a>outputs
+
+Retourne les sorties d’une action lors de l’exécution. Utilisez cette fonction plutôt que `actionOutputs()`, qui correspond à `outputs()` dans le concepteur d’application logique. Bien que les deux fonctions agissent de manière identique, la fonction `outputs()` est préférée.
+
+```
+outputs('<actionName>')
+```
+
+| Paramètre | Obligatoire | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*actionName*> | OUI | Chaîne | Nom de la sortie de l’action souhaitée |
+|||||
+
+| Valeur de retour | Type | Description |
+| ------------ | -----| ----------- |
+| <*output*> | Chaîne | Sortie de l’action spécifiée |
+||||
+
+*Exemple*
+
+Cet exemple illustre l’obtention de la sortie de l’action Twitter `Get user` :
+
+```
+outputs('Get_user')
+```
+
+Et retourne ce résultat :
+
+```json
+{
+  "statusCode": 200,
+  "headers": {
+    "Pragma": "no-cache",
+    "Vary": "Accept-Encoding",
+    "x-ms-request-id": "a916ec8f52211265d98159adde2efe0b",
+    "X-Content-Type-Options": "nosniff",
+    "Timing-Allow-Origin": "*",
+    "Cache-Control": "no-cache",
+    "Date": "Mon, 09 Apr 2018 18:47:12 GMT",
+    "Set-Cookie": "ARRAffinity=b9400932367ab5e3b6802e3d6158afffb12fcde8666715f5a5fbd4142d0f0b7d;Path=/;HttpOnly;Domain=twitter-wus.azconn-wus.p.azurewebsites.net",
+    "X-AspNet-Version": "4.0.30319",
+    "X-Powered-By": "ASP.NET",
+    "Content-Type": "application/json; charset=utf-8",
+    "Expires": "-1",
+    "Content-Length": "339"
+  },
+  "body": {
+    "FullName": "Contoso Corporation",
+    "Location": "Generic Town, USA",
+    "Id": 283541717,
+    "UserName": "ContosoInc",
+    "FollowersCount": 172,
+    "Description": "Leading the way in transforming the digital workplace.",
+    "StatusesCount": 93,
+    "FriendsCount": 126,
+    "FavouritesCount": 46,
+    "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
+  }
+}
+```
+
 <a name="parameters"></a>
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
-Retourner la valeur pour un paramètre qui est décrit dans votre définition de workflow.
+Retourne la valeur d’un paramètre décrit dans la définition de votre flux de travail.
 
 ```
 parameters('<parameterName>')
@@ -2870,7 +3097,7 @@ parameters('<parameterName>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*parameterName*> | Oui | Chaîne | Nom du paramètre dont vous voulez la valeur |
+| <*parameterName*> | OUI | Chaîne | Nom du paramètre dont vous voulez la valeur |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2908,13 +3135,13 @@ rand(<minValue>, <maxValue>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*minValue*> | Oui | Entier  | Entier le plus petit de la plage |
-| <*maxValue*> | Oui | Entier  | Entier qui suit l’entier le plus élevé dans la plage que la fonction peut retourner |
+| <*minValue*> | OUI | Integer | Entier le plus petit de la plage |
+| <*maxValue*> | OUI | Integer | Entier qui suit l’entier le plus élevé dans la plage que la fonction peut retourner |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*random-result*> | Entier  | Entier aléatoire retourné à partir de la plage spécifiée |
+| <*random-result*> | Integer | Entier aléatoire retourné à partir de la plage spécifiée |
 ||||
 
 *Exemple*
@@ -2939,13 +3166,13 @@ range(<startIndex>, <count>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*startIndex*> | Oui | Entier  | Valeur entière qui commence le tableau en tant que le premier élément |
-| <*count*> | Oui | Entier  | Nombre d’entiers du tableau |
+| <*startIndex*> | OUI | Integer | Une valeur entière qui constitue le premier élément du tableau |
+| <*count*> | OUI | Integer | Nombre d’entiers du tableau |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*range-result*>] | Tableau | Tableau dont les entiers commencent à partir de l’index spécifié |
+| [<*range-result*>] | Array | Tableau dont les entiers commencent à partir de l’index spécifié |
 ||||
 
 *Exemple*
@@ -2970,9 +3197,9 @@ replace('<text>', '<oldText>', '<newText>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Oui | Chaîne | Chaîne comportant la sous-chaîne à remplacer |
-| <*oldText*> | Oui | Chaîne | Sous-chaîne à remplacer |
-| <*newText*> | Oui | Chaîne | Chaîne de remplacement |
+| <*text*> | OUI | Chaîne | Chaîne comportant la sous-chaîne à remplacer |
+| <*oldText*> | OUI | Chaîne | Sous-chaîne à remplacer |
+| <*newText*> | OUI | Chaîne | Chaîne de remplacement |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -2994,7 +3221,7 @@ Et retourne ce résultat : `"the new string"`
 
 ### <a name="removeproperty"></a>removeProperty
 
-Supprime une propriété dans un objet et retourne l’objet mis à jour.
+Supprime une propriété dans un objet et retourne l’objet mis à jour. Si la propriété que vous essayez de supprimer n’existe pas, la fonction retourne l’objet d’origine.
 
 ```
 removeProperty(<object>, '<property>')
@@ -3002,8 +3229,8 @@ removeProperty(<object>, '<property>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | Oui | Object | Objet JSON dont vous souhaitez supprimer une propriété |
-| <*property*> | Oui | Chaîne | Nom de la propriété à supprimer |
+| <*object*> | OUI | Object | Objet JSON dont vous souhaitez supprimer une propriété |
+| <*property*> | OUI | Chaîne | Nom de la propriété à supprimer |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3011,20 +3238,208 @@ removeProperty(<object>, '<property>')
 | <*updated-object*> | Object | Objet JSON mis à jour sans la propriété spécifiée |
 ||||
 
-*Exemple*
-
-Cet exemple illustre la suppression de la propriété `"accountLocation"` dans un objet `"customerProfile"`, qui est converti au format JSON avec la fonction [JSON()](#json), et retourne l’objet mis à jour :
+Pour supprimer une propriété enfant d’une propriété existante, utilisez cette syntaxe :
 
 ```
-removeProperty(json('customerProfile'), 'accountLocation')
+removeProperty(<object>['<parent-property>'], '<child-property>')
+```
+
+| Paramètre | Obligatoire | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*object*> | OUI | Object | Objet JSON dont vous voulez supprimer la propriété |
+| <*parent-property*> | OUI | Chaîne | Nom de la propriété parente avec la propriété enfant que vous voulez supprimer |
+| <*child-property*> | OUI | Chaîne | Nom de la propriété enfant à supprimer |
+|||||
+
+| Valeur de retour | Type | Description |
+| ------------ | ---- | ----------- |
+| <*updated-object*> | Object | Objet JSON mis à jour dont vous avez supprimé la propriété enfant |
+||||
+
+*Exemple 1*
+
+Cet exemple supprime la propriété `middleName` d’un objet JSON, qui est converti d’une chaîne en un format JSON avec la fonction [JSON()](#json), et retourne l’objet mis à jour :
+
+```
+removeProperty(json('{ "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" }'), 'middleName')
+```
+
+Voici l’objet JSON actuel :
+
+```json
+{
+   "firstName": "Sophia",
+   "middleName": "Anne",
+   "surName": "Owen"
+}
+```
+
+Voici l’objet JSON mis à jour :
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+*Exemple 2*
+
+Cet exemple supprime la propriété enfant `middleName` d’une propriété parente `customerName` dans un objet JSON, qui est converti d’une chaîne en un format JSON avec la fonction [JSON()](#json), et retourne l’objet mis à jour :
+
+```
+removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "Anne", "surName": "Owen" } }')['customerName'], 'middleName')
+```
+
+Voici l’objet JSON actuel :
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "middleName": "Anne",
+      "surName": "Owen"
+   }
+}
+```
+
+Voici l’objet JSON mis à jour :
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophia",
+      "surName": "Owen"
+   }
+}
+```
+
+<a name="result"></a>
+
+### <a name="result"></a>result
+
+Retourne les entrées et les sorties de toutes les actions à l’intérieur de l’action délimitée spécifiée, comme une action `For_each`, `Until` ou `Scope`. Cette fonction est utile pour retourner les résultats d’une action qui a échoué, pour vous permettre de diagnostiquer et de gérer les exceptions. Pour plus d’informations, consultez [Obtenir le contexte et les résultats des échecs](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+
+```
+result('<scopedActionName>')
+```
+
+| Paramètre | Obligatoire | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*scopedActionName*> | OUI | Chaîne | Nom de l’action délimitée de laquelle retourner les entrées et les sorties de toutes les actions internes |
+||||
+
+| Valeur de retour | Type | Description |
+| ------------ | ---- | ----------- |
+| <*array-object*> | Objet tableau | Tableau qui contient des tableaux d’entrées et de sorties de chaque action qui apparaît à l’intérieur de l’action délimitée spécifiée |
+||||
+
+*Exemple*
+
+Cet exemple retourne les entrées et les sorties de chaque itération d’une action HTTP qui est à l’intérieur d’une boucle `For_each` en utilisant la fonction `result()` dans l’action `Compose` :
+
+```json
+{
+   "actions": {
+      "Compose": {
+         "inputs": "@result('For_each')",
+         "runAfter": {
+            "For_each": [
+               "Succeeded"
+            ]
+         },
+         "type": "compose"
+      },
+      "For_each": {
+         "actions": {
+            "HTTP": {
+               "inputs": {
+                  "method": "GET",
+                  "uri": "https://httpstat.us/200"
+               },
+               "runAfter": {},
+               "type": "Http"
+            }
+         },
+         "foreach": "@triggerBody()",
+         "runAfter": {},
+         "type": "Foreach"
+      }
+   }
+}
+```
+
+Voici comment l’exemple de tableau retourné peut se présenter, où l’objet externe `outputs` contient les entrées et les sorties de chaque itération des actions à l’intérieur de l’action `For_each`.
+
+```json
+[
+   {
+      "name": "HTTP",
+      "outputs": [
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+               "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "6bad3015-0444-4ccd-a971-cbb0c99a7.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         },
+         {
+            "name": "HTTP",
+            "inputs": {
+               "uri": "https://httpstat.us/200",
+               "method": "GET"
+            },
+            "outputs": {
+            "statusCode": 200,
+               "headers": {
+                   "X-AspNetMvc-Version": "5.1",
+                   "Access-Control-Allow-Origin": "*",
+                   "Cache-Control": "private",
+                   "Date": "Tue, 20 Aug 2019 22:15:37 GMT",
+                   "Set-Cookie": "ARRAffinity=0285cfbea9f2ee7",
+                   "Server": "Microsoft-IIS/10.0",
+                   "X-AspNet-Version": "4.0.30319",
+                   "X-Powered-By": "ASP.NET",
+                   "Content-Length": "0"
+               },
+               "startTime": "2019-08-20T22:15:37.6919631Z",
+               "endTime": "2019-08-20T22:15:37.95762Z",
+               "trackingId": "9987e889-981b-41c5-aa27-f3e0e59bf69.....",
+               "clientTrackingId": "085863526764.....",
+               "code": "OK",
+               "status": "Succeeded"
+            }
+         }
+      ]
+   }
+]
 ```
 
 <a name="setProperty"></a>
 
 ### <a name="setproperty"></a>SetProperty
 
-Définit la valeur d’une propriété d’un objet et retourne l’objet mis à jour.
-Pour ajouter une nouvelle propriété, vous pouvez utiliser cette fonction ou la fonction [addProperty()](#addProperty).
+Définit la valeur d’une propriété d’un objet JSON et retourne l’objet mis à jour. Si la propriété que vous essayez de définir n’existe pas, la propriété est ajoutée à l’objet. Pour ajouter une nouvelle propriété, utilisez la fonction [addProperty()](#addProperty).
 
 ```
 setProperty(<object>, '<property>', <value>)
@@ -3032,9 +3447,23 @@ setProperty(<object>, '<property>', <value>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*object*> | Oui | Object | Objet JSON dont vous souhaitez définir la propriété |
-| <*property*> | Oui | Chaîne | Nom de la propriété existante ou nouvelle à définir |
-| <*value*> | Oui | Quelconque | Valeur à définir pour la propriété spécifiée |
+| <*object*> | OUI | Object | Objet JSON dont vous souhaitez définir la propriété |
+| <*property*> | OUI | Chaîne | Nom de la propriété existante ou nouvelle à définir |
+| <*value*> | OUI | Quelconque | Valeur à définir pour la propriété spécifiée |
+|||||
+
+Pour définir la propriété enfant dans un objet enfant, utilisez à la place un appel `setProperty()` imbriqué. Sinon, la fonction retourne seulement l’objet enfant comme sortie.
+
+```
+setProperty(<object>['<parent-property>'], '<parent-property>', setProperty(<object>['parentProperty'], '<child-property>', <value>))
+```
+
+| Paramètre | Obligatoire | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*object*> | OUI | Object | Objet JSON dont vous souhaitez définir la propriété |
+| <*parent-property*> | OUI | Chaîne | Nom de la propriété parente avec la propriété enfant que vous voulez définir |
+| <*child-property*> | OUI | Chaîne | Nom de la propriété enfant à définir |
+| <*value*> | OUI | Quelconque | Valeur à définir pour la propriété spécifiée |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3042,13 +3471,60 @@ setProperty(<object>, '<property>', <value>)
 | <*updated-object*> | Object | Objet JSON mis à jour dont vous définissez la propriété |
 ||||
 
-*Exemple*
+*Exemple 1*
 
-Cet exemple illustre la définition de la propriété `"accountNumber"` dans un objet `"customerProfile"`, qui est converti au format JSON avec la fonction [JSON()](#json).
-La fonction attribue une valeur générée par la fonction [guid()](#guid), et retourne l’objet JSON mis à jour :
+Cet exemple définit la propriété `surName` dans un objet JSON, qui est converti d’une chaîne en un format JSON avec la fonction [JSON()](#json). La fonction affecte la valeur spécifiée à la propriété et retourne l’objet mis à jour :
 
 ```
-setProperty(json('customerProfile'), 'accountNumber', guid())
+setProperty(json('{ "firstName": "Sophia", "surName": "Owen" }'), 'surName', 'Hartnett')
+```
+
+Voici l’objet JSON actuel :
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Owen"
+}
+```
+
+Voici l’objet JSON mis à jour :
+
+```json
+{
+   "firstName": "Sophia",
+   "surName": "Hartnett"
+}
+```
+
+*Exemple 2*
+
+Cet exemple définit la propriété enfant `surName` pour la propriété parente `customerName` dans un objet JSON, qui est converti d’une chaîne en un format JSON avec la fonction [JSON()](#json). La fonction affecte la valeur spécifiée à la propriété et retourne l’objet mis à jour :
+
+```
+setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }'), 'customerName', setProperty(json('{ "customerName": { "firstName": "Sophia", "surName": "Owen" } }')['customerName'], 'surName', 'Hartnett'))
+```
+
+Voici l’objet JSON actuel :
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Owen"
+   }
+}
+```
+
+Voici l’objet JSON mis à jour :
+
+```json
+{
+   "customerName": {
+      "firstName": "Sophie",
+      "surName": "Hartnett"
+   }
+}
 ```
 
 <a name="skip"></a>
@@ -3063,13 +3539,13 @@ skip([<collection>], <count>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | Oui | Tableau | Collection dont vous voulez supprimer des éléments |
-| <*count*> | Oui | Entier  | Entier positif correspondant au nombre d’éléments à supprimer au début |
+| <*collection*> | OUI | Array | Collection dont vous voulez supprimer des éléments |
+| <*count*> | OUI | Integer | Entier positif correspondant au nombre d’éléments à supprimer au début |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*updated-collection*>] | Tableau | Collection mise à jour à l’issue de la suppression des éléments spécifiés |
+| [<*updated-collection*>] | Array | Collection mise à jour à l’issue de la suppression des éléments spécifiés |
 ||||
 
 *Exemple*
@@ -3086,7 +3562,7 @@ Et retourne ce tableau avec les éléments restants : `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Retourne un tableau qui contient les sous-chaînes, séparés par des virgules, selon le caractère délimiteur spécifié dans la chaîne d’origine.
+Retourne un tableau qui contient des sous-chaînes, séparées par des virgules, extraites sur la base du caractère délimiteur spécifié dans la chaîne d’origine.
 
 ```
 split('<text>', '<delimiter>')
@@ -3094,13 +3570,13 @@ split('<text>', '<delimiter>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Oui | Chaîne | La chaîne pour séparer les sous-chaînes en fonction du délimiteur spécifié dans la chaîne d’origine |
-| <*delimiter*> | Oui | Chaîne | Le caractère dans la chaîne d’origine à utiliser comme délimiteur |
+| <*text*> | OUI | Chaîne | La chaîne pour séparer les sous-chaînes en fonction du délimiteur spécifié dans la chaîne d’origine |
+| <*delimiter*> | OUI | Chaîne | Le caractère dans la chaîne d’origine à utiliser comme délimiteur |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*substring1*>,<*substring2*>,...] | Tableau | Un tableau qui contient les sous-chaînes extraites de la chaîne d’origine, séparées par des virgules |
+| [<*substring1*>,<*substring2*>,...] | Array | Un tableau qui contient les sous-chaînes extraites de la chaîne d’origine, séparées par des virgules |
 ||||
 
 *Exemple*
@@ -3125,8 +3601,8 @@ startOfDay('<timestamp>', '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3156,8 +3632,8 @@ startOfHour('<timestamp>', '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3187,8 +3663,8 @@ startOfMonth('<timestamp>', '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3220,13 +3696,13 @@ startsWith('<text>', '<searchText>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Oui | Chaîne | Chaîne à vérifier |
-| <*searchText*> | Oui | Chaîne | Chaîne de départ à rechercher |
+| <*text*> | OUI | Chaîne | Chaîne à vérifier |
+| <*searchText*> | OUI | Chaîne | Chaîne de départ à rechercher |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| true ou false  | Booléen | Retourne la valeur true lorsque la sous-chaîne de début est trouvée. Retourne la valeur false lorsqu’elle est introuvable. |
+| true ou false  | Boolean | Retourne la valeur true lorsque la sous-chaîne de début est trouvée. Retourne la valeur false lorsqu’elle est introuvable. |
 ||||
 
 *Exemple 1*
@@ -3261,7 +3737,7 @@ string(<value>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Quelconque | Valeur à convertir |
+| <*value*> | OUI | Quelconque | Valeur à convertir |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3301,8 +3777,8 @@ sub(<minuend>, <subtrahend>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*minuend*> | Oui | Entier ou flottant | Nombre à partir duquel soustraire le *plus petit terme* |
-| <*subtrahend*> | Oui | Entier ou flottant | Nombre à soustraire du *plus petit terme* |
+| <*minuend*> | OUI | Entier ou flottant | Nombre à partir duquel soustraire le *plus petit terme* |
+| <*subtrahend*> | OUI | Entier ou flottant | Nombre à soustraire du *plus petit terme* |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3333,9 +3809,9 @@ substring('<text>', <startIndex>, <length>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Oui | Chaîne | Chaîne dont vous souhaitez les caractères |
-| <*startIndex*> | Oui | Entier  | Une valeur positive supérieure ou égale à 0 que vous souhaitez utiliser comme la valeur de position ou l’index de départ à |
-| <*length*> | Oui | Entier  | Nombre positif de caractères que vous souhaitez dans la sous-chaîne |
+| <*text*> | OUI | Chaîne | Chaîne dont vous souhaitez les caractères |
+| <*startIndex*> | OUI | Integer | Une valeur positive supérieure ou égale à 0 que vous souhaitez utiliser comme la valeur de position ou l’index de départ |
+| <*length*> | OUI | Integer | Nombre positif de caractères que vous souhaitez dans la sous-chaîne |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3366,10 +3842,10 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne qui contient l’horodatage |
-| <*interval*> | Oui | Entier  | Nombre d’unités de temps spécifiées à soustraire |
-| <*timeUnit*> | Oui | Chaîne | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*timestamp*> | OUI | Chaîne | Chaîne qui contient l’horodatage |
+| <*interval*> | OUI | Integer | Nombre d’unités de temps spécifiées à soustraire |
+| <*timeUnit*> | OUI | Chaîne | L’unité de temps à utiliser avec *interval* : "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3410,8 +3886,8 @@ take([<collection>], <count>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection*> | Oui | Chaîne ou tableau | Collection dont vous souhaitez des éléments |
-| <*count*> | Oui | Entier  | Entier positif correspondant au nombre d’éléments que vous souhaitez à partir du début |
+| <*collection*> | OUI | Chaîne ou tableau | Collection dont vous souhaitez des éléments |
+| <*count*> | OUI | Integer | Entier positif correspondant au nombre d’éléments que vous souhaitez à partir du début |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3446,12 +3922,12 @@ ticks('<timestamp>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*timestamp*> | Oui | Chaîne | Chaîne d’un horodatage |
+| <*timestamp*> | OUI | Chaîne | Chaîne d’un horodatage |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*ticks-number*> | Entier  | Nombre de graduations depuis l’horodatage spécifié |
+| <*ticks-number*> | Integer | Nombre de graduations depuis l’horodatage spécifié |
 ||||
 
 <a name="toLower"></a>
@@ -3466,7 +3942,7 @@ toLower('<text>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Oui | Chaîne | Chaîne à retourner en minuscules |
+| <*text*> | OUI | Chaîne | Chaîne à retourner en minuscules |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3496,7 +3972,7 @@ toUpper('<text>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Oui | Chaîne | Chaîne à retourner en majuscules |
+| <*text*> | OUI | Chaîne | Chaîne à retourner en majuscules |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3565,12 +4041,12 @@ triggerFormDataMultiValues('<key>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*key*> | Oui | Chaîne | Nom de la clé dont vous souhaitez la valeur |
+| <*key*> | OUI | Chaîne | Nom de la clé dont vous souhaitez la valeur |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| [<*array-with-key-values*>] | Tableau | Tableau contenant toutes les valeurs qui correspondent à la clé spécifiée |
+| [<*array-with-key-values*>] | Array | Tableau contenant toutes les valeurs qui correspondent à la clé spécifiée |
 ||||
 
 *Exemple*
@@ -3596,7 +4072,7 @@ triggerFormDataValue('<key>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*key*> | Oui | Chaîne | Nom de la clé dont vous souhaitez la valeur |
+| <*key*> | OUI | Chaîne | Nom de la clé dont vous souhaitez la valeur |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3626,7 +4102,7 @@ triggerMultipartBody(<index>)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*index*> | Oui | Entier  | Valeur d’index pour la partie que vous souhaitez |
+| <*index*> | OUI | Integer | Valeur d’index pour la partie que vous souhaitez |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3653,7 +4129,7 @@ triggerOutputs()
 
 <a name="trim"></a>
 
-### <a name="trim"></a>découper
+### <a name="trim"></a>trim
 
 Supprime les espaces blancs de début et de fin d’une chaîne et retourne la chaîne mise à jour.
 
@@ -3663,7 +4139,7 @@ trim('<text>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*text*> | Oui | Chaîne | Chaîne contenant les espaces blancs de début et de fin à supprimer |
+| <*text*> | OUI | Chaîne | Chaîne contenant les espaces blancs de début et de fin à supprimer |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3695,7 +4171,7 @@ union([<collection1>], [<collection2>], ...)
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*collection1*>, <*collection2*>...  | Oui | Tableau ou objet, mais pas les deux | Collections dont vous souhaitez *tous* les éléments |
+| <*collection1*>, <*collection2*>...  | OUI | Tableau ou objet, mais pas les deux | Collections dont vous souhaitez *tous* les éléments |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3727,7 +4203,7 @@ uriComponent('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne à convertir au format encodé sous forme d’URI |
+| <*value*> | OUI | Chaîne | Chaîne à convertir au format encodé sous forme d’URI |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3757,7 +4233,7 @@ uriComponentToBinary('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne encodée sous forme d’URI à convertir |
+| <*value*> | OUI | Chaîne | Chaîne encodée sous forme d’URI à convertir |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3792,7 +4268,7 @@ uriComponentToString('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne encodée sous forme d’URI à décoder |
+| <*value*> | OUI | Chaîne | Chaîne encodée sous forme d’URI à décoder |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3822,7 +4298,7 @@ uriHost('<uri>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Oui | Chaîne | URI dont vous souhaitez la valeur `host` |
+| <*uri*> | OUI | Chaîne | URI dont vous souhaitez la valeur `host` |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3852,7 +4328,7 @@ uriPath('<uri>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Oui | Chaîne | URI dont vous souhaitez la valeur `path` |
+| <*uri*> | OUI | Chaîne | URI dont vous souhaitez la valeur `path` |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3882,7 +4358,7 @@ uriPathAndQuery('<uri>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Oui | Chaîne | URI dont vous souhaitez les valeurs `path` et `query` |
+| <*uri*> | OUI | Chaîne | URI dont vous souhaitez les valeurs `path` et `query` |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3912,12 +4388,12 @@ uriPort('<uri>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Oui | Chaîne | URI dont vous souhaitez la valeur `port` |
+| <*uri*> | OUI | Chaîne | URI dont vous souhaitez la valeur `port` |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
-| <*port-value*> | Entier  | Valeur `port` de l’URI spécifié. Si `port` ne spécifie pas de valeur, retourne le port par défaut du protocole. |
+| <*port-value*> | Integer | Valeur `port` de l’URI spécifié. Si `port` ne spécifie pas de valeur, retourne le port par défaut du protocole. |
 ||||
 
 *Exemple*
@@ -3942,7 +4418,7 @@ uriQuery('<uri>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Oui | Chaîne | URI dont vous souhaitez la valeur `query` |
+| <*uri*> | OUI | Chaîne | URI dont vous souhaitez la valeur `query` |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -3972,7 +4448,7 @@ uriScheme('<uri>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*uri*> | Oui | Chaîne | URI dont vous souhaitez la valeur `scheme` |
+| <*uri*> | OUI | Chaîne | URI dont vous souhaitez la valeur `scheme` |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -4005,7 +4481,7 @@ Si vous le souhaitez, vous pouvez spécifier un autre format avec le paramètre 
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*format*> | Non  | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
+| <*format*> | Non | Chaîne | [Spécificateur de format unique](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [modèle de format personnalisé](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Le format par défaut de l’horodatage est [« o »](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-jjT:mm:ss:fffffffK), qui est conforme à la norme [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) et conserve les informations de fuseau horaire. |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -4047,7 +4523,7 @@ variables('<variableName>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*variableName*> | Oui | Chaîne | Nom de la variable dont vous souhaitez la valeur |
+| <*variableName*> | OUI | Chaîne | Nom de la variable dont vous souhaitez la valeur |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -4078,7 +4554,7 @@ workflow().<property>
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | Non  | Chaîne | Nom de la propriété de flux de travail dont vous souhaitez la valeur <p>Un objet de flux de travail possède ces propriétés : **name**, **type**, **id**, **location** et **run**. La valeur de la propriété **run** est également un objet qui possède ces propriétés : **name**, **type** et **id**. |
+| <*property*> | Non | Chaîne | Nom de la propriété de flux de travail dont vous souhaitez la valeur <p>Un objet de flux de travail possède ces propriétés : **name**, **type**, **id**, **location** et **run**. La valeur de la propriété **run** est également un objet qui possède ces propriétés : **name**, **type** et **id**. |
 |||||
 
 *Exemple*
@@ -4091,7 +4567,7 @@ workflow().run.name
 
 <a name="xml"></a>
 
-### <a name="xml"></a>xml
+### <a name="xml"></a>Xml
 
 Retourne la version XML d’une chaîne qui contient un objet JSON.
 
@@ -4101,7 +4577,7 @@ xml('<value>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*value*> | Oui | Chaîne | Chaîne contenant l’objet JSON à convertir <p>L’objet JSON ne doit avoir qu’une seule propriété racine, qui ne peut pas être un tableau. <br>Utilisez le caractère de barre oblique inverse (\\) comme caractère d’échappement pour le guillemet double ("). |
+| <*value*> | OUI | Chaîne | Chaîne contenant l’objet JSON à convertir <p>L’objet JSON ne doit avoir qu’une seule propriété racine, qui ne peut pas être un tableau. <br>Utilisez le caractère de barre oblique inverse (\\) comme caractère d’échappement pour le guillemet double ("). |
 |||||
 
 | Valeur de retour | Type | Description |
@@ -4159,15 +4635,15 @@ xpath('<xml>', '<xpath>')
 
 | Paramètre | Obligatoire | Type | Description |
 | --------- | -------- | ---- | ----------- |
-| <*xml*> | Oui | Quelconque | Chaîne XML pour rechercher des nœuds ou des valeurs qui correspondent à une valeur d’expression XPath |
-| <*xpath*> | Oui | Quelconque | Expression XPath utilisée pour rechercher des nœuds ou des valeurs XML correspondants |
+| <*xml*> | OUI | Quelconque | Chaîne XML pour rechercher des nœuds ou des valeurs qui correspondent à une valeur d’expression XPath |
+| <*xpath*> | OUI | Quelconque | Expression XPath utilisée pour rechercher des nœuds ou des valeurs XML correspondants |
 |||||
 
 | Valeur de retour | Type | Description |
 | ------------ | ---- | ----------- |
 | <*xml-node*> | XML | Nœud XML lorsqu’un seul nœud correspond à l’expression XPath spécifiée |
 | <*value*> | Quelconque | Valeur d’un nœud XML lorsqu’un seul nœud correspond à l’expression XPath spécifiée |
-| [<*xml-node1*>, <*xml-node2*>...] </br>-ou- </br>[<*value1*>, <*value2*>...] | Tableau | Tableau contenant des nœuds ou valeurs XML qui correspondent à l’expression XPath spécifiée |
+| [<*xml-node1*>, <*xml-node2*>...] </br>-ou- </br>[<*value1*>, <*value2*>...] | Array | Tableau contenant des nœuds ou valeurs XML qui correspondent à l’expression XPath spécifiée |
 ||||
 
 *Exemple 1*
@@ -4210,7 +4686,7 @@ Pour cet exemple, les deux expressions recherchent des nœuds qui correspondent 
 
 * *Expression 2*
 
-  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 
 Voici les arguments :
 
@@ -4224,9 +4700,9 @@ Voici les arguments :
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
-  * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
+  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-Voici le nœud obtenu qui correspond au nœud `<location></location` :
+Voici le nœud obtenu qui correspond au nœud `<location></location>` :
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>

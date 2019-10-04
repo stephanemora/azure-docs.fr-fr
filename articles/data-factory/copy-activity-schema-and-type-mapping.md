@@ -5,57 +5,118 @@ services: data-factory
 documentationcenter: ''
 author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b705123dc6492466c30b3c1ddaf4b330b0d684a1
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267121"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272260"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mappage de schéma dans l’activité de copie
+
 Cet article décrit la manière dont l’activité de copie d’Azure Data Factory effectue un mappage de schéma et de type de données, des données sources au données du récepteur lors de la copie.
 
-## <a name="column-mapping"></a>Mappage de colonnes
+## <a name="schema-mapping"></a>Mappage de schéma
 
-Le mappage de colonnes s’applique lors de la copie des données entre des données au format tabulaire. Par défaut, l’activité de copie **mappe les données sources au récepteur par noms de colonnes**, sauf si un [mappage de colonnes explicite](#explicit-column-mapping) est configuré. Plus spécifiquement, l’activité de copie comprend les trois phases suivantes :
+Le mappage de colonnes s’applique lors de la copie des données source vers les données du récepteur. Par défaut, l’activité de copie **mappe les données sources au récepteur par noms de colonnes**. Vous pouvez spécifier un [mappage explicite](#explicit-mapping) pour personnaliser le mappage de colonne selon vos besoins. Plus spécifiquement, l’activité de copie comprend les trois phases suivantes :
 
 1. Lire les données de la source et déterminer le schéma de celle-ci
-
-    * Pour les sources de données ayant un schéma prédéfini dans la banque de données/format de fichier, par exemple, les bases de données/fichiers contenant des métadonnées (Avro/ORC/Parquet/Texte avec en-tête), le schéma de la source est extrait du résultat de la requête ou des métadonnées du fichier.
-    * Pour les sources de données dont le schéma est flexible, par exemple, Table Azure/Cosmos DB, le schéma de la source est déduit du résultat de la requête. Vous pouvez le remplacer en configurant la « structure » dans le jeu de données.
-    * Pour un fichier Texte sans en-tête, les noms de colonnes par défaut sont générés avec le modèle « Prop_0 », « Prop_1 », etc. Vous pouvez le remplacer en configurant la « structure » dans le jeu de données.
-    * Pour la source Dynamics, vous devez fournir les informations de schéma dans la section « structure » du jeu de données.
-
-2. Appliquer le mappage de colonnes explicite s’il est spécifié.
-
+2. Utilisez le mappage des colonnes par défaut pour mapper les colonnes par nom, ou appliquez un mappage de colonnes explicite s’il est spécifié.
 3. Écrire les données sur le récepteur
 
-    * Pour les banques de données avec un schéma prédéfini, les données sont écrites dans les colonnes du même nom.
-    * Pour les banques de données sans schéma fixe et pour les formats de fichiers, les noms de colonne/métadonnées sont générés en fonction du schéma de la source.
+### <a name="explicit-mapping"></a>Mappage explicite
 
-### <a name="explicit-column-mapping"></a>Mappage de colonnes explicite
+Vous pouvez spécifier les colonnes à mapper dans une activité de copie -> propriété `translator` -> `mappings`. L’exemple suivant définit une activité de copie dans un pipeline pour copier des données à partir de texte délimité dans Azure SQL Database.
 
-Vous pouvez spécifier **columnMappings** dans la section **typeProperties** de l’activité de copie afin d’effectuer un mappage de colonnes explicite. Dans ce scénario, la section « structure » est requise pour les jeux de données d’entrée et de sortie. Le mappage de colonnes prend en charge le **mappage de la totalité ou d’un sous-ensemble des colonnes de la « structure » du jeu de données de la source à toutes les colonnes de la « structure » du jeu de données du récepteur**. Voici une liste de conditions d’erreur qui entraînent la levée d’une exception :
+```json
+{
+    "name": "CopyActivity",
+    "type": "Copy",
+    "inputs": [{
+        "referenceName": "DelimitedTextInput",
+        "type": "DatasetReference"
+    }],
+    "outputs": [{
+        "referenceName": "AzureSqlOutput",
+        "type": "DatasetReference"
+    }],
+    "typeProperties": {
+        "source": { "type": "DelimitedTextSource" },
+        "sink": { "type": "SqlSink" },
+        "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+                {
+                    "source": {
+                        "name": "UserId",
+                        "type": "Guid"
+                    },
+                    "sink": {
+                        "name": "MyUserId"
+                    }
+                }, 
+                {
+                    "source": {
+                        "name": "Name",
+                        "type": "String"
+                    },
+                    "sink": {
+                        "name": "MyName"
+                    }
+                }, 
+                {
+                    "source": {
+                        "name": "Group",
+                        "type": "String"
+                    },
+                    "sink": {
+                        "name": "MyGroup"
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+
+Les propriétés suivantes sont prises en charge sous `translator` -> `mappings` -> objet avec `source` et `sink`:
+
+| Propriété | Description                                                  | Obligatoire |
+| -------- | ------------------------------------------------------------ | -------- |
+| name     | Nom de la colonne source ou récepteur.                           | OUI      |
+| ordinal  | Index de colonne. Commence par 1. <br>À appliquer et requis lors de l’utilisation de texte sans ligne d’en-tête délimité. | Non       |
+| path     | Expression de chemin JSON pour l’extraction ou le mappage de chaque champ. À appliquer aux données hiérarchiques, par exemple MongoDB/REST.<br>Pour les champs situés sous l’objet racine, le chemin JSON commence par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau. | Non       |
+| type     | Type de données intermédiaires Data Factory de la colonne source ou récepteur. | Non       |
+| culture  | Culture de la colonne source ou récepteur. <br>À appliquer lorsque le type est `Datetime` ou `Datetimeoffset`. Par défaut, il s’agit de `en-us`. | Non       |
+| format   | Chaîne de format à utiliser lorsque le type est `Datetime` ou `Datetimeoffset`. Reportez-vous à [Chaînes de format Date et Heure personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sur la mise en forme des date/heure. | Non       |
+
+Les propriétés suivantes sont prises en charge sous `translator` -> `mappings` en plus de l’objet avec `source` et `sink` :
+
+| Propriété            | Description                                                  | Obligatoire |
+| ------------------- | ------------------------------------------------------------ | -------- |
+| collectionReference | Pris en charge uniquement lorsque des données hiérarchiques, par exemple MongoDB/REST, sont la source.<br>Si vous souhaitez effectuer une itération et extraire des données à partir des objets situés **à l’intérieur d’un champ de tableau** présentant le même modèle et effectuer une conversion par ligne et par objet, spécifiez le chemin JSON de ce tableau afin d’effectuer une application croisée. | Non       |
+
+### <a name="alternative-column-mapping"></a>Mappage de colonne alternatif
+
+Vous pouvez spécifier l’activité de copie -> `translator` -> `columnMappings` pour le mappage entre les données mises en forme tabulaire. Dans ce cas, la section « structure » est requise pour les jeux de données d’entrée et de sortie. Le mappage de colonnes prend en charge le **mappage de la totalité ou d’un sous-ensemble des colonnes de la « structure » du jeu de données de la source à toutes les colonnes de la « structure » du jeu de données du récepteur**. Voici une liste de conditions d’erreur qui entraînent la levée d’une exception :
 
 * Le résultat de la requête de banque de données source n’a pas de nom de colonne spécifié dans la section « structure » du jeu de données d’entrée.
 * La banque de données du récepteur (si un schéma est prédéfini) n’a pas de nom de colonne spécifié dans la section « structure » du jeu de données de sortie.
 * La « structure » du jeu de données du récepteur contient un nombre de colonnes inférieur ou supérieur à celui spécifié par le mappage.
 * Mappage en double.
 
-#### <a name="explicit-column-mapping-example"></a>Exemple de mappage de colonnes explicite
-
-Dans cet exemple, la table d’entrée possède une structure et pointe vers une table dans une base de données SQL locale.
+Dans l’exemple suivant, le jeu de données d’entrée possède une structure et pointe vers une table dans une base de données Oracle locale.
 
 ```json
 {
-    "name": "SqlServerInput",
+    "name": "OracleDataset",
     "properties": {
         "structure":
          [
@@ -63,9 +124,9 @@ Dans cet exemple, la table d’entrée possède une structure et pointe vers une
             { "name": "Name"},
             { "name": "Group"}
          ],
-        "type": "SqlServerTable",
+        "type": "OracleTable",
         "linkedServiceName": {
-            "referenceName": "SqlServerLinkedService",
+            "referenceName": "OracleLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -75,11 +136,11 @@ Dans cet exemple, la table d’entrée possède une structure et pointe vers une
 }
 ```
 
-Dans cet exemple, la table de sortie possède une structure et pointe vers une table dans une base de données Azure SQL Database.
+Dans cet exemple, le jeu de données de sortie possède une structure et pointe vers une table dans Salesfoce.
 
 ```json
 {
-    "name": "AzureSqlOutput",
+    "name": "SalesforceDataset",
     "properties": {
         "structure":
         [
@@ -87,9 +148,9 @@ Dans cet exemple, la table de sortie possède une structure et pointe vers une t
             { "name": "MyName" },
             { "name": "MyGroup"}
         ],
-        "type": "AzureSqlTable",
+        "type": "SalesforceObject",
         "linkedServiceName": {
-            "referenceName": "AzureSqlLinkedService",
+            "referenceName": "SalesforceLinkedService",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -99,7 +160,7 @@ Dans cet exemple, la table de sortie possède une structure et pointe vers une t
 }
 ```
 
-Le JSON suivant définit une activité de copie dans un pipeline. Les colonnes de la source sont mappées aux colonnes dans le récepteur (**columnMappings**) à l’aide de la propriété **Translator**.
+Le JSON suivant définit une activité de copie dans un pipeline. Les colonnes de la source sont mappées aux colonnes dans le récepteur en utilisant la propriété **translator** -> **columnMappings**.
 
 ```json
 {
@@ -107,23 +168,23 @@ Le JSON suivant définit une activité de copie dans un pipeline. Les colonnes d
     "type": "Copy",
     "inputs": [
         {
-            "referenceName": "SqlServerInput",
+            "referenceName": "OracleDataset",
             "type": "DatasetReference"
         }
     ],
     "outputs": [
         {
-            "referenceName": "AzureSqlOutput",
+            "referenceName": "SalesforceDataset",
             "type": "DatasetReference"
         }
     ],
     "typeProperties":    {
-        "source": { "type": "SqlSource" },
-        "sink": { "type": "SqlSink" },
+        "source": { "type": "OracleSource" },
+        "sink": { "type": "SalesforceSink" },
         "translator":
         {
             "type": "TabularTranslator",
-            "columnMappings": 
+            "columnMappings":
             {
                 "UserId": "MyUserId",
                 "Group": "MyGroup",
@@ -136,23 +197,19 @@ Le JSON suivant définit une activité de copie dans un pipeline. Les colonnes d
 
 Si vous utilisiez la syntaxe de `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` pour spécifier le mappage de colonnes, il est toujours pris en charge tel quel.
 
-**Flux du mappage de colonnes :**
+### <a name="alternative-schema-mapping"></a>Mappage de schéma alternatif
 
-![Flux du mappage de colonnes](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
-
-## <a name="schema-mapping"></a>Mappage de schéma
-
-Le mappage de schéma s'applique lors de la copie de données entre des données au format hiérarchique et tabulaire, par exemple la copie à partir de MongoDB/REST vers un fichier texte et la copie à partir de SQL vers l'API Azure Cosmos DB pour MongoDB. Les propriétés suivantes sont prises en charge dans la section `translator` de l’activité de copie :
+Vous pouvez spécifier l’activité de copie -> `translator` -> `schemaMapping` pour mapper entre des données au format hiérarchique et tabulaire, par exemple la copie à partir de MongoDB/REST vers un fichier texte et la copie à partir d’Oracle vers l'API Azure Cosmos DB pour MongoDB. Les propriétés suivantes sont prises en charge dans la section `translator` de l’activité de copie :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du traducteur d’activité de copie doit être définie sur : **TabularTranslator** | Oui |
-| schemaMapping | Une collection de paires clé-valeur, qui représente la relation de mappage **du côté source au récepteur côté**.<br/>- **Clé :** représente source. Pour **sources tabulaires**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour **source hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper.<br/>- **Valeur :** représente récepteur. Pour **récepteur tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour **récepteur hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et à mapper. <br/> Dans le cas des données hiérarchiques, pour les champs sous l’objet racine, chemin d’accès JSON commence par $ racine ; pour les champs dans le tableau sélectionné par `collectionReference` propriété, chemin d’accès JSON commence à partir de l’élément de tableau.  | Oui |
-| collectionReference | Si vous souhaitez effectuer une itération et extraire des données à partir des objets situés **à l’intérieur d’un champ de tableau** présentant le même modèle et effectuer une conversion par ligne et par objet, spécifiez le chemin JSON de ce tableau afin d’effectuer une application croisée. Cette propriété est prise en charge uniquement quand des données hiérarchiques sont la source. | Non  |
+| type | La propriété type du traducteur d’activité de copie doit être définie sur : **TabularTranslator** | OUI |
+| schemaMapping | Une collection de paires clé-valeur, qui représente la relation de mappage **du côté source au côté récepteur**.<br/>- **Clé :** représente la source. Pour une **source tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour une **source hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper.<br>- **Valeur :** représente le récepteur. Pour un **récepteur tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour un **récepteur hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper. <br>Dans le cas de données hiérarchiques, pour les champs situés sous l’objet racine, le chemin JSON commence par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau.  | OUI |
+| collectionReference | Si vous souhaitez effectuer une itération et extraire des données à partir des objets situés **à l’intérieur d’un champ de tableau** présentant le même modèle et effectuer une conversion par ligne et par objet, spécifiez le chemin JSON de ce tableau afin d’effectuer une application croisée. Cette propriété est prise en charge uniquement quand des données hiérarchiques sont la source. | Non |
 
-**Exemple : copier à partir de MongoDB vers SQL :**
+**Exemple : copier à partir de MongoDB vers Oracle :**
 
-Par exemple, si vous avez un document MongoDB avec le contenu suivant : 
+Par exemple, si vous avez un document MongoDB avec le contenu suivant :
 
 ```json
 {
@@ -191,21 +248,21 @@ Configurez la règle de mappage de schéma comme l’exemple JSON d’activité 
 
 ```json
 {
-    "name": "CopyFromMongoDBToSqlAzure",
+    "name": "CopyFromMongoDBToOracle",
     "type": "Copy",
     "typeProperties": {
         "source": {
             "type": "MongoDbV2Source"
         },
         "sink": {
-            "type": "SqlSink"
+            "type": "OracleSink"
         },
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number", 
-                "orderDate": "$.date", 
-                "order_pd": "prod", 
+                "orderNumber": "$.number",
+                "orderDate": "$.date",
+                "order_pd": "prod",
                 "order_price": "price",
                 "city": " $.city[0].name"
             },
@@ -226,11 +283,11 @@ Vous pouvez trouver le mappage du type natif au type intermédiaire dans la sect
 
 ### <a name="supported-data-types"></a>Types de données pris en charge
 
-Data Factory prend en charge les types de données intermédiaires suivants : Vous pouvez spécifier les valeurs ci-dessous lors de la configuration des informations de type dans la configuration de [structure du jeu de données](concepts-datasets-linked-services.md#dataset-structure) :
+Data Factory prend en charge les types de données intermédiaires suivants : Vous pouvez spécifier les valeurs ci-dessous lors de la configuration des informations de type dans la configuration de [structure du jeu de données](concepts-datasets-linked-services.md#dataset-structure-or-schema) :
 
 * Byte[]
-* Booléen
-* DateTime
+* Boolean
+* Datetime
 * Datetimeoffset
 * Decimal
 * Double
@@ -242,31 +299,7 @@ Data Factory prend en charge les types de données intermédiaires suivants : V
 * Chaîne
 * Timespan
 
-### <a name="explicit-data-type-conversion"></a>Conversion de type de données explicite
-
-Lors de la copie de données vers des banques de données au schéma fixe, par exemple, SQL Server/Oracle, quand la source et le récepteur on un type différent sur la même colonne, la conversion de type explicite doit être déclarée côté source :
-
-* Pour un source fichier, par exemple CSV/Avro, la conversion de type doit être déclarée via la structure de la source avec la liste complète des colonnes (nom de colonne côté source et type côté récepteur).
-* Pour une source relationnelle (par exemple, SQL/Oracle), la conversion de type doit être effectuée à l’aide un cast de type explicite dans l’instruction de requête.
-
-## <a name="when-to-specify-dataset-structure"></a>Quand spécifier la « structure » du jeu de données
-
-Une « structure » est requise pour le jeu de données dans les scénarios ci-dessous :
-
-* Application d’une [conversion de type de données explicite](#explicit-data-type-conversion) pour les sources de fichier pendant la copie (jeu de données d’entrée).
-* Application d’un [mappage de colonnes explicite](#explicit-column-mapping) pendant la copie (jeu de données tant d’entrée que de sortie).
-* Copie à partir d’une source Dynamics 365/CRM (jeu de données d’entrée).
-* Copie vers Cosmos DB en tant qu’objet imbriqué quand la source n’est pas constituée de fichiers JSON (jeu de données de sortie).
-
-Une « structure » est suggérée pour le jeu de données dans les scénarios ci-dessous :
-
-* Copie à partir d’un fichier Texte sans en-tête (jeu de données d’entrée). Vous pouvez spécifier les noms de colonnes pour un fichier Texte, qui s’alignent sur les colonnes correspondantes dans le récepteur, pour éviter de devoir configurer un mappage de colonnes explicite.
-* Copie à partir de banques de données au schéma flexible, par exemple, Azure Table/Cosmos DB (jeu de données d’entrée), pour garantir que les données attendues (colonnes) sont copiées au lieu de laisser l’activité de copie déduire le schéma sur la base des lignes supérieures lors de l’exécution de chaque activité.
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les autres articles relatifs à l’activité de copie :
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)
-- [Tolérance de panne de l’activité de copie](copy-activity-fault-tolerance.md)
-- [Performances de l’activité de copie](copy-activity-performance.md)

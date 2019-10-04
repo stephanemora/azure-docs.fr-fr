@@ -9,11 +9,11 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
 ms.openlocfilehash: b1cae7dc553ce324349e66f1bcb8a281d7c7c7e0
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995595"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62101278"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage Table Azure avec Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,16 +32,16 @@ Cet article sur les procédures décrit les opérations courantes liées à Stoc
 
 Cet article sur les procédures vous montre comment créer un nouveau compte de stockage Azure dans un nouveau groupe de ressources afin que vous puissiez le supprimer facilement quand vous avez terminé. Si vous préférez, vous pouvez utiliser un compte de stockage existant à la place.
 
-Les exemples requièrent des modules PowerShell de Az `Az.Storage (1.1.0 or greater)` et `Az.Resources (1.2.0 or greater)`. Dans une fenêtre PowerShell, exécutez `Get-Module -ListAvailable Az*` pour trouver la version. Si aucune information n’est affichée ou que vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
+Les exemples nécessitent les modules Az PowerShell `Az.Storage (1.1.0 or greater)` et `Az.Resources (1.2.0 or greater)`. Dans une fenêtre PowerShell, exécutez `Get-Module -ListAvailable Az*` pour trouver la version. Si aucune information n’est affichée ou que vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Pour utiliser cette fonctionnalité Azure à partir de PowerShell, vous devez installer le module `Az`. La version actuelle de `AzTable` n’est pas compatible avec le module AzureRM plus anciens.
-> Suivez le [plus tard instructions d’installation pour installer le module de Az](/powershell/azure/install-az-ps) si nécessaire.
+> Pour utiliser cette fonctionnalité Azure à partir de PowerShell, vous devez installer le module `Az`. La version actuelle de `AzTable` n’est pas compatible avec l’ancien module AzureRM.
+> Si nécessaire, suivez les [dernières instructions d’installation du module Az](/powershell/azure/install-az-ps).
 
-Une fois Azure PowerShell est installé ou mis à jour, vous devez installer le module **AzTable**, qui contient les commandes pour gérer les entités. Pour installer ce module, exécutez PowerShell en tant qu’administrateur et utilisez la commande **Install-Module**.
+Après avoir installé ou mis à jour Azure PowerShell, vous devez installer le module **AzTable**, qui contient les commandes permettant de gérer les entités. Pour installer ce module, exécutez PowerShell en tant qu’administrateur et utilisez la commande **Install-Module**.
 
 > [!IMPORTANT]
-> Pour le module de compatibilité des noms de raisons nous publions toujours cet même module sous l’ancien nom `AzureRmStorageTables` dans PowerShell Gallery. Ce document fait référence uniquement le nouveau nom.
+> Pour des raisons de compatibilité de nom de module, nous continuons de publier ce même module sous l’ancien nom `AzureRmStorageTables` dans PowerShell Gallery. Ce document fait uniquement référence au nouveau nom.
 
 ```powershell
 Install-Module AzTable
@@ -77,7 +77,7 @@ New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 ## <a name="create-storage-account"></a>Créer un compte de stockage
 
-Créez un compte de stockage universel standard avec un stockage localement redondant (LRS) à l’aide de [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Veillez à spécifier un nom de compte de stockage unique. Ensuite, obtenez le contexte qui représente le compte de stockage. Lorsqu’il agit sur un compte de stockage, vous pouvez référencer le contexte au lieu de fournir plusieurs fois vos informations d’identification.
+Créez un compte de stockage universel standard avec un stockage localement redondant (LRS) à l’aide de [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Veillez à spécifier un nom de compte de stockage unique. Ensuite, obtenez le contexte qui représente le compte de stockage. Si un compte de stockage est utilisé, vous pouvez référencer le contexte pour vous éviter d’avoir à entrer maintes fois vos informations d’identification.
 
 ```powershell
 $storageAccountName = "pshtablestorage"
@@ -92,7 +92,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-new-table"></a>Créer une table
 
-Pour créer une table, utilisez le [New-AzStorageTable](/powershell/module/az.storage/New-AzStorageTable) applet de commande. Dans cet exemple, la table est appelée `pshtesttable`.
+Pour créer une table, utilisez l’applet de commande [New-AzStorageTable](/powershell/module/az.storage/New-AzStorageTable). Dans cet exemple, la table est appelée `pshtesttable`.
 
 ```powershell
 $tableName = "pshtesttable"
@@ -101,7 +101,7 @@ New-AzStorageTable –Name $tableName –Context $ctx
 
 ## <a name="retrieve-a-list-of-tables-in-the-storage-account"></a>Récupérer une liste de tables dans le compte de stockage
 
-Récupérer une liste de tables dans le compte de stockage à l’aide [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
+Récupérez la liste de tables dans le compte de stockage à l’aide de [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
 Get-AzStorageTable –Context $ctx | select Name
@@ -109,18 +109,18 @@ Get-AzStorageTable –Context $ctx | select Name
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>Récupérer une référence à une table spécifique
 
-Pour effectuer des opérations sur une table, vous avez besoin d’une référence à cette table. Obtenir une référence à l’aide [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
+Pour effectuer des opérations sur une table, vous avez besoin d’une référence à cette table. Obtenez une référence à l’aide de [Get-AzStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable).
 
 ```powershell
 $storageTable = Get-AzStorageTable –Name $tableName –Context $ctx
 ```
 
-## <a name="reference-cloudtable-property-of-a-specific-table"></a>Propriété CloudTable de référence d’une table spécifique
+## <a name="reference-cloudtable-property-of-a-specific-table"></a>Référencer la propriété CloudTable d’une table spécifique
 
 > [!IMPORTANT]
-> Utilisation de CloudTable est obligatoire lorsque vous travaillez avec **AzTable** module PowerShell. Appelez le **Get-AzTableTable** commande pour obtenir la référence à cet objet. Cette commande crée également la table si elle n’existe pas déjà.
+> L’utilisation de CloudTable est obligatoire quand vous utilisez le module PowerShell **AzTable**. Appelez la commande **Get-AzTableTable** pour obtenir la référence à cet objet. Cette commande crée aussi la table si elle n’existe pas déjà.
 
-Pour effectuer des opérations sur une table à l’aide **AzTable**, vous avez besoin d’une référence à la propriété CloudTable d’une table spécifique.
+Pour effectuer des opérations sur une table à l’aide de **AzTable**, vous avez besoin d’une référence à la propriété CloudTable d’une table spécifique.
 
 ```powershell
 $cloudTable = (Get-AzStorageTable –Name $tableName –Context $ctx).CloudTable
@@ -163,6 +163,6 @@ Pour plus d’informations, consultez les articles suivants :
 
 * [Applets de commande PowerShell - Stockage](/powershell/module/az.storage#storage)
 
-* [Utilisation de Tables Azure à partir de PowerShell - AzureRmStorageTable/AzTable PS Module v2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
+* [Utilisation de Tables Azure à partir de PowerShell – Module PS AzureRmStorageTable/AzTable v2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.

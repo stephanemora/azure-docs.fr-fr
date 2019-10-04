@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: spelluru
-ms.openlocfilehash: d93818cd875c4050b1b35f21ce580933776c5bc5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2cd6998c7ac11638ead67fde384bdf4599692781
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234685"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64706030"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Configurer et utiliser des environnements publics dans Azure DevTest Labs
 Azure DevTest Labs a un [dépôt public de modèles Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments), que vous pouvez utiliser pour créer des environnements sans devoir vous connecter à une source GitHub externe par vous-même. Ce dépôt inclut des modèles fréquemment utilisés, comme Azure Web Apps, Cluster Service Fabric et l’environnement de batterie de serveurs SharePoint de développement. Cette fonctionnalité est similaire au dépôt public d’artefacts qui est inclus pour chaque lab que vous créez. Le dépôt d’environnements vous permet de vous familiariser rapidement avec des modèles d’environnement préalablement créés avec un nombre minimal de paramètres d’entrée, pour un démarrage en douceur avec les ressources PaaS au sein des labs. 

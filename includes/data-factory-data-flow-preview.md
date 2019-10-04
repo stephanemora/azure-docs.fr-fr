@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 02/11/2019
 ms.author: kromerm
-ms.openlocfilehash: ac07373bcdf4bbf0f7bfc5b131ffe4eb26bc3ac4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aaa8908f5b05ae4c4523760c3c12a077ac1a09d5
+ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803947"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "67509842"
 ---
 > [!NOTE] 
-> Le mappage de flux de données est une nouvelle fonctionnalité d’Azure Data Factory. Elle est actuellement en préversion publique limitée et n’est pas soumise aux dispositions du contrat SLA de client Azure. [Pour vous inscrire pour la version préliminaire, veuillez demander l’accès ici](https://aka.ms/dataflowpreview).
+> La fonctionnalité Mappage des flux de données Azure Data Factory est actuellement en préversion publique. Il n’est pas soumis aux dispositions du contrat de niveau de service du client Azure. Actuellement, la fonctionnalité Mappage des flux de données n’est pas disponible dans les régions Azure suivantes : USA Centre-Ouest, Brésil Sud, France Centre et Corée Centre.

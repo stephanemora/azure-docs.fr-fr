@@ -3,7 +3,7 @@ title: Activer une connexion Bureau à distance pour un rôle dans Azure Cloud�
 description: Configuration de l’application de service cloud Azure pour autoriser les connexions Bureau à distance
 services: cloud-services
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6a6d045513e3e91c5a8b2004e47378a097be8963
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304048"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515920"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec Visual Studio
 
@@ -47,7 +47,7 @@ Lorsque vous utilisez Visual Studio 2017 version 15.4 et les versions antérieur
    > [!Note]
    > Les certificats dont vous avez besoin pour une connexion Bureau à distance sont différents de ceux que vous utilisez pour d'autres opérations Azure. Le certificat de l'accès à distance doit avoir une clé privée.
 
-5. Sélectionnez un certificat dans la liste ou choisissez  **&lt;Créer... &gt;**. Si vous créez un nouveau certificat, entrez un nom convivial pour le nouveau certificat lorsque vous y êtes invité, puis sélectionnez **OK**. Le nouveau certificat s’affiche dans la liste déroulante.
+5. Sélectionnez un certificat dans la liste ou choisissez  **&lt;Créer... &gt;** . Si vous créez un nouveau certificat, entrez un nom convivial pour le nouveau certificat lorsque vous y êtes invité, puis sélectionnez **OK**. Le nouveau certificat s’affiche dans la liste déroulante.
 
 6. Créez un nom d’utilisateur et un mot de passe. Vous ne pouvez pas utiliser un compte existant. Ne spécifiez pas « Administrateur » comme nom d’utilisateur pour le nouveau compte.
 
@@ -86,7 +86,7 @@ Vous pouvez déployer un projet de service cloud à partir d’un serveur de bui
 
 Pour utiliser l’extension RDP à partir d’Azure DevOps Services, incluez les détails suivants dans votre pipeline de build :
 
-1. Incluez `/p:ForceRDPExtensionOverPlugin=true` dans vos arguments MSBuild pour vous assurer que le déploiement fonctionne avec l’extension RDP plutôt que le plug-in RDP. Par exemple : 
+1. Incluez `/p:ForceRDPExtensionOverPlugin=true` dans vos arguments MSBuild pour vous assurer que le déploiement fonctionne avec l’extension RDP plutôt que le plug-in RDP. Par exemple :
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None
@@ -95,7 +95,7 @@ Pour utiliser l’extension RDP à partir d’Azure DevOps Services, incluez les
 
 1. Après vos étapes de génération, ajouter l’étape de **déploiement du Service Cloud Azure** et définissez ses propriétés.
 
-1. Après l’étape de déploiement, ajoutez une étape **Azure Powershell**, définissez sa propriété de **nom d’affichage** comme « Déploiement : activer RDP Extension Azure » (ou tout autre nom approprié) et sélectionnez l’abonnement Azure approprié.
+1. Après l’étape de déploiement, ajoutez une étape **Azure Powershell**, définissez sa propriété de **nom d’affichage** comme « Déploiement : activer RDP Extension Azure » (ou tout autre nom approprié) et sélectionnez l’abonnement Azure qui convient.
 
 1. Définissez le **Type de Script** à « Inline » et collez le code ci-dessous dans le champ **Script Inline**. (Vous pouvez également créer un fichier `.ps1` dans votre projet avec ce script, définissez le **Type de script** sur « Chemin d’accès de fichier de script » et définissez le **Chemin d’accès du Script** pour qu’il pointe vers le fichier.)
 

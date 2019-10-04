@@ -1,6 +1,6 @@
 - name: Documentation Service Fabric
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que Service Fabric ?
       href: service-fabric-overview.md
@@ -73,10 +73,14 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 5- Supprimer un cluster
           href: service-fabric-tutorial-delete-cluster.md
-    - name: Créer un cluster autonome sur AWS
+    - name: Créer un cluster autonome
       items:
-        - name: 1- Créer l’infrastructure réseau sur AWS
-          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 1- Créer l’infrastructure
+          items:
+            - name: Utilisation d’AWS
+              href: service-fabric-tutorial-standalone-create-infrastructure.md
+            - name: Utilisation d’Azure
+              href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
         - name: 2- Configurer Service Fabric
           href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
         - name: 3- Déployer une application sur le cluster
@@ -97,12 +101,14 @@
       href: service-fabric-best-practices-infrastructure-as-code.md
     - name: Surveillance et diagnostics
       href: service-fabric-best-practices-monitoring.md
+    - name: Conception des applications
+      href: service-fabric-best-practices-applications.md
     - name: Liste de vérification de disponibilité de la production
       href: service-fabric-production-readiness-checklist.md
 - name: Exemples
   items:
     - name: Exemples de code
-      href: 'https://azure.microsoft.com/resources/samples/?service=service-fabric'
+      href: 'https://docs.microsoft.com/samples/browse/'
     - name: Azure PowerShell
       href: service-fabric-powershell-samples.md
     - name: CLI Service Fabric
@@ -125,8 +131,8 @@
           href: service-fabric-application-and-service-security.md
         - name: Sécurité d’un cluster Service Fabric
           href: service-fabric-cluster-security.md
-        - name: Attributs de sécurité courants Azure
-          href: service-fabric-security-attributes.md
+        - name: Contrôles de sécurité intégrés
+          href: service-fabric-security-controls.md
     - name: Terminologie
       href: service-fabric-technical-overview.md
     - name: Création d’applications
@@ -191,6 +197,8 @@
       items:
         - name: Modèle d'application
           href: service-fabric-application-model.md
+        - name: Créer des modèles d’application
+          href: service-fabric-concept-resource-model.md
         - name: Manifestes d’application et de service
           href: service-fabric-application-and-service-manifests.md
         - name: Exemples de manifestes d’application et de service
@@ -268,7 +276,7 @@
           items:
             - name: Vue d’ensemble des clusters Azure
               href: service-fabric-azure-clusters-overview.md
-            - name: Types de nœud et Virtual Machine Scale Sets
+            - name: Types de nœud et groupes de machines virtuelles identiques
               href: service-fabric-cluster-nodetypes.md
             - name: Mise à niveau des clusters dans Azure
               href: service-fabric-cluster-upgrade.md
@@ -344,6 +352,12 @@
           href: service-fabric-diagnostics-partners.md
     - name: Intégration avec la gestion des API
       href: service-fabric-api-management-overview.md
+    - name: Modèle de ressource d’application
+      href: service-fabric-concept-resource-model.md
+    - name: Identité managée (préversion)
+      href: concepts-managed-identity.md
+    - name: Configurer les informations d’identification d’un référentiel de conteneur
+      href: configure-container-repository-credentials.md
 - name: Guides pratiques
   items:
     - name: Configuration de l'environnement de développement
@@ -515,6 +529,8 @@
               href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
             - name: Configurer un cluster Linux sur Windows
               href: service-fabric-local-linux-cluster-windows.md
+            - name: Déployer une application .NET Core sur un cluster Linux distant à partir de VS
+              href: service-fabric-how-to-publish-linux-app-vs.md
         - name: Travailler dans un environnement de développement Linux/Eclipse
           items:
             - name: Prise en main du plug-in Eclipse pour le développement Java
@@ -539,8 +555,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Pratiques recommandées
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
-        - name: Refactoriser une application migrée
-          href: /azure/architecture/service-fabric/refactor-migrated-app
+        - name: Moderniser votre application
+          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
     - name: Gérer le cycle de vie de l’application
       items:
         - name: Empaqueter une application
@@ -609,6 +625,8 @@
                   href: service-fabric-cluster-azure-deployment-preparation.md
                 - name: Créer dans le portail Azure
                   href: service-fabric-cluster-creation-via-portal.md
+                - name: Déployer un cluster Azure Service Fabric sur des zones de disponibilité
+                  href: service-fabric-cross-availability-zones.md
                 - name: Configurer l’authentification Azure Active Directory
                   href: service-fabric-cluster-creation-setup-aad.md
                 - name: Créer un modèle de cluster personnalisé
@@ -639,8 +657,6 @@
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: Corriger des nœuds de cluster (Windows)
                   href: service-fabric-patch-orchestration-application.md
-                - name: Corriger des nœuds de cluster (Linux)
-                  href: service-fabric-patch-orchestration-application-linux.md
                 - name: Activer le chiffrement de disque (Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: Activer le chiffrement de disque (Linux)
@@ -691,6 +707,8 @@
       items:
         - name: Diagnostiquer les scénarios courants
           href: service-fabric-diagnostics-common-scenarios.md
+        - name: Diagnostiquer les erreurs de package de code
+          href: service-fabric-diagnostics-code-package-errors.md
         - name: Surveillance des applications
           items:
             - name: Ajouter une journalisation à votre application
@@ -731,6 +749,26 @@
           href: service-fabric-reverse-proxy-diagnostics.md
         - name: Résoudre les problèmes de votre cluster local
           href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: Utiliser Managed Identity pour les applications Service Fabric (préversion)
+      items:
+        - name: Configuration des clusters
+          items:
+            - name: Configurer un cluster existant avec une identité managée
+              href: configure-existing-cluster-enable-managed-identity-token-service.md
+            - name: Configurer un nouveau cluster Azure Service Fabric avec une identité managée
+              href: configure-new-azure-service-fabric-enable-managed-identity.md
+        - name: Configuration des applications
+          items:
+            - name: Guide pratique pour déployer une application avec une identité managée
+              items:
+                - name: Guide pratique pour déployer une application avec une identité managée attribuée par le système
+                  href: how-to-deploy-service-fabric-application-system-assigned-managed-identity.md
+                - name: Guide pratique pour déployer une application avec une identité managée attribuée par l’utilisateur
+                  href: how-to-deploy-service-fabric-application-user-assigned-managed-identity.md
+        - name: Utiliser MITS avec du code d’application Service Fabric
+          href: how-to-managed-identity-service-fabric-app-code.md
+        - name: Accorder l’accès à d’autres ressources Azure
+          href: how-to-grant-access-other-resources.md
 - name: Informations de référence
   items:
     - name: Azure PowerShell
@@ -840,8 +878,8 @@
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Guides de résolution des problèmes
-      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
+    - name: Notes de publication
+      href: release-notes.md
     - name: Exemple de code
       href: 'https://aka.ms/servicefabricsamples'
     - name: Options de support
@@ -850,5 +888,7 @@
       href: service-fabric-versions.md
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=service-fabric'
+    - name: Guides de résolution des problèmes
+      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'

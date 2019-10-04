@@ -1,29 +1,29 @@
 ---
-title: Options d’aide et de support
-titlesuffix: Azure Cognitive Services
+title: Options d’aide et de support - Service Speech
+titleSuffix: Azure Cognitive Services
 description: Comment obtenir une assistance par rapport à des questions et à des problèmes rencontrés quand vous créez des applications s’intégrant au service Speech
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.author: wolfma
-ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 26d66868ab4c003dbd962e0c94009bc38bb36345
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358049"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558840"
 ---
 # <a name="support-and-help-options"></a>Options d’aide et de support
 
-Vous débutez à Explorer les fonctionnalités des Services de reconnaissance vocale ? Implémentez-vous une nouvelle fonctionnalité à votre application ? Voici quelques suggestions d’endroits où vous pouvez obtenir de l’aide en tant que développeur.
+Vous commencez juste à explorer les fonctionnalités de Speech Services ? Implémentez-vous une nouvelle fonctionnalité à votre application ? Voici quelques suggestions d’endroits où vous pouvez obtenir de l’aide en tant que développeur.
 
 > [!div class="checklist"]
 > * Tenez-vous informé des nouvelles évolutions d’*Azure Cognitive Services* ou recherchez les dernières informations sur le *service Speech*.
-> * Notes de publication contiennent des informations pour toutes les versions.
+> * Les notes de publication contiennent des informations pour toutes les versions.
 > * Regardez si votre problème a été abordé par la communauté, ou si une documentation concernant la fonctionnalité que vous voulez implémenter existe déjà.
 > * Si vous ne trouvez pas de réponse satisfaisante, posez une question sur *Stack Overflow*.
 > * Si vous rencontrez des difficultés avec l’un des exemples sur GitHub, signalez ce problème *GitHub*.
@@ -31,11 +31,11 @@ Vous débutez à Explorer les fonctionnalités des Services de reconnaissance vo
 
 ## <a name="stay-informed"></a>Restez informé
 
-Les actualités relatives à Cognitive Services sont rassemblées dans le [blog Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Pour obtenir les dernières informations sur les Services de reconnaissance vocale, suivre le [blog des Services de reconnaissance vocale](https://azure.microsoft.com/blog/tag/speech-service/).
+Les actualités relatives à Cognitive Services sont rassemblées dans le [blog Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Pour obtenir les dernières informations sur Speech Services, suivez le [blog Speech Services](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="release-notes"></a>Notes de publication
 
-Le [notes de publication](https://aka.ms/csspeech/whatsnew) sont mis à jour dès qu’une nouvelle version est disponible. Les notes de publication contiennent des informations sur les nouvelles fonctionnalités, améliorations et correctifs de bogues.
+Les [notes de publication](https://aka.ms/csspeech/whatsnew) sont mises à jour dès qu’une nouvelle version est disponible. Les notes contiennent des informations sur les nouvelles fonctionnalités, les améliorations et les correctifs de bogues.
 
 ## <a name="search"></a>Recherche
 
@@ -71,6 +71,7 @@ Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soume
 |Traduction vocale |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Intention vocale |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |Kit de développement logiciel (SDK) Speech général |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+| Assistants virtuels « voice-first » (Préversion) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) |
 
 > [!TIP]
 > Les publications suivantes de Stack Overflow présentent des conseils sur la façon de formuler des questions et d’ajouter du code source. En suivant ces recommandations, vous augmentez vos chances que des membres de la communauté comprennent votre question et y répondent rapidement :  
@@ -82,9 +83,9 @@ Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soume
 Les exemples sont souvent publiés en open source. Si vous avez des questions, ou en cas de problème, créez un *problème* dans le dépôt GitHub correspondant. Vous pouvez également envoyer une demande de tirage (pull request). La liste suivante contient des liens vers les référentiels d’exemples :
 
 * [Kit de développement logiciel (SDK) de reconnaissance vocale](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [Kit de développement logiciel d’appareils](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [SDK Speech Devices](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
-Vous pouvez créer un rapport de bogues, demander une fonctionnalité ou poser une question générale et partager les meilleures pratiques. Pour les rapports de bogues, veuillez suivre le modèle fourni :
+Vous pouvez créer un rapport de bogues, demander une fonctionnalité ou poser une question générale et partager les bonnes pratiques. Pour les rapports de bogues, veuillez suivre le modèle fourni :
 
 **Décrire le bogue**
 
@@ -113,7 +114,7 @@ Version du kit de développement logiciel utilisé.
 **Contexte supplémentaire**
 
  - Messages d’erreur, informations du journal, trace, etc.
- - Si vous signalez une erreur pour une interaction de service spécifique, signaler la SessionId et l’heure (y compris fuseau horaire), des incidents signalés. L’ID de session figure dans tous les rappels/événements reçus.
+ - Si vous signalez une erreur pour une interaction de service spécifique, indiquez l’ID de session et l’heure (y compris le fuseau horaire) de l’incident en question. L’ID de session figure dans tous les rappels/événements reçus.
  - Toute autre information supplémentaire
 
 

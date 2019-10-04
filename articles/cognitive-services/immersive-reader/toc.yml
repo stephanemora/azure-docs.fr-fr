@@ -1,0 +1,39 @@
+- name: Documentation du lecteur immersif
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce que le lecteur immersif\_?"
+      href: Overview.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: 'Utilisation de C#'
+      href: Quickstart.md
+    - name: Utilisation de Swift (iOS)
+      href: ios-quickstart.md
+- name: Tutoriels
+  items:
+    - name: Lancer le lecteur immersif (Node.js)
+      href: tutorial-nodejs.md
+    - name: Lancer le lecteur immersif (Python)
+      href: tutorial-python.md
+    - name: Photo avec le lecteur immersif (Swift)
+      href: tutorial-ios-picture-immersive-reader.md
+- name: Procédure
+  items:
+    - name: Authentification Azure Active Directory
+      href: azure-active-directory-authentication.md
+- name: Informations de référence
+  items:
+    - name: Informations de référence sur le SDK
+      href: reference.md
+    - name: Informations de référence sur le SDK iOS
+      href: ios-reference.md
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
+    - name: Support multilingue
+      href: 'https://aka.ms/ltlangsupport'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services'

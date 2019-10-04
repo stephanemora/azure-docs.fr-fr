@@ -2,20 +2,22 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: a8b4e3038bfa6a2e937de91804159e340ed13224
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 5ab03b682dd0ed1dc7b198e89c86e7a74c6275cd
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553698"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "67457328"
 ---
 | Ressource | Cible |
 |----------|---------------|
-| Taille maximale d’une table unique | 500 Tio |
-| Taille maximale d’une entité de table | 1 Mio |
+| Taille maximale d’une seule table | 500 Tio |
+| Taille maximale d'une entité de table | 1 Mio |
 | Nombre maximal de propriétés dans une entité de table | 255, ce qui inclut les trois propriétés système : PartitionKey, RowKey et Timestamp |
-| Nombre maximal de stratégies d’accès stockées par table | 5. |
-| Taux de requête maximal par compte de stockage | 20 000 transactions par seconde, ce qui suppose une taille d’entité de 1-Kio |
-| Débit cible pour une partition de table unique (-entités de 1 Kio) | Jusqu'à 2 000 entités par seconde |
+| Taille totale maximale de valeurs de propriété dans une entité | 1 Mio |
+| Taille totale maximale d’une propriété individuelle dans une entité | Varie en fonction du type de propriété. Pour plus d'informations, consultez **Types de propriétés** dans [Présentation du modèle de données du service de Table](/rest/api/storageservices/understanding-the-table-service-data-model). |
+| Nombre maximal de stratégies d’accès stockées par table | 5\. |
+| Taux de requête maximal par compte de stockage | 20 000 transactions par seconde, en supposant que la taille d’entité est de 1 Kio |
+| Débit cible pour une partition de table unique (entités de 1 Kio) | Jusqu'à 2 000 entités par seconde |

@@ -1,33 +1,32 @@
 ---
 title: Charger des données d’image dans le cloud avec le Stockage Azure | Microsoft Docs
 description: Utiliser le stockage Blob Azure avec une application web pour stocker les données d’application
-services: storage
-author: tamram
+author: normesta
 ms.service: storage
-ms.devlang: dotnet
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 11/26/2018
-ms.author: tamram
-ms.custom: mvc
-ms.openlocfilehash: 7d06d23af8d4d4f0282f6eb743c0f47dba80e3f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: normesta
+ms.reviewer: dineshm
+ms.openlocfilehash: 7185d118c9f4419713ebe1291dd55c44635f0c56
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58015308"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844955"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutoriel : Charger des données d’image dans le cloud avec le Stockage Azure
 
 Ce tutoriel est la première partie d’une série d’étapes. Dans ce tutoriel, vous allez apprendre à déployer une application web qui utilise la bibliothèque de client Stockage Azure dans le but de charger des images dans un compte de stockage. À la fin, vous disposerez d’une application web qui stocke et affiche des images à partir du Stockage Azure.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
-![Affichage du conteneur d’images](media/storage-upload-process-images/figure2.png)
+![Application de redimensionnement d’image dans .NET](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[SDK Node.js V2](#tab/nodejs)
-![Affichage du conteneur d’images](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Application de redimensionnement d’image dans Node.js V2](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK Node.js V10](#tab/nodejsv10)
-![Affichage du conteneur d’images](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Application de redimensionnement d’image dans Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -130,7 +129,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
-L’exemple de projet contient une application [ASP.NET MVC](https://www.asp.net/mvc). Cette application accepte une image, l’enregistre dans un compte de stockage et affiche des images à partir d’un conteneur de miniatures. L’application web utilise les espaces de noms [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet)et [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) de la bibliothèque de client du stockage Azure pour interagir avec le stockage Azure.
+L’exemple de projet contient une application [ASP.NET MVC](https://www.asp.net/mvc). Cette application accepte une image, l’enregistre dans un compte de stockage et affiche des images à partir d’un conteneur de miniatures. L’application web utilise les espaces de noms [Microsoft.Azure.Storage](/dotnet/api/overview/azure/storage), [Microsoft.Azure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob)et Microsoft.Azure.Storage.Auth de la bibliothèque de client du Stockage Azure pour interagir avec le stockage Azure.
 
 ```azurecli-interactive
 az webapp deployment source config --name $webapp \
@@ -162,7 +161,7 @@ az webapp deployment source config --name $webapp \
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
-L’exemple d’application web utilise la [bibliothèque de client du Stockage Azure](/dotnet/api/overview/azure/storage?view=azure-dotnet) pour demander des jetons d’accès de requête, qui servent à charger des images. Les informations d’identification du compte de stockage utilisées par le SDK Stockage sont définies dans les paramètres de l’application web. Ajoutez des paramètres d’application à l’application déployée avec la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
+L’exemple d’application web utilise la [bibliothèque de client du Stockage Azure](/dotnet/api/overview/azure/storage) pour demander des jetons d’accès de requête, qui servent à charger des images. Les informations d’identification du compte de stockage utilisées par le SDK Stockage sont définies dans les paramètres de l’application web. Ajoutez des paramètres d’application à l’application déployée avec la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
 ```azurecli-interactive
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
@@ -210,9 +209,9 @@ Pour tester l’application web, accédez à l’URL de l’application publiée
 
 Sélectionnez la zone **Charger des photos** pour sélectionner et charger un fichier, ou faites glisser un fichier dans la zone. L’image disparaît si le chargement a réussi. La section **Miniatures générées** reste vide jusqu’aux tests effectués plus loin dans cette rubrique.
 
-![Application ImageResizer](media/storage-upload-process-images/figure1.png)
+![Télécharger des photos dans .NET](media/storage-upload-process-images/figure1.png)
 
-Dans l’exemple de code, la tâche `UploadFiletoStorage` du fichier *Storagehelper.cs* sert à charger les images dans le conteneur *Images* au sein du compte de stockage suivant la méthode [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet). L’exemple de code suivant contient la tâche `UploadFiletoStorage`.
+Dans l’exemple de code, la tâche `UploadFiletoStorage` du fichier *Storagehelper.cs* sert à charger les images dans le conteneur *Images* au sein du compte de stockage suivant la méthode [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync). L’exemple de code suivant contient la tâche `UploadFiletoStorage`.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)
@@ -243,17 +242,17 @@ Les classes et méthodes suivantes sont utilisées dans la tâche précédente 
 
 |Classe  |Méthode  |
 |---------|---------|
-|[StorageCredentials](/dotnet/api/microsoft.windowsazure.storage.auth.storagecredentials?view=azure-dotnet)     |         |
-|[CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount?view=azure-dotnet)    |  [CreateCloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet)       |
-|[CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient?view=azure-dotnet)     |[GetContainerReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient.getcontainerreference?view=azure-dotnet)         |
-|[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet)        |
-|[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
+|[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)     |         |
+|[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)    |  [CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)       |
+|[CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient)     |[GetContainerReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.getcontainerreference)         |
+|[CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer)    | [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference)        |
+|[CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob)     | [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.file.cloudfile.uploadfromstreamasync)        |
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[SDK Node.js V2](#tab/nodejs)
 
 Sélectionnez **Choisir un fichier** pour sélectionner un fichier, puis cliquez sur **Charger une image**. La section **Miniatures générées** reste vide jusqu’aux tests effectués plus loin dans cette rubrique. 
 
-![Application de chargement d’image](media/storage-upload-process-images/upload-app-nodejs.png)
+![Télécharger des photos dans Node.js V2](media/storage-upload-process-images/upload-app-nodejs.png)
 
 Dans l’exemple de code, l’itinéraire `post` est responsable du chargement de l’image dans un conteneur d’objets blob. L’itinéraire utilise les modules pour faciliter le traitement du chargement :
 
@@ -317,7 +316,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 Sélectionnez **Choisir un fichier** pour sélectionner un fichier, puis cliquez sur **Charger une image**. La section **Miniatures générées** reste vide jusqu’aux tests effectués plus loin dans cette rubrique. 
 
-![Application de chargement d’image](media/storage-upload-process-images/upload-app-nodejs.png)
+![Télécharger des photos dans Node.js V10](media/storage-upload-process-images/upload-app-nodejs.png)
 
 Dans l’exemple de code, l’itinéraire `post` est responsable du chargement de l’image dans un conteneur d’objets blob. L’itinéraire utilise les modules pour faciliter le traitement du chargement :
 
@@ -399,7 +398,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com). Dans le menu de gau
 
 Vérifiez que l’image s’affiche dans le conteneur.
 
-![Affichage du conteneur d’images](media/storage-upload-process-images/figure13.png)
+![Conteneur de liste d’images du portail Azure](media/storage-upload-process-images/figure13.png)
 
 ## <a name="test-thumbnail-viewing"></a>Tester l’affichage des miniatures
 
@@ -412,13 +411,13 @@ Choisissez un fichier à l’aide du sélecteur de fichiers, puis sélectionnez 
 Revenez à votre application pour vérifier que l’image chargée dans le conteneur **thumbnails** est visible.
 
 # <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
-![Affichage du conteneur d’images](media/storage-upload-process-images/figure2.png)
+![Application de redimensionnement d’image .NET avec la nouvelle image affichée](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[SDK Node.js V2](#tab/nodejs)
-![Affichage du conteneur d’images](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Application de redimensionnement d’image Node.js V2 avec la nouvelle image affichée](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK Node.js V10](#tab/nodejsv10)
-![Affichage du conteneur d’images](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Application de redimensionnement d’image Node.js V10 avec la nouvelle image affichée](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 

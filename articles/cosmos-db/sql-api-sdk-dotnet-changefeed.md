@@ -8,15 +8,17 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090336"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637751"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
+
 > [!div class="op_single_selector"]
+>
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Flux de modification .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
@@ -27,8 +29,8 @@ ms.locfileid: "58090336"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Exécuteur en bloc – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -40,6 +42,11 @@ ms.locfileid: "58090336"
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="v2-builds"></a>Builds V2
+
+### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
+* La stratégie d’équilibrage de charge améliorée pour le scénario lors de l’obtention de tous les baux prend plus de temps que l’intervalle d’expiration de bail, par exemple, en raison de problèmes réseau :
+  * Dans ce scénario, l’algorithme d’équilibrage de charge considérait de façon erronée que les baux avaient expiré, ce qui entraînait un vol de baux des propriétaires actifs. Cela pouvait déclencher un rééquilibrage inutile d’un grand nombre de baux.
+  * Ce problème est résolu dans cette version, en évitant les nouvelles tentatives en cas de conflit lors de l’acquisition d’un bail expiré que le propriétaire n’a pas changé et le report de l’acquisition du bail expiré à l’itération d’équilibrage de charge suivante.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Gestion améliorée des exceptions de l’Observateur.
@@ -130,7 +137,7 @@ ms.locfileid: "58090336"
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Améliorations de la stabilité.
-  * Correctif pour gérer le problème des tâches annulées qui peut-être entraîner des observateurs arrêtés sur certaines partitions.
+  * Correctif pour résoudre le problème lié aux tâches annulées susceptibles de provoquer l’arrêt des observateurs dans certaines partitions.
 * Prise en charge des points de contrôle manuels.
 * Compatible avec les versions 1.21 et version ultérieure du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
 
@@ -151,8 +158,8 @@ ms.locfileid: "58090336"
 * Kit SDK GA
 * Compatible avec les versions 1.14.1 et inférieures du [Kit de développement logiciel (SDK) SQL .NET](sql-api-sdk-dotnet.md).
 
-
 ## <a name="release--retirement-dates"></a>Dates de lancement et de suppression
+
 Microsoft fournira une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
 Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquement ajoutées au Kit SDK actuel. Par conséquent, il est recommandé de toujours passer à la dernière version du SDK dès que possible. 
@@ -163,6 +170,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.2.7](#2.2.7) |14 mai 2019 |--- |
 | [2.2.6](#2.2.6) |29 janvier 2019 |--- |
 | [2.2.5](#2.2.5) |13 décembre 2018 |--- |
 | [2.2.4](#2.2.4) |29 novembre 2018 |--- |
@@ -177,10 +185,10 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 | [1.1.0](#1.1.0) |13 août 2017 |--- |
 | [1.0.0](#1.0.0) |7 juillet 2017 |--- |
 
-
 ## <a name="faq"></a>Forum Aux Questions
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Voir aussi
-Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
+Pour en savoir plus sur Cosmos DB, consultez la page du service [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

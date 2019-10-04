@@ -1,159 +1,153 @@
 ---
-title: Surveiller des applications logiques avec les journaux d’Azure Monitor - Azure Logic Apps | Microsoft Docs
-description: Obtenez des insights et des données de débogage vous permettant de diagnostiquer et de résoudre les problèmes des exécutions de votre application logique avec Azure Log Analytics.
+title: Superviser les applications logiques avec Azure Monitor - Azure Logic Apps
+description: Obtenez des insights et des données de débogage vous permettant de diagnostiquer et de résoudre les problèmes des exécutions de votre application logique avec les journaux Azure Monitor.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+author: ecfan
+ms.author: estfan
+ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 10/19/2018
-ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.date: 08/29/2019
+ms.openlocfilehash: a038a05f03ce7a209ae82203441750749bc6c4c4
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192460"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70138788"
 ---
-# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Superviser les applications logiques avec les journaux d’activité Azure Monitor
+# <a name="get-insights-and-debugging-data-for-logic-apps-by-using-azure-monitor-logs"></a>Obtenez des insights et des données de débogage pour des applications logiques à l’aide des journaux Azure Monitor
 
-Pour surveiller et obtenir des informations de débogage plus détaillées sur vos applications logiques, activez [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md) lorsque vous créez votre application logique. Journaux d’Azure Monitor fournit des diagnostics de journalisation et de surveillance pour vos applications logiques lorsque vous installez la solution Logic Apps Management dans le portail Azure. Cette solution fournit également des informations agrégées sur les exécutions de l’application logique avec certains détails spécifiques comme l’état, la durée d’exécution, l’état de la nouvelle soumission et les ID de corrélation. Cet article explique comment activer les journaux Azure Monitor afin que vous pouvez afficher les événements du runtime et les données de votre application logique s’exécute.
+Pour superviser vos applications logiques et obtenir des informations de débogage plus détaillées à leur sujet, activez les [journaux Azure Monitor](../log-analytics/log-analytics-overview.md) quand vous créez les applications logiques. Les journaux Azure Monitor assurent la journalisation des diagnostics et la supervision des applications logiques quand la solution Logic Apps Management est installée dans le portail Azure. Cette solution fournit également des informations agrégées sur les exécutions de l’application logique avec certains détails spécifiques comme l’état, la durée d’exécution, l’état de la nouvelle soumission et les ID de corrélation. Cet article montre comment activer les journaux Azure Monitor pour voir les données et événements d’exécution associés aux exécutions de l’application logique.
 
-Pour activer les journaux Azure Monitor pour les applications logiques existantes, suivez ces étapes pour [activer la journalisation des diagnostics et envoyer les données de runtime d’application logique dans les journaux d’Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+Cette rubrique montre comment configurer des journaux Azure Monitor lorsque vous créez votre application logique. Si vous souhaitez activer les journaux Azure Monitor sur une application logique existante, effectuez ces étapes pour [activer la journalisation des diagnostics et envoyer aux journaux Azure Monitor les données d’exécution de l’application logique](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
-> Cette page expliquait auparavant comment effectuer ces tâches avec Microsoft Operations Management Suite (OMS) ; dans la mesure où celui-ci sera [mis hors service en janvier 2019](../azure-monitor/platform/oms-portal-transition.md), ces étapes sont remplacées par Azure Log Analytics. 
+> Cette page expliquait auparavant comment effectuer ces tâches avec Microsoft Operations Management Suite (OMS), qui a été [mis hors service en janvier 2019](../azure-monitor/platform/oms-portal-transition.md), et ces étapes sont remplacées par les [journaux Azure Monitor](../azure-monitor/platform/data-platform-logs.md) qui ont succédé à Log Analytics. Les données de journal sont toujours stockées dans un espace de travail Log Analytics, et elles sont toujours collectées et analysées par le même service Log Analytics. Pour plus d'informations, consultez [Changements de terminologie Azure Monitor](../azure-monitor/terminology.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="prerequisites"></a>Conditions préalables
+Avant de commencer, il vous faut un espace de travail Log Analytics. Découvrez [comment créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-Avant de commencer, il vous faut un espace de travail Log Analytics. Découvrez [comment créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md). 
+## <a name="turn-on-logging-for-new-logic-apps"></a>Activer la journalisation pour les nouvelles applications logiques
 
-## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Activer la journalisation des diagnostics lors de la création d’applications logiques
+1. Dans le [portail Azure](https://portal.azure.com), créez votre application logique. Dans le menu principal Azure, choisissez **Créer une ressource** > **Intégration** > **Application logique**.
 
-1. Dans le [portail Azure](https://portal.azure.com), créez une application logique. Choisissez **Créer une ressource** > **Intégration**  > **Application logique**.
+   ![Créer une application logique](media/logic-apps-monitor-your-logic-apps-oms/create-new-logic-app.png)
 
-   ![Créer une application logique](media/logic-apps-monitor-your-logic-apps-oms/find-logic-apps-azure.png)
+1. Sous **Application logique**, procédez comme suit :
 
-1. Sous **Créer une application logique**, effectuez les étapes suivantes :
+   1. Nommez votre application logique, puis sélectionnez votre abonnement Azure.
 
-   1. Nommez votre application logique, puis sélectionnez votre abonnement Azure. 
+   1. Créez ou sélectionnez un groupe de ressources Azure. Sélectionnez l’emplacement de votre application logique.
 
-   1. Créez ou sélectionnez un groupe de ressources Azure.
+   1. Sous **Log Analytics**, sélectionnez **Activer**.
 
-   1. Définissez **Log Analytics** sur **Activé**. 
+   1. Dans la liste **d’espaces de travail Log Analytics**, sélectionnez l’espace de travail vers lequel vous souhaitez envoyer les données concernant les exécutions de votre application logique.
 
-   1. Dans la liste d’espaces de travail Log Analytics, sélectionnez l’espace de travail vers lequel vous souhaitez envoyer des données concernant les exécutions de votre application logique. 
+      ![Spécifier les informations de l’application logique](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app-details.png)
 
-      ![Créer une application logique](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-app.png)
+      Une fois cette étape terminée, Azure crée l’application logique qui est désormais associée à votre espace de travail Log Analytics. De plus, cette étape installe automatiquement la solution Logic Apps Management dans votre espace de travail Log Analytics.
 
-      Une fois cette étape terminée, Azure crée l’application logique qui est désormais associée à votre espace de travail Log Analytics. 
-      De plus, cette étape installe automatiquement la solution Logic Apps Management dans votre espace de travail Log Analytics.
-
-   1. Lorsque vous êtes prêt, choisissez **Créer**.
+   1. Sélectionnez **Créer** lorsque vous avez terminé.
 
 1. Pour voir les exécutions de votre application logique, [effectuez ces étapes](#view-logic-app-runs-oms).
 
 ## <a name="install-logic-apps-management-solution"></a>Installer la solution Logic Apps Management
 
-Si vous avez déjà activé Azure Monitor connecté lorsque vous avez créé votre application logique, ignorez cette étape. En effet, vous disposez déjà de la solution Logic Apps Management.
+Si vous avez déjà configuré les journaux Azure Monitor lors de la création de votre application logique, ignorez cette étape. En effet, vous disposez déjà de la solution Logic Apps Management.
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « Log Analytics », puis sélectionnez **Log Analytics**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**. Dans la zone de recherche, entrez « Espaces de travail Log Analytics », puis sélectionnez **Espaces de travail Log Analytics**.
 
-   ![Sélectionner « Log Analytics »](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
+   ![Sélectionnez « Espaces de travail Log Analytics »](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-1. Sous **Log Analytics**, recherchez et sélectionnez votre espace de travail Log Analytics. 
+1. Sous **Espaces de travail Log Analytics**, sélectionnez votre espace de travail.
 
    ![Sélectionnez votre espace de travail Log Analytics.](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. Sous **Bien démarrer avec Log Analytics** > **Configurer des solutions de monitoring**, choisissez **Afficher les solutions**.
+1. Dans le volet Vue d’ensemble, sous **Bien démarrer avec Log Analytics** > **Configurer des solutions de monitoring**, sélectionnez **Afficher les solutions**.
 
-   ![Choisir « Afficher les solutions »](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
+   ![Sélectionnez « Afficher les solutions »](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
-1. Sur la page Vue d’ensemble, choisissez **Ajouter** pour ouvrir la liste **Solutions de gestion**. Dans cette liste, sélectionnez **Logic Apps Management**. 
+1. Sous **Vue d’ensemble**, sélectionnez **Ajouter**.
 
-   ![Sélectionner « Logic Apps Management »](./media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![Sélectionnez « Ajouter ».](./media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-   Si vous ne trouvez pas la solution, choisissez **Charger plus** en bas de la liste jusqu’à ce que la solution s’affiche.
+1. Une fois la **Place de marché** ouverte, dans la zone de recherche, entrez « logic apps management », puis sélectionnez **Logic Apps Management**.
 
-1. Choisissez **Créer**, vérifiez l’espace de travail Log Analytics dans lequel vous souhaitez installer la solution, puis sélectionnez à nouveau **Créer**.   
+   ![Sélectionner « Logic Apps Management »](./media/logic-apps-monitor-your-logic-apps-oms/select-logic-apps-management.png)
 
-   ![Choisir « Créer » pour « Logic Apps Management »](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+1. Dans le volet de description de la solution, sélectionnez **Créer**.
 
-   Si vous ne souhaitez pas utiliser un espace de travail existant, vous pouvez également en créer un maintenant.
+   ![Sélectionnez « Créer » pour « Logic Apps Management »](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
-   Lorsque vous avez terminé, la solution Logic Apps Management s’affiche sur la page de présentation. 
+1. Vérifiez et confirmez l’espace de travail Log Analytics dans lequel vous souhaitez installer la solution, puis sélectionnez à nouveau **Créer**.
+
+   ![Sélectionnez « Créer » pour « Logic Apps Management »](./media/logic-apps-monitor-your-logic-apps-oms/confirm-log-analytics-workspace.png)
+
+   Une fois qu’Azure a déployé la solution sur le groupe de ressources Azure qui contient votre espace de travail Log Analytics, la solution apparaît dans le volet récapitulatif de votre espace de travail.
+
+   ![Volet récapitulatif de l'espace de travail](./media/logic-apps-monitor-your-logic-apps-oms/workspace-summary-pane-logic-apps-management.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
 ## <a name="view-logic-app-run-information"></a>Afficher des informations d’exécution sur l’application logique
 
-Après l’exécution de votre application logique, vous pouvez afficher l’état et le nombre de ces exécutions sur la vignette **Logic Apps Management**. 
+Après l’exécution de votre application logique, vous pouvez afficher l’état et le nombre de ces exécutions sur la vignette **Logic Apps Management**.
 
-1. Accédez à votre espace de travail Log Analytics, puis ouvrez la page de présentation. Choisissez **Logic Apps Management**. 
+1. Accédez à votre espace de travail Log Analytics, puis sélectionnez **Résumé de l’espace de travail** > **Logic Apps Management**.
 
-   ![État et nombre d’exécutions de l’application logique](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+   ![État et nombre d’exécutions de l’application logique](media/logic-apps-monitor-your-logic-apps-oms/logic-app-runs-summary.png)
 
-   Les exécutions de votre application logique y sont regroupées par nom ou par état d’exécution. 
-   Cette page affiche également des détails sur les échecs dans les actions ou déclencheurs pour les exécutions d’une application logique.
+   Les exécutions de votre application logique y sont regroupées par nom ou par état d’exécution. Cette page affiche également des détails sur les échecs dans les actions ou déclencheurs pour les exécutions d’une application logique.
 
-   ![Récapitulatif des états pour les exécutions de votre application logique](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
-   
+   ![Récapitulatif des états pour les exécutions de votre application logique](media/logic-apps-monitor-your-logic-apps-oms/logic-app-runs-summary-details.png)
+
 1. Pour afficher toutes les exécutions d’une application logique ou un état, sélectionnez la ligne correspondant à cette application logique ou à cet état.
 
    Voici un exemple qui montre toutes les exécutions d’une application logique :
 
-   ![Affichage des exécutions d’une application logique ou d’un état](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
+   ![Voir les exécutions et l’état des applications logiques](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   Cette page présente ces options avancées :
+   Cette page a des options avancées : 
 
-   * **Propriétés suivies :**
+   * Colonne **Propriétés suivies** : Pour une application logique dans laquelle vous configurez des propriétés suivies, qui sont regroupées par actions, vous pouvez voir ces propriétés à partir de cette colonne. Pour voir ces propriétés suivies, sélectionnez **Afficher**. Pour rechercher les propriétés suivies, utilisez le filtre de colonne.
 
-     Cette colonne affiche les propriétés suivies, regroupées par actions, pour l’application logique. Pour afficher les propriétés suivies, choisissez **Afficher**. 
-     Pour rechercher les propriétés suivies, utilisez le filtre de colonne.
-   
-     ![Afficher les propriétés suivies pour une application de logique](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+      ![Afficher les propriétés suivies pour une application de logique](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
-     Quand vous ajoutez de nouvelles propriétés suivies, 10 à 15 minutes peuvent s’écouler avant leur apparition. Découvrez [comment ajouter des propriétés suivies à votre application logique](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
+      Quand vous ajoutez de nouvelles propriétés suivies, 10 à 15 minutes peuvent s’écouler avant leur apparition. Découvrez [comment ajouter des propriétés suivies à votre application logique](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-   * **Soumettre à nouveau :** vous pouvez soumettre à nouveau une ou plusieurs exécutions d’application logique ayant échoué ou réussi, ou en cours d’exécution. Cochez les cases correspondant aux exécutions que vous souhaitez soumettre à nouveau, puis choisissez **Soumettre à nouveau**. 
+   * **Soumettre à nouveau** : Vous pouvez resoumettre une ou plusieurs exécutions d’application logique ayant échoué ou réussi, ou en cours d’exécution. Cochez les cases correspondant aux exécutions que vous voulez resoumettre, puis sélectionnez **Soumettre à nouveau**.
 
      ![Soumettre à nouveau des exécutions d’application logique](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
-1. Pour filtrer ces résultats, vous pouvez effectuer un filtrage côté client et côté serveur.
+1. Pour filtrer vos résultats, vous pouvez effectuer un filtrage côté client et côté serveur.
 
-   * **Filtre côté client** : pour chaque colonne, choisissez les filtres que vous souhaitez, par exemple :
+   * **Filtre côté client** : Pour chaque colonne, sélectionnez les filtres que vous souhaitez, par exemple :
 
      ![Exemples de filtres de colonne](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * **Filtre côté serveur** : pour choisir une fenêtre de temps spécifique ou pour limiter le nombre d’exécutions affichées, utilisez la commande d’étendue située en haut de la page. Par défaut, vous ne pouvez afficher que 1 000 enregistrements à la fois.
-   
-     ![Modifier la fenêtre de temps](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
- 
-1. Pour afficher toutes les actions et leurs détails pour une exécution spécifique, sélectionnez une ligne correspondant à une exécution d’application logique.
+   * **Filtre côté serveur** : Pour sélectionner une fenêtre de temps spécifique ou pour limiter le nombre d’exécutions affichées, utilisez la commande d’étendue située en haut de la page. Par défaut, vous ne pouvez afficher que 1 000 enregistrements à la fois.
 
-   Voici un exemple qui montre toutes les actions pour une exécution d’application logique spécifique :
+     ![Modifier la fenêtre de temps](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
+
+1. Pour voir toutes les actions et leurs détails pour une exécution spécifique, sélectionnez la ligne correspondant à une exécution d’application logique.
+
+   Voici un exemple qui montre toutes les actions et tous les déclencheurs pour une exécution d’application logique spécifique :
 
    ![Afficher les actions d’une exécution d’application logique](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
-   
-1. Pour afficher la requête derrière les résultats ou afficher tous les résultats dans n’importe quelle page de résultats, choisissez **Tout afficher**. La page Recherche dans les journaux s’ouvre.
-   
-   ![Tout afficher dans les pages de résultats](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
-   
-   Dans la page Recherche dans les journaux,
 
-   * Pour afficher les résultats de la requête dans une table, choisissez **Table**.
+1. Pour voir la requête derrière les résultats ou tous les résultats, dans n’importe quelle page de résultats, sélectionnez **Afficher tout**, ce qui ouvre la page **Journaux**.
 
-   * Pour modifier la requête, modifiez la chaîne de requête dans la barre de recherche. 
-   Pour une meilleure expérience, choisissez **Analytique avancée**.
+   ![Voir tous les résultats](media/logic-apps-monitor-your-logic-apps-oms/logic-app-see-all.png)
 
-     ![Affichage des actions et des détails relatifs à une exécution d’application logique](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-     
-     Dans la page d’analytique de journal, vous pouvez mettre à jour des requêtes et afficher les résultats de la table. Cette requête utilise le [langage de requête Kusto](https://aka.ms/LogAnalyticsLanguageReference), que vous pouvez modifier si vous souhaitez afficher des résultats différents. 
+   Dans la page **Journaux**, vous pouvez choisir ces options :
 
-     ![analytique de journal - affichage des requêtes](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+   * Pour afficher les résultats de la requête dans une table, sélectionnez **Table**.
+
+   * Les requêtes utilisent le [langage de requête Kusto](https://aka.ms/LogAnalyticsLanguageReference), que vous pouvez modifier si vous voulez voir des résultats différents. Pour changer la requête, mettez à jour la chaîne de requête, puis sélectionnez **Exécuter** pour voir les résultats dans le tableau. 
+
+     ![Log Analytics - Vue de la requête](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,0 +1,99 @@
+### YamlMime:Landing
+title: Documentation sur l’aide utilisateur
+summary: Que vous soyez employé, professionnel de l’informatique ou utilisateur final, configurez l’authentification pour votre compte professionnel ou scolaire, réinitialisez votre mot de passe, configurez et joignez des appareils, configurez l’application Microsoft Authenticator et utilisez les différents portails.
+metadata:
+  title: Aide utilisateur sur l’authentification, les applications et les appareils
+  description: Employé ou utilisateur final, découvrez comment configurer et utiliser l’authentification, l’application Microsoft Authenticator et le portail Mes applications.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: user-help
+  ms.topic: landing-page
+  ms.collection: M365-identity-device-management
+  author: eross-msft
+  ms.author: lizross
+  ms.date: 08/26/2019
+  ms.openlocfilehash: 168c8ad8acd1734aa06be111f42f4c0b2da92d3e
+  ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 08/28/2019
+  ms.locfileid: "70072674"
+landingContent:
+- title: Configurer et utiliser l’application Microsoft Authenticator
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que l’application Microsoft Authenticator ?
+      url: user-help-auth-app-overview.md
+  - linkListType: download
+    links:
+    - text: Télécharger et installer l’application
+      url: user-help-auth-app-download-install.md
+  - linkListType: how-to-guide
+    links:
+    - text: Sauvegarder et récupérer les informations de compte
+      url: user-help-auth-app-backup-recovery.md
+    - text: Se connecter à l’aide de l’application
+      url: user-help-auth-app-sign-in.md
+- title: Choisir vos méthodes de vérification en deux étapes
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que la vérification à deux facteurs ?
+      url: user-help-two-step-verification-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer vos méthodes de vérification
+      url: multi-factor-authentication-end-user-first-time.md
+    - text: Gérer les paramètres
+      url: multi-factor-authentication-end-user-manage-settings.md
+    - text: Obtenir de l’aide
+      url: multi-factor-authentication-end-user-troubleshoot.md
+- title: Mettre à jour vos informations dans le portail Mes applications
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que le portail MyApps ?
+      url: my-apps-portal-end-user-access.md
+  - linkListType: how-to-guide
+    links:
+    - text: Mettre à jour vos informations
+      url: my-apps-portal-end-user-update-profile.md
+    - text: Obtenir de l’aide
+      url: my-apps-portal-end-user-troubleshoot.md
+- title: Configurer et gérer vos informations de sécurité (préversion)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Que sont les informations de sécurité (préversion) ?
+      url: user-help-security-info-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer vos méthodes d’informations de sécurité
+      url: security-info-add-update-methods-overview.md
+    - text: Ajouter des informations pendant l’invite de connexion
+      url: security-info-setup-signin.md
+- title: Gérer vos informations sur le portail Mon profil (préversion)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que le portail Mon profil (préversion) ?
+      url: myprofile-portal-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer vos organisations
+      url: myprofile-portal-organizations-page.md
+    - text: Gérer vos appareils connectés
+      url: myprofile-portal-devices-page.md
+- title: Réinitialiser votre mot de passe
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que la réinitialisation de mot de passe ?
+      url: user-help-password-reset-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Se connecter pour réinitialiser un mot de passe
+      url: active-directory-passwords-reset-register.md
+    - text: Réinitialiser votre mot de passe
+      url: user-help-reset-password.md

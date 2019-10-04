@@ -1,21 +1,21 @@
 ---
-title: Configurer et consulter les journaux d’activité du serveur pour Azure Database for MariaDB dans le portail Azure
-description: Cet article décrit comment configurer et consulter les journaux d’activité du serveur dans Azure Database for MariaDB à partir du portail Azure.
+title: Configurer et consulter les journaux des serveurs pour Azure Database for MariaDB dans le portail Azure
+description: Cet article décrit comment configurer et consulter les journaux des serveurs dans Azure Database for MariaDB à partir du portail Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4ff2fbd5976a8e203bbc43a87b31ddb1bed63402
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: MT
+ms.date: 06/11/2019
+ms.openlocfilehash: 3dbf7064e409230916668e62ef861c0ce149fdbb
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548814"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67065637"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurer et consulter les journaux d’activité du serveur dans le portail Azure
 
-Vous pouvez configurer, répertorier et télécharger les [journaux d’activité du serveur Azure Database for MariaDB](concepts-server-logs.md) à partir du portail Azure.
+Vous pouvez configurer, lister et télécharger les [journaux des requêtes lentes Azure Database for MariaDB](concepts-server-logs.md) à partir du portail Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
@@ -29,7 +29,7 @@ Configurer l’accès au journal des requêtes lentes.
 2. Sélectionnez votre serveur Azure Database for MariaDB.
 
 3. Dans la section **Supervision** dans la barre latérale, sélectionnez **Journaux d’activité du serveur**. 
-   ![Sélectionnez Journaux du serveur, cliquez pour configurer](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
+   ![Sélectionnez Journaux d’activité du serveur, cliquez pour configurer](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
 4. Sélectionnez le titre **Cliquez ici pour activer les journaux d’activité et configurer les paramètres associés** pour afficher les paramètres du serveur.
 
@@ -42,7 +42,7 @@ Configurer l’accès au journal des requêtes lentes.
 6. Revenez à la liste des journaux d’activité en cliquant sur le **bouton Fermer** (icône de X) dans la page **Paramètres serveur**.
 
 ## <a name="view-list-and-download-logs"></a>Afficher la liste et télécharger les journaux d’activité
-Une fois que la journalisation commence, vous pouvez afficher la liste des journaux d’activité disponibles et télécharger des fichiers journaux dans le volet Journaux d’activité du serveur. 
+Une fois que la journalisation commence, vous pouvez afficher la liste des journaux des requêtes lentes disponibles et télécharger des fichiers journaux individuels dans le volet Journaux du serveur. 
 
 1. Ouvrez le portail Azure.
 
@@ -62,7 +62,7 @@ Une fois que la journalisation commence, vous pouvez afficher la liste des journ
    ![Cliquez sur l’icône Télécharger](./media/howto-configure-server-logs-portal/5-download.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez plus en détail les [journaux d’activité du serveur](concepts-server-logs.md) dans Azure Database for MariaDB.
+- Découvrez les [journaux des requêtes lentes](concepts-server-logs.md) dans Azure Database for MariaDB.
 - Pour plus d’informations sur les définitions de paramètres et la journalisation, consultez la documentation MariaDB relative aux [journaux d’activité](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-<!-- - See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->
+<!--- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->

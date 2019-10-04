@@ -1,9 +1,9 @@
 ---
 title: Augmenter ou diminuer la taille des instances d’un cluster Service Fabric | Microsoft Docs
-description: À l’échelle un cluster Service Fabric ou arrière pour faire correspondre à la demande en définissant des règles à l’échelle automatique pour chaque nœud type/machines virtuelles identiques. Ajouter ou supprimer des nœuds d’un cluster Service Fabric
+description: Augmentez ou diminuez la taille des instances d’un cluster Service Fabric pour répondre à la demande en définissant des règles de mise à l’échelle automatique pour chaque type de nœud/groupe de machines virtuelles identiques. Ajouter ou supprimer des nœuds d’un cluster Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2019
-ms.author: aljo
-ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: b1b3c0e6440212474bf356d4204c0dd91c1491fa
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049179"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599899"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Mettre à l’échelle un cluster
 
 > [!WARNING]
-> Lisez cette section avant de vous mettre à l’échelle
+> Lisez cette section avant d’effectuer une mise à l’échelle
 
 La mise à l’échelle des ressources de calcul pour provisionner la charge de travail de votre application nécessite une planification intentionnelle. Elle durera généralement plus d’une heure dans un environnement de production et vous devrez comprendre votre charge de travail et le contexte commercial. En fait, si vous n’avez jamais effectué cette opération auparavant, il est recommandé de commencer par lire et bien comprendre les [points à prendre en compte dans la planification des capacités du cluster Service Fabric](service-fabric-cluster-capacity.md) avant de poursuivre ce document. Cette recommandation vise à éviter les problèmes non intentionnels de LiveSite. Il est également recommandé de bien tester les opérations que vous choisissez d’effectuer dans un environnement hors production. Vous pouvez à tout moment [signaler des problèmes de production ou demander un support payant pour Azure](service-fabric-support.md#report-production-issues-or-request-paid-support-for-azure). Pour les ingénieurs affectés à ces opérations ayant un contexte approprié, cet article décrira les opérations de mise à l’échelle. Toutefois, vous devez déterminer et bien comprendre les opérations appropriées à votre cas d’utilisation, telles que les ressources à mettre à l’échelle (CPU, stockage, mémoire), le sens de mise à l’échelle (vertical ou horizontal) et les opérations à effectuer (déploiement de modèles de ressources, portail, PowerShell/CLI).
 
@@ -32,7 +32,7 @@ La mise à l’échelle des ressources de calcul pour provisionner la charge de 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Augmenter ou diminuer la taille des instances d’un cluster Service Fabric à l’aide de règles de mise à l’échelle automatique ou manuellement
-Les jeux de mise à l’échelle de machine virtuelle sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que jeu. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que groupe de machines virtuelles identiques distinct. Chaque type de nœud peut ensuite faire l’objet d’une augmentation ou d’une diminution de la taille des instances de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. En savoir plus sur dans le [les types de nœuds Service Fabric](service-fabric-cluster-nodetypes.md) document. Étant donné que les types de nœuds Service Fabric dans votre cluster sont constitués de machines virtuelles identiques sur le serveur principal, vous devez définir des règles de l’échelle automatique pour chaque nœud type/machines virtuelles identiques.
+Les jeux de mise à l’échelle de machine virtuelle sont des ressources de calcul Azure que vous pouvez utiliser pour déployer et gérer une collection de machines virtuelles en tant que jeu. Chaque type de nœud qui est défini dans un cluster Service Fabric est configuré en tant que groupe de machines virtuelles identiques distinct. Chaque type de nœud peut ensuite faire l’objet d’une augmentation ou d’une diminution de la taille des instances de manière indépendante, avoir différents jeux de ports ouverts et présenter différentes métriques de capacité. Pour en savoir plus, consultez le document portant sur les [types de nœuds Service Fabric](service-fabric-cluster-nodetypes.md). Étant donné que les types de nœuds Service Fabric de votre cluster sont constitués de groupes de machines virtuelles identiques sur le serveur principal, vous devez définir des règles de mise à l’échelle automatique pour chaque type de nœud/groupe de machines virtuelles identiques.
 
 > [!NOTE]
 > Votre abonnement doit avoir suffisamment de cœurs pour ajouter les nouvelles machines virtuelles qui composeront ce cluster. Il n’existe actuellement aucune validation de modèle. Vous obtenez donc une erreur liée au temps de déploiement si l’une des limites de quota est atteinte. De même, un type de nœud unique ne peut tout simplement pas dépasser 100 nœuds par VMSS. Il se peut que vous ayez besoin d’ajouter des VMSS pour atteindre l’échelle ciblée, et la mise à l’échelle automatique ne peut pas ajouter des VMSS de façon automatique. L’ajout de VMSS sur place, dans un cluster activé, est une tâche difficile qui conduit fréquemment les utilisateurs à provisionner de nouveaux clusters avec les types de nœuds appropriés qui ont été provisionnés lors de la création ; [planifier la capacité du cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) en conséquence. 
@@ -50,8 +50,8 @@ Get-AzResource -ResourceGroupName <RGname> -ResourceType Microsoft.Compute/Virtu
 Get-AzVmss -ResourceGroupName <RGname> -VMScaleSetName <virtual machine scale set name>
 ```
 
-## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Définir des règles à l’échelle automatique pour le nœud type/machines virtuelles identiques
-Si votre cluster comporte plusieurs types de nœud, puis répétez cette opération pour chaque échelle de machine virtuel/types de nœud définit que vous souhaitez mettre à l’échelle (entrant ou sortant). Tenez compte du nombre de nœuds dont vous devez disposer avant de configurer la mise à l’échelle automatique. Le nombre de nœuds minimal dont vous devez disposer pour le type de nœud principal est déterminé par le niveau de fiabilité que vous avez choisi. En savoir plus sur les [niveaux de fiabilité](service-fabric-cluster-capacity.md).
+## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Définir des règles de mise à l’échelle automatique pour le type de nœud/groupe de machines virtuelles identiques
+Si votre cluster comporte plusieurs types de nœud, vous devez effectuer cette opération pour chaque type de nœud/groupe de machines virtuelles identiques dont vous voulez augmenter ou diminuer la taille des instances. Tenez compte du nombre de nœuds dont vous devez disposer avant de configurer la mise à l’échelle automatique. Le nombre de nœuds minimal dont vous devez disposer pour le type de nœud principal est déterminé par le niveau de fiabilité que vous avez choisi. En savoir plus sur les [niveaux de fiabilité](service-fabric-cluster-capacity.md).
 
 > [!NOTE]
 > Une descente en puissance du type de nœud principal en deçà du nombre minimal rend le cluster instable ou entraîne son interruption. Cela peut entraîner une perte de données pour vos applications et pour les services système.
@@ -60,23 +60,23 @@ Si votre cluster comporte plusieurs types de nœud, puis répétez cette opérat
 
 Actuellement, la fonctionnalité de mise à l’échelle automatique ne dépend pas des charges que vos applications peuvent signaler à Service Fabric. Par conséquent, pour le moment, la mise à l’échelle automatique que vous obtenez dépend uniquement des compteurs de performances émis par chaque instance du groupe de machines virtuelles identiques.  
 
-Suivez ces instructions [pour configurer à l’échelle automatique pour chaque jeu de mise à l’échelle de machine virtuelle](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
+Suivez ces instructions afin de [configurer la mise à l’échelle automatique pour chaque groupe de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> Dans le scénario, vers le bas, sauf si votre type de nœud a un [niveau de durabilité] [ durability] Gold ou Silver, vous devez appeler la [applet de commande Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) avec le nom de nœud approprié. Pour la durabilité Bronze, il n’est pas recommandé à l’échelle vers le bas plusieurs nœuds à la fois.
+> Dans un scénario de descente en puissance, à moins que votre type de nœud ne possède un [niveau de durabilité][durability] Gold ou Silver, vous devez appeler le [cmdlet Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) avec le nom de nœud approprié. Pour la durabilité Bronze, il n’est pas recommandé de descendre en puissance plusieurs nœuds simultanément.
 > 
 > 
 
-## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Ajouter manuellement des machines virtuelles à un nœud type/machines virtuelles identiques
+## <a name="manually-add-vms-to-a-node-typevirtual-machine-scale-set"></a>Ajouter manuellement des machines virtuelles à un type de nœud/groupe de machines virtuelles identiques
 
 Lorsque vous augmentez le nombre d’instances (scale out), vous ajoutez des instances de machines virtuelles au groupe identique. Ces instances deviennent les nœuds que Service Fabric utilise. Service Fabric sait quand des instances sont ajoutées au groupe identique et réagit automatiquement. 
 
 > [!NOTE]
-> Ajout de machines virtuelles prend du temps, donc n’attendent ne pas les ajouts soient instantanés. Par conséquent, envisagez d’augmenter la capacité bien à l’avance, pour permettre plus de 10 minutes avant que la capacité de la machine virtuelle est disponible pour les instances/réplicas de service à placer.
+> L’ajout de machines virtuelles prend du temps, donc ne vous attendez pas à ce que les ajouts soient instantanés. Par conséquent, envisagez d’ajouter de la capacité bien à l’avance, car vous devez compter plus de 10 minutes avant que la capacité de la machine virtuelle ne soit disponible pour placer les réplicas/instances de service.
 > 
 
-### <a name="add-vms-using-a-template"></a>Ajouter des machines virtuelles à l’aide d’un modèle
-Suivez les exemples/instructions dans le [galerie de modèles de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) pour modifier le nombre de machines virtuelles dans chaque type de nœud. 
+### <a name="add-vms-using-a-template"></a>Ajouter de machines virtuelles à l’aide d’un modèle
+Suivez les exemples/instructions dans la [galerie de modèles de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) pour modifier le nombre de machines virtuelles dans chaque type de nœud. 
 
 ### <a name="add-vms-using-powershell-or-cli-commands"></a>Ajouter des machines virtuelles à l’aide des commandes PowerShell ou CLI
 Le code suivant obtient un groupe identique par son nom et augmente de 1 sa **capacité**.
@@ -98,16 +98,16 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 ```
 
-## <a name="manually-remove-vms-from-a-node-typevirtual-machine-scale-set"></a>Supprimer manuellement des machines virtuelles à partir d’un nœud type/machines virtuelles identiques
-Lorsque vous faites évoluer dans un type de nœud, vous supprimez les instances de machine virtuelle de l’ensemble d’échelle. Si le type de nœud est le niveau de durabilité Bronze, Service Fabric est ignore, ce qui a eu lieu et signale qu’un nœud est perdu. Service Fabric signale donc que l’état du cluster n’est pas sain. Pour éviter cela, vous devez explicitement supprimer le nœud du cluster et supprimer l’état du nœud.
+## <a name="manually-remove-vms-from-a-node-typevirtual-machine-scale-set"></a>Supprimer manuellement des machines virtuelles d’un type de nœud/groupe de machines virtuelles identiques
+Lorsque vous diminuez la taille des instances d’un type de nœud, vous supprimez les instances de machine virtuelle du groupe identique. Si le type de nœud dispose d’un niveau de durabilité Bronze, Service Fabric n’est pas informé des événements et signale qu’un nœud a disparu. Service Fabric signale donc que l’état du cluster n’est pas sain. Pour éviter cet état incorrect, vous devez supprimer le nœud du cluster et l’état du nœud de manière explicite.
 
-Les services de système de service fabric exécutent dans le type de nœud principal de votre cluster. Lorsque vous diminuez le type de nœud principal, vous ne faites jamais descendre le nombre d’instances à moins que le [niveau de fiabilité](service-fabric-cluster-capacity.md) le justifient. 
+Les services système Service Fabric s’exécutent sur le type de nœud principal de votre cluster. Lorsque vous faites descendre en puissance un type de nœud principal, ne réduisez pas le nombre d’instances à une valeur inférieure à celle garantie par le [niveau de fiabilité](service-fabric-cluster-capacity.md). 
  
 Pour un service avec état, un certain nombre de nœuds doivent toujours fonctionner afin de maintenir la disponibilité et de conserver l’état de votre service. Au minimum, le nombre de nœuds doit être égal au nombre de jeux de réplicas cibles du service/de la partition.
 
 ### <a name="remove-the-service-fabric-node"></a>Supprimer le nœud Service Fabric
 
-Les étapes de suppression manuelle d’état du nœud s’appliquent uniquement aux types de nœuds avec un *Bronze* niveau de durabilité.  Pour *Silver* et *Gold* niveau de durabilité, ces étapes sont effectuées automatiquement par la plateforme. Pour plus d’informations sur la durabilité, consultez [Planification de la capacité des clusters Service Fabric][durability].
+Les étapes pour supprimer manuellement un état de nœud s’appliquent uniquement aux types de nœuds avec un niveau de durabilité *Bronze*.  Pour les niveaux de durabilité *Silver* et *Gold*, ces étapes sont effectuées automatiquement par la plateforme. Pour plus d’informations sur la durabilité, consultez la [Planification de la capacité des clusters Service Fabric][durability].
 
 Pour que les nœuds du cluster soient toujours répartis uniformément entre les domaines d’erreur et de mise à jour, et ainsi permettre leur utilisation homogène, le dernier nœud créé doit être supprimé en premier. En d’autres termes, les nœuds doivent être supprimés dans l’ordre inverse de leur création. Le dernier nœud créé est celui contenant la plus grande valeur de propriété `virtual machine scale set InstanceId`. Les exemples de code ci-dessous renvoient le dernier nœud créé.
 

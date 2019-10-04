@@ -1,21 +1,21 @@
 ---
 title: Configurer le pare-feu de la base de données SQL Azure Blockchain Workbench
-description: Découvrez comment configurer le pare-feu de la base de données SQL Azure Blockchain Workbench.
+description: Découvrez comment configurer le pare-feu de la base de données SQL Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 09/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0b8d5ac13b6c4b327a03eb85032a13407601c1ee
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 0153065ca0ccd6cf34456d630d7437d5ea7c5b48
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330175"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845219"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Configurer le pare-feu de la base de données SQL Azure Blockchain Workbench
 

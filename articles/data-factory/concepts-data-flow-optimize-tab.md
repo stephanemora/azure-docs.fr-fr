@@ -1,18 +1,17 @@
 ---
 title: Onglet Optimiser de la fonctionnalité de mappage de flux de données d’Azure Data Factory
-description: Optimiser le mappage de flux de données d’Azure Data Factory avec les paramètres de partition de l’onglet Optimiser
+description: Optimiser le mappage de flux de données d’Azure Data Factory à l’aide de l’onglet Optimiser avec les paramètres de partition
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: 40023931b2a0b3788a583a5b5240e7916b187e34
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728775"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190643"
 ---
 # <a name="mapping-data-flow-transformation-optimize-tab"></a>Onglet Optimiser de la fonctionnalité de transformation du mappage de flux de données
 
@@ -46,8 +45,13 @@ Une plage dynamique utilise des plages dynamiques Spark basées sur les colonnes
 
 ### <a name="fixed-range"></a>Plage fixe
 
-Vous devez créer une expression qui fournit une plage fixe pour les valeurs figurant dans vos colonnes de données partitionnées. Avant d’utiliser cette option afin d’éviter une inclinaison de partition, vous devez avoir une bonne compréhension de vos données. La valeur que vous entrez pour l’expression sera utilisée dans une fonction de partition. Vous pouvez définir le nombre de partitions physiques.
+Vous devez créer une expression qui fournit une plage fixe pour les valeurs figurant dans vos colonnes de données partitionnées. Avant d’utiliser cette option afin d’éviter une inclinaison de partition, vous devez avoir une bonne compréhension de vos données. Les valeurs que vous entrez pour l’expression seront utilisées dans une fonction de partition. Vous pouvez définir le nombre de partitions physiques.
 
 ### <a name="key"></a>Clé
 
 Si vous avez une bonne compréhension de la cardinalité de vos données, une clé de partitionnement peut être une bonne stratégie de partition. Une clé de partitionnement crée des partitions pour chaque valeur unique dans votre colonne. Vous ne pouvez pas définir le nombre de partitions, car celui-ci dépend des valeurs uniques dans les données.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Guide des performances de mappage des flux de données](concepts-data-flow-performance.md)
+[Supervision du flux de données](concepts-data-flow-monitoring.md)

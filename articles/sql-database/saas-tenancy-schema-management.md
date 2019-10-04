@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 7b238044fd3795ae2f49c2fa21367e6499a65672
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081217"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570123"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gérer le schéma dans une application SaaS à l’aide du modèle de base de données par locataire avec Azure SQL Database
  
 Etant donné qu’une application de base de données évolue, des modifications doivent inévitablement être effectuées sur le schéma de base de données ou les données de référence.  Des tâches de maintenance de la base de données sont aussi régulièrement nécessaires. La gestion d’une application qui utilise le modèle de base de données par locataire requiert que vous appliquiez ces modifications ou tâches de maintenance sur l’ensemble d’un parc de bases de données de locataire.
 
-Ce didacticiel explore deux scénarios : le déploiement de mises à jour des données de référence pour tous les locataires et la reconstruction d’un index sur la table contenant les données de référence. La fonctionnalité [Travaux élastiques](sql-database-elastic-jobs-overview.md) est utilisée pour exécuter ces actions sur toutes les bases de données de locataire et sur la base de données modèle utilisée pour créer des bases de données de locataire.
+Ce didacticiel explore deux scénarios : le déploiement de mises à jour des données de référence pour tous les locataires et la reconstruction d’un index sur la table contenant les données de référence. La fonctionnalité [Travaux élastiques](elastic-jobs-overview.md) est utilisée pour exécuter ces actions sur toutes les bases de données de locataire et sur la base de données modèle utilisée pour créer des bases de données de locataire.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -46,7 +45,7 @@ Pour suivre ce didacticiel, vérifiez que les conditions préalables ci-dessous 
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Présentation des modèles de gestion de schéma SaaS
 
-Le modèle de base de données par locataire isole efficacement les données de locataire, mais augmente le nombre de bases de données à gérer et à entretenir. Les [travaux élastiques](sql-database-elastic-jobs-overview.md) facilitent l’administration et la gestion des bases de données SQL. Les travaux vous permettent d’exécuter de façon sécurisée et fiable des tâches (scripts T-SQL), sur un groupe de bases de données. Les travaux peuvent déployer les modifications de schéma et de données de référence communes sur toutes les bases de données de locataire d’une application. Les travaux élastiques permettent également de maintenir à jour un *modèle* de la base de données utilisée pour créer de nouveaux locataires afin de s’assurer qu’elle contient en permanence le schéma et les données de référence les plus récents.
+Le modèle de base de données par locataire isole efficacement les données de locataire, mais augmente le nombre de bases de données à gérer et à entretenir. Les [travaux élastiques](elastic-jobs-overview.md) facilitent l’administration et la gestion des bases de données SQL. Les travaux vous permettent d’exécuter de façon sécurisée et fiable des tâches (scripts T-SQL), sur un groupe de bases de données. Les travaux peuvent déployer les modifications de schéma et de données de référence communes sur toutes les bases de données de locataire d’une application. Les travaux élastiques permettent également de maintenir à jour un *modèle* de la base de données utilisée pour créer de nouveaux locataires afin de s’assurer qu’elle contient en permanence le schéma et les données de référence les plus récents.
 
 ![Écran](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -73,7 +72,7 @@ Le script *Demo-SchemaManagement.ps1* appelle le script *Deploy-SchemaManagement
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Créer un travail pour déployer les nouvelles données de référence sur tous les locataires
 
-Dans l’application Wingtip Tickets, chaque base de données de locataire inclut un ensemble de types de lieux pris en charge. Chaque lieu est d’un type spécifique, qui définit le type des événements qui peuvent être hébergés et détermine l’image d’arrière-plan utilisée dans l’application. Pour que l’application prenne en charge de nouveaux types d’événements, ces données de référence doivent être mises à jour et de nouveaux types de lieux doivent être ajoutés.  Dans cet exercice, vous déployez une mise à jour sur toutes les bases de données client pour ajouter deux types de lieux supplémentaires : *Motorcycle Racing* (Courses de moto) et *Swimming Club* (Club de natation).
+Dans l’application Wingtip Tickets, chaque base de données de locataire inclut un ensemble de types de lieux pris en charge. Chaque lieu est d’un type spécifique, qui définit le type des événements qui peuvent être hébergés et détermine l’image d’arrière-plan utilisée dans l’application. Pour que l’application prenne en charge de nouveaux types d’événements, ces données de référence doivent être mises à jour et de nouveaux types de lieux doivent être ajoutés.  Dans cet exercice, vous allez déployer une mise à jour dans toutes les bases de données du locataire afin d’ajouter deux types de lieux supplémentaires : *Motorcycle Racing* (Courses de moto) et *Swimming Club* (Club de natation).
 
 Tout d’abord, examinez les types de lieux inclus dans chaque base de données client. Connectez-vous à l’une des bases de données client dans SQL Server Management Studio (SSMS) et vérifiez la table VenueTypes.  Vous pouvez également interroger cette table dans l’éditeur de requêtes du portail Azure, auquel vous avez accès par la page de la base de données. 
 
@@ -86,8 +85,8 @@ Pour créer un travail, vous utilisez un ensemble de procédures stockées syst�
 
 1. Dans SSMS, connectez-vous au serveur de catalogue : *catalog-dpt-&lt;user&gt;.database.windows.net* 
 1. Dans SSMS, ouvrez le fichier ...\\Learning Modules\\Schema Management\\DeployReferenceData.sql
-1. Modifiez l’instruction : Définissez @wtpUser = &lt;utilisateur&gt; et remplacer la valeur utilisateur utilisée lors du déploiement de l’application Wingtip Tickets SaaS Database Per Tenant
-1. Vérifiez que vous êtes connecté à la _jobagent_ base de données, puis appuyez sur **F5** pour exécuter le script
+1. Modifiez l’instruction : SET @wtpUser = &lt;utilisateur&gt; et remplacer la valeur de l’utilisateur utilisée lors du déploiement de l’application Wingtip Tickets SaaS Database Per Tenant
+1. Assurez-vous que vous êtes connecté à la base de données _jobagent_, puis appuyez sur  **pressF5to**  pour exécuter le script
 
 Observez les éléments suivants dans le script *DeployReferenceData.sql* :
 * **sp\_add\_target\_group** crée le nom de groupe cible DemoServerGroup.
@@ -127,11 +126,10 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Mettre à jour les données de référence dans toutes les bases de données de locataire
 > * Créer un index sur une table dans toutes les bases de données de locataire
 
-Ensuite, essayez le [didacticiel sur les rapports Ad hoc](saas-tenancy-cross-tenant-reporting.md) pour Explorer l’exécution des requêtes distribuées entre les clients de bases de données.
+Ensuite, consultez le [didacticiel de création de rapports Ad hoc](saas-tenancy-cross-tenant-reporting.md) pour explorer l’exécution de requêtes distribuées dans les bases de données de locataire.
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Autres didacticiels reposant sur le déploiement de l’application de base de données Wingtip Tickets SaaS par client](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Gestion des bases de données cloud avec montée en charge](sql-database-elastic-jobs-overview.md)
-* [Créer et gérer des bases de données cloud avec montée en charge](sql-database-elastic-jobs-create-and-manage.md)
+* [Gestion des bases de données cloud avec montée en charge](elastic-jobs-overview.md)

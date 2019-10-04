@@ -9,19 +9,19 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: reference
-ms.date: 08/13/2018
+ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: 7f152de89f5d374a5b97368eafe7287fc9377291
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: MT
+ms.openlocfilehash: 839ab291a99de646053b638520ce43f459d5c41f
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011328"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297017"
 ---
 # <a name="dependency-auto-collection"></a>Collecte automatique de dépendance
 
-Voici la liste des appels de dépendance actuellement pris en charge qui sont automatiquement détectés comme des dépendances sans devoir apporter des modifications supplémentaires au code de votre application. Il s’agit d’appels sortants vers des bibliothèques de communication, clients de stockage, bibliothèques de journalisation et de mesures, ainsi que d’appels entrants dans des infrastructures d’application et des serveurs. Ces dépendances sont visualisées dans les vues [Cartographie d’application](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) et [Diagnostics des transactions](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) d’Application Insights. Si votre dépendance ne figure pas dans la liste ci-dessous, vous pouvez toujours la suivre manuellement avec un [appel de suivi des dépendances](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Voici la liste des appels de dépendance actuellement pris en charge qui sont automatiquement détectés comme des dépendances sans devoir apporter des modifications supplémentaires au code de votre application. Ces dépendances sont visualisées dans les vues [Cartographie d’application](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) et [Diagnostics des transactions](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) d’Application Insights. Si votre dépendance ne figure pas dans la liste ci-dessous, vous pouvez toujours la suivre manuellement avec un [appel de suivi des dépendances](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -38,11 +38,6 @@ Voici la liste des appels de dépendance actuellement pris en charge qui sont au
 | [Kit de développement logiciel (SDK) client ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Clients de stockage</b>|  |
 | ADO.NET | 4.5+ |
-| <b>Bibliothèques de journalisation</b> |  |
-| ILogger | 1.1+ |
-| System.Diagnostics.Trace | 4.5+ |
-| [nLog](https://www.nuget.org/packages/NLog/) | 4.4.12+ |
-| [log4net](https://www.nuget.org/packages/log4net/) | 2.0.8+ sur NetStandard  1.3, 2.0.6+ sur .NET 4.5+ |
 
 ## <a name="java"></a>Java
 | Serveurs d’applications | Versions |
@@ -58,6 +53,7 @@ Voici la liste des appels de dépendance actuellement pris en charge qui sont au
 | [Client Http Apache](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
 | <b>Clients de stockage</b> | |
 | [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
+| [PostgreSQL (prise en charge de la version bêta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
 | [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
 | [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
 | <b>Bibliothèques de journalisation</b> | |
@@ -67,7 +63,7 @@ Voici la liste des appels de dépendance actuellement pris en charge qui sont au
 | JMX | 1.0+ |
 
 > [!NOTE]
-> * Sauf prise en charge de programmation réactive.
+> \* Sauf prise en charge de programmation réactive.
 > <br>† Installation de [Agent JVM](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java) requise.
 
 ## <a name="nodejs"></a>Node.js

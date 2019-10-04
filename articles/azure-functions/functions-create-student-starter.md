@@ -8,16 +8,15 @@ author: alexkarcher-msft
 manager: ggailey777
 ms.assetid: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5fd9f51185b8461269d498b254d9e9d9f4118270
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: b4a143f14dc4e443570e8eca9ce6ce9e81b1d783
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344038"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096643"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Créer une fonction à l’aide de Microsoft Azure for Students Starter
 
@@ -76,8 +75,6 @@ Vous devez disposer d’une Function App pour héberger l’exécution de vos fo
 
 8. Sélectionnez **Accéder à la ressource** pour afficher votre nouvelle application de fonction.
 
-> [!TIP]
-> Si vous avez des difficultés à trouver vos applications de fonction dans le portail, essayez [d’ajouter des applications de fonction à vos favoris dans le portail Azure](./functions-how-to-use-azure-function-app-settings.md#favorite).
 Créez ensuite une fonction dans la nouvelle Function App.
 
 ## <a name="create-function"></a>Créer une fonction déclenchée via HTTP
@@ -96,7 +93,7 @@ Vous pouvez maintenant exécuter la nouvelle fonction en envoyant une requête H
 
 ## <a name="test-the-function"></a>Tester la fonction
 
-1. Dans votre nouvelle fonction, cliquez sur **</> Obtenir l’URL de la fonction** en haut à droite, sélectionnez **par défaut (touche de fonction)**, puis cliquez sur **Copier**. 
+1. Dans votre nouvelle fonction, cliquez sur **</> Obtenir l’URL de la fonction** en haut à droite, sélectionnez **par défaut (touche de fonction)** , puis cliquez sur **Copier**. 
 
     ![Copier l’URL de fonction à partir du portail Azure](./media/functions-create-student-starter/function-app-develop-tab-testing.png)
 

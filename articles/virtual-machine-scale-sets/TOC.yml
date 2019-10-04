@@ -1,6 +1,6 @@
 - name: Documentation sur les groupes de machines virtuelles identiques
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Que sont les groupes de machines virtuelles identiques ?
       href: overview.md
@@ -23,25 +23,25 @@
   items:
     - name: 1 - Créer / gérer un groupe identique
       items:
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: tutorial-create-and-manage-cli.md
         - name: Azure PowerShell
           href: tutorial-create-and-manage-powershell.md
     - name: 2 - Utiliser des disques de données
       items:
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: tutorial-use-disks-cli.md
         - name: Azure PowerShell
           href: tutorial-use-disks-powershell.md
     - name: 3 - Utiliser une image de machine virtuelle personnalisée
       items:
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: tutorial-use-custom-image-cli.md
         - name: Azure PowerShell
           href: tutorial-use-custom-image-powershell.md
     - name: 4 - Déployer des applications sur un groupe identique
       items:
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: tutorial-install-apps-cli.md
         - name: Azure PowerShell
           href: tutorial-install-apps-powershell.md
@@ -49,7 +49,7 @@
           href: tutorial-install-apps-template.md
     - name: 5 - Mettre à l’échelle un groupe identique
       items:
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: tutorial-autoscale-cli.md
         - name: Azure PowerShell
           href: tutorial-autoscale-powershell.md
@@ -57,7 +57,7 @@
           href: tutorial-autoscale-template.md
 - name: Exemples
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
@@ -66,10 +66,17 @@
     - name: Azure Resource Manager
       href: ../azure-resource-manager/resource-group-overview.md
       maintainContext: true
-    - name: Régions et disponibilité
-      href: ../virtual-machines/windows/regions-and-availability.md
+    - name: Régions
+      href: ../virtual-machines/windows/regions.md
+    - name: Disponibilité et performances
       maintainContext: true
       items:
+        - name: Disponibilité
+          href: availability.md
+        - name: Colocalisation
+          href: co-location.md
+        - name: Performances réseau
+          href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: Gérer les domaines d’erreur dans des groupes identiques
           href: virtual-machine-scale-sets-manage-fault-domains.md
     - name: Types et tailles des machines virtuelles
@@ -129,6 +136,8 @@
         - name: Performances de stockage Premium
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
+        - name: Disques de système d’exploitation éphémères
+          href: ephemeral-os-disks.md
         - name: Objectifs d’extensibilité pour les disques
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
@@ -152,6 +161,10 @@
         - name: Quotas de processeurs virtuels
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: FAQ sur le groupe identique
+      href: virtual-machine-scale-sets-faq.md
+    - name: Contrôles de sécurité intégrés
+      href: virtual-machine-scale-sets-security-controls.md
 - name: Procédure
   items:
     - name: Planifier et concevoir
@@ -183,6 +196,9 @@
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: Mise à l’échelle automatique avancée
               href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              maintainContext: true
+            - name: Résoudre les problèmes de mise à l’échelle
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: Applications dans les groupes de machines virtuelles identiques
           href: virtual-machine-scale-sets-deploy-app.md
         - name: Extensions sur les groupes identiques
@@ -199,6 +215,9 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
+            - name: Séquencement d’extensions
+              href: ../security/azure-security-disk-encryption-extension-sequencing.md
+              maintainContext: true
         - name: Travailler avec des groupes identiques de grande taille
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Convertir un modèle de groupe identique pour utiliser un disque géré
@@ -213,25 +232,34 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Utilisation d'Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
-        - name: Galeries d’images partagées (préversion)
-          href: shared-image-galleries.md
+        - name: Modifier un groupe identique
+          href: virtual-machine-scale-sets-upgrade-scale-set.md
+        - name: Mise en réseau pour les groupes identiques
+          href: virtual-machine-scale-sets-networking.md
+        - name: Mises à niveau automatiques des systèmes d’exploitation
+          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Protection des instances (préversion)
+          href: virtual-machine-scale-sets-instance-protection.md
+        - name: Arrêter la notification en cas de suppression (préversion)
+          href: virtual-machine-scale-sets-terminate-notification.md
+        - name: Galeries d’images partagées
           items:
+            - name: Vue d'ensemble
+              href: shared-image-galleries.md
             - name: Interface de ligne de commande
               href: shared-images-cli.md
             - name: PowerShell
               href: shared-images-powershell.md
+            - name: Partager des images entre locataires
+              href: share-images-across-tenants.md
             - name: Résoudre les problèmes relatifs aux images partagées
               href: troubleshooting-shared-images.md
+        - name: Créer un groupe de placements de proximité
+          href: proximity-placement-groups.md
         - name: Mise à l’échelle verticale dans un groupe de machines virtuelles identiques
           href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-        - name: Mises à niveau automatiques des systèmes d’exploitation
-          href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Modifier un groupe identique
-          href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: Groupes de machines virtuelles identiques et configuration d’état souhaité
           href: virtual-machine-scale-sets-dsc.md
-        - name: Mise en réseau pour les groupes identiques
-          href: virtual-machine-scale-sets-networking.md
         - name: Convertir un modèle en disques managés
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: Maintenance planifiée
@@ -247,14 +275,6 @@
         - name: Mettre à l’échelle un groupe identique
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-    - name: Résolution des problèmes
-      items:
-        - name: Autoscale
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: Forum Aux Questions
-      items:
-        - name: FAQ sur le groupe identique
-          href: virtual-machine-scale-sets-faq.md
 - name: Informations de référence
   items:
     - name: Azure PowerShell

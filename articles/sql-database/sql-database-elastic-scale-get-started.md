@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: aa0827bdf6deb388123ed701013ee95f5493eee3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999124"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568479"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Bien démarrer avec les outils de base de données élastique
 
@@ -25,7 +24,7 @@ Ce document présente l’expérience du développeur dans la [bibliothèque cli
 
 ## <a name="elastic-database-tools-for-java"></a>Outils de base de données élastique pour Java
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 * JDK (Java Developer Kit) version 1.8 ou ultérieure
 * [Maven](https://maven.apache.org/download.cgi)
@@ -57,7 +56,7 @@ Pour générer les fichiers JAR et commencer avec l’exemple de projet, effectu
 
     ![Progress-java][5]
     
-Félicitations ! Vous avez correctement conçu et exécuté votre première application partitionnée à l’aide des outils de base de données élastique sur Azure SQL Database. Utilisez Visual Studio ou SQL Server Management Studio pour vous connecter à votre base de données SQL, et regardez rapidement les partitions créées dans l’exemple. Vous remarquerez de nouveaux exemples de bases de données de partitions, ainsi que la base de données de gestionnaire de carte de partitions créée par l’exemple. 
+Félicitations ! Vous avez correctement conçu et exécuté votre première application partitionnée à l’aide des outils de base de données élastique sur Azure SQL Database. Utilisez Visual Studio ou SQL Server Management Studio pour vous connecter à votre base de données SQL, et regardez rapidement les partitions créées dans l’exemple. Vous remarquerez de nouveaux exemples de bases de données de partitions, ainsi que la base de données de gestionnaire de carte de partitions créée par l’exemple. 
 
 Pour ajouter la bibliothèque cliente à votre propre projet Maven, ajoutez la dépendance suivante dans votre fichier POM :
 
@@ -71,7 +70,7 @@ Pour ajouter la bibliothèque cliente à votre propre projet Maven, ajoutez la d
 
 ## <a name="elastic-database-tools-for-net"></a>Outils de base de données élastique pour .NET
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 * Visual Studio 2012 ou ultérieur avec C#. Téléchargez une version gratuite à la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
@@ -84,7 +83,7 @@ Pour télécharger et exécuter les exemples, procédez comme suit :
 
 1. Téléchargez l[’exemple Outils de base de données pour base de données SQL Azure - Bien démarrer](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) à partir de MSDN. Décompressez l’exemple à l’emplacement de votre choix.
 
-2. Pour créer un projet, ouvrez la solution *ElasticScaleStarterKit.sln* dans le répertoire *C#*.
+2. Pour créer un projet, ouvrez la solution *ElasticScaleStarterKit.sln* dans le répertoire *C#* .
 
 3. Dans la solution de l’exemple de projet, ouvrez le fichier *app.config*. Suivez alors les instructions incluses dans le fichier pour ajouter le nom du serveur Azure SQL Database et vos informations de connexion (nom d’utilisateur et mot de passe).
 
@@ -94,7 +93,7 @@ Pour télécharger et exécuter les exemples, procédez comme suit :
    
     ![Progression][4]
 
-Félicitations ! Vous avez correctement conçu et exécuté votre première application partitionnée à l’aide des outils de base de données élastique sur SQL Database. Utilisez Visual Studio ou SQL Server Management Studio pour vous connecter à votre base de données SQL, et regardez rapidement les partitions créées dans l’exemple. Vous remarquerez de nouveaux exemples de bases de données de partitions, ainsi que la base de données de gestionnaire de carte de partitions créée par l’exemple.
+Félicitations ! Vous avez correctement conçu et exécuté votre première application partitionnée à l’aide des outils de base de données élastique sur SQL Database. Utilisez Visual Studio ou SQL Server Management Studio pour vous connecter à votre base de données SQL, et regardez rapidement les partitions créées dans l’exemple. Vous remarquerez de nouveaux exemples de bases de données de partitions, ainsi que la base de données de gestionnaire de carte de partitions créée par l’exemple.
 
 > [!IMPORTANT]
 > Nous vous recommandons d’utiliser systématiquement la dernière version de Management Studio afin de rester en cohérence avec les mises à jour d’Azure et de SQL Database. [Mettre à jour SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).

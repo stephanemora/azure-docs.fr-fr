@@ -10,12 +10,13 @@ ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 7022c3b2d2f3618d55b0a70d2690abf1497ec6a6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: 022fe002057f157d4d9fe6e6cad03fc79810888c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865333"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706905"
 ---
 # <a name="what-is-project-url-preview"></a>Qu’est-ce que l’aperçu d’URL de projet ?
 Le point de terminaison d’aperçu d’URL prend un paramètre de requête URL et retourne une réponse JSON avec le nom de la ressource cible, une brève description et un lien vers une image à afficher dans un aperçu. La réponse inclut également l’indicateur [isFamilyFriendly](url-preview-reference.md#query-parameters) qui précise si l’URL contient des données adulte, piratées ou tout autre contenu illégal. 

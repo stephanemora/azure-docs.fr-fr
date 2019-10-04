@@ -3,8 +3,8 @@ title: Domaines personnalisés dans le proxy d’application Azure AD | Microsof
 description: Gérer les domaines personnalisés dans le proxy d’application Azure AD afin que l’URL de l’application soit identique quel que soit l’emplacement d’où vos utilisateurs y accèdent.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/31/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59663346fce415d73609f09345048ff321f1a234
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 8a1914b7cf79287831e0e94c19c50107c2ac216d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359823"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390787"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilisation des domaines personnalisés dans le proxy d'application Azure AD
 
@@ -40,7 +40,7 @@ Nous vous recommandons de définir des domaines personnalisés pour vos applicat
 
 Avant de configurer un domaine personnalisé, assurez-vous d’avoir rempli les exigences suivantes : 
 - La [vérification du domaine ajouté à Azure Active Directory](../fundamentals/add-custom-domain.md).
-- Un certificat personnalisé pour le domaine, sous la forme de fichier PFX. 
+- Un certificat personnalisé pour le domaine, sous la forme de fichier PFX.
 - Une application locale [publiée via le Proxy d’application](application-proxy-add-on-premises-application.md).
 
 ### <a name="configure-your-custom-domain"></a>Configurer votre domaine personnalisé
@@ -61,7 +61,7 @@ Lorsque vous avez rempli ces trois conditions, procédez comme suit pour configu
 6. Télécharger le certificat PFX et entrez le mot de passe du certificat. 
 7. Cliquez sur **Enregistrer** pour enregistrer vos modifications. 
 8. Ajoutez un [enregistrement DNS](../../dns/dns-operations-recordsets-portal.md) qui redirige la nouvelle URL externe vers le domaine msappproxy.net.
-9. Vérifiez que l’enregistrement DNS est configuré correctement en utilisant le [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) commande pour voir si votre URL externe est accessible et que le domaine msapproxy.net s’affiche en tant qu’alias.
+9. Vérifiez que l’enregistrement DNS est configuré correctement en utilisant la commande [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) pour voir si votre URL externe est accessible et si le domaine msapproxy.net s’affiche comme un alias.
 
 >[!TIP] 
 >Télécharger uniquement un certificat par un domaine personnalisé. Quand vous avez téléchargé un certificat, vous pouvez choisir le domaine personnalisé lorsque vous publiez une nouvelle application, sans effectuer une configuration supplémentaire à l’exception de l’enregistrement DNS. 
@@ -71,7 +71,11 @@ Lorsque vous avez rempli ces trois conditions, procédez comme suit pour configu
 ### <a name="certificate-format"></a>Format de certificat
 Il n’existe aucune restriction sur les méthodes de signature de certificat. Chiffrement à courbe elliptique (ECC), autre nom de l’objet (SAN) et d’autres types de certificat courants sont tous pris en charge. 
 
-Vous pouvez utiliser un certificat avec caractère générique tant que ce dernier correspond à l’URL externe de votre choix. 
+Vous pouvez utiliser un certificat avec caractère générique tant que ce dernier correspond à l’URL externe de votre choix.
+
+Le certificat doit comporter la clé privée.
+
+Les certificats émis par votre propre infrastructure à clé publique (PKI) peuvent être utilisés si la chaîne d’approbation est installée sur vos appareils clients. Intune peut être utilisé pour déployer ces certificats sur des appareils gérés. Pour les appareils non gérés, ces certificats doivent être installés manuellement.
 
 ### <a name="changing-the-domain"></a>Modification de domaine
 Tous les domaines vérifiés s’affichent dans la liste déroulante de l’URL externe pour votre application. Pour modifier le domaine, mettez simplement ce champ à jour pour l’application. Si le domaine n’est pas dans la liste, [ajoutez-le en tant que domaine vérifié](../fundamentals/add-custom-domain.md). Si vous sélectionnez un domaine dont le certificat n’est pas encore associé, suivez les étapes 5 à 7 pour ajouter le certificat. Ensuite, assurez-vous que vous mettez à jour l’enregistrement DNS pour la redirection à partir de la nouvelle URL externe. 
@@ -85,7 +89,7 @@ La gestion des certificats s’effectue actuellement via les pages d’applicati
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Activer l’authentification unique](application-proxy-configure-single-sign-on-with-kcd.md) pour vos applications publiées avec l’authentification Azure AD.
-* [Activer l’accès conditionnel](application-proxy-integrate-with-sharepoint-server.md) à vos applications publiées.
+* [Activer l’accès conditionnel](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/technical-reference#cloud-apps-assignments) à vos applications publiées.
 * [Ajout de votre propre nom de domaine à Azure AD](../fundamentals/add-custom-domain.md)
 
 

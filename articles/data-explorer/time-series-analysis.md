@@ -1,18 +1,18 @@
 ---
-title: Analyser les données de série chronologique à l’aide de l’Explorateur de données Azure
-description: Découvrez comment analyser les données de série chronologique dans le cloud à l’aide de l’Explorateur de données Azure.
+title: Analyser les données de série chronologique avec Azure Data Explorer
+description: Découvrez comment analyser des données de série chronologique dans le cloud avec Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273071"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65604054"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analyse des séries chronologiques dans Azure Data Explorer
 
@@ -34,7 +34,7 @@ La table ainsi obtenue contient une colonne de type timestamp, trois colonnes de
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | TimeStamp | BrowserVer | OsVer | Pays |
+|   | TimeStamp | BrowserVer | OsVer | Pays/région |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Royaume-Uni |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Royaume-Uni |
@@ -260,3 +260,8 @@ demo_many_series1
 En moins de deux minutes, Azure Data Explorer a analysé près de 20 000 séries chronologiques et détecté deux séries chronologiques anormales dans lesquelles le nombre de lectures chutait soudainement.
 
 Ces fonctionnalités avancées combinées avec la rapidité des performances d’Azure Data Explorer produisent une solution unique et puissante pour l’analyse de séries chronologiques.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* En savoir plus sur la [Détection d’anomalies et la prévision pour la série chronologique](/azure/data-explorer/anomaly-detection) dans Azure Data Explorer.
+* Découvrez les [fonctionnalités d’apprentissage automatique](/azure/data-explorer/machine-learning-clustering) dans Azure Data Explorer.

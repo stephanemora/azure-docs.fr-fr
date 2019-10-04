@@ -3,7 +3,7 @@ title: Surveiller Azure Batch avec Azure Application Insights | Microsoft Docs
 description: Découvrez comment instrumenter une application .NET Azure Batch avec la bibliothèque Azure Application Insights.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: .NET
@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: 42ea8398fa1a8b1fbc42108d1165dc17da2c34d7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: MT
+ms.openlocfilehash: 8d896785a2f000a22f68611d5b3b1162c2021236
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473460"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322565"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Surveiller et déboguer une application .NET Azure Batch avec Application Insights
 
@@ -31,7 +31,7 @@ Un exemple de solution C# avec du code pour accompagner cet article est disponib
 >
 
 ## <a name="prerequisites"></a>Prérequis
-* [Visual Studio 2017](https://www.visualstudio.com/vs)
+* [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/vs)
 
 * [Compte Batch et compte de stockage lié](batch-account-create-portal.md)
 
@@ -293,8 +293,8 @@ Pour créer un exemple de graphique :
 2. Mettez à jour les détails du graphique comme suit :
    * Dans **Type de graphique**, sélectionnez **Grille**.
    * Dans **Agrégation**, sélectionnez **Moyenne**.
-   * Dans **Group by (Grouper par)**, sélectionnez **NodeId (ID de nœud)**.
-   * Dans **Métriques**, sélectionnez **Personnalisé** > **Blob download in seconds (Téléchargement de blocs en secondes)**.
+   * Dans **Group by (Grouper par)** , sélectionnez **NodeId (ID de nœud)** .
+   * Dans **Métriques**, sélectionnez **Personnalisé** > **Blob download in seconds (Téléchargement de blocs en secondes)** .
    * Ajustez la **palette de couleurs** de l’affichage. 
 
 ![Temps de téléchargement des blobs par nœuds](./media/monitor-application-insights/blobdownloadtime.png)

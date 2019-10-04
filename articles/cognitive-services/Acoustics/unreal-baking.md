@@ -3,19 +3,20 @@ title: Tutoriel de baking Project Acoustics Unreal
 titlesuffix: Azure Cognitive Services
 description: Ce document décrit le processus de soumission d’un baking acoustique à l’aide de l’extension de l’éditeur Unreal.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: michem
-ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: noelc
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7a868a5f9b06499e23710399733b0659d97f900d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797173"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854904"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutoriel de baking Project Acoustics Unreal
 Ce document décrit le processus de soumission d’un baking acoustique à l’aide de l’extension de l’éditeur Unreal.
@@ -208,7 +209,7 @@ Une fois le baking terminé, vérifiez que les points de sonde et les voxels son
 Quatre fichiers de données sont créés par ce plug-in à différents stades. Seul l’un d’entre eux est nécessaire lors de l’exécution et est placé dans le dossier Content/Acoustics de votre projet, qui est automatiquement ajouté au chemin de packaging de votre projet. Les trois autres sont trouvent dans le dossier Acoustics Data et ne sont pas packagés.
 
 * **[Projet]/Config/ProjectAcoustics.cfg** : Ce fichier stocke les données que vous entrez dans les champs de l’interface utilisateur de Acoustics Mode. Vous ne pouvez pas changer l’emplacement et le nom de ce fichier. D’autres valeurs stockées dans ce fichier affectent le baking, mais elles sont destinées aux utilisateurs avancés et ne doivent pas être modifiées.
-* **[Projet]/Content/Acoustics/[nom_niveau]\_AcousticsData.ace** : Ce fichier est créé au cours de la simulation du bake. Il contient les données de recherche utilisées par le runtime pour restituer l’acoustique de votre scène. L’emplacement et le nom de ce fichier peuvent être changés à l’aide des champs sous l’onglet **Probes**.
+* **[Projet]/Content/Acoustics/[nom_niveau]\_AcousticsData.ace** : Ce fichier est créé au cours de la simulation du bake. Il contient les données de recherche utilisées par le runtime pour restituer l’acoustique de votre scène. L’emplacement et le nom de ce fichier peuvent être changés à l’aide des champs sous l’onglet **Probes**. Si vous souhaitez renommer ce fichier après sa création, supprimez l’UAsset de votre projet Unreal, renommez le fichier en dehors d’Unreal dans l’Explorateur de fichiers, puis réimportez ce fichier Unreal pour produire un nouvel UAsset. Renommer l’UAsset ne suffira pas en soi.
 * **[Projet]/Plugins/ProjectAcoustics/AcousticsData/[nom_niveau]\_AcousticsData.vox** : Ce fichier stocke la géométrie d’acoustique voxélisée et les propriétés du matériel. Il est calculé à l’aide du bouton **Calculate** de l’onglet **Probes**. L’emplacement et le nom de ce fichier peuvent être changés à l’aide des champs sous l’onglet **Probes**.
 * **[Projet]/Plugins/ProjectAcoustics/AcousticsData/[nom_niveau]\_AcousticsData\_config.xml** : Ce fichier stocke les paramètres calculés à l’aide du bouton **Calculate** de l’onglet **Probes**. L’emplacement et le nom de ce fichier peuvent être changés à l’aide des champs sous l’onglet **Probes**.
 

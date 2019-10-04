@@ -4,24 +4,23 @@ description: Exécuter OSS ou Pivotal Cloud Foundry sur Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: ''
 ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 68ae01b814de08098c0ba6b5713f420cfebc3d97
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d91ad0bea7f79dd67edd4f0bb9e06a37a0f86bea
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001263"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091936"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry sur Azure
 
@@ -29,7 +28,7 @@ Cloud Foundry est une solution de type plate-forme en tant que service (PaaS) op
 
 ## <a name="cloud-foundry-offerings"></a>Offres Cloud Foundry
 
-Cloud Foundry peut s’exécuter sur Azure selon deux formes : Cloud Foundry open source (OSS CF) et Pivotal Cloud Foundry (PCF). OSS CF est une version entièrement [open source](https://github.com/cloudfoundry) de Cloud Foundry, gérée par Cloud Foundry Foundation. Pivotal Cloud Foundry est une distribution d’entreprise de Cloud Foundry de Pivotal Software Inc. Nous examinons quelques-unes des différences entre les deux offres.
+Cloud Foundry peut s’exécuter sur Azure selon deux formes : Cloud Foundry open source (OSS CF) et Pivotal Cloud Foundry (PCF). OSS CF est une version entièrement [open source](https://github.com/cloudfoundry) de Cloud Foundry, gérée par Cloud Foundry Foundation. Pivotal Cloud Foundry est une version de Cloud Foundry pour les entreprises fournie par Pivotal Software Inc. Nous allons aborder certaines différences entre les deux offres.
 
 ### <a name="open-source-cloud-foundry"></a>Cloud Foundry open source
 

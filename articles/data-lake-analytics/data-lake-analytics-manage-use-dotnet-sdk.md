@@ -1,6 +1,6 @@
 ---
 title: Gestion d’Azure Data Lake Analytics à l’aide du SDK Azure .NET
-description: Cet article décrit comment utiliser le Kit de développement .NET pour écrire des applications qui gèrent des travaux Data Lake Analytique, les sources de données et les utilisateurs.
+description: Cet article explique comment utiliser le SDK Azure pour .NET afin d’écrire des applications qui gèrent des travaux, des sources de données et des utilisateurs Data Lake Analytics.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
 ms.openlocfilehash: 0a10af73d754596e9b5bb34b2974d7f1647d06f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793286"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60617705"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Gérer une application .NET Azure Data Lake Analytics
 
@@ -24,7 +24,7 @@ Cet article explique comment gérer des comptes, des sources de données, des ut
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C++**.
+* **Visual Studio 2015, Visual Studio 2013 mise à jour 4 ou Visual Studio 2012 avec Visual C++** .
 * **Kit SDK Microsoft Azure pour .NET version 2.5 ou ultérieure**.  Installez-le avec [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).
 * **Packages NuGet exigés**
 

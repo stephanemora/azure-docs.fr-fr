@@ -1,6 +1,6 @@
 ---
-title: Conversion de données
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Conversion de données - LUIS
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment les énoncés peuvent être modifiés avant les prédictions de Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
@@ -9,19 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/16/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: bdf2d87e558726937fa4221a0d95179216c66051
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: aeb9094db83b14af988f70485788934a7854200c
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859198"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619794"
 ---
 # <a name="convert-data-format-of-utterances"></a>Convertir le format de données des énoncés
-LUIS utilise le service de reconnaissance vocale de Cognitive Services pour convertir les énoncés d’énoncés parlés en énoncés textuels avant la prédiction. 
+LUIS fournit les conversions suivantes d’un énoncé utilisateur avant prédiction
 
-## <a name="speech-to-intent-conversion-concepts"></a>Concepts de conversion de sortie orale en intention
+* Reconnaissance vocale à l’aide du service [Cognitive Services Speech](../Speech-Service/overview.md). 
+
+## <a name="speech-to-text"></a>Reconnaissance vocale
+
+La reconnaissance vocale est fournie en tant qu’intégration à LUIS. 
+
+### <a name="intent-conversion-concepts"></a>Concepts de conversion d’intention
 La conversion de la reconnaissance vocale dans LUIS vous permet d’envoyer des énoncés parlés d’envoi à un point de terminaison et de recevoir une réponse de prédiction LUIS. Le processus est une intégration du service de [reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech) avec LUIS. En savoir plus sur la conversion de sortie orale en intention avec un [tutoriel](../speech-service/how-to-recognize-intents-from-speech-csharp.md).
 
 ### <a name="key-requirements"></a>Conditions clés
@@ -36,5 +42,5 @@ Voir les [limites de clés](luis-boundaries.md#key-limits) pour plus d’informa
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Utiliser la reconnaissance vocale](luis-tutorial-speech-to-intent.md)
+> [Extraction des données](luis-concept-data-extraction.md)
 

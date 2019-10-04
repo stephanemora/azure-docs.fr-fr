@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670874"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65793671"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurer la reprise d’activité pour un déploiement d’application SAP NetWeaver multiniveau
 
@@ -80,7 +80,7 @@ Pour prendre en charge l’environnement de cluster de basculement, [SIOS DataKe
 
 Une autre solution pour gérer le clustering consiste à implémenter un cluster de partage de fichiers. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) a récemment modifié le modèle de déploiement des services centraux pour accéder aux répertoires globaux /sapmnt via un chemin d’accès UNC. Il est toutefois recommandé de s’assurer que le partage UNC /sapmnt est hautement disponible. Cela peut être effectué sur l’instance des services centraux en utilisant le cluster de basculement Windows Server avec le serveur de fichiers Scale Out (SOFS) et la fonctionnalité d’espaces de stockage direct (S2D) de Windows Server 2016. 
  > [!NOTE]
- > Actuellement prise en charge Azure Site Recovery crash uniquement la réplication point cohérent d’ordinateurs virtuels à l’aide d’espaces direct et passif nœud de stockage de SIOS Datakeeper
+ > Actuellement, Azure Site Recovery prend uniquement en charge la réplication de points cohérents en cas d’incident de machines virtuelles à l’aide d’espaces de stockage direct et du nœud passif de SIOS Datakeeper
 
 
 ## <a name="disaster-recovery-considerations"></a>Considérations relatives à la récupération d’urgence
@@ -103,7 +103,7 @@ Voici la recommandation pour la récupération d’urgence de chaque niveau util
 **Pool de serveurs d’applications SAP** |  Répliquer à l’aide de Site Recovery 
 **Cluster des services centraux SAP** |  Répliquer à l’aide de Site Recovery 
 **Machines virtuelles Active directory** |  Réplication Active Directory 
-**Serveurs de bases de données SQL** |  Réplication SQL Always On
+**Serveurs SQL Database** |  Réplication SQL Always On
 
 ## <a name="replicate-virtual-machines"></a>Répliquer des machines virtuelles
 
@@ -166,5 +166,5 @@ Pour plus d’informations, consultez [Tester le basculement vers Azure dans Sit
 Pour plus d’informations, consultez [Basculement dans Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur la création d’une solution de reprise d’activité après sinistre pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver: Création d’une solution de reprise d’activité après sinistre avec Azure Site Recovery](https://aka.ms/asr-sap). Ce livre blanc, qui présente les recommandations émises pour les diverses architectures SAP, répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de reprise d’activité après sinistre.
+* Pour en savoir plus sur la création d’une solution de reprise d’activité après sinistre pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver: Création d’une solution de reprise d’activité après sinistre avec Azure Site Recovery](https://aka.ms/asr_sap). Ce livre blanc, qui présente les recommandations émises pour les diverses architectures SAP, répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de reprise d’activité après sinistre.
 * Approfondissez vos connaissances sur la [réplication d’autres charges de travail](site-recovery-workload.md) à l’aide de Site Recovery.

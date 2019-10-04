@@ -5,20 +5,22 @@ services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2019
 ms.author: babanisa
-ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863166"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305077"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Créer votre propre système de reprise d’activité pour les rubriques personnalisées dans Event Grid
-
 La récupération d’urgence se concentre sur la récupération des fonctionnalités des applications en cas de perte grave. Ce tutoriel vous aide à configurer votre architecture de gestion des événements en vue d’une reprise d’activité, si le service Event Grid devient non sain dans une région.
 
 Dans ce tutoriel, vous allez apprendre à créer une architecture de basculement actif/passif pour les rubriques personnalisées dans Event Grid. Vous allez réaliser un basculement en mettant en miroir vos rubriques et vos abonnements de deux régions, puis en effectuant le basculement lorsqu’une rubrique devient non saine. Dans ce tutoriel, l’architecture bascule tout le nouveau trafic. Avec cette configuration, il est important de savoir que les événements déjà en cours ne peuvent pas être récupérés tant que la région compromise n’est pas redevenue saine.
+
+> [!NOTE]
+> Désormais, Event Grid prend en charge la géoreprise d’activité après sinistre (GeoDR) automatique côté serveur. Vous pouvez toujours implémenter une logique de récupération d’urgence côté client si vous souhaitez plus de contrôle sur le processus de basculement. Pour plus d’informations sur le processus GeoDR automatique, consultez [Géoreprise d’activité après sinistre côté serveur dans Azure Event Grid](geo-disaster-recovery.md).
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
 

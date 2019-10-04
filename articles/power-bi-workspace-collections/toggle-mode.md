@@ -2,18 +2,18 @@
 title: Basculer entre le mode d’affichage et le mode d’édition des rapports dans les collections d’espaces de travail Power BI | Microsoft Docs
 description: Découvrez comment basculer entre le mode d’affichage et le mode d’édition de vos rapports dans les collections d’espaces de travail Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 38824c40db1f4fb3de9a0a124f74b71eb1ee2f17
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 327f2fdcd4d1bc9e71e3aabb3541c6fd30f02811
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517128"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672364"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Basculer entre le mode d’affichage et le mode d’édition des rapports dans les collections d’espaces de travail Power BI
 

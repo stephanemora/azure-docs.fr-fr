@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/24/2019
+ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 5947c4c28736f8488ea0e48941214df42c6af72a
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000044"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69639499"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Durée d’ingestion de données de journal dans Azure Monitor
 Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Les utilisateurs se demandent souvent quel est le délai nécessaire pour que les données de journal soient disponibles une fois qu’elles ont été collectées. Cet article explique les différents facteurs qui affectent cette latence.
@@ -63,7 +63,7 @@ Certaines solutions ne collectent pas leurs données à partir d’un agent et p
 Reportez-vous à la documentation de chaque solution afin de déterminer sa fréquence de collecte.
 
 ### <a name="pipeline-process-time"></a>Délai du processus de pipeline
-Une fois que les enregistrements de journal sont ingérés dans le pipeline Azure Monitor, ils sont écrits dans un stockage temporaire pour garantir l’isolation des locataires et pour vous assurer que les données ne sont pas perdues. Ce processus ajoute généralement 5 à 15 secondes. Certaines solutions de gestion implémentent des algorithmes plus lourds pour agréger les données et dériver des insights à mesure que les données affluent. Par exemple, Network Performance Monitor agrège les données entrantes toutes les 3 minutes, en ajoutant au final une latence de 3 minutes. Un autre processus qui ajoute une latence est le processus qui gère les journaux d’activité personnalisés. Dans certains cas, ce processus peut ajouter quelques minutes de latence aux journaux d’activité qui sont collectés à partir de fichiers par l’agent.
+Une fois que les enregistrements de journal sont ingérés dans le pipeline de Azure Monitor (tel qu’il est identifié dans la propriété [_TimeReceived](log-standard-properties.md#_timereceived)), ils sont écrits dans un stockage temporaire pour garantir l’isolation des locataires et pour vous assurer que les données ne sont pas perdues. Ce processus ajoute généralement 5 à 15 secondes. Certaines solutions de gestion implémentent des algorithmes plus lourds pour agréger les données et dériver des insights à mesure que les données affluent. Par exemple, Network Performance Monitor agrège les données entrantes toutes les 3 minutes, en ajoutant au final une latence de 3 minutes. Un autre processus qui ajoute une latence est le processus qui gère les journaux d’activité personnalisés. Dans certains cas, ce processus peut ajouter quelques minutes de latence aux journaux d’activité qui sont collectés à partir de fichiers par l’agent.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisionnement des nouveaux types de données personnalisées
 Quand un type de données personnalisées est créé à partir d’un [journal personnalisé](data-sources-custom-logs.md) ou de l’[API Collecteur de données](data-collector-api.md), le système crée un conteneur de stockage dédié. Il s’agit d’une surcharge à usage unique qui se produit uniquement à la première apparition de ce type de données.
@@ -79,38 +79,50 @@ Ce processus prend environ 5 minutes avec un faible volume de données, mais moi
 
 
 ## <a name="checking-ingestion-time"></a>Vérification de la durée d’ingestion
-La durée d’ingestion peut varier pour différentes ressources dans différentes circonstances. Vous pouvez utiliser des requêtes de journal pour identifier un comportement spécifique de votre environnement.
+La durée d’ingestion peut varier pour différentes ressources dans différentes circonstances. Vous pouvez utiliser des requêtes de journal pour identifier un comportement spécifique de votre environnement. Le tableau suivant spécifie la manière dont vous pouvez déterminer les différentes heures d’un enregistrement lors de sa création et de son envoi à Azure Monitor.
+
+| Étape | Propriété ou fonction | Commentaires |
+|:---|:---|:---|
+| Enregistrement créé au niveau de la source de données | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Si la source de données ne définit pas cette valeur, elle est définie à la même heure que _TimeReceived. |
+| Enregistrement reçu par le point de terminaison d’ingestion Azure Monitor | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Enregistrement stocké dans l’espace de travail et disponible pour les requêtes | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Délais de latence d’ingestion
-Vous pouvez mesurer la latence d’un enregistrement spécifique en comparant le résultat de la fonction [ingestion_time()](/azure/kusto/query/ingestiontimefunction) au champ _TimeGenerated_. Ces données peuvent être utilisées avec différentes agrégations afin de déterminer le comportement de latence d’ingestion. Examinez certains centiles de la durée d’ingestion pour obtenir des insights sur une grande quantité de données. 
+Vous pouvez mesurer la latence d’un enregistrement spécifique en comparant le résultat de la fonction [ingestion_time()](/azure/kusto/query/ingestiontimefunction) à la propriété _TimeGenerated_. Ces données peuvent être utilisées avec différentes agrégations afin de déterminer le comportement de latence d’ingestion. Examinez certains centiles de la durée d’ingestion pour obtenir des insights sur une grande quantité de données. 
 
-Par exemple, la requête suivante montre quels ordinateurs ont eu la durée d’ingestion la plus élevée durant cette journée : 
+Par exemple, la requête suivante montre quels ordinateurs ont eu la durée d’ingestion la plus élevée durant les 8 heures précédentes : 
 
 ``` Kusto
 Heartbeat
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by Computer 
-| top 20 by percentile_E2EIngestionLatency_95 desc  
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
+| top 20 by percentile_E2EIngestionLatency_95 desc
 ```
- 
-Si vous souhaitez explorer au niveau du détail la durée d’ingestion pour un ordinateur spécifique sur une période donnée, utilisez la requête suivante, qui affiche également les données dans un graphe : 
+
+Les contrôles de centile précédents conviennent pour rechercher des tendances générales en matière de latence. Pour identifier un pic à court terme en matière de latence, l’utilisation de la valeur maximale (`max()`) peut s’avérer plus efficace.
+
+Si vous souhaitez explorer au niveau du détail la durée d’ingestion pour un ordinateur spécifique sur une période donnée, utilisez la requête suivante, qui affiche également les données de la journée précédente dans un graphe : 
+
 
 ``` Kusto
 Heartbeat 
-| where TimeGenerated > ago(24h) and Computer == "ContosoWeb2-Linux"  
+| where TimeGenerated > ago(24h) //and Computer == "ContosoWeb2-Linux"  
 | extend E2EIngestionLatencyMin = todouble(datetime_diff("Second",ingestion_time(),TimeGenerated))/60 
-| summarize percentiles(E2EIngestionLatencyMin,50,95) by bin(TimeGenerated,30m) 
-| render timechart  
+| extend AgentLatencyMin = todouble(datetime_diff("Second",_TimeReceived,TimeGenerated))/60 
+| summarize percentiles(E2EIngestionLatencyMin,50,95), percentiles(AgentLatencyMin,50,95) by bin(TimeGenerated,30m) 
+| render timechart
 ```
  
-Utilisez la requête suivante pour afficher la durée d’ingestion des ordinateurs en fonction du pays où ils se trouvent, d’après leur adresse IP : 
+Utilisez la requête suivante pour afficher la durée d’ingestion des ordinateurs en fonction du pays/de la région où ils se trouvent, d’après leur adresse IP : 
 
 ``` Kusto
 Heartbeat 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by RemoteIPCountry 
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95),percentiles(AgentLatency,50,95) by RemoteIPCountry 
 ```
  
 Différents types de données provenant de l’agent peuvent avoir des latences d’ingestion différentes ; ainsi, les requêtes précédentes pourraient être utilisées avec d’autres types. Utilisez la requête suivante pour examiner la durée d’ingestion de divers services Azure : 
@@ -119,7 +131,8 @@ Différents types de données provenant de l’agent peuvent avoir des latences 
 AzureDiagnostics 
 | where TimeGenerated > ago(8h) 
 | extend E2EIngestionLatency = ingestion_time() - TimeGenerated 
-| summarize percentiles(E2EIngestionLatency,50,95) by ResourceProvider
+| extend AgentLatency = _TimeReceived - TimeGenerated 
+| summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by ResourceProvider
 ```
 
 ### <a name="resources-that-stop-responding"></a>Ressources qui ne répondent plus 

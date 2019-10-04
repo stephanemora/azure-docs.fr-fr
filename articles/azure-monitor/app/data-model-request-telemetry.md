@@ -13,11 +13,11 @@ ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884118"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60900515"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Télémétrie des demandes : Modèle de données Application Insights
 
@@ -29,7 +29,7 @@ La télémétrie des requêtes prend en charge le modèle d’extensibilité sta
 
 Le nom de la requête représente le chemin de code utilisé pour traiter la requête. La valeur de faible cardinalité permet de mieux regrouper les requêtes. Pour les requêtes HTTP, elle représente la méthode HTTP et le modèle de chemin d’URL comme `GET /values/{id}` sans la valeur `id` réelle.
 
-Le Kit de développement logiciel (SDK) Web d’Application Insights envoie le nom de la requête « en l’état », c’est-à-dire en respectant la casse. Le regroupement sur l’interface utilisateur est sensible à la casse, si bien que `GET /Home/Index` est comptabilisé séparément de `GET /home/INDEX`, même s’ils entraînent souvent la même exécution de contrôleur et d’action. Cela est dû au fait que les URL sont généralement [sensibles à la casse](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Vous souhaiterez peut-être savoir si toutes les erreurs `404` ont été générées pour des URL tapées en majuscules. Vous pouvez en savoir plus sur collection de nom de demande par le SDK Web ASP.NET dans le [billet de blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Le Kit de développement logiciel (SDK) Web d’Application Insights envoie le nom de la requête « en l’état », c’est-à-dire en respectant la casse. Le regroupement sur l’interface utilisateur est sensible à la casse, si bien que `GET /Home/Index` est comptabilisé séparément de `GET /home/INDEX`, même s’ils entraînent souvent la même exécution de contrôleur et d’action. Cela est dû au fait que les URL sont généralement [sensibles à la casse](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). Vous souhaiterez peut-être savoir si toutes les erreurs `404` ont été générées pour des URL tapées en majuscules. Vous pouvez en apprendre plus sur la collecte de noms de requêtes par le SDK Web ASP.NET dans ce [billet de blog](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
 
 Longueur maximale : 1 024 caractères
 

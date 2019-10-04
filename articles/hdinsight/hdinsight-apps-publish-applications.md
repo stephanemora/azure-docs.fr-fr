@@ -1,7 +1,6 @@
 ---
 title: Publication d’applications Azure HDInsight
 description: Découvrez comment créer une application HDInsight, puis la publier sur la Place de marché Microsoft Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,17 +8,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: fd6d47d8300872f5bcdf36aec492289f93858504
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: MT
+ms.openlocfilehash: e64bf253a73df3a2f8170109dc1dfb9a59613733
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814185"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64685323"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publier une application HDInsight sur la Place de marché Microsoft Azure
 Vous pouvez installer une application Azure HDInsight sur un cluster HDInsight basé sur Linux. Cet article explique comment publier une application HDInsight sur la Place de marché Microsoft Azure. Pour obtenir des informations générales sur la publication sur la Place de marché Microsoft Azure, consultez [Publier une offre sur la Place de marché Microsoft Azure](../marketplace/marketplace-publishers-guide.md).
 
-Les applications HDInsight utilisent le modèle *BYOL (apportez votre propre licence)*. Dans un scénario BYOL, un fournisseur d’applications est responsable de concéder la licence des applications aux utilisateurs. Les utilisateurs paient uniquement pour les ressources Azure qu’ils créent, telles que le cluster HDInsight, ainsi que les nœuds et machines virtuelles du cluster. À l’heure actuelle, la facturation de l’application n’est pas effectuée dans Azure.
+Les applications HDInsight utilisent le modèle *BYOL (apportez votre propre licence)* . Dans un scénario BYOL, un fournisseur d’applications est responsable de concéder la licence des applications aux utilisateurs. Les utilisateurs paient uniquement pour les ressources Azure qu’ils créent, telles que le cluster HDInsight, ainsi que les nœuds et machines virtuelles du cluster. À l’heure actuelle, la facturation de l’application n’est pas effectuée dans Azure.
 
 Pour plus d’informations, consultez les articles suivants relatifs à l’application HDInsight :
 
@@ -92,8 +91,8 @@ Pour publier une application HDInsight :
 3. Entrez un titre, puis sélectionnez **Créer un modèle de solution**.
 4. Si vous n’avez pas encore enregistré votre organisation, sélectionnez **Create Dev Center account and join the Azure program** (Créer un compte du Centre de développement et participer au programme Azure).  Pour plus d’informations, consultez [Créer un compte de développeur Microsoft](../marketplace/marketplace-publishers-guide.md).
 5. Sélectionnez **Définir des Topologies pour démarrer**. Un modèle de solution est « parent » de toutes ses topologies. Vous pouvez définir plusieurs topologies dans une offre ou un modèle de solution. Quand une offre est envoyée dans l’environnement intermédiaire, toutes ses topologies l’accompagnent. 
-6. Entrez un nom de topologie, puis sélectionnez **+**.
-7. Entrez une nouvelle version, puis sélectionnez **+**.
+6. Entrez un nom de topologie, puis sélectionnez **+** .
+7. Entrez une nouvelle version, puis sélectionnez **+** .
 8. Téléchargez le fichier .zip que vous avez créé lorsque vous avez empaqueté l’application.  
 9. Sélectionnez **Request Certification**(Demander la certification). L’équipe de certification Microsoft examine les fichiers et certifie la topologie.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b7464e5cc052ecade4a10102de947d37a63c962a
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
-ms.translationtype: MT
+ms.openlocfilehash: 3d02d3573902964a8549fa0eeb1f4f1471de1752
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571152"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66257575"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Authentification des appareils à l’aide de certificats d’autorité de certification X.509
 
@@ -24,7 +24,7 @@ Cet article décrit comment utiliser des certificats d’autorité de certificat
 * Comment signer des appareils à l’aide de certificats d’autorité de certification X.509
 * Comment les appareils signés à l’aide d’une autorité de certification X.509 sont authentifiés
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 La fonctionnalité d’autorité de certification X.509 permet l’authentification des appareils auprès d’IoT Hub à l’aide d’une autorité de certification. Elle simplifie considérablement le processus d’inscription initial des appareils et la logistique de la chaîne d’approvisionnement lors de la fabrication de l’appareil. [Pour en savoir plus, consultez cet article de scénario sur l’importance d’utiliser des certificats d’autorités de certification X.509](iot-hub-x509ca-concept.md) pour l’authentification des appareils.  Nous vous invitons à lire cet article de scénario avant de poursuivre car il explique l’objectif des étapes qui suivent.
 
@@ -50,7 +50,7 @@ Le propriétaire d’un certificat d’autorité de certification X.509 peut sig
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-Le certificat de périphérique (également appelé un certificat feuille) doit avoir le *nom de l’objet* défini sur le **ID d’appareil** qui a été utilisé lors de l’inscription de l’appareil IoT dans Azure IoT Hub. Ce paramètre est requis pour l’authentification.
+Sur le certificat d’appareil (également appelé certificat feuille), le *Nom du sujet* doit être défini sur l’**ID d’appareil** utilisé lors de l’inscription de l’appareil IoT dans IoT Hub. Ce paramètre est requis pour l’authentification.
 
 Découvrez ici comment [créer une chaîne de certificats](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) lors de la signature des appareils.
 
@@ -62,7 +62,7 @@ Le processus de chargement implique le chargement d’un fichier contenant votre
 
 La preuve de possession nécessite une vérification par chiffrement et un processus de réponse entre vous et IoT Hub.  Comme le contenu du certificat numérique est public et peut donc faire l’objet d’écoutes clandestines, IoT Hub souhaite s’assurer que vous possédez réellement le certificat d’autorité de certification.  Pour cela, il vous invite de façon aléatoire à vous connecter avec la clé privée correspondant au certificat d’autorité de certification.  Si vous avez gardé secrète et protégé la clé privée comme conseillé précédemment, vous êtes alors la seule personne à pouvoir effectuer cette étape. Dans cette méthode, la capacité à garder secrètes les clés privées est la base de la confiance.  Après la signature de vérification, effectuez cette étape en chargeant un fichier contenant les résultats.
 
-Découvrez ici comment [enregistrer votre certificat d’autorité de certification](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
+Découvrez comment [enregistrer votre certificat d’autorité de certification](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Guide pratique pour créer un appareil sur IoT Hub
 

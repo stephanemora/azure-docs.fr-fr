@@ -4,23 +4,22 @@ description: Créez une machine virtuelle Windows en attachant un disque managé
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: a5e891d334bc15e0b03facb1f1f5ed8a511cda55
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 5dde098277b16c7ec5339aa6b963b04dd608c8ac
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443889"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079668"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Créer une machine virtuelle Windows à partir d’un disque spécialisé à l’aide de PowerShell
 
@@ -37,7 +36,7 @@ Vous pouvez également utiliser le portail Azure pour [créer une machine virtue
 
 Cet article montre comment utiliser des disques managés. Si vous avez un déploiement hérité qui nécessite l’utilisation d’un compte de stockage, consultez [Créer une machine virtuelle à partir d’un disque dur virtuel spécialisé dans un compte de stockage](sa-create-vm-specialized.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="option-1-use-an-existing-disk"></a>Option 1 : Utiliser un disque existant
 
@@ -205,7 +204,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Pour utiliser cet instantané pour créer une machine virtuelle qui doit être hautes performances, ajoutez le paramètre `-AccountType Premium_LRS` à la commande New-AzSnapshotConfig. Ce paramètre crée la capture instantanée et la stocke en tant que disque managé Premium. Les disques managés Premium sont plus chers que les disques Standard. Vérifiez donc que vous avez besoin de disques Premium avant d’utiliser ce paramètre.
+Pour utiliser cette capture instantanée afin de créer une machine virtuelle hautement performante, ajoutez le paramètre `-AccountType Premium_LRS` à la commande New-AzSnapshot. Ce paramètre crée la capture instantanée et la stocke en tant que disque managé Premium. Les disques managés Premium sont plus chers que les disques Standard. Vérifiez donc que vous avez besoin de disques Premium avant d’utiliser ce paramètre.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Créer un disque à partir de la capture instantanée
 

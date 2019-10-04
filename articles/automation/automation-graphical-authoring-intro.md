@@ -4,17 +4,17 @@ description: La création de graphiques vous permet de créer des Runbooks pour 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6d7626706951cc522dce9c6d70251455e64300bc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797105"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476687"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Création de graphiques dans Azure Automation
 
@@ -123,7 +123,7 @@ Lorsque vous spécifiez une valeur pour un paramètre, vous sélectionnez une so
 
 #### <a name="optional-additional-parameters"></a>Autres paramètres facultatifs
 
-Toutes les applets de commande peuvent fournir des paramètres supplémentaires. Il s'agit de paramètres communs PowerShell ou d'autres paramètres personnalisés. Une zone de texte dans laquelle vous pouvez fournir des paramètres en utilisant la syntaxe PowerShell s'affiche. Par exemple, pour utiliser le paramètre commun **Verbose**, vous devez spécifier **« -Verbose:$True »**.
+Toutes les applets de commande peuvent fournir des paramètres supplémentaires. Il s'agit de paramètres communs PowerShell ou d'autres paramètres personnalisés. Une zone de texte dans laquelle vous pouvez fournir des paramètres en utilisant la syntaxe PowerShell s'affiche. Par exemple, pour utiliser le paramètre commun **Verbose**, vous devez spécifier **« -Verbose:$True »** .
 
 ### <a name="retry-activity"></a>Nouvelles tentatives d’activité
 
@@ -142,7 +142,7 @@ La condition de nouvelle tentative peut utiliser une variable appelée $RetryDat
 | Propriété | Description |
 |:--- |:--- |
 | NumberOfAttempts |Nombre d’exécutions de l’activité. |
-| Sortie |Sortie de la dernière exécution de l’activité. |
+| Output |Sortie de la dernière exécution de l’activité. |
 | TotalDuration |Délai écoulé depuis la première exécution de l’activité. |
 | StartedAt |Heure au format UTC à laquelle l’activité a été exécutée pour la première fois. |
 
@@ -324,10 +324,10 @@ Chaque paramètre d'entrée est défini par les propriétés figurant dans le ta
 
 | Propriété | Description |
 |:--- |:--- |
-| Nom |Nom unique du paramètre. Il ne peut contenir que des caractères alphanumériques et ne peut pas contenir d'espace. |
+| Name |Nom unique du paramètre. Il ne peut contenir que des caractères alphanumériques et ne peut pas contenir d'espace. |
 | Description |Description facultative du paramètre d'entrée. |
-| type |Type de données attendu pour la valeur de paramètre. Le portail Azure fournit un contrôle approprié pour le type de données de chaque paramètre lorsque vous êtes invité à indiquer une entrée. |
-| Obligatoire |Spécifie si une valeur doit être fournie pour le paramètre. Le Runbook ne peut pas être démarré si vous ne fournissez pas une valeur pour chaque paramètre obligatoire pour lequel aucune valeur par défaut n'est définie. |
+| Type |Type de données attendu pour la valeur de paramètre. Le portail Azure fournit un contrôle approprié pour le type de données de chaque paramètre lorsque vous êtes invité à indiquer une entrée. |
+| Mandatory |Spécifie si une valeur doit être fournie pour le paramètre. Le Runbook ne peut pas être démarré si vous ne fournissez pas une valeur pour chaque paramètre obligatoire pour lequel aucune valeur par défaut n'est définie. |
 | Valeur par défaut |Spécifie quelle valeur est utilisée pour le paramètre si aucune n'est pas fournie. Cela peut être Null ou une valeur spécifique. |
 
 ### <a name="runbook-output"></a>Sortie de Runbook

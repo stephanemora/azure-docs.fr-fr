@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6f76eea365311cd6c10dd39054187bf3a07bd595
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: MT
+ms.openlocfilehash: 5946180c161a38a30f44e235ce0b626fd70a5400
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568989"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735138"
 ---
 # <a name="geofencing-geojson-data"></a>Données Geofencing GeoJSON
 
-Les API [GET Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) et [POST Geofence](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) Azure Maps vous permettent de récupérer la proximité d’une coordonnée par rapport à une limite géographique (geofence) ou un ensemble de limites géographiques. Cet article explique comment préparer les données de limite géographique qui peuvent être utilisées dans les API GET et POST d’Azure Maps.
+Les API [GET Geofence](/rest/api/maps/spatial/getgeofence) et [POST Geofence](/rest/api/maps/spatial/postgeofence) Azure Maps vous permettent de récupérer la proximité d’une coordonnée par rapport à une limite géographique (geofence) ou un ensemble de limites géographiques. Cet article explique comment préparer les données de limite géographique qui peuvent être utilisées dans les API GET et POST d’Azure Maps.
 
 Les données de la limite géographique ou d’un ensemble de limites géographiques sont représentées par l’objet `Feature` et l’objet `FeatureCollection` dans au format `GeoJSON`, ce qui est défini dans [rfc7946](https://tools.ietf.org/html/rfc7946). En outre :
 
@@ -32,13 +32,13 @@ Les données de la limite géographique ou d’un ensemble de limites géographi
 
 | Nom | Type | Obligatoire  | Description |
 | :------------ |:------------: |:---------------:| :-----|
-| startTime | DateTime  | true | Date et heure de début de la période de validité. |
-| endTime   | DateTime  | true |  Date et heure de fin de la période de validité. |
+| startTime | Datetime  | true | Date et heure de début de la période de validité. |
+| endTime   | Datetime  | true |  Date et heure de fin de la période de validité. |
 | recurrenceType | string | false |   Le type de périodicité de la période. La valeur peut être `Daily`, `Weekly`, `Monthly` ou `Yearly`. La valeur par défaut est `Daily`.|
 | businessDayOnly | Boolean | false |  Indiquer si les données sont uniquement valides pendant les jours ouvrés. La valeur par défaut est `false`.|
 
 
-* Toutes les valeurs des coordonnées sont représentées sous forme [latitude, longitude] définies dans `WGS84`.
+* Toutes les valeurs des coordonnées sont représentées sous forme [longitude, latitude] définies dans `WGS84`.
 * Pour chaque fonctionnalité, qui contient `MultiPoint`, `MultiLineString`, `MultiPolygon` ou `GeometryCollection`, les propriétés sont appliquées à tous les éléments. Par exemple : Tous les points dans `MultiPoint` utiliseront le même rayon pour former une limite géographique à plusieurs cercles.
 * Dans un scénario de cercle à points, une géométrie cercle peut être représentée à l’aide un objet geometry `Point` avec des propriétés développés dans [Extension des géométries GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
 

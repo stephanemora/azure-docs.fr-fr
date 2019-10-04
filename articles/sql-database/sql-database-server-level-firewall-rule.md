@@ -1,6 +1,6 @@
 ---
 title: Créer une règle de pare-feu au niveau du serveur - Azure SQL Database| Microsoft Docs
-description: Créez une règle de pare-feu au niveau du serveur SQL Database pour des bases de données uniques et des bases de données en pool
+description: Créez une règle de pare-feu au niveau du serveur SQL Database pour des bases de données uniques et des bases de données mises en pool
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,18 +10,17 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: f708e5a3cd5bc0f11f8b0cfe79a791347c7a7a2b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 27b554159fca2043fbd0c853e260a66294c10387
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108957"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162309"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Démarrage rapide : Créer une règle de pare-feu au niveau du serveur pour des bases de données uniques et en pool à l’aide du portail Azure
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Démarrage rapide : Créer une règle de pare-feu au niveau du serveur pour des bases de données uniques et mises en pool à l’aide du portail Azure
 
-Ce guide de démarrage rapide vous montre comment créer une [règle de pare-feu au niveau du serveur](sql-database-firewall-configure.md) pour des bases de données uniques ou en pool dans Azure SQL Database à l’aide du portail Azure. Cette règle vous permet de vous connecter à des serveurs de base de données, à des bases de données uniques ainsi qu’à des bases de données dans des pools élastiques. Vous avez besoin d’une règle de pare-feu pour vous connecter à partir d’autres ressources Azure et des ressources locales.
+Ce guide de démarrage rapide vous montre comment créer une [règle de pare-feu au niveau du serveur](sql-database-firewall-configure.md) pour des bases de données uniques et mises en pool dans Azure SQL Database à l’aide du portail Azure. Cette règle vous permet de vous connecter à des serveurs de base de données, à des bases de données uniques ainsi qu’à des bases de données dans des pools élastiques. Vous avez besoin d’une règle de pare-feu pour vous connecter à partir d’autres ressources Azure et des ressources locales.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,7 +37,7 @@ Le service SQL Database crée un pare-feu au niveau du serveur de base de donné
 > [!NOTE]
 > SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
 > [!IMPORTANT]
-> La règle de pare-feu 0.0.0.0 permet à tous les services Azure de franchir la règle de pare-feu au niveau du serveur et de tenter de se connecter à une base de données unique ou mise en pool par le biais du serveur. Pour en savoir plus sur l’utilisation de règles de réseau virtuel, consultez [Règles de réseau virtuel comme alternatives aux règles d’adresses IP](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules).
+> La règle de pare-feu 0.0.0.0 permet à tous les services Azure de franchir la règle de pare-feu au niveau du serveur et de tenter de se connecter à une base de données unique ou mise en pool par le biais du serveur. 
 
 Suivez ces étapes pour créer une règle de pare-feu IP au niveau du serveur pour l’adresse IP de votre client afin de permettre la connectivité externe par le biais du pare-feu SQL Database pour votre adresse IP uniquement.
 
@@ -55,10 +54,10 @@ Suivez ces étapes pour créer une règle de pare-feu IP au niveau du serveur po
 4. Dans la barre d’outils, choisissez **Ajouter une adresse IP de client** pour ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu IP au niveau du serveur. Une règle de pare-feu IP au niveau du serveur peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
    > [!IMPORTANT]
-   > Par défaut, l’accès via le pare-feu SQL Database est activé pour tous les services Azure. Choisissez **ÉTEINT** dans cette page pour le désactiver pour tous les services Azure.
+   > Par défaut, l’accès via le pare-feu SQL Database est désactivé pour tous les services Azure. Choisissez **ACTIVÉ** sur cette page si vous voulez activer l’accès pour tous les services Azure.
    >
 
-5. Sélectionnez **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
+5. Sélectionnez **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
 
 6. Fermez la page **Paramètres de pare-feu**.
 

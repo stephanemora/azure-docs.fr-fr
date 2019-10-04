@@ -1,29 +1,30 @@
 ---
-title: Créer un appairage de réseaux virtuels Azure - Modèles de déploiement différents - Abonnements différents
+title: Créer un peering de réseaux virtuels Azure - Modèles de déploiement différents - Abonnements différents
 titlesuffix: Azure Virtual Network
-description: Découvrez comment créer une homologation de réseaux virtuels entre des réseaux virtuels créés via des modèles de déploiement Azure différents qui existent dans des abonnements différents.
+description: Découvrez comment créer un peering de réseaux virtuels entre des réseaux virtuels créés via des modèles de déploiement Azure différents qui existent dans des abonnements différents.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: jdial;anavin
-ms.openlocfilehash: 1a066e6b75d527dcdf1b211c0ebb76a2d4520eb7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.author: kumud
+ms.reviewer: anavin
+ms.openlocfilehash: fa647da6764ca61679aade2acc2849b474912278
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528204"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871983"
 ---
-# <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement et abonnements différents
+# <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Créer un peering de réseaux virtuels Azure - Modèles de déploiement et abonnements différents
 
-Dans ce didacticiel, vous allez découvrir comment créer une homologation de réseaux virtuels entre des réseaux virtuels créés par le biais de modèles de déploiement différents. Les réseaux virtuels existent dans des abonnements différents. Homologuer deux réseaux virtuels permet aux ressources de différents réseaux virtuels de communiquer entre elles avec la même bande passante et latence, comme si les ressources se trouvaient sur le même réseau virtuel. En savoir plus sur l’[homologation de réseaux virtuels](virtual-network-peering-overview.md).
+Dans ce didacticiel, vous allez découvrir comment créer un peering de réseaux virtuels entre des réseaux virtuels créés par le biais de modèles de déploiement différents. Les réseaux virtuels existent dans des abonnements différents. Effectuer le peering de deux réseaux virtuels permet aux ressources de différents réseaux virtuels de communiquer entre elles avec la même bande passante et latence, comme si les ressources se trouvaient sur le même réseau virtuel. En savoir plus sur le [peering de réseaux virtuels](virtual-network-peering-overview.md).
 
-Les étapes de création d’une homologation de réseaux virtuels sont différentes, selon que les réseaux virtuels sont dans le même abonnement ou dans des abonnements différents, et selon le [modèle de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) utilisé pour les créer. Découvrez comment créer une homologation de réseaux virtuels dans d’autres scénarios en cliquant sur le scénario souhaité dans le tableau suivant :
+Les étapes de création d’un peering de réseaux virtuels sont différentes, selon que les réseaux virtuels sont dans le même abonnement ou dans des abonnements différents, et selon le [modèle de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) utilisé pour les créer. Découvrez comment créer un peering de réseaux virtuels dans d’autres scénarios en cliquant sur le scénario souhaité dans le tableau suivant :
 
 |Modèle de déploiement Azure  | Abonnement Azure  |
 |--------- |---------|
@@ -31,17 +32,17 @@ Les étapes de création d’une homologation de réseaux virtuels sont différe
 |[Tous deux Resource Manager](create-peering-different-subscriptions.md) |Différent|
 |[Un modèle Resource Manager, un modèle classique](create-peering-different-deployment-models.md) |Identique|
 
-Vous ne pouvez pas créer d’homologation de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Ce didacticiel utilise des réseaux virtuels situés dans la même région. Ce didacticiel permet d’homologuer des réseaux virtuels situés dans la même région. Vous pouvez également homologuer des réseaux virtuels dans différentes [régions prise en charge](virtual-network-manage-peering.md#cross-region). Il est recommandé de vous familiariser avec les [exigences et contraintes de l’appairage](virtual-network-manage-peering.md#requirements-and-constraints) avant d’appairer des réseaux virtuels.
+Vous ne pouvez pas créer de peering de réseaux virtuels entre deux réseaux virtuels déployés via le modèle de déploiement classique. Ce didacticiel utilise des réseaux virtuels situés dans la même région. Ce didacticiel permet d’homologuer des réseaux virtuels situés dans la même région. Vous pouvez également homologuer des réseaux virtuels dans différentes [régions prise en charge](virtual-network-manage-peering.md#cross-region). Il est recommandé de vous familiariser avec les [exigences et contraintes du peering](virtual-network-manage-peering.md#requirements-and-constraints) avant d’effectuer le peering des réseaux virtuels.
 
-Lors de la création d’une homologation de réseaux virtuels entre des réseaux virtuels dans différents abonnements, les abonnements doivent tous deux être associés au même locataire Active Directory. Si vous n’avez pas encore de locataire Azure Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Vous pouvez vous connecter à des réseaux virtuels dans différents abonnements et clients Azure Active Directory à l’aide d’une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
+Lors de la création d’un peering de réseaux virtuels entre des réseaux virtuels dans différents abonnements, les abonnements doivent tous deux être associés au même locataire Active Directory. Si vous n’avez pas encore de locataire Azure Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Vous pouvez vous connecter à des réseaux virtuels dans différents abonnements et clients Azure Active Directory à l’aide d’une [passerelle VPN](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
 
-Vous pouvez utiliser le [portail Azure](#portal), l’[interface de ligne de commande](#cli) ou Azure [PowerShell](#powershell) pour créer une homologation de réseaux virtuels. Cliquez sur les liens des outils précédents pour accéder directement à la procédure permettant de créer une homologation de réseaux virtuels à l’aide de l’outil de votre choix.
+Vous pouvez utiliser le [portail Azure](#portal), l’[interface de ligne de commande](#cli) ou Azure [PowerShell](#powershell) pour créer un peering de réseaux virtuels. Cliquez sur les liens des outils précédents pour accéder directement à la procédure permettant de créer un peering de réseaux virtuels à l’aide de l’outil de votre choix.
 
 ## <a name="portal"></a>Créer une homologation - portail Azure
 
 Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion du portail et ignorer les étapes d’affectation d’autorisations d’accès aux réseaux virtuels à un autre utilisateur.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant que UserA. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant que UserA. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer un peering de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations de peering de réseau virtuel](virtual-network-manage-peering.md#permissions).
 2. Cliquez sur **+ Nouveau**, puis sur **Mise en réseau** et **Réseau virtuel**.
 3. Dans le panneau **Créer un réseau virtuel**, entrez ou sélectionnez les valeurs des paramètres suivants, puis cliquez sur **Créer** :
     - **Nom** : *myVnetA*
@@ -55,7 +56,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 5. Dans le panneau **myVnetA** qui apparaît, cliquez sur **Contrôle d’accès (IAM)** dans la liste verticale des options sur le côté gauche du panneau.
 6. Dans le panneau **myVnetA - Contrôle d’accès (IAM)** qui apparaît, cliquez sur **+ Ajouter une attribution de rôle**.
 7. Dans le panneau **Ajouter une attribution de rôle** qui s’affiche, sélectionnez **Contributeur de réseaux** dans le champ **Rôle**.
-8. Dans la zone **Sélectionner**, sélectionnez UserB ou tapez l’adresse e-mail de UserB pour le rechercher. La liste des utilisateurs affichée provient du même locataire Azure Active Directory que le réseau virtuel pour lequel vous configurez l’homologation. Cliquez sur UserB quand il apparaît dans la liste.
+8. Dans la zone **Sélectionner**, sélectionnez UserB ou tapez l’adresse e-mail de UserB pour le rechercher. La liste des utilisateurs affichée provient du même locataire Azure Active Directory que le réseau virtuel pour lequel vous configurez le peering. Cliquez sur UserB quand il apparaît dans la liste.
 9. Cliquez sur **Enregistrer**.
 10. Déconnectez-vous du portail en tant que UserA, puis connectez-vous en tant que UserB.
 11. Cliquez sur **+ Nouveau**, tapez *réseau virtuel* dans la zone **Rechercher dans le marketplace**, puis cliquez sur **Réseau virtuel** dans les résultats de recherche.
@@ -71,23 +72,23 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
     - **Emplacement** : *USA Est*
 
 14. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetB*. Quand la mention **myVnetB** apparaît dans les résultats de recherche, cliquez dessus. Un panneau apparaît pour le réseau virtuel **myVnetB**.
-15. Dans le panneau **myVnetB** qui s’affiche, cliquez sur **Propriétés** dans la liste verticale des options sur le côté gauche du panneau. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
+15. Dans le panneau **myVnetB** qui s’affiche, cliquez sur **Propriétés** dans la liste verticale des options sur le côté gauche du panneau. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de la ressource ressemble à celui de l’exemple qui suit : `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`
 16. Effectuez les étapes 5 à 9 pour myVnetB, en entrant **UserA** à l’étape 8.
 17. Déconnectez-vous du portail en tant que UserB, puis connectez-vous en tant que UserA.
 18. Dans le champ **Rechercher des ressources** située en haut du portail, tapez *myVnetA*. Quand la mention **myVnetA** apparaît dans les résultats de recherche, cliquez dessus. Un panneau apparaît pour le réseau virtuel **myVnet**.
 19. Cliquez sur **myVnetA**.
-20. Dans le panneau **myVnetA** qui s’affiche, cliquez sur **Homologations** dans la liste verticale des options sur le côté gauche du panneau.
-21. Dans le panneau **myVnetA - Homologations** qui s’est affiché, cliquez sur **+ Ajouter**.
-22. Dans le panneau **Ajouter l’homologation** qui s’affiche, entrez ou sélectionnez les options suivantes et cliquez sur **OK** :
+20. Dans le panneau **myVnetA** qui s’affiche, cliquez sur **Peerings** dans la liste verticale des options sur le côté gauche du panneau.
+21. Dans le panneau **myVnetA - Peerings** qui s’est affiché, cliquez sur **+ Ajouter**.
+22. Dans le panneau **Ajouter le peering** qui s’affiche, entrez ou sélectionnez les options suivantes et cliquez sur **OK** :
      - **Nom** : *myVnetAToMyVnetB*
      - **Modèle de déploiement de réseau virtuel** :  sélectionnez **Classic**.
      - **Je connais mon ID de ressource** : cochez cette case.
      - **ID de ressource** : entrez l’ID de ressource de myVnetB noté à l’étape 15.
      - **Autoriser l’accès au réseau virtuel** : vérifiez que **Activé** est sélectionné.
     Il n’y aucun autre paramètre utilisé dans ce didacticiel. Pour en savoir plus sur tous les paramètres d’homologation, consultez [Create, change, or delete a virtual network peering](virtual-network-manage-peering.md#create-a-peering) (Créer, modifier ou supprimer une homologation de réseaux virtuels).
-23. Après avoir cliqué sur **OK** à l’étape précédente, le panneau **Ajouter l’homologation** se ferme et vous pouvez à nouveau voir le panneau **myVnetA - Homologations**. Après quelques secondes, l’homologation que vous avez créée apparaît dans le panneau. **Connecté** est indiqué dans la colonne **ÉTAT D’APPAIRAGE** pour l’homologation **myVnetAToMyVnetB** que vous avez créée. L’homologation est maintenant établie. Il n’est pas nécessaire d’homologuer le réseau virtuel (classique) au réseau virtuel (Resource Manager).
+23. Après avoir cliqué sur **OK** à l’étape précédente, le panneau **Ajouter le peering** se ferme et vous pouvez à nouveau voir le panneau **myVnetA - Peerings**. Après quelques secondes, le peering que vous avez créé apparaît dans le panneau. **Connecté** est indiqué dans la colonne **ÉTAT D’APPAIRAGE** pour l’homologation **myVnetAToMyVnetB** que vous avez créée. Le peering est maintenant établi. Il n’est pas nécessaire d’homologuer le réseau virtuel (classique) au réseau virtuel (Resource Manager).
 
-    Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+    Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’un peering, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 24. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce tutoriel, vous pouvez créer une machine virtuelle sur chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
 25. **Facultatif** : pour supprimer les ressources créées dans ce tutoriel, effectuez les étapes décrites dans la section [Supprimer des ressources](#delete-portal) de cet article.
@@ -149,7 +150,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
       --scope $vNetAId
     ```
 
-8. Créez une homologation de réseaux virtuels entre les deux réseaux virtuels créés par le biais des modèles de déploiement différents. Copiez le script suivant dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionB-id>` par votre ID d’abonnement. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande `az account show`. La valeur de **id** dans la sortie est votre ID d’abonnement. Azure a créé le réseau virtuel (classique) que vous avez créé à l’étape 4 dans un groupe de ressources nommé *Default-Networking*. Collez le script modifié dans votre session CLI, puis appuyez sur `Enter`.
+8. Créez un peering de réseaux virtuels entre les deux réseaux virtuels créés par le biais des modèles de déploiement différents. Copiez le script suivant dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionB-id>` par votre ID d’abonnement. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande `az account show`. La valeur de **id** dans la sortie est votre ID d’abonnement. Azure a créé le réseau virtuel (classique) que vous avez créé à l’étape 4 dans un groupe de ressources nommé *Default-Networking*. Collez le script modifié dans votre session CLI, puis appuyez sur `Enter`.
 
     ```azurecli-interactive
     # Peer VNet1 to VNet2.
@@ -161,7 +162,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
       --allow-vnet-access
     ```
 
-9. Après l’exécution du script, passez en revue l’homologation pour le réseau virtuel (Resource Manager). Copiez le script suivant et collez-le dans votre session CLI :
+9. Après l’exécution du script, passez en revue le peering pour le réseau virtuel (Resource Manager). Copiez le script suivant et collez-le dans votre session CLI :
 
     ```azurecli-interactive
     az network vnet peering list \
@@ -169,9 +170,9 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
       --vnet-name myVnetA \
       --output table
     ```
-    La sortie indique **Connecté** dans la colonne **État d’appairage**.
+    La sortie indique **Connecté** dans la colonne **État de peering**.
 
-    Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+    Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’un peering, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 10. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce tutoriel, vous pouvez créer une machine virtuelle sur chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
 11. **Facultatif** : pour supprimer les ressources créées dans ce tutoriel, effectuez les étapes décrites dans la section [Supprimer des ressources](#delete-cli) de cet article.
@@ -180,9 +181,9 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 
 Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. 
 
-1. Installez la dernière version de la commande PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) et [Az](https://www.powershellgallery.com/packages/Az) modules. Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Installez la dernière version des modules PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) et [Az](https://www.powershellgallery.com/packages/Az). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Démarrez une session PowerShell.
-3. Dans PowerShell, connectez-vous à l’abonnement de UserB en tant que UserB en entrant la commande `Add-AzureAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
+3. Dans PowerShell, connectez-vous à l’abonnement de UserB en tant que UserB en entrant la commande `Add-AzureAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer un peering de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations de peering de réseau virtuel](virtual-network-manage-peering.md#permissions).
 4. Pour créer un réseau virtuel (classique) avec PowerShell, vous devez créer un fichier de configuration réseau ou en modifier un existant. Pour découvrir [comment exporter, mettre à jour et importer des fichiers de configuration réseau, consultez cet article](virtual-networks-using-network-configuration-file.md). Le fichier doit inclure l’élément **VirtualNetworkSite** suivant pour le réseau virtuel utilisé dans ce didacticiel :
 
     ```xml
@@ -211,7 +212,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Déconnectez-vous d’Azure en tant que UserB et connectez-vous à l’abonnement de UserA en tant que UserA en entrant la commande `Connect-AzAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
+7. Déconnectez-vous d’Azure en tant que UserB et connectez-vous à l’abonnement de UserA en tant que UserA en entrant la commande `Connect-AzAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer un peering de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations de peering de réseau virtuel](virtual-network-manage-peering.md#permissions).
 8. Créez le réseau virtuel (Resource Manager) en copiant le script suivant, en le collant dans PowerShell, puis en appuyant sur `Enter` :
 
     ```powershell
@@ -250,7 +251,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
       -RemoteVirtualNetworkId /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-11. Affichez l’état d’homologation de myVnetA en copiant le script suivant, en le collant dans PowerShell et en appuyant sur `Enter`.
+11. Affichez l’état de peering de myVnetA en copiant le script suivant, en le collant dans PowerShell et en appuyant sur `Enter`.
 
     ```powershell
     Get-AzVirtualNetworkPeering `
@@ -259,9 +260,9 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
       | Format-Table VirtualNetworkName, PeeringState
     ```
 
-    L’état est **Connecté**. Il devient **Connecté** une fois que vous avez configuré l’homologation à myVnetA à partir de myVnetB.
+    L’état est **Connecté**. Il devient **Connecté** une fois que vous avez configuré le peering à myVnetA à partir de myVnetB.
 
-    Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
+    Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’un peering, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 12. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce tutoriel, vous pouvez créer une machine virtuelle sur chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
 13. **Facultatif** : pour supprimer les ressources créées dans ce tutoriel, effectuez les étapes décrites dans la section [Supprimer des ressources](#delete-powershell) de cet article.
@@ -322,6 +323,6 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Familiarisez-vous bien avec les [comportements et contraintes importants de l’homologation de réseaux virtuels](virtual-network-manage-peering.md#requirements-and-constraints) avant d’en créer une pour une utilisation en production.
-- Apprenez-en davantage sur tous les [paramètres d’homologation de réseaux virtuels](virtual-network-manage-peering.md#create-a-peering).
-- Découvrez comment [créer une topologie de réseau de type hub et spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec l’homologation de réseaux virtuels.
+- Familiarisez-vous bien avec les [comportements et contraintes importants du peering de réseaux virtuels](virtual-network-manage-peering.md#requirements-and-constraints) avant d’en créer un pour une utilisation en production.
+- Apprenez-en davantage sur tous les [paramètres de peering de réseaux virtuels](virtual-network-manage-peering.md#create-a-peering).
+- Découvrez comment [créer une topologie de réseau de type hub et spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec le peering de réseaux virtuels.

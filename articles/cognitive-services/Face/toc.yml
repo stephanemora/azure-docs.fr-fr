@@ -1,6 +1,6 @@
 - name: Documentation sur l'API Visage
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: Qu’est ce que le l’API Visage ?
@@ -9,12 +9,10 @@
   items:
     - name: Utilisation du kit de développement logiciel (SDK) client
       items:
-        - name: Détecter des visages dans une image
-          items:
-            - name: 'C#'
-              href: QuickStarts/csharp-detect-sdk.md
-            - name: Python
-              href: Tutorials/FaceAPIinPythonTutorial.md
+        - name: Kit de développement logiciel (SDK) .NET
+          href: Quickstarts/csharp-sdk.md
+        - name: Kit de développement logiciel (SDK) Python
+          href: QuickStarts/python-sdk.md
     - name: Utilisation de l’API REST
       items:
         - name: Détecter des visages dans une image
@@ -45,16 +43,26 @@
           href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
-- name: Guides pratiques
+- name: Concepts
   items:
     - name: Détection des visages
+      href: concepts/face-detection.md
+    - name: Reconnaissance faciale
+      href: concepts/face-recognition.md
+- name: Guides pratiques
+  items:
+    - name: Détecter des visages
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Identification des visages
+    - name: Identifier des visages
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: Ajouter des visages
       href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: Utiliser l’attribut HeadPose
+      href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Spécifier un modèle de reconnaissance faciale
       href: Face-API-How-to-Topics/specify-recognition-model.md
+    - name: Spécifier un modèle de détection des visages
+      href: Face-API-How-to-Topics/specify-detection-model.md
     - name: Utilisez la fonctionnalité à grande échelle
       href: Face-API-How-to-Topics/how-to-use-large-scale.md
     - name: Analyser des vidéos en temps réel
@@ -67,12 +75,10 @@
           href: face-how-to-install-containers.md
         - name: Configurer des conteneurs
           href: face-resource-container-config.md
+        - name: Utiliser des instances de conteneur
+          href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
     - name: Utilisez le service connecté de l’API Visage
       href: vs-face-connected-service.md
-- name: Exemples
-  items:
-    - name: Exemples de code
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
 - name: Informations de référence
   items:
     - name: API Visage
@@ -80,7 +86,7 @@
     - name: Kits SDK
       items:
         - name: .NET
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet'
         - name: Node.js
           href: 'https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest'
         - name: Python
@@ -93,10 +99,10 @@
           href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: Ressources
   items:
-    - name: Glossaire
-      href: Glossary.md
-    - name: Forum Aux Questions
-      href: FAQ.md
+    - name: Exemples
+      items:
+        - name: Exemples d’API Visage
+          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
     - name: Tarification et limites
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: UserVoice
@@ -107,5 +113,7 @@
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Notes de publication
       href: ReleaseNotes.md

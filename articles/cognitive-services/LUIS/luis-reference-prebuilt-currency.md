@@ -1,6 +1,6 @@
 ---
-title: Entité prédéfinis de devise
-titleSuffix: Azure
+title: Entité prédéfinie currency - LUIS
+titleSuffix: Azure Cognitive Services
 description: Cet article contient des informations sur l’entité prédéfinie currency dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,23 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 02/28/2019
+ms.topic: conceptual
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9efaaa6bdd0f2b51efca398464dbf08de56d831d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 867e8f830542aab712b2bfe32f05dd9469c0da49
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579272"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932534"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie currency pour une application LUIS
-L’entité prédéfinie currency détecte une devise dans un grand nombre de  dénominations et de pays, quelle que soit la culture de l’application LUIS. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des devises aux intentions de l’application. L’entité currency est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
+L’entité prédéfinie currency détecte la devise dans de nombreuses dénominations et de nombreux pays/régions, indépendamment de la culture de l’application LUIS. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des devises aux intentions de l’application. L’entité currency est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Types d’entités currency
 L’entité currency est gérée à partir du dépôt GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
 
 ## <a name="resolution-for-currency-entity"></a>Résolution pour l’entité currency
+
+### <a name="api-version-2x"></a>API version 2.x
+
 L’exemple suivant montre la résolution de l’entité **builtin.currency**.
 
 ```json
@@ -56,6 +59,72 @@ L’exemple suivant montre la résolution de l’entité **builtin.currency**.
       }
     }
   ]
+}
+```
+
+
+
+### <a name="preview-api-version-3x"></a>API 3.x en préversion
+
+Le code JSON suivant a le paramètre `verbose` défini sur `false` :
+
+```json
+{
+    "query": "search for items under $10.99",
+    "prediction": {
+        "normalizedQuery": "search for items under $10.99",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.605889857
+            }
+        },
+        "entities": {
+            "money": [
+                {
+                    "number": 10.99,
+                    "unit": "Dollar"
+                }
+            ]
+        }
+    }
+}
+```
+
+Le code JSON suivant a le paramètre `verbose` défini sur `true` :
+
+```json
+{
+    "query": "search for items under $10.99",
+    "prediction": {
+        "normalizedQuery": "search for items under $10.99",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.605889857
+            }
+        },
+        "entities": {
+            "money": [
+                {
+                    "number": 10.99,
+                    "unit": "Dollar"
+                }
+            ],
+            "$instance": {
+                "money": [
+                    {
+                        "type": "builtin.currency",
+                        "text": "$10.99",
+                        "startIndex": 23,
+                        "length": 6,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

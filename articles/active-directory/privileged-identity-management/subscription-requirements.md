@@ -1,9 +1,9 @@
 ---
-title: Configuration requise pour utiliser PIM - Azure Active Directory de licence | Microsoft Docs
+title: Licences requises pour utiliser PIM – Azure Active Directory | Microsoft Docs
 description: Décrit les licences requises pour utiliser Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: markwahl-msft
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
 ms.date: 01/16/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e16209a185623b6e15650f70141edd6394e337
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 83c31c2731a8e872dfd2750fced8b91d283d0892
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576146"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804061"
 ---
 # <a name="license-requirements-to-use-pim"></a>Licences requises pour utiliser PIM
 
 Pour utiliser Azure Active Directory (Azure AD) Privileged Identity Management (PIM), votre annuaire doit avoir une licence valide. De plus, les licences doivent être affectées aux administrateurs et aux utilisateurs concernés. Cet article décrit les licences requises pour utiliser PIM.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser PIM, votre annuaire doit avoir l’une des licences payantes ou d’essai gratuit suivantes :
 
@@ -45,7 +45,7 @@ Chaque administrateur ou utilisateur qui utilise ou reçoit un avantage de PIM d
 - Administrateurs ayant des rôles Azure AD gérés dans PIM
 - Administrateurs ayant des rôles de ressources Azure gérés dans PIM
 - Administrateurs affectés au rôle Administrateur de rôle privilégié
-- Utilisateurs désignés comme éligibles aux rôles Azure AD gérés à l’aide de PIM
+- Utilisateurs désignés comme étant éligibles pour les rôles Azure Active Directory gérés à l’aide de PIM
 - Utilisateurs en mesure d’approuver et de refuser des requêtes dans PIM
 - Utilisateurs affectés à un rôle de ressource Azure avec des attributions juste-à-temps ou directes (à durée définie)  
 - Utilisateurs affectés à une révision d’accès

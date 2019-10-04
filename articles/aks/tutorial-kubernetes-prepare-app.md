@@ -2,20 +2,20 @@
 title: Didacticiel Kubernetes sur Azure - Préparer une application
 description: Dans ce didacticiel Azure Kubernetes Service (AKS), vous découvrez comment préparer et créer une application à plusieurs conteneurs avec Docker Compose que vous pouvez ensuite déployer sur AKS.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 9212e065ff7f6b0e3df1b90296f54159762bdaf9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002011"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71264467"
 ---
-# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutoriel : Préparer une application pour Azure Kubernetes Service (AKS)
+# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Didacticiel : Préparer une application pour Azure Kubernetes Service (AKS)
 
 Dans ce didacticiel (le premier d’une série de sept), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les outils de développement existants tels que Docker Compose servent à créer et tester en local une application. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -58,7 +58,7 @@ Dans le répertoire se trouvent le code source de l’application, un fichier Do
 
 ## <a name="create-container-images"></a>Créer des images de conteneur
 
-Vous pouvez utiliser [Docker Compose][docker-compose] pour automatiser la création d’images de conteneur et le déploiement d’applications à plusieurs conteneurs.
+Vous pouvez utiliser [Docker Compose][docker-compose] pour automatiser la création d’images conteneur et le déploiement d’applications multiconteneurs.
 
 Utilisez l’exemple de fichier `docker-compose.yaml` pour créer l’image conteneur, téléchargez l’image Redis, puis démarrez l’application :
 
@@ -77,7 +77,7 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Exécutez la commande [docker ps][docker-ps] pour voir les conteneurs en cours d’exécution :
+Exécutez la commande [docker ps][docker-ps] pour voir les conteneurs en cours d’exécution :
 
 ```
 $ docker ps
@@ -97,13 +97,13 @@ Pour voir l’application en cours d’exécution, entrez `http://localhost:8080
 
 Maintenant que la fonctionnalité de l’application a été validée, les conteneurs en cours d’exécution peuvent être arrêtés et supprimés. Ne supprimez pas les images de conteneur. Dans le didacticiel suivant, l’image *azure-vote-front* est chargée dans une instance Azure Container Registry.
 
-Arrêtez et supprimez les instances de conteneur et les ressources avec la commande [docker-compose down][docker-compose-down] :
+Arrêtez et supprimez les instances et ressources de conteneur avec la commande [docker-compose down][docker-compose-down] :
 
 ```console
 docker-compose down
 ```
 
-Lorsque l’application locale a été supprimée, vous disposez d’une image Docker qui contient l’application Azure Vote, *azure-front-front*, à utiliser avec le didacticiel suivant.
+Lorsque l’application locale a été supprimée, vous disposez d’une image Docker qui contient l’application Azure Vote, *azure-vote-front*, à utiliser avec le tutoriel suivant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

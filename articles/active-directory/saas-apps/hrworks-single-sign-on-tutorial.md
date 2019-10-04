@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 06a10cab81b1253658f505b3cd3f2c520ef9cea8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 790df60f973e6f86bd4424173909159fdd81ee0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266339"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100852"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Didacticiel : Intégration d’Azure Active Directory à HRworks Single Sign-On | Microsoft Docs
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de HRworks Single Sign-On à Azure AD, vous de
 
 **Pour ajouter HRworks Single Sign-On à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec HRworks Single Sign-O
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://login.hrworks.de/?companyId=<companyId>&directssologin=true`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique HRworks Single Sign-On](mailto:nadja.sommerfeld@hrworks.de). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique HRworks Single Sign-On](mailto:support@hrworks.de). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -130,7 +130,7 @@ Pour configurer l’authentification unique Azure AD avec HRworks Single Sign-O
 
 2. Cliquez sur **Administrator** > **Basics** > **Security** > **Single Sign-on** (Authentification unique) sur le côté gauche de la barre de menus, puis effectuez les étapes suivantes :
 
-       ![Configurer l'authentification unique](./media/hrworks-single-sign-on-tutorial/configure01.png)
+    ![Configurer l’authentification unique](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. Cochez la case **Use Single Sign-on** (Utiliser l’authentification unique).
 
@@ -138,7 +138,7 @@ Pour configurer l’authentification unique Azure AD avec HRworks Single Sign-O
 
     c. Sélectionnez **Individual NameID identifier** (Identificateur NameID individuel) comme **valeur pour NameID**.
 
-    d. Dans le Bloc-notes, ouvrez le XML des métadonnées que vous avez téléchargé à partir du portail Azure, copiez son contenu, puis collez-le dans la zone de texte  **Metadata**  (Métadonnées).
+    d. Dans le Bloc-notes, ouvrez le XML des métadonnées que vous avez téléchargé à partir du portail Azure, copiez son contenu, puis collez-le dans la zone de texte **Metadata** (Métadonnées).
 
     e. Cliquez sur **Enregistrer**.
 
@@ -202,7 +202,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à HRworks Single Sign-
 
 2. Cliquez sur **Administrator** > **Persons** > **Persons** > **New person** (Nouvelle personne) sur le côté gauche de la barre de menus.
 
-     ![Configurer l'authentification unique](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Configurer l'authentification unique](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 3. Dans le menu contextuel, cliquez sur **Next** (Suivant).
 

@@ -1,59 +1,62 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation sur la machine virtuelle de science des données Azure
+### YamlMime:Landing
+title: Documentation sur Azure Data Science Virtual Machine
+summary: Azure Data Science Virtual Machine (DSVM) est une image de machine virtuelle préchargée avec des outils de science des données et de machine learning. Utilisez cette machine virtuelle afin de créer des applications intelligentes pour l’analytique avancée.
 metadata:
-  title: Documentation sur la machine virtuelle de science des données - Azure
-  description: 'Découvrez comment utiliser la machine virtuelle de science des données, un environnement expérimental dans le cloud Azure créé spécifiquement pour le travail en science des données. Elle inclut de nombreux outils de science des données populaires et d’autres outils sont préinstallés et préconfigurés afin d’accélérer la création d’applications intelligentes à des fins d’analyse avancée.'
-  services: machine-learning
-  author: gopitk
-  manager: cgronlun
+  title: Documentation sur Azure Data Science Virtual Machine - Azure
+  description: Azure Data Science Virtual Machine (DSVM) est une image de machine virtuelle préchargée avec des outils de science des données et de machine learning.
   ms.service: machine-learning
   ms.subservice: data-science-vm
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2018
-  ms.author: gokuma
-abstract:
-  description: 'Les machines virtuelles de science des données et d’apprentissage profond sont des images de machine virtuelle personnalisées sur Azure, chargées avec des outils de science des données utilisés pour créer des applications intelligentes d’analytique avancée.'
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: "Découvrez comment configurer une machine virtuelle de science des données basée sur\_Windows ou\_Linux\_:"
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="provision-vm.md">Windows</a>
-          - html: <a href="linux-dsvm-intro.md">Linux CentOS</a>
-          - html: <a href="dsvm-ubuntu-intro.md">Linux Ubuntu</a>
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: "Apprendre à configurer et utiliser des machines virtuelles de science des données\_:"
-      - type: list
-        style: ordered
-        items:
-          - html: "<a href=\"provision-vm\">Configurer une machine virtuelle de science des données\_Windows</a>"
-          - html: "<a href=\"vm-do-ten-things\">Utiliser une machine virtuelle de science des données\_Windows</a>"
-          - html: "<a href=\"linux-dsvm-intro\">Configurer une machine virtuelle de science des données\_Linux\_CentOS</a>"
-          - html: "<a href=\"dsvm-ubuntu-intro\">Configurer une machine virtuelle de science des données\_Linux\_Ubuntu</a>"
-          - html: "<a href=\"linux-dsvm-walkthrough\">Utiliser une machine virtuelle de science des données\_Linux</a>"
-  - title: "Plus de technologies Microsoft\_Azure\_Machine\_Learning"
-    items:
-      - type: paragraph
-        text: "Autres technologies disponibles dans Microsoft\_Azure\_Machine\_Learning\_:"
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Service Azure Machine Learning (préversion)
-            href: /azure/machine-learning/service/
-            image:
-              src: media/index/i_machine-learning.svg
-              href: /azure/machine-learning/service/
-          - title: "Azure\_Machine\_Learning\_Studio"
-            href: /azure/machine-learning/studio/
-            image:
-              src: media/index/machine-learning-studio.svg
-              href: /azure/machine-learning/studio/
+  ms.collection: collection
+  author: gvashishtha
+  ms.author: gopalv
+  ms.date: 09/13/2019
+  ms.openlocfilehash: 894ba48c0bc9d080b7e68ff722afe3a658bef5f7
+  ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 10/02/2019
+  ms.locfileid: "71802341"
+landingContent:
+- title: Bien démarrer avec votre DSVM
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’une DSVM ?
+      url: overview.md
+    - text: Qu’est-ce que la DSVM d’IA géographique ?
+      url: geo-ai-dsvm-overview.md
+    - text: Outils inclus dans DSVM
+      url: tools-included.md
+  - linkListType: get-started
+    links:
+    - text: Créer une DSVM Windows
+      url: provision-vm.md
+    - text: Créer une DSVM Ubuntu
+      url: dsvm-ubuntu-intro.md
+    - text: Créer une DSVM CentOS
+      url: linux-dsvm-intro.md
+    - text: Créer une Geo AI DSVM
+      url: provision-geo-ai-dsvm.md
+- title: Gérer votre DSVM
+  linkLists:
+  - linkListType: architecture
+    links:
+    - text: Sécurité en entreprise et conseils
+      url: dsvm-enterprise-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer des pools de DSVM mis à l’échelle automatiquement
+      url: dsvm-pools.md
+    - text: Intégration avec Active Directory
+      url: dsvm-common-identity.md
+    - text: Sécuriser les informations d’identification d’accès de ressource
+      url: dsvm-secure-access-keys.md
+- title: Plus de technologies Microsoft Azure Machine Learning
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Service Azure Machine Learning
+      url: /azure/machine-learning/
+    - text: Comparer nos produits ML
+      url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context

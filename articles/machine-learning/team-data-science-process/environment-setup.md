@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2c66da6717018237aebaf5fdaf803a8ac98f82be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 028f289092a0183072ab0ba0be29f9d1f79781bc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459088"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534320"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Configuration d’environnements de science des données à utiliser dans le processus TDSP (Team Data Science Process)
 Le processus TDSP (Team Data Science Process) utilise différents environnements de science de données pour le stockage, le traitement et l’analyse de données. Il peut s’agir par exemple de Stockage Blob Azure, de plusieurs types de machines virtuelles Azure, de clusters HDInsight (Hadoop) et d’espaces de travail Azure Machine Learning. Le choix de l’environnement à utiliser dépend du type et de la quantité des données à modéliser, ainsi que de la destination cible de ces données dans le cloud. 
@@ -37,4 +37,3 @@ Découvrez comment créer :
 - [Machine virtuelle DSVM Windows](../data-science-virtual-machine/provision-vm.md)
 - [Machine virtuelle DSVM Ubuntu](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
 - [Machine virtuelle DSVM CentOS](../data-science-virtual-machine/linux-dsvm-intro.md)
-- [Machine virtuelle d’apprentissage profond](../data-science-virtual-machine/provision-deep-learning-dsvm.md)

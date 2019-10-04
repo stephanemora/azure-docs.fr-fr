@@ -5,21 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b10be061e015686c68684723fd2d73c1431c7266
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 4bfa969089407a35658160cf05a6407f8c717714
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699404"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347960"
 ---
 # <a name="automation-with-service-principals"></a>Automatisation à l’aide de principaux de service
 
 Les principaux de service sont des ressources d’application Azure Active Directory que vous créez à l’intérieur de votre locataire pour effectuer des opérations sans assistance au niveau du service et des ressources. Il s’agit d’un type unique *d’identité utilisateur*, qui est constitué d’un ID d’application, et d’un mot de passe ou d’un certificat. Seules ces autorisations sont nécessaires pour qu’un principal de service effectue les tâches définies par les rôles et les autorisations attribués. 
 
 Dans Analysis Services, les principaux de service sont utilisés avec Azure Automation, avec le mode sans assistance de PowerShell, avec des applications clientes personnalisées et avec des applications web, dans le but d’automatiser les tâches courantes. Par exemple, le provisionnement des serveurs, le déploiement des modèles, l’actualisation des données, la mise à l’échelle et les opérations de suspension/reprise peuvent être automatisés à l’aide de principaux de service. Les autorisations sont attribuées aux principaux de service via l’appartenance au rôle, comme les comptes UPN standard d’Azure AD.
+
+Analysis Services prend également en charge les opérations effectuées par des identités gérées à l’aide de principaux du service. Pour en savoir plus, consultez [Identités managées pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) et [Services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Créer des principaux de service
  
@@ -47,13 +49,37 @@ Vous pouvez utiliser l’ID d’application et le mot de passe ou le certificat 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Lorsque vous utilisez un principal de service pour les opérations de gestion de ressources avec le [Az.AnalysisServices](/powershell/module/az.analysisservices) module, utilisez `Connect-AzAccount` applet de commande. Si vous utilisez un principal de service pour les opérations de serveur avec le module [SQLServer](https://www.powershellgallery.com/packages/SqlServer), utilisez l’applet de commande `Add-AzAnalysisServicesAccount`. 
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Via le module Az.AnalysisServices
+
+Si vous utilisez un principal de service pour les opérations de gestion des ressources avec le module [Az.AnalysisServices](/powershell/module/az.analysisservices), utilisez la cmdlet `Connect-AzAccount`. 
+
+Dans l’exemple suivant, la valeur appID et un mot de passe sont utilisés pour effectuer des opérations de plan de contrôle pour la synchronisation des réplicas en lecture seule et des opérations scale up/out :
+
+```powershell
+Param (
+        [Parameter(Mandatory=$true)] [String] $AppId,
+        [Parameter(Mandatory=$true)] [String] $PlainPWord,
+        [Parameter(Mandatory=$true)] [String] $TenantId
+       )
+$PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
+$Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
+
+# Connect using Az module
+Connect-AzAccount -Credential $Credential -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx"
+
+# Syncronize a database for query scale out
+Sync-AzAnalysisServicesInstance -Instance "asazure://westus.asazure.windows.net/testsvr" -Database "testdb"
+
+# Scale up the server to an S1, set 2 read-only replicas, and remove the primary from the query pool. The new replicas will hydrate from the synchronized data.
+Set-AzAnalysisServicesServer -Name "testsvr" -ResourceGroupName "testRG" -Sku "S1" -ReadonlyReplicaCount 2 -DefaultConnectionMode Readonly
+```
+
+#### <a name="using-sqlserver-module"></a>Via le module SQLServer
 
 Dans l’exemple suivant, un ID d’application et un mot de passe sont utilisés pour effectuer une opération d’actualisation d’une base de données model :
 
 ```powershell
 Param (
-
         [Parameter(Mandatory=$true)] [String] $AppId,
         [Parameter(Mandatory=$true)] [String] $PlainPWord,
         [Parameter(Mandatory=$true)] [String] $TenantId
@@ -71,7 +97,7 @@ Lorsque vous vous connectez à une application cliente ou à une application web
 
 Dans l’exemple suivant, `appID` et `password` sont utilisés pour effectuer une opération d’actualisation d’une base de données model :
 
-```C#
+```csharp
 string appId = "xxx";
 string authKey = "yyy";
 string connString = $"Provider=MSOLAP;Data Source=asazure://westus.asazure.windows.net/<servername>;User ID=app:{appId};Password={authKey};";

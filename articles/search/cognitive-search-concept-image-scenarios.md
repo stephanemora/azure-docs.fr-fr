@@ -2,21 +2,19 @@
 title: Traiter et extraire du texte depuis des images dans la recherche cognitive - Recherche Azure
 description: Traitez et extrayez du texte et d’autres informations d’images dans des pipelines de recherche cognitive dans Recherche Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c1fd5c4e5a3ac054a85bdcc11d95bc3c338ee3c2
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916969"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265865"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios de recherche cognitive
 
@@ -30,21 +28,20 @@ Cet article couvre plus en détail le traitement d’image et fournit des consei
 
 Dans le cadre du décodage d’un document, il existe un nouvel ensemble de paramètres de configuration de l’indexeur pour gérer des fichiers image ou des images incorporées dans des fichiers. Ces paramètres permettent de normaliser des images en vue d’un traitement ultérieur en aval. La normalisation des images rend celles-ci plus uniformes. Les images de grande taille sont redimensionnées à une hauteur et une largeur maximales afin de les rendre utilisables. Pour les images fournissant des métadonnées d’orientation, la rotation est ajustée pour un chargement vertical. Les ajustements de métadonnées sont capturés dans un type complexe créé pour chaque image. 
 
-Vous ne pouvez pas désactiver la normalisation d’image. Les compétences qui itèrent sur des images attendent des images normalisées.
+Vous ne pouvez pas désactiver la normalisation d’image. Les compétences qui itèrent sur des images attendent des images normalisées. L’activation de la normalisation d’image sur un indexeur nécessite l’attachement d’un ensemble de compétences à cet indexeur.
 
 | Paramètre de configuration | Description |
 |--------------------|-------------|
-| imageAction   | Défini sur « none » si aucune action ne doit être effectuée quand des images incorporées ou des fichiers image sont rencontrés. <br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées dans le cadre du décodage de document.<br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées où, pour les PDF de votre source de données, chaque page s’affiche en tant qu’image de sortie unique.  La fonctionnalité est la même que « generateNormalizedImages » pour les types de fichiers autres que PDF.<br/>Pour toute option autre que « none », les images seront exposées dans le champ *normalized_images*. <br/>La valeur par défaut est « none ». Cette configuration est pertinente uniquement pour des sources de données d’objet blob quand le paramètre « dataToExtract » est défini sur « contentAndMetadata ». <br/>Un maximum de 1000 images est extraits à partir d’un document donné. S’il existe plus de 1000 images dans un document, les 1 000 premières seront extraites et un avertissement est généré. |
-|  normalizedImageMaxWidth | Largeur maximale (en pixels) des images normalisées générées. La valeur par défaut est 2000.|
-|  normalizedImageMaxHeight | Hauteur maximale (en pixels) des images normalisées générées. La valeur par défaut est 2000.|
+| imageAction   | Défini sur « none » si aucune action ne doit être effectuée quand des images incorporées ou des fichiers image sont rencontrés. <br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées dans le cadre du décodage de document.<br/>Défini sur « generateNormalizedImages » pour générer un tableau d’images normalisées où, pour les PDF de votre source de données, chaque page s’affiche en tant qu’image de sortie unique.  La fonctionnalité est la même que « generateNormalizedImages » pour les types de fichiers autres que PDF.<br/>Pour toute option autre que « none », les images seront exposées dans le champ *normalized_images*. <br/>La valeur par défaut est « none ». Cette configuration est pertinente uniquement pour des sources de données d’objet blob quand le paramètre « dataToExtract » est défini sur « contentAndMetadata ». <br/>Au maximum, 1 000 images seront extraites d'un document donné. Si un document contient plus de 1 000 images, les 1 000 premières seront extraites et un avertissement sera généré. |
+|  normalizedImageMaxWidth | Largeur maximale (en pixels) des images normalisées générées. La valeur par défaut est 2000. La valeur maximale autorisée est 10000. | 
+|  normalizedImageMaxHeight | Hauteur maximale (en pixels) des images normalisées générées. La valeur par défaut est 2000. La valeur maximale autorisée est 10000.|
 
 > [!NOTE]
 > Si vous ne définissez pas la propriété *imageAction* sur « none », vous ne pouvez définir la propriété *parsingMode* que sur « default ».  Vous ne pouvez définir qu’une seule de ces deux propriétés sur une valeur autre que la valeur par défaut dans la configuration de votre indexeur.
 
 Définissez le paramètre **parsingMode** avec la valeur `json` (pour indexer chaque objet blob en tant que document unique) ou `jsonArray` (si vos objets blob contiennent des tableaux JSON et que vous souhaitez traiter chaque élément de tableau comme un document distinct).
 
-La valeur par défaut de 2000 pixels pour la hauteur et la largeur maximales des images normalisées est basée sur les tailles maximales prises en charge par la [compétence de reconnaissance optique de caractères](cognitive-search-skill-ocr.md) et la [compétence d’analyse d’image](cognitive-search-skill-image-analysis.md). Si vous augmentez les limites maximales, il se peut que le traitement échoue sur des images de grande taille.
-
+La valeur par défaut de 2000 pixels pour la hauteur et la largeur maximales des images normalisées est basée sur les tailles maximales prises en charge par la [compétence de reconnaissance optique de caractères](cognitive-search-skill-ocr.md) et la [compétence d’analyse d’image](cognitive-search-skill-image-analysis.md). La [compétence de reconnaissance optique de caractères](cognitive-search-skill-ocr.md) (OCR) prend en charge une largeur et une hauteur maximales de 4200 pour les langues autres que l'anglais et de 10000 pour l'anglais.  Si vous augmentez les limites maximales, le traitement des images plus volumineuses peut échouer en fonction de la définition de vos compétences et de la langue des documents. 
 
 Vous spécifiez la propriété imageAction dans votre [définition d’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer) comme suit :
 
@@ -66,13 +63,14 @@ Si la propriété *imageAction* est définie sur une valeur autre que « none 
 
 | Membre de l’image       | Description                             |
 |--------------------|-----------------------------------------|
-| données               | Chaîne codée en Base64 de l’image normalisée au format JPEG.   |
+| data               | Chaîne codée en Base64 de l’image normalisée au format JPEG.   |
 | width              | Largeur de l’image normalisée en pixels. |
 | height             | Hauteur de l’image normalisée en pixels. |
 | originalWidth      | Largeur d’origine de l’image avant la normalisation. |
 | originalHeight      | Hauteur d’origine de l’image avant la normalisation. |
 | rotationFromOriginal |  Rotation dans le sens inverse des aiguilles d’une montre exprimée en degrés pour créer l’image normalisée. Valeur comprise entre 0 et 360 degrés. Cette étape lit les métadonnées de l’image générée par un appareil photo ou un scanneur. La valeur est généralement un multiple de 90 degrés. |
-| contentOffset |Offset de caractère à l’intérieur du champ de contenu dont l’image a été extraite. Ce champ est applicable uniquement aux fichiers contenant des images incorporées. |
+| contentOffset | Offset de caractère à l’intérieur du champ de contenu dont l’image a été extraite. Ce champ est applicable uniquement aux fichiers contenant des images incorporées. |
+| pageNumber | Si l'image a été extraite ou rendue à partir d'un PDF, ce champ contient le numéro de page du PDF à partir de laquelle elle a été extraite ou rendue, à partir de 1.  Si l’image ne provient pas d’un fichier PDF, ce champ a la valeur 0.  |
 
  Exemple de valeur de *normalized_images* :
 ```json
@@ -84,7 +82,8 @@ Si la propriété *imageAction* est définie sur une valeur autre que « none 
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```
@@ -102,8 +101,6 @@ La [compétence d’analyse d’image](cognitive-search-skill-image-analysis.md)
 ### <a name="ocr-skill"></a>Compétence de reconnaissance optique des caractères
 
 La [compétence de reconnaissance optique des caractères](cognitive-search-skill-ocr.md) extrait du texte de fichiers image, par exemple, aux formats JPG, PNG et bitmap. Elle peut extraire du texte ainsi que des informations de disposition. Les informations de disposition fournissent des rectangles englobants pour chacune des chaînes identifiées.
-
-La compétence de reconnaissance optique des caractères vous permet de sélectionner l’algorithme à utiliser pour détecter le texte dans vos images. Elle prend actuellement en charge deux algorithmes, l’un pour le texte imprimé et l’autre pour le texte manuscrit.
 
 ## <a name="embedded-image-scenario"></a>Scénario d’image incorporée
 

@@ -3,17 +3,17 @@ title: Fonctionnalités de demande de données client dans Azure IoT Central | M
 description: Fonctionnalités de demande de données client dans Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/17/2018
+ms.date: 08/23/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 2952008ca788a620f2b558d5997aeebd59196b7a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: a1775c8680b2e0d931c623d2e8ced2224205a767
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314566"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050491"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
 
@@ -33,7 +33,7 @@ Lorsque vous utilisez les services d’entreprise Microsoft, Microsoft génère 
 
 ## <a name="deleting-customer-data"></a>Suppression des données client
 
-La suppression de données utilisateur est uniquement possible via la page d’administration d’IoT Central. Les administrateurs d’application peuvent sélectionner l’utilisateur à supprimer, puis sélectionnez **supprimer** dans le coin supérieur droit de l’application pour supprimer l’enregistrement. Les administrateurs d’une application peuvent également supprimer des comptes individuels qui ne sont plus associés à l’application en question.
+La suppression de données utilisateur est uniquement possible via la page d’administration d’IoT Central. Les administrateurs d’applications peuvent sélectionner l’utilisateur à supprimer et cliquer sur **Supprimer** dans le coin supérieur droit de l’application afin de supprimer l’enregistrement. Les administrateurs d’une application peuvent également supprimer des comptes individuels qui ne sont plus associés à l’application en question.
 
 Une fois supprimé, l’utilisateur ne reçoit plus aucune alerte par e-mail. Toutefois, son adresse e-mail doit être supprimée individuellement de chaque alerte configurée.
 

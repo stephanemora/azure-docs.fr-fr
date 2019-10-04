@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245947"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66167241"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Sécuriser les appels à des API personnalisées à partir d’Azure Logic Apps
 
@@ -190,14 +190,14 @@ Ouvrez votre définition d’application logique en mode code, accédez à la se
 
 | Élément | Obligatoire | Description | 
 | ------- | -------- | ----------- | 
-| locataire | OUI | GUID du locataire Azure AD | 
+| tenant | OUI | GUID du locataire Azure AD | 
 | audience | OUI | GUID de la ressource cible à laquelle vous souhaitez accéder, c’est-à-dire l’ID client de l’identité de votre application web ou de votre application API | 
 | clientId | OUI | GUID du client demandant l’accès, c’est-à-dire l’ID client de l’identité de votre application logique | 
 | secret | OUI | Clé ou mot de passe de l’identité d’application pour le client qui demande le jeton d’accès | 
-| Type | OUI | Type d’authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. | 
+| type | OUI | Type d’authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. | 
 |||| 
 
-Par exemple : 
+Par exemple :
 
 ``` json
 {
@@ -236,7 +236,7 @@ Dans la section **Autorisation**, ajoutez cette ligne :
 
 | Élément | Obligatoire | Description | 
 | ------- | -------- | ----------- | 
-| Type | OUI | Type d’authentification. Pour les certificats client SSL, la valeur doit être `ClientCertificate`. | 
+| type | OUI | Type d’authentification. Pour les certificats client SSL, la valeur doit être `ClientCertificate`. | 
 | password | OUI | Mot de passe pour l’accès au certificat client (fichier PFX) | 
 | pfx | OUI | Contenu codé base 64 du certificat client (fichier PFX) | 
 |||| 
@@ -253,7 +253,7 @@ Dans la section **Autorisation**, ajoutez cette ligne :
 
 | Élément | Obligatoire | Description | 
 | ------- | -------- | ----------- | 
-| Type | OUI | Le type d’authentification que vous souhaitez utiliser. Pour l’authentification de base, la valeur doit être `Basic`. | 
+| type | OUI | Le type d’authentification que vous souhaitez utiliser. Pour l’authentification de base, la valeur doit être `Basic`. | 
 | username | OUI | Le nom d’utilisateur que vous souhaitez utiliser pour l’authentification. | 
 | password | OUI | Le mot de passe que vous souhaitez utiliser pour l’authentification. | 
 |||| 

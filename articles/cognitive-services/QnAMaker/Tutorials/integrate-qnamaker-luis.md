@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 06/11/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: fa79f519c8f3eb8baeaab04870f22a1cfefa59ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6605aa268a7ee7fe75254df5dbe96e9dfbc71d79
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884322"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272417"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Utiliser le bot avec QnA Maker et LUIS pour distribuer votre base de connaissances
 Au fur et à mesure que la taille de votre base de connaissances QnA Maker augmente, il devient difficile de la gérer comme un ensemble monolithique unique et il est nécessaire de fractionner la base de connaissances en parties logiques plus petites.
@@ -27,7 +27,7 @@ Cet article utilise le Kit de développement logiciel (SDK) Bot Framework v3. C
 
 ## <a name="architecture"></a>Architecture
 
-![Architecture LUIS de QnA Maker](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker avec l’architecture Language Understanding](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 Dans le scénario ci-dessus, QnA Maker obtient d’abord l’intention de la question entrante à partir d’un modèle LUIS, puis l’utilise pour l’acheminer vers la base de connaissances QnA Maker appropriée.
 
@@ -51,7 +51,7 @@ Dans le scénario ci-dessus, QnA Maker obtient d’abord l’intention de la que
 
 ## <a name="web-app-bot"></a>Robot d’application web
 
-1. [Créez un robot Web App](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample) avec le modèle LUIS. Sélectionnez le Kit de développement logiciel 3.x et le langage de programmation C#.
+1. [Créer un bot d’application web simple](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) qui inclut automatiquement une application LUIS. Sélectionnez le langage de programmation C#.
 
 1. Une fois le robot d’application web créé, sélectionnez-le dans le portail Azure.
 1. Sélectionnez **Paramètres de l’application** dans la navigation du service de robot d’application web, puis faites défiler vers le bas jusqu’à la section **Paramètres de l’application** des paramètres disponibles.

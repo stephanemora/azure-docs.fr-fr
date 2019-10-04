@@ -2,20 +2,20 @@
 title: Visualiser les données SQL Data Warehouse avec Power BI
 description: Visualiser les données SQL Data Warehouse avec Power BI
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 4650e171c180653e94d78451d66bba1bcc71b136
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834602"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66241286"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualiser des données avec Power BI
 Ce didacticiel vous montre comment utiliser Power BI pour vous connecter SQL Data Warehouse et créer quelques visualisations de base.
@@ -24,7 +24,7 @@ Ce didacticiel vous montre comment utiliser Power BI pour vous connecter SQL Dat
 > 
 > 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un SQL Data Warehouse préchargé avec la base de données AdventureWorksDW. Pour provisionner un entrepôt de données, consultez [Créer un entrepôt de données SQL](create-data-warehouse-portal.md) et chargez l’exemple de données. Si vous disposez déjà d’un entrepôt de données, mais pas d’un exemple de données, vous pouvez [charger WideWorldImportersDW](load-data-wideworldimportersdw.md).
@@ -78,7 +78,7 @@ Vous êtes maintenant prêt à utiliser Power BI pour analyser vos exemples de d
 Vous pouvez enregistrer votre progression à tout moment en cliquant sur **Fichier**, puis en sélectionnant **Enregistrer**.
 
 ## <a name="using-direct-connect"></a>Utilisation de la connexion directe
-Comme avec Azure SQL Database, la fonction de connexion directe de SQL Data Warehouse permet un pushdown logique, en complément des fonctionnalités d’analyse de Power BI. Grâce à la connexion directe, les requêtes sont renvoyées vers votre solution Azure SQL Data Warehouse en temps réel lorsque vous explorez les données.  Combinée à la puissance de SQL Data Warehouse, cette fonctionnalité vous permet de créer des rapports dynamiques en quelques minutes pour plusieurs téraoctets de données. En outre, l’introduction du bouton Open in Power BI permet aux utilisateurs de connecter directement Power BI à leur solution SQL Data Warehouse sans collecter d’informations à partir d’autres sections d’Azure.
+Comme avec Azure SQL Database, la fonction de connexion directe de SQL Data Warehouse permet un pushdown logique, en complément des fonctionnalités analytiques de Power BI. Grâce à la connexion directe, les requêtes sont renvoyées vers votre solution Azure SQL Data Warehouse en temps réel lorsque vous explorez les données.  Combinée à la puissance de SQL Data Warehouse, cette fonctionnalité vous permet de créer des rapports dynamiques en quelques minutes pour plusieurs téraoctets de données. En outre, l’introduction du bouton Open in Power BI permet aux utilisateurs de connecter directement Power BI à leur solution SQL Data Warehouse sans collecter d’informations à partir d’autres sections d’Azure.
 
 Quand vous utilisez la fonction de connexion directe :
 
@@ -93,4 +93,4 @@ Quand vous utilisez la fonction de connexion directe :
 Ces restrictions et remarques sont susceptibles de changer à mesure que les expériences s’améliorent.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois que vous êtes familiarisé avec les exemples de données, vous pouvez découvrir les opérations de [développement](sql-data-warehouse-overview-develop.md), de [chargement](design-elt-data-loading.md) ou de [migration](sql-data-warehouse-overview-migrate.md). Vous pouvez également consulter le [site web de Power BI](https://www.powerbi.com/).
+Une fois que vous êtes familiarisé avec les exemples de données, vous pouvez découvrir les opérations de [développement](sql-data-warehouse-overview-develop.md) ou de [chargement](design-elt-data-loading.md). Vous pouvez également consulter le [site web de Power BI](https://www.powerbi.com/).

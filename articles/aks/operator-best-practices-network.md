@@ -2,17 +2,17 @@
 title: Meilleures pratiques de l’opérateur – Connectivité réseau dans Azure Kubernetes Service (AKS)
 description: Découvrez les meilleures pratiques de l’opérateur pour les ressources de réseau virtuel et la connectivité dans Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: iainfou
-ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: mlearned
+ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176580"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "67614751"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
 
@@ -47,7 +47,7 @@ Avec une mise en réseau Azure CNI, la ressource de réseau virtuel se trouve da
 
 Pour plus d’informations sur la délégation du principal du service AKS, voir [Déléguer l’accès à d’autres ressources Azure][sp-delegation].
 
-Dans la mesure où chaque nœud et chaque pod reçoit sa propre adresse IP, planifiez les plages d’adresses des sous-réseaux AKS. Le sous-réseau doit être assez grand pour offrir une adresse IP à chacun des nœuds, pods et ressources réseau déployés. Chaque cluster AKS doit être placé dans son propre sous-réseau. Pour autoriser la connexion à des réseaux locaux ou en peering dans Azure, n’utilisez pas de plages d’adresses IP qui recouvrent des ressources réseau existantes. Des limites par défaut s’appliquent au nombre de pods qu’exécute chaque nœud avec une mise en réseau Kubenet ou Azure CNI. Pour gérer les événements de montée en puissance et les mises à niveau de cluster, des adresses IP supplémentaires sont également nécessaires dans le sous-réseau attribué.
+Dans la mesure où chaque nœud et chaque pod reçoit sa propre adresse IP, planifiez les plages d’adresses des sous-réseaux AKS. Le sous-réseau doit être assez grand pour offrir une adresse IP à chacun des nœuds, pods et ressources réseau déployés. Chaque cluster AKS doit être placé dans son propre sous-réseau. Pour autoriser la connexion à des réseaux locaux ou en peering dans Azure, n’utilisez pas de plages d’adresses IP qui recouvrent des ressources réseau existantes. Des limites par défaut s’appliquent au nombre de pods qu’exécute chaque nœud avec une mise en réseau Kubenet ou Azure CNI. Pour gérer les événements de montée en puissance et les mises à niveau de cluster, des adresses IP supplémentaires sont également nécessaires dans le sous-réseau attribué. Cet espace d’adressage supplémentaire est particulièrement important si vous utilisez des conteneurs Windows Server (actuellement en préversion dans AKS), car ces pools de nœuds nécessitent une mise à niveau pour appliquer les derniers correctifs de sécurité. Pour plus d’informations sur les nœuds Windows Server, consultez [Mettre à niveau un pool de nœuds dans AKS][nodepool-upgrade].
 
 Pour calculer l’adresse IP requise, voir [Configurer la mise en réseau Azure CNI dans AKS][advanced-networking].
 
@@ -99,12 +99,14 @@ spec:
          servicePort: 80
 ```
 
-Un contrôleur d’entrée est un démon qui s’exécute sur un nœud AKS et surveille les demandes entrantes. Le trafic est ensuite distribué selon les règles définies dans la ressource d’entrée. Le contrôleur d’entrée le plus courant est basé sur [NGINX], mais AKS ne limite pas à un contrôleur spécifique : vous pouvez utiliser d’autres contrôleurs comme [Contour][contour], [HAProxy][haproxy] ou [Traefik][traefik].
+Un contrôleur d’entrée est un démon qui s’exécute sur un nœud AKS et surveille les demandes entrantes. Le trafic est ensuite distribué selon les règles définies dans la ressource d’entrée. Le contrôleur d’entrée le plus courant est basé sur [NGINX], mais AKS ne limite pas à un contrôleur spécifique : vous pouvez utiliser d’autres contrôleurs comme [Contour][contour], [HAProxy][haproxy] ou [Traefik][traefik].
+
+Les contrôleurs d’entrée doivent être planifiés sur un nœud Linux. Les nœuds Windows Server (actuellement en préversion dans AKS) ne doivent pas exécuter le contrôleur d’entrée. Utilisez un sélecteur de nœud dans votre manifeste YAML ou votre déploiement de graphique Helm pour indiquer que la ressource doit s’exécuter sur un nœud Linux. Pour plus d’informations, consultez [Use node selectors to control where pods are scheduled in AKS (Utiliser des sélecteurs de nœud pour contrôler l’emplacement de planification des pods dans AKS)][concepts-node-selectors].
 
 Il existe de nombreux scénarios pour l’entrée, notamment ceux des guides pratiques suivants :
 
-* [Créer un contrôleur d’entrée de base avec une connectivité réseau externe][aks-ingress-basic]
-* [Créer un contrôleur d’entrée qui utilise un réseau privé interne et une adresse IP][aks-ingress-internal]
+* [Créer un contrôleur d’entrée dans Azure Kubernetes Service (AKS)][aks-ingress-basic]
+* [Create an ingress controller to an internal virtual network in Azure Kubernetes Service (AKS)][aks-ingress-internal] (Créer un contrôleur d’entrée pour un réseau virtuel interne dans Azure Kubernetes Service (AKS))
 * [Créer un contrôleur d’entrée qui utilise vos propres certificats TLS][aks-ingress-own-tls]
 * Créer un contrôleur d’entrée qui utilise Let’s Encrypt pour générer automatiquement des certificats TLS [avec une adresse IP publique dynamique][aks-ingress-tls] ou [avec une adresse IP publique statique][aks-ingress-static-tls]
 
@@ -116,7 +118,7 @@ Un contrôleur d’entrée qui distribue le trafic aux services et applications 
 
 ![Un pare-feu d’applications web (WAF) comme Azure Application Gateway peut protéger et distribuer le trafic d’un cluster AKS](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Un pare-feu d’applications web (WAF) ajoute une couche de sécurité supplémentaire en filtrant le trafic entrant. Le projet OWASP (Open Web Application Security Project) propose un ensemble de règles pour surveiller les attaques de type script intersites ou cookie poisoning. [Azure Application Gateway] [ app-gateway] (actuellement en version préliminaire dans ACS) est un pare-feu d’applications Web qui peut s’intégrer avec les clusters AKS pour fournir ces fonctionnalités de sécurité, avant que le trafic n’atteigne votre cluster AKS et les applications. D’autres solutions tierces assurent également ces fonctions, ce qui peut permettre de continuer à utiliser les investissements et l’expertise déjà acquis sur un produit donné.
+Un pare-feu d’applications web (WAF) ajoute une couche de sécurité supplémentaire en filtrant le trafic entrant. Le projet OWASP (Open Web Application Security Project) propose un ensemble de règles pour surveiller les attaques de type script intersites ou cookie poisoning. [Azure Application Gateway][app-gateway] (actuellement en préversion dans AKS) est un pare-feu WAF capable d’intégrer ces fonctionnalités de sécurité dans des clusters AKS, avant que le trafic n’atteigne les clusters et les applications. D’autres solutions tierces assurent également ces fonctions, ce qui peut permettre de continuer à utiliser les investissements et l’expertise déjà acquis sur un produit donné.
 
 Les ressources d’équilibrage de charge ou d’entrée continuent de s’exécuter dans le cluster AKS pour affiner davantage la distribution du trafic. App Gateway peut être géré de manière centralisée comme contrôleur d’entrée avec une définition de ressource. Pour commencer, voir [Créer un contrôleur d’entrée Application Gateway][app-gateway-ingress].
 
@@ -124,9 +126,9 @@ Les ressources d’équilibrage de charge ou d’entrée continuent de s’exéc
 
 **Bonnes pratiques** - Utilisez des stratégies réseau pour autoriser ou refuser le trafic vers les pods. Par défaut, tout le trafic est autorisé entre les pods au sein d’un cluster. Pour une sécurité accrue, définissez des règles qui limitent la communication des pods.
 
-Stratégie de réseau (actuellement en version préliminaire dans ACS) est une fonctionnalité de Kubernetes qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser un trafic en fonction de paramètres, tels que des étiquettes attribuées, un espace de noms ou un port de trafic. L’utilisation de stratégies réseau offre une méthode native du cloud pour contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement. N’utilisez pas des groupes de sécurité réseau Azure pour contrôler le trafic de pod à pod, mais plutôt des stratégies réseau.
+L’utilisation de stratégies réseau est une fonctionnalité Kubernetes qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser le trafic selon des paramètres tels que les étiquettes attribuées, l’espace de noms ou le port de trafic. L’utilisation de stratégies réseau offre une méthode native du cloud pour contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement. N’utilisez pas des groupes de sécurité réseau Azure pour contrôler le trafic de pod à pod, mais plutôt des stratégies réseau.
 
-Pour utiliser une stratégie réseau, la fonctionnalité doit être activée lorsque vous créez un cluster AKS. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant. Prévoyez le temps nécessaire pour vérifier que vous activez la stratégie réseau sur les clusters et que vous pouvez les utiliser selon vos besoins.
+Pour utiliser une stratégie réseau, la fonctionnalité doit être activée lorsque vous créez un cluster AKS. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant. Prévoyez le temps nécessaire pour vérifier que vous activez la stratégie réseau sur les clusters et que vous pouvez les utiliser selon vos besoins. Une stratégie réseau doit uniquement être utilisée pour les nœuds et pods Linux dans AKS.
 
 Une stratégie réseau est créée en tant que ressource Kubernetes à l’aide d’un manifeste YAML. Les stratégies sont appliquées à des pods définis, puis des règles d’entrée ou de sortie définissent la circulation du trafic. L’exemple suivant applique une stratégie réseau à des pods dotés de l’étiquette *app: backend*. La règle d’entrée autorise ensuite uniquement le trafic provenant des pods dotés de l’étiquette *app: frontend* :
 
@@ -186,3 +188,5 @@ Cet article porte sur la sécurité et la connectivité réseau. Pour plus d’i
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
+[concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

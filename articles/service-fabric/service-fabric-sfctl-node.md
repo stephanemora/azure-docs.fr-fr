@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 08ea0081c84ea31b2b71d03679b1b527cf94c075
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 9d41f978dd6a87287d8743e321acf35ff4909544
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662888"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034975"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Permet de gérer les nœuds qui forment un cluster.
@@ -180,6 +179,8 @@ Permet de récupérer les informations sur le chargement d’un nœud Service Fa
 Informe Service Fabric que l’état persistant d’un nœud a été définitivement supprimé ou perdu.
 
 Cela implique qu’il n’est pas possible de récupérer l’état persistant de ce nœud. Cela se produit généralement lorsqu’un disque dur est nettoyé ou tombe en panne. Le nœud doit être arrêté pour que cette opération réussisse. Cette opération indique à Service Fabric que les réplicas sur ce nœud n’existent plus, et que Service Fabric ne doit plus attendre que ces réplicas redeviennent opérationnels. N’exécutez pas cet applet de commande si l’état sur le nœud n’a pas été supprimé et que le nœud peut revenir opérationnel sans modification de son état.
+
+À partir de Service Fabric 6.5, pour utiliser cette cmdlet pour les nœuds initiaux, transformez ces nœuds initiaux en nœuds classiques (non initiaux), puis appelez la cmdlet afin de supprimer l’état des nœuds. Si le cluster s'exécute sur Azure, Service Fabric tente automatiquement de transformer un nœud seed qui vient de s’arrêter en nœud non seed. Pour le permettre, assurez-vous que le nombre de nœuds non seed dans le type de nœud principal est supérieur au nombre de nœuds seed avec l’état Arrêté. Le cas échéant, ajoutez des nœuds supplémentaires au type de nœud principal. Pour un cluster autonome, si le nœud seed inactif ne retrouve pas son état opérationnel, supprimez-le du cluster. Pour ce faire, consultez [Supprimer des nœuds du cluster autonome Service Fabric](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
 
 ### <a name="arguments"></a>Arguments
 

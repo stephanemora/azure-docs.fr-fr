@@ -1,22 +1,22 @@
 ---
-title: Se connecter à Azure Data Box Edge, le configurer et l’activer dans le Portail Azure | Microsoft Docs
-description: Ce troisième tutoriel sur le déploiement de Data Box Edge vous apprend à connecter, configurer et activer votre appareil physique.
+title: Tutoriel pour se connecter à l’appareil Azure Data Box Edge, le configurer et l’activer dans le Portail Azure | Microsoft Docs
+description: Le tutoriel sur le déploiement de Data Box Edge vous apprend à connecter, configurer et activer votre appareil physique.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: cf2aa9bc1234f8bc92829b107d1a788b75d56a6b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629131"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075087"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Didacticiel : Se connecter, configurer et activer la zone de données Azure Edge 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Didacticiel : Se connecter à Azure Data Box Edge, la configurer et l’activer 
 
 Ce tutoriel explique comment vous connecter à votre appareil Azure Data Box Edge, comment le configurer et l’activer avec l’interface utilisateur web locale.
 
@@ -28,7 +28,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Se connecter à un appareil physique
 > * Configurer et activer l’appareil physique
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de configurer et d’activer votre appareil Data Box Edge, assurez-vous que :
 
@@ -37,14 +37,14 @@ Avant de configurer et d’activer votre appareil Data Box Edge, assurez-vous qu
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Se connecter à la configuration de l’interface utilisateur web locale 
 
-1. Configurez la carte Ethernet sur votre ordinateur pour se connecter à l’appareil de périphérie de zone de données avec une adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0.
+1. Configurez l’adaptateur Ethernet sur votre ordinateur pour vous connecter à l’appareil Data Box Edge avec l’adresse IP statique 192.168.100.5 et le sous-réseau 255.255.255.0.
 
-2. Connectez l’ordinateur au PORT 1 de votre appareil. L’illustration suivante permet d’identifier le PORT 1 sur votre appareil.
+2. Connectez l’ordinateur au PORT 1 de votre appareil. Utilisez l’illustration ci-dessous pour identifier le PORT 1 sur votre appareil.
 
     ![Fond de panier d’un appareil câblé](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
 
-3. Ouvrez une fenêtre de navigateur et accédez à l’interface utilisateur web locale de l’appareil à l’adresse https://192.168.100.10.  
+3. Ouvrez une fenêtre de navigateur et accédez à l’interface utilisateur web locale de l’appareil à l’adresse `https://192.168.100.10`.  
     Cette action peut prendre quelques minutes après la mise sous tension de l’appareil. 
 
     Une erreur ou un avertissement vous indique qu’il existe un problème avec le certificat de sécurité du site web. 
@@ -67,15 +67,15 @@ Vous vous trouvez maintenant au niveau du tableau de bord de votre appareil.
  
 Le tableau de bord présente les différents paramètres nécessaires à la configuration et à l’inscription de l’appareil physique auprès du service Data Box Edge. Les options **Nom de l’appareil**, **Paramètres réseau**, **Paramètres de proxy web** et **Paramètres de l’heure** sont facultatives. Les seuls paramètres obligatoires sont les **Paramètres cloud**.
    
-![Local web UI « Tableau de bord » page](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
+![Page « Tableau de bord » de l’interface utilisateur web locale](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
 1. Dans le volet gauche, sélectionnez **Nom de l’appareil**, puis entrez un nom convivial pour votre appareil.  
-    Le nom convivial doit contenir entre 1 et 15 caractères et avoir des lettres, des chiffres et des traits d’union.
+    Ce nom convivial doit contenir entre 1 et 15 caractères et être composé de lettres, de chiffres et de traits d’union.
 
-    ![Page « Nom de l’appareil » de l’interface utilisateur web locale](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
+    ![Page « Nom de l'appareil » de l’interface utilisateur web locale](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (Facultatif) Dans le volet gauche, sélectionnez **Paramètres réseau**, puis configurez les paramètres.  
-    Sur votre appareil physique, il existe six interfaces réseau. Le PORT 1 et le PORT 2 sont des interfaces réseau de 1 Gbit/s. Le PORT 3, 4 du PORT, PORT 5 et 6 de PORT sont toutes les interfaces réseau 25 Gbits/s qui peuvent également servir aux interfaces réseau de 10 Gbits/s. Le PORT 1 est automatiquement configuré comme port réservé à la gestion, et les PORTS 2 à 6 sont tous des ports de données. Le **paramètres réseau** page est comme indiqué ci-dessous.
+    Votre appareil physique comporte six interfaces réseau. Le PORT 1 et le PORT 2 sont des interfaces réseau de 1 Gbit/s. Les PORTS 3, 4, 5 et 6 sont tous des interfaces réseau de 25 Gbits/s qui peuvent également servir d’interfaces réseau de 10 Gbits/s. Le PORT 1 est automatiquement configuré comme port réservé à la gestion, et les PORTS 2 à 6 sont tous des ports de données. La page **Paramètres réseau** est illustrée ci-dessous.
     
     ![Page « Paramètres réseau » de l’interface utilisateur web locale](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
@@ -90,7 +90,7 @@ Le tableau de bord présente les différents paramètres nécessaires à la conf
 
 3. (Facultatif) Dans le volet de gauche, sélectionnez **Paramètres du proxy Web**, puis configurez votre serveur proxy web. Bien que la configuration du proxy web soit facultative, si vous en utilisez un, vous pouvez uniquement le configurer sur cette page.
    
-   ![Page « Paramètres de proxy Web » de l’interface utilisateur web locale](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
+   ![Page « Paramètres du proxy web » de l’interface utilisateur web locale](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
    Dans la page **Paramètres du proxy web**, procédez comme suit :
    
@@ -115,14 +115,14 @@ Le tableau de bord présente les différents paramètres nécessaires à la conf
 
     3. Si vous le souhaitez, dans la zone **Serveur NTP secondaire**, entrez un serveur secondaire pour votre appareil.
 
-    4. Pour valider et appliquer les paramètres de délai configuré, sélectionnez **appliquer les paramètres**.
+    4. Cliquez sur **Appliquer les paramètres** pour valider et appliquer les paramètres d’heure que vous avez configurés.
 
         ![Page « Paramètres d’heure » de l’interface utilisateur web locale](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. (Facultatif) Dans le volet gauche, sélectionnez **paramètres de stockage** pour configurer la résilience du stockage sur votre appareil. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Par défaut, le stockage sur l’appareil n’est pas résilient et il existe une perte de données si un disque de données échoue sur l’appareil. Lorsque vous activez l’option résiliente, le stockage sur le périphérique sera reconfiguré et l’appareil peut résister à la défaillance d’un disque de données sans perte de données. Configuration du stockage en tant que résilientes permet de réduire la capacité utilisable de votre appareil.
+5. (Facultatif) Dans le volet gauche, sélectionnez **Paramètres de stockage** pour configurer la résilience de stockage sur votre appareil. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Par défaut, le stockage sur l’appareil n’est pas résilient, et il y a perte de données en cas de défaillance d’un disque de données sur l’appareil. Lorsque vous activez l’option Résilient, le stockage sur l’appareil est reconfiguré et l’appareil peut résister à la défaillance d’un disque de données sans perte de données. La configuration du stockage en tant que résilient réduit la capacité utilisable de votre appareil.
 
     > [!IMPORTANT] 
-    > La résilience peut uniquement être configurée avant d’activer l’appareil. 
+    > La résilience ne peut être configurée qu’avant l’activation de l’appareil. 
 
     ![Page « Paramètres de stockage » de l’interface utilisateur web locale](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
 
@@ -131,17 +131,17 @@ Le tableau de bord présente les différents paramètres nécessaires à la conf
     1. Dans la zone **Clé d’activation**, entrez la clé d’activation que vous avez obtenue dans [Obtenir la clé d’activation](data-box-edge-deploy-prep.md#get-the-activation-key) pour Data Box Edge.
     2. Sélectionnez **Appliquer**.
        
-        ![Page « Paramètres de Cloud » de l’interface utilisateur web locale](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
+        ![Page « Paramètres cloud » de l’interface utilisateur web locale](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 
-    3. Tout d’abord l’appareil est activé. L’appareil est ensuite analysée pour les mises à jour critiques et s’il est disponible, les mises à jour sont automatiquement appliquées. Vous voyez une notification à cet effet.
+    3. Tout d’abord, l’appareil est activé. L’appareil est ensuite analysé pour rechercher des mises à jour critiques et, le cas échéant, ces mises à jour sont automatiquement appliquées. Une notification correspondante s’affiche.
 
-        La boîte de dialogue a également une clé de récupération que vous devez copier et enregistrez-le dans un emplacement sûr. Cette clé est utilisée pour récupérer vos données en cas de l’appareil ne peut pas démarrer.
+        La boîte de dialogue contient également une clé de récupération que vous devriez copier et enregistrer à un emplacement sûr. Cette clé est utilisée pour récupérer vos données si l’appareil ne peut pas démarrer.
 
-        ![Page de « Paramètres de Cloud » de l’interface utilisateur web locale mise à jour](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
+        ![Page « Paramètres cloud » de l’interface utilisateur web locale mise à jour](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. Vous devrez peut-être attendre plusieurs minutes après que la mise à jour est effectuée avec succès. Les mises à jour de page pour indiquer que l’appareil est activé avec succès.
+    4. Vous devrez peut-être attendre plusieurs minutes après l’exécution de la mise à jour. La page se met à jour pour indiquer que l’appareil a bien été activé.
 
-        ![Page de « Paramètres de Cloud » de l’interface utilisateur web locale mise à jour](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
+        ![Page « Paramètres cloud » de l’interface utilisateur web locale mise à jour](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 La configuration de l’appareil est terminée. Vous pouvez maintenant ajouter des partages sur votre appareil.
 

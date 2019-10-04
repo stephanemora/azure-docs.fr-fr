@@ -1,19 +1,19 @@
 ---
-title: Optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL
-description: Cet article explique comment vous pouvez optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL.
+title: Optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL – Serveur unique
+description: Cet article explique comment vous pouvez optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL – Serveur unique
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2018
-ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 5/6/2019
+ms.openlocfilehash: 7425ee7916fd71625f336a7af35f6481d1ed2474
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65068963"
 ---
-# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>Optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL 
+# <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL – Serveur unique
 Cet article décrit la procédure d’optimisation d’une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL.
 
 ## <a name="use-pgstatsstatements"></a>Utiliser pg_stats_statements

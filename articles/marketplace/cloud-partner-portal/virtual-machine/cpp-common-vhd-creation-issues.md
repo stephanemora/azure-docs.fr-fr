@@ -1,25 +1,19 @@
 ---
-title: Problèmes courants lors de la création d’un disque dur virtuel (FAQ) pour Azure Marketplace | Microsoft Docs
+title: Problèmes courants lors de la création d’un disque dur virtuel (FAQ) pour la Place de marché Azure
 description: Forum aux questions sur la création d’un disque dur virtuel (VHD) et les problèmes associés.
 services: Azure Marketplace
-documentationcenter: ''
 author: HannibalSII
-manager: Patrick.Butler
-editor: ''
-ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
 ms.service: marketplace
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: Azure
-ms.workload: na
 ms.date: 10/02/2018
-ms.author: hascipio; v-divte; v-miclar
-ms.openlocfilehash: 381f88c4641417bceca0f988d4b1a187aedaa642
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.author: hascipio
+ms.reviewer: v-divte; v-miclar
+ms.openlocfilehash: bb7e62138dbefdd8ff4933ef10602986a5da2bf6
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327304"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67874994"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Problèmes courants lors de la création d’un disque dur virtuel (FAQ)
 

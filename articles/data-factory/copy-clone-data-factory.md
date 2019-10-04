@@ -5,18 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/09/2019
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+ms.openlocfilehash: 6e23cc583c9b403619ad2e47f2085ef7c0149bd2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575611"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142364"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copier ou cloner une fabrique de données dans Azure Data Factory
 
@@ -36,7 +36,7 @@ Voici quelques-uns des cas dans lesquels il peut être utile de copier ou cloner
 
 1. Comme condition préalable, vous devez créer votre fabrique de données cible à partir du portail Azure.
 
-1. Si vous avez un SelfHosted IntegrationRuntime dans votre fabrique de source, vous devez précréer il portant le même nom dans la fabrique de cible. Si vous souhaitez partager l’IRs auto-hébergées entre des fabriques différentes, vous pouvez utiliser le modèle publié [ici](author-visually.md#best-practices-for-git-integration).
+1. Si vous avez un runtime d’intégration auto-hébergé dans votre fabrique source, vous devez le précréer avec le même nom dans la fabrique cible. Si vous souhaitez que différentes fabriques partagent le runtime d’intégration auto-hébergé, vous pouvez utiliser le modèle publié [ici](source-control.md#best-practices-for-git-integration).
 
 1. Si vous êtes en mode GIT, chaque fois que vous publiez à partir du portail, le modèle Resource Manager de la fabrique est enregistré dans la branche adf_publish du référentiel GIT.
 

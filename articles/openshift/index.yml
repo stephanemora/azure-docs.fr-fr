@@ -1,0 +1,40 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Red Hat OpenShift Service
+metadata:
+  document_id: null
+  title: 'Documentation Azure Red Hat OpenShift Service - Tutoriels, informations de référence sur l’API | Microsoft Docs'
+  meta.description: Microsoft Azure Red Hat OpenShift allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use Azure Red Hat OpenShift with these tutorials and how-to guides.
+  services: container-service
+  author: tylermsft
+  manager: jeconnoc
+  ms.service: container-service
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  ms.date: 05-06-2019
+  ms.author: twhitney
+abstract:
+  description: 'Azure Red Hat OpenShift fournit des clusters Kubernetes monolocataires à haute disponibilité sur Azure, pris en charge par Red Hat et Microsoft.'
+sections:
+  - title: Didacticiels pas à pas
+    items:
+      - type: paragraph
+        text: Découvrez comment créer et gérer un cluster Azure Red Hat OpenShift.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/openshift/tutorial-create-cluster">Créer un cluster Azure Red Hat OpenShift</a>
+          - html: <a href="/azure/openshift/tutorial-scale-cluster">Mettre à l’échelle un cluster Azure Red Hat OpenShift</a>
+          - html: <a href="/azure/openshift/tutorial-delete-cluster">Supprimer un cluster Azure Red Hat OpenShift</a>
+  - title: Informations de référence
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Ligne de commande
+            html: <p><a href="/cli/azure/openshift">Interface de ligne de commande Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/openshift">API REST</a></p>
+          - title: Documentation Red Hat
+            html: '<p><a href="https://docs.openshift.com/aro/welcome/index.html">Documentation Red Hat OpenShift</a></p>'

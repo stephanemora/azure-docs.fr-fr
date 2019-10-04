@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: 4c4ac9489b9613b2eeaf26a3df9f4cbc664a1026
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849609"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60730688"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transférer des jeux de données volumineux avec une bande passante réseau faible ou aucune bande passante réseau
  
@@ -51,8 +51,8 @@ Le tableau suivant résume les différences entre les principales fonctionnalit�
 |    Type de données                        |    Objets blob Azure                  |    Objets blob Azure<br>Azure Files                    |    Objets blob Azure<br>Azure Files            |    Objets blob Azure<br>Azure Files          |
 |    Facteur de forme                      |    5 disques SSD par commande             |    1 x appareil de 50 lb de taille bureau par commande    |    1 x gros appareil d’environ 500 lb par commande    |    Jusqu’à 10 disques HDD/SSD par commande        |
 |    Temps d’installation initial               |    Faible <br>(15 minutes)            |    Faible à modéré <br> (< 30 minutes)               |    Modéré<br>(1 à 2 heures)               |    Modéré à difficile<br>(variable) |
-|    Envoyer des données vers Azure               |    Oui                          |    OUI                                           |    OUI                                   |    Oui                                 |
-|    Exporter des données à partir d’Azure           |    Non                            |    Non                                             |    Non                                     |    Oui                                 |
+|    Envoyer des données vers Azure               |    OUI                          |    OUI                                           |    OUI                                   |    OUI                                 |
+|    Exporter des données à partir d’Azure           |    Non                           |    Non                                            |    Non                                    |    OUI                                 |
 |    Chiffrement                       |    AES 128 bits                  |    AES 256 bits                                   |    AES 256 bits                           |    AES 128 bits                         |
 |    Matériel                         |     Fourni par Microsoft          |    Fourni par Microsoft                            |    Fourni par Microsoft                    |    Fourni par le client                   |
 |    interface réseau                |    USB 3.1/SATA                 |    RJ45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |

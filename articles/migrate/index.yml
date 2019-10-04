@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentation Azure Migrate
 metadata:
-  title: Documentation Azure Migrate - Didacticiels, référence sur les API | Microsoft Docs
+  title: "Documentation Azure Migrate\_- Didacticiels, référence sur les API\_| Microsoft\_Docs"
   description: Découvrez comment évaluer des machines locales pour la migration vers Azure
   services: migration-planner
   author: rayne-wiselman
@@ -13,20 +13,31 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: raynew
-  ms.openlocfilehash: 64e5293473dd9b5d4b55088e447a5ec3a289372d
-  ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/27/2017
-  ms.locfileid: "25927116"
 abstract:
-  description: Azure Migrate vous aide à découvrir et à évaluer l’adéquation des machines locales pour la migration vers Azure et fournit des estimations en matière de dimensionnement et de coût pour l’exécution de machines virtuelles Azure.
+  description: 'Azure Migrate vous aide à migrer vers le cloud Azure. Azure Migrate offre un hub central pour suivre la découverte, l’évaluation et la migration des charges de travail locales et des machines virtuelles cloud. Le hub fournit des outils Azure Migrate pour l’évaluation et la migration, ainsi que des outils intégrés d’éditeurs de logiciels indépendants (ISV).'
 sections:
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Découvrez comment évaluer les machines virtuelles VMware pour la migration vers Azure
-  - type: list
-    style: unordered
+  - title: Didacticiels pas à pas
     items:
-    - html: <a href="tutorial-assessment-vmware">Découvrir et évaluer des machines virtuelles VMware locales</a>
+      - type: paragraph
+        text: Découvrir comment évaluer et migrer des machines virtuelles VMware vers Azure
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-vmware">Préparer des machines virtuelles VMware à l’évaluation et la migration vers Azure</a>
+          - html: <a href="tutorial-assess-vmware">Évaluer les machines virtuelles VMware pour les migrer vers Azure</a>
+          - html: <a href="tutorial-migrate-vmware">Migrer des machines virtuelles VMware vers Azure avec une migration sans agent</a>
+          - html: <a href="tutorial-migrate-vmware-agent">Migrer des machines virtuelles VMware vers Azure avec une migration basée sur agent</a>
+      - type: paragraph
+        text: Découvrir comment évaluer et migrer des machines virtuelles Hyper-V vers Azure
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-hyper-v">Préparer des machines virtuelles Hyper-V à l’évaluation et la migration vers Azure</a>
+          - html: <a href="tutorial-assess-hyper-v">Évaluer les machines virtuelles Hyper-V pour les migrer vers Azure</a>
+          - html: <a href="tutorial-migrate-hyper-v">Migrer des machines virtuelles Hyper-V vers Azure</a>
+      - type: paragraph
+        text: 'Découvrir comment migrer des serveurs physiques, des machines virtualisées et des machines virtuelles cloud vers Azure'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-migrate-physical-virtual-machines">Migrer des serveurs physiques ou virtualisés vers Azure</a>

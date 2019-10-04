@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 6f35bf82e1c3275772bc9f5ccdcaceed024bd7d9
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426271"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967787"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -56,22 +56,7 @@ ms.locfileid: "59426271"
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                           </li>
                                         </ul>
                                     </li>
                                     <li>
@@ -79,12 +64,18 @@ ms.locfileid: "59426271"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
+                                                        <h3>Nouveautés</h3>
+                                                        <p>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Supervision sans code pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure</a><br>
+                                                            <a href="./app/kubernetes.md">Superviser les applications Kubernetes</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">Status Monitor v2 pour applications IIS</a><br>
+                                                        </p>
+                                                        <br><br>
                                                         <h3>Démarrages rapides</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
                                                             <a href="./learn/nodejs-quick-start.md">Node.JS</a><br>
-                                                            <a href="./learn/java-quick-start.md">Java</a><br>
                                                             <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
                                                             <a href="./app/website-monitoring.md">Supervision côté navigateur/client</a>
                                                         </p>
@@ -119,7 +110,7 @@ ms.locfileid: "59426271"
                                                             <a href="./app/proactive-arm-config.md">Gérer la détection intelligente à l'aide de modèles</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3>Référence</h3>
+                                                        <h3>Informations de référence</h3>
                                                         <p>
                                                             <a href="./app/auto-collect-dependencies.md">Collecte automatique de dépendance</a><br>
                                                             <a href="./app/correlation.md">Corrélation des données de télémétrie</a><br>
@@ -155,6 +146,7 @@ ms.locfileid: "59426271"
                                                             <a href="./app/asp-net.md">Configuration de surveillance approfondie</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">Status Monitor</a> (Status Monitor)<br>
                                                             <a href="./app/azure-web-apps.md">Supervision d'App Service</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Supervision des machines virtuelles et des groupes de machines virtuelles identiques</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Mesures et événements personnalisés</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Référentiel GitHub du SDK Java open source</a>
                                                         </p>

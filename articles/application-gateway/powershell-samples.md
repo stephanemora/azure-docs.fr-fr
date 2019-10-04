@@ -1,33 +1,26 @@
 ---
-title: Exemples PowerShell Azure Application Gateway | Microsoft Docs
-description: Exemples PowerShell Azure Application Gateway
+title: Exemples Azure PowerShell pour Azure Application Gateway
+description: Exemples Azure PowerShell pour Azure Application Gateway
 services: application-gateway
-documentationcenter: networking
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 01/29/2018
+ms.topic: sample
+ms.date: 08/07/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 54505f108757fc67b07e44ef3b603bc353b9aec5
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 2fb809026e8b604ddf25a8160774972eae99411a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200652"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824347"
 ---
-# <a name="azure-application-gateway-powershell-samples"></a>Exemples PowerShell Azure Application Gateway
+# <a name="azure-powershell-examples-for-azure-application-gateway"></a>Exemples Azure PowerShell pour Azure Application Gateway
 
-Le tableau suivant contient des liens vers des exemples de scripts Azure PowerShell qui créent des passerelles d’application.
+Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerShell pour Azure Application Gateway.
 
 | | |
 |---|---|
 | [Gérer le trafic web](./scripts/create-vmss-powershell.md) | Crée une passerelle d’application et toutes les ressources associées.|
 | [Limiter le trafic web](./scripts/create-vmss-waf-powershell.md) | Crée une passerelle d’application qui restreint le trafic à l’aide de règles OWASP.|
+|[Règles personnalisées WAF v2](scripts/waf-custom-rules-powershell.md)|Crée un pare-feu d’applications web v2 Application Gateway avec des règles personnalisées.
 | | |
-

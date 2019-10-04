@@ -9,13 +9,13 @@ ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305143"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176948"
 ---
-Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Sélectionnez la référence SKU qui répond à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service. Pour la passerelle de réseau virtuel références (SKU) dans les Zones de disponibilité Azure, consultez [SKU de passerelle de Zones de disponibilité Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
+Lorsque vous créez une passerelle de réseau virtuel, vous devez spécifier la référence SKU de passerelle que vous voulez utiliser. Sélectionnez la référence SKU qui répond à vos besoins en fonction des types de charges de travail, des débits, des fonctionnalités et des contrats de niveau de service. Pour les références SKU de passerelle réseau virtuel dans des zones de disponibilité Azure, consultez [Références SKU de passerelle pour les zones de disponibilité Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>Références SKU de passerelle par tunnel, connexion et débit
 
@@ -29,7 +29,7 @@ Les nouvelles références SKU de passerelle VPN rationalisent les ensembles de 
 
 | **Référence (SKU)**| **Caractéristiques**|
 | ---    | ---         |
-|**De base** (\*\*)   | **VPN basé sur itinéraires**: 10 tunnels S2S/connexions ; Aucune authentification RADIUS pour P2S ; Aucune IKEv2 pour P2S<br>**VPN basée sur des stratégies**: (IKEv1) : 1 tunnel S2S/connexion ; Aucun P2S|
+|**De base** (\*\*)   | **VPN basé sur le routage** : 10 tunnels avec S2S/connexions ; aucune authentification RADIUS pour P2S ; aucune IKEV2 pour P2S<br>**VPN basé sur des stratégies** : (IKEv1) : 1 tunnel avec S2S/connexion ; aucun P2S|
 | **VpnGw1, VpnGw2 et VpnGw3** | **VPN basés sur le routage** : jusqu’à 30 itinéraires (*), P2S, BGP, actif/passif, stratégie IPsec/IKE personnalisée, coexistence ExpressRoute/VPN |
 |        |             |
 

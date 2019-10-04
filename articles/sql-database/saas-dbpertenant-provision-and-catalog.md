@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: b5a996fe6be5aa839b78b6693accac9b1000cef8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096824"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570420"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment approvisionner de nouveaux locataires et les inscrire dans le catalogue
 
@@ -46,7 +45,7 @@ Le catalogue permet de modifier le nom ou l’emplacement de la base de données
 
 Le catalogue peut aussi stocker d’autres métadonnées de locataire ou de base de données, telles que la version du schéma, le plan de service ou les contrats de niveau de service (SLA) proposés aux locataires. Il peut également stocker d’autres informations sur la gestion des applications, le support client ou DevOps. 
 
-Au-delà de l’application SaaS, le catalogue permet d’accéder à des outils de base de données. Dans l’exemple de base de données par locataire SaaS Wingtip Tickets, le catalogue est utilisé pour activer des requêtes entre locataires, qui sont expliquée dans le [didacticiel sur les rapports Ad hoc](saas-tenancy-cross-tenant-reporting.md). La gestion des tâches entre différentes bases de données est expliquée dans le tutoriel sur la [gestion des schémas](saas-tenancy-schema-management.md) et le tutoriel sur [l’analyse des données locataires](saas-tenancy-tenant-analytics.md). 
+Au-delà de l’application SaaS, le catalogue permet d’accéder à des outils de base de données. Dans l’exemple d’application SaaS Wingtip Tickets où chaque locataire dispose de sa propre base de données, le catalogue est utilisé pour permettre les requêtes entre locataires, comme l’explique le [tutoriel sur la création de rapports ad hoc](saas-tenancy-cross-tenant-reporting.md). La gestion des tâches entre différentes bases de données est expliquée dans le tutoriel sur la [gestion des schémas](saas-tenancy-schema-management.md) et le tutoriel sur [l’analyse des données locataires](saas-tenancy-tenant-analytics.md). 
 
 Dans les exemples d’applications SaaS Wingtip Tickets, le catalogue est implémenté à l’aide des fonctionnalités de gestion des partitions de la [bibliothèque EDCL (Elastic Database Client Library)](sql-database-elastic-database-client-library.md). La bibliothèque EDCL est disponible dans Java et dans le .NET Framework. La bibliothèque EDCL permet à une application de créer, gérer et utiliser une carte de partitions reposant sur des bases de données. 
 
@@ -84,7 +83,7 @@ Pour comprendre comment l’application Wingtip Tickets implémente le provision
    * **$VenueType** = un des types de lieux prédéfinis : _blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer_.
    * **$DemoScenario** = **1**, *Provisionner un seul locataire*.
 
-2. Pour ajouter un point d’arrêt, placez votre curseur n’importe où sur la ligne qui indique *New-Tenant `*. Ensuite, appuyez sur F9.
+2. Pour ajouter un point d’arrêt, placez votre curseur n’importe où sur la ligne qui indique *New-Tenant `* . Ensuite, appuyez sur F9.
 
    ![Point d’arrêt](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 

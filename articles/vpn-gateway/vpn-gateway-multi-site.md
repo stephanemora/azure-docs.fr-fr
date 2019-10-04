@@ -1,5 +1,5 @@
 ---
-title: 'Connecter un réseau virtuel à plusieurs sites à l’aide de la passerelle VPN et PowerShell : Classic | Microsoft Docs'
+title: 'Connecter un réseau virtuel à plusieurs sites à l’aide d’une passerelle VPN et de PowerShell : Classic | Microsoft Docs'
 description: Connectez plusieurs sites locaux à un réseau virtuel classique à l’aide d’une passerelle VPN.
 services: vpn-gateway
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
 ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994028"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60836080"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante (Classic)
 
@@ -75,8 +75,8 @@ Si vous avez déjà un VPN de site à site avec une passerelle de routage dynami
 2. Configurez votre nouvelle passerelle et créez votre tunnel VPN. Pour obtenir des instructions, consultez [Spécifier la référence et le type de VPN](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Veillez à spécifier « Dynamique » comme type de routage.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Si vous n’avez pas de réseau virtuel de site à site :
-1. Créer votre réseau virtuel de Site à Site à l’aide de ces instructions : [Créer un réseau virtuel avec une connexion VPN de Site à Site](vpn-gateway-site-to-site-create.md).  
-2. Configurer une passerelle de routage dynamique à l’aide de ces instructions : [Configurer une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
+1. Créez votre réseau virtuel de site à site à l’aide des instructions suivantes : [Créer un réseau virtuel avec une connexion VPN de site à site](vpn-gateway-site-to-site-create.md).  
+2. Configurez une passerelle de routage dynamique à l’aide des instructions suivantes : [Configurer une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
 
 ## <a name="export"></a>2. Exporter le fichier de configuration réseau
 Exportez votre fichier de configuration réseau Azure en exécutant la commande suivante. Vous pouvez modifier l’emplacement d’exportation du fichier si nécessaire.
@@ -163,7 +163,7 @@ Importez le fichier de configuration réseau. Lorsque vous importez ce fichier a
 ## <a name="6-download-keys"></a>6. Télécharger les clés
 Une fois les tunnels ajoutés, utilisez la cmdlet PowerShell Get-AzureVNetGatewayKey pour obtenir les clés prépartagées IPsec/IKE de chaque tunnel.
 
-Par exemple : 
+Par exemple :
 
 ```powershell
 Get-AzureVNetGatewayKey –VNetName "VNet1" –LocalNetworkSiteName "Site1"

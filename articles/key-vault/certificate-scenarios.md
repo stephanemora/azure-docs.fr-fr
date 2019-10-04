@@ -2,23 +2,19 @@
 title: Prise en main des certificats Key Vault
 description: Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
-ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 338619a13ec3f5fcd0d4fd62cf387f955c556a7c
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275893"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70879304"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
 Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
@@ -44,7 +40,6 @@ Les certificats sont composés de trois ressources reliées entre elles en tant 
     Les autorités de certification suivantes sont les fournisseurs actuels associés à Key Vault :  
     -   DigiCert : Key Vault propose des certificats SSL OV avec DigiCert.  
     -   GlobalSign : Key Vault propose des certificats SSL OV avec GlobalSign.  
-    -   WoSign : Key Vault propose des certificats SSL OV ou EV avec WoSign en fonction du paramètre configuré par le client dans son compte WoSign sur le portail WoSign.  
 
 **Étape 2** : un administrateur de compte d’un fournisseur d’autorité de certification crée des informations d’identification à utiliser par Key Vault pour inscrire, renouveler et utiliser des certificats SSL via Key Vault.
 
@@ -102,16 +97,16 @@ Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opéra
 
 -   L’utilisateur peut également modifier la stratégie qui est fonctionnelle au moment de l’importation, mais qui contient des erreurs, car aucune information n’a été spécifiée lors de l’importation. P. Aucune information sur l’émetteur.  
 
-### <a name="formats-of-import-we-support"></a>Formats d’importation, nous prenons en charge
-Nous prenons en charge le type suivant de l’importation pour le format de fichier PEM. Un seul certificat PEM encodé avec un PKCS #8 codé, une clé non chiffrée qui possède les éléments suivants
+### <a name="formats-of-import-we-support"></a>Formats d’importation que nous prenons en charge
+Nous prenons en charge le type d’importation suivant pour le format de fichier PEM. Un seul certificat encodé en PEM avec une clé non chiffrée encodée en PKCS #8, avec les éléments suivants
 
----BEGIN CERTIFICATE------END CERTIFICATE---
+-----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
----BEGIN PRIVATE KEY------END PRIVATE KEY---
+-----BEGIN PRIVATE KEY----- -----END PRIVATE KEY-----
 
-Fusion de certificat, nous prenons en charge 2 formats PEM en fonction. Vous pouvez soit fusionner un certificat codé en PKCS #8 unique ou un fichier de P7B en Base64. ---BEGIN CERTIFICATE------END CERTIFICATE---
+Pour la fusion de certificat, nous prenons en charge 2 formats PEM. Vous pouvez fusionner un seul certificat encodé en PKCS #8 ou un fichier P7B encodé en Base64. -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
-Nous n’actuellement en charge les clés EC au format PEM.
+Pour l’instant, nous ne prenons pas en charge les clés EC au format PEM.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Création d’un certificat auprès d’une autorité de certification non associée à Key Vault  
  Cette méthode permet d’avoir recours à d’autres autorités de certification que les fournisseurs associés à Key Vault. Autrement dit, votre organisation peut utiliser une autorité de certification de son choix.  

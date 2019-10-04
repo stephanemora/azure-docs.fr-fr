@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 677a9d02493bf5fac1bfcbe8c40ce9efe2040be9
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884718"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537745"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Déploiement de plusieurs exécutables invités
 Cet article montre comment empaqueter et déployer plusieurs exécutables sur Azure Service Fabric. Pour créer et déployer un package Service Fabric, lisez l’article [Déploiement d’un exécutable invité dans Service Fabric](service-fabric-deploy-existing-app.md).
@@ -33,7 +33,7 @@ Vous pouvez utiliser Visual Studio pour générer le package d’application qui
 * [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Empaqueter manuellement l’application exécutable invitée multiple
-Vous pouvez également empaqueter manuellement l’exécutable invité. Pour l’empaquetage manuel, cet article utilise l’outil d’empaquetage Service Fabric, disponible à l’adresse [https://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool).
+Vous pouvez également empaqueter manuellement l’exécutable invité. Pour en savoir plus, voir [Empaqueter et déployer manuellement un exécutable existant](service-fabric-deploy-existing-app.md#manually-package-and-deploy-an-existing-executable).
 
 ### <a name="packaging-the-nodejs-application"></a>Empaquetage de l'application Node.js
 Cet article part du principe que Node.js n’est pas installé sur les nœuds du cluster Service Fabric. Par conséquent, vous devez ajouter Node.exe dans le répertoire racine de votre application de nœud avant l’empaquetage. La structure de répertoires de l’application Node.js (avec la structure web Express et le moteur de création de modèles Jade) doit ressembler à ce qui suit :
@@ -204,10 +204,9 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Une fois que l’application est publiée dans le cluster local, vous pouvez accéder à l’application Node.js sur le port que nous avons entré dans le manifeste de service de l’application Node.js, par exemple http :\//localhost:3000.
+Une fois que l’application est publiée dans le cluster local, vous pouvez accéder à l’application Node.js sur le port entré dans le manifeste de service de l’application Node.js, par exemple http:\//localhost:3000.
 
 Dans ce didacticiel, vous avez vu comment empaqueter facilement deux applications existantes en une application Service Fabric. Vous avez également découvert comment la déployer dans Service Fabric pour qu’elle tire parti de certaines fonctionnalités de Service Fabric, telles que la haute disponibilité et l’intégration du système de contrôle d’intégrité.
-
 
 ## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Ajout de plusieurs exécutables invités à une application existante à l’aide de Yeoman sous Linux
 

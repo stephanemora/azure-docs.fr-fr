@@ -4,28 +4,27 @@ description: Établir une haute disponibilité pour SAP HANA sur Azure (grandes 
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 0f23fe2aa17934b967e7aecf41687cc555b9552c
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525464"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71212531"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuration de la haute disponibilité dans SUSE à l’aide de STONITH
 Ce document fournit les instructions détaillées étape par étape pour configurer la haute disponibilité sur le système d’exploitation SUSE à l’aide de l’appareil STONITH.
 
 **Clause d’exclusion de responsabilité :** *Ce guide provient de tests de configuration dans l’environnement des grandes instances Microsoft HANA, dont les résultats ont été satisfaisants. Comme l’équipe de gestion des services Microsoft pour les grandes instances HANA ne prend pas en charge le système d’exploitation, vous devrez peut-être contacter SUSE pour toute résolution de problème ou clarification sur la couche système d’exploitation. L’équipe de gestion des services Microsoft configure bel et bien le périphérique STONITH et prend complètement en charge pour vous aider à résoudre les problèmes liés à ce dernier.*
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Pour configurer la haute disponibilité à l’aide du clustering SUSE, les prérequis suivants doivent être respectés.
 ### <a name="pre-requisites"></a>Conditions préalables
 - Les grandes instances HANA sont approvisionnées.
@@ -258,7 +257,7 @@ Exécutez la commande *crm_mon* pour vérifier que **les deux** nœuds sont en l
 ```
 crm_mon
 ```
-![CRM-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) vous pouvez également vous connecter à hawk pour vérifier l’état du cluster *https://\<nœud IP > : 7630*. L’utilisateur par défaut est hacluster et le mot de passe est linux. Si nécessaire, vous pouvez modifier le mot de passe à l’aide de la commande *passwd*.
+![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) Vous pouvez également vous connecter à hawk pour vérifier l’état du cluster *https://\<IP du nœud>:7630*. L’utilisateur par défaut est hacluster et le mot de passe est linux. Si nécessaire, vous pouvez modifier le mot de passe à l’aide de la commande *passwd*.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Configurer les propriétés et ressources du cluster 
 Cette section décrit les étapes permettant de configurer les ressources du cluster.
@@ -323,7 +322,7 @@ crm configure load update crm-vip.txt
 Quand vous exécutez la commande *crm_mon*, vous pouvez voir les deux ressources ici.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-En outre, vous pouvez voir l’état à *https://\<adresse IP du nœud > : 7630/cib/live/state*
+De plus, vous pouvez voir l’état à l’adresse *https://\<adresse IP du nœud>:7630/cib/live/state*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
@@ -334,11 +333,12 @@ Service pacemaker stop
 ```
 Maintenant, arrêtez le service Pacemaker sur **node2** et le basculement des ressources sur **node1**.
 
-**Avant le basculement**
-![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)
-**Après le basculement**
-![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)
-![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)
+**Avant le basculement**  
+![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+
+**Après le basculement**  
+![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## <a name="9-troubleshooting"></a>9. Résolution de problèmes

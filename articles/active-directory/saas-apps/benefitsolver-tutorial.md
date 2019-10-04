@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Benefitsolver | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Benefitsolver | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Benefitsolver.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39b285dd81347cb9ea031bfab168e372d4537f39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: deb4ad1e5295600f32b243472c6b2332713bcc4b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855705"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106295"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Tutoriel : Intégration d’Azure Active Directory à Benefitsolver
+# <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Didacticiel : Intégration d’Azure Active Directory à Benefitsolver
 
 Dans ce didacticiel, vous allez apprendre à intégrer Benefitsolver à Azure Active Directory (Azure AD).
 L’intégration de Benefitsolver à Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Benefitsolver avec Azure AD, vous devez ajou
 
 **Pour ajouter Benefitsolver à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -185,7 +185,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: b8ca320b802ea81604aab08ee3aeb39df5781afd
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: a00ec77148433d64f2980b1bb47d753d70a5ec20
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630023"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859019"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST Visage et de Python
 
@@ -43,7 +43,7 @@ Vous pouvez également exécuter ce guide de démarrage rapide à partir de la l
 1. Copiez le code ci-après dans un éditeur de texte.
 1. Modifiez le code comme ci-dessous :
     1. Remplacez la valeur de `subscription_key` par votre clé d’abonnement.
-    1. Si nécessaire, remplacez la valeur de `face_api_url` par l’URL du point de terminaison de la ressource API Visage à partir de la région Azure dans laquelle vous avez obtenu vos clés d’abonnement.
+    1. Modifiez la valeur de `face_api_url` pour inclure l’URL du point de terminaison de votre ressource API visage.
     1. Le cas échéant, remplacez la valeur de `image_url` par l’URL d’une image différente que vous souhaitez analyser.
 1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `detect-face.py`.
 1. Ouvrir une fenêtre d’invite de commandes.
@@ -51,23 +51,27 @@ Vous pouvez également exécuter ce guide de démarrage rapide à partir de la l
 
 ```python
 import requests
+import json
 
+# set to your own subscription key value
 subscription_key = None
 assert subscription_key
 
-face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
+# replace <My Endpoint String> with the string from your endpoint URL
+face_api_url = 'https://<My Endpoint String>.com/face/v1.0/detect'
 
 image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
 
-headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
-    
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+
 params = {
     'returnFaceId': 'true',
     'returnFaceLandmarks': 'false',
     'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
 }
 
-response = requests.post(face_api_url, params=params, headers=headers, json={"url": image_url})
+response = requests.post(face_api_url, params=params,
+                         headers=headers, json={"url": image_url})
 print(json.dumps(response.json()))
 ```
 

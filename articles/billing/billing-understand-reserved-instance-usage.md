@@ -1,27 +1,24 @@
 ---
-title: Comprendre l’utilisation de réservations Azure pour l’abonnement de paiement à l’utilisation | Microsoft Docs
-description: Découvrez comment analyser votre utilisation pour comprendre l’application de la réservation Azure à votre abonnement avec paiement à l’utilisation.
-services: billing
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+title: Utilisation d’une réservation Azure pour un abonnement individuel avec tarifs de paiement à l’utilisation
+description: Découvrez comment analyser votre utilisation pour comprendre l’application de la réservation Azure à votre abonnement individuel avec tarifs de paiement à l’utilisation.
+author: bandersmsft
+manager: yashr
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: f16fabf86cebc41f8d057f5bfab2e0d776d73395
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652533"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709440"
 ---
-# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation
+# <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Comprendre l’utilisation d’une réservation Azure pour votre abonnement individuel avec tarifs de paiement à l’utilisation
 
 Pour évaluer l’utilisation d’une réservation, utilisez la [page Réservation](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) et le fichier d’utilisation du [portail Comptes Azure](https://account.azure.com).
 
@@ -44,7 +41,7 @@ La partie matérielle de la machine virtuelle est traitée, car la machine virtu
 
 ### <a name="statement-section-of-csv-file-for-vms"></a>Section des relevés du fichier CSV pour les machines virtuelles
 
-Cette section de votre fichier CSV montre l’utilisation totale de votre réservation. Appliquez le filtre au champ **Sous-catégorie de compteur** contenant **Réservation-**. Vous devez voir quelque chose de similaire à la capture d’écran suivante :
+Cette section de votre fichier CSV montre l’utilisation totale de votre réservation. Appliquez le filtre au champ **Sous-catégorie de compteur** contenant **Réservation-** . Vous devez voir quelque chose de similaire à la capture d’écran suivante :
 
 ![Capture d’écran des détails et des frais d’utilisation d’une réservation après filtrage](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
@@ -62,7 +59,7 @@ Filtrez les données sur **Informations supplémentaires**, puis tapez votre **I
 4. **L’ID du compteur** correspond à l’ID du compteur pour la réservation. Le coût de ce compteur est de 0 dollar US. Cet ID de compteur est indiqué pour toute machine virtuelle répondant aux critères de la remise de réservation.
 5. Standard_DS1_v2 est une machine virtuelle à processeur virtuel qui est déployée sans Azure Hybrid Benefit. Ce compteur couvre donc les frais supplémentaires des logiciels Windows. Pour trouver le compteur correspondant à la machine virtuelle à 1 cœur de la série D, consultez [Coûts des logiciels Windows dans les instances de machine virtuelle réservées](billing-reserved-instance-windows-software-costs.md). Si vous avez Azure Hybrid Benefit, ce coût supplémentaire n’est pas appliqué.
 
-## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilisation pour les réservations de capacité réservée SQL Database et Cosmos DB
+## <a name="usage-for-sql-database--cosmos-db-reservations"></a>Utilisation pour les réservations SQL Database et Cosmos DB
 
 Les sections suivantes utilisent Azure SQL Database comme exemple pour décrire le rapport d’utilisation. Vous pouvez utiliser les mêmes étapes pour obtenir l’utilisation pour Azure Cosmos DB.
 
@@ -77,7 +74,7 @@ Supposez que vous exécutez une machine virtuelle SQL Database de 4e génératio
 
 ### <a name="statement-section-of-csv-file"></a>Section des relevés du fichier CSV
 
-Filtrez sur le nom de compteur **Utilisation des instances réservées** et choisissez la **catégorie du compteur** requise : Azure SQL Database ou Azure Cosmos DB. Vous devez voir quelque chose de similaire à la capture d’écran suivante :
+Filtrez sur le nom de compteur **Utilisation des instances réservées** et choisissez la **catégorie du compteur** requise : Azure SQL Database ou Azure Cosmos DB. Vous devez voir quelque chose de similaire à la capture d’écran suivante :
 
 ![Fichier CSV pour la capacité réservée SQL Database](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 

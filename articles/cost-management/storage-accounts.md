@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/18/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: secdec18
-ms.openlocfilehash: f03193253bd8d8a7530d65a552a07d3901887cf5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 91377c41699f01eaf57a085ea82e9d7289549990
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104299"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65969140"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurer des comptes de stockage pour Cloudyn
 
@@ -23,7 +23,7 @@ ms.locfileid: "58104299"
 
 Vous pouvez enregistrer des rapports Cloudyn dans le portail Cloudyn, dans le Stockage Azure ou dans les compartiments de stockage AWS. L’enregistrement de vos rapports sur le portail Cloudyn est gratuit. Toutefois, l’enregistrement de vos rapports sur le stockage de votre fournisseur de services cloud est facultatif et entraîne des coûts supplémentaires. Cet article vous aide à configurer des comptes de stockage Azure et des compartiments de stockage Amazon Web Services (AWS) pour stocker vos rapports.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez disposer d’un compte de stockage Azure ou d’un compartiment de stockage Amazon.
 

@@ -1,38 +1,52 @@
 - name: Azure Service Health
   href: index.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
-    - name: "Qu’est-ce que l’état d’Azure\_?"
+    - name: Service Azure Service Health
+      href: overview.md
+- name: Démarrages rapides
+  items:
+    - name: Configurer des alertes pour des évènements Service Health
+      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md
+- name: Concepts
+  items:
+    - name: Page de l’état Azure
       href: azure-status-overview.md
-    - name: "Qu’est-ce que Service Health\_?"
+    - name: Service Health
       href: service-health-overview.md
-    - name: "Qu’est-ce que Resource Health\_?"
+    - name: Intégrité des ressources
       href: resource-health-overview.md
 - name: Procédure
   items:
     - name: Configurer des alertes pour des évènements Service Health
-      href: ../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-      items:
-        - name: Afficher les notifications Service Health dans le portail Azure
-          href: ../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json
-    - name: Configurer des notifications sur l’état d’intégrité des services avec un webhook
+      href: alerts-activity-log-service-notifications.md
+    - name: Afficher les notifications Service Health dans le portail Azure
+      href: service-notifications.md
+    - name: Envoyer des alertes aux systèmes externes par Webhook
       href: service-health-alert-webhook-guide.md
-      items:
-        - name: Configurer avec ServiceNow
-          href: service-health-alert-webhook-servicenow.md
-        - name: Configurer avec PagerDuty
-          href: service-health-alert-webhook-pagerduty.md
-        - name: Configurer avec OpsGenie
-          href: service-health-alert-webhook-opsgenie.md
-        - name: Récupérer les événements d’intégrité avec REST
-          href: service-health-rest.md
+    - name: Envoyer des alertes à ServiceNow
+      href: service-health-alert-webhook-servicenow.md
+    - name: Envoyer des alertes à PagerDuty
+      href: service-health-alert-webhook-pagerduty.md
+    - name: Envoyer des alertes à OpsGenie
+      href: service-health-alert-webhook-opsgenie.md
+    - name: Récupérer les événements d’intégrité avec REST
+      href: service-health-rest.md
     - name: Configurer des alertes pour des évènements d’intégrité des ressources
       href: resource-health-alert-arm-template-guide.md
+- name: Informations de référence
+  items:
+    - name: Propriétés des notifications Service Health
+      href: service-health-notifications-properties.md
+    - name: Types et contrôles Resource Health
+      href: resource-health-checks-resource-types.md
+    - name: Questions fréquentes (FAQ) sur Resource Health
+      href: resource-health-faq.md
 - name: Ressources
   items:
-    - name: Forum Aux Questions (FAQ)
-      href: resource-health-faq.md
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Types de ressources et contrôles d’intégrité disponibles via Azure Resource Health
-      href: resource-health-checks-resource-types.md
+    - name: Tarification des notifications
+      href: 'https://azure.microsoft.com/pricing/details/monitor/'

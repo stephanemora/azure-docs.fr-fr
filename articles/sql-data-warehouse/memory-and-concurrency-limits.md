@@ -1,21 +1,21 @@
 ---
-title: Limites de mémoire et de concurrence – Azure SQL Data Warehouse | Microsoft Docs
+title: Limites de mémoire et de concurrence dans Azure SQL Data Warehouse | Microsoft Docs
 description: Afficher les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: workload-management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 0a92c032027e772020eda0b626a6dc6db024bf57
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890787"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595573"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de mémoire et de concurrence pour Azure SQL Data Warehouse
 Afficher les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure SQL Data Warehouse. Pour plus d’informations et pour appliquer ces fonctionnalités à votre plan de gestion de la charge de travail, consultez [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). 
@@ -39,10 +39,10 @@ Gen2 fournit 2,5 fois plus de mémoire par requête que Gen1. Cette mémoire sup
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
 | DW2000c           | 4             | 15                             |  1 200                          |
-| DW2500c           | 5.             | 12                             |  1 500                          |
-| DW3000c           | 6.             | 10                             |  1 800                          |
-| DW5000c           | 10            | 6.                              |  3000                          |
-| DW6000c           | 12            | 5.                              |  3600                          |
+| DW2500c           | 5\.             | 12                             |  1 500                          |
+| DW3000c           | 6             | 10                             |  1 800                          |
+| DW5000c           | 10            | 6                              |  3000                          |
+| DW6000c           | 12            | 5\.                              |  3600                          |
 | DW7500c           | 15            | 4                              |  4500                          |
 | DW10000c          | 20            | 3                              |  6000                          |
 | DW15000c          | 30            | 2                              |  9000                          |
@@ -60,17 +60,17 @@ Les niveaux de service pour Gen1 vont de DW100 à DW6000.
 | DW200             | 2             | 30                             |  48                            |
 | DW300             | 3             | 20                             |  72                            |
 | DW400             | 4             | 15                             |  96                            |
-| DW500             | 5.             | 12                             | 120                            |
-| DW600             | 6.             | 10                             | 144                            |
-| DW1000            | 10            | 6.                              | 240                            |
-| DW1200            | 12            | 5.                              | 288                            |
+| DW500             | 5\.             | 12                             | 120                            |
+| DW600             | 6             | 10                             | 144                            |
+| DW1000            | 10            | 6                              | 240                            |
+| DW1200            | 12            | 5\.                              | 288                            |
 | DW1500            | 15            | 4                              | 360                            |
 | DW2000            | 20            | 3                              | 480                            |
 | DW3000            | 30            | 2                              | 720                            |
 | DW6000            | 60            | 1                              | 1 440                           |
 
 ## <a name="concurrency-maximums"></a>Valeurs maximales de concurrence
-Pour s’assurer que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, SQL Data Warehouse suit l’utilisation des ressources en assignant des emplacements de concurrence à chaque requête. Le système place les requêtes dans une file d’attente en fonction de l’importance et les emplacements de concurrence. Requêtes dans la file d’attente jusqu'à ce que suffisamment d’emplacements de concurrence sont disponibles. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) et emplacements de concurrence déterminent la définition des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
+Pour s’assurer que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, SQL Data Warehouse suit l’utilisation des ressources en assignant des emplacements de concurrence à chaque requête. Le système place les requêtes dans une file d’attente en fonction de l’importance et des emplacements de concurrence. Les requêtes attendent dans la file d’attente jusqu’à ce que suffisamment d’emplacements de concurrence soient disponibles. L’[importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) et les emplacements de concurrence déterminent la hiérarchisation des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
 
 ### <a name="gen2"></a>Deuxième génération
  
@@ -109,16 +109,16 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 | Niveau de service | Nombre maximal de requêtes concurrentes | Emplacements de concurrence disponibles | Emplacements utilisés par smallrc | Emplacements utilisés par mediumrc | Emplacements utilisés par largerc | Emplacements utilisés par xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
-| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5.                    |
+| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5\.                    |
 | DW300c        | 12                         |   12                        | 1                     |  1                     |  2                    |   8                    |
 | DW400c        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
 | DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
-| DW1500c       | 32                         |   60                        | 1                     |  6.                     |  13                   |  42                    |
+| DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
 | DW2000c       | 32                         |   80                        | 2                     |  8                     |  17                   |  56                    |
 | DW2500c       | 32                         |  100                        | 3                     | 10                     |  22                   |  70                    |
 | DW3000c       | 32                         |  120                        | 3                     | 12                     |  26                   |  84                    |
-| DW5000c       | 32                         |  200                        | 6.                     | 20                     |  44                   | 140                    |
+| DW5000c       | 32                         |  200                        | 6                     | 20                     |  44                   | 140                    |
 | DW6000c       | 32                         |  240                        | 7                     | 24                     |  52                   | 168                    |
 | DW7500c       | 32                         |  300                        | 9                     | 30                     |  66                   | 210                    |
 | DW10000c      | 32                         |  400                        | 12                    | 40                     |  88                   | 280                    |

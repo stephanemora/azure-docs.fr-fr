@@ -1,25 +1,28 @@
 ---
 title: Guide pratique pour configurer les fonctionnalités multimaîtres dans Azure Cosmos DB
-description: Découvrez comment configurer les fonctionnalités multimaîtres dans vos applications au sein d’Azure Cosmos DB
+description: Découvrez comment configurer les fonctionnalités multimaîtres dans vos applications au sein d’Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 2/12/2019
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: mjbrown
-ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e86cacbd76a70c8b114d65a77ff013d32327a2d0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312138"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093104"
 ---
-# <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Comment configurer les fonctionnalités multimaîtres dans les applications qui utilisent Azure Cosmos DB
+# <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurer les fonctionnalités multimaîtres dans les applications qui utilisent Azure Cosmos DB
 
-Pour utiliser les fonctionnalités multimaîtres dans vos applications, vous devez activer les écritures multirégions et configurer la fonctionnalité de multirésidence. Pour configurer la multirésidence, définissez la région dans laquelle l’application est déployée.
+Une fois qu’un compte a été créé avec plusieurs régions d’écriture activées, vous devez apporter deux modifications à votre application pour que ConnectionPolicy et DocumentClient activent les fonctionnalités multimaîtres et multihébergement dans Azure Cosmos DB. Dans ConnectionPolicy, définissez UseMultipleWriteLocations sur true et passez le nom de la région où l’application est déployée à SetCurrentLocation. Cela remplira la propriété PreferredLocations en fonction de la géo-proximité à partir de l’emplacement transmis. Si une nouvelle région est ultérieurement ajoutée au compte, l’application n’aura pas à être mise à jour ou redéployée ; elle détectera automatiquement la région la plus proche et se repliera automatiquement dessus en cas d’événement régional.
+
+> [!Note]
+> Les comptes Cosmos initialement configurés avec une seule région d’écriture peuvent être configurés pour plusieurs régions d’écriture (c’est-à-dire multimaîtres) avec un temps de non-disponibilité égal à zéro. Pour en savoir plus, consultez [Configurer plusieurs régions d’écriture](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>Kit SDK .NET v2
 
-Pour activer les fonctionnalités multimaîtres dans vos applications, affectez la valeur true à `UseMultipleWriteLocations`, puis configurez `SetCurrentLocation` en fonction de la région dans laquelle l’application est déployée et Azure Cosmos DB est répliqué.
+Pour configurer la fonctionnalité multimaître dans votre application, définissez `UseMultipleWriteLocations` sur `true`. Définissez également `SetCurrentLocation` en fonction de la région sur laquelle l’application est déployée et où Azure Cosmos DB est répliquée :
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -31,19 +34,30 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a id="netv3"></a>Kit SDK .NET v3 (préversion)
+## <a id="netv3"></a>Kit SDK .NET v3
 
-Pour activer les fonctionnalités multimaîtres dans vos applications, configurez `UseCurrentRegion` en fonction de la région sur laquelle l’application est déployée et Cosmos DB répliquée.
+Pour activer la fonctionnalité multimaître dans votre application, définissez `ApplicationRegion` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée :
 
 ```csharp
-CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
-config.UseCurrentRegion("West US");
-CosmosClient client = new CosmosClient(config);
+CosmosClient cosmosClient = new CosmosClient(
+    "<connection-string-from-portal>", 
+    new CosmosClientOptions()
+    {
+        ApplicationRegion = Regions.WestUS2,
+    });
+```
+
+Si vous le souhaitez, vous pouvez utiliser `CosmosClientBuilder` et `WithApplicationRegion` pour obtenir le même résultat :
+
+```csharp
+CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-string-from-portal>")
+            .WithApplicationRegion(Regions.WestUS2);
+CosmosClient client = cosmosClientBuilder.Build();
 ```
 
 ## <a id="java"></a>Kit SDK Java Async
 
-Pour activer les fonctionnalités multimaîtres dans vos applications, affectez la valeur true à `policy.setUsingMultipleWriteLocations(true)`, puis configurez `policy.setPreferredLocations` en fonction de la région sur laquelle l’application est déployée et Cosmos DB répliquée.
+Pour activer la fonctionnalité multimaître dans votre application, définissez `policy.setUsingMultipleWriteLocations(true)` et `policy.setPreferredLocations` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée :
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -58,9 +72,9 @@ AsyncDocumentClient client =
         .withConnectionPolicy(policy).build();
 ```
 
-## <a id="javascript"></a>Kit SDK Node.js, JavaScript et TypeScript
+## <a id="javascript"></a>Kits SDK Node.js, JavaScript et TypeScript
 
-Pour activer les fonctionnalités multimaîtres dans vos applications, affectez la valeur true à `connectionPolicy.UseMultipleWriteLocations`, puis configurez `connectionPolicy.PreferredLocations` en fonction de la région sur laquelle l’application est déployée et Cosmos DB répliquée.
+Pour activer la fonctionnalité multimaître dans votre application, définissez `connectionPolicy.UseMultipleWriteLocations` sur `true`. Définissez également `connectionPolicy.PreferredLocations` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée :
 
 ```javascript
 const connectionPolicy: ConnectionPolicy = new ConnectionPolicy();
@@ -77,26 +91,27 @@ const client = new CosmosClient({
 
 ## <a id="python"></a>Kit SDK Python
 
-Pour activer les fonctionnalités multimaîtres dans vos applications, affectez la valeur true à `connection_policy.UseMultipleWriteLocations`, puis configurez `connection_policy.PreferredLocations` en fonction de la région sur laquelle l’application est déployée et Cosmos DB répliquée.
+Pour activer la fonctionnalité multimaître dans votre application, définissez `connection_policy.UseMultipleWriteLocations` sur `true`. Définissez également `connection_policy.PreferredLocations` en fonction de la région sur laquelle l’application est déployée et où Cosmos DB est répliquée.
 
 ```python
 connection_policy = documents.ConnectionPolicy()
 connection_policy.UseMultipleWriteLocations = True
 connection_policy.PreferredLocations = [region]
 
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
+client = cosmos_client.CosmosClient(self.account_endpoint, {
+                                    'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les fonctionnalités multimaîtres ainsi que sur la distribution et la cohérence globale dans Azure Cosmos DB. Consultez les articles suivants :
+Consultez les articles suivants :
 
-* [Utiliser des jetons de session pour gérer la cohérence dans Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-
+* [Utiliser des jetons de sessions pour gérer la cohérence dans Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
 * [Types de conflit et stratégies de résolution dans Azure Cosmos DB](conflict-resolution-policies.md)
-
 * [Haute disponibilité dans Azure Cosmos DB](high-availability.md)
-
-* [Choix du niveau de cohérence approprié dans Azure Cosmos DB](consistency-levels-choosing.md)
-
+* [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md)
+* [Choisir le niveau de cohérence approprié dans Azure Cosmos DB](consistency-levels-choosing.md)
 * [Compromis entre cohérence, disponibilité et niveau de performance dans Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Compromis entre disponibilité et performance pour différents niveaux de cohérence](consistency-levels-tradeoffs.md)
+* [Mise à l’échelle du débit provisionné au niveau global](scaling-throughput.md)
+* [Distribution mondiale : Sous le capot](global-dist-under-the-hood.md)

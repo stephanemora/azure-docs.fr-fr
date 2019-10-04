@@ -1,23 +1,23 @@
 ---
-title: 'Configuration de l’homologation pour un circuit - ExpressRoute : PowerShell : Azure | Microsoft Docs'
-description: Cet article vous guide tout au long des étapes de création et d’approvisionnement de l’homologation privée, publique et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer des homologations pour votre circuit.
+title: 'Configuration du peering pour un circuit - ExpressRoute : PowerShell : Azure | Microsoft Docs'
+description: Cet article vous guide tout au long des étapes de création et d’approvisionnement du peering privé, public et Microsoft d’un circuit ExpressRoute. Cet article vous montre également comment vérifier l'état, mettre à jour ou supprimer des peerings pour votre circuit.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 04/24/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: bb1e71c4a665a25fa9b936c8777cf8fa0d5cd3e6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e2f38671910be2c7300f39fcbca32e8a1ccd9891
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091917"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64716135"
 ---
-# <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Créer et modifier l’homologation d’un circuit ExpressRoute à l’aide de PowerShell
+# <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Créer et modifier le peering d’un circuit ExpressRoute à l’aide de PowerShell
 
-Cet article explique comment créer et gérer la configuration du routage d’un circuit ExpressRoute dans le modèle de déploiement Resource Manager à l’aide de PowerShell. Vous pouvez également mettre à jour, supprimer et déprovisionner des homologations d’un circuit ExpressRoute, ainsi qu’en vérifier l’état. Si vous souhaitez utiliser une autre méthode pour votre circuit, sélectionnez un article dans la liste suivante :
+Cet article explique comment créer et gérer la configuration du routage d’un circuit ExpressRoute dans le modèle de déploiement Resource Manager à l’aide de PowerShell. Vous pouvez également mettre à jour, supprimer et déprovisionner des peerings d’un circuit ExpressRoute, ainsi qu’en vérifier l’état. Si vous souhaitez utiliser une autre méthode pour votre circuit, sélectionnez un article dans la liste suivante :
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
@@ -33,11 +33,11 @@ Cet article explique comment créer et gérer la configuration du routage d’un
 Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement un VPN IP, comme MPLS), votre fournisseur de connectivité configure et gère le routage pour vous.
 
 > [!IMPORTANT]
-> Nous n'annonçons pas d’homologations configurées par les fournisseurs de services via le portail de gestion des services. Nous travaillons sur la prochaine activation de cette fonctionnalité. Contactez votre fournisseur de services avant de configurer des homologations BGP.
+> Nous n'annonçons pas de peerings configurés par les fournisseurs de services via le portail de gestion des services. Nous travaillons sur la prochaine activation de cette fonctionnalité. Contactez votre fournisseur de services avant de configurer des peerings BGP.
 > 
 > 
 
-Vous pouvez configurer une, deux ou les trois homologations (privée Azure, publique Azure et Microsoft) pour un circuit ExpressRoute. Vous pouvez configurer les homologations dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque homologation. Pour plus d’informations sur les domaines de routage et les homologations, consultez [Domaines de routage ExpressRoute](expressroute-circuit-peerings.md).
+Vous pouvez configurer un, deux ou les trois peerings (privé Azure, public Azure et Microsoft) pour un circuit ExpressRoute. Vous pouvez configurer les peerings dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque peering. Pour plus d’informations sur les domaines de routage et les peerings, consultez [Domaines de routage ExpressRoute](expressroute-circuit-peerings.md).
 
 ## <a name="configuration-prerequisites"></a>Prérequis de configuration
 
@@ -52,14 +52,14 @@ Vous pouvez configurer une, deux ou les trois homologations (privée Azure, publ
 
 ## <a name="msft"></a>Homologation Microsoft
 
-Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration d’homologation Microsoft pour un circuit ExpressRoute.
+Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering Microsoft pour un circuit ExpressRoute.
 
 > [!IMPORTANT]
-> L’homologation Microsoft des circuits ExpressRoute qui ont été configurés avant le 1er août 2017 entraînera la publication de tous les préfixes de service via l’homologation Microsoft, même si aucun filtre d’itinéraire n’est défini. L’homologation Microsoft des circuits ExpressRoute qui sont configurés le 1er août 2017 ou après n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage n’aura pas été attaché au circuit. Pour plus d’informations, consultez [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md) (Configurer un filtre d’itinéraire pour l’homologation Microsoft).
+> Le peering Microsoft des circuits ExpressRoute qui ont été configurés avant le 1er août 2017 entraînera la publication de tous les préfixes de service via le peering Microsoft, même si aucun filtre d’itinéraire n’est défini. Le peering Microsoft des circuits ExpressRoute qui sont configurés le 1er août 2017 ou après n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage n’aura pas été attaché au circuit. Pour plus d’informations, consultez [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md) (Configurer un filtre d’itinéraire pour l’homologation Microsoft).
 > 
 > 
 
-### <a name="to-create-microsoft-peering"></a>Pour créer une homologation Microsoft
+### <a name="to-create-microsoft-peering"></a>Pour créer un peering Microsoft
 
 1. Connectez-vous et sélectionnez votre abonnement.
 
@@ -76,7 +76,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    ```
 2. Créez un circuit ExpressRoute.
 
-   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation Microsoft pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit. 
+   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer le peering Microsoft pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit. 
 
 3. Vérifiez que le circuit ExpressRoute est approvisionné et activé. Consultez l’exemple qui suit :
 
@@ -109,19 +109,19 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-4. Configurez l’homologation Microsoft pour le circuit. Assurez-vous de disposer des informations suivantes avant de poursuivre.
+4. Configurez le peering Microsoft pour le circuit. Assurez-vous de disposer des informations suivantes avant de poursuivre.
 
    * Un sous-réseau /30 ou /126 pour le lien principal. Il doit s’agir d’un préfixe IPv4 ou IPv6 public valide vous appartenant et enregistré dans un registre RIR / IRR.
    * Un sous-réseau /30 ou /126 pour le lien secondaire. Il doit s’agir d’un préfixe IPv4 ou IPv6 public valide vous appartenant et enregistré dans un registre RIR / IRR.
-   * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
-   * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
+   * Un ID VLAN valide pour établir ce peering. Assurez-vous qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
+   * Un numéro AS pour le peering. Vous pouvez utiliser des numéros à 2 et 4 octets.
    * Préfixes publiés : Vous devez fournir la liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Si vous prévoyez d’envoyer un jeu de préfixes, vous pouvez envoyer une liste séparée par des virgules. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR. Les sessions IPv4 BGP nécessitent des préfixes publiés IPv4 et les sessions IPv6 BGP nécessitent des préfixes publiés IPv6. 
    * Nom du registre de routage : vous pouvez spécifier les registres RIR/IRR par rapport auquel le numéro AS et les préfixes sont enregistrés.
    * Facultatif :
-     * ASN client : si vous publiez des préfixes non enregistrés dans le numéro AS d’homologation, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés.
+     * ASN client : si vous publiez des préfixes non enregistrés dans le numéro AS de peering, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés.
      * Un hachage MD5 si vous choisissez d’en utiliser un.
 
-   Utilisez l’exemple suivant afin de configurer l’homologation Microsoft pour votre circuit :
+   Utilisez l’exemple suivant afin de configurer le peering Microsoft pour votre circuit :
 
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -155,7 +155,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ### <a name="deletemsft"></a>Pour supprimer une homologation Microsoft
 
-Vous pouvez supprimer votre configuration d’homologation en exécutant l’applet de commande suivante :
+Vous pouvez supprimer votre configuration de peering en exécutant l’applet de commande suivante :
 
 ```azurepowershell-interactive
 Remove-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
@@ -165,9 +165,9 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ## <a name="private"></a>Homologation privée Azure
 
-Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration d’homologation privée Azure pour un circuit ExpressRoute.
+Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering privé Azure pour un circuit ExpressRoute.
 
-### <a name="to-create-azure-private-peering"></a>Pour créer une homologation privée Azure
+### <a name="to-create-azure-private-peering"></a>Pour créer un peering privé Azure
 
 1. Importez le module PowerShell pour ExpressRoute.
 
@@ -177,7 +177,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    Install-Module Az
    ```
 
-   Importer tous les en Arizona.\* modules dans la plage de version sémantique connue.
+   Importez tous les modules Az.\* dans la plage de version sémantique connue.
 
    ```azurepowershell-interactive
    Import-Module Az
@@ -202,7 +202,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    ```
 2. Créez un circuit ExpressRoute.
 
-   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation privée Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit.
+   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer le peering privé Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit.
 
 3. Vérifiez que le circuit ExpressRoute est approvisionné et activé. Consultez l’exemple qui suit :
 
@@ -235,16 +235,16 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-4. Configurez l'homologation privée Azure pour le circuit. Assurez-vous de disposer des éléments suivants avant de procéder aux étapes suivantes :
+4. Configurez le peering privé Azure pour le circuit. Assurez-vous de disposer des éléments suivants avant de procéder aux étapes suivantes :
 
    * Un sous-réseau /30 pour le lien principal. Le sous-réseau ne doit faire partie d’aucun espace d’adressage réservé aux réseaux virtuels.
    * Un sous-réseau /30 pour le lien secondaire. Le sous-réseau ne doit faire partie d’aucun espace d’adressage réservé aux réseaux virtuels.
-   * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
-   * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets. Vous pouvez utiliser un numéro AS privé pour cette homologation. Veillez à ne pas utiliser le numéro 65515.
+   * Un ID VLAN valide pour établir ce peering. Assurez-vous qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
+   * Un numéro AS pour le peering. Vous pouvez utiliser des numéros à 2 et 4 octets. Vous pouvez utiliser un numéro AS privé pour ce peering. Veillez à ne pas utiliser le numéro 65515.
    * Facultatif :
      * Un hachage MD5 si vous choisissez d’en utiliser un.
 
-   Utilisez l’exemple suivant pour configurer l’homologation privée Azure pour votre circuit :
+   Utilisez l’exemple suivant pour configurer le peering privé Azure pour votre circuit :
 
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
@@ -259,7 +259,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    ```
 
    > [!IMPORTANT]
-   > Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
+   > Veillez à spécifier votre numéro AS comme ASN de peering et non pas comme ASN client.
    > 
    >
 
@@ -285,7 +285,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ### <a name="deleteprivate"></a>Pour supprimer une homologation privée Azure
 
-Vous pouvez supprimer votre configuration d’homologation en exécutant l’exemple suivant :
+Vous pouvez supprimer votre configuration de peering en exécutant l’exemple suivant :
 
 > [!WARNING]
 > Vous devez vous assurer que la totalité des réseaux virtuels et des connexions ExpressRoute Global Reach sont supprimés avant d’exécuter cet exemple. 
@@ -300,9 +300,13 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ## <a name="public"></a>Homologation publique Azure
 
-Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration d’homologation publique Azure pour un circuit ExpressRoute.
+Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering public Azure pour un circuit ExpressRoute.
 
-### <a name="to-create-azure-public-peering"></a>Pour créer une homologation publique Azure
+> [!Note]
+> Le peering public Azure est déprécié pour les nouveaux circuits. Pour plus d’informations, consultez [Peering ExpressRoute](expressroute-circuit-peerings.md).
+>
+
+### <a name="to-create-azure-public-peering"></a>Pour créer un peering public Azure
 
 1. Importez le module PowerShell pour ExpressRoute.
 
@@ -312,7 +316,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    Install-Module Az
    ```
 
-   Importer tous les en Arizona.\* modules dans la plage de version sémantique connue.
+   Importez tous les modules Az.\* dans la plage de version sémantique connue.
 
    ```azurepowershell-interactive
    Import-Module Az
@@ -337,7 +341,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    ```
 2. Créez un circuit ExpressRoute.
 
-   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer l’homologation publique Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit.
+   Suivez les instructions permettant de [créer un circuit ExpressRoute](expressroute-howto-circuit-arm.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer le peering public Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit.
 
 3. Vérifiez que le circuit ExpressRoute est approvisionné et activé. Consultez l’exemple qui suit :
 
@@ -370,16 +374,16 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    ServiceKey                       : **************************************
    Peerings                         : []
    ```
-4. Configurez l’homologation publique Azure pour le circuit. Assurez-vous que vous disposez des informations suivantes avant de continuer.
+4. Configurez le peering public Azure pour le circuit. Assurez-vous que vous disposez des informations suivantes avant de continuer.
 
    * Un sous-réseau /30 pour le lien principal. Ce doit être un préfixe IPv4 public valide.
    * Un sous-réseau /30 pour le lien secondaire. Ce doit être un préfixe IPv4 public valide.
-   * Un ID VLAN valide pour établir cette homologation. Assurez-vous qu'aucune autre homologation sur le circuit n'utilise le même ID VLAN.
-   * Un numéro AS pour l'homologation. Vous pouvez utiliser des numéros à 2 et 4 octets.
+   * Un ID VLAN valide pour établir ce peering. Assurez-vous qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
+   * Un numéro AS pour le peering. Vous pouvez utiliser des numéros à 2 et 4 octets.
    * Facultatif :
      * Un hachage MD5 si vous choisissez d’en utiliser un.
 
-   Exécutez l’exemple suivant pour configurer l’homologation publique Azure pour votre circuit :
+   Exécutez l’exemple suivant pour configurer le peering public Azure pour votre circuit :
 
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
@@ -396,7 +400,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    ```
 
    > [!IMPORTANT]
-   > Veillez à spécifier votre numéro AS comme ASN d’homologation et non pas comme ASN client.
+   > Veillez à spécifier votre numéro AS comme ASN de peering et non pas comme ASN client.
    > 
    >
 
@@ -422,7 +426,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 ### <a name="deletepublic"></a>Pour supprimer une homologation publique Azure
 
-Vous pouvez supprimer votre configuration d’homologation en exécutant l’exemple suivant :
+Vous pouvez supprimer votre configuration de peering en exécutant l’exemple suivant :
 
 ```azurepowershell-interactive
 Remove-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
@@ -434,5 +438,5 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 Ensuite, [liez un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 * Pour plus d'informations sur les workflows ExpressRoute, consultez [Workflows ExpressRoute](expressroute-workflows.md).
-* Pour plus d’informations sur l’homologation du circuit, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
+* Pour plus d’informations sur le peering du circuit, consultez [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
 * Pour plus d’informations sur l’utilisation des réseaux virtuels, consultez la page [Présentation du réseau virtuel](../virtual-network/virtual-networks-overview.md).

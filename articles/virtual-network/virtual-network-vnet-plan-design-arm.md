@@ -3,8 +3,8 @@ title: Planifier des réseaux virtuels Azure | Microsoft Docs
 description: Découvrez comment planifier des réseaux virtuels selon vos besoins en isolation, connectivité et emplacements.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
-ms.author: jdial
-ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.author: kumud
+ms.openlocfilehash: 0a80630ffa363d2b633667d8104cc0326c4afa2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66478593"
 ---
 # <a name="plan-virtual-networks"></a>Planifier des réseaux virtuels
 
@@ -63,7 +63,7 @@ Un réseau virtuel peut être segmenté en un ou plusieurs sous-réseaux, jusqu�
 - Chaque sous-réseau doit avoir une plage d’adresses unique, spécifiée au format CIDR, dans l’espace d’adresses du réseau virtuel. La plage d’adresses ne peut pas chevaucher d’autres sous-réseaux au sein du réseau virtuel.
 - Si vous envisagez de déployer des ressources de service Azure dans un réseau virtuel, elles peuvent avoir besoin de créer leur propre sous-réseau. De l’espace non alloué doit être suffisant pour le faire. Pour déterminer si un service Azure crée son propre sous-réseau, consultez les informations de chaque [service Azure pouvant être déployé dans un réseau virtuel](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Par exemple, si vous connectez un réseau virtuel à un réseau local à l’aide d’une passerelle VPN Azure, le réseau virtuel doit avoir un sous-réseau dédié pour la passerelle. En savoir plus sur les [sous-réseaux de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).
 - Par défaut, Azure achemine le trafic réseau entre tous les sous-réseaux dans un réseau virtuel. Par exemple, vous pouvez remplacer le routage par défaut d’Azure pour empêcher le routage Azure entre des sous-réseaux ou pour acheminer le trafic entre des sous-réseaux via une appliance virtuelle réseau. Si vous avez besoin que le trafic entre des ressources d’un même réseau virtuel circulent via une appliance virtuelle réseau (NVA), déployez les ressources sur des sous-réseaux différents. En savoir plus la [sécurité](#security).
-- Vous pouvez limiter l’accès aux ressources Azure, un compte de stockage Azure ou une base de données SQL Azure par exemple, à des sous-réseaux spécifiques avec un point de terminaison de service de réseau virtuel. Vous pouvez également refuser l’accès aux ressources à partir d’Internet. Vous pouvez créer plusieurs sous-réseaux et activer un point de terminaison de service pour certains sous-réseaux, mais pas pour d’autres. En savoir plus sur les [points de terminaison de service](virtual-network-service-endpoints-overview.md), et les ressources Azure pour lesquelles vous pouvez les activer.
+- Vous pouvez limiter l’accès aux ressources Azure, un compte de stockage Azure ou une base de données Azure SQL par exemple, à des sous-réseaux spécifiques avec un point de terminaison de service de réseau virtuel. Vous pouvez également refuser l’accès aux ressources à partir d’Internet. Vous pouvez créer plusieurs sous-réseaux et activer un point de terminaison de service pour certains sous-réseaux, mais pas pour d’autres. En savoir plus sur les [points de terminaison de service](virtual-network-service-endpoints-overview.md), et les ressources Azure pour lesquelles vous pouvez les activer.
 - Vous pouvez associer zéro ou un groupe de sécurité réseau à chaque sous-réseau dans un réseau virtuel. Vous pouvez associer le même groupe de sécurité réseau, ou un autre, à chaque sous-réseau. Chaque groupe de sécurité réseau contient des règles, qui autorisent ou refusent le trafic vers et depuis des sources et des destinations. En savoir plus sur les [groupes de sécurité réseau](#traffic-filtering).
 
 ## <a name="security"></a>Sécurité
@@ -77,7 +77,7 @@ Vous pouvez filtrer le trafic réseau vers et depuis des ressources dans un rés
 - Si différentes machines virtuelles au sein d’un sous-réseau ont besoin de règles de sécurité différentes, vous pouvez associer l’interface réseau de la machine virtuelle à un ou plusieurs groupes de sécurité d’application. Une règle de sécurité peut spécifier un groupe de sécurité d’application dans sa source, sa destination, ou les deux. Cette règle ne s’applique alors qu’aux interfaces réseau qui sont membres du groupe de sécurité d’application. En savoir plus sur les [groupes de sécurité réseau](security-overview.md) et les [groupes de sécurité d’application](security-overview.md#application-security-groups).
 - Azure crée plusieurs règles de sécurité par défaut dans chaque groupe de sécurité réseau. Une règle par défaut autorise l’ensemble du trafic entre toutes les ressources dans un réseau virtuel. Pour remplacer ce comportement, utilisez des groupes de sécurité réseau, un routage personnaliser pour acheminer le trafic vers une NVA, ou les deux. Il vous est recommandé de vous familiariser avec toutes les [règles de sécurité par défaut](security-overview.md#default-security-rules) d’Azure et de comprendre comment les règles de groupe de sécurité réseau s’appliquent à une ressource.
 
-Vous pouvez consulter des exemples de conception pour l’implémentation d’une zone DMZ entre Azure et Internet à l’aide d’une [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) ou de [groupes de sécurité réseau](virtual-networks-dmz-nsg.md).
+Vous pouvez consulter des exemples de conception pour l’implémentation d’un réseau de périmètre (ou DMZ) entre Azure et Internet, à l’aide d’une [appliance virtuelle réseau](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 ### <a name="traffic-routing"></a>Routage du trafic
 
@@ -89,17 +89,17 @@ Si vous avez besoin d’implémenter un routage personnalisé, il vous est recom
 
 ## <a name="connectivity"></a>Connectivité
 
-Vous pouvez connecter un réseau virtuel à d’autres réseaux virtuels à l’aide de l’homologation de réseau virtuel, ou à votre réseau local, à l’aide d’une passerelle VPN Azure.
+Vous pouvez connecter un réseau virtuel à d’autres réseaux virtuels à l’aide du peering de réseau virtuel, ou à votre réseau local, à l’aide d’une passerelle VPN Azure.
 
-### <a name="peering"></a>Homologation
+### <a name="peering"></a>Peering
 
-Lorsque vous utilisez l’[homologation de réseau virtuel](virtual-network-peering-overview.md), les réseaux virtuels peuvent se trouver dans la même région, ou dans différentes régions Azure prises en charge. Les réseaux virtuels peuvent se trouver dans le même abonnement ou dans des abonnements Azure différents (voire dans des abonnements appartenant à des locataires Azure Active Directory différents). Avant de créer une homologation, il est recommandé de vous familiariser avec toutes les [exigences et contraintes de l’homologation](virtual-network-manage-peering.md#requirements-and-constraints). La bande passante entre des ressources figurant dans des réseaux virtuels homologués dans la même région est la même que si ces ressources se trouvaient dans le même réseau virtuel.
+Lorsque vous utilisez le [peering de réseau virtuel](virtual-network-peering-overview.md), les réseaux virtuels peuvent se trouver dans la même région, ou dans différentes régions Azure prises en charge. Les réseaux virtuels peuvent se trouver dans le même abonnement ou dans des abonnements Azure différents (voire dans des abonnements appartenant à des locataires Azure Active Directory différents). Avant de créer un peering, il est recommandé de vous familiariser avec toutes les [exigences et contraintes du peering](virtual-network-manage-peering.md#requirements-and-constraints). La bande passante entre des ressources figurant dans des réseaux virtuels homologués dans la même région est la même que si ces ressources se trouvaient dans le même réseau virtuel.
 
 ### <a name="vpn-gateway"></a>passerelle VPN
 
 Vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure pour connecter un réseau virtuel à votre réseau local à l’aide un [VPN site à site](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ou à l’aide d’une connexion dédiée à Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Vous pouvez combiner l’homologation avec une passerelle VPN pour créer des [réseaux Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), dans lesquels les réseaux virtuels Spoke se connectent à un réseau virtuel Hub, et où le Hub se connecte à un réseau local, par exemple.
+Vous pouvez combiner le peering avec une passerelle VPN pour créer des [réseaux Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), dans lesquels les réseaux virtuels Spoke se connectent à un réseau virtuel Hub, et où le Hub se connecte à un réseau local, par exemple.
 
 ### <a name="name-resolution"></a>Résolution de noms
 
@@ -107,7 +107,7 @@ Les ressources dans un réseau virtuel ne peuvent pas résoudre les noms de ress
 
 ## <a name="permissions"></a>Autorisations
 
-Azure utilise le [contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) aux ressources. Des autorisations sont affectées à une [étendue](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) dans la hiérarchie suivante : abonnement, groupe d’administration, groupe de ressources et ressource individuelle. Pour en savoir plus sur la hiérarchie, consultez [Organize your resources](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Organiser vos ressources). Pour utiliser des réseaux virtuels Azure et toutes leurs fonctionnalités associées, comme l’homologation, les groupes de sécurité réseau, les points de terminaison de service et les tables de routage, vous pouvez assigner à des membres de votre organisation le rôle [Propriétaire](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Contributeur](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) ou [Contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) intégré, puis assigner le rôle à l’étendue appropriée. Si vous souhaitez assigner des autorisations spécifiques pour un sous-ensemble de fonctionnalités de réseau virtuel, créez un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et assignez les autorisations spécifiques nécessaires pour les [réseaux virtuels](manage-virtual-network.md#permissions), [sous-réseaux et points de terminaison de service](virtual-network-manage-subnet.md#permissions), [interfaces réseau](virtual-network-network-interface.md#permissions), [homologation](virtual-network-manage-peering.md#permissions), [groupes de sécurité réseau et d’application](manage-network-security-group.md#permissions) ou les [tables de routage](manage-route-table.md#permissions) au rôle.
+Azure utilise le [contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) aux ressources. Des autorisations sont affectées à une [étendue](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) dans la hiérarchie suivante : abonnement, groupe d’administration, groupe de ressources et ressource individuelle. Pour en savoir plus sur la hiérarchie, consultez [Organize your resources](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Organiser vos ressources). Pour utiliser des réseaux virtuels Azure et toutes leurs fonctionnalités associées, comme le peering, les groupes de sécurité réseau, les points de terminaison de service et les tables de routage, vous pouvez assigner à des membres de votre organisation le rôle [Propriétaire](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Contributeur](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) ou [Contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) intégré, puis assigner le rôle à l’étendue appropriée. Si vous souhaitez assigner des autorisations spécifiques pour un sous-ensemble de fonctionnalités de réseau virtuel, créez un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et assignez les autorisations spécifiques nécessaires pour les [réseaux virtuels](manage-virtual-network.md#permissions), [sous-réseaux et points de terminaison de service](virtual-network-manage-subnet.md#permissions), [interfaces réseau](virtual-network-network-interface.md#permissions), [peering](virtual-network-manage-peering.md#permissions), [groupes de sécurité réseau et d’application](manage-network-security-group.md#permissions) ou les [tables de routage](manage-route-table.md#permissions) au rôle.
 
 ## <a name="policy"></a>Stratégie
 
@@ -117,4 +117,4 @@ Les stratégies sont appliquées à la hiérarchie suivante : Abonnement, group
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les tâches, paramètres et options d’un [réseau virtuel](manage-virtual-network.md), d’un [point de terminaison de service et de sous-réseau](virtual-network-manage-subnet.md), d’une [interface réseau](virtual-network-network-interface.md), d’une [homologation](virtual-network-manage-peering.md), d’un [groupe de sécurité réseau et d’application](manage-network-security-group.md) ou d’une [table de routage](manage-route-table.md).
+En savoir plus sur les tâches, paramètres et options d’un [réseau virtuel](manage-virtual-network.md), d’un [point de terminaison de service et de sous-réseau](virtual-network-manage-subnet.md), d’une [interface réseau](virtual-network-network-interface.md), d’un [peering](virtual-network-manage-peering.md), d’un [groupe de sécurité réseau et d’application](manage-network-security-group.md) ou d’une [table de routage](manage-route-table.md).

@@ -2,17 +2,17 @@
 title: Créer un contrôleur d’entrée pour un réseau interne dans Azure Kubernetes Service (AKS)
 description: Découvrez comment installer et configurer un contrôleur d’entrée NGINX pour un réseau privé interne dans un cluster Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 03/27/2019
-ms.author: iainfou
-ms.openlocfilehash: 4a648bd2704e93abedeefae14aee66ae8bfeecef
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.date: 05/24/2019
+ms.author: mlearned
+ms.openlocfilehash: 935b96bd553c9ae73b55086483baa0ea7c4aeaa4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678120"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615470"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée pour un réseau virtuel interne dans Azure Kubernetes Service (AKS)
 
@@ -22,16 +22,16 @@ Cet article montre comment déployer le [contrôleur d’entrée NGINX][nginx-in
 
 Vous pouvez également :
 
-- [Créer un contrôleur d’entrée de base avec une connectivité réseau externe][aks-ingress-basic]
-- [Activer le module complémentaire de routage d’application HTTP][aks-http-app-routing]
+- [Créer un contrôleur d’entrée dans Azure Kubernetes Service (AKS)][aks-ingress-basic]
+- [Routage d’applications HTTP][aks-http-app-routing]
 - [Créer un contrôleur d’entrée qui utilise vos propres certificats TLS][aks-ingress-own-tls]
-- Créer un contrôleur d’entrée qui utilise Let’s Encrypt pour générer automatiquement des certificats TLS [avec une adresse IP publique dynamique][aks-ingress-tls] ou [avec une adresse IP publique statique][aks-ingress-static-tls]
+- Créer un contrôleur d’entrée qui utilise Let’s Encrypt pour générer automatiquement des certificats TLS [avec une adresse IP publique dynamique][aks-ingress-tls] or [with a static public IP address][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Cet article utilise Helm pour installer le contrôleur d’entrée NGINX, cert-manager et un exemple d’application web. Helm doit être initialisé dans votre cluster AKS et utiliser un compte de service pour Tiller. Pour plus d’informations sur la configuration et l’utilisation de Helm, consultez [Installer des applications avec Helm dans Azure Kubernetes Service (AKS)][use-helm].
 
-Cet article nécessite également que vous exécutiez Azure CLI version 2.0.61 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+Pour les besoins de cet article, vous devez également exécuter Azure CLI version 2.0.64 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ## <a name="create-an-ingress-controller"></a>Créer un contrôleur d’entrée
 
@@ -49,8 +49,13 @@ controller:
 
 À présent, déployez le graphique *nginx-ingress* avec Helm. Pour utiliser le fichier manifeste créé à l’étape précédente, ajoutez le paramètre `-f internal-ingress.yaml`. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
 
+Le contrôleur d’entrée doit également être planifié sur un nœud Linux. Les nœuds Windows Server (actuellement en préversion dans AKS) ne doivent pas exécuter le contrôleur d’entrée. Un sélecteur de nœud est spécifié en utilisant le paramètre `--set nodeSelector` pour que le planificateur Kubernetes exécute le contrôleur d’entrée NGINX sur un nœud Linux.
+
 > [!TIP]
-> L’exemple suivant crée un espace de noms Kubernetes pour les ressources d’entrée nommé *entrée-basic*. Spécifiez un espace de noms pour votre propre environnement en fonction des besoins. Si votre cluster AKS n’est pas activée de RBAC, ajoutez `--set rbac.create=false` aux commandes Helm.
+> L’exemple suivant crée un espace de noms Kubernetes pour les ressources d’entrée *ingress-basic*. Spécifiez un espace de noms de votre propre environnement, si besoin. Si le contrôle d’accès en fonction du rôle (RBAC) n’est pas activé sur votre cluster AKS, ajoutez `--set rbac.create=false` aux commandes Helm.
+
+> [!TIP]
+> Si vous souhaitez activer la [préservation de l’adresse IP source du client][client-source-ip] pour les requêtes aux conteneurs de votre cluster, ajoutez `--set controller.service.externalTrafficPolicy=Local` à la commande d’installation Helm. L’IP source du client est stockée dans l’en-tête de la requête sous *X-Forwarded-For*. Lors de l’utilisation d’un contrôleur d’entrée pour lequel la conservation de l’adresse IP source du client est activée, le protocole SSL direct ne fonctionnera pas.
 
 ```console
 # Create a namespace for your ingress resources
@@ -60,7 +65,9 @@ kubectl create namespace ingress-basic
 helm install stable/nginx-ingress \
     --namespace ingress-basic \
     -f internal-ingress.yaml \
-    --set controller.replicaCount=2
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Lorsque le service équilibreur de charge Kubernetes est créé pour le contrôleur d’entrée NGINX, votre adresse IP interne est affectée, comme indiqué dans l’exemple de sortie suivant :
@@ -117,19 +124,19 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 Créez la ressource d’entrée avec la commande `kubectl apply -f hello-world-ingress.yaml`.
@@ -154,13 +161,13 @@ Installez `curl` dans le pod en utilisant `apt-get` :
 apt-get update && apt-get install -y curl
 ```
 
-Accédez à présent à l’adresse de votre contrôleur d’entrée Kubernetes en utilisant `curl`, par exemple *http://10.240.0.42*. Fournissez votre propre adresse IP interne spécifiée lors du déploiement du contrôleur d’entrée dans le cadre de la première étape de cet article.
+Accédez à présent à l’adresse de votre contrôleur d’entrée Kubernetes en utilisant `curl`, par exemple *http://10.240.0.42* . Fournissez votre propre adresse IP interne spécifiée lors du déploiement du contrôleur d’entrée dans le cadre de la première étape de cet article.
 
 ```console
 curl -L http://10.240.0.42
 ```
 
-Aucun chemin d’accès supplémentaire n’ayant été fourni avec l’adresse, l’itinéraire par défaut du contrôleur d’entrée est */*. La première application de démonstration est retournée, comme l’illustre l’exemple de sortie condensée suivant :
+Aucun chemin d’accès supplémentaire n’ayant été fourni avec l’adresse, l’itinéraire par défaut du contrôleur d’entrée est */* . La première application de démonstration est retournée, comme l’illustre l’exemple de sortie condensée suivant :
 
 ```
 $ curl -L 10.240.0.42
@@ -173,7 +180,7 @@ $ curl -L 10.240.0.42
 [...]
 ```
 
-Ajoutez maintenant le chemin d’accès */hello-world-two* à l’adresse, par exemple, *http://10.240.0.42/hello-world-two*. La deuxième application de démonstration avec le titre personnalisé est retournée, comme l’illustre l’exemple de sortie condensée suivant :
+Ajoutez maintenant le chemin d’accès */hello-world-two* à l’adresse, par exemple, *http://10.240.0.42/hello-world-two* . La deuxième application de démonstration avec le titre personnalisé est retournée, comme l’illustre l’exemple de sortie condensée suivant :
 
 ```
 $ curl -L -k http://10.240.0.42/hello-world-two
@@ -188,17 +195,17 @@ $ curl -L -k http://10.240.0.42/hello-world-two
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Cet article vous a montré comment utiliser Helm pour installer les composants d’entrée et les exemples d’applications. Quand vous déployez un graphique Helm, une série de ressources Kubernetes est créée. Ces ressources incluent des pods, des déploiements et des services. Pour nettoyer ces ressources, vous pouvez supprimer l’espace de noms d’ensemble de l’exemple ou ressources individuelles.
+Cet article vous a montré comment utiliser Helm pour installer les composants d’entrée et les exemples d’applications. Quand vous déployez un graphique Helm, une série de ressources Kubernetes est créée. Ces ressources incluent des pods, des déploiements et des services. Pour nettoyer ces ressources, vous pouvez supprimer l’espace de noms exemple en entier ou des ressources individuelles.
 
-### <a name="delete-the-sample-namespace-and-all-resources"></a>Supprimer l’espace de noms d’exemple et toutes les ressources
+### <a name="delete-the-sample-namespace-and-all-resources"></a>Supprimer l’espace de noms exemple et toutes les ressources
 
-Pour supprimer l’espace de noms d’ensemble de l’exemple, utilisez le `kubectl delete` commande et spécifiez le nom de votre espace de noms. Toutes les ressources dans l’espace de noms sont supprimés.
+Pour supprimer l’espace de noms exemple en entier, utilisez la commande `kubectl delete` et spécifiez le nom de votre espace de noms. Toutes les ressources de l’espace de noms sont supprimées.
 
 ```console
 kubectl delete namespace ingress-basic
 ```
 
-Ensuite, supprimez le référentiel Helm pour l’application ACS hello world :
+Ensuite, supprimez le référentiel Helm pour l’application AKS « hello world » :
 
 ```console
 helm repo remove azure-samples
@@ -206,7 +213,7 @@ helm repo remove azure-samples
 
 ### <a name="delete-resources-individually"></a>Supprimer les ressources individuellement
 
-Vous pouvez également une approche plus précise consiste à supprimer les ressources individuelles créées. Liste le Helm libère avec la `helm list` commande. Recherchez les graphiques nommés *nginx-ingress* et *aks-helloworld*, comme illustré dans l’exemple de sortie suivant :
+Sinon, une approche plus précise consiste à supprimer les ressources individuelles créées. Listez les versions de Helm avec la commande `helm list`. Recherchez les graphiques nommés *nginx-ingress* et *aks-helloworld*, comme illustré dans l’exemple de sortie suivant :
 
 ```
 $ helm list
@@ -239,7 +246,7 @@ Supprimez la route d’entrée qui a dirigé le trafic vers les exemples d’app
 kubectl delete -f hello-world-ingress.yaml
 ```
 
-Enfin, vous pouvez supprimer le lui-même espace de noms. Utilisez le `kubectl delete` commande et spécifiez le nom de votre espace de noms :
+Pour finir, vous pouvez supprimer l’espace de noms lui-même. Utilisez la commande `kubectl delete` et spécifiez le nom de votre espace de noms :
 
 ```console
 kubectl delete namespace ingress-basic
@@ -254,9 +261,9 @@ Cet article a mentionné certains composants qui n’appartiennent pas à AKS. P
 
 Vous pouvez également :
 
-- [Créer un contrôleur d’entrée de base avec une connectivité réseau externe][aks-ingress-basic]
-- [Activer le module complémentaire de routage d’application HTTP][aks-http-app-routing]
-- [Créer un contrôleur d’entrée avec une adresse IP publique dynamique et configurer Let’s Encrypt pour générer automatiquement des certificats TLS][aks-ingress-tls]
+- [Créer un contrôleur d’entrée dans Azure Kubernetes Service (AKS)][aks-ingress-basic]
+- [Routage d’applications HTTP][aks-http-app-routing]
+- [Create an HTTPS ingress controller on Azure Kubernetes Service (AKS)][aks-ingress-tls] (Créer un contrôleur d’entrée HTTPS dans Azure Kubernetes Service (AKS))
 - [Créer un contrôleur d’entrée avec une adresse IP publique statique et configurer Let’s Encrypt pour générer automatiquement des certificats TLS][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
@@ -271,3 +278,4 @@ Vous pouvez également :
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-own-tls]: ingress-own-tls.md
+[client-source-ip]: concepts-network.md#ingress-controllers

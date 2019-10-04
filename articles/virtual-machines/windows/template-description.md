@@ -4,23 +4,22 @@ description: En savoir plus sur la manière dont la ressource de machine virtuel
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: d234e7f8a6005722a33a797f2b8ae6a1e1f4b98b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327763"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101766"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Machines virtuelles dans un modèle Azure Resource Manager
 
@@ -28,7 +27,7 @@ Cet article décrit les aspects d’un modèle Azure Resource Manager qui s’ap
 
 Il existe de nombreux [modèles dans la galerie](https://azure.microsoft.com/documentation/templates/?term=VM), qui incluent la ressource de la machine virtuelle. Les éléments qui peuvent être inclus dans un modèle ne sont tous décrits ici.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 Cet exemple montre une section de ressources standard d’un modèle pour la création d’un nombre spécifié de machines virtuelles :
 

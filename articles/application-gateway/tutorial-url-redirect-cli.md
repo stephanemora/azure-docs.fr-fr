@@ -3,23 +3,21 @@ title: Tutoriel - Créer une passerelle d’application avec une redirection bas
 description: Dans ce tutoriel, vous découvrez comment créer une passerelle d’application avec un trafic redirigé en fonction d’un chemin d’URL, à l’aide d’Azure CLI.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 7/30/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e0b7995a8234ddb5927c4ef3e1ddd31fab9a00b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b2a06e47eec52d860aecdd2d9b57310cce5aeb27
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996404"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315948"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Didacticiel : Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure CLI
 
-Vous pouvez utiliser Azure CLI pour configurer des [règles d’acheminement par chemin d’accès URL](application-gateway-url-route-overview.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Ce didacticiel montre comment créer des pools principaux à l’aide de [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Vous créez ensuite des règles de routage d’URL garantissant que le trafic web est redirigé vers le pool principal approprié.
+Vous pouvez utiliser Azure CLI pour configurer des [règles d’acheminement par chemin d’accès URL](tutorial-url-route-cli.md) lors de la création d’une [passerelle d’application](application-gateway-introduction.md). Ce didacticiel montre comment créer des pools principaux à l’aide de [groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Vous créez ensuite des règles de routage d’URL garantissant que le trafic web est redirigé vers le pool principal approprié.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -39,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce tutoriel nécessite l’exécution d’Azure CLI version 2.0.4 ou ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -72,7 +70,9 @@ az network vnet subnet create \
 
 az network public-ip create \
   --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress
+  --name myAGPublicIPAddress \
+  --allocation-method Static \
+  --sku Standard
 ```
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
@@ -87,7 +87,7 @@ az network application-gateway create \
   --vnet-name myVNet \
   --subnet myAGsubnet \
   --capacity 2 \
-  --sku Standard_Medium \
+  --sku Standard_v2 \
   --http-settings-cookie-based-affinity Disabled \
   --frontend-port 80 \
   --http-settings-port 80 \
@@ -157,7 +157,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>Ajouter le mappage de chemin d’accès d’URL par défaut
 
-Les cartes de chemin d’accès URL spécifient que certaines URL sont acheminées vers des pools principaux spécifiques. Vous pouvez créer des cartes de chemins d’accès URL nommées *imagePathRule* et *videoPathRule* à l’aide des commandes [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) et [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule).
+Les cartes de chemin d’accès URL spécifient que certaines URL sont acheminées vers des pools backend spécifiques. Vous pouvez créer des cartes de chemins d’accès URL nommées *imagePathRule* et *videoPathRule* à l’aide des commandes [az network application-gateway url-path-map create](/cli/azure/network/application-gateway/url-path-map) et [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule).
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -295,22 +295,22 @@ az network public-ip show \
 
 ![Tester l’URL de base dans la passerelle d’application](./media/tutorial-url-redirect-cli/application-gateway-nginx.png)
 
-Remplacez l’URL par http://&lt;ip-address&gt;:8080/images/test.html, en indiquant votre adresse IP à la place de &lt;ip-address&gt;, de façon à voir apparaître quelque chose ressemblant à l’exemple suivant :
+Modifiez l’URL http://&lt;ip-address&gt;:8080/images/test.htm, en remplaçant votre adresse IP par &lt;ip-address&gt;. Vous devez ensuite voir quelque chose ressemblant à ceci :
 
 ![Tester l’URL images dans la passerelle d’application](./media/tutorial-url-redirect-cli/application-gateway-nginx-images.png)
 
-Changez l’URL en http://&lt;ip-address&gt;:8080/video/test.html, en remplaçant &lt;ip-address&gt; par votre adresse IP, de façon à voir apparaître quelque chose ressemblant à l’exemple suivant :
+Modifiez l’URL http://&lt;ip-address&gt;:8080/video/test.htm, en remplaçant votre adresse IP par &lt;ip-address&gt;. Vous devez ensuite voir quelque chose ressemblant à ceci :
 
 ![Tester l’URL vidéo dans la passerelle d’application](./media/tutorial-url-redirect-cli/application-gateway-nginx-video.png)
 
-À présent, changez l’URL en http://&lt;ip-address&gt;:8081/images/test.htm, en remplaçant &lt;ip-address&gt; par votre adresse IP, de façon à voir le trafic redirigé vers le pool principal d’images à l’adresse http://&lt;ip-address&gt;:8080/images.
+À présent, changez l’URL en http://&lt;ip-address&gt;:8081/images/test.htm, en remplaçant &lt;ip-address&gt; par votre adresse IP, de façon à voir le trafic redirigé vers le pool backend d’images à l’adresse http://&lt;ip-address&gt;:8080/images.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 

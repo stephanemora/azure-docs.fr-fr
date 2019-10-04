@@ -1,31 +1,25 @@
 ---
-title: Version d’évaluation d’Azure Resource Manager | Microsoft Docs
+title: Version d’évaluation d’Azure Resource Manager | Place de marché Azure
 description: Générer une version d’évaluation de la Place de marché à l’aide d’Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Patrick .Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541160"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65606437"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 
 Cet article concerne les éditeurs ayant leur offre sur la Place de marché Azure, ou qui se trouvent sur AppSource mais souhaitent générer leur version d’évaluation avec des ressources Azure uniquement.
 
-Un modèle Azure Resource Manager (ARM) est un conteneur codé de ressources Azure que vous concevez pour représenter les meilleures votre solution. Si vous n’êtes pas familiarisé avec ce qu’est un modèle Resource Manager, consultez [présentation des modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) et [création de modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) s’assurer que vous savez comment générer et tester vos propres modèles.
+Un modèle Azure Resource Manager (Resource Manager) est un conteneur codé de ressources Azure que vous concevez pour représenter votre solution de la meilleure façon. Si vous n’êtes pas familiarisé avec les modèles Resource Manager, consultez les articles [Comprendre les modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) et [Création de modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) pour être sûr de savoir comment générer et tester vos propres modèles.
 
 La version d’évaluation prend le modèle Resource Manager fourni et créer un déploiement de toutes les ressources requises à partir de ce modèle dans un groupe de ressources.
 
@@ -37,25 +31,25 @@ Si vous choisissez de générer une version d’évaluation d’Azure Resource M
 
 ## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Comment générer une version d’évaluation d’Azure Resource Manager
 
-Voici le processus de création d’une version d’évaluation de gestionnaire de ressources Azure :
+Voici le processus de génération d’une version d’évaluation d’Azure Resource Manager :
 
-1. Ce que vous souhaitez que vos clients à faire dans un diagramme de flux de conception.
-1. Définir les expériences vous souhaitez que vos clients de créer.
-1. Selon les définitions ci-dessus, décidez quels éléments et les ressources sont nécessaires pour les clients accomplir cette expérience : par exemple, D365 instance ou un site Web avec une base de données.
-1. Générez la conception localement et tester l’expérience.
-1. Package de l’expérience dans un déploiement de modèle ARM et à partir de là :
-    1. Définir les parties des ressources sont des paramètres d’entrée ;
-    1. Quelles sont les variables ;
-    1. Les sorties sont données à l’expérience du client.
-1. Publier, tester et mise en ligne.
+1. Concevez les services à offrir à vos clients dans un diagramme de flux.
+1. Définissez les expériences que vos clients vont générer.
+1. Selon les définitions ci-dessus, décidez quels éléments et quelles ressources sont nécessaires pour les clients accomplir tâches (par exemple, instance D365 ou site Web avec une base de données).
+1. Générez la conception localement et testez l’expérience.
+1. Packagez l’expérience dans un déploiement de modèle ARM. Ensuite :
+    1. Définissez quelles parties des ressources sont des paramètres d’entrée.
+    1. Définissez les variables.
+    1. Définissez les sorties données à l’expérience client.
+1. Publiez, testez et mettez en ligne.
 
 La partie la plus importante sur la création d’une version d’évaluation d’Azure Resource Manager consiste à définir le(s) scénario(s) que vous souhaitez fournir à vos clients. Votre produit est un pare-feu et vous souhaitez montrer la façon dont il gère les attaques par injection de script ? Votre produit est un produit de stockage et vous souhaitez montrer la rapidité et la facilité avec laquelle il compresse les fichiers ?
 
-Veillez à consacrer suffisamment de temps à évaluer quels sont les meilleurs moyens de présenter votre produit. Plus précisément autour de toutes les ressources requises vous auriez besoin, car elle simplifie le modèle Resource Manager suffisamment plus facile d’emballage.
+Veillez à prendre suffisamment de temps pour évaluer les meilleures façons de présenter votre produit. Particulièrement concernant les ressources dont vous aurez besoin, car cela facilite le packaging du modèle Resource Manager.
 
 Pour continuer avec notre exemple de pare-feu, l’architecture peut être que vous avez besoin une URL d’adresse IP publique pour votre service et une autre URL d’adresse IP publique pour le site web protégé par votre pare-feu. Chaque adresse IP est déployée sur une machine virtuelle et interconnectée avec un groupe de sécurité réseau et une interface réseau.
 
-Une fois que vous avez conçu le package souhaité des ressources, intègre désormais l’écriture et la construction du modèle de Test Drive Resource Manager.
+Une fois que vous avez conçu le package de ressources désiré, l’écriture et la construction du modèle Resource Manager de la version d’évaluation sont les prochaines étapes.
 
 ## <a name="writing-test-drive-resource-manager-templates"></a>Écriture des modèles Resource Manager de la version d’évaluation
 
@@ -90,10 +84,10 @@ Il est également important de noter que **tous les paramètres sont facultatifs
 
 | Type de métadonnées   | Type de paramètre  | Description     | Exemple de valeur    |
 |---|---|---|---|
-| **baseuri**     | string          | URI de base de votre package de déploiement| https :\//\<\..\>.blob.core.windows.net/\<\..\> |
-| **nom d’utilisateur**    | string          | Nouveau nom d’utilisateur aléatoire.| admin68876      |
+| **baseuri**     | chaîne          | URI de base de votre package de déploiement| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
+| **nom d’utilisateur**    | chaîne          | Nouveau nom d’utilisateur aléatoire.| admin68876      |
 | **mot de passe**    | chaîne sécurisée    | Nouveau mot de passe aléatoire | Lp!ACS\^2kh     |
-| **ID de la session**   | string          | ID de session unique de la version d’évaluation (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **ID de la session**   | chaîne          | ID de session unique de la version d’évaluation (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="username"></a>username
 
@@ -306,9 +300,9 @@ Au cours de la certification de publication, la version d’évaluation décompr
 
 | package.zip                       | Conteneur d’objets blob de la version d’évaluation         |
 |---|---|
-| main-template.json                | https :\//\<\.... \>.blob.core.windows.net/\<\.... \>/main-template.json  |
-| templates/solution.json           | https :\//\<\.... \>.blob.core.windows.net/\<\.... \>/templates/solution.json |
-| scripts/warmup.ps1                | https :\//\<\.... \>.blob.core.windows.net/\<\.... \>/scripts/warmup.ps1  |
+| main-template.json                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/main-template.json  |
+| templates/solution.json           | https:\//\<\...\>.blob.core.windows.net/\<\...\>/templates/solution.json |
+| scripts/warmup.ps1                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1  |
 
 
 Un URI de ce conteneur d’objets blob est appelé URI de Base. Chaque révision de votre laboratoire a son propre conteneur d’objets blob et, par conséquent, chaque révision de votre laboratoire a son propre URI de Base. La version d’évaluation peut passer un URI de base de votre package de déploiement décompressé dans votre modèle via des paramètres de modèle.
@@ -368,7 +362,7 @@ La section suivante à remplir est l’emplacement où vous chargez le modèle R
 
 **Modèle Resource Manager de la version d’évaluation :** *requis* Chargez votre modèle Resource Manager ici. C’est le fichier que vous avez créé dans la section précédente. Nommez le fichier de modèle principal « main template.json » et assurez-vous que votre modèle Resource Manager contient des paramètres de sortie pour les variables clés nécessaires. (Doit être un fichier zip)
 
-**Informations d’accès :** *requis* Lorsqu’un client obtient sa version d’évaluation, les informations d’accès lui sont présentées. Ces instructions sont destinées à partager les paramètres de sortie utiles à partir du modèle Resource Manager de votre version d’évaluation. Pour inclure les paramètres de sortie, utilisez des accolades doubles (par exemple, **{{nom_sortie}}**) afin de les insérer correctement à l’emplacement. (Une mise en forme de chaîne HTML est recommandée ici pour l’affichage dans le serveur frontal).
+**Informations d’accès :** *requis* Lorsqu’un client obtient sa version d’évaluation, les informations d’accès lui sont présentées. Ces instructions sont destinées à partager les paramètres de sortie utiles à partir du modèle Resource Manager de votre version d’évaluation. Pour inclure les paramètres de sortie, utilisez des accolades doubles (par exemple, **{{nom_sortie}}** ) afin de les insérer correctement à l’emplacement. (Une mise en forme de chaîne HTML est recommandée ici pour l’affichage dans le serveur frontal).
 
 ### <a name="test-drive-deployment-subscription-details"></a>Détails d’abonnement du déploiement de la version d’évaluation
 
@@ -388,7 +382,7 @@ Autrement, créez un nouveau locataire dans Azure Active Directory.
 
 ![Liste des locataires Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Définissez l’organisation, le domaine et le pays du locataire Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Définissez l’organisation, le domaine et le pays/la région du locataire Azure AD.](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirmez la sélection](./media/azure-resource-manager-test-drive/subdetails6.png)
 
@@ -409,7 +403,7 @@ Cliquez sur Enregistrer. La dernière étape consiste à récupérer l’ID de c
 Étant donné nous utilisons l’application à déployer sur l’abonnement, nous devons ajouter l’application en tant que collaborateur sur l’abonnement. Voici les instructions pour le faire :
 
 1. Accédez au panneau Abonnements et sélectionnez l’abonnement approprié que vous utilisez uniquement pour la version d’évaluation.
-1. Cliquez sur **Contrôle d’accès (IAM)**.
+1. Cliquez sur **Contrôle d’accès (IAM)** .
 1. Cliquez sur l’onglet **Attributions de rôles**.  ![Ajouter un nouveau principal Access Control](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. Cliquez sur **Ajouter une attribution de rôle**.
 1. Définissez le rôle **Contributeur**.

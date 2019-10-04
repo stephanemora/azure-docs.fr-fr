@@ -4,22 +4,21 @@ description: Apprenez à concevoir votre application Azure Batch afin de faire f
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
 ms.workload: ''
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: lahugh
-ms.openlocfilehash: b863785575263fedd144b3d599962a8e1559e0a3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 11446f5f23d470234b5dba641dc16e0bf71d9b72
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252398"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094032"
 ---
 # <a name="design-your-application-for-high-availability"></a>Concevoir votre application à des fins de haute disponibilité
 

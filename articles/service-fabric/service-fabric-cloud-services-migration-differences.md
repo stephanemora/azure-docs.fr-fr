@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 8b486e617389e1611dfebf3d347d2d64df088593
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669449"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66258653"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Découvrez les différences entre les services cloud et Service Fabric avant de migrer les applications.
 Microsoft Azure Service Fabric est la plateforme d’applications cloud nouvelle génération pour les applications distribuées hautement évolutives et fiables. Elle introduit de nombreuses nouvelles fonctionnalités d’empaquetage, de déploiement, de mise à niveau et de gestion des applications cloud distribuées. 
@@ -29,7 +29,7 @@ Ceci est un guide pour apprendre à migrer des applications à partir des servic
 ## <a name="applications-and-infrastructure"></a>Applications et infrastructure
 L’une des principales différences entre les services cloud et Service Fabric est la relation entre les machines virtuelles, les charges de travail et les applications. Une charge de travail correspond au code que vous écrivez pour effectuer une tâche spécifique ou fournir un service.
 
-* **Les services cloud visent à déployer des applications en tant que machines virtuelles.**  Le code que vous écrivez est étroitement lié à une instance de machine virtuelle, par exemple un rôle web ou de travail. Déployer une charge de travail dans les services cloud revient à déployer une ou plusieurs instances de machines virtuelles qui exécutent la charge de travail. Il n’existe pas de séparation entre les applications et les machines virtuelles, et par conséquent, les applications ne sont pas associées à une définition formelle. Une application peut être considérée comme un ensemble d’instances de rôle web ou de travail au sein d’un déploiement de services cloud ou comme un déploiement complet de services cloud. Dans cet exemple, une application est représentée comme un ensemble d’instances de rôle.
+* **Les services cloud visent à déployer des applications en tant que machines virtuelles.** Le code que vous écrivez est étroitement lié à une instance de machine virtuelle, par exemple un rôle web ou de travail. Déployer une charge de travail dans les services cloud revient à déployer une ou plusieurs instances de machines virtuelles qui exécutent la charge de travail. Il n’existe pas de séparation entre les applications et les machines virtuelles, et par conséquent, les applications ne sont pas associées à une définition formelle. Une application peut être considérée comme un ensemble d’instances de rôle web ou de travail au sein d’un déploiement de services cloud ou comme un déploiement complet de services cloud. Dans cet exemple, une application est représentée comme un ensemble d’instances de rôle.
 
 ![Topologie et applications de service cloud][1]
 
@@ -73,7 +73,7 @@ Avec la communication directe, les niveaux peuvent communiquer directement par l
 
  La communication directe est un modèle de communication courant dans Service Fabric. La principale différence entre Service Fabric et les services cloud est que dans les services cloud, vous vous connectez à une machine virtuelle, tandis que dans Service Fabric, vous vous connectez à un service. Cette distinction est importante pour plusieurs raisons :
 
-* Services dans Service Fabric ne sont pas liés aux machines virtuelles qui les hébergent ; services peuvent se déplacer le cluster et en réalité, ils doivent se déplacer pour différentes raisons : Équilibrage des ressources, le basculement, mises à niveau de l’application et l’infrastructure et les contraintes de positionnement ou de charge. Cela signifie que l’adresse d’une instance de service peut changer à tout moment. 
+* Les services inclus dans Service Fabric ne sont pas liés aux machines virtuelles qui les hébergent ; les services peuvent se déplacer au sein du cluster et en réalité, ils doivent même se déplacer pour différentes raisons : équilibrage des ressources, basculement, mises à niveau de l’application et de l’infrastructure, contraintes de positionnement ou de charge, etc. Cela signifie que l’adresse d’une instance de service peut changer à tout moment. 
 * Une machine virtuelle dans Service Fabric peut héberger plusieurs services, chacun avec des points de terminaison uniques.
 
 Service Fabric fournit un mécanisme de découverte de service, appelé service d’affectation de noms, qui peut être utilisé pour résoudre les adresses de point de terminaison des services. 
@@ -88,6 +88,24 @@ Pour communiquer entre les niveaux dans des environnements sans état tels que l
 Le même modèle de communication peut être utilisé dans Service Fabric. Cela peut être utile lors de la migration d’une application existante d’un service cloud vers Service Fabric. 
 
 ![Communication directe Service Fabric][8]
+
+## <a name="parity"></a>Parité
+[Cloud Services est similaire à Service Fabric en termes de niveau de contrôle et de facilité d’utilisation, mais il s’agit désormais d’un service hérité et Service Fabric est recommandé pour un nouveau développement](https://docs.microsoft.com/azure/app-service/overview-compare) ; voici une comparaison entre les API :
+
+
+| **API Service Cloud** | **API Service Fabric** | **Remarques** |
+| --- | --- | --- |
+| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId ou .NodeName | ID est une propriété de NodeName |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | Filtrez sur NodeName et utilisez la propriété FD |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | Filtrez sur NodeName et utilisez la propriété Upgrade |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext ou Naming (ResolveService) | CodePackageActivationContext, fournie par FabricRuntime.GetActivationContext et au sein des réplicas via ServiceInitializationParameters.CodePackageActivationContext, fournie pendant . Initialize |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | Si vous souhaitez effectuer le même type de filtrage par type, vous pouvez obtenir la liste des types de nœuds du manifeste du cluster via FabricClient.ClusterManager.GetClusterManifest et récupérer les types de nœud/rôle à partir de cet emplacement. |
+| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster, ou créez un FabricRuntime pointant vers un nœud spécifique | * |
+| RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
+| RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
+| LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
+| Role.GetInstances | FabricClient.QueryManager.GetNodeList ou ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext ou Naming (ResolveService) | * |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Le moyen le plus simple de migrer des services cloud vers Service Fabric est de remplacer uniquement le déploiement des services cloud par une application Service Fabric, tout en conservant l’architecture globale de votre application presque inchangée. L’article suivant fournit un guide pour vous aider à convertir un rôle web ou de travail en service sans état Service Fabric.

@@ -10,29 +10,32 @@ ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 7130c9547e0778ce40a0ad1c1ea41607a02df23e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104567"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088100"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hébergement haute densité sur Azure App Service à l’aide de la mise à l’échelle par application
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Par défaut, vous mettez à l’échelle les applications App Service en mettant à l’échelle le [plan App Service](overview-hosting-plans.md) sur lequel elles sont exécutées. Lorsque plusieurs applications sont exécutées dans un même plan App Service, chaque instance mise à l’échelle exécute toutes les applications du plan.
+Lorsque vous utilisez App Service, vous pouvez mettre à l’échelle vos applications en mettant à l’échelle le [plan App Service](overview-hosting-plans.md) sur lequel elles sont exécutées. Lorsque plusieurs applications sont exécutées dans un même plan App Service, chaque instance mise à l’échelle exécute toutes les applications du plan.
 
-Vous pouvez activer la *mise à l’échelle par application* pour chaque plan App Service. Les applications sont ainsi mises à l’échelle, indépendamment du plan App Service qui les héberge. De cette manière, un plan App Service peut passer à 10 instances, mais une application peut être définie de manière à n’en utiliser que cinq.
+La *mise à l’échelle par application* peut être activée au niveau du plan App Service pour permettre la mise à l’échelle d’une application en ignorant le plan App Service qui l’héberge. De cette manière, un plan App Service peut passer à 10 instances, mais une application peut être définie de manière à n’en utiliser que cinq.
 
 > [!NOTE]
 > La mise à l’échelle par application est uniquement disponible pour les niveaux tarifaires **Standard**, **Premium**, **Premium V2** et **Isolé**.
 >
+
+Les applications sont allouées au plan App Service disponible à l’aide d’une approche essayant au mieux de répartir de manière uniforme sur toutes les instances. La répartition ne sera pas obligatoirement uniforme, mais la plateforme s’assurera que les deux instances de la même application ne seront pas hébergées sur la même instance de plan App Service.
+
+La plateforme ne répartit pas les rôles de travail en fonction des mesures. Les applications sont rééquilibrées uniquement lorsque des instances sont ajoutées ou supprimées du plan App Service.
 
 ## <a name="per-app-scaling-using-powershell"></a>Mise à l’échelle par application à l’aide de PowerShell
 
@@ -60,10 +63,10 @@ Dans l’exemple ci-dessous, l’application est limitée à deux instances quel
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
 $newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
-    
+
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
-    
+
 # Post updated app back to azure
 Set-AzWebApp $newapp
 ```
@@ -128,17 +131,18 @@ Le plan App Service définit la propriété **PerSiteScaling** sur true `"perSit
 ```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Configuration recommandée pour l’hébergement haute densité
-La fonctionnalité de mise à l’échelle par application est activée dans les régions Azure et les [environnements App Service](environment/app-service-app-service-environment-intro.md) globaux. Toutefois, la stratégie recommandée consiste à utiliser des environnements App Service pour tirer parti de leurs fonctionnalités avancées et des pools de capacité supérieure.  
+
+La fonctionnalité de mise à l’échelle par application est activée dans les régions Azure et les [environnements App Service](environment/app-service-app-service-environment-intro.md) globaux. Toutefois, la stratégie recommandée consiste à utiliser des environnements App Service Environment pour tirer parti de leurs fonctionnalités avancées et de la capacité supérieure du plan App Service.  
 
 Suivez ces étapes pour configurer un hébergement haute densité pour vos applications :
 
-1. Configurez l’environnement App Service et choisissez un pool de Workers consacré au scénario d’hébergement haute densité.
-2. Créez un seul plan App Service et mettez-le à l’échelle pour utiliser toute la capacité disponible sur le pool de Workers.
-3. Définissez l’indicateur `PerSiteScaling` sur true dans le plan App Service.
-4. Les nouvelles applications sont créées et attribuées à ce plan App Service avec la propriété **numberOfWorkers** définie sur **1**. Cela donne la densité la plus élevée possible sur ce pool de Workers.
-5. Le nombre de Workers peut être configuré indépendamment par application pour accorder des ressources supplémentaires en fonction des besoins. Par exemple : 
-    - Une application à haut niveau d’utilisation peut définir **numberOfWorkers** sur **3** pour accroître la capacité de traitement de cette application. 
-    - Les applications à faible niveau d’utilisation définiraient **numberOfWorkers** sur **1**.
+1. Désignez un plan App Service en tant que plan haute densité et augmentez la taille des instances de manière à obtenir la capacité de votre choix.
+1. Définissez l’indicateur `PerSiteScaling` sur true dans le plan App Service.
+1. Les nouvelles applications sont créées et attribuées à ce plan App Service avec la propriété **numberOfWorkers** définie sur **1**.
+   - Cette configuration vous offre la densité la plus élevée possible.
+1. Le nombre de Workers peut être configuré indépendamment par application pour accorder des ressources supplémentaires en fonction des besoins. Par exemple :
+   - Une application à haut niveau d’utilisation peut définir **numberOfWorkers** sur **3** pour accroître la capacité de traitement de cette application.
+   - Les applications à faible niveau d’utilisation définiraient **numberOfWorkers** sur **1**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

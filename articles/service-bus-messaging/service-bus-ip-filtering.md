@@ -9,14 +9,14 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 52475a3976ef8897ffed07c499eb06e7476c0156
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136291"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64704584"
 ---
 # <a name="use-firewall-rules"></a>Utiliser des règles de pare-feu
 
@@ -60,7 +60,7 @@ Les règles de filtre IP sont appliquées dans l’ordre et la première règle 
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Création d’une règle de pare-feu et de réseau virtuel avec des modèles Azure Resource Manager
 
 > [!IMPORTANT]
-> Les pare-feux et réseaux virtuels sont prises en charge uniquement dans le **premium** niveau de Service Bus.
+> Les pare-feux et les réseaux virtuels sont pris en charge uniquement dans le niveau **Premium** de Service Bus.
 
 Le modèle Resource Manager suivant permet d’ajouter une règle de réseau virtuel à un espace de noms Service Bus.
 
@@ -110,8 +110,8 @@ Paramètres du modèle :
         "type": "Microsoft.ServiceBus/namespaces",
         "location": "[parameters('location')]",
         "sku": {
-          "name": "Standard",
-          "tier": "Standard"
+          "name": "Premium",
+          "tier": "Premium"
         },
         "properties": { }
       },
@@ -149,7 +149,7 @@ Pour déployer le modèle, suivez les instructions pour [Azure Resource Manager]
 
 Pour limiter l’accès à Service Bus aux réseaux virtuels Azure, consultez le lien suivant :
 
-- [Points de terminaison du service de réseau virtuel pour Service Bus][lnk-vnet]
+- [Points de terminaison de service de réseau virtuel pour Service Bus][lnk-vnet]
 
 <!-- Links -->
 

@@ -1,30 +1,29 @@
 ---
-title: 'Tutoriel : Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Projects'
+title: 'Didacticiel : Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Projects'
 description: Azure DevOps Projects facilite la prise en main d’Azure. DevOps Projects vous permet d’utiliser votre propre code et votre dépôt GitHub pour lancer une application sur le service Azure de votre choix en quelques étapes rapides.
 services: vsts
 documentationcenter: vs-devops-build
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.prod: devops
 ms.technology: devops-cicd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 88ee15a3b5cc53542d9e098dee485b8a526bb9a6
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 2abe24ad65e1e8997b48a28b35ec0e65162022f2
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161751"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70898013"
 ---
-# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Tutoriel : Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Projects
+# <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>Didacticiel : Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Projects
 
 Azure DevOps Projects offre une expérience simplifiée dans laquelle vous pouvez apporter vos code et dépôt Git existants ou choisir un exemple d’application pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) dans Azure.
 
@@ -50,7 +49,7 @@ Azure DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-1. Dans le volet gauche, sélectionnez **Nouveau...**.
+1. Dans le volet gauche, sélectionnez **Nouveau...** .
 
 1. Dans la zone de recherche, tapez **DevOps Projects**, puis sélectionnez **Créer**.
 

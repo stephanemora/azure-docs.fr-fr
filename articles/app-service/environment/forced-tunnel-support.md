@@ -9,23 +9,22 @@ ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: e80c0e4e57f8af067c17d0dcfefd26ce7ce8255f
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389285"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069447"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurer votre environnement App Service avec le tunneling forcé
 
 L’environnement ASE (App Service Environment) est un déploiement d’Azure App Service dans le réseau virtuel Azure d’un client. De nombreux clients configurent leurs réseaux virtuels Azure en tant qu’extensions de leurs réseaux locaux avec des réseaux privés virtuels ou des connexions Azure ExpressRoute. Le tunneling forcé consiste à rediriger le trafic Internet sortant vers votre réseau privé virtuel ou vers une appliance virtuelle. Les appliances virtuelles servent souvent à inspecter et à auditer le trafic réseau sortant. 
 
-L’environnement ASE a de nombreuses dépendances externes, décrites dans ce document sur [l’architecture réseau de l’environnement App Service][network]. Normalement, tout le trafic de dépendance sortant de l’ASE doit passer par l’adresse IP virtuelle qui est configurée avec l’ASE. Si vous modifiez le routage du trafic vers ou depuis l’ASE sans tenir compte des informations ci-dessous, votre ASE cessera de fonctionner.
+L’environnement ASE a de nombreuses dépendances externes, décrites dans ce document sur l’[architecture réseau de l’environnement App Service][network]. Normalement, tout le trafic de dépendance sortant de l’ASE doit passer par l’adresse IP virtuelle qui est configurée avec l’ASE. Si vous modifiez le routage du trafic vers ou depuis l’ASE sans tenir compte des informations ci-dessous, votre ASE cessera de fonctionner.
 
 Dans un réseau virtuel Azure, le routage repose sur la correspondance de préfixe la plus longue. S’il existe plusieurs itinéraires avec la même correspondance de préfixe la plus longue, un itinéraire est sélectionné en fonction de son origine dans l’ordre suivant :
 
@@ -33,7 +32,7 @@ Dans un réseau virtuel Azure, le routage repose sur la correspondance de préfi
 * Itinéraire BGP (lorsque ExpressRoute est utilisé)
 * Itinéraire du système
 
-Pour en savoir plus sur le routage dans un réseau virtuel, consultez [Itinéraires définis par l’utilisateur et transfert IP][routes]. 
+Pour en savoir plus sur le routage dans un réseau virtuel, consultez [Routages définis par l’utilisateur et transfert IP][routes]. 
 
 Si vous souhaitez acheminer le trafic sortant de votre environnement ASE vers une autre destination que directement vers Internet, vous pouvez choisir parmi les options suivantes :
 
@@ -56,7 +55,7 @@ Si le réseau achemine déjà du trafic en local, vous devez alors créer le sou
 > [!IMPORTANT]
 > Les itinéraires définis dans un UDR doivent être suffisamment spécifiques pour avoir la priorité sur les itinéraires annoncés par la configuration ExpressRoute. L’exemple précédent utilise la plage d’adresses 0.0.0.0/0 large. Il peut potentiellement être remplacé accidentellement par des annonces de routage utilisant des plages d’adresses plus spécifiques.
 >
-> Les environnements App Service ne sont pas pris en charge avec les configurations ExpressRoute qui annoncent de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée. Les configurations ExpressRoute ayant une homologation publique configurée reçoivent les publications de routage de Microsoft. Les publications contiennent un grand ensemble de plages d’adresses Microsoft Azure. Si ces plages d’adresses sont publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’environnement App Service sont acheminés vers l’infrastructure réseau locale d’un client. Ce flux de réseau n’est pas pris en charge par défaut par les environnements App Service. L’une des solutions à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée. Une autre solution consiste à autoriser votre environnement App Service à fonctionner dans une configuration de tunneling forcé.
+> Les environnements App Service ne sont pas pris en charge avec les configurations ExpressRoute qui annoncent de façon croisée des itinéraires à partir du chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée. Les configurations ExpressRoute ayant un peering public configuré reçoivent les publications de routage de Microsoft. Les publications contiennent un grand ensemble de plages d’adresses Microsoft Azure. Si ces plages d’adresses sont publiées de façon croisée sur le chemin d’accès d’homologation privée, il en résulte que tous les paquets réseau sortants du sous-réseau de l’environnement App Service sont acheminés vers l’infrastructure réseau locale d’un client. Ce flux de réseau n’est pas pris en charge par défaut par les environnements App Service. L’une des solutions à ce problème consiste à arrêter les itinéraires croisés depuis le chemin d’accès d’homologation publique vers le chemin d’accès d’homologation privée. Une autre solution consiste à autoriser votre environnement App Service à fonctionner dans une configuration de tunneling forcé.
 
 ![Accès direct à Internet][1]
 
@@ -67,7 +66,7 @@ Vous pouvez configurer votre sous-réseau ASE de manière à ignorer les itinér
 Pour configurer votre sous-réseau ASE de manière à ignorer les itinéraires BGP :
 
 * créez un UDR et affectez-le à votre sous-réseau ASE si vous n’en n’avez pas encore.
-* Dans le portail Azure, ouvrez l’interface utilisateur pour la table de routage affectée à votre sous-réseau ASE.  Sélectionnez une configuration.  Désactivez la propagation des itinéraires BGP.  Cliquez sur Enregistrer. La documentation sur la mise hors tension se trouve dans le document [Créer une table de routage][routetable].
+* Dans le portail Azure, ouvrez l’interface utilisateur pour la table de routage affectée à votre sous-réseau ASE.  Sélectionnez une configuration.  Désactivez la propagation des itinéraires BGP.  Cliquez sur Enregistrer. La documentation sur la désactivation se trouve dans le document [Créer une table de routage][routetable].
 
 Une fois que vous avez configuré le sous-réseau ASE de façon à ignorer toutes les routes BGP, vos applications ne peuvent plus accéder aux ressources locales. Pour permettre aux applications d’accéder aux ressources locales, modifiez l’UDR affecté à votre sous-réseau ASE, puis ajoutez des routes pour vos plages d’adresses locales. Le type de tronçon suivant doit être défini sur Passerelle de réseau virtuel. 
 
@@ -108,7 +107,7 @@ Pour tunneliser tout le trafic sortant à partir de votre ASE, à l’exception 
 
    Sélectionnez **PUT** (Placer) en haut. Cette option déclenche une opération de mise à l’échelle de votre environnement App Service et ajuste le pare-feu.
 
-_Pour créer votre ASE avec les adresses de sortie_ : suivez les instructions de [Créer un ASE à l’aide d’un modèle Azure Resource Manager][template] et extrayez le modèle approprié.  Modifiez la section « resources » dans le fichier azuredeploy.json, mais pas dans le bloc « properties », et incluez une ligne pour **userWhitelistedIpRanges** avec vos valeurs.
+_Pour créer votre ASE avec les adresses de sortie_ : suivez les instructions données dans [Créer un ASE à l’aide d’un modèle][template] et tirez (pull) le modèle approprié.  Modifiez la section « resources » dans le fichier azuredeploy.json, mais pas dans le bloc « properties », et incluez une ligne pour **userWhitelistedIpRanges** avec vos valeurs.
 
     "resources": [
       {

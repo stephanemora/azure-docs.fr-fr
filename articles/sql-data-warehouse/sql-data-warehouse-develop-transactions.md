@@ -2,20 +2,20 @@
 title: Utilisation de transactions dans Azure SQL Data Warehouse | Microsoft Docs
 description: Conseils relatifs à l’implémentation de transactions dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0b4ce6f4479552f42d32124149f64614b7e3cb70
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 7f00f8a25d0abf3af6d76b372b44145546a79879
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369494"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479607"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Utilisation de transactions dans SQL Data Warehouse
 Conseils relatifs à l’implémentation de transactions dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
@@ -36,7 +36,7 @@ Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 
 ## <a name="gen2"></a>Deuxième génération
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Limite par distribution (Go) | Nombre de distributions | Taille de transaction maximale (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
+| [DWU](sql-data-warehouse-overview-what-is.md) | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100c |1 |60 |60 |4 000 000 |240 000 000 |
 | DW200c |1.5 |60 |90 |6 000 000 |360 000 000 |
@@ -46,18 +46,18 @@ Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 | DW1000c |7.5 |60 |450 |30 000 000 |1 800 000 000 |
 | DW1500c |11,25 |60 |675 |45 000 000 |2 700 000 000 |
 | DW2000c |15 |60 |900 |60 000 000 |3 600 000 000 |
-| DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
+| DW2500c |18,75 |60 |1 125 |75 000 000 |4 500 000 000 |
 | DW3000c |22,5 |60 |1 350 |90 000 000 |5 400 000 000 |
-| DW5000c |37.5 |60 |2,250 |150,000,000 |9,000,000,000 |
+| DW5000c |37,5 |60 |2 250 |150 000 000 |9 000 000 000 |
 | DW6000c |45 |60 |2 700 |180 000 000 |10 800 000 000 |
-| DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
-| DW10000c |75 |60 |4,500 |300 000 000 |18,000,000,000 |
-| DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
-| DW30000c |225 |60 |13,500 |900 000 000 |54,000,000,000 |
+| DW7500c |56,25 |60 |3 375 |225 000 000 |13 500 000 000 |
+| DW10000c |75 |60 |4 500 |300 000 000 |18 000 000 000 |
+| DW15000c |112,5 |60 |6 750 |450 000 000 |27 000 000 000 |
+| DW30000c |225 |60 |13 500 |900 000 000 |54 000 000 000 |
 
 ## <a name="gen1"></a>Première génération
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Limite par distribution (Go) | Nombre de distributions | Taille de transaction maximale (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
+| [DWU](sql-data-warehouse-overview-what-is.md) | Limite par distribution (Go) | Nombre de distributions | Taille de transaction MAX (Go) | Nombre de lignes par distribution | Nombre de lignes max par transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4 000 000 |240 000 000 |
 | DW200 |1.5 |60 |90 |6 000 000 |360 000 000 |

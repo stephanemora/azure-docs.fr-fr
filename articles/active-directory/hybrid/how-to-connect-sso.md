@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c34d8de3dfd06540dd50542ab19da0c1d9b1567
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 86895ab315784c49c2b240badb249dce57ae958a
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079739"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622575"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -53,8 +53,8 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 
 - Le nom d’utilisateur peut être soit le nom d’utilisateur local par défaut (`userPrincipalName`), soit un autre attribut configuré dans Azure AD Connect (`Alternate ID`). Les deux cas d’utilisation fonctionnent car l’authentification unique transparente utilise la revendication `securityIdentifier` dans le ticket Kerberos pour rechercher l’objet utilisateur correspondant dans Azure AD.
 - L’authentification unique transparente est une fonctionnalité opportuniste. Si elle échoue pour une raison quelconque, l’expérience de connexion utilisateur retrouve son comportement normal (l’utilisateur doit alors entrer son mot de passe dans la page de connexion).
-- Si une application (par exemple, `https://myapps.microsoft.com/contoso.com`) transfère un `domain_hint` (OpenID Connect) ou `whr` paramètre (SAML) - correspondant à votre locataire, ou `login_hint` paramètre - identification de l’utilisateur, dans sa demande de connexion Azure AD, les utilisateurs sont automatiquement connecté sans les noms d’utilisateur saisissant ou les mots de passe.
-- Les utilisateurs obtiennent également une expérience d’authentification en mode silencieux si une application (par exemple, `https://contoso.sharepoint.com`) envoie des demandes de connexion aux points de terminaison d’Azure AD configurés en tant que clients - autrement dit, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>` : au lieu point de terminaison commun d’Azure AD - autrement dit, `https://login.microsoftonline.com/common/<...>` .
+- Si une application (par exemple, `https://myapps.microsoft.com/contoso.com`) transfère un paramètre `domain_hint` (OpenID Connect) ou `whr` (SAML), correspondant à votre locataire, ou encore un paramètre `login_hint`, correspondant à l’utilisateur, dans sa requête de connexion Azure AD, les utilisateurs sont automatiquement connectés, sans qu’ils n’aient à entrer leurs nom d’utilisateur et mot de passe.
+- Les utilisateurs obtiennent également une expérience de connexion silencieuse si une application (par exemple, `https://contoso.sharepoint.com`) envoie des demandes de connexion aux points de terminaison d'Azure AD définis en tant que locataires ; c'est-à-dire, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>` au lieu du point de terminaison commun d’Azure AD ; c'est-à-dire, `https://login.microsoftonline.com/common/<...>`.
 - La déconnexion est prise en charge. Cela permet aux utilisateurs de choisir le compte Azure AD auquel se connecter, au lieu d’être connecté automatiquement à l’aide de l’authentification unique transparente.
 - Les clients Win32 Office 365 (Outlook, Word, Excel, etc.) dotés des versions 16.0.8730.xxxx et ultérieures sont pris en charge au moyen d’un flux non interactif. En ce qui concerne OneDrive, vous devez activer la [fonctionnalité de configuration silencieuse OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) pour une utilisation de l’authentification sans assistance.
 - L’authentification unique transparente peut être activée par le biais d’Azure AD Connect.
@@ -63,12 +63,12 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 
 | Système d’exploitation\Navigateur |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Oui\*|Non |Oui|Oui\*\*\*|S.O.
-|Windows 8.1|Oui\*|S.O.|Oui|Oui\*\*\*|S.O.
-|Windows 8|Oui\*|S.O.|Oui|Oui\*\*\*|S.O.
-|Windows 7|Oui\*|S.O.|Oui|Oui\*\*\*|S.O.
-|Windows Server 2012 R2 ou version ultérieure|Oui\*\*|S.O.|Oui|Oui\*\*\*|S.O.
-|Mac OS X|S.O.|S.O.|Oui\*\*\*|Oui\*\*\*|Oui\*\*\*
+|Windows 10|Oui\*|Non|OUI|Oui\*\*\*|N/A
+|Windows 8.1|Oui\*|N/A|OUI|Oui\*\*\*|N/A
+|Windows 8|Oui\*|N/A|OUI|Oui\*\*\*|N/A
+|Windows 7|Oui\*|N/A|OUI|Oui\*\*\*|N/A
+|Windows Server 2012 R2 ou version ultérieure|Oui\*\*|N/A|OUI|Oui\*\*\*|N/A
+|Mac OS X|N/A|N/A|Oui\*\*\*|Oui\*\*\*|Oui\*\*\*
 
 
 \*Requiert Internet Explorer version 10 ou ultérieure
@@ -83,9 +83,9 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [**Démarrage rapide**](how-to-connect-sso-quick-start.md) : découvrez l’authentification unique transparente Azure AD.
-- [**Plan de déploiement**](https://aka.ms/AuthenticationDeploymentPlan) : plan de déploiement étape par étape.
+- [**Plan de déploiement**](https://aka.ms/deploymentplans/sso) : plan de déploiement étape par étape.
 - [**Immersion technique**](how-to-connect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
-- [**Questions fréquentes (FAQ)**](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
+- [**Questions fréquentes (FAQ)** ](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.
 

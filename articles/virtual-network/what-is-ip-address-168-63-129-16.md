@@ -4,7 +4,7 @@ description: Apprenez-en davantage sur l'adresse IP 168.63.129.16 et sur la faç
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
+ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 7f0539e7c2f7e5ae8847b35b47d3708c6c5d6a09
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 0ea8a8ec1a92a7dbc01dddc175f7116825ba00f9
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296036"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71067777"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Quelle est l’adresse IP 168.63.129.16 ?
 
@@ -28,14 +28,17 @@ L’adresse IP 168.63.129.16 est une adresse IP publique virtuelle qui est utili
 
 - Permet à l’agent de machine virtuelle de communiquer avec la plateforme Azure pour signaler qu’il est dans un état « Prêt ».
 - Permet la communication avec le serveur virtuel DNS pour fournir la résolution de nom filtré aux ressources (machine virtuelle, p. ex.) qui ne possèdent pas de serveur DNS personnalisé. Ce filtrage permet de s’assurer que les clients peuvent résoudre uniquement les noms d’hôte de leurs ressources.
-- Donne les moyens aux sondes d’intégrité de l’équilibreur de charge de déterminer l’intégrité des machines virtuelles dans un ensemble dont la charge est équilibrée.
+- Donne les moyens aux [sondes d’intégrité de l’équilibreur de charge Azure](../load-balancer/load-balancer-custom-probe-overview.md) de déterminer l’intégrité des machines virtuelles.
+- Permet à la machine virtuelle d’obtenir une adresse IP dynamique auprès du service DHCP dans Azure.
 - Active les messages de pulsation de l’agent invité pour le rôle PaaS.
 
 ## <a name="scope-of-ip-address-1686312916"></a>Portée de l’adresse IP 168.63.129.16
 
-L’adresse IP publique virtuelle 168.63.129.16 est utilisée dans toutes les régions et tous les clouds nationaux. Cette adresse IP publique spéciale ne change pas. Elle est autorisée par la règle du groupe de sécurité réseau par défaut. Nous vous conseillons d’autoriser cette adresse IP dans toutes les stratégies de pare-feu local. La communication est sécurisée entre cette adresse IP spéciale et les ressources car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse. Si cette adresse est bloquée, un comportement inattendu peut se produire dans différentes situations.
+L’adresse IP publique 168.63.129.16 est utilisée dans toutes les régions et tous les clouds nationaux. Cette adresse IP publique spéciale ne change pas car elle appartient à Microsoft. Elle est autorisée par la règle du groupe de sécurité réseau par défaut. Nous vous conseillons d’autoriser cette adresse IP dans toutes les stratégies de pare-feu local, en entrée et en sortie. La communication est sécurisée entre cette adresse IP spéciale et les ressources car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse. Si cette adresse est bloquée, un comportement inattendu peut se produire dans différentes situations.
 
-De plus, vous pouvez vous attendre à ce que le trafic circule entre l’adresse IP publique virtuelle 168.63.129.16 vers le point de terminaison configuré pour une [sonde d’intégrité Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md). Dans un scénario de réseau non virtuel, la sonde d’intégrité provient d'une adresse IP privée. 
+Toutes les [sondes d’intégrité Azure Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md) ont pour source cette adresse IP. Si vous bloquez cette adresse IP, l’exécution de vos sondes échouera.
+
+Dans un scénario de réseau non virtuel (Classic), la sonde d’intégrité provient d'une adresse IP privée et 168.63.129.16 n’est pas utilisée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

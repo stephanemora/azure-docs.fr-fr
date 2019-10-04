@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: 9ae8620b803fa9a911f44840a5fff5d190a316a1
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820023"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086533"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Désactiver le pare-feu du système d’exploitation invité dans une machine virtuelle Azure
 
@@ -33,7 +33,7 @@ Le processus qui est décrit dans cet article est destiné à être utilisé com
 
 Si la machine virtuelle est en ligne et accessible sur une autre machine virtuelle sur le même réseau virtuel, vous pouvez atténuer les risques à l’aide de l’autre machine virtuelle.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Atténuation 1 : Fonctionnalité d’Extension de Script ou exécuter une commande personnalisée
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Atténuation 1 : fonctionnalité Extension de script personnalisée ou Exécuter une commande
 
 Si vous avez un agent Azure fonctionnel, vous pouvez utiliser la fonctionnalité [Extension de script personnalisée](../extensions/custom-script-windows.md) ou [Exécuter des commandes](../windows/run-command.md) (machines virtuelles Resource Manager uniquement) pour exécuter à distance les scripts suivants.
 
@@ -70,7 +70,7 @@ Si vous avez un agent Azure fonctionnel, vous pouvez utiliser la fonctionnalité
     ```
 
 > [!Note]
-> Si le pare-feu est défini via un objet de stratégie de groupe, cette méthode peut ne pas fonctionne, car cette commande modifie uniquement les entrées de Registre local. Si une stratégie est en place, elle remplace cette modification. 
+> Si le pare-feu est défini via un objet stratégie de groupe, cette méthode peut ne pas fonctionner, car cette commande modifie uniquement les entrées de Registre local. Si une stratégie est en place, elle remplace cette modification. 
 
 #### <a name="mitigation-3-pstools-commands"></a>Atténuation 3 : Commandes PSTools
 
@@ -104,11 +104,11 @@ Procédez comme suit pour utiliser le [Registre à distance](https://support.mic
 
 4.  Ouvrez une instance de  **Services.msc**.
 
-5.  Cliquez sur **Services (Local)**.
+5.  Cliquez sur **Services (Local)** .
 
 6.  Sélectionnez **Se connecter à un autre ordinateur**.
 
-7.  Entrez  **l’adresse IP privée (DIP)**  de la machine virtuelle qui cause problème.
+7.  Entrez  **l’adresse IP privée (DIP)**   de la machine virtuelle qui cause problème.
 
 8.  Redémarrez la stratégie de pare-feu local.
 

@@ -1,33 +1,25 @@
 ---
 title: Développer les disques durs virtuels sur une machine virtuelle Linux dans Azure | Microsoft Docs
 description: Découvrez comment développer des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
+ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 737c72e6225cdfc9fdeec59810ffd9100c48d1ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f892857d74150ee42cc2ea4b5c996feac3d1cfa2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181756"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695614"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Étendre des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
 
 Cet article explique comment étendre des disques managés pour une machine virtuelle Linux avec Azure CLI. Vous pouvez [ajouter des disques de données](add-disk.md) afin d’offrir un espace de stockage supplémentaire, et vous pouvez également étendre un disque de données existant. La taille par défaut de disque dur virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. 
 
 > [!WARNING]
-> Toujours vous assurer que votre système de fichiers est dans un état sain et vérifiez que vos données sont sauvegardées avant d’effectuer les opérations de redimensionnement de disque. Pour plus d’informations, consultez [Back up Linux VMs in Azure](tutorial-backup-vms.md) (Sauvegarder des machines virtuelles Linux dans Azure).
+> Assurez-vous que l’état d’intégrité de votre système de fichiers soit toujours sain, votre type de table de partition de disque prendra en charge la nouvelle taille. Veillez également à sauvegarder vos données avant de redimensionner les disques. Pour plus d’informations, consultez [Back up Linux VMs in Azure](tutorial-backup-vms.md) (Sauvegarder des machines virtuelles Linux dans Azure). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Étendre un disque managé Azure
 Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/reference-index#az-login).
@@ -141,7 +133,7 @@ Pour utiliser un disque étendu, étendez la partition et le système de fichier
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Pour vérifier le disque de données a été redimensionné, utilisez `df -h`. L’exemple de sortie ci-après indique que le lecteur de données */dev/sdc1* présente désormais une taille de 200 Go :
+1. Pour vérifier que le disque de données a été redimensionné, utilisez `df -h`. L’exemple de sortie ci-après indique que le lecteur de données */dev/sdc1* présente désormais une taille de 200 Go :
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

@@ -4,21 +4,20 @@ description: Découvrez comment résoudre les problèmes de déconnexions fréqu
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: 7fecf8c5fdafb64f7922054dd2bb9755b0dec031
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: be563e39ed1bfa405830999a96d8630b6f8254bb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881339"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057967"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Le Bureau à distance se déconnecte fréquemment sur une machine virtuelle Azure
 

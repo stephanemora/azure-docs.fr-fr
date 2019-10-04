@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121126"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66389575"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Guide pratique pour déclencher des actions complexes avec des alertes Azure Monitor
 
 Cet article explique comment configurer une application logique pour qu’elle crée une conversation dans Microsoft Teams quand une alerte se déclenche.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Quand une alerte Azure Monitor se déclenche, elle appelle un [groupe d’actions](../../azure-monitor/platform/action-groups.md). Les groupes d’actions permettent de déclencher une ou plusieurs actions pour avertir les autres en cas d’alerte et y remédier.
 
 Le processus général est le suivant :
 
 -   Créez l’application logique pour le type d’alerte en question.
 
--   Importez le schéma associé au type d’alerte en question dans l’application logique.
+-   Importez un exemple de charge utile associé au type d’alerte en question dans l’application logique.
 
 -   Définissez le comportement de l’application logique.
 
@@ -58,7 +58,7 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
 
     ![Utiliser un exemple de charge utile](media/action-groups-logic-app/use-sample-payload-button.png "Utiliser un exemple de charge utile")
 
-8.  Copiez et collez l’exemple de schéma suivant dans la boîte de dialogue :
+8.  Copiez et collez l’exemple de charge utile suivant dans la boîte de dialogue :
 
     ```json
         {
@@ -140,7 +140,7 @@ La prochaine fois qu’une alerte appellera votre groupe d’actions, votre appl
 Les entrées Azure Service Health font partie du journal d’activité. Le processus de création de l’alerte est semblable à celui de [création d’une alerte de journal d'activité](#create-an-activity-log-alert-administrative), mais avec quelques modifications :
 
 - Les étapes 1 à 7 sont identiques.
-- À l’étape 8, utilisez l’exemple de schéma suivant pour le déclencheur de requête HTTP :
+- À l’étape 8, utilisez l’exemple de charge utile suivant pour le déclencheur de requête HTTP :
 
     ```json
     {
@@ -228,7 +228,7 @@ Les entrées Azure Service Health font partie du journal d’activité. Le proce
 Le processus de création d’une alerte de métrique est semblable à celui de [création d’une alerte de journal d'activité](#create-an-activity-log-alert-administrative), mais avec quelques modifications :
 
 - Les étapes 1 à 7 sont identiques.
-- À l’étape 8, utilisez l’exemple de schéma suivant pour le déclencheur de requête HTTP :
+- À l’étape 8, utilisez l’exemple de charge utile suivant pour le déclencheur de requête HTTP :
 
     ```json
     {

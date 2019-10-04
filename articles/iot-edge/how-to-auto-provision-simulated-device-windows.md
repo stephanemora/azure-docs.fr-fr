@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: aa5e5fba3758fa3983924660b9b5f714d02613c6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: MT
+ms.openlocfilehash: 0236491f9ebc8e3ecf7df8b74db4fd5ff441c7f8
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158599"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677441"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Créer et provisionner un appareil Edge avec TPM simulé sur Windows
 
@@ -46,7 +46,7 @@ Lorsque vous créez une inscription dans le service Device Provisioning, vous av
 
 Choisissez le langage du kit SDK que vous souhaitez utiliser pour créer l’appareil simulé et suivez les étapes jusqu’à la création de l’inscription individuelle.
 
-Lorsque vous créez l’inscription individuelle, sélectionnez **Activer** pour déclarer que l’appareil TPM simulé sur votre machine de développement Windows est un **appareil IoT Edge**.
+Lorsque vous créez l’inscription individuelle, sélectionnez **True** pour déclarer que l’appareil TPM simulé sur votre machine de développement Windows est un **appareil IoT Edge**.
 
 Guides d’appareils simulés et d’inscriptions individuelles :
 
@@ -82,15 +82,9 @@ Get-Service iotedge
 
 Examinez les journaux d’activité du service des 5 dernières minutes.
 
-```powershell
-# Displays logs from last 5 min, newest at the bottom.
 
-Get-WinEvent -ea SilentlyContinue `
-  -FilterHashtable @{ProviderName= "iotedged";
-    LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
-  select TimeCreated, Message |
-  sort-object @{Expression="TimeCreated";Descending=$false} |
-  format-table -autosize -wrap
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
 Répertoriez les modules en cours d’exécution.

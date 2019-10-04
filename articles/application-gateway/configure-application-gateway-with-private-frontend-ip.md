@@ -1,6 +1,6 @@
 ---
 title: Configurer Azure Application Gateway avec une adresse IP frontale privée
-description: Cet article fournit des informations sur la façon de configurer la passerelle d’Application avec une adresse IP frontale privée
+description: Cet article fournit des informations sur la configuration d’Application Gateway avec une adresse IP frontale privée.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905535"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66134610"
 ---
-# <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurer une passerelle d’application avec un point de terminaison d’équilibreur de charge interne
+# <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurer une passerelle Application Gateway avec un point de terminaison d’équilibreur de charge interne (ILB)
 
-Azure Application Gateway peut être configuré avec une adresse IP virtuelle accessible sur Internet ou avec un point de terminaison interne qui n’est pas exposée à Internet (en utilisant une adresse IP privée de l’adresse IP frontale), également connu comme un équilibreur de charge interne de point de terminaison (ILB). La configuration de la passerelle en utilisant une adresse IP privée de serveur frontal est utile pour les applications line of business internes qui ne sont pas exposées à Internet. Elle est également utile pour les services et niveaux au sein d’une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais qui requiert tout de même une distribution de charge par tourniquet, une adhérence de session ou une terminaison SSL (Secure Sockets Layer).
+Vous pouvez configurer une passerelle Azure Application Gateway avec une adresse IP virtuelle côté Internet ou avec un point de terminaison interne non exposé à Internet (à l’aide d’une adresse IP privée comme adresse IP frontale), également appelé point de terminaison d’équilibreur de charge interne (ILB). Il est utile de configurer la passerelle à l’aide d’une adresse IP privée frontale, car les applications cœur de métier internes non sont pas exposées à Internet. Elle est également utile pour les services et niveaux au sein d’une application multiniveau qui se trouve dans une limite de sécurité non exposée à Internet, mais qui requiert tout de même une distribution de charge par tourniquet, une adhérence de session ou une terminaison SSL (Secure Sockets Layer).
 
-Cet article vous guide tout au long des étapes de configuration d’une passerelle d’application avec une adresse IP privée de serveur frontal à partir du portail Azure.
+Cet article vous guidera au cours des étapes de configuration d’une passerelle Application Gateway avec une adresse IP privée frontale à partir du portail Azure.
 
 Dans cet article, vous allez apprendre à :
 
-- Créer une configuration IP frontale privée pour une passerelle d’Application
-- Créer une passerelle d’application avec la configuration IP frontale privée
+- Créer une configuration d’adresse IP frontale privée pour une passerelle Application Gateway
+- Créer une passerelle Application Gateway avec une configuration d’adresse IP frontale privée
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -41,17 +41,17 @@ Azure a besoin d’un réseau virtuel pour communiquer avec les différentes res
 3. Entrez *myAppGateway* pour le nom de la passerelle d’application et *myResourceGroupAG* pour le nouveau groupe de ressources.
 4. Acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK**.
 5. Cliquez sur **Choisir un réseau virtuel**, cliquez sur **Créer nouveau**, puis entrez ces valeurs pour le réseau virtuel :
-   - myVNet * - pour le nom du réseau virtuel.
-   - 10.0.0.0/16* - pour l’espace d’adressage de réseau virtuel.
+   - myVNet* : pour le nom du réseau virtuel.
+   - 10.0.0.0/16* : pour l’espace d’adressage du réseau virtuel.
    - *myAGSubnet* : pour le nom du sous-réseau.
    - *10.0.0.0/24* : pour l’espace d’adressage du sous-réseau.  
      ![private-frontendip-1](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-1.png)
 6. Cliquez sur **OK** pour créer le réseau virtuel et le sous-réseau.
-7. Choisissez la configuration Frontend IP comme privés et par défaut, il est une attribution d’adresses IP dynamique. La première adresse disponible de le choisie sous-réseau sera affecté en tant que l’adresse IP de serveur frontal.
-8. Si vous souhaitez choisir une adresse IP privée à partir de la plage d’adresses de sous-réseau (d’allocation statique), cliquez sur la zone **choisir une adresse IP privée spécifique** et spécifiez l’adresse IP.
+7. Choisissez la configuration d’adresse IP frontale et définissez-la sur Privé et par défaut. Il s’agit d’une attribution d’adresse IP dynamique. La première adresse disponible du sous-réseau choisi sera attribuée en tant qu’adresse IP frontale.
+8. Si vous souhaitez choisir une adresse IP privée à partir de la plage d’adresses du sous-réseau (allocation statique), cliquez sur la zone **Choisir une adresse IP privée spécifique** et spécifiez l’adresse IP.
    > [!NOTE]
-   > Une fois allouée, le type d’adresse IP (statique ou dynamique) ne peut pas être modifié ultérieurement.
-9. Choisissez votre configuration de l’écouteur pour le protocole et le port, la configuration de pare-feu d’applications Web (si nécessaire), puis cliquez sur OK.
+   > Une fois alloué, le type d’adresse IP (statique ou dynamique) ne peut pas être modifié ultérieurement.
+9. Choisissez votre configuration d’écouteur pour le protocole et le port ainsi que votre configuration de pare-feu d’applications web (si nécessaire), puis cliquez sur OK.
     ![private-frontendip-2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
 10. Passez en revue les paramètres sur la page de résumé, puis cliquez sur **OK** pour créer les ressources réseau et la passerelle d’application. La création de la passerelle d’application peut prendre plusieurs minutes. Patientez jusqu’à ce que le déploiement soit terminé avant de passer à la section suivante.
 
@@ -73,7 +73,7 @@ Le pool principal est utilisé pour acheminer les requêtes vers les serveurs pr
    - *Azure123456!* pour le mot de passe.
    - Sélectionnez **Utiliser l’existant**, puis *myResourceGroupAG*.
 4. Cliquez sur **OK**.
-5. Sélectionnez **DS1_V2** pour la taille de la machine virtuelle et cliquez sur **sélectionnez**.
+5. Sélectionnez **DS1_V2** pour la taille de la machine virtuelle, puis cliquez sur **Sélectionner**.
 6. Assurez-vous que **myVNet** est sélectionné pour le réseau virtuel et que le sous-réseau est **myBackendSubnet**.
 7. Cliquez sur **Désactivé** pour désactiver les diagnostics de démarrage.
 8. Cliquez sur **OK**, vérifiez les paramètres sur la page de résumé, puis cliquez sur **Créer**.

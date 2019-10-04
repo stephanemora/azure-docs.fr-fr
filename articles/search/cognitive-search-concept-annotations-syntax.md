@@ -2,21 +2,19 @@
 title: Référencer les entrées et sorties dans les pipelines de recherche cognitive - Recherche Azure
 description: Cet article explique la syntaxe d’annotation et la manière de référencer une annotation dans les entrées et sorties d’un jeu de compétences dans un pipeline de recherche cognitive dans Recherche Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: MT
+ms.openlocfilehash: 40559744f0650c64afb1dc63c38f56efaa0219d7
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749611"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265535"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Comment référencer des annotations dans un jeu de compétences de recherche cognitive
 
@@ -36,13 +34,13 @@ Avant d’examiner la syntaxe, revenons sur quelques concepts importants pour mi
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Exemple 1 : référencer une annotation simple
 
-Dans un stockage d’objets blob Azure, supposons que vous ayez une variété de fichiers contenant des références à des noms de personnes que vous souhaitez extraire à l’aide d’une reconnaissance d’entité nommée. Dans la définition de compétence ci-dessous, `"/document/content"` est la représentation textuelle du document entier, et « personnes » une extraction de noms complets d’entités identifiées en tant que personnes.
+Dans un stockage d’objets blob Azure, supposons que vous ayez une variété de fichiers contenant des références à des noms de personnes que vous souhaitez extraire à l’aide d’une reconnaissance d’entité. Dans la définition de compétence ci-dessous, `"/document/content"` est la représentation textuelle du document entier, et « personnes » une extraction de noms complets d’entités identifiées en tant que personnes.
 
 Le contexte par défaut étant `"/document"`, la liste de personnes peut désormais être référencée comme `"/document/people"`. En l’occurrence, `"/document/people"` est une annotation qui peut maintenant être mappée à un champ dans un index, ou utilisée dans une autre compétence du même jeu de compétences.
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [

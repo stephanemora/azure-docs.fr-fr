@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 267e790cec3c915330f8f72053458527ee7bfead
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 19455998ca13b9abf48bb1cb3856e38b5c47ef52
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095566"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595594"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rechercher et diagnostiquer des exceptions runtime avec Azure Application Insights
 
@@ -32,9 +32,9 @@ Azure Application Insights collecte la télémétrie de votre application pour i
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
-- Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
+- Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
     - Développement web et ASP.NET
     - Développement Azure
 - Téléchargez et installez le [débogueur d'instantané de Visual Studio](https://aka.ms/snapshotdebugger).
@@ -75,7 +75,7 @@ Application Insights collecte les échecs dans votre application et vous permet 
     ![Détails de l’exception](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>Identifier le code défaillant
-Le débogueur d'instantané collecte des captures instantanées des exceptions les plus fréquentes dans votre application pour vous aider à diagnostiquer leur cause racine en production.  Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Par la suite, vous pouvez déboguer le code source en téléchargeant l’instantané et en l’ouvrant dans Visual Studio 2017 Enterprise.
+Le débogueur d'instantané collecte des captures instantanées des exceptions les plus fréquentes dans votre application pour vous aider à diagnostiquer leur cause racine en production.  Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Par la suite, vous pouvez déboguer le code source en téléchargeant l’instantané et en l’ouvrant dans Visual Studio 2019 Enterprise.
 
 1. Dans les propriétés de l’exception, cliquez sur **Ouvrir l'instantané de débogage**.
 2. Le panneau **Déboguer l'instantané** s’ouvre, affichant la pile des appels pour la demande.  Cliquez sur une méthode pour afficher les valeurs de toutes les variables locales au moment de la demande.  En partant de la méthode du haut dans cet exemple, nous pouvons voir les variables locales qui n’ont aucune valeur.

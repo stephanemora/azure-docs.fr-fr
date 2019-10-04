@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 131a55d130e7ebf619ee283e943c0b0a7b45edfd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472855"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305405"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Comprendre les domaines d’événements pour gérer les rubriques Event Grid
 
@@ -22,8 +22,6 @@ Cet article décrit comment utiliser les domaines d’événements pour gérer l
 * Gérer les authentifications et les autorisations.
 * Partitionner les sujets sans avoir à les gérer de façon individuelle.
 * Éviter de publier les sujets un par un dans chaque point de terminaison.
-
-Cette fonctionnalité est en préversion. Pour l’utiliser, vous devez installer une extension ou un module en préversion. Pour obtenir les instructions adéquates, consultez [Gérer des rubriques et publier des événements à l’aide de domaines de l’événement](how-to-event-domains.md).
 
 ## <a name="event-domain-overview"></a>Vue d’ensemble des domaine d’événements
 
@@ -49,7 +47,7 @@ Le contrôle d’accès en fonction du rôle (RBAC) dans les domaines d’évén
 
 ### <a name="built-in-roles"></a>Vérification d’accès par rôle : rôles intégrés
 
-Event Grid possède deux définitions de rôles intégrées pour faciliter l’utilisation du contrôle d’accès en fonction du rôle (RBAC) avec des domaines d’événements. Ces rôles sont **EventGrid EventSubscription Contributor (préversion)** et **EventGrid EventSubscription Reader (préversion)**. Vous affectez ces rôles aux utilisateurs qui doivent s’abonner à des rubriques dans votre domaine d’événements. Vous étendez l’attribution de rôle uniquement à la rubrique à laquelle les utilisateurs doivent s’abonner.
+Event Grid possède deux définitions de rôles intégrées pour faciliter l’utilisation du contrôle d’accès en fonction du rôle (RBAC) avec des domaines d’événements. Ces rôles sont **EventGrid EventSubscription Contributor (préversion)** et **EventGrid EventSubscription Reader (préversion)** . Vous affectez ces rôles aux utilisateurs qui doivent s’abonner à des rubriques dans votre domaine d’événements. Vous étendez l’attribution de rôle uniquement à la rubrique à laquelle les utilisateurs doivent s’abonner.
 
 Pour plus d’informations sur ces rôles, voir [Rôles intégrés pour Event Grid](security-authentication.md#built-in-roles).
 
@@ -99,18 +97,18 @@ Par exemple, publier le tableau d’événements suivant enverrait les événeme
 Les domaines d’événements gèrent la publication des rubriques à votre place. Au lieu de publier vos événements un par un dans chaque rubrique que vous gérez, vous pouvez les publier tous dans le point de terminaison du domaine. Event Grid s’assure que chaque événement est envoyé à la rubrique appropriée.
 
 ## <a name="limits-and-quotas"></a>Limites et quotas
+Voici les limites et quotas liés aux domaines d'événements :
 
-### <a name="control-plane"></a>Plan de contrôle
+- 100 000 rubriques par domaine d’événements 
+- 100 domaines d’événements par abonnement Azure 
+- 500 abonnements à des événements par rubrique dans un domaine d’événements
+- 50 abonnements à l’étendue de domaine 
+- Taux d'ingestion de 5 000 événements par seconde (dans un domaine)
 
-Durant la période de préversion, les domaines d’événements seront limités à 1 000 rubriques par domaine et à 50 abonnements aux événements par rubrique au sein d’un domaine. Les abonnements à l’étendue de domaine d’événements sont également limités à 50.
-
-### <a name="data-plane"></a>Plan de données
-
-Durant la période de préversion, le débit d’événements pour un domaine d’événement sera limité au même taux d’ingestion de 5 000 événements par seconde que les rubriques personnalisées.
+Si ces limites ne répondent pas à vos besoins, contactez l’équipe produit en ouvrant un ticket de support ou en envoyant un e-mail à [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
 
 ## <a name="pricing"></a>Tarifs
-
-Durant la période de préversion, les domaines d’événements utiliseront la même [tarification des opérations](https://azure.microsoft.com/pricing/details/event-grid/) que toutes les autres fonctionnalités dans Event Grid.
+Les domaines d’événements utilisent la même [tarification des opérations](https://azure.microsoft.com/pricing/details/event-grid/) que toutes les autres fonctionnalités dans Event Grid.
 
 Les opérations fonctionnent de la même manière dans des domaines d’événements que dans des rubriques personnalisées. Chaque entrée d’un événement dans un domaine d’événements est une opération, tout comme chaque tentative de livraison d’un événement.
 

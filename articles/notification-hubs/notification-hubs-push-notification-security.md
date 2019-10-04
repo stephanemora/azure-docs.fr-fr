@@ -1,52 +1,84 @@
 ---
 title: Sécurité de Notification Hubs
-description: Cette rubrique décrit la sécurité des hubs de notification Azure.
+description: Cette rubrique décrit la sécurité d’Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
-ms.assetid: 6506177c-e25c-4af7-8508-a3ddca9dc07c
+author: sethmanheim
+manager: femila
+editor: jwargo
+ms.assetid: ''
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: bd9df12cbe941b868c769daccd02c1d81b39f7bd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 09/23/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 09/23/2019
+ms.openlocfilehash: a9598f6a01e5536351fb20b7c352a5eaf5746042
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465358"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273631"
 ---
-# <a name="security-model-of-azure-notification-hubs"></a>Modèle de sécurité d’Azure Notification Hubs
+# <a name="notification-hubs-security"></a>Sécurité de Notification Hubs
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
-Cette rubrique décrit le modèle de sécurité d'Azure Notification Hubs. Notification Hubs étant une entité Service Bus, elle implémente le même modèle de sécurité que Service Bus. Pour plus d'informations, consultez les rubriques [Authentification Service Bus](https://msdn.microsoft.com/library/azure/dn155925.aspx) .
+Cette rubrique décrit le modèle de sécurité d'Azure Notification Hubs.
 
-## <a name="shared-access-signature-security-sas"></a>Sécurité Signature d'accès partagé (SAP)
+## <a name="shared-access-signature-security"></a>Sécurité de signature d’accès partagé
 
-Notification Hubs implémente un modèle de sécurité de niveau entité appelé SAP (Signature d'accès partagé). Ce schéma permet aux entités de messagerie de déclarer dans leur description jusqu'à 12 règles d'autorisation accordant des droits sur cette entité.
+Notification Hubs implémente un modèle de sécurité de niveau entité appelé *Signature d’accès partagé* (SAS). Chaque règle contient un nom, une valeur de clé (secret partagé) et un ensemble de droits, comme expliqué plus loin dans [Revendications de sécurité](#security-claims). 
 
-Chaque règle contient un nom, une valeur clé (secret partagé) et un ensemble de droits, comme expliqué dans la section « Revendications de sécurité ». Lorsque vous créez un concentrateur de notification, deux règles sont automatiquement créées : une avec des droits d'écoute (utilisée par l'application cliente) et l'autre avec tous les droits (utilisé par le serveur principal d'application).
+Quand vous créez un hub, deux règles sont créées automatiquement : une avec des droits **Écouter** (utilisée par l’application cliente) et l’autre avec **tous** les droits (utilisée par le back-end d’application) :
+
+- **DefaultListenSharedAccessSignature** : accorde uniquement l’autorisation **Écouter**.
+- **DefaultFullSharedAccessSignature** : accorde les autorisations **Écouter**, **Gérer** et **Envoyer**. Cette stratégie doit être utilisée uniquement dans le back-end de votre application. Ne l’utilisez pas dans les applications clientes ; utilisez une stratégie uniquement avec l’accès **Écouter**. Pour créer une stratégie d’accès personnalisée avec un nouveau jeton SAS, consultez [Jetons SAS pour les stratégies d’accès](#sas-tokens-for-access-policies) plus loin dans cet article.
 
 Lors de la gestion de l'inscription à partir d’applications clientes, si les informations envoyées via des notifications ne sont pas sensibles (par exemple, des mises à jour météorologiques), une méthode courante pour accéder à un concentrateur de notification consiste à attribuer la valeur clé de la règle d'accès en écoute uniquement à l'application cliente et à attribuer la valeur clé de la règle d’accès complet au serveur principal.
 
-Il est déconseillé d'incorporer la valeur clé dans les applications clientes Windows Store. Pour éviter l'incorporation de la valeur clé, l'application cliente peut la récupérer à partir du serveur principal d'application au démarrage.
+Les applications ne doivent pas incorporer la valeur de la clé dans les applications clientes Windows Store ; au lieu de cela, le client doit être invité à la récupérer à partir du back-end d’application au démarrage.
 
-Il est important de comprendre que la clé avec un accès en écoute permet à une application cliente de s’inscrire pour n’importe quelle balise. Si votre application doit limiter les inscriptions à des balises spécifiques pour des clients spécifiques (par exemple, lorsque les balises représentent des ID utilisateur), votre serveur principal d’application doit effectuer ces inscriptions. Pour plus d'informations, consultez Gestion des inscriptions. Notez que de cette façon, l'application cliente ne disposera pas d'un accès direct à Notification Hubs.
+La clé avec un accès en **écoute** permet à une application cliente de s’inscrire pour n’importe quelle balise. Si votre application doit limiter les inscriptions à des balises spécifiques pour des clients spécifiques (par exemple, lorsque les balises représentent des ID d'utilisateur), votre serveur principal d’application doit effectuer ces inscriptions. Pour plus d’informations, consultez [Gestion des inscriptions](notification-hubs-push-notification-registration-management.md). Notez que de cette façon, l'application cliente ne disposera pas d'un accès direct à Notification Hubs.
 
 ## <a name="security-claims"></a>Revendications de sécurité
 
-Comme pour les autres entités, les opérations Notification Hubs sont autorisées pour trois revendications de sécurité : Écoute, Envoyer et Gérer.
+Comme pour les autres entités, les opérations Notification Hubs sont autorisées pour trois revendications de sécurité : **Écoute**, **Envoyer** et **Gérer**.
 
 | Revendication   | Description                                          | Opérations autorisées |
 | ------- | ---------------------------------------------------- | ------------------ |
 | Écouter  | Créer/mettre à jour, lire et supprimer des inscriptions uniques | Créer/mettre à jour une inscription<br><br>Lire une inscription<br><br>Lire toutes les inscriptions pour un handle<br><br>Supprimer une inscription |
-| Envoyer    | Envoyer de messages au concentrateur de notification                | Envoyer un message |
-| gérer  | Opérations CRUD sur Notification Hubs (y compris la mise à jour des informations d'identification PNS et les clés de sécurité) et lecture des inscriptions en fonction des balises |Créer/Mettre à jour/Lire/Supprimer des hubs de notification<br><br>Lire des inscriptions par balise |
+| Envoyer    | Envoyer des messages au hub de notification                | Envoyer un message |
+| Gérer  | Opérations CRUD sur Notification Hubs (y compris la mise à jour des informations d'identification PNS et les clés de sécurité) et lecture des inscriptions en fonction des balises |Créer/mettre à jour/lire/supprimer des hubs<br><br>Lire des inscriptions par balise |
 
-Notification Hubs accepte les revendications accordées par les jetons de contrôle d'accès Microsoft Azure et les jetons de signature générés avec des clés partagées configurées directement sur le concentrateur de notification.
+Notification Hubs accepte les jetons SAS générés avec des clés partagées configurées directement sur le hub.
+
+Il n’est pas possible d’envoyer une notification à plusieurs espaces de noms. Les espaces de noms sont des conteneurs logiques pour Notification Hubs, et ne sont pas impliqués dans l’envoi de notifications.
+
+Utilisez les stratégies d’accès au niveau de l’espace de noms (informations d’identification) pour les opérations au niveau de l’espace de noms, par exemple lister les hubs de notification, créer ou supprimer des hubs, et ainsi de suite. Seules les stratégies au niveau du hub vous permettent d’envoyer des notifications.
+
+### <a name="sas-tokens-for-access-policies"></a>Jetons SAS pour les stratégies d’accès
+
+Pour créer une nouvelle revendication de sécurité ou voir les clés SAS existantes, effectuez les étapes suivantes :
+
+1. Connectez-vous au portail Azure.
+2. Sélectionnez **Toutes les ressources**.
+3. Sélectionnez le nom du hub de notification pour lequel vous souhaitez créer la revendication ou voir la clé SAS.
+4. Dans le menu de gauche, sélectionnez **Stratégies d’accès**.
+5. Sélectionnez **Nouvelle stratégie** pour créer une revendication de sécurité. Donnez un nom à la stratégie et sélectionnez les autorisations que vous souhaitez accorder. Sélectionnez ensuite **OK**.
+6. La chaîne de connexion complète (y compris la nouvelle clé SAS) s’affiche dans la fenêtre Stratégies d’accès. Vous pouvez copier cette chaîne dans le Presse-papiers pour l’utiliser plus tard.
+
+Pour extraire la clé SAS d’une stratégie spécifique, sélectionnez le bouton **Copier** en regard de la stratégie contenant la clé SAS de votre choix. Collez cette valeur dans un emplacement temporaire, puis copiez la partie clé SAS de la chaîne de connexion. Cet exemple utilise un espace de noms Notification Hubs nommé **mytestnamespace1** et une stratégie nommée **policy2**. La clé SAS est la valeur qui se trouve près de la fin de la chaîne, spécifiée par **SharedAccessKey** :
+
+```shell
+Endpoint=sb://mytestnamespace1.servicebus.windows.net/;SharedAccessKeyName=policy2;SharedAccessKey=<SAS key value here>
+```
+
+![Obtenir des clés SAS](media/notification-hubs-push-notification-security/access1.png)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Vue d’ensemble de Notification Hubs](notification-hubs-push-notification-overview.md)

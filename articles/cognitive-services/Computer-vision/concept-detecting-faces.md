@@ -1,7 +1,7 @@
 ---
 title: Détection des visages - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Découvrez les concepts liés à la fonctionnalité de détection de visage de l’API de vision par ordinateur.
+description: Découvrez les concepts liés à la fonctionnalité Détection de visage de l’API Vision par ordinateur.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 699192aba87bb009d7dbddddcc9579883bb71db9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3675acf59c6889dd00c8f26089f509bbcd3c724e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996150"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945243"
 ---
 # <a name="face-detection-with-computer-vision"></a>Détection des visages avec Vision par ordinateur
 

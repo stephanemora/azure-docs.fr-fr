@@ -2,18 +2,18 @@
 title: Connexion à une source de données dans les collections d’espaces de travail Power BI | Microsoft Docs
 description: Découvrez comment vous connecter à une source de données dans les collections d’espaces de travail Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 143213b148518fdf936974152d5d9196c42febd8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 1ce666a017c1e5ac25b11fe1c22cdb37746f75df
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521497"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669154"
 ---
 # <a name="connect-to-a-data-source"></a>Se connecter à une source de données
 
@@ -36,7 +36,7 @@ Pour l’instant, les collections d’espaces de travail Power BI vous permette
 ## <a name="supported-data-sources"></a>Sources de données prises en charge
 
 **DirectQuery**
-* Base de données SQL Azure
+* Base de données Azure SQL
 * Azure SQL Data Warehouse
 
 **Importationation**

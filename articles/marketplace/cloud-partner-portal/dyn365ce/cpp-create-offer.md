@@ -1,25 +1,18 @@
 ---
-title: Créer une offre d’application Dynamics 365 for Customer Engagement - Place de marché Azure | Microsoft Docs
+title: Créer une offre d’application Dynamics 365 for Customer Engagement | Place de marché Azure
 description: Guide pratique pour créer une offre d’application Dynamics 365 for Customer Engagement sur la Place de marché AppSource.
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0138ea8dcbd780ca8aa87178dad41bdca1a72267
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: ebfef673102878e50f744081ec9b46fd4cd1796b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942690"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Créer une offre d’application Dynamics 365 for Customer Engagement
 

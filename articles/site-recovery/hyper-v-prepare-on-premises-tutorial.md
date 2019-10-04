@@ -1,34 +1,33 @@
 ---
-title: Préparer des serveurs Hyper-V locaux à la récupération d’urgence de machines virtuelles Hyper-V vers Azure | Microsoft Docs
+title: Préparer des serveurs Hyper-V locaux pour la reprise d’activité de machines virtuelles Hyper-V vers Azure
 description: Découvrez comment préparer la récupération d’urgence de machines virtuelles Hyper-V locales vers Azure avec le service Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 04/08/2019
+ms.topic: tutorial
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b17e42378daf51543a2664315f2971d15c288611
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788059"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813712"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs Hyper-V locaux à la récupération d’urgence vers Azure
 
-Cet article explique comment préparer votre infrastructure de Hyper-V en local lorsque vous souhaitez configurer la récupération d’urgence de machines virtuelles Hyper-vers Azure, à l’aide de [Azure Site Recovery](site-recovery-overview.md).
+Cet article explique comment préparer votre infrastructure Hyper-V en local lorsque vous souhaitez configurer la récupération d’urgence de machines virtuelles Hyper-V vers Azure, à l’aide de [Microsoft Azure Site Recovery](site-recovery-overview.md).
 
 
-Ce didacticiel est le deuxième d’une série qui vous montre comment configurer la récupération d’urgence vers Azure pour les machines virtuelles de Hyper-V en local. Dans le premier didacticiel, nous [configurer les composants Azure](tutorial-prepare-azure.md) nécessaires à la récupération d’urgence de Hyper-V.
+Il s’agit du deuxième tutoriel dans une série qui vous montre comment configurer la récupération d’urgence sur Azure pour des machines virtuelles Hyper-V locales. Dans le premier tutoriel, nous avons [configuré les composants Azure](tutorial-prepare-azure.md) nécessaires pour la récupération d’urgence de Hyper-V.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Passez en revue la configuration requise d’Hyper-V et configuration requise pour VMM si vos hôtes Hyper-V sont gérés par System Center VMM.
+> * Passez en revue la configuration Hyper-V requise, ainsi que celle de VMM si vos hôtes Hyper-V sont gérés par System Center VMM.
 > * Préparez VMM, le cas échéant.
-> * Vérifier l’accès internet aux emplacements Azure.
-> * Préparer des machines virtuelles afin que vous pouvez y accéder après le basculement vers Azure.
+> * Vérifiez l’accès Internet aux emplacements Azure.
+> * Préparez les machines virtuelles afin de pouvoir y accéder après le basculement vers Azure.
 
 > [!NOTE]
 > Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Pour obtenir des instructions détaillées, consultez l’article de la section Procédures dans la table des matières de Site Recovery.

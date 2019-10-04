@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: c65ea038fc39702affae93cb68b8cf644393c62e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d7a84bfda06b5db30afff6322c63a056a414357b
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415610"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626575"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Configurer BGP sur des passerelles VPN Azure à l’aide de PowerShell
 Cet article vous guide pas à pas dans l’activation de BGP sur une connexion VPN de site à site (S2S) et une connexion de réseau virtuel à réseau virtuel, à l’aide du modèle de déploiement de Resource Manager et de PowerShell.
@@ -118,7 +118,7 @@ $gwipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName1 -Subnet $s
 Créez la passerelle de réseau virtuel pour TestVNet1. BGP requiert une passerelle VPN basée sur l’itinéraire ainsi que le paramètre d’ajout, - Asn, pour définir l’ASN (numéro AS) de TestVNet1. Si vous ne définissez pas le paramètre ASN, le numéro ASN 65515 est attribué. La création d’une passerelle peut prendre un certain temps (30 minutes ou plus).
 
 ```powershell
-New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN
+New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN
 ```
 
 #### <a name="3-obtain-the-azure-bgp-peer-ip-address"></a>3. Obtenir l’adresse IP de l’homologue BGP Azure
@@ -214,7 +214,7 @@ L’exemple ci-dessous répertorie les paramètres que vous devez saisir dans la
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
-La connexion est établie après quelques minutes, et la session d’homologation BGP débute une fois la connexion IPsec établie.
+La connexion est établie après quelques minutes, et la session de peering BGP débute une fois la connexion IPsec établie.
 
 ## <a name ="v2vbgp"></a>Partie 3 - Établir une connexion de réseau virtuel à réseau virtuel avec BGP
 
@@ -282,7 +282,7 @@ $gwipconf2 = New-AzVirtualNetworkGatewayIpConfig -Name $GWIPconfName2 -Subnet $s
 Créez la passerelle VPN avec le numéro AS. Vous devez substituer la valeur par défaut de l’ASN sur vos passerelles VPN Azure. Les ASN des réseaux virtuels connectés doivent être différents pour activer BGP et le routage de transit.
 
 ```powershell
-New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gwipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard -Asn $VNet2ASN
+New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gwipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN
 ```
 
 ### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>Étape 2 - Connecter les passerelles TestVNet1 et TestVNet2
@@ -313,7 +313,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 > 
 > 
 
-Une fois ces étapes effectuées, la connexion est établie après quelques minutes. La session d’homologation BGP démarre une fois la connexion de réseau virtuel à réseau virtuel établie.
+Une fois ces étapes effectuées, la connexion est établie après quelques minutes. La session de peering BGP démarre une fois la connexion de réseau virtuel à réseau virtuel établie.
 
 Si vous avez effectué les trois parties de cet exercice, vous avez obtenu une topologie de réseau similaire à la suivante :
 

@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 5299675656ea23b85f78b3dbfdc02814ab332a8b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19fd73dff045d6d784dd70d1f3ad539a22faf413
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979047"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075463"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Mapper un domaine personnalisé à une Function App
 
-Cet exemple de script crée une application de fonction dans un plan App Service, puis la mappe à un domaine personnalisé que vous indiquez. Quand votre application de fonction est hébergée dans un [plan App Service](../functions-scale.md#app-service-plan), vous pouvez mapper un domaine personnalisé à l’aide d’un enregistrement CNAME ou d’un enregistrement A. Pour les applications de fonction dans un [plan Consommation](../functions-scale.md#consumption-plan), seule l’option CNAME est prise en charge. Cet exemple crée un plan App Service et requiert le mappage d’un enregistrement A au domaine. 
+Cet exemple de script crée une application de fonction dans un plan App Service, puis la mappe à un domaine personnalisé que vous indiquez. Quand votre application de fonction est hébergée dans un [plan Premium](../functions-scale.md#premium-plan) ou un [plan App Service](../functions-scale.md#app-service-plan), vous pouvez mapper un domaine personnalisé à l’aide d’un enregistrement CNAME ou d’un enregistrement A. Pour les applications de fonction dans un [plan Consommation](../functions-scale.md#consumption-plan), seule l’option CNAME est prise en charge. Cet exemple crée un plan App Service et requiert le mappage d’un enregistrement A au domaine. 
 
 Pour exécuter cet exemple de script, vous devez avoir déjà configuré un enregistrement A dans votre domaine personnalisé qui pointe vers le nom de domaine par défaut de votre application web. Pour plus d’informations, consultez [Map custom domain instructions for Azure App Service](https://aka.ms/appservicecustomdns) (Mapper des instructions de domaine personnalisé pour Azure App Service). 
 
@@ -40,7 +40,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, v
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes : Chaque commande du tableau renvoie à une documentation spécifique.
 
 | Commande | Notes |
 |---|---|

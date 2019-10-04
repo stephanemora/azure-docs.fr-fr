@@ -5,16 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.date: 03/18/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5de6ba8ab64797da24039718ca7f2c0b88d1d33d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d0d5c482e2faf5e4a2c2918a64bd56e4aa814323
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881339"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814500"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrer des serveurs exécutant Windows Server2008 vers Azure
 
@@ -29,6 +28,9 @@ Ce didacticiel montre comment migrer des serveurs locaux exécutant Windows Serv
 > * Basculer vers Azure et effectuer la migration
 
 La section relative aux limitations et aux problèmes connus répertorie certaines limitations et solutions de contournement de problèmes connus que vous pouvez rencontrer lors de la migration de machines Windows Server 2008 vers Azure. 
+
+> [!NOTE]
+> Vous pouvez désormais migrer de l’environnement local vers Azure à l’aide du service Azure Migrate. [Plus d’informations](../migrate/migrate-services-overview.md)
 
 
 ## <a name="supported-operating-systems-and-environments"></a>Systèmes d’exploitation et environnements pris en charge
@@ -118,7 +120,7 @@ Sélectionnez et vérifiez les ressources cibles.
 
 ## <a name="set-up-a-replication-policy"></a>Configurer une stratégie de réplication
 
-1. Pour créer une nouvelle stratégie de réplication, cliquez sur **Infrastructure de Site Recovery** > **Stratégies de réplication** > **+Stratégie de réplication**.
+1. Pour créer une nouvelle stratégie de réplication, cliquez sur **Infrastructure de Site Recovery** > **Stratégies de réplication** >  **+Stratégie de réplication**.
 2. Dans **Créer une stratégie de réplication**, indiquez le nom de la stratégie.
 3. Dans **Seuil d’objectif de point de récupération**, spécifiez la limite de l’objectif de point de récupération (RPO). Une alerte est générée si l’objectif de point de récupération dépasse cette limite.
 4. Dans **Rétention des points de récupération**, spécifiez la durée de la fenêtre de rétention pour chaque point de récupération (en heures). Les serveurs répliqués peuvent être récupérés à n’importe quel moment dans cette fenêtre. Les machines virtuelles répliquées vers Premium Storage peuvent prendre en charge jusqu’à 24 heures de rétention et 72 heures en cas de stockage standard.

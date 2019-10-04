@@ -1,20 +1,19 @@
 ---
 title: Planification de la capacité de cluster dans Azure HDInsight
-description: Découvrez comment spécifier un cluster HDInsight pour la capacité et les performances.
-services: hdinsight
+description: Identifiez les principales questions relatives à la planification de la capacité et des performances d’un cluster Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: b35c5073f2b19523010528800c2a989d5de5b448
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848011"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916557"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -61,7 +60,7 @@ Pour un cluster à 48 nœuds, nous recommandons 4 à 8 comptes de stockage. Bien
 
 ## <a name="choose-a-cluster-type"></a>Choisir un type de cluster
 
-Le type de cluster détermine la charge de travail pour laquelle votre cluster HDInsight est configuré, par exemple, [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) ou [Apache Spark](https://spark.apache.org/). Pour obtenir une description détaillée des types de clusters disponibles, consultez [Présentation d’Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Chaque type de cluster a une topologie de déploiement spécifique qui inclut des exigences en matière de taille et de quantité de nœuds.
+Le type de cluster détermine la charge de travail pour laquelle votre cluster HDInsight est configuré, par exemple, [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/) ou [Apache Spark](https://spark.apache.org/). Pour obtenir une description détaillée des types de clusters disponibles, consultez [Présentation d’Azure HDInsight](hdinsight-overview.md#cluster-types-in-hdinsight). Chaque type de cluster a une topologie de déploiement spécifique qui inclut des exigences en matière de taille et de quantité de nœuds.
 
 ## <a name="choose-the-vm-size-and-type"></a>Choisir la taille et le type de machine virtuelle
 
@@ -83,7 +82,7 @@ L’échelle d’un cluster est déterminée par la quantité de ses nœuds de m
 
 En fonction de votre type de cluster, l’augmentation du nombre de nœuds worker ajoute de la capacité de calcul supplémentaire (par exemple, davantage de cœurs), mais peut également ajouter à la quantité totale de mémoire requise pour que l’ensemble du cluster prenne en charge le stockage en mémoire des données en cours de traitement. Comme avec le choix de la taille et du type de machine virtuelle, la sélection de l’échelle de cluster appropriée est généralement effectuée de manière empirique, à l’aide de charges de travail simulées ou de requêtes canary.
 
-Vous pouvez faire monter en puissance votre cluster afin de répondre aux pics de charge, puis annuler la montée en puissance quand les nœuds supplémentaires ne sont plus nécessaires. Pour plus d’informations, consultez la rubrique [Mettre à l’échelle les clusters HDInsight](hdinsight-scaling-best-practices.md).
+Vous pouvez faire monter en puissance votre cluster afin de répondre aux pics de charge, puis annuler la montée en puissance quand les nœuds supplémentaires ne sont plus nécessaires. La [fonctionnalité Mise à l’échelle automatique](hdinsight-autoscale-clusters.md) vous permet de mettre automatiquement à l’échelle votre cluster en fonction de métriques et de minutages prédéterminés. Pour plus d’informations sur la mise à l’échelle manuelle de vos clusters, consultez [Mettre à l’échelle des clusters HDInsight](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Cycle de vie du cluster
 
@@ -95,19 +94,16 @@ Vous êtes facturé pour la durée de vie d’un cluster. Si vous avez besoin qu
 
 ### <a name="isolate-cluster-job-errors"></a>Isoler les erreurs de travaux de cluster
 
-Parfois, des erreurs peuvent se produire à cause de l’exécution en parallèle de plusieurs composants de mappage et de réduction sur un cluster à plusieurs nœuds. Pour aider à isoler le problème, essayez d’effectuer des tests distribués en exécutant simultanément plusieurs travaux sur un cluster à nœud unique, puis développez cette approche pour exécuter plusieurs travaux simultanément sur des clusters qui contiennent plusieurs nœuds. Pour créer un cluster HDInsight à nœud unique dans Azure, utilisez l’option *avancée*.
+Parfois, des erreurs peuvent se produire à cause de l’exécution en parallèle de plusieurs composants de mappage et de réduction sur un cluster à plusieurs nœuds. Pour isoler le problème, essayez d’effectuer des tests distribués en exécutant simultanément plusieurs travaux sur un cluster à nœud worker unique, puis développez cette approche pour exécuter plusieurs travaux simultanément sur des clusters qui contiennent plusieurs nœuds. Pour créer un cluster HDInsight à nœud unique dans Azure, utilisez l’option *Personnalisé (taille, paramètres, applications)* et utilisez la valeur 1 pour *Nombre de nœuds Worker* dans la section **Taille du cluster** lors du provisionnement d’un nouveau cluster dans le portail.
 
-Vous pouvez également installer un environnement de développement à nœud unique sur votre ordinateur local et y tester la solution. Hortonworks fournit un environnement de développement local à nœud unique pour les solutions Hadoop qui est utile pour le développement initial, la preuve de concept et les tests. Pour plus d’informations, consultez [Hortonworks Sandbox](https://hortonworks.com/products/hortonworks-sandbox/).
-
-Pour identifier le problème sur un cluster local à nœud unique, vous pouvez réexécuter les travaux ayant échoué et ajuster les données d’entrée, ou utiliser des jeux de données plus petits. Le mode d’exécution de ces travaux dépend de la plateforme et du type d’application.
 
 ## <a name="quotas"></a>Quotas
 
 Après avoir déterminé la taille, l’échelle et le type de la machine virtuelle de votre cluster cible, vérifiez les limites de capacité de quota actuelles de votre abonnement. Quand vous atteignez une limite de quota, vous risquez de ne pas pouvoir déployer de nouveaux clusters ou de faire monter en puissance des clusters existants en ajoutant des nœuds worker. La seule limite de quota est le quota de cœurs de processeur qui existe au niveau régional pour chaque abonnement. Par exemple, votre abonnement peut avoir une limite de 30 cœurs dans la région USA Est. Si vous avez besoin d’une augmentation de quota, effectuez les étapes suivantes :
 
-1. Accédez au portail Azure.
-1. Cliquez sur **Aide et support** en bas à gauche de la page.
-1. Cliquez sur **Nouvelle demande de support**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Sélectionnez **Aide + support** en bas à gauche de la page.
+1. Sélectionnez **Nouvelle demande de support**.
 1. Dans la page **Nouvelle demande de support**, sous l’onglet **De base**, sélectionnez les options suivantes :
    - **Type de problème** : **Limites du service et de l’abonnement (quotas)**
    - **Abonnement** : l’abonnement à modifier
@@ -115,10 +111,10 @@ Après avoir déterminé la taille, l’échelle et le type de la machine virtue
     
      ![Créer une demande de support pour augmenter le quota de cœurs d’HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Cliquez sur **Suivant**.
-1. Dans la page **Détails**, entrez une description du problème, sélectionnez la gravité du problème et sélectionnez votre méthode de contact préférée.
-1. Cliquez sur **Suivant : Vérifier + créer**.
-1. Dans la page **Vérifier + créer**, cliquez sur **Créer**.
+1. Sélectionnez **Suivant : Solutions >>** .
+1. Dans la page **Détails**, entrez une description du problème, sélectionnez la gravité du problème, votre méthode de contact préférée et d’autres champs obligatoires.
+1. Sélectionnez **Suivant : Vérifier + créer >>** .
+1. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.
 
 > [!NOTE]  
 > Si vous avez besoin d’augmenter le quota de cœurs d’HDInsight dans une région privée, [envoyez une demande de liste verte](https://aka.ms/canaryintwhitelist).

@@ -7,23 +7,25 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: e43e1034abe4bbe3d31a46ab3b98b0efe612b852
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
-ms.translationtype: MT
+ms.openlocfilehash: 093ada2b2751540b986154be3a2f333784c1259f
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588718"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173289"
 ---
-# <a name="clean-up-your-azure-stream-analytics-job"></a>Supprimer une tâche Azure Stream Analytics
+# <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Arrêter ou supprimer votre travail Azure Stream Analytics
 
-Vous pouvez facilement supprimer les tâches Azure Stream Analytics via le portail Azure, Azure PowerShell, Azure SDK pour .NET ou l’API REST. Un travail d’Analytique de Stream ne peut pas être récupéré une fois qu’il a été supprimé.
+Vous pouvez facilement arrêter ou supprimer les travaux Azure Stream Analytics via le portail Azure, Azure PowerShell, le kit SDK Azure pour .NET ou l’API REST. Un travail Stream Analytics ne peut pas être récupéré une fois qu’il a été supprimé.
 
 >[!NOTE] 
 >Quand vous arrêtez votre tâche Azure Stream Analytics, les données sont seulement conservées dans le stockage d’entrée et de sortie, comme Event Hubs ou Azure SQL Database. Si vous devez supprimer des données dans Azure, veillez à suivre le processus de suppression des ressources d’entrée et de sortie de votre tâche Azure Stream Analytics.
 
 ## <a name="stop-a-job-in-azure-portal"></a>Arrêter une tâche dans le portail Azure
+
+Lorsque vous arrêtez un travail, les ressources sont déprovisionnées et le traitement des événements est stoppé. Les frais associés à ce travail sont également suspendus. Toutefois, l’ensemble de votre configuration est conservée et vous pouvez redémarrer le travail plus tard 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
 
@@ -35,6 +37,9 @@ Vous pouvez facilement supprimer les tâches Azure Stream Analytics via le porta
 
 
 ## <a name="delete-a-job-in-azure-portal"></a>Supprimer une tâche dans le portail Azure
+
+>[!WARNING] 
+>Un travail Stream Analytics ne peut pas être récupéré une fois qu’il a été supprimé.
 
 1. Connectez-vous au portail Azure. 
 
@@ -49,7 +54,7 @@ Vous pouvez facilement supprimer les tâches Azure Stream Analytics via le porta
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pour arrêter un travail à l’aide de PowerShell, utilisez le [Stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob) applet de commande. Pour supprimer un travail à l’aide de PowerShell, utilisez le [Remove-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob) applet de commande.
+Pour arrêter une tâche avec PowerShell, utilisez la cmdlet [Stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob). Pour supprimer une tâche avec PowerShell, utilisez la cmdlet [Remove-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/Remove-azStreamAnalyticsJob).
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>Arrêter ou supprimer une tâche avec Azure SDK pour .NET
 

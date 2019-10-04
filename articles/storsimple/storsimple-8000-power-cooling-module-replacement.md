@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 7d181e6e434c998573dbea4b541cfacf7a28ee66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42561570e24aec5edd33248ef1738e53175e480e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60632459"
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>Remplacer un module d’alimentation et de refroidissement (PCM, Power and Cooling Module) sur votre appareil StorSimple
 ## <a name="overview"></a>Vue d'ensemble
@@ -67,7 +67,7 @@ Suivez ces instructions quand vous êtes prêt à retirer PCM de votre appareil 
    | 2 |Alimentation du système |
    | 3 |Panne de module |
    | 4 |Erreur logique |
-   | 5 |Affichage de l’ID de l’unité |
+   | 5\. |Affichage de l’ID de l’unité |
 3. Les voyants LED de surveillance à l’arrière du boîtier principal peuvent également être utilisés pour identifier le PCM défectueux. Consultez le diagramme et le tableau suivants pour comprendre comment utiliser les LED pour localiser le PCM défectueux. Par exemple, si la LED correspondant à **Ventilateur défectueux** est allumée, le ventilateur est défectueux. De même, si la LED correspondant à **Alimentation défectueuse** est allumée, l’alimentation est défectueuse. 
    
     ![Fond de panier des voyants LED de surveillance du PCM de l’appareil](./media/storsimple-power-cooling-module-replacement/IC740992.png)
@@ -80,7 +80,7 @@ Suivez ces instructions quand vous êtes prêt à retirer PCM de votre appareil 
    | 2 |Panne de ventilateur |
    | 3 |Panne de batterie |
    | 4 |PCM OK |
-   | 5 |Panne d’alimentation secteur |
+   | 5\. |Panne d’alimentation secteur |
    | 6 |Batterie saine |
 4. Reportez-vous au diagramme suivant de l’arrière de l’appareil StorSimple pour localiser le module PCM défectueux. PCM 0 se trouve à gauche et PCM 1 à droite. Le tableau suivant explique les modules.
    

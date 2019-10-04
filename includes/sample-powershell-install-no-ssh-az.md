@@ -2,15 +2,16 @@
 author: sptramer
 ms.service: azure-powershell
 ms.topic: include
-ms.date: 02/13/2019
+ms.date: 06/05/2019
 ms.author: sttramer
-ms.openlocfilehash: f72b9a9738bf44711051947d9422047f4c1f7c7f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e769bfaab66cf1072bee192331c3bbc839a0488b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246117"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67132950"
 ---
-Cet exemple nécessite Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). 
+Cet exemple nécessite Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour trouver la version.
+Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). 
 
-Exécutez `Connect-AzAccount` pour créer une connexion avec Azure. 
+Exécutez l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) pour vous connecter à Azure. 

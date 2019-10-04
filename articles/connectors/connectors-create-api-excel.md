@@ -1,21 +1,22 @@
 ---
-title: Se connecter à Excel Online - Azure Logic Apps
+title: Se connecter à Excel Online – Azure Logic Apps
 description: Gérer les données avec les API REST de Excel Online et Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-tags: connectors
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/23/2018
-ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+tags: connectors
+ms.openlocfilehash: d3c6395f7fd66e1b89fc49536e228249bc4ed2a9
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314517"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70859240"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gérer les données Excel Online avec Azure Logic Apps
 
@@ -32,9 +33,9 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 > [!NOTE]
 > Les connecteurs [Excel Online pour les entreprises](/connectors/excelonlinebusiness/) et [Excel en ligne pour OneDrive](/connectors/excelonline/) fonctionnent avec Azure Logic Apps et diffère du [connecteur Excel pour PowerApps](/connectors/excel/).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * Un [compte Office 365](https://www.office.com/) pour votre compte Microsoft professionnel ou personnel
 
@@ -51,9 +52,12 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 1. Sous le déclencheur, choisissez **Nouvelle étape**.
 
-1. Dans la zone de recherche, entrez « excel » comme filtre. Sous la liste des actions, sélectionnez l’action souhaitée.
+1. Dans la zone de recherche, entrez « excel » comme filtre. Dans la liste des actions, sélectionnez l’action souhaitée.
 
-1. Si vous êtes invité à vous connecter à votre compte Office 365, choisissez **Se connecter**.
+   > [!NOTE]
+   > Le concepteur d’application logique ne peut pas charger les tables qui ont 100 colonnes ou plus. Si possible, réduisez le nombre de colonnes dans la table sélectionnée, afin que le concepteur puisse charger la table.
+
+1. Si vous y êtes invité, connectez-vous à votre compte Office 365.
 
    Vos informations d’identification autorisent votre application logique à créer une connexion à Excel Online et à accéder à votre données.
 
@@ -61,15 +65,10 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, telles que des déclencheurs, actions et limites, comme décrit par OpenAPI du connecteur (anciennement Swagger) des fichiers, consultez ces pages de référence de connecteur :
+Pour plus d'informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez ses pages de référence du connecteur :
 
 * [Excel Online pour les entreprises](/connectors/excelonlinebusiness/)
 * [Excel Online pour OneDrive](/connectors/excelonline/)
-
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

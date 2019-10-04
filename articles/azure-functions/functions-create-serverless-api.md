@@ -1,31 +1,29 @@
 ---
-title: Créer une API sans serveur à l’aide d’Azure Functions | Microsoft Docs
-description: 'Guide pratique : créer une API sans serveur à l’aide d’Azure Functions'
-services: functions
+title: Personnaliser un point de terminaison HTTP dans Azure Functions
+description: Découvrez comment personnaliser un point de terminaison de déclencheur HTTP dans Azure Functions
 author: mattchenderson
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: f7729f5acb8b7b95004265f6802ba2feb1bc3cd7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698230"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70096759"
 ---
-# <a name="create-a-serverless-api-using-azure-functions"></a>Créer une API sans serveur à l’aide d’Azure Functions
+# <a name="customize-an-http-endpoint-in-azure-functions"></a>Personnaliser un point de terminaison HTTP dans Azure Functions
 
-Dans ce didacticiel, vous allez découvrir en quoi Azure Functions vous permet de générer des API hautement scalables. Azure Functions est fourni avec une collection de liaisons et de déclencheurs HTTP intégrés qui permettent de créer facilement un point de terminaison dans différents langages, dont Node.JS et C#. Dans ce didacticiel, vous allez personnaliser un déclencheur HTTP pour gérer des actions spécifiques dans votre conception d’API. Vous allez également préparer le développement de votre API, l’intégration avec Proxys Azure Functions et la configuration d’API factices. Tout cela s’effectue sur l’environnement de calcul sans serveur de Functions. Vous n’avez donc pas à vous soucier de la mise à l’échelle des ressources et vous pouvez vous concentrer uniquement sur votre logique d’API.
+Dans cet article, vous allez découvrir comment Azure Functions vous permet de générer des API hautement évolutives. Azure Functions est fourni avec une collection de liaisons et de déclencheurs HTTP intégrés qui permettent de créer facilement un point de terminaison dans différents langages, dont Node.JS et C#. Dans cet article, vous allez personnaliser un déclencheur HTTP pour gérer des actions spécifiques dans votre conception d’API. Vous allez également préparer le développement de votre API, l’intégration avec Proxys Azure Functions et la configuration d’API factices. Tout cela s’effectue sur l’environnement de calcul sans serveur de Functions. Vous n’avez donc pas à vous soucier de la mise à l’échelle des ressources et vous pouvez vous concentrer uniquement sur votre logique d’API.
 
 ## <a name="prerequisites"></a>Prérequis 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-La fonction résultante sera utilisée pour le reste de ce didacticiel.
+La fonction résultante sera utilisée pour le reste de cet article.
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -182,7 +180,7 @@ Testez votre API factice en appelant le point de terminaison `<YourProxyApp>.azu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à créer et à personnaliser une API sur Azure Functions. Vous avez également appris à réunir plusieurs API, y compris factices, en une surface d’API unifiée. Vous pouvez utiliser ces techniques pour construire des API plus complexes, qui s’exécutent sur le modèle de calcul sans serveur fourni par Azure Functions.
+Dans cet article, vous avez appris à créer et à personnaliser une API sur Azure Functions. Vous avez également appris à réunir plusieurs API, y compris factices, en une surface d’API unifiée. Vous pouvez utiliser ces techniques pour construire des API plus complexes, qui s’exécutent sur le modèle de calcul sans serveur fourni par Azure Functions.
 
 Les références suivantes peuvent être utiles pour développer davantage votre API :
 

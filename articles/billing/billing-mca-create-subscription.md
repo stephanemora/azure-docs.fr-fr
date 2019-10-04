@@ -1,8 +1,6 @@
 ---
-title: Créer un nouvel abonnement Azure pour votre compte de facturation | Microsoft Docs
+title: Créer un nouvel abonnement Azure associé à votre compte de facturation
 description: Découvrez comment ajouter un nouvel abonnement Azure dans le Portail Azure.
-services: billing
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,81 +10,81 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e1fafafe5f67d1775ca80a1f7c2aff4dec9e0bc4
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897099"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709586"
 ---
-# <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Créer un nouvel abonnement Azure pour le contrat de client de Microsoft
+# <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Créer un abonnement Azure associé dans le cadre de votre Contrat client Microsoft
 
-Créer des abonnements supplémentaires à votre compte de facturation pour configurer des environnements distincts pour le développement et de test, de la sécurité ou pour isoler des données pour des raisons de conformité.
+Créez des abonnements supplémentaires dans votre compte de facturation pour configurer des environnements séparés pour le développement et le test, pour des raisons de sécurité ou pour isoler les données pour des raisons de conformité.
 
-Cet article s’applique à un compte de facturation d’un contrat de client de Microsoft. [Vérifiez si vous avez accès à un contrat de client Microsoft](#check-access-to-a-microsoft-customer-agreement). Si vous souhaitez créer des abonnements pour les autres comptes de facturation, consultez [créer un abonnement supplémentaire dans le portail Azure](billing-create-subscription.md).
+Cet article s’applique à un compte de facturation associé à un Contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access). Si vous souhaitez créer des abonnements pour d’autres types de comptes de facturation, voir [Créer un abonnement supplémentaire dans le Portail Azure](billing-create-subscription.md).
 
-Pour créer un abonnement, vous devez être un **propriétaire de section facture**, **contributeur de section facture**, ou **créateur de l’abonnement Azure**. Pour plus d’informations, consultez [les tâches et les rôles de facturation d’abonnement](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). Pour fournir d’autres d’autorisation de créer des abonnements Azure pour votre compte de facturation, consultez [autoriser d’autres utilisateurs à créer des abonnements Azure](#give-others-permission-to-create-azure-subscriptions).
+Pour créer un abonnement, vous devez être **propriétaire de section de facture**, **contributeur de section de facture** ou **créateur d’abonnement Azure**. Pour plus d’informations, consultez [Rôles et tâches liés à la facturation des abonnements](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). Pour fournir à d’autres utilisateurs l’autorisation de créer des abonnements Azure pour votre compte de facturation, consultez [Autoriser d’autres utilisateurs à créer des abonnements Azure](#give-others-permission).
 
-## <a name="create-a-subscription-in-the-azure-portal"></a>Créer un abonnement dans le portail Azure
+## <a name="create-a-subscription"></a>Création d’un abonnement
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Recherchez **Abonnements**.
 
-   ![Capture d’écran montrant la recherche dans le portail des abonnements](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
+   ![Capture d’écran montrant la recherche d’abonnements dans le portail](./media/billing-mca-create-subscription/billing-search-subscriptions.png)
 
 3. Sélectionnez **Ajouter**
 
-4. Si vous avez accès à plusieurs comptes de facturation, sélectionnez le compte de facturation pour votre contrat de client de Microsoft.
+4. Si vous avez accès à plusieurs comptes de facturation, sélectionnez le compte de facturation pour votre Contrat client Microsoft.
 
-   ![Capture d’écran montrant page Créer un abonnement](./media/billing-mca-create-subscription/billing-mca-create-azure-subscription.png)
+   ![Capture d’écran qui montre la page d’abonnement](./media/billing-mca-create-subscription/billing-mca-create-azure-subscription.png)
 
-5. Sélectionnez un profil de facturation. Les frais pour votre abonnement reflètent sur la facture de facturation du profil et vous seront versés à l’aide de ses méthodes de paiement. Si vous avez accès à un seul profil de facturation, la sélection est grisée.
+5. Sélectionnez un profil de facturation. Les frais de votre abonnement seront facturés au profil de facturation sélectionné. Si vous avez accès à un seul profil de facturation, la sélection est grisée.
 
-6. Sélectionnez une section de la facture. Les frais pour votre abonnement reflète sur cette section de facture de facturation du profil. Si vous avez accès pour qu’une seule section de facture, la sélection est grisée.
+6. Sélectionnez une section de facture. Les frais de votre abonnement sont facturés en fonction de cette section de la facture du profil de facturation. Si vous avez accès à une seule section de facturation, la sélection est grisée.
 
-7. Sélectionnez un plan pour l’abonnement. Sélectionnez **Microsoft Azure Plan pour DevTest**, si vous envisagez d’utiliser cet abonnement pour le développement ou de charges de travail tests autre utilisent **Microsoft Azure Plan**. Si vous avez accès à un seul plan, la sélection est grisée.
+7. Sélectionnez un plan pour l’abonnement. Sélectionnez **Offre Azure pour DevTest** si vous envisagez d’utiliser cet abonnement pour le développement. Pour tester des charges de travail, utilisez **Offre Microsoft Azure**. Si vous n’avez accès qu’à un seul plan, la sélection est grisée.
 
 8. Entrez un nom pour l’abonnement. Le nom vous aide à identifier facilement l’abonnement dans le portail Azure.
 
-9. Sélectionnez **Créer**.
+9. Sélectionnez **Create** (Créer).
 
-## <a name="give-others-permission-to-create-azure-subscriptions"></a>Autoriser d’autres utilisateurs à créer des abonnements Azure
+## <a name="give-others-permission"></a>Donner des autorisations à d’autres utilisateurs
 
-Ajouter des utilisateurs en tant que créateurs d’abonnement Azure sur une section de la facture afin de leur donner l’autorisation de créer des abonnements Azure.
+Ajoutez des utilisateurs en tant que créateurs d’abonnements Azure sur une section de la facture afin de leur donner l’autorisation de créer des abonnements Azure.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. Effectuez une recherche sur **Gestion des coûts + facturation**.
+2. Recherchez **Gestion des coûts + facturation**.
 
-   ![Capture d’écran montrant la recherche dans le portail des abonnements](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
+   ![Capture d’écran montrant la recherche d’abonnements dans le portail](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
-3. Accédez à la section de la facture. Selon votre accès, vous devrez peut-être sélectionner un compte de facturation ou d’un profil de facturation. Dans le compte de facturation ou un profil, sélectionnez **sections de facture** et ensuite une section de la facture.
+3. Accédez à la section de facture. Selon votre accès, vous devrez peut-être sélectionner un compte de facturation ou un profil de facturation. Dans le profil ou compte de facturation, sélectionnez **Sections de facture**, puis une section de la facture dans la liste. Tous les abonnements créés par les utilisateurs seront facturés en fonction de cette section de la facture.
+   
+   ![Capture d’écran montrant comment sélectionner des sections de factures](./media/billing-mca-create-subscription/mca-select-invoice-sections.png)        
 
-4. Sélectionnez **gestion d’accès (IAM)** depuis le côté supérieur gauche.
+4. Sélectionnez **Gestion des accès (IAM)** dans le volet en haut à gauche.
 
-5. À partir du haut de la page, sélectionnez **ajouter**.
+5. En haut de la page, sélectionnez **Ajouter**.
 
-6. Sélectionnez **créateur de l’abonnement Azure** pour le rôle.
+6. Sélectionnez le rôle **Créateur de l’abonnement Azure**.
 
-   ![Capture d’écran montrant l’attribution de rôle de créateur d’abonnement Azure à un utilisateur](./media/billing-mca-create-subscription/billing-mca-add-azure-subscription-creator.png)
-
-7. Entrez l’adresse de messagerie de l’utilisateur auquel vous souhaitez accorder l’accès.
+7. Entrez l’adresse e-mail de l’utilisateur auquel vous souhaitez accorder l’accès.
 
 8. Sélectionnez **Enregistrer**.
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifiez l’accès à un contrat de client de Microsoft
+## <a name="check-access"></a>Vérifier l’accès
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Autoriser d’autres utilisateurs à créer des ressources Azure à l’aide de rôles intégrés](../role-based-access-control/built-in-roles.md#built-in-role-descriptions)
-- [Créer une machine virtuelle windows](../virtual-machines/windows/quick-create-portal.md)
-- [Créer une machine virtuelle linux](../virtual-machines/linux/quick-create-portal.md)
+- [Créer une machine virtuelle Windows](../virtual-machines/windows/quick-create-portal.md)
+- [Créer une machine virtuelle Linux](../virtual-machines/linux/quick-create-portal.md)
 - [Créer des groupes d’administration pour l’organisation et l’administration des ressources](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)

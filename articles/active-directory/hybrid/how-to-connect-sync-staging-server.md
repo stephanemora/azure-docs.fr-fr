@@ -16,12 +16,12 @@ ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: bc88640cdff4f716902a80bb149913b961d40ae3
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196125"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900053"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect : Serveur de préproduction et reprise d’activité après sinistre
 Avec un serveur en mode intermédiaire, vous pouvez apporter des modifications à la configuration et visualiser les modifications avant de rendre le serveur actif. Il permet également d’exécuter une importation et la synchronisation complètes afin de vérifier que toutes les modifications sont attendues avant de les appliquer dans un environnement de production.
@@ -42,7 +42,7 @@ Lors de l’installation, vous pouvez sélectionner le serveur en **mode interm�
 
 Vous pouvez toujours forcer une exportation en utilisant le gestionnaire de services de synchronisation.
 
-Un serveur en mode intermédiaire continue de recevoir des modifications d’Active Directory et d’Azure AD. Il dispose toujours d’une copie des modifications les plus récentes et peut très rapidement reprendre les responsabilités d’un autre serveur. Si vous apportez des modifications de configuration à votre serveur principal, la responsabilité d’apporter les mêmes modifications au serveur en mode intermédiaire vous incombe.
+Un serveur en mode intermédiaire continue de recevoir des modifications d’Active Directory et d’Azure AD et peut très rapidement reprendre les responsabilités d’un autre serveur en cas de défaillance. Si vous apportez des modifications de configuration à votre serveur principal, la responsabilité d’apporter les mêmes modifications au serveur en mode intermédiaire vous incombe.
 
 Pour ceux qui connaissant les technologies de synchronisation plus anciennes, le mode intermédiaire est différent, dans la mesure où le serveur a sa propre base de données SQL. Cette architecture permet au serveur en mode intermédiaire d’être situé dans un autre centre de données.
 
@@ -65,9 +65,9 @@ Si vous avez apporté des modifications personnalisées au serveur principal et 
 
 #### <a name="import-and-synchronize"></a>Importer et synchroniser
 1. Sélectionnez **Connecteurs**, puis sélectionnez le premier connecteur de type **Services de domaine Active Directory**. Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**. Répétez cette procédure pour tous les connecteurs de ce type.
-2. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)**. Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**.
+2. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)** . Cliquez sur **Exécuter**, sélectionnez **Importation intégrale**, puis **OK**.
 3. Vérifiez que l’onglet Connecteurs est toujours sélectionné. Pour chaque connecteur de type **Services de domaine Active Directory**, cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis **OK**.
-4. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)**. Cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis **OK**.
+4. Sélectionnez le connecteur de type **Azure Active Directory (Microsoft)** . Cliquez sur **Exécuter**, sélectionnez **Synchronisation Delta**, puis **OK**.
 
 Vous avez maintenant effectué une exportation intermédiaire vers Azure AD et Active Directory local (si vous utilisez un déploiement Exchange hybride). Les prochaines étapes vous permettront d’inspecter les changements avant de commencer effectivement l’exportation vers les répertoires.
 

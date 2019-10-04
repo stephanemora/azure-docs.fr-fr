@@ -1,5 +1,5 @@
 ---
-title: 'Portail Azure : Interroger une base de données SQL Azure à l’aide de l’éditeur de requête | Microsoft Docs'
+title: 'Portail Azure : Interroger une base de données Azure SQL à l’aide de l’éditeur de requête | Microsoft Docs'
 description: Découvrez comment se connecter à une base de données SQL dans le portail Azure à l’aide de l’éditeur de requête SQL. Ensuite, exécutez des instructions Transact-SQL (T-SQL) pour interroger et modifier des données.
 keywords: se connecter à la base de données sql, portail azure, portail, éditeur de requête
 services: sql-database
@@ -8,38 +8,37 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: AyoOlubeko
-ms.author: ayolubek
+author: Ninarn
+ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 06/28/2019
+ms.openlocfilehash: 3702c88d0a5cdc7aa1f854f71e3aee8a42d9c22c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105792"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569175"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Démarrage rapide : Utiliser l’éditeur de requête SQL du portail Azure pour se connecter et interroger des données
 
-L’éditeur de requête SQL est un outil de navigateur du portail Azure qui offre un moyen simple d’exécuter des requêtes SQL sur votre base de données SQL Azure ou sur un entrepôt de données SQL Azure. Dans ce guide de démarrage rapide, vous utilisez l’éditeur de requête pour vous connecter à une base de données SQL, puis exécutez des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données.
+L’éditeur de requête SQL est un outil de navigateur du portail Azure qui offre un moyen simple d’exécuter des requêtes SQL sur votre base de données Azure SQL ou sur un entrepôt de données Azure SQL. Dans ce guide de démarrage rapide, vous utilisez l’éditeur de requête pour vous connecter à une base de données SQL, puis exécutez des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique |
   |:--- |:--- |
-  | Créer| [Portal](sql-database-single-database-get-started.md) | 
-  || [INTERFACE DE LIGNE DE COMMANDE](scripts/sql-database-create-and-configure-database-cli.md) | 
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
-  | Configuration | [Règle de pare-feu IP au niveau du serveur](sql-database-server-level-firewall-rule.md)| 
+  | Créer| [Portal](sql-database-single-database-get-started.md) |
+  || [INTERFACE DE LIGNE DE COMMANDE](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | Configuration | [Règle de pare-feu IP au niveau du serveur](sql-database-server-level-firewall-rule.md)|
   |||
 
 > [!NOTE]
-> Vérifiez que l’option **Autoriser l’accès aux services Azure** est définie sur **ACTIVÉ** dans les paramètres du pare-feu de votre serveur SQL. Cette option permet à l’éditeur de requête SQL d’accéder à vos bases de données et à vos entrepôts de données.
+> L’éditeur de requête utilise les ports 443 et 1443 pour communiquer.  Vérifiez que vous avez activé le trafic HTTPS sortant sur ces ports. Vous devrez également ajouter votre adresse IP sortante aux les règles d’autorisation de pare-feu du serveur pour accéder à vos bases de données et entrepôts de données.
 
 ## <a name="sign-in-the-azure-portal"></a>Se connecter au portail Azure
 
@@ -49,13 +48,13 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 1. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez **mySampleDatabase**.
 
-2. Dans le menu de gauche, recherchez et sélectionnez **Éditeur de requête (préversion)**. La page **Connexion** apparaît.
+2. Dans le menu de gauche, recherchez et sélectionnez **Éditeur de requête (préversion)** . La page **Connexion** apparaît.
 
     ![rechercher un éditeur de requête](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
 3. Dans le menu déroulant **Type d’autorisation**, sélectionnez **Authentification SQL Server**, puis entrez l’ID utilisateur et le mot de passe du compte d’administrateur du serveur utilisé pour créer la base de données.
 
-    ![se connecter](./media/sql-database-connect-query-portal/login-menu.png) 
+    ![se connecter](./media/sql-database-connect-query-portal/login-menu.png)
 
 4. Sélectionnez **OK**.
 
@@ -78,8 +77,8 @@ La configuration d’un administrateur Active Directory vous permet d’utiliser
 
 4. Dans la barre d’outils de la page d’administration d’AD, sélectionnez **Enregistrer**.
 
-5. Accédez à la base de données **mySampleDatabase** puis, dans le menu de gauche, sélectionnez **Éditeur de requête (préversion)**. La page **Connexion** apparaît. Si vous êtes administrateur AD, à droite, sous **Authentification unique Active Directory**, un message s’affiche indiquant que vous êtes connecté. 
-   
+5. Accédez à la base de données **mySampleDatabase** puis, dans le menu de gauche, sélectionnez **Éditeur de requête (préversion)** . La page **Connexion** apparaît. Si vous êtes administrateur AD, à droite, sous **Authentification unique Active Directory**, un message s’affiche indiquant que vous êtes connecté.
+
 6. Sélectionnez **OK**.
 
 
@@ -160,7 +159,7 @@ Exécutez l’instruction Transact-SQL [DELETE](https://msdn.microsoft.com/libra
 
 Il y a quelques informations à connaître quand vous travaillez avec l’éditeur de requête.
 
-* Vous ne pouvez pas utiliser l’éditeur de requête pour interroger des bases de données SQL Server dans un réseau virtuel.
+* L’éditeur de requête utilise les ports 443 et 1443 pour communiquer.  Vérifiez que vous avez activé le trafic HTTPS sortant sur ces ports. Vous devrez également ajouter votre adresse IP sortante aux les règles d’autorisation de pare-feu du serveur pour accéder à vos bases de données et entrepôts de données.
 
 * Le fait d’appuyer sur F5 réinitialise la page de l’éditeur de requête, effaçant la requête sur laquelle vous travaillez.
 
@@ -175,4 +174,4 @@ Il y a quelques informations à connaître quand vous travaillez avec l’édite
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les instructions Transact-SQL prises en charge dans les bases de données SQL Azure, consultez [Résolution des différences de Transact-SQL durant la migration vers SQL Database](sql-database-transact-sql-information.md).
+Pour plus d’informations sur les instructions Transact-SQL prises en charge dans les bases de données Azure SQL, consultez [Résolution des différences de Transact-SQL durant la migration vers SQL Database](sql-database-transact-sql-information.md).

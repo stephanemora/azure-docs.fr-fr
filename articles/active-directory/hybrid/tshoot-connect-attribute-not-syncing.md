@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a639b14c9313179816f6376aa0c5642a645ea344
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180823"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60455964"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Résoudre les problèmes d’un attribut ne synchronisant pas dans Azure AD Connect
 
@@ -43,7 +43,7 @@ Avant d’examiner les problèmes de synchronisation des attributs, essayons de 
 
 * Importer à partir d’AAD : les objets Azure Active Directory sont placés dans AAD CS.
 
-* Synchronisation : les **règles de synchronisation entrante** et les règles de synchronisation sortante sont exécutées dans l’ordre de priorité des nombres du plus petit au plus grand. Pour afficher les règles de synchronisation, vous pouvez accéder à **Synchronization Rules Editor** (Éditeur des règles de synchronisation) à partir des applications de bureau. Les **règles de synchronisation entrante** placent les données de CS dans MV. Les **règles de synchronisation sortante** déplacent les données de MV dans CS.
+* Synchronisation : les **règles de synchronisation entrante** et les **règles de synchronisation sortante** sont exécutées dans l’ordre de priorité des nombres du plus petit au plus grand. Pour afficher les règles de synchronisation, vous pouvez accéder à **Synchronization Rules Editor** (Éditeur des règles de synchronisation) à partir des applications de bureau. Les **règles de synchronisation entrante** placent les données de CS dans MV. Les **règles de synchronisation sortante** déplacent les données de MV dans CS.
 
 * Exporter vers AD : Une fois la synchronisation effectuée, les objets sont exportés depuis AD CS vers **Active Directory**.
 

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4105fa17041c7cefd1387d1ee50c177b8c55fc9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b17ef24d753041934f68f3daee950aaa0bec46ba
+ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651284"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66734738"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Démarrage rapide : Stratégie d’affectation de noms pour les groupes dans Azure Active Directory
 
@@ -31,121 +31,43 @@ Dans le cadre de ce démarrage rapide, vous allez configurer une stratégie d’
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="install-powershell-cmdlets"></a>Installer les applets de commande PowerShell
+## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal"></a>Configurer la stratégie de nommage de groupes d’un locataire à l’aide du portail Azure
 
-Veillez à désinstaller toute version ancienne du module Azure Active Directory PowerShell for Graph pour Windows PowerShell et à installer [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) avant d’exécuter les commandes PowerShell. 
+1. Se connecter au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur d’utilisateurs.
+1. Sélectionnez **Groupes**, puis **Stratégie d'attribution de noms** pour ouvrir la page Stratégie d'attribution de noms.
 
-1. Ouvrez l’application Windows PowerShell en tant qu’administrateur.
-2. Désinstallez toute version précédente d’AzureADPreview.
-  
+    ![Ouvrez la page Stratégie d'attribution de noms dans le Centre d'administration](./media/groups-naming-policy/policy.png)
 
-   ```powershell
-   Uninstall-Module AzureADPreview
-   ```
+### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Afficher ou modifier la stratégie d'attribution de suffixes/préfixes
 
-3. Installez la dernière version d’AzureADPreview.
-  
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Stratégie de noms de groupes**.
+1. Vous pouvez afficher ou modifier individuellement les stratégies actuelles d'attribution de suffixes/préfixes en sélectionnant les attributs ou les chaînes que vous souhaitez appliquer dans le cadre de la stratégie d'attribution de noms.
+1. Pour supprimer un préfixe ou un suffixe dans la liste, sélectionnez-le et choisissez **Supprimer**. Plusieurs éléments peuvent être supprimés en même temps.
+1. Sélectionnez **Enregistrer** pour appliquer les modifications apportées à la stratégie.
 
-   ```powershell
-   Install-Module AzureADPreview
-   ```
+### <a name="view-or-edit-the-custom-blocked-words"></a>Afficher ou modifier les mots bloqués personnalisés
 
-   Si vous êtes invité à accéder à un référentiel non approuvé, tapez **Y**. L’installation du nouveau module peut prendre quelques minutes.
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Mots bloqués**.
 
-## <a name="set-up-naming-policy"></a>Configurer la stratégie d’affectation de noms
+    ![Modifier et charger la liste de mots bloqués pour la stratégie d'attribution de noms](./media/groups-naming-policy/blockedwords.png)
 
-### <a name="step-1-sign-in-using-powershell-cmdlets"></a>Étape 1 : Se connecter à l’aide d’applets de commande PowerShell
+1. Affichez ou modifiez la liste actuelle des mots bloqués personnalisés en sélectionnant **Télécharger**.
+1. Chargez la nouvelle liste de mots bloqués personnalisés en sélectionnant l'icône de fichier.
+1. Sélectionnez **Enregistrer** pour appliquer les modifications apportées à la stratégie.
 
-1. Ouvrez l’application Windows PowerShell. Vous n’avez pas besoin de privilèges élevés.
-
-2. Exécutez les commandes suivantes pour préparer l’exécution des applets de commande.
-  
-
-   ```powershell
-   Import-Module AzureADPreview
-   Connect-AzureAD
-   ```
-
-   Dans l’écran **Connectez-vous à votre compte** qui s’ouvre, entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter**.
-
-3. Suivez les étapes de [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](groups-settings-cmdlets.md) pour créer des paramètres de groupe pour ce locataire.
-
-### <a name="step-2-view-the-current-settings"></a>Étape 2 : Afficher les paramètres actuels
-
-1. Visualisez les paramètres de stratégie d’affectation de noms actuels.
-  
-
-   ```powershell
-   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id
-   ```
-
-  
-2. Affichez les paramètres de groupe actuels.
-  
-
-   ```powershell
-   $Setting.Values
-   ```
-
-  
-
-### <a name="step-3-set-the-naming-policy-and-any-custom-blocked-words"></a>Étape 3 : Définir la stratégie d’affectation de noms et les éventuels mots bloqués personnalisés
-
-1. Définissez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell. Pour que la fonctionnalité fonctionne correctement, [GroupName] doit être inclus dans le paramètre.
-  
-
-   ```powershell
-   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-   ```
-
-  
-2. Définissez les mots bloqués personnalisés sur lesquels vous voulez imposer des restrictions. L’exemple suivant illustre la façon dont vous pouvez ajouter vos propres mots personnalisés.
-  
-
-   ```powershell
-   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-   ```
-
-  
-3. Enregistrez les paramètres de la nouvelle stratégie pour qu’elle prenne effet, comme dans l’exemple suivant.
-  
-
-   ```powershell
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-   ```
-
-  
 Vous avez terminé. Vous avez défini votre stratégie d’affectation de noms et ajouté vos mots bloqués personnalisés.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-1. Supprimez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell.
-  
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Supprimer la stratégie de nommage à l’aide du portail Azure
 
-   ```powershell
-   $Setting["PrefixSuffixNamingRequirement"] =""
-   ```
-
-  
-2. Supprimez les mots bloqués personnalisés.
-  
-
-   ```powershell
-   $Setting["CustomBlockedWordsList"]=""
-   ```
-
-  
-3. Enregistrez les paramètres.
-  
-
-   ```powershell
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-   ```
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Supprimer une stratégie**.
+1. Une fois la suppression confirmée, la stratégie d'attribution de noms est supprimée, de même que toutes les stratégies d'attribution de suffixes/préfixes et tous les mots bloqués personnalisés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce démarrage rapide, vous avez appris à utiliser des applets de commande PowerShell afin de définir la stratégie d’affectation de noms pour votre locataire Azure AD.
+Dans le cadre de ce guide de démarrage rapide, vous avez appris à définir la stratégie d'attribution de noms de votre organisation Azure AD par le biais du portail Azure.
 
-Pour plus d’informations sur les stratégies d’affectation de noms, et notamment sur les contraintes techniques, sur l’ajout d’une liste de mots bloqués personnalisés et sur les expériences d’utilisateur final pour l’ensemble des applications Office 365, consultez l’article suivant.
+Pour plus d'informations, notamment sur les cmdlets PowerShell relatives à la stratégie d'attribution de noms, sur les contraintes techniques, sur l'ajout d'une liste de mots bloqués personnalisés et sur les expériences d'utilisateur final dans les applications Office 365, consultez l'article suivant.
 > [!div class="nextstepaction"]
-> [Présentation exhaustive des stratégies d’affectation de noms](groups-naming-policy.md)
+> [Stratégie d'attribution de noms - PowerShell](groups-naming-policy.md)

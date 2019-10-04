@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 15725989ef786f94421eddf647f101e3e73633fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 10/01/2019
+ms.author: banders
+ms.openlocfilehash: 33fc6e59a0a85275b055524d8ccf5d78935725a8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890761"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718758"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Passer en revue la facturation d’un abonnement avec les API REST
 
@@ -39,7 +39,7 @@ Authorization: Bearer
 
 Le paramètre `{subscriptionID}` est obligatoire et identifie l’abonnement cible.
 
-Le paramètre `{billingPeriod}` est obligatoire et spécifie une [période de facturation](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod) active.
+Le paramètre `{billingPeriod}` est obligatoire et spécifie une [période de facturation](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) active.
 
 Les paramètres `${startDate}` et `${endDate}` sont obligatoires pour cet exemple, mais facultatifs pour le point de terminaison. Ils spécifient la plage de dates sous forme de chaînes, au format AAAA-MM-JJ (exemples : `'20180501'` et `'20180615'`).
 

@@ -3,23 +3,22 @@ title: Infrastructure de mise à jour Red Hat | Microsoft Docs
 description: Découvrez l’infrastructure de mise à jour Red Hat pour les instances Red Hat Enterprise Linux à la demande dans Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: jeconnoc
+author: asinn826
+manager: BorisB2015
 editor: ''
 ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 1/7/2019
+ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: 018ad851b223caa4017d544ca12e2a6397654205
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 6b332af53f421230b3fb5401e525bd77c5e87ed9
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791663"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081387"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastructure de mise à jour Red Hat pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure
  [Infrastructure de mise à jour Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permet aux fournisseurs de cloud, par exemple Azure, de mettre en miroir le contenu du référentiel hébergé par Red Hat, de créer des référentiels personnalisés avec du contenu spécifique à Azure et de rendre ces référentiels accessibles aux machines virtuelles des utilisateurs finaux.
@@ -31,27 +30,71 @@ Des informations supplémentaires sur les images RHEL dans Azure, y compris les 
 Vous trouverez des informations sur les stratégies de prise en charge de Red Hat pour toutes les versions de RHEL sur la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
 ## <a name="important-information-about-azure-rhui"></a>Informations importantes concernant Azure RHUI
-* Azure RHUI prend actuellement en charge uniquement la dernière version mineure de chaque famille RHEL (RHEL6 ou RHEL7). Pour mettre à jour une instance de machine virtuelle RHEL connectée à RHUI avec la dernière version secondaire, exécutez `sudo yum update`.
 
-    Par exemple, si vous approvisionnez une machine virtuelle à partir d’une image RHEL 7.4 PAYG et exécutez `sudo yum update`, vous vous retrouvez avec une machine virtuelle RHEL 7.6 (dernière version secondaire dans la famille RHEL7).
-
-    Pour éviter ce problème, vous devez créer votre propre image comme décrit dans l’article [Créer et charger une machine virtuelle Red Hat pour Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous avez besoin de la connecter à une infrastructure de mise à jour différente ([directement aux serveurs de distribution de contenu Red Hat](https://access.redhat.com/solutions/253273) ou à un [serveur Satellite Red Hat](https://access.redhat.com/products/red-hat-satellite)).
-
-* L’accès à l’infrastructure RHUI hébergée sur Azure est inclus dans le prix de l’image RHEL PAYG. Si vous annulez l’inscription à l’infrastructure RHUI hébergée sur Azure d’une machine virtuelle RHEL avec paiement à l’utilisation, cela ne convertit pas la machine virtuelle en une machine virtuelle de type BYOL (apportez votre propre licence). Si vous inscrivez la même machine virtuelle avec une autre source de mises à jour, vous pouvez être confronté à des frais doubles _indirects_. Vous êtes facturés une première fois pour les frais du logiciel RHEL de Azure. Vous êtes facturé une deuxième fois pour les abonnements Red Hat achetés précédemment. Si vous devez systématiquement utiliser une infrastructure de mise à jour autre que l’infrastructure RHUI hébergée sur Azure, envisagez de créer et déployer vos propres images (de type BYOL). Ce processus est décrit dans l’article [Créer et télécharger une machine virtuelle basée sur Red Hat pour Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Azure RHUI est l’infrastructure de mise à jour qui prend en charge toutes les machines virtuelles RHEL PAYG créées dans Azure. Cela ne vous empêche pas d’inscrire vos machines virtuelles PAYG RHEL avec le Gestionnaire d’abonnements ou Satellite, ou via toute autre source de mise à jour. Cependant, en procédant ainsi avec une machine virtuelle PAYG, vous créerez une double facturation indirecte. Consultez le point suivant pour en savoir plus.
+* L’accès à l’infrastructure RHUI hébergée sur Azure est inclus dans le prix de l’image RHEL PAYG. Si vous annulez l’inscription à l’infrastructure RHUI hébergée sur Azure d’une machine virtuelle RHEL avec paiement à l’utilisation, cela ne convertit pas la machine virtuelle en une machine virtuelle de type BYOL (apportez votre propre licence). Si vous inscrivez la même machine virtuelle avec une autre source de mises à jour, vous pouvez être confronté à des frais doubles _indirects_. Vous êtes facturés une première fois pour les frais du logiciel RHEL de Azure. Vous êtes facturé une deuxième fois pour les abonnements Red Hat achetés précédemment. Si vous devez systématiquement utiliser une infrastructure de mise à jour autre que l’infrastructure RHUI hébergée sur Azure, envisagez l’inscription afin de pouvoir utiliser les [images BYOS RHEL](https://aka.ms/rhel-byos).
 
 * Les images RHEL SAP PAYG dans Azure (RHEL for SAP HANA, RHEL for SAP Business Applications) sont connectées aux canaux RHUI dédiés qui restent sur la version mineure RHEL spécifique nécessaire pour la certification SAP.
 
-* L’accès à l’infrastructure RHUI hébergée sur Azure est limité aux machines virtuelles figurant dans les [plages IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Si vous redirigez à l’aide d’un proxy tout le trafic de la machine virtuelle via une infrastructure réseau locale, vous devrez peut-être configurer des itinéraires définis par l’utilisateur pour permettre aux machines virtuelles RHEL PAYG d’accéder à Azure RHUI.
+* L’accès à l’infrastructure RHUI hébergée sur Azure est limité aux machines virtuelles figurant dans les [plages IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Si vous redirigez à l’aide d’un proxy tout le trafic de la machine virtuelle via une infrastructure réseau locale, vous devrez peut-être configurer des itinéraires définis par l’utilisateur pour permettre aux machines virtuelles RHEL PAYG d’accéder à Azure RHUI. Si c’est le cas, les routes définies par l’utilisateur doivent être ajoutées pour _toutes_ les adresses IP RHUI.
+
+## <a name="image-update-behavior"></a>Comportement de mise à jour des images
+
+Depuis le mois d’avril 2019, Azure fournit des images RHEL qui sont connectées à des dépôts EUS (Extended Update Support) par défaut et des images RHEL qui sont connectées aux dépôts standard (non EUS) par défaut. Vous trouverez plus de détails sur les EUS RHEL dans la [documentation sur le cycle de vie des versions](https://access.redhat.com/support/policy/updates/errata) et dans la [documentation sur EUS](https://access.redhat.com/articles/rhel-eus) de Red Hat. Le comportement par défaut de `sudo yum update` varie en fonction de l’image RHEL à partir de laquelle vous avez effectué le provisionnement, car les différentes images sont connectées à des dépôts différents.
+
+Pour obtenir la liste complète des images, exécutez `az vm image list --publisher redhat --all` avec Azure CLI.
+
+### <a name="images-connected-to-non-eus-repositories"></a>Images connectées à des dépôts non EUS
+
+Si vous provisionnez une machine virtuelle à partir d’une image RHEL qui est connectée à des dépôts non EUS, votre version est mise à niveau vers la dernière version mineure de RHEL quand vous exécutez `sudo yum update`. Par exemple, si vous provisionnez une machine virtuelle à partir d’une image PAYG RHEL 7.4 et que vous exécutez `sudo yum update`, vous obtenez une machine virtuelle RHEL 7.7 (version mineure la plus récente dans la famille RHEL7).
+
+Les images connectées à des dépôts non EUS ne comportent pas de numéro de version mineure dans la référence SKU. La référence SKU est le troisième élément de l’URN (nom complet de l’image). Par exemple, toutes les images suivantes sont fournies en étant déjà connectées à des dépôts non EUS :
+
+```text
+RedHat:RHEL:7-LVM:7.4.2018010506
+RedHat:RHEL:7-LVM:7.5.2018081518
+RedHat:RHEL:7-LVM:7.6.2019062414
+RedHat:RHEL:7-RAW:7.4.2018010506
+RedHat:RHEL:7-RAW:7.5.2018081518
+RedHat:RHEL:7-RAW:7.6.2019062120
+```
+
+Notez que les références SKU sont de la version 7-LVM ou 7-RAW. La version mineure est indiquée dans la version (quatrième élément de l’URN) de ces images.
+
+### <a name="images-connected-to-eus-repositories"></a>Images connectées à des dépôts EUS
+
+Si vous provisionnez une machine virtuelle à partir d’une image RHEL qui est connectée à des dépôts EUS, votre version n’est pas mise à niveau vers la dernière version mineure de RHEL quand vous exécutez `sudo yum update`. Cela est dû au fait que la version des images connectées à des dépôts EUS est également verrouillée sur leur version mineure spécifique.
+
+Les images connectées à des dépôts EUS comportent un numéro de version mineure dans la référence SKU. Par exemple, toutes les images suivantes sont fournies en étant déjà connectées à des dépôts EUS :
+
+```text
+RedHat:RHEL:7.4:7.4.2019062107
+RedHat:RHEL:7.5:7.5.2019062018
+RedHat:RHEL:7.6:7.6.2019062116
+```
 
 ## <a name="rhel-eus-and-version-locking-rhel-vms"></a>EUS RHEL et machines virtuelles RHEL avec verrouillage de version
-Certains clients peuvent vouloir verrouiller leurs machines virtuelles RHEL sur une version mineure RHEL en particulier. Vous pouvez verrouiller la version de votre machine virtuelle RHEL sur une version mineure spécifique en mettant à jour les dépôts pour qu’ils pointent vers les dépôts Extended Update Support. Utilisez les instructions suivantes pour verrouiller une machine virtuelle RHEL sur une version mineure en particulier :
+
+Certains clients peuvent vouloir verrouiller leurs machines virtuelles RHEL sur une version mineure RHEL particulière après avoir provisionné les machines virtuelles. Vous pouvez verrouiller la version de votre machine virtuelle RHEL sur une version mineure spécifique en mettant à jour les dépôts pour qu’ils pointent vers les dépôts Extended Update Support. Vous pouvez également annuler l’opération de verrouillage de version EUS.
 
 >[!NOTE]
-> Ceci s’applique uniquement aux versions RHEL pour laquelle EUS est disponible. Au moment de rédiger cet article, cela inclut RHEL 7.2-7.6. Pour plus de détails, voir la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
+> La technologie EUS n’est pas prise en charge par RHEL Extras. Cela signifie que vous ne pourrez pas, sur EUS, installer un package généralement disponible à partir du canal RHEL Extras. Le cycle de vie des produits Red Hat Extras est détaillé [ici](https://access.redhat.com/support/policy/updates/extras/).
+
+Au moment de la rédaction de ce document, la prise en charge d’EUS est terminée pour les versions de RHEL antérieures ou égales à 7.3. Pour en savoir plus, consultez la section de la [documentation Red Hat](https://access.redhat.com/support/policy/updates/errata/) qui indique que Red Hat Enterprise Linux ne prend plus en charge les modules complémentaires.
+* La prise en charge de RHEL 7.4 EUS se terminera le 31 août 2019.
+* La prise en charge de RHEL 7.5 EUS se terminera le 30 avril 2020.
+* La prise en charge de RHEL 7.6 EUS se terminera le 31 octobre 2020.
+* La prise en charge de RHEL 7.7 EUS se terminera le 30 août 2021.
+
+### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Faites basculer une machine virtuelle RHEL vers EUS (verrouillage sur une version mineure spécifique)
+Utilisez les instructions suivantes pour verrouiller une machine virtuelle RHEL sur une version mineure en particulier (en exécutant les opérations en tant que racine) :
+
+>[!NOTE]
+> Ceci s’applique uniquement aux versions RHEL pour laquelle EUS est disponible. Au moment de la rédaction de cet article, cela inclut RHEL 7.2-7.7. Pour plus de détails, voir la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
 1. Désactivez les dépôts non-EUS :
     ```bash
-    sudo yum --disablerepo='*' remove 'rhui-azure-rhel7'
+    yum --disablerepo='*' remove 'rhui-azure-rhel7'
     ```
 
 1. Ajoutez les dépôts EUS :
@@ -59,7 +102,7 @@ Certains clients peuvent vouloir verrouiller leurs machines virtuelles RHEL sur 
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. Verrouillez la variable releasever :
+1. Verrouillez la variable releasever (en exécutant les opérations en tant que racine) :
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
@@ -67,6 +110,28 @@ Certains clients peuvent vouloir verrouiller leurs machines virtuelles RHEL sur 
     >[!NOTE]
     > L’instruction ci-dessus verrouille la version mineure de RHEL sur la version mineure actuelle. Entrez une version mineure spécifique si vous souhaitez mettre à niveau et verrouiller une version mineure ultérieure qui n’est pas la dernière version. Par exemple, `echo 7.5 > /etc/yum/vars/releasever` verrouille votre version RHEL sur RHEL 7.5
 
+1. Mettre à jour votre machine virtuelle RHEL
+    ```bash
+    sudo yum update
+    ```
+
+### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>Faites basculer une machine virtuelle RHEL vers une infrastructure non EUS (en supprimant le verrouillage de version)
+Exécutez l’opération suivante, en tant que racine :
+1. Supprimez le fichier releasever :
+    ```bash
+    rm /etc/yum/vars/releasever
+     ```
+
+1. Désactivez le référentiel EUS :
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
+   ```
+
+1. Configurer la machine virtuelle RHEL
+    ```bash
+    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
+    ```
+    
 1. Mettre à jour votre machine virtuelle RHEL
     ```bash
     sudo yum update
@@ -97,12 +162,12 @@ Si vous utilisez une configuration du réseau pour restreindre davantage l’acc
 51.4.228.145
 ```
 
-## <a name="azure-rhui-infrastructure"></a>Azure RHUI Infrastructure
+## <a name="azure-rhui-infrastructure"></a>Infrastructure Azure RHUI
 
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Mettre à jour le certificat de client RHUI arrivé à expiration sur une machine virtuelle
 
-Si vous utilisez une ancienne image de machine virtuelle RHEL, par exemple, RHEL 7.4 (URN d’image : `RedHat:RHEL:7.4:7.4.2018010506`), vous rencontrerez des problèmes de connectivité à RHUI en raison d’un certificat de client SSL arrivé à expiration. L’erreur que vous voyez peut ressembler à _« L’homologue SSL a rejeté le certificat car il a expiré »_ ou _« Erreur : Impossible de récupérer les métadonnées du référentiel (repomd.xml) pour le référentiel :... Vérifiez son chemin d’accès et essayez à nouveau »_. Pour résoudre ce problème, mettez à jour le package client RHUI sur la machine virtuelle à l’aide de la commande suivante :
+Si vous utilisez une ancienne image de machine virtuelle RHEL, par exemple, RHEL 7.4 (URN d’image : `RedHat:RHEL:7.4:7.4.2018010506`), vous rencontrerez des problèmes de connectivité à RHUI en raison d’un certificat de client SSL arrivé à expiration. L’erreur que vous voyez peut ressembler à _« L’homologue SSL a rejeté le certificat car il a expiré »_ ou _« Erreur : Impossible de récupérer les métadonnées du référentiel (repomd.xml) pour le référentiel :... Vérifiez son chemin d’accès et essayez à nouveau »_ . Pour résoudre ce problème, mettez à jour le package client RHUI sur la machine virtuelle à l’aide de la commande suivante :
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
@@ -110,7 +175,7 @@ sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 
 Sinon, l’exécution de `sudo yum update` met aussi à jour le package de certificat client (en fonction de la version de votre RHEL) en dépit des erreurs « certificat SSL expiré » que vous voyez pour d’autres dépôts. Si la mise à jour fonctionne, une connectivité normale à d’autres dépôts RHUI doit être restaurée, vous pouvez donc exécuter `sudo yum update`.
 
-Si vous rencontrez une erreur 404 lors de son exécution un `yum update`, essayez la procédure suivante pour actualiser votre cache yum :
+Si vous rencontrez une erreur 404 lorsque vous exécutez `yum update`, essayez la procédure suivante pour actualiser votre cache yum :
 ```bash
 sudo yum clean all;
 sudo yum makecache
@@ -121,9 +186,9 @@ Si vous rencontrez des problèmes de connexion à RHUI Azure à partir de votre 
 
 1. Examinez la configuration de machine virtuelle pour le point de terminaison RHUI Azure :
 
-    a. Vérifiez si le fichier `/etc/yum.repos.d/rh-cloud.repo` contient la référence à `rhui-[1-3].microsoft.com` dans la `baseurl` de la section `[rhui-microsoft-azure-rhel*]` du fichier. Si c’est le cas, vous utilisez la nouvelle version de RHUI Azure.
+    1. Vérifiez si le fichier `/etc/yum.repos.d/rh-cloud.repo` contient la référence à `rhui-[1-3].microsoft.com` dans la `baseurl` de la section `[rhui-microsoft-azure-rhel*]` du fichier. Si c’est le cas, vous utilisez la nouvelle version de RHUI Azure.
 
-    b. Si elle pointe vers un emplacement avec le modèle suivant; `mirrorlist.*cds[1-4].cloudapp.net`, la mise à jour de la configuration est requise. Vous utilisez une ancienne capture instantanée de la machine virtuelle, et vous devez la mettre à jour pour pointer vers la nouvelle RHUI Azure.
+    1. Si elle pointe vers un emplacement avec le modèle suivant; `mirrorlist.*cds[1-4].cloudapp.net`, la mise à jour de la configuration est requise. Vous utilisez une ancienne capture instantanée de la machine virtuelle, et vous devez la mettre à jour pour pointer vers la nouvelle RHUI Azure.
 
 1. L’accès à la RHUI hébergée par Azure est limité aux machines virtuelles dans les [plages d’adresses IP des centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -138,89 +203,15 @@ Les nouveaux serveurs RHUI Azure sont déployés avec [Azure Traffic Manager](ht
 ### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Procédure de mise à jour manuelle pour utiliser les serveurs RHUI Azure
 Cette procédure est fournie uniquement à titre de référence. Les images RHEL PAYG possèdent déjà la configuration correcte pour se connecter à la RHUI Azure. Pour mettre à jour manuellement la configuration afin d’utiliser les serveurs RHUI Azure, procédez comme suit :
 
-1. Télécharger la signature de clé publique via curl.
+- Pour RHEL 6 :
+  ```bash
+  yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel6.config' install 'rhui-azure-rhel6'
+  ```
 
-   ```bash
-   curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc
-   ```
-
-1. Vérifier la validité de la clé téléchargée.
-
-   ```bash
-   gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
-   ```
-
-1. Vérifiez la sortie et puis vérifiez `keyid` et `user ID packet`.
-
-   ```bash
-   Version: GnuPG v1.4.7 (GNU/Linux)
-   :public key packet:
-           version 4, algo 1, created 1446074508, expires 0
-           pkey[0]: [2048 bits]
-           pkey[1]: [17 bits]
-           keyid: EB3E94ADBE1229CF
-   :user ID packet: "Microsoft (Release signing) <gpgsecurity@microsoft.com>"
-   :signature packet: algo 1, keyid EB3E94ADBE1229CF
-           version 4, created 1446074508, md5len 0, sigclass 0x13
-           digest algo 2, begin of digest 1a 9b
-           hashed subpkt 2 len 4 (sig created 2015-10-28)
-           hashed subpkt 27 len 1 (key flags: 03)
-           hashed subpkt 11 len 5 (pref-sym-algos: 9 8 7 3 2)
-           hashed subpkt 21 len 3 (pref-hash-algos: 2 8 3)
-           hashed subpkt 22 len 2 (pref-zip-algos: 2 1)
-           hashed subpkt 30 len 1 (features: 01)
-           hashed subpkt 23 len 1 (key server preferences: 80)
-           subpkt 16 len 8 (issuer key ID EB3E94ADBE1229CF)
-           data: [2047 bits]
-   ```
-
-1. Installez la clé publique.
-
-   ```bash
-   sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
-   sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
-   ```
-
-1. Téléchargez, vérifiez et installez un package Gestionnaire de package RPM (RPM) client.
-
-    >[!NOTE]
-    >Les versions du package varient. Si vous vous connectez manuellement à la RHUI Azure, vous trouverez la dernière version du package client pour chaque famille RHEL en approvisionnant la dernière image de la galerie.
-
-   a. Téléchargez.
-
-    - Pour RHEL 6 :
-        ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.2-74.noarch.rpm
-        ```
-
-    - Pour RHEL 7 :
-        ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.2-74.noarch.rpm
-        ```
-
-   b. Vérifiez.
-
-   ```bash
-   rpm -Kv azureclient.rpm
-   ```
-
-   c. Vérifiez la sortie pour vous assurer que la signature du package est OK.
-
-   ```bash
-   azureclient.rpm:
-       Header V3 RSA/SHA256 Signature, key ID be1229cf: OK
-       Header SHA1 digest: OK (927a3b548146c95a3f6c1a5d5ae52258a8859ab3)
-       V3 RSA/SHA256 Signature, key ID be1229cf: OK
-       MD5 digest: OK (c04ff605f82f4be8c96020bf5c23b86c)
-   ```
-
-   d. Installez le package RPM.
-
-    ```bash
-    sudo rpm -U azureclient.rpm
-    ```
-
-1. Une fois l’installation terminée, vérifiez que vous pouvez accéder à l’écran RHUI Azure depuis la machine virtuelle.
+- Pour RHEL 7 :
+  ```bash
+  yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
+  ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour créer une machine virtuelle Red Hat Enterprise Linux à partir d’une image PAYG dans le service Marketplace Azure et utiliser l’infrastructure RHUI hébergée sur Azure, voir [Place de marché Azure](https://azure.microsoft.com/marketplace/partners/redhat/).

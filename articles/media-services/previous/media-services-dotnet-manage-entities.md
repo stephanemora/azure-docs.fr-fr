@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: a686465b0006c2e9aac6e06cb4ab12d30921e8c5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802675"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61235423"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestion des éléments multimédias et des entités connexes avec le Kit de développement logiciel (SDK) Media Services .NET
 > [!div class="op_single_selector"]
@@ -29,13 +29,13 @@ ms.locfileid: "58802675"
 > 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
 
 Cette rubrique montre comment gérer les entités Azure Media Services avec .NET.
 
 À compter du 1er avril 2017, les enregistrements de travaux dans votre compte de plus de 90 jours seront automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximum. Par exemple, le 1er avril 2017, tout enregistrement de travail dans votre compte antérieur au 31 décembre 2016 sera automatiquement supprimé. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit dans cette rubrique.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
@@ -203,7 +203,7 @@ Pour plus d’informations sur les options pour la livraison des éléments mult
 ```
 
 ## <a name="list-all-access-policies"></a>Répertorier toutes les stratégies d’accès
-Dans Media Services, vous pouvez définir une stratégie d’accès sur un élément multimédia ou ses fichiers. Une stratégie d’accès définit les autorisations pour un fichier ou un élément multimédia (le type d’accès et la durée). Dans votre code Media Services, vous définissez généralement une stratégie d’accès en créant un objet IAccessPolicy et en l’associant à un élément multimédia existant. Ensuite, vous créez un objet ILocator, qui vous permet de fournir un accès direct aux éléments multimédias dans Media Services. Le projet Visual Studio qui accompagne cette documentation contient plusieurs exemples de code qui montrent comment créer et attribuer des localisateurs et les stratégies d’accès aux éléments multimédias.
+Dans Media Services, vous pouvez définir une stratégie d’accès sur un élément multimédia ou ses fichiers. Une stratégie d’accès définit les autorisations pour un fichier ou un élément multimédia (le type d’accès et la durée). Dans votre code Media Services, vous définissez généralement une stratégie d’accès en créant un objet IAccessPolicy et en l’associant à un élément multimédia existant. Ensuite, vous créez un objet ILocator, qui vous permet de fournir un accès direct aux éléments multimédias dans les Media Services. Le projet Visual Studio qui accompagne cette documentation contient plusieurs exemples de code qui montrent comment créer et attribuer des localisateurs et les stratégies d’accès aux éléments multimédias.
 
 L’exemple de code suivant montre comment répertorier toutes les stratégies d’accès sur le serveur et quel type d’autorisations leur est associé. Une autre méthode d’affichage des stratégies d’accès consiste à répertorier tous les objets ILocator sur le serveur, puis répertorier les stratégies d’accès associées à chaque localisateur à l’aide de leur propriété AccessPolicy.
 

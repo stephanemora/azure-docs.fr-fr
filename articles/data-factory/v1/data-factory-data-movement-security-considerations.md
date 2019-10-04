@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b425db761375c705d3c810002234a937bac46d78
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539613"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610168"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considérations de sécurité relatives au déplacement des données
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Considérations de sécurité relatives au déplacement des données dans Azure Data Factory](../data-movement-security-considerations.md).
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Cet article décrit l’infrastructure de sécurité de base qu’utilisent les services de déplacement des données dans Azure Data Factory pour sécuriser vos données. Les ressources de gestion d’Azure Data Factory reposent sur l’infrastructure de sécurité Azure et utilisent toutes les mesures de sécurité proposées par Azure.
 
 Dans une solution Data Factory, vous créez un ou plusieurs [pipelines](data-factory-create-pipelines.md) de données. Un pipeline constitue un regroupement logique d’activités qui exécutent ensemble une tâche. Ces pipelines se trouvent dans la région où la fabrique de données a été créée. 
@@ -43,14 +43,14 @@ Si la conformité Azure vous intéresse et que vous désirez savoir comment Azur
 
 Cet article présente les principes de sécurité à prendre en compte dans les deux scénarios de déplacement de données suivants : 
 
-- **Scénario cloud** : dans ce scénario, votre source et votre destination sont toutes deux accessibles publiquement via Internet. Cela inclut les services de stockage cloud gérés comme le stockage Azure, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, les services SaaS tels que Salesforce et les protocoles web tels que FTP et OData. Vous trouverez [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) une liste complète des sources de données prises en charge.
+- **Scénario cloud** : dans ce scénario, votre source et votre destination sont toutes deux accessibles publiquement via Internet. Cela inclut les services de stockage cloud managés comme Stockage Azure, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, les services SaaS tels que Salesforce et les protocoles web tels que FTP et OData. Vous trouverez [ici](data-factory-data-movement-activities.md#supported-data-stores-and-formats) une liste complète des sources de données prises en charge.
 - **Scénario hybride** : dans ce scénario, votre source ou votre destination se trouve derrière un pare-feu ou au sein d’un réseau d’entreprise local, ou la banque de données se trouve dans un réseau privé/virtuel réseau (le plus souvent la source) et n’est pas accessible publiquement. Les serveurs de base de données hébergés sur des machines virtuelles sont également inclus dans ce scénario.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Scénarios cloud
 ### <a name="securing-data-store-credentials"></a>Sécurisation des informations d’identification des banques de données
-Azure Data Factory protège les informations d’identification de vos banques de données en les **chiffrant** à l’aide de **certificats gérés par Microsoft**. Ces certificats sont remplacés tous les **deux ans** (avec renouvellement des certificats et migration des informations d’identification). Ces informations d’identification chiffrées sont stockées de manière sécurisée dans un **stockage Azure géré par les services de gestion d’Azure Data Factory**. Pour plus d’informations sur la sécurité du stockage Azure, consultez l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](../../security/security-storage-overview.md).
+Azure Data Factory protège les informations d’identification de vos banques de données en les **chiffrant** à l’aide de **certificats gérés par Microsoft**. Ces certificats sont remplacés tous les **deux ans** (avec renouvellement des certificats et migration des informations d’identification). Ces informations d’identification chiffrées sont stockées de manière sécurisée dans un **stockage Azure géré par les services de gestion d’Azure Data Factory**. Pour plus d’informations sur la sécurité du stockage Azure, consultez l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](../../security/fundamentals/storage-overview.md).
 
 ### <a name="data-encryption-in-transit"></a>Chiffrement des données en transit
 Tous les transferts de données entre les services de déplacement des données dans Data Factory et une banque de données cloud s’effectuent via un canal HTTPS ou TLS sécurisé, si la banque de données cloud prend en charge HTTPS ou TLS.
@@ -95,7 +95,7 @@ Les informations d’identification associées à vos banques de données locale
 - À l’aide de **texte brut** (moins sécurisé) via HTTPS depuis le portail Azure ou l’Assistant de copie. Les informations d’identification sont transmises en texte brut à la passerelle locale.
 - À l’aide de la **bibliothèque de chiffrement JavaScript depuis l’Assistant de copie**.
 - À l’aide de **l’application Gestionnaire des informations d’identification ClickOnce**. L’application ClickOnce s’exécute sur l’ordinateur local ayant accès à la passerelle et définit les informations d’identification pour la banque de données. Cette option et l’option suivante sont les plus sécurisées. L’application Gestionnaire des informations d’identification utilise par défaut le port 8050 de l’ordinateur hébergeant la passerelle pour établir une communication sécurisée.  
-- Utilisez [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) applet de commande PowerShell pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous pouvez utiliser les informations d’identification chiffrées retournées par cette applet de commande et l’ajouter à **EncryptedCredential** élément de la **connectionString** dans le fichier JSON que vous utilisez avec le [ Nouvelle AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) applet de commande ou dans l’extrait de code JSON dans Data Factory Editor dans le portail. Cette option et l’application ClickOnce sont les options les plus sécurisées. 
+- Utilisez la cmdlet PowerShell [New-AzureRmDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) pour chiffrer les informations d’identification. L'applet de commande utilise le certificat qui a servi à configurer la passerelle pour chiffrer les informations d'identification. Vous pouvez utiliser les informations d’identification chiffrées retournées par cette cmdlet et les ajouter à l’élément **EncryptedCredential** de la **chaîne de connexion** dans le fichier JSON que vous utilisez avec la cmdlet [New-AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) ou dans l’extrait de code JSON de Data Factory Editor dans le portail. Cette option et l’application ClickOnce sont les options les plus sécurisées. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Chiffrement à partir de la bibliothèque de chiffrement JavaScript
 Vous pouvez chiffrer les informations d’identification des banques de données à l’aide de la [bibliothèque de chiffrement JavaScript](https://www.microsoft.com/download/details.aspx?id=52439) depuis [l’Assistant de copie](data-factory-copy-wizard.md). Lorsque vous sélectionnez cette option, l’Assistant de copie récupère la clé publique de la passerelle et l’utilise pour chiffrer les informations d’identification des banques de données. Les informations d’identification sont déchiffrées par l’ordinateur de la passerelle et protégées par l’API de protection des données Windows [(DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx).
@@ -123,15 +123,15 @@ Tous les transferts de données s’effectuent via un canal sécurisé **HTTPS**
  
 Vous pouvez également utiliser un [VPN IPSec](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) ou [ExpressRoute](../../expressroute/expressroute-introduction.md) pour renforcer la sécurité du canal de communication entre votre réseau local et Azure.
 
-Un réseau virtuel est une représentation logique de votre réseau dans le cloud. Vous pouvez connecter un réseau local à votre réseau virtuel Azure (VNet) en configurant un VPN IPSec (de site à site) ou ExpressRoute (homologation privée).     
+Un réseau virtuel est une représentation logique de votre réseau dans le cloud. Vous pouvez connecter un réseau local à votre réseau virtuel Azure (VNet) en configurant un VPN IPSec (de site à site) ou ExpressRoute (peering privé).     
 
 Le tableau suivant récapitule les recommandations de configuration réseau et de la passerelle selon différentes combinaisons d’emplacements source et de destination pour le déplacement de données hybrides.
 
 | Source | Destination | Configuration réseau | Configuration de la passerelle |
 | ------ | ----------- | --------------------- | ------------- | 
 | Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | VPN IPSec (de point à site ou de site à site) | La passerelle peut être installée en local ou sur une machine virtuelle Azure au sein du réseau virtuel | 
-| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | ExpressRoute (homologation privée) | La passerelle peut être installée en local ou sur une machine virtuelle Azure au sein du réseau virtuel | 
-| Local | Services Azure disposant d’un point de terminaison public | ExpressRoute (homologation publique) | La passerelle doit être installée en local | 
+| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | ExpressRoute (peering privé) | La passerelle peut être installée en local ou sur une machine virtuelle Azure au sein du réseau virtuel | 
+| Local | Services Azure disposant d’un point de terminaison public | ExpressRoute (peering public) | La passerelle doit être installée en local | 
 
 Les illustrations suivantes décrivent l’utilisation de la passerelle de gestion des données pour le déplacement de données entre une base de données locale et les services Azure à l’aide d’ExpressRoute et d’un VPN IPSec (avec un réseau virtuel) :
 
@@ -174,7 +174,7 @@ Pour certaines banques de données hébergées dans le cloud, vous devez autoris
 
 Les banques de données cloud suivantes requièrent l’autorisation de l’adresse IP de l’ordinateur de passerelle. Il est possible que certaines de ces banques de données ne requièrent pas par défaut l’autorisation des adresses IP. 
 
-- [Base de données SQL Azure](../../sql-database/sql-database-firewall-configure.md) 
+- [Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)

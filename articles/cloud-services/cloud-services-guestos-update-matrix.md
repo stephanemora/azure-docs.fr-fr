@@ -7,18 +7,17 @@ author: raiye
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 9/4/2019
 ms.author: raiye
-ms.openlocfilehash: 955ba0aae41d7e555c1248cf04073b1b6e3f2d4f
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 9e93cb6cf57a42463e631332fb4714457b9b675f
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499962"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70275487"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -42,6 +41,21 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas comment mettre à jour votre système d’exploitation invité ? Consultez [cet article][cloud updates].
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+
+###### <a name="september-4-2019"></a>**4 septembre 2019**
+Publication du système d’exploitation invité du mois d’août.
+
+###### <a name="july-26-2019"></a>**26 juillet 2019**
+Le système d’exploitation invité de juillet a été publié.
+
+###### <a name="july-8-2019"></a>**8 juillet 2019**
+Le système d’exploitation invité de juin a été publié.
+
+###### <a name="june-6-2019"></a>**6 juin 2019**
+Le système d’exploitation invité de mai a été publié.
+
+###### <a name="may-7-2019"></a>**7 mai 2019**
+Le système d’exploitation invité d’avril a été publié.
 
 ###### <a name="march-26-2019"></a>**26 mars 2019**
 Le système d’exploitation invité de mars a été publié.
@@ -78,27 +92,32 @@ Publication du système d’exploitation invité du mois de septembre.
 > Le SDK Windows Azure pour .NET - 3.0 peut être téléchargé [ici][Windows Azure SDK].
 >
 >Procédure d’installation :
->1. Veuillez désinstaller les anciennes versions du MicrosoftAzureAuthoringTools*.msi
->2. Installer le [Azure SDK pour .NET - 3.0][Windows Azure SDK]
->3. Redémarrez votre ordinateur
->4. Créer un nouveau projet de Service Cloud et ajouter un rôle de travail unique
->5. Modifier la famille de systèmes d’exploitation à 6 et générer un package
->6. Déployer le package sur Azure à l’aide du portail Azure ou Visual Studio
+>1. Veuillez désinstaller les anciennes versions du fichier MicrosoftAzureAuthoringTools*.msi
+>2. Installer le [kit SDK Azure pour .NET - 3.0][Windows Azure SDK]
+>3. Redémarrer votre machine
+>4. Créer un projet de service cloud et ajouter un seul rôle de travail
+>5. Définir la famille de système d’exploitation sur 6 et générer un paquet
+>6. Déployer le paquet sur Azure à l’aide du portail Azure ou de Visual Studio
 >
 
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
-| WA-GUEST-OS-6.5_201903-01 |26 mars 2019 |Post 6.7 |
-| WA-GUEST-OS-6.4_201902-01 |12 mars 2019 |Post 6.6 |
-|~~WA-GUEST-OS-6.3_201901-01~~ |5 février 2019 |26 mars 2019 |
-|~~WA-GUEST-OS-6.2_201812-01~~ |24 janvier 2019 |12 mars 2019 |
+| WA-GUEST-OS-6.10_201908-01 |  4 août 2019  |  Post 6.12  |  
+| WA-GUEST-OS-6.9_201907-01 |26 juillet 2019 |Post 6.11 |
+|~~WA-GUEST-OS-6.8_201906-01~~|8 juillet 2019 |4 août 2019 |
+|~~WA-GUEST-OS-6.7_201905-01~~ |6 juin 2019 |26 juillet 2019 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |7 mai 2019 |8 juillet 2019 |
+|~~WA-GUEST-OS-6.5_201903-01~~ |26 mars 2019 |6 juin 2019 |
+|~~WA-GUEST-OS-6.4_201902-01~~ |12 mars 2019 |7 mai 2019 |
+|~~WA-GUEST-OS-6.3_201901-01~~ |5 février 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-6.2_201812-01~~ |24 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |24 janvier 2019 |5 février 2019 |
 
 ## <a name="family-5-releases"></a>Publications de famille 5
 **Windows Server 2016**
 
-.NET Framework installé : 3.5, 4.6.2
+.NET Framework installé : 3.5, 4.6
 
 > [!NOTE]
 > Le mot de passe RDP pour la famille 5 de SE doit comporter au moins 10 caractères.
@@ -107,10 +126,15 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
-| WA-GUEST-OS-5.29_201903-01 |26 mars 2019 |Post 5.31 |
-| WA-GUEST-OS-5.28_201902-01 |12 mars 2019 |Post 5.30 |
-|~~WA-GUEST-OS-5.27_201901-01~~ |5 février 2019 |26 mars 2019 |
-|~~WA-GUEST-OS-5.26_201812-01~~ |7 janvier 2019 |12 mars 2019 |
+| WA-GUEST-OS-5.34_201908-01  |  4 août 2019  |  Post 5.36  |  
+| WA-GUEST-OS-5.33_201907-01 |26 juillet 2019 |Post 5.35 |  
+|~~WA-GUEST-OS-5.32_201906-01~~|8 juillet 2019 |4 août 2019 |
+|~~WA-GUEST-OS-5.31_201905-01~~ |6 juin 2019 |26 juillet 2019 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |7 mai 2019 |8 juillet 2019 |
+|~~WA-GUEST-OS-5.29_201903-01~~ |26 mars 2019 |6 juin 2019 |
+|~~WA-GUEST-OS-5.28_201902-01~~ |12 mars 2019 |7 mai 2019 |
+|~~WA-GUEST-OS-5.27_201901-01~~ |5 février 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-5.26_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
@@ -118,14 +142,19 @@ Publication du système d’exploitation invité du mois de septembre.
 ## <a name="family-4-releases"></a>Publications de famille 4
 **Windows Server 2012 R2**
 
-.NET Framework installé : 3.5, 4.5.1
+.NET Framework installé : 3.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
-| WA-GUEST-OS-4.64_201903-01 |26 mars 2019 |POST 4.66 |
-| WA-GUEST-OS-4.63_201902-01 |12 mars 2019 |POST 4,65 |
-|~~WA-GUEST-OS-4.62_201901-01~~ |5 février 2019 |26 mars 2019 |
-|~~WA-GUEST-OS-4.61_201812-01~~ |7 janvier 2019 |12 mars 2019 |
+| WA-GUEST-OS-4.69_201908-01 |  4 août 2019  |  Post 4.71  |  
+| WA-GUEST-OS-4.68_201907-01 | 26 juillet 2019  |Post 4.70 |
+|~~WA-GUEST-OS-4.67_201906-01~~|8 juillet 2019 |4 août 2019 |
+|~~WA-GUEST-OS-4.66_201905-01~~ |6 juin 2019 |26 juillet 2019 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |7 mai 2019 |8 juillet 2019 |
+|~~WA-GUEST-OS-4.64_201903-01~~ |26 mars 2019 |6 juin 2019 |
+|~~WA-GUEST-OS-4.63_201902-01~~ |12 mars 2019 |7 mai 2019 |
+|~~WA-GUEST-OS-4.62_201901-01~~ |5 février 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-4.61_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
@@ -137,10 +166,15 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
-| WA-GUEST-OS-3.71_201903-01 |26 mars 2019 |Post 3.73 |
-| WA-GUEST-OS-3.70_201902-01 |12 mars 2019 |Post 3.72 |
-|~~WA-GUEST-OS-3.69_201901-01~~ |5 février 2019 |26 mars 2019 |
-|~~WA-GUEST-OS-3.68_201812-01~~ |7 janvier 2019 |12 mars 2019 |
+| WA-GUEST-OS-3.76_201908-01 |  4 août 2019  |  Post 3.78  |  
+| WA-GUEST-OS-3.75_201907-01 | 26 juillet 2019 |Post 3.77 |
+|~~WA-GUEST-OS-3.74_201906-01~~|8 juillet 2019 |4 août 2019 |
+|~~WA-GUEST-OS-3.73_201905-01~~ |6 juin 2019 |26 juillet 2019 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |7 mai 2019 |8 juillet 2019 |
+|~~WA-GUEST-OS-3.71_201903-01~~ |26 mars 2019 |6 juin 2019 |
+|~~WA-GUEST-OS-3.70_201902-01~~ |12 mars 2019 |7 mai 2019 |
+|~~WA-GUEST-OS-3.69_201901-01~~ |5 février 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-3.68_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
@@ -148,14 +182,19 @@ Publication du système d’exploitation invité du mois de septembre.
 ## <a name="family-2-releases"></a>Publications de famille 2
 **Windows Server 2008 R2 SP1**
 
-.NET Framework installé : 3.5 (y compris 2.0 et 3.0)
+.NET Framework installé : 3.5 (y compris 2.0 et 3.0), 4.5
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
-| WA-GUEST-OS-2.84_201903-01 |26 mars 2019 |Post 2.86 |
-| WA-GUEST-OS-2.83_201902-01 |12 mars 2019 |Billet de 2,85 |
-|~~WA-GUEST-OS-2.82_201901-01~~ |5 février 2019 |26 mars 2019 |
-|~~WA-GUEST-OS-2.81_201812-01~~ |7 janvier 2019 |12 mars 2019 |
+| WA-GUEST-OS-2.89_201908-01 |  4 août 2019  |  Post 2.91  |  
+| WA-GUEST-OS-2.88_201907-01 | 26 juillet 2019 |Post 2.90 |
+|~~WA-GUEST-OS-2.87_201906-01~~|8 juillet 2019 |4 août 2019 |
+|~~WA-GUEST-OS-2.86_201905-01~~ |6 juin 2019 |26 juillet 2019 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |7 mai 2019 |8 juillet 2019 |
+|~~WA-GUEST-OS-2.84_201903-01~~ |26 mars 2019 |6 juin 2019 |
+|~~WA-GUEST-OS-2.83_201902-01~~ |12 mars 2019 |7 mai 2019 |
+|~~WA-GUEST-OS-2.82_201901-01~~ |5 février 2019 |26 mars 2019 |
+|~~WA-GUEST-OS-2.81_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |14 décembre 2018 |5 février 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
@@ -168,8 +207,8 @@ La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Azu
 
 | Famille de système d’exploitation invité | Versions de kit SDK compatibles |
 | --- | --- |
-| 6. |Version 2.9.6+ |
-| 5. |Versions 2.9.5.1 et ultérieures |
+| 6 |Version 2.9.6+ |
+| 5\. |Versions 2.9.5.1 et ultérieures |
 | 4 |Versions 2.1 et ultérieures |
 | 3 |Versions 1.8 et ultérieures |
 | 2 |Versions 1.3 et ultérieures |
@@ -186,13 +225,13 @@ Après la date **d’expiration** du SE invité, tous les services cloud qui uti
 Les familles de SE invité sont basées sur les versions publiées de Microsoft Windows Server. Le SE invité est le système d’exploitation sous-jacent sur lequel s’exécute Azure Cloud Services. Chaque SE invité possède un numéro de famille, de version et de publication.
 
 * **Guest OS family**  
-   Version du système d’exploitation Windows Server sur laquelle est basé un SE invité. Par exemple, la *famille 3* est basée sur Windows Server 2012.
+  Version du système d’exploitation Windows Server sur laquelle est basé un SE invité. Par exemple, la *famille 3* est basée sur Windows Server 2012.
 * **Version de SE invité**  
   Correspond à l’image de la famille de SE invité et aux correctifs [Microsoft Security Response Center (MSRC)][msrc] appropriés qui sont disponibles à la date de production de la nouvelle version du SE invité. Il est possible que les correctifs ne soient pas tous inclus.
 
     Les numéros commencent à 0 et augmentent de 1 chaque fois qu’un nouvel ensemble de mises à jour est ajouté. Les zéros à droite sont uniquement affichés s’ils sont importants. Autrement dit, la version 2.10 est une version différente, bien plus récente, que la version 2.1.
 * **Publication de SE invité**  
-   Nouvelle publication d’une version de SE invité. Une nouvelle publication est produite si Microsoft détecte des problèmes pendant les tests nécessitant des modifications. La publication la plus récente remplace toujours les publications précédentes, publiques ou non. Le portail Azure permet uniquement aux utilisateurs de choisir la publication la plus récente pour une version donnée. Les déploiements s’exécutant sur une publication antérieure ne sont généralement pas mis à niveau de force en fonction de la gravité du bogue.
+  Nouvelle publication d’une version de SE invité. Une nouvelle publication est produite si Microsoft détecte des problèmes pendant les tests nécessitant des modifications. La publication la plus récente remplace toujours les publications précédentes, publiques ou non. Le portail Azure permet uniquement aux utilisateurs de choisir la publication la plus récente pour une version donnée. Les déploiements s’exécutant sur une publication antérieure ne sont généralement pas mis à niveau de force en fonction de la gravité du bogue.
 
 Dans l’exemple ci-dessous, 2 est la famille, 12 est la version et « rel2 » est la publication.
 

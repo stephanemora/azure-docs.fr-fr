@@ -13,11 +13,11 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: 8e519e5a5e5fe6b893fa5663e1426630f46f885f
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118402"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60900848"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Télémétrie des événements : Modèle de données Application Insights
 
@@ -25,7 +25,7 @@ Vous pouvez créer des éléments de télémétrie (dans [Application Insights](
 
 Sur le plan sémantique, les événements ne sont pas forcément corrélés aux requêtes. Toutefois, si la télémétrie des événements est utilisée correctement, elle est plus importante que les requêtes ou les traces. Les événements représentent la télémétrie métier et doivent faire l’objet d’un [échantillonnage](../../azure-monitor/app/api-filtering-sampling.md) distinct, moins agressif.
 
-## <a name="name"></a>NOM
+## <a name="name"></a>Nom
 
 Nom de l’événement. Pour permettre le regroupement approprié et des mesures utiles, limitez votre application afin qu’elle génère un petit nombre de noms d’événements distincts. Par exemple, n’utilisez pas un nom distinct pour chaque instance générée d’un événement.
 

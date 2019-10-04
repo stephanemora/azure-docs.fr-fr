@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60187677"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177000"
 ---
 Si vous rencontrez des problèmes en exécutant des opérations sur les galeries d’images partagées, les définitions d’image et les versions d’image, réexécutez la commande ayant échoué en mode débogage. Le mode débogage est activé avec le commutateur **-debug** dans l’interface CLI et le commutateur **-Debug** dans PowerShell. Une fois que vous avez localisé l’erreur, suivez ce document pour corriger les erreurs.
 
@@ -62,20 +62,7 @@ Vérifiez si l’image source existe et qu’elle est dans la même région que 
 
 Vérifiez que l’état de provisionnement de l’image managée source est **Réussi**.
 
-*La région source n’est pas encore prise en charge.*
-
-Utilisez le tableau ci-dessous pour voir si la région source souhaitée est prise en charge :
-<br>
-
-| Créer une galerie dans ou « région source »   | Répliquer la version sur ou « région cible » |
-|----------------------------------------|-------------------------------------------|
-| USA Centre-Ouest                        | Toutes les régions de cloud public Azure            |
-| USA Centre Sud                       |                                           |
-| USA Est 2                              |                                           |
-| Asie Sud-Est                         |                                           |
-| Europe Ouest                            |                                           |
-
-<br>
+*La liste des régions cibles ne doit pas inclure la région source.*
 
 La liste des régions cibles doit inclure la région source de la version d’image. Vérifiez que vous avez inclus la région source dans la liste des régions cibles où vous voulez qu’Azure réplique votre version d’image.
 
@@ -97,11 +84,11 @@ Vérifiez que la région dans laquelle vous essayez de créer une machine virtue
 
 *La création de la machine virtuelle ou du groupe de machines virtuelles identiques prend beaucoup de temps.*
 
-Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle vous tentez de créer la machine virtuelle ou le groupe de machines virtuelles identiques est identique à celle de l’image managée source que vous avez utilisée pour créer la version d’image. **** 
+Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle vous tentez de créer la machine virtuelle ou le groupe de machines virtuelles identiques est identique à celle de l’image managée source que vous avez utilisée pour créer la version d’image. 
 
 ## <a name="unable-to-share-resources"></a>Impossible de partager les ressources
 
-Le partage des ressources de galerie d’images partagées, définition d’image et version d’image entre abonnements est activé à l’aide du [contrôle d'accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Le partage des ressources de galerie d’images partagées, de définition d’image et de version d’image entre abonnements est activé à l’aide du [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## <a name="replication-is-slow"></a>La réplication est lente
 

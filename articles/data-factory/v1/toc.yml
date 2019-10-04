@@ -2,7 +2,7 @@
   href: null
 - name: Basculer vers la documentation de version actuelle
   href: ../introduction.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation d’Azure Data Factory
       href: data-factory-introduction.md
@@ -22,8 +22,6 @@
       items:
         - name: Assistant de copie
           href: data-factory-copy-data-wizard-tutorial.md
-        - name: Portail Azure
-          href: data-factory-copy-activity-tutorial-using-azure-portal.md
         - name: Visual Studio
           href: data-factory-copy-activity-tutorial-using-visual-studio.md
         - name: Azure PowerShell

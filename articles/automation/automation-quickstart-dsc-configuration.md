@@ -11,14 +11,14 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a30f9c1a61044c0911a5afc27ad95fc758b4c83e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2c01172bf22fb286f790543b02a4c1e482b05fe7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449091"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850569"
 ---
-# <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurer une machine virtuelle Linux avec le service de configuration d’état souhaité
+# <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurer une machine virtuelle avec le service Desired State Configuration
 
 En activant le service de configuration d’état souhaité (DSC), vous gérez et surveillez les configurations de vos serveurs Windows et Linux. Les configurations dérivant de la configuration souhaitée peuvent être identifiées ou corrigées automatiquement. Cette procédure de démarrage rapide vous permettra d’intégrer une machine virtuelle Linux et de déployer une pile LAMP avec DSC.
 
@@ -38,7 +38,7 @@ Il existe plusieurs méthodes pour intégrer une machine et activer le service d
 
 1. Dans le volet de gauche du portail Azure, sélectionnez **Comptes Automation**. Si cette option n’est pas visible dans le volet de gauche, cliquez sur **Tous les services**, puis recherchez-la dans la vue correspondante.
 1. Dans la liste, sélectionnez un compte Automation.
-1. Dans le volet de gauche du compte Automation, sélectionnez **Configuration d’état (DSC)**.
+1. Dans le volet de gauche du compte Automation, sélectionnez **Configuration d’état (DSC)** .
 2. Cliquez sur **Ajouter** pour ouvrir la page Sélection de machine virtuelle.
 3. Trouvez la machine virtuelle pour laquelle vous souhaitez activer DSC. Vous pouvez utiliser le champ de recherche et les options de filtre pour rechercher une machine virtuelle en particulier.
 4. Cliquez sur la machine virtuelle, puis sélectionnez **Connexion**.

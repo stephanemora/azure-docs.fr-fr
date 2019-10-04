@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982673"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65789423"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Des champs ou attributs d’entrée personnalisés améliorent en aval le traite
 
 ### <a name="partition-key-options"></a>Options de clé de partition
 
-La clé de partition ou le nom de colonne utilisés pour partitionner des données d’entrée peuvent contenir des caractères alphanumériques avec des traits d’union, des traits de soulignement et des espaces. Il n’est pas possible d’utiliser des champs imbriqués en tant que clé de partition, sauf conjointement avec des alias.
+La clé de partition ou le nom de colonne utilisés pour partitionner des données d’entrée peuvent contenir des caractères alphanumériques avec des traits d’union, des traits de soulignement et des espaces. Il n’est pas possible d’utiliser des champs imbriqués en tant que clé de partition, sauf conjointement avec des alias. La clé de partition doit être NVARCHAR(MAX).
 
 ### <a name="example"></a>Exemples
 
@@ -58,11 +58,11 @@ Notez que chaque enregistrement dans l’objet blob comporte une colonne **clien
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
-   * cluster1/{date}/{time}/{aFieldInMyData}  
-
+   * cluster1/{date}/{time}/{aFieldInMyData} 
+   
 2. Les clés de partition ignorant la casse, les clés « John » et « john » sont équivalentes. En outre, des expressions ne peuvent pas être utilisées comme clés de partition. Par exemple, **{columnA + columnB}** ne fonctionne pas.  
 
-3. Quand un flux d’entrée se compose d’enregistrements avec une cardinalité de clé de partition inférieure à 8 000, les enregistrements sont ajoutés à des objets blob existants et ne créent de nouveaux objets blob que lorsque cela est nécessaire. Si la cardinalité est supérieure à 8 000, il n’est nullement garanti qu’une écriture sera effectuée dans des objets blob existants, et que de nouveaux objets blob ne seront pas créés pour un nombre arbitraire d’enregistrements avec la même clé de partition.  
+3. Quand un flux d’entrée se compose d’enregistrements avec une cardinalité de clé de partition inférieure à 8 000, les enregistrements sont ajoutés à des objets blob existants et ne créent de nouveaux objets blob que lorsque cela est nécessaire. Si la cardinalité est supérieure à 8 000, il n’est nullement garanti qu’une écriture sera effectuée dans des objets blob existants, et que de nouveaux objets blob ne seront pas créés pour un nombre arbitraire d’enregistrements avec la même clé de partition.
 
 ## <a name="custom-datetime-path-patterns"></a>Modèles de chemin DateTime personnalisés
 
@@ -81,7 +81,7 @@ Les jetons de spécificateur de format suivants peuvent être utilisés individu
 |{datetime:d}|Jour de 1 à 31|2|
 |{datetime:HH}|Heure au format 24 heures, de 00 à 23|10|
 |{datetime:mm}|Minutes de 00 à 24|06|
-|{datetime:m}|Minutes de 0 à 24|6.|
+|{datetime:m}|Minutes de 0 à 24|6\.|
 |{datetime:ss}|Secondes de 00 à 60|08|
 
 Si vous ne souhaitez pas utiliser des modèles DateTime personnalisés, vous pouvez ajouter le jeton {date} et/ou {time} au préfixe de chemin. Vous obtenez ainsi une liste déroulante contenant les formats DateTime prédéfinis.

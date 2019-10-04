@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: cb5d6474a0c830933c712e1008015b5220617c96
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d8cb8fdebb5a7e4bcbc9f979c98085e90ebd4c68
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850902"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71147154"
 ---
 # <a name="handling-event-grid-events"></a>Traitement des événements Event Grid
 
@@ -24,7 +24,7 @@ Les événements Media Services permettent aux applications de réagir à diffé
 
 La disponibilité des événements Media Services est liée à la [disponibilité](../../event-grid/overview.md) d’Event Grid, et sera proposée dans d’autres régions en même temps qu’Event Grid.  
 
-## <a name="media-services-events-and-schemas"></a>Schémas et les événements de Media Services
+## <a name="media-services-events-and-schemas"></a>Schémas et événements Media Services
 
 Event Grid utilise les [abonnements aux événements](../../event-grid/concepts.md#event-subscriptions) pour acheminer les messages d’événements vers les abonnés. Les événements Media Services contiennent toutes les informations dont vous avez besoin pour répondre aux modifications de vos données. Vous pouvez identifier un événement Media Services, car la propriété eventType commence par « Microsoft.Media ».
 
@@ -39,6 +39,10 @@ Les applications qui gèrent des événements Media Services doivent suivre cert
 * Ignorez les champs que vous ne comprenez pas.  Cette pratique vous aidera à prendre en charge les nouvelles fonctionnalités qui peuvent être ajoutées à l’avenir.
 * Utilisez le préfixe « subject « et les correspondances de suffixe pour limiter les événements à un événement particulier.
 
+> [!NOTE]
+> Les événements sont soumis au [contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) Event Grid. Si vous souhaitez obtenir des notifications d’événements à l’aide d’API, consultez les exemples illustrant comment consommer des événements, avec le [kit SDK .NET](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/ContentProtection/BasicAESClearKey) ou le [kit SDK Java](https://github.com/Azure-Samples/media-services-v3-java/tree/master/ContentProtection/BasicAESClearKey).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Obtenir des événements d’état d’un travail](job-state-events-cli-how-to.md)
+* [Superviser les événements - portail](monitor-events-portal-how-to.md)
+* [Superviser les événements - CLI](job-state-events-cli-how-to.md)

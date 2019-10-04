@@ -1,0 +1,47 @@
+---
+title: Continuité des activités et récupération d’urgence (BCDR) Video Indexer - Azure | Microsoft Docs
+description: Découvrez comment basculer vers un compte Video Indexer secondaire en cas de panne ou de défaillance d’un centre de données régional.
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: femila
+editor: ''
+ms.service: media-services
+ms.subservice: video-indexer
+ms.workload: ''
+ms.topic: article
+ms.custom: ''
+ms.date: 07/29/2019
+ms.author: juliako
+ms.openlocfilehash: ce788b4640f0a6c6f25b3280ce4f52fd018d1699
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68668313"
+---
+# <a name="handle-video-indexer-business-continuity-and-disaster-recovery"></a>Gérer la continuité et la reprise d’activité Video Indexer
+
+Azure Media Services Video Indexer ne fournit pas de basculement instantané du service en cas de panne ou d’échec d’un centre de données régional. Cet article explique comment configurer votre environnement pour un basculement afin de garantir une disponibilité optimale pour les applications et réduire le temps de récupération en cas de sinistre.
+
+Nous vous recommandons de configurer la continuité d’activité et reprise d’activité (BCDR) dans les paires régionales pour tirer parti des stratégies d’isolation et de disponibilité Azure. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+## <a name="prerequisites"></a>Prérequis 
+
+Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un essai gratuit Azure](https://azure.microsoft.com/free/).
+
+## <a name="failover-to-a-secondary-account"></a>Basculer vers un site secondaire
+
+Pour implémenter BCDR, vous devez disposer de deux comptes Video Indexer pour gérer la redondance.
+
+1. Créez deux comptes Video indexer connectés à Azure (voir [Créer des comptes](connect-to-azure.md)). Un pour votre région primaire et l’autre pour la région Azure couplée. 
+1. En cas de défaillance dans votre région principale, basculez vers l’indexation à l’aide du compte secondaire.
+
+> [!TIP]
+> Vous pouvez automatiser BCDR en configurant des alertes de journal d’activité pour les notifications d’intégrité du service, comme mentionné dans [Créer des alertes de journal d'activité sur les notifications de service](../../service-health/alerts-activity-log-service-notifications.md).
+
+Pour plus d’informations sur l’utilisation de plusieurs locataires, consultez [Gérer plusieurs locataires](manage-multiple-tenants.md). Pour implémenter BCDR, choisissez l’une des deux options suivantes : [Compte Video Indexer par locataire](manage-multiple-tenants.md#video-indexer-account-per-tenant) ou [Abonnement Azure par locataire](manage-multiple-tenants.md#azure-subscription-per-tenant).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Gérez un compte Video Indexer connecté à Azure](manage-account-connected-to-azure.md).

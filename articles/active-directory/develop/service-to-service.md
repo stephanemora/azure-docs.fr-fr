@@ -3,8 +3,8 @@ title: Applications service à service dans Azure Active Directory
 description: Décrit les applications service à service, ainsi que les principes de base sur le flux de protocole, l’inscription et l’expiration du jeton pour ce type d’application.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0ced89ce97d5f22270d9968fdeb0ddb3fad1e4e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 683664b3172cb12ba6adf6c8006e9685a6d1ec35
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194986"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65540318"
 ---
 # <a name="service-to-service-apps"></a>Applications service à service
 

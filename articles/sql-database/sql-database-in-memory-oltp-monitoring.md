@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 7542e9fa04eb838baca37dbe13f7cdacdfaf041b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 1c5a57f634c01cc42934a98decd8f392334dede6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470261"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567978"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Surveiller le stockage OLTP In-Memory
 
@@ -29,7 +28,7 @@ Une fois que cette limite est dépassée, des opérations d’insertion et de mi
 
 Déterminez les limites maximales de stockage des différents niveaux de service. Voir [Limites de ressources par DTU – base de données unique](sql-database-dtu-resource-limits-single-databases.md), [Limites de ressources par DTU – pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md), [Limites de ressources par vCore – bases de données uniques](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources par vCore – pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md).
 
-L’estimation de la mémoire requise pour une table à mémoire optimisée s’effectue de la même façon pour SQL Server que dans Base de données SQL Azure. Prenez quelques minutes pour consulter cet article sur [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
+L’estimation de la mémoire requise pour une table à mémoire optimisée s’effectue de la même façon pour SQL Server que dans Azure SQL Database. Prenez quelques minutes pour consulter cet article sur [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 
 La table et les lignes de variable de table, ainsi que les index, sont pris en compte pour le calcul de la taille maximale des données utilisateur. En outre, l’instruction ALTER TABLE a besoin de suffisamment d’espace pour créer une version de la table entière et de ses index.
 
@@ -61,4 +60,4 @@ Pour résoudre cette erreur, deux possibilités s’offrent à vous :
 > Dans de rares cas, les erreurs 41823 et 41840 peuvent être temporaires, ce qui signifie qu’il y a suffisamment de stockage OLTP en mémoire disponible, et que l’opération réussit quand elle est relancée. Par conséquent, nous vous recommandons de surveiller le stockage OLTP en mémoire total disponible et de commencer par recommencer l’opération lorsque vous rencontrez des erreurs 41823 ou 41840. Pour plus d’informations sur la logique de nouvelle tentative, consultez [Détection de conflit et logique de nouvelle tentative avec l’OLTP en mémoire](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’instructions sur la surveillance, consultez [Analyse de base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md).
+Pour plus d’instructions de supervision, consultez [Supervision d’Azure SQL Database à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md).

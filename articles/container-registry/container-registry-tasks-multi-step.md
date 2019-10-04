@@ -3,16 +3,17 @@ title: Automatiser la compilation, les tests et les correctifs d’images à l�
 description: Présentation des tâches multiétapes, une fonctionnalité d’ACR Tasks dans Azure Container Registry qui assure des flux de travail basés sur des tâches permettant de compiler, de tester et de corriger des images de conteneurs dans le cloud.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 89962fbce6863b16a0d8b229047eb19a821e37bb
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792474"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310564"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Exécuter des tâches de compilation, de test et de correction multiétapes dans les tâches ACR
 
@@ -47,9 +48,9 @@ Les tâches multiétapes conviennent aux scénarios similaires à la logique sui
 
 Dans ACR Tasks, une tâche multiétapes est définie comme une série d’étapes dans un fichier YAML. Chaque étape peut spécifier des dépendances en fonction de la réussite d’une ou de plusieurs étapes précédentes. Les types d’étape de tâches suivants sont disponibles :
 
-* [`build`](container-registry-tasks-reference-yaml.md#build) : Créer une ou plusieurs images de conteneur à l’aide de familier `docker build` syntaxe, en série ou en parallèle.
-* [`push`](container-registry-tasks-reference-yaml.md#push) : Envoyer des images intégrées à un Registre de conteneurs. Les registres privés comme Azure Container Registry sont pris en charge, de même que le hub Docker public.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd) : Exécuter un conteneur, tel qu’il puisse fonctionner en tant que fonction dans le contexte de la tâche en cours d’exécution. Vous pouvez transférer des paramètres au conteneur `[ENTRYPOINT]`, et spécifier des propriétés comme env, detach, et d’autres paramètres `docker run` usuels. Le type d’étape `cmd` permet d’effectuer des tests unitaires et fonctionnels en exécutant les conteneurs en simultané.
+* [`build`](container-registry-tasks-reference-yaml.md#build) : compiler une ou plusieurs images conteneur à l’aide de la syntaxe `docker build` usuelle, en série ou en parallèle.
+* [`push`](container-registry-tasks-reference-yaml.md#push) : envoyer les images compilées dans un registre de conteneurs. Les registres privés comme Azure Container Registry sont pris en charge, de même que le hub Docker public.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd) : exécuter un conteneur afin qu’il fonctionne comme une fonction dans le cadre de la tâche en cours d’exécution. Vous pouvez transférer des paramètres au conteneur `[ENTRYPOINT]`, et spécifier des propriétés comme env, detach, et d’autres paramètres `docker run` usuels. Le type d’étape `cmd` permet d’effectuer des tests unitaires et fonctionnels en exécutant les conteneurs en simultané.
 
 Les extraits de code suivants illustrent la combinaison de ses types d’étape de tâche. Les tâches en plusieurs étapes peuvent être aussi simples que la construction d’une image unique à partir d’un Dockerfile et son transfert dans votre registre, avec un fichier YAML similaire :
 
@@ -154,7 +155,7 @@ Pour en savoir plus sur les compilations automatiques lors de la validation Git 
 Vous trouverez ici des références et des exemples de tâches multiétapes :
 
 * [Tâches de référence](container-registry-tasks-reference-yaml.md) : types d’étapes de tâches, leurs propriétés et leur utilisation.
-* [Exemples de tâches] [ task-examples] : exemple `task.yaml` pour plusieurs scénarios, simples et complexes.
+* [Exemples de tâches][task-examples] : exemple `task.yaml` pour plusieurs scénarios, simples et complexes.
 * [Référentiel Cmd](https://github.com/AzureCR/cmd) - Une collection de conteneurs agissant en tant que commandes pour les tâches ACR.
 
 <!-- IMAGES -->

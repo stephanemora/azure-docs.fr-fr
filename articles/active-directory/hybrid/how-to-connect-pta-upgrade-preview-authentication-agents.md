@@ -18,15 +18,15 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 494ccc3b90b8c249ee935087dcf0f0b5264b02ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60386747"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Authentification directe Azure Active Directory : Préversion de la mise à niveau des agents d'authentification
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Cet article est destiné aux clients utilisant l’authentification directe Azure AD directe via l’aperçu. Nous avons récemment mis à niveau le logiciel de l’agent d’authentification (tout en changeant son nom). Vous devez procéder à la mise à niveau _manuelle_ de la version préliminaire des agents d’authentification sur vos serveurs locaux. Cette mise à niveau manuelle s’effectue une seule fois. Toutes les futures mises à jour des agents d’authentification sont automatiques. Vous pouvez effectuer la mise à niveau pour les raisons suivantes :
 

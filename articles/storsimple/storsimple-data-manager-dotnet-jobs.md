@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
 ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60632358"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Utiliser le SDK .NET pour initier la transformation des données
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Utiliser le kit SDK .NET pour lancer la transformation de données
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cet article vous explique comment utiliser la fonctionnalité de transformation des données au sein du service StorSimple Data Manager afin de transformer les données de l’appareil StorSimple. Les données transformées sont ensuite utilisées par d’autres services Azure dans le cloud.
 
@@ -34,7 +34,7 @@ Vous pouvez lancer une tâche de transformation de données de deux manières :
  
   Cet article décrit en détail comment créer un exemple d’application console .NET pour lancer une tâche de transformation de données et effectuer son suivi. Pour en savoir plus sur le lancement de la transformation de données via Automation, accédez à [Utiliser le runbook Azure Automation pour déclencher les tâches de transformation de données](storsimple-data-manager-job-using-automation.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 *   Un ordinateur exécutant :

@@ -1,6 +1,6 @@
 ---
 title: Créer un client pour consommer un service web déployé
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Apprenez à utiliser un service web généré dans le cadre du déploiement d'un modèle Azure Machine Learning. Le service web expose une API REST. Créez des clients pour cette API en utilisant le langage de programmation de votre choix.
 services: machine-learning
 ms.service: machine-learning
@@ -9,26 +9,29 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/03/2018
+ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: a862c920f1e070ab1bbb8af2546bc3d4350347b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e005cf0860faeaad7010ea4da3ca1c5227ade14b
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889945"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71034792"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 
 Le déploiement d’un modèle Azure Machine Learning en tant que service web crée une API REST. Vous pouvez envoyer des données à cette API et recevoir la prédiction retournée par le modèle. Dans ce document, découvrez comment créer des clients pour le service web en utilisant C#, Go, Java et Python.
 
-Vous créez un service web lorsque vous déployez une image sur Azure Container Instances, Azure Kubernetes Service ou Project Brainwave (FPGA). Vous créez des images à partir de modèles inscrits et de fichiers de scoring. Vous récupérez l’URI utilisé pour accéder à un service web utilisant le [kit de développement logiciel (SDK) Azure Machine Learning](https://aka.ms/aml-sdk). Si l’authentification est activée, vous pouvez également utiliser le kit de développement logiciel (SDK) pour obtenir les clés d’authentification.
+Vous créez un service web lorsque vous déployez une image sur Azure Container Instances, Azure Kubernetes Service ou FPGA. Vous créez des images à partir de modèles inscrits et de fichiers de scoring. Vous récupérez l’URI utilisé pour accéder à un service web utilisant le [kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Si l’authentification est activée, vous pouvez également utiliser le kit de développement logiciel (SDK) pour obtenir les clés d’authentification ou les jetons.
 
 Le flux de travail général pour la création d’un client qui utilise un service web de Machine Learning est le suivant :
 
 1. Utiliser le kit de développement logiciel (SDK) pour obtenir les informations de connexion.
 1. Déterminer le type de données de demande utilisées par le modèle.
 1. Créer une application qui appelle le service web.
+
+> [!TIP]
+> Les exemples de ce document sont créés manuellement sans l’utilisation de spécifications OpenAPI (Swagger). Si vous avez activé une spécification OpenAPI pour votre déploiement, vous pouvez utiliser des outils tels que [swagger-codegen](https://github.com/swagger-api/swagger-codegen) pour créer des bibliothèques client pour votre service.
 
 ## <a name="connection-information"></a>informations de connexion
 
@@ -37,8 +40,10 @@ Le flux de travail général pour la création d’un client qui utilise un serv
 
 La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) fournit les informations nécessaires pour créer un client. Les propriétés `Webservice` suivantes sont utiles pour créer une application cliente :
 
-* `auth_enabled` -Si l’authentification est activée, `True` ; sinon, `False`.
+* `auth_enabled` -Si l’authentification par clé est activée, `True` ; sinon, `False`.
+* `token_auth_enabled` -Si l’authentification par jeton est activée, `True` ; sinon, `False`.
 * `scoring_uri` -L’adresse de l’API REST.
+* `swagger_uri` : l’adresse de la spécification OpenAPI. Cet URI est disponible si vous avez activé la génération de schéma automatique. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md#schema).
 
 Il y a trois manières de récupérer ces informations pour les services web déployés :
 
@@ -51,6 +56,7 @@ Il y a trois manières de récupérer ces informations pour les services web dé
                                            image_config=image_config,
                                            workspace=ws)
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
 * Vous pouvez utiliser `Webservice.list` afin de récupérer une liste de services web déployés pour les modèles dans votre espace de travail. Vous pouvez ajouter des filtres pour affiner la liste des informations retournées. Pour plus d’informations sur les éléments permettant de filtrer, voir la documentation de référence [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py).
@@ -58,6 +64,7 @@ Il y a trois manières de récupérer ces informations pour les services web dé
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
+    print(services[0].swagger_uri)
     ```
 
 * Si vous connaissez le nom du service déployé, vous pouvez créer une instance de `Webservice` et fournir les noms de l’espace de travail et du service en tant que paramètres. Le nouvel objet contient des informations sur le service déployé.
@@ -65,9 +72,21 @@ Il y a trois manières de récupérer ces informations pour les services web dé
     ```python
     service = Webservice(workspace=ws, name='myservice')
     print(service.scoring_uri)
+    print(service.swagger_uri)
     ```
 
-### <a name="authentication-key"></a>Clé d’authentification
+### <a name="authentication-for-services"></a>Authentification pour les services
+
+Azure Machine Learning offre deux moyens de contrôler l’accès à vos services Web.
+
+|Méthode d'authentification|ACI|AKS|
+|---|---|---|
+|Clé|Désactivé par défaut| Activée par défaut|
+|par jeton| Non disponible| Désactivée par défaut |
+
+Lors de l’envoi d’une demande à un service sécurisé à l’aide d’une clé ou d'un jeton, utilisez l’en-tête d’__autorisation__ pour passer la clé ou le jeton. La clé ou le jeton doivent être formatés en forme en tant que `Bearer <key-or-token>`, où `<key-or-token>` est la valeur de votre clé ou de votre jeton.
+
+#### <a name="authentication-with-keys"></a>Authentification avec des clés
 
 Lorsque vous activez l’authentification pour un déploiement, vous créez automatiquement des clés d’authentification.
 
@@ -85,6 +104,25 @@ print(primary)
 
 > [!IMPORTANT]
 > Si vous devez régénérer une clé, utilisez [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+
+#### <a name="authentication-with-tokens"></a>Authentification avec jetons
+
+Lorsque vous activez l’authentification par jeton pour un service Web, un utilisateur doit fournir un jeton Azure Machine Learning JWT au service Web pour y accéder. 
+
+* L’authentification par jeton est désactivée par défaut lors du déploiement sur le service Azure Kubernetes.
+* L’authentification par jeton n’est pas prise en charge lorsque vous déployez sur instances de conteneur Azure.
+
+Pour contrôler l’authentification par jeton, utilisez le paramètre `token_auth_enabled` lorsque vous créez ou mettez à jour un déploiement.
+
+Si l’authentification par jeton est activée, vous pouvez utiliser la méthode `get_token` pour récupérer un jeton de porteur et le délai d’expiration des jetons :
+
+```python
+token, refresh_by = service.get_token()
+print(token)
+```
+
+> [!IMPORTANT]
+> Vous devrez demander un nouveau jeton après l’heure du `refresh_by` du jeton. 
 
 ## <a name="request-data"></a>Données de la demande
 
@@ -122,48 +160,17 @@ Par exemple, le modèle de l’exemple [Effectuer l'apprentissage dans un bloc-n
             ]
         ]
 }
-``` 
+```
 
 Le service web peut accepter plusieurs jeux de données dans une même demande. Il retourne un document JSON contenant un tableau de réponses.
 
 ### <a name="binary-data"></a>Données binaires
 
-Si votre modèle accepte les données binaires, comme une image, vous devez modifier le fichier `score.py` utilisé pour votre déploiement afin d’accepter les demandes HTTP brutes. Voici un exemple d’un `score.py` qui accepte des données binaires :
+Pour plus d’informations sur l’activation de la prise en charge des données binaires dans votre service, consultez [Données binaires](how-to-deploy-and-where.md#binary).
 
-```python 
-from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
+### <a name="cross-origin-resource-sharing-cors"></a>Partage des ressources cross-origin (CORS)
 
-def init():
-    print("This is init()")
-
-@rawhttp
-def run(request):
-    print("This is run()")
-    print("Request: [{0}]".format(request))
-    if request.method == 'GET':
-        # For this example, just return the URL for GETs
-        respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
-    elif request.method == 'POST':
-        reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody 
-        # and send to the model. Then return the response.
-        
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
-    else:
-        return AMLResponse("bad request", 500)
-```
-
-> [!IMPORTANT]
-> L’espace de noms `azureml.contrib` change fréquemment car nous travaillons à améliorer le service. Par conséquent, tout ce qui est compris dans cet espace de noms doit être considéré comme une préversion et n’est pas entièrement pris en charge par Microsoft.
->
-> Si vous avez besoin d’effectuer ce test sur votre environnement de développement local, vous pouvez installer les composants dans l’espace de noms `contrib` à l’aide de la commande suivante :
-> 
-> ```shell
-> pip install azureml-contrib-services
-> ```
+Pour plus d’informations sur l’activation de la prise en charge de CORS dans votre service, consultez [Partage des ressources cross-origin (CORS)](how-to-deploy-and-where.md#cors).
 
 ## <a name="call-the-service-c"></a>Appeler le service (C#)
 
@@ -191,9 +198,9 @@ namespace MLWebServiceClient
     {
         static void Main(string[] args)
         {
-            // Set the scoring URI and authentication key
+            // Set the scoring URI and authentication key or token
             string scoringUri = "<your web service URI>";
-            string authKey = "<your key>";
+            string authKey = "<your key or token>";
 
             // Set the data to be sent to the service.
             // In this case, we are sending two sets of data to be scored.
@@ -307,8 +314,8 @@ var exampleData = []Features{
 
 // Set to the URI for your service
 var serviceUri string = "<your web service URI>"
-// Set to the authentication key (if any) for your service
-var authKey string = "<your key>"
+// Set to the authentication key or token (if any) for your service
+var authKey string = "<your key or token>"
 
 func main() {
     // Create the input data from example data
@@ -362,8 +369,8 @@ public class App {
     public static void sendRequest(String data) {
         // Replace with the scoring_uri of your service
         String uri = "<your web service URI>";
-        // If using authentication, replace with the auth key
-        String key = "<your key>";
+        // If using authentication, replace with the auth key or token
+        String key = "<your key or token>";
         try {
             // Create the request
             Content content = Request.Post(uri)
@@ -436,49 +443,48 @@ import json
 
 # URL for the web service
 scoring_uri = '<your web service URI>'
-# If the service is authenticated, set the key
-key = '<your key>'
+# If the service is authenticated, set the key or token
+key = '<your key or token>'
 
 # Two sets of data to score, so we get two results back
-data = {"data": 
+data = {"data":
+        [
             [
-                [
-                    0.0199132141783263, 
-                    0.0506801187398187, 
-                    0.104808689473925, 
-                    0.0700725447072635, 
-                    -0.0359677812752396, 
-                    -0.0266789028311707, 
-                    -0.0249926566315915, 
-                    -0.00259226199818282, 
-                    0.00371173823343597, 
-                    0.0403433716478807
-                ],
-                [
-                    -0.0127796318808497, 
-                    -0.044641636506989, 
-                    0.0606183944448076, 
-                    0.0528581912385822, 
-                    0.0479653430750293, 
-                    0.0293746718291555, 
-                    -0.0176293810234174, 
-                    0.0343088588777263, 
-                    0.0702112981933102, 
-                    0.00720651632920303]
-            ]
+                0.0199132141783263,
+                0.0506801187398187,
+                0.104808689473925,
+                0.0700725447072635,
+                -0.0359677812752396,
+                -0.0266789028311707,
+                -0.0249926566315915,
+                -0.00259226199818282,
+                0.00371173823343597,
+                0.0403433716478807
+            ],
+            [
+                -0.0127796318808497,
+                -0.044641636506989,
+                0.0606183944448076,
+                0.0528581912385822,
+                0.0479653430750293,
+                0.0293746718291555,
+                -0.0176293810234174,
+                0.0343088588777263,
+                0.0702112981933102,
+                0.00720651632920303]
+        ]
         }
 # Convert to JSON string
 input_data = json.dumps(data)
 
 # Set the content type
-headers = { 'Content-Type':'application/json' }
+headers = {'Content-Type': 'application/json'}
 # If authentication is enabled, set the authorization header
-headers['Authorization']=f'Bearer {key}'
+headers['Authorization'] = f'Bearer {key}'
 
 # Make the request and display the response
-resp = requests.post(scoring_uri, input_data, headers = headers)
+resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
-
 ```
 
 Les résultats retournés sont similaires au document JSON suivant :
@@ -486,3 +492,15 @@ Les résultats retournés sont similaires au document JSON suivant :
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
+
+## <a name="consume-the-service-from-power-bi"></a>Utiliser le service à partir de Power BI
+
+Power BI prend en charge l’utilisation des services web d’Azure Machine Learning pour enrichir les données de Power BI à l’aide de prédictions. 
+
+Pour générer un service web pris en charge pour l’utilisation dans Power BI, le schéma doit prendre en charge le format requis par Power BI. [Découvrez comment créer un schéma pris en charge par Power BI](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-entry-script).
+
+Une fois le service web déployé, il est utilisable à partir du flux de données Power BI. [Découvrez comment utiliser un service web Azure Machine Learning depuis Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour consulter une architecture de référence pour le scoring en temps réel de modèles Python et Deep Learning, accédez au [Centre des architectures Azure](/azure/architecture/reference-architectures/ai/realtime-scoring-python).

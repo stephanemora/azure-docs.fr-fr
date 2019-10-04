@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Traduction vocale, Java (Windows, Linux) - Services Speech'
+title: 'Démarrage rapide : Traduction vocale, Java (Windows, Linux) - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez créer une application Java simple pour capturer les paroles de l’utilisateur, les traduire dans une autre langue et générer le texte à la ligne de commande. Ce guide est conçu pour les utilisateurs de Windows et Linux.
 services: cognitive-services
@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897098"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553393"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Démarrage rapide : Traduire une entrée vocale à l’aide du kit de développement logiciel (SDK) Speech pour Java
 
-Dans ce guide de démarrage rapide, vous allez créer une application Java simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis transcrit le texte traduit à la ligne de commande en temps réel. Cette application est conçue pour une exécution sous Windows 64 bits ou Ubuntu Linux 64 bits 16.04/18.04. Elle est générée avec le package Maven du SDK Speech et l’IDE Eclipse Java (v4.64).
+Des guides de démarrage rapide sont également disponibles pour la [reconnaissance vocale](quickstart-java-jre.md) et l’[assistant virtuel « voice-first »](quickstart-virtual-assistant-java-jre.md).
+
+Dans ce guide de démarrage rapide, vous allez créer une application Java simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis transcrit le texte traduit à la ligne de commande en temps réel. Cette application est conçue pour s’exécuter sur Windows 64 bits ou Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9) ou sur macOS version 10.13 ou ultérieure. Elle est générée avec le package Maven du SDK Speech et l’IDE Eclipse Java.
 
 Pour obtenir la liste complète des langues disponibles pour la traduction vocale, consultez [Prise en charge linguistique](language-support.md).
 
@@ -27,17 +29,26 @@ Pour obtenir la liste complète des langues disponibles pour la traduction vocal
 
 Ce démarrage rapide nécessite :
 
-* Système d’exploitation : Windows 64 bits ou Ubuntu Linux 64 bits 16.04/18.04
+* Système d’exploitation : Windows 64 bits, Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9) ou macOS version 10.13 ou ultérieure
 * [IDE Eclipse Java](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 
-Si vous exécutez Ubuntu 16.04/18.04, vérifiez que ces dépendances sont installées avant de démarrer Eclipse.
+Si vous exécutez Linux, vérifiez que ces dépendances sont installées avant de démarrer Eclipse.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+ * Sur Ubuntu :
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.0 libasound2
+   ```
+
+ * Sur Debian 9 :
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.2 libasound2
+   ```
 
 > [!NOTE]
 > Pour le kit SDK Speech et l’appareil Roobo, consultez le [kit SDK Speech Devices](speech-devices-sdk.md).
@@ -48,7 +59,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
-1. Pour ajouter une nouvelle classe vide dans votre projet Java, sélectionnez **File (Fichier)** > **New (Nouvelle)** > **Classe (Classe)**.
+1. Pour ajouter une nouvelle classe vide dans votre projet Java, sélectionnez **File (Fichier)**  > **New (Nouvelle)**  > **Classe (Classe)** .
 
 1. Dans la fenêtre **New Java Class** (Nouvelle classe Java), entrez **speechsdk.quickstart** dans le champ **Package**, et **Main** dans le champ **Name** (Nom).
 
@@ -66,7 +77,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 
 ## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 
-Appuyez sur F11 ou sélectionnez **Run (Exécuter)** > **Debug (Déboguer)**.
+Appuyez sur F11 ou sélectionnez **Run (Exécuter)**  > **Debug (Déboguer)** .
 
 La saisie vocale provenant de votre microphone sera retranscrit en allemand et enregistrée dans la fenêtre console. Appuyez sur « Entrée » pour arrêter la capture vocale.
 

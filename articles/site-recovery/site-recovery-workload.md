@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 09/03/2019
 ms.author: raynew
-ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155166"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70232194"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
 
@@ -20,7 +20,7 @@ Cet article décrit les charges de travail et les applications que vous pouvez p
 
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Les organisations ont besoin d’une stratégie de continuité des activités et de récupération d’urgence pour que les charges de travail et les données demeurent en sécurité et disponibles pendant les temps d’arrêt prévus et imprévus, et pour rétablir au plus vite des conditions de travail normales.
 
@@ -35,13 +35,13 @@ Site Recovery contribue à la protection des applications et à la récupératio
 * Service indépendant de l’application qui assure la réplication de n’importe quelle charge de travail exécutée sur une machine prise en charge.
 * Réplication presque synchrone avec des RPO de 30 secondes pour répondre aux besoins des applications professionnelles les plus critiques.
 * Captures instantanées cohérentes de l’application pour les applications uniques ou multiniveau.
-* Intégration avec SQL Server AlwaysOn et partenariat avec d’autres technologies de réplication au niveau des applications, y compris la réplication AD, SQL AlwaysOn, les groupes de disponibilité de base de données (DAG) Exchange et Oracle Data Guard.
+* Intégration avec SQL Server AlwaysOn et partenariat avec d’autres technologies de réplication au niveau des applications, y compris la réplication AD, SQL AlwaysOn, les groupes de disponibilité de base de données (DAG) Exchange.
 * Plans de récupération flexibles qui vous permettent de récupérer une pile de l’application entière en un seul clic et d’inclure les scripts externes et des actions manuelles.
 * Gestion réseau avancée dans Site Recovery et Azure simplifiant la configuration réseau requise pour une application, notamment la réservation d’adresses IP, la configuration de l’équilibrage de charge et l’intégration avec Azure Traffic Manager pour les commutations réseau à RTO faible.
 * Une bibliothèque d’automatisation avancée qui fournit des scripts spécifiques d’application prêts pour la production, qui peuvent être téléchargés et intégrés avec des plans de récupération.
 
 ## <a name="workload-summary"></a>Synthèse relative aux charges de travail
-Site Recovery permet de répliquer n’importe quelle application exécutée sur une machine prise en charge. En outre, nous collaborons avec les équipes produit pour effectuer des tests supplémentaires propres à l’application.
+Site Recovery permet de répliquer n’importe quelle application exécutée sur une machine prise en charge. En outre, nous collaborons avec les équipes produit afin d’effectuer des tests supplémentaires pour les applications spécifiées dans le tableau.
 
 | **Charge de travail** |**Réplication de machines virtuelles Azure dans Azure** |**Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure** |
 | --- | --- | --- | --- | --- |---|
@@ -103,9 +103,9 @@ RDS active l’infrastructure de bureau virtuel (VDI), les bureaux basés sur se
 
 | **RDS** |**Réplication de machines virtuelles Azure dans Azure** | **Réplication de machines virtuelles Hyper-V vers un site secondaire** | **Réplication de machines virtuelles Hyper-V dans Azure** | **Réplication de machines virtuelles VMware vers un site secondaire** | **Réplication de machines virtuelles VMware dans Azure** | **Réplication de serveurs physiques vers un site secondaire** | **Répliquer des serveurs physiques dans Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Bureau virtuel en pool (non géré)** |Non |Oui |Non  |Oui |Non  |Oui |Non  |
-| **Bureau virtuel en pool (géré et sans UPD)** |Non |Oui |Non  |Oui |Non  |Oui |Non  |
-| **Applications à distance et sessions de bureau (sans UPD)** |Oui|OUI |OUI |OUI |OUI |OUI |Oui |
+| **Bureau virtuel en pool (non géré)** |Non|OUI |Non |OUI |Non |OUI |Non |
+| **Bureau virtuel en pool (géré et sans UPD)** |Non|OUI |Non |OUI |Non |OUI |Non |
+| **Applications à distance et sessions de bureau (sans UPD)** |OUI|OUI |OUI |OUI |OUI |OUI |OUI |
 
 [Configurez la récupération d’urgence de RDS à l’aide d’Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
@@ -146,7 +146,7 @@ Azure Site Recovery assure la récupération d’urgence en répliquant les comp
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>Protéger Citrix XenApp et XenDesktop
 Site Recovery permet de protéger vos déploiements Citrix XenApp XenDesktop, comme suit :
 
-* Protégez votre déploiement Citrix XenApp et XenDesktop en répliquant différentes couches de déploiement (serveur DNS Active Directory, serveur de base de données SQL, Citrix Delivery Controller, serveur StoreFront, XenApp Master (VDA), serveur de licences de Citrix XenApp) sur Azure.
+* Protégez votre déploiement Citrix XenApp et XenDesktop en répliquant différentes couches de déploiement (serveur DNS Active Directory, serveur SQL Database, Citrix Delivery Controller, serveur StoreFront, XenApp Master (VDA), serveur de licences de Citrix XenApp) sur Azure.
 * Simplifiez la migration vers le cloud en utilisant Site Recovery pour migrer votre déploiement Citrix XenApp et XenDesktop sur Azure.
 * Simplifiez le test de Citrix XenApp/XenDesktop en créant une copie de type production à la demande pour le test et le débogage.
 * Cette solution est uniquement applicable pour les bureaux virtuels du système d’exploitation Windows Server, et non pour les bureaux virtuels client. En effet, ces derniers ne sont pas encore pris en charge pour la gestion des licences dans Azure.

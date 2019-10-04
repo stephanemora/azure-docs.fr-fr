@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
 ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58889751"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61036268"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
- Il existe deux versions majeures du runtime Azure Functions : 1.x et 2.x. La version actuelle qui accueille les nouvelles fonctionnalités et où sont apportées les améliorations est la version 2.x, bien que les deux versions soient prises en charge pour les scénarios de production.  Les informations ci-après les comparent sur certains points et expliquent comment créer chaque version et effectuer une mise à niveau depuis la version 1.x vers la version 2.x.
+ Il existe deux versions principales du runtime Azure Functions : 1.x et 2.x. La version actuelle qui accueille les nouvelles fonctionnalités et où sont apportées les améliorations est la version 2.x, bien que les deux versions soient prises en charge pour les scénarios de production.  Les informations ci-après les comparent sur certains points et expliquent comment créer chaque version et effectuer une mise à niveau depuis la version 1.x vers la version 2.x.
 
 > [!NOTE]
 > Cet article fait référence au service cloud Azure Functions. Pour plus d’informations sur le produit en préversion qui vous permet d’exécuter Azure Functions localement, consultez [Vue d’ensemble du runtime d’Azure Functions](functions-runtime-overview.md).

@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d78d8a689b860162a742e85c155205f072a3667c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699302"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446789"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Améliorer la disponibilité de votre application avec Azure Advisor
 
@@ -64,11 +64,38 @@ Activez la [suppression réversible](https://docs.microsoft.com/azure/storage/bl
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurer votre passerelle VPN en mode actif/actif à des fins de résilience de connexion
 
-En configuration actif-actif, les deux instances d’une passerelle VPN établira tunnels S2S VPN pour votre périphérique VPN sur site. Lorsqu'un événement de maintenant planifié ou non planifié se produit sur une instance de passerelle, le trafic bascule automatiquement vers l'autre tunnel IPsec actif. Azure Advisor identifie les passerelles VPN non configurées en mode actif/actif et vous suggère que les configurer pour la haute disponibilité.
+En configuration actif/actif, les deux instances d’une passerelle VPN établissent des tunnels S2S VPN vers votre appareil VPN local. Lorsqu'un événement de maintenant planifié ou non planifié se produit sur une instance de passerelle, le trafic bascule automatiquement vers l'autre tunnel IPsec actif. Azure Advisor identifie les passerelles VPN non configurées en mode actif/actif et vous suggère que les configurer pour la haute disponibilité.
 
 ## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Utiliser des passerelles VPN de production pour exécuter vos charges de travail de production
 
-Azure Advisor vérifie pour les passerelles VPN qui sont une référence SKU de base et vous recommandons d’utiliser une référence (SKU) de production à la place. La référence SKU de base est conçu pour le développement et à des fins de tests. Références SKU de production offre un nombre plus élevé de tunnels, prise en charge du protocole BGP, les options de configuration actif-actif, personnalisé stratégie Ipsec/IKE et plus élevé la stabilité et de disponibilité.
+Azure Advisor recherchera des passerelles VPN qui sont une référence SKU de base et vous recommandera d’utiliser une référence SKU de production à la place. Les références SKU de base sont conçues à des fins de développement et de test. Les références SKU de production offrent plus de tunnels, une prise en charge du protocole BGP, des options de configuration actif-actif, une stratégie Ipsec/IKE personnalisée ainsi qu’une stabilité et une disponibilité plus élevées.
+
+## <a name="repair-invalid-log-alert-rules"></a>Réparer les règles d’alerte de journal invalides
+
+Azure Advisor détectera les règles d’alerte comportant des requêtes non valides spécifiées dans leur section des conditions. Les règles d’alerte de journal sont créées dans Azure Monitor et sont utilisés pour exécuter des requêtes d’analytique à des intervalles spécifiés. Les résultats de la requête déterminent si une alerte doit être déclenchée. Les requêtes d’analytique peuvent devenir non valides au fil du temps en raison de modifications dans les ressources, les tables ou les commandes référencées. Advisor vous recommandera de corriger la requête dans la règle d’alerte pour éviter qu’elle ne se désactive automatiquement, ce qui garantit aussi une couverture de la supervision de vos ressources dans Azure. [En savoir plus sur la résolution des problèmes liés aux règles d’alerte](https://aka.ms/aa_logalerts_queryrepair)
+
+## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Configurer un mode d’indexation cohérent sur votre collection Cosmos DB
+
+Les conteneurs Azure Cosmos DB configurés avec le mode Indexation en différé peuvent affecter l’actualisation des résultats de requête. Advisor détecte les conteneurs configurés de cette façon et vous recommande de basculer en mode Cohérent. [En savoir plus sur les stratégies d’indexation Cosmos DB](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+
+## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Configurer vos conteneurs Azure Cosmos DB avec une clé de partition
+
+Azure Advisor identifiera les collections Azure Cosmos DB non partitionnées qui ont presque atteint leur quota de stockage approvisionné. Il vous recommandera de migrer ces collections vers de nouvelles collections avec une définition de clé de partition afin que le service les mette à l’échelle automatiquement. [En savoir plus sur le choix d’une clé de partition](https://aka.ms/cosmosdb/choose-partitionkey)
+
+## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Mettre à niveau votre SDK .NET Azure Cosmos DB avec la dernière version de Nuget
+
+Azure Advisor identifiera les comptes Azure Cosmos DB qui utilisent des anciennes versions du kit de développement logiciel (SDK) .NET et vous recommandera de mettre à niveau avec la dernière version de Nuget pour obtenir les derniers correctifs, des améliorations de performances et de nouvelles fonctionnalités. [En savoir plus sur le kit de développement logiciel (SDK) .NET de Cosmos DB](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Mettre à niveau votre SDK Java Azure Cosmos DB avec la dernière version de Maven
+
+Azure Advisor identifiera les comptes Azure Cosmos DB qui utilisent des anciennes versions du kit de développement logiciel (SDK) Java et vous recommandera de mettre à niveau avec la dernière version de Maven pour obtenir les derniers correctifs, des améliorations de performances et de nouvelles fonctionnalités. [En savoir plus sur le kit de développement logiciel (SDK) Java de Cosmos DB](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+
+## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Mettre à niveau votre connecteur Spark Azure Cosmos DB avec la dernière version de Maven
+
+Azure Advisor identifiera les comptes Azure Cosmos DB qui utilisent des anciennes versions du connecteur Spark Cosmos DB et vous recommandera de mettre à niveau avec la dernière version de Maven pour obtenir les derniers correctifs, des améliorations de performances et de nouvelles fonctionnalités. [Pour en savoir plus sur le connecteur Spark Cosmos DB](https://aka.ms/cosmosdb/spark-connector)
+
+## <a name="enable-virtual-machine-replication"></a>Activer la réplication des machines virtuelles
+Les machines virtuelles pour lesquelles la réplication n’est pas activée vers une autre région ne sont pas résilientes face aux pannes régionales. La réplication des machines virtuelles réduit les impacts négatifs sur l’activité pendant la durée de la panne d’une région Azure. Advisor détectera les machines virtuelles pour lesquelles la réplication n’est pas activée et vous recommandera de l’activer afin d’afficher rapidement vos machines virtuelles dans une région Azure distante en cas de panne. [En savoir plus sur la réplication de machines virtuelles](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de haute disponibilité dans le conseiller
 

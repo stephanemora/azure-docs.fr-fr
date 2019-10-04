@@ -1,97 +1,97 @@
 ---
-title: Sécurité de la passerelle de zone de données Azure | Microsoft Docs
-description: Décrit les fonctionnalités de sécurité et de confidentialité qui protègent votre appareil virtuel de passerelle de zone de données Azure, service et les données en local et dans le cloud.
+title: Limites de la sécurité d’Azure Data Box Gateway | Microsoft Docs
+description: Décrit les fonctionnalités de sécurité et de confidentialité qui protègent votre service, votre appareil et vos données Azure Data Box Gateway en local et dans le cloud.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: b27b712128ddfbb07a7a7f68f616c20ec3fb53d3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 89f981fcda8f40daff49ebdf796b896d90ce1754
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685794"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69900627"
 ---
-# <a name="azure-data-box-gateway-security-and-data-protection"></a>Protection des données et de sécurité à la passerelle de données Azure
+# <a name="azure-data-box-gateway-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box Gateway
 
-Sécurité est une préoccupation majeure lors de l’adoption d’une nouvelle technologie, surtout si cette technologie est utilisée avec des données confidentielles ou propriétaires. Solution de passerelle de zone de données Microsoft Azure permet de vous assurer que seules les entités autorisées peuvent afficher, modifier ou supprimer vos données.
+La sécurité est une préoccupation majeure pour toute nouvelle technologie, surtout si cette technologie est utilisée avec des données confidentielles ou propriétaires. Azure Data Box Gateway vous assure que seuls les entités autorisées peuvent consulter, modifier ou supprimer vos données.
 
-Cet article décrit les fonctionnalités de sécurité de passerelle de zone de données Azure qui permettent de protéger de chacun des composants de la solution et les données stockées sur ces derniers.
+Cet article décrit les fonctionnalités de sécurité Azure Data Box Gateway qui permettent de protéger chacun des composants de la solution et les données stockées sur ces derniers.
 
-La solution de passerelle de zone de données se compose de quatre composants principaux qui interagissent entre eux :
+La solution Data Box Gateway repose sur l’interaction de quatre composants principaux :
 
-- **Service de passerelle de la zone de données hébergée dans Azure** – la ressource de gestion qui vous permet de créer l’ordre de l’appareil, configurer l’appareil et puis suivre l’ordre jusqu'à la fin.
-- **Périphérique de passerelle de la zone de données** – l’appareil virtuel que vous avez configurée dans l’hyperviseur du système que vous avez fourni. Cet appareil virtuel est utilisé pour importer vos données locales dans Azure.
-- **Les clients/hôtes connectés à l’appareil** – les clients dans votre infrastructure qui se connectent à l’appareil de passerelle de données boîte et contiennent des données qui doivent être protégées.
-- **Le stockage cloud** : emplacement dans le cloud Azure où les données sont stockées. Cet emplacement est généralement lié à la ressource de passerelle de zone de données que vous avez créé le compte de stockage.
+- **Service Data Box Gateway, hébergé dans Azure**. la ressource de gestion qui vous permet de créer la commande de l’appareil, de configurer l’appareil et de suivre la commande jusqu’à son achèvement.
+- **Appareil Data Box Gateway**. L’appareil virtuel que vous approvisionnez dans l’hyperviseur du système que vous fournissez. Cet appareil virtuel est utilisé pour importer vos données locales dans Azure.
+- **Clients/hôtes connectés à l’appareil**. Les clients de votre infrastructure se connectant à l’appareil Data Box Gateway et contenant des données devant être protégées.
+- **Stockage cloud**. Emplacement dans la plateforme cloud Azure où les données sont stockées. Il s’agit généralement du compte de stockage lié à la ressource Data Box Gateway que vous avez créée.
 
 
-## <a name="data-box-gateway-service-protection"></a>Protection de service de passerelle de la zone de données
+## <a name="data-box-gateway-service-protection"></a>Protection de service Data Box Gateway
 
-Le service de passerelle de zone de données est un service de gestion hébergé dans Microsoft Azure. Le service est utilisé pour configurer et gérer l’appareil.
+Le service Data Box Gateway est un service de gestion hébergé dans Azure. Ce service est utilisé pour configurer et gérer l’appareil.
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-service-protection.md)]
+[!INCLUDE [data-box-edge-gateway-service-protection](../../includes/data-box-edge-gateway-service-protection.md)]
 
-## <a name="data-box-gateway-device-protection"></a>Protection de périphérique zone passerelle de données
+## <a name="data-box-gateway-device-protection"></a>Protection d’appareil Data Box Gateway
 
-Le périphérique de passerelle de zone de données est un périphérique virtuel configuré dans l’hyperviseur d’un système en local que vous fournissez. L’appareil permet d’envoyer des données vers Azure. Votre appareil :
+L’appareil Data Box Gateway est un appareil virtuel qui est approvisionné dans l’hyperviseur d’un système local que vous fournissez. Cet appareil permet d’envoyer des données vers Azure. Votre appareil :
 
-- A besoin d’une clé d’activation pour accéder au service de passerelle de données boîte Edge/données boîte.
-- Est protégé à tout moment par un mot de passe du périphérique.
+- A besoin d’une clé d’activation pour accéder au service Data Box Edge/Data Box Gateway.
+- Est protégé à tout moment par un mot de passe d’appareil.
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->
 
-### <a name="protect-the-device-via-activation-key"></a>Protéger l’appareil via la clé d’activation
+### <a name="protect-the-device-via-activation-key"></a>Protéger l’appareil via une clé d’activation
 
-Uniquement un appareil de passerelle de zone de données autorisé est autorisé à rejoindre le service de passerelle de zone de données que vous avez créé dans votre abonnement Azure. Pour autoriser un appareil, vous devez utiliser une clé d’activation pour activer le périphérique avec le service de passerelle de zone de données.
+Seul les appareils Data Box Gateway autorisés sont autorisés à rejoindre le service Data Box Gateway que vous avez créé dans votre abonnement Azure. Pour autoriser un appareil, vous devez utiliser une clé d’activation pour activer l’appareil auprès du service Data Box Gateway.
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-activation-key.md)]
+[!INCLUDE [data-box-edge-gateway-activation-key](../../includes/data-box-edge-gateway-activation-key.md)]
 
-Pour plus d’informations, accédez à [obtenir une clé d’activation](data-box-gateway-deploy-prep.md#get-the-activation-key).
+Pour plus d’informations, consultez [Obtenir une clé d’activation](data-box-gateway-deploy-prep.md#get-the-activation-key).
 
-### <a name="protect-the-device-via-password"></a>Protéger l’appareil via le mot de passe
+### <a name="protect-the-device-via-password"></a>Protéger l’appareil via un mot de passe
 
-Les mots de passe vous assurer que vos données sont accessibles aux seuls utilisateurs autorisés. Données zone passerelle appareils démarrage dans un état verrouillé.
+Les mots de passe garantissent que seuls les utilisateurs autorisés accèdent à vos données. Les appareils Data Box Gateway démarrent en étant verrouillés.
 
 Vous pouvez :
 
-- Se connecter à l’interface utilisateur de l’appareil via un navigateur de web local, puis indiquez un mot de passe pour se connecter à l’appareil.
-- Se connecter à distance à l’interface PowerShell de périphérique sur HTTP. Gestion à distance est activée par défaut. Vous pouvez ensuite fournir le mot de passe pour se connecter à l’appareil. Pour plus d’informations, accédez à [connexion à distance à votre appareil de passerelle de données boîte](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Vous connecter à l’interface utilisateur web locale de l’appareil via un navigateur, puis indiquer un mot de passe pour vous connecter à l’appareil.
+- Vous connecter à distance à l’interface PowerShell de l’appareil via HTTP. La gestion à distance est désactivée par défaut. Vous pouvez ensuite fournir le mot de passe pour vous connecter à l’appareil. Pour plus d’informations, consultez [Connexion à distance à votre appareil Data Box Gateway](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-password-best-practices.md)]
-- Utilisez local web UI à [modifier le mot de passe](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Si vous modifiez le mot de passe, veillez à informer tous les utilisateurs de l’accès à distance afin qu’ils ne connaissent pas un échec de connexion.
+[!INCLUDE [data-box-edge-gateway-password-best-practices](../../includes/data-box-edge-gateway-password-best-practices.md)]
+- Utiliser l’interface utilisateur web locale pour [modifier le mot de passe](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Si vous modifiez le mot de passe, veillez à informer tous les utilisateurs à distance afin qu’ils ne connaissent pas de problème de connexion.
 
 
-## <a name="protect-the-data"></a>Protéger les données
+## <a name="protect-your-data"></a>Protéger vos données
 
-Cette section décrit les fonctionnalités de sécurité de la passerelle de données boîte qui protègent les données en transit et les données stockées.
+Cette section décrit les fonctionnalités de sécurité Data Box Gateway visant à protéger les données transmises et stockées.
 
 ### <a name="protect-data-at-rest"></a>Protection des données au repos
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-data-rest.md)]
 
-### <a name="protect-data-in-flight"></a>Protéger les données en vol
+### <a name="protect-data-in-flight"></a>Protection des données à la volée
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-data-flight.md)]
+[!INCLUDE [data-box-edge-gateway-data-flight](../../includes/data-box-edge-gateway-data-flight.md)]
 
 ### <a name="protect-data-via-storage-accounts"></a>Protection des données par les comptes de stockage
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
-- Faire pivoter, puis [synchroniser vos clés de compte de stockage](data-box-gateway-manage-shares.md#sync-storage-keys) régulièrement afin de garantir que votre compte de stockage n’est pas accessible par les utilisateurs non autorisés.
+[!INCLUDE [data-box-edge-gateway-data-storage-accounts](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
+- Faites tourner puis [synchronisez vos clés de compte de stockage](data-box-gateway-manage-shares.md#sync-storage-keys) régulièrement pour mieux protéger votre compte de stockage des utilisateurs non autorisés.
 
-## <a name="manage-personal-information"></a>Gérer les informations personnelles
+## <a name="manage-personal-information"></a>Gestion des informations personnelles
 
-Le service de passerelle de zone de données collecte des informations personnelles dans les instances de la clé suivantes :
+Le service Data Box Gateway collecte des informations personnelles dans les scénarios suivants :
 
-[!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-manage-personal-data.md)]
+[!INCLUDE [data-box-edge-gateway-manage-personal-data](../../includes/data-box-edge-gateway-manage-personal-data.md)]
 
-Pour afficher la liste des utilisateurs qui peuvent accéder ou supprimer un partage, suivez les étapes de [gérer des partages sur la passerelle de la zone de données](data-box-gateway-manage-shares.md).
+Pour afficher la liste des utilisateurs qui ont accès à un partage ou qui peuvent supprimer un partage, suivez les étapes de la page [Gérer les partages sur Data Box Gateway](data-box-gateway-manage-shares.md).
 
-Pour plus d’informations, consultez la [Politique de confidentialité Microsoft sur le Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter).
+Pour plus d’informations, consultez la Politique de confidentialité Microsoft dans le [Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer votre appareil de passerelle de données boîte](data-box-gateway-deploy-prep.md).
+[Déployer votre appareil Data Box Gateway](data-box-gateway-deploy-prep.md)

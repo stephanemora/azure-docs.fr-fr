@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
-manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994918"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570380"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Déployer et explorer une application mutualisée sharded
 
@@ -33,7 +32,7 @@ L’application s’exécute dans le cloud Azure et utilise Azure SQL Database. 
 
 L’application est déployée avec des données pour trois exemples de locataires. Les locataires sont stockés ensemble dans une base de données multilocataire.
 
-N’importe quel utilisateur peut télécharger le code source C# et PowerShell pour Wingtip Tickets à partir du [référentiel GitHub][link-github-wingtip-multitenantdb-55g].
+N’importe quel utilisateur peut télécharger le code source C# et PowerShell pour Wingtip Tickets à partir de [son référentiel GitHub][link-github-wingtip-multitenantdb-55g].
 
 ## <a name="learn-in-this-tutorial"></a>Découvrir, dans ce didacticiel, comment
 
@@ -47,7 +46,7 @@ N’importe quel utilisateur peut télécharger le code source C# et PowerShell
 
 Une série de didacticiels associés, basés sur ce déploiement initial, est disponible. Les didacticiels explorent une gamme de modèles de conception et de gestion de SaaS. Lorsque vous utilisez les didacticiels, vous êtes encouragé à parcourir les scripts fournis pour voir comment les différents modèles SaaS sont implémentés.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
@@ -58,7 +57,7 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 ### <a name="plan-the-names"></a>Planifier les noms
 
 Les étapes de cette section vous permettent de fournir une valeur *utilisateur* utilisée pour garantir que les noms de ressources sont globalement uniques et un nom du *groupe de ressources* qui contient toutes les ressources créées par un déploiement de l’application. Pour une personne nommée *Ann Finley*, nous vous suggérons :
-- *Utilisateur :* **af1**  *(ses initiales, plus un chiffre. Utilisez une valeur différente (par exemple, af2) si vous déployez l’application une deuxième fois.)*
+- *Utilisateur :* **af1** *(ses initiales, plus un chiffre. Utilisez une valeur différente (par exemple, af2) si vous déployez l’application une deuxième fois.)*
 - *Groupe de ressources :* **wingtip-mt-af1** *(wingtip-mt-af1 indique qu’il s’agit de l’application multi-locataires partitionnée. L’ajout de af1 au nom d’utilisateur correspond au nom du groupe de ressources avec les noms des ressources qu’il contient.)*
 
 Choisissez vos noms maintenant et notez-les. 
@@ -104,7 +103,7 @@ Lors du déploiement de l’application, téléchargez le code source de l’app
 6. Cliquez sur **OK**.
 7. Procédez à l’extraction des fichiers.
 
-Les scripts se trouvent dans le dossier *...\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\*.
+Les scripts se trouvent dans le dossier *...\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\* .
 
 ## <a name="update-the-configuration-file-for-this-deployment"></a>Mettre à jour le fichier de configuration pour ce déploiement
 
@@ -125,7 +124,7 @@ Chaque lieu bénéficie d’un site web personnalisé pour répertorier ses év�
 Une page web centrale de **concentrateur d’événements** fournit une liste de liens vers les locataires de votre déploiement. Réalisez les étapes suivantes pour vous familiariser avec la page web de **concentrateur d’événements** et une application web individuelle :
 
 1. Ouvrez le **concentrateur d’événements** dans votre navigateur web :
-   - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(remplacez &lt;user&gt; par la valeur de l’utilisateur de votre déploiement.)*
+   - http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net &nbsp; *(remplacez &lt; user&gt; par la valeur de l’utilisateur de votre déploiement.)*
 
      ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -137,7 +136,7 @@ Une page web centrale de **concentrateur d’événements** fournit une liste de
 
 Pour contrôler la distribution des requêtes entrantes, l’application Wingtip utilise [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). La page des événements de chaque locataire inclut le nom du locataire dans son URL. Chaque URL comprend également la valeur d’utilisateur spécifique. Chaque URL respecte le format indiqué en procédant comme suit :
 
-- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. L’application d’événements analyse le nom du locataire dans l’URL. Le nom du locataire est *fabrikamjazzclub* dans l’exemple d’URL ci-dessus.
 2. L’application applique un hachage au nom du locataire pour créer une clé permettant d’accéder à un catalogue utilisant la [gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md).
@@ -212,7 +211,7 @@ Examinons maintenant quelques-unes des ressources qui ont été déployées :
 
    ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Cliquez sur le serveur **catalog-mt&lt;utilisateur&gt;**. Le serveur de catalogue contient deux bases de données nommées *tenantcatalog* et *basetenantdb*. La base de données *basetenantdb* est une base de données de modèle vide. Elle est copiée pour créer une nouvelle base de données de locataires, quelle soit utilisée par plusieurs locataires ou un seul.
+2. Cliquez sur le serveur **catalog-mt&lt;utilisateur&gt;** . Le serveur de catalogue contient deux bases de données nommées *tenantcatalog* et *basetenantdb*. La base de données *basetenantdb* est une base de données de modèle vide. Elle est copiée pour créer une nouvelle base de données de locataires, quelle soit utilisée par plusieurs locataires ou un seul.
 
    ![catalog server](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
@@ -226,13 +225,13 @@ Examinons maintenant quelques-unes des ressources qui ont été déployées :
 
 Si le générateur de charge s’exécute depuis plusieurs minutes, suffisamment de télémétrie est disponible pour rechercher les fonctionnalités de surveillance de base de données intégrées au portail Azure.
 
-1. Accédez au serveur **tenants1-mt&lt;USER&gt;**, puis cliquez sur **tenants1** pour afficher l’utilisation des ressources pour la base de données contenant quatre locataires. Chaque client est soumis à une charge sporadique importante dans le générateur de charge :
+1. Accédez au serveur **tenants1-mt&lt;USER&gt;** , puis cliquez sur **tenants1** pour afficher l’utilisation des ressources pour la base de données contenant quatre locataires. Chaque client est soumis à une charge sporadique importante dans le générateur de charge :
 
    ![surveiller tenants1](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
 
    Le graphique d’utilisation de DTU montre clairement comment une base de données peut multilocataire peut supporter une charge de travail imprévisible entre plusieurs locataires. Dans ce cas, le générateur de charge applique une charge sporadique de 30 DTU environ sur chaque locataire. Cette charge équivaut à 60 % d’utilisation d’une base de données de 50 DTU. Des pics supérieurs à 60 % sont le résultat d’une charge appliquée sur plusieurs locataires simultanément.
 
-2. Accédez au serveur **tenants1-mt&lt;utilisateur&gt;**, puis cliquez sur la base de données **salixsalsa**. Vous voyez l’utilisation des ressources sur cette base de données qui contient un seul locataire.
+2. Accédez au serveur **tenants1-mt&lt;utilisateur&gt;** , puis cliquez sur la base de données **salixsalsa**. Vous voyez l’utilisation des ressources sur cette base de données qui contient un seul locataire.
 
    ![base de données salixsalsa](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 
@@ -251,7 +250,7 @@ Les charges de travail générées par le script de génération de charge sont 
 - Pour en savoir plus sur les pools élastiques, voir :
 
   - [Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Azure SQL](sql-database-elastic-pool.md)
-  - [Montée en charge avec Azure SQL Database](sql-database-elastic-scale-introduction.md)
+  - [Scale-out avec Azure SQL Database](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

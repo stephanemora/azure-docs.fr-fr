@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60772727"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analyser le rapport du planificateur de déploiement Azure Site Recovery
 Cet article décrit les feuilles de calcul du rapport Excel généré par le Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure.
@@ -275,7 +275,7 @@ Le tableau suivant présente les limites de Site Recovery. Ces limites sont bas�
 ---|---|---|---
 Stockage Standard | 8 Ko | 2 Mo/s par machine virtuelle | 168 Go par machine virtuelle
 Stockage Premium | 8 Ko  | 5 Mo/s par machine virtuelle | 421 Go par machine virtuelle
-Stockage Premium | 16 Ko ou plus| 20 Mo/s par machine virtuelle | 1684 Go par machine virtuelle
+Stockage Premium | 16 Ko ou plus| 20 Mo/s par machine virtuelle | 1 684 Go par machine virtuelle
 
 Ces limites représentent des moyennes en partant sur un chevauchement d’E/S de 30 pour cent. Site Recovery est capable de gérer un débit plus élevé en fonction du ratio de chevauchement, de tailles d’écriture plus grandes et du comportement d’E/S des charges de travail réelles. Les valeurs précédentes supposent un retard de traitement typique de cinq minutes. Autrement dit, une fois que les données sont chargées, elles sont traitées, et un point de récupération est créé dans un délai de cinq minutes.
 

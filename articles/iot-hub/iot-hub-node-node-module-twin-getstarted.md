@@ -6,17 +6,19 @@ manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: node
+ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 312d3abad2ee2c9e668f8b354aaba96f8a652698
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 3796017af643c993871757482ed17d1765cd6494
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259284"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802405"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Bien démarrer avec le jumeau de module et l’identité de module IoT Hub en utilisant un backend Node.js et un appareil Node.js
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Bien démarrer avec l’identité de module et le jumeau de module IoT Hub (Node.js)
+
+[!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
 > [Les identités de module et les jumeaux de module](iot-hub-devguide-module-twins.md) sont similaires aux identités d’appareil et aux jumeaux d’appareil Azure IoT Hub, mais offrent un plus grand niveau de détail. Contrairement à l’identité d’appareil et au jumeau d’appareil Azure IoT Hub qui permettent à l’application principale de configurer un appareil et d’obtenir une visibilité sur l’état de l’appareil, une identité de module et un jumeau de module fournissent ces fonctionnalités pour les composants individuels d’un appareil. Sur les appareils compatibles qui intègrent plusieurs composants, par exemple des appareils basés sur un système d’exploitation ou des appareils avec un microprogramme, ils permettent d’isoler la configuration et les conditions de chacun de ces composants.
@@ -30,23 +32,31 @@ ms.locfileid: "59259284"
 > [!NOTE]
 > Pour plus d’informations sur les SDK Azure IoT que vous pouvez utiliser pour générer les deux applications qui s’exécutent sur les appareils et sur le serveur de solution principal, consultez l’article [SDK Azure IoT](iot-hub-devguide-sdks.md).
 
-Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
+## <a name="prerequisites"></a>Prérequis
+
+* Node.j version 10.0.x ou ultérieure. L’article [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) décrit l’installation de Node.js pour ce didacticiel sur Windows ou sur Linux.
 
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
-* Un hub IoT.
-* Installez la dernière version du [SDK Node.js](https://github.com/Azure/azure-iot-sdk-node).
 
-Votre IoT Hub est maintenant créé et vous connaissez le nom d’hôte et la chaîne de connexion à IoT Hub dont vous avez besoin pour terminer ce qu’il reste du didacticiel.
+## <a name="create-an-iot-hub"></a>Créer un hub IoT
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>Obtention de la chaîne de connexion IoT Hub
+
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Créer une identité d’appareil et une identité de module dans IoT Hub
 
-Dans cette section, vous allez créer une application Node.js qui crée une identité d’appareil et une identité de module dans le registre d’identités de votre hub IoT. Un appareil ou un module ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre des identités. Pour plus d’informations, consultez la section « Registre des identités » de la [guide du développeur IoT Hub](iot-hub-devguide-identity-registry.md). En exécutant cette application console, une clé et un ID uniques sont générés pour chaque appareil et module. Votre appareil et le module utilisent ces valeurs pour s’identifier lorsqu’ils envoient des messages d’appareil-à-cloud à IoT Hub. Les ID sont sensibles à la casse.
+Dans cette section, vous allez créer une application Node.js qui crée une identité d’appareil et une identité de module dans le registre d’identités de votre hub IoT. Un appareil ou un module ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre des identités. Pour plus d’informations, consultez la section « Registre des identités » du [Guide du développeur IoT Hub](iot-hub-devguide-identity-registry.md).0 En exécutant cette application console, une clé et un ID uniques sont générés pour chaque appareil et module. Votre appareil et le module utilisent ces valeurs pour s’identifier lorsqu’ils envoient des messages d’appareil-à-cloud à IoT Hub. Les ID sont sensibles à la casse.
 
 1. Créez un répertoire pour stocker votre code.
 
 2. À l’intérieur de ce répertoire, exécutez d’abord  **npm init -y**  pour créer un fichier package.json vide comportant les valeurs par défaut. Il s’agit du fichier projet pour votre code.
 
-3. Exécutez **npm installer azure-iothub - S\@modules-preview** pour installer le SDK du service à l’intérieur de la **node_modules** sous-répertoire.
+3. Exécutez  **npm install -S azure-iothub\@modules-preview** pour installer le Kit de développement logiciel (SDK) du service à l’intérieur du sous-répertoire  **node_modules** .
 
     > [!NOTE]
     > Dans le nom du sous-répertoire « node_modules », le mot « module » désigne « une bibliothèque de nœuds ». En l’occurrence, le terme n’a rien à voir avec les modules IoT Hub.
@@ -119,11 +129,11 @@ Exécutez-la à l’aide de la commande node add.js. Vous obtiendrez alors une c
 
 Dans cette section, vous allez créer sur votre appareil simulé une application Node.js qui met à jour les propriétés rapportées du jumeau de module.
 
-1. **Obtenir votre chaîne de connexion du module** --se connecter à la [Azure portal](https://portal.azure.com/). Accédez à votre IoT Hub, puis cliquez sur Appareils IoT. Recherchez et ouvrez myFirstDevice pour vérifier que myFirstModule a bien été créé. Copiez la chaîne de connexion du module. Vous en aurez besoin à l’étape suivante.
+1. **Obtenir la chaîne de connexion de votre module** : connectez-vous au [portail Azure](https://portal.azure.com/). Accédez à votre IoT Hub, puis cliquez sur Appareils IoT. Recherchez et ouvrez myFirstDevice pour vérifier que myFirstModule a bien été créé. Copiez la chaîne de connexion du module. Vous en aurez besoin à l’étape suivante.
 
    ![Détails du module du Portail Azure](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. Comme vous l’avez fait dans l’étape précédente, créez un répertoire pour votre code de l’appareil et utiliser NPM pour initialiser et installer le Kit de développement logiciel de périphérique (**npm installer azure-iot-device-amqp - S\@modules-preview**).
+2. Comme à l’étape précédente, créez un répertoire pour votre code d’appareil et utilisez NPM pour l’initialiser et installer le Kit de développement logiciel (SDK) de l’appareil (**npm install -S azure-iot-device-amqp\@modules-preview**).
 
    > [!NOTE]
    > La commande npm install peut vous sembler lente. Soyez patient ; elle récupère beaucoup de code du référentiel de packages.
@@ -184,16 +194,21 @@ Dans cette section, vous allez créer sur votre appareil simulé une application
 
 4. Maintenant, exécutez cet élément à l’aide de la commande  **node twin.js**.
 
-    ```
-    F:\temp\module_twin>node twin.js
-    client opened
-    twin contents:
-    { reported: { update: [Function: update], '$version': 1 },
-      desired: { '$version': 1 } }
-    new desired properties received:
-    {"$version":1}
-    twin state reported
-    ```
+   ```cmd/sh
+   F:\temp\module_twin>node twin.js
+   ```
+
+   Vous verrez alors :
+
+   ```console
+   client opened
+   twin contents:
+   { reported: { update: [Function: update], '$version': 1 },
+     desired: { '$version': 1 } }
+   new desired properties received:
+   {"$version":1}
+   twin state reported
+   ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

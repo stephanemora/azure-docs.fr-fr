@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/29/2019
 ms.author: asgang
 ms.openlocfilehash: 6c639d4503b170660abed5767e3571c8a2bf24b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60790298"
 ---
 # <a name="replicate-azure-virtual-machines-using-storage-spaces-direct-to-another-azure-region"></a>Répliquer des machines virtuelles utilisant des espaces de stockage direct vers une autre région Azure
 
@@ -23,7 +23,7 @@ Cet article décrit comment activer la récupération d’urgence pour des machi
 >Seuls des points de récupération offrant une cohérence en cas d’incident sont pris en charge pour les clusters d’espaces de stockage direct.
 >
 
-## <a name="introduction"></a>Présentation 
+## <a name="introduction"></a>Introduction 
 Les [espaces de stockage direct (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) constituent un stockage à définition logicielle qui offre un moyen de créer des [clusters invités](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) sur Azure.  Un cluster invité dans Microsoft Azure est un cluster de basculement constitué de machines virtuelles IaaS. Il permet à des charges de travail de machine virtuelle hébergées de basculer vers les clusters invités et d’ainsi atteindre une disponibilité en terme de niveau de service pour les applications supérieure à celle qu’une machine virtuelle Azure unique peut fournir. Il est utile dans les cas où la machine virtuelle héberge une application critique telle que SQL ou un serveur de fichiers avec montée en puissance parallèle.
 
 ## <a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>Récupération d’urgence de machines virtuelles Azure à l’aide d’espaces de stockage direct

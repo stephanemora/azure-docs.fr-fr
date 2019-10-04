@@ -5,17 +5,17 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/28/2018
+ms.date: 08/29/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f0a58382b9825a7b32aee69c00b9801d1c77251a
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531162"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70114630"
 ---
-# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutoriel : Filtrer le trafic entrant avec pare-feu Azure DNAT via le portail Azure
+# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Didacticiel : Filtrer le trafic entrant avec pare-feu Azure DNAT via le portail Azure
 
 Vous pouvez configurer Azure Firewall Destination Network Address Translation (DNAT) pour traduire et filtrer le trafic entrant vers vos sous-réseaux. Lorsque vous configurez le DNAT, l’action de collection de règles NAT est définie sur **DNAT**. Chaque règle de la collection de règles NAT peut ensuite être utilisée pour traduire l’IP et le port publics de votre pare-feu en IP et port privés. Les règles DNAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](rule-processing.md).
 
@@ -62,8 +62,9 @@ Tout d’abord, créez les réseaux virtuels, puis appairez-les.
 
      Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
      > [!NOTE]
-     > La taille minimale du sous-réseau AzureFirewallSubnet est /26.
-10. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.
+     > La taille du sous-réseau AzureFirewallSubnet est /26. Pour plus d’informations sur la taille du sous-réseau, consultez le [FAQ Pare-feu Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
+10. Pour **Plage d’adresses**, tapez **10.0.1.0/26**.
 11. Utilisez les autres paramètres par défaut, puis cliquez sur **Créer**.
 
 ### <a name="create-a-spoke-vnet"></a>Créer un réseau virtuel spoke
@@ -151,9 +152,9 @@ Une fois le déploiement terminé, notez l’adresse IP privée de la machine vi
    |Paramètre  |Valeur  |
    |---------|---------|
    |Nom     |FW-DNAT-test|
-   |Abonnement     |\<votre abonnement\>|
-   |Groupe de ressources     |**Utiliser l’existant** : RG-DNAT-Test |
-   |Lieu     |Sélectionnez le même emplacement que celui utilisé précédemment|
+   |Subscription     |\<votre abonnement\>|
+   |Resource group     |**Utiliser l’existant** : RG-DNAT-Test |
+   |Location     |Sélectionnez le même emplacement que celui utilisé précédemment|
    |Choisir un réseau virtuel     |**Utiliser l’existant** : VN-Hub|
    |Adresse IP publique     |**Créer un nouveau**. L’adresse IP publique doit être le type de référence (SKU) Standard.|
 

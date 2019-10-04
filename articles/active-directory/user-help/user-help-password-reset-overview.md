@@ -1,6 +1,6 @@
 ---
-title: Aperçu de la réinitialisation d’un mot de passe dans Azure Active Directory | Microsoft Docs
-description: Découvrez comment inscrire et réinitialiser votre mot de passe sans assistance de l’administrateur.
+title: Vue d’ensemble de la réinitialisation d’un mot de passe professionnel ou scolaire dans Azure Active Directory | Microsoft Docs
+description: Liste de liens vers des articles sur la manière d’enregistrer et de réinitialiser votre mot de passe professionnel ou scolaire sans assistance de l’administrateur.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,24 +9,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 07/30/2018
+ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d03cdc8093651605839f813c264880b778167a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 66cb7218b5217565529e1e15d875c23dff10e06f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165041"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382273"
 ---
-# <a name="reset-password-overview"></a>Aperçu de la réinitialisation d’un mot de passe
+# <a name="reset-your-own-work-or-school-password-overview"></a>Vue d’ensemble de la réinitialisation d’un mot de passe professionnel ou scolaire
 
-Si vous avez oublié votre mot de passe, que vous n’en avez jamais reçu de la part du support de votre entreprise, ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour réinitialiser votre mot de passe.
+Si vous avez oublié votre mot de passe professionnel ou scolaire, que votre organisation ne vous en a jamais envoyé un ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour le réinitialiser.
+
+Votre administrateur doit activer cette fonctionnalité pour que vous puissiez enregistrer vos informations et réinitialiser votre mot de passe. Si l’option **J’ai oublié mon mot de passe** n’apparaît pas, cela signifie que votre administrateur n’a pas encore activé cette fonctionnalité pour votre organisation. Si vous pensez que ce n’est pas normal, contactez votre support technique pour obtenir de l’aide.
 
 >[!Important]
 >Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
+## <a name="reset-your-own-work-or-school-password-related-articles"></a>Articles sur la réinitialisation d’un mot de passe professionnel ou scolaire
+
+Pour obtenir des informations détaillées et des instructions sur l’inscription de votre compte à la réinitialisation de mot de passe et savoir comment réinitialiser votre mot de passe, consultez les articles suivants :
+
 |Article |Description |
 |------|------------|
-|[S’inscrire pour la réinitialisation du mot de passe en libre-service](active-directory-passwords-reset-register.md)| Décrit comment s’inscrire afin que vous puissiez réinitialiser votre mot de passe.|
-|[Réinitialiser votre mot de passe](user-help-reset-password.md)| Décrit comment réinitialiser votre mot de passe.|
+| [S’inscrire pour la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md) ] Instructions pour la vérification des méthodes d’authentification et l’inscription à la réinitialisation de mot de passe en libre-service afin de pouvoir réinitialiser votre mot de passe.|
+| [Réinitialiser votre mot de passe](user-help-reset-password.md) ] Instructions pour la réinitialisation et le déverrouillage du mot de passe d’un compte professionnel ou scolaire.|

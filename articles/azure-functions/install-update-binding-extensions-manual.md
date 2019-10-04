@@ -7,16 +7,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: azure functions, fonctions, extensions de liaison, NuGet, mises à jour
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
-ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: 7686a9b2df6df6b54851e9c9957186f76be3fafd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727109"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085050"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installer ou mettre à jour manuellement des extensions de liaison d’Azure Functions à partir du portail
 
@@ -30,7 +29,7 @@ Utilisez les étapes suivantes pour installer ou mettre à jour des extensions m
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez votre application de fonction et sélectionnez-la. Choisissez l’onglet **Vue d’ensemble** et sélectionnez **Arrêter**.  L’arrêt de l’application de fonction déverrouille les fichiers afin que les modifications puissent être effectuées.
 
-1. Choisissez l’onglet **Fonctionnalités de la plateforme** et sous **Outils de développement**, sélectionnez **Outils avancés (Kudu)**. Le point de terminaison Kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) est ouvert dans une nouvelle fenêtre.
+1. Choisissez l’onglet **Fonctionnalités de la plateforme** et sous **Outils de développement**, sélectionnez **Outils avancés (Kudu)** . Le point de terminaison Kudu (`https://<APP_NAME>.scm.azurewebsites.net/`) est ouvert dans une nouvelle fenêtre.
 
 1. Dans la fenêtre Kudu, sélectionnez **Console de débogage** > **CMD**.  
 

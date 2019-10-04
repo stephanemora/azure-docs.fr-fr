@@ -9,21 +9,20 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 6485b7c102977f4fb6963418084f4da050c68558
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003453"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71036526"
 ---
-# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutoriel : Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
+# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Didacticiel : Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
 Ce didacticiel montre comment créer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure. Il crée un groupe de disponibilité avec un réplica de base de données sur deux serveurs SQL Server.
 
@@ -33,7 +32,7 @@ Ce schéma illustre ce que vous allez créer dans ce didacticiel.
 
 ![Groupe de disponibilité](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
@@ -53,7 +52,7 @@ Le tableau suivant répertorie les conditions requises que vous devez remplir av
 Avant de commencer ce didacticiel, vous devez [remplir les conditions préalables pour la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md). Si ces conditions préalables sont déjà remplies, vous pouvez passer à l’étape [Création d’un cluster](#CreateCluster).
 
   >[!NOTE]
-  > Parmi les étapes fournies dans ce didacticiel peuvent maintenant être automatisées avec [CLI de machine virtuelle SQL Azure](virtual-machines-windows-sql-availability-group-cli.md) et [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > De nombreuses étapes fournies dans ce didacticiel peuvent maintenant être automatisées à l’aide d’une [interface en ligne de commande de machine virtuelle Azure SQL](virtual-machines-windows-sql-availability-group-cli.md) et de [modèles de démarrage rapide Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -82,6 +81,9 @@ Une fois les conditions préalables remplies, la première étape consiste à cr
    | Confirmation |Utilisez les valeurs par défaut, sauf si vous utilisez des espaces de stockage. Consultez la remarque qui suit ce tableau. |
 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Définir l’adresse IP du cluster de basculement de Windows Server
+
+  > [!NOTE]
+  > Sur Windows Server 2019, le cluster crée un **nom de serveur distribué** à la place du **nom réseau du cluster**. Si vous utilisez Windows Server 2019, ignorez les étapes qui font référence au nom de base du cluster dans ce tutoriel. Vous pouvez créer un nom réseau de cluster à l’aide de [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019). Passez en revue le blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) pour plus d’informations. 
 
 1. Dans **Gestionnaire du cluster de basculement**, accédez à **Principales ressources du cluster** et développez les détails du cluster. Les ressources **Nom** et **Adresse IP** doivent toutes deux être à l’état **Échec**. La ressource à adresse IP ne peut pas être mise en ligne, car le cluster a la même adresse IP que la machine elle-même. Cette adresse est donc dupliquée.
 
@@ -130,7 +132,7 @@ Dans cet exemple, le cluster Windows utilise un partage de fichiers pour créer 
 
 1. Cliquez sur **Dossiers partagés**.
 
-1. Cliquez avec le bouton droit sur **Partages**, puis cliquez sur **Nouveau partage...**.
+1. Cliquez avec le bouton droit sur **Partages**, puis cliquez sur **Nouveau partage...** .
 
    ![Nouveau partage](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
@@ -140,9 +142,9 @@ Dans cet exemple, le cluster Windows utilise un partage de fichiers pour créer 
 
 1. Dans **Nom, Description et Paramètres**, vérifiez le nom et le chemin d’accès du partage. Cliquez sur **Suivant**.
 
-1. Dans **Autorisations du dossier partagé**, sélectionnez **Personnaliser les autorisations**. Cliquez sur **Personnalisé...**.
+1. Dans **Autorisations du dossier partagé**, sélectionnez **Personnaliser les autorisations**. Cliquez sur **Personnalisé...** .
 
-1. Dans **Personnaliser les autorisations**, cliquez sur **Ajouter...**.
+1. Dans **Personnaliser les autorisations**, cliquez sur **Ajouter...** .
 
 1. Vérifiez que le compte utilisé pour créer le cluster possède le contrôle total.
 
@@ -160,7 +162,7 @@ Ensuite, configurez le quorum du cluster.
 
 1. Connectez-vous au premier nœud du cluster avec le Bureau à distance.
 
-1. Dans **Gestionnaire du cluster de basculement**, cliquez avec le bouton droit sur le cluster, pointez sur **Autres Actions** et cliquez sur **Configurer les paramètres du quorum du cluster...**.
+1. Dans **Gestionnaire du cluster de basculement**, cliquez avec le bouton droit sur le cluster, pointez sur **Autres Actions** et cliquez sur **Configurer les paramètres du quorum du cluster...** .
 
    ![Nouveau partage](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/52-configurequorum.png)
 
@@ -186,7 +188,7 @@ Les principales ressources de cluster sont configurées avec un témoin de parta
 Ensuite, activez la fonctionnalité **Groupes de disponibilité AlwaysOn**. Effectuez ces étapes pour les deux serveurs SQL Server.
 
 1. À partir de l’écran **d’accueil**, lancez le **Gestionnaire de configuration SQL Server**.
-2. Dans l’arborescence du navigateur, cliquez sur **Services SQL Server**, cliquez avec le bouton droit sur **SQL Server (MSSQLSERVER)**, puis cliquez sur **Propriétés**.
+2. Dans l’arborescence du navigateur, cliquez sur **Services SQL Server**, cliquez avec le bouton droit sur **SQL Server (MSSQLSERVER)** , puis cliquez sur **Propriétés**.
 3. Cliquez sur l’onglet **Haute disponibilité AlwaysOn**, puis sélectionnez **Activer les groupes de disponibilité AlwaysOn**, comme indiqué ci-dessous :
 
     ![Activation des groupes à haute disponibilité AlwaysOn](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
@@ -232,7 +234,7 @@ Repeat these steps on the second SQL Server.
 
 1. Cliquez sur **Dossiers partagés**.
 
-1. Cliquez avec le bouton droit sur **Partages**, puis cliquez sur **Nouveau partage...**.
+1. Cliquez avec le bouton droit sur **Partages**, puis cliquez sur **Nouveau partage...** .
 
    ![Nouveau partage](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
@@ -242,9 +244,9 @@ Repeat these steps on the second SQL Server.
 
 1. Dans **Nom, Description et Paramètres**, vérifiez le nom et le chemin d’accès du partage. Cliquez sur **Suivant**.
 
-1. Dans **Autorisations du dossier partagé**, sélectionnez **Personnaliser les autorisations**. Cliquez sur **Personnalisé...**.
+1. Dans **Autorisations du dossier partagé**, sélectionnez **Personnaliser les autorisations**. Cliquez sur **Personnalisé...** .
 
-1. Dans **Personnaliser les autorisations**, cliquez sur **Ajouter...**.
+1. Dans **Personnaliser les autorisations**, cliquez sur **Ajouter...** .
 
 1. Vérifiez que les comptes de service SQL Server et SQL Server Agent pour les deux serveurs ont un contrôle total.
 
@@ -299,10 +301,10 @@ Vous pouvez maintenant configurer le groupe de disponibilité en procédant comm
 
     ![Assistant Nouveau groupe de disponibilité, sélectionner la synchronisation initiale des données](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. Dans la page **Sélectionner la synchronisation de données initiale**, sélectionnez **Complète** et spécifiez un emplacement réseau partagé. Pour l’emplacement, utilisez le [partage de sauvegarde que vous avez créé](#backupshare). Dans l’exemple, il s’agissait de **\\\\\<Premier serveur SQL Server\>\Backup\\**. Cliquez sur **Suivant**.
+8. Dans la page **Sélectionner la synchronisation de données initiale**, sélectionnez **Complète** et spécifiez un emplacement réseau partagé. Pour l’emplacement, utilisez le [partage de sauvegarde que vous avez créé](#backupshare). Dans l’exemple, il s’agissait de **\\\\\<Premier serveur SQL Server\>\Backup\\** . Cliquez sur **Suivant**.
 
    >[!NOTE]
-   >La synchronisation complète effectue une sauvegarde complète de la base de données sur la première instance de SQL Server et la restaure sur la deuxième instance. Pour les bases de données volumineuses, une synchronisation complète n’est pas recommandée, car elle peut prendre longtemps. Vous pouvez réduire ce temps en effectuant manuellement une sauvegarde de la base de données et en la restaurant avec `NO RECOVERY`. Si la base de données est déjà restaurée avec `NO RECOVERY` sur le second serveur SQL Server avant de configurer le groupe de disponibilité, choisissez **Join only (Joindre uniquement)**. Si vous souhaitez effectuer la sauvegarde après avoir configuré le groupe de disponibilité, choisissez **Ignorer la synchronisation de données initiale**.
+   >La synchronisation complète effectue une sauvegarde complète de la base de données sur la première instance de SQL Server et la restaure sur la deuxième instance. Pour les bases de données volumineuses, une synchronisation complète n’est pas recommandée, car elle peut prendre longtemps. Vous pouvez réduire ce temps en effectuant manuellement une sauvegarde de la base de données et en la restaurant avec `NO RECOVERY`. Si la base de données est déjà restaurée avec `NO RECOVERY` sur le second serveur SQL Server avant de configurer le groupe de disponibilité, choisissez **Join only (Joindre uniquement)** . Si vous souhaitez effectuer la sauvegarde après avoir configuré le groupe de disponibilité, choisissez **Ignorer la synchronisation de données initiale**.
 
     ![Assistant Nouveau groupe de disponibilité, sélectionner la synchronisation initiale des données](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/70-datasynchronization.png)
 
@@ -396,7 +398,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 ### <a name="set-the-probe"></a>Configurer la sonde
 
-1. Cliquez sur l’équilibrage de charge, sur **Health probes (Sondes d’intégrité)**, puis sur **+Ajouter**.
+1. Cliquez sur l’équilibrage de charge, sur **Health probes (Sondes d’intégrité)** , puis sur **+Ajouter**.
 
 1. Définissez la sonde d’intégrité de l’écouteur comme suit :
 
@@ -405,7 +407,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
    | **Nom** | Texte | SQLAlwaysOnEndPointProbe |
    | **Protocole** | Choisissez TCP. | TCP |
    | **Port** | Tout port inutilisé. | 59999 |
-   | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5. |
+   | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5\. |
    | **Seuil de défaillance sur le plan de l’intégrité** | Nombre d’échecs de sonde consécutifs qui doivent se produire pour qu’une machine virtuelle soit considérée comme défectueuse.  | 2 |
 
 1. Cliquez sur **OK** pour configurer la sonde d’intégrité.
@@ -448,7 +450,7 @@ L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur d
    | **Nom** | Texte | WSFCEndPointProbe |
    | **Protocole** | Choisissez TCP. | TCP |
    | **Port** | Tout port inutilisé. | 58888 |
-   | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5. |
+   | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5\. |
    | **Seuil de défaillance sur le plan de l’intégrité** | Nombre d’échecs de sonde consécutifs qui doivent se produire pour qu’une machine virtuelle soit considérée comme défectueuse.  | 2 |
 
 1. Cliquez sur **OK** pour configurer la sonde d’intégrité.

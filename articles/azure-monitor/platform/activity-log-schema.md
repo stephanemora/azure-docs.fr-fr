@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.openlocfilehash: abe2ed0d50ce26ddebeeeccb87c49fc20db43b2a
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622210"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515380"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
-Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./diagnostic-logs-schema.md) est fourni à la fin de cet article.
+Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](activity-log-export.md). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](diagnostic-logs-schema.md) est fourni à la fin de cet article.
 
 ## <a name="administrative"></a>Administratif
 Cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès basé sur un rôle dans un abonnement.
@@ -119,14 +119,14 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 | correlationId |Généralement un GUID au format chaîne. Les événements qui partagent un correlationId appartiennent à la même action uber. |
 | description |Description textuelle statique d’un événement. |
 | eventDataId |Identificateur unique d’un événement. |
-| eventName | Nom convivial de l’événement d’administration. |
-| category | Toujours « administration » |
+| eventName | Nom convivial de l’événement administratif. |
+| category | Toujours « Administrative » |
 | httpRequest |Objet blob décrivant la requête Http. Inclut généralement clientRequestId, clientIpAddress et la méthode (méthode HTTP. Par exemple, PUT). |
 | level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
-| nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée. |
+| resourceGroupName |Nom du groupe de ressources de la ressource affectée. |
 | resourceProviderName |Nom du fournisseur de ressources de la ressource affectée. |
-| resourceType | Le type de ressource qui a été affectée par un événement d’administration. |
-| ResourceId |ID de ressource de la ressource affectée. |
+| resourceType | Type de ressource affecté par un événement administratif. |
+| resourceId |ID de ressource de la ressource affectée. |
 | operationId |Un GUID partagé par les événements correspondant à une opération unique. |
 | operationName |Nom de l’opération. |
 | properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. |
@@ -216,7 +216,7 @@ Cette catégorie contient l’enregistrement de tout événement d’intégrité
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -232,7 +232,7 @@ Cette catégorie contient l’enregistrement de tout événement d’intégrité
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -242,7 +242,7 @@ Cette catégorie contient l’enregistrement de tout événement d’intégrité
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -268,10 +268,10 @@ Cette catégorie contient l’enregistrement de tout événement d’intégrité
 | level |Niveau de l’événement. L’une des valeurs suivantes : « Critical », « Error », « Warning », « Informational » et « Verbose » |
 | operationId |Un GUID partagé par les événements correspondant à une opération unique. |
 | operationName |Nom de l’opération. |
-| nom_groupe_ressources |Nom du groupe de ressources qui contient la ressource. |
+| resourceGroupName |Nom du groupe de ressources qui contient la ressource. |
 | resourceProviderName |Toujours « Microsoft.Resourcehealth/healthevent/action ». |
 | resourceType | Type de ressource affecté par un événement Resource Health. |
-| ResourceId | Nom de l’ID de ressource de la ressource affectée. |
+| resourceId | Nom de l’ID de ressource de la ressource affectée. |
 | status |Chaîne décrivant l’état de l’événement d’intégrité. Les valeurs peuvent être les suivantes : Active, Resolved, InProgress, Updated. |
 | subStatus | Généralement, nul pour les alertes. |
 | submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
@@ -358,11 +358,11 @@ Cette catégorie contient l’enregistrement de toutes les activations des alert
 | correlationId | Un GUID au format chaîne. |
 | description |Description textuelle statique de l’événement d’alerte. |
 | eventDataId |Identificateur unique de l'événement d’alerte. |
-| category | Toujours « alerte » |
+| category | Toujours « Alert » |
 | level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
-| nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom du groupe de ressources qui contient l’alerte elle-même. |
+| resourceGroupName |Nom du groupe de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom du groupe de ressources qui contient l’alerte elle-même. |
 | resourceProviderName |Nom du fournisseur de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom du fournisseur de ressources pour l’alerte elle-même. |
-| ResourceId | Nom de l’ID de ressource de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom de l’ID de ressource pour l’alerte elle-même. |
+| resourceId | Nom de l’ID de ressource de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom de l’ID de ressource pour l’alerte elle-même. |
 | operationId |Un GUID partagé par les événements correspondant à une opération unique. |
 | operationName |Nom de l’opération. |
 | properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. |
@@ -469,9 +469,9 @@ Cette catégorie contient l’enregistrement de tous les événements liés au f
 | description |Description textuelle statique de l’événement de mise à l’échelle automatique. |
 | eventDataId |Identificateur unique de l'événement de mise à l’échelle automatique. |
 | level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
-| nom_groupe_ressources |Nom du groupe de ressources du paramètre de mise à l’échelle automatique. |
+| resourceGroupName |Nom du groupe de ressources du paramètre de mise à l’échelle automatique. |
 | resourceProviderName |Nom du fournisseur de ressources du paramètre de mise à l’échelle automatique. |
-| ResourceId |ID de ressource du paramètre de mise à l’échelle automatique. |
+| resourceId |ID de ressource du paramètre de mise à l’échelle automatique. |
 | operationId |Un GUID partagé par les événements correspondant à une opération unique. |
 | operationName |Nom de l’opération. |
 | properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. |
@@ -557,16 +557,16 @@ Cette catégorie contient l’enregistrement de toutes les alertes générées p
 | description |Description textuelle statique de l’événement de sécurité. |
 | eventDataId |Identificateur unique de l’événement de sécurité. |
 | eventName |Nom convivial de l’événement de sécurité. |
-| category | Toujours « sécurité » |
+| category | Toujours « Security » |
 | id |URI (Unique Resource Identifier) de l’événement de sécurité. |
 | level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » ou « Informatif » |
-| nom_groupe_ressources |Nom du groupe de ressources de la ressource. |
+| resourceGroupName |Nom du groupe de ressources de la ressource. |
 | resourceProviderName |Nom du fournisseur de ressources pour Azure Security Center. Toujours Microsoft.Security. |
 | resourceType |Type de ressource qui a généré l’événement de sécurité, par exemple « Microsoft.Security/locations/alerts ». |
-| ResourceId |ID de ressource de l’alerte de sécurité. |
+| resourceId |ID de ressource de l’alerte de sécurité. |
 | operationId |Un GUID partagé par les événements correspondant à une opération unique. |
 | operationName |Nom de l’opération. |
-| properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. Ces propriétés varient selon le type d’alerte de sécurité. Pour obtenir une description des types d’alertes qui proviennent de Security Center, consultez [cette page](../../security-center/security-center-alerts-type.md). |
+| properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. Ces propriétés varient selon le type d’alerte de sécurité. Pour obtenir une description des types d’alertes qui proviennent de Security Center, consultez [cette page](../../security-center/security-center-alerts-overview.md). |
 | properties.Severity |Niveau de gravité. Les valeurs possibles sont High (Élevé), Medium (Moyen) ou Low (Bas). |
 | status |Chaîne décrivant l’état de l’opération. Voici plusieurs valeurs courantes : « Started », « In Progress », « Succeeded », « Failed », « Active », « Resolved ». |
 | subStatus | Généralement nul pour les événements de sécurité. |
@@ -641,10 +641,10 @@ Cette catégorie contient l’enregistrement de toutes les nouvelles recommandat
 | id |Identificateur de ressource unique de l’événement de recommandation. |
 | level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » ou « Informatif » |
 | operationName |Nom de l’opération.  Toujours « Microsoft.Advisor/generateRecommendations/action »|
-| nom_groupe_ressources |Nom du groupe de ressources de la ressource. |
+| resourceGroupName |Nom du groupe de ressources de la ressource. |
 | resourceProviderName |Nom du fournisseur de ressources pour la ressource à laquelle cette recommandation s’applique, comme « MICROSOFT.COMPUTE » |
 | resourceType |Nom du type de ressource pour la ressource à laquelle cette recommandation s’applique, comme « MICROSOFT.COMPUTE/virtualmachines » |
-| ResourceId |ID de ressource de la ressource à laquelle la recommandation s’applique |
+| resourceId |ID de ressource de la ressource à laquelle la recommandation s’applique |
 | status | Toujours « Active » |
 | submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
 | subscriptionId |ID d’abonnement Azure. |
@@ -757,10 +757,10 @@ Cette catégorie contient les enregistrements de toutes les opérations d’acti
 | level | Niveau de l’événement. Audit utilise « Warning » et Deny utilise « Error ». Une erreur auditIfNotExists ou deployIfNotExists peut générer « Warning » ou « Error », en fonction du niveau de gravité. Tous les autres événements Azure Policy utilisent « Informational ». |
 | operationId | Un GUID partagé par les événements correspondant à une opération unique. |
 | operationName | Nom de l’opération, directement en corrélation avec l’effet Azure Policy. |
-| nom_groupe_ressources | Nom du groupe de ressources de la ressource évaluée. |
+| resourceGroupName | Nom du groupe de ressources de la ressource évaluée. |
 | resourceProviderName | Nom du fournisseur de ressources de la ressource évaluée. |
 | resourceType | Pour les nouvelles ressources, il s’agit du type en cours d’évaluation. Pour les ressources existantes, retourne « Microsoft.Resources/checkPolicyCompliance ». |
-| ResourceId | ID de ressource de la ressource évaluée. |
+| resourceId | ID de ressource de la ressource évaluée. |
 | status | Chaîne décrivant l’état du résultat de l’évaluation Azure Policy. La plupart des évaluations Azure Policy retournent « Succeeded », mais un effet Deny retourne « Failed ». Les erreurs dans auditIfNotExists ou deployIfNotExists retournent également « Failed ». |
 | subStatus | Le champ est vide pour les événements Azure Policy. |
 | submissionTimestamp | Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
@@ -778,18 +778,18 @@ Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers 
 | Propriété du schéma des journaux de diagnostic | Propriété du schéma de l’API REST Journal d’activité | Notes |
 | --- | --- | --- |
 | time | eventTimestamp |  |
-| ResourceId | ResourceId | subscriptionId, resourceType et resourceGroupName sont déduits à partir de resourceId. |
+| resourceId | resourceId | subscriptionId, resourceType et resourceGroupName sont déduits à partir de resourceId. |
 | operationName | operationName.value |  |
 | category | Partie du nom de l’opération | Fraction du type d’opération - « Écrire »/« Supprimer »/« Action » |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
 | resultDescription | description |  |
-| durationMS | S.O. | Toujours 0 |
+| durationMS | N/A | Toujours 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
 | identité | propriétés de revendication et d’autorisation |  |
 | Niveau | Niveau |  |
-| location | S.O. | Emplacement de traitement de l’événement. *Il ne s’agit pas de l’emplacement de la ressource, mais de l’endroit où l’événement a été traité. Cette propriété sera supprimée dans une prochaine mise à jour.* |
+| location | N/A | Emplacement de traitement de l’événement. *Il ne s’agit pas de l’emplacement de la ressource, mais de l’endroit où l’événement a été traité. Cette propriété sera supprimée dans une prochaine mise à jour.* |
 | properties | properties.eventProperties |  |
 | properties.eventCategory | category | Si properties.eventCategory n’est pas présent, la catégorie est « Administrative » |
 | properties.eventName | eventName |  |
@@ -798,6 +798,6 @@ Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur le journal d’activité (autrefois appelé journal d’audit)](../../azure-monitor/platform/activity-logs-overview.md)
-* [Stream the Azure Activity Log to Event Hubs (Diffuser en continu le journal d’activités Azure vers Event Hubs)](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [En savoir plus sur le journal d’activité](activity-logs-overview.md)
+* [Exporter le journal d’activité vers Stockage Azure ou Event Hubs](activity-log-export.md)
 

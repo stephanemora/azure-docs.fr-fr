@@ -1,33 +1,42 @@
 ---
-title: Automatiser les mises à jour correctives du système d’exploitation et du framework avec Azure Container Registry Tasks (ACR Tasks)
-description: Introduction à ACR Tasks, une suite de fonctionnalités d’Azure Container Registry qui permet la création et la mise à jour corrective d’images de conteneur sécurisées et automatisées dans le cloud.
+title: Automatiser la création et la mise à jour corrective des images de conteneur avec Azure Container Registry Tasks (ACR Tasks)
+description: Introduction à ACR Tasks, une suite de fonctionnalités d’Azure Container Registry qui permet la création ; la gestion et la mise à jour corrective d’images de conteneur sécurisées et automatisées dans le cloud.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c62987031a73aa4840c1d036689a3c52fb4dc4a0
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789106"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70914660"
 ---
-# <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatiser les mises à jour correctives du système d’exploitation et du framework avec ACR Tasks
+# <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks
 
-Les conteneurs fournissent de nouveaux niveaux de virtualisation en isolant les dépendances d’application et de développement des spécifications opérationnelles et d’infrastructure. Ce qui demeure, toutefois, est la nécessité de gérer les mises à jour correctives de cette virtualisation d’application.
+Les conteneurs fournissent de nouveaux niveaux de virtualisation en isolant les dépendances d’application et de développement des spécifications opérationnelles et d’infrastructure. Ce qui demeure, toutefois, est la nécessité de gérer les mises à jour correctives et la gestion de cette virtualisation d’application sur le cycle de vie du conteneur.
 
 ## <a name="what-is-acr-tasks"></a>Qu’est-ce qu’ACR Tasks ?
 
-**ACR Tasks** est une suite de fonctionnalités d’Azure Container Registry. Elle fournit la création d’image conteneur informatique pour Linux, Windows et ARM, et peut automatiser [la mise à jour corrective du framework et du système d’exploitation](#automate-os-and-framework-patching) pour vos conteneurs Docker. Non seulement ACR Tasks étend votre cycle de développement « en double interne » au cloud avec des builds d’image de conteneur à la demande, mais il permet également de créer des builds automatisées lors de la validation du code source ou lors de la mise à jour de l’image de base d’un conteneur. Avec les déclencheurs de mise à jour d’image de base, vous pouvez automatiser votre flux de travail de mise à jour corrective du système d’exploitation et du framework d’application tout en garantissant la sécurité de l’environnement et en respectant les critères fondamentaux des conteneurs immuables.
+**ACR Tasks** est une suite de fonctionnalités d’Azure Container Registry. Elle fournit la création d’image conteneur informatique pour les [plateformes](#image-platforms), notamment Linux, Windows et ARM, et peut automatiser la [mise à jour corrective du framework et du système d’exploitation](#automate-os-and-framework-patching) pour vos conteneurs Docker. Non seulement ACR Tasks étend votre cycle de développement « en boucle interne » au cloud avec des builds d’image de conteneur à la demande, mais il permet également de créer des builds automatisées déclenchés par les mises à jour du code source, les mises à jour de l’image de base d’un conteneur ou les minuteurs. Par exemple, avec les déclencheurs de mise à jour d’image de base, vous pouvez automatiser votre flux de travail de mise à jour corrective du système d’exploitation et du framework d’application tout en garantissant la sécurité de l’environnement et en respectant les critères fondamentaux des conteneurs immuables.
 
-Générer et tester des images de conteneur avec ACR Tasks de quatre manières :
+## <a name="task-scenarios"></a>Scénarios de tâches
 
-* [Tâche rapide](#quick-task) : générer et envoyer les images de conteneur à la demande dans Azure, sans avoir besoin d’une installation locale de Docker Engine. Pensez `docker build`, `docker push` dans le cloud. Générez un build à partir du code source local ou d’un référentiel Git.
-* [Génération lors de la validation du code source](#automatic-build-on-source-code-commit) : déclenchez automatiquement une génération d’image de conteneur lors de la validation du code dans un référentiel Git.
-* [Génération lors de la mise à jour d'images de base](#automate-os-and-framework-patching) : déclenchez une image de conteneur lors de la mise à jour de l’image de base de cette image.
-* [Tâches multi-étapes](#multi-step-tasks): définissez les tâches à plusieurs étapes qui génèrent des images, exécutent des conteneurs comme des commandes et envoient des images à un registre. Cette fonctionnalité d’opérations push et de build d’image parallèles, de test et de l’exécution des tâches de la demande ACR tâches prend en charge.
+ACR Tasks prend en charge plusieurs scénarios pour créer et gérer des images de conteneur et d’autres artefacts. Pour plus d’informations, consultez les sections suivantes de cet article.
+
+* **[Tâche rapide](#quick-task)** : générer et envoyer (push) une seule image de conteneur vers un registre de conteneurs à la demande dans Azure, sans avoir besoin d’une installation locale de Docker Engine. Pensez `docker build`, `docker push` dans le cloud.
+* **Tâches déclenchées automatiquement** : activez un ou plusieurs *déclencheurs* pour générer une image :
+  * **[Déclencher lors de la mise à jour du code source](#trigger-task-on-source-code-update)** 
+  * **[Déclencher lors de la mise à jour de l’image de base](#automate-os-and-framework-patching)** 
+  * **[Déclencher selon une planification](#schedule-a-task)** 
+* **[Tâches multiétapes](#multi-step-tasks)** : renforcent la capacité d’ACR Tasks à compiler et envoyer des images en une fois grâce à des flux de travail à plusieurs étapes avec plusieurs conteneurs. 
+
+Chaque tâche ACR Tasks a un [contexte de code source](#context-locations) associé : l’emplacement d’un ensemble de fichiers sources utilisés pour générer une image conteneur ou un autre artefact. Les exemples de contextes incluent un référentiel Git ou un système de fichiers local.
+
+Les tâches peuvent également tirer parti des [variables d’exécution](container-registry-tasks-reference-yaml.md#run-variables), de sorte que vous pouvez réutiliser les définitions de tâches et normaliser les balises pour les images et les artefacts.
 
 ## <a name="quick-task"></a>Tâche rapide
 
@@ -35,37 +44,35 @@ Le cycle de développement « en boucle interne », c’est-à-dire le process
 
 Avant de valider votre première ligne de code, les fonctionnalité [tâche rapide](container-registry-tutorial-quick-task.md) d’ACR Tasks peut fournir un environnement de développement intégré en déchargeant vos builds d’image de conteneur dans Azure. Avec les tâches rapides, vous pouvez vérifier vos définitions de build automatisées et identifier les problèmes potentiels avant de valider votre code.
 
-En utilisant le format `docker build` bien connu, la commande [az acr build][az-acr-build] dans Azure CLI prend un *contexte* (ensemble de fichiers à générer), l’envoie à ACR Tasks et, par défaut, envoie (push) l’image générée à son registre lors de son achèvement.
+En utilisant le format `docker build` bien connu, la commande [az acr build][az-acr-build] dans Azure CLI prend un [contexte](#context-locations) (ensemble de fichiers à générer), l’envoie à ACR Tasks et, par défaut, envoie (push) l’image générée à son registre lors de son achèvement.
 
-Pour une introduction, consultez le Guide de démarrage rapide pour [générer et exécuter une image de conteneur](container-registry-quickstart-task-cli.md) dans Azure Container Registry.  
-
-Le tableau suivant présente quelques exemples d’emplacements de contexte pris en charge pour ACR Tasks :
-
-| Emplacement du contexte | Description | Exemples |
-| ---------------- | ----------- | ------- |
-| Système de fichiers local | Fichiers dans un répertoire sur le système de fichiers local. | `/home/user/projects/myapp` |
-| Branche principale GitHub | Fichiers dans la branche maître (ou autre branche par défaut) d’un référentiel GitHub.  | `https://github.com/gituser/myapp-repo.git` |
-| Branche GitHub | Branche spécifique d’un référentiel GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub PR | Demande de tirage dans un référentiel GitHub. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
-| Sous-dossier de GitHub | Fichiers dans un sous-dossier d’un référentiel GitHub. L’exemple affiche la combinaison de spécifications de PR et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
-| Tarball distant | Fichiers dans une archive compressée sur un serveur Web à distance. | `http://remoteserver/myapp.tar.gz` |
+Pour une introduction, consultez le démarrage rapide pour [générer et exécuter une image conteneur](container-registry-quickstart-task-cli.md) dans Azure Container Registry.  
 
 ACR Tasks est conçu comme un précurseur du cycle de vie de conteneurs. Par exemple, intégrez ACR Tasks dans votre solution CI/CD. En exécutant [az login][az-login] avec un [principal de service][az-login-service-principal], votre solution CI/CD pourra alors émettre des commandes [az acr build][az-acr-build] pour lancer des générations d’image.
 
 Découvrez comment utiliser les tâches rapides dans le premier didacticiel d’ACR Tasks, [Générer des images de conteneur dans le cloud avec Azure Container Registry Tasks](container-registry-tutorial-quick-task.md).
 
-## <a name="automatic-build-on-source-code-commit"></a>Génération automatique lors de la validation du code source
+> [!TIP]
+> Si vous souhaitez créer et envoyer (push) une image directement à partir du code source, sans fichier Dockerfile, Azure Container Registry fournit la commande [az acr pack build][az-acr-pack-build] (préversion). Cet outil crée et envoie (push) une image à partir du code source de l’application à l’aide de [Cloud Native Buildpacks](https://buildpacks.io/).
 
-Utilisez ACR Tasks pour déclencher automatiquement une génération d’image de conteneur lors de la validation du code dans un référentiel Git. Les tâches de génération, configurables avec la commande Azure CLI [az acr task][az-acr-task], vous permettent de spécifier un référentiel Git et éventuellement une branche et un Dockerfile. Lorsque votre équipe valide du code dans le référentiel, un webhook créé par ACR Tasks déclenche la génération de l’image de conteneur définie dans le référentiel.
+## <a name="trigger-task-on-source-code-update"></a>Déclencher la tâche lors de la mise à jour du code source
 
-> [!IMPORTANT]
-> Si vous avez créé précédemment des tâches pendant la préversion avec la commande `az acr build-task`, ces tâches doivent être recréées à l’aide de la commande [az acr task][az-acr-task].
+Déclenchez la création d’une image conteneur ou une tâche multiétapes lors de la validation du code, ou lorsqu’une requête de tirage (pull) est effectuée ou mise à jour, sur un référentiel Git dans GitHub ou Azure DevOps. Par exemple, configurez une tâche de création avec la commande Azure CLI [az acr task create][az-acr-task-create] en spécifiant un référentiel Git et éventuellement une branche et un Dockerfile. Lorsque votre équipe met à jour du code dans le référentiel, un webhook créé par ACR Tasks déclenche la génération de l’image de conteneur définie dans le référentiel. 
+
+ACR Tasks prend en charge les déclencheurs suivants lorsque vous définissez un référentiel Git comme contexte de la tâche :
+
+| Déclencheur | Activée par défaut |
+| ------- | ------------------ |
+| Validation | OUI |
+| Demande de tirage (pull request) | Non |
+
+Pour configurer le déclencheur, vous fournissez à la tâche un jeton d’accès personnel (PAT) pour définir le webhook dans le référentiel GitHub ou Azure DevOps.
 
 Découvrez comment déclencher la génération de builds lors de la validation du code source dans le deuxième didacticiel d’ACR Tasks, [Automatiser les générations d’image de conteneur avec Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
 
 ## <a name="automate-os-and-framework-patching"></a>Automatiser les mises à jour correctives du système d’exploitation et du framework
 
-L’aptitude d’ACR Tasks à améliorer réellement votre pipeline de génération de conteneur provient de sa capacité à détecter la mise à jour d’une image de base. Quand l’image de base mise à jour est envoyée à votre registre, ACR Tasks peut générer automatiquement des images d’application basées sur elle.
+L’aptitude d’ACR Tasks à améliorer réellement votre pipeline de génération de conteneur provient de sa capacité à détecter la mise à jour d’une image de base. Quand l’image de base mise à jour est envoyée à votre registre, ou qu’une image de base est mise à dans un référentiel public comme dans Docker Hub, ACR Tasks peut générer automatiquement des images d’application basées sur elle.
 
 Les images de conteneur appartiennent en gros à deux catégories : les images de *base* et les images d’*application*. En règle générale, vos images de base incluent les frameworks d’application et de système d’exploitation sur lesquels votre application est générée, ainsi que d’autres personnalisations. Ces images de base sont elles-mêmes généralement basées sur des images publiques en amont, par exemple : [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] ou [Node.js][base-node]. Plusieurs de vos images d’application peuvent partager une image de base commune.
 
@@ -73,14 +80,26 @@ Quand une image de framework d’application ou de système d’exploitation est
 
 Comme ACR Tasks détecte de manière dynamique les dépendances de l’image de base quand il génère une image de conteneur, il peut savoir quand l’image de base d’une image d’application est mise à jour. Avec une [tâche de build](container-registry-tutorial-base-image-update.md#create-a-task) préconfigurée, ACR Tasks **regénère automatiquement chaque image d’application** pour vous. Grâce à ces détection et regénération automatiques, ACR Tasks vous permet d’économiser le temps et les efforts normalement nécessaires au suivi et à la mise à jour manuels de chaque image d’application faisant référence à votre image de base mise à jour.
 
-Pour en savoir plus sur la mise à jour corrective du système d’exploitation et du framework, consultez le troisième didacticiel d’ACR Tasks, [Automatiser la génération des images en fonction de la mise à jour d’une image de base avec Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
+Pour les créations d’images à partir d’un Dockerfile, une tâche ACR effectue le suivi d’une mise à jour d’image de base lorsque l’image de base se trouve dans l’un des emplacements suivants :
+
+* Le registre de conteneurs Azure dans lequel s’exécute la tâche
+* Un autre registre de conteneurs Azure dans la même région 
+* Un référentiel public dans Docker Hub
+* Un référentiel public dans Microsoft Container Registry
 
 > [!NOTE]
-> Les mises à jour de l’image de base ne déclenchent des générations que lorsque les images de base et d’application se trouvent dans le même registre de conteneurs Azure ou lorsque l’image de base réside dans un référentiel Docker Hub public.
+> * Le déclencheur de mise à jour d’image de base est activé par défaut dans une tâche ACR. 
+> * Actuellement, ACR Tasks effectue uniquement le suivi des mises à jour des images de base pour les images d’application (*runtime*). ACR Tasks n’effectue pas le suivi des mises à jour des images de base pour les images intermédiaires (*au moment de la génération*) utilisées dans des Dockerfiles multiétapes. 
+
+Pour en savoir plus sur la mise à jour corrective du système d’exploitation et du framework, consultez le troisième didacticiel d’ACR Tasks, [Automatiser la génération des images en fonction de la mise à jour d’une image de base avec Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
+
+## <a name="schedule-a-task"></a>Planifier une tâche
+
+Planifiez éventuellement une tâche en définissant un ou plusieurs *déclencheurs de minuteur* lorsque vous créez ou mettez à jour la tâche. La planification d’une tâche est utile pour exécuter des charges de travail de conteneur selon une planification définie, ou pour exécuter des opérations de maintenance ou des tests sur des images transmises régulièrement à votre registre. Pour plus d’informations, consultez [Exécuter une tâche ACR selon une planification définie](container-registry-tasks-scheduled.md).
 
 ## <a name="multi-step-tasks"></a>Tâches multiétapes
 
-Tâches multi-étapes fournissent la définition de tâche basée sur une étape et de l’exécution de la conception, test et de mise à jour corrective des images de conteneur dans le cloud. Les étapes de la tâche définissent les opérations build et push d’une image de conteneur individuelle. Elles permettent également de définir l’exécution d’un ou plusieurs conteneurs, en utilisant à chaque étape le conteneur comme son environnement d’exécution.
+Les tâches multiétapes permettent la définition et l’exécution basées sur une tâche pour la génération, le test et la mise à jour corrective d’images conteneur dans le cloud. Les étapes de tâche définies dans un [fichier YAML](container-registry-tasks-reference-yaml.md) spécifient les opérations de création et Push individuelles pour les images conteneur ou d’autres artefacts. Elles permettent également de définir l’exécution d’un ou plusieurs conteneurs, en utilisant à chaque étape le conteneur comme son environnement d’exécution.
 
 Par exemple, vous pouvez créer une tâche à plusieurs étapes qui automatise les opérations suivantes :
 
@@ -95,9 +114,40 @@ Les tâches à plusieurs étapes vous permettent de fractionner la génération,
 
 Pour en savoir plus sur les tâches à plusieurs étapes, consultez [Run multi-step build, test, and patch tasks in ACR Tasks (Exécuter des tâches à plusieurs étapes de génération, de test et de correction dans ACR Tasks)](container-registry-tasks-multi-step.md).
 
+## <a name="context-locations"></a>Emplacements de contexte
+
+Le tableau suivant présente quelques exemples d’emplacements de contexte pris en charge pour ACR Tasks :
+
+| Emplacement du contexte | Description | Exemples |
+| ---------------- | ----------- | ------- |
+| Système de fichiers local | Fichiers dans un répertoire sur le système de fichiers local. | `/home/user/projects/myapp` |
+| Branche principale GitHub | Fichiers dans la branche maître (ou autre branche par défaut) d’un référentiel GitHub.  | `https://github.com/gituser/myapp-repo.git` |
+| Branche GitHub | Branche spécifique d’un référentiel GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| Sous-dossier de GitHub | Fichiers dans un sous-dossier d’un référentiel GitHub. L’exemple affiche la combinaison de spécifications de branche et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Tarball distant | Fichiers dans une archive compressée sur un serveur Web à distance. | `http://remoteserver/myapp.tar.gz` |
+
+## <a name="image-platforms"></a>Plateformes d’images
+
+Par défaut, ACR Tasks génère des images pour le système d’exploitation Linux et l’architecture amd64. Spécifiez l’étiquette `--platform` pour créer des images Windows ou des images Linux pour d’autres architectures. Spécifiez le système d’exploitation et éventuellement une architecture prise en charge au format système d’exploitation/architecture (par exemple, `--platform Linux/arm`). Pour les architectures ARM, spécifiez éventuellement une variante au format système d’exploitation/architecture/variante (par exemple, `--platform Linux/arm64/v8`) :
+
+| OS | Architecture|
+| --- | ------- | 
+| Linux | amd64<br/>arm<br/>arm64<br/>386 |
+| Windows | amd64 |
+
+## <a name="view-task-logs"></a>Afficher les journaux d’activité de tâches
+
+Chaque exécution de tâche génère une sortie de journal que vous pouvez inspecter pour déterminer si les étapes de la tâche ont été exécutées avec succès. Si vous utilisez la commande [az acr build](/cli/azure/acr#az-acr-build), [acr az run](/cli/azure/acr#az-acr-run), ou [az acr task run](/cli/azure/acr/task#az-acr-task-run) pour déclencher la tâche, la sortie de journal pour l’exécution de la tâche est diffusée vers la console et également stockée pour une utilisation ultérieure. Lorsqu’une tâche est déclenchée automatiquement, par exemple par une validation de code source ou une mise à jour d’image de base, les journaux des tâches sont uniquement stockés. Affichez les journaux pour une tâche exécutée dans le portail Azure, ou utilisez la commande [az acr task logs](/cli/azure/acr/task#az-acr-task-logs).
+
+Par défaut, les données et journaux pour les exécutions de tâches dans un registre sont conservées pendant 30 jours puis vidées automatiquement. Si vous souhaitez archiver les données pour une exécution de tâche, activez l’archivage à l’aide de la commande [az acr task update-run](/cli/azure/acr/task#az-acr-task-update-run). L’exemple suivant active l’archivage pour l’exécution de la tâche *cf11* dans le registre *myregistry*.
+
+```azurecli
+az acr task update-run --registry myregistry --run-id cf11 --no-archive false
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lorsque vous êtes prêt à automatiser le système d’exploitation et la mise à jour corrective du framework en créant vos images de conteneur dans le cloud, Découvrez les trois parties [série de didacticiels ACR tâches](container-registry-tutorial-quick-task.md).
+Lorsque vous êtes prêt à automatiser les builds et la maintenance des images conteneur dans le cloud, consultez la [série de tutoriels sur ACR Tasks](container-registry-tutorial-quick-task.md).
 
 Si vous le souhaitez, vous pouvez installer l’[extension Docker pour Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) et l’extension [Compte Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) pour utiliser vos registres de conteneurs Azure. Dans Visual Studio Code, vous pouvez tirer (pull) et envoyer (push) des images vers un registre de conteneurs Azure, et exécuter ACR Tasks.
 
@@ -112,7 +162,9 @@ Si vous le souhaitez, vous pouvez installer l’[extension Docker pour Visual St
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-task]: /cli/azure/acr
+[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-task]: /cli/azure/acr/task
+[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
 [az-login]: /cli/azure/reference-index#az-login
 [az-login-service-principal]: /cli/azure/authenticate-azure-cli
 

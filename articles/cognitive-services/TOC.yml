@@ -1,20 +1,50 @@
 - name: Documentation Azure Cognitive Services
-  href: index.md
-- name: Vue d’ensemble
+  href: index.yml
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que Cognitive Services\_?"
       href: Welcome.md
+    - name: Sous-domaines personnalisés pour Cognitive Services
+      href: cognitive-services-custom-subdomains.md
+    - name: Cognitive Services et machine learning
+      href: cognitive-services-and-machine-learning.md
     - name: Support multilingue
       href: language-support.md
+- name: Support pour les conteneurs
+  items:
     - name: Support pour les conteneurs
       href: cognitive-services-container-support.md
+    - name: Questions fréquentes (FAQ) sur les conteneurs
+      href: ./containers/container-faq.md
+    - name: Recettes de conteneur
+      items:
+        - name: Réutilisation des conteneurs
+          href: ./containers/container-reuse-recipe.md
+        - name: Déployer sur une instance de conteneur Azure
+          href: ./containers/azure-container-instance-recipe.md
+        - name: Déployer sur Azure Kubernetes
+          href: ./containers/azure-kubernetes-recipe.md
+        - name: Déployer avec Docker Compose
+          href: ./containers/docker-compose-recipe.md
+    - name: Autres services de conteneur
+      items:
+        - name: Azure Container Instances
+          href: ../container-instances/container-instances-tutorial-prepare-app.md
+        - name: Azure Container Registry
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes Service (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Démarrages rapides
   items:
-    - name: Créer un compte
+    - name: Créer une ressource en utilisant le portail Azure
       href: cognitive-services-apis-create-account.md
+    - name: Créer une ressource en utilisant Azure CLI
+      href: cognitive-services-apis-create-account-cli.md
     - name: Authentication
       href: authentication.md
+    - name: Journalisation de diagnostic
+      href: diagnostic-logging.md
 - name: Ressources
   items:
     - name: Feuille de route Azure
@@ -23,10 +53,18 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Contrat de niveau de service (SLA)
+      href: 'https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/'
     - name: Videos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/cognitive-services/'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Indiquer des commentaires sur le produit
+      href: 'https://cognitive.uservoice.com/'
     - name: Code de conduite
       href: 'https://go.microsoft.com/fwlink/?LinkId=698895'
     - name: Base de connaissances

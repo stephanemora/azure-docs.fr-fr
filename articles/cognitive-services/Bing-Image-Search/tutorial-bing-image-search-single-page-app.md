@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 353641c514c9171e211221b84b13c5f09a413a48
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341220"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868255"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutoriel : Créer une application monopage avec l’API Recherche d’images Bing
 
@@ -116,7 +116,7 @@ Par défaut, le gestionnaire `onsubmit` retourne `false`, ce qui empêche l’en
 
 ![[Formulaire de Recherche d’images Bing]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-L’API Recherche d’images Bing offre plusieurs [paramètres de requête de filtre](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters) pour affiner et filtrer les résultats de la recherche. Le formulaire HTML de cette application utilise et affiche les options de paramètre suivantes :
+L’API Recherche d’images Bing offre plusieurs [paramètres de requête de filtre](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) pour affiner et filtrer les résultats de la recherche. Le formulaire HTML de cette application utilise et affiche les options de paramètre suivantes :
 
 |              |                                                                                                                                                                                    |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -369,7 +369,7 @@ Les paramètres `index` et `count` sont utilisés pour compter les résultats, g
     }, // relatedSearches renderer omitted
 ```
 
-Les valeurs `height` et `width` de l’image miniature sont utilisées à la fois dans la balise `<img>` et dans les champs `h` et `w` de l’URL de la miniature. Cela permet à Bing de retourner [une miniature](resize-and-crop-thumbnails.md) d’exactement cette taille.
+Les valeurs `height` et `width` de l’image miniature sont utilisées à la fois dans la balise `<img>` et dans les champs `h` et `w` de l’URL de la miniature. Cela permet à Bing de retourner [une miniature](../bing-web-search/resize-and-crop-thumbnails.md) d’exactement cette taille.
 
 ## <a name="persisting-client-id"></a>ID client persistant
 
@@ -386,7 +386,7 @@ Les stratégies de sécurité de navigateur (CORS) peuvent rendre l’en-tête `
 > [!NOTE]
 > Dans une application web de production, vous devez effectuer la requête côté serveur malgré tout. Dans le cas contraire, votre clé API Recherche Bing doit être incluse dans la page web, où elle est accessible à toute personne qui consulte la source. Vous êtes facturé pour toutes les utilisations associées à votre clé d’abonnement d’API, y compris les requêtes effectuées par des tiers non autorisés. Il est donc important de ne pas exposer votre clé.
 
-À des fins de développement, vous pouvez effectuer la requête d’API Recherche Web Bing via un proxy CORS. La réponse émanant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui met les en-têtes de réponse sur liste verte et les rend disponibles pour JavaScript.
+À des fins de développement, vous pouvez effectuer la requête d’API Recherche Web Bing via un proxy CORS. La réponse provenant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui autorise les en-têtes de réponse et les rend accessibles à JavaScript.
 
 Il est facile d’installer un proxy CORS pour autoriser l’application du didacticiel à accéder à l’en-tête d’ID client. Tout d’abord, [installez Node.js](https://nodejs.org/en/download/) si ce n’est pas déjà fait. Exécutez alors la commande suivante dans une fenêtre de commande :
 

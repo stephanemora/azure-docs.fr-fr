@@ -1,31 +1,31 @@
 ---
 title: Ressources de certificats dans Azure Automation
-description: Les certificats sont en toute sécurité dans Azure Automation pour qu’ils soient accessibles par les runbooks ou configurations DSC pour s’authentifier auprès des ressources Azure et tiers.  Cet article présente les certificats et leur utilisation dans la création textuelle et graphique.
+description: Stockés de manière sécurisée dans Azure Automation, les certificats sont accessibles par des runbooks ou des configurations DSC pour s’authentifier auprès de ressources Azure et tierces.  Cet article présente les certificats et leur utilisation dans la création textuelle et graphique.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: da116dd8c84e4aa96cc3254218f1ab5d14a8bd6b
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010277"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478191"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ressources de certificats dans Azure Automation
 
-Les certificats sont stockés en toute sécurité dans Azure Automation pour qu’ils soient accessibles par les runbooks ou configurations DSC à l’aide de la **Get-AzureRmAutomationCertificate** activité pour les ressources Azure Resource Manager. Cette fonctionnalité vous permet de créer des runbooks et des configurations DSC qui utilisent des certificats pour l’authentification, ou les ajoute aux ressources Azure ou tierces.
+Stockés de manière sécurisée dans Azure Automation, les certificats sont accessibles par des runbooks ou des configurations DSC avec l’activité **Get-AzureRmAutomationCertificate** pour les ressources Azure Resource Manager. Cette fonctionnalité vous permet de créer des runbooks et des configurations DSC qui utilisent des certificats pour l’authentification, ou les ajoute aux ressources Azure ou tierces.
 
 >[!NOTE]
 >Les ressources sécurisées dans Azure Automation incluent les informations d'identification, les certificats, les connexions et les variables chiffrées. Ces ressources sont chiffrées et stockées dans Azure Automation à l’aide d’une clé unique générée pour chaque compte Automation. Cette clé est stockée dans un coffre de clés managé par le système. Avant de stocker une ressource sécurisée, la clé est chargée à partir de Key Vault, puis utilisée pour chiffrer la ressource. Ce processus est managé par Azure Automation.
 
 ## <a name="azurerm-powershell-cmdlets"></a>Applets de commande AzureRM PowerShell
 
-Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell. Elles font partie de la [module AzureRM.Automation](/powershell/azure/overview), qui est disponible pour une utilisation dans des runbooks Automation et les configurations DSC.
+Pour AzureRM, les applets de commande du tableau suivant sont utilisées pour créer et gérer les ressources d’informations d’identification Automation avec Windows PowerShell. Elles font partie du [module AzureRM.Automation](/powershell/azure/overview), utilisable dans les runbooks Automation et les configurations DSC.
 
 |Applets de commande|Description|
 |:---|:---|
@@ -59,18 +59,18 @@ La fonction dans le tableau suivant est utilisée pour accéder aux certificats 
 
 ## <a name="creating-a-new-certificate"></a>Création d’un certificat
 
-Lorsque vous créez un certificat, vous téléchargez un fichier .cer ou .pfx dans Azure Automation. Si vous marquez le certificat comme exportable, vous pouvez également le transférer du magasin de certificats Azure Automation. Si elle n’est pas exportable, puis il peut uniquement être utilisé pour la signature dans le runbook ou la configuration de DSC. Azure Automation exige que le certificat provienne du fournisseur : **Microsoft Enhanced RSA and AES Cryptographic Provider**.
+Lorsque vous créez un certificat, vous téléchargez un fichier .cer ou .pfx dans Azure Automation. Si vous marquez le certificat comme exportable, vous pouvez également le transférer du magasin de certificats Azure Automation. S’il n’est pas exportable, il ne peut servir que pour la signature dans le runbook ou la configuration DSC. Azure Automation exige que le certificat provienne du fournisseur : **Microsoft Enhanced RSA and AES Cryptographic Provider**.
 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Pour créer un certificat avec le portail Azure
 
-1. À partir de votre compte Automation, cliquez sur le **actifs** vignette pour ouvrir le **actifs** page.
-2. Cliquez sur le **certificats** vignette pour ouvrir le **certificats** page.
-3. Cliquez sur **ajouter un certificat** en haut de la page.
+1. Dans votre compte Automation, cliquez sur la vignette **Ressources** pour ouvrir la page **Ressources**.
+2. Cliquez sur la vignette **Certificats** pour ouvrir la page **Certificats**.
+3. Cliquez sur **Ajouter un certificat** en haut de la page.
 4. Tapez un nom pour le certificat dans la zone **Nom** .
-5. Pour rechercher un fichier .cer ou .pfx, cliquez sur **Sélectionner un fichier** sous **Charger un fichier de certificat**. Si vous sélectionnez un fichier .pfx, spécifiez un mot de passe et si elle peut être exportée.
+5. Pour rechercher un fichier .cer ou .pfx, cliquez sur **Sélectionner un fichier** sous **Charger un fichier de certificat**. Si vous sélectionnez un fichier .pfx, spécifiez un mot de passe et indiquez s’il est exportable.
 6. Cliquez sur **Créer** pour enregistrer la nouvelle ressource de certificat.
 
-### <a name="to-create-a-new-certificate-with-powershell"></a>Pour créer un nouveau certificat avec PowerShell
+### <a name="to-create-a-new-certificate-with-powershell"></a>Créer un certificat avec PowerShell
 
 L’exemple suivant démontre la création d’un certificat Automation et sont marquage comme exportable. Cette opération importe un fichier pfx existant.
 
@@ -83,9 +83,9 @@ $ResourceGroup = "ResourceGroup01"
 New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certificateName -Path $PfxCertPath –Password $CertificatePassword -Exportable -ResourceGroupName $ResourceGroup
 ```
 
-### <a name="create-a-new-certificate-with-resource-manager-template"></a>Créer un nouveau certificat avec le modèle Resource Manager
+### <a name="create-a-new-certificate-with-resource-manager-template"></a>Créer un certificat avec le modèle Resource Manager
 
-L’exemple suivant montre comment déployer un certificat à votre compte Automation à l’aide d’un modèle Resource Manager via PowerShell :
+L’exemple suivant montre comment déployer un certificat sur son compte Automation à l’aide d’un modèle Resource Manager au moyen de PowerShell :
 
 ```powershell-interactive
 $AutomationAccountName = "<automation account name>"
@@ -128,7 +128,7 @@ New-AzureRmResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAut
 
 ## <a name="using-a-certificate"></a>Utilisation d’un certificat
 
-Pour utiliser un certificat, vous devez utiliser l’activité **Get-AutomationCertificate**. Vous ne pouvez pas utiliser le [Get-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/get-azurermautomationcertificate) applet de commande, car celle-ci renvoie des informations sur la ressource de certificat, mais pas le certificat lui-même.
+Pour utiliser un certificat, vous devez utiliser l’activité **Get-AutomationCertificate**. La cmdlet [Get-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/get-azurermautomationcertificate) n’est pas utilisable, car elle retourne des informations sur la ressource de certificat, et non le certificat proprement dit.
 
 ### <a name="textual-runbook-sample"></a>Exemple de Runbook textuel
 
@@ -144,11 +144,11 @@ Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 
 ### <a name="graphical-runbook-sample"></a>Exemple de Runbook graphique
 
-Vous ajoutez un **Get-AutomationCertificate** à un runbook graphique en cliquant sur le certificat dans le volet bibliothèque et en sélectionnant **ajouter au canevas**.
+Pour ajouter une activité **Get-AutomationCertificate** à un runbook graphique, cliquez avec le bouton droit sur le certificat dans le volet Bibliothèque et sélectionnez **Ajouter à la zone de dessin**.
 
 ![Ajouter un certificat à la zone de dessin](../media/certificates/automation-certificate-add-to-canvas.png)
 
-L’image suivante montre un exemple d’utilisation d’un certificat dans un Runbook graphique. Cela est identique à l’exemple précédent qui montre comment ajouter un certificat à un service cloud à partir d’un runbook textuel.
+L’image suivante montre un exemple d’utilisation d’un certificat dans un Runbook graphique. Il s’agit du même exemple que le précédent, qui montre comment ajouter un certificat à un service cloud à partir d’un runbook textuel.
 
 ![Exemple de création graphique](../media/certificates/graphical-runbook-add-certificate.png)
 

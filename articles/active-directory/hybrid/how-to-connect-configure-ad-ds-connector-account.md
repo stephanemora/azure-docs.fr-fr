@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007557"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64918493"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
 
@@ -25,7 +25,7 @@ Le module PowerShell dénommé [ADSyncConfig.psm1](reference-connect-adsyncconfi
 ## <a name="overview"></a>Vue d'ensemble 
 Les applets de commande PowerShell suivantes vous permettent de définir les autorisations du compte de connecteur AD DS, pour chaque fonctionnalité que vous sélectionnez pour l’activer dans Azure AD Connect. Pour éviter tout problème, vous devez définir les autorisations Active Directory préalablement à toute installation d’Azure AD Connect à l’aide d’un compte de domaine personnalisé, pour pouvoir ensuite vous connecter à votre forêt. Ce module ADSyncConfig est également utile pour configurer les autorisations après le déploiement d’Azure AD Connect.
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![présentation d’un compte ad ds](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 Dans le cadre de l’installation Express d’Azure AD Connect, un compte généré automatiquement (MSOL_nnnnnnnnnn) est créé dans Active Directory avec toutes les autorisations nécessaires. Vous n’avez donc pas besoin du module ADSyncConfig, sauf si vous avez bloqué l’héritage des autorisations sur les unités d’organisation ou sur des objets Active Directory spécifiques que vous souhaitez synchroniser dans Azure AD. 
  
@@ -81,7 +81,7 @@ Ou :
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 ```
 
-Veillez à remplacer `<ADAccountName>`, `<ADDomainName>` et `<ADAccountDN>` avec les valeurs appropriées pour votre environnement.
+Veillez à remplacer `<ADAccountName>`, `<ADDomainName>` et `<ADAccountDN>` par les valeurs de votre environnement.
 
 Si vous ne souhaitez pas changer les autorisations sur le conteneur AdminSDHolder, utilisez le commutateur `-SkipAdminSdHolders`. 
 
@@ -110,7 +110,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### <a name="view-ad-ds-permissions-of-an-object"></a>Afficher les autorisations AD DS définies sur un objet 
-Vous pouvez utiliser l’applet de commande ci-dessous pour afficher la liste des autorisations actuellement définies sur un objet Active Directory en fournissant son DistinguishedName : 
+Pour afficher la liste des autorisations actuellement définies sur un objet Active Directory, utilisez la cmdlet ci-dessous en indiquant le nom unique (DistinguishedName) de l’objet : 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -136,7 +136,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Cette applet de commande définit les autorisations suivantes : 
  
 
-|type |Nom |Access |S'applique à| 
+|Type |Nom |Access |S'applique à| 
 |-----|-----|-----|-----|
 |AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets appareil descendants| 
 |AUTORISER |Compte de connecteur AD DS|Lire toutes les propriétés |Objets InetOrgPerson descendants| 
@@ -162,7 +162,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER|Compte de connecteur AD DS|Lecture/Écriture de la propriété|Objets utilisateur descendants|
 
@@ -182,7 +182,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |Compte de connecteur AD DS |Réplication des modifications de l’annuaire |Cet objet uniquement (racine du domaine)| 
 |AUTORISER |Compte de connecteur AD DS |Réplication de toutes les modifications de l’annuaire |Cet objet uniquement (racine du domaine)| 
@@ -202,7 +202,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |Compte de connecteur AD DS |Réinitialiser le mot de passe |Objets utilisateur descendants| 
 |AUTORISER |Compte de connecteur AD DS |Écriture de la propriété lockoutTime |Objets utilisateur descendants| 
@@ -222,7 +222,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |Compte de connecteur AD DS |Lecture/Écriture générique |Tous les attributs d’un groupe de types d’objets et des sous-objets| 
 |AUTORISER |Compte de connecteur AD DS |Création/Suppression de l’objet enfant |Tous les attributs d’un groupe de types d’objets et des sous-objets| 
@@ -245,7 +245,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Cette applet de commande définit les autorisations suivantes :  
  
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets utilisateur descendants| 
 |AUTORISER |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets InetOrgPerson descendants| 
@@ -267,7 +267,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets PublicFolder descendants| 
 
@@ -292,7 +292,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |SYSTEM |Contrôle total |Cet objet 
 |AUTORISER |Administrateurs de l’entreprise |Contrôle total |Cet objet 

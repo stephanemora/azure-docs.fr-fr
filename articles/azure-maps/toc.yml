@@ -1,10 +1,11 @@
 - name: Documentation sur Azure Maps
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Maps\_?"
       href: about-azure-maps.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Créer une application web
       href: quick-demo-map-app.md
@@ -24,6 +25,10 @@
       items:
         - name: Définir une limite géographique
           href: tutorial-geofence.md
+        - name: Analytique spatiale
+          href: tutorial-iot-hub-maps.md
+        - name: Routage EV à l’aide d’Azure Notebooks (Python)
+          href: tutorial-ev-routing.md
 - name: Concepts
   items:
     - name: Authentification avec Azure Maps
@@ -42,7 +47,9 @@
           href: render-coverage.md
         - name: Couverture du routage
           href: routing-coverage.md
-    - name: Langues prises en charge
+        - name: Couverture de la mobilité
+          href: mobility-coverage.md
+    - name: Prise en charge de la localisation
       href: supported-languages.md
     - name: Styles de carte pris en charge
       href: supported-map-styles.md
@@ -50,6 +57,8 @@
       href: supported-browsers.md
     - name: Niveaux de zoom et grille mosaïque
       href: zoom-levels-and-tile-grid.md
+    - name: Structure des données Mobility Service
+      href: mobility-service-data-structure.md
 - name: Guides pratiques
   items:
     - name: Gérer les comptes Maps
@@ -70,33 +79,43 @@
           href: how-to-use-best-practices-for-search.md
         - name: Rendre les données personnalisées sur une carte statique
           href: how-to-render-custom-data.md
+        - name: Demander des routes de transit public
+          href: how-to-request-transit-data.md
+        - name: Demander des données de transit public en temps réel
+          href: how-to-request-real-time-data.md
     - name: Développer avec le kit SDK web
       items:
         - name: Commandes de la carte
           items:
-            - name: Utiliser le contrôle de carte
+            - name: Bien démarrer avec le contrôle de carte web
               href: how-to-use-map-control.md
             - name: Créer une carte
               href: map-create.md
-            - name: Choisir un style de mappage
+            - name: Changer le style de la carte
               href: choose-map-style.md
             - name: Ajouter des commandes à la carte
               href: map-add-controls.md
+            - name: Création d'une source de données
+              href: create-data-source-web-sdk.md
             - name: Ajouter un calque de symboles
               href: map-add-pin.md
-            - name: Ajouter une fenêtre contextuelle
-              href: map-add-popup.md
             - name: Ajouter un calque de bulles
               href: map-add-bubble-layer.md
-            - name: Ajouter des formes
+            - name: Ajouter une couche de lignes
+              href: map-add-line-layer.md
+            - name: Ajouter une couche de polygones
               href: map-add-shape.md
             - name: Ajouter un calque de carte thermique
               href: map-add-heat-map-layer.md
+            - name: Ajouter une fenêtre contextuelle
+              href: map-add-popup.md
             - name: Données de point de cluster
               href: clustering-point-data-web-sdk.md
             - name: Utiliser des expressions de style basées sur les données
               href: data-driven-style-expressions-web-sdk.md
-            - name: Superposer une image
+            - name: Guide pratique pour utiliser des modèles d’image
+              href: how-to-use-image-templates-web-sdk.md
+            - name: Ajouter un calque d’images
               href: map-add-image-layer.md
             - name: Ajouter des couches de vignettes
               href: map-add-tile-layer.md
@@ -108,6 +127,14 @@
               href: map-events.md
             - name: Rendre votre application accessible
               href: map-accessibility.md
+        - name: Outils de dessin
+          items:
+            - name: Ajouter une barre d’outils de dessin
+              href: map-add-drawing-toolbar.md
+            - name: Définir les options de dessin
+              href: set-drawing-options.md
+            - name: Obtenir des données de forme
+              href: map-get-shape-data.md
         - name: Module de services
           items:
             - name: Utiliser le module de services
@@ -120,8 +147,20 @@
               href: map-route.md
     - name: Développer avec le kit Android SDK
       items:
-        - name: Guide pratique pour utiliser les commandes de carte Android
+        - name: Bien démarrer avec le contrôle de carte Android
           href: how-to-use-android-map-control-library.md
+        - name: Changer le style de la carte
+          href: set-android-map-styles.md
+        - name: Ajouter un calque de symboles
+          href: how-to-add-symbol-to-android-map.md
+        - name: Ajouter des formes
+          href: how-to-add-shapes-to-android-map.md
+        - name: Afficher des informations sur les fonctionnalités
+          href: display-feature-information-android.md
+        - name: Ajouter un calque de vignettes
+          href: how-to-add-tile-layer-android-map.md
+    - name: Fournir des commentaires sur les données
+      href: how-to-use-feedback-tool.md
 - name: Informations de référence
   items:
     - name: Extensions d’API et de paramètre
@@ -140,6 +179,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/data'
         - name: Service de géolocalisation
           href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
+        - name: Service Mobilité
+          href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: Render Service
           href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: Service d’itinéraire
@@ -158,6 +199,8 @@
       items:
         - name: Commandes de la carte
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+        - name: Outils de dessin
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/'
         - name: Module de service
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
     - name: Modèle Resource Manager
@@ -165,8 +208,8 @@
 - name: Ressources
   items:
     - name: Conditions d’utilisation d’Azure Maps
-      href: 'https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31'
-    - name: Prix d’Azure Maps
+      href: 'https://azure.microsoft.com/support/legal/'
+    - name: Prix Azure Maps
       href: 'https://azure.microsoft.com/pricing/details/azure-maps'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -176,6 +219,8 @@
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: Vidéos Azure Maps
       href: 'https://aka.ms/AzureMapsVideos'
+    - name: Études de cas Azure Maps
+      href: 'https://aka.ms/AzureMapsCaseStudies'
     - name: Glossaire Azure Maps
       href: glossary.md
     - name: Mises à jour de service
@@ -200,6 +245,8 @@
       items:
         - name: IoT Hub
           href: /azure/iot-hub
+        - name: IoT Plug-and-Play
+          href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
         - name: Cartes

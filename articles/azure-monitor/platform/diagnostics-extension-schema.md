@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/20/2018
+ms.date: 09/04/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: e8ea8ea749243821e5382fc285e3c38f05d4c6b5
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526336"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735083"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versions et historique des schémas de configuration de l’extension Diagnostics Azure
 Cette page est un index des versions de schémas d’extension Diagnostics Azure fournies avec le kit SDK Microsoft Azure.  
@@ -29,7 +29,7 @@ Cette page est un index des versions de schémas d’extension Diagnostics Azure
 >
 > Cette page vous concerne uniquement si vous utilisez l’un de ces services.
 
-L’extension Azure Diagnostics est utilisée avec d’autres produits de diagnostic Microsoft comme Azure Monitor, qui inclut l’Application Insights et Analytique de journal. Pour plus d’informations, voir [Vue d’ensemble des outils d’analyse Microsoft](../../azure-monitor/overview.md).
+L’extension Diagnostics Azure est utilisée avec d’autres produits de diagnostic Microsoft comme Azure Monitor, qui comprend Application Insights et Log Analytics. Pour plus d’informations, voir [Vue d’ensemble des outils d’analyse Microsoft](../../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Graphique des versions d’Azure Diagnostics et SDK  
 
@@ -54,13 +54,7 @@ L’extension Azure Diagnostics est utilisée avec d’autres produits de diagno
  À compter de la version 2.5 du kit SDK (version 1.2 de Diagnostics), Diagnostics Azure est passé à un modèle d’extension. Les outils permettant d’utiliser les nouvelles fonctionnalités sont disponibles uniquement dans les kits SDK Azure plus récents, mais tout service utilisant Diagnostics Azure sélectionne la dernière version directement dans Azure. Par exemple, toute personne utilisant encore le kit SDK 2.5 chargerait la version la plus récente indiquée dans le tableau précédent, qu’elle utilise ou non les fonctionnalités plus récentes.  
 
 ## <a name="schemas-index"></a>Index des schémas  
-Les différentes versions de Diagnostics Azure utilisent des schémas de configuration différents.
-
-[Schéma de configuration des diagnostics 1.0](diagnostics-extension-schema-1dot0.md)  
-
-[Schéma de configuration des diagnostics 1.2](diagnostics-extension-schema-1dot2.md)  
-
-[Diagnostics 1.3 et schéma de configuration ultérieur](diagnostics-extension-schema-1dot3.md)  
+Les différentes versions de Diagnostics Azure utilisent des schémas de configuration différents. Les schémas 1.0 et 1.2 sont déconseillés. Pour plus d'informations sur la version 1.3 et les versions ultérieures, voir [Diagnostics 1.3 et schéma de configuration ultérieur](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Historique des versions
 

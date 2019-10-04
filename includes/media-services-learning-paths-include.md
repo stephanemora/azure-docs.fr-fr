@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 135232e3e9894bcef1ef657e41f5ad3a5e307289
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352429"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014663"
 ---
-### <a name="media-services-v3-latest"></a>Media Services v3 (dernière version)
+### <a name="media-services-v3-latest"></a>Media Services v3 (version la plus récente)
 
-Découvrez la dernière version d’Azure Media Services. 
+Découvrez la dernière version de Microsoft Azure Media Services ! 
 
 * [Vue d'ensemble](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
 * [Concepts](https://docs.microsoft.com/azure/media-services/latest/concepts-overview)
@@ -24,5 +24,5 @@ Découvrez la dernière version d’Azure Media Services.
 
 * [Vue d'ensemble](https://docs.microsoft.com/azure/media-services/previous/media-services-overview)
 * [Créer un compte](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-create-account)
-* [Fournir à la demande](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
-* [Fournissez en direct](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)
+* [Remise à la demande](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
+* [Remise en direct](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)

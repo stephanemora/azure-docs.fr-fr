@@ -3,7 +3,7 @@ title: Ajouter un point de terminaison HTTPS à une application Service Fabric d
 description: Dans le cadre de ce didacticiel, vous allez apprendre à ajouter un point de terminaison HTTPS à un service web frontal ASP.NET Core à l’aide de Kestrel et à déployer l’application sur un cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2019
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 69aa140fcecae13aae0d7a165c9f7bea0ab87ca1
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045728"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71301016"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Didacticiel : Ajouter un point de terminaison HTTPS à un service frontal API Web ASP.NET Core à l’aide de Kestrel
 
@@ -52,8 +52,8 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Installez Visual Studio 2017](https://www.visualstudio.com/) versions 15.5 ou ultérieures avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
-* [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md).
+* [Installez Visual Studio 2019](https://www.visualstudio.com/) version 15.5 ou ultérieure avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
+* [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Obtenir un certificat ou créer un certificat de développement auto-signé
 
@@ -139,7 +139,7 @@ serviceContext =>
                     int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
                     opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
                     {
-                        listenOptions.UseHttps(GetCertificateFromStore());
+                        listenOptions.UseHttps(GetHttpsCertificateFromStore());
                         listenOptions.NoDelay = true;
                     });
                 })
@@ -164,28 +164,30 @@ serviceContext =>
 Ajoutez également la méthode ci-après pour permettre à Kestrel de trouver le certificat dans le magasin `Cert:\LocalMachine\My` au moyen du sujet.  
 
 Remplacez la chaîne « &lt;your_CN_value&gt; » par « mytestcert » si vous avez créé un certificat auto-signé avec la commande PowerShell précédente, ou utilisez le CN de votre certificat.
+Sachez que dans le cas d’un déploiement local vers `localhost`, il est préférable d’utiliser « CN=localhost » pour éviter les exceptions d’authentification.
 
 ```csharp
-private X509Certificate2 GetCertificateFromStore()
+private X509Certificate2 GetHttpsCertificateFromStore()
 {
-    var store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-    try
+    using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
     {
         store.Open(OpenFlags.ReadOnly);
         var certCollection = store.Certificates;
         var currentCerts = certCollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=<your_CN_value>", false);
-        return currentCerts.Count == 0 ? null : currentCerts[0];
-    }
-    finally
-    {
-        store.Close();
+        
+        if (currentCerts.Count == 0)
+                {
+                    throw new Exception("Https certificate is not found.");
+                }
+        
+        return currentCerts[0];
     }
 }
 ```
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>Accorder l’accès SERVICE RÉSEAU à la clé privée du certificat
 
-Au cours d’une étape précédente, vous avez importé le certificat dans le magasin `Cert:\LocalMachine\My` sur l’ordinateur de développement.  Vous devez également attribuer explicitement au compte exécutant le service (SERVICE RÉSEAU, par défaut) l’accès à la clé privée du certificat. Vous pouvez effectuer cette opération manuellement (à l’aide de l’outil certlm.msc), mais il est préférable d’exécuter automatiquement un script PowerShell en [configurant un script de démarrage](service-fabric-run-script-at-service-startup.md) dans l’élément **SetupEntryPoint** du manifeste de service.
+Au cours d’une étape précédente, vous avez importé le certificat dans le magasin `Cert:\LocalMachine\My` sur l’ordinateur de développement.  Maintenant, octroyez explicitement au compte exécutant le service (SERVICE RÉSEAU, par défaut) l’accès à la clé privée du certificat. Vous pouvez effectuer cette étape manuellement (à l’aide de l’outil certlm.msc), mais il est préférable d’exécuter automatiquement un script PowerShell en [configurant un script de démarrage](service-fabric-run-script-at-service-startup.md) dans l’élément **SetupEntryPoint** du manifeste de service.
 
 ### <a name="configure-the-service-setup-entry-point"></a>Configurer le point d’entrée d’installation du service
 

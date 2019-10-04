@@ -1,29 +1,29 @@
 ---
-title: Classes de ressources pour la gestion des charges de travail - Azure SQL Data Warehouse | Microsoft Docs
+title: Classes de ressources pour la gestion des charges de travail dans Azure SQL Data Warehouse | Microsoft Docs
 description: Conseils d’utilisation des classes de ressources pour gérer la concurrence et les ressources de calcul en lien avec les requêtes dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
-ms.date: 03/15/2019
+ms.subservice: workload-management
+ms.date: 06/20/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 548271e888344eeb0d111c074153ef7492af5b33
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520052"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595532"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestion des charges de travail avec des classes de ressources dans Azure SQL Data Warehouse
 
 Conseils d’utilisation des classes de ressources pour gérer la mémoire et la concurrence pour les requêtes dans votre solution Azure SQL Data Warehouse.  
 
-## <a name="what-is-workload-management"></a>Quelle est la gestion de la charge de travail
+## <a name="what-is-workload-management"></a>Qu’est-ce que la gestion des charges de travail ?
 
-Gestion de la charge de travail vous offre la possibilité d’optimiser les performances globales de toutes les requêtes. Une charge de travail bien paramétrée exécute des requêtes et opérations de chargement efficacement, qu’ils soient nécessitant ou gourmandes en e/s. SQL Data Warehouse fournit des fonctionnalités de gestion des charges de travail pour les environnements multi-utilisateurs. Un entrepôt de données n’est pas destiné à des charges de travail mutualisées.
+La gestion des charges de travail vous permet d’optimiser les performances globales de toutes les requêtes. Une charge de travail bien paramétrée exécute les requêtes et les opérations de chargement avec efficacité, que celles-ci nécessitent beaucoup de ressources système ou exigent de nombreuses entrées et sorties. SQL Data Warehouse fournit des fonctionnalités de gestion des charges de travail pour les environnements multi-utilisateurs. Un entrepôt de données n’est pas destiné à des charges de travail mutualisées.
 
 La capacité de performances d’un entrepôt de données est déterminée par les [unités de l’entrepôt de données](what-is-a-data-warehouse-unit-dwu-cdwu.md).
 
@@ -32,17 +32,17 @@ La capacité de performances d’un entrepôt de données est déterminée par l
 
 La capacité de performances d’une requête est déterminée par la classe de ressources de cette dernière. Dans la suite de cet article, nous présentons les classes de ressources et expliquons comment les ajuster.
 
-## <a name="what-are-resource-classes"></a>Quelles sont les classes de ressources
+## <a name="what-are-resource-classes"></a>Que sont les classes de ressources ?
 
-La capacité de performances d’une requête est déterminée par la classe de ressources de cette dernière.  Les classes de ressources sont des limites de ressources prédéterminées dans Azure SQL Data Warehouse, qui régissent les ressources de calcul et la concurrence lors de l’exécution des requêtes. Classes de ressources peuvent vous aider à gérer votre charge de travail en définissant des limites sur le nombre de requêtes qui s’exécutent simultanément et sur les ressources de calcul attribuées à chaque requête.  Il existe un compromis entre la mémoire et d’accès concurrentiel.
+La capacité de performances d’une requête est déterminée par la classe de ressources de cette dernière.  Les classes de ressources sont des limites de ressources prédéterminées dans Azure SQL Data Warehouse, qui régissent les ressources de calcul et la concurrence lors de l’exécution des requêtes. Les classes de ressources peuvent vous aider à gérer votre charge de travail en définissant des limites quant au nombre de requêtes qui s’exécutent simultanément et sur les ressources de calcul qui leur sont respectivement attribuées.  Il faut faire un compromis entre la mémoire et la concurrence.
 
 - Des classes de ressources plus petites réduisent la mémoire maximale par requête, mais augmentent la simultanéité.
-- Les classes de ressources plus grandes augmenter la mémoire maximale par requête, mais elle réduisent la concurrence.
+- Des classes de ressources plus grandes augmentent la mémoire maximale par requête, mais réduisent la concurrence.
 
 Il existe deux types de classes de ressources :
 
 - Les classes de ressources statiques, qui sont bien adaptées pour la concurrence accrue sur un jeu de données de taille fixe.
-- Classes de ressources dynamiques, qui sont bien adaptés pour les jeux de données qui augmentent la taille et avez besoin de meilleures performances que le niveau de service est mis à l’échelle.
+- Les classes de ressources dynamiques, qui sont bien adaptées pour les jeux de données dont la taille augmente et dont les performances doivent s’améliorer à mesure que le niveau de service monte en puissance.
 
 Les classes de ressources utilisent des emplacements de concurrence pour mesurer la consommation des ressources.  Les [emplacements de concurrence](#concurrency-slots) sont expliqués plus loin dans cet article.
 
@@ -79,11 +79,12 @@ Les classes de ressources dynamiques sont implémentées avec les rôles de base
 
 Certains détails des classes de ressources dynamiques sur Gen1 rendent la compréhension de leur comportement plus complexe :
 
-- La classe de ressources smallrc fonctionne avec un modèle de mémoire fixe comme une classe de ressources statiques.  Les requêtes smallrc n’obtiennent pas dynamiquement plus de mémoire quand le niveau de service augmente.
+**Sur Gen1**
+- La classe de ressources smallrc fonctionne avec un modèle de mémoire fixe comme une classe de ressources statiques.  Les requêtes smallrc n’obtiennent pas dynamiquement plus de mémoire quand le niveau de service augmente. 
 - Quand les niveaux de service changent, la concurrence de requêtes disponible peut augmenter ou diminuer.
-- La mise à l’échelle des niveaux de services n’engendre pas une modification proportionnelle de la mémoire allouée aux mêmes classes de ressources.
+- La mise à l’échelle des niveaux de service n’engendre pas une modification proportionnelle de la mémoire allouée aux mêmes classes de ressources.
 
-Sur **Gen2 uniquement**, les classes de ressources dynamiques sont véritablement dynamiques concernant les points mentionnés ci-dessus.  La nouvelle règle est 3-10-22-70 pour les allocations de pourcentage de mémoire pour les classes de ressources small-medium-large-xlarge, **quel que soit le niveau de service**.  Le tableau ci-dessous présente les détails consolidés des pourcentages d’allocation de mémoire et le nombre minimal de requêtes simultanées qui s’exécutent, quel que soit le niveau de service.
+**Sur Gen2**, les classes de ressources dynamiques sont véritablement dynamiques concernant les points mentionnés ci-dessus.  La nouvelle règle est 3-10-22-70 pour les allocations de pourcentage de mémoire pour les classes de ressources small-medium-large-xlarge, **quel que soit le niveau de service**.  Le tableau ci-dessous présente les détails consolidés des pourcentages d’allocation de mémoire et le nombre minimal de requêtes simultanées qui s’exécutent, quel que soit le niveau de service.
 
 | Classe de ressources | Pourcentage de mémoire | Nombre minimal de requêtes simultanées |
 |:--------------:|:-----------------:|:----------------------:|
@@ -160,7 +161,7 @@ Les emplacements de concurrence sont pratiques pour suivre les ressources dispon
 - Une requête s’exécutant avec 10 emplacements de concurrence peut accéder à 5 fois plus de ressources de calcul qu’une requête s’exécutant avec 2 emplacements de concurrence.
 - Si chaque requête nécessite 10 emplacements de concurrence alors que 40 sont disponibles, seules 4 requêtes peuvent s’exécuter simultanément.
 
-Seules ds requêtes régies par des ressources consomment des emplacements de concurrence. Requêtes système et certaines requêtes triviales ne consomment aucun emplacement. Le nombre exact d’emplacements de concurrence consommés est déterminé par la classe de ressource de la requête.
+Seules ds requêtes régies par des ressources consomment des emplacements de concurrence. Les requêtes système et certaines requêtes banales ne consomment aucun emplacement. Le nombre exact d’emplacements de concurrence consommés est déterminé par la classe de ressources de la requête.
 
 ## <a name="view-the-resource-classes"></a>Afficher les classes de ressources
 
@@ -174,15 +175,15 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 ## <a name="change-a-users-resource-class"></a>Modifier la classe de ressources d’un utilisateur
 
-Les classes de ressources sont implémentées en assignant des utilisateurs à des rôles de base de données. Quand un utilisateur exécute une requête, celle-ci est exécutée avec la classe de ressources de l’utilisateur. Par exemple, si un utilisateur est membre du rôle de base de données staticrc10, ses requêtes s’exécutent avec de petites quantités de mémoire. Si un utilisateur de base de données est un membre des rôles de base de données xlargerc ou staticrc80, ses requêtes s’exécutent avec grandes quantités de mémoire.
+Les classes de ressources sont implémentées en assignant des utilisateurs à des rôles de base de données. Quand un utilisateur exécute une requête, celle-ci est exécutée avec la classe de ressources de l’utilisateur. Par exemple, si un utilisateur est membre du rôle de base de données staticrc10, ses requêtes s’exécutent avec de petites quantités de mémoire. Si un utilisateur de base de données est membre du rôle de base de données xlargerc ou staticrc80, ses requêtes s’exécutent avec de grandes quantités de mémoire.
 
-Pour augmenter la classe de ressource d’un utilisateur, utilisez [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) pour ajouter l’utilisateur à un rôle de base de données d’une classe de ressources de grande taille.  Le code ci-dessous ajoute un utilisateur au rôle de base de données largerc.  Chaque requête obtienne 22 % de la mémoire système.
+Pour augmenter la classe de ressources d’un utilisateur, utilisez [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) afin d’ajouter l’utilisateur à un rôle de base de données d’une grande classe de ressources.  Le code ci-dessous ajoute un utilisateur au rôle de base de données largerc.  Chaque requête obtient 22 % de la mémoire système.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-Pour réduire la classe de ressources, utilisez [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  Si 'loaduser' n’est pas un membre ou autres classes de ressources, ils passent dans la classe de ressources smallrc par défaut avec une allocation de mémoire de 3 %.  
+Pour réduire la classe de ressources, utilisez [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  Si « loaduser » n’est membre d’aucune autre classe de ressources, il est placé dans la classe de ressources smallrc par défaut avec une allocation de mémoire de 3 %.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -197,47 +198,47 @@ Les utilisateurs peuvent être membres de plusieurs classes de ressources. Quand
 
 ## <a name="recommendations"></a>Recommandations
 
-Nous vous recommandons de créer un utilisateur dédié à l’exécution d’un type spécifique de requête ou opération de chargement. Donnez à cet utilisateur une classe de ressources permanente au lieu de modifier la classe de ressources fréquemment. Classes de ressources statiques permettre plus grand contrôle global de la charge de travail, donc nous vous suggérons d’utiliser des classes de ressources statiques avant de considérer que les classes de ressources dynamiques.
+Nous recommandons de créer un utilisateur dédié à l’exécution d’un type spécifique d’opération de requête ou de chargement. Accordez à cet utilisateur une classe de ressources permanente au lieu de modifier fréquemment la classe de ressources. Les classes de ressources statiques offrent un plus grand contrôle global de la charge de travail. Nous vous suggérons donc de les utiliser avant d’envisager l’utilisation de classes de ressources dynamiques.
 
 ### <a name="resource-classes-for-load-users"></a>Classes de ressources pour les utilisateurs de chargement
 
-L’instruction `CREATE TABLE` utilise des index cluster columnstore par défaut. La compression de données dans un index columnstore est une opération nécessitant beaucoup de mémoire, et la sollicitation de la mémoire peut réduire la qualité de l’index. Sollicitation de la mémoire peut conduire à avoir besoin d’une classe de ressources supérieure lors du chargement de données. Pour garantir que les chargements disposent de suffisamment de mémoire, vous pouvez créer un utilisateur désigné pour exécuter les chargements, et assigner cet utilisateur à une classe de ressources supérieure.
+L’instruction `CREATE TABLE` utilise des index cluster columnstore par défaut. La compression de données dans un index columnstore est une opération nécessitant beaucoup de mémoire, et la sollicitation de la mémoire peut réduire la qualité de l’index. La sollicitation de la mémoire peut conduire à un besoin d’une classe de ressources supérieure lors du chargement de données. Pour garantir que les chargements disposent de suffisamment de mémoire, vous pouvez créer un utilisateur désigné pour exécuter les chargements, et assigner cet utilisateur à une classe de ressources supérieure.
 
 La quantité de mémoire nécessaire au traitement des chargements dépend de la nature de la table chargée et de la taille des données. Pour plus d’informations sur la mémoire requise, voir [Optimiser la qualité du rowgroup pour columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 Après avoir déterminé la mémoire requise, choisissez d’affecter l’utilisateur de chargement à une classe de ressources statique ou dynamique.
 
 - Utilisez une classe de ressources statique lorsque la mémoire requise pour la table s’inscrit dans une plage spécifique. Les chargements s’exécutent avec une mémoire appropriée. Lorsque vous modifiez l’échelle de l’entrepôt de données, les charges n’ont pas besoin de davantage de mémoire. En utilisant une classe de ressources statique, les allocations de mémoire restent constantes. Cette cohérence conserve la mémoire et permet l’exécution concurrente de davantage de requêtes. Nous recommandons que les nouvelles solutions utilisent prioritairement les classes de ressources statiques, car celles-ci offrent davantage de contrôle.
-- Utilisez une classe de ressources dynamique lorsque la mémoire requise pour la table varie considérablement. Des chargements peuvent nécessiter plus de mémoire que ce qu’offre le niveau actuel de DWU ou de cDWU. Mise à l’échelle de l’entrepôt de données ajoute plus de mémoire aux opérations de chargement, ce qui permet les chargements plus rapidement.
+- Utilisez une classe de ressources dynamique lorsque la mémoire requise pour la table varie considérablement. Des chargements peuvent nécessiter plus de mémoire que ce qu’offre le niveau actuel de DWU ou de cDWU. La mise à l’échelle de l’entrepôt de données ajoute de la mémoire aux opérations de chargement, ce qui permet d’accélérer les chargements.
 
 ### <a name="resource-classes-for-queries"></a>Classes de ressources pour les requêtes
 
-Certaines requêtes sollicitant beaucoup le calcul et certaines ne sont pas.  
+Certaines requêtes nécessitent beaucoup de ressources système, et d’autres non.  
 
-- Choisissez une classe de ressources dynamique lorsque les requêtes sont complexes, mais n’avez pas besoin de concurrence élevée.  Par exemple, la génération de rapports quotidiens ou hebdomadaires entraîne un besoin occasionnel de ressources. Si les rapports résultent du traitement de grandes quantités de données, la mise à l’échelle de l’entrepôt de données fournit davantage de mémoire à la classe de ressources existante de l’utilisateur.
+- Choisissez une classe de ressources dynamique quand les requêtes sont complexes mais n’impliquent pas de concurrence élevée.  Par exemple, la génération de rapports quotidiens ou hebdomadaires entraîne un besoin occasionnel de ressources. Si les rapports résultent du traitement de grandes quantités de données, la mise à l’échelle de l’entrepôt de données fournit davantage de mémoire à la classe de ressources existante de l’utilisateur.
 - Choisissez une classe de ressources statique lorsque les attentes de ressources varient pendant la journée. Par exemple, une classe de ressources statique fonctionne bien lorsque l’entrepôt de données est interrogé par de nombreuses personnes. Lors de la mise à l’échelle de l’entrepôt de données, la quantité de mémoire allouée à l’utilisateur ne change pas. Par conséquent, davantage de requêtes peuvent être exécutées en parallèle sur le système.
 
-Allocations de mémoire appropriée dépendent de nombreux facteurs, tels que la quantité de données interrogées, la nature des schémas de table, et plusieurs jointures, sélectionner et regrouper des prédicats. En règle général, si l’allocation de davantage de mémoire permet d’accélérer l’exécution des requêtes, cela limite la concurrence globale. Si la concurrence n’est pas un problème, une allocation excessive de mémoire n’affecte pas le débit.
+L’allocation de mémoire appropriée dépend de nombreux facteurs tels que la quantité de données interrogées, la nature des schémas de table et les divers prédicats joins, select et group. En règle général, si l’allocation de davantage de mémoire permet d’accélérer l’exécution des requêtes, cela limite la concurrence globale. Si la concurrence n’est pas un problème, une allocation excessive de mémoire n’affecte pas le débit.
 
 Pour ajuster les performances, utilisez des classes de ressources différentes. La section suivante fournit une procédure stockée permettant de déterminer la classe de ressources optimale.
 
 ## <a name="example-code-for-finding-the-best-resource-class"></a>Exemple de code pour rechercher la classe de ressources optimale
 
-Vous pouvez utiliser la procédure stockée spécifiée suivante pour [Gen1](#stored-procedure-definition-for-gen1) ou [Gen2](#stored-procedure-definition-for-gen2)-pour déterminer l’accès concurrentiel et allocation de mémoire par classe de ressources pour un SLO donné et de la classe de ressources optimale pour la mémoire intensif CCI opérations sur une table ICC non partitionnée à une classe de ressource donné :
+Vous pouvez utiliser la procédure stockée suivante pour [Gen1](#stored-procedure-definition-for-gen1) ou [Gen2](#stored-procedure-definition-for-gen2) afin de déterminer la concurrence et l’allocation de mémoire par classe de ressources pour un SLO donné et la classe de ressources optimale pour les opérations ICC sur une table ICC non partitionnée pour une classe de ressources donnée :
 
 Cette procédure stockée vise à :
 
 1. Déterminer la concurrence et l’allocation de mémoire par classe de ressources pour un SLO donné. L’utilisateur doit fournir la valeur NULL pour le schéma et le nom de table, comme indiqué dans cet exemple.  
-2. Pour afficher la classe de ressources optimale pour les opérations ICC gourmandes en mémoire (chargement, copie de table, reconstruction d’index, etc.) sur une table ICC non partitionnée à une classe de ressource donné. La procédure stockée utilise un schéma de table pour déterminer l’allocation de mémoire requise.
+2. Déterminer la classe de ressources optimale pour les opérations ICC utilisant beaucoup de mémoire (chargement, copie de table, régénération d’index, etc.) sur une table ICC non partitionnée à une classe de ressources donnée. La procédure stockée utilise un schéma de table pour déterminer l’allocation de mémoire requise.
 
-### <a name="dependencies--restrictions"></a>Dépendances et Restrictions
+### <a name="dependencies--restrictions"></a>Dépendances et restrictions
 
 - Cette procédure stockée n’est pas conçue pour calculer la mémoire requise pour une table ICC partitionnée.
-- Cette procédure stockée ne prend pas en compte les besoins de mémoire pour la partie SELECT de CTAS/INSERT-SELECT et suppose qu’il est une instruction SELECT.
+- Cette procédure stockée ne prend pas en compte la mémoire requise pour la partie SELECT d’une instruction CTAS/INSERT-SELECT et part du principe qu’il s’agit d’une instruction SELECT.
 - Cette procédure stockée utilise une table temporaire disponible dans la session où la procédure stockée a été créée.
-- Cette procédure stockée repose sur les offres actuelles (par exemple, configuration matérielle, configuration DMS), et si une d’elles change, cette procédure stockée ne fonctionne plus correctement.  
-- Cette procédure stockée dépend des offres de limite de concurrence existantes et si celles-ci changent, cette procédure stockée ne fonctionne plus correctement.  
-- Cette procédure stockée dépend des offres de classes de ressources existantes, et si celles-ci changent, cette procédure stockée ne fonctionne plus correctement.  
+- Cette procédure stockée dépend des offres du moment (par exemple, configuration matérielle, configuration DMS). Si l’une d’elles change, cette procédure stockée ne fonctionnera plus correctement.  
+- Cette procédure stockée dépend des offres de limite de concurrence existantes. Si elles changent, cette procédure stockée ne fonctionnera plus correctement.  
+- Cette procédure stockée dépend des offres de classes de ressources existantes. Si celles-ci changent, cette procédure stockée ne fonctionnera plus correctement.  
 
 >[!NOTE]  
 >Si vous n’obtenez pas de sortie après exécution de la procédure stockée avec les paramètres fournis, il se peut que vous soyez confronté à l’un des deux cas suivants :
@@ -268,13 +269,13 @@ EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;
 L’instruction suivante crée la Table1 utilisée dans les exemples précédents.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
 
-### <a name="stored-procedure-definition-for-gen1"></a>Définition de procédure stockée pour la génération 1
+### <a name="stored-procedure-definition-for-gen1"></a>Définition de la procédure stockée pour Gen1
 
 ```sql  
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
 -------------------------------------------------------------------------------
-IF EXISTS (SELECT -FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
 DROP PROCEDURE dbo.prc_workload_management_by_DWU
 GO
 
@@ -583,7 +584,7 @@ SELECT  CASE
 GO
 ```
 
-### <a name="stored-procedure-definition-for-gen2"></a>Définition de procédure stockée pour Gen2
+### <a name="stored-procedure-definition-for-gen2"></a>Définition de la procédure stockée pour Gen2
 
 ```sql
 -------------------------------------------------------------------------------

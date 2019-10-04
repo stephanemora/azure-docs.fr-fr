@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 940a35d89996b1eb9600fe4214863d2b5304750e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168644"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60242160"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Synchronisation d’Azure AD Connect : Meilleures pratiques pour la modification de la configuration par défaut
 L’objectif de cette rubrique est de décrire les modifications prises en charge et celles qui ne sont pas prises en charge pour Azure AD Connect Sync.
@@ -63,7 +63,7 @@ Dans l'image ci-dessus, l'Assistant d'installation a trouvé un ancien schéma E
 ### <a name="change-an-out-of-box-rule"></a>effectuer des modifications sur une règle out-of-box
 La seule fois où vous devez effectuer des modifications sur une règle out-of-box est lorsque vous devez modifier la règle de jointure. Si vous devez modifier un flux d’attributs, vous devez créer une règle de synchronisation avec une priorité plus élevée que les règles out-of-box. La seule règle que vous aurez vraiment à cloner est la règle **Reçu depuis AD - jointure utilisateur**. Vous pouvez remplacer toutes les autres règles avec une règle de priorité plus élevée.
 
-Si vous devez effectuer des modifications d’une règle out-of-box, vous devriez en faire une copie, puis désactiver la règle d’origine. Modifiez ensuite la règle clonée. L’éditeur de règles de synchronisation vous accompagne dans ces étapes. Lorsque vous ouvrez une règle out-of-box, cette boîte de dialogue s'affiche :   
+Si vous devez effectuer des modifications d’une règle out-of-box, vous devriez en faire une copie, puis désactiver la règle d’origine. Modifiez ensuite la règle clonée. L’éditeur de règles de synchronisation vous accompagne dans ces étapes. Lorsque vous ouvrez une règle out-of-box, cette boîte de dialogue s'affiche :  
 ![Règle d'avertissement out-of-the box](./media/how-to-connect-sync-best-practices-changing-default-configuration/warningoutofboxrule.png)
 
 Sélectionnez **Oui** pour créer une copie de la règle. La règle clonée est ensuite ouverte.  

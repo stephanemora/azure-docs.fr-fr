@@ -1,33 +1,30 @@
 ---
-title: Installation de Windows Azure du centre de sécurité pour l’agent IoT préversion | Microsoft Docs
-description: Découvrez comment installer Azure Security Center pour l’agent IoT sur les appareils Windows 32 bits ou 64 bits.
+title: Installation Windows de l’agent Azure Security Center pour IoT | Microsoft Docs
+description: Découvrez comment installer l’agent Azure Security Center pour IoT sur les appareils Windows 32 bits ou 64 bits.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 601ee706adedf522890acc3f3996a7d36b349348
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: acc99f260931de7fd8c7566a3ff6daf43f34c5ef
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577831"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597215"
 ---
-# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Déployer un centre de sécurité Azure pour IoT C#-en fonction de l’agent de sécurité pour Windows
+# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Déployer l’agent de sécurité Azure Security Center pour IoT basé sur C# pour Windows
 
-> [!IMPORTANT]
-> Azure Security Center pour IoT est disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Ce guide explique comment installer Azure Security Center (ASC) pour IoT C#-en fonction de l’agent de sécurité sur Windows.
+Ce guide explique comment installer l’agent de sécurité Azure Security Center pour IoT basé sur C# sur Windows.
 
 Dans ce guide, vous apprendrez comment : 
 > [!div class="checklist"]
@@ -36,11 +33,11 @@ Dans ce guide, vous apprendrez comment :
 > * Désinstaller l’agent
 > * Résolution des problèmes 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour d’autres plateformes et versions de l’agent, consultez [Choisir l’agent de sécurité adéquat](how-to-deploy-agent.md).
 
-1. Droits d’administrateur local sur l’ordinateur que vous souhaitez installer sur. 
+1. Les droits d’administrateur locaux sur l’ordinateur sur lequel vous souhaitez installer. 
 
 1. [Créez un module de sécurité](quickstart-create-security-twin.md) pour l’appareil.
 
@@ -48,20 +45,23 @@ Pour d’autres plateformes et versions de l’agent, consultez [Choisir l’age
 
 Pour installer l’agent de sécurité, procédez comme suit :
 
-1. Pour installer l’ASC pour IoT Windows C# agent sur l’appareil, téléchargez la version la plus récente sur votre ordinateur à partir de l’ASC pour IoT [référentiel GitHub](https://github.com/Azure/Azure-IoT-Security-Agent-CS).
+1. Installez l’agent C# Windows Azure Security Center pour IoT sur l’appareil. Téléchargez la version la plus récente sur votre ordinateur à partir du [référentiel GitHub](https://github.com/Azure/Azure-IoT-Security-Agent-CS) Azure Security Center pour IoT.
 
-2. Extrayez le contenu du package et accédez au dossier /Install.
+1. Extrayez le contenu du package et accédez au dossier /Install.
 
-3. Ouvrez Windows PowerShell en tant qu’administrateur. 
-    1. Ajoutez des autorisations en cours d’exécution au script InstallSecurityAgent en exécutant ```Unblock-File .\InstallSecurityAgent.ps1```.
+1. Ouvrez Windows PowerShell en tant qu’administrateur. 
+1. Ajoutez des autorisations en cours d’exécution au script InstallSecurityAgent en exécutant :<br>
+    ```
+    Unblock-File .\InstallSecurityAgent.ps1
+    ```
     
-        Exécutez ensuite la commande suivante :
+    Exécutez ensuite la commande suivante :
 
     ```
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
     
-    Par exemple : 
+    Par exemple :
     
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -69,7 +69,7 @@ Pour installer l’agent de sécurité, procédez comme suit :
     
     Pour plus d’informations sur les paramètres d’authentification, consultez [Guide pratique pour configurer l’authentification](concept-security-agent-authentication-methods.md).
 
-Ce script effectue les opérations suivantes :
+Ce script effectue les actions suivantes :
 
 - Installation des composants requis.
 
@@ -104,7 +104,7 @@ Si l’agent ne parvient pas à démarrer, activez la journalisation (qui est *d
 
 Pour activer la journalisation :
 
-1. Ouvrez le fichier de configuration (General.config) pour le modifier à l’aide d’un éditeur de fichier standard.
+1. Ouvrez le fichier de configuration (General.config) dans l’éditeur de fichier de votre choix.
 
 1. Modifiez les valeurs suivantes :
 
@@ -139,8 +139,8 @@ Pour activer la journalisation :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Lire la [vue d’ensemble](overview.md) du service ASC pour IoT
-- Découvrir plus en détail l’[architecture](architecture.md) ASC pour IoT
+- Lire la [Vue d’ensemble](overview.md) du service Microsoft Azure Security Center pour IoT
+- En savoir plus sur l’[architecture](architecture.md) d’Azure Security Center pour IoT
 - Activer le [service](quickstart-onboard-iot-hub.md)
 - Consulter les [Questions fréquentes (FAQ)](resources-frequently-asked-questions.md)
 - Comprendre les [alertes](concept-security-alerts.md)

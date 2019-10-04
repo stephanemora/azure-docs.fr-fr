@@ -8,18 +8,17 @@ manager: timlt
 editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351012"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945453"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Prise en charge et stratégie de suppression du SE invité d’Azure
 Les informations de cette page concernent le système d'exploitation invité Azure ([SE invité](cloud-services-guestos-update-matrix.md)) pour les rôles Web et de travail Cloud Services (PaaS). Elles ne s'appliquent pas aux machines virtuelles (IaaS).
@@ -55,9 +54,9 @@ Les versions de SE invité sont publiées chaque mois. En raison de la fréquenc
 
 Après 60 jours de vie, une version obtient le statut «*désactivé*». Cela signifie que la version est supprimée du portail Azure. La version ne peut plus être définie à partir du fichier de configuration CSCFG. Les déploiements existants continuent d’être exécutés. Mais les nouveaux déploiements et les mises à jour de code et de configuration pour les déploiements existants ne seront pas autorisés.
 
-Un certain temps après « expiration, » expiration » de la version de système d’exploitation invité » et toutes les installations qui exécutent encore cette version expirée sont exposées à des problèmes de sécurité et vulnérabilités. En règle générale, l’expiration se fait par lots, c’est la période entre la désactivation avant l’expiration peut varier.
+Une fois « désactivée », la version du système d’exploitation invité « expire » et toutes les installations qui exécutent encore cette version expirée sont exposées à des problèmes de sécurité et de vulnérabilité. En général, l’expiration se fait par lots. Ainsi, la période de temps entre la désactivation et l’expiration peut varier.
 
-Les clients qui configurent leurs services pour mettre à jour le système d’exploitation invité manuellement, devez vous assurer que leurs services sont exécutent sur un système d’exploitation invités pris en charge. Si un service est configuré pour mettre à jour le système d’exploitation invité automatiquement, la plateforme sous-jacente garantit la conformité et met à niveau vers le dernier système d’exploitation invité.
+Les clients qui configurent leurs services pour mettre à jour le système d’exploitation invité manuellement doivent s’assurer que leurs services sont exécutés sur un système d’exploitation invité pris en charge. Si un service est configuré pour mettre automatiquement à jour le système d’exploitation invité, la plateforme sous-jacente garantit la conformité et met à niveau vers la dernière version du système d’exploitation invité.
 
 Ces périodes peuvent être allongées à la discrétion de Microsoft pour faciliter les transitions des clients. Toutes les modifications seront communiquées sur les [versions de système d'exploitation invité d'Azure et la matrice de compatibilité du Kit de développement logiciel (SDK)](cloud-services-guestos-update-matrix.md).
 

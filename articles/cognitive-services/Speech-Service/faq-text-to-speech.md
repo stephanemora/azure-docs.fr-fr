@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: d93de4ff3f6dd00ac049ea9d83aebb7aad07137e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a5ca7d8a6b09dc277664fdc7db2433466e665d56
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883285"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606675"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Forum aux questions sur la synthèse vocale
 
@@ -33,7 +33,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 **Q : Si je souhaite utiliser un modèle vocal personnalisé, l’API est-elle la même que celle utilisée pour les voix standard ?**
 
-**R** : Lorsqu’un modèle vocal personnalisé est créé et déployé, vous obtenez un point de terminaison unique pour votre modèle. Pour que la voix parle dans vos applications, vous devez spécifier le point de terminaison dans vos requêtes HTTP. La fonctionnalité qui est disponible dans l’API REST pour le service Synthèse vocale l’est également pour votre point de terminaison personnalisé. Découvrez comment [créer et utiliser votre point de terminaison personnalisé](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**R** : Lorsqu’un modèle vocal personnalisé est créé et déployé, vous obtenez un point de terminaison unique pour votre modèle. Pour que la voix parle dans vos applications, vous devez spécifier le point de terminaison dans vos requêtes HTTP. La fonctionnalité qui est disponible dans l’API REST pour le service Synthèse vocale l’est également pour votre point de terminaison personnalisé. Découvrez comment [créer et utiliser votre point de terminaison personnalisé](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-voice-endpoint).
 
 **Q : Dois-je préparer les données d’apprentissage pour créer moi-même des modèles vocaux personnalisés ?**
 
@@ -41,7 +41,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 Une collection de données vocales est nécessaire pour créer un modèle vocal personnalisé. Cette collection se compose d’un ensemble de fichiers audio d’enregistrements vocaux et d’un fichier texte de transcription pour chaque fichier audio. Le résultat de votre voix numérique dépend fortement de la qualité de vos données d’apprentissage. Pour produire une bonne voix de synthèse vocale, il est important que les enregistrements soient effectués dans une pièce calme avec un micro sur support. Pour générer une voix numérique de qualité, il est essentiel de faire attention à l’homogénéité du volume, au débit et à la tonalité, ainsi qu’à la cohérence dans la manière de s’exprimer. Nous vous recommandons vivement d’enregistrer les voix dans un studio d’enregistrement.
 
-Nous ne prenons actuellement pas en charge l’enregistrement en ligne et ne recommandons pas de studios d’enregistrement. Concernant les formats requis, consultez [Comment préparer les enregistrements et les transcriptions](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+Nous ne prenons actuellement pas en charge l’enregistrement en ligne et ne recommandons pas de studios d’enregistrement. Concernant les formats requis, consultez [Comment préparer les enregistrements et les transcriptions](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice).
 
 **Q : Quels scripts dois-je utiliser pour enregistrer les données vocales pour l’apprentissage de la voix personnalisée ?**
 
@@ -59,7 +59,7 @@ Nous fournissons des services supplémentaires afin de vous aider à préparer d
 
 **Q : Mes requêtes sont-elles limitées ?**
 
-**R** : L’API REST limite les requêtes à 25 par période de 5 secondes. Vous trouverez des informations dans nos pages sur [Synthèse vocale](text-to-speech.md). 
+**R** : L’API REST limite les requêtes à 25 par période de 5 secondes. Vous trouverez des informations dans nos pages sur [Synthèse vocale](text-to-speech.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

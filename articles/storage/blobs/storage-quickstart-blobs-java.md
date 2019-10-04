@@ -1,28 +1,24 @@
 ---
 title: Guide pratique pour créer un objet blob dans Stockage Azure à l'aide de la bibliothèque de client pour Java v7 | Microsoft Docs
 description: Créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, utilisez la bibliothèque de client Stockage Azure pour Java v7 afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de lister les objets blob dans un conteneur.
-services: storage
-author: roygara
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
+author: mhopkins-msft
+ms.author: mhopkins
 ms.date: 02/04/2019
-ms.author: rogarana
-ms.openlocfilehash: c9aaa22a656d1164ad4e9f9c1ed7539a93dd0457
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 0aa3af754082d91c4a5994e42146d1f1f475f64d
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999936"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390330"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Guide pratique pour charger, télécharger et lister des objets blob à l'aide de la bibliothèque de client pour Java v7
 
 Dans ce guide pratique, vous allez apprendre à utiliser la bibliothèque de client pour Java v7 afin de charger, télécharger et lister des objets blob de blocs dans un conteneur de Stockage Blob Azure.
 
-> [!TIP]
-> La dernière version de la bibliothèque de client pour Java du service Stockage Azure est la version 10. Si possible, Microsoft vous recommande d'utiliser la dernière version de la bibliothèque de client. Pour vous familiariser avec la version 10, reportez-vous à [Démarrage rapide : Charger, télécharger et lister des objets blob à l'aide du kit de développement logiciel (SDK) Stockage Java V10](storage-quickstart-blobs-java-v10.md).
-
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

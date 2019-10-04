@@ -8,19 +8,18 @@ manager: craigg
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 066c154c0ba3e62ac4f441e268c657dd5e991220
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780012"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102120"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée version 2 pour les machines virtuelles Azure (Resource Manager)
 
@@ -32,7 +31,7 @@ La sauvegarde automatisée version 2 configure automatiquement une [sauvegarde m
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser la sauvegarde automatisée version 2, passez en revue les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -52,7 +51,7 @@ Pour utiliser la sauvegarde automatisée version 2, passez en revue les conditio
 
 - Les bases de données cibles doivent utiliser le modèle de récupération complète. Pour plus d’informations sur l’impact du modèle de récupération complète sur les sauvegardes, consultez [Sauvegarde en mode de récupération complète](https://technet.microsoft.com/library/ms190217.aspx).
 - Les bases de données système n’ont pas besoin d’utiliser le modèle de récupération complète. Mais si vous avez besoin de sauvegardes de journaux pour un modèle ou MSDB, vous devez utiliser le modèle de récupération complète.
-- Bases de données cible doivent se trouver sur le soit l’instance par défaut SQL Server, ou un [correctement installé](virtual-machines-windows-sql-server-iaas-faq.md#administration) instance nommée. 
+- Les bases de données cibles doivent se trouver sur l’instance SQL Server par défaut ou sur une instance nommée [correctement installée](virtual-machines-windows-sql-server-iaas-faq.md#administration). 
 
 > [!NOTE]
 > La sauvegarde automatisée utilise l’**extension de l’agent IaaS de SQL Server**. Les images actuelles de la galerie de machines virtuelles SQL ajoutent cette extension par défaut. Pour plus d’informations, consultez [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md)(Extension de l’agent IaaS SQL Server).
@@ -67,7 +66,7 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 | **Sauvegarde automatisée** | Activer/Désactiver (désactivé) | Active ou désactive la sauvegarde automatisée d’une machine virtuelle Azure exécutant SQL Server 2016/2017 Développeur, Standard ou Entreprise. |
 | **Période de rétention** | 1 à 30 jours (30 jours) | Nombre de jours durant lesquels les sauvegardes sont conservées. |
 | **Compte de stockage** | Compte Azure Storage | Compte de stockage Azure à utiliser pour stocker les fichiers de sauvegarde automatisée dans le stockage d’objets blob. Un conteneur est créé à cet emplacement pour stocker tous les fichiers de sauvegarde. La convention de dénomination des fichiers de sauvegarde inclut la date, l’heure et le GUID de base de données. |
-| **Chiffrement** |Activer/Désactiver (désactivé) | Active ou désactive le chiffrement. Quand le chiffrement est activé, les certificats utilisés pour restaurer la sauvegarde se trouvent dans le compte de stockage spécifié. Il utilise le même conteneur **automaticbackup** avec la même convention de dénomination. Si le mot de passe change, un nouveau certificat est généré avec ce mot de passe, mais l’ancien certificat est conservé pour restaurer les sauvegardes antérieures. |
+| **Chiffrement** |Activer/Désactiver (désactivé) | Active ou désactive le chiffrement. Quand le chiffrement est activé, les certificats utilisés pour restaurer la sauvegarde se trouvent dans le compte de stockage spécifié. Il utilise le même conteneur de **sauvegarde automatique** avec la même convention de nommage. Si le mot de passe change, un nouveau certificat est généré avec ce mot de passe, mais l’ancien certificat est conservé pour restaurer les sauvegardes antérieures. |
 | **Mot de passe** |Texte du mot de passe | Mot de passe pour les clés de chiffrement. Le mot de passe est uniquement requis si le chiffrement est activé. Pour restaurer une sauvegarde chiffrée, vous devez disposer du mot de passe correct et du certificat associé qui a été utilisé lorsque la sauvegarde a été effectuée. |
 
 ### <a name="advanced-settings"></a>Paramètres avancés
@@ -127,7 +126,7 @@ Vous pouvez utiliser le portail Azure pour configurer la sauvegarde automatisée
 
 Utilisez le portail Azure pour configurer la sauvegarde automatisée version 2 quand vous créez une machine virtuelle SQL Server 2016 ou 2017 dans le modèle de déploiement Resource Manager.
 
-Dans le volet **Paramètres SQL Server**, sélectionnez **Sauvegarde automatisée**. La capture d’écran suivante du portail Azure montre les paramètres de **Sauvegarde automatisée SQL**.
+Sous l’onglet **Paramètres SQL Server**, sélectionnez **Activer** sous **Sauvegarde automatisée**. La capture d’écran suivante du portail Azure montre les paramètres de **Sauvegarde automatisée SQL**.
 
 ![Configuration d’une sauvegarde automatisée SQL dans le portail Azure](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 
@@ -136,15 +135,14 @@ Dans le volet **Paramètres SQL Server**, sélectionnez **Sauvegarde automatisé
 
 ## <a name="configure-existing-vms"></a>Configurer des machines virtuelles existantes
 
-Pour les machines virtuelles SQL Server existantes, sélectionnez votre machine virtuelle SQL Server. Sélectionnez ensuite la section **Configuration de SQL Server** dans les **Paramètres** de la machine virtuelle.
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Pour les machines virtuelles SQL Server existantes, accédez à la [ressource Machines virtuelles SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), puis sélectionnez **Sauvegardes** pour configurer vos sauvegardes automatisées.
 
 ![Sauvegarde automatisée SQL pour les machines virtuelles existantes](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
-Dans les paramètres de **Configuration de SQL Server**, cliquez sur le bouton **Modifier** dans la section Sauvegarde automatisée.
 
-![Configurer la sauvegarde automatisée SQL pour les machines virtuelles existantes](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration-edit.png)
-
-Quand vous avez terminé, cliquez sur le bouton **OK** en bas des paramètres de **Configuration de SQL Server** pour enregistrer vos changements.
+Quand vous avez terminé, cliquez sur le bouton **Appliquer** dans le bas de la page des paramètres de **Sauvegarde** pour enregistrer vos modifications.
 
 Si vous activez la sauvegarde automatisée pour la première fois, Azure configure l’agent IaaS de SQL Server en arrière-plan. Pendant ce temps, le portail Azure n’indiquera peut-être pas que la sauvegarde automatisée est configurée. Patientez quelques minutes jusqu’à ce que l’agent soit installé et configuré. Le portail Azure reflète alors les nouveaux paramètres.
 
@@ -169,7 +167,7 @@ $resourcegroupname = "resourcegroupname"
 
 Si l’extension de l’agent IaaS SQL Server est installée, elle devrait s’afficher sous la forme « SqlIaaSAgent » ou « SQLIaaSExtension ». La propriété **ProvisioningState** de l’extension devrait également indiquer « Succeeded » (Réussie). 
 
-Si elle n’est pas installée ou n’a pas pu être configurée, vous pouvez l’installer avec la commande suivante. Outre le nom de la machine virtuelle et le groupe de ressources, vous devez également spécifier la région (**$region**) où se trouve votre machine virtuelle.
+Si elle n’est pas installée ou n’a pas pu être configurée, vous pouvez l’installer avec la commande suivante. Outre le nom de la machine virtuelle et le groupe de ressources, vous devez également spécifier la région ( **$region**) où se trouve votre machine virtuelle.
 
 ```powershell
 $region = “EASTUS2”
@@ -210,7 +208,7 @@ Si votre sortie montre que l’option **Enable** (Activer) est définie sur **Fa
 ### <a name="configure-automated-backup-v2"></a>Configurer une sauvegarde automatisée version 2
 Vous pouvez utiliser PowerShell pour activer la sauvegarde automatisée ainsi que pour modifier sa configuration et son comportement à tout moment. 
 
-Tout d’abord, sélectionnez ou créez un compte de stockage pour les fichiers de sauvegarde. Le script suivant sélectionne un compte de stockage ou le crée s’il n’existe pas.
+Pour commencer, sélectionnez ou créez un compte de stockage pour les fichiers de sauvegarde. Le script suivant sélectionne un compte de stockage ou le crée s’il n’existe pas.
 
 ```powershell
 $storage_accountname = “yourstorageaccount”

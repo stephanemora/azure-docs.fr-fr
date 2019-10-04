@@ -10,29 +10,28 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: a887c79a51c7a239e7057171e51e67a53af2f84b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.date: 08/20/2019
+ms.openlocfilehash: 7ff7712130372dcfd277750e881cccce23b36465
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483553"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69648358"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
-SQL Data Sync est un service conçu sur la base de données SQL Azure qui vous permet de synchroniser les données choisies de manière bidirectionnelle sur plusieurs bases de données SQL et instances SQL Server.
+SQL Data Sync est un service conçu sur Azure SQL Database qui vous permet de synchroniser les données choisies de manière bidirectionnelle sur plusieurs bases de données SQL et instances SQL Server.
 
 > [!IMPORTANT]
 > Azure SQL Data Sync ne prend **pas** en charge Azure SQL Database Managed Instance pour le moment.
 
 ## <a name="when-to-use-data-sync"></a>Quand utiliser Data Sync
 
-Data Sync est utile dans les cas où les données doivent être mises à jour entre plusieurs bases de données SQL Azure ou SQL Server. Voici les principaux cas d’usage pour Data Sync :
+Data Sync est utile dans les cas où les données doivent être mises à jour entre plusieurs bases de données Azure SQL ou SQL Server. Voici les principaux cas d’usage pour Data Sync :
 
-- **Synchronisation de données hybride :** avec Data Sync, vous pouvez maintenir la synchronisation de données entre vos bases de données locales et les bases de données SQL Azure pour activer des applications hybrides. Cette fonctionnalité peut intéresser les clients qui envisagent de passer au cloud et souhaiteraient placer une partie de leur application dans Azure.
+- **Synchronisation de données hybride :** avec Data Sync, vous pouvez maintenir la synchronisation de données entre vos bases de données locales et les bases de données Azure SQL pour activer des applications hybrides. Cette fonctionnalité peut intéresser les clients qui envisagent de passer au cloud et souhaiteraient placer une partie de leur application dans Azure.
 - **Applications distribuées :** dans de nombreux cas, il est recommandé de séparer les différentes charges de travail entre plusieurs bases de données. Par exemple, si vous possédez une base de données de production de grande taille, mais que vous devez également exécuter un rapport ou une charge de travail analytique de ces données, il est utile de disposer d’une seconde base de données pour cette charge de travail supplémentaire. Cette approche réduit l’impact sur les performances de votre charge de travail de production. Vous pouvez utiliser Data Sync afin de maintenir la synchronisation de ces deux bases de données.
-- **Applications distribuées globalement :** de nombreuses entreprises sont présentes dans plusieurs régions et même dans plusieurs pays. Afin de réduire la latence du réseau, il est préférable de conserver vos données dans une région proche. Avec Data Sync, vous pouvez facilement synchroniser des bases de données dans différentes régions partout dans le monde.
+- **Applications distribuées globalement :** de nombreuses entreprises sont présentes dans plusieurs régions et même dans plusieurs pays/régions. Afin de réduire la latence du réseau, il est préférable de conserver vos données dans une région proche. Avec Data Sync, vous pouvez facilement synchroniser des bases de données dans différentes régions partout dans le monde.
 
 Data Sync n’est pas la solution préconisée pour les scénarios suivants :
 
@@ -78,8 +77,8 @@ Un groupe de synchronisation dispose des propriétés suivantes :
 
 | | Synchronisation des données | Réplication transactionnelle |
 |---|---|---|
-| Avantages | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données SQL locale et Azure | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration |
-| Inconvénients | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’une base de données unique Azure SQL Database ou d’une base de données regroupée<br/>- Coût de maintenance élevé |
+| Avantages | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données Azure SQL et locale | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration |
+| Inconvénients | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’une base de données unique Azure SQL Database ou d’une base de données mise en pool<br/>- Coût de maintenance élevé |
 | | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>Prise en main de SQL Data Sync
@@ -91,8 +90,8 @@ Un groupe de synchronisation dispose des propriétés suivantes :
 
 ### <a name="set-up-data-sync-with-powershell"></a>Configurer Data Sync avec PowerShell
 
-- [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
-- [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+- [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
+- [Utiliser PowerShell pour la synchronisation entre une base de données Azure SQL et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 ### <a name="review-the-best-practices-for-data-sync"></a>Consultez les bonnes pratiques pour Data Sync
 
@@ -119,6 +118,12 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 ### <a name="general-requirements"></a>Conditions générales
 
 - Chaque table doit avoir une clé primaire. Ne modifiez pas la valeur de la clé primaire dans une ligne. Si vous avez à le faire, supprimez la ligne et recréez-la avec la nouvelle valeur de clé primaire. 
+
+> [!IMPORTANT]
+> Le changement de la valeur d’une clé primaire existante entraîne le comportement incorrect suivant :   
+>   - Les données entre le hub et le membre risquent d’être perdues même si la synchronisation ne signale aucun problème.
+> - La synchronisation peut échouer, car la table de suivi contient une ligne qui n’existe pas dans la source en raison du changement de la clé primaire.
+
 - L’isolement de capture instantanée doit être activé. Pour plus d’informations, consultez [Isolement de capture instantanée dans SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitations générales
@@ -129,6 +134,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 - Les noms des objets (bases de données, tables et colonnes) ne peuvent pas contenir les caractères imprimables suivants : point (.), crochet gauche ou crochet droit (]).
 - L’authentification Azure Active Directory n’est pas prise en charge.
 - Les tables avec le même nom mais avec un schéma différent (par exemple dbo.customers et sales.customers) ne sont pas prises en charge.
+- Les colonnes avec des type de données définis par l’utilisateur ne sont pas prises en charge.
 
 #### <a name="unsupported-data-types"></a>Types de données non pris en charge
 
@@ -139,7 +145,7 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 
 #### <a name="unsupported-column-types"></a>Types de colonne non pris en charge
 
-Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées par le système. Par exemple : 
+Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées par le système. Par exemple :
 
 - Colonnes calculées.
 - Colonnes générées par le système pour les tables temporelles.
@@ -148,9 +154,9 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 
 | **Dimensions**                                                      | **Limite**              | **Solution de contournement**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
-| Nombre maximal de groupes de synchronisation auquel peut appartenir une base de données.       | 5.                      |                             |
+| Nombre maximal de groupes de synchronisation auquel peut appartenir une base de données.       | 5\.                      |                             |
 | Nombre maximal de points de terminaison dans un seul groupe de synchronisation              | 30                     |                             |
-| Nombre maximal de points de terminaison locaux dans un seul groupe de synchronisation. | 5.                      | Créer plusieurs groupes de synchronisation |
+| Nombre maximal de points de terminaison locaux dans un seul groupe de synchronisation. | 5\.                      | Créer plusieurs groupes de synchronisation |
 | Noms de la base de données, de la table, du schéma et des colonnes                       | 50 caractères par nom |                             |
 | Tables dans un groupe de synchronisation                                          | 500                    | Créer plusieurs groupes de synchronisation |
 | Colonnes d’une table dans un groupe de synchronisation                              | 1 000                   |                             |
@@ -197,7 +203,7 @@ Oui. Créez manuellement le schéma dans la nouvelle base de données en créant
 
 Il est déconseillé d’utiliser SQL Data Sync pour créer une sauvegarde de vos données. Vous ne pouvez pas sauvegarder et restaurer à un point précis dans le temps, car les synchronisations de SQL Data Sync ne sont pas affectées à des versions. Par ailleurs, SQL Data Sync ne sauvegarde pas d’autres objets SQL, notamment les procédures stockées, et n’effectue pas rapidement l’équivalent d’une opération de restauration.
 
-Consultez [Copie d'une base de données SQL Azure](sql-database-copy.md) pour prendre connaissance d’une technique de sauvegarde recommandée.
+Consultez [Copie d’une base de données Azure SQL](sql-database-copy.md) pour prendre connaissance d’une technique de sauvegarde recommandée.
 
 ### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Data Sync peut-il synchroniser des tables et colonnes chiffrées ?
 
@@ -228,7 +234,7 @@ Vous devez mettre à jour le schéma d’une base de données dans un groupe de 
 
 SQL Data Sync s’exécute-t-il comme prévu ? Pour surveiller l’activité et résoudre les problèmes, consultez les articles suivants :
 
-- [Surveiller Azure SQL Data Sync avec les journaux d’Azure Monitor](sql-database-sync-monitor-oms.md)
+- [Superviser Azure SQL Data Sync avec des journaux Azure Monitor](sql-database-sync-monitor-oms.md)
 - [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>En savoir plus sur Azure SQL Database

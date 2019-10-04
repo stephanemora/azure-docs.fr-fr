@@ -9,15 +9,74 @@ ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 03/17/2019
+ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: bde3ec0aab954defa31ca667283e6413716a3b42
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170868"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854009"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Utilisation de marqueurs d’ornement pour mettre en surbrillance un texte
 
-[!INCLUDE [cognitive-services-bing-hit-highlighting](../../../includes/cognitive-services-bing-hit-highlighting.md)]
+Bing prend en charge la mise en surbrillance des correspondances qui marque les termes de requête (ou d’autres termes que Bing estime pertinents) dans les chaînes d’affichage de certaines réponses. Par exemple, les champs `name`, `displayUrl` et `snippet` des résultats d’une page web peuvent contenir des termes de requête marqués. 
+
+Par défaut, Bing n’inclut pas les marqueurs de mise en surbrillance dans les chaînes d’affichage. Pour activer les marqueurs, ajoutez le paramètre de requête `textDecorations` à votre requête et définissez-le sur `true`.
+
+## <a name="hit-highlighting-example"></a>Exemple de mise en surbrillance des correspondances
+
+L’exemple suivant montre les résultats web de `Sailing Dinghy`. Bing marque le début et la fin du terme de requête à l’aide des caractères Unicode E000 et E001.
+  
+![Mise en surbrillance des correspondances](./media/cognitive-services-bing-web-api/bing-hit-highlighting.png) 
+
+Avant d’afficher le résultat dans votre interface utilisateur, remplacez les caractères Unicode par des caractères adaptés à votre format d’affichage.
+
+## <a name="marker-formatting"></a>Mise en forme des marqueurs
+
+Bing vous offre la possibilité d’utiliser des caractères Unicode ou des balises HTML en tant que marqueurs. Pour spécifier les marqueurs à utiliser, ajoutez le paramètre de requête [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) : 
+
+| Valeur             | Marqueur                       |
+|-------------------|------------------------------|
+| `textFormat=Raw`  | Caractères Unicode (par défaut) |
+| `textFormat=HTML` | Caractères HTML              |
+
+## <a name="additional-text-decorations"></a>Autres ornements de texte
+
+Bing peut retourner plusieurs ornements de texte différents. Par exemple, le champ `expression` d’une réponse `Computation` peut contenir des marqueurs d’indice pour le terme de requête `log(2)`.
+
+![marqueurs de calcul](./media/cognitive-services-bing-web-api/bing-markers-computation.png) 
+
+Si la requête n’a pas spécifié d’ornements, le champ `expression` contient `log10(2)`. 
+
+Si `textDecorations` est `true`, Bing peut inclure les marqueurs suivants dans les chaînes d’affichage des réponses. S’il n’existe pas de balise HTML équivalente, la cellule du tableau sera vide.
+
+|Unicode|HTML|Description
+|-|-|-
+|U+E000|\<b&gt;|Marque le début du terme de requête (mise en surbrillance des correspondances)
+|U+E001|\</b&gt;|Marque la fin du terme de requête
+|U+E002|\<i&gt;|Marque le début du contenu en italique 
+|U+E003|\</i&gt;|Marque la fin du contenu en italique
+|U+E004|\<br/&gt;|Marque un saut de ligne
+|U+E005||Marque le début d’un numéro de téléphone
+|U+E006||Marque la fin d’un numéro de téléphone
+|U+E007||Marque le début d’une adresse
+|U+E008||Marque la fin d’une adresse
+|U+E009|\&nbsp;|Marque une espace insécable
+|U+E00C|\<strong&gt;|Marque le début du contenu en gras
+|U+E00D|\</strong&gt;|Marque la fin du contenu en gras
+|U+E00E||Marque le début du contenu dont l’arrière-plan doit être plus clair que son arrière-plan qui l’entoure
+|U+E00F||Marque la fin du contenu dont l’arrière-plan doit être plus clair que son arrière-plan qui l’entoure
+|U+E010||Marque le début du contenu dont l’arrière-plan doit être plus foncé que son arrière-plan qui l’entoure
+|U+E011||Marque la fin du contenu dont l’arrière-plan doit être plus foncé que son arrière-plan qui l’entoure
+|U+E012|\<del&gt;|Marque le début du contenu qui doit être barré
+|U+E013|\</del&gt;|Marque la fin du contenu qui doit être barré
+|U+E016|\<sub&gt;|Marque le début du contenu en indice
+|U+E017|\</sub&gt;|Marque la fin du contenu en indice
+|U+E018|\<sup&gt;|Marque le début du contenu en exposant
+|U+E019|\</sup&gt;|Marque la fin du contenu en exposant
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Qu’est-ce que l’API Recherche Web Bing ?](overview.md) 
+* [Redimensionner et rogner les miniatures](resize-and-crop-thumbnails.md)

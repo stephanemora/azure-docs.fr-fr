@@ -1,39 +1,43 @@
 ---
-title: Configurer la méthode d’équilibrage de charge Windows Virtual Desktop Preview - Azure
-description: Comment configurer la méthode d’équilibrage de charge pour un environnement de bureau virtuel Windows.
+title: Configurer la méthode d’équilibrage de charge de la préversion de Windows Virtual Desktop - Azure
+description: Comment configurer la méthode d’équilibrage de charge pour un environnement Windows Virtual Desktop ?
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 0c4702dada17e759d89c33be99b3155f4b15ad9e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: e1f1ea10dc68e501cfac7ef0cf0383ce78e8f380
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399857"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70163770"
 ---
-# <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop Preview
+# <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Configurer la méthode d’équilibrage de charge de la préversion de Windows Virtual Desktop
 
-Configuration de la méthode d’équilibrage de charge pour un pool d’hôte vous permet d’ajuster l’environnement Windows virtuel Desktop Preview pour répondre aux besoins de vos besoins.
+Configurer la méthode d’équilibrage de charge d'un pool d’hôtes vous permet d’ajuster l’environnement de la préversion de Windows Virtual Desktop pour mieux répondre à vos besoins.
 
 >[!NOTE]
-> Cela ne s’applique pas à un pool persistant hôte bureau, car les utilisateurs ont toujours un mappage 1:1 pour un hôte de session au sein du pool de l’hôte.
+> Cela ne s’applique pas à un pool d'hôtes de bureau persistant, car les utilisateurs disposent toujours d'un mappage 1:1 vers un hôte de session au sein du pool d’hôtes.
 
-## <a name="configure-breadth-first-load-balancing"></a>Configurer l’équilibrage de charge de prioritaire
+## <a name="configure-breadth-first-load-balancing"></a>Configurer l’équilibrage de charge de largeur
 
-L’équilibrage de charge de prioritaire est la configuration par défaut pour les nouveaux pools hôte non persistant. L’équilibrage de charge de prioritaire distribue les nouvelles sessions utilisateur sur tous les hôtes de session disponible dans le pool de l’hôte. Lors de la configuration d’équilibrage de charge prioritaire, vous pouvez définir une limite maximale d’une session par l’hôte de session dans le pool de l’hôte.
+L’équilibrage de charge de largeur correspond à la configuration par défaut des nouveaux pools d'hôtes non persistants. L’équilibrage de charge de largeur répartit les nouvelles sessions utilisateur entre tous les hôtes de session du pool. Lorsque vous configurez l'équilibrage de charge de largeur, vous pouvez définir une limite maximale de sessions par hôte de session du pool.
 
-Tout d’abord, [télécharger et importer le module PowerShell de bureau virtuel Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell si vous n’avez pas déjà.
+Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell. Exécutez ensuite l’applet de commande suivante pour vous connecter à votre compte :
 
-Pour configurer un pool d’hôte pour effectuer prioritaire équilibreur de charge sans ajustement de la limite maximale d’une session, exécutez l’applet de commande PowerShell suivante :
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+```
+
+Pour configurer un pool d’hôtes à des fins d'équilibrage de charge de largeur sans ajuster la limite maximale de sessions, exécutez la cmdlet PowerShell suivante :
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer
 ```
 
-Pour configurer un pool d’hôte pour effectuer l’équilibrage de charge de prioritaire et à utiliser une nouvelle maximale limite de session, exécutez l’applet de commande PowerShell suivante :
+Pour configurer un pool d’hôtes à des fins d'équilibrage de charge de largeur et utiliser une nouvelle limite maximale de sessions, exécutez la cmdlet PowerShell suivante :
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer -MaxSessionLimit ###
@@ -41,9 +45,9 @@ Set-RdsHostPool <tenantname> <hostpoolname> -BreadthFirstLoadBalancer -MaxSessio
 
 ## <a name="configure-depth-first-load-balancing"></a>Configurer l’équilibrage de charge de profondeur
 
-L’équilibrage de charge de profondeur distribue les nouvelles sessions utilisateur vers un hôte de session disponible avec le plus grand nombre de connexions, mais n’a pas atteint son seuil de la limite maximale de la session. Lors de la configuration d’équilibrage de charge de profondeur, vous **doit** définir une limite maximale d’une session par l’hôte de session dans le pool de l’hôte.
+L’équilibrage de charge de profondeur répartit les nouvelles sessions utilisateur vers l'hôte de session disponible doté du plus grand nombre de connexions, sans avoir atteint sa limite maximale de sessions. Lorsque vous configurez l'équilibrage de charge de profondeur, vous **devez** définir une limite maximale de sessions par hôte de session du pool.
 
-Pour configurer un pool d’hôte pour effectuer l’équilibrage de charge de profondeur, exécutez l’applet de commande PowerShell suivante :
+Pour configurer un pool d’hôtes à des fins d'équilibrage de charge de profondeur, exécutez la cmdlet PowerShell suivante :
 
 ```powershell
 Set-RdsHostPool <tenantname> <hostpoolname> -DepthFirstLoadBalancer -MaxSessionLimit ###

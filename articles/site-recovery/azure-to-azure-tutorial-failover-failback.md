@@ -6,21 +6,19 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96e3c0b761a9ed4c5f84d8ece1ba504bd5aacf6f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797565"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782591"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Basculer et reprotéger des machines virtuelles Azure entre des régions
 
-Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
-
-Ce tutoriel explique comment basculer une machine virtuelle Azure vers une région Azure secondaire. Une fois le basculement effectué, vous reprotégez la machine virtuelle. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel explique comment basculer une machine virtuelle (VM) vers une région Azure secondaire avec le service [Azure Site Recovery](site-recovery-overview.md). Une fois le basculement effectué, vous reprotégez la machine virtuelle. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Basculer la machine virtuelle Azure
@@ -29,8 +27,10 @@ Ce tutoriel explique comment basculer une machine virtuelle Azure vers une régi
 > [!NOTE]
 > Ce tutoriel indique la méthode la plus simple avec des paramètres par défaut et une personnalisation minimale. Pour les scénarios plus complexes, utilisez les articles figurant sous « Guide pratique » pour les machines virtuelles Azure.
 
+
 ## <a name="prerequisites"></a>Prérequis
 
+- Avant de commencer, passez en revue les [questions fréquemment posées](site-recovery-faq.md#failover) sur le basculement.
 - Assurez-vous d’avoir effectué une [simulation de récupération d’urgence](azure-to-azure-tutorial-dr-drill.md) pour vérifier que tout fonctionne comme prévu.
 - Vérifiez les propriétés de la machine virtuelle avant d’exécuter le test de basculement. La machine virtuelle doit satisfaire aux [exigences Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
@@ -46,7 +46,7 @@ Ce tutoriel explique comment basculer une machine virtuelle Azure vers une régi
    * **Dernier point traité** : Rétablit la machine virtuelle sur le dernier point de récupération ayant été traité par le service Site Recovery.
    * **Personnalisé** : effectue un basculement vers un point de récupération spécifique. Cette option est utile pour effectuer un test de basculement.
 
-3. Sélectionnez **Arrêter la machine avant de commencer le basculement** si vous souhaitez que Site Recovery tente d’arrêter les machines virtuelles sources avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Site Recovery ne nettoie pas la source après le basculement.
+3. Sélectionnez **Arrêter la machine avant de commencer le basculement** si vous souhaitez que Site Recovery tente d’arrêter les machines virtuelles sources avant de déclencher le basculement. L’arrêt permet d’éviter toute perte de données. Le basculement est effectué même en cas d’échec de l’arrêt. Site Recovery ne nettoie pas la source après le basculement.
 
 4. Suivre la progression du basculement sur la page **Tâches**.
 
@@ -54,6 +54,11 @@ Ce tutoriel explique comment basculer une machine virtuelle Azure vers une régi
 
 6. Si vous êtes satisfait de la machine vers laquelle est effectué le basculement, vous pouvez **Valider** le basculement.
    La validation supprime tous les points de récupération disponibles avec le service. Désormais, vous ne pouvez pas changer le point de récupération.
+
+> [!NOTE]
+> Lorsque vous basculez une machine virtuelle à laquelle vous ajoutez un disque après avoir activé la réplication pour la machine virtuelle, les points de réplication afficheront les disques disponibles pour la récupération. Par exemple, si une machine virtuelle comporte un seul disque et que vous en ajoutez un nouveau, les points de réplication créés avant l’ajout du disque montrent que le point de réplication se compose de « 1 de 2 disques ».
+
+![Basculer avec un disque ajouté](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>Reprotéger la machine virtuelle secondaire
 

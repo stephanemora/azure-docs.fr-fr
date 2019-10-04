@@ -4,23 +4,22 @@ description: Automatiser les tâches de configuration de machine virtuelle Linux
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e5ef1bde9420104b596c22837048b054f918b3cc
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882427"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092626"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure Version 1 avec des machines virtuelles Linux
 
@@ -123,11 +122,11 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.OSTCExtensions | string |
-| Type | CustomScriptForLinux | string |
+| type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
 | fileUris (p. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (p. ex.) | python MyPythonScript.py \<my-param1\> | string |
-| enableInternalDNSCheck | true | booléenne |
+| enableInternalDNSCheck | true | boolean |
 | storageAccountName (p. ex.) | examplestorageacct | string |
 | storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
@@ -183,7 +182,7 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
 >[!NOTE]
 >Ces noms de propriétés respectent la casse. Pour éviter des problèmes de déploiement, utilisez les noms présentés ici.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 
 Si vous utilisez Azure CLI pour exécuter l’extension de script personnalisé, créez un fichier de configuration ou des fichiers. Vous devez indiquer au moins la propriété « commandToExecute ».
 
@@ -296,7 +295,7 @@ Points à noter :
 
 1. La commande Enable correspond au début de l’exécution de la commande.
 1. La commande Download se rapporte au téléchargement du package d’extension CustomScript à partir d’Azure, et non aux fichiers de script spécifiés dans fileUris.
-1. Vous pouvez également voir le fichier journal qui il écrit à `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. Vous pouvez aussi voir dans quel fichier il est écrit, `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 L’étape suivante consiste à rechercher le fichier journal, selon le format suivant :
 
@@ -304,7 +303,7 @@ L’étape suivante consiste à rechercher le fichier journal, selon le format s
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Vous devez rechercher une exécution individuelle, il doit ressembler à :
+Vous devez rechercher l’exécution individuelle, qui doit se présenter ainsi :
 
 ```text
 2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...

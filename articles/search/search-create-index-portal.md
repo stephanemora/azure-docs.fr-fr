@@ -1,21 +1,19 @@
 ---
 title: Création d’un index Azure Search dans le portail Azure - Recherche Azure
 description: Découvrez comment créer un index pour Recherche Azure à l’aide des concepteurs d’index intégrés du portail.
-manager: cgronlun
+manager: nitinme
 author: heidisteen
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 02/16/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6a2bac71c37cc750eb24e3492ecdcdf0b2333cce
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: fec81cd9660348d492b1dabd24ac689f2b06e880
+ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338833"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69638812"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>Créer un index de Recherche Azure dans le portail
 

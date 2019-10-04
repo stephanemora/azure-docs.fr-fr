@@ -1,22 +1,22 @@
 ---
-title: Développer des applications avec le kit SDK Speech - Services Speech
+title: Développer des applications avec le kit SDK Speech – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Apprenez à créer des applications à l’aide du kit SDK Speech.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.openlocfilehash: 8192a2d731104fe898ca128a1d989783698567da
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56962024"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559154"
 ---
 # <a name="ship-an-application"></a>Délivrer une application
 
@@ -28,10 +28,10 @@ Selon la plateforme, il existe différentes dépendances pour exécuter votre ap
 
 Le kit de développement logiciel (SDK) Speech de Cognitive Services est testé sur Windows 10 et Windows Server 2016.
 
-Le kit de développement logiciel (SDK) Speech de Cognitive Services nécessite que [Microsoft Visual C++ Redistributable pour Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) soit installé sur le système. Vous pouvez télécharger le programme d’installation de la dernière version du `Microsoft Visual C++ Redistributable for Visual Studio 2017` ici :
+Le kit de développement logiciel (SDK) Speech de Cognitive Services nécessite que [Microsoft Visual C++ Redistributable pour Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) soit installé sur le système. Vous pouvez télécharger le programme d’installation de la dernière version du `Microsoft Visual C++ Redistributable for Visual Studio 2019` ici :
 
-- [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
+- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 Si votre application utilise du code managé, `.NET Framework 4.6.1` ou une version ultérieure est requis sur l’ordinateur cible.
 
@@ -45,23 +45,33 @@ Les fichiers du kit de développement logiciel (SDK) Speech requis peuvent être
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Requis pour le déploiement managé
 
 >[!NOTE]
-> Depuis la version 1.3.0 le fichier `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fourni dans les versions précédentes) n’est plus nécessaire. La fonctionnalité est désormais intégrée dans le Kit de développement logiciel de base.
+> Depuis la version 1.3.0, le fichier `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fourni dans les versions précédentes) n’est plus nécessaire. La fonctionnalité est désormais intégrée dans le kit SDK principal.
+
+>[!NOTE]
+> Pour le projet C# Windows Forms App (.NET Framework), vérifiez que les bibliothèques sont incluses dans les paramètres de déploiement de votre projet. Vous pouvez vérifier cela dans `Properties -> Publish Section`. Cliquez sur le bouton `Application Files` et recherchez les bibliothèques correspondantes à partir de la liste déroulante. Assurez-vous que la valeur est définie sur `Included`. Visual Studio inclut le fichier lorsque le projet est publié/déployé.
 
 ## <a name="linux"></a>Linux
 
-Le kit de développement logiciel (SDK) Speech prend actuellement en charge les distributions Ubuntu 16.04 et 18.04.
+Le SDK Speech prend actuellement en charge les distributions Ubuntu 16.04, Ubuntu 18.04 et Debian 9.
 Pour une application native, vous devez fournir la bibliothèque du SDK Speech, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Veillez à sélectionner la version (x86, x64) correspondant à votre application. En fonction de la version de Linux, vous devrez peut-être également inclure les dépendances suivantes :
 
 * Les bibliothèques partagées de la bibliothèque C de GNU (notamment la bibliothèque de programmation POSIX Threads, `libpthreads`)
-* La bibliothèque OpenSSL (`libssl.so.1.0.0`)
+* La bibliothèque OpenSSL (`libssl.so.1.0.0` ou `libssl.so.1.0.2`)
 * La bibliothèque partagée pour les applications ALSA (`libasound.so.2`)
 
 Sous Ubuntu, les bibliothèques C de GNU doivent déjà être installées par défaut. Les trois dernières peuvent être installées à l’aide de ces commandes :
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+Sur Debian 9, installez ces packages :
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

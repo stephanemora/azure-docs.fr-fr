@@ -1,20 +1,20 @@
 ---
-title: Tutoriel sur l’installation d’un appareil physique Azure Data Box Edge | Microsoft Docs
+title: Tutoriel pour installer, déballer, monter en rack et brancher l’appareil physique Azure Data Box Edge | Microsoft Docs
 description: Le deuxième tutoriel sur l’installation de l’Azure Data Box Edge fournit des explications sur le déballage, le montage en rack et le câblage de l’appareil physique.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/20/2019
+ms.date: 05/31/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278477"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476946"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Didacticiel : Installer Azure Data Box Edge
 
@@ -70,7 +70,7 @@ Cet appareil est livré dans un seul carton. Procédez comme suit pour déballer
 1. Placez le carton sur une surface plane et droite.
 2. Vérifiez que le carton et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. Contactez le Support Microsoft pour savoir si l’appareil est en état de marche.
 3. Déballez le carton. Une fois le carton déballé, vous devez disposer des éléments suivants :
-    - 1 appareil Edge dans son boîtier
+    - 1 appareil Data Box Edge dans son boîtier
     - 2 câbles d’alimentation
     - 1 assemblage du kit de rails
     - 1 livret relatif à la sécurité, l’environnement et les réglementations
@@ -100,19 +100,19 @@ Identifiez les éléments d’installation de l’assemblage du kit de rails :
 1. Deux assemblages de rails coulissants A7 Dell ReadyRails II
 2. Deux sangles à boucle et crochet
 
-![Identifier le contenu du kit de rails](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
+    ![Identifier le contenu du kit de rails](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Installer et retirer les rails sans outil (racks à trous ronds ou carrés)
 
 > [!TIP]
 > Cette option ne propose aucun outil, car l’installation et le retrait des rails dans les trous carrés ou ronds non filetés des racks ne nécessitent pas d’outils.
 
-1. Placez les extrémités des rails gauche et droit portant la mention **FRONT** vers l’intérieur et orientez chaque extrémité pour qu’elle vienne s’encastrer dans les trous de la partie avant des brides verticales du rack.
+1. Placez les extrémités des rails gauche et droit portant la mention **FRONT** vers l’intérieur, et orientez chaque extrémité pour qu’elle vienne s’encastrer dans les trous de la partie avant des brides verticales du rack.
 2. Alignez chaque extrémité pour qu’elle s’encastre dans les trous inférieurs et supérieurs des unités souhaitées.
 3. Engagez l’arrière du rail jusqu’à son enclenchement complet dans la collerette verticale du rack et jusqu’à l’enclenchement du loquet. Répétez ces étapes pour positionner et enclencher l’extrémité avant sur la bride verticale du rack.
 4. Pour retirer les rails, tirez sur le bouton de dégagement du loquet situé au milieu de l’extrémité et dégagez chaque rail.
 
-![Installer et retirer les rails sans outil](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
+    ![Installer et retirer les rails sans outil](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Installer et retirer les rails avec outils (racks à trous filetés)
 
@@ -124,7 +124,7 @@ Identifiez les éléments d’installation de l’assemblage du kit de rails :
 3. Fixez les rails droit et gauche aux brides verticales avant du rail à l’aide de deux paires de vis.
 4. Faites glisser les montants arrière gauche et droit vers l’avant jusqu’à ce qu’ils soient placés contre les brides verticales arrière du rail et fixez-les avec deux paires de vis.
 
-![Installer et retirer les rails avec outils](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+    ![Installer et retirer les rails avec outils](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
 
 ### <a name="install-the-system-in-a-rack"></a>Installer le système dans un rack
 
@@ -133,7 +133,7 @@ Identifiez les éléments d’installation de l’assemblage du kit de rails :
 3. Repoussez le système vers l’intérieur jusqu’à ce que les leviers de verrouillage s’enclenchent.
 4. Appuyez sur les deux boutons de dégagement des deux rails et poussez le système dans le rack.
 
-![Installer le système dans un rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
+    ![Installer le système dans un rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
 
 ### <a name="remove-the-system-from-the-rack"></a>Retirer le système installé dans le rack
 
@@ -141,17 +141,18 @@ Identifiez les éléments d’installation de l’assemblage du kit de rails :
 2. Déverrouillez chaque levier en le faisant pivoter jusqu’à ce qu’il soit en position de dégagement.
 3. Tenez le système par ses côtés et tirez-le vers l’avant jusqu’à aligner les picots du rail avec les fentes en J. Soulevez le système, dégagez-le et posez-le sur une surface plane.
 
-![Retirer le système installé dans le rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
+    ![Retirer le système installé dans le rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
 
 ### <a name="engage-and-release-the-slam-latch"></a>Ouvrir et fermer les rabats
 
-REMARQUE :  Pour les systèmes non équipés de rabats, sécurisez le système à l’aide de vis, comme décrit à l’étape 3 de cette procédure.
+> [!NOTE]
+> Pour les systèmes non équipés de rabats, sécurisez le système à l’aide de vis, comme décrit à l’étape 3 de cette procédure.
 
 1. À partir de l’avant, identifiez le rabat de chaque côté du système.
 2. Les rabats s’enclenchent automatiquement quand vous poussez le système dans le rack et s’ouvrent automatiquement quand vous tirez dessus.
 3. Si vous devez fixer le système pour l’expédier ou si celui-ci repose sur une surface instable, repérez les vis fixes situées sous chaque rabat et vissez-les à l’aide d’un tournevis cruciforme n° 2.
 
-![Ouvrir et fermer les rabats](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+    ![Ouvrir et fermer les rabats](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
 ### <a name="route-the-cables"></a>Passer les câbles
 
@@ -163,16 +164,16 @@ REMARQUE :  Pour les systèmes non équipés de rabats, sécurisez le système 
 3. Faites passer les sangles à boucle et crochet à travers les fentes situées sur les supports externes du passe-câbles de chaque côté du système afin de sécuriser les groupes de câbles.
 
 
-![Passer les câbles](./media/data-box-edge-deploy-install/routing-cables.png)
+    ![Passer les câbles](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Câblage de l’appareil
 
-Les procédures suivantes expliquent comment effectuer le câblage d’alimentation et de réseau de votre appareil Edge.
+Les procédures suivantes expliquent comment effectuer le câblage d’alimentation et de réseau de votre appareil Data Box Edge.
 
 Avant de commencer à câbler votre appareil, vous avez besoin des éléments suivants :
 
-- Votre appareil physique Edge, déballé et monté en rack.
-- 2 câbles d’alimentation. 
+- Votre appareil physique Data Box Edge, déballé et monté en rack.
+- 2 câbles d’alimentation.
 - Au moins un câble réseau 1-GbE RJ-45 à brancher à l’interface de gestion. Il existe deux interfaces de réseau 1-GbE, une interface de gestion, et une interface de données, sur l’appareil.
 - Un câble en cuivre 25-GbE SFP+ pour chaque interface de réseau de données à configurer. Au moins une interface de réseau de données, au choix PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6, doit être connectée à Internet (avec connectivité à Azure).  
 - Accès à deux unités de distribution d’énergie (recommandé).
@@ -180,34 +181,46 @@ Avant de commencer à câbler votre appareil, vous avez besoin des éléments su
 > [!NOTE]
 > - Si vous ne connectez qu’une seule interface de réseau, nous vous recommandons d’utiliser une interface réseau 25/10-GbE telle que PORT 3, PORT 4, PORT 5 ou PORT 6 pour envoyer des données à Azure. 
 > - Pour de meilleures performances et pour gérer d’importants volumes de données, pensez à connecter tous les ports de données.
-> - L’appareil Edge doit être connecté au réseau du centre de données pour pouvoir recevoir les informations provenant des serveurs des sources de données.
+> - L’appareil Data Box Edge doit être connecté au réseau du centre de données pour pouvoir recevoir les informations provenant des serveurs des sources de données.
 
-Votre appareil Edge est équipé de 8 disques SSD NVMe. Le panneau avant comporte également des LED d’état et des boutons d’alimentation. L’appareil comprend des unités d’alimentation (PSU) redondantes à l’arrière. Votre appareil a six interfaces réseau :
+Sur votre appareil Data Box Edge :
 
-- Deux interfaces de 1 Gbit/s
-- Quatre interfaces de 25 Gbits/s qui peuvent également faire office d’interfaces de 10 Gbits/s.
-- Un contrôleur de gestion de la carte de base (BMC). 
+- Le panneau avant comprend des lecteurs de disque et un bouton d’alimentation.
 
-Identifiez les différents ports sur le fond de panier de votre appareil.
- 
-  ![Fond de panier d’un appareil câblé](./media/data-box-edge-deploy-install/backplane-cabled.png)
+    - 10 emplacements de disque se trouvent à l’avant de votre appareil.
+    - L’emplacement 0 comporte un lecteur SATA de 240 Go qui est utilisé comme un disque de système d’exploitation. L’emplacement 1 est vide, et les emplacements 2 à 9 sont des disques SSD NVMe utilisés comme des disques de données.
+- Le fond de panier de l’appareil comprend des unités d’alimentation (PSU) redondantes à l’arrière.
+- Le fond de panier comprend six interfaces réseau :
 
-L’appareil a deux cartes réseau correspondant aux 6 ports : 
+    - Deux interfaces de 1 Gbit/s
+    - Quatre interfaces de 25 Gbits/s qui peuvent également faire office d’interfaces de 10 Gbits/s.
+    - Un contrôleur de gestion de la carte de base (BMC).
 
- - QLogic FastLinQ 41264
- - QLogic FastLinQ 41262
+- Le fond de panier comprend deux cartes réseau correspondant aux 6 ports :
+
+    - QLogic FastLinQ 41264
+    - QLogic FastLinQ 41262
 
 Pour obtenir la liste complète des câbles, commutateurs et transmetteurs pris en charge pour ces cartes réseau, consultez le document [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
  
 Effectuez les étapes suivantes pour brancher l’alimentation et le réseau de votre appareil.
 
-1. Branchez les câbles d’alimentation à chacune des unités d’alimentation dans le boîtier. Pour assurer une haute disponibilité, installez et connectez les deux unités d’alimentation à des sources d’alimentation différentes.
+1. Identifiez les différents ports sur le fond de panier de votre appareil.
 
-2. Fixez les câbles d’alimentation aux unités de distribution d’alimentation (PDU) du rack. Assurez-vous que les deux unités d’alimentation utilisent des sources d’alimentation distinctes.
+    ![Fond de panier d’un appareil câblé](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
-3. Connectez l’interface réseau 1-GbE PORT 1 à l’ordinateur utilisé pour configurer l’appareil physique. Le PORT 1 constitue l’interface de la gestion dédiée.
+2. Localisez les emplacements de disque et le bouton d’alimentation à l’avant de l’appareil.
 
-4. Connectez un ou plusieurs interfaces PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6 au réseau du centre de données/à Internet. Si vous connectez le PORT 2, utilisez le câble réseau RJ-45. Pour les interfaces de réseau 10/25-GbE, utilisez les câbles en cuivre SFP+.  
+    ![Plan avant d’un appareil](./media/data-box-edge-deploy-install/device-front-plane-labeled-1.png)
+
+3. Branchez les câbles d’alimentation à chacune des unités d’alimentation dans le boîtier. Pour assurer une haute disponibilité, installez et connectez les deux unités d’alimentation à des sources d’alimentation différentes.
+4. Fixez les câbles d’alimentation aux unités de distribution d’alimentation (PDU) du rack. Assurez-vous que les deux unités d’alimentation utilisent des sources d’alimentation distinctes.
+5. Appuyez sur le bouton d’alimentation pour allumer l’appareil.
+6. Connectez l’interface réseau 1-GbE PORT 1 à l’ordinateur utilisé pour configurer l’appareil physique. Le PORT 1 constitue l’interface de la gestion dédiée.
+7. Connectez un ou plusieurs interfaces PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6 au réseau du centre de données/à Internet.
+
+    - Si vous connectez le PORT 2, utilisez le câble réseau RJ-45.
+    - Pour les interfaces de réseau 10/25-GbE, utilisez les câbles en cuivre SFP+.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -222,5 +235,3 @@ Passez au didacticiel suivant pour savoir comment connecter, configurer et activ
 
 > [!div class="nextstepaction"]
 > [Connecter et configurer Data Box Edge](./data-box-edge-deploy-connect-setup-activate.md)
-
-

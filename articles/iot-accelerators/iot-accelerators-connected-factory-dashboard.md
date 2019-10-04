@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: 4af93b5667181941585cc1ac89f5696379962026
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 82045ddcc204fe369b7330fe9b3c2a8cadd56d88
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075302"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67067935"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Utiliser les fonctionnalités du tableau de bord de l’accélérateur de solution Usine connectée
 
@@ -23,7 +23,7 @@ Le guide de démarrage rapide [Déployer une solution cloud pour gérer mes appa
 
 Vous pouvez filtrer les informations affichées dans le tableau de bord dans le panneau **Emplacements des usines** ou dans le panneau **Alarmes** :
 
-1. Cliquez sur l’icône **Entonnoir** pour afficher la liste des filtres disponibles dans le panneau des emplacements d’usine ou le panneau des alarmes.
+1. Cliquez sur le **Entonnoir** pour afficher la liste des filtres disponibles dans le panneau des emplacements d’usine ou le panneau des alarmes.
 
 1. Le panneau des filtres s’affiche :
 
@@ -42,7 +42,7 @@ Vous pouvez filtrer les informations affichées dans le tableau de bord dans le 
 
 ## <a name="browse-an-opc-ua-server"></a>Parcourir un serveur OPC UA
 
-Quand vous déployez l’accélérateur de solution, vous provisionnez automatiquement un ensemble de serveurs OPC UA simulés auxquels vous pouvez accéder via le tableau de bord. Les serveurs simulés vous permettent d’expérimenter plus facilement l’accélérateur de solution sans avoir à déployer des serveurs réels. Si vous ne voulez pas connecter un serveur OPC UA réel à la solution, consultez le tutoriel [Connecter de votre appareil OPC UA à l’accélérateur de solution Usine connectée](iot-accelerators-connected-factory-gateway-deployment.md).
+Quand vous déployez l’accélérateur de solution, vous provisionnez automatiquement un ensemble de serveurs OPC UA simulés auxquels vous pouvez accéder via le tableau de bord. Les serveurs simulés vous permettent d’expérimenter plus facilement l’accélérateur de solution sans avoir à déployer des serveurs réels.
 
 1. Cliquez sur **l’icône de navigateur** dans la barre de navigation du tableau de bord :
 
@@ -111,6 +111,5 @@ Quand vous avez terminé, vous pouvez supprimer l’accélérateur de solution d
 
 À présent que vous avez déployé un accélérateur de solution opérationnel, vous pouvez poursuivre la prise en main des accélérateurs de solution IoT en lisant les articles suivants :
 
-* [Procédure pas à pas de l’accélérateur de solution Usine connectée](iot-accelerators-connected-factory-sample-walkthrough.md)
-* [Connecter votre appareil à l’accélérateur de solution Usine connectée](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Configurer l’accélérateur de solution Usine connectée](iot-accelerators-connected-factory-configure.md)
 * [Autorisations sur le site azureiotsolutions.com](iot-accelerators-permissions.md)

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f6ece10c43c2c4a6bea92d14a8bf6fbdb49fd318
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112311"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261371"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Surveiller l’état, configurer la journalisation des diagnostics et activer les alertes pour Azure Logic Apps
 
@@ -35,7 +35,7 @@ Pour obtenir des notifications concernant des échecs ou d’autres problèmes �
 
 2. Sélectionnez votre application logique, puis choisissez **Vue d’ensemble**.
 
-   Le portail Azure affiche l’historique des exécutions et l’historique du déclencheur pour votre application logique. Par exemple : 
+   Le portail Azure affiche l’historique des exécutions et l’historique du déclencheur pour votre application logique. Par exemple :
 
    ![Historique des exécutions et l’historique du déclencheur de l’application logique](media/logic-apps-monitor-your-logic-apps/overview.png)
 
@@ -49,7 +49,7 @@ Pour obtenir des notifications concernant des échecs ou d’autres problèmes �
 
 3. Pour afficher les étapes d’une exécution spécifique, sous **Historique des exécutions**, sélectionnez cette exécution. 
 
-   La vue de moniteur affiche chaque étape de cette exécution. Par exemple : 
+   La vue de moniteur affiche chaque étape de cette exécution. Par exemple :
 
    ![Actions d’une exécution spécifique](media/logic-apps-monitor-your-logic-apps/monitor-view-updated.png)
 
@@ -59,7 +59,7 @@ Pour obtenir des notifications concernant des échecs ou d’autres problèmes �
 
    Par exemple, vous pouvez obtenir l’**ID de corrélation** de l’exécution, dont vous pouvez avoir besoin lorsque vous utilisez l’[API REST pour Logic Apps](https://docs.microsoft.com/rest/api/logic).
 
-5. Pour obtenir plus d’informations sur une étape spécifique, choisissez celle-ci. Vous pouvez maintenant examiner des détails tels que les entrées, les sorties et les erreurs qui se sont produites pour cette étape. Par exemple : 
+5. Pour obtenir plus d’informations sur une étape spécifique, choisissez celle-ci. Vous pouvez maintenant examiner des détails tels que les entrées, les sorties et les erreurs qui se sont produites pour cette étape. Par exemple :
 
    ![Détails de l’étape](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
@@ -74,13 +74,13 @@ Pour obtenir des notifications concernant des échecs ou d’autres problèmes �
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Activer la journalisation des diagnostics pour votre application logique
 
-Pour un débogage enrichi avec les événements et les détails d’exécution, vous pouvez configurer la journalisation des diagnostics avec [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md). Azure Monitor est un service dans Azure qui surveille votre cloud locales et dans des environnements pour vous aider à maintenir leur disponibilité et leurs performances. 
+Pour un débogage enrichi avec des détails et événements d’exécution, vous pouvez configurer la journalisation des diagnostics avec les [journaux Azure Monitor](../log-analytics/log-analytics-overview.md). Azure Monitor est un service Azure qui supervise vos environnements cloud et locaux pour vous aider à garantir leur disponibilité et leurs performances. 
 
 Avant de commencer, vous devez disposer d’un espace de travail Log Analytics. Découvrez [comment créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez votre application logique. 
 
-2. Dans le menu du panneau application logique, sous **surveillance**, choisissez **Diagnostics** > **les paramètres de Diagnostic**.
+2. Dans le menu du panneau d’application logique, sous **Surveillance**, choisissez **Diagnostics**>**Paramètres de diagnostic**.
 
    ![Accéder à Surveillance, Diagnostics, Paramètres de diagnostic](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -127,7 +127,7 @@ Pour rechercher et afficher dans votre application logique des événements tels
 
    ![Entrer une chaîne de recherche](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   En savoir plus sur [comment rechercher des données dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+   Apprenez-en davantage sur la manière de [rechercher des données dans les journaux Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 
 5. Dans la page de résultats, dans la barre de gauche, choisissez la plage de temps que vous souhaitez afficher.
 Pour affiner votre requête en ajoutant un filtre, choisissez **+Ajouter**.
@@ -155,12 +155,12 @@ Pour affiner votre requête en ajoutant un filtre, choisissez **+Ajouter**.
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Étendre la manière dont vous utilisez les données de diagnostic et l’emplacement où vous les utilisez avec d’autres services
 
-En même temps que les journaux Azure Monitor, vous pouvez étendre l’utilisation des données de diagnostic de votre application logique avec d’autres services Azure, par exemple : 
+Avec les journaux Azure Monitor, vous pouvez étendre le mode d’utilisation des données de diagnostic de votre application logique avec d’autres services Azure, par exemple : 
 
-* [Archivage des journaux de diagnostic Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Diffuser en continu les journaux de diagnostic vers Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
+* [Archivage des journaux Diagnostics Azure dans Stockage Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
+* [Envoyer les journaux Diagnostics Azure vers Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 
 
-Vous pouvez ensuite obtenir une surveillance en temps réel en utilisant les ressources de télémétrie et d’analyse d’autres services, tels que [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) et [Power BI](../azure-monitor/platform/powerbi.md). Par exemple : 
+Vous pouvez ensuite obtenir une surveillance en temps réel en utilisant les ressources de télémétrie et d’analyse d’autres services, tels que [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) et [Power BI](../azure-monitor/platform/powerbi.md). Par exemple :
 
 * [Diffuser les données d’Event Hubs vers Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyser les données de diffusion avec Stream Analytics et créer un tableau de bord analytique en temps réel dans Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -178,7 +178,7 @@ Selon les options que vous souhaitez configurer, veillez au préalable à [crée
 
 Pour surveiller des métriques spécifiques ou des dépassements de seuils de votre application logique, configurez des [alertes dans Azure](../azure-monitor/platform/alerts-overview.md). En savoir plus sur les [métriques dans Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
-Pour configurer des alertes sans [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md), procédez comme suit. Pour les critères d’alertes et les actions plus avancées [configuré des journaux d’Azure Monitor](#azure-diagnostics) trop.
+Pour configurer des alertes sans les [journaux Azure Monitor](../log-analytics/log-analytics-overview.md), effectuez ces étapes. Pour définir des critères et actions d’alertes plus avancés, [configurez les journaux Azure Monitor](#azure-diagnostics) également.
 
 1. Dans le menu du panneau de l’application logique, sous **Surveillance**, choisissez **Diagnostics** > **Règles d’alerte** > **ajouter une alerte** comme illustré ici :
 
@@ -270,9 +270,29 @@ Par exemple, l’événement `ActionCompleted` a les propriétés `clientTrackin
     }
   }
   ```
+  Voici un autre exemple qui utilise l’action **Initialiser la variable**. Cet exemple ajoute des propriétés suivies à partir de l’entrée de l’action, lorsque l’entrée est un tableau et non un enregistrement.  
+
+  ``` json
+  "actions": { 
+   "Initialize_variable": { 
+      "inputs": { 
+         "variables": [{ 
+            "name": "ConnectorName", 
+            "type": "String", 
+            "value": "SFTP-SSH" 
+         }]
+      },
+      "runAfter": {},
+      "trackedProperties": { 
+         "Track1": "@action().inputs.variables[0].value"
+      },
+      "type": "InitializeVariable"
+   } 
+  }
+  ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Création de modèles pour le déploiement d’applications logiques et la gestion des versions](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatiser le déploiement de l’application logique](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Scénarios B2B et communication avec Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Surveiller les messages B2B](../logic-apps/logic-apps-monitor-b2b-message.md)

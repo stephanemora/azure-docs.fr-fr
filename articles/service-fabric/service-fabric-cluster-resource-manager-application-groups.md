@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7e90dc00a8e042e48d8016e25dda04c15ce9f619
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670632"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62114071"
 ---
 # <a name="introduction-to-application-groups"></a>Présentation des groupes d’applications
 Service Fabric Cluster Resource Manager gère habituellement les ressources de cluster en répartissant la charge (représentée par les [métriques](service-fabric-cluster-resource-manager-metrics.md)) uniformément dans le cluster. Service Fabric gère la capacité des nœuds du cluster et le cluster dans son ensemble via la [capacité](service-fabric-cluster-resource-manager-cluster-description.md). Les mesures et la capacité sont idéales pour divers types de charges de travail, mais les modèles qui utilisent beaucoup d’instances d’application Service Fabric différentes imposent parfois des conditions supplémentaires. Par exemple, vous pouvez :
@@ -108,7 +108,7 @@ La réservation d’espace dans le cluster pour l’application se produit immé
 - le nombre de services au sein de l’instance d’application change à chaque fois 
 - les services existent mais n’utilisent pas les ressources 
 
-Réservation de ressources pour une instance d’application nécessite la spécification des deux paramètres supplémentaires : *MinimumNodes* et *NodeReservationCapacity*
+La réservation de ressources pour une instance d’application implique de spécifier deux paramètres supplémentaires : *MinimumNodes* et *NodeReservationCapacity*
 
 - **MinimumNodes** : définit le nombre minimal de nœuds sur lesquels l’instance d’application devrait s’exécuter.  
 - **NodeReservationCapacity** : ce paramètre est défini pour chaque mesure de l’application. La valeur correspond à la quantité de cette mesure réservée à l’application sur n’importe quel nœud où s’exécutent les services de cette application.
@@ -119,7 +119,7 @@ Voyons un exemple de réservation de capacité :
 
 <center>
 
-![Instances d’application définissant la capacité réservée][Image2]
+![Instances d’application définissant la capacité de réserve][Image2]
 </center>
 
 Dans l’exemple de gauche, aucune capacité n’est définie pour les applications. Cluster Resource Manager équilibre tout conformément aux règles normales.
@@ -180,13 +180,13 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 
 La requête ApplicationLoad renvoie des informations de base sur la capacité d’application spécifiée pour l’application. Ces informations comprennent les informations sur les nombres minimum et maximum de nœuds, et le nombre de nœuds actuellement occupés par l’application. Elles comprennent également des informations sur chaque mesure de charge d’application, notamment :
 
-* Nom de la mesure : Nom de la mesure.
-* Capacité de réserve : Capacité du cluster qui est réservée dans le cluster pour cette Application.
-* Chargement de l’application : Charge totale de réplicas des enfants de cette Application.
-* Capacité d’application : Valeur maximale possible de chargement de l’Application.
+* Nom de la métrique : nom attribué à la métrique.
+* Capacité de réserve : capacité du cluster qui est réservée dans le cluster pour cette application.
+* Charge de l’application : charge totale des réplicas enfants de cette application.
+* Capacité d’application : valeur maximale autorisée pour la charge de l’application.
 
 ## <a name="removing-application-capacity"></a>Suppression de la capacité d’application
-Une fois les paramètres de capacité d’application définis pour une application, vous pouvez les supprimer à l’aide d’API de mise à jour de l’application ou d’applets de commande PowerShell. Par exemple : 
+Une fois les paramètres de capacité d’application définis pour une application, vous pouvez les supprimer à l’aide d’API de mise à jour de l’application ou d’applets de commande PowerShell. Par exemple :
 
 ``` posh
 Update-ServiceFabricApplication –Name fabric:/MyApplication1 –RemoveApplicationCapacity

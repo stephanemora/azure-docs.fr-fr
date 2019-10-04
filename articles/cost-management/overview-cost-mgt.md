@@ -5,21 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6615c6d8912195dbecda727bbdb31dcf04898ea2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003177"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792809"
 ---
 # <a name="what-is-azure-cost-management"></a>Qu’est-ce que la gestion des coûts Azure ?
 
 La gestion des coûts est le processus qui vous permet de prévoir et de maîtriser les coûts de votre entreprise avec efficacité. Les tâches de gestion des coûts sont normalement effectuées par les équipes de finance, d’administration et d’application. La solution Azure Cost Management aide les organisations à planifier en gardant les coûts à l’esprit. Elle permet aussi d’analyser efficacement les coûts et de prendre des mesures pour optimiser les dépenses cloud. Pour découvrir plus en détail comment une organisation doit approcher la gestion des coûts, consultez l’article [Bonnes pratiques pour Azure Cost Management](cost-mgt-best-practices.md).
+
+Regardez la [vidéo de présentation d’Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0) pour avoir une vue d’ensemble rapide de la façon dont Azure Cost Management peut vous aider à économiser de l’argent dans Azure.
+
+>[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 Bien que liées, la facturation diffère de la gestion des coûts. La facturation est le processus qui vous permet de facturer des biens ou des services aux clients et de gérer les relations commerciales.  Les équipes d’approvisionnement et de finance s’occupent généralement des tâches de facturation.
 
@@ -42,6 +46,10 @@ Si vous utilisez des systèmes externes pour accéder ou consulter les données 
 ## <a name="consider-cloudyn"></a>Envisager Cloudyn
 
 [Cloudyn](overview.md) est un service Azure lié à Cost Management. Avec Cloudyn, vous pouvez suivre l’utilisation du cloud et les dépenses pour vos ressources Azure. Il prend également en charge d’autres fournisseurs cloud, notamment AWS et Google. Les rapports du tableau de bord vous aident à comprendre la répartition des coûts, de même que la rétrofacturation et la facturation interne. Actuellement, Cost Management ne prend pas en charge la rétrofacturation/facturation interne ni d’autres fournisseurs de services cloud. Par contre, Cloudyn est une option qui les _prend_ en charge. Actuellement, Cost Management ne prend pas en charge les comptes de fournisseurs de services cloud Microsoft, contrairement à Cloudyn. Si vous avez des comptes de fournisseurs de services cloud ou si vous souhaitez utiliser la récupération des données de facturation/facturation interne, vous pouvez utiliser Cloudyn pour aider à gérer les coûts.
+
+Regardez la [vidéo Azure Cost Management et Cloudyn](https://www.youtube.com/watch?v=PmwFWwSluh8) pour savoir quand utiliser Azure Cost Management ou Cloudyn, en fonction des besoins de votre entreprise.
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## <a name="additional-azure-tools"></a>Autres outils Azure
 

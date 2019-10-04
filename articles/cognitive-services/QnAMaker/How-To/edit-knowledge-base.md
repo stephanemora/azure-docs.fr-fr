@@ -3,20 +3,20 @@ title: Modifier une base de connaissances - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker vous permet de gérer le contenu de votre base de connaissances en fournissant une expérience d’édition simple d’utilisation.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 03/26/2019
-ms.author: tulasim
+ms.topic: conceptual
+ms.date: 05/10/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: 1450d6b41d9a193f8069509aacd3343ae646c6ac
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577202"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307022"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Modifier une base de connaissances dans QnA Maker
 
@@ -54,7 +54,7 @@ QnA Maker vous permet de gérer le contenu de votre base de connaissances en fou
 
 ## <a name="add-a-qna-pair"></a>Ajouter une paire QnA
 
-Sur le **paramètres** page, sélectionnez **QnA ajouter paire** pour ajouter une nouvelle ligne à la table de base de connaissances.
+Sur la page **MODIFIER**, sélectionnez **Add QnA pair** (Ajouter une paire QnA) pour ajouter une nouvelle ligne à la table de base de connaissances.
 
 ![Ajouter une paire QnA](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -72,8 +72,7 @@ Ajoutez des questions alternatives à une paire QnA existante pour améliorer la
 
 ## <a name="add-metadata"></a>Ajouter des métadonnées
 
-
-Ajoutez les paires de métadonnées en sélectionnant l’icône de métadonnées. Une paire de métadonnées se compose d’une clé et une valeur.
+Ajoutez des paires de métadonnées en sélectionnant d’abord **Afficher les options**, puis en sélectionnant **Afficher les métadonnées**. Cette opération affiche la colonne de métadonnées. Ensuite, sélectionnez le signe **+** pour ajouter une paire de métadonnées. Cette paire se compose d’une clé et une valeur.
 
 ![Ajouter des métadonnées](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

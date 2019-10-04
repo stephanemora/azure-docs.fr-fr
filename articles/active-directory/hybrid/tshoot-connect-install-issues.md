@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e077127681f8bd7b650ab22f2d036efd7f9733ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e75ad29c5b4a76de5317991995f132c6cb53bbe3
+ms.sourcegitcommit: 8fea78b4521921af36e240c8a92f16159294e10a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876920"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70211840"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>Résolution de problèmes : Problèmes d’installation Azure AD Connect
 
@@ -41,11 +41,11 @@ Toutefois, si vous ne réunissez pas les critères d’installation rapide et de
 
 ### <a name="common-issues"></a>**Problèmes courants**
 
-* [Problèmes de connectivité avec Active Directory local](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
+* [Problèmes de connectivité avec Azure Active Directory local](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-adconnectivitytools).
 
 * [Problèmes de connectivité avec Azure Active Directory en ligne](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-connectivity).
 
-* [Problèmes d’autorisation avec Active Directory local](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
+* [Problèmes d’autorisation avec Azure Active Directory local](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-configure-ad-ds-connector-account).
 
 ## <a name="recommended-documents"></a>**Documents recommandés**
 * [Conditions préalables pour Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites)
@@ -58,7 +58,7 @@ Toutefois, si vous ne réunissez pas les critères d’installation rapide et de
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Synchronisation Azure AD Connect](how-to-connect-sync-whatis.md).
-- [Qu’est-ce que l’identité hybride ?](whatis-hybrid-identity.md).
+- [Qu’est-ce que l’identité hybride ?](whatis-hybrid-identity.md)
 
 
 

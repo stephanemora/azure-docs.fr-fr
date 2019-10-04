@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: magattus
-ms.openlocfilehash: 9793348b47763e6de10992b9a8a4606fc532cc4d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4fe72985a799595908a0ff6bceb1a73dca823c8f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094018"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593782"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimisation avec Azure CDN des téléchargements de fichiers volumineux
 
@@ -110,8 +110,8 @@ L’optimisation des fichiers volumineux utilise des temps d’expiration de mis
 
 |    | Livraison web générale | Optimisation des fichiers volumineux 
 --- | --- | --- 
-Mise en cache : positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |1 jour  
-Mise en cache : négative <br> HTTP 204, 305, 404, <br> et 405 | Aucun | 1 seconde 
+Mise en cache : Positive <br> HTTP 200, 203, 300, <br> 301, 302 et 410 | 7 jours |1 jour  
+Mise en cache : Negative <br> HTTP 204, 305, 404, <br> et 405 | Aucun | 1 seconde 
 
 ### <a name="deal-with-origin-failure"></a>Traitement des défaillances de l’origine
 

@@ -3,18 +3,17 @@ title: Liaisons Microsoft Graph pour Azure Functions
 description: Découvrez comment utiliser des déclencheurs et liaisons Microsoft Graph dans Azure Functions.
 services: functions
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: bf60ba7d940ab3ea3f4d30fc9fb1d76f9304ec1b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997554"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086591"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
@@ -980,7 +979,7 @@ La liaison expose les types suivants de fonctions .NET :
 
 
 
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>webhooks
 
 Les webhooks vous permettent de réagir à événements dans l’élément Microsoft Graph. Pour prendre en charge les webhooks, des fonctions sont requises pour créer et actualiser les _webhook abonnements_, ainsi qu’y réagir. Une solution webhook complète nécessite une combinaison des liaisons suivantes :
 - Un [déclencheur de webhook Microsoft Graph](#webhook-trigger) vous permet de réagir à un webhook entrant.

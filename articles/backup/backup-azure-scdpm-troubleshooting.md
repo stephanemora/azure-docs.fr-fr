@@ -1,19 +1,19 @@
 ---
 title: Résoudre les problèmes liés à System Center Data Protection Manager avec Sauvegarde Azure
 description: Résoudre les problèmes dans System Center Data Protection Manager.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
-ms.openlocfilehash: 4108616e3ae41e2c88b74bb08d5f846c0035101f
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.author: dacurwin
+ms.openlocfilehash: 501e61d06b7724147d7224ae51bde5de736279b3
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55293993"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689035"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Résoudre les problèmes liés à System Center Data Protection Manager
 

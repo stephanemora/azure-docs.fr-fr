@@ -1,0 +1,117 @@
+---
+title: Configurer le trousseau | Plateforme d’identités Microsoft
+description: Découvrez comment configurer le trousseau afin que votre application puisse y mettre en cache des jetons.
+services: active-directory
+documentationcenter: ''
+author: TylerMSFT
+manager: CelesteDG
+editor: ''
+ms.service: active-directory
+ms.subservice: develop
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/28/2019
+ms.author: twhitney
+ms.reviewer: ''
+ms.custom: aaddev
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 4e85fc5e6e907e32c0ad67af339c48cf84ef4764
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269379"
+---
+# <a name="configure-keychain"></a>Configurer le trousseau
+
+Quand la bibliothèque [MSAL (Microsoft Authentication Library) pour iOS et macOS](msal-overview.md) se connecte à un utilisateur, ou actualise un jeton, elle tente de mettre en cache les jetons dans le trousseau. En mettant en cache les jetons dans le trousseau, MSAL peut fournir une authentification unique silencieuse entre plusieurs applications distribuées par le même développeur Apple. L’authentification unique est effectuée par le biais de la fonctionnalité de groupes d’accès au trousseau (voir la [documentation d’Apple](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc)).
+
+Cet article explique comment configurer des droits d’application afin que MSAL puisse écrire des jetons mis en cache dans le trousseau iOS et macOS.
+
+## <a name="default-keychain-access-group"></a>Groupe d’accès au trousseau par défaut
+
+### <a name="ios"></a>iOS
+
+MSAL sur iOS utilise le groupe d’accès `com.microsoft.adalcache` par défaut. Il s’agit du groupe d’accès partagé utilisé par les kits SDK MSAL et ADAL (Azure AD Authentication Library) et qui garantit la meilleure expérience d’authentification unique entre plusieurs applications du même éditeur.
+
+Sur iOS, ajoutez le groupe de trousseau `com.microsoft.adalcache` au droit de votre application dans XCode sous **Paramètres du project** > **Capacités** > **Partage de trousseau**
+
+### <a name="macos"></a>macOS
+
+MSAL sur macOS utilise le groupe d’accès `com.microsoft.identity.universalstorage` par défaut.
+
+En raison des limitations du trousseau macOS, l’`access group` de MSAL ne se traduit pas directement par l’attribut de groupe d’accès au trousseau (voir [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) sur macOS 10.14 et antérieur. Toutefois, il se comporte de la même manière du point de vue de l’authentification unique en s’assurant que plusieurs applications distribuées par le même développeur Apple peuvent bénéficier de l’authentification unique sans assistance.
+
+Sur macOS 10.15 (macOS Catalina) et ultérieur, MSAL utilise l’attribut de groupe d’accès au trousseau pour obtenir une authentification unique silencieuse, de manière semblable à iOS.
+
+## <a name="custom-keychain-access-group"></a>Groupe d’accès au trousseau personnalisé
+
+Si vous souhaitez utiliser un autre groupe d’accès au trousseau, vous pouvez transmettre votre groupe personnalisé lors de la création de `MSALPublicClientApplicationConfig` avant de créer `MSALPublicClientApplication`, comme suit :
+
+Objective-C :
+
+```objc
+MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"your-client-id"
+                                                                                            redirectUri:@"your-redirect-uri"
+                                                                                              authority:nil];
+    
+config.cacheConfig.keychainSharingGroup = @"custom-group";
+    
+MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:nil];
+    
+// Now call acquiretoken. 
+// Tokens will be saved into the "custom-group" access group
+// and only shared with other applications declaring the same access group
+```
+
+
+
+Swift :
+
+```swift
+let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
+                                            redirectUri: "your-redirect-uri",
+                                              authority: nil)
+config.cacheConfig.keychainSharingGroup = "custom-group"
+        
+do {
+  let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application          
+} catch let error as NSError {
+  // handle error here
+}       
+```
+
+
+
+## <a name="disable-keychain-sharing"></a>Désactiver le partage de trousseau
+
+Si vous ne souhaitez pas partager l’état de l’authentification unique entre plusieurs applications, ou ne pas utiliser de groupe d’accès au trousseau, désactivez le partage de trousseau en transmettant l’ID de bundle d’applications comme keychainGroup :
+
+Objective-C :
+
+```objc
+config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
+```
+
+Swift :
+
+```swift
+if let bundleIdentifier = Bundle.main.bundleIdentifier {
+    config.cacheConfig.keychainSharingGroup = bundleIdentifier
+}
+```
+
+## <a name="handle--34018-error-failed-to-set-item-into-keychain"></a>Gérer l’erreur -34018 (échec de la définition de l’élément dans le trousseau)
+
+L’erreur -34018 signifie normalement que le trousseau n’a pas été configuré correctement. Vérifiez que le groupe d’accès au trousseau qui a été configuré dans MSAL correspond à celui configuré dans les droits.
+
+## <a name="ensure-your-application-is-properly-signed"></a>Vérifiez que votre application est signée correctement.
+
+Sur macOS, les applications peuvent s’exécuter sans être signées par le développeur. Bien que la plupart des fonctionnalités de MSAL continueront à fonctionner, l’authentification unique par le biais du trousseau d’accès exige que l’application soit signée. Si vous êtes confronté à plusieurs invites de trousseau, vérifiez que la signature de votre application est valide.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Apprenez-en davantage sur les groupes d’accès au trousseau dans l’article d’Apple intitulé [Sharing Access to Keychain Items Among a Collection of Apps](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc).

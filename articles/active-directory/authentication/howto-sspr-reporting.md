@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 794a99481d9394229e77168e75c48f4110735578
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577965"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536925"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
 Après le déploiement, de nombreuses organisations souhaitent savoir comment ou si la réinitialisation de mot de passe en libre-service (SSPR) est réellement utilisée. La fonctionnalité de création de rapports fournie par Azure Active Directory (Azure AD) vous aide à répondre aux questions à l’aide de rapports prédéfinis. Si vous disposez d’une licence appropriée, vous pouvez également créer des requêtes personnalisées.
 
-![Création de rapports sur SSPR à l’aide de l’audit de journaux dans Azure AD][Reporting]
+![Génération des rapports sur SSPR à l’aide des journaux d'audit dans Azure AD][Reporting]
 
 Les questions suivantes peuvent trouver réponse dans les rapports qui existent dans le [portail Azure](https://portal.azure.com/) :
 
@@ -50,14 +50,14 @@ Dans l’interface du portail Azure, nous avons amélioré la méthode d’affic
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** dans le volet gauche.
 3. Recherchez **Azure Active Directory** dans la liste des services, puis sélectionnez-le.
-4. Sélectionnez **utilisateurs** à partir de la section gérer.
-5. Sélectionnez **journaux d’Audit** à partir de la **utilisateurs** panneau. Vous affichez ainsi tous les événements d’audit qui ont concerné tous les utilisateurs de votre annuaire. Vous pouvez filtrer cette vue pour voir tous les événements associés aux mots de passe.
-6. À partir de la **filtre** menu en haut du volet, sélectionnez le **Service** déroulante liste et remplacez-le par le **gestion de mot de passe libre-service** du type de service.
+4. Dans la section Gérer, sélectionnez **Utilisateurs**.
+5. Sélectionnez **Journaux d’audit** dans le panneau **Utilisateurs**. Vous affichez ainsi tous les événements d’audit qui ont concerné tous les utilisateurs de votre annuaire. Vous pouvez filtrer cette vue pour voir tous les événements associés aux mots de passe.
+6. Dans le menu **Filtrer** situé en haut du volet, sélectionnez la liste déroulante **Service** et remplacez-la par le type de service **Gestion des mots de passe en libre-service**.
 7. Si vous le souhaitez, vous pouvez affiner le filtre de la liste en choisissant l’**Activité** spécifique qui vous intéresse.
 
 ### <a name="converged-registration-preview"></a>Inscription convergée (préversion)
 
-Si vous participez à la version préliminaire publique de l’inscription convergence, informations sur l’activité des utilisateurs dans les journaux d’audit seront trouve sous le service **méthodes d’authentification**.
+Si vous participez à la préversion publique de l’inscription convergée, les informations sur l’activité des utilisateurs dans les journaux d’audit se trouvent sous le service **Méthodes d’authentification**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Description des colonnes du rapport dans le portail Azure
 
@@ -117,7 +117,7 @@ La liste suivante explique cette activité en détail :
 La liste suivante explique cette activité en détail :
 
 * **Activity description** (Description de l’activité) : indique qu’un administrateur a effectué une réinitialisation de mot de passe pour le compte d’un utilisateur à partir du portail Azure.
-* **Activity actor** (Acteur de l’activité) : l’administrateur qui a effectué la réinitialisation de mot de passe pour le compte d’un autre utilisateur ou d’un administrateur. Doit être un administrateur de mot de passe, un administrateur de l’utilisateur ou un administrateur du support technique.
+* **Activity actor** (Acteur de l’activité) : l’administrateur qui a effectué la réinitialisation de mot de passe pour le compte d’un autre utilisateur ou d’un administrateur. Il doit s'agir d'un administrateur de mots de passe, d'un administrateur d'utilisateurs ou d'un administrateur du support technique.
 * **Activity target** (Cible de l’activité) : l’utilisateur dont le mot de passe a été réinitialisé. L’utilisateur peut être un utilisateur final ou un autre administrateur.
 * **Activity statuses** (États de l'activité) :
   * _Réussite_ : indique qu’un administrateur a correctement réinitialisé le mot de passe d’un utilisateur.
@@ -175,6 +175,7 @@ La liste suivante explique cette activité en détail :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Rapport d’utilisation et d’insights SSPR et MFA](howto-authentication-methods-usage-insights.md)
 * [Comment réussir le lancement de la réinitialisation de mot de passe en libre-service ?](howto-sspr-deployment.md)
 * [Réinitialisez ou modifiez votre mot de passe](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Inscrivez-vous pour la réinitialisation du mot de passe en libre-service](../user-help/active-directory-passwords-reset-register.md).

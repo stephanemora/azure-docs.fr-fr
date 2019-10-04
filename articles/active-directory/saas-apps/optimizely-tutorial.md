@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 066847ff8428a5080e655712c1a6bbe504c5cdbc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2e25c615e040dd4359e278b95045fbc71ca60ef1
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257788"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Didacticiel : Intégration d'Azure Active Directory à Optimizely
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’Optimizely avec Azure AD, vous devez ajout
 
 **Pour ajouter Optimizely à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,12 +107,12 @@ Pour configurer l’authentification unique Azure AD avec Optimizely, effectuez
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://app.optimizely.net/<instance name>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, entrez une URL au format suivant : `urn:auth0:optimizely:contoso`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , entrez une URL au format suivant : `urn:auth0:optimizely:contoso`
 
     > [!NOTE]
     > Il ne s’agit pas des valeurs réelles. Vous mettrez à jour la valeur avec l’URL de connexion et l’identificateur réels. La procédure est expliquée plus loin dans le didacticiel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-5. Votre application Optimizely s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue  **Attributs utilisateur** .
+5. Votre application Optimizely s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur**.
 
     ![image](common/edit-attribute.png)
 

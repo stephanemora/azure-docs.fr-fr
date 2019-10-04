@@ -4,18 +4,18 @@ description: Cet article explique comment gérer les coûts de stockage pour les
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: aed32db257ddbc8cb5b8f4af5f27024c23583798
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 2955df266bcf164ce4a155acc5209679eff0ce8a
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892402"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615009"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimiser les coûts de stockage dans Azure Cosmos DB
 
-Azure Cosmos DB offre un stockage et un débit illimités. Contrairement au débit, que vous devez approvisionner/configurer sur vos bases de données ou conteneurs Azure Cosmos, le stockage est facturé en fonction de la consommation. Vous êtes facturé uniquement pour le stockage logique que vous consommez et vous n’êtes pas obligé de réserver de stockage à l’avance. Le stockage se met automatiquement à l’échelle en fonction des données que vous ajoutez ou supprimez dans un conteneur Azure Cosmos DB.
+Azure Cosmos DB offre un stockage et un débit illimités. Contrairement au débit, que vous devez approvisionner/configurer sur vos bases de données ou conteneurs Azure Cosmos, le stockage est facturé en fonction de la consommation. Vous êtes facturé uniquement pour le stockage logique que vous consommez et vous n’êtes pas obligé de réserver de stockage à l’avance. Le stockage se met automatiquement à l’échelle en fonction des données que vous ajoutez ou supprimez dans un conteneur Azure Cosmos.
 
 ## <a name="storage-cost"></a>Coût de stockage
 
@@ -39,7 +39,7 @@ Si vous souhaitez stocker des types de contenus multimédias enrichis, par exemp
 
 ## <a name="check-storage-consumed"></a>Vérifier le stockage utilisé
 
-Pour vérifier la consommation du stockage d’un conteneur Azure Cosmos, vous pouvez exécuter une requête HEAD ou GET sur le conteneur et inspecter les en-têtes `x-ms-request-quota` et `x-ms-request-usage`. Lorsque vous travaillez avec le SDK .NET, vous pouvez également utiliser le [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), et [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) propriétés permettant d’obtenir le stockage consommé.
+Pour vérifier la consommation du stockage d’un conteneur Azure Cosmos, vous pouvez exécuter une requête HEAD ou GET sur le conteneur et inspecter les en-têtes `x-ms-request-quota` et `x-ms-request-usage`. Sinon, lorsque vous utilisez le SDK .NET, vous pouvez utiliser les propriétés [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)) et [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) propriétés pour connaître la quantité de stockage utilisée.
 
 ## <a name="using-sdk"></a>Utiliser le kit de développement logiciel (SDK)
 

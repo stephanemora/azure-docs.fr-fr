@@ -1,5 +1,5 @@
 ---
-title: 'Synchronisation d’Azure AD Connect : Présentation de l’architecture | Microsoft Docs'
+title: 'Synchronisation d’Azure AD Connect : Comprendre l’architecture - Azure'
 description: Cette rubrique décrit l’architecture de Microsoft Azure AD Connect Sync et explique les termes utilisés.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a648b24ad16c1b5ea404b5ad9f1f18fd5041da
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193847"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65138600"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronisation d’Azure AD Connect : Présentation de l’architecture
 Cette rubrique décrit l’architecture de base pour Azure AD Connect Sync. Celle-ci est similaire à ses prédécesseurs MIIS 2003, ILM 2007 et FIM 2010 et ce, sur plusieurs plans. Azure AD Connect Sync représente l’évolution de ces technologies. Si vous connaissez ces technologies plus anciennes, le contenu de cette rubrique vous sera également familier. Si vous ne connaissez pas la synchronisation, cette rubrique est pour vous. Il n’est toutefois pas nécessaire de connaître les détails de cette rubrique pour effectuer des personnalisations de Microsoft Azure AD Connect Sync (appelé « moteur de synchronisation » dans cette rubrique).
@@ -91,7 +91,7 @@ Un objet intermédiaire représente une instance des types d’objet désignés 
 
 Les objets intermédiaires importés présentent toujours une valeur pour l’attribut d’ancre. Les objets intermédiaires récemment configurés par le moteur de synchronisation et en cours de création dans la source de données connectée ne présentent aucune valeur pour l’attribut d’ancre.
 
-Les objets intermédiaires comportent aussi des valeurs actuelles pour les attributs d’entreprise ainsi que des informations opérationnelles nécessaires au moteur pour exécuter le processus de synchronisation. Les informations opérationnelles comprennent des indicateurs qui désignent le type des mises à jour préparées sur l’objet intermédiaire. Si un objet intermédiaire a reçu de nouvelles informations d’identité, qui proviennent de la source de données connectée et qui n’ont pas encore été traitées, l’objet est marqué d’un indicateur « **Importation en attente**». Si un objet intermédiaire contient de nouvelles informations d’identité qui n’ont pas encore été exportées vers la source de données connectée, l’objet est marqué d’un indicateur « **En attente d’exportation »**.
+Les objets intermédiaires comportent aussi des valeurs actuelles pour les attributs d’entreprise ainsi que des informations opérationnelles nécessaires au moteur pour exécuter le processus de synchronisation. Les informations opérationnelles comprennent des indicateurs qui désignent le type des mises à jour préparées sur l’objet intermédiaire. Si un objet intermédiaire a reçu de nouvelles informations d’identité, qui proviennent de la source de données connectée et qui n’ont pas encore été traitées, l’objet est marqué d’un indicateur « **Importation en attente**». Si un objet intermédiaire contient de nouvelles informations d’identité qui n’ont pas encore été exportées vers la source de données connectée, l’objet est marqué d’un indicateur « **En attente d’exportation »** .
 
 Un objet intermédiaire peut être un objet d’importation ou d’exportation. Le moteur de synchronisation crée un objet d’importation à l’aide des informations relatives aux objets envoyées par la source de données connectée. Lorsque le moteur de synchronisation reçoit des informations sur l’existence d’un nouvel objet qui correspond à l’un des types d’objet sélectionnés dans le connecteur, il crée un objet d’importation dans l’espace connecteur en tant que représentation de l’objet dans la source de données connectée.
 

@@ -1,5 +1,5 @@
 ---
-title: Solution de surveillance à distance importer le package - Azure | Microsoft Docs
+title: Importer un package dans la solution de supervision à distance - Azure | Microsoft Docs
 description: Cet article décrit comment importer un package de gestion automatique des appareils dans l’accélérateur de solution de supervision à distance
 author: dominicbetts
 manager: philmea
@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009850"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61443331"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importer un package de gestion automatique des appareils dans votre accélérateur de solution de supervision à distance
 

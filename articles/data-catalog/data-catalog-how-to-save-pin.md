@@ -1,22 +1,20 @@
 ---
 title: Enregistrer des recherches et épingler des ressources de données dans Azure Data Catalog
 description: Article de procédure abordant les fonctionnalités d’Azure Data Catalog permettant d’enregistrer des sources de données et des ressources de données en vue d’une utilisation ultérieure.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 6bd00a81-820d-4b7c-91fa-ab09e575474c
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: df3220ddb80ebc329ed6b0024ca4eefd2bdfb321
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: a8545939fd027989519e0f7a161f750ec676749a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002015"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976818"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Enregistrer des recherches et épingler des ressources de données dans Azure Data Catalog
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Azure Data Catalog fournit des fonctionnalités de détection des sources de données. Vous pouvez rapidement rechercher et filtrer le catalogue pour localiser des sources de données et comprendre leur rôle respectif. Vous pouvez ainsi trouver plus facilement les données dont vous avez besoin pour le travail en cours.
 
 Mais qu’en est-il lorsque vous devez utiliser régulièrement les mêmes données ? Ou lorsque les utilisateurs mettent régulièrement à jour une même source de données du catalogue ? Dans de telles situations, le fait d’effectuer toujours les mêmes recherches peut représenter une perte de temps. C’est là que l’enregistrement des recherches et l’épinglage des ressources de données peuvent vous aider.
@@ -39,7 +37,7 @@ Pour créer une recherche enregistrée, effectuez les étapes suivantes :
 ### <a name="manage-saved-searches"></a>Gérer les recherches enregistrées
 Lorsque vous enregistrez une recherche, l’option **Recherches enregistrées** s’affiche sous la zone de texte **Recherche actuelle**. Lorsque la liste est développée, toutes les recherches enregistrées sont affichées.
 
- ![Liste des recherches enregistrées](./media/data-catalog-how-to-save-pin/03-list.png)
+ ![Data Catalog - Liste des recherches enregistrées](./media/data-catalog-how-to-save-pin/03-list.png)
 
 Faites ce qui suit :
 
@@ -58,18 +56,18 @@ Faites ce qui suit :
 ### <a name="organizational-saved-searches"></a>Recherches enregistrées organisationnelles
 Tous les utilisateurs de votre organisation peuvent enregistrer des recherches pour leur propre usage. Les administrateurs de Data Catalog peuvent également enregistrer des recherches à destination de tous les utilisateurs de l’organisation. Lorsque les administrateurs enregistrent une recherche, l’option **Partager au sein de l’entreprise** leur est proposée. Cette option permet de partager la recherche enregistrée avec tous les utilisateurs de l’organisation.
 
- ![Recherches enregistrées organisationnelles](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+ ![Data Catalog - Recherches enregistrées organisationnelles](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## <a name="pinned-data-assets"></a>Ressources de données épinglées
 Les recherches enregistrées vous permettent d’enregistrer et de réutiliser les définitions de recherche. Les ressources de données qui sont retournées par la recherche changent en fonction des modifications apportées au catalogue. L’épinglage des ressources de données vous permet d’identifier de manière explicite certaines ressources de données afin de faciliter leur accès, sans avoir besoin d’utiliser une recherche.
 
 L’épinglage d’une ressource de données est simple. Pour ajouter une ressource de données à votre liste de ressources épinglées, il vous suffit de cliquer sur l’icône représentant une **épingle**. Cette icône s’affiche dans l’angle de la vignette de la ressource, dans l’affichage en mosaïque, ainsi que dans la colonne la plus à gauche de la liste, dans le portail Azure Data Catalog.
 
-![Icône permettant d’épingler une ressource de données](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![Data Catalog - Icône permettant d’épingler une ressource de données](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
 Le désépinglage d’une ressource de données est tout aussi simple. Il vous suffit de recliquer sur l’icône représentant une **épingle** pour désépingler la ressource.
 
-![Icône permettant de désépingler une ressource de données](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![Data Catalog - Icône permettant de désépingler une ressource de données](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
 ## <a name="the-my-assets-section"></a>Section Mes ressources
 La page d’accueil du portail Data Catalog comprend une section intitulée **Mes ressources** qui affiche les actifs d’intérêt pour l’utilisateur actuel. Cette section inclut à la fois les ressources épinglées et les recherches enregistrées.

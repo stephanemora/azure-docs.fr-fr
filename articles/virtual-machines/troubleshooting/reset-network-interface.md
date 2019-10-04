@@ -4,7 +4,7 @@ description: Montre comment réinitialiser l’interface réseau pour une machin
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: 3a8e005f8678deef9fc4aebd2d620619fe6074bc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: afb8335d3206a76b8f9bc47733e9816126e80af0
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982877"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058461"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Comment réinitialiser l’interface réseau pour une machine virtuelle Windows Azure 
 
@@ -79,7 +79,7 @@ Pour réinitialiser l’interface réseau, procédez comme suit :
 #### <a name="use-azure-portal"></a>Utiliser le portail Azure
 
 1.  Accédez au [portail Azure]( https://ms.portal.azure.com).
-2.  Sélectionnez **Machines virtuelles (Classic)**.
+2.  Sélectionnez **Machines virtuelles (Classic)** .
 3.  Sélectionnez la machine virtuelle concernée.
 4.  Sélectionnez **Adresses IP**.
 5.  Si l’**attribution d’adresse IP privée** n’est pas **Statique**, choisissez **Statique**.

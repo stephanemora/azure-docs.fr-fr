@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
 ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105197"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60782539"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Sauvegarder l’état du système Windows dans un déploiement Resource Manager
 Cet article explique comment sauvegarder l’état du système Windows Server vers Azure. Il s’agit d’un didacticiel destiné à vous présenter les notions de base.
@@ -95,11 +95,11 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
 
     ![Ouvrir le panneau Objectif de sauvegarde](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
-2. Dans la liste déroulante **Où s’exécute votre charge de travail ?**, sélectionnez **Local**.
+2. Dans la liste déroulante **Où s’exécute votre charge de travail ?** , sélectionnez **Local**.
 
     En effet, vous devez choisir l’option **Local**, car votre ordinateur Windows Server ou Windows est une machine physique, qui ne se trouve donc pas dans Azure.
 
-3. Dans le menu **Que voulez-vous sauvegarder ?**, sélectionnez **État du système** et cliquez sur **OK**.
+3. Dans le menu **Que voulez-vous sauvegarder ?** , sélectionnez **État du système** et cliquez sur **OK**.
 
     ![Configuration des fichiers et dossiers](./media/backup-azure-system-state/backup-goal-system-state.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Ajouter des exemples d’énoncés
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Ajouter des exemples d’énoncés - LUIS
+titleSuffix: Azure Cognitive Services
 description: Les exemples d’énoncés sont des exemples de texte de questions ou de commandes des utilisateurs. Pour l’apprentissage de Language Understanding (LUIS), vous devez ajouter des exemples d’énoncé à une intention.
 services: cognitive-services
 author: diberry
@@ -8,21 +8,21 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/01/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 1e170b86f573112cc5bc8dddd6f080921ef29d2d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524257"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932947"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Ajouter une entité à des exemples d’énoncés 
 
 Les exemples d’énoncés sont des exemples de texte de questions ou de commandes des utilisateurs. Pour permettre l’apprentissage de Language Understanding (LUIS), vous devez ajouter des [exemples d’énoncé](luis-concept-utterance.md) à une [intention](luis-concept-intent.md).
 
-En général, commencez par ajouter un exemple d’énoncé à une intention, puis créez des entités et étiquetez les énoncés dans la page d’intention. Si vous préférez commencer par créer des entités, voir [Ajouter des entités](luis-how-to-add-entities.md).
+En général, commencez par ajouter un exemple d’énoncé à une intention, puis créez des entités et étiquetez les énoncés dans la page d’**intention**. Si vous préférez commencer par créer des entités, voir [Ajouter des entités](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Marquage d’entités dans des exemples d’énoncés
 
@@ -32,20 +32,20 @@ Certains types d’entités, tels que les entités prédéfinies et les entités
 
 ## <a name="add-a-simple-entity"></a>Ajouter une entité simple
 
-Dans la procédure suivante, vous allez créer et marquer une entité personnalisée dans l’énoncé suivant dans la page d’intention :
+Dans la procédure suivante, vous allez créer et marquer une entité personnalisée dans l’énoncé suivant dans la page d’**intention** :
 
 ```text
 Are there any SQL server jobs?
 ```
 
-1. Sélectionnez `SQL server` dans l’énoncé pour l’étiqueter comme entité simple. Dans la zone de liste déroulante d’entité qui s’affiche, vous pouvez sélectionner une entité existante ou ajouter une entité. Pour ajouter une nouvelle entité, tapez son nom `Job` dans la zone de texte, puis sélectionnez **créer entité**.
+1. Sélectionnez `SQL server` dans l’énoncé pour l’étiqueter comme entité simple. Dans la zone de liste déroulante d’entité qui s’affiche, vous pouvez sélectionner une entité existante ou ajouter une entité. Pour ajouter une nouvelle entité, tapez son nom `Job` dans la zone de texte, puis sélectionnez **Créer une entité**.
 
     ![Capture d’écran de saisie du nom de l’entité](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
     > Lors de la sélection de mots à marquer en tant qu’entités :
     > * Pour un mot unique, sélectionnez-le simplement. 
-    > * Pour un ensemble de deux ou plusieurs mots, sélectionnez le début, puis la fin de l’ensemble.
+    > * Pour un ensemble de deux ou de plusieurs mots, sélectionnez le premier mot, puis le mot final.
 
 1. Dans la boîte de dialogue contextuelle **What type of entity do you want to create?** (Quel type d’entité voulez-vous créer ?), vérifiez le nom de l’entité, sélectionnez le type d’entité **Simple**, puis sélectionnez **Done** (Terminé).
 
@@ -53,35 +53,35 @@ Are there any SQL server jobs?
 
 ## <a name="add-a-list-entity"></a>Ajouter une entité de liste
 
-Liste les entités représentent un ensemble de correspondances de texte exact des mots associés dans votre système. 
+Les entités de liste représentent un ensemble de correspondances textuelles exactes de mots associés dans le système. 
 
 Pour la liste des services d’une entreprise, vous pouvez avoir des valeurs normalisées : `Accounting` et `Human Resources`. Chaque nom normalisé a des synonymes. Pour un service, ces synonymes peuvent inclure des acronymes ou numéros de service. Lorsque vous créez l’entité, vous n’êtes pas obligé de connaître toutes les valeurs. Vous pouvez en ajouter après avoir examiné les énoncés d’utilisateurs réels avec des synonymes.
 
-1. Dans un énoncé exemple sur le **intentions** , sélectionnez l’ou les mots que vous souhaitez dans la nouvelle liste. Lorsque la liste déroulante entité s’affiche, entrez le nom de la nouvelle entité de liste dans la zone de texte supérieur, puis sélectionnez **créer entité**.   
+1. Dans l’un des exemples d’énoncés de la page **Intention**, sélectionnez le mot ou l’expression devant figurer dans la nouvelle liste. Lorsque la liste déroulante des entités s’affiche, entrez le nom de la nouvelle entité de liste dans la zone de texte du haut, puis sélectionnez **Créer une entité**.   
 
-1. Dans la zone contextuelle **What type of entity do you want to create?**, nommez l’entité et sélectionnez **List** comme type. Ajoutez des synonymes de cet élément de liste, puis sélectionnez **Done**. 
+1. Dans la zone contextuelle **What type of entity do you want to create?** , nommez l’entité et sélectionnez **List** comme type. Ajoutez des synonymes de cet élément de liste, puis sélectionnez **Done**. 
 
     ![Capture d’écran de saisie des synonymes d’entité de liste](./media/luis-how-to-add-example-utterances/hr-create-list-2.png)
 
     Vous pouvez ajouter d’autres éléments de liste ou synonymes d’éléments en étiquetant d’autres énoncés, ou en modifiant l’entité à partir d’**Entités** dans le volet de navigation gauche. La [modification](luis-how-to-add-entities.md#add-list-entities) des entités vous offre la possibilité d’entrer des éléments supplémentaires avec des synonymes correspondants, ou d’importer une liste. 
 
-## <a name="add-composite-entity"></a>Ajouter une entité composite
+## <a name="add-a-composite-entity"></a>Ajouter une entité composite
 
-Les entités composites sont créées à partir d’**entités** existantes dans une entité parente. 
+Les entités composites sont créées à partir d’**entités** existantes pour former une entité parente. 
 
-En supposant que l’énoncé, `Does John Smith work in Seattle?`, un énoncé composite peut retourner des informations d’entité du nom employé `John Smith`et l’emplacement `Seattle` dans une entité composite. Les entités enfants doivent déjà exister dans l’application et être marquées dans l’énoncé exemple avant de créer l’entité composite.
+Prenons l’énoncé `Does John Smith work in Seattle?` : un énoncé composite peut retourner les informations nom de l’employé `John Smith` et emplacement `Seattle` dans une entité composite. Il faut que les entités enfants existent déjà dans l’application et soient marquées dans l’exemple d’énoncé pour pouvoir créer l’entité composite.
 
-1. Afin d’encapsuler les entités enfants dans une entité composite, sélectionnez le **premier** étiqueté entité (la plus à gauche) dans l’énoncé de l’entité composite. Une liste déroulante s’affiche pour indiquer les options associées à cette sélection.
+1. Pour encapsuler les différentes entités dans une entité composite, sélectionnez la **première** entité étiquetée (la plus à gauche) de l’énoncé concerné. Une liste déroulante affiche les choix possibles pour cette sélection.
 
-1. Sélectionnez **encapsuler dans une entité composite** dans la liste déroulante. 
+1. Sélectionnez **Encapsuler dans une entité composite** dans la liste déroulante. 
 
-1. Sélectionnez le dernier mot de l’entité composite (le plus à droite). Notez qu’une ligne verte suit l’entité composite. Cela est l’indicateur visuel pour une entité composite et doit être sous tous les mots dans l’entité composite à partir de l’entité la plus à gauche enfant à l’entité enfant de la plus à droite.
+1. Sélectionnez le dernier mot de l’entité composite (le plus à droite). Notez qu’une ligne verte suit l’entité composite. Il s’agit de l’indicateur visuel d’une entité composite, qui doit apparaître sous tous les mots qu’elle comporte, de l’entité enfant la plus à gauche à la plus à droite.
 
 1. Entrez le nom de l’entité composite dans la liste déroulante.
 
     Lorsque vous encapsulez les entités correctement, une ligne verte apparaît sous la phrase entière.
 
-1. Validez les détails de l’entité composite dans la zone contextuelle **What type of entity do you want to create?**, puis sélectionnez **Done**.
+1. Validez les détails de l’entité composite dans la zone contextuelle **What type of entity do you want to create?** , puis sélectionnez **Done**.
 
     ![Capture d’écran de la zone contextuelle de détails d’entité](./media/luis-how-to-add-example-utterances/hr-create-composite-3.png)
 
@@ -89,30 +89,11 @@ En supposant que l’énoncé, `Does John Smith work in Seattle?`, un énoncé c
 
     ![Capture d’écran de la page de détails d’intentions, avec entité composite](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-hierarchical-entity"></a>Ajouter une entité hiérarchique
+## <a name="add-entitys-role-to-utterance"></a>Ajouter le rôle d’une entité à un énoncé
 
-**Entités hiérarchiques risque d’être dépréciées. Utilisez [rôles de l’entité](luis-concept-roles.md) pour déterminer des sous-types d’entité, au lieu d’entités hiérarchiques.**
+Un rôle est un sous-type nommé d’entité, déterminé par le contexte de l’énoncé. Il est possible marquer l’une des entités d’un énoncé comme entité, ou de sélectionner un rôle dans cette entité. Toutes les entités peuvent avoir un rôle, même les entités personnalisées apprises automatiquement (entités simples et entités composites) ou non (entités prédéfinies, entités de type expression régulière et entités de liste). 
 
-Une entité hiérarchique est une catégorie d’entités apprises de façon contextuelle et associées de façon conceptuelle. Dans l’exemple suivant, l’entité contient des lieux de départ et de destination. 
-
-Dans l’énoncé `Move John Smith from Seattle to Cairo`, Seattle est le lieu de départ et Cairo (Le Caire) le lieu de destination. Chaque lieu est différent sur le plan du contexte, et appris à partir de l’ordre des mots et du choix des mots dans l’énoncé.
-
-1. Dans la page Intention, dans l’énoncé, sélectionnez `Seattle`, entrez le nom d’entité `Location`, puis appuyez sur la touche Entrée du clavier.
-
-1. Dans la boîte de dialogue contextuelle **What type of entity do you want to create?**, sélectionnez _hierarchical_ pour **Entity type**, ajoutez `Origin` et `Destination` comme enfants, puis sélectionnez **Done**.
-
-    ![Capture d’écran de la page de détails Intents (Intentions) avec l’entité ToLocation en surbrillance](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. Le mot dans l’énoncé a été étiqueté avec l’entité hiérarchique parent. Vous devez affecter le mot à une entité enfant. Revenez à l’énoncé sur la page de détails intentionnelle. Sélectionnez le mot, puis, dans la liste déroulante, choisissez le nom d’entité que vous avez créé. Choisissez ensuite l’entité enfant correcte dans le menu à droite.
-
-    >[!CAUTION]
-    >Les noms d’entité enfant doivent être uniques parmi toutes les entités dans une même application. Deux entités hiérarchiques différentes ne peuvent pas contenir d’entités enfants portant le même nom. 
-
-## <a name="add-entitys-role-to-utterance"></a>Ajouter le rôle de l’entité à énoncé
-
-Un rôle est un sous-type nommé d’une entité, déterminé par le contexte de l’énoncé. Vous pouvez marquer une entité dans un énoncé en tant que l’entité, ou sélectionner un rôle au sein de cette entité. Toute entité peut avoir des rôles, y compris les entités personnalisées qui font la machine a appris (entités simples et entités composites), ne sont pas machine a appris (des entités prédéfinies, entités de l’expression régulière, les entités de liste). 
-
-En savoir plus [comment marquer un énoncé avec des rôles de l’entité](tutorial-entity-roles.md) à partir d’un didacticiel. 
+Découvrez dans un tutoriel pratique [comment marquer un énoncé avec des rôles d’entités](tutorial-entity-roles.md). 
 
 ## <a name="entity-status-predictions"></a>Prédictions de l’état de l’entité
 
@@ -126,7 +107,7 @@ Sélectionnez les mots soulignés en rouge dans l’énoncé.
 
 En cas incohérence de prédiction, la zone de l’entité affiche un point d’exclamation rouge en regard de l’**état de l’entité**. Pour voir les différences entre les entités étiquetées et les entités prévues, sélectionnez **État de l’entité** et sélectionnez l’élément à droite.
 
-![Sélection d’état de capture d’écran de l’entité](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
+![Capture d’écran de sélection de l’état de l’entité](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 La ligne rouge peut apparaître dans les situations suivantes :
 
@@ -144,9 +125,6 @@ Les solutions suivantes permettent de résoudre les écarts de prédiction d’e
 |Texte correctement étiqueté|mise en surbrillance de l’entité en bleu, trait de soulignement rouge|Prédiction incorrecte|Fournit davantage d’énoncés avec la bonne étiquette d’entité dans une grande diversité d’emplacements et d’utilisations. Les énoncés actuels ne permettent pas à LUIS de savoir s’il s’agit de l’entité ou si des entités similaires apparaissent dans le même contexte. L’entité similaire doit être combinée en une seule entité pour ne pas induire LUIS en erreur. Une autre solution consiste à ajouter une liste d’expressions pour améliorer la précision des mots. |
 |Texte mal étiqueté|mise en surbrillance de l’entité en bleu, trait de soulignement rouge|Prédiction correcte| Fournit davantage d’énoncés avec la bonne étiquette d’entité dans une grande diversité d’emplacements et d’utilisations. 
 
-> [!Note]
-> Quand une zone rouge est autour de l’intention étiquetée dans la ligne de l’énoncé de l’exemple, un [erreur de prédiction intent](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) s’est produite. Vous avez besoin résoudre ce problème. 
-
 ## <a name="other-actions"></a>Autres actions
 
 Vous pouvez effectuer des actions sur des exemples d’énoncés en tant que groupe sélectionné ou élément individuel. Les groupes d’exemples d’énoncés sélectionnés changent le menu contextuel affiché au-dessus de la liste. Les éléments uniques peuvent utiliser à la fois le menu contextuel au-dessus de la liste et les points de suspension affichés à la fin de chaque ligne d’énoncé. 
@@ -157,11 +135,11 @@ Vous pouvez supprimer d’un énoncé des étiquettes apprises automatiquement s
 
 Pour supprimer une étiquette d’entité apprise automatiquement d’un énoncé, sélectionnez l’entité dans celui-ci. Sélectionnez ensuite **Remove Label** (Supprimer l’étiquette) dans la zone de liste déroulante de l’entité qui s’affiche.
 
-### <a name="add-prebuilt-entity-label"></a>Ajouter une étiquette d’entité prédéfinie
+### <a name="add-a-prebuilt-entity-label"></a>Ajouter une étiquette d’entité prédéfinie
 
 Quand vous ajoutez les entités prédéfinies à votre application LUIS, vous n’avez pas besoin de marquer les énoncés avec ces entités. Pour plus d’informations sur les entités prédéfinies et la manière de les ajouter, voir [Ajouter des entités](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-### <a name="add-regular-expression-entity-label"></a>Ajouter une étiquette d’entité regular expression
+### <a name="add-a-regular-expression-entity-label"></a>Ajouter une étiquette d’entité regular expression
 
 Si vous ajoutez les entités d’expression régulière à votre application LUIS, vous n’avez pas besoin de marquer les énoncés avec ces entités. Pour plus d’informations sur les entités d’expression régulière et la manière de les ajouter, voir [Ajouter des entités](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
@@ -171,7 +149,7 @@ Si vous ajoutez les entités d’expression régulière à votre application LUI
 Voir [Ajouter un modèle à partir d’un énoncé existant sur une page d’intention ou d’entité](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-### <a name="add-patternany-entity"></a>Ajouter une entité pattern.any
+### <a name="add-a-patternany-entity"></a>Ajouter une entité pattern.any
 
 Si vous ajoutez les entités pattern.any à votre application LUIS, vous ne pouvez pas étiqueter les énoncés avec ces entités. Elles sont valides uniquement dans des modèles. Pour plus d’informations sur les entités pattern.any et la manière de les ajouter, voir [Ajouter des entités](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -181,4 +159,4 @@ Après avoir ajouté, modifié ou supprimé des énoncés, [formez](luis-how-to-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après étiquetage des énoncés dans vos intentions, vous pouvez créer une [entité composite](luis-how-to-add-entities.md).
+Après étiquetage des énoncés dans vos **intentions**, vous pouvez créer une [entité composite](luis-how-to-add-entities.md).

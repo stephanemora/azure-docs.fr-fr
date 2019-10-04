@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/08/2017
+ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 765596500e3ac294dc79f0785b12b03370fa652a
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 49ef63969bd603c25d120dc5cb93ed30dda04241
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354482"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66257273"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Notification aux patients des modifications des dossiers médicaux HL7 FHIR à l’aide de Logic Apps et Azure Cosmos DB
 
@@ -92,7 +92,7 @@ Nous utilisons la classe [`CreateDocumentChangeFeedQuery`](https://msdn.microsof
 
 **Sorties**
 - Réussite : Code d’état : 200, Réponse : List of Documents (JSON Array) (Liste de documents (tableau JSON))
-- Échec : Code d’état : 404, Réponse : « No Documents found for '*resource name'* Resource Type » (Aucun document trouvé pour le type de ressource '*resource name'*)
+- Échec : Code d’état : 404, Réponse : « No Documents found for '*resource name'* Resource Type » (Aucun document trouvé pour le type de ressource '*resource name'* )
 
 <a id="api-app-source"></a>
 

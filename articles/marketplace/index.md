@@ -1,24 +1,19 @@
 ---
-title: Documentation sur la Place de marché Azure | Microsoft Docs
+title: Documentation sur la Place de marché Azure
 description: En savoir plus sur la Place de marché Azure.
 services: Azure, marketplace
 author: jm-aditi-ms
-manager: pabutler
-editor: ''
 layout: LandingPage
-ms.assetid: ''
 ms.service: marketplace
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: cdff88d828de465443d59865e6ab51f98619b949
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8f42fd627a5d5ae0d18cf75d0c2758e8e09b5bf6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738247"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800321"
 ---
 # <a name="azure-marketplace-documentation"></a>Documentation sur la Place de marché Azure
 
@@ -60,5 +55,23 @@ Découvrez la Place de marché Microsoft Azure, un marché en ligne d’applicat
             </div>
         </div>
         </a>
-    </li>    
+    </li>
+    <li>
+        <a href="/azure/marketplace/partner-center-portal/commercial-marketplace-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/i_dashboard.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Portail de la Place de marché commerciale dans l’Espace partenaires</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>

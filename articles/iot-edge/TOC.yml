@@ -13,28 +13,60 @@
       href: quickstart.md
 - name: Tutoriels
   items:
-    - name: Filtrer des données avec Azure Functions
-      href: tutorial-deploy-function.md
-    - name: Rechercher des moyennes avec ASA
-      href: tutorial-deploy-stream-analytics.md
-    - name: Attribuer un score avec Azure Machine Learning service
-      href: tutorial-deploy-machine-learning.md
-    - name: Classer des images avec Service Vision personnalisée
-      href: tutorial-deploy-custom-vision.md
-    - name: Stocker des données localement avec SQL
-      href: tutorial-store-data-sql-server.md
-    - name: Développer des modules de code personnalisés
+    - name: 1. Configurer l’environnement de développement
       items:
+        - name: Développer pour des appareils Linux
+          href: tutorial-develop-for-linux.md
+        - name: Développer pour des appareils Windows
+          href: tutorial-develop-for-windows.md
+    - name: 2. Développer des modules de code personnalisés
+      items:
+        - name: C
+          items:
+            - name: "Modules en\_C pour les appareils Linux"
+              href: tutorial-c-module.md
+            - name: "Modules en\_C pour les appareils Windows"
+              href: tutorial-c-module-windows.md
         - name: 'C#'
-          href: tutorial-csharp-module.md
-        - name: Python
-          href: tutorial-python-module.md
-        - name: Node.js
-          href: tutorial-node-module.md
+          items:
+            - name: "Modules en\_C# pour les appareils Linux"
+              href: tutorial-csharp-module.md
+            - name: "Modules en\_C# pour les appareils Windows"
+              href: tutorial-csharp-module-windows.md
         - name: Java
           href: tutorial-java-module.md
-        - name: C
-          href: tutorial-c-module.md
+        - name: Node.js
+          href: tutorial-node-module.md
+        - name: Python
+          href: tutorial-python-module.md
+    - name: 3. Déployer des services Azure sous forme de modules
+      items:
+        - name: Filtrer des données avec Azure Functions
+          href: tutorial-deploy-function.md
+        - name: Rechercher des moyennes avec Azure Stream Analytics
+          href: tutorial-deploy-stream-analytics.md
+        - name: Attribuer un score avec Azure Machine Learning service
+          href: tutorial-deploy-machine-learning.md
+        - name: Classer des images avec Service Vision personnalisée
+          href: tutorial-deploy-custom-vision.md
+        - name: Stocker des données localement avec SQL
+          href: tutorial-store-data-sql-server.md
+    - name: 4. Exemple complet de machine learning en périphérie
+      items:
+        - name: Introduction
+          href: tutorial-machine-learning-edge-01-intro.md
+        - name: Configurer la machine de développement et les services Azure
+          href: tutorial-machine-learning-edge-02-prepare-environment.md
+        - name: Générer des données d’appareil simulées
+          href: tutorial-machine-learning-edge-03-generate-data.md
+        - name: Entraîner et déployer un modèle Azure Machine Learning
+          href: tutorial-machine-learning-edge-04-train-model.md
+        - name: Configurer une passerelle transparente
+          href: tutorial-machine-learning-edge-05-configure-edge-device.md
+        - name: Créer et déployer des modules IoT Edge
+          href: tutorial-machine-learning-edge-06-custom-modules.md
+        - name: Envoyer des données à IoT Hub via une passerelle transparente
+          href: tutorial-machine-learning-edge-07-send-data-to-hub.md
 - name: Concepts
   items:
     - name: Runtime IoT Edge
@@ -43,7 +75,7 @@
       items:
         - name: Présentation des modules Azure IoT Edge
           href: iot-edge-modules.md
-        - name: Propriétés du hub et de l’agent Edge
+        - name: Propriétés du hub et de l’agent IoT Edge
           href: module-edgeagent-edgehub.md
     - name: Développement
       items:
@@ -77,7 +109,7 @@
       href: iot-edge-glossary.md
 - name: Guides pratiques
   items:
-    - name: Enregistrer un appareil Edge
+    - name: Enregistrer un appareil IoT Edge
       items:
         - name: Portail Azure
           href: how-to-register-device-portal.md
@@ -87,25 +119,33 @@
           href: how-to-register-device-vscode.md
     - name: Installer et gérer IoT Edge
       items:
-        - name: Linux X64
+        - name: Linux
           href: how-to-install-iot-edge-linux.md
-        - name: Linux ARM32
-          href: how-to-install-iot-edge-linux-arm.md
-        - name: "Windows\_X64"
+        - name: Windows
           href: how-to-install-iot-edge-windows.md
+        - name: Conteneurs Linux sur Windows
+          href: how-to-install-iot-edge-windows-with-linux.md
+        - name: Machine virtuelle Windows Server
+          href: how-to-install-iot-edge-windows-server-vm.md
         - name: Machine virtuelle Ubuntu
           href: how-to-install-iot-edge-ubuntuvm.md
+        - name: kubernetes
+          href: how-to-install-iot-edge-kubernetes.md
         - name: Mettre à jour la version du runtime
           href: how-to-update-iot-edge.md
     - name: Provisionnement automatique avec DPS
       items:
-        - name: Linux
-          href: how-to-auto-provision-simulated-device-linux.md
-        - name: Windows
-          href: how-to-auto-provision-simulated-device-windows.md
+        - name: Attestation TPM
+          items:
+            - name: Linux
+              href: how-to-auto-provision-simulated-device-linux.md
+            - name: Windows
+              href: how-to-auto-provision-simulated-device-windows.md
+        - name: Attestation de clé symétrique
+          href: how-to-auto-provision-symmetric-keys.md
     - name: Développer et déboguer des modules personnalisés
       items:
-        - name: Visual Studio 2017
+        - name: "Visual Studio\_2019"
           href: how-to-visual-studio-develop-module.md
         - name: Visual Studio Code
           href: how-to-vs-code-develop-module.md
@@ -121,12 +161,14 @@
       items:
         - name: Portail Azure
           href: how-to-deploy-monitor.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: how-to-deploy-monitor-cli.md
-    - name: Utiliser des appareils de périmètre en tant que passerelles
+    - name: Utiliser des appareils IoT Edge comme passerelles
       items:
         - name: Configurer une passerelle transparente
           href: how-to-create-transparent-gateway.md
+        - name: Authentifier un appareil en aval
+          href: how-to-authenticate-downstream-device.md
         - name: Connecter un appareil en aval
           href: how-to-connect-downstream-device.md
         - name: Passerelle de protocole Modbus
@@ -137,6 +179,8 @@
       items:
         - name: Stockage d’objets Blob Azure sur IoT Edge
           href: how-to-store-data-blob.md
+        - name: Déployer des modules de stockage d’objets blob
+          href: how-to-deploy-blob.md
     - name: Gérer avec les outils DevOps
       items:
         - name: Azure DevOps Projects
@@ -151,25 +195,27 @@
   items:
     - name: solutions
       items:
-        - name: Accélérateurs de solution IoT
-          href: /azure/iot-suite
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: Accélérateurs de solution IoT
+          href: /azure/iot-accelerators
     - name: Services de plateforme
       items:
         - name: IoT Hub
           href: /azure/iot-hub
+        - name: IoT Plug-and-Play
+          href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
-        - name: Cartes
-          href: /azure/azure-maps
         - name: Kits de développement logiciel (SDK) IoT Service
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Cartes
+          href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: "Azure IoT\_Edge"
           href: /azure/iot-edge
         - name: Kits de développement logiciel (SDK) IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

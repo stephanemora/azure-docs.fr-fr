@@ -1,36 +1,37 @@
 ---
-title: Didacticiel - déployer un groupe de conteneurs dans Azure Container Instances - modèle
-description: Dans ce didacticiel, vous allez apprendre à déployer un groupe de conteneurs avec plusieurs conteneurs dans Azure Container Instances à l’aide d’un modèle Azure Resource Manager avec Azure CLI.
+title: Tutoriel - Déployer un groupe de plusieurs conteneurs dans Azure Container Instances - modèle
+description: Dans ce tutoriel, vous allez apprendre à déployer un groupe comportant plusieurs conteneurs dans Azure Container Instances à l’aide d’un modèle Resource Manager avec Azure CLI.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f769beda1654dc9f58ecff733741fb1ab9118031
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7438b5a91d3bf0ce8330e33bc1c849a8b0329c6f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006921"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325892"
 ---
-# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Didacticiel : Déployer un groupe de conteneurs à l’aide d’un modèle Resource Manager
+# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Didacticiel : Déployer un groupe de plusieurs conteneurs avec un modèle Resource Manager
 
 > [!div class="op_single_selector"]
 > * [YAML](container-instances-multi-container-yaml.md)
 > * [Resource Manager](container-instances-multi-container-group.md)
 
-Azure Container Instances prend en charge le déploiement de plusieurs conteneurs sur un seul hôte à l’aide d’un [groupe de conteneurs](container-instances-container-groups.md). Un groupe de conteneurs est utile lors de la création d’une annexe d’application de la journalisation, surveillance ou toute autre configuration où un service a besoin d’un deuxième processus associé.
+Azure Container Instances prend en charge le déploiement de plusieurs conteneurs sur un seul hôte à l’aide d’un [groupe de conteneurs](container-instances-container-groups.md). Un groupe de conteneurs est utile lors de la création d’une annexe d’application pour la journalisation, la surveillance ou toute autre configuration dans laquelle un service a besoin d’un deuxième processus associé.
 
-Dans ce didacticiel, vous suivez les étapes pour exécuter une configuration simple deux-conteneur side-car en déployant un modèle Azure Resource Manager à l’aide de l’interface CLI. Vous allez apprendre à effectuer les actions suivantes :
+Dans ce tutoriel, vous suivez les étapes pour exécuter une configuration d’annexe simple de deux conteneurs en déployant un modèle Resource Manager à l’aide d’Azure CLI. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Configurer un modèle de groupe de conteneurs
+> * Configurer un modèle de groupe de plusieurs conteneurs
 > * Déployer le groupe de conteneurs
 > * Afficher les journaux des conteneurs
 
-Un modèle Resource Manager peut être facilement adapté pour les scénarios lorsque vous avez besoin déployer des ressources de service Azure supplémentaires (par exemple, un partage Azure Files ou un réseau virtuel) avec le groupe de conteneurs. 
+Un modèle Resource Manager peut être facilement adapté pour les scénarios dans lesquels vous avez besoin de déployer des ressources de service Azure supplémentaires (par exemple, un partage Azure Files ou un réseau virtuel) avec le groupe de conteneurs. 
 
 > [!NOTE]
 > Les groupes à plusieurs conteneurs sont actuellement restreints aux conteneurs Linux. 
@@ -41,7 +42,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="configure-a-template"></a>Configurer un modèle
 
-Démarrer en copiant le code JSON suivant dans un nouveau fichier nommé `azuredeploy.json`. Dans Azure Cloud Shell, vous pouvez utiliser Visual Studio Code pour créer le fichier dans votre répertoire de travail :
+Commencez par copier le JSON suivant dans un nouveau fichier nommé `azuredeploy.json`. Dans Azure Cloud Shell, vous pouvez utiliser Visual Studio Code pour créer le fichier dans votre répertoire de travail :
 
 ```
 code azuredeploy.json
@@ -165,7 +166,7 @@ Après quelques secondes, vous devriez recevoir une réponse initiale d’Azure.
 
 ## <a name="view-deployment-state"></a>Afficher l’état du déploiement
 
-Pour afficher l’état du déploiement, utilisez la commande [az container show][az-container-show] suivante :
+Pour afficher l’état du déploiement, utilisez la commande [az container show][az-container-show] suivante :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
@@ -181,7 +182,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>Afficher les journaux d’activité du conteneur
 
-Consultez la sortie du journal d’un conteneur à l’aide de la commande [az container logs][az-container-logs]. L’argument `--container-name` spécifie le conteneur à partir duquel extraire les journaux d’activité. Dans cet exemple, le `aci-tutorial-app` conteneur est spécifié.
+Consultez la sortie du journal d’un conteneur à l’aide de la commande [az container logs][az-container-logs]. L’argument `--container-name` spécifie le conteneur à partir duquel extraire les journaux d’activité. Dans cet exemple, le conteneur `aci-tutorial-app` est spécifié.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -196,7 +197,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Pour afficher les journaux pour le conteneur side-car, exécutez une commande similaire qui spécifie le `aci-tutorial-sidecar` conteneur.
+Pour afficher les journaux du conteneur annexe, exécutez une commande similaire en spécifiant le conteneur `aci-tutorial-sidecar`.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -222,20 +223,20 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Comme vous pouvez le voir, l’annexe envoie régulièrement une requête HTTP à l’application web principale via le réseau local du groupe pour s’assurer qu’il fonctionne. Cet exemple d’annexe peut être étendu pour déclencher une alerte si elle a reçu un code de réponse HTTP autre que `200 OK`.
+Comme vous pouvez le voir, l’annexe envoie régulièrement une requête HTTP à l’application web principale via le réseau local du groupe pour s’assurer qu’il fonctionne. Cet exemple d’annexe peut être développé afin de déclencher une alerte après réception d’un code de réponse HTTP autre que `200 OK`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez utilisé un modèle Azure Resource Manager pour déployer un groupe de conteneurs dans Azure Container Instances. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez utilisé un modèle Resource Manager pour déployer un groupe de plusieurs conteneurs dans Azure Container Instances. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Configurer un modèle de groupe de conteneurs
+> * Configurer un modèle de groupe de plusieurs conteneurs
 > * Déployer le groupe de conteneurs
 > * Afficher les journaux des conteneurs
 
-Pour plus d’exemples de modèles supplémentaires, consultez [modèles Azure Resource Manager pour Azure Container Instances](container-instances-samples-rm.md).
+Pour obtenir d’autres exemples de modèles, consultez [Azure Resource Manager templates for Azure Container Instances](container-instances-samples-rm.md) (Modèles Resource Manager pour Azure Container Instances).
 
-Vous pouvez également spécifier un groupe de conteneurs à l’aide un [fichier YAML](container-instances-multi-container-yaml.md). En raison de nature plus concis au format YAML, le déploiement avec un fichier YAML est un bon choix lorsque votre déploiement inclut uniquement les instances de conteneur.
+Vous pouvez également spécifier un groupe de plusieurs conteneurs à l’aide un [fichier YAML](container-instances-multi-container-yaml.md). En raison de la nature plus concise du format YAML, le déploiement avec un fichier YAML est judicieux lorsque le déploiement comprend uniquement les instances de conteneur.
 
 
 <!-- LINKS - Internal -->

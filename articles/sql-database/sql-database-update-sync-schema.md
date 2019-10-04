@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 712ccfa71c85629111428a4e0c7acaea050942b8
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: b1c3f49808a59576f02178dee1107b4019e34b5e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483741"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566264"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatiser la réplication des modifications de schéma dans Azure SQL Data Sync
 
-SQL Data Sync permet aux utilisateurs de synchroniser des données entre des bases de données SQL Azure et un serveur SQL Server local, de façon unidirectionnelle ou bidirectionnelle. Une des limitations actuelles de SQL Data Sync est un manque de prise en charge pour la réplication des modifications de schéma. À chaque fois que vous modifiez le schéma de table, vous devez appliquer les modifications manuellement sur tous les points de terminaison, notamment le concentrateur et tous les membres, puis mettre à jour le schéma de synchronisation.
+SQL Data Sync permet aux utilisateurs de synchroniser des données entre des bases de données Azure SQL et un serveur SQL Server local, de façon unidirectionnelle ou bidirectionnelle. Une des limitations actuelles de SQL Data Sync est un manque de prise en charge pour la réplication des modifications de schéma. À chaque fois que vous modifiez le schéma de table, vous devez appliquer les modifications manuellement sur tous les points de terminaison, notamment le concentrateur et tous les membres, puis mettre à jour le schéma de synchronisation.
 
 Cet article présente une solution pour répliquer automatiquement les modifications de schéma sur tous les points de terminaison SQL Data Sync.
 1. Cette solution utilise un déclencheur DDL pour effectuer le suivi des modifications de schéma.
@@ -226,8 +225,8 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 -   Configurer Data Sync
     - Sur le portail - [Tutoriel : Configurer SQL Data Sync pour synchroniser les données entre Azure SQL Database et SQL Server en local](sql-database-get-started-sql-data-sync.md)
     - Avec PowerShell
-        -  [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
-        -  [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+        -  [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Utiliser PowerShell pour la synchronisation entre une base de données Azure SQL et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Agent de synchronisation des données - [Agent de synchronisation des données pour Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Bonnes pratiques - [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   Supervision – [Superviser SQL Data Sync avec les journaux d’activité Azure Monitor](sql-database-sync-monitor-oms.md)

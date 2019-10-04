@@ -1,5 +1,5 @@
 ---
-title: "Azure AD Connect : Utiliser un fournisseur d'identité SAML 2.0 pour l'authentification unique | Microsoft Docs"
+title: 'Azure AD Connect : Utiliser un fournisseur d’identité SAML 2.0 pour l’authentification unique - Azure'
 description: Ce document décrit l’utilisation d’un IdP compatible SAML 2.0 pour l’authentification unique.
 services: active-directory
 author: billmath
@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1870137505b3d00ee6ed31595050908c970c444
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ff4f1b81f476159c13d3725cd3cb1766aec7dc87
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878092"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70305114"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utiliser un fournisseur d’identité (IdP) SAML 2.0 pour l’authentification unique
 
@@ -41,7 +41,7 @@ Microsoft prend en charge cette expérience d’authentification comme l’inté
 >     - Client de messagerie Windows 8 et client de messagerie Windows 8.1
 >     - Client de messagerie Windows 10
 
-Tous les autres clients ne sont pas disponibles dans ce scénario d’authentification avec votre fournisseur d’identité SAML 2.0. Par exemple, le client de bureau Lync 2010 n’est pas en mesure de vous connecter au service avec votre fournisseur d’identité SAML 2.0 configuré pour l’authentification unique.
+Tous les autres clients ne sont pas disponibles dans ce scénario d’authentification avec votre fournisseur d’identité SAML 2.0. Par exemple, le client de bureau Lync 2010 n’est pas en mesure de vous connecter au service avec votre fournisseur d’identité SAML 2.0 configuré pour l’authentification unique.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Exigences du protocole SAML 2.0 Azure AD
 Ce document recense les exigences détaillées du protocole et de la mise en forme des messages que votre fournisseur d’identité SAML 2.0 doit mettre en œuvre pour établir la fédération avec Azure AD et activer l’authentification à un ou plusieurs services de cloud de Microsoft (par exemple, Office 365). La partie utilisatrice de SAML 2.0 (SP-STS) pour un service de cloud Microsoft utilisée dans ce scénario est Azure AD.
@@ -71,8 +71,8 @@ Dans le message de réponse SAML, le nœud Signature contient des informations s
 Les liaisons représentent les paramètres des communications relatives au transport requises. Les exigences suivantes s’appliquent aux liaisons
 
 1. HTTPS est le transport requis.
-2.  Azure AD exige HTTP POST pour la soumission de jeton au cours de la connexion
-3.  Azure AD utilise HTTP POST pour la demande d’authentification auprès du fournisseur d’identité et REDIRECT pour le message de fermeture de session pour le fournisseur d’identité.
+2.  Azure AD exige HTTP POST pour la soumission de jeton au cours de la connexion.
+3.  Azure AD utilise HTTP POST pour la demande d’authentification auprès du fournisseur d’identité et REDIRECT pour le message de déconnexion pour le fournisseur d’identité.
 
 ## <a name="required-attributes"></a>Attributs requis
 Cette table présente les exigences des attributs spécifiques dans le message SAML 2.0.
@@ -185,7 +185,7 @@ La procédure suivante vous guide tout au long de la conversion d’un domaine s
 
 
 1. Connectez-vous à votre répertoire Azure AD en tant qu'administrateur client : Connect-MsolService.
-2.  Configurez votre domaine Office 365 souhaité pour utiliser la fédération avec SAML 2.0 :`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
+2.  Configurez votre domaine Office 365 souhaité pour utiliser la fédération avec SAML 2.0 :`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $BrandName -Authentication Federated -PassiveLogOnUri $LogOnUrl -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $MyURI -LogOffUri $LogOffUrl -PreferredAuthenticationProtocol $Protocol` 
 
 3.  Vous pouvez obtenir la chaîne codée en base 64 du certificat de signature à partir de votre fichier de métadonnées IDP. Un exemple de cet emplacement a été spécifié mais peut varier légèrement en fonction de votre mise en œuvre.
 
@@ -194,7 +194,7 @@ La procédure suivante vous guide tout au long de la conversion d’un domaine s
 Pour plus d’informations sur « Set-MsolDomainAuthentication », consultez : [https://technet.microsoft.com/library/dn194112.aspx](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Vous devez exécutez utiliser `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` uniquement si vous définissez une extension ECP pour votre fournisseur d’identité. Les clients Exchange Online, à l’exception d’Outlook Web Application (OWA), s’appuient sur un point de terminaison actif basé sur POST. Si votre STS SAML 2.0 met en œuvre un point de terminaison actif similaire à la mise en œuvre d’ECP de Shibboleth, il est possible pour ces clients riches d’interagir avec le service Exchange Online.
+>Vous devez exécuter à l’aide de `$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"` uniquement si vous définissez une extension ECP pour votre fournisseur d’identité. Les clients Exchange Online, à l’exception d’Outlook Web Application (OWA), s’appuient sur un point de terminaison actif basé sur POST. Si votre STS SAML 2.0 met en œuvre un point de terminaison actif similaire à la mise en œuvre d’ECP de Shibboleth, il est possible pour ces clients riches d’interagir avec le service Exchange Online.
 
 Une fois la fédération configurée, vous pouvez basculer vers « non fédéré » (ou « géré »), toutefois ce changement peut prendre jusqu'à deux heures et nécessite l’attribution de nouveaux mots de passe aléatoires pour l’authentification basée sur le cloud pour chaque utilisateur. Basculer vers « géré » peut être nécessaire dans certains scénarios pour réinitialiser une erreur dans vos paramètres. Pour plus d’informations sur la conversion de domaine, consultez : [https://msdn.microsoft.com/library/windowsazure/dn194122.aspx](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
@@ -209,7 +209,7 @@ Cette procédure indique comment ajouter un utilisateur unique à Azure AD.
 
 
 1. Connectez-vous à votre répertoire Azure AD en tant qu'administrateur client : Connect-MsolService.
-2.  Créer une nouvelle entité de sécurité d’utilisateur :
+2.  Créer un principal d’utilisateur :
     ```powershell
     New-MsolUser
       -UserPrincipalName elwoodf1@contoso.com
@@ -258,7 +258,7 @@ Microsoft propose un outil que vous pouvez utiliser pour tester votre fournisseu
 2.  Cliquez sur Installer maintenant pour commencer à télécharger et installer l’outil.
 3.  Sélectionnez « Je ne peux pas configurer la fédération avec Office 365, Azure ou d’autres services qui utilisent Azure Active Directory ».
 4.  Une fois l’outil téléchargé et en cours d’exécution, la fenêtre Diagnostics de connectivité s’affiche. L’outil vous guide pour tester votre connexion de fédération.
-5.  L'Analyseur de connectivité ouvre votre fournisseur d'identité SAML 2.0 pour vous permettre de vous connecter et d'entrer les informations d'identification du principal d'utilisateur que vous testez : ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  L’Analyseur de connectivité ouvre votre fournisseur d’identité SAML 2.0 pour vous permettre de vous connecter et d’entrer les informations d’identification du principal d’utilisateur que vous testez : ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  Dans la fenêtre de connexion des tests de la fédération, entrez un nom de compte et un mot de passe pour le locataire Azure AD configuré pour être fédéré avec votre fournisseur d’identité SAML 2.0. L’outil tente de se connecter à l’aide de ces informations d’identification et les résultats détaillés de tests effectués lors de la tentative de connexion sont fournis en tant que sortie.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Cette fenêtre affiche un résultat d’échec du test. Cliquez sur Vérifier les résultats détaillés pour afficher des informations sur les résultats de chaque test effectué. Vous pouvez également enregistrer les résultats sur le disque afin de les partager.
@@ -271,7 +271,7 @@ La vérification manuelle comprend des étapes supplémentaires que vous pouvez 
 Pour vérifier que l’authentification unique a été correctement configurée, procédez comme suit :
 
 
-1. Sur un ordinateur joint au domaine, connectez-vous à votre service cloud à l’aide du même nom d’ouverture de session que vous utilisez pour vos informations d’identification d’entreprise.
+1. Sur un ordinateur joint au domaine, connectez-vous à votre service cloud à l’aide du nom de connexion que vous utilisez pour vos informations d’identification d’entreprise.
 2.  Cliquez dans la zone de mot de passe. Si l'authentification unique est configurée, la zone du mot de passe est grisée et le message suivant s'affiche : « Vous devez maintenant vous connecter à &lt;votre entreprise&gt; ».
 3.  Cliquez sur le lien Connexion à &lt;votre entreprise&gt;. Si vous êtes en mesure de vous connecter, l’authentification unique a été configurée.
 

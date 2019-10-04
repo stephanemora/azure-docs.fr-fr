@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 7e058b7cebb9c2cdc3fb8b97bf99554b2f26dd8c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c2b0e2ed801724b682e0c4a60d6d7dff9645aab3
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121573"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827420"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Envoyer des messages EDI par lots aux partenaires commerciaux avec Azure Logic Apps
 
@@ -55,11 +55,11 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
 
 Pour ce récepteur de lots, vous devez spécifier le mode et le nom du lot, les critères de mise en production, l’accord X12 et d’autres paramètres. 
 
-1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, créez une application logique et nommez-la « BatchX12Messages ».
+1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, créez une application logique et nommez-la ainsi : "BatchX12Messages"
 
 2. [Liez votre application logique à votre compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. Dans le Concepteur d'applications logiques, ajoutez le déclencheur **Lot** qui démarre le flux de travail de votre application logique. Dans la zone de recherche, entrez « lot » comme filtre. Sélectionnez ce déclencheur : **Traiter les messages par lots**
+3. Dans le Concepteur d'applications logiques, ajoutez le déclencheur **Lot** qui démarre le flux de travail de votre application logique. Dans la zone de recherche, entrez « lot » comme filtre. Sélectionner le déclencheur : **Traiter les messages par lots**
 
    ![Ajout du déclencheur Lot](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
@@ -114,11 +114,11 @@ Pour ce récepteur de lots, vous devez spécifier le mode et le nom du lot, les 
 
 ### <a name="test-your-logic-app"></a>Tester votre application logique
 
-Pour vérifier que votre récepteur de lots fonctionne comme prévu, vous pouvez ajouter une action HTTP à des fins de test et envoyer un message par lot au [service Request Bin](https://requestbin.fullcontact.com/). 
+Pour vérifier que votre récepteur de lots fonctionne comme prévu, vous pouvez ajouter une action HTTP à des fins de test et envoyer un message par lot au [service Request Bin](https://requestbin.com/). 
 
 1. Sous l’action d’encodage X12, choisissez **Nouvelle étape**. 
 
-2. Dans la zone de recherche, entrez « http » en tant que filtre. Sélectionnez cette action : **HTTP - HTTP**
+2. Dans la zone de recherche, entrez « http » en tant que filtre. Sélectionnez cette action : **HTTP - HTTP**
     
    ![Sélection de l’action HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
 
@@ -149,9 +149,9 @@ Pour vérifier que votre récepteur de lots fonctionne comme prévu, vous pouvez
 
 * Vérifiez que vos récepteur et expéditeur de lots partagent la même région *et* le même abonnement Azure. Si ce n’est pas le cas, vous ne pouvez pas sélectionner le récepteur de lots lorsque vous créez l’expéditeur de lots, car ils ne sont pas visibles entre eux.
 
-1. Créer une autre application logique nommée « SendX12MessagesToBatch » 
+1. Créez une autre application logique portant le nom suivant : "SendX12MessagesToBatch" 
 
-2. Dans la zone de recherche, saisissez le filtre « when a http request ». Sélectionnez ce déclencheur : **Lors de la réception d’une requête HTTP** 
+2. Dans la zone de recherche, saisissez le filtre « when a http request ». Sélectionner le déclencheur : **Lors de la réception d’une requête HTTP** 
    
    ![Ajout du déclencheur Request](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
@@ -160,7 +160,7 @@ Pour vérifier que votre récepteur de lots fonctionne comme prévu, vous pouvez
    1. Sous l’action de requête HTTP, choisissez **Nouvelle étape**.
 
    2. Dans la zone de recherche, entrez « lot » comme filtre. 
-   Sélectionnez la liste **Actions**, puis sélectionnez l’action suivante : **Choisir un workflow Logic Apps avec déclencheur de lot - Envoyer les messages au lot**.
+   Dans la liste **Actions**, sélectionnez cette action : **Choisir un workflow Logic Apps avec déclencheur de lot - Envoyer les messages au lot**
 
       ![Sélection de « Choisir un workflow Logic Apps avec déclencheur de lot »](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
@@ -176,7 +176,7 @@ Pour vérifier que votre récepteur de lots fonctionne comme prévu, vous pouvez
 
    | Propriété | Description | 
    |----------|-------------| 
-   | **Nom du lot** | Nom défini par l’application logique réceptrice (« TestBatch » dans cet exemple) <p>**Important** : le nom du lot est validé lors de l’exécution et doit correspondre au nom spécifié par l’application logique réceptrice. Si vous modifiez ce nom, l’expéditeur de lots échoue. | 
+   | **Nom du lot** | Nom défini par l’application logique réceptrice (« TestBatch » dans cet exemple) <p>**Important !** Le nom du lot est validé lors de l’exécution et doit correspondre au nom spécifié par l’application logique réceptrice. Si vous modifiez ce nom, l’expéditeur de lots échoue. | 
    | **Contenu du message** | Contenu du message que vous souhaitez envoyer (jeton **Corps** dans cet exemple) | 
    ||| 
    

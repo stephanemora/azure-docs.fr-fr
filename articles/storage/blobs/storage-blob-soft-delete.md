@@ -2,18 +2,18 @@
 title: Suppression réversible pour objets blob de stockage Azure | Microsoft Docs
 description: Le Stockage Azure offre désormais une fonctionnalité de suppression réversible pour les objets blob, qui vous permet de récupérer plus facilement vos données en cas de modification ou de suppression malencontreuses de celles-ci par une application ou un autre utilisateur du compte de stockage.
 services: storage
-author: MichaelHauss
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2018
-ms.author: mihauss
+ms.date: 04/23/2019
+ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b0a03eee06ba114ab929c8c584f382861a006bbc
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506122"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360759"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Suppression réversible pour objets blob de Stockage Azure
 Le Stockage Azure offre désormais une fonctionnalité de suppression réversible pour les objets blob, qui vous permet de récupérer plus facilement vos données en cas de modification ou de suppression malencontreuses de celles-ci par une application ou un autre utilisateur du compte de stockage.
@@ -205,7 +205,7 @@ Pour rechercher la stratégie actuelle de conservation de suppression réversibl
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-### <a name="azure-cli"></a>Azure CLI 
+### <a name="azure-cli"></a>D’Azure CLI 
 Pour activer la suppression réversible, mettez à jour les propriétés du service du client d’un objet blob :
 
 ```azurecli-interactive
@@ -227,10 +227,12 @@ from azure.storage.blob import BlockBlobService
 from azure.storage.common.models import DeleteRetentionPolicy
 
 # Initialize a block blob service
-block_blob_service = BlockBlobService(account_name='<enter your storage account name>', account_key='<enter your storage account key>')
+block_blob_service = BlockBlobService(
+    account_name='<enter your storage account name>', account_key='<enter your storage account key>')
 
 # Set the blob client's service property settings to enable soft delete
-block_blob_service.set_blob_service_properties(delete_retention_policy = DeleteRetentionPolicy(enabled = True, days = 7))
+block_blob_service.set_blob_service_properties(
+    delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
 ### <a name="net-client-library"></a>Bibliothèque de client .NET
@@ -274,8 +276,8 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="should-i-use-soft-delete"></a>Dois-je utiliser la suppression réversible ?
-S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, nous vous recommandons d’activer la suppression réversible. Cette fonctionnalité qui s’inscrit dans le cadre d’une stratégie de protection des données peut vous aider à prévenir toute perte malencontreuse de données.
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Existe-t-il des considérations spéciales pour l’utilisation de la suppression réversible ?
+S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, nous vous recommandons d’activer la suppression réversible. L’activation de la suppression réversible pour les données fréquemment remplacées peut entraîner une augmentation des frais en termes de capacité de stockage, ainsi qu’une latence plus élevée lors de la classification des objets blob. Vous pouvez atténuer ces comportements en stockant les données fréquemment remplacées dans un compte de stockage distinct avec la suppression réversible désactivée. 
 
 ## <a name="faq"></a>Forum Aux Questions
 **Pour quels types de stockages puis-je utiliser la suppression réversible ?**  

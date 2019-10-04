@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: c06a16071b1e22e7aa788ff5f15ce8afbf17da04
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316487"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568926"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Se connecter à SQL Database à l’aide de C et C++
 
@@ -34,24 +33,24 @@ Vérifiez que vous disposez des éléments suivants :
 ## <a id="AzureSQL"></a>Azure SQL Database et SQL Server sur les machines virtuelles
 Reposant sur Microsoft SQL Server, SQL Azure est conçu pour fournir un service à haute disponibilité, performant et évolutif. L’utilisation de SQL Azure en lieu et place de votre base de données propriétaire s’exécutant en local présente de nombreux avantages. Avec SQL Azure, vous ne devez pas installer, configurer, mettre à jour ou gérer votre base de données, mais uniquement son contenu et sa structure. Les capacités de base de données importantes, telles que la tolérance de panne et la redondance, sont intégrées.
 
-Azure propose actuellement deux options d’hébergement pour les charges de travail SQL Server : Azure SQL Database, base de données en tant que service, et SQL Server sur des machines virtuelles. Nous ne détaillerons pas les différences entre ces deux options, mais sachez que si vous développez de nouvelles applications cloud, Azure SQL Database vous permettra de tirer parti des économies et de l’optimisation des performances assurées par les services cloud. Si vous envisagez de migrer ou d’étendre vos applications locales vers le cloud, SQL Server sur une machine virtuelle Azure vous offrira sans doute de meilleurs résultats. Pour simplifier les choses dans le cadre de cet article, nous allons créer une base de données SQL Azure.
+Azure propose actuellement deux options d’hébergement pour les charges de travail SQL Server : Base de données Azure SQL, base de données en tant que service, et SQL Server sur des machines virtuelles. Nous ne détaillerons pas les différences entre ces deux options, mais sachez que si vous développez de nouvelles applications cloud, Azure SQL Database vous permettra de tirer parti des économies et de l’optimisation des performances assurées par les services cloud. Si vous envisagez de migrer ou d’étendre vos applications locales vers le cloud, SQL Server sur une machine virtuelle Azure vous offrira sans doute de meilleurs résultats. Pour simplifier les choses dans le cadre de cet article, nous allons créer une base de données Azure SQL.
 
 ## <a id="ODBC"></a>Technologies d’accès aux données : ODBC et OLE DB
 Se connecter à SQL Azure DB n’est en rien différent et il existe actuellement deux façons de se connecter à des bases de données : ODBC (Open Database Connectivity) et OLE DB (Object Linking and Embedding Database). Ces dernières années, Microsoft s’est aligné sur [ODBC pour l’accès aux données relationnelles natives](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC est relativement simple, mais aussi beaucoup plus rapide qu’OLE DB. Le seul inconvénient ici est qu’ODBC utilise une API de style C ancienne.
 
-## <a id="Create"></a>Étape 1 :  Création de votre base de données SQL Azure
-Consultez la [page de prise en main](sql-database-single-database-get-started.md) pour apprendre à créer un exemple de base de données.  Sinon, vous pouvez suivre cette [vidéo de deux minutes](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) pour créer une base de données SQL Azure à l’aide du portail Azure.
+## <a id="Create"></a>Étape 1 :  Création de votre base de données Azure SQL
+Consultez la [page de prise en main](sql-database-single-database-get-started.md) pour apprendre à créer un exemple de base de données.  Sinon, vous pouvez suivre cette [vidéo de deux minutes](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) pour créer une base de données Azure SQL à l’aide du portail Azure.
 
 ## <a id="ConnectionString"></a>Étape 2 :  Obtention de la chaîne de connexion
-Une fois que votre base de données SQL Azure a été approvisionnée, vous devez exécuter les étapes suivantes pour déterminer les informations de connexion et ajouter l’adresse IP de votre client pour l’accès au pare-feu.
+Une fois que votre base de données Azure SQL a été provisionnée, vous devez exécuter les étapes suivantes pour déterminer les informations de connexion et ajouter l’adresse IP de votre client pour l’accès au pare-feu.
 
-Dans le [portail Azure](https://portal.azure.com/), accédez à la chaîne de connexion ODBC de votre base de données SQL Azure en cliquant sur **Afficher les chaînes de connexion de la base de données** dans la vue d’ensemble de votre base de données :
+Dans le [portail Azure](https://portal.azure.com/), accédez à la chaîne de connexion ODBC de votre base de données Azure SQL en cliquant sur **Afficher les chaînes de connexion de la base de données** dans la vue d’ensemble de votre base de données :
 
 ![Chaîne de connexion ODBC](./media/sql-database-develop-cplusplus-simple/azureportal.png)
 
 ![Propriétés de la chaîne de connexion ODBC](./media/sql-database-develop-cplusplus-simple/dbconnection.png)
 
-Copiez le contenu de la chaîne **ODBC (Inclut Node.js) [Authentification SQL]**. Nous utiliserons cette chaîne ultérieurement pour la connexion à partir de l’interpréteur de ligne de commande ODBC C++. Cette chaîne fournit des détails tels que le pilote, le serveur et d’autres paramètres de connexion de base de données.
+Copiez le contenu de la chaîne **ODBC (Inclut Node.js) [Authentification SQL]** . Nous utiliserons cette chaîne ultérieurement pour la connexion à partir de l’interpréteur de ligne de commande ODBC C++. Cette chaîne fournit des détails tels que le pilote, le serveur et d’autres paramètres de connexion de base de données.
 
 ## <a id="Firewall"></a> Étape 3 :  Ajout de votre adresse IP au pare-feu
 Accédez à la section du pare-feu de votre serveur de bases de données et ajoutez [l’adresse IP de votre client au pare-feu à l’aide de ces étapes](sql-database-configure-firewall-settings.md) pour permettre l’établissement d’une connexion :
@@ -75,7 +74,7 @@ Vous pouvez aussi créer un fichier DSN à l’aide de l’assistant qui est lan
 
 ![Création d’un fichier DSN](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-Félicitations ! Vous avez réussi à vous connecter à Azure SQL à l’aide de C++ et ODBC sur Windows. Vous pouvez poursuivre la lecture pour faire de même sur une plateforme Linux.
+Félicitations ! Vous avez réussi à vous connecter à Azure SQL à l’aide de C++ et ODBC sur Windows. Vous pouvez poursuivre la lecture pour faire de même sur une plateforme Linux.
 
 ## <a id="Linux"></a>Étape 5 : Connexion à partir d’une application C/C++ Linux
 Si vous ne le saviez pas déjà, Visual Studio permet maintenant de développer également des applications C++ Linux. Vous trouverez plus d’informations sur ce nouveau scénario sur le blog consacré à [Visual C++ pour le développement Linux](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/). Pour générer des applications pour Linux, vous avez besoin d’un ordinateur distant sur lequel s’exécute votre distribution Linux. Si vous n’en avez pas, vous pouvez en configurer un rapidement à l’aide de [machines virtuelles Azure Linux](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -120,7 +119,7 @@ Si votre connexion a réussi, le nom de la base de données actuelle doit être 
 
 ![Sortie de la fenêtre de la Console Linux](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
-Félicitations ! Vous avez terminé le didacticiel et pouvez maintenant vous connecter à votre base de données SQL Azure à partir de C++ sur les plateformes Windows et Linux.
+Félicitations ! Vous avez terminé le didacticiel et pouvez maintenant vous connecter à votre base de données SQL Azure à partir de C++ sur les plateformes Windows et Linux.
 
 ## <a id="GetSolution"></a>Obtenir la solution complète du didacticiel C/C++
 Vous trouverez la solution GetStarted qui contient tous les exemples de cet article sur GitHub :
@@ -133,6 +132,6 @@ Vous trouverez la solution GetStarted qui contient tous les exemples de cet arti
 * Pour plus d’informations sur les API ODBC, consultez ces [informations de référence](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
-* [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Modèles de conception pour les applications SaaS multilocataires avec Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explorez toutes les [fonctionnalités de la base de données SQL](https://azure.microsoft.com/services/sql-database/)
 

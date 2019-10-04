@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 1e6c71a68c4357d82d086f3e2ca098e4039def5a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25d58bdc5791de868c6302b4d2763fa34e98af17
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295748"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60615039"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -32,11 +32,11 @@ Avant de commencer ce didacticiel, vous devez disposer d’un **abonnement Azure
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Cliquez sur **Créer une ressource** >  **Données + Analytique**  > **Data Lake Analytics**.
 3. Sélectionnez des valeurs pour les éléments suivants :
-   * **Nom** : donnez un nom à votre compte Data Lake Analytics (utilisez uniquement des lettres minuscules et des chiffres).
+   * **Nom** : donnez un nom à votre compte Data Lake Analytics (seuls les lettres minuscules et les chiffres sont autorisés).
    * **Abonnement**: choisissez l’abonnement Azure utilisé pour le compte Analytics.
    * **Groupe de ressources**. Sélectionnez un groupe de ressources Azure existant ou créez-en un.
    * **Emplacement**. Sélectionnez un centre de données Azure pour le compte Data Lake Analytics.
-   * **Data Lake Storage Gen1** : suivez les instructions pour créer un compte Data Lake Storage Gen1 ou sélectionnez un compte existant. 
+   * **Data Lake Storage Gen1** : suivez les instructions pour créer un compte Data Lake Storage Gen1 ou sélectionnez-en un existant. 
 4. Si vous le souhaitez, sélectionnez un niveau tarifaire pour votre compte Data Lake Analytics.
 5. Cliquez sur **Créer**. 
 

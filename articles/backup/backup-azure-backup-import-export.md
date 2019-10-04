@@ -1,19 +1,19 @@
 ---
-title: Sauvegarde Azure - Sauvegarde ou amorçage initial hors connexion à l’aide du service Azure Import/Export
+title: Amorçage de sauvegarde hors connexion à l’aide du service Import/Export de Sauvegarde Azure
 description: Découvrez comment la sauvegarde Azure vous permet d’envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article décrit l’amorçage hors connexion des données de sauvegarde initiale à l’aide du service Azure Import/Export.
-services: backup
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: saurse
-ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: dacurwin
+ms.openlocfilehash: 1d3dc50d141a4e1d2864a56aff5c3adb3d2ca0b1
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107455"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954872"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde hors connexion dans Azure.
@@ -43,7 +43,7 @@ Les charges de travail ou fonctionnalités de sauvegarde Azure suivantes prennen
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
   > [!NOTE]
   > Les prérequis et le flux de travail suivants s’appliquent uniquement à une sauvegarde hors connexion des fichiers et dossiers à l’aide de [la dernière version de l’agent Microsoft Azure Recovery Services](https://aka.ms/azurebackup_agent). Pour effectuer des sauvegardes hors connexion pour des charges de travail à l’aide de System Center DPM ou du serveur de sauvegarde Azure, reportez-vous à [cet article](backup-azure-backup-server-import-export-.md). 
@@ -76,7 +76,7 @@ Cette section décrit le flux de travail de sauvegarde hors connexion qui permet
    Les champs sont décrits ci-dessous :
 
     * **Emplacement intermédiaire** : Emplacement de stockage temporaire dans lequel la copie de sauvegarde initiale est écrite. L’emplacement intermédiaire peut être sur un partage réseau ou un ordinateur local. Si l’ordinateur de copie et l’ordinateur source sont différents, nous vous recommandons de spécifier le chemin d’accès réseau complet de l’emplacement intermédiaire.
-    * **Compte de stockage Azure Resource Manager** : Nom du compte de stockage de type Resource Manager dans un abonnement Azure.
+    * **Compte de stockage Azure Resource Manager** : Nom du compte de stockage de type Resource Manager (usage général v1 ou usage général v2) dans un abonnement Azure quelconque.
     * **Conteneur de stockage Azure** : Nom de l’objet blob de stockage cible dans le compte de stockage Azure où les données de sauvegarde sont importées avant d’être copiées dans le coffre Recovery Services.
     * **ID d’abonnement Azure** : ID de l’abonnement Azure dans lequel le compte de stockage Azure est créé.
     * **Nom de la tâche d’importation Azure** : Nom unique utilisé par le service Azure Import et Sauvegarde Azure pour effectuer le suivi du transfert des données envoyées dans Azure à l’aide de disques. 

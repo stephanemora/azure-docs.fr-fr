@@ -1,91 +1,85 @@
 ---
-title: Plateformes de données pour la machine virtuelle DSVM - Azure | Microsoft Docs
-description: Apprenez-en davantage sur les outils et plateformes de données pris en charge par la Data Science Virtual Machine.
+title: Plateformes de données prises en charge
+titleSuffix: Azure Data Science Virtual Machine
+description: Apprenez-en davantage sur les outils et plateformes de données pris en charge par l’environnement Azure Data Science Virtual Machine.
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
 services: machine-learning
-documentationcenter: ''
-author: gopitk
-manager: cgronlun
-ms.custom: seodec18
-ms.assetid: ''
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: gokuma
-ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5dbaf969420f066698a07b8d137d2ba44fc99080
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733431"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70208121"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plateformes de données prises en charge sur la machine virtuelle DSVM
 
-La machine virtuelle DSVM (Data Science Virtual Machine) vous permet de générer votre analytique sur un large éventail de plateformes de données. En plus des interfaces sur les plateformes de données distantes, la machine virtuelle DSVM fournit une instance locale pour le développement et le prototypage rapides. 
+DSVM (Data Science Virtual Machine) vous permet de générer votre analytique sur un large éventail de plateformes de données. En plus des interfaces sur les plateformes de données distantes, la machine virtuelle DSVM fournit une instance locale pour le développement et le prototypage rapides.
 
-Les outils de plateforme de données pris en charge sur la machine virtuelle DSVM sont les suivants. 
+Les outils de plateforme de données pris en charge sur DSVM sont les suivants.
 
 ## <a name="sql-server-2016-developer-edition"></a>SQL Server 2016 Developer Edition
 
 | | |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Une instance de base de données relationnelle locale      |
-| Éditions DSVM prises en charge      |  Windows      |
+| Éditions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Développement rapide localement avec le plus petit jeu de données <br/> Exécution de R en base de données   |
-| Liens vers des exemples      |    Un petit échantillon du jeu de données New York City est chargé dans la base de données SQL `nyctaxi`. <br/> Vous trouverez un exemple Jupyter illustrant l’analytique Microsoft R et en base de données à l’emplacement suivant :<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
+| Liens vers des exemples      |    Un petit échantillon du jeu de données New York City est chargé dans la base de données SQL :<br/>  `nyctaxi` <br/> Vous trouverez un exemple Jupyter illustrant l’analytique Microsoft Machine Learning Server et en base de données à l’emplacement suivant :<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Outils connexes sur la machine virtuelle DSVM       | SQL Server Management Studio <br/> Pilotes ODBC/JDBC<br/> pyodbc, RODBC<br />Apache Drill      |
 
 > [!NOTE]
-> L’édition développeur de SQL Server 2016 peut uniquement être utilisée à des fins de test et de développement. Vous avez besoin d’une licence ou de l’une des machines virtuelles SQL Server pour l’exécuter en production. 
+> L’édition Développeur de SQL Server 2016 peut uniquement être utilisée à des fins de test et de développement. Vous avez besoin d’une licence ou de l’une des machines virtuelles SQL Server pour l’exécuter en production.
 
 
 ### <a name="setup"></a>Paramétrage
 
-Le serveur de base de données est déjà préconfiguré et les services Windows associés à SQL Server (comme `SQL Server (MSSQLSERVER)`) sont définis pour s’exécuter automatiquement. La seule étape manuelle à exécuter consiste à activer l’analytique en base de données à l’aide de Microsoft R. Vous pouvez pour cela exécuter la commande suivante dans SQL Server Management Studio (SSMS) après vous être connecté  en tant qu’administrateur de l’ordinateur, ouvrir une « Nouvelle requête » dans SSMS, vérifier que la base de données sélectionnée est `master`, puis exécuter : 
+Le serveur de base de données est déjà préconfiguré et les services Windows associés à SQL Server (comme `SQL Server (MSSQLSERVER)`) sont définis pour s’exécuter automatiquement. La seule étape manuelle implique l’activation de l’analytique en base de données à l’aide de Microsoft Machine Learning Server. Pour cela, vous pouvez exécuter la commande suivante une seule fois dans SQL Server Management Studio (SSMS). Exécutez cette commande après vous être connecté en tant qu’administrateur de l’ordinateur, ouvrez une nouvelle requête dans SSMS et assurez-vous que la base de données sélectionnée est `master` :
 
         CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
 
-        (Please replace the %COMPUTERNAME% with your VM name)
+        (Replace %COMPUTERNAME% with your VM name.)
        
-Pour exécuter SQL Server Management Studio, vous pouvez rechercher « SQL Server Management Studio » dans la liste des programmes ou utiliser la Recherche Windows pour le rechercher et l’exécuter. Quand vous êtes invité à fournir des informations d’identification, choisissez « Authentification Windows » et utilisez le nom d’ordinateur ou ```localhost``` dans Nom du serveur SQL. 
+Pour exécuter l’outil SQL Server Management Studio, vous pouvez rechercher « SQL Server Management Studio » dans la liste des programmes ou utiliser Windows Search pour le rechercher et l’exécuter. Quand vous êtes invité à fournir des informations d’identification, séelctionnez **Authentification Windows** et utilisez le nom d’ordinateur ou ```localhost``` dans le champ **Nom du serveur SQL**.
 
-### <a name="how-to-use--run-it"></a>Comment l’utiliser/l’exécuter ?  
+### <a name="how-to-use-and-run-it"></a>Comment l’utiliser et l’exécuter ?
 
-Le serveur de base de données avec l’instance de base de données par défaut s’exécute automatiquement par défaut. Vous pouvez utiliser des outils tels que SQL Server Management Studio sur la machine virtuelle pour accéder à la base de données SQL Server localement. Les comptes Administrateurs local ont un accès administrateur à la base de données. 
+Par défaut, le serveur de base de données avec l’instance de base de données par défaut s’exécute automatiquement. Vous pouvez utiliser des outils tels que SQL Server Management Studio sur la machine virtuelle pour accéder à la base de données SQL Server localement. Les comptes administrateurs locaux ont un accès administrateur à la base de données.
 
-De plus, la machine virtuelle DSVM est fournie avec des pilotes ODBC et JDBC pour communiquer avec SQL Server, les bases de données SQL Azure et Azure SQL Data Warehouse à partir d’applications écrites dans plusieurs langages, notamment Python et R. 
+De plus, l’environnement DSVM est fourni avec des pilotes ODBC et JDBC pour communiquer avec SQL Server, les bases de données Azure SQL et Azure SQL Data Warehouse à partir d’applications écrites dans plusieurs langages, notamment Python et Machine Learning Server.
 
-### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Comment est-il configuré / installé sur la machine virtuelle DSVM ? 
+### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Comment est-il configuré et installé sur la machine virtuelle DSVM ? 
 
-Le serveur SQL est installé de manière standard. Il se trouve dans `C:\Program Files\Microsoft SQL Server`. L’instance de R en base de données se trouve dans `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. DSVM a également une instance de R Server autonome installée dans `C:\Program Files\Microsoft\R Server\R_SERVER`. Ces deux instances de R ne partagent pas les bibliothèques.
+ SQL Server est installé de manière standard. Il se trouve dans `C:\Program Files\Microsoft SQL Server`. L’instance de Machine Learning Server en base de données se trouve à l’emplacement `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. L’environnement DSVM a aussi une instance de Machine Learning Server autonome distincte, installée à l’emplacement `C:\Program Files\Microsoft\R Server\R_SERVER`. Ces deux instances de Machine Learning Server ne partagent pas de bibliothèques.
 
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark 2.x (autonome)
 
 | | |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Une instance autonome (nœud unique in-process) de la plateforme populaire Apache Spark, un système pour le traitement des données et l’apprentissage automatique rapides et à grande échelle     |
+| Qu’est-ce que c’est ?   | Une instance (nœud unique In-process) autonome de la plateforme populaire Apache Spark, un système pour le traitement des données et l’apprentissage automatique rapides et à grande échelle     |
 | Éditions DSVM prises en charge      | Linux <br /> Windows (Expérimental)      |
-| Utilisations classiques      | * Développement rapide d’applications Spark/PySpark localement avec un jeu de données plus petit et un déploiement ultérieur sur des clusters Spark volumineux tels qu’Azure HDInsight<br/> * Test du contexte Spark Microsoft R Server <br />* Utiliser la bibliothèque [MMLSpark](https://github.com/Azure/mmlspark) Open Source de SparkML ou de Microsoft pour créer des applications ML  |
-| Liens vers des exemples      |    Exemple Jupyter : <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft R Server (contexte Spark) : /dsvm/samples/MRS/MRSSparkContextSample.R |
-| Outils connexes sur la machine virtuelle DSVM       | PySpark, Scala<br/>Jupyter (noyaux Spark/PySpark)<br/>Microsoft R Server, SparkR, Sparklyr <br />Apache Drill      |
+| Utilisations classiques      | * Développement rapide d’applications Spark/PySpark localement avec un jeu de données plus petit et un déploiement ultérieur sur des clusters Spark volumineux tels qu’Azure HDInsight<br/> * Test du contexte Spark de Microsoft Machine Learning Server <br />* Utilisation de la bibliothèque [MMLSpark](https://github.com/Azure/mmlspark) open source de SparkML ou de Microsoft pour créer des applications ML |
+| Liens vers des exemples      |    Exemple Jupyter : <br />&nbsp;&nbsp;* ~/notebooks/SparkML/pySpark <br /> &nbsp;&nbsp;* ~/notebooks/MMLSpark <br /> Microsoft Machine Learning Server (contexte Spark) : /dsvm/samples/MRS/MRSSparkContextSample.R |
+| Outils connexes sur la machine virtuelle DSVM       | PySpark, Scala<br/>Jupyter (noyaux Spark/PySpark)<br/>Microsoft Machine Learning Server, SparkR, Sparklyr <br />Apache Drill      |
 
 ### <a name="how-to-use-it"></a>Comment l’utiliser ?
-Vous pouvez exécuter Spark en soumettant des travaux Spark sur la ligne de commande avec les commandes `spark-submit` ou `pyspark`. Vous pouvez également créer un bloc-notes Jupyter en créant un bloc-notes avec le noyau Spark. 
+Vous pouvez envoyer des travaux Spark sur la ligne de commande en exécutant la commande `spark-submit` ou `pyspark`. Vous pouvez également créer un bloc-notes Jupyter en créant un bloc-notes avec le noyau Spark.
 
-Vous pouvez utiliser Spark à partir de R à l’aide de bibliothèques telles que SparkR, Sparklyr ou Microsoft R Server qui sont disponibles sur la machine virtuelle DSVM. Consultez les pointeurs vers les exemples dans le tableau précédent. 
+Vous pouvez utiliser Spark à partir de R à l’aide de bibliothèques comme SparkR, Sparklyr et Microsoft Machine Learning Server, qui sont disponibles sur DSVM. Consultez les pointeurs vers les exemples dans le tableau précédent.
 
 > [!NOTE]
-> L’exécution de Microsoft R Server dans le contexte Spark de la machine virtuelle DSVM est prise en charge uniquement sur l’édition DSVM Ubuntu Linux. 
+> L’exécution de Microsoft Machine Learning Server dans le contexte Spark de l’environnement DSVM est prise en charge uniquement sur l’édition DSVM Ubuntu Linux.
 
 
 
 ### <a name="setup"></a>Paramétrage
-Avant toute exécution dans le contexte Spark dans Microsoft R Server sur l’édition DSVM Ubuntu Linux, vous devez effectuer une opération de configuration unique pour activer une instance Yarn et HDFS Hadoop à nœud unique locale. Par défaut, les services Hadoop sont installés mais désactivés sur la DSVM. Pour les activer, vous devez exécuter les commandes suivantes en tant que racine la première fois :
+Avant toute exécution dans un contexte Spark dans Microsoft Machine Learning Server sur l’édition DSVM Ubuntu Linux, vous devez effectuer une opération de configuration unique pour activer une instance Yarn et HDFS Hadoop à nœud unique locale. Par défaut, les services Hadoop sont installés mais désactivés sur la DSVM. Pour les activer, exécutez les commandes suivantes en tant que racine la première fois :
 
     echo -e 'y\n' | ssh-keygen -t rsa -P '' -f ~hadoop/.ssh/id_rsa
     cat ~hadoop/.ssh/id_rsa.pub >> ~hadoop/.ssh/authorized_keys
@@ -95,15 +89,21 @@ Avant toute exécution dans le contexte Spark dans Microsoft R Server sur l’é
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Vous pouvez arrêter les services liés à Hadoop quand vous n’en avez pas besoin en exécutant ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```. Vous trouverez dans le répertoire `/dsvm/samples/MRS` un exemple montrant comment développer et tester MRS dans un contexte Spark distant (l’instance Spark autonome sur la machine virtuelle DSVM). 
+Vous pouvez arrêter les services liés à Hadoop lorsque vous n’en avez plus besoin en exécutant ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```.
+
+Vous trouverez dans le répertoire `/dsvm/samples/MRS` un exemple montrant comment développer et tester MRS dans un contexte Spark distant (l’instance Spark autonome sur DSVM).
 
 
-### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Comment est-il configuré / installé sur la machine virtuelle DSVM ? 
+### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Comment est-il configuré et installé sur la machine virtuelle DSVM ? 
 |Plateforme|Emplacement d’installation ($SPARK_HOME)|
 |:--------|:--------|
-| Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
+|Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 
-Les bibliothèques pour l’accès aux données à partir du Stockage Blob Azure ou Azure Data Lake Storage (ADLS) et l’utilisation des bibliothèques d’apprentissage automatique MMLSpark de Microsoft sont préinstallées dans $SPARK_HOME/jars. Ces fichiers JAR sont automatiquement chargés au démarrage de Spark. Par défaut, Spark utilise des données sur le disque local. Pour que l’instance de Spark sur la machine virtuelle DSVM puisse accéder aux données stockées dans le Stockage Blob Azure ou dans ADLS, vous devez créer/configurer le fichier `core-site.xml` basé sur le modèle qui se trouve dans $SPARK_HOME/conf/core-site.xml.template (où il existe des espaces réservés pour les configurations du Stockage Blob Azure et ADLS) avec les informations d’identification appropriées pour le Stockage Blob Azure et Azure Data Lake Storage. Vous trouverez des étapes de création d’informations d’identification de service ADLS plus détaillées [ici](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Une fois que les informations d’identification pour le Stockage Blob Azure ou ADLS ont été entrées dans le fichier core-site.XML, vous pouvez référencer les données stockées dans ces sources, avec le préfixe d’URI wasb:// ou adl://. 
+Les bibliothèques pour l’accès aux données à partir du Stockage Blob Azure ou d’Azure Data Lake Storage, à l’aide des bibliothèques d’apprentissage automatique MMLSpark de Microsoft, sont préinstallées dans $SPARK_HOME/jars. Ces fichiers JAR sont automatiquement chargés au démarrage de Spark. Par défaut, Spark utilise des données sur le disque local. 
+
+Pour que l’instance Spark sur DSVM accède aux données stockées dans le Stockage Blob ou Azure Data Lake Storage, vous devez créer et configurer le fichier `core-site.xml` en fonction du modèle figurant dans $SPARK_HOME/conf/core-site.xml.template. Vous devez également disposer des informations d’identification appropriées pour accéder au Stockage Blob et à Azure Data Lake Storage. (Notez que les fichiers de modèle utilisent des espaces réservés pour les configurations du Stockage Blob et d’Azure Data Lake Storage.)
+
+Pour plus d’informations sur la création des informations d’identification du service Azure Data Lake Storage, consultez [Authentification avec Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Une fois que les informations d’identification pour le Stockage Blob Azure ou Azure Data Lake Storage sont entrées dans le fichier core-site.xml, vous pouvez référencer les données stockées dans ces sources par le biais du préfixe d’URI wasb:// ou adl://.
 

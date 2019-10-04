@@ -2,7 +2,7 @@
 title: Mise à niveau vers le Kit de développement logiciel (SDK) .NET Recherche Azure version 1.1 - Recherche Azure
 description: Migrez le code vers le Kit de développement logiciel (SDK) .NET Recherche Azure version 1.1 à partir de versions d’API antérieures. Découvrez les nouveautés et les modifications de code nécessaires.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 82823bae76521080634d4f7ff285d94ce8495fbf
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8227e1b372af1eee43db59da2cfad165d67be9ae
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317285"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70183275"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 1.1
 
@@ -174,7 +174,7 @@ vous pouvez le modifier pour résoudre les éventuelles erreurs de build :
         };
 
 ### <a name="model-class-changes"></a>Modifications de modèles de classe
-En raison des modifications de signature décrites dans [Modifications des méthodes d’opération](#OperationMethodChanges), de nombreuses classes de l’espace de noms `Microsoft.Azure.Search.Models` ont été renommées ou supprimées. Par exemple : 
+En raison des modifications de signature décrites dans [Modifications des méthodes d’opération](#OperationMethodChanges), de nombreuses classes de l’espace de noms `Microsoft.Azure.Search.Models` ont été renommées ou supprimées. Par exemple :
 
 * `IndexDefinitionResponse` a été remplacé par `AzureOperationResponse<Index>`
 * `DocumentSearchResponse` a été renommé en `DocumentSearchResult`

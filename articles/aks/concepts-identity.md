@@ -2,17 +2,17 @@
 title: 'Concepts : Accès et identité dans Azure Kubernetes Service (AKS)'
 description: Découvrez l’accès et l’identité dans Azure Kubernetes Service (AKS), entre autres l’intégration d’Azure Active Directory, le contrôle d’accès en fonction du rôle (RBAC) Kubernetes ainsi que les rôles et les liaisons.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: iainfou
-ms.openlocfilehash: 3432ba671431c25b7cd9ee58decc638861e884c3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.author: mlearned
+ms.openlocfilehash: a1ed1eccd7a10d78cd503559469654e5562cde0c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000672"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "67615861"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Options d’accès et d’identité pour Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Cet article présente les principaux concepts vous permettant de vous authentifi
 
 Un des principaux types d’utilisateur dans Kubernetes est le *compte de service*. Un compte de service existe dans l’API Kubernetes et est géré par cette API. Les informations d’identification des comptes de service sont stockées en tant que secrets Kubernetes, ce qui leur permet d’être utilisées par les pods autorisés à communiquer avec le serveur d’API. La plupart des requêtes d’API fournissent un jeton d’authentification pour un compte de service ou un compte d’utilisateur normal.
 
-Ces comptes d’utilisateur autorisent un accès plus classique pour les développeurs et les administrateurs humains, ils se ne limitent pas seulement aux services et aux processus. Kubernetes lui-même ne fournit pas une solution de gestion des identités où les comptes d’utilisateur standard et les mots de passe sont stockés. Par contre, il est possible d’intégrer des solutions d’identité externes à Kubernetes. Pour les clusters AKS, cette solution d’identité intégrée est Azure Active Directory.
+Ces comptes d’utilisateur autorisent un accès plus classique pour les développeurs et les administrateurs humains, ils se ne limitent pas seulement aux services et aux processus. Kubernetes ne fournit pas de solution de gestion des identités dans laquelle les comptes et les mots de passe d'utilisateurs standard sont stockés. Par contre, il est possible d’intégrer des solutions d’identité externes à Kubernetes. Pour les clusters AKS, cette solution d’identité intégrée est Azure Active Directory.
 
 Pour plus d’informations sur les options d’identité dans Kubernetes, consultez [Authentification Kubernetes][kubernetes-authentication].
 
@@ -42,7 +42,7 @@ La sécurité des clusters AKS peut être améliorée avec l’intégration d’
 
 Avec les clusters AKS intégrés Azure AD, vous pouvez accorder aux utilisateurs ou aux groupes l’accès aux ressources Kubernetes dans un espace de noms ou au sein du cluster. Pour obtenir un contexte de configuration `kubectl`, un utilisateur peut exécuter la commande [az aks get-credentials][az-aks-get-credentials]. Lorsqu’un utilisateur interagit ensuite avec le cluster AKS par le biais de `kubectl`, il est invité à se connecter avec ses informations d’identification Azure AD. Cette solution fournit une source unique pour les informations d’identification de mots de passe et de gestion des comptes utilisateur. L’utilisateur peut uniquement accéder aux ressources, tel que défini par l’administrateur du cluster.
 
-L’authentification Azure AD dans les clusters AKS utilise OpenID Connect, une couche d’identité basée sur le protocole OAuth 2.0. OAuth 2.0 définit des mécanismes pour obtenir et utiliser des jetons d’accès en vue d’accéder aux ressources protégées, tandis qu’OpenID Connect implémente l’authentification en tant qu’extension sur le processus d’autorisation OAuth 2.0. Pour plus d’informations sur OpenID Connect, consultez la [documentation Open ID Connect][openid-connect]. Pour vérifier les jetons d’authentification obtenus à partir d’Azure AD via OpenID Connect, les clusters AKS utilisent l’authentification par jeton du Webhook Kubernetes. Pour plus d’informations, consultez la [documentation sur l’authentification par jeton de webhook][webhook-token-docs].
+L’authentification Azure AD dans les clusters AKS utilise OpenID Connect, une couche d’identité basée sur le protocole OAuth 2.0. OAuth 2.0 définit des mécanismes pour obtenir et utiliser des jetons d’accès en vue d’accéder aux ressources protégées, tandis qu’OpenID Connect implémente l’authentification en tant qu’extension sur le processus d’autorisation OAuth 2.0. Pour plus d’informations sur OpenID Connect, consultez la [documentation sur Open ID Connect][openid-connect]. Pour vérifier les jetons d’authentification obtenus à partir d’Azure AD via OpenID Connect, les clusters AKS utilisent l’authentification par jeton du Webhook Kubernetes. Pour plus d’informations, consultez la [documentation sur l’authentification par jeton de webhook][webhook-token-docs].
 
 ## <a name="role-based-access-controls-rbac"></a>Contrôles d’accès en fonction du rôle (RBAC)
 
@@ -75,7 +75,7 @@ Un ClusterRoleBinding fonctionne de la même façon pour lier des rôles aux uti
 
 Pour vous familiariser avec RBAC Azure AD et Kubernetes, consultez [Intégrer Azure Active Directory à AKS][aks-aad].
 
-Pour les recommandations associées, consultez [meilleures pratiques pour l’authentification et autorisation dans AKS][operator-best-practices-identity].
+Pour plus d'informations sur les bonnes pratiques, consultez [Bonnes pratiques relatives à l'authentification et à l'autorisation dans AKS][operator-best-practices-identity].
 
 Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AKS, consultez les articles suivants :
 

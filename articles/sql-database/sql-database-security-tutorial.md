@@ -1,5 +1,5 @@
 ---
-title: Sécuriser une base de données unique ou en pool dans Azure SQL Database | Microsoft Docs
+title: Sécuriser une base de données unique ou mise en pool dans Azure SQL Database | Microsoft Docs
 description: Un tutoriel qui vous apprend les techniques et les fonctionnalités permettant de sécuriser une base de données unique ou en pool dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -8,17 +8,16 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/08/2019
+ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496435"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231189"
 ---
-# <a name="tutorial-secure-a-single-or-pooled-database"></a>Didacticiel : Sécuriser une base de données unique ou en pool
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Didacticiel : Sécuriser une base de données unique ou mise en pool
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -28,7 +27,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > - Gérer l’accès utilisateur avec l’authentification SQL, l’authentification Azure AD et des chaînes de connexion sécurisées
 > - Activer des fonctionnalités de sécurité, comme Advanced Data Security, l’audit, le masquage des données et le chiffrement
 
-Azure SQL Database sécurise les données dans une base de données unique ou en pool en vous permettant de :
+Azure SQL Database sécurise les données dans une base de données unique ou mise en pool en vous permettant de :
 
 - Limiter l’accès à l’aide de règles de pare-feu
 - Utiliser des mécanismes d’authentification qui nécessitent une identité
@@ -36,9 +35,12 @@ Azure SQL Database sécurise les données dans une base de données unique ou en
 - Activer les fonctionnalités de sécurité
 
 > [!NOTE]
-> Une base de données SQL Azure sur une instance managée se sécurise à l’aide de règles de sécurité réseau et de points de terminaison privés, comme décrit dans [Instance managée de base de données SQL Azure](sql-database-managed-instance-index.yml) et [Architecture de connectivité](sql-database-managed-instance-connectivity-architecture.md).
+> Une base de données Azure SQL sur une instance managée se sécurise à l’aide de règles de sécurité réseau et de points de terminaison privés, comme décrit dans [Instance managée de base de données Azure SQL](sql-database-managed-instance-index.yml) et [Architecture de connectivité](sql-database-managed-instance-connectivity-architecture.md).
 
 Pour plus d’informations, consultez les articles [Vue d’ensemble de la sécurité dans Azure SQL Database](/azure/sql-database/sql-database-security-index) et [Capacités](sql-database-security-overview.md).
+
+> [!TIP]
+> Les modules Microsoft Learn suivants vous aident à vous familiariser gratuitement avec [la sécurisation de votre base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/secure-your-azure-sql-database/).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -56,7 +58,7 @@ Pour connaître toutes les étapes du tutoriel, connectez-vous au [portail Azure
 
 ## <a name="create-firewall-rules"></a>Créer des règles de pare-feu
 
-Les bases de données SQL sont protégées par des pare-feu dans Azure. Par défaut, toutes les connexions au serveur et à la base de données sont rejetées, sauf celles provenant d’autres services Azure. Pour plus d’informations, consultez [Règles de pare-feu au niveau du serveur et de la base de données d’Azure SQL Database](sql-database-firewall-configure.md).
+Les bases de données SQL sont protégées par des pare-feu dans Azure. Par défaut, toutes les connexions au serveur et à la base de données sont rejetées. Pour plus d’informations, consultez [Règles de pare-feu au niveau de la base de données et au niveau du serveur Azure SQL Database](sql-database-firewall-configure.md).
 
 Affectez au paramètre **Autoriser l’accès aux services Azure** la valeur **DÉSACTIVER** pour définir la configuration la plus sécurisée. Ensuite, créez une [adresse IP réservée (déploiement classique)](../virtual-network/virtual-networks-reserved-public-ip.md) pour la ressource à connecter, par exemple une machine virtuelle Azure ou un service cloud, puis autorisez uniquement l’accès de cette adresse IP à travers le pare-feu. Si vous utilisez le modèle de déploiement [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm), une adresse IP publique dédiée est nécessaire pour chaque ressource.
 
@@ -86,9 +88,6 @@ Pour configurer une règle de pare-feu au niveau du serveur :
 
 Vous pouvez maintenant vous connecter à n’importe quelle base de données du serveur avec l’adresse IP ou la plage d’adresses IP spécifiée.
 
-> [!IMPORTANT]
-> Par défaut, l’accès à travers le pare-feu Azure SQL Database est activé pour tous les services Azure, sous **Autoriser l’accès aux services Azure**. Choisissez **DÉSACTIVER** pour désactiver l’accès pour tous les services Azure.
-
 ### <a name="setup-database-firewall-rules"></a>Configurer des règles de pare-feu de base de données
 
 Les règles de pare-feu au niveau de la base de données s’appliquent uniquement à des bases de données individuelles. La base de données conservent ces règles lors d’un basculement de serveur. Vous pouvez uniquement configurer des règles de pare-feu au niveau de la base de données à l’aide d’instructions Transact-SQL et uniquement après avoir configuré une règle de pare-feu au niveau du serveur.
@@ -112,7 +111,7 @@ Pour configurer une règle de pare-feu au niveau de la base de données :
 
 ## <a name="create-an-azure-ad-admin"></a>Créer une application Azure AD
 
-Vérifiez que vous utilisez le domaine géré Azure Active Directory (AD) approprié. Pour sélectionner le domaine AD, utilisez le coin supérieur droit du portail Azure. Ce processus confirme que le même abonnement est utilisé pour Azure AD et SQL Server, qui hébergent votre entrepôt de données ou base de données SQL Azure.
+Vérifiez que vous utilisez le domaine géré Azure Active Directory (AD) approprié. Pour sélectionner le domaine AD, utilisez le coin supérieur droit du portail Azure. Ce processus confirme que le même abonnement est utilisé pour Azure AD et SQL Server, qui hébergent votre entrepôt de données ou base de données Azure SQL.
 
    ![choose-ad](./media/sql-database-security-tutorial/8choose-ad.png)
 
@@ -328,7 +327,7 @@ Pour activer ou vérifier le chiffrement :
 
 1. Dans le portail Azure, sélectionnez **Bases de données SQL** dans le menu de gauche, puis sélectionnez votre base de données dans la page **Bases de données SQL**.
 
-1. Dans la section **Sécurité**, sélectionnez **	Transparent Data Encryption**.
+1. Dans la section **Sécurité**, sélectionnez **Transparent Data Encryption**.
 
 1. Si nécessaire, définissez **Chiffrement des données** sur **ACTIVÉ**. Sélectionnez **Enregistrer**.
 

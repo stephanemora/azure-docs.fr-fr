@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171823"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60246329"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Synchronisation d’Azure AD Connect : Présentation de l’approvisionnement déclaratif
 Cette rubrique présente le modèle de configuration dans Azure AD Connect. Ce modèle est appelé « approvisionnement déclaratif » et vous permet de modifier la configuration en toute simplicité. De nombreux éléments décrits dans cette rubrique sont des éléments avancés, non indispensables pour la plupart des scénarios clients.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 L’approvisionnement déclaratif correspond au traitement des objets provenant d’un répertoire source connecté. Il détermine comment l’objet et les attributs doivent être transformés à partir d’une source vers une cible. Les objets sont traités dans un pipeline de synchronisation identique pour les règles de trafic entrant et sortant. Les règles de trafic entrant vont d’un espace de connecteur au métaverse et les règles de trafic sortant vont du métaverse vers un espace de connecteur.
 
 ![Pipeline de synchronisation](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
@@ -49,7 +49,7 @@ Le module Scope évalue un objet et détermine les règles qui sont dans la port
 La portée est définie selon des groupes et des clauses. Les clauses sont à l’intérieur des groupes. Un opérateur logique AND est utilisé entre toutes les clauses d’un groupe. Par exemple, (department = IT AND country = Denmark). Un opérateur logique OR est utilisé entre les groupes.
 
 ![Étendue](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
- La portée de cette image doit être lue comme (department = IT AND country = Denmark) OR (country = Sweden). Si le groupe 1 ou le groupe 2 est évalué comme true, la règle est dans la portée.
+La portée de cette image doit être lue comme (department = IT AND country = Denmark) OR (country = Sweden). Si le groupe 1 ou le groupe 2 est évalué comme true, la règle est dans la portée.
 
 Le module Scope prend en charge les opérations suivantes.
 
@@ -69,13 +69,13 @@ Le module Scope prend en charge les opérations suivantes.
 ## <a name="join"></a>Join
 Le module Join dans le pipeline de synchronisation est chargé de rechercher la relation entre l’objet de la source et un objet dans la cible. Sur une règle de trafic entrant, cette relation serait un objet dans un espace de connecteur ayant une relation avec un objet dans le métaverse.  
 ![Jointure entre cs et mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
- L’objectif est de voir si une relation doit être établie avec un objet créé par un autre connecteur et se trouvant déjà dans le métaverse. Par exemple, dans une forêt de ressources de comptes, l’utilisateur de la forêt de comptes doit être associé à l’utilisateur de la forêt de ressources.
+L’objectif est de voir si une relation doit être établie avec un objet créé par un autre connecteur et se trouvant déjà dans le métaverse. Par exemple, dans une forêt de ressources de comptes, l’utilisateur de la forêt de comptes doit être associé à l’utilisateur de la forêt de ressources.
 
 Les jointures sont principalement utilisées sur les règles de trafic entrant, pour joindre les objets d’espace de connecteur au même objet dans le métaverse.
 
 Les jointures sont définies comme un ou plusieurs groupes. À l’intérieur d’un groupe, il existe des clauses. Un opérateur logique AND est utilisé entre toutes les clauses d’un groupe. Un opérateur logique OR est utilisé entre les groupes. Les groupes sont traités de haut en bas. Lorsqu’un groupe a trouvé une correspondance exacte avec un objet dans la cible, aucune autre règle de jointure n’est évaluée. Si aucun ou plus d’un objet est trouvé, le traitement continue pour le groupe de règles suivant. Pour cette raison, les règles doivent être créées dans l’ordre, de la plus explicite à la moins explicite.  
 ![Définition de jointure](./media/concept-azure-ad-connect-sync-declarative-provisioning/join2.png)  
- Les jointures dans cette image sont traitées de haut en bas. Le pipeline de synchronisation détecte d’abord si une correspondance sur employeeID existe. Si ce n’est pas le cas, la deuxième règle détecte si le nom du compte peut être utilisé pour joindre les objets. Si aucune correspondance n’est trouvée, la troisième et dernière règle utilise le nom d’utilisateur pour trouver une correspondance moins stricte.
+Les jointures dans cette image sont traitées de haut en bas. Le pipeline de synchronisation détecte d’abord si une correspondance sur employeeID existe. Si ce n’est pas le cas, la deuxième règle détecte si le nom du compte peut être utilisé pour joindre les objets. Si aucune correspondance n’est trouvée, la troisième et dernière règle utilise le nom d’utilisateur pour trouver une correspondance moins stricte.
 
 Si toutes les règles de jointure ont été évaluées et qu’il n’existe aucune correspondance exacte, le **type de lien** indiqué dans la page de **description** est utilisé. Si cette option a la valeur **Provision**, un nouvel objet est créé dans la cible.  
 ![Approvisionnement ou jointure](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
@@ -120,19 +120,19 @@ Le littéral **AuthoritativeNull** est similaire à **NULL**, à ceci près qu�
 
 Un flux d’attributs peut également utiliser le littéral **IgnoreThisFlow**. Celui-ci est similaire à la valeur NULL en ce sens qu’il indique qu’il n’a rien à transmettre. En revanche, il ne supprime aucune valeur déjà existante dans la cible. Il agit comme si le flux d’attributs n’avait jamais existé.
 
-Voici un exemple : 
+Voici un exemple :
 
 Dans *Out to AD - User Exchange hybrid*, vous trouverez le flux suivant :  
 `IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
- Cette expression doit être lue de la manière suivante : si la boîte aux lettres de l’utilisateur se trouve dans Azure AD, transmettre l’attribut d’Azure AD à Active Directory. Si ce n’est pas le cas, ne rien transmettre en retour à Active Directory. Dans ce cas, la valeur existante dans AD est conservée.
+Cette expression doit être lue de la manière suivante : si la boîte aux lettres de l’utilisateur se trouve dans Azure AD, transmettre l’attribut d’Azure AD à Active Directory. Si ce n’est pas le cas, ne rien transmettre en retour à Active Directory. Dans ce cas, la valeur existante dans AD est conservée.
 
 ### <a name="importedvalue"></a>ImportedValue
-La fonction ImportedValue est différente de toutes les autres fonctions, car le nom d’attribut doit être placé entre guillemets doubles plutôt qu’entre crochets :   
+La fonction ImportedValue est différente de toutes les autres fonctions, car le nom d’attribut doit être placé entre guillemets doubles plutôt qu’entre crochets :  
 `ImportedValue("proxyAddresses")`.
 
 Généralement, lors de la synchronisation, un attribut utilise la valeur attendue, même s’il n’a pas encore été exporté ou si une erreur a été reçue pendant l’exportation (« top of the tower »). Une synchronisation entrante part du principe qu’un attribut qui n’a pas encore atteint un annuaire connecté finira par l’atteindre. Dans certains cas, il est important de synchroniser uniquement une valeur qui a été confirmée par l’annuaire connecté (« hologram and delta import tower »).
 
-Vous trouverez un exemple de cette fonction dans la règle de synchronisation par défaut *In from AD – User Common from Exchange*. Dans Exchange hybride, la valeur ajoutée par Exchange Online doit uniquement être synchronisée après avoir confirmé que la valeur a bien été exportée :   
+Vous trouverez un exemple de cette fonction dans la règle de synchronisation par défaut *In from AD – User Common from Exchange*. Dans Exchange hybride, la valeur ajoutée par Exchange Online doit uniquement être synchronisée après avoir confirmé que la valeur a bien été exportée :  
 `proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
 
 ## <a name="precedence"></a>Precedence

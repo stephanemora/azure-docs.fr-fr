@@ -9,16 +9,16 @@ ms.date: 03/29/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: ef19abf1da1bb2fb94109f614e7ebb0e208c1e16
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551306"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177540"
 ---
 [!INCLUDE [Open SSH session in browser](app-service-web-ssh-connect-no-h.md)]
 
 > [!NOTE]
-> Les modifications apportées en dehors de la */home* directory sont stockées dans le conteneur lui-même et ne persistent pas au-delà de redémarrer l’application.
+> Les modifications apportées en dehors du répertoire */home* sont stockées dans le conteneur lui-même et ne sont pas conservées après le redémarrage d’une application.
 >
 
-Pour ouvrir une session SSH à distance à partir de votre ordinateur local, consultez [ouvrir session SSH à partir de l’interpréteur de commandes distant](../articles/app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell).
+Pour ouvrir une session SSH à distance à partir de votre machine locale, consultez [Ouvrir une session SSH à partir d’un interpréteur de commandes à distance](../articles/app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell).

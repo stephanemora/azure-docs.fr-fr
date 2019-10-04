@@ -3,19 +3,19 @@ title: 'Démarrage rapide : SDK Recherche visuelle Bing, Python'
 titleSuffix: Azure Cognitive Services
 description: Programme d’installation de l’application console du Kit de développement logiciel (SDK) de Recherche visuelle Python.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 06/11/2018
-ms.author: v-gedod
-ms.openlocfilehash: 970b3e7e8e45e5d5249fb5a45c966d9395b130a0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 06/18/2019
+ms.author: aahi
+ms.openlocfilehash: eb0befe3b6f131559a86c121251a4b6194abc49c
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884152"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204012"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-python"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide du SDK Recherche visuelle Bing pour Python
 
@@ -24,7 +24,7 @@ Utilisez ce guide de démarrage rapide pour commencer à obtenir des insights su
 ## <a name="prerequisites"></a>Prérequis
 
 * [Python](https://www.python.org/) 2.x ou 3.x
-* Il est recommandé d’utiliser un [environnement virtuel](https://docs.python.org/3/tutorial/venv.html). Installez et initialisez l’environnement virtuel avec le [module venv](https://pypi.python.org/pypi/virtualenv). Installez virtualenv pour Python 2.7.
+* Il est recommandé d’utiliser un [environnement virtuel](https://docs.python.org/3/tutorial/venv.html). Installez et initialisez l’environnement virtuel avec le [module venv](https://pypi.python.org/pypi/virtualenv).
 * SDK Recherche visuelle Bing pour Python Vous pouvez l’installer à l’aide des commandes suivantes :
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`
@@ -50,6 +50,7 @@ Utilisez ce guide de démarrage rapide pour commencer à obtenir des insights su
         Filters,
         KnowledgeRequest,
     )
+    from msrest.authentication import CognitiveServicesCredentials
     ```
 2. Créez des variables pour votre clé d’abonnement, votre ID de configuration personnalisée et l’image que vous souhaitez charger. 
     
@@ -63,7 +64,7 @@ Utilisez ce guide de démarrage rapide pour commencer à obtenir des insights su
 3. Instancier le client
 
     ```python
-    var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
+    client = VisualSearchClient(endpoint="https://api.cognitive.microsoft.com", credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 ## <a name="send-the-search-request"></a>Envoyer la requête de recherche

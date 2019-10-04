@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: victorh
 ms.openlocfilehash: dcf21fe111ab742074ab4fe580a021338e1f7c43
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313852"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62122215"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurer App Service avec Application Gateway
 

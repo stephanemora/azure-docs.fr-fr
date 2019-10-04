@@ -3,23 +3,22 @@ title: Configuration du stockage pour les machines virtuelles SQL Server | Micro
 description: Cette rubrique décrit comment Azure configure le stockage pour les machines virtuelles SQL Server lors de la configuration (modèle de déploiement Resource Manager). Elle explique également comment vous pouvez configurer le stockage pour vos machines virtuelles SQL Server existantes.
 services: virtual-machines-windows
 documentationcenter: na
-author: ninarn
-manager: craigg
+author: MashaMSFT
+manager: jroth
 tags: azure-resource-manager
 ms.assetid: 169fc765-3269-48fa-83f1-9fe3e4e40947
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
-ms.author: ninarn
-ms.openlocfilehash: da850b8ff9174fa310c5247cd7e99af69db28a8b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.author: mathoma
+ms.openlocfilehash: 2705b42849922ce7e3650162b8f1ff78723685c2
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328433"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70309243"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
 
@@ -55,7 +54,7 @@ En fonction de votre choix, Azure exécute les tâches de configuration du stock
 * Associe le pool de stockage à un nouveau lecteur sur la machine virtuelle.
 * Optimise ce nouveau lecteur en fonction du type de charge de travail que vous avez spécifié (entrepôt de données, traitement transactionnel ou général).
 
-Pour plus d’informations sur la manière dont Azure configure les paramètres de stockage, consultez la section [Configuration du stockage](#storage-configuration). Pour une description détaillée de la création d’une machine virtuelle SQL Server dans le portail Azure, consultez [le didacticiel de configuration](virtual-machines-windows-portal-sql-server-provision.md).
+Pour plus d’informations sur la manière dont Azure configure les paramètres de stockage, consultez la section [Configuration du stockage](#storage-configuration). Pour une procédure pas à pas détaillée de la création d’une machine virtuelle SQL Server dans le portail Azure, consultez [le tutoriel de provisionnement](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="resource-manage-templates"></a>Modèles Resource Manager
 
@@ -67,24 +66,24 @@ Si vous utilisez les modèles Resource Manager suivants, deux disques de donnée
 
 ## <a name="existing-vms"></a>Machines virtuelles existantes
 
-Pour les machines virtuelles SQL Server existantes, vous pouvez modifier certains paramètres de stockage dans le portail Azure. Sélectionnez votre machine virtuelle, accédez à la zone Paramètres, puis sélectionnez Configuration de SQL Server. Le panneau de configuration de SQL Server indique l’utilisation actuelle du stockage de votre machine virtuelle. Tous les lecteurs qui existent sur votre machine virtuelle apparaissent dans ce graphique. Pour chaque lecteur, l’espace de stockage s’affiche dans quatre sections :
+[!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
+
+Pour les machines virtuelles SQL Server existantes, vous pouvez modifier certains paramètres de stockage dans le portail Azure. Ouvrez votre [ressource Machines virtuelles SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), puis sélectionnez **Vue d’ensemble**. La page Vue d’ensemble de SQL Server montre l’utilisation actuelle du stockage de votre machine virtuelle. Tous les lecteurs qui existent sur votre machine virtuelle apparaissent dans ce graphique. Pour chaque lecteur, l’espace de stockage s’affiche dans quatre sections :
 
 * Données SQL
 * Journal SQL
 * Autre (stockage non-SQL)
 * Disponible
 
-![Configurer le stockage pour les machines virtuelles SQL Server existantes](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
+Pour modifier les paramètres de stockage, sélectionnez **Configurer** sous **Paramètres**. 
 
-Pour configurer le stockage afin d’ajouter un nouveau lecteur ou d’étendre un lecteur existant, cliquez sur le lien Modifier au-dessus du graphique.
+![Configurer le stockage pour les machines virtuelles SQL Server existantes](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
 Les options de configuration que vous voyez varient selon que vous avez déjà utilisé cette fonctionnalité ou non. Lorsque vous l’utilisez pour la première fois, vous pouvez spécifier vos besoins en stockage pour votre nouveau lecteur. Si vous avez déjà utilisé cette fonctionnalité pour créer un lecteur, vous pouvez choisir d’étendre le stockage correspondant.
 
 ### <a name="use-for-the-first-time"></a>Première utilisation
 
 Si c’est la première fois que vous utilisez cette fonctionnalité, vous pouvez spécifier les limites de taille et de performances du stockage du nouveau lecteur. Le fonctionnement est le même que lors de la configuration. La principale différence est que vous n’êtes pas autorisé à indiquer le type de charge de travail. Cette restriction évite l’interruption des configurations SQL Server existantes sur la machine virtuelle.
-
-![Configurer les curseurs de stockage SQL Server](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-usage-sliders.png)
 
 Azure crée un nouveau lecteur, en fonction de vos spécifications. Dans ce scénario, Azure exécute les tâches de configuration du stockage suivantes :
 
@@ -99,8 +98,6 @@ Pour plus d’informations sur la manière dont Azure configure les paramètres 
 
 Si vous avez déjà configuré le stockage sur votre machine virtuelle SQL Server, l’extension du stockage donne accès à deux nouvelles options. La première option consiste à ajouter un nouveau lecteur, ce qui peut augmenter le niveau de performances de votre machine virtuelle.
 
-![Ajouter un nouveau lecteur à une machine virtuelle SQL](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-add-new-drive.png)
-
 Toutefois, après avoir ajouté le lecteur, vous devez effectuer quelques configurations manuelles supplémentaires pour obtenir l’augmentation des performances.
 
 ### <a name="extend-the-drive"></a>Extension du lecteur
@@ -111,10 +108,9 @@ L’autre option pour augmenter le stockage est d’étendre le lecteur existant
 
 ## <a name="storage-configuration"></a>Configuration du stockage
 
-Cette section répertorie les modifications de configuration de stockage qu’Azure exécute automatiquement au cours de la configuration de la machine virtuelle SQL sur le portail Azure.
+Cette section contient des informations de référence sur les modifications de configuration de stockage qu’Azure effectue automatiquement lors du provisionnement des machines virtuelles SQL dans le portail Azure.
 
-* Si vous avez sélectionné moins de deux téraoctets de stockage pour votre machine virtuelle, Azure ne crée pas de pool de stockage.
-* Si vous avez sélectionné au moins deux téraoctets de stockage pour votre machine virtuelle, Azure configure un pool de stockage. La prochaine section de cette rubrique fournit les détails de la configuration du pool de stockage.
+* Azure configure un pool de stockage à partir du stockage sélectionné à partir de votre machine virtuelle. La prochaine section de cette rubrique fournit les détails de la configuration du pool de stockage.
 * La configuration automatique du stockage utilise toujours des [disques de données P30 premium](../disks-types.md). Par conséquent, il existe un mappage 1:1 entre le nombre de téraoctets sélectionné et le nombre de disques de données attachés à votre machine virtuelle.
 
 Pour plus d’informations sur les tarifs, consultez la page [Tarifs de Storage](https://azure.microsoft.com/pricing/details/storage) dans l’onglet **Stockage sur disque** .

@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 958f82ef94a08adaf2bbae1ef8ceefae5db289ea
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796084"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780795"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Vue d’ensemble des services de gestion dans Azure
 
@@ -22,7 +22,7 @@ La gestion fait référence aux tâches et processus nécessaires pour maintenir
 
 Le schéma ci-dessous illustre les différents domaines de gestion requis pour maintenir toute application ou ressource. Ces différents domaines peuvent être considérés comme un cycle de vie. Chaque domaine est obligatoire successivement sur la durée de vie d’une ressource. Le cycle de vie d’une ressource commence par son déploiement initial, puis son exploitation dans la durée, et se termine par sa mise hors service.
 
-![Disciplines de gestion dans Azure](../monitoring/media/management-overview/management-capabilities.png)
+![Disciplines de la gestion dans Azure](../monitoring/media/management-overview/management-capabilities.png)
 
 Aucun service Azure ne répond complètement aux exigences d’un domaine de gestion en particulier. Au lieu de cela, chacune est réalisée par plusieurs services fonctionnant ensemble. Certains services, comme Application Insights, fournissent une fonctionnalité de supervision ciblée pour les applications web. D’autres, comme les journaux d’activité Azure Monitor, stockent les données de gestion pour d’autres services. Cette fonctionnalité vous permet d’analyser des données de différents types collectées par différents services.
 
@@ -40,15 +40,15 @@ L’automatisation de ces tâches vous permet d’éviter la redondance, en réd
 ## <a name="govern"></a>Gouvernance
 
 La gouvernance propose des mécanismes et des processus pour garder le contrôle sur vos applications et ressources dans Azure. Elle implique la planification de vos initiatives et la définition de priorités stratégiques.
-La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services. [Azure Policy](./policy/overview.md) vous permet de créer, d’attribuer et de gérer des définitions de stratégie afin d’appliquer des règles pour vos ressources. Cette fonctionnalité maintient ces ressources conformes aux standards de votre entreprise. [Azure Cost Management par Cloudyn](../cost-management/overview.md) vous permet de suivre l’utilisation du cloud et les dépenses liées à vos ressources Azure et celles d’autres fournisseurs de services cloud.
+La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services. [Azure Policy](./policy/overview.md) vous permet de créer, d’attribuer et de gérer des définitions de stratégie afin d’appliquer des règles pour vos ressources. Cette fonctionnalité maintient ces ressources conformes aux standards de votre entreprise. [Azure Cost Management](../cost-management/overview-cost-mgt.md) vous permet de suivre l’utilisation du Cloud et les dépenses liées à vos ressources Azure et à d’autres fournisseurs de Cloud.
 
 ## <a name="secure"></a>Sécuriser
 
-Gérez la sécurité de vos ressources et de vos données. Un programme de sécurité implique l’évaluation des menaces, la collecte et l’analyse des données, et la conformité de vos applications et ressources. [Azure Security Center](../security-center/security-center-intro.md) assure la supervision de la sécurité et l’analyse des menaces, notamment par des fonctionnalités unifiées de gestion de la sécurité et de protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides. Consultez [Présentation de la sécurité Azure](../security/azure-security.md) pour des informations complètes et des conseils sur la sécurisation des ressources Azure.
+Gérez la sécurité de vos ressources et de vos données. Un programme de sécurité implique l’évaluation des menaces, la collecte et l’analyse des données, et la conformité de vos applications et ressources. [Azure Security Center](../security-center/security-center-intro.md) assure la supervision de la sécurité et l’analyse des menaces, notamment par des fonctionnalités unifiées de gestion de la sécurité et de protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides. Consultez [Présentation de la sécurité Azure](../security/fundamentals/overview.md) pour des informations complètes et des conseils sur la sécurisation des ressources Azure.
 
 ## <a name="protect"></a>Protéger
 
-La protection consiste à garder vos applications et données disponibles, même en cas de pannes hors de votre contrôle. La protection dans Azure est fournie par deux services. [Sauvegarde Azure](../backup/backup-introduction-to-azure-backup.md) permet la sauvegarde et la récupération de vos données, dans le cloud ou localement. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) fournit une continuité d’activité et une reprise d’activité immédiate après sinistre.
+La protection consiste à garder vos applications et données disponibles, même en cas de pannes hors de votre contrôle. La protection dans Azure est fournie par deux services. [Sauvegarde Azure](../backup/backup-introduction-to-azure-backup.md) permet la sauvegarde et la récupération de vos données, dans le cloud ou en local. [Azure Site Recovery](../site-recovery/site-recovery-overview.md) fournit une continuité d’activité et une reprise d’activité immédiate après sinistre.
 
 ## <a name="migrate"></a>Migrer
 

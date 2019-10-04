@@ -4,28 +4,27 @@ description: Enregistrez et analysez les événements du journal de diagnostic p
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: aa86d6cf22562fa1fac7d45de20b28aa0eec33aa
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850307"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261677"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
 
  
-Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-platform-metrics.md) et des [journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../azure-monitor/platform/alerts-overview.md) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée. 
+Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-platform-metrics.md) et des [journaux de diagnostic](../azure-monitor/platform/resource-logs-overview.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../azure-monitor/platform/alerts-overview.md) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée. 
 
 ## <a name="batch-metrics"></a>Métriques Batch
 
@@ -48,6 +47,7 @@ Pour afficher toutes les métriques de compte Batch :
 1. Dans le portail, cliquez sur **Tous les services** > **Comptes Batch**, puis sur le nom de votre compte Batch.
 2. Sous **Surveillance**, cliquez sur **Métriques**.
 3. Sélectionnez une ou plusieurs métriques. Si vous le souhaitez, sélectionnez des métriques de ressources supplémentaires à l’aide des listes déroulantes **Abonnements**, **Groupe de ressources**, **Type de ressource** et **Ressource**.
+    * Pour les métriques basées sur le nombre (comme « Nombre de cœurs dédiés » ou « Nombre de nœuds à priorité basse »), utilisez l’agrégation « Moyenne ». Pour les métriques basées sur les événements (comme « Événements de fin de redimensionnement de pool »), utilisez l’agrégation « Nombre ».
 
     ![Métriques Batch](media/batch-diagnostics/metrics-portal.png)
 
@@ -77,9 +77,9 @@ Vous pouvez également configurer une alerte en temps quasi-réel à l’aide de
 
 Les journaux de diagnostic contiennent des informations émises par les ressources Azure qui décrivent le fonctionnement de chaque ressource. Pour Batch, vous pouvez collecter les journaux d’activité suivants :
 
-* Les événements **Journaux de service** émis par le service Azure Batch pendant la durée de vie d’une ressource Batch individuelle telle qu’un pool ou une tâche. 
+* Les événements **Journaux d’activité de service** émis par le service Azure Batch pendant la durée de vie d’une ressource Batch individuelle telle qu’un pool ou une tâche. 
 
-* Les journaux **Métriques** au niveau du compte. 
+* Les journaux d’activité **Métriques** au niveau du compte. 
 
 Les paramètres pour autoriser la collecte des journaux de diagnostic ne sont pas activés par défaut. Activez explicitement les paramètres de diagnostic pour chaque compte Batch à surveiller.
 
@@ -91,7 +91,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 
 * Diffusez les événements du journal de diagnostic Batch vers un service [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Le service Event Hubs peut traiter à chaque seconde des millions d’événements que vous pouvez transformer et stocker à l’aide de tout fournisseur d’analyses en temps réel. 
 
-* Envoyer les journaux de diagnostic vers [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md), où vous pouvez les analyser ou les exporter pour l’analyse dans Power BI ou Excel.
+* Envoyez les journaux de diagnostic aux [journaux Azure Monitor](../log-analytics/log-analytics-overview.md), où vous pouvez les analyser ou les importer pour analyse dans Power BI ou Excel.
 
 > [!NOTE]
 > Vous risquez de payer des frais supplémentaires pour stocker ou traiter les données de journal de diagnostics avec les services Azure. 
@@ -101,7 +101,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 
 1. Dans le portail, cliquez sur **Tous les services** > **Comptes Batch**, puis sur le nom de votre compte Batch.
 2. Sous **Supervision**, cliquez sur **Journaux de diagnostic** > **Activer les diagnostics**.
-3. Dans **les paramètres de Diagnostic**, entrez un nom pour le paramètre et choisir une destination de journal (compte de stockage, concentrateur d’événements ou journaux Azure Monitor). Sélectionnez **ServiceLog** et **AllMetrics**, ou l’un des deux.
+3. Dans **Paramètres de diagnostic**, entrez un nom pour le paramètre et choisissez une destination de journal (compte Stockage existant, Event Hub ou journaux Azure Monitor). Sélectionnez **ServiceLog** et **AllMetrics**, ou l’un des deux.
 
     Lorsque vous sélectionnez un compte de stockage, définissez éventuellement une stratégie de rétention. Si vous ne spécifiez pas de nombre de jours de rétention, les données sont conservées pendant la durée de vie du compte de stockage.
 
@@ -109,7 +109,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 
     ![Diagnostics Batch](media/batch-diagnostics/diagnostics-portal.png)
 
-D’autres options sont disponibles pour activer la collecte de journaux : vous pouvez notamment utiliser Azure Monitor dans le portail pour configurer les paramètres de diagnostic, prendre un [modèle Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md) ou utiliser Azure PowerShell ou CLI. Consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
+D’autres options sont disponibles pour activer la collecte de journaux : vous pouvez notamment utiliser Azure Monitor dans le portail pour configurer les paramètres de diagnostic, prendre un [modèle Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md) ou utiliser Azure PowerShell ou CLI. Consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Accéder aux journaux de diagnostics dans le stockage
@@ -119,7 +119,7 @@ Si vous archivez les journaux de diagnostic Batch dans un compte de stockage, un
 ```
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
 RESOURCEGROUPS/{resource group name}/PROVIDERS/MICROSOFT.BATCH/
-BATCHACCOUNTS/{batch account name}/y={four-digit numeric year}/
+BATCHACCOUNTS/{Batch account name}/y={four-digit numeric year}/
 m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
@@ -130,12 +130,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Chaque fichier blob PT1H.json contient des événements au format JSON qui se sont produits pendant l’heure spécifiée dans l’URL de l’objet blob (par exemple, h=12). Pendant l’heure en cours, les événements sont ajoutés au fichier PT1H.json à mesure qu’ils se produisent. La valeur de minute (m = 00) est toujours 00, étant donné que les événements du journal de diagnostic sont répartis en différents objets blob par heure. (Toutes les heures sont exprimées en heure UTC.)
+Chaque fichier blob `PT1H.json` contient des événements au format JSON qui se sont produits pendant l’heure spécifiée dans l’URL de l’objet blob (par exemple, `h=12`). Pendant l’heure en cours, les événements sont ajoutés au fichier `PT1H.json` à mesure qu’ils se produisent. La valeur de minute (`m=00`) est toujours `00`, étant donné que les événements du journal de diagnostic sont répartis en différents objets blob par heure. (Toutes les heures sont exprimées en heure UTC.)
 
+Voici un exemple d’entrée `PoolResizeCompleteEvent` dans un fichier journal `PT1H.json`. Il comprend des informations sur le nombre actuel et cible de nœuds dédiés et à faible priorité, ainsi que sur l’heure de début et de fin de l’opération :
 
-Pour plus d’informations sur le schéma des journaux de diagnostic dans le compte de stockage, consultez [Archivage des journaux de diagnostic Azure](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+```
+{ "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
+```
 
-Pour accéder par programme aux journaux d’activité de votre compte de stockage, utilisez les API de stockage. 
+Pour plus d’informations sur le schéma des journaux de diagnostic dans le compte de stockage, consultez [Archivage des journaux de diagnostic Azure](../azure-monitor/platform/resource-logs-collect-storage.md#schema-of-resource-logs-in-storage-account). Pour accéder par programme aux journaux d’activité de votre compte de stockage, utilisez les API de stockage. 
 
 ### <a name="service-log-events"></a>Événements du journal de service
 Les journaux d’activité de service Azure Batch, s’ils sont collectés, contiennent des événements émis par le service Azure Batch pendant la durée de vie d’une ressource Batch individuelle telle qu’un pool ou une tâche. Chaque événement émis par Batch est enregistré au format JSON. Par exemple, ceci est le corps d’un exemple d’**événement de création de pool** :

@@ -3,7 +3,7 @@ title: Surveillance et diagnostics des conteneurs Windows dans Azure Service Fab
 description: Dans ce tutoriel, vous configurez les journaux Azure Monitor pour la surveillance et les diagnostics de conteneurs Windows sur Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2018
-ms.author: aljo, dekapur
+ms.date: 07/22/2019
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 11d913264e5920b90ea08d2a29a3651ab101ee64
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 856e2859c778c9f23bc093c2283571a1440ef701
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663160"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68598774"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Didacticiel : surveiller des conteneurs Windows sur Service Fabric avec les journaux Azure Monitor
 
@@ -86,7 +86,7 @@ Apportez les modifications suivantes à votre *template.json* :
     "omsSolution": "ServiceFabric"
     ```
 
-3. Ajoutez Microsoft Monitoring Agent comme extension de machine virtuelle. Recherchez la ressource des groupes de machines virtuelles identiques : *resources* > *"apiVersion": "[variables(’vmssApiVersion’)]"*. Sous *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*, ajoutez la description de l’extension suivante sous l’extension *ServiceFabricNode* : 
+3. Ajoutez Microsoft Monitoring Agent comme extension de machine virtuelle. Recherchez la ressource des groupes de machines virtuelles identiques : *resources* >  *"apiVersion": "[variables(’vmssApiVersion’)]"* . Sous *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*, ajoutez la description de l’extension suivante sous l’extension *ServiceFabricNode* : 
     
     ```json
     {
@@ -225,7 +225,7 @@ Vous accédez ainsi à votre espace de travail Log Analytics où vous pouvez con
 * Cliquez sur **Sources connectées** > **Serveurs Windows** pour vérifier que vous avez *cinq ordinateurs Windows connectés*.
 * Cliquez sur **Données** > **Compteurs de performances Windows** pour rechercher et ajouter de nouveaux compteurs de performances. Vous verrez une liste de recommandations, fournie par les journaux Azure Monitor, de compteurs de performances que vous pouvez recueillir. Vous avez également la possibilité de rechercher d’autres compteurs. Vérifiez que les compteurs **Processor(_Total)\% Processor Time** et **Memory(*)\Available MBytes** sont collectés.
 
-**Actualisez** votre solution de monitorage des conteneurs après quelques minutes : vous devriez commencer à voir arriver des données *Performances de l’ordinateur*. Cela vous aidera à comprendre l’utilisation des ressources. Vous pouvez également utiliser ces mesures pour prendre les décisions adaptées quant à la mise à l’échelle de votre cluster, ou pour vérifier qu’un cluster équilibre votre charge comme prévu.
+**Actualisez** votre solution de supervision de conteneurs après quelques minutes : vous devriez commencer à voir arriver des données *Performances de l’ordinateur*. Cela vous aidera à comprendre l’utilisation des ressources. Vous pouvez également utiliser ces mesures pour prendre les décisions adaptées quant à la mise à l’échelle de votre cluster, ou pour vérifier qu’un cluster équilibre votre charge comme prévu.
 
 *Remarque : Vérifiez que vos filtres de temps sont définis de façon à vous permettre d’utiliser ces métriques.*
 

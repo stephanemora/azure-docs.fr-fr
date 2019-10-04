@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8bb790571e1499bd45fb8bee27f4f1896046cbc2
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 2cf43f8a235b112cfcf1fc6c9dba626a5a0c9b7e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149081"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828395"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Résoudre les problèmes de réplication et de basculement de Hyper-V sur Azure
 
@@ -30,7 +30,7 @@ Si vous rencontrez des problèmes lorsque vous activez la protection des machine
 5. Sur la machine virtuelle invitée, vérifiez que WMI est activé et accessible.
    - [En savoir plus sur](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) le test de base de WMI.
    - [Résolvez les problèmes](https://aka.ms/WMiTshooting) de WMI.
-   - [Résoudre les problèmes](https://technet.microsoft.com/library/ff406382.aspx#H22) des problèmes avec les services et les scripts WMI.
+   - [Résolvez les problèmes](https://technet.microsoft.com/library/ff406382.aspx#H22) des scripts et services de WMI.
 6. Sur la machine virtuelle invitée, vérifiez que la version d’Integration Services en cours d’exécution est la dernière en date.
     - [Vérifiez](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) que vous avez la version la plus récente.
     - [Conservez](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) Integration Services à jour.
@@ -129,7 +129,7 @@ Une capture instantanée de cohérence des applications est un instantané à un
 
 2. Pour générer des captures instantanées VSS pour la machine virtuelle, vérifiez que les services d’intégration de Hyper-V sont installés sur la machine virtuelle et que le service d’intégration de sauvegarde (VSS) est activé.
     - Assurez-vous que le service VSS/les démons des services d’intégration sont en cours d’exécution sur l’invité et qu’ils sont dans un état **OK**.
-    - Pour le vérifier, ouvrez une session PowerShell avec élévation de privilèges sur l’hôte Hyper-V et exécutez la commande **et-VMIntegrationService -VMName<VMName>-Name VSS**. Vous pouvez également obtenir ces informations en vous connectant à la machine virtuelle invitée. [Plus d’informations](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)
+    - Pour le vérifier, ouvrez une session PowerShell avec élévation de privilèges sur l’hôte Hyper-V et exécutez la commande **et-VMIntegrationService -VMName\<VMName>-Name VSS**. Vous pouvez également obtenir ces informations en vous connectant à la machine virtuelle invitée. [Plus d’informations](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)
     - Assurez-vous que les services d’intégration Sauvegarde Microsoft Azure/VSS sur la machine virtuelle sont en cours d’exécution et intègres. Si tel n’est pas le cas, redémarrez ces services et le service Requête du service VSS Microsoft Hyper-V sur le serveur hôte Hyper-V.
 
 ### <a name="common-errors"></a>Erreurs courantes

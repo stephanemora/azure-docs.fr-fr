@@ -4,22 +4,21 @@ description: Présente l’extension de diagnostic de performance des machines v
 services: virtual-machines-windows'
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: na
 tags: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 6f104fc6513874bfef5f4bf9fe7f536c3e3d69cf
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002734"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057544"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extension de diagnostic de performance des machines virtuelles Azure pour Windows
 
@@ -28,7 +27,7 @@ L’extension de machine virtuelle Diagnostics des performances Azure permet de 
 > [!NOTE]
 > Si vous souhaitez exécuter des diagnostics sur votre machine virtuelle à partir du portail Azure pour les machines virtuelles non classiques, il est recommandé d’utiliser la nouvelle expérience. Pour plus d’informations, consultez [Diagnostics de performances pour les machines virtuelles Azure](performance-diagnostics.md) 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cette extension peut s’installer sur Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016, de même que sur Windows 8.1 et Windows 10.
 
@@ -81,7 +80,7 @@ Le code JSON suivant montre le schéma de l’extension de machine virtuelle Dia
 |storPortTrace|s|Option permettant d’activer la trace StorPort. Valeurs valides : **s** ou une valeur vide. Si vous ne souhaitez pas capturer cette trace, laissez la valeur vide.
 |srNumber|123452016365929|Numéro du ticket de support, s’il est disponible. Laissez la valeur vide si vous ne l’avez pas.
 |requestTimeUtc|2017-09-28T22:08:53.736Z|Date et heure actuelles UTC. Vous n’avez pas besoin de fournir cette valeur si vous utilisez le portail pour installer cette extension.
-|ResourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|Identificateur unique d’une machine virtuelle.
+|resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|Identificateur unique d’une machine virtuelle.
 |storageAccountName|mystorageaccount|Nom du compte de stockage pour stocker les journaux d’activité et les résultats de diagnostic.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Clé du compte de stockage.
 
@@ -99,7 +98,7 @@ Suivez ces instructions pour installer l’extension sur des machines virtuelles
 4. Sélectionnez **Diagnostics des performances Azure**, lisez les conditions générales, puis sélectionnez **Créer**.
 
     ![Capture de l’écran Nouvelle ressources, avec l’option Diagnostics des performances Azure mise en surbrillance](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. Indiquez les valeurs des paramètres d’installation, puis sélectionnez **OK** pour installer l’extension. Pour plus d’informations sur les scénarios pris en charge, consultez la page [Guide pratique de PerfInsights](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
+5. Indiquez les valeurs des paramètres d’installation, puis sélectionnez **OK** pour installer l’extension. Pour plus d’informations sur les scénarios pris en charge, consultez la page [Guide pratique de PerfInsights](how-to-use-perfinsights.md#supported-troubleshooting-scenarios). 
 
     ![Capture d’écran de la boîte de dialogue Installer l’extension](media/performance-diagnostics-vm-extension/install-the-extension.png)
 6. Un message indique que l’installation a réussi.
@@ -113,7 +112,7 @@ Suivez ces instructions pour installer l’extension sur des machines virtuelles
 Pour supprimer l’extension d’une machine virtuelle, effectuez ces étapes :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com), sélectionnez la machine virtuelle sur laquelle vous voulez supprimer cette extension, puis sélectionnez le panneau **Extensions**. 
-2. Sélectionnez (**...** ) à côté de l’entrée Extension Diagnostics des performances dans la liste, puis sélectionnez **Désinstaller**.
+2. Sélectionnez ( **...** ) à côté de l’entrée Extension Diagnostics des performances dans la liste, puis sélectionnez **Désinstaller**.
 
     ![Capture d’écran du panneau Extensions, avec l’option Désinstaller mise en surbrillance](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
@@ -234,7 +233,7 @@ L’outil PerfInsights collecte différents types de journaux d’activité, de 
 
 ## <a name="view-and-share-the-results"></a>Afficher et partager les résultats
 
-La sortie de l’extension peut être obtenue dans le fichier zip qui a été chargé dans le compte de stockage indiqué pendant l’installation et est partagée pendant 30 jours à l’aide de [signatures d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Ce fichier zip contient des journaux de diagnostic et un rapport avec les résultats et les recommandations. Un lien SAS vers le fichier zip de sortie est fourni dans le fichier texte nommé *zipfilename*_saslink.txt, qui se trouve sous le dossier **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>**. Toute personne qui dispose de ce lien est en mesure de télécharger le fichier zip.
+La sortie de l’extension peut être obtenue dans le fichier zip qui a été chargé dans le compte de stockage indiqué pendant l’installation et est partagée pendant 30 jours à l’aide de [signatures d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Ce fichier zip contient des journaux de diagnostic et un rapport avec les résultats et les recommandations. Un lien SAS vers le fichier zip de sortie est fourni dans le fichier texte nommé *zipfilename*_saslink.txt, qui se trouve sous le dossier **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\\<version>** . Toute personne qui dispose de ce lien est en mesure de télécharger le fichier zip.
 
 Pour aider l’ingénieur qui travaille sur le ticket de support, Microsoft a la possibilité d’utiliser ce lien SAP pour télécharger les données de diagnostic.
 

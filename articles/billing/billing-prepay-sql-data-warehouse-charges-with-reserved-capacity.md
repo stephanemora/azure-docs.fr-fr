@@ -1,74 +1,71 @@
 ---
-title: Prépayer les frais de SQL Data Warehouse avec capacité réservée Azure | Microsoft Docs
-description: Découvrez comment vous pouvez prépayer les frais de SQL Data Warehouse avec capacité réservée pour économiser de l’argent.
+title: Réduire les coûts de SQL Data Warehouse avec une capacité réservée Azure
+description: Découvrez comment réduire les coûts de SQL Data Warehouse avec une capacité réservée pour économiser de l’argent.
 services: billing
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 3d56ee99f8056139a234477b6eed93d9fcbe2bbb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 381a709c74f5fcf6bb1f89f07ad84d5e3af0c5e0
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013814"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70806280"
 ---
-# <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Prépayer les frais de SQL Data Warehouse avec capacité réservée
+# <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Réduire les coûts de SQL Data Warehouse avec une capacité réservée
 
-Vous pouvez économiser de l’argent avec Azure SQL Data Warehouse par posté sous forme de votre utilisation de cDWU pour une durée de 1 an ou trois ans. Pour acheter une capacité réservée de SQL Data Warehouse, vous devez choisir Azure région et la période. Ensuite, ajoutez la référence de l’entrepôt de données SQL à votre panier et choisir la quantité d’unités cDWU que vous voulez acheter.
+Vous pouvez économiser de l’argent avec Azure SQL Data Warehouse en vous engageant sur une réservation de votre utilisation de cDWU pendant une durée d’un an ou de trois ans. Pour acheter une capacité réservée de SQL Data Warehouse, vous devez choisir la région Azure et la période. Ensuite, ajoutez la référence SKU SQL Data Warehouse à votre panier, puis choisissez la quantité d’unités cDWU que vous voulez acheter.
 
-Lorsque vous achetez une réservation, SQL Data Warehouse, l’utilisation qui correspond aux attributs de la réservation n’est plus facturée le paiement-sous-vous allez taux.
+Lorsque vous achetez une réservation, l’utilisation de SQL Data Warehouse correspondant aux attributs de la réservation n’est plus facturée au tarif de paiement à l’utilisation.
 
-Une réservation ne couvre pas le stockage ou réseau frais associés à l’utilisation de SQL Data Warehouse.
+Une réservation ne couvre pas le frais de stockage ou de réseau associés à l’utilisation de SQL Data Warehouse.
 
-Lorsque la capacité réservée arrive à expiration, les instances de SQL Data Warehouse continuent à s’exécuter, mais sont facturées au paiement-sous-vous accédez taux. Les réservations ne la renouvelez pas automatiquement.
+Lorsque la capacité réservée arrive à expiration, les instances SQL Data Warehouse continuent de s’exécuter, mais sont facturées au tarif de paiement à l’utilisation. Les réservations ne sont pas renouvelées automatiquement.
 
-Pour plus d’informations sur la tarification, consultez la [SQL Data Warehouse réservé offre de capacité](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
+Pour plus d’informations sur la tarification, voir l’[offre de capacité réservée SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
 
-Vous pouvez acheter des capacités d’Azure SQL Data Warehouse est réservé le [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pour acheter une capacité réservée :
+Vous pouvez acheter une capacité réservée Azure SQL Data Warehouse sur le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Payez la réservation [à l’avance ou par paiements mensuels](billing-monthly-payments-reservations.md). Pour acheter une capacité réservée :
 
-- Vous devez disposer du rôle de propriétaire au moins une entreprise ou d’abonnement de paiement à l’utilisation.
-- Pour les abonnements de l’entreprise, le **ajouter des Instances réservées** option doit être activée dans le [portail EA](https://ea.azure.com/). Si le paramètre est désactivé, vous devez être administrateur EA.
-- Pour le programme fournisseur de solutions Cloud (CSP), uniquement les agents d’administration ou les agents de vente peuvent acheter des capacités de SQL Data Warehouse est réservé.
+- Vous devez avoir le rôle propriétaire pour au moins un abonnement Entreprise ou avec paiement à l’utilisation.
+- Pour les abonnements Entreprise, l’option **Ajouter des instances réservées** doit être activée sur le [portail EA](https://ea.azure.com/). Si le paramètre est désactivé, vous devez être un administrateur EA.
+- Pour le programme Fournisseur de solutions cloud (CSP), seuls des agents d’administration ou de agents commerciaux peuvent acheter une capacité réservée SQL Data Warehouse.
 
-Pour plus d’informations sur comment les clients d’entreprise et paiement à l’utilisation sont facturés pour les achats de réservation, consultez [comprendre l’utilisation de la réservation Azure pour l’inscription de votre entreprise](billing-understand-reserved-instance-usage-ea.md) et [comprendre Azure utilisation de la réservation pour votre abonnement assorti d’un](billing-understand-reserved-instance-usage.md).
+Pour en savoir plus sur la facturation des achats de réservation pour les clients professionnels et les clients payant à l’utilisation, voir les articles [Comprendre l’utilisation d’une réservation Azure pour votre inscription Entreprise](billing-understand-reserved-instance-usage-ea.md) et [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md).
 
-## <a name="choose-the-right-size-before-purchase"></a>Choisissez la bonne taille avant l’achat
+## <a name="choose-the-right-size-before-purchase"></a>Choisir la bonne taille avant l’achat
 
-SQL Data Warehouse, taille de réservation doit être basée sur le total compute data warehouse Unit (cDWU) que vous consommez. Les achats sont effectués en incréments de 100 cDWU.
+La taille de la réservation SQL Data Warehouse doit être basée sur le total des unités de calcul Data Warehouse (cDWU) que vous consommez. Les achats sont effectués par incréments de 100 cDWU.
 
-Par exemple, supposons que votre consommation totale de SQL Data Warehouse est DW3000c. Vous souhaitez acheter une capacité réservée pour l’ensemble de celui-ci. Par conséquent, vous devez acheter 30 unités de capacité de cDWU réservé.
+Par exemple, supposons que votre consommation totale de SQL Data Warehouse est DW3000c. Vous souhaitez acheter une capacité réservée à hauteur de cette consommation. Vous devez donc acheter 30 unités de capacité réservée cDWU.
 
-## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Acheter SQL Data Warehouse de capacité réservée
+## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Acheter de la capacité réservée SQL Data Warehouse
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Tous les services** > **Réservations**.
-3. Sélectionnez un abonnement. Utilisez la liste des abonnements pour choisir l’abonnement qui est utilisée pour payer la capacité réservée. La méthode de paiement de l’abonnement est facturée le coût de démarrage pour la capacité réservée. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P).
-  - Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement.
-  - Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.
-4. Sélectionnez une étendue. Utilisez la liste de l’étendue pour choisir une étendue de l’abonnement.
-  - Avec le **unique** option, la remise de réservation est appliquée à SQL Data Warehouse est déployé dans l’abonnement sélectionné.
-  - Avec le **partagé** option, la remise de réservation est appliquée aux instances en cours d’exécution dans tous les abonnements au sein de votre contexte de facturation.
-    - Pour les entreprises, le contexte de facturation correspond à l’inscription EA.
-    - Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.
-5. Sélectionnez une région pour choisir une région Azure qui est couverte par la capacité réservée.
-6. Choisissez une quantité. Entrez la quantité de 100 unités de l’entrepôt de données (cDWU) que vous voulez acheter.    
-  Par exemple, une quantité de 30 vous donnera de réservation de capacité de 3 000 cDWU toutes les heures.
-7. Révision de l’entrepôt de données SQL réservé coût de réservation de capacité dans le **coûts** section.
+3. Sélectionnez un abonnement. Utilisez la liste Abonnement pour choisir l’abonnement à utiliser pour payer la capacité réservée. Les coûts de la capacité réservée sont facturés conformément au mode de paiement défini pour l’abonnement. Le type d’abonnement doit être Accord Entreprise (numéros de l’offre : MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P).
+   - Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement.
+   - Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.
+4. Sélectionnez une étendue. Utilisez la liste Étendue pour choisir une étendue d’abonnement.
+   - **Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
+   - **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
+   - **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
+   - Pour les clients Entreprise, le contexte de facturation est défini par l’inscription EA.
+   - Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.
+5. Sélectionnez une région éligible pour la capacité réservée.
+6. Choisissez une quantité. Entrez le nombre d’unités de calcul Data Warehouse que vous voulez acheter.    
+   Par exemple, une quantité de 30 correspond à une réservation de capacité de 3 000 cDWU par heure.
+7. Examinez le coût de réservation de capacité réservée SQL Data Warehouse dans la section **Coûts**.
 8. Sélectionnez **Achat**.
-9. Sélectionnez **afficher cette réservation** pour afficher l’état de votre achat.
+9. Sélectionnez **Afficher cette réservation** pour voir le statut de votre achat.
 
-## <a name="cancellations-and-exchanges"></a>Annulations et échanges
+## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Si vous avez besoin pour annuler votre SQL Data Warehouse capacité réservée, il peut y avoir un frais de résiliation anticipée de 12 %. Les remboursements sont basés sur le tarif le plus bas de votre prix d’achat ou le prix actuel de la réservation. Remboursements sont limités à 50,000.00 $ par an. La restitution que vous recevez est le solde restant calculé au prorata moins les frais de résiliation anticipée de 12 %. Pour demander une annulation, accédez à la réservation dans le Portail Azure et sélectionnez **Remboursement** pour créer une demande de support.
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
-Si vous devez modifier votre capacité de SQL Data Warehouse est réservé à une autre région ou à terme, vous pouvez l’échanger de réservation d’une autre qui est de valeur égale ou supérieure. La date de début du terme de la nouvelle réservation ne couvre pas la réservation échangée. L’un ou trois ans terme démarre lorsque vous créez la nouvelle réservation. Pour demander un échange, ouvrez la réservation dans le portail Azure, puis sélectionnez **Exchange** pour créer une demande de support.
-
-Pour plus d’informations sur comment exchange ou un remboursement des réservations, consultez [échanges de réservation et les remboursements](billing-azure-reservations-self-service-exchange-and-refund.md).
-
-La remise de réservation est automatiquement appliquée au nombre d’instances de SQL Data Warehouse qui correspondent à l’étendue de capacité réservée de SQL Data Warehouse et la région. Vous pouvez mettre à jour l’étendue de la capacité réservée de SQL Data Warehouse avec le [Azure portal](https://portal.azure.com/), PowerShell, CLI ou via l’API.
+La remise sur réservation est appliquée automatiquement au nombre d’instances SQL Data Warehouse correspondant à l’étendue et à la région de la capacité réservée SQL Data Warehouse. Vous pouvez mettre à jour l’étendue de la capacité réservée SQL Data Warehouse par le biais du [portail Azure](https://portal.azure.com/), de PowerShell, de CLI ou de l’API.
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
@@ -76,7 +73,7 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur comment les remises de réservation s’appliquent à Azure SQL Data Warehouse, consultez [comment les remises de réservation s’appliquent à Azure SQL Data Warehouse](billing-prepay-sql-data-warehouse-charges-with-reserved-capacity.md).
+- Pour en savoir plus sur la manière dont les remises sur réservation s’appliquent à Azure SQL Data Warehouse, voir [Description de l’application de remises de réservation à Azure SQL Data Warehouse](billing-prepay-sql-data-warehouse-charges-with-reserved-capacity.md).
 
 - Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
   - [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)

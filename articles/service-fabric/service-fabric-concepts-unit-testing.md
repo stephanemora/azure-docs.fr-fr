@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ca473b9947a9b0df610a9c3dac66914b06cc9217
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 012d75ff6ad4acdc6612a197f274e2dfdb98370a
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662565"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249267"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Test unitaire des services avec état dans Service Fabric
 
@@ -36,7 +36,7 @@ Les tests unitaires sur les services avec état peuvent aider à identifier cert
 
 ## <a name="common-practices"></a>Pratiques courantes
 
-La section suivante fournit des conseils sur les pratiques les plus courantes de test unitaire d’un service avec état. Elle fournit aussi des conseils sur ce que doit avoir une couche de simulation afin de s’aligner précisément avec l’orchestration et la gestion de l’état Service Fabric. Ils existent des bibliothèques de simulation qui fournissent cette fonctionnalité. À compter de la version 3.3.0 ou ultérieure, la bibliothèque [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fournit la fonctionnalité de simulation recommandée et respecte les pratiques décrites ci-dessous.
+La section suivante fournit des conseils sur les pratiques les plus courantes de test unitaire d’un service avec état. Elle fournit aussi des conseils sur ce que doit avoir une couche de simulation afin de s’aligner précisément avec l’orchestration et la gestion de l’état Service Fabric. À compter de la version 3.3.0 ou ultérieure, la bibliothèque [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fournit la fonctionnalité de simulation recommandée et respecte les pratiques décrites ci-dessous.
 
 ### <a name="arrangement"></a>Disposition
 
@@ -51,8 +51,8 @@ Cela permettra également aux tests de permuter les rôles de chacune de ces ins
 Le gestionnaire d’état doit être considéré comme une ressource distante, et doit par conséquent être simulé. Lors de la simulation du gestionnaire d’état, il doit exister un stockage en mémoire sous-jacent pour effectuer le suivi de ce qui est enregistré dans le gestionnaire d’état, afin qu’il puisse être lu et vérifié. Un moyen simple d’y parvenir consiste à créer des instances fictives de chacun des types de collections fiables. Dans ces simulations, utilisez un type de données qui s’aligne étroitement avec les opérations effectuées sur cette collection. Voici quelques suggestions de types de données pour chaque collection fiable :
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue<T> -> System.Collections.Generic.Queue<T>
-- IReliableConcurrentQueue<T> -> System.Collections.Concurrent.ConcurrentQueue<T>
+- IReliableQueue\<T> -> System.Collections.Generic.Queue\<T>
+- IReliableConcurrentQueue\<T> -> System.Collections.Concurrent.ConcurrentQueue\<T>
 
 #### <a name="many-state-manager-instances-single-storage"></a>Nombreuses instances de gestionnaire d’état, stockage unique
 Comme mentionné plus haut, le gestionnaire d’état et les collections fiables doivent être traités comme des ressources distantes. Par conséquent, ces ressources doivent être simulées et seront simulées dans les tests unitaires. Toutefois, lors de l’exécution de plusieurs instances d’un service avec état, il est délicat de préserver la synchronisation de chaque gestionnaire d’état fictif parmi différentes instances de service avec état. Quand le service avec état s’exécute sur le cluster, Service Fabric se charge de maintenir la cohérence du gestionnaire d’état de chaque réplica secondaire avec le réplica principal. Ainsi, les tests doivent se comporter de la même manière, afin de pouvoir simuler les changements de rôle.

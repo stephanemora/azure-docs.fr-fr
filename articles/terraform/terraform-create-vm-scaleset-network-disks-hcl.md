@@ -7,13 +7,13 @@ keywords: terraform, devops, machine virtuelle, Azure, groupe identique, réseau
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2018
-ms.openlocfilehash: 21fea65ed7056afa57d9acbacb2457bb4d09cff5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: a6bc0879d07cadc6c5b0b1a21b11b3075ec69719
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002311"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169881"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Utiliser Terraform pour créer un groupe de machines virtuelles identiques Azure
 
@@ -80,7 +80,7 @@ Dans l’instance Azure Cloud Shell, effectuez les étapes suivantes :
 
 1. Collez le code suivant dans l’éditeur :
 
-   ```JSON
+   ```hcl
    variable "location" {
     description = "The location where resources will be created"
    }
@@ -124,7 +124,7 @@ Dans l’instance Azure Cloud Shell, effectuez les étapes suivantes :
 1. Collez le code suivant dans l’éditeur pour exposer le nom de domaine complet pour les machines virtuelles.
    :
 
-   ```JSON
+   ```hcl
     output "vmss_public_ip" {
         value = "${azurerm_public_ip.vmss.fqdn}"
     }
@@ -157,7 +157,7 @@ Dans l’instance Azure Cloud Shell, effectuez les étapes suivantes :
 
 1. Collez le code suivant à la fin du fichier pour exposer le nom de domaine complet pour les machines virtuelles.
 
-   ```JSON
+   ```hcl
    resource "azurerm_resource_group" "vmss" {
     name     = "${var.resource_group_name}"
     location = "${var.location}"
@@ -252,7 +252,7 @@ Dans Cloud Shell, effectuez la procédure suivante :
 
 1. Copiez le code suivant à la fin du fichier :
 
-   ```JSON
+   ```hcl
    resource "azurerm_lb" "vmss" {
     name                = "vmss-lb"
     location            = "${var.location}"
@@ -369,7 +369,7 @@ Dans Cloud Shell, effectuez la procédure suivante :
 
 1. Collez le code suivant dans l’éditeur :
 
-   ```JSON
+   ```hcl
    #cloud-config
    packages:
     - nginx
@@ -393,7 +393,7 @@ Dans Cloud Shell, effectuez la procédure suivante :
 
 1. Personnalisez le déploiement en collant le code suivant à la fin du fichier :
 
-    ```JSON
+    ```hcl
     variable "application_port" {
        description = "The port that you want to expose to the external load balancer"
        default     = 80
@@ -458,7 +458,7 @@ Une *jumpbox* SSH est un serveur unique dans lequel vous passez rapidement pour 
 
 1. Copiez le code suivant à la fin du fichier :
 
-   ```JSON
+   ```hcl
    resource "azurerm_public_ip" "jumpbox" {
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
@@ -528,7 +528,7 @@ Une *jumpbox* SSH est un serveur unique dans lequel vous passez rapidement pour 
 
 1. Collez le code suivant à la fin du fichier pour afficher le nom d’hôte de la jumpbox lorsque le déploiement est terminé :
 
-   ```
+   ```hcl
    output "jumpbox_public_ip" {
       value = "${azurerm_public_ip.jumpbox.fqdn}"
    }

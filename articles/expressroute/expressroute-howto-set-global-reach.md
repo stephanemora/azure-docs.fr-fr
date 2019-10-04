@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 8ea3b3580cb70d0453a5ec6a38f6063788ebf7f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082022"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64572760"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configurer ExpressRoute Global Reach
 
@@ -23,9 +23,9 @@ Cet article vous permet de configurer ExpressRoute Global Reach à l’aide de P
 
 Avant de commencer la configuration, vérifiez les éléments suivants :
 
-* Vous comprenez l’approvisionnement du circuit ExpressRoute [des flux de travail](expressroute-workflows.md).
-* Vos circuits ExpressRoute sont dans un état configuré.
-* L’homologation privée Azure est configuré sur vos circuits ExpressRoute.
+* Vous connaissez les [flux de travail](expressroute-workflows.md) de provisionnement du circuit ExpressRoute.
+* Vos circuits ExpressRoute sont à l’état provisionné.
+* Le peering privé Azure est configuré sur vos circuits ExpressRoute.
 * Si vous souhaitez exécuter PowerShell localement, vérifiez que la dernière version d’Azure PowerShell est installée sur votre ordinateur.
 
 ### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
@@ -34,19 +34,19 @@ Avant de commencer la configuration, vérifiez les éléments suivants :
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## <a name="identify-circuits"></a>Identifier des circuits
+## <a name="identify-circuits"></a>Identifier les circuits
 
-1. Pour démarrer la configuration, connectez-vous à votre compte Azure et sélectionnez l’abonnement que vous souhaitez utiliser.
+1. Pour commencer la configuration, connectez-vous à votre compte Azure et sélectionnez l’abonnement que vous souhaitez utiliser.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Identifiez les circuits ExpressRoute que vous souhaitez utiliser. Vous pouvez activer ExpressRoute Global Reach entre deux circuits ExpressRoute à condition qu’ils se situent dans les pays pris en charge et qu’ils aient été créés sur différents sites d’homologation. 
+2. Identifiez les circuits ExpressRoute que vous souhaitez utiliser. Vous pouvez activer ExpressRoute Global Reach entre deux circuits ExpressRoute à condition qu’ils se situent dans les pays/régions pris en charge et qu’ils aient été créés à différents emplacements de peering. 
 
    * Si votre abonnement comprend les deux circuits, vous pouvez choisir celui de votre choix pour exécuter la configuration dans les sections suivantes.
    * Si les deux circuits se trouvent dans des abonnements Azure différents, vous devez avoir l’autorisation d’un abonnement Azure, puis transférer la clé d’autorisation lorsque vous exécutez la commande de configuration dans l’autre abonnement Azure.
 
 ## <a name="enable-connectivity"></a>Activez la connectivité.
 
-Activer la connectivité entre vos réseaux locaux. Il existe des ensembles distincts d’instructions pour les circuits sont dans le même abonnement Azure et les circuits sont des abonnements différents.
+Activez la connectivité entre vos réseaux locaux. Il existe des ensembles distincts d’instructions pour les circuits qui sont dans le même abonnement Azure et ceux qui sont dans des abonnements différents.
 
 ### <a name="expressroute-circuits-in-the-same-azure-subscription"></a>Circuits ExpressRoute dans le même abonnement Azure
 
@@ -56,9 +56,9 @@ Activer la connectivité entre vos réseaux locaux. Il existe des ensembles dist
    $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
    $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
    ```
-2. Exécutez la commande suivante sur le circuit 1 et transférez l’ID de l’homologation privée du circuit 2. Lors de l'exécution de la commande, notez ce qui suit :
+2. Exécutez la commande suivante sur le circuit 1 et transférez l’ID du peering privé du circuit 2. Lors de l'exécution de la commande, notez ce qui suit :
 
-   * L'ID de l'homologation privée ressemble à l’exemple suivant : 
+   * L'ID du peering privé ressemble à l’exemple suivant : 
 
      ```
      /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
@@ -74,7 +74,7 @@ Activer la connectivité entre vos réseaux locaux. Il existe des ensembles dist
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-Lorsque l’opération précédente est terminée, vous aurez la connectivité entre vos réseaux locaux des deux côtés via vos deux circuits ExpressRoute.
+Une fois l’opération terminée, vous disposerez d’une connectivité entre vos réseaux locaux des deux côtés par le biais des deux circuits ExpressRoute.
 
 ### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>Circuits ExpressRoute dans différents abonnements Azure
 
@@ -88,8 +88,8 @@ Si les deux circuits ne se trouvent pas dans le même abonnement Azure, vous dev
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_2
    ```
 
-   Notez l’ID de l’homologation privée du circuit 2, ainsi que la clé d’autorisation.
-2. Exécutez la commande suivante sur le circuit 1. Transférez l’ID de l’homologation privée du circuit 2, ainsi que la clé d’autorisation.
+   Notez l’ID du peering privé du circuit 2, ainsi que la clé d’autorisation.
+2. Exécutez la commande suivante sur le circuit 1. Transférez l’ID du peering privé du circuit 2, ainsi que la clé d’autorisation.
 
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'
@@ -100,7 +100,7 @@ Si les deux circuits ne se trouvent pas dans le même abonnement Azure, vous dev
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-Lorsque l’opération précédente est terminée, vous aurez la connectivité entre vos réseaux locaux des deux côtés via vos deux circuits ExpressRoute.
+Une fois l’opération terminée, vous disposerez d’une connectivité entre vos réseaux locaux des deux côtés par le biais des deux circuits ExpressRoute.
 
 ## <a name="verify-the-configuration"></a>Vérifier la configuration
 
@@ -113,7 +113,7 @@ Si vous exécutez *$ckt1* dans PowerShell, vous voyez s’afficher la valeur *Ci
 
 ## <a name="disable-connectivity"></a>Désactiver la connectivité
 
-Pour désactiver la connectivité entre vos réseaux locaux, exécuter les commandes sur le circuit où la configuration a été effectuée (par exemple, le circuit 1 dans l’exemple précédent).
+Pour désactiver la connectivité entre vos réseaux locaux, exécutez les commandes sur le circuit où la configuration a été effectuée (le circuit 1 dans l’exemple précédent).
 
 ```azurepowershell-interactive
 $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"

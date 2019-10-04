@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61449344"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Intégrer la solution de supervision à distance à Azure Data Lake Store
 
@@ -25,7 +25,7 @@ Dans cette procédure, vous allez utiliser une tâche Azure Stream Analytics pou
 
 Pour réaliser cette procédure, vous avez besoin des éléments suivants :
 
-* [Déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md).
+* [Déployer l’accélérateur de solution de supervision à distance](quickstart-remote-monitoring-deploy.md).
   * La solution de supervision à distance déploie le hub IoT et la tâche Azure Stream Analytics utilisés dans cet article dans votre abonnement Azure.
 * [Déployer un service Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
   * Data Lake Store doit être déployé sur la même région que votre solution de supervision à distance.
@@ -103,7 +103,7 @@ Créez une tâche Azure Stream Analytics pour transmettre les données du hub Io
 
 1. Sélectionnez le compte Data Lake Store que vous avez créé dans les étapes précédentes et indiquez une structure de dossiers pour transmettre les données au magasin.
 
-1. Dans le champ Format de date, entrez **/streaming/{date}/{time}**. Laissez le format de date YYYY/MM/DD et le format d’heure HH par défaut.
+1. Dans le champ Format de date, entrez **/streaming/{date}/{time}** . Laissez le format de date YYYY/MM/DD et le format d’heure HH par défaut.
 
     ![Indiquer une structure de dossiers](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-output.png)
 

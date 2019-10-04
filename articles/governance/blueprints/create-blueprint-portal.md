@@ -7,15 +7,14 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 225f5cfe36daaafb7f6ab5d64e77c626e52edaac
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790118"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338193"
 ---
-# <a name="define-and-assign-a-blueprint-in-the-portal"></a>Définir et affecter un blueprint dans le portail
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Démarrage rapide : Définir et affecter un blueprint dans le portail
 
 Lorsque vous apprenez à créer et à affecter des blueprints, vous pouvez définir des modèles courants et développer des configurations réutilisables et rapides à déployer basées sur des modèles Azure Resource Manager, des stratégies, des exigences de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprints pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation. Voici certaines de ces tâches :
 
@@ -70,11 +69,11 @@ La première étape de la définition d’un modèle standard à des fins de con
 
    1. Définissez le **Type** sur **Intégré**. Dans la zone **Recherche**, entrez **étiquette**.
 
-   1. Cliquez en dehors de la fonction **Rechercher** pour que le filtrage se produise. Sélectionnez **Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources**.
+   1. Cliquez en dehors de la fonction **Rechercher** pour que le filtrage se produise. Sélectionnez **Ajouter l’étiquette et sa valeur par défaut aux groupes de ressources**.
 
    1. Sélectionnez **Ajouter** pour ajouter cet artefact au blueprint.
 
-1. Sélectionnez la ligne d’attribution de stratégie  **Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources**.
+1. Sélectionnez la ligne d’attribution de stratégie **Ajouter l’étiquette et sa valeur par défaut aux groupes de ressources**.
 
 1. La fenêtre permettant de paramétrer l’artefact dans le cadre de la définition du blueprint s’ouvre. Vous définissez ainsi des paramètres statiques pour toutes les affectations basées sur ce blueprint (les paramètres dynamiques étant définis durant l’affectation). Cet exemple utilise des paramètres dynamiques durant l’affectation du blueprint. Veillez donc à conserver les valeurs par défaut et à sélectionner **Annuler**.
 
@@ -224,7 +223,7 @@ Une fois publié, vous pouvez affecter le blueprint à un abonnement. Affectez l
 
    1. Sélectionnez l’**offre** disponible dans la liste déroulante.
 
-   1. Utilisez le bouton de sélection pour sélectionner le [groupe d’administration](../management-groups/index.md) dont l’abonnement sera enfant.
+   1. Utilisez le bouton de sélection pour sélectionner le [groupe d’administration](../management-groups/overview.md) dont l’abonnement sera enfant.
 
    1. Au bas de la page, sélectionnez **Créer**.
 

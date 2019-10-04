@@ -8,15 +8,15 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
-ms.openlocfilehash: 9cce809401a26eb2b45b11303afcd4818a1f950b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 9437f43a12204c9a08e1c0da11fc737e8c026c80
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009953"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173396"
 ---
-# <a name="tutorial-create-a-spoke-virtual-network-with-terraform-in-azure"></a>Tutoriel : Créer un réseau virtuel spoke avec Terraform dans Azure
+# <a name="tutorial-create-a-spoke-virtual-network-with-terraform-in-azure"></a>Didacticiel : Créer un réseau virtuel spoke avec Terraform dans Azure
 
 Dans ce tutoriel, vous implémentez deux réseaux spoke distincts pour illustrer la séparation des charges de travail. Les réseaux partagent des ressources communes via le réseau virtuel hub. Les membres spokes peuvent servir à isoler les charges de travail dans leurs propres réseaux virtuels, qui sont alors gérées séparément des autres membres spokes. Chaque charge de travail peut inclure plusieurs niveaux, avec plusieurs sous-réseaux connectés à l’aide d’équilibreurs de charge Azure.
 
@@ -25,7 +25,7 @@ Ce tutoriel décrit les tâches suivantes :
 > [!div class="checklist"]
 > * Utilisation de HCL (HashiCorp Language) pour implémenter les réseaux virtuels Spoke dans la topologie hub-and-spoke
 > * Utilisation de Terraform pour créer des machines virtuelles dans les réseaux spoke
-> * Utilisation de Terraform pour établir les appairages de réseaux virtuels avec les réseaux hub
+> * Utilisation de Terraform pour établir les peerings de réseaux virtuels avec les réseaux hub
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -66,7 +66,7 @@ Deux scripts spoke sont créés dans cette section. Chaque script définit un r�
 
 1. Collez le code suivant dans l’éditeur :
 
-    ```JSON
+    ```hcl
     locals {
       spoke1-location       = "CentralUS"
       spoke1-resource-group = "spoke1-vnet-rg"
@@ -188,7 +188,7 @@ Deux scripts spoke sont créés dans cette section. Chaque script définit un r�
     
 1. Collez le code suivant dans l’éditeur :
     
-    ```JSON
+    ```hcl
     locals {
       spoke2-location       = "CentralUS"
       spoke2-resource-group = "spoke2-vnet-rg"

@@ -4,23 +4,22 @@ description: Guide pratique pour monter un partage Azure Files à partir de nœu
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 05/24/2018
 ms.author: lahugh
 ms.custom: ''
-ms.openlocfilehash: 1e9d039769e7fbcb9c2b7285aa727acd7322bcdf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: cd185035640bf0beaa54fa6a0f4d92a33837442b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103330"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70093965"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Utiliser un partage de fichiers Azure avec un pool Batch
 
@@ -52,7 +51,7 @@ Dans Batch, vous devez monter le partage chaque fois qu’une tâche est exécut
 Par exemple, incluez une commande `net use` pour monter le partage de fichiers dans le cadre de chaque ligne de commande de tâche. Pour monter le partage de fichiers, les informations d’identification suivantes sont nécessaires :
 
 * **Nom d’utilisateur :** AZURE\\\<nom_compte_stockage\>, par exemple, AZURE\\*mystorageaccountname*
-* **Mot de passe** : <compte_de_stockage_se_terminant_par==>, par exemple *XXXXXXXXXXXXXXXXXXXXX==*
+* **Mot de passe** : \<StorageAccountKeyWhichEnds in==>, par exemple, *XXXXXXXXXXXXXXXXXXXXX==*
 
 La commande suivante monte un partage de fichiers *myfileshare* dans le compte de stockage *mystorageaccountname* en tant que le lecteur *S:*  :
 
@@ -71,7 +70,7 @@ Pour simplifier l’opération de montage, si vous le souhaitez vous pouvez cons
 
    ```
 
-2. Montez le partage sur chaque nœud dans le cadre de chaque tâche à l’aide de `net use`. Par exemple, la ligne de commande de tâche suivante monte le partage de fichiers en tant que lecteur *S:*. Elle serait suivie d’une commande ou d’un script qui référence le partage. Des informations d’identification mises en cache sont utilisées dans l’appel à `net use`. Cette étape part du principe que vous utilisez pour les tâches la même identité d’utilisateur que celle utilisée dans la tâche de démarrage sur le pool, ce qui ne convient pas à tous les scénarios.
+2. Montez le partage sur chaque nœud dans le cadre de chaque tâche à l’aide de `net use`. Par exemple, la ligne de commande de tâche suivante monte le partage de fichiers en tant que lecteur *S:* . Elle serait suivie d’une commande ou d’un script qui référence le partage. Des informations d’identification mises en cache sont utilisées dans l’appel à `net use`. Cette étape part du principe que vous utilisez pour les tâches la même identité d’utilisateur que celle utilisée dans la tâche de démarrage sur le pool, ce qui ne convient pas à tous les scénarios.
 
    ```
    cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
@@ -129,7 +128,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 Ensuite, exécutez la commande `mount` pour monter le partage de fichiers, en fournissant ces informations d’identification :
 
 * **Nom d’utilisateur** : \<nom_compte_stockage\>, par exemple, *mystorageaccountname*
-* **Mot de passe** : <compte_de_stockage_se_terminant_par==>, par exemple *XXXXXXXXXXXXXXXXXXXXX==*
+* **Mot de passe** : \<StorageAccountKeyWhichEnds in==>, par exemple, *XXXXXXXXXXXXXXXXXXXXX==*
 
 La commande suivante monte un partage de fichiers *myfileshare* dans le compte de stockage *mystorageaccountname* dans */mnt/MyAzureFileShare* : 
 
@@ -148,17 +147,18 @@ L’exemple Python suivant montre comment configurer un pool Ubuntu pour monter 
 ```python
 pool = batch.models.PoolAddParameter(
     id=pool_id,
-    virtual_machine_configuration = batchmodels.VirtualMachineConfiguration(
-        image_reference = batchmodels.ImageReference(
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
             publisher="Canonical",
             offer="UbuntuServer",
             sku="16.04.0-LTS",
             version="latest"),
-        node_agent_sku_id = "batch.node.ubuntu 16.04"),
+        node_agent_sku_id="batch.node.ubuntu 16.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_POOL_NODE_COUNT,
     start_task=batchmodels.StartTask(
-        command_line="/bin/bash -c \"apt-get update && apt-get install cifs-utils && mkdir -p {} && mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(_COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
+        command_line="/bin/bash -c \"apt-get update && apt-get install cifs-utils && mkdir -p {} && mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(
+            _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
         wait_for_success=True,
         user_identity=batchmodels.UserIdentity(
             auto_user=batchmodels.AutoUserSpecification(

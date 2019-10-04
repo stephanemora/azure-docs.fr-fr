@@ -1,19 +1,19 @@
 ---
 title: Copier des données dans Azure Data Lake Storage Gen2 à l'aide de DistCp | Microsoft Docs
 description: Utiliser l'outil DistCp pour copier des données vers et depuis Data Lake Storage Gen2
-services: storage
-author: seguler
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: seguler
-ms.openlocfilehash: 3b58dc8dabc55ba428ce6e35091a6947e5f4a824
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.author: normesta
+ms.reviewer: stewu
+ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678378"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543655"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Utiliser DistCp pour copier des données entre Azure Storage Blob et Azure Data Lake Storage Gen2
 
@@ -21,7 +21,7 @@ Vous pouvez utiliser [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distc
 
 DistCp offre différents paramètres de ligne de commande, et nous vous encourageons vivement à lire cet article afin d’optimiser votre utilisation de cet outil. Cet article explique les fonctionnalités de base tout en mettant l’accent sur son utilisation pour la copie de données vers un compte avec espace de noms hiérarchique activé.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Stockage Azure existant sans fonctionnalités Data Lake Storage Gen2 (espace de noms hiérarchique) activées**.
@@ -65,7 +65,7 @@ La granularité la plus basse de DistCp étant un fichier unique, la définition
 
 **Exemple**
 
-    hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder -m 100
+    hadoop distcp -m 100 wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Comment déterminer le nombre de mappeurs à utiliser ?
 

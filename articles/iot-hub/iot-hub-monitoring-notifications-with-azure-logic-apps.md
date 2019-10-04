@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/11/2018
+ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 5a277ac18bcbcb7e7acc6faf52f7bc72759c82a7
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: ad1fcb67704e79f5aef62a59604e47f477804405
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678001"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385719"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Surveillance à distance IoT et notifications avec Azure Logic Apps connectant votre IoT Hub et votre boîte aux lettres
 
@@ -22,173 +22,229 @@ ms.locfileid: "59678001"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-Azure Logic Apps permet d’automatiser des processus comme une série d’étapes. Une application logique peut établir une connexion via divers services et protocoles. Elle commence par un déclencheur tel que « Lorsqu’un compte est ajouté », suivie d’une combinaison d’actions, similaire à « envoi d’une notification Push ». Cette fonctionnalité rend Logic Apps idéale pour la surveillance IoT, telle que la vigilance face aux anomalies, parmi d’autres scénarios d’utilisation.
+[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) peut vous aider à orchestrer des flux de travail entre des services locaux et cloud, une ou plusieurs entreprises et entre divers protocoles. Une application logique commence par un déclencheur, suivi d’une ou plusieurs actions qui peuvent être classées à l’aide de contrôles intégrés comme des conditions et des itérateurs. Cette flexibilité fait de Logic Apps une solution d’IoT idéale pour les scénarios de supervision IoT. Par exemple, l’arrivée de données de télémétrie d’un appareil sur un point de terminaison IoT Hub peut initier des flux de travail d’application logique afin d’entreposer les données dans un objet Blob de Stockage Azure, d’envoyer des alertes par e-mail afin d’informer d’anomalies de données, de planifier la visite d’un technicien si un appareil signale un échec, etc.
 
 ## <a name="what-you-learn"></a>Contenu
 
-Vous apprenez à créer une application logique qui connecte votre IoT Hub et votre boîte aux lettres pour la surveillance de la température et les notifications. Lorsque la température est supérieure à 30 °C, l’application cliente indique `temperatureAlert = "true"` dans le message qu’elle envoie à votre IoT Hub. Suite à ce message, l’application logique vous envoie un e-mail de notification.
+Vous apprenez à créer une application logique qui connecte votre IoT Hub et votre boîte aux lettres pour la surveillance de la température et les notifications.
+
+Le code client exécuté sur votre appareil définit une propriété d’application, `temperatureAlert`, dans chaque message de télémétrie qu’il envoie à votre hub IoT. Lorsque le code client détecte une température supérieure à 30 °C, il définit cette propriété sur `true` ; sinon, il définit la propriété sur `false`.
+
+Les messages arrivant à votre IOT Hub ressemblent à ce qui suit, avec les données de télémétrie contenues dans le corps et la propriété `temperatureAlert` contenue dans les propriétés de l’application (les propriétés système ne sont pas affichées) :
+
+```json
+{
+  "body": {
+    "messageId": 18,
+    "deviceId": "Raspberry Pi Web Client",
+    "temperature": 27.796111770668457,
+    "humidity": 66.77637926438427
+  },
+  "applicationProperties": {
+    "temperatureAlert": "false"
+  }
+}
+```
+
+Pour en savoir plus sur le format de message de IOT Hub, consultez [Créer et lire des messages IOT Hub](iot-hub-devguide-messages-construct.md).
+
+Dans cette rubrique, vous configurez le routage sur votre IOT Hub pour envoyer des messages dont la propriété `temperatureAlert` est `true` par rapport à un point de terminaison Service Bus. Vous configurez ensuite une application logique qui se déclenche sur les messages arrivant au point de terminaison Service Bus et vous envoie une notification par courrier électronique.
 
 ## <a name="what-you-do"></a>Procédure
 
 * Créez un espace de noms Service Bus et ajoutez-lui une file d’attente.
-* Ajoutez un point de terminaison et une règle de routage à votre IoT Hub.
-* Créez, configurez et testez une application logique.
+* Ajoutez un point de terminaison personnalisé et une règle d’acheminement à votre hub IoT pour router des messages contenant une alerte de température à la file d’attente Service Bus.
+* Créez, configurez et testez une application logique pour utiliser des messages de votre file d’attente Service Bus et envoyer des notifications par e-mail au destinataire souhaité.
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
-* Terminer la [simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) didacticiel ou un des didacticiels appareil ; par exemple, [Raspberry Pi avec node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Ces couvrent les exigences suivantes :
+* Effectuez le didacticiel [Simulateur en ligne Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) ou un des didacticiels sur l’appareil, par exemple [Raspberry Pi avec node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Ceux-ci couvrent les exigences suivantes :
 
   * Un abonnement Azure actif.
   * Une instance Azure IoT Hub associée à votre abonnement.
-  * Une application cliente qui envoie des messages à votre instance Azure IoT Hub.
+  * Une application cliente exécutée sur un appareil qui envoie des messages de télémétrie à votre hub IoT Azure.
 
-## <a name="create-service-bus-namespace-and-add-a-queue-to-it"></a>Créer un espace de noms Service Bus et lui ajouter une file d’attente
+## <a name="create-service-bus-namespace-and-queue"></a>Créer un espace de noms et une file d’attente Service Bus
 
-### <a name="create-a-service-bus-namespace"></a>Création d'un espace de noms Service Bus
+Créez un espace de noms et une file d’attente Service Bus. Plus loin dans cette rubrique, vous allez créer une règle d’acheminement dans votre hub IoT pour diriger les messages contenant une alerte de température à la file d’attente Service Bus, où ils ne seront récupérés par une application logique et la déclencheront pour envoyer un e-mail de notification.
 
-1. Sur le [Azure portal](https://portal.azure.com/), sélectionnez **créer une ressource** > **Enterprise Integration** > **Service Bus**.
+### <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus
 
-2. Fournissez les informations suivantes :
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez **+ Créer une ressource** > **Intégration** > **Service Bus**.
 
-   **Nom** : Le nom de service bus.
+1. Dans le volet **Créer un espace de noms**, fournissez les informations suivantes :
 
-   **Niveau tarifaire** : Sélectionnez **base** > **sélectionnez**. Le niveau de base est suffisant pour ce didacticiel.
+   **Nom** : Nom de l’espace de noms Service Bus. L’espace de noms doit être unique dans tout Azure.
+
+   **Niveau tarifaire** : Sélectionnez **De base** dans la liste déroulante. Le niveau de base est suffisant pour ce didacticiel.
 
    **Groupe de ressources** : utilisez le même groupe de ressources que celui de votre hub IoT.
 
-   **Emplacement** : Utiliser le même emplacement que celui de votre hub IoT.
+   **Emplacement** : Utilisez le même emplacement que celui utilisé par votre IoT Hub.
 
-3. Sélectionnez **Créer**.
+   ![Créer un espace de noms Service Bus dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
-   ![Créer un espace de noms Service Bus dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1_create-service-bus-namespace-azure-portal.png)
+1. Sélectionnez **Créer**. Attendez que le déploiement se termine avant de passer à l’étape suivante.
 
-### <a name="add-a-service-bus-queue"></a>Ajouter une file d’attente Service Bus
+### <a name="add-a-service-bus-queue-to-the-namespace"></a>Ajouter une file d’attente Service Bus avec l’espace de noms
 
-1. Ouvrez l’espace de noms service bus, puis sélectionnez **+ file d’attente**.
+1. Ouvrez l’espace de noms Service Bus. La méthode la plus simple pour accéder à l’espace de noms Service Bus consiste à sélectionner **Groupe de ressources** dans le volet de ressources, à sélectionner votre groupe de ressources, puis à sélectionner l’espace de noms Service Bus dans la liste des ressources.
 
-1. Entrez un nom pour la file d’attente, puis sélectionnez **créer**.
+1. Dans le volet **Espace de noms Service Bus**, sélectionnez **+ File d’attente**.
 
-1. Ouvrir la file d’attente du bus de service, puis sélectionnez **stratégies d’accès partagé** > **+ ajouter**.
+1. Entrez un nom pour la file d’attente, puis sélectionnez **Créer**. Lorsque la file d’attente a été créée avec succès, le volet **Créer une file d’attente** se ferme.
 
-1. Entrez un nom pour la stratégie, cochez **gérer**, puis sélectionnez **créer**.
+   ![Ajouter une file d’attente Service Bus dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-   ![Ajouter une file d’attente Service Bus dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2_add-service-bus-queue-azure-portal.png)
+1. Dans le volet **Espace de noms Service Bus**, sous **Entités**, sélectionnez **Files d’attente**. Ouvrez la file d’attente Service Bus à partir de la liste, puis sélectionnez **Stratégies d’accès partagé** >  **+ Ajouter**.
 
-## <a name="add-an-endpoint-and-a-routing-query-to-your-iot-hub"></a>Ajouter un point de terminaison et une requête de routage à votre IoT hub
+1. Entrez un nom pour la stratégie, cochez **Gérer**, puis sélectionnez **Créer**.
 
-Maintenant, ajoutez un point de terminaison et une requête de routage à votre Iot hub.
+   ![Ajouter une stratégie de file d’attente Service Bus dans le Portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2-add-service-bus-queue-azure-portal.png)
 
-### <a name="add-an-endpoint"></a>Ajout d’un point de terminaison
+## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Ajouter un point de terminaison personnalisé et une règle d’acheminement à votre IoT Hub
 
-1. Ouvrez votre IoT hub, sélectionnez **points de terminaison** > **+ ajouter**.
+Ajoutez un point de terminaison personnalisé pour la file d’attente Service Bus à votre hub IoT et créez une règle d’acheminement des messages pour diriger les messages contenant une alerte de température à ce point de terminaison, où ils seront récupérés par votre application logique. La règle d’acheminement utilise une requête de routage, `temperatureAlert = "true"`, pour transférer des messages en fonction de la valeur de la propriété d’application `temperatureAlert` définie par le code client exécuté sur l’appareil. Pour en savoir plus, consultez [Requête de routage de messages en fonction des propriétés de message](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
 
-1. Entrez les informations suivantes :
+### <a name="add-a-custom-endpoint"></a>Ajouter un point de terminaison personnalisé
 
-   **Nom** : Nom du point de terminaison.
+1. Ouvrez votre IoT Hub. La méthode la plus simple pour accéder au hub IoT consiste à sélectionner **Groupe de ressources** dans le volet de ressources, à sélectionner votre groupe de ressources, puis à sélectionner le hub IoT dans la liste des ressources.
 
-   **Type de point de terminaison**: Sélectionnez **File d’attente Service Bus**.
+1. Sous **Messagerie**, sélectionnez **Routage des messages**. Dans le volet **Routage des messages**, sélectionnez l’onglet **Points de terminaison personnalisés**, puis sélectionnez **+ Ajouter**. Dans la liste déroulante, sélectionnez **File d’attente Service Bus**.
 
-   **Espace de noms Service Bus**: Sélectionnez l’espace de noms que vous avez créé.
+   ![Ajouter un point de terminaison à votre IoT Hub dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
-   **File d'attente Service Bus** : Sélectionnez la file d’attente que vous avez créé.
+1. Dans le volet **Ajouter un point de terminaison Service Bus**, entrez les informations suivantes :
 
-3. Sélectionnez **OK**.
+   **Nom du point de terminaison** : Nom du point de terminaison.
 
-   ![Ajouter un point de terminaison à votre IoT Hub dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3_add-iot-hub-endpoint-azure-portal.png)
+   **Espace de noms Service Bus** : Sélectionnez l’espace de noms que vous avez créé.
+
+   **File d’attente Service Bus** : Sélectionnez la file d’attente que vous avez créée.
+
+   ![Ajouter un point de terminaison à votre IoT Hub dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
+
+1. Sélectionnez **Créer**. Lorsque le point de terminaison est créé, passez à l’étape suivante.
 
 ### <a name="add-a-routing-rule"></a>Ajouter une règle de routage
 
-1. Dans votre IoT hub, sélectionnez **itinéraires** > **+ ajouter**.
+1. Dans le volet **Routage des messages**, sélectionnez l’onglet **Routes**, puis sélectionnez **+ Ajouter**.
 
-2. Entrez les informations suivantes :
+1. Dans le volet **Ajouter une route**, entrez les informations suivantes :
 
-   **Nom** : Le nom de la règle de routage.
-
-   **Source de données** : Sélectionnez **DeviceMessages**.
+   **Nom** : Nom de la règle d’acheminement.
 
    **Point de terminaison** : Sélectionnez le point de terminaison que vous avez créé.
 
-   **Chaîne de requête** : Entrez `temperatureAlert = "true"`.
+   **Source de données** : Sélectionnez **Messages de télémétrie des appareils**.
 
-3. Sélectionnez **Enregistrer**.
+   **Requête de routage** : Entrez `temperatureAlert = "true"`.
 
-   ![Ajouter une règle de routage dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4_add-routing-rule-azure-portal.png)
+   ![Ajouter une règle de routage dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
+
+1. Sélectionnez **Enregistrer**. Vous pouvez fermer le volet **Routage des messages**.
 
 ## <a name="create-and-configure-a-logic-app"></a>Créer et configurer une application logique
 
-Ensuite, vous créez et configurez une application logique.
+Dans la section précédente, vous avez configuré votre hub IoT pour router les messages contenant une alerte de température vers votre file d’attente Service Bus. Vous configurez maintenant une application logique pour surveiller la file d’attente Service Bus et envoyer une notification par e-mail si un message est ajouté à la file d’attente.
 
 ### <a name="create-a-logic-app"></a>Créer une application logique
 
-1. Dans le [Azure portal](https://portal.azure.com/), sélectionnez **créer une ressource** > **Enterprise Integration** > **application logique**.
+1. Sélectionnez **Créer une ressource** > **Intégration**  > **Application logique**.
 
-2. Entrez les informations suivantes :
+1. Entrez les informations suivantes :
 
-   **Nom** : Le nom de l’application logique.
+   **Nom** : Nom de l’application logique.
 
    **Groupe de ressources** : utilisez le même groupe de ressources que celui de votre hub IoT.
 
-   **Emplacement** : Utiliser le même emplacement que celui de votre hub IoT.
+   **Emplacement** : Utilisez le même emplacement que celui utilisé par votre IoT Hub.
 
-3. Sélectionnez **Créer**.
+   ![Créer une application logique dans le Portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
-### <a name="configure-the-logic-app"></a>Configurer l’application logique
+1. Sélectionnez **Créer**.
 
-1. Ouvrez l’application logique qui s’ouvre dans le Concepteur d’applications logiques.
+### <a name="configure-the-logic-app-trigger"></a>Configurer le déclencheur d’application logique
 
-2. Dans le Concepteur d’applications logiques, sélectionnez **application logique vide**.
+1. Ouvrez l’application logique. La méthode la plus simple pour accéder à l’application logique consiste à sélectionner **Groupe de ressources** dans le volet de ressources, à sélectionner votre groupe de ressources, puis à sélectionner l’application logique dans la liste des ressources. Lorsque vous sélectionnez l’application logique, le Concepteur d’applications logiques s’ouvre.
 
-   ![Commencer avec une application logique vide dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5_start-with-blank-logic-app-azure-portal.png)
+1. Dans le Concepteur d’applications logiques, faites défiler vers le bas jusqu’à **Modèles** et sélectionnez **Application logique vide**.
 
-3. Sélectionnez **Service Bus**.
+   ![Commencer avec une application logique vide dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5-start-with-blank-logic-app-azure-portal.png)
 
-   ![Sélectionner Service Bus pour commencer à créer votre application logique dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6_select-service-bus-when-creating-blank-logic-app-azure-portal.png)
+1. Sélectionnez l’onglet **Tous**, puis sélectionnez **Service Bus**.
 
-4. Sélectionnez **Service Bus – lorsqu’un ou plusieurs messages arrivent dans une file d’attente (saisie semi-auto)**.
+   ![Sélectionner Service Bus pour commencer à créer votre application logique dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-5. Créez une connexion Service Bus.
+1. Sous **Déclencheurs**, sélectionnez **Lorsqu’un ou plusieurs messages arrivent dans une file d’attente (saisie semi-automatique)** .
 
-   1. Entrez un nom de connexion.
+   ![Sélectionner le déclencheur de votre application logique dans le Portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
 
-   2. Sélectionnez l’espace de noms service bus > la stratégie service bus > **créer**.
+1. Créez une connexion Service Bus.
+   1. Entrez un nom de connexion, puis sélectionnez votre espace de noms Service Bus dans la liste. L’écran suivant s’ouvre.
 
-      ![Créer une connexion Service Bus pour votre application logique dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7_create-service-bus-connection-in-logic-app-azure-portal.png)
+      ![Créer une connexion Service Bus pour votre application logique dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
-   3. Sélectionnez **continuer** après la création de la connexion de service bus.
+   1. Sélectionnez la stratégie Service Bus (RootManageSharedAccessKey). Sélectionnez ensuite **Créer**.
 
-   4. Sélectionnez la file d’attente que vous avez créé, puis entrez `175` pour **nombre maximal de messages**.
+      ![Créer une connexion Service Bus pour votre application logique dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 
-      ![Spécifier le nombre maximal de messages pour les connexions Service Bus dans votre application logique](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
+   1. Dans le dernier écran, pour **Nom de la file d’attente**, sélectionnez la file d’attente que vous avez créée dans la liste déroulante. Entrez `175` pour **Nombre maximal de messages**.
 
-   5. Sélectionnez bouton « Enregistrer » pour enregistrer les modifications.
+      ![Spécifier le nombre maximal de messages pour les connexions Service Bus dans votre application logique](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8-specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
 
-6. Créez une connexion de service SMTP.
+   1. Sélectionnez **Enregistrer** en haut du Concepteur d’applications logiques pour enregistrer vos modifications.
 
-   1. Sélectionnez **Nouvelle étape** > **Ajouter une action**.
+### <a name="configure-the-logic-app-action"></a>Configurer l’action d’application logique
 
-   2. Type `SMTP`, sélectionnez le **SMTP** de service dans le résultat de recherche, puis sélectionnez **SMTP - envoyer un courrier électronique**.
+1. Créez une connexion de service SMTP.
 
-      ![Créer une connexion SMTP dans votre application logique dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9_create-smtp-connection-logic-app-azure-portal.png)
+   1. Sélectionnez **Nouvelle étape**. Dans **Choisir une action**, sélectionnez l’onglet **Tous**.
 
-   3. Entrez les informations SMTP de votre boîte aux lettres, puis sélectionnez **créer**.
+   1. Saisissez `smtp` dans la zone de recherche, sélectionnez le service **SMTP** dans le résultat de la recherche, puis sélectionnez **Envoyer un e-mail**.
 
-      ![Entrer les informations de connexion SMTP dans votre application logique dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10_enter-smtp-connection-info-logic-app-azure-portal.png)
+      ![Créer une connexion SMTP dans votre application logique dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9-create-smtp-connection-logic-app-azure-portal.png)
+
+   1. Entrez les informations SMTP de votre boîte aux lettres, puis sélectionnez **Créer**.
+
+      ![Entrer les informations de connexion SMTP dans votre application logique dans le portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10-enter-smtp-connection-info-logic-app-azure-portal.png)
 
       Obtenez les informations SMTP pour [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) et [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
 
-   4. Entrez votre adresse de messagerie pour **De** et **À**, et `High temperature detected` pour **Objet** et **Corps**.
+      > [!NOTE]
+      > Vous devrez peut-être désactiver le protocole SSL pour établir la connexion. Si c’est le cas et si vous souhaitez réactiver SSL une fois la connexion établie, consultez l’étape facultative à la fin de cette section.
 
-   5. Sélectionnez **Enregistrer**.
+   1. Dans la liste déroulante **Ajouter un nouveau paramètre** de l’étape **Envoyer un e-mail**, sélectionnez **De**, **À**, **Objet**et **Corps**. Cliquez ou appuyez n’importe où sur l’écran pour fermer la zone de sélection.
 
-L’application logique est en état de marche lorsque vous l’enregistrez.
+      ![Choisir les champs de l’e-mail de connexion SMTP](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
+
+   1. Entrez votre adresse de messagerie pour **De** et **À**, et `High temperature detected` pour **Objet** et **Corps**. Si la boîte de dialogue **Ajoutez du contenu dynamique des applications et des connecteurs utilisés dans ce flux** s’ouvre, sélectionnez **Masquer** pour la fermer. Vous n’utilisez pas de contenu dynamique dans ce didacticiel.
+
+      ![Remplir les champs de l’e-mail de connexion SMTP](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
+
+   1. Sélectionnez **Enregistrer** pour enregistrer la connexion SMTP.
+
+1. (Facultatif) Si vous deviez désactiver le protocole SSL pour établir une connexion avec votre fournisseur de messagerie et que vous souhaitez le réactiver, procédez comme suit :
+
+   1. Dans le volet **Application logique**, sous **Outils de développement**, sélectionnez **Connexions d’API**.
+
+   1. Dans la liste des connexions d’API, sélectionnez la connexion SMTP.
+
+   1. Dans le volet **Connexion d’API SMTP**, sous **Général**, sélectionnez **Modifier une connexion d’API**.
+
+   1. Dans le volet **Modifier une connexion d’API**, sélectionnez **Activer le protocole SSL ?** , entrez à nouveau le mot de passe de votre compte de messagerie, puis sélectionnez **Enregistrer**.
+
+      ![Modifier une connexion d’API SMTP dans votre application logique dans le Portail Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
+
+Votre application logique est maintenant prête à traiter les alertes de température de la file d’attente Service Bus et à envoyer des notifications à votre compte de messagerie.
 
 ## <a name="test-the-logic-app"></a>Tester l’application logique
 
-1. Démarrez l’application cliente que vous déployez sur votre appareil dans [Connecter la carte ESP8266 à Azure IoT Hub](iot-hub-arduino-huzzah-esp8266-get-started.md).
+1. Démarrez l’application cliente sur votre appareil.
 
-2. Faites en sorte que la température ambiante autour du SensorTag soit supérieure à 30 °C. Par exemple, allumez une bougie à côté de votre SensorTag.
+1. Si vous utilisez un appareil physique, rapprochez une source de chaleur du détecteur de chaleur jusqu’à ce que la température dépasse 30 degrés C. Si vous utilisez le simulateur en ligne, le code client générera de manière aléatoire des messages de télémétrie supérieure à 30 °C.
 
-3. Vous devriez recevoir un e-mail de notification envoyé par l’application logique.
+1. Vous devriez recevoir des e-mails de notification envoyés par l’application logique.
 
    > [!NOTE]
    > Il se peut que votre fournisseur de services de messagerie doive vérifier l’identité de l’expéditeur pour s’assurer que vous êtes bien celui qui envoie l’e-mail.

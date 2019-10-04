@@ -3,7 +3,7 @@ title: Comment utiliser le Kit de développement logiciel (SDK) Azure Mobile App
 description: Comment utiliser le Kit de développement logiciel (SDK) Azure Mobile Apps pour Android
 services: app-service\mobile
 documentationcenter: android
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
@@ -11,16 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 03/07/2019
-ms.author: crdun
-ms.openlocfilehash: 45b5ac0c9b3535e5cc5efdc6827d694b41e0b8dd
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
-ms.translationtype: MT
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: 6a6db136926a7f9d631c717f5cab6c025d97fb48
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732113"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "67443542"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure Mobile Apps pour Android
+
+> [!NOTE]
+> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-how-to-use-client-library) dès aujourd'hui.
+>
 
 Ce guide vous montre comment utiliser le Kit de développement logiciel (SDK) du client Android pour Mobile Apps afin d’implémenter des scénarios courants tels que :
 
@@ -29,11 +33,11 @@ Ce guide vous montre comment utiliser le Kit de développement logiciel (SDK) du
 * Gestion des erreurs.
 * Personnalisation du client.
 
-Ce guide est axé sur le kit de développement logiciel Android côté client.  Pour plus d’informations sur les Kits de développement logiciel (SDK) côté serveur pour Mobile Apps, consultez les articles [Utiliser le Kit de développement logiciel (SDK) de serveur principal .NET pour Azure Mobile Apps][10] ou [Comment utiliser le Kit de développement logiciel Node.js dans Azure Mobile Apps][11].
+Ce guide est axé sur le kit de développement logiciel Android côté client.  Pour plus d’informations sur les kits SDK côté serveur pour Mobile Apps, consultez [Utiliser le kit SDK de back-end.NET pour Azure Mobile Apps][10] ou [Comment utiliser le kit SDK de back-end Node.js][11].
 
 ## <a name="reference-documentation"></a>Documentation de référence
 
-La [référence de l’API Javadocs][12] pour la bibliothèque cliente Android se trouve sur GitHub.
+Des [informations de référence sur l’API Javadocs][12] pour la bibliothèque cliente Android se trouvent sur GitHub.
 
 ## <a name="supported-platforms"></a>Plateformes prises en charge
 
@@ -45,7 +49,7 @@ Terminez le [didacticiel de démarrage rapide Mobile Apps](app-service-mobile-an
 
 Si vous décidez de ne pas suivre le didacticiel de démarrage rapide, effectuez les tâches suivantes :
 
-* [créer un backend Mobile Apps][13] à utiliser avec votre application Android ;
+* [créer un backend Mobile Apps][13] à utiliser avec votre application Android ;
 * dans Android Studio, [mettre à jour les fichiers de construction Gradle](#gradle-build);
 * [activer les autorisations Internet](#enable-internet).
 
@@ -53,7 +57,7 @@ Si vous décidez de ne pas suivre le didacticiel de démarrage rapide, effectuez
 
 Modifiez les deux fichiers **build.gradle** :
 
-1. Ajoutez ce code à la *projet* niveau **build.gradle** fichier :
+1. ajoutez ce code au fichier de niveau *projet* **build.gradle** :
 
     ```gradle
     buildscript {
@@ -77,7 +81,7 @@ Modifiez les deux fichiers **build.gradle** :
     implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    La version la plus récente est la 3.4.0. Les versions prises en charge sont répertoriées [sur Bintray][14].
+    La version la plus récente est la 3.4.0. Les versions prises en charge sont listées [sur Bintray][14].
 
 ### <a name="enable-internet"></a>activer les autorisations Internet.
 
@@ -108,7 +112,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 Le client nécessite aussi un accès à l’activité ou au contexte (le paramètre `this` dans l’exemple).  La construction de MobileServiceClient doit se produire dans la méthode `onCreate()` de l’activité référencée dans le fichier `AndroidManifest.xml`.
 
-Nous vous recommandons d’extraire la communication du serveur dans sa propre classe (modèle singleton).  Dans ce cas, vous devez transmettre l’activité dans le constructeur pour configurer correctement le service.  Par exemple : 
+Nous vous recommandons d’extraire la communication du serveur dans sa propre classe (modèle singleton).  Dans ce cas, vous devez transmettre l’activité dans le constructeur pour configurer correctement le service.  Par exemple :
 
 ```java
 package com.example.appname.services;
@@ -197,7 +201,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Pour apprendre à créer des tables supplémentaires sur votre serveur principal Mobile Apps, consultez [Procédure : Définir un contrôleur de table][15] (principal .NET) ou [Définir des tables à l'aide d'un schéma dynamique][16] (principal Node.js).
+Pour apprendre à créer des tables supplémentaires sur votre serveur principal Mobile Apps, consultez [Procédure : Définir un contrôleur de table][15] (back-end .NET) ou [Définir des tables à l’aide d’un schéma dynamique][16] (back-end Node.js).
 
 Une table de serveur principal Azure Mobile Apps définit cinq champs spéciaux, dont quatre sont disponibles pour les clients :
 
@@ -207,7 +211,7 @@ Une table de serveur principal Azure Mobile Apps définit cinq champs spéciaux,
 * `byte[] version`: généralement représentée sous forme de chaîne, la version est également définie par le serveur.
 * `boolean deleted`: indique que l'enregistrement a été supprimé mais pas encore vidé.  N’utilisez pas `deleted` en tant que propriété dans votre classe.
 
-Le champ `id` est obligatoire.  Les champs `updatedAt` et `version` sont utilisés pour la synchronisation hors connexion (pour la synchronisation incrémentielle et la résolution des conflits, respectivement).  Le champ `createdAt` est un champ de référence et n’est pas utilisé par le client.  Les noms sont des noms « à travers le câble » des propriétés et ne sont pas réglables.  Toutefois, vous pouvez créer un mappage entre votre objet et les noms « à travers le câble » à l’aide de la bibliothèque [gson][3].  Par exemple : 
+Le champ `id` est obligatoire.  Les champs `updatedAt` et `version` sont utilisés pour la synchronisation hors connexion (pour la synchronisation incrémentielle et la résolution des conflits, respectivement).  Le champ `createdAt` est un champ de référence et n’est pas utilisé par le client.  Les noms sont des noms « à travers le câble » des propriétés et ne sont pas réglables.  Cependant, vous pouvez créer un mappage entre votre objet et les noms « à travers le câble » à l’aide de la bibliothèque [gson][3].  Par exemple :
 
 ```java
 package com.example.zumoappname;
@@ -267,7 +271,7 @@ public class ToDoItem
 
 ### <a name="create-a-table-reference"></a>Créer une référence de table
 
-Pour accéder à une table, vous devez d’abord créer un objet [MobileServiceTable][8] en appelant la méthode **getTable** sur le [MobileServiceClient][9].  Cette méthode comporte deux surcharges :
+Pour accéder à une table, créez d’abord un objet [MobileServiceTable][8] en appelant la méthode **getTable** sur [MobileServiceClient][9].  Cette méthode comporte deux surcharges :
 
 ```java
 public class MobileServiceClient {
@@ -310,7 +314,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-L’exemple précédent renvoie tous les résultats (jusqu’à la taille de page maximale définie par le serveur).  La méthode `.execute()` exécute la requête sur le serveur principal.  La requête est convertie en une requête [OData v3][19] avant sa transmission au serveur principal Mobile Apps.  À la réception, le serveur principal Mobile Apps convertit la requête en une instruction SQL avant de l’exécuter sur l’instance SQL Azure.  Étant donné que l’activité réseau prend du temps, la méthode `.execute()` renvoie un élément [`ListenableFuture<E>`][18].
+L’exemple précédent renvoie tous les résultats (jusqu’à la taille de page maximale définie par le serveur).  La méthode `.execute()` exécute la requête sur le serveur principal.  La requête est convertie en requête [OData v3][19] avant sa transmission au backend Mobile Apps.  À la réception, le serveur principal Mobile Apps convertit la requête en une instruction SQL avant de l’exécuter sur l’instance SQL Azure.  Étant donné que l’activité réseau prend un certain temps, la méthode `.execute()` retourne un élément [`ListenableFuture<E>`][18].
 
 ### <a name="filtering"></a>Filtrer les données renvoyées
 
@@ -382,7 +386,7 @@ List<ToDoItem> results = mToDoTable
     .execute().get();
 ```
 
-Pour obtenir plus de détails et des exemples de filtres, consultez la page [Exploring the richness of the Mobile Services Android client query model][20](Exploration de la richesse du modèle de requête client Android Mobile Services).
+Pour obtenir plus de détails et des exemples de filtres, consultez la page [Exploring the richness of the Android client query model][20](Exploration de la richesse du modèle de requête client Android).
 
 ### <a name="sorting"></a>Trier les données renvoyées
 
@@ -456,7 +460,7 @@ Une demande pour tous les enregistrements à l’aide de cette méthode crée un
 
 ### <a name="chaining"></a>Procédure : Concaténer les méthodes de requête
 
-Les méthodes utilisées dans les requêtes de tables de backend peuvent être concaténées. La concaténation des méthodes de requêtes vous permet de sélectionner des colonnes spécifiques de lignes filtrées, qui sont triées et paginées. Vous pouvez créer des filtres logiques complexes.  Chaque méthode de requête retourne un objet de requête. Pour mettre fin à la série de méthodes et exécuter la requête, appelez la méthode **execute** . Par exemple : 
+Les méthodes utilisées dans les requêtes de tables de backend peuvent être concaténées. La concaténation des méthodes de requêtes vous permet de sélectionner des colonnes spécifiques de lignes filtrées, qui sont triées et paginées. Vous pouvez créer des filtres logiques complexes.  Chaque méthode de requête retourne un objet de requête. Pour mettre fin à la série de méthodes et exécuter la requête, appelez la méthode **execute** . Par exemple :
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -487,7 +491,7 @@ La liaison des données nécessite trois composants :
 * la mise en page à l’écran ;
 * l’adaptateur qui lie ces deux éléments.
 
-Dans notre exemple de code, nous renvoyons les données de la table SQL Azure Mobile Apps **ToDoItem** dans un tableau. Cette activité est un cas de figure très courant pour les applications de données.  Les requêtes de base de données renvoient souvent une suite de lignes que le client récupère dans une liste ou un tableau. Dans cet exemple, le tableau est la source des données.  Ce code spécifie une mise en page à l'écran qui définit la façon dont les données sont affichées sur l'appareil.  Les deux sont liés par un adaptateur, qui, dans ce code, est une extension de la classe **ArrayAdapter&lt;ToDoItem&gt;**.
+Dans notre exemple de code, nous renvoyons les données de la table SQL Azure Mobile Apps **ToDoItem** dans un tableau. Cette activité est un cas de figure très courant pour les applications de données.  Les requêtes de base de données renvoient souvent une suite de lignes que le client récupère dans une liste ou un tableau. Dans cet exemple, le tableau est la source des données.  Ce code spécifie une mise en page à l'écran qui définit la façon dont les données sont affichées sur l'appareil.  Les deux sont liés par un adaptateur, qui, dans ce code, est une extension de la classe **ArrayAdapter&lt;ToDoItem&gt;** .
 
 #### <a name="layout"></a>Définir la mise en page
 
@@ -519,14 +523,14 @@ Dans le code précédent, l'attribut *listitem* spécifie l'ID de la mise en pag
 ```
 
 #### <a name="adapter"></a>Définir l’adaptateur
-Comme la source de données de notre vue est un tableau **ToDoItem**, nous créons une sous-classe de notre adaptateur à partir de la classe **ArrayAdapter&lt;ToDoItem&gt;**. Cette sous-classe produit une vue pour chaque élément **ToDoItem** utilisant la mise en page **row_list_to_do**.  Dans notre code, nous définissons la classe suivante, qui est une extension de la classe **ArrayAdapter&lt;E&gt;**  :
+Comme la source de données de notre vue est un tableau **ToDoItem**, nous créons une sous-classe de notre adaptateur à partir de la classe **ArrayAdapter&lt;ToDoItem&gt;** . Cette sous-classe produit une vue pour chaque élément **ToDoItem** utilisant la mise en page **row_list_to_do**.  Dans notre code, nous définissons la classe suivante, qui est une extension de la classe **ArrayAdapter&lt;E&gt;**  :
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Ignorez la méthode **getView** de l'adaptateur. Par exemple : 
+Ignorez la méthode **getView** de l'adaptateur. Par exemple :
 
 ```java
     @Override
@@ -1003,7 +1007,7 @@ Obtenez l’ID de l’utilisateur connecté à partir d’un **MobileServiceUser
 
 ### <a name="caching"></a>Mettre en cache des jetons d’authentification
 
-Pour cela, vous devez stocker localement l'ID utilisateur et le jeton d'authentification sur l'appareil. Au prochain démarrage de l'application, vous vérifiez le cache, et si ces valeurs sont présentes, vous pouvez ignorer la procédure d'ouverture de session et rafraîchir le client avec ces données. Mais ces données sont sensibles et elles doivent être stockées sous forme chiffrée au cas où le téléphone serait volé.  Vous pouvez obtenir un exemple complet illustrant la mise en cache des jetons d’authentification dans la section [Mise en cache de jetons d’authentification][7].
+Pour cela, vous devez stocker localement l'ID utilisateur et le jeton d'authentification sur l'appareil. Au prochain démarrage de l'application, vous vérifiez le cache, et si ces valeurs sont présentes, vous pouvez ignorer la procédure d'ouverture de session et rafraîchir le client avec ces données. Mais ces données sont sensibles et elles doivent être stockées sous forme chiffrée au cas où le téléphone serait volé.  Vous pouvez obtenir un exemple complet qui montre comment mettre en cache des jetons d’authentification dans la section [Mettre en cache des jetons d’authentification][7].
 
 Lorsque vous tentez d’utiliser un jeton qui a expiré, vous recevez un message *401 - Connexion non autorisée* . Vous pouvez gérer les erreurs d’authentification à l’aide de filtres.  Les filtres interceptent les requêtes adressées au backend App Service. Le code de filtre teste la réponse pour une erreur 401, déclenche le processus de connexion, puis reprend la demande qui a généré l’erreur 401.
 
@@ -1081,7 +1085,7 @@ Remplacez la méthode `onSuccess()` par le code que vous souhaitez utiliser sur 
 
 Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADAL) pour authentifier des utilisateurs dans votre application à l’aide d’Azure Active Directory. L’utilisation d’une connexion par flux de client est souvent préférable à l’utilisation des méthodes `loginAsync()` , car elle offre une interface UX native plus simple et permet une personnalisation supplémentaire.
 
-1. Si vous souhaitez configurer le serveur d’applications mobiles back-end pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory][22]. Bien que cette étape soit facultative, veillez à inscrire une application cliente native.
+1. Si vous souhaitez configurer le backend de votre application mobile pour utiliser la connexion AAD, suivez le didacticiel [Configurer votre application App Service pour utiliser la connexion Azure Active Directory][22] . Bien que cette étape soit facultative, veillez à inscrire une application cliente native.
 2. Installez la bibliothèque ADAL en modifiant votre fichier build.gradle pour inclure les définitions suivantes :
 
     ```gradle
@@ -1112,7 +1116,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
     * Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez approvisionné votre application. Le format doit être https://login.microsoftonline.com/contoso.onmicrosoft.com.
     * Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir l’ID client sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
     * Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
-    * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison */.auth/login/done* de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done*.
+    * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison */.auth/login/done* de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done* .
 
 ```java
 private AuthenticationContext mContext;

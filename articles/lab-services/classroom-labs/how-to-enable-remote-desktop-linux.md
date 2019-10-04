@@ -1,6 +1,6 @@
 ---
 title: Activer le Bureau à distance pour Linux dans Azure Lab Services | Microsoft Docs
-description: Découvrez comment activer le Bureau à distance pour les machines virtuelles Linux dans un laboratoire dans Azure Lab Services.
+description: Découvrez comment activer le Bureau à distance pour les machines virtuelles Linux dans un lab dans Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,29 +11,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 562ad0e5e6088c2fbadc853779b7533c5398e079
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005347"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71176646"
 ---
-# <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Activer et utiliser le Bureau à distance pour les machines virtuelles Linux dans un laboratoire dans Azure Lab Services
-Cet article vous montre comment effectuer les tâches suivantes :
+# <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Activer le Bureau à distance pour les machines virtuelles Linux dans un labo Azure Lab Services
+Cet article explique comment effectuer les tâches suivantes :
 
-- Activer le Bureau à distance pour Linux VM
-- Comment les enseignants peuvent se connecter au modèle de machine virtuelle par le biais de connexions RDP (Remote Desktop).
-- Comment les étudiants se connectent à la machine virtuelle via RDP étudiant
+- Activer Bureau à distance pour une machine virtuelle Linux
+- Comment les enseignants peuvent se connecter au modèle de machine virtuelle via une connexion Bureau à distance (RDP).
 
-## <a name="enable-remote-desktop-for-linux-vm"></a>Activer le Bureau à distance pour Linux VM
-Lors de la création de laboratoire, les enseignants peuvent activer **connexion Bureau à distance** pour **Linux** images. Le **activer une connexion Bureau à distance** option est affichée lorsqu’une image Linux est sélectionnée pour le modèle. Lorsque cette option est activée, les enseignants peuvent se connecter au modèle de machine virtuelle et les machines virtuelles d’étudiant via RDP (bureau à distance). 
+## <a name="enable-remote-desktop-for-linux-vm"></a>Activer Bureau à distance pour une machine virtuelle Linux
+Lors de la création du lab, les enseignants peuvent activer une **connexion Bureau à distance** pour les images **Linux**. L'option **Activer la connexion Bureau à distance** s'affiche lorsqu'une image Linux est sélectionnée pour le modèle. Lorsque cette option est activée, les enseignants peuvent se connecter au modèle de machine virtuelle et aux machines virtuelles des étudiants via RDP (Bureau à distance). 
 
-![Activer une connexion Bureau à distance pour une image Linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+![Activer la connexion Bureau à distance pour une image Linux](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+
+Dans la zone de message **Activation de la connexion Bureau à distance**, sélectionnez **Continuer avec le Bureau à distance**. 
+
+![Activer la connexion Bureau à distance pour une image Linux](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
-> L’activation de **connexion Bureau à distance** ouvre uniquement le **RDP** port sur les machines Linux. Vous, en tant qu’enseignant, connectez à la machine Linux à l’aide de SSH pour la première fois et que vous installez les packages RDP et l’interface utilisateur graphique afin que vous pouvez vous connecter à la machine Linux à l’aide de RDP ultérieurement. Ensuite, vous **publier** l’image afin que les étudiants peuvent RDP dans pour les étudiants, les machines virtuelles Linux. 
+> L’activation de la **connexion Bureau à distance** ouvre uniquement le port **RDP** sur les machines Linux. Si RDP est déjà installé et configuré sur l’image de machine virtuelle (par exemple : image Ubuntu Data Science Virtual Machine), vous ou les étudiants pouvez vous connecter aux machines virtuelles via RDP sans suivre d’étapes supplémentaires.
+> Si le protocole RDP n’est pas installé et configuré sur l’image de machine virtuelle, vous devez vous connecter à la machine Linux à l’aide de SSH la première fois et installer les packages RDP et GUI afin que vous ou les étudiants puissiez vous connecter à la machine Linux à l’aide de RDP ensuite. Publiez ensuite l’image pour permettre aux étudiants de se connecter à l’aide de RDP aux machines virtuelles Linux d’étudiant.
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 Actuellement, la connexion Bureau à distance est prise en charge pour les systèmes d’exploitation suivants :
@@ -43,44 +47,34 @@ Actuellement, la connexion Bureau à distance est prise en charge pour les syst�
 - Debian 9 "Stretch"
 - Ubuntu Server 16.04 LTS
 
-## <a name="teachers-connecting-to-the-template-vm-using-rdp"></a>Les enseignants de la connexion au modèle de machine virtuelle à l’aide de RDP
-Les enseignants doivent se connecter au modèle de machine virtuelle à l’aide de SSH tout d’abord et installer des packages RDP et l’interface graphique utilisateur dessus. Ensuite, les enseignants peuvent procédez comme suit pour vous connecter à des machines virtuelles Linux à l’aide de RDP : 
+## <a name="teachers-connecting-to-the-template-vm-using-rdp"></a>Enseignants se connectant à un modèle de machine virtuelle à l'aide de RDP
+Les enseignants doivent se connecter au modèle de machine virtuelle à l’aide de SSH la première fois, puis installer les packages RDP et GUI. Ensuite, les enseignants peuvent suivre la procédure ci-dessous pour se connecter aux machines virtuelles Linux à l’aide de RDP : 
 
-Vous voyez la **Bureau à distance** option pour vous connecter au modèle de machine virtuelle au moment de la création du laboratoire. 
+Utilisez l'option **Bureau à distance** pour vous connecter au modèle de machine virtuelle lors de la création du lab. 
 
-![Se connecter au modèle via RDP au moment de la création](../media/how-to-enable-remote-desktop-linux/connect-at-creation.png)
+![Se connecter au modèle via RDP lors de la création](../media/how-to-enable-remote-desktop-linux/connect-at-creation.png)
 
-Vous voyez la **Bureau à distance** option sur la page d’accueil du laboratoire après avoir créé le laboratoire et le modèle de machine virtuelle est démarrée. Démarrer le modèle de machine virtuelle si elle n’est pas déjà démarré. 
+L'option **Bureau à distance** s'affiche sur la page d’accueil du lab une fois le lab créé et le modèle de machine virtuelle démarré. Si ce n'est pas déjà fait, démarrez le modèle de machine virtuelle. 
 
-![Se connecter au modèle par le biais de RDP après avoir créé le laboratoire](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
+![Se connecter au modèle via RDP une fois le lab créé](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
 
-Lorsque vous sélectionnez le **RDP** option, il télécharge un fichier RDP. Vous ouvrez pour vous connecter à la machine Linux. 
+Pour plus d’informations sur la connexion à la machine virtuelle à l’aide de SSH ou RDP, consultez [Se connecter à l’aide de SSH ou RDP]((#connect-using-ssh-or-rdp). 
 
-## <a name="teachers-connecting-to-a-student-vm-using-rdp"></a>Les enseignants de la connexion à un machine virtuelle de l’étudiant à l’aide de RDP
-Un propriétaire de laboratoire (enseignant) peut se connecter à un machine virtuelle d’étudiant en basculant vers le **Machines virtuelles** afficher, puis en sélectionnant le **connecter** icône. Avant cela, les enseignants doivent **publier** l’image de modèle avec les packages RDP et l’interface graphique utilisateur installé dessus. 
+## <a name="teachers-connecting-to-a-student-vm-using-rdp"></a>Enseignants se connectant à une machine virtuelle d'étudiant à l'aide de RDP
+Les enseignants peuvent se connecter à une machine virtuelle d’étudiant en basculant vers la vue **Machines virtuelles**, puis en sélectionnant l'icône **Se connecter**. Mais avant, ils doivent **publier** l’image du modèle avec les packages RDP et GUI installés. 
 
-![Enseignants de la connexion à la machine virtuelle de l’étudiant](../media/how-to-enable-remote-desktop-linux/teacher-connect-to-student-vm.png)
+![Enseignants se connectant à la machine virtuelle d’étudiant](../media/how-to-enable-remote-desktop-linux/teacher-connect-to-student-vm.png)
 
-## <a name="students-connecting-to-the-student-vm"></a>Étudiants de la connexion à la machine virtuelle de l’étudiant
-Étudiant peut RDP dans pour leurs machines virtuelles Linux après le propriétaire de laboratoire (enseignant) **publie** le modèle de machine virtuelle avec RDP et l’interface graphique utilisateur des packages installés sur l’ordinateur. Voici la procédure à suivre : 
+Pour plus d’informations sur la connexion à la machine virtuelle à l’aide de SSH ou RDP, consultez [Se connecter à l’aide de SSH ou RDP]((#connect-using-ssh-or-rdp). 
 
-1. Lorsqu’un étudiant se connecte au portail Labs directement (`http://labs.azure.com`) ou à l’aide d’un lien d’inscription (`http://labs.azure.com/register/<registrationCode>`), une vignette pour chaque laboratoire l’étudiant a accès à s’affiche. 
-2. Sur la vignette, sélectionnez **Démarrer** si la machine virtuelle est arrêtée. 
-3. Sélectionnez **Connecter**. Cette action télécharge le fichier RDP à votre machine. Enregistrer et l’ouvrir pour vous connecter à l’ordinateur Linux via RDP. 
+## <a name="connect-using-ssh-or-rdp"></a>Se connecter à l’aide de SSH ou RDP
+Si vous sélectionnez l'option **SSH**, la boîte de dialogue **Se connecter à votre machine virtuelle** s'affiche :  
 
-    ![Étudiant machine virtuelle - RDP télécharger](../media/how-to-enable-remote-desktop-linux/student-rdp-download.png)
+![Chaîne de connexion SSH](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
 
-    Vous pouvez toujours vous connecter à la VM Linux à l’aide de SSH. Sélectionnez **... (points de suspension)**  pour voir l’option de SSH. 
-    
-    ![Étudiant machine virtuelle - SSH](../media/how-to-enable-remote-desktop-linux/student-ssh.png)
+Sélectionnez le bouton **Copier** en regard de la zone de texte pour la copier dans le Presse-papiers. Enregistrez la chaîne de connexion SSH. Utilisez cette chaîne de connexion dans un terminal SSH (tel que [Putty](https://www.putty.org/)) pour vous connecter à la machine virtuelle.
 
-    Copiez et enregistrez la chaîne de connexion SSH sur le **se connecter à votre machine virtuelle** boîte de dialogue. Utilisez cette chaîne de connexion dans un terminal SSH (tel que [Putty](https://www.putty.org/)) pour vous connecter à la machine virtuelle. 
+Si vous sélectionnez l'option **RDP**, un fichier RDP est téléchargé sur votre ordinateur. Enregistrez-le et ouvrez-le pour vous connecter à la machine. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
-
-- [En tant qu’administrateur, créer et gérer des comptes de labo](how-to-manage-lab-accounts.md)
-- [En tant que propriétaire de labo, créer et gérer des labos](how-to-manage-classroom-labs.md)
-- [En tant que propriétaire de labo, configurer et publier des modèles](how-to-create-manage-template.md)
-- [En tant qu’utilisateur du laboratoire, accéder aux laboratoires de classe](how-to-use-classroom-lab.md)
-
+Une fois qu’un formateur a activé la fonctionnalité de connexion du Bureau à distance, les étudiants peuvent se connecter à leurs machines virtuelles via le protocole RDP/SSH. Pour plus d’informations, voir [Utiliser le Bureau à distance pour des machines virtuelles Linux dans un labo de classe](how-to-use-remote-desktop-linux-student.md). 

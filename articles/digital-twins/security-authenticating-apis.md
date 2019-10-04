@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: lyrana
-ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 07/29/2019
+ms.author: lyhughes
+ms.openlocfilehash: c0b4b6a13143f613bec64c8507f1726e2450be44
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711053"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815552"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Se connecter et s’authentifier aux API
 
@@ -25,11 +25,11 @@ Pour intégrer une application ou un service à Azure AD, le développeur doit d
 
 Voici les [cinq principaux scénarios d’application](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) pris en charge par Azure AD :
 
-* Application monopage (SPA) : un utilisateur doit se connecter à une application monopage sécurisée par Azure AD.
-* Navigateur web vers application web : un utilisateur doit se connecter à une application web sécurisée par Azure AD.
-* Application native vers API web : une application native qui s’exécute sur un téléphone, une tablette ou un PC doit authentifier un utilisateur pour obtenir des ressources d’une API web sécurisée par Azure AD.
-* Application web vers API web : une application web doit obtenir des ressources d’une API web sécurisée par Azure AD.
-* Application démon ou serveur vers API web : une application démon ou une application serveur sans IU web doit obtenir des ressources d’une API web sécurisée par Azure AD.
+* Application monopage (SPA) : un utilisateur doit se connecter à une application monopage sécurisée par Azure AD.
+* Navigateur web vers application web : un utilisateur doit se connecter à une application web sécurisée par Azure AD.
+* Application native vers API web : une application native qui s'exécute sur un téléphone, une tablette ou un PC doit authentifier un utilisateur pour obtenir des ressources d'une API web sécurisée par Azure AD.
+* Application web vers API web : une application web doit obtenir des ressources d’une API web sécurisée par Azure AD.
+* Application démon ou serveur vers API web : une application démon ou une application serveur sans interface utilisateur web doit obtenir des ressources d'une API web sécurisée par Azure AD.
 
 La bibliothèque d’authentification Windows Azure propose diverses méthodes d’acquisition de jetons Active Directory. Pour plus d’informations sur la bibliothèque et les exemples de code, consultez [cet article](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 

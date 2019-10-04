@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: be59f5fd34c52397b54146a8aeaf51f4d594452f
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565517"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70383354"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
@@ -40,11 +40,11 @@ Ce document décrit la façon dont vous pouvez créer et configurer un runtime d
 
     ```powershell
 
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
 
     ```
 
-## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Configuration d’un runtime d’intégration auto-hébergé sur une machine virtuelle Azure à l’aide d’un modèle Azure Resource Manager (automatisation)
+## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template"></a>Configuration d’un runtime d’intégration auto-hébergé sur une machine virtuelle Azure à l’aide d’un modèle Azure Resource Manager 
 Vous pouvez automatiser la configuration du runtime d’intégration auto-hébergé sur une machine virtuelle Azure à l’aide de [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Ce modèle offre un moyen simple d’avoir un runtime d’intégration auto-hébergé entièrement fonctionnel à l’intérieur d’un réseau virtuel Azure disposant de fonctionnalités de haute disponibilité et d’évolutivité (tant que vous définissez 2 nœuds ou plus).
 
 ## <a name="command-flow-and-data-flow"></a>Flux de commandes et flux de données
@@ -57,13 +57,13 @@ Voici un flux de données global résumant les étapes de copie avec un runtime 
 1. Le développeur des données crée un runtime d’intégration auto-hébergé dans une fabrique de données Azure à l’aide d’une cmdlet PowerShell. Actuellement, le portail Azure ne prend pas en charge cette fonctionnalité.
 2. Le développeur des données crée un service lié pour un magasin de données local en spécifiant l’instance de runtime d’intégration auto-hébergé qu’il doit utiliser pour se connecter à des magasins de données.
 3. Le nœud du runtime d’intégration auto-hébergé chiffre les informations d’identification à l’aide de l’API de protection des données (DPAPI) Windows et les enregistre localement. Si plusieurs nœuds sont définis pour une haute disponibilité, les informations d’identification sont synchronisées sur les autres nœuds. Chaque nœud chiffre les informations d’identification à l’aide de DPAPI et les stocke localement. La synchronisation des informations d’identification est une opération transparente pour le développeur des données, et elle est gérée par le runtime d’intégration auto-hébergé.    
-4. Le service Data Factory communique avec le runtime d’intégration auto-hébergé pour la planification et la gestion des travaux via un *canal de contrôle* qui utilise une file d’attente Azure Service Bus partagée. Lorsqu’une tâche de l’activité doit être lancée, Data Factory place en file d’attente la requête ainsi que les informations d’identification (au cas où les informations d’identification ne sont pas déjà stockées sur le runtime d’intégration autohébergé). Le runtime d’intégration auto-hébergé lance le travail après interrogation de la file d’attente.
+4. Le service Data Factory communique avec le runtime d’intégration auto-hébergé pour la planification et la gestion des travaux par le biais d’un *canal de contrôle* qui utilise un [relai Azure Service Bus Relay](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay) partagé. Lorsqu’une tâche de l’activité doit être lancée, Data Factory place en file d’attente la requête ainsi que les informations d’identification (au cas où les informations d’identification ne sont pas déjà stockées sur le runtime d’intégration autohébergé). Le runtime d’intégration auto-hébergé lance le travail après interrogation de la file d’attente.
 5. Le runtime d’intégration auto-hébergé copie les données d’un magasin local vers un stockage cloud, ou vice versa selon la configuration de l’activité de copie dans le pipeline de données. Pour cette étape, le runtime d’intégration auto-hébergé communique directement avec les services de stockage cloud comme le stockage Blob Azure via un canal sécurisé (HTTPS).
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considérations relatives à l’utilisation du runtime d’intégration auto-hébergé
 
 - Un même runtime d’intégration autohébergé peut servir pour plusieurs sources de données sur site. Un runtime d’intégration auto-hébergé unique peut être partagé avec une autre fabrique de données au sein du même locataire Azure Active Directory. Pour plus d’informations, consultez [Partage du runtime d’intégration auto-hébergé avec plusieurs fabriques de données](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- Vous ne pouvez installer qu’une seule instance d’un runtime d’intégration auto-hébergé sur une même machine. Si vous avez deux fabriques de données qui doivent accéder aux sources de données locales, vous devez installer le runtime d’intégration auto-hébergé sur deux ordinateurs locaux chaque à partir des deux fabriques de données ou utiliser le [defonctionnalitédepartagedeIRauto-hébergé](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)pour partager un runtime d’intégration auto-hébergé avec une autre fabrique de données.  
+- Vous ne pouvez installer qu’une seule instance d’un runtime d’intégration auto-hébergé sur une même machine. Si vous avez deux fabriques de données qui doivent accéder aux sources de données locales, utilisez la [fonctionnalité de partage du runtime d’intégration auto-hébergé](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories) pour partager le runtime d’intégration auto-hébergé ou installez le runtime d’intégration auto-hébergé sur deux ordinateurs locaux, un pour chaque fabrique de données.  
 - Le runtime d’intégration auto-hébergé n’a pas besoin d’être sur la même machine que la source de données. Toutefois, le fait d’avoir un runtime d’intégration auto-hébergé plus proche de la source de données réduit le temps de connexion du runtime d’intégration auto-hébergé à la source de données. Nous vous recommandons d’installer le runtime d’intégration autohébergé sur un ordinateur différent de celui qui héberge la source de données locale. Lorsque le runtime d’intégration auto-hébergé et la source de données se trouvent sur des machines différentes, le runtime d’intégration auto-hébergé ne demande pas de ressources de la source de données.
 - Vous pouvez avoir plusieurs runtimes d’intégration auto-hébergés sur différentes machines connectées à la même source de données locale. Par exemple, vous pouvez avoir deux runtimes d’intégration auto-hébergés utilisés pour deux fabriques de données, alors que la même source de données locale est inscrite auprès des deux fabriques de données.
 - Si une passerelle est déjà installée sur votre ordinateur pour un scénario Power BI, installez un runtime d’intégration auto-hébergé distinct pour Azure Data Factory sur une autre machine.
@@ -74,18 +74,22 @@ Voici un flux de données global résumant les étapes de copie avec un runtime 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Les versions de système d’exploitation prises en charge sont Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016. L’installation du runtime d’intégration auto-hébergé sur un contrôleur de domaine n’est pas prise en charge.
+- Les versions de système d’exploitation prises en charge sont Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 et Windows Server 2019. L’installation du runtime d’intégration auto-hébergé sur un contrôleur de domaine n’est pas prise en charge.
 - .NET Framework 4.6.1 ou version ultérieure est requis. Si vous installez le runtime d’intégration auto-hébergé sur une machine Windows 7, installez .NET Framework 4.6.1 ou une version ultérieure. Consultez [Configuration système requise pour .NET Framework](/dotnet/framework/get-started/system-requirements) pour plus d’informations.
 - La configuration recommandée pour la machine du runtime d’intégration auto-hébergé est la suivante : au moins 2 GHz, quatre cœurs, 8 Go de RAM et un disque de 80 Go.
 - Si l’ordinateur hôte est en veille prolongée, le runtime d’intégration autohébergé ne répond pas à la demande de données. Configurez un plan d’alimentation approprié sur l’ordinateur avant d’installer le runtime d’intégration auto-hébergé. L’installation du runtime d’intégration autohébergé ouvre un message si l’ordinateur est configuré pour la mise en veille prolongée.
 - Vous devez être administrateur sur la machine pour installer et configurer le runtime d’intégration autohébergé avec succès.
 - L’activité de copie s’exécute selon une fréquence spécifique. L’utilisation des ressources (UC, mémoire) sur la machine suit le même modèle avec des périodes de pointe et d’inactivité. L'utilisation des ressources dépend également en grande partie de la quantité de données déplacées. Lorsque plusieurs travaux sont en cours, vous constaterez une augmentation des ressources utilisées pendant les heures de pointe.
+- Les tâches peuvent échouer lors de l’extraction de données au format Parquet, ORC ou Avro. La création de fichiers s’effectue sur la machine d’intégration auto-hébergée et nécessite que les éléments prérequis ci-après fonctionnent correctement (consultez [Format Parquet dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)).
+    - [Package redistribuable Visual C++ 2010 (x64)](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe)
+    - Java Runtime Environment (JRE) version 8 provenant d’un fournisseur JRE comme [Adopt OpenJDK](https://adoptopenjdk.net/), assurant la définition de la variable d’environnement `JAVA_HOME`
 
 ## <a name="installation-best-practices"></a>Bonnes pratiques d’installation
 Vous pouvez installer le runtime d’intégration auto-hébergé en téléchargeant un package de configuration MSI à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Pour des instructions pas à pas, consultez l’article [Déplacement de données entre des sources locales et le cloud](tutorial-hybrid-copy-powershell.md).
 
 - Configurez un plan d’alimentation sur la machine hôte du runtime d’intégration auto-hébergé afin d’empêcher la mise en veille prolongée de la machine. Si cette dernière se met en veille prolongée, le runtime d’intégration auto-hébergé passe à l’état hors connexion.
 - Sauvegardez régulièrement les informations d’identification associées au runtime d’intégration autohébergé.
+- Pour automatiser les opérations de configuration du runtime d’intégration auto-hébergé, consultez la [section ci-dessous](#automation-support-for-self-hosted-ir-function).  
 
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Installer et inscrire le runtime d’intégration auto-hébergé à partir du Centre de téléchargement
 
@@ -110,13 +114,52 @@ Vous pouvez installer le runtime d’intégration auto-hébergé en télécharge
 
     c. Sélectionnez **Inscription**.
 
+## <a name="automation-support-for-self-hosted-ir-function"></a>Prise en charge de l’automation pour la fonction de runtime d’intégration auto-hébergé
+
+
+> [!NOTE]
+> Si vous envisagez de configurer le runtime d’intégration auto-hébergé sur une machine virtuelle Azure et que vous voulez automatiser la configuration à l’aide de modèles Azure Resource Manager, reportez-vous à cette [section](#setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template).
+
+Vous pouvez utiliser une ligne de commande pour configurer ou gérer un runtime d’intégration auto-hébergé existant. Cela peut notamment permettre l’automatisation de l’installation et de l’inscription de nœuds du runtime d’intégration auto-hébergé. 
+
+**Dmgcmd.exe** est inclus dans l’installation auto-hébergée, qui généralement située dans le dossier C:\Program Files\Microsoft Integration Runtime\3.0\Shared\. Il prend en charge différents paramètres et peut être appelé à l’aide de l’invite de commandes en utilisant des scripts de commandes par lot pour l’automatisation. 
+
+*Utilisation :* 
+
+```powershell
+dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
+```
+
+ *Détails (paramètres/propriété) :* 
+
+| Propriété                                                    | Description                                                  | Obligatoire |
+| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| RegisterNewNode "`<AuthenticationKey>`"                     | Inscrire le nœud Integration Runtime (auto-hébergé) avec la clé d’authentification spécifiée | Non       |
+| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Activer l’accès à distance sur le nœud actif pour la configuration d’un cluster à haute disponibilité et/ou l’activation du paramètre d’informations d’identification directement sur le runtime d’intégration auto-hébergé (sans passer par le service ADF) à l’aide de l’applet de commande **New-AzDataFactoryV2LinkedServiceEncryptedCredential** à partir d’un ordinateur distant du même réseau. | Non       |
+| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Activer l’accès à distance au nœud actif quand le nœud s’exécute dans le conteneur | Non       |
+| DisableRemoteAccess                                         | Désactiver l’accès à distance au nœud actif. L’accès à distance est nécessaire pour une configuration à plusieurs nœuds. L’applet de commande PowerShell **New-AzDataFactoryV2LinkedServiceEncryptedCredential** fonctionne toujours même quand l’accès à distance est désactivé, tant qu’elle est exécutée sur le même ordinateur que le nœud du runtime d’intégration auto-hébergé. | Non       |
+| Key "`<AuthenticationKey>`"                                 | Remplacer/mettre à jour la clé d’authentification précédente. Soyez prudent, car cela peut entraîner la mise hors connexion de votre nœud du runtime d’intégration auto-hébergé précédent si la clé appartient à un nouveau runtime d’intégration. | Non       |
+| GenerateBackupFile "`<filePath>`" "`<password>`"            | Générer un fichier de sauvegarde pour le nœud actif. Ce fichier inclut la clé du nœud et les informations d’identification du magasin de données | Non       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | Restaurer le nœud à partir d’un fichier de sauvegarde                          | Non       |
+| Redémarrer                                                     | Redémarrer le service hôte Integration Runtime (auto-hébergé)   | Non       |
+| Start                                                       | Démarrer le service hôte Integration Runtime (auto-hébergé)     | Non       |
+| Arrêter                                                        | Arrêter le service de mise à jour d’Integration Runtime (auto-hébergé)        | Non       |
+| StartUpgradeService                                         | Démarrer le service de mise à jour d’Integration Runtime (auto-hébergé)       | Non       |
+| StopUpgradeService                                          | Arrêter le service de mise à jour d’Integration Runtime (auto-hébergé)        | Non       |
+| TurnOnAutoUpdate                                            | Activer la mise à jour automatique d’Integration Runtime (auto-hébergé)        | Non       |
+| TurnOffAutoUpdate                                           | Désactiver la mise à jour automatique d’Integration Runtime (auto-hébergé)       | Non       |
+| SwitchServiceAccount "<domaine\utilisateur>" ["mot_de_passe"]           | Définir DIAHostService de façon à ce qu’il s’exécute en tant que nouveau compte. Utilisez un mot de passe vide (« ») pour un compte système ou un compte virtuel. | Non       |
+| Loglevel `<logLevel>`                                       | Définir le niveau de journalisation ETW (Désactivé, Erreur, Détaillé ou Tous). Généralement utilisé par le support Microsoft pendant le débogage. | Non       |
+
+   
+
 
 ## <a name="high-availability-and-scalability"></a>Haute disponibilité et extensibilité
-Un runtime d’intégration auto-hébergé peut être associé à plusieurs machines locales ou Machines virtuelles dans Azure. Ces ordinateurs sont appelés nœuds. Vous pouvez associer jusqu’à quatre nœuds à un runtime d’intégration auto-hébergé. Avoir plusieurs nœuds (machines locales avec une passerelle installée) procure les avantages suivants à une passerelle logique :
+Un runtime d’intégration auto-hébergé peut être associé à plusieurs ordinateurs locaux ou machines virtuelles dans Azure. Ces ordinateurs sont appelés nœuds. Vous pouvez associer jusqu’à quatre nœuds à un runtime d’intégration auto-hébergé. Avoir plusieurs nœuds (machines locales avec une passerelle installée) procure les avantages suivants à une passerelle logique :
 * La haute disponibilité du runtime d’intégration auto-hébergé supprime le point de défaillance unique dans votre solution Big Data ou dans l’intégration de vos données cloud avec Azure Data Factory, ce qui garantit la continuité des activités sur un maximum de quatre nœuds.
 * Les performances et le débit lors du déplacement des données entre les magasins de données locaux et dans le cloud ont été améliorés. Plus d’informations sur les [comparaisons des performances](copy-activity-performance.md).
 
-Vous pouvez associer plusieurs nœuds en installant le logiciel du runtime d’intégration auto-hébergé à partir du [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717). Ensuite, elle à l’aide d’une des clés d’authentification obtenue à partir de s’inscrire la **New-AzDataFactoryV2IntegrationRuntimeKey** applet de commande, comme décrit dans la [didacticiel](tutorial-hybrid-copy-powershell.md).
+Vous pouvez associer plusieurs nœuds en installant le logiciel du runtime d’intégration auto-hébergé à partir du [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=39717). Ensuite, inscrivez-le à l’aide des clés d’authentification obtenues par le biais de l’applet de commande **New-AzDataFactoryV2IntegrationRuntimeKey**, comme décrit dans le [tutoriel](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > Vous n’avez pas besoin de créer de runtime d’intégration auto-hébergé pour associer chaque nœud. Vous pouvez installer le runtime d’intégration auto-hébergé sur une autre machine et l’inscrire à l’aide de la même clé d’authentification. 
@@ -147,7 +190,7 @@ Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuris
 - Les certificats qui utilisent des clés CNG ne sont pas pris en charge.  
 
 > [!NOTE]
-> Ce certificat est utilisé pour chiffrer des ports sur le nœud Runtime d’intégration auto-hébergé, utilisé pour **communication nœud à nœud** (pour la synchronisation de l’état qui inclut des services liés d’informations d’identification de la synchronisation entre les nœuds) et des while **à l’aide de PowerShell applet de commande pour le service lié informations d’identification de paramètre** de réseau local. Nous vous conseillons d'utiliser ce certificat si votre environnement de réseau privé n'est pas sécurisé ou si vous souhaitez également sécuriser la communication entre les nœuds de votre réseau privé. Le déplacement des données en transit d'un runtime d'intégration auto-hébergé vers d'autres magasins de données se fait toujours via un canal chiffré, que ce certificat soit défini ou non. 
+> Ce certificat est utilisé pour chiffrer les ports sur le nœud du runtime d’intégration auto-hébergé, pour la **communication nœud à nœud** (à des fins de synchronisation d’état, ce qui inclut la synchronisation des informations d’identification des services liés entre des nœuds) et lors de l’**utilisation de l’applet de commande PowerShell pour le paramètre d’informations d’identification du service lié** à partir du réseau local. Nous vous conseillons d'utiliser ce certificat si votre environnement de réseau privé n'est pas sécurisé ou si vous souhaitez également sécuriser la communication entre les nœuds de votre réseau privé. Le déplacement des données en transit d'un runtime d'intégration auto-hébergé vers d'autres magasins de données se fait toujours via un canal chiffré, que ce certificat soit défini ou non. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Partage du runtime d’intégration auto-hébergé avec plusieurs fabriques de données
 
@@ -241,7 +284,7 @@ Au niveau du *pare-feu Windows* (niveau de la machine), ces ports de sortie sont
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Copier des données d’une source vers un récepteur
 Assurez-vous que les règles de pare-feu sont correctement activées sur le pare-feu d’entreprise, sur le pare-feu Windows de la machine du runtime d’intégration auto-hébergé, ainsi que sur le magasin de données lui-même. Activer ces règles permet au runtime d’intégration autohébergé de se connecter correctement à la source et au récepteur. Activez les règles pour chaque magasin de données impliqué dans l’opération de copie.
 
-Par exemple, pour effectuer une copie à partir d’un magasin de données local vers un récepteur Azure SQL Database ou un récepteur Azure SQL Data Warehouse, procédez comme suit :
+Par exemple, pour effectuer une copie à partir d’un magasin de données local vers un récepteur Azure SQL Database ou un récepteur Azure SQL Data Warehouse, procédez comme suit :
 
 1. Autorisez le trafic TCP sortant sur le port 1433 pour le pare-feu Windows et le pare-feu d’entreprise.
 2. Configurez les paramètres de pare-feu de la base de données Azure SQL pour ajouter l’adresse IP de la machine du runtime d’intégration auto-hébergé à la liste des adresses IP autorisées.
@@ -255,7 +298,7 @@ Si votre environnement de réseau d’entreprise utilise un serveur proxy pour a
 
 ![Spécifier le proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-Lors de la configuration, le runtime d’intégration auto-hébergé utilise le serveur proxy pour se connecter au service cloud, la source / destination (celles utilisant HTTP / protocole HTTPS). C’est Select **changer le lien** pendant l’installation initiale. La boîte de dialogue des paramètres de proxy s’affiche.
+Une fois configuré, le runtime d’intégration auto-hébergé utilise le serveur proxy pour se connecter au service cloud, à la source et la destination (ceux utilisant le protocole HTTP/HTTPS). Sélectionnez **Changer le lien**  pendant la configuration initiale. La boîte de dialogue des paramètres de proxy s’affiche.
 
 ![Définir le proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
@@ -331,7 +374,7 @@ Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez pr
     ```
 
 ### <a name="enabling-remote-access-from-an-intranet"></a>Activation de l’accès à distance à partir d’un intranet  
-Si vous utilisez PowerShell pour chiffrer les informations d’identification à partir d’un autre ordinateur (dans le réseau) autre qu’où le runtime d’intégration auto-hébergé est installé, vous pouvez activer le **accès à distance à partir de l’Intranet** option. Si vous exécutez PowerShell pour chiffrer les informations d’identification sur le même ordinateur où est installé le runtime d’intégration auto-hébergé, vous ne pouvez pas activer **accès à distance à partir de l’Intranet**.
+Si vous utilisez PowerShell pour chiffrer les informations d’identification à partir d’une machine (dans le réseau) autre que celle où est installé le runtime d’intégration auto-hébergé, vous pouvez activer l’option **Accès à distance à partir de l’intranet**. Si vous exécutez PowerShell pour chiffrer les informations d’identification sur la même machine que celle où est installé le runtime d’intégration auto-hébergé, vous ne pouvez pas activer l’option **Accès à distance à partir de l’intranet**.
 
 Vous devez activer l’option **Accès à distance à partir de l’Intranet** avant d’ajouter un autre nœud de haute disponibilité et d’extensibilité.  
 
@@ -341,9 +384,9 @@ Si vous utilisez un pare-feu tiers, vous pouvez ouvrir manuellement le port 8060
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-``` 
+```
 
-Si vous préférez ne pas ouvrir le port 8060 sur la machine du runtime intégration auto-hébergé, utilisez d’autres mécanismes que l’application Définition des informations d’identification pour configurer les informations d’identification du magasin de données. Par exemple, vous pouvez utiliser la **New-AzDataFactoryV2LinkedServiceEncryptCredential** applet de commande PowerShell.
+Si vous préférez ne pas ouvrir le port 8060 sur la machine du runtime intégration auto-hébergé, utilisez d’autres mécanismes que l’application Définition des informations d’identification pour configurer les informations d’identification du magasin de données. Vous pouvez, par exemple, utiliser l’applet de commande PowerShell **New-AzDataFactoryV2LinkedServiceEncryptCredential**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

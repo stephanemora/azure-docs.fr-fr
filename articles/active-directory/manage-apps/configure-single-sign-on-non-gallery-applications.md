@@ -1,174 +1,166 @@
 ---
-title: Authentification unique - applications hors galerie - Azure Active Directory | Microsoft Docs
-description: Configurer l’authentification unique (SSO) sur des applications ne figurant pas dans la galerie d’Azure Active Directory (Azure AD)
+title: Authentification unique SAML - applications hors galerie - Plateforme d’identité Microsoft | Microsoft Docs
+description: Configurer l’authentification unique (SSO) sur des applications hors galerie dans la plateforme d’identité Microsoft (Azure AD)
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 01/08/2019
+ms.date: 07/19/2019
 ms.author: celested
-ms.reviewer: asmalser,luleon
+ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f003ec847ab3777a2174a1078a2d07eb012bb34
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 057fa4dc9080ea0216765d89fa6f9d54c60ccec1
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484093"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422816"
 ---
-# <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurer l’authentification unique sur des applications hors galerie dans Azure Active Directory
+# <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurer l’authentification unique SAML pour des applications non issues de la galerie
 
-Cet article concerne une fonctionnalité permettant aux administrateurs de configurer l’authentification unique pour les applications qui ne figurent pas dans la galerie d’applications Azure Active Directory, *sans écrire de code*. Si vous recherchez plutôt des instructions destinées aux développeurs sur l’intégration d’applications personnalisées avec Azure AD grâce au code, consultez [Scénarios d’authentification pour Azure AD](../develop/authentication-scenarios.md).
+Lorsque vous [ajoutez une application galerie](add-gallery-app.md) ou une [application web non galerie](add-non-gallery-app.md) à vos applications d'entreprise Azure AD, l'une des options de connexion unique disponibles est [authentification unique SAML](what-is-single-sign-on.md#saml-sso). Choisissez si possible SAML pour les applications qui s’authentifient par le biais d’un protocole SAML.gestion des actifs logiciels. Avec l’authentification unique SAML, Azure AD s’authentifie dans l’application en utilisant le compte Azure AD de l’utilisateur. Azure AD communique les informations d’authentification à l’application via un protocole de connexion. Vous pouvez mapper les utilisateurs à des rôles d’application basés sur les règles, que vous définissez dans vos revendications SAML. Cet article explique comment configurer l’authentification unique SAML pour une application hors galerie. 
 
-La galerie d'applications Azure Active Directory contient une liste d'applications qui prennent en charge une forme d'authentification unique avec Azure Active Directory, conformément à la description dans [cet article](what-is-single-sign-on.md). Une fois que vous (spécialiste informatique ou intégrateur système de votre organisation) avez trouvé l’application que vous voulez connecter, vous pouvez commencer par suivre les instructions détaillées présentées dans le portail Azure pour activer l’authentification unique.
+> [!NOTE]
+> Vous ajoutez application de la galerie ? Découvrez des instructions de configuration pas à pas dans la [liste des tutoriels sur les applications SaaS](../saas-apps/tutorial-list.md)
 
-Ces fonctionnalités sont également disponibles, en fonction de votre contrat de licence. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/active-directory/). 
+Si vous voulez configurer l’authentification unique SAML pour une application non issue de la galerie sans écrire de code, vous devez disposer d’un abonnement ou d’Azure AD Premium. De plus, l’application doit prendre en charge SAML 2.0. Pour plus d’informations sur les versions d’Azure AD, consultez [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-- Intégration libre-service de toute application prenant en charge les fournisseurs d’identité SAML 2.0 (Initiée par le fournisseur de services ou par le fournisseur d’identité fédérée)
-- Intégration libre-service de toute application Web dont la page de connexion est basée sur le HTML et utilise une [authentification unique par mot de passe](what-is-single-sign-on.md#password-based-sso)
-- Connexion libre-service des applications qui utilisent le protocole SCIM pour l'affectation d'utilisateurs ([description ici](use-scim-to-provision-users-and-groups.md))
-- Possibilité d'ajouter des liens à n'importe quelle application dans le [Lanceur d'application Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou le [Panneau d'accès Azure AD](what-is-single-sign-on.md#linked-sso)
+## <a name="before-you-begin"></a>Avant de commencer
 
-Ceci peut inclure non seulement les applications SaaS que vous utilisez, mais qui n'ont pas encore été embarquées dans la galerie d'applications Azure AD, mais encore les applications Web tierces que votre organisation a déployées sur les serveurs que vous contrôlez, dans le cloud ou localement.
+Si l’application n’a pas été ajoutée à votre locataire Azure AD, consultez [Ajouter une application non-galerie](add-non-gallery-app.md).
 
-Ces fonctionnalités, également appelées *modèles d’intégration d’application*, fournissent des points de connexion basés sur des normes pour les applications prenant en charge l’authentification SCIM, SAML ou par formulaire, et incluent des paramètres et options flexibles pour la compatibilité avec un grand nombre d’applications. 
+## <a name="step-1-edit-the-basic-saml-configuration"></a>Étape 1. Modifier la configuration SAML de base
 
-## <a name="adding-an-unlisted-application"></a>Ajout d’une application non répertoriée
-Pour connecter une application à l’aide d’un modèle d’intégration d’application, connectez-vous au Portail Azure avec votre compte Administrateur Azure Active Directory. Accédez à la section **Active Directory > Applications d’entreprise > Nouvelle application > Application extérieure à la galerie**, sélectionnez **Ajouter**, puis **Ajouter une application à partir de la galerie**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur d’application cloud ou administrateur d’application pour votre locataire Azure AD.
 
-  ![Ajouter l’application](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
+2. Accédez à **Azure Active Directory** > **Applications d’entreprise**, puis sélectionnez l’application dans la liste. 
+   
+   - Pour rechercher l’application, dans le menu **Type d’application**, sélectionnez **Toutes les applications**, puis sélectionnez **Appliquer**. Entrez le nom de l’application dans la zone de recherche, puis sélectionnez l’application dans les résultats.
 
-Dans la galerie d’applications, vous pouvez ajouter une application non répertoriée en sélectionnant la vignette **Application ne figurant pas dans la galerie** affichée dans les résultats de recherche si vous n’avez pas trouvé l’application souhaitée. Après avoir entré un nom pour votre application, vous pouvez configurer les options d'authentification unique et le comportement. 
+3. Sous la section **Gérer**, sélectionnez **Authentification unique**. 
 
-**Astuce** :  comme meilleure pratique, utilisez la fonction de recherche pour vérifier si l’application existe déjà dans la galerie d’applications. Si elle est trouvée et que sa description mentionne l’authentification unique, c’est qu’elle prend déjà en charge l’authentification unique fédérée.
+4. Sélectionnez **SAML**. La page **Configurer l’authentification unique avec SAML - Préversion** s’affiche.
 
-  ![Recherche](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
+   ![Étape 1 Modifier la configuration SAML de base](media/configure-single-sign-on-non-gallery-applications/step-one-basic-saml-config.png)
 
-Une application ajoutée de cette manière offre une expérience similaire à des applications préintégrées. Pour commencer, sélectionnez **Configurer l’authentification unique** ou cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application. L’écran ci-dessous présente les options de configuration de l’authentification unique. Celles-ci sont décrites dans les sections suivantes de cet article.
-  
-![Options de configuration](./media/configure-single-sign-on-non-gallery-applications/customapp3.png)
+5. Pour modifier les options de configuration SAML de base, sélectionnez l’icône **Modifier** (crayon) dans le coin supérieur droit de la section **Configuration SAML de base**.
 
-## <a name="saml-based-single-sign-on"></a>Authentification unique SAML
-Sélectionnez cette option pour configurer l'authentification basée SAML pour l'application. Il est nécessaire que l’application prenne en charge SAML 2.0. Il est recommandé de recueillir des informations sur la façon d’utiliser les fonctionnalités SAML de l’application avant de continuer. Lisez les sections suivantes pour configurer l’authentification unique entre l’application et Azure AD.
+1. Entrez les paramètres suivants. Les valeurs doivent vous être communiquées par le fournisseur de l’application. Vous pouvez entrer manuellement les valeurs ou charger un fichier de métadonnées pour extraire la valeur des champs.
 
-### <a name="enter-basic-saml-configuration"></a>Entrer la configuration SAML de base
+    | Paramètre de la configuration SAML de base | Initiée par SP | Initiée par idP | Description |
+    |:--|:--|:--|:--|
+    | **Identificateur (ID d'entité)** | Requis pour certaines applications | Requis pour certaines applications | Identifie l’application de manière unique. Azure AD envoie l’identificateur à l’application en tant que paramètre Audience du jeton SAML. L’application est censée le valider. Cette valeur apparaît également en tant qu’ID d’entité dans les métadonnées SAML fournies par l’application. *Cette valeur correspond à l’élément **Émetteur** dans la demande SAML **AuthnRequest** envoyée par l’application.* |
+    | **URL de réponse** | Facultatif | Obligatoire | Spécifie l’adresse où l’application attend le jeton SAML. L’URL de réponse est aussi appelée URL ACS (Assertion Consumer Service). Vous pouvez utiliser les champs URL de réponse supplémentaires pour spécifier plusieurs URL de réponse. Par exemple, vous pourriez avoir besoin d'URL de réponse supplémentaires pour plusieurs sous-domaines. Ou, à des fins de test, vous pouvez spécifier simultanément plusieurs URL de réponse (hôte local et URL publiques). |
+    | **URL d’authentification** | Obligatoire | Ne spécifiez pas | Lorsqu’un utilisateur ouvre cette URL, le fournisseur de services redirige vers Azure AD pour authentifier et connecter l’utilisateur. Azure AD utilise l’URL pour démarrer l’application à partir d’Office 365 ou du panneau d’accès Azure AD. Lorsqu’elle est vide, Azure AD effectue une authentification initiée par le fournisseur d'identité lorsqu’un utilisateur lance l’application à partir d’Office 365, du panneau d’accès Azure AD ou de l’URL d’authentification unique SSO Azure AD.|
+    | **État de relais** | Facultatif | Facultatif | Indique à l’application où rediriger l’utilisateur une fois l’authentification terminée. En règle générale, la valeur est une URL valide pour l’application. Toutefois, certaines applications utilisent ce champ différemment. Pour plus d’informations, consultez le fournisseur de l’application.
+    | **URL de déconnexion** | Facultatif | Facultatif | Utilisé pour renvoyer les réponses de déconnexion SAML à l’application.
 
-Pour configurer Azure AD, entrez la configuration SAML de base. Vous pouvez entrer manuellement les valeurs ou charger un fichier de métadonnées pour extraire la valeur des champs.
+Pour plus d’informations, consultez [Protocole SAML d’authentification unique](../develop/single-sign-on-saml-protocol.md).
 
-  ![URL et domaine Litware](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
+## <a name="step-2-configure-user-attributes-and-claims"></a>Étape 2. Configurer les attributs et revendications d’un utilisateur 
 
-- **URL de connexion (initiée par le fournisseur de services)** : où l’utilisateur se connecte à cette application. Si l’application est configurée pour effectuer une authentification unique initiée par le fournisseur de services, lorsque l’utilisateur accède à cette URL, le fournisseur de services effectue la redirection nécessaire vers Azure AD pour effectuer l’authentification et connecter l’utilisateur. Si ce champ est renseigné, Azure AD utilise cette URL pour lancer l’application à partir d’Office 365 et du panneau d’accès Azure AD. Si ce champ est omis, Azure AD effectuera fournisseur d’identité-authentification unique initiée par lorsque l’application est lancée à partir d’Office 365, le panneau d’accès Azure AD, ou à partir de l’URL Azure AD unique de session (peut être copié à partir de l’onglet tableau de bord).
-- **Identificateur** : doit identifier de façon unique l’application pour laquelle l’authentification unique est en cours de configuration. Cette valeur correspond à l’élément Émetteur dans la demande SAML AuthRequest envoyée par l’application. Cette valeur apparaît également comme **l’ID d’entité** dans les métadonnées SAML fournies par l’application. Consultez la documentation SAML de l’application pour plus d’informations sur ce que sont les valeurs d’ID d’entité ou d’audience. 
+Lorsqu’un utilisateur s’authentifie auprès de l’application, Azure AD émet pour l’application un jeton SAML contenant des informations (ou des revendications) sur l’utilisateur qui l’identifient de façon unique. Par défaut, ces informations incluent le nom d’utilisateur, son adresse e-mail, son prénom et son nom. Vous devrez peut-être personnaliser ces revendications si, par exemple, l'application nécessite des valeurs de revendications spécifiques ou un format **Nom** autre que le nom d'utilisateur. Les exigences pour les applications de la galerie sont décrites dans les [tutoriels spécifiques aux applications](../saas-apps/tutorial-list.md) ; vous pouvez aussi demander ces informations au fournisseur de l’application. Les étapes générales de configuration des attributs et des revendications utilisateur sont décrites ci-dessous.
 
-    Voici un exemple d’identificateur ou d’émetteur apparaissant dans la demande SAML envoyée par l’application à Azure AD :
+1. Dans la section **Attributs et revendications utilisateur**, sélectionnez l’icône **Modifier** (un crayon) dans le coin supérieur droit.
 
-    ```
-    <samlp:AuthnRequest
-    xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
-    ID="id6c1c178c166d486687be4aaf5e482730"
-    Version="2.0" IssueInstant="2013-03-18T03:28:54.1839884Z"
-    xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-    <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
-    </samlp:AuthnRequest>
-    ```
+   ![Étape 2 Configurer les attributs et revendications d’un utilisateur](media/configure-single-sign-on-non-gallery-applications/step-two-user-attributes-claims.png)
 
-- **URL de réponse** : l’URL de réponse est l’adresse où l’application attend le jeton SAML. Elle est aussi appelée URL ACS (Assertion Consumer Service). Consultez la documentation SAML de l’application pour plus d’informations sur ce que sont les jetons de réponse SAML de l’URL ou de l’URL ACS. 
+2. Vérifiez la **Valeur de nom d’identificateur**. La valeur par défaut est *utilisateur.nom_principal*. L’identificateur d’utilisateur identifie de façon unique chaque utilisateur au sein de l’application. Par exemple, si l’adresse e-mail est le nom d’utilisateur et l’identificateur unique, définissez la valeur sur *user.mail*.
 
-    Pour configurer plusieurs replyURL, vous pouvez utiliser le script PowerShell suivant.
+3. Pour modifier la **Valeur d’identificateur de nom**, sélectionnez l’icône **Modifier** (crayon) pour le champ **Valeur d’identificateur de nom**. Apportez les modifications appropriées au format de l’identificateur et à la source. Pour plus d’informations, consultez [Modification de NameID](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#editing-nameid). Quand vous avez terminé, enregistrez les modifications. 
+ 
+4. Pour configurer des revendications de groupe, sélectionnez l’icône **Modifier** pour le champ **Groupes retournés dans la revendication**. Pour plus d’informations, consultez [Configurer des revendications de groupe](../hybrid/how-to-connect-fed-group-claims.md).
 
-    ```powershell
-    $sp = Get-AzureADServicePrincipal -SearchString "<Exact App  name>"
-    $app = Get-AzureADApplication -SearchString "<Exact app name>"
-    Set-AzureADApplication -ObjectId $app.ObjectId -ReplyUrls "<ReplyURLs>"
-    Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls "<ReplyURLs>"
-    ```
+5. Pour ajouter une revendication, sélectionnez **Ajouter une nouvelle revendication** en haut de la page. Entrez le **Nom** et sélectionnez la source appropriée. Si vous sélectionnez la source **Attribut**, vous devez choisir **l’attribut Source** à utiliser. Si vous sélectionnez la source **Translation**, vous devez choisir les éléments **Transformation** et **Parameter 1** à utiliser. Pour plus d’informations, consultez [Ajout de revendications spécifiques à l’application](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#adding-application-specific-claims). Quand vous avez terminé, enregistrez les modifications. 
 
-Pour plus d’informations, voir [Demandes et réponses d’authentification SAML 2.0 prises en charge par Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML).
+6. Sélectionnez **Enregistrer**. La nouvelle revendication s’affiche dans la table.
 
+   > [!NOTE]
+   > Pour découvrir d’autres façons de personnaliser le jeton SAML d’Azure AD pour votre application, consultez les ressources suivantes.
+   >- Pour créer des rôles personnalisés via le portail Azure, consultez [Configurer des revendications de rôle](../develop/active-directory-enterprise-app-role-management.md).
+   >- Pour personnaliser les revendications via PowerShell, consultez [Personnaliser des revendications - PowerShell](../develop/active-directory-claims-mapping.md).
+   >- Pour modifier le manifeste d’application de façon à configurer des revendications facultatives pour votre application, consultez [Configurer des revendications facultatives](../develop/active-directory-optional-claims.md).
+   >- Pour définir des stratégies de durée de vie des jetons pour les jetons d’actualisation, les jetons d’accès, les jetons de session et les jetons d’ID, consultez [Configurer les durées de vie des jetons](../develop/active-directory-configurable-token-lifetimes.md). Pour restreindre les sessions d’authentification via l’accès conditionnel Azure AD, consultez [Fonctionnalités de gestion des sessions d’authentification](https://go.microsoft.com/fwlink/?linkid=2083106).
 
-### <a name="review-or-customize-the-claims-issued-in-the-saml-token"></a>Examiner ou personnaliser les revendications émises dans le jeton SAML
+## <a name="step-3-manage-the-saml-signing-certificate"></a>Étape 3. Gérer le certificat de signature SAML
 
-Lorsqu'un utilisateur s'authentifie auprès de l'application, Azure AD émet un jeton SAML à l'application qui contient des informations (ou des revendications) sur l'utilisateur qui l'identifient de façon unique. Par défaut, ceci inclut le nom d'utilisateur, l'adresse e-mail, le prénom et nom de l'utilisateur. 
+Azure AD utilise un certificat pour signer les jetons SAML qu’il envoie à l’application. Vous aurez besoin de ce certificat pour configurer l’approbation entre Azure AD et l’application. Pour plus d’informations sur le format du certificat, consultez la documentation SAML de l’application. Pour plus d’informations, consultez [Gérer des certificats pour l’authentification unique fédérée](manage-certificates-for-federated-single-sign-on.md) et [Options avancées de signature de certificats dans le jeton SAML](certificate-signing-options.md).
 
-Vous pouvez afficher ou modifier les revendications envoyées à l'application dans le jeton SAML sous l'onglet **Attributs** .
+Depuis Azure AD, vous pouvez télécharger le certificat actif au format Base64 ou Raw directement à partir de la page principale **Configurer l’authentification unique avec SAML**. Sinon, vous pouvez le récupérer en téléchargeant le fichier XML de métadonnées de l’application ou en utilisant l’URL des métadonnées de fédération de l’application. Pour afficher, créer ou télécharger vos certificats (actifs ou inactifs), procédez comme suit.
 
-  ![Attributs](./media/configure-single-sign-on-non-gallery-applications/customapp7.png)
+1. Accédez à la section **Certificat de signature SAML**. 
 
-Vous pourrez avoir à modifier les revendications émises dans le jeton SAML pour les deux raisons suivantes :
+   ![Étape 3 Gérer le certificat de signature SAML](./media/configure-single-sign-on-non-gallery-applications/step-three-certificate.png)
 
-- L’application a été écrite pour exiger un ensemble différent d’URI de revendication ou de valeurs de revendication.
-- Votre application a été déployée d’une manière qui nécessite que la revendication NameIdentifier soit différente du nom d’utilisateur (nom d’utilisateur principal) stocké dans Azure Active Directory. 
+2. Vérifiez que le certificat comporte :
 
-Pour plus d’informations, voir [Personnaliser les revendications émises dans le jeton SAML pour les applications d’entreprise](./../develop/../develop/active-directory-saml-claims-customization.md). 
+   - *La date d’expiration souhaitée.* Vous pouvez configurer une date d’expiration allant jusqu’à trois ans dans le futur.
+   - *Un état actif pour le certificat souhaité.* Si l’état est **inactif**, définissez-le sur **Actif**. Pour modifier l’état, cliquez sur la ligne du certificat souhaité avec le bouton droit de la souris, puis sélectionnez **Définir comme certificat actif**.
+   - *L’option et l’algorithme de signature appropriés.*
+   - *Les adresses e-mail de notification correctes.* Lorsque le certificat actif est proche de sa date d’expiration, Azure AD envoie une notification à l’adresse e-mail configurée dans ce champ.
 
+2. Pour télécharger le certificat, sélectionnez l'une des options suivantes pour le format Base64, le format Raw ou le fichier XML de métadonnées de fédération. Azure AD fournit également l’**URL des métadonnées de fédération**, où vous pouvez accéder aux métadonnées spécifiques à l’application au format `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
+3. Pour gérer, créer ou importer un certificat, sélectionnez l’icône **Modifier** (un crayon) dans le coin supérieur droit de la section **Certificat de signature SAML**.
 
-### <a name="review-certificate-expiration-data-status-and-email-notification"></a>Examiner les données d’expiration du certificat, l’état et la notification par e-mail
-
-Lorsque vous créez une application, qu’elle fasse partie ou non de la galerie, Azure AD crée un certificat propre à l’application et assorti d’une date d’expiration de trois ans à compter de la date de création. Vous aurez besoin de ce certificat pour configurer l’approbation entre Azure AD et l’application. Pour plus d’informations sur le format du certificat, consultez la documentation SAML de l’application. 
-
-Dans Azure AD, vous pouvez télécharger le certificat au format Base64 ou au format brut. Par ailleurs, vous pouvez le récupérer en téléchargeant le fichier XML de métadonnées de l’application ou en utilisant l’URL des métadonnées de fédération de l’application.
-
-  ![Certificat](./media/configure-single-sign-on-non-gallery-applications/certificate.png)
-
-Vérifiez que le certificat comporte :
-
-- La date d’expiration souhaitée. Le maximum est de trois ans.
-- Un statut actif. Si l’état est inactif, modifiez-le. Pour cela, cochez **Actif**, puis enregistrez la configuration. 
-- L’adresse e-mail de notification correcte. Lorsque le certificat actif est proche de la date d’expiration, Azure AD envoie une notification à l’adresse e-mail configurée dans ce champ.  
-
-Pour plus d’informations, voir [Gérer les certificats pour l’authentification unique fédérée dans Azure Active Directory](manage-certificates-for-federated-single-sign-on.md).
-
-### <a name="set-up-target-application"></a>Configurer l’application cible
-
-Pour configurer l’authentification unique dans une application, recherchez la documentation de celle-ci. Pour rechercher la documentation, faites défiler jusqu'à la fin de la page de configuration basée sur SAML de l’authentification, puis cliquez sur **configurer \<nom_application >**. 
-
-Les valeurs requises dépendent de l’application. Pour plus d’informations, consultez la documentation SAML de l’application. Les URL des services de connexion et de déconnexion correspondent toutes les deux au même point de terminaison, à savoir le point de terminaison de gestion des demandes SAML de votre instance d’Azure AD. L’ID d’entité SAML est la valeur qui s’affiche comme Émetteur dans le jeton SAML émis pour l’application.
+   ![Certificat de signature SAML](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
 
 
-### <a name="assign-users-and-groups-to-your-saml-application"></a>Affecter des utilisateurs et des groupes à une application SAML
+   Effectuez l'une des opérations suivantes :
 
-Une fois que votre application a été configurée pour utiliser Azure AD comme fournisseur d'identité SAML, elle est presque prête pour le test. Dans une optique de contrôle de sécurité, Azure AD n’émet pas de jeton permettant à l’utilisateur de se connecter à l’application tant qu’Azure AD n’a pas accordé l’accès à ce dernier. Les utilisateurs peuvent bénéficier d’un accès direct ou par appartenance à un groupe. 
+   - Pour créer un certificat, sélectionnez **Nouveau certificat**, sélectionnez la **Date d’expiration**, puis sélectionnez **Enregistrer**. Pour activer le certificat, sélectionnez le menu contextuel ( **...** ), puis sélectionnez **Définir comme certificat actif**.
+   - Pour charger un certificat avec une clé privée et des informations d’identification PFX, sélectionnez **Importer un certificat** et accédez au certificat. Entrez le **Mot de passe PFX**, puis sélectionnez **Ajouter**.  
+   - Pour configurer les options avancées de signature de certificat, utilisez les options suivantes. Pour des descriptions de ces options consultez l’article [Options avancées de signature de certificat](certificate-signing-options.md).
+      - Dans la liste déroulante **Option de signature**, sélectionnez **Signer la réponse SAML**, **Signer l’assertion SAML** ou **Signer la réponse et l’assertion SAML**.
+      - Dans la liste déroulante **Algorithme de signature**, choisissez **SHA-1** ou **SHA-256**.
+   - Pour avertir d’autres personnes quand le certificat actif est proche de sa date d’expiration, entrez les adresses e-mail dans les champs **Adresses de courrier de notification**.
 
-Pour affecter un utilisateur ou un groupe à votre application, cliquez sur le bouton **Affecter des utilisateurs** . Sélectionnez l'utilisateur ou le groupe que vous souhaitez affecter, puis sélectionnez le bouton **Affecter** .
+4. Si vous avez effectué des modifications, sélectionnez **Enregistrer** en haut de la section **Certificat de signature SAML**. 
 
-  ![Affecter des utilisateurs](./media/configure-single-sign-on-non-gallery-applications/customapp6.png)
+## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Étape 4. Configurer l’application pour utiliser Azure AD
 
-L’affectation d’un utilisateur permettra à Azure AD d’émettre un jeton pour celui-ci. Elle a également pour effet de faire apparaître une vignette pour cette application dans le volet d’accès de l’utilisateur. Une mosaïque de l'application s'affichera également dans le lanceur d'application Office 365 si l'utilisateur utilise Office 365. 
+La section **Configurer\<nom_application** liste les valeurs qui doivent être configurées dans l’application afin qu’elle utilise Azure AD comme fournisseur d’identité SAML. Les valeurs requises dépendent de l’application. Pour plus d’informations, consultez la documentation SAML de l’application. Pour trouver la documentation, accédez à la rubrique **Configurer \<nom de l’application>** et sélectionnez **Afficher les instructions détaillées**. La documentation s’affiche dans la page **Configurer l’authentification**. Cette page vous aide à renseigner l’**URL de connexion**, l’**Identificateur Azure AD** et l’**URL de déconnexion** dans la rubrique **Configurer \<nom de l’application >** .
 
-> [!NOTE] 
-> Vous pouvez télécharger un logo de la mosaïque pour l'application avec le bouton **Télécharger un logo** sur l'onglet **Configurer** de l'application. 
+1. Faites défiler jusqu'à la section **Configurer \<applicationName >** . 
+   
+   ![Étape 4 Configurer l’application](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
 
+1. Copiez la valeur de chaque ligne de cette section en fonction des besoins et suivez les instructions spécifiques à l’application pour ajouter la valeur à l’application. Pour les applications de la galerie, vous pouvez voir la documentation en sélectionnant **Afficher les instructions détaillées**. 
+   - Les valeurs **URL de connexion** et **URL de déconnexion** correspondent toutes les deux au même point de terminaison, qui est le point de terminaison de gestion des demandes SAML pour votre instance d'Azure AD. 
+   - L’**Identificateur Azure AD** est la valeur de l’**Émetteur** dans le jeton SAML émis pour l’application.
+2. Lorsque vous avez collé toutes les valeurs dans les champs appropriés, sélectionnez **Enregistrer**.
 
-### <a name="test-the-saml-application"></a>Tester l’application SAML
+## <a name="step-5-validate-single-sign-on"></a>Étape 5. Valider l’authentification unique
 
-Pour pouvoir tester l’application SAML, vous devez configurer l’application avec Azure AD et y affecter des utilisateurs ou des groupes. Pour tester l’application SAML, consultez [Guide pratique pour déboguer l’authentification unique SAML pour les applications dans Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
+Une fois que vous avez configuré votre application pour utiliser Azure AD en tant que fournisseur d'identité basé sur SAML, vous pouvez tester les paramètres pour vérifier le fonctionnement de la connexion unique avec votre compte. 
 
-## <a name="password-single-sign-on"></a>Authentification unique avec mot de passe
+2. Faites défiler vers la section **Valider l’authentification unique avec <applicationName>** .
 
-Sélectionnez cette option pour configurer l' [authentification unique basée sur un mot de passe](what-is-single-sign-on.md) pour une application Web qui a une page de connexion HTML. L'authentification unique basée sur un mot de passe, également appelée  archivage de mot de passe, vous permet de gérer l'accès utilisateur et les mots de passe pour les applications Web qui ne prennent pas en charge la fédération d'identité. Elle est également utile pour les scénarios où plusieurs utilisateurs doivent partager un seul compte, par exemple les comptes d'applications de médiaux sociaux de votre organisation. 
+   ![Étape 5 Valider l’authentification unique](media/configure-single-sign-on-non-gallery-applications/step-five-validate.png)
 
-Après avoir sélectionné **Suivant**, on vous demandera d'entrer l'URL de la page de connexion de l’application basée sur le Web. Notez qu'il doit s’agir de la page qui contient le nom d’utilisateur et les champs d'entrée du mot de passe. Une fois l'entrée effectuée, Azure AD démarre un processus pour analyser la page de connexion pour un nom d'utilisateur et un mot de passe entrés. Si le processus échoue, il vous guidera à travers un autre processus d'installation d'une extension de navigateur (nécessite Internet Explorer, Chrome ou Firefox) qui vous permettra de capturer manuellement les champs.
+3. Sélectionnez **Valider**. Les options de tests s’affichent.
 
-Une fois la page de connexion capturée, les utilisateurs et les groupes peuvent être affectés et les stratégies d'informations d'identification peuvent être définies comme [applications SSO avec mot de passe](what-is-single-sign-on.md)standard.
+4. Sélectionnez **Se connecter en tant qu’utilisateur actuel**. 
 
-> [!NOTE] 
-> Vous pouvez télécharger un logo de la mosaïque pour l'application avec le bouton **Télécharger un logo** sur l'onglet **Configurer** de l'application. 
->
+Si l’authentification réussit, vous êtes prêt à affecter des utilisateurs et des groupes à votre application SAML.
+Si un message d’erreur apparaît, effectuez les étapes suivantes :
 
-## <a name="existing-single-sign-on"></a>Authentification unique existante
-Sélectionnez cette option pour ajouter un lien au panneau d'accès Azure AD ou au portail Office 365 de votre organisation. Vous pouvez utiliser cette option pour ajouter des liens à des applications web personnalisées qui utilisent actuellement des services de fédération Active Directory (ou un autre service de fédération) au lieu d'Azure AD pour l’authentification. Ou bien, vous pouvez ajouter des liens ciblés vers des pages SharePoint spécifiques ou d'autres pages Web dont vous souhaitez qu'elles s'affichent uniquement sur vos panneaux d'accès d'utilisateurs. 
+1. Copiez et collez les détails dans la case **À quoi ressemble l’erreur ?** .
 
-Après avoir sélectionné **Suivant**, on vous demandera d'entrer l'URL de l'application à lier. Une fois l'opération terminée, les utilisateurs et les groupes peuvent être affectés à l'application, qui s'affiche alors dans le [Lanceur d'applications Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou le [Panneau d'accès Azure AD](end-user-experiences.md) pour ces utilisateurs.
+    ![Obtenir l’aide de résolution](media/configure-single-sign-on-portal/error-guidance.png)
 
-> [!NOTE] 
-> Vous pouvez télécharger un logo de la mosaïque pour l'application avec le bouton **Télécharger un logo** sur l'onglet **Configurer** de l'application. 
->
+2. Sélectionnez **Obtenir l’aide de résolution**. L’aide de résolution et de la cause racine apparaît.  Dans cet exemple, l’utilisateur n’était pas affecté à l’application.
 
-## <a name="related-articles"></a>Articles connexes
-- [Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées](../develop/active-directory-saml-claims-customization.md)
-- [Dépannage de l’authentification unique basée sur SAML](../develop/howto-v1-debug-saml-sso-issues.md)
+3. Lisez l’aide de résolution et, si possible, corrigez le problème.
 
+4. Réexécutez le test jusqu'à ce qu’il se termine correctement.
+
+Pour plus d’informations, voir [Guide pratique pour déboguer l’authentification unique SAML pour les applications dans Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Affecter des utilisateurs et des groupes à l’application](methods-for-assigning-users-and-groups.md)
+- [Configurer l’approvisionnement automatique d’un compte utilisateur](configure-automatic-user-provisioning-portal.md)

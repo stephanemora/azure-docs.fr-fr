@@ -1,27 +1,26 @@
 ---
 title: Gérer les inscriptions d’appareil avec les SDK du service Azure Device Provisioning | Microsoft Docs
 description: Guide pratique pour gérer les inscriptions d’appareil dans le service IoT Hub Device Provisioning à l’aide des SDK du service
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
-ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: 438cb579180458fcdeb75516a7c98b3ab2886366
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674750"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883381"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Guide pratique pour gérer les inscriptions d’appareil avec les SDK du service de provisionnement des appareils Azure
 Une *inscription d’appareil* crée un enregistrement d’un appareil ou d’un groupe d’appareils susceptibles d’être inscrits au service de provisionnement des appareils à un moment donné. L’enregistrement contient la configuration initiale souhaitée pour le ou les appareils dans le cadre de cette inscription, y compris le hub IoT souhaité. Cet article explique comment gérer les inscriptions d’appareils pour votre service de provisionnement par programmation en utilisant les SDK du service de provisionnement des appareils Azure IoT.  Les SDK sont disponibles sur GitHub dans le même dépôt que les SDK Azure IoT.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Récupérez la chaîne de connexion à partir de votre instance du service Device Provisioning.
 * Récupérez des artefacts de sécurité des appareils pour le [mécanisme d’attestation](concepts-security.md#attestation-mechanism) utilisé :
-    * [**Module de plateforme sécurisée (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module) :
+    * [**Module de plateforme sécurisée (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module) :
         * Inscription individuelle : ID d’inscription et paire de clés de type EK du module de plateforme sécurisée à partir d’un appareil physique ou du simulateur TPM.
         * Le groupe d’inscriptions ne s’applique pas à l’attestation TPM.
     * [**X.509**](/azure/iot-dps/concepts-security) :

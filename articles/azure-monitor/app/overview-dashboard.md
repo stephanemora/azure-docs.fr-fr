@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 47c83e6bc700f972e6dff83e4d067e61218c04bd
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d1823779f8a8070149811e2349fc9f4281072d38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035251"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66497163"
 ---
 # <a name="application-insights-overview-dashboard"></a>Tableau de bord de vue d’ensemble d’Application Insights
 
@@ -60,9 +60,12 @@ Pour revenir à l’expérience de vue d’ensemble, sélectionnez simplement :
 
 ![Bouton de la vue d’ensemble](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
+## <a name="troubleshooting"></a>Résolution de problèmes
+
+Si vous sélectionnez **Configurer les paramètres de vignette** et définissez un intervalle de temps personnalisé dépassant 31 jours, votre tableau de bord n’affichera pas au-delà de 31 jours de données, même avec la conservation de données par défaut de 90 jours. Il n’existe actuellement aucun moyen de contourner ce comportement.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Entonnoirs](../../azure-monitor/app/usage-funnels.md)
 - [Rétention](../../azure-monitor/app/usage-retention.md)
 - [Flux d’utilisateurs](../../azure-monitor/app/usage-flows.md)
-- [Tableaux de bord](../../azure-monitor/app/app-insights-dashboards.md)

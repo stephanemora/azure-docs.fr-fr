@@ -4,22 +4,21 @@ description: Procédure de montage du stockage de fichiers Azure sur les machine
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b3bba1da5238655ca749f6464c539e53ca48f27
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: c394b013b057a78e99cafc0adde9727d0a75a87c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540055"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091824"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Monter le stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB
 
@@ -34,7 +33,7 @@ Ce guide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources nommé *MyResourceGroup* dans l’emplacement *Est des États-Unis*.
+Créez un groupe de ressources nommé *MyResourceGroup* dans l’emplacement *USA Est*.
 
 ```bash
 az group create --name myResourceGroup --location eastus
@@ -42,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Créez un compte de stockage, au sein du groupe de ressources que vous avez créé, à l’aide de la commande [az storage account create](/cli/azure/storage/account). Cet exemple crée un compte de stockage nommé *mySTORAGEACCT\<nombre aléatoire >* et place le nom de ce compte de stockage dans la variable **STORAGEACCT**. Les noms de compte de stockage doivent être uniques ; l’utilisation de `$RANDOM` ajoute un numéro à la fin pour les rendre uniques.
+Créez un compte de stockage, au sein du groupe de ressources que vous avez créé, à l’aide de la commande [az storage account create](/cli/azure/storage/account). Cet exemple crée un compte de stockage nommé *mySTORAGEACCT\<numéro aléatoire>* et place le nom de ce compte de stockage dans la variable **STORAGEACCT**. Les noms de compte de stockage doivent être uniques ; l’utilisation de `$RANDOM` ajoute un numéro à la fin pour les rendre uniques.
 
 ```bash
 STORAGEACCT=$(az storage account create \

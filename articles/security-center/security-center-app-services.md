@@ -3,23 +3,19 @@ title: Protection d’App Services dans Azure Security Center | Microsoft Docs
 description: Cet article a pour but de vous aider à vous familiariser avec la protection de vos App Services dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 1/27/2019
-ms.author: monhaber
-ms.openlocfilehash: ea738535ae9326109a7c3fdd0b5d0c4f4691fdf0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 01/27/2019
+ms.author: memildin
+ms.openlocfilehash: 68f7c47f0a0f56085d632f1c1741318f440b41ee
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878628"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202468"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Protéger App Service avec Azure Security Center
 Cet article vous aide à utiliser Azure Security Center pour surveiller et protéger vos applications s’exécutant au-dessus d’App Service.
@@ -32,7 +28,7 @@ Azure Security Center peut générer des évaluations et des suggestions sur vos
 
 Security Center profite de l’échelle du cloud pour détecter les attaques dirigées contre vos applications App Service et se concentrer sur les attaques émergentes, lorsque les pirates sont en phase de reconnaissance et analysent les vulnérabilités de multiples sites web hébergés sur Azure. Security Center se sert d’analyses et de modèles d’apprentissage pour couvrir toutes les interfaces permettant aux clients d’interagir avec leurs applications, que ce soit via le protocole HTTP ou des méthodes de gestion. De plus, en tant que service principal dans Azure, Security Center occupe également dans une position privilégiée pour proposer des analyses de sécurité basées sur l’hôte, couvrant des nœuds de calcul sous-jacents pour ce PaaS, ce qui permet à Security Center de détecter les attaques dirigées contre des applications web qui ont déjà été exploitées.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour surveiller et sécuriser votre App Service, vous devez disposer d’un plan App Service associé à des machines dédiées. Il s’agit des plans suivants : De base, Standard, Premium, Isolé ou Linux. Azure Security Center ne prend pas en charge les plans Gratuit, Partagé ou Consommation. Pour plus d’informations, voir [Plans App Service](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
@@ -47,9 +43,8 @@ Security Center étant intégré en mode natif avec App Service, aucun déploiem
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Activation de la surveillance et la protection d’App Service
 
 1. Dans Azure, choisissez le Security Center.
-2. Accédez à **Stratégie de sécurité**, puis choisissez un abonnement.
-3. À la fin de la ligne de l’abonnement, cliquez sur **Modifier les paramètres**.
-4. Sous **Niveau tarifaire**, dans la ligne **App Service**, définissez votre plan sur **Activé**.
+2. Accédez à **Tarifs et paramètres**, puis choisissez un abonnement.
+3. Sous **Niveau tarifaire**, dans la ligne **App Service**, définissez votre plan sur **Activé**.
 
 ![activation/désactivation d’app service](./media/security-center-app-services/app-services-toggle.png)
 

@@ -1,5 +1,6 @@
 ---
 title: Modération de texte - Content Moderator
+titleSuffix: Azure Cognitive Services
 description: Utilisez la modération du texte pour détecter le texte indésirable, les informations d’identification personnelle (PII) et les listes de termes personnalisées.
 services: cognitive-services
 author: sanjeev3
@@ -9,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: e1d5224d8dc86c82624613b0d2a984ceef3ae5bf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757758"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564381"
 ---
 # <a name="learn-text-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération de texte
 
@@ -26,7 +27,7 @@ La réponse du service inclut les informations suivantes :
 
 - Vulgarité : correspondance basée sur des termes avec une liste prédéfinie de termes injurieux dans différentes langues
 - Classification : classification en trois catégories assistée par ordinateur
-- Données personnelles
+- Données à caractère personnel
 - Texte corrigé automatiquement
 - Texte d’origine
 - Langage
@@ -75,7 +76,7 @@ L’extrait suivant de l’extrait de code JSON présente un exemple de sortie :
 - `Score` est compris entre 0 et 1. Plus le score est élevé, plus le modèle prédit que la catégorie peut être applicable. Cette fonctionnalité s’appuie sur un modèle statistique plutôt que sur des résultats codés manuellement. Nous vous recommandons d’effectuer le test avec votre propre contenu afin de déterminer comment chaque catégorie correspond à vos besoins.
 - La valeur de `ReviewRecommended` est true ou false, selon les seuils de score internes. Les clients doivent évaluer l’opportunité d’utiliser cette valeur ou choisir des seuils personnalisés en fonction de leurs stratégies de contenu.
 
-## <a name="personal-data"></a>Données personnelles
+## <a name="personal-data"></a>Données à caractère personnel
 
 La fonctionnalité PII détecte la présence potentielle des informations suivantes :
 

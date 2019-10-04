@@ -1,27 +1,27 @@
 ---
 title: 'Démarrage rapide : Essayer Content Moderator sur le web - Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez utiliser l’outil de révision Content Moderator pour tester les fonctionnalités de base de Content Moderator sans avoir à écrire du code.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: quickstart
+ms.date: 07/03/2019
 ms.author: sajagtap
-ms.openlocfilehash: d1c65b590fd68f68fdaeb110c0fd00e0c5a6649a
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: e5b20bb45c08330c59fc72712b9e65b488c8c68b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756466"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564449"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Démarrage rapide : Essayer Content Moderator sur le web
 
 Dans ce guide de démarrage rapide, vous allez utiliser l’outil de révision Content Moderator pour tester les fonctionnalités de base de Content Moderator sans avoir à écrire du code. Si vous souhaitez intégrer ce service dans votre application plus rapidement, consultez les autres démarrages rapides dans la section [Étapes suivantes](#next-steps).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Un navigateur web
 
@@ -69,5 +69,5 @@ Vous pouvez également passer aux étapes suivantes pour apprendre à utiliser l
 
 Découvrez comment utiliser les API de modération dans votre application.
 - Implémentez la modération d’images. Utilisez la [console d’API](try-image-api.md) ou le [démarrage rapide C#](image-moderation-quickstart-dotnet.md) pour rechercher dans des images d’éventuels contenus pour adultes ou choquants à l’aide de balises, d’indices de confiance et d’autres informations extraites.
-- Implémentez la modération de texte. Utiliser le [console d’API](try-text-api.md) ou utiliser le [ C# quickstart](text-moderation-quickstart-dotnet.md) d’analyse du contenu de texte pour les injures potentielles, la classification assistée par ordinateur de texte indésirable (version préliminaire) et les données personnelles.
+- Implémentez la modération de texte. Utilisez la [console d’API](try-text-api.md) ou le [démarrage rapide C#](text-moderation-quickstart-dotnet.md) pour rechercher dans un texte des termes vulgaires, la classification de texte indésirable assistée par ordinateur (préversion) et des données personnelles.
 - Implémentez la modération de vidéo. Suivez le [guide de modération vidéo pour C# ](video-moderation-api.md) afin d'analyser des vidéos et détecter tout contenu potentiellement pour adultes et choquant. 

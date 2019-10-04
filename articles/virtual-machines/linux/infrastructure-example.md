@@ -4,24 +4,23 @@ description: Découvrez-en plus sur les principales instructions de conception e
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 71b0dd15d183f3209c7424c537dde1e3df29d097
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002691"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70083143"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Linux
 Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.
@@ -55,8 +54,8 @@ Tous les éléments ci-dessus sont conformes aux conventions de dénomination :
 * Adventure Works Cycles utilise **[Charge de travail informatique]-[Emplacement]-[Ressources Azure]** comme préfixe
   * Pour cet exemple, « **azos** » (Azure On-line Store) est le nom de la charge de travail informatique et « **use** » (USA Est 2) est l’emplacement
 * Les réseaux virtuels utilisent AZOS-USE-VN<strong>[numéro]</strong>
-* Les groupes à haute disponibilité utilisent azos-use-as-**[rôle]**
-* Les noms de machine virtuelle utilisent azos-use-vm-**[nom de machine virtuelle]**
+* Les groupes à haute disponibilité utilisent azos-use-as- **[rôle]**
+* Les noms de machine virtuelle utilisent azos-use-vm- **[nom de machine virtuelle]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Abonnements et comptes Azure
 Adventure Works Cycles utilise son abonnement d’entreprise, nommé Adventure Works Enterprise Subscription, pour fournir des informations de facturation pour cette charge de travail informatique.

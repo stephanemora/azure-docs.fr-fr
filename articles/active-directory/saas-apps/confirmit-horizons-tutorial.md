@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 8fce2451c915eb4480f6068667350da80e5cf7c5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6127f149141db275c4b13c25fd6fbd0241b3e404
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265353"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105034"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confirmit-horizons"></a>Didacticiel : Intégration d’Azure Active Directory à Confirmit Horizons
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Confirmit Horizons à Azure AD, vous devez 
 
 **Pour ajouter Confirmit Horizons à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

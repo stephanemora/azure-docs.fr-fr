@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 0b5d9deacdd4266da30f17c95b6e575a652d2f76
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888634"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177105"
 ---
 Dans cette procédure, vous allez :
 
@@ -37,7 +37,7 @@ Dans cette procédure, vous allez :
        `exec mssqlrbs.rbs_sp_set_config_value ‘garbage_collection_time_window’ , ’time 00:00:00’`
    
        `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’time 00:00:00’`
-2. Sur le serveur Web frontal, sous **Administration centrale**, modifiez les **Paramètres généraux de l’application Web** pour la base de données de contenu souhaitée afin de désactiver temporairement la Corbeille. Cette action vide également la Corbeille de toutes les collections de sites liées. Pour ce faire, cliquez sur **Administration centrale** -> **Gestion des applications** -> **Applications Web (gérer les applications Web)** -> **SharePoint - 80** -> **Paramètres généraux de l’application**. Réglez **État de la Corbeille** sur **OFF**.
+2. Sur le serveur Web frontal, sous **Administration centrale**, modifiez les **Paramètres généraux de l’application Web** pour la base de données de contenu souhaitée afin de désactiver temporairement la Corbeille. Cette action vide également la Corbeille de toutes les collections de sites liées. Pour ce faire, cliquez sur **Administration centrale** -> **Gestion des applications** -> **Applications Web (gérer les applications Web)**  -> **SharePoint - 80** -> **Paramètres généraux de l’application**. Réglez **État de la Corbeille** sur **OFF**.
    
     ![Paramètres généraux de l'application Web](./media/storsimple-sharepoint-adapter-garbage-collection/HCS_WebApplicationGeneralSettings-include.png)
 
@@ -61,5 +61,5 @@ Dans cette procédure, vous allez :
       `exec mssqlrbs.rbs_sp_set_config_value ‘delete_scan_period’ , ’days 30’`
    
       `exec mssqlrbs.rbs_sp_set_config_value ‘orphan_scan_period’ , ’days 30’`
-2. Sur le serveur Web frontal, sous **Administration centrale**, modifiez les **Paramètres généraux de l’application Web** pour la base de données de contenu souhaitée afin d’activer à nouveau la Corbeille. Pour ce faire, cliquez sur **Administration centrale** -> **Gestion des applications** -> **Applications Web (gérer les applications Web)** -> **SharePoint - 80** -> **Paramètres généraux de l’application**. Définissez l’état de la Corbeille sur **ON**.
+2. Sur le serveur Web frontal, sous **Administration centrale**, modifiez les **Paramètres généraux de l’application Web** pour la base de données de contenu souhaitée afin d’activer à nouveau la Corbeille. Pour ce faire, cliquez sur **Administration centrale** -> **Gestion des applications** -> **Applications Web (gérer les applications Web)**  -> **SharePoint - 80** -> **Paramètres généraux de l’application**. Définissez l’état de la Corbeille sur **ON**.
 

@@ -7,12 +7,12 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.openlocfilehash: 3cf17f6e391608af9d17591a81c579a1db779a6a
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792478"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967811"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler les droits d’accès en vue de créer et de gérer des demandes de support
 
@@ -20,7 +20,7 @@ Le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com
 La création de demandes de support dans le portail Azure, [portal.azure.com](https://portal.azure.com), utilise le modèle RBAC d’Azure pour définir qui peut créer et gérer les demandes de support.
 L’accès est octroyé en attribuant le rôle RBAC approprié aux utilisateurs, groupes et applications, dans une étendue donnée, qui peut correspondre à un abonnement, un groupe de ressources ou une ressource.
 
-Prenons un exemple : En tant que propriétaire d’un groupe de ressources avec des autorisations de lecture pour l’abonnement, vous pouvez gérer toutes les ressources sous le groupe de ressources, telles que les sites Web, les machines virtuelles et les sous-réseaux.
+Prenons un exemple : en tant que propriétaire d’un groupe de ressources avec des autorisations de lecture dans l’étendue de l’abonnement, vous pouvez gérer toutes les ressources du groupe de ressources, telles que les sites web, les machines virtuelles et les sous-réseaux.
 Toutefois, lorsque vous essayez de créer une demande de support par rapport à la ressource de machine virtuelle, vous rencontrez l’erreur suivante :
 
 ![Erreur relative à l’abonnement](./media/create-manage-support-requests-using-access-control/subscription-error.png)
@@ -65,7 +65,7 @@ Prenons un exemple : vous êtes le propriétaire de l’abonnement « Abonneme
 Jean, votre collègue, est propriétaire des ressources de certains groupes de ressources dans cet abonnement et dispose des autorisations de lecture sur l’abonnement.
 Vous souhaitez que votre collègue Jean ait la possibilité de créer et de gérer les tickets de support pour les ressources de cet abonnement.
 
-1. La première étape consiste à accéder à l’abonnement, puis, sous « Paramètres », vous verrez la liste des utilisateurs. Cliquez sur l’utilisateur Jean qui a accès en lecture à l’abonnement et affectez-lui un nouveau rôle personnalisé.
+1. La première étape consiste à accéder à l’abonnement. Sous **Paramètres**, vous voyez une liste d’utilisateurs. Sélectionnez l’utilisateur Jean, qui a accès en lecture à l’abonnement. Nous allons attribuer un nouveau rôle personnalisé à Jean.
 
     ![Ajouter un rôle](./media/create-manage-support-requests-using-access-control/add-role.png)
 
@@ -96,15 +96,15 @@ Vous souhaitez que votre collègue Jean ait la possibilité de créer et de gér
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Supprimer l’accès aux demandes de support dans le portail Azure
 
 De la même manière qu’il est possible d’accorder l’accès à un utilisateur pour créer et gérer des demandes de support, il est possible de le supprimer.
-Pour supprimer la possibilité de créer et de gérer les demandes de support, accédez à l’abonnement, cliquez sur « Paramètres », puis sur l’utilisateur (dans ce cas, Jean).
-Cliquez avec le bouton droit sur le nom du rôle, « Collaborateur de demande de support » et cliquez sur « Supprimer ».
+
+Pour supprimer la possibilité de créer et de gérer les demandes de support, accédez à l’abonnement, cliquez sur « Paramètres », puis sur l’utilisateur (dans ce cas, Jean). Cliquez avec le bouton droit sur le nom du rôle, « Collaborateur de demande de support » et cliquez sur « Supprimer ».
 
 ![Supprimer l’accès aux demandes de support](./media/create-manage-support-requests-using-access-control/remove-support-request-access.png)
 
-Lorsque Jean se connecte au portail et tente de créer une demande de support, il rencontre l’erreur suivante :
+Lorsque Jean se connecte au portail et tente de créer une requête de support, il rencontre l’erreur suivante :
 
 ![Erreur relative à l’abonnement-2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 
-Jean ne peut pas voir les demandes de support lorsqu’il clique sur « All support requests » (Toutes les demandes de support).
+Jean ne peut pas voir les demandes de support lorsqu’il clique sur « All support requests » (Toutes les demandes de support)
 
 ![Vue Détails des cas-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)

@@ -9,17 +9,16 @@ editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 576627c96b19dd3563ab21a5d478b779e4a3ed64
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3469c4f11a075ceb958e35e4cfc87a78e60b3882
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730158"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074128"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Système d’exploitation et mise à jour corrective du runtime dans Azure App Service
 
@@ -37,7 +36,7 @@ Pour des raisons de sécurité, certains détails sur les informations de sécur
 
 Azure gère l’application de correctifs au système d’exploitation à deux niveaux : les serveurs physiques et les machines virtuelles invitées qui exécutent les ressources App Service. Ces deux niveaux sont mis à jour tous les mois, conformément à la planification mensuelle [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx). Ces mises à jour sont appliquées automatiquement, d’une façon qui garantit le contrat de niveau de service (SLA) Azure. 
 
-Pour plus d’informations sur la façon dont les mises à jour sont appliquées, consultez [*****Demystifying the magic behind App Service OS updates****](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
+Pour plus d’informations sur la façon dont les mises à jour sont appliquées, consultez [*****Demystifying the magic behind App Service OS updates****](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
 ## <a name="how-does-azure-deal-with-significant-vulnerabilities"></a>Comment Azure traite-t-il les vulnérabilités importantes ?
 

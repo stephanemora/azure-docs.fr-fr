@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ec78e4c260c2ca5e0469f9373f60d8bca29ada7f
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192920"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375711"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -53,7 +53,7 @@ Vous souhaitez peut-être déplacer les machines virtuelles de l’infrastructur
     - Pour les machines virtuelles Windows, installez-y les mises à jour de Windows les plus récentes afin que tous les certificats racines approuvés s’y trouvent. Dans un environnement déconnecté, suivez les processus Windows Update et de mise à jour de certificat standard en vigueur pour votre organisation.
     - Pour les machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les derniers certificats racines approuvés et la dernière liste de révocation de certificats.
 2. N’utilisez pas de proxy d’authentification dans le but de contrôler la connectivité réseau pour les machines virtuelles que vous voulez déplacer.
-3. Si une des machines virtuelles que vous voulez déplacer n’a pas d’accès à Internet et si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, [vérifiez la configuration requise](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+3. Si une des machines virtuelles que vous voulez déplacer n’a pas d’accès à Internet et si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, [vérifiez la configuration requise](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 4. Documentez la topologie du réseau source et toutes les ressources que vous utilisez actuellement pour votre vérification, notamment mais sans s’y limiter, les équilibreurs de charge, les groupes de sécurité réseau et l’adresse IP publique.
 
 ## <a name="prepare-the-target-region"></a>Préparer la région cible
@@ -67,8 +67,8 @@ Vous souhaitez peut-être déplacer les machines virtuelles de l’infrastructur
    Azure Site Recovery détecte et crée automatiquement un réseau virtuel et un compte de stockage quand vous activez la réplication pour la machine virtuelle source. Vous pouvez également créer au préalable ces ressources et les affecter à la machine virtuelle dans le cadre de l’étape d’activation de la réplication. Mais vous devez créer manuellement toutes les autres ressources dans la région cible. Consultez la documentation suivante pour créer les ressources réseau courantes dont vous avez besoin, en fonction de la configuration de votre machine virtuelle source :
 
    - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [Adresse IP publique](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer)
+   - [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
     
    Pour tous les autres composants réseau, consultez la [documentation Azure sur la mise en réseau](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
 
@@ -84,7 +84,7 @@ Les étapes ci-dessous copient les données vers la région cible à l’aide d�
 3. Dans **Nom**, indiquez le nom convivial **ContosoVMVault**. Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié.
 4. Créez un groupe de ressources **ContosoRG**.
 5. Spécifiez une région Azure. Pour vérifier les régions prises en charge, consultez [Informations détaillées sur la tarification d’Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. Dans Coffres Recovery Services, sélectionnez **Vue d’ensemble** > **ConsotoVMVault** > **+Répliquer**.
+6. Dans Coffres Recovery Services, sélectionnez **Vue d’ensemble** > **ConsotoVMVault** >  **+Répliquer**.
 7. Dans **Source**, sélectionnez **Azure**.
 8. Dans **Emplacement source**, sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
 9. Sélectionnez le modèle de déploiement Azure Resource Manager. Sélectionnez ensuite **Abonnement source** et **Groupe de ressources source**.

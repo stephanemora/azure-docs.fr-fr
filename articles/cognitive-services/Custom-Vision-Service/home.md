@@ -1,6 +1,6 @@
 ---
 title: Qu’est-ce que le service Vision personnalisée d’Azure ?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser le service Vision personnalisée pour créer des classifieurs d’images personnalisés dans le cloud Azure.
 services: cognitive-services
 author: PatrickFarley
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350468"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560962"
 ---
 # <a name="what-is-azure-custom-vision"></a>Qu’est-ce que le service Vision personnalisée d’Azure ?
 
@@ -31,9 +31,9 @@ Les fonctionnalités du service Vision personnalisée peuvent être divisées en
 
 ### <a name="optimization"></a>Optimisation
 
-Le service Custom Vision est optimisé pour reconnaître rapidement les principales différences entre les images. Vous pouvez ainsi démarrer le prototypage de votre modèle avec une petite quantité de données. Il est généralement conseillé de commencer avec 50 images par étiquette. Toutefois, cela signifie que le service n’est pas optimal pour la détection des différences subtiles dans les images (par exemple, la détection de petites fissures ou de petits trous dans des scénarios d’assurance qualité).
+Le service Custom Vision est optimisé pour reconnaître rapidement les principales différences entre les images. Vous pouvez ainsi commencer à prototyper votre modèle avec une petite quantité de données. Il est généralement conseillé de commencer avec 50 images par étiquette. Toutefois, le service n’est pas optimal pour la détection de différences subtiles au sein des images (par exemple, la détection de petites fissures ou de petits trous dans des scénarios d’assurance qualité).
 
-En outre, vous pouvez choisir parmi plusieurs types d’algorithme de Custom Vision qui sont optimisés pour certains sujets (par exemple, des points de repère ou des articles vendus au détail). Pour plus d’informations, consultez le document [Créer un classifieur](getting-started-build-a-classifier.md).
+En outre, vous pouvez choisir parmi plusieurs types d’algorithme de Custom Vision qui sont optimisés pour certains sujets (par exemple, des points de repère ou des articles vendus au détail). Pour plus d’informations, consultez le guide [Créer un classifieur](getting-started-build-a-classifier.md).
 
 ## <a name="what-it-includes"></a>Contenu
 

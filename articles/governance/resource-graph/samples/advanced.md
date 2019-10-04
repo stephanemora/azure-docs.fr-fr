@@ -1,19 +1,18 @@
 ---
 title: Exemples de requêtes avancées
-description: Utilisez Azure Resource Graph pour exécuter certaines requêtes avancées, notamment la fonctionnalité VMSS, en listant toutes les étiquettes utilisées et en mettant en correspondance les machines virtuelles avec des expressions régulières.
+description: Utilisez Azure Resource Graph afin d’exécuter certaines requêtes avancées, notamment pour gérer la fonctionnalité de groupe de machines virtuelles identiques, lister toutes les étiquettes employées et faire correspondre des machines virtuelles à des expressions régulières.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 33c67f77a26e2a4fc97d7f5483aad53c121e117b
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256819"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70239019"
 ---
 # <a name="advanced-resource-graph-queries"></a>Requêtes Resource Graph avancées
 
@@ -22,13 +21,12 @@ Pour comprendre comment fonctionnent les requêtes dans Azure Resource Graph, vo
 Nous allons vous guider tout au long des requêtes avancées suivantes :
 
 > [!div class="checklist"]
-> - [Obtenir la taille et la capacité VMSS](#vmss-capacity)
+> - [Obtenir une capacité et une taille de groupe de machines virtuelles identiques](#vmss-capacity)
 > - [Lister tous les noms d’étiquette](#list-all-tags)
 > - [Machines virtuelles mises en correspondance par expression régulière](#vm-regex)
+> - [Inclure les noms de locataire et d’abonnement avec DisplayNames](#displaynames)
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="language-support"></a>Support multilingue
 
@@ -38,7 +36,7 @@ Azure CLI (par le biais d’une extension) et Azure PowerShell (par le biais d�
 
 Cette requête recherche des ressources de groupe de machines virtuelles identiques et obtient divers détails, notamment la taille de machine virtuelle et la capacité du groupe identique. Cette requête utilise la fonction `toint()` pour effectuer un cast de la capacité sur un nombre afin de pouvoir la trier. Enfin, les colonnes sont renommées dans les propriétés nommées personnalisées.
 
-```Query
+```kusto
 where type=~ 'microsoft.compute/virtualmachinescalesets'
 | where name contains 'contoso'
 | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name
@@ -57,7 +55,7 @@ Search-AzGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' 
 
 Cette requête commence par l’étiquette et génère un objet JSON listant tous les noms d’étiquette uniques et leurs types correspondants.
 
-```Query
+```kusto
 project tags
 | summarize buildschema(tags)
 ```
@@ -72,8 +70,8 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 ## <a name="vm-regex"></a>Machines virtuelles mises en correspondance par expression régulière
 
-Cette requête recherche les machines virtuelles qui correspondent à une [expression régulière](/dotnet/standard/base-types/regular-expression-language-quick-reference) (connue sous le nom _regex_).
-La valeur **correspond à regex \@** nous permet de définir l’expression régulière de correspondance, c’est-à-dire `^Contoso(.*)[0-9]+$`. Cette définition d’expression régulière est expliquée comme suit :
+Cette requête recherche les machines virtuelles qui correspondent à une [expression régulière](/dotnet/standard/base-types/regular-expression-language-quick-reference) (connue sous le nom _regex_). La valeur **correspond à regex \@** nous permet de définir l’expression régulière de correspondance, c’est-à-dire `^Contoso(.*)[0-9]+$`.
+Cette définition d’expression régulière est expliquée comme suit :
 
 - `^` : doit correspondance au début au commencement de la chaîne.
 - `Contoso` : chaîne sensible à la casse.
@@ -86,7 +84,7 @@ La valeur **correspond à regex \@** nous permet de définir l’expression rég
 
 Après la mise en correspondance par nom, la requête projette le nom et effectue le tri par nom croissant.
 
-```Query
+```kusto
 where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$'
 | project name
 | order by name asc
@@ -99,6 +97,22 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 ```azurepowershell-interactive
 Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
+
+## <a name="displaynames"></a>Inclure les noms de locataire et d’abonnement avec DisplayNames
+
+Cette requête utilise le nouveau paramètre **Include** avec l’option _DisplayNames_ pour ajouter **subscriptionDisplayName** et **tenantDisplayName** aux résultats. Ce paramètre est disponible uniquement pour Azure CLI et Azure PowerShell.
+
+```azurecli-interactive
+az graph query -q "limit 1" --include displayNames
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "limit 1" -Include DisplayNames
+```
+
+> [!NOTE]
+> Si la requête n’utilise pas **project** pour spécifier les propriétés retournées, **subscriptionDisplayName** et **tenantDisplayName** sont automatiquement inclus dans les résultats.
+> Si la requête utilise **project**, chacun des champs _DisplayName_ doit être explicitement inclus dans **project**. Sinon, ils ne seront pas retournés dans les résultats, même si le paramètre **Include** est utilisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/01/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: cccba0593c81be98231ec41fcad6f26e78fed223
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: b0b3825e5afe31f16553a5c7cacbe8cb1fb40295
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "30325427"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050197"
 ---
 >[!NOTE]
 >Certaines des fonctionnalités mentionnées dans cet article, comme la messagerie cloud-à-appareil, les jumeaux d’appareil et la gestion des appareils, sont disponibles uniquement dans le niveau Standard d’IoT Hub. Pour plus d’informations sur les niveaux De base et Standard d’IoT Hub, consultez la page [expliquant comment choisir le bon niveau IoT Hub](../articles/iot-hub/iot-hub-scaling.md).

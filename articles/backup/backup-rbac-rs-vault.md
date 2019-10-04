@@ -1,29 +1,29 @@
 ---
 title: Gérer des sauvegardes avec le contrôle d’accès en fonction du rôle
 description: Le contrôle d’accès en fonction du rôle permet de gérer l’accès aux opérations de gestion de sauvegarde dans le coffre Recovery Services.
-services: backup
-author: trinadhk
-manager: vijayts
+ms.reviewer: utraghuv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: trinadhk
-ms.openlocfilehash: ed3797183e13a00d2c5381fa6449c111c3bc9ab9
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.date: 06/24/2019
+ms.author: dacurwin
+ms.openlocfilehash: d0d2663fcf7be9662325b24f9f063a8f3def668a
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682523"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688520"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure
 Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. Avec le contrôle d’accès en fonction du rôle, vous pouvez séparer les tâches au sein de votre équipe et accorder aux utilisateurs uniquement les accès nécessaires pour accomplir leur travail.
 
 > [!IMPORTANT]
-> Les rôles fournis par Azure Backup sont limités à des actions qui peuvent être effectuées dans le portail Azure ou via l’API REST ou les applets de commande PowerShell ou CLI du coffre Recovery Services. Les actions effectuées dans l’interface cliente de l’agent Azure Backup, l’interface System Center Data Protection Manager ou l’interface de serveur de sauvegarde Azure ne sont pas contrôlées par ces rôles.
+> Les rôles fournis par Azure Backup sont limités à des actions qui peuvent être effectuées dans le portail Azure ou via l’API REST, le coffre Recovery Services Powershell, ou les cmdlets d’interface de ligne de commande. Les actions effectuées dans l’interface cliente de l’agent Azure Backup, l’interface System Center Data Protection Manager ou l’interface de serveur de sauvegarde Azure ne sont pas contrôlées par ces rôles.
 
-Sauvegarde Azure fournit trois rôles intégrés pour contrôler les opérations de gestion des sauvegardes. En savoir plus sur les [rôles intégrés Azure RBAC](../role-based-access-control/built-in-roles.md)
+Azure Backup fournit 3 rôles intégrés pour contrôler les opérations de gestion des sauvegardes. En savoir plus sur les [rôles intégrés Azure RBAC](../role-based-access-control/built-in-roles.md)
 
-* [Contributeur de sauvegarde](../role-based-access-control/built-in-roles.md#backup-contributor) : ce rôle dispose de toutes les autorisations pour créer et gérer des sauvegardes, à l’exception de la création du coffre Recovery Services et de l’octroi d’un accès à d’autres personnes. Imaginez ce rôle comme un administrateur de gestion des sauvegardes qui peut exécuter chaque opération de gestion des sauvegardes.
+* [Contributeur de sauvegarde](../role-based-access-control/built-in-roles.md#backup-contributor) : ce rôle dispose de toutes les autorisations pour créer et gérer des sauvegardes, à l’exception de la suppression du coffre Recovery Services et de l’octroi d’un accès à d’autres personnes. Imaginez ce rôle comme un administrateur de gestion des sauvegardes qui peut exécuter chaque opération de gestion des sauvegardes.
 * [Opérateur de sauvegarde](../role-based-access-control/built-in-roles.md#backup-operator) : ce rôle dispose des autorisations généralement accordées à un contributeur à l’exception de la suppression de sauvegardes et de la gestion des stratégies de sauvegarde. Ce rôle est équivalent au contributeur, mais il ne peut pas effectuer d’opérations destructrices telles que l’arrêt de la sauvegarde avec suppression des données ou la suppression de l’enregistrement de ressources locales.
 * [Lecteur de sauvegarde](../role-based-access-control/built-in-roles.md#backup-reader) : ce rôle dispose des autorisations pour afficher toutes les opérations de gestion des sauvegardes. Imaginez ce rôle comme un responsable de surveillance.
 
@@ -36,7 +36,7 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 
 | Opération de gestion | Rôle RBAC minimum nécessaire | Étendue requise |
 | --- | --- | --- |
-| Créer un coffre Recovery Services | Contributeur | Groupe de ressources contenant le coffre |
+| Créer un coffre Recovery Services | Contributeur de sauvegarde | Groupe de ressources contenant le coffre |
 | Activer la sauvegarde des machines virtuelles Azure | Opérateur de sauvegarde | Groupe de ressources contenant le coffre |
 | | Contributeur de machine virtuelle | Ressource de machine virtuelle |
 | Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde | Ressource du coffre |
@@ -62,27 +62,27 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 > [!IMPORTANT]
 > Si vous spécifiez VM Contributor dans le cadre d’une ressource de machine virtuelle et cliquez sur Backup dans les paramètres de la machine virtuelle, l’écran 'Enable Backup' (Activer la sauvegarde) s’ouvre même si la VM est déjà sauvegardée car l’appel de vérification de l’état de la sauvegarde fonctionne uniquement au niveau abonnement. Pour éviter cela, allez dans le coffre-fort et ouvrez l’affichage des éléments de sauvegarde de la machine virtuelle ou spécifiez le rôle VM Contributor au niveau de l’abonnement.
 
-## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Rôles minimal requis pour la sauvegarde de partage de fichiers Azure
-Le tableau suivant répertorie les actions de gestion de sauvegarde et le rôle correspondant requis pour effectuer l’opération de partage de fichiers Azure.
+## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Exigences de rôle minimum pour la sauvegarde de partage de fichiers Azure
+Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôle nécessaire correspondant pour effectuer cette opération de partage Azure File.
 
-| Opération de gestion | Rôle nécessaire | Ressources |
+| Opération de gestion | Rôle requis | Ressources |
 | --- | --- | --- |
-| Activer la sauvegarde de partages de fichiers Azure | Contributeur de sauvegarde | Coffre Recovery Services |
+| Activer la sauvegarde d’un partage de fichiers Azure | Contributeur de sauvegarde | Coffre Recovery Services |
 | | Compte de stockage | Ressource de compte de stockage de contributeur |
 | Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde | Coffre Recovery Services |
 | Restaurer le partage de fichiers | Opérateur de sauvegarde | Coffre Recovery Services |
-| | Contributeur de compte de stockage | Ressources de compte de stockage où la source de restauration et de partages de fichiers cible sont présents |
+| | Contributeur de compte de stockage | Ressources du compte de stockage où les partages de fichiers source et cible de restauration sont présents |
 | Restaurer des fichiers individuels | Opérateur de sauvegarde | Coffre Recovery Services |
-| | Contributeur de compte de stockage |   Ressources de compte de stockage où la source de restauration et de partages de fichiers cible sont présents |
+| | Contributeur de compte de stockage |   Ressources du compte de stockage où les partages de fichiers source et cible de restauration sont présents |
 | Arrêter la protection | Contributeur de sauvegarde | Coffre Recovery Services |      
-| Annuler l’inscription de compte de stockage à partir du coffre |   Contributeur de sauvegarde | Coffre Recovery Services |
+| Annuler l’inscription d’un compte de stockage au coffre |   Contributeur de sauvegarde | Coffre Recovery Services |
 | | Contributeur de compte de stockage | Ressource du compte de stockage|
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md): Découvrez comment bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure.
+* [Contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) : Découvrez comment bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure.
 * Découvrez comment gérer l’accès avec :
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-  * [Interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md)
+  * [interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md)
   * [API REST](../role-based-access-control/role-assignments-rest.md)
 * [Résolution des problèmes de contrôle d’accès en fonction du rôle](../role-based-access-control/troubleshooting.md) : obtenez des suggestions pour résoudre les problèmes courants.

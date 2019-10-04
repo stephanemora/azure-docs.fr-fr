@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 20c916275acd6bb79675c592711b17b277c9fc78
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294091"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60605185"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Copie répétable dans Azure Data Factory
 
@@ -151,6 +151,6 @@ Comme pour le mécanisme 1, l’activité de copie nettoie automatiquement les 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour accéder à des exemples JSON complets, consultez les articles suivants sur les connecteurs : 
 
-- [Base de données SQL Azure](data-factory-azure-sql-connector.md)
+- [Azure SQL Database](data-factory-azure-sql-connector.md)
 - [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

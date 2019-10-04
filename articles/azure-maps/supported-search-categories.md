@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64727146"
 ---
 # <a name="azure-maps-supported-categories"></a>Catégories prises en charge dans Azure Maps
 
@@ -45,7 +45,7 @@ Lorsque vous effectuez une [recherche par catégorie ](https://docs.microsoft.co
 | COLLEGE\_UNIVERSITY | collège pré-universitaire/centre de formation professionnelle, faculté/université, établissement universitaire,établissement pré-universitaire, grande école |
 | COMMERCIAL\_BUILDING | immeuble de bureaux, siège du parc, bâtiment commercial |
 | COMMUNITY\_CENTER | centre communautaire |
-| COMPANY | Electronics, fabrication, l’ordinateur des services de données, les technologies de santé publique, Finance-divers, abri animal, compagnie aérienne, location de matériel, service, remise de courrier/package/transport, lignes de bus, réparation appliance domestique, services, oem, de nettoyage de taxe Services, d’huile gaz naturel, services juridiques, construction, télécommunications, transport, construction automobile, produits chimiques, morgues de service enterrement, opérations de tunnel de pont, automobile, ingénierie mécanique, services, conseillers d’investissement, publicité/marketing, déplacement de stockage, établissement des économies, d’assurance, logiciels, produits pharmaceutiques, restauration, les services de mariage, technologie agricole, immobilier, taxi, service de navette limousines, bus Locations charte, d’exploration de données, la publication technologies, téléphone de câble, importation/exportation de distribution, entreprise, asile, charbon mine(s), estate(s), brewery, gold mine(s) |
+| COMPANY | électronique, fabrication, services de données informatiques, technologies de santé publique, services financiers divers, refuge pour animaux, compagnie aérienne, location d’équipement, service, courrier/colisage/fret, lignes d’autobus, réparation d’appareils électroménagers, services de nettoyage, services fiscaux, gaz naturel , services juridiques, construction, télécommunications, transports, construction automobile, produits chimiques, services funéraires et morgues, opérations de tunnel de pont, automobile, génie mécanique, services, conseillers en investissement, publicité/marketing, déménagement, épargne, assurance, logiciels, produits pharmaceutiques , restauration, mariage, technologie agricole, immobilier, taxi, service de limousine, location de bus, mines, technologies de l’édition, téléphonie par câble, distribution import/export, entreprise, asile, mines de charbon, immobilier, brasserie, mines d’or |
 | COURTHOUSE | palais de justice |
 | CULTURAL\_CENTER | centre culturel |
 | DENTIST | dentiste |
@@ -105,7 +105,7 @@ Lorsque vous effectuez une [recherche par catégorie ](https://docs.microsoft.co
 | REPAIR\_FACILITY | carrosseries, services de pneus, ateliers de réparation, ateliers de remplacement de pare-brise,maintenance et réparation automobile générale, vente et installation d’accessoires de voiture, réparation de deux roues, service de réparation de camions, atelier de réparation |
 | RESEARCH\_FACILITY | centre de recherche |
 | RESIDENTIAL\_ACCOMMODATION | communauté de retraités,maisons mitoyennes, appartements/immeuble d’habitation, habitation en copropriété, immobilier résidentiel, hébergement résidentiel |
-| RESTAURANT | allemand, créole-cajun, néerlandais, salles de banquet, bistrot, israélien, slovaque, jamaïcain, végétarien, fruits de mer, vietnamien, maltais, sichuanais, gallois, chinois, japonais, algérien, californien, fusion, Shandong, bar à salade, savoyard, espagnol , éthiopien, taïwanais, beignets, iranien, canadien, américain, norvégien, français, hunan, polynésien, afghan, itinérant, oriental, suisse, érotique, crêperie, surinamais, égyptien, hongrois, népalais, barbecue, fondue, hamburgers, méditerranéen, latino-américain, tapas, britannique, mexicain, Guangdong, asiatique (autre), buffet, sushi, mongol, international, moules, thaïlandais, vénézuélien, roumain, poulet, soupe, cacher, steak house, yogourt / bar à jus, italien, coréen, chypriote, bosnien, bolivien, dominicain, belge, tunisien, écossais, anglais, pakistanais, tchèque, hawaïen, maghreb, tibétain, arabe, moyen-orient, chilien, shanghaï, polonais, philippin, soudanais, arménien, birman, brésilien, scandinave, bulgare, restaurant afro-américain, colombien, juif, pizza, sicilien, bio, grec, basque, uruguayen, cafétérias, finlandais, africain, corse, syrien, caraïbes, dongbei, russe, gril, plats à emporter, restauration rapide, australien, irlandais, brasserie, fondue, libanais, indonésien, danois, provençal, teppanyaki, indien, mauricien , occidental continental, péruvien, cambodgien, snacks, suédois, macrobiotique, glacier, slave, turc, argentin, autrichien, exotique, portugais, luxembourgeois, marocain, sandwich, cubain, restaurant |
+| RESTAURANT | allemand, créole-cajun, néerlandais, salles de banquet, bistrot, israélien, slovaque, jamaïcain, végétarien, fruits de mer, vietnamien, maltais, sichuanais, gallois, chinois, japonais, algérien, californien, fusion, Shandong, bar à salade, savoyard, espagnol , éthiopien, taïwanais, beignets, iranien, canadien, américain, norvégien, français, hunan, polynésien, afghan, itinérant, asiatique, suisse, érotique, crêperie, surinamais, égyptien, hongrois, népalais, barbecue, fondue, hamburgers, méditerranéen, latino-américain, tapas, britannique, mexicain, Guangdong, asiatique (autre), buffet, sushi, mongol, international, moules, thaïlandais, vénézuélien, roumain, poulet, soupe, cacher, steak house, yogourt / bar à jus, italien, coréen, chypriote, bosnien, bolivien, dominicain, belge, tunisien, écossais, anglais, pakistanais, tchèque, hawaïen, maghreb, tibétain, arabe, moyen-orient, chilien, shanghaï, polonais, philippin, soudanais, arménien, birman, brésilien, scandinave, bulgare, restaurant afro-américain, colombien, juif, pizza, sicilien, bio, grec, basque, uruguayen, cafétérias, finlandais, africain, corse, syrien, caraïbes, dongbei, russe, gril, plats à emporter, restauration rapide, australien, irlandais, brasserie, fondue, libanais, indonésien, danois, provençal, teppanyaki, indien, mauricien , occidental continental, péruvien, cambodgien, snacks, suédois, macrobiotique, glacier, slave, turc, argentin, autrichien, exotique, portugais, luxembourgeois, marocain, sandwich, cubain, restaurant |
 | RESTAURANT\_AREA | espace restauration |
 | REST\_AREA | zone de repos, étape de charme |
 | SCENIC\_PANORAMIC\_VIEW | vue scénique/panoramique, point d’observation |

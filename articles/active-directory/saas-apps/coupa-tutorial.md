@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Coupa | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Coupa | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Coupa.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f7b4db749d1191179b3f4f1d9bb13d77925697f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834793"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104546"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutoriel : Intégration d’Azure Active Directory à Coupa
+# <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Didacticiel : Intégration d’Azure Active Directory à Coupa
 
 Dans ce didacticiel, vous allez apprendre à intégrer Coupa à Azure Active Directory (Azure AD).
 L’intégration de Coupa dans Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l'intégration de Coupa avec Azure AD, vous devez ajouter Coupa 
 
 **Pour ajouter Coupa à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -114,16 +114,16 @@ Pour configurer l’authentification unique Azure AD avec Coupa, effectuez les �
 
     | Environnement  | URL |
     |:-------------|----|
-    | Bac à sable | `devsso35.coupahost.com`|
-    | Production | `prdsso40.coupahost.com`|
+    | Bac à sable | `sso-stg1.coupahost.com`|
+    | Production | `sso-prd1.coupahost.com`|
     | | |
 
     c. Dans la zone de texte **URL de réponse**, tapez l’URL :
 
     | Environnement | URL |
     |------------- |----|
-    | Bac à sable | `https://devsso35.coupahost.com/sp/ACS.saml2`|
-    | Production | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | Bac à sable | `https://sso-stg1.coupahost.com/sp/ACS.saml2`|
+    | Production | `https://sso-prd1.coupahost.com/sp/ACS.saml2`|
     | | |
 
 4. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
@@ -176,7 +176,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

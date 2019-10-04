@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fdf88ed6cedaa38676a56536ff1eda7ee6bca66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a229eef3d49964e71becf066d67f60b18da6fc18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204795"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113239"
 ---
-# <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutoriel : Déploiement du pilote Azure Multi-Factor Authentication
+# <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Didacticiel : Déploiement du pilote Azure Multi-Factor Authentication
 
 Dans ce didacticiel, vous configurez une stratégie d’accès conditionnel activant Azure Multi-Factor Authentication (Azure MFA) lors de la connexion au portail Azure. La stratégie est déployée et testée sur un groupe spécifique d’utilisateurs pilotes. Le déploiement d’Azure MFA à l’aide de l’accès conditionnel offre une grande flexibilité pour les organisations et les administrateurs par rapport à la méthode traditionnellement appliquée.
 
@@ -58,7 +58,7 @@ Dans ce didacticiel, vous configurez une stratégie d’accès conditionnel acti
 
 Pour confirmer que votre stratégie d’accès conditionnel fonctionne, testez la connexion à une ressource qui ne nécessite pas l’authentification multifacteur, puis la connexion au portail Azure qui exige l’authentification multifacteur.
 
-1. Ouvrez une nouvelle fenêtre de navigateur dans InPrivate ou en mode privé, et accédez à [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
+1. Ouvrez une nouvelle fenêtre de navigateur dans InPrivate ou en mode de navigation privée, et accédez à [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
    * Connectez-vous avec l’utilisateur test créé dans le cadre de la section de conditions préalables de cet article et notez qu’il ne devrait pas vous demander d’effectuer l’authentification multifacteur.
    * Fermez la fenêtre du navigateur.
 2. Ouvrez une nouvelle fenêtre de navigateur dans InPrivate ou en mode privé, et accédez à [https://portal.azure.com](https://portal.azure.com).

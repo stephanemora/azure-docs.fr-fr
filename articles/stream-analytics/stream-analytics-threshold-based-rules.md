@@ -10,16 +10,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731189"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60761724"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Traiter des règles configurables basées sur un seuil dans Azure Stream Analytics
 Cet article explique comment utiliser des données de référence pour obtenir une solution d’alerte utilisant des règles configurables basées sur un seuil dans Azure Stream Analytics.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scénario : Génération d’alertes en fonction des seuils de règle réglable
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scénario : génération d’alertes basées sur des seuils réglables
 Vous devrez peut-être générer une alerte lorsque des événements entrants en flux continu atteignent une certaine valeur, ou lorsqu’une valeur agrégée basée sur les événements entrants en flux continu dépasse un certain seuil. Vous pouvez facilement définir une requête Stream Analytics qui compare une valeur à un seuil statique fixe et prédéterminé. Un seuil fixe peut être codé en dur dans la syntaxe de requête de diffusion en continu en utilisant de simples comparaisons numériques (supérieur à, inférieur à et égal à).
 
 Dans certains cas, les valeurs de seuil doivent être plus facilement configurables, sans avoir à modifier la syntaxe de la requête chaque fois qu’une valeur de seuil est modifiée. Dans d’autres cas, vous devrez peut-être traiter un grand nombre d’appareils ou d’utilisateurs avec la même requête, en utilisant à chaque fois des valeurs de seuil différentes sur chaque type d’appareil. 

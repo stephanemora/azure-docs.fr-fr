@@ -8,21 +8,22 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c025cdeb-786c-4aab-abd1-132907007f7e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49c5194f75ad973514a3ec015ef29c1d6f48330a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5fc1f6434bea8f75c7bcc7859c6f90d7abdd031b
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838185"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091036"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workable"></a>Tutoriel : intégration d’Azure Active Directory à Workable
+# <a name="tutorial-azure-active-directory-integration-with-workable"></a>Didacticiel : intégration d’Azure Active Directory à Workable
 
 Dans ce didacticiel, découvrez comment intégrer Workable à Azure Active Directory (Azure AD).
 L’intégration de Workable dans Azure AD vous offre les avantages suivants :
@@ -54,7 +55,7 @@ Pour configurer l’intégration de Workable à Azure AD, vous devez ajouter Wo
 
 **Pour ajouter Workable à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -68,7 +69,7 @@ Pour configurer l’intégration de Workable à Azure AD, vous devez ajouter Wo
 
 4. Dans la zone de recherche, tapez **Workable**, sélectionnez **Workable** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![Workable dans la liste des résultats](common/search-new-app.png)
+    ![Workable dans la liste des résultats](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -80,8 +81,8 @@ Pour configurer et tester l’authentification unique Azure AD avec Workable, v
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
 2. **[Configurer l’authentification unique Workable](#configure-workable-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
 3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Créer un utilisateur de test Workable](#create-workable-test-user)** pour avoir un équivalent de Britta Simon dans Workable lié à la représentation Azure AD associée.
-5. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test Workable](#create-workable-test-user)** pour avoir un équivalent de Britta Simon dans Workable lié à la représentation Azure AD associée.
 6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -141,7 +142,7 @@ Pour activer l’authentification unique dans Workable, contactez votre responsa
 
 3. URL de déconnexion
 
-Une fois l’authentification unique activée, votre responsable de compte Workable vous contactera et vous pourrez utiliser la [page d’authentification unique de Workable](https://www.workable.com/sso/signin) pour vous connecter à l’aide de votre sous-domaine de compte Workable.
+Une fois l’authentification unique activée, votre responsable de compte Workable vous contactera et vous pourrez utiliser la [page d’authentification unique de Workable](https://help.workable.com/hc/en-us/articles/360000067753-Single-Sign-on-SSO-Overview-Pro) pour vous connecter à l’aide de votre sous-domaine de compte Workable.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -161,8 +162,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon\@yourcompanydomain.extension`. Par exemple : BrittaSimon@contoso.com.
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 

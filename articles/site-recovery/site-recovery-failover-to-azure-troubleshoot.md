@@ -10,11 +10,11 @@ ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
 ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61280624"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle VMware ou d'une machine physique vers Azure
 
@@ -110,25 +110,25 @@ Si le bouton **Se connecter** de la machine virtuelle basculée dans Azure est d
 
 Lors du démarrage d’un machine virtuelle Windows après le basculement, si un message d’arrêt inattendu s’affiche sur la machine virtuelle récupérée, cela indique qu’un état d’arrêt de la machine virtuelle n’a pas été capturé dans le point de récupération utilisé pour le basculement. Cela se produit lorsque vous récupérez à un point où la machine virtuelle n'avait pas été complètement arrêtée.
 
-Il ne s’agit normalement pas d’une source de préoccupation et cela peut généralement être ignoré pour les basculements non planifiés. Si le basculement est planifié, assurez-vous que la machine virtuelle est correctement s’est arrêté avant le basculement et laisser un délai suffisant pour en attente de réplication données en local à envoyer à Azure. Utilisez ensuite l’option **Plus récent** sur l’[écran de basculement](site-recovery-failover.md#run-a-failover) pour que toutes les données en attente sur Azure soient traitées en un point de récupération, qui est ensuite utilisé pour le basculement de la machine virtuelle.
+Il ne s’agit normalement pas d’une source de préoccupation et cela peut généralement être ignoré pour les basculements non planifiés. Si le basculement est planifié, assurez-vous que la machine virtuelle a été correctement arrêtée avant le basculement et patientez suffisamment pour que les données de réplication locales en attente soient envoyées à Azure. Utilisez ensuite l’option **Plus récent** sur l’[écran de basculement](site-recovery-failover.md#run-a-failover) pour que toutes les données en attente sur Azure soient traitées en un point de récupération, qui est ensuite utilisé pour le basculement de la machine virtuelle.
 
 ## <a name="unable-to-select-the-datastore"></a>Impossible de sélectionner la banque de données
 
-Ce problème est indiqué lorsque vous ne pouvez pas voir le portail de la banque de données dans Azure lorsque vous tentez de reprotéger la machine virtuelle qui a subi un basculement. Il s’agit, car le maître cible n’est pas reconnue comme une machine virtuelle sous vCenter ajoutés à Azure Site Recovery.
+Ce problème est indiqué quand vous ne voyez pas la banque de données dans le portail Azure alors que vous essayez de reprotéger la machine virtuelle qui a fait l’objet d’un basculement. Il est dû au fait que la cible maître n’est pas reconnue en tant que machine virtuelle sous les vCenters ajoutés à Azure Site Recovery.
 
-Pour plus d’informations sur la reprotéger une machine virtuelle, consultez [Reprotéger et effectuer automatiquement des machines vers un site local après le basculement vers Azure](vmware-azure-reprotect.md).
+Pour plus d’informations sur la reprotection d’une machine virtuelle, consultez [Reprotéger et effectuer une reprise automatique des machines vers un site local après le basculement vers Azure](vmware-azure-reprotect.md).
 
 Pour résoudre le problème :
 
-Créer manuellement le maître cible dans le serveur vCenter qui gère votre machine source. La banque de données seront disponible après les prochaine vCenter découverte et l’actualisation des opérations de structure.
+Créez manuellement la cible maître dans le vCenter qui gère votre machine source. La banque de données est disponible à l’issue des prochaines opérations de découverte et d’actualisation vCenter.
 
 > [!Note]
 > 
-> Les opérations de fabric de détection et d’actualisation peuvent prendre jusqu'à 30 minutes. 
+> Les opérations de structure fabric de découverte et d’actualisation peuvent prendre jusqu’à 30 minutes. 
 
-## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>L’inscription du serveur cible maître Linux avec CS échoue avec une erreur SSL 35 
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>L’inscription de la cible maître Linux auprès de CS échoue avec une erreur SSL 35 
 
-L’inscription du serveur cible maître de récupération de Site Azure avec le serveur de configuration échoue en raison du Proxy authentifié en cours d’activation sur le serveur cible maître. 
+L’inscription de la cible maître Azure Site Recovery auprès du serveur de configuration échoue en raison de l’activation du proxy authentifié sur la cible maître. 
  
 Cette erreur est indiquée par les chaînes suivantes dans le journal d’installation : 
 
@@ -138,23 +138,23 @@ RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] Cu
 
 Pour résoudre le problème :
  
-1. Sur la machine virtuelle du serveur de configuration, ouvrez une invite de commandes et vérifiez les paramètres de proxy à l’aide des commandes suivantes :
+1. Sur la machine virtuelle du serveur de configuration, ouvrez une invite de commandes pour vérifier les paramètres de proxy à l’aide des commandes suivantes :
 
-    CAT /etc/environment echo $http_proxy echo $https_proxy 
+    cat /etc/environment  echo $http_proxy  echo $https_proxy 
 
-2. Si la sortie des commandes précédentes indique que le http_proxy ou https_proxy paramètres sont définis, utilisez une des méthodes suivantes pour débloquer les communications de serveur cible maître avec le serveur de configuration :
+2. Si la sortie des commandes précédentes indique que des paramètres http_proxy ou https_proxy sont définis, utilisez une des méthodes suivantes pour débloquer les communications de la cible maître avec le serveur de configuration :
    
-   - Téléchargez le [outil PsExec](https://aka.ms/PsExec).
-   - Utilisez l’outil pour accéder au contexte d’utilisateur système et déterminer si l’adresse proxy est configuré. 
-   - Si le proxy est configuré, ouvrez Internet Explorer dans un contexte utilisateur du système à l’aide de l’outil PsExec.
+   - Téléchargez l’[outil PsExec](https://aka.ms/PsExec).
+   - Utilisez l’outil pour accéder au contexte d’utilisateur système et déterminez si l’adresse du proxy est configurée. 
+   - Si le proxy est configuré, ouvrez Internet Explorer dans un contexte d’utilisateur système à l’aide de l’outil PsExec.
   
      **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
 
-   - Pour vous assurer que le serveur cible maître peut communiquer avec le serveur de configuration :
+   - Pour vérifier que le serveur cible maître peut communiquer avec le serveur de configuration :
   
-     - Modifiez les paramètres de proxy dans Internet Explorer pour contourner l’adresse IP cible maître via le proxy.   
+     - Modifiez les paramètres du proxy dans Internet Explorer pour contourner l’adresse IP du serveur cible maître par le biais du proxy.   
      Ou
-     - Désactiver le proxy sur le serveur cible maître. 
+     - Désactivez le proxy sur le serveur cible maître. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

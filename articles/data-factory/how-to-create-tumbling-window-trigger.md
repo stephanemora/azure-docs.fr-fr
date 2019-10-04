@@ -3,21 +3,20 @@ title: Créer des déclencheurs de fenêtre bascule dans Azure Data Factory | Mi
 description: Découvrez comment créer un déclencheur dans Azure Data Factory qui exécute un pipeline sur une fenêtre bascule.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/14/2018
-ms.author: shlo
-ms.openlocfilehash: 6fbdee71ab1123c258a5191a78e38f51eb41cbab
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.date: 09/11/2019
+ms.openlocfilehash: 7600398d213748bdea9da5a483a8c10d486a8048
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433227"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915543"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Créer un déclencheur qui exécute un pipeline sur une fenêtre bascule
 Cet article décrit les étapes permettant de créer, de démarrer et d’effectuer le monitoring d’un déclencheur de fenêtre bascule. Pour obtenir des informations générales sur les déclencheurs et les types pris en charge, consultez [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md).
@@ -26,11 +25,14 @@ Les déclencheurs de fenêtre bascule sont un type de déclencheur qui s’activ
 
 ## <a name="data-factory-ui"></a>IU de la fabrique de données
 
-Pour créer un déclencheur de fenêtre bascule dans le Portail Azure, sélectionnez **Déclencheur > Fenêtre bascule > Suivant**, puis configurez les propriétés qui définissent la fenêtre bascule.
+1. Pour créer un déclencheur de fenêtre bascule dans l’interface utilisateur de Data Factory, sélectionnez l’onglet **Déclencheurs**, puis **Nouveau**. 
+1. Une fois le volet Configuration du déclencheur ouvert, sélectionnez **Fenêtre bascule**, puis définissez les propriétés du déclencheur de votre fenêtre bascule. 
+1. Quand vous avez terminé, sélectionnez **Enregistrer**.
 
 ![Création d’un déclencheur de fenêtre bascule dans le Portail Azure](media/how-to-create-tumbling-window-trigger/create-tumbling-window-trigger.png)
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Propriétés de type de déclencheur de fenêtre bascule
+
 Une fenêtre bascule a les propriétés de type de déclencheur suivantes :
 
 ```
@@ -40,16 +42,32 @@ Une fenêtre bascule a les propriétés de type de déclencheur suivantes :
         "type": "TumblingWindowTrigger",
         "runtimeState": "<<Started/Stopped/Disabled - readonly>>",
         "typeProperties": {
-            "frequency": "<<Minute/Hour>>",
+            "frequency": <<Minute/Hour>>,
             "interval": <<int>>,
             "startTime": "<<datetime>>",
-            "endTime: "<<datetime – optional>>"",
-            "delay": "<<timespan – optional>>",
+            "endTime: <<datetime – optional>>,
+            "delay": <<timespan – optional>>,
             “maxConcurrency”: <<int>> (required, max allowed: 50),
             "retryPolicy": {
                 "count": <<int - optional, default: 0>>,
                 “intervalInSeconds”: <<int>>,
-            }
+            },
+            "dependsOn": [
+                {
+                    "type": "TumblingWindowTriggerDependencyReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan – optional>>,
+                    "referenceTrigger": {
+                        "referenceName": "MyTumblingWindowDependency1",
+                        "type": "TriggerReference"
+                    }
+                },
+                {
+                    "type": "SelfDependencyTumblingWindowTriggerReference",
+                    "size": <<timespan – optional>>,
+                    "offset": <<timespan>>
+                }
+            ]
         },
         "pipeline": {
             "pipelineReference": {
@@ -76,16 +94,19 @@ Le tableau suivant présente les principaux éléments JSON liés à la périodi
 
 | Élément JSON | Description | Type | Valeurs autorisées | Obligatoire |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | Type du déclencheur. Le type est la valeur fixe « TumblingWindowTrigger ». | Chaîne | « TumblingWindowTrigger » | Oui |
-| **runtimeState** | État actuel du runtime du déclencheur.<br/>**Remarque**: Cet élément est \<readOnly>. | Chaîne | « Started », « Stopped », « Disabled » | Oui |
-| **frequency** | Chaîne qui représente l’unité de fréquence (minutes ou heures) à laquelle le déclencheur doit être répété. Si les valeurs de date **startTime** sont plus précises que la valeur **frequency**, les dates **startTime** sont prises en compte quand les limites de la fenêtre sont calculées. Par exemple, si la valeur de **frequency** est horaire et que la valeur de **startTime** est 2017-09-01T10:10:10Z, la première fenêtre est (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Chaîne | « minute », « hour »  | Oui |
-| **interval** | Un entier positif qui indique l’intervalle de la valeur **frequency**, qui détermine la fréquence d’exécution du déclencheur. Par exemple, si **interval** a la valeur 3 et que **frequency** est « hour », le déclencheur se répète toutes les trois heures. | Entier  | Entier positif. | Oui |
-| **startTime**| Première occurrence, qui peut être dans le passé. Le premier intervalle de déclencheur est (**startTime**, **startTime** + **interval**). | DateTime | Valeur DateTime. | Oui |
-| **endTime**| Dernière occurrence, qui peut être dans le passé. | DateTime | Valeur DateTime. | Oui |
-| **delay** | Délai duquel différer le démarrage du traitement des données pour la fenêtre. L’exécution du pipeline est démarrée après l’heure d’exécution prévue + **delay**. **delay** définit la durée d’attente du déclencheur après l’heure d’échéance avant de déclencher une nouvelle exécution. **delay** ne modifie pas la valeur **startTime** de la fenêtre. Par exemple, une valeur **delay** de 00:10:00 indique un délai de 10 minutes. | Timespan<br/>(hh:mm:ss)  | Valeur d’intervalle de temps où la valeur par défaut est 00:00:00. | Non  |
-| **maxConcurrency** | Nombre d’exécutions simultanées du déclencheur qui sont déclenchées pour des fenêtres qui sont prêtes. Par exemple, pour un renvoi des exécutions qui ont eu lieu toutes les heures la veille, 24 fenêtres sont générées. Si **maxConcurrency** = 10, les événements du déclencheur sont déclenchés uniquement pour les 10 premières fenêtres (00:00-01:00 - 09:00-10:00). Une fois que les 10 premières exécutions déclenchées du pipeline sont terminées, les exécutions du déclencheur sont déclenchées pour les 10 fenêtres suivantes (10:00-11:00 - 19:00-20:00). Pour poursuivre avec l’exemple de **maxConcurrency** = 10, s’il y a 10 fenêtres prêtes, il y a au total 10 exécutions du pipeline. Si une seule fenêtre est prête, il n’y a qu’une seule exécution du pipeline. | Entier  | Entier compris entre 1 et 50. | Oui |
-| **retryPolicy : Nombre** | Nombre de nouvelles tentatives avant que l’exécution du pipeline ne soit marquée comme « Failed » (Échec).  | Entier  | Nombre entier, où la valeur par défaut est 0 (aucune nouvelle tentative). | Non  |
-| **retryPolicy: intervalInSeconds** | Délai en secondes entre chaque nouvelle tentative | Entier  | Nombre de secondes, où la valeur par défaut est 30. | Non  |
+| **type** | Type du déclencheur. Le type correspond à la valeur fixe « TumblingWindowTrigger ». | String | « TumblingWindowTrigger » | OUI |
+| **runtimeState** | État actuel du runtime du déclencheur.<br/>**Remarque**: Cet élément est \<readOnly>. | String | « Started », « Stopped », « Disabled » | OUI |
+| **frequency** | Chaîne qui représente l’unité de fréquence (minutes ou heures) à laquelle le déclencheur doit être répété. Si les valeurs de date **startTime** sont plus précises que la valeur **frequency**, les dates **startTime** sont prises en compte quand les limites de la fenêtre sont calculées. Par exemple, si la valeur de **frequency** est horaire et que la valeur de **startTime** est 2017-09-01T10:10:10Z, la première fenêtre est (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | « minute », « hour »  | OUI |
+| **interval** | Un entier positif qui indique l’intervalle de la valeur **frequency**, qui détermine la fréquence d’exécution du déclencheur. Par exemple, si **interval** a la valeur 3 et que **frequency** est « hour », le déclencheur se répète toutes les trois heures. <br/>**Remarque**: L’intervalle d’affichage minimal est de 15 minutes. | Integer | Entier positif. | OUI |
+| **startTime**| Première occurrence, qui peut être dans le passé. Le premier intervalle de déclencheur est (**startTime**, **startTime** + **interval**). | DateTime | Valeur DateTime. | OUI |
+| **endTime**| Dernière occurrence, qui peut être dans le passé. | DateTime | Valeur DateTime. | OUI |
+| **delay** | Délai duquel différer le démarrage du traitement des données pour la fenêtre. L’exécution du pipeline est démarrée après l’heure d’exécution prévue + **delay**. **delay** définit la durée d’attente du déclencheur après l’heure d’échéance avant de déclencher une nouvelle exécution. **delay** ne modifie pas la valeur **startTime** de la fenêtre. Par exemple, une valeur **delay** de 00:10:00 indique un délai de 10 minutes. | Timespan<br/>(hh:mm:ss)  | Valeur d’intervalle de temps où la valeur par défaut est 00:00:00. | Non |
+| **maxConcurrency** | Nombre d’exécutions simultanées du déclencheur qui sont déclenchées pour des fenêtres qui sont prêtes. Par exemple, pour un renvoi des exécutions qui ont eu lieu toutes les heures la veille, 24 fenêtres sont générées. Si **maxConcurrency** = 10, les événements du déclencheur sont déclenchés uniquement pour les 10 premières fenêtres (00:00-01:00 - 09:00-10:00). Une fois que les 10 premières exécutions déclenchées du pipeline sont terminées, les exécutions du déclencheur sont déclenchées pour les 10 fenêtres suivantes (10:00-11:00 - 19:00-20:00). Pour poursuivre avec l’exemple de **maxConcurrency** = 10, s’il y a 10 fenêtres prêtes, il y a au total 10 exécutions du pipeline. Si une seule fenêtre est prête, il n’y a qu’une seule exécution du pipeline. | Integer | Entier compris entre 1 et 50. | OUI |
+| **retryPolicy : Nombre** | Nombre de nouvelles tentatives avant que l’exécution du pipeline ne soit marquée comme « Failed » (Échec).  | Integer | Nombre entier, où la valeur par défaut est 0 (aucune nouvelle tentative). | Non |
+| **retryPolicy: intervalInSeconds** | Délai en secondes entre chaque nouvelle tentative | Integer | Nombre de secondes, où la valeur par défaut est 30. | Non |
+| **dependsOn : type** | Type de TumblingWindowTriggerReference. Requis si une dépendance est définie. | String |  « TumblingWindowTriggerDependencyReference », « SelfDependencyTumblingWindowTriggerReference » | Non |
+| **dependsOn: size** | Taille de la fenêtre bascule de dépendance. | Timespan<br/>(hh:mm:ss)  | Valeur TimeSpan positive où la valeur par défaut correspond à la taille de la fenêtre du déclencheur enfant  | Non |
+| **dependsOn: offset** | Décalage du déclencheur de dépendance. | Timespan<br/>(hh:mm:ss) |  Valeur TimeSpan qui doit être négative dans une autodépendance. Si aucune valeur n’est spécifiée, la fenêtre est la même que le déclencheur lui-même. | Autodépendance : OUI<br/>Autre : Non  |
 
 ### <a name="windowstart-and-windowend-system-variables"></a>Variables système WindowStart et WindowEnd
 
@@ -127,6 +148,10 @@ Les points suivants s’appliquent aux éléments **TriggerResource** existants 
 
 * Si la valeur de l’élément **frequency** (ou la taille de fenêtre) du déclencheur change, l’état des fenêtres qui ont déjà été traitées n’est *pas* réinitialisé. Le déclencheur continue de se déclencher pour les fenêtres à partir de la dernière exécutée avec la nouvelle taille de fenêtre.
 * Si la valeur de l’élément **endTime** du déclencheur change (ajout ou mise à jour), l’état des fenêtres qui ont déjà été traitées n’est *pas* réinitialisé. Le déclencheur respecte la nouvelle valeur **endTime**. Si la nouvelle valeur **endTime** est antérieure aux fenêtres qui ont déjà été exécutées, le déclencheur s’arrête. Dans le cas contraire, le déclencheur s’arrête quand la nouvelle valeur **endTime** est rencontrée.
+
+### <a name="tumbling-window-trigger-dependency"></a>Dépendance de déclencheur de fenêtre bascule
+
+Pour vous assurer de l'exécution d'un déclencheur de fenêtre bascule après l'exécution réussie d'un autre déclencheur dans la fabrique de données, [créez une dépendance de déclencheur de fenêtre bascule](tumbling-window-trigger-dependency.md). 
 
 ## <a name="sample-for-azure-powershell"></a>Exemple pour Azure PowerShell
 
@@ -170,31 +195,31 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
     }
     ```
 
-2. Créer un déclencheur à l’aide de la **Set-AzDataFactoryV2Trigger** applet de commande :
+2. Créez un déclencheur avec l’applet de commande **Set-AzDataFactoryV2Trigger** :
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
     
-3. Vérifiez que l’état du déclencheur est **arrêté** à l’aide de la **Get-AzDataFactoryV2Trigger** applet de commande :
+3. Vérifiez que l’état du déclencheur est **Stopped** avec l’applet de commande **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Démarrez le déclencheur à l’aide de la **Start-AzDataFactoryV2Trigger** applet de commande :
+4. Démarrez le déclencheur avec la cmdlet **Start-AzDataFactoryV2Trigger** :
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Vérifiez que l’état du déclencheur est **démarré** à l’aide de la **Get-AzDataFactoryV2Trigger** applet de commande :
+5. Vérifiez que l’état du déclencheur est **Started** avec l’applet de commande **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-6. Get, le déclencheur s’exécute dans Azure PowerShell à l’aide de la **Get-AzDataFactoryV2TriggerRun** applet de commande. Pour obtenir plus d’informations sur les exécutions du déclencheur, exécutez la commande suivante régulièrement. Mettez à jour les valeurs **TriggerRunStartedAfter** et **TriggerRunStartedBefore** pour qu’elles correspondent aux valeurs spécifiées dans la définition du déclencheur :
+6. Récupérez les exécutions du déclencheur dans Azure PowerShell avec l’applet de commande **Get-AzDataFactoryV2TriggerRun**. Pour obtenir plus d’informations sur les exécutions du déclencheur, exécutez la commande suivante régulièrement. Mettez à jour les valeurs **TriggerRunStartedAfter** et **TriggerRunStartedBefore** pour qu’elles correspondent aux valeurs spécifiées dans la définition du déclencheur :
 
     ```powershell
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
@@ -203,4 +228,6 @@ Cette section montre comment utiliser Azure PowerShell pour créer, démarrer et
 Pour effectuer la surveillance des exécutions du déclencheur et du pipeline dans le portail Azure, consultez [Surveiller des exécutions de pipelines](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers).
+
+* Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers).
+* [Créer une dépendance de déclencheur de fenêtre bascule](tumbling-window-trigger-dependency.md)

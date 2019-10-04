@@ -8,17 +8,16 @@ manager: jeconnoc
 keywords: azure functions, modèles, bonne pratique, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30b187676f0c1fb03b7124d93b3991b0e32d61ae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848947"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933053"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
@@ -37,7 +36,7 @@ Autant que possible, subdivisez les fonctions volumineuses en ensembles de fonct
 
 ### <a name="cross-function-communication"></a>Communication entre fonctions
 
-Les [Fonctions durables](durable/durable-functions-concepts.md) et le service [Azure Logic Apps](../logic-apps/logic-apps-overview.md) sont conçus pour gérer les transitions d’état et la communication entre plusieurs fonctions.
+Les [Fonctions durables](durable/durable-functions-overview.md) et le service [Azure Logic Apps](../logic-apps/logic-apps-overview.md) sont conçus pour gérer les transitions d’état et la communication entre plusieurs fonctions.
 
 Si vous n’utilisez pas les fonctions durables ni Logic Apps pour l’intégration à plusieurs fonctions, une bonne pratique consiste en général à utiliser des files d’attente de stockage pour la communication entre les fonctions.  La principale raison est que les files d’attente de stockage sont plus économiques et beaucoup plus faciles à configurer. 
 
@@ -84,7 +83,7 @@ Les fonctions d’une application de fonction partagent des ressources. Par exem
 
 Soyez attentif à ce que vous chargez dans vos applications de fonction en production. La mémoire moyenne est calculée pour chaque fonction au sein de l’application.
 
-Si vous avez un assembly partagé est référencé dans plusieurs fonctions .NET, placez-le dans un dossier partagé commun. Référencez l’assembly avec une instruction similaire à l’exemple suivant si des scripts C# (.csx) sont utilisés : 
+Si un assembly partagé est référencé dans plusieurs fonctions .NET, placez-le dans un dossier partagé commun. Référencez l’assembly avec une instruction similaire à l’exemple suivant si des scripts C# (.csx) sont utilisés : 
 
     #r "..\Shared\MyAssembly.dll". 
 

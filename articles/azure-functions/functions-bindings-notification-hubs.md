@@ -4,19 +4,18 @@ description: Découvrez comment utiliser les liaisons Azure Notification Hubs da
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7538e47a1d0bed0c72ff5ed467c98828cc9c18ba
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490960"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70086645"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Liaison de sortie Notification Hubs pour Azure Functions
 
@@ -27,7 +26,7 @@ Azure Notification Hubs doit être configuré pour l’infrastructure Platform N
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> Google a [déconseillée Google Cloud Messaging (GCM) en faveur de Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Cette liaison de sortie ne prend pas en charge FCM. Pour envoyer des notifications à l’aide de FCM, utilisez le [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) directement dans votre fonction ou en utilisant [notifications de modèle](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+> Google a décidé de [déprécier Google Cloud Messaging (GCM) en faveur de Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). Cette liaison de sortie ne prend pas en charge FCM. Pour envoyer des notifications à l’aide de FCM, utilisez l’[API Firebase](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) directement dans votre fonction ou utilisez des [notifications de modèle](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
@@ -302,7 +301,7 @@ Le nom de ce paramètre d’application passe dans le paramètre de connexion de
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison | Référence |
+| Liaison | Informations de référence |
 |---|---|
 | Hub de notification | [Guide des opérations](https://docs.microsoft.com/rest/api/notificationhubs/) |
 

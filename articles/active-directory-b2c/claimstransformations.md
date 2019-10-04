@@ -2,20 +2,20 @@
 title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Définition de l’élément ClaimsTransformations dans le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc6cc7b07d3dce43a666b3e5b0a958b41cdd3131
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: c904ac9d4c59a467dd8402ec44682c3cbd03fd8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651506"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66511529"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -33,12 +33,12 @@ Pour inclure la liste des fonctions de transformation de revendication pouvant �
 </ClaimsTransformations>
 ```
 
-Le **ClaimsTransformation** élément contient les attributs suivants :
+L’élément **ClaimsTransformation** contient les attributs suivants :
 
 | Attribut |Obligatoire | Description |
 | --------- |-------- | ----------- |
-| ID |Oui | Identificateur servant à identifier de façon unique la transformation de revendication. L’identificateur est référencé à partir d’autres éléments XML dans la stratégie. |
-| Méthode de transformation | Oui | Méthode de transformation à utiliser dans la transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
+| ID |OUI | Identificateur servant à identifier de façon unique la transformation de revendication. L’identificateur est référencé à partir d’autres éléments XML dans la stratégie. |
+| Méthode de transformation | OUI | Méthode de transformation à utiliser dans la transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
 
@@ -79,8 +79,8 @@ L’élément **InputClaim** contient les attributs suivants :
 
 | Attribut |Obligatoire | Description |
 | --------- | ----------- | ----------- |
-| ClaimTypeReferenceId |Oui | Référence à un ClaimType déjà défini dans la section ClaimsSchema de la stratégie. |
-| TransformationClaimType |Oui | Identificateur servant à référencer un type de transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
+| ClaimTypeReferenceId |OUI | Référence à un ClaimType déjà défini dans la section ClaimsSchema de la stratégie. |
+| TransformationClaimType |OUI | Identificateur servant à référencer un type de transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
 
 ### <a name="inputparameters"></a>InputParameters
 
@@ -94,9 +94,9 @@ L’élément **InputParameters** contient l’élément suivant :
 
 | Attribut | Obligatoire |Description |
 | --------- | ----------- |----------- |
-| ID | Oui | Identificateur qui est une référence à un paramètre de la méthode de transformation de revendication. Chaque méthode de transformation de revendication a ses propres valeurs. Pour obtenir une liste complète des valeurs disponibles, consultez le tableau de transformations de revendications. |
-| DataType | Oui | Type de données du paramètre, tel que String, Boolean, Int ou DateTime conformément à l’énumération DataType dans le schéma XML de stratégie personnalisée. Ce type est utilisé pour effectuer des opérations arithmétiques correctement. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
-| Valeur | Oui | Valeur passée telle quelle à la transformation. Certaines valeurs sont arbitraires, et vous en sélectionnez certaines à partir de la méthode de transformation de revendication. |
+| ID | OUI | Identificateur qui est une référence à un paramètre de la méthode de transformation de revendication. Chaque méthode de transformation de revendication a ses propres valeurs. Pour obtenir une liste complète des valeurs disponibles, consultez le tableau de transformations de revendications. |
+| DataType | OUI | Type de données du paramètre, tel que String, Boolean, Int ou DateTime conformément à l’énumération DataType dans le schéma XML de stratégie personnalisée. Ce type est utilisé pour effectuer des opérations arithmétiques correctement. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
+| Valeur | OUI | Valeur passée telle quelle à la transformation. Certaines valeurs sont arbitraires, et vous en sélectionnez certaines à partir de la méthode de transformation de revendication. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -112,8 +112,8 @@ L’élément **OutputClaim** contient les attributs suivants :
 
 | Attribut |Obligatoire | Description |
 | --------- | ----------- |----------- |
-| ClaimTypeReferenceId | Oui | Référence à un ClaimType déjà défini dans la section ClaimsSchema de la stratégie.
-| TransformationClaimType | Oui | Identificateur servant à référencer un type de transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
+| ClaimTypeReferenceId | OUI | Référence à un ClaimType déjà défini dans la section ClaimsSchema de la stratégie.
+| TransformationClaimType | OUI | Identificateur servant à référencer un type de transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
  
 Si la revendication d’entrée et la revendication de sortie sont du même type (chaîne ou booléen), vous pouvez utiliser la même revendication d’entrée que la revendication de sortie. Dans ce cas, la transformation de revendication change la revendication d’entrée avec la valeur de sortie.
 

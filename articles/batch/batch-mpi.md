@@ -4,22 +4,21 @@ description: Découvrez comment exécuter des applications MPI (Message Passing 
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.date: 03/13/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7fe75dabe098cf98f0c3c04d592a32d6a44cebf8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1f54f5d5265508bb3716ff4ffd4d1d741d3bfa2e
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905016"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094972"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Utiliser les tâches multi-instances pour exécuter des applications MPI (Message Passing Interface) dans Batch
 
@@ -40,7 +39,7 @@ Lorsque vous envoyez à un travail une tâche dotée de paramètres multi-instan
 1. Le service Batch crée une **tâche principale** et plusieurs **tâches subordonnées** selon les paramètres multi-instances. Le nombre total de tâches (tâche principale, ainsi que toutes les tâches subordonnées) correspond au nombre **d’instances** (nœuds de calcul) que vous spécifiez dans les paramètres multi-instances.
 2. Batch désigne l’un des nœuds de calcul comme **principal** et planifie la tâche principale à exécuter sur le nœud principal. Il planifie les tâches subordonnées à exécuter sur le reste des nœuds de calcul alloués à la tâche multi-instance, une tâche subordonnée par nœud.
 3. La tâche principale et toutes les tâches subordonnées téléchargent les **fichiers de ressources communs** que vous indiquez dans les paramètres multi-instances.
-4. Une fois les fichiers de ressources communs téléchargés, la tâche principale et les tâches subordonnées exécutent la **commande de coordination** que vous indiquez dans les paramètres multi-instances. La commande de coordination sert généralement à préparer des nœuds en vue de l’exécution de la tâche. Cela peut impliquer de démarrer les services d’arrière-plan (par exemple `smpd.exe` de [Microsoft MPI][msmpi_msdn]) et de vérifier que les nœuds sont prêts à traiter les messages entre nœuds.
+4. Une fois les fichiers de ressources communs téléchargés, la tâche principale et les tâches subordonnées exécutent la **commande de coordination** que vous indiquez dans les paramètres multi-instances. La commande de coordination sert généralement à préparer des nœuds en vue de l’exécution de la tâche. Cela peut impliquer de démarrer les services d’arrière-plan (par exemple de [Microsoft MPI][msmpi_msdn]`smpd.exe`) et de vérifier que les nœuds sont prêts à traiter les messages entre nœuds.
 5. La tâche principale exécute la **commande d’application** du nœud principal *une fois que* la tâche principale et toutes les tâches subordonnées ont fini d’exécuter la commande de coordination. La commande d’application est la ligne de commande de la tâche multi-instances. Elle est exécutée uniquement par la tâche principale. Dans une solution basée sur [MS-MPI][msmpi_msdn], c’est là où vous exécutez votre application prenant en charge MPI au moyen du fichier `mpiexec.exe`.
 
 > [!NOTE]
@@ -269,7 +268,7 @@ await subtasks.ForEachAsync(async (subtask) =>
 L’exemple de code [MultiInstanceTasks][github_mpi] sur GitHub montre comment une tâche multi-instances permet d’exécuter une application [MS-MPI][msmpi_msdn] sur des nœuds de calcul Batch. Pour exécuter l’exemple, suivez les étapes de [préparation](#preparation) et d’[exécution](#execution).
 
 ### <a name="preparation"></a>Préparation
-1. Suivez les deux premières étapes dans [How to compile and run a simple MS-MPI program][msmpi_howto] (Comment compiler et exécuter un simple programme MS-MPI). Ces étapes permettent de satisfaire les prérequis pour l’étape suivante.
+1. Suivez les deux premières étapes dans [Comment compiler et exécuter un simple programme MS-MPI][msmpi_howto]. Ces étapes permettent de satisfaire les prérequis pour l’étape suivante.
 2. Créez une version de *mise en production* de l’exemple de programme MPI [MPIHelloWorld][helloworld_proj]. Il s’agit du programme qui sera exécuté par la tâche multi-instances sur des nœuds de calcul.
 3. Créez un fichier .zip contenant `MPIHelloWorld.exe` (que vous avez créé à l’étape 2) et `MSMpiSetup.exe` (que vous avez téléchargé à l’étape 1). À l’étape suivante, vous allez télécharger ce fichier .zip en tant que package d’application.
 4. Utilisez le [Portail Azure][portal] pour créer une [application](batch-application-packages.md) Batch appelée « MPIHelloWorld » et spécifiez le fichier .zip que vous avez créé à l’étape précédente en tant que version « 1.0 » du package d’application. Pour plus d’informations, consultez [Téléchargement et gestion des applications](batch-application-packages.md#upload-and-manage-applications).
@@ -281,7 +280,7 @@ L’exemple de code [MultiInstanceTasks][github_mpi] sur GitHub montre comment u
 
 ### <a name="execution"></a>Exécution
 1. Téléchargez les [exemples Azure Batch][github_samples_zip] à partir de GitHub.
-2. Ouvrez la **solution** MultiInstanceTasks dans Visual Studio 2017. Le fichier de solution `MultiInstanceTasks.sln` se trouve à cet emplacement :
+2. Ouvrez la **solution** MultiInstanceTasks dans Visual Studio 2019. Le fichier de solution `MultiInstanceTasks.sln` se trouve à cet emplacement :
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Entrez vos informations d’identification de compte Batch et Stockage dans `AccountSettings.settings` dans le projet **Microsoft.Azure.Batch.Samples.Common**.

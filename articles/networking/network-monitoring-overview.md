@@ -1,5 +1,5 @@
 ---
-title: À propos de la surveillance réseau dans Azure Monitor enregistre | Microsoft Docs
+title: À propos de l’analyse du réseau dans les journaux Azure Monitor | Microsoft Docs
 description: Vue d’ensemble des solutions d’analyse du réseau, dont NPM, pour gérer les réseaux dans des environnements cloud, locaux et hybrides.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: monitoring-and-diagnostics
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
-ms.author: ajaycode
-ms.openlocfilehash: 42fb5d69a1f32d669ad5191e342b3f2f880b8c98
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.author: agummadi
+ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006662"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672177"
 ---
 # <a name="network-monitoring-solutions"></a>Solutions d’analyse du réseau 
 
@@ -51,9 +51,11 @@ L’analyseur de performances fait partie de NPM et se charge de la surveillance
 
 Pour plus d’informations, consultez les articles suivants :
 
-* [Configurer une Solution Network Performance Monitor dans les journaux Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
+* [Solution Network Performance Monitor dans les journaux Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
 * [Cas d’utilisation](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-*  Mises à jour de produit : [Février 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [août 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+* Mises à jour produit :
+  * [Février 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
+  * [Août 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>Moniteur ExpressRoute
 

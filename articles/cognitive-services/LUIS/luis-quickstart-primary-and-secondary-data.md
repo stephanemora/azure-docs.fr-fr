@@ -1,5 +1,5 @@
 ---
-title: Entité Simple, liste d’expressions
+title: 'Didacticiel : Entité Simple, liste d’expressions - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez extraire les données de nom de poste de travail issues du machine learning à partir d’un énoncé utilisant l’entité Simple. Pour augmenter la précision de l’extraction, ajoutez une liste d’expressions dont les termes sont spécifiques à l’entité simple.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 87e4fe3671f419383cb342fdb7dca55a8d2eb45d
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526562"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70376267"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Didacticiel : Extraire des noms avec une entité simple et une liste d’expressions
 
@@ -58,7 +58,7 @@ Par exemple, examinez les énoncés suivants provenant d’un bot conversationne
 |Envoyez mon CV pour le poste d’ingénieur.|ingénieur|
 |Remplissez l’application pour le poste 123456|123456|
 
-Le nom du travail est difficile à déterminer, car un intitulé peut être un nom, un verbe ou une expression de plusieurs mots. Par exemple : 
+Le nom du travail est difficile à déterminer, car un intitulé peut être un nom, un verbe ou une expression de plusieurs mots. Par exemple :
 
 |Tâches|
 |--|
@@ -83,7 +83,7 @@ Une fois les entités marquées dans les exemples d’énoncés, il est importan
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `simple`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+3. À partir de la section **Manage (Gérer)** , sous l’onglet **Versions**, clonez la version et nommez-la `simple`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
 ## <a name="mark-entities-in-example-utterances-of-an-intent"></a>Marquer des entités dans des exemples d’énoncés d’une intention
 
@@ -139,7 +139,7 @@ Les entités simples ont besoin de nombreux exemples pour avoir un niveau de con
 
     S’il existe plus d’exemples d’énoncés dans une intention que dans une autre, cette intention a une probabilité plus élevée d’être l’intention prédite la plus élevée. 
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entraîner l’application pour que les modifications apportées à l’intention puissent être testées 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entraîner l’application pour que les changements apportés à l’intention puissent être testés 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -229,7 +229,7 @@ Ouvrez le document [jobs-phrase-list.csv](https://github.com/Azure-Samples/cogni
 
 1. Sélectionnez **Créer une liste d’expressions**. 
 
-1. Nommez la nouvelle liste d’expressions `JobNames` et copiez la liste depuis jobs-phrase-list.csv vers la zone de texte **Valeurs**. Sélectionnez Enter (Entrer). 
+1. Nommez la nouvelle liste d’expressions `JobNames` et copiez la liste depuis jobs-phrase-list.csv vers la zone de texte **Valeurs**.
 
     [![Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -237,7 +237,7 @@ Ouvrez le document [jobs-phrase-list.csv](https://github.com/Azure-Samples/cogni
 
     Laissez la case **Ces valeurs sont interchangeables** cochée, car ces valeurs doivent être traitées comme des synonymes pour les postes. Découvrez-en plus sur les [concepts de liste d’expressions](luis-concept-feature.md#how-to-use-phrase-lists) interchangeables et non interchangeables.
 
-1. Sélectionnez **Enregistrer** pour activer la liste d’expressions.
+1. Sélectionnez **Terminé** pour activer la liste d’expressions.
 
     [![Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions avec des mots dans la zone de valeurs de liste d’expressions](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions avec des mots dans la zone de valeurs de liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 

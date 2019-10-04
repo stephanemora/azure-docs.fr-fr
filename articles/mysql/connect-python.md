@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: f1059fac4d44138a4e9bc04c858501234974dc43
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 08/08/2019
+ms.openlocfilehash: 0940d307d78236fea1a232c1e7c60a296ba46c62
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350964"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195161"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database pour MySQL : Utiliser Python pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure Database pour MySQL. Il utilise des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données de la base de données sur des plateformes Mac OS et Ubuntu Linux et Windows. Cette rubrique part du principe que vous connaissez les bases du développement à l’aide de Python et que vous ne savez pas utiliser Azure Database pour MySQL.
@@ -30,9 +30,9 @@ Installez [Python](https://www.python.org/downloads/) et le [connecteur MySQL po
 > Ce démarrage rapide utilise une approche de requêtes SQL brutes pour se connecter à MySQL afin d’exécuter des requêtes. Si vous utilisez une infrastructure Web, utilisez le connecteur recommandé pour ces infrastructures. Par exemple, [mysqlclient](https://pypi.org/project/mysqlclient/) est suggéré pour une utilisation avec Django.
 >
 
-### <a name="windows"></a> Windows
-1. Téléchargez et installez Python 2.7 sur [python.org](https://www.python.org/downloads/windows/). 
-2. Vérifiez l’installation de Python en lançant l’invite de commandes. Exécutez la commande `C:\python27\python.exe -V` à l’aide du commutateur V majuscule pour voir le numéro de version.
+### <a name="windows"></a>Windows
+1. Téléchargez et installez Python 3.7 depuis [python.org](https://www.python.org/downloads/windows/). 
+2. Vérifiez l’installation de Python en lançant l’invite de commandes. Exécutez la commande `C:\python37\python.exe -V` à l’aide du commutateur V majuscule pour voir le numéro de version.
 3. Installez le connecteur Python pour MySQL correspondant à votre version de Python sur [mysql.com](https://dev.mysql.com/downloads/connector/python/).
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
@@ -63,8 +63,8 @@ Installez [Python](https://www.python.org/downloads/) et le [connecteur MySQL po
 Obtenez les informations requises pour vous connecter à la base de données Azure pour MySQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
-3. Cliquez sur le nom du serveur.
+2. Dans le menu de gauche du portail Azure, sélectionnez **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
+3. Sélectionnez le nom du serveur.
 4. Dans le panneau **Vue d’ensemble** du serveur, notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**. Si vous oubliez votre mot de passe, vous pouvez également le réinitialiser dans ce panneau.
  ![Nom du serveur de base de données Azure pour MySQL](./media/connect-python/1_server-overview-name-login.png)
 

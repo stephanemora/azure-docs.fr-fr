@@ -1,5 +1,5 @@
 ---
-title: Entité Expression régulière
+title: 'Didacticiel : Entité Expression régulière – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Extrayez des données mises en forme de façon homogène depuis un énoncé à l’aide de l’entité Expression régulière.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 012d77227e7c0283b565361dda32cb77e12fc62b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: db60d87b441836f38309166318dd1778ce828483
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867267"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307600"
 ---
-# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutoriel : Obtenir des données au format approprié à partir de l’énoncé
+# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Didacticiel : Obtenir des données au format approprié à partir de l’énoncé
 Dans ce tutoriel, vous créez une application pour extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.
 
 **Dans ce tutoriel, vous allez découvrir comment :**
@@ -125,7 +125,11 @@ Créez une entité d’expression régulière pour indiquer à LUIS ce qu’est 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `When were HRF-123456 and hrf-234567 published in the last year?`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `FindForm` avec les deux numéros de formulaire `HRF-123456` et `hrf-234567`.
+2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez l’énoncé suivant :
+
+    `When were HRF-123456 and hrf-234567 published in the last year?`
+
+    Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `FindForm` avec les deux numéros de formulaire `HRF-123456` et `hrf-234567`.
 
     ```json
     {

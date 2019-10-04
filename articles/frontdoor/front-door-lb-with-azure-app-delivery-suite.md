@@ -12,24 +12,24 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 3d5c0ac068a6644f3499da6c3b642a4a04408370
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790322"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736491"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Équilibrage de charge avec la suite de livraison d’application Azure
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Microsoft Azure propose plusieurs services globaux et régionaux destinés à gérer la distribution et l’équilibrage de la charge de votre trafic réseau : Traffic Manager, Front Door Service, Application Gateway, et Load Balancer.  Associée aux nombreuses régions Azure et à son architecture zonale, l’utilisation conjointe de ces services vous permet de créer des applications robustes, scalables et à hautes performances.
 
 ![Suite de livraison d’application ][1]
  
 Ces services sont répartis en deux catégories :
-1. **Services d’équilibrage de charge global** telles que Traffic Manager et porte distribuer le trafic à partir de vos utilisateurs finaux sur vos serveurs principaux régional, dans les clouds ou même votre hybride services locaux. L’équilibrage de charge global achemine le trafic vers votre backend de service le plus proche et réagit aux changements de fiabilité ou de performances des services afin de maintenir des performances continues et maximales pour vos utilisateurs. 
+1. Les **services d’équilibrage de charge globaux** tels que Traffic Manager et Front Door distribuent le trafic de vos utilisateurs finaux sur vos back-ends régionaux, entre les clouds ou même vos services locaux hybrides. L’équilibrage de charge global achemine le trafic vers votre backend de service le plus proche et réagit aux changements de fiabilité ou de performances des services afin de maintenir des performances continues et maximales pour vos utilisateurs. 
 2. Les **services d’équilibrage de charge régionaux** tels que Standard Load Balancer ou Application Gateway permettent de distribuer le trafic des réseaux virtuels sur vos machines virtuelles ou points de terminaison de service zonaux dans une région.
 
-Combinaison de services globales et régionales dans votre application fournit un performante fiable, de bout en bout et sûre pour acheminer le trafic vers et à partir de vos utilisateurs à votre IaaS, PaaS ou sur des services locaux. Vous trouverez une description de chacun de ces services dans la section suivante.
+La combinaison de services globaux et régionaux dans votre application offre un moyen performant, fiable et sécurisé de bout en bout de router le trafic entre vos utilisateurs et vos services IaaS, PaaS ou locaux. Vous trouverez une description de chacun de ces services dans la section suivante.
 
 ## <a name="global-load-balancing"></a>Équilibrage de charge global
 **Traffic Manager** assure un équilibrage de charge DNS global. Il examine les requêtes DNS entrantes et répond avec un backend intègre, conformément à la stratégie de routage choisie par le client. Les différentes méthodes de routage disponibles sont les suivantes :
@@ -59,7 +59,7 @@ Quand vous devez choisir qui de Traffic Manager ou d’Azure Front Door utiliser
 | Traffic Manager | Azure Front Door Service |
 | --------------- | ------------------------ |
 |**N'importe quel protocole :** Traffic Manager fonctionnant au niveau de la couche DNS, vous pouvez acheminer tous les types de trafic réseau : HTTP, TCP, UDP, etc. | **Accélération HTTP :** avec Front Door, le trafic est acheminé en proxy à la périphérie du réseau Microsoft.  Pour cette raison, la latence et le débit des requêtes HTTP(S) sont améliorées, ce qui réduit la latence pour la négociation SSL et l’utilisation de connexions à chaud d’AFD vers votre application.|
-|**Routage local :** avec le routage au niveau d’une couche DNS, le trafic va toujours de point à point.  Routage à partir de votre siège social vers votre centre de données peut prendre un chemin d’accès direct ; même sur votre propre réseau à l’aide de Traffic Manager. | **Extensibilité indépendante :** comme Front Door fonctionne avec la requête HTTP, les requêtes pour différents chemins d’URL peuvent être routées vers différents pools de backends / services régionaux (microservices) en fonction de règles et de l’intégrité de chaque microservice d’application.|
+|**Routage local :** avec le routage au niveau d’une couche DNS, le trafic va toujours de point à point.  Le routage de votre filiale vers votre centre de données local peut prendre un chemin direct, même sur votre propre réseau à l’aide de Traffic Manager. | **Extensibilité indépendante :** comme Front Door fonctionne avec la requête HTTP, les requêtes pour différents chemins d’URL peuvent être routées vers différents pools de backends / services régionaux (microservices) en fonction de règles et de l’intégrité de chaque microservice d’application.|
 |**Format de facturation :** la facturation basée sur DNS est mise à l’échelle en fonction du nombre d’utilisateurs et, pour les services à davantage d’utilisateurs, se stabilise afin de réduire le coût. |**Sécurité incluse :** Front Door active des règles telles que la limitation du débit et les listes ACL d’adresses IP pour vous permettre de protéger vos backends avant que le trafic n’atteigne votre application. 
 
 </br>En raison des avantages offerts par Front Door en termes de performances, d’opérabilité et de sécurité pour les charges de travail HTTP, nous recommandons aux clients d’utiliser Front Door pour leurs charges de travail HTTP.    Traffic Manager et Front Door peuvent être utilisés en parallèle afin de servir tout le trafic pour votre application. 

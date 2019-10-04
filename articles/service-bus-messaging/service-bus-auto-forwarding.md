@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.openlocfilehash: 1d7b76a58a427b687d0dc36d13cfc00f32196853
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593384"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390126"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Chaînage des entités Service Bus avec transfert automatique
 
@@ -27,7 +27,7 @@ La fonctionnalité de *transfert automatique* de Service Bus vous permet de cha�
 
 ## <a name="using-autoforwarding"></a>Utilisation du transfert automatique
 
-Vous pouvez activer le transfert automatique en définissant les propriétés [QueueDescription.ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] sur les objets [QueueDescription][QueueDescription] ou [SubscriptionDescription][SubscriptionDescription] pour la source, comme dans l’exemple suivant :
+Vous pouvez activer le transfert automatique en définissant les propriétés [QueueDescription.ForwardTo][QueueDescription.ForwardTo] ou [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] sur les objets [QueueDescription][QueueDescription] ou [SubscriptionDescription][SubscriptionDescription] pour la source, comme dans l’exemple suivant :
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -47,6 +47,12 @@ Vous pouvez également utiliser le transfert automatique pour découpler les exp
 
 Si Alice part en vacances, sa file d’attente personnelle, et non la rubrique ERP, se remplit. Dans ce scénario, étant donné qu’un représentant commercial n’a pas reçu les messages, aucun des rubriques ERP n’atteint jamais son quota.
 
+> [!NOTE]
+> Lorsque le transfert automatique est configuré, la valeur pour AutoDeleteOnIdle sur **la source et la destination** est automatiquement définie sur la valeur maximale du type de données.
+> 
+>   - Côté source, le transfert automatique correspond à une opération de réception. Par conséquent, la source avec le transfert automatique configuré n’est jamais vraiment « inactive ».
+>   - Côté destination, cela vise à garantir qu’il y a toujours une destination pour les transferts de messages.
+
 ## <a name="autoforwarding-considerations"></a>Considérations relatives au transfert automatique
 
 Si l’entité de destination accumule de nombreux messages et dépasse le quota, ou si l’entité de destination est désactivée, l’entité source ajoute les messages à sa [file d’attente de rebut](service-bus-dead-letter-queues.md) jusqu’à ce qu’il y ait de l’espace dans la destination (ou que l’entité soit réactivée). Ces messages continuent de résider dans la file d’attente de rebut, donc vous devez explicitement les recevoir et les traiter à partir de la file d’attente de rebut.
@@ -62,13 +68,13 @@ Pour créer un abonnement qui est chaîné à une autre file d’attente ou rubr
 Pour plus d’informations sur le transfert automatique, consultez les informations de référence suivantes :
 
 * [ForwardTo][QueueDescription.ForwardTo]
-* [QueueDescription][QueueDescription]
-* [SubscriptionDescription][SubscriptionDescription]
+* [QueueDescription Class][QueueDescription] (Classe QueueDescription)
+* [SubscriptionDescription Class][SubscriptionDescription] (Classe SubscriptionDescription)
 
 Pour en savoir plus sur les améliorations des performances de Service Bus, consultez 
 
 * [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus](service-bus-performance-improvements.md)
-* [Files d’attente et rubriques partitionnées][Partitioned messaging entities].
+* [Entités de messagerie partitionnées][Partitioned messaging entities].
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
 [SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 1563b60ef26ac5e4d40f45095d0109dd9dd71570
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: 7cf382f511d2ba8452d77bf207f36b749cb31e94
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672574"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848785"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métriques pour Azure NetApp Files
 
@@ -27,23 +27,42 @@ Azure NetApp Files fournit des métriques sur le stockage alloué, l'utilisation
 
 ## <a name="capacity_pools"></a>Métriques d'utilisation des pools de capacités
 
-- *Taille allouée au pool de volumes*  
-    Taille (en Gio) du pool de capacités approvisionné.  
+<!-- 
+- *Volume pool allocated size*  
+    The size (GiB) of the provisioned capacity pool  
+--> 
 - *Taille allouée utilisée du pool de volumes*  
-    Quota total des volumes (en Gio) d'un pool de capacités donné (autrement dit, total des tailles approvisionnées pour les volumes du pool de capacités). Il s'agit de la taille que vous avez sélectionnée lors de la création des volumes.  
+    Quota total des volumes (en Gio) d’un pool de capacités donné (autrement dit, total des tailles provisionnées pour les volumes du pool de capacités)  
+    Il s'agit de la taille que vous avez sélectionnée lors de la création des volumes.  
 - *Taille logique totale du pool de volumes*  
-    Espace logique total (en Gio) utilisé sur l'ensemble des volumes d'un pool de capacités.  
-- *Taille d'instantané totale du pool de volumes*  
-    Espace logique incrémentiel total utilisé par les captures instantanées.  
+    Espace logique total (en Gio) utilisé sur l’ensemble des volumes d’un pool de capacités  
+<!-- 
+- *Volume pool total snapshot size*  
+    The total of incremental logical space used by the snapshots  
+-->
 
 ## <a name="volumes"></a>Métriques d'utilisation des volumes
 
-- *Taille allouée aux volumes*   
-    Taille des volumes (quota) approvisionnée, en Gio.  
+<!-- 
+- *Volume allocated size*   
+    The volume size (quota) provisioned in GiB  
+--> 
 - *Taille logique du volume*   
-    Espace logique total utilisé dans un volume (en Gio). Cette taille inclut l'espace logique utilisé par les captures instantanées et les systèmes de fichiers actifs.  
+    Espace logique total utilisé dans un volume (en Gio)  
+    Cette taille inclut l'espace logique utilisé par les captures instantanées et les systèmes de fichiers actifs.  
 - *Taille d'instantané du volume*   
-    Espace logique incrémentiel utilisé par les captures instantanées d'un volume.  
+   Espace logique incrémentiel utilisé par les captures instantanées d’un volume  
+
+## <a name="performance-metrics-for-volumes"></a>Métriques de performances des volumes
+
+- *AverageReadLatency*   
+    Temps moyen pour les lectures à partir du volume, en millisecondes
+- *AverageWriteLatency*   
+    Temps moyen pour les lectures à partir du volume, en millisecondes
+- *ReadIops*   
+    Nombre de lectures sur le volume par seconde
+- *WriteIops*   
+    Nombre d’écritures sur le volume par seconde
 
 ## <a name="next-steps"></a>Étapes suivantes
 

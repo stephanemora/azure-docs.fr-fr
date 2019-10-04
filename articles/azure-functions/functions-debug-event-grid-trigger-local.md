@@ -4,25 +4,24 @@ description: Apprendre à déboguer localement des fonctions Azure déclenchées
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: fonctions azure, fonctions, architecture sans serveur
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: e28abbe8d44094d8599545479f4611a84e9d9bd5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736496"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70085684"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Débogage local lors du déclenchement de fonctions Azure Event Grid
 
 Cet article montre comment déboguer une fonction locale qui gère un événement Azure Event Grid déclenché par un compte de stockage. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Créer ou utiliser une application de fonction existante
 - Créer ou utiliser un compte de stockage existant

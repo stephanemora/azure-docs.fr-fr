@@ -6,25 +6,25 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/03/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149017"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67589053"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurer le serveur de configuration pour la récupération d’urgence de serveurs physiques sur Azure
 
 Cet article décrit comment configurer votre environnement local pour lancer la réplication des serveurs physiques exécutant Windows ou Linux dans Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous disposez déjà des éléments suivants :
 - Un coffre Recovery Services dans le [portail Azure](https://portal.azure.com "portail Azure").
 - Un ordinateur physique sur lequel installer le serveur de configuration.
-- Si vous avez désactivé TLS 1.0 sur l’ordinateur sur lequel vous installez le serveur de configuration, vérifiez que TLS 1.2 est activé et que .NET Framework version 4.6 ou ultérieure est installé sur l’ordinateur (et que le chiffrement fort est désactivé). [Plus d’informations](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)
+- Si vous avez désactivé TLS 1.0 sur l’ordinateur sur lequel vous installez le serveur de configuration, vérifiez que TLS 1.2 est activé et que .NET Framework version 4.6 ou ultérieure est installé sur l’ordinateur (et que le chiffrement fort est activé). [Plus d’informations](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)
 
 ### <a name="configuration-server-minimum-requirements"></a>Configuration minimale requise du serveur
 Le tableau suivant présente la configuration minimale requise pour le matériel, le logiciel et le réseau pour un serveur de configuration.

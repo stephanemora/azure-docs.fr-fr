@@ -12,17 +12,17 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: 4b14fa44f484735f2a5efee4d631a6f48e6a8bf6
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 39e2071a62d6a1f6ee050f862856815048e50430
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382634"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62128294"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configuration et utilisation de l’émulateur de stockage avec Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 L’environnement de développement du Kit de développement logiciel (SDK) Azure comprend l’émulateur de stockage, un utilitaire qui simule les services de stockage d’objets blob, de files d’attente et de tables d’Azure Storage sur votre ordinateur de développement local. Si vous créez un service cloud qui utilise les services de stockage Azure ou écrivez une application externe qui appelle les services de stockage, vous pouvez tester localement votre code sur l’émulateur de stockage. Azure Tools pour Microsoft Visual Studio intègre la gestion de l’émulateur de stockage dans Visual Studio. Azure Tools initialise la base de données de l’émulateur de stockage à la première utilisation, il démarre le service de l’émulateur de stockage quand vous exécutez ou déboguez votre code dans Visual Studio, et il fournit un accès en lecture seule aux données de l’émulateur de stockage via l’Explorateur de stockage Azure.
 
 Pour plus d’informations sur l’émulateur de stockage, y compris la configuration système requise et les instructions de configuration personnalisée, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](storage/common/storage-use-emulator.md).

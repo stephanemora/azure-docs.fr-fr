@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2017
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091475"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109371"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Définir la stratégie de protection des données pour votre solution d’identités hybrides
 Dans cette tâche, vous allez définir la stratégie de protection des données pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise définies dans :
@@ -82,14 +82,14 @@ Une partie essentielle de la gestion de contenu est de comprendre qui a accès �
 
 | Options de gestion de contenu | Avantages | Inconvénients |
 | --- | --- | --- |
-| Centralisation en local (Active Directory Rights Management Server) |Contrôle total sur l’infrastructure de serveurs responsable de la classification des données  <br> Fonction intégrée dans Windows Server, sans licence ou abonnement supplémentaire <br> Peut être intégré à Active AD dans un scénario hybride <br> Prise en charge des fonctionnalités de gestion des droits relatifs à l’information (IRM) dans Microsoft Online Services par exemple Exchange Online, SharePoint Online et Office 365 <br>  Prise en charge des produits serveur Microsoft locaux, par exemple Exchange Server, SharePoint Server et des serveurs de fichiers exécutant Windows Server et l’infrastructure de classification des fichiers (ICF) |Maintenance plus importante (suivi des mises à jour, de la configuration et des mises à niveau potentielles) étant donné que le service informatique possède le serveur <br> Requiert une infrastructure de serveurs locale<br> N’exploite pas les fonctionnalités Azure en mode natif |
-| Centralisation dans le cloud (Azure RMS) |Plus facile à gérer que la solution locale  <br> Peut être intégré à Active DS dans un scénario hybride <br>  Entièrement intégré dans Azure AD <br> Ne requiert pas un serveur local pour le déploiement du service <br> Prise en charge des produits serveur Microsoft locaux, par exemple Exchange Server, SharePoint Server et des serveurs de fichiers exécutant Windows Server et l’infrastructure de classification des fichiers (ICF) <br> Le service informatique peut contrôler complètement les clés de ses clients grâce à la fonctionnalité BYOK. |Votre organisation doit posséder un abonnement au cloud prenant en charge RMS  <br>  Votre organisation doit posséder un répertoire Azure AD pour prendre en charge l’authentification utilisateur pour les services RMS |
-| Hybride (Azure RMS intégré à Active Directory Rights Management Server en local) |Ce scénario cumule les avantages des options de centralisation locale et centralisation dans le cloud. |Votre organisation doit posséder un abonnement au cloud prenant en charge RMS  <br> Votre organisation doit posséder un répertoire Azure AD pour prendre en charge l’authentification utilisateur pour les services RMS, <br>  Requiert une connexion entre le service cloud Azure et l’infrastructure locale |
+| Centralisation en local (Active Directory Rights Management Server) |Contrôle total sur l’infrastructure de serveurs responsable de la classification des données <br> Fonction intégrée dans Windows Server, sans licence ou abonnement supplémentaire <br> Peut être intégré à Active AD dans un scénario hybride <br> Prise en charge des fonctionnalités de gestion des droits relatifs à l’information (IRM) dans Microsoft Online Services par exemple Exchange Online, SharePoint Online et Office 365 <br> Prise en charge des produits serveur Microsoft locaux, par exemple Exchange Server, SharePoint Server et des serveurs de fichiers exécutant Windows Server et l’infrastructure de classification des fichiers (ICF) |Maintenance plus importante (suivi des mises à jour, de la configuration et des mises à niveau potentielles) étant donné que le service informatique possède le serveur <br> Requiert une infrastructure de serveurs locale<br> N’exploite pas les fonctionnalités Azure en mode natif |
+| Centralisation dans le cloud (Azure RMS) |Plus facile à gérer que la solution locale <br> Peut être intégré à Active DS dans un scénario hybride <br>  Entièrement intégré dans Azure AD <br> Ne requiert pas un serveur local pour le déploiement du service <br> Prise en charge des produits serveur Microsoft locaux, par exemple Exchange Server, SharePoint Server et des serveurs de fichiers exécutant Windows Server et l’infrastructure de classification des fichiers (ICF) <br> Le service informatique peut contrôler complètement les clés de ses clients grâce à la fonctionnalité BYOK. |Votre organisation doit posséder un abonnement au cloud prenant en charge RMS <br> Votre organisation doit posséder un répertoire Azure AD pour prendre en charge l’authentification utilisateur pour les services RMS |
+| Hybride (Azure RMS intégré à Active Directory Rights Management Server en local) |Ce scénario cumule les avantages des options de centralisation locale et centralisation dans le cloud. |Votre organisation doit posséder un abonnement au cloud prenant en charge RMS <br> Votre organisation doit posséder un répertoire Azure AD pour prendre en charge l’authentification utilisateur pour les services RMS, <br> Requiert une connexion entre le service cloud Azure et l’infrastructure locale |
 
 ## <a name="define-access-control-options"></a>Définir les options de contrôle d’accès
 En tirant parti des fonctionnalités d’authentification, d’autorisation et de contrôle d’accès disponibles dans Azure AD, vous pouvez permettre à votre entreprise d’utiliser un référentiel central d’identités, tout en autorisant les utilisateurs et partenaires à utiliser l’authentification unique (SSO), comme illustré dans la figure suivante :
 
-![](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![Gestion centralisée](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Gestion centralisée et intégration complète avec d’autres répertoires
 
@@ -115,7 +115,7 @@ Azure Active Directory fournit l’authentification unique à des milliers d�
 
 Une fois que l’utilisateur est authentifié à l’aide d’Azure AD, il est important d’évaluer le niveau d’accès dont l’utilisateur dispose. Le niveau d’accès dont dispose l’utilisateur sur une ressource peut varier. Bien qu’Azure AD puisse ajouter une couche de sécurité supplémentaire en contrôlant l’accès à certaines ressources, gardez à l’esprit que la ressource elle-même peut également avoir sa propre liste de contrôle d’accès séparée, comme le contrôle d’accès pour les fichiers situés sur un serveur de fichiers. L’illustration suivante résume les niveaux de contrôle d’accès dont vous pouvez disposer dans un scénario hybride :
 
-![](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![Contrôle d’accès](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
 Chaque interaction du schéma présenté dans la Figure X représente un scénario de contrôle d’accès qui peut être couvert par Azure AD. Une description de chaque scénario est disponible ci-dessous :
 

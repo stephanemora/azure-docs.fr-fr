@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65409279"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Clouds et régions dans lesquels Azure Media Services v3 existe
 
@@ -35,10 +35,7 @@ Azure Media Services v3 est disponible via le manifeste Azure Resource Manager d
 
 ## <a name="regionsgeographieslocations"></a>Régions/zones géographiques/emplacements
 
-* [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Produit par région](https://azure.microsoft.com/global-infrastructure/services/)
-* [Zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
-* [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/)
+[Régions dans lesquelles le service Azure Media Services est déployé](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Nom de code de la région 
 
@@ -98,6 +95,12 @@ Il est important de connaître les points de terminaison suivants lors de la con
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Audience du jeton |  `https://management.core.chinacloudapi.cn/` |
+
+## <a name="see-also"></a>Voir aussi
+
+* [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

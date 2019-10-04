@@ -3,32 +3,34 @@ title: Résolution des problèmes liés à Azure Container Instances
 description: Découvrez comment résoudre les problèmes liés à Azure Container Instances
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bf783c988c0163fe562669a8331c332dbf8d535e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 7c4812a63137dc2efc5eab2cb3b9e136a5465e78
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371874"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300458"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
-Cet article explique comment résoudre les problèmes courants de gestion ou de déploiement de conteneurs dans Azure Container Instances.
+Cet article explique comment résoudre les problèmes courants de gestion ou de déploiement de conteneurs dans Azure Container Instances. Consultez également le [Forum aux questions](container-instances-faq.md). 
+
+Si vous avez besoin d’une assistance supplémentaire, consultez les options d’**Aide + support** sur le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="naming-conventions"></a>Conventions d’affectation de noms
 
-Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs. Pour plus d’informations sur les conventions d’affectation de noms Azure, consultez [Conventions d’affectation de noms][azure-name-restrictions] dans Azure Architecture Center.
+Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs. Pour plus d’informations sur les conventions d’affectation de noms Azure, consultez [Conventions d’affectation de noms][azure-name-restrictions] dans le centre Azure Architecture Center.
 
 | Étendue | Longueur | Casse | Caractères valides | Modèle suggéré | Exemples |
 | --- | --- | --- | --- | --- | --- |
 | Nom du groupe de conteneurs | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nom du conteneur | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Ports du conteneur | Entre 1 et 65 535 |Entier  |Entier compris entre 1 et 65 535 |`<port-number>` |`443` |
+| Ports du conteneur | Entre 1 et 65 535 |Integer |Entier compris entre 1 et 65 535 |`<port-number>` |`443` |
 | Étiquette du nom DNS | 5 à 63 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>` |`frontend-site1` |
 | Variable d’environnement | 1-63 |Insensible à la casse |Caractères alphanumériques et trait de soulignement (_) n’importe où sauf en première ou dernière position |`<name>` |`MY_VARIABLE` |
 | Nom du volume | 5 à 63 |Insensible à la casse |Lettres minuscules, chiffres et traits d’union n’importe où sauf en première ou dernière position. Ne peut pas contenir deux traits d’union consécutifs. |`<name>` |`batch-output-volume` |
@@ -46,11 +48,7 @@ Si l’image spécifiée n’est pas prise en charge par Azure Container Instanc
 }
 ```
 
-Cette erreur se produit généralement lorsque vous déployez des images Windows qui sont basées sur une version du canal semi-annuel (SAC). Par exemple, les versions Windows 1709 et 1803 sont des versions du SAC et génèrent cette erreur lors du déploiement.
-
-Actuellement, Azure Container Instances prend en charge les images Windows basées sur la version du **canal de maintenance à long terme (LTSC) Windows Server 2016**. Pour résoudre ce problème lorsque vous déployez les conteneurs Windows, déployez toujours les images basées sur Windows Server 2016 (LTSC). Les images basées sur Windows Server 2019 (LTSC) ne sont pas prises en charge.
-
-Pour plus d’informations sur les versions de LTSC et du SAC Windows, consultez [Vue d’ensemble du canal semi-annuel du serveur Windows][windows-sac-overview].
+Cette erreur se produit généralement lors du déploiement d'images Windows basées sur les versions 1709 ou 1803 du canal semi-annuel, qui ne sont pas prises en charge. Pour les images Windows prises en charge dans Azure Container Instances, consultez le [Forum aux questions](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## <a name="unable-to-pull-image"></a>Impossible d’extraire l’image
 
@@ -58,7 +56,7 @@ Si Azure Container Instances ne parvient pas à extraire votre image initialemen
 
 Pour résoudre ce problème, supprimez l’instance de conteneur et réessayez votre déploiement. Vérifiez que l’image existe dans le Registre, et que vous avez correctement tapé le nom de l’image.
 
-Des événements tels que les suivants sont alors affichés dans la sortie de [az container show][az-container-show] :
+Des événements tels que les suivants sont alors affichés dans la sortie de [az container show][az-container-show] :
 
 ```bash
 "events": [
@@ -93,7 +91,7 @@ Des événements tels que les suivants sont alors affichés dans la sortie de [a
 
 Les groupes de conteneurs sont définis par défaut sur la [stratégie de redémarrage](container-instances-restart-policy.md) **Toujours**, de sorte que les conteneurs du groupe de conteneurs redémarrent toujours après avoir été exécutés. Vous devrez peut-être définir ce paramètre sur **OnFailure** ou **Jamais** si vous envisagez d’exécuter des conteneurs basés sur des tâches. Si vous spécifiez **OnFailure** et constatez encore des redémarrages continus, il peut y avoir un problème avec l’application ou le script exécutés dans votre conteneur.
 
-Lors de l’exécution de groupes de conteneurs sans processus au long cours, vous pouvez observer de multiples arrêts et redémarrages avec des images telles que Ubuntu ou Alpine. La connexion via [EXEC](container-instances-exec.md) ne va pas fonctionner car le conteneur n’a aucun processus pour le maintenir actif. Pour résoudre ce problème, incluent une commande de démarrage comme suit avec votre déploiement de groupe de conteneurs à conserver le conteneur en cours d’exécution.
+Lors de l’exécution de groupes de conteneurs sans processus au long cours, vous pouvez observer de multiples arrêts et redémarrages avec des images telles que Ubuntu ou Alpine. La connexion via [EXEC](container-instances-exec.md) ne va pas fonctionner car le conteneur n’a aucun processus pour le maintenir actif. Pour résoudre ce problème, ajoutez une commande de démarrage (voir exemple ci-dessous) au déploiement de votre groupe de conteneurs pour que le conteneur continue à s'exécuter.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -102,7 +100,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -156,7 +154,7 @@ Les deux principaux facteurs qui contribuent à l’heure de démarrage dans Azu
 * [Taille de l'image](#image-size)
 * [Emplacement de l’image](#image-location)
 
-Les images Windows ont des [considérations supplémentaires](#cached-windows-images).
+Les images Windows ont des [considérations supplémentaires](#cached-images).
 
 ### <a name="image-size"></a>Taille de l'image
 
@@ -176,14 +174,12 @@ Pour que l’image conserve une petite taille, faites en sorte que l’image fin
 
 Il existe une autre façon de réduire l’impact de l’extraction de l’image sur le temps de démarrage de votre conteneur. Elle consiste à héberger l’image du conteneur dans [Azure Container Registry](/azure/container-registry/) dans la région où vous envisagez de déployer Azure Container Instances. Cette opération raccourcit le chemin réseau que l’image conteneur doit parcourir, réduisant considérablement le temps de téléchargement.
 
-### <a name="cached-windows-images"></a>Images Windows mises en cache
+### <a name="cached-images"></a>Images mises en cache
 
-Azure Container Instances utilise un mécanisme de mise en cache pour le temps de démarrage de conteneur vitesse pour des images basées sur des images courantes de Windows et Linux. Pour obtenir une liste détaillée des images mis en cache et les balises, utilisez le [liste mise en cache des Images] [ list-cached-images] API.
+Azure Container Instances utilise un mécanisme de mise en cache afin d'accélérer le démarrage des conteneurs pour les images générées à partir d'[images Windows](container-instances-faq.md#what-windows-base-os-images-are-supported) courantes, notamment `nanoserver:1809`, `servercore:ltsc2019` et `servercore:1809`. Les images Linux couramment utilisées, telles que `ubuntu:1604` et `alpine:3.6`, sont également mises en cache. Pour obtenir une liste à jour des images et balises mises en cache, utilisez l'API [Liste des images mises en cache][list-cached-images].
 
-Pour garantir le meilleur temps de démarrage du conteneur Windows, utilisez une des **trois dernières** versions des **deux images** suivantes en tant qu’image de base :
-
-* [Windows Server Core 2016] [ docker-hub-windows-core] (LTSC uniquement)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> L’utilisation d’images basées sur Windows Server 2019 dans Azure Container Instances est disponible en version préliminaire.
 
 ### <a name="windows-containers-slow-network-readiness"></a>Disponibilité lente du réseau des conteneurs Windows
 
@@ -206,13 +202,32 @@ Cette erreur indique qu’en raison d’une charge importante dans la région da
 
 Azure Container Instances n’expose pas un accès direct à l’infrastructure sous-jacente qui héberge les groupes de conteneurs. Cela inclut l’accès à l’API Docker en cours d’exécution sur l’hôte du conteneur et les conteneurs privilégiés en cours d’exécution. Si vous avez besoin d’interaction avec le Docker, vérifiez la [Documentation de référence REST](https://aka.ms/aci/rest) pour voir ce que l’API ACI prend en charge. S’il manque des informations, envoyez une requête sur le [Forum Internet de commentaires ACI](https://aka.ms/aci/feedback).
 
-## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>Adresses IP éventuellement inaccessibles en raison de ports non correspondants
+## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Il se peut que l’adresse IP d’un groupe de conteneurs soit inaccessible en raison d’une discordance de ports
 
-Azure Container Instances ne prend pas en charge le mappage de ports, contrairement à la configuration Docker classique. Toutefois, ce correctif est sur la feuille de route. Si vous constatez que des adresses IP ne sont pas accessibles alors qu’elles le devraient, vérifiez que vous avez configuré votre image conteneur pour écouter les mêmes ports que ceux que vous exposez dans votre groupe de conteneurs avec la propriété `ports`.
+Azure Container Instances ne prend pas encore en charge le mappage de ports, contrairement à une configuration Docker classique. Si vous constatez que l’adresses IP d’un groupe de conteneurs n’est pas accessible alors que vous pensez qu’elle devrait l’être, vérifiez que vous avez configuré votre image conteneur pour écouter les mêmes ports que ceux que vous exposez dans votre groupe de conteneurs avec la propriété `ports`.
+
+Si vous souhaitez vérifier qu’Azure Container Instances peut écouter le port que vous avez configuré dans votre image conteneur, testez un déploiement de l’image `aci-helloworld` qui expose le port. Exécutez également l’application `aci-helloworld` afin qu’elle écoute le port. `aci-helloworld` accepte une variable d’environnement facultative `PORT` pour remplacer le port 80 écouté par défaut. Par exemple, pour tester le port 9000 :
+
+1. Configurez le groupe de conteneurs pour exposer le port 9000 et transmettez le numéro de port comme valeur de la variable d’environnement :
+    ```azurecli
+    az container create --resource-group myResourceGroup \
+    --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
+    --ip-address Public --ports 9000 \
+    --environment-variables 'PORT'='9000'
+    ```
+1. Recherchez l’adresse IP du groupe de conteneurs dans la sortie de commande de `az container create`. Recherchez la valeur de **ip**. 
+1. Une fois le conteneur correctement approvisionné, accédez à l’adresse IP et au port de l’application conteneur dans votre navigateur, par exemple : `192.0.2.0:9000`. 
+
+    Vous devriez voir le message « Bienvenue dans Azure Container Instances ! » s’afficher dans l’application web.
+1. Lorsque vous avez fini d’utiliser le conteneur, vous pouvez le supprimer à l’aide de la commande `az container delete` :
+
+    ```azurecli
+    az container delete --resource-group myResourceGroup --name mycontainer
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [récupérer les journaux de conteneur et les événements](container-instances-get-logs.md) pour aider à déboguer vos conteneurs.
+Apprenez à [récupérer les journaux d'activité et les événements de conteneur](container-instances-get-logs.md) pour vous aider à déboguer vos conteneurs.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions

@@ -10,11 +10,11 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
 ms.openlocfilehash: 5042d89f1cb5e928444e4b3c9a23db7bb1d66585
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531604"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60509095"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utiliser Azure Data Lake Tools pour Visual Studio Code
 
@@ -22,7 +22,7 @@ Dans cet article, vous allez apprendre à utiliser Azure Data Lake Tools pour Vi
 
 <a href="https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Azure Data Lake Tools pour VS Code prend en charge Windows, Linux et MacOS. L’exécution locale et le débogage local de U-SQL fonctionnent uniquement pour les utilisateurs de Windows.
 
@@ -155,7 +155,7 @@ Vous pouvez utiliser Data Lake Tools pour inscrire des assemblys de code personn
 
 **Pour inscrire un assembly**
 
-Vous pouvez inscrire l’assembly via la commande **ADL: Register Assembly** ou **ADL: Register Assembly (Advanced)**.
+Vous pouvez inscrire l’assembly via la commande **ADL: Register Assembly** ou **ADL: Register Assembly (Advanced)** .
 
 **Pour une inscription via la commande ADL : Register Assembly**
 1.  Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes.
@@ -170,7 +170,7 @@ Pour déclencher la commande **ADL: Register Assembly**, vous pouvez également 
 
 **Pour une inscription via la commande ADL : Register Assembly (Advanced)**
 1.  Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes.
-2.  Entrez **ADL: Register Assembly (Advanced)**. 
+2.  Entrez **ADL: Register Assembly (Advanced)** . 
 3.  Spécifiez le chemin d’accès de l’assembly local. 
 4.  Le fichier JSON s’affiche. Examinez et modifiez, si nécessaire, les paramètres des ressources et les dépendances de l’assembly. Les instructions s’affichent dans la fenêtre **Output**. Pour procéder à l’inscription de l’assembly, enregistrez (Ctrl+S) le fichier JSON.
 
@@ -180,7 +180,7 @@ Pour déclencher la commande **ADL: Register Assembly**, vous pouvez également 
 >- S'il existe des dépendances de l’assembly dans la bibliothèque de liens dynamiques (DLL), Azure Data Lake Tools les détecte automatiquement. Une fois détectées, les dépendances apparaissent dans le fichier JSON. 
 >- Vous pouvez charger vos ressources DLL (.txt, .png et .csv, par exemple) dans le cadre de l’inscription de l’assembly. 
 
-Pour déclencher la commande **ADL: Register Assembly (Advanced)**, vous pouvez également cliquer avec le bouton droit sur le fichier .dll dans l’Explorateur de fichiers. 
+Pour déclencher la commande **ADL: Register Assembly (Advanced)** , vous pouvez également cliquer avec le bouton droit sur le fichier .dll dans l’Explorateur de fichiers. 
 
 Le code U-SQL suivant montre comment appeler un assembly. Dans l’exemple, le nom de l’assembly est *test*.
 
@@ -366,7 +366,7 @@ Vous pouvez [surveiller l’état du chargement](#check-storage-tasks-status).
 
 
 ### <a name="download-a-file"></a>Téléchargement d’un fichier 
-Vous pouvez télécharger un fichier avec la commande **ADL: Download File** ou **ADL: Download File (Advanced)**.
+Vous pouvez télécharger un fichier avec la commande **ADL: Download File** ou **ADL: Download File (Advanced)** .
 
 **Pour télécharger un fichier via la commande ADL : Download File (Advanced)**
 1. Cliquez avec le bouton droit sur l’éditeur de script, puis sélectionnez **Download File (Advanced)** (Télécharger un fichier (Avancé)).

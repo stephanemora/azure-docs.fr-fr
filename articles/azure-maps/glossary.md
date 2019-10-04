@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 11e49d362508e9720cf65fc20e020930b5f5c3ad
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775031"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64575360"
 ---
 # <a name="glossary"></a>Glossaire
 
@@ -63,7 +63,7 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="bearing"></a> **Repère** : Direction horizontale d’un point par rapport à un autre point. Elle est exprimée par un angle relatif vers le nord, de 0 degré à 360 degrés dans le sens des aiguilles d’une montre. 
 
-<a name="boundary"></a> **Délimitation** : Ligne ou polygone séparant les entités politiques adjacentes, comme les pays, les régions et les propriétés. Une délimitation est une ligne qui peut suivre ou non des caractéristiques physiques telles que des rivières, des montagnes ou des murs.
+<a name="boundary"></a> **Délimitation** : Une ligne ou un polygone séparant les entités politiques adjacentes, comme les pays/régions, les provinces et les propriétés. Une délimitation est une ligne qui peut suivre ou non des caractéristiques physiques telles que des rivières, des montagnes ou des murs.
 
 <a name="bounds"></a> **Limites** : Voir [Rectangle englobant](#bounding-box).
 
@@ -91,13 +91,13 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="coordinate-system"></a> **Système de coordonnées** : Cadre de référence utilisé pour définir les positions des points dans l’espace en deux ou trois dimensions.
 
-<a name="country-code"></a> **Code pays** : Identificateur unique d’un pays selon la norme ISO. ISO2 est un code à deux caractères pour un pays (par exemple, US), et ISO3 est un code à trois caractères (par exemple, USA).
+<a name="country-code"></a> **Code pays** : Un identificateur unique d’un pays/d’une région selon la norme ISO. ISO2 est un code à deux caractères pour un pays (par exemple, US), et ISO3 est un code à trois caractères (par exemple, USA).
 
-<a name="country-subdivision"></a> **Sous-division de pays** : Sous-division de premier niveau d’un pays, couramment appelée état, province ou région.
+<a name="country-subdivision"></a> **Sous-division de pays** : Une sous-division de premier niveau d’un pays/d’une région, couramment appelée état ou province.
 
-<a name="country-secondary-subdivision"></a> **Sous-division secondaire de pays** : Sous-division de deuxième niveau d’un pays, couramment appelée comté ou département.
+<a name="country-secondary-subdivision"></a> **Sous-division secondaire de pays** : Une sous-division de deuxième niveau d’un pays/d’une région, couramment appelée comté.
 
-<a name="country-tertiary-subdivision"></a> **Sous-division tertiaire de pays** : Sous-division de troisième niveau d’un pays, comme un canton, une circonscription électorale ou une communauté d’agglomération.
+<a name="country-tertiary-subdivision"></a> **Sous-division tertiaire de pays** : Une sous-division de troisième niveau d’un pays/d’une région ; en général, cette zone est appelée circonscription.
 
 <a name="cross-street"></a> **Intersection** : Point où deux rues ou plus se croisent.
 
@@ -283,7 +283,7 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="post-code"></a> **Postal** : Voir [Code postal](#postal-code).
 
-<a name="postal-code"></a> **Code postal** : Série de lettres et/ou chiffres, dans un format spécifique, utilisée par le service postal d’un pays pour diviser des zones géographiques en zones plus petites afin de simplifier la distribution du courrier.
+<a name="postal-code"></a> **Code postal** : Une série de lettres et/ou de chiffres, dans un format spécifique, utilisée par le service postal d’un pays/d’une région pour diviser des zones géographiques en zones plus petites, afin de simplifier la livraison du courrier.
 
 <a name="prime-meridian"></a> **Méridien d’origine** : Ligne de longitude qui représente 0 degré de longitude. En règle générale, les valeurs de longitude diminuent en se déplaçant vers l’ouest jusqu’à 180 degrés, et augmentent en direction de l’est jusqu’à 180 degrés. 
 
@@ -351,11 +351,11 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="terrain"></a> **Terrain** : Zone ayant une caractéristique particulière, par exemple un caractère sablonneux ou montagneux.
 
-<a name="thematic-maps"></a> **Cartes thématiques** : Carte simple qui a pour but d’illustrer un thème d’une zone géographique. Il est courant pour ce type de carte de colorer les régions administratives telles que des pays, en fonction de certaines données de mesure.
+<a name="thematic-maps"></a> **Cartes thématiques** : Carte simple qui a pour but d’illustrer un thème d’une zone géographique. Un scénario courant pour ce type de carte consistant à colorer les régions administratives telles que des pays/régions, en fonction de certaines métriques de données.
 
 <a name="tile-layer"></a> **Couche de mosaïques** : Couche affichée en assemblant des mosaïques (sections rectangulaires) en une couche continue. Les vignettes peuvent être des images raster ou de vecteur. Les couches de mosaïques Raster sont généralement rendues à l’avance et stockées sous forme d’images sur un serveur. Elles peuvent occuper beaucoup d’espace de stockage. Les couches de mosaïques de vecteur sont affichées à la volée au sein de l’application cliente, par conséquent, les exigences de stockage côté serveur sont plus faibles.
 
-<a name="time-zone"></a> **Fuseau horaire** : Région du globe qui observe une heure uniforme à des fins commerciales, sociales et juridiques. Les fuseaux horaires ont tendance à respecter les délimitations des pays et de leurs sous-divisions.
+<a name="time-zone"></a> **Fuseau horaire** : Région du globe qui observe une heure uniforme à des fins commerciales, sociales et juridiques. Les fuseaux horaires ont tendance à respecter les délimitations des pays/régions et de leurs sous-divisions.
 
 <a name="transaction"></a> **Transaction** : Azure Maps utilise un modèle de licence transactionnel où :
 
@@ -398,5 +398,5 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="zip-code"></a> **Code ZIP** : Voir [Code postal](#postal-code).
 
-<a name="Zoom level"></a> **Niveau de zoom** : Spécifie le niveau de détail et la partie visible de la carte. Avec un zoom jusqu’au niveau 0, la carte du monde sera souvent complètement visible mais n’affichera que des informations limitées comme le nom des pays et les frontières, ainsi que les noms des océans. Avec un zoom plus proche du niveau 17, la carte affiche une zone de quelques rues d’une ville avec des informations routières détaillées. Pour plus d’informations, consultez la [documentation Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
+<a name="Zoom level"></a> **Niveau de zoom** : Spécifie le niveau de détail et la partie visible de la carte. Avec un zoom jusqu’au niveau 0, la carte du monde sera souvent complètement visible, mais n’affichera que des informations limitées, comme le nom des pays/régions et les frontières, ainsi que les noms des océans. Avec un zoom plus proche du niveau 17, la carte affiche une zone de quelques rues d’une ville avec des informations routières détaillées. Pour plus d’informations, consultez la [documentation Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
 

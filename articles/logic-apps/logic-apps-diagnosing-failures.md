@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62a74364939fffb6e06f51f1c0cabb6cce8c10e1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123685"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60999748"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Résoudre les problèmes et diagnostiquer les échecs de flux de travail dans Azure Logic Apps
 
@@ -95,7 +95,7 @@ Chaque déclencheur activé démarre une exécution de flux de travail. Vous pou
 
    ![Affichage des détails relatifs à une exécution d’application logique](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. Pour examiner les entrées, les sorties et les messages d’erreur pour une étape spécifique, cliquez sur cette étape afin que la zone se développe et affiche les détails. Par exemple : 
+3. Pour examiner les entrées, les sorties et les messages d’erreur pour une étape spécifique, cliquez sur cette étape afin que la zone se développe et affiche les détails. Par exemple :
 
    ![Affichage des détails de l’étape](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 

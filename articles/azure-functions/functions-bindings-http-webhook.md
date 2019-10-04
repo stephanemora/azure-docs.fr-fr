@@ -4,19 +4,18 @@ description: Découvrez comment utiliser des déclencheurs et des liaisons HTTP 
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur, HTTP, API, REST
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 983cf250f3a7188741c41386aac256bfdb28749b
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490408"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70097339"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP d’Azure Functions
 
@@ -307,6 +306,7 @@ Voici le code Python :
 ```python
 import logging
 import azure.functions as func
+
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
@@ -666,7 +666,7 @@ S votre application de fonction utilise [Authentification d’App Service/Autori
 
 Vous pouvez également lire ces informations à partir de la liaison de données. Cette fonctionnalité est uniquement disponible pour le runtime de Functions 2.x. Elle n’est actuellement également disponible que pour les langages .NET.
 
-Dans les langages .NET, ces informations sont disponibles en tant que [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). Le ClaimsPrincipal est disponible dans le cadre du contexte de requête, comme le montre l’exemple suivant :
+Dans les langages .NET, ces informations sont disponibles en tant que [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). Le ClaimsPrincipal est disponible dans le cadre du contexte de requête, comme le montre l’exemple suivant :
 
 ```csharp
 using System.Net;
@@ -727,7 +727,7 @@ Les clés sont stockées dans votre Function App dans Azure, et chiffrées au re
 
 ![Gérez les clés de fonction dans le portail.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-Il n’existe pas d’API prise en charge pour obtenir des clés de fonction par programmation.
+Vous pouvez obtenir des clés de fonction par programmation à l’aide de l’[API de gestion de clés](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
 ### <a name="api-key-authorization"></a>Autorisation de clé API
 
@@ -756,7 +756,7 @@ Pour sécuriser complètement vos points de terminaison de fonction en productio
 
 Quand vous utilisez une de ces méthodes de sécurité au niveau de l’application de fonction, vous devez définir le niveau d’authentification de la fonction déclenchée par HTTP sur `anonymous`.
 
-### <a name="webhooks"></a>Webhooks
+### <a name="webhooks"></a>webhooks
 
 > [!NOTE]
 > Le mode Webhook est disponible seulement pour la version 1.x du runtime Functions. Cette modification a été apportée afin d’améliorer les performances des déclencheurs HTTP dans la version 2.x.
@@ -784,7 +784,7 @@ Une autorisation de webhook est gérée par le composant récepteur de webhook, 
 
 La longueur de la requête HTTP est limitée à 100 Mo (104 857 600 octets) et la longueur de l’URL à 4 Ko (4 096 octets). Ces limites sont spécifiées par l’élément `httpRuntime` du [fichier Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) du runtime.
 
-Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout d’environ 2,5 minutes, la passerelle arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan) (Mise à l’échelle et hébergement – Plan de consommation).
+Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout d’environ 2,5 minutes, la passerelle arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#timeout) (Mise à l’échelle et hébergement – Plan de consommation).
 
 ## <a name="trigger---hostjson-properties"></a>Déclencheur - propriétés de host.json
 
@@ -792,7 +792,7 @@ Le fichier [host.json](functions-host-json.md) contient les paramètres qui cont
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la demande HTTP. Cette liaison requiert un déclencheur HTTP, et vous permet de personnaliser la réponse associée à la demande du déclencheur. Si une liaison de sortie HTTP n’est pas fournie, un déclencheur HTTP renvoie le message HTTP 200 OK avec un corps vide dans Functions 1.x, ou le message HTTP 204 Aucun contenu avec un corps vide dans Functions 2.x.
 

@@ -2,23 +2,23 @@
 title: S’inscrire aux éditions Premium - Azure Active Directory| Microsoft Docs
 description: Instructions permettant de s’inscrire aux éditions Azure Active Directory Premium.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/07/2017
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 016fbc8808c11f861dd4388ea5fb062c840187ea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287058"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561989"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>S’inscrire aux éditions Azure Active Directory Premium
 Vous pouvez acheter des éditions Azure Active Directory (Azure AD) Premium et les associer à votre abonnement Azure. Si vous devez créer un nouvel abonnement Azure, vous devez aussi activer votre offre de licences et l’accès au service Azure AD.
@@ -98,4 +98,4 @@ Dès que vos licences achetées sont provisionnées dans votre annuaire, vous re
 Le processus d’activation ne prend généralement que quelques minutes, après lesquelles vous pourrez utiliser votre locataire Azure AD. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-À présent que vous disposez d’Azure AD Premium, vous pouvez [personnaliser votre domaine](add-custom-domain.md), ajouter une [personnalisation pour votre entreprise](customize-branding.md), [créer un locataire](active-directory-access-create-new-tenant.md) et [ajouter des groupes](active-directory-groups-create-azure-portal.md)et [des utilisateurs](add-users-azure-active-directory.md).
+À présent que vous disposez d’Azure AD Premium, vous pouvez [personnaliser votre domaine](add-custom-domain.md), ajouter une [personnalisation pour votre entreprise](customize-branding.md), [créer un locataire](active-directory-access-create-new-tenant.md) et [ajouter des groupeset](active-directory-groups-create-azure-portal.md)et [des utilisateurs](add-users-azure-active-directory.md).

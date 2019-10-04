@@ -1,7 +1,6 @@
 ---
 title: Utiliser le SDK .NET HBase - Azure HDInsight
 description: Utilisez le SDK .NET HBase pour créer et supprimer des tables et pour lire et écrire des données.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 27a013bee98447de591d373917c2cbaae7ca08b3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d998ff44804a2dcd2b3282679a9cb53f893991e3
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857655"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077167"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Utiliser le SDK .NET pour Apache HBase
 
-[Apache HBase](apache-hbase-overview.md) fournit deux principales options pour travailler avec vos données : [Requêtes Apache Hive et les appels aux API RESTful de HBase](apache-hbase-tutorial-get-started-linux.md). Vous pouvez travailler directement avec l’API REST à l’aide de la commande `curl` ou d’un utilitaire similaire.
+[Apache HBase](apache-hbase-overview.md) offre deux choix principaux pour travailler avec vos données : [les requêtes Apache Hive et les appels à l’API RESTful de HBase](apache-hbase-tutorial-get-started-linux.md). Vous pouvez travailler directement avec l’API REST à l’aide de la commande `curl` ou d’un utilitaire similaire.
 
 Pour les applications C# et .NET, la [bibliothèque de client Microsoft HBase REST pour .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) fournit une bibliothèque de client sur l’API REST HBase.
 
@@ -115,7 +114,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 HBase implémente [Cloud BigTable](https://cloud.google.com/bigtable/), afin que le format de données ressemble à ce qui suit :
 
-![Utilisateur avec le rôle d’utilisateur du cluster](./media/apache-hbase-rest-sdk/table.png)
+![Exemple de sortie de données Apache HBase](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
 ## <a name="select-data"></a>Sélectionner des données
 

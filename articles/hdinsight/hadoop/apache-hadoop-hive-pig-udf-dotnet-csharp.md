@@ -1,7 +1,6 @@
 ---
 title: Utiliser C# avec Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight - Azure
 description: Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec la diffusion en continu Apache Hive et Apache Pig dans Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,23 +8,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: ac2edb4c12e95a915790c1fadfb2dcdcce554aad
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: fa40f206447f631c78052bda085b26a56e481194
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545571"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066917"
 ---
-# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight
+# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight
 
 Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec Apache Hive et Apache Pig sur HDInsight.
 
 > [!IMPORTANT]
 > Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows et Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](../hdinsight-component-versioning.md).
 
-Hive et Pig permettent de transmettre des données vers des applications externes pour le traitement. Ce processus est appelé _diffusion en continu (streaming)_. Lorsque vous utilisez une application .NET, les données sont transmises à l’application sur STDIN, et l’application renvoie les résultats sur STDOUT. Pour lire et écrire à partir de STDIN et STDOUT, vous pouvez utiliser `Console.ReadLine()` et `Console.WriteLine()` à partir d’une application console.
+Hive et Pig permettent de transmettre des données vers des applications externes pour le traitement. Ce processus est appelé _diffusion en continu (streaming)_ . Lorsque vous utilisez une application .NET, les données sont transmises à l’application sur STDIN, et l’application renvoie les résultats sur STDOUT. Pour lire et écrire à partir de STDIN et STDOUT, vous pouvez utiliser `Console.ReadLine()` et `Console.WriteLine()` à partir d’une application console.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Des connaissances en écriture et en génération de code C# qui cible .NET Framework 4.5.
 
@@ -55,7 +54,7 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
 
 ### <a name="apache-hive-udf"></a>Fonction définie par l’utilisateur Apache Hive
 
-1. Ouvrez Visual Studio et créez une solution. Pour le type de projet, sélectionnez **Application console (.NET Framework)**, puis nommez le nouveau projet **HiveCSharp**.
+1. Ouvrez Visual Studio et créez une solution. Pour le type de projet, sélectionnez **Application console (.NET Framework)** , puis nommez le nouveau projet **HiveCSharp**.
 
     > [!IMPORTANT]
     > Si vous utilisez un cluster HDInsight sous Linux, sélectionnez __.NET Framework 4.5__. Pour plus d’informations sur la compatibilité Mono avec les versions de .NET Framework, consultez [Compatibilité Mono](https://www.mono-project.com/docs/about-mono/compatibility/).
@@ -162,17 +161,17 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
 
 4. Développez le cluster HDInsight sur lequel vous souhaitez déployer cette application. Une entrée avec le texte __(compte de stockage par défaut)__ est répertoriée.
 
-    ![Explorateur de serveurs affichant le compte de stockage pour le cluster](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![Explorateur de serveurs affichant le compte de stockage pour le cluster](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
-    * Si cette entrée peut être développée, vous utilisez un __compte de stockage Azure__ en tant que stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, développez l’entrée et double-cliquez sur le __(conteneur par défaut)__.
+    * Si cette entrée peut être développée, vous utilisez un __compte de stockage Azure__ en tant que stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, développez l’entrée et double-cliquez sur le __(conteneur par défaut)__ .
 
-    * Si cette entrée ne peut pas être développée, vous utilisez __Azure Data Lake Storage__ comme stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, double-cliquez sur l’entrée __(compte de stockage par défaut)__.
+    * Si cette entrée ne peut pas être développée, vous utilisez __Azure Data Lake Storage__ comme stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, double-cliquez sur l’entrée __(compte de stockage par défaut)__ .
 
 6. Pour charger les fichiers .exe, appliquez l’une des méthodes suivantes :
 
    * Si vous utilisez un __compte de stockage Azure__, cliquez sur l’icône de téléchargement, puis accédez au dossier **bin\debug** pour le projet **HiveCSharp**. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ok**.
 
-       ![icône télécharger](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
+       ![Icône de chargement de HDInsight pour le nouveau projet](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
     
    * Si vous utilisez __Azure Data Lake Storage__, cliquez avec le bouton droit sur une zone vide de la liste des fichiers, puis sélectionnez __Charger__. Enfin, sélectionnez le fichier **HiveCSharp.exe** et cliquez sur **Ouvrir**.
 

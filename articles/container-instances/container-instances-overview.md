@@ -3,18 +3,18 @@ title: Présentation d’Azure Container Instances
 description: Le service Azure Container Instances offre le moyen le plus simple et le plus rapide d’exécuter des conteneurs isolés dans Azure, sans avoir à gérer des machines virtuelles ni à adopter un orchestrateur de plus haut niveau.
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a07eda709c813e68bc3e4f08b6aab3f93dec65a6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499554"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325742"
 ---
 # <a name="what-is-azure-container-instances"></a>Présentation d’Azure Container Instances
 
@@ -56,7 +56,10 @@ Certaines fonctionnalités sont actuellement restreintes aux conteneurs Linux :
 * [Déploiement de réseau virtuel](container-instances-vnet.md) (préversion)
 * [Ressources GPU](container-instances-gpu.md) (préversion)
 
-Azure Container Instances prend actuellement en charge les images Windows Server 2016 basées sur des versions du canal de maintenance à long terme (LTSC). Les versions du canal semi-annuel (SAC) Windows telles que 1709 et 1803 ne sont pas prises en charge.
+Pour les déploiements de conteneurs Windows, utilisez des images basées sur des [images de base Windows](container-instances-faq.md#what-windows-base-os-images-are-supported) communes.
+
+> [!NOTE]
+> L’utilisation d’images basées sur Windows Server 2019 dans Azure Container Instances est disponible en version préliminaire.
 
 ## <a name="co-scheduled-groups"></a>Groupes co-planifiés
 
@@ -67,7 +70,7 @@ Azure Container Instances prend en charge la planification de [groupes de plusie
 Actuellement en préversion, cette fonctionnalité d’Azure Container Instances permet le [déploiement d’instances de conteneur dans un réseau virtuel Azure](container-instances-vnet.md). En déployant des instances de conteneur dans un sous-réseau au sein de votre réseau virtuel, elles peuvent communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel, y compris celles qui sont en local (via une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 > [!IMPORTANT]
-> Certaines fonctionnalités d’Azure Container Instances sont en préversion et certaines [limitations s’appliquent](container-instances-vnet.md#preview-limitations). Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de ces fonctionnalités sont susceptibles d’être modifiés avant la mise à disposition générale.
+> Certaines fonctionnalités d’Azure Container Instances sont en préversion et certaines [limitations s’appliquent](container-instances-vnet.md#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de ces fonctionnalités sont susceptibles d’être modifiés avant la mise à disposition générale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

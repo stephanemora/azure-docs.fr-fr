@@ -1,24 +1,22 @@
 ---
 title: API dédiées à l’automatisation de la réservation Azure | Microsoft Docs
 description: Découvrez les API Azure que vous pouvez utiliser pour obtenir par programmation les informations de réservation.
-documentationcenter: ''
 author: yashesvi
 manager: yashesvi
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 50de654fb9222951a7380a322160496421006e7a
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008207"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719685"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API dédiées à l’automatisation de la réservation Azure
 
@@ -32,7 +30,38 @@ Vous pouvez également analyser votre utilisation des ressources grâce aux dét
 
 ## <a name="buy-a-reservation"></a>Acheter une réservation
 
-Actuellement, vous ne pouvez pas acheter de réservation par programmation. Pour acheter une réservation, consultez les articles suivants :
+Vous pouvez acheter des abonnements logiciels et des réservations Azure par programmation à l’aide d’API REST. Pour plus d’informations, consultez [API Ordre de réservation - Achat](/rest/api/reserved-vm-instances/reservationorder/purchase).
+
+Voici un exemple de demande d’achat effectué à l’aide de l’API REST :
+
+```
+PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
+```
+
+Corps de la requête :
+
+```
+{
+ "sku": {
+    "name": "standard_D1"
+  },
+ "location": "westus",
+ "properties": {
+    "reservedResourceType": "VirtualMachines",
+    "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+    "term": "P1Y",
+    "quantity": "1",
+    "displayName": "TestReservationOrder",
+    "appliedScopes": null,
+    "appliedScopeType": "Shared",
+    "reservedResourceProperties": {
+      "instanceFlexibility": "On"
+    }
+  }
+}
+```
+
+Vous pouvez également acheter une réservation sur le portail Azure. Pour plus d’informations, consultez les articles suivants :
 
 Plans de service :
 - [Machine virtuelle](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
@@ -55,7 +84,7 @@ Si vous constatez que les réservations de votre organisation sont sous-utilisé
 - Assurez-vous que les machines virtuelles créées par votre organisation correspondent à la taille de machine virtuelle qui se trouve sur la réservation.
 - Assurez-vous que la flexibilité de taille d’instance est activée. Pour plus d’informations, consultez [Gérer les réservations - Modifier le paramètre d’optimisation pour des instances de machine virtuelle réservées](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 - Modifiez l’étendue de réservation en partage afin qu’elle s’applique plus largement. Pour plus d’informations, consultez [Gérer les réservations - Modifier l’étendue d’une réservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
-- Échangez la quantité inutilisée. Pour plus d’informations, consultez [Gérer les réservations - Annulations et échanges](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
+- Échangez la quantité inutilisée. Pour plus d’informations, voir [Gérer les réservations](billing-manage-reserved-vm-instance.md).
 
 ## <a name="give-access-to-reservations"></a>Accorder l’accès aux réservations
 
@@ -75,7 +104,7 @@ Pour fusionner deux réservations en une seule réservation, utilisez l’API [d
 
 ## <a name="change-scope-for-a-reservation"></a>Modifier l’étendue d’une réservation
 
-L’étendue d’une réservation peut être un abonnement unique ou tous les abonnements de votre contexte de facturation. Si vous définissez l’étendue à un seul abonnement, la réservation est mise en correspondance avec les ressources en cours d’exécution dans l’abonnement sélectionné. Si vous définissez l’étendue pour qu’elle soit partagée, Azure met en correspondance la réservation avec les ressources exécutées dans tous les abonnements du contexte de facturation. Le contexte de facturation dépend de l’abonnement utilisé pour acheter la réservation. Pour plus d’informations, consultez [Manage reservations - Change the scope](billing-manage-reserved-vm-instance.md#change-the-reservation-scope) (Gérer les réservations - Modifier l’étendue).
+L’étendue d’une réservation peut être un abonnement unique, un groupe de ressources unique ou tous les abonnements de votre contexte de facturation. Si vous définissez l’étendue à un seul abonnement ou un seul groupe de ressources, la réservation est mise en correspondance avec les ressources en cours d’exécution dans l’abonnement sélectionné. Si vous supprimez ou déplacez l’abonnement ou le groupe de ressources, la réservation n’est pas utilisée.  Si vous définissez l’étendue pour qu’elle soit partagée, Azure met en correspondance la réservation avec les ressources exécutées dans tous les abonnements du contexte de facturation. Le contexte de facturation dépend de l’abonnement utilisé pour acheter la réservation. Vous pouvez sélectionner l’étendue à l’achat ou la modifier à tout moment après l’achat. Pour plus d’informations, consultez [Manage reservations - Change the scope](billing-manage-reserved-vm-instance.md#change-the-reservation-scope) (Gérer les réservations - Modifier l’étendue).
 
 Pour modifier l’étendue par programmation, utilisez l’API [de réservation - Mise à jour](/rest/api/reserved-vm-instances/reservation/update).
 

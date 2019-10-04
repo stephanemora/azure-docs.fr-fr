@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: ccc418cd3af14c0468ab8d669ad2e2e11a0b6d57
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174290"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70772268"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Vue d’ensemble des enregistrements et des zones DNS
 
@@ -30,7 +30,7 @@ Cette page explique les concepts clés des domaines, zones DNS, enregistrements 
 
 DNS est une hiérarchie de domaines. Celle-ci démarre à partir du domaine « racine », dont le nom est simplement «  **.**  ».  Puis viennent les domaines de niveau supérieur, tels que « com », « net », « org », « uk » ou « jp ».  Vous trouvez ensuite les domaines de second niveau, comme « org.uk » ou « co.jp ». Dans une hiérarchie DNS, les domaines sont distribués et hébergés par des serveurs de noms situés dans le monde entier.
 
-Un bureau d’enregistrement de noms de domaine est une organisation permettant d’acheter un nom de domaine tel que « contoso.com ».  L’achat d’un nom de domaine vous autorise à contrôler la hiérarchie DNS sous ce nom, par exemple à diriger le nom « www.contoso.com » vers le site web de votre organisation. Le bureau d’enregistrement peut héberger le domaine sur ses propres serveurs de noms en votre nom, ou vous autoriser À spécifier d’autres serveurs de noms.
+Un bureau d’enregistrement de noms de domaine est une organisation permettant d’acheter un nom de domaine tel que « contoso.com ».  L’achat d’un nom de domaine vous autorise à contrôler la hiérarchie DNS sous ce nom, par exemple à diriger le nom www.contoso.com vers le site web de votre organisation. Le bureau d’enregistrement peut héberger le domaine sur ses propres serveurs de noms en votre nom, ou vous autoriser À spécifier d’autres serveurs de noms.
 
 Le DNS Azure fournit une infrastructure de serveurs de noms à haute disponibilité répartie dans le monde entier, que vous pouvez utiliser pour héberger votre domaine. En hébergeant vos domaines dans le DNS Azure, vous pouvez gérer vos enregistrements DNS avec les mêmes éléments que vos autres services Azure : informations d’identification, API, outils, facturation et support.
 
@@ -59,7 +59,7 @@ Pour créer un jeu d’enregistrements génériques, utilisez le nom de jeu d’
 ### <a name="caa-records"></a>Enregistrements CAA
 
 Un enregistrement CAA permet aux propriétaires de domaine de spécifier les autorités de certification autorisées à émettre des certificats pour leur domaine. Ainsi, les autorités de certification peuvent éviter d’émettre des certificats incorrects dans certains cas. Les enregistrements CAA présentent trois propriétés :
-* **Flags** : il s’agit d’un entier compris entre 0 et 255, utilisé pour représenter l’indicateur critique qui a une signification particulière par le [RFC](https://tools.ietf.org/html/rfc6844#section-3).
+* **Flags** : il s’agit d’un entier compris entre 0 et 255, utilisé pour représenter l’indicateur critique qui a une signification particulière d’après la [RFC](https://tools.ietf.org/html/rfc6844#section-3).
 * **Tag** : une chaîne ASCII qui peut être l’un des éléments suivants :
     * **issue** : utilisez cette option si vous souhaitez spécifier quelles autorités de certification sont autorisées à émettre des certificats (de tous types).
     * **issuewild** : utilisez cette option si vous souhaitez spécifier quelles autorités de certification sont autorisées à émettre des certificats (certificats avec caractères génériques uniquement).
@@ -87,6 +87,8 @@ Cela s’applique uniquement au jeu d’enregistrements NS défini à l’extré
 Un jeu d’enregistrements SOA est créé automatiquement au sommet (apex) de chaque zone (nom = « \@ »), et est automatiquement supprimé lors de la suppression de la zone.  Il n’est pas possible de créer ou supprimer séparément des enregistrements SOA.
 
 Vous pouvez modifier toutes les propriétés de l’enregistrement SOA, sauf la propriété « host » qui est préconfigurée pour faire référence au nom du serveur de noms principal fourni par le DNS Azure.
+
+Le numéro de série de la zone dans l’enregistrement SOA n’est pas mis à jour automatiquement lorsque des modifications sont apportées aux enregistrements de la zone. Vous pouvez le mettre à jour manuellement en modifiant l’enregistrement SOA, si nécessaire.
 
 ### <a name="spf-records"></a>Enregistrements SPF
 
@@ -134,7 +136,7 @@ Au niveau de l’API REST Azure DNS, les Etags sont spécifiés à l’aide d’
 | En-tête | Comportement |
 | --- | --- |
 | Aucun |PUT réussit toujours (aucune vérification Etag) |
-| If-match <etag> |PUT ne réussit que si la ressource existe et que l’Etag correspond |
+| If-match \<etag> |PUT ne réussit que si la ressource existe et que l’Etag correspond |
 | If-match * |PUT réussit seulement si la ressource existe |
 | If-none-match * |PUT réussit seulement si la ressource n’existe pas |
 

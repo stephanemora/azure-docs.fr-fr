@@ -4,21 +4,20 @@ description: Découvrir comment résoudre une boucle de redémarrage Windows | M
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 032bc1b9c4b1b0e3bf8040ed52bf4db65ba7b6c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d8a1d64ac8e65fd52730ee1750c0b0b1949b3512
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085590"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088467"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Boucle de redémarrage Windows sur une machine virtuelle Azure
 Cet article décrit la boucle de redémarrage que vous pouvez rencontrer sur une machine virtuelle Windows dans Microsoft Azure.
@@ -102,6 +101,8 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 Restaurez la machine virtuelle à la dernière configuration valide connue. Pour cela, consultez [Guide pratique pour démarrer une machine virtuelle Windows Azure avec la dernière configuration valide connue](https://support.microsoft.com/help/4016731/).
 
 ### <a name="solution-for-cause-3"></a>Solution pour la cause 3
+>[!NOTE]
+>La procédure suivante ne doit être utilisée qu’en dernier recours. Bien que la restauration à partir de regback puisse rétablir l’accès à l’ordinateur, le système d’exploitation n’est pas considéré comme stable en raison de la perte de données dans le Registre entre l’horodatage de la ruche et le jour actuel. Vous devez générer une nouvelle machine virtuelle et planifier la migration des données.
 
 1. Une fois le disque attaché à une machine virtuelle de dépannage, vérifiez que le disque est marqué comme étant **en ligne** dans la console Gestion des disques.
 
@@ -113,5 +114,4 @@ Restaurez la machine virtuelle à la dernière configuration valide connue. Pour
 
 5. [Créez une machine virtuelle à partir du disque du système d’exploitation](../windows/create-vm-specialized.md).
 
->[!NOTE]
->La procédure suivante ne doit être utilisée qu’en dernier recours. Bien que la restauration à partir de regback puisse rétablir l’accès à l’ordinateur, le système d’exploitation n’est pas considéré comme stable en raison de la perte de données dans le Registre entre l’horodatage de la ruche et le jour actuel. Vous devez générer une nouvelle machine virtuelle et planifier la migration des données.
+

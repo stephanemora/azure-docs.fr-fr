@@ -1,31 +1,30 @@
 ---
 title: Gérer les clusters Apache Hadoop dans HDInsight avec PowerShell - Azure
 description: Découvrez comment effectuer des tâches d’administration pour les clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell.
-services: hdinsight
-ms.reviewer: tyfox
+ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
-ms.author: tylerfox
-ms.openlocfilehash: 6cf05437d5fc181a9fadae110a44efd88d06a2da
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.author: tyfox
+ms.openlocfilehash: 751f064df271aeb0899a00aea8b1ff09e8b8bdf4
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011610"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077046"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestion des clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell permet de contrôler et d’automatiser le déploiement et la gestion de vos charges de travail dans Azure. Dans cet article, vous allez apprendre à gérer [Apache Hadoop](https://hadoop.apache.org/) clusters dans Azure HDInsight à l’aide du module Azure PowerShell Az. Pour la liste des applets de commande HDInsight PowerShell, consultez le [Az.HDInsight référence](https://docs.microsoft.com/powershell/module/az.hdinsight).
+Azure PowerShell permet de contrôler et d’automatiser le déploiement et la gestion de vos charges de travail dans Azure. Dans cet article, vous allez découvrir comment gérer des clusters [Apache Hadoop](https://hadoop.apache.org/) dans Azure HDInsight à l’aide de module Az de Azure PowerShell. Pour obtenir la liste des cmdlets PowerShell HDInsight, consultez la rubrique [Référence Az.HDInsight](https://docs.microsoft.com/powershell/module/az.hdinsight).
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* La commande PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installé.
+* Le [module Az](https://docs.microsoft.com/powershell/azure/overview) PowerShell installé.
 
 ## <a name="create-clusters"></a>Créer des clusters
 Consultez la page [Créer des clusters basés sur Linux dans HDInsight à l’aide d’Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -90,7 +89,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
 
     L’interface utilisateur web de Storm est disponible dans le cluster HDInsight :
 
-    ![HDInsight storm mise à l’échelle rééquilibrage](./media/hdinsight-administer-use-powershell/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm mise à l’échelle rééquilibrage](./media/hdinsight-administer-use-powershell/portal-scale-cluster.png)
 
     Voici un exemple relatif à l'utilisation de la commande de l'interface en ligne de commande pour rééquilibrer la topologie Storm :
 
@@ -143,17 +142,13 @@ Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $c
 > [!NOTE]  
 > En octroyant/révoquant l’accès, vous réinitialisez le nom d’utilisateur et le mot de passe du cluster.
 
-L’octroi et la révocation de l’accès sont également possibles par le biais du portail. Consultez [gestion Apache des clusters Hadoop dans HDInsight à l’aide du portail Azure](hdinsight-administer-use-portal-linux.md).
+L’octroi et la révocation de l’accès sont également possibles par le biais du portail. Consultez [Gérer des clusters Apache Hadoop dans HDInsight avec le Portail Azure](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Mettre à jour les informations d’identification de l’utilisateur HTTP
 Il s'agit de la même procédure que pour l'octroi et la révocation de l'accès HTTP. Si l’accès HTTP a été octroyé au cluster, vous devez d’abord le révoquer.  Octroyez ensuite l’accès avec les informations d’identification de l’utilisateur HTTP.
 
 ## <a name="find-the-default-storage-account"></a>Trouvez le compte de stockage par défaut
 Le script PowerShell suivant montre comment obtenir le nom de compte de stockage par défaut et les informations connexes :
-
-> [!IMPORTANT]  
-> Les valeurs de `DefaultStorageAccount`, et `DefaultStorageContainer` ne sont pas retournés à partir de [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) lorsque [transfert sécurisé](../storage/common/storage-require-secure-transfer.md) est activé sur le compte de stockage.
-
 
 ```powershell
 #Connect-AzAccount
@@ -199,10 +194,6 @@ Consultez [Exécuter les exemples MapReduce inclus dans HDInsight](hadoop/apache
 
 Consultez [Exécuter des requêtes Apache Hive avec PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**Pour envoyer des travaux Apache Pig**
-
-Consultez [Exécuter des tâches Apache Pig avec PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
-
 **Pour envoyer des travaux Apache Sqoop**
 
 Consultez [Utiliser Apache Sqoop avec HDInsight](hadoop/hdinsight-use-sqoop.md).
@@ -213,7 +204,7 @@ Consultez [Utilisation d’Apache Oozie avec Apache Hadoop pour définir et exé
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Téléchargement de données vers le stockage d'objets blob Azure
 
-Consultez [charger des données dans HDInsight](hdinsight-upload-data.md).
+Consultez [Charger les données vers HDInsight](hdinsight-upload-data.md).
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
 ms.author: sngun
-ms.openlocfilehash: 9903339cbf0958893fb0d11a8c1b6ab7d156aae7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 6bc636b751d12bdb576e54f26536ac0045839229
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548215"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70137341"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel Python Azure Cosmos DB pour l’API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "57548215"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Exécuteur en bloc – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
@@ -145,7 +145,12 @@ Les nouvelles fonctionnalités et fonctions, ainsi que les optimisations sont un
 Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit SDK supprimé.
 
 > [!WARNING]
-> Toutes les versions du Kit SDK SQL Azure pour Python antérieures à la version **1.0.0** ont été supprimées le **29 février 2016**. 
+> Toutes les versions du Kit SDK Python pour l’API SQL antérieures à la version **1.0.0** ont été supprimées le **29 février 2016**. 
+> 
+> 
+
+> [!WARNING]
+> Toutes les versions 1.x et 2.x du Kit SDK Python pour l’API SQL seront supprimées le **30 août 2020**. 
 > 
 > 
 
@@ -155,27 +160,27 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit S
 | --- | --- | --- |
 | [3.0.2](#3.0.2) |15 novembre 2018 |--- |
 | [3.0.1](#3.0.1) |04 octobre 2018 |--- |
-| [2.3.3](#2.3.3) |8 septembre 2018 |--- |
-| [2.3.2](#2.3.2) |8 mai 2018 |--- |
-| [2.3.1](#2.3.1) |21 décembre 2017 |--- |
-| [2.3.0](#2.3.0) |10 novembre 2017 |--- |
-| [2.2.1](#2.2.1) |29 septembre 2017 |--- |
-| [2.2.0](#2.2.0) |10 mai 2017 |--- |
-| [2.1.0](#2.1.0) |1er mai 2017 |--- |
-| [2.0.1](#2.0.1) |30 octobre 2016 |--- |
-| [2.0.0](#2.0.0) |29 septembre 2016 |--- |
-| [1.9.0](#1.9.0) |7 juillet 2016 |--- |
-| [1.8.0](#1.8.0) |14 juin 2016 |--- |
-| [1.7.0](#1.7.0) |26 avril 2016 |--- |
-| [1.6.1](#1.6.1) |8 avril 2016 |--- |
-| [1.6.0](#1.6.0) |29 mars 2016 |--- |
-| [1.5.0](#1.5.0) |3 janvier 2016 |--- |
-| [1.4.2](#1.4.2) |6 octobre 2015 |--- |
-| 1.4.1 |6 octobre 2015 |--- |
-| [1.2.0](#1.2.0) |6 août 2015 |--- |
-| [1.1.0](#1.1.0) |9 juillet 2015 |--- |
-| [1.0.1](#1.0.1) |25 mai 2015 |--- |
-| [1.0.0](#1.0.0) |7 avril 2015 |--- |
+| [2.3.3](#2.3.3) |8 septembre 2018 |30 août 2020 |
+| [2.3.2](#2.3.2) |8 mai 2018 |30 août 2020 |
+| [2.3.1](#2.3.1) |21 décembre 2017 |30 août 2020 |
+| [2.3.0](#2.3.0) |10 novembre 2017 |30 août 2020 |
+| [2.2.1](#2.2.1) |29 septembre 2017 |30 août 2020 |
+| [2.2.0](#2.2.0) |10 mai 2017 |30 août 2020 |
+| [2.1.0](#2.1.0) |1er mai 2017 |30 août 2020 |
+| [2.0.1](#2.0.1) |30 octobre 2016 |30 août 2020 |
+| [2.0.0](#2.0.0) |29 septembre 2016 |30 août 2020 |
+| [1.9.0](#1.9.0) |7 juillet 2016 |30 août 2020 |
+| [1.8.0](#1.8.0) |14 juin 2016 |30 août 2020 |
+| [1.7.0](#1.7.0) |26 avril 2016 |30 août 2020 |
+| [1.6.1](#1.6.1) |8 avril 2016 |30 août 2020 |
+| [1.6.0](#1.6.0) |29 mars 2016 |30 août 2020 |
+| [1.5.0](#1.5.0) |3 janvier 2016 |30 août 2020 |
+| [1.4.2](#1.4.2) |6 octobre 2015 |30 août 2020 |
+| 1.4.1 |6 octobre 2015 |30 août 2020 |
+| [1.2.0](#1.2.0) |6 août 2015 |30 août 2020 |
+| [1.1.0](#1.1.0) |9 juillet 2015 |30 août 2020 |
+| [1.0.1](#1.0.1) |25 mai 2015 |30 août 2020 |
+| [1.0.0](#1.0.0) |7 avril 2015 |30 août 2020 |
 | 0.9.4-prelease |14 janvier 2015 |29 février 2016 |
 | 0.9.3-prelease |9 décembre 2014 |29 février 2016 |
 | 0.9.2-prelease |25 novembre 2014 |29 février 2016 |

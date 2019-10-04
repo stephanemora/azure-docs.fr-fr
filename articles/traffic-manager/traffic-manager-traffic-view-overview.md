@@ -3,21 +3,21 @@ title: Vue du trafic dans Azure Traffic Manager
 description: Introduction à la fonctionnalité d’affichage de trafic Traffic View et à Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: kumud
+ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 70ac4319e2ea0081f7805c2fb936af1310d57d8f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 5b451378fcc14106cb8731a89bcf6ccf415d0a92
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534938"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035465"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 
@@ -36,7 +36,7 @@ Par exemple, vous pouvez utiliser Traffic View pour comprendre quelles régions 
 Le fonctionnement de Traffic View est alimenté par l’observation que Traffic Manager effectue sur les requêtes entrantes, reçues au cours des sept derniers jours sur un profil pour lequel cette fonctionnalité a été activée. À partir des informations sur les requêtes entrantes, la Vue du trafic extrait l’adresse IP source est extraite de la résolution DNS, qui est alors utilisée comme représentation de l’emplacement des utilisateurs. Ceux-ci sont alors regroupés ensemble, selon une granularité fixée au niveau de la résolution DNS, afin de créer des régions de bases d’utilisateurs en utilisant les informations géographiques des adresses IP gérées par Traffic Manager. Traffic Manager examine ensuite les régions Azure vers lesquelles la requête a été routée, et constitue une carte des flux de trafic pour les utilisateurs à partir de ces régions.  
 À l’étape suivante, Traffic Manager met en corrélation la région des bases d’utilisateurs avec le mappage des régions Azure au moyen des tables de latence de l’intelligence réseau qu’il tient à jour, pour que les différents réseaux d’utilisateurs finals comprennent la latence moyenne rencontrée par les utilisateurs de ces régions lorsqu’ils se connectent à des régions Azure. Tous ces calculs sont ensuite regroupés sous forme de tableaux au niveau de l’adresse IP de la résolution DNS locale avant de vous être présentés. Vous pouvez utiliser les informations de différentes manières.
 
-La fréquence de mise à jour des données de vue du trafic dépend de plusieurs variables de service interne. Toutefois, les données sont actualisées généralement toutes les 24 heures.
+La fréquence de mise à jour des données de la Vue du trafic dépend de plusieurs variables de service internes. Toutefois, les données sont généralement actualisées toutes les 24 heures.
 
 >[!NOTE]
 >La latence décrite dans la Vue du trafic correspond à la latence représentative entre l’utilisateur final et les régions Azure auxquelles il est connecté. Il ne s’agit pas de la latence des recherches DNS. Vue du trafic permet une meilleure estimation de la latence entre le programme de résolution DNS locale et la région Azure vers laquelle la requête est acheminée, s’il n’y a pas suffisamment de données disponible, la latence retournée est null. 
@@ -44,6 +44,8 @@ La fréquence de mise à jour des données de vue du trafic dépend de plusieurs
 ## <a name="visual-overview"></a>Présentation visuelle
 
 Lorsque vous accédez à la section **Vue du trafic** de votre page Microsoft Azure Traffic Manager, vous voyez apparaître une carte géographique incluant une superposition des aperçus de la Vue du trafic. Cette carte fournit des informations sur la base d’utilisateurs et les points de terminaison de votre profil Traffic Manager.
+
+![Vue géographique Vue du trafic Traffic Manager][1]
 
 ### <a name="user-base-information"></a>Informations de la base d’utilisateurs
 
@@ -68,6 +70,25 @@ Vous pouvez afficher les données relatives à la Vue du trafic sous la forme d�
 
 Lorsque vous utilisez Traffic View, vous êtes facturé en fonction du nombre de points de données utilisés pour créer les insights présentés. Actuellement, le seul type de point de données utilisé correspond aux requêtes reçues par rapport à votre profil Traffic Manager. Pour plus d’informations sur les prix, visitez la page [Tarifs Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
+## <a name="faqs"></a>FAQ
+
+* [À quoi sert la fonctionnalité Affichage du trafic ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
+
+* [Quels sont les avantages de la fonctionnalité Affichage du trafic ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-benefit-from-using-traffic-view)
+
+* [En quoi la fonctionnalité Affichage du trafic diffère-t-elle des métriques Traffic Manager disponibles dans Azure Monitor ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
+
+* [La fonctionnalité Affichage du trafic utilise-t-elle les informations sur le sous-réseau du client EDNS ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-view-use-edns-client-subnet-information)
+
+* [Combien de jours de données la fonctionnalité Affichage du trafic utilise-t-elle ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-days-of-data-does-traffic-view-use)
+
+* [Comment la fonctionnalité Affichage du trafic gère-t-elle les points de terminaison externes ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-handle-external-endpoints)
+
+* [Dois-je activer la fonctionnalité Affichage du trafic pour chaque profil de mon abonnement ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
+
+* [Comment désactiver la fonctionnalité Affichage du trafic ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-turn-off-traffic-view)
+
+* [Comment la fonctionnalité Affichage du trafic est-elle facturée ?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-billing-work)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -75,3 +96,5 @@ Lorsque vous utilisez Traffic View, vous êtes facturé en fonction du nombre de
 - En savoir plus sur les [méthodes de routage du trafic](traffic-manager-routing-methods.md) prises en charge par Traffic Manager
 - En savoir plus sur la [création d’un profil Traffic Manager](traffic-manager-create-profile.md)
 
+<!--Image references-->
+[1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

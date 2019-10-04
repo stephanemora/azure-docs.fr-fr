@@ -3,24 +3,23 @@ title: Extensions et fonctionnalités des machines virtuelles Azure | Microsoft 
 description: Découvrir les extensions de machine virtuelle Azure et comment les utiliser avec des machines virtuelles Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/30/2018
-ms.author: roiyz
-ms.openlocfilehash: a35cba0ab7df80596ba1403765980809635c0249
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.date: 09/12/2019
+ms.author: akjosh
+ms.openlocfilehash: deb49267a262705370e48e150cc5ed6c4dc04247
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881853"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71168891"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensions et fonctionnalités des machines virtuelles Azure
 Les extensions de machine virtuelle Azure sont de petites applications qui assurent des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Vous pouvez utiliser des images existantes et les personnaliser dans le cadre de vos déploiements, pour vous dispenser de créer des images personnalisées.
@@ -51,9 +50,33 @@ Vous n’avez pas besoin de vous connecter directement à une machine virtuelle 
 ## <a name="anything-else-i-should-be-thinking-about-for-extensions"></a>Que savoir d’autre sur les extensions ?
 Les extensions installent des applications, et comme pour toute application, il y a certaines conditions à respecter. En ce qui concerne les extensions, il existe une liste de systèmes d’exploitation Windows et Linux pris en charge ; l’installation des agents de machine virtuelle Azure est également obligatoire. Certaines applications d’extensions de machine virtuelle individuelle peuvent avoir leurs propres prérequis environnementaux, comme l’accès à un point de terminaison.
 
+## <a name="troubleshoot-extensions"></a>Résoudre les problèmes liés aux extensions
+
+Vous trouverez des informations pour résoudre les problèmes liés à chaque extension dans la section **Résolution des problèmes et support** de la vue d’ensemble de l’extension. Voici la liste des informations disponibles pour résoudre les problèmes :
+
+| Espace de noms | Résolution de problèmes |
+|-----------|-----------------|
+| microsoft.azure.monitoring.dependencyagent.dependencyagentlinux | [Azure Monitor Dependency pour Linux](agent-dependency-linux.md#troubleshoot-and-support) |
+| microsoft.azure.monitoring.dependencyagent.dependencyagentwindows | [Azure Monitor Dependency pour Windows](agent-dependency-windows.md#troubleshoot-and-support) |
+| microsoft.azure.security.azurediskencryptionforlinux | [Azure Disk Encryption pour Linux](azure-disk-enc-linux.md#troubleshoot-and-support) |
+| microsoft.azure.security.azurediskencryption | [Azure Disk Encryption pour Windows](azure-disk-enc-windows.md#troubleshoot-and-support) |
+| microsoft.compute.customscriptextension | [Script personnalisé pour Windows](custom-script-windows.md#troubleshoot-and-support) |
+| microsoft.ostcextensions.customscriptforlinux | [Desired State Configuration pour Linux](dsc-linux.md#troubleshoot-and-support) |
+| microsoft.powershell.dsc | [Desired State Configuration pour Windows](dsc-windows.md#troubleshoot-and-support) |
+| microsoft.hpccompute.nvidiagpudriverlinux | [Extension du pilote GPU NVIDIA pour Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
+| microsoft.hpccompute.nvidiagpudriverwindows | [Extension du pilote GPU NVIDIA pour Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
+| microsoft.azure.security.iaasantimalware | [Extension anti-programme malveillant pour Windows](iaas-antimalware-windows.md#troubleshoot-and-support) |
+| microsoft.enterprisecloud.monitoring.omsagentforlinux | [Azure Monitor pour Linux](oms-linux.md#troubleshoot-and-support)
+| microsoft.enterprisecloud.monitoring.microsoftmonitoringagent | [Azure Monitor pour Windows](oms-windows.md#troubleshoot-and-support) |
+| stackify.linuxagent.extension.stackifylinuxagentextension | [Stackify Retrace pour Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
+| vmaccessforlinux.microsoft.ostcextensions | [Réinitialiser le mot de passe (VMAccess) pour Linux](vmaccess.md#troubleshoot-and-support) |
+| microsoft.recoveryservices.vmsnapshot | [Capture instantanée pour Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
+| microsoft.recoveryservices.vmsnapshot | [Capture instantanée pour Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d’informations sur le fonctionnement des extensions avec l’agent Linux, consultez [Fonctionnalités et extensions des machines virtuelles Azure pour Linux](features-linux.md).
 * Pour plus d’informations sur le fonctionnement des extensions avec l’agent invité de Windows, consultez [Fonctionnalités et extensions des machines virtuelles Azure pour Windows](features-windows.md).  
-* Pour installer l’Agent invité de Windows, consultez [présentation de l’Agent de Machine virtuelle Windows Azure](agent-windows.md).  
-* Pour installer le Linux Agent, consultez [présentation de l’Agent de Machine virtuelle Linux Azure](agent-linux.md).  
+* Pour installer l’agent invité Windows, consultez [Vue d’ensemble de l’agent de machine virtuelle Azure pour Windows](agent-windows.md).  
+* Pour installer l’agent Linux, consultez [Vue d’ensemble de l’agent de machine virtuelle Azure pour Linux](agent-linux.md).  
 

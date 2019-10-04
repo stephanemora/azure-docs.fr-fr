@@ -1,7 +1,6 @@
 ---
 title: Configurer la réplication de cluster HBase dans les réseaux virtuels Azure - Azure HDInsight
 description: Découvrez comment configurer la réplication HBase d’une version HDInsight à une autre pour l’équilibrage de charge, la haute disponibilité, la mise à jour et migration sans interruption de service , ainsi que la récupération d’urgence.
-services: hdinsight,virtual-network
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: d50c3f4452dd00b5656b6cde5e671caebcb4bb7c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 34b9993482d1036570805af7caba29361b231426
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112532"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077181"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure
 
@@ -22,7 +21,7 @@ Découvrez comment configurer la réplication [Apache HBase](https://hbase.apach
 
 La réplication en cluster utilise une méthodologie par émission de données source. Un cluster HBase peut être une source, une destination ou jouer les deux rôles à la fois. La réplication est asynchrone. L'objectif de la réplication est une cohérence éventuelle. Quand la source reçoit une modification apportée à une famille de colonnes lorsque la réplication activée, cette modification est propagée à tous les clusters de destination. Quand les données sont répliquées d’un cluster à un autre, le cluster source et tous les clusters qui ont déjà utilisé les données font l’objet d’un suivi afin d’empêcher les boucles de réplication.
 
-Dans ce didacticiel, vous configurez une réplication source-destination. Pour d'autres topologies de cluster, consultez le [Guide de référence d'Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
+À l’aide de cet article, vous allez configurer une réplication source-destination. Pour d'autres topologies de cluster, consultez le [Guide de référence d'Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
 
 Cas d’utilisation de la réplication HBase pour un seul réseau virtuel :
 
@@ -39,8 +38,8 @@ Cas d’utilisation de la réplication HBase pour deux réseaux virtuels :
 
 Vous pouvez répliquer des clusters à l’aide de scripts [d’action de script](../hdinsight-hadoop-customize-cluster-linux.md) disponibles dans [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>Conditions préalables
-Avant de commencer ce didacticiel, vous devez disposer d’un abonnement Azure. Consultez [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+## <a name="prerequisites"></a>Prérequis
+Avant de commencer cet article, vous devez disposer d’un abonnement Azure. Consultez [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configurer les environnements
 
@@ -61,7 +60,7 @@ Pour vous aider à configurer les environnements, nous avons créé des [modèle
 
 Pour utiliser un modèle qui crée deux réseaux virtuels dans deux régions différentes et la connexion VPN entre les deux, sélectionnez le bouton suivant **Déployer sur Azure**. La définition de modèle est stockée dans un [stockage Blob public](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 Voici quelques-unes des valeurs codées en dur dans le modèle :
 
@@ -69,7 +68,7 @@ Voici quelques-unes des valeurs codées en dur dans le modèle :
 
 | Propriété | Valeur |
 |----------|-------|
-| Lieu | USA Ouest |
+| Location | USA Ouest |
 | Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet1 |
 | Préfixe de l’espace d’adressage | 10.1.0.0/16 |
 | Nom du sous-réseau | subnet 1 |
@@ -86,7 +85,7 @@ Voici quelques-unes des valeurs codées en dur dans le modèle :
 
 | Propriété | Valeur |
 |----------|-------|
-| Lieu | USA Est |
+| Location | USA Est |
 | Nom du réseau virtuel | &lt;ClusterNamePrevix>-vnet2 |
 | Préfixe de l’espace d’adressage | 10.2.0.0/16 |
 | Nom du sous-réseau | subnet 1 |
@@ -106,7 +105,7 @@ Dans la dernière section, le modèle crée une machine virtuelle Ubuntu dans ch
 Pour installer Bind, vous devez rechercher l’adresse IP publique des deux machines virtuelles DNS.
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
-2. Ouvrez la machine virtuelle DNS en sélectionnant **Groupes de ressources > [nom du groupe de ressources] > [vnet1DNS]**.  Le nom du groupe de ressources est celui que vous créez dans la dernière procédure. Les noms des machines virtuelles DNS par défaut sont *vnet1DNS* et *vnet2NDS*.
+2. Ouvrez la machine virtuelle DNS en sélectionnant **Groupes de ressources > [nom du groupe de ressources] > [vnet1DNS]** .  Le nom du groupe de ressources est celui que vous créez dans la dernière procédure. Les noms des machines virtuelles DNS par défaut sont *vnet1DNS* et *vnet2NDS*.
 3. Sélectionnez **Propriétés** pour ouvrir la page des propriétés du réseau virtuel.
 4. Notez l’**adresse IP publique** et vérifiez l’**adresse IP privée**.  L’adresse IP privée doit être **10.1.0.4** pour vnet1DNS et **10.2.0.4** pour vnet2DNS.  
 5. Remplacez les serveurs DNS des deux réseaux virtuels par les serveurs DNS par défaut (fournis par Azure) pour autoriser l’accès entrant et sortant afin de télécharger les packages visant à installer Bind dans les étapes suivantes.
@@ -136,7 +135,7 @@ Pour installer Bind, procédez comme suit :
     sudo apt-get install bind9 -y
     ```
 
-3. Configurer Bind afin de transférer les demandes de résolution de nom à votre serveur DNS sur site. Pour ce faire, utilisez le texte suivant comme contenu du fichier `/etc/bind/named.conf.options` :
+3. Configurez Bind afin de transférer les demandes de résolution de noms à votre serveur DNS local. Pour ce faire, utilisez le texte suivant comme contenu du fichier `/etc/bind/named.conf.options` :
 
     ```
     acl goodclients {
@@ -289,7 +288,7 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
 5. Sélectionnez ou saisissez les informations suivantes :
 
    1. **Nom** : entrez **Activer la réplication**.
-   2. **URL du script Bash** : Entrez https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   2. **URL du script Bash** : Entrez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** .
    3. **Principal** : assurez-vous que cette option est sélectionnée. Supprimez les autres types de nœuds.
    4. **Paramètres** : les paramètres d'exemple suivants activent la réplication pour toutes les tables existantes, puis copient toutes les données du cluster source vers le cluster de destination :
 
@@ -298,7 +297,7 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
       > [!NOTE]
       > Utilisez le nom d’hôte plutôt que le nom de domaine complet (FQDN) pour le nom DNS du cluster source et du cluster de destination.
 
-6. Sélectionnez **Créer**. L’exécution du script peut prendre un certain temps, en particulier lorsque vous utilisez l’argument **-copydata**.
+6. Sélectionnez **Create** (Créer). L’exécution du script peut prendre un certain temps, en particulier lorsque vous utilisez l’argument **-copydata**.
 
 Arguments requis :
 
@@ -397,7 +396,7 @@ La section `print_usage()` du [script](https://raw.githubusercontent.com/Azure/h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez vu comment configurer la réplication Apache HBase dans un réseau virtuel ou entre deux réseaux virtuels. Pour plus d’informations sur HDInsight et Apache HBase, consultez les articles suivants :
+Dans cet article, vous avez vu comment configurer la réplication Apache HBase dans un réseau virtuel ou entre deux réseaux virtuels. Pour plus d’informations sur HDInsight et Apache HBase, consultez les articles suivants :
 
 * [Didacticiel HBase : prise en main de HBase avec Hadoop dans HDInsight Linux](./apache-hbase-tutorial-get-started-linux.md)
 * [Vue d’ensemble de HDInsight Apache HBase](./apache-hbase-overview.md)

@@ -2,17 +2,17 @@
 title: Bonnes pratiques de l’opérateur - Identité dans Azure Kubernetes Service (AKS)
 description: Découvrir les bonnes pratiques de l’opérateur relatives à l’authentification et à l’autorisation des clusters dans Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 04/24/2019
+ms.author: mlearned
+ms.openlocfilehash: 82bf59dddeecab0addf00a935f55be8d1d7952d3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001488"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614779"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à l’authentification et à l’autorisation dans Azure Kubernetes Service (AKS)
 
@@ -64,7 +64,7 @@ rules:
   verbs: ["*"]
 ```
 
-Qui lie l’utilisateur Azure AD est ensuite créé par un RoleBinding *developer1\@contoso.com* à la RoleBinding, comme indiqué dans le manifeste YAML suivant :
+Un RoleBinding qui lie l’utilisateur Azure AD *developer1\@contoso.com* au RoleBinding est ensuite créé, comme illustré dans le manifeste YAML suivant :
 
 ```yaml
 kind: RoleBinding
@@ -82,17 +82,17 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Lorsque *developer1\@contoso.com* est authentifié sur le cluster AKS, ils disposent d’autorisations complètes aux ressources dans le *finance-application* espace de noms. De cette façon, vous séparez et contrôlez logiquement l’accès aux ressources. Kubernetes RBAC doit être utilisé conjointement avec l’intégration à Azure AD, comme indiqué dans la section précédente.
+Quand *developer1\@contoso.com* est authentifié auprès du cluster AKS, il dispose d’autorisations complètes aux ressources dans l’espace de noms *finance-app*. De cette façon, vous séparez et contrôlez logiquement l’accès aux ressources. Kubernetes RBAC doit être utilisé conjointement avec l’intégration à Azure AD, comme indiqué dans la section précédente.
 
-Pour voir comment utiliser des groupes Azure AD pour contrôler l’accès aux ressources de Kubernetes à l’aide de RBAC, consultez [contrôler l’accès aux ressources de cluster à l’aide de contrôles d’accès en fonction du rôle et des identités Azure Active Directory dans AKS] [ azure-ad-rbac].
+Pour en savoir plus sur l’utilisation des groupes Azure AD pour contrôler l’accès aux ressources Kubernetes à l’aide de RBAC, consultez [Contrôler l’accès aux ressources de cluster à l’aide des contrôles d’accès en fonction du rôle et d’identités Azure Active Directory dans AKS][azure-ad-rbac].
 
 ## <a name="use-pod-identities"></a>Utiliser des identités de pod
 
-**Guide de bonne pratique** : n’utilisez pas d’informations d’identification fixes au sein de pods ou d’images conteneurs, car elles présentent un risque d’exposition ou d’abus. Utilisez plutôt des identités de pod pour demander automatiquement l’accès à l’aide d’une solution d’identité Azure AD centrale.
+**Guide de bonne pratique** : n’utilisez pas d’informations d’identification fixes au sein de pods ou d’images conteneurs, car elles présentent un risque d’exposition ou d’abus. Utilisez plutôt des identités de pod pour demander automatiquement l’accès à l’aide d’une solution d’identité Azure AD centrale. Les identités de pod sont conçues pour être utilisées avec des images conteneur et des pods Linux uniquement.
 
 Pour qu’un pod puisse accéder à d’autres services Azure, tels que Cosmos DB, Key Vault ou Stockage Blob, il a besoin d’informations d’identification d’accès. Ces dernières peuvent être définies avec l’image conteneur ou injectées comme secret Kubernetes, mais elles doivent être manuellement créées et affectées. Souvent, les informations d’identification sont réutilisées entre pods et ne font pas l’objet d’une rotation régulière.
 
-Les identités pour les ressources Azure (actuellement implémentés en tant que projet open source AKS associé) vous permettent d’automatiquement demander l’accès aux services via Azure AD. Vous ne définissez pas manuellement les informations d’identification pour les pods. En fait, les pods demandent un jeton d’accès en temps réel qu’ils peuvent ensuite utiliser pour accéder uniquement aux services qui leur ont été affectés. Dans AKS, les deux composants sont déployés par l’opérateur de cluster pour autoriser les pods à utiliser des identités managées :
+Les identités managées pour les ressources Azure (actuellement implémentées en tant que projet open source AKS associé) vous permettent d’automatiquement demander l’accès aux services via Azure AD. Vous ne définissez pas manuellement les informations d’identification pour les pods. En fait, les pods demandent un jeton d’accès en temps réel qu’ils peuvent ensuite utiliser pour accéder uniquement aux services qui leur ont été affectés. Dans AKS, les deux composants sont déployés par l’opérateur de cluster pour autoriser les pods à utiliser des identités managées :
 
 * Le **serveur NMI (Node Management Identity)** est un pod qui s’exécute en tant que DaemonSet sur chaque nœud du cluster AKS. Le serveur NMI écoute les demandes adressées par les pods aux services Azure.
 * Le **contrôleur MIC (Managed Identity Controller)** est un pod central qui dispose d’autorisations pour interroger le serveur d’API Kubernetes et qui recherche un mappage d’identité Azure correspondant à un pod.
@@ -108,7 +108,8 @@ Dans l’exemple suivant, un développeur crée un pod qui utilise une identité
 1. Un développeur déploie un pod avec une identité managée qui demande un jeton d’accès par le biais du serveur NMI.
 1. Le jeton est retourné au pod et utilisé pour accéder à une instance Azure SQL Server.
 
-Les identités de pod géré est un projet open source AKS et n’est pas pris en charge par le support technique Azure. Il est fourni pour recueillir des commentaires et des bogues à partir de notre communauté. Le projet n’est pas recommandé pour la production.
+> [!NOTE]
+> Les identités de pod managées constituent un projet open source qui n’est pas pris charge par le support technique Azure.
 
 Pour utiliser des identités de pod, consultez [Identités Azure Active Directory pour les applications Kubernetes][aad-pod-identity].
 

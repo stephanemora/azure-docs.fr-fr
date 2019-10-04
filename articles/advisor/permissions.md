@@ -1,6 +1,6 @@
 ---
 title: Autorisations dans Azure Advisor
-description: L’Assistant autorisations et comment ils peuvent bloquer votre capacité à configurer des abonnements ou reporter ou ignorer les recommandations.
+description: Présentation des autorisations Advisor et de la façon dont elles peuvent bloquer votre capacité à configurer vos abonnements ou à reporter ou rejeter des recommandations.
 services: advisor
 author: kasparks
 ms.service: advisor
@@ -8,50 +8,50 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: kasparks
 ms.openlocfilehash: cbd2e456c96dbf8ca01387f0c7c17a1541dbfe55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59052791"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60467609"
 ---
 # <a name="permissions-in-azure-advisor"></a>Autorisations dans Azure Advisor
 
-Azure Advisor fournit des recommandations basées sur l’utilisation et la configuration de vos ressources Azure et les abonnements. L’Assistant utilise le [rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) fourni par [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) (RBAC) pour gérer votre accès aux recommandations et des fonctionnalités de l’Assistant. 
+Azure Advisor fournit des recommandations basées sur l’utilisation et la configuration de vos ressources et abonnements Azure. Advisor utilise les [rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) fournis par le [Contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/overview) pour gérer votre accès aux recommandations et des fonctionnalités d’Advisor. 
 
-## <a name="roles-and-their-access"></a>Rôles et leur accès
+## <a name="roles-and-their-access"></a>Les rôles et leur accès
 
-Le tableau suivant définit les rôles et l’accès qu'au sein de l’Assistant :
+Le tableau suivant définit les rôles et leurs accès au sein d’Advisor :
 
-| **Rôle** | **Afficher les recommandations** | **Modifier les règles** | **Modifier la configuration de l’abonnement** | **Modifier la configuration du groupe de ressources**| **Ignorer et différer des recommandations**|
+| **Rôle** | **Afficher les recommandations** | **Modifier une règle** | **Modifier la configuration de l’abonnement** | **Modifier la configuration du groupe de ressources**| **Ignorer et différer des recommandations**|
 |---|:---:|:---:|:---:|:---:|:---:|
 |Propriétaire de l’abonnement|**X**|**X**|**X**|**X**|**X**|
-|Collaborateur de l’abonnement|**X**|**X**|**X**|**X**|**X**|
+|Contributeur de l’abonnement|**X**|**X**|**X**|**X**|**X**|
 |Lecteur de l’abonnement|**X**|--|--|--|--|
-|Groupe de ressources propriétaire|**X**|--|--|**X**|**X**|
-|Groupe de ressources contributeur|**X**|--|--|**X**|**X**|
-|Groupe de ressources lecteur|**X**|--|--|--|--|
+|Propriétaire du groupe de ressources|**X**|--|--|**X**|**X**|
+|Contributeur du groupe de ressources|**X**|--|--|**X**|**X**|
+|Lecteur du groupe de ressources|**X**|--|--|--|--|
 |Propriétaire de la ressource|**X**|--|--|--|**X**|
-|Collaborateur de ressource|**X**|--|--|--|**X**|
-|Lecteur de ressources|**X**|--|--|--|--|
+|Contributeur de la ressource|**X**|--|--|--|**X**|
+|Lecteur de la ressource|**X**|--|--|--|--|
 
 > [!NOTE]
-> Accès pour afficher les recommandations est dépendante de l’accès à la ressource affectée de la recommandation.
+> L’accès à l’affichage des recommandations dépend de votre accès à la ressource concernée par la recommandation.
 
-## <a name="permissions-and-unavailable-actions"></a>Autorisations et les actions non disponibles
+## <a name="permissions-and-unavailable-actions"></a>Autorisations et actions non disponibles
 
-Un manque d’autorisations appropriées peut bloquer votre capacité à effectuer des actions dans l’Assistant. Voici certains problèmes courants.
+Un manque d’autorisations appropriées peut bloquer votre capacité à effectuer des actions dans Advisor. Voici certains problèmes courants.
 
-### <a name="unable-to-configure-subscriptions-or-resource-groups"></a>Impossible de configurer les abonnements ou groupes de ressources
+### <a name="unable-to-configure-subscriptions-or-resource-groups"></a>Impossible de configurer les abonnements ou les groupes de ressources
 
-Lorsque vous tentez de configurer des abonnements ou groupes de ressources dans l’Assistant, vous pouvez voir que l’option pour inclure ou exclure est désactivée. Cet état indique que vous n’avez pas d’un niveau suffisant d’autorisation pour ce groupe de ressources ou d’un abonnement. Pour résoudre ce problème, découvrez comment [accorder un accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Lorsque vous tentez de configurer des abonnements ou des groupes de ressources dans Advisor, vous pouvez voir que l’option pour en inclure ou en exclure est désactivée. Cet état indique que vous n’avez pas un niveau d’autorisation suffisant pour ce groupe de ressources ou cet abonnement. Pour résoudre ce problème, découvrez comment [Accorder un accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
 ### <a name="unable-to-postpone-or-dismiss-a-recommendation"></a>Impossible de reporter ou ignorer une recommandation
 
-Si vous recevez une erreur lorsque vous tentez de reporter ou ignorer une recommandation, vous ne pouvez pas avoir des autorisations suffisantes. Assurez-vous que vous avez au moins un accès collaborateur à la ressource affectée de la recommandation vous différer ou ignorer. Pour résoudre ce problème, découvrez comment [accorder un accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+Si vous recevez une erreur lorsque vous tentez de reporter ou ignorer une recommandation, c’est que vous ne disposez pas des autorisations suffisantes pour le faire. Vérifiez que vous disposez au moins d’un accès Contribueur à la ressource affectée par la recommandation que vous souhaitez différer ou ignorer. Pour résoudre ce problème, découvrez comment [Accorder un accès utilisateur](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article a fourni une vue d’ensemble de comment l’Assistant utilise RBAC pour contrôler les autorisations utilisateur et comment résoudre les problèmes courants. Pour en savoir plus sur Advisor, consultez les ressources suivantes :
+Cet article vous a présenté la façon dont Advisor utilise le contrôle d’accès en fonction du rôle pour contrôler les autorisations des utilisateurs. Il vous a aussi expliqué comment résoudre certains problèmes courants. Pour en savoir plus sur Advisor, consultez les ressources suivantes :
 
 - [Présentation d’Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview)
-- [Bien démarrer avec Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)
+- [Prise en main d’Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-get-started)

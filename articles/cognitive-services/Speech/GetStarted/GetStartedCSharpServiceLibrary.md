@@ -3,20 +3,20 @@ title: Bien démarrer avec l’API Reconnaissance vocale de Microsoft à l’aid
 titlesuffix: Azure Cognitive Services
 description: Utilisez la bibliothèque de services de la Reconnaissance vocale Bing pour convertir une langue parlée en texte.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0f445d1fff48ee7a04c0b1c1d64c808f87d824b7
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: 71c3e471a8844eb6c6b70921e40c94338a084a8b
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673162"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70965860"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Démarrage rapide : Utiliser la bibliothèque de services de la Reconnaissance vocale Bing en C&#35; pour Windows .NET
 
@@ -28,7 +28,7 @@ Pour utiliser la bibliothèque de services C#, installez le [package NuGet Micro
 
 Les sections suivantes décrivent comment installer, générer et exécuter l’exemple d’application C# à l’aide de la bibliothèque de services C#.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="platform-requirements"></a>Plateforme requise
 

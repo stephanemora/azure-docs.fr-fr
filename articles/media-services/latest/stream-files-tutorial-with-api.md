@@ -1,6 +1,6 @@
 ---
-title: Charger, encoder et diffuser en streaming avec Azure Media Services v3 à l’aide de .NET | Microsoft Docs
-description: Suivez les étapes décrites dans ce tutoriel pour charger un fichier et encoder la vidéo, puis diffuser en streaming votre contenu avec Media Services v3 à l’aide de .NET.
+title: Charger, encoder et diffuser en streaming avec Azure Media Services v3 | Microsoft Docs
+description: Suivez les étapes décrites dans ce tutoriel pour charger un fichier et encoder la vidéo, puis diffuser en streaming votre contenu avec Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,16 +10,19 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/18/2019
+ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 82d8a8085ca285c95a550678cdc534e586a4faa7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 5b359b81de694c47151c95254b80f847db828aed
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415962"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653926"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Tutoriel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET
+# <a name="tutorial-upload-encode-and-stream-videos"></a>Didacticiel : Charger, encoder et diffuser des vidéos en continu
+
+> [!NOTE]
+> Bien que ce didacticiel utilise des exemples [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), les étapes générales sont les mêmes pour [l’API REST](https://docs.microsoft.com/rest/api/media/liveevents), [l’interface de ligne de commande](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) et autres [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
 
 Azure Media Services vous permet d’encoder vos fichiers multimédias dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Avant la diffusion en continu, vous devez encoder votre fichier multimédia numérique haute qualité. Pour obtenir des instructions d’encodage, consultez [Encoding concept](encoding-concept.md) (Concept d’encodage). Ce didacticiel charge un fichier vidéo local et encode le fichier chargé. Vous pouvez également encoder du contenu que vous mettez à disposition via une URL HTTPS. Pour plus d’informations, consultez [Créer une entrée de travail à partir d’une URL HTTP(s)](job-input-from-http-how-to.md).
 
@@ -83,7 +86,7 @@ Dans Media Services v3, vous utilisez des API Stockage Azure pour charger des fi
 La fonction suivante effectue les actions ci-après :
 
 * Crée un **actif multimédia** 
-* Obtient une [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) accessible en écriture vers le [conteneur de stockage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) de l’actif multimédia
+* Obtient une [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) accessible en écriture vers le [conteneur de stockage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) de l’actif multimédia
 * Elle charge le fichier dans le conteneur de stockage à l’aide de l’URL SAP
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -169,7 +172,7 @@ En règle générale, vous devez supprimer tous les éléments à l’exception 
 
 Cet exemple affiche les URL qui peuvent être utilisées pour lire la vidéo à l’aide de différents protocoles :
 
-![Sortie](./media/stream-files-tutorial-with-api/output.png)
+![Output](./media/stream-files-tutorial-with-api/output.png)
 
 ## <a name="test-the-streaming-url"></a>Tester l’URL de diffusion en continu
 
@@ -179,7 +182,7 @@ Pour tester la diffusion en continu, cet article utilise le lecteur multimédia 
 > Si un lecteur est hébergé sur un site https, veillez à mettre à jour l’URL vers « https ».
 
 1. Ouvrez un navigateur web et accédez à [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. Dans le champ **URL :**, collez l’une des valeurs d’URL de diffusion en continu que vous avez obtenues lors de l’exécution de l’application. 
+2. Dans le champ **URL :** , collez l’une des valeurs d’URL de diffusion en continu que vous avez obtenues lors de l’exécution de l’application. 
 3. Appuyez sur **Mise à jour du Lecteur Windows Media**.
 
 Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais ne doit pas être utilisé dans un environnement de production. 
@@ -197,6 +200,10 @@ az group delete --name amsResourceGroup
 ## <a name="multithreading"></a>Multithreading
 
 Les Kits de développement logiciel (SDK) Azure Media Services v3 ne sont pas thread-safe. Lorsque vous développez une application multithread, vous devez générer et utiliser un nouvel objet AzureMediaServicesClient par thread.
+
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
+
+Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

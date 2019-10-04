@@ -1,26 +1,26 @@
 ---
-title: Meilleures pratiques de gestion des erreurs pour les clients Azure Active Directory Authentication Library (ADAL)
+title: Bonnes pratiques de gestion des erreurs pour les clients Azure AD Authentication Library (ADAL)
 description: Fournit des conseils et les meilleures pratiques de gestion des erreurs pour les applications clientes ADAL.
 services: active-directory
 documentationcenter: ''
-author: danieldobalian
-manager: mtillman
-ms.author: celested
+author: rwike77
+manager: CelesteDG
+ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
-ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e92c3b302ab18aaaf20d187d61a488603ce81a7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.openlocfilehash: c0c1bbbdf9b42dfe2b507f533ad1806e06991f33
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178020"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835421"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Meilleures pratiques de gestion des erreurs pour les clients Azure Active Directory Authentication Library (ADAL)
 
@@ -580,13 +580,13 @@ window.Logging = {
 ## <a name="related-content"></a>Contenu connexe
 
 * [Guide du développeur Azure AD][AAD-Dev-Guide]
-* [Bibliothèques d'authentification Azure AD][AAD-Auth-Libraries]
-* [Scénarios d'authentification Azure AD][AAD-Auth-Scenarios]
+* [Bibliothèques Azure AD Authentication][AAD-Auth-Libraries]
+* [Scénarios Azure AD Authentication][AAD-Auth-Scenarios]
 * [Intégration d’applications dans Azure Active Directory][AAD-Integrating-Apps]
 
 Utilisez la section de commentaires suivante pour fournir des commentaires et nous aider à affiner et à mettre en forme notre contenu.
 
-[![Bouton Se connecter][AAD-Sign-In]][AAD-Sign-In]
+[![Affiche le bouton « Se connecter avec Microsoft »][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md

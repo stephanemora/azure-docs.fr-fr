@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 9662ebd26a263fa006c8fccf877fdc950e9014c0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543666"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102960"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric pour Visual Studio Code
 
@@ -30,7 +29,7 @@ Cet article fournit une vue d’ensemble des exigences et de la configuration de
 > [!IMPORTANT]
 > Vous pouvez développer des applications Service Fabric en Java sur des machines Windows, mais ne pouvez les déployer que sur des clusters Azure Linux. Le débogage des applications Java n’est pas pris en charge sur Windows.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les composants requis suivants doivent être installés sur tous les environnements.
 
@@ -67,18 +66,18 @@ Les composants requis suivants doivent être installés pour le développement .
 ## <a name="commands"></a>Commandes
 L’extension Service Fabric Reliable Services pour VS Code fournit de nombreuses commandes qui permettent aux développeurs de créer et de déployer des projets Service Fabric. Vous pouvez appeler une commande à partir de la **Palette de commandes** en appuyant sur `(Ctrl + Shift + p)`, en tapant le nom de la commande dans la barre d’entrée et en sélectionnant la commande souhaitée à partir de la liste de choix. 
 
-* Service Fabric : Créer une application 
-* Service Fabric : Publication d’Application 
-* Service Fabric : Déployer l’Application 
-* Service Fabric : Supprimer l'application  
-* Service Fabric : Création d’Application 
-* Service Fabric : Nettoyer l’Application 
+* Service Fabric: Create Application 
+* Service Fabric: Publish Application 
+* Service Fabric: Deploy Application 
+* Service Fabric: Remove Application  
+* Service Fabric: Build Application 
+* Service Fabric: Clean Application 
 
-### <a name="service-fabric-create-application"></a>Service Fabric : Créer une application
+### <a name="service-fabric-create-application"></a>Service Fabric: Create Application
 
-Le **Service Fabric : Créer des Application** commande crée une nouvelle application de Service Fabric dans votre espace de travail actuel. Selon les générateurs yeoman installés sur votre machine de développement, vous pouvez créer plusieurs types d’application Service Fabric, y compris des projets Java, C#, conteneur et invité. 
+La commande **Service Fabric: Create application** crée une application Service Fabric dans votre espace de travail actuel. Selon les générateurs yeoman installés sur votre machine de développement, vous pouvez créer plusieurs types d’application Service Fabric, y compris des projets Java, C#, conteneur et invité. 
 
-1.  Sélectionnez le **Service Fabric : Ajouter un Service** commande
+1.  Sélectionnez la commande **Service Fabric: Add Service**.
 2.  Sélectionnez le type de votre nouvelle application Service Fabric. 
 3.  Entrez le nom de l’application à créer.
 3.  Sélectionnez le type de service que vous souhaitez ajouter à votre application Service Fabric. 
@@ -86,51 +85,51 @@ Le **Service Fabric : Créer des Application** commande crée une nouvelle appl
 5.  La nouvelle application Service Fabric s’affiche dans l’espace de travail.
 6.  Ouvrez le dossier de la nouvelle application afin qu’il devienne le dossier racine dans l’espace de travail. Vous pouvez continuer à exécuter des commandes à partir de cet emplacement.
 
-### <a name="service-fabric-add-service"></a>Service Fabric : Ajouter un service
-Le **Service Fabric : Ajouter un Service** commande ajoute un nouveau service à une application de Service Fabric existante. L’application à laquelle est ajouté le service doit être le répertoire racine de l’espace de travail. 
+### <a name="service-fabric-add-service"></a>Service Fabric: Add Service
+La commande **Service Fabric: Add Service** ajoute un nouveau service à une application Service Fabric existante. L’application à laquelle est ajouté le service doit être le répertoire racine de l’espace de travail. 
 
-1.  Sélectionnez le **Service Fabric : Ajouter un Service** commande.
+1.  Sélectionnez la commande **Service Fabric: Add Service**.
 2.  Sélectionnez le type de votre application Service Fabric actuelle. 
 3.  Sélectionnez le type de service que vous souhaitez ajouter à votre application Service Fabric. 
 4.  Suivez les invites pour nommer le service. 
 5.  Le nouveau service s’affiche dans le répertoire de votre projet. 
 
-### <a name="service-fabric-publish-application"></a>Service Fabric : Publication d’Application
-Le **Service Fabric : Publier l’Application** commande déploie votre application Service Fabric sur un cluster distant. Le cluster cible peut être un cluster sécurisé ou non sécurisé. Si les paramètres ne sont pas définis dans Cloud.json, l’application est déployée sur le cluster local.
+### <a name="service-fabric-publish-application"></a>Service Fabric: Publish Application
+La commande **Service Fabric: Publish Application** déploie votre application Service Fabric sur un cluster distant. Le cluster cible peut être un cluster sécurisé ou non sécurisé. Si les paramètres ne sont pas définis dans Cloud.json, l’application est déployée sur le cluster local.
 
 1.  La première fois que l’application est générée, un fichier Cloud.json est généré dans le répertoire du projet.
 2.  Entrez les valeurs du cluster auquel vous souhaitez vous connecter dans le fichier Cloud.json.
-3.  Sélectionnez le **Service Fabric : Publier l’Application** commande.
+3.  Sélectionnez la commande **Service Fabric: Publish Application**.
 4.  Affichez le cluster cible avec Service Fabric Explorer pour vérifier que l’application a été installée. 
 
-### <a name="service-fabric-deploy-application-localhost"></a>Service Fabric : Déployer l’Application (Localhost)
-Le **Service Fabric : Déployer l’Application** commande déploie votre application de Service Fabric sur votre cluster local. Vérifiez que votre cluster local est en cours d’exécution avant d’utiliser la commande. 
+### <a name="service-fabric-deploy-application-localhost"></a>Service Fabric: Deploy Application (Localhost)
+La commande **Service Fabric: Deploy Application** déploie votre application Service Fabric sur votre cluster local. Vérifiez que votre cluster local est en cours d’exécution avant d’utiliser la commande. 
 
-1. Sélectionnez le **Service Fabric : Déployer l’Application** commande
-2. Afficher le cluster local avec Service Fabric Explorer (http :\//localhost:19080 / Explorer) pour confirmer que l’application a été installée. Cette opération pouvant prendre un certain temps, soyez patient.
-3. Vous pouvez également utiliser **Service Fabric : Publier l’Application** commande sans aucun paramètre défini dans le fichier Cloud.json à déployer sur un cluster local.
+1. Sélectionnez la commande **Service Fabric: Deploy Application**.
+2. Affichez le cluster local avec Service Fabric Explorer (http:\//localhost:19080/Explorer) pour vérifier que l’application a été installée. Cette opération pouvant prendre un certain temps, soyez patient.
+3. Vous pouvez également utiliser la commande **Service Fabric: Publish Application** sans aucun paramètre défini dans le fichier Cloud.json pour la déployer sur un cluster local.
 
 > [!NOTE]
 > Le déploiement d’applications Java sur le cluster local n’est pas pris en charge sur les machines Windows.
 
-### <a name="service-fabric-remove-application"></a>Service Fabric : Supprimer l'application
-Le **Service Fabric : Supprimer Application** commande supprime une application Service Fabric à partir du cluster qu’il a été déployé précédemment à l’aide de l’extension VS Code. 
+### <a name="service-fabric-remove-application"></a>Service Fabric: Remove Application
+La commande **Service Fabric: Remove Application** supprime une application Service Fabric du cluster sur lequel elle avait été déployée à l’aide de l’extension VS Code. 
 
-1.  Sélectionnez le **Service Fabric : Supprimer Application** commande.
+1.  Sélectionnez la commande **Service Fabric: Remove Application**.
 2.  Affichez le cluster avec Service Fabric Explorer pour vérifier que l’application a été supprimée. Cette opération pouvant prendre un certain temps, soyez patient.
 
-### <a name="service-fabric-build-application"></a>Service Fabric : Création d’Application
-Le **Service Fabric : Création d’Application** commande peut générer soit Java ou C# applications Service Fabric. 
+### <a name="service-fabric-build-application"></a>Service Fabric: Build Application
+La commande **Service Fabric: Build Application** peut générer des applications Service Fabric Java ou C#. 
 
 1.  Vérifiez que vous vous trouvez dans le dossier racine de l’application avant d’exécuter cette commande. La commande identifie le type d’application (C# ou Java) et génère votre application en conséquence.
-2.  Sélectionnez le **Service Fabric : Générer une application**.
+2.  Sélectionnez la commande **Service Fabric: Générer une application**.
 3.  La sortie du processus de génération est écrite dans le terminal intégré.
 
-### <a name="service-fabric-clean-application"></a>Service Fabric : Nettoyer l’Application
-Le **Service Fabric : Nettoyer l’Application** commande supprime tous les fichiers jar et des bibliothèques natives qui ont été générées par la build. Valide pour les applications Java uniquement. 
+### <a name="service-fabric-clean-application"></a>Service Fabric: Clean Application
+La commande **Service Fabric: Clean Application** supprime tous les fichiers jar et les bibliothèques natives issus de l’opération de génération. Valide pour les applications Java uniquement. 
 
 1.  Vérifiez que vous vous trouvez dans le dossier racine de l’application avant d’exécuter cette commande. 
-2.  Sélectionnez le **Service Fabric : Nettoyer l’Application** commande.
+2.  Sélectionnez la commande **Service Fabric: Clean Application**.
 3.  La sortie du processus de nettoyage est écrite dans le terminal intégré.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: magattus
-ms.openlocfilehash: f82675f1e93a5471f98c1778e9394f9eaec1a07b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 92d93fbf9fa2f8df15acb62802d7ac53db836dc1
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813039"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593859"
 ---
 # <a name="how-caching-works"></a>Comment la mise en cache fonctionne
 
@@ -126,7 +126,7 @@ Le tableau suivant décrit le comportement de mise en cache par défaut des prod
 
 |    | Microsoft : Livraison web générale | Verizon : Livraison web générale | Verizon : DSA | Akamai : Livraison web générale | Akamai : DSA | Akamai : Téléchargement de fichiers volumineux | Akamai : diffusion multimédia en continu générale ou VOD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Honorer l’origine**       | Oui    | Oui   | Non    | Oui    | Non    | OUI   | Oui    |
+| **Honorer l’origine**       | OUI    | OUI   | Non   | OUI    | Non   | OUI   | OUI    |
 | **Durée de cache CDN** | 2 jours |7 jours | Aucun | 7 jours | Aucun | 1 jour | 1 an |
 
 **Honorer l’origine** : indique s’il faut honorer les en-têtes de la directive du cache pris en charge s’il y en a dans la réponse HTTP du serveur d’origine.

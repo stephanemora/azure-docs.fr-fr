@@ -2,26 +2,26 @@
 title: Exemples de transformations de revendications JSON pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C | Microsoft Docs
 description: Exemples de transformations de revendications JSON pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 88d447f86dd54fc9479a6d7d2006b9a8639ad09e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: ff70b2f54304c83f70ff578e1947d752aafb34a7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089231"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064163"
 ---
 # <a name="json-claims-transformations"></a>Transformations de revendications JSON
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Cet article fournit des exemples pour l’utilisation de transformations de revendications JSON du schéma Infrastructure d’expérience d’identité dans Azure Active Directory (Azure AD) B2C. Pour plus d’informations, consultez [ClaimsTransformations](claimstransformations.md).
+Cet article fournit des exemples pour l’utilisation de transformations de revendications JSON du schéma Identity Experience Framework dans Azure Active Directory B2C (Azure AD B2C). Pour plus d’informations, voir [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="getclaimfromjson"></a>GetClaimFromJson
 
@@ -55,7 +55,7 @@ Dans l’exemple suivant, la transformation de revendication a extrait l’élé
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
 - Paramètre d’entrée :
     - **claimToExtract** : emailAddress
-- Revendications de sortie : 
+- Revendications de sortie :
   - **extractedClaim** : someone@example.com
 
 
@@ -66,7 +66,7 @@ Obtenir une liste d’éléments spécifiés à partir de données Json.
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | string | ClaimTypes utilisés par la transformation de revendication pour obtenir les revendications. |
-| InputParameter | errorOnMissingClaims | booléenne | Spécifie s’il faut lever une erreur si l’une des revendications est manquante. |
+| InputParameter | errorOnMissingClaims | boolean | Spécifie s’il faut lever une erreur si l’une des revendications est manquante. |
 | InputParameter | includeEmptyClaims | string | Spécifiez s’il faut inclure les revendications vides. |
 | InputParameter | jsonSourceKeyName | string | Nom de clé d’élément |
 | InputParameter | jsonSourceValueName | string | Nom de valeur d’élément |
@@ -97,7 +97,7 @@ Dans l’exemple suivant, la transformation de revendication extrait les revendi
     <OutputClaim ClaimTypeReferenceId="birthdate" />
   </OutputClaims>
 </ClaimsTransformation>
-```    
+```
 
 - Revendications d’entrée :
   - **jsonSourceClaim** : [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
@@ -127,8 +127,8 @@ Dans l’exemple suivant, la transformation de revendication extrait l’éléme
 
 ```JSON
 {
-    "emailAddress": "someone@example.com", 
-    "displayName": "Someone", 
+    "emailAddress": "someone@example.com",
+    "displayName": "Someone",
     "id" : 6353399
 }
 ```
@@ -153,7 +153,7 @@ Dans l’exemple suivant, la transformation de revendication extrait l’éléme
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
 - Paramètres d'entrée
     - **claimToExtract** :  id
-- Revendications de sortie : 
+- Revendications de sortie :
     - **extractedClaim**: 6353399
 
 ## <a name="getsinglevaluefromjsonarray"></a>GetSingleValueFromJsonArray
@@ -182,7 +182,7 @@ Dans l’exemple suivant, la transformation de revendication extrait le premier 
 
 - Revendications d’entrée :
   - **inputJsonClaim** : ["someone@example.com", "Someone", 6353399]
-- Revendications de sortie : 
+- Revendications de sortie :
   - **extractedClaim** : someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
@@ -191,7 +191,7 @@ Convertit des données XML au format JSON.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | xml | string | ClaimTypes qui sont utilisés par la transformation de revendication pour convertir les données XML au format JSON. |
+| InputClaim | Xml | string | ClaimTypes qui sont utilisés par la transformation de revendication pour convertir les données XML au format JSON. |
 | OutputClaim | json | string | ClaimType généré après l’appel de cette ClaimsTransformation, les données au format JSON. |
 
 ```XML

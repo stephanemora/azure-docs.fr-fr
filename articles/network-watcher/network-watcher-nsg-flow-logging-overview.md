@@ -3,8 +3,8 @@ title: Présentation de la journalisation des flux pour les groupes de sécurit�
 description: Cet article explique comment utiliser les journaux de flux de groupe de sécurité réseau, une fonctionnalité d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 6e15149dec9fdbb7413745d36b3f6a158113b586
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: a77cc22c7a56c29b5b42a032af3d0ea0b2c17d88
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547020"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563517"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -73,11 +73,9 @@ Les flux de journaux d’activité incluent les propriétés suivantes :
 
 ## <a name="nsg-flow-logs-version-2"></a>Journaux de flux NSG version 2
 
-La version 2 des journaux d’activité présente l’état du flux. Vous pouvez configurer la version des journaux de flux que vous recevez. Pour savoir comment activer les journaux de flux, consultez [Enable flow logs](network-watcher-nsg-flow-logging-portal.md) (Activer les journaux de flux).
+La version 2 des journaux présente l’état du flux. Vous pouvez configurer la version des journaux de flux que vous recevez. Pour savoir comment activer les journaux de flux, consultez [Enable flow logs](network-watcher-nsg-flow-logging-portal.md) (Activer les journaux de flux).
 
 L’état du flux *B* est enregistré lorsqu’un flux est lancé. L’état du flux *C* et l’état du flux *E* sont les états qui marquent respectivement la continuation d’un flux et son arrêt. Les deux états *C* et *E* contiennent des informations sur la bande passante du trafic.
-
-Pour la continuation *C* et la fin *E* d’états de flux, le nombre d’octets et de paquets est le nombre cumulé depuis l’enregistrement de tuple de flux précédent. Si l’on se réfère à l’exemple de conversation précédent, le nombre total de paquets transférés est de 1 021 + 52 + 8 005 + 47 = 9 125. Le nombre total d’octets transférés est de 588 096+29 952+4 610 880+27 072 = 5 256 000.
 
 **Exemple**: tuples de flux à partir d’une conversation TCP entre 185.170.185.105:35370 and 10.2.0.4:23 :
 
@@ -91,9 +89,12 @@ Le texte ci-dessous est un exemple de journal de flux. Comme vous pouvez le voir
 
 **Activer la journalisation de flux NSG sur tous les groupes de sécurité réseau associés à une ressource** : la journalisation de flux dans Azure est configurée sur la ressource NSG. Un flux ne peut être associé qu’à une règle de groupe de sécurité réseau. Dans les scénarios où plusieurs groupes de sécurité réseau sont utilisés, nous recommandons que la journalisation de flux NSG soit activée sur tous les groupes de sécurité réseau auxquels le sous-réseau ou l’interface réseau d’une ressource est appliqué pour vous assurer que tout le trafic est enregistré. Consultez [Évaluation du trafic](../virtual-network/security-overview.md#how-traffic-is-evaluated) pour obtenir plus d’informations sur les groupes de sécurité réseau. 
 
-**Coûts de la journalisation de flux** : la journalisation de flux NSG est facturée selon le volume de journaux d’activité produits. Un volume de trafic élevé peut entraîner un volume important de journaux de flux avec les coûts associés. Les tarifs des journaux de flux NSG n’incluent pas les coûts de stockage afférents. L’utilisation de la fonctionnalité de stratégie de conservation avec la journalisation des flux de groupe de sécurité réseau peut entraîner un volume élevé d’opérations de stockage avec les coûts associés. Si vous n’avez pas besoin de la fonctionnalité de stratégie de conservation, nous vous recommandons de définir cette valeur sur 0. Consultez [Tarifs Network Watcher](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) et [Tarifs du stockage Azure](https://azure.microsoft.com/en-us/pricing/details/storage/) pour de plus amples informations.
+**Coûts de la journalisation de flux** : la journalisation de flux NSG est facturée selon le volume de journaux d’activité produits. Un volume de trafic élevé peut entraîner un volume important de journaux de flux avec les coûts associés. Les tarifs des journaux de flux NSG n’incluent pas les coûts de stockage afférents. L’utilisation de la fonctionnalité de stratégie de conservation avec la journalisation des flux de groupe de sécurité réseau peut entraîner un volume élevé d’opérations de stockage avec les coûts associés. Si vous n’avez pas besoin de la fonctionnalité de stratégie de conservation, nous vous recommandons de définir cette valeur sur 0. Consultez [Tarifs Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) et [Tarifs du stockage Azure](https://azure.microsoft.com/pricing/details/storage/) pour de plus amples informations.
 
-**Trafic entrant du flux connectés à partir d’internet des adresses IP aux machines virtuelles sans les adresses IP publiques**: Machines virtuelles qui n’ont pas une adresse IP publique attribuée via une adresse IP publique associée à la carte réseau comme une adresse IP publique de niveau d’instance, ou qui font partie d’un pool back-end équilibrage de la charge de base, utilisez [par défaut SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) et une adresse IP est affectée par Azure afin de faciliter la connectivité sortante. Par conséquent, vous pouvez voir les entrées de journal de flux pour les flux à partir d’internet des adresses IP, si le flux est destiné à un port dans la plage de ports attribués pour SNAT. Bien que Azure n’autorise pas ces flux à la machine virtuelle, la tentative est enregistrée et apparaît dans le journal de flux de groupe de sécurité réseau de Network Watcher par sa conception. Nous recommandons que le trafic internet entrant indésirable bloqué explicitement avec le groupe de sécurité réseau.
+> [!IMPORTANT]
+> Actuellement, il existe un problème où les [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher ne sont pas automatiquement supprimés du Stockage Blob selon les paramètres de stratégie de rétention. Si vous avez une stratégie de rétention différente de zéro, nous vous recommandons de supprimer régulièrement les blobs de stockage qui ont dépassé leur période de rétention afin d’éviter des frais supplémentaires. Pour plus d’informations sur la suppression des blobs de stockage du journal de flux de groupe de sécurité réseau, consultez [Supprimer des blobs de stockage du journal de flux de groupe de sécurité réseau](network-watcher-delete-nsg-flow-log-blobs.md).
+
+**Flux entrants journalisés à partir d’adresses IP Internet dans des machines virtuelles sans IP publiques** : Les machines virtuelles qui n’ont pas d’IP publique attribuée via une IP publique associée à la carte d’interface réseau en tant qu’IP publique de niveau d’instance, ou qui font partie d’un pool principal équilibreur de charge de base, utilisent une [architecture de système en réseau par défaut](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) et ont une adresse IP affectée par Azure afin de faciliter la connectivité sortante. Par conséquent, vous pouvez observer des entrées de journal de flux pour les flux d’adresses IP Internet, si le flux est destiné à un port dans la plage de ports attribués à l’architecture de système en réseau. Bien qu’Azure n’autorise pas ces flux vers les machines virtuelles, la tentative est journalisée et apparaît par conception dans le journal de flux du Groupe de sécurité réseau Network Watcher. Nous recommandons que le trafic Internet entrant indésirable soit explicitement bloqué avec le Groupe de sécurité réseau.
 
 ## <a name="sample-log-records"></a>Exemples d’enregistrements de journal
 
@@ -288,5 +289,5 @@ Le texte ci-dessous est un exemple de journal de flux. Comme vous pouvez le voir
 
 - Pour savoir comment activer les journaux de flux, consultez [Enable flow logs](network-watcher-nsg-flow-logging-portal.md) (Activer les journaux de flux).
 - Pour savoir comment lire les journaux de flux, consultez [Lire des journaux de flux NSG](network-watcher-read-nsg-flow-logs.md).
-- Pour en savoir plus sur la journalisation du groupe de sécurité réseau, consultez [Azure Monitor les journaux des groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Pour en savoir plus sur la journalisation du Groupe de sécurité réseau, consultez [Journaux Azure Monitor des Groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Pour déterminer si le trafic est autorisé ou refusé vers ou à partir d’une machine virtuelle, consultez [Diagnostiquer un problème de filtre de trafic réseau de machines virtuelles](diagnose-vm-network-traffic-filtering-problem.md)

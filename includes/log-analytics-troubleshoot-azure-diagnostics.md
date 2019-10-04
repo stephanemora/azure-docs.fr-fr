@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: magoedte
 ms.openlocfilehash: 6890c71ac7c265d46cc77751786fea4d0b228588
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505665"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177456"
 ---
 ### <a name="troubleshoot-azure-diagnostics"></a>Résoudre les problèmes de Diagnostics Azure
 
@@ -34,4 +34,4 @@ Dans PowerShell, si vous recevez le message d’erreur suivant, vous devez mettr
 
 `Set-AzDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
-Mettre à jour votre version d’Azure PowerShell, suivez les instructions de la [installer Azure PowerShell](/powershell/azure/install-az-ps) article.
+Mettez à jour votre version d’Azure PowerShell et suivez les instructions de l’article [Installer Azure PowerShell](/powershell/azure/install-az-ps).

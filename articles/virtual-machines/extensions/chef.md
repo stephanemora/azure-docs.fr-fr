@@ -3,29 +3,28 @@ title: Extension Chef pour les machines virtuelles Azure | Microsoft Docs
 description: Déployez le client Chef sur une machine virtuelle à l’aide de l’extension de machine virtuelle Chef.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: roiyz
-ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: akjosh
+ms.openlocfilehash: e82a5fefcc7f582df65d945735d9840fc3e49829
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089163"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169148"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extension de machine virtuelle Chef pour Linux et Windows
 
 Chef Software fournit une plateforme d’automatisation DevOps pour Linux et Windows qui permet la gestion de configurations de serveurs virtuels et physiques. L’extension de machine virtuelle Chef est une extension qui active Chef sur des machines virtuelles.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -69,17 +68,17 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 ### <a name="core-property-values"></a>Valeurs de propriétés principales
 
 | Nom | Valeur/Exemple | Type de données
-| ---- | ---- | ---- 
-| apiVersion | `2017-12-01` | chaîne (date) |
+| ---- | ---- | ----
+| apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
-| Type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
-| typeHandlerVersion | `1210.12` | chaîne (double) |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
+| typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Paramètres
 
 | Nom | Valeur/Exemple | Type de données | Requis ?
 | ---- | ---- | ---- | ----
-| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | chaîne (url) | O |
+| settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | O |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | O |
 | settings/runlist | `recipe[mycookbook::default]` | string | O |
 
@@ -105,7 +104,7 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 
 Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Vous pouvez utiliser des modèles pour déployer une ou plusieurs machines virtuelles, installer le client Chef, vous connecter au serveur Chef et effectuer la configuration initiale sur le serveur, comme définie par [Run-list](https://docs.chef.io/run_lists.html)
 
-Un exemple de modèle Resource Manager qui inclut l’extension de machine virtuelle Chef est disponible dans la [galerie des guides de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+Un exemple de modèle Resource Manager qui inclut l’extension de machine virtuelle Chef est disponible dans la [galerie de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
 La configuration JSON pour une extension de machine virtuelle peut être imbriquée à l’intérieur de la ressource de machine virtuelle ou placée à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement de la configuration JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/resource-manager-template-child-resource.md).
 

@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254364"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61481865"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Création et gestion d’un package de prise en charge pour la gamme StorSimple 8000
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Un package de support StorSimple est un mécanisme facile à utiliser qui collecte tous les journaux d’activité appropriés afin d’aider le support Microsoft à résoudre tout problème lié à votre appareil StorSimple. Les fichiers journaux d’activité collectés sont chiffrés et compressés.
 
@@ -31,7 +31,7 @@ Ce didacticiel inclut des instructions détaillées pour créer et gérer le pac
 
 ## <a name="create-a-support-package"></a>Création d’un package de prise en charge
 
-Dans certains cas, vous devez créer manuellement le package de support via Windows PowerShell pour StorSimple. Par exemple : 
+Dans certains cas, vous devez créer manuellement le package de support via Windows PowerShell pour StorSimple. Par exemple :
 
 * Si vous devez supprimer des informations sensibles de vos fichiers journaux avant de le partager avec le support Microsoft.
 * Si vous rencontrez des difficultés à charger le package en raison de problèmes de connectivité.

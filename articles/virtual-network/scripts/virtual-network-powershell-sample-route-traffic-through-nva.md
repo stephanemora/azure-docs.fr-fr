@@ -3,8 +3,8 @@ title: Exemple de script Azure PowerShell - Acheminer le trafic via une applianc
 description: Exemple de script Azure PowerShell - Acheminer le trafic via une appliance virtuelle réseau de pare-feu.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
-ms.author: jdial
-ms.openlocfilehash: 56b526b186acdd0903910a5a10f5fa3aa3c454df
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: 21ee52f0a9c3b5a6cc64bdaf92c05db4a18903ca
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650068"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717536"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance-script-sample"></a>Exemple de script pour acheminer le trafic via une appliance virtuelle réseau
 

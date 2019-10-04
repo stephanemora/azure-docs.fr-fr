@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237738"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65786077"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introduction au niveau Premium du Cache Azure pour Redis
 Le Cache Azure pour Redis est un cache distribué et géré qui vous permet de développer des applications hautement évolutives et réactives en fournissant un accès ultra-rapide aux données. 
@@ -27,9 +27,9 @@ Le Cache Azure pour Redis est un cache distribué et géré qui vous permet de d
 Le nouveau niveau Premium est un niveau professionnel qui inclut toutes les fonctionnalités de niveau Standard, auxquelles s’ajoutent entre-autre une amélioration des performances, un accroissement des charges de travail, une récupération d’urgence plus réactive, un service d’importation/exportation, et une sécurité renforcée. Poursuivez la lecture pour en savoir plus sur les fonctionnalités supplémentaires du niveau de cache Premium.
 
 ## <a name="better-performance-compared-to-standard-or-basic-tier"></a>Amélioration des performances par rapport au niveau Standard ou De base
-**Amélioration des performances par rapport au niveau Standard ou De base.**  Les caches au niveau Premium sont déployés sur du matériel qui dispose de processeurs plus rapides et offrent de meilleures performances par rapport au niveau De base ou Standard. Les caches de niveau Premium ont un débit supérieur et des latences moindres. 
+**Amélioration des performances par rapport au niveau Standard ou De base.** Les caches au niveau Premium sont déployés sur du matériel qui dispose de processeurs plus rapides et offrent de meilleures performances par rapport au niveau De base ou Standard. Les caches de niveau Premium ont un débit supérieur et des latences moindres. 
 
-**Pour un cache de même dimension, le débit du niveau Premium est plus élevé que celui du niveau Standard.**  Par exemple, le débit d’un cache de 53 Go P4 (Premium) est de 250 000 demandes par seconde par rapport à 150 000 demandes par seconde pour le débit C6 (Standard).
+**Pour un cache de même dimension, le débit du niveau Premium est plus élevé que celui du niveau Standard.** Par exemple, le débit d’un cache de 53 Go P4 (Premium) est de 250 000 demandes par seconde par rapport à 150 000 demandes par seconde pour le débit C6 (Standard).
 
 Pour plus d’informations sur la taille, le débit et la bande passante des caches Premium, consultez le [Forum aux questions sur le Cache Azure pour Redis](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
@@ -63,9 +63,9 @@ Pour plus d’informations, consultez [How to import data into and export data f
 Le niveau premium vous permet de redémarrer un ou plusieurs nœuds de votre cache à la demande. Cela vous permet de tester la résilience de votre application en cas d’échec. Vous pouvez redémarrer les nœuds suivants.
 
 * Nœud master de votre cache
-* Nœud subordonné de votre cache
-* Nœuds master et subordonné de votre cache
-* Lorsque vous utilisez un cache premium avec clustering, vous pouvez redémarrer le nœud master, le nœud subordonné ou les deux pour les différentes partitions dans le cache
+* Nœud secondaire de votre cache
+* Les nœuds principaux et secondaires de votre cache
+* Lorsque vous utilisez un cache premium avec clustering, vous pouvez redémarrer le nœud principal, le nœud secondaire ou les deux pour les différentes partitions dans le cache
 
 Pour plus d’informations, consultez [Redémarrage](cache-administration.md#reboot) et le [Forum aux questions sur le redémarrage](cache-administration.md#reboot-faq).
 

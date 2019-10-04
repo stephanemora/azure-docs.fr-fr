@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
 ms.openlocfilehash: 7aeee4f24f6c7133ad978bc0c6c7fb8853bc4c35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086137"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62109346"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>Créer et partager un espace de travail Azure Machine Learning Studio
 
@@ -55,7 +55,7 @@ Une fois l’espace de travail déployé, vous pouvez l’ouvrir dans Machine Le
 
     ![Sélectionner un espace de travail](./media/create-workspace/open-workspace.png)
 
-3. Cliquez sur **my experiments (mes expérimentations)**.
+3. Cliquez sur **my experiments (mes expérimentations)** .
 
     ![Ouvrir des expérimentations](./media/create-workspace/my-experiments.png)
 
@@ -78,11 +78,11 @@ Une fois l'espace de travail Machine Learning Studio créé, vous pouvez inviter
 
 1. Connectez-vous à Machine Learning Studio à l’adresse [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
-2. Dans le panneau gauche, cliquez sur **SETTINGS (PARAMÈTRES)**.
+2. Dans le panneau gauche, cliquez sur **SETTINGS (PARAMÈTRES)** .
 
-3. Cliquez sur l’onglet **USERS (UTILISATEURS)**.
+3. Cliquez sur l’onglet **USERS (UTILISATEURS)** .
 
-4. En bas de la page, cliquez sur **INVITE MORE USERS (INVITER D’AUTRES UTILISATEURS)**.
+4. En bas de la page, cliquez sur **INVITE MORE USERS (INVITER D’AUTRES UTILISATEURS)** .
 
     ![Paramètres Studio](./media/create-workspace/settings.png)
 

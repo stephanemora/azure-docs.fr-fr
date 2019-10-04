@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61478604"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Format de fichier journal du service Azure Import/Export
 Lorsque le service Microsoft Azure Import/Export exécute une action sur un lecteur dans le cadre d’un travail d’importation ou d’exportation, les journaux d’activité sont écrits pour bloquer des objets blob dans le compte de stockage associé à ce travail.  
@@ -33,8 +33,8 @@ Le tableau ci-dessous présente les options possibles :
   
 |Méthode d'authentification|Valeur de l’élément `ImportExportStatesPath`|Emplacement des objets blob de journal|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|Clé du compte de stockage|Valeur par défaut|Un conteneur nommé `waimportexport`, qui est le conteneur par défaut. Par exemple : <br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|Clé du compte de stockage|Valeur spécifiée par l’utilisateur|Un conteneur nommé par l’utilisateur. Par exemple : <br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|Clé du compte de stockage|Valeur par défaut|Un conteneur nommé `waimportexport`, qui est le conteneur par défaut. Par exemple :<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|Clé du compte de stockage|Valeur spécifiée par l’utilisateur|Un conteneur nommé par l’utilisateur. Par exemple :<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
 |SAP de conteneur|Valeur par défaut|Un répertoire virtuel nommé `waimportexport`, qui est le nom par défaut, sous le conteneur spécifié dans la SAP.<br /><br /> Par exemple, si la SAP spécifiée pour le travail est `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, l’emplacement du journal serait alors `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |SAP de conteneur|Valeur spécifiée par l’utilisateur|Un répertoire virtuel nommé par l’utilisateur, sous le conteneur spécifié dans la SAP.<br /><br /> Par exemple, si la SAP spécifiée pour le travail est `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue` et le répertoire virtuel spécifié est nommé `mylogblobs`, l’emplacement du journal serait `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
@@ -110,9 +110,9 @@ Le tableau suivant décrit les éléments du fichier journal.
 |`Blob`|Élément XML imbriqué|Représente un objet blob.|  
 |`Blob/BlobPath`|Chaîne|URI de l’objet blob.|  
 |`Blob/FilePath`|Chaîne|Chemin relatif d’accès au fichier sur le lecteur.|  
-|`Blob/Snapshot`|DateTime|Version de l’instantané de l’objet blob, pour un travail d’exportation.|  
-|`Blob/Length`|Entier |Longueur totale de l’objet blob en octets.|  
-|`Blob/LastModified`|DateTime|Date/heure de dernière modification de l’objet blob, pour un travail d’exportation.|  
+|`Blob/Snapshot`|Datetime|Version de l’instantané de l’objet blob, pour un travail d’exportation.|  
+|`Blob/Length`|Entier|Longueur totale de l’objet blob en octets.|  
+|`Blob/LastModified`|Datetime|Date/heure de dernière modification de l’objet blob, pour un travail d’exportation.|  
 |`Blob/ImportDisposition`|Chaîne|Disposition d’importation de l’objet blob, pour un travail d’exportation uniquement.|  
 |`Blob/ImportDisposition/@Status`|Attribut, Chaîne|État de la disposition d’importation.|  
 |`PageRangeList`|Élément XML imbriqué|Représente une liste de plages de pages pour un objet blob de pages.|  

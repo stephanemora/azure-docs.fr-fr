@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/30/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 9306e44655bd172343f20ac4fda2b2c56afcfb88
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000918"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164493"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Didacticiel : Optimiser les coûts à partir de recommandations
 
@@ -28,8 +28,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Agir sur une recommandation pour redimensionner une machine virtuelle et bénéficier d’une option plus rentable
 > * Vérifier l’action pour vous assurer que la machine virtuelle a été correctement redimensionnée
 
-## <a name="prerequisites"></a>Conditions préalables
-Recommandations sont disponibles pour une variété d’étendues et les types de compte Azure, y compris [contrat entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) les clients. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût. Pour plus d’informations sur les étendues, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
+## <a name="prerequisites"></a>Prérequis
+Des recommandations sont disponibles pour diverses étendues et divers types de comptes Azure, notamment pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 - Abonnement
 - Groupe de ressources
@@ -41,15 +41,25 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="view-cost-optimization-recommendations"></a>Afficher des recommandations d’optimisation des coûts
 
-Pour afficher les recommandations d’optimisation de coût pour un abonnement, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **recommandations du conseiller**.
+Pour voir les recommandations d’optimisation de coût pour un abonnement, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Recommandations du conseiller**.
 
-Pour afficher les recommandations pour un groupe d’administration, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **analyse des coûts** dans le menu. Utilisez le **étendue** pilule pour basculer vers une étendue différente, par exemple un groupe d’administration. Sélectionnez **recommandations du conseiller** dans le menu. Pour plus d’informations sur les étendues, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
+Pour examiner les recommandations pour un groupe d'administration, ouvrez l’étendue souhaitée sur le portail Azure et sélectionnez **Analyse du coût** dans le menu. Utilisez la pastille **Étendue** pour basculer vers une autre étendue, telle qu’un groupe d’administration. Sélectionnez **Recommandations du conseiller** dans le menu. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 ![Recommandations d’Advisor sur la gestion des coûts présentées dans le portail Azure](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
 La liste des recommandations identifie les inefficacités d’utilisation ou affiche des recommandations d’achat qui peuvent vous aider à faire des économies supplémentaires. La valeur **Économies annuelles potentielles** totale affiche le montant total que vous pouvez économiser si vous arrêtez ou libérez toutes vos machines virtuelles qui répondent aux règles de recommandation. Si vous ne voulez pas les arrêter, envisagez de les déplacer vers une référence (SKU) de machine virtuelle moins coûteuse.
 
-La catégorie **Impact** ainsi que la valeur **Économies annuelles potentielles** sont destinées à simplifier l’identification des recommandations qui ont la possibilité d’économiser autant que possible. Les recommandations ayant un impact élevé sont [Acheter des instances de machine virtuelle réservées pour économiser sur les coûts du paiement à l’utilisation](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs) et [Optimiser le coût de la machine virtuelle en redimensionnant ou en arrêtant les instances sous-utilisées](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances). Les recommandations ayant un impact moyen sont [Réduire les coûts en éliminant les circuits ExpressRoute non provisionnés](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits) et [Réduire les coûts en supprimant ou en reconfigurant les passerelles de réseau virtuel inactives](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways).
+La catégorie **Impact** ainsi que la valeur **Économies annuelles potentielles** sont destinées à simplifier l’identification des recommandations qui ont la possibilité d’économiser autant que possible.
+
+Les recommandations d’impact élevé incluent :
+- [Acheter des instances de machine virtuelle réservées pour économiser sur les coûts du paiement à l’utilisation](../advisor/advisor-cost-recommendations.md#buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs)
+- [Optimiser le coût de la machine virtuelle en redimensionnant ou en arrêtant les instances sous-utilisées](../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [Utiliser Stockage Standard pour stocker des instantanés de disques managés](../advisor/advisor-cost-recommendations.md#use-standard-snapshots-for-managed-disks)
+
+Les recommandations d’impact moyen incluent :
+- [Supprimer les pipelines Azure Data Factory qui échouent](../advisor/advisor-cost-recommendations.md#delete-azure-data-factory-pipelines-that-are-failing)
+- [Réduire les coûts en éliminant les circuits ExpressRoute non provisionnés](../advisor/advisor-cost-recommendations.md#reduce-costs-by-eliminating-unprovisioned-expressroute-circuits)
+- [Réduire les coûts en supprimant ou en reconfigurant les passerelles de réseau virtuel inactives](../advisor/advisor-cost-recommendations.md#reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways)
 
 ## <a name="act-on-a-recommendation"></a>Agir sur une recommandation
 

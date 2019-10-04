@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000128"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "65073771"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Vérification des meilleures pratiques Kubernetes dans votre cluster
 
@@ -21,6 +21,8 @@ Il existe plusieurs pratiques recommandées que vous devez suivre pour vos dépl
 ## <a name="about-kube-advisor"></a>À propos de kube-advisor
 
 L’[outil kube-advisor][kube-advisor-github] est un conteneur unique conçu pour être exécuté sur votre cluster. Il interroge le serveur d’API Kubernetes pour obtenir des informations sur vos déploiements et retourne un ensemble de suggestions d’améliorations.
+
+L’outil kube-advisor peut rendre compte des limites et demandes de ressources manquantes dans PodSpecs pour les applications Windows et Linux, mais l’outil kube-advisor proprement dit doit être planifié sur un pod Linux. Vous pouvez planifier un pod pour qu’il s’exécute sur un pool de nœuds avec un système d’exploitation spécifique à l’aide d’un [sélecteur de nœud][k8s-node-selector] dans la configuration du pod.
 
 > [!NOTE]
 > L’outil kube-advisor est pris en charge par Microsoft dans la mesure du possible. Les problèmes et suggestions doivent être déposés sur GitHub.
@@ -73,3 +75,4 @@ Si vous exécutez l’outil sur un cluster dont le RBAC n’est pas activé, auc
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

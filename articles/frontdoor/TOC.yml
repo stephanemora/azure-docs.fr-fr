@@ -1,6 +1,6 @@
 - name: Documentation de Front Door Service
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que le service Azure Front Door Service ?
       href: front-door-overview.md
@@ -46,9 +46,11 @@
       href: front-door-routing-methods.md
     - name: Réécrire URL
       href: front-door-url-rewrite.md
+    - name: Redirection d’URL
+      href: front-door-url-redirect.md
     - name: WAF
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: waf-overview.md
         - name: Règles personnalisées
           href: waf-front-door-custom-rules.md
@@ -58,6 +60,14 @@
           href: waf-front-door-monitor.md
 - name: Guides pratiques
   items:
+    - name: Rediriger le trafic
+      items:
+        - name: Configurer une porte d’entrée avec une redirection HTTP vers HTTPS
+          href: front-door-how-to-redirect-https.md
+    - name: Intégration de domaines personnalisés
+      items:
+        - name: Intégrer un domaine racine ou apex
+          href: front-door-how-to-onboard-apex-domain.md
     - name: Résolution des problèmes
       items:
         - name: Résoudre les problèmes de routage
@@ -70,9 +80,13 @@
           href: waf-front-door-create-portal.md
         - name: Configurer une stratégie WAF - Azure PowerShell
           href: waf-front-door-custom-rules-powershell.md
+        - name: Configurer la protection bot
+          href: waf-front-door-policy-configure-bot-protection.md
         - name: Configurer un code de réponse personnalisé
           href: waf-front-door-configure-custom-response-code.md
-        - name: Configurer une limite de débit WAF - Azure PowerShell
+        - name: "Configurer des restrictions\_IP"
+          href: waf-front-door-configure-ip-restriction.md
+        - name: Configurer une limite de débit - Azure PowerShell
           href: waf-front-door-rate-limit-powershell.md
 - name: Forum Aux Questions
   items:
@@ -82,7 +96,7 @@
       href: waf-faq.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/ext/front-door/
     - name: Azure PowerShell
       href: /powershell/module/az.frontdoor

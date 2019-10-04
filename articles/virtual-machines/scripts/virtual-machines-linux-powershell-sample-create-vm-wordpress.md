@@ -4,24 +4,23 @@ description: Exemple de script Azure PowerShell - WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e4dd70b1d2de54d19305c89dd6b93a5a394cbdf7
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 1d7cf8baafb7208909b54c4d74d2b73777b075c8
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981177"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70090936"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>Créer une machine virtuelle WordPress avec PowerShell
 
@@ -31,7 +30,7 @@ Ce script crée une machine virtuelle et utilise l’extension du script personn
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Exemple de script
 

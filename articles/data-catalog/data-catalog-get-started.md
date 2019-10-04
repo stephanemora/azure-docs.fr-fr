@@ -1,17 +1,17 @@
 ---
 title: Créer un catalogue de données Azure
-description: Guide de démarrage rapide sur la création d’un catalogue Azure Data Catalog.
-author: markingmyname
-ms.author: maghan
+description: Ce démarrage rapide explique comment créer un catalogue Azure Data Catalog à l’aide du portail Azure.
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 04/05/2019
-ms.openlocfilehash: 66d178497f3403579990340b88a1153905b2a2bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.date: 08/01/2019
+ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59271031"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976856"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Démarrage rapide : Créer un catalogue de données Azure
 
@@ -36,7 +36,7 @@ Vous ne pouvez approvisionner qu’un seul catalogue de données par organisatio
 
 1. Accédez au [portail Azure](https://portal.azure.com) > **Créer une ressource**, puis sélectionnez **Data Catalog**.
 
-    ![Créer un catalogue de données](media/data-catalog-get-started/data-catalog-create.png)
+    ![Bouton Créer un catalogue Azure Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
 
 2. Spécifiez un **nom** pour le catalogue de données, l’**abonnement** à utiliser, **l’emplacement** du catalogue, ainsi que le **niveau tarifaire**. Sélectionnez ensuite **Créer**.
 
@@ -88,7 +88,7 @@ Vous ne pouvez approvisionner qu’un seul catalogue de données par organisatio
 
     ![Azure Data Catalog--parcourir Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
 
-     Le catalogue de données que vous avez créé s’affiche.
+    Le catalogue de données que vous avez créé s’affiche.
 
     ![Azure Data Catalog--afficher le catalogue dans une liste](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 

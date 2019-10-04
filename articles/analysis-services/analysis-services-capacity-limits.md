@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 08/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0ffbffc788baaffd4a0532c3918ed82cc3eaf5c3
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 40a5b68a12724f2574af19bb10c276c54c5afba0
+ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527810"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69997599"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Limites des objets et ressources Analysis Services
 
@@ -21,38 +21,7 @@ Cet article décrit les limites des ressources et objets de modèles.
 
 ## <a name="tier-limits"></a>Limites des niveaux
 
-### <a name="developer-tier"></a>Niveau Développeur
-
-Ce niveau est recommandé pour les scénarios d’évaluation, de développement et de test. Un plan inclut les mêmes fonctionnalités que le niveau Standard, mais est limité en termes de puissance de traitement, de nombre d’unités de traitement des requêtes (QPU) et de taille de mémoire. L'évolutivité du réplica de requête n'est pas disponible pour ce niveau. Ce niveau ne propose pas de contrat SLA.
-
-|Planification  |QPU (unités de traitement des requêtes)  |Mémoire (Go)  |
-|---------|---------|---------|
-|D1    |    20     |    3     |
-
-
-### <a name="basic-tier"></a>Niveau de base
-
-Le niveau est recommandé pour les solutions de production avec de petits modèles tabulaires, une simultanéité limitée des utilisateurs et des besoins simples en matière d’actualisation des données. L'évolutivité du réplica de requête *n'est pas disponible* pour ce niveau. Les fonctionnalités de perspectives, de partitions multiples et de modèle tabulaire DirectQuery ne sont pas prises en charge dans ce niveau.  
-
-|Planification  |QPU (unités de traitement des requêtes)  |Mémoire (Go)  |
-|---------|---------|---------|
-|B1    |    40     |    10     |
-|B2    |    80     |    20     |
-
-### <a name="standard-tier"></a>Niveau standard
-
-Ce niveau est destiné aux applications de production stratégiques qui nécessitent une simultanéité élastique des utilisateurs et ont des modèles de données à la croissance rapide. Il prend en charge l’actualisation des données avancée pour des mises à jour du modèle de données quasiment en temps réel, et prend en charge toutes les fonctionnalités de modélisation tabulaire.
-
-|Planification  |QPU (unités de traitement des requêtes)  |Mémoire (Go)  |
-|---------|---------|---------|
-|S1    |    40     |    10     |
-|S2    |    100     |    25     |
-|S3    |    200     |    50     |
-|S4    |    400     |    100     |
-|S8*    |    320     |    200     |
-|S9*    |    640    |    400     |
-
-\* Non disponible dans toutes les régions.  
+Pour QPU et les limites de mémoire des niveaux développeur, de base et standard, consultez la [page de tarification Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 
 ## <a name="object-limits"></a>Limites des objets
 

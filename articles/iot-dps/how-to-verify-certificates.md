@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: afa4b3861e9fb7f91fd9f5d540353c5fad23efe0
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
+ms.lasthandoff: 06/13/2019
 ms.locfileid: "54913612"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Effectuer une preuve de possession pour les certificats d’autorité de certification X.509 avec votre service Device Provisioning
@@ -66,7 +66,7 @@ Les scripts PowerShell et Bash fournis dans la documentation et les Kits de dév
 
 1. Chargez la signature obtenue en tant que certificat de vérification dans votre service d’approvisionnement dans le portail. Dans le panneau **Détails du certificat** du portail Azure, utilisez l’icône _Explorateur de fichiers_ en regard du champ **Fichier .pem ou .cer du certificat de vérification** pour charger le certificat de vérification signé à partir de votre système.
 
-2. Une fois le chargement du certificat terminé, cliquez sur **Vérifier**. Dans la liste **Explorateur de certificats**, la colonne **ÉTAT** prend la valeur **_Vérifié_**. Si le panneau ne se met pas à jour automatiquement, cliquez sur **Actualiser**.
+2. Une fois le chargement du certificat terminé, cliquez sur **Vérifier**. Dans la liste **Explorateur de certificats**, la colonne **ÉTAT** prend la valeur **_Vérifié_** . Si le panneau ne se met pas à jour automatiquement, cliquez sur **Actualiser**.
 
    ![Charger la vérification du certificat](./media/how-to-verify-certificates/upload-cert-verification.png)  
 

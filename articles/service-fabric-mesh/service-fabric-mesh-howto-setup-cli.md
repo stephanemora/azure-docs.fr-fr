@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: c716ae0a2bb30e7e8eb249a1d230097efc0d3795
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 46b2a9a0c4d8a1d9e0fa069d512670dffb94fc28
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521014"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173769"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurer l’interface de ligne de commande Service Fabric Mesh
 L’interface de ligne de commande Service Fabric Mesh est nécessaire pour déployer et gérer des ressources localement et dans Azure Service Fabric Mesh. 
@@ -25,14 +25,14 @@ Les trois types d’interfaces CLI qui peuvent être utilisés sont mentionnés
 |---|---|---|
 | az mesh | Azure Service Fabric mesh | Interface CLI principale qui vous permet de déployer vos applications et de gérer des ressources dans l’environnement Azure Service Fabric Mesh. 
 | sfctl | Clusters locaux | Interface CLI Service Fabric qui permet de déployer et de tester des ressources Service Fabric sur des clusters locaux.  
-| Interface de ligne de commande Maven | Clusters locaux et Azure Service Fabric Mesh | Un wrapper autour de `az mesh` et `sfctl` qui permet aux développeurs Java d’utiliser l’expérience de ligne de commande familiers pour une expérience de développement local et Azure.  
+| Interface de ligne de commande Maven | Clusters locaux et Azure Service Fabric Mesh | Wrapper pour `az mesh` et `sfctl` qui permet aux développeurs Java d’utiliser une ligne de commande familière pour le développement local et Azure.  
 
 Pour la préversion, Azure Service Fabric Mesh CLI est écrit en tant qu’extension à Azure CLI. Vous pouvez l’installer dans Azure Cloud Shell ou dans une instance locale d’Azure CLI. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 ## <a name="install-the-azure-service-fabric-mesh-cli"></a>Installer l’interface CLI Azure Service Fabric Mesh
-1. Vous devez installer Azure CLI 2.0.43 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Pour installer ou mettre à niveau la dernière version de l’interface CLI, consultez [Installer Azure CLI][azure-cli-install].
+1. Vous devez installer Azure CLI 2.0.67 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Pour installer la dernière version de l’interface CLI ou effectuer une mise à niveau vers cette version, consultez [Installer Azure CLI][azure-cli-install].
 
 2. Installez le module d’extension CLI Azure Service Fabric Mesh à l’aide de la commande suivante. 
 

@@ -1,23 +1,17 @@
 ---
 title: Fonctions de modèle Azure Resource Manager - déploiement| Microsoft Docs
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des informations de déploiement.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/03/2019
+ms.topic: conceptual
+ms.date: 09/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 12698d1655c414b1ee3b9866cc975dc53e4ef095
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268095"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983988"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Fonctions de déploiement pour les modèles Azure Resource Manager 
 
@@ -31,9 +25,7 @@ Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonneme
 
 <a id="deployment" />
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## <a name="deployment"></a>déploiement
+## <a name="deployment"></a>deployment
 `deployment()`
 
 Renvoie des informations sur l’opération de déploiement actuelle.
@@ -142,18 +134,6 @@ L’exemple précédent retourne l’objet suivant :
 }
 ```
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
-```
-
 Pour un modèle de niveau d’abonnement qui utilise la fonction de déploiement, consultez [Fonction de déploiement d’abonnement](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Le déploiement s’effectue à l’aide des commandes `az deployment create` ou `New-AzDeployment`.
 
 <a id="parameters" />
@@ -167,7 +147,7 @@ Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être d�
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| nom_paramètre |OUI |chaîne |Nom du paramètre à retourner. |
+| parameterName |OUI |string |Nom du paramètre à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -254,23 +234,13 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| stringOutput | Chaîne | option 1 |
+| stringOutput | String | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
-| arrayOutput | Tableau | [1, 2, 3] |
-| crossOutput | Chaîne | option 1 |
+| arrayOutput | Array | [1, 2, 3] |
+| crossOutput | String | option 1 |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
-```
+Pour plus d’informations sur l’utilisation des paramètres, consultez [Paramètres dans les modèles Azure Resource Manager](template-parameters.md).
 
 <a id="variables" />
 
@@ -283,7 +253,7 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| variableName |OUI |Chaîne |Nom de la variable à retourner. |
+| variableName |OUI |String |Nom de la variable à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -357,22 +327,12 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| exampleOutput1 | Chaîne | myVariable |
-| exampleOutput2 | Tableau | [1, 2, 3, 4] |
-| exampleOutput3 | Chaîne | myVariable |
+| exampleOutput1 | String | myVariable |
+| exampleOutput2 | Array | [1, 2, 3, 4] |
+| exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
-```
-
-Pour déployer cet exemple de modèle avec PowerShell, utilisez :
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
-```
+Pour plus d’informations sur l’utilisation des variables, consultez [Variables dans un modèle Azure Resource Manager](template-variables.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).

@@ -1,6 +1,6 @@
 ---
-title: Connectez Active Directory à Azure Active Directory. | Microsoft Docs
-description: Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune pour les applications Office 365, Azure et SaaS intégrées à Azure AD.
+title: Présentation de l’identité hybride avec Azure Active Directory
+description: L’identité hybride a une identité d’utilisateur commune pour l’authentification et l’autorisation, tant en local que dans le cloud.
 keywords: introduction à Azure AD Connect, présentation d’Azure AD Connect, qu’est-ce qu’Azure AD Connect, installation d’active directory
 services: active-directory
 author: billmath
@@ -9,24 +9,26 @@ ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881802"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779849"
 ---
-# <a name="what-is-hybrid-identity"></a>L’Identité hybride
+# <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Présentation de l’identité hybride avec Azure Active Directory
 
-Les entreprises et les organisations utilisent aujourd’hui de plus en plus souvent une combinaison d’applications locales et cloud.  Les utilisateurs doivent avoir accès à ces applications en local et dans le cloud, ce qui constitue un véritable défi. 
+Les entreprises et les organisations utilisent aujourd’hui de plus en plus souvent une combinaison d’applications locales et cloud.  Les utilisateurs doivent avoir accès à ces applications en local et dans le cloud, Les scénarios de gestion des utilisateurs en local et dans le cloud constituent un défi. 
 
 Les solutions d'identité de Microsoft regroupent des fonctionnalités, locales et cloud.  Ces solutions créent une identité d'utilisateur unique commune pour l'authentification et l'autorisation d'accès à toutes les ressources, indépendamment de leur l'emplacement. Nous appelons cette identité **identité hybride**.
 
-Pour obtenir l’identité hybride, l'une des trois méthodes d’authentification peut être utilisée, selon vos scénarios.   Ces trois méthodes sont les suivantes : 
+Avec l’identité hybride pour Azure AD et la gestion de l’identité hybride, ces scénarios deviennent possibles.
+
+Pour obtenir l’identité hybride avec Azure AD, l'une des trois méthodes d’authentification peut être utilisée, selon vos scénarios.   Ces trois méthodes sont les suivantes : 
 
 - **[Synchronisation de hachage de mot de passe (PHS)](whatis-phs.md)**  
 - **[Authentification directe (PTA)](how-to-connect-pta.md)**  
@@ -34,7 +36,7 @@ Pour obtenir l’identité hybride, l'une des trois méthodes d’authentificati
 
 Ces méthodes d’authentification s'accompagnent également de fonctionnalités d'[authentification unique](how-to-connect-sso.md).  L’authentification unique connecte automatiquement les utilisateurs lorsque leurs appareils d’entreprise sont connectés au réseau de l’entreprise.
 
-Pour plus d'informations, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). 
+Pour plus d'informations, consultez [Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). 
 
 ## <a name="common-scenarios-and-recommendations"></a>Scénarios et recommandations courants 
 
@@ -60,6 +62,10 @@ Voici quelques scénarios courants de gestion des identités hybrides et des acc
 >  
 > <sup>4</sup> AD FS peut être intégré à l’infrastructure de clé publique (PKI) de votre entreprise pour permettre l’authentification à l’aide de certificats. Ces certificats peuvent être des certificats logiciels déployés via des canaux d’approvisionnement approuvés tels que les certificats de gestion des périphériques mobiles (GPM), d’objet de stratégie de groupe (GPO), de carte à puce (y compris les cartes PIV/CAC) ou Hello for Business (approbation de certificat). Pour plus d’informations sur la prise en charge de l’authentification par carte à puce, consultez [ce  blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
 > 
+
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Licences requises pour Azure AD Connect
+
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

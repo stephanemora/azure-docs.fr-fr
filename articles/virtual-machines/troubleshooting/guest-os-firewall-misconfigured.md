@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: fcea5e4e6bb108f1a8d8036e51a5dae8a9e6431b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8f04d943e1db49beed13c183fbd06e401546fc03
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839744"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71153893"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Le pare-feu du système d'exploitation invité de la machine virtuelle Azure est mal configuré
 
@@ -98,7 +98,7 @@ Dans l’instance d’accès à la console série, vous pouvez interroger l’é
 
 ### <a name="offline-mitigations"></a>Atténuations hors connexion
 
-1.  Pour activer ou désactiver des règles de pare-feu, reportez-vous à [activer ou désactiver une règle de pare-feu sur un système d’exploitation invité de Azure VM](enable-disable-firewall-rule-guest-os.md).
+1.  Pour activer ou désactiver des règles de pare-feu, consultez [Activer ou désactiver une règle de pare-feu sur le système d’exploitation invité d’une machine virtuelle Azure](enable-disable-firewall-rule-guest-os.md).
 
 2.  Vérifiez si vous êtes dans le [scénario de blocage du trafic entrant par le pare-feu du système d’exploitation invité](guest-os-firewall-blocking-inbound-traffic.md).
 

@@ -3,8 +3,8 @@ title: Tutoriel sur la surveillance de la communication réseau - Portail Azure 
 description: Découvrez comment surveiller la communication réseau entre deux machines virtuelles à l’aide de la fonctionnalité de surveillance de connexion Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 1d8a9cf10bf9b4aab02dd5033ecdd4fdc1f9423e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429245"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233892"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Didacticiel : Superviser la communication réseau entre deux machines virtuelles à l’aide du portail Azure
 
@@ -77,7 +77,7 @@ Réeffectuez les étapes indiquées dans [Créer la première machine virtuelle]
 | 3 | Nom                                  | myVm2                                                                   |
 | 3 | Type d'authentification                   | Collez votre clé publique SSH ou sélectionnez **Mot de passe**, puis entrez un mot de passe. |
 | 3 | Groupe de ressources                        | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.                 |
-| 6. | Extensions                            | **Agent réseau pour Linux**                                             |
+| 6. | Extensions                            | **Agent Network Watcher pour Linux**                                             |
 
 Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Attendez la fin du déploiement de la machine virtuelle avant d’effectuer les étapes restantes.
 
@@ -109,7 +109,7 @@ Créez un moniteur de connexion pour surveiller la communication sur le port TCP
 
     ![Moniteurs de connexion](./media/connection-monitor/connection-monitors.png)
 
-2. Sélectionnez le moniteur qui porte le nom **myVm1-myVm2(22)**, comme l’illustre l’image précédente, pour en voir les détails, comme l’illustre l’image suivante :
+2. Sélectionnez le moniteur qui porte le nom **myVm1-myVm2(22)** , comme l’illustre l’image précédente, pour en voir les détails, comme l’illustre l’image suivante :
 
     ![Détails du moniteur](./media/connection-monitor/vm-monitor.png)
 
@@ -154,7 +154,7 @@ Par défaut, Azure permet la communication sur tous les ports entre les machines
     | Priorité                | 100            |
     | Nom                    | DenySshInbound |
 
-5. Étant donné que le moniteur de connexion effectue un sondage toutes les 60 secondes, patientez quelques minutes, puis dans la partie gauche du portail, sélectionnez **Network Watcher**, puis **Moniteur de connexion**, puis resélectionnez le moniteur **myVm1-myVm2(22)**. Les résultats sont à présent différents, comme l’illustre l’image suivante :
+5. Étant donné que le moniteur de connexion effectue un sondage toutes les 60 secondes, patientez quelques minutes, puis dans la partie gauche du portail, sélectionnez **Network Watcher**, puis **Moniteur de connexion**, puis resélectionnez le moniteur **myVm1-myVm2(22)** . Les résultats sont à présent différents, comme l’illustre l’image suivante :
 
     ![Détails de l’erreur moniteur](./media/connection-monitor/vm-monitor-fault.png)
 

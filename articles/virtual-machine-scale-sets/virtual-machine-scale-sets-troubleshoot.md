@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: manayar
 ms.openlocfilehash: 3308b22606e87853aad7e3d3a3995aab8d1b5401
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60803552"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Dépannage de la mise à l’échelle automatique avec des jeux de mise à l’échelle de machine virtuelle
-**Problème** : vous avez créé une infrastructure de mise à l’échelle automatique dans Azure Resource Manager à l’aide de groupes de machines virtuelles identiques (par exemple en déployant un modèle comme https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale), vos règles de mise à l’échelle sont définies et fonctionnent très bien, sauf que, quelle que soit la charge placée sur les machines virtuelles, elle n’est pas mise à l’échelle automatiquement.
+**Problème** : vous avez créé une infrastructure de mise à l’échelle automatique dans Azure Resource Manager à l’aide de groupes de machines virtuelles identiques (par exemple en déployant un modèle comme https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale ), vos règles de mise à l’échelle sont définies et fonctionnent très bien, sauf que, quelle que soit la charge placée sur les machines virtuelles, elle n’est pas mise à l’échelle automatiquement.
 
 ## <a name="troubleshooting-steps"></a>Étapes de dépannage
 Parmi les éléments à prendre en considération :
@@ -52,7 +52,7 @@ Parmi les éléments à prendre en considération :
     Azure Resource Explorer est un outil de dépannage indispensable qui vous indique l’état de vos ressources Azure Resource Manager. Cliquez sur votre abonnement et examinez le groupe de ressources sur lequel vous effectuez un dépannage. Sous le fournisseur de ressources de calcul, consultez le groupe de machines virtuelles identiques que vous avez créé et consultez la vue d’instance, qui vous indique l’état d’un déploiement. Vérifiez également la vue d’instance des machines virtuelles dans le groupe de machines virtuelles identiques. Ensuite, accédez au fournisseur de ressources Microsoft.Insights et vérifiez que les règles de mise à l’échelle automatique sont correctes.
 * L’extension de diagnostic fonctionne-t-elle et génère-t-elle des données de performance ?
   
-    **mettre à jour :** L’échelle automatique Azure a été améliorée pour utiliser un pipeline de métriques basées sur l’hôte, qui ne nécessite plus une extension de diagnostics doit être installé. Les paragraphes suivants ne s’appliquent plus si vous créez une application de mise à l’échelle automatique en utilisant le nouveau pipeline. Un exemple de modèles Azure convertis pour utiliser le pipeline hôte est disponible ici : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **Mise à jour :** la mise à l’échelle automatique Azure a été améliorée pour utiliser un pipeline de métriques basées sur l’hôte qui ne nécessite plus l’installation d’une extension de diagnostic. Les paragraphes suivants ne s’appliquent plus si vous créez une application de mise à l’échelle automatique en utilisant le nouveau pipeline. Un exemple de modèles Azure convertis pour utiliser le pipeline hôte est disponible ici : https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
   
     Le recours aux métriques basées sur l’hôte pour la mise à l’échelle automatique est préférable pour les raisons suivantes :
   

@@ -4,17 +4,17 @@ description: Contrôle d’accès au contenu Recherche Azure à l’aide de filt
 ms.service: search
 ms.topic: conceptual
 services: search
-ms.date: 08/07/2017
+ms.date: 05/02/2019
 author: brjohnstmsft
 ms.author: brjohnst
-manager: jlembicz
+manager: nitinme
 ms.custom: seodec2018
-ms.openlocfilehash: 326a449d3992d22a4be2d365061c99ef8b13aef9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 4d1ffa5b29a56d32a4f6a8ccf40f5bafd27795e6
+ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453488"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70186498"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtres de sécurité pour le filtrage des résultats dans Recherche Azure
 
@@ -33,7 +33,7 @@ Cet article explique les étapes à suivre pour mettre en place le filtrage de s
 >[!NOTE]
 > Le processus de récupération des identificateurs de principal n’est pas abordé dans ce document. Obtenez-le auprès de votre fournisseur de services d’identité.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article part du principe que vous disposez d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), du [service Recherche Azure](https://docs.microsoft.com/azure/search/search-create-service-portal) et de l’[index Recherche Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
@@ -61,7 +61,7 @@ Imaginons que nous disposons d’un index de fichiers sécurisés et qu’un ens
 Émettez une requête HTTP POST au point de terminaison de l’URL de votre index. Le corps de la requête HTTP est un objet JSON contenant les documents à ajouter :
 
 ```
-POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=[api-version]  
+POST https://[search service].search.windows.net/indexes/securedfiles/docs/index?api-version=2019-05-06  
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -119,7 +119,7 @@ Notez que cet exemple montre comment lancer une recherche dans des documents à 
 Émettez la requête HTTP POST :
 
 ```
-POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=[api-version]  
+POST https://[service name].search.windows.net/indexes/securedfiles/docs/search?api-version=2019-05-06
 Content-Type: application/json  
 api-key: [admin or query key]
 ```
@@ -152,7 +152,7 @@ Vous devez obtenir les documents où `group_ids` contient « group_id1 » ou �
 ```
 ## <a name="conclusion"></a>Conclusion
 
-Vous venez de voir comment filtrer des résultats en fonction de l’identité de l’utilisateur et de la fonction `search.in()` de Recherche Azure. Vous pouvez utiliser cette fonction pour passer dans les identificateurs de principal de l’utilisateur demandeur à mettre en correspondance les identificateurs de principal associés à chaque document cible. Quand une requête de recherche est traitée, la fonction `search.in` exclut les résultats de la recherche inaccessibles en lecture aux principaux de l’utilisateur. Les identificateurs de principal peuvent représenter des groupes de sécurité, des rôles ou même la propre identité de l’utilisateur.
+Vous venez de voir comment filtrer des résultats en fonction de l’identité de l’utilisateur et de la fonction `search.in()` de Recherche Azure. Vous pouvez utiliser cette fonction pour passer les identificateurs de principal de l'utilisateur demandeur et les mettre en correspondance avec les identificateurs de principal associés à chaque document cible. Quand une requête de recherche est traitée, la fonction `search.in` exclut les résultats de la recherche inaccessibles en lecture aux principaux de l’utilisateur. Les identificateurs de principal peuvent représenter des groupes de sécurité, des rôles ou même la propre identité de l’utilisateur.
  
 ## <a name="see-also"></a>Voir aussi
 

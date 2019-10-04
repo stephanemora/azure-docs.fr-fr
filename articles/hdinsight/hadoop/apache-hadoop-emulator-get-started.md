@@ -1,59 +1,57 @@
 ---
-title: En savoir plus à l’aide d’un bac à sable Apache Hadoop – émulateur – Azure HDInsight
+title: Apprendre à utiliser un bac à sable Apache Hadoop - Émulateur - Azure HDInsight
 description: 'Pour en savoir plus sur l’utilisation de l’écosystème Apache Hadoop, vous pouvez configurer un bac à sable (sandbox) Hadoop à partir de Hortonworks sur une machine virtuelle Azure. '
 keywords: émulateur Hadoop, bac à sable (sandbox) hadoop
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 12/11/2017
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1da676787eeee1eb75095a5e3a6b3f40056567ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 9515f0ecae92e6350924b3856aa6cbf20e608d51
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005758"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066686"
 ---
-# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bien démarrer avec un bac à sable Apache Hadoop, un émulateur sur un ordinateur virtuel
+# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Bien démarrer avec un bac à sable Apache Hadoop, un émulateur sur une machine virtuelle
 
 Apprenez à installer le bac à sable (sandbox) Apache Hadoop de Hortonworks sur une machine virtuelle pour vous familiariser avec l’écosystème Hadoop. Le bac à sable fournit un environnement de développement local pour se familiariser avec Hadoop, Hadoop Distributed File System (HDFS) et la soumission de tâches. Une fois que vous êtes familiarisé avec Hadoop, vous pouvez commencer à l’utiliser sur Azure en créant un cluster HDInsight. Pour plus d’informations sur la prise en main, consultez [Prise en main de Hadoop sur HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 * [Oracle VirtualBox](https://www.virtualbox.org/) Téléchargez et installez l’application à partir d’[ici](https://www.virtualbox.org/wiki/Downloads).
 
-
-
 ## <a name="download-and-install-the-virtual-machine"></a>Téléchargement et installation de la machine virtuelle
-1. Accédez aux [téléchargements Hortonworks](https://hortonworks.com/downloads/#sandbox).
 
-2. Cliquez sur **TÉLÉCHARGER POUR VIRTUALBOX** pour télécharger le dernier bac à sable Hortonworks sur une machine virtuelle. Vous serez invité à vous inscrire à Hortonworks avant le lancement du téléchargement. Une à deux heures sont nécessaires pour le téléchargement, en fonction de la vitesse de votre réseau.
+1. Accédez à la page [Téléchargements Cloudera](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
 
-    ![Image du lien pour le téléchargement de Hortonworks Sandbox pour VirtualBox](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. À partir de la même page web, cliquez sur le lien **Importer dans Virtual Box** pour télécharger un fichier PDF contenant des instructions d’installation de la machine virtuelle.
+1. Cliquez sur **VIRTUALBOX** sous **Choose Installation Type** (Choisir le type d’installation) pour télécharger la dernière version du produit Hortonworks Sandbox sur une machine virtuelle. Connectez-vous ou remplissez le formulaire de demande d’informations sur le produit.
 
-Pour télécharger un bac à sable (sandbox) de version HDP plus ancienne, développez l’archive :
+1. Cliquez sur le bouton **HDP SANDBOX (LATEST)** pour commencer le téléchargement du bac à sable HDP.
 
-![Archive sandbox Hortonworks](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
+Pour obtenir des instructions sur la configuration du bac à sable, consultez le [Guide d’installation et de déploiement du bac à sable](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
+Pour télécharger une version antérieure du bac à sable HDP, consultez les liens situés sous **Older Versions** (Versions antérieures).
 
 ## <a name="start-the-virtual-machine"></a>Démarrage de la machine virtuelle
 
 1. Ouvrez Oracle VirtualBox pour machine virtuelle.
-2. À partir du menu **Fichier**, cliquez sur **Importer l’appliance**, puis spécifiez l’image de sandbox Hortonworks.
+1. À partir du menu **Fichier**, cliquez sur **Importer l’appliance**, puis spécifiez l’image de sandbox Hortonworks.
 1. Sélectionnez Hortonworks Sandbox, cliquez sur **Démarrer**, puis sur **Démarrage normal**. Une fois le processus de démarrage de la machine virtuelle terminé, celle-ci affiche les instructions de connexion.
 
-    ![Démarrage normal](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. Ouvrez un navigateur web et accédez à l’URL affichée (généralement `http://127.0.0.1:8888`).
+    ![démarrage normal de VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
+
+1. Ouvrez un navigateur web et accédez à l’URL affichée (généralement `http://127.0.0.1:8888`).
 
 ## <a name="set-sandbox-passwords"></a>Définition de mots de passe Sandbox
 
-1. Dans la page de **prise en main** de Hortonworks Sandbox, sélectionnez **View Advanced Options (Options d’affichage avancées)**. Utilisez les informations de cette page pour vous connecter au bac à sable avec SSH. Utilisez le nom et le mot de passe fournis.
+1. Dans la page de **prise en main** de Hortonworks Sandbox, sélectionnez **View Advanced Options (Options d’affichage avancées)** . Utilisez les informations de cette page pour vous connecter au bac à sable avec SSH. Utilisez le nom et le mot de passe fournis.
 
    > [!NOTE]
-   > Si vous n’avez pas de client SSH installé, vous pouvez utiliser le client SSH en ligne fourni par la machine virtuelle à l’adresse **http://localhost:4200/**.
+   > Si vous n’avez pas de client SSH installé, vous pouvez utiliser le client SSH en ligne fourni par la machine virtuelle à l’adresse **http://localhost:4200/** .
 
     La première fois que vous vous connectez avec SSH, vous serez invité à modifier le mot de passe du compte racine. Entrez un nouveau mot de passe que vous utiliserez lorsque vous vous connecterez à l’aide de SSH.
 
@@ -76,7 +74,9 @@ Pour télécharger un bac à sable (sandbox) de version HDP plus ancienne, déve
         select * from sample_07 limit 10;
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Apprendre à utiliser Visual Studio avec Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Se familiariser avec Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Didacticiel Hadoop - Prise en main de HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 
+* [Apprendre à utiliser Visual Studio avec Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
+
+* [Se familiariser avec Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+
+* [Didacticiel Hadoop - Prise en main de HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

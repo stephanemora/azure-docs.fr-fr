@@ -1,5 +1,5 @@
 ---
-title: Créer des stratégies et afficher les données de conformité par programmation avec Azure Policy
+title: Créer des stratégies par programmation
 description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,23 +7,20 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 695e04dcbc7762c85dd0dd9aaff6e5fd9fe99348
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276488"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155574"
 ---
-# <a name="programmatically-create-policies-and-view-compliance-data"></a>Créer des stratégies et afficher les données de conformité par programmation avec Azure Policy
+# <a name="programmatically-create-policies"></a>Créer des stratégies par programmation
 
-Cet article vous explique comment créer et gérer des stratégies par programmation. Les définitions de stratégie appliquent différentes règles et des différents effets sur vos ressources. Cette mise en conformité permet de garantir que les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service.
+Cet article vous explique comment créer et gérer des stratégies par programmation. Les définitions de stratégie Azure appliquent différentes règles et des différents effets sur vos ressources. Cette mise en conformité permet de garantir que les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service.
 
 Pour plus d’informations sur la conformité, consultez [Obtention de données de conformité](getting-compliance-data.md).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
-
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que les conditions préalables suivantes sont remplies :
 
@@ -31,13 +28,13 @@ Avant de commencer, vérifiez que les conditions préalables suivantes sont remp
 
 1. Procédez à la mise à jour de votre module Azure PowerShell vers la dernière version. Pour plus d'informations, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Pour plus d’informations sur la version la plus récente, voir [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Inscrivez le fournisseur de ressources Policy Insights à l’aide d’Azure PowerShell pour vérifier que votre abonnement fonctionne avec ce fournisseur de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à exécuter l’opération d’inscription pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Exécutez la commande suivante pour enregistrer le fournisseur de ressources :
+1. Inscrivez le fournisseur de ressources Azure Policy Insights à l’aide d’Azure PowerShell pour vérifier que votre abonnement fonctionne avec ce fournisseur de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à exécuter l’opération d’inscription pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire. Exécutez la commande suivante pour enregistrer le fournisseur de ressources :
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   Pour plus d’informations sur l’inscription et l’affichage des fournisseurs de ressources, consultez la page [Fournisseurs et types de ressources](../../../azure-resource-manager/resource-manager-supported-services.md).
+   Pour plus d’informations sur l’inscription et l’affichage des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](../../../azure-resource-manager/resource-manager-supported-services.md).
 
 1. Si ce n’est déjà fait, installez Azure CLI. Vous pouvez obtenir la dernière version sur la page [Installer Azure CLI sur Windows](/cli/azure/install-azure-cli-windows).
 
@@ -94,7 +91,7 @@ Pour une meilleure visibilité de vos ressources, la première chose à faire es
 
    Remplacez _ContosoRG_ par le nom de votre groupe de ressources prévu.
 
-   Le **étendue** paramètre sur `New-AzPolicyAssignment` fonctionne avec le groupe d’administration, abonnement, groupe de ressources ou une ressource unique. Le paramètre utilise un chemin d’accès de ressource complet, que la propriété **ResourceId** renvoie sur `Get-AzResourceGroup`. Pour chaque conteneur, le modèle **Étendue** est le suivant. Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement.
+   Le paramètre **Scope** sur `New-AzPolicyAssignment` peut être défini pour un groupe d’administration, un abonnement, un groupe de ressources ou une seule ressource. Le paramètre utilise un chemin d’accès de ressource complet, que la propriété **ResourceId** renvoie sur `Get-AzResourceGroup`. Pour chaque conteneur, le modèle **Étendue** est le suivant. Remplacez `{rName}`, `{rgName}`, `{subId}` et `{mgName}` par le nom de la ressource, le nom du groupe de ressources, l’ID de l’abonnement et le nom du groupe d’administration, respectivement.
    `{rType}` est remplacé par le **type de la ressource**, comme `Microsoft.Compute/virtualMachines` pour une machine virtuelle.
 
    - Ressource : `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
@@ -148,7 +145,7 @@ Pour créer une définition de stratégie, procédez comme suit.
 
    Remplacez {subscriptionId} précédent par l’ID de votre abonnement ou {managementGroupId} par l’ID de votre [groupe d’administration](../../management-groups/overview.md).
 
-   Pour plus d’informations sur la structure de la requête, consultez [Définitions de stratégie – Créer ou mettre à jour](/rest/api/resources/policydefinitions/createorupdate) et [Définitions de stratégie – Créer ou mettre à jour dans le groupe d’administration](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Pour plus d’informations sur la structure de la requête, consultez [Définitions de stratégie Azure – Créer ou mettre à jour](/rest/api/resources/policydefinitions/createorupdate) et [Définitions de stratégie – Créer ou mettre à jour dans le groupe d’administration](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Utilisez la procédure suivante pour créer une attribution de stratégie et assigner la définition de stratégie au niveau du groupe de ressources.
 
@@ -230,7 +227,7 @@ Pour créer une définition de stratégie, procédez comme suit :
    - Abonnement : `/subscriptions/{subID}`
    - Groupe d'administration : `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Vous pouvez obtenir l’ID de définition de stratégie à l’aide de PowerShell avec la commande suivante :
+Vous pouvez obtenir l’ID de définition de stratégie Azure à l’aide de PowerShell avec la commande suivante :
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -251,5 +248,5 @@ Pour plus d’informations sur les commandes et les requêtes de cet article, co
 - [Ressources API REST Azure](/rest/api/resources/)
 - [Modules Azure PowerShell](/powershell/module/az.resources/#policies)
 - [Commandes de stratégie Azure CLI](/cli/azure/policy?view=azure-cli-latest)
-- [Informations de référence sur l’API REST du fournisseur de ressources Policy Insights](/rest/api/policy-insights)
-- [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md)
+- [Informations de référence sur l’API REST du fournisseur de ressources Azure Policy Insights](/rest/api/policy-insights)
+- [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

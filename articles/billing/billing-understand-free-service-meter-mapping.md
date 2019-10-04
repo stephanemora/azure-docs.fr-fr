@@ -1,31 +1,28 @@
 ---
-title: Service de mappage des compteurs pour compte gratuit Azure | Microsoft Docs
+title: Service de mappage des compteurs pour compte gratuit Azure
 description: Comprendre le service de mappage des compteurs pour les services inclus dans un compte gratuit.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 2468f61c187d9b10ed9fe55ccf76e5d2561d0505
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 00f0db0107cee4a7f52dbf4e04a586c5e7920d61
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889809"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709396"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Comprendre le service gratuit de mappage des compteurs
 
 Chaque service Azure émet des informations d’utilisation basées sur des compteurs, que le système de facturation Azure utilise pour facturer les services fournis aux utilisateurs. Pour mieux comprendre l’utilisation des services gratuits, examinons le service de mappage des compteurs pour ces services. Pour savoir comment créer des services gratuits, voir [Créer des services gratuits avec un compte gratuit Azure](billing-create-free-services-included-free-account.md).
 
-## <a name="service-to-meter-mapping-for-free-account-eligible-services"></a>Service de mappage des compteurs pour les services éligibles de compte gratuit 
+## <a name="service-to-meter-mapping-for-eligible-services"></a>Service de mappage des compteurs pour les services éligibles
 
 |    de diffusion en continu   | Nom du compteur sur le portail Azure | Nom du compteur dans le fichier ou l’API d’utilisation | ID du compteur |
 | ------------ | -------------------------- | -------------------------| -------- |
@@ -33,7 +30,7 @@ Chaque service Azure émet des informations d’utilisation basées sur des comp
 | Machine virtuelle Windows B1S | Heures de calcul - Machine virtuelle Standard_B1 (Windows) | Heures de calcul - Gratuit | ff3e6fa5-ee46-478e-8d0e-b629f4f8a8ac
 | Machine virtuelle B1S - Adresses IP publiques  | Heure pour l’adresse IP - Adresses IP publiques | Heure pour l'adresse IP - Gratuit | ae56b367-2708-4454-a3d9-2be7b2364ea1
 | CosmosDB | Stockage (Go) - Cosmos DB | Stockage (Go) - Gratuit | 59c78b09-08e2-466a-9f3b-57a94c9e2f31
-| CosmosDB | 100 unités de requête (heures) - Cosmos DB | 100 unités de requête (heures) - Gratuit | 5d638a6f-e221-41cf-ae3f-0f81d368cef6 
+| CosmosDB | 100 unités de requête (heures) - Cosmos DB | 100 unités de requête (heures) - Gratuit | 5d638a6f-e221-41cf-ae3f-0f81d368cef6
 | Stockage Fichier | E/S standard - Fichiers (Go) - Localement redondant | E/S standard - Fichiers (Go) - Gratuit | a7f2aa67-b9a2-4593-a413-6ec86d6c8e5b
 | Stockage Fichier | E/S standard - Unités opération Lecture de fichier (par 10 000) | E/S standard - Unités opération Lecture de fichier (par 10 000) - Gratuit | 6207404d-3389-4d20-9087-cc078ddc3fd9
 | Stockage Fichier | E/S standard - Unités opération Écriture de fichier (par 10 000) | E/S standard - Unités opération Écriture de fichier (par 10 000) - Gratuit | 223d8004-d29a-46cf-b4f4-d2d34b12548b
@@ -43,16 +40,19 @@ Chaque service Azure émet des informations d’utilisation basées sur des comp
 | Stockage d'objets blob de blocs chaud | E/S standard - Objet blob de blocs chaud (Go) - Localement redondant | E/S standard - Objet blob de blocs chaud (Go) - Gratuit | 67a3a3fd-826f-42c1-8843-bffa14f0da13
 | Stockage d'objets blob de blocs chaud | E/S standard - Opérations Écriture d’objet blob de blocs chaud (par 10 000) | E/S standard - Opérations Écriture d’objet blob de blocs chaud (par 10 000) - Gratuit | b34bbb76-edce-4c2d-a288-81a2db1fea53
 | Stockage d'objets blob de blocs chaud  | E/S standard - Opérations Écriture/Liste d'objet blob de blocs chaud (par 10 000) | E/S standard - Opérations Écriture/Liste d'objet blob de blocs chaud (par 10 000) - Gratuit | 7e68cf36-1198-4d3b-baa7-86a74c5b3079
-| Disque géré *  | Disque géré standard/Instantanés (Go) - Localement redondant | Disque géré standard/Instantanés (Go) - Gratuit | ad94c237-52a5-4804-ae65-38c5bf85ef42
-| Disque géré *  | Opérations disque managées Standard (par 10 000) | Opérations disque managées Standard (par 10 000) - Gratuit | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
-| Disque géré *  | Stockage Premium - Objet blob de page/P6 (unités) - Localement redondant | Stockage Premium - Objet blob de page/P6 (unités) - Gratuit | 2b98c168-27ca-4cc1-b509-e887dec87657
+| Disque managé <sup>1</sup>  | Disque géré standard/Instantanés (Go) - Localement redondant | Disque géré standard/Instantanés (Go) - Gratuit | ad94c237-52a5-4804-ae65-38c5bf85ef42
+| Disque managé <sup>1</sup>  | Opérations disque managées Standard (par 10 000) | Opérations disque managées Standard (par 10 000) - Gratuit | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
+| Disque managé <sup>1</sup>  | Stockage Premium - Objet blob de page/P6 (unités) - Localement redondant | Stockage Premium - Objet blob de page/P6 (unités) - Gratuit | 2b98c168-27ca-4cc1-b509-e887dec87657
 | Base de données SQL | Jours de base de données S0 standard - SQL Database | Jours de base de données S0 standard - Gratuit | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
-| Partagé - Bande passante ** | Transfert de données sortant (Go) | Transfert de données sortant (Go) - Gratuit | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
+| Partagé - Bande passante <sup>2</sup> | Transfert de données sortant (Go) | Transfert de données sortant (Go) - Gratuit | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd
 
-\* Si vous créez une machine virtuelle Windows et choisissez un disque géré, vous allez consommer le compteur de disque géré en tant que partie de la machine virtuelle.
+<sup>1</sup> Si vous créez une machine virtuelle Windows et choisissez un disque managé, vous utiliserez le compteur de disques managés en tant que partie de la machine virtuelle.
 
-\** Les compteurs partagés peuvent être consommés via plusieurs services. Par exemple, tant les machines virtuelles que le stockage émettent l’utilisation basée sur le compteur Transfert de données sortant (Go).
+<sup>2</sup> Les compteurs partagés peuvent être utilisés via plusieurs services. Par exemple, tant les machines virtuelles que le stockage émettent l’utilisation basée sur le compteur Transfert de données sortant (Go).
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Étapes suivantes
+- [Mettre à niveau votre abonnement](billing-upgrade-azure-subscription.md)

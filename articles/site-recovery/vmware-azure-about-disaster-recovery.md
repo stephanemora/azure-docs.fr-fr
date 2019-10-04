@@ -5,14 +5,14 @@ author: raynew
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 3/18/2019
+ms.date: 9/09/2019
 ms.author: raynew
-ms.openlocfilehash: 9d7b94500320315c1379ba3dfb8b6460bc105b49
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: dca8174caabf4799c338d780a78ba58f1af5a2f1
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311196"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814312"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>À propos de la reprise d’activité de machines virtuelles VMware sur Azure
 
@@ -34,7 +34,7 @@ Une stratégie de continuité d’activité et reprise d’activité (BCDR) vous
     - Cette simulation vous aide à vérifier que le basculement fonctionnera comme prévu en cas de réelle nécessité.
     - La simulation effectue un test de basculement n’affectant pas votre environnement de production.
 5. En cas d’interruption, vous opérez un basculement complet vers Azure. Vous pouvez basculer une seule machine, ou créer un plan de récupération qui bascule plusieurs machines simultanément.
-6. Lors du basculement, les machines virtuelles Azure sont créées à partir des données de machine virtuelle en disques gérés ou des comptes de stockage. Les utilisateurs peuvent continuer à accéder aux applications et aux charges de travail à partir de la machine virtuelle Azure.
+6. En cas de basculement, des machines virtuelles Azure sont créées à partir des données de machines virtuelles disponibles dans les disques managés et les comptes de stockage. Les utilisateurs peuvent continuer à accéder aux applications et aux charges de travail à partir de la machine virtuelle Azure.
 7. Lorsque votre site local redevient disponible, vous pouvez opérer une restauration automatique à partir d’Azure.
 8. Après une restauration automatique, lorsque vous retravaillez à partir de votre site principal, vous recommencez à répliquer les machines virtuelles locales sur Azure.
 
@@ -56,12 +56,12 @@ Le service Site Recovery peut répliquer toute charge de travail exécutée sur 
 Dans Azure, vous devez effectuer les préparatifs suivants :
 
 1. Vérifier que votre compte Azure dispose des autorisations nécessaires pour créer des machines virtuelles dans Azure.
-2. Créer un réseau Azure auquel les machines virtuelles Azure se connectent lorsqu’elles sont créées à partir des comptes de stockage ou des disques gérés après le basculement.
+2. Créer un réseau Azure que les machines virtuelles Azure rejoindront une fois créées à partir des comptes de stockage ou les disques managés après le basculement.
 3. Créer un coffre Azure Recovery Services pour le service Site Recovery. Le coffre, qui réside dans le portail Azure, est utilisé pour déployer, configurer, orchestrer, surveiller et dépanner votre déploiement Azure Site Recovery.
 
 *Besoin de plus d’aide ?*
 
-Découvrez comment configurer Azure par [vérifier votre compte](tutorial-prepare-azure.md#verify-account-permissions), en créant un [réseau](tutorial-prepare-azure.md#set-up-an-azure-network), et [configuration d’un coffre](tutorial-prepare-azure.md#create-a-recovery-services-vault).
+Découvrez comment configurer Azure en [vérifiant votre compte](tutorial-prepare-azure.md#verify-account-permissions), en créant un [réseau](tutorial-prepare-azure.md#set-up-an-azure-network) et en un [configurant un coffre](tutorial-prepare-azure.md#create-a-recovery-services-vault).
 
 
 
@@ -93,10 +93,10 @@ Une fois vos infrastructures Azure et locale en place, vous pouvez configurer la
     - Le serveur de configuration est une simple machine locale. Pour la reprise d’activité de VMware, nous vous recommandons de déployer une machine virtuelle VMware à partir d’un modèle OVF téléchargeable.
     - Le serveur de configuration coordonne les communications entre les machines locale et Azure.
     - Deux autres composants s’exécutent sur la machine serveur de configuration.
-        - Le serveur de processus reçoit optimise et envoie les données de réplication pour le compte de stockage de cache dans Azure. Il gère également l’installation automatique du service Mobilité sur les machines que vous souhaitez répliquer, et effectue la détection automatique des machines virtuelles sur les serveurs VMware.
+        - Le serveur de processus reçoit, optimise et envoie les données de réplication au compte de stockage de cache dans Azure. Il gère également l’installation automatique du service Mobilité sur les machines que vous souhaitez répliquer, et effectue la détection automatique des machines virtuelles sur les serveurs VMware.
         - Le serveur cible maître gère les données de réplication pendant la restauration automatique à partir d’Azure.
     - La configuration inclut l’inscription du serveur de configuration dans le coffre, le téléchargement du serveur MySQL et de VMware PowerCLI, ainsi que la spécification des comptes créés pour la détection automatique et l’installation du service Mobilité.
-4. **Environnement cible** : Vous configurez votre cible environnement Azure en spécifiant votre abonnement Azure et les paramètres réseau.
+4. **Environnement cible** : vous configurez votre environnement Azure cible en spécifiant vos paramètres d’abonnement et de réseau Azure.
 5. **Stratégie de réplication** : vous spécifiez la manière dont la réplication doit avoir lieu. Les paramètres définissent la fréquence à laquelle les points de récupération sont créés et stockés, et si des instantanés de cohérence d’application doivent être créés.
 6. **Activer la réplication**. Vous activez la réplication pour les machines locales. Si vous avez créé un compte pour installer le service Mobilité, il sera installé lorsque vous activerez la réplication pour une machine. 
 

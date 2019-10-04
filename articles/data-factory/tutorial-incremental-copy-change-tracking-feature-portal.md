@@ -8,16 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 41f8769aea841e05887feb6a44511cbf444a7acf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6a71c83a190bd7e88edd5008edef670b32905add
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449145"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140804"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Charger de façon incrémentielle des données d’Azure SQL Database dans le stockage Blob Azure à l’aide de la technologie de suivi des modifications 
 Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge des données delta basées sur des informations de **suivi des modifications** dans la base de données Azure SQL source vers un stockage Blob Azure.  
@@ -34,13 +33,13 @@ Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 > * Créer, exécuter et surveiller le pipeline de copie incrémentielle
 
 ## <a name="overview"></a>Vue d’ensemble
-Dans une solution d’intégration de données, le chargement incrémentiel de données après des chargements de données initiaux est un scénario largement utilisé. Dans certains cas, les données modifiées pendant une période dans votre magasin de données source peuvent être facilement découpées (par exemple, LastModifyTime, CreationTime). Dans certains cas, il n’existe pas de manière explicite pour identifier les données delta depuis le dernier traitement des données. La technologie Change Tracking prise en charge par les magasins de données tels qu’Azure SQL Database et SQL Server peut être utilisée pour identifier les données delta.  Ce tutoriel explique comment utiliser Azure Data Factory avec la technologie Change Tracking SQL afin de charger de façon incrémentielle des données delta d’Azure SQL Database dans le stockage Blob Azure.  Pour des informations plus concrètes sur la technologie Change Tracking SQL, consultez [Change Tracking dans SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
+Dans une solution d’intégration de données, le chargement incrémentiel de données après des chargements de données initiaux est un scénario largement utilisé. Dans certains cas, les données modifiées pendant une période dans votre magasin de données source peuvent être facilement découpées (par exemple, LastModifyTime, CreationTime). Dans certains cas, il n’existe pas de manière explicite pour identifier les données delta depuis le dernier traitement des données. La technologie Change Tracking prise en charge par les magasins de données tels qu’Azure SQL Database et SQL Server peut être utilisée pour identifier les données delta.  Ce tutoriel explique comment utiliser Azure Data Factory avec la technologie Change Tracking SQL afin de charger de façon incrémentielle des données delta d’Azure SQL Database dans Stockage Blob Azure.  Pour des informations plus concrètes sur la technologie Change Tracking SQL, consultez [Change Tracking dans SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
 
 ## <a name="end-to-end-workflow"></a>Workflow de bout en bout
 Voici les étapes de workflow de bout en bout classiques pour charger de façon incrémentielle des données à l’aide de la technologie Change Tracking.
 
 > [!NOTE]
-> Azure SQL Database et SQL Server prennent en charge la technologie Change Tracking. Ce didacticiel utilise la Azure SQL Database comme magasin de données source. Vous pouvez également utiliser un SQL Server local. 
+> Azure SQL Database et SQL Server prennent en charge la technologie Change Tracking. Ce tutoriel utilise Azure SQL Database comme magasin de données source. Vous pouvez également utiliser un SQL Server local. 
 
 1. **Chargement initial de données d’historique** (exécuter une fois) :
     1. Activez la technologie Change Tracking dans la base de données Azure SQL source.
@@ -54,12 +53,12 @@ Voici les étapes de workflow de bout en bout classiques pour charger de façon 
 ## <a name="high-level-solution"></a>Solution générale
 Dans ce didacticiel, vous créez deux pipelines qui effectuent les deux opérations suivantes :  
 
-1. **Chargement initial :** vous créez un pipeline avec une activité de copie qui copie l’ensemble des données du magasin de données source (Azure SQL Database) dans le magasin de données de destination (stockage blob Azure).
+1. **Chargement initial :** vous créez un pipeline avec une activité de copie qui copie l’ensemble des données du magasin de données source (Azure SQL Database) dans le magasin de données de destination (Stockage Blob Azure).
 
     ![Chargement complet des données](media/tutorial-incremental-copy-change-tracking-feature-portal/full-load-flow-diagram.png)
 1.  **Chargement incrémentiel :** vous créez un pipeline avec les activités suivantes, et vous l’exécutez régulièrement. 
     1. Créez **deux activités de recherche** pour obtenir les valeurs SYS_CHANGE_VERSION anciennes et nouvelles dans Azure SQL Database et les transmettre à l’activité de copie.
-    2. Créez **une activité de copie** pour copier les données insérées/mises à jour/supprimées entre deux valeurs SYS_CHANGE_VERSION d’Azure SQL Database dans un stockage blob Azure.
+    2. Créez **une activité de copie** pour copier les données insérées/mises à jour/supprimées entre deux valeurs SYS_CHANGE_VERSION d’Azure SQL Database dans Stockage Blob Azure.
     3. Créez **une activité de procédure stockée** pour mettre à jour la valeur de SYS_CHANGE_VERSION pour la prochaine exécution du pipeline.
 
     ![Diagramme de flux de chargement incrémentiel](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-load-flow-diagram.png)
@@ -68,7 +67,7 @@ Dans ce didacticiel, vous créez deux pipelines qui effectuent les deux opérati
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
-* **Base de données SQL Azure**. Vous utilisez la base de données comme magasin de données **sources**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) pour savoir comme en créer une.
+* **Azure SQL Database**. Vous utilisez la base de données comme magasin de données **sources**. Si vous n’avez pas de base de données Azure SQL Database, consultez l’article [Création d’une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) pour savoir comme en créer une.
 * **Compte Stockage Azure**. Vous utilisez le stockage Blob comme magasin de données **récepteur**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) pour savoir comment en créer un. Créez un conteneur sous le nom **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Créer une table de source de données dans votre base de données Azure SQL Database
@@ -171,7 +170,7 @@ Installez les modules Azure PowerShell les plus récents en suivant les instruct
          
         Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Sélectionnez **V2 (préversion)** pour la **version**.
-5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 6. Sélectionnez **Épingler au tableau de bord**.     
 7. Cliquez sur **Créer**.      
 8. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**. 
@@ -215,7 +214,7 @@ Dans cette étape, vous liez votre base de données Azure SQL à la fabrique de 
 
     1. Entrez **AzureSqlDatabaseLinkedService** pour le champ **Nom**. 
     2. Sélectionnez votre serveur SQL Azure pour le champ **Nom du serveur**.
-    4. Sélectionnez votre base de données SQL Azure pour le champ **Nom de la base de données**. 
+    4. Sélectionnez votre base de données Azure SQL pour le champ **Nom de la base de données**. 
     5. Entrez le nom de l’utilisateur pour le champ **Nom d’utilisateur**. 
     6. Entrez le mot de passe de l’utilisateur pour le champ **Mot de passe**. 
     7. Cliquez sur **Tester la connexion** pour tester la connexion.
@@ -229,7 +228,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 ### <a name="create-a-dataset-to-represent-source-data"></a>Créer un jeu de données pour représenter les données sources 
 Dans cette étape, vous créez un jeu de données pour représenter les données source. 
 
-1. Dans l’arborescence, cliquez sur **+ (plus)**, puis sur **Jeu de données**. 
+1. Dans l’arborescence, cliquez sur **+ (plus)** , puis sur **Jeu de données**. 
 
    ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
 2. Sélectionnez **Azure SQL Database**, puis cliquez sur **Terminer**. 
@@ -248,7 +247,7 @@ Dans cette étape, vous créez un jeu de données pour représenter les données
 ### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>Créez un jeu de données pour représenter les données copiées dans le magasin de données récepteur. 
 Dans cette étape, vous créez un jeu de données pour représenter les données copiées à partir du magasin de données source. Vous avez créé le conteneur adftutorial dans votre stockage Blob Azure dans le cadre des conditions préalables. Créez le conteneur s’il n’existe pas (ou) attribuez-lui le nom d’un conteneur existant. Dans ce didacticiel, le nom de fichier de sortie est généré dynamiquement à l’aide de l’expression : `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
-1. Dans l’arborescence, cliquez sur **+ (plus)**, puis sur **Jeu de données**. 
+1. Dans l’arborescence, cliquez sur **+ (plus)** , puis sur **Jeu de données**. 
 
    ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-dataset-menu.png)
 2. Sélectionnez **Stockage Blob Azure**, puis cliquez sur **Terminer**. 
@@ -268,7 +267,7 @@ Dans cette étape, vous créez un jeu de données pour représenter les données
 ### <a name="create-a-dataset-to-represent-change-tracking-data"></a>Créer un jeu de données pour représenter les données de suivi des modifications 
 Dans cette étape, vous créez un jeu de données pour stocker la version de suivi des modifications.  Vous avez créé la table table_store_ChangeTracking_version dans le cadre des conditions préalables.
 
-1. Dans l’arborescence, cliquez sur **+ (plus)**, puis sur **Jeu de données**. 
+1. Dans l’arborescence, cliquez sur **+ (plus)** , puis sur **Jeu de données**. 
 2. Sélectionnez **Azure SQL Database**, puis cliquez sur **Terminer**. 
 3. Vous voyez un nouvel onglet pour configurer le jeu de données. Vous voyez également le jeu de données dans l’arborescence. Dans la fenêtre **Propriétés**, renommez le jeu de données en **ChangeTrackingDataset**.
 4. Basculez vers l’onglet **Connexions**, et procédez comme suit : 
@@ -277,7 +276,7 @@ Dans cette étape, vous créez un jeu de données pour stocker la version de sui
     2. Sélectionnez **[dbo].[table_store_ChangeTracking_version]** pour **Table**. 
 
 ## <a name="create-a-pipeline-for-the-full-copy"></a>Créer un pipeline pour la copie complète
-Dans cette étape, vous créez un pipeline avec une activité de copie qui copie l’ensemble des données du magasin de données source (Azure SQL Database) dans le magasin de données de destination (stockage Blob Azure).
+Dans cette étape, vous créez un pipeline avec une activité de copie qui copie l’ensemble des données du magasin de données source (Azure SQL Database) dans le magasin de données de destination (Stockage Blob Azure).
 
 1. Cliquez sur **+ (plus)** dans le volet gauche, puis cliquez sur **Pipeline**. 
 
@@ -294,7 +293,7 @@ Dans cette étape, vous créez un pipeline avec une activité de copie qui copie
 5. Basculez vers l’onglet **Récepteur** et sélectionnez **SinkDataset** pour le champ **Jeu de données récepteur**. 
 
     ![Activité de copie - récepteur](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png)
-6. Pour valider la définition du pipeline, cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>**. 
+6. Pour valider la définition du pipeline, cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>** . 
 
     ![Valider le pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Pour publier des entités (services liés, jeux de données et pipelines), cliquez sur **Publier**. Patientez jusqu’à ce que la publication réussisse. 
@@ -354,7 +353,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ``` 
 
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>Créer un pipeline pour la copie delta
-Dans cette étape, vous créez un pipeline avec les activités suivantes, et vous l’exécutez régulièrement. Les **activités de recherche** obtiennent les valeurs SYS_CHANGE_VERSION anciennes et nouvelles dans Azure SQL Database et les transmettent à l’activité de copie. L’**activité de copie** copie les données insérées/mises à jour/supprimées entre deux valeurs SYS_CHANGE_VERSION d’Azure SQL Database dans un stockage blob Azure. L’**activité de procédure stockée** met à jour la valeur de SYS_CHANGE_VERSION pour la prochaine exécution du pipeline.
+Dans cette étape, vous créez un pipeline avec les activités suivantes, et vous l’exécutez régulièrement. Les **activités de recherche** obtiennent les valeurs SYS_CHANGE_VERSION anciennes et nouvelles dans Azure SQL Database et les transmettent à l’activité de copie. L’**activité de copie** copie les données insérées/mises à jour/supprimées entre deux valeurs SYS_CHANGE_VERSION d’Azure SQL Database dans Stockage Blob Azure. L’**activité de procédure stockée** met à jour la valeur de SYS_CHANGE_VERSION pour la prochaine exécution du pipeline.
 
 1. Dans l’interface utilisateur de Data Factory, basculez vers l’onglet **Modifier**. Cliquez sur **+ (plus)** dans le volet gauche, puis cliquez sur **Pipeline**. 
 
@@ -423,7 +422,7 @@ Dans cette étape, vous créez un pipeline avec les activités suivantes, et vou
 14. **Connectez l’activité de copie à l’activité de procédure stockée**. Glissez-déposez le bouton **vert** associé à l’activité de copie l’activité de procédure stockée. 
 
     ![Connecter les activités de copie et de procédure stockée](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
-15. Cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>**. 
+15. Cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Fermez la fenêtre **Rapport de validation de pipeline** en cliquant sur **>>** . 
 
     ![Bouton de validation](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Publiez des entités (services liés, jeux de données et pipelines) sur le service Data Factory en cliquant sur le bouton **Publish All** (Tout publier). Patientez jusqu’à ce que le message **Publication réussie** s’affiche. 

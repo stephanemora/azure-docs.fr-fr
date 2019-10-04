@@ -10,16 +10,15 @@ ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: db64a2f64c592a62f621355047a7bc9844d66457
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098530"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073721"
 ---
 # <a name="api-management-cross-domain-policies"></a>Gestion des API dans les stratégies de domaine
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -46,9 +45,9 @@ La stratégie `cross-domain` rend l’API accessible depuis les navigateurs clie
 
 ```xml
 <cross-domain>
-    <cross-domain-policy>
+    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain-policy>
+    </cross-domain>
 </cross-domain>
 ```
 
@@ -62,7 +61,7 @@ La stratégie `cross-domain` rend l’API accessible depuis les navigateurs clie
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound
-- **Étendues de la stratégie :** globale (globale)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="CORS"></a> CORS
 La stratégie `cors` ajoute la prise en charge du partage des ressources cross-origin (CORS) à une opération ou une API afin de permettre les appels inter-domaines à partir des navigateurs clients.
@@ -128,24 +127,24 @@ Cet exemple montre comment prendre en charge les demandes en amont, telles que c
 |cors|Élément racine.|OUI|N/A|
 |allowed-origins|Contient des éléments `origin` qui décrivent les origines autorisées pour les demandes inter-domaines. `allowed-origins` peut contenir un seul élément `origin` qui spécifie `*` pour autoriser toute origine, ou un ou plusieurs éléments `origin` contenant un URI.|OUI|N/A|
 |origin|La valeur peut être `*` pour autoriser toutes les origines, ou un URI qui spécifie une origine unique. L'URI doit comprendre un modèle, un hôte et un port.|OUI|Si le port n’est pas spécifié dans l’URI, le port 80 est utilisé pour HTTP et le port 443 pour HTTPS.|
-|allowed-methods|Cet élément est requis si les méthodes autres que GET ou POST sont autorisées. Contient des éléments `method` qui spécifient les verbes HTTP pris en charge.|Non |Si cette section n’est pas présente, les méthodes GET et POST sont prises en charge.|
+|allowed-methods|Cet élément est requis si les méthodes autres que GET ou POST sont autorisées. Contient des éléments `method` qui spécifient les verbes HTTP pris en charge.|Non|Si cette section n’est pas présente, les méthodes GET et POST sont prises en charge.|
 |method|Spécifie un verbe HTTP.|Au moins un élément `method` est requis si la section `allowed-methods` est présente.|N/A|
-|allowed-headers|Cet élément contient des éléments `header` spécifiant les noms des en-têtes qui peuvent être inclus dans la demande.|Non |N/A|
-|expose-headers|Cet élément contient des éléments `header` spécifiant les noms des en-têtes accessibles par le client.|Non |N/A|
+|allowed-headers|Cet élément contient des éléments `header` spécifiant les noms des en-têtes qui peuvent être inclus dans la demande.|Non|N/A|
+|expose-headers|Cet élément contient des éléments `header` spécifiant les noms des en-têtes accessibles par le client.|Non|N/A|
 |en-tête|Spécifie un nom d’en-tête.|Au moins un élément `header` est requis dans `allowed-headers` ou `expose-headers` si la section est présente.|N/A|
 
 ### <a name="attributes"></a>Attributs
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|L’en-tête `Access-Control-Allow-Credentials` dans la réponse en amont est défini sur la valeur de cet attribut et affecte la capacité du client à envoyer des informations d’identification dans les demandes inter-domaines.|Non |false|
-|preflight-result-max-age|L’en-tête `Access-Control-Max-Age` dans la réponse en amont est défini sur la valeur de cet attribut et affecte la capacité de l’agent utilisateur à mettre en cache la réponse en amont.|Non |0|
+|allow-credentials|L’en-tête `Access-Control-Allow-Credentials` dans la réponse en amont est défini sur la valeur de cet attribut et affecte la capacité du client à envoyer des informations d’identification dans les demandes inter-domaines.|Non|false|
+|preflight-result-max-age|L’en-tête `Access-Control-Max-Age` dans la réponse en amont est défini sur la valeur de cet attribut et affecte la capacité de l’agent utilisateur à mettre en cache la réponse en amont.|Non|0|
 
 ### <a name="usage"></a>Usage
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 - **Sections de la stratégie :** inbound
-- **Étendues de la stratégie :** global, API, opération
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="JSONP"></a> JSONP
 La stratégie `jsonp` ajoute la prise en charge de JSON avec remplissage (JSONP) à une opération ou une API afin de permettre les appels inter-domaines à partir des navigateurs clients utilisant JavaScript. JSONP est une méthode utilisée par les programmes JavaScript pour demander des données à un serveur se trouvant dans un autre domaine. JSONP passe outre la limite appliquée par la plupart des navigateurs web, selon laquelle l'accès aux pages web doit se trouver dans le même domaine.
@@ -182,7 +181,7 @@ Si vous ajoutez le paramètre de rappel `?cb=XXX`, il renvoie un résultat JSONP
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) suivantes.
 
 - **Sections de la stratégie :** outbound (sortant)
-- **Étendues de la stratégie :** global, product, API, operation (global, produit, API, opération)
+- **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -191,4 +190,4 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 + [Stratégies dans Gestion des API](api-management-howto-policies.md)
 + [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
 + [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)   
++ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)

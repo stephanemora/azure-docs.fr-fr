@@ -3,24 +3,25 @@ title: Guide du développeur pour l’accès conditionnel à Azure Active Direct
 description: Guide du développeur et scénarios pour l’accès conditionnel à Azure AD
 services: active-directory
 keywords: ''
-author: CelesteDG
-manager: mtillman
-ms.author: celested
-ms.reviewer: dadobali
+author: rwike77
+manager: CelesteDG
+ms.author: ryanwi
+ms.reviewer: jmprieur, saeeda
 ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3346f7a5af2a22cb7b7ece312fc367a874095668
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dc93a7de824aeaf173e7179de0b0233b73488feb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001046"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321152"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -32,24 +33,24 @@ La fonctionnalité d’accès conditionnel dans Azure Active Directory (Azure AD
 
 Pour plus d’informations sur toutes les fonctionnalités de l’accès conditionnel, consultez [Accès conditionnel dans Azure Directory](../active-directory-conditional-access-azure-portal.md).
 
-Destiné aux développeurs créant des applications pour Azure AD, cet article montre comment utiliser l’accès conditionnel et explique l’impact de l’accès à des ressources non contrôlées auxquelles des stratégies d’accès conditionnel sont peut-être appliquées. Cet article explore également les implications de l’accès conditionnel dans les applications web et de flux « Pour le compte de » accédant à Microsoft Graph et appelant des API.
+Destiné aux développeurs créant des applications pour Azure AD, cet article montre comment utiliser l’accès conditionnel et explique l’impact de l’accès à des ressources non contrôlées auxquelles des stratégies d’accès conditionnel sont peut-être appliquées. Cet article explore également les implications de l’accès conditionnel dans les applications web et le flux On-Behalf-Of accédant à Microsoft Graph et appelant des API.
 
 Il suppose une connaissance des [applications uniques](quickstart-v1-integrate-apps-with-azure-ad.md) et [mutualisées](howto-convert-app-to-be-multi-tenant.md), ainsi que [des modèles courants d’authentification](authentication-scenarios.md).
 
-## <a name="how-does-conditional-access-impact-an-app"></a>Comment l’accès conditionnel impacte-t-il une application ?
+## <a name="how-does-conditional-access-impact-an-app"></a>Comment l’accès conditionnel impacte-t-il une application ?
 
 ### <a name="app-types-impacted"></a>Incidence sur les types d’application
 
-Dans les scénarios les plus courants, l’accès conditionnel ne modifie pas le comportement d’une application ou nécessite des modifications de la part du développeur. Uniquement dans certains cas, lorsqu’une application en mode silencieux ou indirectement demande un jeton pour un service, une application requiert des modifications du code pour gérer des « défis » d’accès conditionnel. Cela peut être aussi simple que l’exécution d’une demande de connexion interactive.
+Dans les scénarios les plus courants, l’accès conditionnel ne modifie pas le comportement d’une application ou nécessite des modifications de la part du développeur. Uniquement dans certains cas, lorsqu’une application en mode silencieux ou indirectement demande un jeton pour un service, une application requiert des modifications du code pour gérer des « défis » d’accès conditionnel. Cela peut être aussi simple que l’exécution d’une demande de connexion interactive.
 
-Plus précisément, les scénarios suivants requièrent un code pour gérer des « défis » d’accès conditionnel :
+Plus précisément, les scénarios suivants requièrent un code pour gérer des « défis » d’accès conditionnel :
 
 * Applications effectuant le flux Pour le compte de
 * Applications accédant à plusieurs services/ressources
 * Applications à page unique en utilisant ADAL.js
 * Les applications appelant une ressource
 
-Les stratégies d’accès conditionnel peuvent être appliquées à l’application, mais peuvent également être appliquées à une API web à laquelle votre application a accès. Pour apprendre à configurer une stratégie d’accès conditionnel, consultez [Démarrage rapide : Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](../conditional-access/app-based-mfa.md).
+Les stratégies d’accès conditionnel peuvent être appliquées à l’application, mais peuvent également être appliquées à une API web à laquelle votre application a accès. Pour apprendre à configurer une stratégie d’accès conditionnel, consultez [Démarrage rapide : Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel à Azure Active Directory](../conditional-access/app-based-mfa.md).
 
 Selon le scénario, un client d’entreprise peut appliquer et supprimer des stratégies d’accès conditionnel à tout moment. Afin que votre application continue à fonctionner correctement lorsqu’une nouvelle stratégie est appliquée, vous devez mettre en œuvre la gestion de « défi ». Les exemples suivants illustrent la gestion des défis.
 
@@ -62,9 +63,9 @@ Certains scénarios requièrent des modifications de code pour gérer l’accès
 
 #### <a name="microsoft-graph"></a>Microsoft Graph
 
-Microsoft Graph présente des considérations spéciales lors de la création d’applications dans les environnements d’accès conditionnel. En règle générale, les mécanismes d’accès conditionnel ont le même comportement, mais les stratégies de que vos utilisateurs voient doit reposer sur les données sous-jacentes, que votre application demande à partir du graphique. 
+Microsoft Graph possède des considérations spéciales concernant la création d’applications des environnements avec accès conditionnel. En règle générale, les mécanismes d’accès conditionnel ont le même comportement, mais les stratégies que voient vos utilisateurs sont basées sur les données sous-jacentes demandées au graph par votre application. 
 
-Plus précisément, toutes les étendues de Microsoft Graph représentent un jeu de données qui peut avoir individuellement les stratégies sont appliquées. Dans la mesure où les stratégies d’accès conditionnel sont affectés les jeux de données spécifique, Azure AD sera appliquer des stratégies d’accès conditionnel basés sur les données sous-jacentes de graphique - plutôt que du graphique lui-même.
+Plus précisément, toutes les étendues de Microsoft Graph représentent un jeu de données auquel il est possible d’appliquer des stratégies individuellement. Dans la mesure où les stratégies d’accès conditionnel sont assignées à des jeux de données spécifiques, Azure AD applique des stratégies d’accès conditionnel basées sur les données derrière Graph, plus que sur Graph.
 
 Par exemple, si une application demande les étendues suivantes de Microsoft Graph,
 
@@ -72,13 +73,13 @@ Par exemple, si une application demande les étendues suivantes de Microsoft Gra
 scopes="Bookings.Read.All Mail.Read"
 ```
 
-Une application peut s’attendre à leurs utilisateurs pour répondre à toutes les stratégies définies sur Bookings et Exchange. Certaines étendues peuvent mapper à plusieurs jeux de données si elle accorde l’accès. 
+Une application peut s’attendre à ce que ses utilisateurs répondent à toutes les stratégies définies sur Bookings et Exchange. Certaines étendues peuvent mapper vers plusieurs jeux de données si elles disposent de l’accès. 
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Conformité à une stratégie d’accès conditionnel
 
 Pour différentes topologies d’applications, une stratégie d’accès conditionnel est évaluée lorsque la session est établie. Étant donné qu’une stratégie d’accès conditionnel fonctionne sur la granularité des applications et des services, le point sur lequel elle est appelée dépend essentiellement du scénario que vous essayez d’accomplir.
 
-Lorsque votre application tente d’accéder à un service avec une stratégie d’accès conditionnel, elle peut rencontrer un défi d’accès conditionnel. Ce défi est encodé dans le `claims` paramètre qui est fourni dans une réponse d’Azure AD. Voici un exemple de ce paramètre de défi : 
+Lorsque votre application tente d’accéder à un service avec une stratégie d’accès conditionnel, elle peut rencontrer un défi d’accès conditionnel. Ce défi est encodé dans le paramètre `claims` qui est fourni dans une réponse d’Azure AD. Voici un exemple de ce paramètre de défi : 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -90,21 +91,21 @@ Les développeurs peuvent prendre ce défi et l’ajouter à une nouvelle demand
 
 ### <a name="prerequisites"></a>Prérequis
 
-L’accès conditionnel Azure AD est une fonctionnalité inclue dans [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Pour en savoir plus sur les conditions requises de licence, consultez le [Rapport d’utilisation sans licence](../active-directory-conditional-access-unlicensed-usage-report.md). Les développeurs peuvent joindre le [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), qui inclut un abonnement gratuit à la suite Enterprise Mobility, qui comprend Azure AD Premium.
+L’accès conditionnel Azure AD est une fonctionnalité incluse dans [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Pour en savoir plus sur les conditions requises de licence, consultez le [Rapport d’utilisation sans licence](../active-directory-conditional-access-unlicensed-usage-report.md). Les développeurs peuvent joindre le [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), qui inclut un abonnement gratuit à la suite Enterprise Mobility, qui comprend Azure AD Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Considérations pour des scénarios spécifiques
 
-Les informations suivantes s’appliquent uniquement dans ces scénarios d’accès conditionnel :
+Les informations suivantes s’appliquent uniquement dans ces scénarios d’accès conditionnel :
 
 * Applications effectuant le flux Pour le compte de
 * Applications accédant à plusieurs services/ressources
 * Applications à page unique en utilisant ADAL.js
 
-Les sections suivantes décrivent des scénarios courants plus complexes. Le principe de fonctionnement central est l’accès conditionnel stratégies sont évaluées au moment où que le jeton est demandé pour le service qui comporte une stratégie d’accès conditionnel.
+Les sections suivantes décrivent des scénarios courants plus complexes. Le principe de fonctionnement central est que les stratégies d’accès conditionnel sont évaluées au moment où le jeton est demandé pour le service qui contient une stratégie d’accès conditionnel.
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scénario : application effectuant le flux Pour le compte de
 
-Dans ce scénario, nous abordons le cas dans lequel une application native appelle une API/ service Web. À son tour, ce service effectue le flux « on-behalf-of » pour appeler un service en aval. Dans notre cas, nous avons appliqué notre stratégie d’accès conditionnel pour le service en aval (API Web 2) et nous utilisons une application native plutôt qu’une application démon/serveur. 
+Dans ce scénario, nous abordons le cas dans lequel une application native appelle une API/ service Web. À son tour, ce service exécute le flux On-Behalf-Of pour appeler un service en aval. Dans notre cas, nous avons appliqué notre stratégie d’accès conditionnel pour le service en aval (API Web 2) et nous utilisons une application native plutôt qu’une application démon/serveur. 
 
 ![Application effectuant le diagramme de flux Pour le compte](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -128,7 +129,7 @@ Pour tester ce scénario, consultez notre [exemple de code .NET](https://github.
 
 ## <a name="scenario-app-accessing-multiple-services"></a>Scénario : application accédant à plusieurs services
 
-Dans ce scénario, nous abordons le cas dans lequel une application Web accède aux deux services, dont un d'entre eux est affecté à une stratégie d’accès conditionnel. En fonction de votre logique d’application, il peut exister un chemin d’accès dans lequel votre application ne nécessite pas l’accès aux deux services Web. Dans ce scénario, l’ordre dans lequel vous demandez un jeton joue un rôle important dans l’expérience de l’utilisateur final.
+Dans ce scénario, nous abordons le cas dans lequel une application Web accède aux deux services, dont un d’entre eux est affecté à une stratégie d’accès conditionnel. En fonction de votre logique d’application, il peut exister un chemin d’accès dans lequel votre application ne nécessite pas l’accès aux deux services Web. Dans ce scénario, l’ordre dans lequel vous demandez un jeton joue un rôle important dans l’expérience de l’utilisateur final.
 
 Supposons que nous disposons d’un service Web A et B et que le service Web B applique notre stratégie d’accès conditionnel. Tandis que la demande initiale d’authentification interactive requiert le consentement pour les deux services, la stratégie d’accès conditionnel n’est pas requise dans tous les cas. Si l’application demande un jeton pour le service Web B, la stratégie est appelée et les demandes ultérieures pour le service Web A réussissent également comme suit.
 
@@ -145,7 +146,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![Application accédant à plusieurs services demandant un nouveau jeton](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Si l’application utilise la bibliothèque ADAL, un échec d’acquisition du jeton est toujours retenté interactivement. Lorsque cette demande interactive se produit, l’utilisateur final a la possibilité de se conformer à l’accès conditionnel. Cela est vrai, sauf si la demande est un `AcquireTokenSilentAsync` ou `PromptBehavior.Never` dans ce cas, l’application doit effectuer un interactive ```AcquireToken``` demande pour permettre à l’utilisateur final pour se conformer à la stratégie.
+Si l’application utilise la bibliothèque ADAL, un échec d’acquisition du jeton est toujours retenté interactivement. Lorsque cette demande interactive se produit, l’utilisateur final a la possibilité de se conformer à l’accès conditionnel. Cela est vrai, sauf si la demande est un `AcquireTokenSilentAsync` ou `PromptBehavior.Never` et dans ce cas, l’application doit effectuer une demande interactive ```AcquireToken``` pour permettre à l’utilisateur final de se conformer à la stratégie.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>Scénario : application à page unique (SPA) en utilisant ADAL.js
 
@@ -153,7 +154,7 @@ Dans ce scénario, nous abordons le cas où nous disposons d’une application �
 
 Dans ADAL.js, il existe quelques fonctions qui obtiennent des jetons : `login()`, `acquireToken(...)`, `acquireTokenPopup(…)`, et `acquireTokenRedirect(…)`.
 
-* `login()`Obtient un jeton d’ID via une demande de connexion interactive, mais n’obtient pas les jetons d’accès pour n’importe quel service (y compris une API Web protégée par l’accès conditionnel).
+* `login()` obtient un jeton d’ID via une demande de connexion interactive, mais n’obtient pas les jetons d’accès pour n’importe quel service (y compris une API Web protégée par l’accès conditionnel).
 * `acquireToken(…)` peut ensuite être utilisé pour obtenir silencieusement un jeton d’accès c'est-à-dire qu’il n’affiche pas l’interface utilisateur dans tous les cas.
 * `acquireTokenPopup(…)` et `acquireTokenRedirect(…)` sont tous deux utilisés pour demander interactivement un jeton pour une ressource, ce qui signifie qu’ils affichent toujours l’interface utilisateur de connexion.
 

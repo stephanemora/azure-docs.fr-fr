@@ -4,21 +4,20 @@ description: Découvrez comment résoudre les problèmes de machines virtuelles
 services: virtual-machines-linux
 documentationCenter: ''
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2016
+ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: 65187c3ef6debfa27c8c4fea62bcd31b857b4171
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 87b4d761eb7bd1c4a16998e44e8160cda24a05b4
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776754"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71088244"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Résoudre les problèmes d’une machine virtuelle Linux en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide du portail Azure
 Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disque, il vous faudra éventuellement appliquer la procédure de dépannage directement sur le disque dur virtuel. Comme exemple courant, citons une entrée non valide dans `/etc/fstab` qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser le portail Azure pour connecter votre disque dur virtuel à une autre machine virtuelle Linux pour corriger les éventuelles erreurs, puis pour régénérer votre machine virtuelle d’origine.
@@ -26,13 +25,16 @@ Si votre machine virtuelle Linux rencontre une erreur de démarrage ou de disqu
 ## <a name="recovery-process-overview"></a>Vue d’ensemble du processus de récupération
 Le processus de résolution de problème se présente comme suit :
 
-1. Supprimez les machines virtuelles présentant des erreurs, en conservant les disques durs virtuels.
-2. Fixez et montez le disque dur virtuel sur une autre machine virtuelle Linux, à des fins de résolution des problèmes.
-3. Connectez-vous à la machine virtuelle de dépannage. Modifiez les fichiers ou exécutez des outils afin de corriger les problèmes sur le disque dur virtuel d’origine.
-4. Démontez le disque dur virtuel d’origine et dissociez-le de la machine virtuelle de dépannage.
-5. Créez une machine virtuelle à l’aide du disque dur virtuel d’origine.
+1. Arrêter la machine virtuelle affectée.
+1. Effectuez une capture instantanée du disque du système d'exploitation de la machine virtuelle.
+1. Créez un disque dur virtuel à partir de la capture instantanée.
+1. Fixez et montez le disque dur virtuel sur une autre machine virtuelle Windows, à des fins de résolution des problèmes.
+1. Connectez-vous à la machine virtuelle de dépannage. Modifiez les fichiers ou exécutez des outils afin de corriger les problèmes sur le disque dur virtuel d’origine.
+1. Démontez le disque dur virtuel d’origine et dissociez-le de la machine virtuelle de dépannage.
+1. Remplacez le disque du système d'exploitation de la machine virtuelle.
 
-Pour la machine virtuelle qui utilise le disque managé, consultez [Résoudre les problèmes d’une machine virtuelle avec disque managé en attachant un nouveau disque de système d’exploitation](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+> [!NOTE]
+> Cet article ne s’applique pas aux machines virtuelles avec un disque non managé.
 
 ## <a name="determine-boot-issues"></a>Identifier les problèmes de démarrage
 Examinez les diagnostics de démarrage et la capture d’écran de la machine virtuelle afin d’identifier la raison pour laquelle votre machine virtuelle ne démarre pas correctement. Comme exemple courant, citons une entrée non valide dans `/etc/fstab`, ou le disque dur virtuel en cours de suppression ou de déplacement.
@@ -43,58 +45,62 @@ Dans le portail, sélectionnez votre machine virtuelle, puis accédez à la sect
 
 Vous pouvez également cliquer sur la **capture d’écran** dans la partie supérieure du journal de diagnostics de démarrage pour télécharger la capture d’écran de la machine virtuelle.
 
+## <a name="take-a-snapshot-of-the-os-disk"></a>Effectuer une capture instantanée du disque du système d'exploitation
+Une capture instantanée est une copie complète en lecture seule d’un disque dur virtuel (VHD). Nous vous recommandons d'arrêter convenablement la machine virtuelle avant d'effectuer une capture instantanée, de façon à mettre fin à tous les processus en cours. Pour effectuer une capture instantanée d'un disque de système d'exploitation, procédez comme suit :
 
-## <a name="view-existing-virtual-hard-disk-details"></a>Afficher les détails du disque dur virtuel existant
-Avant de pouvoir associer votre disque dur virtuel à une autre machine virtuelle, vous devez identifier le nom du disque dur virtuel. 
+1. Accédez au [portail Azure](https://portal.azure.com). Sélectionnez **Machines virtuelles** sur la barre latérale, puis cliquez sur la machine virtuelle qui rencontre un problème.
+1. Dans le volet gauche, sélectionnez **Disques**, puis cliquez sur le nom du disque du système d'exploitation.
+    ![Illustration du nom du disque du système d'exploitation](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
+1. Sur la page **Vue d'ensemble** du disque du système d'exploitation, sélectionnez **Créer l'instantané**.
+1. Créez une capture instantanée au même emplacement que le disque du système d'exploitation.
 
-Sélectionnez votre groupe de ressources à partir du portail, puis sélectionnez votre compte de stockage. Cliquez sur **Blobs**, comme dans l’exemple suivant :
+## <a name="create-a-disk-from-the-snapshot"></a>Créer un disque à partir de la capture instantanée
+Pour créer un disque à partir de la capture instantanée, procédez comme suit :
 
-![Sélectionner les blobs de stockage](./media/troubleshoot-recovery-disks-portal-linux/storage-account-overview.png)
+1. Sélectionnez **Cloud Shell** sur le portail Azure.
 
-En général, vous avez un conteneur nommé **vhds** qui stocke vos disques durs virtuels. Sélectionnez le conteneur pour afficher une liste des disques durs virtuels. Notez le nom de votre disque dur virtuel (le préfixe est généralement le nom de votre machine virtuelle) :
+    ![Illustration d'Ouvrir Cloud Shell](./media/troubleshoot-recovery-disks-portal-windows/cloud-shell.png)
+1. Exécutez les commandes PowerShell suivantes pour créer un disque managé à partir de la capture instantanée. Vous devez remplacer ces exemples de noms par les noms appropriés.
 
-![Identifier le disque dur virtuel dans un conteneur de stockage](./media/troubleshoot-recovery-disks-portal-linux/storage-container.png)
+    ```powershell
+    #Provide the name of your resource group
+    $resourceGroupName ='myResourceGroup'
+    
+    #Provide the name of the snapshot that will be used to create Managed Disks
+    $snapshotName = 'mySnapshot' 
+    
+    #Provide the name of theManaged Disk
+    $diskName = 'newOSDisk'
+    
+    #Provide the size of the disks in GB. It should be greater than the VHD file size. In this sample, the size of the snapshot is 127 GB. So we set the disk size to 128 GB.
+    $diskSize = '128'
+    
+    #Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+    $storageType = 'Standard_LRS'
+    
+    #Provide the Azure region (e.g. westus) where Managed Disks will be located.
+    #This location should be same as the snapshot location
+    #Get all the Azure location using command below:
+    #Get-AzLocation
+    $location = 'westus'
+    
+    $snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
+     
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+     
+    New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
+    ```
+3. Si les commandes s'exécutent correctement, le nouveau disque apparaît dans le groupe de ressources que vous avez fourni.
 
-Sélectionnez votre disque dur virtuel existant dans la liste, puis copiez l’URL à utiliser dans les étapes suivantes :
+## <a name="attach-disk-to-another-vm"></a>Associer le disque à une autre machine virtuelle
+Pour les prochaines étapes, vous utilisez une autre machine virtuelle à des fins de résolution des problèmes. Après avoir associé le disque à la machine virtuelle de dépannage, vous pouvez modifier le contenu de celui-ci. Ce processus vous permet de corriger les éventuelles erreurs de configuration ou d'examiner d'autres fichiers journaux du système ou des applications. Pour associer le disque à une autre machine virtuelle, procédez comme suit :
 
-![Copier l’URL du disque dur virtuel existant](./media/troubleshoot-recovery-disks-portal-linux/copy-vhd-url.png)
+1. Sélectionnez votre groupe de ressources à partir du portail, puis sélectionnez votre machine virtuelle de résolution de problèmes. Sélectionnez **Disques**, **Modifier**, puis cliquez sur **Ajouter un disque de données** :
 
+    ![Attacher un disque existant dans le portail](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-## <a name="delete-existing-vm"></a>Supprimer une machine virtuelle existante
-Les disques durs virtuels et les machines virtuelles sont deux ressources distinctes dans Azure. Le disque dur virtuel est l’emplacement de stockage du système d’exploitation, des applications et des configurations. La machine virtuelle correspond à des métadonnées définissant la taille ou l’emplacement ; elle référence des ressources comme un disque dur virtuel ou une carte d’interface réseau virtuelle (NIC). Chaque disque dur virtuel associé à une machine virtuelle se voit attribuer un bail. Bien que l’association et la dissociation des disques de données puisse s’effectuer pendant l’exécution de la machine virtuelle, le disque du système d’exploitation ne peut pas être dissocié, sauf si la ressource de machine virtuelle est supprimée. Le bail continue à associer le disque du système d’exploitation à une machine virtuelle, même lorsque cette machine virtuelle se trouve dans un état d’arrêt ou de libération.
-
-La première étape de la récupération de votre machine virtuelle consiste à supprimer la ressource de machine virtuelle. En supprimant la machine virtuelle, vous ne vous séparez pas des disques durs virtuels de votre compte de stockage. Une fois la machine virtuelle supprimée, vous associez le disque dur virtuel à une autre machine virtuelle afin de réparer et de corriger les erreurs.
-
-Sélectionnez votre machine virtuelle dans le portail, puis cliquez sur **Supprimer** :
-
-![Capture d’écran de diagnostics de démarrage de machine virtuelle présentant une erreur de démarrage](./media/troubleshoot-recovery-disks-portal-linux/stop-delete-vm.png)
-
-Attendez la fin de la suppression de la machine virtuelle avant d’associer le disque dur virtuel à une autre machine virtuelle. Le bail du disque dur virtuel, qui l’associe à la machine virtuelle, doit être libéré avant l’association du disque dur virtuel à une autre machine virtuelle.
-
-
-## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Associer un disque dur virtuel existant à une autre machine virtuelle
-Pour les prochaines étapes, vous utilisez une autre machine virtuelle à des fins de résolution des problèmes. Vous associez le disque dur virtuel existant à cette machine virtuelle de dépannage pour pouvoir modifier le contenu du disque. Ce processus vous permet de corriger les éventuelles erreurs de configuration ou d’examiner des fichiers journaux supplémentaires de système ou d’application, par exemple. Sélectionnez ou créez une autre machine virtuelle à des fins de résolution des problèmes.
-
-1. Sélectionnez votre groupe de ressources à partir du portail, puis sélectionnez votre machine virtuelle de résolution de problèmes. Sélectionnez **Disques**, puis cliquez sur **Attacher existant** :
-
-    ![Attacher un disque existant dans le portail](./media/troubleshoot-recovery-disks-portal-linux/attach-existing-disk.png)
-
-2. Pour sélectionner votre disque dur virtuel existant, cliquez sur **Fichier VHD** :
-
-    ![Rechercher le disque dur virtuel existant](./media/troubleshoot-recovery-disks-portal-linux/select-vhd-location.png)
-
-3. Sélectionnez votre compte de stockage et votre conteneur, puis cliquez sur votre disque dur virtuel existant. Cliquez sur le bouton **Sélectionner** pour confirmer votre choix :
-
-    ![Sélectionner votre disque dur virtuel existant](./media/troubleshoot-recovery-disks-portal-linux/select-vhd.png)
-
-4. Une fois que votre disque dur virtuel est sélectionné, cliquez sur **OK** pour attacher le disque dur virtuel existant :
-
-    ![Confirmer l’attachement du disque dur virtuel existant](./media/troubleshoot-recovery-disks-portal-linux/attach-disk-confirm.png)
-
-5. Après quelques secondes, le volet **Disques** de votre machine virtuelle répertorie votre disque dur virtuel existant connecté en tant que disque de données :
-
-    ![Disque dur virtuel existant attaché en tant que disque de données](./media/troubleshoot-recovery-disks-portal-linux/attached-disk.png)
-
+2. Dans la liste **Disques de données**, sélectionnez le disque de système d’exploitation de la machine virtuelle que vous avez identifié. Si vous ne voyez pas le disque de système d’exploitation, assurez-vous que la machine virtuelle de résolution des problèmes et le disque de système d’exploitation se trouvent dans la même région (emplacement). 
+3. Sélectionnez **Enregistrer** pour appliquer la modification.
 
 ## <a name="mount-the-attached-data-disk"></a>Monter le disque de données associé
 
@@ -154,31 +160,20 @@ Une fois les erreurs résolues, dissociez le disque dur virtuel existant de votr
 
 2. Dissociez le disque dur virtuel de la machine virtuelle. Sélectionnez votre machine virtuelle dans le portail, et cliquez sur **Disques**. Sélectionnez votre disque dur virtuel existant, puis cliquez **Dissocier** :
 
-    ![Dissocier le disque dur virtuel existant](./media/troubleshoot-recovery-disks-portal-linux/detach-disk.png)
+    ![Dissocier le disque dur virtuel existant](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
     Attendez que la machine virtuelle ait correctement dissocié le disque de données avant de continuer.
 
-## <a name="create-vm-from-original-hard-disk"></a>Créer une machine virtuelle à partir du disque dur d’origine
-Pour créer une machine virtuelle à partir de votre disque dur d’origine, utilisez [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). Le modèle déploie une machine virtuelle dans un réseau virtuel existant, à l’aide de l’URL de disque dur virtuel de la commande précédente. Cliquez sur le bouton **Déployer dans Azure** comme suit :
+## <a name="swap-the-os-disk-for-the-vm"></a>Remplacer le disque du système d'exploitation de la machine virtuelle
 
-![Déployer la machine virtuelle du modèle à partir de GitHub](./media/troubleshoot-recovery-disks-portal-linux/deploy-template-from-github.png)
+Le portail Azure prend désormais en charge le remplacement du disque du système d'exploitation de la machine virtuelle. Pour ce faire, procédez comme suit :
 
-Le modèle est chargé dans le portail Azure pour le déploiement. Entrez les noms de votre nouvelle machine virtuelle et des ressources Azure existantes et collez l’URL dans votre disque dur virtuel existant. Pour commencer le déploiement, cliquez sur **Acheter** :
+1. Accédez au [portail Azure](https://portal.azure.com). Sélectionnez **Machines virtuelles** sur la barre latérale, puis cliquez sur la machine virtuelle qui rencontre un problème.
+1. Dans le volet gauche, sélectionnez **Disques**, puis cliquez sur **Remplacer le disque du système d'exploitation**.
+        ![Illustration de Remplacer le disque du système d'exploitation sur le portail Azure](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
-![Déployer une machine virtuelle à partir d’un modèle](./media/troubleshoot-recovery-disks-portal-linux/deploy-from-image.png)
-
-
-## <a name="re-enable-boot-diagnostics"></a>Réactiver les diagnostics de démarrage
-Lorsque vous créez votre machine virtuelle à partir du disque dur virtuel existant, les diagnostics de démarrage peuvent ne pas être automatiquement activés. Pour vérifier l’état des diagnostics de démarrage et l’activer si nécessaire, sélectionnez votre machine virtuelle dans le portail. Sous **Surveillance**, cliquez sur **Paramètres de diagnostic**. Vérifiez que l’état est **Activé**, et que la case à cocher en regard de **Diagnostics de démarrage** est sélectionnée. Si vous apportez des modifications, cliquez sur **Enregistrer** :
-
-![Mettre à jour les paramètres des diagnostics de démarrage](./media/troubleshoot-recovery-disks-portal-linux/reenable-boot-diagnostics.png)
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Résoudre les problèmes d’une machine virtuelle avec disque managé en attachant un nouveau disque de système d’exploitation
-1. Arrêtez la machine virtuelle affectée.
-2. [Créez une capture instantanée de disque managé](../windows/snapshot-copy-managed-disk.md) du disque de système d’exploitation de la machine virtuelle avec disque managé.
-3. [Créez un disque managé à partir de la capture instantanée](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Attachez le disque managé en tant que disque de données de la machine virtuelle](../windows/attach-disk-ps.md).
-5. [Transformez le disque de données de l’étape 4 en disque de système d’exploitation](../windows/os-disk-swap.md).
+1. Choisissez le nouveau disque que vous avez réparé, puis entrez le nom de la machine virtuelle pour confirmer le remplacement. Si le disque ne figure pas dans la liste, attendez 10 à 15 minutes après le retrait du disque de la machine virtuelle de dépannage. Assurez-vous également que le disque se trouve au même emplacement que la machine virtuelle.
+1. Sélectionnez OK.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous rencontrez des problèmes pour vous connecter à votre machine virtuelle, consultez la rubrique [Dépannage d’une connexion SSH à une machine virtuelle Linux Azure défaillante, qui génère une erreur ou qui est refusée](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Pour résoudre les problèmes liés à l’accès aux applications exécutées sur votre machine virtuelle, consultez la section [Résoudre les problèmes de connectivité des applications sur une machine virtuelle Linux Azure](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

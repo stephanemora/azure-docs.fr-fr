@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 11ea10f1deba5a21b98dea875a1b7dc94998aa00
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225159"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60402732"
 ---
 # <a name="message-deferral"></a>Report de message
 
@@ -36,7 +36,7 @@ L’API est [BrokeredMessage.Defer](/dotnet/api/microsoft.servicebus.messaging.b
 
 Les messages reportés restent dans la file d’attente principale avec tous les autres messages actifs (contrairement aux messages de type lettres mortes qui se trouvent dans une sous-file d’attente), mais ils ne peuvent plus être reçus via les fonctions Receive/ReceiveAsync standard. Les messages reportés peuvent être détectés via la [navigation dans les messages](message-browsing.md) si une application perd leur trace.
 
-Pour récupérer un message reporté, son propriétaire doit se souvenir du [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber), car ce numéro permet de reporter le message. Les destinataires qui connaissent le numéro de séquence d’un message reporté peuvent, plus tard, recevoir le message de façon explicite avec le `Receive(sequenceNumber)`. Pour les files d’attente, vous pouvez utiliser la [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), utilisent des abonnements de rubrique le [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient).
+Pour récupérer un message reporté, son propriétaire doit se souvenir du [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber), car ce numéro permet de reporter le message. Les destinataires qui connaissent le numéro de séquence d’un message reporté peuvent, plus tard, recevoir le message de façon explicite avec le `Receive(sequenceNumber)`. Pour les files d’attente, vous pouvez utiliser [QueueClient](/dotnet/api/microsoft.servicebus.messaging.queueclient), les abonnements aux rubriques utilisent [SubscriptionClient](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient).
 
 Si un message ne peut pas être traité en raison de l’indisponibilité temporaire d’une ressource nécessaire à la gestion de ce message, mais que le traitement du message ne doit pas être sommairement interrompu, un moyen pour mettre le message de côté pendant quelques minutes consiste à rappeler le **SequenceNumber** dans un [message planifié](message-sequencing.md) à publier après un court instant, puis à récupérer le message reporté lorsque le message planifié arrive. Si un gestionnaire de messages dépend d’une base de données pour toutes les opérations et si la base de données est temporairement indisponible, il ne doit pas utiliser le report, mais plutôt interrompre complètement la réception des messages jusqu’à ce que la base de données soit à nouveau disponible.
 

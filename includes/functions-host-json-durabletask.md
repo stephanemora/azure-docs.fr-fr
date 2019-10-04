@@ -4,17 +4,17 @@ description: Fichier Include
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d79d1bd5ec244ad4399a02c349e2504516d06ccd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 2e30184c7273fad2f9bc8adb34834ee14840733b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137638"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608179"
 ---
 Paramètres de configuration de [Fonctions durables](../articles/azure-functions/durable-functions-overview.md).
 
@@ -38,7 +38,7 @@ Paramètres de configuration de [Fonctions durables](../articles/azure-functions
     "eventGridKeySettingName":  "EventGridKey",
     "eventGridPublishRetryCount": 3,
     "eventGridPublishRetryInterval": "00:00:30",
-    "eventGridPublishEventTypes": ["Started", "Pending", "Failed", "Terminated"]
+    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
   }
 }
 ```
@@ -54,16 +54,16 @@ Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquem
 |workItemQueueVisibilityTimeout |5 minutes|Délai d’expiration de la visibilité des messages supprimés de la file d’attente des éléments de travail.|
 |maxConcurrentActivityFunctions |10 fois le nombre de processeurs sur l’ordinateur actuel|Nombre maximal de fonctions d’activité pouvant être traitées simultanément sur une seule instance d’hôte.|
 |maxConcurrentOrchestratorFunctions |10 fois le nombre de processeurs sur l’ordinateur actuel|Nombre maximal de fonctions d’orchestrateur pouvant être traitées simultanément sur une seule instance d’hôte.|
-|maxQueuePollingInterval|30 secondes|Le contrôle maximal et l’intervalle d’interrogation de file d’attente de l’élément de travail dans le *hh : mm :* format. Latences de traitement des messages plus élevé peut entraîner la hausse. Des valeurs plus faibles peuvent entraîner des coûts de stockage plus élevés en raison de transactions de stockage.|
+|maxQueuePollingInterval|30 secondes|Intervalle d’interrogation de la file d’attente des éléments de travail et de contrôle maximum, indiqué au format *hh:mm:ss*. Des valeurs plus élevées peuvent entraîner une plus grande latence lors du traitement des messages. Des valeurs plus faibles peuvent entraîner des coûts de stockage plus importants, suite à un nombre plus important de transactions de stockage.|
 |azureStorageConnectionStringName |AzureWebJobsStorage|Nom du paramètre d’application qui contient la chaîne de connexion de stockage Azure utilisée pour gérer les ressources de stockage Azure sous-jacentes.|
-|trackingStoreConnectionStringName||Le nom d’une chaîne de connexion à utiliser pour les tables d’historique et les Instances. Si non spécifié, la `azureStorageConnectionStringName` connexion est utilisée.|
-|trackingStoreNamePrefix||Le préfixe à utiliser pour l’historique et les Instances des tables quand `trackingStoreConnectionStringName` est spécifié. Si non définie, la valeur de préfixe par défaut seront `DurableTask`. Si `trackingStoreConnectionStringName` n’est pas spécifié, les tables d’historique et les Instances utilisent la `hubName` valeur, ainsi que leur préfixe tout paramètre pour `trackingStoreNamePrefix` sera ignoré.|
-|traceInputsAndOutputs |false|Valeur indiquant s’il faut tracer les entrées et sorties des appels de fonction. Lors du traçage d’événements d’exécution de fonctions, le nombre d’octets est inclus par défaut dans les entrées et les sorties sérialisées pour les appels de fonction. Ce comportement fournit des informations minimales sur les entrées et sorties aspect sans encombrer les journaux ou exposer accidentellement des informations sensibles. La définition de cette propriété sur True amène la journalisation de la fonction par défaut à consigner la totalité du contenu des entrées et sorties de fonction.|
+|trackingStoreConnectionStringName||Nom d’une chaîne de connexion à utiliser pour les tables d’historique et d’instances. S’il n’est pas spécifié, la connexion `azureStorageConnectionStringName` est utilisée.|
+|trackingStoreNamePrefix||Préfixe à utiliser pour les tables d’historique et d’instances lorsque le paramètre `trackingStoreConnectionStringName` est spécifié. S’il n’est pas défini, la valeur du préfixe par défaut correspond à `DurableTask`. Si le paramètre `trackingStoreConnectionStringName` n’est pas spécifié, les tables d’historique et d’instances utilisent la valeur `hubName` en tant que préfixe, et tous les paramètres relatifs à `trackingStoreNamePrefix` sont ignorés.|
+|traceInputsAndOutputs |false|Valeur indiquant s’il faut tracer les entrées et sorties des appels de fonction. Lors du traçage d’événements d’exécution de fonctions, le nombre d’octets est inclus par défaut dans les entrées et les sorties sérialisées pour les appels de fonction. Ce comportement fournit un minimum d’informations sur l’apparence des entrées et sorties, sans encombrer les journaux d’activité ni exposer accidentellement des informations sensibles. La définition de cette propriété sur True amène la journalisation de la fonction par défaut à consigner la totalité du contenu des entrées et sorties de fonction.|
 |logReplayEvents|false|Valeur indiquant s’il faut écrire les événements de relecture d’orchestration à Application Insights.|
-|eventGridTopicEndpoint ||URL du point de terminaison de la rubrique personnalisée Azure Event Grid. Lorsque cette propriété est définie, les événements de notification de cycle de vie d’orchestration sont publiées dans ce point de terminaison. Cette propriété prend en charge la résolution de paramètres de l’application.|
+|eventGridTopicEndpoint ||URL du point de terminaison de la rubrique personnalisée Azure Event Grid. Lorsque cette propriété est définie, les événements de notification du cycle de vie de l’orchestration sont publiés sur ce point de terminaison. Cette propriété prend en charge la résolution de paramètres de l’application.|
 |eventGridKeySettingName ||Nom du paramètre d’application contenant la clé utilisée pour l’authentification à l’aide de la rubrique personnalisée Azure Event Grid sur `EventGridTopicEndpoint`.|
 |eventGridPublishRetryCount|0|Nombre de nouvelles tentatives à effectuer en cas d’échec de la publication de la rubrique Event Grid.|
 |eventGridPublishRetryInterval|5 minutes|L’intervalle avant nouvelle tentative de publication Event Grid au format *hh:mm:ss*.|
-|eventGridPublishEventTypes||Une liste de types d’événements pour publier dans Event Grid. Si non spécifié, tous les types d’événements seront publiées. Autorisées incluent des valeurs `Started`, `Completed`, `Failed`, `Terminated`.|
+|eventGridPublishEventTypes||Liste des types d’événement à publier sur Event Grid. Si elle n’est pas spécifiée, cela signifie que tous les types d’événement seront publiés. Les valeurs autorisées sont `Started`, `Completed`, `Failed` et `Terminated`.|
 
-La plupart de ces paramètres sont pour optimiser les performances. Pour plus d’informations, consultez [Performances et mise à l’échelle](../articles/azure-functions/durable-functions-perf-and-scale.md).
+La plupart de ces paramètres sont destinés à l’optimisation des performances. Pour plus d’informations, consultez [Performances et mise à l’échelle](../articles/azure-functions/durable-functions-perf-and-scale.md).

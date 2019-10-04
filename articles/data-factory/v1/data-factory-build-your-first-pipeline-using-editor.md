@@ -3,36 +3,35 @@ title: Créer votre première fabrique de données Azure (portail Azure) | Micro
 description: Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide de Data Factory Editor dans le portail Azure.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: ''
-editor: ''
-ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b60f6adf6c13bc86fb4c4604dda7d4b92963b7ca
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535992"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140568"
 ---
-# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutoriel : Créer votre première fabrique de données à l’aide du portail Azure
+# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Didacticiel : Créer votre première fabrique de données à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-build-your-first-pipeline.md)
-> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modèle Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
 > Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version actuelle du service Data Factory, consultez [Démarrage rapide : créer une fabrique de données à l’aide de Data Factory](../quickstart-create-data-factory-dot-net.md).
+
+> [!WARNING]
+> L’éditeur JSON dans le portail Azure pour la création et le déploiement de pipelines ADF v1 sera désactivé le 31 juillet 2019. Après le 31 juillet 2019, vous pourrez continuer à utiliser les [applets de commande PowerShell ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), le [kit SDK .net ADF v1](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet) et les [API REST ADF v1](https://docs.microsoft.com/rest/api/datafactory/) pour créer et déployer vos pipelines ADF v1.
 
 Dans cet article, vous allez utiliser le [portail Azure](https://portal.azure.com/) pour créer votre première fabrique de données. Pour suivre le didacticiel avec d’autres outils/kits de développement logiciel (SDK), sélectionnez une des options dans la liste déroulante. 
 
@@ -77,7 +76,7 @@ Pour créer une fabrique de données, procédez comme suit :
 
 1. Cochez la case **Épingler au tableau de bord**.
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
    > [!IMPORTANT]
    > Pour créer des instances Data Factory, vous devez avoir un rôle de [contributeur de fabrique de données](../../role-based-access-control/built-in-roles.md#data-factory-contributor) au niveau de l’abonnement/du groupe de ressources.
@@ -209,16 +208,16 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
     ```
     Le tableau suivant décrit les propriétés JSON utilisées dans l’extrait de code.
 
-   | Propriété | Description |
-   |:--- |:--- |
-   | Type |La propriété type est définie sur **AzureBlob**, car les données se trouvent dans le stockage d’objets blob. |
-   | linkedServiceName |Fait référence au service AzureStorageLinkedService que vous avez créé précédemment. |
-   | folderPath | Spécifie le conteneur d’objets blob et le dossier contenant les objets blob d’entrée. | 
-   | fileName |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, seul le fichier input.log est traité. |
-   | Type |Les fichiers journaux étant au format texte, sélectionnez **TextFormat**. |
-   | columnDelimiter |Les colonnes des fichiers journaux sont délimitées par une virgule (`,`). |
-   | frequency/interval |La fréquence est définie sur **Mois** et l’intervalle est **1**, ce qui signifie que les tranches d’entrée sont disponibles mensuellement. |
-   | external | Cette propriété a la valeur **true** si les données d’entrée ne sont pas générées par ce pipeline. Dans ce didacticiel, le fichier input.log n’est pas généré par ce pipeline. La propriété est donc définie sur **true**. |
+   | Propriété | Imbriqués sous | Description |
+   |:--- |:--- |:--- |
+   | type | properties |La propriété type est définie sur **AzureBlob**, car les données se trouvent dans le stockage d’objets blob. |
+   | linkedServiceName | format |Fait référence au service AzureStorageLinkedService que vous avez créé précédemment. |
+   | folderPath | typeProperties | Spécifie le conteneur d’objets blob et le dossier contenant les objets blob d’entrée. | 
+   | fileName | typeProperties |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, seul le fichier input.log est traité. |
+   | type | format |Les fichiers journaux étant au format texte, sélectionnez **TextFormat**. |
+   | columnDelimiter | format |Les colonnes des fichiers journaux sont délimitées par une virgule (`,`). |
+   | frequency/interval | availability |La fréquence est définie sur **Mois** et l’intervalle est **1**, ce qui signifie que les tranches d’entrée sont disponibles mensuellement. |
+   | external | properties | Cette propriété a la valeur **true** si les données d’entrée ne sont pas générées par ce pipeline. Dans ce didacticiel, le fichier input.log n’est pas généré par ce pipeline. La propriété est donc définie sur **true**. |
 
     Pour plus d’informations sur ces propriétés JSON, voir [Connecteur de stockage Blob Azure](data-factory-azure-blob-connector.md#dataset-properties).
 

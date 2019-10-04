@@ -1,25 +1,18 @@
 ---
-title: Références SKU pour une image Azure Container | Microsoft Docs
+title: Références SKU pour une image de conteneur Azure | Place de marché Azure
 description: Configurez des références SKU pour un conteneur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 6953329bfabe99fc4bb28f2494cb412ba9cbbba0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683976"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942893"
 ---
 # <a name="container-skus-tab"></a>Onglet Références SKU de conteneur
 
@@ -38,11 +31,13 @@ Lorsque vous commencez à créer une offre, aucune référence SKU n’est assoc
     -   Métadonnées de référence SKU
     -   Métadonnées de conteneur
 
+
 ### <a name="sku-metadata"></a>Métadonnées de référence SKU
 
 Les métadonnées de la référence SKU contiennent une description du conteneur qui lui servira de vitrine.
 
 ![Métadonnées de référence SKU](./media/containers-sku-details.png)
+
 
 ### <a name="container-metadata"></a>Métadonnées de conteneur
 
@@ -50,29 +45,31 @@ Les métadonnées du conteneur contiennent les informations de référence du r�
 
 ![Métadonnées de conteneur](./media/containers-image-repository.png)
     
-Les **Détails du référentiel d’image** de la capture d’écran précédente contiennent les champs suivants :
+Les **Détails du référentiel d’image** de la capture d’écran précédente contiennent les champs suivants.  Les champs obligatoires sont indiqués par un astérisque (*).
 
--   **ID d’abonnement** : ID d’abonnement Azure dans lequel se trouve le registre ACR.
--   **Nom du groupe de ressources** : nom du groupe de ressources du registre ACR.
--   **Nom du registre** : nom du registre ACR.
--   **Nom du référentiel** : nom du référentiel. Une fois le nom défini, sa valeur n’est plus modifiable. Utilisez un nom unique pour éviter tout conflit avec les autres offres de votre compte.
--   **Nom d’utilisateur** : nom d’utilisateur (administrateur) associé à l’image du registre ACR.
--   **Mot de passe** : mot de passe associé à l’image du registre ACR.
+-   **ID d’abonnement\*** : ID d’abonnement Azure dans lequel se trouve le registre ACR.
+-   **Nom du groupe de ressources\*** : nom du groupe de ressources du registre ACR.
+-   **Nom du registre\*** : nom du registre ACR.
+-   **Nom du référentiel\*** : nom du référentiel. Une fois le nom défini, sa valeur n’est plus modifiable. Utilisez un nom unique pour éviter tout conflit avec les autres offres de votre compte.
+-   **Nom d’utilisateur\*** : nom d’utilisateur (administrateur) associé à l’image du registre ACR.
+-   **Mot de passe\*** : mot de passe associé à l’image du registre ACR.
 
     >[!NOTE]
     >Le nom d’utilisateur et le mot de passe sont requis pour s’assurer que les partenaires ont accès au registre ACR décrit dans le processus de publication.
+
 
 ### <a name="image-version"></a>Version de l’image
 
 Lorsque vous publiez une image conteneur, vous pouvez fournir une ou plusieurs balises d’image et synthèses SHA.
 
-**Image Tag or Digest** (Balise d’image ou Digest)
+**Balise d’image\* ou Digest**
  
 - Cette balise ou synthèse doit comporter une balise `latest` et une balise de version (par exemple, à partir de `xx.xx.xx-`, où xx est un nombre). Il doit y avoir des [balises de manifeste](https://github.com/estesp/manifest-tool) pour cibler plusieurs plateformes. Toutes les balises référencées par une balise de manifeste doivent également être ajoutées afin que nous puissions les charger. 
 - Vous pouvez ajouter plusieurs versions d’un conteneur à l’aide de balises. Toutes les balises de manifeste (sauf `latest`) doivent commencer par `X.Y-` ou `X.Y.Z-`, où X, Y et Z sont des entiers. <br/> Par exemple, si une balise `latest` pointe vers `1.0.1-linux-x64`, `1.0.1-linux-arm32` et `1.0.1-windows-arm32`, ces balises doivent être ajoutées ici.
 
 >[!NOTE]
 >Pensez à ajouter une **balise de test** à votre image pour pouvoir identifier l’image pendant les tests.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

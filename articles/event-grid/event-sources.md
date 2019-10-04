@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: ad9bb5c135684c4573195298fb8e55a08208f6b6
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234184"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785820"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Sources d’événements dans Azure Event Grid
 
@@ -74,7 +74,7 @@ Pour obtenir des exemples d’Event Hubs utilisé comme gestionnaire, consultez 
 
 ## <a name="iot-hub"></a>IoT Hub
 
-S’abonner aux événements IoT Hub pour répondre aux événements de création, de suppression, de connexion et de déconnexion d’appareil.
+Abonnez-vous aux événements IoT Hub pour répondre aux événements de création, de suppression, de connexion et de déconnexion et de télémétrie d’appareil.
 
 |Intitulé  |Description  |
 |---------|---------|
@@ -140,6 +140,25 @@ Abonnez-vous aux événements Azure Maps pour répondre aux événements de limi
 | [Réagir aux événements Azure Maps à l’aide d’Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Vue d’ensemble de l’intégration d’Azure Maps à Event Grid. |
 | [Tutoriel : Définir une limite géographique](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Ce tutoriel vous montre les étapes de base qui sont nécessaires à la configuration d’une limite géographique à l’aide d’Azure Maps. Vous utilisez Azure Event Grid pour diffuser en continu les résultats de la limite géographique et pour configurer une notification en fonction de ces résultats. |
 | [Schéma d’événement](event-schema-azure-maps.md) | Affiche les champs dans les événements Azure Maps. |
+
+## <a name="app-configuration"></a>Configuration d’application
+Abonnez-vous aux événements Azure App Configuration pour répondre aux événements de modification clé-valeur.
+
+|Intitulé | Description |
+|---------|---------|
+| [Réagir aux événements Azure App Configuration à l’aide d’Event Grid](../azure-app-configuration/concept-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Vue d’ensemble de l’intégration d’Azure App Configuration avec Event Grid. |
+| [Démarrage rapide : router des événements Azure App Configuration vers un point de terminaison web avec Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Montre comment utiliser Azure CLI pour envoyer des événements Azure App Configuration à un webhook. |
+| [Schéma d’événement](event-schema-app-configuration.md) | Montre les champs dans les événements Azure App Configuration. |
+
+## <a name="azure-signalr"></a>Azure SignalR
+Abonnez-vous aux événements d’Azure SignalR Service pour répondre aux événements de connexion client.
+
+|Intitulé | Description |
+|---------|---------|
+| [Réagir aux événements Azure SignalR Service à l’aide d’Event Grid](../azure-signalr/signalr-concept-event-grid-integration.md) | Vue d’ensemble de l’intégration d’Azure SignalR Service à Event Grid. |
+| [Comment envoyer des événements Azure SignalR Service à Event Grid](../azure-signalr/signalr-howto-event-grid-integration.md) | Montre comment envoyer des événements Azure SignalR Service à une application via Event Grid. |
+| [Schéma d’événement](event-schema-azure-signalr.md) | Affiche les champs dans les événements de Azure SignalR Service. |
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

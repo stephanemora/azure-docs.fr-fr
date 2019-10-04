@@ -1,20 +1,19 @@
 ---
-title: Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant l’architecture
+title: Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - architecture
 description: Découvrez les bonnes pratiques concernant l’architecture pour la migration des clusters Hadoop locaux vers Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: f1e2b9dfc329e67d94fba998a01d593b992ba90f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: 4243100d74515576463a6812e31625ddc0ca1f48
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886806"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70735878"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant l’architecture
 
@@ -90,7 +89,7 @@ HDInsight utilise Azure SQL Database pour les metastores Hive et Oozie. Deux mé
 
 1. Metastore externe personnalisé
 
-    - Spécifiez une base de données SQL Azure externe comme metastore.
+    - Spécifiez une base de données Azure SQL externe comme metastore.
     - Les clusters peuvent être créés et supprimés sans perte des métadonnées (y compris le schéma Hive et les détails d’un travail Oozie).
     - Une seule base de données de metastore peut être partagée avec différents types de clusters.
     - Le metastore peut faire l’objet d’un scale-up selon les besoins.
@@ -105,7 +104,7 @@ Certaines des meilleures pratiques applicables aux metastores Hive dans HDInsigh
 - Ne partagez pas le metastore créé pour une version de cluster HDInsight avec les clusters d’une autre version. Différentes versions d’Hive utilisent différents schémas. Par exemple, il est impossible de partager un metastore avec des clusters Hive 1.2 et 2.1.
 - Sauvegardez régulièrement le metastore personnalisé.
 - Conservez le metastore et le cluster HDInsight dans la même région.
-- Surveiller le metastore pour les performances et la disponibilité à l’aide des outils de surveillance de base de données SQL Azure, tels que le portail Azure ou des journaux Azure Monitor.
+- Surveillez les performances et la disponibilité du metastore à l'aide des outils de surveillance d'Azure SQL Database, comme le portail Azure ou les journaux Azure Monitor.
 - Exécutez la commande **ANALYZE TABLE** afin de générer des statistiques pour les tables et les colonnes. Par exemple : `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Bonnes pratiques applicables aux différentes charges de travail

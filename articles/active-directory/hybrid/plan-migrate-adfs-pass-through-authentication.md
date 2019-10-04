@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Migrer de la fédération à l’authentification directe pour Azure Active Directory | Microsoft Docs'
+title: 'Azure AD Connect : Migrer depuis la fédération vers PTA pour Azure AD'
 description: Cet article contient des informations sur le déplacement d’un environnement d’identité hybride de la fédération à l’authentification directe.
 services: active-directory
 author: billmath
@@ -8,16 +8,16 @@ ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 6646217149cec48ca5fcee59b3dd9d850965c602
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076460"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779918"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrer de la fédération à l’authentification directe pour Azure Active Directory
 
@@ -75,10 +75,10 @@ Pour savoir quelle méthode utiliser, effectuez les étapes des sections suivant
 2. Dans la page **Tâches supplémentaires**, sélectionnez **Afficher la configuration actuelle**, puis sélectionnez **Suivant**.<br />
  
    ![Capture d’écran de l’option Afficher la configuration actuelle dans la page Tâches supplémentaires](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
-3. Dans la page **Vérification de votre solution**n faites défiler jusqu’à **Services Active Directory Federation Services (ADFS)**.<br />
+3. Dans la page **Vérification de votre solution**n faites défiler jusqu’à **Services Active Directory Federation Services (ADFS)** .<br />
 
-   * Si la configuration d’AD FS apparaît dans cette section, vous pouvez considérer qu’AD FS a été initialement configuré à l’aide d’Azure AD Connect. Vous pouvez convertir vos domaines de l’identité fédérée en identité managée en utilisant l’option **Modifier la connexion utilisateur** d’Azure AD Connect. Pour plus d’informations sur le processus, consultez la section **Option 1 : Configurer l’authentification directe à l’aide d’Azure AD Connect**.
-   * Si AD FS n’est pas listé dans les paramètres actuels, vous devez convertir manuellement vos domaines de l’identité fédérée à l’identité managée avec PowerShell. Pour plus d’informations sur ce processus, consultez la section **Option 2 : Passer de la fédération à l’authentification directe avec Azure AD Connect et PowerShell**.
+   * Si la configuration d’AD FS apparaît dans cette section, vous pouvez considérer qu’AD FS a été initialement configuré à l’aide d’Azure AD Connect. Vous pouvez convertir vos domaines de l’identité fédérée en identité managée en utilisant l’option **Modifier la connexion utilisateur** d’Azure AD Connect. Pour plus d’informations sur le processus, consultez la section **Option A : Configurer l’authentification directe à l’aide d’Azure AD Connect**.
+   * Si AD FS n’est pas listé dans les paramètres actuels, vous devez convertir manuellement vos domaines de l’identité fédérée à l’identité managée avec PowerShell. Pour plus d’informations sur ce processus, consultez la section **Option B : Passer de la fédération à l’authentification directe avec Azure AD Connect et PowerShell**.
 
 ### <a name="document-current-federation-settings"></a>Documenter les paramètres de fédération actuels
 
@@ -454,5 +454,5 @@ Pour plus d’informations, consultez [Résoudre les problèmes de l’authentif
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez plus d’informations sur les [principes de conception d’Azure AD Connect](plan-connect-design-concepts.md).
-* Choisir l’[authentification appropriée](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Choisir l’[authentification appropriée](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 * Découvrez plus d’informations sur les [topologies prises en charge](plan-connect-design-concepts.md).

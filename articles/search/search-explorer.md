@@ -1,33 +1,30 @@
 ---
-title: Utiliser l'outil de l'explorateur pour interroger les données dans le portail Azure - Recherche Azure
-description: Utilisez les outils du portail Azure comme l’Explorateur de recherche pour interroger des index dans Recherche Azure. Entrez des termes de recherche ou des chaînes de recherche complètes avec une syntaxe avancée.
-manager: cgronlun
+title: Utiliser l’explorateur de recherche pour interroger des données dans le portail Azure - Recherche Azure
+description: Intégré au portail Azure, l’explorateur de recherche s’avère utile pour l’exploration du contenu et la validation des requêtes dans Recherche Azure. Entrez les chaînes correspondant au terme ou à l’expression recherché ou des expressions de recherche complètes en utilisant la syntaxe avancée.
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85e574a56380384b10d0916385a8816fd26c2eeb
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: fe66787ea82a8f97470199e99faadb72b85c83b2
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244798"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178139"
 ---
-# <a name="search-explorer-for-querying-data-in-azure-search"></a>Utiliser l'explorateur pour interroger les données Recherche Azure 
+# <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-search"></a>Utiliser l’explorateur de recherche dans le portail Azure pour interroger des documents dans Recherche Azure 
 
-Cet article vous explique comment interroger un index de Recherche Azure à l’aide de l’**Explorateur de recherche** dans le Portail Azure. Vous pouvez utiliser l’Explorateur de recherche pour envoyer des chaînes de requête Lucene simples ou complètes à un index existant dans votre service. 
+Cet article vous explique comment interroger un index de Recherche Azure à l’aide de l’**Explorateur de recherche** dans le Portail Azure. Vous pouvez lancer l’explorateur de recherche à partir de la barre de commandes pour envoyer des expressions de requête Lucene simples ou complètes à un index existant dans votre service. 
 
    ![Commande Explorateur de recherche dans le portail](./media/search-explorer/search-explorer-cmd2.png "Commande Explorateur de recherche dans le portail")
 
-
-Pour obtenir de l'aide, consultez [Démarrer l'Explorateur de recherche](#start-search-explorer).
-
 ## <a name="basic-search-strings"></a>Chaînes de recherche de base
 
-Les exemples suivants supposent l’index intégré realestate. Pour créer cet index, consultez [Démarrage rapide : Importer, indexer et interroger dans le portail Azure](search-get-started-portal.md).
+Les exemples suivants sont basés sur l’exemple d’index intégré realestate. Vous pouvez créer cet index à l’aide de l’Assistant Importation de données du portail, en choisissant la source de données **Exemples**.
 
 ### <a name="example-1---empty-search"></a>Exemple 1 : recherche vide
 
@@ -70,7 +67,7 @@ Ajoutez **$count** pour obtenir le nombre de correspondances trouvées dans un i
 
 ### <a name="example-4---restrict-fields-in-search-results"></a>Exemple 4 : restreindre les champs dans les résultats de la recherche
 
-Ajoutez **$select** pour limiter les résultats aux champs explicitement nommés et disposer d'une sortie plus lisible dans l'**Explorateur de recherche**. Pour conserver la chaîne de recherche et **$count = true**, faites précéder les arguments de **&**. 
+Ajoutez **$select** pour limiter les résultats aux champs explicitement nommés et disposer d'une sortie plus lisible dans l'**Explorateur de recherche**. Pour conserver la chaîne de recherche et **$count = true**, faites précéder les arguments de **&** . 
 
    ```Input
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true
@@ -85,7 +82,7 @@ Ajoutez **$select** pour limiter les résultats aux champs explicitement nommés
 Recherche Azure renvoie les 50 premières correspondances selon le classement de la recherche. Pour obtenir le jeu de documents correspondants suivant, ajoutez **$top = 100 & $skip = 50** afin d'augmenter le jeu de résultats à 100 documents (50 par défaut, 1 000 maximum), en ignorant les 50 premiers documents. N'oubliez pas qu'il vous faut fournir des critères de recherche, terme ou expression de requête, pour obtenir des résultats classés. Notez que les scores de recherche diminuent au fil des résultats de la recherche.
 
    ```Input
-   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
    ```
 
    **Résultats**
@@ -94,13 +91,25 @@ Recherche Azure renvoie les 50 premières correspondances selon le classement d
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Filtrer les expressions (supérieur à, inférieur à, égal à)
 
-Utilisez le paramètre **$filter** lorsque vous souhaitez spécifier des critères précis plutôt qu'une recherche de texte libre. Cet exemple recherche plus de 3 chambres : `search=seattle condo&$filter=beds gt 3&$count=true`
+Utilisez le paramètre **$filter** lorsque vous souhaitez spécifier des critères précis plutôt qu'une recherche de texte libre. Cet exemple recherche plus de 3 chambres :
+
+   ```Input
+   search=seattle condo&$filter=beds gt 3&$count=true
+   ```
+   
+   **Résultats**
 
    ![Expression de filtre](./media/search-explorer/search-explorer-example-filter.png "Filtrer par critères")
 
 ## <a name="order-by-expressions"></a>Expressions OrderBy
 
-Ajoutez **$orderby** pour trier les résultats selon un autre champ, à côté du score de recherche. Pour le tester, vous pouvez utiliser l'exemple d'expression `search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc`
+Ajoutez **$orderby** pour trier les résultats selon un autre champ, à côté du score de recherche. Pour le tester, vous pouvez utiliser l'exemple d'expression suivant :
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc
+   ```
+   
+   **Résultats**
 
    ![Expression OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Modifier l’ordre de tri")
 

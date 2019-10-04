@@ -11,11 +11,11 @@ ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870928"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61083803"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans Azure SQL Data Warehouse
 
@@ -53,7 +53,7 @@ Une fois que vous avez déployé le modèle, vous devez trouver trois nouvelles 
 
    ![Sélectionnez Intégrer pour la fonction](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. À présent, la valeur affichée devrait indiquer *%ScaleDownTime%* ou *%ScaleUpTime%*. Ces valeurs indiquent que la planification est basée sur les valeurs définies dans vos [Paramètres de l’application][Application Settings]. Vous pouvez ignorer cette valeur pour le moment et définir la planification sur votre heure de préférence en fonction des étapes suivantes.
+3. À présent, la valeur affichée devrait indiquer *%ScaleDownTime%* ou *%ScaleUpTime%* . Ces valeurs indiquent que la planification est basée sur les valeurs définies dans vos [Paramètres de l’application][Application Settings]. Vous pouvez ignorer cette valeur pour le moment et définir la planification sur votre heure de préférence en fonction des étapes suivantes.
 
 4. Dans la zone de planification, ajoutez l’heure de l’expression CRON pour refléter la fréquence à laquelle vous souhaitez que SQL Data Warehouse soit mis à l’échelle. 
 

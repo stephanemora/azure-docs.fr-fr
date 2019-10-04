@@ -1,25 +1,18 @@
 ---
-title: Go Live| Microsoft Docs
+title: Go Live | Place de marché Azure
 description: L’API Go Live lance le processus de création en direct de la liste des offres.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: ac56f86bad132f3e00a4b5c2507d65c0722c628c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594676"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935487"
 ---
 <a name="go-live"></a>Go Live
 =======

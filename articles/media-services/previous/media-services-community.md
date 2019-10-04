@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 8070d0cc302e0c0745216cdd40c9cbbf34e2bf58
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000043"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69016632"
 ---
 # <a name="azure-media-services-community"></a>Communauté Azure Media Services  
 
@@ -56,16 +56,8 @@ L’équipe analyse également les questions étiquetées « azure media service
 
 ## <a name="contact-the-team"></a>Contactez l’équipe
 
-Azure Media Services est prise en charge principal e-mail : **amshelp\@microsoft.com**.
+L’adresse e-mail de support principale d’Azure Media Services est la suivante : **amshelp@microsoft.com** .
 
-Le tableau suivant répertorie les adresses de messagerie des sous-équipes chargées des fonctionnalités :
+## <a name="next-steps"></a>Étapes suivantes
 
-| Fonctionnalité | Email |
-| --- | --- |
-| Azure Media Analytics |amsanalytics@microsoft.com |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure Media Explorer |amse@microsoft.com |
-| Concepteur de flux de travail |mepd@microsoft.com |
-| Diffusion en continu et empaquetage de fichier |amsstreaming@microsoft.com |
-| Diffusion en continu et empaquetage en direct |amslived@microsoft.com |
-
+[Vue d'ensemble](media-services-overview.md)

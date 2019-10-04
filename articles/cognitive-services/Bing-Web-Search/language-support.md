@@ -7,21 +7,21 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
-ms.date: 09/25/2018
+ms.topic: conceptual
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: f5e75b30a7c196bb238c7bcb9c4704c1aec5e771
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999114"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882688"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Langages et régions pris en charge par l’API Recherche Web Bing
 
 L’API Recherche Web Bing prend en charge plus d’une trentaine de pays ou régions, dont beaucoup possèdent plusieurs langues. En utilisant une requête pour spécifier un pays ou une région, vous pouvez affiner les résultats de la recherche en fonction des centres d’intérêt dans ce pays ou cette région. Il se peut que les résultats incluent des liens vers Bing qui permettent de localiser l’expérience utilisateur Bing en fonction du pays, de la région ou de la langue spécifié.
 
-Vous pouvez spécifier un pays ou une région à l’aide du paramètre de requête `cc`. Lorsqu’un pays ou une région est spécifié, vous devez indiquer un ou plusieurs codes de langue avec l’[`Accept-Language`en-tête](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers). Utilisez le [tableau des marchés](#markets) pour consulter la liste des langues prises en charge pour chaque marché.
+Vous pouvez spécifier un pays ou une région à l’aide du paramètre de requête `cc`. Lorsqu’un pays ou une région est spécifié, vous devez indiquer un ou plusieurs codes de langue avec l’[`Accept-Language`en-tête](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Utilisez le [tableau des marchés](#markets) pour consulter la liste des langues prises en charge pour chaque marché.
 
 Vous pouvez également indiquer le marché à l’aide du paramètre de requête `mkt` et d’un code issu du tableau **Marchés**. En indiquant un marché, vous renseignez simultanément un pays/une région et une langue prédéfinie. Vous pouvez définir clairement la langue avec le paramètre de requête `setLang`.
 
@@ -42,7 +42,7 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Allemagne|DE|
 |Hong Kong (R.A.S.)|HK|
 |Inde|IN|
-|Indonésie|ID|
+|Indonésie|id|
 |Italie|IT|
 |Japon|JP|
 |Corée du Sud|KR|
@@ -74,14 +74,14 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Australie|Anglais|en-AU|
 |Autriche|Allemand|de-AT|
 |Belgique|Néerlandais|nl-BE|
-|Belgique|Anglais|fr-BE|
+|Belgique|Français|fr-BE|
 |Brésil|Portugais|pt-br|
 |Canada|Anglais|en-CA|
-|Canada|Anglais|fr-CA|
+|Canada|Français|fr-CA|
 |Chili|Espagnol|es-CL|
 |Danemark|Danois|da-DK|
 |Finlande|Finnois|fi-FI|
-|France|Anglais|fr-FR|
+|France|Français|fr-FR|
 |Allemagne|Allemand|de-DE|
 |Hong Kong (R.A.S.)|Chinois traditionnel|zh-HK|
 |Inde|Anglais|en-IN|
@@ -103,10 +103,14 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Afrique du Sud|Anglais|en-ZA|
 |Espagne|Espagnol|es-ES|
 |Suède|Suédois|sv-SE|
-|Suisse|Anglais|fr-CH|
+|Suisse|Français|fr-CH|
 |Suisse|Allemand|de-CH|
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|
 |Royaume-Uni|Anglais|en-GB|
 |États-Unis|Anglais|en-US|
 |États-Unis|Espagnol|es-US|
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Informations de référence sur l’API Recherche d’images Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

@@ -5,36 +5,39 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 06/13/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f75f91c037a2f05c999d388ce7bb16ad2d0c9cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 26d9eb883cc014c1bea092a12e22b6d144a37994
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005670"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112986"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Quitter une organisation en tant qu’utilisateur invité
 
 Un utilisateur invité Azure Active Directory (Azure AD) B2B peut décider de quitter une organisation à tout moment s’il n’a plus besoin d’utiliser les applications de cette organisation ou d’y être associé. Un utilisateur peut quitter une organisation de son propre chef, sans avoir à contacter un administrateur.
 
+> [!NOTE]
+> Un utilisateur invité ne peut pas quitter une organisation si son compte est désactivé dans le locataire de base ou le locataire de la ressource. Si son compte est désactivé, l’utilisateur invité doit contacter l’administrateur de locataire, qui peut supprimer le compte invité ou l’activer afin que l’utilisateur puisse quitter l’organisation.
+
 ## <a name="leave-an-organization"></a>Quitter une organisation
 
-Pour laisser une organisation, procédez comme suit.
+Pour quitter une organisation, procédez comme suit.
 
-1. Accédez à votre page de profil panneau d’accès en effectuant l’une des opérations suivantes :
+1. Accédez à la page Profil Panneau d’accès en effectuant l’une des étapes suivantes :
    
-   - Dans le [Azure portal](https://portal.azure.com), cliquez sur votre nom dans le coin supérieur droit et sélectionnez **afficher compte**.
-   - Ouvrez votre [volet d’accès](https://myapps.microsoft.com), cliquez sur votre nom dans le coin supérieur droit, puis sur Suivant pour **organisations**, sélectionnez l’icône Paramètres (engrenage).
+   - Dans le [portail Azure](https://portal.azure.com), cliquez sur votre nom dans le coin supérieur droit et sélectionnez **Afficher le compte**.
+   - Ouvrez votre [Panneau d’accès](https://myapps.microsoft.com), cliquez sur votre nom dans le coin supérieur droit, puis sur **Organisations**, et sélectionnez l’icône Paramètres (engrenages).
  
    ![Capture d’écran des paramètres utilisateur dans le Panneau d’accès](media/leave-the-organization/UserSettings.png) 
 
    > [!NOTE]
-   > Si vous n’êtes pas déjà connecté à l’organisation que vous souhaitez laisser sous **organisations**, cliquez sur le **connectez-vous quitter l’organisation** lien en regard du nom de l’organisation. Une fois que vous êtes connecté, cliquez sur votre nom dans le coin supérieur droit et en regard **organisations**, sélectionnez l’icône Paramètres (engrenage).
+   > Si vous n’êtes pas déjà connecté à l’organisation que vous souhaitez quitter, dans **Organisations**, cliquez sur le lien **Se connecter pour quitter l’organisation** en regard du nom de l’organisation. Une fois connecté, cliquez de nouveau sur votre nom dans le coin supérieur droit, puis sur **Organisations**, et sélectionnez l’icône Paramètres (engrenages).
 
 3. Sous **Organisations**, recherchez l’organisation que vous voulez quitter, puis sélectionnez **Quitter l’organisation**.
 
@@ -44,7 +47,7 @@ Pour laisser une organisation, procédez comme suit.
 
 ## <a name="account-removal"></a>Suppression du compte
 
-Quand un utilisateur quitte une organisation, son compte est « provisoirement supprimé » de l’annuaire. Par défaut, l’objet utilisateur est placé dans la zone **Utilisateurs supprimés** d’Azure AD, mais il n’est pas définitivement supprimé pendant 30 jours. Cette suppression réversible permet à l’administrateur de restaurer le compte d’utilisateur (y compris des groupes et des autorisations), si l’utilisateur effectue une demande de restauration du compte pendant la période de 30 jours.
+Quand un utilisateur quitte une organisation, son compte est « provisoirement supprimé » de l’annuaire. Par défaut, l’objet utilisateur est placé dans la zone **Utilisateurs supprimés** d’Azure AD, mais il n’est pas définitivement supprimé pendant 30 jours. Cette suppression réversible permet à l’administrateur de restaurer le compte d’utilisateur (y compris des groupes et des autorisations), si l’utilisateur effectue une demande de restauration du compte pendant la période de 30 jours.
 
 Si vous le souhaitez, un administrateur de locataires peut supprimer définitivement le compte à tout moment pendant la période de 30 jours. Pour ce faire :
 

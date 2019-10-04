@@ -4,25 +4,24 @@ description: Découvrez comment mettre en cluster une instance SAP ASCS/SCS sur 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.assetid: f6fb85f8-c77a-4af1-bde8-1de7e4425d2e
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 848b15cef43efa62fdff6715bfcfef9819f4e100
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000309"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70078270"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -185,14 +184,14 @@ ms.locfileid: "58000309"
 
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Mettre en cluster une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un disque partagé de cluster dans Azure
 
-> ![ Windows][Logo_Windows]  Windows
+> ![Windows][Logo_Windows] Windows
 >
 
 Le clustering de basculement Windows Server constitue la base d’une installation de SGBD et de SAP ASCS/SCS à haute disponibilité dans Windows.
 
 Un cluster de basculement est un groupe de 1 + n serveurs indépendants (nœuds) qui fonctionnent ensemble pour accroître la disponibilité des applications et des services. En cas d’échec d’un nœud, le clustering de basculement Windows Server calcule le nombre d’échecs qui peuvent se produire sans que le cluster ne perde son intégrité, de sorte que les applications et les services puissent être fournis. Différents modes de quorum sont disponibles pour obtenir un clustering de basculement.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant d’aborder les tâches décrites dans cet article, consultez l’article suivant :
 
 * [Scénarios et architecture de haute disponibilité de machines virtuelles Azure pour SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -210,7 +209,7 @@ Le service Azure Load Balancer fournit un *équilibreur de charge interne* pour 
 
 Déployez l’équilibreur de charge interne dans le groupe de ressources qui contient les nœuds de cluster. Ensuite, configurez toutes les règles de réacheminement de port nécessaires en utilisant les ports de sondage de l’équilibreur de charge interne. Les clients peuvent se connecter avec le nom d’hôte virtuel. Le serveur DNS résout l’adresse IP du cluster et l’équilibrage de charge interne gère le réacheminement de port vers le nœud actif du cluster.
 
-![Figure 1 : Basculement de Windows configuration dans Azure sans disque partagé du cluster][sap-ha-guide-figure-1001]
+![Figure 1 : Configuration du clustering de basculement Windows dans Azure sans disque partagé][sap-ha-guide-figure-1001]
 
 _**Figure 1 :** Configuration du clustering de basculement Windows Server dans Azure sans disque partagé_
 
@@ -220,37 +219,37 @@ Dans Windows, une instance SAP ASCS/SCS contient des services SAP centraux, le s
 Une instance SAP ASCS/SCS inclut les composants suivants :
 
 * Services centraux SAP :
-    * Deux processus, un serveur de messages et de mise en file d’attente, et un <nom_hôte_virtuel_ASCS/SCS> utilisé pour accéder à ces deux processus.
-    * Structure de fichiers : S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<numéro d’instance\>
+    * Deux processus, un serveur de messages et de mise en file d’attente, et un \<nom_hôte_virtuel_ASCS/SCS> utilisé pour accéder à ces deux processus.
+    * Structure de fichiers : S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<numéro d’instance\>
 
 
 * Fichiers d’hôte global SAP :
-  * Structure de fichiers : S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * Structure de fichiers : S:\usr\sap\\&lt;SID&gt;\SYS\...
   * Partage de fichiers sapmnt, qui autorise l’accès à ces fichiers S:\usr\sap\\&lt;SID&gt;\SYS\... à l’aide du chemin UNC suivant :
 
-    \\\\&lt;nom d’hôte virtuel ASCS/SCS&gt;\sapmnt\\&lt;SID&gt;\SYS\..
+    \\\\<Nom d’hôte virtuel ASCS/SCS\>\sapmnt\\&lt;SID&gt;\SYS\..
 
 
-![Figure 2 : Processus, structure de fichiers et partage de fichiers global host sapmnt d’une instance SAP ASCS/SCS][sap-ha-guide-figure-8001]
+![Figure 2 : Processus, structure de fichiers et partage de fichiers sapmnt d’hôte global d’une instance SAP ASCS/SCS][sap-ha-guide-figure-8001]
 
-_**Figure 2 :** Processus, structure de fichiers et partage de fichiers global host sapmnt d’une instance SAP ASCS/SCS_
+_**Figure 2 :** Processus, structure de fichiers et partage de fichiers sapmnt d’hôte global d’une instance SAP ASCS/SCS_
 
 Dans un paramètre de haute disponibilité, vous mettez en cluster les instances SAP ASCS/SCS. Nous utilisons des *disques partagés de cluster* (lecteur S dans notre exemple) pour placer les fichiers SAP ASCS/SCS et d’hôte global SAP.
 
-![Figure 3 : Architecture haute disponibilité SAP ASCS/SCS avec disque partagé][sap-ha-guide-figure-8002]
+![Figure 3 : Architecture de haute disponibilité (HA) SAP ASCS/SCS avec disque partagé][sap-ha-guide-figure-8002]
 
-_**Figure 3 :** Architecture haute disponibilité SAP ASCS/SCS avec disque partagé_
+_**Figure 3 :** Architecture de haute disponibilité (HA) SAP ASCS/SCS avec disque partagé_
 
 > [!IMPORTANT]
 > Ces deux composants s’exécutent sous la même instance SAP ASCS/SCS :
->* Le même <nom d’hôte virtuel ASCS/SCS> est utilisé pour accéder aux processus de serveur de mise en file d’attente et de messages SAP, ainsi qu’aux fichiers d’hôte global SAP par le biais du partage de fichiers sapmnt.
+>* Le même \<nom d’hôte virtuel ASCS/SCS> est utilisé pour accéder aux processus de serveur de mise en file d’attente et de messages SAP, ainsi qu’aux fichiers d’hôte global SAP par le biais du partage de fichiers sapmnt.
 >* Ils partagent le même lecteur de disque partagé de cluster S.
 >
 
 
-![Figure 4 : Architecture haute disponibilité SAP ASCS/SCS avec disque partagé][sap-ha-guide-figure-8003]
+![Figure 4 : Architecture de haute disponibilité (HA) SAP ASCS/SCS avec disque partagé][sap-ha-guide-figure-8003]
 
-_**Figure 4 :** Architecture haute disponibilité SAP ASCS/SCS avec disque partagé_
+_**Figure 4 :** Architecture de haute disponibilité (HA) SAP ASCS/SCS avec disque partagé_
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>Disques partagés dans Azure avec SIOS DataKeeper
 
@@ -264,11 +263,11 @@ Pour créer une ressource de disque partagé pour un cluster :
 2. Exécutez SIOS DataKeeper Cluster Edition sur les deux nœuds de machine virtuelle.
 3. Configurez SIOS DataKeeper Cluster Edition de sorte qu’il mette en miroir le contenu du volume attaché au disque supplémentaire de la machine virtuelle source vers le volume attaché au disque supplémentaire de la machine virtuelle cible. SIOS DataKeeper extrait les volumes locaux source et cible, puis les présente au clustering de basculement Windows Server comme un seul disque partagé.
 
-Vous trouverez plus d’informations sur SIOS DataKeeper [ici](http://us.sios.com/products/datakeeper-cluster/).
+Vous trouverez plus d’informations sur SIOS DataKeeper [ici](https://us.sios.com/products/datakeeper-cluster/).
 
-![Figure 5 : Configuration dans Azure avec SIOS DataKeeper du clustering de basculement Windows Server][sap-ha-guide-figure-1002]
+![Figure 5 : Configuration du clustering de basculement Windows Server dans Azure avec SIOS DataKeeper][sap-ha-guide-figure-1002]
 
-_**Figure 5 :** Basculement de Windows clustering configuration dans Azure avec SIOS DataKeeper_
+_**Figure 5 :** Configuration du clustering de basculement Windows dans Azure avec SIOS DataKeeper_
 
 > [!NOTE]
 > Avec certains SGBD, tels que SQL Server, vous n’avez pas besoin de disques partagés pour atteindre une haute disponibilité. SQL Server AlwaysOn assure la réplication des données et des fichiers de journaux du SGBD à partir du disque local d’un nœud du cluster vers le disque local d’un autre nœud du cluster. Dans ce cas, la configuration du cluster Windows ne nécessite pas de disque partagé.

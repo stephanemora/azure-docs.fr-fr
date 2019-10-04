@@ -3,8 +3,8 @@ title: Une application affectée n’apparaît pas sur le volet d’accès | Mic
 description: Identifier pourquoi une application n’apparaît pas sur le volet d’accès
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2018
-ms.author: celested
+ms.author: mimart
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bac0e78c53657cda1716dd8ab6ffd0e2453290f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 10dfcf337dc75a202e781e931f38783291a72fe7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117419"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272746"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Une application affectée n’apparaît pas sur le volet d’accès
 
@@ -399,7 +399,7 @@ Pour ajouter une application à partir de la galerie Azure AD, effectuez les ét
 
 Après un court délai, vous pouvez voir apparaître le volet de configuration de l’application.
 
-#### <a name="configure-the-application-for-password-single-sign-on"></a>Configurer l’application pour l’authentification unique par mot de passe
+#### <a name="configure-the-application-for-password-single-sign-on-1"></a>Configurer l’application pour l’authentification unique basée sur un mot de passe
 
 Pour configurer l’authentification unique pour une application, effectuez les étapes suivantes :
 

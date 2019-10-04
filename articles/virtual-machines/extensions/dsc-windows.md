@@ -8,36 +8,35 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: ee5a6c732bcb48cd347b8d87b95d2896d7230a08
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451907"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70092376"
 ---
 # <a name="powershell-dsc-extension"></a>Extension de configuration d’état souhaité PowerShell
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 L’extension DSC PowerShell pour Windows est publiée et prise en charge par Microsoft. L’extension charge et applique une Configuration DSC PowerShell sur une machine virtuelle Azure. L’extension DSC fait appel à DSC PowerShell pour mettre en œuvre la configuration DSC reçue sur la machine virtuelle. Ce document présente les plateformes, configurations et options de déploiement qui sont prises en charge pour l’extension de machine virtuelle DSC pour Windows.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
 L’extension DSC prend en charge les systèmes d’exploitation suivants
 
-Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
+Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2012 R2, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Connectivité Internet
 
-L’extension DSC pour Windows nécessite que la machine virtuelle cible est en mesure de communiquer avec Azure et l’emplacement du package de configuration (fichier .zip) s’il est stocké dans un emplacement en dehors d’Azure. 
+L’extension DSC pour Windows nécessite que la machine virtuelle cible soit en mesure de communiquer avec Azure et l’emplacement du package de configuration (fichier .zip) si celui-ci se trouve en dehors d’Azure. 
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
@@ -72,7 +71,7 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
             "dataCollection": "enable"
         },
         "advancedOptions": {
-            "forcePullAndApply": false
+            "forcePullAndApply": false,
             "downloadMappings": {
                 "specificDependencyKey": "https://myCustomDependencyLocation"
             }
@@ -100,9 +99,9 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
 
 | Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
-| apiVersion | 01-10-2018 | date |
+| apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | string |
-| Type | DSC | string |
+| type | DSC | string |
 | typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Valeurs de la propriété Settings
@@ -111,12 +110,12 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
 | ---- | ---- | ---- |
 | settings.wmfVersion | string | Spécifie la version de Windows Management Framework qui doit être installée sur votre machine virtuelle. Lorsque cette propriété est définie sur « latest », la dernière version de WMF est installée. Actuellement, les seules valeurs possibles pour cette propriété sont « 4.0 », « 5.0 » et « latest ». Les valeurs possibles font l’objet de mises à jour. La valeur par défaut est « latest ». |
 | settings.configuration.url | string | Spécifie l’adresse URL de téléchargement de votre fichier .zip de configuration DSC. Si l’accès à l’URL fournie nécessite un jeton SAP, vous devez définir la propriété protectedSettings.configurationUrlSasToken sur la valeur du jeton SAP. Cette propriété est requise si la propriété settings.configuration.script ou settings.configuration.function est définie.
-| settings.configuration.script | chaîne | Spécifie le nom de fichier du script qui contient la définition de votre configuration DSC. Ce script doit se trouver dans le dossier racine du fichier .zip téléchargé depuis l’URL spécifiée par la propriété configuration.url. Cette propriété est requise si la propriété settings.configuration.url ou settings.configuration.script est définie.
-| settings.configuration.function | chaîne | Spécifie le nom de votre configuration DSC. La configuration nommée doit se trouver dans le script défini par configuration.script. Cette propriété est requise si la propriété settings.configuration.url ou settings.configuration.function est définie.
+| settings.configuration.script | string | Spécifie le nom de fichier du script qui contient la définition de votre configuration DSC. Ce script doit se trouver dans le dossier racine du fichier .zip téléchargé depuis l’URL spécifiée par la propriété configuration.url. Cette propriété est requise si la propriété settings.configuration.url ou settings.configuration.script est définie.
+| settings.configuration.function | string | Spécifie le nom de votre configuration DSC. La configuration nommée doit se trouver dans le script défini par configuration.script. Cette propriété est requise si la propriété settings.configuration.url ou settings.configuration.function est définie.
 | settings.configurationArguments | Collection | Définit les paramètres à transmettre à votre configuration DSC. Cette propriété n’est pas chiffrée.
 | settings.configurationData.url | string | Spécifie l’URL de téléchargement de votre fichier de données de configuration (.pds1) à utiliser comme entrée pour votre configuration DSC. Si l’accès à l’URL fournie nécessite un jeton SAP, vous devez définir la propriété protectedSettings.configurationDataUrlSasToken sur la valeur du jeton SAP.
-| settings.privacy.dataEnabled | chaîne | Active ou désactive la collecte télémétrique. Les seules valeurs possibles pour cette propriété sont « Enable », « Disable », '' ou $null. Le fait de laisser cette propriété vide ou de la définir comme nulle active la télémétrie
-| settings.advancedOptions.forcePullAndApply | Bool | Ce paramètre est conçu pour améliorer l’expérience de l’utilisation de l’extension pour enregistrer des nœuds avec Azure Automation DSC.  Si la valeur est `$true`, l’extension attend la fin de la première exécution de la configuration extraite à partir du service avant le retour de réussite/échec.  Si la valeur est définie sur $false, l’état retourné par l’extension fera uniquement référence aux indique si le nœud a été inscrit avec la Configuration d’état Azure Automation et la configuration de nœud ne sera pas exécutée lors de l’inscription.
+| settings.privacy.dataEnabled | string | Active ou désactive la collecte télémétrique. Les seules valeurs possibles pour cette propriété sont « Enable », « Disable », '' ou $null. Le fait de laisser cette propriété vide ou de la définir comme nulle active la télémétrie
+| settings.advancedOptions.forcePullAndApply | Bool | Ce paramètre est conçu pour améliorer l’expérience d’utilisation de l’extension pour inscrire des nœuds auprès d’Azure Automation DSC.  Si la valeur est `$true`, l’extension attend la fin de la première exécution de la configuration extraite à partir du service avant de retourner un message de réussite/échec.  Si la valeur est définie sur $false, l’état retourné par l’extension indique uniquement que le nœud a été inscrit auprès d’Azure Automation DSC et que la configuration du nœud ne sera pas exécutée lors de l’inscription.
 | settings.advancedOptions.downloadMappings | Collection | Définit d’autres emplacements pour télécharger des dépendances, telles que WMF et .NET
 
 ### <a name="protected-settings-property-values"></a>Valeurs de la propriété Protected Settings
@@ -132,7 +131,7 @@ L’extrait JSON suivant montre le schéma de la section des paramètres de l’
 
 Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager.
 Les modèles sont idéaux lorsque vous déployez une ou plusieurs machines virtuelles nécessitant une configuration post-déploiement.
-Vous trouverez un exemple de modèle Resource Manager qui inclut l’extension DSC pour Windows sur le [galerie de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
+Un exemple de modèle Resource Manager incluant l’extension DSC pour Windows est disponible dans la [galerie de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 
@@ -149,7 +148,7 @@ Le package d’extension est téléchargé et déployé à cet emplacement sur l
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 ```
 
-Fichier d’état extension contient le sous-état et codes de réussite/erreur d’état, ainsi que l’erreur détaillée et une description pour chaque extension de s’exécuter.
+Le fichier d’état de l’extension contient le statut secondaire et les codes de réussite ou d’erreur de l’état, ainsi que l’erreur détaillée et la description de chaque exécution de l’extension.
 ```
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```

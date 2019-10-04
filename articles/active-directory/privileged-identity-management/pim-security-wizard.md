@@ -1,9 +1,9 @@
 ---
-title: Assistant de sécurité Azure AD rôles dans PIM - Azure Active Directory | Microsoft Docs
+title: Assistant de sécurité des rôles Azure AD dans PIM - Azure Active Directory | Microsoft Docs
 description: Décrit l’Assistant de sécurité que vous pouvez utiliser pour définir des attributions de rôles Azure AD privilégiés permanents comme éligibles à l’aide d’Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0d6d94df29ba16ecee06d70f5edac15a96a4299d
+ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496605"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70804015"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Assistant de sécurité des rôles Azure AD dans PIM
 
-Si vous êtes la première personne à exécuter Azure Active Directory (Azure AD) Privileged Identity Management (PIM) pour votre organisation, un Assistant s’affiche. Celui-ci vous aide à comprendre les risques liés à la sécurité des identités privilégiées et comment utiliser PIM pour les limiter. Vous n’avez pas besoin d’apporter des modifications aux affectations de rôle existantes dans l’Assistant. Vous pouvez le faire ultérieurement si vous préférez.
+Si vous êtes la première personne à exécuter Azure AD Privileged Identity Management (PIM) pour votre organisation, un Assistant s’affiche. Celui-ci vous aide à comprendre les risques liés à la sécurité des identités privilégiées et comment utiliser PIM pour les limiter. Vous n’avez pas besoin d’apporter des modifications aux affectations de rôle existantes dans l’Assistant. Vous pouvez le faire ultérieurement si vous préférez.
 
 ## <a name="wizard-overview"></a>Présentation de l’Assistant
 
@@ -43,29 +43,29 @@ La deuxième étape de l’Assistant vous donne la possibilité de modifier les 
 
 1. Cliquez sur **Rôles Azure AD** puis cliquez sur **Assistant**.
 
-    ![Rôles Azure AD - Assistant](./media/pim-security-wizard/wizard-start.png)
+    ![Rôles Azure AD - Page de l’Assistant montrant les 3 étapes pour exécuter l’Assistant](./media/pim-security-wizard/wizard-start.png)
 
 1. Cliquez sur **1 Découvrir les rôles privilégiés**.
 
 1. Passez en revue la liste des rôles privilégiés pour voir quels utilisateurs sont permanents ou éligibles.
 
-    ![Découvrir les utilisateurs avec des rôles privilégiés](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Découvrir les rôles privilégiés : volet des rôles affichant les membres éligibles et permanents](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
 1. Cliquez sur **Suivant** pour sélectionner les membres que vous voulez rendre éligibles.
 
-    ![Définir des membres comme éligibles](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Convertir les membres dans la page éligible avec les options permettant de sélectionner les membres que vous souhaitez rendre éligibles pour les rôles](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Une fois que vous avez sélectionné les membres, cliquez sur **Suivant**.
 
-    ![Examiner les modifications](./media/pim-security-wizard/review-changes.png)
+    ![Passez en revue la page de modifications montrant les membres avec des affectations de rôle permanentes qui seront converties](./media/pim-security-wizard/review-changes.png)
 
 1. Cliquez sur **OK** pour définir les attributions permanentes comme éligibles.
 
     Une fois la conversion terminée, vous verrez une notification.
 
-    ![Notifications](./media/pim-security-wizard/notification-completion.png)
+    ![Notification indiquant l’état d’une conversion](./media/pim-security-wizard/notification-completion.png)
 
-Si vous avez besoin de définir d’autres attributions de rôles privilégiés comme éligibles, vous pouvez réexécuter l’Assistant. Si vous souhaitez utiliser l’interface PIM au lieu de l’Assistant, consultez [attribuer des rôles Azure AD dans PIM](pim-how-to-add-role-to-user.md).
+Si vous avez besoin de définir d’autres attributions de rôles privilégiés comme éligibles, vous pouvez réexécuter l’Assistant. Si vous souhaitez utiliser l’interface PIM au lieu de l’Assistant, consultez [Attribuer des rôles Azure AD dans PIM](pim-how-to-add-role-to-user.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542847"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61422294"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Guide pratique pour utiliser sys_schema à des fins de réglage des performances et de maintenance de base de données dans Azure Database pour MySQL
 
@@ -23,10 +23,10 @@ Il existe 52 vues dans le sys_schema, et chaque vue présente l’un des préfi
 
 - Host_summary ou IO : latences liées aux E/S.
 - InnoDB : état de la mémoire tampon et verrous InnoDB.
-- Memory : utilisation de la mémoire par l’hôte et les utilisateurs.
-- Schema : informations relatives au schéma, telles que l’incrémentation automatique, les index, etc.
+- Mémoire : utilisation de la mémoire par l’hôte et les utilisateurs.
+- Schéma : informations relatives au schéma, telles que l’incrémentation automatique, les index, etc.
 - Statement : informations sur les instructions SQL ; il peut s’agir d’une instruction qui a entraîné une analyse de table complète ou une durée de requête longue.
-- User : ressources consommées et regroupées par utilisateur. Il peut s’agir par exemple d’E/S de fichiers, de connexions ou de mémoire.
+- Utilisateur : ressources consommées et regroupées par utilisateur. Il peut s’agir par exemple d’E/S de fichiers, de connexions ou de mémoire.
 - Wait : événements d’attente regroupés par hôte ou utilisateur.
 
 À présent, intéressons-nous à quelques modèles d’utilisation courants de sys_schema. Pour commencer, nous allons regrouper les modèles d’utilisation dans deux catégories : **réglage des performances** et **maintenance de base de données**.

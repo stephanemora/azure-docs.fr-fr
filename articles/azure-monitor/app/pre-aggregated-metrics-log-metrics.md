@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0b544bfcb59bf4c2b44e6b666fcd33e9fb493692
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: MT
+ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330651"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66256128"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métriques basées sur le journal et pré-agrégées dans Application Insights
 
@@ -34,7 +34,7 @@ Dans le même temps, collecter un ensemble complet d’événements peut s’av�
 
 ## <a name="pre-aggregated-metrics"></a>Métriques pré-agrégées
 
-Outre les métriques basées sur le journal, à l’automne 2018, l’équipe Application Insights a livré une préversion publique des métriques stockées dans un référentiel spécialisé optimisé pour la série chronologique. Les nouvelles métriques ne sont plus conservées sous la forme d’événements individuels avec un grand nombre de propriétés. À la place, elles sont stockées sous la forme de séries chronologiques pré-agrégées et seulement avec les principales dimensions. Les métriques sont ainsi de meilleure qualité au moment de la requête : l’extraction des données s’effectue beaucoup plus rapidement et nécessite moins de puissance de calcul. Cela rend possible de nouveaux scénarios comme [la génération d’alertes quasiment en temps réel sur les dimensions des métriques](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), des [tableaux de bord](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards) plus réactifs et bien plus encore.
+Outre les métriques basées sur le journal, à l’automne 2018, l’équipe Application Insights a livré une préversion publique des métriques stockées dans un référentiel spécialisé optimisé pour la série chronologique. Les nouvelles métriques ne sont plus conservées sous la forme d’événements individuels avec un grand nombre de propriétés. À la place, elles sont stockées sous la forme de séries chronologiques pré-agrégées et seulement avec les principales dimensions. Les métriques sont ainsi de meilleure qualité au moment de la requête : l’extraction des données s’effectue beaucoup plus rapidement et nécessite moins de puissance de calcul. Cela rend possible de nouveaux scénarios comme [la génération d’alertes quasiment en temps réel sur les dimensions des métriques](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts), des [tableaux de bord](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard) plus réactifs et bien plus encore.
 
 > [!IMPORTANT]
 > Les métriques basées sur le journal et pré-agrégées coexistent dans Application Insights. Pour différencier les deux, dans l’expérience utilisateur Application Insights, les métriques pré-agrégées sont maintenant appelées « Métriques standard (préversion) », tandis que les métriques traditionnelles des événements ont été renommées « métriques basées sur le journal ».
@@ -63,7 +63,7 @@ La collecte des dimensions des métriques personnalisées est désactivée par d
 
 ## <a name="creating-charts-and-exploring-log-based-and-standard-pre-aggregated-metrics"></a>Création de graphiques et exploration des métriques pré-agrégées standard et basées sur le journal
 
-Utilisez Azure Monitor Metrics Explorer pour tracer des graphiques à partir des métriques pré-agrégées et basées sur le journal et créez des tableaux de bord avec des graphiques. Après avoir sélectionné la ressource Application Insights souhaitée, utilisez le sélecteur d’espace de noms pour basculer entre les métriques standard (préversion) et basées sur le journal, ou sélectionnez un espace de noms de métrique personnalisée :
+Utilisez [Azure Monitor Metrics Explorer](../platform/metrics-getting-started.md) pour tracer des graphiques à partir des métriques pré-agrégées et basées sur le journal et créez des tableaux de bord avec des graphiques. Après avoir sélectionné la ressource Application Insights souhaitée, utilisez le sélecteur d’espace de noms pour basculer entre les métriques standard (préversion) et basées sur le journal, ou sélectionnez un espace de noms de métrique personnalisée :
 
 ![Espace de noms de la métrique](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 

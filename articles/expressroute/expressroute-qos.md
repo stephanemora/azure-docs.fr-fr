@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: bc946587cf54142278472652449db40096ca27b8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: eed6113442b4080341ff08b3983880f3afe66c00
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117212"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385119"
 ---
 # <a name="expressroute-qos-requirements"></a>Configuration requise pour ExpressRoute QoS
 Skype Entreprise a différentes charges de travail nécessitant un traitement QoS différencié. Si vous envisagez d’utiliser des services vocaux via ExpressRoute, vous devez respecter les conditions requises décrites ci-dessous.
@@ -21,15 +21,15 @@ Skype Entreprise a différentes charges de travail nécessitant un traitement Qo
 ![](./media/expressroute-qos/expressroute-qos.png)
 
 > [!NOTE]
-> La configuration requise pour QoS ne s’applique qu’à l’homologation Microsoft. Les valeurs DSCP de votre trafic réseau reçues sur l’homologation publique Azure et l’homologation privée Azure seront remises à 0. 
+> La configuration requise pour QoS ne s’applique qu’au peering Microsoft. Les valeurs DSCP de votre trafic réseau reçues sur le peering public Azure et le peering privé Azure seront remises à 0. 
 > 
 > 
 
-Le tableau suivant fournit la liste des marquages DSCP utilisés par Skype Entreprise. Pour plus d’informations, voir [Gestion de QoS pour Skype Entreprise](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) .
+Le tableau suivant fournit la liste des marquages DSCP utilisés par Microsoft Teams et Skype Entreprise. Pour plus d’informations, voir [Gestion de QoS pour Skype Entreprise](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS) .
 
-| **Classe de trafic** | **Traitement (marquage DSCP)** | **Skype for Business Workloads** |
+| **Classe de trafic** | **Traitement (marquage DSCP)** | **Charges de travail Microsoft Teams et Skype Entreprise** |
 | --- | --- | --- |
-| **Voice** |EF (46) |Skype / Lync voice |
+| **Voice** |EF (46) |Skype / Microsoft Teams / Lync voice |
 | **Interactive** |AF41 (34) |Vidéo, VBSS |
 | |AF21 (18) |Partage d’application | 
 | **Par défaut** |AF11 (10) |Transfert de fichiers |

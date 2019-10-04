@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 45699c267d1009c4884dd164fd3f2950d6d5f555
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b05d1f36d1e74b3d915e216676859654fbcbacf3
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108217"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60578661"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>Remplacer un contrôleur EBOD sur votre appareil StorSimple
 
@@ -60,8 +60,8 @@ Avant de retirer le module de contrôleur EBOD défectueux de votre appareil Sto
    | 2 |LED d’alimentation |
    | 3 |Connecteurs SaaS |
    | 4 |LED SAS |
-   | 5 |Ports série (utilisation en usine uniquement) |
-   | 6 |Port A (Entrée hôte) |
+   | 5\. |Ports série (utilisation en usine uniquement) |
+   | 6\. |Port A (Entrée hôte) |
    | 7 |Port B (Sortie hôte) |
    | 8 |Port C (utilisation en usine uniquement) |
 
@@ -92,8 +92,8 @@ La procédure et le tableau suivants expliquent comment installer un module de c
    | 2 |PCM 0 |
    | 3 |PCM 1 |
    | 4 |Contrôleur 0 |
-   | 5 |Contrôleur 1 |
-   | 6 |Contrôleur 0 du boîtier EBOD |
+   | 5\. |Contrôleur 1 |
+   | 6\. |Contrôleur 0 du boîtier EBOD |
    | 7 |Contrôleur 1 du boîtier EBOD |
    | 8 |Boîtier EBOD |
    | 9 |Unités de distribution de l’alimentation |

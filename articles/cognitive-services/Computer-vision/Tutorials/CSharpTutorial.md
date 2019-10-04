@@ -1,22 +1,22 @@
 ---
 title: 'Exemple : Explorer une application de traitement d’image en C#'
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Explorez une application Windows de base qui utilise l’API Vision par ordinateur dans Microsoft Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
+titleSuffix: Azure Cognitive Services
+description: Explorez une application Windows de base qui utilise l’API Vision par ordinateur dans Azure Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 02/08/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a23e45cb1e75305f41c81077c90282352327b72d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310941"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71170036"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Exemple : Explorer une application de traitement d’image avec C#
 
@@ -33,7 +33,7 @@ Explorez une application Windows de base qui utilise l’API Vision par ordinate
 Avant d’explorer l’exemple d’application, assurez-vous que vous avez rempli les conditions préalables suivantes :
 
 * Vous devez avoir [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou une version ultérieure.
-* Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit auprès de [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé. Notez également l’URL du point de terminaison du service.
 
 ## <a name="get-the-sample-app"></a>Obtenir l’exemple d’application
 
@@ -79,8 +79,9 @@ Vous pouvez exécuter l’exemple d’application pour vérifier son interaction
 1. Lorsque l’exemple d’application s’affiche, choisissez **Subscription Key Management** (Gestion des clés d’abonnement) dans le volet de navigation pour afficher la page de gestion des clés d’abonnement.
    ![Page Subscription Key Management (Gestion des clés d’abonnement)](../Images/Vision_UI_Subscription.PNG)  
 1. Entrez votre clé d’abonnement dans **Clé de l’abonnement**.
-1. Entrez l’URL de point de terminaison, sans `/vision/v1.0`, de la ressource Vision par ordinateur pour votre clé d’abonnement dans **Point de terminaison**.  
-   Par exemple, si vous utilisez la clé d’abonnement dans l’essai gratuit de Vision par ordinateur, entrez l’URL de point de terminaison suivante pour la région USA Centre-Ouest Azure : `https://westcentralus.api.cognitive.microsoft.com`
+1. Entrez l’URL du point de terminaison dans **Point de terminaison**.  
+   Par exemple, si vous utilisez la clé d’abonnement dans l’essai gratuit de Vision par ordinateur, entrez l’URL de point de terminaison suivante : `https://westcentralus.api.cognitive.microsoft.com`  
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Si vous ne souhaitez pas entrer votre clé d’abonnement ni l’URL du point de terminaison lors de la prochaine exécution de l’exemple d’application, sélectionnez **Enregistrer le paramètre** pour enregistrer l’URL du point de terminaison et la clé d’abonnement sur votre ordinateur. Si vous souhaitez supprimer l’URL du point de terminaison et la clé d’abonnement précédemment enregistrées, sélectionnez **Supprimer le paramètre**.
 
    > [!NOTE]

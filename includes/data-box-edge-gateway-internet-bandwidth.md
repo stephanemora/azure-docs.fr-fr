@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: alkohli
 ms.openlocfilehash: 69f77bf969c5d9adfb084682fbbc9eb9e762c8b4
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306874"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177511"
 ---
 Les appareils sont conçus pour continuer de fonctionner lorsque votre connexion Internet est lente ou est interrompue. En fonctionnement normal, nous vous recommandons d’utiliser : 
 

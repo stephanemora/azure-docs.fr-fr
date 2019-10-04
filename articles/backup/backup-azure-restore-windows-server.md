@@ -1,19 +1,19 @@
 ---
 title: Restaurer des données dans Azure sur un serveur Windows ou un ordinateur Windows
 description: Découvrez comment restaurer des données stockées dans Azure sur un serveur Windows ou un ordinateur Windows.
-services: backup
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/7/2018
-ms.author: saurse
-ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 09/07/2018
+ms.author: dacurwin
+ms.openlocfilehash: 4c0686fc72bfcafdfee650822aece15b8f3fb766
+ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110815"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70210325"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurer les fichiers dans Windows à l’aide du modèle de déploiement Resource Manager
 
@@ -44,11 +44,11 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
 
     ![Capture de Sauvegarde, avec « Récupérer des données » mis en surbrillance](./media/backup-azure-restore-windows-server/recover.png)
 
-3. Dans la page **Prise en main**, pour restaurer les données sur le même serveur ou ordinateur, sélectionnez **Ce serveur (`<server name>`)** > **Suivant**.
+3. Dans la page **Prise en main**, pour restaurer les données sur le même serveur ou ordinateur, sélectionnez **Ce serveur (`<server name>`)**  > **Suivant**.
 
     ![Capture d’écran de la page Mise en route de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Sur le **sélectionner le Mode de récupération** page, choisissez **fichiers et dossiers individuels** > **suivant**.
+4. Dans la page **Sélectionnez le mode de récupération**, choisissez **Fichiers et dossiers individuels** > **Suivant**.
 
     ![Capture d’écran de la page Mode de récupération de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
@@ -97,7 +97,7 @@ Ces étapes incluent la terminologie suivante :
 * *Exemple d’archivage* : coffre Recovery Services dans lequel l’ordinateur source et l’ordinateur cible sont enregistrés. <br/>
 
 > [!NOTE]
-> Il est impossible de restaurer les sauvegardes sur un ordinateur cible qui fonctionne avec une version antérieure du système d’exploitation. Par exemple, une sauvegarde effectuée à partir d’un ordinateur Windows 7 ne peut pas être restaurée sur un ordinateur sous Windows 8 (ou une version ultérieure). Il n’est pas possible de restaurer sur un ordinateur Windows 7 une sauvegarde effectuée à partir d’un ordinateur Windows 8.
+> Il est impossible de restaurer les sauvegardes sur un ordinateur cible qui fonctionne avec une version antérieure du système d’exploitation. Par exemple, une sauvegarde effectuée à partir d’un ordinateur Windows 7 ne peut pas être restaurée sur un ordinateur sous Windows 7 (ou une version ultérieure). Il n’est pas possible de restaurer sur un ordinateur Windows 7 une sauvegarde effectuée à partir d’un ordinateur Windows 8.
 >
 >
 

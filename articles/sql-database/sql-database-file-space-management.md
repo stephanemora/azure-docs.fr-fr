@@ -1,6 +1,6 @@
 ---
-title: Gestion de l’espace de fichier avec bases de données uniques/en pool dans Azure SQL Database | Microsoft Docs
-description: Cette page explique comment gérer l’espace de fichier avec bases de données uniques et en pool dans Azure SQL Database et fournit des exemples de code pour déterminer si vous devez réduire une base de données unique ou en pool, ainsi que pour effectuer une opération de réduction de base de données.
+title: Gestion de l’espace de fichier avec bases de données uniques/mises en pool dans Azure SQL Database | Microsoft Docs
+description: Cette page explique comment gérer l’espace de fichier avec bases de données uniques et mises en pool dans Azure SQL Database et fournit des exemples de code pour déterminer si vous devez réduire une base de données unique ou mise en pool, ainsi que pour effectuer une opération de réduction de base de données.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -10,29 +10,28 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: c92ffb6aa6db9c77a859661115d54ff63ea02401
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881161"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568207"
 ---
-# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gérer l’espace de fichier des bases de données uniques et en pool dans Azure SQL Database
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gérer l’espace de fichier des bases de données uniques et mises en pool dans Azure SQL Database
 
-Cet article décrit les différents types d’espace de stockage des bases de données uniques et en pool dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré explicitement.
+Cet article décrit les différents types d’espace de stockage des bases de données uniques et mises en pool dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré explicitement.
 
 > [!NOTE]
-> Cet article ne s’applique à l'option de déploiement d'instance géré dans Azure SQL Database.
+> Cet article ne s’applique à l’option de déploiement d’instance managée dans Azure SQL Database.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
-Avec des bases de données uniques et en pool dans Azure SQL Database, il existe des modèles de charge de travail dans lesquels l’allocation des fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées. Ce scénario peut se produire quand l’espace utilisé augmente et que des données sont ensuite supprimées. La raison en est que l’espace de fichiers alloué n’est pas récupéré automatiquement quand des données sont supprimées.
+Avec des bases de données uniques et mises en pool dans Azure SQL Database, il existe des modèles de charge de travail dans lesquels l’allocation des fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées. Ce scénario peut se produire quand l’espace utilisé augmente et que des données sont ensuite supprimées. La raison en est que l’espace de fichiers alloué n’est pas récupéré automatiquement quand des données sont supprimées.
 
 La surveillance de l’utilisation de l’espace de fichiers et la réduction des fichiers de données peuvent être nécessaires dans les scénarios suivants :
 
@@ -217,6 +216,9 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Récupérer l’espace alloué non utilisé
 
+> [!NOTE]
+> Cette commande peut affecter les performances de la base de données pendant qu’elle s’exécute et si c’est possible, elle doit être exécutée pendant des périodes de faible utilisation.
+
 ### <a name="dbcc-shrink"></a>Réduire avec DBCC
 
 Une fois que les bases de données ont été identifiées pour la récupération de l’espace alloué non utilisé, changez le nom de la base de données dans la commande suivante pour réduire les fichiers de données pour chaque base de données.
@@ -250,9 +252,9 @@ Une fois les fichiers de données d’une base de données sont réduits, les in
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur les tailles maximales de base de données, consultez :
-  - [Limites du modèle d’achat par vCore d’Azure SQL Database pour une base de données unique](sql-database-vcore-resource-limits-single-databases.md)
+  - [Limites du modèle d’achat vCore Azure SQL Database pour une base de données unique](sql-database-vcore-resource-limits-single-databases.md)
   - [Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-single-databases.md)
-  - [Limites du modèle d’achat par vCore d’Azure SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Limites du modèle d’achat vCore Azure SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)
   - [Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Pour plus d’informations sur la commande `SHRINKDATABASE`, consultez [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Pour plus d’informations sur la fragmentation et la reconstruction d’index, consultez [Réorganiser et reconstruire des index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

@@ -4,19 +4,18 @@ description: Créer des tests automatisés pour une fonction C# dans Visual Stud
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur, test
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: e0009e1c6380e02e2e0e24bf86e6dab435b6c022
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ff3d7d1272f9067f6bf9791c7964f8bf5f71945b
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357645"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709337"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
 
@@ -44,7 +43,7 @@ Pour configurer votre environnement, créez une fonction et testez l’applicati
 2. [Créez une fonction HTTP à partir du modèle](./functions-create-first-azure-function.md) et nommez-la *HttpTrigger*.
 3. [Créez une fonction de minuteur à partir du modèle](./functions-create-scheduled-function.md) et nommez-la *HttpTrigger*.
 4. [Créez une application de test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) dans Visual Studio en cliquant sur **Fichier > Nouveau > Projet > Visual C# > .NET Core > Projet de test xUnit**  et nommez-la *Functions.Test*. 
-5. Utilisez Nuget pour ajouter une référence à partir de l’application de test [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+5. Utilisez Nuget pour ajouter des références à partir de l’application de test [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Référencez l'application *Functions* à partir de l'application](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) *Functions.Test*.
 
 ### <a name="create-test-classes"></a>Créer des classes de test
@@ -55,7 +54,7 @@ Chaque fonction utilise une instance [ILogger](https://docs.microsoft.com/dotnet
 
 La classe `ListLogger` a vocation à implémenter l'interface `ILogger` et à contenir une liste interne des messages à des fins d'évaluation pendant un test.
 
-**Avec le bouton droit** sur le *Functions.Test* application et sélectionnez **Ajouter > classe**, nommez-le **NullScope.cs** et entrez le code suivant :
+**Cliquez avec le bouton droit** sur l'application *Functions.Test* et sélectionnez **Ajouter > Classe**, nommez-la **NullScope.cs** et entrez le code suivant :
 
 ```csharp
 using System;
@@ -73,7 +72,7 @@ namespace Functions.Tests
 }
 ```
 
-Ensuite, **avec le bouton droit** sur le *Functions.Test* application et sélectionnez **Ajouter > classe**, nommez-le **ListLogger.cs** et entrez le code suivant :
+Ensuite, **cliquez avec le bouton droit** sur l'application *Functions.Test* et sélectionnez **Ajouter > Classe**, nommez-la **ListLogger.cs** et entrez le code suivant :
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -111,7 +110,7 @@ namespace Functions.Tests
 
 La classe `ListLogger` implémente les membres suivants comme contractés par l'interface `ILogger` :
 
-- **BeginScope** : Les étendues ajoutent du contexte à votre journalisation. Dans ce cas, le test pointe uniquement vers l’instance statique sur le `NullScope` classe permettant d’autoriser le test de la fonction.
+- **BeginScope** : Les étendues ajoutent du contexte à votre journalisation. Dans ce cas, le test pointe vers l’instance statique de la classe `NullScope` pour permettre le bon fonctionnement du test.
 
 - **IsEnabled** : La valeur par défaut `false` est indiquée.
 
@@ -221,7 +220,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
+            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -230,7 +229,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
+            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -312,7 +311,7 @@ module.exports = {
 ```
 Ce module implémente la propriété `IsPastDue` en tant qu'instance fictive du minuteur.
 
-Ensuite, utilisez l’extension VS Code Functions pour [créer une fonction HTTP JavaScript](https://code.visualstudio.com/tutorials/functions-extension/getting-started) et nommez-la *HttpTrigger*. Une fois la fonction créée, ajoutez un nouveau fichier au même dossier nommé **index.test.js** et ajoutez le code suivant :
+Ensuite, utilisez l’extension VS Code Functions pour [créer une fonction HTTP JavaScript](/azure/javascript/tutorial-vscode-serverless-node-01) et nommez-la *HttpTrigger*. Une fois la fonction créée, ajoutez un nouveau fichier au même dossier nommé **index.test.js** et ajoutez le code suivant :
 
 ```javascript
 const httpFunction = require('./index');

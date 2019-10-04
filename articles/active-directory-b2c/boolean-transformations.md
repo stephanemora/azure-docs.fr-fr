@@ -2,26 +2,26 @@
 title: Exemples de transformations de revendications booléennes pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C | Microsoft Docs
 description: Exemples de transformations de revendications booléennes pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fea0f8c2c2bcab94202916594e66514f2ec87396
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: da4fc4704ee72210e180ef95fe6a821c8d116fa2
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180124"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71064576"
 ---
 # <a name="boolean-claims-transformations"></a>Transformations de revendications booléennes
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Cet article fournit des exemples pour l’utilisation de transformations de revendications booléennes du schéma Infrastructure d’expérience d’identité dans Azure Active Directory (Azure AD) B2C. Pour plus d’informations, consultez [ClaimsTransformations](claimstransformations.md).
+Cet article fournit des exemples pour l’utilisation de transformations de revendications booléennes du schéma Identity Experience Framework dans Azure Active Directory B2C (Azure AD B2C). Pour plus d’informations, voir [ClaimsTransformations](claimstransformations.md).
 
 ## <a name="andclaims"></a>AndClaims
 
@@ -29,9 +29,9 @@ Effectue une opération And de deux inputClaims booléennes et définit outputCl
 
 | Item  | TransformationClaimType  | Type de données  | Notes |
 |-------| ------------------------ | ---------- | ----- |
-| InputClaim | inputClaim1 | booléenne | Premier ClaimType à évaluer. |
-| InputClaim | inputClaim2  | booléenne | Deuxième ClaimType à évaluer. |
-|OutputClaim | outputClaim | booléenne | ClaimTypes qui seront produits après l’appel de cette transformation de revendication (true ou false). |
+| InputClaim | inputClaim1 | boolean | Premier ClaimType à évaluer. |
+| InputClaim | inputClaim2  | boolean | Deuxième ClaimType à évaluer. |
+|OutputClaim | outputClaim | boolean | ClaimTypes qui seront produits après l’appel de cette transformation de revendication (true ou false). |
 
 La transformation de revendication suivante montre comment exécuter une opération And sur deux ClaimTypes booléens : `isEmailNotExist`, et `isSocialAccount`. La revendication de sortie `presentEmailSelfAsserted` prend la valeur `true` si la valeur de ces deux revendications d’entrée est `true`. Dans une étape d’orchestration, vous pouvez utiliser une condition préalable pour prédéfinir une page autodéclarée, uniquement si un e-mail de compte social est vide.
 
@@ -40,7 +40,7 @@ La transformation de revendication suivante montre comment exécuter une opérat
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isSocialAccount" TransformationClaimType="inputClaim2" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentEmailSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>
@@ -62,8 +62,8 @@ Vérifie que les valeurs booléennes de deux revendications sont égales et lèv
 
 | Item | TransformationClaimType  | Type de données  | Notes |
 | ---- | ------------------------ | ---------- | ----- |
-| inputClaim | inputClaim | booléenne | ClaimType à évaluer. |
-| InputParameter |valueToCompareTo | booléenne | Valeur à comparer (true ou false). |
+| inputClaim | inputClaim | boolean | ClaimType à évaluer. |
+| InputParameter |valueToCompareTo | boolean | Valeur à comparer (true ou false). |
 
 La transformation de revendication **AssertBooleanClaimIsEqualToValue** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) qui est appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md). Les métadonnées de profil technique autodéclaré **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** contrôlent le message d’erreur présenté à l’utilisateur par le profil technique.
 
@@ -119,8 +119,8 @@ Effectue une opération Not de l’inputClaim booléen et définit outputClaim a
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | booléenne | Revendication à traiter. |
-| OutputClaim | outputClaim | booléenne | ClaimTypes qui sont produits après l’appel de cette ClaimsTransformation (true ou false). |
+| InputClaim | inputClaim | boolean | Revendication à traiter. |
+| OutputClaim | outputClaim | boolean | ClaimTypes qui sont produits après l’appel de cette ClaimsTransformation (true ou false). |
 
 Utilisez cette transformation de revendication pour effectuer une négation logique sur une revendication.
 
@@ -141,15 +141,15 @@ Utilisez cette transformation de revendication pour effectuer une négation logi
 - Revendications de sortie :
     - **outputClaim** : true
 
-## <a name="orclaims"></a>OrClaims 
+## <a name="orclaims"></a>OrClaims
 
 Calcule une opération Or de deux inputClaims booléennes et définit outputClaim avec le résultat de l’opération.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | booléenne | Premier ClaimType à évaluer. |
-| InputClaim | inputClaim2 | booléenne | Deuxième ClaimType à évaluer. |
-| OutputClaim | outputClaim | booléenne | ClaimTypes qui seront produits après l’appel de cette ClaimsTransformation (true ou false). |
+| InputClaim | inputClaim1 | boolean | Premier ClaimType à évaluer. |
+| InputClaim | inputClaim2 | boolean | Deuxième ClaimType à évaluer. |
+| OutputClaim | outputClaim | boolean | ClaimTypes qui seront produits après l’appel de cette ClaimsTransformation (true ou false). |
 
 La transformation de revendication suivante montre comment effectuer une opération `Or` sur deux ClaimTypes booléens. Dans l’étape d’orchestration, vous pouvez utiliser une condition préalable pour prédéfinir une page autodéclarée, si la valeur de l’une des revendications est `true`.
 
@@ -158,7 +158,7 @@ La transformation de revendication suivante montre comment effectuer une opérat
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="inputClaim2" />
-  </InputClaims>                    
+  </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="presentTOSSelfAsserted" TransformationClaimType="outputClaim" />
   </OutputClaims>

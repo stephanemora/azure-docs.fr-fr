@@ -4,8 +4,8 @@ description: Cet article explique comment Azure Security Center utilise le contr
 services: security-center
 cloud: na
 documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 ms.assetid: ''
 ms.service: security-center
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: aa6c154e14fbf5291e2493f4f27b9d4501ba18f4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: memildin
+ms.openlocfilehash: f52d518d2ed1dfb62eed72cf9c0b839a37b7f856
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117984"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201644"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
@@ -41,7 +41,7 @@ Outre ces rôles, il existe deux rôles propres à Security Center :
 
 Le tableau suivant affiche les rôles et les actions autorisées dans Security Center. Un X indique que l’action est autorisée pour ce rôle.
 
-| Rôle | Modifier une stratégie de sécurité | Appliquer des recommandations de sécurité à une ressource | Ignorer les alertes et les recommandations | Afficher les alertes et les recommandations |
+| Role | Modifier une stratégie de sécurité | Appliquer des recommandations de sécurité à une ressource | Ignorer les alertes et les recommandations | Afficher les alertes et les recommandations |
 |:--- |:---:|:---:|:---:|:---:|
 | Propriétaire de l’abonnement | X | X | X | X |
 | Collaborateur de l’abonnement | -- | X | X | X |

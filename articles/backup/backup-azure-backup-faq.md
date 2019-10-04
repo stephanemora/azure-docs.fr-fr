@@ -1,19 +1,18 @@
 ---
-title: Forum aux questions sur Sauvegarde Azure
+title: Réponses aux questions les plus fréquentes sur les fonctionnalités de Sauvegarde Azure
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.author: raynew
-ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 07/07/2019
+ms.author: dacurwin
+ms.openlocfilehash: 415a25dbe63b8942509827cd8434cc0f50fde87a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885874"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954811"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -25,6 +24,13 @@ Oui. Vous pouvez créer jusqu’à 500 coffres Recovery Services par région de
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Le nombre de serveurs/ordinateurs pouvant être inscrits dans chaque coffre est-il limité ?
 Vous pouvez inscrire jusqu’à 1 000 machines virtuelles Azure par coffre. Si vous utilisez l’agent Sauvegarde Microsoft Azure, vous pouvez inscrire jusqu’à 50 agents MAB par coffre. Et vous pouvez inscrire 50 serveurs MAB/DPM dans un coffre.
+
+### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Combien de sources de données/éléments peuvent être protégés dans un coffre ? 
+Vous pouvez protéger jusqu’à 2000 sources de données/éléments sur toutes les charges de travail (machine virtuelle IaaS, SQL, AFS, etc.) dans un coffre.<br>  
+Par exemple, si vous avez déjà protégé 500 machines virtuelles et 400 partages de fichiers Azure dans le coffre, vous ne pouvez protéger que jusqu’à 1 100 bases de données SQL. 
+
+### <a name="how-many-policies-can-i-create-per-vault"></a>Combien de stratégies puis-je créer par coffre ? 
+Vous ne pouvez avoir que jusqu’à 200 stratégies par coffre.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Si mon organisation possède un coffre, comment isoler les données de différents serveurs lors de la restauration des données ?
 Les données que vous souhaitez récupérer ensemble doivent utiliser la même phrase secrète lorsque vous configurez la sauvegarde. Si vous souhaitez isoler la récupération vers un serveur ou des serveurs spécifiques, utilisez une phrase secrète unique aux serveurs voulus. Par exemple, les serveurs des ressources humaines peuvent utiliser une phrase secrète de chiffrement, les serveurs de comptabilité peuvent en utiliser une autre et les serveurs de stockage une troisième.
@@ -40,7 +46,7 @@ Non. Dans un coffre Recovery Services, vous pouvez uniquement changer les option
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Puis-je effectuer une restauration de niveau élément (ILR) pour les machines virtuelles sauvegardées dans un coffre Recovery Services ?
 - La restauration de niveau élément est prise en charge pour les machines virtuelles Azure sauvegardées par la sauvegarde de machine virtuelle Azure. Pour plus d’informations, consultez cet [article](backup-azure-restore-files-from-vm.md)
-- Récupération au niveau élément n’est pas prise en charge de points de récupération en ligne des machines virtuelles locales sauvegardées par le serveur de sauvegarde Azure ou de System Center DPM.
+- La restauration de niveau élément n’est pas prise en charge pour les points de récupération en ligne des machines virtuelles locales sauvegardées par le serveur de sauvegarde Azure ou System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
@@ -48,39 +54,8 @@ Non. Dans un coffre Recovery Services, vous pouvez uniquement changer les option
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Où puis-je trouver des questions courantes sur l’agent Sauvegarde Azure pour la sauvegarde de machines virtuelles Azure ?
 
 - Pour les agents sur des machines virtuelles Azure, consultez ce [FAQ](backup-azure-vm-backup-faq.md).
-- Pour les agent permettant de sauvegarde des dossiers de fichiers Azure, lisez ce [FAQ](backup-azure-file-folder-backup-faq.md).
+- Pour les agents permettant de sauvegarde des dossiers de fichiers Azure, lisez ce [FAQ](backup-azure-file-folder-backup-faq.md).
 
-
-## <a name="vmware-and-hyper-v-backup"></a>Sauvegarde VMware et Hyper-V
-
-### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Puis-je sauvegarder des serveurs VMware vCenter dans Azure ?
-Oui. Vous pouvez utiliser le serveur de sauvegarde Azure pour sauvegarder des serveurs VMware vCenter et des hôtes ESXi dans Azure.
-
-- [en savoir plus](backup-mabs-protection-matrix.md) sur les versions prises en charge.
-- [Suivez ces étapes](backup-azure-backup-server-vmware.md) pour sauvegarder un serveur VMware.
-
-### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>Ai-je besoin d’une licence distincte pour récupérer un cluster VMware/Hyper-V entièrement local ?
-Vous n’avez pas besoin de licence distincte pour la protection VMware/Hyper-V.
-
-- Si vous êtes client System Center, utilisez System Center Data Protection Manager (DPM) pour protéger les machines virtuelles VMware.
-- Si vous n’êtes pas client System Center, vous pouvez utiliser le serveur de sauvegarde Azure (paiement à l’utilisation) pour protéger les machines virtuelles VMware.
-
-## <a name="dpm-and-azure-backup-server-backup"></a>Sauvegarde DPM et serveur de sauvegarde Azure
-
-### <a name="which-dpm-versions-are-supported"></a>Quelles sont les versions de DPM prises en charge ?
-Les versions de DPM prises en charge sont résumées dans la [matrice de prise en charge](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Nous vous recommandons d’installer les dernières mises à jour de DPM et d’exécuter le [version la plus récente](https://aka.ms/azurebackup_agent) de l’agent de sauvegarde Azure sur le serveur DPM.
-
-### <a name="can-i-register-the-server-to-multiple-vaults"></a>Puis-je enregistrer mon serveur dans plusieurs coffres ?
-Non. Chaque serveur DPM ou serveur Sauvegarde Azure peut être inscrit auprès d’un seul coffre.
-
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Puis-je utiliser Azure Backup Server pour créer une sauvegarde de la récupération complète (BMR) pour un serveur physique ? <br/>
-Oui.
-
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Puis-je utiliser DPM pour sauvegarder des applications dans Azure Stack ?
-Non. Vous pouvez utiliser la sauvegarde Azure pour protéger Azure Stack, mais la sauvegarde Azure ne prend pas en charge actuellement l’utilisation de DPM pour sauvegarder des applications dans Azure Stack.
-
-### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Si j’ai installé l’agent Sauvegarde Azure pour protéger mes fichiers et dossiers, puis-je installer System Center DPM pour sauvegarder les charges de travail locales vers Azure ?
-Oui. Mais vous devez configurer tout d’abord DPM et puis installer l’agent Sauvegarde Azure.  L’installation des composants dans cet ordre garantit le fonctionnement de l’agent Sauvegarde Azure avec DPM. L’installation de l’agent Sauvegarde Azure avant l’installation de DPM n’est pas conseillée et n’est pas prise en charge.
 
 ## <a name="general-backup"></a>Sauvegarde générale
 
@@ -101,7 +76,7 @@ Windows 8.1 64 bits | Entreprise, Professionnel | Les machines virtuelles doiv
 Windows 8 64 bits | Entreprise, Professionnel | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
 Windows 7 64 bits | Édition Intégrale, Entreprise, Professionnel, Édition Familiale Premium, Édition Familiale Basique, Édition Starter | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
 Serveur | |
-Windows Server 2019 64 bits | Standard, Datacenter, Essentials | Avec les derniers Service packs et dernières mises à jour.
+Windows Server 2019 64 bits | Standard, Datacenter, Essentials | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2016 64 bits | Standard, Datacenter, Essentials | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2012 R2 64 bits | Standard, Datacenter, Foundation | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2012 64 bits | Datacenter, Foundation, Standard | Avec les derniers Service packs et dernières mises à jour.
@@ -118,12 +93,12 @@ Pour les sauvegardes Linux de machine virtuelle Azure, la Sauvegarde Azure prend
 Les limites de tailles sont les suivantes :
 
 Système d’exploitation/machine | Limite de taille de la source de données
---- | --- 
+--- | ---
 Windows 8 ou version ultérieure | 54 400 Go
 Windows 7 |1 700 Go
 Windows Server 2012 ou version ultérieure | 54 400 Go
 Windows Server 2008, Windows Server 2008 R2 | 1 700 Go
-Microsoft Azure | 16 disques de données<br/><br/> Disque de données jusqu’à 4 095 Go
+Azure VM | 16 disques de données<br/><br/> Disque de données jusqu’à 4 095 Go
 
 ### <a name="how-is-the-data-source-size-determined"></a>Comment la taille de la source de données est-elle déterminée ?
 Le tableau suivant explique comment la taille de chaque source de données est déterminée.
@@ -163,7 +138,7 @@ Oui, elles ont toutes les deux des stratégies quotidienne, hebdomadaire, mensue
 Oui, vous pouvez personnaliser les stratégies. Par exemple, vous pouvez configurer une rétention hebdomadaire et quotidienne, mais pas annuelle ou mensuelle.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Puis-je utiliser des heures différentes pour la planification de la sauvegarde et les stratégies de rétention ?
-Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Par exemple, ces images montrent une stratégie de rétention pour les sauvegardes effectuées à 0h00 et 18h00.
+Non. Les stratégies de rétention ne peuvent être appliquées que sur les points de sauvegarde. Par exemple, cette image montre une stratégie de rétention pour les sauvegardes effectuées à 0h00 et 18h00.
 
 ![Planification de sauvegarde et rétention](./media/backup-azure-backup-faq/Schedule.png)
 
@@ -174,18 +149,18 @@ Non. Le délai de récupération reste identique pour les points de données ré
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Si chaque point de récupération est un point complet, cela a-t-il un impact sur la quantité totale de stockage de sauvegarde facturable ?
 Les produits avec points de rétention à long terme stockent les données de sauvegarde en tant que points complets.
 
-    - Toutefois, même si ces points *occupent* de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer.
-    - Les copies incrémentielles *occupent moins d’espace de stockage* , mais vous devez restaurer une chaîne de données, ce qui rallonge le temps de récupération.
+- Toutefois, même si ces points *occupent* de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer.
+- Les copies incrémentielles *occupent moins d’espace de stockage* , mais vous devez restaurer une chaîne de données, ce qui rallonge le temps de récupération.
 
 L’architecture de stockage d’Azure Backup vous offre le meilleur des deux en stockant les données de manière optimale pour des restaurations rapides et des coûts de stockage faibles. Cette approche garantit que votre bande passante entrante et sortante est utilisée de façon efficace. La quantité de stockage de données et le temps nécessaire pour récupérer les données sont tous les deux réduits au minimum. En savoir plus sur [les sauvegardes incrémentielles](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Le nombre de points de récupération pouvant être créés est-il limité ?
 Vous pouvez créer jusqu’à 9 999 points de récupération par instance protégée. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail sauvegardé dans Azure.
 
-- En savoir plus sur la [sauvegarde et la rétention](./backup-introduction-to-azure-backup.md#backup-and-retention).
-- En savoir plus sur les [instances protégées](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance) ?
+- En savoir plus sur la [sauvegarde et la rétention](./backup-overview.md#backup-and-retention).
 
-### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>Combien de fois puis-je récupérer des données sauvegardées dans Azure ?
+
+### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Combien de fois puis-je récupérer des données sauvegardées dans Azure ?
 Il n’existe aucune limite concernant le nombre de récupérations dans Azure Backup.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>En cas de restauration de données, dois-je payer pour le trafic de sortie à partir d’Azure ?

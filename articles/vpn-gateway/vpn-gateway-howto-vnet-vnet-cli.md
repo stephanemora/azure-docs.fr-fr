@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526144"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60411788"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide d’Azure CLI
 
@@ -50,9 +50,9 @@ La configuration d’une connexion de réseau virtuel à réseau virtuel est un 
 
 Si vous travaillez avec une configuration réseau complexe, vous pouvez connecter vos réseaux virtuels à l’aide des étapes [site à site](vpn-gateway-howto-site-to-site-resource-manager-cli.md), à la place des étapes de réseau virtuel à réseau virtuel. Lorsque vous utilisez les étapes de site à site, vous créez et configurez manuellement les passerelles réseau locales. La passerelle de réseau local pour chaque réseau virtuel traite l’autre réseau virtuel comme un site local. Ainsi, vous pourrez spécifier un espace d’adressage supplémentaire pour la passerelle réseau locale afin d’acheminer le trafic. Si l’espace d’adressage pour un réseau virtuel est modifié, vous devez mettre à jour manuellement la passerelle réseau local correspondante pour le refléter. Elle n’est pas automatiquement mise à jour.
 
-### <a name="vnet-peering"></a>Homologation de réseaux virtuels
+### <a name="vnet-peering"></a>Peering de réseaux virtuels
 
-Vous envisagerez probablement de connecter vos réseaux virtuels à l’aide de VNet Peering. VNet Peering n’utilise pas une passerelle VPN et possède d’autres contraintes. En outre, la [tarification de VNet Peering](https://azure.microsoft.com/pricing/details/virtual-network) est différente de la [tarification de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+Vous envisagerez probablement de connecter vos réseaux virtuels à l’aide de VNet Peering. VNet Peering n’utilise pas une passerelle VPN et possède d’autres contraintes. En outre, la [tarification de VNet Peering](https://azure.microsoft.com/pricing/details/virtual-network) est différente de la [tarification de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour plus d’informations, consultez l’article [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why"></a>Pourquoi créer une connexion de réseau virtuel à réseau virtuel ?
 
@@ -299,7 +299,7 @@ Lors de la création de connexions supplémentaires, il est important de s’ass
 
 ### <a name="TestVNet5"></a>Étape 7 : créez et configurez TestVNet5
 
-Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnement 5. Cette partie peut être effectuée par l’administrateur dans une organisation différente qui possède l’abonnement. Pour basculer entre les abonnements, utilisez `az account list --all` pour répertorier les abonnements disponibles à votre compte, puis utilisez `az account set --subscription <subscriptionID>` pour basculer vers l’abonnement que vous souhaitez utiliser.
+Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnement 5. Cette partie peut être effectuée par l’administrateur dans une organisation différente qui possède l’abonnement. Pour basculer entre les abonnements, utilisez `az account list --all` pour répertorier les abonnements disponibles pour votre compte, puis `az account set --subscription <subscriptionID>` pour basculer vers l’abonnement que vous souhaitez utiliser.
 
 1. Assurez-vous d’être connecté à Abonnement 5, puis créez un groupe de ressources.
 
@@ -338,7 +338,7 @@ Cette étape doit être effectuée dans le cadre du nouvel abonnement, Abonnemen
 
 ### <a name="connections5"></a>Étape 8 : créez les connexions
 
-Étant donné que les passerelles se trouvent dans différents abonnements, cette étape est divisée en deux sessions CLI notées **[Abonnement 1]** et **[Abonnement 5]**. Pour basculer entre les abonnements, utilisez `az account list --all` pour répertorier les abonnements disponibles à votre compte, puis utilisez `az account set --subscription <subscriptionID>` pour basculer vers l’abonnement que vous souhaitez utiliser.
+Étant donné que les passerelles se trouvent dans différents abonnements, cette étape est divisée en deux sessions CLI notées **[Abonnement 1]** et **[Abonnement 5]** . Pour basculer entre les abonnements, utilisez `az account list --all` pour répertorier les abonnements disponibles pour votre compte, puis `az account set --subscription <subscriptionID>` pour basculer vers l’abonnement que vous souhaitez utiliser.
 
 1. **[Abonnement 1]** Ouvrez une session et connectez-vous à Abonnement 1. Exécutez la commande suivante pour obtenir le nom et l’ID de la passerelle à partir de la sortie :
 

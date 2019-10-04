@@ -3,20 +3,22 @@ title: Définir un nouveau type d’appareil dans Azure IoT Central | Microsoft 
 description: Ce didacticiel vous indique comment définir un nouveau type d’appareil dans votre application Azure IoT Central en votre qualité de générateur. Vous définissez la télémétrie, l’état, les propriétés et les paramètres pour votre type d’appareil.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/28/2019
+ms.date: 06/07/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 884381cc3b9aaeec29f5697485cd90c28b2bd97e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681248"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099604"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Didacticiel : Définir un nouveau type d’appareil dans votre application Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Ce didacticiel vous indique comment utiliser un modèle d’appareil pour définir un nouveau type d’appareil dans votre application Microsoft Azure IoT Central en votre qualité de générateur. Un modèle d’appareil définit la télémétrie, l’état, les propriétés et les paramètres pour votre type d’appareil.
 
@@ -47,7 +49,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Central. Si vous avez suivi le guide de démarrage rapide [Créer votre application Azure IoT Central](quick-deploy-iot-central.md), vous pouvez réutiliser l’application que vous avez créée dans le cadre de ce guide. Dans le cas contraire, créez une application Azure IoT Central vide en procédant comme suit :
 
-1. Accédez à la page [Application Manager](https://aka.ms/iotcentral) (Gestionnaire d’application) d’Azure IoT Central.
+1. Accédez au site web du [gestionnaire d’applications d’Azure IoT Central](https://aka.ms/iotcentral).
 
 2. Entrez l’adresse e-mail et le mot de passe que vous utilisez pour accéder à votre abonnement Azure :
 
@@ -55,7 +57,7 @@ Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Ce
 
 3. Pour commencer à créer une application Azure IoT Central, sélectionnez **Nouvelle application** :
 
-    ![Page du Gestionnaire d’applications d’Azure IoT Central](./media/tutorial-define-device-type/iotcentralhome.png)
+    ![Page du gestionnaire d’applications d’Azure IoT Central](./media/tutorial-define-device-type/iotcentralhome.png)
 
 4. Pour créer une nouvelle application Azure IoT Central :
     
@@ -67,7 +69,7 @@ Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Ce
     
    * Vous pouvez éventuellement choisir un nom d’application convivial, tel que **Climatiseurs Contoso**. Azure IoT Central génère un préfixe d’URL unique pour vous. Vous pouvez remplacer ce préfixe d’URL par une chaîne plus facile à mémoriser.
     
-   * Sélectionnez **Créer**.
+   * Sélectionnez **Create** (Créer).
 
      ![Page de création d’une application Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 
@@ -176,7 +178,7 @@ Utilisez des événements pour définir les données dans le temps que l’appar
      | -------------------- | -----------       |
      | Nom d’affichage         | Erreur du moteur du ventilateur   |
      | Nom du champ           | fanmotorerr       |
-     | Severity             | Error             |
+     | severity             | Error             |
 
      Pour enregistrer la définition de l’événement, sélectionnez **Enregistrer** :
 
@@ -287,7 +289,7 @@ Les *propriétés d’application* vous permettent de stocker des informations c
 
     | Champ                | Valeur                |
     | -------------------- | -------------------- |
-    | Nom d’affichage         | Lieu             |
+    | Nom d’affichage         | Location             |
     | Nom du champ           | location             |
     | Valeur initiale        | Seattle, WA          |
     | Description          | Emplacement de l’appareil      |

@@ -1,5 +1,5 @@
 ---
-title: Portail de l’utilisateur pour le serveur Azure MFA - Azure Active Directory
+title: Portail utilisateur pour Azure MFA Server - Azure Active Directory
 description: Prise en main du serveur Azure Multi-Factor Authentication et du portail de l’utilisateur.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a75ee7746d0ab04b505544f91f2905fa392902
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 6f6feceff234bed51bcf6adf34f51313fa348d77
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370361"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67056053"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portail de l’utilisateur pour le serveur Azure Multi-Factor Authentication
 
@@ -28,7 +28,10 @@ Les administrateurs du portail de l’utilisateur peuvent être configurés et a
 
 Selon votre environnement, il peut être nécessaire de déployer le portail de l’utilisateur sur le même serveur que le serveur Azure Multi-Factor Authentication ou sur un autre serveur accessible sur Internet.
 
-![Page de connexion portail utilisateur du serveur MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
+> [!IMPORTANT]
+> À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1er juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
+
+![Page de connexion du portail utilisateur de MFA Server](./media/howto-mfaserver-deploy-userportal/portal.png)
 
 > [!NOTE]
 > Le portail de l’utilisateur est disponible uniquement avec le serveur Multi-Factor Authentication. Si vous utilisez Multi-Factor Authentication dans le cloud, invitez vos utilisateurs à se reporter aux articles [Configurer le compte pour la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-first-time.md) ou [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md).
@@ -66,7 +69,7 @@ Pour déployer le portail de l’utilisateur, procédez comme suit :
    > [!NOTE]
    > Le certificat SSL est généralement un certificat SSL signé publiquement.
 
-4. Ouvrez un navigateur web à partir de n’importe quel ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth)). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
+4. Ouvrez un navigateur web à partir de n’importe quel ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth) ). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
 
 ![Installation du portail de l’utilisateur du serveur MFA](./media/howto-mfaserver-deploy-userportal/install.png)
 
@@ -105,7 +108,7 @@ Une installation du portail de l'utilisateur sur un serveur autre que le serveur
     * Recherchez la valeur **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** et modifiez cette URL d’espace réservé par l’URL du Kit de développement logiciel (SDK) de service web que nous avons installé à l’étape 2.
     * Enregistrez le fichier config Web et fermez le Bloc-notes.
 
-6. Ouvrez un navigateur web à partir de n’importe quel ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth)). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
+6. Ouvrez un navigateur web à partir de n’importe quel ordinateur et accédez à l’URL où le portail de l’utilisateur a été installé (par exemple, https://mfa.contoso.com/MultiFactorAuth) ). Assurez-vous qu'aucun avertissement ou erreur de certificat ne soit affiché.
 
 Si vous avez des questions à propos de la configuration du certificat SSL personnalisé sur un serveur IIS, consultez l’article [Comment configurer SSL sur IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
@@ -143,11 +146,11 @@ Le serveur Azure Multi-Factor Authentication fournit plusieurs options pour le p
 | Activation de la journalisation | Active la journalisation sur le portail de l’utilisateur. Les fichiers journaux se trouvent à l’emplacement suivant : C:\Program Files\Multi-Factor Authentication Server\Logs. |
 
 > [!IMPORTANT]
-> À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible pour les utilisateurs du serveur MFA dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.
+> Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs de MFA Server dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les appels téléphoniques continueront à être disponibles pour les utilisateurs de locataires Azure AD payants. Ce changement affecte uniquement les locataires Azure AD gratuits ou à l’essai.
 
 L’utilisateur peut voir ces paramètres dès qu’ils sont activés et connectés au portail de l’utilisateur.
 
-![Gérer votre compte de serveur MFA à l’aide du portail de l’utilisateur](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
+![Gérer votre compte MFA Server par l’intermédiaire du portail utilisateur](./media/howto-mfaserver-deploy-userportal/portalsettings.png)
 
 ### <a name="self-service-user-enrollment"></a>Inscription utilisateur libre-service
 
@@ -163,7 +166,7 @@ Si l’utilisateur doit utiliser un code PIN pour s’authentifier, la page l’
 
 Si l’utilisateur sélectionne la méthode d’authentification par SMS ou si cette méthode a été préconfigurée, la page invite l’utilisateur à saisir son numéro de téléphone mobile. Si l’utilisateur doit utiliser un code PIN pour s’authentifier, la page l’invite également à entrer un code PIN.  Après avoir entré son numéro de téléphone et son code PIN (le cas échéant), l’utilisateur clique sur le bouton **M’envoyer un SMS maintenant pour m’authentifier**. Azure Multi-Factor Authentication envoie un SMS au téléphone mobile de l’utilisateur. L’utilisateur reçoit le SMS avec un code secret à usage unique, puis répond au message en renvoyant ce code et son code PIN (le cas échéant).
 
-![Vérification de portail d’utilisateur à l’aide de SMS](./media/howto-mfaserver-deploy-userportal/text.png)
+![Vérification du portail utilisateur au moyen de SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
 Si l’utilisateur sélectionne la méthode de vérification Mobile App, la page invite l’utilisateur à installer l’application Microsoft Authenticator sur son appareil et à générer un code d’activation. Une fois l’application installée, l’utilisateur clique sur le bouton Générer le code d’activation.
 
@@ -172,7 +175,7 @@ Si l’utilisateur sélectionne la méthode de vérification Mobile App, la page
 
 La page affiche alors un code d'activation et une URL, ainsi qu'une image de code-barres. Si l’utilisateur doit utiliser un code PIN pour s’authentifier, la page l’invite également à entrer un code PIN. L’utilisateur saisit le code d’activation et l’URL dans l’application Microsoft Authenticator ou utilise le scanneur de codes-barres pour numériser l’image du code-barres, puis il clique sur le bouton Activer.
 
-Une fois l’activation terminée, l’utilisateur clique sur le bouton **Authenticate Me Now (M’authentifier maintenant)**. Azure Multi-Factor Authentication vérifie l’application mobile de l’utilisateur. L'utilisateur doit entrer son code PIN (le cas échéant) et appuyer sur le bouton Authentifier dans l'application mobile pour passer à l'étape suivante du processus d'inscription automatique.
+Une fois l’activation terminée, l’utilisateur clique sur le bouton **Authenticate Me Now (M’authentifier maintenant)** . Azure Multi-Factor Authentication vérifie l’application mobile de l’utilisateur. L'utilisateur doit entrer son code PIN (le cas échéant) et appuyer sur le bouton Authentifier dans l'application mobile pour passer à l'étape suivante du processus d'inscription automatique.
 
 Si les administrateurs ont configuré le serveur Azure Multi-Factor Authentication pour collecter les questions de sécurité et les réponses, l'utilisateur est alors dirigé vers la page Questions de sécurité. L'utilisateur doit sélectionner quatre questions de sécurité et y répondre.
 

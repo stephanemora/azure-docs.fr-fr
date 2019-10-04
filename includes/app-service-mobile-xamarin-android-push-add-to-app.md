@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 3ced8c9fdadf547ec234c6d1bd5f3ddb8af7bc05
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816228"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177570"
 ---
 1. Créez une classe dans le projet appelée `ToDoBroadcastReceiver`.
 2. Ajoutez les instructions using suivantes à la classe **MyBroadcastReceiver.cs** :
@@ -66,7 +66,7 @@ ms.locfileid: "42816228"
     Notez que cette classe dérive de **GcmServiceBase** et que l’attribut **Service** doit être appliqué à cette classe.
 
     > [!NOTE]
-    > La classe **GcmServiceBase** implémente les méthodes **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** et **OnError()**. Vous devez substituer ces méthodes dans la classe **PushHandlerService** .
+    > La classe **GcmServiceBase** implémente les méthodes **OnRegistered()** , **OnUnRegistered()** , **OnMessage()** et **OnError()** . Vous devez substituer ces méthodes dans la classe **PushHandlerService** .
 
 6. Ajoutez le code suivant à la classe **PushHandlerService** qui remplace le gestionnaire d’événements **OnRegistered**.
 
@@ -109,7 +109,7 @@ ms.locfileid: "42816228"
     }
     ```
 
-    Cette méthode utilise l’ID d’inscription GCM retourné pour s’inscrire auprès d’Azure pour les notifications push. Les balises peuvent uniquement être ajoutées à l'inscription après sa création. Pour plus d’informations, consultez [Ajouter des balises à l’installation d’un périphérique pour l’envoi de données aux balises](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+    Cette méthode utilise l’ID d’inscription GCM retourné pour s’inscrire auprès d’Azure pour les notifications push. Les balises peuvent uniquement être ajoutées à l'inscription après sa création. Pour plus d’informations, consultez [Procédure : Ajouter des balises à l’installation d’un périphérique pour l’envoi de données aux balises](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
 7. Remplacez la méthode **OnMessage** dans **PushHandlerService** par le code suivant :
 

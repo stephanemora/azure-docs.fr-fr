@@ -10,17 +10,16 @@ editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: b6f122abff1ac75bb1cb836f3389c96dfcdf60e0
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523441"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70074119"
 ---
 # <a name="security-in-azure-app-service"></a>Sécurité dans Azure App Service
 
@@ -58,7 +57,7 @@ App Service prend en charge FTP et FTPS pour le déploiement de vos fichiers. To
 
 Par défaut, votre application App Service accepte les demandes émanant de toutes les adresses IP d’internet, mais vous pouvez limiter cet accès à un petit sous-ensemble d’adresses IP. App Service sur Windows permet de définir une liste d’adresses IP pouvant accéder à votre application. La liste autorisée peut inclure des adresses IP individuelles ou une plage d’adresses IP définie par un masque de sous-réseau. Pour plus d’informations, consultez [Restrictions d’adresse IP statique avec Azure App Service](app-service-ip-restrictions.md).
 
-Pour App Service sur Windows, vous pouvez également limiter les adresses IP dynamiquement en configurant _web.config_. Pour plus d’informations, consultez [sécurité IP dynamique \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Pour App Service sur Windows, vous pouvez également limiter les adresses IP dynamiquement en configurant _web.config_. Pour plus d’informations, consultez [Sécurité IP dynamique \<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Authentification et autorisation clientes
 
@@ -87,7 +86,7 @@ Dans chacun de ces cas, App Service fournit un moyen d’établir des connexions
 
 Quand votre application se connecte à des ressources Azure, telles que [SQL Database](https://azure.microsoft.com/services/sql-database/) et [Stockage Azure](/azure/storage/), la connexion reste dans Azure et ne franchit pas les limites du réseau. Toutefois, comme la connexion emprunte le dispositif réseau partagé dans Azure, assurez-vous systématiquement qu’elle est chiffrée. 
 
-Si votre application est hébergée dans un [environnement App Service](environment/intro.md), vous devez [vous connecter à des services Azure pris en charge à l’aide de points de terminaison du service Réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
+Si votre application est hébergée dans un [environnement App Service](environment/intro.md), vous devez [vous connecter à des services Azure pris en charge à l’aide de points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ### <a name="resources-inside-an-azure-virtual-network"></a>Ressources à l’intérieur d’un réseau virtuel Azure
 
@@ -105,7 +104,7 @@ Vous pouvez accéder de manière sécurisée à des ressources locales, telles q
 
 ## <a name="application-secrets"></a>Secrets de l’application
 
-Ne stockez pas les secrets de l’application, tels que les informations d’identification de la base de données, les jetons d’API et les clés privées, dans vos fichiers de code ou de configuration. L’approche couramment acceptée consiste à y accéder sous forme de [variables d’environnement](https://wikipedia.org/wiki/Environment_variable) à l’aide du modèle standard dans la langue de votre choix. Dans App Service, la définition des variables d’environnement passe par l’utilisation de [paramètres d’application](web-sites-configure.md#app-settings) (et, en particulier pour les applications .NET, de [chaînes de connexion](web-sites-configure.md#connection-strings)). Les paramètres d’application et les chaînes de connexion sont stockés dans Azure, et ils sont déchiffrés uniquement avant d’être injectés dans la mémoire de processus de votre application au démarrage de celle-ci. Les clés de chiffrement sont régulièrement permutées.
+Ne stockez pas les secrets de l’application, tels que les informations d’identification de la base de données, les jetons d’API et les clés privées, dans vos fichiers de code ou de configuration. L’approche couramment acceptée consiste à y accéder sous forme de [variables d’environnement](https://wikipedia.org/wiki/Environment_variable) à l’aide du modèle standard dans la langue de votre choix. Dans App Service, la définition des variables d’environnement passe par l’utilisation de [paramètres d’application](configure-common.md#configure-app-settings) (et, en particulier pour les applications .NET, de [chaînes de connexion](configure-common.md#configure-connection-strings)). Les paramètres d’application et les chaînes de connexion sont stockés dans Azure, et ils sont déchiffrés uniquement avant d’être injectés dans la mémoire de processus de votre application au démarrage de celle-ci. Les clés de chiffrement sont régulièrement permutées.
 
 Une autre approche consiste à intégrer votre application App Service à [Azure Key Vault](/azure/key-vault/) pour bénéficier d’une gestion avancée des secrets. En [accédant à Key Vault avec une identité managée](../key-vault/tutorial-web-application-keyvault.md), votre application App Service peut accéder de manière sécurisée aux secrets dont vous avez besoin.
 
@@ -113,7 +112,6 @@ Une autre approche consiste à intégrer votre application App Service à [Azure
 
 À la différence du niveau tarifaire **Isolé**, tous les niveaux exécutent vos applications sur l’infrastructure réseau partagée dans App Service. Par exemple, les adresses IP publiques et les équilibreurs de charge frontaux sont partagés avec d’autres locataires. Le niveau **Isolé** vous procure un isolement réseau complet en exécutant vos applications à l’intérieur d’un [environnement App Service](environment/intro.md) dédié. Un environnement App Service s’exécute dans votre propre instance de [Réseau virtuel Azure](/azure/virtual-network/). Il vous permet d’effectuer les opérations suivantes : 
 
-- Restreindre l’accès réseau avec des [groupes de sécurité réseau](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Servir vos applications par le biais d’un point de terminaison public dédié, avec des serveurs frontaux dédiés.
 - Servir une application interne à l’aide d’un équilibreur de charge interne (ILB), l’accès n’étant alors autorisé qu’à partir de votre réseau virtuel Azure. L’équilibreur de charge interne possède une adresse IP appartenant à votre sous-réseau privé, ce qui isole totalement vos applications d’internet.
 - [Utiliser un équilibreur de charge interne derrière un pare-feu d’applications web (WAF)](environment/integrate-with-application-gateway.md). Le WAF offre une protection de niveau entreprise à vos applications publiques, telle que la protection DDoS, le filtrage des URI et la prévention de l’injection SQL.

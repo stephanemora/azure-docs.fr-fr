@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Découvrez comment créer, modifier ou supprimer un réseau virtuel dans Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
-ms.author: jdial
-ms.openlocfilehash: 6e393bf9c08eaa656a1c9b2302cde937a87ccc9a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 235a82c6bba4165790c370c2641ee6cd41f10840
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088500"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64700480"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
 
@@ -31,7 +31,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
-- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 - Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 - Le compte auquel vous vous connectez ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou avoir un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des actions appropriées répertoriées dans [Autorisations](#permissions).
 
@@ -61,7 +61,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
        >
 
      - **Plage d’adresses de sous-réseau** : la plage d’adresses doit s’inscrire dans l’espace d’adressage que vous avez entré pour le réseau virtuel. La plus petite plage que vous puissiez spécifier est /29. Celle-ci fournit huit adresses IP pour le sous-réseau. Azure réserve la première et la dernière adresses dans chaque sous-réseau pour la conformité du protocole. Trois adresses supplémentaires sont réservées à l’usage du service Azure. Par conséquent, un réseau virtuel dont la plage d’adresses de sous-réseau est /29 ne comprend que trois adresses IP utilisables. Si vous envisagez de connecter un réseau virtuel à une passerelle VPN, vous devez créer un sous-réseau de passerelle. Pour en savoir plus, voir [Sous-réseau de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Vous pouvez modifier la plage d’adresses après la création du sous-réseau sous certaines conditions. Pour savoir comment modifier une plage d’adresses de sous-réseau, consultez [Gérer des sous-réseaux](virtual-network-manage-subnet.md).
-     - **Abonnement**: sélectionnez un [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Vous ne pouvez pas utiliser un même réseau virtuel dans plus d’un abonnement Azure. En revanche, vous pouvez connecter un réseau virtuel figurant dans un abonnement à des réseaux virtuels figurant dans d’autres abonnements via une [homologation de réseau virtuel](virtual-network-peering-overview.md). Toute ressource Azure que vous connectez au réseau virtuel doit figurer dans le même abonnement que le réseau virtuel.
+     - **Abonnement**: sélectionnez un [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Vous ne pouvez pas utiliser un même réseau virtuel dans plus d’un abonnement Azure. En revanche, vous pouvez connecter un réseau virtuel figurant dans un abonnement à des réseaux virtuels figurant dans d’autres abonnements via un [peering de réseau virtuel](virtual-network-peering-overview.md). Toute ressource Azure que vous connectez au réseau virtuel doit figurer dans le même abonnement que le réseau virtuel.
      - **Groupe de ressources** : sélectionnez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) existant ou créez-en un. Une ressource Azure que vous connectez au réseau virtuel peut figurer dans le même groupe de ressources que le réseau virtuel ou dans un autre groupe de ressources.
      - **Emplacement** : sélectionnez un [emplacement](https://azure.microsoft.com/regions/) Azure (également appelé région). Un réseau virtuel peut figurer que dans un seul emplacement d’Azure. En revanche, vous pouvez connecter un réseau virtuel figurant dans un emplacement à un réseau virtuel figurant dans un autre emplacement en utilisant une passerelle VPN. Toute ressource Azure que vous connectez au réseau virtuel doit figurer dans le même emplacement que le réseau virtuel.
 
@@ -84,7 +84,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
    - **Appareils connectés** : toutes les ressources connectées au réseau virtuel sont listées. Dans la capture d’écran précédente, trois interfaces réseau et un équilibreur de charge sont connectés au réseau virtuel. Toutes les ressources que vous créez et connectez au réseau virtuel sont répertoriées. Si vous supprimez une ressource connectée au réseau virtuel, elle n’apparaît plus dans la liste.
    - **Sous-réseaux** : la liste des sous-réseaux présents dans le réseau virtuel est affichée. Pour savoir comment ajouter et supprimer un sous-réseau, consultez [Gérer des sous-réseaux](virtual-network-manage-subnet.md).
    - **Serveurs DNS** : vous pouvez spécifier le serveur chargé d’assurer la résolution de noms pour les appareils connectés au réseau virtuel : le serveur DNS interne Azure ou le serveur DNS personnalisé. Lorsque vous créez un réseau virtuel via le portail Azure, par défaut, les serveurs DNS d’Azure sont utilisés pour la résolution de noms au sein du réseau virtuel. Pour modifier les serveurs DNS, procédez comme indiqué dans la section [Modifier les serveurs DNS](#change-dns-servers) de cet article.
-   - **Peerings** : s’il existe des peerings dans l’abonnement, ceux-ci sont listés ici. Vous pouvez afficher les paramètres des homologations existantes, ou créer, modifier ou supprimer des homologations. Pour en savoir plus sur les homologations, voir [Homologation de réseaux virtuels](virtual-network-peering-overview.md).
+   - **Peerings** : s’il existe des peerings dans l’abonnement, ceux-ci sont listés ici. Vous pouvez afficher les paramètres des peerings existants, ou créer, modifier ou supprimer des peerings. Pour en savoir plus sur les peerings, voir [Peering de réseaux virtuels](virtual-network-peering-overview.md).
    - **Propriétés** : affiche les paramètres du réseau virtuel, dont l’ID de ressource et l’abonnement Azure dans lequel il figure.
    - **Diagramme** : le diagramme fournit une représentation visuelle de tous les appareils connectés au réseau virtuel. Il comporte des informations clés sur les appareils. Pour gérer un appareil affiché dans le diagramme, sélectionnez-le.
    - **Paramètres Azure courants** : Pour en savoir plus sur les paramètres Azure communs, consultez les informations suivantes :
@@ -122,7 +122,7 @@ Pour ajouter ou supprimer une plage d’adresses :
 3. Sous **PARAMÈTRES**, sélectionnez **Espace d'adressage**.
 4. Choisissez l'une des options suivantes :
     - **Ajouter une plage d’adresses** : entrez la nouvelle plage d’adresses. La plage d’adresses ne peut pas chevaucher une plage d’adresses existante définie pour le réseau virtuel.
-    - **Supprimer une plage d’adresses** : à droite de la plage d’adresses à supprimer, sélectionnez **...**, puis **Supprimer**. S’il existe déjà un sous-réseau dans la plage d’adresses, vous ne pouvez pas supprimer la plage. Avant de supprimer une plage d’adresses, vous devez supprimer tous les sous-réseaux (et toutes les ressources des sous-réseaux) existant dans celle-ci.
+    - **Supprimer une plage d’adresses** : à droite de la plage d’adresses à supprimer, sélectionnez **...** , puis **Supprimer**. S’il existe déjà un sous-réseau dans la plage d’adresses, vous ne pouvez pas supprimer la plage. Avant de supprimer une plage d’adresses, vous devez supprimer tous les sous-réseaux (et toutes les ressources des sous-réseaux) existant dans celle-ci.
 5. Sélectionnez **Enregistrer**.
 
 **Commandes**

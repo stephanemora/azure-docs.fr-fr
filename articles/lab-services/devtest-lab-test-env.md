@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 58ab6d502ec5397604c562aedffddb9f48cbb699
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c6b458091a8e5e22cca55d401e89e5e13bcf9de9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697396"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60623174"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Utiliser Azure DevTest Labs pour les environnements de test de machine virtuelle et PaaS
 
@@ -56,7 +56,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs u
    
    | Tâche | Contenu |
    | --- | --- |
-   | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Découvrez comment mettre sur liste verte des images Azure Marketplace afin que seules les images souhaitées pour la formation soient sélectionnables pour les testeurs.|
+   | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Découvrez comment mettre sur liste blanche des images Azure Marketplace afin que seules les images souhaitées pour la formation soient sélectionnables pour les testeurs.|
    | [Créer une image personnalisée](devtest-lab-create-template.md) |Créez une image personnalisée en préinstallant les logiciels dont vous avez besoin afin que les testeurs puissent créer rapidement une machine virtuelle à l’aide de cette image.|
    | [Découvrir la fabrique d’images](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Regardez une vidéo expliquant comment configurer et utiliser une fabrique d’images.|
 

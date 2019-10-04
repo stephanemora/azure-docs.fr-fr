@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour sélectionner un périphérique d’entrée audio avec le SDK Speech - Services Speech
+title: Sélection d’un périphérique d’entrée audio avec le kit de développement logiciel (SDK) Speech – ServiceSpeech
 titleSuffix: Azure Cognitive Services
 description: Découvrez la sélection de périphériques d’entrée audio dans le SDK Speech.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 2/20/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8324f9fccbe46cf6fc0ce297aac29b0d8025b078
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010377"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562727"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Sélectionner un périphérique d’entrée audio avec le SDK Speech
 

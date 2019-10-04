@@ -1,0 +1,109 @@
+- name: Documentation Personalizer
+  href: index.yml
+- name: Vue d'ensemble
+  expanded: true
+  items:
+    - name: "Qu’est-ce que Personalizer\_?"
+      href: what-is-personalizer.md
+      displayName: 'loop, context, feature, action, rank, reward, developer, use case'
+    - name: Nouveautés
+      href: whats-new.md
+      displayName: 'release notes, service updates, videos'
+- name: Démarrages rapides
+  items:
+    - name: 'Utilisation de C#'
+      href: csharp-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, c#'
+    - name: Utilisation de Node.js
+      href: quickstart-command-line-feedback-loop-nodejs-sdk.md
+      displayName: 'code, sample, quickstart, node, npm, sdk'
+    - name: Utilisation de Python
+      href: python-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, python'
+- name: Concepts
+  items:
+    - name: Fonctionnement de Personalizer
+      href: how-personalizer-works.md
+      displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
+    - name: "Où utiliser Personalizer\_?"
+      href: where-can-you-use-personalizer.md
+      displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: Déontologie et utilisation responsable
+      href: ethics-responsible-use.md
+      displayName: 'best practice, design'
+    - name: Concepts fondamentaux
+      items:
+        - name: "Caractéristiques\_: action et contexte"
+          href: concepts-features.md
+          displayName: 'action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,'
+        - name: Apprentissage actif
+          href: concept-active-learning.md
+          displayName: 'active, inactive'
+        - name: Récompenses
+          href: concept-rewards.md
+          displayName: 'reward, wait time, default reward'
+        - name: Apprentissage par renforcement
+          href: concepts-reinforcement-learning.md
+          displayName: 'RL, contextual bandits, Vowpal Wabbit'
+        - name: Exploration
+          href: concepts-exploration.md
+    - name: Analyse
+      items:
+        - name: Évaluation hors connexion
+          href: concepts-offline-evaluation.md
+          displayName: 'learning policy, Counterfactual, features'
+        - name: Évaluation des fonctionnalités
+          href: concept-feature-evaluation.md
+    - name: Scalabilité et performance
+      href: concepts-scalability-performance.md
+- name: Guides pratiques
+  items:
+    - name: Créer et configurer Personalizer
+      href: how-to-settings.md
+      displayName: 'azure, portal, settings, evaluation, offline, policy, export, model'
+    - name: Analyser
+      items:
+        - name: Évaluation hors connexion
+          href: how-to-offline-evaluation.md
+- name: Informations de référence
+  items:
+    - name: Exemples
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092083'
+    - name: Référence sur les API REST
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092082'
+    - name: Kits SDK
+      items:
+        - name: .NET
+          items:
+            - name: Informations de référence
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet'
+            - name: "Package\_NuGet"
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: Go
+          items:
+            - name: Kit SDK
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer'
+        - name: Node.js
+          items:
+            - name: NPM
+              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
+        - name: Python
+          items:
+            - name: Package Pypi
+              href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
+- name: Ressources
+  items:
+    - name: Résolution de problèmes
+      href: troubleshooting.md
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Feuille de route Azure
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
+    - name: Tarifs
+      href: 'https://go.microsoft.com/fwlink/?linkid=2092154'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/personalizer'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/921562-personalizer'

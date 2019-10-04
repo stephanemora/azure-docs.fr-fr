@@ -16,11 +16,11 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.openlocfilehash: 757068034868744b408c9402b521a0e4c73950f7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338198"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60344612"
 ---
 # <a name="manage-access-to-azure-resources-with-azure-ad-privileged-identity-management"></a>Gérer l’accès aux ressources Azure avec Azure AD Privileged Identity Management
 
@@ -29,7 +29,7 @@ Pour protéger des comptes privilégiés contre les cyberattaques malveillantes,
 Vous pouvez maintenant utiliser PIM avec le contrôle d’accès en fonction du rôle (RBAC) Azure pour gérer, contrôler et surveiller l’accès aux ressources Azure. PIM peut gérer l’appartenance des rôles intégrés et personnalisés pour vous aider à : 
 
 - Activer à la demande l’accès aux ressources Windows Azure pendant une période précise (JIT)
-- Faire automatiquement expirer l’accès aux ressources pour des utilisateurs et groupes attribués 
+- Faire automatiquement expirer l’accès aux ressources pour des utilisateurs et groupes attribués
 - Attribuer un accès temporaire à des ressources Azure pour les tâches rapides ou les planifications de l’appel
 - Obtenir des alertes lorsque de nouveaux utilisateurs ou groupes se voient assigner un accès à des ressources, et lorsqu’ils activent des attributions éligibles
 

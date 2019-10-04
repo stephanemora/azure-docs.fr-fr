@@ -8,38 +8,42 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 70712b68cc26a461f702850dbf6064b65b4ff130
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f8d763f8bb228a0d4d83a3776f818d59939b942d
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999720"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559081"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor pour conteneurs - Forum Aux Questions (FAQ)
 
 Ce FAQ Microsoft est une liste de questions fréquemment posées au sujet d'Azure Monitor pour conteneurs (préversion). Si vous avez d’autres questions sur la solution, rendez-vous sur le [forum de discussion](https://feedback.azure.com/forums/34192--general-feedback) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
 
-## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>Pourquoi ne pas voir les données dans mon espace de travail Analytique de journal ?
+## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>Puis-je surveiller mon cluster AKS-Engine avec Azure Monitor pour les conteneurs ?
 
-Si vous ne pouvez pas voir toutes les données dans l’espace de travail Analytique de journal à une certaine tous les jours de temps, vous avez peut-être atteint la limite de 500 Mo par défaut ou la limite quotidienne spécifié pour contrôler la quantité de données à collecter tous les jours. Lorsque la limite est atteinte pour la journée, la collecte de données s’interrompt et reprend uniquement sur le jour suivant. Pour vérifier votre utilisation des données et mettre à jour vers un autre niveau tarifaire en fonction de vos modèles d’utilisation anticipée, consultez [consigner l’utilisation des données et coût](../platform/manage-cost-storage.md). 
+Azure Monitor pour conteneurs prend en charge la surveillance des charges de travail de conteneur déployées sur un ou plusieurs clusters AKS-Engine (anciennement ACS-Engine) hébergés sur Azure. Pour plus d’informations et une vue d’ensemble des étapes requises pour l’activation de la surveillance dans le cadre de ce scénario, voir [Utilisation d’Azure Monitor pour conteneurs pour AKS-Engine ](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
-## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>Quelles sont les États de conteneur spécifiés dans la table ContainerInventory ?
+## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>Pourquoi est-ce que je ne vois pas de données dans mon espace de travail Log Analytics ?
+
+Si vous ne voyez pas de données dans l’espace de travail Log Analytics à un moment donné de la journée, il est possible que vous ayez atteint la limite de 500 Mo par défaut ou la limite quotidienne spécifiée pour contrôler la quantité de données à collecter chaque jour. Lorsque la limite est atteinte pour la journée, la collecte de données s’interrompt et ne reprend que sur le jour suivant. Pour vérifier votre utilisation des données et mettre à jour vers un autre niveau tarifaire en fonction de vos modèles d’utilisation anticipée, consultez [Log data usage and cost](../platform/manage-cost-storage.md) (Utilisation et coût de données de journal). 
+
+## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>Quels sont les états des conteneurs spécifiés dans la table ContainerInventory ?
 
 La table ContainerInventory contient des informations sur les conteneurs arrêtés et en cours d'exécution. La table est renseignée par un flux de travail situé au sein de l’agent qui interroge le docker pour tous les conteneurs (en cours d’exécution et arrêtés) et transmet ces données à l’espace de travail Log Analytics.
  
-## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Comment résoudre **inscription de l’abonnement manquant** erreur ?
+## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Comment puis-je résoudre l’erreur *Missing Subscription registration* (Inscription d’abonnement manquante) ?
 
-Si vous recevez l’erreur **l’enregistrement d’abonnement manquant pour Microsoft.OperationsManagement**, vous pouvez y remédier en inscrivant le fournisseur de ressources **Microsoft.OperationsManagement** dans le abonnement dans lequel l’espace de travail est défini. La documentation contenant la procédure à suivre est disponible [ici](../../azure-resource-manager/resource-manager-register-provider-errors.md).
+Si vous recevez l’erreur **Missing Subscription registration** (Inscription d’abonnement manquante), vous pouvez y remédier en inscrivant le fournisseur de ressources **Microsoft.OperationsManagement** dans l’abonnement où l’espace de travail est défini. La documentation contenant la procédure à suivre est disponible [ici](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 
-## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Existe-t-il une prise en charge pour les clusters AKS compatibles avec le RBAC ?
+## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Existe-t-il une prise en charge pour les clusters AKS avec RBAC activé ?
 
-La solution Container Monitoring ne prend pas en charge RBAC, mais il est pris en charge avec Azure Monitor pour les conteneurs. La page des détails de la solution peut ne pas afficher les bonnes informations sur les panneaux qui présentent les données de ces clusters.
+La solution Container Monitoring ne prend pas en charge RBAC, mais il est pris en charge avec Azure Monitor pour conteneurs. La page des détails de la solution peut ne pas afficher les bonnes informations sur les panneaux qui présentent les données de ces clusters.
 
 ## <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Comment puis-je activer la collecte des journaux pour les conteneurs de l'espace de noms kube-system via Helm ?
 
-Par défaut, la collecte des journaux des conteneurs de l'espace de noms kube-system est désactivée. La collecte des journaux peut être activée en définissant une variable d'environnement sur l'agent omsagent. Pour plus d’informations, consultez le [Azure Monitor pour les conteneurs](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) page GitHub. 
+Par défaut, la collecte des journaux des conteneurs de l'espace de noms kube-system est désactivée. La collecte des journaux peut être activée en définissant une variable d'environnement sur l'agent omsagent. Pour plus d’informations, consultez la page GitHub [Azure Monitor pour conteneurs](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers). 
 
 ## <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>Comment mettre à jour l'agent omsagent vers la dernière version disponible ?
 
@@ -60,22 +64,31 @@ console.log(json.stringify({
       }));
 ```
 
-Ces données ressemblera à l’exemple suivant dans Azure Monitor pour les journaux lorsque vous recherchez :
+Lorsque vous interrogerez les données dans Azure Monitor pour les journaux d’activité, celles-ci se présenteront comme dans l’exemple suivant :
 
 ```
 LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will not break this into multiple lines", "and you will receive":"all of them in log analytics", "as one": "log entry"}
 
 ```
 
-Pour en savoir plus, utilisez le [lien GitHub](https://github.com/moby/moby/issues/22920) suivant.
+Pour en savoir plus sur ce problème, utilisez le [lien GitHub](https://github.com/moby/moby/issues/22920) suivant.
 
-## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Comment résoudre des erreurs d’Azure AD quand activer les journaux en direct ? 
+## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Comment puis-je résoudre les erreurs Azure AD lorsque j’active les journaux d’activité dynamiques ? 
 
-L'erreur suivante peut apparaître : **La réponse à l’url spécifiée dans la demande ne correspond pas à l’URL de réponse configurées pour l’application : « < ID d’application\>'**. Vous trouverez la solution pour résoudre le problème dans l’article [comment afficher le conteneur journaux en temps réel avec Azure Monitor pour les conteneurs](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+L'erreur suivante peut apparaître : **L’URL de réponse spécifiée dans la requête ne correspond pas aux URL de réponse configurées pour l’application : « <ID application\> »** . Sa solution se trouve dans l’article [Affichage des journaux d’activité de conteneur en temps réel avec Azure Monitor pour conteneurs](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
-## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Pourquoi ne puis-je pas passer cluster après l’intégration ?
+## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Pourquoi ne puis-je pas mettre à niveau un cluster après l’intégration ?
 
-Si après avoir activé Azure Monitor pour les conteneurs d’un cluster AKS, vous supprimez l’espace de travail Analytique de journal du cluster a été envoyant ses données, lorsque vous tentez de mettre à niveau le cluster échouera. Pour contourner ce problème, vous devrez désactiver l’analyse, puis réactiver faisant référence à un autre espace de travail valide dans votre abonnement. Lorsque vous essayez d’effectuer la mise à niveau de cluster à nouveau, il doit traiter et terminer avec succès.  
+Après avoir activé Azure Monitor pour conteneurs pour un cluster AKS, si vous supprimez l’espace de travail Log Analytics auquel le cluster envoyait ses données, le cluster échoue lorsque vous tentez de le mettre à niveau. Pour contourner ce problème, vous devez désactiver la supervision, puis la réactiver en faisant référence à un autre espace de travail valide dans votre abonnement. Lorsque vous réessayez de mettre le cluster à niveau, il doit être traité et s’effectuer correctement.  
+
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Quels ports et domaines dois-je ouvrir/mettre sur liste verte pour l’agent ?
+- *.ods.opinsights.azure.com   443
+- *.oms.opinsights.azure.com   443
+- *.blob.core.windows.net      443
+- dc.services.visualstudio.com 443
+- *.microsoftonline.com        443
+- *.monitoring.azure.com       443
+- login.microsoftonline.com    443
 
 ## <a name="next-steps"></a>Étapes suivantes
 

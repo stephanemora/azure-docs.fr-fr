@@ -1,35 +1,35 @@
 ---
-title: 'Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell'
-description: Dans ce tutoriel, vous découvrez comment déployer et configurer un pare-feu Azure avec Azure PowerShell.
+title: Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
+description: Dans cet article, vous apprendrez à déployer et configurer un pare-feu Azure à l'aide d'Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 3/18/2019
+ms.topic: article
+ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7beb3d986b016688c4ee0a512b9406dbf3dfbb40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a9987808feb895276f3f9e62fe66c1b353b52e72
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051697"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073079"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
+# <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
 Lorsque vous connectez votre réseau local à un réseau virtuel Azure pour créer un réseau hybride, la possibilité de contrôler l’accès à vos ressources réseau Azure représente une part importante dans un plan de sécurité générale.
 
 Vous pouvez utiliser le Pare-feu Azure pour contrôler l’accès réseau d’un réseau hybride à l’aide de règles définissant le trafic réseau autorisé et refusé.
 
-Pour ce tutoriel, vous créez trois réseaux virtuels :
+Pour cet article, vous créerez trois réseaux virtuels :
 
 - **VNet-Hub** : Le pare-feu se trouve dans ce réseau virtuel.
 - **VNet-Spoke** : Le réseau virtuel spoke correspond à la charge de travail sur Azure.
-- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion ExpressRoute. Par souci de simplicité, ce tutoriel utilise une connexion de passerelle VPN, sachant qu’un réseau virtuel situé sur Azure est utilisé pour représenter un réseau local.
+- **VNet-Onprem** : Le réseau virtuel local représente un réseau local. Dans un déploiement réel, il peut être connecté via un VPN ou une connexion ExpressRoute. Par souci de simplicité, cet article utilise une connexion de passerelle VPN, et un réseau virtuel Azure est utilisé pour représenter un réseau local.
 
 ![Pare-feu dans un réseau hybride](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Déclarer les variables
@@ -43,12 +43,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer les machines virtuelles
 > * Tester le pare-feu
 
+Si vous préférez utiliser le portail Azure pour suivre ce didacticiel, reportez-vous à [Didacticiel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l'aide du portail Azure](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour ce tutoriel, vous devez exécuter PowerShell localement. Les modules Azure PowerShell doivent être installés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
+Pour cet article, vous devez exécuter PowerShell localement. Les modules Azure PowerShell doivent être installés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
 Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 
@@ -56,14 +57,14 @@ Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 - Un UDR sur le sous-réseau de passerelle hub doit pointer vers l’adresse IP du pare-feu comme prochain tronçon pour les réseaux spoke.
 
    Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
-- Assurez-vous de définir **AllowGatewayTransit** lors de l’appairage de VNet-Hub avec VNet-Spoke et **UseRemoteGateways** lors de l’appairage de VNet-Spoke avec VNet-Hub.
+- Assurez-vous de définir **AllowGatewayTransit** lors du peering de VNet-Hub avec VNet-Spoke et **UseRemoteGateways** lors du peering de VNet-Spoke avec VNet-Hub.
 
-Consultez la section [Créer des itinéraires](#create-the-routes) de ce didacticiel pour voir comment ces itinéraires sont créés.
+Pour plus d'informations sur la création de ces itinéraires, consultez la section [Créer des itinéraires](#create-the-routes) de cet article.
 
 >[!NOTE]
->Le Pare-feu Azure doit avoir une connectivité Internet directe. Par défaut, AzureFirewallSubnet doit autoriser uniquement un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet**.
+>Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe. Par défaut, Pare-feu Azure ne prend en charge le tunneling forcé vers un réseau local.
 >
->Si vous avez activé le tunneling forcé localement via ExpressRoute ou Application Gateway, vous devez configurer explicitement UDR 0.0.0.0/0 avec la valeur NextHopType définie sur **Internet**, puis l’associer à votre AzureFirewallSubnet. Si votre organisation a besoin d’un tunneling forcé pour le trafic du pare-feu Azure, contactez le support technique pour qu’il ajoute votre abonnement à la liste verte afin de garantir le maintien de la connectivité Internet du pare-feu.
+>Toutefois, si votre configuration nécessite un tunneling forcé vers un réseau local, Microsoft le prendra en charge au cas par cas. Contactez le support technique afin qu’il puisse étudier votre cas. Si votre dossier est accepté, nous ajouterons votre abonnement à la liste verte afin de garantir le maintien de la connectivité Internet du pare-feu.
 
 >[!NOTE]
 >Le trafic entre les réseaux virtuels directement appairés est acheminé directement même si l’UDR pointe vers le Pare-feu Azure en tant que passerelle par défaut. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, un UDR doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.
@@ -74,7 +75,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="declare-the-variables"></a>Déclarer les variables
 
-L’exemple suivant déclare les variables avec les valeurs de ce didacticiel. Dans certains cas, vous devrez peut-être remplacer certaines valeurs par les vôtres pour travailler dans votre abonnement. Si besoin, modifiez les variables, puis copiez et collez-les dans la console PowerShell.
+L'exemple suivant déclare les variables à l'aide des valeurs de cet article. Dans certains cas, vous devrez peut-être remplacer certaines valeurs par les vôtres pour travailler dans votre abonnement. Si besoin, modifiez les variables, puis copiez et collez-les dans la console PowerShell.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -118,7 +119,7 @@ $SNnameGW = "GatewaySubnet"
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Créer le réseau virtuel du hub de pare-feu
 
-Tout d’abord, créez le groupe de ressources qui doit contenir les ressources de ce tutoriel :
+Commencez par créer le groupe de ressources qui doit contenir les ressources de cet article :
 
 ```azurepowershell
   New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -138,7 +139,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-Demandez l’allocation d’une adresse IP publique destinée à la passerelle VPN que vous allez créer pour votre réseau virtuel. Notez que la valeur *AllocationMethod* est **dynamique**. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle VPN de façon dynamique. 
+Demandez l’allocation d’une adresse IP publique destinée à la passerelle VPN que vous allez créer pour votre réseau virtuel. Notez que la valeur *AllocationMethod* est **dynamique**. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle VPN de façon dynamique.
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -177,7 +178,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-Demandez l’allocation d’une adresse IP publique destinée à la passerelle que vous allez créer pour le réseau virtuel. Notez que la valeur *AllocationMethod* est **dynamique**. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle de façon dynamique. 
+Demandez l’allocation d’une adresse IP publique destinée à la passerelle que vous allez créer pour le réseau virtuel. Notez que la valeur *AllocationMethod* est **dynamique**. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle de façon dynamique.
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -471,7 +472,7 @@ Vous devez voir la page Internet Information Services par défaut.
 
 Votre connexion doit réussir et vous devriez pouvoir vous connecter à l’aide de votre nom d’utilisateur et de votre mot de passe.
 
-Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
+Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 
 <!---- You can ping the server on the spoke VNet.--->
 - Vous pouvez parcourir le serveur web sur le réseau virtuel spoke.
@@ -496,5 +497,4 @@ Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, 
 
 Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure.
 
-> [!div class="nextstepaction"]
-> [Didacticiel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)
+[Didacticiel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)

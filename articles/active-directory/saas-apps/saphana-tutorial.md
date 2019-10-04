@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : intégration d’Azure Active Directory à SAP HANA | Microsoft Docs'
+title: 'Didacticiel : intégration d’Azure Active Directory à SAP HANA | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP HANA.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 231b9b6d217a9ad1fe5f4a6478f5e8799257b92b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091626"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutoriel : intégration d’Azure Active Directory à SAP HANA
+# <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Didacticiel : intégration d’Azure Active Directory à SAP HANA
 
 Dans ce didacticiel, vous allez apprendre à intégrer SAP HANA à Azure Active Directory (Azure AD).
 L’intégration de SAP HANA à Azure AD vous offre les avantages suivants :
@@ -64,7 +64,7 @@ Pour configurer l’intégration de SAP HANA à Azure AD, vous devez ajouter SA
 
 **Pour ajouter SAP HANA à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -135,7 +135,7 @@ Pour configurer l’authentification unique Azure AD avec SAP HANA, procédez co
 
     ![image](./media/saphana-tutorial/tutorial_usermailedit.png)
 
-    b. Dans la liste **Transformation**, sélectionnez **ExtractMailPrefix()**.
+    b. Dans la liste **Transformation**, sélectionnez **ExtractMailPrefix()** .
 
     c. Dans la liste **Paramètre 1**, sélectionnez **user.mail**.
 
@@ -195,7 +195,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

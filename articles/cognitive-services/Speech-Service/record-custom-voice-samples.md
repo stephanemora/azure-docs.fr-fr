@@ -1,5 +1,5 @@
 ---
-title: Enregistrer des échantillons vocaux personnalisés - Speech Services
+title: Enregistrer des échantillons vocaux personnalisés - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Créez une voix personnalisée de qualité production en préparant un script complet, en recrutant des voix professionnelles et en effectuant un enregistrement professionnel.
 services: cognitive-services
@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530737"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559198"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Enregistrer des échantillons vocaux pour créer une voix personnalisée
 
@@ -33,14 +32,14 @@ L’enregistrement d’une voix professionnelle implique de nombreux petits dét
 
 Un projet d’enregistrement d’une voix personnalisée implique quatre rôles de base :
 
-Rôle|Objectif
+Role|Objectif
 -|-
 Voix professionnelle        |La voix de cette personne servira de base à la voix personnalisée.
 Ingénieur du son  |Surveille les aspects techniques de l’enregistrement et commande le matériel d’enregistrement.
 Directeur            |Prépare le script et dirige l’enregistrement de la voix professionnelle.
 Éditeur              |Finalise les fichiers audio et prépare leur transfert vers le portail de la voix professionnelle.
 
-Une même personne peut remplir plusieurs rôles. Ce guide part du principe que vous tiendrez principalement le rôle de directeur et que recruterez la voix professionnelle et l’ingénieur du son. Si vous souhaitez effectuer vous-même les enregistrements, cet article fournit certaines informations sur le rôle d’ingénieur du son. Le rôle Éditeur n’est nécessaire qu’après la session, et peut donc être rempli par le directeur ou l’ingénieur du son.
+Une même personne peut remplir plusieurs rôles. Ce guide part du principe que vous tiendrez principalement le rôle de directeur et que vous recruterez la voix professionnelle et l’ingénieur du son. Si vous souhaitez effectuer vous-même les enregistrements, cet article fournit certaines informations sur le rôle d’ingénieur du son. Le rôle Éditeur n’est nécessaire qu’après la session, et peut donc être rempli par le directeur ou l’ingénieur du son.
 
 ## <a name="choose-your-voice-talent"></a>Choisir votre voix professionnelle
 
@@ -53,7 +52,7 @@ Choisissez une personne dont la voix naturelle vous plaît. Il est possible de c
 
 Le principal facteur quant au choix de la voix professionnelle est l’homogénéité. Vos enregistrements doivent donner l’impression qu’ils ont été réalisés le même jour et dans la même pièce. Pour tendre à cet idéal, vous devez suivre de bonnes pratiques en matière d’enregistrement et d’ingénierie.
 
-Votre voix professionnelle représente l’autre moitié de l’équation. Il ou elle doit être en mesure de parler en gardant un niveau constant de débit, de volume et de tonalité. Une parfaite diction est indispensable. L’acteur doit également être capable de contrôler de manière stricte ses variations de tonalité, ses émotions ou ses tics oraux.
+Votre voix professionnelle représente l’autre moitié de l’équation. Le débit, le volume, la hauteur et la tonalité de la voix doivent être réguliers. Une parfaite diction est indispensable. L’acteur doit aussi pouvoir contrôler de manière stricte ses variations de tonalité, ses émotions ou ses tics de langage.
 
 Les enregistrements d’échantillons de voix personnalisées peuvent être plus fatigants que d’autres types d’exercices vocaux. La plupart des voix professionnelles peuvent effectuer des sessions d’enregistrement de deux ou trois heures par jour. Limitez-vous à trois ou quatre sessions par semaine, en accordant si possible un jour de repos entre deux sessions.
 
@@ -109,7 +108,7 @@ Heureusement, il est possible d’éviter totalement ces problèmes. Il existe d
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Environ 1 100 phrases sélectionnées provenant d’œuvres libres de droits et destinées spécifiquement à des projets de synthèse vocale. C’est un excellent point de départ.|
 |Œuvres libres<br>de droits|Il s’agit en général, d’œuvres publiées avant 1923. En anglais, le [projet Gutenberg](https://www.gutenberg.org/) propose des dizaines de milliers de ces œuvres. Vous pouvez vous concentrer sur des œuvres plus récentes car leur contenu sera plus proche de l’anglais moderne.|
-|Œuvres&nbsp;du gouvernement|Aux États-Unis, les œuvres créées par le gouvernement américain ne sont pas soumises au copyright, mais cela peut être le cas dans d’autres pays.|
+|Œuvres&nbsp;du gouvernement|Les œuvres créées par l’état fédéral des États-Unis ne sont pas soumises au copyright, mais cela peut être le cas dans d’autres pays/régions.|
 |Domaine public|Œuvres pour lesquelles tout copyright a été explicitement exclu, ou qui sont destinées au domaine public. Certaines juridictions interdisent tout renoncement total au copyright.|
 |Œuvres cédées sous licence|Œuvres distribuées sous licence comme Creative Commons ou la Licence de documentation libre GNU (GFDL). Wikipédia utilise une licence GFDL. Certaines licences, toutefois, peuvent imposer des restrictions quant à une utilisation du contenu sous licence qui pourrait avoir un impact sur la création d’un modèle de voix personnalisée. Par conséquent, lisez attentivement la licence.|
 
@@ -117,7 +116,7 @@ Heureusement, il est possible d’éviter totalement ces problèmes. Il existe d
 
 Enregistrez votre script dans un studio d’enregistrement professionnel spécialisé dans le travail de la voix. Ce type de studio est équipé d’une cabine d’enregistrement, d’un équipement approprié et d’un personnel compétent formé à son utilisation. Veillez à ne pas négliger l’enregistrement.
 
-Discutez de votre projet avec l’ingénieur du son chargé de l’enregistrement et soyez attentif à ses conseils. L’enregistrement doit avoir peu voire aucune compression de plage dynamique (maximum 4:1). Il est essentiel que l’audio affiche un volume homogène et un rapport signal/bruit élevé, tout en étant exempt de sons parasites.
+Discutez de votre projet avec l’ingénieur du son chargé de l’enregistrement et écoutez ses conseils. L’enregistrement doit avoir peu voire aucune compression de plage dynamique (maximum 4:1). Il est essentiel que l’audio affiche un volume homogène et un rapport signal/bruit élevé, tout en étant exempt de sons parasites.
 
 ### <a name="do-it-yourself"></a>Faites-le vous-même
 
@@ -158,7 +157,7 @@ Dans l’idéal, différentes personnes occupent les rôles de directeur, ingén
 
 ### <a name="before-the-session"></a>Avant la session
 
-Pour éviter toute perdre de temps au studio, parcourez le script avec votre acteur avant la session d’enregistrement. À mesure qu’il se familiarise avec le texte, l’acteur apprendra à prononcer correctement les éventuels mots inconnus.
+Pour éviter toute perdre de temps au studio, parcourez le script avec votre acteur avant la session d’enregistrement. À mesure qu’il se familiarise avec le texte, l’acteur apprend à prononcer correctement les éventuels mots inconnus.
 
 > [!NOTE]
 > La plupart des studios d’enregistrement sont équipés d’un écran électronique pour afficher les scripts dans la cabine d’enregistrement. Dans ce cas, saisissez vos notes directement dans le document du script. Mais conservez une copie papier pour prendre des notes pendant la session. Les ingénieurs du son demandent aussi souvent une copie papier. Et gardez toujours une troisième copie imprimée en secours pour l’acteur, au cas où l’ordinateur tombe en panne.
@@ -196,7 +195,7 @@ Enregistrez cinq bonnes secondes de silence avant le premier enregistrement pour
 
 Pour chaque énoncé, notez sur le script le numéro de la prise ou le code temporel. Demandez également à l’ingénieur du son de marquer si possible chaque énoncé dans les métadonnées ou le « cue sheet » de l’enregistrement.
 
-Faites des pauses régulières et proposez une boisson à l’acteur pour maintenir une bonne qualité de voix.
+Faites régulièrement des pauses et proposez une boisson à l’acteur pour maintenir une bonne qualité de voix.
 
 ### <a name="after-the-session"></a>Après la session
 

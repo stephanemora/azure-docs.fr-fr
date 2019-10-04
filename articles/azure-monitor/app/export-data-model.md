@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/08/2018
+ms.date: 01/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 12025dfb93bbcfc86ae301f8fb63e7ac74697cf2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4f8fd0b317c17f142664d22291c23442dd49f970
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119270"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67053289"
 ---
 # <a name="application-insights-export-data-model"></a>Modèle d’exportation de données Application Insights
 Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits SDK [Application Insights](../../azure-monitor/app/app-insights-overview.md) au portail.
@@ -114,7 +114,7 @@ Points à noter :
 ## <a name="context"></a>Context
 Tous les types de données de télémétrie sont accompagnés d’une section de contexte. Tous ces champs ne sont pas transmis avec tous les points de données.
 
-| path | type | Notes |
+| path | Type | Notes |
 | --- | --- | --- |
 | context.custom.dimensions [0] |objet [ ] |Paires clé-valeur définies par le paramètre des propriétés personnalisées. Longueur maximale de clé 100, longueur maximale de valeur 1024. Plus de 100 valeurs uniques, la propriété peut faire l’objet d’une recherche, mais ne peut pas être utilisée pour la segmentation. 200 clés maximum par ikey. |
 | context.custom.metrics [0] |objet [ ] |Paires clé-valeur définies par le paramètre des mesures personnalisées et par TrackMetrics. Longueur maximale de clé 100, les valeurs peuvent être numériques. |
@@ -161,7 +161,7 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 ## <a name="events"></a>Événements
 Événements personnalisés générés par [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
-| path | type | Notes |
+| path | Type | Notes |
 | --- | --- | --- |
 | event [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | event [0] name |chaîne |Nom de l’événement.  Longueur maximale 250. |
@@ -172,7 +172,7 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 ## <a name="exceptions"></a>Exceptions
 Signale des [exceptions](../../azure-monitor/app/asp-net-exceptions.md) sur le serveur et dans le navigateur.
 
-| path | type | Notes |
+| path | Type | Notes |
 | --- | --- | --- |
 | basicException [0] assembly |chaîne | |
 | basicException [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
@@ -201,7 +201,7 @@ Signale des [exceptions](../../azure-monitor/app/asp-net-exceptions.md) sur le s
 ## <a name="trace-messages"></a>Messages de suivi
 Envoyé par [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) et par les [adaptateurs de journalisation](../../azure-monitor/app/asp-net-trace-logs.md).
 
-| path | type | Notes |
+| path | Type | Notes |
 | --- | --- | --- |
 | message [0] loggerName |chaîne | |
 | message [0] parameters |chaîne | |
@@ -211,7 +211,7 @@ Envoyé par [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tr
 ## <a name="remote-dependency"></a>Dépendance distante
 Envoyé par TrackDependency. Utilisé pour consigner les performances et l’utilisation des [appels aux dépendances](../../azure-monitor/app/asp-net-dependencies.md) dans le serveur, et des appels AJAX dans le navigateur.
 
-| path | type | Notes |
+| path | Type | Notes |
 | --- | --- | --- |
 | remoteDependency [0] async |booléenne | |
 | remoteDependency [0] baseName |chaîne | |
@@ -232,7 +232,7 @@ Envoyé par TrackDependency. Utilisé pour consigner les performances et l’uti
 ## <a name="requests"></a>Demandes
 Envoyées par [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Les modules standard les utilisent pour consigner le temps de réponse du serveur, mesuré sur le serveur.
 
-| path | type | Notes |
+| path | Type | Notes |
 | --- | --- | --- |
 | request [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple :  4 =&gt; 25 %. |
 | request [0] durationMetric.value |number |Délai entre l’arrivée de la requête et la réponse. 1e7 = 1s |
@@ -250,7 +250,7 @@ Envoyées par le navigateur. Mesure le temps de traitement d’une page, du lanc
 
 Les valeurs de contexte représentent la version de système d’exploitation et de navigateur du client.
 
-| path | type | Notes |
+| path | Type | Notes |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |integer |Délai entre la fin de la réception du code HTML et l’affichage de la page. |
 | clientPerformance [0] name |chaîne | |
@@ -267,7 +267,7 @@ Les valeurs de contexte représentent la version de système d’exploitation et
 ## <a name="page-views"></a>Affichages de pages
 Envoyé par trackPageView() ou [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
 
-| path | type | Notes |
+| path | Type | Notes |
 | --- | --- | --- |
 | view [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | view [0] durationMetric.value |integer |Valeur éventuellement définie dans trackPageView() ou par startTrackPage() - stopTrackPage(). Pas identique aux valeurs clientPerformance. |
@@ -280,7 +280,7 @@ Envoyé par trackPageView() ou [stopTrackPage](../../azure-monitor/app/api-custo
 ## <a name="availability"></a>Disponibilité
 Consigne les [tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md).
 
-| path | type | Notes |
+| path | Type | Notes |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |chaîne |Availability |
 | availability [0] availabilityMetric.value |number |1.0 ou 0.0 |
@@ -301,7 +301,7 @@ Généré par TrackMetric().
 
 La valeur de la métrique se trouve dans context.custom.metrics[0]
 
-Par exemple : 
+Par exemple :
 
     {
      "metric": [ ],
@@ -327,7 +327,7 @@ Par exemple :
     }
 
 ## <a name="about-metric-values"></a>À propos des valeurs de mesure
-Les valeurs de mesure, dans les rapports de mesure et ailleurs, sont consignées avec une structure d’objet standard. Par exemple : 
+Les valeurs de mesure, dans les rapports de mesure et ailleurs, sont consignées avec une structure d’objet standard. Par exemple :
 
       "durationMetric": {
         "name": "contoso.org",

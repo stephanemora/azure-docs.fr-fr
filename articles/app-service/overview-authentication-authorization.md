@@ -4,28 +4,28 @@ description: Référence et présentation conceptuelles de la fonctionnalité d�
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.date: 08/12/2019
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: e308b44fffff451daa92cbf19209a1bcbfd4bff6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402743"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70087979"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
 
 > [!NOTE]
-> À ce stade, AAD V2 (y compris MSAL) n’est pas pris en charge pour Azure App Services et Azure Functions. Veuillez consultez-la régulièrement.
+> À l’heure actuelle, AAD V2 (notamment MSAL) n’est pas pris en charge pour Azure App Services et Azure Functions. Revenez plus tard pour suivre l’évolution de la situation.
 >
 
 Azure App Service offre une prise en charge intégrée de l’authentification et de l’autorisation, qui vous permet de connecter les utilisateurs et d’accéder aux données sans avoir à écrire beaucoup de code dans votre application web, votre API RESTful et votre back end mobile, ainsi que dans [Azure Functions](../azure-functions/functions-overview.md). Cet article explique comment App Service contribue à simplifier l’authentification et l’autorisation de votre application. 
@@ -55,7 +55,7 @@ Le module, configuré à l’aide des paramètres de l’application, s’exécu
 
 ### <a name="user-claims"></a>Revendications d’utilisateur
 
-Pour toutes les infrastructures de langage, App Service rend les revendications de l’utilisateur accessibles à votre code en les insérant dans les en-têtes de demande. Dans le cas des applications ASP.NET 4.6, App Service remplit [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) avec les revendications de l’utilisateur authentifié, ce qui vous permet de suivre le modèle de code .NET standard, attribut `[Authorize]` compris. De même, pour les applications PHP, App Service remplit la variable `_SERVER['REMOTE_USER']`.
+Pour toutes les infrastructures de langage, App Service rend les revendications de l’utilisateur accessibles à votre code en les insérant dans les en-têtes de demande. Dans le cas des applications ASP.NET 4.6, App Service remplit [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) avec les revendications de l’utilisateur authentifié, ce qui vous permet de suivre le modèle de code .NET standard, attribut `[Authorize]` compris. De même, pour les applications PHP, App Service remplit la variable `_SERVER['REMOTE_USER']`. Pour les applications Java, les revendications sont [accessibles depuis le servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
 Avec [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` n’est pas alimenté pour le code .NET, mais les revendications d’utilisateur se trouvent toujours dans les en-têtes de demande.
 
@@ -118,29 +118,26 @@ Dans le cas des navigateurs clients, App Service peut diriger automatiquement to
 
 ## <a name="authorization-behavior"></a>Comportement d’autorisation
 
-Sur le [Portail Azure](https://portal.azure.com), vous pouvez configurer l’autorisation App Service avec différents comportements.
+Sur le [Portail Azure](https://portal.azure.com), vous pouvez configurer l’autorisation App Service avec différents comportements lorsque la requête entrante n’est pas authentifiée.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 Les titres suivants décrivent les options possibles.
 
-### <a name="allow-all-requests-default"></a>Autoriser toutes les demandes (par défaut)
+### <a name="allow-anonymous-requests-no-action"></a>Autoriser les requêtes anonymes (aucune action)
 
-L’authentification et l’autorisation ne sont pas gérées par App Service (désactivé). 
+Cette option permet de confier l’autorisation de trafic non authentifié à votre code d’application. Dans le cas des demandes authentifiées, App Service transmet également les informations d’authentification dans les en-têtes HTTP. 
 
-Choisissez cette option si vous n’avez pas besoin d’authentification ni d’autorisation, ou que vous souhaitez écrire votre propre code d’authentification et d’autorisation.
+Cette option assure un traitement plus souple des requêtes anonymes. Par exemple, il permet de [présenter plusieurs fournisseurs de connexion](app-service-authentication-how-to.md#use-multiple-sign-in-providers) aux utilisateurs. Vous devez cependant écrire du code. 
 
 ### <a name="allow-only-authenticated-requests"></a>Autoriser uniquement les demandes authentifiées
 
-L’option est **Se connecter avec \<fournisseur >**. App Service redirige toutes les demandes anonymes vers `/.auth/login/<provider>` pour le fournisseur choisi. Si la demande anonyme provient d’une application mobile native, la réponse retournée est `HTTP 401 Unauthorized`.
+L’option est **Se connecter avec \<fournisseur >** . App Service redirige toutes les demandes anonymes vers `/.auth/login/<provider>` pour le fournisseur choisi. Si la demande anonyme provient d’une application mobile native, la réponse retournée est `HTTP 401 Unauthorized`.
 
 Cette option évite d’avoir à écrire du code d’authentification dans l’application. Une autorisation plus fine, par exemple propre au rôle, peut être gérée en examinant les revendications de l’utilisateur (consultez la section [Accéder aux revendications utilisateur](app-service-authentication-how-to.md#access-user-claims)).
 
-### <a name="allow-all-requests-but-validate-authenticated-requests"></a>Autoriser toutes les demandes, mais valider les demandes authentifiées
-
-L’option est **Autoriser les requêtes anonymes**. Cette option active l’authentification et l’autorisation dans App Service, mais délègue les décisions d’autorisation au code de l’application. Dans le cas des demandes authentifiées, App Service transmet également les informations d’authentification dans les en-têtes HTTP. 
-
-Cette option assure un traitement plus souple des requêtes anonymes. Par exemple, il permet de [présenter plusieurs fournisseurs de connexion](app-service-authentication-how-to.md#use-multiple-sign-in-providers) aux utilisateurs. Vous devez cependant écrire du code. 
+> [!CAUTION]
+> Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications souhaitant une page d’accès publique disponible, comme dans de nombreuses applications à page unique.
 
 ## <a name="more-resources"></a>Autres ressources
 
@@ -150,12 +147,12 @@ Cette option assure un traitement plus souple des requêtes anonymes. Par exempl
 
 Guides pratiques propres à chaque fournisseur :
 
-* [Configurer votre application App Service pour utiliser la connexion Azure Active Directory][AAD]
-* [Comment configurer votre application App Service de manière à utiliser la connexion via Facebook][Facebook]
-* [Comment configurer votre application App Service de manière à utiliser la connexion via Google][Google]
-* [Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft][MSA]
-* [Comment configurer votre application App Service de manière à utiliser la connexion via Twitter][Twitter]
-* [Guide pratique : Utiliser l’authentification personnalisée pour votre application][custom-auth]
+* [Comment configurer votre application pour utiliser une connexion Azure Active Directory][AAD]
+* [Comment configurer votre application pour utiliser une connexion Facebook][Facebook]
+* [Comment configurer votre application pour utiliser une connexion Google][Google]
+* [Comment configurer votre application pour utiliser une connexion par compte Microsoft][MSA]
+* [Comment configurer votre application pour utiliser une connexion Twitter][Twitter]
+* [Guide pratique pour Utiliser l’authentification personnalisée pour votre application][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

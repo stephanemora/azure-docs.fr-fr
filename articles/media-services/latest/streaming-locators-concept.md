@@ -9,38 +9,98 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/26/2019
 ms.author: juliako
-ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 5897b7df2460257784c40eb974c473573ec4003d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66299166"
 ---
 # <a name="streaming-locators"></a>Localisateurs de diffusion en continu
 
-Pour rendre les vidéos dans la ressource de sortie disponibles en lecture pour les clients, vous devez créer un [localisateur de diffusion en continu](https://docs.microsoft.com/rest/api/media/streaminglocators) , puis générer des URL de diffusion en continu. Pour un exemple .NET, consultez [Obtenir un localisateur de diffusion en continu](stream-files-tutorial-with-api.md#get-a-streaming-locator).
+Pour rendre les vidéos dans la ressource de sortie disponibles en lecture pour les clients, vous devez créer un [localisateur de diffusion en continu](https://docs.microsoft.com/rest/api/media/streaminglocators) , puis générer des URL de diffusion en continu. Pour générer une URL, vous devez concaténer le nom d’hôte du point de terminaison de streaming et le chemin du localisateur de streaming. Pour un exemple .NET, consultez [Obtenir un localisateur de diffusion en continu](stream-files-tutorial-with-api.md#get-a-streaming-locator).
 
 Le processus de création d’un **localisateur de streaming** est appelée « publication ». Par défaut, le **localisateur de streaming** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
 
-Lors de la création d’un **Localisateur de diffusion en continu**, vous devez spécifier le nom [Ressource](https://docs.microsoft.com/rest/api/media/assets) et le nom [Stratégie de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingpolicies). Vous pouvez utiliser l’une des stratégies de diffusion en continu prédéfinies ou en créer une personnalisée. Voici les stratégies prédéfinies disponibles actuellement : « Predefined_DownloadOnly », « Predefined_ClearStreamingOnly », « Predefined_DownloadAndClearStreaming », « Predefined_ClearKey », « Predefined_MultiDrmCencStreaming » et « Predefined_MultiDrmStreaming ». Lorsque vous utilisez une stratégie de diffusion en continu personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos localisateurs de diffusion en continu chaque fois que les mêmes protocoles et options sont nécessaires. 
+Lors de la création d’un **Localisateur de streaming**, vous devez spécifier un nom **Ressource** et un nom **Stratégie de streaming**. Pour plus d’informations, consultez les rubriques suivantes :
 
-Si vous voulez spécifier des options de chiffrement sur votre flux, créez la [stratégie de clé de contenu](https://docs.microsoft.com/rest/api/media/contentkeypolicies) qui configure la façon dont la clé de contenu est remise aux clients finaux via le composant de remise de clé de Media Services. Associez votre localisateur de diffusion en continu à la **stratégie de la clé de contenu** et à la clé de contenu. Vous pouvez laisser Media Services générer automatiquement la clé. L’exemple .NET suivant montre comment configurer le chiffrement AES avec une restriction par jeton dans Media Services v3 : [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted). Les **stratégies de clé de contenu** peuvent être mises à jour, vous souhaiterez peut-être mettre à jour la stratégie si vous avez besoin d’effectuer une rotation de clé. Cela peut prendre jusqu’à 15 minutes pour que les caches de livraison de clés mettent à jour et récupèrent la stratégie mise à jour. Il est recommandé de ne pas créer une nouvelle stratégie de clé de contenu pour chaque localisateur de diffusion en continu. Vous devez tenter de réutiliser les stratégies existantes chaque fois que les mêmes options sont nécessaires.
+* [Éléments multimédias](assets-concept.md)
+* [Stratégies de diffusion en continu](streaming-policy-concept.md)
+* [Stratégies de clé de contenu](content-key-policy-concept.md)
 
-> [!IMPORTANT]
-> * Les propriétés des **localisateurs de diffusion en continu** de type DateHeure sont toujours au format UTC.
-> * Vous devez concevoir un ensemble limité de stratégies pour votre compte Media Services et les réutiliser pour vos éléments localisateurs de diffusion en continu chaque fois que les mêmes options sont nécessaires. 
+Vous pouvez également spécifier l’heure de début et de fin de votre localisateur de streaming pour permettre à votre utilisateur de lire ce contenu précis (par exemple, entre le 5/1/2019 et le 5/5/2019).  
 
-## <a name="associate-filters-with-streaming-locators"></a>Associer des filtres avec des localisateurs de diffusion en continu
+## <a name="considerations"></a>Considérations
 
-Vous pouvez spécifier une liste de [compte d’actif ou filtres](filters-concept.md), qui s’appliquera à votre [localisateur de diffusion en continu](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Le [l’empaquetage dynamique](dynamic-packaging-overview.md) s’applique à cette liste de filtres avec ceux de votre client spécifie l’URL. Cette combinaison génère une [dyanamic manifeste](filters-dynamic-manifest-overview.md), qui est basé sur les filtres dans l’URL + filtres que vous spécifiez dans le localisateur de diffusion en continu. Nous vous recommandons d’utiliser cette fonctionnalité si vous souhaitez appliquer des filtres, mais ne souhaitez pas exposer les noms de filtre dans l’URL.
+* Les **localisateurs de streaming** ne peuvent pas être mis à jour. 
+* Les propriétés des **localisateurs de diffusion en continu** de type DateHeure sont toujours au format UTC.
+* Vous devez concevoir un ensemble limité de stratégies pour votre compte Media Services et les réutiliser pour vos éléments localisateurs de diffusion en continu chaque fois que les mêmes options sont nécessaires. Pour plus d’informations, consultez [Quotas et limitations](limits-quotas-constraints.md).
 
-## <a name="filter-order-page-streaming-locator-entities"></a>Filtre, par ordre, les entités de localisateurs de diffusion en continu de page
+## <a name="create-streaming-locators"></a>Créer des localisateurs de streaming  
+
+### <a name="not-encrypted"></a>Non chiffré
+
+Si vous souhaitez diffuser votre fichier en clair (sans chiffrement), configurez la stratégie de diffusion en continu en clair prédéfinie : « Predefined_ClearStreamingOnly » (dans .NET, vous pouvez utiliser l'enum PredefinedStreamingPolicy.ClearStreamingOnly).
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly
+    });
+```
+
+### <a name="encrypted"></a>Chiffré 
+
+Si vous devez chiffrer votre contenu avec le chiffrement CENC, définissez votre stratégie sur « Predefined_MultiDrmCencStreaming ». Le chiffrement Widevine est appliqué à un flux de données DASH et PlayReady à Smooth. La clé est envoyée à un client de lecture en fonction des licences DRM configurées.
+
+```csharp
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = "Predefined_MultiDrmCencStreaming",
+        DefaultContentKeyPolicyName = contentPolicyName
+    });
+```
+
+Si vous souhaitez également chiffrer votre flux HLS avec CBCS (FairPlay), utilisez la stratégie « Predefined_MultiDrmStreaming ».
+
+## <a name="associate-filters-with-streaming-locators"></a>Associer des filtres à des localisateurs de streaming
+
+Consultez [Associer des filtres à des localisateurs de streaming](filters-concept.md#associating-filters-with-streaming-locator).
+
+## <a name="filter-order-page-streaming-locator-entities"></a>Filtre, trier et paginer les entités du localisateur de streaming
 
 Consultez [Filtrage, tri et pagination des entités Media Services](entities-overview.md).
 
+## <a name="list-streaming-locators-by-asset-name"></a>Lister les localisateurs de streaming par nom de ressource
+
+Pour obtenir des localisateurs de streaming en fonction du nom de ressource associé, utilisez les opérations suivantes :
+
+|Langage|API|
+|---|---|
+|REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
+|Interface de ligne de commande|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
+|.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
+|Java|[AssetStreamingLocator](https://docs.microsoft.com/java/api/com.microsoft.azure.management.mediaservices.v2018_07_01.assetstreaminglocator?view=azure-java-stable)|
+|Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/assets?view=azure-node-latest#liststreaminglocators-string--string--string--object-)|
+
+## <a name="also-see"></a>Voir aussi
+
+* [Éléments multimédias](assets-concept.md)
+* [Stratégies de diffusion en continu](streaming-policy-concept.md)
+* [Stratégies de clé de contenu](content-key-policy-concept.md)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET](stream-files-tutorial-with-api.md)
-* [Utilisation du chiffrement dynamique DRM et du service de remise des licences](protect-with-drm.md)
+[Tutoriel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET](stream-files-tutorial-with-api.md)

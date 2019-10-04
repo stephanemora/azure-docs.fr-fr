@@ -1,19 +1,19 @@
 ---
 title: Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Découvrez les bonnes pratiques pour l’ingestion des données, la sécurité des données et les performances liées à l’utilisation d’Azure Data Lake Storage Gen2 (anciennement Azure Data Lake Store).
-services: storage
-author: sachinsbigdata
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: sachins
-ms.openlocfilehash: e371ac848eff0e66390fe17bc23934725fca35f9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.author: normesta
+ms.reviewer: sachins
+ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000604"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69991868"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2
 
@@ -31,17 +31,17 @@ Une fois que vous avez assigné les autorisations à un groupe de sécurité, aj
 
 ### <a name="security-for-groups"></a>Sécurité liée aux groupes
 
-Quand vos utilisateurs ou vous-même avez besoin d’accéder aux données dans un compte de stockage avec espace de noms hiérarchique activé, il est préférable d’utiliser des groupes de sécurité Azure Active Directory. Certains recommandé de commencer par les groupes peuvent être **ReadOnlyUsers**, **WriteAccessUsers**, et **FullAccessUsers** pour la racine du système de fichiers et même séparer ceux pour sous-répertoires de clé. S’il y a d’autres groupes ou utilisateurs attendus qui pourraient être ajoutés plus tard, mais non identifiés à l’heure actuelle, vous devriez réfléchir à créer des groupes de sécurité test qui peuvent accéder à certains dossiers. L’utilisation d’un groupe de sécurité vous évite de perdre du temps plus tard lors de l’assignation de nouvelles autorisations à des milliers de fichiers.
+Quand vos utilisateurs ou vous-même avez besoin d’accéder aux données dans un compte de stockage avec espace de noms hiérarchique activé, il est préférable d’utiliser des groupes de sécurité Azure Active Directory. Parmi les groupes recommandés pour démarrer, citons **ReadOnlyUsers**, **WriteAccessUsers** et **FullAccessUsers** pour la racine du conteneur, et même d’autres pour des sous-répertoires clés. S’il y a d’autres groupes ou utilisateurs attendus qui pourraient être ajoutés plus tard, mais non identifiés à l’heure actuelle, vous devriez réfléchir à créer des groupes de sécurité test qui peuvent accéder à certains dossiers. L’utilisation d’un groupe de sécurité vous évite de perdre du temps plus tard lors de l’assignation de nouvelles autorisations à des milliers de fichiers.
 
 ### <a name="security-for-service-principals"></a>Sécurité liée aux principaux de service
 
-Les principaux de service Azure Active Directory sont en général utilisés par des services tels qu’Azure Databricks pour accéder aux données dans Data Lake Storage Gen2. Pour de nombreux clients, un principal de service Azure Active Directory unique peut être adéquat, et il peut avoir des autorisations complètes à la racine du système de fichiers Data Lake Storage Gen2. D’autres clients peuvent avoir besoin de plusieurs clusters avec différents principaux de service, où un cluster dispose de tous les accès aux données, et un autre de l’accès en lecture. 
+Les principaux de service Azure Active Directory sont en général utilisés par des services tels qu’Azure Databricks pour accéder aux données dans Data Lake Storage Gen2. Pour de nombreux clients, un seul principal de service Azure Active Directory peut suffire, et ce dernier peut disposer de toutes les autorisations à la racine du conteneur Data Lake Storage Gen2. D’autres clients peuvent avoir besoin de plusieurs clusters avec différents principaux de service, où un cluster dispose de tous les accès aux données, et un autre de l’accès en lecture. 
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Activer le pare-feu Data Lake Storage Gen2 avec accès au service Azure
 
-Data Lake Storage Gen2 prend en charge l’option d’activation d’un pare-feu et de limitation de l’accès uniquement aux services Azure, ce qui est recommandé pour limiter le vecteur d’attaques extérieures. Le pare-feu peut être activé sur un compte de stockage dans le portail Azure par le biais des options **Pare-feu** > **Activer le pare-feu (ON)** > **Autoriser l’accès aux services Azure**.
+Data Lake Storage Gen2 prend en charge l’option d’activation d’un pare-feu et de limitation de l’accès uniquement aux services Azure, ce qui est recommandé pour limiter le vecteur d’attaques extérieures. Le pare-feu peut être activé sur un compte de stockage dans le portail Azure par le biais des options **Pare-feu** > **Activer le pare-feu (ON)**  > **Autoriser l’accès aux services Azure**.
 
-L’ajout de clusters Azure Databricks à un réseau virtuel susceptible de se voir accorder un accès par le biais du pare-feu de stockage nécessite l’utilisation d’une fonctionnalité en préversion de Databricks. Pour activer cette fonctionnalité, soumettez une demande de support.
+Pour accéder à votre compte de stockage depuis Azure Databricks, déployez Azure Databricks sur votre réseau virtuel, puis ajoutez ce réseau virtuel à votre pare-feu. Consultez [Configurer des pare-feu Stockage Azure et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ## <a name="resiliency-considerations"></a>Remarques relatives à la résilience
 
@@ -49,7 +49,7 @@ Lors de la conception de l’architecture d’un système avec Data Lake Storage
 
 ### <a name="high-availability-and-disaster-recovery"></a>Haute disponibilité et récupération d’urgence
 
-La haute disponibilité et la récupération d’urgence peuvent parfois être combinées, bien qu’elles aient chacune une stratégie légèrement différente, surtout lorsqu’il s’agit de données. Data Lake Storage Gen2 gère déjà trois réplications en arrière-plan pour se protéger contre des défaillances matérielles localisées. De plus, d’autres options de réplication, comme le stockage ZRS, améliorent la haute disponibilité, tandis que GRS & RA-GRS améliorent la reprise d’activité. Lorsque vous élaborez un plan pour la haute disponibilité, en cas d’interruption du service, la charge de travail doit accéder aux dernières données aussi vite que possible en passant à une instance répliquée séparément en local ou dans une nouvelle région.
+La haute disponibilité et la récupération d’urgence peuvent parfois être combinées, bien qu’elles aient chacune une stratégie légèrement différente, surtout lorsqu’il s’agit de données. Data Lake Storage Gen2 gère déjà trois réplications en arrière-plan pour se protéger contre des défaillances matérielles localisées. De plus, d’autres options de réplication, comme ZRS ou GZRS (préversion), améliorent la haute disponibilité, tandis que GRS & RA-GRS améliorent la récupération d'urgence. Lorsque vous élaborez un plan pour la haute disponibilité, en cas d’interruption du service, la charge de travail doit accéder aux dernières données aussi vite que possible en passant à une instance répliquée séparément en local ou dans une nouvelle région.
 
 Dans une stratégie de reprise d’activité, pour se préparer à une improbable défaillance catastrophique d’une région, il est aussi important de disposer de données répliquées dans une autre région à l’aide de la réplication GRS ou RA-GRS. Vous devez aussi tenir compte de vos exigences pour des cas extrêmes comme l’altération des données, où vous voudrez peut-être créer régulièrement des instantanés sur lesquels vous replier. En fonction de l’importance et de la taille des données, pensez à prendre des instantanés delta à intervalles de 1, 6 et 24 heures, en fonction des tolérances au risque.
 

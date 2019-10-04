@@ -4,7 +4,7 @@ description: Découvrez comment résoudre les problèmes de connexion de point �
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/11/2018
+ms.date: 09/30/2019
 ms.author: genli
-ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: cfa95f2aab5ba270aea0a36b037ae293b36c7b28
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492377"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695538"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
 
@@ -45,11 +45,10 @@ Pour résoudre ce problème, effectuez les opérations suivantes :
 
 2. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
-    | Certificat | Lieu |
+    | Certificat | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
-    | Azuregateway-*GUID*.cloudapp.net  | Utilisateur actuel\Autorités de certification racines de confiance|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Ordinateur local\Autorités de certification racines de confiance|
+    | AzureRoot.cer    | Ordinateur local\Autorités de certification racines de confiance|
 
 3. Accédez à C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, puis installez manuellement le certificat (fichier *.cer) dans le magasin de l’utilisateur et de l’ordinateur.
 
@@ -58,17 +57,17 @@ Pour en savoir plus sur la façon d’installer le certificat client, consultez 
 > [!NOTE]
 > Lorsque vous importez le certificat client, ne sélectionnez pas l’option **Activer la protection renforcée par clé privée**.
 
-## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie car le serveur distant ne répond pas
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie parce que le serveur distant ne répond pas
 
 ### <a name="symptom"></a>Symptôme
 
-Lorsque vous essayez et vous connecter à un gteway de réseau virtuel Azure à l’aide d’IKEv2 sur Windows, vous obtenez le message d’erreur suivant :
+Lorsque vous essayez de vous connecter à une passerelle de réseau virtuel Azure à l’aide d’IKEv2 sur Windows, vous obtenez le message d’erreur suivant :
 
-**La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie car le serveur distant ne répond pas**
+**La connexion réseau entre votre ordinateur et le serveur VPN n’a pas pu être établie parce que le serveur distant ne répond pas**
 
 ### <a name="cause"></a>Cause :
  
- Le problème se produit si la version de Windows n’a pas de prise en charge de la fragmentation IKE
+ Ce problème se produit lorsqu’une version de Windows ne prend pas en charge la fragmentation IKE.
  
 ### <a name="solution"></a>Solution
 
@@ -85,7 +84,7 @@ Pour préparer Windows 10 ou Server 2016 pour IKEv2 :
    | Windows 10 version 1709 | 22 mars 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. Définissez la valeur de clé de Registre. Créer ou de définir la clé REG_DWORD « HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload » sur 1 dans le Registre.
+2. Définissez la valeur de clé de Registre. Créez ou attribuez la valeur 1 à la clé REG_DWORD `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` dans le registre.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Erreur du client VPN : le message reçu était inattendu ou mis en forme de façon incorrecte
 
@@ -122,7 +121,7 @@ Lorsque vous essayez de vous connecter à un réseau virtuel Azure à l’aide d
 
 1. Assurez-vous que les certificats suivants se trouvent au bon emplacement :
 
-    | Certificat | Lieu |
+    | Certificat | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Utilisateur actuel\Personnel\Certificats |
     | Azuregateway-*GUID*.cloudapp.net  | Utilisateur actuel\Autorités de certification racines de confiance|
@@ -175,7 +174,7 @@ Extrayez le package de configuration du client VPN et localisez le fichier .cer.
 1. Ouvrez mmc.exe.
 2. Ajoutez le composant logiciel enfichable **Certificats**.
 3. Sélectionnez le compte **Ordinateur** de l’ordinateur local.
-4. Cliquez sur le nœud **Autorités de certification racines de confiance** avec le bouton droit de la souris. Cliquez sur **All-Task (Toutes les tâches)** > **Import**, puis naviguez vers le fichier .cer extrait du package de configuration du client VPN.
+4. Cliquez sur le nœud **Autorités de certification racines de confiance** avec le bouton droit de la souris. Cliquez sur **All-Task (Toutes les tâches)**  > **Import**, puis naviguez vers le fichier .cer extrait du package de configuration du client VPN.
 5. Redémarrez l'ordinateur. 
 6. Essayez d’installer le client VPN.
 
@@ -246,37 +245,11 @@ Si le certificat a atteint plus de 50 % de sa durée de vie, il est restauré.
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre ce problème, téléchargez à nouveau et redéployer le package Point à Site sur tous les clients.
+Pour résoudre ce problème, retéléchargez et redéployez le package point à site sur tous les clients.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Trop de clients VPN sont connectés
 
 Le nombre de connexions maximal est atteint. Vous pouvez voir le nombre total de clients connectés dans le portail Azure.
-
-## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>Le VPN de point à site ajoute incorrectement un itinéraire pour 10.0.0.0/8 à la table de routage
-
-### <a name="symptom"></a>Symptôme
-
-Lorsque vous appelez la connexion VPN sur le client de point à site, le client VPN doit ajouter un itinéraire vers le réseau virtuel Azure. Le service d’assistance IP doit ajouter un itinéraire pour le sous-réseau des clients VPN. 
-
-La plage de clients VPN appartient à un plus petit sous-réseau de 10.0.0.0/8, comme 10.0.12.0/24. Au lieu d’un itinéraire pour 10.0.12.0/24, un itinéraire pour 10.0.0.0/8 ayant une priorité plus élevée est ajouté. 
-
-Cet itinéraire incorrect arrête la connectivité avec d’autres réseaux locaux pouvant appartenir à un autre sous-réseau dans la plage 10.0.0.0/8, comme 10.50.0.0/24 qui ne possède pas d’itinéraire spécifique. 
-
-### <a name="cause"></a>Cause :
-
-Ce comportement est lié aux clients Windows. Lorsque le client utilise le protocole PPP IPCP, il obtient l’adresse IP de l’interface de tunnel à partir du serveur (la passerelle VPN dans ce cas). Cependant, à cause de la limitation du protocole, le client ne possède pas de masque de sous-réseau. Étant donné qu’il n’existe aucun autre moyen de l’obtenir, le client essaie de deviner le masque de sous-réseau en se basant sur la classe de l’adresse IP de l’interface de tunnel. 
-
-Par conséquent, un itinéraire est ajouté sur la base du mappage statique suivant : 
-
-Si l’adresse appartient à la classe A --> appliquer la valeur /8
-
-Si l’adresse appartient à la classe B --> appliquer la valeur /16
-
-Si l’adresse appartient à la classe C --> appliquer la valeur /24
-
-### <a name="solution"></a>Solution
-
-Injecter des itinéraires pour d’autres réseaux dans la table de routage avec la correspondance de préfixe la plus longue ou une métrique inférieure (donc ayant une priorité plus élevée) à celle de la connexion point à site. 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>Les clients VPN ne peuvent pas accéder aux partages de fichiers réseau
 
@@ -305,7 +278,7 @@ Supprimez la connexion VPN de point à site, puis réinstallez le client VPN. Da
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre le problème, supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>**, puis réexécutez le programme d’installation du client VPN.
+Pour résoudre le problème, supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** , puis réexécutez le programme d’installation du client VPN.
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>Le client VPN de point à site ne peut pas résoudre le nom de domaine complet des ressources dans le domaine local
 
@@ -329,7 +302,7 @@ Ce problème peut se produire si le client VPN n’obtient pas les itinéraires 
 
 ### <a name="solution"></a>Solution
 
-Pour résoudre ce problème, [réinitialisez la passerelle VPN Azure](vpn-gateway-resetgw-classic.md). Pour s’assurer que les nouvelles routes sont utilisées, les clients VPN point à site doivent être retéléchargés une fois que l’homologation de réseaux virtuels a été configurée avec succès.
+Pour résoudre ce problème, [réinitialisez la passerelle VPN Azure](vpn-gateway-resetgw-classic.md). Pour s’assurer que les nouvelles routes sont utilisées, les clients VPN point à site doivent être retéléchargés une fois que le peering de réseaux virtuels a été configuré avec succès.
 
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Error: « La fonction de révocation n’a pas pu vérifier la révocation, car le serveur de révocation était hors connexion (Erreur 0x80092013) ».
 
@@ -390,7 +363,7 @@ Ce problème peut être provoqué par des installations précédentes du client 
 
 ### <a name="solution"></a>Solution
 
-Supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>**, puis réexécutez le programme d’installation du client VPN. 
+Supprimez les anciens fichiers de configuration du client VPN à partir de **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** , puis réexécutez le programme d’installation du client VPN. 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>Le client VPN se met en veille prolongée ou en veille après un certain temps
 

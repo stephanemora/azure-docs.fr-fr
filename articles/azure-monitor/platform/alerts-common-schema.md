@@ -1,80 +1,80 @@
 ---
-title: Schéma d’alerte commun pour les alertes Azure monitor
-description: Présentation du schéma d’alerte courantes, pourquoi vous devez utiliser et comment l’activer
+title: Schéma d’alerte commun pour les alertes Azure Monitor
+description: Comprendre le schéma d’alerte commun, pourquoi vous devez l’utiliser et comment l’activer
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.author: robb
+ms.subservice: alerts
+ms.openlocfilehash: 9b142e00543d425b73c4102914bba2dd92c75b8b
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149374"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702925"
 ---
 # <a name="common-alert-schema"></a>Schéma d’alerte courant
 
-Cet article décrit ce qu’est le schéma d’alerte courantes, les avantages d’utilisation et comment l’activer.
+Cet article décrit le schéma d’alerte commun, les avantages que procure son utilisation et la façon de l’activer.
 
-## <a name="what-is-the-common-alert-schema"></a>Qu’est le schéma d’alerte commun ?
+## <a name="what-is-the-common-alert-schema"></a>Qu’est-ce que le schéma d’alerte commun ?
 
-Le schéma d’alerte commun standardise l’expérience de consommation pour les notifications d’alerte dans Azure dès aujourd'hui. Historiquement, les trois types d’alerte dans Azure dès aujourd'hui (mesures, journaux et journal d’activité) ont leurs propres modèles de courrier électronique, les schémas de webhook, etc. Avec le schéma d’alerte courantes, vous pouvez maintenant recevoir des notifications d’alerte avec un schéma cohérent.
+Le schéma d’alerte commun standardise l’expérience de consommation pour les notifications d’alerte dans Azure de nos jours. Les trois types d’alerte actuels dans Azure (métrique, journal et journal d’activité) ont traditionnellement eu leurs propres modèles d’e-mail, schémas de webhook, etc. Avec le schéma d’alerte commun, vous pouvez maintenant recevoir des notifications d’alerte avec un schéma cohérent.
 
-N’importe quelle instance d’alerte décrit **la ressource qui a été affectée** et **la cause de l’alerte**, et ces instances sont décrites dans le schéma commun dans les sections suivantes :
-* **Essentials**: Un ensemble de **standardisé champs**, parmi tous les types d’alerte, qui décrivent **quelle ressource** l’alerte est définie sur avec common alerte des métadonnées supplémentaires (par exemple, gravité ou la description). 
-* **Contexte de l’alerte**: Un ensemble de champs qui décrivent le **cause de l’alerte**, avec des champs qui varient **selon le type d’alerte**. Par exemple, une alerte de métrique aurait des champs tels que le nom de la mesure et la valeur métrique dans le contexte de l’alerte, tandis qu’une alerte de journal d’activité aurait plus d’informations sur l’événement qui a généré l’alerte. 
+Toute instance d’alerte décrit **la ressource qui a été affectée** et **la cause de l’alerte** ; ces instances sont décrites dans le schéma commun dans les sections suivantes :
+* **Informations de base** : ensemble de **champs standardisés**, commun à tous les types d’alerte, qui décrivent **quelle ressource** est concernée par l’alerte ainsi que des métadonnées d’alerte courantes supplémentaires (par exemple, la gravité ou un description). 
+* **Contexte de l’alerte** : ensemble de champs qui décrivent la **cause de l’alerte**, et qui varient **selon le type d’alerte**. Par exemple, une alerte de métrique aurait des champs tels que le nom de la métrique et la valeur de la métrique dans le contexte de l’alerte, tandis qu’une alerte de journal d’activité aurait des informations sur l’événement à l’origine de l’alerte. 
 
-Les scénarios d’intégration standard que nous entendons des clients impliquent le routage de l’instance d’alerte à l’équipe concernée en fonction de certains pivot (par exemple, le groupe de ressources), après laquelle l’équipe responsable commence à travailler dessus. Avec le schéma d’alerte courantes, peut avoir normalisé logique de routage entre les types d’alerte en exploitant les champs essentiels, en laissant les champs de contexte comme pour les équipes concernées approfondir vos recherches.
+Les scénarios d’intégration classiques dont nous font part nos clients impliquent le routage de l’instance d’alerte vers l’équipe concernée en fonction d’une information pivot (par exemple, le groupe de ressources), avant son traitement par cette équipe. Avec le schéma d’alerte commun, vous pouvez avoir une logique de routage standardisée entre les types d’alerte en exploitant les champs essentiels, laissant aux équipes concernées le soin d’approfondir éventuellement les recherches à partir des champs de contexte bruts.
 
-Cela signifie que vous pouvez avoir potentiellement moins d’intégrations, rendant le processus de gestion et de leur mise à jour un _beaucoup_ tâche plus simple. En outre, les enrichissements de charge utile et alerte futures (par exemple, personnalisation, diagnostic enrichissement, etc.) signalent uniquement inscrire dans le schéma commun.
+Cela signifie que vous pouvez avoir moins d’intégrations, qui dès lors sont _beaucoup_ plus simples à gérer et à mettre à jour. En outre, les enrichissements futurs des charges utiles d’alerte (par exemple, personnalisation, enrichissement des diagnostics, etc.) ne transparaîtront que dans le schéma commun.
 
-## <a name="what-enhancements-does-the-common-alert-schema-bring"></a>Quelles sont les améliorations qu’apporte le schéma d’alerte commun ?
+## <a name="what-enhancements-does-the-common-alert-schema-bring"></a>Quelles sont les améliorations apportées par le schéma d’alerte commun ?
 
-Le schéma commun de l’alerte sera principalement se manifester dans vos notifications d’alerte. Les améliorations que vous observerez sont répertoriées ci-dessous :
+Le schéma d’alerte commun se manifeste principalement dans vos notifications d’alerte. Les améliorations que vous verrez sont listées ci-dessous :
 
 | Action | Améliorations|
 |:---|:---|
-| sms | Un modèle SMS cohérent pour tous les types d’alerte. |
-| Email | Un modèle cohérent et détaillées un courrier électronique, ce qui vous permet de facilement diagnostiquer les problèmes en un clin de œil. Embedded profond des liens vers l’instance d’alerte sur le portail et de la ressource concernée vous assurer que vous pouvez rapidement accéder dans le processus de mise à jour. |
-| Runbook de Webhook/logique application/Azure/Automation (fonction) | Une JSON structure cohérente pour tous les types d’alertes, ce qui vous permet de créer facilement des intégrations entre les différents types d’alerte. |
+| sms | Modèle de SMS cohérent pour tous les types d’alerte. |
+| Email | Un modèle d’e-mail cohérent et détaillé, ce qui vous permet de facilement diagnostiquer les problèmes en un clin d’œil. Des liens profonds incorporés vers l’instance d’alerte sur le portail et la ressource affectée vous permettent d’accéder rapidement au processus de correction. |
+| Webhook/application logique/fonction Azure/runbook automation | Une structure JSON cohérente pour tous les types d’alertes, ce qui vous permet de générer facilement des intégrations entre les différents types d’alerte. |
 
-Le nouveau schéma permet également une expérience plus riche de la consommation d’alerte sur le portail Azure et l’application mobile Azure dans un futur proche. 
+En outre, le nouveau schéma enrichira l’expérience de consommation des alertes dans le portail Azure et Azure mobile app dans un futur proche. 
 
-[En savoir plus sur les définitions de schéma pour les Runbooks de fonctions/Automation/logique de Webhooks applications/Azure.](https://aka.ms/commonAlertSchemaDefinitions)
-
-> [!NOTE]
-> Les actions suivantes ne prennent pas en charge du schéma commun de l’alerte : Connecteur ITSM.
-
-## <a name="how-do-i-enable-the-common-alert-schema"></a>Comment activer le schéma d’alerte commun ?
-
-Vous pouvez accepter ou refuser pour le schéma d’alerte commun par le biais des groupes d’actions sur les deux le portail et via l’API REST. Le bouton bascule pour basculer vers le nouveau schéma existe au niveau de l’action. Par exemple, vous devez accepter séparément pour une action de messagerie et une action de webhook.
+[Découvrez-en plus sur les définitions de schéma pour les webhooks/applications logiques/fonctions Azure/runbooks automation.](https://aka.ms/commonAlertSchemaDefinitions)
 
 > [!NOTE]
-> 1. Types d’alerte suivants prennent en charge le schéma commun par défaut (aucun opt dans requis) :
+> Les actions suivantes ne prennent pas en charge le schéma d’alerte commun : connecteur ITSM.
+
+## <a name="how-do-i-enable-the-common-alert-schema"></a>Comment faire pour activer le schéma d’alerte commun ?
+
+Vous pouvez adhérer ou ne pas adhérer au schéma d’alerte commun par le biais des groupes d’actions, sur le portail et via l’API REST. Le bouton bascule pour basculer vers le nouveau schéma existe au niveau d’une action. Par exemple, vous devez adhérer séparément à une action d’e-mail et à une action de webhook.
+
+> [!NOTE]
+> 1. Les types d’alerte suivants prennent en charge le schéma commun par défaut (aucune adhésion requise) :
 >     * Alertes de détection intelligente
-> 1. Actuellement, les types d’alerte suivants ne prennent pas en charge le schéma commun :
->     * Alertes générées par [Azure Monitor pour les machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+> 1. Les types d’alerte suivants ne prennent pas en charge le schéma commun :
+>     * Alertes générées par [Azure Monitor pour machines virtuelles](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
 >     * Alertes générées par [Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
 
-### <a name="through-the-azure-portal"></a>Via le portail Azure
+### <a name="through-the-azure-portal"></a>À l’aide du portail Azure
 
-![Schéma d’alerte commun participer](media/alerts-common-schema/portal-opt-in.png)
+![Adhésion au schéma d’alerte commun](media/alerts-common-schema/portal-opt-in.png)
 
-1. Ouvrez n’importe quel existant ou une nouvelle action dans un groupe d’actions. 
-1. Sélectionnez « Oui » pour le bouton bascule Activer le schéma d’alerte courantes, comme indiqué.
+1. Ouvrez n’importe quelle action existante ou une nouvelle action dans un groupe d’actions. 
+1. Sélectionnez « Oui » pour le bouton bascule pour activer le schéma d’alerte commun, comme indiqué.
 
-### <a name="through-the-action-groups-rest-api"></a>Via l’API REST groupes d’actions
+### <a name="through-the-action-groups-rest-api"></a>Par le biais de l’API REST Groupes d’actions
 
-Vous pouvez également utiliser le [API groupes d’Action](https://docs.microsoft.com/rest/api/monitor/actiongroups) pour participer le schéma commun de l’alerte. Tout en rendant le [créer ou mettre à jour](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) appel d’API REST, vous pouvez définir l’indicateur « useCommonAlertSchema » sur « true » (pour inclure la) ou « false » (participer au) pour une des actions suivantes : runbook de fonction/automation de courrier électronique/webhook/logique application/Azure.
+Vous pouvez également utiliser l’[API Groupes d’actions](https://docs.microsoft.com/rest/api/monitor/actiongroups) pour adhérer au schéma d’alerte commun. Tout en effectuant l’appel d’API REST [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate), vous pouvez définir l’indicateur « useCommonAlertSchema » sur « true » (adhérer) ou « false » (ne pas adhérer) pour les actions suivantes : e-mail/webhook/application logique/fonction Azure/runbook automation.
 
-Par exemple, la requête suivante corps apporté à la [créer ou mettre à jour](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) API REST effectuerez les opérations suivantes :
+Par exemple, le corps de demande suivant apporté à l’API REST [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) effectue les opérations suivantes :
 
-* Activer le schéma d’alerte commun pour l’action de messagerie « E-mail de John Doe »
-* Désactiver le schéma d’alerte commun pour l’action de messagerie « email Jane Smith »
-* Activer le schéma d’alerte commun pour l’action de webhook « Exemple webhook »
+* Activer le schéma d’alerte commun pour l’action d’e-mail « John Doe's email »
+* Désactiver le schéma d’alerte commun pour l’action d’e-mail « Jane Smith's email »
+* Activer le schéma d’alerte commun pour l’action de webhook « Sample webhook »
 
 ```json
 {
@@ -124,7 +124,8 @@ Par exemple, la requête suivante corps apporté à la [créer ou mettre à jour
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Définitions de schéma alerte communes pour les Runbooks de fonctions/Automation/logique de Webhooks applications/Azure.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Définitions de schéma d’alerte commun pour les webhooks/applications logiques/fonctions Azure/runbooks automation.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Découvrez comment créer une application logique qui s’appuie sur le schéma d’alerte courant pour gérer toutes vos alertes.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

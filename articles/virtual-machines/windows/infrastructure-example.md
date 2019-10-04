@@ -4,24 +4,23 @@ description: Découvrez-en plus sur les principales instructions de conception e
 documentationcenter: ''
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 7032b586-e4e5-4954-952f-fdfc03fc1980
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddbaed6704fd32f7fd4fe5a790424cbf829d2f1c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: f4191015ee4dc7eb753c70f23be242f2ca88dcc3
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932855"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70079403"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Windows
 Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.
@@ -53,10 +52,10 @@ La conception qui en résulte doit comprendre :
 Tous les éléments ci-dessus sont conformes aux conventions de dénomination :
 
 * Adventure Works Cycles utilise **[Charge de travail informatique]-[Emplacement]-[Ressources Azure]** comme préfixe
-  * Pour cet exemple, « **azos** » (Azure On-line Store) est le nom de la charge de travail informatique et « **use** » (États-Unis de l’Est 2) est l’emplacement
+  * Pour cet exemple, « **azos** » (Azure On-line Store) est le nom de la charge de travail informatique et « **use** » (USA Est 2) est l’emplacement
 * Les réseaux virtuels utilisent AZOS-USE-VN **[numéro]**
-* Les groupes à haute disponibilité utilisent azos-use-as-**[rôle]**
-* Les noms de machine virtuelle utilisent azos-use-vm-**[nom de machine virtuelle]**
+* Les groupes à haute disponibilité utilisent azos-use-as- **[rôle]**
+* Les noms de machine virtuelle utilisent azos-use-vm- **[nom de machine virtuelle]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Abonnements et comptes Azure
 Adventure Works Cycles utilise son abonnement d’entreprise, nommé Adventure Works Enterprise Subscription, pour fournir des informations de facturation pour cette charge de travail informatique.
@@ -73,13 +72,13 @@ Adventure Works Cycles a déterminé qu’Azure Disques managés doivent être u
 Un réseau virtuel cloud a été créé avec les paramètres suivants via le portail Azure :
 
 * Nom : AZOS-USE-VN01
-* Emplacement : East US 2
+* Localisation : USA Est 2
 * Espace d’adressage du réseau virtuel : 10.0.0.0/8
 * Premier sous-réseau :
-  * Nom : FrontEnd
+  * Nom : FrontEnd
   * Espace d’adressage : 10.0.1.0/24
 * Second sous-réseau :
-  * Nom : BackEnd
+  * Nom : BackEnd
   * Espace d’adressage : 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité

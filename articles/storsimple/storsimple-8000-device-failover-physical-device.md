@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: f3ac9545a341fc24ca12c9f2547805d6956cd98a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fcf95a1a3033a5150945dbd841f12d50ebb023b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108267"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60577179"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Basculer vers appareil physique de la gamme StorSimple 8000
 
@@ -32,7 +32,7 @@ Pour en savoir plus sur le basculement d’appareil et comment il est utilisé p
 Pour basculer un appareil physique StorSimple vers StorSimple Cloud Appliance, accédez à [Fail over to your StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md) (Baculement vers votre StorSimple Cloud Appliance). Pour basculer un appareil physique vers lui-même, accédez à [Fail over your StorSimple physical device to same device](storsimple-8000-device-failover-same-device.md) (Basculer votre appareil physique StorSimple vers lui-même).
 
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 - Assurez-vous d’avoir passé en revue les considérations relatives au basculement d’appareil. Pour plus d’informations, accédez à [Common considerations for device failover](storsimple-8000-device-failover-disaster-recovery.md) (Considérations courantes relatives au basculement d’appareil).
 

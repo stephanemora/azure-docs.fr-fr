@@ -3,8 +3,8 @@ title: Restreindre l’accès réseau aux ressources PaaS - Azure CLI | Microsof
 description: Dans cet article, vous allez apprendre à limiter et restreindre l’accès réseau aux ressources Azure, telles que Stockage Azure et Azure SQL Database, avec les points de terminaison de service de réseau virtuel à l’aide de l’interface de ligne de commande Azure (CLI).
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -15,16 +15,16 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 4d93cfe78159fdf4ef3c34e8f80732603b701538
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: e52829723b41f9274251ebe7432aa659251c0da4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521680"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64695121"
 ---
-# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service réseau virtuel en utilisant Azure CLI
+# <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service de réseau virtuel en utilisant Azure CLI
 
 Les points de terminaison de service de réseau virtuel permettent de restreindre l’accès réseau à certaines ressources du service Azure en n’autorisant leur accès qu’à partir d’un sous-réseau du réseau virtuel. Vous pouvez également supprimer l’accès Internet aux ressources. Les points de terminaison de service fournissent une connexion directe entre votre réseau virtuel et les services Azure pris en charge, ce qui vous permet d’utiliser l’espace d’adressage privé de votre réseau virtuel pour accéder aux services Azure. Le trafic destiné aux ressources Azure via les points de terminaison de service reste toujours sur le serveur principal de Microsoft Azure. Dans cet article, vous apprendrez comment :
 
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Chaque groupe de sécurité réseau contient plusieurs [les règles de sécurité par défaut](security-overview.md#default-security-rules). La règle qui suit remplace une règle de sécurité par défaut qui autorise un accès sortant à toutes les adresses IP publiques. Le `destination-address-prefix "Internet"` option refuse l’accès sortant aux adresses IP publiques de tous. La règle précédente remplace cette règle, du fait de sa priorité plus élevée, ce qui permet d’accéder aux adresses IP publiques du Stockage Azure.
+Chaque groupe de sécurité réseau contient plusieurs [règles de sécurité par défaut](security-overview.md#default-security-rules). La règle qui suit remplace une règle de sécurité par défaut, qui autorise l’accès de trafic sortant à toutes les adresses IP publiques. L’option `destination-address-prefix "Internet"` refuse l’accès sortant à toutes les adresses IP publiques. La règle précédente remplace cette règle, du fait de sa priorité plus élevée, ce qui permet d’accéder aux adresses IP publiques du Stockage Azure.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -137,7 +137,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-La règle suivante autorise le trafic SSH entrant dans le sous-réseau à partir de n’importe quel endroit. La règle remplace une règle de sécurité par défaut qui refuse tout le trafic entrant provenant d’Internet. SSH est autorisée pour le sous-réseau afin que la connectivité peut être testée dans une étape ultérieure.
+La règle suivante autorise le trafic SSH entrant vers le sous-réseau à partir de n’importe quel endroit. La règle remplace une règle de sécurité par défaut qui refuse tout le trafic entrant provenant d’Internet. Le SSH est autorisé sur le sous-réseau afin que la connectivité puisse être testée dans une étape ultérieure.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -272,7 +272,7 @@ La création de la machine virtuelle ne nécessite que quelques minutes. Une foi
 
 ## <a name="confirm-access-to-storage-account"></a>Vérifier l’accès au compte de stockage
 
-Ouvrez une session SSH avec la machine virtuelle *myVmPrivate*. Remplacez  *\<publicIpAddress >* avec l’adresse IP publique de votre *myVmPrivate* machine virtuelle.
+Ouvrez une session SSH avec la machine virtuelle *myVmPrivate*. Remplacez *\<publicIpAddress>* par l’adresse IP publique de votre machine virtuelle *myVmPrivate*.
 
 ```bash 
 ssh <publicIpAddress>

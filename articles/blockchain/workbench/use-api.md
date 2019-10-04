@@ -1,25 +1,25 @@
 ---
-title: Utilisation de l’API REST Azure Blockchain Workbench
-description: Scénarios d’utilisation de l’API REST Azure Blockchain Workbench
+title: Utilisation de l’API REST d’Azure Blockchain Workbench Preview
+description: Scénarios d’utilisation de l’API REST d’Azure Blockchain Workbench Preview
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7fa72ad62d7d11c795422a203d13a4dd45484c19
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 412b78363be70918969734cd8890a8ee940df431
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578932"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843815"
 ---
-# <a name="using-the-azure-blockchain-workbench-rest-api"></a>Utilisation de l’API REST Azure Blockchain Workbench
+# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Utilisation de l’API REST d’Azure Blockchain Workbench Preview
 
-L’API REST Azure Blockchain Workbench permet aux développeurs et aux professionnels de l’information pour créer des intégrations riches aux applications blockchain. Ce document vous guide dans l’utilisation de l’API REST Workbench à l’aide de plusieurs méthodes clés. Par exemple, supposons qu’un développeur souhaite créer un client blockchain personnalisé. Ce client blockchain permet aux utilisateurs connectés d’afficher les applications blockchain qui leur sont affectées et d’interagir avec celles-ci. Ce client permet aux utilisateurs d’afficher les instances du contrat et d’intervenir sur les contrats intelligents. Le client utilise l’API REST Workbench dans le contexte de l’utilisateur connecté pour effectuer les actions suivantes :
+L’API REST d’Azure Blockchain Workbench Preview permet aux développeurs et aux professionnels de l’information de créer des intégrations riches à des applications blockchain. Ce document vous guide dans l’utilisation de l’API REST Workbench à l’aide de plusieurs méthodes clés. Par exemple, supposons qu’un développeur souhaite créer un client blockchain personnalisé. Ce client blockchain permet aux utilisateurs connectés d’afficher les applications blockchain qui leur sont affectées et d’interagir avec celles-ci. Ce client permet aux utilisateurs d’afficher les instances du contrat et d’intervenir sur les contrats intelligents. Le client utilise l’API REST Workbench dans le contexte de l’utilisateur connecté pour effectuer les actions suivantes :
 
 * Liste des applications
 * Répertorier les flux de travail d’une application
@@ -210,8 +210,8 @@ Content-type: application/json
 
 Une fois qu’un utilisateur a décidé d’approfondir un contrat, le client blockchain peut lui présenter les actions utilisateur disponibles en fonction de l’état du contrat. Dans cet exemple, l’utilisateur recherche toutes les actions disponibles pour un nouveau contrat intelligent créé :
 
-* Modifier : Permet à l’utilisateur de modifier la description et le prix d’une ressource.
-* Terminer : Permet à l’utilisateur à la fin du contrat de l’élément multimédia.
+* Modifier : permet à l’utilisateur de modifier la description et le prix d’une ressource.
+* Terminer : permet à l’utilisateur de mettre fin au contrat de la ressource.
 
 Utilisez [l’API Contract Action GET](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget) :
 
@@ -277,8 +277,8 @@ Content-type: application/json
 
 Un utilisateur peut ensuite décider d’intervenir pour l’instance de contrat intelligent spécifiée. Dans ce cas, imaginons qu’un utilisateur souhaite modifier la description et le prix d’une ressource pour ce qui suit :
 
-* Description : « Ma voiture mis à jour »
-* Tarif : 54321
+* Description : « My updated car »
+* Prix : 54321
 
 Utilisez [l’API Contract Action POST](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost) :
 

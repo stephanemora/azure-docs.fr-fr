@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.openlocfilehash: 4dd95d32bad76a610b88a4362e7887efdfaf6af0
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342981"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972057"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -29,13 +29,15 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil stati
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : statique
-- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total) : Moyenne
+- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total, Nombre) : Moyenne
 - Période (fenêtre de vérification des valeurs de métrique) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
 - Seuil : 70
 
 À partir de la création de la règle d’alerte, l’analyse s’exécute chaque minute. Elle examine les valeurs de métrique des 5 dernières minutes et vérifie si la moyenne de ces valeurs est supérieure à 70. Si la condition est remplie (autrement dit, le pourcentage d’UC moyen pour les 5 dernières minutes est supérieur à 70), la règle d’alerte déclenche une notification d’activation. Si vous avez configuré un e-mail ou une action de webhook dans le groupe d’actions associé à la règle d’alerte, vous recevrez une notification sur les deux.
+
+Si vous utilisez plusieurs conditions dans une seule règle, la règle « ajoute » les conditions ensemble.  Autrement dit, l’alerte se déclenche lorsque toutes les conditions qu’elle réunit sont évaluées comme vraies et résolues lorsque l’une des conditions n’est plus vraie. Exemple de ce type d’alerte : « UC supérieure à 90 % » et « La longueur de la file d’attente comprend plus de 300 éléments ». 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Règle d’alerte avec le type de condition dynamique
 
@@ -44,7 +46,7 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil dynam
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : Dynamique
-- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total) : Moyenne
+- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total, Nombre) : Moyenne
 - Période (fenêtre de vérification des valeurs de métrique) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
@@ -62,7 +64,7 @@ Les exemples ci-dessus de déclenchement des règles d’alerte sont également 
 
 Par exemple, si l’utilisation de « myVM » demeure au-dessus du seuil lors les vérifications suivantes, la règle d’alerte ne sera pas déclenchée à nouveau tant que les conditions ne seront pas résolues.
 
-Au bout d’un moment, l’utilisation de « myVM » revient à la normale (au-dessous du seuil). la règle d’alerte surveille l’état deux fois de plus, puis envoie une notification de résolution. La règle d’alerte envoie un message de résolution/désactivation lorsque la condition d’alerte n’est pas remplie pendant trois périodes consécutives pour réduire le bruit en cas de flottement de conditions.
+Au bout d'un moment, l'utilisation de « myVM » revient à la normale (en dessous du seuil). la règle d’alerte surveille l’état deux fois de plus, puis envoie une notification de résolution. La règle d’alerte envoie un message de résolution/désactivation lorsque la condition d’alerte n’est pas remplie pendant trois périodes consécutives pour réduire le bruit en cas de flottement de conditions.
 
 Comme la notification de résolution est envoyée par le biais de webhooks ou d’un e-mail, l’état de l’instance d’alerte (état de l’analyse) dans le portail Azure est également défini comme résolu.
 
@@ -148,16 +150,16 @@ Si vous utilisez aujourd'hui des alertes de métrique classiques et cherchez à 
 | Microsoft.ApiManagement/service | OUI |
 | Microsoft.Batch/batchAccounts| OUI|
 |Microsoft.Cache/redis| OUI |
-|Microsoft.ClassicCompute/virtualMachines | Non  |
-|Microsoft.ClassicCompute/domainNames/slots/roles | Non |
-|Microsoft.CognitiveServices/accounts | Non  |
+|Microsoft.ClassicCompute/virtualMachines | Non |
+|Microsoft.ClassicCompute/domainNames/slots/roles | Non|
+|Microsoft.CognitiveServices/accounts | Non |
 |Microsoft.Compute/virtualMachines | OUI|
 |Microsoft.Compute/virtualMachineScaleSets| OUI|
-|Microsoft.ClassicStorage/storageAccounts| Non  |
+|Microsoft.ClassicStorage/storageAccounts| Non |
 |Microsoft.DataFactory/datafactories | OUI|
 |Microsoft.DBforMySQL/servers| OUI|
 |Microsoft.DBforPostgreSQL/servers| OUI|
-|Microsoft.Devices/IotHubs | Non |
+|Microsoft.Devices/IotHubs | Non|
 |Microsoft.DocumentDB/databaseAccounts| OUI|
 |Microsoft.EventHub/namespaces | OUI|
 |Microsoft.Logic/workflows | OUI|
@@ -173,9 +175,9 @@ Si vous utilisez aujourd'hui des alertes de métrique classiques et cherchez à 
 |Microsoft.TimeSeriesInsights/environments | OUI|
 |Microsoft. Web/serverfarms | OUI |
 |Microsoft. Web/sites (à l’exclusion de Functions) | OUI|
-|Microsoft. Web/hostingEnvironments/multiRolePools | Non |
-|Microsoft. Web/hostingEnvironments/workerPools| Non  |
-|Microsoft.SQL/Servers | Non  |
+|Microsoft. Web/hostingEnvironments/multiRolePools | Non|
+|Microsoft. Web/hostingEnvironments/workerPools| Non |
+|Microsoft.SQL/Servers | Non |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

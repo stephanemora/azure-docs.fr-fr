@@ -9,17 +9,17 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3cc15d173ad735d77505f636bd230e0876371271
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947922"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300930"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Haute disponibilité et fiabilité pour Azure Scheluler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en cours de retrait. Pour planifier des travaux, [essayez Azure Logic Apps à la place](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible. 
 
 Azure Scheduler assure à la fois la [haute disponibilité](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) et la fiabilité pour vos travaux. Pour plus d’informations, consultez [Contrat SLA pour Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
@@ -73,6 +73,6 @@ Pour découvrir comment configurer un autre point de terminaison, consultez [err
 ## <a name="see-also"></a>Voir aussi
 
 * [Présentation d’Azure Scheduler](scheduler-intro.md)
-* [Concepts, terminologie et hiérarchie d’entités](scheduler-concepts-terms.md)
+* [Concepts, terminologie et hiérarchie des entités](scheduler-concepts-terms.md)
 * [Créer des planifications complexes et des récurrences avancées](scheduler-advanced-complexity.md)
 * [Limites, quotas, valeurs par défaut et codes d’erreur](scheduler-limits-defaults-errors.md)

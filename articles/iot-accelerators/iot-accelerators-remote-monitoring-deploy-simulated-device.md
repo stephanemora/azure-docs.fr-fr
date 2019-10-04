@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: cdd2b24e6f833ee0acb229a37c7cd3b8b6f36339
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 7cbab38db859935c9f4490d79a131d6c9a7e302b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682047"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66427572"
 ---
 # <a name="deploy-a-new-simulated-device"></a>Déployer un nouvel appareil simulé
 
@@ -35,7 +35,7 @@ Pour effectuer les étapes décrites dans ce guide pratique, vous avez besoin d�
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les procédures de ce guide, vous avez besoin des éléments suivants :
 
@@ -88,13 +88,14 @@ Dans cette section, vous allez configurer Docker pour charger les fichiers de mo
 1. Copiez les fichiers de modèles d’appareils existants du conteneur vers le nouvel emplacement. Commencez par chercher l’ID de conteneur pour le conteneur de simulation d’appareil :
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Copiez ensuite les fichiers de modèles d’appareils vers le dossier **tmp** dans la machine virtuelle. La commande suivante suppose que l’ID de conteneur est c378d6878407. Remplacez cette valeur par votre ID de conteneur de simulation d’appareil :
 
     ```sh
-    docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo docker cp c378d6878407:/app/webservice/data/devicemodels /tmp
+    sudo chown -R azureuser /tmp/devicemodels/
     ```
 
     Gardez la fenêtre **bash** avec votre session SSH ouverte.
@@ -116,13 +117,13 @@ Dans cette section, vous allez configurer Docker pour charger les fichiers de mo
     Si vous voulez afficher l’état et l’ID des conteneurs Docker en cours d’exécution, utilisez la commande suivante :
 
     ```sh
-    docker ps
+    sudo docker ps
     ```
 
     Si vous voulez voir le journal du conteneur de simulation d’appareil, exécutez la commande suivante. Remplacez l’ID de conteneur par l’ID de votre conteneur de simulation d’appareil :
 
     ```sh
-    docker logs -f 5d3f3e78822e
+    sudo docker logs -f 5d3f3e78822e
     ```
 
 ## <a name="run-simulation"></a>Exécuter une simulation

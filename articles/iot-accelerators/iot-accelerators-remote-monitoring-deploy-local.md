@@ -3,17 +3,17 @@ title: Déployer localement la solution de supervision à distance (via l’IDE 
 description: Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local en utilisant Visual Studio à des fins de test et de développement.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: fdb9b6c09e81ce29d2587fb0faca1aa80d28ea38
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309977"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65967509"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Déployer localement l’accélérateur de solution de supervision à distance - Visual Studio
 
@@ -23,7 +23,7 @@ Cet article montre comment déployer l’accélérateur de solution de supervisi
 
 Si vous souhaitez exécuter l’accélérateur de solution de supervision à distance dans un Docker sur votre ordinateur local, consultez [Déployer localement l’accélérateur de solution de supervision à distance - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour déployer les services Azure utilisés par l’accélérateur de solution de supervision à distance, vous avez besoin d’un abonnement Azure actif.
 
@@ -60,9 +60,9 @@ Exécutez la commande suivante pour lancer le conteneur Docker pour le service D
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Déployer toutes les autres microservices sur l’ordinateur local
 
-Les étapes suivantes vous montrent comment exécuter les microservices de surveillance à distance dans Visual Studio 2017 :
+Les étapes suivantes vous montrent comment exécuter les microservices de surveillance à distance dans Visual Studio :
 
-1. Lancer Visual Studio 2017
+1. Lancez Visual Studio.
 1. Ouvrez le la solution **remote-monitoring.sln** dans le dossier **services** dans votre copie locale du référentiel.
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur la solution, puis cliquez sur **Propriétés**.
 1. Sélectionnez **Propriétés communes > Projet de démarrage**.
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-Lorsque le démarrage est terminé, votre navigateur affiche la page **http :\//localhost:3000 / tableau de bord**. Les erreurs présentes sur cette page sont attendues. Pour afficher l’application sans erreur, procédez comme suit.
+Une fois le démarrage terminé, votre navigateur affiche la page **http:\//localhost:3000/dashboard**. Les erreurs présentes sur cette page sont attendues. Pour afficher l’application sans erreur, procédez comme suit.
 
 ### <a name="configure-and-run-nginx"></a>Configurer et exécuter NGINX
 
@@ -109,7 +109,7 @@ Pour plus d’informations sur l’exécution de **nginx**, consultez [nginx pou
 
 ### <a name="connect-to-the-dashboard"></a>Connexion au tableau de bord
 
-Pour accéder à du tableau de bord solution de surveillance à distance, accédez à http :\//localhost:9000 dans votre navigateur.
+Pour accéder au tableau de bord de la solution de supervision à distance, accédez à http:\//localhost:9000 dans votre navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
 

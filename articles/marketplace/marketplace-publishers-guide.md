@@ -1,25 +1,18 @@
 ---
-title: Guide de publication de la Place de marché Azure et AppSource | Azure
+title: Guide de publication de la Place de marché Azure et AppSource
 description: Vue d’ensemble de la Place de marché Azure et de Microsoft AppSource pour les éditeurs d’applications et de services.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
-manager: nunoc
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5c53545a6a5421bd20622fd132bb5c0b2c0940d9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731138"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962624"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Guide de publication de la Place de marché Azure et AppSource
 
@@ -59,7 +52,7 @@ Développez la vente incitative et la vente croisée de vos solutions en résolv
 
 Obtenez des insights sur les performances de vos annonces grâce aux analyses à votre disposition par le biais de la Place de marché. Vous aurez accès à davantage d’informations sur les performances des campagnes, les commandes, les revenus et les moyens d’optimiser les activités de campagne liées à votre solution.
 
-### <a name="marketplace-go-to-market-benefits"></a>Avantages de la commercialisation sur la Place de marché 
+### <a name="commercial-marketplace-benefits"></a>Avantages de la place de marché commerciale 
 
 Les nouvelles annonces sur la Place de marché peuvent offrir aux partenaires un accès à un éventail diversifié d’avantages gratuits pour les aider à développer leur activité sur la Place de marché. Ces avantages appartiennent aux catégories suivantes : 
 
@@ -69,9 +62,9 @@ Les nouvelles annonces sur la Place de marché peuvent offrir aux partenaires un
 
 *   Co-vente : commencez ou accélérez votre migration commerciale avec Microsoft sur la Place de marché. Accédez aux programmes et au support pour dynamiser la vente en commun avec les équipes de Microsoft.
 
-Dès que vous aurez [soumis votre solution](https://azuremarketplace.microsoft.com/sell/signup) sur la Place de marché, notre équipe d’intégration vous contactera pour accompagner votre expérience de publication.
+Dès que vous aurez [soumis votre solution](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) sur la Place de marché, notre équipe d’intégration vous contactera pour accompagner votre expérience de publication.  Pour plus d’informations, consultez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
-Pour plus d’informations sur les avantages Microsoft Go-To-Market pour la commercialisation et sur les moyens de développer votre activité sur la Place de marché, consultez [Services Microsoft Go-To-Market](https://partner.microsoft.com/reach-customers/gtm).
+Apprenez-en plus sur les [avantages de la place de marché commerciale](https://docs.microsoft.com//azure/marketplace/gtm-your-marketplace-benefits).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

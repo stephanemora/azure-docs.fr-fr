@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/22/2019
 ms.author: shants
-ms.openlocfilehash: 860cb2bee902c6559b7851eb05fa9c5270876fe9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 626af4a056274e11ae15670f2f2e2a979eb94fff
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084723"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082860"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Gestion de notifications de maintenance planifiées pour les machines virtuelles Linux
 
@@ -27,13 +26,13 @@ Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilit
 
 - Lorsque la maintenance ne nécessite pas de redémarrage, Azure utilise une migration sur place pour mettre en pause la machine virtuelle pendant la mise à jour de l’hôte. Ces opérations de maintenance sans redémarrage sont appliquées domaine d’erreur par domaine d’erreur et sont arrêtées si des signaux d’avertissement sont reçus.
 
-- Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Dans ces cas, vous disposez d’une période pour commencer la maintenance vous-même, au moment qui vous convient.
+- Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Dans ce cas, vous disposez d'un délai généralement fixé à 35 jours pour entamer vous-même la maintenance, au moment qui vous convient.
 
 
 La maintenance planifiée nécessitant un redémarrage s’effectue par vagues. Chaque vague a une portée différente (régions).
 
 - Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter plusieurs destinataires et options de messagerie (par exemple, e-mails, SMS et Webhooks) aux notifications à l’aide des [alertes de journal d’activité](../../azure-monitor/platform/activity-logs-overview.md) Azure.  
-- Au moment de la notification, une *fenêtre de libre-service* est disponible. Pendant cet intervalle, vous pouvez rechercher quelles machines virtuelles sont incluses dans cette vague et démarrer la maintenance de manière proactive en fonction de vos besoins de planification.
+- Au moment de la notification, une *fenêtre de libre-service* est disponible. Pendant cette période (généralement 35 jours), vous pouvez rechercher quelles machines virtuelles sont incluses dans cette vague et démarrer la maintenance de manière proactive en fonction de vos besoins de planification.
 - Après la fenêtre de libre-service, une *fenêtre de maintenance planifiée* apparaît. Au cours de cette fenêtre, Azure planifie et applique la maintenance requise à votre machine virtuelle. 
 
 L’objectif de ces deux fenêtres est de vous donner suffisamment de temps pour commencer la maintenance et redémarrer votre machine virtuelle tout en sachant à quel moment Azure démarrera automatiquement la maintenance.
@@ -140,7 +139,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **R :** Les machines virtuelles déployées dans un groupe à haute disponibilité ou dans des groupes de machines virtuelles identiques incluent la notion de domaines de mise à jour (UD). Lors de la réalisation de la maintenance, Azure respecte la contrainte de domaine de mise à jour et ne redémarre pas les machines virtuelles à partir de différents domaines de mise à jour (dans le même groupe à haute disponibilité).  Azure attend également au moins 30 minutes avant de passer au groupe de machines virtuelles suivant. 
 
-Pour plus d’informations sur la haute disponibilité, consultez [Régions et disponibilité des machines virtuelles dans Azure](regions-and-availability.MD).
+Pour plus d’informations sur la haute disponibilité, consultez [Disponibilité des machines virtuelles dans Azure](availability.MD).
 
 **Q : Comment être averti d’une maintenance planifiée ?**
 
@@ -160,7 +159,7 @@ Pour plus d’informations sur la haute disponibilité, consultez [Régions et d
 
 **Q : Comment ça se passe avec Virtual Machine Scale Sets ?**
 
-**R :** La maintenance planifiée est désormais disponible pour Virtual Machine Scale Sets. Pour obtenir des instructions sur la façon de lancer une maintenance en libre-service, consultez le document [Maintenance planifiée des machines virtuelles](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md).
+**R :** La maintenance planifiée est désormais disponible pour Virtual Machine Scale Sets. Pour obtenir des instructions sur la façon de lancer une maintenance en libre-service, consultez le document [Maintenance planifiée des groupes de machines virtuelles identiques](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md).
 
 **Q : Comment ça se passe avec les services cloud (rôle de travail/web) et Service Fabric ?**
 

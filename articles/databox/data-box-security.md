@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 09/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 678bef1b18d60679be6c296a1fd7beef42f721b7
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095855"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203825"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Protection des données et sécurité Azure Data Box
 
@@ -34,6 +34,8 @@ Le diagramme suivant indique le flux de données à travers la solution Azure Da
 
 ![Sécurité Data Box](media/data-box-security/data-box-security-2.png)
 
+Comme les données circulent dans cette solution, les événements sont enregistrés et des journaux sont générés. Pour plus d’informations, accédez à [Suivi et journalisation des événements pour votre Azure Data Box](data-box-logs.md).
+
 ## <a name="security-features"></a>Fonctionnalités de sécurité
 
 Data Box fournit une solution sécurisée pour la protection des données en veillant à ce que seules les entités autorisées affichent, modifient ou suppriment vos données. Les fonctionnalités de sécurité de cette solution pour le disque et le service associé, garantissent la sécurité des données stockées sur ces derniers. 
@@ -48,24 +50,25 @@ Le service Data Box est protégé par les fonctionnalités suivantes :
 - Exécute uniquement des logiciels spécifiques à Data Box.
 - Démarre dans un état verrouillé.
 - Contrôle l’accès à l’appareil via un mot de passe de déverrouillage.
-- Identifiants d’accès pour copier des données vers et depuis l’appareil.
+- Identifiants d’accès pour copier des données vers et depuis l’appareil. Tous les accès à la page **Informations d’identification de l’appareil** dans le portail Azure sont consignés dans les [journaux d’activité](data-box-logs.md#query-activity-logs-during-setup).
 
 ### <a name="data-box-data-protection"></a>Protection des données Data Box
 
 Les données qui circulent vers et depuis Data Box sont protégées par les fonctionnalités suivantes :
 
-- Chiffrement AES 256 bits pour les données au repos. 
+- Chiffrement AES 256 bits pour les données au repos.
 - Des protocoles chiffrés peuvent être utilisés pour les données en transit.
-- Effacement sécurisé des données de l’appareil une fois le chargement des données vers Azure terminé. L’effacement des données est conforme aux normes NIST 800-88r1.
+- Effacement sécurisé des données de l’appareil une fois le chargement des données vers Azure terminé. L’effacement des données est conforme aux instructions de l’[annexe A relative aux lecteurs de disque dur ATA dans les normes NIST 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf). L’événement d’effacement de données est enregistré dans le [l’historique des commandes](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Protection du service Data Box
 
 Le service Data Box est protégé par les fonctionnalités suivantes.
 
 - L’accès au service Data Box requiert que votre organisation dispose d’un abonnement Azure incluant Data Box. Votre abonnement régit les fonctionnalités auxquelles vous pouvez accéder dans le portail Azure.
-- Étant donné que le service Data Box est hébergé dans Azure, il est protégé par les fonctionnalités de sécurité Azure. Pour plus d’informations sur les fonctionnalités de sécurité fournies par Microsoft Azure, accédez au [Centre de confidentialité Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
-- Le service Data Box stocke le mot de passe de déverrouillage utilisé pour déverrouiller l’appareil dans le service. 
-- Le service Data Box stocke les détails de la commande et l’état dans le service. Ces informations sont supprimées en même temps que la commande. 
+- Étant donné que le service Data Box est hébergé dans Azure, il est protégé par les fonctionnalités de sécurité Azure. Pour plus d’informations sur les fonctionnalités de sécurité fournies par Microsoft Azure, accédez au [Centre de confidentialité Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
+- L’accès à la commande Data Box peut être contrôlé par le biais de l’utilisation des rôles de contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations, consultez [Configurer le contrôle d’accès pour la commande Data Box](data-box-logs.md#set-up-access-control-on-the-order)
+- Le service Data Box stocke le mot de passe de déverrouillage utilisé pour déverrouiller l’appareil dans le service.
+- Le service Data Box stocke les détails de la commande et l’état dans le service. Ces informations sont supprimées en même temps que la commande.
 
 ## <a name="managing-personal-data"></a>Gestion des données personnelles
 
@@ -81,7 +84,7 @@ Azure Data Box collecte et affiche des informations personnelles dans les instan
   - Adresse postale
   - City
   - Code postal
-  - État
+  - State
   - Pays/Province/Région
   - Numéro de compte du transporteur
   - Numéro de suivi d’expédition
@@ -103,7 +106,7 @@ Les consignes de sécurité suivantes sont implémentées dans Data Box :
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Pour résister à des conditions de transport défavorables          |
 |[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | Pour la mise à jour sécurisée du microprogramme         |
 |[FIPS 140-2 niveau 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Pour la protection des données         |
-|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Pour le nettoyage des données         |
+|Annexe A, concernant les lecteurs de disque durs ATA dans [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Pour le nettoyage des données         |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

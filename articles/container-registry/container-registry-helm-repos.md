@@ -2,17 +2,18 @@
 title: Utiliser des référentiels Helm dans Azure Container Registry
 description: Découvrez comment utiliser un référentiel Helm avec Azure Container Registry pour stocker des graphiques pour vos applications
 services: container-registry
-author: iainfoulds
+author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
-ms.openlocfilehash: ba0e1386d67e920f1805d244f9042044bb462ec9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 2135a3a5a8f14cf6c2e7fd2984d9b221e2445c1d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551991"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68309511"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Utiliser Azure Container Registry comme référentiel Helm pour les graphiques de votre application
 
@@ -23,7 +24,7 @@ Avec Azure Container Registry, vous disposez d’un référentiel de graphiques 
 Cet article vous montre comment utiliser un référentiel de graphiques Helm stocké dans Azure Container Registry.
 
 > [!IMPORTANT]
-> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -31,7 +32,7 @@ Pour effectuer les étapes indiquées dans cet article, les prérequis suivants 
 
 - **Azure Container Registry** : créez un registre de conteneurs dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
 - **Client Helm version 2.11.0 (pas une version RC) ou ultérieure** : exécutez `helm version` pour trouver votre version actuelle. Vous avez également besoin d’un serveur Helm (Tiller) initialisé dans un cluster Kubernetes. Si nécessaire, vous pouvez [créer un cluster Azure Kubernetes Service][aks-quickstart]. Pour plus d’informations sur l’installation et la mise à niveau de Helm, consultez [Installation de Helm][helm-install].
-- **Azure CLI version 2.0.46 ou ultérieure** : exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
+- **Azure CLI version 2.0.46 ou ultérieure** : exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
 ## <a name="add-a-repository-to-helm-client"></a>Ajouter un référentiel au client Helm
 

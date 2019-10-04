@@ -3,17 +3,18 @@ title: Didacticiel - Déployer l’application à partir du registre Docker géo
 description: Déployez une application web basée sur Linux sur deux régions Azure différentes à l’aide d’une image conteneur à partir d’un registre de conteneurs Azure géorépliqué. Deuxième partie d’une série de trois.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253831"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146921"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Didacticiel : Déployer une application web à partir d’un registre de conteneurs Azure géorépliqué
 
@@ -54,7 +55,11 @@ Sous **Web App pour conteneurs** qui s’affiche lorsque vous sélectionnez « D
 | **Nom du site** | Nom global unique de l’application web. Dans cet exemple, nous utilisons le format `<acrName>-westus` pour identifier facilement le registre et la région à partir de laquelle l’application web est déployée. |
 | **Groupe de ressources** | **Utiliser l’existant** > `myResourceGroup` |
 | **Plan/emplacement du service d’application** | Créez un plan nommé `plan-westus` dans la région **USA Ouest**. |
-| **Image** | `acr-helloworld:v1`
+| **Image** | `acr-helloworld:v1` |
+| **Système d’exploitation** | Linux |
+
+> [!NOTE]
+> Quand vous créez un nouveau plan App Service pour déployer votre application conteneurisée, un plan par défaut est sélectionné automatiquement pour héberger votre application. Le plan par défaut dépend du paramètre du système d’exploitation.
 
 Sélectionnez **Créer** pour approvisionner l’application web dans la région *USA Ouest*.
 
@@ -83,7 +88,8 @@ Suivez la procédure décrite dans la section précédente pour déployer une de
 | **Nom du site** | Nom global unique de l’application web. Dans cet exemple, nous utilisons le format `<acrName>-eastus` pour identifier facilement le registre et la région à partir de laquelle l’application web est déployée. |
 | **Groupe de ressources** | **Utiliser l’existant** > `myResourceGroup` |
 | **Plan/emplacement du service d’application** | Créez un plan nommé `plan-eastus` dans la région **USA Est**. |
-| **Image** | `acr-helloworld:v1`
+| **Image** | `acr-helloworld:v1` |
+| **Système d’exploitation** | Linux |
 
 Sélectionnez **Créer** pour approvisionner l’application web dans la région *USA Est*.
 

@@ -1,6 +1,6 @@
 ---
 title: Analyser la présence de matériau répréhensible dans du contenu vidéo en C# - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Guide pratique pour analyser la présence de matériau répréhensible dans du contenu vidéo avec le Kit SDK Content Moderator pour .NET.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 7e987c1249360b14fddf8af57c61fdd1a46ee6c5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1742db702a899d47110177532f5e85e74a59d91c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864789"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564308"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analyser la présence de matériau répréhensible dans du contenu vidéo en C#
 
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Si vous souhaitez utiliser un fichier vidéo local (cas le plus simple), ajoutez-le au projet et entrez son chemin d’accès sous forme de valeur `INPUT_FILE` (chemins d’accès relatifs au répertoire d’exécution).
 
-Vous devrez également créer le fichier _preset.json_ dans le répertoire actif et l’utiliser pour spécifier un numéro de version. Par exemple : 
+Vous devrez également créer le fichier _preset.json_ dans le répertoire actif et l’utiliser pour spécifier un numéro de version. Par exemple :
 
 ```JSON
 {

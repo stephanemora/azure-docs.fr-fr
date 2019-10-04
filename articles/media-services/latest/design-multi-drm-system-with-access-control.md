@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ef695d913c73f0a4266b20f21f1008108b85b4d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ffbf53c0bb0aaf2832afecc2d0df935f04eeff19
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57893014"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310326"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès 
-
-## <a name="overview"></a>Présentation
 
 Il est assez complexe de concevoir et développer un sous-système de gestion des droits numériques (DRM) pour une solution OTT (Over-The-Top) ou de diffusion en continu en ligne. Les opérateurs/fournisseurs de vidéo en ligne ont l’habitude d’externaliser cette tâche à des fournisseurs de services DRM spécialisés. L’objectif de ce document est de présenter une conception et une implémentation de référence pour un sous-système DRM de bout en bout dans une solution OTT ou de diffusion en continu en ligne.
 
@@ -36,7 +34,6 @@ Les avantages d’un système multi-DRM natif pour la protection du contenu sont
 * réduction des frais de chiffrement dans la mesure où un seul processus de chiffrement est utilisé pour cibler différentes plateformes avec ses systèmes DRM natifs ;
 * réduction du coût de gestion des éléments multimédias, puisqu’une seule copie de ces éléments est nécessaire à l’emplacement de stockage ;
 * élimination des coûts de licence client DRM, car le client DRM natif est généralement proposé gratuitement sur sa plateforme d’origine.
-
 
 ### <a name="goals-of-the-article"></a>Objectifs de l’article
 
@@ -220,6 +217,7 @@ Pour plus d’informations sur Azure AD :
 * Vous pouvez trouver des informations pour l’administrateur dans la rubrique [Administration de votre annuaire Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Problèmes de mise en œuvre
+
 Utilisez les informations de dépannage suivantes pour résoudre vos éventuels problèmes d’implémentation.
 
 * L’URL de l’émetteur doit se terminer par « / ». L’audience doit être l’ID client de l’application de lecteur. Ajoutez également « / » à la fin de l’URL de l’émetteur.
@@ -255,120 +253,8 @@ Utilisez les informations de dépannage suivantes pour résoudre vos éventuels 
 
     Puisque vous ajoutez la prise en charge de JWT (Azure AD) en plus des SWT (ACS), la valeur par défaut de TokenType est TokenType.JWT. Si vous utilisez SWT/ACS, vous devez définir le jeton sur TokenType.SWT.
 
-## <a name="faqs"></a>FAQ
-
-Cette section aborde certains aspects de conception et d’implémentation supplémentaires.
-
-### <a name="http-or-https"></a>HTTP ou HTTPS ?
-L’application de lecteur MVC ASP.NET doit prendre en charge les éléments suivants :
-
-* Authentification des utilisateurs via Azure AD, sous HTTPS.
-* Échange de jeton JWT entre le client et Azure AD, sous HTTPS.
-* Acquisition de licence DRM par le client, qui doit être sous HTTPS si la distribution de licences est assurée par Azure Media Services. La suite de produits PlayReady n’impose pas le format HTTPS pour la distribution de licences. Si votre serveur de licences PlayReady se trouve en dehors de Media Services, vous pouvez utiliser HTTP ou HTTPS.
-
-Puisque l’application de lecteur ASP.NET utilise le protocole HTTPS en tant que meilleure pratique, Media Player se trouve sur une page sous HTTPS. Le protocole HTTP est cependant privilégié pour la diffusion en continu, ce qui signifie que vous devez tenir compte du problème du contenu mixte.
-
-* Le navigateur ne permet pas un contenu mixte. Mais vous pouvez utiliser des plug-ins tels que Silverlight et OSMF pour Smooth et DASH. Le contenu mixte est un problème de sécurité, en raison de la menace que constitue la possibilité d’injecter un logiciel JavaScript malveillant, qui risque de mettre en danger les données du client. Les navigateurs bloquent cette fonctionnalité par défaut. Le seul moyen de contourner ce problème est d’autoriser tous les domaines (HTTPS ou HTTP) côté serveur (origine). Il ne s’agit probablement pas d’une idée judicieuse.
-* Évitez le contenu mixte. L’application de lecteur et Media Player doivent utiliser HTTP ou HTTPS. Si vous lisez du contenu mixte, silverlightSS tech vous oblige à supprimer un avertissement de contenu mixte. flashSS tech traite le contenu mixte sans aucun avertissement.
-* Si votre point de terminaison de diffusion a été créé avant août 2014, il ne prend pas en charge HTTPS. Dans ce cas, créez et utilisez un nouveau point de terminaison pour le protocole HTTPS.
-
-Dans l’implémentation de référence pour des contenus protégés par DRM, l’application et la diffusion en continu s’exécutent l’une comme l’autre sous HTTPS. Pour les contenus ouverts, le lecteur n’a pas besoin d’authentification ou de licence. Vous pouvez utiliser soit HTTP, soit HTTPS.
-
-### <a name="what-is-azure-active-directory-signing-key-rollover"></a>Qu’est-ce que la substitution de la clé de signature Azure Active Directory ?
-La substitution de la clé de signature est un point important à prendre en compte pour votre implémentation. Si vous l’ignorez, le système finira par s’arrêter complètement dans un délai maximum de six semaines.
-
-Azure AD utilise des normes reconnues pour établir une relation de confiance entre lui-même et les applications qui utilisent Azure AD. Azure AD utilise plus particulièrement une clé de signature se composant d’une paire clé publique-clé privée. Lorsqu’Azure AD crée un jeton de sécurité contenant des informations sur l’utilisateur, ce jeton est signé par Azure AD à l’aide d’une clé privée avant d’être renvoyé à l’application. Pour vérifier que le jeton est valide et qu’il a bien été émis par Azure AD, l’application doit valider la signature du jeton. L’application utilise la clé publique exposée par Azure AD, laquelle est contenue dans le document des métadonnées de fédération du locataire. Cette clé publique, de même que la clé de signature dont elle est dérivée, est la même que celle utilisée pour tous les locataires dans Azure AD.
-
-Pour plus d’informations sur la substitution de la clé Azure AD, consultez l’article [Substitution de la clé de signature dans Azure Active Directory](../../active-directory/active-directory-signing-key-rollover.md).
-
-Dans la [paire de clés publique-privée](https://login.microsoftonline.com/common/discovery/keys/) :
-
-* La clé privée est utilisée par Azure AD pour créer un jeton JWT.
-* La clé publique est utilisée par une application telle que les services de distribution de licences DRM dans Media Services pour vérifier le jeton JWT.
-
-Pour des raisons de sécurité, Azure AD change régulièrement le certificat (toutes les six semaines). La substitution de clé peut survenir à tout moment en cas de violation de la sécurité. Par conséquent, les services de distribution de licences dans Media Services doivent mettre à jour la clé publique utilisée à chaque fois qu’Azure AD change la paire de clés. Dans le cas contraire, l’authentification par jeton dans Media Services échoue et aucune licence n’est émise.
-
-Pour configurer ce service, vous devez définir TokenRestrictionTemplate.OpenIdConnectDiscoveryDocument au moment de configurer les services de distribution de licences DRM.
-
-Voici comment fonctionne le jeton JWT :
-
-* Azure AD émet le jeton JWT avec la clé privée actuelle pour un utilisateur authentifié.
-* Lorsqu’un lecteur voit un CENC avec un contenu protégé par un système multi-DRM, il commence par localiser le jeton JWT émis par Azure AD.
-* Le lecteur envoie une demande d’acquisition de licence avec le jeton JWT aux services de distribution de licences dans Media Services.
-* Les services de distribution de licences dans Media Services utilisent la clé publique actuelle/valide depuis Azure AD pour vérifier le jeton JWT avant d’émettre des licences.
-
-Les services de distribution de licences DRM vérifient systématiquement la clé publique actuelle/valide à partir d’Azure AD. La clé publique présentée par Azure AD est la clé utilisée pour vérifier un jeton JWT émis par Azure AD.
-
-Que se passe-t-il si la substitution de la clé a lieu après qu’Azure AD a généré un jeton JWT, mais avant que le jeton JSON soit envoyé par les lecteurs aux services de distribution de licences DRM dans Media Services pour vérification ?
-
-Une clé pouvant être substituée à tout moment, il y a toujours plusieurs clés publiques valides disponibles dans le document de métadonnées de la fédération. La distribution de licences Media Services peut utiliser n’importe quelle clé spécifiée dans le document. Puisqu’une clé peut être rapidement changée, une autre peut être utilisée en remplacement et ainsi de suite.
-
-### <a name="where-is-the-access-token"></a>Où se trouve le jeton d’accès ?
-Si vous regardez comment une application web appelle une application API sous [Identité d’application avec octroi d’informations d’identification client OAuth 2.0](../../active-directory/develop/web-api.md), vous obtenez le flux d’authentification suivant :
-
-* Un utilisateur se connecte à Azure AD dans l’application web. Pour plus d’informations, voir la rubrique [Navigateur web vers application web](../../active-directory/develop/web-app.md).
-* Le point de terminaison d’autorisation Azure AD redirige l’agent utilisateur vers l’application cliente avec un code d’autorisation. L’agent utilisateur renvoie le code d’autorisation à l’URI de redirection de l’application cliente.
-* L’application web doit obtenir un jeton d’accès pour pouvoir s’authentifier auprès de l’API web et extraire la ressource souhaitée. Elle envoie une demande au point de terminaison du jeton Azure AD et fournit les informations d’identification, l’ID client et l’URI ID d’application de l’API web. Elle présente le code d’autorisation pour prouver que l’utilisateur a donné son consentement.
-* Azure AD authentifie l’application et renvoie un jeton d’accès JWT, qui est utilisé pour appeler l’API web.
-* Sur HTTPS, l’application web utilise le jeton d’accès JWT renvoyé pour ajouter la chaîne JWT avec la mention « Porteur » dans l’en-tête « Autorisation » de la demande adressée à l’API web. L’API web valide ensuite le jeton JWT. Si la validation réussit, elle renvoie la ressource souhaitée.
-
-Dans ce flux d’identité de l’application, l’API web suppose que l’application web a authentifié l’utilisateur. C’est pour cette raison que ce modèle est appelé « sous-système approuvé ». Le [schéma de flux d’autorisation](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) explique comment fonctionne le flux relatif au code d’autorisation.
-
-L’acquisition de licence avec restriction de jeton suit le même modèle de sous-système approuvé. Le service de distribution de licences dans Media Services est une ressource API web, ou bien la « ressource backend » à laquelle une application web doit accéder. Où se trouve le jeton d’accès ?
-
-Le jeton d’accès est obtenu à partir d’Azure AD. Une fois l’utilisateur authentifié, un code d’autorisation est renvoyé. Il est ensuite utilisé avec l’ID client et la clé d’application en échange d’un jeton d’accès. Le jeton d’accès sert à accéder à une application de « pointeur » qui pointe vers ou représente le service de distribution de licences Media Services.
-
-Pour inscrire et configurer l’application de pointeur dans Azure AD, suivez les étapes ci-dessous :
-
-1. Dans le locataire Azure AD :
-
-   * Ajoutez une application (ressource) avec l’URL de connexion https://[nom_ressource].azurewebsites.net/. 
-   * Ajoutez un ID d’application avec l’URL https://[nom_locataire_aad].onmicrosoft.com/[nom_ressource].
-
-2. Ajoutez une nouvelle clé à l’application de ressource.
-
-3. Mettez à jour le fichier manifeste de l’application afin que la propriété groupMembershipClaims se voie attribuer la valeur « groupMembershipClaims » : « All ».
-
-4. Dans l’application Azure AD qui pointe vers l’application web du lecteur, dans la section **Autorisations pour d’autres applications**, ajoutez l’application de ressource ajoutée à l’étape 1. Sous **Autorisations déléguées**, sélectionnez **Accès [nom_ressource]**. Cette option donne à l’application web l’autorisation de créer des jetons d’accès pour accéder à l’application de ressource. Procédez ainsi à la fois pour la version locale et pour la version déployée de l’application web si vous effectuez un développement avec Visual Studio et une application web Azure.
-
-Le jeton JWT émis par Azure AD est le jeton d’accès utilisé pour accéder à la ressource de pointeur.
-
-### <a name="what-about-live-streaming"></a>Qu’en est-il de la diffusion en continu ?
-La discussion précédente était essentiellement concentrée sur les éléments multimédias à la demande. Qu’en est-il de la diffusion en continu ?
-
-Vous pouvez utiliser exactement la même conception et la même implémentation pour protéger un service de diffusion en continu dans Media Services, en traitant l’élément multimédia associé à un programme comme un élément multimédia VOD.
-
-Pour diffuser en continu dans Media Services, vous devez plus spécifiquement créer un canal, puis créer un programme sous ce canal. Pour créer le programme, vous devez créer un élément contenant l’archive en direct du programme. Pour pouvoir protéger du contenu en direct avec CENC et un système multi-DRM, appliquez la même procédure d’installation/de traitement à l’élément multimédia, comme s’il s’agissait d’un élément VOD, avant de démarrer le programme.
-
-### <a name="what-about-license-servers-outside-media-services"></a>Qu’en est-il des serveurs de licences hors Media Services ?
-
-Souvent, les clients investissent dans une batterie de serveurs qu’ils hébergent dans leur propre centre de données ou chez des fournisseurs de services DRM. Avec la protection de contenu Media Services, vous pouvez fonctionner en mode hybride. Le contenu peut être hébergé et protégé dynamiquement dans Media Services, alors que les licences DRM sont délivrées par des serveurs situés en dehors de Media Services. Dans ce cas, envisagez les modifications suivantes :
-
-* Le service STS doit émettre des jetons acceptables et pouvant être vérifiés par la batterie de serveurs de licence. Par exemple, les serveurs de licences Widevine fournis par Axinom exigent un jeton JWT spécifique contenant un message d’octroi de droit. Par conséquent, vous devez disposer d’un STS pour émettre un jeton JWT. 
-* Vous n’avez plus besoin de configurer le service de distribution de licences dans Media Services. Vous devez fournir les URL d’acquisition de la licence (pour PlayReady, Widevine et FairPlay) au moment où vous configurez ContentKeyPolicies.
-
-### <a name="what-if-i-want-to-use-a-custom-sts"></a>Que se passe-t-il si je souhaite utiliser un STS personnalisé ?
-Un client peut choisir d’utiliser un STS personnalisé pour fournir des jetons JWT. En voici plusieurs raisons :
-
-* Le fournisseur d’identité utilisé par le client ne prend pas en charge STS. Dans ce cas, un service STS personnalisé peut être une solution.
-* Le client peut avoir besoin de contrôler de manière plus souple ou plus stricte l’intégration de STS avec le système de facturation des abonnés du client. Par exemple, un opérateur MVPD peut proposer plusieurs offres d’abonné OTT, par exemple des offres premium, de base et sports. L’opérateur peut chercher à associer les revendications d’un jeton avec l’offre d’un abonné afin que seul le contenu d’une offre spécifique soit mis à disposition. Dans ce cas, un STS personnalisé offre la souplesse et la maîtrise nécessaires.
-
-Lorsque vous utilisez un STS personnalisé, vous devez effectuer deux modifications :
-
-* Lorsque vous configurez le service de distribution de licences pour un élément multimédia, vous devez spécifier la clé de sécurité utilisée par le STS personnalisé, et non la clé actuelle d’Azure AD. (Voir détails ci-dessous.) 
-* Une fois le jeton JTW généré, une clé de sécurité est spécifiée à la place de la clé privée du certificat X509 courant dans Azure AD.
-
-Il existe deux types de clés de sécurité :
-
-* Clé symétrique : la même clé est utilisée pour générer et vérifier un jeton JWT.
-* Clé asymétrique : une paire de clés publique-privée dans un certificat X509 est utilisée avec une clé privée pour chiffrer/générer un jeton JWT et avec la clé publique pour vérifier le jeton.
-
-> [!NOTE]
-> Si vous utilisez .NET Framework/C# en tant que plateforme de développement, le certificat X509 utilisé pour la clé de sécurité asymétrique doit avoir une longueur d’au moins 2 048 bits. Il s’agit d’une exigence de la classe System.IdentityModel.Tokens.X509AsymmetricSecurityKey dans .NET Framework. Dans le cas contraire, l’exception suivante est générée :
-> 
-> IDX10630 : la longueur de la signature « System.IdentityModel.Tokens.X509AsymmetricSecurityKey » ne peut pas être inférieure à « 2048 » bits.
-
 ## <a name="the-completed-system-and-test"></a>Le système et le test terminé
+
 Cette section décrit quelques scénarios dans le système achevé de bout en bout afin que vous puissiez avoir une vision générale du comportement avant d’obtenir un compte de connexion :
 
 * Si vous avez besoin d’un scénario non intégré :
@@ -413,6 +299,7 @@ Les captures d’écran ci-dessous présentent les différentes pages de connexi
 ![Compte de domaine client Azure AD personnalisé 3](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="use-encrypted-media-extensions-for-playready"></a>Utilisation d’Encrypted Media Extensions pour PlayReady
+
 Sur un navigateur moderne prenant en charge Encrypted Media Extensions (EME) pour PlayReady tel qu’Internet Explorer 11 sous Windows 8.1 et version ultérieure et le navigateur Microsoft Edge sous Windows 10, PlayReady sera la DRM sous-jacente d’EME.
 
 ![Utilisation d’EME pour PlayReady](./media/design-multi-drm-system-with-access-control/media-services-eme-for-playready1.png)
@@ -428,6 +315,7 @@ EME dans Microsoft Edge et Internet Explorer 11 sur Windows 10 permet d’appele
 Pour vous concentrer uniquement sur les appareils Windows, PlayReady est le seul système DRM dans le matériel disponible sur les appareils Windows (PlayReady SL3000). Un service de diffusion en continu peut utiliser PlayReady via EME ou via une application UWP (Universal Windows Platform), et offrir ainsi une meilleure qualité vidéo à l’aide de PlayReady SL3000 par rapport à un autre DRM. En règle générale, l’utilisation de Chrome ou de Firefox permet de diffuser du contenu jusqu’à 2K, tandis que Microsoft Edge/Internet Explorer 11 ou une application UWP prend en charge du contenu jusqu’à 4K sur le même appareil. La quantité dépend des paramètres de service et de l’implémentation.
 
 #### <a name="use-eme-for-widevine"></a>Utilisation d’EME pour Widevine
+
 Sur un navigateur moderne doté de la prise en charge d’EME/Widevine, telle que Chrome 41 + sous Windows 10, Windows 8.1, Mac OSX Yosemite et Chrome sur Android 4.4.4, la gestion des droits numériques derrière EME est assurée par Google Widevine.
 
 ![Utilisation d’EME pour Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine1.png)
@@ -437,16 +325,19 @@ Widevine ne vous empêche pas d’effectuer une capture d’écran de la vidéo 
 ![Plug-ins de lecteur pour Widevine](./media/design-multi-drm-system-with-access-control/media-services-eme-for-widevine2.png)
 
 #### <a name="use-eme-for-fairplay"></a>Utilisation d’EME pour FairPlay
+
 De même, vous pouvez tester le contenu protégé par FairPlay dans ce lecteur de test sur Safari sous MacOS ou iOS 11.2 et versions ultérieures.
 
 Veillez à indiquer « FairPlay » comme protectionInfo.type et entrez l’URL appropriée pour le certificat de votre application dans le chemin FPS AC (certificat d’application de diffusion en continu FairPlay).
 
 ### <a name="unentitled-users"></a>Utilisateurs non habilités
+
 Si un utilisateur n’est pas un membre du groupe d’utilisateurs habilités, l’utilisateur échoue à la vérification des droits. Le service de licence multi-DRM refuse alors d’émettre la licence requise comme indiqué. La description détaillée est « L’acquisition de licence a échoué », ce qui correspond à la conception.
 
 ![Utilisateurs non habilités](./media/design-multi-drm-system-with-access-control/media-services-unentitledusers.png)
 
 ### <a name="run-a-custom-security-token-service"></a>Exécution d’un service d’émission de jeton de sécurité (STS) personnalisé
+
 Si vous exécutez un STS personnalisé, le jeton JWT est émis par le STS personnalisé à l’aide d’une clé symétrique ou asymétrique.
 
 La capture d’écran suivante montre un scénario qui utilise une clé symétrique (à l’aide de Chrome) :
@@ -459,13 +350,8 @@ La capture d’écran suivante montre un scénario qui utilise une clé asymétr
 
 Dans les deux cas ci-dessus, l’authentification utilisateur reste la même. Elle passe par Azure AD. La seule différence est que les jetons JWT sont émis par le STS personnalisé et non par Azure AD. Lorsque vous configurez la protection CENC dynamique, la restriction du service de distribution de licences spécifie le type de jeton JWT, soit avec une clé symétrique soit avec une clé asymétrique.
 
-## <a name="summary"></a>Résumé
-Ce document aborde la protection de contenu à l’aide de trois DRM et du contrôle d’accès via l’authentification des jetons, ainsi que sa conception et son implémentation à l’aide d’Azure, d’Azure Media Services et d’Azure Media Player.
-
-* Nous avons proposé une conception de référence contenant tous les composants nécessaires dans un sous-système DRM.
-* Nous avons également présenté une implémentation de référence sur Azure, Azure Media Services et Azure Media Player.
-* Certains aspects directement impliqués dans la conception et l’implémentation ont également été abordés.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Protéger votre contenu avec DRM](protect-with-drm.md)
+* [Forum Aux Questions](frequently-asked-questions.md)
+* [Présentation de la protection du contenu](content-protection-overview.md)
+* [Protéger votre contenu avec DRM](protect-with-drm.md)

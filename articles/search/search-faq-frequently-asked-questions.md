@@ -2,19 +2,19 @@
 title: Questions fréquentes (FAQ) - Recherche Azure
 description: Obtenez des réponses aux questions fréquentes sur le service Recherche Azure de Microsoft, un service de recherche hébergé sur le cloud.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9ea4e4ec78e5613758bd9e5ff7a4fbd3273208c6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d4aae2f2ef9ccbc645647125682d999c11c99ab6
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312814"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649828"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Recherche Azure - Questions fréquentes (FAQ)
 
@@ -64,7 +64,7 @@ Il n’existe aucune restriction quant à l’utilisation d’un réplica princi
 
 Non, cette opération n’est pas prise en charge. La recherche est toujours limitée à un seul index.
 
-### <a name="can-i-restrict-search-corpus-access-by-user-identity"></a>Puis-je restreindre l’accès au corpus de recherche en fonction de l’identité de l’utilisateur ?
+### <a name="can-i-restrict-search-index-access-by-user-identity"></a>Puis-je limiter l'accès à l'index de recherche en fonction de l'identité de l'utilisateur ?
 
 Vous pouvez implémenter des [filtres de sécurité](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) avec le filtre `search.in()`. Le filtre s’adapte parfaitement aux [services de gestion d’identité comme Azure Active Directory(AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) afin de réduire les résultats de recherche en fonction de l’appartenance à un groupe d’utilisateurs défini.
 

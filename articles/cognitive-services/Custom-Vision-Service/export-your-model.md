@@ -1,6 +1,6 @@
 ---
 title: Exporter votre modèle sur votre mobile - Service Vision personnalisée
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment exporter votre modèle afin de l’utiliser pour créer des applications mobiles.
 services: cognitive-services
 author: anrothMSFT
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 554a392a7f815a6e646927f137b1e6c2856099bd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351290"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561083"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exporter votre modèle pour l’utiliser avec des appareils mobiles
 
@@ -69,10 +69,10 @@ Pour exporter le modèle après le nouvel entraînement, effectuez les étapes s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Intégrez votre modèle exporté dans une application. Plusieurs exemples d’applications sont disponibles :
+Intégrer votre modèle exporté dans une application en explorant un des articles ou exemples suivants :
 
-* Un exemple pour [utiliser votre modèle CoreML exporté dans une application iOS](https://go.microsoft.com/fwlink/?linkid=857726), en vue de la classification des images en temps réel avec Swift
-* Un exemple d’application iOS pour [utiliser votre modèle CoreML exporté avec Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel), en vue de la classification des images en temps réel 
-* Un exemple pour [utiliser votre modèle Tensorflow exporté dans une application Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample), en vue de la classification des images en temps réel 
-* [Utilisation de votre modèle Tensorflow avec Windows](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-model-python)
-* Exemple pour [utiliser votre modèle ONNX exporté avec Azure Machine Learning](https://azure.microsoft.com/resources/samples/cognitive-services-onnx-customvision-sample/)
+* [Utiliser votre modèle Tensorflow avec Python](export-model-python.md)
+* [Utiliser votre modèle ONNX avec Windows Machine Learning](custom-vision-onnx-windows-ml.md)
+* Voir l’exemple de [modèle CoreML dans une application iOS](https://go.microsoft.com/fwlink/?linkid=857726) pour une classification des images en temps réel avec Swift.
+* Voir l’exemple de [modèle Tensorflow dans une application Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) pour une classification des images en temps réel sur Android.
+* Voir l’exemple de [modèle CoreML avec Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) pour une classification des images en temps réel dans une application Xamarin iOS.

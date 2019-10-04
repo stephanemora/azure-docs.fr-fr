@@ -3,8 +3,8 @@ title: Configurer des adresses IP pour une interface réseau Azure | Microsoft 
 description: Découvrez comment ajouter, modifier et supprimer des adresses IP publiques et privées pour une interface réseau.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
-ms.author: jdial
-ms.openlocfilehash: 89b311edbae6b5f6679908b5d07b22b402b5c55e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888064"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65506375"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure
 
@@ -36,7 +36,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
-- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 - Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans [Autorisations relatives à l’interface réseau](virtual-network-network-interface.md#permissions).
@@ -53,10 +53,10 @@ Vous pouvez ajouter autant d’adresses [privées](#private) et [publiques](#pub
 
    |Paramètre|Requis ?|Détails|
    |---|---|---|
-   |Nom|Oui|Doit être unique pour l’interface réseau|
-   |Type|Oui|Étant donné que vous ajoutez une configuration IP à une interface réseau existante et que chaque interface réseau doit disposer d’une configuration IP [principale](#primary), la seule option possible est **Secondaire**.|
-   |Méthode d’affectation d’adresses IP privées|Oui|[**Dynamique**](#dynamic) : Azure attribue la prochaine adresse disponible pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée. [**Statique**](#static) : vous attribuez une adresse inutilisée pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée.|
-   |Adresse IP publique|Non |**Désactivé :** aucune ressource d’adresse IP publique n’est associée à la configuration IP. **Activée :** sélectionnez une adresse IP publique IPv4 existante, ou créez-en une. Pour savoir comment créer une adresse IP publique, consultez l’article [Adresses IP publiques](virtual-network-public-ip-address.md#create-a-public-ip-address).|
+   |Nom|OUI|Doit être unique pour l’interface réseau|
+   |Type|OUI|Étant donné que vous ajoutez une configuration IP à une interface réseau existante et que chaque interface réseau doit disposer d’une configuration IP [principale](#primary), la seule option possible est **Secondaire**.|
+   |Méthode d’affectation d’adresses IP privées|OUI|[**Dynamique**](#dynamic) : Azure attribue la prochaine adresse disponible pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée. [**Statique**](#static) : vous attribuez une adresse inutilisée pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée.|
+   |Adresse IP publique|Non|**Désactivé :** aucune ressource d’adresse IP publique n’est associée à la configuration IP. **Activée :** sélectionnez une adresse IP publique IPv4 existante, ou créez-en une. Pour savoir comment créer une adresse IP publique, consultez l’article [Adresses IP publiques](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Ajoutez manuellement des adresses IP privées secondaires au système d’exploitation de la machine virtuelle en suivant les instructions de l’article [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](virtual-network-multiple-ip-addresses-portal.md#os-config). Consultez les adresses IP [privées](#private) pour connaître les considérations spécifiques avant d’ajouter manuellement des adresses IP à un système d’exploitation de machine virtuelle. N’ajoutez pas d’adresse IP publique au système d’exploitation de la machine virtuelle.
 
 **Commandes**
@@ -175,7 +175,7 @@ Les adresses IPv4 et (éventuellement) IPv6 privées dynamiques sont assignées 
 Vous pouvez (éventuellement) assigner une adresse IPv4 statique publique ou privée à une configuration IP. Vous ne pouvez pas assigner d’adresse IPv6 statique publique ou privée à une configuration IP. Pour en savoir plus sur la façon dont Azure attribue les adresses IPv4 publiques statiques, consultez [Adresses IP publiques](virtual-network-public-ip-address.md).
 
 - **Publique uniquement** : Azure attribue l’adresse à partir d’une plage propre à chaque région Azure. Vous pouvez télécharger la liste des plages (préfixes) pour les clouds Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [Gouvernement américain](https://www.microsoft.com/download/details.aspx?id=57063), [Chine](https://www.microsoft.com/download/details.aspx?id=57062), et [Allemagne](https://www.microsoft.com/download/details.aspx?id=57064). L’adresse ne change pas tant que la ressource d’adresse IP publique à laquelle elle est assignée n’est pas supprimée, ou que la méthode d’affectation dynamique n’est pas modifiée. Si la ressource d’adresse IP publique est associée à une configuration IP, elle doit être dissociée de la configuration IP avant de modifier sa méthode d’affectation.
-- **Privée uniquement** : vous sélectionnez et attribuez une adresse à partir de la plage d’adresses du sous-réseau. L’adresse que vous assignez peut correspondre à n’importe quelle adresse qui se trouve au sein de la plage d’adresses de sous-réseau n’étant pas une de ses quatre premières adresses, et qui n’est pas déjà assignée à une autre ressource du sous-réseau. Les adresses statiques ne sont libérées que si l’interface réseau est supprimée. Si vous sélectionnez la méthode d’allocation statique à la place de la méthode dynamique, Azure définit l’adresse dynamique sur l’adresse IP statique précédemment attribuée, même si celle-ci n’est pas la première adresse disponible de la plage d’adresses du sous-réseau. L’adresse change aussi si l’interface réseau est assignée à un autre sous-réseau dans le même réseau virtuel. Pour l’assigner à un autre sous-réseau, vous devez d’abord modifier la méthode d’allocation statique en dynamique. Une fois que l’interface réseau est assignée à un autre sous-réseau, vous pouvez redéfinir la méthode d’allocation en statique, et assigner une adresse IP de la nouvelle plage d’adresses du sous-réseau.
+- **Privée uniquement** : vous sélectionnez et attribuez une adresse à partir de la plage d’adresses du sous-réseau. L’adresse que vous assignez peut correspondre à n’importe quelle adresse qui se trouve au sein de la plage d’adresses de sous-réseau n’étant pas une de ses quatre premières adresses, et qui n’est pas déjà assignée à une autre ressource du sous-réseau. Les adresses statiques ne sont libérées que si l’interface réseau est supprimée. Si vous sélectionnez la méthode d’allocation statique à la place de la méthode dynamique, Azure définit l’adresse statique sur l’adresse IP dynamique précédemment attribuée, même si celle-ci n’est pas la première adresse disponible de la plage d’adresses du sous-réseau. L’adresse change aussi si l’interface réseau est assignée à un autre sous-réseau dans le même réseau virtuel. Pour l’assigner à un autre sous-réseau, vous devez d’abord modifier la méthode d’allocation statique en dynamique. Une fois que l’interface réseau est assignée à un autre sous-réseau, vous pouvez redéfinir la méthode d’allocation en statique, et assigner une adresse IP de la nouvelle plage d’adresses du sous-réseau.
 
 ## <a name="ip-address-versions"></a>Versions d’adresse IP
 

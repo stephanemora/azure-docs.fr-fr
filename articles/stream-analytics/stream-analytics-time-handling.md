@@ -1,18 +1,18 @@
 ---
 title: Comprendre la gestion du temps dans Azure Stream Analytics
-description: En savoir plus sur la gestion du temps dans Azure Stream Analytics
+description: Découvrez comment fonctionne la gestion du temps et comment résoudre les problèmes qui y sont liés dans Azure Stream Analytics.
 author: jasonwhowell
 ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: c8517d4754d10b61f7ee4c8075830860e1d22864
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543285"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70172991"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Comprendre la gestion du temps dans Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Pour mieux établir le cadre de la discussion, définissons certains concepts de
 
 - **Temps de traitement** : moment où l’événement atteint le système de traitement et est observé. Par exemple, il s’agit du laps de temps entre le moment où le capteur du poste péage détecte la voiture et où le système informatique finit de traiter les données.
 
-- **Limite** : marqueur d’heure d’événement qui indique tous les événements jusqu’à un certain point d’entrée dans le processeur de streaming. Les limites permettent au système d’indiquer une nette progression de l’ingestion des événements. Compte tenu de la nature des flux, les données d’événements entrants ne s’arrêtent jamais. De ce fait, les limitent indiquent la progression jusqu’à un certain point dans le flux.
+- **Limite** : marqueur d’heure d’événement qui indique jusqu’à quel point des événements ont été entrés dans le processeur de diffusion en continu. Les limites permettent au système d’indiquer une nette progression de l’ingestion des événements. Compte tenu de la nature des flux, les données d’événements entrants ne s’arrêtent jamais. De ce fait, les limitent indiquent la progression jusqu’à un certain point dans le flux.
 
    Le concept de limite est important. Les limites permettent à Stream Analytics de déterminer à quel moment le système peut générer des résultats complets, corrects et répétables qu’il n’est pas utile de retirer. Le traitement peut être effectué de façon garantie, prévisible et répétable. Par exemple, s’il est nécessaire d’effectuer un nouveau calcul dans le cadre de la gestion des erreurs, les limites constituent des points de départ et d’arrivée fiables.
 
@@ -163,7 +163,7 @@ Azure Stream Analytics se sert de la progression de la limite comme unique décl
 
 En cas d’utilisation des [agrégations fenêtrées](stream-analytics-window-functions.md), le service génère uniquement les sorties à la fin des plages. Dans certains cas, les utilisateurs peuvent souhaiter voir les agrégations partielles générées à partir des plages. Les agrégations partielles ne sont pas prises en charge dans Azure Stream Analytics.
 
-Dans d’autres solutions de streaming, les événements de sortie peuvent être matérialisés à divers points de déclenchement, en fonction de circonstances extérieures. Il est possible dans certaines solutions que les événements de sortie pour une fenêtre de temps donné a pu être créées plusieurs fois. Les résultats d’agrégation se font plus précis à mesure que les valeurs d’entrée sont affinées. Dans un premier temps, les événements peuvent être extrapolés et revus au fil du temps. Par exemple, quand un appareil est hors connexion sur le réseau, un système peut utiliser une valeur estimée. Par la suite, quand ce même appareil est connecté au réseau, les données d’événements réelles peuvent être incluses dans le flux d’entrée. Les résultats générés par le traitement de cette plage de temps offrent une sortie plus précise.
+Dans d’autres solutions de streaming, les événements de sortie peuvent être matérialisés à divers points de déclenchement, en fonction de circonstances extérieures. Dans certaines solutions, il est possible que les événements de sortie pour une plage de temps donnée soient générés plusieurs fois. Les résultats d’agrégation se font plus précis à mesure que les valeurs d’entrée sont affinées. Dans un premier temps, les événements peuvent être extrapolés et revus au fil du temps. Par exemple, quand un appareil est hors connexion sur le réseau, un système peut utiliser une valeur estimée. Par la suite, quand ce même appareil est connecté au réseau, les données d’événements réelles peuvent être incluses dans le flux d’entrée. Les résultats générés par le traitement de cette plage de temps offrent une sortie plus précise.
 
 ## <a name="illustrated-example-of-watermarks"></a>Exemple illustrés de limites
 

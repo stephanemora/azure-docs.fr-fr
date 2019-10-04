@@ -3,7 +3,7 @@ title: Configuration d’emplacements nommés dans Azure Active Directory | Micr
 description: Découvrez comment configurer des emplacements nommés.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
 ms.service: active-directory
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b21c4727e7679c25dc2574a6506f8d3932aec2
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 1513dba19221e64d40551ffb13a5e9f33fd9858f
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434787"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127242"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Démarrage rapide : Configurer des emplacements nommés dans Azure Active Directory
 
 Les emplacements nommés vous permettent d’étiqueter des plages d’adresses IP approuvées dans votre entreprise. Azure AD utilise des emplacements nommés pour effectuer les actions suivantes :
-- Détecter les faux positifs dans les [événements à risque](concept-risk-events.md). La connexion à partir d’un emplacement approuvé réduit le risque de connexion d’un utilisateur.   
+- Détecter les faux positifs dans les [détections de risques](concept-risk-events.md). La connexion à partir d’un emplacement approuvé réduit le risque de connexion d’un utilisateur.   
 - Configurer l’[accès conditionnel en fonction des emplacements](../conditional-access/location-condition.md).
 
 Dans ce guide de démarrage rapide, vous apprenez à configurer des emplacements nommés dans votre environnement.
@@ -63,6 +63,6 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 Pour plus d'informations, consultez les pages suivantes :
 
-- [Accès conditionnel Azure AD](../active-directory-conditional-access-azure-portal.md)
+- [Accès conditionnel Azure AD](../active-directory-conditional-access-azure-portal.md).
 - [Conditions d’emplacement dans l’accès conditionnel Azure AD](../conditional-access/location-condition.md)
 - [Rapport sur les connexions à risque](concept-risky-sign-ins.md)  

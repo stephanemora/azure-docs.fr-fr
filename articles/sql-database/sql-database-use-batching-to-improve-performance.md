@@ -1,6 +1,6 @@
 ---
-title: Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL Azure
-description: Cette rubrique explique comment le traitement par lots des opérations de base de données contribue à améliorer la rapidité et l'extensibilité de vos applications Azure SQL Database. Bien que ces techniques de traitement par lot fonctionnent pour les bases de données SQL Server, cet article porte exclusivement sur Azure.
+title: Comment utiliser le traitement par lots pour améliorer les performances des applications Azure SQL Database
+description: Cette rubrique explique comment le traitement par lots des opérations de base de données contribue à améliorer la rapidité et la scalabilité de vos applications Azure SQL Database. Bien que ces techniques de traitement par lot fonctionnent pour les bases de données SQL Server, cet article porte exclusivement sur Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: e76b5ecd3d6401c317f6500ec376fc25d3fa55b8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3d18f5b77d08a55bd06656a72cbc02c040b6f127
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997691"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566237"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
 
-Les opérations de traitement par lots sur la base de données SQL Azure améliorent considérablement les performances et l’évolutivité de vos applications. Pour en comprendre les avantages, la première partie de cet article présente des résultats de test qui comparent des demandes séquentielles à des demandes par lots exécutées sur une base de données SQL. Le reste de cet article décrit des techniques, des scénarios et des remarques à prendre en compte pour vous aider à utiliser efficacement le traitement par lots dans vos applications Azure.
+Les opérations de traitement par lots sur Azure SQL Database améliorent considérablement les performances et la scalabilité de vos applications. Pour en comprendre les avantages, la première partie de cet article présente des résultats de test qui comparent des demandes séquentielles à des demandes par lots exécutées sur une base de données SQL. Le reste de cet article décrit des techniques, des scénarios et des remarques à prendre en compte pour vous aider à utiliser efficacement le traitement par lots dans vos applications Azure.
 
 ## <a name="why-is-batching-important-for-sql-database"></a>Pourquoi le traitement par lots est-il important pour SQL Database ?
 
@@ -94,7 +93,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier exemple, chaque appel individuel est une transaction implicite. Dans le deuxième exemple, une transaction explicite encapsule tous les appels. Conformément à la documentation du [journal des transactions à écriture anticipée](https://msdn.microsoft.com/library/ms186259.aspx), les enregistrements de journal sont vidés sur le disque lorsque la transaction est validée. Par conséquent, en incluant plusieurs appels dans une transaction, l’écriture dans le journal des transactions peut être retardée jusqu’à ce que la transaction soit validée. En effet, vous activez le traitement par lots pour les écritures effectuées dans le journal des transactions du serveur.
 
-Le tableau suivant présente certains résultats des tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (USA Ouest). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
+Le tableau suivant présente quelques résultats de tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (USA Ouest). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
 
 **Local vers Azure**:
 
@@ -105,7 +104,7 @@ Le tableau suivant présente certains résultats des tests ad hoc. Les tests ont
 | 100 |12 662 |10 395 |
 | 1 000 |128 852 |102 917 |
 
-**Azure vers Azure (même centre de données)**:
+**Azure vers Azure (même centre de données)** :
 
 | Opérations | Sans transaction (ms) | Avec transaction (ms) |
 | --- | --- | --- |
@@ -168,7 +167,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Dans l’exemple précédent, le **SqlCommand** objet insère des lignes à partir d’un paramètre table,  **\@TestTvp**. L’objet **DataTable** créé précédemment est assigné à ce paramètre à l’aide de la méthode **SqlCommand.Parameters.Add**. Le traitement par lots des insertions dans un seul appel augmente considérablement les performances sur les insertions séquentielles.
+Dans l’exemple précédent, l’objet **SqlCommand** insère des lignes à partir d’un paramètre table, **\@TestTvp**. L’objet **DataTable** créé précédemment est assigné à ce paramètre à l’aide de la méthode **SqlCommand.Parameters.Add**. Le traitement par lots des insertions dans un seul appel augmente considérablement les performances sur les insertions séquentielles.
 
 Pour améliorer l’exemple précédent, utilisez une procédure stockée au lieu d’une commande de texte. La commande Transact-SQL suivante crée une procédure stockée qui utilise le paramètre table **SimpleTestTableType** .
 
@@ -192,7 +191,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 Dans la plupart des cas, les paramètres table présentent des performances équivalentes ou supérieures à celles des autres techniques de traitement par lots. Les paramètres table sont souvent préférables car ils apportent davantage de flexibilité que les autres options. Par exemple, les autres techniques, telles que la copie en bloc SQL, autorisent uniquement l’insertion de nouvelles lignes. Mais avec les paramètres table, vous pouvez utiliser une logique dans la procédure stockée pour déterminer quelles lignes sont des mises à jour et quelles lignes sont des insertions. Le type de table peut aussi être modifié pour contenir une colonne « Opération » qui indique si la ligne spécifiée doit être insérée, mise à jour ou supprimée.
 
-Le tableau suivant présente les résultats des tests ad hoc pour l’utilisation de paramètres table en millisecondes.
+Le tableau suivant présente les résultats de tests ad hoc pour l’utilisation des paramètres table en millisecondes.
 
 | Opérations | Local vers Azure (ms) | Azure (même centre de données) |
 | --- | --- | --- |
@@ -277,7 +276,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Cet exemple vise à illustrer le concept de base. Un scénario plus réaliste effectuerait une boucle via les entités nécessaires à la construction simultanée de la chaîne de requête et des paramètres de commande. Vous êtes limité à un total de paramètres de 2 100 paramètres de requête, ce qui limite le nombre total de lignes pouvant être traitées de cette manière.
 
-Les résultats des tests ad hoc suivants montrent les performances de ce type d’instruction insert en millisecondes.
+Les résultats des tests ad hoc suivants montrent les performances de ce type d’instruction d’insertion en millisecondes.
 
 | Opérations | Paramètres table (ms) | Instruction INSERT unique (ms) |
 | --- | --- | --- |
@@ -677,5 +676,5 @@ La liste suivante fournit un résumé des recommandations relatives au traitemen
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article se concentre sur la façon dont les techniques de conception et de codage de bases de données basées sur un traitement par lots peuvent améliorer les performances et l’évolutivité de votre application. Mais cet aspect ne représente qu’un facteur parmi d’autres dans votre stratégie globale. Pour d’autres méthodes d’amélioration des performances et de l’évolutivité, consultez [Guide des performances Azure SQL Database pour les bases de données uniques](sql-database-performance-guidance.md) et [Considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool-guidance.md).
+Cet article se concentre sur la façon dont les techniques de conception et de codage de bases de données basées sur un traitement par lots peuvent améliorer les performances et l’évolutivité de votre application. Mais cet aspect ne représente qu’un facteur parmi d’autres dans votre stratégie globale. Pour d’autres méthodes d’amélioration des performances et de la scalabilité, consultez [Guide des performances Azure SQL Database pour les bases de données uniques](sql-database-performance-guidance.md) et [Considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool-guidance.md).
 

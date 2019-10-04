@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.author: adgera
+ms.date: 08/09/2019
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: MT
+ms.openlocfilehash: 61c09435606612377781fb382d2d31144e96b07b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263065"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965915"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Ajouter des objets blob à des objets dans Azure Digital Twins
 
@@ -36,7 +36,7 @@ En plus de **Content-Type** et **Content-Disposition**, les demandes en plusieur
 
 Les quatre principaux schémas JSON sont :
 
-![Schémas JSON][1]
+[![Schémas JSON](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
 
 Les métadonnées d’objets blob JSON sont conformes au modèle suivant :
 
@@ -51,16 +51,16 @@ Les métadonnées d’objets blob JSON sont conformes au modèle suivant :
   }
 ```
 
-| Attribut | type | Description |
+| Attribut | Type | Description |
 | --- | --- | --- |
-| **parentId** | Chaîne | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
-| **name** |Chaîne | Nom convivial pour l’objet blob |
-| **type** | Chaîne | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
-| **typeId** | Entier  | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
-| **subtype** | Chaîne | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
-| **subtypeId** | Entier  | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
-| **description** | Chaîne | Description personnalisée de l’objet blob |
-| **sharing** | Chaîne | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
+| **parentId** | String | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
+| **name** |String | Nom convivial pour l’objet blob |
+| **type** | String | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
+| **typeId** | Integer | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
+| **subtype** | String | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
+| **subtypeId** | Integer | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
+| **description** | String | Description personnalisée de l’objet blob |
+| **sharing** | String | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
 
 Les métadonnées d’objets blob sont toujours fournies en tant que premier segment avec **Content-Type** `application/json` ou en tant que fichier `.json`. Les données de fichiers sont fournies dans le deuxième segment et peuvent être de n’importe quel type MIME pris en charge.
 
@@ -108,20 +108,20 @@ Les objets blob retournés individuellement sont conformes au schéma JSON suiva
 }
 ```
 
-| Attribut | type | Description |
+| Attribut | Type | Description |
 | --- | --- | --- |
-| **id** | Chaîne | Identificateur unique de l’objet blob |
-| **name** |Chaîne | Nom convivial pour l’objet blob |
-| **parentId** | Chaîne | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
-| **type** | Chaîne | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
-| **typeId** | Entier  | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
-| **subtype** | Chaîne | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
-| **subtypeId** | Entier  | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
-| **sharing** | Chaîne | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
-| **description** | Chaîne | Description personnalisée de l’objet blob |
-| **contentInfos** | Tableau | Spécifie les informations de métadonnées non structurées, notamment la version |
-| **fullName** | Chaîne | Nom complet de l’objet blob |
-| **spacePaths** | Chaîne | Chemin de l’espace |
+| **id** | String | Identificateur unique de l’objet blob |
+| **name** |String | Nom convivial pour l’objet blob |
+| **parentId** | String | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
+| **type** | String | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
+| **typeId** | Integer | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
+| **subtype** | String | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
+| **subtypeId** | Integer | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
+| **sharing** | String | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
+| **description** | String | Description personnalisée de l’objet blob |
+| **contentInfos** | Array | Spécifie les informations de métadonnées non structurées, notamment la version |
+| **fullName** | String | Nom complet de l’objet blob |
+| **spacePaths** | String | Chemin de l’espace |
 
 Les métadonnées d’objets blob sont toujours fournies en tant que premier segment avec **Content-Type** `application/json` ou en tant que fichier `.json`. Les données de fichiers sont fournies dans le deuxième segment et peuvent être de n’importe quel type MIME pris en charge.
 
@@ -183,7 +183,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 Pour finir, les utilisateurs [cURL](https://curl.haxx.se/) peuvent effectuer des requêtes de formulaire multipart de la même manière :
 
-![Objets blob d’appareil][5]
+[![Objets blob d’appareil](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
 curl
@@ -191,7 +191,7 @@ curl
  -H "Authorization: Bearer YOUR_TOKEN"
  -H "Accept: application/json"
  -H "Content-Type: multipart/form-data"
- -F "meta={\"ParentId\": \"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\": \"A well chosen description\", \"Sharing\": \"None\"};type=application/json"
+ -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json"
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
@@ -211,7 +211,7 @@ Les sections suivantes décrivent les points de terminaison d’API principaux l
 
 Vous pouvez attacher des objets blob à des appareils. L’illustration suivante montre la documentation de référence Swagger pour vos API de gestion. Elle spécifie les points de terminaison d’API associés à l’appareil pour la consommation d’objets blob et tous les paramètres de chemin obligatoires à leur passer.
 
-![Objets blob d’appareil][2]
+[![Objets blob d’appareil](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
 
 Par exemple, pour mettre à jour ou créer un blob, et l’attacher à un appareil, envoyez une requête HTTP PATCH authentifiée à :
 
@@ -229,7 +229,7 @@ Les requêtes ayant réussi retournent un objet JSON comme [décrit précédemme
 
 Vous pouvez également attacher des objets blob à des espaces. L’image suivante liste tous les points de terminaison d’API d’espace responsables du traitement des objets blob. Elle liste également tous les paramètres de chemin à passer à ces points de terminaison.
 
-![Objets blob d’espace][3]
+[![Objets blob d’espace](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
 
 Par exemple, pour retourner un blob attaché à un espace, envoyez une requête HTTP GET authentifiée à :
 
@@ -249,7 +249,7 @@ Une requête PATCH au même point de terminaison met à jour la description des 
 
 Vous pouvez attacher des objets blob aux modèles utilisateur (par exemple, pour associer une image de profil). L’image suivante montre les points de terminaison pertinents de l’API utilisateur et les paramètres de chemin nécessaires, comme `id` :
 
-![Objets blob d’utilisateur][4]
+[![Objets blob d’utilisateur](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
 
 Par exemple, pour extraire un blob attaché à un utilisateur, envoyez une requête HTTP GET authentifiée avec les données de formulaire nécessaires à :
 
@@ -288,10 +288,3 @@ Vérifiez également que chaque segment multipart a un **Content-Type** correspo
 - Pour en savoir plus sur la documentation de référence Swagger pour Azure Digital Twins, lisez [Utiliser Azure Digital Twins Swagger](how-to-use-swagger.md).
 
 - Pour découvrir comment charger des objets blob par le biais de Postman, consultez [Guide pratique pour configurer Postman](./how-to-configure-postman.md).
-
-<!-- Images -->
-[1]: media/how-to-add-blobs/blob-models.PNG
-[2]: media/how-to-add-blobs/blobs-device-api.PNG
-[3]: media/how-to-add-blobs/blobs-space-api.PNG
-[4]: media/how-to-add-blobs/blobs-users-api.PNG
-[5]: media/how-to-add-blobs/curl.PNG

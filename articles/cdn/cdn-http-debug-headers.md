@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: 4ba42850ee28e2e212d9bc2b7b64be103218757c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: dec753d7c891d226aa2e6d3efa993d8d24adfbaa
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094222"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593841"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>En-têtes HTTP X-EC-Debug pour le moteur de règles Azure CDN
 L’en-tête de requête de cache de débogage `X-EC-Debug` fournit des informations supplémentaires sur la stratégie de cache qui est appliquée à la ressource demandée. Ces en-têtes sont spécifiques aux produits **Azure CDN Premium de Verizon**.
@@ -27,7 +27,7 @@ L’en-tête de requête de cache de débogage `X-EC-Debug` fournit des informat
 ## <a name="usage"></a>Usage
 La réponse envoyée à partir des serveurs POP à un utilisateur comprend l’en-tête `X-EC-Debug` uniquement lorsque les conditions suivantes sont remplies :
 
-- La [fonctionnalité En-têtes de réponse de cache de débogage](cdn-rules-engine-reference-features.md#debug-cache-response-headers) a été activée sur le moteur de règles pour la requête spécifiée.
+- La [fonctionnalité En-têtes de réponse de cache de débogage](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) a été activée sur le moteur de règles pour la requête spécifiée.
 - La requête spécifiée définit l’ensemble des en-têtes de réponse de cache de débogage qui seront inclus dans la réponse.
 
 ## <a name="requesting-debug-cache-information"></a>Demander des informations sur le cache de débogage
@@ -68,11 +68,11 @@ L’en-tête X-EC-Debug fournit des informations de code d’état du cache au f
 - `X-EC-Debug: x-ec-cache-remote: <StatusCode from Platform (POP/ID)>`
 
 Les termes utilisés dans la syntaxe de l’en-tête de réponse ci-dessus sont définis comme suit :
-- StatusCode : indique la façon dont le contenu demandé a été traité par le CDN, qui est représenté par un code d’état du cache.
+- StatusCode : Indique la façon dont le contenu demandé a été traité par le CDN, qui est représenté par un code d’état du cache.
     
     Le code d’état TCP_DENIED peut être signalé à la place de NONE lorsqu’une requête non autorisée est refusée en raison de l’authentification basée sur jeton. Toutefois, le code d’état NONE continuera à être utilisé lors de l’affichage des rapports sur l’état du cache ou des données brutes du journal.
 
-- Platform : indique la plateforme sur laquelle le contenu a été demandé. Les codes suivants sont valides pour ce champ :
+- Platform : Indique la plateforme sur laquelle le contenu a été demandé. Les codes suivants sont valides pour ce champ :
 
     Code  | Plateforme
     ------| --------
@@ -80,7 +80,7 @@ Les termes utilisés dans la syntaxe de l’en-tête de réponse ci-dessus sont 
     ECS   | HTTP Small
     ECD   | ADN (Application delivery network)
 
-- POP : indique le [POP](cdn-pop-abbreviations.md) qui a traité la requête. 
+- POP : Indique le [POP](cdn-pop-abbreviations.md) qui a traité la demande. 
 
 ### <a name="sample-response-headers"></a>Exemples d’en-têtes de réponse
 
@@ -106,7 +106,7 @@ Le terme utilisé dans la syntaxe de l’en-tête de réponse ci-dessus est déf
 Valeur  | Description
 -------| --------
 OUI    | Indique que le contenu demandé était éligible pour la mise en cache.
-NON     | Indique que le contenu demandé n’était pas éligible pour la mise en cache. Cet état peut être dû à l’une des raisons suivantes : <br /> - Configuration spécifique au client : une configuration spécifique à votre compte peut empêcher les serveurs POP de mettre en cache une ressource. Par exemple, le moteur de règles peut empêcher la mise en cache d’une ressource en activant la fonctionnalité de contournement du cache pour les requêtes applicables.<br /> - En-têtes de réponse du cache : les en-têtes Cache-Control et Expires de la ressource demandée peuvent empêcher les serveurs POP de la mettre en cache.
+NON     | Indique que le contenu demandé n’était pas éligible pour la mise en cache. Cet état peut être dû à l’une des raisons suivantes : <br /> - Configuration spécifique au client : Une configuration spécifique à votre compte peut empêcher les serveurs POP de mettre en cache une ressource. Par exemple, le moteur de règles peut empêcher la mise en cache d’une ressource en activant la fonctionnalité de contournement du cache pour les requêtes applicables.<br /> - En-têtes de réponse du cache : Les en-têtes Cache-Control et Expires de la ressource demandée peuvent empêcher les serveurs POP de la mettre en cache.
 UNKNOWN | Indique que les serveurs n’ont pas pu déterminer si la ressource demandée pouvait être mise en cache. Cet état se produit généralement lorsque la requête est refusée en raison de l’authentification basée sur jeton.
 
 ### <a name="sample-response-header"></a>Exemple d’en-tête de réponse
@@ -118,7 +118,7 @@ L’exemple d’en-tête de réponse suivant indique si le contenu demandé pour
 ## <a name="cache-key-response-header"></a>En-tête de réponse Cache-Key
 L’en-tête de réponse `X-EC-Debug: x-ec-cache-key` indique la clé de cache physique associée au contenu demandé. Une clé de cache physique consiste en un chemin d’accès qui identifie une ressource pour les besoins de la mise en cache. En d’autres termes, les serveurs recherchent une version mise en cache d’une ressource en fonction de son chemin, tel que défini par sa clé de cache.
 
-Cette clé de cache physique commence par une double barre oblique (//) suivie du protocole utilisé pour demander le contenu (HTTP ou HTTPS). Ce protocole est suivi du chemin d’accès relatif à la ressource demandée, qui commence par le point d’accès au contenu (par exemple, _/000001/_).
+Cette clé de cache physique commence par une double barre oblique (//) suivie du protocole utilisé pour demander le contenu (HTTP ou HTTPS). Ce protocole est suivi du chemin d’accès relatif à la ressource demandée, qui commence par le point d’accès au contenu (par exemple, _/000001/_ ).
 
 Par défaut, les plateformes HTTP sont configurées pour utiliser *standard-cache*, ce qui signifie que les chaînes de requête sont ignorées par le mécanisme de mise en cache. Ce type de configuration empêche la clé de cache d’inclure les données de la chaîne de requête.
 
@@ -147,23 +147,23 @@ L’en-tête de réponse `X-EC-Debug` fournit des informations sur l’état du 
 
 Les termes utilisés dans la syntaxe de l’en-tête de réponse ci-dessus sont définis comme suit :
 
-- MASeconds : indique la durée de vie maximale (en secondes) comme définie par les en-têtes Cache-Control du contenu demandé.
+- MASeconds : Indique la durée de vie maximale (en secondes) comme définie par les en-têtes Cache-Control du contenu demandé.
 
-- MATimePeriod : convertit la valeur de durée de vie maximale (autrement dit, MASeconds) en valeur équivalente approximative d’une unité supérieure (par exemple, jours). 
+- MATimePeriod : Convertit la valeur de durée de vie maximale (autrement dit, MASeconds) en valeur équivalente approximative d’une unité supérieure (par exemple, jours). 
 
-- UnixTime : indique l’horodatage du cache du contenu demandé en temps Unix (également appelé heure POSIX ou époque Unix). L’horodatage du cache indique la date/heure de début à partir de laquelle la durée de vie d’une ressource sera calculée. 
+- UnixTime : Indique l’horodatage du cache du contenu demandé en temps Unix (également appelé heure POSIX ou époque Unix). L’horodatage du cache indique la date/heure de début à partir de laquelle la durée de vie d’une ressource sera calculée. 
 
     Si le serveur d’origine n’utilise pas de serveur de mise en cache HTTP tiers ou si ce serveur ne retourne pas l’en-tête de réponse Age, alors l’horodatage du cache sera toujours la date/heure à laquelle la ressource a été récupérée ou revalidée. Sinon, les serveurs POP utilisent le champ Age pour calculer la durée de vie de la ressource comme suit : Retrieval/RevalidateDateTime - Age.
 
-- ddd, dd MMM yyyy HH:mm:ss GMT : indique l’horodatage de mise en cache du contenu demandé. Pour plus d’informations, consultez le terme UnixTime ci-dessus.
+- ddd, dd MMM yyyy HH:mm:ss GMT : Indique l’horodatage du cache du contenu demandé. Pour plus d’informations, consultez le terme UnixTime ci-dessus.
 
-- CASeconds : indique le nombre de secondes qui se sont écoulées depuis la date de mise en cache.
+- CASeconds : Indique le nombre de secondes qui se sont écoulées depuis l’horodatage de mise en cache.
 
-- RTSeconds : indique le nombre de secondes restantes durant lequel le contenu mis en cache est considéré nouveau. Cette valeur est calculée comme suit : RTSeconds = max-age - cache age.
+- RTSeconds : Indique le nombre de secondes restantes où le contenu mis en cache sera considéré nouveau. Cette valeur est calculée comme suit : RTSeconds = max-age - cache age.
 
-- RTTimePeriod : convertit la valeur de durée de vie restante (autrement dit, RTSeconds) en valeur équivalente approximative d’une unité supérieure (par exemple, jours).
+- RTTimePeriod : Convertit la valeur de durée de vie restante (autrement dit, RTSeconds) en valeur équivalente approximative d’une unité supérieure (par exemple, jours).
 
-- ExpiresSeconds : indique le nombre de secondes restantes avant la date/l’heure spécifiée dans l’en-tête de la réponse `Expires`. Si l’en-tête de la réponse `Expires` n’était pas inclus dans la réponse, alors la valeur de ce terme est *none*.
+- ExpiresSeconds : Indique le nombre de secondes restantes avant la date/l’heure spécifiée dans l’en-tête de réponse `Expires`. Si l’en-tête de la réponse `Expires` n’était pas inclus dans la réponse, alors la valeur de ce terme est *none*.
 
 ### <a name="sample-response-header"></a>Exemple d’en-tête de réponse
 

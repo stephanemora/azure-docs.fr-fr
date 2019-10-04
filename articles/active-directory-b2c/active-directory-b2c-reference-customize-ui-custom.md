@@ -2,20 +2,20 @@
 title: Personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées | Microsoft Docs
 description: En savoir plus sur les stratégies personnalisées Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438255"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66509602"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées
 
@@ -150,7 +150,7 @@ Le tableau ci-après décrit l’objectif des pages HTML5 précédentes.
 
 Vous pouvez ajouter un lien à vos modèles HTML5/CSS pour votre parcours utilisateur en modifiant directement une stratégie personnalisée.
 
-Les modèles HTML5/CSS personnalisés à utiliser dans votre parcours utilisateur doivent être spécifiés dans une liste de définitions de contenu pouvant être utilisées dans ces parcours utilisateur. Pour ce faire, facultative  *\<ContentDefinitions >* élément XML doit être déclaré sous la  *\<BuildingBlocks >* section de votre fichier XML de stratégie personnalisée.
+Les modèles HTML5/CSS personnalisés à utiliser dans votre parcours utilisateur doivent être spécifiés dans une liste de définitions de contenu pouvant être utilisées dans ces parcours utilisateur. Pour ce faire, un élément XML *\<ContentDefinitions>* facultatif doit être déclaré sous la section *\<BuildingBlocks>* de votre fichier XML de stratégie personnalisée.
 
 Le tableau ci-après décrit l’ensemble d’ID de définition de contenu reconnus par le moteur d’expérience d’identité Azure AD B2C et le type des pages qui leur sont associées.
 

@@ -3,9 +3,8 @@ title: Sécurité des données Azure Security Center| Microsoft Docs
 description: Ce document explique comment les données sont gérées et protégées dans le Centre de sécurité Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: memildin
+ms.openlocfilehash: 30f4358bea2670cfa8d825bf1ef75feeba7ea851
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902788"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71202342"
 ---
 # <a name="azure-security-center-data-security"></a>Sécurité des données du Centre de sécurité Azure
 Pour aider les clients à prévenir, détecter et contrer les menaces, Azure Security Center collecte et traite des données de sécurité, notamment des informations de configuration, des métadonnées, des journaux d’événements et des fichiers de vidage sur incident. Microsoft adhère aux recommandations strictes de conformité et de sécurité, du codage jusqu'à l'exploitation d'un service.
@@ -46,12 +45,18 @@ Pour assurer une visibilité sur l’état de la sécurité, identifier les vuln
 
 **Vos espaces de travail** : Un espace de travail est spécifié pour les zones géographiques ci-après, et les données collectées à partir de vos machines virtuelles Azure, notamment les vidages sur incident et certains types de données d’alerte, sont stockées dans l’espace de travail le plus proche.
 
-| Zone géographique de machine virtuelle                        | Zone géographique d’espace de travail |
-|-------------------------------|---------------|
-| États-Unis, Brésil, Canada | États-Unis |
-| Europe, Royaume-Uni        | Europe        |
-| Asie-Pacifique, Japon, Inde    | Asie-Pacifique  |
-| Australie                     | Australie     |
+| Zone géographique de machine virtuelle                              | Zone géographique d’espace de travail |
+|-------------------------------------|---------------|
+| États-Unis, Brésil, Afrique du Sud | États-Unis |
+| Canada                              | Canada        |
+| Europe (à l’exclusion du Royaume-Uni)   | Europe        |
+| Royaume-Uni                      | Royaume-Uni |
+| Asie (à l’exception de l’Inde, du Japon, de la Corée, de la Chine)   | Asie-Pacifique  |
+| Corée du Sud                              | Asie-Pacifique  |
+| Inde                               | Inde         |
+| Japon                               | Japon         |
+| Chine                               | Chine         |
+| Australie                           | Australie     |
 
 
 Les captures instantanées des disques de machine virtuelle sont stockées dans le même compte de stockage que celui de ces disques.
@@ -76,7 +81,7 @@ Si vous utilisez Azure Security Center gratuitement, vous pouvez également dés
 Les clients peuvent consommer des données liées au Centre de sécurité à partir de différents flux de données, comme indiqué ci-dessous :
 
 * **Azure Activity** : toutes les alertes de sécurité, les requêtes approuvées [juste à temps](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) du Centre de sécurité, et toutes les alertes générées par les [contrôles d’application adaptative](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Journaux d’analyse Azure**: toutes les alertes de sécurité.
+* **journaux Azure Monitor** : toutes les alertes de sécurité.
 
 
 > [!NOTE]

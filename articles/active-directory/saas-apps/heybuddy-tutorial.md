@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 850f5e3f96439e1fea0a77b94f2ed733cc451bdf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e00cc46385f5d60b28607bfc08b9ca9540f152c6
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267257"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944973"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Didacticiel : Intégration d’Azure Active Directory à HeyBuddy
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de HeyBuddy à Azure AD, vous devez ajouter Hey
 
 **Pour ajouter HeyBuddy à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,12 +108,12 @@ Pour configurer l’authentification unique Azure AD avec HeyBuddy, procédez co
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://api.heybuddy.com/auth/<ENTITY ID>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `YourCompanyInstanceofHeyBuddy`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `YourCompanyInstanceofHeyBuddy`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur (ID d’entité) et l’URL d’authentification réels. Dans l’URL de connexion, l’`Entity ID` est généré automatiquement pour chaque organisation. Pour obtenir ces valeurs, contactez l’[équipe de support aux clients HeyBuddy](mailto:support@heybuddy.com).
 
-5. Votre application HeyBuddy s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône  **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
+5. Votre application HeyBuddy s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration Attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
 
     ![image](common/edit-attribute.png)
 
@@ -209,7 +209,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, un utilisateur appelé Britta Simon est créé dans HeyBuddy. HeyBuddy prend en charge l’approvisionnement d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans HeyBuddy, il en est créé un après l’authentification.
 
 > [!Note]
-> Si vous devez créer un utilisateur manuellement, contactez l’ [équipe de support technique HeyBuddy](mailto:support@heybuddy.com).
+> Si vous devez créer un utilisateur manuellement, contactez l’[équipe de support HeyBuddy](mailto:support@heybuddy.com).
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893450"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70128214"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -22,22 +23,22 @@ Lorsque vous chargez des vidéos avec l’API Video Indexer, vous disposez des d
 
 * charger votre vidéo à partir d’une URL (par défaut),
 * Envoyer le fichier vidéo sous forme de tableau d’octets dans le corps de la demande,
-* Utiliser l’élément multimédia Azure Media Services existant en fournissant la [ID de la ressource](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (pris en charge dans les comptes payants uniquement).
+* Utilisez la ressource Azure Media Services existante en fournissant l’[ID de la ressource](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (pris en charge dans les comptes payants uniquement).
 
 L’article montre comment utiliser l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) pour charger et indexer vos vidéos selon une URL. L’exemple de code dans l’article inclut le code commenté qui montre comment charger le tableau d’octets. <br/>L’article aborde également certains des paramètres que vous pouvez définir sur l’API pour en modifier le processus et la sortie.
 
 Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder (opération décrite dans cet article). Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte média. 
 
 ## <a name="uploading-considerations"></a>Éléments à prendre en compte pour le chargement
-
-- Lors du chargement de votre vidéo à partir de l’URL (par défaut), le point de terminaison doit être sécurisé avec TLS 1.2 (ou version ultérieure)
-- La taille de téléchargement avec l’option d’URL est limitée à 30 Go
-- Dans la plupart des navigateurs, la longueur de l’URL est limitée à 2 000 caractères
-- La taille du chargement avec l’option Tableau d'octets est limitée à 2 Go
-- L’option Tableau d’octets expire après 30 minutes
-- L’URL fournie dans le paramètre `videoURL` doit être encodée
-- L’indexation des éléments multimédias Media Services a la même restriction que l’indexation à partir d’URL
-- Video Indexer a une limite de durée maximale de 4 heures pour un seul fichier
+ 
+- Lors du chargement de votre vidéo à partir de l’URL (par défaut), le point de terminaison doit être sécurisé avec TLS 1.2 (ou version ultérieure).
+- La taille du chargement avec l’option URL est limitée à 30 Go.
+- La longueur de l’URL de la requête est limitée à 6 144 caractères, et la longueur de l’URL de la chaîne de requête est limitée à 4 096 caractères.
+- La taille du chargement avec l’option Tableau d’octets est limitée à 2 Go.
+- L’option Tableau d’octets expire au bout de 30 minutes.
+- L’URL fournie dans le paramètre `videoURL` doit être encodée.
+- L’indexation des actifs multimédias Media Services a la même restriction que l’indexation à partir d’une URL.
+- Video Indexer a une limite de temps maximale de 4 heures par fichier.
 
 > [!Tip]
 > Il est recommandé d’utiliser la version 4.6.2 du .NET Framework. ou une version ultérieure, car les anciens .NET Framework ne sont pas définis par défaut sur TLS 1.2.
@@ -61,20 +62,20 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
     
         |Nom|Description|
         |---|---|
-        |id|ID de la vidéo|
+        |id|L’ID de la vidéo|
         |state|État de la vidéo|  
-    - Exemple : https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - Exemple : https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Personne identifiée dans la vidéo :
   - properties
     
       |Nom|Description|
       |---|---|
-      |id| ID de la vidéo|
+      |id| L’ID de la vidéo|
       |faceId|ID de visage qui apparaît dans l’index de la vidéo|
       |knownPersonId|ID de la personne qui est unique au sein d’un modèle de visage|
       |personName|Nom de la personne|
         
-    - Exemple : https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Exemple : https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Notes
 
@@ -158,9 +159,9 @@ public async Task Sample()
     // as an alternative to specifying video URL, you can upload a file.
     // remove the videoUrl parameter from the query params below and add the following lines:
     //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-    //byte[] buffer =newbyte[video.Length];
+    //byte[] buffer =new byte[video.Length];
     //video.Read(buffer, 0, buffer.Length);
-    //content.Add(newByteArrayContent(buffer));
+    //content.Add(new ByteArrayContent(buffer));
 
     queryParams = CreateQueryString(
         new Dictionary<string, string>()
@@ -290,4 +291,4 @@ Les codes d’état répertoriés dans le tableau suivant peuvent être renvoyé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Examinez la sortie Azure Video Indexer produite par API](video-indexer-output-json-v2.md)
+[Examiner la sortie d’Azure Video Indexer générée par l’API](video-indexer-output-json-v2.md)

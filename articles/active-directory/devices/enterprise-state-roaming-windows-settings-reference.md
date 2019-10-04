@@ -2,27 +2,21 @@
 title: Référence des paramètres d’itinérance Windows 10 | Microsoft Docs
 description: Liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10.
 services: active-directory
-keywords: Enterprise State Roaming, Cloud windows
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: curtand
-ms.subservice: devices
-ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/30/2019
-ms.author: joflore
+ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 9489228b6ba81ae8d09e0f6880634532d0c836c6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521072"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481808"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Référence des paramètres d’itinérance Windows 10
 Voici une liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10. 
@@ -32,10 +26,10 @@ Consultez le tableau suivant pour obtenir un récapitulatif des périphériques 
 
 | Type de compte et fonctionnement | Bureau | Mobile |
 | --- | --- | --- |
-| Azure Active Directory : synchronisation |Oui |Non  |
-| Azure Active Directory : sauvegarde/restauration |Non  |Non  |
-| Compte Microsoft : synchronisation |Oui |Oui |
-| Compte Microsoft : sauvegarde/restauration |Non  |Oui |
+| Azure Active Directory : synchronisation |OUI |Non |
+| Azure Active Directory : sauvegarde/restauration |Non |Non |
+| Compte Microsoft : synchronisation |OUI |OUI |
+| Compte Microsoft : sauvegarde/restauration |Non |OUI |
 
 ## <a name="what-is-backup"></a>Qu’est-ce qu’une sauvegarde ?
 En règle générale, les paramètres Windows se synchronisent par défaut, cependant, certains paramètres sont simplement sauvegardés, notamment la liste des applications installées sur un périphérique. La sauvegarde est destinée uniquement aux appareils mobiles et n’est pas disponible pour les utilisateurs d’Enterprise State Roaming. La sauvegarde utilise un compte Microsoft et stocke les paramètres et données d’application dans OneDrive. Si, sur le périphérique , un utilisateur désactive la synchronisation avec l’application Settings, les données de l’application normalement synchronisées se transforment en simple sauvegarde. Les données de sauvegarde sont uniquement accessibles via l’opération de restauration lors de la première utilisation d’un nouvel appareil. Les sauvegardes peuvent être désactivées via les paramètres du périphérique et peuvent être gérées et supprimées via le compte OneDrive de l’utilisateur.
@@ -184,4 +178,3 @@ Version minimale du système d’exploitation prise en charge : Windows Creators
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour une vue d’ensemble, consultez [Vue d’ensemble d’Enterprise State Roaming](enterprise-state-roaming-overview.md).
-

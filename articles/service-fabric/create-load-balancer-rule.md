@@ -3,23 +3,22 @@ title: Créer une règle Azure Load Balancer pour un cluster
 description: Configurez Azure Load Balancer pour ouvrir les ports pour votre cluster Azure Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: aljo
-ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: 2e730ae8ecf6f1fab12aff23cab0ac3aa246233a
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786131"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173356"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Ouvrir des ports pour un cluster Service Fabric
 
@@ -45,7 +44,7 @@ Pour créer une règle Load Balancer, vous devez collecter les informations suiv
 - Port externe.
 - Port interne.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 Il suffit d’une seule commande pour créer une règle d’équilibreur de charge avec l’interface **Azure CLI**. Vous devez simplement connaître le nom de l’équilibreur de charge et du groupe de ressources pour créer une nouvelle règle.
 
 >[!NOTE]
@@ -111,4 +110,4 @@ En ce qui concerne la commande `New-AzLoadBalancerRuleConfig`, le `-FrontendPort
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [mise en réseau dans Service Fabric](service-fabric-patterns-networking.md).rvice-fabric-modèles-networking.md).
+En savoir plus sur la [mise en réseau dans Service Fabric](service-fabric-patterns-networking.md).

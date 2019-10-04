@@ -3,19 +3,21 @@ title: Personnaliser les vues de l’opérateur dans Azure IoT Central | Microso
 description: En tant que générateur, personnalisez les vues de l’opérateur dans votre application Azure IoT Central.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 03/26/2019
+ms.date: 07/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 7fc42b24090b5fc68176fea2c7b993643ea24200
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: aa5ff93b4f1f6392f753a88d57a072f542fc16e2
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678222"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877275"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Didacticiel : Personnaliser la vue de l’opérateur d’Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Ce didacticiel vous montre, en tant que générateur, comment personnaliser la vue de l’opérateur de votre application. Lorsque vous apportez une modification à l’application en tant que générateur, vous pouvez afficher un aperçu de vue de l’opérateur dans l’application Microsoft Azure IoT Central.
 

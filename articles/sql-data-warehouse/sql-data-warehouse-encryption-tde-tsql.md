@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/17/2018
+ms.date: 04/30/2019
 ms.author: kavithaj
-ms.reviewer: igorstan
-ms.openlocfilehash: 7908e6e0927357446ea45e16b7c44adb83ec1fd3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.reviewer: rortloff
+ms.openlocfilehash: 1d62bc5cb080f2167f13bd58e9a8a334b8ae5163
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892436"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65146065"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Prise en main du chiffrement transparent des données (TDE)
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "57892436"
 > 
 > 
 
-## <a name="required-permissions"></a>Autorisations nécessaires
+## <a name="required-permissions"></a>Autorisations requises
 Pour activer le chiffrement transparent des données (TDE), vous devez être un administrateur ou un membre du rôle dbmanager.
 
 ## <a name="enabling-encryption"></a>Activation du chiffrement

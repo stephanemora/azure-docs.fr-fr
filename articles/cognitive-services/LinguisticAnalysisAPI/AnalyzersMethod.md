@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9338e87644554ac8b3121c5341cea6f2bc512a97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1b33b60f674eebb15fdc6112e1d630b93b98494b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878185"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60404713"
 ---
 # <a name="analyzers-method"></a>Méthode d’analyseurs
 
@@ -32,6 +32,7 @@ Aucun
 <br>
 
 ## <a name="response-parameters"></a>Paramètres de réponse
+
 Nom | type | Description
 -----|------|--------------
 languages | liste de valeurs string | liste des codes de langue ISO à deux lettres pour lesquels cet analyseur peut être utilisé.
@@ -41,6 +42,7 @@ specification | chaîne | nom de la spécification utilisée pour cet analyseur
 implementation | chaîne | description du modèle et/ou de l’algorithme derrière cet analyseur
 
 <br>
+
 ## <a name="example"></a>Exemples
 GET /analyzers
 

@@ -4,21 +4,20 @@ description: Découvrez comment résoudre un problème RDP lié à netsvc.sys qu
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 4c10a2dcd55c1605cfafe6c67cfefd9d8a3c5f9d
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994629"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057983"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Impossible de se connecter à distance à une machine virtuelle Windows 10 ou Windows Server 2016 dans Azure en raison de netvsc.sys
 
@@ -26,7 +25,7 @@ Cet article explique comment résoudre un problème dans lequel vous n’avez au
 
 ## <a name="symptoms"></a>Symptômes
 
-Vous ne peut pas se connecter à un Azure Windows 10 ou une machine virtuelle Windows Server 2016 à l’aide du protocole RDP (Remote Desktop). Dans [Diagnostics de démarrage](boot-diagnostics.md), l’écran affiche une croix rouge sur la carte d’interface réseau. Cela indique que la machine virtuelle n’a aucune connectivité alors que le système d’exploitation est entièrement chargé.
+Vous n’arrivez pas à vous connecter à une machine virtuelle Azure Windows 10 ou Windows Server 2016 à l’aide de RDP (Remote Desktop Protocol). Dans [Diagnostics de démarrage](boot-diagnostics.md), l’écran affiche une croix rouge sur la carte d’interface réseau. Cela indique que la machine virtuelle n’a aucune connectivité alors que le système d’exploitation est entièrement chargé.
 
 En règle générale, ce problème se produit dans Windows [build 14393](https://support.microsoft.com/help/4093120/) et [build 15063](https://support.microsoft.com/help/4015583/). Si la version de votre système d’exploitation est postérieure à ces versions, cet article ne s’applique pas à votre scénario. Pour vérifier la version du système, ouvrez une session CMD dans [la fonctionnalité Console d’accès série](serial-console-windows.md), puis exécutez **Ver**.
 
@@ -55,8 +54,8 @@ Connectez-vous à [la console série, ouvrez une instance PowerShell](serial-con
 
 2. Téléchargez la mise à jour appropriée sur un disque de données nouveau ou existant qui est attaché à une machine virtuelle fonctionnelle de la même région :
 
-   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou une mise à jour ultérieure
-   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou une mise à jour ultérieure
+   - **10.0.14393.594** : [KB4073562](https://support.microsoft.com/help/4073562)  ou mise à jour ultérieure
+   - **10.0.15063.0** : [KB4016240](https://support.microsoft.com/help/4016240) ou mise à jour ultérieure
 
 3. Détachez le disque utilitaire de la machine virtuelle fonctionnelle, puis attachez-le à la machine virtuelle qui ne fonctionne plus.
 
@@ -98,8 +97,8 @@ Connectez-vous à [la console série, ouvrez une instance PowerShell](serial-con
 
 12. Téléchargez la mise à jour appropriée :
 
-    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) ou une mise à jour ultérieure
-    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) ou une mise à jour ultérieure
+    - **10.0.14393.594** : [KB4073562](https://support.microsoft.com/help/4073562)  ou mise à jour ultérieure
+    - **10.0.15063.0** : [KB4016240](https://support.microsoft.com/help/4016240) ou mise à jour ultérieure
 
 13. Attachez le disque système comme disque de données sur une machine virtuelle de secours sur laquelle vous pouvez télécharger la mise à jour.
 

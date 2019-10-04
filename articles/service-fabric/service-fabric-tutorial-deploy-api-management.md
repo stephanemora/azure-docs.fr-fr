@@ -3,7 +3,7 @@ title: Intégrer la gestion des API avec Service Fabric dans Azure | Microsoft D
 description: Découvrez comment démarrer rapidement avec Gestion des API Azure et comment router le trafic vers un service backend dans Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/26/2018
-ms.author: aljo
+ms.date: 07/10/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 92b1e95598da27f0b7d7df30dfa4a82824b4a48c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 470eacee5c71742678497edf48169e14a4073829
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799454"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598832"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Intégrer Gestion des API à Service Fabric dans Azure
 
@@ -36,14 +36,14 @@ Cet article vous montre comment configurer [Gestion des API Azure](../api-manage
 > [!IMPORTANT]
 > Cette fonctionnalité est disponible aux niveaux **Premium** et **Développeur** de Gestion des API en raison de la prise en charge de réseau virtuel requise.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Installez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
 * Créez un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) sécurisé dans un groupe de sécurité réseau.
-* Si vous déployez un cluster Windows, configurez un environnement de développement Windows. Installez les charges de travail [Visual Studio 2017](https://www.visualstudio.com) et le **développement Azure**, **ASP.NET et le développement web**, ainsi que **Développement multiplateforme .NET Core**.  Ensuite, configurez un [environnement de développement .NET](service-fabric-get-started.md).
+* Si vous déployez un cluster Windows, configurez un environnement de développement Windows. Installez les charges de travail [Visual Studio 2019](https://www.visualstudio.com) et le **développement Azure**, **ASP.NET et le développement web**, ainsi que **Développement multiplateforme .NET Core**.  Ensuite, configurez un [environnement de développement .NET](service-fabric-get-started.md).
 
 ## <a name="network-topology"></a>Topologie du réseau
 
@@ -75,9 +75,9 @@ Créez un service fiable ASP.NET Core de base sans état en utilisant le modèle
 Démarrez Visual Studio en tant qu’administrateur et créez un service ASP.NET Core :
 
  1. Dans Visual Studio, sélectionnez Fichier -> Nouveau projet.
- 2. Sélectionnez le modèle d’application Service Fabric sous Cloud et nommez-le **« ApiApplication »**.
- 3. Sélectionnez le modèle de service ASP.NET Core et nommez le projet **« WebApiService »**.
- 4. Sélectionnez le modèle de projet API Web ASP.NET Core 2.0.
+ 2. Sélectionnez le modèle d’application Service Fabric sous Cloud et nommez-le **« ApiApplication »** .
+ 3. Sélectionnez le modèle de service ASP.NET Core et nommez le projet **« WebApiService »** .
+ 4. Sélectionnez le modèle de projet API web ASP.NET Core 2.1.
  5. Une fois le projet créé, ouvrez `PackageRoot\ServiceManifest.xml` et supprimez l’attribut `Port` de la configuration des ressources du point de terminaison :
 
     ```xml
@@ -88,7 +88,7 @@ Démarrez Visual Studio en tant qu’administrateur et créez un service ASP.NET
     </Resources>
     ```
 
-    La suppression du port permet à Service Fabric de spécifier un port dynamique à partir de la plage de ports d’application, ouverte via le Groupe de sécurité réseau dans le modèle Resource Manager du cluster, autorisant le trafic à y accéder à partir du service Gestion des API.
+    La suppression du port permet à Service Fabric de spécifier un port dynamique à partir de la plage de ports d’application, ouverte via le Groupe de sécurité réseau dans le modèle Cluster Resource Manager, autorisant le trafic à y accéder à partir du service Gestion des API.
 
  6. Appuyez sur F5 dans Visual Studio pour vérifier que l’API web est disponible localement.
 
@@ -145,7 +145,7 @@ Entrez un nom complet sous **displayName** et une **description** pour le produi
 
 * Vous pouvez indiquer sous **displayName** un nom quelconque pour votre API. Dans le cadre de cet article, utilisez « Service Fabric App ».
 * Le champ **name** contient un nom descriptif unique pour l’API, par exemple « service-fabric-app ». Il s’affiche dans les portails des développeurs et de publication.
-* **serviceUrl** indique le service HTTP implémentant l’API. La gestion des API transmet les demandes à cette adresse. Pour les principaux de Service Fabric, cette valeur d’URL n’est pas utilisée. Vous pouvez placer n’importe quelle valeur ici. Pour cet article, par exemple « http :\//servicefabric ».
+* **serviceUrl** indique le service HTTP implémentant l’API. La gestion des API transmet les demandes à cette adresse. Pour les principaux de Service Fabric, cette valeur d’URL n’est pas utilisée. Vous pouvez placer n’importe quelle valeur ici. Pour cet article, par exemple « http:\//servicefabric ».
 * Le chemin d’accès **path** est ajouté à l’URL de base du service Gestion des API. L'URL de base est commune à toutes les API hébergées par une instance de service Gestion des API. Gestion des API distingue les API selon leur suffixe. Celui-ci doit donc être unique pour chaque API d'un éditeur donné.
 * Le champ **protocols** détermine les protocoles qui peuvent être utilisés pour accéder à l’API. Pour cet article, indiquez **http** et **https**.
 * Le chemin d’accès **path** est un suffixe pour l’API. Pour cet article, utilisez « myapp ».
@@ -288,7 +288,7 @@ Vous pouvez maintenant essayer d’envoyer une requête à votre service princip
 
 Un cluster est composé d’autres ressources Azure en plus de la ressource de cluster elle-même. Le plus simple pour supprimer le cluster et toutes les ressources qu’il consomme consiste à supprimer le groupe de ressources.
 
-Connectez-vous à Azure et sélectionnez l’ID d’abonnement pour lequel vous souhaitez supprimer le cluster.  Vous pouvez trouver votre ID d’abonnement en vous connectant au [portail Azure](https://portal.azure.com). Supprimer le groupe de ressources et toutes les ressources de cluster à l’aide de la [applet de commande Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
+Connectez-vous à Azure et sélectionnez l’ID d’abonnement avec lequel vous souhaitez supprimer le cluster.  Vous pouvez trouver votre ID d’abonnement en vous connectant au [portail Azure](https://portal.azure.com). Supprimez le groupe de ressources et toutes les ressources de cluster à l’aide de l’[applet de commande Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

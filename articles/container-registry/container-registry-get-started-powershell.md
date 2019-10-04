@@ -3,17 +3,18 @@ title: Démarrage rapide - Créer un registre Docker privé dans Azure - PowerSh
 description: Apprenez à créer rapidement un registre de conteneurs Docker privé dans Azure avec PowerShell.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 3a702668418ddf17aa9091317393264458ff4f8b
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f99b4ee6dd11a109d1c563c84debc2157cb03337
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408925"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68309497"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Démarrage rapide : Créer un registre de conteneurs privé avec Azure PowerShell
 
@@ -65,7 +66,7 @@ Avant d’extraire et d’envoyer des images conteneurs, vous devez vous connect
 $creds = Get-AzContainerRegistryCredential -Registry $registry
 ```
 
-Ensuite, exécutez [connexion docker][docker-login] pour vous connecter :
+Ensuite, exécutez [docker login][docker-login] pour vous connecter :
 
 ```powershell
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin

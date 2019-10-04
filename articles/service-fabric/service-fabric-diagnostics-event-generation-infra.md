@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: cbdbedf32e8a3dad85262f287b27a03df780d95a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60393059"
 ---
 # <a name="monitoring-the-cluster"></a>Surveillance du cluster
 
@@ -90,13 +90,13 @@ Pour obtenir la liste des compteurs de performances à collecter lors de l’uti
 Voici deux manières fréquentes de configurer la collecte des compteurs de performances pour votre cluster :
 
 * **Utiliser un agent**  
-Il s’agit du meilleur moyen de collecter les performances d’une machine, car les agents comportent généralement une liste des métriques de performances qui peuvent être collectées, et le processus de sélection et de modification des métriques à collecter est relativement simple. La lecture sur le moniteur de Azure offre d’Azure Monitor se connecte de Service Fabric [Azure Monitor enregistre intégration](service-fabric-diagnostics-event-analysis-oms.md) et [configuration de l’agent Log Analytique](../log-analytics/log-analytics-windows-agent.md) pour en savoir plus sur l’agent d’Analytique de journal, qui est un agent de surveillance qui est en mesure de récupérer les données de performances pour les machines virtuelles du cluster et des conteneurs déployés.
+Il s’agit du meilleur moyen de collecter les performances d’une machine, car les agents comportent généralement une liste des métriques de performances qui peuvent être collectées, et le processus de sélection et de modification des métriques à collecter est relativement simple. Consultez l’offre de journaux Azure Monitor dans les articles [Intégration des journaux Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) et [Configuration de l’agent Log Analytics](../log-analytics/log-analytics-windows-agent.md) de Service Fabric, pour en savoir plus sur l’agent Log Analytics, un agent de surveillance capable de récupérer les données de performances des conteneurs déployés et des machines virtuelles du cluster.
 
 * **Compteurs de performances pour le stockage de table Azure**  
 Vous pouvez également envoyer des mesures de performances au même stockage de table que les événements. Cela exige de modifier la configuration de Diagnostics Azure de façon à récupérer les compteurs de performances appropriés à partir des machines virtuelles de votre cluster et à lui permettre de récupérer les statistiques de docker pour pouvoir déployer des conteneurs. Lisez l’article sur les [compteurs de performances dans WAD](service-fabric-diagnostics-event-aggregation-wad.md) dans Service Fabric pour configurer la collecte des compteurs de performances.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur Service Fabric [Azure Monitor enregistre intégration](service-fabric-diagnostics-event-analysis-oms.md) pour collecter des diagnostics du cluster et créer des requêtes personnalisées et des alertes
+* Découvrez plus d’informations sur l’[intégration des journaux Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) par Service Fabric pour collecter les diagnostics du cluster et créer des alertes et requêtes personnalisées
 * Découvrez plus d’informations sur l’expérience de diagnostic intégré de Service Fabric, [EventStore](service-fabric-diagnostics-eventstore.md)
 * Parcourez certains [scénarios de diagnostics courants](service-fabric-diagnostics-common-scenarios.md) dans Service Fabric

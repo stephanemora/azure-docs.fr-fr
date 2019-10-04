@@ -1,25 +1,17 @@
 ---
 title: Fonctions des modèles Azure Resource Manager - tableaux et objets | Microsoft Docs
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des tableaux et des objets.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/8/2018
+ms.topic: conceptual
+ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: cd4a74a9e9e9bb1c91a0a7a103a1cfb861fa7770
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270451"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70194411"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Fonctions de tableau et d’objet pour les modèles Azure Resource Manager
 
@@ -58,7 +50,7 @@ Convertit la valeur en tableau.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| convertToArray |OUI |entier, chaîne, tableau ou objet |Valeur à convertir en tableau. |
+| convertToArray |OUI |int, string, array ou object |Valeur à convertir en tableau. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -109,9 +101,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| intOutput | Tableau | [1] |
-| stringOutput | Tableau | ["efgh"] |
-| objectOutput | Tableau | [{"a": "b", "c": "d"}] |
+| intOutput | Array | [1] |
+| stringOutput | Array | ["efgh"] |
+| objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -136,8 +128,8 @@ Retourne la première valeur non null à partir des paramètres. Les chaînes vi
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |entier, chaîne, tableau ou objet |La première valeur dans laquelle rechercher des valeurs null. |
-| arguments supplémentaires |Non  |entier, chaîne, tableau ou objet |Valeurs supplémentaires dans lesquelles rechercher des valeurs null. |
+| arg1 |OUI |int, string, array ou object |La première valeur dans laquelle rechercher des valeurs null. |
+| arguments supplémentaires |Non |int, string, array ou object |Valeurs supplémentaires dans lesquelles rechercher des valeurs null. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -195,10 +187,10 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| stringOutput | Chaîne | default |
+| stringOutput | String | default |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"first": "default"} |
-| arrayOutput | Tableau | [1] |
+| arrayOutput | Array | [1] |
 | emptyOutput | Bool | True |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -225,7 +217,7 @@ Combine plusieurs tableaux et retourne le tableau concaténé, ou combine plusie
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |OUI |tableau ou chaîne |Le premier tableau ou la première chaîne à concaténer. |
-| arguments supplémentaires |Non  |tableau ou chaîne |Tableaux ou chaînes supplémentaires en ordre séquentiel pour la concaténation. |
+| arguments supplémentaires |Non |tableau ou chaîne |Tableaux ou chaînes supplémentaires en ordre séquentiel pour la concaténation. |
 
 Cette fonction peut prendre n’importe quel nombre d’arguments et accepter à la fois des chaînes ou des tableaux pour les paramètres.
 
@@ -273,7 +265,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| return | Tableau | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -313,7 +305,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| concatOutput | Chaîne | prefix-5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -433,7 +425,7 @@ Crée un tableau à partir des paramètres.
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |OUI |Chaîne, entier, tableau ou objet |La première valeur dans le tableau. |
-| arguments supplémentaires |Non  |Chaîne, entier, tableau ou objet |Valeurs supplémentaires dans le tableau. |
+| arguments supplémentaires |Non |Chaîne, entier, tableau ou objet |Valeurs supplémentaires dans le tableau. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -484,10 +476,10 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| stringArray | Tableau | ["a", "b", "c"] |
-| intArray | Tableau | [1, 2, 3] |
-| objectArray | Tableau | [{"one": "a", "two": "b", "three": "c"}] |
-| arrayArray | Tableau | [["one", "two", "three"]] |
+| stringArray | Array | ["a", "b", "c"] |
+| intArray | Array | [1, 2, 3] |
+| objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
+| arrayArray | Array | [["one", "two", "three"]] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -630,8 +622,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Chaîne | one |
-| stringOutput | Chaîne | O |
+| arrayOutput | String | one |
+| stringOutput | String | O |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -658,7 +650,7 @@ Retourne un tableau ou un objet unique avec les éléments communs à partir des
 |:--- |:--- |:--- |:--- |
 | arg1 |OUI |objet ou tableau |La première valeur à utiliser pour rechercher des éléments communs. |
 | arg2 |OUI |objet ou tableau |La seconde valeur à utiliser pour rechercher des éléments communs. |
-| arguments supplémentaires |Non  |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
+| arguments supplémentaires |Non |objet ou tableau |Les valeur supplémentaires à utiliser pour rechercher des éléments communs. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -710,7 +702,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
-| arrayOutput | Tableau | ["two", "three"] |
+| arrayOutput | Array | ["two", "three"] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -733,7 +725,7 @@ Renvoie un objet JSON.
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |chaîne |La valeur à convertir au format JSON. |
+| arg1 |OUI |string |La valeur à convertir au format JSON. |
 
 
 ### <a name="return-value"></a>Valeur de retour
@@ -782,7 +774,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
-| nullOutput | Booléen | True |
+| nullOutput | Boolean | True |
 | paramOutput | Object | {"a": "valeur pour démonstration"}
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
@@ -847,8 +839,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Chaîne | three |
-| stringOutput | Chaîne | e |
+| arrayOutput | String | three |
+| stringOutput | String | e |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -867,13 +859,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="length"></a>length
 `length(arg1)`
 
-Retourne le nombre d’éléments contenus dans un tableau ou les caractères dans une chaîne.
+Retourne le nombre d’éléments d’un tableau, les caractères d’une chaîne ou les propriétés au niveau de la racine d’un objet.
 
 ### <a name="parameters"></a>parameters
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |tableau ou chaîne |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères. |
+| arg1 |OUI |tableau, chaîne ou objet |Tableau à utiliser pour l’obtention du nombre d’éléments, ou chaîne à utiliser pour l’obtention du nombre de caractères, ou l’objet à utiliser pour l’obtention du nombre de propriétés au niveau de la racine. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -899,6 +891,18 @@ Un entier.
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -910,6 +914,10 @@ Un entier.
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -921,6 +929,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
+| objectLength | Int | 4 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -994,8 +1003,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Int | 5. |
-| intOutput | Int | 5. |
+| arrayOutput | Int | 5\. |
+| intOutput | Int | 5\. |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1123,7 +1132,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| rangeOutput | Tableau | [5, 6, 7] |
+| rangeOutput | Array | [5, 6, 7] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1203,8 +1212,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Tableau | ["three"] |
-| stringOutput | Chaîne | two three |
+| arrayOutput | Array | ["three"] |
+| stringOutput | String | two three |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1284,8 +1293,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | Tableau | ["one", "two"] |
-| stringOutput | Chaîne | sur |
+| arrayOutput | Array | ["one", "two"] |
+| stringOutput | String | sur |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -1312,7 +1321,7 @@ Retourne un tableau ou un objet unique avec tous les éléments communs à parti
 |:--- |:--- |:--- |:--- |
 | arg1 |OUI |objet ou tableau |La première valeur à utiliser pour joindre des éléments. |
 | arg2 |OUI |objet ou tableau |La seconde valeur à utiliser pour joindre des éléments. |
-| arguments supplémentaires |Non  |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
+| arguments supplémentaires |Non |objet ou tableau |Valeurs supplémentaires à utiliser pour joindre des éléments. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -1364,7 +1373,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
-| arrayOutput | Tableau | ["one", "two", "three", "four"] |
+| arrayOutput | Array | ["one", "two", "three", "four"] |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 

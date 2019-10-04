@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/15/2019
-ms.author: adgera
-ms.openlocfilehash: 16bb148a0b3a424c9ba3aaae422f423ebd40793b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 08/19/2019
+ms.author: v-adgera
+ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358811"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69656520"
 ---
 # <a name="security-best-practices"></a>Meilleures pratiques en matière de sécurité
 
@@ -26,6 +26,9 @@ Cet article récapitule les principales bonnes pratiques à suivre.
 > [!IMPORTANT]
 > Pour garantir une sécurité maximale dans votre espace IoT, consultez d’autres ressources de sécurité (y compris celles de vos fournisseurs d’appareils).
 
+> [!TIP]
+> Utilisez [Azure Security Center pour IoT](https://docs.microsoft.com/azure/asc-for-iot/) pour détecter les menaces et les vulnérabilités de sécurité de l’IoT.
+
 ## <a name="iot-security-best-practices"></a>Meilleures pratiques relatives à la sécurité IoT
 
 Voici certaines des pratiques les plus importantes pour sécuriser vos appareils IoT :
@@ -36,6 +39,7 @@ Voici certaines des pratiques les plus importantes pour sécuriser vos appareils
 > * Utilisation potentielle du filtrage des adresses IP d’appareil et de la restriction des ports.
 > * Limitation des E/S et de la bande passante des appareils pour améliorer les performances. La limitation du débit peut améliorer la sécurité en empêchant les attaques par déni de service.
 > * Maintien à jour du microprogramme des appareils.
+> * Auditez et examinez régulièrement les bonnes pratiques en matière de sécurité des périphériques, des réseaux et des passerelles, car elles s’améliorent et évoluent constamment.
 
 Voici certaines des pratiques les plus importantes pour sécuriser un espace IoT :
 
@@ -43,6 +47,7 @@ Voici certaines des pratiques les plus importantes pour sécuriser un espace IoT
 > * Chiffrer les données enregistrées, stockées ou persistantes.
 > * Changer ou actualiser régulièrement les mots de passe ou les clés.
 > * Limiter soigneusement l’accès et les autorisations en fonction du rôle. Consultez la section [Bonnes pratiques relatives au contrôle d'accès en fonction du rôle](#rbac) ci-dessous.
+> * Songez par exemple à une topologie de réseau divisée afin que les périphériques de chaque réseau soient isolés.
 > * Utiliser un chiffrement puissant. Cela implique d’utiliser des mots de passe longs, des protocoles sécurisés et l’authentification à deux facteurs.
 
 [Supervisez](./how-to-configure-monitoring.md) les ressources IoT pour identifier les valeurs hors norme, les menaces ou les paramètres de ressources indiquant un fonctionnement inhabituel. Utilisez Azure Analytics pour la gestion de la supervision.

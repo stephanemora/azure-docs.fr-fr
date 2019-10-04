@@ -1,7 +1,6 @@
 ---
 title: Solutions de stockage Azure pour ML Services sur HDInsight - Azure
 description: Découvrez les différentes options de stockage disponibles avec ML Services sur HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ffde6f3e94cab94fca5a815db28478790a2a4221
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 8c1624ba6780fc45e3e663cadc032e253ce9545f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523390"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448878"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Solutions de stockage Azure pour ML Services sur Azure HDInsight
 
@@ -95,7 +94,7 @@ Dans votre code R, pointez la référence du nœud de nom vers le compte de stoc
 
 Toutes les références de fichier et de répertoire pointent désormais vers le compte de stockage `wasb://container2@storage2.blob.core.windows.net`. Il s’agit du **nom de nœud** que vous avez spécifié.
 
-Vous devez configurer le `/user/RevoShare/<SSH username>` répertoire **storage2** comme suit :
+Vous devez configurer le répertoire `/user/RevoShare/<SSH username>` sur **storage2** comme suit :
 
 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
@@ -121,7 +120,7 @@ Il est également possible d’ajouter un accès à un ou plusieurs comptes Data
 
 ### <a name="how-to-access-data-lake-storage-gen1-from-ml-services-on-hdinsight"></a>Comment accéder à Data Lake Storage Gen1 à partir de ML Services sur HDInsight
 
-Dès lors que vous avez accès à Data Lake Storage Gen1, vous pouvez utiliser ce stockage dans un cluster ML Services sur HDInsight de la même façon qu'un compte de stockage Azure secondaire. La seule différence est que le préfixe **wasb://** devient **adl://**, comme suit :
+Dès lors que vous avez accès à Data Lake Storage Gen1, vous pouvez utiliser ce stockage dans un cluster ML Services sur HDInsight de la même façon qu'un compte de stockage Azure secondaire. La seule différence est que le préfixe **wasb://** devient **adl://** , comme suit :
 
 
     # Point to the ADL Storage (e.g. ADLtest)
@@ -170,6 +169,5 @@ Le principal avantage des fichiers Azure est que les partages de fichiers peuven
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble du cluster ML Services sur HDInsight](r-server-overview.md)
-* [Bien démarrer avec un cluster ML Services sur Apache Hadoop](r-server-get-started.md)
 * [Options de contexte de calcul pour un cluster ML Services sur HDInsight](r-server-compute-contexts.md)
 * [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

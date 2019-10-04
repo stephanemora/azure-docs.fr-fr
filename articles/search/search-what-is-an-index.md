@@ -2,19 +2,19 @@
 title: Créer une définition et des concepts d’index – Recherche Azure
 description: Introduction aux termes et aux concepts des index dans la Recherche Azure, y compris les composants et la structure physique.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337865"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69647371"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Créer un index de base dans la Recherche Azure
 
@@ -36,7 +36,7 @@ Avant de parvenir à une conception d’index satisfaisante, il convient d’eff
   
    Quand vous cliquez sur **Créer**, toutes les structures physiques supportant votre index sont créées dans votre service de recherche.
 
-3. Téléchargez le schéma d’index à l’aide de l’[API REST d’obtention d’index](https://docs.microsoft.com/rest/api/searchservice/get-index) et d’un outil de test web comme [Postman](search-fiddler.md). Vous disposez maintenant d’une représentation JSON de l’index que vous avez créé sur le portail. 
+3. Téléchargez le schéma d’index à l’aide de l’[API REST d’obtention d’index](https://docs.microsoft.com/rest/api/searchservice/get-index) et d’un outil de test web comme [Postman](search-get-started-postman.md). Vous disposez maintenant d’une représentation JSON de l’index que vous avez créé sur le portail. 
 
    À ce stade, vous passez à une approche basée sur le code. Le portail ne se prête pas bien à l’itération dans le sens où vous ne pouvez pas modifier un index qui a déjà été créé. En revanche, vous pouvez utiliser Postman et REST pour les tâches restantes.
 
@@ -46,15 +46,15 @@ Avant de parvenir à une conception d’index satisfaisante, il convient d’eff
 
 6. Continuez d’utiliser le code pour itérer sur votre conception.  
 
-Étant donné que les structures physiques sont créés dans le service, [supprimer et de recréer les index](search-howto-reindex.md) est nécessaire chaque fois que vous apportez des modifications matérielles à une définition de champ existante. Cela signifie que pendant le développement, vous devez prévoir des regénérations fréquentes. Vous pouvez envisager de travailler sur une partie de vos données pour regénérer plus rapidement. 
+Comme les structures physiques sont créées dans le service, il est nécessaire de [supprimer et de recréer les index](search-howto-reindex.md) chaque fois que vous apportez des modifications importantes à une définition de champ existante. Cela signifie que pendant le développement, vous devez prévoir des regénérations fréquentes. Vous pouvez envisager de travailler sur une partie de vos données pour regénérer plus rapidement. 
 
-Pour une conception itérative, il est recommandé de privilégier une approche basée sur le code plutôt que sur le portail. Si vous utilisez le portail pour définir un index, vous devrez remplir la définition de l’index à chaque regénération. Sinon, les outils tels que [Postman et l’API REST](search-fiddler.md) s’avèrent utiles pour tester la preuve de concept aux phases initiales d’un projet de développement. Vous pouvez apporter des modifications incrémentielles à une définition d’index dans un corps de demande, puis envoyer la demande à votre service pour recréer un index en utilisant un schéma mis à jour.
+Pour une conception itérative, il est recommandé de privilégier une approche basée sur le code plutôt que sur le portail. Si vous utilisez le portail pour définir un index, vous devrez remplir la définition de l’index à chaque regénération. Sinon, les outils tels que [Postman et l’API REST](search-get-started-postman.md) s’avèrent utiles pour tester la preuve de concept aux phases initiales d’un projet de développement. Vous pouvez apporter des modifications incrémentielles à une définition d’index dans un corps de demande, puis envoyer la demande à votre service pour recréer un index en utilisant un schéma mis à jour.
 
 ## <a name="components-of-an-index"></a>Composants d’un index
 
 Schématiquement, un index Recherche Azure se compose des éléments suivants. 
 
-La [*collection de champs*](#fields-collection) correspond généralement à la majeure partie de l’index, dans laquelle chaque champ est nommé, tapé et pourvu de comportements autorisés qui déterminent son utilisation. Il existe d’autres éléments, comme les [suggesteurs](#suggesters), les [profils de score](#scoring-profiles), les [analyseurs](#analyzers) avec les composants pour prendre en charge la personnalisation et les options [CORS](#cors).
+La [*collection de champs*](#fields-collection) correspond généralement à la majeure partie de l’index, dans laquelle chaque champ est nommé, tapé et pourvu de comportements autorisés qui déterminent son utilisation. Il existe d’autres éléments, comme les [suggesteurs](#suggesters), les [profils de score](#scoring-profiles), les [analyseurs](#analyzers) avec les composants pour prendre en charge la personnalisation et les options [CORS](#cors) et [clé de chiffrement](#encryption-key).
 
 ```json
 {
@@ -126,6 +126,15 @@ La [*collection de champs*](#fields-collection) correspond généralement à la 
   "corsOptions": (optional) {
     "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
     "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  },
+  "encryptionKey":(optional){
+    "keyVaultUri": "azure_key_vault_uri",
+    "keyVaultKeyName": "name_of_azure_key_vault_key",
+    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
+    "accessCredentials":(optional){
+      "applicationId": "azure_active_directory_application_id",
+      "applicationSecret": "azure_active_directory_application_authentication_key"
+    }
   }
 }
 ```
@@ -151,22 +160,28 @@ Lorsque vous définissez votre schéma, vous devez spécifier le nom, le type et
 Pour plus d’informations sur les types de données pris en charge par le service Recherche Azure, consultez [cet article](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="index-attributes"></a>Attributs d’index
+
+Dans votre index, un seul champ doit être désigné en tant que champ de **clé** qui identifie de façon unique chaque document.
+
+Les autres attributs déterminent la façon dont un champ est utilisé dans une application. Par exemple, l’attribut **Interrogeable** est affecté à tous les champs qui doivent être inclus dans une recherche en texte intégral. 
+
+Les API que vous utilisez pour créer un index ont différents comportements par défaut. Pour les [API REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), la plupart des attributs sont activés par défaut (par exemple, **Interrogeable** et **Récupérable** sont actifs pour les champs de type chaîne) et vous n’avez généralement besoin de les définir que si vous voulez les désactiver. Pour le Kit de développement logiciel (SDK) .NET, l’inverse est vrai. Pour les propriétés que vous ne définissez pas explicitement, l’option par défaut désactive le comportement de recherche correspondante, sauf si vous l’activez de façon spécifique.
+
 | Attribut | Description |
 | --- | --- |
-| *Clé* |Chaîne fournissant un ID unique à chaque document utilisé pour rechercher des documents. Chaque index doit avoir une clé. Un seul champ peut être la clé, et son type doit être défini sur Edm.String. |
-| *Affichable dans les résultats d’une recherche* |Définit si un champ peut être retourné dans un résultat de recherche. |
-| *Filtrable* |Permet d’utiliser le champ dans des requêtes de filtre. |
-| *Triable* |Permet à une requête de trier les résultats de recherche à l’aide de ce champ. |
-| *À choix multiple* |Permet d’utiliser un champ pour le filtrage autonome dans une structure de [navigation par facettes](search-faceted-navigation.md) par un utilisateur. En général, les champs contenant des valeurs répétitives que vous pouvez utiliser pour regrouper plusieurs documents (par exemple, plusieurs documents appartenant à une seule marque ou catégorie de service) sont les mieux adaptés en tant que facettes. |
-| *Possibilité de recherche* |Indique que le champ peut faire l’objet d’une recherche en texte intégral. |
+| `key` |Chaîne fournissant un ID unique à chaque document utilisé pour rechercher des documents. Chaque index doit avoir une clé. Un seul champ peut être la clé, et son type doit être défini sur Edm.String. |
+| `retrievable` |Définit si un champ peut être retourné dans un résultat de recherche. |
+| `filterable` |Permet d’utiliser le champ dans des requêtes de filtre. |
+| `Sortable` |Permet à une requête de trier les résultats de recherche à l’aide de ce champ. |
+| `facetable` |Permet d’utiliser un champ pour le filtrage autonome dans une structure de [navigation par facettes](search-faceted-navigation.md) par un utilisateur. En général, les champs contenant des valeurs répétitives que vous pouvez utiliser pour regrouper plusieurs documents (par exemple, plusieurs documents appartenant à une seule marque ou catégorie de service) sont les mieux adaptés en tant que facettes. |
+| `searchable` |Indique que le champ peut faire l’objet d’une recherche en texte intégral. |
 
-Pour plus d’informations sur les attributs d’index du service Recherche Azure, consultez [cet article](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## <a name="storage-implications"></a>Implications au niveau du stockage
 
 Les attributs que vous sélectionnez ont un impact sur le stockage. La capture d’écran suivante illustre les caractéristiques du stockage d’index résultant des différentes combinaisons d’attributs.
 
-L’index est basé sur la source de données de l’[l’exemple intégré realestate](search-get-started-portal.md), que vous pouvez indexer et interroger sur le portail. Bien que les schémas de l’index ne soient pas montrés, vous pouvez en déduire les attributs d’après le nom de l’index. Par exemple, pour l’index *realestate-searchable*, seul l’attribut **searchable** est sélectionné ; pour l’index *realestate-retrievable*, seul l’index **retrievable** est sélectionné, et ainsi de suite.
+L’index est basé sur la source de données de l’[l’exemple intégré real estate](search-get-started-portal.md), que vous pouvez indexer et interroger sur le portail. Bien que les schémas de l’index ne soient pas montrés, vous pouvez en déduire les attributs d’après le nom de l’index. Par exemple, pour l’index *realestate-searchable*, seul l’attribut **searchable** est sélectionné ; pour l’index *realestate-retrievable*, seul l’index **retrievable** est sélectionné, et ainsi de suite.
 
 ![Taille d’index en fonction de la sélection d’attributs](./media/search-what-is-an-index/realestate-index-size.png "Taille d’index en fonction de la sélection d’attributs")
 
@@ -203,6 +218,10 @@ Les options suivantes peuvent être définies pour CORS :
   Si vous voulez autoriser l'accès à toutes les origines, incluez uniquement l’élément `*` dans le tableau **allowedOrigins**. Si *cette pratique est déconseillée pour les services de recherche de production*, elle est souvent utile pour le développement et le débogage.
 
 + **maxAgeInSeconds** (facultatif) : les navigateurs utilisent cette valeur pour déterminer la durée (en secondes) de mise en cache des réponses CORS préliminaires. Il doit s'agir d'un entier non négatif. Plus cette valeur est importante, meilleures sont les performances, mais plus il faut de temps pour que les modifications apportées à la stratégie CORS prennent effet. Si la valeur n'est pas définie, une durée par défaut de 5 minutes est utilisée.
+
+## <a name="encryption-key"></a>Clé de chiffrement
+
+Si tous les index de recherche Azure sont chiffrés par défaut à l’aide de clés gérées par Microsoft, il est possible de configurer les index pour qu’ils soient chiffrés avec **clés gérées par le client** dans Key Vault. Pour plus d’informations, voir [Gérer les clés de chiffrement dans Recherche Azure](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

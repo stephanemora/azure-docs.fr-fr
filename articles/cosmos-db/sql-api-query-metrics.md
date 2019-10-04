@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/02/2017
+ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: MT
+ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983589"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614821"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 
@@ -44,7 +44,7 @@ Les kits SDK offrent diverses options pour l’exécution de requêtes. Par exem
 | `EnableScanInQuery` | Doit être définie sur true si vous avez refusé l’indexation, mais souhaitez quand même exécuter la requête via une analyse. Uniquement applicable si l’indexation pour le chemin du filtre demandé est désactivé. | 
 | `MaxItemCount` | Le nombre maximal d’éléments à retourner par aller-retour au serveur. Avec la valeur -1, vous pouvez laisser le serveur gérer le nombre d’éléments. Sinon, vous pouvez réduire cette valeur et récupérer uniquement un petit nombre d’éléments par aller-retour. 
 | `MaxBufferedItemCount` | C’est une option côté client qui permet de limiter la consommation de mémoire lors de l’exécution sur plusieurs partitions de ORDER BY. Une valeur plus élevée permet de réduire la latence de tri de partitions croisées. |
-| `MaxDegreeOfParallelism` | Obtient ou définit le nombre d’opérations simultanées qui sont exécutées côté client, lors de l’exécution de la requête en parallèle, dans le service de base de données Azure Cosmos DB. Une valeur de propriété positive limite le nombre d’opérations simultanées à la valeur définie. Si elle est définie sur une valeur inférieure à 0, le système détermine automatiquement le nombre d’opérations simultanées à exécuter. |
+| `MaxDegreeOfParallelism` | Obtient ou définit le nombre d’opérations simultanées qui sont exécutées côté client, lors de l’exécution de la requête en parallèle, dans le service de base de données Azure Cosmos. Une valeur de propriété positive limite le nombre d’opérations simultanées à la valeur définie. Si elle est définie sur une valeur inférieure à 0, le système détermine automatiquement le nombre d’opérations simultanées à exécuter. |
 | `PopulateQueryMetrics` | Permet une journalisation détaillée des statistiques du temps passé dans les différentes phases d’exécution de la requête, telles que le moment de la compilation, la durée de la boucle d’indexation et la durée de chargement des documents. À partir des statistiques de requête, vous pouvez partager le résultat avec le support Azure pour diagnostiquer les problèmes de performances de requêtes. |
 | `RequestContinuation` | Vous pouvez reprendre l’exécution de la requête en passant le jeton de continuation opaque retourné par une requête. Le jeton de continuation encapsule tous les états requis pour l’exécution de la requête. |
 | `ResponseContinuationTokenLimitInKb` | Vous pouvez limiter la taille maximale du jeton de continuation retourné par le serveur. Vous devrez peut-être définir cette option si votre hôte d’application a des limites de taille d’en-tête de réponse. La définition de cette propriété peut augmenter la durée globale et les unités de requête (RU) consommées pour la requête.  |
@@ -216,7 +216,7 @@ La section sur les mesures d’exécution de requête explique comment récupér
 ### <a name="indexing-policy"></a>Stratégie d’indexation
 Consultez [Configuration de la stratégie d’indexation](index-policy.md) pour l’indexation de chemins, de types et de modes, ainsi que leur impact sur l’exécution des requêtes. Par défaut, la stratégie d’indexation utilise une indexation de hachage pour les chaînes, ce qui est efficace pour les requêtes d’égalité, mais pas pour les requêtes de plage ou les requêtes de tri sélectif. Si vous avez besoin de requêtes de plage pour des chaînes, nous recommandons d’indiquer le type d’index de plage pour toutes les chaînes. 
 
-Par défaut, Azure Cosmos DB applique une indexation automatique à toutes les données. Insérer des scénarios pour de hautes performances, envisagez d’exclure les chemins d’accès car cela permet de réduire le coût des unités de requête pour chaque opération d’insertion. 
+Par défaut, Azure Cosmos DB applique une indexation automatique à toutes les données. Pour bénéficier de scénarios d’insertion hautes performances, envisagez d’exclure les chemins d’accès, car cela permet de réduire le coût des unités de requête pour chaque opération d’insertion. 
 
 ## <a name="query-execution-metrics"></a>Mesures d’exécution des requêtes
 Vous pouvez obtenir des mesures détaillées sur l’exécution des requêtes en passant l’en-tête facultatif `x-ms-documentdb-populatequerymetrics` (`FeedOptions.PopulateQueryMetrics` dans le kit SDK .NET). La valeur retournée dans `x-ms-documentdb-query-metrics` contient les paires clé-valeur suivantes qui servent à la résolution plus poussée des problèmes d’exécution de requêtes. 
@@ -272,7 +272,7 @@ Voici quelques exemples de requête, et la façon d’interpréter certains mesu
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur les opérateurs et les mots clés de requête SQL pris en charge, consultez [Requête SQL](how-to-sql-query.md). 
+* Pour en savoir plus sur les opérateurs et les mots clés de requête SQL pris en charge, consultez [Requête SQL](sql-query-getting-started.md). 
 * Pour obtenir plus d’informations sur les unités de requête, consultez [Unités de requête](request-units.md).
 * Pour en savoir plus sur la stratégie d’indexation, consultez [Stratégie d’indexation](index-policy.md) 
 

@@ -2,20 +2,20 @@
 title: Bien démarrer avec Striim à l’aide d’Azure SQL Data Warehouse | Microsoft Docs
 description: Devenez rapidement opérationnel avec Striim et Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: hirokib
-manager: jrj
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: integration
 ms.date: 10/12/2018
-ms.author: elbutter
-ms.reviewer: craigg
-ms.openlocfilehash: a835fbd427408afae9ea6ae1b1bc2a84c18b0c34
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.author: martinle
+ms.reviewer: igorstan
+ms.openlocfilehash: 8ed9936884a648d736942caecade2ac3c2980e67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540450"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65873410"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Guide d’installation des offres de la Place de marché Striim Azure SQL DW
 
@@ -29,7 +29,7 @@ Configurez la machine virtuelle Striim avec des propriétés spécifiées, en no
 
 ![Configurer Striim][configure]
 
-Une fois déployé, cliquez sur \<nom de machine virtuelle >-masternode dans le portail Azure, cliquez sur se connecter et copier la connexion à l’aide de compte local de machine virtuelle 
+Une fois le déploiement effectué, cliquez sur \<VM Name>-masternode dans le Portail Microsoft Azure, cliquez sur Se connecter, puis copiez l’URL de connexion à l’aide du compte local de la machine virtuelle 
 
 ![Connecter Striim à SQL Data Warehouse][connect]
 
@@ -55,7 +55,7 @@ Exécutez les commandes suivantes pour déplacer le fichier jar JDBC dans le r�
 
 ![Démarrer le cluster Striim][start-striim]
 
-À présent, ouvrez votre navigateur préféré et accédez à \<nom DNS > : 9080
+Ouvrez maintenant votre navigateur préféré et accédez à \<DNS Name>:9080
 
 ![Accéder à l’écran de connexion][navigate]
 

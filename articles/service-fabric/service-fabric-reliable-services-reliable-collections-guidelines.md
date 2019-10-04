@@ -3,7 +3,7 @@ title: Instructions et recommandations pour les collections fiables dans Azure S
 description: Instructions et recommandations relatives à l’utilisation de collections fiables Fabric Service
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
-ms.author: aljo
-ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: dc7d60cb846aa16f2facd41f5b6b7ce52bcc8f41
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549016"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599341"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Instructions et recommandations pour les collections fiables dans Azure Service Fabric
 Cette section fournit des instructions pour l’utilisation du gestionnaire d’état fiable et des collections fiables. L’objectif consiste à aider les utilisateurs à éviter les pièges courants.
@@ -32,7 +32,7 @@ Les directives sont organisées comme de simples recommandations avec les termes
 * N’utilisez pas une transaction une fois qu’elle a été validée, abandonnée ou supprimée.
 * N’utilisez pas une énumération en dehors de l’étendue de transaction dans laquelle elle a été créée.
 * Ne créez pas une transaction au sein de l’instruction `using` d’une autre transaction, car cela peut provoquer des blocages.
-* Ne créez pas d’état fiable avec `IReliableStateManager.GetOrAddAsync` et utilisez l’état fiable dans la même transaction. Cela entraîne une exception InvalidOperationException.
+* Ne créez pas d’état fiable avec `IReliableStateManager.GetOrAddAsync` et utilisez l’état fiable dans la même transaction. Une exception InvalidOperationException en résulte.
 * Assurez-vous que votre implémentation de `IComparable<TKey>` est correcte. Le système dépend de `IComparable<TKey>` pour la fusion des points de contrôle et des lignes.
 * N’utilisez pas un verrou de mise à jour lors de la lecture d’un élément avec l’intention de le mettre à jour pour empêcher une certaine classe de blocages.
 * Envisagez de conserver le nombre de Reliable Collections par partition sur un nombre inférieur à 1 000. Privilégiez les Reliable Collections avec plus d’éléments par rapport à plus de Reliable Collections avec moins d’éléments.

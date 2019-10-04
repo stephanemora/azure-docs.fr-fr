@@ -1,6 +1,6 @@
 ---
-title: Configuration des stratégies de l’organisation pour Azure Stream Analytique des événements
-description: Cet article explique comment configurer le même ordre des paramètres dans Stream Analytique
+title: Configuration de stratégies de classement des événements pour Azure Stream Analytics
+description: Cet article explique comment configurer les paramètres de classement des événements dans Stream Analytics
 services: stream-analytics
 author: sidram
 ms.author: sidram
@@ -8,58 +8,58 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 970eeb871775e24abb87c8b977e214645e514d3b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: 47a8ee2c03e67d4fd9b34888430ed0cc702205f6
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190532"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273181"
 ---
-# <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configuration des stratégies de l’organisation pour Azure Stream Analytique des événements
+# <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configuration de stratégies de classement des événements pour Azure Stream Analytics
 
-Cet article décrit comment configurer et utiliser d’arrivée tardive et stratégies de désordre événements dans Azure Stream Analytique. Ces stratégies sont appliquées uniquement lorsque vous utilisez le [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clause dans votre requête.
+Cet article explique comment configurer et utiliser des stratégies de classement des événements tardifs et désordonnés dans Azure Stream Analytics. Ces stratégies s’appliquent uniquement quand vous utilisez la clause [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) dans votre requête.
 
-## <a name="event-time-and-arrival-time"></a>Heure de l’événement et l’heure d’arrivée
+## <a name="event-time-and-arrival-time"></a>Heure de l’événement et heure d’arrivée
 
-Votre travail Stream Analytique peut traiter les événements en fonction *heure de l’événement* ou *heure d’arrivée*. **Heure de l’événement/application** est l’horodatage présent dans la charge utile d’événement (lorsque l’événement a été généré). **Heure d’arrivée** est l’horodatage lorsque l’événement a été reçu à la source d’entrée (stockage Event Hubs/IoT Hub/Blob). 
+Votre tâche Stream Analytics peut traiter les événements en fonction de *heure de l’événement* ou de l’*heure d’arrivée*. L’**heure de l’application/événement** est l’horodatage présent dans la charge utile d’événement (moment auquel l’événement a été généré). L’**heure d’arrivée** est l’horodatage du moment où l’événement a été reçu à la source d’entrée (Event Hubs/IoT Hub/Stockage Blob). 
 
-Par défaut, Stream Analytique traite les événements par *heure d’arrivée*, mais vous pouvez choisir de traiter les événements par *heure de l’événement* à l’aide de [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clause dans votre requête. Les stratégies d’arrivée et de désordre tardive sont appliquent uniquement si vous traitez des événements par heure de l’événement. Considérez les spécifications de latence et l’exactitude pour votre scénario lorsque vous configurez ces paramètres. 
+Par défaut, Stream Analytics traite les événements par *heure d’arrivée*, mais vous pouvez choisir de les traiter par *heure d’événement* en utilisant la clause [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) dans votre requête. Les stratégies d’arrivée tardive et dans le désordre s’appliquent uniquement si vous traitez les événements en fonction de l’heure d’événement. Tenez compte des exigences de latence et d’exactitude au moment de configurer ces paramètres pour votre scénario. 
 
-## <a name="what-is-late-arrival-policy"></a>Qu’est la stratégie d’arrivée tardive ?
+## <a name="what-is-late-arrival-policy"></a>Qu’est-ce qu’une stratégie d’arrivée tardive ?
 
-Parfois, les événements arrivent en retard pour diverses raisons. Par exemple, un événement qui arrivent en retard de 40 secondes aura heure de l’événement = heure 00:10:00 et d’arrivée = 00:10:40. Si vous définissez la stratégie d’arrivée tardive sur 15 secondes, n’importe quel événement arrive plus tard que les 15 secondes est soit supprimé (ne pas traitées par Stream Analytique) ou ont leur heure de l’événement ajustées. Dans l’exemple ci-dessus, comme l’événement est arrivé à 40 secondes plus tard (plus de jeu de stratégie), son heure de l’événement sera ajusté à la valeur maximale de retard arrivée stratégie 00:10:25 (heure d’arrivée - valeur de la stratégie d’arrivée tardive). Stratégie d’arrivée tardive par défaut est 5 secondes.
+Parfois, les événements arrivent en retard pour diverses raisons. Par exemple, si un événement arrive avec 40 secondes de retard et que l’heure de l’événement est 00:10:00, son heure d’arrivée sera 00:10:40. Si vous définissez la stratégie d’arrivée tardive sur 15 secondes, tout événement qui arrivera après 15 secondes sera soit supprimé (Stream Analytics ne le traitera pas) soit son heure d’événement sera ajustée. Dans l’exemple ci-dessus, l’événement est arrivé avec 40 secondes de retard (c’est-à-dire au-delà de la valeur définie de la stratégie). De ce fait, l’heure de l’événement est ajustée par rapport à la valeur maximale de la stratégie d’arrivée tardive, soit 00:10:25 (heure d’arrivée – valeur de la stratégie d’arrivée tardive). La valeur par défaut de la stratégie d’arrivée tardive est de 5 secondes.
 
-## <a name="what-is-out-of-order-policy"></a>Qu’est-ordonnés stratégie ? 
+## <a name="what-is-out-of-order-policy"></a>Qu’est-ce qu’une stratégie d’événements en désordre ? 
 
-Événement peut-être arriver en désordre. Une fois que l’heure de l’événement est ajustée en fonction de stratégie d’arrivée tardive, vous pouvez également choisir Supprimer automatiquement ou d’ajuster les événements en désordre. Si vous définissez cette stratégie sur 8 secondes, tous les événements qui arrivent en désordre, mais dans la fenêtre de 8 secondes sont réorganisés selon l’heure de l’événement. Les événements qui arrivent plus tard seront être supprimés ou ajustés à la valeur maximale des stratégies de désordre. Stratégie de désordre par défaut est 0 seconde. 
+Les événements peuvent aussi arriver en désordre. Une fois que l’heure de l’événement a été ajustée en fonction de la stratégie d’arrivée tardive, vous pouvez aussi choisir de supprimer ou d’ajuster automatiquement les événements qui sont en désordre. Si vous définissez cette stratégie sur 8 secondes, les événements qui arrivent en désordre mais dans la fenêtre de 8 secondes sont réordonnés en fonction de l’heure de l’événement. Les événements qui arrivent après sont soit supprimés soit ajustés par rapport à la valeur maximale de la stratégie d’événements en désordre. La valeur par défaut de la stratégie d’événements en désordre est de 0 seconde. 
 
-## <a name="adjust-or-drop-events"></a>Modifier ou supprimer d’événements
+## <a name="adjust-or-drop-events"></a>Ajuster ou supprimer les événements
 
-Si des événements arrivent en retard ou ordonnés en fonction des stratégies que vous avez configuré, vous pouvez supprimer ces événements (ne pas traitées par Stream Analytique) ou de leur temps événement ajustée.
+Si des événements arrivent en retard ou en désordre par rapport aux stratégies que vous avez configurées, vous pouvez soit supprimer ces événements (Stream Analytics ne les traite pas) soit ajuster leur heure d’événement.
 
-Nous voir un exemple de ces stratégies en action.
+Voyons comment ces stratégies fonctionnent à travers un exemple.
 <br> **Stratégie d’arrivée tardive :** 15 secondes
-<br> **Stratégie de la sortie de commande :** 8 secondes
+<br> **Stratégie d’événements en désordre :** 8 secondes
 
-| Épreuve n° | Heure de l'événement | Heure d’arrivée | System.Timestamp | Explication |
+| N ° d’événement | Heure de l’événement | Heure d’arrivée | System.Timestamp | Explication |
 | --- | --- | --- | --- | --- |
-| **1** | 00:10:00  | 00:10:40  | 00:10:25  | Niveau de la liaison tardive et en dehors de la tolérance d’arrivée de l’événement. Par conséquent, heure de l’événement est réglé à la tolérance d’arrivée tardive maximale.  |
-| **2** | 00:10:30 | 00:10:41  | 00:10:30  | Événement arrivé au plus tard, mais dans le niveau de tolérance. Heure de l’événement ne pas obtenir réglé.  |
-| **3** | 00:10:42 | 00:10:42 | 00:10:42 | L’arrivée de l’événement sur l’heure. Aucun ajustement n’est nécessité.  |
-| **4** | 00:10:38  | 00:10:43  | 00:10:38 | Arrivée de l’événement de désordre, mais dans la tolérance de 8 secondes. Par conséquent, heure de l’événement ne pas ajustée. À des fins d’analytique, cet événement sera considéré comme événement numéro 4 précédent.  |
-| **5** | 00:10:35 | 00:10:45  | 00:10:37 | Tolérance de désordre et en dehors de 8 secondes d’arrivée de l’événement. Par conséquent, heure de l’événement est ajustée à un nombre maximum de la tolérance de désordre. |
+| **1** | 00:10:00  | 00:10:40  | 00:10:25  | Événement arrivé en retard et en dehors du niveau de tolérance. L’heure de l’événement est donc ajustée par rapport à la tolérance maximale d’arrivée tardive.  |
+| **2** | 00:10:30 | 00:10:41  | 00:10:30  | Événement arrivé en retard, mais dans le niveau de tolérance. L’heure de l’événement n’est donc pas ajustée.  |
+| **3** | 00:10:42 | 00:10:42 | 00:10:42 | Événement arrivé à temps. Aucun ajustement n’est nécessaire.  |
+| **4** | 00:10:38  | 00:10:43  | 00:10:38 | Événement arrivé en désordre, mais dans la tolérance de 8 secondes. L’heure de l’événement n’est donc pas ajustée. Pour des besoins analytiques, cet événement est considéré comme étant antérieur à l’événement numéro 4.  |
+| **5** | 00:10:35 | 00:10:45  | 00:10:37 | Événement arrivé en désordre et en dehors de la tolérance de 8 secondes. Par conséquent, l’heure de l’événement est ajustée par rapport à la tolérance de désordre maximale. |
 
-## <a name="can-these-settings-delay-output-of-my-job"></a>Ces paramètres susceptibles de retarder la sortie de mon travail ? 
+## <a name="can-these-settings-delay-output-of-my-job"></a>Ces paramètres peuvent-ils retarder la sortie de ma tâche ? 
 
-Oui. Par défaut,-ordonnés stratégie a la valeur zéro (00 minutes et 00 secondes). Si vous modifiez la valeur par défaut, la première sortie de votre travail est retardée par cette valeur (ou version ultérieure). 
+Oui. Par défaut, la stratégie d’événements en désordre est définie sur zéro (00 minute et 00 seconde). Si vous modifiez la valeur par défaut, la première sortie de votre tâche est retardée de la durée correspondant à cette valeur (ou plus). 
 
-Si une des partitions de vos entrées ne reçoit pas les événements, attendez-vous à votre sortie peut être différé par la valeur de stratégie d’arrivée tardive. Pour savoir pourquoi, lisez la section d’erreur InputPartition ci-dessous. 
+Si l’une des partitions de vos entrées ne reçoit pas d’événements, attendez-vous à ce que votre sortie soit retardée de la durée correspondant à la valeur de la stratégie d’arrivée tardive. Pour en connaître la raison, lisez la section relative à l’erreur InputPartition. 
 
-## <a name="i-see-lateinputevents-messages-in-my-activity-log"></a>Je vois les messages LateInputEvents dans mon journal d’activité
+## <a name="i-see-lateinputevents-messages-in-my-activity-log"></a>Mon journal d’activité contient des messages LateInputEvents
 
-Ces messages sont affichées pour vous informer que les événements ont arrivée tardive et sont supprimés ou ajustés en fonction de votre configuration. Vous pouvez ignorer ces messages si vous avez configuré des stratégies d’arrivée tardive en conséquence. 
+Ces messages sont là pour vous informer que des événements sont arrivés en retard et qu’ils seront supprimés ou ajustés en fonction de votre configuration. Vous pouvez ignorer ces messages si vous avez configuré la stratégie d’arrivée tardive de façon appropriée. 
 
-Exemple de ce message est : <br>
+Voici un exemple de ce message : <br>
 <code>
 {"message Time":"2019-02-04 17:11:52Z","error":null,
 "message":"First Occurred: 02/04/2019 17:11:48 | Resource Name: ASAjob | Message: Source 'ASAjob' had 24 data errors of kind 'LateInputEvent' between processing times '2019-02-04T17:10:49.7250696Z' and '2019-02-04T17:11:48.7563961Z'. Input event with application timestamp '2019-02-04T17:05:51.6050000' and arrival time '2019-02-04T17:10:44.3090000' was sent later than configured tolerance.","type":"DiagnosticMessage","correlation ID":"49efa148-4asd-4fe0-869d-a40ba4d7ef3b"} 
@@ -67,14 +67,16 @@ Exemple de ce message est : <br>
 
 ## <a name="i-see-inputpartitionnotprogressing-in-my-activity-log"></a>Je vois InputPartitionNotProgressing dans mon journal d’activité
 
-Votre source d’entrée (Event Hub/IoT Hub) probablement comporte plusieurs partitions. Azure Stream Analytique produit une sortie pour l’horodateur t1 uniquement une fois que toutes les partitions qui sont combinées sont au moins à t1. Par exemple, supposons que la requête lit une partition de hub d’événements qui a deux partitions. Une des partitions, P1, a des événements jusqu’au temps t1. L’autre partition, P2, a des événements jusqu'à l’instant t1 + x. La sortie est produite jusqu'à l’instant t1. Mais, s’il existe une Partition explicite par clause PartitionId, les deux partitions progressent indépendamment. 
+Il est probable que votre source d’entrée (Event Hub/IoT Hub) comporte plusieurs partitions. Azure Stream Analytics génère une sortie pour l’horodatage t1 une fois seulement que toutes les partitions combinées parviennent au moins au moment t1. Par exemple, supposons que la requête lit une partition de hub d’événements qui a deux partitions. L’une des partitions, P1, a des événements jusqu’au moment t1. L’autre partition, P2, a des événements jusqu’au moment t1 + x. Dans ce cas, la sortie est générée jusqu’au moment t1. Cependant, s’il existe une clause Partition by PartitionId explicite, les deux partitions progressent indépendamment. 
 
-Lorsque plusieurs partitions du même flux d’entrée sont combinées, la tolérance d’arrivée tardive est la quantité maximale de temps d’attente de chaque partition pour les nouvelles données. S’il existe une partition dans votre concentrateur d’événements, ou si l’IoT Hub ne reçoivent des entrées, la chronologie pour cette partition ne progresse pas tant qu’atteint le seuil de tolérance d’arrivée tardive. Cela retarde la sortie par le seuil de tolérance d’arrivée tardive. Dans ce cas, vous pouvez voir le message suivant :
+Quand plusieurs partitions du même flux d’entrée sont combinées, la tolérance d’arrivée tardive correspond au délai maximal d’attente de nouvelles données pour chaque partition. S’il existe une partition dans votre hub d’événements ou si IoT Hub ne reçoit pas d’entrées, la chronologie de cette partition ne progresse pas tant qu’elle n’atteint pas le seuil de tolérance d’arrivée tardive. Cela retarde votre sortie de la durée correspondant au seuil de tolérance d’arrivée tardive. En pareil cas, il se peut que le message d’erreur suivant s’affiche :
 <br><code>
 {"message Time":"2/3/2019 8:54:16 PM UTC","message":"Input Partition [2] does not have additional data for more than [5] minute(s). Partition will not progress until either events arrive or late arrival threshold is met.","type":"InputPartitionNotProgressing","correlation ID":"2328d411-52c7-4100-ba01-1e860c757fc2"} 
 </code><br><br>
-Ce message vous informe qu’au moins une partition de votre entrée est vide et retardera votre sortie par le seuil d’arrivée tardive. Pour pallier ce problème, il est recommandé de vous soit : 1. Vérifiez que toutes les partitions de votre Event Hub/IoT Hub recevoir l’entrée. 2. Utilisation de la Partition par clause PartitionID dans votre requête. 
+Ce message vous informe qu’au moins une partition de votre entrée est vide et que votre sortie sera retardée de la durée correspondant au seuil d’arrivée tardive. Pour pallier ce problème, suivez l’une ou l’autre de ces recommandations :  
+1. Vérifiez que toutes les partitions de votre hub d’événements/hub IoT reçoit une entrée. 
+2. Utilisez une clause Partition by PartitionID dans votre requête. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Considérations relatives à la gestion des temps](stream-analytics-time-handling.md)
+* [Considérations relatives à la gestion du temps](stream-analytics-time-handling.md)
 * [Mesures disponibles dans Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)

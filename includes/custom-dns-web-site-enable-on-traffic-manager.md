@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 67b9c0ba2566206b0e70db51844b21e5d5d3c261
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ddeb46a2c7bc7f24f55c22f446926529cee7b598
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344596"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059663"
 ---
 Après la propagation des enregistrements de votre nom de domaine, vous devez être en mesure d’utiliser votre navigateur pour vérifier que votre domaine personnalisé peut être utilisé pour accéder à votre application web dans Azure App Service.
 
@@ -30,7 +30,7 @@ Si vous n’avez pas déjà ajouté votre application web en tant que point de t
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 3. Dans le panneau **Domaines personnalisés**, cliquez sur **Ajouter un nom d’hôte**.
-4. Utilisez les zones de texte **Nom d’hôte** pour saisir le nom de domaine Traffic Manager à associer à cette application web.
+4. Utilisez les zones de texte **Nom d’hôte** pour entrer les noms de domaine personnalisés à associer à cette application web.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Cliquez sur **Valider** pour enregistrer la configuration du nom de domaine.

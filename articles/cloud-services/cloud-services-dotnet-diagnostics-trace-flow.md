@@ -3,23 +3,18 @@ title: Assurer le suivi du flux dans une application Cloud Services avec Diagnos
 description: Ajouter des messages de suivi à une application Azure pour aider au débogage, à la mesure des performances, à la surveillance, à l’analyse du trafic et bien plus encore.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 09934772-cc07-4fd2-ba88-b224ca192f8e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
-ms.author: jeconnoc
-ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: e3e34ff9b5ce1c3a7b45468d22faddddf0c9a913
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525559"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359152"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Assurer le suivi du flux dans une application Cloud Services avec Diagnostics Azure
 Le suivi est un moyen de surveiller l’exécution de votre application pendant son exécution . Vous pouvez utiliser les classes [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) et [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) pour enregistrer des informations relatives aux erreurs et à l’exécution des applications dans des journaux d’activité, des fichiers texte ou d’autres périphériques pour une analyse ultérieure. Pour plus d’informations sur le suivi, consultez [Applications de suivi et instrumentation](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
@@ -27,7 +22,7 @@ Le suivi est un moyen de surveiller l’exécution de votre application pendant 
 ## <a name="use-trace-statements-and-trace-switches"></a>Utilisez les instructions et commutateurs de suivi
 Mettez en œuvre le suivi dans votre application Cloud Services en ajoutant [DiagnosticMonitorTraceListener](/previous-versions/azure/reference/ee758610(v=azure.100)) à la configuration d’application et en lançant des appels vers System.Diagnostics.Trace ou vers System.Diagnostics.Debug dans votre code d’application. Utilisez le fichier de configuration *app.config* pour les rôles de travail et le fichier *web.config* pour les rôles web. Lorsque vous créez un nouveau service hébergé à l’aide d’un modèle Visual Studio, Diagnostics Azure est automatiquement ajouté au projet et DiagnosticMonitorTraceListener est ajouté au fichier de configuration approprié pour les rôles que vous ajoutez.
 
-Pour plus d’informations sur le placement des instructions de trace, consultez [Comment : Ajouter des instructions de traçage au Code d’Application](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
+Pour plus d’informations sur le placement des instructions de suivi, consultez [Comment : Ajoutez des instructions de traçage au code d’application](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 
 En plaçant des [Commutateurs de suivi](/dotnet/framework/debug-trace-profile/trace-switches) dans votre code, vous pouvez contrôler le traçage et son importance. Vous pouvez ainsi surveiller l’état de votre application dans un environnement de production, ce qui est particulièrement important dans une application qui utilise plusieurs composants s’exécutant sur plusieurs ordinateurs. Pour plus d’informations, consultez [Procédure : Configurer des commutateurs de Trace](/dotnet/framework/debug-trace-profile/how-to-create-initialize-and-configure-trace-switches).
 
@@ -69,11 +64,11 @@ Pour plus d’informations sur les écouteurs, consultez [Suivi des écouteurs](
 Une fois les opérations destinées à ajouter l’écouteur terminées, vous pouvez ajouter des instructions de suivi à votre code.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Pour ajouter des instructions de suivi à votre code
-1. Ouvrez un fichier source pour votre application. Par exemple, le \<RoleName > fichier .cs pour le rôle de travail ou un rôle web.
+1. Ouvrez un fichier source pour votre application. Par exemple, le fichier \<RoleName>.cs pour le rôle de travail ou le rôle web.
 2. Ajoutez le code suivant à l’aide d’une instruction s’il n’a pas été encore ajouté :
     ```
         using System.Diagnostics;
     ```
-3. Ajoutez les instructions de suivi à l’endroit où vous souhaitez capturer des informations sur l’état de votre application. Vous pouvez utiliser différentes méthodes pour mettre en forme la sortie de l’instruction de suivi. Pour plus d’informations, consultez [Procédure : Ajouter des instructions de traçage au Code d’Application](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
+3. Ajoutez les instructions de suivi à l’endroit où vous souhaitez capturer des informations sur l’état de votre application. Vous pouvez utiliser différentes méthodes pour mettre en forme la sortie de l’instruction de suivi. Pour plus d’informations, consultez [Procédure : Ajoutez des instructions de traçage au code d’application](/dotnet/framework/debug-trace-profile/how-to-add-trace-statements-to-application-code).
 4. Enregistrez le fichier source.
 

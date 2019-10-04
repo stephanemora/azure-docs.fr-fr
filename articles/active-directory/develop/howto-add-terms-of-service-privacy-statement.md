@@ -1,10 +1,10 @@
 ---
-title: Termes du contrat de Service et déclaration de confidentialité pour les applications | Azure
+title: Conditions d’utilisation du service et déclaration de confidentialité pour les applications | Azure
 description: Découvrez comment vous pouvez configurer les conditions d’utilisation et la déclaration de confidentialité des applications inscrites pour utiliser Azure AD.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
-ms.author: celested
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b0a01b50573405964b09339d03e84c62dbdd8582
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500295"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482862"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Activation Configurer les termes du contrat de service et déclaration de confidentialité pour une application
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Activation Configuration des conditions d’utilisation du service et de la déclaration de confidentialité d’une application
 
 Les développeurs qui génèrent et gèrent des applications qui s’intègrent à Azure Active Directory (Azure AD) et à des comptes Microsoft doivent ajouter des liens vers les conditions d’utilisation et la déclaration de confidentialité de ces applications. Les conditions d’utilisation et la déclaration de confidentialité sont présentées aux utilisateurs par le biais de l’expérience de consentement de l’utilisateur. Elles permettent à vos utilisateurs de savoir qu’ils peuvent faire confiance à votre application. Les conditions d’utilisation et la déclaration de confidentialité sont particulièrement importantes pour les applications multilocataires accessibles aux utilisateurs (applications utilisées par plusieurs annuaires ou disponibles pour n’importe quel compte Microsoft).
 
@@ -56,33 +56,20 @@ Exemples : `https://myapp.com/terms-of-service` et `https://myapp.com/privacy-st
 
 Quand les conditions d’utilisation et la déclaration de confidentialité sont prêtes, vous pouvez ajouter des liens vers ces documents dans votre application à l’aide de l’une des méthodes suivantes :
 
-* [À l’aide du portail Azure](#registered-in-azure-portal)
-* [Dans le portail d’inscription des applications ou le Centre de développement](#registered-in-app-reg-portal)
+* [À l’aide du portail Azure](#azure-portal)
 * [À l’aide de l’objet JSON de l’application](#app-object-json)
 * [À l’aide de l’API REST de MSGraph version bêta](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>Si vous avez inscrit votre application dans le portail Azure
-
-Si vous avez inscrit votre application dans le portail Azure, effectuez les étapes suivantes.
+### <a name="azure-portal"></a>À l’aide du Portail Azure
+Suivez les étapes ci-dessous dans le portail Azure.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Accédez à la section **Inscriptions d’applications** et sélectionnez votre application.
-3. Ouvrez la section **Propriétés** de l’application.
+3. Ouvrez le volet **Personnalisation**.
 4. Remplissez les champs **URL des conditions d’utilisation** et **URL de la déclaration confidentialité**.
 5. Enregistrez vos modifications.
 
-    ![Section des propriétés de l’application avec les URL des conditions d’utilisation et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>Si vous avez inscrit votre application dans le portail d’inscription des applications
-
-Si vous avez inscrit votre application dans le portail d’inscription des applications ou dans le Centre de développement, effectuez les étapes suivantes.
-
-1. Connectez-vous au [portail d’inscription des applications](https://apps.dev.microsoft.com/).
-2. Sélectionnez votre application, puis faites défiler jusqu’à la section **Profil**.
-3. Remplissez les champs **URL des conditions d’utilisation** et **URL de la déclaration confidentialité**.
-4. Enregistrez vos modifications.
-
-    ![Section du profil de l’application avec les URL des conditions d’utilisation et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![Les propriétés de l’application contiennent les URL des conditions d’utilisation du service et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>À l’aide de l’objet JSON de l’application
 

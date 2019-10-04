@@ -1,5 +1,5 @@
 ---
-title: Utiliser le Volume disque haut Service Fabric fiable dans une application Azure Service Fabric Mesh | Microsoft Docs
+title: Utiliser un volume Service Fabric Reliable Disk hautement disponible dans une application Azure Service Fabric Mesh | Microsoft Docs
 description: Découvrez comment stocker un état dans une application Azure Service Fabric Mesh en montant un volume basé sur Service Fabric Reliable Disk dans le conteneur avec Azure CLI.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -8,19 +8,18 @@ manager: raunakpandya
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 25bd298c412db38ec4d3b7859580d58ac9b151fb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850851"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036148"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monter un volume basé sur Service Fabric Reliable Disk dans une application Azure Service Fabric Mesh 
 La méthode courante pour rendre persistant l’état avec des applications de conteneur consiste à utiliser un stockage à distance, tel que le Stockage Fichier Azure ou une base de données du type Azure Cosmos DB. Cela entraîne une importante latence de lecture et d’écriture sur le magasin distant.
@@ -32,7 +31,7 @@ Dans cet exemple, l’application de compteur dispose d’un service ASP.NET Cor
 
 `counterService` lit périodiquement une valeur de compteur dans un fichier, l’incrémente, puis la réécrit dans le fichier. Le fichier est stocké dans un dossier monté sur le volume soutenu par Service Fabric Reliable Disk.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour accomplir cette tâche, vous pouvez utiliser le service Azure Cloud Shell ou une installation locale d’Azure CLI. Pour utiliser Azure CLI avec cet article, vérifiez que `az --version` retourne au moins `azure-cli (2.0.43)`.  Installez (ou mettez à jour) le module d’extension Service Fabric Mesh CLI en suivant les [instructions](service-fabric-mesh-howto-setup-cli.md) ci-après.
 
@@ -73,7 +72,7 @@ Notez le nom de la ressource de passerelle dont le type de ressources est `Micro
 
 Une fois l’application déployée, récupérez l’adresse IP de la ressource de passerelle correspondant à l’application. Utilisez le nom de passerelle que vous avez noté dans la section ci-dessus.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 La sortie doit contenir une propriété `ipAddress`, qui correspond à l’adresse IP publique du point de terminaison du service. Ouvrez-la à partir d’un navigateur. Une page web doit s’afficher avec la valeur du compteur mise à jour toutes les secondes.

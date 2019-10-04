@@ -4,7 +4,7 @@ description: ''
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 782240c51833fc841af9f4260860db4c03897c03
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853067"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086450"
 ---
-# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Activer ou désactiver une règle de pare-feu sur un système d’exploitation invité de Azure VM
+# <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Activer ou désactiver une règle de pare-feu sur un système d’exploitation invité d’une machine virtuelle Azure
 
 Cet article fournit une référence pour résoudre une situation dans laquelle vous pensez que le pare-feu du système d’exploitation invité filtre le trafic partiel sur une machine virtuelle. Cela peut être utile pour les raisons suivantes :
 
@@ -99,7 +99,7 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
 
 1.  Sur la machine virtuelle de dépannage, démarrez l’éditeur de Registre (regedit.exe), puis sélectionnez **Fichier** > **Connexion au Registre réseau**.
 
-2.  Ouvrez la branche  *MACHINE CIBLE*\SYSTEM, puis spécifiez les valeurs suivantes :
+2.  Ouvrez la branche *MACHINE CIBLE*\SYSTEM, puis spécifiez les valeurs suivantes :
 
     * Pour activer une règle, ouvrez la valeur de Registre suivante :
     
@@ -107,7 +107,7 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
     
         Ensuite, remplacez **Active=FALSE** par **Active=TRUE** dans la chaîne :
 
-        **v2.22 | Action = Autoriser | Active = TRUE | Dir = In | Protocole = 6 | Profil = Domain | Profil privé de = | Profil = Public | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nom =\@FirewallAPI.dll,-28775 | DESC =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
     
     * Pour désactiver une règle, ouvrez la valeur de Registre suivante :
     
@@ -115,7 +115,7 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
 
         Puis remplacez **Active=TRUE** par **Active=FALSE**:
         
-        **v2.22 | Action = Autoriser | Active = FALSE | Dir = In | Protocole = 6 | Profil = Domain | Profil privé de = | Profil = Public | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nom =\@FirewallAPI.dll,-28775 | DESC =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
 3.  Redémarrez la machine virtuelle pour appliquer les changements.
 
@@ -123,26 +123,26 @@ Si la machine virtuelle est en ligne et accessible sur une autre machine virtuel
 
 Si vous ne pouvez pas accéder à la machine virtuelle par n’importe quelle méthode, Extension de script personnalisée échoue, et vous devrez travailler en mode HORS CONNEXION directement via le disque système.
 
-Avant de suivre ces étapes, prenez un instantané du disque système de la machine virtuelle affectée comme sauvegarde. Pour plus d’informations, consultez  [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
+Avant de suivre ces étapes, prenez un instantané du disque système de la machine virtuelle affectée comme sauvegarde. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
 
 1.  [Attachez le disque système à une machine virtuelle de récupération](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  Établissez une connexion Bureau à distance avec la machine virtuelle de récupération.
 
-3.  Vérifiez que le disque est marqué comme **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur affectée au disque système attaché.
+3.  Vérifiez que le disque est marqué comme étant **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur affectée au disque système attaché.
 
 4.  Avant d’effectuer des changements, créez une copie du dossier \windows\system32\config au cas où vous souhaiteriez annuler les changements.
 
 5.  Sur la machine virtuelle de dépannage, démarrez l’éditeur de Registre (regedit.exe).
 
-6.  Mettez en surbrillance la clé **HKEY_LOCAL_MACHINE** , puis sélectionnez  **Fichier** > **Charger Hive**  à partir du menu.
+6.  Mettez en surbrillance la clé **HKEY_LOCAL_MACHINE**, puis sélectionnez **Fichier** > **Charger Hive** dans le menu.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  Recherchez et ouvrez le fichier \windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Vous êtes invité à saisir un nom. Entrez  **BROKENSYSTEM**, puis développez  **HKEY_LOCAL_MACHINE**. Vous voyez maintenant une clé supplémentaire nommée **BROKENSYSTEM**. Pour cette procédure de dépannage, nous montons ces ruches défectueuses en tant que  **BROKENSYSTEM**.
+    > Vous êtes invité à saisir un nom. Entrez **BROKENSYSTEM**, puis développez **HKEY_LOCAL_MACHINE**. Vous voyez maintenant une clé supplémentaire nommée**BROKENSYSTEM**. Pour cette procédure de dépannage, nous montons ces ruches défectueuses en tant que **BROKENSYSTEM**.
 
 8.  Sur la branche BROKENSYSTEM, apportez les modifications suivantes :
 
@@ -154,7 +154,7 @@ Avant de suivre ces étapes, prenez un instantané du disque système de la mach
         
         Puis remplacez **Active=FALSE** par **Active=True**.
         
-        **v2.22 | Action = Autoriser | Active = TRUE | Dir = In | Protocole = 6 | Profil = Domain | Profil privé de = | Profil = Public | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nom =\@FirewallAPI.dll,-28775 | DESC =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=TRUE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
     3.  Pour désactiver une règle, ouvrez la clé de Registre suivante :
 
@@ -162,9 +162,9 @@ Avant de suivre ces étapes, prenez un instantané du disque système de la mach
 
         Puis remplacez **Active=True** par **Active=FALSE**.
         
-        **v2.22 | Action = Autoriser | Active = FALSE | Dir = In | Protocole = 6 | Profil = Domain | Profil privé de = | Profil = Public | LPort = 3389 | App=%SystemRoot%\System32\Svchost.exe| SVC = termservice | Nom =\@FirewallAPI.dll,-28775 | DESC =\@FirewallAPI.dll,-28756 | EmbedCtxt =\@FirewallAPI.dll,-28752 |**
+        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
-9.  Mettez en surbrillance  **BROKENSYSTEM**, puis sélectionnez  **Fichier** > **Décharger Hive**  à partir du menu.
+9.  Mettez la clé **BROKENSYSTEM** en surbrillance, puis sélectionnez **Fichier** > **Charger la ruche** dans le menu.
 
 10. [Détachez le disque système et recréez la machine virtuelle](troubleshoot-recovery-disks-portal-windows.md).
 

@@ -1,93 +1,141 @@
 ---
-title: Comprendre votre utilisation détaillée d’Azure | Microsoft Docs
-description: Apprenez à lire et à comprendre les sections du fichier CSV sur l’utilisation détaillée de votre abonnement Azure
-services: ''
-documentationcenter: ''
+title: Comprendre le détail de l’utilisation et des frais | Microsoft Docs
+description: Découvrez comment lire et comprendre le détail de l’utilisation et des frais
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: micflan
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 1842d32a838470d9b2af3a778c44c37464d32294
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897144"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "68954337"
 ---
-# <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Comprendre les termes figurant sur le fichier détaillant les frais d’utilisation Microsoft Azure 
+# <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprendre les termes du fichier sur l’utilisation et les frais Azure
 
-Le fichier CSV des frais d’utilisation détaillés contient les frais d’utilisation quotidienne et au niveau du compteur pour la période de facturation actuelle. 
+Le fichier détaillé sur l’utilisation et les frais contient l’utilisation quotidienne évaluée sur la base des tarifs négociés, des achats (par exemple, réservations, dépenses sur l Place de marché) et des remboursements au cours de la période spécifiée.
+Les frais ne comprennent les crédits, taxes, ou d’autres frais ou remises.
+Le tableau suivant couvre les frais inclus pour chaque type de compte.
 
-Pour obtenir le fichier détaillant l’utilisation, consultez [Comment obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md).
-Il est disponible au format .csv, que vous pouvez ouvrir dans une application de feuille de calcul. Si deux versions sont disponibles, téléchargez la version 2. C’est le format de fichier le plus récent.
+Type de compte | Utilisation d’Azure | Utilisation de la Place de marché | Achats | Remboursements
+--- | --- | --- | --- | ---
+Contrat Entreprise (EA) | OUI | OUI | OUI | Non
+Contrat client Microsoft (MCA) | OUI | OUI | OUI | OUI
+Paiement à l’utilisation | OUI | OUI | Non | Non
 
-Les frais d’utilisation correspondent au total des frais **mensuels** d’un abonnement. Les frais d’utilisation ne prennent pas en compte les crédits et les remises.
+Pour en savoir plus sur les commandes passées sur la Place de marché (également appelées services externes), voir [Comprendre vos frais de service externe Azure](billing-understand-your-azure-marketplace-charges.md).
 
->[!VIDEO https://www.youtube.com/embed/p13S350M2Vk]
+Pour obtenir des instructions de téléchargement, consultez [Guide pratique pour obtenir votre facture Azure et vos données d’utilisation quotidienne](billing-download-azure-invoice-daily-usage-date.md).
+Vous pouvez ouvrir votre fichier CSV sur l’utilisation et les frais dans Microsoft Excel ou une autre application de feuille de calcul.
 
-## <a name="detailed-terms-and-descriptions-of-your-detailed-usage-file"></a>Termes et descriptions détaillés de votre fichier sur l’utilisation détaillée
+## <a name="list-of-terms-and-descriptions"></a>Liste de termes et descriptions
 
-Les sections suivantes décrivent les termes importants indiqués dans la version 2 du fichier d’utilisation détaillée.
+Le tableau suivant présente les termes importants utilisés dans la dernière version du fichier sur l’utilisation et les frais Azure.
+La liste couvre les comptes associés à un paiement à l’utilisation (PAYG), à un Contrat Entreprise (EA) et à un Contrat client Microsoft (MCA).
 
-### <a name="statement"></a>Instruction
+Terme | Type de compte | Description
+--- | --- | ---
+AccountName | EA, PAYG | Nom complet du compte d’inscription EA ou du compte de facturation PAYG.
+AccountOwnerId<sup>1</sup> | EA, PAYG | Identificateur unique pour le compte d’inscription EA ou le compte de facturation PAYG.
+AdditionalInfo | Tous | Métadonnées relatives au service. Par exemple, le type d’image d’une machine virtuelle.
+BillingAccountId<sup>1</sup> | Tous | Identificateur unique pour le compte de facturation racine.
+BillingAccountName | Tous | Nom du compte de facturation.
+BillingCurrency | Tous | Devise associée au compte de facturation.
+BillingPeriod | EA, PAYG | Période de facturation des frais.
+BillingPeriodEndDate | Tous | Date de fin de la période de facturation.
+BillingPeriodStartDate | Tous | La date de début de la période de facturation.
+BillingProfileId<sup>1</sup> | Tous | Identificateur unique de l’inscription EA, de l’abonnement PAYG, du profil de facturation MCA ou du compte regroupé AWS.
+BillingProfileName | Tous | Nom de l’inscription EA, de l’abonnement PAYG, du profil de facturation MCA ou du compte regroupé AWS.
+ChargeType | Tous | Indique si les frais ont trait à l’utilisation (**Usage**), à un achat (**Purchase**) ou à un remboursement (**Refund**).
+ConsumedService | Tous | Nom du service auquel les frais sont associés.
+CostCenter<sup>1</sup> | EA, MCA | Centre de coûts défini pour l’abonnement au fins de suivi des coûts (uniquement disponible dans les des périodes de facturation ouvertes pour les comptes MCA).
+Coût | EA, PAYG | Voir CostInBillingCurrency.
+CostInBillingCurrency | MCA | Coût des frais dans la devise de facturation avant crédits ou taxes.
+CostInPricingCurrency | MCA | Coût des frais dans la devise de tarification avant crédits ou taxes.
+Devise | EA, PAYG | Voir BillingCurrency.
+Date<sup>1</sup> | Tous | Date d’achat ou d’utilisation à laquelle les frais correspondent.
+EffectivePrice | Tous | Prix unitaire unifié pour la période. Les prix unifiés établissent la moyenne des fluctuations du prix unitaire, comme un nivellement progressif, ce qui réduit le prix à mesure que la quantité augmente au fil du temps.
+ExchangeRateDate | MCA | Date à laquelle que le taux de change a été établi.
+ExchangeRatePricingToBilling | MCA | Taux de change utilisé pour convertir le coût de la devise de tarification vers la devise de facturation.
+Fréquence | Tous | Indique si un coût est supposé se répéter. Les coûts peut être ponctuels (**OneTime**), se répéter mensuellement ou annuellement (**Recurring**) ou être basés sur l’utilisation (**UsageBased**).
+InvoiceId | PAYG, MCA | Référence de document unique figurant sur la facture au format PDF.
+InvoiceSection | MCA | Voir InvoiceSectionName.
+InvoiceSectionId<sup>1</sup> | EA, MCA | Identificateur unique du service EA ou de la section de facture MCA.
+InvoiceSectionName | EA, MCA | Nom du service EA ou de la section de facture MCA.
+IsAzureCreditEligible | Tous | Indique si les frais sont éligibles pour un paiement à l’aide de crédits Azure (valeurs : True, False).
+Location | MCA | Emplacement du centre de données où la ressource est exécutée.
+MeterCategory | Tous | Nom de la catégorie de classification du compteur. Par exemple, *Services cloud* ou *Mise en réseau*.
+MeterId<sup>1</sup> | Tous | Identificateur unique du compteur.
+MeterName | Tous | Nom du compteur.
+MeterRegion | Tous | Nom de l’emplacement du centre de données pour des services tarifés en fonction de l’emplacement. Voir Location.
+MeterSubCategory | Tous | Nom de la catégorie de sous-classification du compteur.
+OfferId<sup>1</sup> | Tous | Nom de l’offre achetée.
+PartNumber<sup>1</sup> | EA, PAYG | Identificateur utilisé pour obtenir la tarification du compteur spécifique.
+PlanName | EA, PAYG | Nom du plan sur la Place de marché.
+PreviousInvoiceId | MCA | Référence à une facture d’origine si cette ligne correspond à un remboursement.
+PricingCurrency | MCA | Devise utilisée lors de l’évaluation basée sur les prix négociés.
+Produit | Tous | Nom du produit.
+ProductId<sup>1</sup> | MCA | Identificateur unique pour le produit.
+ProductOrderId | Tous | Identificateur unique de la commande du produit.
+ProductOrderName | Tous | Nom unique de la commande du produit.
+PublisherName | Tous | Éditeur pour les services de la Place de marché.
+PublisherType | Tous | Type d’éditeur (valeurs : **Azure**, **AWS**, **Place de marché**).
+Quantité | Tous | Nombre d’unités achetées ou consommés.
+ID de réservation | EA, MCA | Identificateur unique de l’instance de réservation achetée.
+ReservationName | EA, MCA | Nom de l’instance de réservation achetée.
+ResourceGroup | Tous | Nom du [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) dans lequel figure la ressource.
+ResourceId<sup>1</sup> | Tous | Identificateur unique de la ressources [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources).
+ResourceLocation | Tous | Emplacement du centre de données où la ressource est exécutée. Voir Location.
+ResourceName | EA, PAYG | Nom de la ressource.
+ResourceType | MCA | Type d’instance de ressource.
+ServiceFamily | MCA | Famille de services à laquelle appartient le service.
+ServiceInfo1 | Tous | Métadonnées relatives au service.
+ServiceInfo2 | Tous | Champ hérité avec des métadonnées facultatives spécifiques du service.
+ServicePeriodEndDate | MCA | Date de fin de la période d’évaluation utilisée pour définir et fixer la tarification correspondant au service consommé ou acheté.
+ServicePeriodStartDate | MCA | Date de début de la période d’évaluation utilisée pour définir et fixer la tarification correspondant au service consommé ou acheté.
+SubscriptionId<sup>1</sup> | Tous | Identificateur unique de l’abonnement Azure.
+SubscriptionName | Tous | Nom de l’abonnement Azure.
+Tags<sup>1</sup> | Tous | Balises affectées à la ressource. N’inclut pas les balises de groupe de ressources. Peut être utilisée pour grouper ou répartir des coûts de refacturation interne. Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
+Terme | Tous | Affiche le terme de validité de l’offre. Par exemple :  Dans le cas d’instances réservées, le terme est de 12 mois. Pour les achats ponctuels ou les achats récurrents, le terme est de 1 mois (SaaS, support Marketplace). Cela ne s’applique pas à la consommation Azure.
+UnitOfMeasure | Tous | Unité de mesure pour la facturation du service. Par exemple, les services de calcul sont facturés à l’heure.
+UnitPrice | EA, PAYG | Prix unitaire des frais.
 
-La partie supérieure du fichier CSV sur l’utilisation détaillée contient les services que vous avez utilisés au cours de la période de facturation du mois. Le tableau suivant répertorie les conditions et les descriptions présentées dans cette section.
+_<sup>**1**</sup> Champs utilisés pour générer un ID unique pour un enregistrement de coût unique._
 
-| Terme | Description |
-| --- | --- |
-|Période de facturation |Période de facturation où les compteurs ont été consommés |
-|Catégorie du compteur |Identifie le service de niveau supérieur pour l’utilisation |
-|Sous-catégorie du compteur |Définit le type de service Azure qui peut affecter le tarif |
-|Nom du compteur |Identifie l’unité de mesure du compteur consommé |
-|Région du compteur |Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement |
-|SKU |Identifie l’identificateur système unique de chaque compteur Azure |
-|Unité |Identifie l'unité dans laquelle le service est facturé. Par exemple, Go, heures, 10 000 s. |
-|Quantité consommée |Quantité du compteur utilisée au cours de la période de facturation |
-|Quantité incluse |Montant du compteur inclus gratuitement dans votre période de facturation actuelle |
-|Quantité de dépassement |Affiche la différence entre la quantité consommée et la quantité incluse. Ce montant vous est facturé. Pour les offres avec paiement à l’utilisation n’incluant aucune quantité incluse avec l’offre, ce total est identique à la quantité consommée. |
-|Au sein de l'engagement |Affiche les frais liés aux compteurs, déduits du montant de votre engagement associé à votre offre de 6 ou 12 mois. Les frais de compteur sont soustraits dans l’ordre chronologique. |
-|Devise |Devise utilisée pour votre période de facturation en cours |
-|Dépassement |Affiche les frais liés aux compteurs qui excèdent le montant de votre engagement associé à votre offre de 6 ou 12 mois. |
-|Taux d'engagement |Affiche le taux d’engagement basé sur le montant total de votre engagement associé à votre offre de 6 ou 12 mois. |
-|Tarif |Montant qui vous est facturé par unité facturable |
-|Valeur |Affiche le résultat de la multiplication de la colonne Quantité de dépassement par la colonne Taux. Si la quantité consommée ne dépasse pas la quantité incluse, aucun frais n’apparaît dans cette colonne. |
+Notez que certains champs peuvent différer par leur casse ou leur espacement d’un type de compte à l’autre.
+Les versions antérieures des fichiers sur le paiement à l’utilisation comportent des sections séparées pour le relevé et l’utilisation quotidienne.
 
-### <a name="daily-usage"></a>Utilisation quotidienne
+### <a name="list-of-terms-from-older-apis"></a>Liste de termes des anciennes API
+Le tableau suivant établit les correspondances entre les termes utilisés dans les anciennes API et les nouveaux termes. Reportez-vous au tableau ci-dessus pour connaître ces descriptions.
 
-La section Utilisation quotidienne du fichier CSV montre les détails d’utilisation qui affectent les tarifs de facturation. Le tableau suivant répertorie les conditions et les descriptions présentées dans cette section.
+Ancien terme | Nouveau terme
+--- | ---
+ConsumedQuantity | Quantité
+IncludedQuantity | N/A
+InstanceId | ResourceId
+Tarif | EffectivePrice
+Unité | UnitOfMeasure
+UsageDate | Date
+UsageEnd | Date
+UsageStart | Date
 
-| Terme | Description |
-| --- | --- |
-|Date d'utilisation |Date à laquelle le compteur a été utilisé |
-|Catégorie du compteur |Identifie le service de niveau supérieur dont cette utilisation relève |
-|ID du compteur |Identificateur de compteur facturé pour l’établissement du prix de l’utilisation de la facturation |
-|Sous-catégorie du compteur |Définit le type de service Azure pouvant affecter le tarif |
-|Nom du compteur |Identifie l’unité de mesure du compteur consommé |
-|Région du compteur |Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement |
-|Unité |Identifie l’unité dans laquelle le compteur est facturé. Par exemple, Go, heures, 10 000 s. |
-|Quantité consommée |Quantité du compteur consommé le jour en question |
-|Emplacement de la ressource |Identifie le centre de données dans lequel le compteur est en cours d’exécution |
-|Service consommé |Service de plateforme Azure que vous avez utilisé |
-|Groupe de ressources |Groupe de ressources dans lequel le compteur déployé est en cours d’exécution. <br/><br/>Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
-|ID de l’instance | Identificateur du compteur. <br/><br/> L’identificateur contient le nom que vous avez spécifié pour le compteur lors de sa création. Nom de la ressource ou ID de ressource complet. Pour plus d’informations, consultez la page [API Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). |
-|Balises | Balise que vous affectez au compteur. Utilisez des balises pour regrouper les enregistrements de facturation.<br/><br/>Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département qui utilise le compteur. Les services qui prennent en charge l’émission de balises sont les services de machine virtuelle, de stockage et de réseau approvisionnés à l’aide de [l’API Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
-|Informations supplémentaires |Métadonnées relatives au service. Par exemple, le type d’image d’une machine virtuelle. |
-|Informations sur le service 1 |Nom du projet auquel le service appartient sur votre abonnement. |
-|Informations sur le service 2 |Champ hérité capturant les métadonnées facultatives propres au service |
 
-## <a name="how-do-i-make-sure-that-the-charges-in-my-detailed-usage-file-are-correct"></a>Comment m’assurer que les frais indiqués dans mon fichier sur l’utilisation détaillée sont corrects ?
-Si vous voulez plus de détails sur des frais indiqués sur votre fichier sur l’utilisation détaillée, consultez [Comprendre votre facture Microsoft Azure.](./billing-understand-your-bill.md)
+## <a name="ensure-charges-are-correct"></a>Vérifier que les frais sont corrects
 
-## <a name="external"></a>Quels sont les frais associés aux services externes ?
-Les services externes (également appelés commandes de la Place de marché) sont fournis par les fournisseurs de services indépendants et sont facturés séparément. Les frais ne s’affichent pas sur la facture Azure. Pour en savoir plus, consultez [Présentation de vos frais de service externe Azure](billing-understand-your-azure-marketplace-charges.md).
+Pour en savoir plus sur les détails de l’utilisation et des frais, découvrez comment comprendre votre facture de [paiement à l’utilisation](./billing-understand-your-bill.md) ou de [Contrat client Microsoft](billing-mca-understand-your-bill.md).
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Afficher et télécharger votre facture Microsoft Azure](billing-download-azure-invoice.md)
+- [Afficher et télécharger votre utilisation et vos frais Microsoft Azure](billing-download-azure-daily-usage.md)

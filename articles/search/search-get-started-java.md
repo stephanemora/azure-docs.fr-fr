@@ -1,177 +1,838 @@
 ---
-title: Prise en main de Recherche Azure dans Java - Recherche Azure
-description: Comment créer une application de recherche hébergée dans le cloud sur Azure en utilisant le langage de programmation Java.
-services: search
-author: jj09
-manager: jlembicz
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/26/2018
+title: 'Démarrage rapide : Créer un index de recherche en Java à l’aide des API REST - Recherche Azure'
+description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de Java et des API REST de Recherche Azure.
+author: lisaleib
+manager: nitinme
 ms.author: jjed
-ms.custom: seodec2018
-ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+tags: azure-portal
+services: search
+ms.service: search
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
+ms.devlang: java
+ms.topic: quickstart
+ms.date: 09/10/2019
+ms.openlocfilehash: 455f3dfdce93d0b39960f9ec87b0938060f87687
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629899"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881580"
 ---
-# <a name="get-started-with-azure-search-in-java"></a>Prise en main d'Azure Search dans Java
+# <a name="quickstart-create-an-azure-search-index-in-java-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche Azure en Java à l’aide des API REST
 > [!div class="op_single_selector"]
+> * [JavaScript](search-get-started-nodejs.md)
+> * [C#](search-get-started-dotnet.md)
+> * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
-> * [.NET](search-howto-dotnet-sdk.md)
-> 
-> 
+> * [PowerShell](search-create-index-rest-api.md)
+> * [Python](search-get-started-python.md)
+> * [Postman](search-get-started-postman.md)
 
-Apprenez à créer une application Java personnalisée, qui utilise Azure Search pour ses fonctionnalités de recherche. Ce didacticiel utilise l’ [API REST du service Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) pour créer les objets et opérations utilisés dans cet exercice.
+Générez une application console Java qui crée, charge et interroge un index Recherche Azure en utilisant [IntelliJ](https://www.jetbrains.com/idea/), le [kit SDK Java 11](/java/azure/jdk/?view=azure-java-stable) et l’[API REST du service Recherche Azure](/rest/api/searchservice/). Cet article fournit des instructions pas à pas pour la création de l’application. Vous pouvez aussi [télécharger et exécuter l’application complète](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
-Pour exécuter cet exemple, vous devez disposer d’un service Azure Search auquel vous pouvez vous connecter dans le [portail Azure](https://portal.azure.com). Consultez [Création d’un service Azure Search dans le portail](search-create-service-portal.md) pour obtenir des instructions pas-à-pas.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Nous avons utilisé les logiciels suivants pour générer et tester cet exemple :
+## <a name="prerequisites"></a>Prérequis
 
-* [Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). Veillez à télécharger la version EE. Une des étapes de vérification nécessite une fonctionnalité présente uniquement dans cette édition.
-* [JDK 8u181](https://aka.ms/azure-jdks)
-* [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
+Nous avons utilisé les services et logiciels suivants pour générer et tester cet exemple :
 
-## <a name="about-the-data"></a>À propos des données
-Cet exemple d'application utilise des données de l’ [USGS (United States Geological Services)](https://geonames.usgs.gov/domestic/download_data.htm), concernant l'État de Rhode Island pour réduire la taille du jeu de données. Nous allons utiliser ces données pour créer une application de recherche qui renvoie des bâtiments importants, tels que les hôpitaux et les écoles, ainsi que des caractéristiques géologiques, telles que les ruisseaux, les lacs et les sommets.
++ [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
-Dans cette application, le programme **SearchServlet.java** crée et charge l'index à l'aide d'une construction de type [Index](https://msdn.microsoft.com/library/azure/dn798918.aspx) , en récupérant le jeu de données USGS filtré à partir d’une base de données SQL Azure publique. Les informations d’identification et de connexion à la source de données en ligne sont fournies dans le code du programme. Pour accéder aux données, aucune configuration supplémentaire n'est nécessaire.
++ [Kit SDK Java 11](/java/azure/jdk/?view=azure-java-stable)
 
-> [!NOTE]
-> Nous avons filtré ce jeu de données pour ne pas dépasser la limite de 10 000 documents du niveau de tarification gratuit. Si vous utilisez le niveau standard, cette limite ne s'applique pas et vous pouvez modifier ce code pour utiliser un jeu de données plus important. Pour plus d'informations sur la capacité de chaque niveau de tarification, consultez la section [Limites et contraintes](search-limits-quotas-capacity.md).
-> 
-> 
++ [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide.
 
-## <a name="about-the-program-files"></a>À propos des fichiers de programme
-La liste suivante décrit les fichiers qui sont pertinents pour cet exemple.
+<a name="get-service-info"></a>
 
-* Search.jsp : fournit l’interface utilisateur
-* SearchServlet.java : fournit des méthodes (semblables à un contrôleur dans MVC)
-* SearchServiceClient.java : gère les requêtes HTTP
-* SearchServiceHelper.java : classe d’assistance qui fournit des méthodes statiques
-* Document.java : fournit le modèle de données
-* config.properties : définit l’URL et la clé API du service Recherche
-* pom.xml : dépendance Maven
+## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
-<a id="sub-2"></a>
+Les appels au service nécessitent un point de terminaison d’URL et une clé d’accès pour chaque requête. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Rechercher le nom et la clé API de votre service Azure Search
-Tous les appels d’API REST dans Azure Search exigent que vous fournissiez l’URL du service et une clé d’api. 
+1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans la barre d’index, cliquez sur **Service de recherche** pour obtenir la liste des services Azure Search approvisionnés pour votre abonnement.
-3. Sélectionnez le service que vous souhaitez utiliser.
-4. Le tableau de bord des services affiche des vignettes contenant des informations essentielles, ainsi que l'icône de clé permettant d'accéder aux clés administrateur.
-   
-      ![][3]
-5. Copiez l'URL du service et une clé d’administration. Vous en aurez besoin plus tard, pour les ajouter au fichier **config.properties** .
+2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-## <a name="download-the-sample-files"></a>Télécharger les fichiers exemples
-1. Accédez à [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) sur GitHub.
-2. Cliquez sur **Download ZIP**, enregistrez le fichier ZIP sur le disque, puis extrayez tous les fichiers qu'il contient. Si vous le souhaitez, vous pouvez extraire ces fichiers dans votre espace de travail Java pour faciliter la recherche du projet ultérieurement.
-3. Les fichiers exemples sont en lecture seule. Avec le bouton droit de la souris, cliquez sur le dossier et désactivez l'attribut de lecture seule.
+   Créez également une clé de requête. Il est recommandé d’émettre des demandes de requête avec un accès en lecture seule.
 
-Toutes les modifications et instructions d'exécution ultérieures seront effectuées sur les fichiers de ce dossier.  
+![Obtenir le nom du service, les clés d’administration et les clés de requête](media/search-get-started-nodejs/service-name-and-keys.png)
 
-## <a name="import-project"></a>Importer le projet
-1. Dans Eclipse, choisissez **File** > **Import** > **General** > **Existing Projects into Workspace**.
-   
-    ![][4]
-2. Dans **Select root directory**, accédez au dossier contenant les fichiers exemples. Sélectionnez le dossier qui contient le dossier .project. Le projet doit s'afficher sélectionné dans la liste **Projects** .
-   
-    ![][12]
-3. Cliquez sur **Terminer**.
-4. Utilisez **Project Explorer** pour afficher et modifier les fichiers. Si l’explorateur n’est pas ouvert, cliquez sur **Window** > **Show View** > **Project Explorer** ou utilisez le raccourci.
+Chaque demande envoyée à votre service nécessite une clé API. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
-## <a name="configure-the-service-url-and-api-key"></a>Configurer l'URL et la clé API du service
-1. Dans **Project Explorer**, double-cliquez sur **config.properties** pour modifier les paramètres de configuration qui contient le nom du serveur et la clé API.
-2. Reportez-vous aux étapes précédentes de cet article. Vous y trouverez l’URL de service et la clé d’API du service dans le [portail Azure](https://portal.azure.com) afin d’obtenir les valeurs que vous allez saisir dans **config.properties**.
-3. Dans **config.properties**, remplacez « Api Key » par la clé API de votre service. Ensuite, le nom du service (le premier composant de l’URL https://servicename.search.windows.net) remplace « ServiceName » dans le même fichier.
-   
-    ![][5]
+## <a name="set-up-your-environment"></a>Configurer votre environnement
 
-## <a name="configure-the-project-build-and-runtime-environments"></a>Configuration des environnements de projet, de génération et d'exécution
-1. Dans Project Explorer dans Eclipse, cliquez avec le bouton droit sur le projet, puis cliquez sur **Properties** > **Project Facets**.
-2. Sélectionnez **Dynamic Web Module**, **Java** et **JavaScript**.
-   
-    ![][6]
-3. Cliquez sur **Appliquer**.
-4. Sélectionnez **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**.
-5. Développez Apache et sélectionnez la version du serveur Apache Tomcat que vous avez précédemment installée. Sur notre système, nous avons installé la version 8.
-   
-    ![][7]
-6. Dans la page suivante, spécifiez le répertoire d'installation de Tomcat. Sur un ordinateur Windows, il s’agit très probablement du répertoire C:\Program Files\Apache Software Foundation\Tomcat *version*.
-7. Cliquez sur **Terminer**.
-8. Sélectionnez **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
-9. Dans **Add JRE**, sélectionnez **Standard VM**.
-10. Cliquez sur **Suivant**.
-11. Dans JRE Definition de la page d’accueil de JRE, cliquez sur **Directory**.
-12. Accédez à **Program Files** > **Java** et sélectionnez le JDK que vous avez installé précédemment. Il est important de sélectionner le JDK comme JRE.
-13. Dans Installed JREs, sélectionnez le **JDK**. Vos paramètres doivent être similaires au contenu de la capture d'écran suivante.
+Commencez par ouvrir IntelliJ IDEA et configurer un nouveau projet.
+
+### <a name="create-the-project"></a>Créer le projet
+
+1. Ouvrez IntelliJ IDEA et sélectionnez **Create New Project** (Créer un projet).
+1. Sélectionnez **Maven**.
+1. Dans la liste **Project SDK**, sélectionnez le kit SDK Java 11.
+
+    ![Créer un projet Maven](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+
+1. Pour **GroupId** et **ArtifactId**,entrez `AzureSearchQuickstart`.
+1. Acceptez les valeurs par défaut restantes pour ouvrir le projet.
+
+### <a name="specify-maven-dependencies"></a>Spécifier les dépendances Maven
+
+1. Sélectionnez **Fichier** > **Paramètres**.
+1. Dans la fenêtre **Paramètres**, sélectionnez **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing** (Build, Exécution, Déploiement > Outils de build > Maven > Importation).
+1. Cochez la case **Import Maven projects automatically** (Importer les projets Maven automatiquement), puis cliquez sur **OK** pour fermer la fenêtre. Les plug-ins Maven et les autres dépendances sont désormais automatiquement synchronisés quand vous mettez à jour le fichier pom.xml à l’étape suivante.
+
+    ![Options d’importation Maven dans les paramètres IntelliJ](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+
+1. Ouvrez le fichier pom.xml et remplacez le contenu par les détails de configuration Maven suivants. Ceux-ci incluent des références au [plug-in Exec Maven](https://www.mojohaus.org/exec-maven-plugin/) et une [API d’interface JSON](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
+
+    ```xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <project xmlns="http://maven.apache.org/POM/4.0.0"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+        <modelVersion>4.0.0</modelVersion>
     
-    ![][9]
-14. Si vous le souhaitez, sélectionnez **Window** > **Web Browser** > **Internet Explorer** pour ouvrir l’application dans un navigateur externe. Un navigateur externe vous donne une meilleure expérience de l’application Web.
+        <groupId>AzureSearchQuickstart</groupId>
+        <artifactId>AzureSearchQuickstart</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <build>
+            <sourceDirectory>src</sourceDirectory>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>11</source>
+                        <target>11</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>1.6.0</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <mainClass>main.java.app.App</mainClass>
+                        <cleanupDaemonThreads>false</cleanupDaemonThreads>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish</groupId>
+                <artifactId>javax.json</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+        </dependencies>   
+    </project>
+    ```
+
+### <a name="set-up-the-project-structure"></a>Configurer la structure de projet
+
+1. Sélectionnez **Fichier** > **Structure du projet**.
+1. Sélectionnez **Modules**, puis développez l’arborescence source pour accéder au contenu du dossier `src` >  `main`.
+1. Dans le dossier `src` >  `main` > `java`, ajoutez les dossiers `app` et `service`. Pour ce faire, sélectionnez le dossier `java`, appuyez sur Alt+Insertion, puis entrez le nom du dossier.
+1. Dans le dossier `src` >  `main` >`resources`, ajoutez les dossiers `app` et `service`.
+
+    Quand vous avez terminé, l’arborescence de projet doit ressembler à l’image suivante.
+
+    ![Structure de répertoire de projet](media/search-get-started-java/java-quickstart-basic-code-tree.png)
+
+1. Cliquez sur **OK** pour fermer la fenêtre.
+
+### <a name="add-azure-search-service-information"></a>Ajouter des informations relatives au service Recherche Azure
+
+1. Dans la fenêtre **Projet**, développez l’arborescence source pour accéder au dossier `src` >  `main` >`resources` > `app`, puis ajoutez un fichier `config.properties`. Pour ce faire, sélectionnez le dossier `app`, appuyez sur Alt+Insertion, sélectionnez **Fichier**, puis entrez le nom du fichier.
+
+1. Copiez les paramètres suivants dans le nouveau fichier et remplacez `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>` et `<YOUR-QUERY-KEY>` par les clés et le nom de votre service. Si le point de terminaison de votre service est `https://mydemo.search.windows.net`, le nom du service serait « mydemo ».
+
+    ```java
+        SearchServiceName=<YOUR-SEARCH-SERVICE-NAME>
+        SearchServiceAdminKey=<YOUR-ADMIN-KEY>
+        SearchServiceQueryKey=<YOUR-QUERY-KEY>
+        IndexName=hotels-quickstart
+        ApiVersion=2019-05-06
+    ```
+
+### <a name="add-the-main-method"></a>Ajouter la méthode principale
+
+1. Dans le dossier `src` >  `main` > `java` > `app`, ajoutez une classe `App`. Pour ce faire, sélectionnez le dossier `app`, appuyez sur Alt+Insertion, sélectionnez **Java Class** (Classe Java), puis entrez le nom de la classe.
+1. Ouvrez la classe `App` et remplacez le contenu par le code suivant. Ce code contient la méthode `main`. 
+
+    Le code sans marques de commentaire lit les paramètres du service de recherche et les utilise pour créer une instance du client du service de recherche. Le code client du service de recherche sera ajouté dans la section suivante.
+
+    Le code commenté dans cette classe verra ses marques de commentaire supprimées dans une section ultérieure de ce guide de démarrage rapide.
+
+    ```java
+    package main.java.app;
     
-    ![][8]
+    import main.java.service.SearchServiceClient;
+    import java.io.IOException;
+    import java.util.Properties;
+    
+    public class App {
+    
+        private static Properties loadPropertiesFromResource(String resourcePath) throws IOException {
+            var inputStream = App.class.getResourceAsStream(resourcePath);
+            var configProperties = new Properties();
+            configProperties.load(inputStream);
+            return configProperties;
+        }
+    
+        public static void main(String[] args) {
+            try {
+                var config = loadPropertiesFromResource("/app/config.properties");
+                var client = new SearchServiceClient(
+                        config.getProperty("SearchServiceName"),
+                        config.getProperty("SearchServiceAdminKey"),
+                        config.getProperty("SearchServiceQueryKey"),
+                        config.getProperty("ApiVersion"),
+                        config.getProperty("IndexName")
+                );
+    
+    
+    //Uncomment the next 3 lines in the 1 - Create Index section of the quickstart
+    //            if(client.indexExists()){ client.deleteIndex();}
+    //            client.createIndex("/service/index.json");
+    //            Thread.sleep(1000L); // wait a second to create the index
+    
+    //Uncomment the next 2 lines in the 2 - Load Documents section of the quickstart
+    //            client.uploadDocuments("/service/hotels.json");
+    //            Thread.sleep(2000L); // wait 2 seconds for data to upload
+    
+    //Uncomment the following 5 search queries in the 3 - Search an index section of the quickstart
+    //            // Query 1
+    //            client.logMessage("\n*QUERY 1****************************************************************");
+    //            client.logMessage("Search for: Atlanta'");
+    //            client.logMessage("Return: All fields'");
+    //            client.searchPlus("Atlanta");
+    //
+    //            // Query 2
+    //            client.logMessage("\n*QUERY 2****************************************************************");
+    //            client.logMessage("Search for: Atlanta");
+    //            client.logMessage("Return: HotelName, Tags, Address");
+    //            SearchServiceClient.SearchOptions options2 = client.createSearchOptions();
+    //            options2.select = "HotelName,Tags,Address";
+    //            client.searchPlus("Atlanta", options2);
+    //
+    //            //Query 3
+    //            client.logMessage("\n*QUERY 3****************************************************************");
+    //            client.logMessage("Search for: wifi & restaurant");
+    //            client.logMessage("Return: HotelName, Description, Tags");
+    //            SearchServiceClient.SearchOptions options3 = client.createSearchOptions();
+    //            options3.select = "HotelName,Description,Tags";
+    //            client.searchPlus("wifi,restaurant", options3);
+    //
+    //            // Query 4 -filtered query
+    //            client.logMessage("\n*QUERY 4****************************************************************");
+    //            client.logMessage("Search for: all");
+    //            client.logMessage("Filter: Ratings greater than 4");
+    //            client.logMessage("Return: HotelName, Rating");
+    //            SearchServiceClient.SearchOptions options4 = client.createSearchOptions();
+    //            options4.filter="Rating%20gt%204";
+    //            options4.select = "HotelName,Rating";
+    //            client.searchPlus("*",options4);
+    //
+    //            // Query 5 - top 2 results, ordered by
+    //            client.logMessage("\n*QUERY 5****************************************************************");
+    //            client.logMessage("Search for: boutique");
+    //            client.logMessage("Get: Top 2 results");
+    //            client.logMessage("Order by: Rating in descending order");
+    //            client.logMessage("Return: HotelId, HotelName, Category, Rating");
+    //            SearchServiceClient.SearchOptions options5 = client.createSearchOptions();
+    //            options5.top=2;
+    //            options5.orderby = "Rating%20desc";
+    //            options5.select = "HotelId,HotelName,Category,Rating";
+    //            client.searchPlus("boutique", options5);
+    
+            } catch (Exception e) {
+                System.err.println("Exception:" + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+    }
+    ```
 
-La phase de configuration est maintenant terminée. Vous allez maintenant créer et exécuter le projet.
+### <a name="add-the-http-operations"></a>Ajouter les opérations HTTP
 
-## <a name="build-the-project"></a>Créer le projet
-1. Dans Project Explorer, cliquez avec le bouton droit sur le nom du projet et sélectionnez **Run As** > **Maven build...** pour configurer le projet.
-   
-    ![][10]
-2. Dans le champ Goals de Edit Configuration, saisissez « clean install », puis cliquez sur **Run**.
+1. Dans le dossier `src` >  `main` > `java` > `service`, ajoutez une classe `SearchServiceClient`. Pour ce faire, sélectionnez le dossier `service`, appuyez sur Alt+Insertion, sélectionnez **Java Class** (Classe Java), puis entrez le nom de la classe.
+1. Ouvrez la classe `SearchServiceClient` et remplacez son contenu par le code suivant. Ce code fournit les opérations HTTP requises pour utiliser l’API REST Recherche Azure. Des méthodes supplémentaires pour la création d’un index, le chargement de documents et l’interrogation de l’index seront ajoutées dans une section ultérieure.
 
-Des messages d'état s’affichent dans la fenêtre de la console. Le message BUILD SUCCESS indique que le projet a été généré sans erreur.
+    ```java
+    package main.java.service;
 
-## <a name="run-the-app"></a>Exécution de l'application
-Dans cette dernière étape, vous allez exécuter l'application dans un environnement d'exécution de serveur local.
+    import javax.json.Json;
+    import javax.net.ssl.HttpsURLConnection;
+    import java.io.IOException;
+    import java.io.StringReader;
+    import java.net.HttpURLConnection;
+    import java.net.URI;
+    import java.net.http.HttpClient;
+    import java.net.http.HttpRequest;
+    import java.net.http.HttpResponse;
+    import java.nio.charset.StandardCharsets;
+    import java.util.Formatter;
+    import java.util.function.Consumer;
+    
+        /* This class is responsible for implementing HTTP operations for creating the index, uploading documents and searching the data*/
+        public class SearchServiceClient {
+            private final String _adminKey;
+            private final String _queryKey;
+            private final String _apiVersion;
+            private final String _serviceName;
+            private final String _indexName;
+            private final static HttpClient client = HttpClient.newHttpClient();
+    
+        public SearchServiceClient(String serviceName, String adminKey, String queryKey, String apiVersion, String indexName) {
+            this._serviceName = serviceName;
+            this._adminKey = adminKey;
+            this._queryKey = queryKey;
+            this._apiVersion = apiVersion;
+            this._indexName = indexName;
+        }
 
-Si ce n’est déjà fait, vous devez spécifier un environnement d'exécution de serveur dans Eclipse.
+        private static HttpResponse<String> sendRequest(HttpRequest request) throws IOException, InterruptedException {
+            logMessage(String.format("%s: %s", request.method(), request.uri()));
+            return client.send(request, HttpResponse.BodyHandlers.ofString());
+        }
 
-1. Dans Project Explorer, développez **WebContent**.
-2. Cliquez avec le bouton droit sur **Search.jsp** > **Run As** > **Run on Server**. Sélectionnez le serveur Apache Tomcat, puis cliquez sur **Run**.
+        private static URI buildURI(Consumer<Formatter> fmtFn)
+                {
+                    Formatter strFormatter = new Formatter();
+                    fmtFn.accept(strFormatter);
+                    String url = strFormatter.out().toString();
+                    strFormatter.close();
+                    return URI.create(url);
+        }
+    
+        public static void logMessage(String message) {
+            System.out.println(message);
+        }
+    
+        public static boolean isSuccessResponse(HttpResponse<String> response) {
+            try {
+                int responseCode = response.statusCode();
+    
+                logMessage("\n Response code = " + responseCode);
+    
+                if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_ACCEPTED
+                        || responseCode == HttpURLConnection.HTTP_NO_CONTENT || responseCode == HttpsURLConnection.HTTP_CREATED) {
+                    return true;
+                }
+    
+                // We got an error
+                var msg = response.body();
+                if (msg != null) {
+                    logMessage(String.format("\n MESSAGE: %s", msg));
+                }
+    
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+    
+            return false;
+        }
+    
+        public static HttpRequest httpRequest(URI uri, String key, String method, String contents) {
+            contents = contents == null ? "" : contents;
+            var builder = HttpRequest.newBuilder();
+            builder.uri(uri);
+            builder.setHeader("content-type", "application/json");
+            builder.setHeader("api-key", key);
+    
+            switch (method) {
+                case "GET":
+                    builder = builder.GET();
+                    break;
+                case "HEAD":
+                    builder = builder.GET();
+                    break;
+                case "DELETE":
+                    builder = builder.DELETE();
+                    break;
+                case "PUT":
+                    builder = builder.PUT(HttpRequest.BodyPublishers.ofString(contents));
+                    break;
+                case "POST":
+                    builder = builder.POST(HttpRequest.BodyPublishers.ofString(contents));
+                    break;
+                default:
+                    throw new IllegalArgumentException(String.format("Can't create request for method '%s'", method));
+            }
+            return builder.build();
+        }
+    }
+    
+    ```
 
-> [!TIP]
-> Si vous avez stocké votre projet dans un espace de travail personnalisé, vous devrez désigner cet emplacement dans **Run Configuration** pour éviter une erreur lors du démarrage du serveur. Dans Project Explorer, cliquez avec le bouton droit sur **Search.jsp** > **Run As** > **Run Configurations**. Sélectionnez le serveur Apache Tomcat. Cliquez sur **Arguments**. Cliquez sur **Workspace** ou **File System** pour définir le dossier contenant le projet.
-> 
-> 
+### <a name="build-the-project"></a>Créer le projet
 
-Lorsque vous exécutez l'application, une fenêtre de navigateur affiche un champ de recherche  permettant d'entrer des termes.
+1. Vérifiez que votre projet a la structure suivante.
 
-Attendez environ une minute avant de cliquer sur **Search** , le temps que le service crée et charge l'index. Si vous obtenez une erreur HTTP 404, Patientez encore un peu avant de réessayer.
+    ![Structure de répertoire de projet](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
-## <a name="search-on-usgs-data"></a>Exécution d'une recherche sur les données USGS
-Le jeu de données USGS comprend les enregistrements qui correspondent à l'État de Rhode Island. Si vous cliquez sur **Search** et que le champ de recherche est vide, vous obtiendrez les 50 premières entrées, ce qui correspond au paramétrage par défaut.
+1. Ouvrez la fenêtre Outil **Maven** et exécutez cet objectif Maven : `verify exec:java`
+![Execute maven goal (Exécuter l’objectif Maven) : verify exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
 
-Saisissez un terme pour que le moteur de recherche puisse travailler. Essayez d'entrer le nom d’une figure locale. « Roger Williams » fut le premier gouverneur de Rhode Island. De nombreux parcs, bâtiments et écoles portent son nom.
+Une fois le traitement terminé, recherchez un message BUILD SUCCESS suivi d’un code de sortie zéro (0).
 
-![][11]
+## <a name="1---create-index"></a>1 - Créer un index
 
-Vous pouvez également essayer les termes suivants :
+La définition de l’index des hôtels contient des champs simples et un champ complexe. « HotelName » ou « Description » sont des exemples de champs simples. Le champ « Address » est un champ complexe, car il contient des sous-champs, tels que « Street Address » et « City ». Dans ce guide de démarrage rapide, la définition d’index est spécifiée à l’aide de JSON.
 
-* Pawtucket
-* Pembroke
-* goose +cape
+1. Dans la fenêtre **Projet**, développez l’arborescence source pour accéder au dossier `src` >  `main` >`resources` > `service`, puis ajoutez un fichier `index.json`. Pour ce faire, sélectionnez le dossier `app`, appuyez sur Alt+Insertion, sélectionnez **Fichier**, puis entrez le nom du fichier.
+
+1. Ouvrez le fichier `index.json` et insérez la définition d’index suivante.
+
+    ```json
+    {
+      "name": "hotels-quickstart",
+      "fields": [
+        {
+          "name": "HotelId",
+          "type": "Edm.String",
+          "key": true,
+          "filterable": true
+        },
+        {
+          "name": "HotelName",
+          "type": "Edm.String",
+          "searchable": true,
+          "filterable": false,
+          "sortable": true,
+          "facetable": false
+        },
+        {
+          "name": "Description",
+          "type": "Edm.String",
+          "searchable": true,
+          "filterable": false,
+          "sortable": false,
+          "facetable": false,
+          "analyzer": "en.lucene"
+        },
+        {
+          "name": "Description_fr",
+          "type": "Edm.String",
+          "searchable": true,
+          "filterable": false,
+          "sortable": false,
+          "facetable": false,
+          "analyzer": "fr.lucene"
+        },
+        {
+          "name": "Category",
+          "type": "Edm.String",
+          "searchable": true,
+          "filterable": true,
+          "sortable": true,
+          "facetable": true
+        },
+        {
+          "name": "Tags",
+          "type": "Collection(Edm.String)",
+          "searchable": true,
+          "filterable": true,
+          "sortable": false,
+          "facetable": true
+        },
+        {
+          "name": "ParkingIncluded",
+          "type": "Edm.Boolean",
+          "filterable": true,
+          "sortable": true,
+          "facetable": true
+        },
+        {
+          "name": "LastRenovationDate",
+          "type": "Edm.DateTimeOffset",
+          "filterable": true,
+          "sortable": true,
+          "facetable": true
+        },
+        {
+          "name": "Rating",
+          "type": "Edm.Double",
+          "filterable": true,
+          "sortable": true,
+          "facetable": true
+        },
+        {
+          "name": "Address",
+          "type": "Edm.ComplexType",
+          "fields": [
+            {
+              "name": "StreetAddress",
+              "type": "Edm.String",
+              "filterable": false,
+              "sortable": false,
+              "facetable": false,
+              "searchable": true
+            },
+            {
+              "name": "City",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            },
+            {
+              "name": "StateProvince",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            },
+            {
+              "name": "PostalCode",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            },
+            {
+              "name": "Country",
+              "type": "Edm.String",
+              "searchable": true,
+              "filterable": true,
+              "sortable": true,
+              "facetable": true
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+    Le nom de l’index sera « hotels-quickstart ». Les attributs des champs d’index déterminent la manière dont les données indexées peuvent faire l’objet d’une recherche dans une application. Par exemple, l’attribut `IsSearchable` doit être affecté à tous les champs qui doivent être inclus dans une recherche en texte intégral. Pour en savoir plus sur les attributs, consultez [Collection et attributs de champs](search-what-is-an-index.md#fields-collection).
+    
+    Le champ `Description` de cet index utilise la propriété `analyzer` facultative pour remplacer l’analyseur de langage Lucene par défaut. Le champ `Description_fr` utilise l’analyseur Lucene en français (`fr.lucene`), car il stocke le texte en français. Le champ `Description` utilise l’analyseur de langage Microsoft facultatif en.lucene. Pour en savoir plus sur les analyseurs, consultez [Analyseurs pour le traitement de texte dans Recherche Azure](search-analyzers.md).
+
+1. Ajoutez le code suivant à la classe `SearchServiceClient` . Ces méthodes génèrent des URL de service REST Recherche Azure qui créent et suppriment un index, et qui déterminent son existence. Les méthodes constituent également la requête HTTP.
+
+    ```java
+    public boolean indexExists() throws IOException, InterruptedException {
+        logMessage("\n Checking if index exists...");
+        var uri = buildURI(strFormatter -> strFormatter.format(
+                "https://%s.search.windows.net/indexes/%s/docs?api-version=%s&search=*",
+                _serviceName,_indexName,_apiVersion));
+        var request = httpRequest(uri, _adminKey, "HEAD", "");
+        var response = sendRequest(request);
+        return isSuccessResponse(response);
+    }
+    
+    public boolean deleteIndex() throws IOException, InterruptedException {
+        logMessage("\n Deleting index...");
+        var uri = buildURI(strFormatter -> strFormatter.format(
+                "https://%s.search.windows.net/indexes/%s?api-version=%s",
+                _serviceName,_indexName,_apiVersion));
+        var request = httpRequest(uri, _adminKey, "DELETE", "*");
+        var response = sendRequest(request);
+        return isSuccessResponse(response);
+    }
+    
+    
+    public boolean createIndex(String indexDefinitionFile) throws IOException, InterruptedException {
+        logMessage("\n Creating index...");
+        //Build the search service URL
+        var uri = buildURI(strFormatter -> strFormatter.format(
+                "https://%s.search.windows.net/indexes/%s?api-version=%s",
+                _serviceName,_indexName,_apiVersion));
+        //Read in index definition file
+        var inputStream = SearchServiceClient.class.getResourceAsStream(indexDefinitionFile);
+        var indexDef = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+        //Send HTTP PUT request to create the index in the search service
+        var request = httpRequest(uri, _adminKey, "PUT", indexDef);
+        var response = sendRequest(request);
+        return isSuccessResponse(response);
+    }
+    ```
+
+1. Supprimez les marques de commentaire du code suivant dans la classe `App`. Ce code supprime l’index « hotels-quickstart », s’il existe, et crée un index basé sur la définition de l’index dans le fichier « index.json ». 
+
+    Une pause d’une seconde est insérée après la demande de création d’index. Cette pause permet de s’assurer que l’index est créé avant de charger des documents.
+
+    ```java
+        if (client.indexExists()) { client.deleteIndex();}
+          client.createIndex("/service/index.json");
+          Thread.sleep(1000L); // wait a second to create the index
+    ```
+
+1. Ouvrez la fenêtre Outil **Maven** et exécutez cet objectif Maven : `verify exec:java`
+
+    Lors de l’exécution du code, recherchez un message de type « Création d’index » suivi d’un code de réponse 201. Ce code de réponse confirme que l’index a été créé. L’exécution doit se terminer par un message BUILD SUCCESS et un code de sortie zéro (0).
+    
+## <a name="2---load-documents"></a>2 – Charger des documents
+
+1. Dans la fenêtre **Projet**, développez l’arborescence source pour accéder au dossier `src` >  `main` >`resources` > `service`, puis ajoutez un fichier `hotels.json`. Pour ce faire, sélectionnez le dossier `app`, appuyez sur Alt+Insertion, sélectionnez **Fichier**, puis entrez le nom du fichier.
+1. Insérez les documents d’hôtel suivants dans le fichier.
+
+    ```json
+    {
+      "value": [
+        {
+          "@search.action": "upload",
+          "HotelId": "1",
+          "HotelName": "Secret Point Motel",
+          "Description": "The hotel is ideally located on the main commercial artery of the city in the heart of New York. A few minutes away is Time's Square and the historic centre of the city, as well as other places of interest that make New York one of America's most attractive and cosmopolitan cities.",
+          "Description_fr": "L'hôtel est idéalement situé sur la principale artère commerciale de la ville en plein cœur de New York. A quelques minutes se trouve la place du temps et le centre historique de la ville, ainsi que d'autres lieux d'intérêt qui font de New York l'une des villes les plus attractives et cosmopolites de l'Amérique.",
+          "Category": "Boutique",
+          "Tags": [ "pool", "air conditioning", "concierge" ],
+          "ParkingIncluded": "false",
+          "LastRenovationDate": "1970-01-18T00:00:00Z",
+          "Rating": 3.60,
+          "Address": {
+            "StreetAddress": "677 5th Ave",
+            "City": "New York",
+            "StateProvince": "NY",
+            "PostalCode": "10022",
+            "Country": "USA"
+          }
+        },
+        {
+          "@search.action": "upload",
+          "HotelId": "2",
+          "HotelName": "Twin Dome Motel",
+          "Description": "The hotel is situated in a  nineteenth century plaza, which has been expanded and renovated to the highest architectural standards to create a modern, functional and first-class hotel in which art and unique historical elements coexist with the most modern comforts.",
+          "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+          "Category": "Boutique",
+          "Tags": [ "pool", "free wifi", "concierge" ],
+          "ParkingIncluded": "false",
+          "LastRenovationDate": "1979-02-18T00:00:00Z",
+          "Rating": 3.60,
+          "Address": {
+            "StreetAddress": "140 University Town Center Dr",
+            "City": "Sarasota",
+            "StateProvince": "FL",
+            "PostalCode": "34243",
+            "Country": "USA"
+          }
+        },
+        {
+          "@search.action": "upload",
+          "HotelId": "3",
+          "HotelName": "Triple Landscape Hotel",
+          "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+          "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
+          "Category": "Resort and Spa",
+          "Tags": [ "air conditioning", "bar", "continental breakfast" ],
+          "ParkingIncluded": "true",
+          "LastRenovationDate": "2015-09-20T00:00:00Z",
+          "Rating": 4.80,
+          "Address": {
+            "StreetAddress": "3393 Peachtree Rd",
+            "City": "Atlanta",
+            "StateProvince": "GA",
+            "PostalCode": "30326",
+            "Country": "USA"
+          }
+        },
+        {
+          "@search.action": "upload",
+          "HotelId": "4",
+          "HotelName": "Sublime Cliff Hotel",
+          "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+          "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+          "Category": "Boutique",
+          "Tags": [ "concierge", "view", "24-hour front desk service" ],
+          "ParkingIncluded": "true",
+          "LastRenovationDate": "1960-02-06T00:00:00Z",
+          "Rating": 4.60,
+          "Address": {
+            "StreetAddress": "7400 San Pedro Ave",
+            "City": "San Antonio",
+            "StateProvince": "TX",
+            "PostalCode": "78216",
+            "Country": "USA"
+          }
+        }
+      ]
+    }
+    ```
+
+1. Insérez le code ci-après dans la classe `SearchServiceClient`. Ce code génère l’URL de service REST pour charger les documents d’hôtel dans l’index, puis crée la requête HTTP POST.
+
+    ```java
+    public boolean uploadDocuments(String documentsFile) throws IOException, InterruptedException {
+        logMessage("\n Uploading documents...");
+        //Build the search service URL
+        var endpoint = buildURI(strFormatter -> strFormatter.format(
+                "https://%s.search.windows.net/indexes/%s/docs/index?api-version=%s",
+                _serviceName,_indexName,_apiVersion));
+        //Read in the data to index
+        var inputStream = SearchServiceClient.class.getResourceAsStream(documentsFile);
+        var documents = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+        //Send HTTP POST request to upload and index the data
+        var request = httpRequest(endpoint, _adminKey, "POST", documents);
+        var response = sendRequest(request);
+        return isSuccessResponse(response);
+    }
+    ```
+
+1. Supprimez les marques de commentaire du code suivant dans la classe `App`. Ce code charge les documents dans « hotels.json » dans l’index.
+
+    ```java
+    client.uploadDocuments("/service/hotels.json");
+    Thread.sleep(2000L); // wait 2 seconds for data to upload
+    ```
+
+    Une pause de deux secondes est insérée après la demande de chargement pour vérifier que le processus de chargement de documents se termine avant d’interroger l’index.
+
+1. Ouvrez la fenêtre Outil **Maven** et exécutez cet objectif Maven : `verify exec:java`
+
+    Comme vous avez créé un index « hotels-quickstart » à l’étape précédente, le code le supprime et le recrée avant de charger les documents d’hôtel.
+
+    Lors de l’exécution du code, recherchez un message de type « Chargement de documents » suivi d’un code de réponse 200. Ce code de réponse confirme que les documents ont été chargés dans l’index. L’exécution doit se terminer par un message BUILD SUCCESS et un code de sortie zéro (0).
+
+## <a name="3---search-an-index"></a>3 – Rechercher dans un index
+
+Maintenant que vous avez chargé les documents d’hôtels, vous pouvez créer des requêtes de recherche pour accéder aux données d’hôtels.
+
+1. Ajoutez le code suivant à la classe `SearchServiceClient` . Ce code génère des URL de service REST Recherche Azure pour rechercher dans les données indexées et imprime les résultats de la recherche.
+
+    La classe `SearchOptions` et la méthode `createSearchOptions` vous permettent de spécifier un sous-ensemble des options de requête de l’API REST Recherche Azure disponibles. Pour plus d’informations sur les options de requête de l’API REST, consultez [Rechercher des documents (API REST du service Recherche Azure)](/rest/api/searchservice/search-documents).
+
+    La méthode `SearchPlus` crée l’URL de requête de recherche, effectue la demande de recherche, puis imprime les résultats dans la console. 
+
+    ```java
+    public SearchOptions createSearchOptions() { return new SearchOptions();}
+
+    //Defines available search parameters that can be set
+    public static class SearchOptions {
+
+        public String select = "";
+        public String filter = "";
+        public int top = 0;
+        public String orderby= "";
+    }
+
+    //Concatenates search parameters to append to the search request
+    private String createOptionsString(SearchOptions options)
+    {
+        String optionsString = "";
+        if (options != null) {
+            if (options.select != "")
+                optionsString = optionsString + "&$select=" + options.select;
+            if (options.filter != "")
+                optionsString = optionsString + "&$filter=" + options.filter;
+            if (options.top != 0)
+                optionsString = optionsString + "&$top=" + options.top;
+            if (options.orderby != "")
+                optionsString = optionsString + "&$orderby=" +options.orderby;
+        }
+        return optionsString;
+    }
+    
+    public void searchPlus(String queryString)
+    {
+        searchPlus( queryString, null);
+    }
+    
+    public void searchPlus(String queryString, SearchOptions options) {
+    
+        try {
+            String optionsString = createOptionsString(options);
+            var uri = buildURI(strFormatter -> strFormatter.format(
+                    "https://%s.search.windows.net/indexes/%s/docs?api-version=%s&search=%s%s",
+                    _serviceName, _indexName, _apiVersion, queryString, optionsString));
+            var request = httpRequest(uri, _queryKey, "GET", null);
+            var response = sendRequest(request);
+            var jsonReader = Json.createReader(new StringReader(response.body()));
+            var jsonArray = jsonReader.readObject().getJsonArray("value");
+            var resultsCount = jsonArray.size();
+            logMessage("Results:\nCount: " + resultsCount);
+            for (int i = 0; i <= resultsCount - 1; i++) {
+                logMessage(jsonArray.get(i).toString());
+            }
+    
+            jsonReader.close();
+    
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+    }
+    ```
+
+1. Dans la classe `App`, supprimez les marques de commentaire du code suivant. Ce code configure cinq requêtes différentes, dont le texte de recherche, les paramètres de requête et les champs de données à retourner. 
+
+    ```java
+    // Query 1
+    client.logMessage("\n*QUERY 1****************************************************************");
+    client.logMessage("Search for: Atlanta");
+    client.logMessage("Return: All fields'");
+    client.searchPlus("Atlanta");
+
+    // Query 2
+    client.logMessage("\n*QUERY 2****************************************************************");
+    client.logMessage("Search for: Atlanta");
+    client.logMessage("Return: HotelName, Tags, Address");
+    SearchServiceClient.SearchOptions options2 = client.createSearchOptions();
+    options2.select = "HotelName,Tags,Address";
+    client.searchPlus("Atlanta", options2);
+
+    //Query 3
+    client.logMessage("\n*QUERY 3****************************************************************");
+    client.logMessage("Search for: wifi & restaurant");
+    client.logMessage("Return: HotelName, Description, Tags");
+    SearchServiceClient.SearchOptions options3 = client.createSearchOptions();
+    options3.select = "HotelName,Description,Tags";
+    client.searchPlus("wifi,restaurant", options3);
+
+    // Query 4 -filtered query
+    client.logMessage("\n*QUERY 4****************************************************************");
+    client.logMessage("Search for: all");
+    client.logMessage("Filter: Ratings greater than 4");
+    client.logMessage("Return: HotelName, Rating");
+    SearchServiceClient.SearchOptions options4 = client.createSearchOptions();
+    options4.filter="Rating%20gt%204";
+    options4.select = "HotelName,Rating";
+    client.searchPlus("*",options4);
+
+    // Query 5 - top 2 results, ordered by
+    client.logMessage("\n*QUERY 5****************************************************************");
+    client.logMessage("Search for: boutique");
+    client.logMessage("Get: Top 2 results");
+    client.logMessage("Order by: Rating in descending order");
+    client.logMessage("Return: HotelId, HotelName, Category, Rating");
+    SearchServiceClient.SearchOptions options5 = client.createSearchOptions();
+    options5.top=2;
+    options5.orderby = "Rating%20desc";
+    options5.select = "HotelId,HotelName,Category,Rating";
+    client.searchPlus("boutique", options5);
+    ```
+
+
+
+    Il existe deux [façons de mettre en correspondance des termes dans une requête](search-query-overview.md#types-of-queries) : la recherche en texte intégral et les filtres. Une requête de recherche en texte intégral recherche un ou plusieurs termes dans les champs `IsSearchable` de votre index. Un filtre est une expression booléenne évaluée sur les champs `IsFilterable` dans un index. Vous pouvez utiliser la recherche en texte intégral et les filtres conjointement ou séparément.
+
+1. Ouvrez la fenêtre Outil **Maven** et exécutez cet objectif Maven : `verify exec:java`
+
+    Recherchez un résumé de chaque requête et ses résultats. L’exécution doit se terminer par un message BUILD SUCCESS et un code de sortie zéro (0).
+
+## <a name="clean-up"></a>Nettoyer
+
+Lorsque vous travaillez dans votre propre abonnement, il est judicieux à la fin d’un projet de supprimer les ressources dont vous n’avez plus besoin. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
+
+Vous pouvez rechercher et gérer les ressources dans le portail à l’aide des liens **Toutes les ressources** ou **Groupes de ressources** situés dans le volet de navigation de gauche.
+
+Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à trois index, indexeurs et sources de données. Vous pouvez supprimer des éléments un par un dans le portail pour ne pas dépasser la limite. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ceci est le premier didacticiel Azure Search basé sur Java et le jeu de données USGS. Au fil du temps, nous le compléterons avec des fonctionnalités de recherche supplémentaires que vous souhaiterez peut-être utiliser dans vos solutions personnalisées.
 
-Si vous avez déjà une certaine maîtrise d’Azure Search, vous pouvez utiliser cet exemple comme un tremplin pour d’autres expérimentations, notamment pour améliorer la [page de recherche](search-pagination-page-layout.md) ou mettre en place la [navigation par facettes](search-faceted-navigation.md). Vous pouvez également améliorer la page des résultats de la recherche en ajoutant des décomptes et en traitant les documents par lots afin que les utilisateurs puissent parcourir les résultats.
+Dans ce guide de démarrage rapide Java, vous avez effectué une série de tâches pour créer un index, le charger avec des documents et exécuter des requêtes. Si vous êtes familiarisé avec les concepts de base, nous vous recommandons les articles suivants pour approfondir vos connaissances.
 
-Vous découvrez Azure Search ? Nous vous recommandons de suivre les autres didacticiels pour comprendre ce que vous pouvez créer. Consultez les autres ressources disponibles dans notre [page de documentation](https://azure.microsoft.com/documentation/services/search/) . 
++ [Opérations d’index](/rest/api/searchservice/index-operations)
 
-<!--Image references-->
-[1]: ./media/search-get-started-java/create-search-portal-1.PNG
-[2]: ./media/search-get-started-java/create-search-portal-21.PNG
-[3]: ./media/search-get-started-java/create-search-portal-31.PNG
-[4]: ./media/search-get-started-java/AzSearch-Java-Import1.PNG
-[5]: ./media/search-get-started-java/AzSearch-Java-config1.PNG
-[6]: ./media/search-get-started-java/AzSearch-Java-ProjectFacets1.PNG
-[7]: ./media/search-get-started-java/AzSearch-Java-runtime1.PNG
-[8]: ./media/search-get-started-java/AzSearch-Java-Browser1.PNG
-[9]: ./media/search-get-started-java/AzSearch-Java-JREPref1.PNG
-[10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
-[11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
-[12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
++ [Opérations de document](/rest/api/searchservice/document-operations)
+
++ [Opérations d’indexeur](/rest/api/searchservice/indexer-operations)

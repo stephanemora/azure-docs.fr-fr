@@ -1,17 +1,18 @@
 ---
-title: Personnaliser les règles de pare-feu d’applications web dans Azure Application Gateway - portail Azure
+title: Personnaliser les règles de pare-feu d’applications web dans Azure Application Gateway - Portail Azure
 description: Cet article fournit des informations sur la personnalisation des règles de pare-feu d’applications web dans Application Gateway avec le portail Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.topic: conceptual
+ms.openlocfilehash: f4af52907ab2e950636dea0874b49500f3a6b587
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733714"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613453"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personnaliser les règles de pare-feu d’applications web via le portail Azure
 
@@ -33,13 +34,16 @@ Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une pro
 
 ## <a name="search-for-rules-to-disable"></a>Rechercher des règles à désactiver
 
-Le panneau des **paramètres de pare-feu d’applications web** permet de filtrer les règles à l’aide d’une recherche de texte. Le résultat affiche uniquement les groupes de règles et les règles contenant le texte que vous avez recherché.
+La page **Paramètres de pare-feu d’applications web** permet de filtrer les règles à l’aide d’une recherche de texte. Le résultat affiche uniquement les groupes de règles et les règles contenant le texte que vous avez recherché.
 
 ![Rechercher des règles][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>Désactiver les règles et les groupes de règles
 
-Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règles entier ou des règles spécifiques sous un ou plusieurs groupes de règles. 
+> [!IMPORTANT]
+> Soyez prudent lors de la désactivation des groupes de règles ou des règles. Cela peut aggraver les risques pour la sécurité.
+
+Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règles entier, ou des règles spécifiques sous un ou plusieurs groupes de règles. 
 
 **Pour désactiver des groupes de règles ou des règles spécifiques**
 
@@ -51,16 +55,18 @@ Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règl
 
 ## <a name="mandatory-rules"></a>Règles obligatoires
 
-La liste suivante contient des conditions qui entraînent le WAF bloquer la demande en mode de prévention (en Mode de détection ils sont enregistrés en tant qu’exceptions). Il ne peut pas être configurées ou désactivés :
+La liste suivante contient les conditions qui provoquent le blocage de la requête par le pare-feu d’applications web (WAF) en mode Prévention. En mode Détection, elles sont enregistrées en tant qu’exceptions.
 
-* Échec d’analyser le corps de la requête entraîne la demande est bloquée, à moins que l’inspection du corps est mis sous tension (XML, JSON, les données de formulaire)
-* Longueur de données de corps (avec aucun fichier) de la demande est supérieure à la limite configurée
-* Demande de corps (y compris les fichiers) est supérieure à la limite
-* Une erreur interne s’est produite dans le moteur de WAF
+Elles ne peuvent pas être configurées ni désactivées :
 
-CRS 3.x spécifiques :
+* L’échec d’analyse du corps de la requête entraîne le blocage de cette dernière, sauf si l’inspection du corps est désactivée (XML, JSON, données de formulaire)
+* La longueur des données du corps de la requête (sans fichiers) est supérieure à la limite configurée
+* Le corps de la requête (avec fichiers) est supérieur à la limite
+* Une erreur interne s’est produite dans le moteur WAF
 
-* Trafic entrant de seuil du score dépassé d’anomalie
+Propre à CRS 3.x :
+
+* Le score des anomalies entrantes a dépassé le seuil
 
 ## <a name="next-steps"></a>Étapes suivantes
 

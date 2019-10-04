@@ -3,7 +3,7 @@ title: Créer un cluster Service Fabric exécutant Windows dans Azure | Microsof
 description: Dans ce tutoriel, vous allez découvrir comment déployer un cluster Windows Service Fabric dans un réseau virtuel Azure et un groupe de sécurité réseau à l’aide de PowerShell.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/13/2019
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050004"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598879"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Didacticiel : Déployer un cluster Service Fabric exécutant Windows sur un réseau virtuel Azure
 
@@ -183,7 +183,7 @@ Pour simplifier les étapes de configuration d’Azure AD avec un cluster Servic
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Créer des applications Azure AD et attribuer des rôles aux utilisateurs
 Créez deux applications Azure AD pour contrôler l'accès au cluster : une application web et une application native. Une fois que vous avez créé les applications pour représenter votre cluster, attribuez à vos utilisateurs les [rôles pris en charge par Service Fabric](service-fabric-cluster-security-roles.md) : lecture seule et administrateur.
 
-Exécutez `SetupApplications.ps1`, puis entrez l'ID du locataire, le nom du cluster et l'URL de réponse de l'application web en tant que paramètres. Spécifiez les noms d’utilisateur et les mots de passe des utilisateurs. Par exemple : 
+Exécutez `SetupApplications.ps1`, puis entrez l'ID du locataire, le nom du cluster et l'URL de réponse de l'application web en tant que paramètres. Spécifiez les noms d’utilisateur et les mots de passe des utilisateurs. Par exemple :
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -218,7 +218,7 @@ Comme le script imprime le code JSON exigé par le modèle Resource Manager qua
 ```
 
 ### <a name="add-azure-ad-configuration-to-use-azure-ad-for-client-access"></a>Ajouter la configuration Azure AD afin d’utiliser Azure AD pour l’accès client
-Dans [azuredeploy.json][template], configurez Azure AD dans la section **Microsoft.servicefabric/clusters**. Ajoutez des paramètres pour l’ID du locataire, l’ID de l’application de cluster et l’ID de l’application cliente.  
+Dans [azuredeploy.json][template], configurez Azure AD dans la section **Microsoft.ServiceFabric/clusters**. Ajoutez des paramètres pour l’ID du locataire, l’ID de l’application de cluster et l’ID de l’application cliente.  
 
 ```json
 {
@@ -260,7 +260,7 @@ Dans [azuredeploy.json][template], configurez Azure AD dans la section **Micros
 }
 ```
 
-Ajoutez des valeurs dans le fichier de paramètres [azuredeploy.parameters.json][parameters]. Par exemple : 
+Ajoutez les valeurs des paramètres dans le fichier de paramètres [azuredeploy.parameters.json][parameters]. Par exemple :
 
 ```json
 "aadTenantId": {

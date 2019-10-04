@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer Netsuite OneWorld pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer Netsuite OneWorld pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Netsuite OneWorld.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 928070ae7e5c9077c6f77e8cb7beb36815f47d6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202772"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60515842"
 ---
-# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutoriel : Configuration de Netsuite pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Didacticiel : Configuration de Netsuite pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce tutoriel est de vous montrer la procédure à suivre dans Netsuite OneWorld et Azure AD pour provisionner et déprovisionner automatiquement des comptes utilisateur d’Azure AD vers Netsuite.
 

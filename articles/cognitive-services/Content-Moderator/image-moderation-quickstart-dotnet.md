@@ -1,25 +1,25 @@
 ---
 title: 'Démarrage rapide : Analyser des images pour détecter le contenu répréhensible (C#) - Content Moderator'
-titlesuffix: Azure Cognitive Services
-description: Comment analyser le contenu d’une image pour trouver des matériaux répréhensibles à l’aide du kit SDK Azure Content Moderator pour .NET
+titleSuffix: Azure Cognitive Services
+description: Guide pratique pour analyser une image afin d’y détecter du contenu choquant ou répréhensible à l’aide du kit SDK Azure Content Moderator pour .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 03/20/2019
+ms.date: 08/08/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 2a4726357e35fa123355d9ba450f7c6d8624fe78
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757231"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946234"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Démarrage rapide : Analyser des images pour détecter le contenu répréhensible (C#)
 
-Cet article fournit des informations et des exemples de code qui vont vous aider à prendre en main le [kit SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Vous allez apprendre à rechercher du contenu raciste ou pour adultes, du texte extractible et des visages humains afin de modérer des matériaux potentiellement répréhensibles.
+Cet article fournit des informations et des exemples de code qui vont vous aider à prendre en main le [kit SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Vous allez apprendre à détecter les images à caractère osé ou réservées aux adultes, à rechercher du texte extractible et à analyser des visages humains pour modérer les contenus potentiellement choquants ou répréhensibles.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
@@ -49,22 +49,22 @@ Vous allez ensuite copier et coller le code de ce guide dans votre projet pour i
 
 Ajoutez les instructions `using` suivantes en haut de votre fichier *Program.cs*.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=1-8)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=1-7)]
 
 ### <a name="create-the-content-moderator-client"></a>Créer le client Content Moderator
 
 Ajoutez le code suivant à votre fichier *Program.cs* afin de créer un fournisseur de client Content Moderator pour votre abonnement. Ajoutez le code ainsi que la classe **Program** dans le même espace de noms. Vous devrez mettre à jour les champs **AzureRegion** et **CMSubscriptionKey** avec les valeurs de votre identificateur de région et de votre clé d’abonnement.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=84-107)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=83-106)]
 
 
 ### <a name="set-up-input-and-output-targets"></a>Configurer les cibles d’entrée et de sortie
 
-Ajoutez les champs statiques suivants à la classe **Program** dans _Program.cs_. Ils spécifient les fichiers pour le contenu d’image d’entrée et le contenu JSON de sortie.
+Ajoutez les champs statiques suivants à la classe **Program** dans _Program.cs_. Ces champs spécifient les fichiers pour le contenu d’image d’entrée et le contenu JSON de sortie.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=49-53)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=48-52)]
 
-Vous devez créer le fichier d’entrée *ImageFiles.txt* et mettre à jour son chemin d’accès en conséquence (les chemins d’accès relatifs sont relatifs au répertoire d’exécution). Ouvrez le fichier _ImageFiles.txt_ et ajoutez les URL des images à modérer. Ce guide de démarrage rapide utilise les URL et l’exemple d’entrée suivants.
+Vous devez créer le fichier d’entrée *ImageFiles.txt* et mettre à jour son chemin en conséquence (les chemins relatifs sont relatifs au répertoire d’exécution). Ouvrez le fichier _ImageFiles.txt_ et ajoutez les URL des images à modérer. Ce guide de démarrage rapide utilise les URL et l’exemple d’entrée suivants.
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
@@ -75,24 +75,24 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 Ajoutez le code suivant dans *Program.cs* ainsi que la classe **Program** dans le même espace de noms. Vous utilisez une instance de cette classe pour enregistrer les résultats de modération de chacune des images vérifiées.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=109-124)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=108-123)]
 
 
 ### <a name="define-the-image-evaluation-method"></a>Définir la méthode d’évaluation d’image
 
 Ajoutez la méthode suivante à la classe **Program**. Cette méthode évalue une seule image de trois façons différentes et renvoie les résultats d’évaluation. Si vous souhaitez en savoir plus sur le rôle de ces opérations individuelles, suivez le lien dans la section [Étapes suivantes](#next-steps).
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=55-81)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=54-80)]
 
 ### <a name="load-the-input-images"></a>Charger les images d’entrée
 
-Ajoutez le code suivant à la méthode **Main** dans la classe **Program**. Ceci permet de configurer le programme afin qu’il récupère les données d’évaluation pour chaque URL d’image dans le fichier d'entrée. Les données sont ensuite écrites dans un fichier de sortie unique.
+Ajoutez le code suivant à la méthode **Main** dans la classe **Program**. Ce code configure le programme pour récupérer les données d’évaluation de chaque URL d’image dans le fichier d’entrée. Les données sont ensuite écrites dans un fichier de sortie unique.
 
-[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=17-46)]
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/image-moderation-quickstart-dotnet.cs?range=16-45)]
 
 ## <a name="run-the-program"></a>Exécuter le programme
 
-Le programme écrit des données de chaîne JSON dans le fichier _ModerationOutput.txt_. L’exemple d’images utilisé dans ce démarrage rapide donne le résultat suivant. Notez que chaque image contient différentes sections pour `ImageModeration`, `FaceDetection` et `TextDetection`, qui correspondent aux trois appels d’API dans votre méthode **EvaluateImage**.
+Le programme écrit des données de chaîne JSON dans le fichier _ModerationOutput.txt_. L’exemple d’images utilisé dans ce démarrage rapide donne le résultat suivant. Chaque image comporte différentes sections pour `ImageModeration`, `FaceDetection` et `TextDetection`, qui correspondent aux trois appels d’API dans votre méthode **EvaluateImage**.
 
 ```json
 [{

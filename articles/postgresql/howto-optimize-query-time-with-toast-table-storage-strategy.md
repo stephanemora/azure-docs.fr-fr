@@ -1,17 +1,17 @@
 ---
-title: Optimiser le temps de requête sur un serveur Azure Database pour PostgreSQL à l'aide de la stratégie de stockage de table TOAST
-description: Cet article explique comment optimiser le temps de requête à l'aide de la stratégie de stockage de table TOAST sur un serveur Azure Database pour PostgreSQL.
+title: Optimiser le temps de requête en utilisant la stratégie de stockage de table TOAST dans Azure Database pour PostgreSQL - Serveur unique
+description: Cet article explique comment optimiser le temps de requête à l'aide de la stratégie de stockage de table TOAST sur un serveur Azure Database pour PostgreSQL - Serveur unique.
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: 96793cb1785a7ffa86331285f401453641b50dac
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 5/6/2019
+ms.openlocfilehash: ac1dc43a2b89bc1cc748947ec08e6ada87edbfcb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820866"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65066968"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>Optimiser le temps de requête à l'aide de la stratégie de stockage de table TOAST 
 Cet article explique comment optimiser les temps de requête à l'aide de la stratégie de stockage de table TOAST (The Oversized-Attribute Storage Technique - technique de stockage des attributs trop grands).

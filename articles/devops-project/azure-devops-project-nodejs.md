@@ -1,28 +1,27 @@
 ---
-title: 'Démarrage rapide : Créer un pipeline CI/CD pour Node.js avec Azure DevOps Projects'
+title: Créer un pipeline CI/CD pour Node.js avec Azure DevOps Projects
 description: DevOps Projects facilite la prise en main d’Azure. Ce composant vous aide à lancer une application sur le service Azure de votre choix en quelques étapes rapides.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 monikerRange: vsts
-ms.openlocfilehash: dadc394e9c9ddb152923095de10b8f727310d3f7
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: c59df73e7fa1d19db4c83a1c9a317f9b69ec8a37
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164521"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091181"
 ---
 #  <a name="create-a-cicd-pipeline-for--nodejs-with-azure-devops-projects"></a>Créer un pipeline CI/CD pour Node.js avec Azure DevOps Projects 
 
@@ -54,9 +53,9 @@ DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer
 
 1. Créez une organisation Azure DevOps ou choisissez une organisation existante. 
 
-    a. Choisissez un nom pour votre projet. 
+    a. Entrez un nom pour votre projet.
 
-    b. Sélectionnez votre abonnement et un emplacement Azure, choisissez un nom pour votre application, puis sélectionnez **Terminé**.  
+    b. Sélectionnez votre abonnement et un emplacement Azure, entrez un nom pour votre application, puis sélectionnez **Terminé**.  
     Après quelques minutes, le tableau de bord DevOps Projects s’affiche dans le portail Azure. Un exemple d’application est configuré dans un dépôt de votre organisation Azure DevOps, une build est exécutée et votre application est déployée sur Azure. Ce tableau de bord donne une visibilité sur votre dépôt de code, le pipeline CI/CD et votre application dans Azure.
      
 3. Sélectionnez **Parcourir** pour voir votre application en cours d’exécution.
@@ -70,15 +69,15 @@ DevOps Projects a configuré automatiquement un déclencheur de build et de mise
 DevOps Projects crée un dépôt Git dans Azure Repos ou dans GitHub. Suivez les étapes ci-dessous pour voir le dépôt et modifier le code dans votre application.
 
 1. À gauche du tableau de bord DevOps Projects, sélectionnez le lien correspondant à votre branche master.  
-Ce lien ouvre une vue sur le dépôt Git récemment créé.
+Ce lien ouvre une vue sur le référentiel Git récemment créé.
 
 1. Pour afficher l’URL du clone du dépôt, sélectionnez **Cloner** en haut à droite du navigateur.   
-    Vous pouvez cloner votre dépôt Git dans votre environnement de développement intégré favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche maîtresse et les valider.
+    Vous pouvez cloner votre référentiel Git dans votre environnement de développement intégré favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche maîtresse et les valider.
 
 1. Sur la gauche du navigateur, accédez au fichier **views/index.pug**.
 
 1. Sélectionnez **Modifier**, puis modifiez le titre h2.  
-    Par exemple, tapez **Prise en main directe d’Azure DevOps Projects** ou autre chose.
+    Par exemple, entrez **Commencer sur le champs avec Azure DevOps Projects** ou faites une autre modification.
 
 1. Sélectionnez **Valider**, puis enregistrez vos modifications.
 
@@ -149,11 +148,11 @@ Quand vous n’en avez plus besoin, vous pouvez supprimer Azure App Service et l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Quand vous avez configuré votre processus CI/CD, les pipelines de build et de mise en production ont été créés automatiquement. Vous pouvez les modifier pour répondre aux besoins de votre équipe. Pour en savoir plus sur le pipeline CI/CD, consultez :
+Quand vous avez configuré votre processus CI/CD, les pipelines de build et de mise en production ont été créés automatiquement. Vous pouvez le modifier afin qu’il réponde aux besoins de votre équipe. Pour en savoir plus sur le pipeline CI/CD, consultez :
 
 > [!div class="nextstepaction"]
 > [Personnaliser le processus CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Vidéos
+## <a name="videos"></a>Videos
 
 > [!VIDEO https://www.youtube.com/embed/3etwjubReJs]

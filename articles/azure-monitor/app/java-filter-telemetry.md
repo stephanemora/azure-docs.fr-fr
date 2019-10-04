@@ -9,14 +9,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/23/2016
+ms.date: 3/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: ee50a0e9c7fca8f01f12b3508c86d901b5315120
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.openlocfilehash: 9cf939b241da01be55c1b2ba5f00a5131ab94c06
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418820"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67061161"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrer la télémétrie dans votre application web Java
 
@@ -254,9 +254,9 @@ Dans ApplicationInsights.xml :
 
 ```
 
-### <a name="3-invoke-your-filter-java-spring"></a>3. Appeler votre filtre (Spring Java)
+### <a name="3-invoke-your-filter-java-spring"></a>3. Appeler votre filtre (Java Spring)
 
-Pour les applications basées sur Spring framework, les processeurs de télémétrie personnalisée doivent être inscrite dans votre classe d’application principale comme un composant bean. Ils seront ensuite autoconnectés lorsque l’application démarre.
+Pour les applications basées sur l’infrastructure Spring, les processeurs de télémétrie personnalisée doivent être inscrits dans votre classe d’application principale, en tant que composant bean. Ils seront ensuite connectés automatiquement au démarrage de l’application.
 
 ```Java
 @Bean
@@ -265,7 +265,7 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-Vous devez créer vos propres paramètres de filtre dans `application.properties` et exploiter l’infrastructure de configuration externalisés de Spring Boot pour transmettre ces paramètres dans votre filtre personnalisé. 
+Vous devez créer vos propres paramètres de filtre dans `application.properties`, puis exploiter l’infrastructure de configuration externalisée de Spring Boot pour passer ces paramètres dans votre filtre personnalisé. 
 
 
 ## <a name="troubleshooting"></a>Résolution de problèmes

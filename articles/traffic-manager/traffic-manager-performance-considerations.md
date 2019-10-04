@@ -3,20 +3,20 @@ title: Considérations sur les performances d’Azure Traffic Manager | Microsof
 description: Comprendre les performances sur Traffic Manager et comment tester les performances de votre site Web lors de l’utilisation de Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: kumud
-ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 315165677bd3186bb3bdc87ed688c426776569fc
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048297"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071058"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considérations sur les performances de Traffic Manager
 
@@ -28,7 +28,7 @@ Vous avez des instances de votre site web dans les régions WestUS et EastAsia. 
 
 Le seul impact sur les performances que Traffic Manager peut avoir sur votre site web est la recherche DNS initiale. Une requête DNS pour le nom de votre profil Traffic Manager est gérée par le serveur racine Microsoft DNS qui héberge la zone trafficmanager.net. Traffic Manager renseigne et met régulièrement à jour les serveurs racine Microsoft DNS en fonction de la stratégie Traffic Manager et des résultats du sondage. Donc, même pendant la recherche DNS initiale, aucune requête DNS n’est envoyée à Traffic Manager.
 
-Traffic Manager se compose de plusieurs composants : Nom DNS serveurs, un service d’API, la couche de stockage et un point de terminaison de service de surveillance. Si un composant du service Traffic Manager échoue, cela n’a aucune incidence sur le nom DNS associé à votre profil Traffic Manager. Les enregistrements dans les serveurs DNS Microsoft restent inchangés. Toutefois, la surveillance des points de terminaison et la mise à jour DNS n’ont pas lieu. Par conséquent, Traffic Manager n’est pas en mesure de mettre à jour le DNS pour qu’il pointe vers votre site de basculement lorsque votre site principal tombe en panne.
+Traffic Manager est constitué de plusieurs composants : des serveurs de noms DNS, un service d’API, la couche de stockage et le service de supervision des points de terminaison. Si un composant du service Traffic Manager échoue, cela n’a aucune incidence sur le nom DNS associé à votre profil Traffic Manager. Les enregistrements dans les serveurs DNS Microsoft restent inchangés. Toutefois, la surveillance des points de terminaison et la mise à jour DNS n’ont pas lieu. Par conséquent, Traffic Manager n’est pas en mesure de mettre à jour le DNS pour qu’il pointe vers votre site de basculement lorsque votre site principal tombe en panne.
 
 La résolution de noms DNS est rapide et les résultats sont mis en cache. La vitesse de la recherche DNS initiale dépend des serveurs DNS que le client utilise pour la résolution de noms. En règle générale, un client peut effectuer une recherche DNS en environ 50 ms. Les résultats de la recherche sont mis en cache pour la durée de vie (TTL) du DNS. La durée de vie par défaut de Traffic Manager est de 300 secondes.
 
@@ -58,7 +58,7 @@ Les outils sur ces sites mesurent les latences DNS et affichent les adresses IP 
 
 * [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
 
-    Anciennement appelé l’outil de surveillance de la souris Check Website, ce site affiche le temps de résolution DNS à partir de plusieurs zones géographiques simultanément. Entrez l’URL pour voir le temps de résolution DNS, l’heure de la connexion et la vitesse à partir de plusieurs emplacements géographiques. Ce test permet de voir quel service hébergé est retourné pour différents emplacements dans le monde entier.
+    Auparavant appelé « outil Watch-mouse Check Website », ce site vous montre le temps de résolution DNS simultanément à partir de plusieurs régions géographiques. Entrez l’URL pour voir le temps de résolution DNS, l’heure de la connexion et la vitesse à partir de plusieurs emplacements géographiques. Ce test permet de voir quel service hébergé est retourné pour différents emplacements dans le monde entier.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 

@@ -1,25 +1,18 @@
 ---
-title: Récupérer l’état de l’offre | Microsoft Docs
+title: Récupérer l’état de l’offre | Place de marché Azure
 description: L’API récupère l’état actuel de l’offre.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806555"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935455"
 ---
 <a name="retrieve-offer-status"></a>Récupérer l’état de l’offre 
 =====================
@@ -42,7 +35,7 @@ Récupère l’état actuel de l’offre.
 <a name="header"></a>En-tête
 ------
 
-|  NOM           |  Valeur               |
+|  Nom           |  Valeur               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
 |  Authorization  | `Bearer YOUR_TOKEN`  |
@@ -152,8 +145,8 @@ Récupère l’état actuel de l’offre.
 | **Code** |   **Description**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
 |  200     |  `OK` : la demande a été correctement traitée et l’état actuel de l’offre a été retourné. |
-|  400     | `Bad/Malformed request` : Le corps de la réponse d’erreur peut contenir plus d’informations.                 |
-|  404     | `Not found` : l’entité spécifiée n’existe pas.                                                |
+|  400     | `Bad/Malformed request` : le corps de la réponse d’erreur peut contenir plus d’informations.                 |
+|  404     | `Not found` : l’entité spécifiée n’existe pas.                                                |
 |  |  |
 
 

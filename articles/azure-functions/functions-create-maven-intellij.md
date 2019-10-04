@@ -7,17 +7,17 @@ author: jeffhollan
 manager: jpconnock
 keywords: azure functions, fonctions, traitement des événements, calcul, architecture serverless, java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
+ms.devlang: java
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 5aa0763206289305e98960b6e03ad903eb4547ae
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877803"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70743984"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Créer votre première fonction Azure avec Java et IntelliJ
 
@@ -52,8 +52,8 @@ Pour développer une fonction avec Java et IntelliJ, installez les logiciels sui
 1. Dans la fenêtre **Add Archetype** (Ajouter un archétype), renseignez les champs comme suit :
     - _GroupId_ : com.microsoft.azure
     - _ArtifactId_ : azure-functions-archetype
-    - _Version_ : Utiliser la dernière version à partir de [le référentiel central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![créer un projet Maven à partir de l’archétype dans IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _Version_ : utilisez la version la plus récente **1.22** du [dépôt central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Créer un projet Maven à partir d’un archétype dans IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Sélectionnez **OK**, puis **Suivant**.
 1. Entrez les détails de votre projet en cours et sélectionnez **Finish** (Terminer).
 
@@ -87,7 +87,7 @@ Maven crée les fichiers projet dans un nouveau dossier avec le même nom que la
 1. Renseignez les champs _Name_ (Nom) et _Settings_ (Paramètres), puis sélectionnez **OK** pour enregistrer la configuration.
 1. Après l’installation, sélectionnez **Debug (Déboguer) < Nom de la configuration distante >** ou appuyez sur les touches MAJ+F9 de votre clavier pour démarrer le débogage.
 
-   ![Déboguer des fonctions dans IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
+   ![Déboguer des fonctions dans IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
 
 1. Quand vous avez terminé, arrêtez le débogueur et le processus en cours d’exécution. Un seul hôte de fonction à la fois peut être actif et en cours d’exécution localement.
 

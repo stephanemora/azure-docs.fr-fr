@@ -1,0 +1,41 @@
+### YamlMime:Landing
+title: Documentation Azure Open Datasets Preview
+summary: Azure Open Datasets offre des données organisées et nettoyées que vous pouvez utiliser avec une préparation minimale, y compris la météo, des recensements et les congés, pour enrichir les modèles ML.
+metadata:
+  title: Documentation Open Datasets Preview - Azure
+  description: Azure Open Datasets offre des données organisées et nettoyées que vous pouvez utiliser avec une préparation minimale, y compris la météo, des recensements et les congés, pour enrichir les modèles ML.
+  services: machine-learning
+  ms.service: machine-learning
+  ms.subservice: data-science-vm
+  ms.topic: landing-page
+  ms.collection: collection
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 09/03/2019
+  ms.openlocfilehash: 44dea30e44e204664a5266a37c740b2eb23a49f7
+  ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 09/04/2019
+  ms.locfileid: "70309359"
+landingContent:
+- title: Azure Open Datasets
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation d’Open Datasets
+      url: overview-what-are-open-datasets.md
+    - text: Exemples
+      url: samples.md
+- title: Prise en main
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Créer un modèle de régression avec le machine learning automatisé
+      url: tutorial-opendatasets-automl.md
+- title: Explorer le contenu de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API Python
+      url: https://docs.microsoft.com/python/api/azureml-opendatasets/?view=azure-ml-py

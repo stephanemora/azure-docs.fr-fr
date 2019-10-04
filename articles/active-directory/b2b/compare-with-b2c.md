@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 01/30/2019
+ms.date: 07/22/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba06952b4d01e06d7925f70ee4bc26407b48e130
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 7e7f5aa324db869e30a8b2fe214416129baca8d9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670587"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380737"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparer B2B Collaboration et B2C dans Azure Active Directory
 
@@ -34,7 +34,7 @@ Fonctionnalités de B2B Collaboration |     Offre autonome d’Azure AD B2C
 Public visé : les entreprises qui souhaitent être en mesure d’authentifier les utilisateurs issus d’une organisation partenaire, quel que soit le fournisseur d’identité. | Usage prévu : inviter les clients de vos applications mobiles et web (qu’il s’agisse d’individus, d’institutions ou d’organisations) dans votre Azure AD.
 Identités prises en charge : employés ou partenaires disposant d’un compte professionnel ou scolaire, ou de n’importe quelle adresse e-mail. La fédération directe sera bientôt prise en charge.  | Identités prises en charge : utilisateurs consommateurs disposant de comptes d’application locaux (n’importe quel nom d’utilisateur ou adresse e-mail) ou toute identité sociale prenant en charge la fédération directe.
 Les utilisateurs externes sont gérés dans le même annuaire que les employés, mais font l’objet d’une annotation spéciale. Ils peuvent être gérés de la même façon que les employés, être ajoutés aux mêmes groupes, etc.  | Les utilisateurs externes sont gérés dans l’annuaire de l’application. Ils sont gérés séparément de l’annuaire des partenaires et des employés de l’organisation (s’il existe).
-L’authentification unique (SSO) sur toutes les applications connectées à Azure AD est prise en charge. Par exemple, vous pouvez donner accès à des applications Office 365 ou des applications locales, et à d’autres applications SaaS telles que Salesforce ou Workday.  |  L’authentification unique auprès d’applications détenues par le client dans les clients Azure AD B2C est prise en charge. L’authentification unique auprès d’Office 365 ou d’autres applications Microsoft ou SaaS non Microsoft n’est pas prise en charge.
+L’authentification unique (SSO) sur toutes les applications connectées à Azure AD est prise en charge. Par exemple, vous pouvez donner accès à des applications Office 365 ou des applications locales, et à d’autres applications SaaS telles que Salesforce ou Workday.  |  L’authentification unique auprès d’applications détenues par le client dans les clients Azure AD B2C est prise en charge. L’authentification unique auprès d’Office 365 ou d’autres applications SaaS Microsoft n’est pas prise en charge.
 Cycle de vie partenaire : géré par l’organisation hôte (qui invite).  | Cycle de vie client : libre-service ou géré par l’application.
 Stratégie de sécurité et conformité : gérée par l’organisation hôte ou qui invite (par exemple, avec des [règles d’accès conditionnelles](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Stratégie de sécurité et conformité : gérée par l’application.
 Marque : la marque de l’organisation hôte (qui invite) est utilisée.  |    Marque : gérée par l’application. En général, la marque du produit apparaît, avec l’organisation en arrière-plan.

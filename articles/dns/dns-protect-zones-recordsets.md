@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 12/4/2018
 ms.author: victorh
 ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997377"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66121442"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Comment protéger les enregistrements et zones DNS
 
@@ -50,7 +50,7 @@ La commande équivalente est également [disponible via l’interface de ligne d
 azure role assignment create --signInName "<user email address>" --roleName "DNS Zone Contributor" --resourceGroup "<resource group name>"
 ```
 
-### <a name="zone-level-rbac"></a>RBAC au niveau zone 
+### <a name="zone-level-rbac"></a>RBAC au niveau zone
 
 Vous pouvez appliquer les règles RBAC d’Azure à un abonnement, à un groupe de ressources ou à une ressource. Dans le cas du DNS Azure, cette ressource peut être une zone DNS ou un jeu d’enregistrements.
 

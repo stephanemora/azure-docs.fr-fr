@@ -4,22 +4,21 @@ description: Découvrez comment installer l’agent de machine virtuelle Azure e
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: MT
+ms.openlocfilehash: 438143d3253f1cab1afb958a90f427dcba59a98e
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259680"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059251"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installer l’agent de machine virtuelle Azure en mode hors connexion 
 
@@ -36,27 +35,17 @@ Installez l’agent de machine virtuelle en mode hors connexion dans les scénar
 
 Procédez comme suit pour installer l’agent de machine virtuelle en mode hors connexion.
 
-> [!NOTE]
-> Vous pouvez automatiser le processus d’installation de l'agent de machine virtuelle en mode hors connexion.
-> Pour ce faire, utilisez les [scripts de récupération de machine virtuelle Azure](https://github.com/Azure/azure-support-scripts/blob/master/VMRecovery/ResourceManager/README.md). Si vous choisissez d’utiliser les scripts de récupération de machine virtuelle Azure, vous pouvez utiliser le processus suivant :
-> 1. Ignorez l'étape 1 en utilisant les scripts pour joindre le disque du système d’exploitation de la machine virtuelle affectée à une machine virtuelle de récupération.
-> 2. Suivez les étapes 2 à 10 pour appliquer les atténuations.
-> 3. Ignorez l'étape 11 en utilisant les scripts pour recréer la machine virtuelle.
-> 4. Suivez l’étape 12.
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Étape 1 : attacher le disque du système d’exploitation de la machine virtuelle à une autre machine virtuelle en tant que disque de données
 
-### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Étape 1 : attacher le disque du système d’exploitation de la machine virtuelle à une autre machine virtuelle en tant que disque de données
+1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée, créez un disque à partir de l’instantané, puis attachez le disque à une machine virtuelle de dépannage. Pour en savoir plus, consultez [Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération avec le Portail Microsoft Azure](troubleshoot-recovery-disks-portal-windows.md). Pour la machine virtuelle classique, supprimez la machine virtuelle et conservez le disque du système d’exploitation, puis attachez le disque du système d’exploitation à la machine virtuelle de dépannage.
 
-1.  Supprimez la machine virtuelle. Assurez-vous de sélectionner l’option **Conserver les disques** lorsque vous supprimez la machine virtuelle.
-
-2.  Attachez le disque du système d’exploitation en tant que disque de données à une autre machine virtuelle (appelée _machine virtuelle de dépannage_). Pour plus d’informations, consultez [Attachement d’un disque de données à une machine virtuelle Windows dans le portail Azure](../windows/attach-managed-disk-portal.md).
-
-3.  Connectez-vous à la machine virtuelle de dépannage. Ouvrez **Gestion de l’ordinateur** > **Gestion des disques**. Vérifiez que le disque du système d’exploitation est en ligne et que les lettres de lecteur sont attribuées aux partitions de disque.
+2.  Connectez-vous à la machine virtuelle de dépannage. Ouvrez **Gestion de l’ordinateur** > **Gestion des disques**. Vérifiez que le disque du système d’exploitation est en ligne et que les lettres de lecteur sont attribuées aux partitions de disque.
 
 ### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Étape 2 : modifier le disque du système d’exploitation pour installer l’agent de machine virtuelle Azure
 
 1.  Effectuez une connexion Bureau à distance à la machine virtuelle de dépannage.
 
-2.  Sur le disque du système d’exploitation que vous avez attaché, accédez au dossier \windows\system32\config. Copiez tous les fichiers dans ce dossier de sauvegarde, au cas où une restauration serait requise.
+2.  Sur la machine virtuelle de l’utilitaire de résolution des problèmes, parcourez le disque du système d’exploitation que vous avez attaché, puis ouvrez le dossier \windows\system32\config. Copiez tous les fichiers dans ce dossier de sauvegarde, au cas où une restauration serait requise.
 
 3.  Démarrez **l’Éditeur du Registre** (regedit.exe).
 
@@ -109,7 +98,7 @@ Procédez comme suit pour installer l’agent de machine virtuelle en mode hors 
 
 10.  Sélectionnez **BROKENSOFTWARE**. Dans le menu, sélectionnez **Fichier** > **Décharger la ruche**.
 
-11.  Détachez le disque du système d’exploitation, puis recréez la machine virtuelle à l’aide du disque du système d’exploitation.
+11.  Détachez le disque du système d’exploitation, puis [choisissez un autre de disque du système d’exploitation pour la machine virtuelle affectée](troubleshoot-recovery-disks-portal-windows.md#swap-the-os-disk-for-the-vm). Pour la machine virtuelle classique, créez une machine virtuelle à l’aide du disque du système d’exploitation réparé.
 
 12.  Accédez à la machine virtuelle. Notez que le RdAgent est en cours d’exécution et que les journaux d’activité sont générés.
 

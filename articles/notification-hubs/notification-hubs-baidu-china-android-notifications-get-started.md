@@ -3,33 +3,36 @@ title: Prendre en main Azure Notification Hubs à l’aide de Baidu | Microsoft 
 description: Dans ce didacticiel, vous découvrirez comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un appareil Android à l’aide de Baidu.
 services: notification-hubs
 documentationcenter: android
-author: jwargo
-manager: patniko
-editor: spelluru
-ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
+author: sethmanheim
+manager: femila
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: c9aadb0dcd5adabed6a6490760282c5201a79000
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 06/19/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 06/19/2019
+ms.openlocfilehash: de02c1add1d6ea3a98d30407b7661e71a28458fe
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848675"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211928"
 ---
-# <a name="get-started-with-notification-hubs-using-baidu"></a>Prendre en main Notification Hubs à l’aide de Baidu
+# <a name="deprecated-get-started-with-notification-hubs-using-baidu"></a>Dépréciation : Prendre en main Notification Hubs à l’aide de Baidu
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
+
+> [!IMPORTANT]
+> Ce didacticiel est déconseillé. 
 
 Le service de transmission Push dans le cloud de Baidu est un service cloud chinois que vous pouvez utiliser pour envoyer des notifications Push à des appareils mobiles.
 
 Comme Google Play et FCM (messagerie Cloud Firebase) ne sont pas disponibles en Chine, il est nécessaire d’utiliser des magasins d’applications différents et des services à transmission de type push. Baidu est l’un d’eux, et celui qui est actuellement utilisé par le Hub de notification.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Ce didacticiel requiert les éléments suivants :
 
@@ -101,7 +104,7 @@ Quand vous créez un projet Baidu de transmission Push dans le cloud, vous recev
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6. Dans le hub de notification, sélectionnez **Notification Services**, puis **Baidu (Android China)**.
+&emsp;&emsp;6. Dans le hub de notification, sélectionnez **Notification Services**, puis **Baidu (Android China)** .
 
 &emsp;&emsp;&emsp;&emsp;![Azure Notification Hubs - Baidu](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/18/2019
+ms.date: 05/20/2019
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: df86c3723a16a0ed6d090e940684a5a1737aeae5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 2553d08b55aff45e52b9d8c5a64db141a668eb62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65967114"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Créer une demande de support pour Cloudyn
 
@@ -34,7 +34,7 @@ Vous pouvez ouvrir une demande de support si vous ne trouvez pas les information
 9. Dans **Type de problème**, sélectionnez **Héritage Cloudyn**, puis sélectionnez une **Catégorie**.
 10. Dans la zone **Titre**, entrez un titre qui décrit votre demande.
 11. Dans la zone **Détails**, entrez des informations supplémentaires.
-12. Pour **Quand le problème a-t-il commencé ?**, sélectionnez les date et heure approximatives, puis cliquez sur **Suivant**.  
+12. Pour **Quand le problème a-t-il commencé ?** , sélectionnez les date et heure approximatives, puis cliquez sur **Suivant**.  
 14. Dans la zone **Coordonnées**, sélectionnez votre méthode de contact préférée et fournissez vos coordonnées, puis cliquez sur **Créer**.  
 
 Une fois créé, le ticket de support est ajouté à la file d’attente de support. Le temps de réponse varie selon le plan de support et la gravité (impact commercial) du problème. Pour plus d’informations, consultez [Étendue du support et réactivité](https://azure.microsoft.com/support/plans/response/).

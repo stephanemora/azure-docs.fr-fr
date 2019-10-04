@@ -14,18 +14,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 56077d018c1ae62809d51fc66d7f5aff93fb4c02
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002695"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773245"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
 Si tout un centre de données ou une région Azure complète (si aucune [zone de disponibilité](../availability-zones/az-overview.md) n’est utilisée) connaît un temps d’arrêt, il est essentiel que le traitement des données puisse continuer dans les autres régions ou centres de données. Pour cette raison, la *géorécupération d’urgence* et la *géoréplication* sont des fonctionnalités importantes pour les entreprises. Azure Event Hubs prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. 
 
-La fonctionnalité de géorécupération d’urgence est disponible de manière globale pour la référence SKU standard d’Event Hubs.
+> [!NOTE]
+> La fonctionnalité de géorécupération d’urgence est disponible uniquement pour les [références SKU standard et dédiées](https://azure.microsoft.com/pricing/details/event-hubs/).  
 
 ## <a name="outages-and-disasters"></a>Pannes et sinistres
 
@@ -37,7 +38,9 @@ La fonctionnalité de géorécupération d’urgence d’Azure Event Hubs est un
 
 ## <a name="basic-concepts-and-terms"></a>Concepts et terminologie de base
 
-La fonctionnalité de récupération d’urgence implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire. Notez que la fonctionnalité de géorécupération d’urgence est disponible uniquement pour la [référence SKU standard](https://azure.microsoft.com/pricing/details/event-hubs/). Vous n’avez pas besoin de modifier la chaîne de connexion, car la connexion est établie à l’aide d’un alias.
+La fonctionnalité de récupération d’urgence implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire. 
+
+La fonctionnalité de géorécupération d’urgence est disponible uniquement pour les [références SKU standard et dédiées](https://azure.microsoft.com/pricing/details/event-hubs/). Vous n’avez pas besoin de modifier la chaîne de connexion, car la connexion est établie à l’aide d’un alias.
 
 Cet article emploie les termes suivants :
 
@@ -48,6 +51,19 @@ Cet article emploie les termes suivants :
 -  *Métadonnées* : entités telles que des concentrateurs d’événements et des groupes de consommateurs ; incluent également leurs propriétés sur le service associé à l’espace de noms. Notez que seules les entités et leurs paramètres sont automatiquement répliqués. Les messages et les événements ne sont pas répliqués. 
 
 -  *Basculement* : processus d’activation de l’espace de noms secondaire.
+
+## <a name="supported-namespace-pairs"></a>Paires d’espaces de noms prises en charge
+Les combinaisons suivantes d’espaces de noms principaux et secondaires sont prises en charge :  
+
+| Espace de noms principal | Espace de noms secondaire | Pris en charge | 
+| ----------------- | -------------------- | ---------- |
+| standard | standard | OUI | 
+| standard | Dédié | OUI | 
+| Dédié | Dédié | OUI | 
+| Dédié | standard | Non | 
+
+> [!NOTE]
+> Vous ne pouvez pas associer des espaces de noms qui se trouvent dans le même cluster dédié. Vous pouvez associer des espaces de noms qui se trouvent dans des cluster distincts. 
 
 ## <a name="setup-and-failover-flow"></a>Flux de configuration et de basculement
 
@@ -84,7 +100,7 @@ Si vous avez fait une erreur (par exemple, vous avez associé les mauvaises rég
 
 ## <a name="samples"></a>Exemples
 
-L’[exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) montre comment configurer et lancer un basculement. Cet exemple illustre les concepts suivants :
+L’[exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) montre comment configurer et lancer un basculement. Cet exemple illustre les concepts suivants :
 
 - Paramètres requis dans Azure Active Directory pour utiliser Azure Resource Manager avec Event Hubs. 
 - Étapes requises pour exécuter l’exemple de code. 
@@ -94,13 +110,19 @@ L’[exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/s
 
 Notez les points suivants pour cette version :
 
-1. Dans votre planification de basculement, vous devez également tenir compte du facteur temps. Par exemple, si vous perdez la connectivité pendant plus de 15 à 20 minutes, vous pouvez décider de lancer le basculement. 
+1. De par sa conception, la géo-reprise d'activité après sinistre Event Hubs ne réplique pas les données, et vous ne pouvez donc pas réutiliser l'ancienne valeur de décalage de votre hub d'événements principal sur votre hub d'événements secondaire. Nous vous recommandons de redémarrer votre récepteur d'événements avec l'un des éléments suivants :
+
+- *EventPosition.FromStart()*  : pour lire toutes les données sur votre hub d'événements secondaire.
+- *EventPosition.FromEnd()*  : pour lire toutes les nouvelles données à partir de la connexion à votre hub d'événements secondaire.
+- *EventPosition.FromEnqueuedTime(dateTime)*  : pour lire toutes les données reçues dans votre hub d'événements secondaire depuis une date et une heure précises.
+
+2. Dans votre planification de basculement, vous devez également tenir compte du facteur temps. Par exemple, si vous perdez la connectivité pendant plus de 15 à 20 minutes, vous pouvez décider de lancer le basculement. 
  
-2. Le fait qu’aucune donnée ne soit répliquée signifie que les sessions actuellement actives ne sont pas répliquées. En outre, la détection des doublons et les messages planifiés peuvent ne pas fonctionner. Les nouvelles sessions, les messages planifiés et les nouveaux doublons fonctionneront. 
+3. Le fait qu’aucune donnée ne soit répliquée signifie que les sessions actuellement actives ne sont pas répliquées. En outre, la détection des doublons et les messages planifiés peuvent ne pas fonctionner. Les nouvelles sessions, les messages planifiés et les nouveaux doublons fonctionneront. 
 
-3. Le basculement d’une infrastructure distribuée complexe doit être [répétée](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) au moins une fois. 
+4. Le basculement d’une infrastructure distribuée complexe doit être [répétée](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) au moins une fois. 
 
-4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute.
+5. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute.
 
 ## <a name="availability-zones"></a>Zones de disponibilité 
 
@@ -115,7 +137,7 @@ Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [L’exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) décrit un flux de travail simple qui crée un géocouplage et déclenche un basculement pour un scénario de récupération d’urgence.
+* [L’exemple sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) décrit un flux de travail simple qui crée un géocouplage et déclenche un basculement pour un scénario de récupération d’urgence.
 * La [référence d’API REST](/rest/api/eventhub/disasterrecoveryconfigs) décrit les API nécessaires pour effectuer la configuration de la géorécupération.
 
 Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :

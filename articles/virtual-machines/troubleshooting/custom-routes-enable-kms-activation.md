@@ -4,22 +4,21 @@ description: Explique comment utiliser des itinéraires personnalisés Azure pou
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: b121996530ea0618fc757f1ae12dfafde10ed7bb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: d554629c4a03b81ee3c04d27f6365c1a8734c952
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979375"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058199"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>L’activation de Windows échoue dans un scénario de tunneling forcé
 
@@ -27,7 +26,7 @@ Cet article explique comment résoudre le problème d’activation KMS que vous 
 
 ## <a name="symptom"></a>Symptôme
 
-Vous activez [le tunneling forcé](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) sur les sous-réseaux de réseau virtuel Azure pour rediriger tout le trafic Internet vers votre réseau local. Dans ce scénario, les machines virtuelles Azure qui exécutent Windows Server 2012 R2 ou versions ultérieures peuvent activer les fenêtres avec succès. En revanche, des machines virtuelles qui exécutent une version antérieure de Windows ne parviennent pas à activer les fenêtres.
+Vous activez [le tunneling forcé](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) sur les sous-réseaux de réseau virtuel Azure pour rediriger tout le trafic Internet vers votre réseau local. Dans ce scénario, les machines virtuelles Azure qui exécutent Windows ne parviennent pas à activer Windows.
 
 ## <a name="cause"></a>Cause :
 
@@ -51,7 +50,10 @@ Pour ajouter l’itinéraire personnalisé, procédez comme suit :
 
 ### <a name="for-resource-manager-vms"></a>Pour les machines virtuelles Resource Manager
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
+> [!NOTE] 
+> L’activation utilise des adresses IP publiques et sera affectée par une configuration d’équilibreur de charge SKU standard. Examinez attentivement [les connexions sortantes dans Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) pour en savoir plus sur la configuration requise.
 
 1. Ouvrez Azure PowerShell, puis [connectez-vous à votre abonnement Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Exécutez les commandes suivantes :
@@ -68,6 +70,12 @@ Pour ajouter l’itinéraire personnalisé, procédez comme suit :
     Add-AzRouteConfig -Name "DirectRouteToKMS" -AddressPrefix 23.102.135.246/32 -NextHopType Internet -RouteTable $RouteTable
 
     Set-AzRouteTable -RouteTable $RouteTable
+
+    # Next, attach the route table to the subnet that hosts the VMs
+
+    Set-AzVirtualNetworkSubnetConfig -Name "Subnet01" -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/24" -RouteTable $RouteTable
+
+    Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 3. Localisez la machine virtuelle qui rencontre des problèmes d’activation. Utilisez [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) pour tester si elle peut atteindre le serveur KMS :
 

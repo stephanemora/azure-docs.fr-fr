@@ -7,17 +7,17 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: ab510f7ee2f95a2c3373c0514c31554598451b27
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109305"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173333"
 ---
-# <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Analyse des sentiments à l’aide d’Azure Stream Analytics et Azure Machine Learning
-Cet article explique comment configurer rapidement un travail Azure Stream Analytics simple avec Azure Machine Learning. Vous allez utiliser un modèle d’analyse des sentiments Machine Learning de la galerie Cortana Intelligence pour analyser la diffusion des données de texte et déterminer l’évaluation des sentiments en temps réel. Cortana Intelligence Suite vous permet d’accomplir cette tâche sans vous préoccuper de la complexité inhérente à la création d’un modèle d’analyse des sentiments.
+# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>Analyse des sentiments avec Azure Stream Analytics et Azure Machine Learning Studio (préversion)
+Cet article explique comment configurer rapidement un travail Azure Stream Analytics simple avec Azure Machine Learning Studio. Vous allez utiliser un modèle d’analyse des sentiments Machine Learning de la galerie Cortana Intelligence pour analyser la diffusion des données de texte et déterminer l’évaluation des sentiments en temps réel. Cortana Intelligence Suite vous permet d’accomplir cette tâche sans vous préoccuper de la complexité inhérente à la création d’un modèle d’analyse des sentiments.
 
 Vous pourrez appliquer les instructions de cet article dans les scénarios suivants :
 
@@ -36,7 +36,7 @@ La figure suivante illustre cette configuration. Comme nous l’avons indiqué, 
 
 ![Vue d’ensemble de l’intégration de Machine Learning dans Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
 * Un abonnement Azure actif.
@@ -45,7 +45,7 @@ Avant de commencer, veillez à disposer des éléments qui suivent :
 À un niveau général, pour effectuer les tâches décrites dans cet article, vous devez procédez comme suit :
 
 1. Créez un compte de stockage Azure et un conteneur de stockage d’objets blob, et chargez un fichier d’entrée au format CSV dans le conteneur.
-3. Ajoutez un modèle d’analyse des sentiments à partir de la galerie Cortana Intelligence à votre espace de travail Azure Machine Learning et déployez-le en tant que service web dans l’espace de travail Machine Learning.
+3. Ajoutez un modèle d’analyse des sentiments à partir de la galerie Cortana Intelligence à votre espace de travail Azure Machine Learning Studio et déployez-le en tant que service web dans l’espace de travail Machine Learning.
 5. Créez un travail Stream Analytics qui appelle ce service web en tant que fonction afin de déterminer le sentiment de saisie de texte.
 6. Démarrez le travail Stream Analytics et observez le résultat.
 
@@ -175,7 +175,7 @@ Dans cette section du didacticiel, vous allez définir une fonction dans le trav
 
 1. Assurez-vous que vous disposez de l’URL du service web et de la clé d’API téléchargée précédemment dans le classeur Excel.
 
-2. Accédez à votre panneau de travail > **Fonctions** > **+ Ajouter** > **AzureML**
+2. Accédez à votre panneau de travail > **Fonctions** >  **+ Ajouter** > **AzureML**
 
 3. Remplissez le panneau **fonction d’Azure Machine Learning** avec ces valeurs :
 
@@ -252,7 +252,7 @@ Vous pouvez également afficher les mesures liées à la fonction Azure Machine 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Intégrer l’API REST et le service Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

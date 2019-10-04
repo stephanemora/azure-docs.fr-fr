@@ -10,11 +10,11 @@ ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 01/16/2019
 ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352510"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60683611"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envoyer, recevoir et traiter par lots des messages dans Azure Logic Apps
 
@@ -90,7 +90,7 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
 
    3. Sélectionnez cette action : **Envoyer un e-mail - <*fournisseur de messagerie*>**
 
-      Par exemple : 
+      Par exemple :
 
       ![Sélection de l’action « Envoyer un message électronique » pour votre fournisseur de messagerie](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 

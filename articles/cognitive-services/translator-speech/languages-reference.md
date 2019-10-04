@@ -3,20 +3,20 @@ title: Méthode Languages de l’API de traduction de conversation Translator Sp
 titleSuffix: Azure Cognitive Services
 description: Utilisez la méthode Languages de l’API de traduction de conversation Translator Speech.
 services: cognitive-services
-author: Jann-Skotdal
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: v-jansko
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7498ba08b9ce7b6aae10f38a393eb8cba37f3f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 46ac3928238382f56db5a799226bd3d9243b7ca2
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435760"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70966406"
 ---
 # <a name="translator-speech-api-languages"></a>API de traduction de conversation Translator Speech : Languages
 
@@ -65,7 +65,7 @@ Les valeurs fournies avec chaque propriété sont les suivantes.
 La valeur associée à la propriété de reconnaissance vocale, `speech`, est un dictionnaire de paires clé-valeur. Chaque clé identifie une langue prise en charge pour la reconnaissance vocale. La clé est l’identificateur que le client transmet à l’API. La valeur associée à la clé est un objet dont les propriétés sont les suivantes :
 
 * `name`: nom d’affichage de la langue.
-* `language`: balise de la langue écrite associée. Voir « Transaction texte » ci-dessous.
+* `language`: balise de la langue écrite associée. Voir « Traduction de texte » ci-dessous.
 Voici un exemple :
 
 ```

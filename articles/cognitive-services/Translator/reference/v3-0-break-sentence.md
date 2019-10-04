@@ -1,21 +1,21 @@
 ---
 title: Méthode BreakSentence de l’API de traduction de texte Translator Text.
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisez la méthode BreakSentence de l’API de traduction de texte Translator Text.
 services: cognitive-services
-author: v-pawal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: de11d493c1a42b67aeab6502f719bcee1adc6e99
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.author: swmachan
+ms.openlocfilehash: 184677589b3aa777ec556215455f8018e0d71f3f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578204"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934056"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API de traduction de texte Translator Text 3.0 : BreakSentence
 
@@ -41,7 +41,7 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
     <td>*Paramètre de requête obligatoire*.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`.</td>
   </tr>
   <tr>
-    <td>Langage</td>
+    <td>langage</td>
     <td>*Paramètre de requête facultatif*.<br/>Balise de langue identifiant la langue du texte d’entrée. Si aucun code n’est spécifié, la détection automatique de la langue est appliquée.</td>
   </tr>
   <tr>
@@ -56,7 +56,7 @@ Les en-têtes de demande sont les suivants :
   <th width="20%">headers</th>
   <th>Description</th>
   <tr>
-    <td>En-têtes d’authentification</td>
+    <td>En-tête(s) d’authentification</td>
     <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
   </tr>
   <tr>
@@ -154,7 +154,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>429</td>
-    <td>L’appelant envoie trop de demandes.</td>
+    <td>Le serveur a rejeté la requête, car le client a dépassé les limites de requête.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -172,11 +172,7 @@ Si une erreur se produit, la requête renvoie également une réponse d'erreur J
 
 L’exemple suivant montre comment obtenir les limites d’une phrase unique. La langue de la phrase est détectée automatiquement par le service.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-
----
 

@@ -3,8 +3,8 @@ title: 'Tutoriel : Effectuer un déploiement sur un réseau virtuel existant à
 description: Tutoriel expliquant comment déployer un module de sécurité matériel dédié (HSM) à l'aide de PowerShell sur un réseau virtuel existant
 services: dedicated-hsm
 documentationcenter: na
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
@@ -12,13 +12,13 @@ ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 288ad14110bd446955d6cec7439bfa40a750276c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.author: mbaldwin
+ms.openlocfilehash: 53fb4fa344839957a3f98275d174bbb787fa5e38
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521643"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70880991"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide de PowerShell
 

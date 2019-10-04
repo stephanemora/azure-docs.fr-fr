@@ -10,17 +10,16 @@ ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 47efcfc4bf2b0268d6720b659786300e751e861d
+ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487887"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70983693"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonage de l’application Azure App Service à l’aide de PowerShell
 
@@ -28,7 +27,7 @@ ms.locfileid: "58487887"
 
 Avec la publication de Microsoft Azure PowerShell version 1.1.0, une nouvelle option a été ajoutée à `New-AzWebApp`, qui permet à l’utilisateur de cloner une application App Service existante vers une application qui vient d’être créée dans une autre région ou dans la même région. Cette option permet aux utilisateurs de déployer de nombreuses applications dans différentes régions.
 
-Le clonage d’application n’est actuellement pris en charge que pour les plans de service d’application de niveau Premium. Cette nouvelle fonctionnalité utilise les mêmes limitations que la fonctionnalité de sauvegarde App Service. Consultez [Sauvegarder une application dans Azure App Service](manage-backup.md).
+Le clonage d’application est pris en charge par les plans App Service Standard, Premium, Premium V2 et Isolé. Cette nouvelle fonctionnalité utilise les mêmes limitations que la fonctionnalité de sauvegarde App Service. Consultez [Sauvegarder une application dans Azure App Service](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Clonage d’une application existante
 Scénario : Vous souhaitez cloner le contenu d’une application de la région USA Centre Sud vers une nouvelle application de la région USA Centre Nord. Cela peut être effectué à l’aide de la version Azure Resource Manager de l’applet de commande PowerShell pour créer une application avec l’option `-SourceWebApp`.
@@ -42,16 +41,16 @@ $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-
 Pour créer un plan App Service, vous pouvez utiliser la commande `New-AzAppServicePlan` comme dans l’exemple suivant
 
 ```powershell
-New-AzAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
+New-AzAppServicePlan -Location "North Central US" -ResourceGroupName DestinationAzureResourceGroup -Name DestinationAppServicePlan -Tier Standard
 ```
 
-À l’aide de la commande `New-AzWebApp`, vous pouvez créer l’application dans la région USA Centre Nord et la lier à un plan App Service existant de niveau Premium. Par ailleurs, vous pouvez utiliser le même groupe de ressources que l’application source ou en définir un nouveau, comme le montre la commande suivante :
+À l’aide de la commande `New-AzWebApp`, vous pouvez créer la nouvelle application dans la région USA Centre Nord et la lier à un plan App Service existant. Par ailleurs, vous pouvez utiliser le même groupe de ressources que l’application source ou en définir un nouveau, comme le montre la commande suivante :
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-Pour cloner une application existante, notamment tous les emplacements de déploiement associés, vous devez utiliser le paramètre `IncludeSourceWebAppSlots`. La commande PowerShell suivante illustre l’utilisation de ce paramètre avec la commande `New-AzWebApp` :
+Pour cloner une application existante, notamment tous les emplacements de déploiement associés, vous devez utiliser le paramètre `IncludeSourceWebAppSlots`.  Notez que le paramètre `IncludeSourceWebAppSlots` est pris en charge uniquement pour le clonage d’une application entière, y compris tous ses emplacements. La commande PowerShell suivante illustre l’utilisation de ce paramètre avec la commande `New-AzWebApp` :
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
@@ -60,7 +59,7 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 Pour cloner une application existante dans la même région, vous devez créer un groupe de ressources et un plan de service d’application dans la même région, puis utiliser la commande PowerShell suivante pour cloner l’application :
 
 ```powershell
-$destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
+$destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcapp
 ```
 
 ## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonage d’une application existante vers un App Service Environment
@@ -130,6 +129,7 @@ Voici les restrictions connues du clonage d’application :
 * Les règles TiP ne sont pas clonées.
 * Les contenus de la base de données ne sont pas clonés
 * Les adresses IP sortantes changent si vous clonez vers une unité d’échelle différente
+* Non disponible pour les applications Linux
 
 ### <a name="references"></a>Références
 * [Clonage de l’application Azure App Service ](app-service-web-app-cloning.md)

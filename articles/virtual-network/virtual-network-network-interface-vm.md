@@ -3,8 +3,8 @@ title: Ajouter ou supprimer des cartes réseau de machines virtuelles Azure | Do
 description: Découvrez comment ajouter ou supprimer des interfaces réseau de machines virtuelles.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: jdial
-ms.openlocfilehash: a6371746d156fb0be2d45ac94c898652a3147a6b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 23e46290af6bdb4c217d8fa0cd836673652fc81d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887486"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64701370"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Ajouter ou supprimer des interfaces réseau pour des machines virtuelles
 
@@ -36,7 +36,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
-- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 - Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce didacticiel requiert Azure CLI version 2.0.26 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>Ajouter des interfaces réseau existantes à une nouvelle machine virtuelle
@@ -56,7 +56,7 @@ Avant de créer la machine virtuelle, créez une interface réseau en utilisant 
 
 1. Connectez-vous au portail Azure.
 2. Dans la zone de recherche en haut du portail, tapez le nom de la machine virtuelle à laquelle vous voulez ajouter l’interface réseau, ou accédez à la machine virtuelle en cliquant sur **Tous les services**, puis **Machines virtuelles**. Une fois que vous avez trouvé la machine virtuelle, sélectionnez-la. La machine virtuelle doit prendre en charge le nombre d’interfaces réseau que vous souhaitez ajouter. Pour savoir combien d’interfaces réseau chaque taille de machine virtuelle peut prendre en charge, consultez [Tailles des machines virtuelles Linux dans Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Tailles des machines virtuelles Windows dans Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. Cliquez sur **Vue d’ensemble**, sous **PARAMÈTRES**. Sélectionnez **Arrêter** et attendez que la zone **État** de la machine virtuelle passe à **Arrêté (désalloué)**.
+3. Cliquez sur **Vue d’ensemble**, sous **PARAMÈTRES**. Sélectionnez **Arrêter** et attendez que la zone **État** de la machine virtuelle passe à **Arrêté (désalloué)** .
 4. Sous **PARAMÈTRES**, sélectionnez **Mise en réseau**.
 5. Sélectionnez **Attacher l’interface réseau**. Dans la liste des interfaces réseau qui ne sont actuellement pas attachées à une autre machine virtuelle, sélectionnez celle que vous voulez attacher.
 
@@ -73,7 +73,7 @@ Avant de créer la machine virtuelle, créez une interface réseau en utilisant 
 |Outil|Commande|
 |---|---|
 |Interface de ligne de commande|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (référence) ou [procédure détaillée](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Ajouter-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (référence) ou [procédure détaillée](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|PowerShell|[Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (référence) ou [procédure détaillée](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="view-network-interfaces-for-a-vm"></a>Afficher les interfaces réseau d’une machine virtuelle
 
@@ -95,7 +95,7 @@ Vous pouvez afficher les interfaces réseau actuellement attachées à une machi
 
 1. Connectez-vous au portail Azure.
 2. Dans la zone de recherche en haut du portail, recherchez le nom de la machine virtuelle de laquelle vous voulez supprimer (détacher) l’interface réseau, ou accédez à la machine virtuelle en sélectionnant **Tous les services**, puis **Machines virtuelles**. Une fois que vous avez trouvé la machine virtuelle, sélectionnez-la.
-3. Cliquez sur **Vue d’ensemble**, sous **PARAMÈTRES**, puis sur **Arrêter**. Attendez que la zone **État** de la machine virtuelle passe à **Arrêté (désalloué)**.
+3. Cliquez sur **Vue d’ensemble**, sous **PARAMÈTRES**, puis sur **Arrêter**. Attendez que la zone **État** de la machine virtuelle passe à **Arrêté (désalloué)** .
 4. Sous **PARAMÈTRES**, sélectionnez **Mise en réseau**.
 5. Sélectionnez **Détacher l’interface réseau**. Dans la liste des interfaces réseau actuellement attachées à la machine virtuelle, sélectionnez l’interface réseau que vous voulez détacher.
 

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679724"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967873"
 ---
 # <a name="azure-importexport-system-requirements"></a>Configuration système requise du service Azure Import/Export
 
@@ -41,7 +41,7 @@ Pour préparer les disques durs à l’aide de l’outil WAImportExport, un cert
 
 Le service Azure Import/Export prend en charge les types de comptes de stockage suivants :
 
-- Comptes de stockage v2 à usage général (recommandés pour la plupart des scénarios)
+- Comptes de stockage v2 à usage général standard (recommandés pour la plupart des scénarios)
 - Comptes de stockage d’objets blob
 - Comptes de stockage v1 à usage général (déploiements Classic ou Azure Resource Manager) 
 
@@ -50,7 +50,7 @@ Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensem
 Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
-> Le service Azure Import/Export ne prend pas en charge les comptes de stockage où la fonctionnalité [Points de terminaison de service sur réseaux virtuels](../../virtual-network/virtual-network-service-endpoints-overview.md)  a été activée. 
+> Le service Azure Import/Export ne prend pas en charge les comptes de stockage où la fonctionnalité [Points de terminaison de service de réseaux virtuels](../../virtual-network/virtual-network-service-endpoints-overview.md)  a été activée. 
 
 ## <a name="supported-storage-types"></a>Types de stockage pris en charge
 
@@ -72,11 +72,15 @@ Dans le cadre du service Azure Import/Export, vous avez besoin de disques pris e
 Les types de disques suivants sont pris en charge avec le service Azure Import/Export.
 
 
-|Type de disque  |Taille  |Pris en charge |Non pris en charge  |
-|---------|---------|---------|---------|
-|SSD    |   2,5"      |SATA III          |  USB       |
-|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |Disque dur externe avec adaptateur USB intégré <br> Disque situé à l’intérieur du boîtier d’un disque dur externe         |
+|Type de disque  |Size  |Pris en charge |
+|---------|---------|---------|
+|SSD    |   2,5"      |SATA III          | 
+|HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
+Les types de disque suivants ne sont pas pris en charge :
+- USB.
+- Disque dur externe avec adaptateur USB intégré.
+- Disques situés à l’intérieur du boîtier d’un disque dur externe.
 
 Un travail d’importation/exportation peut avoir à lui seul :
 - Un maximum de 10 disques HHD/SSD

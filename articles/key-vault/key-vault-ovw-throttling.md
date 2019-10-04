@@ -2,22 +2,19 @@
 title: Aide sur la limitation de requêtes Azure Key Vault
 description: La limitation Key Vault permet de réduire le nombre d’appels simultanés afin d’empêcher toute surexploitation des ressources.
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: ''
-ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
-ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 0f8aafce4c4feeed742504db84664e4dfd472ca6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f10f40551701cafd94692afc0916972b1fd73aff
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787547"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883045"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Aide sur la limitation de requêtes Azure Key Vault
 
@@ -34,7 +31,7 @@ Si vous avez un scénario valide justifiant une limitation supérieure, contacte
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Guide pratique pour limiter une application en réponse à des limites de service
 
-Les éléments suivants sont **meilleures pratiques** vous devez implémenter lorsque votre service est limité :
+Les **bonnes pratiques** suivantes doivent être implémentées lorsque votre service est limité :
 - Réduisez le nombre d’opérations par requête.
 - Réduisez la fréquence des requêtes.
 - Évitez les nouvelles tentatives immédiates. 
@@ -115,7 +112,7 @@ Le code qui implémente un backoff exponentiel est montré ci-dessous.
 ```
 
 
-À l’aide de ce code dans un client C\# application est simple. L’exemple suivant montre comment procéder en utilisant la classe HttpClient.
+L'utilisation de ce code dans une application cliente C\# est simple. L’exemple suivant montre comment procéder en utilisant la classe HttpClient.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

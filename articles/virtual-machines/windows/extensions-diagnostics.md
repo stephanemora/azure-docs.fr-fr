@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 772c0a4b6cf57aa428f722fb90a0673f9e703627
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: MT
+ms.openlocfilehash: 58c520ecbaf764140748167e458c301ab56de375
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982792"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64708062"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extension Diagnostics Azure pour machines virtuelles Windows
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
-L’extension de machine virtuelle Azure Diagnostics vous permet de collecter des données de supervision, comme des compteurs de performances et des journaux d’événements, à partir de votre machine virtuelle Windows. Vous pouvez définir de façon granulaire les données à collecter et leur emplacement de destination, par exemple un compte Stockage Azure ou un hub d’événements Azure. Vous pouvez également utiliser ces données pour générer des graphiques dans le portail Azure ou créer des alertes de métrique.
+L’extension de machine virtuelle Diagnostics Azure vous permet de collecter des données de surveillance, comme des compteurs de performances et des journaux d’événements, à partir de votre machine virtuelle Windows. Vous pouvez définir de façon granulaire les données à collecter et leur emplacement de destination, par exemple un compte Stockage Azure ou un hub d’événements Azure. Vous pouvez également utiliser ces données pour générer des graphiques dans le portail Azure ou créer des alertes de métrique.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,7 +37,7 @@ L’extension Diagnostics Azure nécessite que la machine virtuelle cible soit c
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-[Le schéma et les valeurs de propriété de l’extension Azure Diagnostics sont décrits dans ce document.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
+[Le schéma et les valeurs de propriété de l’extension Diagnostics Azure sont décrits dans ce document.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
@@ -61,7 +61,7 @@ az vm extension set \
 
 Vous pouvez utiliser la commande `Set-AzVMDiagnosticsExtension` pour ajouter l’extension Diagnostics Azure à une machine virtuelle existante. Voir aussi [Utiliser PowerShell pour activer Diagnostics Azure sur une machine virtuelle exécutant Windows](ps-extensions-diagnostics.md).
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ```powershell
@@ -84,12 +84,12 @@ Vous pouvez récupérer les données sur l’état des déploiements d’extensi
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Pour plus d’informations sur la résolution des problèmes liés à l’extension Azure Diagnostics, [consultez cet article](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md).
+Pour plus d’informations sur la résolution des problèmes liés à l’extension Diagnostics Azure, [consultez cet article](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md).
 
 ### <a name="support"></a>Support
 
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur Obtenir un support. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur l’extension Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-overview.md)
+* [En savoir plus sur l’extension Diagnostics Azure](../../azure-monitor/platform/diagnostics-extension-overview.md)
 * [Examinez le schéma et les versions de l’extension](../../azure-monitor/platform/diagnostics-extension-schema.md)

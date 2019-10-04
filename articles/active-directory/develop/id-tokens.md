@@ -1,39 +1,38 @@
 ---
-title: Référence de jeton Microsoft identity plateforme ID | Microsoft Docs
-description: Découvrez comment utiliser les id_tokens émis par la version 1.0 d’Azure AD et les points de terminaison (v2.0) de plateforme Microsoft identity.
+title: Informations de référence sur les jetons d’ID de la plateforme d’identités Microsoft | Microsoft Docs
+description: Découvrez comment utiliser les id_tokens émis par Azure AD 1.0 et les points de terminaison de la plateforme d’identités Microsoft (v2.0).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/13/2019
-ms.author: celested
+ms.topic: conceptual
+ms.date: 08/27/2019
+ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5c296f14fd9fdc3a7555412555ea1a851f9a7b8
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: cb279441e8ed0c0110a5b18d32609ed5b01bd7e2
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563827"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291043"
 ---
-# <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID plateforme Microsoft identity
+# <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
 Les jetons `id_tokens` sont envoyés à l’application cliente dans le cadre d’un flux [OpenID Connect](v1-protocols-openid-connect-code.md). Ils peuvent être envoyés avec ou à la place un jeton d’accès et sont utilisés par le client pour authentifier l’utilisateur.
 
-## <a name="using-the-idtoken"></a>Utilisation du jeton id_token
+## <a name="using-the-id_token"></a>Utilisation du jeton id_token
 
-Les jetons d’ID doivent être utilisés pour valider qu’un utilisateur est bien celui qu’il prétend être et obtenir des informations supplémentaires utiles à leur sujet : il ne doit pas être utilisé pour l’autorisation à la place d’un [jeton d’accès](access-tokens.md). Les revendications obtenues peuvent être utilisées pour l’expérience utilisateur au sein de votre application, saisir des informations dans une base de donnée et fournir l’accès à l’application cliente.
+Les jetons d’ID doivent servir à confirmer qu’un utilisateur est bien celui qu’il prétend être et à obtenir des informations supplémentaires le concernant. Ils ne doivent pas être utilisés pour accorder une autorisation à la place d’un [jeton d’accès](access-tokens.md). Les revendications obtenues peuvent être utilisées pour l’expérience utilisateur au sein de votre application, en tant que clés dans une base de données et pour fournir l’accès à l’application cliente.  Lors de la création de clés pour une base de données, `idp` ne doit pas être utilisé car il mélange les scénarios d’invité.  La génération de clés doit être effectuée uniquement sur `sub` (qui est toujours unique), avec `tid` utilisé pour le routage si nécessaire.  Si vous avez besoin de partager des données entre des services, `oid`+`sub`+`tid` fonctionnera puisque plusieurs services obtiennent le même `oid`.
 
-## <a name="claims-in-an-idtoken"></a>Revendications dans un jeton id_token
+## <a name="claims-in-an-id_token"></a>Revendications dans un jeton id_token
 
 Les jetons `id_tokens` d’une identité Microsoft sont des [JWT](https://tools.ietf.org/html/rfc7519), ce qui signifie qu’ils se composent d’une en-tête, d’une charge utile et d’une signature. Vous pouvez utiliser l’en-tête et la signature pour vérifier l’authenticité du jeton, tandis que la charge utile contient les informations concernant l’utilisateur qui sont demandées par votre client. Sauf indication contraire, toutes les revendications répertoriées ici apparaissent dans les jetons v1.0 et v2.0.
 
@@ -64,35 +63,35 @@ Afficher cet exemple de jeton v2.0 dans [jwt.ms](https://jwt.ms/#id_token=eyJ0eX
 
 ### <a name="payload-claims"></a>Revendications de la charge utile
 
-Cette liste affiche les revendications qui se trouvent dans la plupart des jetons id_token par défaut (sauf indication contraire).  Toutefois, votre application peut utiliser [revendications facultatives](active-directory-optional-claims.md) doit demander des revendications supplémentaires dans le paramètre id_token.  Il peuvent être comprise entre le `groups` revendication vers des informations sur le nom d’utilisateur.
+Cette liste affiche les revendications présentes par défaut dans la plupart des jetons id_token (sauf indication contraire).  Toutefois, votre application peut utiliser les [revendications facultatives](active-directory-optional-claims.md) pour demander des revendications supplémentaires dans le jeton id_token.  Cela peut concerner la revendication `groups` comme des informations sur le nom de l’utilisateur.
 
 |Revendication | Format | Description |
 |-----|--------|-------------|
 |`aud` |  Chaîne, URI ID d’application | Identifie le destinataire du jeton. Dans les jetons `id_tokens`, l'audience est l'ID attribué à votre application dans le portail Azure. Votre application doit valider cette valeur et rejeter le jeton si la valeur ne correspond pas. |
 |`iss` |  Chaîne, URI STS | Identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton, ainsi que le client Azure AD dans lequel l’utilisateur a été authentifié. Si le jeton a été émis par le terminal v2.0, l’URI se termine par `/v2.0`.  La partie GUID qui indique que l’utilisateur est un utilisateur consommateur d’un compte Microsoft est `9188040d-6c67-4c5b-b112-36a304b66dad`. Votre application doit utiliser la partie GUID de la revendication pour restreindre l’ensemble des clients qui peuvent se connecter à l’application, le cas échéant. |
 |`iat` |  int, horodatage UNIX | « Issued At » (Délivré le) indique quand l'authentification de ce jeton a eu lieu.  |
-|`idp`|Chaîne, généralement un URI STS | Enregistre le fournisseur d’identité qui a authentifié le sujet du jeton. Cette valeur est identique à la valeur de la revendication de l’émetteur sauf si le compte d’utilisateur n’est pas dans le même locataire que l’émetteur (invités par exemple). Si la revendication n’est pas présente, cela signifie que la valeur de `iss` peut être utilisé à la place.  Pour les comptes personnels utilisés dans un contexte organisationnel (par exemple, un compte personnel invité dans un locataire Azure AD), la revendication `idp` peut être « live.com » ou un URI STS contenant le locataire de compte Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+|`idp`|Chaîne, généralement un URI STS | Enregistre le fournisseur d’identité qui a authentifié le sujet du jeton. Cette valeur est identique à la valeur de la revendication de l’émetteur sauf si le compte d’utilisateur n’est pas dans le même locataire que l’émetteur (invités par exemple). Si la revendication n’est pas présente, cela signifie que la valeur `iss` peut être utilisée à la place.  Pour les comptes personnels utilisés dans un contexte organisationnel (par exemple, un compte personnel invité dans un locataire Azure AD), la revendication `idp` peut être « live.com » ou un URI STS contenant le locataire de compte Microsoft `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, horodatage UNIX | La revendication « nbf » (pas avant) indique le délai avant lequel le JWT ne doit PAS être accepté pour être traité.|
-|`exp` |  int, horodatage UNIX | La revendication « exp » (délai d'expiration) indique le délai d'expiration à partir duquel le JWT ne doit PAS être accepté pour être traité.  Il est important de noter qu’une ressource peut rejeter le jeton avant cette date ainsi - si, par exemple, une modification dans l’authentification est nécessaire ou révocation de jetons a été détectée. |
+|`exp` |  int, horodatage UNIX | La revendication « exp » (délai d'expiration) indique le délai d'expiration à partir duquel le JWT ne doit PAS être accepté pour être traité.  Il est important de remarquer qu’une ressource peut également rejeter le jeton avant ce délai, par exemple lorsqu’un changement d’authentification est requis ou qu’une révocation de jeton a été détectée. |
 | `c_hash`| Chaîne |Le hachage de code n’est inclus dans un jeton d’ID que si ce dernier est émis avec un code d’autorisation OAuth 2.0. Il peut servir à valider l’authenticité d’un code d’autorisation. Pour plus d’informations sur l’exécution de cette validation, consultez la [spécification OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) . |
 |`at_hash`| Chaîne |Le hachage de jeton d’accès n’est inclus dans un jeton d’ID que si ce dernier est émis avec un jeton d’accès OAuth 2.0. Il peut servir à valider l’authenticité d’un jeton d’accès. Pour plus d’informations sur l’exécution de cette validation, consultez la [spécification OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) . |
 |`aio` | Chaîne opaque | Revendication interne utilisée par Azure AD pour enregistrer des données afin de réutiliser les jetons. Cette valeur doit être ignorée.|
-|`preferred_username` | Chaîne | Nom d’utilisateur principal qui représente l’utilisateur. Il peut s’agir d’une adresse e-mail, d’un numéro de téléphone ou d’un nom d’utilisateur générique sans format spécifié. Sa valeur est mutable et peut changer au fil du temps. Dans la mesure où elle est mutable, cette valeur ne doit pas utilisée pour prendre des décisions d’autorisation. Le `profile` étendue est requise pour recevoir cette revendication.|
+|`preferred_username` | Chaîne | Nom d’utilisateur principal qui représente l’utilisateur. Il peut s’agir d’une adresse e-mail, d’un numéro de téléphone ou d’un nom d’utilisateur générique sans format spécifié. Sa valeur est mutable et peut changer au fil du temps. Dans la mesure où elle est mutable, cette valeur ne doit pas utilisée pour prendre des décisions d’autorisation. L’étendue `profile` est requise afin de recevoir cette revendication.|
 |`email` | Chaîne | La revendication `email` est présente par défaut pour les comptes invités qui disposent d’une adresse de messagerie.  Votre application peut demander la revendication de courrier électronique pour les utilisateurs gérés (ceux provenant du même locataire que la ressource) à l’aide de la `email` [revendication facultative](active-directory-optional-claims.md).  Sur le point de terminaison v2.0, votre application peut également demander l’étendue OpenID Connect `email` : vous n’avez pas besoin de demander la revendication facultative et l’étendue pour obtenir la revendication.  La revendication de courrier électronique prend uniquement en charge la messagerie adressable provenant des informations du profil de l’utilisateur. |
-|`name` | Chaîne | La revendication `name` fournit une valeur explicite qui identifie le sujet du jeton. La valeur n’est pas garantie pour être unique, elle est mutable et il est conçu pour être utilisé uniquement à des fins d’affichage. Le `profile` étendue est requise pour recevoir cette revendication. |
+|`name` | Chaîne | La revendication `name` fournit une valeur explicite qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique. Elle est mutable et conçue pour être utilisée uniquement à des fins d’affichage. L’étendue `profile` est requise afin de recevoir cette revendication. |
 |`nonce`| Chaîne | La valeur à usage unique correspond au paramètre inclus dans la requête /authorize d’origine au point de distribution d’émission. Si ce n’est pas le cas, votre application doit rejeter le jeton. |
-|`oid` | Chaîne, GUID | Identificateur immuable pour un objet dans le système d’identité Microsoft, dans cet exemple, un compte d’utilisateur. Cet ID identifie de manière unique l’utilisateur entre les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`. Microsoft Graph renverra cet ID en tant que propriété `id` pour un compte d’utilisateur donné. Étant donné que le `oid` permet à plusieurs applications de faire correspondre les utilisateurs, les `profile` étendue est requise pour recevoir cette revendication. Notez que si un seul utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire être considérées comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les informations d’identification. |
-|`roles`| Tableau de chaînes | L’ensemble de rôles qui ont été affectées à l’utilisateur qui se connecte. |
+|`oid` | Chaîne, GUID | Identificateur immuable pour un objet dans le système d’identité Microsoft, dans cet exemple, un compte d’utilisateur. Cet ID identifie de manière unique l’utilisateur entre les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`. Microsoft Graph renverra cet ID en tant que propriété `id` pour un compte d’utilisateur donné. `oid` permettant à plusieurs applications de faire correspondre des utilisateurs, l’étendue `profile` est requise afin de recevoir cette revendication. Notez que si un utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire. Ils sont considérés comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les mêmes informations d’identification. La revendication `oid` est un GUID qui ne peut pas être réutilisé. |
+|`roles`| Tableau de chaînes | Ensemble des rôles attribués à l’utilisateur qui se connecte. |
 |`rh` | Chaîne opaque |Revendication interne utilisée par Azure pour revalider des jetons. Cette valeur doit être ignorée. |
-|`sub` | Chaîne, GUID | Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. L’objet est un identificateur par paire ; il est spécifique à un ID d’application donné. Si un seul utilisateur se connecte à deux applications différentes à l’aide de deux ID clients différents, ces applications reçoivent deux valeurs différentes pour la revendication de l’objet. Cela peut ou ne peut pas être souhaitée selon vos besoins de l’architecture et de confidentialité. |
-|`tid` | Chaîne, GUID | GUID représentant le client Azure AD d’où provient l’utilisateur. Pour les comptes professionnels et scolaires, le GUID correspond à l’ID de client immuable de l’organisation à laquelle appartient l’utilisateur. Pour les comptes personnels, la valeur est `9188040d-6c67-4c5b-b112-36a304b66dad`. Le `profile` étendue est requise pour recevoir cette revendication. |
-|`unique_name` | Chaîne | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Cette valeur n’est pas garantie pour être unique au sein d’un client et doit être utilisée uniquement à des fins d’affichage. Émise uniquement dans les jetons `id_tokens` v1.0. |
+|`sub` | Chaîne, GUID | Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. L’objet est un identificateur par paire ; il est spécifique à un ID d’application donné. Si un utilisateur se connecte à deux applications différentes à l’aide de deux ID clients différents, ces applications reçoivent deux valeurs différentes pour la revendication de l’objet. Ceci peut être souhaitable ou non en fonction de vos exigences en matière d’architecture et de confidentialité. |
+|`tid` | Chaîne, GUID | GUID représentant le client Azure AD d’où provient l’utilisateur. Pour les comptes professionnels et scolaires, le GUID correspond à l’ID de client immuable de l’organisation à laquelle appartient l’utilisateur. Pour les comptes personnels, la valeur est `9188040d-6c67-4c5b-b112-36a304b66dad`. L’étendue `profile` est requise afin de recevoir cette revendication. |
+|`unique_name` | Chaîne | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique au sein d’un locataire. Elle doit être utilisée uniquement à des fins d’affichage. Émise uniquement dans les jetons `id_tokens` v1.0. |
 |`uti` | Chaîne opaque | Revendication interne utilisée par Azure pour revalider des jetons. Cette valeur doit être ignorée. |
 |`ver` | Chaîne, 1.0 ou 2.0 | Indique la version du jeton id_token. |
 
-## <a name="validating-an-idtoken"></a>Valider un jeton id_token
+## <a name="validating-an-id_token"></a>Valider un jeton id_token
 
-Validation d’une `id_token` est similaire à la première étape de [valider un jeton d’accès](access-tokens.md#validating-tokens) : votre client doit valider que le bon émetteur a renvoyé le jeton et qu’il n’a pas été falsifié. Étant donné que les jetons `id_tokens` sont toujours au format JWT, de nombreuses bibliothèques servent à valider ces jetons. Nous vous recommandons d’en utiliser une plutôt que de le faire vous-même.
+Le processus de validation d’un `id_token` est similaire à la première étape de [validation d’un jeton d’accès](access-tokens.md#validating-tokens). Votre client doit confirmer que le bon émetteur a renvoyé le jeton et qu’il n’a pas été falsifié. Étant donné que les jetons `id_tokens` sont toujours au format JWT, de nombreuses bibliothèques servent à valider ces jetons. Nous vous recommandons d’en utiliser une plutôt que de le faire vous-même.
 
 Pour valider manuellement le jeton, consultez les étapes détaillées dans la section [Validation d’un jeton d’accès](access-tokens.md#validating-tokens). Après avoir validé la signature du jeton, les revendications suivantes doivent être validées dans le jeton id_token (cette opération peut également être effectuée par votre bibliothèque de validation de jetons) :
 
@@ -102,5 +101,5 @@ Pour valider manuellement le jeton, consultez les étapes détaillées dans la s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [de jetons d’accès](access-tokens.md)
-* Personnaliser les revendications du jeton id_token via [revendications facultatives](active-directory-optional-claims.md).
+* En savoir plus sur les [jetons d’accès](access-tokens.md)
+* Personnalisez les revendications du jeton id_token à l’aide des [revendications facultatives](active-directory-optional-claims.md).

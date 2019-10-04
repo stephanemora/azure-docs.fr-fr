@@ -9,17 +9,17 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094818"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61448050"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualiser des données de surveillance à distance à l’aide de Power BI
 
 Ce tutoriel vous montre comment connecter vos données de solution de supervision à distance CosmosDB à Power BI. Une fois la connexion établie, vous pouvez créer vos propres tableaux de bord personnalisés et les ajouter à votre tableau de bord de solution de supervision à distance. Ce flux de travail permet la création de graphes plus spécialisés, en plus de ceux prêts à l’emploi. Vous pouvez ensuite utiliser ce tutoriel pour intégrer des données à d’autres flux de données ou pour créer des tableaux de bord personnalisés dont les données doivent être utilisées en dehors de votre solution de supervision à distance. La création de tableaux de bord dans Power BI vous permet également de faire interagir les panneaux lorsque vous sélectionnez des éléments. Par exemple, vous pourriez avoir un filtre qui affiche seulement les informations concernant vos camions simulés. Tous les éléments de votre tableau de bord interagiraient donc de manière à afficher uniquement les informations concernant les camions simulés. Si vous souhaitez utiliser un autre outil que Power BI, vous pouvez également étendre ces étapes pour utiliser l’outil de visualisation de votre choix et vous connecter à Cosmos DB ou à une base de données personnalisée si vous en avez une. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’une solution de supervision à distance en cours d’exécution.
 - Vous devez avoir accès au [portail Azure](https://portal.azure.com) et à l’abonnement dans lequel IoT Hub et la solution IoT sont exécutés.
@@ -104,7 +104,7 @@ Dans cet article, vous avez appris à visualiser les données de surveillance à
 
 Pour plus d’informations sur la personnalisation de la solution de supervision à distance, consultez :
 
-* [Personnalisation de l’interface utilisateur de la solution de surveillance à distance](iot-accelerators-remote-monitoring-customize.md)
+* [Personnalisation de l’interface utilisateur de la solution de supervision à distance](iot-accelerators-remote-monitoring-customize.md)
 * [Guide d’informations de référence pour les développeurs](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Guide de résolution des problèmes pour les développeurs](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
 

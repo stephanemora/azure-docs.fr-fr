@@ -3,17 +3,17 @@ title: Gérer vos préférences d’application sur IoT Central | Microsoft Docs
 description: Comment gérer vos préférences d’application et vos préférences personnelles sur IoT Central
 author: lmasieri
 ms.author: lmasieri
-ms.date: 02/20/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dd6148d2d817b1f2465b6beaba5fd488b16ead21
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: c5c0dbcb1c1f483bd7499de08c9f1949adff415b
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315960"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850146"
 ---
 # <a name="manage-your-application-preferences"></a>Gérer les préférences des applications
 
@@ -23,17 +23,20 @@ IoT Central permet de personnaliser les applications en fonction de vos besoins.
 
 ## <a name="changing-language"></a>Changement de langue
 
-IoT Central est pris en charge dans plusieurs langues. Vous pouvez changer votre langue préférée à l’aide de la **sélecteur de langue** sur l’icône des paramètres dans la barre de navigation supérieure. Une fois que vous avez modifié votre langue, IoT Central se souvient de votre sélection et l’applique dans toutes vos applications. Notez cette personnalisation dans l’application de que ces images de tableau de bord ne sont pas localisées.
+IoT Central prend en charge plusieurs langues. Vous pouvez changer de langue à l’aide du **sélecteur de langue** sur l’icône des paramètres dans la barre de navigation supérieure. Une fois que vous avez changé de langue, IoT Central mémorise votre sélection et l’applique dans toutes vos applications. La personnalisation dans l’application, comme les images de tableau de bord, n’est pas traduite.
 
 ## <a name="changing-theme"></a>Modification du thème
 
-Nous proposons un thème sombre et un thème clair. Alors que le thème clair est la valeur par défaut, vous pouvez modifier cela en sélectionnant l’icône des paramètres dans la barre de navigation supérieure.
+Nous proposons un thème sombre et un thème clair. Bien que le thème clair soit défini par défaut, vous pouvez changer de thème en sélectionnant l’icône des paramètres dans la barre de navigation supérieure.
 
 ![Sélecteur de thème IoT Central](media/howto-manage-preferences/settings.png)
+
+> [!NOTE]
+> La possibilité de choisir entre des thèmes clairs et foncés n’est pas disponible si votre administrateur a configuré un thème personnalisé pour l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous savez comment gérer votre profil dans Azure IoT Central, voici l’étape suivante suggérée :
 
 > [!div class="nextstepaction"]
-> [Configurer le tableau de bord de votre application](howto-configure-homepage.md)
+> [Activer ou désactiver les conversations en direct](howto-show-hide-chat.md)

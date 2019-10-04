@@ -3,7 +3,7 @@ title: Vue d’ensemble de Service Fabric et des conteneurs | Microsoft Docs
 description: Voici une vue d’ensemble de Service Fabric et de la méthode à suivre pour déployer des applications de microservices au moyen de conteneurs. Cet article fournit une vue d’ensemble de l’utilisation de conteneurs et des fonctionnalités disponibles dans Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/8/2018
-ms.author: aljo
-ms.openlocfilehash: 5a45f14e5ac1da5152f320bd92b1ebb42be1d214
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: 2ed3a9d4b1ec219d22a9e01e7acec5d7e950289b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662740"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68599761"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric et conteneurs
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
 Azure Service Fabric est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de conteneurs et de microservices évolutifs et fiables.
 
@@ -35,8 +35,8 @@ Par défaut, Service Fabric déploie et active ces services en tant que processu
 
 Pour vous familiariser rapidement et essayer les conteneurs sur Service Fabric, suivez un guide de démarrage rapide, un tutoriel ou un exemple pratique :  
 
-[Démarrage rapide : Déployer une application de conteneur Linux sur Service Fabric](service-fabric-quickstart-containers-linux.md)  
-[Démarrage rapide : Déployer une application de conteneur Windows sur Service Fabric](service-fabric-quickstart-containers.md)  
+[Démarrage rapide : Déployer une application conteneur Linux sur Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[Démarrage rapide : Déployer une application conteneur Windows sur Service Fabric](service-fabric-quickstart-containers.md)  
 [Mettre en conteneur une application .NET](service-fabric-host-app-in-a-container.md)  
 [Exemples de conteneurs Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 
@@ -48,10 +48,10 @@ Les conteneurs s’exécutent directement sur le noyau et disposent d’une vue 
 
 Par rapport aux machines virtuelles, les conteneurs présentent les avantages suivants :
 
-* **Petit** : Conteneurs utilisent un espace de stockage unique et les versions de couche et les mises à jour pour une efficacité accrue.
-* **Fast**: Conteneurs n’êtes pas obligé de démarrer l’ensemble du système d’exploitation, ils peuvent démarrer beaucoup plus rapidement, généralement en quelques secondes.
-* **Portabilité**: Une image de l’application en conteneur permettre être transférée pour s’exécuter dans le cloud, en local, à l’intérieur de machines virtuelles, ou directement sur des machines physiques.
-* **Gouvernance des ressources**: Un conteneur peut limiter les ressources physiques qui peut consommer sur son ordinateur hôte.
+* **Petit** : les conteneurs utilisent un espace de stockage unique ainsi que les versions et mises à jour de la couche pour une efficacité accrue.
+* **Démarrage rapide** : comme les conteneurs n’ont pas besoin d’initialiser l’intégralité d’un système d’exploitation, ils peuvent démarrer beaucoup plus rapidement, généralement en quelques secondes.
+* **Portabilité** : une image d’application en conteneur peut être portée de manière à s’exécuter dans le cloud ou en local, à l’intérieur de machines virtuelles ou directement sur des machines physiques.
+* **Gouvernance des ressources** : le nombre de ressources physiques qu’un conteneur peut consommer sur son hôte peut être limité.
 
 ### <a name="container-types-and-supported-environments"></a>Types de conteneurs et environnements pris en charge
 
@@ -76,11 +76,11 @@ La figure suivante illustre les différents types de virtualisation et niveaux d
 
 Voici des exemples pour lesquels le conteneur est un bon choix :
 
-* **IIS lift- and -shift**: Vous pouvez placer un existant [ASP.NET MVC](https://www.asp.net/mvc) application dans un conteneur au lieu de la migration à ASP.NET Core. Ces applications ASP.NET MVC dépendent des services Internet (IIS, Internet Information Services). Vous pouvez empaqueter ces applications dans des images de conteneur à partir de l’image IIS créée au préalable, puis les déployer avec Service Fabric. Pour plus d’informations sur les conteneurs Windows, consultez la page [Images conteneurs sur Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
+* **Opération lift-and-shift pour IIS** : vous pouvez placer une application [ASP.NET MVC](https://www.asp.net/mvc) existante dans un conteneur au lieu de la faire migrer sur ASP.NET Core. Ces applications ASP.NET MVC dépendent des services Internet (IIS, Internet Information Services). Vous pouvez empaqueter ces applications dans des images de conteneur à partir de l’image IIS créée au préalable, puis les déployer avec Service Fabric. Pour plus d’informations sur les conteneurs Windows, consultez la page [Images conteneurs sur Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server).
 
-* **Mélange de conteneurs et microservices Service Fabric**: Utilisez une image de conteneur existante pour une partie de votre application. Par exemple, vous pouvez utiliser le [conteneur NGINX](https://hub.docker.com/_/nginx/) pour le système frontal web de votre application et les services avec état pour les calculs les plus intenses du back-end.
+* **Mélange de conteneurs et de microservices Service Fabric** : Utilisez une image de conteneur existante pour une partie de votre application. Par exemple, vous pouvez utiliser le [conteneur NGINX](https://hub.docker.com/_/nginx/) pour le système frontal web de votre application et les services avec état pour les calculs les plus intenses du back-end.
 
-* **Réduire l’impact des services de « voisins bruyants »**: Vous pouvez utiliser la capacité de gouvernance des ressources des conteneurs pour limiter les ressources utilisées par un service sur un ordinateur hôte. Si les services sont susceptibles de consommer un grand nombre de ressources et, de ce fait, d’affecter les performances d’autres services (opération de type requête exécutée sur le long terme, par exemple), vous pouvez envisager de les placer dans des conteneurs soumis à la gouvernance des ressources.
+* **Réduction de l’impact des services de « voisins bruyants »**  : vous pouvez utiliser la capacité de gouvernance des ressources des conteneurs pour limiter le nombre de ressources utilisées par un service sur un hôte. Si les services sont susceptibles de consommer un grand nombre de ressources et, de ce fait, d’affecter les performances d’autres services (opération de type requête exécutée sur le long terme, par exemple), vous pouvez envisager de les placer dans des conteneurs soumis à la gouvernance des ressources.
 
 ## <a name="service-fabric-support-for-containers"></a>Prise en charge des conteneurs par Service Fabric
 

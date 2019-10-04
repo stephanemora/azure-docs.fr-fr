@@ -10,17 +10,16 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: MT
+ms.openlocfilehash: b108814caaace83cd417dc8858e27ed01d54c39e
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901783"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066761"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
 Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications Windows exécutées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l’accès aux fichiers, l’accès réseau et l’accès au registre, ainsi que les journaux d’activité et événements de diagnostic. 
@@ -61,11 +60,11 @@ App Service est un service qui s’exécute essentiellement au sommet de l’inf
 - Un lecteur d’application contenant les fichiers cspkg du package Azure exclusivement utilisés par App Service (et non accessibles aux clients)
 - Un lecteur « utilisateur » (lecteur C:\) dont la taille dépend de celle de la machine virtuelle 
 
-Il est important de surveiller l’utilisation du disque à mesure du développement de votre application. Si le quota du disque est atteint, le fonctionnement de votre application peut s’en trouver modifié. Par exemple :  
+Il est important de surveiller l’utilisation du disque à mesure du développement de votre application. Si le quota du disque est atteint, le fonctionnement de votre application peut s’en trouver modifié. Par exemple : 
 
 - L’application peut lever une erreur indiquant que l’espace est insuffisant sur le disque.
 - Vous pouvez voir des erreurs de disque quand vous accédez à la console Kudu.
-- Le déploiement à partir de VSTS ou de Visual Studio peut échouer avec `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Le déploiement à partir d’Azure DevOps ou de Visual Studio peut échouer avec `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - Votre application peut subir un ralentissement des performances.
 
 <a id="NetworkDrives"></a>
@@ -96,7 +95,7 @@ Le répertoire de base comprend le contenu d’une application, et le code d’a
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Accès réseau
-Le code d’application peut utiliser les protocoles TCP/IP et UDP pour établir des connexions réseau sortantes avec des points de terminaison accessibles par Internet qui exposent des services externes. Les applications peuvent utiliser ces mêmes protocoles pour se connecter aux services Azure, par exemple en établissant des connexions HTTPS à la base de données SQL.
+Le code d’application peut utiliser les protocoles TCP/IP et UDP pour établir des connexions réseau sortantes avec des points de terminaison accessibles par Internet qui exposent des services externes. Les applications peuvent utiliser ces mêmes protocoles pour se connecter aux services Azure, par exemple en établissant des connexions HTTPS à Azure SQL Database.
 
 La capacité des applications à établir une connexion de bouclage locale et à écouter sur le socket de bouclage local correspondant est également limitée. Cette fonctionnalité a pour principal objectif d'activer les applications configurées pour écouter sur les sockets de bouclage locaux. Chaque application voit une connexion de bouclage « privée ». Une application « A » ne peut pas écouter sur un socket de bouclage local établi par une application « B ».
 

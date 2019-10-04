@@ -1,6 +1,6 @@
 ---
 title: 'Application SaaS : Superviser les performances de nombreuses bases de données Azure SQL | Microsoft Docs'
-description: Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
+description: Surveiller et gérer les performances des bases de données Azure SQL et des pools dans une application SaaS multilocataire
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 075d0e2471457e1a585f7fdea9b523b1d13499c7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 322cc2fd53972c7c084da76ac0c80b757d0d2297
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100426"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570405"
 ---
-# <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
+# <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données Azure SQL et des pools dans une application SaaS multilocataire
 
 Ce didacticiel aborde plusieurs scénarios de gestion de performance clés utilisés dans les applications SaaS. Les fonctionnalités intégrées de surveillance et d’alerte de base de données de SQL Database, ainsi que les pools élastiques sont illustrés à l’aide d’un générateur de charge destiné à simuler l’activité de toutes les bases de données client.
 
@@ -57,7 +56,7 @@ Les pools et les bases de données qu’ils incluent doivent être surveillés p
 
 Le [portail Azure](https://portal.azure.com) offre des fonctionnalités intégrées de surveillance et d’alerte sur la plupart des ressources. Pour SQL Database, la surveillance et les alertes sont disponibles pour les bases de données et les pools. Ces fonctionnalités de surveillance et d’alertes intégrées sont propres à la ressource. Par conséquent, il est pratique de les utiliser pour un petit nombre de ressources, mais pas pour de nombreuses ressources.
 
-Pour les scénarios à volumes élevés, où vous travaillez avec de nombreuses ressources, [Azure Monitor enregistre](saas-dbpertenant-log-analytics.md) peut être utilisé. Il s’agit d’un service Azure distinct qui fournit des analytique sur les journaux de diagnostic et de télémétrie collectées dans un espace de travail Analytique de journal. Journaux d’Azure Monitor peuvent collecter des données de télémétrie à partir de nombreux services et être utilisés pour interroger et définir des alertes.
+Pour les scénarios à volume important où vous travaillez avec de nombreuses ressources, vous pouvez utiliser les [journaux Azure Monitor](saas-dbpertenant-log-analytics.md). Il s’agit d’un service Azure distinct offrant l’analytique des journaux de diagnostic et des données de télémétrie rassemblés dans un espace de travail Log Analytics. Les journaux Azure Monitor peuvent collecter des données de télémétrie à partir de nombreux services, et être utilisés pour interroger et définir des alertes.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l'application Wingtip Tickets SaaS Database Per Tenant
 
@@ -83,11 +82,11 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simulant une charge de t
 
 | Démonstration | Scénario |
 |:--|:--|
-| 2 | Générer une charge d’intensité normale (environ 40 DTU) |
+| 2 | Générer une charge d’intensité normale (environ 40 DTU) |
 | 3 | Générer une charge avec des pics plus longs et plus fréquents par base de données|
-| 4 | Générer une charge avec des pics de DTU supérieurs par base de données (environ 80 DTU)|
-| 5. | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
-| 6. | Générer une charge déséquilibrée entre plusieurs pools|
+| 4 | Générer une charge avec des pics de DTU supérieurs par base de données (environ 80 DTU)|
+| 5\. | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
+| 6 | Générer une charge déséquilibrée entre plusieurs pools|
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en eDTU), la durée et les intervalles varient selon les bases de données afin de simuler l’activité d’un locataire imprévisible.
 
@@ -104,7 +103,7 @@ L’application de base de données Wingtip Tickets SaaS par client est une appl
 
 Pour surveiller l’utilisation de ressources qui résulte de la charge appliquée, dans le portail, ouvrez le pool contenant les bases de données client :
 
-1. Ouvrez le [portail Azure](https://portal.azure.com), puis accédez au serveur *tenants1-dpt-&lt;UTILISATEUR&gt;*.
+1. Ouvrez le [portail Azure](https://portal.azure.com), puis accédez au serveur *tenants1-dpt-&lt;UTILISATEUR&gt;* .
 1. Faites défiler vers le bas, recherchez les pools élastiques, puis cliquez sur **Pool1**. Ce pool contient toutes les bases de données de locataire créées jusqu’à présent.
 
 Observez les graphiques **Surveillance du pool élastique** et **Surveillance de la base de données élastique**.
@@ -122,7 +121,7 @@ Comme il existe d’autres bases de données dans le pool en plus des cinq princ
 
 Définissez une alerte sur le pool, qui se déclenche quand \>l’utilisation atteint 75 % comme suit :
 
-1. Ouvrez *Pool1* (sur le serveur *tenants1-dpt-\<utilisateur\>*) dans le [portail Azure](https://portal.azure.com).
+1. Ouvrez *Pool1* (sur le serveur *tenants1-dpt-\<utilisateur\>* ) dans le [portail Azure](https://portal.azure.com).
 1. Cliquez sur **Règles d’alerte**, puis sur **+ Ajouter une alerte**.
 
    ![ajouter une alerte](media/saas-dbpertenant-performance-monitoring/add-alert.png)
@@ -133,7 +132,7 @@ Définissez une alerte sur le pool, qui se déclenche quand \>l’utilisation at
    * **Condition = supérieur à**
    * **Seuil = 75**
    * **Période = Au cours des 30 dernières minutes**
-1. Ajoutez une adresse e-mail à la zone *Adresse(s) e-mail administrateur supplémentaire(s)*, puis cliquez sur **OK**.
+1. Ajoutez une adresse e-mail à la zone *Adresse(s) e-mail administrateur supplémentaire(s)* , puis cliquez sur **OK**.
 
    ![définir une alerte](media/saas-dbpertenant-performance-monitoring/alert-rule.png)
 
@@ -167,7 +166,7 @@ La base de données reste en ligne et entièrement disponible tout au long du pr
 
 Comme alternative à la mise à l’échelle du pool, créez un deuxième pool et déplacez-y des bases de données pour équilibrer la charge entre les deux pools. Pour ce faire, le nouveau pool doit être créé sur le même serveur que le premier.
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez le serveur **tenants1-dpt-&lt;UTILISATEUR&gt;**.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez le serveur **tenants1-dpt-&lt;UTILISATEUR&gt;** .
 1. Cliquez sur **+ Nouveau pool** pour créer un pool sur le serveur actuel.
 1. Sur le modèle de **pool élastique** :
 
@@ -185,7 +184,7 @@ Comme alternative à la mise à l’échelle du pool, créez un deuxième pool e
 
 La création du pool et le déplacement des bases de données prend quelques minutes. Durant le déplacement, les bases de données restent en ligne et totalement accessibles jusqu’au dernier moment, après quoi toutes les connexions ouvertes sont fermées. Pour autant que vous disposiez d’une logique de nouvelle tentative, les clients se connectent ensuite à la base de données dans le nouveau pool.
 
-Accédez à **Pool2** (sur le serveur *tenants1-dpt-\<utilisateur\>*) pour ouvrir le pool et surveiller ses performances. Si vous ne voyez pas le pool, attendez que l’approvisionnement du nouveau pool soit terminé.
+Accédez à **Pool2** (sur le serveur *tenants1-dpt-\<utilisateur\>* ) pour ouvrir le pool et surveiller ses performances. Si vous ne voyez pas le pool, attendez que l’approvisionnement du nouveau pool soit terminé.
 
 Vous voyez à présent que l’utilisation des ressources sur le *Pool1* a chuté et que le *Pool2* est chargé dans la même mesure.
 
@@ -196,12 +195,12 @@ Si une base de données individuelle d’un pool connaît une charge élevée so
 Cet exercice simule l’effet de la salle de concert Contoso qui subit une charge élevée quand les tickets sont mis en vente pour un concert populaire.
 
 1. Ouvrez le script **Demo-PerformanceMonitoringAndManagement.ps1** dans \\*PowerShell ISE*.
-1. Définissez **$DemoScenario = 5, générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU).**
+1. Définissez **$DemoScenario = 5, Générer une charge normale et une charge élevée sur un locataire unique (environ 95 DTU).**
 1. Définissez **$SingleTenantDatabaseName = contosoconcerthall**
 1. Exécutez le script en appuyant sur **F5**.
 
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à la liste des bases de données sur le serveur *tenants1-dpt-\<utilisateur\>*. 
+1. Dans le [portail Azure](https://portal.azure.com), accédez à la liste des bases de données sur le serveur *tenants1-dpt-\<utilisateur\>* . 
 1. Cliquez sur la base de données **contosoconcerthall**.
 1. Cliquez sur le pool dans lequel se trouve **contosoconcerthall**. Recherchez le pool dans la section **Pool élastique**.
 
@@ -247,4 +246,4 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 * Autres [didacticiels reposant sur le déploiement de l’application de base de données Wingtip Tickets SaaS par client](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Pools élastiques SQL](sql-database-elastic-pool.md)
 * [Azure Automation](../automation/automation-intro.md)
-* [Journaux d’analyse Azure](saas-dbpertenant-log-analytics.md) - paramètre configuration et l’utilisation didacticiel de journaux Azure Monitor
+* [Journaux Azure Monitor](saas-dbpertenant-log-analytics.md) : tutoriel sur la configuration et l’utilisation des journaux Azure Monitor

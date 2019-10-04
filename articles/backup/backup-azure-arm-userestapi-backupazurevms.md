@@ -1,25 +1,25 @@
 ---
-title: 'Sauvegarde Azure : Sauvegarder des machines virtuelles Azure avec une API REST'
+title: 'Sauvegarde Azure : Sauvegarder des machines virtuelles Azure avec l’API REST'
 description: Gérer les opérations de sauvegarde des machines virtuelles Azure avec une API REST
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: API REST ; sauvegarde des machines virtuelles Azure ; restauration des machines virtuelles Azure ;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 8a47d3cf346d7961e9f8b1c4fa615a2faa6b1da0
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289576"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954975"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
 
-Cet article décrit comment gérer des sauvegardes pour une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST. Configurez la protection pour la première fois pour une machine virtuelle Azure précédemment non protégée, déclenchez une sauvegarde à la demande pour une machine virtuelle Azure protégée et modifiez les propriétés de la sauvegarde d’une machine virtuelle sauvegardée via une API REST comme expliqué ici.
+Cet article décrit comment gérer des sauvegardes pour une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST. Configurez la protection pour la première fois pour une machine virtuelle Azure précédemment non protégée, déclenchez une sauvegarde à la demande pour une machine virtuelle Azure protégée et modifiez les propriétés de sauvegarde d’une machine virtuelle sauvegardée par le biais d’une API REST, comme expliqué ici.
 
 Reportez-vous aux tutoriels sur les API REST [créer un coffre](backup-azure-arm-userestapi-createorupdatevault.md) et [créer une stratégie](backup-azure-arm-userestapi-createorupdatepolicy.md) pour la création de coffres et de stratégies.
 
@@ -43,11 +43,11 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 #### <a name="responses"></a>Réponses
 
-L’opération « Actualiser » est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Cela signifie que cette opération crée une autre opération qui doit être suivie séparément.
+L’opération « Actualiser » est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |204 Pas de contenu     |         |  OK sans contenu retourné      |
 |202 Accepté     |         |     Acceptée    |
@@ -108,13 +108,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 L’URI *GET* contient tous les paramètres requis. Aucun corps de demande supplémentaire n’est nécessaire.
 
-#### <a name="responses"></a>Réponses
+##### <a name="responses-1"></a>Réponses
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-##### <a name="example-responses"></a>Exemples de réponses
+##### <a name="example-responses-1"></a>Exemples de réponses
 
 Une fois la demande *GET* envoyée, une réponse 200 (OK) est retournée.
 
@@ -186,7 +186,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Pour créer un élément protégé, voici les composants du corps de la demande.
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Propriétés de ressource ProtectedItem         |
 
@@ -210,11 +210,11 @@ Le corps de la demande suivant définit les propriétés requises pour créer un
 
 #### <a name="responses"></a>Réponses
 
-La création d’un élément protégé est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Cela signifie que cette opération crée une autre opération qui doit être suivie séparément.
+La création d’un élément protégé est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 Accepté     |         |     Acceptée    |
@@ -300,7 +300,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Pour déclencher une sauvegarde à la demande, voici les composants du corps de la demande.
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriétés de BackupRequestResource         |
 
@@ -321,15 +321,15 @@ Le corps de la demande suivant définit les propriétés requises pour déclench
 
 ### <a name="responses"></a>Réponses
 
-Le déclenchement d’une sauvegarde à la demande est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Cela signifie que cette opération crée une autre opération qui doit être suivie séparément.
+Le déclenchement d’une sauvegarde à la demande est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |202 Accepté     |         |     Acceptée    |
 
-#### <a name="example-responses"></a>Exemples de réponses
+##### <a name="example-responses-3"></a>Exemples de réponses
 
 Une fois que vous envoyez la demande *POST* pour une sauvegarde à la demande, la réponse initiale est 202 (Accepté) avec un en-tête d’emplacement ou Azure-async-header.
 
@@ -393,7 +393,7 @@ Comme le travail de sauvegarde est une opération longue, il doit être suivi co
 
 ### <a name="changing-the-policy-of-protection"></a>Changement de la stratégie de protection
 
-Pour changer la stratégie avec laquelle la machine virtuelle est protégée, vous pouvez utiliser le même format que pour l’[activation de la protection](#enabling-protection-for-the-azure-vm). Il vous suffit d’indiquer le nouvel ID de stratégie dans [le corps de la demande](#example-request-body) et d’envoyer la demande. Par exemple, pour remplacer la stratégie « DefaultPolicy » de testVM par « ProdPolicy », indiquez l’ID « ProdPolicy » dans le corps de la demande.
+Pour changer la stratégie avec laquelle la machine virtuelle est protégée, vous pouvez utiliser le même format que pour l’[activation de la protection](#enabling-protection-for-the-azure-vm). Il vous suffit d’indiquer le nouvel ID de stratégie dans [le corps de la demande](#example-request-body) et d’envoyer la demande. Par exemple :  Pour remplacer la stratégie « DefaultPolicy » de testVM par « ProdPolicy », indiquez l’ID « ProdPolicy » dans le corps de la requête.
 
 ```http
 {
@@ -439,13 +439,13 @@ DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroup
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
 ```
 
-### <a name="responses"></a>Réponses
+### <a name="responses-2"></a>Réponses
 
-L’opération *DELETE* sur la protection est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Cela signifie que cette opération crée une autre opération qui doit être suivie séparément.
+L’opération *DELETE* sur la protection est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 204 (Pas de contenu) quand cette opération est terminée.
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |204 Pas de contenu     |         |  Pas de contenu       |
 |202 Accepté     |         |     Acceptée    |

@@ -3,22 +3,20 @@ title: Cas d’utilisation - Profilage des utilisateurs
 description: Découvrez comment Azure Data Factory permet de créer un workflow piloté par les données (pipeline) pour définir le profil des clients de leurs jeux.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: e07d55cf-8051-4203-9966-bdfa1035104b
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: bb7d6531da330bcfbf6de786ffb19984cfd1964e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: MT
+ms.openlocfilehash: 866a7fdabaf51738333d8583bea5d0fa9fabf6f2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017427"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139852"
 ---
 # <a name="use-case---customer-profiling"></a>Cas d’utilisation - Profilage des utilisateurs
 Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Pour plus d’informations sur Cortana Intelligence, consultez [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Dans ce document, nous décrivons un cas d'utilisation simple pour vous aider à comprendre comment Azure Data Factory permet de résoudre les problèmes d'analyse courants.
@@ -63,7 +61,7 @@ Cette figure montre comment les pipelines de données apparaissent dans l’inte
 2. Le pipeline **EnrichGameLogsPipeline** associe des événements de jeu partitionnés à des données de référence de code géographique et les enrichit en mappant les adresses IP avec les emplacements géographiques correspondants.
 3. Le pipeline **AnalyzeMarketingCampaignPipeline** utilise les données enrichies et les traite avec les données de publicité pour créer la sortie finale contenant l’efficacité de la campagne marketing.
 
-Dans cet exemple, Data Factory sert à orchestrer les activités qui copient les données d’entrée, transforment et traitent les données, et à générer les données finales dans une base de données SQL Azure.  Vous pouvez également visualiser le réseau des pipelines de données, les gérer et surveiller leur état à partir de l'interface utilisateur.
+Dans cet exemple, Data Factory sert à orchestrer les activités qui copient les données d’entrée, transforment et traitent les données, et à générer les données finales dans une base de données Azure SQL.  Vous pouvez également visualiser le réseau des pipelines de données, les gérer et surveiller leur état à partir de l'interface utilisateur.
 
 ## <a name="benefits"></a>Avantages
 En optimisant l’analyse du profil de ses utilisateurs et en l’alignant sur ses objectifs commerciaux, le développeur de jeux peut recueillir rapidement des modèles d’utilisation et analyser l’efficacité de ses campagnes marketing.

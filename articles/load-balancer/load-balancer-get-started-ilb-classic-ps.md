@@ -5,6 +5,7 @@ description: Découvrez comment créer un équilibreur de charge interne à l’
 services: load-balancer
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b864a4bf352c547779bb368650971fa8b805fca7
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097979"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71090965"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>Prise en main de la création d’un équilibreur de charge interne (classique) à l’aide de PowerShell
 
@@ -30,7 +31,7 @@ ms.locfileid: "53097979"
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources :  [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md).  Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources :  [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md).  Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Découvrez comment [effectuer ces étapes à l’aide du modèle Resource Manager](load-balancer-get-started-ilb-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -61,7 +62,7 @@ Notez que l’utilisation de cette cmdlet [Add-AzureEndpoint](https://msdn.micro
 
 ### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>Étape 2 : Ajouter des points de terminaison à l’instance d’équilibrage de charge interne
 
-Voici un exemple : 
+Voici un exemple :
 
 ```powershell
 $svc="mytestcloud"
@@ -86,7 +87,7 @@ $svc="<Cloud Service Name>"
 Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 ```
 
-Pour utiliser ces commandes, renseignez les valeurs et supprimez < et >. Voici un exemple : 
+Pour utiliser ces commandes, renseignez les valeurs et supprimez < et >. Voici un exemple :
 
 ```powershell
 $svc="mytestcloud"
@@ -147,7 +148,7 @@ Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname
 
 Pour utiliser ces commandes, renseignez les valeurs et supprimez < et >.
 
-Voici un exemple : 
+Voici un exemple :
 
 ```powershell
 $svc="mytestcloud"
@@ -165,7 +166,7 @@ Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 Pour utiliser ces commandes, renseignez les valeurs et supprimez < et >.
 
-Voici un exemple : 
+Voici un exemple :
 
 ```powershell
 $svc="mytestcloud"

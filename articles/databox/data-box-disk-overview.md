@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 06/18/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 96ff843ada9d9043d2c10f479d488617ae56da41
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 067d818b7d23fc0b83cb1d4255bfbb8659149412
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497718"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204761"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Qu’est-ce qu’Azure Data Box Disk ?
 
@@ -83,26 +83,13 @@ Pour plus d’informations, accédez à [Azure Data Box Disk security and data p
 | Capacité stockage du disque                                   | 8 To (environ 7 To utilisables)|
 | Interface de données                                          | USB   |
 | Sécurité                                                | Préalablement chiffré à l’aide de BitLocker et mise à jour sécurisée <br> Disques protégés par clé d’accès <br> Données chiffrées en permanence  |
-| Vitesse de transfert de données                                      | jusqu’à 430 Mbits/s en fonction de la taille du fichier      |
+| Vitesse de transfert de données                                      | jusqu’à 430 Mo/s en fonction de la taille du fichier      |
 |gestion                                               | Portail Azure |
 
 
 ## <a name="region-availability"></a>Disponibilité des régions
 
-Data Box Disk peut actuellement transférer des données vers les régions Azure suivantes :
-
-
-|Région Azure  |Région Azure  |
-|---------|---------|
-|USA Centre-Ouest     |Centre du Canada       |        
-|Ouest des États-Unis 2     |Est du Canada         |     
-|USA Ouest     | Europe Ouest        |      
-|USA Centre Sud   |Europe Nord     |         
-|USA Centre     |Australie Est|
-|USA Centre Nord  |Australie Sud-Est   |
-|USA Est      |Centre de l’Australie |
-|Est des États-Unis 2     |Centre de l’Australie 2|
-|Japon Est     |Centre de la Corée |
+Pour plus d’informations sur la disponibilité régionale, accédez à [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Le déploiement de Data Box Disk est également possible dans Azure Government Cloud. Pour plus d’informations, consultez [Présentation d’Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 
 ## <a name="pricing"></a>Tarifs

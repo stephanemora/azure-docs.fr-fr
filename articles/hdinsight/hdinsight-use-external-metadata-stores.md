@@ -1,20 +1,19 @@
 ---
 title: Utiliser des magasins de métadonnées externes - Azure HDInsight
-description: Utilisez des magasins de métadonnées externes avec les clusters HDInsight.
-services: hdinsight
+description: Utilisez des magasins de métadonnées externes avec les clusters Azure HDInsight et suivez les bonnes pratiques.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/14/2018
-ms.openlocfilehash: 3daa71c91d1e49a497a979b9b5b89df1fcb9418c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.date: 05/27/2019
+ms.openlocfilehash: 1e922dfd879c7323d467dca8c4017c5ede2c8659
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889679"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70916540"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Utiliser des magasins de métadonnées externes dans Azure HDInsight
 
@@ -40,7 +39,7 @@ Ce metastore par défaut est généralement utilisé pour les charges de travail
 ## <a name="custom-metastore"></a>Metastore personnalisé
 
 HDInsight prend également en charge les magasins de métadonnées personnalisés, qui sont recommandés pour les clusters de production :
-- Vous spécifiez votre propre base de données SQL Azure en tant que metastore.
+- Vous spécifiez votre propre base de données Azure SQL en tant que metastore.
 - Le cycle de vie du metastore n’est pas lié à un cycle de vie de cluster, vous pouvez donc créer et supprimer des clusters sans perdre les métadonnées. Les métadonnées telles que vos schémas Hive sont conservées même une fois que vous supprimez et recréez le cluster HDInsight.
 - Un metastore personnalisé vous permet d’attacher plusieurs clusters et types de cluster à ce metastore. Par exemple, un seul metastore peut être partagé entre les clusters de requête interactive, Hive et Spark dans HDInsight.
 - Vous payez le coût d’un metastore (Azure SQL DB), selon le niveau de performance que vous choisissez.
@@ -51,7 +50,7 @@ HDInsight prend également en charge les magasins de métadonnées personnalisé
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Sélectionner un metastore personnalisé lors de la création du cluster
 
-Vous pouvez pointer votre cluster vers une base de données Azure SQL créée précédemment lors de la création du cluster, ou vous pouvez configurer la base de données SQL une fois que le cluster est créé. Cette option est spécifiée avec les paramètres Stockage > Metastore lors de la création d’un nouveau cluster Hadoop, Spark ou requête interactive à partir du portail Azure.
+Vous pouvez pointer votre cluster vers une base de données Azure SQL créée précédemment lors de la création du cluster, ou vous pouvez configurer la base de données SQL une fois que le cluster est créé. Cette option est spécifiée avec les paramètres **Stockage > Metastore** lors de la création d’un nouveau cluster Hadoop, Spark ou Hive interactif à partir du Portail Microsoft Azure.
 
 ![Metastore Hive dans HDInsight dans le portail Azure](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 
@@ -66,11 +65,12 @@ Voici certaines des meilleures pratiques pour les metastores Hive dans HDInsight
 - Utilisez un metastore personnalisé aussi souvent que possible, afin de mieux séparer les ressources de calcul (votre cluster en cours d’exécution) et les métadonnées (stockées dans le metastore).
 - Commencez avec un niveau S2, qui fournit 50 DTU et 250 Go de stockage. Si vous voyez un goulot d’étranglement, vous pouvez mettre à l’échelle la base de données.
 - Si vous prévoyez d’utiliser plusieurs clusters HDInsight pour accéder aux données distinctes, utilisez une base de données distincte pour le metastore sur chaque cluster. Si vous partagez un metastore sur plusieurs clusters HDInsight, cela signifie que les clusters utilisent les mêmes métadonnées et fichiers de données utilisateur sous-jacentes.
-- Sauvegardez régulièrement votre metastore personnalisé. Azure SQL Database génère automatiquement des sauvegardes, mais la période de rétention des sauvegardes varie. Pour plus d’informations, consultez [En savoir plus sur les sauvegardes automatiques SQL Database](../sql-database/sql-database-automated-backups.md).
+- Sauvegardez régulièrement votre metastore personnalisé. Azure SQL Database génère automatiquement des sauvegardes, mais la période de conservation des sauvegardes varie. Pour plus d’informations, consultez [En savoir plus sur les sauvegardes automatiques SQL Database](../sql-database/sql-database-automated-backups.md).
 - Localisez votre metastore et votre cluster HDInsight dans la même région, pour des performances optimales et des frais de sortie de réseau plus bas.
-- Surveiller les performances et la disponibilité à l’aide des outils de surveillance de base de données SQL Azure, tels que le portail Azure ou les journaux d’Azure Monitor de votre metastore.
+- Surveillez les performances et la disponibilité de votre metastore à l’aide des outils de surveillance d’Azure SQL Database, tels que le Portail Microsoft Azure ou les journaux Azure Monitor.
 - Lorsqu’une nouvelle version d’Azure HDInsight plus élevée est créée sur une base de données de metastore personnalisée existante, le système met à niveau le schéma du metastore, qui est irréversible sans restaurer la base de données à partir de la sauvegarde.
 - Si vous partagez un metastore sur plusieurs clusters, assurez-vous que tous les clusters utilisent la même version de HDInsight. Différentes versions d’Hive utilisent différents schémas de base de données de metastore. Par exemple, vous ne pouvez pas partager un metastore sur les clusters Hive versions 1.2 et 2.1. 
+- Dans HDInsight 4.0, Spark et Hive utilisent des catalogues indépendants pour accéder aux tables SparkSQL ou Hive. Les tables créées par Spark résident dans le catalogue Spark. Les tables créées par Hive résident dans le catalogue Hive. Dans HDInsight 3.6, Hive et Spark partageaient le même catalogue. L’intégration de Hive et Spark à HDInsight 4.0 s’appuie sur le connecteur Hive Warehouse Connector (HWC). Le connecteur HWC sert de pont entre Spark et Hive. [En savoir plus sur le connecteur Hive Warehouse Connector](../hdinsight/interactive-query/apache-hive-warehouse-connector.md)
 
 ##  <a name="apache-oozie-metastore"></a>Metastore Apache Oozie
 

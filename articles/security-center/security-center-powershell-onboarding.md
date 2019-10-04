@@ -3,23 +3,22 @@ title: Utiliser PowerShell pour intégrer Azure Security Center et protéger vot
 description: Ce document vous guide tout au long du processus d’intégration d’Azure Security Center à l’aide de cmdlets PowerShell.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/2/2018
-ms.author: rkarlin
-ms.openlocfilehash: 73043680ea7b8b63a329d0a457449b635b7b80f2
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.date: 10/02/2018
+ms.author: memildin
+ms.openlocfilehash: 8e2f7b87efe89166175748cec310f24575b7f102
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223748"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201224"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatiser l’intégration d’Azure Security Center à l’aide de PowerShell
 
@@ -42,7 +41,7 @@ Dans cet exemple, nous allons activer Azure Security Center sur un abonnement do
 
 6. Assignez les [stratégies de sécurité par défaut](tutorial-security-policy.md) d’Azure Security Center.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant d’exécuter les cmdlets Azure Security Center, vous devez effectuer les étapes suivantes :
 
@@ -101,7 +100,7 @@ Vous pouvez désormais utiliser ces cmdlets PowerShell avec des scripts d’auto
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur la façon d’utiliser PowerShell pour automatiser l’intégration à Azure Security Center, voir l’article suivant :
 
-* [Az.Security](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Security/Commands.Security/help/Az.Security.md).
+* [Az.Security](https://docs.microsoft.com/powershell/module/az.security).
 
 Pour en savoir plus sur Azure Security Center, voir l’article suivant :
 

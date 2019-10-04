@@ -1,21 +1,19 @@
 ---
 title: Guide de démarrage rapide Azure - Créer un objet blob dans le stockage d’objets à l’aide de JavaScript et d’HTML dans le navigateur
 description: Apprenez à utiliser une instance de BlobService pour télécharger, répertorier et supprimer des objets BLOB à l’aide de JavaScript dans une page HTML.
-services: storage
 keywords: stockage, javascript, html
-author: tamram
-ms.custom: mvc
+author: mhopkins-msft
+ms.author: mhopkins
+ms.date: 08/29/2019
 ms.service: storage
-ms.author: tamram
-ms.date: 11/14/2018
-ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: a5433284d9722ce907b962be7ba437ef32ad819c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.topic: quickstart
+ms.openlocfilehash: 3dbd78f9c233515c675cd511924b3d4600b72fbd
+ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245370"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173082"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -52,7 +50,7 @@ Vous utilisez ensuite Azure Cloud Shell pour créer un jeton de sécurité.
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>Créer une signature d’accès partagé
-La signature d’accès partagé (SAP) est utilisée par le code en cours d’exécution dans le navigateur pour autoriser les requêtes de stockage d’objets BLOB. À l’aide de la SAP, le client peut autoriser l’accès aux ressources de stockage sans disposer de la clé d'accès ou de la chaîne de connexion du compte. Pour plus d’informations sur la SAP, consultez [Utiliser des signatures d’accès partagé (SAP)](../common/storage-dotnet-shared-access-signature-part-1.md).
+La signature d’accès partagé (SAP) est utilisée par le code en cours d’exécution dans le navigateur pour autoriser les requêtes de stockage d’objets BLOB. À l’aide de la SAP, le client peut autoriser l’accès aux ressources de stockage sans disposer de la clé d'accès ou de la chaîne de connexion du compte. Pour plus d’informations sur la SAP, consultez [Utiliser des signatures d’accès partagé (SAP)](../common/storage-sas-overview.md).
 
 Vous pouvez créer une SAP à l’aide de l’interface de ligne de commande Azure via Azure Cloud Shell ou de l’Explorateur Stockage Azure. Le tableau suivant décrit les paramètres que vous devez configurer pour les valeurs afin de générer une SAP à l’aide de l’interface de ligne de commande.
 

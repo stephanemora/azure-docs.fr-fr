@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.openlocfilehash: 1bf60014b20f4cec29d661db4deb029fea4ab1d5
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547341"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60796317"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Choix du bon niveau tarifaire dans Azure Maps
 
@@ -29,7 +29,7 @@ Les niveaux tarifaires S0 et S1 gèrent différents débits de données. Avant
 
 | Fonctionnalité                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| Recherche (fwd/rev géocodage, points d’intérêt)  |        ✓           |     ✓    |
+| Recherche (géocodage av/ar, points d’intérêt)  |        ✓           |     ✓    |
 | Géocodage par lots (préversion)              |                   |     ✓    |
 | Polygones de recherche          |                   |     ✓    |
 | Routage                                 |        ✓           |     ✓    |

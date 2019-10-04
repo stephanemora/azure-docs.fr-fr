@@ -3,23 +3,25 @@ title: Sources de données prises en charge - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker extrait automatiquement des paires de questions-réponses à partir de contenu semi-structuré tel que des Questions fréquentes (FAQ), manuels de produits, instructions, documents de prise en charge et stratégies stockés sous forme de pages web, fichiers PDF ou fichiers de documents MS Word. Le contenu peut également être ajouté à la base de connaissances à partir de fichiers de contenu QnA structurés.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 03/26/2019
-ms.author: tulasim
-ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.topic: conceptual
+ms.date: 08/16/2019
+ms.author: diberry
+ms.openlocfilehash: 4e24246ec4ed30ec93bf8e113d659bc5e3600913
+ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578626"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71130117"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Sources de données pour le contenu QnA Maker
 
 QnA Maker extrait automatiquement des paires de questions-réponses à partir de contenu semi-structuré tel que des Questions fréquentes (FAQ), manuels de produits, instructions, documents de prise en charge et stratégies stockés sous forme de pages web, fichiers PDF ou fichiers de documents MS Word. Le contenu peut également être ajouté à la base de connaissances à partir de fichiers de contenu QnA structurés. 
+
+## <a name="data-types"></a>Types de données
 
 Le tableau ci-dessous récapitule les types de contenu et formats de fichiers pris en charge par QnA Maker.
 
@@ -32,11 +34,21 @@ Le tableau ci-dessous récapitule les types de contenu et formats de fichiers pr
 
 ## <a name="data-source-locations"></a>Emplacements des sources de données
 
-La plupart des emplacements de sources de données nécessaire fournir une URL publique ou aux fichiers qui ne nécessitent pas d’authentification. 
+Les emplacements des sources de données sont des **URL ou fichiers publics**, qui ne requièrent pas d’authentification. 
 
-[Emplacements de source de données SharePoint](../How-to/add-sharepoint-datasources.md) sont autorisés à fournir des fichiers authentifiés. Ressources SharePoint doivent être des fichiers, pas les pages web. 
+Si vous avez besoin d’une authentification pour votre source de données, envisagez les méthodes suivantes pour obtenir ces données dans QnA Maker :
 
-Si vous avez un fichier authentifié ou URL, une autre option consiste à télécharger le fichier à partir du site authentifié sur votre ordinateur local, puis ajoutez le fichier à partir de votre ordinateur à la base de connaissances. 
+* [Télécharger le fichier manuellement](#download-file-from-authenticated-data-source-location) et l’importer dans QnA Maker
+* Importer un fichier pour l’[emplacement SharePoint](#import-file-from-authenticated-sharepoint) authentifié 
+
+### <a name="download-file-from-authenticated-data-source-location"></a>Télécharger le fichier à partir d’un emplacement de source de données authentifié
+
+Si vous avez un fichier authentifié (hors d’un emplacement SharePoint authentifié) ou une URL authentifiée, une autre option consiste à télécharger le fichier sur votre ordinateur local à partir du site authentifié, puis à ajouter le fichier à la base de connaissances à partir de votre ordinateur local.
+
+### <a name="import-file-from-authenticated-sharepoint"></a>Importer un fichier d’un emplacement SharePoint authentifié 
+
+Les [emplacements de sources de données SharePoint](../How-to/add-sharepoint-datasources.md) sont autorisés à fournir des **fichiers** authentifiés. Les ressources SharePoint doivent être des fichiers, pas des pages web. Si l’URL se termine par une extension web, telle que **.ASPX**, elle n’est pas importée dans QnA Maker à partir de SharePoint.
+
 
 ## <a name="faq-urls"></a>URL de FAQ
 
@@ -133,9 +145,21 @@ Les QnA sous forme de fichiers *.txt*, *.tsv* ou *.xls* structurés peuvent éga
 
 Toutes les autres colonnes du fichier source sont ignorées.
 
+### <a name="example-of-structured-excel-file"></a>Exemple de fichier Excel structuré
+
 Voici un exemple de fichier *.xls* QnA structuré, avec du contenu HTML :
 
  ![Exemple de feuille Excel QnA structurée pour une base de connaissances](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Exemple de questions multiples avec réponse unique dans un fichier Excel
+
+Voici un exemple de fichier *.xls* QnA structuré, avec plusieurs questions pour une réponse unique :
+
+ ![Exemple de questions multiples avec réponse unique dans un fichier Excel](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
+Une fois le fichier importé, la paire question-réponse figure dans la base de connaissances, comme indiqué ci-dessous :
+
+ ![Capture d’écran de questions multiples avec réponse unique importées dans la base de connaissances](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## <a name="structured-data-format-through-import"></a>Format de données structurées via l’importation
 
@@ -150,14 +174,43 @@ L’importation d’une base de connaissances remplace le contenu de la base de 
 
 Si vous ne possédez aucun contenu pour alimenter la base de connaissances, vous pouvez ajouter du contenu QnA éditorial dans la base de connaissances QnA Maker. Découvrez comment mettre à jour votre base de connaissances [ici](../How-To/edit-knowledge-base.md).
 
+<a href="#formatting-considerations"></a>
+
 ## <a name="formatting-considerations"></a>Mise en forme - Éléments à prendre en compte
 
-Après l’importation d’un fichier ou d’une URL, celui-ci est converti en Markdown et stocké dans ce format. Si le processus de conversion ne convertit pas correctement les liens dans vos fichiers et les URL, vous devez modifier les questions et réponses dans la page **Editer**. 
+Après l’importation d’un fichier ou d’une URL, QnA Maker convertit et stocke votre contenu dans le [format Markdown](https://en.wikipedia.org/wiki/Markdown). Le processus de conversion ajoute de nouvelles lignes dans le texte, telles que `\n\n`. Une connaissance du format Markdown vous aide à comprendre le contenu converti et à gérer le contenu de votre base de connaissances. 
 
-|Format|Objectif|
-|--|--|
-|`\n\n`| Nouvelle ligne|
-|`\n*`|Point pour une liste ordonnée|
+Si vous ajoutez ou modifiez votre contenu directement dans votre base de connaissances, utilisez la **mise en forme Markdown** pour créer un contenu de texte enrichi ou modifiez le contenu du format Markdown qui est déjà dans la réponse. QnA Maker prend en charge une grande partie du format Markdown pour offrir des fonctionnalités de texte enrichi à votre contenu. Toutefois, l’application cliente, telle qu’un bot de chat, peut ne pas prendre en charge le même ensemble de formats Markdown. Il est important de tester l’affichage des réponses de l’application cliente. 
+
+Voici la liste des formats Markdown que vous pouvez utiliser dans QnA Maker : 
+
+|Objectif|Format|Exemple de Markdown|Rendu<br>tel qu’il est affiché dans le bot de chat|
+|--|--|--|--|
+Nouvelle ligne entre 2 phrases.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![nouvelle ligne entre 2 phrases](../media/qnamaker-concepts-datasources/format-newline.png)|
+|En-têtes de H1 à H6. Le nombre de `#` dénote de quel en-tête il s’agit. 1 `#` correspond à H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![format avec en-têtes Markdown](../media/qnamaker-concepts-datasources/format-headers.png)<br>![format avec en-têtes Markdown H1 à H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
+|Italique |`*text*`|`How do I create a bot with *QnA Maker*?`|![format en italique](../media/qnamaker-concepts-datasources/format-italics.png)|
+|Chaîne (gras)|`**text**`|`How do I create a bot with **QnA Maker**?`|![format avec un marquage renforcé pour le gras](../media/qnamaker-concepts-datasources/format-strong.png)|
+|URL du lien|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![format pour l’URL (lien hypertexte)](../media/qnamaker-concepts-datasources/format-url.png)|
+|*URL pour l’image publique|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![format de l’URL de l’image publique ](../media/qnamaker-concepts-datasources/format-image-url.png)|
+|Barré|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![format barré](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|Gras et italique|`***text***`|`How can I create a ***QnA Maker*** bot?`|![format pour le gras et l’italique](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
+|URL en gras pour le lien|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![format de l’URL en gras](../media/qnamaker-concepts-datasources/format-bold-url.png)|
+|URL en italiques pour le lien|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![format de l’URL en italique](../media/qnamaker-concepts-datasources/format-url-italics.png)|
+|Ajouter un caractère d’échappement devant les symboles Markdown|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![format de l’URL en italique](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
+|Liste triée|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>L’exemple précédent utilise la numérotation automatique intégrée au Markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>L’exemple précédent utilise la numérotation explicite.|![format de la liste triée](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
+|Liste non triée|`\n * item1 \n * item2`<br>or<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![format de la liste triée](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
+|Listes imbriquées|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Vous pouvez imbriquer des listes triées et non triées ensemble. L’onglet, `\t`, indique le niveau de mise en retrait de l’élément enfant.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![format de la liste non triée imbriquée](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![format de la liste triée imbriquée](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+
+*QnA Maker ne traite pas du tout l’image. C’est le rôle de l’application cliente d’effectuer le rendu de l’image. 
+
+Si vous souhaitez ajouter du contenu à l’aide des API de mise à jour ou de remplacement de la base de connaissances, et si le contenu ou le fichier contiennent des balises HTML, vous pouvez conserver le code HTML de votre fichier en veillant à ce que l’ouverture et la fermeture des balises soient converties au format encodé.
+
+| Conserver le code HTML  | Représentation de la requête d’API  | Représentation dans la base de connaissances |
+|-----------|---------|-------------------------|
+| OUI | \&lt;br\&gt; | &lt;br&gt; |
+| OUI | \&lt;h3\&gt;header\&lt;/h3\&gt; | &lt;h3&gt;header&lt;/h3&gt; |
+
+En outre, CR LF (\r\n) est converti en \n dans la base de connaissances. LF (\n) est conservé tel quel. Si vous souhaitez échapper une séquence d’échappement telle que \t ou \n, vous pouvez utiliser la barre oblique inverse, par exemple : « \\\\r\\\\n » et « \\\\t ».
 
 ## <a name="editing-your-knowledge-base-locally"></a>Modification de votre base de connaissances en local
 

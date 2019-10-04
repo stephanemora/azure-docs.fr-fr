@@ -1,6 +1,6 @@
 ---
-title: Utilisation de Java pour interroger Azure SQL Database | Microsoft Docs
-description: Explique comment utiliser Java pour créer un programme qui se connecte à une base de données SQL Azure et pour l’interroger à l’aide d’instructions T-SQL.
+title: Utiliser Java pour interroger une base de données Azure SQL Database
+description: Explique comment utiliser Java pour créer un programme qui se connecte à une base de données Azure SQL et pour l’interroger à l’aide d’instructions T-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,24 +9,24 @@ ms.topic: quickstart
 author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2d9ce34d52d08b4dd38caaadfab48b7a69870e9a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.custom: seo-java-july2019. seo-java-august2019
+ms.openlocfilehash: 8940e13dcc6d6287984ba1cc7c7510768b4e232f
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447920"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69624083"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Java pour interroger une base de données SQL Azure
+# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>Démarrage rapide : Utilisez Java pour vous connecter à une base de données Azure SQL et l’interroger.
 
-Cet article explique comment utiliser [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) pour se connecter à une base de données SQL Azure. Vous pouvez ensuite utiliser les instructions T-SQL pour interroger des données.
+Cet article explique comment utiliser [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) pour se connecter à une base de données Azure SQL. Vous pouvez ensuite utiliser les instructions T-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cet exemple, vérifiez que les conditions préalables ci-dessous sont bien remplies :
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
@@ -37,8 +37,7 @@ Pour suivre cet exemple, vérifiez que les conditions préalables ci-dessous son
   |||[Connectivité à partir d’une machine locale](sql-database-managed-instance-configure-p2s.md)
   |Charger des données|Adventure Works chargé dans le cadre du guide de démarrage rapide|[Restaurer Wide World Importers](sql-database-managed-instance-get-started-restore.md)
   |||Restaurer ou importer Adventure Works à partir du fichier [BACPAC](sql-database-import.md) disponible sur [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
-
+  
   > [!IMPORTANT]
   > Les scripts fournis dans cet article utilisent la base de données Adventure Works. Avec une instance managée, vous devez importer la base de données Adventure Works dans une base de données d’instance, ou modifier les scripts fournis dans cet article pour utiliser la base de données Wide World Importers.
 
@@ -52,11 +51,11 @@ Pour suivre cet exemple, vérifiez que les conditions préalables ci-dessous son
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données SQL Azure. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-2. Accédez à la page **Bases de données SQL** ou **Instances managées SQL**.
+2. Sélectionnez **Bases de données SQL** ou ouvrez la page **Instances managées SQL**.
 
 3. Dans la page **Vue d’ensemble**, vérifiez le nom complet du serveur à côté de **Nom du serveur** pour une base de données, ou le nom complet du serveur à côté de **Hôte** pour une instance managée. Pour copier le nom du serveur ou de l’hôte, pointez dessus et sélectionnez l’icône **Copier**. 
 
@@ -168,7 +167,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)  
+- [Concevoir votre première base de données Azure SQL](sql-database-design-first-database.md)  
 
 - [Pilote JDBC Microsoft pour SQL Server](https://github.com/microsoft/mssql-jdbc)  
 

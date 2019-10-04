@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à AnswerHub | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à AnswerHub | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AnswerHub.
 services: active-directory
 documentationCenter: na
@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d6ff44a8d760150df491b67ee56d62c4daff31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ccf3894daf71be0defe4271a08ec5e8d963e0d34
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882788"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227495"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutoriel : Intégration d’Azure Active Directory à AnswerHub
+# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Didacticiel : Intégration d’Azure Active Directory à AnswerHub
 
 Dans ce didacticiel, vous allez apprendre à intégrer AnswerHub à Azure Active Directory (Azure AD).
 L’intégration d’AnswerHub à Azure AD offre ces avantages :
@@ -80,7 +80,7 @@ Pour configurer et tester l’authentification unique Azure AD avec AnswerHub, 
 2. [Configurer l’authentification unique AnswerHub](#configure-answerhub-single-sign-on) pour configurer les paramètres de l’authentification unique côté application.
 3. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) appelé Britta Simon.
 4. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. [Créer un utilisateur de test AnswerHub](#create-answerhub-test-user) qui correspond et est lié à l’utilisateur de test Azure AD.
+5. Créer un utilisateur de test AnswerHub qui correspond et est lié à l’utilisateur de test Azure AD.
 6. [Tester l’authentification unique](#test-single-sign-on) pour vérifier que la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
@@ -184,7 +184,7 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
     a. Dans la zone **Nom**, entrez **BrittaSimon**.
   
-    b. Dans la zone **Nom d’utilisateur**, entrez **brittasimon@<votre_domaine_d’entreprise.extension>**.  
+    b. Dans la zone **Nom d’utilisateur**, entrez **brittasimon\@<votre_domaine_d’entreprise.extension>** .  
     Par exemple : BrittaSimon@contoso.com.
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
@@ -193,7 +193,7 @@ Dans cette section, créez un utilisateur de test nommé Britta Simon dans le po
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez configurer Britta Simon pour utiliser l’authentification unique Azure AD en lui accordant l’accès à AnswerHub.
+Dans cette section, vous allez configurer l’utilisateur Britta Simon pour utiliser l’authentification unique Azure AD en lui accordant l’accès à AnswerHub.
 
 **Pour attribuer l’utilisateur de test Azure AD :**
 

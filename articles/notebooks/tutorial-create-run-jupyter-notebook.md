@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258525"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751754"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutoriel : Créer et exécuter un notebook Jupyter avec Python
 
@@ -49,7 +49,7 @@ Vous trouverez le notebook terminé sur [GitHub - Exemples Azure Notebooks](http
 
 ## <a name="create-the-data-file"></a>Créer le fichier de données
 
-Le modèle de régression linéaire que vous créez dans le notebook trace des données à partir d’un fichier dans votre projet appelé *cricket_chirps.csv*. Vous pouvez créer ce fichier en le copiant à partir de [GitHub - exemples de blocs-notes Azure](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), ou en entrant les données directement. Les sections suivantes décrivent les deux approches.
+Le modèle de régression linéaire que vous créez dans le notebook trace des données à partir d’un fichier dans votre projet appelé *cricket_chirps.csv*. Vous pouvez créer ce fichier en le copiant à partir de [GitHub - Exemples Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), ou en entrant les données directement. Les sections suivantes décrivent les deux approches.
 
 ### <a name="upload-the-data-file"></a>Charger le fichier de données
 
@@ -307,7 +307,7 @@ Si vous voyez des résultats inattendus (ce qui arrivera probablement !), véri
 
     With two independent variables you can imagine a three-dimensional plot with a line fitted to the data. At three or more independent variables, however, it's no longer easy to visualize the fit, but you get the idea. In the end, it's all just mathematics, which a computer can handle easily without having to form a mental picture!
 
-    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept`).
+    The regressor's `fit` method here creates the line, which algebraically is of the form `y = x*b1 + b0`, where b1 is the coefficient or slope of the line (which you can get to through `regressor.coef_`), and b0 is the intercept of the line at x=0 (which you can get to through `regressor.intercept_`).
     ```
 
 1. Cellule de code ; quand elle est exécutée, cette cellule produit la sortie `LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,normalize=False)`.
@@ -326,7 +326,7 @@ Si vous voyez des résultats inattendus (ce qui arrivera probablement !), véri
 
     With the regressor in hand, we can predict the test set results using its `predict` method. That method takes a vector of independent variables for which you want predictions.
 
-    Because the regressor is fit to the data by virtue of `coef_` and `intercept_` and `coef_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
+    Because the regressor is fit to the data by virtue of `coef_` and `intercept_`, a prediction is the result of `coef_ * x + intercept_`. (Indeed, `predict(0)` returns `intercept_` and `predict(1)` returns `intercept_ + coef_`.)
 
     In the code, the `y_test` matrix (from when we split the set) contains the real observations. `y_pred` assigned here contains the predictions for the same `X_test` inputs. It's not expected that the test or training points exactly fit the regression; the regression is trying to find the model that we can use to make predictions with new observations of the independent variables.
     ```

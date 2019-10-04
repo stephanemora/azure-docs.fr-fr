@@ -3,23 +3,17 @@ title: Collecter les compteurs de performances dans Azure Cloud Services | Micro
 description: Découvrez comment découvrir, utiliser et créer des compteurs de performances dans Azure Cloud Services avec Diagnostics Azure et Application Insights.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: ''
+author: georgewallace
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/02/2018
-ms.author: jeconnoc
-ms.openlocfilehash: 68101be211335d51eb4bf99361ea36b73fa19218
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485397"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68358936"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Collecter les compteurs de performances pour votre Azure Cloud Service
 
@@ -297,4 +291,4 @@ Comme indiqué précédemment, les compteurs de performances à collecter sont d
 - [Application Insights pour Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Compteurs de performances système dans Application Insights](../azure-monitor/app/performance-counters.md)
 - [Spécification d’un chemin d’accès au compteur](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Schéma Azure Diagnostics - Compteurs de performances](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+- [Schéma Diagnostics Azure - Compteurs de performances](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

@@ -3,16 +3,16 @@ title: Vue d’ensemble d’Azure Blueprint
 description: Découvrez comment Azure Blueprints vous permet de créer, de définir et de déployer des artefacts dans votre environnement Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 631aa956573fd611988030af8ea7e34c6c266045
+ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259420"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70146096"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Vue d’ensemble du service Azure Blueprints
 
@@ -54,7 +54,7 @@ Un blueprint est composé _d’artefacts_. Les blueprints prennent actuellement 
 
 |Ressource  | Options de hiérarchie| Description  |
 |---------|---------|---------|
-|Groupes de ressources | Abonnement | Crée un groupe de ressources pour une utilisation par d’autres artefacts dans le blueprint.  Ces groupes de ressources réservés vous permettent d’organiser les ressources en totale conformité avec la structure souhaitée. Ils fournissent aussi un limiteur d’étendue pour les artefacts de stratégie et d’attribution de rôle inclus, et des modèles Azure Resource Manager. |
+|Groupes de ressources | Subscription | Crée un groupe de ressources pour une utilisation par d’autres artefacts dans le blueprint.  Ces groupes de ressources réservés vous permettent d’organiser les ressources en totale conformité avec la structure souhaitée. Ils fournissent aussi un limiteur d’étendue pour les artefacts de stratégie et d’attribution de rôle inclus, et des modèles Azure Resource Manager. |
 |Modèle Azure Resource Manager | Abonnement, groupe de ressources | Les modèles sont utilisés pour composer des environnements complexes. Exemples d’environnements : une batterie de serveurs SharePoint, une configuration de l’état Azure Automation ou un espace de travail Log Analytics. |
 |Affectation de rôle | Abonnement, groupe de ressources | Permet l’affectation d’une stratégie ou d’une initiative à l’abonnement auquel le blueprint est affecté. La stratégie ou l’initiative doit se trouver à l’intérieur de l’étendue de l’emplacement de définition du blueprint. Si la stratégie ou l’initiative comporte des paramètres, ceux-ci sont affectés au moment de la création du blueprint ou durant son affectation. |
 |Attribution de rôle | Abonnement, groupe de ressources | Ajoutez un utilisateur ou un groupe existant à un rôle intégré pour vous assurer que les personnes adéquates disposent d’un accès approprié à vos ressources. Vous pouvez définir des attributions de rôle pour l’ensemble de l’abonnement ou les imbriquer dans un groupe de ressources spécifique inclus dans le blueprint. |
@@ -79,7 +79,7 @@ Quand vous créez un blueprint, celui-ci est initialement en mode **Brouillon**.
 
 ## <a name="blueprint-assignment"></a>Affectation de blueprint
 
-Chaque **Version** **Publiée** d’un blueprint peut être affectée à un abonnement existant. Dans le portail, le blueprint par défaut correspond à la dernière **Version** **Publiée**. Si des paramètres d’artefact (ou des paramètres de blueprint) sont présents, ils sont définis durant le processus d’affectation.
+Chaque **Version** **publiée** d’un blueprint peut être attribuée à un abonnement existant (le nom ne doit pas excéder 90 caractères). Dans le portail, le blueprint par défaut correspond à la dernière **Version** **Publiée**. Si des paramètres d’artefact (ou des paramètres de blueprint) sont présents, ils sont définis durant le processus d’affectation.
 
 ## <a name="permissions-in-azure-blueprints"></a>Autorisations dans Azure Blueprint
 
@@ -106,10 +106,30 @@ Pour affecter ou annuler l’affectation d’un blueprint, votre compte doit avo
 > [!NOTE]
 > Comme les affectations de blueprint sont créées sur un abonnement, les autorisations d’affectation de blueprint et d’annulation d’affectation de blueprint doivent être accordées sur une étendue d’abonnement ou être héritées dans une étendue d’abonnement.
 
-Toutes les autorisations ci-dessus sont incluses dans le rôle **Propriétaire**. Le rôle **Contributeur** est autorisé à créer et supprimer des blueprints, mais pas à en affecter. Si ces rôles intégrés ne répondent pas à vos besoins de sécurité, songez à créer un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
+Les rôles intégrés suivants sont disponibles :
+
+|Rôle RBAC | Description |
+|-|-|
+|[Propriétaire](../../role-based-access-control/built-in-roles.md#owner) | En plus d’autres autorisations, inclut toutes les autorisations relatives à Azure Blueprint. |
+|[Contributeur](../../role-based-access-control/built-in-roles.md#contributor) | En plus d’autres autorisations, permet de créer et supprimer des définitions de blueprint, mais ne dispose pas des autorisations d’affectation de blueprint. |
+|[Contributeur blueprint](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Peut gérer les définitions blueprint, mais ne peut pas les affecter. |
+|[Opérateur blueprint](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Peut affecter des blueprints publiés existants, mais ne peut pas créer de définitions de blueprints. L’affectation de blueprints ne fonctionne que si elle est effectuée avec une identité managée attribuée par l’utilisateur. |
+
+Si ces rôles intégrés ne répondent pas à vos besoins de sécurité, songez à créer un [rôle personnalisé](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Le principal de service pour Azure Blueprint nécessite le rôle **Propriétaire** sur l’abonnement affecté pour pouvoir activer le déploiement. Si vous utilisez le portail, ce rôle est automatiquement accordé et révoqué pour le déploiement. Si vous utilisez l’API REST, ce rôle doit être accordé manuellement, mais il est toujours automatiquement révoqué une fois le déploiement terminé.
+> Si vous utilisez une identité managée affectée par le système, le principal de service pour Azure Blueprint nécessite le rôle **Propriétaire** sur l’abonnement affecté pour pouvoir activer le déploiement. Si vous utilisez le portail, ce rôle est automatiquement accordé et révoqué pour le déploiement. Si vous utilisez l’API REST, ce rôle doit être accordé manuellement, mais il est toujours automatiquement révoqué une fois le déploiement terminé. Si vous utilisez une identité managée affectée par l’utilisateur, seul l’utilisateur qui crée l’attribution de blueprint nécessite les autorisations de **Propriétaire**.
+
+## <a name="naming-limits"></a>Limites de nommage
+
+Les limitations suivantes existent pour certains champs :
+
+|Object|Champ|Caractères autorisés|Bande passante Longueur|
+|-|-|-|-|
+|Blueprint|Nom|lettres, chiffres, traits d’union et points|48|
+|Blueprint|Version|lettres, chiffres, traits d’union et points|20|
+|Affectation de blueprint|Nom|lettres, chiffres, traits d’union et points|90|
+|Artefacts de blueprint|Nom|lettres, chiffres, traits d’union et points|48|
 
 ## <a name="video-overview"></a>Présentation vidéo
 

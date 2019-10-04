@@ -10,16 +10,15 @@ ms.assetid: 2e3b73ef-d223-44fe-9280-c3af3fd4a030
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0f24b9c6ce2aeb318040b61c29d7e14c01886c46
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903758"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073307"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modèles Profil utilisateur dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
@@ -115,8 +114,8 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |`applications`|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications associées à l’utilisateur actif.|  
 |`changePasswordUrl`|string|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
 |`changeNameOrEmailUrl`|string|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
-|`canChangePassword`|booléenne|Indique si l’utilisateur actif peut changer son mot de passe.|  
-|`isSystemUser`|booléenne|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
+|`canChangePassword`|boolean|Indique si l’utilisateur actif peut changer son mot de passe.|  
+|`isSystemUser`|boolean|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   
@@ -336,8 +335,8 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |`applications`|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications associées à l’utilisateur actif.|  
 |`changePasswordUrl`|string|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
 |`changeNameOrEmailUrl`|string|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
-|`canChangePassword`|booléenne|Indique si l’utilisateur actif peut changer son mot de passe.|  
-|`isSystemUser`|booléenne|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
+|`canChangePassword`|boolean|Indique si l’utilisateur actif peut changer son mot de passe.|  
+|`isSystemUser`|boolean|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   
@@ -499,8 +498,8 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 |`applications`|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications associées à l’utilisateur actif.|  
 |`changePasswordUrl`|string|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
 |`changeNameOrEmailUrl`|string|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
-|`canChangePassword`|booléenne|Indique si l’utilisateur actif peut changer son mot de passe.|  
-|`isSystemUser`|booléenne|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
+|`canChangePassword`|boolean|Indique si l’utilisateur actif peut changer son mot de passe.|  
+|`isSystemUser`|boolean|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
   
 ### <a name="sample-template-data"></a>Données d’un exemple de modèle  
   

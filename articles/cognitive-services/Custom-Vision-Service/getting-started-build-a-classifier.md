@@ -1,38 +1,39 @@
 ---
-title: Créer un classifieur - Service Vision personnalisée
-titlesuffix: Azure Cognitive Services
-description: Découvrez comment utiliser le site web Vision personnalisée pour créer un modèle de classification d’images.
+title: 'Démarrage rapide : Créer un classifieur - Service Custom Vision'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le site web Custom Vision pour créer un modèle de classification d’images.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
-ms.date: 04/03/2019
+ms.topic: quickstart
+ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: dfc137375e35d0d13a34ff45b0c6639bcf6784df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051465"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561060"
 ---
-# <a name="how-to-build-a-classifier-with-custom-vision"></a>Comment créer un classifieur avec Custom Vision
+# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Démarrage rapide : Comment créer un classifieur avec Custom Vision
 
-Pour utiliser le service Vision personnalisée pour la classification d’images, vous devez d’abord créer un modèle de classifieur. Dans ce guide, vous découvrez comment créer un classifieur via le site web Vision personnalisée.
+Dans ce guide de démarrage rapide, vous découvrez comment créer un classifieur via le site web Custom Vision. Une fois que vous avez créé un modèle de classifieur, vous pouvez utiliser le service Custom Vision pour la classification d’images.
 
-## <a name="prerequisites"></a>Conditions préalables
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-- Un abonnement Azure valide. [Créez un compte](https://azure.microsoft.com/free/) gratuitement.
+## <a name="prerequisites"></a>Prérequis
+
 - Un ensemble d’images avec lequel entraîner votre classifieur. Reportez-vous aux conseils ci-dessous pour le choix des images.
 
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Créer des ressources Custom Vision dans le portail Azure
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Créer des ressources de Vision personnalisée dans le portail Azure
-Pour utiliser le service Custom Vison, vous devez créer des ressources de formation et de prédiction Custom Vision dans le [portail Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Des ressources de formation et de prédiction sont ainsi créées. 
+Pour utiliser le service Custom Vison, vous devez créer des ressources d’entraînement et de prédiction Custom Vision dans le portail Azure. Remplissez la boîte de dialogue de la page de [création Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) pour créer une ressource d’entraînement et une ressource de prédiction. 
 
 ## <a name="create-a-new-project"></a>Création d'un projet
 
-Dans votre navigateur web, accédez à la [page web Custom Vision](https://customvision.ai) et sélectionnez __Sign in__ (Se connecter). Connectez-vous avec le même compte que vous avez utilisé pour vous connecter au portail Azure.
+Dans votre navigateur web, accédez à la [page web Custom Vision](https://customvision.ai) et sélectionnez __Sign in__ (Se connecter). Connectez-vous avec le même compte que celui utilisé pour vous connecter au portail Azure.
 
 ![Image de la page de connexion](./media/browser-home.png)
 
@@ -44,7 +45,7 @@ Dans votre navigateur web, accédez à la [page web Custom Vision](https://custo
 1. Entrez un nom et une description pour le projet. Sélectionnez ensuite un groupe de ressources. Si votre compte de connexion est associé à un compte Azure, la liste déroulante Resource Group (Groupe de ressources) affiche tous vos groupes de ressources Azure qui incluent une ressource du service Vision personnalisée. 
 
    > [!NOTE]
-   > Si aucun groupe de ressources n’est disponible, vérifiez que vous êtes connecté à [customvision.ai](https://customvision.ai) avec le même compte que vous permet de se connecter à la [Azure portal](https://portal.azure.com/). En outre, assurez-vous d'avoir sélectionné le même « Répertoire » dans le portail de Custom Vision que celui du portail Azure où se trouvent vos ressources Custom Vision. Dans les deux sites, vous pouvez sélectionner votre répertoire à partir du menu déroulant de compte situé en haut à droite de l’écran. 
+   > Si aucun groupe de ressources n’est disponible, confirmez vous être connecté à [customvision.ai](https://customvision.ai) avec le même compte que celui utilisé pour vous connecter au [portail Azure](https://portal.azure.com/). En outre, assurez-vous d'avoir sélectionné le même « Répertoire » dans le portail de Custom Vision que celui du portail Azure où se trouvent vos ressources Custom Vision. Dans les deux sites, vous pouvez sélectionner votre répertoire à partir du menu déroulant de compte situé en haut à droite de l’écran. 
 
 1. Sélectionnez __Classification__ sous __Project Types__ (Types de projets). Ensuite, sous __Classification Types__ (Types de classifications), choisissez **Multilabel** (Multi-étiquette) ou **Multiclass** (Multiclasse), en fonction de votre cas d’utilisation. La classification multi-étiquette applique un nombre quelconque de vos étiquettes à une image (zéro ou plus), tandis que la classification multiclasse trie les images et les classe dans une seule catégorie (chaque image que vous soumettez se voit appliquer l’étiquette la plus probable). Vous pourrez changer ultérieurement le type de classification si vous le souhaitez.
 
@@ -62,21 +63,7 @@ Dans votre navigateur web, accédez à la [page web Custom Vision](https://custo
 
 ## <a name="choose-training-images"></a>Choisir les images d’entraînement
 
-Nous vous recommandons d’utiliser au moins 30 images par étiquette dans le jeu d’entraînement initial. Vous allez également collecter quelques images supplémentaires pour tester votre modèle une fois qu’il est entraîné.
-
-Pour entraîner votre modèle efficacement, utilisez des images avec une variété de visuels. Sélectionnez des images dont les éléments suivants varient :
-* angle de l’appareil photo
-* éclairage
-* background
-* style de visuel
-* objets individuels/groupés
-* size
-* Type
-
-En outre, vérifiez que toutes vos images d’entraînement respectent les critères suivants :
-* format .jpg, .png ou .bmp
-* taille ne dépassant pas 6 Mo (4 Mo pour les images de prédiction)
-* le côté le plus court ne doit pas comporter moins de 256 pixels ; les images d’une dimension inférieure sont automatiquement mises à l’échelle par le service Vision personnalisée
+[!INCLUDE [choose training images](includes/choose-training-images.md)]
 
 ## <a name="upload-and-tag-images"></a>Charger et étiqueter des images
 
@@ -118,9 +105,7 @@ Une fois l’entraînement terminé, les performances du modèle sont estimées 
 
 ### <a name="probability-threshold"></a>Seuil de probabilité
 
-Notez le curseur **Probability Threshold** (Seuil de probabilité) dans le volet gauche de l’onglet **Performance**. Il s’agit du seuil pour qu’une probabilité prévue soit considérée comme correcte lors du calcul de la précision et du rappel.
-
-L’interprétation des appels de prédiction avec un seuil de probabilité élevé tend à retourner des résultats avec une précision élevée au détriment du rappel (les classifications trouvées sont correctes, mais beaucoup n’ont pas été trouvées) ; un seuil de probabilité faible a l’effet contraire (la plupart des classifications réelles ont été trouvées, mais il existe des faux positifs dans cet ensemble). En ayant ceci à l’esprit, vous devez définir le seuil de probabilité en fonction des besoins spécifiques de votre projet. Ultérieurement, sur le côté client, vous devez utiliser la même valeur de seuil de probabilité comme filtre lors de la réception des résultats de la prédiction à partir du modèle.
+[!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
 ## <a name="manage-training-iterations"></a>Gérer les itérations d’entraînement
 
@@ -128,7 +113,8 @@ Chaque fois vous entraînez votre classifieur, vous créez une nouvelle _itérat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide, vous avez découvert comment créer et entraîner un modèle de classification d’images avec le site web Vision personnalisée. Vous obtenez ensuite plus d’informations sur le processus itératif d’amélioration de votre modèle.
+Dans ce guide de démarrage rapide, vous avez découvert comment créer et entraîner un modèle de classification d’images avec le site web Custom Vision. Vous obtenez ensuite plus d’informations sur le processus itératif d’amélioration de votre modèle.
 
-[Tester et réentraîner un modèle](test-your-model.md)
+> [!div class="nextstepaction"]
+> [Tester et réentraîner un modèle](test-your-model.md)
 

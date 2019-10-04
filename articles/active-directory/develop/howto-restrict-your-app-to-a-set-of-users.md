@@ -4,7 +4,7 @@ description: Découvrez comment limiter l’accès à vos applications inscrites
 services: active-directory
 documentationcenter: ''
 author: kalyankrishna1
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b76a25b3c5c2c3ce4dc4217389706a4b24d837
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a51c49633e68fdc5f9afd4bf0205adaa625940ff
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210286"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812962"
 ---
 # <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Activation Limiter votre application à un ensemble d’utilisateurs
 
@@ -47,6 +47,10 @@ La possibilité de limiter une application à un ensemble spécifique d’utilis
 
 ## <a name="update-the-app-to-enable-user-assignment"></a>Mettre à jour l’application pour permettre l’affectation d’utilisateurs
 
+Il existe deux façons de créer une application avec l’affectation d’utilisateurs activée. L’une requiert le rôle d’**administrateur général**, mais pas le second.
+
+### <a name="enterprise-applications-requires-the-global-adminstrator-role"></a>Applications d’entreprise (nécessite le rôle d’administrateur général)
+
 1. Accédez au [**Portail Azure**](https://portal.azure.com/) et connectez-vous tant **qu’administrateur général**.
 1. Dans la barre supérieure, sélectionnez le compte connecté. 
 1. Sous **Répertoire**, sélectionnez le locataire Azure AD où l’application sera inscrite.
@@ -62,6 +66,19 @@ La possibilité de limiter une application à un ensemble spécifique d’utilis
 
 1. Dans la liste qui s’affiche, sélectionnez l’application à laquelle vous souhaitez affecter un utilisateur ou un groupe de sécurité.
 1. Sur la page **Vue d’ensemble** de l’application, sélectionnez **Propriétés** dans le menu de navigation de gauche de l’application.
+1. Recherchez le paramètre **Affectation utilisateur requise?** et définissez-le sur **Oui**. Quand cette option est définie sur **Oui**, les utilisateurs doivent tout d’abord être affectés à cette application avant de pouvoir y accéder.
+1. Sélectionnez **Enregistrer** pour enregistrer cette modification de la configuration.
+
+### <a name="app-registration"></a>Inscription d'application
+
+1. Accéder au [**portail Azure**](https://portal.azure.com/).
+1. Dans la barre supérieure, sélectionnez le compte connecté. 
+1. Sous **Répertoire**, sélectionnez le locataire Azure AD où l’application sera inscrite.
+1. Dans le menu de navigation à gauche, sélectionnez **Azure Active Directory**.
+1. Dans le volet **Azure Active Directory**, sélectionnez **Inscriptions d’applications** dans le menu de navigation de gauche **d’Azure Active Directory**.
+1. Créez ou sélectionnez l’application que vous souhaitez gérer. Vous devez être **propriétaire** de cette inscription d’application.
+1. Dans la page **Vue d'ensemble** de l’application, suivez le lien **Application gérée dans l’annuaire local** sous les éléments essentiels en haut de la page. Cela vous permet de vous connecter à l’_application d’entreprise gérée_ de l’inscription de votre application.
+1. Dans le panneau de navigation de gauche, sélectionnez **Propriétés**.
 1. Recherchez le paramètre **Affectation utilisateur requise?** et définissez-le sur **Oui**. Quand cette option est définie sur **Oui**, les utilisateurs doivent tout d’abord être affectés à cette application avant de pouvoir y accéder.
 1. Sélectionnez **Enregistrer** pour enregistrer cette modification de la configuration.
 

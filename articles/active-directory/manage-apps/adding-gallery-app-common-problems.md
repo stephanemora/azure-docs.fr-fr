@@ -3,8 +3,8 @@ title: Problème lors de l’ajout d’une application de la galerie Azure AD | 
 description: Découvrez les problèmes courants auxquels les utilisateurs sont confrontés lors de l’ajout d’applications de la galerie Azure AD et ce que vous pouvez faire pour les résoudre
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853169"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65784423"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problème lors de l’ajout d’une application de la galerie Azure AD
 
@@ -99,7 +99,7 @@ Consultez les descriptions suivantes pour plus d’informations sur les notifica
 
 - **UPN** : utilisateur qui a effectué l’opération
 
-  -   Exemple – **tperkins\@f128.info**
+  -   Example : **tperkins\@f128.info**
 
 - **ID de locataire** : ID unique du locataire dont l’utilisateur ayant effectué l’opération était membre
 
@@ -125,7 +125,7 @@ Consultez les descriptions suivantes pour plus d’informations sur les notifica
 
 -   **Détails** : description détaillée de ce qui s’est produit suite à l’opération
 
-    -   Exemple – **url interne `https://bing.com/` n’est pas valide car elle est déjà en cours d’utilisation**
+    -   Exemple : **L’URL interne `https://bing.com/` n’est pas valide car elle est déjà en cours d’utilisation**
 
 -   **Erreur de copie** : cliquez sur l **’icône de copie** à droite de la zone de texte **Erreur de copie** pour copier tous les détails de la notification afin de les partager avec le support technique ou du groupe de produits 
 -   ingénierie

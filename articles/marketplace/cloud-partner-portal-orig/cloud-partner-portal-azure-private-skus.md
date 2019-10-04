@@ -1,25 +1,18 @@
 ---
-title: Références SKU et plans privés | Microsoft Docs
+title: Références SKU et plans privés | Place de marché Azure
 description: Comment utiliser des références SKU privées pour gérer la disponibilité des offres.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: dcc8b9fef75ba13b607d7fdda5bd55cc710165b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 08/15/2019
+ms.author: pabutler
+ms.openlocfilehash: 940b50cf4a04abacd4d7be2104dd97fb8b3db736
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837012"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883114"
 ---
 <a name="private-skus-and-plans"></a>Références SKU et plans privés
 ============
@@ -54,13 +47,11 @@ Si la référence SKU est marquée comme privée et que l’offre comporte d’a
 <a name="select-an-image"></a>Sélectionner une image
 ------------------
 
-Vous pouvez fournir de nouveaux disques à la référence SKU privée ou réutiliser les disques fournis à une autre référence SKU, en vous contentant de modifier la tarification ou la description. Pour réutiliser les disques, répondez **Oui** à la question « Cette référence SKU réutilise-t-elle des images provenant d’une référence SKU publique ? ».
+Vous pouvez fournir de nouveaux disques à la référence SKU privée ou réutiliser les disques fournis à une autre référence SKU, en vous contentant de modifier la tarification ou la description. Pour réutiliser les disques, répondez **Oui** à la question « Cette référence SKU réutilise-t-elle une image provenant d’une référence SKU publique ? ».
 
-![Indiquer que les images sont réutilisées](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
+![Indiquer la réutilisation des images](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
 
-Après avoir confirmé que la référence SKU réutilise les images d'une autre référence SKU, vous devez identifier la source des images.
-
-Les invites de la capture d'écran suivante montrent comment identifier que la référence SKU privée réutilise les images de la référence SKU sélectionnée :
+Après avoir confirmé que la référence SKU réutilise les images, sélectionnez la référence SKU source ou *de base* pour les images :
 
 ![Sélectionner une image](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
 
@@ -91,15 +82,93 @@ Exemple de contenu du fichier CSV :
 
 Lorsque vous basculez du mode de saisie manuelle vers le mode de chargement du fichier CSV, ou inversement, l'ancienne liste d'ID d'abonnement avec accès à la référence SKU n'est pas conservée. Un avertissement s'affiche et la liste n'est remplacée que lors de l'enregistrement de l'offre.
 
-<a name="sync-private-subscriptions"></a>Synchroniser les abonnements privés
+<a name="managing-private-audiences"></a>Gestion des audiences privées
 -------------------------
 
-Lorsque vous ajoutez des abonnements à une offre publiée avec une référence SKU ou un plan privé, il est inutile de republier l’offre pour ajouter les informations relatives à l’audience. Pour ajouter l’audience, utilisez simplement un ID d’abonnement Azure (plans et références SKU) ou l’ID client (plans uniquement).
+**Pour mettre à jour l’audience sans avoir à republier la totalité de l’offre, vous devez apporter les modifications souhaitées à l’audience (à l’aide de l’interface utilisateur ou de l’API), puis lancer l’action « Synchroniser les audiences privées ».**
 
-<a name="previewing-private-offers"></a>Préversion des offres privées
+Si votre audience est composée de 10 abonnements ou moins, vous pouvez la gérer entièrement à l’aide de l’interface utilisateur du portail Cloud Partner (CPP).
+
+Si votre audience contient plus de 10 abonnements, vous pouvez la gérer à l’aide d’un fichier CSV que vous pouvez charger sur l’interface utilisateur du portail CPP ou à l’aide de l’API.
+
+Si vous utilisez l’API et que vous ne souhaitez pas conserver un fichier CSV, vous pouvez gérer l’audience directement à l’aide de l’API conformément aux instructions ci-dessous.
+
+> [!NOTE]
+> Utilisez l’ID d’abonnement Azure (plans et références SKU) ou l’ID de locataire (plans uniquement) pour ajouter une audience à votre offre privée.
+
+###  <a name="managing-subscriptions-with-the-api"></a>Gestion des abonnements avec l’API
+
+Vous pouvez utiliser l’API pour charger un fichier CSV ou gérer votre audience directement (sans utiliser de fichier CSV). En général, il vous suffit de récupérer votre offre, de mettre à jour l’objet `restrictedAudience`, puis de soumettre ces modifications à votre offre afin d’ajouter ou de supprimer des membres de l’audience.
+
+Voici comment mettre à jour par programmation votre liste d’audiences :
+
+1. [Récupérez les données de votre offre](cloud-partner-portal-api-retrieve-specific-offer.md) :
+
+    ```
+    GET https://cloudpartner.azure.com/api/publishers//offers/?api-version=2017-10-31&includeAllPricing=true
+    ```
+
+2. Recherchez des objets d’audience restreinte dans chaque référence SKU de l’offre à l’aide de cette requête JPath :
+
+    ```
+    $.definition.plans[*].restrictedAudience
+    ```
+3. Mettez à jour les objets d’audience restreinte pour votre offre.
+
+    **Si vous avez initialement chargé la liste d’abonnements de votre offre privée à partir du fichier CSV :**
+
+    Vos objets *restrictedAudience* ressemblent à ce qui suit.
+    ```
+    "restrictedAudience": {
+                  "uploadedCsvUri": "{SasUrl}"
+    }
+    ```
+
+    Pour chaque objet d’audience restreinte :
+
+    a. Téléchargez le contenu de `restrictedAudience.uploadedCsvUri`. Le contenu est simplement un fichier CSV avec des en-têtes. Par exemple :
+
+        type,id,description
+        subscriptionId,541a269f-3df2-486e-8fe3-c8f9dcf28205,sub1
+        subscriptionId,c0da499c-25ec-4e4b-a42a-6e75635253b9,sub2
+
+    b. Ajoutez ou supprimez des abonnements dans le fichier CSV téléchargé en fonction des besoins.
+
+    c. Chargez le fichier CSV mis à jour à un emplacement, comme [Stockage Blob Azure](../../storage/blobs/storage-blobs-overview.md) ou [OneDrive](https://onedrive.live.com), et créez un lien en lecture seule vers votre fichier. Il s’agit de votre nouvelle URL *SasUrl*.
+
+    d. Mettez à jour la clé `restrictedAudience.uploadedCsvUri` avec votre nouvelle URL *SasUrl*.
+
+    **Si vous avez entré manuellement la liste d’origine des abonnements pour votre offre privée à partir du portail Cloud Partner :**
+
+    Vos objets *restrictedAudience* ressemblent à ce qui suit :
+
+    ```
+    "restrictedAudience": {
+        "manualEntries": [{
+            "type": "subscriptionId",
+            "id": "541a269f-3df2-486e-8fe3-c8f9dcf28205",
+            "description": "sub1"
+            }, {
+            "type": "subscriptionId",
+            "id": "c0da499c-25ec-4e4b-a42a-6e75635253b9",
+            "description": "sub2"
+            }
+        ]}
+    ```
+
+    a. Pour chaque objet d’audience restreinte, ajoutez ou supprimez des entrées dans la liste `restrictedAudience.manualEntries` en fonction des besoins.
+
+4. Lorsque vous avez terminé la mise à jour de tous les objets *restrictedAudience* pour chaque référence SKU de votre offre privée, [mettez à jour l’offre](cloud-partner-portal-api-creating-offer.md) :
+
+    ```
+    PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31
+    ```
+    Ainsi, votre liste d’audiences mise à jour est désormais en vigueur.
+
+<a name="previewing-private-offers"></a>Aperçu des offres privées
 -------------------------
 
-Lors de l'étape de préversion/version intermédiaire, seuls les abonnements pour préversion au niveau offre ont accès à la référence SKU. Il s'agit d'une phase de test au moment de laquelle vous pouvez valider l'apparence de l'offre pour les clients ciblés, et cette phase est standard pour tous les types de publication.
+Lors de l'étape de préversion/version intermédiaire, seuls les abonnements pour préversion au niveau offre ont accès à la référence SKU. Au cours de cette phase de test, vous pouvez afficher un aperçu de l’offre telle qu’elle se présenterait à vos clients cibles.
 
 Abonnements pour préversion au niveau offre pour accéder à des offres intermédiaires :
 

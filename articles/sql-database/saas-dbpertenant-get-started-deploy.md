@@ -1,5 +1,5 @@
 ---
-title: Didacticiel SaaS du modèle de base de données par locataire - Azure SQL Database | Microsoft Docs
+title: Tutoriel SaaS du modèle de base de données par locataire - Azure SQL Database | Microsoft Docs
 description: Déployez et explorez l’application multilocataire SaaS Wingtip Tickets, qui illustre le modèle de base de données par locataire et d’autres modèles SaaS, en utilisant Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d5326a3a154ed6f193b5527a0150ad84c843c273
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000202"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570439"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec SQL Database
 
 Dans ce didacticiel, vous allez déployer et explorer l’application de base de données par locataire SaaS Wingtip Tickets. L’application utilise un modèle de base de données par locataire pour stocker les données de plusieurs locataires. L’application est conçue pour tirer parti des fonctionnalités Azure SQL Database qui simplifient l’activation des scénarios SaaS.
 
-Cinq minutes après avoir sélectionné **Déployer sur Azure**, vous avez une application SaaS multilocataire. L’application inclut une base de données SQL qui s’exécute dans le cloud. Elle est déployée avec trois exemples de locataire, chacun avec sa propre base de données. Toutes les bases de données sont déployées sur un pool élastique SQL. L’application est déployée sur votre abonnement Azure. Vous avez un accès complet pour explorer et utiliser les composants individuels de l’application. Le code source en C# de l’application et les scripts de gestion sont disponibles dans le [référentiel GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
+Cinq minutes après avoir sélectionné **Déployer sur Azure**, vous avez une application SaaS multilocataire. L’application inclut une base de données SQL qui s’exécute dans le cloud. Elle est déployée avec trois exemples de locataire, chacun avec sa propre base de données. Toutes les bases de données sont déployées sur un pool élastique SQL. L’application est déployée sur votre abonnement Azure. Vous avez un accès complet pour explorer et utiliser les composants individuels de l’application. Le code source en C# de l’application et les scripts de gestion sont disponibles dans le [référentiel GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
 
 Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
@@ -37,7 +36,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 Une [série de didacticiels associés](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials) vous propose d’explorer les divers modèles de conception et de gestion SaaS. Ces didacticiels vont au-delà de ce déploiement initial. Lorsque vous utilisez les didacticiels, vous pouvez examiner les scripts fournis pour voir comment les différents modèles SaaS sont implémentés. Ces scripts montrent comment les fonctionnalités de SQL Database simplifient le développement des applications SaaS.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, assurez-vous qu’Azure PowerShell est installé. Pour plus d’informations, consultez [Bien démarrer avec Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
@@ -84,7 +83,7 @@ Lors du déploiement de l’application, téléchargez le code source et les scr
 > [!IMPORTANT]
 > Le contenu exécutable (scripts et DLL) peut être bloqué par Windows lors du téléchargement et de l’extraction de fichiers .zip à partir d’une source externe. Suivez les étapes pour débloquer le fichier .zip avant d’extraire les scripts. Le déblocage garantit que les scripts sont autorisés à s’exécuter.
 
-1. Accédez au [dépôt GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
+1. Accédez au [référentiel GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
 1. Sélectionnez **Cloner ou télécharger**.
 1. Sélectionnez **Télécharger ZIP**, puis enregistrez le fichier.
 1. Cliquez avec le bouton droit sur le fichier **WingtipTicketsSaaS-DbPerTenant-master.zip**, puis sélectionnez **Propriétés**.
@@ -129,8 +128,8 @@ L’application Wingtip utilise  [*Azure Traffic Manager*](../traffic-manager/t
 
     | Partie de l’URL        | Description       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Parties des événements de l’application Wingtip.<br /><br /> *-dpt* distingue l’implémentation de *base de données par locataire* de Wingtip Tickets des autres implémentations. Par exemple, les implémentations d’application par locataire *autonomes* (*-sa*), ou les *bases de données multi-locataires* (*- mt*). |
-    | .*&lt;user&gt;* | *af1* dans l’exemple. |
+    | http://events.wingtip-dpt | Parties des événements de l’application Wingtip.<br /><br /> *-dpt* distingue l’implémentation de *base de données par locataire* de Wingtip Tickets des autres implémentations. Par exemple, les implémentations d’application par locataire *autonomes* ( *-sa*), ou les *bases de données multi-locataires* ( *- mt*). |
+    | . *&lt;user&gt;* | *af1* dans l’exemple. |
     | .trafficmanager.net/ | Traffic Manager, URL de base. |
     | fabrikamjazzclub | Identifie le locataire nommé Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -182,7 +181,7 @@ Si vous souhaitez contrôler et surveiller les tâches en arrière-plan, utilise
     - Par défaut, les tâches en arrière-plan s’exécutent pendant 120 minutes.
     - Chaque travail cause une charge UC sur une base de données client en exécutant *sp_CpuLoadGenerator*. L’intensité et la durée de la charge varient en fonction de `$DemoScenario`.
     - *sp_CpuLoadGenerator* effectue une boucle sur une instruction SQL SELECT qui cause une charge UC élevée. L’intervalle de temps entre les problèmes de l’instruction SELECT varie en fonction des valeurs du paramètre pour créer une charge processeur contrôlable. Les niveaux de charge et les intervalles sont aléatoires pour simuler des charges plus réalistes.
-    - Ce fichier .sql est stocké sous *WingtipTenantDB\\dbo\\StoredProcedures\\*.
+    - Ce fichier .sql est stocké sous *WingtipTenantDB\\dbo\\StoredProcedures\\* .
 
 4. Si `$OneTime = $false`, le générateur de charge démarre les tâches en arrière-plan et continue de s’exécuter. Toutes les 10 secondes, il contrôle les nouveaux locataires qui sont approvisionnés. Si vous définissez `$OneTime = $true`, le générateur de charge démarre les tâches en arrière-plan, puis arrête son exécution au premier plan. Pour ce didacticiel, laissez `$OneTime = $false`.
 
@@ -221,14 +220,14 @@ Actualisez l’Events Hub pour faire apparaître le nouveau locataire dans la li
 
 Maintenant que vous avez démarré une charge dans le regroupement de locataires, examinons quelques-unes des ressources qui ont été déployées.
 
-1. Dans le  [portail Azure](https://portal.azure.com), accédez à votre liste de serveurs SQL. Ouvrez ensuite le serveur  **catalog-dpt-&lt;UTILISATEUR&gt;** .
+1. Dans le  [portail Azure](https://portal.azure.com), accédez à votre liste de serveurs SQL. Ouvrez ensuite le serveur  **catalog-dpt-&lt;UTILISATEUR&gt;**  .
     - Le serveur de catalogue contient deux bases de données : **tenantcatalog** et **basetenantdb** (un modèle de base de données copié pour créer des locataires).
 
    ![Bases de données](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Revenez à votre liste de serveurs SQL.
 
-3. Ouvrez le serveur **tenants1-dpt-&lt;UTILISATEUR&gt;**  qui contient les bases de données locataires.
+3. Ouvrez le serveur **tenants1-dpt-&lt;UTILISATEUR&gt;**   qui contient les bases de données locataires.
 
 4. Observez les points suivants :
 
@@ -241,7 +240,7 @@ Maintenant que vous avez démarré une charge dans le regroupement de locataires
 
 Au bout de quelques minutes d’exécution de *LoadGenerator.ps1*, une quantité suffisante de données est disponible pour vous permettre de découvrir certaines fonctionnalités de surveillance. Ces fonctionnalités sont intégrées dans les pools et les bases de données.
 
-Accédez au serveur **tenants1-dpt-&lt;utilisateur&gt;**, puis sélectionnez  **Pool1**  pour afficher l’utilisation des ressources du pool. Dans les graphiques suivants, le générateur de charge s’est exécuté pendant une heure.
+Accédez au serveur **tenants1-dpt-&lt;utilisateur&gt;** , puis sélectionnez  **Pool1**  pour afficher l’utilisation des ressources du pool. Dans les graphiques suivants, le générateur de charge s’est exécuté pendant une heure.
 
    ![Surveiller un pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
@@ -254,7 +253,7 @@ Ces deux graphiques illustrent bien que les pools élastiques et SQL Database so
 
 - Pour plus d’informations, consultez d’autres [didacticiels reposant sur l’application de base de données par locataire SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - Pour en savoir plus sur les pools élastiques, consultez  [Qu’est-ce qu’un pool élastique SQL Azure ?](sql-database-elastic-pool.md).
-- Pour en savoir plus sur les travaux élastiques, consultez  [Gérer des bases de données cloud scale-out](sql-database-elastic-jobs-overview.md).
+- Pour en savoir plus sur les travaux élastiques, consultez  [Gérer des bases de données cloud scale-out](elastic-jobs-overview.md).
 - Pour en savoir plus sur les applications SaaS multilocataires, consultez  [Modèles de conception pour les applications SaaS multilocataires](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

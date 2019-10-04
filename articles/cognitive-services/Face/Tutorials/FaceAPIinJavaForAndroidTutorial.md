@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 02/06/2019
+ms.date: 09/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c7f2e86d6fe63d309c74d7304f1c19a714b6471
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312520"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70858973"
 ---
-# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutoriel : Créer une application Android pour détecter et encadrer des visages dans une image
+# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Didacticiel : Créer une application Android pour détecter et encadrer des visages dans une image
 
 Dans ce tutoriel, vous allez créer une application Android simple qui utilise l’API Visage Azure par le biais du SDK Java pour détecter des visages humains dans une image. L’application affiche une image sélectionnée et trace un cadre autour de chaque visage détecté.
 
@@ -37,7 +37,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
+- Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé. Ensuite, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la chaîne de point de terminaison de la clé et du service, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
+- N’importe quelle édition de [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 - [Android Studio](https://developer.android.com/studio/) avec l’API niveau 22 ou ultérieur (conformément aux exigences de la bibliothèque de client Visage).
 
 ## <a name="create-the-android-studio-project"></a>Créer le projet Android Studio
@@ -56,17 +57,17 @@ Suivez ces étapes pour créer un projet d’application Android.
 
 Ouvrez *activity_main.xml*. Dans Layout Editor (Éditeur de disposition), sélectionnez l’onglet **Text** (Texte), puis remplacez le contenu par le code suivant.
 
-[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?range=1-18)]
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/res/layout/activity_main.xml?name=snippet_activitymain)]
 
 ### <a name="create-the-main-class"></a>Créer la classe main
 
 Ouvrez *MainActivity.java* et remplacez les instructions `import` existantes par le code suivant.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=3-11)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_imports)]
 
 Remplacez ensuite le contenu de la classe **MainActivity** par le code suivant. Ce code crée un gestionnaire d’événements sur le **Button** qui démarre une nouvelle activité pour permettre à l’utilisateur de sélectionner une image. Il affiche l’image dans **ImageView**.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=29-68)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_mainactivity_methods)]
 
 ### <a name="try-the-app"></a>Essayer l’application
 
@@ -78,7 +79,7 @@ Commentez l’appel à **detectAndFrame** dans la méthode **onActivityResult**.
 
 ### <a name="add-the-gradle-dependency"></a>Ajouter la dépendance Gradle
 
-Dans le volet **Projet**, utilisez le sélecteur du menu déroulant pour sélectionner **Android**. Développez **Scripts Gradle**, puis ouvrez *build.gradle (Module: app)*. Ajoutez une dépendance de la bibliothèque de client de l’API Visage, `com.microsoft.projectoxford:face:1.4.3`, comme indiqué dans la capture d’écran ci-dessous, puis cliquez sur **Synchroniser maintenant**.
+Dans le volet **Projet**, utilisez le sélecteur du menu déroulant pour sélectionner **Android**. Développez **Scripts Gradle**, puis ouvrez *build.gradle (Module: app)* . Ajoutez une dépendance de la bibliothèque de client de l’API Visage, `com.microsoft.projectoxford:face:1.4.3`, comme indiqué dans la capture d’écran ci-dessous, puis cliquez sur **Synchroniser maintenant**.
 
 ![Capture d’écran Android Studio du fichier d’application build.gradle](../Images/face-tut-java-gradle.png)
 
@@ -86,33 +87,31 @@ Dans le volet **Projet**, utilisez le sélecteur du menu déroulant pour sélect
 
 Revenez à **MainActivity.java** et ajoutez les instructions `import` suivantes :
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=13-14)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_face_imports)]
 
 Insérez ensuite le code suivant dans la classe **MainActivity**, au-dessus de la méthode **onCreate** :
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
-
-Vous devez remplacer `<Subscription Key>` par votre clé d’abonnement. Remplacez également `<API endpoint>` par votre point de terminaison de l’API Visage à l’aide de l’identificateur de région approprié pour votre clé. (Pour connaître la liste des points de terminaison de toutes les régions, consultez les [documents API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).) Les clés d’abonnement d’essai gratuit sont générées dans la région **westus**.
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_mainactivity_fields)]
 
 Dans le volet **Projet**, développez **Application**, puis **Manifestes**, et ouvrez le fichier *AndroidManifest.xml*. Insérez l’élément suivant en tant qu’enfant direct de l’élément `manifest` :
 
-[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?range=5)]
+[!code-xml[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/AndroidManifest.xml?name=snippet_manifest_entry)]
 
 ## <a name="upload-image-and-detect-faces"></a>Charger l’image et détecter des visages
 
-Votre application détecte les visages en appelant la méthode **FaceServiceClient.detect**, laquelle inclut dans un wrapper l’API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) et retourne une liste d’instances de **Visage**.
+Votre application détecte les visages en appelant la méthode **faceClient.Face.DetectWithStreamAsync**, laquelle inclut dans un wrapper l’API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) et retourne une liste d’instances de **Visage**.
 
 Chaque **visage** retourné inclut un rectangle pour indiquer son emplacement, combiné avec une série d’attributs de visage facultatifs. Dans cet exemple, seuls les rectangles de visage sont demandés.
 
 Insérez les deux méthodes suivantes dans la classe **MainActivity**. Notez qu’une fois la détection de visage terminée, l’application appelle la méthode **drawFaceRectanglesOnBitmap** pour modifier **ImageView**. Vous allez définir cette méthode dans la procédure suivante.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=70-150)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 
 ## <a name="draw-face-rectangles"></a>Tracer des rectangles autour des visages
 
 Insérez la méthode d’assistance suivante dans la classe **MainActivity**. Cette méthode trace un rectangle autour de chaque visage détecté à l’aide des coordonnées du rectangle de chaque instance **Visage**.
 
-[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=152-173)]
+[!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_drawrectangles)]
 
 Enfin, décommentez l’appel à la méthode **detectAndFrame** dans **onActivityResult**.
 

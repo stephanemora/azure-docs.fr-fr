@@ -4,32 +4,31 @@ description: Découvrez le cache Azure pour Redis et ses usages courants.
 services: cache
 documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
+manager: martinekuan
 editor: ''
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1f0c943bed473178dadb09cfb9d355821e5236e8
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433805"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066844"
 ---
-# <a name="what-is-azure-cache-for-redis"></a>Présentation du cache Azure pour Redis
+# <a name="azure-cache-for-redis-description"></a>Description du cache Azure pour Redis
 
 Le cache Azure pour Redis est dérivé du très populaire logiciel [Redis](https://redis.io/). Il est généralement utilisé en tant que cache pour améliorer les performances et l’évolutivité des systèmes qui reposent grandement sur des banques de données back-end. Les performances sont améliorées en copiant temporairement les données fréquemment sollicitées dans un stockage rapide situé près de l’application. Avec le [cache Azure pour Redis](https://redis.io/), ce stockage rapide est localisé en mémoire plutôt que d’être chargé à partir d’un disque par une base de données.
 
-Le cache Azure pour Redis peut également être utilisé comme banque de structure de données en mémoire, base de données non relationnelle distribuée et courtier de messages. Les performances des applications sont améliorées en tirant parti des performances à faible latence et à débit élevé du moteur Redis.
+Le cache Azure pour Redis peut également être utilisé comme banque de structure de données en mémoire, comme base de données non relationnelle distribuée et comme courtier de messages. Les performances des applications sont améliorées en tirant parti des performances à faible latence et à débit élevé du moteur Redis.
 
-Le cache Azure pour Redis vous permet d’accéder à un cache Azure pour Redis sécurisé et dédié géré par Microsoft, hébergé dans Azure et accessible à toute application à l’intérieur ou à l’extérieur d’Azure.
+Le cache Azure pour Redis vous permet d’accéder à un cache Redis dédié et sécurisé. Le cache Azure pour Redis est géré par Microsoft, hébergé dans Azure et accessible à toute application à l’intérieur ou à l’extérieur d’Azure.
 
-## <a name="why-use-azure-cache-for-redis"></a>Pourquoi utiliser le cache Azure pour Redis
+## <a name="using-azure-cache-for-redis"></a>Utilisation du cache Azure pour Redis
 
 Il existe de nombreux modèles courants où le cache Azure pour Redis est utilisé pour prendre en charge l’architecture applicative ou pour améliorer les performances des applications, notamment les modèles suivants :
 
@@ -49,7 +48,7 @@ Les niveaux suivants sont proposés pour le cache Azure pour Redis :
 |---|---|
 De base | Cache incluant un seul nœud. Ce niveau prend en charge plusieurs tailles de mémoire (de 250 Mo à 53 Go). Il est idéal pour le développement et les tests, ainsi que pour les charges de travail non critiques. Aucun contrat de niveau de service (SLA) ne couvre le niveau De base. |
 | standard | Cache répliqué dans une configuration primaire/secondaire à deux nœuds, géré par Microsoft et assorti d’un contrat SLA garantissant une haute disponibilité (99,9 %). |
-| Premium | Le niveau Premium est conçu pour les entreprises. Les caches de niveau Premium prennent en charge un plus grand nombre de fonctionnalités et assurent un débit plus élevé avec une latence plus faible. Les caches du niveau Premium sont déployés sur du matériel plus puissant offrant de meilleures performances par rapport au niveau De base ou Standard. Par conséquent, le débit d’un cache de même taille est plus élevé avec le niveau Premium qu’avec le niveau Standard. |
+| Premium | Le niveau Premium est le niveau adapté aux entreprises. Les caches de niveau Premium prennent en charge un plus grand nombre de fonctionnalités et assurent un débit plus élevé avec une latence plus faible. Les caches du niveau Premium sont déployés sur du matériel plus puissant offrant de meilleures performances par rapport au niveau De base ou Standard. Par conséquent, le débit d’un cache de même taille est plus élevé avec le niveau Premium qu’avec le niveau Standard. |
 
 > [!TIP]
 > Pour plus d’informations sur la taille, le débit et la bande passante des caches Premium, consultez le [Forum aux questions sur le cache Azure pour Redis](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
@@ -67,9 +66,10 @@ La page [Tarifs du cache Azure pour Redis](https://azure.microsoft.com/pricing/d
 | [Persistance des données Redis](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Cluster Redis](cache-how-to-premium-clustering.md) |✔|-|-|
 | [Sécurité via les règles de pare-feu](cache-configure.md#firewall) |✔|✔|✔|
+| Chiffrement en transit |✔|✔|✔|
 | [Amélioration de la sécurité et de l’isolation avec VNet](cache-how-to-premium-vnet.md) |✔|-|-|
 | [Import/Export](cache-how-to-import-export-data.md) |✔|-|-|
-| [Planification de mises à jour](cache-administration.md#schedule-updates) |✔|-|-|
+| [Mises à jour planifiées](cache-administration.md#schedule-updates) |✔|✔|✔|
 | [Géoréplication](cache-how-to-geo-replication.md) |✔|-|-|
 | [Redémarrage](cache-administration.md#reboot) |✔|✔|✔|
 

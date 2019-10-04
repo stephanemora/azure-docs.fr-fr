@@ -1,19 +1,19 @@
 ---
 title: Préparer le serveur DPM pour sauvegarder des charges de travail vers Azure
 description: Introduction à la sauvegarde de données DPM dans un coffre Azure Recovery Services.
-services: backup
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
-ms.openlocfilehash: f119d128b35b93d7e18d514c09d187689d8dffe9
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.author: dacurwin
+ms.openlocfilehash: 71070a778e54e51cdb528041f746489bb64e979c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306899"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954708"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Préparer la sauvegarde des charges de travail dans Azure avec System Center DPM
 
@@ -48,12 +48,13 @@ DPM sur une machine virtuelle Azure | System Center 2012 R2 avec correctif cumu
 DPM sur un serveur physique | System Center 2012 SP1 ou version ultérieure, System Center 2012 R2.
 DPM sur une machine virtuelle Hyper-V | System Center 2012 SP1 ou version ultérieure, System Center 2012 R2.
 DPM sur une machine virtuelle VMware | System Center 2012 R2 avec correctif cumulatif 5 ou version ultérieure.
-Composants | Le serveur DPM doit avoir Windows PowerShell et .NET Framework 4.5 est installé.
+Composants | Windows PowerShell et .NET Framework 4.5 doivent être installés sur le serveur DPM.
 Applications prises en charge | [En savoir plus](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) sur ce que DPM peut sauvegarder.
 Types de fichiers pris en charge | Ces types de fichiers peuvent être sauvegardés avec le service Sauvegarde Azure : chiffré (sauvegardes complètes uniquement), compressé (sauvegardes incrémentielles prises en charge), partiellement alloué (sauvegardes incrémentielles prises en charge), compressé et partiellement alloué (traité comme partiellement alloué).
 Types de fichiers non pris en charge | Serveurs sur des systèmes de fichiers respectant la casse, liens physiques (ignorés), points d’analyse (ignorés), chiffrés et compressés (ignorés), chiffrés et partiellement alloués (ignorés), flux compressés, flux partiellement alloués.
 Stockage local | Chaque machine que vous voulez sauvegarder doit disposer d’un espace de stockage d’au moins 5 % de la taille des données sauvegardées. Par exemple, la sauvegarde de 100 Go de données nécessite un minimum de 5 Go d'espace libre dans l'emplacement temporaire.
 Stockage dans le coffre | Il n’existe aucune limite à la quantité de données que vous pouvez sauvegarder dans un coffre Sauvegarde Azure, mais la taille d’une source de données (par exemple, une machine virtuelle ou une base de données) ne doit pas dépasser 54400 Go.
+Azure ExpressRoute | Si Azure ExpressRoute est configuré avec un peering privé ou Microsoft, il ne peut pas servir à sauvegarder les données dans Azure.<br/><br/> Si Azure ExpressRoute est configuré avec un peering public, il peut servir à sauvegarder les données dans Azure.<br/><br/> **Remarque :** Le peering public Azure est déconseillé pour les nouveaux circuits.
 Agent Azure Backup | Si DPM est en cours d’exécution sur System Center 2012 SP1, installez le correctif cumulatif 2 ou version ultérieure pour DPM SP1. Il est nécessaire pour l’installation de l’agent.<br/><br/> Cet article décrit comment déployer la dernière version de l’agent Sauvegarde Azure, également appelé agent Microsoft Azure Recovery Service (MARS). Si une version antérieure est déployée, mettez-la à jour vers la dernière version pour vous assurer que la sauvegarde fonctionne comme prévu.
 
 Avant de commencer, vous devez disposer d’un compte Azure avec la fonctionnalité Sauvegarde Azure activée. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. En savoir plus sur la [tarification d'Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
@@ -90,7 +91,7 @@ Vous utilisez les informations d’identification du coffre lorsque vous inscriv
 
 ### <a name="best-practices-for-vault-credentials"></a>Meilleures pratiques pour les informations d’identification des coffres
 
-Pour obtenir les informations d’identification, téléchargez le fichier d’informations d’identification du coffre via un canal sécurisé depuis le portail Azure :
+Pour obtenir les informations d’identification, téléchargez le fichier d’informations d’identification du coffre via un canal sécurisé à partir du portail Azure :
 
 - Les informations d’identification de coffre sont utilisées uniquement pendant le flux de travail d’inscription.
 - Il est de votre responsabilité de vous assurer que le fichier d’informations d’identification de coffre est sûr et n’est pas compromis.
@@ -182,7 +183,7 @@ Le fichier d’informations d’identification d’archivage est valide uniqueme
 
 ### <a name="access-error"></a>Erreur d’accès
 
-Assurez-vous que le fichier d’informations d’identification d’archivage se trouve dans un emplacement accessible par l’application d’installation. Si vous rencontrez des erreurs liées à l’accès, copiez le fichier d’informations d’identification d’archivage dans un emplacement temporaire sur cet ordinateur et recommencez l’opération.
+Vérifiez que le fichier d’informations d’identification du coffre se trouve dans un emplacement accessible par l’application d’installation. Si vous rencontrez des erreurs liées à l’accès, copiez le fichier d’informations d’identification d’archivage dans un emplacement temporaire sur cet ordinateur et recommencez l’opération.
 
 ### <a name="invalid-credentials-error"></a>Erreur d’informations d’identification non valides
 

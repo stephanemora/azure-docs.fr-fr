@@ -1,27 +1,23 @@
 ---
 title: Paramètres de pare-feu et de proxy locaux d’Azure File Sync | Microsoft Docs
 description: Configuration de réseau local d’Azure File Sync
-services: storage
-author: fauhse
+author: roygara
 ms.service: storage
-ms.topic: article
-ms.date: 11/26/2018
-ms.author: fauhse
+ms.topic: conceptual
+ms.date: 06/24/2019
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 35904c3854ddbcf3648c8a226d56f73be890b6ad
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 69f4c767b9fc1da90db021ffb3eb8704983ca69b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481500"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699305"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
 
 Cet article fournit des informations sur les exigences spécifiques et les options disponibles pour connecter un serveur en toute sécurité à Azure File Sync.
-
-> [!Important]
-> La synchronisation de fichiers Azure ne prend pas encore en charge les pare-feu et réseaux virtuels pour un compte de stockage.
 
 ## <a name="overview"></a>Vue d'ensemble
 Azure File Sync fait office de service d’orchestration entre votre serveur Windows Server, votre partage de fichiers Azure et plusieurs autres services Azure pour synchroniser les données définies dans votre groupe de synchronisation. Pour qu’Azure File Sync fonctionne correctement, vous devez configurer vos serveurs de manière qu’ils puissent communiquer avec les services Azure suivants :
@@ -93,7 +89,7 @@ Comme mentionné plus haut, le port 443 doit être ouvert en sortie. Selon les s
 
 Le tableau suivant décrit les domaines requis pour la communication :
 
-| de diffusion en continu | Point de terminaison de cloud public | Point de terminaison Azure Government | Usage |
+| de diffusion en continu | Point de terminaison cloud public | Point de terminaison Azure Government | Usage |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | https://management.azure.com | https://management.usgovcloudapi.net | N’importe quel appel utilisateur (par exemple, PowerShell) est acheminé vers/à travers cette URL, y compris l’appel pour l’inscription initiale du serveur. |
 | **Azure Active Directory** | https://login.windows.net | https://login.microsoftonline.us | Les appels à Azure Resource Manager doivent être effectués par un utilisateur authentifié. Cette URL est utilisée pour l’authentification utilisateur. |
@@ -111,22 +107,33 @@ Pour des raisons de récupération d’urgence et de continuité d’activité (
 
 | Cloud  | Région | URL de point de terminaison principal | Région jumelée | URL de détection |
 |--------|--------|----------------------|---------------|---------------|
-| Public |Australie Est | https://kailani-aue.one.microsoft.com | Australie Sud-Est | https://kailani-aue.one.microsoft.com |
-| Public |Australie Sud-Est | https://kailani-aus.one.microsoft.com | Australie Est | https://tm-kailani-aus.one.microsoft.com |
-| Public | Centre du Canada | https://kailani-cac.one.microsoft.com | Est du Canada | https://tm-kailani-cac.one.microsoft.com |
-| Public | Est du Canada | https://kailani-cae.one.microsoft.com | Centre du Canada | https://tm-kailani.cae.one.microsoft.com |
-| Public | USA Centre | https://kailani-cus.one.microsoft.com | USA Est 2 | https://tm-kailani-cus.one.microsoft.com |
-| Public | Asie Est | https://kailani11.one.microsoft.com | Asie Sud-Est | https://tm-kailani11.one.microsoft.com |
-| Public | USA Est | https://kailani1.one.microsoft.com | USA Ouest | https://tm-kailani1.one.microsoft.com |
-| Public | USA Est 2 | https://kailani-ess.one.microsoft.com | USA Centre | https://tm-kailani-ess.one.microsoft.com |
-| Public | Europe Nord | https://kailani7.one.microsoft.com | Europe Ouest | https://tm-kailani7.one.microsoft.com |
-| Public | Asie Sud-Est | https://kailani10.one.microsoft.com | Asie Est | https://tm-kailani10.one.microsoft.com |
-| Public | Sud du Royaume-Uni | https://kailani-uks.one.microsoft.com | Ouest du Royaume-Uni | https://tm-kailani-uks.one.microsoft.com |
-| Public | Ouest du Royaume-Uni | https://kailani-ukw.one.microsoft.com | Sud du Royaume-Uni | https://tm-kailani-ukw.one.microsoft.com |
-| Public | Europe Ouest | https://kailani6.one.microsoft.com | Europe Nord | https://tm-kailani6.one.microsoft.com |
-| Public | USA Ouest | https://kailani.one.microsoft.com | USA Est | https://tm-kailani.one.microsoft.com |
-| Gouvernement américain | Gouvernement des États-Unis – Arizona | https://usgovarizona01.afs.azure.us | Gouvernement des États-Unis – Texas | https://tm-usgovarizona01.afs.azure.us |
-| Gouvernement américain | Gouvernement des États-Unis – Texas | https://usgovtexas01.afs.azure.us | Gouvernement des États-Unis – Arizona | https://tm-usgovtexas01.afs.azure.us |
+| Public |Australie Est | https:\//kailani-aue.one.microsoft.com | Sud-Australie Est | https:\//tm-kailani-aue.one.microsoft.com |
+| Public |Sud-Australie Est | https:\//kailani-aus.one.microsoft.com | Australie Est | https:\//tm-kailani-aus.one.microsoft.com |
+| Public | Brésil Sud | https:\//brazilsouth01.afs.azure.net | États-Unis - partie centrale méridionale | https:\//tm-brazilsouth01.afs.azure.net |
+| Public | Centre du Canada | https:\//kailani-cac.one.microsoft.com | Est du Canada | https:\//tm-kailani-cac.one.microsoft.com |
+| Public | Est du Canada | https:\//kailani-cae.one.microsoft.com | Centre du Canada | https:\//tm-kailani.cae.one.microsoft.com |
+| Public | Inde centrale | https:\//kailani-cin.one.microsoft.com | Inde Sud | https:\//tm-kailani-cin.one.microsoft.com |
+| Public | USA Centre | https:\//kailani-cus.one.microsoft.com | USA Est 2 | https:\//tm-kailani-cus.one.microsoft.com |
+| Public | Asie Est | https:\//kailani11.one.microsoft.com | Asie Sud-Est | https:\//tm-kailani11.one.microsoft.com |
+| Public | USA Est | https:\//kailani1.one.microsoft.com | USA Ouest | https:\//tm-kailani1.one.microsoft.com |
+| Public | USA Est 2 | https:\//kailani-ess.one.microsoft.com | USA Centre | https:\//tm-kailani-ess.one.microsoft.com |
+| Public | Japon Est | https:\//japaneast01.afs.azure.net | OuJapon Est | https:\//tm-japaneast01.afs.azure.net |
+| Public | OuJapon Est | https:\//japanwest01.afs.azure.net | Japon Est | https:\//tm-japanwest01.afs.azure.net |
+| Public | Centre de la Corée | https:\//koreacentral01.afs.azure.net/ | Corée du Sud | https:\//tm-koreacentral01.afs.azure.net/ |
+| Public | Corée du Sud | https:\//koreasouth01.afs.azure.net/ | Centre de la Corée | https:\//tm-koreasouth01.afs.azure.net/ |
+| Public | Centre-Nord des États-Unis | https:\//northcentralus01.afs.azure.net | États-Unis - partie centrale méridionale | https:\//tm-northcentralus01.afs.azure.net |
+| Public | Europe Nord | https:\//kailani7.one.microsoft.com | Europe Ouest | https:\//tm-kailani7.one.microsoft.com |
+| Public | États-Unis - partie centrale méridionale | https:\//southcentralus01.afs.azure.net | Centre-Nord des États-Unis | https:\//tm-southcentralus01.afs.azure.net |
+| Public | Inde Sud | https:\//kailani-sin.one.microsoft.com | Inde centrale | https:\//tm-kailani-sin.one.microsoft.com |
+| Public | Asie Sud-Est | https:\//kailani10.one.microsoft.com | Asie Est | https:\//tm-kailani10.one.microsoft.com |
+| Public | Sud du Royaume-Uni | https:\//kailani-uks.one.microsoft.com | Ouest du Royaume-Uni | https:\//tm-kailani-uks.one.microsoft.com |
+| Public | Ouest du Royaume-Uni | https:\//kailani-ukw.one.microsoft.com | Sud du Royaume-Uni | https:\//tm-kailani-ukw.one.microsoft.com |
+| Public | Centre-USA Ouest | https:\//westcentralus01.afs.azure.net | USA Ouest 2 | https:\//tm-westcentralus01.afs.azure.net |
+| Public | Europe Ouest | https:\//kailani6.one.microsoft.com | Europe Nord | https:\//tm-kailani6.one.microsoft.com |
+| Public | USA Ouest | https:\//kailani.one.microsoft.com | USA Est | https:\//tm-kailani.one.microsoft.com |
+| Public | USA Ouest 2 | https:\//westus201.afs.azure.net | Centre-USA Ouest | https:\//tm-westus201.afs.azure.net |
+| Gouvernement américain | Gouvernement des États-Unis – Arizona | https:\//usgovarizona01.afs.azure.us | Gouvernement des États-Unis – Texas | https:\//tm-usgovarizona01.afs.azure.us |
+| Gouvernement américain | Gouvernement des États-Unis – Texas | https:\//usgovtexas01.afs.azure.us | Gouvernement des États-Unis – Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
 - Si vous utilisez des comptes de stockage localement redondants (LRS) ou des comptes de stockage de redondants dans une zone (ZRS), vous devez uniquement activer l’URL répertoriée sous « URL de point de terminaison principal ».
 
@@ -134,9 +141,9 @@ Pour des raisons de récupération d’urgence et de continuité d’activité (
 
 **Exemple :** vous déployez un service de synchronisation de stockage dans `"West US"` et inscrivez votre serveur avec celui-ci. Les URL permettant au serveur de communiquer sont dans ce cas :
 
-> - https://kailani.one.microsoft.com (point de terminaison principal : USA Ouest)
-> - https://kailani1.one.microsoft.com (région de basculement jumelée : USA Est)
-> - https://tm-kailani.one.microsoft.com (URL de détection de la région principale)
+> - https:\//kailani.one.microsoft.com (point de terminaison principal : USA Ouest)
+> - https:\//kailani1.one.microsoft.com (région jumelée de basculement : USA Est)
+> - https:\//tm-kailani.one.microsoft.com (URL de découverte de la région principale)
 
 ## <a name="summary-and-risk-limitation"></a>Résumé et limitation des risques
 La liste fournie plus haut contient les URL avec lesquelles Azure File Sync communique actuellement. Les pare-feux doivent être en mesure d’autoriser le trafic sortant vers ces domaines. Microsoft s’efforce de maintenir cette liste à jour.

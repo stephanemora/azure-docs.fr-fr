@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6efec75884857d93f2e128104136bf59a1114594
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9734859c0bf22201c146e5d8a220f3146f6051c4
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197172"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176953"
 ---
 Le tableau suivant présente les types de passerelle et le débit total estimé par référence de passerelle. Cette table s’applique aux modèles de déploiement classique et Resource Manager. 
 
@@ -23,9 +23,9 @@ Notez que la référence de la passerelle UltraPerformance n’est pas représen
 
 |  | **Débit de passerelle VPN (1)** | **Tunnels IPsec max de passerelle VPN (2)** | **Débit de passerelle ExpressRoute** | **Passerelle VPN et ExpressRoute coexistants** |
 | --- | --- | --- | --- | --- |
-| **Référence de base (3)(5)(6)** |100 Mbits/s |10 |500 Mbits/s (6) |Non  |
-| **Référence SKU Standard (4) (5)** |100 Mbits/s |10 |1 000 Mbits/s |OUI |
-| **Référence SKU Hautes performances (4)** |200 Mbits/s |30 |2 000 Mbits/s |OUI |
+| **Référence de base (3)(5)(6)** |100 Mbits/s |10 |500 Mbits/s (6) |Non |
+| **Référence SKU Standard (4) (5)** |100 Mbits/s |10 |1 000 Mbits/s |OUI |
+| **Référence SKU Hautes performances (4)** |200 Mbits/s |30 |2 000 Mbits/s |OUI |
 
 
 (1) Le débit de la passerelle VPN est une estimation calculée à partir de mesures entre réseaux virtuels dans la même région Azure. Ce débit n’est pas garanti pour les connexions intersites via Internet. Il s’agit de la mesure du débit maximal possible.

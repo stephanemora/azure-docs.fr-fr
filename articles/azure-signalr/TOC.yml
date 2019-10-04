@@ -1,6 +1,6 @@
 - name: Documentation Azure SignalR Service
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "À propos du service Azure\_SignalR"
       href: signalr-overview.md
@@ -9,12 +9,16 @@
   items:
     - name: "ASP.NET Core\_: C#"
       href: signalr-quickstart-dotnet-core.md
+    - name: 'ASP.NET - C#'
+      href: signalr-quickstart-dotnet.md
     - name: 'Azure Functions : JavaScript'
       href: signalr-quickstart-azure-functions-javascript.md
     - name: 'Azure Functions : C#'
       href: signalr-quickstart-azure-functions-csharp.md
     - name: "Azure Functions\_: Java"
       href: signalr-quickstart-azure-functions-java.md
+    - name: Azure Functions - Python
+      href: signalr-quickstart-azure-functions-python.md
     - name: API REST
       href: signalr-quickstart-rest-api.md
 - name: Tutoriels
@@ -25,7 +29,7 @@
   items:
     - name: Exemples de code
       href: 'https://github.com/aspnet/AzureSignalR-samples'
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: signalr-reference-cli.md
 - name: Concepts
   items:
@@ -51,6 +55,8 @@
       href: signalr-concept-performance.md
     - name: Authentication
       href: signalr-concept-authenticate-oauth.md
+    - name: Gestion des événements
+      href: signalr-concept-event-grid-integration.md
 - name: Guides pratiques
   items:
     - name: Scale
@@ -65,9 +71,11 @@
       items:
         - name: Liaisons Azure Functions
           href: signalr-concept-azure-functions.md
+        - name: Intégration à Event Grid
+          href: signalr-howto-event-grid-integration.md
 - name: Références
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: signalr-reference-cli.md
     - name: API REST
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'

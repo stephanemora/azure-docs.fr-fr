@@ -8,15 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/10/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: 71abfdff629f36b278488851b546c7371353a4d9
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
+ms.openlocfilehash: cfe6dd63234a7750fe01614d6f1b38bb7cce1adb
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575288"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70142439"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Activité de définition de variable dans Azure Data Factory
 
@@ -26,7 +27,7 @@ Utilisez l’activité de définition de variable pour définir la valeur d’un
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
-Nom | Nom de l’activité dans le pipeline | Oui
+Nom | Nom de l’activité dans le pipeline | OUI
 description | Texte décrivant l’activité | no
 Type | Le type d’activité est SetVariable | Oui
 value | Valeur littérale de chaîne ou d’objet d’expression utilisée pour définir la variable spécifiée | Oui

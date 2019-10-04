@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
-manager: craigg
 ms.date: 03/08/2019
-ms.openlocfilehash: 5226ec05af95cf305008968cf945070532274ee5
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
-ms.translationtype: MT
+ms.openlocfilehash: e9aaa7cb022d4096ec8a175611d0b4c118007b40
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726938"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569560"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted : Protéger les données sensibles et stocker les clés de chiffrement dans le magasin de certificats Windows
 
@@ -28,7 +27,7 @@ Le chiffrement intégral est une nouvelle technologie de chiffrement de données
 
 Après avoir configuré la base de données pour le chiffrement intégral, vous allez créer une application cliente en C# avec Visual Studio afin de l’utiliser avec les données chiffrées.
 
-Suivez les étapes de cet article et découvrez comment configurer le chiffrement intégral pour une base de données SQL Azure. Dans cet article, vous allez apprendre à effectuer les tâches suivantes :
+Suivez les étapes de cet article et découvrez comment configurer le chiffrement intégral pour une base de données Azure SQL. Dans cet article, vous allez apprendre à effectuer les tâches suivantes :
 
 * Utiliser l’Assistant Chiffrement intégral dans SSMS pour créer des [clés intégralement chiffrées](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
   * Créer une [clé principale de colonne (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
@@ -36,7 +35,7 @@ Suivez les étapes de cet article et découvrez comment configurer le chiffremen
 * Créer une table de base de données et chiffrer des colonnes.
 * Créer une application qui insère, sélectionne et affiche les données des colonnes chiffrées.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -49,7 +48,7 @@ Pour ce didacticiel, vous devez disposer des éléments suivants :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Créer une ressource** > **Données + Stockage** > **SQL Database**.
-3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données SQL Azure](sql-database-single-database-get-started.md).
+3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données Azure SQL](sql-database-single-database-get-started.md).
 
     ![Créer une base de données vide](./media/sql-database-always-encrypted/create-database.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Entité Pattern.any
+title: 'Didacticiel : Entité Pattern.any – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Utilisez l’entité pattern.any pour extraire des données à partir d’énoncés correctement mis en forme et où la fin des données peut être facilement confondue avec les mots restants de l’énoncé.
 services: cognitive-services
@@ -9,16 +9,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 8ab24d478efa0d0006cff618d7760d4396d0e45e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 57a7deee3112737dc457646d040d5d3e02e63d46
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859927"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390299"
 ---
-# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Tutoriel : Extraire des données de forme libre avec l’entité Pattern.any
+# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Didacticiel : Extraire des données de forme libre avec l’entité Pattern.any
 
 Dans ce tutoriel, vous allez utiliser l’entité pattern.any pour extraire des données à partir d’énoncés correctement mis en forme et où la fin des données peut être facilement confondue avec les mots restants de l’énoncé. 
 
@@ -65,24 +65,20 @@ Certains mots peuvent être source de confusion pour LUIS, qui ne sait pas où s
 |{nom_formulaire} est-il publié en Français[?]|
 
 ## <a name="import-example-app"></a>Importer l’exemple d’application
-Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
 
-Procédez comme suit :
+1. Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
-1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
+1. Dans le [portal LUIS](https://www.luis.ai), sur la page **Mes applications**, importez le code JSON dans une nouvelle application.
 
-2. Importez le code JSON dans une nouvelle application.
-
-3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `patt-any`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+1. À partir de la section **Manage (Gérer)** , sous l’onglet **Versions**, clonez la version et nommez-la `patt-any`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
 ## <a name="add-example-utterances"></a>Ajouter des exemples d’énoncés 
-Supprimez l’entité keyPhrase prédéfinie si vous avez des difficultés à créer et étiqueter l’entité FormName. 
 
 1. Sélectionnez **Build** dans le volet de navigation supérieur, puis **Intentions** dans le volet de navigation gauche.
 
-2. Sélectionnez **FindForm** dans la liste des intentions.
+1. Sélectionnez **FindForm** dans la liste des intentions.
 
-3. Ajoutez quelques exemples d’énoncés :
+1. Ajoutez quelques exemples d’énoncés :
 
     |Exemple d’énoncé|
     |--|
@@ -94,13 +90,13 @@ Supprimez l’entité keyPhrase prédéfinie si vous avez des difficultés à cr
     Sans entité Pattern.any, il serait difficile pour LUIS de comprendre où se termine le titre du formulaire en raison des nombreuses variations des noms de formulaire.
 
 ## <a name="create-a-patternany-entity"></a>Créer une entité Pattern.any
-L’entité Pattern.any extrait des entités de longueur variable. Elle fonctionne seulement dans un modèle, car le modèle marque le début et la fin de l’entité. Si vous constatez que votre modèle, quand il comporte une entité Pattern.any, extrait mal les entités, utilisez une [liste explicite](luis-concept-patterns.md#explicit-lists) pour corriger ce problème. 
+L’entité Pattern.any extrait des entités de longueur variable. Elle fonctionne seulement dans un modèle, car le modèle marque le début et la fin de l’entité.  
 
 1. Sélectionnez **Entités** dans le volet de navigation gauche.
 
-2. Sélectionnez **Créer une entité**, entrez le nom `FormName`, puis choisissez le type **Pattern.any**. Sélectionnez **Terminé**. 
+1. Sélectionnez **Créer une entité**, entrez le nom `FormName`, puis choisissez le type **Pattern.any**. Sélectionnez **Terminé**. 
 
-    Vous ne peut pas étiqueter l’entité dans l’intention car Pattern.any est uniquement valide dans un modèle. 
+    Vous ne peut pas étiqueter l’entité avec les exemples d’énoncés de l’intention, car Pattern.any est uniquement valide dans un modèle. 
 
     Si vous souhaitez que les données extraites incluent d’autres entités telles qu’un nombre ou une valeur datetimeV2, vous devez créer une entité composite incluant l’entité Pattern.any ainsi que le nombre et la valeur datetimeV2.
 
@@ -108,9 +104,9 @@ L’entité Pattern.any extrait des entités de longueur variable. Elle fonction
 
 1. Sélectionnez **Modèles** dans le volet de navigation gauche.
 
-2. Sélectionnez l’intention **FindForm**.
+1. Sélectionnez l’intention **FindForm**.
 
-3. Entrez les modèles d’énoncés suivants, qui utilisent la nouvelle entité :
+1. Entrez les modèles d’énoncés suivants, qui utilisent la nouvelle entité :
 
     |Modèles d’énoncés|
     |--|
@@ -121,8 +117,6 @@ L’entité Pattern.any extrait des entités de longueur variable. Elle fonction
 
     Si vous souhaitez prendre en compte les variations du formulaire, comme des guillemets simples au lieu de guillemets doubles ou un point au lieu d’un point d’interrogation, créez un modèle pour chaque variante.
 
-4. Si vous avez supprimé l’entité keyPhrase, replacez-la dans l’application. 
-
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
@@ -130,15 +124,20 @@ L’entité Pattern.any extrait des entités de longueur variable. Elle fonction
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Tester l’extraction de données à structure libre dans le nouveau modèle
 1. Sélectionnez **Tester** dans la barre supérieure pour ouvrir le panneau de test. 
 
-2. Entrez l’énoncé suivant : 
+1. Entrez l’énoncé suivant : 
 
     `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
-3. Sélectionnez **Inspecter** sous le résultat afin de voir les résultats des tests pour l’entité et l’intention.
+1. Sélectionnez **Inspecter** sous le résultat afin de voir les résultats des tests pour l’entité et l’intention.
 
     L’entité `FormName` est trouvée en premier, suivie du modèle, indiquant l’intention. Si, dans votre résultat de test, les entités ne sont pas détectées et, par conséquent, le modèle est introuvable, vous devrez ajouter des exemples d’énoncés sur l’intention (et non le modèle).
 
-4. Fermez le panneau de test en sélectionnant le bouton **Tester** dans le volet de navigation supérieur.
+1. Fermez le panneau de test en sélectionnant le bouton **Tester** dans le volet de navigation supérieur.
+
+## <a name="using-an-explicit-list"></a>Avec une liste explicite
+
+Si vous constatez que votre modèle, quand il comporte une entité Pattern.any, extrait mal les entités, utilisez une [liste explicite](luis-concept-patterns.md#explicit-lists) pour corriger ce problème.
+
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

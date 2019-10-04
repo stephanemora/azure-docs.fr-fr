@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 66d0d791e4f32fc0828d400db7b59d836d221aee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 53711a80f35177c911b754a0ce3f189ac106adb2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261800"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Didacticiel : Intégration d’Azure Active Directory dans TextMagic
 
@@ -54,7 +54,7 @@ Pour configurer l’intégration de TextMagic avec Azure AD, vous devez ajouter 
 
 **Pour ajouter TextMagic à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -162,17 +162,17 @@ Pour configurer l’authentification unique Azure AD avec TextMagic, effectuez 
 
     ![Configuration de TextMagic](./media/textmagic-tutorial/config1.png)
 
-3. Cliquez sur l’onglet **Authentification unique (SSO)**, puis complétez les champs suivants :  
+3. Cliquez sur l’onglet **Authentification unique (SSO)** , puis complétez les champs suivants :  
 
     ![Configuration de TextMagic](./media/textmagic-tutorial/config2.png)
 
-    a. Dans la zone de texte  **ID d’entité du fournisseur d’identité** , collez la valeur  **Identificateur Azure AD** copiée à partir du Portail Azure.
+    a. Dans la zone de texte **Identity provider Entity ID:** (ID d’entité du fournisseur d’identité), collez la valeur de l’**identificateur Azure AD**, que vous avez copiée à partir du portail Azure.
 
-    b. Dans la zone de texte  **URL SSO du fournisseur d’identité** , collez la valeur  **URL de connexion** copiée à partir du Portail Azure.
+    b. Dans la zone de texte **Identity provider SSO URL:** (URL d’authentification unique du fournisseur d’identité), collez la valeur de l’**URL de connexion** que vous avez copiée dans le portail Azure.
 
-    c. Dans la zone de texte  **URL SLO du fournisseur d’identité** , collez la valeur  **URL de déconnexion** copiée à partir du Portail Azure.
+    c. Dans la zone de texte **Identity provider SLO URL:** (URL SLO du fournisseur d’identité), collez la valeur d’**URL de déconnexion** que vous avez copiée à partir du portail Azure.
 
-    d. Ouvrez dans le Bloc-notes votre **certificat codé en base 64** téléchargé à partir du Portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte  **Certificat x509 public** .
+    d. Ouvrez dans le Bloc-notes votre **certificat codé en base 64** téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat x509 public**.
 
     e. Cliquez sur **Enregistrer**.
 
@@ -194,7 +194,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension**. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon@yourcompanydomain.extension** . Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 

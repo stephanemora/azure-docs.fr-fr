@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2018
-ms.author: v-jamebr
-ms.openlocfilehash: c0580b75544a9613bc8caf2faaac11ba1ba6708e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.date: 09/06/2019
+ms.author: chackdan
+ms.openlocfilehash: 9599d59f7f23de4e54ce323aa4a2ad837d8ed074
+ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667138"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70773254"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificats et sécurité sur des clusters Linux
 
@@ -31,7 +30,7 @@ Service Fabric s’attend généralement à la présence de certificats X.509 da
 
 Pour les clusters Linux, Service Fabric s’attend à ce que les certificats soient présents sous la forme d’un fichier .pem qui contient à la fois le certificat et une clé privée ou d’un fichier .crt qui contient le certificat et d’un fichier .key qui contient la clé privée. Tous les fichiers doivent être au format PEM. 
 
-Si vous installez votre certificat à partir d’Azure Key Vault à l’aide d’un [modèle Resource Manager](./service-fabric-cluster-creation-create-template.md) ou de commandes [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric), le certificat est installé au format correct dans le répertoire */var/lib/sfcerts* sur chaque nœud. Si vous installez un certificat via une autre méthode, vous devez vous assurer qu’il est correctement installé sur les nœuds de cluster.
+Si vous installez votre certificat à partir d’Azure Key Vault à l’aide d’un [modèle Resource Manager](./service-fabric-cluster-creation-create-template.md) ou de commandes [PowerShell](https://docs.microsoft.com/powershell/module/az.servicefabric/?view=azps-2.6.0), le certificat est installé au format correct dans le répertoire */var/lib/sfcerts* sur chaque nœud. Si vous installez un certificat via une autre méthode, vous devez vous assurer qu’il est correctement installé sur les nœuds de cluster.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificats référencés dans le manifeste de l’application
 
@@ -72,7 +71,7 @@ Le code XML suivant affiche une section **TransportSettings** basée sur ce styl
 </Section>
 ```
 
-### <a name="using-x5092-securitycredentialstype"></a>Utilisation du type SecurityCredentialsType X509_2
+### <a name="using-x509_2-securitycredentialstype"></a>Utilisation du type SecurityCredentialsType X509_2
 
 Avec le kit SDK Java, vous pouvez spécifier **X509_2** pour **SecurityCredentialsType**. Cela correspond au type `X509Credentials2` ([Java](https://docs.microsoft.com/java/api/system.fabric.x509credentials2)) de `SecurityCredentials` ([Java](https://docs.microsoft.com/java/api/system.fabric.securitycredentials)). 
 

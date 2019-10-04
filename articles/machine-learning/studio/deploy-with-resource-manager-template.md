@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
 ms.openlocfilehash: 91413aa461261824782717ae4edacc2757ad5405
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791134"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66121352"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Déployer un espace de travail Azure Machine Learning Studio à l’aide d’Azure Resource Manager
 
@@ -131,7 +131,7 @@ Une fois le déploiement terminé, il est simple d’accéder aux propriétés d
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Un autre pour récupérer des jetons de l’espace de travail existant consiste à utiliser la commande Invoke-AzResourceAction. Par exemple, vous pouvez répertorier les jetons principaux et secondaires de tous les espaces de travail.
+Une autre méthode pour récupérer des jetons de l’espace de travail existant consiste à utiliser la commande Invoke-AzResourceAction. Par exemple, vous pouvez répertorier les jetons principaux et secondaires de tous les espaces de travail.
 
 ```powershell
 # List the primary and secondary tokens of all workspaces

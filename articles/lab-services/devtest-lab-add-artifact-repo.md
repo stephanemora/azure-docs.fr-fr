@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852489"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60311710"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Ajouter un dépôt Git pour stocker des artefacts personnalisés et des modèles Resource Manager
 
@@ -30,7 +30,7 @@ Nous mettons à votre disposition un [dépôt GitHub d’artefacts](https://gith
 Quand vous créez une machine virtuelle, vous pouvez enregistrer le modèle Resource Manager, le personnaliser éventuellement, puis l’utiliser pour créer des machines virtuelles supplémentaires. Vous devez créer votre propre dépôt privé afin de stocker vos modèles Resource Manager personnalisés.  
 
 * Pour découvrir comment créer un dépôt GitHub, consultez [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Pour savoir comment créer un projet Azure DevOps Services qui a un dépôt Git, consultez [se connecter à Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Pour savoir comment créer un projet Azure DevOps Services qui a un dépôt Git, consultez [Se connecter à Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 La figure suivante illustre un dépôt contenant des artefacts dans GitHub :  
 
@@ -54,7 +54,7 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 
 ### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obtenir l’URL du clone Azure Repos et le jeton d’accès personnel
 
-1. Accédez à la page d’accueil de votre collection d’équipe (par exemple, https://contoso-web-team.visualstudio.com)), puis sélectionnez votre projet.
+1. Accédez à la page d’accueil de votre collection d’équipe (par exemple, https://contoso-web-team.visualstudio.com) ), puis sélectionnez votre projet.
 2. Sur la page d’accueil du projet, sélectionnez **Code**.
 3. Pour afficher l’URL de clonage, sélectionnez dans la page **Code** du projet l’option **Cloner**.
 4. Enregistrez l’URL. Vous l’utiliserez ultérieurement.
@@ -74,7 +74,7 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste de services.
 3. Dans la liste de laboratoires, sélectionnez votre laboratoire. 
-4. Sélectionnez **Configuration et stratégies** > **Dépôts** > **+ Ajouter**.
+4. Sélectionnez **Configuration et stratégies** > **Dépôts** >  **+ Ajouter**.
 
     ![Bouton pour ajouter un dépôt](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Sur la seconde page **Référentiels**, spécifiez les informations suivantes :

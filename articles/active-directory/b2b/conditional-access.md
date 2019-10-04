@@ -1,5 +1,5 @@
 ---
-title: Accès conditionnel pour les utilisateurs de collaboration B2B - Azure Active Directory | Microsoft Docs
+title: Accès conditionnel pour les utilisateurs de B2B Collaboration - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B Collaboration prend en charge l’authentification multifacteur (MFA) pour un accès sélectif à vos applications d’entreprise
 services: active-directory
 ms.service: active-directory
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5234443e234d232a9711274bea2f73427266f6e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 5a54e5006a268347148945fbe7fc5f18cfa41036
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113484"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68357123"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Accès conditionnel pour les utilisateurs de B2B Collaboration
 
@@ -57,7 +57,7 @@ Actuellement, l’administrateur peut exiger que les utilisateurs B2B Collaborat
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
-   Voici un exemple : 
+   Voici un exemple :
 
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
@@ -91,7 +91,11 @@ Par conséquent, la recommandation d’authentification MFA pour les utilisateur
 
 Lorsque Contoso active les stratégies d’accès conditionnel en fonction des appareils pour ses données d’entreprise, l’accès est protégé contre les appareils non gérés par Contoso et non conformes aux stratégies d’appareils de Contoso.
 
-Si l’appareil de l’utilisateur B2B n’est pas géré par Contoso, l’accès des utilisateurs B2B des organisations partenaires est bloqué quel que soit le contexte d’application de ces stratégies. Cependant, Contoso peut créer des listes d’exclusion contenant des utilisateurs spécifiques du partenaire afin d’exclure ces derniers de la stratégie d’accès conditionnel en fonction des appareils.
+Si l’appareil de l’utilisateur B2B n’est pas géré par Contoso, l’accès des utilisateurs B2B des organisations partenaires est bloqué quel que soit le contexte d’application de ces stratégies. Cependant, Contoso peut créer des listes d’exclusions contenant des utilisateurs partenaires spécifiques afin de les exclure de la stratégie d’accès conditionnel en fonction des appareils.
+
+#### <a name="mobile-application-management-policies-for-b2b"></a>Stratégies de gestion des applications mobiles pour B2B
+
+Les stratégies de protection des applications à accès conditionnel ne peuvent pas être appliquées aux utilisateurs B2B, car l’organisation qui lance l’invitation n’a aucune visibilité sur l’organisation de l’utilisateur B2B.
 
 #### <a name="location-based-conditional-access-for-b2b"></a>Accès conditionnel en fonction des emplacements pour B2B
 

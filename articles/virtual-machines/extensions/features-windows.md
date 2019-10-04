@@ -3,25 +3,24 @@ title: Extensions et fonctionnalités de machine virtuelle Azure pour Windows | 
 description: Découvrez les extensions disponibles pour les machines virtuelles, regroupées par ce qu’ils fournissent ou améliorent.
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: axayjo
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: roiyz
+ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: a19b6bd8da82498aae45657d30883db14efd9343
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849770"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174080"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -36,14 +35,14 @@ Cet article offre une vue d’ensemble des extensions de machine virtuelle et de
 Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliquant un cas d’utilisation spécifique. Voici quelques exemples :
 
 - Appliquer des configurations DSC (Desired State Configuration) PowerShell à une machine virtuelle avec l’extension DSC pour Windows. Pour plus d’informations sur l’extension DSC Azure, consultez [cette page](dsc-overview.md) (en anglais).
-- Configurer l’analyse d’une machine virtuelle avec l’extension de machine virtuelle Microsoft Monitoring Agent. Pour plus d’informations, consultez [connecter des machines virtuelles Azure dans les journaux d’Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configurer l’analyse d’une machine virtuelle avec l’extension de machine virtuelle Microsoft Monitoring Agent. Pour plus d’informations, consultez l’article [Connecter des machines virtuelles Azure aux journaux d’acvtivité Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configurer une machine virtuelle Azure à l’aide de Chef. Pour plus d’informations, consultez l’article [Automatisation du déploiement de machine virtuelle Azure avec Chef](../windows/chef-automation.md).
 - Configurer l’analyse de votre infrastructure Azure à l’aide de l’extension Datadog. Pour plus d’informations, consultez le [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
 En plus des extensions propres à des processus, une extension de script personnalisé est disponible pour les machines virtuelles Windows et Linux. L’extension de script personnalisé (CustomScript) pour Windows permet d’exécuter n’importe quel script PowerShell sur une machine virtuelle. Les scripts personnalisés s’avèrent utile pour concevoir des déploiements Azure qui nécessitent une configuration plus avancée que celle fournie par les outils Azure natifs. Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles Windows, consultez [cet article](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour gérer l’extension de la machine virtuelle, vous devez installer l’agent Windows Azure. Certaines extensions spécifiques présentent des prérequis, tels que l’accès à des ressources ou dépendances.
 
@@ -62,7 +61,7 @@ Des versions minimales de l’agent sont disponibles afin d’offrir la meilleur
 L’agent invité Windows s’exécute sur plusieurs systèmes d’exploitation ; toutefois, l’infrastructure d’extensions présente certaines limites relatives aux systèmes d’exploitation pris en charge par les extensions. Pour plus d’informations, consultez [cet article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Certaines extensions ne sont pas prises en charge sur tous les systèmes d’exploitation et peuvent générer le *Code d’erreur 51, « Système d’exploitation non pris en charge »*. Pour plus d’informations sur la capacité de prise en charge, consultez la documentation de l’extension concernée.
+Certaines extensions ne sont pas prises en charge sur tous les systèmes d’exploitation et peuvent générer le *Code d’erreur 51, « Système d’exploitation non pris en charge »* . Pour plus d’informations sur la capacité de prise en charge, consultez la documentation de l’extension concernée.
 
 #### <a name="network-access"></a>Accès réseau
 
@@ -151,7 +150,7 @@ L’exemple ci-après illustre l’installation de l’extension Microsoft Antim
 
 ### <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 
-Les extensions de machine virtuelle peuvent être ajoutées à un modèle Azure Resource Manager et exécutées avec le déploiement du modèle. Lorsque vous déployez une extension avec un modèle, vous pouvez créer des déploiements Azure entièrement configurés. Par exemple, le code JSON ci-après est tiré d’un modèle Resource Manager qui déploie un ensemble de machines virtuelles à charge équilibrée et une base de données SQL Azure, puis installe une application .NET Core sur chaque machine virtuelle. L’extension de machine virtuelle se charge de l’installation du logiciel.
+Les extensions de machine virtuelle peuvent être ajoutées à un modèle Azure Resource Manager et exécutées avec le déploiement du modèle. Lorsque vous déployez une extension avec un modèle, vous pouvez créer des déploiements Azure entièrement configurés. Par exemple, le code JSON ci-après est tiré d’un modèle Resource Manager qui déploie un ensemble de machines virtuelles à charge équilibrée et une base de données Azure SQL, puis installe une application .NET Core sur chaque machine virtuelle. L’extension de machine virtuelle se charge de l’installation du logiciel.
 
 Pour plus d’informations, consultez le [modèle Resource Manager complet](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
@@ -352,7 +351,7 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 1. Pour consulter le journal de l’agent invité Windows, examinez l’activité au moment où votre extension a été approvisionnée dans le fichier *C:\WindowsAzure\Logs\WaAppAgent.txt*
 
-2. Pour plus de détails, vérifiez les journaux d’extension proprement dits à l’emplacement *C:\WindowsAzure\Logs\Plugins\<nomExtension>*
+2. Pour plus de détails, vérifiez les journaux d’activité d’extension proprement dits à l’emplacement *C:\WindowsAzure\Logs\Plugins\<nomExtension&gt;*
 
 3. Consultez les sections de résolution des problèmes dans la documentation de l’extension concernée pour vous renseigner sur les codes d’erreur, les problèmes connus, etc.
 
@@ -368,7 +367,7 @@ La procédure de résolution des problèmes ci-après s’applique à toutes les
 
 ### <a name="view-extension-status"></a>Afficher l’état de l’extension
 
-Une fois une extension de machine virtuelle a été exécutée sur une machine virtuelle, utilisez [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) pour retourner l’état de l’extension. L’état *Substatuses[0]* indique que l’approvisionnement de l’extension s’est correctement déroulé, autrement dit que l’extension a été déployée sur la machine virtuelle, mais l’état *Substatuses[1]* signale que l’exécution de l’extension dans la machine virtuelle a échoué.
+Une fois qu’une extension de machine virtuelle a été exécutée sur une machine virtuelle, utilisez la commande [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) pour récupérer l’état de l’extension. L’état *Substatuses[0]* indique que l’approvisionnement de l’extension s’est correctement déroulé, autrement dit que l’extension a été déployée sur la machine virtuelle, mais l’état *Substatuses[1]* signale que l’exécution de l’extension dans la machine virtuelle a échoué.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

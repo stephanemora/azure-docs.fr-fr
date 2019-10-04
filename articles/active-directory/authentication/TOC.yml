@@ -1,6 +1,6 @@
 - name: Documentation sur l’authentification
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que l’authentification ?
       href: overview-authentication.md
@@ -16,8 +16,6 @@
       href: tutorial-sspr-pilot.md
     - name: Activer l’intégration locale SSPR
       href: tutorial-enable-writeback.md
-    - name: Activer la réinitialisation de mot de passe pour Windows 10
-      href: tutorial-sspr-windows.md
     - name: Intégrer Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -25,7 +23,9 @@
   items:
     - name: Méthodes d’authentification
       href: concept-authentication-methods.md
-    - name: Inscription combinée
+    - name: Authentification sans mot de passe
+      href: concept-authentication-passwordless.md
+    - name: Inscription d’informations de sécurité
       href: concept-registration-mfa-sspr-combined.md
     - name: Réinitialisation de mot de passe
       items:
@@ -43,8 +43,6 @@
       items:
         - name: Fonctionnement de l’authentification multifacteur (MFA)
           href: concept-mfa-howitworks.md
-        - name: Quelle version est adaptée ?
-          href: concept-mfa-whichversion.md
         - name: Mettre vos utilisateurs sous licence
           href: concept-mfa-licensing.md
         - name: Gérer un fournisseur d’authentification
@@ -73,8 +71,8 @@
           href: howto-sspr-authenticationdata.md
         - name: Activer la réécriture du mot de passe
           href: howto-sspr-writeback.md
-        - name: 'SSPR pour Windows 7, 8 et 8.1'
-          href: howto-sspr-windows-7-8.md
+        - name: SSPR pour les clients Windows
+          href: howto-sspr-windows.md
     - name: Authentification multifacteur sur le cloud
       items:
         - name: Déployer une authentification multifacteur sur le cloud
@@ -105,7 +103,7 @@
               href: howto-mfa-nps-extension-rdg.md
             - name: VPN
               href: howto-mfa-nps-extension-vpn.md
-    - name: Inscription combinée
+    - name: Inscription d’informations de sécurité
       items:
         - name: Activer une inscription combinée
           href: howto-registration-mfa-sspr-combined.md
@@ -131,10 +129,14 @@
               href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Valeurs de verrouillage intelligent Azure AD
       href: howto-password-smart-lockout.md
-    - name: Windows Hello Entreprise
-      href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
-    - name: Connexion par téléphone sans mot de passe
-      href: howto-authentication-phone-sign-in.md
+    - name: Sans mot de passe
+      items:
+        - name: Clés de sécurité sans mot de passe
+          href: howto-authentication-passwordless-security-key.md
+        - name: Connexion par téléphone sans mot de passe
+          href: howto-authentication-passwordless-phone.md
+        - name: Windows Hello Entreprise
+          href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
     - name: Authentification par certificat
       items:
         - name: Prise en main des certificats d’autorisation
@@ -144,12 +146,10 @@
               href: active-directory-certificate-based-authentication-android.md
             - name: CBA sur des appareils iOS
               href: active-directory-certificate-based-authentication-ios.md
-    - name: Développement
-      items:
-        - name: Créer une authentification multifacteur dans des applications personnalisées
-          href: howto-mfa-sdk.md
     - name: Reporting
       items:
+        - name: Utilisation et insights
+          href: howto-authentication-methods-usage-insights.md
         - name: Rapports SSPR
           href: howto-sspr-reporting.md
         - name: Rapports MFA

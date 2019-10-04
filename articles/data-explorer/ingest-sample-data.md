@@ -5,23 +5,23 @@ author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 08/12/2019
+ms.openlocfilehash: c803de599f6be98512b15e927c6d15f1c7d95ff1
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050621"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515746"
 ---
-# <a name="ingest-sample-data-into-azure-data-explorer"></a>Ingérer des exemples de données dans l’Explorateur de données Azure
+# <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>Démarrage rapide : Ingérer des exemples de données dans l’Explorateur de données Azure
 
 Cet article vous montre comment ingérer (charger) des exemples de données dans une base de données de l’Explorateur de données Azure. Il existe [plusieurs façons d’ingérer des données](ingest-data-overview.md) ; cet article se concentre sur une approche de base qui convient à des fins de test.
 
 > [!NOTE]
-> Vous avez déjà ces données si vous avez terminé [Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure](python-ingest-data.md).
+> Vous avez déjà ces données si vous avez terminé [Ingérer des données à l’aide de la bibliothèque Python dans Azure Data Explorer](python-ingest-data.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [Un cluster et une base de données de test](create-cluster-database-portal.md)
 
@@ -56,11 +56,6 @@ L’exemple de jeu de données **StormEvents** contient des données météorolo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
-
-> [!div class="nextstepaction"]
-> [Écrire des requêtes](write-queries.md)
-
-> [!div class="nextstepaction"]
-> [Ingestion des données de l’Explorateur de données Azure](ingest-data-overview.md)
+* [Ingestion de données Azure Data Explorer](ingest-data-overview.md) pour en savoir plus sur les méthodes d’ingestion.
+* [Démarrage rapide : Interroger des données dans l’interface utilisateur web Azure Data Explorer](web-query-data.md).
+* [Écrire des requêtes](write-queries.md) avec le langage de requête Kusto.

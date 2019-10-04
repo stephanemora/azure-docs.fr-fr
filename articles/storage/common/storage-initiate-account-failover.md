@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59044961"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985336"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Lancer un basculement de compte de stockage (préversion)
 
@@ -26,7 +27,7 @@ Cet article explique comment effectuer un basculement de compte pour votre compt
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de pouvoir effectuer un basculement de compte sur votre compte de stockage, assurez-vous d’avoir effectué les étapes suivantes :
 
@@ -54,7 +55,7 @@ Pour lancer un basculement de compte à partir du portail Azure, procédez comme
 
 3. Vérifiez que votre compte de stockage est configuré en tant que stockage géoredondant (GRS) ou stockage géographiquement redondant avec accès en lecture (RA-GRS). Si ce n’est pas le cas, sélectionnez **Configuration** sous **Paramètres** pour mettre à jour votre compte et le rendre géoredondant. 
 4. La propriété **Last Sync Time** (Heure de dernière de synchronisation) indique le décalage entre le secondaire et le primaire. **Last Sync Time** fournit une estimation de l’étendue de la perte de données que vous connaîtrez une fois le basculement terminé.
-5. Sélectionnez **Préparer un basculement (préversion)**. 
+5. Sélectionnez **Préparer un basculement (préversion)** . 
 6. Passez en revue la boîte de dialogue de confirmation. Lorsque vous êtes prêt, entrez **Oui** pour confirmer votre choix et lancer le basculement.
 
     ![Capture d’écran représentant la boîte de dialogue de confirmation d’un basculement de compte](media/storage-initiate-account-failover/portal-failover-confirm.png)
@@ -66,13 +67,14 @@ Pour lancer un basculement de compte à l’aide de PowerShell, vous devez d’a
 1. Désinstallez les installations précédentes d’Azure PowerShell :
 
     - Supprimez toutes les anciennes installations d’Azure PowerShell de Windows à l’aide du paramètre **Applications et fonctionnalités** situé sous **Paramètres**.
-    - Supprimez tous les modules **Azure*** de `%Program Files%\WindowsPowerShell\Modules`.
-    
+    - Supprimez tous les modules **Azure** de `%Program Files%\WindowsPowerShell\Modules`.
+
 1. Vérifiez que la dernière version de PowerShellGet est installée. Ouvrez une fenêtre Windows PowerShell et exécutez la commande suivante pour installer la dernière version :
- 
+
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+
 1. Fermez, puis rouvrez la fenêtre PowerShell après l’installation de PowerShellGet. 
 
 1. Installez la dernière version d’Azure PowerShell :
@@ -81,21 +83,21 @@ Pour lancer un basculement de compte à l’aide de PowerShell, vous devez d’a
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Installez un module en préversion du stockage Azure qui prend en charge Azure AD :
-   
+1. Installez un module en préversion du Stockage Azure qui prend en charge le basculement de compte :
+
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
+
 1. Fermez, puis rouvrez la fenêtre PowerShell.
  
-
 Pour lancer un basculement de compte à partir de PowerShell, exécutez la commande suivante :
 
 ```powershell
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 
 Pour lancer un basculement de compte à partir de l’interface de ligne de commande Azure, exécutez la commande suivante :
 

@@ -3,9 +3,8 @@ title: 'Didacticiel : Configurer LucidChart pour l’approvisionnement automatiq
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur LucidChart.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser-msft
+ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc181625ead251480bb107fc59e3aae46afab1ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9540cf882af6b11f0e8624e477ad336f6d5d9ad3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257686"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65963683"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Didacticiel : Configurer LucidChart pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer la procédure à suivre dans LucidChart et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur Azure AD sur LucidChart. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -68,7 +67,7 @@ Cette section vous guide afin de connecter votre instance Azure AD à votre com
 
     ![Approvisionnement de LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez le **Jeton secret** généré par votre compte LucidChart (vous pouvez rechercher le jeton sous votre compte : **Team (Équipe)** > **App Integration (Intégration de l’application)** > **SCIM**).
+5. Dans la section **Informations d’identification de l’administrateur**, entrez le **Jeton secret** généré par votre compte LucidChart (vous pouvez rechercher le jeton sous votre compte : **Team (Équipe)**  > **App Integration (Intégration de l’application)**  > **SCIM**).
 
     ![Approvisionnement de LucidChart](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
 

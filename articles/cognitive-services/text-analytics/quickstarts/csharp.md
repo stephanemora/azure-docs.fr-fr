@@ -1,53 +1,82 @@
 ---
-title: 'Démarrage rapide : Utilisation de C# pour appeler l’API Analyse de texte'
+title: 'Démarrage rapide : Bibliothèque de client Analyse de texte pour .NET | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Analyse de texte.
+description: Suivez ce guide de démarrage rapide pour utiliser l’API Analyse de texte d’Azure Cognitive Services.
 services: cognitive-services
-author: ashmaka
+author: raymondl
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/12/2019
+ms.date: 08/28/2019
 ms.author: assafi
-ms.openlocfilehash: 7051f1c1ce43be7dce5d88a06fccee9d876a70f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6e6f1d5cfe1f5e745e6f780b5cb9f979520a1f91
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010175"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134929"
 ---
-# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : Utilisation de C# pour appeler le service cognitif Analyse de texte
+# <a name="quickstart-text-analytics-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Analyse de texte pour .NET
 <a name="HOLTop"></a>
 
-Cet article montre comment détecter la langue, analyser les sentiments et extraire les expressions clés à l’aide des [API Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759711) avec C#. Le code a été écrit pour fonctionner sur une application .NET Core avec des références minimales à des bibliothèques externes, ce qui fait qu’il est également exécutable sur Linux ou MacOS. Le code source de ce guide de démarrage rapide est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics).
+Découvrez comment utiliser la bibliothèque de client Analyse de texte pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. 
 
-Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) pour accéder à la documentation technique des API.
+Utilisez la bibliothèque de client Analyse de texte pour .NET dans le cadre des opérations suivantes :
+
+* analyse de sentiments
+* Détection de la langue
+* Reconnaissance d’entité
+* Extraction d’expressions clés
+
+[Documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [Exemples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
+
+> [!NOTE] 
+> Le code de démonstration dans cet article utilise les méthodes synchrones du SDK .NET Analyse de texte pour plus de simplicité. Toutefois, pour les scénarios de production, nous recommandons d’utiliser les méthodes asynchrones par lots dans vos propres applications pour les rendre plus évolutives et réactives. Par exemple, en appelant [SentimentBatchAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentimentbatchasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet-preview) au lieu de [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet).
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+* Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
+* Version actuelle du [SDK .NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
-Vous devez également avoir le [point de terminaison et la clé d’accès](../How-tos/text-analytics-how-to-access-key.md) générée pendant le processus d’inscription.
+## <a name="setting-up"></a>Configuration
 
-## <a name="install-the-nuget-sdk-package"></a>Installer le package SDK NuGet
-1. Créez une solution Console à l’aide `.netcoreapp2.0` ou version ultérieure dans Visual Studio.
-1. Cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet de la solution**.
-1. Sélectionnez l’onglet **Parcourir** et recherchez **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
+### <a name="create-a-text-analytics-azure-resource"></a>Créer une ressource Azure pour Analyse de texte
 
-> [!Tip]
->  Il est possible d’appeler directement les [points de terminaison HTTP](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) avec C#, mais il est plus facile d’appeler le service avec le Kit de développement logiciel (SDK) Microsoft.Azure.CognitiveServices.Language sans avoir à se soucier de la sérialisation et de la désérialisation du code JSON.
->
-> Quelques liens utiles :
-> - [Page du Kit SDK NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
-> - [Code du Kit SDK](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
+Obtenez une clé pour authentifier vos applications auprès d’Azure Cognitive Services. Ces services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour Analyse de texte en utilisant le [portail Azure](../../cognitive-services-apis-create-account.md) ou [Azure CLI](../../cognitive-services-apis-create-account-cli.md) sur votre ordinateur local. Vous pouvez également :
 
-## <a name="call-the-text-analytics-api-using-the-sdk"></a>Appeler l’API Analyse de texte avec le Kit SDK
+* Obtenir une [clé d’évaluation](https://azure.microsoft.com/try/cognitive-services/#decision) valide pendant 7 jours gratuitement. Une fois l’inscription terminée, elle sera disponible sur le [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Afficher cette ressource sur le [portail Azure](https://portal.azure.com/).
 
-1. Remplacez Program.cs par le code ci-dessous. Ce programme illustre les fonctionnalités de l’API Analyse de texte en trois sections (extraction de la langue, extraction de phrases clés et analyse des sentiments).
-1. Remplacez la valeur d’en-tête `Ocp-Apim-Subscription-Key` par une clé d’accès valide pour votre abonnement.
-1. Remplacez la région dans `Endpoint`. Vous pouvez trouver votre point de terminaison dans la section Vue d’ensemble de votre ressource Analyse de texte dans le [portail Azure](<https://ms.portal.azure.com>). Incluez seulement cette partie de votre point de terminaison : « https://[région].api.cognitive.microsoft.com ».
-1. Exécutez le programme.
+Après avoir obtenu une clé à partir de votre abonnement ou ressource d’évaluation, [créez une variable d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la clé, nommée `TEXT_ANALYTICS_SUBSCRIPTION_KEY`.
+
+### <a name="create-a-new-c-application"></a>Créer une application C#
+
+Créez une application .NET Core dans votre éditeur ou IDE favori. 
+
+Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez la commande `dotnet new` pour créer une application console avec le nom `text-analytics quickstart`. Cette commande crée un projet C# simple nommé « Hello World » avec un seul fichier source : *program.cs*. 
+
+```console
+dotnet new console -n text-analytics-quickstart
+```
+
+Déplacez vos répertoires vers le dossier d’application nouvellement créé. Vous pouvez générer l’application avec :
+
+```console
+dotnet build
+```
+
+La sortie de génération ne doit contenir aucun avertissement ni erreur. 
+
+```console
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
+
+À partir du répertoire de projet, ouvrez le fichier *program.cs* dans votre éditeur ou votre IDE favori. Ajoutez les directives `using` suivantes :
 
 ```csharp
 using System;
@@ -55,212 +84,241 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using Microsoft.Rest;
+```
 
-namespace ConsoleApp1
+Dans la classe `Program` de l’application, créez des variables pour le point de terminaison et la clé d’abonnement Azure de votre ressource. Dans un constructeur statique, obtenez ces valeurs à partir des variables d’environnement `TEXT_ANALYTICS_SUBSCRIPTION_KEY` et `TEXT_ANALYTICS_ENDPOINT`. Si vous avez créé ces variables d’environnement après avoir commencé à modifier l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou l’interpréteur de commandes que vous utilisez pour accéder aux variables.
+
+```csharp
+private const string key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+
+private const string endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
+
+static Program()
 {
-    class Program
+    if (null == subscriptionKey)
     {
-        private const string SubscriptionKey = ""; //Insert your Text Anaytics subscription key
-
-        private class ApiKeyServiceClientCredentials : ServiceClientCredentials
-        {
-            public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-            {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", SubscriptionKey);
-                return base.ProcessHttpRequestAsync(request, cancellationToken);
-            }
-        }
-
-        static async Task Main(string[] args)
-        {
-
-            // Create a client.
-            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
-            {
-                Endpoint = "https://westus.api.cognitive.microsoft.com"
-            }; //Replace 'westus' with the correct region for your Text Analytics subscription
-
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-            // Extracting language
-            Console.WriteLine("===== LANGUAGE EXTRACTION ======");
-
-            var langResults = await client.DetectLanguageAsync(
-                false,
-                new LanguageBatchInput(
-                    new List<LanguageInput>
-                        {
-                          new LanguageInput(id: "1", text: "This is a document written in English."),
-                          new LanguageInput(id: "2", text: "Este es un document escrito en Español."),
-                          new LanguageInput(id: "3", text: "这是一个用中文写的文件")
-                        }));
-
-            // Printing language results.
-            foreach (var document in langResults.Documents)
-            {
-                Console.WriteLine($"Document ID: {document.Id} , Language: {document.DetectedLanguages[0].Name}");
-            }
-
-            // Getting key-phrases
-            Console.WriteLine("\n\n===== KEY-PHRASE EXTRACTION ======");
-
-            var kpResults = await client.KeyPhrasesAsync(
-                false,
-                new MultiLanguageBatchInput(
-                    new List<MultiLanguageInput>
-                    {
-                        new MultiLanguageInput("ja", "1", "猫は幸せ"),
-                        new MultiLanguageInput("de", "2", "Fahrt nach Stuttgart und dann zum Hotel zu Fu."),
-                        new MultiLanguageInput("en", "3", "My cat is stiff as a rock."),
-                        new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
-                    }));
-
-            // Printing keyphrases
-            foreach (var document in kpResults.Documents)
-            {
-                Console.WriteLine($"Document ID: {document.Id} ");
-
-                Console.WriteLine("\t Key phrases:");
-
-                foreach (string keyphrase in document.KeyPhrases)
-                {
-                    Console.WriteLine($"\t\t{keyphrase}");
-                }
-            }
-
-            // Extracting sentiment
-            Console.WriteLine("\n\n===== SENTIMENT ANALYSIS ======");
-
-            var sentimentResults = await client.SentimentAsync(
-                false,
-                new MultiLanguageBatchInput(
-                    new List<MultiLanguageInput>
-                    {
-                        new MultiLanguageInput("en", "1", "I had the best day of my life."),
-                        new MultiLanguageInput("en", "2", "This was a waste of my time. The speaker put me to sleep."),
-                        new MultiLanguageInput("es", "3", "No tengo dinero ni nada que dar..."),
-                        new MultiLanguageInput("it", "4", "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."),
-                    }));
-
-
-            // Printing sentiment results
-            foreach (var document in sentimentResults.Documents)
-            {
-                Console.WriteLine($"Document ID: {document.Id} , Sentiment Score: {document.Score:0.00}");
-            }
-
-
-            // Identify entities
-            Console.WriteLine("\n\n===== ENTITIES ======");
-
-            var entitiesResult = await client.EntitiesAsync(
-                false,
-                new MultiLanguageBatchInput(
-                    new List<MultiLanguageInput>()
-                    {
-                        new MultiLanguageInput("en", "1", "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."),
-                        new MultiLanguageInput("es", "2", "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.")
-                    }));
-
-            // Printing entities results
-            foreach (var document in entitiesResult.Documents)
-            {
-                Console.WriteLine($"Document ID: {document.Id} ");
-
-                Console.WriteLine("\t Entities:");
-
-                foreach (var entity in document.Entities)
-                {
-                    Console.WriteLine($"\t\tName: {entity.Name},\tType: {entity.Type ?? "N/A"},\tSub-Type: {entity.SubType ?? "N/A"}");
-                    foreach (var match in entity.Matches)
-                    {
-                        Console.WriteLine($"\t\t\tOffset: {match.Offset},\tLength: {match.Length},\tScore: {match.EntityTypeScore:F3}");
-                    }
-                }
-            }
-
-            Console.ReadLine();
-        }
+        throw new Exception("Please set/export the environment variable: " + key_var);
+    }
+    if (null == endpoint)
+    {
+        throw new Exception("Please set/export the environment variable: " + endpoint_var);
     }
 }
 ```
 
-## <a name="application-output"></a>Sortie de l’application
+Dans la méthode `Main` de l’application, créez des informations d’identification pour accéder au point de terminaison Analyse de texte.  Vous définirez plus tard les méthodes appelées par la méthode `Main`.
 
-L’application affiche les informations suivantes :
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
+```csharp
+static void Main(string[] args)
+{
+    var credentials = new ApiKeyServiceClientCredentials(subscriptionKey);
+    TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+    {
+        Endpoint = endpoint
+    };
+
+    Console.OutputEncoding = System.Text.Encoding.UTF8;
+    SentimentAnalysisExample(client);
+    // languageDetectionExample(client);
+    // entityRecognitionExample(client);
+    // KeyPhraseExtractionExample(client);
+    
+    Console.Write("Press any key to exit.");
+    Console.ReadKey();
+}
+```
+
+### <a name="install-the-client-library"></a>Installer la bibliothèque de client
+
+Dans le répertoire de l’application, installez la bibliothèque de client Analyse de texte pour .NET avec la commande suivante :
 
 ```console
-===== LANGUAGE EXTRACTION ======
-Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
-
-
-===== KEY-PHRASE EXTRACTION ======
-Document ID: 1
-         Key phrases:
-                幸せ
-Document ID: 2
-         Key phrases:
-                Stuttgart
-                Hotel
-                Fahrt
-                Fu
-Document ID: 3
-         Key phrases:
-                cat
-                rock
-Document ID: 4
-         Key phrases:
-                fútbol
-
-
-===== SENTIMENT ANALYSIS ======
-Document ID: 1 , Sentiment Score: 0.87
-Document ID: 2 , Sentiment Score: 0.11
-Document ID: 3 , Sentiment Score: 0.44
-Document ID: 4 , Sentiment Score: 1.00
-
-
-===== ENTITIES ======
-Document ID: 1
-         Entities:
-                Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-                        Offset: 0,      Length: 9,      Score: 1.000
-                Name: Bill Gates,       Type: Person,   Sub-Type: N/A
-                        Offset: 25,     Length: 10,     Score: 1.000
-                Name: Paul Allen,       Type: Person,   Sub-Type: N/A
-                        Offset: 40,     Length: 10,     Score: 0.999
-                Name: April 4,  Type: Other,    Sub-Type: N/A
-                        Offset: 54,     Length: 7,      Score: 0.800
-                Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
-                        Offset: 54,     Length: 13,     Score: 0.800
-                Name: BASIC,    Type: Other,    Sub-Type: N/A
-                        Offset: 89,     Length: 5,      Score: 0.800
-                Name: Altair 8800,      Type: Other,    Sub-Type: N/A
-                        Offset: 116,    Length: 11,     Score: 0.800
-Document ID: 2
-         Entities:
-                Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-                        Offset: 21,     Length: 9,      Score: 1.000
-                Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-                        Offset: 60,     Length: 7,      Score: 0.991
-                Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-                        Offset: 71,     Length: 13,     Score: 0.800
-                Name: Seattle,  Type: Location, Sub-Type: N/A
-                        Offset: 88,     Length: 7,      Score: 1.000
+dotnet add package Microsoft.Azure.CognitiveServices.Language.TextAnalytics --version 4.0.0
 ```
+
+Si vous utilisez l’IDE Visual Studio, la bibliothèque de client est disponible sous forme de package NuGet téléchargeable.
+
+## <a name="object-model"></a>Modèle objet
+
+Le client Analyse de texte est un objet [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) qui s’authentifie auprès d’Azure à l’aide de votre clé et fournit des fonctions permettant d’accepter du texte sous forme de chaînes uniques ou de lots de chaînes. Vous pouvez envoyer du texte à l’API de façon synchrone ou de façon asynchrone. L’objet Response contient les informations d’analyse de chaque document que vous envoyez. 
+
+
+## <a name="code-examples"></a>Exemples de code
+
+* [Authentifier le client](#authenticate-the-client)
+* [Analyse des sentiments](#sentiment-analysis)
+* [Détection de la langue](#language-detection)
+* [Reconnaissance d’entités](#entity-recognition)
+* [Extraction de phrases clés](#key-phrase-extraction)
+
+## <a name="authenticate-the-client"></a>Authentifier le client
+
+Créez une classe `ApiKeyServiceClientCredentials` pour stocker les informations d’identification et les ajouter aux requêtes du client. Dans cette classe, créez une substitution pour `ProcessHttpRequestAsync()` qui ajoute votre clé à l’en-tête `Ocp-Apim-Subscription-Key`.
+
+```csharp
+class ApiKeyServiceClientCredentials : ServiceClientCredentials
+{
+    private readonly string apiKey;
+
+    public ApiKeyServiceClientCredentials(string apiKey)
+    {
+        this.apiKey = apiKey;
+    }
+
+    public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        if (request == null)
+        {
+            throw new ArgumentNullException("request");
+        }
+        request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
+        return base.ProcessHttpRequestAsync(request, cancellationToken);
+    }
+}
+```
+
+Dans la méthode `main()`, instanciez le client avec votre clé et votre point de terminaison.
+
+```csharp
+var credentials = new ApiKeyServiceClientCredentials(key);
+TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+{
+    Endpoint = endpoint
+};
+```
+
+## <a name="sentiment-analysis"></a>analyse de sentiments
+
+Créez une nouvelle fonction appelée `SentimentAnalysisExample()` qui accepte le client que vous avez créé précédemment, puis appelez sa fonction [Sentiment()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.sentiment?view=azure-dotnet). L’objet [SentimentResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.sentimentresult?view=azure-dotnet) retourné contiendra le sentiment `Score` si l’opération réussit, et `errorMessage` si elle échoue. 
+
+Un score proche de 0 indique un sentiment négatif, tandis qu’un score proche de 1 dénote un sentiment positif.
+
+```csharp
+static void SentimentAnalysisExample(TextAnalyticsClient client){
+    var result = client.Sentiment("I had the best day of my life.", "en");
+    Console.WriteLine($"Sentiment Score: {result.Score:0.00}");
+}
+```
+
+### <a name="output"></a>Output
+
+```console
+Sentiment Score: 0.87
+```
+
+## <a name="language-detection"></a>Détection de la langue
+
+Créez une nouvelle fonction appelée `languageDetectionExample()` qui accepte le client que vous avez créé précédemment, puis appelez sa fonction [DetectLanguage()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.detectlanguage?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_DetectLanguage_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_). L’objet [LanguageResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.languageresult?view=azure-dotnet) retourné contiendra la liste des langues détectées dans `DetectedLanguages` si l’opération réussit, et `errorMessage` si elle échoue.  Imprimez la première langue retournée.
+
+> [!Tip]
+> Dans certains cas, il peut être difficile de lever toute ambiguïté sur les langues en fonction de l’entrée. Vous pouvez utiliser le paramètre `countryHint` pour spécifier un code de pays à 2 lettres. L’API utilise « US » comme countryHint par défaut. Pour modifier ce comportement, vous pouvez réinitialiser ce paramètre en définissant cette valeur sur une chaîne vide `countryHint = ""`.
+
+```csharp
+static void languageDetectionExample(TextAnalyticsClient client){
+    var result = client.DetectLanguage("This is a document written in English.");
+    Console.WriteLine($"Language: {result.DetectedLanguages[0].Name}");
+}
+```
+<!--
+[!code-csharp[Language Detection example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=language-detection)]
+-->
+
+### <a name="output"></a>Output
+
+```console
+Language: English
+```
+
+## <a name="entity-recognition"></a>Reconnaissance d’entité
+
+Créez une nouvelle fonction appelée `RecognizeEntitiesExample()` qui accepte le client que vous avez créé précédemment, puis appelez sa fonction [Entities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_). Effectuez une itération dans les résultats. L’objet [EntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult?view=azure-dotnet) retourné contiendra la liste des entités détectées dans `Entities` si l’opération réussit, et `errorMessage` si elle échoue. Pour chaque entité détectée, imprimez son type, son sous-type, son nom Wikipédia (s’il existe), ainsi que les emplacements dans le texte d’origine.
+
+```csharp
+static void entityRecognitionExample(TextAnalyticsClient client){
+
+    var result = client.Entities("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.");
+    Console.WriteLine("Entities:");
+    foreach (var entity in result.Entities){
+        Console.WriteLine($"\tName: {entity.Name},\tType: {entity.Type ?? "N/A"},\tSub-Type: {entity.SubType ?? "N/A"}");
+        foreach (var match in entity.Matches){
+            Console.WriteLine($"\t\tOffset: {match.Offset},\tLength: {match.Length},\tScore: {match.EntityTypeScore:F3}");
+        }
+    }
+}
+```
+<!--
+[!code-csharp[Entity Recognition example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=language-detection)]
+-->
+
+### <a name="output"></a>Output
+
+```console
+Entities:
+    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
+        Offset: 0,      Length: 9,      Score: 1.000
+    Name: Bill Gates,       Type: Person,   Sub-Type: N/A
+        Offset: 25,     Length: 10,     Score: 1.000
+    Name: Paul Allen,       Type: Person,   Sub-Type: N/A
+        Offset: 40,     Length: 10,     Score: 0.999
+    Name: April 4,  Type: Other,    Sub-Type: N/A
+        Offset: 54,     Length: 7,      Score: 0.800
+    Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
+        Offset: 54,     Length: 13,     Score: 0.800
+    Name: BASIC,    Type: Other,    Sub-Type: N/A
+        Offset: 89,     Length: 5,      Score: 0.800
+    Name: Altair 8800,      Type: Other,    Sub-Type: N/A
+        Offset: 116,    Length: 11,     Score: 0.800
+```
+
+## <a name="key-phrase-extraction"></a>Extraction d’expressions clés
+
+Créez une fonction appelée `KeyPhraseExtractionExample()` qui accepte le client que vous avez créé précédemment, puis appelez sa fonction [KeyPhrases()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_). Le résultat contiendra la liste des expressions clés détectées dans `KeyPhrases` si l’opération réussit et un `errorMessage` si ce n’est pas le cas. Imprimez les expressions clés détectées.
+
+```csharp
+static void KeyPhraseExtractionExample(TextAnalyticsClient client)
+{
+    var result = client.KeyPhrases("My cat might need to see a veterinarian.");
+
+    // Printing key phrases
+    Console.WriteLine("Key phrases:");
+
+    foreach (string keyphrase in result.KeyPhrases)
+    {
+        Console.WriteLine($"\t{keyphrase}");
+    }
+}
+```
+
+### <a name="output"></a>Output
+
+```console
+Key phrases:
+    cat
+    veterinarian
+```
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources liées au groupe de ressources.
+
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Interface de ligne de commande Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
 > [Analyse de texte avec Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Voir aussi
 
- [Vue d’ensemble Analyse de texte](../overview.md) [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)
-
+* [Vue d’ensemble d’Analyse de texte](../overview.md)
+* [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Reconnaissance d’entités](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Détecter la langue](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Reconnaissance de la langue](../how-tos/text-analytics-how-to-language-detection.md)

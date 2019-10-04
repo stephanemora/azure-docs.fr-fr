@@ -3,20 +3,20 @@ title: Bien démarrer avec l’API de traduction de texte Translator Text
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment vous inscrire à l’API de traduction de texte Translator Text et obtenir une clé d’abonnement.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 6bd7a014e765d32349951d99d3027c90f61f7eb7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: e51e6875681618b5f558d5c52ed5a2b14095b079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726131"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434965"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Comment s’inscrire à l’API de traduction de texte Translator Text
 

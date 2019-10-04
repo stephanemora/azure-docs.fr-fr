@@ -7,13 +7,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ee44d744c580dd9fbf20e7186b6e76fdc74cc5d0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279973"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71004084"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Création de blueprints dynamiques au moyen de paramètres
 
@@ -40,11 +39,12 @@ Cette mesure de sécurité empêche la pratique risquée consistant à stocker d
 - Nom du secret Key Vault
 - Version du secret Key Vault
 
-Si l’affectation de plan utilise un **attribué par le système d’identité gérée**, le référencé Key Vault _doit_ existe dans le même abonnement que la définition de plan est affectée à.
+Si l’affectation de blueprint utilise une **identité managée attribuée par le système**, le Key Vault référencé _doit_ se trouver dans l’abonnement auquel la définition de blueprint est affectée.
 
-Si l’affectation de plan utilise un **affectée à l’utilisateur de l’identité managée**, le référencé Key Vault _peut_ existent dans un abonnement centralisé. L’identité gérée doit disposer des droits appropriés sur le coffre de clés avant l’affectation de plan.
+Si l’affectation de blueprint utilise une **identité managée attribuée par le système**, le Key Vault référencé _peut_ se trouver dans un abonnement centralisé. L’identité managée doit disposer des droits appropriés sur le Key Vault avant l’affectation de blueprint.
 
-Dans les deux cas, le coffre de clés doit avoir **activer l’accès à Azure Resource Manager pour le déploiement de modèle** configuré sur le **stratégies d’accès** page. Pour obtenir des instructions sur la façon d’activer cette fonctionnalité, consultez [Key Vault - Activer le déploiement de modèle](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> [!IMPORTANT]
+> Dans les deux cas, le Key Vault doit disposer de l’option **Activer l’accès à Azure Resource Manager pour le déploiement de modèles** configurée sur la page **Stratégies d’accès**. Pour obtenir des instructions sur la façon d’activer cette fonctionnalité, consultez [Key Vault - Activer le déploiement de modèle](../../../managed-applications/key-vault-access.md#enable-template-deployment).
 
 Pour plus d’informations sur Azure Key Vault, consultez [Présentation de Key Vault](../../../key-vault/key-vault-overview.md)
 
@@ -60,17 +60,17 @@ Une valeur de paramètre définie dans la définition d’un blueprint est appel
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
-1. Cliquez sur un plan existant, puis cliquez **édition blueprint** ou cliquez sur **+ créer plan** et remplissez les informations sur le **notions de base** onglet.
+1. Cliquez sur un blueprint existant puis sur **Modifier le blueprint** OU cliquez sur **+ Créer un blueprint** et renseignez les informations sous l’onglet **De base**.
 
 1. Cliquez sur **Suivant : Artefacts** OU cliquez sur l’onglet **Artefacts**.
 
 1. Les artefacts ajoutés au blueprint ayant des options de paramètre comportent la mention **X paramètres renseignés sur Y** dans la colonne **Paramètres**. Cliquez sur la ligne de l’artefact pour modifier ses paramètres.
 
-   ![Paramètres de plan sur une définition de plan](../media/parameters/parameter-column.png)
+   ![Paramètres de blueprint sur une définition de blueprint](../media/parameters/parameter-column.png)
 
 1. La page **Modifier un artefact** affiche des options de valeur appropriées à l’artefact sur lequel vous avez cliqué. Chaque paramètre sur l’artefact a un titre, une zone de valeur et une case à cocher. Décochez la case pour rendre le **paramètre statique**. Dans l’exemple ci-dessous, seul _Emplacement_ est un **paramètre statique**, car la case est décochée, tandis que la case _Nom du groupe de ressources_ est cochée.
 
-   ![Plan des paramètres statiques sur un artefact de plan](../media/parameters/static-parameter.png)
+   ![Paramètres statiques de blueprint sur un artefact de blueprint](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Définition des paramètres statiques à partir de l’API REST
 
@@ -169,7 +169,7 @@ La création de **paramètres statiques** sur un artefact est similaire, mais pr
 
 ### <a name="dynamic-parameters"></a>Paramètres dynamiques
 
-Un **paramètre dynamique** est l’inverse d’un paramètre statique. Ce paramètre n’est pas défini sur le blueprint, mais durant chaque affectation du blueprint. Dans l’exemple de groupe de ressources, l’utilisation d’un **paramètre dynamique** se justifie pour le nom du groupe de ressources. Il permet de fournir un nom différent pour chaque affectation du blueprint.
+Un **paramètre dynamique** est l’inverse d’un paramètre statique. Ce paramètre n’est pas défini sur le blueprint, mais durant chaque affectation du blueprint. Dans l’exemple de groupe de ressources, l’utilisation d’un **paramètre dynamique** se justifie pour le nom du groupe de ressources. Il permet de fournir un nom différent pour chaque affectation du blueprint. Pour obtenir la liste des fonctions de blueprint, consultez les informations de référence sur les [fonctions de blueprint](../reference/blueprint-functions.md).
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Définition des paramètres dynamiques dans le portail
 
@@ -177,17 +177,15 @@ Un **paramètre dynamique** est l’inverse d’un paramètre statique. Ce param
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
-1. Cliquez avec le bouton droit sur le blueprint que vous souhaitez affecter. Sélectionnez **Assign blueprint** ou cliquez sur le plan que vous souhaitez affecter, puis cliquez sur le **Assign blueprint** bouton.
+1. Cliquez avec le bouton droit sur le blueprint que vous souhaitez affecter. Sélectionnez **Affecter le blueprint** OU cliquez sur le blueprint que vous souhaitez affecter, puis sur le bouton **Affecter le blueprint**.
 
-1. Sur le **Assign blueprint** page, recherchez le **paramètres d’artefact** section. Chaque artefact contenant au moins un **paramètre dynamique** présente l’artefact et les options de configuration. Indiquez les valeurs requises pour les paramètres avant d’affecter le blueprint. Dans l’exemple ci-dessous, _Name_ est un **paramètre dynamique** qui doit être défini pour terminer l’affectation du blueprint.
+1. Sur la page **Affecter le blueprint**, recherchez la section **Paramètres d’artefact**. Chaque artefact contenant au moins un **paramètre dynamique** présente l’artefact et les options de configuration. Indiquez les valeurs requises pour les paramètres avant d’affecter le blueprint. Dans l’exemple ci-dessous, _Name_ est un **paramètre dynamique** qui doit être défini pour terminer l’affectation du blueprint.
 
-   ![Paramètre de plan dynamique pendant l’affectation de plan](../media/parameters/dynamic-parameter.png)
+   ![Paramètre dynamique de blueprint pendant l’affectation de blueprint](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Définition des paramètres dynamiques à partir de l’API REST
 
-La définition des **paramètres dynamiques** pendant l’affectation s’effectue en entrant directement la valeur.
-Au lieu d’utiliser une fonction, telle que `parameters()`, la valeur fournie est une chaîne appropriée.
-Les artefacts pour un groupe de ressources sont définis avec un « nom de modèle » ainsi que des propriétés de **nom** et d’**emplacement**. Tous les autres paramètres pour l’artefact inclus sont définis sous **Paramètres** avec une paire de clés **\<nom\>** et **valeur**. Si le blueprint est configuré pour un paramètre dynamique qui n’est pas fourni lors de l’affectation, celle-ci échoue.
+La définition des **paramètres dynamiques** pendant l’affectation s’effectue en entrant directement la valeur. Au lieu d’utiliser une fonction, telle que [parameters()](../reference/blueprint-functions.md#parameters), la valeur fournie est une chaîne appropriée. Les artefacts pour un groupe de ressources sont définis avec un « nom de modèle » ainsi que des propriétés de **nom** et d’**emplacement**. Tous les autres paramètres pour l’artefact inclus sont définis sous **Paramètres** avec une paire de clés **\<nom\>** et **valeur**. Si le blueprint est configuré pour un paramètre dynamique qui n’est pas fourni lors de l’affectation, celle-ci échoue.
 
 - URI de l’API REST
 
@@ -240,7 +238,8 @@ Les artefacts pour un groupe de ressources sont définis avec un « nom de mod�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrir le [cycle de vie des blueprints](lifecycle.md).
+- Affichez la liste des [fonctions de blueprint](../reference/blueprint-functions.md).
+- En savoir plus sur le [cycle de vie des blueprints](lifecycle.md)
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](resource-locking.md).
 - Découvrir comment [mettre à jour des affectations existantes](../how-to/update-existing-assignments.md).

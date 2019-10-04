@@ -1,20 +1,19 @@
 ---
-title: Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales avec Azure Site Recovery | Microsoft Docs
+title: Configurer la reprise d’activité après sinistre vers Azure pour des machines virtuelles VMware locales avec Azure Site Recovery
 description: Découvrez comment configurer la récupération d’urgence de machines virtuelles VMware locales vers Azure avec Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 4/08/2019
+ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 268def74a354b19427849738549fbc0c6b197746
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357884"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813399"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -161,7 +160,7 @@ Sélectionnez et vérifiez les ressources cibles.
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**.
 2. Sélectionnez le coffre Recovery Services (**ContosoVMVault** dans ce didacticiel).
-3. Pour créer une stratégie de réplication, sélectionnez **Infrastructure Azure Site Recovery** > **Stratégies de réplication** > **+Stratégie de réplication**.
+3. Pour créer une stratégie de réplication, sélectionnez **Infrastructure Azure Site Recovery** > **Stratégies de réplication** >  **+Stratégie de réplication**.
 4. Dans **Créer une stratégie de réplication**, entrez le nom de stratégie. Nous utilisons **VMwareRepPolicy**.
 5. Dans **Seuil RPO**, utilisez la valeur par défaut de 60 minutes. Cette valeur définit la fréquence à laquelle les points de récupération sont créés. Une alerte est générée lorsque la réplication continue dépasse cette limite.
 6. Dans **Rétention des points de récupération**, précisez le temps de rétention de chaque point de récupération. Pour ce didacticiel, nous utilisons 72 heures. Les machines virtuelles répliquées peuvent être récupérées à n’importe quel point dans une fenêtre de rétention.
@@ -180,7 +179,7 @@ Activez la réplication des machines virtuelles comme suit :
 1. Dans **Source**, sélectionnez **Local**, puis le serveur de configuration dans **Emplacement source**.
 1. Dans **Type de machine**, sélectionnez **Machines virtuelles**.
 1. Dans **Hyperviseur vCenter/vSphere**, sélectionnez l’hôte vSphere, ou le serveur vCenter qui gère l’hôte.
-1. Sélectionnez le serveur de processus (installé par défaut sur la machine virtuelle du serveur de configuration). Sélectionnez ensuite **OK**.
+1. Sélectionnez le serveur de processus (installé par défaut sur la machine virtuelle du serveur de configuration). Sélectionnez ensuite **OK**. L'état d’intégrité de chaque serveur de traitement est indiqué en fonction des limites recommandées et d’autres paramètres. Sélectionnez un serveur de traitement sain. Un serveur de traitement [critique](vmware-physical-azure-monitor-process-server.md#process-server-alerts) ne peut pas être sélectionné. Vous pouvez [détecter et résoudre](vmware-physical-azure-troubleshoot-process-server.md) les erreurs **ou** configurer un [serveur de traitement de montée en puissance](vmware-azure-set-up-process-server-scale.md).
 1. Dans **Cible**, sélectionnez l’abonnement et le groupe de ressources dans lesquels vous voulez créer les machines virtuelles basculées. Nous utilisons le modèle de déploiement Resource Manager. 
 1. Sélectionnez le sous-réseau et le réseau Azure auxquels les machines virtuelles Azure se connectent lorsqu’elles sont créées après le basculement.
 1. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer les paramètres réseau à l’ensemble des machines virtuelles pour lesquelles vous activez la réplication. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine.

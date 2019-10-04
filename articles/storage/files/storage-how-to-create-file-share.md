@@ -1,19 +1,18 @@
 ---
 title: Création d’un partage de fichiers Azure | Microsoft Docs
 description: Créer un partage de fichiers Azure dans Azure Files à l’aide du portail Azure, de PowerShell et d’Azure CLI.
-services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/19/2017
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1620683f4bc02d607afd8e0371e8d4a5461612b3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 000dacb7530b52784a68663d295fde9784d50e29
+ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772328"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70013558"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Créer un partage de fichiers dans Azure Files
 Vous pouvez créer des partages de fichiers Azure à l’aide du  [portail Azure](https://portal.azure.com/), des applets de commande PowerShell du Stockage Azure, des bibliothèques clientes du Stockage Azure ou de l’API REST du Stockage Azure. Ce tutoriel vous apprendra à effectuer les opérations suivantes :
@@ -21,7 +20,7 @@ Vous pouvez créer des partages de fichiers Azure à l’aide du  [portail Azur
 * [Création d’un partage de fichiers Azure avec PowerShell](#create-file-share-through-powershell)
 * [Création d’un partage de fichiers Azure avec l’interface CLI](#create-file-share-through-command-line-interface-cli)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour créer un partage de fichiers Azure, vous pouvez utiliser un compte de stockage existant ou [créer un compte de stockage Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Pour créer un partage de fichiers Azure avec PowerShell, vous avez besoin de la clé de compte et du nom de votre compte de stockage. Si vous envisagez d’utiliser Powershell ou l’interface CLI, vous aurez besoin de la clé du compte de stockage.
 
 ## <a name="create-a-file-share-through-the-azure-portal"></a>Créer un partage de fichiers via le portail Azure
@@ -42,24 +41,25 @@ Pour créer un partage de fichiers Azure, vous pouvez utiliser un compte de stoc
 
 
 ## <a name="create-file-share-through-powershell"></a>Création d’un partage de fichiers via PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Pour vous préparer à utiliser PowerShell, téléchargez et installez les applets de commande PowerShell Azure. Pour obtenir des instructions sur l’installation et le point d’installation, consultez  [Installer et configurer Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) .
+Pour vous préparer à utiliser PowerShell, téléchargez et installez les applets de commande PowerShell Azure. Pour obtenir des instructions sur l’installation et le point d’installation, consultez  [Installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) .
 
 > [!Note]  
 > Il est recommandé de télécharger et d’installer le dernier module Azure PowerShell ou d’effectuer une mise à niveau vers celui-ci.
 
-1. **Créez un contexte pour le compte de stockage et la clé**. Le contexte regroupe la clé de compte et le nom du compte de stockage. Pour obtenir des instructions sur la copie de votre clé de compte à partir du  [Portail Azure](https://portal.azure.com/), consultez  [Clés d’accès au compte de stockage](../common/storage-account-manage.md#access-keys).
+1. **Créer un compte de stockage :** Un compte de stockage est un pool partagé de stockage dans lequel vous pouvez déployer des partages de fichiers Azure ainsi que d’autres ressources de stockage comme des objets blob ou des files d’attente.
 
-    ```powershell
-    $storageContext = New-AzStorageContext <storage-account-name> <storage-account-key>
+    ```PowerShell
+    $resourceGroup = "myresourcegroup"
+    $storAcctName = "myuniquestorageaccount"
+    $region = "westus2"
+    $storAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name $storAcctName -SkuName Standard_LRS -Location $region -Kind StorageV2
     ```
-    
+
 2. **Créez un nouveau partage de fichiers** :    
     
     ```powershell
-    $share = New-AzStorageShare logs -Context $storageContext
+    $shareName = "myshare"
+    $share = New-AzStorageShare -Context $storAcct.Context -Name $shareName
     ```
 
 > [!Note]  
@@ -73,7 +73,7 @@ Pour vous préparer à utiliser PowerShell, téléchargez et installez les apple
     Remplacez  ```<storage-account>``` et  ```<resource_group>```  par le nom de votre compte de stockage et le groupe de ressources de l’exemple suivant :
 
    ```azurecli
-    current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
+    current_env_conn_string=$(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
 
     if [[ $current_env_conn_string == "" ]]; then  
         echo "Couldn't retrieve the connection string."
@@ -82,7 +82,7 @@ Pour vous préparer à utiliser PowerShell, téléchargez et installez les apple
 
 3. **Créer le partage de fichiers**
     ```azurecli
-    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
+    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string > /dev/null
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes

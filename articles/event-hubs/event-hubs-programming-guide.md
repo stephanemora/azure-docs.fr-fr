@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 29814cb8aef09a8ead30d6daa615554dd55135dd
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 28b5c2db0f347b27beb31d427c7f189d74903dff
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678579"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70913974"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guide de programmation pour Azure Event Hubs
 Cet article décrit quelques scénarios courants de l’écriture de code à l’aide du service Azure Event Hubs. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](event-hubs-what-is-event-hubs.md).
@@ -23,7 +23,7 @@ Cet article décrit quelques scénarios courants de l’écriture de code à l�
 
 Vous envoyez des événements vers un concentrateur d’événements soit en utilisant HTTP POST, soit via une connexion AMQP 1.0. Le choix entre les deux méthodes à utiliser et à quel moment dépend du scénario spécifique qui est adressé. Les connexions AMQP 1.0 sont limitées en tant que connexions réparties dans Service Bus et sont plus appropriées dans les scénarios avec des volumes de messages plus importants fréquents et des conditions de latence plus faible, car elles fournissent un canal de messagerie permanent.
 
-L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient][] et [EventData][]. [EventHubClient][] fournit le canal de communication AMQP par le biais duquel les événements sont envoyés au concentrateur d’événements. La classe [EventData][] représente un événement et sert à publier des messages sur un concentrateur d’événements. Cette classe inclut le corps, certaines métadonnées et les informations d'en-tête sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData][] lorsqu’il traverse un concentrateur d’événements.
+L’utilisation des API gérées avec .NET, les constructions principales pour publier des données sur les concentrateurs d’événements sont les classes [EventHubClient][] et [EventData][]. [EventHubClient][] fournit le canal de communication AMQP par le biais duquel les événements sont envoyés au concentrateur d’événements. La classe [EventData][] représente un événement et sert à publier des messages sur un concentrateur d’événements. Cette classe inclut le corps, certaines métadonnées (Properties) et les informations d'en-tête (SystemProperties) sur l'événement. D’autres propriétés sont ajoutées à l’objet [EventData][] lorsqu’il traverse un concentrateur d’événements.
 
 ## <a name="get-started"></a>Prise en main
 Les classes .NET qui prennent en charge Event Hubs sont fournies dans le package NuGet [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Vous pouvez installer ce dernier à l’aide de l’Explorateur de solutions Visual Studio ou de la [Console du gestionnaire de package](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) dans Visual Studio. Pour cela, entrez la commande suivante dans la fenêtre de la [console du gestionnaire du package](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :
@@ -58,7 +58,7 @@ Vous envoyez des événements à un Event Hub en créant une instance [EventHubC
 
 ## <a name="event-serialization"></a>Sérialisation d'événement
 
-La classe [EventData][] comporte [deux constructeurs surchargés](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) qui utilisent un grand nombre de paramètres, des octets ou un tableau d’octets, qui représentent la charge utile des données d’événement. Lorsque vous utilisez JSON avec [EventData][], vous pouvez utiliser **Encoding.UTF8.GetBytes()** pour récupérer le tableau d'octets d'une chaîne encodée JSON. Par exemple : 
+La classe [EventData][] comporte [deux constructeurs surchargés](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) qui utilisent un grand nombre de paramètres, des octets ou un tableau d’octets, qui représentent la charge utile des données d’événement. Lorsque vous utilisez JSON avec [EventData][], vous pouvez utiliser **Encoding.UTF8.GetBytes()** pour récupérer le tableau d'octets d'une chaîne encodée JSON. Par exemple :
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -70,6 +70,9 @@ for (var i = 0; i < numMessagesToSend; i++)
 ```
 
 ## <a name="partition-key"></a>Clé de partition
+
+> [!NOTE]
+> Si vous n’êtes pas familiarisé avec les partitions, consultez [cet article](event-hubs-features.md#partitions). 
 
 Lors de l’envoi des données d’événement, vous pouvez spécifier une valeur hachée afin de produire une affectation de partition. Vous spécifiez la partition à l’aide de la propriété [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid). Toutefois, la décision d’utiliser des partitions implique d’effectuer un choix entre disponibilité et cohérence. 
 
@@ -107,10 +110,10 @@ Pour utiliser la classe [EventProcessorHost][], vous pouvez implémenter [IEvent
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Pour commencer le traitement des événements, vous devez instancier [EventProcessorHost][]en fournissant les paramètres appropriés pour votre concentrateur d'événements. Par exemple : 
+Pour commencer le traitement des événements, vous devez instancier [EventProcessorHost][]en fournissant les paramètres appropriés pour votre concentrateur d'événements. Par exemple :
 
 > [!NOTE]
-> EventProcessorHost et ses classes connexes sont mentionnées dans le **Microsoft.Azure.EventHubs.Processor** package. Ajoutez le package à votre projet Visual Studio en suivant les instructions dans [cet article](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) ou en émettant la commande suivante dans le [Console du Gestionnaire de Package](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) fenêtre :`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost et ses classes connexes sont mentionnées dans le package **Microsoft.Azure.EventHubs.Processor**. Ajoutez le package à votre projet Visual Studio en suivant les instructions fournies dans [cet article](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) ou en émettant la commande suivante dans la fenêtre [Console du Gestionnaire de Package](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) :`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(
@@ -137,7 +140,10 @@ La classe [EventProcessorHost][] implémente également un mécanisme de point d
 
 ## <a name="publisher-revocation"></a>Révocation de l’éditeur
 
-Outre les fonctionnalités d’exécution avancées de [EventProcessorHost][], les hubs d’événements permettent la révocation de l’éditeur pour empêcher certains éditeurs d’envoyer des événements à un concentrateur d’événements. Ces fonctionnalités sont utiles si le jeton d’un éditeur a été compromis ou une mise à jour de logiciel les fait se comporter de façon inappropriée. Dans ces situations, l’identité de l'éditeur, qui fait partie de leur jeton SAP, peut être bloquée à partir d'événements de publication.
+Outre les fonctionnalités d’exécution avancées de l’hôte du processeur d’événements, le service Hubs d’événements permet la [révocation de l’éditeur](/rest/api/eventhub/revoke-publisher) pour empêcher certains éditeurs d’envoyer des événements à un concentrateur d’événements. Ces fonctionnalités sont utiles si le jeton d’un éditeur a été compromis ou une mise à jour de logiciel les fait se comporter de façon inappropriée. Dans ces situations, l’identité de l'éditeur, qui fait partie de leur jeton SAP, peut être bloquée à partir d'événements de publication.
+
+> [!NOTE]
+> Actuellement, seule l'API REST prend en charge cette fonctionnalité ([révocation de l'éditeur](/rest/api/eventhub/revoke-publisher)).
 
 Pour plus d’informations sur la révocation de l’éditeur et l’envoi vers des concentrateurs d’événements en tant qu’éditeur, consultez l’exemple [Publication sécurisée à grande échelle des concentrateurs d’événements de Service Bus](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab).
 

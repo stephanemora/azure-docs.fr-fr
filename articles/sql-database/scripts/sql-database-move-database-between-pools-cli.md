@@ -1,5 +1,5 @@
 ---
-title: Script Azure CLI - Déplacer une instance SQL Database et des pools élastiques | Microsoft Docs
+title: Exemple CLI-Déplacer une base de données Azure SQL-pool élastique SQL | Microsoft Docs
 description: Exemple de script Azure CLI pour déplacer une base de données SQL dans un pool élastique SQL
 services: sql-database
 ms.service: sql-database
@@ -7,21 +7,20 @@ ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 6fa21c0fea2eeacd17cfe9f0d7ba58d55ed60af1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/25/2019
+ms.openlocfilehash: 166643231e9f98cc3b8205bf0e9a8bb949ffbc3b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357593"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569877"
 ---
-# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Utiliser l’interface CLI afin de déplacer une base de données SQL Azure dans un pool élastique SQL
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Utiliser l’interface CLI afin de déplacer une base de données Azure SQL dans un pool élastique SQL
 
-Cet exemple de script Azure CLI crée deux pools élastiques et déplace une base de données SQL Azure d’un pool élastique SQL vers un autre pool élastique SQL. Le script déplace ensuite la base de données en dehors d’un pool élastique vers une taille de calcul de base de données unique.
+Cet exemple de script Azure CLI crée deux pools élastiques et déplace une base de données Azure SQL d’un pool élastique SQL vers un autre pool élastique SQL. Le script déplace ensuite la base de données en dehors d’un pool élastique vers une taille de calcul de base de données unique.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,7 +37,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 Utilisez la commande suivante pour supprimer le groupe de ressources et toutes les ressources associées.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Explication du script
@@ -58,4 +57,4 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
 
-Vous trouverez des exemples supplémentaires de scripts CLI SQL Database sur la page [Documentation Azure SQL Database](../sql-database-cli-samples.md).
+Vous trouverez des exemples supplémentaires de scripts CLI SQL Database dans [Documentation Azure SQL Database](../sql-database-cli-samples.md).

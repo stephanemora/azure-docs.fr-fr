@@ -1,5 +1,5 @@
 ---
-title: 'Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les fonctionnalités multigéographiques dans Office 365 | Microsoft Docs'
+title: 'Azure AD Connect : Configurer un emplacement de données par défaut pour les ressources Office 365'
 description: Explique comment rapprocher vos ressources utilisateur Office 365 de l’utilisateur avec la synchronisation Azure Active Directory Connect.
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7b9c8827979ac4135bcaf4dfeef7cd5de02b2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 50cb5a76c6b19668fc23147244d65a0d996ebf90
+ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118440"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71033719"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronisation Azure Active Directory Connect : Configurer un emplacement de données par défaut pour les ressources Office 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les fonctionnalités multigéographiques dans Office 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Office 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
@@ -32,7 +32,7 @@ Par défaut, les ressources Office 365 des utilisateurs se trouvent dans la mêm
 L’attribut **preferredDataLocation** vous permet de définir la zone géographique d’un utilisateur. Il est possible de mettre les ressources Office 365 de l’utilisateur, par exemple la boîte aux lettres et OneDrive, dans la même zone géographique que l’utilisateur, tout en conservant un seul locataire pour l’organisation.
 
 > [!IMPORTANT]
-> La fonctionnalité Zones géographiques multiples est actuellement disponible pour les clients avec au moins 2 500 abonnements aux services Office 365. Pour plus d’informations, adressez-vous à votre représentant Microsoft.
+> La fonctionnalité Zones géographiques multiples est actuellement disponible pour les clients dotés d’un Contrat Entreprise actif avec au moins 500 abonnements aux services Office 365. Pour plus d’informations, adressez-vous à votre représentant Microsoft.
 >
 >
 
@@ -50,6 +50,8 @@ Voici les zones géographiques Office 365 disponibles pour les fonctionnalités 
 | Inde | IND |
 | Japon | JPN |
 | Corée du Sud | KOR |
+| Afrique du Sud | ZAF |
+| Émirats Arabes Unis | ARE |
 | Royaume-Uni | GBR |
 | États-Unis | NAM |
 
@@ -170,7 +172,7 @@ La règle de synchronisation du trafic sortant permet de transmettre la valeur d
     | sourceObjectType | EQUAL | Utilisateur |
     | cloudMastered | NOTEQUAL | True |
 
-    Le filtre d’étendue détermine les objets Active Directory auxquels cette règle de synchronisation de trafic sortant s’applique. Dans cet exemple, nous utilisons le filtre d’étendue de la règle de synchronisation prête à l’emploi « Sortant vers AD – User Identity ». Il empêche que la règle ne s’applique aux objets **Utilisateur** non synchronisés à partir de l’Active Directory local. Vous devrez peut-être adapter le filtre d’étendue à votre déploiement Azure AD Connect.
+    Le filtre d’étendue détermine les objets Active Directory auxquels cette règle de synchronisation de trafic sortant s’applique. Dans cet exemple, nous utilisons le filtre d’étendue de la règle de synchronisation prête à l’emploi « Sortant vers Azure AD – Identité de l’utilisateur ». Il empêche que la règle ne s’applique aux objets **Utilisateur** non synchronisés à partir de l’Active Directory local. Vous devrez peut-être adapter le filtre d’étendue à votre déploiement Azure AD Connect.
 
 6. Accédez à l’onglet **Transformation**, puis implémentez la règle de transformation suivante :
 

@@ -16,19 +16,19 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.openlocfilehash: ff6466ddc6b64dfe85ebfb190205859aeb39ad17
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957519"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260836"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
 
 Vous pouvez afficher deux types de journaux d’activité pour Azure Event Hubs :
 
 * **[Journaux d’activité](../azure-monitor/platform/activity-logs-overview.md)** : Ces journaux d’activité comportent des informations sur les opérations effectuées sur un travail. Les journaux d’activité sont toujours activés.
-* **[Journaux de diagnostic](../azure-monitor/platform/diagnostic-logs-overview.md)** : Vous pouvez configurer les journaux de diagnostic pour obtenir des informations plus détaillées sur tous les événements associés à un travail. Les journaux de diagnostic couvrent les activités qui se déroulent entre la création du travail et sa suppression, notamment les mises à jour et les activités durant l’exécution du travail.
+* **[Journaux de diagnostic](../azure-monitor/platform/resource-logs-overview.md)** : Vous pouvez configurer les journaux de diagnostic pour obtenir des informations plus détaillées sur tous les événements associés à un travail. Les journaux de diagnostic couvrent les activités qui se déroulent entre la création du travail et sa suppression, notamment les mises à jour et les activités durant l’exécution du travail.
 
 ## <a name="enable-diagnostic-logs"></a>Activer les journaux de diagnostic
 
@@ -48,20 +48,20 @@ Les journaux de diagnostic sont désactivés par défaut. Pour activer les journ
 
     ![Modifier l’état des journaux de diagnostic](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Définir la cible d’archivage que vous le souhaitez. par exemple, un compte de stockage, un concentrateur d’événements ou Azure Monitor enregistre.
+5.  Définissez la cible d’archivage de votre choix, par exemple un compte de stockage, un hub d’événements ou les journaux Azure Monitor.
 
 6.  Enregistrez les nouveaux paramètres de diagnostic.
 
 Les nouveaux paramètres prennent effet au bout de 10 minutes environ. Après cela, les journaux d’activité apparaissent dans la cible d’archivage configurée, dans le volet **Journaux de diagnostic**.
 
-Pour plus d’informations sur la configuration des diagnostics, consultez la [vue d’ensemble des journaux de diagnostic Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Pour plus d’informations sur la configuration des diagnostics, consultez la [vue d’ensemble des journaux de diagnostic Azure](../azure-monitor/platform/resource-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Catégories de journaux de diagnostic
 
 Event Hubs capture les journaux de diagnostic pour deux catégories :
 
-* **Journaux d’archivage** : journaux liés aux archives Event Hubs, en particulier aux erreurs d’archivage.
-* **Journaux des opérations** : informations relatives à ce qui se passe pendant les opérations Event Hubs, en particulier le type d’opération tel que la création d’un hub d’événements, les ressources utilisées et l’état de l’opération.
+* **Journaux d’activité d’archivage** : journaux d’activité liés aux archives Event Hubs, en particulier aux erreurs d’archivage.
+* **Journaux d’activité des opérations** : informations relatives à ce qui se passe pendant les opérations Event Hubs, en particulier le type d’opération tel que la création d’un hub d’événements, les ressources utilisées et l’état de l’opération.
 
 ## <a name="diagnostic-logs-schema"></a>Schéma des journaux de diagnostic
 

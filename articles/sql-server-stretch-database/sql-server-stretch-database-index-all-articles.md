@@ -3,22 +3,22 @@ title: Toutes les rubriques pour le service SQL Server Stretch Database | Micros
 description: Tableau de toutes les rubriques du service Azure nommé SQL Server Stretch Database qui existent sur https://azure.microsoft.com/documentation/articles/, titre et description.
 services: sql-server-stretch-database
 documentationcenter: ''
-author: DouglasL
-manager: jhubbard
-editor: MightyPen
 ms.assetid: b1718024-84d6-4f5c-a912-3a99edb3f632
 ms.service: sql-server-stretch-database
 ms.workload: sql-server-stretch-database
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/05/2016
-ms.author: DouglasL
-ms.openlocfilehash: 02089d69ec8e049b2d0d0daf1c76875a9ebab403
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+author: blazem-msft
+ms.author: blazem
+ms.reviewer: jroth
+manager: jroth
+ms.openlocfilehash: 81f1ac3280381ef08a1daf1fa4e041227a07aeaf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992555"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66003024"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Toutes les rubriques pour le service Azure SQL Server Stretch Database
 Cette rubrique répertorie toutes les rubriques qui s’appliquent directement au service **Azure SQL Server Stretch Database** . Pour trouver les rubriques qui vous intéressent, vous pouvez rechercher des mots clés sur cette page web à l'aide de la combinaison de touches **Ctrl+F**.
@@ -34,8 +34,8 @@ Cette rubrique répertorie toutes les rubriques qui s’appliquent directement a
 ## <a name="enable"></a>Activer
 | &nbsp; | Intitulé | Description |
 | ---:|:--- |:--- |
-| 5. |[Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md) |Découvrez comment configurer une base de données pour Stretch Database. |
-| 6. |[Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) |Découvrez comment configurer une table pour Stretch Database. |
+| 5\. |[Activer Stretch Database pour une base de données](sql-server-stretch-database-enable-database.md) |Découvrez comment configurer une base de données pour Stretch Database. |
+| 6\. |[Activer Stretch Database pour une table](sql-server-stretch-database-enable-table.md) |Découvrez comment configurer une table pour Stretch Database. |
 | 7 |[Sélection des lignes à migrer à l’aide d’une fonction de filtre (Stretch Database)](sql-server-stretch-database-predicate-function.md) |Découvrez comment sélectionner les lignes à migrer à l’aide d’une fonction de filtre. |
 
 ## <a name="manage"></a>gérer

@@ -4,22 +4,21 @@ description: Guide pratique pour dépanner une machine virtuelle Azure posant pr
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ad359a19cb42bf115189aca7905d1908d0dc5284
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005596"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71087057"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Dépanner une machine virtuelle Azure à l’aide de la virtualisation imbriquée dans Azure
 
@@ -35,7 +34,7 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
 -   La machine virtuelle de secours doit utiliser le même type de compte de stockage (Standard ou Premium) que la machine virtuelle posant problème.
 
-## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Étape 1 : Créer une machine virtuelle de secours et installer le rôle Hyper-V
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Étape 1 : Créer une machine virtuelle de secours et installer le rôle Hyper-V
 
 1.  Créez une machine virtuelle de secours :
 
@@ -71,7 +70,7 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
 13. Autorisez le serveur à installer le rôle Hyper-V. Cette opération prend quelques minutes. Le serveur redémarre ensuite automatiquement.
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Étape 2 : Créer la machine virtuelle posant problème sur le serveur Hyper-V de la machine virtuelle de secours
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Étape 2 : créer la machine virtuelle posant problème sur le serveur Hyper-V de la machine virtuelle de secours
 
 1.  Enregistrez le nom du disque sur la machine virtuelle posant problème, puis supprimez cette machine virtuelle. Veillez à conserver tous les disques attachés. 
 
@@ -87,7 +86,7 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
 4.  Ouvrez Gestion des disques (diskmgmt.msc). Vérifiez que le disque de la machine virtuelle posant problème est défini sur **Hors connexion**.
 
-5.  Ouvrez le Gestionnaire Hyper-V : dans **Gestionnaire de serveur**, sélectionnez le **rôle Hyper-V**. Cliquez avec le bouton droit sur le serveur, puis sélectionnez **Gestionnaire Hyper-V**.
+5.  Ouvrez Hyper-V Manager : dans **Gestionnaire de serveur**, sélectionnez le **rôle Hyper-V**. Cliquez avec le bouton droit sur le serveur, puis sélectionnez **Gestionnaire Hyper-V**.
 
 6.  Dans le Gestionnaire Hyper-V, cliquez avec le bouton droit sur la machine virtuelle de secours, puis sélectionnez **Nouvelle** > **Machine virtuelle** > **Suivant**.
 
@@ -122,7 +121,7 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
 19. Vous pouvez maintenant utiliser la machine virtuelle en tant que machine virtuelle locale. Vous pouvez effectuer les étapes de dépannage nécessaires.
 
-## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Étape 3 : Recréer votre machine virtuelle Azure dans Azure
+## <a name="step-3-re-create-your-azure-vm-in-azure"></a>Étape 3 : recréer votre machine virtuelle Azure dans Azure
 
 1.  Après avoir remis en ligne la machine virtuelle, arrêtez la machine virtuelle dans le Gestionnaire Hyper-V.
 

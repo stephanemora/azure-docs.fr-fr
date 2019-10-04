@@ -5,17 +5,17 @@ keywords: rbac automation, contrôle d’accès en fonction du rôle, azure rbac
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918788"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477733"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Contrôle d’accès en fonction du rôle dans Azure Automation
 
@@ -142,7 +142,7 @@ Un contributeur Log Analytics peut lire toutes les données de surveillance et m
 |Microsoft.Compute/virtualMachines/extensions/*|Créer et gérer les extensions de machines virtuelles classiques.|
 |Microsoft.Insights/alertRules/*|Règles d’alerte en lecture/écriture/suppression.|
 |Microsoft.Insights/diagnosticSettings/*|Paramètres de diagnostic en lecture/écriture/suppression.|
-|Microsoft.OperationalInsights/*|Gérer les journaux d’Azure Monitor.|
+|Microsoft.OperationalInsights/*|Gérer les journaux Azure Monitor.|
 |Microsoft.OperationsManagement/*|Gérer les solutions dans les espaces de travail.|
 |Microsoft.Resources/deployments/*|Créer et gérer les déploiements de groupes de ressources.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Créer et gérer les déploiements de groupes de ressources.|
@@ -157,7 +157,7 @@ Un lecteur Log Analytics peut afficher et rechercher toutes les données de surv
 |---------|---------|
 |*/read|Lire les ressources de tous les types, à l’exception des secrets.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Gérer les requêtes dans les journaux Azure Monitor.|
-|Microsoft.OperationalInsights/workspaces/search/action|Rechercher des données de journal Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/search/action|Effectuer des recherches dans les journaux Azure Monitor.|
 |Microsoft.Support/*|Créer et gérer les tickets de support.|
 |**NotActions**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Impossible de lire les clés d’accès partagé.|
@@ -180,11 +180,11 @@ Un contributeur de surveillance peut lire toutes les données de surveillance et
 |Microsoft.Insights/Metrics/*|Lire des mesures pour une ressource.|
 |Microsoft.Insights/Register/Action|Inscrire le fournisseur Microsoft.Insights|
 |Microsoft.Insights/webtests/*|Gérer les tests web Application Insights.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Gérer les packs de solution de journaux Azure Monitor.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Gérer les recherches de journaux enregistrés Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Gérer les packs de la solution Journaux Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Gérer les recherches enregistrées des journaux Azure Monitor.|
 |Microsoft.OperationalInsights/workspaces/search/action|Rechercher dans les espaces de travail Log Analytics.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|Répertorier les clés pour un espace de travail Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gérer les configurations de stockage Azure Monitor journaux.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gérer les configurations Storage Insight dans les journaux Azure Monitor.|
 |Microsoft.Support/*|Créer et gérer les tickets de support.|
 |Microsoft.WorkloadMonitor/workloads/*|Gérer les charges de travail.|
 
@@ -231,9 +231,10 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 |Vérification de l’état d’intégration - Lire la solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solution         |
 |Vérification de l’état d’intégration - Lire la machine virtuelle      | Microsoft.Compute/virtualMachines/read         | Machine virtuelle         |
 |Vérification de l’état d’intégration - Lire le compte      | Microsoft.Automation/automationAccounts/read  |  Compte Automation   |
-| Vérification d’espace de travail d’intégration de machine virtuelle<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Abonnement         |
+| Vérification de l’espace de travail d’intégration de la machine virtuelle<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Abonnement         |
+| Inscrire le fournisseur Log Analytics |Microsoft.Insights/register/action | Abonnement|
 
-<sup>1</sup> cette autorisation est nécessaire pour intégrer l’expérience de portail de machine virtuelle.
+<sup>1</sup> Cette autorisation est nécessaire pour effectuer une intégration via le portail de la machine virtuelle.
 
 ### <a name="onboarding-from-automation-account"></a>Intégration à partir du compte Automation
 
@@ -251,6 +252,7 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 |Créer/modifier la recherche enregistrée     | Microsoft.OperationalInsights/workspaces/write        | Espace de travail        |
 |Créer/modifier la configuration d’étendue     | Microsoft.OperationalInsights/workspaces/write        | Espace de travail        |
 |Lier la solution à la configuration d’étendue      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
+| Inscrire le fournisseur Log Analytics |Microsoft.Insights/register/action | Abonnement|
 |**Étape 2 : Intégrer plusieurs machines virtuelles**     |         |         |
 |Panneau VMOnboarding - Créer l’extension MMA     | Microsoft.Compute/virtualMachines/write           | Machine virtuelle        |
 |Créer/modifier la recherche enregistrée     | Microsoft.OperationalInsights/workspaces/write           | Espace de travail        |
@@ -283,7 +285,7 @@ La section suivante vous explique comment configurer RBAC sur votre compte Autom
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Ajouter un nouvel utilisateur et affecter un rôle
 
-1. Dans la page **Contrôle d’accès (IAM)**, cliquez sur **+ Ajouter une attribution de rôle**  pour ouvrir la page **Ajouter une attribution de rôle** dans laquelle vous pouvez ajouter un utilisateur, un groupe ou une application, puis lui attribuer un rôle.
+1. Dans la page **Contrôle d’accès (IAM)** , cliquez sur **+ Ajouter une attribution de rôle**  pour ouvrir la page **Ajouter une attribution de rôle** dans laquelle vous pouvez ajouter un utilisateur, un groupe ou une application, puis lui attribuer un rôle.
 
 2. Dans la liste des rôles disponibles, sélectionnez un rôle. Vous pouvez choisir l’un des rôles intégrés disponibles pris en charge par un compte Automation ou un rôle personnalisé que vous avez défini.
 
@@ -307,7 +309,7 @@ La section suivante vous explique comment configurer RBAC sur votre compte Autom
 
 Vous pouvez supprimer l’autorisation d’accès d’un utilisateur qui ne gère pas le compte Automation ou qui ne travaille plus pour l’organisation. Pour supprimer un utilisateur, procédez comme suit :
 
-1. Dans la page **Contrôle d’accès (IAM)**, sélectionnez l’utilisateur à supprimer, puis cliquez sur **Supprimer**.
+1. Dans la page **Contrôle d’accès (IAM)** , sélectionnez l’utilisateur à supprimer, puis cliquez sur **Supprimer**.
 2. Cliquez sur le bouton **Supprimer** dans le volet des détails de l’affectation.
 3. Cliquez sur **Oui** pour confirmer la suppression.
 

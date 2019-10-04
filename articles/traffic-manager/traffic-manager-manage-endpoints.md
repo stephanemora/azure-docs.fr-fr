@@ -3,20 +3,20 @@ title: Gérer des points de terminaison dans Azure Traffic Manager | Microsoft D
 description: Cet article vous aide à ajouter, supprimer, activer et désactiver des points de terminaison d’Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: ''
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
-ms.author: kumud
-ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 573a8f7ede29b045053d77194d15707df9e23641
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009286"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071084"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Ajouter, désactiver, activer ou supprimer des points de terminaison
 
@@ -52,7 +52,7 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
 3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
-4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.
+4. Cliquez sur le point de terminaison que vous voulez désactiver.
 5. Dans le panneau **Point de terminaison**, changez l’état du point de terminaison en **Désactivé**, puis cliquez sur **Enregistrer**.
 6. Les clients continuent à envoyer le trafic vers le point de terminaison pendant la durée de vie (TTL). Vous pouvez modifier la durée de vie sur la page Configuration du profil Traffic Manager.
 
@@ -61,7 +61,7 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
 3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
-4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.
+4. Cliquez sur le point de terminaison que vous voulez activer.
 5. Dans le panneau **Point de terminaison**, changez l’état du point de terminaison en **Activé**, puis cliquez sur **Enregistrer**.
 6. Les clients continuent à envoyer le trafic vers le point de terminaison pendant la durée de vie (TTL). Vous pouvez modifier la durée de vie sur la page Configuration du profil Traffic Manager.
 
@@ -70,8 +70,8 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans la barre de recherche du portail, recherchez le nom du **profil Traffic Manager** que vous souhaitez modifier, puis cliquez sur le profil Traffic Manager dans les résultats affichés.
 3. Dans le panneau **Profil Traffic Manager**, dans la section **Paramètres**, cliquez sur **Points de terminaison**. 
-4. Cliquez sur le point de terminaison que vous souhaitez désactiver, puis, dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier**.
-5. Dans le panneau **Point de terminaison**, changez l’état du point de terminaison en **Activé**, puis cliquez sur **Enregistrer**.
+4. Cliquez sur le point de terminaison que vous voulez supprimer.
+5. Dans le panneau **Point de terminaison**, cliquez sur **Supprimer**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

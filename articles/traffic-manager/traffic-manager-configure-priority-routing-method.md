@@ -3,20 +3,21 @@ title: Configurer la méthode de routage du trafic prioritaire à l’aide d’A
 description: Cet article explique comment configurer la méthode de routage du trafic prioritaire dans Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
+author: asudbring
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: kumud
-ms.openlocfilehash: 66c5bd9390d6fe0f26af66e18aed22c07a7da3e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 259457a604727cba6e6964851ec4fcf4b13a20a6
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003106"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67048492"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configurer la méthode de routage du trafic prioritaire dans Traffic Manager
 
@@ -33,7 +34,7 @@ Dans le cadre du basculement des services, il est courant de diriger le trafic v
     1. Pour les **paramètres de la méthode de routage de trafic**, vérifiez que la méthode de routage du trafic est **Priorité**. Si ce n’est pas le cas, cliquez sur **Priorité** dans la liste déroulante.
     2. Définissez les **paramètres de surveillance de point de terminaison** de manière identique pour tous les points de terminaison dans ce profil comme suit :
         1. Sélectionnez le **protocole** approprié et spécifiez le numéro du **port**. 
-        2. Pour **Chemin d’accès**, entrez une barre oblique */*. Pour surveiller les points de terminaison, vous devez indiquer un chemin et un nom de fichier. Une barre oblique (« / ») est une entrée valide pour le chemin d’accès relatif. Elle implique que le fichier se trouve dans le répertoire racine (par défaut).
+        2. Pour **Chemin d’accès**, entrez une barre oblique */* . Pour surveiller les points de terminaison, vous devez indiquer un chemin et un nom de fichier. Une barre oblique (« / ») est une entrée valide pour le chemin d’accès relatif. Elle implique que le fichier se trouve dans le répertoire racine (par défaut).
         3. Au sommet de la page, cliquez sur **Enregistrer**.
 5. Dans la section **Paramètres**, cliquez sur **Points de terminaison**.
 6. Dans le panneau **Points de terminaison**, passez en revue l’ordre de priorité des points de terminaison. Lorsque vous configurez la méthode de routage du trafic par **Priorité**, l’ordre des points de terminaison sélectionnés est important. Vérifiez l’ordre de priorité des points de terminaison.  Le point de terminaison principal doit se trouver en haut de la liste. Vérifiez l’ordre affiché. Toutes les demandes seront acheminées vers le premier point de terminaison et si Traffic Manager détecte que celui-ci n’est pas intègre, le trafic bascule automatiquement vers le point de terminaison suivant. 

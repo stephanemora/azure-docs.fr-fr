@@ -2,20 +2,20 @@
 title: Partitionnement de tables dans Azure SQL Data Warehouse | Microsoft Docs
 description: Recommandations et exemples relatifs à l’utilisation de partitions de tables dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/18/2019
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d3557be2fd8fdb459571d2c792302963e17e4471
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: 6791ff2f2a9719a19d2c9abc4ff480435de7bb00
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189391"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477086"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Partitionnement de tables dans SQL Data Warehouse
 Recommandations et exemples relatifs à l’utilisation de partitions de tables dans Azure SQL Data Warehouse.
@@ -226,7 +226,7 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Charger de nouvelles données dans les partitions qui contiennent des données en une seule étape
-Le chargement des données en partitions avec basculement de partition est un moyen pratique de préparer les nouvelles données dans une table qui n’est pas visible aux utilisateurs le commutateur dans les nouvelles données.  Il peut être difficile sur les systèmes très occupés à traiter la contention de verrouillage associée de basculement de partition.  Pour effacer les données existantes dans une partition, un `ALTER TABLE` était jusqu’ici nécessaire pour extraire les données.  Puis une autre `ALTER TABLE` était nécessaire pour basculer les nouvelles données.  Dans SQL Data Warehouse, le `TRUNCATE_TARGET` option est prise en charge dans le `ALTER TABLE` commande.  Avec `TRUNCATE_TARGET` le `ALTER TABLE` commande remplace les données existantes dans la partition avec de nouvelles données.  Voici un exemple qui utilise `CTAS` pour créer une nouvelle table avec les données existantes, insère de nouvelles données, puis bascule toutes les données dans la table cible, en remplaçant les données existantes.
+Le chargement des données dans des partitions avec basculement de partition est un moyen pratique d’organiser de nouvelles données dans une table qui n’est pas visible aux utilisateurs.  Sur les systèmes occupés, il peut être difficile de traiter la contention de verrouillage associée au basculement de partition.  Pour effacer les données existantes dans une partition, le paramètre `ALTER TABLE` était nécessaire pour extraire les données.  Un autre paramètre `ALTER TABLE` était ensuite requis pour insérer les nouvelles données.  Dans SQL Data Warehouse, l’option `TRUNCATE_TARGET` est prise en charge dans la commande `ALTER TABLE`.  Avec `TRUNCATE_TARGET`, la commande `ALTER TABLE` remplace les données existantes de la partition par de nouvelles données.  Voici un exemple qui illustre l’utilisation de `CTAS` pour créer une table avec les données existantes, l’insertion de nouvelles données, puis le basculement de toutes les données dans la table cible remplaçant ainsi les données existantes.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

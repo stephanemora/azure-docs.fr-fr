@@ -3,26 +3,26 @@ title: Migrer des bases de connaissances - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: La migration d’une base de connaissances nécessite l’exportation d’une base de connaissances, puis l’importation dans une autre.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 04ee592122d7c76396f091f8d249518976682004
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264316"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446594"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrer une base de connaissances à l’aide des fonctions d’exportation-importation
 
 La migration d’une base de connaissances nécessite l’exportation d’une base de connaissances, puis l’importation dans une autre. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Avant de commencer, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Configurer un nouveau [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
@@ -56,7 +56,7 @@ La migration d’une base de connaissances nécessite l’exportation d’une ba
     À ce stade, tout le contenu de la base de connaissances (questions, réponses et métadonnées, ainsi que le nom des fichiers sources et les URL) est importé dans la nouvelle base de connaissances. 
 
 ## <a name="chat-logs-and-alterations"></a>Conversations et modifications
-Les modifications qui ne respectent pas la casse (synonymes) ne sont pas importées automatiquement. Utilisez les [API V2](https://aka.ms/qnamaker-v2-apis) pour exporter les modifications des anciennes connaissances et les [API V4](https://aka.ms/qnamaker-v4-apis) pour les déplacer dans la nouvelle base de connaissances.
+Les modifications qui ne respectent pas la casse (synonymes) ne sont pas importées automatiquement. Utilisez les [API V4](https://go.microsoft.com/fwlink/?linkid=2092179) pour déplacer les modifications dans nouvelle la base de connaissances.
 
 Il n’existe aucun moyen de migrer les conversations, étant donné que la nouvelle base de connaissances utilise Application Insights pour le stockage des conversations. 
 

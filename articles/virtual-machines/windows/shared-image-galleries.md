@@ -1,27 +1,27 @@
 ---
-title: Partager des images de machine virtuelle avec une galerie d’images partagées dans Azure | Microsoft Docs
-description: Découvrez comment utiliser des galeries d’images partagées pour partager des images de machine virtuelle dans votre organisation.
+title: Azure Shared Image Gallery | Microsoft Docs
+description: Découvrez comment utiliser les galeries d’images partagées pour partager des images de machine virtuelle au sein de votre organisation.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: axayjo
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/13/2018
-ms.author: akjosh; cynthn
+ms.date: 05/06/2019
+ms.author: akjosh
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 4bba8a14096e420a539974ebf520cebda3b13c91
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 35789e7f85e99d7985e8e19b82a7aea585483daf
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188281"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088718"
 ---
 # <a name="shared-image-gallery-overview"></a>Vue d’ensemble de la galerie d’images partagées
 

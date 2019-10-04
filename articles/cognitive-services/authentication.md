@@ -1,20 +1,20 @@
 ---
 title: Authentication
-titleSuffix: Cognitive Services - Azure
+titleSuffix: Azure Cognitive Services
 description: 'Pour authentifier une requête auprès d’une ressource Azure Cognitive Services, trois options s’offrent à vous : une clé d’abonnement, un jeton du porteur ou un abonnement multiservice. Cet article décrit chaque méthode et explique comment adresser une requête.'
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 90bc2bf4c207f3bb2727d76c2e6b4fd5597539b1
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.openlocfilehash: ae3530af7741b8ce48e08c2a85589ffae8a83f49
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240760"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70276789"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Authentifier des requêtes auprès d’Azure Cognitive Services
 
@@ -23,13 +23,14 @@ Chaque requête adressée à un service Azure Cognitive Services doit inclure un
 * [Authentification avec une clé d’abonnement monoservice](#authenticate-with-a-single-service-subscription-key)
 * [Authentification avec une clé d’abonnement multiservice](#authenticate-with-a-multi-service-subscription-key)
 * [Authentification avec un jeton](#authenticate-with-an-authentication-token)
+* [Authentifier avec Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour adresser une requête, vous devez disposer d’un compte Azure et d’un abonnement Azure Cognitive Services. Si vous avez déjà un compte, passez à la section suivante. Si vous n’avez pas de compte, ce guide va vous aider à en créer un en quelques minutes : [Créer un compte Cognitive Services pour Azure](cognitive-services-apis-create-account.md).
 
-Vous pouvez obtenir votre clé d’abonnement à partir de la [Azure portal](cognitive-services-apis-create-account.md#access-your-resource) après avoir créé votre compte, ou activer un [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/my-apis).
- 
+Pour obtenir votre clé d’abonnement, rendez-vous sur le [Portail Azure](cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) après avoir créé votre compte ou activé un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/my-apis).
+
 ## <a name="authentication-headers"></a>En-têtes d’authentification
 
 Passons rapidement en revue les en-têtes d’authentification disponibles en vue d’une utilisation avec Azure Cognitive Services.
@@ -65,7 +66,7 @@ La vidéo suivante montre l’utilisation d’une clé Cognitive Services.
 ## <a name="authenticate-with-a-multi-service-subscription-key"></a>Authentification avec une clé d’abonnement multiservice
 
 >[!WARNING]
-> À ce stade, les services suivants **ne prennent pas en charge** les clés multiservices : QnA Maker, Speech et Vision personnalisée.
+> À ce stade, les services suivants **ne prennent pas en charge** les clés multiservices : QnA Maker, services Speech, Custom Vision et Détecteur d’anomalies.
 
 Cette option utilise également une clé d’abonnement pour authentifier les requêtes. La principale différence tient au fait qu’une clé d’abonnement n’est pas liée à un service spécifique. Vous pouvez ainsi utiliser une seule clé pour authentifier des requêtes auprès de plusieurs services Cognitive Services. Pour plus d’informations sur la disponibilité régionale, les fonctionnalités prises en charge et les tarifs, consultez les [tarifs de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
@@ -158,8 +159,10 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+[!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
+
 ## <a name="see-also"></a>Voir aussi
 
 * [Qu’est-ce que Cognitive Services ?](welcome.md)
 * [Tarifs de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/)
-* [Créer un compte](cognitive-services-apis-create-account.md)
+* [Sous-domaines personnalisés](cognitive-services-custom-subdomains.md)

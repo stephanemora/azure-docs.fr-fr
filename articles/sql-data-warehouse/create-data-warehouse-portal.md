@@ -2,22 +2,23 @@
 title: 'Démarrage rapide : Créer et interroger Azure SQL Data Warehouse - Portail Azure | Microsoft Docs'
 description: Créez et interrogez un entrepôt de données avec Azure SQL Data Warehouse dans le portail Azure.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
-ms.date: 08/02/2018
-ms.author: kevin
+ms.subservice: development
+ms.date: 05/28/2019
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 053dccb4ba5798fabd4426d5741d9238af579449
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.custom: sqlfreshmay19
+ms.openlocfilehash: 83475af3cfdd83e718243d80b84599d53716a5d5
+ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732396"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70375834"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : Découvrez comment créer un entrepôt SQL Azure dans le portail Azure.
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : Créer et interroger un entrepôt de données SQL Azure dans le portail Azure
 
 Créez et interrogez rapidement un entrepôt SQL Azure dans le portail Azure.
 
@@ -36,7 +37,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-data-warehouse"></a>Créer un entrepôt de données
 
-Un entrepôt SQL Azure est créé avec un ensemble défini de [ressources de calcul](memory-and-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-logical-servers.md). 
+Un entrepôt de données Azure SQL est créé avec un ensemble défini de [ressources de calcul](memory-and-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-logical-servers.md). 
 
 Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exemple de base de données AdventureWorksDW. 
 
@@ -81,7 +82,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exe
 
 8. Cliquez sur **Appliquer**.
 
-9. Maintenant que vous avez rempli le formulaire SQL Data Warehouse, cliquez sur **Créer** pour provisionner la base de données. Le provisionnement prend quelques minutes. 
+9. Maintenant que vous avez rempli le formulaire SQL Data Warehouse, cliquez sur **Créer** pour provisionner la base de données. Le provisionnement prend quelques minutes.
 
     ![cliquer sur créer](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
@@ -91,31 +92,30 @@ Suivez ces étapes pour créer un entrepôt de données SQL qui contient l’exe
 
 ## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
 
-Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêche les applications et outils externes de se connecter au serveur ou à toute base de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../sql-database/sql-database-firewall-configure.md) pour l’adresse IP de votre client. 
+Le service SQL Data Warehouse crée un pare-feu au niveau du serveur. Ce pare-feu empêche les outils et les applications externes de se connecter au serveur ou aux bases de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../sql-database/sql-database-firewall-configure.md) pour l’adresse IP de votre client.
 
 > [!NOTE]
 > SQL Data Warehouse communique sur le port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
 
-1. Une fois le déploiement terminé, cliquez sur **Entrepôts de données SQL Data Warehouse** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Entrepôts de données SQL Data Warehouse**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20180430.database.windows.net**) et fournit des options pour poursuivre la configuration. 
+1. Lorsque le déploiement est terminé, sélectionnez **Tous les services** dans le menu de gauche. Choisissez **Bases de données**, sélectionnez l’étoile en regard de **Entrepôts de données SQL Data Warehouse** pour ajouter des entrepôts de données SQL à vos favoris.
+1. Sélectionnez **Entrepôts de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDataWarehouse** dans la page **Entrepôts de données SQL**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20180430.database.windows.net**) et fournit des options pour poursuivre la configuration.
+1. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans ce guide de démarrage rapide et les suivants. Pour ouvrir les paramètres du serveur, cliquez sur le nom du serveur.
 
-2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants. Pour ouvrir les paramètres du serveur, cliquez sur le nom du serveur.
+   ![rechercher le nom du serveur](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
-   ![rechercher le nom du serveur](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png) 
+1. Cliquez sur **Afficher les paramètres de pare-feu**.
 
-3. Pour ouvrir les paramètres du serveur, 
-4. cliquez sur le nom du serveur.
+   ![paramètres du serveur](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-   ![paramètres du serveur](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
+1. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre.
 
-5. Cliquez sur **Afficher les paramètres de pare-feu**. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre. 
+   ![règle de pare-feu de serveur](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
-   ![règle de pare-feu de serveur](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
+1. Pour ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu, cliquez sur **Ajouter une adresse IP cliente** dans la barre d’outils. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-4. Pour ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu, cliquez sur **Ajouter une adresse IP cliente** dans la barre d’outils. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
+1. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
 
-5. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
-
-6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
+1. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 
 Vous pouvez maintenant vous connecter au serveur SQL et à ses entrepôts de données à l’aide de cette adresse IP. La connexion fonctionne à partir de SQL Server Management Studio ou d’un autre outil de votre choix. Quand vous vous connectez, utilisez le compte ServerAdmin que vous avez créé précédemment.
 
@@ -127,8 +127,8 @@ Vous pouvez maintenant vous connecter au serveur SQL et à ses entrepôts de don
 Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utiliserez le nom complet du serveur par la suite pour vous connecter au serveur.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Entrepôts de données SQL Data Warehouse** dans le menu de gauche, puis cliquez sur votre entrepôt de données dans la page **Entrepôts de données SQL Data Warehouse**. 
-3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**. Dans cet exemple, le nom complet est mynewserver-20180430.database.windows.net. 
+2. Sélectionnez **Entrepôts de données SQL Data Warehouse** dans le menu de gauche, puis cliquez sur votre entrepôt de données dans la page **Entrepôts de données SQL Data Warehouse**.
+3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**. Dans cet exemple, le nom complet est mynewserver-20180430.database.windows.net.
 
     ![informations de connexion](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
@@ -145,8 +145,8 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
    | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
    | Nom du serveur | Nom complet du serveur | Voici un exemple : **mynewserver-20180430.database.windows.net**. |
    | Authentification | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification configuré dans ce didacticiel. |
-   | Connexion | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
-   | Mot de passe | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
+   | Connexion | Compte d’administrateur de serveur | Compte que vous avez spécifié lorsque vous avez créé le serveur. |
+   | Mot de passe | Mot de passe de votre compte d’administrateur de serveur | Mot de passe que vous avez spécifié quand vous avez créé le serveur. |
    ||||
 
     ![connect to server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -183,18 +183,18 @@ SQL Data Warehouse utilise T-SQL comme langage de requête. Pour ouvrir une fen�
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Vous êtes facturé pour les Data Warehouse Units et les données stockées dans votre entrepôt de données. Ces ressources de calcul et de stockage sont facturées séparément. 
+Vous êtes facturé pour les Data Warehouse Units et les données stockées dans votre entrepôt de données. Ces ressources de calcul et de stockage sont facturées séparément.
 
 - Si vous voulez conserver les données dans le stockage, vous pouvez suspendre le calcul quand vous n’utilisez pas l’entrepôt de données. Quand vous suspendez le calcul, vous êtes facturé uniquement pour le stockage des données. Vous pouvez reprendre le calcul chaque fois que vous êtes prêt à travailler avec les données.
-- Si vous voulez éviter des frais ultérieurs, vous pouvez supprimer l’entrepôt de données. 
+- Si vous voulez éviter des frais futurs, vous pouvez supprimer l’entrepôt de données.
 
-Suivez ces étapes pour nettoyer les ressources selon vos besoins.
+Suivez ces étapes pour nettoyer les ressources dont vous n’avez plus besoin.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur votre entrepôt de données.
 
     ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** est visible. Pour reprendre le calcul, cliquez sur **Démarrer**.
+2. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Reprendre** est visible. Pour reprendre le calcul, cliquez sur **Reprendre**.
 
 3. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
 

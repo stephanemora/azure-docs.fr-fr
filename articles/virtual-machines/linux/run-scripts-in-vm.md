@@ -3,17 +3,17 @@ title: Exécuter des scripts dans une machine virtuelle Azure Linux
 description: Cette rubrique décrit comment exécuter des scripts dans une machine virtuelle
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3881a6d0ee1139fa481908f09b6e96efda24a5cd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6175ae4263aee0ecdca5b1d768438ad20352375c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979001"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477035"
 ---
 # <a name="run-scripts-in-your-linux-vm"></a>Exécuter des scripts dans votre machine virtuelle Linux
 

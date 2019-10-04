@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 94e5893caa4dc19702f45e9b42727aab4f884bcd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a55ec7afc94440ea8b6a48ed1507476d362df6c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087423"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Didacticiel : Intégration d’Azure AD à Vidyard
 
@@ -55,7 +55,7 @@ Pour configurer l’intégration de Vidyard avec Azure AD, vous devez ajouter Vi
 
 **Pour ajouter Vidyard depuis la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -180,7 +180,7 @@ Pour configurer l’authentification unique Azure AD avec Vidyard, effectuez les
     ![Configuration de Vidyard](./media/vidyard-tutorial/configure6.png)
 
     > [!NOTE]
-    > Pour plus d’informations, consultez [ce document](https://knowledge.vidyard.com/saml-single-sign-on-authentication/saml-based-single-sign-on-sso-in-vidyard).
+    > Pour plus d’informations, consultez [ce document](https://knowledge.vidyard.com/hc/articles/360009990033-SAML-based-Single-Sign-On-SSO-in-Vidyard).
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 

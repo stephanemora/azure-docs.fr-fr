@@ -12,17 +12,17 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888397"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61429346"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory
 
 Cet article montre comment déplacer des données d’une base de données SQL Server locale vers une base de données SQL Azure via le stockage d’objets blob Azure à l’aide d’Azure Data Factory (ADF).
 
-Pour accéder à un tableau résumant les différentes options de déplacement de données dans une base de données SQL Azure, consultez [Déplacer des données dans une base de données SQL Azure pour Azure Machine Learning](move-sql-azure.md).
+Pour accéder à un tableau résumant les différentes options de déplacement de données dans une base de données Azure SQL, consultez [Déplacer des données dans une base de données Azure SQL pour Azure Machine Learning](move-sql-azure.md).
 
 ## <a name="intro"></a>Présentation : Qu’est-ce qu’ADF et quand doit-il être utilisé pour migrer des données ?
 Azure Data Factory est un service d’intégration de données dans le cloud entièrement géré qui gère et automatise le déplacement et la transformation des données. Le concept clé du modèle ADF est le pipeline. Un pipeline est un regroupement logique d’activités, chacune d'elles définissant les actions à effectuer sur les données contenues dans des groupes de données. Les services liés sont utilisés pour définir les informations nécessaires à Data Factory pour se connecter à des ressources de données.
@@ -40,7 +40,7 @@ ADF permet la planification et la surveillance des travaux à l'aide de scripts�
 Nous allons configurer un pipeline ADF qui se compose de deux activités de migration de données. Ensemble, ces activités déplacent les données quotidiennement entre une base de données SQL locale et une base de données Azure SQL dans le cloud. Les deux activités sont :
 
 * copie de données depuis une base de données SQL Server locale vers un compte de stockage d’objets blob Azure ;
-* copie de données à partir du compte de stockage d'objets blob Azure vers une base de données Azure SQL.
+* copie de données à partir du compte Stockage Blob Azure vers une base de données Azure SQL.
 
 > [!NOTE]
 > Les étapes présentées ici ont été adaptées du tutoriel plus détaillé fourni par l’équipe ADF : [Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) fait référence aux sections appropriées de cette rubrique sont fournies si nécessaire.
@@ -52,7 +52,7 @@ Ce didacticiel part du principe que vous disposez de :
 
 * Un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Un **compte de stockage Azure**. Dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) . Après avoir créé le compte de stockage, vous devez obtenir la clé du compte utilisée pour accéder au stockage. Voir [Gérer vos clés d’accès de stockage](../../storage/common/storage-account-manage.md#access-keys).
-* Un accès à une **base de données Azure SQL Database**. Si vous devez configurer une base de données de SQL Azure, la rubrique [mise en route avec Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) fournit des informations sur la configuration d’une nouvelle instance d’une base de données SQL Azure.
+* Un accès à une **base de données Azure SQL Database**. Si vous devez configurer une base de données Azure SQL, l’article [Bien démarrer avec Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) fournit des informations sur le provisionnement d’une nouvelle instance Azure SQL Database.
 * **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
@@ -71,14 +71,14 @@ Les instructions pour la création d’une fabrique de données Azure Data Facto
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installer et configurer Azure Data Factory Integration Runtime
 Le runtime d’intégration est une infrastructure d’intégration de données managées client utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Ce runtime s’appelait auparavant « Data Management Gateway ».
 
-Pour configurer, [suivez les instructions pour la création d’un pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Pour le configurer, [suivez les instructions de création d’un pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Création de services liés pour la connexion aux ressources de données
 Un service lié définit les informations nécessaires à Azure Data Factory pour se connecter à des ressources de données. Dans ce scénario, nous avons trois ressources pour lesquelles les services liés sont nécessaires :
 
 1. SQL Server local
 2. un stockage Azure Blob
-3. Base de données SQL Azure
+3. Base de données Azure SQL
 
 La procédure pas à pas pour la création de services liés est fournie dans [Créer des services liés](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 
@@ -99,7 +99,7 @@ Les définitions reposant sur JSON dans les tables utilisent les noms suivants 
 Trois définitions de table sont nécessaires pour ce pipeline ADF :
 
 1. [Table SQL locale](#adf-table-onprem-sql)
-2. [Tableau d’objets BLOB](#adf-table-blob-store)
+2. [Table d’objets blob](#adf-table-blob-store)
 3. [Table SQL Azure](#adf-table-azure-sql)
 
 > [!NOTE]

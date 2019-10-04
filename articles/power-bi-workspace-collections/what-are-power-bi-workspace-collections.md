@@ -2,20 +2,20 @@
 title: Qu’est-ce qu’une collection d’espaces de travail Power BI ?
 description: Power BI Embedded vous permet d’intégrer des rapports Power BI dans vos applications web ou mobiles. Vous n’avez donc pas besoin de créer des solutions personnalisées.
 services: power-bi-embedded
-author: markingmyname
+author: rkarlin
 ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: 6650eed6bf2559e9fb76b573189179a7f5df81ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: rkarlin
+ms.openlocfilehash: 7f23856363b337a361f329ed54e2152842faf26e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896702"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64705130"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Qu’est-ce qu’une collection d’espaces de travail Power BI ?
 
@@ -60,7 +60,7 @@ Il est possible d’utiliser des jeux de données mis en cache.  Cependant, vous
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>Authentification et autorisation avec des jetons d’application
 
-**Une collection d’espaces de travail Microsoft Power BI** s’appuie sur votre application pour l’autorisation et l’authentification requises des utilisateurs. Vos utilisateurs finaux ne doivent pas nécessairement être des clients Azure Active Directory (Azure AD).  Au lieu de cela, votre application donne aux **collections d’espaces de travail Microsoft Power BI** l’autorisation d’afficher un rapport Power BI en utilisant des **jetons d’authentification d’application (jetons d’application)**.  Ces **jetons d’application** sont créés en fonction des besoins lorsque votre application veut afficher un rapport.
+**Une collection d’espaces de travail Microsoft Power BI** s’appuie sur votre application pour l’autorisation et l’authentification requises des utilisateurs. Vos utilisateurs finaux ne doivent pas nécessairement être des clients Azure Active Directory (Azure AD).  Au lieu de cela, votre application donne aux **collections d’espaces de travail Microsoft Power BI** l’autorisation d’afficher un rapport Power BI en utilisant des **jetons d’authentification d’application (jetons d’application)** .  Ces **jetons d’application** sont créés en fonction des besoins lorsque votre application veut afficher un rapport.
 
 ![Diagramme représentant l’utilisation des jetons d’application](media/what-are-power-bi-workspace-collections/app-tokens.png)
 

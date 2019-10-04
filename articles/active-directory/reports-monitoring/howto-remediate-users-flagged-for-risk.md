@@ -1,8 +1,8 @@
 ---
-title: Rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory | Microsoft Docs
+title: Utilisateurs avec indicateur de risque dans le portail Azure Active Directory | Microsoft Docs
 description: En savoir plus sur le rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7209f468f493e226fae22ccd260e8ceb2e570494
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: d1412cacd453de01f1937fbcf5e712afdac88def
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439123"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989697"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Résoudre des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 
@@ -46,7 +46,7 @@ Pour plus d’informations, consultez [Rapport de sécurité des utilisateurs as
 
 Vous pouvez également utiliser vos informations d’identification Office 365 pour accéder au **centre d’administration Azure**. Lorsque votre accès à Azure AD est activé, vous êtes redirigé vers le portail Azure AD. Au niveau d’inscription de base, la quantité d’informations fournies dans les rapports est limitée. Des analyses et données supplémentaires sont disponibles pour les abonnés Azure Premium.
 
-Pour accéder à la **utilisateurs avec indicateur de risque** rapports dans le centre d’administration Microsoft 365 :
+Pour accéder aux rapports sur les **utilisateurs avec indicateur de risque** dans le centre d’administration Microsoft 365 :
 
 1.  À gauche du menu de navigation, sélectionnez **Centres d’administration**. 
 2.  Sélectionnez ensuite **Azure AD**.

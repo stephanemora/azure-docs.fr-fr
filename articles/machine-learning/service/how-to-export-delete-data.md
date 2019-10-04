@@ -1,6 +1,6 @@
 ---
 title: Exporter ou supprimer les données d’un espace de travail
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Découvrez comment exporter ou supprimer votre espace de travail avec le portail Azure, l’interface CLI, le kit SDK et les API REST authentifiées.
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 18e2ab18dac214e73eaf6ad7dfcb9dbbab0b5cf5
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251773"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002839"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exporter ou supprimer vos données d’espace de travail Machine Learning 
 
@@ -27,9 +27,9 @@ Dans Azure Machine Learning, vous pouvez exporter ou supprimer des données de v
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="control-your-workspace-data"></a>Contrôler les données de votre espace de travail
-Les données intégrées au produit stockées par Azure Machine Learning Services sont disponibles pour l’exportation et la suppression via le portail Azure, l’interface CLI, le kit SDK et les API REST authentifiées. Les données de télémétrie sont accessibles via le portail de confidentialité Azure. 
+Les données intégrées au produit stockées par Azure Machine Learning sont disponibles pour l’exportation et la suppression par le biais du portail Azure, de l’interface CLI, du kit SDK et des API REST authentifiées. Les données de télémétrie sont accessibles via le portail de confidentialité Azure. 
 
-Dans Azure Machine Learning Services, les données personnelles comprennent les informations utilisateur des documents sur l’historique des exécutions et les enregistrements de télémétrie de certaines interactions de l’utilisateur avec le service.
+Dans Azure Machine Learning, les données personnelles comprennent les informations utilisateur des documents sur l’historique des exécutions et les enregistrements de télémétrie de certaines interactions de l’utilisateur avec le service.
 
 ## <a name="delete-workspace-data-with-the-rest-api"></a>Supprimer des données de l’espace de travail avec l’API REST 
 
@@ -231,3 +231,29 @@ Vous pouvez obtenir des modèles avec :
 Vous pouvez obtenir des sources de données avec :
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>Supprimer des ressources de l'interface visuelle
+
+Dans l'interface visuelle où vous avez créé votre expérimentation, supprimez des ressources individuelles :
+
+1. Sur la gauche, sélectionnez le type de ressource que vous souhaitez supprimer.
+
+    ![Supprimer des ressources](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. Dans la liste, sélectionnez les ressources à supprimer.
+
+1. En bas, sélectionnez **Supprimer**.
+
+## <a name="export-visual-interface-data"></a>Exporter des données de l'interface visuelle
+
+Dans l'interface visuelle où vous avez créé votre expérimentation, exportez les données que vous avez ajoutées :
+
+1. Sur la gauche, sélectionnez **Données**.
+
+1. En haut, sélectionnez **Mes jeux de données** ou **Exemples** pour localiser les données que vous souhaitez exporter.
+
+    ![Télécharger des données](media/how-to-export-delete-data.md/download-data.png)
+
+1. Dans la liste, sélectionnez les jeux de données à exporter.
+
+1. En bas, sélectionnez **Télécharger**.

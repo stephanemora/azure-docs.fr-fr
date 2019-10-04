@@ -4,16 +4,17 @@ description: Stockage Azure prend en charge le basculement de compte (préversio
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 4a621f8976efe395014c073a6bd7c5d09d19d915
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051187"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671074"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Reprise d’activité après sinistre et basculement de compte de stockage (préversion) dans Stockage Azure
 
@@ -36,8 +37,11 @@ Le **stockage géoredondant avec accès en lecture (RA-GRS)** offre un stockage 
 
 Parmi les autres options de redondance de Stockage Azure, citons le stockage redondant interzone (ZRS), qui réplique vos données dans des zones de disponibilité dans une seule région, et le stockage localement redondant (LRS), qui réplique vos données dans un centre de données unique dans une seule région. Si votre compte de stockage est configuré pour le stockage ZRS ou LRS, vous pouvez le convertir pour qu’il utilise GRS ou RA-GRS. La configuration de votre compte pour le stockage géoredondant implique un coût supplémentaire. Pour plus d’informations, consultez l’article [Réplication de Stockage Azure](storage-redundancy.md).
 
+> [!NOTE]
+> Le stockage géo-redondant dans une zone (GZRS) et le stockage géo-redondant avec accès en lecture (RA-GZRS) sont actuellement en préversion, mais ne sont pas encore disponibles dans les mêmes régions que le basculement de compte géré par le client. Pour cette raison, les clients ne peuvent pour l’instant pas gérer les événements de basculement de compte avec des comptes GZRS et RA-GZRS. Au cours de la préversion, Microsoft gérera les événements de basculement affectant les comptes GZRS/RA-GZRS.
+
 > [!WARNING]
-> Le stockage géoredondant comporte un risque de perte de données. Les données sont répliquées vers la région secondaire de façon asynchrone, ce qui signifie qu’il existe un délai entre l’écriture des données dans la région primaire et dans la région secondaire. En cas de panne, les opérations d’écriture sur le point de terminaison principal qui n’ont pas encore été répliquées vers le point de terminaison secondaire seront perdues. 
+> Le stockage géoredondant comporte un risque de perte de données. Les données sont répliquées vers la région secondaire de façon asynchrone, ce qui signifie qu’il existe un délai entre l’écriture des données dans la région primaire et dans la région secondaire. En cas de panne, les opérations d’écriture sur le point de terminaison principal qui n’ont pas encore été répliquées vers le point de terminaison secondaire seront perdues.
 
 ## <a name="design-for-high-availability"></a>Concevoir pour la haute disponibilité
 
@@ -163,11 +167,10 @@ N’oubliez pas que toutes les données stockées dans un disque temporaire sont
 ### <a name="unsupported-features-or-services"></a>Fonctionnalités ou services non pris en charge
 Les fonctionnalités et services suivants ne sont pas pris en charge pour le basculement de compte durant la préversion :
 
-- Azure File Sync ne prend pas en charge le basculement de compte de stockage. Les comptes de stockage contenant des partages de fichiers Azure utilisés en tant que points de terminaison cloud dans Azure File Sync ne doivent pas être basculés. En effet, cela provoque l’arrêt de la synchronisation et peut également entraîner des pertes de données inattendues en cas de nouvelle hiérarchisation de fichiers.  
-- Les comptes de stockage utilisant l’espace de noms hiérarchique Azure Data Lake Storage Gen2 ne peuvent pas être basculés.
+- Azure File Sync ne prend pas en charge le basculement de compte de stockage. Les comptes de stockage contenant des partages de fichiers Azure utilisés en tant que points de terminaison cloud dans Azure File Sync ne doivent pas être basculés. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés.  
 - Un compte de stockage contenant des objets blob archivés ne peut pas être basculé. Conservez les objets blob archivés dans un compte de stockage distinct que vous ne prévoyez pas de basculer.
 - Un compte de stockage contenant des objets blob de blocs premium ne peut pas être basculé. Les comptes de stockage qui prennent en charge les objets blob de blocs premium ne prennent pas en charge la géoredondance.
-- Une fois le basculement terminé les fonctionnalités suivantes ne fonctionnera plus si activé à l’origine : [Abonnements aux événements](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [des stratégies de cycle de vie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [journalisation du stockage Analytique](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
+- Une fois le basculement terminé, les fonctionnalités suivantes cessent de fonctionner si elles étaient activées : [abonnements aux événements](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [stratégies de cycle de vie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [journalisation Storage Analytics ](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copie de données comme alternative au basculement
 

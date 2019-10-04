@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: 6665ea8bc4016c9d64005f9c742115cf785ed5ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842133"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64728744"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages X12 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -53,11 +53,11 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 4. Sélectionnez **Vue d’ensemble**, puis cliquez sur la mosaïque **Contrats**. 
    Si vous ne voyez pas la mosaïque Contrats, commencez par ajouter la mosaïque. 
 
-   ![Choisissez la mosaïque « Contrats »](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Choisissez la mosaïque « Contrats »](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
 
 5. Sous **Contrats**, choisissez **Ajouter**.
 
-   ![Choisir « Ajouter »](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Choisir « Ajouter »](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
 
 6. Sous **Ajouter**, entrez le **nom** de votre contrat. 
    Pour le type de contrat, sélectionnez **X12**. 
@@ -87,7 +87,7 @@ Maintenant que vous avez défini les propriétés du contrat, vous pouvez config
 1.  Sous **Ajouter**, sélectionnez **Paramètres de réception**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
-    **Paramètres de réception** est organisée en plusieurs sections : Identificateurs, accusé de réception, schémas, enveloppes, numéros de contrôle, Validations et paramètres internes.
+    Les **paramètres de réception** sont organisés en plusieurs sections : identificateurs, accusé de réception, schémas, enveloppes, numéros de contrôle, validations et paramètres internes.
 
 2. Une fois que vous avez terminé, cliquez sur **OK** pour enregistrer vos paramètres.
 
@@ -144,7 +144,7 @@ Sélectionnez un schéma pour chaque type de transaction (ST1) et application de
 
 | Propriété | Description |
 | --- | --- |
-| Interdire les doublons de numéro de contrôle d’échange |Bloquer les échanges en double. Vérifie le numéro de contrôle d’échange (ISA13) du numéro de contrôle de l’échange reçu. Si une correspondance est détectée, le pipeline de réception ne traite pas l’échange. Vous pouvez spécifier la fréquence en nombre de jours à laquelle le contrôle est effectué en définissant la valeur appropriée dans le champ *Vérifier les doublons ISA13 tous les (jours)*. |
+| Interdire les doublons de numéro de contrôle d’échange |Bloquer les échanges en double. Vérifie le numéro de contrôle d’échange (ISA13) du numéro de contrôle de l’échange reçu. Si une correspondance est détectée, le pipeline de réception ne traite pas l’échange. Vous pouvez spécifier la fréquence en nombre de jours à laquelle le contrôle est effectué en définissant la valeur appropriée dans le champ *Vérifier les doublons ISA13 tous les (jours)* . |
 | Interdire les numéros de contrôle de groupe en double |Bloquer les échanges avec des numéros de contrôle de groupe en double. |
 | Interdire les numéros de contrôle de document informatisé en double |Bloquer les échanges avec des numéros de contrôle de document informatisé en double. |
 
@@ -183,7 +183,7 @@ Vous pouvez configurer la manière dont votre contrat identifie et traite les me
 1.  Sous **Ajouter**, sélectionnez **Paramètres d’envoi**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
-    **Paramètres d’envoi** est organisée en plusieurs sections : Identificateurs, accusé de réception, schémas, enveloppes, jeux de caractères et séparateurs, numéros de contrôle et la Validation.
+    Les **paramètres d’envoi** sont organisés en plusieurs sections : identificateurs, accusé de réception, schémas, enveloppes, jeux de caractères et séparateurs, numéros de contrôle et validation.
 
 2. Une fois que vous avez terminé, cliquez sur **OK** pour enregistrer vos paramètres.
 

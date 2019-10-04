@@ -5,14 +5,12 @@ metadata:
   title: "Documentation Gestion des API Azure\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
   description: 'Découvrez comment utiliser la gestion des API pour publier des API pour des développeurs externes, partenaires et employés en toute sécurité et à grande échelle. Des didacticiels, des références d’API et d’autres documents vous montrent comment créer et gérer des passerelles API modernes pour les services principaux existants hébergés n’importe où.'
   services: api-management
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: api-management
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/15/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Découvrez comment utiliser la gestion des API pour publier des API pour des développeurs externes, partenaires et employés en toute sécurité et à grande échelle. Des didacticiels, des références d’API et d’autres documents vous montrent comment créer et gérer des passerelles API modernes pour les services principaux existants hébergés n’importe où.'
 sections:

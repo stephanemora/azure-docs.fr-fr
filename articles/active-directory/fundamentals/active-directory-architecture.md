@@ -2,23 +2,23 @@
 title: Vue d’ensemble de l’architecture - Azure Active Directory | Microsoft Docs
 description: Découvrez ce qu’est un locataire Azure Active Directory et comment gérer Azure à l’aide d’Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2018
-ms.author: lizross
+ms.date: 05/23/2019
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.openlocfilehash: b124475b44778ef3bb0dc9eba0c59bb3a277b85a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286209"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562045"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Qu’est-ce que l’architecture Azure Active Directory ?
 Azure Active Directory (Azure AD) vous permet de gérer en toute sécurité l’accès aux ressources et aux services Azure pour vos utilisateurs. Azure AD comprend une suite complète de fonctionnalités de gestion des identités. Pour plus d’informations sur les fonctionnalités d’Azure AD, voir [Qu’est Azure Active Directory ?](active-directory-whatis.md)
@@ -30,7 +30,7 @@ L’architecture distribuée géographiquement d’Azure AD combine des fonction
 
 Les éléments d’architecture suivants sont traités dans cet article :
  *  Conception de l’architecture de service
- *  Facilité d'utilisation 
+ *  Extensibilité
  *  Disponibilité continue
  *  Centres de données
 
@@ -39,7 +39,7 @@ La méthode la plus courante pour créer un système riche en données, accessib
 
 Le niveau de données possède plusieurs services frontaux offrant une fonctionnalité de lecture-écriture. Le diagramme suivant montre comment les composants d’une partition à répertoire unique sont délivrés entre des centres de données géographiquement distribués. 
 
-  ![Schéma de partition à répertoire unique](./media/active-directory-architecture/active-directory-architecture.png)
+  ![Diagramme de partition à répertoire unique](./media/active-directory-architecture/active-directory-architecture.png)
 
 Les composants de l’architecture Azure AD incluent un réplica principal et des réplicas secondaires.
 
@@ -49,7 +49,7 @@ Le *réplica principal* reçoit tous les *écrits* pour la partition à laquelle
 
 **Réplicas secondaires**
 
-Toutes les *lectures* de répertoire sont traitées à partir des *réplicas secondaires*, qui se trouvent dans des centres de données répartis entre différentes zones géographiques. Il existe plusieurs réplicas secondaires, car les données sont répliquées de manière asynchrone. Les lectures de répertoire, telles que les requêtes d’authentification, sont traitées à partir de centres de données proches des clients. Les réplicas secondaires sont responsables de l’évolutivité de lecture.
+Toutes les *lectures* de répertoire sont traitées à partir des *réplicas secondaires* qui se trouvent dans des centres de données répartis entre différentes zones géographiques. Il existe plusieurs réplicas secondaires, car les données sont répliquées de manière asynchrone. Les lectures de répertoire, notamment les requêtes d’authentification, sont traitées à partir de centres de données proches des clients. Les réplicas secondaires sont responsables de l’évolutivité de lecture.
 
 ### <a name="scalability"></a>Extensibilité
 
@@ -61,7 +61,7 @@ Les applications de répertoire se connectent aux centres de données les plus p
 
 ### <a name="continuous-availability"></a>Disponibilité continue
 
-La disponibilité (ou le temps d’activité) définit la capacité d’un système à s’exécuter sans interruption. La haute disponibilité d’Azure AD s’appuie sur le fait que les services peuvent transmettre rapidement le trafic entre plusieurs centres de données répartis géographiquement. Chaque centre de données est indépendant, ce qui permet les modes d’échec décorrélés.
+La disponibilité (ou le temps d’activité) définit la capacité d’un système à s’exécuter sans interruption. La haute disponibilité d’Azure AD s’appuie sur le fait que les services peuvent transmettre rapidement le trafic entre plusieurs centres de données répartis géographiquement. Chaque centre de données est indépendant, ce qui permet les modes d’échec décorrélés. Dans cette conception haute disponibilité, Azure AD n’exige aucun temps d’arrêt pour les activités de maintenance.
 
 La conception de partition Azure AD est simplifiée par rapport à la conception d’AD entreprise, grâce à une conception principale unique qui inclut un processus de basculement du réplica principal soigneusement orchestré et déterministe.
 
@@ -79,13 +79,13 @@ Azure AD maintient un [objectif de délai de récupération (RTO)](https://en.wi
 -  Émission de jeton et lectures de répertoire
 -  RTO de 5 minutes environ seulement possible pour les écritures de répertoire
 
-### <a name="data-centers"></a>Centres de données
+### <a name="datacenters"></a>Centres de données
 
-Les réplicas d’Azure AD sont stockés dans des centres du monde entier. Pour plus d’informations,voir [Centres de données Azure](https://azure.microsoft.com/overview/datacenters).
+Les réplicas d’Azure AD sont stockés dans des centres du monde entier. Pour plus d’informations, consultez l’article [Infrastructure globale Azure](https://azure.microsoft.com/global-infrastructure/).
 
-Azure AD fonctionne dans les centres de données avec les caractéristiques suivantes :
+Azure AD fonctionne dans les centres de données avec les caractéristiques suivantes :
 
- * Les services AD Authentication, Graph et autres se trouvent derrière le service de passerelle. La passerelle gère l’équilibrage de charge de ces services. Elle bascule automatiquement si des serveurs défaillants sont détectés par les sondes d’intégrité transactionnelles. En fonction de ces sondes d’intégrité, la passerelle achemine dynamiquement le trafic vers les centres de données intègres.
+ * Les services AD Authentication, Graph et autres se trouvent derrière le service de passerelle. La passerelle gère l’équilibrage de charge de ces services. Elle bascule automatiquement si des serveurs défaillants sont détectés par les sondes d’intégrité transactionnelles. En fonction de ces sondes d’intégrité, la passerelle achemine dynamiquement le trafic vers les centres de données sains.
  * Pour les *lectures*, le répertoire possède des réplicas secondaires et des services frontaux correspondants dans une configuration en mode actif/actif opérant dans plusieurs centres de données. En cas de défaillance complète d’un centre de données, le trafic sera automatiquement redirigé vers un autre centre de données.
  *  Pour les *écritures*, le répertoire bascule le réplica principal (maître) dans les centres de données via des procédures de basculement planifié (le nouveau réplica principal est synchronisé avec l’ancien) ou d’urgence. La durabilité des données est obtenue en répliquant toute validation vers au moins deux centres de données.
 
@@ -95,7 +95,7 @@ Le modèle de répertoire est l’une des cohérences finales. Un problème clas
 
 Azure AD fournit une cohérence en lecture-écriture pour les applications qui ciblent un réplica secondaire en routant ses écritures vers le réplica principal et en extrayant simultanément les écritures sur le réplica secondaire.
 
-Les écritures d’application utilisant l’API Graph d’Azure AD n’ont pas à conserver des affinités avec le réplica de répertoire pour la cohérence en lecture-écriture. Le service Azure AD Graph conserve une session logique, qui possède une affinité avec un réplica secondaire utilisé pour les lectures. L’affinité est capturée dans un « jeton de réplica » mis en cache par le service Graph à l’aide d’un cache distribué. Ce jeton est ensuite utilisé pour les opérations suivantes dans la même session logique. 
+Les écritures d’application utilisant l’API Graph d’Azure AD n’ont pas à conserver des affinités avec le réplica de répertoire pour la cohérence en lecture-écriture. Le service Azure AD Graph conserve une session logique qui possède une affinité avec un réplica secondaire utilisé pour les lectures. L’affinité est capturée dans un « jeton de réplica » mis en cache par le service Graph à l’aide d’un cache distribué dans le centre de données de réplica secondaire. Ce jeton est ensuite utilisé pour les opérations suivantes dans la même session logique. Pour continuer à utiliser la même session logique, les demandes suivantes doivent être acheminées vers le même centre de données Azure AD. Vous ne pouvez pas poursuivre une session logique si les demandes client de répertoire sont acheminées vers plusieurs centres de données Azure AD. Dans cette situation, le client a plusieurs sessions logiques présentant des cohérences en lecture-écriture indépendantes.
 
  >[!NOTE]
  >Les écritures sont immédiatement répliquées sur le réplica secondaire pour lequel les lectures de la session logique ont été émises.

@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 571c8b729408d7b9e805b875baccfd9ac8d6b9be
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719003"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965265"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8600
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Vue d'ensemble
 Microsoft Azure StorSimple 8600 est un appareil composé d’un boîtier principal et d’un boîtier EBOD. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8600 avant de configurer son logiciel.
 
@@ -52,8 +55,8 @@ Ensuite, procédez comme suit pour déballer votre appareil.
    |   2 |Câbles SAS (dans le carton des accessoires et des câbles) |
    |   3 |Polystyrène de protection inférieur |
    |   4 |Appareil |
-   |   5. |Polystyrène de protection supérieur |
-   |   6. |Carton contenant les accessoires |
+   |   5\. |Polystyrène de protection supérieur |
+   |   6 |Carton contenant les accessoires |
 3. Une fois les cartons déballés, vérifiez que vous disposez des éléments suivants :
    
    * 1 boîtier principal (le boîtier principal et le boîtier EBOD sont dans deux cartons distincts)
@@ -129,7 +132,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
    |   2 |Ouverture carrée pour vis du poteau avant du rack |
    |   3 |Ergots de positionnement du rail avant gauche |
    |   4 |Vis de serrage |
-   |   5. |Ergots de positionnement du rail arrière gauche |
+   |   5\. |Ergots de positionnement du rail arrière gauche |
 
 ### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Montage du boîtier EBOD dans le rack
 À l’aide des rails du rack qui viennent d’être installés, procédez comme suit pour monter le boîtier EBOD dans le rack.
@@ -206,7 +209,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
    | --- | --- |
    |   0/1/4/5 |Interfaces réseau de 1 Gigabit Ethernet |
    |   2/3 |Interfaces réseau de 10 Gigabit Ethernet |
-   |   6. |Ports série |
+   |   6 |Ports série |
 2. Consultez le schéma suivant pour le branchement des câbles réseau. (La configuration réseau minimale est indiquée par des lignes bleues pleines. Pour une haute disponibilité et des performances, la configuration supplémentaire requise est représentée par des lignes en pointillés.)
 
 ![Câble réseau de votre appareil 4U](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
@@ -224,7 +227,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 | G |Contrôleur 1 du boîtier EBOD |
 | H/I |Hôtes (par exemple, les serveurs de fichiers) |
 | 0-5 |Interfaces réseau |
-| 6. |Boîtier principal |
+| 6 |Boîtier principal |
 | 7 |Boîtier EBOD |
 
 Lors du câblage de l’appareil, la configuration minimale requiert les éléments suivants :
@@ -260,7 +263,7 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 6. Vérifiez que la connexion fonctionne en appuyant sur Entrée sur la console. Un menu de la console série doit apparaître.
 
 > [!NOTE]
-> **Gestion en service réduit :** lorsque l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, assurez-vous que les connexions série sur les deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruption du réseau ou en cas de défaillance inattendue.
+> **Gestion en service réduit** : quand l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, vérifiez que les connexions série aux deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruption du réseau ou en cas de défaillance inattendue.
 > 
 > 
 

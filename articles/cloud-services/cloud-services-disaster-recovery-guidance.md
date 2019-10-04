@@ -4,22 +4,17 @@ description: Découvrez que faire si une interruption de service Azure affecte A
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
 ms.service: cloud-services
 ms.workload: cloud-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: mmccrory
-ms.openlocfilehash: 7028417c95aa6969793c00d0bb270c96e56164fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: memccror
+ms.openlocfilehash: 269bb59210e24623a16b27d21d7276c084e4cca7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314780"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359678"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Que faire si une interruption de service Azure affecte Azure Cloud Services
 Microsoft s’engage à déployer tous les efforts nécessaires pour vous garantir en permanence la disponibilité de ses services quand vous en avez besoin. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiées.
@@ -51,10 +46,10 @@ Pour plus d’informations sur la façon de créer et de déployer une applicati
 Suivant vos sources de données d’application, vous pouvez être amené à vérifier les procédures de récupération.
 
 * Pour les sources de données Azure Storage, consultez [Réplication Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) pour vérifier les options disponibles selon le modèle de réplication choisi pour votre application.
-* Pour les sources SQL Database, consultez [Vue d’ensemble : continuité des activités cloud et récupération d’urgence d’une base de données avec SQL Database](../sql-database/sql-database-business-continuity.md) pour vérifier les options disponibles selon le modèle de réplication choisi pour votre application.
+* Pour les sources SQL Database, consultez [Vue d’ensemble : continuité de l’activité cloud et récupération d’urgence de base de données avec SQL Database](../sql-database/sql-database-business-continuity.md) pour vérifier les options disponibles en fonction du modèle de réplication choisi pour votre application.
 
 
-## <a name="option-3-wait-for-recovery"></a>Option 3 : attente de récupération
+## <a name="option-3-wait-for-recovery"></a>Option 3 : Attendre la récupération
 Dans ce cas, aucune action de votre part n’est requise, mais votre service est indisponible jusqu’à ce que la région soit restaurée. Vous pouvez consulter l’état actuel du service dans le [tableau de bord d’état du service Azure](https://azure.microsoft.com/status/).
 
 ## <a name="next-steps"></a>Étapes suivantes

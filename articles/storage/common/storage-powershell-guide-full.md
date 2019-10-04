@@ -2,18 +2,18 @@
 title: Utilisation d’Azure PowerShell avec Azure Storage | Microsoft Docs
 description: Apprenez à utiliser des applets de commande Azure PowerShell pour le stockage Azure.
 services: storage
-author: roygara
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 08/16/2018
-ms.author: rogarana
+ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 78eeb986be5380d9e34a42872cbbdeee37654cc0
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: ac210a03f8b1a0a5f7fff07cbc68b4cd6bc98632
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316997"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016340"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilisation d'Azure PowerShell avec Azure Storage
 
@@ -131,7 +131,7 @@ Pour changer les paramètres d’un compte de stockage, utilisez [Set-AzStorageA
 
 * Les **balises** affectées au compte de stockage. Les balises sont souvent utilisées pour catégoriser les ressources à des fins de facturation.
 
-* Le nom de référence (**SKU**) est le paramètre de réplication pour le compte de stockage, comme LRS (stockage localement redondant). Par exemple, vous pouvez passer de Standard\_LRS à Standard\_GRS ou Standard\_RAGRS. Notez que vous ne pouvez pas passer du stockage Standard\_ZRS ou Premium\_LRS à d’autres références (SKU), ou modifier d’autres références sur celles-ci.
+* Le nom de référence (**SKU**) est le paramètre de réplication pour le compte de stockage, comme LRS (stockage localement redondant). Par exemple, vous pouvez passer de Standard\_LRS à Standard\_GRS ou Standard\_RAGRS. Notez que vous ne pouvez pas passer du stockage Standard\_ZRS, Standard\_GZRS, Standard\_RAGZRS ou Premium\_LRS à d’autres références (SKU), ou modifier d’autres références sur celles-ci.
 
 * Le **niveau d’accès** pour les comptes de stockage d’objets blob. La valeur du niveau d’accès est définie sur **chaud** ou **froid**, et vous permet de réduire les coûts en sélectionnant le niveau d’accès qui s’aligne avec l’utilisation du compte de stockage. Pour plus d’informations, consultez [Niveaux de stockage chauds et froid et d’archivage](../blobs/storage-blob-storage-tiers.md).
 
@@ -199,7 +199,7 @@ Vous pouvez configurer la surveillance en utilisant le [portail Azure](https://p
 > Vous pouvez activer l’analyse par minute à l’aide de PowerShell. Cette fonctionnalité n’est pas disponible dans le portail.
 >
 
-* Pour savoir comment activer et afficher les données de métriques de stockage à l’aide de PowerShell, consultez [métriques de stockage analytique](storage-analytics-metrics.md).
+* Pour savoir comment activer et afficher les données de mesure de stockage à l’aide de PowerShell, consultez la page [Storage analytics metrics](storage-analytics-metrics.md) (Métriques d’analyse de stockage).
 
 * Pour savoir comment activer et récupérer des données de journalisation du stockage à l’aide de PowerShell, consultez [Comment activer Storage Logging avec PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) et [Recherche des données de journal Storage Logging](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data).
 
@@ -223,7 +223,7 @@ L’API Table Azure Cosmos DB fournit des fonctionnalités premium pour le stock
 La plupart des gens utilisent le cloud public Azure pour leur déploiement Azure global. Pour des raisons de souveraineté, entre autres, il existe également des déploiements indépendants de Microsoft Azure. Ces déploiements indépendants sont appelés « environnements ». Voici les environnements disponibles :
 
 * [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
-* [Azure China 21Vianet Cloud est géré par 21Vianet en Chine](http://www.windowsazure.cn/)
+* [Cloud Azure China 21Vianet géré par 21Vianet en Chine](http://www.windowsazure.cn/)
 * [Cloud Azure allemand](../../germany/germany-welcome.md)
 
 Pour découvrir comment accéder à ces clouds et à leur stockage avec PowerShell, consultez [Gestion du stockage dans les clouds indépendants d’Azure avec PowerShell](storage-powershell-independent-clouds.md).

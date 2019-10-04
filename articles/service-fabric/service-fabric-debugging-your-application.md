@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 9fbd9b8e298713dad022196989027f9e43ce806d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: b9ab36343dd11bdb5bd7cc1adcf2c8b1b971dab3
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667733"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300682"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Débogage de votre application Service Fabric à l’aide de Visual Studio
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "58667733"
 
 
 ## <a name="debug-a-local-service-fabric-application"></a>Débogage d’une application Service Fabric locale
-Vous pouvez économiser du temps et de l’argent en déployant et déboguant votre application Azure Service Fabric dans un cluster de développement d’ordinateur local. Visual Studio 2017 ou Visual Studio 2015 peuvent déployer l’application sur le cluster local et connecter automatiquement le débogueur à toutes les instances de votre application. Visual Studio doit être exécuté en tant qu’administrateur pour connecter le débogueur.
+Vous pouvez économiser du temps et de l’argent en déployant et déboguant votre application Azure Service Fabric dans un cluster de développement d’ordinateur local. Visual Studio 2019 ou 2015 peut déployer l’application sur le cluster local et connecter automatiquement le débogueur à toutes les instances de votre application. Visual Studio doit être exécuté en tant qu’administrateur pour connecter le débogueur.
 
 1. Démarrez un cluster de développement local en suivant les étapes de la section [Configuration de votre environnement de développement Service Fabric](service-fabric-get-started.md).
 2. Appuyez sur **F5** ou cliquez sur **Déboguer** > **Démarrer le débogage**.
@@ -49,7 +49,7 @@ Vous pouvez économiser du temps et de l’argent en déployant et déboguant vo
    
     ![Ouvrir la fenêtre des événements de diagnostic][viewdiagnosticevents]
    
-    Si vous souhaitez filtrer les traces en fonction d’une application ou d’un service spécifique, activez simplement les traces de diffusion en continu pour ce service ou cette application spécifique.
+    Si vous souhaitez filtrer les traces en fonction d’une application ou d’un service spécifique, activez les traces de streaming pour ce service ou cette application spécifique.
 6. Les événements de diagnostics peuvent être consultés dans le fichier **ServiceEventSource.cs** , généré automatiquement, et sont appelés à partir du code d’application.
    
     ```csharp
@@ -58,9 +58,16 @@ Vous pouvez économiser du temps et de l’argent en déployant et déboguant vo
 7. La fenêtre **Événements de diagnostic** prend en charge le filtrage, la suspension et l’inspection des événements en temps réel.  Le filtre est une simple recherche de chaîne du message d'événement, y compris son contenu.
    
     ![Filtrer, suspendre et reprendre ou examiner des événements en temps réel][diagnosticeventsactions]
-8. Les services de débogage ont la même fonction que le débogage de toute autre application. Les points d’arrêt sont définis normalement via Visual Studio pour faciliter le débogage. Bien que les Reliable Collections sont répliquées sur plusieurs nœuds, elles implémentent toujours IEnumerable. Cela signifie que vous pouvez utiliser l’affichage des résultats dans Visual Studio pendant le débogage pour voir ce que vous avez stocké à l’intérieur. Définissez simplement un point d’arrêt n’importe où dans votre code.
+8. Les services de débogage ont la même fonction que le débogage de toute autre application. Les points d’arrêt sont normalement définis via Visual Studio pour faciliter le débogage. Bien que les Reliable Collections sont répliquées sur plusieurs nœuds, elles implémentent toujours IEnumerable. Cette implémentation signifie que vous pouvez utiliser l’affichage des résultats dans Visual Studio pendant le débogage pour voir ce que vous avez stocké à l’intérieur. Pour ce faire, définissez un point d’arrêt n’importe où dans votre code.
    
     ![Démarrer le débogage d'une application][breakpoint]
+
+
+### <a name="running-a-script-as-part-of-debugging"></a>Exécution d’un script dans le cadre du débogage
+Dans certains scénarios, vous devrez peut-être exécuter un script dans le cadre du démarrage d’une session de débogage (par exemple, lorsque vous n’utilisez pas les services par défaut).
+
+Dans Visual Studio, vous pouvez ajouter un fichier appelé **Start-Service.ps1** dans le dossier **Scripts** du projet d’application Service Fabric (. sfproj). Ce script est appelé après la création de l’application dans le cluster local.
+
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
@@ -78,11 +85,11 @@ Si vos applications Service Fabric sont exécutées sur un cluster Service Fabri
 > 
 > 
 
-1. Accédez à votre cluster dans **Cloud Explorer**, cliquez avec le bouton droit, puis choisissez **Activer le débogage**.
+1. Accédez à votre cluster dans **Cloud Explorer**. Cliquez avec le bouton droit, puis choisissez **Activer le débogage**
    
     ![Activer le débogage à distance][enableremotedebugging]
    
-    Cette opération démarre le processus d’activation de l’extension de débogage à distance sur vos nœuds de cluster, ainsi que les configurations réseau nécessaires.
+    Cette action démarre le processus d’activation de l’extension de débogage à distance sur vos nœuds de cluster, ainsi que les configurations réseau nécessaires.
 2. Cliquez avec le bouton droit sur le nœud de cluster dans **Cloud Explorer**, puis choisissez **Attacher le débogueur**.
    
     ![Attacher le débogueur][attachdebugger]
@@ -95,7 +102,7 @@ Si vos applications Service Fabric sont exécutées sur un cluster Service Fabri
     Le débogueur s’attache à tous les nœuds qui exécutent le processus.
    
    * Si vous déboguez un service sans état, toutes les instances du service sur tous les nœuds font partie de la session de débogage.
-   * Si vous déboguez un service avec état, seul le réplica principal d’une partition sera actif et par conséquent capturé par le débogueur. Si le réplica principal se déplace pendant la session de débogage, le traitement de ce réplica fera toujours partie de la session de débogage.
+   * Si vous déboguez un service avec état, seul le réplica principal d’une partition sera actif et par conséquent intercepté par le débogueur. Si le réplica principal se déplace pendant la session de débogage, le traitement de ce réplica fera toujours partie de la session de débogage.
    * Afin d’intercepter uniquement les partitions ou les instances concernées d’un service donné, vous pouvez utiliser des points d’arrêt conditionnels pour n’arrêter qu’une instance ou une partition spécifique.
      
      ![Point d’arrêt conditionnel][conditionalbreakpoint]
@@ -109,7 +116,7 @@ Si vos applications Service Fabric sont exécutées sur un cluster Service Fabri
     ![Désactiver le débogage à distance][disableremotedebugging]
 
 ## <a name="streaming-traces-from-a-remote-cluster-node"></a>Traces de diffusion en continu à partir d’un nœud de cluster à distance
-Vous pouvez également diffuser en continu des traces directement à partir d’un nœud de cluster à distance vers Visual Studio. Cette fonctionnalité vous permet de diffuser des événements de trace ETW, générés sur un nœud de cluster Service Fabric.
+Vous pouvez également diffuser des traces directement à partir d’un nœud de cluster à distance vers Visual Studio. Cette fonctionnalité vous permet de diffuser des événements de trace ETW, générés sur un nœud de cluster Service Fabric.
 
 > [!NOTE]
 > Cette fonctionnalité nécessite le [Kit de développement logiciel (SDK) Service Fabric 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) et le [Kit de développement logiciel (SDK) Azure pour .NET 2.9](https://azure.microsoft.com/downloads/).
@@ -124,11 +131,11 @@ Vous pouvez également diffuser en continu des traces directement à partir d’
 > 
 > 
 
-1. Accédez à votre cluster dans **Cloud Explorer**, cliquez avec le bouton droit, puis choisissez **Activer les traces de diffusion en continu**.
+1. Accédez à votre cluster dans **Cloud Explorer**. Cliquez avec le bouton droit, puis choisissez **Activer les traces de streaming**
    
     ![Activer les traces de diffusion en continu à distance][enablestreamingtraces]
    
-    Cette opération démarre le processus d’activation de l’extension des traces de diffusion en continu sur vos nœuds de cluster, ainsi que les configurations réseau nécessaires.
+    Cette action démarre le processus d’activation de l’extension des traces de streaming sur vos nœuds de cluster, ainsi que les configurations réseau nécessaires.
 2. Développez l’élément **Nœuds** dans **Cloud Explorer**, cliquez avec le bouton droit sur le nœud à partir duquel diffuser les traces en continu, puis choisissez **Afficher les traces de diffusion en continu**.
    
     ![Afficher les traces de diffusion en continu à distance][viewremotestreamingtraces]

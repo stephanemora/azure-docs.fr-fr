@@ -9,19 +9,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 1d0f3bfa03eb4bafdd10222e28782c318848b7f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 62232283fb0b2f499601615702fef3292bb88317
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995173"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70100731"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Remplir les conditions préalables pour la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure
 
@@ -148,7 +147,7 @@ Configurez deux groupes à haute disponibilité en vous basant sur les paramètr
 | **Name** |adavailabilityset |sqlavailabilityset |
 | **Groupe de ressources** |SQL-HA-RG |SQL-HA-RG |
 | **Domaines d'erreur** |3 |3 |
-| **Domaines de mise à jour** |5. |3 |
+| **Domaines de mise à jour** |5\. |3 |
 
 Après avoir créé les groupes à haute disponibilité, revenez au groupe de ressources dans le Portail Azure.
 
@@ -184,7 +183,7 @@ Le tableau suivant indique les paramètres relatifs à ces deux machines :
 | **Groupe de ressources** |SQL-HA-RG |
 | **Lieu** |*Votre emplacement* |
 | **Taille** |DS1_V2 |
-| **Stockage** | **Utiliser des disques gérés** - **Oui** |
+| **Stockage** | **Utiliser des disques managés** - **Oui** |
 | **Réseau virtuel** |autoHAVNET |
 | **Sous-réseau** |admin |
 | **Adresse IP publique** |*Même nom que la machine virtuelle* |
@@ -206,7 +205,7 @@ Dans les étapes suivantes, vous allez configurer la machine **ad-primary-dc** c
 1. Dans le portail, ouvrez le groupe de ressources **SQL-HA-RG**, puis sélectionnez la machine **ad-primary-dc**. Sur **ad-primary-dc**, cliquez sur **Connecter** pour ouvrir un fichier RDP pour l’accès au Bureau à distance.
 
     ![Connexion à une machine virtuelle](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
-2. Connectez-vous avec votre compte Administrateur configuré (**\DomainAdmin**) et votre mot de passe (**Contoso!0000**).
+2. Connectez-vous avec votre compte Administrateur configuré ( **\DomainAdmin**) et votre mot de passe (**Contoso!0000**).
 3. Par défaut, le tableau de bord **Gestionnaire de serveur** doit être affiché.
 4. Cliquez sur le lien du tableau de bord **Ajouter des rôles et fonctionnalités** .
 
@@ -274,7 +273,7 @@ Une fois le contrôleur de domaine principal redémarré, vous pouvez configurer
    ![Interface réseau](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/26-networkinterface.png)
 
 5. Cliquez sur **Propriétés**.
-6. Cliquez sur **Internet Protocol Version 4 (TCP/IPv4)**, puis sur **Propriétés**.
+6. Cliquez sur **Internet Protocol Version 4 (TCP/IPv4)** , puis sur **Propriétés**.
 7. Sélectionnez **Utiliser l’adresse de serveur DNS suivante** et spécifiez l’adresse du contrôleur de domaine principal sous **Serveur DNS préféré**.
 8. Cliquez sur **OK**, puis sur **Fermer** pour valider les modifications. Vous pouvez maintenant joindre la machine virtuelle à **corp.contoso.com**.
 
@@ -353,7 +352,7 @@ Créez trois machines virtuelles supplémentaires. Cette solution nécessite deu
 
 Avant de continuer, envisagez les décisions de conception suivantes.
 
-* **Stockage - Disques gérés Azure**
+* **Stockage - Azure Disques managés**
 
    Pour le stockage de la machine virtuelle, utilisez Azure Disques managés. Microsoft recommande des machines virtuelles de la fonctionnalité Disques managés pour SQL Server. La fonctionnalité Disques managés gère le stockage en arrière-plan. En outre, lorsque les machines virtuelles avec la fonctionnalité Disques managés sont dans le même groupe à haute disponibilité, Azure distribue les ressources de stockage pour fournir une redondance appropriée. Pour plus d’informations, voir la page [Azure Managed Disks overview](../managed-disks-overview.md) (Vue d’ensemble d’Azure Disques managés). Pour plus de détails sur la fonctionnalité Disques managés dans un groupe à haute disponibilité, consultez [Utilisation de la fonctionnalité Disques managés pour les machines virtuelles dans le groupe à haute disponibilité](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
@@ -464,7 +463,7 @@ Pour ajouter les fonctionnalités de clustering de basculement, procédez comme 
 Répétez les étapes sur l’autre machine virtuelle SQL Server.
 
   >[!NOTE]
-  > Cette étape, ainsi que la jointure réellement les machines virtuelles de SQL Server au cluster de basculement, peut maintenant être automatisée avec [CLI de machine virtuelle SQL Azure](virtual-machines-windows-sql-availability-group-cli.md) et [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Cette étape, ainsi que la jonction des machines virtuelles au cluster de basculement, peut désormais être automatisée à l'aide d'une [interface en ligne de commande de machine virtuelle Azure SQL](virtual-machines-windows-sql-availability-group-cli.md) et de [modèles de démarrage rapide Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configurer le pare-feu sur chaque machine virtuelle SQL Server

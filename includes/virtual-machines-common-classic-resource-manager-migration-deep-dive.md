@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226908"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177039"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrer des ressources IaaS depuis le modèle de déploiement classique vers Azure Resource Manager
 Tout d’abord, il est important de comprendre la différence entre les opérations de plan de données et les opérations de plan de gestion sur les ressources IaaS (infrastructure as a service).

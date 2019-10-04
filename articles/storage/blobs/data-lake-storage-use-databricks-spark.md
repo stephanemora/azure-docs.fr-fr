@@ -1,19 +1,19 @@
 ---
-title: 'Tutoriel : Accéder aux données Azure Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark | Microsoft Docs'
+title: 'Didacticiel : Accéder aux données Azure Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark | Microsoft Docs'
 description: Ce tutoriel montre comment exécuter des requêtes Spark sur un cluster Azure Databricks, afin d’accéder aux données dans un compte de stockage Azure Data Lake Storage Gen2.
-services: storage
-author: dineshmurthy
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: dineshm
-ms.openlocfilehash: 7f712bcf3e82005480d4960484cb0ea3ad51fbff
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: normesta
+ms.reviewer: dineshm
+ms.openlocfilehash: 66394600963cf154b3cb1fe661968f4ded2ec225
+ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226757"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69992260"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Didacticiel : Accéder aux données Data Lake Storage Gen2 avec Azure Databricks à l’aide de Spark
 
@@ -47,7 +47,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
   > [!IMPORTANT]
   > Veillez à attribuer le rôle dans l’étendue du compte de stockage Data Lake Storage Gen2. Vous pouvez attribuer un rôle à l’abonnement ou au groupe de ressources parent, mais des erreurs d’autorisation sont générées tant que ces attributions de rôles ne sont pas propagées au compte de stockage.
 
-  :heavy_check_mark: Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et de la clé d’authentification dans un fichier texte. Vous en aurez besoin bientôt.
+  :heavy_check_mark: Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et du mot de passe dans un fichier texte. Vous en aurez besoin bientôt.
 
 ### <a name="download-the-flight-data"></a>Téléchargement des données de vol
 
@@ -81,11 +81,9 @@ Dans cette section, vous créez un service Azure Databricks en utilisant le port
 
     ![Créer un espace de travail Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "Créer un service Azure Databricks")
 
-3. Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
+3. La création du compte prend quelques minutes. Pour superviser l’état de l’opération, regardez la barre de progression située en haut.
 
-4. La création du compte prend quelques minutes. Pendant la création du compte, le portail affiche la vignette **Envoi du déploiement pour Azure Databricks** à droite. Pour superviser l’état de l’opération, regardez la barre de progression située en haut.
-
-    ![Vignette de déploiement Databricks](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Vignette de déploiement Databricks")
+4. Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Créer un cluster Spark dans Azure Databricks
 
@@ -109,51 +107,6 @@ Dans cette section, vous créez un service Azure Databricks en utilisant le port
 
     * Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
-## <a name="create-a-file-system-and-mount-it"></a>Créer un système de fichiers et le monter
-
-Dans cette section, vous allez créer un système de fichiers et un dossier dans votre compte de stockage.
-
-1. Dans le [portail Azure](https://portal.azure.com), accédez au service Azure Databricks que vous avez créé, puis sélectionnez **Initialiser l’espace de travail**.
-
-2. À gauche, sélectionnez **Espace de travail**. Dans la liste déroulante **Espace de travail**, sélectionnez **Créer** > **Notebook**.
-
-    ![Créer un notebook dans Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Créer un notebook dans Databricks")
-
-3. Dans la boîte de dialogue **Créer un bloc-notes**, entrez un nom pour le bloc-notes. Sélectionnez **Python** comme langage, puis sélectionnez le cluster Spark que vous avez créé précédemment.
-
-4. Sélectionnez **Créer**.
-
-5. Copiez et collez le bloc de code suivant dans la première cellule, mais n’exécutez pas ce code pour l’instant.
-
-    ```Python
-    configs = {"fs.azure.account.auth.type": "OAuth",
-           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-           "fs.azure.account.oauth2.client.id": "<application-id>",
-           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
-           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
-           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
-
-    dbutils.fs.mount(
-    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
-    mount_point = "/mnt/flightdata",
-    extra_configs = configs)
-    ```
-
-18. Dans ce bloc de code, remplacez les valeurs d’espace réservé `application-id`, `authentication-id`, `tenant-id` et `storage-account-name` par celles que vous avez collectées au moment de la finalisation des prérequis de ce tutoriel. Remplacez la valeur d’espace réservé `file-system-name` par le nom de système de fichiers de votre choix.
-
-   * `application-id` et `authentication-id` proviennent de l’application que vous avez inscrite auprès d’Active Directory dans le cadre de la création d’un principal de service.
-
-   * `tenant-id` provient de votre abonnement.
-
-   * `storage-account-name` est le nom de votre compte de stockage Azure Data Lake Storage Gen2.
-
-   > [!NOTE]
-   > Dans un environnement de production, songez à stocker votre clé d’authentification dans Azure Databricks. Ensuite, ajoutez une clé de recherche à votre bloc de code au lieu de la clé d’authentification. Après avoir suivi ce guide de démarrage rapide, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks pour voir des exemples de cette approche.
-
-19. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
-
-   Laissez ce notebook ouvert car vous allez y ajouter des commandes plus tard.
-
 ## <a name="ingest-data"></a>Réception de données
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Copier des données sources dans le compte de stockage
@@ -171,14 +124,63 @@ Utilisez AzCopy pour copier des données de votre fichier *.csv* dans votre comp
 2. Pour copier des données du compte *.csv*, entrez la commande suivante.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
    * Remplacez la valeur d’espace réservé `<csv-folder-path>` par le chemin du fichier *.csv*.
 
-   * Remplacez la valeur d’espace réservé `storage-account-name` par le nom de votre compte de stockage.
+   * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
-   * Remplacez l’espace réservé `file-system-name` par n’importe quel nom que vous souhaitez donner à votre système de fichiers.
+   * Remplacez l’espace réservé `<container-name>` par le nom que vous souhaitez donner à votre conteneur.
+
+## <a name="create-a-container-and-mount-it"></a>Créer et monter un conteneur
+
+Dans cette section, vous allez créer un conteneur et un dossier dans votre compte de stockage.
+
+1. Dans le [portail Azure](https://portal.azure.com), accédez au service Azure Databricks que vous avez créé, puis sélectionnez **Initialiser l’espace de travail**.
+
+2. À gauche, sélectionnez **Espace de travail**. Dans la liste déroulante **Espace de travail**, sélectionnez **Créer** > **Notebook**.
+
+    ![Créer un notebook dans Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Créer un notebook dans Databricks")
+
+3. Dans la boîte de dialogue **Créer un bloc-notes**, entrez un nom pour le bloc-notes. Sélectionnez **Python** comme langage, puis sélectionnez le cluster Spark que vous avez créé précédemment.
+
+4. Sélectionnez **Create** (Créer).
+
+5. Copiez et collez le bloc de code suivant dans la première cellule, mais n’exécutez pas ce code pour l’instant.
+
+    ```Python
+    configs = {"fs.azure.account.auth.type": "OAuth",
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<appId>",
+           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
+    dbutils.fs.mount(
+    source = "abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
+    ```
+
+18. Dans ce bloc de code, remplacez les valeurs d’espace réservé `appId`, `password`, `tenant` et `storage-account-name` par celles que vous avez collectées au moment de la finalisation des prérequis de ce tutoriel. Remplacez la valeur d’espace réservé `container-name` par le nom que vous avez donné au conteneur à l’étape précédente.
+
+Utilisez ces valeurs pour remplacer les espaces réservés mentionnés.
+
+   * `appId` et `password` proviennent de l’application que vous avez inscrite auprès d’Active Directory dans le cadre de la création d’un principal de service.
+
+   * `tenant-id` provient de votre abonnement.
+
+   * `storage-account-name` est le nom de votre compte de stockage Azure Data Lake Storage Gen2.
+
+   * Remplacez l’espace réservé `container-name` par le nom que vous souhaitez donner à votre conteneur.
+
+   > [!NOTE]
+   > Dans un environnement de production, envisagez de stocker votre mot de passe dans Azure Databricks. Ensuite, ajoutez une clé de recherche à votre bloc de code au lieu du mot de passe. Après avoir suivi ce guide de démarrage rapide, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks pour voir des exemples de cette approche.
+
+19. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
+
+   Laissez ce notebook ouvert car vous allez y ajouter des commandes plus tard.
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Utiliser Databricks Notebook pour convertir CSV en Parquet
 
@@ -188,7 +190,8 @@ Dans le notebook que vous avez créé précédemment, ajoutez une nouvelle cellu
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
+flightDF = spark.read.format('csv').options(
+    header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
 flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
@@ -224,57 +227,61 @@ Pour créer des trames de données pour vos sources de données, exécutez le sc
 * Remplacez la valeur d’espace réservé `<csv-folder-path>` par le chemin du fichier *.csv*.
 
 ```python
-#Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
+# Copy this into a Cmd cell in your notebook.
+acDF = spark.read.format('csv').options(
+    header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created earlier
-flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load("/mnt/flightdata/parquet/flights")
+# read the existing parquet file for the flights database that was created earlier
+flightDF = spark.read.format('parquet').options(
+    header='true', inferschema='true').load("/mnt/flightdata/parquet/flights")
 
-#print the schema of the dataframes
+# print the schema of the dataframes
 acDF.printSchema()
 flightDF.printSchema()
 
-#print the flight database size
+# print the flight database size
 print("Number of flights in the database: ", flightDF.count())
 
-#show the first 20 rows (20 is the default)
-#to show the first n rows, run: df.show(n)
+# show the first 20 rows (20 is the default)
+# to show the first n rows, run: df.show(n)
 acDF.show(100, False)
 flightDF.show(20, False)
 
-#Display to run visualizations
-#preferably run this in a separate cmd cell
+# Display to run visualizations
+# preferably run this in a separate cmd cell
 display(flightDF)
 ```
 
 Entrez ce script pour exécuter des requêtes d’analyse basiques sur les données.
 
 ```python
-#Run each of these queries, preferably in a separate cmd cell for separate analysis
-#create a temporary sql view for querying flight information
+# Run each of these queries, preferably in a separate cmd cell for separate analysis
+# create a temporary sql view for querying flight information
 FlightTable = spark.read.parquet('/mnt/flightdata/parquet/flights')
 FlightTable.createOrReplaceTempView('FlightTable')
 
-#create a temporary sql view for querying airline code information
+# create a temporary sql view for querying airline code information
 AirlineCodes = spark.read.parquet('/mnt/flightdata/parquet/airlinecodes')
 AirlineCodes.createOrReplaceTempView('AirlineCodes')
 
-#using spark sql, query the parquet file to return total flights in January and February 2016
+# using spark sql, query the parquet file to return total flights in January and February 2016
 out1 = spark.sql("SELECT * FROM FlightTable WHERE Month=1 and Year= 2016")
 NumJan2016Flights = out1.count()
 out2 = spark.sql("SELECT * FROM FlightTable WHERE Month=2 and Year= 2016")
-NumFeb2016Flights=out2.count()
-print("Jan 2016: ", NumJan2016Flights," Feb 2016: ",NumFeb2016Flights)
-Total= NumJan2016Flights+NumFeb2016Flights
+NumFeb2016Flights = out2.count()
+print("Jan 2016: ", NumJan2016Flights, " Feb 2016: ", NumFeb2016Flights)
+Total = NumJan2016Flights+NumFeb2016Flights
 print("Total flights combined: ", Total)
 
 # List out all the airports in Texas
-out = spark.sql("SELECT distinct(OriginCityName) FROM FlightTable where OriginStateName = 'Texas'") 
+out = spark.sql(
+    "SELECT distinct(OriginCityName) FROM FlightTable where OriginStateName = 'Texas'")
 print('Airports in Texas: ', out.show(100))
 
-#find all airlines that fly from Texas
-out1 = spark.sql("SELECT distinct(Reporting_Airline) FROM FlightTable WHERE OriginStateName='Texas'")
+# find all airlines that fly from Texas
+out1 = spark.sql(
+    "SELECT distinct(Reporting_Airline) FROM FlightTable WHERE OriginStateName='Texas'")
 print('Airlines that fly to/from Texas: ', out1.show(100, False))
 ```
 

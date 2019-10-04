@@ -9,18 +9,17 @@ editor: ''
 tags: azure-resource-manager
 keywords: ''
 ms.service: virtual-machines-windows
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: b5dea8a64410e23f3b92feb8ce757646435697d3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 95cf66b8960b03c8bc055443945d5569450855a2
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003409"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101080"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux
 
@@ -28,14 +27,14 @@ ms.locfileid: "60003409"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2002167]:https://launchpad.support.sap.com/#/notes/2002167
-[2009879]:https://launchpad.support.sap.com/#/notes/2009879
-[1928533]:https://launchpad.support.sap.com/#/notes/1928533
-[2015553]:https://launchpad.support.sap.com/#/notes/2015553
-[2178632]:https://launchpad.support.sap.com/#/notes/2178632
-[2191498]:https://launchpad.support.sap.com/#/notes/2191498
-[2243692]:https://launchpad.support.sap.com/#/notes/2243692
-[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]: https://launchpad.support.sap.com/#/notes/2002167
+[2009879]: https://launchpad.support.sap.com/#/notes/2009879
+[1928533]: https://launchpad.support.sap.com/#/notes/1928533
+[2015553]: https://launchpad.support.sap.com/#/notes/2015553
+[2178632]: https://launchpad.support.sap.com/#/notes/2178632
+[2191498]: https://launchpad.support.sap.com/#/notes/2191498
+[2243692]: https://launchpad.support.sap.com/#/notes/2243692
+[1999351]: https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -64,9 +63,9 @@ Commencez par lire les notes et publications SAP suivantes
 * La note SAP [2243692] contient des informations sur les licences SAP sur Linux dans Azure.
 * La note SAP [1999351] contient des informations de dépannage supplémentaires pour l’extension d’analyse Azure améliorée pour SAP.
 * Le [WIKI de la communauté SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contient toutes les notes SAP requises pour Linux.
-* [Planification et implémentation de Machines virtuelles Azure pour SAP sur Linux][planning-guide]
+* [Planification et implémentation de machines virtuelles Azure pour SAP sur Linux][planning-guide]
 * [Déploiement de machines virtuelles Azure pour SAP sur Linux][deployment-guide]
-* [Déploiement SGBD de Machines virtuelles Azure pour SAP sur Linux][dbms-guide]
+* [Déploiement SGBD de machines virtuelles Azure pour SAP sur Linux][dbms-guide]
 * [Documentation du produit pour Red Hat Gluster Storage](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * [SAP Netweaver dans le cluster pacemaker](https://access.redhat.com/articles/3150081)
 * Documentation RHEL générale
@@ -74,7 +73,7 @@ Commencez par lire les notes et publications SAP suivantes
   * [Administration des modules complémentaires de haute disponibilité](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Référence des modules complémentaires de haute disponibilité](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Configuration d’ASC/ERS pour SAP Netweaver avec des ressources autonomes dans RHEL 7.5](https://access.redhat.com/articles/3569681)
-  * [Configurer SAP S/4HANA ASC/ERS avec le serveur de file d’attente autonome 2 (ENSA2) dans Pacemaker sur RHEL ](https://access.redhat.com/articles/3974941)
+  * [Configure SAP S/4HANA ASCS/ERS with Standalone Enqueue Server 2 (ENSA2) in Pacemaker on RHEL ](https://access.redhat.com/articles/3974941) (Configurer SAP S/4HANA ASC/ERS avec le serveur de file d’attente autonome 2 (ENSA2) dans Pacemaker sur RHEL)
 * Documentation RHEL spécifique à Azure :
   * [Stratégies de prise en charge des clusters à haute disponibilité RHEL - Machines virtuelles Microsoft Azure en tant que membres du cluster](https://access.redhat.com/articles/3131341)
   * [Installation et configuration d’un cluster à haute disponibilité Red Hat Enterprise Linux 7.4 (et versions ultérieures) sur Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -86,6 +85,9 @@ Pour obtenir une haute disponibilité, SAP NetWeaver nécessite stockage partag�
 ![Vue d’ensemble de la haute disponibilité SAP NetWeaver](./media/high-availability-guide-rhel/ha-rhel.png)
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données SAP HANA utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un équilibreur de charge est nécessaire pour utiliser une adresse IP virtuelle. La liste suivante illustre la configuration de l’équilibreur de charge des instances (A)SCS et ERS.
+
+> [!IMPORTANT]
+> Le clustering multi-SID de SAP ASC/ERS avec Red Hat Linux comme système d’exploitation invité des machines virtuelles Azure n’est **PAS pris en charge**. Le clustering multi-SID décrit l’installation de plusieurs instances de SAP ASCS/ERS avec des SID différents dans un cluster Pacemaker.
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -113,6 +115,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 * Port de la sonde
   * Port 621<strong>&lt;nr&gt;</strong>
 * Règles d’équilibrage de charge
+  * TCP 32<strong>&lt;nr&gt;</strong>
   * TCP 33<strong>&lt;nr&gt;</strong>
   * TCP 5<strong>&lt;nr&gt;</strong>13
   * TCP 5<strong>&lt;nr&gt;</strong>14
@@ -120,15 +123,15 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 
 ## <a name="setting-up-glusterfs"></a>Configuration de GlusterFS
 
-SAP NetWeaver nécessite un stockage partagé pour le répertoire de transport et de profil. Consultez la page [GlusterFS sur les machines virtuelles Azure sur Red Hat Enterprise Linux pour SAP NetWeaver][glusterfs-ha] sur comment configurer GlusterFS pour SAP NetWeaver.
+SAP NetWeaver nécessite un stockage partagé pour le répertoire de transport et de profil. Consultez la page [GlusterFS sur les machines virtuelles Azure sur Red Hat Enterprise Linux pour SAP NetWeaver][glusterfs-ha] sur la manière de configurer GlusterFS pour SAP NetWeaver.
 
 ## <a name="setting-up-ascs"></a>Configuration de (A)SCS
 
-Vous pouvez utiliser un modèle Azure de github pour déployer l’ensemble des ressources Azure requises, notamment les machines virtuelles, les groupes à haute disponibilité et l’équilibreur de charge. Vous pouvez également déployer les ressources manuellement.
+Vous pouvez utiliser un modèle Azure de GitHub pour déployer l’ensemble des ressources Azure, notamment les machines virtuelles, les groupes à haute disponibilité et l’équilibreur de charge ou vous pouvez déployer les ressources manuellement.
 
 ### <a name="deploy-linux-via-azure-template"></a>Déployer Linux via le modèle Azure
 
-La Place de marché Azure contient une image de Red Hat Enterprise Linux que vous pouvez utiliser pour déployer de nouvelles machines virtuelles. Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
+La Place de marché Azure contient une image de Red Hat Enterprise Linux que vous pouvez utiliser pour déployer de nouvelles machines virtuelles. Vous pouvez utiliser l’un des modèles de démarrage rapide disponibles sur GitHub pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
 
 1. Ouvrir le [modèle ASCS/SCS][template-multisid-xscs] dans le portail Azure  
 1. Entrez les paramètres suivants
@@ -145,9 +148,9 @@ La Place de marché Azure contient une image de Red Hat Enterprise Linux que vou
    1. Disponibilité du système  
       Sélectionnez la haute disponibilité (HA).
    1. Nom d’utilisateur administrateur, mot de passe d’administrateur ou clé SSH  
-      Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
+      Un utilisateur pouvant être utilisé pour se connecter à la machine est créé.
    1. ID de sous-réseau  
-   Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/**&lt;ID_abonnement&gt;**/resourceGroups/**&lt;nom_groupe_ressources&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nom_réseau_virtuel&gt;**/subnets/**&lt;nom_sous_réseau&gt;**
+   Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/ **&lt;ID_abonnement&gt;** /resourceGroups/ **&lt;nom_groupe_ressources&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;nom_réseau_virtuel&gt;** /subnets/ **&lt;nom_sous_réseau&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Déployer manuellement Linux via le portail Azure
 
@@ -194,7 +197,7 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
          * Répéter les étapes ci-dessus pour créer une sonde d’intégrité pour l’instance ERS (par exemple **62102** et **nw1-aers-hp**)
    1. Règles d’équilibrage de charge
       1. TCP 32**00** pour l’instance ASCS
-         1. Ouvrir l’équilibrage de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
+         1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
          1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-3200**)
          1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **nw1-ascs-frontend**)
          1. Conserver le protocole **TCP** et indiquer le port **3200**
@@ -207,7 +210,7 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
          * Répéter les étapes ci-dessus pour les ports 33**02**, 5**02**13, 5**02**14, 5**02**16 et TCP pour les instances ASCS ERS
 
 > [!IMPORTANT]
-> N’activez pas les horodatages TCP sur des machines virtuelles Azure placé derrière un équilibreur de charge Azure. L’activation TCP horodatages entraîne les sondes d’intégrité à échouer. Définissez le paramètre **net.ipv4.tcp_timestamps** à **0**. Pour plus d’informations, consultez [sondes d’intégrité d’équilibreur de charge](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview).
+> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer).
 
 ### <a name="create-pacemaker-cluster"></a>Créer le cluster Pacemaker
 
@@ -481,7 +484,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 1. **[1]** Créer les ressources de cluster SAP
 
-  Si vous utilisez l’architecture de serveur 1 de file d’attente (ENSA1), définissez les ressources comme suit :
+  Si vous utilisez l’architecture de serveur de file d’attente 1 (ENSA1), définissez les ressources comme suit :
 
    <pre><code>sudo pcs property set maintenance-mode=true
    
@@ -504,8 +507,8 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   SAP a introduit la prise en charge pour le serveur de file d’attente 2, y compris la réplication, à compter de SAP NW 7.52. À compter de ABAP plateforme 1809, serveur de file d’attente 2 est installé par défaut. Consultez SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) pour la prise en charge du serveur 2 de file d’attente.
-   Si vous utilisez l’architecture de serveur 2 de file d’attente ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), installer l’agent de ressource resource-agents-sap-4.1.1-12.el7.x86_64 ou une version ultérieure et définir les ressources comme suit :
+   SAP a introduit la prise en charge du serveur de file d’attente 2, y compris la réplication, avec SAP NW 7.52. À partir de la plateforme ABAP 1809, le serveur de file d’attente 2 est installé par défaut. Consultez la note SAP [2630416](https://launchpad.support.sap.com/#/notes/2630416) pour plus d’informations sur la prise en charge du serveur de file d’attente 2.
+   Si vous utilisez l’architecture de serveur de file d’attente 2 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), installez l’agent de ressource resource-agents-sap-4.1.1-12.el7.x86_64 ou une version ultérieure et définissez les ressources comme suit :
 
 <pre><code>sudo pcs property set maintenance-mode=true
    
@@ -527,7 +530,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Si vous êtes la mise à niveau à partir d’une version antérieure et le basculement vers le serveur de file d’attente 2, consultez la note sap [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Si vous effectuez une mise à niveau à partir d’une version antérieure et que vous passez au serveur de file d’attente 2, consultez la note SAP [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Vérifiez que l’état du cluster est OK et que toutes les ressources sont démarrées. Le nœud sur lequel les ressources s’exécutent n’a aucune importance.
 
@@ -661,7 +664,7 @@ Les étapes ci-dessous partent du principe que vous installez le serveur d’app
 
 ## <a name="install-database"></a>Installer la base de données
 
-Dans cet exemple, SAP NetWeaver est installé sur SAP HANA. Vous pouvez utiliser n’importe quelle base de données prise en charge pour cette installation. Pour plus d’informations sur l’installation de SAP HANA dans Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure sur Red Hat Enterprise Linux][sap-hana-ha]. Pour obtenir la liste des bases de données prises en charge, consultez la [note SAP 1928533][1928533].
+Dans cet exemple, SAP NetWeaver est installé sur SAP HANA. Vous pouvez utiliser n’importe quelle base de données prise en charge pour cette installation. Pour plus d’informations sur l’installation de SAP HANA dans Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure sur Red Hat Enterprise Linux][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 1. Exécuter l’installation de l’instance de base de données SAP
 
@@ -1000,4 +1003,4 @@ Suivez ces étapes pour installer un serveur d’applications SAP.
 * [Déploiement de machines virtuelles Azure pour SAP][deployment-guide]
 * [Déploiement SGBD de machines virtuelles Azure pour SAP][dbms-guide]
 * Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur Azure (grandes instances), consultez [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md).
-* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur des machines virtuelles Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha].
+* Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur des machines virtuelles Azure, consultez [Haute disponibilité de SAP HANA sur des machines virtuelles Azure][sap-hana-ha]

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: bf30e805a06222bf8c74429df54565073d7d919b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545295"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933063"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -35,7 +35,7 @@ Passez directement à l’[exemple de localisateur de magasin animé](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer les étapes de ce tutoriel, vous devez d’abord [créer votre compte Azure Maps](./tutorial-search-location.md#createaccount) et [obtenir la clé d’abonnement pour votre compte](./tutorial-search-location.md#getkey).
+Pour effectuer les étapes de ce tutoriel, vous devez d’abord [créer votre compte Azure Maps](./tutorial-search-location.md#createaccount) et suivre les étapes dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin d’obtenir la clé primaire d’abonnement pour votre compte.
 
 ## <a name="design"></a>Conception
 
@@ -71,7 +71,7 @@ Les maquettes présentent une application assez simple. L’application contient
 
 ## <a name="create-the-store-location-dataset"></a>Créer le jeu de données d’emplacements de magasins
 
-Avant de développer une application de localisateur de magasin, nous devons créer un jeu de données des magasins à afficher sur la carte. Dans ce tutoriel, nous utilisons un jeu de données de cafés fictifs appelé Contoso Coffee. Le jeu de données de ce localisateur de magasin simple est géré dans un classeur Excel. Le jeu de données contient 10 213 emplacements de cafés Contoso Coffee répartis dans neuf pays : États-Unis, Canada, Royaume-Uni, France, Allemagne, Italie, Pays-bas, Danemark et Espagne. Voici une capture d’écran qui montre à quoi ressemblent les données :
+Avant de développer une application de localisateur de magasin, nous devons créer un jeu de données des magasins à afficher sur la carte. Dans ce tutoriel, nous utilisons un jeu de données de cafés fictifs appelé Contoso Coffee. Le jeu de données de ce localisateur de magasin simple est géré dans un classeur Excel. Le jeu de données contient 10 213 emplacements de cafés Contoso Coffee répartis dans neuf pays/régions : États-Unis, Canada, Royaume-Uni, France, Allemagne, Italie, Pays-Bas, Danemark et Espagne. Voici une capture d’écran qui montre à quoi ressemblent les données :
 
 <br/>
 <center>
@@ -93,7 +93,7 @@ Il existe de nombreuses façons d’exposer le jeu de données à l’applicatio
 
 Une autre approche consiste à convertir le jeu de données en fichier texte plat que le navigateur peut analyser facilement. Le fichier lui-même peut être hébergé avec le reste de l’application. Simple de conception, cette option doit cependant être réservée aux jeux de données peu volumineux, car l’utilisateur télécharge toutes les données. Pour ce jeu de données, nous optons pour le fichier texte plat dans la mesure où la taille du fichier de données est inférieure à 1 Mo.  
 
-Pour convertir le classeur en fichier texte plat, enregistrez le classeur sous forme de fichier délimité par des tabulations. Chaque colonne est délimitée par un caractère de tabulation, ce qui facilite l’analyse des colonnes dans notre code. Vous pouvez utiliser le format CSV (valeurs séparées par des virgules), mais cette option nécessite une logique d’analyse plus poussée. Les champs précédés et suivis d’une virgule doivent être mis entre guillemets. Pour exporter ces données sous forme de fichier délimité par des tabulations dans Excel, sélectionnez **Enregistrer sous**. Dans la liste déroulante **Type de fichier**, sélectionnez **Texte (délimité par des tabulations)(*.txt)**. Nommez le fichier *ContosoCoffee.txt*. 
+Pour convertir le classeur en fichier texte plat, enregistrez le classeur sous forme de fichier délimité par des tabulations. Chaque colonne est délimitée par un caractère de tabulation, ce qui facilite l’analyse des colonnes dans notre code. Vous pouvez utiliser le format CSV (valeurs séparées par des virgules), mais cette option nécessite une logique d’analyse plus poussée. Les champs précédés et suivis d’une virgule doivent être mis entre guillemets. Pour exporter ces données sous forme de fichier délimité par des tabulations dans Excel, sélectionnez **Enregistrer sous**. Dans la liste déroulante **Type de fichier**, sélectionnez **Texte (délimité par des tabulations)(*.txt)** . Nommez le fichier *ContosoCoffee.txt*. 
 
 <br/>
 <center>
@@ -139,7 +139,7 @@ Pour créer l’interface utilisateur, ajoutez le code à *index.html* :
 1. Ajoutez une référence au module Azure Maps Services. Le module est une bibliothèque JavaScript qui encapsule les services REST Azure Maps et facilite leur utilisation en JavaScript. Le module est utile pour faire tourner la fonctionnalité de recherche.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
 1. Ajoutez des références à *index.js* et *index.css* :
@@ -403,7 +403,7 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
 
 1. Ajoutez du code à *index.js*. Le code suivant initialise la carte, ajoute un [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) qui attend la fin du chargement de la page, relie les événements pour surveiller le chargement de la carte et active le bouton de recherche et le bouton de localisation de l’utilisateur (My Location).
 
-   Quand l’utilisateur sélectionne le bouton de recherche ou appuie sur Entrée après avoir entré un emplacement dans la zone de recherche, une recherche approximative est lancée par rapport à la requête de l’utilisateur. Passez un tableau de valeurs ISO 2 de pays à l’option `countrySet` pour limiter les résultats de la recherche à ces pays. Le fait de limiter la recherche de pays a pour effet d’accroître la précision des résultats retournés. 
+   Quand l’utilisateur sélectionne le bouton de recherche ou appuie sur Entrée après avoir entré un emplacement dans la zone de recherche, une recherche approximative est lancée par rapport à la requête de l’utilisateur. Passez un tableau de valeurs ISO 2 de pays à l’option `countrySet` pour limiter les résultats de la recherche à ces pays/régions. Le fait de limiter la recherche de pays/régions a pour effet d’accroître la précision des résultats renvoyés. 
   
    Une fois la recherche terminée, prenez le premier résultat et définissez la caméra de la carte sur cette région. Quand l’utilisateur sélectionne le bouton permettant de le localiser (My Location), il doit utiliser l’API de géolocalisation HTML5 qui est intégrée au navigateur pour récupérer son emplacement et centrer la carte sur cette position.  
 
@@ -417,7 +417,7 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
             center: [-90, 40],
             zoom: 2,
 
-            //Add your Azure Maps subscription key to the map SDK.
+            //Add your Azure Maps primary subscription key to the map SDK.
             authOptions: {
                 authType: 'subscriptionKey',
                 subscriptionKey: '<Your Azure Maps Key>'
@@ -432,7 +432,7 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
 
         //Use subscriptionKeyCredential to create a pipeline
         const pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential, {
-            retryOptions: { maxTries: 4 }, // Retry options
+            retryOptions: { maxTries: 4 } // Retry options
         });
 
         //Create an instance of the SearchURL client.
@@ -707,21 +707,6 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
         var camera = map.getCamera();
         var listPanel = document.getElementById('listPanel');
 
-        //Get all the shapes that have been rendered in the bubble layer.
-        var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
-
-        data.forEach(function(shape) {
-            if (shape instanceof atlas.Shape) {
-                //Calculate the distance from the center of the map to each shape, and then store the data in a distance property.  
-                shape.distance = atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles');
-            }
-        });
-
-        //Sort the data by distance.
-        data.sort(function(x, y) {
-            return x.distance - y.distance;
-        });
-
         //Check to see whether the user is zoomed out a substantial distance. If they are, tell the user to zoom in and to perform a search or select the My Location button.
         if (camera.zoom < maxClusterZoomLevel) {
             //Close the pop-up window; clusters might be displayed on the map.  
@@ -747,6 +732,25 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
             </div>
             */
 
+            //Get all the shapes that have been rendered in the bubble layer. 
+            var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]);
+
+            //Create an index of the distances of each shape.
+            var distances = {};
+
+            data.forEach(function (shape) {
+                if (shape instanceof atlas.Shape) {
+
+                    //Calculate the distance from the center of the map to each shape and store in the index. Round to 2 decimals.
+                    distances[shape.getId()] = Math.round(atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles') * 100) / 100;
+                }
+            });
+
+            //Sort the data by distance.
+            data.sort(function (x, y) {
+                return distances[x.getId()] - distances[y.getId()];
+            });
+
             data.forEach(function(shape) {
                 properties = shape.getProperties();
                 html.push('<div class="listItem" onclick="itemSelected(\'', shape.getId(), '\')"><div class="listItem-title">',
@@ -760,8 +764,8 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
                 getOpenTillTime(properties),
                 '<br />',
 
-                //Route the distance to two decimal places.  
-                (Math.round(shape.distance * 100) / 100),
+                //Get the distance of the shape.
+                distances[shape.getId()],
                 ' miles away</div>');
             });
 
@@ -872,6 +876,9 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
             </div>
         */
 
+         //Calculate the distance from the center of the map to the shape in miles, round to 2 decimals.
+        var distance = Math.round(atlas.math.getDistanceTo(map.getCamera().center, shape.getCoordinates(), 'miles') * 100)/100;
+
         var html = ['<div class="storePopup">'];
         html.push('<div class="popupTitle">',
             properties['AddressLine'],
@@ -882,8 +889,8 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
             //Convert the closing time to a format that's easier to read.
             getOpenTillTime(properties),
 
-            //Route the distance to two decimal places.  
-            '<br/>', (Math.round(shape.distance * 100) / 100),
+            //Add the distance information.  
+            '<br/>', distance,
             ' miles away',
             '<br /><img src="images/PhoneIcon.png" title="Phone Icon"/><a href="tel:',
             properties['Phone'],
@@ -896,11 +903,11 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
             html.push('<br/>Amenities: ');
 
             if (properties['IsWiFiHotSpot']) {
-                html.push('<img src="images/WiFiIcon.png" title="Wi-Fi Hotspot"/>')
+                html.push('<img src="images/WiFiIcon.png" title="Wi-Fi Hotspot"/>');
             }
 
             if (properties['IsWheelchairAccessible']) {
-                html.push('<img src="images/WheelChair-small.png" title="Wheelchair Accessible"/>')
+                html.push('<img src="images/WheelChair-small.png" title="Wheelchair Accessible"/>');
             }
         }
 

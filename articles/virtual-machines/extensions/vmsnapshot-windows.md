@@ -4,23 +4,23 @@ description: À partir de la Sauvegarde Azure, prendre une sauvegarde cohérente
 services: backup, virtual-machines-windows
 documentationcenter: ''
 author: trinadhk
-manager: jeconnoc
+manager: gwallace
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 0392a187bf40e1fe35053b493733c7e89aa6969e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 8e6468d06341f49e3c57532df8cacb0b6eb25b05
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57783123"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706591"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extension Windows de capture instantanée de machine virtuelle pour la Sauvegarde Azure
 
 La Sauvegarde Azure fournit une prise en charge permettant de sauvegarder les charges de travail depuis l’environnement local vers le cloud, et les ressources cloud dans le coffre Recovery Services. La Sauvegarde Azure se sert d’une extension de capture instantanée de machine virtuelle pour récupérer une sauvegarde cohérente des applications de la machine virtuelle Azure, sans nécessiter l’arrêt de la machine virtuelle. L’extension de capture instantanée de machine virtuelle est publiée et prise en charge par Microsoft dans le cadre du service de Sauvegarde Azure. La Sauvegarde Azure installe l’extension lors de la première sauvegarde planifiée qui est déclenchée après l’activation du service de sauvegarde. Ce document présente les plateformes, configurations et options de déploiement qui sont prises en charge pour l’extension de capture instantanée de machine virtuelle.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 Pour obtenir la liste des systèmes d’exploitation pris en charge, reportez-vous à [Systèmes d’exploitation pris en charge par la Sauvegarde Azure](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)

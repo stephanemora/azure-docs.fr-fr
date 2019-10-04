@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/27/2017
-ms.author: diegomrtnzg
+ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: fe24ab21a9a7d227d58e50c58f9aff2bd91e767f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079092"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598556"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(DÉPRÉCIÉ) Pipeline CI/CD complet pour déployer une application à plusieurs conteneurs sur Azure Container Service, avec le moteur ACS et le mode Docker Swarm par le biais d’Azure DevOps
 
@@ -46,7 +46,7 @@ Voici une brève explication de ces étapes :
 7. Le mode Docker Swarm sur le cluster extrait la dernière version des images 
 8. La nouvelle version de l’application est déployée à l’aide de Docker Stack 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce didacticiel, vous devez effectuer les tâches suivantes :
 
@@ -197,7 +197,7 @@ Azure DevOps vous permet de [gérer les mises en production dans les différents
 
 ### <a name="initial-release-setup"></a>Configuration de la mise en production initiale
 
-1. Pour créer un pipeline de mise en production, cliquez sur **Mises en production** > **+ Mise en production**.
+1. Pour créer un pipeline de mise en production, cliquez sur **Mises en production** >  **+ Mise en production**.
 
 2. Pour configurer la source de l’artefact, cliquez sur **Artefacts** > **Lier une source d’artefact**. Ici, liez ce nouveau pipeline de mise en production à la build que vous avez définie à l’étape précédente. Ainsi, le fichier docker-compose.yml devient disponible dans le processus de mise en production.
 
@@ -251,6 +251,6 @@ Maintenant que vous avez terminé la configuration, il est temps de tester ce no
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la CI/CD avec Azure DevOps, voir la [vue d’ensemble de la génération dans Azure DevOps](https://www.visualstudio.com/docs/build/overview).
+* Pour plus d’informations sur la CI/CD avec Azure DevOps, consultez l’article [Documentation Azure Pipelines](/azure/devops/pipelines/?view=azure-devops).
 * Pour en savoir plus sur le moteur ACS, consultez le [référentiel GitHub du moteur ACS](https://github.com/Azure/acs-engine).
 * Pour en savoir plus sur le mode Docker Swarm, consultez la [vue d’ensemble du mode Docker Swarm](https://docs.docker.com/engine/swarm/).

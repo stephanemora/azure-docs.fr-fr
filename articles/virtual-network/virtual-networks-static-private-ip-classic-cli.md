@@ -5,6 +5,7 @@ description: Découvrez comment configurer des adresses IP privées pour les ma
 services: virtual-network
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 2f71dc2bcd5463f81ae286bbe3099124eb3fa539
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 64342c6dcf4c9a052442a6f4b0afb7a56994f496
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023887"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059234"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Configurer des adresses IP privées pour une machine virtuelle (Classic) à l’aide d’Azure Classic CLI
 
@@ -64,10 +65,10 @@ Pour créer une machine virtuelle nommée *DNS01* dans un nouveau service cloud 
         info:    OK
         info:    vm create command OK
    
-   * **-l (ou --location)**. Région Azure où la machine virtuelle sera créée. Pour notre scénario, *centralus*.
-   * **-n (ou--vm-name)**. Nom de la machine virtuelle à créer.
-   * **-w (ou --virtual-network-name)**. Nom du réseau virtuel où la machine virtuelle sera créée. 
-   * **-S (ou --static-ip)**. Adresse IP privée statique de la machine virtuelle.
+   * **-l (ou --location)** . Région Azure où la machine virtuelle sera créée. Pour notre scénario, *centralus*.
+   * **-n (ou--vm-name)** . Nom de la machine virtuelle à créer.
+   * **-w (ou --virtual-network-name)** . Nom du réseau virtuel où la machine virtuelle sera créée. 
+   * **-S (ou --static-ip)** . Adresse IP privée statique de la machine virtuelle.
    * **TestService**. Nom du service cloud dans lequel la machine virtuelle sera créée.
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**. Image utilisée pour créer la machine virtuelle.
    * **adminuser**. Administrateur local pour la machine virtuelle Windows.

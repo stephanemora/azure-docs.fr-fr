@@ -1,5 +1,5 @@
 ---
-title: 'Kit de développement logiciel (SDK) .NET : Compte des opérations de gestion sur Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'Kit de développement logiciel (SDK) .NET : Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Utiliser le Kit de développement logiciel (SDK) NET Azure Data Lake Storage Gen1 pour effectuer des opérations de gestion des comptes dans Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879707"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65900883"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 à l’aide du SDK .NET
 > [!div class="op_single_selector"]
@@ -31,23 +31,17 @@ Dans cet article, vous allez découvrir comment réaliser des opérations de ges
 
 Pour obtenir des instructions sur l’exécution des opérations de gestion des données sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET, consultez la section relative aux [opérations du système de fichiers sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md).
 
-## <a name="prerequisites"></a>Conditions préalables
-* **Visual Studio 2013, 2015 ou 2017**. Les instructions ci-dessous reposent sur Visual Studio 2017.
+## <a name="prerequisites"></a>Prérequis
+* **Visual Studio 2013 ou version ultérieure**. Les instructions ci-dessous reposent sur Visual Studio 2019.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>Créer une application .NET
-1. Ouvrez Visual Studio et créez une application console.
-2. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
-3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
+1. Dans Visual Studio, sélectionnez le menu **Fichier**, puis **Nouveau** et **Projet**.
+2. Choisissez **Application console (.NET Framework)** , puis sélectionnez **Suivant**.
+3. Dans **Nom du projet**, entrez `CreateADLApplication`, puis sélectionnez **Créer**.
 
-   | Propriété | Valeur |
-   | --- | --- |
-   | Catégorie |Modèles/Visual C#/Windows |
-   | Modèle |Application console |
-   | Nom |CreateADLApplication |
-4. Cliquez sur **OK** pour créer le projet.
-5. Ajoutez les packages NuGet à votre projet.
+4. Ajoutez les packages NuGet à votre projet.
 
    1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, puis cliquez sur **Gérer les packages NuGet**.
    2. Dans l’onglet **Gestionnaire de package NuGet**, vérifiez que **Source du package** a la valeur **nuget.org** et que la case **Inclure la version préliminaire** est cochée.
@@ -58,7 +52,7 @@ Pour obtenir des instructions sur l’exécution des opérations de gestion des 
 
         ![Ajouter une source NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Créer un compte Azure Data Lake")
    4. Fermez le **Gestionnaire de package NuGet**.
-6. Ouvrez **Program.cs**, supprimez le code existant, puis insérez les instructions suivantes pour ajouter des références aux espaces de noms.
+5. Ouvrez **Program.cs**, supprimez le code existant, puis insérez les instructions suivantes pour ajouter des références aux espaces de noms.
 
         using System;
         using System.IO;
@@ -74,7 +68,7 @@ Pour obtenir des instructions sur l’exécution des opérations de gestion des 
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. Déclarez les variables et fournissez les valeurs des espaces réservés. En outre, assurez-vous que le chemin d’accès local et le nom de fichier que vous fournissez existent sur l’ordinateur.
+6. Déclarez les variables et fournissez les valeurs des espaces réservés. En outre, assurez-vous que le chemin d’accès local et le nom de fichier que vous fournissez existent sur l’ordinateur.
 
         namespace SdkSample
         {

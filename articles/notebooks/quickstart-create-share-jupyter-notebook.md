@@ -10,15 +10,15 @@ ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 42f5d3abda715d83d58b0d341aed784de639e460
+ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273666"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66751785"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Démarrage rapide : Créer et partager un notebook
 
@@ -41,11 +41,11 @@ ms.locfileid: "59273666"
 
      ![Fenêtre contextuelle Nouveau projet avec les détails remplis](media/quickstarts/new-project-popup.png)
 
-1. Après quelques instants, Azure Notebooks accède au nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+**), puis **Notebook** :
+1. Après quelques instants, Azure Notebooks accède au nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+** ), puis **Notebook** :
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "Nouveau projet vide et commande d’ajout de notebook")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
-1. Dans la fenêtre contextuelle **Créer un notebook** qui s’affiche, entrez un nom de fichier pour votre notebook, tel que *HelloWorldInPython.ipynb* (*.ipynb* désigne un notebook IronPython (Jupyter)), puis sélectionnez **Python 3.6** pour le langage (également appelé *noyau*) :
+1. Dans la fenêtre contextuelle **Créer un notebook** qui s’affiche, entrez un nom de fichier pour votre notebook, tel que *HelloWorldInPython.ipynb* ( *.ipynb* désigne un notebook IronPython (Jupyter)), puis sélectionnez **Python 3.6** pour le langage (également appelé *noyau*) :
 
     ![Fenêtre contextuelle Créer un notebook](media/quickstarts/new-notebook-popup.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "59273666"
 
     ![Icône Enregistrer dans la barre d’outils du notebook Jupyter](media/quickstarts/hello-results-save-icon.png)
 
-1. Sélectionnez le **fichier** > **fermer et arrêter** commande de menu pour arrêter le serveur et de fermer la fenêtre du navigateur.
+1. Sélectionnez la commande de menu **Fichier** > **Fermer et arrêter** pour arrêter le serveur et fermer la fenêtre du navigateur.
 
 ## <a name="share-the-notebook"></a>Partager le notebook
 

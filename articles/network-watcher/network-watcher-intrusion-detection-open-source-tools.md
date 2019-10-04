@@ -3,8 +3,8 @@ title: Détecter les intrusions dans un réseau avec Azure Network Watcher et de
 description: Cet article explique comment utiliser Azure Network Watcher et des outils open source pour détecter les intrusions dans un réseau
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 41b039c6598334d49b9ddb0608d7ad2ae045b223
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901268"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65605704"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Détecter les intrusions dans un réseau avec Azure Network Watcher et des outils open source
 
@@ -255,7 +255,7 @@ Vous avez également la possibilité de créer vos propres visualisations et tab
 
 L’exemple de tableau de bord fournit plusieurs visualisations des journaux d’activité d’alertes Suricata :
 
-1. Alerts by GeoIP (Alertes par GeoIP) : une carte affichant la répartition des alertes par pays d’origine en fonction de l’emplacement géographique (déterminé par l’adresse IP).
+1. Alerts by GeoIP (Alertes par GeoIP) : une carte affichant la répartition des alertes par pays/région d’origine en fonction de l’emplacement géographique (déterminé par l’adresse IP).
 
     ![geo ip][3]
 

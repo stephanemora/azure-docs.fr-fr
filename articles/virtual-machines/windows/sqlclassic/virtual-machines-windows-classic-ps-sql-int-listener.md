@@ -9,18 +9,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 0466265ad5a24e8ea6dc5079e2b4006d74e7dde0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ca8adf4f9ce221533240e6c797f1fb01dacf6e8d
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452530"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70101906"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure
 > [!div class="op_single_selector"]
@@ -32,7 +31,7 @@ ms.locfileid: "38452530"
 ## <a name="overview"></a>Vue d'ensemble
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, nous recommandons d’utiliser le modèle Resource Manager.
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, nous recommandons d’utiliser le modèle Resource Manager.
 
 Afin de configurer un écouteur pour un groupe de disponibilité Always On dans le modèle Resource Manager, voir [Configurer un équilibreur de charge pour un groupe de disponibilité Always On dans Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
 
@@ -105,7 +104,7 @@ Créez un point de terminaison avec équilibrage de charge pour chaque machine v
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Après avoir défini les variables, copiez le script de l'éditeur de texte dans votre session PowerShell pour l'exécuter. Si l'invite affiche **>>**, appuyez de nouveau sur Entrée pour vous assurer que le script s'exécute.
+13. Après avoir défini les variables, copiez le script de l'éditeur de texte dans votre session PowerShell pour l'exécuter. Si l'invite affiche **>>** , appuyez de nouveau sur Entrée pour vous assurer que le script s'exécute.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Vérifiez que KB2854082 est installé le cas échéant
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +150,7 @@ Créez l’écouteur de groupe de disponibilité en deux étapes. Tout d’abord
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Une fois les variables définies, ouvrez une fenêtre Windows PowerShell avec élévation de privilèges, puis collez le script de l'éditeur de texte dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche **>>**, appuyez de nouveau sur Entrée pour vous assurer que le script s'exécute.
+3. Une fois les variables définies, ouvrez une fenêtre Windows PowerShell avec élévation de privilèges, puis collez le script de l'éditeur de texte dans votre session Azure PowerShell pour l'exécuter. Si l'invite affiche **>>** , appuyez de nouveau sur Entrée pour vous assurer que le script s'exécute.
 
 4. Répétez les étapes précédentes pour chaque machine virtuelle.  
     Ce script configure la ressource Adresse IP avec l'adresse IP du service cloud et définit d'autres paramètres, tels que le port de la sonde. Lorsque la ressource d'adresse IP est mise en ligne, elle peut ensuite répondre à l'interrogation sur le port de la sonde du point de terminaison à équilibrage de charge créé précédemment.

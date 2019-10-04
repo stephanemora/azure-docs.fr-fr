@@ -1,10 +1,10 @@
 ---
-title: Problèmes de connexion à une application de la galerie Azure AD configurée pour l’authentification unique par mot de passe | Microsoft Docs
-description: Fournit des instructions sur la manière de résoudre les problèmes de connexion aux applications de la galerie Azure AD configurées pour l’authentification unique par mot de passe
+title: Authentification unique avec mot de passe dans le volet d’accès | Microsoft Docs
+description: Fournit des instructions sur la manière de résoudre les problèmes de connexion aux applications de la galerie Azure AD configurées pour l’authentification unique par mot de passe.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11411a780333268e19d53ea2bd472fe36bc0eb62
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 9ca192c28757df189e531aee0ba2d8da288ba7e6
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088364"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381236"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problèmes de connexion à une application de la galerie Azure AD configurée pour l’authentification unique par mot de passe
 

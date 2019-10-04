@@ -1,5 +1,5 @@
 ---
-title: Ajouter un utilisateur de collaboration B2B à un rôle - Azure Active Directory | Microsoft Docs
+title: Ajouter un utilisateur B2B Collaboration à un rôle - Azure Active Directory | Microsoft Docs
 description: Ajouter un utilisateur invité à un rôle dans Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ffebd117d1ea69a81395c1517b6f75505b83ac0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.openlocfilehash: 5cb195fd3fbf668afe436d3247767d2cc998281a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294635"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65767583"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Accorder des autorisations aux utilisateurs d’organisations partenaires dans votre locataire Azure Active Directory
 
@@ -25,15 +25,15 @@ Les utilisateurs Azure Active Directory (Azure AD) B2B Collaboration sont ajout�
 
 ## <a name="default-role"></a>Rôle par défaut
 
-![Capture d’écran montrant le rôle d’annuaire par défaut](./media/add-guest-to-role/default-role.png)
+![Capture d’écran affichant le rôle d’annuaire par défaut](./media/add-guest-to-role/default-role.png)
 
 ## <a name="global-administrator-role"></a>Rôle Administrateur général
 
-![Capture d’écran montrant le rôle d’administrateur général](./media/add-guest-to-role/global-admin-role.png)
+![Capture d’écran montrant le rôle Administrateur général](./media/add-guest-to-role/global-admin-role.png)
 
 ## <a name="limited-administrator-role"></a>Rôle Administrateur limité
 
-![Capture d’écran montrant le rôle administrateur limité](./media/add-guest-to-role/limited-admin-role.png)
+![Capture d’écran montrant le rôle Administrateur limité](./media/add-guest-to-role/limited-admin-role.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

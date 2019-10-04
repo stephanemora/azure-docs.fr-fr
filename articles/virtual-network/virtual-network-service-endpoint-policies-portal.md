@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Dans cet article, découvrez comment configurer et associer des stratégies de point de terminaison de service à l’aide du portail Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: anithaa
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
-ms.author: anithaa
-ms.openlocfilehash: aaa07759ed8b10578d024d5838ac1d2658778695
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: b1d2d04e74828323166810d93c52a60671bf71e8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999875"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64710918"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Créer, changer ou supprimer une stratégie de point de terminaison de service à l’aide du portail Azure
 
@@ -40,13 +40,13 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 ## <a name="create-a-service-endpoint-policy"></a>Créer une stratégie de point de terminaison de service
 
 1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
-2. Dans le volet de recherche, tapez « Stratégie de point de terminaison de service », sélectionnez **Stratégie de point de terminaison de service (préversion)**, puis sélectionnez **Créer**.
+2. Dans le volet de recherche, tapez « Stratégie de point de terminaison de service », sélectionnez **Stratégie de point de terminaison de service (préversion)** , puis sélectionnez **Créer**.
 3. Entrez ou sélectionnez les informations suivantes dans **Informations de base** : 
 
    - Abonnement : sélectionnez votre abonnement pour la stratégie.    
    - Groupe de ressources : Sélectionnez **Créer** et entrez *myResourceGroup*.     
    - Nom : myEndpointPolicy
-   - Emplacement : USA Centre-Ouest     
+   - Emplacement : Centre-USA Ouest     
  
    ![Informations de base sur la création d’une stratégie de point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
    
@@ -73,7 +73,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
  
 ## <a name="view-endpoint-policies"></a>Afficher des stratégies de points de terminaison 
 
-1. Dans la zone *Tous les services* du portail, commencez à taper *stratégies de point de terminaison de service*. Sélectionnez **Stratégies de point de terminaison de service (préversion)**.
+1. Dans la zone *Tous les services* du portail, commencez à taper *stratégies de point de terminaison de service*. Sélectionnez **Stratégies de point de terminaison de service (préversion)** .
 2. Sous **Abonnements**, sélectionnez votre abonnement et votre groupe de ressources, comme illustré dans l’image suivante.
 
    ![Afficher une stratégie](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicies.PNG)
@@ -100,7 +100,7 @@ Avant de pouvoir associer une stratégie à un sous-réseau, vous devez créer u
    - Espace d’adressage : 10.0.0.0/16      
    - Abonnement : Sélectionnez votre abonnement. La stratégie doit se trouver dans le même abonnement que le réseau virtuel     
    - Groupe de ressources : Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*     
-   - Emplacement : USA Centre-Ouest     
+   - Emplacement : Centre-USA Ouest     
    - Nom du sous-réseau : private     
    - Plage d’adresses : 10.0.0.0/24
      

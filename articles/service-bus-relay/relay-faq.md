@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045575"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422962"
 ---
 # <a name="azure-relay-faqs"></a>FAQ sur Azure Relay
 
@@ -36,10 +36,10 @@ Le [service Azure Relay](relay-what-is-it.md) facilite le déploiement de vos ap
 A [espace de noms](relay-create-namespace-portal.md) est un conteneur d’étendue que vous pouvez utiliser pour adresser des ressources Relay au sein de votre application. Vous devez créer un espace de noms pour utiliser Relay. Il s’agit de l’une des premières étapes de la prise en main.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>Qu’est-il advenu du service Service Bus Relay ?
-Le service anciennement nommé Service Bus Relay s’appelle désormais [Relais WCF](relay-wcf-dotnet-get-started.md). Vous pouvez continuer à utiliser ce service comme vous en avez l’habitude. La fonctionnalité Connexions hybrides est une version mise à jour d’un service transplanté à partir Azure BizTalk Services. Les fonctionnalités Relais WCF et Connexions hybrides continuent d’être prises en charge.
+Le service anciennement nommé Service Bus Relay s’appelle désormais [Relais WCF](service-bus-relay-tutorial.md). Vous pouvez continuer à utiliser ce service comme vous en avez l’habitude. La fonctionnalité Connexions hybrides est une version mise à jour d’un service transplanté à partir Azure BizTalk Services. Les fonctionnalités Relais WCF et Connexions hybrides continuent d’être prises en charge.
 
 ## <a name="pricing"></a>Tarifs
-Cette section contient les réponses à certaines questions fréquemment posées sur la structure de tarification de Relay. Pour des informations générales sur la tarification d’Azure, vous pouvez également consulter le [Forum aux questions sur le support technique Azure](https://azure.microsoft.com/support/faq/). Pour des informations complètes sur la tarification de Relay, voir [Détails de la tarification de Service Bus][Pricing overview].
+Cette section contient les réponses à certaines questions fréquemment posées sur la structure de tarification de Relay. Pour des informations générales sur la tarification d’Azure, vous pouvez également consulter le [Forum aux questions sur le support technique Azure](https://azure.microsoft.com/support/faq/). Pour obtenir toutes les informations sur la tarification de Relay, consultez [Détails de la tarification de Service Bus][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Comment sont facturés les services Connexions hybrides et Relais WCF ?
 Pour obtenir toutes les informations sur la tarification Relay, consultez le tableau [Connexions hybrides et relais WCF][Pricing overview] dans la page de détails de la tarification Service Bus. Outre les prix mentionnés sur cette page, vous êtes facturé pour les transferts de données associés aux sorties à l’extérieur du centre de données dans lequel votre application est déployée.
@@ -106,7 +106,7 @@ Pour déplacer un espace de noms d’un abonnement Azure vers un autre, vous pou
 
 #### <a name="azure-portal"></a>Portail Azure
 
-Pour utiliser le portail Azure afin de migrer des espaces de noms Azure Relay d’un abonnement vers un autre, voir [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Pour utiliser le portail Azure afin de migrer des espaces de noms Azure Relay d’un abonnement vers un autre, voir [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -125,10 +125,10 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quelles sont les exceptions générées par les API Azure Relay et les actions suggérées ?
-Pour obtenir une description des exceptions courantes et des actions suggérées, voir [Exceptions Relay][Relay exceptions].
+Pour obtenir une description des exceptions courantes et des actions suggérées, consultez [Exceptions Relay][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Qu’est-ce qu’une signature d’accès partagé et quels langages puis-je utiliser pour générer une signature ?
-Les signatures d’accès partagé (SAP) sont des mécanismes d’authentification basés sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node, PHP, Java, C et C#, voir [Authentification de Service Bus avec les signatures d’accès partagé][Shared Access Signatures].
+Les signatures d’accès partagé (SAP) sont des mécanismes d’authentification basés sur des hachages sécurisés SHA-256 ou des URI. Pour plus d’informations sur la génération de vos propres signatures en Node.js, PHP, Python, Java, C et C#, consultez [Authentification de Service Bus avec les signatures d’accès partagé][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Est-il possible de mettre des points de terminaison de relais en liste verte ?
 Oui. Le client de relais établit des connexions au service Azure Relay en utilisant des noms de domaine complets (FQDN). Cela permet aux clients d’ajouter une entrée pour `*.servicebus.windows.net` sur les pare-feu qui prennent en charge la mise en liste verte de DNS.

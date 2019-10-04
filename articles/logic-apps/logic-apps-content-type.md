@@ -1,21 +1,20 @@
 ---
-title: Gérer les types de contenu - Azure Logic Apps | Microsoft Docs
+title: Gérer les types de contenu - Azure Logic Apps
 description: Découvrez comment Logic Apps gère les types de contenu au moment du design et au moment de l’exécution
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 82eb9c895f016efe569651dc89885d2e4850fd59
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.topic: conceptual
+ms.date: 07/20/2018
+ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159089"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868923"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Gérer les types de contenu dans Azure Logic Apps
 
@@ -63,7 +62,7 @@ Logic Apps offre la possibilité de générer des jetons conviviaux qui représe
   
   1. Dans le déclencheur de requête, sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**.  
   
-  2. Sous **Entrer ou coller un exemple de charge utile JSON**, fournissez un exemple de charge utile, puis choisissez **Terminé**. Par exemple :  
+  2. Sous **Entrer ou coller un exemple de charge utile JSON**, fournissez un exemple de charge utile, puis choisissez **Terminé**. Par exemple : 
 
      ![Fournir l’exemple de charge utile JSON](./media/logic-apps-content-type/request-trigger.png)
 
@@ -140,15 +139,16 @@ Pour conserver certains types de données, Logic Apps convertit le contenu en un
 
 Cette liste décrit comment Logic Apps convertit le contenu lorsque vous utilisez ces [fonctions](../logic-apps/workflow-definition-language-functions-reference.md) :
 
-* `json()` : caste les données en `application/json`
-* `xml()` : caste les données en `application/xml`
-* `binary()` : caste les données en `application/octet-stream`
-* `string()` : caste les données en `text/plain`
-* `base64()` : convertit le contenu en une chaîne encodée en base64
-* `base64toString()` : convertit une chaîne encodée en base64 en `text/plain`
-* `base64toBinary()` : convertit une chaîne encodée en base64 en `application/octet-stream`
-* `encodeDataUri()` : encode une chaîne en tableau d’octets dataUri
-* `decodeDataUri()` : décode un `dataUri` en tableau d’octets
+* `json()`: caste les données en `application/json`
+* `xml()`: caste les données en `application/xml`
+* `binary()`: caste les données en `application/octet-stream`
+* `string()`: caste les données en `text/plain`
+* `base64()`: convertit le contenu en une chaîne encodée en base64
+* `base64toString()`: convertit une chaîne encodée en base64 en `text/plain`
+* `base64toBinary()`: convertit une chaîne encodée en base64 en `application/octet-stream`
+* `dataUri()`: convertit une chaîne en un URI de données
+* `dataUriToBinary()`: convertit un URI de données en une chaîne binaire
+* `dataUriToString()`: convertit un URI de données en une chaîne
 
 Par exemple, si vous recevez une requête HTTP où `Content-Type` est défini sur `application/xml`, tel que ce contenu :
 

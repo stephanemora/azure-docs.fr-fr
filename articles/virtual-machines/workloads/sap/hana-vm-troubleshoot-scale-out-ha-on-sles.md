@@ -4,21 +4,20 @@ description: Guide permettant de vérifier et corriger une configuration complex
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermannd
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 299fba8a082f19f17ab581a6ac2bfac9fd3f8cf1
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520579"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70099658"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Vérifier et corriger la configuration SAP HANA scale-out à haute disponibilité sur SLES 12 SP3 
 
@@ -473,7 +472,7 @@ Une fois que tout est correctement configuré, vous pouvez exécuter la commande
 systemctl status pacemaker
 </code></pre>
 
-La partie supérieure de la sortie doit se présenter comme suit. Il est important que l’état après **Active** soit affiché comme **loaded** et **active (running)**. L’état après **Loaded** doit apparaître comme **enabled**.
+La partie supérieure de la sortie doit se présenter comme suit. Il est important que l’état après **Active** soit affiché comme **loaded** et **active (running)** . L’état après **Loaded** doit apparaître comme **enabled**.
 
 <pre><code>
   pacemaker.service - Pacemaker High Availability Cluster Manager
@@ -726,7 +725,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>Maintenance planifiée 
 
 Différents cas d’utilisation doivent être examinés dans le cadre de la maintenance planifiée. Demandez-vous s’il s’agit simplement d’une maintenance d’infrastructure impliquant des changements au niveau du système d’exploitation et de la configuration de disque, ou s’il s’agit d’une mise à niveau de HANA.
-Vous trouverez des informations supplémentaires dans les documents de SUSE comme [Towards Zero Downtime][sles-zero-downtime-paper] ou [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]. Ces documents comprennent également des exemples de migration manuelle d’un site principal.
+Vous trouverez des informations supplémentaires dans les documents SUSE comme [Towards Zero Downtime][sles-zero-downtime-paper] ou [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]. Ces documents comprennent également des exemples de migration manuelle d’un site principal.
 
 Nous avons effectué des tests internes intensifs pour vérifier le cas d’usage d’une maintenance d’infrastructure. Pour éviter des problèmes liés à la migration du site principal, nous avons décidé de toujours migrer un site principal avant de mettre un cluster en mode de maintenance. De cette façon, le cluster n’a plus besoin d’oublier l’ancienne situation : quel était le site principal et quel autre était le secondaire.
 
@@ -821,7 +820,7 @@ INFO: Removed migration constraints for msl_SAPHanaCon_HSO_HDB00
 
 
 
-## <a name="hbreport-to-collect-log-files"></a>hb_report pour collecter les fichiers journaux
+## <a name="hb_report-to-collect-log-files"></a>hb_report pour collecter les fichiers journaux
 
 Pour analyser les problèmes du cluster Pacemaker, le support de SUSE demande d’exécuter l’utilitaire **hb_report**. Il collecte tous les fichiers journaux importants dont vous avez besoin pour analyser ce qui est arrivé. Cet exemple d’appel utilise une heure de début et de fin où un incident spécifique s’est produit. Consultez aussi [Remarques importantes](#important-notes) :
 
@@ -964,7 +963,7 @@ Cet exemple illustre les contraintes d’emplacement causées par une migration 
 ![Contraintes de liste Hawk](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-Vous pouvez également charger la sortie **hb_report** dans Hawk sous **Historique**, illustrée comme suit. Consultez hb_report pour collecter des fichiers journaux : 
+Vous pouvez également charger la sortie **hb_report** dans Hawk sous **Historique**, illustrée comme suit. Consultez hb_report pour collecter les fichiers journaux : 
 
 ![Sortie hb_report chargée dans Hawk](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 

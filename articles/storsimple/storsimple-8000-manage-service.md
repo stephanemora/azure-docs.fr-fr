@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: eb1fe69a7fb99949ac95291c33e76c1a32bf5439
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 1e75acc03209fdd7e613801c9152f24aaecfa6de
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310055"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965459"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Déployer le service StorSimple Device Manager pour les appareils de la gamme StorSimple 8000
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -154,7 +156,7 @@ Si vous utilisez la console série de l’appareil pour vous connecter à l’in
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>Pour démarrer la modification de la clé de chiffrement des données du service
 1. Sélectionnez Option 1 pour vous connecter avec un accès complet.
-2.  À l’invite de commandes, tapez :
+2. À l’invite de commandes, tapez :
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
 3. Une fois l’applet de commande terminée, vous obtenez une nouvelle clé de chiffrement des données du service. Copiez et enregistrez cette clé pour l’utiliser lors de l’étape 3 de cette procédure. Cette clé permet de mettre à jour tous les appareils restants inscrits auprès du service StorSimple Manager.
@@ -194,16 +196,16 @@ Seuls les appareils StorSimple exécutant Update 5.0 et des versions ultérieur
 | Analyser, télécharger et installer des mises à jour                                                                                             | OUI            |
 | Désactiver un appareil                                                                                                               | OUI            |
 | Supprimer un appareil                                                                                                                   | OUI            |
-| Créer, modifier et supprimer un conteneur de volumes                                                                                   | Non              |
-| Créer, modifier et supprimer un volume                                                                                             | Non              |
-| Créer, modifier et supprimer une stratégie de sauvegarde                                                                                      | Non              |
-| Exécuter une sauvegarde manuelle                                                                                                            | Non              |
+| Créer, modifier et supprimer un conteneur de volumes                                                                                   | Non             |
+| Créer, modifier et supprimer un volume                                                                                             | Non             |
+| Créer, modifier et supprimer une stratégie de sauvegarde                                                                                      | Non             |
+| Exécuter une sauvegarde manuelle                                                                                                            | Non             |
 | Exécuter une sauvegarde planifiée                                                                                                         | Non applicable |
-| Restaurer à partir d’un jeu de sauvegarde                                                                                                        | Non              |
+| Restaurer à partir d’un jeu de sauvegarde                                                                                                        | Non             |
 | Cloner vers un appareil exécutant Update 3.0 et versions ultérieures <br> L’appareil source exécute une version antérieure à Update 3.0.                                | OUI            |
-| Cloner vers un appareil exécutant des versions antérieures à Update 3.0                                                                          | Non              |
+| Cloner vers un appareil exécutant des versions antérieures à Update 3.0                                                                          | Non             |
 | Basculer en tant qu’appareil source <br> (à partir d’un appareil exécutant une version antérieure à Update 3.0 vers un appareil exécutant Update 3.0 et versions ultérieures)                                                               | OUI            |
-| Basculer en tant qu’appareil cible <br> (vers un appareil exécutant une version logicielle antérieure à Update 3.0)                                                                                   | Non              |
+| Basculer en tant qu’appareil cible <br> (vers un appareil exécutant une version logicielle antérieure à Update 3.0)                                                                                   | Non             |
 | Supprimer une alerte                                                                                                                  | OUI            |
 | Afficher les stratégies de sauvegarde, le catalogue de sauvegarde, les volumes, les conteneurs de volumes, les graphiques de surveillance, les travaux et les alertes créés dans le portail classique | OUI            |
 | Activer et désactiver des contrôleurs d’appareils                                                                                              | OUI            |

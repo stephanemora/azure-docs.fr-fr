@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: f884b39db92f44f7cff938e0ac4b9c2e22dc36cb
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316045"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262191"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights
 
-Cette page fournit des informations sur les problèmes de performances liés à Azure SQL Database et Managed Instance et détectés via le journal de diagnostic des performances de base de données [Intelligent Insights](sql-database-intelligent-insights.md). Les données de télémétrie de journal de diagnostic peuvent être diffusée à [Azure Monitor enregistre](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou une solution tierce pour des alertes personnalisées DevOps et fonctions de rapport.
+Cette page fournit des informations sur les problèmes de performances liés à Azure SQL Database et Managed Instance et détectés via le journal de diagnostic des performances de base de données [Intelligent Insights](sql-database-intelligent-insights.md). Les données de télémétrie du journal de diagnostic peuvent être transmises en continu aux [journaux Azure Monitor](../azure-monitor/insights/azure-sql.md), à [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), au [Stockage Azure](sql-database-metrics-diag-logging.md#stream-into-storage) ou à une solution tierce pour des fonctionnalités d’alertes et de rapports DevOps personnalisées.
 
 > [!NOTE]
 > Pour appréhender rapidement la résolution des problèmes de performances liés à SQL Database à l’aide d’Intelligent Insights, consultez l’organigramme [Flux de résolution des problèmes recommandé](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) dans le présent document.
@@ -31,7 +30,7 @@ Cette page fournit des informations sur les problèmes de performances liés à 
 
 Intelligent Insights détecte automatiquement les problèmes de performances liés à SQL Database et Managed Instance en fonction des temps d’attente d’exécution des requêtes, des erreurs ou des expirations de délais d’attente. L’outil envoie les modèles de performances détectés au journal de diagnostic. Les modèles de performances détectables sont résumés dans le tableau ci-dessous.
 
-| Modèles de performances détectables | Description pour Azure SQL Database et les pools élastiques | Description pour les bases de données dans Managed Instance |
+| Modèles de performances détectables | Description des bases de données Azure SQL et des pools élastiques | Description pour les bases de données dans Managed Instance |
 | :------------------- | ------------------- | ------------------- |
 | [Atteinte des limites de ressources](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | La consommation des ressources disponibles (DTU), les threads de travail de base de données ou les sessions de connexion de base de données disponibles sur l’abonnement surveillé ont atteint leurs limites. Ce phénomène affecte les performances de SQL Database. | La consommation des ressources de l’UC atteint les limites de Managed Instance. Ce phénomène affecte les performances de la base de données. |
 | [Augmentation de la charge de travail](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Une augmentation de la charge de travail ou une accumulation continue de la charge de travail sur la base de données a été détectée. Ce phénomène affecte les performances de SQL Database. | Une augmentation de la charge de travail a été détectée. Ce phénomène affecte les performances de la base de données. |
@@ -201,7 +200,7 @@ Parfois, l’écriture d’une requête efficace est une tâche difficile. Pour 
 
 Le journal de diagnostic génère des informations sur deux nouvelles requêtes, au maximum, parmi celles qui consomment le plus d’UC, avec notamment leurs codes de hachage. Dans la mesure où la requête détectée affecte les performances de la charge de travail, vous pouvez optimiser votre requête. Il est conseillé de récupérer uniquement les données que vous devez utiliser. Nous vous recommandons également d’utiliser les requêtes avec une clause WHERE. Nous vous recommandons également de simplifier les requêtes complexes et de les décomposer en requêtes plus petites. Il est conseillé de fractionner les requêtes de traitement par lots volumineuses en requêtes plus petites. Introduire des index pour les nouvelles requêtes constitue généralement une bonne pratique pour atténuer ce problème de performances.
 
-Utilisez éventuellement [Query Performance Insight d’Azure SQL Database](sql-database-query-performance.md).
+Utilisez éventuellement [Azure SQL Database Query Performance Insight](sql-database-query-performance.md).
 
 ## <a name="increased-wait-statistic"></a>Augmentation des statistiques d’attente
 
@@ -332,4 +331,4 @@ Intelligent Insights a généralement besoin d’une heure pour effectuer l’an
 - Découvrez les concepts [Intelligent Insights](sql-database-intelligent-insights.md).
 - Utilisez le [journal de diagnostic Intelligent Insights des performances d’Azure SQL Database](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Surveillez [Azure SQL Database avec Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Découvrez comment [collecter et consommer les données des journaux de vos ressources Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Découvrez comment [collecter et consommer les données des journaux de vos ressources Azure](../azure-monitor/platform/resource-logs-overview.md).

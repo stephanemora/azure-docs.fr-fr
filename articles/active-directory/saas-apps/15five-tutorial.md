@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à 15Five | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à 15Five | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et 15Five.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ae1578a04bf6a94aeb5a7a3b64ac3ae722fe9ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 219af24aceea9291e34a9854d230b5dc6bd85fdb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107572"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-15five"></a>Tutoriel : Intégration d'Azure Active Directory à 15Five
+# <a name="tutorial-azure-active-directory-integration-with-15five"></a>Didacticiel : Intégration d'Azure Active Directory à 15Five
 
 Dans ce didacticiel, vous allez apprendre à intégrer 15Five dans Azure Active Directory (Azure AD).
 L’intégration de 15Five dans Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration de 15Five dans Azure AD, vous devez ajouter 15
 
 **Pour ajouter 15Five à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec 15Five, effectuez les
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.15five.com`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<companyname>.15five.com/saml2/metadata/`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.15five.com/saml2/metadata/`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique 15Five](https://www.15five.com/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -148,7 +148,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -193,7 +193,7 @@ Pour se connecter à 15Five, les utilisateurs d’Azure AD doivent être approvi
 
     ![Gérer l’entreprise](./media/15five-tutorial/ic784675.png "Gérer l’entreprise")
 
-3. Accédez à **People (Personnes) \> Add PEOPLE (Ajouter des personnes)**.
+3. Accédez à **People (Personnes) \> Add PEOPLE (Ajouter des personnes)** .
 
     ![Personnes](./media/15five-tutorial/ic784676.png "Personnes")
 

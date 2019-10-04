@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 6df29543df2b7b2609582f7e8dd9a0629182760c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 0558c309cc22f39c2ed439b7930443ca0adb071e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849775"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385375"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Mises à jour de schéma pour Azure Logic Apps - 1er juin 2016
 
@@ -155,7 +155,7 @@ La boucle `foreach` et `until` est limitée à une seule action.
 
 ### <a name="new-trackedproperties-for-actions"></a>Nouvelle propriété « trackedProperties » relative aux actions
 
-Les actions peuvent désormais comporter une propriété supplémentaire appelée `trackedProperties`, sœur des propriétés `runAfter` et `type`. Cet objet spécifie certaines entrées ou sorties d’action que vous souhaitez inclure dans la télémétrie de diagnostic Azure, dont l’émission intervient dans le cadre d’un workflow. Par exemple : 
+Les actions peuvent désormais comporter une propriété supplémentaire appelée `trackedProperties`, sœur des propriétés `runAfter` et `type`. Cet objet spécifie certaines entrées ou sorties d’action que vous souhaitez inclure dans la télémétrie de diagnostic Azure, dont l’émission intervient dans le cadre d’un workflow. Par exemple :
 
 ``` json
 {
@@ -175,8 +175,9 @@ Les actions peuvent désormais comporter une propriété supplémentaire appelé
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Créer des définitions d’application logique](../logic-apps/logic-apps-author-definitions.md)
-* [Création d’un modèle de déploiement d’applications logiques](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatiser le déploiement de l’application logique](logic-apps-azure-resource-manager-templates-overview.md)
 
 <!-- Image references -->
 [1]: ./media/logic-apps-schema-2016-04-01/upgradeButton.png

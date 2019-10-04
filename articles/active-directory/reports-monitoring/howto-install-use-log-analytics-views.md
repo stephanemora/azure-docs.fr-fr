@@ -1,9 +1,9 @@
 ---
-title: Comment installer et utiliser les vues d’analytique de journal pour Azure Active Directory | Microsoft Docs
-description: Découvrez comment installer et utiliser les vues d’analytique de journal pour Azure Active Directory
+title: Guide pratique pour installer et utiliser les vues Log Analytics pour Azure Active Directory | Microsoft Docs
+description: Apprenez à installer et utiliser les vues Log Analytics pour Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92a5d9539d254eb7d52e3277691c9d8ff5a41821
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 7cb1241387144b691b76ec330a5f90b762ebc11f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005058"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989785"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installer et utiliser les vues Log Analytics pour Azure Active Directory
 
@@ -31,7 +31,7 @@ Les vues Log Analytics pour Azure Active Directory facilitent la recherche et l�
 * Journaux d’audit : Le [rapport d’activité des journaux d’audit](concept-audit-logs.md) vous permet de consulter l’historique de toutes les tâches effectuées dans votre locataire.
 * Journaux d’activité de connexion : Le [rapport d’activité de connexion](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches consignées dans les journaux d’audit.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour utiliser les vues Log Analytics, vous avez besoin de :
 
@@ -73,5 +73,5 @@ Pour utiliser les vues Log Analytics, vous avez besoin de :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Comment analyser les journaux d’activité avec les journaux Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
-* [Prise en main des journaux Azure Monitor sur le Portail Microsoft Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)
+* [Comment analyser les journaux d’activité avec les journaux d’activité Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
+* [Prise en main des journaux d’activité Azure Monitor sur le Portail Microsoft Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)

@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ce136a341809b1a485e86337f428b4685eba22f7
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a63914116f5ef9922ac05745764e0ad505dc3c91
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093542"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593948"
 ---
 # <a name="china-content-delivery-with-azure-cdn"></a>Distribution de contenu en Chine avec Azure CDN
 
@@ -63,7 +63,7 @@ Pour plus d’informations sur Azure CDN Chine :
 
 - [Utilisation d’Azure Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
 
-- [Disponibilité des services Azure en Chine](https://docs.microsoft.com/azure/china/china-get-started-service-availability)
+- [Disponibilité des services Azure en Chine](https://docs.microsoft.com/azure/china/concepts-service-availability)
 
 
 

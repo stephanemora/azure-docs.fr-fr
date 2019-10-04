@@ -1,25 +1,18 @@
 ---
-title: Offre de service de conseil Azure et Dynamics 365 - Entrer des informations sur les vitrines| Microsoft Docs
-description: Guide pour la définition des informations sur les vitrines dans une offre de service de conseil Azure ou Dynamics 365 sur le portail Cloud Partner.
+title: Entrer les détails d’une vitrine pour une offre de conseil | Place de marché Azure
+description: Définissez des détails d’une vitrine dans une offre de service de conseil Azure ou Dynamics 365 dans le Portail Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230949"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942708"
 ---
 # <a name="storefront-details-tab"></a>Onglet des informations sur les vitrines
 
@@ -32,14 +25,16 @@ Cet article explique comment entrer les détails de votre vitrine. L’onglet **
 
 ![Créer une offre de service de conseil : onglet Storefront Details (Informations sur les vitrines)](media/consultingoffer-storefront-details.png)
 
+
 ## <a name="offer-details"></a>Détails de l’offre
 
 La section **Offer Details** (Détails de l’offre) contient les zones suivantes :
 
--   **Offer summary** (Résumé de l’offre)
--   **Description de l’offre**
+-   **Offer summary\*** (Résumé de l’offre)
+-   **Description de l’offre\***
 
-### <a name="offer-summary"></a>Résumé de l’offre
+
+### <a name="offer-summary"></a>Résumé de l’offre\*
 
 Le résumé de l’offre est une description courte de votre offre, qui figure juste en dessous du nom de l’offre. Utilisez du texte brut pour entrer le résumé de l’offre, sans sauts de ligne. Voici quelques exemples de résumés d’offre, ainsi que les noms correspondants.
 
@@ -68,7 +63,8 @@ Le résumé de l’offre est une description courte de votre offre, qui figure j
 -   **Nom de l’offre** : Dynamics et projets : évaluation de 3 jours
 -   **Résumé de l’offre** : collecte des exigences et évaluation d’une solution ERP conçue pour les sociétés de services professionnels et les entreprises orientées projet.
 
-### <a name="offer-description"></a>Description de l’offre
+
+### <a name="offer-description"></a>Description de l’offre\*
 
 Entrez la description de l’offre de services de conseil dans la zone **Offer description** (Description de l’offre). Une bonne description comprend les détails de l’engagement et les livrables proposés au client. Elle doit être claire pour aider le client à comprendre ce qu’il peut en obtenir. Mentionnez le lien de l’offre avec le produit Microsoft pour lequel vous proposez des services de conseil.
 
@@ -144,6 +140,7 @@ Entrez votre ID du nouvel Espace partenaires, si vous en avez un.
 Entrez une clé secrète pour afficher un aperçu de votre offre sur AppSource avant qu’elle ne soit mise en ligne.
 Cet identificateur n’est pas un mot de passe.
 
+
 ## <a name="listing-details"></a>Détails de l’annonce
 
 **Type de service de conseil**
@@ -166,7 +163,7 @@ Les cinq types d’offres suivants sont inclus :
 Sélectionnez le pays et région où cette offre de services de conseil est disponible. Il est impossible de publier une offre unique dans plusieurs pays ou régions. Une nouvelle offre doit être créée pour chaque pays ou région.
 
 >[!Note]
->Les services de conseil AppSource sont disponibles aux États-Unis, au Royaume-Uni et au Canada. Vous pouvez soumettre une offre pour un pays qui n’est pas encore desservi. Elle sera passée en revue et préparée pour la mise en ligne. Un nombre minimal d’offres prêtes à l’emploi est nécessaire pour desservir un nouveau pays. Nous vous encourageons donc à soumettre des offres pour les pays qui ne sont pas encore desservis.
+>Les services de conseil AppSource sont disponibles aux États-Unis, au Royaume-Uni et au Canada. Vous pouvez soumettre une offre pour un pays/une région qui n’est pas encore desservi. Elle sera passée en revue et préparée pour la mise en service. Un nombre minimal d’offres prêtes à l’emploi est nécessaire pour desservir un nouveau pays/une nouvelle région. Nous vous encourageons donc à soumettre des offres pour les pays/régions qui ne sont pas encore desservis.
 
 **Secteurs d’activité**
 
@@ -207,6 +204,7 @@ Chargez la brochure marketing qui décrit votre offre de services de conseil en 
 **Captures d’écran (cinq maximum)**
 
 Chargez jusqu’à cinq images avec plus d’informations sur votre offre, sur les livrables ou sur votre société. Un extrait de votre brochure marketing, une diapositive extraite d’une présentation ou une image qui illustre l’orientation ou l’expertise de l’entreprise sont quelques exemples.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

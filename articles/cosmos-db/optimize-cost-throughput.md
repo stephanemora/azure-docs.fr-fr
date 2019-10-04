@@ -4,14 +4,14 @@ description: Cet article explique comment optimiser le coût du débit pour les 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/26/2019
 ms.author: rimman
-ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d874f1ba8823ceddbef378decde127cef4ff8885
+ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009765"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70020106"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 
@@ -29,11 +29,11 @@ Vous pouvez configurer le débit sur des bases de données ou des conteneurs, et
 
 Voici quelques indications pour choisir une stratégie de débit approvisionné :
 
-**Approvisionnez le débit sur une base de données Azure Cosmos DB (contenant un ensemble de conteneurs) si** :
+**Provisionnez le débit sur une base de données Azure Cosmos (contenant un ensemble de conteneurs) si** :
 
 1. Vous avez quelques dizaines de conteneurs Azure Cosmos et souhaitez partager le débit sur tout ou partie de ces conteneurs. 
 
-2. Vous effectuez une migration à partir d’une base de données à locataire unique conçue pour s’exécuter sur des machines virtuelles hébergées sur IaaS ou localement, par exemple des bases de données NoSQL ou relationnelles, vers Azure Cosmos DB. Et si vous avez plusieurs collections/tables/graphiques et que vous ne souhaitez pas apporter des modifications à votre modèle de données. Notez que vous deviez compromettre certains des avantages offerts par Azure Cosmos DB si vous ne mettez pas à jour votre modèle de données lors de la migration à partir d’une base de données locale. Il est recommandé d’accéder régulièrement à votre modèle de données pour optimiser les performances et les coûts. 
+2. Vous effectuez une migration à partir d’une base de données à locataire unique conçue pour s’exécuter sur des machines virtuelles hébergées sur IaaS ou localement, par exemple des bases de données NoSQL ou relationnelles, vers Azure Cosmos DB. Vous avez un grand nombre de collections/tables/graphiques et ne souhaitez pas modifier votre modèle de données. Notez que vous devrez accepter certains compromis concernant les avantages offerts par Azure Cosmos DB si vous ne mettez pas à jour votre modèle de données lors de la migration à partir d’une base de données locale. Il est recommandé d’accéder régulièrement à votre modèle de données pour optimiser les performances et les coûts. 
 
 3. Vous souhaitez absorber les pics imprévus dans les charges de travail en regroupant le débit au niveau de la base de données qui subit un pic inattendu dans la charge de travail. 
 
@@ -65,7 +65,7 @@ En approvisionnant le débit à différents niveaux, vous pouvez optimiser vos c
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Optimiser en limitant le débit de vos requêtes
 
-Pour les charges de travail qui ne sont pas affectées par la latence, vous pouvez approvisionner un débit inférieur et permettre ainsi à l’application de gérer la limitation du débit lorsque le débit réel dépasse le débit approvisionné. Le serveur met fin à la requête de manière préventive avec RequestRateTooLarge (code d’état HTTP 429) et il retourne l’en-tête `x-ms-retry-after-ms` indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer. 
+Pour les charges de travail qui ne sont pas affectées par la latence, vous pouvez approvisionner un débit inférieur et permettre ainsi à l’application de gérer la limitation du débit lorsque le débit réel dépasse le débit approvisionné. Le serveur met fin à la requête de manière préventive avec `RequestRateTooLarge` (code d’état HTTP 429) et il retourne l’en-tête `x-ms-retry-after-ms` indiquant la durée, en millisecondes, pendant laquelle l’utilisateur doit attendre avant de réessayer. 
 
 ```html
 HTTP Status 429, 
@@ -77,15 +77,13 @@ HTTP Status 429,
 
 Les kits de développement logiciel (SDK) natifs (.NET/.NET Core, Java, Node.js et Python) interceptent tous implicitement cette réponse, respectent l’en-tête retry-after spécifiée par le serveur, puis relancent la requête. La tentative suivante réussira toujours, sauf si plusieurs clients accèdent simultanément à votre compte.
 
-Si plusieurs de vos clients opèrent simultanément et systématiquement au-delà du taux de requête, le nombre de nouvelles tentatives par défaut de 9 ne suffira peut-être pas. Dans ce cas, le client envoie à l’application une exception `DocumentClientException` avec le code d’état 429. Le nombre de nouvelles tentatives par défaut peut être modifié en définissant les `RetryOptions` sur l’instance ConnectionPolicy. Par défaut, la DocumentClientException avec le code d’état 429 est retournée après un temps d’attente cumulé de 30 secondes si la requête continue à fonctionner au-dessus du taux de requête. Cela se produit même lorsque le nombre de nouvelles tentatives actuel est inférieur au nombre maximal de nouvelles tentatives, qu’il s’agisse de la valeur par défaut de 9 ou d’une valeur définie par l’utilisateur. 
+Si plusieurs de vos clients opèrent simultanément et systématiquement au-delà du taux de requête, le nombre de nouvelles tentatives par défaut de 9 ne suffira peut-être pas. Dans ce cas, le client envoie à l’application une exception `DocumentClientException` avec le code d’état 429. Le nombre de nouvelles tentatives par défaut peut être modifié en définissant les `RetryOptions` sur l’instance ConnectionPolicy. Par défaut, l’`DocumentClientException` avec le code d’état 429 est retournée après un temps d’attente cumulé de 30 secondes si la requête continue à fonctionner au-dessus du taux de requête. Cela se produit même lorsque le nombre de nouvelles tentatives actuel est inférieur au nombre maximal de nouvelles tentatives, qu’il s’agisse de la valeur par défaut de 9 ou d’une valeur définie par l’utilisateur. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet)  est défini sur 3 ; dans ce cas, si une opération de demande est soumise à une restriction de taux car elle dépasse le débit réservé pour la collection, l’opération de la demande réessaie trois fois avant d’envoyer l’exception à l’application.  [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds)  est définie sur 60 ; dans ce cas, si le délai d’attente de la nouvelle tentative cumulative depuis la première demande dépasse 60 secondes, l’exception est levée.
+[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) a la valeur 3 ; dans ce cas, si une opération de requête est soumise à une restriction de taux car elle dépasse le débit réservé pour le conteneur, l’opération de requête réessaie trois fois avant d’envoyer l’exception à l’application. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) a la valeur 60 ; dans ce cas, si le délai d’attente de la nouvelle tentative cumulative depuis la première requête dépasse 60 secondes, l’exception est levée.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
-
 connectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 3; 
-
 connectionPolicy.RetryOptions.MaxRetryWaitTimeInSeconds = 60;
 ```
 
@@ -113,7 +111,7 @@ En outre, si vous utilisez Azure Cosmos DB et savez que vous n’effectuerez pas
 
 ## <a name="optimize-by-changing-indexing-policy"></a>Optimiser en modifiant la stratégie d’indexation 
 
-Par défaut, Azure Cosmos DB indexe automatiquement chaque propriété de chaque enregistrement. Cela vise à faciliter le développement et vous assurer d’excellentes performances dans différents types de requêtes ad hoc. Si vos enregistrements volumineux contiennent des milliers de propriétés, mieux vaut éviter de payer le débit qu’entraînerait l’indexation de chaque propriété, surtout si vos recherches se limitent à 10 ou 20 de ces propriétés. À mesure que vous vous approchez de votre charge de travail finale, nous vous recommandons d’optimiser votre stratégie d’indexation. Vous trouverez plus d’informations sur la stratégie d’indexation Azure Cosmos DB [ici](indexing-policies.md). 
+Par défaut, Azure Cosmos DB indexe automatiquement chaque propriété de chaque enregistrement. Cette stratégie vise à faciliter le développement et à garantir d’excellentes performances dans différents types de requêtes ad-hoc. Si vos enregistrements volumineux contiennent des milliers de propriétés, mieux vaut éviter de payer le débit qu’entraînerait l’indexation de chaque propriété, surtout si vos recherches se limitent à 10 ou 20 de ces propriétés. À mesure que vous vous approchez de votre charge de travail finale, nous vous recommandons d’optimiser votre stratégie d’indexation. Vous trouverez plus d’informations sur la stratégie d’indexation Azure Cosmos DB [ici](indexing-policies.md). 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>Surveillance du débit approvisionné et consommé 
 
@@ -159,7 +157,7 @@ Les étapes suivantes vous aider à rendre vos solutions hautement évolutives e
 
 2. Une méthode permettant d’estimer la quantité de débit réservé requis par votre application consiste à enregistrer les frais d’unité de requête associés à l’exécution des opérations courantes sur un élément représentatif utilisé par votre application (un conteneur ou une base de données Azure Cosmos), puis à évaluer le nombre d’opérations que vous prévoyez d’effectuer chaque seconde. Veillez à mesurer et à inclure également les requêtes courantes et leur utilisation. Pour savoir comment estimer le coût des RU de requêtes par programme ou à l’aide du portail, voir [Optimiser le coût des requêtes](online-backup-and-restore.md). 
 
-3. Une autre façon d’obtenir des opérations et leurs coûts en unités de requête est en activant les journaux Azure Monitor, ce qui vous donnera la répartition des/durée de l’opération et les frais de requête. Azure Cosmos DB applique des frais de requête pour chaque opération : ainsi, les frais de chaque opération peuvent être consignés dans la réponse à des fins d’analyse ultérieure. 
+3. Une autre façon d’évaluer les opérations et leur coût en unités de requête consiste à activer les journaux d’activité Azure Monitor afin d’obtenir la répartition par opération/durée et les frais de chaque requête. Azure Cosmos DB applique des frais de requête pour chaque opération : ainsi, les frais de chaque opération peuvent être consignés dans la réponse à des fins d’analyse ultérieure. 
 
 4. Vous pouvez augmenter ou réduire en toute flexibilité le débit approvisionné pour répondre aux besoins de votre charge de travail. 
 

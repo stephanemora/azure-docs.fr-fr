@@ -1,10 +1,10 @@
 ---
-title: Modifier les comptes pris en charge par une application inscrite à l’aide de la plateforme d’identité Microsoft | Azure
+title: Modifier les comptes d’applications de plateforme des identités Microsoft | Azure
 description: Configurez une application inscrite avec la plateforme d’identité Microsoft pour modifier les utilisateurs ou les comptes qui peuvent accéder à l’application.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a2c68d607e7afc2e3eac675511734c8d054c427
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: be62dabc01e00465fa5227c5531fa18a16cf10a9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174195"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380784"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application-preview"></a>Démarrage rapide : Modifier les comptes pris en charge par une application (préversion)
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Démarrage rapide : Modifier les comptes pris en charge par une application
 
 Lorsque vous inscrivez une application dans la plateforme d’identité Microsoft, vous pouvez choisir de rendre votre application accessible uniquement aux utilisateurs de votre organisation. Vous pouvez également souhaiter que votre application soit accessible aux utilisateurs des organisations externes, ou aux utilisateurs des organisations externes ainsi qu’aux utilisateurs qui ne font pas nécessairement partie d’une organisation (comptes personnels).
 
@@ -37,15 +37,14 @@ Pour commencer, assurez-vous de remplir ces conditions préalables :
 * Découvrez les [autorisations et consentement](v2-permissions-and-consent.md) pris en charge qu’il est important de comprendre lors de la création d’applications devant être utilisées par d’autres utilisateurs ou applications.
 * Disposez d’un locataire auprès duquel des applications sont inscrites.
   * Si vous n’avez pas d’applications inscrites, [découvrez comment inscrire des applications à l’aide de la plateforme d’identité Microsoft](quickstart-register-app.md).
-* Intégrez l’expérience de préversion pour les inscriptions d’applications dans le portail Azure. Les étapes figurant dans ce démarrage rapide correspondent à la nouvelle interface utilisateur et ne fonctionnent que si vous participez à l’expérience de préversion.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Connectez-vous au portail Azure puis sélectionnez l’application
 
 Avant de pouvoir configurer l’application, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, sélectionnez ensuite **Inscriptions d’applications (préversion)**.
+1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
+1. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications**.
 1. Recherchez et sélectionnez l’application que vous souhaitez configurer. Une fois l’application sélectionnée, vous pourrez voir sa **présentation** ou sa page d’inscription principale.
 1. Suivez les étapes pour [modifier l’inscription d’application pour prendre en charge des comptes différents](#change-the-application-registration-to-support-different-accounts).
 1. Si vous avez une application à page unique, [activez l’octroi implicite OAuth 2.0](#enable-oauth-20-implicit-grant-for-single-page-applications).

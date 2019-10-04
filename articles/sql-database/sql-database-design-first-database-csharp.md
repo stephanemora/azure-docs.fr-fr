@@ -8,14 +8,13 @@ ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
-manager: craigg-msft
-ms.date: 02/08/2019
-ms.openlocfilehash: ce46a6b8d4e2bc57625f9202349718dfbaedc660
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 07/29/2019
+ms.openlocfilehash: 3359c39b21edad72ce0b9d7feb35d442c842f002
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995679"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640118"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Didacticiel : Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database en C&#x23; avec ADO.NET
 
@@ -31,11 +30,14 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 
 *Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
+> [!TIP]
+> Le module Microsoft Learn suivant vous aide à apprendre gratuitement comment [développer et configurer une application ASP.Net qui interroge une base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), ce qui comprend la création d’une base de données simple.
+
 ## <a name="prerequisites"></a>Prérequis
 
-Une installation de [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+Une installation de [Visual Studio 2019](https://www.visualstudio.com/downloads/) ou ultérieur.
 
-## <a name="create-a-blank-single-database"></a>créer une base de données unique vide.
+## <a name="create-a-blank-single-database"></a>Créer une base de données unique vide.
 
 Une base de données unique dans Azure SQL Database est créée avec un ensemble défini de ressources de calcul et de stockage. Cette base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et elle est gérée à l’aide d’un [serveur de base de données](sql-database-servers.md).
 
@@ -92,13 +94,13 @@ Le service SQL Database crée un pare-feu IP au niveau du serveur. Ce pare-feu e
 
    ![nom du serveur](./media/sql-database-design-first-database/server-name.png)
 
-3. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre.
+3. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre.
 
    ![règle de pare-feu IP au niveau du serveur](./media/sql-database-design-first-database/server-firewall-rule.png)
 
 4. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu IP. Une règle de pare-feu IP peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-5. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
+5. Cliquez sur **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
 
 6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 
@@ -111,13 +113,13 @@ Votre adresse IP peut désormais traverser le pare-feu IP. Vous pouvez maintenan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à effectuer certaines tâches de base sur les bases de données, comme créer une base de données et des tables,vous connecter à la base de données, charger des données et exécuter des requêtes. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez appris à effectuer certaines tâches de base sur les bases de données, comme créer une base de données et des tables, vous connecter à la base de données, charger des données et exécuter des requêtes. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer une base de données
 > * Configurer une règle de pare-feu
 > * Se connecter à la base de données avec [Visual Studio et C#](sql-database-connect-query-dotnet-visual-studio.md)
-> * créez des tables
+> * Créer des tables
 > * Insérer, mettre à jour, supprimer et interroger des données
 
 Passez au tutoriel suivant pour en savoir plus sur la migration des données.

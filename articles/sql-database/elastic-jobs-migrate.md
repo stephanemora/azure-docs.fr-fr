@@ -10,31 +10,30 @@ ms.topic: conceptual
 author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
-manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f71fe4ff14e5a6f5fd6b91713970a097e4e56fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 9fa3444244cbd51c3f14abcfef5212a366cadbd2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844124"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68550550"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrer vers les nouvelles tâches de base de données élastique
 
 Une version mise à niveau des [tâches de base de données élastique](elastic-jobs-overview.md) est disponible.
 
-Si vous disposez d’une version hébergée par le client des [tâches de base de données élastique](sql-database-elastic-jobs-overview.md), des scripts et applets de commande de migration sont fournis pour un passage facile à la dernière version.
+Si vous disposez d’une version hébergée par le client des travaux de base de données élastique, des scripts et des cmdlets de migration sont fournis pour faciliter la transition vers la dernière version.
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 La version mise à niveau des tâches de base de données élastique comprend un nouvel ensemble d’applets de commande PowerShell à utiliser lors de la migration. Ces nouvelles applets de commande transfèrent l’ensemble des informations d’identification de tâche, des cibles (dont les bases de données, serveurs, collections personnalisées), des déclencheurs de tâche, des planifications de tâches, du contenu de la tâche ainsi que des tâches vers un nouvel agent de travail élastique.
 
 ### <a name="install-the-latest-elastic-jobs-cmdlets"></a>Installer les dernières applets de commande de tâches élastiques
 
-Si vous n’avez pas encore d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Installer le **Az.Sql** module 1.1.1-preview pour obtenir les dernières applets de commande de tâche élastique. Exécutez les commandes suivantes dans PowerShell avec un accès administrateur.
+Installez la préversion 1.1.1 du module **Az.Sql** pour obtenir les applets de commande de travail élastique les plus récentes. Exécutez les commandes suivantes dans PowerShell avec un accès administrateur.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowerShellGet v1.6.5 is dependent on

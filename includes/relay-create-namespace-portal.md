@@ -4,39 +4,37 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 3e3617f68d58e51f24affaae7d69812195b72fd0
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825439"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71210214"
 ---
-1. Connectez-vous au [portail Azure][Azure portal].
-2. Dans le menu de gauche, sélectionnez **+ Créer une ressource**. Ensuite, sélectionnez **Intégration** > **Relais**. Si **Relais** ne s’affiche pas dans la liste, sélectionnez **Afficher tout** dans l’angle supérieur droit. 
-3. Sous **Créer un espace de noms**, saisissez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
-4. Dans la case **Abonnement**, sélectionnez un abonnement Azure dans lequel créer l’espace de noms.
-5. Dans la case [Groupe de ressources](../articles/azure-resource-manager/manage-resource-groups-portal.md), sélectionnez un groupe de ressources existant dans lequel placer l’espace de noms, ou créez-en un nouveau.  
-6. Dans **Emplacement**, sélectionnez le pays ou la région où votre espace de noms doit être hébergé.
-   
+1. Connectez-vous au [Portail Azure][Azure portal].
+1. Sélectionnez **Créer une ressource**. Ensuite, sélectionnez **Intégration** > **Relais**. Si **Relais** ne s’affiche pas dans la liste, sélectionnez **Afficher tout** dans l’angle supérieur droit.
+1. Sélectionnez **Créer**, puis entrez un nom d’espace de noms dans le champ **Nom**. Le portail Azure vérifie si le nom est disponible.
+1. Choisissez un abonnement Azure dans lequel créer l’espace de noms.
+1. Pour l’option [Groupe de ressources](../articles/azure-resource-manager/manage-resource-groups-portal.md), choisissez un groupe de ressources existant dans lequel placer l’espace de noms, ou créez-en un nouveau.  
+1. Sélectionnez le pays ou la région où votre espace de noms doit être hébergé.
+
     ![Créer un espace de noms][create-namespace]
-7. Sélectionnez **Créer**. Le système crée votre espace de noms et l'active. Après quelques minutes, le système approvisionne des ressources pour votre compte.
+
+1. Sélectionnez **Create** (Créer). Le portail Azure crée l’espace de noms, puis l’active. Après quelques minutes, le système approvisionne des ressources pour votre compte.
 
 ### <a name="get-management-credentials"></a>Obtenir des informations d'identification d'administration
 
-1. Sélectionnez **Toutes les ressources**, puis sélectionnez le nom de l’espace de noms nouvellement créé.
-2. Sous l’espace de noms de relais, sélectionnez **Stratégies d’accès partagées**.  
-3. Dans **Stratégies d’accès partagées**, sélectionnez **RootManageSharedAccessKey**.
-   
-    ![informations de connexion][connection-info]
-4. Sous **Stratégie : RootManageSharedAccessKey**, sélectionnez le bouton **Copie** à côté de **Clé primaire de la chaîne de connexion**. La chaîne de connexion est alors copiée dans le presse-papiers pour une utilisation ultérieure. Copiez cette valeur dans le Bloc-notes ou un autre emplacement temporaire.
-   
-    ![connection-string][connection-string]
+1. Sélectionnez **Toutes les ressources**, puis choisissez le nom de l’espace de noms nouvellement créé.
+1. Sélectionnez **Stratégies d’accès partagé**.  
+1. Dans **Stratégies d’accès partagées**, sélectionnez **RootManageSharedAccessKey**.
+1. Sous **Stratégie SAS : RootManageSharedAccessKey**, sélectionnez le bouton **Copier** à côté de **Chaîne de connexion principale**. L’action copie la chaîne de connexion dans le Presse-papiers pour l’utiliser plus tard. Copiez cette valeur dans le Bloc-notes ou un autre emplacement temporaire.
+1. Répétez l’étape précédente pour copier et coller la valeur de **Clé primaire** dans un emplacement temporaire pour une utilisation ultérieure.  
 
-5. Répétez l’étape précédente pour copier et coller la valeur de **Clé primaire** dans un emplacement temporaire pour une utilisation ultérieure.  
+    ![connection-string][connection-string]
 
 <!--Image references-->
 
-[create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
+[create-namespace]: ./media/relay-create-namespace-portal/create-namespace-vs2019.png
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
-[connection-string]: ./media/relay-create-namespace-portal/connection-string.png
+[connection-string]: ./media/relay-create-namespace-portal/connection-string-vs2019.png
 [Azure portal]: https://portal.azure.com

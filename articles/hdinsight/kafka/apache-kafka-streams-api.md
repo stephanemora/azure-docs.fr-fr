@@ -1,31 +1,29 @@
 ---
 title: 'Didacticiel : Utiliser l’API de flux Apache Kafka - Azure HDInsight '
-description: Découvrez comment utiliser l’API de flux Apache Kafka avec Kafka sur HDInsight. Cette API vous permet d’effectuer un traitement de flux entre des rubriques dans Kafka.
-services: hdinsight
+description: Didacticiel - Découvrez comment utiliser l’API de flux Apache Kafka avec Kafka sur HDInsight. Cette API vous permet d’effectuer un traitement de flux entre des rubriques dans Kafka.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.openlocfilehash: 1e02eaeae4757a9a41ec59be81c3d9510d035232
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/25/2019
+ms.openlocfilehash: 0639ecaa0e4ae0581a6c88e1ea9a47de870a8355
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273819"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446396"
 ---
-# <a name="tutorial-apache-kafka-streams-api"></a>Didacticiel : API de flux Apache Kafka
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Didacticiel : Utiliser l’API de flux Apache Kafka - Azure HDInsight
 
-Découvrez comment créer une application qui utilise l’API Apache Kafka Streams et comment l’exécuter avec Kafka sur HDInsight. 
+Découvrez comment créer une application qui utilise l’API Apache Kafka Streams et comment l’exécuter avec Kafka sur HDInsight.
 
 L’application utilisée dans ce didacticiel est un comptage de diffusion en continu. Elle lit les données texte à partir d’une rubrique Kafka, extrait des mots spécifiques, puis stocke le mot et le nombre associé dans une autre rubrique Kafka.
 
-> [!NOTE]  
-> Le traitement des flux Kafka est souvent effectué à l’aide d’Apache Spark ou d’Apache Storm. Kafka version 1.1.0 (dans HDInsight 3.5 et 3.6) a introduit l’API de flux Kafka. Cette API permet de transformer des flux de données entre des rubriques d’entrée et de sortie. Dans certains cas, cela peut être une alternative à la création d’une solution de streaming Spark ou Storm. 
->
-> Pour plus d’informations sur les flux Kafka, consultez la documentation [d’introduction aux flux](https://kafka.apache.org/10/documentation/streams/) sur le site Apache.org.
+Le traitement des flux Kafka est souvent effectué à l’aide d’Apache Spark ou d’Apache Storm. Kafka version 1.1.0 (dans HDInsight 3.5 et 3.6) a introduit l’API de flux Kafka. Cette API permet de transformer des flux de données entre des rubriques d’entrée et de sortie. Dans certains cas, cela peut être une alternative à la création d’une solution de streaming Spark ou Storm.
+
+Pour plus d’informations sur les flux Kafka, consultez la documentation [d’introduction aux flux](https://kafka.apache.org/10/documentation/streams/) sur le site Apache.org.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -69,8 +67,7 @@ Les points importants à comprendre dans le fichier `pom.xml` sont les suivants 
     </dependency>
     ```
 
-    > [!NOTE]  
-    > L’entrée `${kafka.version}` est déclarée dans la section `<properties>..</properties>` de `pom.xml` et elle est configurée pour la version Kafka du cluster HDInsight.
+    L’entrée `${kafka.version}` est déclarée dans la section `<properties>..</properties>` de `pom.xml` et elle est configurée pour la version Kafka du cluster HDInsight.
 
 * Plug-ins : les plug-ins Maven fournissent diverses fonctionnalités. Dans ce projet, les plug-ins suivants sont utilisés :
 
@@ -207,8 +204,7 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
    * `RekeyedIntermediateTopic`: cette rubrique est utilisée pour repartitionner les données à mesure que le comptage est mis à jour par l’opérateur `countByKey`.
    * `wordcount-example-Counts-changelog`: cette rubrique est un magasin d’état utilisé par l’opération `countByKey`.
 
-     > [!IMPORTANT]  
-     > Kafka sur HDInsight peut également être configuré pour créer des rubriques automatiquement. Pour plus d’informations, consultez le document [Configure automatic topic creation (Configurer la création automatique de rubriques)](apache-kafka-auto-create-topics.md).
+    Kafka sur HDInsight peut également être configuré pour créer des rubriques automatiquement. Pour plus d’informations, consultez le document [Configure automatic topic creation (Configurer la création automatique de rubriques)](apache-kafka-auto-create-topics.md).
 
 ## <a name="run-the-code"></a>Exécuter le code
 
@@ -218,8 +214,7 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]  
-    > Vous recevrez peut-être un avertissement concernant Apache log4j. Vous pouvez l’ignorer.
+    Vous recevrez peut-être un avertissement concernant Apache log4j. Vous pouvez l’ignorer.
 
 2. Pour envoyer des enregistrements à la rubrique `test`, utilisez la commande suivante afin de lancer l’application de producteur :
 
@@ -233,8 +228,7 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]  
-    > Les paramètres `--property` indiquent au consommateur de console qu’il faut imprimer la clé (mot) et le nombre (valeur). Ce paramètre configure également le désérialiseur à utiliser lors de la lecture de ces valeurs à partir de Kafka.
+    Les paramètres `--property` indiquent au consommateur de console qu’il faut imprimer la clé (mot) et le nombre (valeur). Ce paramètre configure également le désérialiseur à utiliser lors de la lecture de ces valeurs à partir de Kafka.
 
     Le résultat ressemble au texte suivant :
    
@@ -251,8 +245,7 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
         jumped  13640
         jumped  13641
    
-    > [!NOTE]  
-    > Le paramètre `--from-beginning` configure le lancement du consommateur au début des enregistrements stockés dans la rubrique. Le nombre est incrémenté chaque fois qu’un mot est rencontré. Par conséquent, la rubrique contient plusieurs entrées pour chaque mot, affichant un nombre croissant.
+    Le paramètre `--from-beginning` configure le lancement du consommateur au début des enregistrements stockés dans la rubrique. Le nombre est incrémenté chaque fois qu’un mot est rencontré. Par conséquent, la rubrique contient plusieurs entrées pour chaque mot, affichant un nombre croissant.
 
 4. Utilisez __Ctrl + C__ pour quitter le producteur. Continuez à utiliser __Ctrl + C__ pour quitter l’application et le consommateur.
 
@@ -265,9 +258,19 @@ Pour générer et déployer le projet dans votre cluster Kafka sur HDInsight, pr
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Pour supprimer les ressources créées par ce didacticiel, vous pouvez supprimer le groupe de ressources. La suppression du groupe de ressources efface également le cluster HDInsight associé et d’autres ressources liées au groupe de ressources.
+
+Pour supprimer le groupe de ressources à l’aide du portail Azure :
+
+1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez __Groupes de ressources__ pour afficher la liste de vos groupes de ressources.
+2. Recherchez le groupe de ressources à supprimer, puis faites un clic droit sur le bouton __Plus__ (...) se trouvant à droite de la liste.
+3. Sélectionnez __Supprimer le groupe de ressources__ et confirmez.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce document, vous avez vu comment utiliser l’API Apache Kafka Streams avec Kafka sur HDInsight. Consultez les articles suivants pour en savoir plus sur l’utilisation de Kafka :
+Dans ce document, vous avez vu comment utiliser l’API Apache Kafka Streams avec Kafka sur HDInsight. Consultez les articles suivants pour en savoir plus sur l’utilisation de Kafka.
 
-* [Analyser les journaux d’activité Apache Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Répliquer des données d’un cluster Kafka à un autre](apache-kafka-mirroring.md)
+> [!div class="nextstepaction"]
+> [Analyser les journaux d’activité Apache Kafka](apache-kafka-log-analytics-operations-management.md)

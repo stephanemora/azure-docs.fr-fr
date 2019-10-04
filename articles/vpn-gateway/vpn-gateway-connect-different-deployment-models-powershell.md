@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: cf7726d017afd579b1eb227ec0fd3b9710395de6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 2263996b84b17f7de9826c07eb28e4b7668cd915
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082260"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62095578"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents à l’aide de PowerShell
 
@@ -26,7 +26,7 @@ Cet article vous permet de connecter des réseaux virtuels classiques à des ré
 
 La connexion d’un réseau virtuel classique à un réseau virtuel Resource Manager est semblable à la connexion d’un réseau virtuel à un emplacement de site local. Les deux types de connectivité font appel à une passerelle VPN pour offrir un tunnel sécurisé utilisant Ipsec/IKE. Vous pouvez créer une connexion entre des réseaux virtuels situés dans des abonnements différents et des régions différentes. Vous pouvez également connecter des réseaux virtuels qui disposent déjà de connexions à des réseaux locaux, à condition que la passerelle avec laquelle ils ont été configurés soit dynamique ou basée sur un itinéraire. Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez le [Forum Aux Questions sur l’interconnexion de réseaux virtuels](#faq) à la fin de cet article. 
 
-Si vous n’avez pas encore de passerelle de réseau virtuel et si vous ne souhaitez pas en créer une, vous voudrez peut-être connecter vos réseaux virtuels en utilisant l’homologation de réseaux virtuels. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez l’article [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+Si vous n’avez pas encore de passerelle de réseau virtuel et que vous ne souhaitez pas en créer une, vous voudrez peut-être connecter vos réseaux virtuels en utilisant le peering de réseaux virtuels. L’homologation de réseaux virtuels (ou VNet Peering) n’utilise pas de passerelle VPN. Pour plus d’informations, consultez l’article [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="before"></a>Avant de commencer
 
@@ -44,7 +44,7 @@ Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y 
 
 **Paramètres de réseau virtuel classique**
 
-Nom du réseau virtuel = ClassicVNet  <br>
+Nom du réseau virtuel = ClassicVNet <br>
 Emplacement = USA Ouest <br>
 Espaces d’adressage du réseau virtuel = 10.0.0.0/24 <br>
 Sous-réseau-1 = 10.0.0.0/27 <br>
@@ -54,7 +54,7 @@ Type de passerelle = DynamicRouting
 
 **Paramètres de réseau virtuel Resource Manager**
 
-Nom du réseau virtuel = RMVNet  <br>
+Nom du réseau virtuel = RMVNet <br>
 Groupe de ressources = RG1 <br>
 Espaces d’adressage IP du réseau virtuel = 192.168.0.0/16 <br>
 Sous-réseau-1 = 192.168.1.0/24 <br>

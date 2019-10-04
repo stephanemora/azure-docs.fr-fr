@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992462"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60409840"
 ---
 # <a name="enable-support-uploads"></a>Activer les chargements de données de support
 
@@ -42,6 +42,6 @@ Pour activer le support, effectuez les étapes suivantes à partir du Panneau de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous devez ajouter un en local ou existant du cloud de système de stockage au cluster, suivez les instructions de [configurer le stockage](avere-vfxt-add-storage.md). 
+Si vous avez besoin d’ajouter un système de stockage local ou cloud existant au cluster, suivez les instructions détaillées dans [Configurer un stockage](avere-vfxt-add-storage.md). 
 
 Si vous êtes prêt à attacher des clients au cluster, consultez [Monter le cluster Avere vFXT](avere-vfxt-mount-clients.md).

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099050"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69904410"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -24,7 +24,7 @@ Si votre machine virtuelle protégée est de type Windows, vous avez besoin d’
 > À partir de la version 9.10.0, le serveur cible maître le plus récent ne peut être installé que sur un serveur Ubuntu 16.04. Les nouvelles installations ne sont pas autorisées sur les serveurs de CentOS6.6. Toutefois, vous pouvez continuer la mise à niveau de vos anciens serveurs cible maître à l’aide de la version 9.10.0.
 > Un serveur cible maître sur une machine virtuelle Linux n’est pas pris en charge.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Cet article fournit la marche à suivre pour installer un serveur cible maître Linux.
 
 Publiez vos commentaires ou vos questions en bas de cet article ou sur le [Forum Azure Recovery Services](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
@@ -62,7 +62,7 @@ Les noyaux Ubuntu suivants sont pris en charge.
 
 Procédez comme suit pour installer le système d’exploitation Ubuntu 16.04.2 64 bits.
 
-1.   Accédez à la [lien de téléchargement](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), choisissez le miroir le plus proche et télécharger un ISO Ubuntu 16.04.2 minimal 64 bits.
+1.   Accédez au [lien de téléchargement](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso) et choisissez le miroir le plus proche et téléchargez un fichier ISO Ubuntu 16.04.2 Minimal 64 bits.
 Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et démarrez le système.
 
 1.  Sélectionnez **French** (Français) comme langue par défaut, puis appuyez sur **Entrée**.
@@ -83,7 +83,7 @@ Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et 
 1. Sélectionnez **No** (Non) (option par défaut), puis appuyez sur **Entrée**.
 
      ![Configurer le clavier](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Sélectionnez **French** (France) (Français (France)) comme pays d’origine pour le clavier, puis appuyez sur **Entrée**.
+1. Sélectionnez **French** (France) (Français (France)) comme pays/région d’origine pour le clavier, puis appuyez sur **Entrée**.
 
 1. Sélectionnez **French (France)** (Français (France)) comme disposition du clavier, puis appuyez sur **Entrée**.
 
@@ -160,7 +160,7 @@ Pour obtenir l’ID de chaque disque dur SCSI d’une machine virtuelle Linux, v
 
 3. Sélectionnez l’onglet **Options** (Options).
 
-4. Dans le volet gauche, sélectionnez **Advanced (Avancé)** > **General (Général)**, puis cliquez sur le bouton **Configuration Parameters** (Paramètres de configuration) dans la partie inférieure droite de l’écran.
+4. Dans le volet gauche, sélectionnez **Advanced (Avancé)**  > **General (Général)** , puis cliquez sur le bouton **Configuration Parameters** (Paramètres de configuration) dans la partie inférieure droite de l’écran.
 
     ![Ouvrir le paramètre de configuration](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
@@ -214,12 +214,11 @@ Pour le télécharger avec Linux, tapez :
 
 ### <a name="apply-custom-configuration-changes"></a>Appliquer des modifications de configuration personnalisées
 
-Pour appliquer les modifications de configuration personnalisées, procédez comme suit :
-
+Pour appliquer des modifications de configuration personnalisées, suivez les étapes ci-dessous en tant qu’utilisateur ROOT :
 
 1. Exécutez la commande suivante pour décompresser le fichier binaire.
 
-    `tar -zxvf latestlinuxmobsvc.tar.gz`
+    `tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![Capture d’écran de la commande à exécuter](./media/vmware-azure-install-linux-master-target/image16.png)
 
@@ -245,7 +244,7 @@ Pour créer un disque de rétention, procédez comme suit :
 
     ![ID Multipath](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatez le disque, puis créez un système de fichiers sur le nouveau lecteur : **mkfs.ext4/dev/mapper/<id multichemin du disque de rétention>**.
+3. Formatez le lecteur, puis créez un système de fichiers sur le nouveau lecteur : **mkfs.ext4 /dev/mapper/\<ID multipath du disque de conservation>** .
     
     ![Système de fichiers](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -262,7 +261,7 @@ Pour créer un disque de rétention, procédez comme suit :
     
     Appuyez sur **Inser** pour commencer à modifier le fichier. Créez une ligne, puis insérez-y le texte suivant. Modifiez l’ID multichemin du disque en fonction de l’ID multichemin de la commande précédente.
 
-    **/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+    **/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
     Appuyez sur la touche **Echap** et saisissez **:wq** (écrire et quitter) pour fermer la fenêtre de l’éditeur.
 

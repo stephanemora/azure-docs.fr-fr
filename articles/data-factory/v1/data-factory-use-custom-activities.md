@@ -13,15 +13,15 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: f7e3b1496890a4b97fc435b49ab9bf282134d1a6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487479"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65910819"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](data-factory-use-custom-activities.md)
 > * [Version 2 (version actuelle)](../transform-data-using-dotnet-custom-activity.md)
 
@@ -43,8 +43,8 @@ La procédure suivante fournit des instructions pas à pas pour créer une activ
 > - Il n’est pas possible d’utiliser une passerelle de gestion des données à partir d’une activité personnalisée pour accéder à des sources de données locales. Actuellement, la [passerelle de gestion des données](data-factory-data-management-gateway.md) prend en charge uniquement l’activité de copie et l’activité de procédure stockée dans Data Factory.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Procédure pas à pas : création d’une activité personnalisée
-### <a name="prerequisites"></a>Conditions préalables
-* Visual Studio 2012/2013/2015
+### <a name="prerequisites"></a>Prérequis
+* Visual Studio 2012/2013/2015/2017
 * Téléchargez et installez le [Kit de développement logiciel (SDK) Azure .NET](https://azure.microsoft.com/downloads/)
 
 ### <a name="azure-batch-prerequisites"></a>Configuration requise pour Azure Batch
@@ -100,10 +100,10 @@ La méthode retourne un dictionnaire qui peut être utilisé pour enchaîner ult
 ### <a name="procedure"></a>Procédure
 1. Créez un projet de **bibliothèque de classes .NET** .
    <ol type="a">
-     <li>Lancez <b>Visual Studio 2017</b> ou <b>Visual Studio 2015</b> ou <b>Visual Studio 2013</b> ou <b>Visual Studio 2012</b>.</li>
+     <li>Lancez Visual Studio.</li>
      <li>Cliquez sur <b>Fichier</b>, pointez le curseur de la souris sur <b>Nouveau</b>, puis cliquez sur <b>Projet</b>.</li>
      <li>Développez <b>Modèles</b>, puis sélectionnez <b>Visual C#</b>. Dans cette procédure pas à pas, vous utilisez C#, mais vous pouvez utiliser un autre langage .NET pour développer l’activité personnalisée.</li>
-     <li>Sélectionnez <b>Bibliothèque de classes</b> dans la liste des types de projet, sur la droite. Dans VS 2017, choisissez <b>Bibliothèque de classes (.NET Framework)</b> .</li>
+     <li>Sélectionnez <b>Bibliothèque de classes</b> dans la liste des types de projet, sur la droite. Dans Visual Studio, choisissez <b>Bibliothèque de classes (.NET Framework)</b> .</li>
      <li>Entrez <b>MyDotNetActivity</b> for the <b>Nom</b>.</li>
      <li>Sélectionnez <b>C:\ADFGetStarted</b> comme <b>Emplacement</b>.</li>
      <li>Cliquez sur <b>OK</b> pour créer le projet.</li>
@@ -554,7 +554,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
    | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
    | 3 |2016-11-16T02:00:00 |2016-11-16-02.txt |
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
-   | 5. |2016-11-16T04:00:00 |2016-11-16-04.txt |
+   | 5\. |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
     N’oubliez pas que tous les fichiers d’un dossier d’entrée font partie d’une tranche associée aux heures de début indiquées ci-dessus. Lorsque cette tranche est traitée, l’activité personnalisée parcourt chaque fichier et génère une ligne dans le fichier de sortie avec le nombre d’occurrences du terme de recherche (« Microsoft »). Si le dossier d’entrée comporte trois fichiers, trois lignes apparaissent dans le fichier de sortie pour chaque tranche horaire : 2016-11-16-00.txt, 2016-11-16:01:00:00.txt, et ainsi de suite.
 3. Cliquez sur **Déployer** dans la barre de commandes pour déployer le **jeu de données de sortie**.

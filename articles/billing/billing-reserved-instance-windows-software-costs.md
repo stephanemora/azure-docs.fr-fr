@@ -3,8 +3,8 @@ title: Coûts des logiciels de réservations pour Azure | Microsoft Docs
 description: Découvrez les compteurs de logiciels qui ne sont pas inclus dans les coûts d’instance Azure Reserved VM Instance.
 services: billing
 documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
+author: yashar
+manager: yashar
 editor: ''
 tags: billing
 ms.service: billing
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e74765ec09fb9cd2d219ceb3d784b4030c83e028
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918720"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719643"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Coûts des logiciels non inclus dans les instances Azure Reserved VM Instances
 
-Si vous n’avez pas une offre Azure Hybrid Benefit sur vos instances de machine virtuelle réservées, vous êtes facturé pour les compteurs de logiciels répertoriés dans la section suivante.
+Les remises liées à l’instance réservée de machine virtuelle et à la capacité réservée SQL s’appliquent uniquement aux coûts d’infrastructure et non aux coûts des logiciels. Si vous n’utilisez pas de machines virtuelles Windows et que vous ne bénéficiez pas d’Azure Hybrid Benefit sur vos instances de machine virtuelle réservées, nous vous facturons les compteurs de logiciels listés dans la section suivante. Pour les déploiements SQL PaaS, le coût IP continue d’être facturé à l’aide d’un compteur distinct si Azure Hybrid Benefit n’est pas sélectionné.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Compteurs de logiciels Windows non inclus dans le coût des réservations
 
@@ -69,15 +69,15 @@ Si vous n’avez pas une offre Azure Hybrid Benefit sur vos instances de machine
 Vous pouvez obtenir le coût de chacun de ces compteurs via l’API Azure RateCard. Pour en savoir plus sur la façon de se procurer les tarifs d’un compteur Azure, consultez [Obtenir des informations sur les prix et les métadonnées des ressources utilisées dans un abonnement Azure](/previous-versions/azure/reference/mt219004(v=azure.100)).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur les réservations pour Azure, consultez les articles suivants :
+Pour plus d’informations sur les réservations pour Azure, consultez les articles suivants :
 
-- [Quelles sont les réservations pour Azure ?](billing-save-compute-costs-reservations.md)
+- [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
 - [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gérer les réservations pour Azure](billing-manage-reserved-vm-instance.md)
+- [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)
 - [Comprendre comment la remise de réservation est appliquée](billing-understand-vm-reservation-charges.md)
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).

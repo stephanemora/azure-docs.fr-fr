@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: f20d718d0b1d3bbdf117e502a380897c79a7905f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892657"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65799496"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -158,9 +159,9 @@ Les jetons d’accès expirent toutes les heures. Vous devez donc générer un n
 
 Video Indexer utilise un modèle tarifaire simple de paiement à l’utilisation, basé sur la durée de l’entrée de contenu que vous indexez. Des frais supplémentaires peuvent s’appliquer pour le codage, le streaming, le stockage, l’utilisation du réseau et les unités réservées Multimédia. Pour plus d’informations, consultez la page des [tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/).
 
-### <a name="when-am-i-billed-for-using-video-indexer"></a>Lorsque de facturation pour l’utilisation de Video Indexer ?
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Quand suis-je facturé pour l’utilisation de Video Indexer ?
 
-Lors de l’envoi d’une vidéo à indexer, vous devez définir l’indexation à l’analyse vidéo, l’analyse audio ou les deux. Cela permet de déterminer qui est facturées références (SKU). S’il existe une erreur de niveau critique au cours du traitement, un code d’erreur s’affichera en tant que réponse. Dans ce cas, aucune facturation ne survient.  Une erreur critique peut être provoquée par un bogue dans notre code ou a une défaillance critique dans une dépendance interne du service. Erreurs telles que les mauvais extraction d’identification ou d’information ne sont pas considérées comme critiques et une réponse est retournée. Dans tous les cas où une réponse valide (code d’erreur non) est retournée, la facturation ne survient.
+Lors de l’envoi d’une vidéo à indexer, l’utilisateur définit l’indexation comme étant une analyse vidéo, une analyse audio ou les deux. Cela détermine quelles références (SKU) seront ensuite facturées. Si une erreur de niveau critique se produit pendant le traitement, un code d’erreur est retourné en réponse. Dans ce cas, aucune facturation n’a lieu.  Une erreur critique peut être causée par un bogue dans notre code ou une défaillance critique dans une dépendance interne du service. Lorsque des erreurs non critiques, telles que l’identification erronée ou l’extraction d’insights, surviennent, une réponse est retournée. Dans tous les cas où une réponse valide (sans code d’erreur) est retournée, la facturation a lieu.
  
 ### <a name="does-video-indexer-offer-a-free-trial"></a>Un essai gratuit de Video Indexer est-il disponible ?
 

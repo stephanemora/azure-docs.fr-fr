@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkd;juliako
-ms.openlocfilehash: da20e4601b75bcb22546d21f6ad218ac9ba2728b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.author: juliako
+ms.openlocfilehash: a299c050be37d53acd01ddc2db580c4881eeae07
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188354"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "69015475"
 ---
-# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Utilisation des canaux recevant des flux multidébit provenant d’encodeurs locaux
+# <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Utilisation des canaux recevant un stream multidébit en direct d’encodeurs locaux
 
 > [!NOTE]
 > À partir du 12 mai 2018, les canaux en direct ne prendront plus en charge le protocole de réception du flux de transport RTP/MPEG-2. Effectuez la migration à partir de RTP/MPEG-2 vers le protocole de réception RTMP ou MP4 fragmenté (Smooth Streaming).
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Dans Azure Media Services, un *canal* représente un pipeline de traitement du contenu vidéo en flux continu. Un canal reçoit des flux d’entrée live de l’une des deux manières suivantes :
 
 * Un encodeur live local envoie au canal un paquet RTMP ou Smooth Streaming (MP4 fragmenté) multidébit qui n’est pas activé pour effectuer un encodage live avec Media Services. Les flux reçus transitent par les canaux sans traitement supplémentaire. Cette méthode est appelée *pass-through*. Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour l’encodage en temps réel, mais ce n’est pas recommandé. Media Services fournit le flux aux clients qui le demandent.
@@ -45,7 +45,7 @@ Dans Azure Media Services, un *canal* représente un pipeline de traitement du c
 > [!NOTE]
 > Cet article décrit les attributs des canaux qui ne sont pas activés pour effectuer un encodage live. Pour obtenir des informations sur l’utilisation des canaux qui sont activés pour effectuer l’encodage live, consultez [Streaming en direct avec Azure Media Services pour créer des flux multidébits](media-services-manage-live-encoder-enabled-channels.md).
 >
->Pour plus d’informations sur recommandés sur les encodeurs en local, consultez [recommandés sur les encodeurs en local](media-services-recommended-encoders.md).
+>Pour plus d’informations sur les encodeurs locaux recommandés, consultez [Encodeurs locaux recommandés](media-services-recommended-encoders.md).
 
 Le diagramme suivant décrit un workflow de streaming en direct utilisant un encodeur live local pour produire des flux multidébits au format MP4 fragmenté (Smooth Streaming) ou RMTP en sortie.
 
@@ -187,9 +187,9 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | État du canal | Indicateurs de l’interface utilisateur du portail | Facturation ? |
 | --- | --- | --- |
 | **Démarrage en cours** |**Démarrage en cours** |Aucun (état transitoire) |
-| **Exécution** |**Prêt** (aucun programme en cours d’exécution)<p><p>or<p>**Diffusion en continu** (au moins un programme en cours d’exécution) |Oui |
+| **Exécution** |**Prêt** (aucun programme en cours d’exécution)<p><p>or<p>**Diffusion en continu** (au moins un programme en cours d’exécution) |OUI |
 | **En cours d’arrêt** |**En cours d’arrêt** |Aucun (état transitoire) |
-| **Arrêté** |**Arrêté** |Non  |
+| **Arrêté** |**Arrêté** |Non |
 
 ## <a id="cc_and_ads"></a>Sous-titrage codé et insertion de publicités
 Le tableau suivant présente les normes de sous-titrage et d’insertion de publicités prises en charge.
@@ -229,9 +229,9 @@ Voici d’autres considérations liées à l’utilisation des canaux et des com
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Rubriques connexes
-[Recommandés sur les encodeurs en local](media-services-recommended-encoders.md)
+[Encodeurs locaux recommandés](media-services-recommended-encoders.md)
 
-[Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](media-services-fmp4-live-ingest-overview.md)
+[Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services](../media-services-fmp4-live-ingest-overview.md)
 
 [Vue d’ensemble d’Azure Media Services et scénarios courants](media-services-overview.md)
 

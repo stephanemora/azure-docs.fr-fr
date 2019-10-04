@@ -2,42 +2,63 @@
 title: Entrée et stockage des données dans Azure Time Series Insights et préversion | Microsoft Docs
 description: Présentation de l’entrée et du stockage des données dans Azure Time Series Insights - Préversion.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 98baa8d3f951a8922bcd1f40449fa26840f3a3c4
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438361"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051479"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrée et stockage des données dans Azure Time Series Insights - Préversion
 
 Cet article décrit les modifications apportées à l’entrée et au stockage des données à partir d’Azure Time Series Insights - Préversion. Il couvre la structure de stockage sous-jacente, le format des fichiers et la propriété ID Time Series. L’article aborde également le processus d’entrée sous-jacent, le débit et les limitations.
 
-## <a name="data-storage"></a>Stockage des données
+## <a name="data-ingress"></a>Entrée de données
 
-Lorsque vous créez un environnement de référence SKU pour un paiement à l’utilisation de Time Series Insights - Préversion, vous créez deux ressources :
+Les stratégies d’entrée de données Azure Time Series Insights déterminent la provenance possible des données et leur format.
+
+[![Aperçu du modèle de la série chronologique](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+
+### <a name="ingress-policies"></a>Stratégies d’entrée
+
+La préversion de Time Series Insights prend en charge les mêmes sources d’événements et les mêmes types de fichiers que Time Series Insights à l’heure actuelle :
+
+- [Azure IoT Hub](../iot-hub/about-iot-hub.md)
+- [Azure Event Hubs](../event-hubs/event-hubs-about.md)
+  
+Azure Time Series Insights prend en charge le format JSON via Azure IoT Hub ou Azure Event Hubs. Pour optimiser vos données JSON IoT, découvrez [Comment mettre en forme JSON](./time-series-insights-send-events.md#json).
+
+### <a name="data-storage"></a>Stockage des données
+
+Lorsque vous créez un environnement de référence SKU pour un paiement à l’utilisation de Time Series Insights - Préversion, vous créez deux ressources :
 
 * Un environnement Time Series Insights.
 * Un compte de Stockage Azure universel V1 où les données seront stockées.
 
-Time Series Insights - Préversion utilise le stockage blob Azure avec le type de fichier Parquet. Time Series Insights gère toutes les opérations de données, y compris la création d’objets blob, l’indexation et le partitionnement des données dans le compte de Stockage Azure. Vous créez ces objets blob à l’aide d’un compte de Stockage Azure.
+La préversion de Time Series Insights utilise le stockage blob Azure avec le type de fichier Parquet. Time Series Insights gère toutes les opérations de données, y compris la création d’objets blob, l’indexation et le partitionnement des données dans le compte de Stockage Azure. Vous créez ces objets blob à l’aide d’un compte de Stockage Azure.
 
 Comme les autres objets blob de Stockage Azure, les objets blob créés par Time Series Insights vous permettent de lire et d’écrire ces objets blob afin de prendre en charge plusieurs scénarios d’intégration.
 
-> [!TIP]
-> Les performances de Time Series Insights peuvent être compromises si vous lisez ou écrivez trop souvent dans vos objets blob.
+### <a name="data-availability"></a>Disponibilité des données
 
-Pour obtenir une vue d’ensemble du Stockage blob Azure, consultez [Storage blobs introduction](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) (Introduction aux objets blob de stockage).
+La préversion de Time Series Insights indexe les données à l’aide d’une stratégie d’optimisation de la taille des objets blob. Les données deviennent disponibles pour les requêtes après l’indexation, ce qui repose sur la quantité de données entrante et la vélocité d’entrée des données.
 
-Pour plus d’informations sur le type de fichier Parquet, consultez [Supported file types in Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#Parquet-format) (Types de fichiers pris en charge dans Stockage Azure).
+> [!IMPORTANT]
+> * La version de disponibilité générale (GA) Time Series Insights rend les données disponibles dans les 60 secondes après l’arrivée à une source d’événement.
+> * Avec la préversion, prévoyez plus de temps pour la mise à disponibilité des données.
+> * Si vous subissez une latence importante, contactez-nous.
+
+### <a name="scale"></a>Scale
+
+La préversion de Time Series Insights prend en charge une mise à l’échelle de l’entrée initiale allant jusqu’à 1 méga-octets par seconde (Mbit/s) et par environnement. L’amélioration de la prise en charge de la mise à l’échelle est en cours. Nous prévoyons de mettre à jour notre documentation pour refléter ces améliorations.
 
 ## <a name="parquet-file-format"></a>Format de fichier Parquet
 
@@ -49,9 +70,11 @@ Le format Parquet est un format de fichier de données en colonnes, conçu pour 
 
 Time Series Insights a choisi le format Parquet, car il offre des schémas efficaces de compression et de codage des données, ainsi que de meilleures performances permettant de gérer en bloc les données complexes.
 
-Pour mieux comprendre le format de fichier Parquet, consultez la [documentation Parquet](https://parquet.apache.org/documentation/latest/).
+Pour plus d’informations sur le type de fichier Parquet, consultez la [documentation de Parquet](https://parquet.apache.org/documentation/latest/).
 
-## <a name="event-structure-in-parquet"></a>Structure d’événement dans Parquet
+Pour plus d’informations sur le format de fichier Parquet dans Azure, consultez [Types de fichiers pris en charge dans Stockage Azure](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#parquet-format).
+
+### <a name="event-structure-in-parquet"></a>Structure d’événement dans Parquet
 
 Time Series Insights crée et stocke des copies d’objets blob dans les deux formats suivants :
 
@@ -77,20 +100,65 @@ Les événements Time Series Insights sont mappés au contenu du fichier Parquet
 * Toutes les autres propriétés mappées aux colonnes se terminent par `_string` (chaîne), `_bool` (booléen), `_datetime` (DateHeure) et `_double` (double), selon le type de propriété.
 * Cela correspond au schéma de mappage pour la première version du format de fichier, que nous appelons **V=1**. Avec l’évolution de cette fonctionnalité, le nom est incrémenté : **V=2**, **V=3**, etc.
 
+## <a name="azure-storage"></a>Stockage Azure
+
+Cette section décrit les détails du stockage Azure relatifs à Azure Time Series Insights.
+
+Pour obtenir une description complète du service de stockage d’objets blob Azure, lisez l’[introduction aux objets blob de stockage](../storage/blobs/storage-blobs-introduction.md).
+
+### <a name="your-storage-account"></a>Votre compte de stockage
+
+Lorsque vous créez un environnement de paiement à l’utilisation Time Series Insights, vous créez deux ressources : un environnement Time Series Insights et un compte universel V1 de Stockage Azure où les données seront stockées. Nous avons choisi Stockage Azure universel V1 comme ressource par défaut en raison de son interopérabilité, de son prix et de ses performances.
+
+Time Series Insights publie jusqu’à deux copies de chaque événement dans votre compte de Stockage Azure. La copie initiale est toujours conservée afin que vous puissiez l’interroger rapidement à l’aide d’autres services. Vous pouvez facilement utiliser Spark, Hadoop et d’autres outils familiers dans les ID Time Series sur les fichiers Parquet bruts, car ces moteurs prennent en charge le filtrage du nom de fichier de base. Le regroupement des objets blob par année et par mois est un moyen utile de répertorier les objets blob dans un intervalle de temps spécifique pour un travail personnalisé.
+
+En outre, Time Series Insights repartitionne les fichiers Parquet afin d’optimiser les API Time Series Insights. Le fichier le plus récemment repartitionné est aussi sauvegardé.
+
+Lors de la préversion publique, les données sont stockées indéfiniment dans votre compte de Stockage Azure.
+
+### <a name="writing-and-editing-time-series-insights-blobs"></a>Écriture et modification des objets blob Time Series Insights
+
+Pour garantir les performances des requêtes et la disponibilité des données, ne modifiez pas et ne supprimez pas tous les objets blob qui sont créés par Time Series Insights.
+
+> [!TIP]
+> Les performances de Time Series Insights peuvent être compromises si vous lisez ou écrivez trop souvent dans vos objets blob.
+
+### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Accès et exportation des données à partir de Time Series Insights - Préversion
+
+Vous souhaiterez peut-être accéder aux données stockées dans l’explorateur Time Series Insights - Préversion à utiliser conjointement avec d’autres services. Par exemple, vous souhaiterez peut-être utiliser vos données afin de créer un rapport dans Power BI, de procéder à du Machine Learning à l’aide d’Azure Machine Learning Studio, ou d’utiliser une application notebook avec Jupyter Notebook.
+
+Vous pouvez accéder à vos données au moyen de trois méthodes générales :
+
+* À partir de l’explorateur de la préversion de Time Series Insights : vous pouvez exporter des données dans un fichier CSV à partir de l’explorateur de la préversion de Time Series Insights. Pour plus d’informations, consultez [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) (Explorateur Time Series Insights - Préversion).
+* À partir des API de la préversion de Time Series Insights : vous pouvez accéder au point de terminaison de l’API sur `/getRecorded`. Pour en savoir plus sur cette API, consultez [Requête de série chronologique](./time-series-insights-update-tsq.md).
+* Directement à partir d’un compte de Stockage Azure (ci-dessous).
+
+#### <a name="from-an-azure-storage-account"></a>À partir d’un compte de Stockage Azure
+
+* Vous avez besoin d’un accès en lecture pour tous les comptes que vous utilisez afin d’accéder à vos données Time Series Insights. Pour en savoir plus, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../storage/blobs/storage-manage-access-to-resources.md).
+* Pour plus d’informations sur les méthodes directes de lecture des données à partir du stockage d’objets blob Azure, consultez [Choisir une solution Azure pour le transfert de données](../storage/common/storage-choose-data-transfer-solution.md).
+* Pour exporter des données à partir d’un compte de Stockage Azure :
+    * Tout d’abord, assurez-vous que votre compte répond aux conditions requises pour l’exportation des données. Pour plus d’informations, consultez [Configuration système requise du service Azure Import/Export](../storage/common/storage-import-export-requirements.md).
+    * Pour en savoir plus sur les autres méthodes d’exportation des données à partir de votre compte de stockage Azure, consultez [Utilisation du service Azure Import/Export pour exporter des données à partir du Stockage Blob Azure](../storage/common/storage-import-export-data-from-blobs.md).
+
+### <a name="data-deletion"></a>Suppression des données
+
+Ne supprimez pas les objets blob. Ils sont utiles pour les audits et pour conserver un enregistrement de vos données. De plus, la préversion de Time Series Insights maintient les métadonnées de blob dans chaque objet blob.
+
 ## <a name="partitions"></a>Partitions
 
-Chaque environnement Time Series Insights - Préversion doit avoir une propriété Time Series ID et une propriété Timestamp qui l’identifient de façon unique. Votre ID Time Series agit comme une partition logique pour vos données et apporte à l’environnement Time Series Insights - Préversion une frontière naturelle pour la distribution des données entre les partitions physiques. La gestion des partitions physiques est gérée par Time Series Insights - Préversion dans un compte de Stockage Azure.
+Chaque environnement de la préversion de Time Series Insights doit avoir une propriété **Time Series ID** et une propriété **Timestamp** qui l’identifient de façon unique. Votre ID Time Series agit comme une partition logique pour vos données et apporte à l’environnement Time Series Insights - Préversion une frontière naturelle pour la distribution des données entre les partitions physiques. Les partitions physiques sont gérées par la préversion de Time Series Insights dans un compte de Stockage Azure.
 
 Time Series Insights utilise le partitionnement dynamique pour optimiser les performances de stockage et de requête en supprimant et en recréant des partitions. L’algorithme de partitionnement dynamique Time Series Insights - Préversion tente d’empêcher une partition physique unique d’avoir des données sur plusieurs partitions logiques distinctes. En d’autres termes, l’algorithme de partitionnement conserve toutes les données spécifiques d’un ID Time Series unique exclusivement dans les fichiers Parquet sans entrelacement avec d’autres ID Time Series. L’algorithme de partitionnement dynamique tente également de conserver l’ordre d’origine des événements au sein d’un ID Time Series unique.
 
 Initialement, lors de l’entrée des données, ces dernières sont partitionnées en fonction de Timestamp afin qu’une partition logique unique au sein d’un intervalle de temps donné puisse être répartie sur plusieurs partitions physiques. Une partition physique unique peut également contenir de nombreuses partitions logiques, voire la totalité des partitions logiques. En raison des limitations de taille des objets blob, même avec un partitionnement optimal, une partition logique unique peut occuper plusieurs partitions physiques.
 
 > [!NOTE]
-> Par défaut, la valeur Timestamp est le message *Enqueued Time* dans votre source d’événement configurée. 
+> Par défaut, la valeur Timestamp est le message *Enqueued Time* dans votre source d’événement configurée.
 
 Si vous chargez des données historiques ou des messages par lot, assignez la valeur que vous souhaitez stocker avec vos données à la propriété Timestamp qui correspond au timestamp approprié. La propriété Timestamp est sensible à la casse. Pour plus d’informations, consultez [Modèle de série chronologique](./time-series-insights-update-tsm.md).
 
-## <a name="physical-partitions"></a>Partitions physiques
+### <a name="physical-partitions"></a>Partitions physiques
 
 Une partition physique est un objet blob de blocs qui est stocké dans votre compte de stockage. La taille réelle des objets blob peut varier, car elle dépend du taux d’envoi. Toutefois, nous estimons que la taille des objets blob sera comprise entre 20 Mo et 50 Mo. Cette hypothèse a amené l’équipe Time Series Insights à choisir 20 Mo comme taille optimale des performances de requête. Cette taille peut changer au fil du temps, selon la taille du fichier et la vélocité d’entrée des données.
 
@@ -99,105 +167,19 @@ Une partition physique est un objet blob de blocs qui est stocké dans votre com
 > * Les objets blob Azure sont parfois supprimés et recréés afin d’être repartitionnés pour de meilleures performances.
 > * En outre, les mêmes données Time Series Insights peuvent être présentes dans plusieurs objets blob.
 
-## <a name="logical-partitions"></a>Partitions logiques
+### <a name="logical-partitions"></a>Partitions logiques
 
-Une partition logique est une partition située dans une partition physique et qui stocke toutes les données associées à une valeur de clé de partition unique. Time Series Insights - Préversion partitionne logiquement chaque objet blob selon deux propriétés :
+Une partition logique est une partition située dans une partition physique et qui stocke toutes les données associées à une valeur de clé de partition unique. La préversion de Time Series Insights partitionne chaque objet blob de manière logique selon deux propriétés :
 
 * **Time Series ID** : clé de partition pour toutes les données Time Series Insights dans le flux d’événements et le modèle.
 * **Timestamp** : heure, en fonction de l’entrée initiale.
 
-Time Series Insights - Préversion fournit des requêtes performantes basées sur ces deux propriétés. Ces deux propriétés offrent également la méthode la plus efficace pour fournir rapidement des données Time Series Insights.
+La préversion de Time Series Insights fournit des requêtes performantes basées sur ces deux propriétés. Ces deux propriétés offrent également la méthode la plus efficace pour fournir rapidement des données Time Series Insights.
 
 Il est important de sélectionner un ID Time Series approprié, car il s’agit d’une propriété immuable. Pour plus d’informations, consultez [Choose Time Series IDs](./time-series-insights-update-how-to-id.md) (Sélectionner des ID Time Series).
 
-## <a name="your-azure-storage-account"></a>Votre compte de stockage Azure
-
-### <a name="storage"></a>Stockage
-
-Lorsque vous créez un environnement de paiement à l’utilisation Time Series Insights, vous créez deux ressources : un environnement Time Series Insights et un compte universel V1 de Stockage Azure où les données seront stockées. Nous avons choisi Stockage Azure universel V1 comme ressource par défaut en raison de son interopérabilité, de son prix et de ses performances. 
-
-Time Series Insights publie jusqu’à deux copies de chaque événement dans votre compte de Stockage Azure. La copie initiale est toujours conservée afin que vous puissiez l’interroger rapidement à l’aide d’autres services. Vous pouvez facilement utiliser Spark, Hadoop et d’autres outils familiers dans les ID Time Series sur les fichiers Parquet bruts, car ces moteurs prennent en charge le filtrage du nom de fichier de base. Le regroupement des objets blob par année et par mois est un moyen utile de répertorier les objets blob dans un intervalle de temps spécifique pour un travail personnalisé. 
-
-En outre, Time Series Insights repartitionne les fichiers Parquet afin d’optimiser les API Time Series Insights. Le fichier le plus récemment repartitionné est aussi sauvegardé.
-
-Avec la préversion publique, les données sont stockées indéfiniment dans votre compte de Stockage Azure.
-
-### <a name="writing-and-editing-time-series-insights-blobs"></a>Écriture et modification des objets blob Time Series Insights
-
-Pour garantir les performances des requêtes et la disponibilité des données, ne modifiez pas et ne supprimez pas tous les objets blob qui sont créés par Time Series Insights.
-
-### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Accès et exportation des données à partir de Time Series Insights - Préversion
-
-Vous souhaiterez peut-être accéder aux données stockées dans l’explorateur Time Series Insights - Préversion à utiliser conjointement avec d’autres services. Par exemple, vous souhaiterez peut-être utiliser vos données afin de créer un rapport dans Power BI, de procéder à du Machine Learning à l’aide d’Azure Machine Learning Studio, ou d’utiliser une application notebook avec Jupyter Notebook.
-
-Vous pouvez accéder à vos données au moyen de trois méthodes générales :
-
-* À partir de l’explorateur Time Series Insights - Préversion.
-* À partir des API Time Series Insights - Préversion.
-* Directement à partir d’un compte de Stockage Azure.
-
-#### <a name="from-the-time-series-insights-preview-explorer"></a>À partir de l’explorateur Time Series Insights - Préversion
-
-Vous pouvez exporter des données dans un fichier CSV à partir de l’explorateur Time Series Insights - Préversion. Pour plus d’informations, consultez [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) (Explorateur Time Series Insights - Préversion).
-
-#### <a name="from-the-time-series-insights-preview-apis"></a>À partir des API Time Series Insights - Préversion
-
-Le point de terminaison de l’API peut être atteint sur `/getRecorded`. Pour en savoir plus sur cette API, consultez [Requête de série chronologique](./time-series-insights-update-tsq.md).
-
-#### <a name="from-an-azure-storage-account"></a>À partir d’un compte de Stockage Azure
-
-* Vous avez besoin d’un accès en lecture pour tous les comptes que vous utilisez afin d’accéder à vos données Time Series Insights. Pour en savoir plus, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
-
-* Pour plus d’informations sur les méthodes directes de lecture des données à partir du stockage d’objets blob Azure, consultez [Transfert de données vers et à partir d’Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-* Pour exporter des données à partir d’un compte de Stockage Azure :
-
-    * Tout d’abord, assurez-vous que votre compte répond aux conditions requises pour l’exportation des données. Pour plus d’informations, consultez [Configuration système requise du service Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
-
-    * Pour en savoir plus sur les autres méthodes d’exportation des données à partir de votre compte de stockage Azure, consultez [Utilisation du service Azure Import/Export pour exporter des données à partir du Stockage Blob Azure](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs).
-
-### <a name="data-deletion"></a>Suppression des données
-
-Ne supprimez pas les objets blob, car Time Series Insights - Préversion conserve les métadonnées sur les objets blob qu’il contient.
-
-## <a name="ingress"></a>Entrée
-
-### <a name="time-series-insights-ingress-policies"></a>Stratégies d’entrée Time Series Insights
-
-Time Series Insights - Préversion prend en charge les mêmes sources d’événements et les mêmes types de fichiers que Time Series Insights à l’heure actuelle.
-
-Les sources d’événements prises en charge sont les suivantes :
-
-- Azure IoT Hub
-- Hubs d'événements Azure
-  
-  > [!NOTE]
-  > Les instances Azure Event Hub prennent en charge Kafka.
-
-Les types de fichier pris en charge incluent :
-
-* JSON : Pour plus d’informations sur la mise en forme de JSON prise en charge et que nous sommes capables de gérer, consultez le [Guide pratique pour la mise en forme de JSON](./time-series-insights-send-events.md#json).
-
-### <a name="data-availability"></a>Disponibilité des données
-
-Time Series Insights - Préversion indexe les données à l’aide d’une stratégie d’optimisation de la taille des objets blob. Les données deviennent disponibles pour les requêtes après l’indexation, ce qui repose sur la quantité de données entrante et la vélocité d’entrée des données.
-
-> [!IMPORTANT]
-> * La version de disponibilité générale (GA) Time Series Insights rend les données disponibles dans les 60 secondes suivant l’atteinte d’une source d’événement. 
-> * Avec la préversion, prévoyez plus de temps pour la mise à disponibilité des données. 
-> * Si vous subissez une latence importante, contactez-nous.
-
-### <a name="scale"></a>Scale
-
-Time Series Insights - Préversion prend en charge une mise à l’échelle de l’entrée initiale allant jusqu’à 6 méga-octets par seconde (Mbit/s) et par environnement. L’amélioration de la prise en charge de la mise à l’échelle est en cours. Nous prévoyons de mettre à jour notre documentation pour refléter ces améliorations.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [Azure Time Series Insights - Préversion - Stockage et entrée](./time-series-insights-update-storage-ingress.md).
+- Consultez [Azure Time Series Insights - Préversion - Stockage et entrée](./time-series-insights-update-storage-ingress.md).
 
-En savoir plus sur la nouvelle [modélisation des données](./time-series-insights-update-tsm.md).
-
-<!-- Images -->
-[1]: media/v2-update-storage-ingress/storage-architecture.png
-[2]: media/v2-update-storage-ingress/parquet-files.png
-[3]: media/v2-update-storage-ingress/blob-storage.png
+- En savoir plus sur la nouvelle [modélisation des données](./time-series-insights-update-tsm.md).

@@ -2,19 +2,19 @@
 title: Filtres d’étendue des résultats de recherche dans un index - Recherche Azure
 description: Filtrez par identité de sécurité d’utilisateur, langue, emplacement géographique ou valeurs numériques pour réduire les résultats de recherche des requêtes effectuées dans Recherche Azure, service de recherche dans le cloud hébergé sur Microsoft Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 49af6f1f535df098aa45cccd7e2d629ff6ccef50
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079143"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69649847"
 ---
 # <a name="filters-in-azure-search"></a>Filtres dans Recherche Azure 
 
@@ -50,33 +50,33 @@ Si vous souhaitez restreindre vos résultats de recherche, les filtres ne sont p
 
  + Le paramètre de requête `searchFields` permet de focaliser une recherche sur des champs spécifiques. Par exemple, si votre index comprend des champs distincts pour les descriptions en anglais et en espagnol, le paramètre searchFields vous permet de cibler les champs à utiliser pour une recherche en texte intégral. 
 
-+ Le paramètre `$select` permet de spécifier les champs à inclure dans un jeu de résultats, ce qui a pour effet de réduire la réponse avant l’envoi de celle-ci à l’application appelante. Ce paramètre n’affine pas la requête et ne réduit pas la collection de documents. En revanche, si votre objectif est d’obtenir une réponse granulaire, ce paramètre constitue une option à envisager. 
++ Le paramètre `$select` permet de spécifier les champs à inclure dans un jeu de résultats, ce qui a pour effet de réduire la réponse avant l’envoi de celle-ci à l’application appelante. Ce paramètre n’affine pas la requête et ne réduit pas la collection de documents. En revanche, si votre objectif est d’obtenir une plus petite réponse, ce paramètre constitue une option à envisager. 
 
 Pour plus d’informations sur ces deux paramètres, voir [Rechercher des documents > Demande > Paramètres de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
 
 
-## <a name="filters-in-the-query-pipeline"></a>Filtres dans le pipeline de requête
+## <a name="how-filters-are-executed"></a>Comment les filtres sont-ils exécutés ?
 
-Au moment de la requête, un analyseur de filtre accepte les critères en entrée, convertit l’expression en expressions booléennes atomiques et génère un arbre de filtre qui est ensuite évalué sur les champs filtrables dans un index.  
+Au moment de la requête, un analyseur de filtre accepte les critères en entrée, convertit l’expression en expressions booléennes atomiques sous la forme d’une arborescence de filtres qui est ensuite évaluée sur les champs filtrables dans un index.
 
-Le filtrage se produit avant la recherche. Il permet de qualifier les documents à inclure dans le traitement en aval pour la récupération de documents et la notation de leur pertinence. En association avec une chaîne de recherche, le filtre réduit efficacement la surface d’exposition de l’opération de recherche suivante. Utilisé seul (par exemple, lorsque la chaîne de requête est vide, où `search=*`), le critère de filtre est la seule entrée. 
+Le filtrage se produit en même temps que la recherche. Il permet de qualifier les documents à inclure dans le traitement en aval pour la récupération de documents et le scoring de leur pertinence. En association avec une chaîne de recherche, le filtre réduit efficacement l’ensemble de rappels de l’opération de recherche suivante. Utilisé seul (par exemple, lorsque la chaîne de requête est vide, où `search=*`), le critère de filtre est la seule entrée. 
 
-## <a name="filter-definition"></a>Définition de filtre
+## <a name="defining-filters"></a>Définition des filtres
 
 Les filtres sont des expressions OData, articulées à l’aide d’un [sous-ensemble de la syntaxe OData V4 prise en charge dans Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
-Vous pouvez spécifier un filtre pour chaque opération de **recherche**, mais le filtre lui-même peut inclure plusieurs champs, plusieurs critères et, si vous utilisez une fonction **ismatch**, plusieurs expressions. Dans une expression de filtre comportant plusieurs parties, vous pouvez spécifier des prédicats dans n’importe quel ordre. Vous n’obtenez aucun gain sensible des performances si vous tentez de réorganiser les prédicats dans une séquence particulière.
+Vous pouvez spécifier un filtre pour chaque opération de **recherche**, mais le filtre lui-même peut inclure plusieurs champs, plusieurs critères et, si vous utilisez une fonction **ismatch**, plusieurs expressions de recherche en texte intégral. Dans une expression de filtre comportant plusieurs parties, vous pouvez spécifier des prédicats dans n’importe quel ordre (soumis aux règles de précédence de l’opérateur). Vous n’obtenez aucun gain sensible des performances si vous tentez de réorganiser les prédicats dans une séquence particulière.
 
-La limite inconditionnelle sur une expression de filtre est la limite maximale définie sur la demande. La demande entière, filtre inclus, peut être un maximum de 16 Mo pour la commande POST ou de 8 Ko pour la commande GET. Les limites conditionnelles correspondent au nombre de clauses dans votre expression de filtre. Une règle empirique est que, si vous avez des centaines de clauses, vous risquez d’atteindre la limite. Nous vous recommandons de concevoir votre application de telle sorte qu’elle ne génère pas de filtres de taille illimitée.
+L’une des limites inconditionnelles sur une expression de filtre est la limite de taille maximale de la demande. La demande entière, filtre inclus, peut être un maximum de 16 Mo pour la commande POST ou de 8 Ko pour la commande GET. Le nombre de clauses dans votre expression de filtre est également limité. Une règle empirique est que, si vous avez des centaines de clauses, vous risquez d’atteindre la limite. Nous vous recommandons de concevoir votre application de telle sorte qu’elle ne génère pas de filtres de taille illimitée.
 
 Les exemples suivants illustrent des définitions de filtre prototypiques dans plusieurs API.
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
 
-# Option 2: Use filter for POST and pass it in the header
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
+# Option 2: Use filter for POST and pass it in the request body
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -92,25 +92,26 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
             Select = new[] { "hotelId", "description" }
         };
 
+    var results = searchIndexClient.Documents.Search("*", parameters);
 ```
 
-## <a name="filter-design-patterns"></a>Modèles de conception de filtre
+## <a name="filter-usage-patterns"></a>Filtrer les modèles d’utilisation
 
-Les exemples suivants illustrent plusieurs modèles de conception pour des scénarios de filtre. Pour d’autres idées, voir [Syntaxe d’expression OData > Exemples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+Les exemples suivants illustrent plusieurs modèles d’utilisation pour des scénarios de filtre. Pour d’autres idées, voir [Syntaxe d’expression OData > Exemples](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
 
-+ **$filter** autonome, sans chaîne de requête, utile lorsque l’expression de filtre est en mesure de qualifier complètement les documents d’intérêt. À défaut de chaîne de requête, il n’y a ni analyse lexicale ou linguistique, ni notation, ni classement. Vous pouvez remarquer que la chaîne de recherche est vide.
++ **$filter** autonome, sans chaîne de requête, utile lorsque l’expression de filtre est en mesure de qualifier complètement les documents d’intérêt. À défaut de chaîne de requête, il n’y a ni analyse lexicale ou linguistique, ni notation, ni classement. Notez que la chaîne de recherche comporte uniquement un astérisque, ce qui signifie « faire correspondre tous les documents ».
 
    ```
    search=*&$filter=(baseRate ge 60 and baseRate lt 300) and accommodation eq 'Hotel' and city eq 'Nogales'
    ```
 
-+ Combinaison de chaîne de requête et de **$filter**, où le filtre crée le sous-ensemble, et la chaîne de requête fournit les entrées de condition de recherche en texte intégral sur le sous-ensemble filtré. L’utilisation d’un filtre avec une chaîne de requête est le modèle de code le plus courant.
++ Combinaison de chaîne de requête et de **$filter**, où le filtre crée le sous-ensemble, et la chaîne de requête fournit les entrées de condition de recherche en texte intégral sur le sous-ensemble filtré. Utiliser un filtre avec une chaîne de requête constitue le modèle d’utilisation le plus courant.
 
    ```
    search=hotels ocean$filter=(baseRate ge 60 and baseRate lt 300) and city eq 'Los Angeles'
    ```
 
-+ Requêtes composées, séparées par « OR » (ou), chacune avec ses propres critères de filtre (par exemple, « beagle » dans « chien » ou « siamois » dans « chat »). Les expressions séparées par OR sont évaluées individuellement, les réponses à chacune d’elles étant combinées dans une seule réponse renvoyée à l’application appelante. Ce modèle de conception est obtenu via la fonction search.ismatch. Vous pouvez utiliser la version sans notation (search.ismatch) ou la version avec notation (search.ismatchscoring).
++ Requêtes composées, séparées par « OR » (ou), chacune avec ses propres critères de filtre (par exemple, « beagle » dans « chien » ou « siamois » dans « chat »). Les expressions combinées utilisant `or` sont évaluées individuellement et la correspondance des documents joints avec chaque expression est retournée avec la réponse. Ce modèle d’utilisation est obtenu via la fonction `search.ismatchscoring`. Vous pouvez également utiliser la version sans scoring, `search.ismatch`.
 
    ```
    # Match on hostels rated higher than 4 OR 5-star motels.
@@ -120,6 +121,14 @@ Les exemples suivants illustrent plusieurs modèles de conception pour des scén
    $filter=search.ismatchscoring('luxury | high-end', 'description') or category eq 'Luxury'
    ```
 
+  Il est également possible de combiner la recherche en texte intégral via `search.ismatchscoring` avec des filtres utilisant `and` au lieu de `or`. Toutefois, cette opération équivaut à utiliser les paramètres `search` et `$filter` dans une demande de recherche sur le plan fonctionnel. Par exemple, les deux requêtes suivantes génèrent le même résultat :
+
+  ```
+  $filter=search.ismatchscoring('pool') and rating ge 4
+
+  search=pool&$filter=rating ge 4
+  ```
+
 Pour obtenir des instructions complètes sur des cas d’usage spécifiques, consultez les articles suivants :
 
 + [Filtres de facette](search-filters-facets.md)
@@ -128,36 +137,32 @@ Pour obtenir des instructions complètes sur des cas d’usage spécifiques, con
 
 ## <a name="field-requirements-for-filtering"></a>Conditions requises des champs pour le filtrage
 
-Dans l’API REST, la propriété filterable (filtrable) est *activée* par défaut. Les champs filtrables augmentent la taille de l’index. Veillez à définir `filterable=FALSE` pour les champs que vous ne prévoyez pas réellement d’utiliser dans un filtre. Pour plus d’informations sur les paramètres des définitions de champ, voir [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Créer un index).
+Dans l’API REST, la propriété filterable (filtrable) est *activée* par défaut pour les champs simples. Les champs filtrables augmentent la taille de l’index. Veillez à définir `"filterable": false` pour les champs que vous ne prévoyez pas réellement d’utiliser dans un filtre. Pour plus d’informations sur les paramètres des définitions de champ, voir [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Créer un index).
 
-Dans le Kit de développement logiciel (SDK) .NET, la propriété filterable (filtrable) est *désactivée* par défaut. L’API pour définir la propriété filterable (filtrable) [IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). Dans l’exemple ci-dessous, elle est paramétrée sur la définition de champ BaseRate.
+Dans le Kit de développement logiciel (SDK) .NET, la propriété filterable (filtrable) est *désactivée* par défaut. Vous pouvez rendre un champ filtrable en définissant la [propriété IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) de l’objet [Champ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) correspondant sur `true`. Vous pouvez aussi effectuer cette opération de façon déclarative à l’aide de [l’attribut IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). Dans l’exemple ci-dessous, l’attribut est défini sur la propriété `BaseRate` d’une classe de modèle mappant vers la définition d’index.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
     public double? BaseRate { get; set; }
 ```
 
-### <a name="reindexing-requirements"></a>Conditions requises de réindexation
+### <a name="making-an-existing-field-filterable"></a>Rendre filtrable un champ existant
 
-Si un champ n’est pas filtrable et si vous souhaitez le rendre filtrable, vous devez ajouter un champ ou régénérer le champ existant. La modification d’une définition de champ a pour effet de modifier la structure physique de l’index. Dans Recherche Azure, tous les chemins d’accès autorisés sont indexés pour accélérer les requêtes, ce qui nécessite une régénération des structures de données en cas de modification des définitions de champ. 
-
-La régénération de champs individuels peut être une opération de faible incidence, ne nécessitant qu’une opération de fusion qui envoie la clé de document existante et les valeurs associées à l’index, laissant intact le reste de chaque document. Si vous rencontrez une condition de régénération, consultez [actions d’indexation (upload, merge, mergeOrUpload, supprimer)](search-what-is-data-import.md#indexing-actions) pour obtenir la liste des options.
-
+Vous ne pouvez pas modifier des champs existants pour les rendre filtrables. À la place, vous devez ajouter un nouveau champ ou régénérer l’index. Pour plus d’informations sur la régénération d’un index ou comment remplir à nouveau des champs, consultez [Comment régénérer un index Recherche Azure](search-howto-reindex.md).
 
 ## <a name="text-filter-fundamentals"></a>Notions de base concernant les filtres de texte
 
-Les filtres de texte sont valides pour des champs de chaîne dont vous voulez extraire une collection arbitraire de documents en fonction de valeurs définies dans un corpus de recherche.
+Les filtres de texte comparent les champs de chaîne aux chaînes littérales que vous fournissez dans le filtre. Contrairement à la recherche en texte intégral, les filtres de texte n’appliquent aucune analyse lexicale ou césure de mots. Les comparaisons portent alors uniquement sur des correspondances exactes. Par exemple, supposons un champ *f* contenant les mots « Sunny day » (journée ensoleillée). `$filter=f eq 'sunny day'` sera une correspondance, mais pas `$filter=f eq 'Sunny'`. 
 
-Les filtres de texte composés de chaînes n’appliquant aucune analyse lexicale ou césure de mots, les comparaisons portent uniquement sur des correspondances exactes. Par exemple, supposons un champ *f* contenant les mots « Sunny day » (journée ensoleillée). `$filter=f eq 'Sunny day'` sera une correspondance, mais pas `$filter=f eq 'Sunny'`. 
+Les chaînes de texte respectent la casse. Il n’y a pas de conversion en minuscules des mots contenant des majuscules. Ainsi, la chaîne `$filter=f eq 'Sunny day'` ne permet pas de trouver « sunny day ».
 
-Les chaînes de texte respectent la casse. Il n’y a pas de conversion en minuscules des mots contenant des majuscules. Ainsi, la chaîne `$filter=f eq 'Sunny day'` ne permet pas de trouver « sunny day ».
+### <a name="approaches-for-filtering-on-text"></a>Approches pour le filtrage de texte
 
-
-| Approche | Description | 
-|----------|-------------|
-| [Search.in()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Fonction fournissant un liste de chaînes délimitées par des virgules pour un champ donné. Les chaînes comprennent des critères de filtre qui sont appliqués à tous les champs figurant dans l’étendue de la requête. <br/><br/>La syntaxe `search.in(f, ‘a, b, c’)` équivaut sémantiquement à `f eq ‘a’ or f eq ‘b’ or f eq ‘c’`, à ceci près qu’elle s’exécute beaucoup plus rapidement lorsque la liste des valeurs est volumineuse.<br/><br/>Nous recommandons l’usage de la fonction **search.in** pour les [filtres de sécurité](search-security-trimming-for-azure-search.md) et, pour tous les filtres composés de texte brut, d’établir une correspondance sur des valeurs d’un champ donné. L’objectif de cette approche est la vitesse. Vous pouvez vous attendre à un temps de réponse inférieur à la seconde pour des centaines de milliers de valeurs. S’il n’existe aucune limite explicite au nombre d’éléments que vous pouvez transmettre à la fonction, la latence augmente proportionnellement au nombre de chaînes que vous fournissez. | 
-| [Search.IsMatch()](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Fonction permettant de combiner des opérations de recherche en texte intégral avec des opérations de filtre strictement booléen dans une même expression de filtre. Elle permet d’utiliser plusieurs combinaisons de filtre de requête dans une seule requête. Vous pouvez également l’utiliser pour un filtre *contains* afin de filtrer sur une chaîne partielle figurant à l’intérieur d’une chaîne de plus grande taille. |  
-| [$filter=field operator string](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) | Expression définie par l’utilisateur composée de champs, d’opérateurs et de valeurs. | 
+| Approche | Description | Quand utiliser |
+|----------|-------------|-------------|
+| [`search.in`](search-query-odata-search-in-function.md) | Une fonction qui compare un champ à une liste délimitée de chaînes. | Cette fonction est recommandée pour les [filtres de sécurité](search-security-trimming-for-azure-search.md) et pour tous les filtres dans lesquels plusieurs valeurs de texte brut doivent être comparées à un champ de chaîne. La fonction **search.in** est conçue pour fonctionner rapidement. Elle est donc beaucoup plus rapide qu’une comparaison explicite du champ à chaque chaîne à l’aide de `eq` et `or`. | 
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Fonction permettant de combiner des opérations de recherche en texte intégral avec des opérations de filtre strictement booléen dans une même expression de filtre. | Utilisez **search.ismatch** (ou son équivalent **search.ismatchscoring** pour le scoring) lorsque vous souhaitez utiliser plusieurs combinaisons de filtres et de recherches dans une seule demande. Vous pouvez également l’utiliser pour un filtre *contains* afin de filtrer sur une chaîne partielle figurant à l’intérieur d’une chaîne de plus grande taille. |
+| [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Expression définie par l’utilisateur composée de champs, d’opérateurs et de valeurs. | Utilisez-la lorsque vous souhaitez rechercher des correspondances exactes entre un champ de chaîne et une valeur de chaîne. |
 
 ## <a name="numeric-filter-fundamentals"></a>Notions de base concernant les filtres numériques
 
@@ -190,7 +195,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-Pour utiliser d’autres exemples, voir [Syntaxe d’expression de filtre OData > Exemples](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+Pour utiliser d’autres exemples, voir [Syntaxe d’expression de filtre OData > Exemples](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
 
 ## <a name="see-also"></a>Voir aussi
 

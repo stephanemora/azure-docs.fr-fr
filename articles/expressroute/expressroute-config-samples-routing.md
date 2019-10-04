@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 2d7fb060896de8df266489451a11ba343760c747
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079957"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60367470"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Exemples de configuration de routeur pour configurer et gérer le routage
 Cette page fournit une interface et des exemples de configuration de routage pour les routeurs des séries Cisco IOS-XE et Juniper MX quand vous utilisez ExpressRoute. Ces exemples sont fournis à titre indicatif uniquement et ne doivent pas être utilisés en l’état. Vous pouvez vous adresser au fournisseur pour rechercher les configurations adaptées à votre réseau. 
@@ -27,18 +27,18 @@ Cette page fournit une interface et des exemples de configuration de routage pou
 * La taille MTU de l’interface ExpressRoute est 1500, qui est la valeur MTU par défaut classique pour une interface Ethernet sur un routeur. À moins que votre routeur ait une taille MTU par défaut différente, il est inutile de spécifier une valeur sur l’interface du routeur.
 * Contrairement à une passerelle Azure VPN, le TCP MSS d’un circuit ExpressRoute ne doit pas être spécifié.
 
-Les exemples de configuration de routeur ci-dessous s’appliquent à toutes les homologations. Pour plus d’informations sur le routage, voir [Homologations ExpressRoute](expressroute-circuit-peerings.md) et [Configuration requise pour le routage ExpressRoute](expressroute-routing.md).
+Les exemples de configuration de routeur ci-dessous s’appliquent à tous les peerings. Pour plus d’informations sur le routage, voir [Peerings ExpressRoute](expressroute-circuit-peerings.md) et [Configuration requise pour le routage ExpressRoute](expressroute-routing.md).
 
 
 ## <a name="cisco-ios-xe-based-routers"></a>Routeurs Cisco IOS-XE
 Les exemples de cette section s’appliquent à tous les routeurs exécutant la famille de systèmes d’exploitation IOS-XE.
 
 ### <a name="1-configuring-interfaces-and-sub-interfaces"></a>1. Configuration des interfaces et des sous-interfaces
-Vous aurez besoin d’une sous-interface par homologation dans chaque routeur que vous connectez à Microsoft. Une sous-interface peut être identifiée avec un ID de réseau local virtuel ou une paire empilée d’ID de réseau local virtuel, et une adresse IP.
+Vous aurez besoin d’une sous-interface par peering dans chaque routeur que vous connectez à Microsoft. Une sous-interface peut être identifiée avec un ID de réseau local virtuel ou une paire empilée d’ID de réseau local virtuel, et une adresse IP.
 
 **Définition de l’interface Dot1Q**
 
-Cet exemple fournit la définition d’une sous-interface avec un ID de réseau local virtuel unique. L’ID de réseau local virtuel est unique pour chaque homologation. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
+Cet exemple fournit la définition d’une sous-interface avec un ID de réseau local virtuel unique. L’ID de réseau local virtuel est unique pour chaque peering. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <VLAN_ID>
@@ -46,14 +46,14 @@ Cet exemple fournit la définition d’une sous-interface avec un ID de réseau 
 
 **Définition de l’interface QinQ**
 
-Cet exemple fournit la définition d’une sous-interface avec deux ID de réseau local virtuel. L’ID de réseau local virtuel externe (s-tag), s’il est utilisé, est le même pour toutes les homologations. L’ID de réseau local virtuel interne (c-tag) est unique pour chaque homologation. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
+Cet exemple fournit la définition d’une sous-interface avec deux ID de réseau local virtuel. L’ID de réseau local virtuel externe (s-tag), s’il est utilisé, est le même pour tous les peerings. L’ID de réseau local virtuel interne (c-tag) est unique pour chaque peering. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
 
     interface GigabitEthernet<Interface_Number>.<Number>
      encapsulation dot1Q <s-tag> seconddot1Q <c-tag>
      ip address <IPv4_Address><Subnet_Mask>
 
 ### <a name="2-setting-up-ebgp-sessions"></a>2. Configuration de sessions eBGP
-Vous devez configurer une session BGP avec Microsoft pour chaque homologation. L’exemple suivant vous permet de configurer une session BGP avec Microsoft. Si l’adresse IPv4 utilisée pour votre sous-interface est a.b.c.d, l’adresse IP du voisin BGP (Microsoft) est a.b.c.d+1. Le dernier octet de l’adresse IPv4 du voisin BGP est toujours un nombre pair.
+Vous devez configurer une session BGP avec Microsoft pour chaque peering. L’exemple suivant vous permet de configurer une session BGP avec Microsoft. Si l’adresse IPv4 utilisée pour votre sous-interface est a.b.c.d, l’adresse IP du voisin BGP (Microsoft) est a.b.c.d+1. Le dernier octet de l’adresse IPv4 du voisin BGP est toujours un nombre pair.
 
     router bgp <Customer_ASN>
      bgp log-neighbor-changes
@@ -102,7 +102,7 @@ Les exemples de cette section s’appliquent à tous les routeurs de la série J
 
 **Définition de l’interface Dot1Q**
 
-Cet exemple fournit la définition d’une sous-interface avec un ID de réseau local virtuel unique. L’ID de réseau local virtuel est unique pour chaque homologation. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
+Cet exemple fournit la définition d’une sous-interface avec un ID de réseau local virtuel unique. L’ID de réseau local virtuel est unique pour chaque peering. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
 
     interfaces {
         vlan-tagging;
@@ -119,7 +119,7 @@ Cet exemple fournit la définition d’une sous-interface avec un ID de réseau 
 
 **Définition de l’interface QinQ**
 
-Cet exemple fournit la définition d’une sous-interface avec deux ID de réseau local virtuel. L’ID de réseau local virtuel externe (s-tag), s’il est utilisé, est le même pour toutes les homologations. L’ID de réseau local virtuel interne (c-tag) est unique pour chaque homologation. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
+Cet exemple fournit la définition d’une sous-interface avec deux ID de réseau local virtuel. L’ID de réseau local virtuel externe (s-tag), s’il est utilisé, est le même pour tous les peerings. L’ID de réseau local virtuel interne (c-tag) est unique pour chaque peering. Le dernier octet de votre adresse IPv4 est toujours un nombre impair.
 
     interfaces {
         <Interface_Number> {
@@ -134,7 +134,7 @@ Cet exemple fournit la définition d’une sous-interface avec deux ID de résea
     }                           
 
 ### <a name="2-setting-up-ebgp-sessions"></a>2. Configuration de sessions eBGP
-Vous devez configurer une session BGP avec Microsoft pour chaque homologation. L’exemple suivant vous permet de configurer une session BGP avec Microsoft. Si l’adresse IPv4 utilisée pour votre sous-interface est a.b.c.d, l’adresse IP du voisin BGP (Microsoft) est a.b.c.d+1. Le dernier octet de l’adresse IPv4 du voisin BGP est toujours un nombre pair.
+Vous devez configurer une session BGP avec Microsoft pour chaque peering. L’exemple suivant vous permet de configurer une session BGP avec Microsoft. Si l’adresse IPv4 utilisée pour votre sous-interface est a.b.c.d, l’adresse IP du voisin BGP (Microsoft) est a.b.c.d+1. Le dernier octet de l’adresse IPv4 du voisin BGP est toujours un nombre pair.
 
     routing-options {
         autonomous-system <Customer_ASN>;

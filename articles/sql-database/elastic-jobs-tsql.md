@@ -10,14 +10,13 @@ ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: d1123affa79f401b5142af604adbd757bdfb7d73
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523764"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641045"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
 
@@ -193,7 +192,7 @@ L’exemple suivant crée un nouveau travail pour collecter des données de perf
 Par défaut, l’agent de travail cherchera à créer la table dans laquelle stocker les résultats retournés. Par conséquent, la connexion associée aux informations d’identification utilisées pour les informations d’identification de sortie devront disposer des autorisations suffisantes pour effectuer cette opération. Si vous souhaitez créer manuellement la table à l’avance, elle doit avoir les propriétés suivantes :
 1. Colonnes avec le nom et les types de données corrects pour le jeu de résultats.
 2. Colonne supplémentaire pour internal_execution_id avec le type de données uniqueidentifier.
-3. Un index non cluster nommé `IX_<TableName>_Internal_Execution_ID` sur la colonne internal_execution_id.
+3. Un index non cluster nommé `IX_<TableName>_Internal_Execution_ID` dans la colonne internal_execution_id.
 
 Se connecter à la [*base de données de travail*](sql-database-job-automation-overview.md#job-database) et exécuter les commandes suivantes :
 
@@ -426,7 +425,7 @@ Les procédures stockées suivantes se trouvent dans la [base de données des tr
 
 
 
-### <a name="spaddjob"></a>sp_add_job
+### <a name="sp_add_job"></a>sp_add_job
 
 Ajoute un nouveau travail. 
   
@@ -453,10 +452,10 @@ Nom du travail. Le nom doit être unique et ne peut pas contenir le caractère d
 [ **\@description =** ] 'description'  
 Description du travail. description est nvarchar(512), avec une valeur par défaut NULL. Si la description est omise, une chaîne vide est utilisée.
 
-[  **\@activé =** ] activé  
+[ **\@enabled =** ] enabled  
 Spécifie si la planification du travail est activée. Activée est de type bit, avec une valeur par défaut 0 (désactivé). Si 0, le travail n’est pas activé et ne s’exécute pas en fonction de sa planification. Il peut toutefois être exécuté manuellement. Si 1, le travail s’exécutera conformément à sa planification et peut également être exécuté manuellement.
 
-[ **\@schedule_interval_type =**] schedule_interval_type  
+[ **\@schedule_interval_type =** ] schedule_interval_type  
 La valeur indique quand le travail doit être exécuté. schedule_interval_type est nvarchar (50), avec une valeur par défaut Une fois et peut prendre l’une des valeurs suivantes :
 - « Une fois »,
 - « Minutes »,
@@ -474,7 +473,7 @@ Date à laquelle l’exécution du travail peut commencer. schedule_start_time e
 [ **\@schedule_end_time =** ] schedule_end_time  
 Date à laquelle l’exécution du travail peut s’arrêter. schedule_end_time is DATETIME2, avec 9999-12-31 11:59:59.0000000 comme valeur par défaut. 
 
-[  **\@job_id =** ] job_id sortie  
+[ **\@job_id =** ] job_id OUTPUT  
 Numéro d’identification affecté au travail s’il a été créé avec succès. job_id est une variable de sortie de type uniqueidentifier.
 
 #### <a name="return-code-values"></a>Codet de retour
@@ -492,7 +491,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="spupdatejob"></a>sp_update_job
+### <a name="sp_update_job"></a>sp_update_job
 
 Met à jour un travail existant.
 
@@ -519,7 +518,7 @@ Nouveau nom du travail. new_name est nvarchar(128).
 [ **\@description =** ] 'description'  
 Description du travail. la description est nvarchar(512).
 
-[  **\@activé =** ] activé  
+[ **\@enabled =** ] enabled  
 Spécifie si la planification du travail est activée (1) ou désactivée (0). Activée est de type bit.
 
 [ **\@schedule_interval_type=** ] schedule_interval_type  
@@ -555,7 +554,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="spdeletejob"></a>sp_delete_job
+### <a name="sp_delete_job"></a>sp_delete_job
 
 Supprime un travail existant.
 
@@ -587,7 +586,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="spaddjobstep"></a>sp_add_jobstep
+### <a name="sp_add_jobstep"></a>sp_add_jobstep
 
 Ajoute une étape à un travail.
 
@@ -628,7 +627,7 @@ Nom du travail auquel ajouter l’étape. job_name est nvarchar (128).
 [ **\@step_id =** ] step_id  
 Le numéro d’identification de séquence pour l’étape de travail. Les numéros d’identification d’étape commencent à 1 et augmentent sans intervalle. Si une étape existante a déjà cet id, alors cette étape et toutes les étapes suivantes verront leur id incrémenté afin que cette nouvelle étape puisse être insérée dans la séquence. Si rien n’est spécifié, +step_id sera automatiquement attribué à la dernière des séquences d’étapes. step_id est de type int.
 
-[  **\@nom_de_l =** ] nom_de_l  
+[ **\@step_name =** ] step_name  
 Nom de l'étape. Doit être spécifié, à l’exception de la première étape d’un travail, qui a un nom 'JobStep' par défaut (pour plus de commodité). step_name est nvarchar(128).
 
 [ **\@command_type =** ] 'command_type'  
@@ -691,10 +690,10 @@ Si la valeur n’est pas null, le nom du schéma SQL qui contient la table de de
 [ **\@output_table_name =** ] 'output_table_name'  
 Si la valeur n’est pas null, le nom de la table où le premier jeu de résultats de la commande sera écrit. Si la table n’existe pas encore, elle sera créée selon le schéma du jeu de résultats retourné. Doit être spécifié si output_type est égale à SqlDatabase. output_table_name est nvarchar (128), avec NULL comme valeur par défaut.
 
-[  **\@job_version =** ] job_version sortie  
+[ **\@job_version =** ] job_version OUTPUT  
 Paramètre de sortie auquel sera assigné le nouveau numéro de version de travail. job_version est de type int.
 
-[  **\@max_parallelism =** ] max_parallelism sortie  
+[ **\@max_parallelism =** ] max_parallelism OUTPUT  
 Le niveau maximal de parallélisme par pool élastique. S’il est défini, l’étape de travail sera limitée à l’exécution sur un nombre maximum de ces nombreuses bases de données par pool élastique. Ceci s’applique à chaque pool élastique qui est soit directement inclus dans le groupe cible, ou se trouve à l’intérieur d’un serveur inclus dans le groupe cible. max_parallelism est de type int.
 
 
@@ -713,7 +712,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="spupdatejobstep"></a>sp_update_jobstep
+### <a name="sp_update_jobstep"></a>sp_update_jobstep
 
 Met à jour une étape de travail.
 
@@ -815,10 +814,10 @@ Si la valeur n’est pas null, le nom du schéma SQL qui contient la table de de
 [ **\@output_table_name =** ] 'output_table_name'  
 Si la valeur n’est pas null, le nom de la table où le premier jeu de résultats de la commande sera écrit. Si la table n’existe pas encore, elle sera créée selon le schéma du jeu de résultats retourné. Doit être spécifié si output_type est égale à SqlDatabase. Pour réinitialiser la valeur d’output_server_name sur NULL, définir la valeur de ce paramètre sur '' (chaîne vide). output_table_name est nvarchar (128), avec NULL comme valeur par défaut.
 
-[  **\@job_version =** ] job_version sortie  
+[ **\@job_version =** ] job_version OUTPUT  
 Paramètre de sortie auquel sera assigné le nouveau numéro de version de travail. job_version est de type int.
 
-[  **\@max_parallelism =** ] max_parallelism sortie  
+[ **\@max_parallelism =** ] max_parallelism OUTPUT  
 Le niveau maximal de parallélisme par pool élastique. S’il est défini, l’étape de travail sera limitée à l’exécution sur un nombre maximum de ces nombreuses bases de données par pool élastique. Ceci s’applique à chaque pool élastique qui est soit directement inclus dans le groupe cible, ou se trouve à l’intérieur d’un serveur inclus dans le groupe cible. Pour réinitialiser la valeur de max_parallelism sur null, définir la valeur de ce paramètre sur -1. max_parallelism est de type int.
 
 
@@ -838,7 +837,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="spdeletejobstep"></a>sp_delete_jobstep
+### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
 Supprime une étape de travail d’un travail.
 
@@ -862,7 +861,7 @@ Le numéro d’identification pour l’étape de travail à supprimer. step_id o
 [ **\@step_name =** ] 'step_name'  
 Nom de l’étape à supprimer. step_id ou step_name doit être spécifié. step_name est nvarchar(128).
 
-[  **\@job_version =** ] job_version sortie  
+[ **\@job_version =** ] job_version OUTPUT  
 Paramètre de sortie auquel sera assigné le nouveau numéro de version de travail. job_version est de type int.
 
 #### <a name="return-code-values"></a>Codet de retour
@@ -884,7 +883,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 
 
-### <a name="spstartjob"></a>sp_start_job
+### <a name="sp_start_job"></a>sp_start_job
 
 Démarre l’exécution d’un travail.
 
@@ -900,7 +899,7 @@ Démarre l’exécution d’un travail.
 [ **\@job_name =** ] 'job_name'  
 Nom du travail à partir duquel l’étape sera supprimée. job_name est nvarchar (128), sans valeur par défaut.
 
-[  **\@job_execution_id =** ] job_execution_id sortie  
+[ **\@job_execution_id =** ] job_execution_id OUTPUT  
 Le paramètre de sortie auquel l’identifiant job_version de l’exécution du travail sera assigné est de type uniqueidentifier.
 
 #### <a name="return-code-values"></a>Codet de retour
@@ -915,7 +914,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="spstopjob"></a>sp_stop_job
+### <a name="sp_stop_job"></a>sp_stop_job
 
 Arrête l’exécution d’un travail.
 
@@ -944,7 +943,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
 
-### <a name="spaddtargetgroup"></a>sp_add_target_group
+### <a name="sp_add_target_group"></a>sp_add_target_group
 
 Ajoute un groupe cible.
 
@@ -961,7 +960,7 @@ Ajoute un groupe cible.
 [ **\@target_group_name =** ] 'target_group_name'  
 Nom du groupe cible à créer. target_group_name est nvarchar(128), sans valeur par défaut.
 
-[  **\@target_group_id =** ] target_group_id la cible de sortie groupe numéro d’identification du travail affecté si créé avec succès. target_group_id est une variable de sortie de type uniqueidentifier, avec NULL comme valeur par défaut.
+[ **\@target_group_id =** ] target_group_id OUTPUT Numéro d’identification du groupe cible affecté au travail s’il a été créé avec succès. target_group_id est une variable de sortie de type uniqueidentifier, avec NULL comme valeur par défaut.
 
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec)
@@ -975,7 +974,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="spdeletetargetgroup"></a>sp_delete_target_group
+### <a name="sp_delete_target_group"></a>sp_delete_target_group
 
 Supprime un groupe cible.
 
@@ -1003,7 +1002,7 @@ Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette 
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
 
-### <a name="spaddtargetgroupmember"></a>sp_add_target_group_member
+### <a name="sp_add_target_group_member"></a>sp_add_target_group_member
 
 Ajoute une base de données ou un groupe de bases de données à un groupe cible.
 
@@ -1043,7 +1042,7 @@ Nom de la base de données qui doit être ajoutée au groupe cible spécifié. d
 [ **\@elastic_pool_name =** ] 'elastic_pool_name'  
 Nom du pool élastique qui doit être ajouté au groupe cible spécifié. elastic_pool_name doit être spécifié lorsque target_type est ‘SqlElasticPool’. elastic_pool_name est nvarchar(128), sans valeur par défaut.
 
-[  **\@shard_map_name =** ] 'shard_map_name'  
+[ **\@shard_map_name =** ] 'shard_map_name'  
 Nom de l’outil de mappage de partition qui doit être ajouté au groupe cible spécifié. elastic_pool_name doit être spécifié lorsque target_type est 'SqlSqlShardMap'. shard_map_name est nvarchar (128), sans valeur par défaut.
 
 [ **\@target_id =** ] target_group_id OUTPUT  
@@ -1092,7 +1091,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name= N'Servers Mai
 GO
 ```
 
-### <a name="spdeletetargetgroupmember"></a>sp_delete_target_group_member
+### <a name="sp_delete_target_group_member"></a>sp_delete_target_group_member
 
 Supprime un membre du groupe cible d’un groupe cible.
 
@@ -1143,7 +1142,7 @@ EXEC jobs.sp_delete_target_group_member
 GO
 ```
 
-### <a name="sppurgejobhistory"></a>sp_purge_jobhistory
+### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
 Supprime les enregistrements d’historique d’un travail.
 
@@ -1195,7 +1194,7 @@ Les vues suivantes sont disponibles dans la [base de données des travaux](sql-d
 
 |Affichage  |Description  |
 |---------|---------|
-|[jobs_executions](#jobs_executions-view)     |  Afficher l'historique d'exécution des travaux.      |
+|[job_executions](#job_executions-view)     |  Afficher l'historique d'exécution des travaux.      |
 |[jobs](#jobs-view)     |   Afficher tous les travaux.      |
 |[job_versions](#job_versions-view)     |   Affiche toutes les versions du travail.      |
 |[jobsteps](#jobsteps-view)     |     Affiche toutes les étapes dans la version actuelle de chaque travail.    |
@@ -1204,9 +1203,9 @@ Les vues suivantes sont disponibles dans la [base de données des travaux](sql-d
 |[target_group_members](#target_groups_members-view)     |   Affiche tous les membres de tous les groupes cibles.      |
 
 
-### <a name="jobsexecutions-view"></a>affichage jobs_executions
+### <a name="job_executions-view"></a>job_executions view
 
-[jobs].[jobs_executions]
+[jobs].[job_executions]
 
 Afficher l'historique d'exécution des travaux.
 
@@ -1251,7 +1250,7 @@ Afficher tous les travaux.
 |**schedule_end_time**| datetime2(7)|   Date et heure de la dernière exécution du travail terminé.|
 
 
-### <a name="jobversions-view"></a>affichage de job_versions
+### <a name="job_versions-view"></a>affichage de job_versions
 
 [jobs].[job_versions]
 
@@ -1299,13 +1298,13 @@ Affiche toutes les étapes dans la version actuelle de chaque travail.
 |**max_parallelism**|   int|    Le nombre maximal de bases de données par pool élastique sur lesquelles l’étape de travail sera exécutée simultanément. La valeur par défaut est NULL, ce qui signifie qu’il n’y a aucune limite. |
 
 
-### <a name="jobstepversions-view"></a>affichage de jobstep_versions
+### <a name="jobstep_versions-view"></a>affichage de jobstep_versions
 
 [jobs].[jobstep_versions]
 
 Affiche toutes les étapes dans toutes les versions de chaque travail. Le schéma est identique à [jobsteps](#jobsteps-view).
 
-### <a name="targetgroups-view"></a>affichage de target_groups
+### <a name="target_groups-view"></a>affichage de target_groups
 
 [jobs].[target_groups]
 
@@ -1316,7 +1315,7 @@ Répertorie tous les groupes cibles.
 |**target_group_name**| nvarchar(128)   |Le nom du groupe cible, une collection de bases de données. 
 |**target_group_id**    |uniqueidentifier   |ID unique du groupe cible.
 
-### <a name="targetgroupsmembers-view"></a>affichage de target_groups_members
+### <a name="target_groups_members-view"></a>affichage de target_groups_members
 
 [jobs].[target_groups_members]
 

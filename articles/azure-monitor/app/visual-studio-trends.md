@@ -15,12 +15,12 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 898f0974a6a29abde5c84d611adc8d50c3873141
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 2b08dfd87910cbb9f23f6b108a970d160612e1a7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121069"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66255901"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analyse des tendances dans Visual Studio
 L’outil Tendances Application Insights visualise l’évolution des événements de télémétrie importants de votre application web au fil du temps, ce qui vous permet d’identifier rapidement les problèmes et les anomalies. En vous fournissant des informations de diagnostic plus détaillées, l’outil Tendances peut vous aider à améliorer les performances de votre application, à repérer les causes des exceptions et à découvrir les perspectives de vos événements personnalisés.
@@ -94,7 +94,7 @@ Pour annuler l’application d’un de ces filtres, cliquez sur le bouton **Remo
 ![Filtres multiples](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Rechercher des anomalies
-L’outil Tendances peut mettre en évidence des bulles d’événements anormales par rapport aux autres bulles d’une même série chronologique. Dans la liste déroulante Type d’affichage, choisissez **Décomptes dans l’intervalle de planification (anomalies en surbrillance)** ou **Pourcentages dans l’intervalle de planification (anomalies en surbrillance)**. Les bulles rouges sont anormales. Les anomalies sont définies comme des bulles dont les décomptes/pourcentages excèdent 2,1 fois l’écart type des décomptes/pourcentages des deux dernières périodes (48 heures si vous affichez les dernières 24 heures, etc.).
+L’outil Tendances peut mettre en évidence des bulles d’événements anormales par rapport aux autres bulles d’une même série chronologique. Dans la liste déroulante Type d’affichage, choisissez **Décomptes dans l’intervalle de planification (anomalies en surbrillance)** ou **Pourcentages dans l’intervalle de planification (anomalies en surbrillance)** . Les bulles rouges sont anormales. Les anomalies sont définies comme des bulles dont les décomptes/pourcentages excèdent 2,1 fois l’écart type des décomptes/pourcentages des deux dernières périodes (48 heures si vous affichez les dernières 24 heures, etc.).
 
 ![Les points colorés indiquent des anomalies](./media/visual-studio-trends/TrendsAnomalies-750.png)
 
@@ -108,5 +108,5 @@ L’outil Tendances peut mettre en évidence des bulles d’événements anormal
 | --- | --- |
 | **[Utilisation d’Application Insights dans Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Rechercher les données de télémétrie, voir les données dans CodeLens et configurer Application Insights. le tout dans Visual Studio. |![Cliquez avec le bouton droit sur le projet et sélectionnez Application Insights, Rechercher.](./media/visual-studio-trends/34.png) |
 | **[Ajouter des données](../../azure-monitor/app/asp-net-more.md)**<br/>Analysez l’utilisation, la disponibilité, les dépendances et les exceptions. Intégrer des traces à partir des frameworks de journalisation. Écrire des données de télémétrie personnalisées. |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[Utilisation du portail Application Insights](../../azure-monitor/app/app-insights-dashboards.md)**<br/>Tableaux de bord, puissants outils de diagnostic et d’analyse, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. |![Visual Studio](./media/visual-studio-trends/62.png) |
+| **[Utilisation du portail Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Tableaux de bord, puissants outils de diagnostic et d’analyse, alertes, mappage direct des dépendances de votre application et exportation des données de télémétrie. |![Visual Studio](./media/visual-studio-trends/62.png) |
 

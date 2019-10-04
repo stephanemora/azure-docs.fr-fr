@@ -1,6 +1,6 @@
 ---
 title: Modération de vidéo avec révision manuelle - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Utilisation de la modération des vidéos assistée par ordinateur et des outils de révision manuelle afin de modérer le contenu inapproprié.
 services: cognitive-services
 author: sanjeev3
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 69075f6b36a0be7cd4d0dd4453ea9cdfc08d77dc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867713"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561158"
 ---
 # <a name="video-moderation-with-human-review"></a>Modération de vidéo avec révision manuelle
 
@@ -28,52 +28,53 @@ La classification de vidéos assistée par ordinateur est obtenue grâce à des 
 ## <a name="shot-detection"></a>Détection de plan
 
 Lorsque les résultats détaillés de la classification sont obtenus, l’outil offre une plus grande souplesse dans l’analyse des vidéos grâce à une intelligence vidéo supplémentaire. Plutôt que d’isoler simplement des images, le service de modération des vidéos Microsoft fournit des informations au niveau des plans. Vous pouvez désormais analyser vos vidéos au niveau des plans et des images.
- 
+
 ## <a name="key-frame-detection"></a>Détection de l’image clé
 
 Au lieu d’isoler des images à intervalles réguliers, le service de modération des vidéos identifie et isole des images qui sont potentiellement complètes et de bonne qualité. La fonctionnalité génère efficacement des images afin d’analyser le contenu explicite et suggestif au niveau de l’image.
 
 L’extrait suivant illustre une réponse partielle comportant des plans potentiels, des images clés et des scores de contenu explicite ou suggestif :
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>Visualisation pour la révision manuelle
 
@@ -101,10 +102,7 @@ Bien souvent, les vidéos sont accompagnées d’une voix off qui doit être ég
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [démarrage rapide pour la modération des vidéos](video-moderation-api.md). 
-
-Découvrez comment générer des [revues de vidéos](video-reviews-quickstart-dotnet.md) pour vos réviseurs à partir de résultats modérés.
-
-Ajoutez des [revues de la transcription de la vidéo](video-transcript-reviews-quickstart-dotnet.md) à vos révisions de vidéos.
-
-Consultez le didacticiel détaillé concernant le développement d’une [solution de modération des vidéos complète](video-transcript-moderation-review-tutorial-dotnet.md). 
+- Consultez le [démarrage rapide pour la modération des vidéos](video-moderation-api.md).
+- Découvrez comment générer des [revues de vidéos](video-reviews-quickstart-dotnet.md) pour vos réviseurs à partir de résultats modérés.
+- Ajoutez des [revues de la transcription de la vidéo](video-transcript-reviews-quickstart-dotnet.md) à vos révisions de vidéos.
+- Consultez le didacticiel détaillé concernant le développement d’une [solution de modération des vidéos complète](video-transcript-moderation-review-tutorial-dotnet.md).

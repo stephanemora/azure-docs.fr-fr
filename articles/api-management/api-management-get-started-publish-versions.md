@@ -9,17 +9,16 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7e5051248a579b0943fa69620215b060bd1e235
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1be70d3eb74d3a8f0eddb1e5c22e4234987276b3
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092691"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073691"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publier plusieurs versions de votre API 
 
@@ -37,19 +36,20 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-* Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
++ Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 ## <a name="add-a-new-version"></a>Ajouter une nouvelle version
 
 ![Menu contextuel de l’API : ajouter une version](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
 1. Dans la liste des API, sélectionnez **API de conférence de démonstration**.
-2. Sélectionnez le menu contextuel (**...** ) en regard de l’API.
+2. Sélectionnez le menu contextuel ( **...** ) en regard de l’API.
 3. Sélectionnez **+ Ajouter une version**.
 
-    > [!TIP]
-    > Il est également possible d’activer des versions lorsque vous créez une nouvelle API : sélectionnez **Créer une version pour cette API ?** sur l’écran **Ajouter une API**.
+> [!TIP]
+> Il est également possible d’activer des versions lorsque vous créez une nouvelle API : sélectionnez **Créer une version pour cette API ?** sur l’écran **Ajouter une API**.
 
 ## <a name="choose-a-versioning-scheme"></a>Choisissez un schéma de contrôle de version
 
@@ -58,34 +58,38 @@ Gestion des API Azure vous permet de choisir la manière selon laquelle vous aut
 ![Écran Ajouter une version](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. Laissez le **chemin d’accès** sélectionné comme **schéma de contrôle des versions**.
-2. Ajoutez **v1** en tant que **nom** et **identificateur de version**.
+2. Tapez **demo-conference-api-v1** dans le champ **Nom**.
+
+    > [!NOTE]
+    > Version est en réalité une nouvelle API basée sur la révision d’une API. Le champ **Nom** représente le nom de la nouvelle API et doit être unique sur l’instance de gestion des API.
+
+3. Tapez **v1** dans le champ **Identificateur de version**.
 
     > [!TIP]
     > Si vous sélectionnez **en-tête** ou **chaîne de requête** comme schéma de gestion de versions, vous devez fournir une valeur supplémentaire : le nom du paramètre d’en-tête ou de chaîne de requête.
 
-3. Sélectionnez **Créer** pour configurer votre nouvelle version.
-4. Sous **API Demo Conference** dans la liste des API, deux API distinctes s’affichent maintenant : **Original** et **v1**.
+4. Sélectionnez **Créer** pour configurer votre nouvelle version.
+5. Sous **API Demo Conference** dans la liste des API, deux API distinctes s’affichent maintenant : **Original** et **v1**.
 
     ![Versions répertoriées sous une API dans le portail Azure](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > Si vous ajoutez une version à une API sans version, une API **Original** qui répond sur l’URL par défaut sera automatiquement créée. Cela permet aux appelants existants de ne pas être interrompus par le processus d’ajout d’une version. Si vous créez une nouvelle API avec des versions activées au démarrage, une API Original n’est pas créée.
 
-5. Vous pouvez maintenant modifier et configurer **v1** en tant qu’API distincte de l’API **Original**. Les modifications apportées à une version n’affectent pas l’autre.
+6. Vous pouvez maintenant modifier et configurer **v1** en tant qu’API distincte de l’API **Original**. Les modifications apportées à une version n’affectent pas l’autre.
 
 ## <a name="add-the-version-to-a-product"></a>Ajouter la version à un produit
 
 Pour que les appelants puissent voir la nouvelle version, elle doit être ajoutée à un **produit**.
 
+![Produits Gestion des API](media/api-management-getstarted-publish-versions/08-AddMultipleVersions-03-AddVersionToProduct.png)
+
 1. Sélectionnez **Produits** sur la page de modèle de déploiement classique.
-
-    ![Produits Gestion des API](media/api-management-getstarted-publish-versions/Products.png)
-
 2. Sélectionnez **Illimité**.
 3. Sélectionnez **API**.
 4. Sélectionnez **Ajouter**.
 5. Sélectionnez **Demo Conference API, Version v1**.
-6. Accédez à la page de gestion des services et sélectionnez **API**.
+6. Cliquez sur **Sélectionner**.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Parcourir le portail des développeurs pour afficher la version
 

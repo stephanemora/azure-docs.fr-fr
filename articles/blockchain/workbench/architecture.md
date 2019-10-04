@@ -1,25 +1,25 @@
 ---
-title: Architecture Azure Blockchain Workbench
-description: Présentation de l’architecture Azure Blockchain Workbench et de ses composants.
+title: Architecture Azure Blockchain Workbench Preview
+description: Présentation de l’architecture Azure Blockchain Workbench Preview et de ses composants.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 83c5e1405c402a1c6c98f9dbcaaf74891eb75e6d
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d50ee0fa06f34167cd4be9e787f6e351d3ef7e3b
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330634"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70845217"
 ---
-# <a name="azure-blockchain-workbench-architecture"></a>Architecture Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-preview-architecture"></a>Architecture Azure Blockchain Workbench Preview
 
-Azure Blockchain Workbench simplifie le développement d’applications blockchain en proposant une solution qui utilise plusieurs composants Azure. Blockchain Workbench peut être déployé à l’aide d’un modèle de solution dans la Place de marché Microsoft Azure. Ce modèle permet aux utilisateurs de choisir les modules et les composants à déployer, comme la pile blockchain, le type d’application cliente et la prise en charge de l’intégration IoT. Une fois déployé, Blockchain Workbench fournit un accès à une application web, une application iOS et une application Android.
+Azure Blockchain Workbench Preview simplifie le développement d’applications blockchain en proposant une solution qui utilise plusieurs composants Azure. Blockchain Workbench peut être déployé à l’aide d’un modèle de solution dans la Place de marché Microsoft Azure. Ce modèle permet aux utilisateurs de choisir les modules et les composants à déployer, comme la pile blockchain, le type d’application cliente et la prise en charge de l’intégration IoT. Une fois déployé, Blockchain Workbench fournit un accès à une application web, une application iOS et une application Android.
 
 ![Architecture Blockchain Workbench](./media/architecture/architecture.png)
 
@@ -45,7 +45,7 @@ Dans l’application web, les utilisateurs autorisés peuvent accéder à la con
 * Chargement et déploiement de leurs propres contrats intelligents.
 * Attribution d’un accès utilisateur au contrat intelligent dans le contexte d’un rôle spécifique.
 
-Pour plus d'informations, consultez les [exemples d'applications clientes Azure Blockchain Workbench sur GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client).
+Pour plus d'informations, consultez les [exemples d'applications clientes Azure Blockchain Workbench sur GitHub](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile).
 
 ## <a name="gateway-service-api"></a>API de service de passerelle
 
@@ -99,7 +99,7 @@ Les événements reflètent les informations relatives aux individus et aux syst
 
 Par exemple, le consommateur SQL surveille des événements, les utilise et remplit la base de données SQL avec les valeurs incluses. La copie active la recréation d’un réplica des données on-chain dans un magasin off-chain.
 
-## <a name="azure-sql-database"></a>Base de données SQL Azure
+## <a name="azure-sql-database"></a>Base de données Azure SQL
 
 La base de données Azure SQL jointe à Blockchain Workbench stocke les définitions de contrat, les métadonnées de configuration et un réplica compatible SQL des données stockées dans le blockchain. Ces données peuvent facilement être interrogées, visualisées ou analysées en accédant directement à la base de données. Les développeurs et les autres utilisateurs peuvent utiliser la base de données pour créer des rapports, effectuer des analyses ou d’autres intégrations orientées données. Par exemple, les utilisateurs peuvent visualiser des données de transaction à l’aide de Power BI.
 

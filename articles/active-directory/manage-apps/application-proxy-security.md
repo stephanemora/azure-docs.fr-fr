@@ -3,8 +3,8 @@ title: Considérations de sécurité pour le proxy d’application Azure AD | M
 description: Couvre les considérations de sécurité lors de l’utilisation du proxy d’application Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: fa7b5c82f0b057e2eb029b9cc632d8da02206678
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438072"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108393"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considérations de sécurité pour l’accès aux applications à distance avec le proxy d’application Azure AD
 
@@ -49,7 +49,7 @@ Appliquez des contrôles de stratégie plus riches avant que les connexions à v
 
 Avec [l’accès conditionnel](../conditional-access/overview.md), vous pouvez définir les restrictions sur le trafic qui est autorisé à accéder à vos applications principales. Vous pouvez créer des stratégies qui limitent les connexions en fonction de l’emplacement, de la force de l’authentification et du profil de risque de l’utilisateur.
 
-Vous pouvez également utiliser l’accès conditionnel pour configurer des stratégies Multi-Factor Authentication, qui ajoutent une couche de sécurité supplémentaire aux authentifications des utilisateurs. De plus, vos applications peuvent également être routées vers Microsoft Cloud App Security via l’accès conditionnel Azure AD pour assurer un contrôle et une surveillance en temps réel par le biais de stratégies d’[accès](https://docs.microsoft.com/cloud-app-security/access-policy-aad) et de [session](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
+Vous pouvez également utiliser l’accès conditionnel pour configurer des stratégies Multi-Factor Authentication, qui ajoutent une couche de sécurité supplémentaire aux authentifications des utilisateurs. De plus, vos applications peuvent également être acheminées vers Microsoft Cloud App Security via l’accès conditionnel Azure AD pour assurer un contrôle et une surveillance en temps réel par le biais de stratégies [d’accès](https://docs.microsoft.com/cloud-app-security/access-policy-aad) et de [session](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
 
 ### <a name="traffic-termination"></a>Arrêt du trafic
 
@@ -69,7 +69,7 @@ Pour plus d’informations sur les connecteurs, consultez [Présentation des con
 
 Bénéficiez d’une protection de sécurité de pointe.
 
-Comme il fait partie d’Azure Active Directory, le proxy d’application peut tirer parti [d’Azure AD Identity Protection](../active-directory-identityprotection.md), grâce aux données du MSRC (Microsoft Security Response Center) et de la DCU (Digital Crimes Unit). Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection contre les connexions à haut risque. Nous prenons en compte plusieurs facteurs pour déterminer les tentatives de connexion sont à haut risque. Ces facteurs incluent le marquage des appareils infectés, l’anonymisation des réseaux et les emplacements atypiques ou peu probables.
+Comme il fait partie d’Azure Active Directory, le proxy d’application peut tirer parti [d’Azure AD Identity Protection](../active-directory-identityprotection.md), grâce aux données du MSRC (Microsoft Security Response Center) et de la DCU (Digital Crimes Unit). Ensemble, nous identifions de façon proactive les comptes compromis et offrons une protection contre les connexions à haut risque. Nous prenons en compte plusieurs facteurs pour déterminer les tentatives de connexion à haut risque. Ces facteurs incluent le marquage des appareils infectés, l’anonymisation des réseaux et les emplacements atypiques ou peu probables.
 
 Nombre de ces rapports et événements sont déjà disponibles via une API pour l’intégration avec vos systèmes de gestion des événements et des informations de sécurité.
 

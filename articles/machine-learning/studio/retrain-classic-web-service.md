@@ -6,22 +6,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: peterlu
+author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822017"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65234044"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Réentraîner et déployer un service web Studio classique
 
 Réentraîner des modèles de Machine Learning est une façon de s’assurer qu’ils restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article vous montre comment réentraîner un service web Studio classique. Pour obtenir un guide sur la façon de réentraîner un nouveau service web Studio, [consultez cet article pratique.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez déjà une expérience de réentraînement et une expérience prédictive. Ces étapes sont expliquées dans [Réentraîner et déployer un modèle Machine Learning.](/azure/machine-learning/studio/retrain-machine-learning-model) Toutefois, au lieu de déployer votre modèle Machine Learning comme un nouveau service web, vous allez déployer votre expérience prédictive comme un service web classique.
      
@@ -45,7 +45,7 @@ Vous pouvez ajouter des points de terminaison de notation à l’aide de l’exe
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Utiliser le portail de services web Azure pour ajouter un point de terminaison
 
 1. Dans Machine Learning Studio, dans la colonne de navigation de gauche, cliquez sur Services web.
-1. En bas du tableau de bord de services web, cliquez sur **Gérer les points de terminaison (préversion)**.
+1. En bas du tableau de bord de services web, cliquez sur **Gérer les points de terminaison (préversion)** .
 1. Cliquez sur **Add**.
 1. Tapez un nom et une description pour le point de terminaison. Sélectionnez le niveau de journalisation et activez les exemples de données si nécessaire. Pour plus d’informations sur la journalisation, consultez [Activation de la journalisation pour les services web de Machine Learning](web-services-logging.md).
 
@@ -134,7 +134,7 @@ La valeur du paramètre *Name* dans *Ressources* doit correspondre au nom de res
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Dans le menu de gauche, cliquez sur **Machine Learning**.
 1. Sous Nom, cliquez sur votre espace de travail, puis sur **Services web**.
-1. Sous Nom, cliquez sur **Modèle de recensement [exp. prédictive]**.
+1. Sous Nom, cliquez sur **Modèle de recensement [exp. prédictive]** .
 1. Cliquez sur le nouveau point de terminaison que vous avez ajouté.
 1. Dans le tableau de bord du point de terminaison, cliquez sur **Mettre à jour les ressources**.
 1. Dans la page Documentation de l’API Mettre à jour la ressource du service web, vous trouverez le **Nom de la ressource** sous **Ressources actualisables**.

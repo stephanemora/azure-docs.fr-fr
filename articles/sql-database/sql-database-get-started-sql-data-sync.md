@@ -10,24 +10,23 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 37b8f64360e871236be7a8623460bbe75bd1d8b5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486000"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568159"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Didacticiel : configurer SQL Data Sync entre Azure SQL Database et SQL Server en local
 
-Dans ce tutoriel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation contenant des instances SQL Database et SQL Server. Le groupe de synchronisation est configuré de manière personnalisée et se synchronise selon la planification définie.
+Dans ce tutoriel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation contenant à la fois des instances Azure SQL Database et SQL Server. Le groupe de synchronisation est configuré de manière personnalisée et se synchronise selon la planification définie.
 
 Ce tutoriel part du principe que vous avez déjà utilisé SQL Database et SQL Server.
 
 Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre des bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md).
 
-Pour obtenir des exemples PowerShell sur la façon de configurer SQL Data Sync, consultez les guides pratiques pour synchroniser les données [entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md) ou [entre une base de données SQL Azure et une base de données SQL Server locale](scripts/sql-database-sync-data-between-azure-onprem.md).
+Pour obtenir des exemples PowerShell sur la façon de configurer SQL Data Sync, consultez les guides pratiques pour synchroniser les données [entre plusieurs bases de données Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md) ou [entre une base de données Azure SQL et une base de données SQL Server locale](scripts/sql-database-sync-data-between-azure-onprem.md).
 
 > [!IMPORTANT]
 > Azure SQL Data Sync ne prend **pas** en charge Azure SQL Database Managed Instance pour le moment.
@@ -69,20 +68,20 @@ Dans la section **Base de données Hub**, entrez les informations d’identifica
 
 ![Paramètres de l’étape 2](media/sql-database-get-started-sql-data-sync/steptwo.png)
 
-### <a name="to-add-an-azure-sql-database"></a>Pour ajouter une base de données SQL Azure
+### <a name="to-add-an-azure-sql-database"></a>Pour ajouter une base de données Azure SQL
 
-Dans la section **Base de données membre**, ajoutez éventuellement une base de données Azure SQL Database au groupe de synchronisation en sélectionnant **Add an Azure SQL Database** (Ajouter une instance Azure SQL Database). La page **Configure Azure SQL Database** (Configurer Azure SQL Database) s’ouvre.
+Dans la section **Base de données membre**, ajoutez éventuellement une base de données Azure SQL Database au groupe de synchronisation en sélectionnant **Add an Azure SQL Database** (Ajouter une instance Azure SQL Database). La page **Configurer Azure SQL Database** s’ouvre.
 
   ![Étape 2 : configurer la base de données](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  Dans la page **Configure Azure SQL Database** (Configurer Azure SQL Database), changez les paramètres suivants :
+  Dans la page **Configurer Azure SQL Database**, changez les paramètres suivants :
 
   | Paramètre                       | Description |
   | ----------------------------- | ------------------------------------------------- |
   | **Nom du membre de synchronisation** | Entrez le nom du nouveau membre de synchronisation. Ce nom est différent de celui de la base de données. |
   | **Abonnement** | Sélectionnez l’abonnement Azure associé en vue de la facturation. |
   | **Azure SQL Server** | Sélectionnez le serveur SQL Database existant. |
-  | **Base de données SQL Azure** | Sélectionnez la base de données SQL existante. |
+  | **Azure SQL Database** | Sélectionnez la base de données SQL existante. |
   | **Sens de la synchronisation** | Sélectionnez **Synchronisation bidirectionnelle**, **Vers le hub** ou **À partir du hub**. |
   | **Nom d’utilisateur** et **Mot de passe** | Entrez les informations d’identification existantes du serveur SQL Database qui héberge la base de données membre. N’entrez pas de *nouvelles* informations d’identification dans cette section. |
 
@@ -118,9 +117,9 @@ Dans la section **Base de données membre**, ajoutez éventuellement un serveur 
 
    ![Application de l’agent de synchronisation du client](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
 
-    1. Dans l’application de l’agent de synchronisation, sélectionnez **Submit Agent Key (Envoyer la clé de l’agent)**. La boîte de dialogue **Sync Metadata Database Configuration (Configuration de la base des métadonnées de synchronisation)** s’ouvre.
+    1. Dans l’application de l’agent de synchronisation, sélectionnez **Submit Agent Key (Envoyer la clé de l’agent)** . La boîte de dialogue **Sync Metadata Database Configuration (Configuration de la base des métadonnées de synchronisation)** s’ouvre.
 
-    1. Dans la boîte de dialogue **Sync Metadata Database Configuration (Configuration de la base des métadonnées de synchronisation)**, collez la clé de l’agent copiée à partir du portail Azure. Indiquez également les informations d’identification du serveur Azure SQL Database qui héberge la base de données des métadonnées. (Si vous avez créé une base de données de métadonnées, celle-ci réside sur le même serveur que la base de données Hub.) Sélectionnez **OK** et attendez la fin de la configuration.
+    1. Dans la boîte de dialogue **Sync Metadata Database Configuration (Configuration de la base des métadonnées de synchronisation)** , collez la clé de l’agent copiée à partir du portail Azure. Indiquez également les informations d’identification du serveur Azure SQL Database qui héberge la base de données des métadonnées. (Si vous avez créé une base de données de métadonnées, celle-ci réside sur le même serveur que la base de données Hub.) Sélectionnez **OK** et attendez la fin de la configuration.
 
         ![Entrer la clé de l’agent et les informations d’identification du serveur](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
@@ -232,7 +231,7 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 
 - [Data Sync Agent pour Azure SQL Data Sync](sql-database-data-sync-agent.md)
 - [Bonnes pratiques](sql-database-best-practices-data-sync.md) et [Comment résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
-- [Surveiller SQL Data Sync avec les journaux Azure Monitor](sql-database-sync-monitor-oms.md)
+- [Superviser SQL Data Sync avec des journaux Azure Monitor](sql-database-sync-monitor-oms.md)
 - [Mettre à jour le schéma de synchronisation avec Transact-SQL](sql-database-update-sync-schema.md) ou [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 Pour plus d’informations sur SQL Database, consultez :

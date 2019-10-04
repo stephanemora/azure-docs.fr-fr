@@ -1,0 +1,82 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: azure-monitor
+author: rboucher
+tags: azure-service-management
+ms.topic: include
+ms.date: 02/07/2019
+ms.author: robb
+ms.custom: include file
+ms.openlocfilehash: 58a741b369231a353a6b8e282a6e604a63a5727d
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71210213"
+---
+**Volume et rétention de collecte de données** 
+
+| Niveau | Limite par jour | Conservation des données | Commentaire |
+|:---|:---|:---|:---|
+| Niveau tarifaire actuel par Go<br>(introduit en avril 2018) | Aucune limite | 30 à 730 jours | La conservation des données au-delà de 31 jours est disponible contre des frais supplémentaires. En savoir plus sur la tarification Azure Monitor. |
+| Niveaux gratuits hérités<br>(introduit en avril 2016) | 500 Mo | 7 jours | Lorsque votre espace de travail atteint la limite de 500 Mo par jour, l’ingestion de données s’interrompt et reprend au début de la journée suivante. Les journées sont basées sur l’heure UTC. Notez que les données collectées par Azure Security Center ne sont pas incluses dans cette limite de 500 Mo par jour et continuent à être collectées au-delà de cette limite.  |
+| Niveau autonome par Go hérité<br>(introduit en avril 2016) | Aucune limite | 30 à 730 jours | La conservation des données au-delà de 31 jours est disponible contre des frais supplémentaires. En savoir plus sur la tarification Azure Monitor. |
+| Par nœud hérité (OMS)<br>(introduit en avril 2016) | Aucune limite | 30 à 730 jours | La conservation des données au-delà de 31 jours est disponible contre des frais supplémentaires. En savoir plus sur la tarification Azure Monitor. |
+| Niveau standard hérité | Aucune limite | 30 jours  | La rétention ne peut pas être ajustée |
+| Niveau Premium hérité | Aucune limite | 365 jours  | La rétention ne peut pas être ajustée |
+
+**Nombre d’espaces de travail par abonnement.**
+
+| Niveau tarifaire    | Limite d’espace de travail | Commentaires
+|:---|:---|:---|
+| Niveau Gratuit  | 10 | Cette limite ne peut pas être augmentée. |
+| Tous les autres niveaux | Aucune limite | Vous êtes limité par le nombre de ressources au sein d’un groupe de ressources et le nombre de groupes de ressources par abonnement. |
+
+**Portail Azure**
+
+| Category | limites | Commentaires |
+|:---|:---|:---|
+| Nombre maximum d’enregistrements retournés par une requête de journal | 10 000 | Réduisez les résultats à l’aide d’une étendue de requête, d’un intervalle de temps et de filtres dans la requête. |
+
+
+**API de collecte de données**
+
+| Category | limites | Commentaires |
+|:---|:---|:---|
+| Taille maximale d’une publication | 30 Mo | Fractionner les volumes plus importants en plusieurs publications. |
+| Taille maximale des valeurs de champ  | 32 Ko | Les champs de plus de 32 Ko de champs sont tronqués. |
+
+**API Recherche**
+
+| Category | limites | Commentaires |
+|:---|:---|:---|
+| Nombre maximal d’enregistrements retournés dans une requête | 500 000 | |
+| Taille maximale des données retournées | 64 000 000 octets (~ 61 Mio)| |
+| Durée maximale d’exécution de requête | 10 minutes | Consultez [Délais d’expiration](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) pour plus d’informations.  |
+| Taux maximum de requêtes | 200 requêtes par 30 secondes par utilisateur AAD ou adresse IP du client | Consultez [Limites de taux](https://dev.loganalytics.io/documentation/Using-the-API/Limits) pour plus d’informations. |
+
+**Limites d’espace de travail général**
+
+| Category | limites | Commentaires |
+|:---|:---|:---|
+| Nombre maximum de colonnes dans une table         | 500 | |
+| Nombre maximum de caractères pour le nom de colonne | 500 | |
+| Régions ayant atteint la capacité maximale | Centre-USA Ouest | Vous ne pouvez actuellement pas créer un nouvel espace de travail dans cette région dans la mesure où elle a atteint sa limite de capacité temporaire. Cette limite devrait être traitée d’ici à la fin du mois d’octobre 2019. |
+| Exportation de données | Actuellement non disponible | Utilisez Azure Function ou Logic App pour agréger et exporter des données. | 
+
+**Débit d’ingestion de données**
+
+Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Par défaut, le débit d’ingestion maximal est défini sur **500 Mo/min** pour chaque espace de travail. Si vous envoyez des données vers un espace de travail à un débit supérieur, certaines données seront supprimées et un événement sera envoyé toutes les six heures à la table *Opération* de votre espace de travail tant que le seuil sera dépassé. Si votre volume d’ingestion continue de dépasser le débit maximal, ou si vous pensez l’atteindre bientôt, vous pouvez demander une augmentation de votre espace de travail en effectuant une demande de support.
+ 
+Pour être averti de la survenue d’un tel événement dans votre espace de travail, créez une [règle d’alerte de journal](../articles/azure-monitor/platform/alerts-log.md) à l’aide de la requête suivante, où la logique d’alerte est basée sur le nombre de résultats supérieurs à zéro.
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
+
+>[!NOTE]
+>En fonction de la durée pendant laquelle vous utilisez Log Analytics, vous pouvez avoir accès aux niveaux de tarification hérités. En savoir plus sur les [niveaux tarifaires hérités de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

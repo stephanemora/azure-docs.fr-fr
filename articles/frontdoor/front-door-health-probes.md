@@ -11,16 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 256d530590fadc9e2aeb1ea1efb7a52608014978
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 289b05a2c50a2b4af50eb2114515a49bb653cf1a
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988561"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742389"
 ---
 # <a name="health-probes"></a>Sondes d’intégrité
 
-Pour déterminer l’intégrité de chaque backend, chaque environnement de porte d’entrée envoie régulièrement une requête HTTP/HTTPS synthétique à chacun de vos backends configurés. Sur la base des réponses fournies par les sondes, la porte d’entrée identifie les « meilleurs » backends vers lesquels elle doit acheminer les demandes réelles des clients.
+Pour déterminer l’intégrité de chaque backend, chaque environnement de porte d’entrée envoie régulièrement une requête HTTP/HTTPS synthétique à chacun de vos backends configurés. Sur la base des réponses fournies par les sondes, la porte d’entrée identifie les « meilleurs » backends vers lesquels elle doit acheminer les demandes réelles des clients. Notez que dans la mesure où Front Door a de nombreux environnements de périphérie dans le monde entier, le volume des demandes de sonde d’intégrité sur vos backends peut être aussi élevé que celui des requêtes par seconde, selon la fréquence de sonde d’intégrité configurée. 
+
 
 
 ## <a name="supported-protocols"></a>Protocoles pris en charge
@@ -58,5 +59,5 @@ Dès lors qu’un backend retrouve un état sain, la porte d’entrée reprend l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [créer un porte d’entrée](quickstart-create-front-door.md).
-- Découvrez [comment fonctionne une porte d’entrée](front-door-routing-architecture.md).
+- Découvrez comment [créer une porte d’entrée](quickstart-create-front-door.md).
+- Découvrez [comment fonctionne Front Door](front-door-routing-architecture.md).

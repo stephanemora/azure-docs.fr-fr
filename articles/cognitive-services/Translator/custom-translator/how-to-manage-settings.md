@@ -2,19 +2,19 @@
 title: Comment gérer les paramètres ? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Guide pratique pour gérer les paramètres, créer l’espace de travail, partager l’espace de travail et gérer la clé d’abonnement dans Custom Translator.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 6e8406cdd265063622bc5dcebbb9f22549b3633a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766799"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595765"
 ---
 # <a name="how-to-manage-settings"></a>Comment gérer les paramètres
 

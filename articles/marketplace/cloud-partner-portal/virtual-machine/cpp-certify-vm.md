@@ -1,25 +1,18 @@
 ---
-title: Certifier votre image de machine virtuelle pour Place de marché Microsoft Azure | Microsoft Docs
+title: Certifier votre image de machine virtuelle pour Place de marché Microsoft Azure
 description: Cet article explique comment tester et soumettre une image de machine virtuelle pour la certification Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 09/26/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 24430b1b785a24da06a8ea51594147040e6d5bd6
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.author: pabutler
+ms.openlocfilehash: 0dbf1abbb91f9e5c3bd2d042c57f87591d52c9cd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190388"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938493"
 ---
 # <a name="certify-your-vm-image"></a>Certifier votre image de machine virtuelle
 
@@ -34,7 +27,7 @@ L’outil Certification Test Tool for Azure Certified s’exécute sur une machi
 2. Ouvrez l’outil de certification, puis cliquez sur le bouton **Start New Test** (Commencer un nouveau test).
 3. Dans l’écran **Test Information** (Informations sur le test), entrez un nom de test dans le champ **Test Name** (Nom du test) pour la série de tests.
 4. Dans le champ **Platform** (Plateforme), sélectionnez la plateforme pour votre machine virtuelle, soit `Windows Server`, soit `Linux`. La plateforme que vous choisissez a une incidence sur le reste des options.
-5. Si votre machine virtuelle utilise ce service de base de données, cochez la case **Test for Azure SQL Database** (Test pour Azure SQL Database).
+5. Si votre machine virtuelle utilise ce service de base de données, cochez la case **Test pour Azure SQL Database**.
 
    ![Page initiale de l’outil de test de certification](./media/publishvm_025.png)
 

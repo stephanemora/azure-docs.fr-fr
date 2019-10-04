@@ -4,24 +4,23 @@ description: Créer une machine virtuelle en attachant un disque non géré spé
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 90d1d752481ada33c038ab563f6bd0d3bf5fad08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: cc3c1d9352d9df44a51a917700c656055b8b8361
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086800"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70088620"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Création d’une machine virtuelle à partir d’un disque dur virtuel spécialisé dans un compte de stockage
 
@@ -31,7 +30,7 @@ Deux options s'offrent à vous :
 * [Charger un disque dur virtuel](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [Copier le disque dur virtuel d’une machine virtuelle Azure existante](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="option-1-upload-a-specialized-vhd"></a>Option 1 : Charger un disque dur virtuel spécialisé
@@ -126,7 +125,7 @@ Libérez la machine virtuelle, ce qui libère le disque dur virtuel à copier.
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
 ```
 
-**L’état** de la machine virtuelle dans le Portail Azure passe de **Arrêté** à **Arrêté (libéré)**.
+**L’état** de la machine virtuelle dans le Portail Azure passe de **Arrêté** à **Arrêté (libéré)** .
 
 ### <a name="get-the-storage-account-urls"></a>Récupérer les URL des comptes de stockage
 Vous avez besoin des URL des comptes de stockage source et de destination. Les URL ressemblent à : `https://<storageaccount>.blob.core.windows.net/<containerName>/`. Si vous connaissez déjà le nom du compte de stockage et du conteneur, vous pouvez simplement remplacer les informations entre crochets pour créer votre URL. 
@@ -204,7 +203,7 @@ Créez le réseau virtuel et le sous-réseau du [réseau virtuel](../../virtual-
     $subnetName = "mySubNet"
     $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Créez le réseau virtuel. Cet exemple définit le nom de réseau virtuel sur **myVnetName**, l’emplacement sur **USA Ouest** et le préfixe d’adresse du réseau virtuel sur **10.0.0.0/16**. 
+2. Créez le réseau virtuel. Cet exemple définit le nom de réseau virtuel sur **myVnetName**, l’emplacement sur **West US** et le préfixe d’adresse du réseau virtuel sur **10.0.0.0/16**. 
    
     ```powershell
     $location = "West US"
@@ -271,7 +270,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. Ajoutez le disque du système d’exploitation. Dans cet exemple, lorsque le disque du système d’exploitation est créé, le terme « osDisk » est ajouté au nom de machine virtuelle pour créer le nom du disque du système d’exploitation. Cet exemple spécifie également que ce disque dur virtuel basé sur Windows doit être attaché à la machine virtuelle en tant que disque de système d’exploitation.
+2. Ajoutez le disque du système d’exploitation. Dans cet exemple, lorsque le disque du système d’exploitation est créé, le terme « osDisk » est ajouté au nom de la machine virtuelle pour créer le nom du disque du système d’exploitation. Cet exemple spécifie également que ce disque dur virtuel basé sur Windows doit être attaché à la machine virtuelle en tant que disque de système d’exploitation.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

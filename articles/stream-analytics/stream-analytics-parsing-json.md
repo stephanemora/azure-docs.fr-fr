@@ -3,53 +3,23 @@ title: Analyse de données JSON et d’AVRO dans Stream Analytics
 description: Cet article explique comment utiliser des types de données complexes tels que des tableaux, et des données au format JSON ou CSV.
 services: stream-analytics
 ms.service: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.topic: conceptual
-ms.date: 08/03/2018
-ms.openlocfilehash: 3d4c1bfa8b376ec50efc7b3cddc8d22a40e70892
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.date: 06/21/2019
+ms.openlocfilehash: daf5b97e4ac586f89e5964ee16ee73c86f59b01d
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341405"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329355"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analyser des données JSON et Avro dans Azure Stream Analytics
 
-Azure Stream Analytics prend en charge le traitement d’événements dans les formats de données CSV, JSON et Avro. Des données JSON et Avro peuvent contenir des types complexes, tels que des objets imbriqués (enregistrements) et des tableaux.
+Azure Stream Analytics prend en charge le traitement d’événements dans les formats de données CSV, JSON et Avro. Des données JSON et Avro peuvent être structurées et contenir certains types complexes, tels que des tableaux et objets (enregistrements) imbriqués. 
 
-## <a name="array-data-types"></a>Données de type tableau
-Les données de type tableau sont des collections ordonnées de valeurs. Certaines opérations courantes sur des valeurs de tableau sont décrites ci-dessous. Ces exemples supposent que les événements en entrée ont une propriété nommée « arrayField » qui est un type de données de tableau.
 
-Ces exemples utilisent les fonctions [GetArrayElement](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelement-azure-stream-analytics), [GetArrayElements](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelements-azure-stream-analytics) et [GetArrayLength](https://msdn.microsoft.com/azure/stream-analytics/reference/getarraylength-azure-stream-analytics), ainsi que l’opérateur [APPLY](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics).
 
-## <a name="examples"></a>Exemples
-Sélectionnez un élément de tableau à un index spécifié (en sélectionnant le premier élément du tableau) :
-
-```SQL
-SELECT
-    GetArrayElement(arrayField, 0) AS firstElement
-FROM input
-```
-
-Sélectionnez une longueur de tableau :
-
-```SQL
-SELECT
-    GetArrayLength(arrayField) AS arrayLength
-FROM input
-```
-
-Sélectionnez tous les éléments du tableau en tant qu’événements individuels. L’opérateur [APPLY](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) avec la fonction intégrée [GetArrayElements](https://msdn.microsoft.com/azure/stream-analytics/reference/getarrayelements-azure-stream-analytics) extrait tous les éléments du tableau en tant qu’événements individuels :
-
-```SQL
-SELECT
-    arrayElement.ArrayIndex,
-    arrayElement.ArrayValue
-FROM input as event
-CROSS APPLY GetArrayElements(event.arrayField) AS arrayElement
-```
 
 ## <a name="record-data-types"></a>Données de type enregistrement
 Des données de type enregistrement sont utilisées pour représenter des tableaux JSON et Avro quand des formats correspondants sont utilisés dans les flux de données en entrée. Ces exemples montrent un capteur qui lit les événements en entrée au format JSON. Voici un exemple d’événement unique :
@@ -67,23 +37,51 @@ Des données de type enregistrement sont utilisées pour représenter des tablea
         "Temperature" : 80,
         "Humidity" : 70,
         "CustomSensor01" : 5,
-        "CustomSensor02" : 99
+        "CustomSensor02" : 99,
+        "SensorMetadata" : 
+        {
+        "Manufacturer":"ABC",
+        "Version":"1.2.45"
+        }
     }
 }
 ```
 
-## <a name="examples"></a>Exemples
-Utilisez la notation par points (.) pour accéder aux champs imbriqués. Par exemple, cette requête sélectionne les coordonnées de latitude (Lat) et de longitude (Long) sous la propriété Locations dans les données du JSON précédent :
+
+### <a name="access-nested-fields-in-known-schema"></a>Accéder aux champs imbriqués dans un schéma connu
+Utilisez la notation par points (.) pour accéder facilement aux champs imbriqués, directement à partir de votre requête. Par exemple, cette requête sélectionne les coordonnées de latitude et de longitude sous la propriété Location dans les données de l’extrait JSON précédent. La notation par points peut servir à parcourir plusieurs niveaux, comme indiqué ci-dessous.
 
 ```SQL
 SELECT
     DeviceID,
     Location.Lat,
-    Location.Long
+    Location.Long,
+    SensorReadings.SensorMetadata.Version
 FROM input
 ```
 
-Utilisez la fonction [GetRecordPropertyValue](https://msdn.microsoft.com/azure/stream-analytics/reference/getrecordpropertyvalue-azure-stream-analytics) si le nom de propriété est inconnu. Par exemple, imaginez qu’un exemple de flux de données doive être joint avec des données de référence contenant des seuils pour chaque capteur :
+### <a name="select-all-properties"></a>Sélectionner toutes les propriétés
+Vous pouvez sélectionner toutes les propriétés d’un enregistrement imbriqué à l’aide du caractère générique «  * ». Considérez l'exemple suivant :
+
+```SQL
+SELECT input.Location.*
+FROM input
+```
+
+Le résultat est le suivant :
+
+```json
+{
+    "Lat" : 47,
+    "Long" : 122
+}
+```
+
+
+### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Accéder aux champs imbriqués lorsque le nom de la propriété est une variable
+Utilisez la fonction [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) si le nom de la propriété est une variable. 
+
+Par exemple, imaginez qu’un exemple de flux de données doive être joint à des données de référence contenant des seuils pour chaque capteur d’appareil. Un extrait de ce type de données de référence est reproduit ci-dessous.
 
 ```json
 {
@@ -97,15 +95,17 @@ Utilisez la fonction [GetRecordPropertyValue](https://msdn.microsoft.com/azure/s
 SELECT
     input.DeviceID,
     thresholds.SensorName
-FROM input
-JOIN thresholds
+FROM input      -- stream input
+JOIN thresholds -- reference data input
 ON
     input.DeviceId = thresholds.DeviceId
 WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
+    -- the where statement selects the property value coming from the reference data
 ```
 
-Pour convertir les champs d’enregistrement en événements distincts, utilisez l’opérateur [APPLIQUER](https://msdn.microsoft.com/azure/stream-analytics/reference/apply-azure-stream-analytics) avec la fonction [GetRecordProperties](https://msdn.microsoft.com/azure/stream-analytics/reference/getrecordproperties-azure-stream-analytics). Par exemple, pour convertir un exemple de flux en flux d’événements avec des lectures de capteurs individuels, vous pourriez utiliser la requête suivante :
+### <a name="convert-record-fields-into-separate-events"></a>Convertir les champs d’enregistrement en événements distincts
+Pour convertir les champs d’enregistrement en événements distincts, utilisez l’opérateur [APPLIQUER](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) avec la fonction [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics). Par exemple, si l’exemple précédent contenait plusieurs enregistrements pour SensorReading, la requête suivante pourrait servir à les extraire dans différents événements :
 
 ```SQL
 SELECT
@@ -116,23 +116,42 @@ FROM input as event
 CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading
 ```
 
-Vous pouvez sélectionner toutes les propriétés d’un enregistrement imbriqué à l’aide du caractère générique «  * ». Considérez l'exemple suivant :
+
+
+## <a name="array-data-types"></a>Données de type tableau
+
+Les données de type tableau sont des collections ordonnées de valeurs. Certaines opérations courantes sur des valeurs de tableau sont décrites ci-dessous. Ces exemples supposent que les événements en entrée ont une propriété nommée « arrayField » qui est un type de données de tableau.
+
+Ces exemples utilisent les fonctions [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) et [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics), ainsi que l’opérateur [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics).
+
+### <a name="working-with-a-specific-array-element"></a>Utilisation d’un élément de tableau spécifique
+Sélectionnez un élément de tableau à un index spécifié (en sélectionnant le premier élément du tableau) :
 
 ```SQL
-SELECT input.SensorReadings.*
+SELECT
+    GetArrayElement(arrayField, 0) AS firstElement
 FROM input
 ```
 
-Le résultat est le suivant :
+### <a name="select-array-length"></a>Sélection d’une longueur de tableau
 
-```json
-{
-    "Temperature" : 80,
-    "Humidity" : 70,
-    "CustomSensor01" : 5,
-    "CustomSensor022" : 99
-}
+```SQL
+SELECT
+    GetArrayLength(arrayField) AS arrayLength
+FROM input
 ```
 
+### <a name="convert-array-elements-into-separate-events"></a>Conversion des éléments de tableau en événements distincts
+Sélectionnez tous les éléments du tableau en tant qu’événements individuels. L’opérateur [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) avec la fonction intégrée [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) extrait tous les éléments du tableau en tant qu’événements individuels :
+
+```SQL
+SELECT
+    arrayElement.ArrayIndex,
+    arrayElement.ArrayValue
+FROM input as event
+CROSS APPLY GetArrayElements(event.arrayField) AS arrayElement
+```
+
+
 ## <a name="see-also"></a>Voir aussi
-[Types de données dans Azure Stream Analytics](https://msdn.microsoft.com/azure/stream-analytics/reference/data-types-azure-stream-analytics)
+[Types de données dans Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)

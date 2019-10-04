@@ -12,17 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 65d2a21a9f40470cee1dd9d713f9f9cb5431a245
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876834"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516700"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Configuration système requise pour StorSimple Virtual Array
-## <a name="overview"></a>Présentation
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
+## <a name="overview"></a>Vue d'ensemble
+
 Cet article décrit la configuration système requise importante pour Microsoft Azure StorSimple Virtual Array et pour les clients de stockage accédant au tableau. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre système Azure StorSimple, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
 Les conditions requises sont les suivantes :
@@ -52,7 +56,7 @@ La configuration logicielle requise inclut les informations sur les navigateurs 
 | --- | --- |
 | Nombre minimal de processeurs virtuels (cœurs) |4 |
 | Quantité minimale de mémoire (RAM) |8 Go <br> Pour un serveur de fichiers, 8 Go pour moins de 2 millions de fichiers et 16 Go pour 2 à 4 millions de fichiers|
-| Espace disque<sup>1</sup> |Disque de système d'exploitation - 80 Go  <br></br>Disque de données - 500 Go à 8 To |
+| Espace disque<sup>1</sup> |Disque de système d'exploitation - 80 Go <br></br>Disque de données - 500 Go à 8 To |
 | Nombre minimal d'interfaces réseau |1 |
 | Bande passante Internet<sup>2</sup> |Bande passante minimale requise : 5 Mbits/s <br> Bande passante recommandée : 100 Mbits/s <br> La vitesse de transfert des données varie selon la bande passante Internet. Par exemple, le transfert de 100 Go de données prend deux jours avec une bande passante de 5 Mbits/s. Cela peut entraîner des échecs de sauvegarde, car les sauvegardes quotidiennes ne peuvent pas dans ce cas s’effectuer en un seul jour. Avec une bande passante de 100 Mbits/s, le transfert de 100 Go de données s’effectue en deux heures et demie.   |
 
@@ -72,7 +76,7 @@ La configuration logicielle requise suivante concerne les initiateurs iSCSI qui 
 
 | **Systèmes d’exploitation pris en charge** | **Version requise** | **Conditions/remarques supplémentaires** |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2 |StorSimple peut créer des volumes alloués dynamiquement et de façon complète. Il ne peut pas créer des volumes alloués partiellement. Les volumes iSCSI StorSimple sont pris en charge uniquement pour :  <ul><li>Volumes simples sur des disques de base Windows.</li><li>Windows NTFS pour formater un volume.</li> |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2 |StorSimple peut créer des volumes alloués dynamiquement et de façon complète. Il ne peut pas créer des volumes alloués partiellement. Les volumes iSCSI StorSimple sont pris en charge uniquement pour : <ul><li>Volumes simples sur des disques de base Windows.</li><li>Windows NTFS pour formater un volume.</li> |
 
 La configuration logicielle requise suivante concerne les clients SMB qui accèdent à votre StorSimple Virtual Array (configuré comme un serveur de fichiers).
 
@@ -94,13 +98,13 @@ Le tableau ci-dessous répertorie les ports qui doivent être ouverts dans votre
 
 | **Numéro de port<sup>1</sup>** | **Entrant ou sortant** | **Étendue de ports** | **Obligatoire** | **Remarques** |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP) |Sortie |WAN |Non  |Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
-| TCP 443 (HTTPS) |Sortie |WAN |Oui |Le port de sortie est utilisé pour accéder aux données dans le cloud. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
+| TCP 80 (HTTP) |Sortie |WAN |Non |Le port de sortie est utilisé pour accéder à Internet afin de récupérer les mises à jour. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
+| TCP 443 (HTTPS) |Sortie |WAN |OUI |Le port de sortie est utilisé pour accéder aux données dans le cloud. <br></br>Le proxy web sortant est configurable par l’utilisateur. |
 | UDP 53 (DNS) |Sortie |WAN |Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur DNS Internet. <br></br> Notez que si vous déployez un serveur de fichiers, nous recommandons l’utilisation d’un serveur DNS local. |
 | UDP 123 (NTP) |Sortie |WAN |Dans certains cas, consultez les notes. |Ce port est requis seulement si vous utilisez un serveur NTP Internet.<br></br> Notez que si vous déployez un serveur de fichiers, nous vous recommandons de synchroniser l’heure avec vos contrôleurs de domaine Active Directory. |
-| TCP 80 (HTTP) |Dans |LAN |Oui |Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. <br></br> Notez que l’accès à l’interface utilisateur locale par le biais du protocole HTTP est automatiquement redirigé vers HTTPS. |
-| TCP 443 (HTTPS) |Dans |LAN |Oui |Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. |
-| TCP 3260 (iSCSI) |Dans |LAN |Non  |Ce port est utilisé pour accéder aux données via iSCSI. |
+| TCP 80 (HTTP) |Dans |LAN |OUI |Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. <br></br> Notez que l’accès à l’interface utilisateur locale par le biais du protocole HTTP est automatiquement redirigé vers HTTPS. |
+| TCP 443 (HTTPS) |Dans |LAN |OUI |Il s'agit du port d'entrée pour l'interface utilisateur locale de l'appareil StorSimple pour la gestion locale. |
+| TCP 3260 (iSCSI) |Dans |LAN |Non |Ce port est utilisé pour accéder aux données via iSCSI. |
 
 <sup>1</sup> Aucun port entrant ne doit être ouvert sur l’Internet public.
 

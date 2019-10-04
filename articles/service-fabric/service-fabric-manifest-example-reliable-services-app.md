@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: xml
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 6c4c8f0ee6aa12c58e02f71b42312cd6872076aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: a5678b4c4c0f7a9d8d3f3cf6e838580de2059a8f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665965"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035649"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exemples de manifestes d’application de services fiables et de service
 Voici quelques exemples de manifestes d’applications et de services pour une application Service Fabric avec un serveur web ASP.NET Core frontal et un serveur backend avec état. Ces exemples ont pour but de vous montrer les paramètres disponibles et leur utilisation. Ces manifestes d’applications et de services sont basés sur les manifestes du [guide de démarrage rapide Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).

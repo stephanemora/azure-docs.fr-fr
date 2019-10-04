@@ -1,29 +1,26 @@
 ---
 title: Haute disponibilité pour Hadoop - Azure HDInsight
 description: Découvrez comment les clusters HDInsight améliorent la fiabilité et la disponibilité en utilisant un nœud principal supplémentaire. Découvrez dans quelle mesure les services Hadoop tels qu’Ambari et Hive sont concernés, et comment se connecter à chaque nœud principal via SSH.
-services: hdinsight
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 keywords: haute disponibilité hadoop
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 03/22/2018
-ms.author: hrasheed
-ms.openlocfilehash: ca6b072ba81f55802bc01d61ed44b06680cedbb2
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.date: 04/24/2019
+ms.openlocfilehash: 615b1e4c5684084b6c5f88d26293b993c1efbf1f
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361997"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104421"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight
 
 Les clusters HDInsight fournissent deux nœuds principaux afin d’augmenter la disponibilité et la fiabilité des services et travaux Apache Hadoop en cours d’exécution.
 
 Hadoop garantit de hauts niveaux de disponibilité et de fiabilité en répliquant des services et données sur plusieurs nœuds d’un cluster. Toutefois, les distributions standard de Hadoop ne comportent généralement qu’un seul nœud principal. Toute défaillance du nœud principal unique peut entraîner un arrêt de fonctionnement du cluster. HDInsight fournit deux nœuds principaux pour améliorer la disponibilité et la fiabilité de Hadoop.
-
-[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>Disponibilité et fiabilité des nœuds
 
@@ -97,7 +94,7 @@ Vous pouvez vous connecter aux nœuds qui ne sont pas directement accessibles su
 
 * **Tunnel SSH** : si vous avez besoin d’accéder à un service web hébergé sur un des nœuds qui n’est pas exposé à Internet, vous devez utiliser un tunnel SSH. Pour plus d’informations, consultez le document [Utiliser un tunnel SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-* **Réseau virtuel Azure** : si votre cluster HDInsight fait partie intégrante d’un réseau virtuel Azure, toutes les ressources du même réseau virtuel peuvent accéder directement à tous les nœuds du cluster. Pour plus d’informations, consultez le document [Étendre HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md).
+* **Réseau virtuel Azure** : si votre cluster HDInsight fait partie intégrante d’un réseau virtuel Azure, toutes les ressources du même réseau virtuel peuvent accéder directement à tous les nœuds du cluster. Pour plus d’informations, consultez le document [Planifier un réseau virtuel pour HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="how-to-check-on-a-service-status"></a>Comment contrôler  l'état d'un service
 
@@ -105,64 +102,64 @@ Pour vérifier l’état des services qui s’exécutent sur les nœuds principa
 
 ### <a name="ambari-web-ui"></a>Interface utilisateur web d'Ambari
 
-L’interface utilisateur web d’Ambari est visible à l’adresse https://CLUSTERNAME.azurehdinsight.net. Remplacez **CLUSTERNAME** par le nom de votre cluster. Si vous y êtes invité, saisissez les informations d'identification utilisateur de votre cluster. Le nom d'utilisateur HTTP par défaut est **admin** et le mot de passe est le mot de passe que vous avez saisi lors de la création du cluster.
+L’interface utilisateur web d’Ambari est visible à l’adresse `https://CLUSTERNAME.azurehdinsight.net`. Remplacez **CLUSTERNAME** par le nom de votre cluster. Si vous y êtes invité, saisissez les informations d'identification utilisateur de votre cluster. Le nom d'utilisateur HTTP par défaut est **admin** et le mot de passe est le mot de passe que vous avez saisi lors de la création du cluster.
 
 Lorsque vous arrivez sur la page Ambari, les services installés apparaissent à gauche de la page.
 
-![Services installés](./media/hdinsight-high-availability-linux/services.png)
+![Apache Ambari - Services installés](./media/hdinsight-high-availability-linux/hdinsight-installed-services.png)
 
 Une série d'icônes s'affichent en regard d'un service pour indiquer son état. Des alertes liées à un service peuvent être affichées à l'aide du lien **Alertes** situé en haut de la page.  Ambari offre plusieurs alertes prédéfinies.
 
-Les alertes suivantes aident à surveiller la disponibilité d’un cluster :
+Les alertes suivantes aident à superviser la disponibilité d’un cluster :
 
 | Nom de l’alerte                               | Description                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| État de surveillance de métrique                    | Cette alerte indique l’état du processus d’analyse des métriques tel que déterminé par le script d’état du moniteur.                                                                                   |
-| Pulsation des agents d’Ambari                   | Cette alerte est déclenchée si le serveur a perdu le contact avec un agent.                                                                                                                        |
-| Processus de serveur zooKeeper                 | Cette alerte de niveau de l’hôte est déclenchée si le processus de serveur ZooKeeper ne peut pas être considéré comme étant des et à l’écoute sur le réseau.                                                               |
-| État du serveur IOCache métadonnées           | Cette alerte de niveau de l’hôte est déclenchée si le serveur de métadonnées IOCache ne peut pas être considéré comme étant des et répond aux demandes des clients                                                            |
-| JournalNode Web UI                       | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web de JournalNode est inaccessible.                                                                                                                 |
-| Serveur Thrift Spark2                     | Cette alerte de niveau de l’hôte est déclenchée si le serveur Thrift Spark2 ne peut pas être déterminé soient opérationnels.                                                                                                |
-| Processus de serveur de l’historique                   | Cette alerte de niveau de l’hôte est déclenchée si le processus de serveur d’historique ne peut pas être établie soient opérationnels et à l’écoute sur le réseau.                                                                |
-| Interface utilisateur de l’historique des serveur Web                    | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur de l’historique des serveur Web est inaccessible.                                                                                                              |
-| Interface utilisateur Web de ResourceManager                   | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web de ResourceManager est inaccessible.                                                                                                             |
-| Synthèse des États de NodeManager               | Cette alerte de niveau de service est déclenchée s’il existe des NodeManagers défectueux                                                                                                                    |
-| Interface utilisateur Web de Timeline application                      | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web d’application chronologie serveur est inaccessible.                                                                                                         |
-| Récapitulatif d’intégrité DataNode                  | Cette alerte de niveau de service est déclenchée si y est DataNodes défectueux                                                                                                                       |
-| Interface utilisateur Web de NameNode                          | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web de NameNode est inaccessible.                                                                                                                    |
-| Processus de basculer le contrôleur de zooKeeper    | Cette alerte de niveau de l’hôte est déclenchée si le processus du contrôleur de basculement ZooKeeper ne peut pas être confirmé soient opérationnels et à l’écoute sur le réseau.                                                   |
-| Oozie Server Web UI                      | Cette alerte de niveau de l’hôte est déclenchée si le serveur Oozie l’interface utilisateur Web est inaccessible.                                                                                                                |
-| État du serveur Oozie                      | Cette alerte de niveau de l’hôte est déclenchée si le serveur Oozie ne peut pas être considéré comme étant des et répond aux demandes des clients.                                                                      |
-| Processus de Metastore Hive                   | Cette alerte de niveau de l’hôte est déclenchée si le processus de Metastore Hive ne peut pas être considéré comme étant des et à l’écoute sur le réseau.                                                                 |
-| Processus de HiveServer2                      | Cette alerte de niveau de l’hôte est déclenchée si le Hive ne peut pas être considéré comme étant des et répond aux demandes des clients.                                                                        |
-| État du serveur WebHCat                    | Cette alerte de niveau de l’hôte est déclenchée si l’état du serveur templeton n’est pas sain.                                                                                                            |
-| Serveurs ZooKeeper pourcentage disponibles      | Cette alerte est déclenchée si le nombre de serveurs ZooKeeper dans le cluster est supérieur au seuil critique configuré. Il regroupe les résultats des vérifications de processus ZooKeeper.     |
-| Spark2 Livy Server                       | Cette alerte de niveau de l’hôte est déclenchée si le serveur Livy2 ne peut pas être déterminé soient opérationnels.                                                                                                        |
-| Serveur d’historique Spark2                    | Cette alerte de niveau de l’hôte est déclenchée si le serveur d’historique Spark2 ne peut pas être déterminé soient opérationnels.                                                                                               |
-| Processus de collecteur de métriques                | Cette alerte est déclenchée si le collecteur de métriques ne peut pas être confirmé soient opérationnels et à l’écoute sur le port configuré pour le nombre de secondes égales au seuil.                                 |
-| Collecteur de métriques - HBase Master processus | Cette alerte est déclenchée si les processus maîtres du collecteur de métriques HBase ne peut pas être confirmé soient opérationnels et à l’écoute sur le réseau pour le seuil critique configuré, exprimée en secondes. |
-| Analyses de métriques pourcentage disponibles       | Cette alerte est déclenchée si un pourcentage métriques du moniteur de processus ne sont opérationnel et à l’écoute sur le réseau pour les seuils critiques et d’avertissement configuré.                             |
-| NodeManagers pourcentage disponible           | Cette alerte est déclenchée si le nombre de bas NodeManagers dans le cluster est supérieur au seuil critique configuré. Il regroupe les résultats des vérifications de processus NodeManager.        |
-| Contrôle d’intégrité de NodeManager                       | Cette alerte de niveau de l’hôte vérifie la propriété de contrôle d’intégrité de nœud disponible à partir du composant de NodeManager.                                                                                              |
-| Interface utilisateur Web de NodeManager                       | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web de NodeManager est inaccessible.                                                                                                                 |
-| Intégrité de la disponibilité élevée de NameNode        | Cette alerte de niveau de service est déclenchée si NameNode actifs ou du NameNode de secours n’est pas exécutés.                                                                                     |
-| Processus de DataNode                         | Cette alerte de niveau de l’hôte est déclenchée si les processus DataNode individuels ne peut pas être établie soient opérationnels et à l’écoute sur le réseau.                                                         |
-| Interface utilisateur Web de DataNode                          | Cette alerte de niveau de l’hôte est déclenchée si l’interface utilisateur Web de DataNode est inaccessible.                                                                                                                    |
-| JournalNodes pourcentage disponible           | Cette alerte est déclenchée si le nombre de JournalNodes vers le bas dans le cluster est supérieur au seuil critique configuré. Il regroupe les résultats des vérifications de processus JournalNode.        |
-| DataNodes pourcentage disponible              | Cette alerte est déclenchée si le nombre de DataNodes vers le bas dans le cluster est supérieur au seuil critique configuré. Il regroupe les résultats des vérifications de processus DataNode.              |
-| État du serveur Zeppelin                   | Cette alerte de niveau de l’hôte est déclenchée si le serveur de Zeppelin ne peut pas être considéré comme étant des et répond aux demandes des clients.                                                                   |
-| Processus interactif de HiveServer2          | Cette alerte de niveau de l’hôte est déclenchée si le HiveServerInteractive ne peut pas être considéré comme étant des et répond aux demandes des clients.                                                             |
-| Application de LLAP                         | Cette alerte est déclenchée si l’Application LLAP ne peut pas être considéré comme étant des et répond aux demandes.                                                                                    |
+| Metric Monitor Status                    | Cette alerte indique l’état du processus de supervision des métriques, tel que déterminé par le script d’état de la supervision.                                                                                   |
+| Ambari Agent Heartbeat                   | Cette alerte est déclenchée si le serveur a perdu le contact avec un agent.                                                                                                                        |
+| ZooKeeper Server Process                 | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que le processus du serveur ZooKeeper est opérationnel et à l’écoute sur le réseau.                                                               |
+| IOCache Metadata Server Status           | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que le serveur de métadonnées IOCache est opérationnel et répond aux demandes des clients.                                                            |
+| JournalNode Web UI                       | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web de JournalNode est inaccessible.                                                                                                                 |
+| Spark2 Thrift Server                     | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que le serveur Thrift Spark2 est opérationnel.                                                                                                |
+| History Server Process                   | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible d’établir que le processus du serveur d’historique est opérationnel et à l’écoute sur le réseau.                                                                |
+| History Server Web UI                    | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web du serveur d’historique est inaccessible.                                                                                                              |
+| ResourceManager Web UI                   | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web de ResourceManager est inaccessible.                                                                                                             |
+| NodeManager Health Summary               | Cette alerte au niveau du service est déclenchée si des NodeManagers ne sont pas sains                                                                                                                    |
+| App Timeline Web UI                      | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web de chronologie d’application est inaccessible.                                                                                                         |
+| DataNode Health Summary                  | Cette alerte au niveau du service est déclenchée si des DataNodes ne sont pas sains                                                                                                                       |
+| NameNode Web UI                          | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web de NameNode est inaccessible.                                                                                                                    |
+| ZooKeeper Failover Controller Process    | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de confirmer que le processus du contrôleur de basculement ZooKeeper est opérationnel et à l’écoute sur le réseau.                                                   |
+| Oozie Server Web UI                      | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web du serveur Oozie est inaccessible.                                                                                                                |
+| Oozie Server Status                      | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que le serveur Oozie est opérationnel et répond aux demandes des clients.                                                                      |
+| Hive Metastore Process                   | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que le processus Hive Metastore est opérationnel et à l’écoute sur le réseau.                                                                 |
+| HiveServer2 Process                      | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que le serveur Hive est opérationnel et répond aux demandes des clients.                                                                        |
+| WebHCat Server Status                    | Cette alerte au niveau de l’hôte est déclenchée si l’état du serveur templeton n’est pas sain.                                                                                                            |
+| Percent ZooKeeper Servers Available      | Cette alerte est déclenchée si le nombre de serveurs ZooKeeper en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications des processus ZooKeeper.     |
+| Spark2 Livy Server                       | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que le serveur Livy2 est opérationnel.                                                                                                        |
+| Spark2 History Server                    | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que le serveur d’historique Spark2 est opérationnel.                                                                                               |
+| Metrics Collector Process                | Cette alerte est déclenchée s’il n’est pas possible de confirmer que le collecteur de métriques est opérationnel et à l’écoute sur le port configuré pendant un nombre de secondes égal au seuil.                                 |
+| Metrics Collector - HBase Master Process | Cette alerte est déclenchée s’il n’est pas possible de confirmer que processus maîtres HBase du collecteur de métriques sont opérationnels et à l’écoute sur le réseau pour le seuil critique configuré, exprimé en secondes. |
+| Percent Metrics Monitors Available       | Cette alerte est déclenchée si un pourcentage des processus de supervision des métriques ne sont pas opérationnels et à l’écoute sur le réseau pour les seuils critiques et d’avertissement configurés.                             |
+| Percent NodeManagers Available           | Cette alerte est déclenchée si le nombre de NodeManagers en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications des processus NodeManager.        |
+| NodeManager Health                       | Cette alerte au niveau de l’hôte vérifie la propriété de contrôle d’intégrité du nœud disponible à partir du composant de NodeManager.                                                                                              |
+| NodeManager Web UI                       | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web de NodeManager est inaccessible.                                                                                                                 |
+| NameNode High Availability Health        | Cette alerte au niveau du service est déclenchée si Active NameNode ou Standby NameNode ne sont pas en cours d’exécution.                                                                                     |
+| DataNode Process                         | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible d’établir que le processus DataNode individuel est opérationnel et à l’écoute sur le réseau.                                                         |
+| DataNode Web UI                          | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web de DataNode est inaccessible.                                                                                                                    |
+| Percent JournalNodes Available           | Cette alerte est déclenchée si le nombre de JournalNodes en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications de processus JournalNode.        |
+| Percent DataNodes Available (Pourcentage de DataNodes disponibles)              | Cette alerte est déclenchée si le nombre de DataNodes en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications des processus DataNode.              |
+| Zeppelin Server Status                   | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que le serveur Zeppelin est opérationnel et répond aux demandes des clients.                                                                   |
+| HiveServer2 Interactive Process          | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de déterminer que HiveServerInteractive est opérationnel et répond aux demandes des clients.                                                             |
+| LLAP Application                         | Cette alerte est déclenchée s’il n’est pas possible de déterminer que l’application LLAP est opérationnelle et répond aux demandes.                                                                                    |
 
 Vous pouvez sélectionner chaque service pour afficher plus d'informations sur ce dernier.
 
 La page de service fournit des informations sur l'état et la configuration de chaque service. Il ne fournit pas d'informations sur le nœud principal sur lequel le service s'exécute. Pour afficher ces informations, utilisez le lien **Hôtes** en haut de la page. Cette page affiche les hôtes au sein du cluster, notamment les nœuds principaux.
 
-![liste des hôtes](./media/hdinsight-high-availability-linux/hosts.png)
+![Apache Ambari - Liste des hôtes, nœuds principaux](./media/hdinsight-high-availability-linux/hdinsight-hosts-list.png)
 
 Sélectionner le lien de l’un des nœuds principaux permet d’afficher les services et les composants qui s’exécutent sur ce nœud.
 
-![État du composant](./media/hdinsight-high-availability-linux/nodeservices.png)
+![Apache Ambari - État des composants](./media/hdinsight-high-availability-linux/hdinsight-node-services.png)
 
 Pour plus d’informations sur l’utilisation d’Ambari, consultez [Surveiller et gérer HDInsight avec l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
@@ -244,31 +241,29 @@ Pour obtenir la liste des commandes disponibles, entrez `help` au niveau de l’
 
 Dans l’interface utilisateur web d’Ambari, sélectionnez le service dont vous souhaitez afficher les journaux d’activité (par exemple, YARN). Utilisez ensuite les **liens rapides** pour sélectionner le nœud principal pour lequel vous souhaitez afficher les journaux d’activité.
 
-![Utilisation des liens rapides pour afficher les journaux d’activité](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Utilisation des liens rapides pour afficher les journaux d’activité](./media/hdinsight-high-availability-linux/quick-links-view-logs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>Configuration de la taille des nœuds
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 La taille d’un nœud n’est sélectionnable que lors de la création du cluster. Pour obtenir la liste des différentes tailles de machine virtuelle disponibles pour HDInsight, voir la page [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Lisez les informations suivantes pour savoir comment définir la taille dans le [portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et [Azure Classic CLI][azure-cli] :
+Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Les informations suivantes aident à déterminer comment spécifier la taille avec le [portail Azure][preview-portal], le [module Azure PowerShell Az][azure-powershell] et [Azure CLI][azure-cli] :
 
 * **Portail Azure**: lors de la création d’un cluster, vous pouvez définir la taille des nœuds utilisés par le cluster :
 
-    ![Image de l'Assistant de création de cluster avec sélection de taille de nœud](./media/hdinsight-high-availability-linux/headnodesize.png)
+    ![Image de l'Assistant de création de cluster avec sélection de taille de nœud](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
 
-* **Azure CLI Classic** : lorsque vous utilisez la commande `azure hdinsight cluster create`, vous pouvez définir la taille des nœuds principaux, worker et ZooKeeper en utilisant les paramètres `--headNodeSize`, `--workerNodeSize` et `--zookeeperNodeSize`.
+* **Azure CLI** : Quand vous utilisez la commande [az hdinsight create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create), vous pouvez définir la taille des nœuds principaux, worker et ZooKeeper en utilisant les paramètres `--headnode-size`, `--workernode-size` et `--zookeepernode-size`.
 
-* **Azure PowerShell**: lorsque vous utilisez l’applet de commande `New-AzHDInsightCluster`, vous pouvez définir la taille des nœuds principaux, worker et ZooKeeper en utilisant les paramètres `-HeadNodeVMSize`, `-WorkerNodeSize` et `-ZookeeperNodeSize`.
+* **Azure PowerShell**: Quand vous utilisez l’applet de commande [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster), vous pouvez définir la taille des nœuds principaux, worker et ZooKeeper en utilisant les paramètres `-HeadNodeSize`, `-WorkerNodeSize` et `-ZookeeperNodeSize`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Utilisez les liens suivants pour en savoir plus sur les éléments mentionnés dans ce document.
 
 * [Informations de référence sur REST Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Installer et configurer Azure Classic CLI](../cli-install-nodejs.md)
-* [Installation et configuration d'Azure PowerShell](/powershell/azure/overview)
+* [Installation et configuration Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Installer et configurer le module Azure PowerShell Az](/powershell/azure/overview)
 * [Gestion de HDInsight avec Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Approvisionnement de clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md)
 

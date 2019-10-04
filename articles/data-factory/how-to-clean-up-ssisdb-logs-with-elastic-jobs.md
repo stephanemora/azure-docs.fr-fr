@@ -13,11 +13,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 1afc40bd601c06def57ae59797d31a5edf4095bd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57430915"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61345553"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Nettoyer les journaux d’activité SSISDB avec les travaux de base de données élastique Azure
 
@@ -161,7 +161,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 Les exemples de scripts Transact-SQL suivants créent un nouveau travail élastique pour déclencher la procédure stockée de nettoyage du journal SSISDB. Pour plus d’informations, consultez [Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique](../sql-database/elastic-jobs-tsql.md).
 
-1. Créez ou identifiez un S0 vide ou une Azure SQL Database de niveau supérieur comme base de données des travaux SSISDBCleanup. Créez ensuite un agent de travail élastique dans le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
+1. Créez ou identifiez une base de données Azure SQL S0 ou supérieur vide comme base de données des travaux SSISDBCleanup. Créez ensuite un agent de travail élastique dans le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
 2. Dans la base de données des travaux, créez des informations d’identification pour le travail de nettoyage du journal SSISDB. Ces informations d’identification sont utilisées pour se connecter à votre base de données SSISDB dans le but de nettoyer les journaux d’activité.
 

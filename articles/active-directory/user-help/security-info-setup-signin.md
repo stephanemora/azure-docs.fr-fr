@@ -9,17 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 705e3818aef0338d9b34da7b0320b99594573fca
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123604"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985979"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurer des informations de sécurité (préversion) à partir de l’invite de la page de connexion
+
 Vous pouvez suivre ces étapes si vous êtes invité à définir des informations de sécurité immédiatement après vous être connecté à votre compte professionnel ou scolaire.
 
 Cette invite apparaît uniquement si vous n’avez pas configuré les informations de sécurité demandées par votre organisation. Si vous avez déjà configuré vos informations de sécurité et que vous souhaitez les changer, suivez les étapes décrites dans les différents articles de procédure fondés sur une méthode. Pour plus d’informations, consultez la [vue d’ensemble décrivant comment ajouter ou mettre à jour vos informations de sécurité](security-info-add-update-methods-overview.md).
@@ -27,11 +28,13 @@ Cette invite apparaît uniquement si vous n’avez pas configuré les informatio
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>Se connecter à votre compte professionnel ou scolaire
+
 Une fois connecté à votre compte professionnel ou scolaire, vous êtes invité à fournir plus d’informations avant de pouvoir accéder à votre compte.
 
 ![Invite demandant des informations supplémentaires](media/security-info/securityinfo-prompt.png)
 
 ## <a name="set-up-your-security-info-using-the-wizard"></a>Configurer des informations de sécurité à l’aide de l’Assistant
+
 Suivez ces étapes pour configurer les informations de sécurité de votre compte professionnel ou scolaire à partir de l’invite.
 
 >[!Important]
@@ -41,7 +44,7 @@ Suivez ces étapes pour configurer les informations de sécurité de votre compt
 
    > [!Note]
    > Si vous souhaitez utiliser une application d’authentification autre que Microsoft Authenticator, sélectionnez le lien **Je souhaite utiliser une autre application d’authentification**.
-   > 
+   >
    > Si votre organisation vous permet de choisir une autre méthode en plus de l’application d’authentification, vous pouvez sélectionner **Je veux configurer une autre méthode**.
 
     ![Page de téléchargement de l’application Authenticator dans l’Assistant Protéger votre compte](media/security-info/securityinfo-prompt-get-auth-app.png)
@@ -54,6 +57,9 @@ Suivez ces étapes pour configurer les informations de sécurité de votre compt
 
 4. Ouvrez l’application Microsoft Authenticator, choisissez d’autoriser les notifications (si vous y êtes invité), sélectionnez **Ajouter un compte** grâce à l’icône **Personnaliser et contrôler** dans l’angle supérieur droit, puis sélectionnez **Compte professionnel ou scolaire**.
 
+    >[!Note]
+    >S’il s’agit de la première fois que vous configurez l’application Microsoft Authenticator, vous pouvez recevoir une invite vous demandant si vous souhaitez autoriser l’application à accéder à votre appareil photo (iOS) ou à prendre des photos et à enregistrer des vidéos (Android). Sélectionnez **Autoriser** pour que l’application Authenticator puisse accéder à votre appareil photo pour prendre une photo du code QR à l’étape suivante. Si vous n’autorisez pas l’accès à l’appareil photo, vous pouvez toujours installer l’application Authenticator, mais vous devrez ajouter les informations de code manuellement. Pour plus d’informations sur l’ajout manuel du code, consultez [Ajout manuel d’un compte à l’application](user-help-auth-app-add-account-manual.md).
+
 5. Revenez à la page **Configurer votre compte** sur votre ordinateur, puis sélectionnez **Suivant**.
 
     La page **Scanner le code QR** s’affiche.
@@ -62,7 +68,7 @@ Suivez ces étapes pour configurer les informations de sécurité de votre compt
 
 6. Scannez le code fourni à l’aide du lecteur de code QR d’application de Microsoft Authenticator qui apparaît sur votre appareil mobile après la création de votre compte professionnel ou scolaire à l’étape 5.
 
-    L’application Authenticator doit ajouter votre compte professionnel ou scolaire sans exiger d’informations supplémentaires de votre part. Toutefois, si le lecteur de code QR ne parvient pas à lire le code, vous pouvez sélectionner le lien **Impossible de scanner le code QR** et entrer manuellement le code et l’URL dans l’application Microsoft Authenticator. Pour plus d’informations sur l’ajout manuel d’un code, consultez [Ajouter manuellement un compte à l’application](user-help-auth-app-add-account-manual.md).
+    L’application d’authentification doit ajouter votre compte professionnel ou scolaire sans exiger d’informations supplémentaires de votre part. Toutefois, si le lecteur de code QR ne parvient pas à lire le code, vous pouvez sélectionner le lien **Impossible de scanner l’image QR** et entrer manuellement le code et l’URL dans l’application Microsoft Authenticator. Pour plus d’informations sur l’ajout manuel d’un code, consultez [Ajouter manuellement un compte à l’application](user-help-auth-app-add-account-manual.md).
 
 7. Sélectionnez **Suivant** dans la page **Scanner le code QR** sur votre ordinateur.
 
@@ -72,7 +78,7 @@ Suivez ces étapes pour configurer les informations de sécurité de votre compt
 
 8. Approuvez la notification dans l’application Microsoft Authenticator, puis sélectionnez **Suivant**.
 
-    ![Notification de réussite, connexion de l’application et de votre compte](media/security-info/securityinfo-prompt-auth-app-success.png).
+    ![Notification de réussite, connexion de l’application et de votre compte](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     Vos informations de sécurité sont mises à jour pour utiliser l’application Microsoft Authenticator par défaut et vérifier votre identité quand vous utilisez la vérification en deux étapes ou la réinitialisation de mot de passe.
 
@@ -95,6 +101,40 @@ Suivez ces étapes pour configurer les informations de sécurité de votre compt
 12. Passez en revue la page **Réussite** pour vérifier que vous avez correctement configuré l’application Microsoft Authenticator et une méthode (SMS ou appel téléphonique) pour vos informations de sécurité, puis sélectionnez **Terminé** .
 
     ![Page de réussite de l’Assistant](media/security-info/securityinfo-prompt-setup-success.png)
+
+    >[!Note]
+    >Si votre organisation vous impose d’utiliser des mots de passe d’application, cet Assistant peut présenter une section supplémentaire vous permettant de les configurer. Si une troisième section intitulée **Mots de passe d’application** s’affiche, vous devez la renseigner pour pouvoir suivre l’Assistant. Pour consulter la procédure d’ajout de mot de passe d’application, reportez-vous à la section [Gérer les mots de passe d’application](#manage-your-app-passwords) de cet article.
+
+### <a name="manage-your-app-passwords"></a>Gérer les mots de passe d’application
+
+Certaines applications, telles qu’Outlook 2010, ne prennent pas en charge la vérification en deux étapes. Cela signifie que si vous utilisez la vérification en deux étapes dans votre organisation, l’application ne fonctionnera pas. Pour contourner ce problème, vous pouvez créer un mot de passe généré automatiquement, distinct de votre mot de passe normal, que vous devrez utiliser avec chaque application sans navigateur.
+
+>[!Note]
+>Si vous ne voyez pas cette option dans l’Assistant, cela signifie que votre administrateur ne l’a pas configurée. Dans ce cas, si vous savez que vous devez utiliser des mots de passe d’application, vous pouvez procéder comme indiqué dans [Définir les mots de passe d’application à partir de la page Informations de sécurité (préversion)](security-info-app-passwords.md).
+
+Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit les points suivants :
+
+- Les mots de passe d’application sont générés automatiquement et ne sont entrés qu’une seule fois par application.
+
+- Un utilisateur peut posséder jusqu’à 40 mots de passe. Si vous essayez de créer un mot de passe supplémentaire au-delà de cette limite, vous serez invité à supprimer un mot de passe existant avant d’être autorisé à en créer un autre.
+
+- Utilisez un mot de passe d’application par appareil, et non par application. Par exemple, créez un mot de passe unique pour toutes les applications de votre ordinateur portable, et un autre mot de passe unique pour toutes les applications de votre Bureau.
+
+#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>Pour ajouter des mots de passe d’application dans l’Assistant de connexion
+
+1. Après avoir terminé les sections précédentes de l’Assistant, sélectionnez **Suivant** et renseignez la section **Mot de passe d’application**.
+
+2. Tapez le nom de l’application qui nécessite le mot de passe, par exemple `Outlook 2010`, puis sélectionnez **Suivant**.
+
+    ![Ajouter le nom du mot de passe d’application dans l’Assistant](media/security-info/app-password-app-password.png)
+
+3. Copiez le code de mot de passe à partir de l’écran **Mot de passe d’application** et collez-le dans la zone **Mot de passe** de l’application (dans cet exemple, Outlook 2010).
+
+    ![Page Mot de passe d’application avec le mot de passe à copier](media/security-info/app-password-copy-password.png)
+
+4. Une fois que vous avez copié le mot de passe et que vous l’avez collé dans l’application, revenez à cet Assistant pour vous assurer que toutes les informations de la méthode de connexion sont exactes, puis sélectionnez **Terminé**.
+
+    ![Page Mot de passe d’application avec notification de réussite](media/security-info/app-password-complete.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

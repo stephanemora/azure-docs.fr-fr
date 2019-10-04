@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66399197"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Créer des artefacts personnalisés pour votre machine virtuelle DevTest Labs
 
@@ -29,7 +29,7 @@ Regardez la vidéo suivante pour avoir une vue d’ensemble de la procédure dé
 >
 >
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Vous pouvez utiliser des *artefacts* pour déployer et configurer votre application après avoir approvisionné une machine virtuelle. Un artefact se compose d’un fichier de définition d’artefact et autres fichiers de script qui sont stockés dans un dossier de dépôt Git. Les fichiers de définition d'artefact se composent de JSON et d'expressions que vous pouvez utiliser pour spécifier ce que vous voulez installer sur une machine virtuelle. Par exemple, vous pouvez définir le nom d’un artefact, une commande à exécuter et des paramètres disponibles quand la commande est exécutée. Vous pouvez faire référence à d'autres fichiers de script dans le fichier de définition d'artefact par nom.
 
 ## <a name="artifact-definition-file-format"></a>Format de fichier de définition d'artefact
@@ -55,13 +55,13 @@ L'exemple suivant indique les sections qui composent la structure de base d'un f
 
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
-| $schema |Non  |Emplacement du fichier de schéma JSON. Le fichier de schéma JSON peut vous aider à tester la validité du fichier de définition. |
-| title |Oui |Nom de l'artefact affiché dans le laboratoire. |
-| description |Oui |Description de l'artefact affiché dans le laboratoire. |
-| iconUri |Non  |URI de l’icône affichée dans le laboratoire. |
-| targetOsType |Oui |Système d’exploitation de la machine virtuelle où l’artefact est installé. Les options prises en charge sont Windows et Linux. |
-| parameters |Non  |Valeurs fournies quand la commande d’installation d’artefact est exécutée sur une machine. Cela vous permet de personnaliser votre artefact. |
-| runCommand |Oui |Commande d'installation d'artefact qui est exécutée sur une machine virtuelle. |
+| $schema |Non |Emplacement du fichier de schéma JSON. Le fichier de schéma JSON peut vous aider à tester la validité du fichier de définition. |
+| title |OUI |Nom de l'artefact affiché dans le laboratoire. |
+| description |OUI |Description de l'artefact affiché dans le laboratoire. |
+| iconUri |Non |URI de l’icône affichée dans le laboratoire. |
+| targetOsType |OUI |Système d’exploitation de la machine virtuelle où l’artefact est installé. Les options prises en charge sont Windows et Linux. |
+| parameters |Non |Valeurs fournies quand la commande d’installation d’artefact est exécutée sur une machine. Cela vous permet de personnaliser votre artefact. |
+| runCommand |OUI |Commande d'installation d'artefact qui est exécutée sur une machine virtuelle. |
 
 ### <a name="artifact-parameters"></a>Paramètres d'artefact
 Dans la section des paramètres du fichier de définition, spécifiez les valeurs qu’un utilisateur peut entrer quand il installe un artefact. Vous pouvez faire référence à ces valeurs dans la commande d'installation d'artefact.
@@ -78,9 +78,9 @@ Pour définir des paramètres, utilisez la structure suivante :
 
 | Nom de l'élément | Requis ? | Description |
 | --- | --- | --- |
-| Type |Oui |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
-| displayName |Oui |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. |
-| description |Oui |Description du paramètre qui est affiché dans le laboratoire. |
+| type |OUI |Type de la valeur du paramètre. Consultez la liste suivante des types autorisés. |
+| displayName |OUI |Nom du paramètre qui est affiché à un utilisateur dans le laboratoire. |
+| description |OUI |Description du paramètre qui est affiché dans le laboratoire. |
 
 Les types autorisés sont :
 
@@ -89,10 +89,35 @@ Les types autorisés sont :
 * bool (n’importe quel booléen JSON valide)
 * array (n’importe quel tableau JSON valide)
 
+## <a name="secrets-as-secure-strings"></a>Secrets sous forme de chaînes sécurisées
+Déclarez des secrets sous forme de chaînes sécurisées. Voici la syntaxe de déclaration d’un paramètre de chaîne sécurisée dans la section `parameters` du fichier **artifactfile.json** :
+
+```json
+
+    "securestringParam": {
+      "type": "securestring",
+      "displayName": "Secure String Parameter",
+      "description": "Any text string is allowed, including spaces, and will be presented in UI as masked characters.",
+      "allowEmpty": false
+    },
+```
+
+Pour la commande d’installation d’artefact, exécutez le script PowerShell qui accepte la chaîne sécurisée créée à l’aide de la commande ConvertTo-SecureString. 
+
+```json
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./artifact.ps1 -StringParam ''', parameters('stringParam'), ''' -SecureStringParam (ConvertTo-SecureString ''', parameters('securestringParam'), ''' -AsPlainText -Force) -IntParam ', parameters('intParam'), ' -BoolParam:$', parameters('boolParam'), ' -FileContentsParam ''', parameters('fileContentsParam'), ''' -ExtraLogLines ', parameters('extraLogLines'), ' -ForceFail:$', parameters('forceFail'), '\"')]"
+  }
+```
+
+Pour obtenir l’exemple de fichier artifactfile.json complet et le fichier artifact.ps1 (script PowerShell), consultez [cet exemple sur GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+
+Un autre point important à retenir est de ne pas journaliser les secrets dans la console, car la sortie est capturée en vue du débogage utilisateur. 
+
 ## <a name="artifact-expressions-and-functions"></a>Expressions et fonctions d'artefact
 Vous pouvez utiliser des expressions et des fonctions pour construire la commande d’installation d’artefact.
 Les expressions sont placées entre crochets ([ et ]) et sont évaluées au moment où l'artefact est installé. Les expressions peuvent apparaître n’importe où dans une valeur de chaîne JSON. Les expressions retournent toujours une autre valeur JSON. Si vous avez besoin d’utiliser une chaîne littérale qui commence par un crochet ([), vous devez utiliser deux crochets ([[).
-En général, vous utilisez des expressions avec des fonctions pour construire une valeur. Exactement comme dans JavaScript, les appels de fonctions sont mis en forme de la manière suivante : **functionName(arg1, arg2, arg3)**.
+En général, vous utilisez des expressions avec des fonctions pour construire une valeur. Exactement comme dans JavaScript, les appels de fonctions sont mis en forme de la manière suivante : **functionName(arg1, arg2, arg3)** .
 
 La liste suivante indique les fonctions courantes :
 

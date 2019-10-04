@@ -1,29 +1,29 @@
 ---
-title: Gestion des versions des applications blockchain dans Azure Blockchain Workbench
-description: Comment utiliser les versions des applications dans Azure Blockchain Workbench.
+title: Gestion de versions des applications blockchain dans Azure Blockchain Workbench Preview
+description: Comment utiliser les versions des applications dans Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 63f18e3ee316b9791bb62bfcd20c07a30cbebb5e
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 33ecb6dea48117edd876b90eda54768785f25c20
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579208"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70843885"
 ---
-# <a name="azure-blockchain-workbench-application-versioning"></a>Versions des applications Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versions des applications Azure Blockchain Workbench Preview
 
-Vous pouvez créer et utiliser plusieurs versions d’une application Azure Blockchain Workbench. Si plusieurs versions de la même application sont chargées, un historique des versions est disponible et permet aux utilisateurs de choisir la version qu’ils veulent utiliser.
+Vous pouvez créer et utiliser plusieurs versions d’une application Azure Blockchain Workbench Preview. Si plusieurs versions de la même application sont chargées, un historique des versions est disponible et permet aux utilisateurs de choisir la version qu’ils veulent utiliser.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un déploiement Blockchain Workbench. Pour plus de détails sur le déploiement, consultez [Azure Blockchain Workbench deployment](deploy.md) (Déploiement d’Azure Blockchain Workbench).
 * Une application blockchain déployée dans Blockchain Workbench. Voir [Créer une application blockchain dans Azure Blockchain Workbench](create-app.md)

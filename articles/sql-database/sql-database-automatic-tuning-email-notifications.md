@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 25a100a224984b0d5608ba933b7a4fa024c22c9d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.date: 06/03/2019
+ms.openlocfilehash: df9390c00c34fce82de8cc17efb5cc3bce2e4e3d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481159"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569443"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifications par e-mail pour le réglage automatique
 
@@ -27,7 +26,7 @@ Les recommandations de réglage automatique Azure SQL Database peuvent être con
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatiser les notifications par e-mail pour les recommandations de réglage automatique
 
@@ -59,14 +58,9 @@ Si vous avez plusieurs abonnements Azure pour lesquels vous souhaitez générer 
 
 ## <a name="update-azure-automation-modules"></a>Mettre à jour les modules Azure Automation
 
-Le script PowerShell pour récupérer la recommandation de réglage automatique utilise [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) et [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction) commandes pour les mises à jour des Modules Azure vers la version 4 et version ultérieure est nécessaire.
+Le script PowerShell de récupération des suggestions de réglage automatique utilise les commandes [Get-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Get-azResource) et [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlDatabaseRecommendedAction), pour lesquelles le module Azure version 4 ou ultérieure est nécessaire.
 
-Suivez ces étapes pour mettre à jour les modules Azure PowerShell :
-
-- Accédez au volet de l’application Automation, puis sélectionnez « **Modules** » dans le menu de gauche (faites défiler la page, car cet élément de menu figure sous Ressources partagées).
-- Dans le volet Modules, cliquez sur « **Mettre à jour les modules Azure** » en haut et attendez que le message « Les modules Azure ont été mis à jour » s’affiche. L’exécution de ce processus peut prendre plusieurs minutes.
-
-![Mettre à jour les modules d’automation Azure](./media/sql-database-automatic-tuning-email-notifications/howto-email-02.png)
+- Si vos modules Azure doivent être mis à jour, voir [Prise en charge de modules Az dans Azure Automation](../automation/az-modules.md).
 
 ## <a name="create-azure-automation-runbook"></a>Créer un runbook Azure Automation
 

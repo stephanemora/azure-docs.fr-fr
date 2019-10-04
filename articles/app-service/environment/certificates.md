@@ -9,17 +9,16 @@ ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f40043b920fab4cb38f935618c7aaecc6bf40a87
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271893"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069705"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificats et l’environnement App Service 
 
@@ -55,7 +54,7 @@ Si vous souhaitez créer rapidement un certificat auto-signé pour le test, vous
 
     $fileName = "exportedcert.pfx"
     Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
-
+Lors de la création d’un certificat auto-signé, vous devrez vous assurer que le format du nom de l’objet est le suivant : CN = {ASE_NAME_HERE} _InternalLoadBalancingASE.
 
 ## <a name="application-certificates"></a>Certificats d’application 
 
@@ -85,7 +84,9 @@ Pour charger le certificat sur votre application dans votre environnement ASE :
 
     84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-Le certificat est accessible par toutes les applications du même plan App Service que l’application qui a configuré ce paramètre. Si vous avez besoin qu’il soit disponible pour les applications d’un autre plan App Service, vous devez répéter l’opération Paramètres de l’application dans une application du plan App Service concerné. Pour vérifier que le certificat est défini, accédez à la console Kudu et émettez cette commande dir cert:\localmachine\root dans la console de débogage de PowerShell. 
+Le certificat est accessible par toutes les applications du même plan App Service que l’application qui a configuré ce paramètre. Si vous avez besoin qu’il soit disponible pour les applications d’un autre plan App Service, vous devez répéter l’opération Paramètres de l’application dans une application du plan App Service concerné. Pour vérifier que le certificat est défini, accédez à la console Kudu et émettez la commande suivante dans la console de débogage de PowerShell :
+
+    dir cert:\localmachine\root
 
 Pour effectuer le test, vous pouvez créer un certificat auto-signé et générer un fichier *.cer* avec le code PowerShell suivant : 
 

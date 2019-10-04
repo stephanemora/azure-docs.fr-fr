@@ -3,8 +3,8 @@ title: Commandes de l’interface de ligne de commande Azure en mode Resource Ma
 description: Les commandes de l’interface de ligne de commande Azure permettent de gérer les ressources dans le modèle de déploiement Resource Manager.
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: danlep
-ms.openlocfilehash: 8b76e1a168d39d2f39098754f43bae73c21c2049
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.author: cynthn
+ms.openlocfilehash: 1ec1856508588d07e55e60e251a1369ecc3fa985
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155812"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174053"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Commandes de l’interface de ligne de commande Azure en mode Resource Manager
 Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement Azure Resource Manager. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Resource Manager (arm). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents. Pour obtenir une vue d'ensemble des ressources et groupes de ressources Azure, consultez [Vue d'ensemble d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -48,7 +48,7 @@ Utilisez la commande suivante pour activer les commandes du mode Resource Manage
 > 
 > 
 
-## <a name="azure-account-manage-your-account-information"></a>compte azure : gérer vos informations de compte
+## <a name="azure-account-manage-your-account-information"></a>Compte Azure : Gérez les informations de votre compte
 L'outil se sert des informations sur votre abonnement Azure pour se connecter à votre compte.
 
 **Répertorier les abonnements importés**
@@ -75,7 +75,7 @@ L'outil se sert des informations sur votre abonnement Azure pour se connecter à
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="azure-ad-commands-to-display-active-directory-objects"></a>azure ad : commandes pour afficher les objets Active Directory
+## <a name="azure-ad-commands-to-display-active-directory-objects"></a>Azure AD : Commandes pour afficher les objets Active Directory
 **Commandes pour afficher les applications Active Directory**
 
     ad app create [options]
@@ -150,7 +150,7 @@ L'outil se sert des informations sur votre abonnement Azure pour se connecter à
 
     feature register [options] <providerName> <featureName>
 
-## <a name="azure-group-commands-to-manage-your-resource-groups"></a>azure group : commandes pour gérer vos groupes de ressources
+## <a name="azure-group-commands-to-manage-your-resource-groups"></a>Groupe Azure : Commandes pour gérer vos groupes de ressources
 **Créer un groupe de ressources**
 
     group create [options] <name> <location>
@@ -171,7 +171,7 @@ L'outil se sert des informations sur votre abonnement Azure pour se connecter à
 
     group show [options] <name>
 
-**Commandes pour gérer les journaux de groupe de ressources**
+**Commandes pour gérer les journaux d’activité de groupe de ressources**
 
     group log show [options] [name]
 
@@ -189,14 +189,14 @@ L'outil se sert des informations sur votre abonnement Azure pour se connecter à
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>azure hdinsight : Commandes pour gérer vos clusters HDInsight
+## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>Azure HDInsight : Commandes pour gérer vos clusters HDInsight
 **Commandes pour créer ou ajouter un fichier de configuration de cluster**
 
     hdinsight config create [options] <configFilePath> <overwrite>
     hdinsight config add-config-values [options] <configFilePath>
     hdinsight config add-script-action [options] <configFilePath>
 
-Exemple : créer un fichier de configuration qui contient une action de script à exécuter lors de la création d’un cluster.
+Exemple : Créez un fichier de configuration qui contient une action de script à exécuter lors de la création d’un cluster.
 
     hdinsight config create "C:\myFiles\configFile.config"
     hdinsight config add-script-action --configFilePath "C:\myFiles\configFile.config" --nodeType HeadNode --uri <scriptActionURI> --name myScriptAction --parameters "-param value"
@@ -205,7 +205,7 @@ Exemple : créer un fichier de configuration qui contient une action de script �
 
     hdinsight cluster create [options] <clusterName>
 
-Exemple : créer un Storm sur Linux cluster
+Exemple : Créer une instance de Storm sur un cluster Linux
 
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Storm --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 myNewCluster01
 
@@ -213,7 +213,7 @@ Exemple : créer un Storm sur Linux cluster
     + Submitting the request to create cluster...
     info:    hdinsight cluster create command OK
 
-Exemple : créer un cluster avec une action de script
+Exemple : Créer un cluster avec une action de script
 
     azure hdinsight cluster create -g myarmgroup -l westus -y Linux --clusterType Hadoop --version 3.2 --defaultStorageAccountName mystorageaccount --defaultStorageAccountKey <defaultStorageAccountKey> --defaultStorageContainer mycontainer --userName admin --password <clusterPassword> --sshUserName sshuser --sshPassword <sshPassword> --workerNodeCount 1 –configurationPath "C:\myFiles\configFile.config" myNewCluster01
 
@@ -307,17 +307,17 @@ Options de paramètre :
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>azure insights : commandes liées à la surveillance d'informations détaillées (événements, règles d'alerte, paramètres de mise à l'échelle automatique, mesures)
-**Récupérer les journaux des opérations pour un abonnement, un ID de corrélation, un groupe de ressources, une ressource ou un fournisseur de ressources**
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>Azure insights : commandes liées à la surveillance d’informations détaillées (événements, règles d’alerte, paramètres de mise à l’échelle automatique, mesures)
+**Récupérer les journaux d’activité des opérations pour un abonnement, un ID de corrélation, un groupe de ressources, une ressource ou un fournisseur de ressources**
 
     insights logs list [options]
 
-## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location : commandes pour obtenir les emplacements disponibles pour tous les types de ressource
+## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>Emplacement Azure : Commandes pour obtenir les emplacements disponibles pour tous les types de ressource
 **Répertorier les emplacements disponibles**
 
     location list [options]
 
-## <a name="azure-network-commands-to-manage-network-resources"></a>azure network : commandes pour gérer les ressources réseau
+## <a name="azure-network-commands-to-manage-network-resources"></a>Réseau Azure : Commandes pour gérer les ressources réseau
 **Commandes pour gérer les réseaux virtuels**
 
     network vnet create [options] <resource-group> <name> <location>
@@ -969,7 +969,8 @@ Options de paramètre :
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    network lb address-pool delete [options] <groupe-ressources> <nom-lb> <name>
+
+    network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Supprime la ressource de la plage du pool d'adresses IP principales dans l'équilibrage de charge.
 
@@ -1333,7 +1334,9 @@ Options de paramètre :
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    network public-ip list [options] &lt;groupe-ressources&gt; Répertorie toutes les ressources IP publiques au sein d'un groupe de ressources.
+
+    network public-ip list [options] <resource-group>
+Répertorie toutes les ressources IP publiques au sein d’un groupe de ressources.
 
     azure network public-ip list -g myresourcegroup
 
@@ -1353,8 +1356,10 @@ Options de paramètre :
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
+
 <BR>
-    network public-ip show [options] <groupe-ressources> <name>
+
+    network public-ip show [options] <resource-group> <name>
 
 Affiche les propriétés d’adresse IP publique pour une ressource IP publique au sein d’un groupe de ressources.
 
@@ -1504,7 +1509,7 @@ Options de paramètre :
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>azure provider : commandes pour gérer les enregistrements de fournisseur de ressources
+## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>Fournisseur Azure : Commandes pour gérer les enregistrements de fournisseur de ressources
 **Répertorier les fournisseurs actuellement enregistrés dans Resource Manager**
 
     provider list [options]
@@ -1521,7 +1526,7 @@ Options de paramètre :
 
     provider unregister [options] <namespace>
 
-## <a name="azure-resource-commands-to-manage-your-resources"></a>azure resource : commandes pour gérer vos ressources
+## <a name="azure-resource-commands-to-manage-your-resources"></a>Ressource Azure : Commandes pour gérer vos ressources
 **Créer une ressource dans un groupe de ressources**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1542,7 +1547,7 @@ Options de paramètre :
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role-commands-to-manage-your-azure-roles"></a>azure role : commandes pour gérer vos rôles Azure
+## <a name="azure-role-commands-to-manage-your-azure-roles"></a>Rôle Azure : Commandes pour gérer vos rôles Azure
 **Obtenir toutes les définitions de rôles disponibles**
 
     role list [options]
@@ -1557,7 +1562,7 @@ Options de paramètre :
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure storage : commandes pour gérer vos objets de stockage
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>Stockage Azure : Commandes pour gérer vos objets de stockage
 **Commandes pour gérer vos comptes de stockage**
 
     storage account list [options]
@@ -1680,7 +1685,7 @@ Options de paramètre :
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>azure tag : commandes pour gérer les balises de votre gestionnaire de ressources
+## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>Balise Azure : Commandes pour gérer les balises de votre gestionnaire de ressources
 **Ajouter une balise**
 
     tag create [options] <name> <value>
@@ -1697,7 +1702,7 @@ Options de paramètre :
 
     tag show [options] [name]
 
-## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>azure vm : commandes pour gérer vos machines virtuelles Azure
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>Machine virtuelle Azure : Commandes pour gérer vos images de machine virtuelle Azure
 **Créer une machine virtuelle**
 
     vm create [options] <resource-group> <name> <location> <os-type>

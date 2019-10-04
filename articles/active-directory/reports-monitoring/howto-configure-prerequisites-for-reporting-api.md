@@ -3,7 +3,7 @@ title: Prérequis pour accéder à l’API de création de rapports Azure Active
 description: En savoir plus sur la configuration requise pour accéder à l’API de création de rapports Azure AD
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
+ms.date: 08/30/2019
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab30dfeccc4ae1c7b09a8f48846ffb9e71cfc23
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: f7b6fab4a4a36691bbdeb11975c7a93b97ab86cb
+ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436742"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70241463"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prérequis pour accéder à l’API de création de rapports Azure Active Directory
 
-Les [API de création de rapports Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) vous fournissent un accès par programmation aux données par le biais d’un ensemble d’API REST. Vous pouvez appeler ces API à partir de divers outils et langages de programmation.
+Les [API de création de rapports Azure Active Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) vous fournissent un accès par programmation aux données par le biais d’un ensemble d’API REST. Vous pouvez appeler ces API à partir des outils et langages de programmation.
 
-L’API de création de rapports utilise [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) pour autoriser l’accès aux API web.
+L’API de création de rapports utilise [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) pour autoriser l’accès aux API web.
 
 Pour préparer votre accès à l’API de création de rapports, vous avez besoin d’effectuer ce qui suit :
 
@@ -50,7 +50,7 @@ Pour accéder aux données de rapports via l’API, vous devez avoir un des rôl
 
 ## <a name="register-an-application"></a>Inscrire une application
 
-Vous devez inscrire une application, même si vous accédez à l’API de création de rapports à l’aide d’un script. Vous obtenez ainsi un **ID d’application**, qui est requis pour les appels d’autorisation et qui permet à votre code de recevoir des jetons.
+L’inscription est nécessaire, même si vous accédez à l’API de création de rapports à l’aide d’un script. Vous obtenez ainsi un **ID d’application**, qui est requis pour les appels d’autorisation et qui permet à votre code de recevoir des jetons.
 
 Pour configurer votre annuaire et lui permettre d’accéder à l’API de création de rapports Azure AD, vous devez vous connecter au [portail Azure](https://portal.azure.com) avec un compte d’administrateur Azure, également membre du rôle d’annuaire **Administrateur général** dans votre locataire Azure AD.
 
@@ -68,21 +68,21 @@ Pour configurer votre annuaire et lui permettre d’accéder à l’API de créa
 
     ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/02.png) 
 
-3. Dans la page **Inscriptions des applications**, sélectionnez **Nouvelle inscription d’application**.
+3. Dans la page **Inscriptions d’applications**, sélectionnez **Nouvelle inscription**.
 
     ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/03.png)
 
-4. Dans la page **Créer**, effectuez les étapes suivantes :
+4. Page **Inscription d’une application** :
 
     ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/04.png)
 
     a. Dans la zone de texte **Nom**, tapez `Reporting API application`.
 
-    b. Sous **Type d’application**, sélectionnez **Application web/API**.
+    b. Pour le **Type de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire organisationnel uniquement**.
 
-    c. Dans la zone de texte **URL d’authentification**, tapez `https://localhost`.
+    c. Dans **URL de redirection**, sélectionnez la zone de texte **Web**, tapez `https://localhost`.
 
-    d. Sélectionnez **Créer**. 
+    d. Sélectionnez **Inscription**. 
 
 
 ## <a name="grant-permissions"></a>Accorder des autorisations 
@@ -101,48 +101,26 @@ La section suivante répertorie les étapes pour les deux API. Si vous ne voulez
 
 **Pour accorder des autorisations d’utiliser les API à votre application :**
 
-1. Sélectionnez votre application dans la page **Inscriptions des applications** et sélectionnez **Paramètres**. 
+
+1. Sélectionnez **Autorisations d’API**, puis **Ajouter une autorisation**. 
 
     ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-2. Dans la page **Paramètres**, sélectionnez **Autorisations requises**. 
+2. Dans la page **Demander des autorisations d'API**, localisez **Prendre en charge les API héritées** **Azure Active Directory Graph**. 
 
     ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
-3. Dans la page **Autorisations requises**, cliquez sur la liste **API**, puis sur **Microsoft Azure Active Directory**. 
+3. Dans la page **Autorisations requises**, sélectionnez **Autorisations de l’application**, développez la case à cocher **Annuaire** **Annuaire.ReadAll**.  Sélectionnez **Ajouter des autorisations**.
 
     ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/07.png)
 
-4. Dans la page **Activer l’accès**, cochez **Lire les données de l’annuaire** et décochez **Connecter et lire le profil utilisateur**. 
+4. Dans la page **Création de rapports d’application API - Autorisations de l’API**, sélectionnez **Accorder le consentement administrateur**. 
 
     ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/08.png)
 
-5. Dans la barre d’outils située en haut, cliquez sur **Enregistrer**.
+5. Remarque : **Microsoft Graph** est ajouté par défaut lors de l’inscription de l’API.
 
     ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/15.png)
-
-6. Dans la page **Autorisations requises**, dans la barre d’outils en haut, cliquez sur **Ajouter**.
-
-    ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/32.png)
-
-7. Dans la page **Ajouter un accès d’API**, cliquez sur **Sélectionner une API**.
-
-    ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/31.png)
-
-8. Dans la page **Sélectionner une API**, cliquez sur **Microsoft Graph**, puis sur **Sélectionner**.
-
-    ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/33.png)
-
-9. Dans la page **Activer l’accès**, sélectionnez **Lire toutes les données du journal d’audit**, puis cliquez sur **Sélectionner**.  
-
-    ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/34.png)
-
-10. Dans la page **Ajouter un accès d’API**, cliquez sur **Terminé**.  
-
-11. Dans la page **Autorisations requises**, dans la barre d’outils en haut, cliquez sur **Accorder des autorisations**, puis sur **Oui**.
-
-    ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/17.png)
-
 
 ## <a name="gather-configuration-settings"></a>Rassembler les paramètres de configuration 
 
@@ -185,7 +163,7 @@ Ces valeurs sont nécessaires lors de la configuration des appels à l’API de 
 
 
 ### <a name="get-your-applications-client-secret"></a>Obtenir la clé secrète client de l’application
-Pour obtenir la clé secrète client de l’application, vous devez créer une nouvelle clé et enregistrer sa valeur lors de l’enregistrement de la nouvelle clé car il est impossible de récupérer cette valeur ultérieurement.
+ Évitez les erreurs lors de la tentative d’accès aux journaux d’audit ou à de connexion à l’aide de l’API.
 
 **Pour obtenir la clé secrète client de l’application :**
 
@@ -195,17 +173,11 @@ Pour obtenir la clé secrète client de l’application, vous devez créer une n
 
 2.  Sélectionnez votre application dans la page **Inscriptions des applications**.
 
-3. Dans la page Application, dans la barre d’outils en haut, cliquez sur **Paramètres**. 
-
-    ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/05.png)
-
-4. Dans la page **Paramètres**, dans la section **Accès API**, cliquez sur **Clés**. 
+3.  Sélectionnez **Certificats et secrets** dans la page **Application API**, dans la section **Secrets client**, cliquez sur **+Nouvelle clé secrète client**. 
 
     ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/12.png)
 
-5. Dans la page **Clés**, effectuez les étapes suivantes :
-
-    ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/14.png)
+5. Dans la page **Ajouter un secret client**, ajoutez :
 
     a. Dans la zone de texte **Description**, tapez `Reporting API`.
 
@@ -225,7 +197,7 @@ Le point de terminaison Microsoft Graph v2 n’est pas pris en charge. Vous deve
 
 ### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Error: Impossible d'obtenir les rôles d'utilisateur à partir d'AD Graph
 
-Vous pouvez obtenir ce message d’erreur lorsque vous tentez d’accéder aux connexions à l’aide de l’Afficheur Graph. Vérifiez que vous êtes bien connecté à votre compte à l’aide des deux boutons de connexion de l’interface utilisateur de l’Afficheur Graph, comme illustré dans l’image suivante. 
+ Connectez-vous à votre compte à l’aide des deux boutons de connexion dans l’interface utilisateur de l’Afficheur Graph pour éviter d’obtenir une erreur lors de la tentative de connexion à l’aide de l’Afficheur Graph. 
 
 ![Afficheur Graph](./media/troubleshoot-graph-api/graph-explorer.png)
 
@@ -236,17 +208,15 @@ Si vous rencontrez ce message d’erreur lorsque vous tentez d’accéder aux co
 ![Modifier l’interface utilisateur des autorisations](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Error: Aucun des locataires n'est B2C ou le locataire n'a pas de licence premium
+### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Error: Le locataires n’est pas B2C ou le locataire n'a pas de licence premium
 
 L’accès aux rapports de connexion nécessite une licence Azure Active Directory Premium 1 (P1). Si vous voyez ce message d’erreur lorsque vous accédez aux connexions, vérifiez que votre locataire dispose bien d’une licence Azure AD P1.
 
-### <a name="error-user-is-not-in-the-allowed-roles"></a>Error: L'utilisateur ne dispose pas d'un rôle autorisé 
+### <a name="error-the-allowed-roles-does-not-include-user"></a>Error: Les rôles autorisés n’incluent pas Utilisateur. 
 
-Si ce message d’erreur s’affiche quand vous tentez d’accéder aux journaux d’audit ou aux connexions à l’aide de l’API, vérifiez que votre compte est associé au rôle **Lecteur Sécurité** ou **Lecteur de rapport** dans votre locataire Azure Active Directory. 
+ Évitez les erreurs lors de la tentative d’accès aux journaux d’audit ou à de connexion à l’aide de l’API. Assurez-vous que votre compte fait partie du rôle **Lecteur de sécurité** ou **Lecteur de rapports** dans votre locataire Azure Active Directory.
 
 ### <a name="error-application-missing-aad-read-directory-data-permission"></a>Error: L'application ne dispose pas de l'autorisation AAD « Lire les données de l'annuaire » 
-
-Pour vérifier que votre application est exécutée avec le bon ensemble d’autorisations, suivez les étapes décrites dans les [Prérequis pour accéder à l’API de création de rapports Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md). 
 
 ### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Error: L'application ne dispose pas de l'autorisation de l'API MS Graph « Lire toutes les données du journal d'audit »
 

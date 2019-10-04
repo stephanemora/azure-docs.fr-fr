@@ -7,15 +7,15 @@ author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: 511a95eaea65c1a0e67973ef56942bc05bb43f81
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002771"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883543"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Langages et régions pris en charge par l’API Recherche visuelle Bing
 
@@ -34,7 +34,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 > - Les recettes, achats et statistiques de pages sont disponibles sur le marché américain (en-US) uniquement.
 
 
-## <a name="countries"></a>Pays
+## <a name="countriesregions"></a>Pays/régions
 
 |Pays/région|Code|
 |-------|----|
@@ -51,7 +51,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Allemagne|DE|
 |Hong Kong (R.A.S.)|HK|
 |Inde|IN|
-|Indonésie|ID|
+|Indonésie|id|
 |Italie|IT|
 |Japon|JP|
 |Corée du Sud|KR|
@@ -84,14 +84,14 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Australie|Anglais|en-AU|
 |Autriche|Allemand|de-AT|
 |Belgique|Néerlandais|nl-BE|
-|Belgique|Anglais|fr-BE|
+|Belgique|Français|fr-BE|
 |Brésil|Portugais|pt-br|
 |Canada|Anglais|en-CA|
-|Canada|Anglais|fr-CA|
+|Canada|Français|fr-CA|
 |Chili|Espagnol|es-CL|
 |Danemark|Danois|da-DK|
 |Finlande|Finnois|fi-FI|
-|France|Anglais|fr-FR|
+|France|Français|fr-FR|
 |Allemagne|Allemand|de-DE|
 |Hong Kong (R.A.S.)|Chinois traditionnel|zh-HK|
 |Inde|Anglais|en-IN|
@@ -112,7 +112,7 @@ De même, vous pouvez spécifier le pays/la région à l’aide du paramètre de
 |Afrique du Sud|Anglais|en-ZA|
 |Espagne|Espagnol|es-ES|
 |Suède|Suédois|sv-SE|
-|Suisse|Anglais|fr-CH|
+|Suisse|Français|fr-CH|
 |Suisse|Allemand|de-CH|
 |Taïwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|

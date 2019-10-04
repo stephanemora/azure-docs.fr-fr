@@ -2,32 +2,32 @@
 title: Créer un volume de disque de manière dynamique pour plusieurs pods dans Azure Kubernetes Service (AKS)
 description: Découvrez comment créer un volume persistant de manière dynamique avec des disques Azure pour une utilisation simultanée avec plusieurs pods, dans Azure Kubernetes Service (ACS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: 735be71faecb9882b13f6f536d43715139d0f4db
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.author: mlearned
+ms.openlocfilehash: 0641d613da86aeffa0c4abb0f82ce93c38283156
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342018"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "67616078"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Créer et utiliser un volume persistant de manière dynamique avec des disques Azure sur Azure Kubernetes Service (AKS)
 
 Un volume persistant représente un élément de stockage provisionné pour une utilisation dans des pods Kubernetes. Un volume persistant peut être utilisé par un ou plusieurs pods, et être provisionné de façon statique ou dynamique. Cet article vous montre comment créer des volumes persistants de manière dynamique avec des disques Azure pour permettre à un pod unique de les utiliser, dans un cluster Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Un disque Azure peut être monté uniquement avec le type de *mode d’accès* *ReadWriteOnce*, qui le rend disponible sur un seul pod dans AKS. Si vous avez besoin de partager un volume persistant entre plusieurs pods, utilisez [Azure Files][azure-files-pvc].
+> Un disque Azure peut être monté uniquement avec le type de *mode d’accès* *ReadWriteOnce*, qui le rend disponible sur un seul pod dans AKS. S'il vous faut partager un volume persistant entre plusieurs pods, utilisez [Azure Files][azure-files-pvc].
 
-Pour plus d’informations sur les volumes Kubernetes, consultez [des options de stockage pour les applications dans ACS][concepts-storage].
+Pour plus d’informations sur les volumes Kubernetes, consultez [Options de stockage pour les applications dans AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
+Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
-Vous également besoin d’Azure CLI version 2.0.59 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+Azure CLI 2.0.59 (ou une version ultérieure) doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installer Azure CLI][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Classes de stockage intégrées
 
@@ -39,8 +39,10 @@ Chaque cluster AKS comprend deux classes de stockage précréées, toutes deux c
     * Le stockage Standard s’appuie sur des disques durs et offre un stockage économique qui n’en est pas moins performant. Les disques Standard constituent la solution idéale pour une charge de travail de développement et de test économique.
 * La classe de stockage *Premium managée* provisionne un disque Azure Premium.
     * Les disques Premium reposent sur un disque SSD à faible latence et hautes performances. Ils conviennent parfaitement aux machines virtuelles exécutant une charge de travail en production. Si les nœuds AKS dans votre cluster utilisent le stockage Premium, sélectionnez la classe *Premium managée*.
+    
+Ces classes de stockage par défaut ne vous permettent de mettre à jour la taille du volume après la création. Pour activer cette fonctionnalité, ajoutez la ligne *allowVolumeExpansion: true* à l’une des classes de stockage par défaut ou créez votre propre classe de stockage personnalisée. Vous pouvez modifier une classe de stockage existant à l’aide de la commande `kubectl edit sc`. Pour plus d’informations sur les classes de stockage et la création de votre propre classe, consultez [Options de stockage pour les applications dans AKS][storage-class-concepts].
 
-Utilisez la commande [kubectl get sc][kubectl-get] pour afficher les classes de stockage créées au préalable. L’exemple suivant montre les classes de stockage pré-créées disponibles au sein d’un cluster AKS :
+Utilisez la commande [kubectl get sc][kubectl-get] pour voir les classes de stockage créées au préalable. L’exemple suivant montre les classes de stockage pré-créées disponibles au sein d’un cluster AKS :
 
 ```console
 $ kubectl get sc
@@ -51,7 +53,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Les revendications de volume persistant sont spécifiées dans Gio mais les disques managés Azure sont facturés par référence SKU pour une taille spécifique. Ces références (SKU) comprise 32GiB pour S4 ou P4 disques à 32TiB pour les disques S80 ou P80 (en version préliminaire). Le débit et les performances d’E/S d’un disque managé Premium dépendent à la fois de la référence SKU et de la taille d’instance des nœuds dans le cluster AKS. Pour plus d’informations, consultez [Tarification et performances de la fonctionnalité Disques managés][managed-disk-pricing-performance].
+> Les revendications de volume persistant sont spécifiées dans Gio mais les disques managés Azure sont facturés par référence SKU pour une taille spécifique. Ces références SKU vont de 32 Gio pour les disques S4 ou P4 à 32 Tio pour les disques S80 ou P80 (en préversion). Le débit et les performances d’E/S d’un disque managé Premium dépendent à la fois de la référence SKU et de la taille d’instance des nœuds dans le cluster AKS. Pour plus d’informations, consultez [Tarifs et performances de Disques managés][managed-disk-pricing-performance].
 
 ## <a name="create-a-persistent-volume-claim"></a>Créer une revendication de volume persistant
 
@@ -76,7 +78,7 @@ spec:
 > [!TIP]
 > Pour créer un disque qui utilise le stockage standard, préférez `storageClassName: default` plutôt que *managed-premium*.
 
-Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *azure-premium.yaml* :
+Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *azure-premium.yaml* :
 
 ```console
 $ kubectl apply -f azure-premium.yaml
@@ -86,7 +88,7 @@ persistentvolumeclaim/azure-managed-disk created
 
 ## <a name="use-the-persistent-volume"></a>Utiliser le volume persistant
 
-Une fois la revendication de volume persistant créée, et le disque provisionné convenablement, un pod peut être créé avec un accès au disque. Le manifeste suivant crée un pod NGINX de base qui utilise la revendication de volume persistant nommé *azure-managed-disk* pour monter le disque Azure à l’emplacement `/mnt/azure`.
+Une fois la revendication de volume persistant créée, et le disque provisionné convenablement, un pod peut être créé avec un accès au disque. Le manifeste suivant crée un pod NGINX de base qui utilise la revendication de volume persistant nommé *azure-managed-disk* pour monter le disque Azure à l’emplacement `/mnt/azure`. Pour les conteneurs Windows Server (actuellement en préversion dans AKS), spécifiez un *chemin d’accès de montage* en utilisant la convention de chemin d’accès Windows, tel que *« D: »* .
 
 Créez un fichier nommé `azure-pvc-disk.yaml` et copiez-y le manifeste suivant.
 
@@ -115,7 +117,7 @@ spec:
         claimName: azure-managed-disk
 ```
 
-Créez le pod avec la commande [kubectl apply][kubectl-apply], comme indiqué dans l’exemple suivant :
+Créez le pod avec la commande [kubectl apply][kubectl-apply], comme indiqué dans l’exemple suivant :
 
 ```console
 $ kubectl apply -f azure-pvc-disk.yaml
@@ -161,7 +163,7 @@ NAME                 STATUS    VOLUME                                     CAPACI
 azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi        RWO            managed-premium   3m
 ```
 
-Ce nom de volume constitue le nom du disque Azure sous-jacent. Recherchez l’ID de disque à l’aide de [az disk list][az-disk-list] et fournissez votre nom de volume PVC, comme indiqué dans l’exemple suivant :
+Ce nom de volume constitue le nom du disque Azure sous-jacent. Recherchez l’ID de disque avec [az disk list][az-disk-list] et fournissez votre nom de volume PVC, comme indiqué dans l’exemple suivant :
 
 ```azurecli-interactive
 $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
@@ -223,7 +225,7 @@ spec:
         diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/pvcRestored
 ```
 
-Créez le pod avec la commande [kubectl apply][kubectl-apply], comme indiqué dans l’exemple suivant :
+Créez le pod avec la commande [kubectl apply][kubectl-apply], comme indiqué dans l’exemple suivant :
 
 ```console
 $ kubectl apply -f azure-restored.yaml
@@ -251,7 +253,7 @@ Volumes:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour les recommandations associées, consultez [meilleures pratiques pour le stockage et les sauvegardes dans ACS][operator-best-practices-storage].
+Pour connaître les meilleures pratiques associées, consultez [Meilleures pratiques relatives au stockage et aux sauvegardes dans Azure Kubernetes Service (AKS)][operator-best-practices-storage].
 
 Découvrez plus en détail les volumes persistants Kubernetes utilisant des disques Azure.
 
@@ -279,3 +281,4 @@ Découvrez plus en détail les volumes persistants Kubernetes utilisant des disq
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[storage-class-concepts]: concepts-storage.md#storage-classes

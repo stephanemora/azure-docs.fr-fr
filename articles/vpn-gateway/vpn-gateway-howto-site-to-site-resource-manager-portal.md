@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9fb62d74025869c3442308f9e4ac9fb8fc02669b
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651637"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266552"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Création d’une connexion de site à site dans le portail Azure
 
@@ -42,7 +42,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 
 Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y référer pour mieux comprendre les exemples de cet article. Pour plus d’informations sur les paramètres de la passerelle VPN, voir [À propos des paramètres de la passerelle VPN](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **Nom du réseau virtuel :** TestVNet1
+* **Nom du réseau virtuel :** VNet1
 * **Espace d’adressage :** 10.1.0.0/16
 * **Abonnement :** abonnement à utiliser
 * **Groupe de ressources :** TestRG1
@@ -50,7 +50,6 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 * **Sous-réseau :** Front-end : 10.1.0.0/24, back-end : 10.1.1.0/24 (facultatif pour cet exercice)
 * **Nom du sous-réseau de passerelle :** GatewaySubnet (renseigné automatiquement dans le portail)
 * **Plage d’adresses du sous-réseau de passerelle** : 10.1.255.0/27
-* **Serveur DNS :** 8.8.8.8 (facultatif) L’adresse IP de votre serveur DNS.
 * **Nom de la passerelle de réseau virtuel :** VNet1GW
 * **Adresse IP publique :** VNet1GWIP
 * **Type de VPN :** basé sur la route
@@ -64,31 +63,24 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 
 [!INCLUDE [Create a virtual network](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
 
-## <a name="dns"></a>2. Spécifier un serveur DNS
+## <a name="VNetGateway"></a>2. Créer la passerelle VPN
 
-Aucun DNS n’est nécessaire pour créer une connexion de site à site. Toutefois, si vous souhaitez résoudre les noms des ressources qui sont déployées sur votre réseau virtuel, vous devez spécifier un serveur DNS. Ce paramètre vous permet de spécifier le serveur DNS que vous souhaitez utiliser pour la résolution de noms pour ce réseau virtuel. Il n'entraîne pas la création d'un serveur DNS. Pour plus d’informations sur la résolution de noms pour les machines virtuelles, consultez [Résolution de noms pour les machines virtuelles et instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée.
 
-[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-specify-dns-portal-include.md)]
+[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-## <a name="gatewaysubnet"></a>3. Créer le sous-réseau de passerelle
-
-[!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-include.md)]
-
-[!INCLUDE [Add a gateway subnet](../../includes/vpn-gateway-add-gateway-subnet-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-## <a name="VNetGateway"></a>4. Créer la passerelle VPN
 
-[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gateway-portal-include.md)]
-
-## <a name="LocalNetworkGateway"></a>5. Créer la passerelle de réseau local
+## <a name="LocalNetworkGateway"></a>3. Créer la passerelle de réseau local
 
 La passerelle de réseau local fait généralement référence à votre emplacement local. Donnez au site un nom auquel Azure pourra se référer, puis spécifiez l’adresse IP du périphérique VPN local vers lequel vous allez créer une connexion. Spécifiez également les préfixes d’adresses IP qui seront acheminés via la passerelle VPN vers le périphérique VPN. Les préfixes d’adresses que vous spécifiez sont les préfixes situés sur votre réseau local. En cas de modification du réseau ou si vous devez modifier l’adresse IP publique de l’appareil VPN, il est simple de mettre à jour les valeurs ultérieurement.
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 
-## <a name="VPNDevice"></a>6. Configuration de votre périphérique VPN
+## <a name="VPNDevice"></a>4. Configuration de votre périphérique VPN
 
 Les connexions site à site vers un réseau local nécessitent un périphérique VPN. Dans cette étape, vous configurez votre périphérique VPN. Pour configurer votre périphérique VPN, vous avez besoin des éléments suivants :
 
@@ -97,13 +89,13 @@ Les connexions site à site vers un réseau local nécessitent un périphérique
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
-## <a name="CreateConnection"></a>7. Créer la connexion VPN
+## <a name="CreateConnection"></a>5. Créer la connexion VPN
 
 Créez la connexion VPN de site à site entre votre passerelle de réseau virtuel et votre périphérique VPN local.
 
 [!INCLUDE [Add a site-to-site connection](../../includes/vpn-gateway-add-site-to-site-connection-portal-include.md)]
 
-## <a name="VerifyConnection"></a>8. Vérifier la connexion VPN
+## <a name="VerifyConnection"></a>6. Vérifier la connexion VPN
 
 [!INCLUDE [Verify the connection](../../includes/vpn-gateway-verify-connection-portal-include.md)]
 

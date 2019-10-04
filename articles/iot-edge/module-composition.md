@@ -4,25 +4,28 @@ description: Découvrez comment un manifeste de déploiement déclare les module
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/28/2019
+ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f4a562cab445398986c1b8f379f6cb90ca843342
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: f275cca664733f19d3f3c5b52d168ffad01cadad
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758082"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839615"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Découvrez comment déployer des modules et établir des itinéraires dans IoT Edge.
 
-Chaque appareil IoT Edge exécute au moins deux modules : $edgeAgent et $edgeHub, qui font partie du runtime IoT Edge. En outre, les appareils IoT Edge peuvent exécuter plusieurs modules pour effectuer autant de processus que nécessaire. Comme vous déployez tous ces modules sur un appareil à la fois, IoT Edge permet d’indiquer quels modules installer et comment les configurer pour qu’ils fonctionnent ensemble. 
+Chaque appareil IoT Edge exécute au moins deux modules : $edgeAgent et $edgeHub, qui font partie du runtime IoT Edge. Un appareil IoT Edge peut exécuter des modules supplémentaires pour autant de processus que nécessaire. Utilisez un manifeste de déploiement pour indiquer à un appareil les modules à installer et comment les configurer pour qu'ils fonctionnent ensemble. 
 
 Le *manifeste de déploiement* est un document JSON qui décrit :
 
-* le jumeau de module **de l’agent IoT Edge**, qui inclut l’image conteneur pour chaque module, les informations d’identification pour accéder aux registres de conteneurs privés et les instructions indiquant comment créer et gérer chaque module ;
+* Le jumeau de module de l'**agent IoT Edge**, comprend trois composants. 
+  * L’image conteneur pour chaque module qui s’exécute sur l’appareil.
+  * Les informations d’identification pour accéder aux registres de conteneurs privés contenant des images de module.
+  * Des instructions sur la manière de créer et de gérer chaque module.
 * le jumeau de module du **hub IoT Edge**, qui inclut le mode de flux des messages entre les modules et finalement vers IoT Hub ;
 * le cas échéant, les propriétés souhaitées de tout jumeau de module supplémentaire.
 
@@ -77,7 +80,7 @@ Les manifestes de déploiement suivent la structure suivante :
 
 Définir comment le runtime IoT Edge installe les modules dans votre déploiement. L’agent IoT Edge est le composant de runtime qui gère l’installation, les mises à jour et les rapports d’état d’un appareil IoT Edge. Pour cette raison, le jumeau du module $edgeAgent a besoin des informations de configuration et de gestion de tous les modules. Ces informations incluent les paramètres de configuration pour l’agent IoT Edge proprement dit. 
 
-Pour obtenir une liste complète des propriétés qui peuvent ou doivent être incluses, consultez [propriétés de l’agent IoT Edge et hub IoT Edge](module-edgeagent-edgehub.md).
+Pour obtenir une liste complète des propriétés qui peuvent ou doivent être incluses, consultez [Propriétés de l’agent IoT Edge et du hub IoT Edge](module-edgeagent-edgehub.md).
 
 Les propriétés $edgeAgent suivent cette structure :
 
@@ -134,7 +137,9 @@ Chaque itinéraire requiert une source et un récepteur, mais la condition est f
 
 ### <a name="source"></a>Source
 
-La source spécifie d'où proviennent les messages. IoT Edge peut acheminer les messages d’appareils de nœuds terminaux ou de modules.
+La source spécifie d'où proviennent les messages. IoT Edge peut acheminer les messages d’appareils de modules ou appareils de nœud terminal. 
+
+À l’aide des kits de développement logiciel (SDK) IoT, les modules peuvent déclarer des files d’attente de sortie spécifiques pour leurs messages à l’aide de la classe ModuleClient. Les files d’attente de sortie ne sont pas nécessaires, mais utiles pour gérer plusieurs itinéraires. Les appareils de nœud terminal peuvent utiliser la classe DeviceClient des kits de développement logiciel (SDK) IoT pour envoyer des messages aux appareils de passerelle IoT Edge de la même manière qu'ils enverraient des messages à IoT Hub. Pour plus d'informations, consultez [Comprendre et utiliser les kits de développement logiciel (SDK) Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md).
 
 La propriété source peut être l’une des valeurs suivantes :
 
@@ -142,14 +147,14 @@ La propriété source peut être l’une des valeurs suivantes :
 | ------ | ----------- |
 | `/*` | Tous les messages appareil-à-cloud ou les notifications de changement de jumeau à partir de n’importe quel module ou appareil de nœud terminal |
 | `/twinChangeNotifications` | Tout changement de jumeau (propriétés signalées) en provenance de n’importe quel module ou appareil de nœud terminal |
-| `/messages/*` | Tout message appareil-à-cloud envoyé par un module ou par une appareil de nœud terminal, via une sortie ou non |
+| `/messages/*` | Tout message appareil-à-cloud envoyé par un module via une sortie ou non, pour par un appareil de nœud terminal |
 | `/messages/modules/*` | Tout message appareil-à-cloud envoyé par un module via une sortie ou aucune |
 | `/messages/modules/<moduleId>/*` | Tout message appareil-à-cloud envoyé par un module spécifique, via une sortie ou non |
 | `/messages/modules/<moduleId>/outputs/*` | Tout message appareil-à-cloud envoyé par un module spécifique, via une sortie |
 | `/messages/modules/<moduleId>/outputs/<output>` | Tout message appareil-à-cloud envoyé par un module spécifique via une sortie spécifique |
 
 ### <a name="condition"></a>Condition
-La condition est facultative dans une déclaration d’itinéraire. Si vous souhaitez transmettre tous les messages du récepteur à la source, il suffit d’omettre la clause **WHERE** entièrement. Vous pouvez également utiliser le [langage de requête IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) pour filtrer certains messages ou types de messages qui répondent à la condition. Les itinéraires IoT Edge ne prennent pas en charge les messages de filtrage basés sur les propriétés ou balises de jumeaux. 
+La condition est facultative dans une déclaration d’itinéraire. Si vous souhaitez transmettre tous les messages de la source au récepteur, il suffit d’omettre la clause **WHERE** entièrement. Vous pouvez également utiliser le [langage de requête IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) pour filtrer certains messages ou types de messages qui répondent à la condition. Les itinéraires IoT Edge ne prennent pas en charge les messages de filtrage basés sur les propriétés ou balises de jumeaux. 
 
 Les messages qui transitent entre les modules dans IoT Edge sont mis en forme de la même manière que les messages qui passent entre les appareils et Azure IoT Hub. Tous les messages sont au format JSON et ont les paramètres **systemProperties**, **appProperties** et **corps**. 
 
@@ -177,9 +182,9 @@ La propriété de récepteur peut être l’une des valeurs suivantes :
 | `$upstream` | Envoyer le message à IoT Hub |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Envoyer le message à une entrée spécifique d’un module spécifique |
 
-IoT Edge offre la garantie « Au moins une remise ». Le hub IoT Edge stocke les messages localement au cas où un itinéraire ne pourrait pas remettre le message à son récepteur. Par exemple, si le hub IoT Edge ne peut pas se connecter à IoT Hub ou le module cible n’est pas connecté.
+IoT Edge offre la garantie « Au moins une remise ». Le hub IoT Edge stocke les messages localement dans le cas où un itinéraire ne peut pas remettre le message à son récepteur. C’est le cas, par exemple, si le hub IoT Edge ne peut pas se connecter à IoT Hub ou que le module cible n’est pas connecté.
 
-Hub IoT Edge stocke les messages jusqu'à l’heure spécifiée dans le `storeAndForwardConfiguration.timeToLiveSecs` propriété de la [propriétés souhaitées de hub IoT Edge](module-edgeagent-edgehub.md).
+Le hub IoT Edge stocke les messages jusqu’à l’heure spécifiée dans la propriété `storeAndForwardConfiguration.timeToLiveSecs` des [propriétés souhaitées du hub IoT Edge](module-edgeagent-edgehub.md).
 
 ## <a name="define-or-update-desired-properties"></a>Définir ou mettre à jour les propriétés souhaitées 
 
@@ -232,7 +237,7 @@ L’exemple suivant montre à quoi peut ressembler un document de manifeste de d
           }
         },
         "modules": {
-          "tempSensor": {
+          "SimulatedTemperatureSensor": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
@@ -259,7 +264,7 @@ L’exemple suivant montre à quoi peut ressembler un document de manifeste de d
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "sensorToFilter": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
           "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
         },
         "storeAndForwardConfiguration": {
@@ -273,6 +278,6 @@ L’exemple suivant montre à quoi peut ressembler un document de manifeste de d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une liste complète des propriétés qui peuvent ou doivent être incluses dans $edgeAgent et $edgeHub, consultez [propriétés de l’agent IoT Edge et hub IoT Edge](module-edgeagent-edgehub.md).
+* Pour obtenir la liste complète des propriétés qui peuvent ou doivent être incluses dans $edgeAgent et $edgeHub, consultez [Propriétés de l’agent IoT Edge et du hub IoT Edge](module-edgeagent-edgehub.md).
 
 * Maintenant que vous savez comment les modules IoT Edge sont utilisés, vous pouvez lire [Comprendre les exigences et les outils de développement de modules IoT Edge](module-development.md).

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881764"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65442386"
 ---
-# <a name="azure-data-box-gateway-system-requirements"></a>Configuration requise à la passerelle de données Azure
+# <a name="azure-data-box-gateway-system-requirements"></a>Configuration système Azure Data Box Gateway
 
 Cet article décrit la configuration système importante pour votre solution Microsoft Azure Data Box Gateway et pour les clients se connectant à Azure Data Box Gateway. Nous vous recommandons de lire attentivement les informations suivantes avant de déployer votre solution Data Box Gateway, puis d’y revenir si nécessaire pendant le déploiement et les opérations suivantes.
 
@@ -50,7 +50,7 @@ Le système hôte sous-jacent pour le Data Box Gateway est en mesure de dédier 
 
 | **Système d’exploitation/plateforme**  |**Versions**   |**Remarques**  |
 |---------|---------|---------|
-|Hyper-V  |  2012 R2 <br> 2016  |         |
+|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |Les outils VMware ne sont pas pris en charge.         |
 
 

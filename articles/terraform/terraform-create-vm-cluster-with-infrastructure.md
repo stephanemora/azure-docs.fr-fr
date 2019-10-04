@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/13/2017
-ms.openlocfilehash: a0358859d6f806a94c529bae2eb6fa9d1ab82963
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: bf9539512961930a97d9dcfe86722d0103c1facc
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077834"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71173466"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Créer un cluster de machines virtuelles avec Terraform et HCL
 
@@ -46,7 +46,7 @@ Dans cette section, vous générez un service Azure principal et deux fichiers d
 
 5. Copiez le code suivant dans votre fichier de déclarations de variables :
 
-   ```tf
+   ```hcl
    variable subscription_id {}
    variable tenant_id {}
    variable client_id {}
@@ -64,7 +64,7 @@ Dans cette section, vous générez un service Azure principal et deux fichiers d
 
 7. Copiez le code suivant dans votre fichier de variables. Veillez à remplacer les espaces réservés comme suit : Pour `subscription_id`, utilisez l’ID d’abonnement Azure que vous avez spécifié lors de l’exécution de `az account set`. Pour `tenant_id`, utilisez la valeur `tenant` retournée par `az ad sp create-for-rbac`. Pour `client_id`, utilisez la valeur `appId` retournée par `az ad sp create-for-rbac`. Pour `client_secret`, utilisez la valeur `password` retournée par `az ad sp create-for-rbac`.
 
-   ```tf
+   ```hcl
    subscription_id = "<azure-subscription-id>"
    tenant_id = "<tenant-returned-from-creating-a-service-principal>"
    client_id = "<appId-returned-from-creating-a-service-principal>"
@@ -79,7 +79,7 @@ Dans cette section, vous créez un fichier qui contient les définitions des res
 
 2. Copiez l’exemple suivant de ressource dans le fichier `main.tf` nouvellement créé : 
 
-   ```tf
+   ```hcl
    resource "azurerm_resource_group" "test" {
     name     = "acctestrg"
     location = "West US 2"
@@ -103,7 +103,7 @@ Dans cette section, vous créez un fichier qui contient les définitions des res
     name                         = "publicIPForLB"
     location                     = "${azurerm_resource_group.test.location}"
     resource_group_name          = "${azurerm_resource_group.test.name}"
-    public_ip_address_allocation = "static"
+    allocation_method            = "Static"
    }
 
    resource "azurerm_lb" "test" {
@@ -227,7 +227,7 @@ La [commande terraform init](https://www.terraform.io/docs/commands/init.html) e
 
 Pour initialiser Terraform, exécutez la commande suivante :
 
-  ```cmd
+  ```bash
   terraform init
   ```
 
@@ -245,13 +245,13 @@ Lors du traitement de la commande `terraform plan`, Terraform effectue une actua
 
 Si vous n’avez pas besoin d’enregistrer votre plan d’exécution, exécutez la commande suivante :
 
-  ```cmd
+  ```bash
   terraform plan
   ```
 
 Si vous devez enregistrer votre plan d’exécution, exécutez la commande suivante (en remplaçant l’espace réservé &lt;path> avec le chemin de sortie de votre choix) :
 
-  ```cmd
+  ```bash
   terraform plan -out=<path>
   ```
 
@@ -263,13 +263,13 @@ La dernière étape de ce didacticiel est d’utiliser la [commande terraform ap
 
 Si vous souhaitez appliquer le dernier plan d’exécution, exécutez la commande suivante :
 
-  ```cmd
+  ```bash
   terraform apply
   ```
 
 Si vous souhaitez appliquer un plan d’exécution précédemment enregistré, exécutez la commande suivante (en remplaçant l’espace réservé &lt;path> par le chemin d’accès qui contient le plan d’exécution enregistré) :
 
-  ```cmd
+  ```bash
   terraform apply <path>
   ```
 

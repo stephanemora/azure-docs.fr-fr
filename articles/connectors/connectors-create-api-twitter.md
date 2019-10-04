@@ -11,12 +11,12 @@ ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 22b75b2d2b47dbd496eda06c09b418ae66f6403a
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230656"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70050686"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Superviser et gérer Twitter à l’aide d’Azure Logic Apps
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre com
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 
 * Vos informations d’identification utilisateur et compte Twitter
 
@@ -59,7 +59,7 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre com
        -ou-
 
      * Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
-     Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+     Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
      
        Dans la zone de recherche, entrez « twitter » comme filtre. 
        Sous la liste des actions, sélectionnez l’action souhaitée.
@@ -70,7 +70,7 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre com
 
 ## <a name="examples"></a>Exemples
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Déclencheur Twitter : Lors de la publication d’un nouveau tweet
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Déclencheur Twitter : When a new tweet is posted (Lorsqu’un nouveau tweet est publié)
 
 Ce déclencheur démarre un flux de travail d’application logique quand il détecte un nouveau tweet, par exemple, avec le mot-dièse #Seattle. Par exemple, quand ces tweets sont détectés, vous pouvez ajouter un fichier avec le contenu des tweets dans le stockage, tel qu’un compte Dropbox à l’aide du connecteur Dropbox. 
 
@@ -78,7 +78,7 @@ Si vous le souhaitez, vous pouvez inclure une condition stipulant que les tweets
 
 **Exemple en entreprise** : vous pouvez utiliser ce déclencheur pour superviser les tweets relatifs à votre entreprise et charger leur contenu vers une base de données SQL.
 
-### <a name="twitter-action-post-a-tweet"></a>Action Twitter : Publier un tweet
+### <a name="twitter-action-post-a-tweet"></a>Action Twitter : Post a tweet (Publier un tweet)
 
 Cette action publie un tweet, mais vous pouvez configurer l’action afin que le tweet contienne le contenu des tweets trouvés par le déclencheur décrit précédemment. 
 

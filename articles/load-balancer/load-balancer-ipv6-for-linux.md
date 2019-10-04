@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Configurer DHCPv6 pour la machines virtuelles Linux
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
-ms.author: kumud
-ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.author: allensu
+ms.openlocfilehash: 3e987b6718ead6b7014ec302d1a186dabef11126
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369630"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274930"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurer DHCPv6 pour les machines virtuelles Linux
 
@@ -54,9 +54,9 @@ Ce document vous explique comment activer DHCPv6 pour que votre machine virtuell
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-À compter de Ubuntu 17.10, le mécanisme de configuration de réseau par défaut est [NETPLAN]( https://netplan.io).  Au moment de l’installation / d’instanciation, NETPLAN lit la configuration du réseau à partir des fichiers de configuration YAML à cet emplacement : / {lib,etc,run}/netplan/*.yaml.
+À compter d’Ubuntu 17.10, [NETPLAN]( https://netplan.io) est le mécanisme de configuration de réseau par défaut.  Au moment de l’installation/instanciation, NETPLAN lit la configuration du réseau dans les fichiers de configuration YAML situés à cet emplacement : /{lib,etc,run}/netplan/*.yaml.
 
-Veuillez inclure un *dhcp6:true* instruction pour chaque interface ethernet dans votre configuration.  Par exemple : 
+Vous devez ajouter une instruction *dhcp6:true* pour chaque interface Ethernet dans votre configuration.  Par exemple :
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Veuillez inclure un *dhcp6:true* instruction pour chaque interface ethernet dans
             eno1:
               dhcp6: true
 
-Pendant l’initialisation anticipée, le netplan « réseau convertisseur » écrit la configuration sur / l’exécuter pour transmettre contrôle des appareils vers le démon de mise en réseau spécifié pour les informations de référence sur NETPLAN, reportez-vous à la section https://netplan.io/reference.
+Pendant le démarrage anticipé, le NETPLAN « network renderer » écrit la configuration dans /run afin de passer le contrôle des appareils au démon réseau spécifié. Pour obtenir des informations de référence sur NETPLAN, consultez https://netplan.io/reference.
  
 ## <a name="debian"></a>Debian
 

@@ -1,5 +1,5 @@
 ---
-title: Exécuter un service Azure Service Fabric sous un compte de service administré de groupe | Microsoft Docs
+title: Exécuter un service Azure Service Fabric sous un compte gMSA | Microsoft Docs
 description: Découvrez comment exécuter un service en tant que gMSA sur un cluster autonome Service Fabric Windows.
 services: service-fabric
 documentationcenter: .net
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
 ms.author: dekapur
-ms.openlocfilehash: 5c3781c2111fff7483a7fb65bd7b2e69c2011d18
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: d00eceffebb222196191a389058c0feb496e169a
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666424"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307638"
 ---
 # <a name="run-a-service-as-a-group-managed-service-account"></a>Exécuter un service en tant que compte de service administré de groupe
 Sur un cluster autonome Windows Server, vous pouvez exécuter un service en tant que compte de service administré de groupe (gMSA) avec une stratégie RunAs.  Par défaut, les applications Service Fabric s’exécutent sous le compte qui exécute le processus Fabric.exe. Les applications en cours d’exécution sous différents comptes sont plus sécurisées, même dans un environnement hébergé partagé. Remarque : cette fonctionnalité utilise Active Directory en local au sein de votre domaine et non Azure Active Directory (Azure AD). Si vous utilisez un compte gMSA, aucun mot de passe (chiffré ou non) n’est stocké dans le manifeste de l’application.  Vous pouvez également exécuter un service comme [utilisateur ou groupe Active Directory](service-fabric-run-service-as-ad-user-or-group.md).
 
-L’exemple suivant montre comment créer un compte gMSA nommé *svc-Test$*, comment déployer ce compte de service géré sur les nœuds de cluster et comment configurer le principal de l’utilisateur.
+L’exemple suivant montre comment créer un compte gMSA nommé *svc-Test$* , comment déployer ce compte de service géré sur les nœuds de cluster et comment configurer le principal de l’utilisateur.
 
 Conditions préalables :
 - Le domaine a besoin d’une clé racine KDS.
-- Le domaine doit être au niveau fonctionnel de Windows Server 2012 ou version ultérieure.
+- Il doit y avoir au moins un contrôleur de domaine Windows Server 2012 (ou R2) dans le domaine.
 
 1. Avoir un administrateur de domaine Active Directory qui crée un compte de service géré de groupe à l’aide de la cmdlet `New-ADServiceAccount` et garantit que le `PrincipalsAllowedToRetrieveManagedPassword` inclut tous les nœuds du cluster Service Fabric. `AccountName`, `DnsHostName` et `ServicePrincipalName` doivent être uniques.
 

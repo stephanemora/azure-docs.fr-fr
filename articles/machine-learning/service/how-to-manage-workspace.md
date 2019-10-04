@@ -1,7 +1,7 @@
 ---
-title: Créer et gérer des espaces de travail
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment créer, afficher et supprimer des espaces de travail du service Azure Machine Learning dans le Portail Azure.
+title: Créer des espaces de travail Azure ML dans le portail
+titleSuffix: Azure Machine Learning
+description: Découvrez comment créer, afficher et supprimer des espaces de travail Azure Machine Learning dans le portail Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,34 +9,45 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
-ms.date: 09/24/2018
+ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 511c737e160c0f0753e570314c9b29346972cb04
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359884"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269263"
 ---
-# <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Créer et gérer les espaces de travail du service Azure Machine Learning
+# <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Créer et gérer des espaces de travail Azure Machine Learning dans le Portail Azure
 
-Dans cet article, vous créez, affichez et supprimez des [**espaces de travail du service Azure Machine Learning**](concept-azure-machine-learning-architecture.md#workspace) dans le Portail Azure pour le [service Azure Machine Learning](overview-what-is-azure-ml.md).  Vous pouvez également créer et supprimer des espaces de travail [à l’aide de l’interface CLI](reference-azure-machine-learning-cli.md) ou du [code Python](https://aka.ms/aml-sdk).
+Dans cet article, vous allez créer, afficher et supprimer des [**espaces de travail Azure Machine Learning**](concept-workspace.md) dans le portail Azure pour [Azure Machine Learning](overview-what-is-azure-ml.md).  Le portail est le moyen le plus simple de prendre en main les espaces de travail, mais à mesure que vos besoins évoluent ou que les besoins de l’automatisation augmentent, vous pouvez également créer et supprimer des espaces de travail [à l’aide de l’interface CLI](reference-azure-machine-learning-cli.md), [à l’aide de code Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou [via l’extension VS Code](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
 
-## <a name="create-a-workspace"></a>Créer un espace de travail 
+## <a name="create-a-workspace"></a>Créer un espace de travail
 
-Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
+### <a name="download-a-configuration-file"></a>Télécharger un fichier de configuration
+
+1. Si vous prévoyez de créer une [machine virtuelle Notebook](tutorial-1st-experiment-sdk-setup.md#azure), ignorez cette étape.
+
+1. Si vous prévoyez d’utiliser du code sur votre environnement local qui référence cet espace de travail, sélectionnez **Télécharger config.json** dans la section **Vue d’ensemble** de l’espace de travail.  
+
+   ![Télécharger config.json](./media/how-to-manage-workspace/configure.png)
+   
+   Placez le fichier dans la structure de répertoires avec vos scripts Python ou vos notebooks Jupyter. Il peut se trouver dans le même répertoire, dans un sous-répertoire nommé *.azureml* ou dans un répertoire parent. Quand vous créez une machine virtuelle Notebook, ce fichier est automatiquement ajouté au répertoire approprié sur la machine virtuelle.
+
+
 ## <a name="view"></a>Afficher un espace de travail
 
-1. En haut à gauche du portail, sélectionnez **Tous les services**. 
+1. En haut à gauche du portail, sélectionnez **Tous les services**.
 
-1. Dans le **tous les services** champ de filtre, tapez **d’apprentissage service**.  
+1. Dans le champ de filtre **Tous les services**, entrez **service machine learning**.  
 
-1. Sélectionnez **espaces de travail Machine Learning service**.
+1. Sélectionnez **Espaces de travail de service Machine Learning**.
 
-   ![recherche de l’espace de travail de service Azure Machine Learning](media/how-to-manage-workspace/all-services.png)
+   ![Rechercher l’espace de travail Azure Machine Learning](media/how-to-manage-workspace/all-services.png)
 
 1. Examinez la liste des espaces de travail trouvés. Vous pouvez filtrer en fonction d’abonnements, de groupes de ressources et de localisations.  
 
@@ -49,14 +60,13 @@ Utilisez le bouton Supprimer en haut de l’espace de travail que vous souhaitez
 
   ![Bouton Supprimer](media/how-to-manage-workspace/delete-workspace.png)
 
-
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez le tutoriel complet pour apprendre à utiliser un espace de travail et créer, entraîner et déployer des modèles avec le service Azure Machine Learning.
+Suivez le didacticiel complet pour apprendre à utiliser un espace de travail et créer, faire l’apprentissage et déployer des modèles avec Azure Machine Learning.
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Entraîner des modèles](tutorial-train-models-with-aml.md)

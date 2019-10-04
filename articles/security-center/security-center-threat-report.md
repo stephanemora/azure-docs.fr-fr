@@ -3,9 +3,8 @@ title: Rapport d’informations sur les menaces d’Azure Security Center | 
 description: Ce document explique comment utiliser les rapports d’information sur les menaces d’Azure Security Center pendant un examen pour trouver plus d’informations sur une alerte de sécurité.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: 5662e312-e8c2-4736-974e-576eeb333484
 ms.service: security-center
 ms.devlang: na
@@ -13,19 +12,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: ba5ab7ce85933545a41f23e2ecd913acbb7e72d1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: memildin
+ms.openlocfilehash: c389fd72d9b185bc920ffeefdfb84e05b3d13001
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112731"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71200711"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Rapport d’informations sur les menaces d’Azure Security Center
 Ce document explique comment trouver des informations supplémentaires sur une menace ayant généré une alerte de sécurité dans les rapports d’informations sur les menaces d’Azure Security Center.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>Qu’est-ce qu’un rapport d’informations sur les menaces ?
-La détection des menaces d’Azure Security Center fonctionne en surveillant les informations de sécurité à partir de vos ressources Azure, du réseau et des solutions de partenaires connectées. Elle analyse ces informations, souvent issues de plusieurs sources, pour identifier les menaces. Ce processus fait partie des [fonctionnalités de détection](security-center-detection-capabilities.md) d’Azure Security Center.
+La détection des menaces d’Azure Security Center fonctionne en surveillant les informations de sécurité à partir de vos ressources Azure, du réseau et des solutions de partenaires connectées. Elle analyse ces informations, souvent issues de plusieurs sources, pour identifier les menaces. Pour plus d'informations, consultez [Comment Azure Security Center détecte les menaces et y répond](security-center-alerts-overview.md#detect-threats).
 
 Lorsqu’Azure Security Center identifie une menace, il déclenche une [alerte de sécurité](security-center-managing-and-responding-alerts.md), qui contient des informations détaillées sur un événement particulier, y compris des suggestions de correction. Pour aider les équipes de réponse aux incidents à examiner et à corriger les menaces, Azure Security Center inclut un rapport qui contient des informations sur la menace détectée, y compris des informations telles que les suivantes :
 
@@ -48,7 +47,7 @@ Azure Security Center propose trois types de rapports sur les menaces, qui peuve
 * **Rapport sur la campagne** : se concentre sur les détails des campagnes d’attaque spécifiques.
 * **Rapport de synthèse sur la menace** : couvre tous les éléments des deux rapports précédents.
 
-Ce type d’information est utile pendant le processus de [réponse aux incidents](security-center-incident-response.md), au cours duquel des examens sont effectués en continu afin de comprendre la source de l’attaque, les motivations de l’attaquant et les solutions d’atténuation de ce problème à l’avenir.
+Ce type d'informations est utile pendant le processus de réponse aux incidents, au cours duquel des examens sont effectués en continu afin d'identifier la source de l'attaque, les motivations de l'attaquant et les mesures à prendre pour atténuer le problème.
 
 ## <a name="how-to-access-the-threat-intelligence-report"></a>Comment accéder au rapport d’informations sur les menaces ?
 Vous pouvez connaître vos alertes actuelles en consultant la vignette **Alertes de sécurité** . Accédez au portail Azure et suivez les étapes ci-après pour obtenir plus d’informations sur chaque alerte :
@@ -70,8 +69,6 @@ Vous pouvez connaître vos alertes actuelles en consultant la vignette **Alertes
 Dans ce document, vous avez appris en quoi les rapports d’informations sur les menaces d’Azure Security Center peuvent vous être utiles lors de l’examen des alertes de sécurité. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :
 
 * [FAQ du Centre de sécurité Azure](security-center-faq.md). forum aux questions concernant l’utilisation de ce service.
-* [Utilisation d’Azure Security Center pour la réponse aux incidents](security-center-incident-response.md)
-* [Fonctionnalités de détection d’Azure Security Center](security-center-detection-capabilities.md)
 * [Azure Security Center planning and operations guide](security-center-planning-and-operations-guide.md). découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md). découvrez comment gérer et résoudre les alertes de sécurité.
 * [Gestion des incidents de sécurité dans Azure Security Center](security-center-incident.md)

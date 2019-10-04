@@ -5,14 +5,12 @@ metadata:
   title: Documentation Azure Container Registry - Didacticiels | Microsoft Docs
   description: 'Azure Container Registry vous permet de générer, stocker et gérer des images pour tous les types de déploiement de conteneur. Découvrez comment utiliser Azure Container Registry avec ces guides de démarrage rapide, didacticiels et exemples.'
   services: container-registry
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-registry
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Azure Container Registry vous permet de générer, stocker et gérer des images pour tous les types de déploiement de conteneur. Découvrez comment utiliser Azure Container Registry avec ces guides de démarrage rapide, didacticiels et exemples.'
 sections:
@@ -25,7 +23,7 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Azure CLI
+            text: D’Azure CLI
             href: /azure/container-registry/container-registry-get-started-azure-cli
           - image:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'

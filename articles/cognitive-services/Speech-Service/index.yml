@@ -7,18 +7,16 @@ metadata:
   description: 'Speech Services offre aux développeurs un moyen simple d’ajouter de puissantes fonctionnalités de reconnaissance vocale à leurs applications. Citons en exemple le contrôle des commandes vocales et les dialogues vocaux, la conversation en langage naturel, la transcription de la parole et la dictée ainsi que la traduction vocale.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: speech-service
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/06/2018
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: 'Découvrez comment utiliser Speech Services et le SDK Speech pour ajouter des fonctionnalités vocales à vos applications. Vous pouvez utiliser le SDK Speech pour ajouter des fonctionnalités de <i>reconnaissance vocale</i>, <i>d’intention</i>, de <i>traduction</i> et de <i>synthèse vocale</i> à vos applications. Les services Speech disposent également d’API REST qui fonctionnent avec n’importe quel langage de programmation pouvant effectuer des requêtes HTTP.'
+  description: À utiliser avec notre kit SDK Speech ou l’API REST.
 sections:
   - items:
       - type: list
@@ -41,10 +39,14 @@ sections:
             image:
               src: ../media/index/i_guidelines.svg
             title: Kit de développement logiciel (SDK) Speech Devices
+  - title: Introduction
+    items:
+      - type: paragraph
+        text: "Vous pouvez utiliser le SDK Speech (<a href=\"releasenotes.md\">notes de publication</a>) pour ajouter les fonctionnalités suivantes (et d’autres) à vos applications&colon;\n<div class=\"row\"><div class=\"column\"><ul>\n<li><b><a href=\"speech-to-text.md\">Reconnaissance vocale</a></b> (speech-recognition/SR)</li>\n<li><b><a href=\"speech-devices-sdk-create-kws.md\">Mot de mise en éveil personnalisé</a></b> (keyword-spotter/KWS)</li>\n<li><b><a href=\"how-to-recognize-intents-from-speech-csharp.md\">Intention</a></b></li>\n<li><b><a href=\"speech-translation.md\">Traduction</a></b></li>\n<li><b><a href=\"speech-container-howto.md\">Conteneur en local</a></b></li></ul></div><div class=\"column\"><ul>\n<li><b><a href=\"text-to-speech.md\">Synthèse vocale</a></b> (TTS)</li>\n<li><b><a href=\"conversation-transcription-service.md\">Transcription de conversation</a></b> (CTS)</li>\n<li><b><a href=\"how-to-phrase-lists.md\">Personnalisation de la liste d’expressions</a>/<a href=\"how-to-custom-speech.md\">Adaptation vocale personnalisée</a></b></li>\n<li><b><a href=\"voice-first-virtual-assistants.md\">Assistant virtuel «\_voice-first\_»</a></b></li>\n<li><b><a href=\"call-center-transcription.md\">Transcription de centre d’appel</a></b></li></ul></div></div>\n"
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
-        text: 'Découvrez comment télécharger, installer et utiliser le Kit de développement logiciel (SDK) en sélectionnant la flèche <img src="media/index/link.jpg" height="15" width="15"></img>.'
+        text: "Découvrez comment télécharger, installer et utiliser le Kit de développement logiciel (SDK) en sélectionnant la flèche <img src=\"media/index/link.jpg\" height=\"15\" width=\"15\"></img>.<br/>Tous les liens fléchés dirigent <img src=\"media/index/link.jpg\" height=\"15\" width=\"15\"></img> par défaut vers un guide de démarrage rapide sur la reconnaissance vocale. À partir de là, vous pouvez sélectionner d’autres guides de démarrage rapide (<a href=\"scenario-availability.md\">lorsqu’ils sont disponibles</a>) sur la synthèse vocale ou l’assistant virtuel «\_voice-first\_», par exemple."
       - type: table
         style: dataMatrix
         columns:
@@ -57,6 +59,8 @@ sections:
           - image:
               src: media/index/logo_netcore.svg
           - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_xamarin.svg'
+          - image:
               src: 'https://docs.microsoft.com/media/logos/logo_unity.svg'
           - image:
               src: media/index/logo_java.jpg
@@ -64,6 +68,8 @@ sections:
               src: media/index/logo_python.svg
           - image:
               src: media/index/logo_objc.jpg
+          - image:
+              src: media/index/logo_swift.jpg
           - image:
               src: media/index/logo_nodejs.svg
           - image:
@@ -77,9 +83,11 @@ sections:
               - href: quickstart-csharp-windows
               - href: quickstart-cpp-windows
               - href: quickstart-csharp-dotnetcore-windows
+              - href: quickstart-csharp-xamarin
               - href: quickstart-csharp-unity
               - href: quickstart-java-jre
               - href: quickstart-python
+              - href: null
               - href: null
               - href: quickstart-js-node
               - href: null
@@ -89,11 +97,27 @@ sections:
               - href: quickstart-csharp-windows
               - href: quickstart-cpp-windows
               - href: quickstart-csharp-dotnetcore-windows
+              - href: quickstart-csharp-xamarin
               - href: quickstart-csharp-unity
               - href: null
               - href: quickstart-python
               - href: null
+              - href: null
               - href: quickstart-js-node
+              - href: null
+          - title: Windows UWP (ARM32/64)
+            values:
+              - href: quickstart-csharp-uwp
+              - href: null
+              - href: null
+              - href: null
+              - href: quickstart-csharp-xamarin
+              - href: quickstart-csharp-unity
+              - href: null
+              - href: null
+              - href: null
+              - href: null
+              - href: null
               - href: null
           - title: Linux (x64)
             values:
@@ -102,8 +126,10 @@ sections:
               - href: quickstart-cpp-linux
               - href: quickstart-csharp-dotnetcore-windows
               - href: null
+              - href: null
               - href: quickstart-java-jre
               - href: quickstart-python
+              - href: null
               - href: null
               - href: quickstart-js-node
               - href: null
@@ -117,7 +143,23 @@ sections:
               - href: null
               - href: null
               - href: null
+              - href: null
+              - href: null
               - href: quickstart-js-node
+              - href: null
+          - title: Linux (ARM64)
+            values:
+              - href: null
+              - href: null
+              - href: quickstart-cpp-linux
+              - href: null
+              - href: null
+              - href: null
+              - href: quickstart-java-jre
+              - href: null
+              - href: null
+              - href: null
+              - href: null
               - href: null
           - title: Android (ARM32/64)
             values:
@@ -125,8 +167,10 @@ sections:
               - href: null
               - href: null
               - href: null
+              - href: quickstart-csharp-xamarin
               - href: quickstart-csharp-unity
               - href: quickstart-java-android
+              - href: null
               - href: null
               - href: null
               - href: null
@@ -137,8 +181,10 @@ sections:
               - href: null
               - href: null
               - href: null
+              - href: quickstart-csharp-xamarin
               - href: quickstart-csharp-unity
               - href: quickstart-java-android
+              - href: null
               - href: null
               - href: null
               - href: null
@@ -149,10 +195,12 @@ sections:
               - href: null
               - href: null
               - href: null
-              - href: null
+              - href: quickstart-csharp-xamarin
+              - href: quickstart-csharp-unity
               - href: null
               - href: null
               - href: quickstart-objectivec-ios
+              - href: quickstart-swift-ios
               - href: null
               - href: null
           - title: macOS (x64)
@@ -162,25 +210,17 @@ sections:
               - href: quickstart-cpp-macos
               - href: quickstart-csharp-dotnetcore-windows
               - href: null
+              - href: null
               - href: quickstart-java-jre
               - href: quickstart-python
               - href: quickstart-objective-c-macos
+              - href: quickstart-swift-macos
               - href: quickstart-js-node
-              - href: null
-          - title: Kit SDK d’appareil (ARM32)
-            values:
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: null
-              - href: speech-devices-sdk
-              - href: null
-              - href: null
-              - href: null
               - href: null
           - title: Browser
             values:
+              - href: null
+              - href: null
               - href: null
               - href: null
               - href: null
@@ -203,6 +243,8 @@ sections:
               - href: null
               - href: null
               - href: null
+              - href: null
+              - href: null
               - href: rest-apis
   - title: Didacticiels pas à pas
     items:
@@ -211,10 +253,9 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="speech-to-text-sample.md">Reconnaissance vocale</a><br/>
-          - html: <a href="intent.md">Reconnaissance de l'intention</a><br/>
-          - html: <a href="translation.md">Traduction</a>
-          - html: <a href="quickstart-text-to-speech-dotnet-windows.md">Synthèse vocale</a><br/>
+          - html: '<a href="how-to-recognize-intents-from-speech-csharp.md">Reconnaître les intentions vocales avec LUIS,C#</a><br/>'
+          - html: '<a href="tutorial-voice-enable-your-bot-speech-sdk.md">Activer les fonctions vocales sur votre bot avec le SDK Speech, C#</a><br/>'
+          - html: '<a href="../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json">Créer une application Flask pour la traduction de texte et la synthèse vocale, REST</a><br/>'
   - title: Exemples
     items:
       - type: paragraph
@@ -222,7 +263,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Exemples pour le SDK du service</a><br/>'
+          - html: '<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk">Exemples de kits SDK Speech</a><br/>'
           - html: '<a href="https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK">Exemples pour le SDK des appareils</a><br/>'
   - title: Informations de référence
     items:

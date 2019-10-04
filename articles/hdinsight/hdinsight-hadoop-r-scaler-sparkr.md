@@ -1,19 +1,19 @@
 ---
 title: Utiliser ScaleR et SparkR avec Azure HDInsight
-description: Utiliser ScaleR et SparkR avec ML Services sur HDInsight
-services: hdinsight
+description: Utiliser ScaleR et SparkR pour la manipulation de données et le développement de modèles avec ML Services sur Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9fa18550a3c27ce38599b9a0d47abdc38524d9c2
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974843"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71077093"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combiner ScaleR et SparkR dans HDInsight
 
@@ -194,7 +194,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Importation des données météorologiques et des données de compagnies aériennes vers Spark DataFrames
 
-Nous allons maintenant utiliser la fonction [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) de SparkR pour importer les données météorologiques et des compagnies aériennes vers Spark DataFrame. Cette fonction, comme beaucoup d’autres méthodes Spark, est exécutée en différé, ce qui signifie qu’elle est placée en file d’attente en vue de l’exécution, mais qu’elle n’est exécutée que lorsque cela est nécessaire.
+Nous allons maintenant utiliser la fonction [read.df()](https://spark.apache.org/docs/latest/api/R/read.df.html) de SparkR pour importer les données météorologiques et des compagnies aériennes vers Spark DataFrame. Cette fonction, comme beaucoup d’autres méthodes Spark, est exécutée en différé, ce qui signifie qu’elle est placée en file d’attente en vue de l’exécution, mais qu’elle n’est exécutée que lorsque cela est nécessaire.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -267,7 +267,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>Joindre les données météorologiques et les données de compagnies aériennes
 
-Nous allons maintenant utiliser la fonction [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) de SparkR pour effectuer une jonction externe gauche des données météorologiques et des données de compagnies aériennes par ID et date et heure de l’aéroport de départ. La jointure externe permet de conserver tous les enregistrements de données de compagnies aériennes même s’il n’existe aucune donnée météorologique correspondante. Une fois la jonction effectuée, nous supprimons les colonnes redondantes et renommons les colonnes conservées afin d’éliminer le préfixe DataFrame entrant émanant de la jonction.
+Nous allons maintenant utiliser la fonction [join()](https://spark.apache.org/docs/latest/api/R/join.html) de SparkR pour effectuer une jonction externe gauche des données météorologiques et des données de compagnies aériennes par ID et date et heure de l’aéroport de départ. La jointure externe permet de conserver tous les enregistrements de données de compagnies aériennes même s’il n’existe aucune donnée météorologique correspondante. Une fois la jonction effectuée, nous supprimons les colonnes redondantes et renommons les colonnes conservées afin d’éliminer le préfixe DataFrame entrant émanant de la jonction.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -537,9 +537,7 @@ Dans cet article, nous avons indiqué comment il est possible de combiner l’ut
 
 - Pour plus d’informations sur l’utilisation de ML Server sur Apache Spark, consultez le [Guide de prise en main](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
-- Pour obtenir des informations générales sur ML Server, consultez l’article [Bien démarrer avec R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node).
-
-- Pour obtenir des informations sur ML Services sur HDInsight, consultez [Vue d’ensemble de ML Services sur HDInsight](r-server/r-server-overview.md) et [Bien commencer avec ML Services sur Azure HDInsight](r-server/r-server-get-started.md).
+- Pour obtenir des informations sur ML Services sur HDInsight, consultez [Vue d’ensemble de ML Services sur HDInsight](r-server/r-server-overview.md).
 
 Pour plus d’informations sur l’utilisation de SparkR, consultez les pages suivantes :
 

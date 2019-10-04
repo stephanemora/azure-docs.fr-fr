@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450666"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673423"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -27,24 +27,32 @@ Dans Azure Active Directory (Azure AD), vous pouvez créer des règles complexes
 
 Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système évalue toutes les règles de groupe dynamique d’un annuaire pour voir si la modification déclenche des ajouts ou suppressions de groupe. Si un utilisateur ou un appareil respecte une règle d’un groupe, il est ajouté en tant que membre de ce groupe. S’il ne respecte plus la règle, il est supprimé. Vous ne pouvez pas ajouter ni supprimer manuellement un membre dans un groupe dynamique.
 
-* Vous pouvez créer un groupe dynamique pour les appareils ou utilisateurs, mais vous ne pouvez pas créer une règle qui contient à la fois des utilisateurs et des appareils.
-* Vous ne pouvez pas créer un groupe d’appareils basé sur des attributs des propriétaires d’appareils. Des règles d’appartenance d’appareil ne peuvent référencer que des attributs d’appareils.
+- Vous pouvez créer un groupe dynamique pour les appareils ou utilisateurs, mais vous ne pouvez pas créer une règle qui contient à la fois des utilisateurs et des appareils.
+- Vous ne pouvez pas créer un groupe d’appareils basé sur des attributs des propriétaires d’appareils. Des règles d’appartenance d’appareil ne peuvent référencer que des attributs d’appareils.
 
 > [!NOTE]
 > Cette fonctionnalité nécessite une licence Azure AD Premium P1 pour chaque utilisateur unique membre d’un ou de plusieurs groupes dynamiques. Vous n’avez pas à attribuer des licences aux utilisateurs pour qu’ils soient membres de groupes dynamiques, mais vous devez posséder le nombre minimum de licences dans le locataire pour couvrir tous les utilisateurs de ce type. Par exemple, si vous avez un total de 1 000 utilisateurs uniques dans tous les groupes dynamiques de votre locataire, vous devez disposer d’au moins 1 000 licences pour Azure AD Premium P1 pour répondre aux exigences de licence.
 >
 
-## <a name="constructing-the-body-of-a-membership-rule"></a>Construction du corps d’une règle d’appartenance
+## <a name="rule-builder-in-the-azure-portal"></a>Générateur de règles dans le portail Azure
 
-Une règle d’appartenance qui remplit automatiquement un groupe d’utilisateurs ou d’appareils est une expression binaire qui génère un résultat vrai ou faux. Les trois parties d’une règle simple sont les suivantes :
+Azure AD fournit un générateur de règles pour créer et mettre à jour plus rapidement vos règles importantes. Le générateur de règles prend en charge la construction jusqu’à cinq expressions. Le générateur de règles facilite la création d’une règle avec quelques expressions simples. Toutefois, il ne peut pas être utilisé pour reproduire chaque règle. Si le générateur de règles ne prend pas en charge la règle que vous souhaitez créer, vous pouvez utiliser la zone de texte.
 
-* Propriété
-* Operator
-* Valeur
+Voici quelques exemples de règles avancées ou de syntaxe pour lesquelles nous vous recommandons de construire à l’aide de la zone de texte :
 
-L’ordre des parties au sein d’une expression est importants pour éviter les erreurs de syntaxe.
+- Règle avec plus de cinq expressions
+- Règle de collaborateurs directs
+- Définition de la [priorité des opérateurs](groups-dynamic-membership.md#operator-precedence)
+- [Règles avec des expressions complexes](groups-dynamic-membership.md#rules-with-complex-expressions), par exemple `(user.proxyAddresses -any (_ -contains "contoso"))`
 
-### <a name="rules-with-a-single-expression"></a>Règles avec une expression unique
+> [!NOTE]
+> Le générateur de règles peut ne pas être en mesure d’afficher certaines règles construites dans la zone de texte. Un message peut s’afficher lorsque le générateur de règles n’est pas en mesure d’afficher la règle. Le générateur de règles ne modifie en aucune façon la syntaxe, la validation ou le traitement des règles de groupe dynamique pris en charge.
+
+Pour obtenir des instructions pas à pas, consultez [Mettre à jour un groupe dynamique](groups-update-rule.md).
+
+![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-update-rule/update-dynamic-group-rule.png)
+
+### <a name="rule-syntax-for-a-single-expression"></a>Syntaxe de règle pour une expression unique
 
 Une expression unique est la forme la plus simple d’une règle d’appartenance, qui ne comprend que les trois parties précitées. Une règle avec une expression unique ressemble à ceci : `Property Operator Value`, où la syntaxe de la propriété est le nom de object.property.
 
@@ -56,13 +64,23 @@ user.department -eq "Sales"
 
 Les parenthèses sont facultatives pour une expression unique. La longueur totale du corps de votre règle d’appartenance ne peut pas dépasser 2048 caractères.
 
+## <a name="constructing-the-body-of-a-membership-rule"></a>Construction du corps d’une règle d’appartenance
+
+Une règle d’appartenance qui remplit automatiquement un groupe d’utilisateurs ou d’appareils est une expression binaire qui génère un résultat vrai ou faux. Les trois parties d’une règle simple sont les suivantes :
+
+- Propriété
+- Operator
+- Valeur
+
+L’ordre des parties au sein d’une expression est importants pour éviter les erreurs de syntaxe.
+
 ## <a name="supported-properties"></a>Propriétés prises en charge
 
 Il existe trois types de propriétés utilisables pour construire une règle d’appartenance.
 
-* Booléen
-* Chaîne
-* Collection de chaînes
+- Boolean
+- Chaîne
+- Collection de chaînes
 
 Les propriétés utilisateur que vous pouvez utiliser pour créer une expression unique sont les suivantes.
 
@@ -113,7 +131,7 @@ Les propriétés utilisateur que vous pouvez utiliser pour créer une expression
 
 Concernant les propriétés utilisées pour les règles d’appareils, voir [Règles pour les appareils](#rules-for-devices).
 
-## <a name="supported-operators"></a>Opérateurs pris en charge
+## <a name="supported-expression-operators"></a>Opérateurs d’expression pris en charge
 
 Le tableau suivant répertorie tous les opérateurs pris en charge et leur syntaxe pour une expression unique. Les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union (-).
 
@@ -261,7 +279,7 @@ L’expression suivante sélectionne tous les utilisateurs qui disposent d’un 
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-### <a name="using-the-underscore--syntax"></a>Utilisation de la syntaxe de trait de soulignement (\_)
+### <a name="using-the-underscore-_-syntax"></a>Utilisation de la syntaxe de trait de soulignement (\_)
 
 La syntaxe de trait de soulignement (\_) correspond aux occurrences d’une valeur spécifique dans une des propriétés de collection de chaîne à valeurs multiples pour ajouter des utilisateurs ou des appareils à un groupe dynamique. Elle est utilisée avec les opérateurs -any ou -all.
 
@@ -283,7 +301,7 @@ La règle de collaborateurs directs est construite à l’aide de la syntaxe sui
 Direct Reports for "{objectID_of_manager}"
 ```
 
-Voici un exemple d’une règle valide, où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID d’objet du Gestionnaire de :
+Voici un exemple de règle valide où « 62e19b97-8b3d-4d4a-a106-4ce66896a863 » est l’ID d’objet du responsable :
 
 ```
 Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
@@ -291,26 +309,26 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 
 Les conseils suivants peuvent vous aider à utiliser la règle correctement.
 
-* **Manager ID** est l’ID d’objet du responsable. Il figure dans le **Profil** du responsable.
-* Pour que la règle fonctionne, assurez-vous que la propriété **Manager** est correctement définie pour les utilisateurs dans votre client. Vous pouvez vérifier la valeur actuelle dans le **Profil** de l’utilisateur.
-* Cette règle prend en charge uniquement les collaborateurs directs du responsable. En d’autres termes, vous ne peut pas créer de groupe avec les collaborateurs directs du responsable *et* leurs collaborateurs.
-* Cette règle ne peut pas être combinée avec d’autres règles d’appartenance.
+- **Manager ID** est l’ID d’objet du responsable. Il figure dans le **Profil** du responsable.
+- Pour que la règle fonctionne, assurez-vous que la propriété **Manager** est correctement définie pour les utilisateurs dans votre client. Vous pouvez vérifier la valeur actuelle dans le **Profil** de l’utilisateur.
+- Cette règle prend en charge uniquement les collaborateurs directs du responsable. En d’autres termes, vous ne peut pas créer de groupe avec les collaborateurs directs du responsable *et* leurs collaborateurs.
+- Cette règle ne peut pas être combinée avec d’autres règles d’appartenance.
 
 ### <a name="create-an-all-users-rule"></a>Créer une règle « Tous les utilisateurs »
 
 Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’utilisateurs dans le client, l’appartenance du groupe est ajustée automatiquement.
 
-La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique à l’aide de l’opérateur - ne et la valeur null. Cette règle ajoute au groupe les utilisateurs invités B2B, ainsi que les utilisateurs membres.
+La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique utilisant l’opérateur -ne et la valeur null. Cette règle ajoute au groupe les utilisateurs invités B2B, ainsi que les utilisateurs membres.
 
 ```
 user.objectid -ne null
 ```
 
-### <a name="create-an-all-devices-rule"></a>Créer une règle de « Tous les appareils »
+### <a name="create-an-all-devices-rule"></a>Créer une règle « Tous les appareils »
 
 Vous pouvez créer un groupe contenant tous les appareils d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’appareils dans le client, l’appartenance du groupe est ajustée automatiquement.
 
-La règle « Tous les appareils » est construite à l’aide d’une expression unique à l’aide de l’opérateur - ne et la valeur null :
+La règle « Tous les appareils » est construite à l’aide d’une expression unique utilisant l’opérateur -ne et la valeur null :
 
 ```
 device.objectid -ne null
@@ -318,7 +336,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Attributs d’extension et propriétés d’extension personnalisée
 
-Attributs d’extension et les propriétés d’extension personnalisés sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les attributs d’extension sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », lorsque X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
+Les attributs d’extension et les propriétés d’extension personnalisées sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les attributs d’extension sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », lorsque X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
@@ -341,25 +359,29 @@ Vous pouvez accéder au nom de la propriété personnalisée dans le répertoire
 
 Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Vous ne pouvez pas avoir à la fois des utilisateurs et des appareils en tant que membres du groupe. L’attribut **organizationalUnit** n’est plus répertorié et ne doit pas être utilisé. Cette chaîne est définie par Intune dans des cas spécifiques mais n’est pas reconnue par Azure AD, donc aucun périphérique n’est ajouté aux groupes en fonction de cet attribut.
 
+> [!NOTE]
+> systemlabels est un attribut en lecture seule qui ne peut pas être défini avec Intune.
+>
+> Pour Windows 10, le format correct de l’attribut deviceOSVersion est le suivant : (device.deviceOSVersion, par exemple « 10.0 (17763) »). La mise en forme peut être validée avec la cmdlet PowerShell Get-MsolDevice.
+
 Les attributs d’appareil suivants peuvent être utilisés.
 
  Attribut d’appareil  | Valeurs | Exemples
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | Toute valeur de chaîne. |(device.displayName -eq "Rob Iphone”)
- deviceOSType | Toute valeur de chaîne. | (device.deviceOSType -eq "iPad") ou (device.deviceOSType -eq "iPhone")
+ displayName | Toute valeur de chaîne. |(device.displayName -eq "Rob iPhone")
+ deviceOSType | Toute valeur de chaîne. | (device.deviceOSType -eq "iPad") ou (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | Toute valeur de chaîne. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | Un nom de catégorie d’appareil valide. | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Toute valeur de chaîne. | (device.deviceManufacturer -eq "Samsung")
  deviceModel | Toute valeur de chaîne. | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personnel, Entreprise, Inconnu | (device.deviceOwnership -eq "Company")
- domainName | Toute valeur de chaîne. | (device.domainName -eq "contoso.com")
- enrollmentProfileName | Nom du profil d’inscription des appareils Apple ou du profil AutoPilot Windows | (device.enrollmentProfileName -eq "DEP iPhones")
+ enrollmentProfileName | Profil d’inscription d’appareil Apple, inscription d’appareil : identifiants d’appareil d’entreprise (Android - Kiosk) ou nom de profil Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | Gestion des périphériques mobiles (pour les appareils mobiles).<br>PC (pour les ordinateurs gérés par l’agent PC Intune) | (device.managementType -eq "MDM")
  deviceId | Un ID d’appareil Azure AD valide. | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | Un ID d’objet Azure AD valide. |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
- systemLabels | n’importe quelle chaîne correspondant à la propriété d’appareil Intune pour baliser les appareils Modern Workplace | (device.systemLabels-contient « M365Managed »)
+ systemLabels | n’importe quelle chaîne correspondant à la propriété d’appareil Intune pour baliser les appareils Modern Workplace | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
 > Quand vous créez des groupes dynamiques pour des appareils, vous devez définir deviceOwnership avec la valeur « Company ». Sur Intune, la propriété de l’appareil est représentée comme Corporate. Pour plus d’informations, consultez [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes). 
@@ -368,8 +390,8 @@ Les attributs d’appareil suivants peuvent être utilisés.
 
 Ces articles fournissent des informations supplémentaires sur les groupes dans Azure Active Directory.
 
-* [Consulter les groupes existants](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Création d’un nouveau groupe et ajout de membres](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [Gérer les paramètres d’un groupe](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Gérer l’appartenance à un groupe](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Gérer les règles dynamiques pour les utilisateurs dans un groupe](groups-dynamic-membership.md)
+- [Consulter les groupes existants](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Création d’un nouveau groupe et ajout de membres](../fundamentals/active-directory-groups-create-azure-portal.md)
+- [Gérer les paramètres d’un groupe](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Gérer l’appartenance à un groupe](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Gérer les règles dynamiques pour les utilisateurs dans un groupe](groups-create-rule.md)

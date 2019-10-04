@@ -1,31 +1,26 @@
 ---
 title: Pratiques de déploiement sécurisé entre les régions – Azure Deployment Manager
 description: Explique comment déployer un service sur plusieurs régions avec Azure Deployment Manager. Montre des pratiques de déploiement sécurisé consistant à vérifier la stabilité d’un déploiement avant sa propagation à toutes les régions.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/31/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6a25444f0207ec5eceb029c5d31d222a31813e22
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138345"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066823"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Permettre des pratiques sûres de déploiement avec Azure Deployment Manager (préversion privée)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Permettre des pratiques sûres de déploiement avec Azure Deployment Manager (préversion publique)
 
 Afin de déployer votre service dans de nombreuses régions et vous assurer qu’il s’exécute comme prévu dans chaque région, vous pouvez utiliser Azure Deployment Manager et coordonner un lancement par étapes du service. Tout comme vous le feriez pour n’importe quel déploiement Azure, vous définissez les ressources de votre service dans les [modèles Resource Manager](resource-group-authoring-templates.md). Une fois les modèles créés, vous utilisez Deployment Manager pour décrire la topologie de votre service, et la façon dont il doit être lancé.
 
-Deployment Manager est une fonction de Resource Manager. Elle étend vos fonctionnalités au cours du déploiement. Utilisez Deployment Manager lorsque vous avez un service complexe à déployer sur plusieurs régions. Avec un déploiement intermédiaire de votre service, vous pouvez rechercher des problèmes potentiels avant le déploiement dans toutes les régions. Si les précautions supplémentaires apportées par un lancement par étapes ne vous sont pas utiles, préférez les [options de déploiement](resource-group-template-deploy-portal.md) standard pour Resource Manager. Deployment Manager s’intègre parfaitement à tous les outils tiers existants qui prennent en charge des déploiements Resource Manager, telles que les offres d’intégration continue et de livraison continue (CI/CD). 
+Deployment Manager est une fonction de Resource Manager. Elle étend vos fonctionnalités au cours du déploiement. Utilisez Deployment Manager lorsque vous avez un service complexe à déployer sur plusieurs régions. Avec un déploiement intermédiaire de votre service, vous pouvez rechercher des problèmes potentiels avant le déploiement dans toutes les régions. Si les précautions supplémentaires apportées par un lancement par étapes ne vous sont pas utiles, préférez les [options de déploiement](resource-group-template-deploy-portal.md) standard pour Resource Manager. Deployment Manager s’intègre parfaitement à tous les outils tiers existants qui prennent en charge des déploiements Resource Manager, telles que les offres d’intégration continue et de livraison continue (CI/CD).
 
-Azure Deployment Manager est en préversion privée. Pour utiliser Azure Deployment Manager, remplissez le [formulaire d’inscription](https://aka.ms/admsignup). Aidez-nous à améliorer cette fonctionnalité en apportant des [commentaires](https://aka.ms/admfeedback).
+Azure Deployment Manager est en préversion. Aidez-nous à améliorer cette fonctionnalité en apportant des [commentaires](https://aka.ms/admfeedback).
 
 Pour utiliser Deployment Manager, vous devez créer quatre fichiers :
 
@@ -36,17 +31,18 @@ Pour utiliser Deployment Manager, vous devez créer quatre fichiers :
 
 Vous déployez le modèle de topologie avant de déployer le modèle de lancement.
 
-Les informations de référence de l’API REST Azure Deployment Manager sont disponibles [ici](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Ressources supplémentaires :
 
-## <a name="supported-locations"></a>Emplacements pris en charge
-
-Pour la préversion, les ressources de Deployment Manager sont prises en charge dans USA Centre et USA Est 2. Lorsque vous définissez des ressources dans vos modèles de lancement et de topologie, telles que les unités de service, les sources d’artefact et les lancements décrits dans cet article, vous devez spécifier une de ces régions pour l’emplacement. Toutefois, les ressources que vous déployez pour créer votre service, comme les machines virtuelles, les comptes de stockage et les applications web, sont prises en charge dans tous leurs [emplacements standards](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
+- Les [informations de référence de l’API REST Azure Deployment Manager](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- [Tutoriel : Utiliser Azure Deployment Manager avec des modèles Resource Manager](./deployment-manager-tutorial.md).
+- [Tutoriel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+- [Un exemple d’Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 ## <a name="identity-and-access"></a>Identité et accès
 
 Avec Deployment Manager, une [identité managée affectée à l’utilisateur](../active-directory/managed-identities-azure-resources/overview.md) effectue les actions de déploiement. Vous créez cette identité avant de commencer votre déploiement. Elle doit avoir accès à l’abonnement Azure sur lequel vous déployez le service, et disposer des autorisations suffisantes pour procéder au déploiement complet. Pour plus d’informations sur les actions accordées par le biais des rôles, consultez [Rôles intégrés pour les ressources Azure](../role-based-access-control/built-in-roles.md).
 
-L’identité doit résider sur un des emplacements pris en charge pour Deployment Manager, et elle doit se trouver dans le même emplacement que le lancement.
+L’identité doit résider dans le même emplacement que le déploiement.
 
 ## <a name="topology-template"></a>Modèle de topologie
 
@@ -200,7 +196,9 @@ Dans le modèle de lancement, vous créez une source d’artefact pour les fichi
 
 ### <a name="steps"></a>Étapes
 
-Vous pouvez définir une étape à effectuer avant ou après votre opération de déploiement. Actuellement, seule l’étape `wait` est disponible. Cette étape d’attente suspend le déploiement avant de poursuivre. Elle vous permet de vérifier que votre service s’exécute comme prévu avant de déployer l’unité de service suivante. L’exemple suivant montre le format général d’une étape d’attente.
+Vous pouvez définir une étape à effectuer avant ou après votre opération de déploiement. Actuellement, seules les étapes `wait` et « healthCheck » sont disponibles.
+
+Cette étape d’attente suspend le déploiement avant de poursuivre. Elle vous permet de vérifier que votre service s’exécute comme prévu avant de déployer l’unité de service suivante. L’exemple suivant montre le format général d’une étape d’attente.
 
 ```json
 {
@@ -218,6 +216,8 @@ Vous pouvez définir une étape à effectuer avant ou après votre opération de
 ```
 
 La propriété duration utilise la [norme ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). L’exemple précédent indique une attente d’une minute.
+
+Pour plus d’informations sur l’étape de contrôle d’intégrité, consultez [Introduire le lancement de l’intégration de l’intégrité dans Azure Deployment Manager](./deployment-manager-health-check.md) et [Tutoriel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Pour plus d’informations, consultez [Informations de référence sur le modèle des étapes](/azure/templates/Microsoft.DeploymentManager/steps).
 
@@ -267,13 +267,13 @@ Pour plus d’informations, consultez [Informations de référence sur les lance
 
 ## <a name="parameter-file"></a>Fichier de paramètres
 
-Vous créez deux fichiers de paramètres. L’un des fichiers de paramètres est utilisé au cours du déploiement de la topologie de service, l’autre sert au déploiement du lancement. Il existe certaines valeurs dont vous devez vous assurer qu’elles soient les mêmes dans les deux fichiers de paramètres.  
+Vous créez deux fichiers de paramètres. L’un des fichiers de paramètres est utilisé au cours du déploiement de la topologie de service, l’autre sert au déploiement du lancement. Il existe certaines valeurs dont vous devez vous assurer qu’elles soient les mêmes dans les deux fichiers de paramètres.
 
 ## <a name="containerroot-variable"></a>Variable containerRoot
 
 Avec les déploiements par version, le chemin à vos artefacts change avec chaque nouvelle version. La première fois que vous exécutez un déploiement, le chemin peut être `https://<base-uri-blob-container>/binaries/1.0.0.0`. La deuxième fois, il peut être `https://<base-uri-blob-container>/binaries/1.0.0.1`. Deployment Manager simplifie l’obtention du chemin racine correct pour le déploiement actif à l’aide de la variable `$containerRoot`. Cette valeur change avec chaque version et elle n’est pas connue avant le déploiement.
 
-Utilisez la variable `$containerRoot` dans le fichier de paramètres pour que le modèle déploie les ressources Azure. Au moment du déploiement, cette variable est remplacée par les valeurs réelles au lancement. 
+Utilisez la variable `$containerRoot` dans le fichier de paramètres pour que le modèle déploie les ressources Azure. Au moment du déploiement, cette variable est remplacée par les valeurs réelles au lancement.
 
 Par exemple, au cours du lancement, vous créez une source d’artefact pour les artefacts binaires.
 

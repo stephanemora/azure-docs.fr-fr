@@ -15,11 +15,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d13e304b0d10e8bd34d306426f1f9164bcc6be94
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014248"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60567671"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Assistant Azure Data Factory Copy
 > [!NOTE]
@@ -35,7 +35,7 @@ Cet Assistant vous permet de déplacer facilement et en quelques minutes des don
 ![Sélectionnez la source de données](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
-> Consultez le [didacticiel sur l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir des instructions détaillées sur la création d’un exemple de pipeline afin de copier des données d’un objet blob Azure vers une table Azure SQL Database.
+> Consultez le [tutoriel sur l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir des instructions détaillées sur la création d’un exemple de pipeline afin de copier des données d’un objet blob Azure vers une table Azure SQL Database.
 >
 >
 
@@ -50,7 +50,7 @@ Vous pouvez afficher un aperçu d’une partie des données à partir de la sour
 Le schéma des données d’entrée peut ne pas correspondre au schéma des données de sortie dans certains cas. Le cas échéant, vous devez mapper les colonnes du schéma source aux colonnes du schéma de destination.
 
 > [!TIP]
-> Lors de la copie de données à partir de SQL Server ou d’Azure SQL Data Warehouse vers Azure SQL Data Warehouse, si la table n’existe pas dans le magasin de destination, Data Factory prend en charge la création automatique de la table à l’aide du schéma de la source. Pour en savoir plus, consultez la rubrique [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> Lors de la copie de données depuis SQL Server ou Azure SQL Database vers Azure SQL Data Warehouse, si la table n’existe pas dans le magasin de destination, Data Factory prend en charge la création automatique de la table à l’aide du schéma de la source. Pour en savoir plus, consultez la rubrique [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 >
 
 Utilisez une liste déroulante pour sélectionner une colonne du schéma source à mapper à une colonne du schéma de destination. L’Assistant de copie essaie de comprendre votre modèle de mappage des colonnes. Le même modèle est appliqué aux autres colonnes, ce qui vous évite de sélectionner les colonnes individuellement pour effectuer le mappage du schéma. Si vous le souhaitez, vous pouvez remplacer ces mappages en utilisant les listes déroulantes pour mapper les colonnes une par une. Le modèle devient plus précis à mesure que vous mappez des colonnes. L’Assistant de copie met continuellement à jour le modèle pour finalement obtenir le modèle adapté au mappage de colonnes que vous voulez.     
@@ -66,7 +66,7 @@ La capture d’écran suivante illustre une requête SQL à l’aide de la fonct
 ![Valider des expressions](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Filtrage des données dans un dossier d’objets blob Azure
-Vous pouvez utiliser des variables dans le chemin du dossier pour copier des données à partir d’un dossier qui est déterminé au moment de l’exécution par les [variables système](data-factory-functions-variables.md#data-factory-system-variables). Les variables prises en charge sont les suivantes : **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** et **{custom}**. Exemple : inputfolder/{year}/{month}/{day}.
+Vous pouvez utiliser des variables dans le chemin du dossier pour copier des données à partir d’un dossier qui est déterminé au moment de l’exécution par les [variables système](data-factory-functions-variables.md#data-factory-system-variables). Les variables prises en charge sont les suivantes : **{year}** , **{month}** , **{day}** , **{hour}** , **{minute}** et **{custom}** . Exemple : inputfolder/{year}/{month}/{day}.
 
 Supposons que vos dossiers d’entrée présentent le format suivant :
 
@@ -75,11 +75,11 @@ Supposons que vos dossiers d’entrée présentent le format suivant :
     2016/03/01/03
     ...
 
-Cliquez sur le bouton **Parcourir** à côté de **Fichier ou dossier**, accédez à l’un de ces dossiers (par exemple, 2016->03->01->02), puis cliquez sur **Choisir**. Vous devez voir `2016/03/01/02` dans la zone de texte. À présent, remplacez **2016** par **{year}**, **03** par **{month}**, **01** par **{day}** et **02** par **{hour}**, puis appuyez sur la touche de **tabulation**. Vous devez maintenant voir des listes déroulantes pour sélectionner le format de ces quatre variables :
+Cliquez sur le bouton **Parcourir** à côté de **Fichier ou dossier**, accédez à l’un de ces dossiers (par exemple, 2016->03->01->02), puis cliquez sur **Choisir**. Vous devez voir `2016/03/01/02` dans la zone de texte. À présent, remplacez **2016** par **{year}** , **03** par **{month}** , **01** par **{day}** et **02** par **{hour}** , puis appuyez sur la touche de **tabulation**. Vous devez maintenant voir des listes déroulantes pour sélectionner le format de ces quatre variables :
 
 ![Utilisation de variables système](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Comme la capture d’écran suivante le montre, vous pouvez également configurer une variable **custom** pour utiliser l’une des [chaînes de format prises en charge](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Pour sélectionner un dossier avec cette structure, utilisez d’abord le bouton **Parcourir** . Remplacez alors une valeur par **{custom}**, puis appuyez sur la touche de **tabulation** pour afficher la zone de texte dans laquelle vous pouvez taper la chaîne de format.     
+Comme la capture d’écran suivante le montre, vous pouvez également configurer une variable **custom** pour utiliser l’une des [chaînes de format prises en charge](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Pour sélectionner un dossier avec cette structure, utilisez d’abord le bouton **Parcourir** . Remplacez alors une valeur par **{custom}** , puis appuyez sur la touche de **tabulation** pour afficher la zone de texte dans laquelle vous pouvez taper la chaîne de format.     
 
 ![Utilisation de la variable custom](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 

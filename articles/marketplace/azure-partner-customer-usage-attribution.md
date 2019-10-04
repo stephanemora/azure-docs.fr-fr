@@ -1,20 +1,18 @@
 ---
-title: Attribution d’utilisation client et partenaire Azure
+title: Attribution de l’utilisation de client et partenaire Azure | Place de marché Azure
 description: Vue d’ensemble montrant comment effectuer le suivi de l’utilisation du client pour les solutions de la place de marché Azure
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
-manager: nunoc
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/17/2018
-ms.author: yijenj
-ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 9/23/2019
+ms.author: pabutler
+ms.openlocfilehash: c077b93b887482dda5ae127bb3dbaec71b2ea11b
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050150"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71260082"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
 
@@ -22,21 +20,21 @@ En tant que partenaire en logiciels pour Azure, vos solutions requièrent les co
 
 Microsoft propose désormais une méthode aidant les partenaires à mieux suivre l’utilisation d’Azure dans les déploiements clients de leurs logiciels sur Azure. Cette nouvelle méthode a recours à Azure Resource Manager pour orchestrer le déploiement des services Azure.
 
-En tant que partenaire Microsoft, vous pouvez associer l’utilisation d’Azure à des ressources Azure quelconques que vous configurez pour le compte d’un client. Vous pouvez former cette association sur la Place de marché Azure, dans le référentiel de démarrage rapide, dans les référentiels GitHub privés et lors d’engagements clients individualisés. Attribution de l’utilisation de client prend en charge trois options de déploiement :
+En tant que partenaire Microsoft, vous pouvez associer l’utilisation d’Azure à des ressources Azure quelconques que vous configurez pour le compte d’un client. Vous pouvez former cette association sur la Place de marché Azure, dans le référentiel de démarrage rapide, dans les référentiels GitHub privés et lors d’engagements clients individualisés. L’attribution de l’utilisation de client prend en charge trois options de déploiement :
 
-- via les modèles Azure Resource Manager : Partenaires peuvent utiliser des modèles Resource Manager pour déployer les services Azure permettant d’exécuter les logiciels du partenaire. Les partenaires peuvent créer un modèle Resource Manager qui définit l’infrastructure et la configuration de leur solution Azure. Un modèle Resource Manager vous permet, ainsi qu’à vos clients, de déployer votre solution tout au long de son cycle de vie. Vous pouvez être certain que vos ressources sont déployées dans un état cohérent.
+- via les modèles Azure Resource Manager : Les partenaires peuvent utiliser des modèles Resource Manager pour déployer les services Azure afin d’exécuter les logiciels du partenaire. Les partenaires peuvent créer un modèle Resource Manager qui définit l’infrastructure et la configuration de leur solution Azure. Un modèle Resource Manager vous permet, ainsi qu’à vos clients, de déployer votre solution tout au long de son cycle de vie. Vous pouvez être certain que vos ressources sont déployées dans un état cohérent.
 - API Azure Resource Manager : les partenaires peuvent appeler directement les API Resource Manager pour déployer un modèle Resource Manager ou pour générer les appels d’API, afin de provisionner directement des services Azure.
-- Terraform : Partenaires peuvent utiliser orchestrator cloud tels que Terraform pour déployer un modèle Resource Manager ou de déployer directement des services Azure.
+- Terraform : Les partenaires peuvent utiliser des orchestrateurs cloud tels que Terraform pour déployer un modèle Resource Manager ou déployer directement des services Azure.
 
-Attribution de l’utilisation de client est de nouveau déploiement et ne prend pas en charge le balisage des ressources existantes qui ont déjà été déployés.
+L’attribution de l’utilisation de client est destinée aux nouveaux déploiements et ne prend pas en charge le balisage des ressources existantes qui ont déjà été déployées.
 
-Attribution de l’utilisation de client est requis sur [Application Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): offre de modèle de solution publiés sur Azure Marketplace.
+L’attribution de l’utilisation de client est obligatoire pour [Azure Application](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) : offre de modèle de solution publiée sur la Place de marché Azure.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-resource-manager-templates"></a>Utiliser des modèles Resource Manager
-De nombreuses solutions de partenaires sont déployées pour l’abonnement d’un client grâce aux modèles Resource Manager. Si vous avez un modèle Resource Manager qui est disponible dans la place de marché Azure, sur GitHub, ou comme un guide de démarrage rapide, le processus de modification de votre modèle pour activer l’attribution de l’utilisation de client doit être très simple.
+De nombreuses solutions de partenaires sont déployées pour l’abonnement d’un client grâce aux modèles Resource Manager. Si vous disposez d’un modèle Resource Manager sur la Place de marché Azure, sur GitHub ou dans le cadre d’un démarrage rapide, le processus de modification de votre modèle permettant d’autoriser l’attribution de l’utilisation de client doit être relativement simple.
 
 Pour plus d’informations sur la création et la publication de modèles de solution, consultez
 
@@ -94,7 +92,7 @@ Si vous utilisez un modèle Resource Manager, vous devez baliser votre solution 
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Baliser un déploiement avec les API Resource Manager
 
-Pour activer l’attribution de l’utilisation du client, lorsque vous concevez vos appels d’API, incluez un GUID dans l’en-tête user-agent dans la demande. Ajoutez le GUID pour chaque offre ou référence SKU. Mettez la chaîne en forme avec le préfixe **pid-** et incluez le GUID généré par le partenaire. Voici un exemple de format GUID à insérer dans l’agent utilisateur :
+Pour autoriser l’attribution de l’utilisation de client, lorsque vous concevez vos appels d’API, incluez un GUID dans l’en-tête d’agent utilisateur au sein de la demande. Ajoutez le GUID pour chaque offre ou référence SKU. Mettez la chaîne en forme avec le préfixe **pid-** et incluez le GUID généré par le partenaire. Voici un exemple de format GUID à insérer dans l’agent utilisateur :
 
 ![Exemple de format GUID](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
@@ -125,13 +123,13 @@ Lorsque vous utilisez Azure CLI pour ajouter votre GUID, définissez la variable
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Pour plus d’informations, consultez [Azure SDK pour Go](https://docs.microsoft.com/go/azure/).
+Pour plus d’informations, consultez la page [Kit de développement logiciel (SDK) Azure pour Go](https://docs.microsoft.com/azure/go/).
 
 ## <a name="use-terraform"></a>Utiliser Terraform
 
-La prise en charge pour Terraform est disponible par le biais 1.21.0 du fournisseur Azure mise en production : [ https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019 ](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Cette prise en charge s’applique à tous les partenaires qui déploient leur solution via Terraform, et toutes les ressources déploiement et mesurés par le fournisseur Azure (version 1.21.0 ou version ultérieure).
+La prise en charge pour Terraform est disponible via la version 1.21.0 du fournisseur Azure : [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Cette prise en charge s’applique à tous les partenaires qui déploient leur solution via Terraform ainsi qu’à toutes les ressources déployées et mesurées par le fournisseur Azure (version 1.21.0 ou ultérieure).
 
-Fournisseur Azure pour Terraform ajouté un nouveau champ facultatif appelé [ *partner_id* ](https://www.terraform.io/docs/providers/azurerm/#partner_id) vous permet de spécifier le GUID que vous utilisez pour votre solution de suivi. La valeur de ce champ peut également provenir de la *ARM_PARTNER_ID* Variable d’environnement.
+Le fournisseur Azure pour Terraform a ajouté un nouveau champ facultatif intitulé [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) vous permettant de spécifier le GUID de suivi que vous utilisez pour votre solution. La valeur de ce champ peut également être approvisionnée depuis la variable d’environnement *ARM_PARTNER_ID*.
 
 ```
 provider "azurerm" {
@@ -141,17 +139,17 @@ provider "azurerm" {
           # new stuff for ISV attribution
           partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
-Les partenaires qui souhaitent obtenir leur déploiement via Terraform suivi par attribution de l’utilisation de clients doivent effectuer les opérations suivantes :
+Les partenaires qui souhaitent que leur déploiement via Terraform soit suivi en fonction de l’attribution de l’utilisation de client doivent procéder comme suit :
 
-* Créer un GUID (le GUID doit être ajouté pour chaque offre ou d’une référence (SKU))
-* Mettre à jour leur fournisseur Azure pour définir la valeur de *partner_id* vers le GUID (ne pas préliminaire correctif le GUID avec « pid- », simplement affectez-lui le GUID)
+* Créez un GUID (le GUID doit être ajouté pour chaque offre ou référence SKU)
+* Mettez à jour le fournisseur Azure pour définir la valeur de *partner_id* sur le GUID (n’ajoutez PAS le préfixe « pid- » au GUID, affectez uniquement le GUID tel qu’il est)
 
 ## <a name="create-guids"></a>Créer des GUID
 
 Un GUID désigne un numéro de référence unique à 32 chiffres hexadécimaux. Pour créer un GUID et effectuer son suivi, vous devez utiliser un générateur GUID. L’équipe de stockage Azure a créé un [formulaire générateur de GUID](https://aka.ms/StoragePartners) qui vous enverra par e-mail un GUID au format approprié et pourra être réutilisé dans les différents systèmes de suivi.
 
 > [!Note]
-> Il est vivement recommandé d’utiliser [formulaire de générateur GUID du stockage Azure](https://aka.ms/StoragePartners) pour créer votre GUID. Pour plus d’informations, consultez notre [Forum Aux Questions (FAQ)](#faq).
+> Nous vous recommandons vivement d’utiliser le [formulaire Générateur de GUID de stockage Azure](https://aka.ms/StoragePartners) pour créer votre GUID. Pour plus d’informations, consultez notre [Forum Aux Questions (FAQ)](#faq).
 
 Nous vous recommandons de créer un GUID unique pour chaque offre et canal de distribution de chaque produit. Si vous ne souhaitez pas que les rapports soient scindés, vous pouvez choisir d'utiliser un GUID unique pour les différents canaux de distribution du produit.
 
@@ -166,51 +164,36 @@ Vous pouvez également effectuer le suivi des GUID à un niveau plus granulaire,
 
 ## <a name="register-guids-and-offers"></a>Inscrire des GUID et des offres
 
-Les GUID doivent être inscrite pour activer l’attribution de l’utilisation de client.
+Les GUID doivent être inscrits pour activer l’attribution de l’utilisation de client.
 
-Toutes les inscriptions pour les GUID de modèle doivent être effectuées sur le portail Cloud Partner de la Place de marché Azure.
+Toutes les inscriptions de GUID de modèles sont effectuées dans l’Espace partenaires.
 
-Une fois que vous aurez ajouté le GUID à votre modèle ou dans l’agent utilisateur et enregistré le GUID dans le portail Cloud Partner, tous les déploiements feront l’objet d’un suivi.
+Une fois que vous avez ajouté le GUID à votre modèle ou dans l’agent utilisateur et inscrit le GUID dans l’Espace partenaires, tous les déploiements font l’objet d’un suivi.
 
-1. Optez pour la [Place de marché Azure](https://aka.ms/listonazuremarketplace) afin d’accéder au portail Cloud Partner.
+1. Inscrivez-vous en tant qu’[éditeur de la place de marché commerciale](https://aka.ms/JoinMarketplace).
 
-   * Les partenaires doivent [avoir un profil sur le portail Cloud Partner](https://docs.microsoft.com/azure/marketplace/become-publisher). Vous êtes invité à répertorier l’offre dans la Place de marché Azure ou AppSource.
+   * Les partenaires doivent [avoir un profil dans l’Espace partenaires](https://docs.microsoft.com/azure/marketplace/become-publisher). Vous êtes invité à répertorier l’offre dans la Place de marché Azure ou AppSource.
    * Les partenaires peuvent inscrire plusieurs GUID.
    * Les partenaires peuvent également enregistrer un GUID pour des offres et des modèles de solution extérieurs à la Place de marché.
 
-1. Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com/).
+1. Connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/dashboard).
 
-1. Dans l’angle supérieur droit, sélectionnez l’icône de votre compte, puis **Publisher profile** (Profil de l’éditeur).
+1. Dans l’angle supérieur droit, sélectionnez l’icône des paramètres (engrenage), puis sélectionnez **Paramètres de développeur**.
 
-   ![Sélectionner le profil de l’éditeur](media/marketplace-publishers-guide/guid-image-for-lu.png)
+1. Sur la page **Paramètres du compte**, sélectionnez **Ajouter un GUID de suivi**.
 
-1. Sur la page **Profil**, cliquez sur **Add Tracking GUID (Ajouter un GUID de suivi).**
-
-   ![Sélectionner Add Tracking GUID (Ajouter un GUID de suivi)](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
-
-1. Dans le champ **GUID de suivi**, entrez votre GUID de suivi. Entrez simplement le GUID sans le préfixe **pid-**. Dans le champ **Description personnalisée**, entrez le nom ou la description de l’offre.
-
-   ![Page Profil](media/marketplace-publishers-guide/guid-dev-center-login.png)
-
-   ![Entrer le GUID et la description de l’offre](media/marketplace-publishers-guide/guid-dev-center-example.png)
+1. Dans la zone **GUID**, entrez votre GUID de suivi. Entrez simplement le GUID sans le préfixe **pid-** . Dans la zone **Description**, entrez le nom ou la description de l’offre.
 
 1. Pour inscrire plusieurs GUID, sélectionnez de nouveau **Add Tracking GUID** (Ajouter un GUID de suivi). Des champs supplémentaires apparaissent sur la page.
 
-   ![Sélectionner de nouveau Add Tracking GUID (Ajouter un GUID de suivi)](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
-
-   ![Entrer un autre GUID et une description de l’offre](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
-
 1. Sélectionnez **Enregistrer**.
 
-   ![Sélectionner Enregistrer](media/marketplace-publishers-guide/guid-dev-center-save.png)
-
-Une fois que vous aurez ajouté le GUID à votre modèle ou dans l’agent utilisateur et enregistré le GUID dans le portail Cloud Partner, tous les déploiements feront l’objet d’un suivi.
 
 ## <a name="verify-the-guid-deployment"></a>Vérifier le déploiement du GUID
 
 Une fois que vous avez modifié votre modèle et effectué un déploiement de tests, utilisez le script PowerShell suivant pour récupérer les ressources déployées et balisées.
 
-Vous pouvez utiliser ce script pour vérifier que le GUID a été ajouté avec succès à votre modèle Resource Manager. Le script ne s’applique pas au déploiement de l’API Resource Manager.
+Vous pouvez utiliser ce script pour vérifier que le GUID a été ajouté avec succès à votre modèle Resource Manager. Le script ne s’applique pas au déploiement de l’API Resource Manager ou Terraform.
 
 Connectez-vous à Azure. Sélectionnez l’abonnement avec le déploiement que vous souhaitez vérifier avant d’exécuter le script. Exécutez le script dans le contexte d’abonnement du déploiement.
 
@@ -249,15 +232,15 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Rapport
 
-Vous trouverez le rapport pour l’attribution de l’utilisation de clients dans votre tableau de bord Partner Center analyser. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+Vous trouverez le rapport relatif à l’attribution de l’utilisation de client dans le tableau de bord Analyse de votre Espace partenaires. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Pour afficher le rapport, vous devez connecter à l’aide des informations d’identification de votre Espace partenaires. Si vous rencontrez des problèmes relatifs aux rapports ou à la connexion, créez une demande de support en suivant les instructions dans la section Obtenir de l’aide.
 
-Choisir le modèle objet d’un suivi dans la liste déroulante du Type d’Association de partenaire pour afficher le rapport.
+Choisissez Modèle suivi dans la liste déroulante Type d’association au partenaire pour afficher le rapport.
 
-![Rapport pour l’attribution de l’utilisation de client](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+![Rapport relatif à l’attribution de l’utilisation de client](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
 
 ## <a name="notify-your-customers"></a>Informer vos clients
 
-Partenaires doivent informer ses clients sur les déploiements qui utilisent l’attribution de l’utilisation de client. Microsoft signale au partenaire l’utilisation d’Azure associée à ces déploiements. Les exemples suivants incluent le contenu que vous pouvez utiliser pour informer vos clients de ces déploiements. Dans les exemples, remplacez \<PARTNER> par le nom de votre entreprise. Les partenaires doivent s’assurer que la notification s’aligne sur leurs stratégies de confidentialité et de collecte de données, y compris sur les options relatives aux clients à exclure du suivi.
+Les partenaires doivent informer leurs clients des déploiements utilisant l’attribution de l’utilisation de client. Microsoft signale au partenaire l’utilisation d’Azure associée à ces déploiements. Les exemples suivants incluent le contenu que vous pouvez utiliser pour informer vos clients de ces déploiements. Dans les exemples, remplacez \<PARTNER> par le nom de votre entreprise. Les partenaires doivent s’assurer que la notification s’aligne sur leurs stratégies de confidentialité et de collecte de données, y compris sur les options relatives aux clients à exclure du suivi.
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notification des déploiements de modèle Resource Manager
 
@@ -269,7 +252,13 @@ Lorsque vous déployez le logiciel \<PARTNER>, Microsoft peut identifier l’ins
 
 ## <a name="get-support"></a>Obtenir de l’aide
 
-Si vous avez besoin d’aide pour l’intégration de la place de marché et/ou d’attribution de l’utilisation de client, procédez comme suit.
+Deux canaux de support sont disponibles selon les problèmes que vous rencontrez.
+
+Si vous rencontrez des problèmes dans l’Espace partenaires, notamment concernant la connexion ou l’affichage du rapport relatif à l’attribution de l’utilisation de client, créez ici une demande de support avec l’équipe du support technique de l’Espace partenaires : [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+
+Si vous avez besoin d’aide pour l’intégration à la Place de marché et/ou l’attribution de l’utilisation de client en général, notamment pour la configuration de cette dernière, suivez les étapes ci-dessous :
 
 1. Accédez à la [page de support](https://go.microsoft.com/fwlink/?linkid=844975).
 
@@ -295,44 +284,44 @@ Si vous avez besoin d’aide pour l’intégration de la place de marché et/ou 
 
 1. Remplissez le formulaire, puis sélectionnez **Envoyer**.
 
-Vous pouvez également recevoir des conseils techniques à partir d’un Microsoft Consultant technique pour technique avant-vente, de déploiement et de scénarios de développement d’applications à comprendre et d’incorporer l’attribution de l’utilisation de client.
+Un consultant technique partenaire Microsoft peut également vous fournir des conseils techniques sur les préventes, les déploiements et les scénarios de développement d’application techniques. Vous pourrez ainsi mieux comprendre et incorporer l’attribution de l’utilisation de client.
 
-### <a name="how-to-submit-a-technical-consultation-request"></a>Comment soumettre une demande de consultation techniques
+### <a name="how-to-submit-a-technical-consultation-request"></a>Comment envoyer une demande de consultation technique
 
-1. Visitez [ https://aka.ms/TechnicalJourney ](https://aka.ms/TechnicalJourney).
-1. Sélectionnez infrastructure Cloud et de gestion et une nouvelle page seront ouvre pour afficher le parcours technique.
-1. Sous Services de déploiement, cliquez sur la bouton Soumettre une demande
-1. Connectez-vous à l’aide de votre compte de service administré (compte MPN) ou votre AAD (compte de tableau de bord de partenaires) ; en fonction de vos informations d’identification de connexion, un formulaire de demande en ligne s’ouvre :
-    * Terminer/passez en revue les informations de contact.
-    * Les informations de consultation peuvent être pré-renseigné ou sélectionnez dans les listes déroulantes.
+1. Rendez-vous sur [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney).
+1. Sélectionnez Gestion et infrastructure cloud, puis une nouvelle page affichant le parcours technique s’ouvrira pour vous.
+1. Sous Services de déploiement, cliquez sur le bouton Envoyer une demande.
+1. Connectez-vous à l’aide de votre MSA (compte MPN) ou de votre AAD (compte Tableau de bord du partenaire). En fonction de vos informations d’identification de connexion, un formulaire de demande en ligne s’affichera :
+    * Renseignez/vérifiez les informations de contact.
+    * Les informations de consultation peuvent être préremplies. Sinon sélectionnez-les dans les listes déroulantes.
     * Entrez un titre et la description du problème (fournissez autant de détails que possible).
-1. Cliquez sur Envoyer
+1. Cliquez sur Envoyer.
 
-Afficher les instructions pas à pas avec captures d’écran [ https://aka.ms/TechConsultInstructions ](https://aka.ms/TechConsultInstructions).
+Consultez les instructions pas à pas présentes sur les captures d’écran sur [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions).
 
-### <a name="whats-next"></a>Et ensuite ?
+### <a name="whats-next"></a>Étapes suivantes
 
-Vous serez contacté par un Consultant technique Microsoft pour configurer un appel à la portée de vos besoins.
+Vous serez contacté par un consultant technique partenaire Microsoft afin d’organiser un appel destiné à évaluer l’étendue de vos besoins.
 
 ## <a name="faq"></a>Forum Aux Questions
 
 **Quel avantage l’ajout du GUID apporte-t-il au modèle ?**
 
-Microsoft offre aux partenaires avec une vue des déploiements de leurs solutions et des informations sur leur utilisation influencée. Microsoft et le partenaire peuvent utiliser ces informations pour favoriser un engagement plus proche entre les équipes de vente. Microsoft et le partenaire peuvent utiliser ces données pour obtenir une vue plus cohérente de l’impact d’un partenaire individuel sur la croissance Azure.
+Microsoft permet aux partenaires de visualiser les déploiements de leurs solutions par les clients, ainsi que les informations détaillées sur leur utilisation influencée. Microsoft et le partenaire peuvent utiliser ces informations pour favoriser un engagement plus proche entre les équipes de vente. Microsoft et le partenaire peuvent utiliser ces données pour obtenir une vue plus cohérente de l’impact d’un partenaire individuel sur la croissance Azure.
 
 **Une fois ajouté, un GUID peut-il être modifié ?**
 
-Oui, un client ou un partenaire d’implémentation peut personnaliser le modèle et modifier ou supprimer le GUID. Nous vous suggérons de proactive décrivent le rôle de la ressource et le GUID à leurs clients et les partenaires pour empêcher la suppression ou modifications vers le GUID pour les partenaires. La modification du GUID affecte uniquement les ressources et les déploiements nouveaux, qui n’existent pas.
+Oui, un client ou un partenaire d’implémentation peut personnaliser le modèle et modifier ou supprimer le GUID. Nous conseillons aux partenaires de décrire de façon proactive le rôle de la ressource et le GUID à leurs clients et partenaires pour empêcher la suppression ou la modification du GUID. La modification du GUID affecte uniquement les ressources et les déploiements nouveaux, qui n’existent pas.
 
 **Puis-je effectuer le suivi de modèles déployés à partir d’un dépôt autre que Microsoft tel que GitHub ?**
 
-Oui, tant que le GUID est présent lorsque le modèle est déployé, l’utilisation fait l’objet d’un suivi. Les partenaires doivent avoir un profil dans le CPP pour inscrire le GUID utilisé pour le déploiement en dehors de la place de marché Azure.
+Oui, tant que le GUID est présent lorsque le modèle est déployé, l’utilisation fait l’objet d’un suivi. Les partenaires sont tenus d’avoir un profil sur le portail Cloud Partner pour inscrire les GUID utilisés pour le déploiement en dehors de la Place de marché Azure.
 
 **Le client reçoit-il également la création de rapports ?**
 
 Les clients peuvent effectuer le suivi de leur utilisation des ressources individuelles ou des groupes de ressources définis par le client sur le Portail Azure.
 
-**Cette méthodologie est similaire à la numérique partenaire de référence (POR) ?**
+**Est-ce que cette méthode est similaire au partenaire de référence numérique (DPOR) ?**
 
 Cette nouvelle méthode de connexion du déploiement et de l’utilisation à la solution d’un partenaire fournit un mécanisme permettant de lier une solution de partenaire à l’utilisation d’Azure. Le partenaire de référence numérique (DPOR) est destiné à associer un partenaire de conseil (intégrateur de systèmes) ou de gestion (fournisseur de services managés) à l’abonnement Azure d’un client.
 
@@ -340,15 +329,15 @@ Cette nouvelle méthode de connexion du déploiement et de l’utilisation à la
 
 Le formulaire Générateur de GUID de Stockage Azure est l’assurance de générer un GUID au format adéquat. De plus, si vous utilisez l’une des méthodes de suivi de plan de données de Stockage Azure, vous pouvez utiliser le même GUID pour le suivi de plan de contrôle de la Place de marché. Cela vous permet d’exploiter un même GUID unifié pour l’attribution Partenaire sans avoir à gérer plusieurs GUID.
 
-**Puis-je utiliser un disque dur virtuel privé, personnalisé pour une offre de modèle de solution dans la place de marché Azure ?**
+**Puis-je utiliser un disque dur virtuel privé personnalisé dans le cadre d’une offre de modèle de solution sur la Place de marché Azure ?**
 
-Non, vous ne pouvez pas. L’image de machine virtuelle doit provenir de la place de marché Azure, consultez : [ https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines ](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
+Non, vous ne pouvez pas. L’image de machine virtuelle doit provenir de la Place de marché Azure. Consultez : [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
 
-Vous pouvez créer une offre de machine virtuelle dans la place de marché à l’aide de votre disque dur virtuel personnalisé et marqués comme privés afin que personne puissent les consulter. Puis la référence à cette machine virtuelle dans votre modèle de solution.
+Vous pouvez créer une offre de machine virtuelle dans la place de marché à l’aide de votre disque dur virtuel personnalisé et le marquer comme privé afin que personne ne puisse le voir. Ajoutez ensuite une référence à cette machine virtuelle dans votre modèle de solution.
 
-**Échec de la mise à jour *contentVersion* propriété pour le modèle principal ?**
+**La mise à jour de la propriété *contentVersion* du modèle principal a échoué ?**
 
-Probablement un bogue dans certains cas, lorsque le modèle est déployé à l’aide d’un TemplateLink à partir d’un autre modèle qui attendent contentVersion plus anciens pour une raison quelconque. La solution de contournement consiste à utiliser la propriété de métadonnées :
+Un bogue peut parfois survenir lorsque le modèle est déployé à l’aide d’un élément TemplateLink issu d’un autre modèle qui s’attend à une version plus ancienne de contentVersion pour une raison quelconque. La solution de contournement consiste à utiliser la propriété de métadonnées :
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

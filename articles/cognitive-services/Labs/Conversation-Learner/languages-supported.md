@@ -3,19 +3,20 @@ title: Langues prises en charge par Apprenant de conversation - Microsoft Cognit
 titleSuffix: Azure
 description: ''
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: ef3d50a9d31f86f646ccaea1edaaf46171f174a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7870a12ba1338579b02e077d00d365c200ebac1c
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781865"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705209"
 ---
 # <a name="supported-languages"></a>Langues prises en charge
 

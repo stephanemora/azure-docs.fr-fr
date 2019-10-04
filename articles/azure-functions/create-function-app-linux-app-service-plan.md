@@ -6,17 +6,16 @@ documentationcenter: na
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a612505acdc37591377eebf290365b65cc3836cd
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339806"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70098285"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Créer une application de fonction dans un plan App Service sur Linux
 
@@ -50,7 +49,7 @@ Vous devez disposer d’une application de fonction pour héberger l’exécutio
     | **SE** | Linux | L’application de fonction s’exécute sur Linux. |
     | **Publier** | Code | Le conteneur Linux par défaut pour votre **pile d’exécution** est utilisé. Tout ce que vous avez à fournir est le code de projet de votre application de fonction. Une autre option consiste à publier une [image Docker](functions-create-function-linux-custom-image.md) personnalisée. |
     | **[Plan d’hébergement](functions-scale.md)** | Plan App Service | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Si vous exécutez dans un plan App Service, vous pouvez gérer la [mise à l’échelle de votre application de fonction](functions-scale.md).  |
-    | **Plan/lieu App Service** | Créer un plan | Choisissez **Créer** et fournissez le nom du **plan App Service**. Choisissez un **emplacement** dans une [région](https://azure.microsoft.com/regions/) proche de chez vous, ou proche d’autres services auxquels vos fonctions ont accès. Choisissez votre **[niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/linux/)**. <br/>Vous ne pouvez pas exécuter des applications de fonction Linux et Windows dans le même plan App Service. |
+    | **Plan/lieu App Service** | Créer un plan | Choisissez **Créer** et fournissez le nom du **plan App Service**. Choisissez un **emplacement** dans une [région](https://azure.microsoft.com/regions/) proche de chez vous, ou proche d’autres services auxquels vos fonctions ont accès. Choisissez votre **[niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/linux/)** . <br/>Vous ne pouvez pas exécuter des applications de fonction Linux et Windows dans le même plan App Service. |
     | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez **.NET** pour les fonctions C# et F#. La [prise en charge de Python](functions-reference-python.md) est en préversion actuellement. |
     | **[Stockage](../storage/common/storage-quickstart-create-account.md)** |  Nom globalement unique |  Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](functions-scale.md#storage-account-requirements). |
     | **[Application Insights](functions-monitoring.md)** | activé | Application Insights est déactivé par défaut. Nous vous recommandons d’activer l’intégration d’Application Insights maintenant et de choisir un emplacement près de votre emplacement de plan App Service. Si vous souhaitez le faire ultérieurement, consultez [Surveiller Azure Functions](functions-monitoring.md).  |
@@ -62,9 +61,6 @@ Vous devez disposer d’une application de fonction pour héberger l’exécutio
     ![Définir de nouveaux paramètres d’application de fonction](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
 5. Sélectionnez **Accéder à la ressource** pour afficher votre nouvelle application de fonction.
-
-> [!TIP]
-> Si vous avez des difficultés à trouver vos applications de fonction dans le portail, essayez [d’ajouter des applications de fonction à vos favoris dans le portail Azure](functions-how-to-use-azure-function-app-settings.md#favorite).
 
 Créez ensuite une fonction dans la nouvelle Function App. Même une fois votre application de fonction disponible, il peut s’écouler quelques minutes avant qu’elle ne soit entièrement initialisée.
 
@@ -93,7 +89,7 @@ Vous pouvez maintenant exécuter la nouvelle fonction en envoyant une requête H
 
 ## <a name="test-the-function"></a>Tester la fonction
 
-1. Dans votre nouvelle fonction, cliquez sur **</> Obtenir l’URL de la fonction** en haut à droite, sélectionnez **par défaut (touche de fonction)**, puis cliquez sur **Copier**. 
+1. Dans votre nouvelle fonction, cliquez sur **</> Obtenir l’URL de la fonction** en haut à droite, sélectionnez **par défaut (touche de fonction)** , puis cliquez sur **Copier**. 
 
     ![Copier l’URL de fonction à partir du portail Azure](./media/create-function-app-linux-app-service-plan/function-app-develop-tab-testing.png)
 

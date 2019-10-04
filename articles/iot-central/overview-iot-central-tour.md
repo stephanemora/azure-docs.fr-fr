@@ -3,20 +3,22 @@ title: Visite guidée de l’interface utilisateur de Azure IoT Central | Micros
 description: En tant que générateur, familiarisez-vous avec les zones clés de l’interface utilisateur de Azure IoT Central que vous utilisez pour créer une solution IoT.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/24/2019
+ms.date: 06/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: f794fad0f42a27190bdd948df49d0133dfaa1a92
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678647"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066409"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Visite guidée de l’interface utilisateur de Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Cet article vous présente l’interface utilisateur de Microsoft Azure IoT Central. Vous pouvez utiliser l’interface utilisateur pour créer, gérer et utiliser une solution Azure IoT Central et ses appareils connectés.
 
@@ -33,14 +35,32 @@ En tant qu’_opérateur_, vous utilisez l’interface utilisateur Azure IoT Cen
 - Dépanner et corrige les problèmes avec vos appareils.
 - Approvisionner de nouveaux appareils.
 
-
 ## <a name="use-the-left-navigation-menu"></a>Utiliser le menu de navigation gauche
 
 Utilisez le menu de navigation gauche pour accéder aux différentes zones de l’application. Vous pouvez développer ou réduire la barre de navigation en sélectionnant **<** ou **>**  :
 
-| Menu | Description |
-| ---- | ----------- |
-| ![Menu de navigation gauche](media/overview-iot-central-tour/navigationbar.png) | <ul><li>Le bouton **Tableau de bord** affiche le tableau de bord de votre application. En tant que créateur, vous pouvez personnaliser le tableau de bord pour vos opérateurs. Les utilisateurs peuvent également créer leurs propres tableaux de bord.</li><li>Le bouton **Device Explorer** liste les appareils simulés et réels associés à chaque modèle d’appareil dans l’application. En tant qu’opérateur, vous utilisez **Device Explorer** pour gérer vos appareils connectés.</li><li>Le bouton **Device Sets** vous permet d’afficher et de créer des ensembles d’appareils. En tant qu’opérateur, vous pouvez créer des ensembles d’appareils comme une collection logique d’appareils spécifiée par une requête.</li><li>Le bouton **Analytique** montre les analytiques dérivées des données de télémétrie de l’appareil pour les appareils et les ensembles d’appareils. En tant qu’opérateur, vous pouvez créer des vues personnalisées sur des données d’appareils pour dégager des insights à partir de votre application.</li><li>Le bouton **Tâches** permet une gestion des appareils en bloc en vous faisant créer et exécuter des tâches pour effectuer des mises à jour à grande échelle.</li><li>Le bouton **Modèles d’appareil** montre les outils qu’un générateur utilise pour créer et gérer des modèles d’appareil.</li><li>Le bouton **Exportation de données continue** sert à un administrateur pour configurer une exportation continue vers d’autres services Azure, tels que le stockage et les files d’attente.</li><li>Le bouton **Administration** montre les pages d’administration de l’application depuis lesquelles un administrateur peut gérer les paramètres, les utilisateurs et les rôles de l’application.</li></ul> |
+:::row:::
+  :::column span="":::
+      ![Left navigation menu](media/overview-iot-central-tour/navigationbar.png)
+  :::column-end:::
+  :::column span="2":::
+     La page **Tableau de bord** affiche le tableau de bord de votre application. En tant que créateur, vous pouvez personnaliser le tableau de bord pour vos opérateurs. Les utilisateurs peuvent également créer leurs propres tableaux de bord.
+    
+     Le bouton **Explorateur d’appareils** liste les appareils simulés et réels associés à chaque modèle d’appareil dans l’application. En tant qu’opérateur, vous utilisez **Device Explorer** pour gérer vos appareils connectés.
+    
+     **Ensembles d’appareils** vous permet d’afficher et de créer des ensembles d’appareils. En tant qu’opérateur, vous pouvez créer des ensembles d’appareils comme une collection logique d’appareils spécifiée par une requête.
+    
+     **Analytique** montre les analytiques dérivées de la télémétrie d’appareil pour les appareils et les ensembles d’appareils. En tant qu’opérateur, vous pouvez créer des vues personnalisées sur des données d’appareils pour dégager des insights à partir de votre application.
+    
+     **Travaux**  permet la gestion des appareils en bloc en vous permettant de créer et d’exécuter des travaux pour effectuer des mises à jour à grande échelle.
+    
+     **Modèles d’appareil** montre les outils qu’un créateur utilise pour créer et gérer des modèles d’appareil.
+    
+     **Exportation de données continue** permet à un administrateur de configurer une exportation continue vers d’autres services Azure, comme le stockage et les files d’attente.
+    
+     La page **Administration** montre les pages d’administration de l’application depuis lesquelles un administrateur peut gérer les paramètres, les utilisateurs et les rôles de l’application.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="search-help-and-support"></a>Recherche, aide et support
 
@@ -51,17 +71,22 @@ Le menu supérieur s’affiche sur chaque page :
 - Pour rechercher des modèles d’appareils et des appareils, entrez une valeur de **recherche**.
 - Pour modifier la langue de l’interface utilisateur ou le thème, choisissez l’icône des **paramètres**.
 - Pour vous déconnecter de l’application, choisissez l’icône **Compte**.
-- Pour obtenir de l’aide et un support, choisissez la liste déroulante **Aide** pour obtenir une liste des ressources.
+- Pour obtenir de l’aide et un support, choisissez la liste déroulante **Aide** pour obtenir une liste des ressources. Dans une application d’essai, les ressources de support incluent l’accès à une [messagerie instantanée](howto-show-hide-chat.md).
 
 Vous pouvez choisir entre un thème clair ou un thème foncé pour l’interface utilisateur :
 
 ![Choisir un thème pour l’interface utilisateur](media/overview-iot-central-tour/themes.png)
 
+> [!NOTE]
+> La possibilité de choisir entre des thèmes clairs et foncés n’est pas disponible si votre administrateur a configuré un thème personnalisé pour l’application.
+
 ## <a name="dashboard"></a>tableau de bord
 
 ![tableau de bord](media/overview-iot-central-tour/homepage.png)
 
-Le tableau de bord est la première page que vous voyez lorsque vous vous connectez à votre application Azure IoT Central. En tant que créateur, vous pouvez personnaliser le tableau de bord pour d’autres utilisateurs de l’application en y ajoutant des vignettes. Pour plus d’informations, consultez le didacticiel [Personnaliser la vue d’opérateur de Azure IoT Central](tutorial-customize-operator.md). Les utilisateurs peuvent également [créer leurs propres tableaux de bord personnels](howto-personalize-dashboard.md).
+* Le tableau de bord est la première page que vous voyez lorsque vous vous connectez à votre application Azure IoT Central. En tant que créateur, vous pouvez personnaliser le tableau de bord pour d’autres utilisateurs de l’application en y ajoutant des vignettes. Pour plus d’informations, consultez le didacticiel [Personnaliser la vue d’opérateur de Azure IoT Central](tutorial-customize-operator.md).
+
+* En tant qu’opérateur, vous pouvez créer des tableaux de bord personnalisés et passer de ces tableaux vers le tableau de bord par défaut. Pour plus d’informations, consultez l’article sur les procédures [Créer et gérer des tableaux de bord personnels](howto-personalize-dashboard.md).
 
 ## <a name="device-explorer"></a>Explorateur d’appareils
 
@@ -94,19 +119,26 @@ La page Tâches vous permet d’effectuer des opérations de gestion d’apparei
 
 ![Page Modèles d’appareil](media/overview-iot-central-tour/templates.png)
 
-La page des modèles d’appareil est l’endroit où un générateur crée et gère les modèles d’appareil dans l’application. Pour plus d’informations, consultez le didacticiel [Définir un nouveau type d’appareil dans votre application Azure IoT Central](tutorial-define-device-type.md).
+La page des modèles d’appareil est l’endroit où un générateur crée et gère les modèles d’appareil dans l’application. Un modèle d’appareil spécifie les caractéristiques de celui-ci, notamment :
+
+- La télémétrie, l’état et les mesures d’événement.
+- Les paramètres et les propriétés.
+- Les commandes.
+- Les règles basées sur des événements ou des valeurs de télémétrie.
+
+Pour plus d’informations, consultez le didacticiel [Définir un nouveau type d’appareil dans votre application Azure IoT Central](tutorial-define-device-type.md).
 
 ## <a name="continuous-data-export"></a>Exportation de données continue
 
 ![Page Exportation de données continue](media/overview-iot-central-tour/export.png)
 
-La page d’exportation continue des données est l’endroit où un administrateur définit la façon d’exporter des données, comme les données de télémétrie, à partir de l’application. D’autres services peuvent stocker les données exportées ou les utiliser à des fins d’analyse. Pour en savoir plus, consultez l’article [Exporter vos données dans Azure IoT Central](howto-export-data.md).
+La page d’exportation continue des données est l’endroit où un administrateur définit la façon de diffuser en continu des données, comme les données de télémétrie, à partir de l’application. D’autres services peuvent stocker les données exportées ou les utiliser à des fins d’analyse. Pour en savoir plus, consultez l’article [Exporter vos données dans Azure IoT Central](howto-export-data.md).
 
 ## <a name="administration"></a>Administration
 
 ![Page d’administration](media/overview-iot-central-tour/administration.png)
 
-La page d’administration contient des liens vers les outils utilisés par un administrateur, comme la définition des utilisateurs et des rôles dans l’application. Pour plus d’informations, consultez l’article [Administrer votre application Azure IoT Central](howto-administer.md).
+La page d’administration contient des liens vers les outils utilisés par un administrateur, comme la définition des utilisateurs et des rôles dans l’application, ou la personnalisation de l’interface utilisateur. Pour plus d’informations, consultez l’article [Administrer votre application Azure IoT Central](howto-administer.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

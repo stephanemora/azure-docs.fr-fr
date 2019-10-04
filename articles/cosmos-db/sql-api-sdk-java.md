@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: bf89d419bcd97c276df35701bc4fd808f599094a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617130"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637695"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -27,8 +27,8 @@ ms.locfileid: "59617130"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Exécuteur en bloc - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Exécuteur en bloc - Java](sql-api-sdk-bulk-executor-java.md)
 
 Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les opérations synchrones. Pour la prise en charge asynchrone, utilisez le [Kit de développement (SDK) Java asynchrone de l’API SQL](sql-api-sdk-async-java.md). 
 
@@ -44,22 +44,22 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
-* Correction du bogue dans PartitionKey pour V2 de hachage.
+* Correction d’un bogue dans PartitionKey pour Hash V2.
 
 ### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
-* Prise en charge pour les index composites.
-* Résolution de bogue dans le Gestionnaire de point de terminaison global pour forcer l’actualisation.
-* Résolution de bogue pour les upserts avec les conditions préalables en mode direct.
+* Ajout de la prise en charge des index composites.
+* Correction d’un bogue dans le gestionnaire global des points de terminaison pour forcer le rafraîchissement.
+* Correction d’un bogue pour les upserts avec des conditions préalables en mode direct.
 
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
-* Correction du bogue dans le cache d’adresses de passerelle.
+* Correction d’un bogue dans le cache d’adresse de la passerelle.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Ajout de la prise en charge de l’écriture multirégion pour le mode direct.
 * Ajout de la prise en charge du traitement des IOExceptions levées en tant qu’exceptions ServiceUnavailable à partir d’un proxy.
 * Correction d’un bogue dans la stratégie de nouvelle tentative de découverte de point de terminaison.
 * Correction d’un bogue pour éviter que des exceptions soient levées dans BaseDatabaseAccountConfigurationProvider de pointeur null.
-* Correction d’un bogue pour vous assurer que queryiterator ne renvoient pas les valeurs NULL.
+* Correction d’un bogue pour éviter que l’itérateur de requête ne retourne des valeurs NULL.
 * Correction d’un bogue pour autoriser une clé de partition volumineuse
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -123,11 +123,11 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 * Correction de quelques bogues dans le conteneur de session qui peut provoquer une exception « Ressource propriétaire introuvable » pour les demandes dès la création de la collection.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](how-to-sql-query.md#Aggregates).
+* Ajout de la prise en charge des requêtes d’agrégation (COUNT, MIN, MAX, SUM et AVG). Consultez l’article [Aggregation support (Prise en charge de l’agrégation)](sql-query-aggregates.md).
 * Ajout de la prise en charge de la modification de flux.
 * Ajout de la prise en charge des informations relatives aux quotas de collections via RequestOptions.setPopulateQuotaInfo.
 * Ajout de la prise en charge de l’enregistrement de script de procédure stockée via RequestOptions.setScriptLoggingEnabled.
-* Correction d’un bogue dans lequel la requête en mode DirectHttps peut cesser de répondre lorsqu’il rencontre des échecs de limitation.
+* Correction d’un bogue dans lequel la requête en mode DirectHttps peut arrêter de répondre lorsqu’elle rencontre des échecs de limitation.
 * Correction d’un bogue dans le mode de cohérence de session.
 * Correction d’un bogue susceptible d’entraîner l’exception NullReferenceException dans HttpContext lorsque le taux de demandes est élevé.
 * Amélioration des performances du mode DirectHttps.
@@ -215,6 +215,11 @@ Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquemen
 Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé.
 
 > [!WARNING]
+> Toutes les versions **1.x** du Kit de développement logiciel (SDK) SQL pour Java sont mises hors service depuis le **30 mai 2020**.
+> 
+>
+
+> [!WARNING]
 > Toutes les versions du Kit de développement logiciel (SDK) SQL pour Java antérieures à la version **1.0.0** ont été supprimées le **29 février 2016**.
 > 
 > 
@@ -223,42 +228,42 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [2.1.3](#2.1.3) |13 mars 2018 |--- |
-| [2.1.2](#2.1.2) |09 mars 2018 |--- |
-| [2.1.1](#2.1.1) |13 décembre 2018. |--- |
-| [2.1.0](#2.1.0) |20 novembre 2018 |--- |
+| [2.1.3](#2.1.3) |13 mars 2018 |--- |
+| [2.1.2](#2.1.2) |09 mars 2018 |--- |
+| [2.1.1](#2.1.1) |13 décembre 2018 |--- |
+| [2.1.0](#2.1.0) |20 novembre 2018 |--- |
 | [2.0.0](#2.0.0) |21 septembre 2018 |--- |
-| [1.16.4](#1.16.4) |10 septembre 2018 |--- |
-| [1.16.3](#1.16.3) |09 septembre 2018 |--- |
-| [1.16.2](#1.16.2) |29 juin 2018 |--- |
-| [1.16.1](#1.16.1) |16 mai 2018 |--- |
-| [1.16.0](#1.16.0) |15 mars 2018 |--- |
-| [1.15.0](#1.15.0) |14 novembre 2017 |--- |
-| [1.14.0](#1.14.0) |28 octobre 2017 |--- |
-| [1.13.0](#1.13.0) |25 août 2017 |--- |
-| [1.12.0](#1.12.0) |11 juillet 2017 |--- |
-| [1.11.0](#1.11.0) |10 mai 2017 |--- |
-| [1.10.0](#1.10.0) |11 mars 2017 |--- |
-| [1.9.6](#1.9.6) |21 février 2017 |--- |
-| [1.9.5](#1.9.5) |31 janvier 2017 |--- |
-| [1.9.4](#1.9.4) |24 novembre 2016 |--- |
-| [1.9.3](#1.9.3) |30 octobre 2016 |--- |
-| [1.9.2](#1.9.2) |28 octobre 2016 |--- |
-| [1.9.1](#1.9.1) |26 octobre 2016 |--- |
-| [1.9.0](#1.9.0) |3 octobre 2016 |--- |
-| [1.8.1](#1.8.1) |30 juin 2016 |--- |
-| [1.8.0](#1.8.0) |14 juin 2016 |--- |
-| [1.7.1](#1.7.1) |30 avril 2016 |--- |
-| [1.7.0](#1.7.0) |27 avril 2016 |--- |
-| [1.6.0](#1.6.0) |29 mars 2016 |--- |
-| [1.5.1](#1.5.1) |31 décembre 2015 |--- |
-| [1.5.0](#1.5.0) |4 décembre 2015 |--- |
-| [1.4.0](#1.4.0) |5 octobre 2015 |--- |
-| [1.3.0](#1.3.0) |5 octobre 2015 |--- |
-| [1.2.0](#1.2.0) |5 août 2015 |--- |
-| [1.1.0](#1.1.0) |9 juillet 2015 |--- |
-| 1.0.1 |12 mai 2015 |--- |
-| [1.0.0](#1.0.0) |7 avril 2015 |--- |
+| [1.16.4](#1.16.4) |10 septembre 2018 |30 mai 2020 |
+| [1.16.3](#1.16.3) |09 septembre 2018 |30 mai 2020 |
+| [1.16.2](#1.16.2) |29 juin 2018 |30 mai 2020 |
+| [1.16.1](#1.16.1) |16 mai 2018 |30 mai 2020 |
+| [1.16.0](#1.16.0) |15 mars 2018 |30 mai 2020 |
+| [1.15.0](#1.15.0) |14 novembre 2017 |30 mai 2020 |
+| [1.14.0](#1.14.0) |28 octobre 2017 |30 mai 2020 |
+| [1.13.0](#1.13.0) |25 août 2017 |30 mai 2020 |
+| [1.12.0](#1.12.0) |11 juillet 2017 |30 mai 2020 |
+| [1.11.0](#1.11.0) |10 mai 2017 |30 mai 2020 |
+| [1.10.0](#1.10.0) |11 mars 2017 |30 mai 2020 |
+| [1.9.6](#1.9.6) |21 février 2017 |30 mai 2020 |
+| [1.9.5](#1.9.5) |31 janvier 2017 |30 mai 2020 |
+| [1.9.4](#1.9.4) |24 novembre 2016 |30 mai 2020 |
+| [1.9.3](#1.9.3) |30 octobre 2016 |30 mai 2020 |
+| [1.9.2](#1.9.2) |28 octobre 2016 |30 mai 2020 |
+| [1.9.1](#1.9.1) |26 octobre 2016 |30 mai 2020 |
+| [1.9.0](#1.9.0) |3 octobre 2016 |30 mai 2020 |
+| [1.8.1](#1.8.1) |30 juin 2016 |30 mai 2020 |
+| [1.8.0](#1.8.0) |14 juin 2016 |30 mai 2020 |
+| [1.7.1](#1.7.1) |30 avril 2016 |30 mai 2020 |
+| [1.7.0](#1.7.0) |27 avril 2016 |30 mai 2020 |
+| [1.6.0](#1.6.0) |29 mars 2016 |30 mai 2020 |
+| [1.5.1](#1.5.1) |31 décembre 2015 |30 mai 2020 |
+| [1.5.0](#1.5.0) |4 décembre 2015 |30 mai 2020 |
+| [1.4.0](#1.4.0) |5 octobre 2015 |30 mai 2020 |
+| [1.3.0](#1.3.0) |5 octobre 2015 |30 mai 2020 |
+| [1.2.0](#1.2.0) |5 août 2015 |30 mai 2020 |
+| [1.1.0](#1.1.0) |9 juillet 2015 |30 mai 2020 |
+| 1.0.1 |12 mai 2015 |30 mai 2020 |
+| [1.0.0](#1.0.0) |7 avril 2015 |30 mai 2020 |
 | 0.9.5-prelease |9 mars 2015 |29 février 2016 |
 | 0.9.4-prelease |17 février 2015 |29 février 2016 |
 | 0.9.3-prelease |13 janvier 2015 |29 février 2016 |

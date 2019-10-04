@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: 0fe30fe95e77adceaa5013f89206b08daf2a58a2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702093"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60749034"
 ---
 # <a name="azure-relay-exceptions"></a>Exceptions Azure Relay
 
@@ -29,18 +29,18 @@ Cet article répertorie certaines exceptions pouvant être générées par les A
 
 Les API Relay génèrent des exceptions entrant dans les catégories suivantes. Sont également répertoriées les actions suggérées que vous pouvez prendre pour aider à résoudre les exceptions.
 
-*   **Erreur de codage utilisateur** : [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
+*   **Erreur de codage utilisateur :** [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). 
 
     **Action générale** : essayez de corriger le code avant de poursuivre.
-*   **Erreur d’installation/configuration** : [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
+*   **Erreur d’installation ou de configuration** : [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). 
 
-    **Action générale**: révisez votre configuration. Si nécessaire, modifiez-la.
+    **Action générale** : Passez en revue votre configuration. Si nécessaire, modifiez-la.
 *   **Exceptions temporaires** : [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). 
 
     **Action générale** : relancez l’opération ou avertissez les utilisateurs.
 *   **Autres exceptions** : [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx). 
 
-    **Action générale**: propre au type d’exception. Consultez le tableau dans la section suivante. 
+    **Action générale** : propre au type d’exception. Consultez le tableau dans la section suivante. 
 
 ## <a name="exception-types"></a>Types d'exceptions
 

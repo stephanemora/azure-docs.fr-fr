@@ -2,22 +2,23 @@
 title: Utilisation d’Azure Classic CLI avec le Storage Azure | Microsoft Docs
 description: Découvrez comment utiliser l’interface de ligne de commande Azure CLI avec le Stockage Azure pour créer et gérer des comptes de stockage, et utiliser des fichiers et des objets blob Azure.
 services: storage
-author: seguler
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 01/30/2017
-ms.author: seguler
+ms.author: tamram
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 211051254e08d69c06afd4242599c909048e7e17
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 88f713c5695e2453edc58d072899aa417f0514af
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464838"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65147043"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Utilisation d’Azure Classic CLI avec le Stockage Azure
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Azure Classic CLI offre un ensemble de commandes multiplateforme open source à utiliser avec la plateforme Azure. Elle offre des fonctionnalités similaires à celles du [portail Azure](https://portal.azure.com) , ainsi que des fonctions étendues d’accès aux données.
 

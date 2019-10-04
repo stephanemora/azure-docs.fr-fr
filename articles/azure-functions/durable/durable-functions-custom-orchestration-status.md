@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8d36c797e80702302a1954d2f00e1e4daabcaa88
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 5cb5ce82dcd5a1c22dd05c7bd6cc9485f413752e
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608042"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70933776"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>État d’orchestration personnalisé dans Fonctions durables (Azure Functions)
 
@@ -345,4 +344,4 @@ Les clients obtiennent la réponse suivante :
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [En savoir plus sur les API HTTP dans Fonctions durables](durable-functions-http-api.md)
+> [En savoir plus sur les minuteurs durables](durable-functions-timers.md)

@@ -3,28 +3,25 @@ title: Créer votre première fabrique de données Azure (Visual Studio) | Micro
 description: Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory avec Visual Studio.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.custom: vs-azure
-ms.tgt_pltfrm: na
 ms.topic: tutorial
+ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 39b640a64cf93a7a9cbb0565084b238891e880c1
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483063"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140548"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Didacticiel : Créer une fabrique de données à l’aide de Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Vue d’ensemble et composants requis](data-factory-build-your-first-pipeline.md)
-> * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modèle Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -124,8 +121,8 @@ Avec le service lié HDInsight à la demande, le cluster HDInsight à la demande
 
     Propriété | Description
     -------- | ----------- 
-    ClusterSize | Spécifie la taille du cluster HDInsight Hadoop.
-    TimeToLive | Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression.
+    clusterSize | Spécifie la taille du cluster HDInsight Hadoop.
+    timeToLive | Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression.
     linkedServiceName | Spécifie le compte de stockage utilisé pour stocker les journaux d’activité générés par le cluster HDInsight Hadoop. 
 
     > [!IMPORTANT]
@@ -176,7 +173,7 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
     Type |La propriété de type est définie sur **AzureBlob**, car les données se trouvent dans le Stockage Blob Azure.
     linkedServiceName | Fait référence au service AzureStorageLinkedService1 que vous avez créé précédemment.
     fileName |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans le cas présent, seul le fichier input.log est traité.
-    Type | Les fichiers journaux sont au format texte : nous utilisons donc TextFormat. |
+    type | Les fichiers journaux sont au format texte : nous utilisons donc TextFormat. |
     columnDelimiter | Les colonnes des fichiers journaux sont délimitées par une virgule (`,`)
     frequency/interval | La fréquence est définie sur Mois et l’intervalle est 1, ce qui signifie que les segments d’entrée sont disponibles mensuellement.
     external | Cette propriété a la valeur true si les données d’entrée de l’activité ne sont pas générées par le pipeline. Cette propriété est uniquement spécifiée sur les jeux de données d’entrée. Pour le jeu de données d’entrée de la première activité, choisissez toujours la valeur true.

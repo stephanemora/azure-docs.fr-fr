@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/18/2018
-ms.openlocfilehash: 38b283ed666b39b4e090bd95051a4454a9b47e62
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 03/18/2019
+ms.openlocfilehash: c1422b6411fc60383cffa6c3082108bb940c4343
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975659"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996218"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API .NET Standard Table Azure Cosmos DB : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -27,20 +27,45 @@ ms.locfileid: "57975659"
 |   |   |
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
-|**Exemple**|[Exemple de COSMOS DB Table API .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Exemple**|[Exemple .NET d'API Table Cosmos DB](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Démarrage rapide**|[Démarrage rapide](create-table-dotnet.md)|
 |**Didacticiel**|[Didacticiel](tutorial-develop-table-dotnet.md)|
 |**Infrastructure actuellement prise en charge**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
+|**Signaler un problème**|[Signaler un problème](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
-## <a name="release-notes"></a>Notes de publication
+## <a name="release-notes-for-200-series"></a>Notes de publication pour la série 2.0.0
+La série 2.0.0 est dépendante de [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/). Elle apporte des améliorations de performances et assure le regroupement des espaces de noms sur le point de terminaison Cosmos DB.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
+* Il s’agit de la préversion initiale du SDK Table série 2.0.0, dépendante de [Microsoft.Azure.Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/). Elle apporte des améliorations de performances et assure le regroupement des espaces de noms sur le point de terminaison Cosmos DB. L’API publique reste la même.
+
+## <a name="release-notes-for-100-series"></a>Notes de publication pour la série 1.0.0
+La série 1.0.0 est dépendante de [Microsoft.Azure.DocumentDB.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="a-name105105"></a><a name="1.0.5"/>1.0.5
+* Introduction d’une nouvelle configuration sous TableClientConfiguration afin d’utiliser Rest Executor pour communiquer avec l’API Table de Cosmos DB
+
+### <a name="a-name105-preview105-preview"></a><a name="1.0.5-preview"/>1.0.5-preview
+* Résolution des bogues
+
+### <a name="a-name104104"></a><a name="1.0.4"/>1.0.4
+* Résolution des bogues
+* Indiquez l’option HttpClientTimeout pour RestExecutorConfiguration.
+
+### <a name="a-name104-preview104-preview"></a><a name="1.0.4-preview"/>1.0.4-preview
+* Résolution des bogues
+* Indiquez l’option HttpClientTimeout pour RestExecutorConfiguration.
+
+### <a name="a-name101101"></a><a name="1.0.1"/>1.0.1
+* Résolution des bogues
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Version en disponibilité générale
 
-### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-Preview
-* Modifications apportées à la configuration de CloudTableClient. Il accepte désormais un un objet TableClientConfiguration pendant la construction. TableClientConfiguration fournit différentes propriétés pour configurer le comportement du client selon que le point de terminaison cible est l’API de Table Cosmos DB ou l’API de Table de stockage Azure.
-* Prise en charge de TableQuery pour retourner des résultats dans l’ordre de tri sur une colonne personnalisée. Cette fonctionnalité est uniquement pris en charge sur les points de terminaison Cosmos DB Table.
-* Prise en charge ajoutée pour exposer RequestCharges sur différents types de résultats. Cette fonctionnalité est uniquement pris en charge sur les points de terminaison Cosmos DB Table.
+### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-preview
+* Des modifications ont été apportées à la configuration de CloudTableClient. Elle accepte désormais un objet TableClientConfiguration pendant la construction. TableClientConfiguration propose différentes propriétés pour configurer le comportement du client selon que le point de terminaison cible est API Table Cosmos DB ou API Table Stockage Azure.
+* Ajout de la prise en charge de TableQuery pour renvoyer des résultats triés dans une colonne personnalisée. Cette fonctionnalité est uniquement prise en charge sur les points de terminaison Table Cosmos DB.
+* Ajout de la prise en charge d'exposition de RequestCharges sur différents types de résultats. Cette fonctionnalité est uniquement prise en charge sur les points de terminaison Table Cosmos DB.
 
 ### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1-preview
 * Ajout de la prise en charge du jeton SAS et des opérations de TablePermissions, ServiceProperties et ServiceStats par rapport à des points de terminaison Table de stockage Azure. 
@@ -60,10 +85,24 @@ ms.locfileid: "57975659"
 ## <a name="release-and-retirement-dates"></a>Dates de publication et de retrait
 Microsoft envoie une notification au moins **12 mois** avant le retrait d’un Kit de développement logiciel (SDK) pour faciliter la transition vers une version plus récente/prise en charge.
 
+Cette bibliothèque .NET Standard multiplateforme [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) remplacera la bibliothèque .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
+
+### <a name="200-series"></a>Série 2.0.0
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.0.0-preview](#2.0.0-preview) |22 août 2019 |--- |
+
+### <a name="100-series"></a>Série 1.0.0
+| Version | Date de lancement | Date de suppression |
+| --- | --- | --- |
+| [1.0.5](#1.0.5) |13 septembre 2019 |--- |
+| [1.0.5-preview](#1.0.5-preview) |20 août 2019 |--- |
+| [1.0.4](#1.0.4) |12 août 2019 |--- |
+| [1.0.4-preview](#1.0.4-preview) |26 juillet 2019 |--- |
+| 1.0.2-preview |2 mai 2019 |--- |
+| [1.0.1](#1.0.1) |19 avril 2019 |--- |
 | [1.0.0](#1.0.0) |13 mars 2019 |--- |
-| [0.11.0-preview](#0.11.0-preview) |5 mars 2019 |--- |
+| [0.11.0-preview](#0.11.0-preview) |5 mars 2019 |--- |
 | [0.10.1-preview](#0.10.1-preview) |22 janvier 2019 |--- |
 | [0.10.0-preview](#0.10.0-preview) |18 décembre 2018 |--- |
 | [0.9.1-preview](#0.9.1-preview) |18 octobre 2018 |--- |
@@ -74,4 +113,4 @@ Microsoft envoie une notification au moins **12 mois** avant le retrait d’un 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Voir aussi
-Pour plus d’informations sur l’API Table Azure Cosmos DB, consultez [Présentation d’Azure Cosmos DB : API Table](table-introduction.md). 
+Pour plus d’informations sur l’API Table Azure Cosmos DB, consultez [Présentation d’Azure Cosmos DB : API Table](table-introduction.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Générer des métadonnées pour les images du stockage Azure'
+title: 'Didacticiel : Générer des métadonnées pour les images Azure'
 titleSuffix: Azure Cognitive Services
 description: Ce tutoriel vous montre comment intégrer le service Vision par ordinateur d’Azure dans une application web afin de générer ensuite des métadonnées pour les images.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 7caf4493db32201a8e83ffb3722c80c5e9b41a8f
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447997"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057737"
 ---
-# <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutoriel : Utiliser le service Vision par ordinateur pour générer des métadonnées des images dans le stockage Azure
+# <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Didacticiel : Utiliser le service Vision par ordinateur pour générer des métadonnées des images dans le stockage Azure
 
 Ce tutoriel vous montre comment intégrer le service Vision par ordinateur d’Azure dans une application web afin de générer ensuite des métadonnées pour les images chargées. Vous trouverez un guide complet de l’application dans le [lab Azure Storage and Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) sur GitHub. Ce tutoriel couvre essentiellement l’exercice 5 du lab. Si vous souhaitez créer l’application de bout en bout, vous pouvez suivre toutes les étapes, mais si vous voulez seulement voir de quelle façon intégrer Vision par ordinateur à une application web existante, lisez le présent tutoriel.
 
@@ -40,23 +40,20 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="create-a-computer-vision-resource"></a>Créer une ressource Vision par ordinateur
 
-Vous devez créer une ressource Vision par ordinateur pour votre compte Azure ; cette ressource gère votre accès au service Vision par ordinateur d’Azure.
+Vous devez créer une ressource Vision par ordinateur pour votre compte Azure ; cette ressource gère votre accès au service Vision par ordinateur d’Azure. 
 
-1. Connectez-vous au [portail Azure](https://ms.portal.azure.com) et cliquez sur **Créer une ressource**, sur **IA + Machine Learning** et sur **Vision par ordinateur**.
+1. Pour créer une ressource Vision par ordinateur, suivez les instructions de l'article [Créer une ressource Azure Cognitive Services](../../cognitive-services-apis-create-account.md).
 
-    ![Création d’un abonnement à l’API Vision par ordinateur](../Images/new-vision-api.png)
+1. Accédez ensuite au menu de votre groupe de ressources et cliquez sur l’abonnement à l’API Vision par ordinateur que vous venez de créer. Copiez l’URL indiquée sous **Point de terminaison** à un endroit où vous pourrez facilement la récupérer un peu plus tard. Cliquez ensuite sur **Afficher les clés d’accès**.
 
-1. Dans la boîte de dialogue, entrez « vision-api-key » dans le champ **Nom**, puis sélectionnez **F0** comme **niveau tarifaire**. Sélectionnez le même **emplacement** que celui choisi quand vous avez créé votre compte de stockage Azure. Sous **Groupe de ressources**, sélectionnez **Utiliser l’existant** et sélectionnez également le même groupe de ressources. Cochez la case **Je confirme**, puis cliquez sur **Créer**.
+    ![Page du portail Azure avec l’URL du point de terminaison et le lien des clés d’accès entourés](../Images/copy-vision-endpoint.png)
+    
+    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-    ![Abonnement à l’API Vision par ordinateur](../Images/create-vision-api.png)
-
-1. Revenez au menu de votre groupe de ressources et cliquez sur l’abonnement à l’API Vision par ordinateur que vous venez de créer. Copiez l’URL indiquée sous **Point de terminaison** à un endroit où vous pourrez facilement la récupérer un peu plus tard. Cliquez ensuite sur **Afficher les clés d’accès**.
-
-    ![Affichage des clés d’accès](../Images/copy-vision-endpoint.png)
 
 1. Dans la fenêtre suivante, copiez la valeur de **KEY 1** dans le Presse-papiers.
 
-    ![Copie de la clé d’accès](../Images/copy-vision-key.png)
+    ![Boîte de dialogue Gérer les clés, avec le bouton de copie entouré](../Images/copy-vision-key.png)
 
 ## <a name="add-computer-vision-credentials"></a>Ajouter les informations d’identification pour Vision par ordinateur
 
@@ -136,7 +133,7 @@ Enregistrez vos modifications dans Visual Studio, puis appuyez sur **Ctrl+F5** p
 
 Pour voir toutes les métadonnées attachées, affichez le conteneur de stockage utilisé pour les images dans l’Explorateur Stockage Azure. Cliquez avec le bouton droit sur un objet blob dans le conteneur, puis sélectionnez **Propriétés**. Dans la boîte de dialogue, vous voyez une liste de paires clé-valeur. La description de l’image générée par ordinateur est stockée dans l’élément « Caption » et les différents mots clés de recherche sont stockés dans « Tag0 », « Tag1 », etc. Quand vous avez terminé, cliquez sur **Annuler** pour fermer la boîte de dialogue.
 
-![Métadonnées d'objet blob](../Images/blob-metadata.png)
+![Fenêtre de dialogue des propriétés de l’image, avec les balises de métadonnées listées](../Images/blob-metadata.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

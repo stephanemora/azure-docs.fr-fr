@@ -9,11 +9,11 @@ ms.date: 12/18/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474827"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60787493"
 ---
 # <a name="understand-autoscale-settings"></a>Comprendre les paramètres de mise à l’échelle automatique
 Les paramètres de mise à l’échelle automatique permettent de s’assurer qu’un nombre approprié de ressources s’exécute pour gérer la charge fluctuante de votre application. Vous pouvez configurer les paramètres de mise à l’échelle automatique de sorte qu’ils soient déclenchés en fonction de mesures indiquant la charge ou les performances, ou un déclenchement à une date et une heure planifiées. Cet article examine de manière détaillée l’anatomie d’un paramètre de mise à l’échelle automatique. L’article commence par le schéma et les propriétés d’un paramètre, puis examine les différents types de profil qui peuvent être configurés. Enfin, il explique comment la fonctionnalité de mise à l’échelle automatique dans Azure évalue chaque profil à exécuter à un moment donné.
@@ -91,27 +91,27 @@ Pour illustrer le schéma du paramètre de mise à l’échelle automatique, le 
 
 | Section | Nom de l'élément | Description |
 | --- | --- | --- |
-| Paramètre | ID | ID de ressource du paramètre de mise à l’échelle automatique. Les paramètres de mise à l’échelle automatique sont une ressource Azure Resource Manager. |
-| Paramètre | Nom | Nom du paramètre de mise à l'échelle automatique. |
+| Paramètre | id | ID de ressource du paramètre de mise à l’échelle automatique. Les paramètres de mise à l’échelle automatique sont une ressource Azure Resource Manager. |
+| Paramètre | name | Nom du paramètre de mise à l'échelle automatique. |
 | Paramètre | location | Emplacement du paramètre de mise à l’échelle automatique. Cet emplacement peut être différent de celui de la ressource en cours de mise à l’échelle. |
 | properties | targetResourceUri | ID de la ressource mise à l’échelle. Vous ne pouvez avoir qu’un seul paramètre de mise à l’échelle automatique par ressource. |
-| properties | profils | Un paramètre de mise à l’échelle automatique se compose d’un ou plusieurs profils. Chaque fois que le moteur de mise à l’échelle automatique s’exécute, un profil est exécuté. |
-| Profil | Nom | Nom du profil. Vous pouvez choisir n’importe quel nom vous permettant d’identifier le profil. |
-| Profil | Capacity.maximum | Capacité maximale autorisée. Elle garantit que la mise à l’échelle automatique, lors de l’exécution de ce profil, ne met pas votre ressource à l’échelle au-dessus de ce nombre. |
-| Profil | Capacity.minimum | Capacité minimale autorisée. Elle garantit que la mise à l’échelle automatique, lors de l’exécution de ce profil, ne met pas votre ressource à l’échelle au-dessous de ce nombre. |
-| Profil | Capacity.default | S’il existe un problème de lecture des mesures de ressource (dans ce cas l’UC de « vmss1 ») et que la capacité actuelle est inférieure à la capacité par défaut, la mise à l’échelle automatique sera modifiée sur la valeur par défaut. Cela permet de garantir la disponibilité de la ressource. Si la capacité actuelle est déjà supérieure à la capacité par défaut, la mise à l’échelle automatique n’est pas réduite. |
-| Profil | règles | La mise à l’échelle s’ajuste automatiquement entre les capacités maximales et minimales en utilisant les règles du profil. Un profil peut contenir plusieurs règles. Généralement, deux règles sont utilisées : une pour déterminer quand procéder à la montée en puissance, et une autre pour déterminer quand procéder à la descente en puissance. |
-| Règle | metricTrigger | Définit la condition de mesure de la règle. |
+| properties | profiles | Un paramètre de mise à l’échelle automatique se compose d’un ou plusieurs profils. Chaque fois que le moteur de mise à l’échelle automatique s’exécute, un profil est exécuté. |
+| profile | name | Nom du profil. Vous pouvez choisir n’importe quel nom vous permettant d’identifier le profil. |
+| profile | capacity.maximum | Capacité maximale autorisée. Elle garantit que la mise à l’échelle automatique, lors de l’exécution de ce profil, ne met pas votre ressource à l’échelle au-dessus de ce nombre. |
+| profile | capacity.minimum | Capacité minimale autorisée. Elle garantit que la mise à l’échelle automatique, lors de l’exécution de ce profil, ne met pas votre ressource à l’échelle au-dessous de ce nombre. |
+| profile | capacity.default | S’il existe un problème de lecture des mesures de ressource (dans ce cas l’UC de « vmss1 ») et que la capacité actuelle est inférieure à la capacité par défaut, la mise à l’échelle automatique sera modifiée sur la valeur par défaut. Cela permet de garantir la disponibilité de la ressource. Si la capacité actuelle est déjà supérieure à la capacité par défaut, la mise à l’échelle automatique n’est pas réduite. |
+| profile | rules | La mise à l’échelle s’ajuste automatiquement entre les capacités maximales et minimales en utilisant les règles du profil. Un profil peut contenir plusieurs règles. Généralement, deux règles sont utilisées : une pour déterminer quand procéder à la montée en puissance, et une autre pour déterminer quand procéder à la descente en puissance. |
+| rules | metricTrigger | Définit la condition de mesure de la règle. |
 | metricTrigger | metricName | Nom de la mesure. |
 | metricTrigger |  metricResourceUri | ID de la ressource qui a généré la mesure. Dans la plupart des cas, il est identique à la ressource mise à l’échelle. Dans certains cas, il peut être différent. Par exemple, vous pouvez faire évoluer un groupe de machines virtuelles identiques en fonction du nombre de messages figurant dans la file d’attente de stockage. |
 | metricTrigger | timeGrain | Durée d’échantillonnage de la mesure. Par exemple, **TimeGrain = "PT1M"** signifie que les mesures seront agrégées chaque minute à l'aide de la méthode d'agrégation spécifiée dans l’élément « statistic ». |
 | metricTrigger | statistic | Méthode d’agrégation au cours de la période timeGrain. Par exemple, **statistic = “Average”** et **timeGrain = “PT1M”** signifient que les mesures sont agrégées chaque minute en prenant la valeur moyenne. Cette propriété détermine la façon dont la mesure est échantillonnée. |
 | metricTrigger | timeWindow | Durée nécessaire à l’examen des mesures. Par exemple, **timeWindow = “PT10M”** signifie qu’à chaque exécution d’une mise à l’échelle automatique, les mesures sont interrogées sur les 10 dernières minutes. La fenêtre de temps permet la normalisation de vos mesures et évite de réagir aux pics temporaires. |
 | metricTrigger | timeAggregation | Méthode d’agrégation utilisée pour agréger les mesures échantillonnées. Par exemple, **TimeAggregation = “Average”** doit agréger les mesures échantillonnées en prenant la moyenne. Dans le cas précédent, choisissez les dix échantillons de 1 minute et calculez leur moyenne. |
-| Règle | scaleAction | Action à entreprendre lors du déclenchement du paramètre metricTrigger de la règle. |
+| rules | scaleAction | Action à entreprendre lors du déclenchement du paramètre metricTrigger de la règle. |
 | scaleAction | direction | « Increase » pour la montée en puissance, ou Decrease » pour la descente en puissance.|
 | scaleAction | value | Indique dans quelle mesure augmenter ou diminuer la capacité de la ressource. |
-| scaleAction | cooldown | Temps d’attente entre deux opérations de mise à l’échelle. Par exemple, si **cooldown = “PT10M”**, aucune tentative de mise à l’échelle automatique ne peut survenir dans les 10 minutes. Le cooldown permet la stabilisation des mesures après l’ajout ou la suppression d’instances. |
+| scaleAction | cooldown | Temps d’attente entre deux opérations de mise à l’échelle. Par exemple, si **cooldown = “PT10M”** , aucune tentative de mise à l’échelle automatique ne peut survenir dans les 10 minutes. Le cooldown permet la stabilisation des mesures après l’ajout ou la suppression d’instances. |
 
 ## <a name="autoscale-profiles"></a>Profils de mise à l’échelle automatique
 
@@ -290,13 +290,13 @@ La mise à l’échelle automatique utilise la séquence suivante pour choisir l
 
 ### <a name="how-does-autoscale-evaluate-multiple-rules"></a>Comment la mise à l’échelle automatique évalue plusieurs règles ?
 
-Dès que la mise à l’échelle automatique a déterminé le profil censé s’exécuter, elle évalue toutes les règles d’augmentation de la taille dans le profil (règles dans lesquelles **direction = “Increase”**).
+Dès que la mise à l’échelle automatique a déterminé le profil censé s’exécuter, elle évalue toutes les règles d’augmentation de la taille dans le profil (règles dans lesquelles **direction = “Increase”** ).
 
 Si une ou plusieurs règles d’augmentation de la taille des instances sont déclenchées, la mise à l’échelle automatique calcule la nouvelle capacité déterminée par **scaleAction** de chacune de ces règles. Elle augmente ensuite la taille des instances de manière à atteindre les capacités maximales pour garantir la disponibilité du service.
 
 Par exemple, choisissons un groupe de machines virtuelles avec une capacité actuelle de 10. Il existe deux règles de montée en puissance : une qui augmente la capacité de 10 %, et une autre qui augmente la capacité de 3 unités. La première règle entraînerait une nouvelle capacité de 11, et la deuxième règle une capacité de 13. Pour garantir la disponibilité du service, la mise à l’échelle automatique choisit l’action qui résulte dans la capacité maximale, par conséquent, la deuxième règle.
 
-Si aucune règle d’augmentation de la taille des instances n’est déclenchée, la mise à l’échelle automatique évalue toutes les règles de diminution de la taille des instances (règles dans lesquelles **direction = “Decrease”**). La mise à l’échelle automatique n’accepte une action de diminution de la taille des instances que si toutes les règles correspondantes sont déclenchées.
+Si aucune règle d’augmentation de la taille des instances n’est déclenchée, la mise à l’échelle automatique évalue toutes les règles de diminution de la taille des instances (règles dans lesquelles **direction = “Decrease”** ). La mise à l’échelle automatique n’accepte une action de diminution de la taille des instances que si toutes les règles correspondantes sont déclenchées.
 
 La mise à l’échelle automatique calcule la nouvelle capacité déterminée par **scaleAction** de chacune de ces règles. Elle choisit ensuite l’action de mise à l’échelle offrant le maximum de capacité pour garantir la disponibilité du service.
 

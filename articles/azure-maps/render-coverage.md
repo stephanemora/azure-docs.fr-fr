@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 36879ad070848f1779804d4eb3958058b9b86689
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996575"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64869991"
 ---
 # <a name="azure-maps-render-coverage"></a>Couverture du rendu Azure Maps
 
@@ -45,7 +45,6 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | République centrafricaine         | ✓ | Ø |
 | Tchad                             | ✓ | Ø |
 | Comores                          | ✓ | Ø |
-| Congo                            | ✓ | ✓ |
 | République démocratique du Congo | ✓ | ✓ |
 | Côte d’Ivoire                    | ✓ | Ø |
 | Djibouti                         | ✓ | Ø |
@@ -76,7 +75,7 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | La Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
 | Sainte-Hélène, Ascension et Tristan da Cunha | ✓ | Ø |
-| Sao Tome et Principe            | ✓ | Ø |
+| São Tomé et Príncipe            | ✓ | Ø |
 | Sénégal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |
 | Somalie                          | ✓ | ✓ |
@@ -109,7 +108,6 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | Canada                    | ✓ | ✓ |
 | Caïmans (îles)            | ✓ | ✓ |
 | Chili                     | ✓ | ✓ |
-| Îles Clipperton         | ✓ | ✓ |
 | Colombie                  | ✓ | ✓ |
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |

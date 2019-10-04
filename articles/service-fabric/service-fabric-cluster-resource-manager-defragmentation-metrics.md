@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661648"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60844393"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Défragmentation des mesures et de la charge dans Service Fabric
 La stratégie par défaut de Service Fabric Cluster Resource Manager pour la gestion des mesures de charge dans le cluster consiste à répartir la charge. S’assurer que les nœuds sont utilisés de façon uniforme évite les points chauds et les points froids qui entraînent des problèmes de contention et gaspillage des ressources. La distribution des charges de travail dans le cluster est également la configuration la plus sûre afin de surmonter les défaillances, car elle permet de s’assurer qu’une défaillance n’affecte pas un trop grand pourcentage d’une charge de travail donnée. 
@@ -42,7 +42,7 @@ Le diagramme suivant offre une représentation visuelle de deux clusters, l’un
 
 <center>
 
-![Comparaison de Clusters équilibré et défragmenté][Image1]
+![Comparaison entre clusters équilibrés et défragmentés][Image1]
 </center>
 
 Dans le cas équilibré, tenez compte du nombre de mouvements qui seraient nécessaires pour placer un des plus grands objets de service. Dans le cluster défragmenté, la charge de travail volumineuse peut être placée sur les nœuds 4 ou 5 sans avoir à attendre le déplacement d’autres services.

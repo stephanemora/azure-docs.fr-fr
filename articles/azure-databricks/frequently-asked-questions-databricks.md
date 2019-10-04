@@ -1,34 +1,31 @@
 ---
-title: 'Azure Databricks : Questions courantes et aide | Microsoft Docs'
+title: 'Azure Databricks : Aide et questions courantes'
 description: Obtenez des réponses aux questions courantes et des informations de dépannage sur Azure Databricks.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: c3ba235c60480c38a21ee3264c54b4a4dcdea340
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.topic: conceptual
+ms.date: 10/25/2018
+ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60784705"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Forum aux Questions sur Azure Databricks
 
 Cet article répertorie les principales questions relatives à Azure Databricks. Il répertorie également certains problèmes éventuellement rencontrés avec l’utilisation de Databricks. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Databricks](what-is-azure-databricks.md). 
 
-## <a name="can-i-use-my-own-keys-for-local-encryption"></a>Puis-je utiliser mes propres clés de chiffrement local ? 
-Dans la version actuelle, l’utilisation de vos propres clés à partir d’Azure Key Vault n’est pas prise en charge. 
+## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>Puis-je utiliser Azure Key Vault pour stocker les clés/secrets à utiliser dans Azure Databricks ?
+Oui. Vous pouvez utiliser Azure Key Vault pour stocker les clés/secrets à utiliser avec Azure Databricks. Pour plus d’informations, consultez la page relative aux [étendues d’Azure Key Vault](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss).
 
-## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Puis-je utiliser les réseaux virtuels Azure avec Databricks ?
-Un nouveau réseau virtuel est créé dans le cadre de l’approvisionnement de Databricks. Dans cette version, vous ne pouvez pas utiliser votre propre réseau virtuel Azure.
+
+## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Puis-je utiliser les réseaux virtuels Azure avec Databricks ?
+Oui. Vous pouvez utiliser un réseau virtuel Azure (VNET) avec Azure Databricks. Pour plus d’informations, consultez [Deploying Azure Databricks in your Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html) (Déploiement d’Azure Databricks dans votre réseau virtuel Azure).
 
 ## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Comment accéder à Azure Data Lake Store à partir d’un ordinateur portable ? 
 
@@ -43,11 +40,11 @@ Pour plus d’informations, consultez [Utiliser Data Lake Store avec Azure Datab
 
 Vous trouverez ci-après certains problèmes éventuellement rencontrés avec Databricks.
 
-### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problème : Cet abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Databricks »
+### <a name="issue-this-subscription-is-not-registered-to-use-the-namespace-microsoftdatabricks"></a>Problème : Cet abonnement n’est pas enregistré pour utiliser l’espace de noms « Microsoft.Databricks »
 
 #### <a name="error-message"></a>Message d’erreur
 
-« Cet abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Databricks ». Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements. (Code : MissingSubscriptionRegistration) »
+« Cet abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Databricks ». Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements. (Code : MissingSubscriptionRegistration)
 
 #### <a name="solution"></a>Solution
 
@@ -81,7 +78,7 @@ Voici quelques solutions à ce problème :
     e. Lancez l’espace de travail Databricks en tant que cet utilisateur.
 
 
-### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Problème : votre compte {e-mail} n’a pas été enregistré dans Databricks 
+### <a name="issue-your-account-email-has-not-been-registered-in-databricks"></a>Problème : Votre compte {e-mail} n’a pas été enregistré dans Databricks 
 
 #### <a name="solution"></a>Solution
 
@@ -91,18 +88,18 @@ Si vous n’avez pas créé l’espace de travail et que vous êtes ajouté en t
 
 #### <a name="error-message"></a>Message d’erreur
 
-« Échec du lancement du fournisseur de cloud : une erreur de fournisseur de cloud s’est produite lors de la configuration du cluster. Pour plus d’informations, consultez le guide relatif à Databricks. Code d’erreur Azure : PublicIPCountLimitReached. Message d’erreur Azure : impossible de créer plus de 60 adresses IP publiques pour cet abonnement dans cette région. »
+« Échec du lancement du fournisseur de cloud : une erreur de fournisseur de cloud s’est produite lors de la configuration du cluster. Pour plus d’informations, consultez le guide relatif à Databricks. Code d’erreur Azure : PublicIPCountLimitReached. Message d’erreur Azure : impossible de créer plus de 60 adresses IP publiques pour cet abonnement dans cette région. »
 
 #### <a name="solution"></a>Solution
 
-Les clusters Databricks utilisent une adresse IP publique par nœud. Si votre abonnement a déjà utilisé toutes ses adresses IP publiques, vous devez [demander à augmenter le quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Sélectionnez **Quota** en tant que **Type de problème** et **Mise en réseau : ARM** en tant que **Type de quota**. Dans **Détails**, demandez une augmentation du quota d’adresses IP publiques. Par exemple, si votre limite est actuellement de 60 et que vous souhaitez créer un cluster de 100 nœuds, demandez une augmentation de cette limite à 160.
+Les clusters Databricks utilisent une adresse IP publique par nœud. Si votre abonnement a déjà utilisé toutes ses adresses IP publiques, vous devez [demander à augmenter le quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Sélectionnez **Quota** en tant que **Type de problème** et **Réseau : ARM** en tant que **Type de quota**. Dans **Détails**, demandez une augmentation du quota d’adresses IP publiques. Par exemple, si votre limite est actuellement de 60 et que vous souhaitez créer un cluster de 100 nœuds, demandez une augmentation de cette limite à 160.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problème : Un second type d’échec du lancement du fournisseur de cloud lors de la configuration du cluster (MissingSubscriptionRegistration)
 
 #### <a name="error-message"></a>Message d’erreur
 
-« Échec du lancement du fournisseur de cloud : une erreur de fournisseur de cloud s’est produite lors de la configuration du cluster. Pour plus d’informations, consultez le guide relatif à Databricks.
-Code d’erreur Azure : MissingSubscriptionRegistration Message d’erreur Azure : L’abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Compute ». Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements."
+« Échec du lancement du fournisseur de cloud : une erreur de fournisseur de cloud s’est produite lors de la configuration du cluster. Pour plus d’informations, consultez le guide relatif à Databricks.
+Code d’erreur Azure : MissingSubscriptionRegistration Message d’erreur Azure : L’abonnement n’est pas inscrit pour utiliser l’espace de noms « Microsoft.Compute ». Consultez https://aka.ms/rps-not-found pour découvrir comment enregistrer les abonnements."
 
 #### <a name="solution"></a>Solution
 
@@ -116,7 +113,7 @@ Pour obtenir des instructions plus détaillées, consultez [Fournisseurs et type
 
 #### <a name="background"></a>Arrière-plan
 
-Azure Databricks est intégré à Azure AD. Cela vous permet de définir des autorisations dans Azure Databricks (par exemple, sur des ordinateurs portables ou des clusters) en spécifiant les utilisateurs d’Azure AD. Pour qu’Azure Databricks soit en mesure de répertorier les noms des utilisateurs à partir d’Azure AD, il doit disposer de l’autorisation de lire ces informations. Cela nécessite votre consentement. Si le consentement n’est pas encore disponible, l’erreur s’affiche.
+Azure Databricks est intégré à Azure Active Directory. Vous pouvez définir des autorisations dans Azure Databricks (par exemple, sur des notebooks ou des clusters) en spécifiant les utilisateurs d’Azure AD. Pour que la plateforme Azure Databricks soit en mesure de répertorier les noms des utilisateurs de votre instance Azure AD, elle doit disposer de l’autorisation de lire ces informations et du consentement. Si le consentement n’est pas encore disponible, l’erreur s’affiche.
 
 #### <a name="solution"></a>Solution
 
@@ -124,6 +121,6 @@ Connectez-vous au portail Azure en tant qu’administrateur. Pour Azure Active D
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : Prise en main d’Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+- [Démarrage rapide : Bien démarrer avec Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Présentation d’Azure Databricks](what-is-azure-databricks.md)
 

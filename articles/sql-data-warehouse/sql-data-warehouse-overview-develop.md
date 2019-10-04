@@ -2,20 +2,20 @@
 title: Ressources pour le développement d’un entrepôt de données dans Azure | Microsoft Docs
 description: Concepts de développement, choix de conception, recommandations et des techniques de codage pour SQL Data Warehouse.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 08/29/2018
-ms.author: kevinvngo
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8c04e0409faa3b63a8a2957284ac7aa96740ae03
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a78d78618a4cd9bf8d2aaebbd0c0da13697549bc
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468374"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479468"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>Choix de conception et techniques de codage pour SQL Data Warehouse
 Consultez les articles sur le développement afin de mieux comprendre les choix de conception, les recommandations et les techniques de codage fondamentaux pour SQL Data Warehouse.
@@ -23,27 +23,27 @@ Consultez les articles sur le développement afin de mieux comprendre les choix 
 ## <a name="key-design-decisions"></a>Choix de conception clés
 Les articles suivants mettent l’accent sur les concepts et choix de conception pour le développement d’un entrepôt de données distribué à l’aide de SQL Data Warehouse :
 
-* [Connexions][connections]
-* [Accès concurrentiel][concurrency]
-* [Transactions][transactions]
-* [Schémas définis par l’utilisateur][user-defined schemas]
+* [connexions][connections]
+* [accès concurrentiel][concurrency]
+* [transactions][transactions]
+* [schémas définis par l’utilisateur][user-defined schemas]
 * [Distribution de tables][table distribution]
 * [Index de table][table indexes]
-* [Partitions de table][table partitions]
+* [partitions de table][table partitions]
 * [CTAS][CTAS]
-* [Statistiques][statistics]
+* [statistiques][statistics]
 
 ## <a name="development-recommendations-and-coding-techniques"></a>Recommandations pour le développement et techniques de codage
 Ces articles mettent l’accent sur des techniques de codage spécifiques, des conseils et des recommandations pour le développement de SQL Data Warehouse :
 
-* [Procédures stockées][stored procedures]
-* [Étiquettes][labels]
-* [Vues][views]
-* [Tables temporaires][temporary tables]
+* [procédures stockées][stored procedures]
+* [étiquettes][labels]
+* [vues][views]
+* [tables temporaires][temporary tables]
 * [SQL dynamique][dynamic SQL]
-* [Bouclage][looping]
-* [Options de regroupement][group by options]
-* [Attribution de variables][variable assignment]
+* [bouclage][looping]
+* [regrouper par options][group by options]
+* [attribution de variables][variable assignment]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, voir [Instructions SQL dans SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md).

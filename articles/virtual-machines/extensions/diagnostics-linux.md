@@ -3,18 +3,18 @@ title: Calcul Azure - Extension de diagnostic Linux | Microsoft Docs
 description: Comment configurer l’extension de diagnostic Linux Azure pour collecter des métriques et consigner les événements provenant de machines virtuelles Linux qui s’exécutent dans Azure.
 services: virtual-machines-linux
 author: abhijeetgaiha
-manager: sankalpsoni
+manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: agaiha
-ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: 1da5d8aba92ac5cca5f7cdc281e169ce284b202d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997968"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169175"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux d’activité
 
@@ -23,7 +23,7 @@ Ce document décrit la version 3.0 et les versions ultérieures de l’extension
 > [!IMPORTANT]
 > Pour plus d’informations sur la version 2.3 et les versions antérieures, consultez [ce document](../linux/classic/diagnostic-extension-v2.md).
 
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 
 L’extension de diagnostic Linux aide l’utilisateur à surveiller l’intégrité d’une machine virtuelle Linux s’exécutant sur Microsoft Azure. Elle présente les fonctionnalités suivantes :
 
@@ -49,7 +49,7 @@ Ces instructions d’installation et un [exemple de configuration téléchargeab
 
 La configuration téléchargeable est seulement un exemple. Modifiez-la selon vos besoins.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 * **Agent Azure Linux version 2.2.0 ou ultérieure**. La plupart des images de la galerie Linux de machines virtuelles Azure incluent la version 2.2.7 ou ultérieure. Exécutez `/usr/sbin/waagent -version` pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure de l’agent invité, suivez [ces instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) pour le mettre à jour.
 * **Azure CLI**. [Configurez l’environnement Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine.
@@ -59,10 +59,10 @@ La configuration téléchargeable est seulement un exemple. Modifiez-la selon vo
 
 ### <a name="sample-installation"></a>Exemple d’installation
 
-Renseignez les paramètres corrects sur les trois premières lignes puis exécutez ce script en tant que root :
+Avant l’exécution, remplissez les valeurs correctes pour les variables dans la première section :
 
 ```bash
-# Set your Azure VM diagnostic parameters correctly below
+# Set your Azure VM diagnostic variables correctly below
 my_resource_group=<your_azure_resource_group_name_containing_your_azure_linux_vm>
 my_linux_vm=<your_azure_linux_vm_name>
 my_diagnostic_storage_account=<your_azure_storage_account_for_storing_vm_diagnostic_data>
@@ -135,9 +135,7 @@ storageAccountSasToken | [Jeton SAS de compte](https://azure.microsoft.com/blog/
 mdsdHttpProxy | (facultatif) Informations du proxy HTTP nécessaires pour permettre à l’extension de se connecter au compte de stockage et au point de terminaison spécifiés.
 sinksConfig | (facultatif) Détails des destinations alternatives auxquelles les métriques et les événements peuvent délivrés. Les détails spécifiques de chaque récepteur de données pris en charge par l’extension sont traités dans les sections qui suivent.
 
-
-> [!NOTE]
-> Lors du déploiement de l’extension avec un modèle de déploiement Azure, le compte de stockage et le jeton SAS doivent être créés au préalable et ensuite transmis au modèle. Vous ne pouvez pas déployer une machine virtuelle, un compte de stockage, ni configurer l’extension d’un modèle unique. La création d’un jeton SAS dans un modèle n’est pas prise en charge actuellement.
+Pour obtenir un jeton SAS dans un modèle Resource Manager, utilisez la fonction **listAccountSas**. Pour obtenir un exemple de modèle, consultez [Exemple de fonction de liste](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
 
 Vous pouvez facilement construire le jeton SAS nécessaire via le portail Azure.
 
@@ -271,7 +269,7 @@ sampleRateInSeconds | (facultatif) Intervalle par défaut entre les collectes de
 
 Élément | Valeur
 ------- | -----
-ResourceId | L’ID de ressource Azure Resource Manager de la machine virtuelle ou du groupe de machines virtuelles identiques auquel la machine virtuelle appartient. Ce paramètre doit également être spécifié si un récepteur JsonBlob est utilisé dans la configuration.
+resourceId | L’ID de ressource Azure Resource Manager de la machine virtuelle ou du groupe de machines virtuelles identiques auquel la machine virtuelle appartient. Ce paramètre doit également être spécifié si un récepteur JsonBlob est utilisé dans la configuration.
 scheduledTransferPeriod | La fréquence à laquelle les métriques agrégées doivent être calculées et transférées vers les métriques Azure, exprimée sous la forme d’un intervalle de temps IS 8601. La périodicité de transfert la plus petite est de 60 secondes, c’est-à-dire PT1M. Vous devez spécifier au moins une scheduledTransferPeriod.
 
 Des échantillons des métriques spécifiées dans la section performanceCounters sont collectés toutes les 15 secondes ou selon le taux d’échantillonnage défini explicitement pour le compteur. Si plusieurs fréquences scheduledTransferPeriod apparaissent (comme dans l’exemple), chaque agrégation est calculée indépendamment.
@@ -500,7 +498,9 @@ ReadsPerSecond | Opérations de lecture par seconde
 WritesPerSecond | Opérations d’écriture par seconde
 TransfersPerSecond | Opérations de lecture ou d’écriture par seconde
 
-Les valeurs agrégées pour tous les systèmes de fichiers peuvent être obtenues en définissant `"condition": "IsAggregate=True"`. Les valeurs pour un système de fichiers monté spécifique, comme « / mnt », peuvent être obtenues en définissant `"condition": 'Name="/mnt"'`.
+Les valeurs agrégées pour tous les systèmes de fichiers peuvent être obtenues en définissant `"condition": "IsAggregate=True"`. Les valeurs pour un système de fichiers monté spécifique, comme « / mnt », peuvent être obtenues en définissant `"condition": 'Name="/mnt"'`. 
+
+**REMARQUE** : Si vous utilisez le portail Azure au lieu de JSON, la forme de champ de condition correcte est Nom='/mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métriques intégrées pour la classe Disque
 

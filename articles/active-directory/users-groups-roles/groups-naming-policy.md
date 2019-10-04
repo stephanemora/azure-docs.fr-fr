@@ -1,6 +1,6 @@
 ---
-title: Appliquer la stratégie d’affectation de noms de groupe - groupes Office 365 - Azure Active Directory | Microsoft Docs
-description: Définir une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)
+title: Appliquer une stratégie d’attribution de noms sur les groupes Office 365 - Azure Active Directory | Microsoft Docs
+description: Définir une stratégie d’attribution de noms pour les groupes Office 365 dans Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,33 +10,34 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bce8a9e4018f24022fcc45733d64ce47d07ba771
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 12bb01abadaf5bc9e7e1b221763ae38890922145
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898769"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013417"
 ---
-# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’affectation de noms pour les groupes Office 365 dans Azure Active Directory
+# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms sur les groupes Office 365 dans Azure Active Directory
 
 Pour appliquer des conventions de nommage cohérentes pour les groupes Office 365 créés ou modifiés par vos utilisateurs, configurez une stratégie de nommage de groupes pour vos locataires dans Azure Active Directory (Azure AD). Par exemple, vous pouvez utiliser la stratégie de nommage pour communiquer la fonction d’un groupe, l’appartenance, la région géographique ou le nom de la personne qui a créé le groupe. Vous pouvez aussi utiliser la stratégie de nommage pour faciliter le classement des groupes dans le carnet d’adresses. Vous pouvez utiliser la stratégie pour empêcher l’utilisation de certains mots dans les noms et les alias de groupes.
 
 > [!IMPORTANT]
-> À l’aide de la stratégie de nommage des groupes Office 365 nécessite des licences Azure Active Directory Premium P1 ou les licences Azure AD Basic EDU pour chaque utilisateur unique qui est membre d’un ou plusieurs groupes Office 365.
+> Chaque utilisateur unique membre d’un ou plusieurs groupes Office 365 a besoin de se voir attribuer une licence Azure Active Directory Premium P1 ou Azure AD Basic EDU, mais pas nécessairement de la posséder, pour pouvoir utiliser la stratégie d’attribution de noms de groupes Azure AD pour les groupes Office 365.
 
-La stratégie de nommage s’applique à la création ou à la modification des groupes créés dans toutes les charges de travail (par exemple, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner). Elle s’applique à la fois au nom de groupe et à l’alias de groupe. Si vous avez configuré votre stratégie de nommage dans Azure AD et qu’il existe une stratégie de nommage de groupes Exchange, la stratégie de nommage Active AD est appliquée.
+La stratégie de nommage s’applique à la création ou à la modification des groupes créés dans toutes les charges de travail (par exemple, Outlook, Microsoft Teams, SharePoint, Exchange ou Planner). Elle s’applique à la fois au nom de groupe et à l’alias de groupe. Si vous avez configuré votre stratégie d’attribution de noms dans Azure AD et qu’il existe une stratégie d’attribution de noms de groupes Exchange, la stratégie d’attribution de noms Azure AD est appliquée dans votre organisation.
 
 ## <a name="naming-policy-features"></a>Caractéristiques de la stratégie de nommage
-Vous pouvez appliquer une stratégie de nommage pour des groupes Office 365 de deux manières différentes :
 
--   **Stratégie de nommage avec préfixe-suffixe** : vous pouvez définir des préfixes ou des suffixes qui sont par la suite ajoutés automatiquement pour appliquer une convention de nommage à vos groupes (par exemple, dans le nom de groupe « GRP\_JAPON\_Mon groupe\_Ingénierie », GRP\_JAPON\_ est le préfixe et \_Ingénierie est le suffixe). 
+Vous pouvez appliquer une stratégie d’attribution de noms pour des groupes de deux manières différentes :
 
--   **Mots bloqués personnalisés** : vous pouvez charger un ensemble de mots bloqués propres à votre organisation pour interdire leur utilisation dans les groupes créés par les utilisateurs (par exemple, « PDG, Paie, RH »).
+- **Stratégie de nommage avec préfixe-suffixe** : vous pouvez définir des préfixes ou des suffixes qui sont par la suite ajoutés automatiquement pour appliquer une convention de nommage à vos groupes (par exemple, dans le nom de groupe « GRP\_JAPON\_Mon groupe\_Ingénierie », GRP\_JAPON\_ est le préfixe et \_Ingénierie est le suffixe). 
+
+- **Mots bloqués personnalisés** : vous pouvez charger un ensemble de mots bloqués propres à votre organisation pour interdire leur utilisation dans les groupes créés par les utilisateurs (par exemple, « PDG, Paie, RH »).
 
 ### <a name="prefix-suffix-naming-policy"></a>Stratégie de nommage avec préfixe-suffixe
 
@@ -75,48 +76,75 @@ Certains administrateurs peuvent être exemptés de ces stratégies dans toutes 
 - Administrateur d’utilisateurs
 - Enregistreurs de répertoire
 
-## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Installer les applets de commande PowerShell pour configurer une stratégie de nommage
+## <a name="configure-naming-policy-in-azure-portal"></a>Configurer une stratégie d’attribution de noms dans le portail Azure
 
-Veillez à désinstaller toute version ancienne du module Azure Active Directory PowerShell for Graph pour Windows PowerShell et à installer [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) avant d’exécuter les commandes PowerShell. 
+1. Se connecter au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur général.
+1. Sélectionnez **Groupes**, puis **Stratégie d'attribution de noms** pour ouvrir la page Stratégie d'attribution de noms.
+
+    ![Ouvrez la page Stratégie d'attribution de noms dans le Centre d'administration](./media/groups-naming-policy/policy.png)
+
+### <a name="view-or-edit-the-prefix-suffix-naming-policy"></a>Afficher ou modifier la stratégie d’attribution de suffixes/préfixes
+
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Stratégie de noms de groupes**.
+1. Vous pouvez afficher ou modifier individuellement les stratégies actuelles d'attribution de suffixes/préfixes en sélectionnant les attributs ou les chaînes que vous souhaitez appliquer dans le cadre de la stratégie d'attribution de noms.
+1. Pour supprimer un préfixe ou un suffixe dans la liste, sélectionnez-le et choisissez **Supprimer**. Plusieurs éléments peuvent être supprimés en même temps.
+1. Enregistrez les modifications de la nouvelle stratégie afin de les appliquer en sélectionnant **Enregistrer**.
+
+### <a name="edit-custom-blocked-words"></a>Modifier les mots bloqués personnalisés
+
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Mots bloqués**.
+
+    ![Modifier et charger la liste de mots bloqués pour la stratégie d'attribution de noms](./media/groups-naming-policy/blockedwords.png)
+
+1. Affichez ou modifiez la liste actuelle des mots bloqués personnalisés en sélectionnant **Télécharger**.
+1. Chargez la nouvelle liste de mots bloqués personnalisés en sélectionnant l'icône de fichier.
+1. Enregistrez les modifications de la nouvelle stratégie pour qu’elle prenne effet en sélectionnant **Enregistrer**.
+
+## <a name="install-powershell-cmdlets"></a>Installer les applets de commande PowerShell
+
+Veillez à désinstaller toute version ancienne du module Azure Active Directory PowerShell for Graph pour Windows PowerShell et à installer [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) avant d’exécuter les commandes PowerShell.
 
 1. Ouvrez l’application Windows PowerShell en tant qu’administrateur.
 2. Désinstallez toute version précédente d’AzureADPreview.
   
-   ```
+   ``` PowerShell
    Uninstall-Module AzureADPreview
    ```
+
 3. Installez la dernière version d’AzureADPreview.
   
-   ```
+   ``` PowerShell
    Install-Module AzureADPreview
    ```
-   Si vous êtes invité à accéder à un référentiel non approuvé, tapez **Y**. L’installation du nouveau module peut prendre quelques minutes.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Configurer la stratégie de nommage de groupes pour un locataire à l’aide d’Azure AD PowerShell
+   Si vous êtes invité à accéder à un référentiel non approuvé, entrez **Y**. L’installation du nouveau module peut prendre quelques minutes.
+
+## <a name="configure-naming-policy-in-powershell"></a>Configurer une stratégie d’attribution de noms dans PowerShell
 
 1. Ouvrez une fenêtre Windows PowerShell sur votre ordinateur. Vous pouvez l’ouvrir sans privilèges élevés.
 
-2. Exécutez les commandes suivantes pour préparer l’exécution des applets de commande.
+1. Exécutez les commandes suivantes pour préparer l’exécution des applets de commande.
   
-   ```
+   ``` PowerShell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
+
    Dans l’écran **Connectez-vous à votre compte** qui s’ouvre, entrez votre compte d’administrateur et votre mot de passe pour vous connecter à votre service, puis sélectionnez **Se connecter**.
 
-3. Suivez les étapes de [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](groups-settings-cmdlets.md) pour créer des paramètres de groupe pour ce locataire.
+1. Suivez les étapes de [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](groups-settings-cmdlets.md) pour créer des paramètres de groupe pour ce locataire.
 
 ### <a name="view-the-current-settings"></a>Afficher les paramètres actuels
 
 1. Récupérez la stratégie de nommage active pour afficher les paramètres actuels.
   
-   ```
+   ``` PowerShell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
   
-2. Affichez les paramètres de groupe actuels.
+1. Affichez les paramètres de groupe actuels.
   
-   ```
+   ``` PowerShell
    $Setting.Values
    ```
   
@@ -124,38 +152,38 @@ Veillez à désinstaller toute version ancienne du module Azure Active Directory
 
 1. Définissez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell. Pour que la fonctionnalité fonctionne correctement, [GroupName] doit être inclus dans le paramètre.
   
-   ```
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
   
-2. Définissez les mots bloqués personnalisés sur lesquels vous voulez imposer des restrictions. L’exemple suivant illustre la façon dont vous pouvez ajouter vos propres mots personnalisés.
+1. Définissez les mots bloqués personnalisés sur lesquels vous voulez imposer des restrictions. L’exemple suivant illustre la façon dont vous pouvez ajouter vos propres mots personnalisés.
   
-   ```
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
-3. Enregistrez les paramètres de la nouvelle stratégie pour qu’elle prenne effet, comme dans l’exemple suivant.
+1. Enregistrez les paramètres de la nouvelle stratégie pour qu’elle prenne effet, comme dans l’exemple suivant.
   
-   ```
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
 Vous avez terminé. Vous avez défini votre stratégie de nommage et ajouté vos mots bloqués.
 
-## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Exporter ou importer la liste de mots bloqués personnalisés
+## <a name="export-or-import-custom-blocked-words"></a>Exporter ou importer des mots bloqués personnalisés
 
 Pour plus d’informations, consultez l’article [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](groups-settings-cmdlets.md).
 
 Voici un exemple de script PowerShell permettant d’exporter plusieurs mots bloqués :
 
-```
+``` PowerShell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
 Voici un exemple de script PowerShell permettant d’importer plusieurs mots bloqués :
 
-```
+``` PowerShell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -165,37 +193,42 @@ if ($Settings.Count -eq 0)
     New-AzureADDirectorySetting -DirectorySetting $Settings
     $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}}
 $Settings["CustomBlockedWordsList"] = $BadWords
-$Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ```
 
 ## <a name="remove-the-naming-policy"></a>Supprimer la stratégie de noms de groupes
 
+### <a name="remove-the-naming-policy-using-azure-portal"></a>Supprimer la stratégie d’attribution de noms à l’aide du portail Azure
+
+1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Supprimer une stratégie**.
+1. Une fois la suppression confirmée, la stratégie d'attribution de noms est supprimée, de même que toutes les stratégies d'attribution de suffixes/préfixes et tous les mots bloqués personnalisés.
+
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Supprimer la stratégie d’attribution de noms à l’aide d’Azure AD PowerShell
+
 1. Supprimez les préfixes et les suffixes de nom de groupe dans Azure AD PowerShell.
   
-   ```
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
   
-2. Supprimez les mots bloqués personnalisés. 
+1. Supprimez les mots bloqués personnalisés.
   
-   ```
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=""
    ```
   
-3. Enregistrez les paramètres.
+1. Enregistrez les paramètres.
   
-   ```
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
+## <a name="experience-across-office-365-apps"></a>Expérience dans les applications Office 365
 
-## <a name="naming-policy-experiences-across-office-365-apps"></a>Expériences de stratégie de nommage dans les applications Office 365
+Une fois qu’une stratégie de nommage de groupes a été définie dans Azure AD, voici ce que voit un utilisateur quand il crée un groupe dans une application Office 365 :
 
-Une fois qu’une stratégie de nommage de groupes a été définie dans Azure AD, voici ce que voit un utilisateur quand il crée un groupe dans une application Office 365 : 
-
-* Un aperçu du nom conformément à votre stratégie de nommage (avec préfixes et suffixes) à mesure que l’utilisateur tape le nom du groupe.
-* Si l’utilisateur entre des mots bloqués, un message d’erreur s’affiche pour qu’il supprime ces mots.
+- Un aperçu du nom conformément à votre stratégie de nommage (avec préfixes et suffixes) à mesure que l’utilisateur tape le nom du groupe.
+- Si l’utilisateur entre des mots bloqués, un message d’erreur s’affiche pour qu’il supprime ces mots.
 
 Charge de travail | Conformité
 ----------- | -------------------------------
@@ -218,14 +251,15 @@ StaffHub  | Les équipes StaffHub ne respectent pas la stratégie de nommage, ma
 Exchange PowerShell | Les applets de commande Exchange PowerShell sont conformes à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la stratégie de nommage dans le nom de groupe et l’alias de groupe (mailNickname).
 Applets de commande Azure Active Directory PowerShell | Les applets de commande Azure Active Directory PowerShell sont conformes à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la convention de nommage dans les noms de groupe et les alias de groupe.
 Centre d’administration Exchange | Le centre d’administration Exchange est conforme à la stratégie de nommage. Les utilisateurs reçoivent des messages d’erreur appropriés avec les préfixes et les suffixes suggérés et pour les mots bloqués personnalisés s’ils ne suivent pas la convention de nommage dans le noms de groupe et l’alias de groupe.
-Centre d’administration Microsoft 365 | Centre d’administration Microsoft 365 est conforme à la stratégie de nommage. Quand un utilisateur crée ou modifie des noms de groupes, la stratégie de nommage s’applique automatiquement, et les utilisateurs reçoivent les erreurs appropriées quand ils entrent des mots bloqués personnalisés. Le centre d’administration Microsoft 365 n’affiche pas encore un aperçu de la stratégie de nommage et ne retourne pas les erreurs de mot bloqué personnalisé lorsque l’utilisateur entre le nom du groupe.
+Centre d’administration Microsoft 365 | Le centre d’administration Microsoft 365 est conforme à la stratégie d’attribution de noms. Quand un utilisateur crée ou modifie des noms de groupes, la stratégie de nommage s’applique automatiquement, et les utilisateurs reçoivent les erreurs appropriées quand ils entrent des mots bloqués personnalisés. Le centre d’administration Microsoft 365 n’affiche pas encore un aperçu de la stratégie d’attribution de noms et ne renvoie pas d’erreurs liées aux mots bloqués personnalisés au moment où l’utilisateur entre le nom du groupe.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Ces articles fournissent des informations supplémentaires sur les groupes Azure AD.
 
-* [Consulter les groupes existants](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Stratégie d’expiration pour les groupes Office 365](groups-lifecycle.md)
-* [Gérer les paramètres d’un groupe](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Gérer les membres d’un groupe](../fundamentals/active-directory-groups-members-azure-portal.md)
-* [Gérer l’appartenance à un groupe](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Gérer les règles dynamiques pour les utilisateurs dans un groupe](groups-dynamic-membership.md)
+- [Consulter les groupes existants](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Stratégie d’expiration pour les groupes Office 365](groups-lifecycle.md)
+- [Gérer les paramètres d’un groupe](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Gérer les membres d’un groupe](../fundamentals/active-directory-groups-members-azure-portal.md)
+- [Gérer l’appartenance à un groupe](../fundamentals/active-directory-groups-membership-azure-portal.md)
+- [Gérer les règles dynamiques pour les utilisateurs dans un groupe](groups-dynamic-membership.md)

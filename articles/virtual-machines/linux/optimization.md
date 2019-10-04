@@ -5,24 +5,23 @@ keywords: machine virtuelle linux, linux machine virtuelle, machine virtuelle ub
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 30d153863a20dcdddc702ee5a37c34a2938d7446
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: eb5ef067d4c9be4debd1bdc98ac4eb57a89d1100
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327365"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70091684"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimiser votre machine virtuelle Linux sur Azure
 Il est simple de créer une machine virtuelle Linux à partir de la ligne de commande ou du portail. Ce didacticiel vous explique comment configurer votre machine virtuelle de manière à en optimiser les performances sur la plateforme Microsoft Azure. Dans cette rubrique, une machine virtuelle de serveur Ubuntu est utilisée, mais vous pouvez également créer des machines virtuelles Linux en utilisant vos [propres images en tant que modèles](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -31,7 +30,7 @@ Il est simple de créer une machine virtuelle Linux à partir de la ligne de com
 Cet article repose sur l’hypothèse que vous disposez déjà d’un abonnement Azure actif ([s’inscrire pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)) et que vous avez déjà approvisionné une machine virtuelle dans votre abonnement Azure. Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous vous êtes connecté à votre abonnement Azure avec la commande [az login](/cli/azure/reference-index) avant de [créer une machine virtuelle](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disque de système d’exploitation Azure
-Lorsque vous créez une machine virtuelle Linux dans Azure, deux disques lui sont associés. **/dev/sda** est le disque de votre système d’exploitation, et **/dev/sdb** est votre disque temporaire.  Le disque de système d’exploitation principal (**/dev/sda**) est exclusivement destiné au système d’exploitation, car il est optimisé pour le démarrage rapide des machines virtuelles et ne délivre pas de performances adéquates pour vos charges de travail. Vous pouvez attacher un ou plusieurs disques à votre machine virtuelle afin de bénéficier d’un stockage persistant et optimisé pour vos données. 
+Lorsque vous créez une machine virtuelle Linux dans Azure, deux disques lui sont associés. **/dev/sda** est le disque de votre système d’exploitation, et **/dev/sdb** est votre disque temporaire.  Le disque de système d’exploitation principal ( **/dev/sda**) est exclusivement destiné au système d’exploitation, car il est optimisé pour le démarrage rapide des machines virtuelles et ne délivre pas de performances adéquates pour vos charges de travail. Vous pouvez attacher un ou plusieurs disques à votre machine virtuelle afin de bénéficier d’un stockage persistant et optimisé pour vos données. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Ajout de disques selon vos objectifs de taille et de performances
 Selon la taille de machine virtuelle, vous pouvez attacher jusqu’à 16 disques supplémentaires dans une machine virtuelle série A, 32 disques dans une machine série D et 64 disques dans une machine série G, chacun de ces disques pouvant présenter une taille maximale de 1 To. Ajoutez des disques en fonction de vos besoins en matière d’espace et d’E/S par seconde. Les performances ciblées de chaque disque sont de 500 E/S par seconde pour un stockage Standard et de 5 000 E/S par seconde maximum pour un stockage Premium.
@@ -43,26 +42,26 @@ Pour bénéficier des plus hauts niveaux d’E/S par seconde sur les disques de 
 * Si vous utilisez **XFS**, désactivez les barrières à l’aide de l’option de montage `nobarrier`. (Pour activer les barrières, utilisez l’option `barrier`.)
 
 ## <a name="unmanaged-storage-account-considerations"></a>Considérations relatives aux comptes de stockage non gérés
-L’action par défaut quand vous créez une machine virtuelle avec l’interface Azure CLI est d’utiliser Azure Disques managés.  Ces disques sont gérés par la plateforme Azure et ne nécessitent pas de préparation ou d’emplacement pour les stocker.  Les disques non gérés requièrent un compte de stockage et sont associés à certaines autres considérations en matière de performances.  Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](../windows/managed-disks-overview.md).  La section qui suit décrit les considérations relatives aux performances dont vous devez tenir compte uniquement si vous utilisez des disques non gérés.  Une fois de plus, la solution de stockage par défaut et recommandée consiste à utiliser des disques managés.
+L’action par défaut quand vous créez une machine virtuelle avec l’interface Azure CLI est d’utiliser Azure Disques managés.  Ces disques sont gérés par la plateforme Azure et ne nécessitent pas de préparation ou d’emplacement pour les stocker.  Les disques non managés requièrent un compte de stockage et sont associés à certaines autres considérations en matière de performances.  Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](../windows/managed-disks-overview.md).  La section qui suit décrit les considérations relatives aux performances dont vous devez tenir compte uniquement si vous utilisez des disques non managés.  Une fois de plus, la solution de stockage par défaut et recommandée consiste à utiliser des disques managés.
 
-Si vous créez une machine virtuelle avec des disques non gérés, veillez à attacher les disques à partir de comptes de stockage résidant dans la même région que votre machine virtuelle afin d’assurer une proximité étroite et de minimiser la latence du réseau.  Chaque compte de stockage Standard présente une limite de 20 000 E/S par seconde et une taille maximale de 500 To.  Cette limite correspond à environ 40 disques utilisés de manière intensive, incluant le disque de système d’exploitation et tous les disques de données que vous créez. Pour les comptes de stockage Premium, il n’existe aucun nombre maximal d’E/S par seconde, mais une limite de taille de 32 To. 
+Si vous créez une machine virtuelle avec des disques non managés, veillez à attacher les disques à partir de comptes de stockage résidant dans la même région que votre machine virtuelle afin d’assurer une proximité étroite et de minimiser la latence du réseau.  Chaque compte de stockage Standard présente une limite de 20 000 E/S par seconde et une taille maximale de 500 To.  Cette limite correspond à environ 40 disques utilisés de manière intensive, incluant le disque de système d’exploitation et tous les disques de données que vous créez. Pour les comptes de stockage Premium, il n’existe aucun nombre maximal d’E/S par seconde, mais une limite de taille de 32 To. 
 
 Lorsque vous devez gérer des charges de travail à E/S par seconde élevées et que vous avez choisi le stockage Standard pour vos disques, vous pouvez avoir besoin de fractionner les disques entre plusieurs comptes de stockage pour ne pas risquer d’atteindre la limite de 20 000 E/S par seconde propre aux comptes de stockage Standard. Votre machine virtuelle peut contenir une combinaison de disques associés à différents comptes de stockage et types de comptes de stockage pour vous offrir la configuration optimale souhaitée.
  
 
 ## <a name="your-vm-temporary-drive"></a>Votre lecteur temporaire de machine virtuelle
-Lorsque vous créez une machine virtuelle, Azure vous fournit par défaut un disque de système d’exploitation (**/dev/sda**) et un disque temporaire (**/dev/sdb**).  Tous les disques que vous ajoutez apparaissent sous la forme **/dev/sdc**, **/dev/sdd**, **/dev/sde**, etc. Les données figurant sur votre disque temporaire (**/dev/sdb**) ne sont pas pérennes et risquent d’être perdues si des événements spécifiques, tels qu’un redimensionnement, un redéploiement ou une maintenance de machine virtuelle, imposent un redémarrage de votre machine virtuelle.  La taille et le type de votre disque temporaire sont liés à la taille de machine virtuelle que vous avez choisie au moment du déploiement. Pour toutes les machines virtuelles de taille Premium (séries DS, G et DS_V2), le lecteur temporaire est secondé par un disque SSD local offrant un surcroît de performances qui peut atteindre 48 000 E/S par seconde. 
+Lorsque vous créez une machine virtuelle, Azure vous fournit par défaut un disque de système d’exploitation ( **/dev/sda**) et un disque temporaire ( **/dev/sdb**).  Tous les disques que vous ajoutez apparaissent sous la forme **/dev/sdc**, **/dev/sdd**, **/dev/sde**, etc. Les données figurant sur votre disque temporaire ( **/dev/sdb**) ne sont pas pérennes et risquent d’être perdues si des événements spécifiques, tels qu’un redimensionnement, un redéploiement ou une maintenance de machine virtuelle, imposent un redémarrage de votre machine virtuelle.  La taille et le type de votre disque temporaire sont liés à la taille de machine virtuelle que vous avez choisie au moment du déploiement. Pour toutes les machines virtuelles de taille Premium (séries DS, G et DS_V2), le lecteur temporaire est secondé par un disque SSD local offrant un surcroît de performances qui peut atteindre 48 000 E/S par seconde. 
 
-## <a name="linux-swap-file"></a>Fichier d’échange Linux
+## <a name="linux-swap-partition"></a>Partition d’échange Linux
 Si votre machine virtuelle Azure est issue d’une image Ubuntu ou CoreOS, vous pouvez utiliser le fichier CustomData afin d’envoyer un fichier cloud-config à Cloud-init. Si vous [avez téléchargé une image Linux personnalisée](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) qui utilise cloud-init, vous configurez également les partitions d’échange à l’aide de cloud-init.
 
 Pour les images Cloud Ubuntu, vous devez utiliser cloud-init pour configurer la partition d’échange. Pour plus d’informations, consultez l’article [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
 Pour les images sans prise en charge cloud-init, les images déployées à partir d’Azure Marketplace présentent un agent Linux de machine virtuelle intégré au système d’exploitation. Cet agent permet à la machine virtuelle d’interagir avec divers services Azure. Si vous ayez déployé une image standard à partir d’Azure Marketplace, vous devez suivre la procédure ci-après pour configurer les paramètres de votre fichier d’échange Linux de manière adéquate :
 
-Vous devez rechercher et modifier deux entrées spécifiques dans le fichier **/etc/waagent.conf** . Ces entrées contrôlent l’existence d’un fichier d’échange dédié et la taille de ce fichier. Les paramètres à modifier sont `ResourceDisk.EnableSwap=N` et `ResourceDisk.SwapSizeMB=0`. 
+Vous devez rechercher et modifier deux entrées spécifiques dans le fichier **/etc/waagent.conf** . Ces entrées contrôlent l’existence d’un fichier d’échange dédié et la taille de ce fichier. Les paramètres à vérifier sont `ResourceDisk.EnableSwap` et `ResourceDisk.SwapSizeMB`. 
 
-Redéfinissez les paramètres sur les valeurs suivantes :
+Pour activer un disque correctement activé et un fichier d'échange monté, vérifiez que les paramètres sont définis comme suit :
 
 * ResourceDisk.EnableSwap=Y
 * ResourceDisk.SwapSizeMB={taille en Mo en fonction de vos besoins} 
@@ -126,7 +125,9 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Utilisation d’un RAID logiciel pour optimiser le nombre d’E/S par seconde
-Si vos charges de travail nécessitent un niveau d’E/S par seconde supérieur à celui fourni par un seul disque, vous devez utiliser une configuration de RAID logiciel composée de plusieurs disques. Étant donné qu’Azure assure déjà la résilience de disque au niveau de la couche de structure locale, une configuration d’entrelacement RAID-0 vous offre un niveau de performances optimal.  Approvisionnez et créez des disques dans l’environnement Azure et attachez-les à votre machine virtuelle Linux avant de procéder au partitionnement, au formatage et au montage des lecteurs.  Pour plus d’informations sur la configuration d’un RAID logiciel sur votre machine virtuelle Linux dans Azure, consultez le document **[Configuration d’un RAID logiciel sur Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**.
+Si vos charges de travail nécessitent un niveau d’E/S par seconde supérieur à celui fourni par un seul disque, vous devez utiliser une configuration de RAID logiciel composée de plusieurs disques. Étant donné qu’Azure assure déjà la résilience de disque au niveau de la couche de structure locale, une configuration d’entrelacement RAID-0 vous offre un niveau de performances optimal.  Approvisionnez et créez des disques dans l’environnement Azure et attachez-les à votre machine virtuelle Linux avant de procéder au partitionnement, au formatage et au montage des lecteurs.  Pour plus d’informations sur la configuration d’un RAID logiciel sur votre machine virtuelle Linux dans Azure, consultez le document **[Configuration d’un RAID logiciel sur Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
+
+En guise d’alternative à une configuration RAID traditionnelle, vous pouvez également choisir d’installer Logical Volume Manager (LVM) afin de configurer un certain nombre de disques physiques en un seul volume de stockage logique agrégé par bandes. Dans cette configuration, les lectures et les écritures sont réparties sur plusieurs disques contenus dans le groupe de volumes (similaire à RAID 0). Pour obtenir des performances optimales, il est recommandé d’agréger les volumes logiques afin que les lectures et écritures utilisent tous les disques de données joints.  Pour plus d’informations sur la configuration d’un volume logique agrégé par bandes sur votre machine virtuelle Linux dans Azure, consultez le document **[Configurer LVM sur une machine virtuelle Linux dans Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 Comme dans toute procédure d’optimisation, n’oubliez pas que vous devez effectuer des tests avant et après chaque modification afin d’en évaluer l’impact.  L’optimisation est un processus graduel dont les résultats varient d’une machine à l’autre dans votre environnement.  Ce qui fonctionne bien pour une configuration donnée n’offre pas nécessairement de bons résultats pour d’autres.

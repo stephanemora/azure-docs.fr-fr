@@ -1,7 +1,6 @@
 ---
 title: Utiliser MapReduce et Curl avec Apache Hadoop dans HDInsight - Azure
 description: Découvrez comment exécuter à distance des tâches MapReduce avec Apache Hadoop sur HDInsight à l’aide de Curl.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: b422074c33f52a6819d2a05144a85768a2e484a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e4968310459097fc6a00f7c453846fe61726c3d5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011920"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64716122"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Exécuter des tâches MapReduce avec Apache Hadoop sur HDInsight avec REST
 
-Découvrez comment utiliser l’API REST WebHCat d’Apache Hive pour exécuter des tâches MapReduce sur un Hadoop Apache sur un cluster HDInsight. Curl est utilisé pour illustrer comment interagir avec HDInsight en utilisant des requêtes HTTP brutes pour exécuter des tâches MapReduce.
+Découvrez comment utiliser l’API REST WebHCat Apache Hive pour exécuter des tâches MapReduce sur un cluster Apache Hadoop sur HDInsight. Curl est utilisé pour illustrer comment interagir avec HDInsight en utilisant des requêtes HTTP brutes pour exécuter des tâches MapReduce.
 
 > [!NOTE]  
 > Si vous vous êtes déjà familiarisé avec l’utilisation de serveurs Hadoop sous Linux, mais que vous découvrez HDInsight, consultez le document [Ce qu’il faut savoir sur Apache Hadoop dans HDInsight sous Linux](../hdinsight-hadoop-linux-information.md).
@@ -78,7 +77,7 @@ Découvrez comment utiliser l’API REST WebHCat d’Apache Hive pour exécuter 
    * **-u** : Indique le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande
    * **-G** : Indique que cette opération est une requête GET
 
-   Le début de l’URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, est le même pour toutes les requêtes.
+   Le début de l’URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** , est le même pour toutes les requêtes.
 
 4. Pour envoyer une tâche MapReduce, utilisez la commande suivante :
 

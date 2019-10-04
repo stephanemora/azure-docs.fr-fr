@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 4341d06f09c60933bfc0512f54e024b35a19d8dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1ebd645b740ab0f454d006d003518fbb8cb5e9e7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57908151"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854676"
 ---
 Vous pouvez maintenant ajouter des données à votre nouvelle table grâce à l’Explorateur de données.
 
-1. Dans l’Explorateur de données, développez **exemple de table**, cliquez sur **Entités**, puis cliquez sur **Ajouter une entité**.
+1. Dans l’Explorateur de données, développez **exemple de table**, sélectionnez **Entités**, puis **Ajouter une entité**.
 
    ![Créer des entités dans l’Explorateur de données, dans le portail Azure](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
 
-2. À présent, ajoutez des données à la zone de valeur PartitionKey et à la zone de valeur RowKey, puis cliquez sur **Ajouter une entité**.
+2. À présent, ajoutez des données à la zone de valeur PartitionKey et à la zone de valeur RowKey, puis sélectionnez **Ajouter une entité**.
 
    ![Définir la clé de Partition et la clé de ligne pour une nouvelle entité](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-entity.png)
   

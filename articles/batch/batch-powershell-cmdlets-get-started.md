@@ -4,7 +4,7 @@ description: Brève présentation des applets de commande Azure PowerShell à ut
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 21930d5240225540159fa425d9d9fa518a1b19d5
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486358"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323078"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gérer les ressources Batch avec les applets de commande PowerShell
 
@@ -30,7 +30,7 @@ Pour obtenir une liste complète des applets de commande Batch et la syntaxe dé
 
 Cet article est basé sur les applets de commande du module Az Batch 1.0.0. Nous vous recommandons de mettre à jour vos modules Azure PowerShell fréquemment pour tirer parti des améliorations et des mises à jour de service.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * [Installez and configurez le module Azure PowerShell](/powershell/azure/overview). Pour installer un module Azure Batch spécifique, comme un module en pré-mise en production, consultez [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
 
@@ -50,13 +50,13 @@ Cet article est basé sur les applets de commande du module Az Batch 1.0.0. Nou
 
 ### <a name="create-a-batch-account"></a>Création d’un compte Batch
 
-**New-AzBatchAccount** crée un compte Batch dans un groupe de ressources spécifié. Si vous ne disposez pas d’un groupe de ressources, créez-en un en exécutant l’applet de commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Spécifiez une des régions Azure dans le paramètre **Emplacement**, « USA Centre » par exemple. Par exemple : 
+**New-AzBatchAccount** crée un compte Batch dans un groupe de ressources spécifié. Si vous ne disposez pas d’un groupe de ressources, créez-en un en exécutant l’applet de commande [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Spécifiez une des régions Azure dans le paramètre **Emplacement**, « USA Centre » par exemple. Par exemple :
 
 ```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
-Ensuite, créez un compte Batch dans le groupe de ressources. Spécifiez un nom pour le compte dans <*nom_compte*>, puis l’emplacement et le nom de votre groupe de ressources. La procédure de création du compte Batch peut prendre un certain temps. Par exemple : 
+Ensuite, créez un compte Batch dans le groupe de ressources. Spécifiez un nom pour le compte dans <*nom_compte*>, puis l’emplacement et le nom de votre groupe de ressources. La procédure de création du compte Batch peut prendre un certain temps. Par exemple :
 
 ```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -90,7 +90,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Suppression d’un compte Batch
 
-**Remove-AzBatchAccount** supprime un compte Batch. Par exemple : 
+**Remove-AzBatchAccount** supprime un compte Batch. Par exemple :
 
 ```powershell
 Remove-AzBatchAccount -AccountName <account_name>
@@ -130,7 +130,7 @@ Lors de la création ou de la mise à jour d’un pool Batch, sélectionnez une 
 Si vous exécutez **New-AzBatchPool**, passez les paramètres du système d’exploitation dans un objet PSCloudServiceConfiguration ou PSVirtualMachineConfiguration. Par exemple, l’extrait de code suivant crée un pool Batch avec des nœuds de calcul de taille Standard_A1 dans la configuration de machine virtuelle, dont l’image est créée avec Ubuntu Server 18.04-LTS. Ici, le paramètre **VirtualMachineConfiguration** spécifie la variable *$configuration* comme objet PSVirtualMachineConfiguration. Le paramètre **BatchContext** spécifie une variable *$context* définie au préalable en tant qu’objet BatchAccountContext.
 
 ```powershell
-$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04.0-LTS")
+$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
 
 $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 18.04")
 
@@ -175,7 +175,7 @@ Le paramètre **Id** prend uniquement en charge la recherche de l’identificate
 
 ### <a name="use-the-maxcount-parameter"></a>Utilisation du paramètre MaxCount
 
-Par défaut, chaque applet de commande retourne un maximum de 1 000 objets. Si vous atteignez cette limite, affinez votre filtration pour limiter le nombre d’objets retournés, ou définissez explicitement une utilisation maximale à l’aide du paramètre **MaxCount** . Par exemple : 
+Par défaut, chaque applet de commande retourne un maximum de 1 000 objets. Si vous atteignez cette limite, affinez votre filtration pour limiter le nombre d’objets retournés, ou définissez explicitement une utilisation maximale à l’aide du paramètre **MaxCount** . Par exemple :
 
 ```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context

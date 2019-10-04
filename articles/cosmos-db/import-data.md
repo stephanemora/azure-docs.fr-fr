@@ -4,18 +4,18 @@ description: Découvrez comment utiliser l’outil de migration de données open
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 05/20/2019
 ms.author: dech
-ms.openlocfilehash: 023b344d796ea5297cda202e7baa2f0e0ef5eebd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0981a0810ee64f78443512d794d172a69fb54494
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315808"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617013"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Utilisez l’outil de migration de données pour migrer vos données vers Azure Cosmos DB
 
-Ce didacticiel explique comment utiliser l’outil de migration de données Azure Cosmos DB pour importer des données dans les collections et les tables Azure Cosmos DB à partir de différentes sources. Vous pouvez importer à partir de fichiers JSON, de fichiers CSV, de SQL, de MongoDB, d’un stockage Table Azure, d’Amazon DynamoDB et même de collections d’API SQL Azure Cosmos DB. Vous migrez ces données vers des collections et des tables en vue de les utiliser avec Azure Cosmos DB. L’outil de migration de données peut également être utilisé pour migrer des données à partir d’une collection à partition unique vers une collection à plusieurs partitions pour l’API SQL.
+Ce tutoriel explique comment utiliser l’outil de migration de données Azure Cosmos DB pour importer des données dans des conteneurs Azure Cosmos DB à partir de différentes sources. Vous pouvez importer à partir de fichiers JSON, de fichiers CSV, de SQL, de MongoDB, d’un stockage Table Azure, d’Amazon DynamoDB et même de collections d’API SQL Azure Cosmos DB. Vous migrez ces données vers des collections et des tables en vue de les utiliser avec Azure Cosmos DB. L’outil de migration de données peut également être utilisé pour migrer des données à partir d’une collection à partition unique vers une collection à plusieurs partitions pour l’API SQL.
 
 Quelle API allez-vous utiliser avec Azure Cosmos DB ?
 
@@ -39,7 +39,7 @@ Avant de suivre les instructions de cet article, veillez à effectuer les étape
 
 * **Augmentez le débit :** la durée de la migration des données dépend de la quantité de débit que vous définissez pour une collection spécifique ou un ensemble de collections. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit sur le portail Azure, consultez les [niveaux de performances](performance-levels.md) et les [niveaux tarifaires](https://azure.microsoft.com/pricing/details/cosmos-db/) dans Azure Cosmos DB.
 
-* **Créez des ressources Azure Cosmos DB :** avant de commencer à migrer les données, créez au préalable toutes vos collections à partir du portail Azure. Pour migrer vers un compte Azure Cosmos DB qui a un débit de niveau base de données, fournissez une clé de partition au moment de créer les collections Azure Cosmos DB.
+* **Créez des ressources Azure Cosmos DB :** avant de commencer à migrer les données, créez au préalable toutes vos collections à partir du portail Azure. Pour migrer vers un compte Azure Cosmos DB qui a un débit de niveau base de données, fournissez une clé de partition au moment de créer les conteneurs Azure Cosmos DB.
 
 ## <a id="Overviewl"></a>Vue d’ensemble
 
@@ -52,7 +52,7 @@ L’outil de migration de données est une solution open source permettant d’i
 * Stockage de tables Azure
 * Amazon DynamoDB
 * hbase
-* Collections Azure Cosmos DB
+* Conteneurs Cosmos Azure
 
 L’outil d’importation inclut une interface utilisateur graphique (dtui.exe) et peut aussi être piloté à partir de la ligne de commande (dt.exe). En fait, il existe une option pour générer la commande associée après avoir configuré une importation via l’interface utilisateur. Vous pouvez transformer des données sources tabulaires, comme des fichiers SQL Server ou CSV, pour créer des relations hiérarchiques (sous-documents) pendant l’importation. Poursuivez votre lecture pour en savoir plus sur les options sources, les exemples de commandes pour l’importation depuis chaque source, les options cibles et l’affichage des résultats d’importation.
 
@@ -75,7 +75,7 @@ Une fois que vous avez installé l’outil, il est temps d’importer vos donné
 * [Stockage Table Azure](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
 * [Objet blob](#BlobImport)
-* [Collections Azure Cosmos DB](#SQLSource)
+* [Conteneurs Cosmos Azure](#SQLSource)
 * [HBase](#HBaseSource)
 * [Importation en bloc Azure Cosmos DB](#SQLBulkTarget)
 * [Importation d’enregistrement séquentiel Azure Cosmos DB](#SQLSeqTarget)
@@ -85,6 +85,19 @@ Une fois que vous avez installé l’outil, il est temps d’importer vos donné
 L’option d’importateur de source de fichiers JSON vous permet d’importer un ou plusieurs fichiers JSON à un seul document ou des fichiers JSON qui contiennent chacun un tableau de documents JSON. Quand vous ajoutez des dossiers qui contiennent des fichiers JSON à importer, vous avez la possibilité d’effectuer une recherche récursive sur les fichiers situés dans des sous-dossiers.
 
 ![Capture d’écran des options sources du fichier JSON - Outils de migration de base de données](./media/import-data/jsonsource.png)
+
+La chaîne de connexion est au format suivant :
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+* `<CosmosDB Endpoint>` est l’URI du point de terminaison. Vous pouvez obtenir cette valeur à partir du Portail Azure. Accédez à votre compte Azure Cosmos. Ouvrez le volet **Vue d’ensemble** et copiez la valeur **URI**.
+* `<AccountKey>` correspond au « mot de passe » ou à la **clé primaire**. Vous pouvez obtenir cette valeur à partir du Portail Azure. Accédez à votre compte Azure Cosmos. Ouvrez le volet **Chaînes de connexion** ou **Clés** et copiez la valeur de « mot de passe » ou de **clé primaire**.
+* `<CosmosDB Database>` est le nom de la base de données CosmosDB.
+
+Exemple : `AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
+
+> [!NOTE]
+> Utilisez la commande Verify pour vous assurer que le compte Cosmos DB spécifié dans le champ de la chaîne de connexion est accessible.
 
 Voici quelques exemples de lignes de commande pour importer des fichiers JSON :
 
@@ -260,7 +273,7 @@ Le format de la chaîne de connexion Amazon DynamoDB est :
 Voici un exemple de ligne de commande pour effectuer l’importation à partir d'Amazon DynamoDB :
 
 ```console
-dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<Azure Cosmos DB Endpoint>;AccountKey=<Azure Cosmos DB Key>;Database=<Azure Cosmos DB Database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
+dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<Azure Cosmos DB Endpoint>;AccountKey=<Azure Cosmos DB Key>;Database=<Azure Cosmos database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
 ```
 
 ## <a id="BlobImport"></a>Importer à partir du Stockage Blob Azure
@@ -277,7 +290,7 @@ dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net
 
 ## <a id="SQLSource"></a>Importer à partir d’une collection d’API SQL
 
-L’option de l’importateur source Azure Cosmos DB vous permet d’importer des données à partir d’une ou de plusieurs collections Azure Cosmos DB et de filtrer éventuellement des documents à l’aide d’une requête.  
+L’option de l’importateur source Azure Cosmos DB vous permet d’importer des données à partir d’un ou de plusieurs conteneurs Azure Cosmos DB et de filtrer éventuellement des documents à l’aide d’une requête.  
 
 ![Capture d’écran des options sources d’Azure Cosmos DB](./media/import-data/documentdbsource.png)
 
@@ -292,7 +305,7 @@ Vous pouvez récupérer la chaîne de connexion de compte Azure Cosmos DB à par
 > [!NOTE]
 > Utilisez la commande Verify pour vous assurer que l’instance Azure Cosmos DB spécifiée dans le champ de la chaîne de connexion est accessible.
 
-Pour effectuer l’importation à partir d’une seule collection Azure Cosmos DB, entrez le nom de la collection à partir de laquelle importer les données. Pour importer à partir de plusieurs collections Azure Cosmos DB, fournissez une expression régulière correspondant à un ou plusieurs noms de collection (par exemple, collection01 | collection02 | collection03). Vous pouvez éventuellement spécifier ou fournir un fichier pour une requête pour à la fois filtrer et mettre en forme les données que vous importez.
+Pour effectuer l’importation à partir d’un seul conteneur Azure Cosmos DB, entrez le nom de la collection à partir de laquelle importer les données. Pour importer à partir de plusieurs conteneurs Azure Cosmos DB, fournissez une expression régulière correspondant à un ou plusieurs noms de collections (par exemple collection01 | collection02 | collection03). Vous pouvez éventuellement spécifier ou fournir un fichier pour une requête pour à la fois filtrer et mettre en forme les données que vous importez.
 
 > [!NOTE]
 > Étant donné que le champ de collection accepte les expressions régulières, si vous importez à partir d’une collection unique dont le nom contient des caractères d’expression régulière, ces caractères doivent être placés en conséquence dans une séquence d’échappement.
@@ -312,13 +325,13 @@ L’option d’importateur source Azure Cosmos DB dispose des options avancées 
 Voici quelques exemples de lignes de commande pour l’importation à partir d’Azure Cosmos DB :
 
 ```console
-#Migrate data from one Azure Cosmos DB collection to another Azure Cosmos DB collections
+#Migrate data from one Azure Cosmos container to another Azure Cosmos containers
 dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:TEColl /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:TESessions /t.CollectionThroughput:2500
 
-#Migrate data from more than one Azure Cosmos DB collection to a single Azure Cosmos DB collection
+#Migrate data from more than one Azure Cosmos container to a single Azure Cosmos container
 dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:singleCollection /t.CollectionThroughput:2500
 
-#Export an Azure Cosmos DB collection to a JSON file
+#Export an Azure Cosmos container to a JSON file
 dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
 ```
 
@@ -348,7 +361,7 @@ dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<userna
 
 ## <a id="SQLBulkTarget"></a>Importer vers l’API SQL (importation en bloc)
 
-L’importateur en bloc Azure Cosmos DB vous permet d’importer à partir des options sources disponibles, à l’aide d’une procédure Azure Cosmos DB stockée pour plus d’efficacité. L’outil prend en charge l’importation dans une collection Azure Cosmos DB monopartition. Il prend aussi en charge l’importation partitionnée par laquelle les données sont partitionnées dans plusieurs collections Azure Cosmos DB monopartition. Pour plus d’informations sur le partitionnement de données, consultez [Partitionnement et mise à l’échelle dans Azure Cosmos DB](partition-data.md). L'outil crée, exécute, puis supprime la procédure stockée de la ou les collections cibles.  
+L’importateur en bloc Azure Cosmos DB vous permet d’importer à partir des options sources disponibles, à l’aide d’une procédure Azure Cosmos DB stockée pour plus d’efficacité. L’outil prend en charge l’importation dans un conteneur Azure Cosmos monopartition. Il prend aussi en charge l’importation partitionnée par laquelle les données sont partitionnées dans plusieurs conteneurs Azure Cosmos DB monopartition. Pour plus d’informations sur le partitionnement de données, consultez [Partitionnement et mise à l’échelle dans Azure Cosmos DB](partition-data.md). L'outil crée, exécute, puis supprime la procédure stockée de la ou les collections cibles.  
 
 ![Capture d’écran des options de bloc d’Azure Cosmos DB](./media/import-data/documentdbbulk.png)
 
@@ -363,7 +376,7 @@ La chaîne de connexion de compte Azure Cosmos DB peut être récupérée à par
 > [!NOTE]
 > Utilisez la commande Verify pour vous assurer que l’instance Azure Cosmos DB spécifiée dans le champ de la chaîne de connexion est accessible.
 
-Pour importer des données dans seule collection, entrez le nom de la collection cible et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe_collection*[index de début - index de fin]. Quand vous spécifiez plusieurs collections en utilisant la syntaxe ci-dessus, tenez compte des points suivants :
+Pour importer des données dans une seule collection, entrez le nom de la collection cible et cliquez sur le bouton Ajouter. Pour importer dans plusieurs collections, entrez le nom de chaque collection individuellement ou utilisez la syntaxe suivante pour spécifier plusieurs collections : *préfixe_collection*[index de début - index de fin]. Quand vous spécifiez plusieurs collections en utilisant la syntaxe ci-dessus, tenez compte des points suivants :
 
 1. Seuls les modèles de nom de plage de nombres entiers sont pris en charge. Par exemple, la spécification de collection[0-3] crée les collections suivantes : collection0, collection1, collection2, collection3.
 2. Vous pouvez utiliser une syntaxe abrégée : collection[3], qui crée le même jeu de collections que celui mentionné à l'étape 1.
@@ -407,7 +420,7 @@ L’importateur en bloc Azure Cosmos DB dispose des options avancées supplémen
 
 ## <a id="SQLSeqTarget"></a>Importer vers l’API SQL (importation d’enregistrement séquentiel)
 
-L’importateur d’enregistrements séquentiel Azure Cosmos DB vous permet d’importer à partir d’une source proposée en option, enregistrement par enregistrement. Vous pouvez choisir cette option si vous importez vers une collection existante ayant atteint son quota de procédures stockées. L’outil prend en charge l’importation dans une seule collection (à partition unique ou à plusieurs partitions) Azure Cosmos DB. Il prend aussi en charge l’importation partitionnée par laquelle les données sont partitionnées dans plusieurs collections Azure Cosmos DB à partition unique ou à plusieurs partitions. Pour plus d’informations sur le partitionnement de données, consultez [Partitionnement et mise à l’échelle dans Azure Cosmos DB](partition-data.md).
+L’importateur d’enregistrements séquentiel Azure Cosmos DB vous permet d’importer à partir d’une source proposée en option, enregistrement par enregistrement. Vous pouvez choisir cette option si vous importez vers une collection existante ayant atteint son quota de procédures stockées. L’outil prend en charge l’importation dans un seul conteneur (à partition unique ou à plusieurs partitions) Azure Cosmos. Il prend aussi en charge l’importation partitionnée par laquelle les données sont partitionnées dans plusieurs conteneurs Azure Cosmos à partition unique ou à plusieurs partitions. Pour plus d’informations sur le partitionnement de données, consultez [Partitionnement et mise à l’échelle dans Azure Cosmos DB](partition-data.md).
 
 ![Capture d’écran des options d’importation d’enregistrement séquentiel d’Azure Cosmos DB](./media/import-data/documentdbsequential.png)
 
@@ -417,7 +430,7 @@ Le format de la chaîne de connexion Azure Cosmos DB est :
 
 Vous pouvez récupérer la chaîne de connexion pour le compte Azure Cosmos DB à partir de la page Clés du portail Azure, comme décrit dans [Gérer les comptes de base de données dans Azure Cosmos DB](manage-account.md). Cependant, le nom de la base de données doit être ajouté à la chaîne de connexion dans le format suivant :
 
-`Database=<Azure Cosmos DB Database>;`
+`Database=<Azure Cosmos database>;`
 
 > [!NOTE]
 > Utilisez la commande Verify pour vous assurer que l’instance Azure Cosmos DB spécifiée dans le champ de la chaîne de connexion est accessible.

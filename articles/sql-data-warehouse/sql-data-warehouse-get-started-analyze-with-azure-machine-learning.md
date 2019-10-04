@@ -2,20 +2,20 @@
 title: Analyse de données avec Azure Machine Learning | Microsoft Docs
 description: Utilisez Azure Machine Learning pour générer un modèle Machine Learning prédictif basé sur les données stockées dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: anumjs
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 03/22/2019
-ms.author: anjangsh
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f9500adc6871c4c9f81c32bf456bc36cf91db4b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402556"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "65860842"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analyse des données avec Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -33,18 +33,18 @@ Ce didacticiel utilise Azure Machine Learning pour générer un modèle Machine 
 > 
 > 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
-* un entrepôt SQL Data Warehouse préchargé avec les exemples de données AdventureWorksDW. Pour le configurer, consultez [Créer un Azure SQL Data Warehouse][Create a SQL Data Warehouse] et chargez les données d’exemple. Si vous disposez déjà d’un entrepôt de données, mais sans disposer d’exemples de données, vous pouvez [charger manuellement des exemples de données][load sample data manually].
+* un entrepôt SQL Data Warehouse préchargé avec les exemples de données AdventureWorksDW. Pour le configurer, consultez [Créer un Azure SQL Data Warehouse][Create a SQL Data Warehouse] et chargez les exemples de données. Si vous disposez déjà d’un entrepôt de données, mais sans disposer d’exemples de données, vous pouvez [charger manuellement des exemples de données][load sample data manually].
 
 ## <a name="1-get-the-data"></a>1. Obtenir les données
 Les données sont indiquées dans la vue dbo.vTargetMail de la base de données AdventureWorksDW. Pour lire ces données :
 
-1. Connectez-vous à [Azure Machine Learning Studio][Azure Machine Learning studio], puis cliquez sur Mes expériences.
-2. Cliquez sur **+ nouveau** dans la coin inférieur gauche de l’écran et sélectionnez **expérience vide**.
+1. Connectez-vous à [Azure Machine Learning Studio][Azure Machine Learning studio] , puis cliquez sur Mes expériences.
+2. Cliquez sur **+NOUVEAU** dans le coin inférieur gauche de l’écran et sélectionnez **Expérience vide**.
 3. Entrez un nom pour votre expérience : marketing ciblé.
-4. Faites glisser le **importer des données** module sous **données entrée et sortie** du volet des modules dans la zone de dessin.
+4. Faites glisser le module **Importer des données** sous **Entrée et sortie de données** dans le volet de modules du canevas.
 5. Spécifiez les détails de votre base de données SQL Data Warehouse dans le volet Propriétés.
 6. Spécifiez la **requête** de base de données pour lire les données intéressantes.
 
@@ -77,7 +77,7 @@ Une fois que l’expérience s’est terminée avec succès, cliquez sur le port
 ## <a name="2-clean-the-data"></a>2. Nettoyer les données
 Pour nettoyer les données, supprimez certaines colonnes qui sont inutiles pour le modèle. Pour ce faire :
 
-1. Faites glisser le **Select Columns in Dataset** module sous **Transformation des données < Manipulation** dans la zone de dessin. Se connecter à ce module pour le **importer des données** module.
+1. Faites glisser le module **Sélectionner des colonnes dans le jeu de données** sous **Transformation des données < Manipulation** dans le canevas. Connectez ce module au module **Importer des données**.
 2. Cliquez sur **Lancer le sélecteur de colonne** dans le volet Propriétés pour spécifier les colonnes que vous souhaitez supprimer.
    ![Colonnes de projet][4]
 3. Excluez deux colonnes : CustomerAlternateKey et GeographyKey.
@@ -87,10 +87,10 @@ Pour nettoyer les données, supprimez certaines colonnes qui sont inutiles pour 
 Nous allons fractionner les données dans la proportion 80 et 20 : 80 % pour l’apprentissage d’un modèle Machine Learning et 20 % pour tester le modèle. Nous nous engageons à utiliser des algorithmes « À deux classes » pour ce problème de classification binaire.
 
 1. Faites glisser le module **Fractionner** dans la zone de dessin.
-2. Dans le volet Propriétés, entrez 0,8 comme Fraction de lignes dans le premier jeu de données de sortie.
+2. Sur le volet Propriétés, entrez 0,8 comme Fraction de lignes dans le premier jeu de données.
    ![Fractionner les données en jeu d’apprentissage et de test][6]
 3. Faites glisser le module **Arbre de décision optimisé à deux classes** dans la zone de dessin.
-4. Faites glisser le **former le modèle** module dans la zone de dessin et spécifiez des entrées en vous connectant à la **Two-Class Boosted Decision Tree** (algorithme ML) et **fractionnement** (données pour former le modules de l’algorithme sur). 
+4. Faites glisser le module **Entraîner le modèle** dans le canevas et spécifiez des entrées en le connectant aux modules **Arbre de décision optimisé à deux classes** (algorithme ML) et **Fractionnement** (données sur lesquelles entraîner l’algorithme). 
      ![Connecter le module Former le modèle][7]
 5. Cliquez sur l’option **Lancer le sélecteur de colonne** figurant dans le volet Propriétés. Sélectionnez la colonne **BikeBuyer** comme colonne à prédire.
    ![Sélectionner la colonne à prédire][8]
@@ -98,7 +98,7 @@ Nous allons fractionner les données dans la proportion 80 et 20 : 80 % pour l�
 ## <a name="4-score-the-model"></a>4. Notation du modèle
 Maintenant, nous allons voir comment le modèle s’exécute sur les données de test. Nous allons comparer l’algorithme de notre choix avec un autre algorithme et voir celui qui fonctionne le mieux.
 
-1. Faites glisser **noter le modèle** module dans la zone de dessin et connectez-le au **former le modèle** et **fractionner les données** modules.
+1. Faites glisser le module **Noter un modèle** dans le canevas et connectez-le aux modules **Entraîner le modèle** et **Fractionner les données**.
    ![Noter le modèle][9]
 2. Faites glisser **Machines de points Bayes à deux classes** dans la zone de dessin de l’expérience. Nous allons comparer comment cet algorithme fonctionne par rapport à l’arbre de décision optimisé à deux classes.
 3. Copiez et collez les modules de Former le modèle et le modèle Noter le modèle dans la zone de dessin.

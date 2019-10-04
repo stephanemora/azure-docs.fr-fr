@@ -1,6 +1,6 @@
 - name: Documentation sur Azure IoT Central
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Qu’est-ce que Azure IoT Central ?
       href: overview-iot-central.md
@@ -35,8 +35,6 @@
   items:
     - name: Connecter des appareils
       items:
-        - name: Générer une chaîne de connexion de l’appareil
-          href: howto-generate-connection-string.md
         - name: Préparer et connecter une application Node.js (générique)
           href: howto-connect-nodejs.md
         - name: Préparer et connecter un kit de développement IoT MXChip
@@ -47,6 +45,8 @@
           href: howto-connect-raspberry-pi-csharp.md
         - name: Préparer et connecter un appareil Windows IoT Core
           href: howto-connect-windowsiotcore.md
+        - name: Préparer et connecter un appareil SensorTile.box
+          href: howto-connect-sensortile.md
         - name: Surveiller la connectivité des appareils à l’aide la ligne de commande
           href: howto-use-iotc-explorer.md
     - name: Gérer des appareils
@@ -60,7 +60,7 @@
         - name: Utiliser des ensembles d’appareils
           href: howto-use-device-sets.md
         - name: Modèle d’appareil de version
-          href: howto-version-devicetemplate.md
+          href: howto-version-device-template.md
     - name: Supervision et analytique
       items:
         - name: Créer une règle de télémétrie
@@ -87,6 +87,10 @@
               href: howto-export-data-event-hubs-service-bus.md
             - name: Exporter vers le Stockage Blob
               href: howto-export-data-blob-storage.md
+        - name: Créer des règles personnalisées
+          href: howto-create-custom-rules.md
+        - name: Créer une analyse personnalisée
+          href: howto-create-custom-analytics.md
         - name: Visualiser vos données dans Power BI
           href: howto-connect-powerbi.md
         - name: Connecter d’autres clouds IoT
@@ -95,8 +99,20 @@
       items:
         - name: Gérer votre application
           href: howto-administer.md
+        - name: Gérer des utilisateurs et des rôles
+          href: howto-manage-users-roles.md
+        - name: Consulter votre facture
+          href: howto-view-bill.md
+        - name: Personnaliser l’interface utilisateur de l’application
+          href: howto-customize-ui.md
         - name: Préparer et charger des images
           href: howto-prepare-images.md
+        - name: Configurer le tableau de bord de l’application
+          href: howto-configure-homepage.md
+        - name: Utiliser des vignettes de tableau de bord
+          href: howto-use-tiles.md
+        - name: Utiliser des modèles d’application
+          href: howto-use-app-templates.md
         - name: Gérer à partir du portail Azure
           href: howto-manage-iot-central-from-portal.md
         - name: Gérer à partir d’Azure CLI
@@ -104,38 +120,40 @@
         - name: Gérer à partir d’Azure PowerShell
           href: howto-manage-iot-central-from-powershell.md
         - name: 'En tant que CSP, créer et gérer une application'
-          href: howto-create-and-manage-applications-as-CSP.md
-        - name: Configurer le tableau de bord de l’application
-          href: howto-configure-homepage.md
+          href: howto-create-and-manage-applications-csp.md
     - name: Personnalisation
       items:
         - name: Créer des tableaux de bord personnels
           href: howto-personalize-dashboard.md
         - name: Gérer vos préférences
           href: howto-manage-preferences.md
+        - name: Activer ou désactiver les conversations en direct
+          href: howto-show-hide-chat.md
 - name: Rubriques connexes
   items:
     - name: solutions
       items:
-        - name: Accélérateurs de solution IoT
-          href: /azure/iot-suite
         - name: IoT Central
-          href: /microsoft-iot-central
+          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+        - name: Accélérateurs de solution IoT
+          href: /azure/iot-accelerators
     - name: Services de plateforme
       items:
         - name: IoT Hub
           href: /azure/iot-hub
+        - name: IoT Plug-and-Play
+          href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
-        - name: Location Based Services
-          href: /azure/location-based-services
         - name: Kits de développement logiciel (SDK) IoT Service
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Cartes
+          href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: Edge
+    - name: IoT Edge
       items:
-        - name: IoT Edge
+        - name: "Azure IoT\_Edge"
           href: /azure/iot-edge
         - name: Kits de développement logiciel (SDK) IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: d2d7508b4f0a2789a0eae5d6c6205475b5795e36
+ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755975"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71097839"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de mise à l’échelle des applications dans AKS (Azure Kubernetes Service)
 
-Lorsque vous exécutez des applications dans Azure Kubernetes Service (AKS), vous pouvez avoir besoin d’augmenter ou de diminuer la quantité de ressources de calcul. Tout comme le nombre des instances d’application qui vous est nécessaire change, le nombre de nœuds Kubernetes sous-jacents peut également varier. Par ailleurs, vous pouvez avoir besoin de provisionner rapidement un grand nombre d’instances d’application supplémentaires.
+Lorsque vous exécutez des applications dans Azure Kubernetes Service (AKS), vous pouvez avoir besoin d’augmenter ou de diminuer la quantité de ressources de calcul. Tout comme le nombre des instances d’application qui vous est nécessaire change, le nombre de nœuds Kubernetes sous-jacents peut également varier. Par ailleurs, vous pouvez avoir besoin d’approvisionner rapidement un grand nombre d’instances d’application supplémentaires.
 
 Cet article présente les concepts fondamentaux qui vous aident à mettre à l’échelle vos applications dans AKS :
 
@@ -27,7 +27,7 @@ Cet article présente les concepts fondamentaux qui vous aident à mettre à l�
 
 ## <a name="manually-scale-pods-or-nodes"></a>Mettre à l’échelle des pods ou des nœuds manuellement
 
-Vous pouvez mettre à l’échelle des réplicas (pods) et des nœuds manuellement pour tester la façon dont votre application répond à une modification au niveau des ressources disponibles et de l’état. Adapter manuellement les ressources vous permet également de définir une quantité donnée de ressources à utiliser pour maintenir un coût fixe, par exemple le nombre de nœuds. Pour cette mise à l’échelle manuelle, il vous suffit de définir le nombre de réplicas ou de nœuds, et l’API Kubernetes planifie la création de pods supplémentaires ou le drainage de nœuds.
+Vous pouvez mettre à l’échelle des réplicas (pods) et des nœuds manuellement pour tester la façon dont votre application répond à une modification au niveau des ressources disponibles et de l’état. Adapter manuellement les ressources vous permet également de définir une quantité donnée de ressources à utiliser pour maintenir un coût fixe, par exemple le nombre de nœuds. Pour mettre à l’échelle manuellement, vous définissez le nombre de réplicas ou de nœuds. L’API Kubernetes planifie ensuite la création de pods supplémentaires ou le drainage de nœuds en fonction du nombre de réplicas ou de nœuds.
 
 Pour vous familiariser avec la mise à l’échelle manuelle des pods et des nœuds, consultez [Mettre à l’échelle des applications dans AKS][aks-scale].
 
@@ -45,17 +45,19 @@ Pour vous familiariser avec l’autoscaler de pods élastique dans AKS, consulte
 
 Étant donné que l’autoscaler de pods élastique vérifie l’API de métriques toutes les 30 secondes, les événements de mise à l’échelle précédents peuvent ne pas être totalement terminés avant la vérification suivante. Ce comportement peut pousser l’autoscaler de pods élastique à modifier le nombre de réplicas avant même que l’événement de mise à l’échelle précédent ait pu recevoir la charge de travail de l’application, et que les demandes en ressources soient ajustées en conséquence.
 
-Pour réduire ces événements de concurrence, vous pouvez définir des valeurs de ralentissement ou de délai. Ces valeurs précisent la durée pendant laquelle l’autoscaler de pods élastique doit attendre, entre la fin d’un événement de mise à l’échelle et le déclenchement d’un autre événement de mise à l’échelle. Ce comportement permet au nouveau nombre de réplicas d’être pris en compte, et à l’API de métriques de refléter la charge de travail distribuée. Par défaut, le délai des événements de mise à l’échelle par augmentation est de 3 minutes, par diminution de 5 minutes
+Pour réduire ces événements de concurrence, les valeurs de ralentissement ou de délai sont définies. Ces valeurs précisent la durée pendant laquelle l’autoscaler de pods élastique doit attendre, entre la fin d’un événement de mise à l’échelle et le déclenchement d’un autre événement de mise à l’échelle. Ce comportement permet au nouveau nombre de réplicas d’être pris en compte, et à l’API de métriques de refléter la charge de travail distribuée. Par défaut, le délai des événements de mise à l’échelle par augmentation est de 3 minutes, par diminution de 5 minutes
 
-Vous devrez peut-être ajuster ces valeurs de ralentissement. Les valeurs de ralentissement par défaut peuvent donner l’impression que l’autoscaler de pods élastique n’adapte pas le nombre de réplicas assez rapidement. Par exemple, pour augmenter plus rapidement le nombre de réplicas en cours d’utilisation, réduisez la valeur de `--horizontal-pod-autoscaler-upscale-delay` lorsque vous créez vos définitions d’autoscaler de pods élastique avec `kubectl`.
+Actuellement, vous ne pouvez pas paramétrer ces valeurs de ralentissement à partir de la valeur par défaut.
 
 ## <a name="cluster-autoscaler"></a>Autoscaler de cluster
 
-Pour répondre aux demandes changeantes du pod, Kubernetes a un autoscaler de cluster (actuellement en version préliminaire dans ACS) qui s’ajuste le nombre de nœuds en fonction des ressources de calcul demandé dans le pool de nœud. Par défaut, l’autoscaler de cluster vérifie le serveur d’API toutes les 10 secondes à la recherche de toute modification à apporter au nombre de nœuds. Si l’autoscaler de cluster détermine qu’une modification est nécessaire, le nombre de nœuds de votre cluster AKS est augmenté ou diminué en conséquence. L’autoscaler de cluster fonctionne avec les clusters AKS activés pour RBAC qui exécutent Kubernetes 1.10.x ou une version ultérieure.
+Pour répondre aux demandes changeantes de pods, Kubernetes propose un autoscaler de cluster, actuellement en préversion dans AKS, qui ajuste le nombre de nœuds en fonction des ressources de calcul demandées dans le pool de nœuds. Par défaut, l’autoscaler de cluster vérifie le serveur d’API de métriques toutes les 10 secondes à la recherche de toute modification à apporter au nombre de nœuds. Si l’autoscaler de cluster détermine qu’une modification est nécessaire, le nombre de nœuds de votre cluster AKS est augmenté ou diminué en conséquence. L’autoscaler de cluster fonctionne avec les clusters AKS activés pour RBAC qui exécutent Kubernetes 1.10.x ou une version ultérieure.
 
 ![Autoscaler de cluster Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
 L’autoscaler de cluster est généralement utilisé parallèlement à l’autoscaler de pods élastique. Lorsqu’ils sont combinés, l’autoscaler de pods élastique augmente ou diminue le nombre de pods en fonction de l’exigence des applications, tandis que l’autoscaler de cluster ajuste à proportion le nombre de nœuds nécessaires pour exécuter ces pods supplémentaires.
+
+L’autoscaler de cluster ne doit être testé qu’en préversion sur les clusters AKS.
 
 Pour vous familiariser avec l’autoscaler de cluster dans AKS, consultez [Autoscaler de cluster sur AKS][aks-cluster-autoscaler].
 
@@ -81,7 +83,7 @@ Pour faire évoluer rapidement votre cluster AKS, vous pouvez intégrer Azure Co
 
 ![Mise à l'échelle rapide de Kubernetes sur ACI](media/concepts-scale/burst-scaling.png)
 
-ACI vous permet de déployer rapidement des instances de conteneur sans la surcharge d’une infrastructure supplémentaire. Lorsque vous vous connectez à AKS, ACI devient une extension logique et sécurisée de votre cluster AKS. Le composant Virtual Kubelet est installé dans votre cluster AKS qui présente ACI comme un nœud Kubernetes virtuel. Kubernetes peut alors planifier les pods s’exécutant en tant qu’instances ACI via des nœuds virtuels, et non en tant que pods sur des nœuds de machine virtuelle, directement dans votre cluster AKS. Les nœuds virtuels sont actuellement en version préliminaire dans ACS.
+ACI vous permet de déployer rapidement des instances de conteneur sans la surcharge d’une infrastructure supplémentaire. Lorsque vous vous connectez à AKS, ACI devient une extension logique et sécurisée de votre cluster AKS. Le composant Virtual Kubelet est installé dans votre cluster AKS qui présente ACI comme un nœud Kubernetes virtuel. Kubernetes peut alors planifier les pods s’exécutant en tant qu’instances ACI via des nœuds virtuels, et non en tant que pods sur des nœuds de machine virtuelle, directement dans votre cluster AKS. Les nœuds virtuels sont actuellement en préversion dans AKS.
 
 Votre application n’a besoin d’aucune modification pour utiliser les nœuds virtuels. Les déploiements peuvent mettre à l’échelle dans AKS et ACI, et sans aucun délai car l’autoscaler de cluster déploie les nouveaux nœuds dans votre cluster AKS.
 

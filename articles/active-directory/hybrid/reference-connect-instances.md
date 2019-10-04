@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 06/18/2018
+ms.date: 05/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca481d50efb99d6e36c66388192e9f27cd66bf45
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c342eac5460d8d52422b0497b1283f367660eb3c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217188"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66298828"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect : Considérations spécifiques concernant les instances
 Azure AD Connect est couramment utilisé avec l’instance mondiale d’Azure AD et Office 365. Mais il existe également d’autres instances, qui ont des exigences différentes en matière d’URL et autres considérations spéciales.
@@ -33,7 +33,7 @@ Azure AD Connect est couramment utilisé avec l’instance mondiale d’Azure AD
 | --- |
 | \*.microsoftonline.de |
 | \*.windows.net |
-| + Listes de révocation de certificat |
+| \+ Listes de révocation de certificat |
 
 Quand vous vous connectez à votre locataire Azure AD, vous devez utiliser un compte du domaine onmicrosoft.de.
 
@@ -42,7 +42,7 @@ Fonctionnalités actuellement absentes de Microsoft Cloud Allemagne :
 * L’**écriture différée de mot de passe** est disponible en préversion avec Azure AD Connect version 1.1.570.0 et ultérieures.
 * Les autres services Azure AD Premium ne sont pas disponibles.
 
-## <a name="microsoft-azure-government-cloud"></a>Cloud Microsoft Azure Government
+## <a name="microsoft-azure-government"></a>Microsoft Azure Government
 Le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) est un cloud du gouvernement des États-Unis.
 
 Ce cloud a été pris en charge par des versions antérieures de DirSync. À partir de la build 1.1.180 d’Azure AD Connect, la nouvelle génération du cloud est prise en charge. Cette génération utilise des points de terminaison États-Unis uniquement et a sa propre liste d’URL à ouvrir dans votre serveur proxy.
@@ -51,17 +51,21 @@ Ce cloud a été pris en charge par des versions antérieures de DirSync. À par
 | --- |
 | \*.microsoftonline.com |
 | \*.microsoftonline.us |
-| \*.windows.net (requis pour la détection automatique d'un locataire de gouvernement Azure AD) |
+| \*.windows.net (requis pour la détection automatique d'un locataire Azure Government) |
 | \*.gov.us.microsoftonline.com |
-| + Listes de révocation de certificat |
+| \+ Listes de révocation de certificat |
 
 > [!NOTE]
-> À compter de la version 1.1.647.0 d'AAD Connect, la définition de la valeur AzureInstance dans le Registre n’est plus nécessaire, à condition que *.windows.net soit ouvert sur vos serveurs proxy.
+> À compter d'Azure AD Connect version 1.1.647.0, la définition de la valeur AzureInstance dans le Registre n’est plus nécessaire, à condition que *.windows.net soit ouvert sur vos serveurs proxy. Toutefois, pour les clients n'autorisant pas la connectivité Internet à partir de leurs serveurs Azure AD Connect, la configuration manuelle suivante peut être utilisée.
 
-Fonctionnalités actuellement absentes du cloud Microsoft Azure Government :
+### <a name="manual-configuration"></a>Configuration manuelle
 
-* L’**écriture différée de mot de passe** est disponible en préversion avec Azure AD Connect version 1.1.570.0 et ultérieures.
-* Les autres services Azure AD Premium ne sont pas disponibles.
+La procédure de configuration manuelle suivante est utilisée pour veiller à ce qu'Azure AD Connect utilise des points de terminaison de synchronisation Azure Government.
+
+1. Lancez l’installation d’Azure AD Connect.
+2. Quand vous voyez apparaître la première page où vous êtes censé accepter le CLUF, ne poursuivez pas, mais laissez l’Assistant Installation en cours d’exécution.
+3. Lancez regedit et modifiez la clé de registre de la valeur `HKLM\SOFTWARE\Microsoft\Azure AD Connect\AzureInstance` à la valeur `4`.
+4. Revenez à l’Assistant Installation d’Azure AD Connect, acceptez le CLUF et continuez. Pendant l’installation, veillez à utiliser le chemin d’accès d’installation de la **configuration personnalisée** (et non l’installation Express), puis poursuivez l'installation normalement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur l’ [intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md).

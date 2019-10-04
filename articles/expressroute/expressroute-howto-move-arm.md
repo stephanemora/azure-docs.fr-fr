@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7bd554896d739a567d04e7b978fba72960762805
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 11a84d4ced3232102d262352b84abe1f813e2406
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111359"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60365177"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Déplacer des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager à l’aide de PowerShell
 
@@ -23,7 +23,7 @@ Pour utiliser un circuit ExpressRoute pour les modèles de déploiement classiqu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Vérifiez que vous avez installé le classique et les modules Az Azure PowerShell localement sur votre ordinateur. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
+* Vérifiez que vous avez installé les modules Azure PowerShell classique et 	Az localement sur votre ordinateur. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
 * Veillez à consulter les [conditions préalables](expressroute-prerequisites.md), la [configuration requise pour le routage](expressroute-routing.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.
 * Examinez les informations fournies sous [Transfert des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager](expressroute-move.md). Vous devez avoir bien compris les limites et les limitations.
 * Vérifiez que le circuit est totalement opérationnel dans le modèle de déploiement classique.
@@ -41,7 +41,7 @@ Connectez-vous à l’environnement classique Azure et collectez la clé de serv
    Add-AzureAccount
    ```
 
-2.  Sélectionnez l’abonnement Azure approprié.
+2. Sélectionnez l’abonnement Azure approprié.
 
    ```powershell
    Select-AzureSubscription "<Enter Subscription Name here>"
@@ -70,7 +70,7 @@ Connectez-vous à l’environnement Resource Manager et créez un groupe de ress
    Connect-AzAccount
    ```
 
-2.  Sélectionnez l’abonnement Azure approprié.
+2. Sélectionnez l’abonnement Azure approprié.
 
    ```powershell
    Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription
@@ -92,7 +92,7 @@ Pour déplacer votre circuit, modifiez et exécutez l’extrait de code suivant�
 Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-En mode classique, un circuit ExpressRoute n’est pas par essence lié à une région. Toutefois, dans Resource Manager, chaque ressource doit être mappée à une région Azure. La région spécifiée dans l’applet de commande Move-AzExpressRouteCircuit peut être techniquement n’importe quelle région. Pour des besoins d’organisation, vous pouvez souhaiter choisir une région qui représente votre emplacement d’appairage (peering).
+En mode classique, un circuit ExpressRoute n’est pas par essence lié à une région. Toutefois, dans Resource Manager, chaque ressource doit être mappée à une région Azure. La région spécifiée dans l’applet de commande Move-AzExpressRouteCircuit peut techniquement correspondre à n’importe quelle région. Pour des besoins d’organisation, vous pouvez souhaiter choisir une région qui représente votre emplacement d’appairage (peering).
 
 > [!NOTE]
 > Une fois le déplacement terminé, le nouveau nom répertorié dans l’applet de commande précédente sera utilisé pour traiter la ressource. Le circuit sera essentiellement renommé.

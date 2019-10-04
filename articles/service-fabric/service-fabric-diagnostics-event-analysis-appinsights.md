@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f4c620bbb0e17abfacb504866230786a971ff409
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 8e682a5c768ed4b3f35382c87528c1b0d11a3c3d
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664147"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019711"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analyse et visualisation d’événements avec Application Insights
 
@@ -51,7 +51,7 @@ Pour découvrir en détail les fonctionnalités du portail Application Insights,
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Configuration d'Application Insights avec EventFlow
 
-Si vous utilisez EventFlow pour agréger des événements, veillez à importer le package NuGet `Microsoft.Diagnostics.EventFlow.Output.ApplicationInsights`. Le code ci-après est requis dans la section *outputs* du fichier *eventFlowConfig.json* :
+Si vous utilisez EventFlow pour agréger des événements, veillez à importer le package NuGet `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`. Le code ci-après est requis dans la section *outputs* du fichier *eventFlowConfig.json* :
 
 ```json
 "outputs": [

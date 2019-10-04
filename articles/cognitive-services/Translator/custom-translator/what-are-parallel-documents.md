@@ -2,19 +2,19 @@
 title: Que sont des documents parallèles ? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Les documents parallèles sont des paires de documents dont un document est la traduction de l’autre. Un document de la paire contient des phrases dans la langue source et l’autre document contient ces phrases traduites dans la langue cible.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fa3abb9fc7b899fa5c74d6f1cd73ebbbb72b6047
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776629"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595446"
 ---
 # <a name="what-are-parallel-documents"></a>Que sont des documents parallèles ?
 
@@ -23,7 +23,7 @@ Peu importe quelle langue est marquée comme « source » et quelle langue est
 
 ## <a name="requirements"></a>Configuration requise
 
-Vous devez au minimum de 10 000 phrases parallèle uniques pour l’apprentissage d’un système. Vous pouvez ajouter en permanence plus de contenu parallèle et relancer l’apprentissage afin d’améliorer la qualité de votre système de traduction. Cette approche fait partie des meilleures pratiques.
+Vous aurez besoin d’un minimum de 10 000 phrases parallèles uniques pour entraîner un système. Vous pouvez ajouter en permanence plus de contenu parallèle et relancer l’apprentissage afin d’améliorer la qualité de votre système de traduction. Cette approche fait partie des meilleures pratiques.
 
 Microsoft exige que les documents chargés dans le Custom Translator respectent les droits d’auteur et la propriété intellectuelle d’un tiers. Pour plus d’informations, veuillez consulter les [conditions d’utilisation](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Le chargement d’un document à l’aide du portail ne transfère pas les droits de propriété intellectuelle du document lui-même.

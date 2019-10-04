@@ -1,5 +1,5 @@
 ---
-title: 'API REST : Compte des opérations de gestion sur Azure Data Lake Storage Gen1 | Microsoft Docs'
+title: 'API REST : Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 | Microsoft Docs'
 description: Utilisez Azure Data Lake Storage Gen1 et l’API REST WebHDFS pour effectuer des opérations de gestion des comptes dans le compte Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880166"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60877102"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 à l’aide de l’API REST
 > [!div class="op_single_selector"]
@@ -29,10 +29,10 @@ ms.locfileid: "58880166"
 
 Dans cet article, vous allez découvrir comment réaliser des opérations de gestion des comptes sur Azure Data Lake Storage Gen1 avec l’API REST. Ces opérations incluent la création ou la suppression d’un compte Data Lake Storage Gen1, etc. Pour obtenir des instructions sur l’exécution des opérations du système de fichiers sur Data Lake Storage Gen1 à l’aide de l’API REST, consultez la section relative aux [opérations du système de fichiers sur Data Lake Storage Gen1 à l’aide de l’API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](https://curl.haxx.se/)**. Cet article utilise cURL pour montrer comment effectuer des appels d’API REST sur un compte Data Lake Storage Gen1.
+* **[cURL](https://curl.haxx.se/)** . Cet article utilise cURL pour montrer comment effectuer des appels d’API REST sur un compte Data Lake Storage Gen1.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Comment s’authentifier à l’aide d’Azure Active Directory ?
 Vous avez le choix entre deux méthodes pour vous authentifier à l’aide d’Azure Active Directory :

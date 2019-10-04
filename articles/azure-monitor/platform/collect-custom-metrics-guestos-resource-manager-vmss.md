@@ -5,35 +5,36 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 573c205cd2e208a1cb2b526d96fb08ca21331c80
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 8ee8c0c9d9724706f9b46013eba14e878832fd02
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481321"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844974"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Azure Resource Manager pour un groupe de machines virtuelles identiques Windows
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-En utilisant l’[extension Windows Azure Diagnostics (WAD)](diagnostics-extension-overview.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux d’activité à partir du système d’exploitation invité (SE invité) qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Azure Service Fabric. L’extension peut envoyer des données de télémétrie vers de nombreux emplacements différents répertoriés dans l’article précédemment lié.  
+En utilisant l’[extension Diagnostics Azure pour Windows (WAD)](diagnostics-extension-overview.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux à partir du système d’exploitation invité qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Azure Service Fabric. L’extension peut envoyer des données de télémétrie vers de nombreux emplacements différents répertoriés dans l’article précédemment lié.  
 
 Cet article décrit le processus pour envoyer les métriques de performance du SE invité d’un groupe de machines virtuelles identiques Windows vers le magasin de données d’Azure Monitor. À partir de la version 1.11 de Diagnostics Azure pour Windows, vous pouvez écrire des métriques directement dans le magasin de métriques d’Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. En les stockant dans cet emplacement, vous avez accès aux mêmes actions que pour les métriques de la plateforme. Ces actions sont les suivantes : génération d’alertes en temps quasi réel, création de graphiques, routage, accès à partir de l’API REST et bien plus encore. Auparavant, l’extension Diagnostics Azure pour Windows écrivait les données dans le Stockage Azure, et non dans le magasin de données d’Azure Monitor.  
 
 Si vous découvrez les modèles Resource Manager, obtenez plus d’informations sur les [déploiements de modèle](../../azure-resource-manager/resource-group-overview.md), leur structure et leur syntaxe.  
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - Vous devez avoir installé [Azure PowerShell](/powershell/azure), ou vous pouvez utiliser [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
+- Votre ressource de machine virtuelle doit se trouver dans une région [ prenant en charge les métriques personnalisées](metrics-custom-overview.md#supported-regions).
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurer Azure Monitor en tant que récepteur de données 
-L’extension Azure Diagnostics utilise une fonctionnalité appelée **récepteurs de données** pour acheminer les métriques et les journaux d’activité vers différents emplacements. Les étapes suivantes montrent comment utiliser un modèle Resource Manager et PowerShell pour déployer une machine virtuelle à l’aide du nouveau récepteur de données Azure Monitor. 
+L’extension Diagnostics Azure utilise une fonctionnalité appelée **récepteurs de données** pour acheminer les métriques et les journaux vers différents emplacements. Les étapes suivantes montrent comment utiliser un modèle Resource Manager et PowerShell pour déployer une machine virtuelle à l’aide du nouveau récepteur de données Azure Monitor. 
 
 ## <a name="author-a-resource-manager-template"></a>Créer un modèle Resource Manager 
 Pour cet exemple, vous pouvez utiliser un [exemple de modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale) public :  

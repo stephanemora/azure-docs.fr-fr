@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e6916cc96f9d9778cc829e39f82ef7204e137bc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 19e4240991e4bc9ea80d210f738380e823f3387d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269467"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-synergi"></a>Didacticiel : Intégration d’Azure Active Directory avec Synergi
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Synergi avec Azure AD, vous devez ajouter Sy
 
 **Pour ajouter Synergi depuis la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

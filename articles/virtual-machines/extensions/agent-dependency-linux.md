@@ -1,6 +1,6 @@
 ---
-title: Extension de machine virtuelle de dépendance d’analyse Azure pour Linux | Microsoft Docs
-description: Déployez l’agent de dépendance d’analyse Azure sur la machine virtuelle Linux avec une extension de machine virtuelle.
+title: Extension de machine virtuelle Azure Monitor Dependency pour Linux | Microsoft Docs
+description: Déployez l’agent Azure Monitor Dependency sur une machine virtuelle Linux à l’aide d’une extension de machine virtuelle.
 services: virtual-machines-linux
 documentationcenter: ''
 author: mgoedtel
@@ -9,32 +9,31 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 16491ccc8a9cdc24b82c4c4e27705fa30da61088
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 416b0c89105f97514efdfcc859a630d78f7ba7f5
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671345"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70084828"
 ---
-# <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle de dépendance d’analyse Azure pour Linux
+# <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Azure Monitor Dependency pour Linux
 
-La fonctionnalité Azure Monitor pour machines virtuelles Map obtient ses données à partir de l’agent Microsoft Dependency. L’extension de machine virtuelle de l’agent de dépendances de machine virtuelle Azure pour Linux est publiée et pris en charge par Microsoft. L’extension installe l’agent de dépendances sur des machines virtuelles. Ce document décrit en détail les plateformes prises en charge, les configurations et les options de déploiement pour l’extension de machine virtuelle de l’agent de dépendances de machine virtuelle Azure pour Linux.
+La fonctionnalité Azure Monitor pour machines virtuelles Map obtient ses données à partir de l’agent Microsoft Dependency. L’extension de machine virtuelle de l’agent Azure VM Dependency pour Linux est publiée et prise en charge par Microsoft. L’extension installe l’agent Dependency sur des machines virtuelles Azure. Ce document présente les plateformes, configurations et options de déploiement prises en charge pour l’extension de machine virtuelle Azure VM Dependency pour Linux.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-L’extension de l’agent de dépendances de machine virtuelle Azure pour Linux peut être exécutée sur les systèmes d’exploitation pris en charge répertoriés dans le [les systèmes d’exploitation pris en charge](../../azure-monitor/insights/vminsights-onboard.md#supported-operating-systems) section de l’analyse Azure pour l’article de déploiement de machines virtuelles.
+L’extension de l’agent Azure VM Dependency pour Linux peut être exécutée sur les systèmes d’exploitation pris en charge répertoriés dans la section [Systèmes d’exploitation pris en charge](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) de l’article portant sur le déploiement d’Azure Monitor pour machines virtuelles.
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-Le code JSON suivant montre le schéma pour l’extension de l’agent de dépendances de machine virtuelle Azure sur une machine virtuelle Linux de Azure. 
+Le JSON suivant montre le schéma de l’extension de l’agent Azure VM Dependency sur une machine virtuelle Linux Azure. 
 
 ```json
 {
@@ -78,16 +77,16 @@ Le code JSON suivant montre le schéma pour l’extension de l’agent de dépen
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
-| Type | DependencyAgentLinux |
-| typeHandlerVersion | 9,5 |
+| type | DependencyAgentLinux |
+| typeHandlerVersion | 9.5 |
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
-Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Le schéma JSON détaillé dans la section précédente peut être utilisé dans un modèle Azure Resource Manager pour exécuter l’extension de l’agent de dépendances de machine virtuelle Azure pendant un déploiement de modèle Azure Resource Manager. 
+Vous pouvez déployer les extensions de machines virtuelles Azure avec des modèles Azure Resource Manager. Vous pouvez utiliser le schéma JSON détaillé dans la section précédente dans un modèle Azure Resource Manager pour exécuter l’extension de l’agent Azure VM Dependency pendant un déploiement de modèle Azure Resource Manager.
 
-Le code JSON pour une extension de machine virtuelle peut être imbriqué à l’intérieur de la ressource de machine virtuelle ou placé à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement du JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
+Le JSON d’une extension de machine virtuelle peut être imbriqué à l’intérieur de la ressource de machine virtuelle. Vous pouvez également le placer à la racine ou au niveau supérieur d’un modèle JSON Resource Manager. Le positionnement du JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/child-resource-name-type.md).
 
-L’exemple suivant suppose que l’extension de l’agent de dépendance est imbriquée dans la ressource de machine virtuelle. Lors de l’imbrication de la ressource d’extension, le JSON est placé dans l’objet `"resources": []` de la machine virtuelle.
+L’exemple suivant suppose que l’extension de l’agent Dependency est imbriquée dans la ressource de machine virtuelle. Lors de l’imbrication de la ressource d’extension, le JSON est placé dans l’objet `"resources": []` de la machine virtuelle.
 
 
 ```json
@@ -108,7 +107,7 @@ L’exemple suivant suppose que l’extension de l’agent de dépendance est im
 }
 ```
 
-Lorsque vous placez l’extension JSON à la racine du modèle, le nom de ressource inclut une référence à la machine virtuelle parente, et le type reflète la configuration imbriquée. 
+Lorsque vous placez l’extension JSON à la racine du modèle, le nom de ressource inclut une référence à la machine virtuelle parente. Le type reflète la configuration imbriquée. 
 
 ```json
 {
@@ -130,7 +129,7 @@ Lorsque vous placez l’extension JSON à la racine du modèle, le nom de ressou
 
 ## <a name="azure-cli-deployment"></a>Déploiement de l’interface de ligne de commande Azure
 
-L’interface CLI peut être utilisé pour déployer l’extension de machine virtuelle d’agent de dépendances sur une machine virtuelle existante.  
+Vous pouvez utiliser l’interface de ligne de commande Azure pour déployer l’extension de machine virtuelle de l’agent Dependency sur une machine virtuelle existante.  
 
 ```azurecli
 
@@ -146,7 +145,7 @@ az vm extension set \
 
 ### <a name="troubleshoot"></a>Résolution des problèmes
 
-Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure et à l’aide de l’interface de ligne de commande Azure. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante à l’aide de l’interface de ligne de commande Azure.
+Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure et à l’aide de l’interface de ligne de commande Azure. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante à l’aide de l’interface de ligne de commande Azure :
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -160,4 +159,4 @@ La sortie de l’exécution de l’extension est enregistrée dans le fichier su
 
 ### <a name="support"></a>Support
 
-Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur Obtenir un support. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).
+Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**. Pour plus d’informations sur l’utilisation du support Azure, lisez le [FAQ du support Microsoft Azure](https://azure.microsoft.com/support/faq/).

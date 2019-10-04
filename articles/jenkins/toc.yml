@@ -1,6 +1,6 @@
 - name: Jenkins sur Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Jenkins sur Azure
       href: overview.md
@@ -31,6 +31,8 @@
               maintainContext: true
             - name: Déployer sur AKS à l’aide du modèle bleu/vert
               href: jenkins-aks-blue-green-deployment.md
+            - name: CI/CD avec Azure Dev Spaces
+              href: tutorial-jenkins-dev-spaces.md
         - name: App Service
           items:
             - name: Créer des ressources Azure dans un travail de pipeline

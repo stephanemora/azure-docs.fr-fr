@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: f9da031fd4b35c2fa9126f545eecacf6143b18a1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523594"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66478855"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse
 Dans ce didacticiel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant SQL Data Warehouse (SQL DW) pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire établi prédit si un pourboire a été donné pour une course. Des modèles de classification multiclasse et de régression sont également présentés, qui prévoient la distribution des montants de pourboire réglés.
@@ -77,7 +77,7 @@ Pour configurer votre environnement de science des données Azure, procédez com
 **Approvisionnez votre instance Azure SQL DW.**
 Suivez les étapes indiquées dans [Créer un entrepôt de données SQL](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) pour approvisionner une instance SQL Data Warehouse. Assurez-vous de prendre note des informations d’identification suivantes de SQL Data Warehouse dont vous aurez besoin dans les étapes ultérieures.
 
-* **Nom du serveur**: \<nom de serveur >. database.windows.net
+* **Nom du serveur** : \<nom_serveur>.database.windows.net
 * **Nom SQL DW (base de données)**
 * **Nom d’utilisateur**
 * **Mot de passe**
@@ -376,7 +376,7 @@ Cet exemple de requête identifie les médaillons (numéros de taxi) qui ont eff
 
 **Output:** la requête doit retourner une table dont les lignes recensent les 13 369 médaillons (taxis) et le nombre correspondant de courses effectuées en 2013. La dernière colonne contient le nombre de courses effectuées.
 
-### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
+### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
 Cet exemple identifie les médaillons (numéros de taxi) et les numéros hack_license (chauffeurs) qui ont effectué plus de 100 courses au cours d’une période spécifiée.
 
     SELECT medallion, hack_license, COUNT(*)
@@ -584,11 +584,11 @@ Si vous avez déjà configuré un espace de travail AzureML, vous pouvez directe
 
 Pour exécuter l’exemple de IPython Notebook ou le fichier de script Python, vous avez besoin des packages Python ci-dessous. Si vous utilisez le service AzureML IPython Notebook, ces packages ont été préinstallés.
 
-    - pandas
-    - numpy
-    - matplotlib
-    - pyodbc
-    - PyTables
+- pandas
+- numpy
+- matplotlib
+- pyodbc
+- PyTables
 
 Il est recommandé de suivre la séquence ci-après lors de la génération de solutions analytiques avancées dans AzureML comportant de nombreuses données :
 
@@ -615,7 +615,7 @@ Voici la chaîne de connexion qui crée la connexion à la base de données.
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxitrip"></a>Afficher le nombre de lignes et de colonnes de la table <nyctaxi_trip>
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_trip"></a>Afficher le nombre de lignes et de colonnes de la table <nyctaxi_trip>
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_trip>')
@@ -633,7 +633,7 @@ Voici la chaîne de connexion qui crée la connexion à la base de données.
 * Nombre total de lignes = 173 179 759
 * Nombre total de colonnes = 14
 
-### <a name="report-number-of-rows-and-columns-in-table-nyctaxifare"></a>Afficher le nombre de lignes et de colonnes de la table <nyctaxi_fare>
+### <a name="report-number-of-rows-and-columns-in-table-nyctaxi_fare"></a>Afficher le nombre de lignes et de colonnes de la table <nyctaxi_fare>
     nrows = pd.read_sql('''
         SELECT SUM(rows) FROM sys.partitions
         WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_fare>')
@@ -833,7 +833,7 @@ Dans cet exercice, nous avons déjà exploré et généré les données dans SQL
 1. Importez les données dans Azure Machine Learning Studio avec le module [Importer les données][import-data], disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Importer les données][import-data] .
 
     ![Importer les données Azure ML][17]
-2. Dans le panneau **Propriétés**, sélectionnez **Azure SQL Database** dans le champ **Source de données**.
+2. Dans le panneau **Propriétés**, sélectionnez **Base de données Azure SQL** dans le champ **Source de données**.
 3. Dans le champ **Nom du serveur de base de données** , entrez le nom DNS de la base de données. Format : `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Dans le champ **Nom de la base de données** , entrez le nom de la base de données.
 5. Entrez le *nom d’utilisateur SQL* dans le champ **Nom de compte d’utilisateur du serveur**, et le *mot de passe* dans le champ **Mot de passe de compte d’utilisateur du serveur**.

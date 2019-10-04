@@ -1,39 +1,41 @@
 ---
-title: Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS) | Microsoft Docs
-description: Comment utiliser le stockage RA-GRS Azure pour concevoir une application hautement disponible suffisamment flexible pour gérer les interruptions.
+title: Conception d’applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture ((RA-GZRS ou RA-GRS)) | Microsoft Docs
+description: Comment utiliser le stockage RA-GZRS ou RA-GRS Azure pour concevoir une application hautement disponible suffisamment flexible pour gérer les interruptions.
 services: storage
 author: tamram
 ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 01/17/2019
+ms.topic: conceptual
+ms.date: 08/14/2019
 ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225822"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673111"
 ---
-# <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS)
+# <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Conception d’applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture
 
-La fourniture d’une plateforme hautement disponible comme Stockage Azure pour l’hébergement des applications est une caractéristique courante des infrastructures basées sur le cloud. Les développeurs d’applications cloud doivent bien réfléchir à la façon de tirer parti de cette plateforme pour proposer des applications hautement disponibles à leurs utilisateurs. Cet article porte sur la façon dont les développeurs peuvent utiliser le stockage géoredondant avec accès en lecture (RA-GRS) pour garantir la haute disponibilité de leurs applications Stockage Azure.
+La fourniture d’une plateforme hautement disponible comme Stockage Azure pour l’hébergement des applications est une caractéristique courante des infrastructures basées sur le cloud. Les développeurs d’applications cloud doivent bien réfléchir à la façon de tirer parti de cette plateforme pour proposer des applications hautement disponibles à leurs utilisateurs. Cet article porte sur la façon dont les développeurs peuvent utiliser une des options de réplication géoredondante d’Azure pour garantir la haute disponibilité de leurs applications Stockage Azure.
 
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+Les comptes de stockage configurés pour la réplication géoredondante sont répliqués de manière synchrone dans la région primaire, puis répliqués de manière asynchrone dans une région secondaire à des centaines de kilomètres. Le stockage Azure offre deux types de réplication géoredondante :
 
-Cet article se concentre sur GRS et RA-GRS. Avec le stockage GRS, trois copies de vos données sont conservées dans la région primaire que vous avez sélectionnée lors de la configuration du compte de stockage. Trois copies supplémentaires sont conservées de façon asynchrone dans une région secondaire spécifiée par Azure. RA-GRS offre un stockage géoredondant avec accès en lecture à la copie secondaire.
+* [Le stockage redondant interzone (GZRS) (préversion)](storage-redundancy-gzrs.md) fournit une réplication pour les scénarios nécessitant à la fois une haute disponibilité et une durabilité maximale. Les données sont répliquées de manière synchrone dans trois zones de disponibilité Azure dans la région primaire à l’aide du stockage redondant interzone (ZRS), puis répliquées de façon asynchrone dans la région secondaire. Pour un accès en lecture aux données dans la région secondaire, activez le stockage géoredondant interzone avec accès en lecture (RA-GZRS).
+* Le [stockage géo-redondant (GRS)](storage-redundancy-grs.md) fournit une réplication entre les régions pour vous protéger en cas d’interruptions régionales. Les données sont répliquées de manière synchrone trois fois dans la région primaire à l’aide du stockage localement redondant (LRS), puis répliquées de façon asynchrone dans la région secondaire. Pour un accès en lecture aux données dans la région secondaire, activez le stockage géoredondant avec accès en lecture (RA-GRS).
+
+Cet article explique comment concevoir votre application pour gérer une panne dans la région primaire. Si la région primaire n’est plus disponible, votre application peut s’adapter pour effectuer des opérations de lecture dans la région secondaire à la place. Avant de commencer, vérifiez que votre compte de stockage est configuré pour RA-GRS ou RA-GZRS.
 
 Pour plus d’informations sur les peerings entre régions primaires et régions secondaires, consultez [Continuité et reprise d’activité : régions jumelées d’Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Vous y trouverez aussi des extraits de code et, à la fin, un lien vers un exemple complet que vous pouvez télécharger et exécuter.
 
-> [!NOTE]
-> Le stockage Azure prend maintenant en charge le stockage redondant interzone (ZRS) pour générer des applications hautement disponibles. Le stockage ZRS offre une solution simple pour les besoins de redondance de nombreuses applications. Il protège contre les défaillances matérielles ou les catastrophes naturelles qui affecteraient un centre de données unique. Pour plus d’informations, consultez [Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles](storage-redundancy-zrs.md).
+## <a name="application-design-considerations-when-reading-from-the-secondary"></a>Considérations relatives à la conception d’applications lors de la lecture à partir du serveur secondaire
 
-## <a name="key-features-of-ra-grs"></a>Fonctionnalités clés du stockage RA-GRS
+L’objectif de cet article est de vous montrer comment concevoir une application qui continuera à fonctionner (bien qu’avec des capacités limitées), même si un sinistre majeur affecte le centre de données principal. Vous pouvez configurer votre application pour gérer des problèmes temporaires ou à long terme via la lecture à partir de la région secondaire lorsqu’un problème empêche la lecture à partir de la région principale. Lorsque la région principale redevient disponible, votre application peut reprendre la lecture à partir de la région principale.
 
-Gardez à l’esprit ces points clés pendant la conception de votre application pour RA-GRS :
+Gardez à l’esprit ces points clés pendant la conception de votre application pour RA-GRS ou RA-GZRS :
 
 * Stockage Azure conserve une copie en lecture seule des données que vous stockez dans votre région primaire d’une région secondaire. Comme indiqué ci-dessus, le service de stockage détermine l’emplacement de la région secondaire.
 
@@ -41,13 +43,12 @@ Gardez à l’esprit ces points clés pendant la conception de votre application
 
 * Pour les blobs, tables et files d’attente, vous pouvez interroger la région secondaire pour obtenir la *dernière heure de synchronisation*. Cette valeur vous indique à quel moment la dernière réplication de la région primaire sur la région secondaire s’est produite. (Cette fonctionnalité n’est pas prise en charge pour Azure Files, qui n’a pas la redondance RA-GRS pour l’instant.)
 
-* Vous pouvez utiliser la bibliothèque cliente de stockage pour interagir avec les données de la région primaire ou secondaire. Vous pouvez également rediriger les demandes de lecture automatiquement vers la région secondaire si une demande de lecture adressée à la région primaire arrive à expiration.
+* Vous pouvez utiliser la bibliothèque cliente de stockage pour lire et écrire les données de la région primaire ou secondaire. Vous pouvez également rediriger les demandes de lecture automatiquement vers la région secondaire si une demande de lecture adressée à la région primaire arrive à expiration.
 
 * Si la région primaire devient indisponible, vous pouvez initier un basculement de compte. Lorsque vous basculez vers la région secondaire, les entrées DNS pointant vers la région primaire sont modifiées pour pointer vers la région secondaire. Au terme du basculement, l'accès en écriture est restauré pour les comptes GRS et RA-GRS. Pour plus d'informations, consultez [Récupération d'urgence et basculement de compte de stockage (préversion) dans Stockage Azure](storage-disaster-recovery-guidance.md).
 
-## <a name="application-design-considerations-when-using-ra-grs"></a>Considérations relatives à la conception d’applications avec le stockage RA-GRS
-
-L’objectif de cet article est de vous montrer comment concevoir une application qui continuera à fonctionner (bien qu’avec des capacités limitées), même si un sinistre majeur affecte le centre de données principal. Vous pouvez configurer votre application pour gérer des problèmes temporaires ou à long terme via la lecture à partir de la région secondaire lorsqu’un problème empêche la lecture à partir de la région principale. Lorsque la région principale redevient disponible, votre application peut reprendre la lecture à partir de la région principale.
+> [!NOTE]
+> Le basculement de compte géré par le client (préversion) n’est pas encore disponible dans les régions prenant en charge GZRS/RA-GZRS, les clients ne peuvent donc pas gérer les événements de basculement de compte avec les comptes GZRS et RA-GZRS. Au cours de la préversion, Microsoft gérera les événements de basculement affectant les comptes GZRS/RA-GZRS.
 
 ### <a name="using-eventually-consistent-data"></a>Utilisation de données cohérentes
 
@@ -69,15 +70,15 @@ Cela dépend de la complexité de votre application. Vous pouvez décider de ne 
 
 Voici les autres considérations dont nous parlerons dans le reste de cet article.
 
-*   Gestion des nouvelles tentatives de demandes de lecture à l’aide du modèle Disjoncteur
+* Gestion des nouvelles tentatives de demandes de lecture à l’aide du modèle Disjoncteur
 
-*   Données cohérentes et dernière heure de synchronisation
+* Données cohérentes et dernière heure de synchronisation
 
-*   Test
+* Test
 
 ## <a name="running-your-application-in-read-only-mode"></a>Exécution de votre application en mode lecture seule
 
-Pour utiliser le stockage RA-GRS, vous devez être en mesure de gérer les demandes de lecture et de mise à jour (dans le cas présent, les insertions, mises à jour et suppressions) ayant échoué. En cas d’échec du centre de données principal, les demandes de lecture peuvent être redirigées vers le centre de données secondaire. Mais les demandes de mise à jour ne peuvent pas être redirigées au centre de données secondaire car celui-ci est en lecture seule. C’est la raison pour laquelle vous devez configurer votre application pour s’exécuter en mode lecture seule.
+Pour préparer efficacement une interruption dans la région primaire, vous devez être en mesure de gérer les demandes de lecture et de mise à jour (dans le cas présent, les insertions, mises à jour et suppressions) ayant échoué. En cas d’échec de la région primaire, les demandes de lecture peuvent être redirigées vers la région secondaire. Mais les demandes de mise à jour ne peuvent pas être redirigées au centre de données secondaire car celui-ci est en lecture seule. C’est la raison pour laquelle vous devez configurer votre application pour s’exécuter en mode lecture seule.
 
 Par exemple, vous pouvez définir un indicateur qui est vérifié avant l’envoi de toute demande de mise à jour à Stockage Azure. Lorsque l’une des demandes de mise à jour aboutit, vous pouvez l’ignorer et retourner une réponse appropriée au client. Vous pouvez même décider de désactiver certaines fonctionnalités simultanément, et ce, jusqu’à ce que le problème soit résolu, et informer les utilisateurs que ces fonctionnalités sont temporairement indisponibles.
 
@@ -89,37 +90,37 @@ La possibilité d’exécuter votre application en mode lecture seule offre un a
 
 Il existe de nombreuses façons de gérer les demandes de mise à jour lors d’une exécution en mode lecture seule. Nous n’abordons pas ce point de façon complète, mais vous pouvez généralement prendre quelques modèles en considération.
 
-1.  Vous pouvez répondre à votre utilisateur et lui indiquer que les mises à jour ne sont actuellement pas autorisées. Par exemple, un système de gestion des contacts pourrait permettre aux clients d’accéder aux informations de contact sans toutefois autoriser les mises à jour.
+1. Vous pouvez répondre à votre utilisateur et lui indiquer que les mises à jour ne sont actuellement pas autorisées. Par exemple, un système de gestion des contacts pourrait permettre aux clients d’accéder aux informations de contact sans toutefois autoriser les mises à jour.
 
-2.  Vous pouvez empiler vos mises à jour dans une autre région. Dans ce cas, vous écrirez vos demandes de mise à jour en attente dans la file d’attente d’une autre région et disposerez d’un moyen de traiter ces demandes une fois le centre de données principal à nouveau en ligne. Dans ce scénario, vous devez informer le client que la mise à jour demandée a été mise en file d’attente pour un traitement ultérieur.
+2. Vous pouvez empiler vos mises à jour dans une autre région. Dans ce cas, vous écrirez vos demandes de mise à jour en attente dans la file d’attente d’une autre région et disposerez d’un moyen de traiter ces demandes une fois le centre de données principal à nouveau en ligne. Dans ce scénario, vous devez informer le client que la mise à jour demandée a été mise en file d’attente pour un traitement ultérieur.
 
-3.  Vous pouvez écrire vos mises à jour dans un compte de stockage d’une autre région. Puis, lorsque le centre de données principal est de nouveau en ligne, vous disposez d’un moyen de fusionner ces mises à jour dans les données primaires, selon la structure des données. Par exemple, si vous créez des fichiers distincts, dont le nom contient l’horodatage, vous pouvez recopier ces fichiers dans la région primaire. Cela fonctionne pour certaines charges de travail, notamment la journalisation et les données IoT.
+3. Vous pouvez écrire vos mises à jour dans un compte de stockage d’une autre région. Puis, lorsque le centre de données principal est de nouveau en ligne, vous disposez d’un moyen de fusionner ces mises à jour dans les données primaires, selon la structure des données. Par exemple, si vous créez des fichiers distincts, dont le nom contient l’horodatage, vous pouvez recopier ces fichiers dans la région primaire. Cela fonctionne pour certaines charges de travail, notamment la journalisation et les données IoT.
 
 ## <a name="handling-retries"></a>Gestion des nouvelles tentatives
 
-Comment savoir quelles sont les erreurs renouvelables ? C’est la bibliothèque cliente de stockage qui le détermine. Par exemple, une erreur 404 (ressource introuvable) n’est pas renouvelable, car une nouvelle tentative serait peu susceptible d’aboutir. En revanche, une erreur 500 est renouvelable, car il s’agit d’une erreur de serveur. Il se peut que le problème ne soit que temporaire. Pour plus d’informations, consultez le [code open source de la classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) dans la bibliothèque cliente de stockage .NET. (Recherchez la méthode ShouldRetry.)
+La bibliothèque cliente de stockage Azure vous permet de déterminer les erreurs qui peuvent être renouvelées. Par exemple, une erreur 404 (ressource introuvable) est renouvelable, car une nouvelle tentative serait peu susceptible d’aboutir. En revanche, une erreur 500 n’est pas renouvelable, car il s’agit d’une erreur de serveur. Il se peut que le problème ne soit que temporaire. Pour plus d’informations, consultez le [code open source de la classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) dans la bibliothèque cliente de stockage .NET. (Recherchez la méthode ShouldRetry.)
 
 ### <a name="read-requests"></a>Demandes de lecture
 
-En cas de problème avec le stockage principal, les demandes de lecture peuvent être redirigées vers le stockage secondaire. Comme indiqué plus haut dans la section [Utilisation de données cohérentes](#using-eventually-consistent-data), la lecture de données périmées par votre application doit être acceptable. Si vous utilisez la bibliothèque cliente de stockage pour accéder aux données de RA-GRS, vous pouvez spécifier le comportement de nouvelle tentative d’une demande de lecture en affectant à la propriété **LocationMode** l’une des valeurs suivantes :
+En cas de problème avec le stockage principal, les demandes de lecture peuvent être redirigées vers le stockage secondaire. Comme indiqué plus haut dans la section [Utilisation de données cohérentes](#using-eventually-consistent-data), la lecture de données périmées par votre application doit être acceptable. Si vous utilisez la bibliothèque cliente de stockage pour accéder aux données à partir de la région secondaire, vous pouvez spécifier le comportement de nouvelle tentative d’une demande de lecture en affectant à la propriété **LocationMode** l’une des valeurs suivantes :
 
-*   **PrimaryOnly** (valeur par défaut)
+* **PrimaryOnly** (valeur par défaut)
 
-*   **PrimaryThenSecondary**
+* **PrimaryThenSecondary**
 
-*   **SecondaryOnly**
+* **SecondaryOnly**
 
-*   **SecondaryThenPrimary**
+* **SecondaryThenPrimary**
 
 Lorsque vous affectez à la propriété **LocationMode** la valeur **PrimaryThenSecondary**, si la demande de lecture initiale au point de terminaison principal échoue avec une erreur renouvelable, le client effectue automatiquement une autre demande de lecture au point de terminaison secondaire. Si l’erreur est liée au délai d’attente du serveur, le client devra attendre l’expiration du délai avant la réception d’une erreur renouvelable du service.
 
 Lorsque vous décidez de la façon de répondre à une erreur renouvelable, deux scénarios principaux doivent être envisagés :
 
-*   Il s’agit d’un problème isolé et les demandes ultérieures au point de terminaison principal ne retourneront pas d’erreur renouvelable. Ceci peut se produire, par exemple, en cas d’erreur réseau temporaire.
+* Il s’agit d’un problème isolé et les demandes ultérieures au point de terminaison principal ne retourneront pas d’erreur renouvelable. Ceci peut se produire, par exemple, en cas d’erreur réseau temporaire.
 
     Dans ce scénario, l’affectation à la propriété **LocationMode** de la valeur **PrimaryThenSecondary** n’entraîne pas de perte de performances significative, dans la mesure où cela ne se produit que rarement.
 
-*   Le problème concerne au moins un des services de stockage de la région primaire, et toutes les demandes ultérieures à l’attention de ce service dans la région primaire sont susceptibles de retourner des erreurs renouvelables sur une certaine période. Cela peut se produire, par exemple, lorsque la région primaire est totalement inaccessible.
+* Le problème concerne au moins un des services de stockage de la région primaire, et toutes les demandes ultérieures à l’attention de ce service dans la région primaire sont susceptibles de retourner des erreurs renouvelables sur une certaine période. Cela peut se produire, par exemple, lorsque la région primaire est totalement inaccessible.
 
     Dans ce scénario, une perte de performances est observée, dans la mesure où toutes vos demandes de lecture essaieront le point de terminaison principal en premier, attendront l’expiration du délai, puis basculeront vers le point de terminaison secondaire.
 
@@ -147,9 +148,9 @@ Vous devez également réfléchir à la façon de gérer plusieurs instances d�
 
 Vous disposez de trois options principales pour la surveillance de la fréquence des nouvelles tentatives dans la région primaire, en vue de déterminer à quel moment basculer vers la région secondaire et faire passer l’application en mode lecture seule.
 
-*   Ajoutez un gestionnaire pour l’événement [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) sur l’objet [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) transmis à vos demandes de stockage. Il s’agit de la méthode présentée dans cet article et utilisée dans l’exemple qui l’accompagne. Ces événements se déclenchent à chaque fois que le client tente une nouvelle demande, ce qui vous permet de suivre la fréquence à laquelle le client rencontre des erreurs renouvelables sur un point de terminaison principal.
+* Ajoutez un gestionnaire pour l’événement [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) sur l’objet [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) transmis à vos demandes de stockage. Il s’agit de la méthode présentée dans cet article et utilisée dans l’exemple qui l’accompagne. Ces événements se déclenchent à chaque fois que le client tente une nouvelle demande, ce qui vous permet de suivre la fréquence à laquelle le client rencontre des erreurs renouvelables sur un point de terminaison principal.
 
-    ```csharp 
+    ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
         // Retrying in the primary region
@@ -158,7 +159,7 @@ Vous disposez de trois options principales pour la surveillance de la fréquence
     };
     ```
 
-*   Dans la méthode [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) d’une stratégie de nouvelle tentative personnalisée, vous pouvez exécuter du code personnalisé chaque fois qu’une nouvelle tentative est effectuée. Le moment où une nouvelle tentative est effectuée est enregistré. En outre, cela vous donne également la possibilité de modifier le comportement de nouvelle tentative.
+* Dans la méthode [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) d’une stratégie de nouvelle tentative personnalisée, vous pouvez exécuter du code personnalisé chaque fois qu’une nouvelle tentative est effectuée. Le moment où une nouvelle tentative est effectuée est enregistré. En outre, cela vous donne également la possibilité de modifier le comportement de nouvelle tentative.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -186,7 +187,7 @@ Vous disposez de trois options principales pour la surveillance de la fréquence
     }
     ```
 
-*   La troisième approche consiste à implémenter un composant de contrôle personnalisé dans votre application, qui effectue des tests ping en permanence sur votre point de terminaison de stockage principal avec des demandes de lecture factices (par exemple, la lecture d’un blob de petite taille) pour en déterminer l’état d’intégrité. Dans ce cas, la quantité de ressources sollicitées est raisonnable. Lorsque le système détecte qu’un problème atteint votre seuil, vous effectuez alors le basculement vers **SecondaryOnly** et le mode lecture seule.
+* La troisième approche consiste à implémenter un composant de contrôle personnalisé dans votre application, qui effectue des tests ping en permanence sur votre point de terminaison de stockage principal avec des demandes de lecture factices (par exemple, la lecture d’un blob de petite taille) pour en déterminer l’état d’intégrité. Dans ce cas, la quantité de ressources sollicitées est raisonnable. Lorsque le système détecte qu’un problème atteint votre seuil, vous effectuez alors le basculement vers **SecondaryOnly** et le mode lecture seule.
 
 À un moment donné, vous souhaiterez rétablir l’utilisation du point de terminaison principal et autoriser les mises à jour. Si vous utilisez l’une des deux premières méthodes indiquées plus haut, vous pouvez simplement rebasculer vers le point de terminaison principal et activer le mode de mise à jour après une période sélectionnée arbitrairement ou une fois effectué un certain nombre d’opérations. Vous pouvez ensuite laisser place de nouveau à la logique de nouvelle tentative. Si le problème a été résolu, le point de terminaison principal reste utilisé et les mises à jour restent autorisées. Si le problème persiste, un basculement vers le point de terminaison secondaire et le mode lecture seul est de nouveau effectué dès lors que les critères que vous avez définis ne sont pas respectés.
 
@@ -194,9 +195,9 @@ Dans le cadre du troisième scénario, lorsque les tests ping effectués sur le 
 
 ## <a name="handling-eventually-consistent-data"></a>Gestion des données cohérentes
 
-Le stockage RA-GRS réplique des transactions de la région primaire vers la région secondaire. Ce processus de réplication garantit que les données de la région secondaire sont *cohérentes*. Cela signifie que toutes les transactions de la région primaire apparaîtront dans la région secondaire. Cependant, cela peut prendre un certain temps, et rien ne garantit que les transactions arrivent dans la région secondaire dans l’ordre dans lequel elles ont été initialement appliquées dans la région primaire. Si vos transactions arrivent dans la région secondaire dans le désordre, vous *pouvez* considérer que vos données dans cette région resteront dans un état incohérent jusqu’à ce que le service rattrape son retard.
+Le stockage géoredondant réplique des transactions de la région primaire vers la région secondaire. Ce processus de réplication garantit que les données de la région secondaire sont *cohérentes*. Cela signifie que toutes les transactions de la région primaire apparaîtront dans la région secondaire. Cependant, cela peut prendre un certain temps, et rien ne garantit que les transactions arrivent dans la région secondaire dans l’ordre dans lequel elles ont été initialement appliquées dans la région primaire. Si vos transactions arrivent dans la région secondaire dans le désordre, vous *pouvez* considérer que vos données dans cette région resteront dans un état incohérent jusqu’à ce que le service rattrape son retard.
 
-Le tableau suivant illustre ce qui peut se produire lorsque vous mettez à jour les informations d’une employée pour lui affecter le rôle *administrateur*. Cet exemple implique que vous mettiez à jour l’entité **d’employé** et une entité de **rôle administrateur** avec le nombre total d’administrateurs. Notez la façon dont les mises à jour sont appliquées dans le désordre dans la région secondaire.
+Le tableau suivant illustre ce qui peut se produire lorsque vous mettez à jour les informations d’un employé pour qu’il devienne un membre du rôle *Administrateurs*. Cet exemple implique que vous mettiez à jour l’entité **d’employé** et une entité de **rôle administrateur** avec le nombre total d’administrateurs. Notez la façon dont les mises à jour sont appliquées dans le désordre dans la région secondaire.
 
 | **Time** | **Transaction**                                            | **Réplication**                       | **Dernière heure de synchronisation** | **Résultat** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
@@ -211,6 +212,39 @@ Le tableau suivant illustre ce qui peut se produire lorsque vous mettez à jour 
 Dans cet exemple, supposons que le client bascule vers la lecture à partir de la région secondaire à l’instant T5. À ce stade, il peut lire correctement l’entité de **rôle administrateur**. Cependant, l’entité contient une valeur pour le nombre d’administrateurs qui n’est pas cohérente avec le nombre d’entités **d’employé** marquées comme administrateurs dans la région secondaire. Votre client pourrait simplement afficher cette valeur au risque que les informations soient incohérentes. Il pourrait également tenter de déterminer que le **rôle administrateur** est dans un état potentiellement incohérent dans la mesure où les mises à jour ont été effectuées dans le désordre et en informer l’utilisateur.
 
 Pour déterminer que ses données sont potentiellement incohérentes, le client peut utiliser la valeur de la *dernière heure de synchronisation*, que vous pouvez obtenir à tout moment en interrogeant un service de stockage. Elle vous indique la dernière heure à laquelle les données de la région secondaire étaient cohérentes et à laquelle le service avait appliqué toutes les transactions. Dans l’exemple ci-dessus, une fois que le service insère l’entité **d’employé** dans la région secondaire, la dernière heure de synchronisation est définie sur *T1*. Elle reste définie sur *T1* jusqu’à ce que le service mette à jour l’entité **d’employé** dans la région secondaire, puis est définie sur *T6*. Si le client récupère la dernière heure de synchronisation lors de la lecture de l’entité à l’instant *T5*, il peut la comparer avec l’horodatage de l’entité. Si l’horodatage de l’entité est postérieur à la dernière heure de synchronisation, l’entité est dans un état potentiellement incohérent, et vous pouvez alors effectuer toute action appropriée pour votre application. L’utilisation de ce champ requiert que vous sachiez à quel moment a été effectuée la dernière mise à jour de la région primaire.
+
+## <a name="getting-the-last-sync-time"></a>Obtention de la dernière heure de synchronisation
+
+Vous pouvez utiliser PowerShell ou Azure CLI pour récupérer la dernière heure de synchronisation, et avec celle-ci déterminer quand la dernière écriture de données a eu lieu dans la région secondaire.
+
+### <a name="powershell"></a>PowerShell
+
+Pour obtenir la dernière heure de synchronisation pour le compte de stockage à l’aide de PowerShell, installez un module de préversion de stockage Azure qui prend en charge l’obtention des statistiques de géo-réplication. Par exemple :
+
+```powershell
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
+```
+
+Vérifiez ensuite la propriété **GeoReplicationStats.LastSyncTime** du compte de stockage. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
+
+```powershell
+$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -Name <storage-account> `
+    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
+```
+
+### <a name="azure-cli"></a>D’Azure CLI
+
+Pour obtenir la dernière heure de synchronisation du compte de stockage à l’aide d’Azure CLI, vérifiez la propriété **geoReplicationStats.lastSyncTime** du compte de stockage. Utilisez le paramètre `--expand` afin de retourner des valeurs pour les propriétés imbriquées sous **geoReplicationStats**. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
+
+```azurecli
+$lastSyncTime=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --expand geoReplicationStats \
+    --query geoReplicationStats.lastSyncTime \
+    --output tsv)
+```
 
 ## <a name="testing"></a>Test
 
@@ -234,6 +268,6 @@ Si vous avez rendu configurables les seuils de basculement de votre application 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur la géoredondance avec accès en lecture et pour voir un autre exemple de définition du paramètre LastSyncTime, consultez [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) (Options de redondance de stockage Windows Azure et stockage géoredondant avec accès en lecture).
+* Pour plus d’informations sur la lecture à partir de la région secondaire, notamment un autre exemple de définition de la propriété de l’heure de la dernière synchronisation, consultez [Options de redondance de stockage Azure et stockage géoredondant avec accès en lecture](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 * Pour obtenir un exemple complet montrant comment effectuer les basculements entre les points de terminaison principaux et secondaires, consultez [Azure Samples – Using the Circuit Breaker Pattern with RA-GRS storage](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs) (Exemples Azure – Utilisation du modèle Disjoncteur avec le stockage RA-GRS).

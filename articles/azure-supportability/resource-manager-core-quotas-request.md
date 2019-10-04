@@ -1,61 +1,27 @@
 ---
 title: Demandes d’augmentation des quotas de processeurs virtuels pour Azure Resource Manager | Microsoft Docs
 description: Demandes d’augmentation des quotas de processeurs virtuels pour Azure Resource Manager
-author: ganganarayanan
-ms.author: gangan
-ms.date: 6/13/2018
+author: sowmyavenkat86
+ms.author: svenkat
+ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 204deaf3a67984c0dd5eca5352686719e7767885
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.openlocfilehash: 9a997af984b92ea59cc02d99fbd66d8967ca31bd
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792291"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076809"
 ---
-# <a name="resource-manager-vcpu-quota-increase-requests"></a>Demandes d’augmentation des quotas de processeurs virtuels pour Resource Manager
+# <a name="quota-increase-requests"></a>Demandes d’augmentation de quota
 
-Les quotas de processeurs virtuels pour Resource Manager sont appliqués au niveau de la région et de la famille de références (SKU).
-Pour en savoir plus sur la façon dont les quotas sont appliqués, consultez la page [Abonnement Azure et limites, quotas et contraintes de service](https://aka.ms/quotalimits).
-Pour en savoir plus sur les familles de références, vous pouvez comparer le coût et les performances sur la page [Tarification des machines virtuelles](https://aka.ms/pricingcompute).
+Les quotas de processeurs virtuels de Resource Manager pour les machines virtuelles et les groupes de machines virtuelles identiques sont appliqués sur deux niveaux pour chaque abonnement, dans chaque région. 
 
-Pour demander une augmentation, suivez les instructions ci-dessous pour créer une demande de support via le panneau « Utilisation + quotas » d’Azure disponible dans le portail Azure. 
+Le premier niveau est la limite de total de processeurs virtuels régionaux (sur toutes les séries de machines virtuelles) et le deuxième niveau est la limite de processeurs virtuels par série de machines virtuelles (par exemple, les processeurs virtuels de série D). Chaque fois qu’une nouvelle machine virtuelle est déployée, la somme des processeurs virtuels nouveaux et existants pour cette série de machines virtuelles ne doit pas dépasser le quota de processeurs virtuels approuvé pour cette série de machines virtuelles particulière. En outre, le nombre total de processeurs virtuels nouveaux et existants déployés sur toutes les séries de machines virtuelles ne doit pas dépasser le quota de processeurs virtuels régionaux total approuvé pour l’abonnement. Si l’un de ces quotas est dépassé, le déploiement des machines virtuelles n’est pas autorisé.
+Vous pouvez demander une augmentation de la limite de quota de processeurs virtuels pour une série de machines virtuelles à partir du portail Azure. Une augmentation du quota de série de machines virtuelles augmente automatiquement la limite totale de processeurs virtuels régionaux du même montant. 
 
-## <a name="request-quota-increase-at-subscription-level"></a>Demander une augmentation de quota au niveau de l’abonnement
+Lorsqu’un nouvel abonnement est créé, la valeur par défaut du total des processeurs virtuels régionaux peut ne pas être égale à la somme des quotas de processeurs virtuels par défaut pour toutes les séries de machines virtuelles individuelles. Cela peut conduire à un abonnement avec un quota suffisant pour chaque série de machines virtuelles individuelle que vous souhaitez déployer, mais insuffisant pour le total de processeurs virtuels régionaux pour tous les déploiements. Dans ce cas, vous devez envoyer une demande d’augmentation de la limite totale de processeurs virtuels régionaux explicitement. La limite du nombre total de processeurs virtuels régionaux ne peut pas dépasser la somme des quotas approuvés sur toutes les séries de machines virtuelles pour la région.
 
-1. Dans https://portal.azure.com, sélectionnez **Abonnements**.
-
-   ![Abonnements](./media/resource-manager-core-quotas-request/subscriptions.png)
-
-2. Sélectionnez l’abonnement nécessitant une augmentation du quota.
-
-   ![Sélectionnez un abonnement](./media/resource-manager-core-quotas-request/select-subscription.png)
-
-3. Sélectionnez **Utilisation + quotas**.
-
-   ![Sélectionnez Utilisation + quotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
-
-4. Dans l’angle supérieur droit, cliquez sur **Demander une augmentation**.
-
-   ![Demander une augmentation](./media/resource-manager-core-quotas-request/request-increase.png)
-
-5. Étape 1 : Sélectionnez **Cœurs** comme type de quota. 
-
-   ![Renseignez le formulaire](./media/resource-manager-core-quotas-request/forms.png)
-   
-6. Étape 2 : Sélectionnez le modèle de déploiement « Resource Manager », puis sélectionnez un emplacement.
-
-    ![Panneau Problème de quota](./media/resource-manager-core-quotas-request/Problem-step.png)
-
-3. Sélectionnez les familles de références qui nécessitent une augmentation.
-
-    ![Série de références sélectionnée](./media/resource-manager-core-quotas-request/SKU-selected.png)
-
-4. Entrez les nouvelles limites que vous souhaitez appliquer à l’abonnement.
-
-    ![Nouvelle demande de quota de référence](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
-
-- Pour supprimer une ligne, désactivez la case de la référence dans la liste déroulante de la famille de références ou cliquez sur l’icône de fermeture « x ».
-Après avoir entré le quota de votre choix pour chaque famille de références, cliquez sur « Suivant » sur la page de l’étape Problème pour poursuivre la création de demande de support.
+Apprenez-en davantage sur les quotas sur la page [Quotas de processeurs virtuels pour les machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) et la page [Limites du service et de l’abonnement Azure](https://aka.ms/quotalimits). 
 

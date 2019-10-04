@@ -1,5 +1,5 @@
 ---
-title: Créer un pipeline de données avec l'API Collecte de données d'Azure Monitor | Microsoft Docs
+title: Créer un pipeline de données avec l’API Collecte de données d’Azure Monitor | Microsoft Docs
 description: L’API Collecte de données HTTP d’Azure Monitor permet d’ajouter des données POST JSON à l’espace de travail Log Analytics à partir de tout client capable d’appeler l’API REST. Cet article explique comment charger automatiquement des données stockées dans des fichiers.
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: d2736e397827373949da1634a99056420dc13b8a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: MT
+ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003854"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65603236"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Créer un pipeline de données avec l’API Collecte de données
 
@@ -27,7 +27,7 @@ L’[API Collecte de données d’Azure Monitor ](data-collector-api.md) vous pe
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Exemple de problème
-Dans le reste de cet article, nous allons examiner les données en mode Page dans Application Insights. Dans notre scénario fictif, nous voulons mettre en corrélation les informations géographiques collectées par défaut par le SDK Application Insights avec des données personnalisées contenant la population de tous les pays du monde, afin de déterminer dans quelle région nous devons consacrer un maximum de notre budget marketing. 
+Dans le reste de cet article, nous allons examiner les données en mode Page dans Application Insights. Dans notre scénario fictif, nous voulons mettre en corrélation les informations géographiques collectées par défaut par le SDK Application Insights avec des données personnalisées contenant la population de tous les pays/toutes les régions du monde, afin de déterminer dans quelle région nous devons consacrer un maximum de notre budget marketing. 
 
 Nous utilisons à cet effet une source de données publique, par exemple les [World Population Prospects de l’ONU](https://esa.un.org/unpd/wpp/). Les données utilisent le schéma simple suivant :
 

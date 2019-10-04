@@ -2,22 +2,22 @@
 title: Masquer une application de l’expérience utilisateur dans Azure Active Directory | Microsoft Docs
 description: Guide pratique pour masquer une application depuis l’expérience utilisateur dans les panneaux d’accès Azure Active Directory ou les lanceurs Office 365.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59c4fa0149b4a8f59dc4fa1e30936b35c1a5ac90
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3dd98aa974f2adcd363c04c10b7a10cef6ca8ce7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191756"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65824537"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Masquer les applications aux utilisateurs finaux dans Azure Active Directory
 
@@ -39,7 +39,7 @@ Suivez ces étapes pour masquer une application dans le panneau MyApps et dans l
 4.  Sous **Type d’Application**, sélectionnez **Applications d’entreprise** si cette option n’est pas encore sélectionnée.
 5.  Recherchez l’application que vous souhaitez masquer, puis cliquez dessus.  La vue d’ensemble de l’application apparaît.
 6.  Cliquez sur **Propriétés**. 
-7.  À la question **Visible par les utilisateurs ?**, cliquez sur **Non**.
+7.  À la question **Visible par les utilisateurs ?** , cliquez sur **Non**.
 8.  Cliquez sur **Enregistrer**.
 
 

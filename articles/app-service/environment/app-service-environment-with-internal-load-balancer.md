@@ -10,17 +10,16 @@ ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 65d62df954dbbfbdd221adb33eccd82f73588fae
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310468"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70069897"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Utilisation d’un équilibreur de charge interne avec un environnement App Service
 
@@ -30,7 +29,7 @@ ms.locfileid: "53310468"
 
 La fonctionnalité ASE (App Service Environment) est une option de service Premium d’Azure App Service offrant une fonction de configuration améliorée qui n’est pas disponible dans les clusters mutualisés. La fonctionnalité ASE déploie essentiellement Azure App Service sur votre réseau virtuel (VNet) Azure. Pour mieux comprendre les possibilités offertes par les environnements App Service, lisez la documentation [Qu'est-ce qu'un environnement App Service ?][WhatisASE]. Si vous ne connaissez pas les avantages de l’utilisation d’un réseau virtuel, consultez la [FAQ sur le réseau virtuel Azure][virtualnetwork]. 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Un environnement App Service peut être déployé avec un point de terminaison accessible via Internet ou avec une adresse IP sur votre réseau virtuel. Pour définir l’adresse IP sur une adresse de réseau virtuel, vous devez déployer votre ASE avec un équilibreur de charge interne (ILB). Lorsque votre environnement App Service est configuré avec un équilibreur de charge interne, vous fournissez :
 
 * votre propre domaine ou sous-domaine. Pour simplifier, ce document suppose que vous utilisez un sous-domaine, mais vous pouvez choisir le scénario qui vous convient. 
@@ -76,7 +75,7 @@ La création d’une application dans un ILB ASE est identique à la création d
 3. Sélectionnez votre abonnement.
 4. Sélectionnez ou créez un groupe de ressources.
 5. Sélectionnez ou créez un plan App Service. Si vous créez un plan App Service, sélectionnez votre environnement App Service comme emplacement, puis choisissez le pool de workers dans lequel vous souhaitez créer votre plan App Service. Lorsque vous créez le plan App Service, vous sélectionnez votre environnement App Service comme emplacement, ainsi que le pool de workers. Lorsque vous spécifiez le nom de l’application, vous voyez que le sous-domaine sous le nom de votre application est remplacé par le sous-domaine de votre environnement App Service. 
-6. Sélectionnez **Créer**. Cochez la case **Épingler au tableau de bord** si vous souhaitez que l’application s’affiche dans votre tableau de bord. 
+6. Sélectionnez **Create** (Créer). Cochez la case **Épingler au tableau de bord** si vous souhaitez que l’application s’affiche dans votre tableau de bord. 
 
 ![][2]
 

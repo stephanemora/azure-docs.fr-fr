@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8b0f5cdcf5a24513b89a2523be71dd74a1a2859b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484829"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66002977"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Insertion de publicités du côté client
 Cet article contient des informations sur l’insertion de différents types de publicité du côté client.
@@ -160,7 +160,7 @@ Les publicités non linéaires sont également spécifiées dans un élément `<
     </Creative>
 ```
 
-L’élément **<NonLinearAds>** peut contenir un ou plusieurs éléments **<NonLinear>**, chacun d’eux pouvant décrire une publicité non linéaire. L’élément <**NonLinear**> spécifie la ressource de la publicité non linéaire. La ressource peut être une <**StaticResource**>, une <**IFrameResource**> ou une <**HTMLResource**>. <**StaticResource**&gt; décrit une ressource non HTML et définit un attribut creativeType qui indique le mode d’affichage de la ressource :
+L’élément **<NonLinearAds>** peut contenir un ou plusieurs éléments **<NonLinear>** , chacun d’eux pouvant décrire une publicité non linéaire. L’élément <**NonLinear**> spécifie la ressource de la publicité non linéaire. La ressource peut être une <**StaticResource**>, une <**IFrameResource**> ou une <**HTMLResource**>. \<**StaticResource**&gt; décrit une ressource non HTML et définit un attribut creativeType qui indique le mode d’affichage de la ressource :
 
 Image/gif, image/jpeg, image/png : la ressource est affichée dans une balise HTML <**img**>.
 
@@ -170,7 +170,7 @@ Application/x-shockwave-flash : la ressource est affichée dans un lecteur Flash
 
 **IFrameResource** décrit une ressource HTML qui peut être affichée dans un IFrame. **HTMLREsource** décrit un fragment de code HTML qui peut être inséré dans une page web. **TrackingEvents** spécifie les événements de suivi et l’URI à demander lorsque l’événement se produit. Dans cet exemple, les événements acceptInvitation et de réduction (collapse) font l’objet d’un suivi. Pour plus d'informations sur l’élément **NonLinearAds** et ses enfants, consultez IAB.NET/VAST. Notez que l’élément **TrackingEvents** se trouve dans l’élément **NonLinearAds** plutôt que dans l’élément **NonLinear**.
 
-Les publicités d'accompagnement sont définies dans un élément `<CompanionAds>`. L’élément `<CompanionAds>` peut contenir un ou plusieurs éléments `<Companion>`. Chaque élément `<Companion>` décrit une publicité d'accompagnement et peut contenir un `<StaticResource>`, `<IFrameResource>` ou `<HTMLResource>`, lesquels sont spécifiés de la même manière que dans une publicité non linéaire. Un fichier VAST peut contenir plusieurs publicités d’accompagnement ; il revient alors à l’application de type lecteur de choisir la publicité la plus appropriée à afficher. Pour plus d'informations sur VAST, consultez [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
+Les publicités d'accompagnement sont définies dans un élément `<CompanionAds>`. L’élément `<CompanionAds>` peut contenir un ou plusieurs éléments `<Companion>`. Chaque élément `<Companion>` décrit une publicité d'accompagnement et peut contenir un `<StaticResource>`, `<IFrameResource>` ou `<HTMLResource>`, lesquels sont spécifiés de la même manière que dans une publicité non linéaire. Un fichier VAST peut contenir plusieurs publicités d’accompagnement ; il revient alors à l’application de type lecteur de choisir la publicité la plus appropriée à afficher. Pour plus d'informations sur VAST, consultez [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf).
 
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Utilisation d’un fichier VMAP (Video Multiple Ad Playlist)
 Un fichier VMAP vous permet de spécifier le moment où des coupures publicitaires doivent avoir lieu, la durée de chaque coupure, le nombre et les types de publicités pouvant être affichées pendant une coupure. L’exemple suivant de fichier VMAP définit une seule coupure publicitaire :
@@ -243,7 +243,7 @@ L’élément <**AdSource**> fournit au lecteur une réponse publicitaire insér
 * `<AdTagURI>` : URI qui fait référence à une réponse publicitaire émanant d’un autre système.
 * `<CustomAdData>` : chaîne arbitraire qui représente une réponse non VAST.
 
-Dans cet exemple, une réponse publicitaire insérée est spécifiée avec un élément `<VASTAdData>` qui contient une réponse publicitaire VAST. Pour plus d’informations sur les autres éléments, consultez [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
+Dans cet exemple, une réponse publicitaire insérée est spécifiée avec un élément `<VASTAdData>` qui contient une réponse publicitaire VAST. Pour plus d’informations sur les autres éléments, consultez [VMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
 L’élément <**AdBreak**> peut également contenir un élément <**TrackingEvents**>. L’élément <**TrackingEvents**> vous permet de suivre le début ou la fin d’une coupure publicitaire ou de déterminer si une erreur s’est produite pendant la coupure. L’élément <**TrackingEvents**> contient un ou plusieurs éléments <**Tracking**>, chacun d’eux spécifiant un événement et un URI de suivi. Les événements de suivi possibles sont les suivants :
 
@@ -363,7 +363,7 @@ Une publicité exécutable est créée dans un code qui doit être exécuté dan
     </MediaFiles>
 ```
 
-Une publicité exécutable peut être initialisée à l’aide de l’élément `<AdParameters>` au sein des éléments `<Linear>` ou `<NonLinear>` dans une réponse VAST. Pour plus d’informations sur l’élément `<AdParameters>`, consultez [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). Pour plus d’informations sur l’API VPAID, consultez [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+Une publicité exécutable peut être initialisée à l’aide de l’élément `<AdParameters>` au sein des éléments `<Linear>` ou `<NonLinear>` dans une réponse VAST. Pour plus d’informations sur l’élément `<AdParameters>`, consultez [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf). Pour plus d’informations sur l’API VPAID, consultez [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Implémentation d’un lecteur Windows ou Windows Phone 8 avec prise en charge de publicités
 Plateforme multimédia Microsoft : infrastructure de lecteur pour Windows 8 et Windows Phone 8 contient une collection d’exemples d’applications qui vous montrent comment implémenter une application de lecteur vidéo à l’aide de l’infrastructure. Vous pouvez télécharger l'infrastructure depuis la page [Player Framework pour Windows 8 et Windows Phone 8](https://playerframework.codeplex.com).

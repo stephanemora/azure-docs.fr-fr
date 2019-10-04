@@ -6,14 +6,15 @@ author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: ganesr;cherylmc
+ms.author: ganesr
+ms.reviewer: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 1d6fc4a54ca600bd094a68e5eaab1306e7e831ac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7468338e7bc39128564e71831abe61bb1714ff72
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047910"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849244"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modifier un circuit ExpressRoute à l’aide de PowerShell (Azure Classic)
 
@@ -21,6 +22,7 @@ ms.locfileid: "59047910"
 > * [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interface de ligne de commande Azure](howto-circuit-cli.md)
+> * [Modèle Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-circuit-classic.md)
 >
@@ -125,7 +127,7 @@ Vous pouvez modifier certaines propriétés d'un circuit ExpressRoute sans affec
 Vous pouvez effectuer les tâches suivantes sans entraîner de temps d’arrêt :
 
 * Activer ou désactiver le module complémentaire ExpressRoute Premium pour votre circuit ExpressRoute.
-* Augmenter la bande passante de votre circuit ExpressRoute à condition que la capacité disponible sur le port le permette. La rétrogradation de la bande passante d'un circuit n'est pas prise en charge. 
+* Augmenter la bande passante de votre circuit ExpressRoute à condition que la capacité disponible sur le port le permette. La rétrogradation de la bande passante d'un circuit n'est pas prise en charge.
 * Modifiez le plan de mesure de Données limitées à Données illimitées. La modification du plan de limitation de Données illimitées à Données limitées n’est pas prise en charge.
 * Vous pouvez activer et désactiver *Autoriser les opérations classiques*.
 
@@ -154,14 +156,14 @@ Les fonctionnalités du module complémentaire ExpressRoute premium seront activ
 
 > [!IMPORTANT]
 > Cette opération peut échouer si vous utilisez des ressources supérieures à ce qui est autorisé pour le circuit standard.
-> 
-> 
+>
+>
 
 #### <a name="considerations"></a>Considérations
 
 * Vérifiez que le nombre de réseaux virtuels liés au circuit est inférieur à 10 avant de rétrograder du niveau Premium au niveau Standard. Si vous ne le faites pas, votre demande de mise à jour échoue et les tarifs Premium continuent d’être appliqués.
 * Vous devez dissocier tous les réseaux virtuels dans d'autres régions géopolitiques. Si vous ne le faites pas, votre demande de mise à jour échoue et les tarifs Premium continuent d’être appliqués.
-* Pour l’homologation privée, votre table de routage doit comporter moins de 4 000 routages. Si la table de routage comporte plus de 4 000 routages, la session BGP s’arrête et ne sera pas réactivée tant que le nombre de préfixes publiés ne sera pas inférieur à 4 000.
+* Pour le peering privé, votre table de routage doit comporter moins de 4 000 routages. Si la table de routage comporte plus de 4 000 routages, la session BGP s’arrête et ne sera pas réactivée tant que le nombre de préfixes publiés ne sera pas inférieur à 4 000.
 
 #### <a name="to-disable-the-premium-add-on"></a>Pour désactiver le module complémentaire Premium
 
@@ -189,8 +191,8 @@ Pour connaître les options de bande passante prises en charge par votre fournis
 > Vous devrez peut-être recréer le circuit ExpressRoute si la capacité sur le port existant est inappropriée. Vous ne pouvez pas mettre le circuit à niveau si aucune capacité supplémentaire n’est disponible à cet emplacement.
 >
 > Vous ne pouvez pas réduire la bande passante d’un circuit ExpressRoute sans interrompre le service. Le fait de passer à un niveau inférieur de bande passante vous oblige à annuler l’approvisionnement du circuit ExpressRoute, puis à réapprovisionner un nouveau circuit ExpressRoute.
-> 
-> 
+>
+>
 
 #### <a name="resize-a-circuit"></a>Redimensionner un circuit
 

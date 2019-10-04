@@ -3,19 +3,18 @@ title: Exécution de plusieurs services dépendants à l’aide de Java et de VS
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-author: DrEsteban
-ms.author: stevenry
+author: zr-msft
+ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-manager: yuvalm
-ms.openlocfilehash: 9f371be384214447c9d98f6223dd830f7c240326
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
+ms.openlocfilehash: a93bda3392962a1c35e2bb2433d285ed497075d2
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357084"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503115"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Développement multiservice avec Azure Dev Spaces
 
@@ -39,7 +38,7 @@ Pour des questions de temps, nous allons télécharger un exemple de code à par
     2019-03-11 17:02:35.935  INFO 216 --- [           main] com.ms.sample.mywebapi.Application       : Started Application in 8.164 seconds (JVM running for 9.272)
     ```
 
-1. L’URL du point de terminaison doit ressembler à `http://localhost:<portnumber>`. **Conseil : La barre d’état de VS Code affichera une URL sur laquelle vous pouvez cliquer.** Le conteneur a l’air de s’exécuter en local, mais en réalité, il s’exécute dans notre espace de développement dans Azure. L’adresse localhost est utilisée car `mywebapi` n’a pas défini de points de terminaison publics et est accessible uniquement à partir de l’instance Kubernetes. Pour des raisons pratiques et pour faciliter l’interaction avec le service privé à partir de votre ordinateur local, Azure Dev Spaces crée un tunnel SSH temporaire vers le conteneur en cours d’exécution dans Azure.
+1. L’URL du point de terminaison doit ressembler à `http://localhost:<portnumber>`. **Conseil : La barre d’état de VS Code devient orange et affiche une URL sur laquelle vous pouvez cliquer.** Le conteneur a l’air de s’exécuter en local, mais en réalité, il s’exécute dans notre espace de développement dans Azure. L’adresse localhost est utilisée car `mywebapi` n’a pas défini de points de terminaison publics et est accessible uniquement à partir de l’instance Kubernetes. Pour des raisons pratiques et pour faciliter l’interaction avec le service privé à partir de votre ordinateur local, Azure Dev Spaces crée un tunnel SSH temporaire vers le conteneur en cours d’exécution dans Azure.
 1. Lorsque `mywebapi` est prêt, ouvrez votre navigateur à l’adresse localhost.
 1. Si toutes les étapes se sont déroulées correctement, vous pouvez voir une réponse du service `mywebapi`.
 
@@ -70,35 +69,11 @@ L’exemple de code précédent transfère l’en-tête `azds-route-as` de la re
 
 ### <a name="debug-across-multiple-services"></a>Déboguer dans plusieurs services
 1. À ce stade, `mywebapi` doit toujours être en cours d’exécution avec le débogueur joint. Si ce n’est pas le cas, appuyez sur F5 dans le projet `mywebapi`.
-1. Définissez un point d’arrêt dans la méthode `index()` du projet `webapi`.
+1. Définissez un point d’arrêt dans la méthode `index()` du projet `mywebapi`, à la [ligne 19 de `Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java#L19)
 1. Dans le projet `webfrontend`, définissez un point d’arrêt juste avant l’envoi d’une requête GET à `mywebapi`, sur la ligne commençant par `try`.
 1. Appuyez sur F5 dans le projet `webfrontend` (ou redémarrez le débogueur s’il est actuellement en cours d’exécution).
 1. Appelez l’application web et parcourez le code dans les deux services.
 1. Dans l’application web, la page About affichera un message concaténé par les deux services : « Hello from webfrontend and Hello from mywebapi. »
-
-### <a name="automatic-tracing-for-http-messages"></a>Traçage automatique des messages HTTP
-Vous avez peut-être remarqué que, même si *webfrontend* ne contient pas de code permettant d’imprimer l’appel HTTP qu’il émet vers *mywebapi*, des messages de trace HTTP s’affichent dans la fenêtre de sortie :
-```
-// The request from your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io --ytv-> webfrontend:8080:
-   GET /greeting?_=1544503627515 HTTP/1.1
-
-// *webfrontend* reaching out to *mywebapi*
-webfrontend --ve4-> mywebapi:
-   GET / HTTP/1.1
-
-// Response from *mywebapi*
-webfrontend <-ve4-- mywebapi:
-   HTTP/1.1 200
-   Hello from mywebapi
-
-// Response from *webfrontend* to your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io <-ytv-- webfrontend:8080:
-   HTTP/1.1 200
-   Hello from webfrontend and
-   Hello from mywebapi
-```
-Cela fait partie des avantages « gratuits » qui sont offerts par l’instrumentation Dev Spaces. Nous insérons des composants qui effectuent le suivi des requêtes HTTP qui traversent le système afin de faciliter le suivi des appels multiservices complexes pendant le développement.
 
 ### <a name="well-done"></a>C’est terminé !
 Vous disposez maintenant d’une application à plusieurs conteneurs où chaque conteneur peut être développé et déployé séparément.

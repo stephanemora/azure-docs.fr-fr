@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 6dd5872d5ec3e79e3c76b1807aea946015fb0eac
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 46045664e9ddeebc45c2dae7c1f0a9f6a0d6b004
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521021"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265167"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Rassembler des informations sur votre infrastructure DNS avec la solution DNS Analytics (préversion)
 
@@ -42,10 +42,10 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | **Source connectée** | **Support** | **Description** |
 | --- | --- | --- |
-| [Agents Windows](../platform/agent-windows.md) | Oui | La solution collecte des informations DNS auprès d’agents Windows. |
-| [Agents Linux](../learn/quick-collect-linux-computer.md) | Non  | La solution ne collecte aucune information DNS auprès d’agents Linux directs. |
-| [Groupe d’administration de Microsoft System Center Operations Manager](../platform/om-agents.md) | Oui | La solution collecte des informations DNS auprès d’agents dans un groupe d’administration d’Operations Manager connecté. Une connexion directe entre l’agent Operations Manager et Azure Monitor n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
-| [Compte Azure Storage](../platform/collect-azure-metrics-logs.md) | Non  | Le stockage Azure n’est pas utilisé par la solution. |
+| [Agents Windows](../platform/agent-windows.md) | OUI | La solution collecte des informations DNS auprès d’agents Windows. |
+| [Agents Linux](../learn/quick-collect-linux-computer.md) | Non | La solution ne collecte aucune information DNS auprès d’agents Linux directs. |
+| [Groupe d’administration de Microsoft System Center Operations Manager](../platform/om-agents.md) | OUI | La solution collecte des informations DNS auprès d’agents dans un groupe d’administration d’Operations Manager connecté. Une connexion directe entre l’agent Operations Manager et Azure Monitor n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
+| [Compte Azure Storage](../platform/collect-azure-metrics-logs.md) | Non | Le stockage Azure n’est pas utilisé par la solution. |
 
 ### <a name="data-collection-details"></a>Détails sur la collecte de données
 
@@ -179,14 +179,17 @@ Sur la page Recherche dans les journaux, vous pouvez créer une requête. Vous p
 1. Dans la **zone de requête de recherche**, tapez `DnsInventory` pour afficher toutes les données associées aux inventaires DNS pour les serveurs DNS gérés par la solution. Les résultats indiquent les données de journal pour les serveurs DNS, les zones DNS et les enregistrements de ressources.
 
     ![Recherche dans les journaux des inventaires DNS](./media/dns-analytics/log-search-dnsinventory.png)
+    
+### <a name="troubleshooting"></a>Résolution de problèmes
+
+Étapes de résolution des problèmes courantes :
+
+1. Données de recherches DNS manquantes : Pour résoudre ce problème, essayez de réinitialiser la configuration ou simplement de charger la page de configuration une fois dans le portail. Pour la réinitialisation, il vous suffit de modifier un paramètre en lui affectant une autre valeur, puis de rétablir la valeur d’origine et d’enregistrer la configuration.
 
 ## <a name="feedback"></a>Commentaires
 
-Vous pouvez créer fournir des commentaires de deux façons :
-
-- **UserVoice**. Publiez vos idées portant sur des fonctionnalités de DNS Analytics à travailler. Visitez la [page UserVoice Log Analytics](https://aka.ms/dnsanalyticsuservoice).
-- **Rejoignez notre cohorte**. Nous sommes toujours enthousiastes quand de nouveaux clients rejoignent notre cohorte pour obtenir un accès en avant-première aux nouvelles fonctionnalités et nous aider à améliorer DNS Analytics. Si vous souhaitez rejoindre notre cohorte, répondez à cette [enquête rapide](https://aka.ms/dnsanalyticssurvey).
+Pour nous faire part de vos commentaires, rendez-vous sur la [page UserVoice de User Analytics](https://aka.ms/dnsanalyticsuservoice) afin de publier des idées sur les fonctionnalités DNS Analytics. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Interrogez les journaux](../log-query/log-query-overview.md) pour afficher des enregistrements de journal DNS détaillés.
+[Interrogez les journaux d’activité](../log-query/log-query-overview.md) pour afficher des enregistrements de journal d’activité DNS détaillés.

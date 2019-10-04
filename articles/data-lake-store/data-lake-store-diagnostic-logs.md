@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58877956"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60878718"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Accès aux journaux de diagnostic d’Azure Data Lake Storage Gen1
 Découvrez comment activer la journalisation des diagnostics pour votre compte Azure Data Lake Storage Gen1 et comment afficher les journaux d’activité collectés pour votre compte.
 
 Les organisations peuvent activer la journalisation de diagnostic pour leur compte Azure Data Lake Storage Gen1 afin de collecter des pistes d’audit d’accès aux données qui fournissent des informations telles que la liste des utilisateurs qui accèdent aux données, la fréquence à laquelle les données sont consultées, la quantité de données stockée sur le compte, etc. Quand cette fonctionnalité est activée, les diagnostics et/ou les demandes sont enregistrés sur la base du meilleur effort. Les entrées de journal des demandes et des diagnostics sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Compte Azure Data Lake Storage Gen1**. Suivez les instructions de [Prise en main d’Azure Data Lake Storage Gen1 avec le portail Azure](data-lake-store-get-started-portal.md).
 
@@ -46,7 +46,7 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
         
         * Sélectionnez l’option **Stream to an event hub (Transmettre à un Event Hub)** pour transmettre les données journalisées à un Event Hub Azure. Vous allez probablement utiliser cette option si vous disposez d’un pipeline de traitement en aval pour analyser les journaux d’activité entrants en temps réel. Si vous sélectionnez cette option, vous devez fournir les informations relatives au Event Hub Azure que vous souhaitez utiliser.
 
-        * Sélectionnez l’option **envoyer à Log Analytique** à utiliser le service Azure Monitor pour analyser les données de journal généré. Si vous sélectionnez cette option, vous devez fournir des informations détaillées concernant l’espace de travail Log Analytics que vous allez utiliser pour analyser le journal d’activité. Consultez [afficher ou analyser les données collectées avec la recherche de journaux Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) pour plus d’informations sur l’utilisation d’Azure Monitor enregistre.
+        * Sélectionnez l’option **Envoyer à Log Analytics** pour analyser les données de journal générées à l’aide du service Azure Monitor. Si vous sélectionnez cette option, vous devez fournir des informations détaillées concernant l’espace de travail Log Analytics que vous allez utiliser pour analyser le journal d’activité. Pour plus d’informations sur l’utilisation des journaux Azure Monitor, consultez [Consulter ou analyser les données collectées avec la recherche dans les journaux Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md).
      
    * Spécifiez si vous souhaitez obtenir des journaux d’audit ou des journaux d’activité de demande ou les deux.
    * Spécifiez le nombre de jours pendant lesquels les données doivent être conservées. La rétention ne s’applique que si vous utilisez un compte de stockage Azure pour archiver les données du journal.
@@ -116,7 +116,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
 | Nom | type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
-| ResourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
+| resourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
 | category |Chaîne |La catégorie du journal. Par exemple, **Demandes**. |
 | operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, getfilestatus. |
 | resultType |Chaîne |L’état de l’opération. Par exemple, 200. |
@@ -163,7 +163,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 | Nom | type | Description |
 | --- | --- | --- |
 | time |Chaîne |L’horodatage (heure UTC) du journal. |
-| ResourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
+| resourceId |Chaîne |L’ID de la ressource sur laquelle l’opération a eu lieu. |
 | category |Chaîne |La catégorie du journal. Par exemple, **Audit**. |
 | operationName |Chaîne |Le nom de l’opération qui est journalisée. Par exemple, getfilestatus. |
 | resultType |Chaîne |L’état de l’opération. Par exemple, 200. |
@@ -178,7 +178,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 | StreamName |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemples de traitement des données de journal
-Lors de l’envoi de journaux à partir d’Azure Data Lake Storage Gen1 aux journaux d’Azure Monitor (consultez [afficher ou analyser les données collectées avec la recherche de journaux Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) pour plus d’informations sur l’utilisation d’Azure Monitor enregistre), la requête suivante retourne une table qui contient un liste des utilisateurs affichent des noms, l’heure des événements et le nombre d’événements pour l’heure de l’événement, ainsi que d’un graphique. Vous pouvez facilement la modifier pour afficher le GUID de l’utilisateur ou d’autres attributs :
+Quand vous envoyez des journaux d’Azure Data Lake Storage Gen1 vers Journaux Azure Monitor (voir [Consulter ou analyser les données collectées avec la recherche dans les journaux Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) pour plus d’informations sur l’utilisation de Journaux Azure Monitor), la requête suivante retourne une table contenant une liste de noms d’affichage d’utilisateurs, l’heure des événements et le nombre d’événements par heure d’événement, ainsi qu’un graphique. Vous pouvez facilement la modifier pour afficher le GUID de l’utilisateur ou d’autres attributs :
 
 ```
 search *

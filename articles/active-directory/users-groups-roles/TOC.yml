@@ -1,8 +1,8 @@
 - name: Documentation Gestion des utilisateurs
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
-    - name: 'Utilisateurs, groupes, licences et rôles'
+    - name: 'Utilisateurs, groupes, licences et rôles Azure AD'
       href: directory-overview-user-model.md
 - name: Démarrages rapides
   items:
@@ -10,6 +10,8 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Attribuer des licences à des utilisateurs
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Accorder une autorisation pour un nombre illimité d’inscriptions d’applications
+      href: roles-quickstart-app-registration-limits.md
     - name: Définir l’expiration de groupes
       href: groups-quickstart-expiration.md
     - name: Définir la stratégie de noms de groupes
@@ -34,16 +36,26 @@
   items:
     - name: Gestion des utilisateurs
       items:
-        - name: Ajouter de nouveaux utilisateurs dans Azure AD
+        - name: Créer des utilisateurs
           href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Création d’utilisateurs en bloc (préversion)
+          href: users-bulk-add.md
         - name: Gérer les profils utilisateur
           href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Télécharger les informations utilisateur (préversion)
+          href: users-bulk-download.md
         - name: Partager des comptes d’utilisateurs
           href: users-sharing-accounts.md
         - name: Affecter des utilisateurs aux rôles d’administrateur
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Supprimer en bloc des utilisateurs (préversion)
+          href: users-bulk-delete.md
         - name: Restaurer un utilisateur supprimé.
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Restaurer en bloc des utilisateurs (préversion)
+          href: users-bulk-restore.md
+        - name: Fermer un compte dans un répertoire non managé
+          href: users-close-account.md
         - name: Ajouter des utilisateurs B2B
           href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Attribuer un rôle à un utilisateur B2B
@@ -70,16 +82,26 @@
       items:
         - name: Gérer l’accès à l’aide des groupes
           href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-        - name: Gérer les groupes dans le Portail Azure
+        - name: Rechercher dans les listes de groupes et de membres (préversion)
+          href: groups-members-owners-search.md
+        - name: Créer un groupe (portail Azure)
           href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Gérer les groupes PowerShell pour Graph (v2)
           href: groups-settings-v2-cmdlets.md
         - name: Gérer les groupes PowerShell MSOnline
           href: groups-settings-cmdlets.md
-        - name: Gérer les membres du groupe
+        - name: Ajouter ou supprimer des membres du groupe
           href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Ajouter des membres en bloc (préversion)
+          href: groups-bulk-import-members.md
+        - name: Supprimer en bloc des membres (préversion)
+          href: groups-bulk-remove-members.md
+        - name: Télécharger une liste de membres en bloc (préversion)
+          href: groups-bulk-download-members.md
         - name: Gérer les propriétaires de groupe
           href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Télécharger une liste de groupes en bloc (préversion)
+          href: groups-bulk-download.md
         - name: Gestion les groupes dans des groupes
           href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Ajouter l’accès de groupe aux applications SaaS
@@ -98,7 +120,9 @@
           items:
             - name: Créer un groupe dynamique
               href: groups-create-rule.md
-            - name: Règles de groupe dynamique
+            - name: Mettre à jour une règle d’appartenance
+              href: groups-update-rule.md
+            - name: Règles et syntaxe de groupe dynamique
               href: groups-dynamic-membership.md
             - name: Modifier le type d’appartenance au groupe
               href: groups-change-type.md
@@ -110,11 +134,11 @@
           href: licensing-groups-resolve-problems.md
         - name: Modifier les utilisateurs de la licence de groupe
           href: licensing-groups-migrate-users.md
-        - name: Modifier les licences pour un utilisateur
+        - name: Changer les licences pour un utilisateur
           href: licensing-groups-change-licenses.md
         - name: Autres cas de figure
           href: licensing-group-advanced.md
-        - name: Licence de groupe avec PowerShell
+        - name: Licence de groupe avec PowerShell et Graph
           href: licensing-ps-examples.md
         - name: ID de plan de service pour les licences
           href: licensing-service-plan-reference.md
@@ -124,10 +148,22 @@
           href: directory-assign-admin-roles.md
         - name: Afficher et attribuer des rôles
           href: directory-manage-roles-portal.md
-        - name: Attribuer des rôles avec PowerShell
-          href: roles-assign-powershell.md
-        - name: Déléguer les rôles d’administration d’applications
-          href: roles-delegate-app-roles.md
+        - name: Aperçu des rôles personnalisés
+          items:
+            - name: Aperçu des rôles personnalisés
+              href: roles-custom-overview.md
+            - name: Créer un rôle personnalisé
+              href: roles-create-custom.md
+            - name: Voir les attributions des rôles personnalisés
+              href: roles-view-assignments.md
+            - name: Attribuer des rôles dans le centre d’administration Azure AD
+              href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+            - name: Attribuer des rôles personnalisés dans PowerShell
+              href: roles-assign-powershell.md
+            - name: Autorisations d’aperçu des rôles personnalisés
+              href: roles-custom-available-permissions.md
+            - name: Déléguer les autorisations d’administration d’applications
+              href: roles-delegate-app-roles.md
         - name: Rôles à privilèges minimum par tâche
           href: roles-delegate-by-task.md
         - name: "Rôles Microsoft\_365"

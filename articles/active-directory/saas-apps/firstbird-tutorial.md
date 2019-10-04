@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bc1ff022b1639c11ca244b5ea97118a0f06e7cb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f192b402aebcaeb87e068a4248c0794484e6c313
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102441"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Tutoriel : Intégration d’Azure Active Directory à Firstbird
+# <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>Didacticiel : Intégration d’Azure Active Directory à Firstbird
 
 Dans ce tutoriel, vous allez apprendre à intégrer Firstbird à Azure Active Directory (Azure AD).
 L’intégration de Firstbird à Azure AD vous offre les avantages suivants :
@@ -54,7 +54,7 @@ Pour configurer l’intégration de Firstbird à Azure AD, vous devez ajouter Fi
 
 **Pour ajouter Firstbird à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select_azuread.png)
 
@@ -180,7 +180,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
 
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

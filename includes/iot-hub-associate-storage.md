@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 8693c48905155ed757bb727e42f4180f36c015f1
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: f88f6aa6daec342b24d165c4c4cc0a89a0805f7a
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513970"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558465"
 ---
 ## <a name="associate-an-azure-storage-account-to-iot-hub"></a>Associer un compte Azure Storage à IoT Hub
 
@@ -21,4 +21,4 @@ ms.locfileid: "55513970"
 
 Suivez les instructions de [Configurer les téléchargements de fichiers à l’aide du portail Azure](../articles/iot-hub/iot-hub-configure-file-upload.md). Assurez-vous qu’un conteneur de blobs est associé à votre IoT Hub et que les notifications de fichier sont activées.
 
-![Activer les notifications de fichier dans le portail](./media/iot-hub-associate-storage/enable-file-notifications.png)
+![Activer les notifications de fichier dans le portail](./media/iot-hub-associate-storage/file-notifications-vs2019.png)

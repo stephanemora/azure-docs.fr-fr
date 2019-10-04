@@ -1,43 +1,43 @@
 ---
-title: Se connecter avec le client web de Windows Virtual Desktop Preview - Azure
-description: Comment se connecter au client web Windows Virtual Desktop aperçu HTML5.
+title: Se connecter à Windows Virtual Desktop (préversion) à partir d’un navigateur web - Azure
+description: Comment se connecter à la préversion de Windows Virtual Desktop à partir d’un navigateur web.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
-ms.date: 03/21/2019
+ms.topic: conceptual
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 231dc2b777ce7fa37f445215863a55e93562e411
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 4f6bb7c414c38eaa605d259195218c461ddb0ca7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403746"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620159"
 ---
-# <a name="connect-with-the-web-client"></a>Se connecter avec le client web
+# <a name="connect-from-a-web-browser"></a>Se connecter à partir d’un navigateur web
 
-Le client web vous permet d’accéder à vos ressources de la version préliminaire de bureau virtuel Windows à partir d’un navigateur web sans le processus d’installation de longue durée.
+Le client web vous permet d’accéder aux ressources de la préversion de Windows Virtual Desktop à partir d’un navigateur web sans processus fastidieux d’installation.
 
 >[!NOTE]
->Le client web ne contient pas de système d’exploitation mobile prend en charge.
+>Le client web ne prend pas en charge les systèmes d’exploitation mobiles.
 
-## <a name="supported-operating-systems-and-browsers"></a>Navigateurs et systèmes d’exploitation pris en charge
+## <a name="supported-operating-systems-and-browsers"></a>Systèmes d’exploitation et navigateurs pris en charge
 
-Doit fonctionner avec n’importe quel navigateur prenant en charge de HTML5, nous officiellement en charge les systèmes d’exploitation et les navigateurs suivants.
+Tous les navigateurs HTML5 doivent fonctionner, et nous prenons officiellement en charge les systèmes d’exploitation et les navigateurs suivants.
 
 | Browser           | Systèmes d’exploitation pris en charge                     | Notes               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |
 | Apple Safari      | macOS                            |                     |
-| Mozilla Firefox   | Windows, macOS, Linux            | 55 ou version ultérieure |
+| Mozilla Firefox   | Windows, macOS, Linux            | Version 55 ou ultérieure |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
 
-## <a name="access-remote-resources-feed"></a>Accéder aux ressources à distance de flux
+## <a name="access-remote-resources-feed"></a>Accéder au flux de ressources distantes
 
-Dans un navigateur, accédez à la [client web de bureau virtuel Windows](https://rdweb.wvd.microsoft.com/webclient) et connectez-vous avec votre compte d’utilisateur.
+Dans un navigateur, accédez au [client web de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com/webclient) et connectez-vous avec votre compte utilisateur.
 
 >[!NOTE]
->Si vous êtes déjà connecté à l’aide d’un compte Azure AD est différent de celui que vous souhaitez utiliser pour le bureau virtuel de Windows, vous devrez peut-être vous déconnecter ou utiliser une fenêtre de navigateur privée.
+>Si vous vous êtes déjà connecté avec un compte Azure Active Directory différent de celui que vous voulez utiliser pour Windows Virtual Desktop, vous devez vous déconnecter ou utiliser une fenêtre de navigateur privée.
 
-Après vous être connecté, vous devez maintenant voir une liste de ressources. Vous pouvez lancer des ressources en les sélectionnant comme vous le feriez pour une application normale dans le **toutes les ressources** onglet.
+Une fois que vous êtes connecté, une liste de ressources apparaît. Vous pouvez lancer des ressources en les sélectionnant comme vous le feriez pour une application normale dans l’onglet **Toutes les ressources**.

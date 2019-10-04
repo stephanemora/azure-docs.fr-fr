@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b8ba341252679a07e50f9b276f7f485b08a6acba
+ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54061055"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70164860"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
 
@@ -26,7 +26,7 @@ Azure Logic Apps fournit un moteur de flux de travail serverless dans le cloud a
 
 Dans ce scénario, vous créez une application logique qui déclenche la recherche des retours d’expérience des clients. Voici certains des connecteurs qui peuvent aider à réagir aux retours d’expérience client, y compris Outlook.com, Office 365, Survey Monkey, Twitter et une [requête HTTP à partir d’un formulaire Web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Le flux de travail que vous créez analyse un hashtag sur Twitter.
 
-Vous pouvez [générer la solution entière dans Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) et [déployer la solution avec le modèle Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md). Pour obtenir une procédure pas à pas vidéo qui montre comment créer cette solution, [regardez cette vidéo de Channel 9](https://aka.ms/logicappsdemo). 
+Vous pouvez [générer la solution entière dans Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) et [déployer la solution avec le modèle Azure Resource Manager](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). Pour obtenir une procédure pas à pas vidéo qui montre comment créer cette solution, [regardez cette vidéo de Channel 9](https://aka.ms/logicappsdemo). 
 
 ## <a name="trigger-on-customer-data"></a>Déclencheur sur les données client
 
@@ -52,7 +52,7 @@ Pour détecter le sentiment derrière un texte, vous pouvez utiliser [Azure Cogn
 
 2. Recherchez le connecteur **Analyse de texte**.
 
-3. Sélectionnez l’action **Detect Sentiment (Détecter le sentiment)**.
+3. Sélectionnez l’action **Detect Sentiment (Détecter le sentiment)** .
 
 4. Si vous y êtes invité, fournissez une clé Cognitive Services valide pour le service d’analyse de texte.
 
@@ -99,11 +99,14 @@ Pour afficher des historiques d’exécution précédentes dans Visual Studio ou
 
 * Ouvrez Visual Studio Cloud Explorer. Recherchez votre application logique, ouvrez le menu contextuel de l’application. Sélectionnez **Ouvrir l’historique des exécutions**.
 
+  > [!TIP]
+  > Si vous n’avez pas cette commande dans Visual Studio 2019, vérifiez que vous avez les dernières mises à jour pour Visual Studio.
+
 * Dans le Portail Azure, recherchez votre application logique. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. 
 
 ## <a name="create-automated-deployment-templates"></a>Créer des modèles de déploiement automatisé
 
-Après avoir créé une solution d’application logique, vous pouvez capturer et déployer votre application comme un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) à n’importe quelle région Azure dans le monde. Vous pouvez utiliser cette fonctionnalité pour modifier les paramètres pour la création de différentes versions de votre application et pour l’intégration de votre solution dans Azure Pipelines. Vous pouvez également inclure Azure Functions dans votre modèle de déploiement afin de gérer la solution entière avec toutes les dépendances en tant que modèle unique. Apprenez [à créer des modèles de déploiement d’applications logiques](../logic-apps/logic-apps-create-deploy-template.md).
+Après avoir créé une solution d’application logique, vous pouvez capturer et déployer votre application comme un [modèle Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) à n’importe quelle région Azure dans le monde. Vous pouvez utiliser cette fonctionnalité pour modifier les paramètres pour la création de différentes versions de votre application et pour l’intégration de votre solution dans Azure Pipelines. Vous pouvez également inclure Azure Functions dans votre modèle de déploiement afin de gérer la solution entière avec toutes les dépendances en tant que modèle unique. Apprenez comment [automatiser le déploiement d’applications logiques](logic-apps-azure-resource-manager-templates-overview.md).
 
 Vous trouverez un exemple de modèle de déploiement avec une fonction Azure dans le [référentiel de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 

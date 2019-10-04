@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 15cfa025bde3367c57255ce50f95c69293b63f92
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 59d61eda7002fe46cf99fac63822b2333b2d64b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283373"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Didacticiel : Intégration d’Azure Active Directory à UserEcho
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’UserEcho à Azure AD, vous devez ajouter U
 
 **Pour ajouter UserEcho à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec UserEcho, effectuez le
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.userecho.com/`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://<companyname>.userecho.com/saml/metadata/`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.userecho.com/saml/metadata/`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique de UserEcho](https://feedback.userecho.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -138,7 +138,7 @@ Pour configurer l’authentification unique Azure AD avec UserEcho, effectuez le
    
     ![Configurer l'authentification unique](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
-4. Cliquez sur **Website**, puis sur **Single sign-on (SAML2)**.
+4. Cliquez sur **Website**, puis sur **Single sign-on (SAML2)** .
    
     ![Configurer l'authentification unique](./media/userecho-tutorial/tutorial_userecho_08.png) 
 

@@ -3,8 +3,8 @@ title: Afficher les latences relatives aux régions Azure à partir d’emplacem
 description: Découvrez comment afficher les latences relatives sur des fournisseurs Internet pour les régions Azure à partir d’emplacements spécifiques.
 services: network-watcher
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792416"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64939872"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Afficher la latence relative aux régions Azure à partir d’emplacements spécifiques
 
@@ -60,7 +60,7 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> La région que vous spécifiez dans la commande précédente n’a pas besoin de correspondre à la région que vous avez spécifiée lorsque vous avez extrait l’observateur réseau. La commande précédente nécessite seulement qu’un observateur réseau existant soit spécifié. L’observateur réseau peut se situer dans n’importe quelle région. Si vous spécifiez des valeurs pour `-Country` et `-State`, elles doivent être valides. Les valeurs respectent la casse. Les données sont disponibles pour un nombre limité de pays, d’états et de villes. Exécutez les commandes dans [Afficher les pays, les états, les villes et les fournisseurs disponibles](#view-available) pour afficher la liste des pays, villes et états disponibles à utiliser avec la commande précédente. 
+> La région que vous spécifiez dans la commande précédente n’a pas besoin de correspondre à la région que vous avez spécifiée lorsque vous avez extrait l’observateur réseau. La commande précédente nécessite seulement qu’un observateur réseau existant soit spécifié. L’observateur réseau peut se situer dans n’importe quelle région. Si vous spécifiez des valeurs pour `-Country` et `-State`, elles doivent être valides. Les valeurs respectent la casse. Les données sont disponibles pour un nombre limité de pays/régions, d’états et de villes. Exécutez les commandes dans [Afficher les pays/régions, les états, les villes et les fournisseurs disponibles](#view-available) pour afficher la liste des pays/régions, villes et états disponibles à utiliser avec la commande précédente. 
 
 > [!WARNING]
 > Vous devez spécifier une date située dans les 30 derniers jours pour `-StartTime` et `-EndTime`. Si vous indiquez une date antérieure, aucune donnée ne sera retournée.
@@ -125,15 +125,15 @@ Get-AzNetworkWatcherReachabilityReport `
 > [!NOTE]
 > Contrairement au fait de spécifier un emplacement unique, si vous ne spécifiez aucun emplacement ou si vous spécifiez plusieurs emplacements, par exemple « USA Ouest 2 », « USA Ouest », vous devez spécifier un fournisseur de services Internet lorsque vous exécutez la commande. 
 
-## <a name="view-available"></a>Afficher les pays, les états, les villes et les fournisseurs disponibles
+## <a name="view-available"></a>Afficher les pays/régions, les états, les villes et les fournisseurs disponibles
 
-Les données sont disponibles pour des fournisseurs de services Internet, des pays, des états et des villes spécifiques. Pour afficher la liste de tous les fournisseurs de services Internet, les pays, les états et les villes disponibles, pour lequels vous pouvez afficher des données, entrez la commande suivante :
+Les données sont disponibles pour des fournisseurs de services Internet, des pays/régions, des états et des villes spécifiques. Pour afficher la liste de tous les fournisseurs de services Internet, les pays/régions, les états et les villes disponibles, pour lesquels vous pouvez afficher des données, entrez la commande suivante :
 
 ```powershell
 Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
-Les données ne sont disponibles que pour les pays, les états et les villes retournés par la commande précédente. La commande précédente nécessite qu’un observateur réseau existant soit spécifié. L’exemple spécifiait l’observateur réseau *NetworkWatcher_eastus* dans un groupe de ressources nommé *NetworkWatcherRG*, mais vous pouvez spécifier n’importe quel observateur réseau existant. Si vous n’avez pas d’observateur réseau existant, créez-en un en effectuant les tâches indiquées sous [Créer un observateur réseau](#create-a-network-watcher). 
+Les données ne sont disponibles que pour les pays/régions, les états et les villes retournés par la commande précédente. La commande précédente nécessite qu’un observateur réseau existant soit spécifié. L’exemple spécifiait l’observateur réseau *NetworkWatcher_eastus* dans un groupe de ressources nommé *NetworkWatcherRG*, mais vous pouvez spécifier n’importe quel observateur réseau existant. Si vous n’avez pas d’observateur réseau existant, créez-en un en effectuant les tâches indiquées sous [Créer un observateur réseau](#create-a-network-watcher). 
 
 Après avoir exécuté la commande précédente, vous pouvez filtrer la sortie retournée en spécifiant des valeurs valides pour **Pays**, **État** et **Ville**, si vous le souhaitez.  Par exemple, pour afficher la liste des fournisseurs de services Internet disponibles à Seattle, Washington, aux États-Unis, entrez la commande suivante :
 

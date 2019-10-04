@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 06/26/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: 3ab50c92543615488d9ced599df433bf7e1e4061
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: e7a54c2e207a27f3519375df09d0c930a92d52d6
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962228"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70193726"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gérer les règles de détection intelligente d’Application Insights à l’aide de modèles Azure Resource Manager
 
@@ -29,17 +29,19 @@ Cette méthode peut être utilisée lors du déploiement de nouvelles ressources
 
 Vous pouvez configurer les paramètres suivants pour une règle de détection intelligente :
 - Si la règle est activée (la valeur par défaut est **true**.)
-- Si des messages doivent être envoyés aux propriétaires d’abonnement, contributeurs et lecteurs quand une détection est trouvée (la valeur par défaut est **true**.)
+- Si les e-mails doivent être envoyés aux utilisateurs associés aux rôles [Lecteur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) et [Contributeur de surveillance](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) de l’abonnement à la suite d’une détection (la valeur par défaut est **true**).
 - Les destinataires d’e-mails supplémentaires qui doivent recevoir une notification lorsqu’une détection est trouvée.
-- * La configuration des e-mails n’est pas disponible pour les règles de détection intelligente indiquant _Préversion_.
+    -  La configuration relative aux e-mails n’est pas disponible pour les règles de détection intelligente indiquant _Préversion_.
 
 Pour autoriser la configuration des paramètres de règle via Azure Resource Manager, la configuration de règle de détection intelligente est désormais disponible en tant que ressource interne au sein de la ressource Application Insights, nommée **ProactiveDetectionConfigs**.
 Pour une flexibilité maximale, chaque règle de détection intelligente peut être configurée avec les paramètres de notification unique.
 
+## 
+
 ## <a name="examples"></a>Exemples
 
 Voici quelques exemples montrant comment configurer les paramètres des règles de détection intelligente à l’aide de modèles Azure Resource Manager.
-Tous les exemples font référence à une ressource Application Insights nommée _« myApplication »_, et à la « règle de détection intelligente de dépendance longue durée », qui est nommée en interne _« longdependencyduration »_.
+Tous les exemples font référence à une ressource Application Insights nommée _« myApplication »_ , et à la « règle de détection intelligente de dépendance longue durée », qui est nommée en interne _« longdependencyduration »_ .
 Assurez-vous de remplacer le nom de la ressource Application Insights et de spécifier le nom interne de règle de détection intelligente pertinente. Consultez le tableau ci-dessous pour obtenir la liste des noms Azure Resource Manager internes correspondants à chaque règle de détection intelligente.
 
 ### <a name="disable-a-smart-detection-rule"></a>Gérer des règles de détection intelligente
@@ -136,12 +138,47 @@ Assurez-vous de remplacer le nom de la ressource Application Insights et de spé
 
 ```
 
+### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Règle d’alerte pour les défaillances v2 (non classique)
+
+Ce modèle Azure Resource Manager montre comment configurer une règle d’alerte pour les défaillances v2 avec un niveau de gravité de 2. Cette nouvelle version de la règle d’alerte pour les défaillances fait partie de la nouvelle plateforme d’alertes d’Azure et remplace la version classique qui a été supprimée dans le cadre du [processus de suppression des alertes classiques](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "microsoft.alertsmanagement/smartdetectoralertrules",
+            "apiVersion": "2019-03-01",
+            "name": "Failure Anomalies - my-app",
+            "location": "global", 
+            "properties": {
+                  "description": "Detects a spike in the failure rate of requests or dependencies",
+                  "state": "Enabled",
+                  "severity": "2",
+                  "frequency": "PT1M",
+                  "detector": {
+                  "id": "FailureAnomaliesDetector"
+                  },
+                  "scope": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/microsoft.insights/components/my-app"],
+                  "actionGroups": {
+                        "groupIds": ["/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/MyResourceGroup/providers/microsoft.insights/actiongroups/MyActionGroup"]
+                  }
+            }
+        }
+    ]
+}
+```
+
+> [!NOTE]
+> Ce modèle Azure Resource Manager est spécifique à la règle d’alerte pour les défaillances v2 et il est différent des autres règles de détection intelligente classiques décrites dans cet article.   
+
 ## <a name="smart-detection-rule-names"></a>Règles de détection intelligente
 
 Voici un tableau des noms de règle de détection intelligente tels qu’ils apparaissent dans le portail, ainsi que leurs noms internes, qui doit être utilisé dans le modèle Azure Resource Manager.
 
 > [!NOTE]
-> Les règles de détection intelligente marquées comme version préliminaire ne prennent pas en charge les notifications par e-mail. Par conséquent, vous pouvez uniquement définir la propriété activée pour ces règles. 
+> Les règles de détection intelligente indiquant _Préversion_ ne prennent pas en charge les notifications par e-mail. Par conséquent, vous pouvez uniquement définir la propriété _Activée_ pour ces règles. 
 
 | Nom de la règle du portail Azure | Nom interne
 |:---|:---|
@@ -154,18 +191,7 @@ Voici un tableau des noms de règle de détection intelligente tels qu’ils app
 | Élévation anormale du volume des exceptions (préversion) | extension_exceptionchangeextension |
 | Fuite de mémoire potentielle détectée (préversion) | extension_memoryleakextension |
 | Problème de sécurité potentiel détecté (préversion) | extension_securityextensionspackage |
-| Problème d’utilisation des ressources détecté (préversion) | extension_resourceutilizationextensionspackage |
-
-## <a name="who-receives-the-classic-alert-notifications"></a>Qui reçoit les notifications d'alerte (classiques) ?
-
-Cette section ne s'applique qu'aux alertes de détection intelligente classiques et vous aidera à optimiser vos notifications d'alerte afin que seuls les destinataires de votre choix les reçoivent. Pour mieux comprendre la différence entre les [alertes classiques](../platform/alerts-classic.overview.md) et les nouvelles alertes, reportez-vous à l’[article de présentation des alertes](../platform/alerts-overview.md). Actuellement, les alertes de détection intelligente prennent uniquement en charge les alertes classiques. Les [alertes de détection intelligente sur Azure Cloud Services](./proactive-cloud-services.md) en sont la seule exception. Pour contrôler la notification des alertes de détection intelligente sur Azure Cloud Services, utilisez les [groupes d’actions](../platform/action-groups.md).
-
-* Nous recommandons l'utilisation de destinataires spécifiques pour les notifications d'alertes de détection intelligente/classiques.
-
-* Pour les alertes de détection intelligente, l’option **En bloc/groupe**, si elle est activée, envoie des alertes aux utilisateurs ayant des rôles de propriétaire, contributeur ou lecteur dans l’abonnement. Dans les faits, _tous_ les utilisateurs ayant accès à la ressource Application Insights sont concernés et recevront des notifications. 
-
-> [!NOTE]
-> Si vous utilisez actuellement l'option **En bloc/groupe** et que vous la désactivez, vous ne pourrez pas annuler la modification.
+| Élévation anormale du volume de données quotidien (préversion) | extension_billingdatavolumedailyspikeextension |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,19 +1,19 @@
 ---
-title: Présentation de la migration de machines locales et de machines virtuelles Azure avec Azure Site Recovery | Microsoft Docs
+title: Présentation de la migration de machines locales et de machines virtuelles Azure avec Azure Site Recovery
 description: Cet article explique comment migrer des machines locales et des machines virtuelles Azure IaaS sur Azure à l’aide du service Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 856d03b1ecc1c7a3bd527eb265061f9a305d8f50
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: c043950de9565f96d52c848f96efac80385f2321
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315631"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814487"
 ---
 # <a name="about-migration"></a>À propos de la migration
 
@@ -25,6 +25,8 @@ Voici ce que vous pouvez migrer avec Site Recovery :
 - **Migrer au sein d’Azure** : migrer des machines virtuelles Azure entre des régions Azure. 
 - **Migrer AWS** : migrer des instances Windows AWS vers des machines virtuelles IaaS Azure. 
 
+> [!NOTE]
+> Vous pouvez désormais migrer d’un environnement local vers Azure à l’aide du service Azure Migrate. [Plus d’informations](../migrate/migrate-overview.md)
 
 ## <a name="what-do-we-mean-by-migration"></a>Quelle est notre définition de la migration ?
 

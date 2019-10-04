@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 8f110a88558b4479d8fdadb2967c7dedeca60ce9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: MT
+ms.openlocfilehash: 42e58125fcbc3ab411c0d7503c42c14c28178428
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043555"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62113933"
 ---
 # <a name="run-u-sql-scripts-on-your-local-machine"></a>Exécuter des scripts U-SQL sur votre ordinateur local
 

@@ -2,23 +2,23 @@
 title: Modifier les informations de votre groupe - Azure Active Directory | Microsoft Docs
 description: Instructions pour modifier les informations de votre groupe avec Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691f705574050b15869a0ac8b7d128507e5aae10
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.openlocfilehash: dc06abca08b2522ac57552e85f7c1bac3ef854af
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285630"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561885"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Modifier les informations de votre groupe avec Azure Active Directory
 
@@ -39,7 +39,7 @@ Avec Azure Active Directory (Azure AD), vous pouvez modifier les paramètres d�
 
 4. Sélectionnez le groupe **MDM policy - West**, puis **Propriétés** depuis la zone **Gérer**.
 
-    ![Page de vue d’ensemble du groupe, avec l’option de membres et les informations mises en surbrillance](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Page Présentation du groupe avec options de membre et informations en surbrillance](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. En cas de besoin, mettez à jour les informations dans **Paramètres généraux**, y compris :
 

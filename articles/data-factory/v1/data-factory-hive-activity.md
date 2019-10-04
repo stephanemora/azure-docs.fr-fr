@@ -3,25 +3,24 @@ title: Transformer des données à l’aide d’une activité Hive - Azure | Mic
 description: Découvrez comment vous pouvez utiliser l'activité Hive d’une fabrique de données Azure pour exécuter des requêtes Hive sur un cluster HDInsight à la demande/ou votre propre cluster.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8a7e6748f450ae398a05097ac6b192d074f5f1f7
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116017"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139531"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hive dans Azure Data Factory 
-> [!div class="op_single_selector" title1="Transformation Activities"]
+> [!div class="op_single_selector" title1="Activités de transformation"]
 > * [Activité Hive](data-factory-hive-activity.md) 
 > * [Activité pig](data-factory-pig-activity.md)
 > * [Activité MapReduce](data-factory-map-reduce.md)
@@ -75,15 +74,15 @@ L’activité Hive HDInsight d’un [pipeline](data-factory-create-pipelines.md)
 ## <a name="syntax-details"></a>Détails de la syntaxe
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Nom |Nom de l’activité |Oui |
-| description |Texte décrivant la raison motivant l’activité. |Non  |
-| Type |HDinsightHive |Oui |
-| inputs |Entrées utilisées par l’activité Hive |Non  |
-| outputs |Sorties produites par l’activité Hive |Oui |
-| linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |Oui |
-| script |Spécifier le script en ligne Hive |Non  |
-| Chemin d'accès du script |Stockez le script Hive dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non  |
-| defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive à l'aide de ’hiveconf’ |Non  |
+| name |Nom de l’activité |OUI |
+| description |Texte décrivant la raison motivant l’activité. |Non |
+| type |HDinsightHive |OUI |
+| inputs |Entrées utilisées par l’activité Hive |Non |
+| outputs |Sorties produites par l’activité Hive |OUI |
+| linkedServiceName |Référence au cluster HDInsight enregistré comme un service lié dans Data Factory |OUI |
+| script |Spécifier le script en ligne Hive |Non |
+| scriptPath |Stockez le script Hive dans un stockage d'objets blob Azure et indiquez le chemin d'accès au fichier. Utilisez la propriété ’script’ ou ’scriptPath’. Les deux propriétés ne peuvent pas être utilisées simultanément. Le nom de fichier respecte la casse. |Non |
+| defines |Spécifier les paramètres sous forme de paires clé/valeur pour le référencement au sein du script Hive à l'aide de ’hiveconf’ |Non |
 
 ## <a name="example"></a>Exemples
 Prenons un exemple d’analyse de journaux d’activité de jeux où vous souhaitez identifier le temps passé par les utilisateurs à jouer à des jeux créés par votre entreprise. 
@@ -216,7 +215,7 @@ Pour utiliser le script Hive paramétré, procédez comme suit :
       }
     }
     ```
-* Dans le script Hive, reportez-vous au paramètre **${hiveconf:parameterName}**. 
+* Dans le script Hive, reportez-vous au paramètre **${hiveconf:parameterName}** . 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 

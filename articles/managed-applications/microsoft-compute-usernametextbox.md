@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9f07c5bf9ba1f1880fa142beb52455522425e68d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 88ab13329a719ba1e1b8a7b5fba2f7a2d381eca2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063299"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64700859"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Élément d’interface utilisateur Microsoft.Compute.UserNameTextBox
 Contrôle de zone de texte avec validation intégrée des noms d’utilisateur Windows et Linux.
@@ -44,7 +44,7 @@ Contrôle de zone de texte avec validation intégrée des noms d’utilisateur W
 ```
 
 ## <a name="remarks"></a>Remarques
-- Si `constraints.required` est défini sur **true**, la zone de texte doit avoir une valeur permettant de réussir la validation. La valeur par défaut est **true**.
+- Si `constraints.required` est défini sur **true**, la zone de texte doit contenir une valeur pour permettre la réussite de la validation. La valeur par défaut est **true**.
 - `osPlatform` doit être spécifié. Il peut s’agir de **Windows** ou de **Linux**.
 - `constraints.regex` est un modèle d’expression régulière JavaScript. S’il est spécifié, la valeur de la zone de texte doit correspondre au modèle pour permettre la réussite de la validation. La valeur par défaut est **null**.
 - `constraints.validationMessage` est une chaîne à afficher en cas d’échec de la validation de la valeur de la zone de texte spécifiée par `constraints.regex`. Si elle n’est pas spécifiée, les messages de validation intégrés de la zone de texte sont utilisés. La valeur par défaut est **null**.

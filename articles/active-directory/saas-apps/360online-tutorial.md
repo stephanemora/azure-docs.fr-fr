@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à 360 Online | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à 360 Online | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et 360 Online.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bf5a1e278d41e6fcec1a8dfa14348bb9e48333b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74991532aa450ac5f289484ad2e61f18350beac9
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837862"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672747"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Tutoriel : Intégration d’Azure Active Directory à 360 Online
+# <a name="tutorial-azure-active-directory-integration-with-360-online"></a>Didacticiel : Intégration d’Azure Active Directory à 360 Online
 
 Dans ce didacticiel, vous allez apprendre à intégrer 360 Online avec Azure Active Directory (Azure AD).
 L’intégration de 360 Online à Azure AD vous donne les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration de 360 Online à Azure AD, vous devez ajouter 
 
 **Pour ajouter 360 Online à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -146,7 +146,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

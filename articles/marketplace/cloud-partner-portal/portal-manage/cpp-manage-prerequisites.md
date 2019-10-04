@@ -1,55 +1,48 @@
 ---
-title: Conditions préalables pour la gestion des comptes sur le portail Cloud Partner - place de marché Azure | Microsoft Docs
-description: Conditions préalables pour la gestion des comptes de la place de marché Azure sur le portail Cloud Partner.
+title: Conditions préalables pour la gestion des comptes sur le Portail Cloud Partner | Place de marché Azure
+description: Conditions préalables pour la gestion des comptes de la Place de marché Azure sur le Portail Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: pbutlerm
-ms.openlocfilehash: c2733cd7f2460babaffdf049c5839389f61b31e9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 09bf8479921c9bd55b98e835a19ea995fa37e20b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794216"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720064"
 ---
-# <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Conditions préalables pour la gestion des comptes sur le portail Cloud Partner 
+# <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Conditions préalables pour la gestion des comptes sur le Portail Cloud Partner 
 
-Avant de pouvoir utiliser le [portail Microsoft Cloud Partner](https://cloudpartner.azure.com/) pour n’importe quelle fonction, y compris la gestion des comptes, vous devez suivre une série d’étapes pour inscrire eux-mêmes et leur organisation en tant que serveurs de publication de cloud Microsoft.
-
-
-## <a name="account-terms-and-guidelines"></a>Les conditions des comptes et des instructions
-
-Examinez attentivement vos droits et obligations sous le [contrat de Services Microsoft](https://www.microsoft.com/servicesagreement) et [Terms d’utilisation Microsoft](https://www.microsoft.com/legal/intellectualproperty/copyright) avant de créer un compte.  
-
-Choisissez soigneusement votre nom de compte.  Il représente votre organisation, donc il ne doit pas contenir les mots les droits d’auteur ou contentieuses.  Par exemple, Microsoft interdit l’utilisation de ses termes les droits d’auteur, telles que « Azure » et « Microsoft », dans les noms de compte.  Pour plus d’informations, consultez [instructions pour Azure Marketplace](../../guidelines.md)
+Avant de pouvoir utiliser le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/) pour les fonctions, y compris la gestion des comptes, vous devez suivre une série d’étapes pour inscrire ces derniers et leur organisation en tant que serveurs de publication de cloud Microsoft.
 
 
-## <a name="registration-steps"></a>Procédure d’inscription
+## <a name="account-terms-and-guidelines"></a>Conditions des comptes et instructions
 
-Le tableau suivant répertorie les étapes nécessaires pour inscrire entièrement comme un serveur de publication de cloud de Microsoft.  Pour obtenir des instructions complètes, consultez [devenir un éditeur de place de marché Cloud](../../become-publisher.md). 
+Examinez attentivement vos droits et obligations dans le [Contrat de services Microsoft](https://www.microsoft.com/servicesagreement) et les [Conditions d’utilisation Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/copyright) avant de créer un compte.  
+
+Choisissez soigneusement votre nom de compte.  Il représente votre organisation et ne doit donc pas contenir de mots soumis au copyright ni de mots litigieux.  Par exemple, Microsoft interdit l’utilisation des termes soumis à son copyright, comme « Azure » et « Microsoft », dans les noms de comptes.  Pour plus d’informations, consultez [Instructions pour la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/guidelines)
 
 
-|                   Étape                   |  Résultant de l’inscription ou de la ressource                     |
+## <a name="registration-steps"></a>Étapes d’inscription
+
+Le tableau suivant répertorie les étapes nécessaires pour s’inscrire pleinement en tant que serveur de publication de cloud Microsoft.  Pour obtenir des instructions complètes, consultez [Devenir un éditeur sur la Place de marché dans le cloud](https://docs.microsoft.com/azure/marketplace/become-publisher). 
+
+
+|                   Étape                   |  Inscription ou ressource obtenue                     |
 |                  ------                  |  -----------------------------------                    |
-| 1. S’inscrire au Microsoft Partner Network |  Un ID Microsoft Partner Network pour votre organisation |
-| 2. Créer un compte Microsoft *           |  A vérifié le compte Microsoft, se terminant par @outlook.com, @live.com, etc. |
-| 3. Envoyer le formulaire d’inscription sur la place de marché | Un compte de serveur de publication sur le portail Cloud Partner      |
-| 4. Se connecter au Portail Cloud Partner        | Pour pouvoir créer et publier des offres, gérer les utilisateurs, les mesures de la place de marché collecter, etc. |
-| 5. Enregistrer dans Microsoft Developer Center * | Un compte vérifié de centre de développement ; autorité d’effectuer des transactions de la place de marché  |
+| 1. S’inscrire au Microsoft Partner Network |  ID Microsoft Partner Network de votre organisation |
+| 2. Créer un compte Microsoft*           |  Compte Microsoft vérifié, se terminant par @outlook.com, @live.com, etc. |
+| 3. Envoyer le formulaire d’inscription sur la place de marché | Compte de serveur de publication sur le Portail Cloud Partner      |
+| 4. Se connecter au Portail Cloud Partner        | Autorité permettant de créer et publier des offres, gérer des utilisateurs, collecter des métriques de la place de marché, etc. |
+| 5. S’inscrire dans le Centre de développement Microsoft* | Compte de centre de développement vérifié. Autorité permettant d’effectuer des transactions sur la place de marché  |
 |   |   |
 
-\* Ces étapes sont nécessaires à la place de marché Azure transact offres, mais fortement recommandés pour toutes les offres.  Une fois que vous établissez un compte Microsoft et inscrivez en tant que Microsoft Developer, vous pouvez accéder à d’autres ressources de clients et des développeurs de Microsoft, ainsi que des offres partenaires facultatif.  
+\* Ces étapes sont nécessaires pour les offres de transactions de la Place de marché Azure, et fortement recommandées pour l’ensemble des offres.  Une fois que vous créez un compte Microsoft et vous inscrivez en tant que Développeur Microsoft, vous pouvez accéder à d’autres ressources Microsoft destinées aux clients et aux développeurs, ainsi qu’à des offres partenaires facultatives.  
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir terminé la procédure d’inscription, vous pourrez vous connecter le [portail Microsoft Cloud Partner](https://cloudpartner.azure.com/).  Vous pouvez utiliser ce portail pour gérer les comptes d’utilisateur et gérer les profils de serveur de publication.
+Après avoir terminé la procédure d’inscription, vous pouvez vous connecter sur le [Portail Cloud Partner](https://cloudpartner.azure.com/).  Vous pouvez utiliser ce portail pour gérer les profils de publication et les comptes d’utilisateur.

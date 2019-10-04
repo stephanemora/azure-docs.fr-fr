@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 2d1e648a9ea33beb1347a4a635388ee04e46215b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630594"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449752"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schémas Azure Event Grid pour les événements Media Services
 
@@ -87,9 +87,9 @@ Consultez les [exemples de schémas](#event-schema-examples) qui suivent.
 Les événements de piste sont déclenchés en fonction de la piste. 
 
 > [!NOTE]
-> Tous les événements de niveau de suivi sont déclenchés après qu’un encodeur en direct est connecté.
+> Tous les événements de niveau suivi sont déclenchés après qu’un encodeur live est connecté.
 
-Les types d’événements de niveau de suivi sont :
+Les types d’événements de niveau suivi sont :
 
 | Type d'événement | Description |
 | ---------- | ----------- |
@@ -97,7 +97,7 @@ Les types d’événements de niveau de suivi sont :
 | Microsoft.Media.LiveEventIncomingStreamReceived | Le serveur multimédia reçoit le premier bloc de données pour chaque piste dans le flux ou la connexion. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Le serveur multimédia détecte des flux audio et vidéo qui ne sont pas synchronisés. Ce type d’événement doit être utilisé comme un avertissement, car l’expérience utilisateur peut ne pas être affectée. |
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Le serveur multimédia détecte que l’un des deux flux vidéo provenant de l’encodeur externe n’est pas synchronisé. Ce type d’événement doit être utilisé comme un avertissement, car l’expérience utilisateur peut ne pas être affectée. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Publié toutes les 20 secondes pour chaque piste pendant l’événement en direct. Fournit un résumé de l’intégrité d’ingestion.<br/><br/>Une fois que l’encodeur a été initialement connecté, l’événement de pulsation continue d’émettre chaque s 20 si l’encodeur est toujours connecté ou non. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Publié toutes les 20 secondes pour chaque piste pendant l’événement en direct. Fournit un résumé de l’intégrité d’ingestion.<br/><br/>Une l’encodeur a été initialement connecté, l’événement de pulsation continue d’émettre toutes les 20 secondes, que l’encodeur soit encore connecté ou non. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Le serveur multimédia détecte une discontinuité dans la piste entrante. |
 
 Consultez les [exemples de schémas](#event-schema-examples) qui suivent.
@@ -200,7 +200,7 @@ L’objet de données comporte les propriétés suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| Outputs | Tableau | Obtient les sorties du travail.|
+| outputs | Array | Obtient les sorties du travail.|
 
 ### <a name="joboutputstatechange"></a>JobOutputStateChange
 
@@ -458,7 +458,7 @@ L’objet de données comporte les propriétés suivantes :
 | trackName | string | Nom de la piste. |
 | bitrate | integer | Débit binaire de la piste. |
 | timestamp | string | Timestamp du bloc de données supprimé. |
-| échelle de temps | string | Échelle de temps du timestamp. |
+| timescale | string | Échelle de temps du timestamp. |
 | resultCode | string | Motif de suppression du bloc de données. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
@@ -501,7 +501,7 @@ L’objet de données comporte les propriétés suivantes :
 | encoderIp | string  | Adresse IP de l’encodeur. |
 | encoderPort | string | Port de l’encodeur dont provient ce flux. |
 | timestamp | string | Premier timestamp du bloc de données reçu. |
-| échelle de temps | string | Échelle de temps dans laquelle le timestamp est représenté. |
+| timescale | string | Échelle de temps dans laquelle le timestamp est représenté. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -573,7 +573,7 @@ L’objet de données comporte les propriétés suivantes :
 | firstDuration | string | Durée du bloc de données avec le premier timestamp. |
 | secondTimestamp | string  | Timestamp reçu pour une autre piste/un autre niveau de qualité de type vidéo. |
 | secondDuration | string | Durée du bloc de données avec un deuxième timestamp. |
-| échelle de temps | string | Échelle de temps des timestamps et de la durée.|
+| timescale | string | Échelle de temps des timestamps et de la durée.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -616,7 +616,7 @@ L’objet de données comporte les propriétés suivantes :
 | bitrate | integer | Débit binaire de la piste. |
 | incomingBitrate | integer | Débit binaire calculé et basé sur des blocs de données provenant de l’encodeur. |
 | lastTimestamp | string | Timestamp le plus récent reçu pour une piste dans les 20 dernières secondes. |
-| échelle de temps | string | Échelle de temps dans laquelle les timestamps sont exprimés. |
+| timescale | string | Échelle de temps dans laquelle les timestamps sont exprimés. |
 | overlapCount | integer | Nombre de blocs de données avec des timestamps qui se chevauchent au cours des 20 dernières secondes. |
 | discontinuityCount | integer | Nombre de discontinuités observées dans les dernières 20 secondes. |
 | nonIncreasingCount | integer | Nombre de blocs de données présentant des timestamps passés dans les dernières 20 secondes. |
@@ -661,7 +661,7 @@ L’objet de données comporte les propriétés suivantes :
 | previousTimestamp | string | Timestamp du fragment précédent. |
 | newTimestamp | string | Timestamp du fragment actuel. |
 | discontinuityGap | string | Écart entre les deux timestamps ci-dessus. |
-| échelle de temps | string | Échelle de temps dans laquelle les écarts de timestamp et de discontinuité sont représentés. |
+| timescale | string | Échelle de temps dans laquelle les écarts de timestamp et de discontinuité sont représentés. |
 
 ### <a name="common-event-properties"></a>Propriétés d’événements courantes
 
@@ -669,7 +669,7 @@ Un événement contient les données générales suivantes :
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| rubrique | string | Rubrique EventGrid. Cette propriété comporte l’ID de ressource pour le compte Media Services. |
+| topic | string | Rubrique EventGrid. Cette propriété comporte l’ID de ressource pour le compte Media Services. |
 | subject | string | Chemin d’accès à la ressource pour le canal Media Services sous le compte Media Services. La concaténation de la rubrique et de l’objet indique l’ID de ressource pour le travail. |
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. Par exemple, « Microsoft.Media.JobStateChange ». |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |

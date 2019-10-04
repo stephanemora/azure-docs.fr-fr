@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 882228c7cb49a6a419b2b5e0bb200da3391d4584
+ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792399"
+ms.lasthandoff: 09/08/2019
+ms.locfileid: "70802558"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Déployer l’exemple de blueprint Services partagés ISO 27001
 
@@ -20,7 +20,7 @@ Pour déployer l’exemple de blueprint Services partagés ISO 27001 pour Azure
 
 > [!div class="checklist"]
 > - Créer un blueprint à partir de l’exemple
-> - Marquez la copie de l’exemple en tant que **Publié**
+> - Marquer la copie de l’exemple en tant que **Publié**
 > - Affecter votre copie du blueprint à un abonnement existant
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Commencez par implémenter l’exemple de blueprint. Pour cela, créez un blueprint dans votre environnement en vous servant de l’exemple comme point de départ.
 
-1. Sélectionnez **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, sélectionnez **Blueprints**.
+1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
 1. Dans la page **Démarrage**à gauche, sélectionnez le bouton **Créer** sous _Créer un blueprint_.
 
@@ -48,7 +48,7 @@ Commencez par implémenter l’exemple de blueprint. Pour cela, créez un bluepr
 
 Votre copie de l’exemple de blueprint est à présent créée dans votre environnement. Elle est créée en mode **Brouillon** et doit être **publiée** avant de pouvoir être attribuée et déployée. Vous pouvez personnaliser la copie de l’exemple de blueprint en fonction de votre environnement et de vos besoins, mais de telles modifications peuvent l’éloigner de la norme ISO 27001.
 
-1. Sélectionnez **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, sélectionnez **Blueprints**.
+1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
 1. Sélectionnez la page **Définitions de blueprint** à gauche. Utilisez les filtres pour rechercher votre copie de l’exemple de blueprint, puis sélectionnez-la.
 
@@ -58,7 +58,7 @@ Votre copie de l’exemple de blueprint est à présent créée dans votre envir
 
 Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peut être affectée à un abonnement dans le groupe d’administration où elle a été enregistrée. C’est à cette étape que les paramètres sont fournis pour que chaque déploiement de la copie de l’exemple de blueprint soit unique.
 
-1. Sélectionnez **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, sélectionnez **Blueprints**.
+1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
 1. Sélectionnez la page **Définitions de blueprint** à gauche. Utilisez les filtres pour rechercher votre copie de l’exemple de blueprint, puis sélectionnez-la.
 
@@ -99,7 +99,7 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
 1. Une fois tous les paramètres entrés, sélectionnez **Affecter** au bas de la page. L’affectation du blueprint est créée et le déploiement de l’artefact démarre. Le déploiement prend environ une heure. Pour vérifier l’état du déploiement, ouvrez l’affectation du blueprint.
 
 > [!WARNING]
-> Le service Azure Blueprints et les exemples de blueprint intégrés sont **gratuits**. Les ressources Azure sont [facturées par produit](https://azure.microsoft.com/en-us/pricing/). Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour estimer le coût d’exécution des ressources déployées par cet exemple de blueprint.
+> Le service Azure Blueprints et les exemples de blueprint intégrés sont **gratuits**. Les ressources Azure sont [facturées par produit](https://azure.microsoft.com/pricing/). Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour estimer le coût d’exécution des ressources déployées par cet exemple de blueprint.
 
 ## <a name="artifact-parameters-table"></a>Tableau des paramètres d’artefact
 
@@ -107,21 +107,21 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 |Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|[Préversion] : Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS)|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
-|[Préversion] : Déployer Log Analytics Agent pour les machines virtuelles Linux|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
-|[Préversion] : Déployer Log Analytics Agent pour Windows VM Scale Sets (VMSS)|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
-|[Préversion] : Déployer Log Analytics Agent pour les machines virtuelles Windows|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
+|\[Préversion\] : Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS)|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_ .|
+|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_ .|
+|\[Préversion\] : Déployer Log Analytics Agent pour Windows VM Scale Sets (VMSS)|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_ .|
+|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_ .|
 |Types de ressources autorisés|Affectation de rôle|Types de ressources autorisés|Liste des types de ressources pouvant être déployés. Cette liste est composée de tous les types de ressources déployés dans les Services partagés.|
-|Références SKU de compte de stockage autorisées|Affectation de rôle|Références SKU de stockage autorisées|Liste des références SKU de compte de stockage de journaux de diagnostic autorisées. La valeur par défaut est _["Standard_LRS"]_.|
-|Références SKU de machine virtuelle autorisées|Affectation de rôle|Liste des références SKU de machine virtuelle autorisées à être déployées. La valeur par défaut est _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
+|Références SKU de compte de stockage autorisées|Affectation de rôle|Références SKU de stockage autorisées|Liste des références SKU de compte de stockage de journaux de diagnostic autorisées. La valeur par défaut est _["Standard_LRS"]_ .|
+|Références SKU de machine virtuelle autorisées|Affectation de rôle|Liste des références SKU de machine virtuelle autorisées à être déployées. La valeur par défaut est _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
 |Initiative de blueprint pour ISO 27001|Affectation de rôle|Types de ressources utilisés pour auditer les journaux de diagnostic|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
-|Groupe de ressources Log Analytics|Groupe de ressources|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvsc-log-rg` pour rendre le groupe de ressources unique.|
-|Groupe de ressources Log Analytics|Groupe de ressources|Lieu|**Verrouillé** : utilise le paramètre du blueprint.|
+|Groupe de ressources Log Analytics|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvsc-log-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources Log Analytics|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Log Analytics|Modèle Resource Manager|Niveau de service|Définit le niveau de l’espace de travail Log Analytics. La valeur par défaut est _PerNode_.|
 |Modèle Log Analytics|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
-|Modèle Log Analytics|Modèle Resource Manager|Lieu|Région utilisée pour créer l’espace de travail Log Analytics. La valeur par défaut est _USA Ouest 2_.|
-|Groupe de ressources réseau|Groupe de ressources|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-net-rg` pour rendre le groupe de ressources unique.|
-|Groupe de ressources réseau|Groupe de ressources|Lieu|**Verrouillé** : utilise le paramètre du blueprint.|
+|Modèle Log Analytics|Modèle Resource Manager|Location|Région utilisée pour créer l’espace de travail Log Analytics. La valeur par défaut est _USA Ouest 2_.|
+|Groupe de ressources réseau|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-net-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources réseau|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Pare-feu Azure|Modèle Resource Manager|Adresse IP privée de pare-feu Azure|Configure l’adresse IP privée du [pare-feu Azure](../../../../firewall/overview.md). Cette valeur est également utilisée comme table de routage par défaut sur le sous-réseau des services partagés. Doit faire partie de la notation CIDR définie dans **Préfixe d’adresse de sous-réseau de Pare-feu Azure**. La valeur par défaut est _10.0.4.4_.|
 |Modèle Pare-feu Azure|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
 |Modèle Groupe de sécurité réseau|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
@@ -132,8 +132,8 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Préfixe d’adresse de sous-réseau Application Gateway|Notation CIDR du sous-réseau de la passerelle d’application. La valeur par défaut est _10.0.2.0/24_.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Préfixe d’adresse de sous-réseau de passerelle de réseau virtuel|Notation CIDR du sous-réseau de la passerelle de réseau virtuel. La valeur par défaut est _10.0.3.0/24_.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Préfixe d’adresse de sous-réseau de Pare-feu Azure|Notation CIDR du sous-réseau du [pare-feu Azure](../../../../firewall/overview.md). Doit inclure le paramètre **Adresse IP privée de pare-feu Azure**.|
-|Groupe de ressources Key Vault|Groupe de ressources|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-kv-rg` pour rendre le groupe de ressources unique.|
-|Groupe de ressources Key Vault|Groupe de ressources|Lieu|**Verrouillé** : utilise le paramètre du blueprint.|
+|Groupe de ressources Key Vault|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-kv-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources Key Vault|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Key Vault|Modèle Resource Manager|Nom d’utilisateur de l’administrateur Jumpbox|Nom d’utilisateur de Jumpbox. Doit correspondre à la valeur de propriété du **modèle Jumpbox**. La valeur par défaut est _jb-admin-user_.|
 |Modèle Key Vault|Modèle Resource Manager|Mot de passe ou clé SSH de l’administrateur Jumpbox|Clé ou mot de passe du compte sur Jumpbox. Doit correspondre à la valeur de propriété du **modèle Jumpbox**. N’a pas de valeur par défaut et ne peut pas être vide.|
 |Modèle Key Vault|Modèle Resource Manager|Nom d’utilisateur de l’administrateur de domaine|Nom d’utilisateur utilisé pour accéder à la machine virtuelle Active Directory et joindre d’autres machines virtuelles à un domaine. Doit correspondre à la valeur de propriété **Utilisateur administrateur de domaine** dans **Modèle Active Directory Domain Services**. La valeur par défaut est _domain-admin-user_.|
@@ -141,14 +141,14 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Modèle Key Vault|Modèle Resource Manager|ID d’objet AAD|Identificateur d’objet AAD du compte qui nécessite l’accès à l’instance Key Vault. N’a pas de valeur par défaut et ne peut pas être vide. Pour localiser cette valeur à partir du portail Azure, recherchez et sélectionnez « Utilisateurs » sous _Services_. Utilisez la zone _Nom_ pour filtrer le nom du compte, puis sélectionnez ce compte. Dans la page _Profil utilisateur_, sélectionnez l’icône « Cliquez pour copier » à côté de l’_ID d’objet_.  |
 |Modèle Key Vault|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
 |Modèle Key Vault|Modèle Resource Manager|Référence SKU du coffre de clés|Spécifie la référence SKU du coffre de clés créé. La valeur par défaut est _Premium_.|
-|Groupe de ressources Jumpbox|Groupe de ressources|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-jb-rg` pour rendre le groupe de ressources unique.|
-|Groupe de ressources Jumpbox|Groupe de ressources|Lieu|**Verrouillé** : utilise le paramètre du blueprint.|
+|Groupe de ressources Jumpbox|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-jb-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources Jumpbox|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Jumpbox|Modèle Resource Manager|Nom d’utilisateur de l’administrateur Jumpbox|Nom d’utilisateur utilisé pour accéder aux machines virtuelles Jumpbox. Doit correspondre à la valeur de propriété du **modèle Key Vault**. La valeur par défaut est _jb-admin-user_.|
 |Modèle Jumpbox|Modèle Resource Manager|Mot de passe d’administrateur Jumpbox (ID de ressource Key Vault)|ID de ressource du coffre de clés. Utilisez « /subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv » et remplacez `{subscriptionId}` par votre ID d’abonnement et `{orgName}` par le paramètre de blueprint **Nom de l’organisation**.|
 |Modèle Jumpbox|Modèle Resource Manager|Mot de passe d’administrateur Jumpbox (Nom du secret Key Vault)|Nom d’utilisateur de l’administrateur Jumpbox. Doit correspondre à la valeur de la propriété **Modèle Key Vault** **Nom d’utilisateur de l’administrateur Jumpbox**.|
 |Modèle Jumpbox|Modèle Resource Manager|Système d’exploitation de Jumpbox|Détermine le système d’exploitation de la machine virtuelle Jumpbox. La valeur par défaut est _Windows_.|
-|Groupe de ressources Active Directory Domain Services|Groupe de ressources|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-adds-rg` pour rendre le groupe de ressources unique.|
-|Groupe de ressources Active Directory Domain Services|Groupe de ressources|Lieu|**Verrouillé** : utilise le paramètre du blueprint.|
+|Groupe de ressources Active Directory Domain Services|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-adds-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources Active Directory Domain Services|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Active Directory Domain Services|Modèle Resource Manager|Nom d’utilisateur de l’administrateur de domaine|Nom d’utilisateur de Jumpbox ADDS. Doit correspondre à la valeur de propriété du **modèle Key Vault**. La valeur par défaut est _adds-admin-user_.|
 |Modèle Active Directory Domain Services|Modèle Resource Manager|Mot de passe d’administrateur de domaine (ID de ressource Key Vault)|ID de ressource du coffre de clés. Utilisez « /subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv » et remplacez `{subscriptionId}` par votre ID d’abonnement et `{orgName}` par le paramètre de blueprint **Nom de l’organisation**.|
 |Modèle Active Directory Domain Services|Modèle Resource Manager|Mot de passe d’administrateur de domaine (Nom du secret Key Vault)|Nom d’utilisateur de l’administrateur de domaine. Doit correspondre à la valeur de la propriété **Modèle Key Vault** **Nom d’utilisateur de l’administrateur de domaine**.|
@@ -166,7 +166,7 @@ Vous venez de passer en revue les étapes à suivre pour déployer l’exemple d
 
 Autres articles sur les blueprints et la manière de les utiliser :
 
-- Découvrir le [cycle de vie des blueprints](../../concepts/lifecycle.md).
+- En savoir plus sur le [cycle de vie des blueprints](../../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](../../concepts/sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](../../concepts/resource-locking.md).

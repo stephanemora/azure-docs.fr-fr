@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58172816"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309514"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Que sont les accélérateurs de solution IoT ?
 
@@ -38,11 +38,11 @@ Utilisez l’[accélérateur de solution de supervision à distance](iot-acceler
 
 Vous pouvez utiliser le tableau de bord de surveillance à distance pour afficher les données de télémétrie de vos appareils connectés, provisionner de nouveaux appareils ou mettre à niveau le microprogramme sur vos appareils connectés :
 
-[![Tableau de bord de la solution de surveillance à distance](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
+[![Tableau de bord de la solution de supervision à distance](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
 
 ### <a name="connected-factory"></a>Fabrique connectée
 
-Utilisez l’[accélérateur de solution Fabrique connectée](iot-accelerators-connected-factory-sample-walkthrough.md) pour collecter des données de télémétrie de ressources industrielles avec une interface d’[architecture unifiée OPC](https://opcfoundation.org/about/opc-technologies/opc-ua/) et pour les contrôler. On peut citer par exemple des stations de test et d’assemblage d’une chaîne de production.
+Utilisez l’[accélérateur de solution Fabrique connectée](iot-accelerators-connected-factory-features.md) pour collecter des données de télémétrie de ressources industrielles avec une interface d’[architecture unifiée OPC](https://opcfoundation.org/about/opc-technologies/opc-ua/) et pour les contrôler. On peut citer par exemple des stations de test et d’assemblage d’une chaîne de production.
 
 Vous pouvez utiliser le tableau de bord d’usine connectée pour surveiller et gérer vos appareils industriels :
 
@@ -85,7 +85,7 @@ Les accélérateurs de solution originaux ont été conçus avec .NET et une arc
 | Fabrique connectée      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Simulation d’appareil      | Microservices | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-Pour en savoir plus sur l’architecture de microservices, consultez [Présentation de l’architecture de référence Azure IoT](iot-accelerators-architecture-overview.md).
+Pour en savoir plus sur l’architecture de microservices, consultez [Présentation de l’architecture de référence Azure IoT](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/).
 
 ## <a name="deployment-options"></a>Options de déploiement
 
@@ -103,7 +103,7 @@ Le coût associé à l’exécution d’un accélérateur de solution est le [co
 
 Pour essayer l’un des accélérateurs de solution IoT, consultez les démarrages rapides :
 
-* [Essayer une solution de surveillance à distance](quickstart-remote-monitoring-deploy.md)
+* [Essayer une solution de supervision à distance](quickstart-remote-monitoring-deploy.md)
 * [Essayer une solution d’usine connectée](quickstart-connected-factory-deploy.md)
 * [Essayer une solution de maintenance prédictive](quickstart-predictive-maintenance-deploy.md)
 * [Essayer une solution de simulation d’appareil](quickstart-device-simulation-deploy.md)

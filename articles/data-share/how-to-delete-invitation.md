@@ -1,0 +1,27 @@
+---
+title: Supprimer une invitation à un destinataire dans Azure Data Share en préversion
+description: Supprimer une invitation
+author: joannapea
+ms.author: joanpo
+ms.service: data-share
+ms.topic: conceptual
+ms.date: 07/10/2019
+ms.openlocfilehash: eacc4e5edb196d512d3b27b2a0acc72a82e8f0b9
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327190"
+---
+# <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share-preview"></a>Procédure de suppression d’une invitation à un destinataire dans Azure Data Share en préversion
+
+Cet article explique comment supprimer une invitation envoyée à un destinataire avant qu’il ne l’accepte. Cela l’empêchera de créer un abonnement de partage et il ne recevra jamais de données partagées. Si vous supprimez l’invitation à un consommateur qui a déjà créé un abonnement de partage, la suppression de son invitation n’aura aucun impact.
+
+## <a name="navigate-to-a-sent-data-share"></a>Accéder à un partage de données envoyé
+
+Dans la préversion d’Azure Data Share, accédez à votre partage envoyé et sélectionnez l’onglet **Invitations**. Les destinataires des invitations à ce partage de données sont répertoriés ici. Cliquez sur les cases à cocher en regard des destinataires dont vous souhaitez supprimer les invitations, puis cliquez sur **Supprimer**.
+
+![Supprimer l’invitation](./media/how-to/how-to-delete-invitation/delete-invitation.png)
+
+## <a name="next-steps"></a>Étapes suivantes
+En savoir plus sur la [révocation d’un abonnement de partage](how-to-revoke-share-subscription.md).

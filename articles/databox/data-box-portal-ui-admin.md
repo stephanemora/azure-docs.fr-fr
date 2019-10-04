@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d1c3e4bb1c4b3545c8f051432016348112f16b0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903644"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147909"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utiliser le portail Azure pour administrer votre Data Box Disk
 
@@ -129,7 +129,7 @@ Pour modifier les détails de modification, procédez comme suit.
 |Reçu     | Vos disques ont été livrés au centre de données Azure. La copie des données va bientôt démarrer.        |
 |Data copied (Données copiées)     |La copie des données est en cours.<br> Attendez que la copie des données se termine.         |
 |Completed       |La commande a été terminée avec succès.<br> Vérifiez que vos données se trouvent bien dans Azure avant de supprimer les données locales des serveurs.         |
-|Completed with errors (Terminée avec des erreurs)| La copie de données est terminée, mais des erreurs se sont produites. <br> Consultez les journaux d’activité de copie en utilisant le chemin d’accès spécifié sous **Vue d’ensemble**. Pour plus d’informations, voir [Télécharger les journaux de diagnostic](data-box-disk-troubleshoot.md#download-diagnostic-logs).   |
+|Completed with errors (Terminée avec des erreurs)| La copie de données est terminée, mais des erreurs se sont produites. <br> Consultez les journaux d’erreurs de téléchargement en utilisant le chemin d’accès spécifié sous **Vue d’ensemble**. Pour plus d’informations, voir [Télécharger les journaux d’erreurs de téléchargement](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Canceled            |La commande a été annulée. <br> Soit vous avez annulé la commande, soit une erreur s’est produite et le service a annulé la commande.     |
 
 

@@ -1,5 +1,5 @@
 ---
-title: Référence de l’API reconnaissance vocale (REST) - Services de reconnaissance vocale
+title: Informations de référence sur l’API de reconnaissance vocale (REST) – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser l’API REST de reconnaissance vocale. Cet article vous présente les options d’autorisation, les options de requête, et vous explique comment structurer une demande et recevoir une réponse.
 services: cognitive-services
@@ -8,22 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: baaa7b1068e13863293e0968cb0bf1ffb198882b
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
-ms.translationtype: MT
+ms.openlocfilehash: 6324c00d9b85a13ef6e69185e3b380b20f761f3b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57894936"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552977"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
-Comme alternative à la [Speech SDK](speech-sdk.md), autoriser les Services de reconnaissance vocale vous permet de convertir la parole-texte à l’aide d’une API REST. Chaque point de terminaison accessible est associé à une région. Votre application nécessite une clé d’abonnement pour le point de terminaison que vous prévoyez d’utiliser.
+En guise d’alternative à [SDK Speech](speech-sdk.md), Speech Services vous permet de convertir la parole en texte à l’aide d’une API REST. Chaque point de terminaison accessible est associé à une région. Votre application nécessite une clé d’abonnement pour le point de terminaison que vous prévoyez d’utiliser.
 
-Avant d’utiliser l’API REST de reconnaissance vocale, comprendre :
-* Les demandes qui utilisent l’API REST peuvent contenir uniquement les 10 secondes de l’enregistrement audio.
+Avant d’utiliser l’API REST de reconnaissance vocale, tenez compte des points suivants :
+* Les demandes qui utilisent l’API REST ne peuvent contenir que 10 secondes d’enregistrement audio.
 * L’API REST de reconnaissance vocale retourne uniquement les résultats finaux. Les résultats partiels ne sont pas fournis.
 
 Si vous devez envoyer un contenu audio plus long pour votre application, vous pouvez utiliser le [Kit de développement logiciel (SDK) Speech](speech-sdk.md) ou une [transcription par lot](batch-transcription.md).
@@ -52,12 +51,12 @@ Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demand
 
 |En-tête| Description | Obligatoire/facultatif |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Votre clé d’abonnement Services de reconnaissance vocale. | Cet en-tête ou `Authorization` est requis. |
+| `Ocp-Apim-Subscription-Key` | Votre clé d’abonnement Speech Services. | Cet en-tête ou `Authorization` est requis. |
 | `Authorization` | Un jeton d’autorisation précédé du mot `Bearer`. Pour en savoir plus, consultez [Authentification](#authentication). | Cet en-tête ou `Ocp-Apim-Subscription-Key` est requis. |
 | `Content-type` | Décrit le format et le codec des données audio fournies. Les valeurs acceptées sont `audio/wav; codecs=audio/pcm; samplerate=16000` et `audio/ogg; codecs=opus`. | Obligatoire |
 | `Transfer-Encoding` | Spécifie que les données audio sont envoyées en bloc plutôt que dans un seul fichier. Utilisez uniquement cet en-tête si vous envoyez les données audio en bloc. | Facultatif |
-| `Expect` | Si vous utilisez le transfert en bloc, envoyez `Expect: 100-continue`. Les Services de reconnaissance vocale accuser réception de la demande initiale et attend des données supplémentaires.| Requis si vous envoyez les données audio en bloc. |
-| `Accept` | Si cette valeur est fournie, elle doit être `application/json`. Les Services de reconnaissance vocale offrent des résultats au format JSON. Certains frameworks de requêtes web fournissent une valeur par défaut incompatible si vous n’en spécifiez pas une. Il est donc conseillé de toujours inclure `Accept`. | Cette étape est facultative mais recommandée. |
+| `Expect` | Si vous utilisez le transfert en bloc, envoyez `Expect: 100-continue`. Speech Services accuse réception de la requête initiale et attend des données supplémentaires.| Requis si vous envoyez les données audio en bloc. |
+| `Accept` | Si cette valeur est fournie, elle doit être `application/json`. Speech Services fournit les résultats au format JSON. Certains frameworks de requêtes web fournissent une valeur par défaut incompatible si vous n’en spécifiez pas une. Il est donc conseillé de toujours inclure `Accept`. | Cette étape est facultative mais recommandée. |
 
 ## <a name="audio-formats"></a>Formats audio
 
@@ -69,7 +68,7 @@ L’audio est envoyé dans le corps de la requête HTTP `POST`. Il doit être da
 | OGG | OPUS | 16 bits | 16 kHz, mono |
 
 >[!NOTE]
->Les formats ci-dessus sont pris en charge via l’API REST et WebSocket dans les Services de reconnaissance vocale. Pour l’instant, le [kit de développement logiciel (SDK) Speech](speech-sdk.md) ne prend en charge que le format WAV avec le codec PCM.
+>Les formats ci-dessus sont pris en charge via l’API REST et WebSocket dans Speech Services. Pour l’instant, le [kit de développement logiciel (SDK) Speech](speech-sdk.md) ne prend en charge que le format WAV avec le codec PCM.
 
 ## <a name="sample-request"></a>Exemple de requête
 
@@ -99,7 +98,7 @@ Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs co
 
 ## <a name="chunked-transfer"></a>Transfert en bloc
 
-Transfert mémorisé en bloc (`Transfer-Encoding: chunked`) peut aider à réduire la latence de reconnaissance, car il permet aux Services de reconnaissance vocale commencer le traitement du fichier audio pendant leur transmission. L’API REST ne fournit pas de résultats partiels ou intermédiaires. Cette option est destinée uniquement à améliorer la réactivité.
+Le transfert en bloc (`Transfer-Encoding: chunked`) peut contribuer à réduire la latence de reconnaissance, car il permet à Speech Services de commencer le traitement du fichier audio pendant sa transmission. L’API REST ne fournit pas de résultats partiels ou intermédiaires. Cette option est destinée uniquement à améliorer la réactivité.
 
 Cet exemple de code montre comment envoyer l’audio en bloc. Seul le premier segment doit contenir l’en-tête du fichier audio. `request` est un objet HTTPWebRequest connecté au point de terminaison REST approprié. `audioFile` est le chemin vers un fichier audio sur disque.
 
@@ -164,7 +163,7 @@ Le champ `RecognitionStatus` peut contenir ces valeurs :
 > [!NOTE]
 > Si l’audio est composé uniquement de grossièretés et que le paramètre de requête `profanity` a la valeur `remove`, le service ne retourne pas de résultat de reconnaissance vocale.
 
-Le `detailed` format inclut les mêmes données que le `simple` mettre en forme, ainsi qu’avec `NBest`, une liste des interprétations autre du même résultat de reconnaissance. Ces résultats sont classés de la plus faible à la plus forte probabilité, la première entrée étant identique au principal résultat de la reconnaissance.  Lorsque vous utilisez le format `detailed`, `DisplayText` est fourni en tant que `Display` pour chaque résultat dans la liste `NBest`.
+Le format `detailed` inclut les mêmes données que le format `simple`, avec `NBest`, liste d’autres interprétations du même résultat de la reconnaissance. Ces résultats sont classés du plus probable au moins probable. La première entrée est identique au principal résultat de reconnaissance.  Lorsque vous utilisez le format `detailed`, `DisplayText` est fourni en tant que `Display` pour chaque résultat dans la liste `NBest`.
 
 Chaque objet de la liste `NBest` inclut :
 

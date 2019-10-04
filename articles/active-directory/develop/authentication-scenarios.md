@@ -3,27 +3,27 @@ title: Authentification sur la plateforme d’identités Microsoft | Azure
 description: Obtenez des informations concernant l’authentification sur la plateforme d’identités Microsoft, sur le modèle d’application, sur l’API, sur le provisionnement et sur les scénarios d’authentification courants qui sont pris en charge par la plateforme d’identités Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
-ms.author: celested
+ms.date: 09/23/2019
+ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76c5214fc26d299c6abb72ed6cd448728903e78f
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785566"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272538"
 ---
 # <a name="what-is-authentication"></a>Qu’est-ce que l’authentification ?
 
@@ -53,12 +53,31 @@ Voici ce que vous devez savoir sur les divers composants du diagramme :
   * Pour générer une application rapidement et ajouter des fonctionnalités telles que l’obtention de jetons, l’actualisation de jetons, la connexion d’un utilisateur et l’affichage des informations utilisateur (entre autres), consultez les **guides de démarrage rapide** de la documentation.
   * Pour obtenir des procédures détaillées, basées sur des scénarios et appliquées aux principales tâches de développement de l’authentification, telles que l’obtention de jetons d’accès et leur utilisation dans les appels à l’API Microsoft Graph ou à d’autres API, l’implémentation de la connexion Microsoft avec une application web traditionnelle basée sur navigateur à l’aide d’OpenID Connect, et bien d’autres, consultez les **didacticiels** de la documentation.
   * Pour télécharger des exemples de code, accédez à [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* Le flux de demandes et de réponses du processus d’authentification est déterminé par le protocole d’authentification que vous avez utilisé, par exemple OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Pour en savoir plus sur les protocoles, consultez la section **Concepts > Protocoles** de la documentation.
+* Le flux de demandes et de réponses du processus d’authentification est déterminé par le protocole d’authentification que vous avez utilisé, par exemple OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Pour plus d’informations sur les protocoles, consultez la section **Concepts > Protocole d’authentification** de la documentation.
 
 Dans le scénario ci-dessus, vous pouvez classer les applications en fonction de ces deux rôles :
 
 * Les applications qui ont besoin d’accéder aux ressources de façon sécurisée
 * Les applications qui jouent elles-mêmes le rôle de ressource
+
+### <a name="how-each-flow-emits-tokens-and-codes"></a>Comment chaque flux émet des jetons et des codes
+
+Selon la façon dont votre client est créé, il peut utiliser un ou plusieurs des flux d’authentification pris en charge par la plateforme d’identité Microsoft.  Ces flux peuvent produire divers jetons (id_tokens, jetons d’actualisation, jetons d’accès) ainsi que des codes d’autorisation, et ils nécessitent des jetons différents pour les faire fonctionner. Ce graphique présente une vue d’ensemble :
+
+|Flux | Nécessite | id_token | access token | jeton d'actualisation | code d’autorisation | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Flux du code d’autorisation](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flux implicite](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Circuit OIDC hybride](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Échange de jetons d’actualisation](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | jeton d'actualisation | x | x | x| |
+|[Flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
+|[Flux de code d’appareil](v2-oauth2-device-code.md) | | x| x| x| |
+|[Informations d’identification du client](v2-oauth2-client-creds-grant-flow.md) | | | x (application uniquement)| | |
+
+**Remarques**:
+
+Les jetons émis via le mode implicite ont une longueur maximale du fait qu’ils sont renvoyés au navigateur via l’URL (où `response_mode` est `query` ou `fragment`).  Certains navigateurs limitent la taille de l’URL qui peut être placée dans la barre d’adresse et refusent les URL trop longues.  Par conséquent, ces jetons n’ont pas de revendications `groups` ou `wids`. 
+
 
 Maintenant que vous avez une vue d’ensemble des principes fondamentaux, poursuivez votre lecture pour comprendre l’API et le modèle d’application relatifs à l’identité et le fonctionnement du provisionnement dans la plateforme d’identités Microsoft. Vous trouverez également des liens pour obtenir des informations détaillées sur les scénarios courants pris en charge par la plateforme d’identités Microsoft.
 
@@ -85,14 +104,11 @@ Le diagramme suivant illustre un flux de provisionnement simplifié piloté par 
 
 Dans ce flux d’approvisionnement :
 
-|   |   |
-|---|---|
-| 1 | Un utilisateur issu du locataire B tente de se connecter avec l’application |
-| 2 | Les informations d’identification de l’utilisateur sont acquises et vérifiées |
-| 3 | L’utilisateur est invité à donner son consentement pour que l’application accède au locataire B |
-| 4 | La plateforme d’identités Microsoft utilise l’objet d’application dans A en tant que blueprint pour créer un principal de service dans le locataire B |
-| 5. | L’utilisateur reçoit le jeton demandé |
-|   |   |
+1. Un utilisateur du locataire B tente de se connecter avec l’application, le point de terminaison d’autorisation demande un jeton pour l’application.
+1. Les informations d’identification de l’utilisateur sont acquises et vérifiées à des fins d’authentification.
+1. L’utilisateur est invité à donner son consentement pour que l’application accède au locataire B.
+1. La plateforme d’identités Microsoft utilise l’objet d’application dans le locataire A en tant que blueprint pour créer un principal de service dans le locataire B.
+1. L’utilisateur reçoit le jeton demandé
 
 Vous pouvez répéter ce processus autant de fois que vous le souhaitez pour les autres locataires (C, D, etc.). Le locataire A conserve le blueprint pour l’application (objet d’application). Les utilisateurs et les administrateurs de tous les autres locataires où l’application a obtenu le consentement gardent le contrôle sur les actions de l’application grâce à l’objet du principal de service correspondant dans chaque locataire. Pour plus d’informations, consultez [Objets d’application et de principal de service dans la plateforme d’identités Microsoft](app-objects-and-service-principals.md).
 

@@ -1,7 +1,7 @@
 ---
-title: Extraction de données
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Extraire des données de texte énoncé avec les intentions et entités. Découvrez le type de données peut être extraites à partir de LUIS (Language Understanding).
+title: Extraction des données : LUIS
+titleSuffix: Azure Cognitive Services
+description: Extraire des données d’un texte d’énoncé avec des intentions et des entités. Découvrez quel type de données il est possible d’extraire à partir de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/24/2019
 ms.author: diberry
-ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 055cd25f534de5d3cc3ccbe44df88e7111e101a3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526287"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560759"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données de texte énoncé avec les intentions et entités
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données d’un texte d’énoncé avec des intentions et des entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
 
 Les données les plus difficiles à extraire sont les données issues du Machine Learning, car il n’y a pas de correspondance de texte exacte. L’extraction de données à partir [d’entités](luis-concept-entity-types.md) issues du Machine Learning doit faire partie du [cycle de création](luis-concept-app-iteration.md) jusqu’à ce que vous ayez la certitude de recevoir les données attendues.
@@ -148,168 +148,15 @@ Par exemple, en allemand, le mot `das Bauernbrot` a comme unités lexicales `das
 
 ## <a name="simple-entity-data"></a>Données d’entité simple
 
-Une [entité simple](luis-concept-entity-types.md) est une valeur issue du Machine Learning. Il peut s’agir d’un mot ou d’une expression.
-
-`Bob Jones wants 3 meatball pho`
-
-Dans l’énoncé précédent, `Bob Jones` est marqué comme entité simple `Customer`.
-
-Le point de terminaison retourne les données suivantes : nom de l’entité, texte découvert dans l’énoncé, emplacement de ce texte et score.
-
-```JSON
-"entities": [
-  {
-  "entity": "bob jones",
-  "type": "Customer",
-  "startIndex": 0,
-  "endIndex": 8,
-  "score": 0.473899543
-  }
-]
-```
-
-|Objet de données|Nom de l’entité|Valeur|
-|--|--|--|
-|Entité simple|`Customer`|`bob jones`|
-
-## <a name="hierarchical-entity-data"></a>Données d’entité hiérarchique
-
-**Entités hiérarchiques risque d’être dépréciées. Utilisez [rôles de l’entité](luis-concept-roles.md) pour déterminer des sous-types d’entité, au lieu d’entités hiérarchiques.**
-
-Les entités [hiérarchiques](luis-concept-entity-types.md) sont des valeurs issues du Machine Learning. Elles peuvent comporter un mot ou une expression. Les enfants sont identifiés par le contexte. Si vous recherchez une relation parent-enfant avec correspondance de texte exacte, utilisez une entité de [liste](#list-entity-data).
-
-`book 2 tickets to paris`
-
-Dans l’énoncé précédent, `paris` est étiqueté comme enfant `Location::ToLocation` de l’entité hiérarchique `Location`.
-
-Le point de terminaison retourne les données suivantes : nom de l’entité et de l’enfant, texte découvert dans l’énoncé, emplacement de ce texte et score.
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|Objet de données|Parent|Enfant|Valeur|
-|--|--|--|--|
-|Entité hiérarchique|Lieu|ToLocation|"paris"|
+Une [entité simple](reference-entity-simple.md) est une valeur issue du Machine Learning. Il peut s’agir d’un mot ou d’une expression.
 
 ## <a name="composite-entity-data"></a>Données d’entité composite
-Les entités [composites](luis-concept-entity-types.md) sont des valeurs issues du Machine Learning. Elles peuvent comporter un mot ou une expression. Prenons l’exemple d’une entité composite de `number` et `Location::ToLocation` prédéfinis avec l’énoncé suivant :
 
-`book 2 tickets to paris`
-
-Notez qu’entre `2`, le nombre, et `paris`, ToLocation, se trouvent des mots qui ne font partie d’aucune entité. Le soulignement vert, utilisé dans un énoncé étiqueté sur le site web [LUIS](luis-reference-regions.md), indique une entité composite.
-
-![Entité composite](./media/luis-concept-data-extraction/composite-entity.png)
-
-Les entités composites sont retournées dans un tableau `compositeEntities`, et toutes les entités qui la composent dans le tableau `entities` :
-
-```JSON
-  "entities": [
-    {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
-    },
-    {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
-        "value": "2"
-      }
-    },
-    {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
-    }
-  ],
-  "compositeEntities": [
-    {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
-        {
-          "type": "builtin.number",
-          "value": "2"
-        },
-        {
-          "type": "Location::ToLocation",
-          "value": "paris"
-        }
-      ]
-    }
-  ]
-```    
-
-|Objet de données|Nom de l’entité|Valeur|
-|--|--|--|
-|Entité prédéfinie – nombre|"builtin.number"|"2"|
-|Entité hiérarchique – Location|"Location::ToLocation"|"paris"|
+Une [entité composite](reference-entity-composite.md) est constituée d’autres entités (prédéfinies, simples, expressions régulières et listes). Les entités distinctes forment une entité entière. 
 
 ## <a name="list-entity-data"></a>Données d’entité de liste
 
-Une entité de [liste](luis-concept-entity-types.md) n’est pas issue du Machine Learning. Il s’agit d’une correspondance de texte à l’exact. Une liste représente les éléments de la liste de même que leurs synonymes. LUIS marque comme entité chaque correspondance avec un élément d’une liste dans la réponse. Un synonyme peut se trouver dans plusieurs listes.
-
-Supposons que l’application comporte une liste nommée `Cities`, permettant des variations de noms de ville : ville aéroportuaire (Sea-tac), indicatif d’aéroport (SEA), code postal (98101) et indicatif téléphonique régional (206).
-
-|Élément de liste|Synonymes de l’élément|
-|---|---|
-|Seattle|sea-tac, sea, 98101, 206, +1 |
-|Paris|cdg, roissy, 75001, 1, +33|
-
-`book 2 tickets to paris`
-
-Dans l’énoncé précédent, le mot `paris` est mappé à l’élément paris au sein de l’entité de liste `Cities`. Celle-ci est mise en correspondance avec le nom normalisé de l’élément ainsi que ses synonymes.
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-Voici un autre exemple d’énoncé, avec un synonyme de Paris :
-
-`book 2 tickets to roissy`
-
-```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
+Les [entités de liste](reference-entity-list.md) représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes. LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité **Recommander** pour trouver des suggestions de nouveaux mots à partir de la liste actuelle. S’il existe plusieurs entités de liste avec la même valeur, chaque entité est retournée dans la requête du point de terminaison. 
 
 ## <a name="prebuilt-entity-data"></a>Données d’entité prédéfinie
 Les entités [prédéfinies](luis-concept-entity-types.md) sont découvertes par correspondance avec une expression régulière à l’aide du projet [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) open source. Elles sont retournées dans le tableau entities et utilisent le nom de type avec le préfixe `builtin::`. Le texte suivant est un exemple d’énoncé avec les entités prédéfinies retournées :
@@ -396,35 +243,8 @@ Les entités [prédéfinies](luis-concept-entity-types.md) sont découvertes par
 ```
 
 ## <a name="regular-expression-entity-data"></a>Données d’entité d’expression régulière
-Les entités [d’expression régulière](luis-concept-entity-types.md) sont découvertes par correspondance avec une expression régulière indiquée lors de la création des entités. Si l’on utilise `kb[0-9]{6}` comme définition de l’entité d’expression régulière, la réponse JSON suivante est un exemple d’énoncé avec les entités d’expression régulière retournées pour la requête `When was kb123456 published?` :
 
-```JSON
-{
-  "query": "when was kb123456 published?",
-  "topScoringIntent": {
-    "intent": "FindKBArticle",
-    "score": 0.933641255
-  },
-  "intents": [
-    {
-      "intent": "FindKBArticle",
-      "score": 0.933641255
-    },
-    {
-      "intent": "None",
-      "score": 0.04397359
-    }
-  ],
-  "entities": [
-    {
-      "entity": "kb123456",
-      "type": "KB number",
-      "startIndex": 9,
-      "endIndex": 16
-    }
-  ]
-}
-```
+Une [entité d’expression régulière](reference-entity-regular-expression.md) extrait une entité en fonction du modèle d’expression régulière que vous fournissez.
 
 ## <a name="extracting-names"></a>Extraction de noms
 Il est difficile d’extraire des noms d’un énoncé, car un nom peut être pratiquement n’importe quelle combinaison de lettres et de mots. Les possibilités dépendent du type de nom extrait. Les suggestions suivantes ne sont pas des règles, mais plutôt des recommandations.
@@ -435,17 +255,17 @@ Les entités [PersonName](luis-reference-prebuilt-person.md) et [GeographyV2](lu
 
 ### <a name="names-of-people"></a>Noms de personnes
 
-Les noms de personnes peuvent avoir un format légèrement en fonction de la langue et de la culture. Utiliser soit un **[personName](luis-reference-prebuilt-person.md)** entité ou un **[entité simple](luis-concept-entity-types.md#simple-entity)** avec [rôles](luis-concept-roles.md) de première et nom de famille. 
+Les noms de personnes peuvent avoir un format légèrement en fonction de la langue et de la culture. Utilisez une entité **[personName](luis-reference-prebuilt-person.md)** prédéfinie ou une **[entité simple](luis-concept-entity-types.md#simple-entity)** avec les [rôles](luis-concept-roles.md) du prénom et du nom. 
 
-Si vous utilisez l’entité simple, veillez à donner des exemples qui utilisent le nom et prénom dans différentes parties de l’énoncé dans énoncés de longueurs différentes et énoncés entre tous les intentions, y compris l’aucun intentionnelle. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
+Si vous utilisez l’entité simple, veillez à donner des exemples qui utilisent le prénom et le nom à différents endroits de l’énoncé, dans des énoncés de longueurs différentes et pour toutes les intentions, y compris l’intention None. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
 
 ### <a name="names-of-places"></a>Noms de lieux
 
-Les noms d’endroits sont définis et connus : villes, départements, États, provinces et pays. Utiliser l’entité prédéfinie **[geographyV2](luis-reference-prebuilt-geographyv2.md)** pour extraire des informations d’emplacement.
+Les noms d’endroits sont définis et connus : villes, départements, États, provinces et pays/régions. Utilisez l’entité prédéfinie **[geographyV2](luis-reference-prebuilt-geographyv2.md)** pour extraire des informations de localisation.
 
 ### <a name="new-and-emerging-names"></a>Nouveaux noms
 
-Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Ces types de noms sont le type plus difficile d’extraction de données. Commencer avec un **[entité simple](luis-concept-entity-types.md#simple-entity)** et ajoutez un [liste d’expressions](luis-concept-feature.md). [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
+Certaines applications doivent être capables de rechercher les nouveaux noms, comme les produits ou les entreprises. Ces types de noms sont les plus difficiles à extraire. Commencez par une **[entité simple](luis-concept-entity-types.md#simple-entity)** et ajoutez une [liste d’expressions](luis-concept-feature.md). [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
 
 ## <a name="pattern-roles-data"></a>Données de rôles de modèle
 Les rôles sont des différences d’entités contextuelles.
@@ -509,49 +329,8 @@ Les rôles sont des différences d’entités contextuelles.
 ```
 
 ## <a name="patternany-entity-data"></a>Données d’entité Pattern.any
-Les entités Pattern.any sont des entités de longueur variable utilisées dans les énoncés d’un [modèle](luis-concept-patterns.md).
 
-```JSON
-{
-  "query": "where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?",
-  "topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.999999464
-  },
-  "intents": [
-    {
-      "intent": "FindForm",
-      "score": 0.999999464
-    },
-    {
-      "intent": "GetEmployeeBenefits",
-      "score": 4.883697E-06
-    },
-    {
-      "intent": "None",
-      "score": 1.02040713E-06
-    },
-    {
-      "intent": "GetEmployeeOrgChart",
-      "score": 9.278342E-07
-    },
-    {
-      "intent": "MoveAssetsOrPeople",
-      "score": 9.278342E-07
-    }
-  ],
-  "entities": [
-    {
-      "entity": "understand your responsibilities as a member of the community",
-      "type": "FormName",
-      "startIndex": 18,
-      "endIndex": 78,
-      "role": ""
-    }
-  ]
-}
-```
-
+[Pattern.any](reference-entity-pattern-any.md) est un espace réservé à longueur variable utilisé uniquement dans le gabarit d’énoncé d’un modèle pour marquer où l’entité commence et se termine.  
 
 ## <a name="sentiment-analysis"></a>analyse de sentiments
 Si l’analyse des sentiments est configurée, la réponse JSON de LUIS l’intègre. Pour plus d’informations sur l’analyse des sentiments, consultez la documentation [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).

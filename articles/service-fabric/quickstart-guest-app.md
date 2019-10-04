@@ -3,7 +3,7 @@ title: Déployer rapidement une application existante dans un cluster Microsoft 
 description: Utilisez un cluster Microsoft Azure Service Fabric pour héberger une application Node.js existante avec Visual Studio.
 services: service-fabric
 documentationcenter: nodejs
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: aljo
-ms.openlocfilehash: 63630f5c4799e9272601f431671abc78ec86a238
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: 6cf9594e6e1db3e163d25843b1fec0c0ff98c250
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669008"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592455"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Héberger une application Node.js sur Microsoft Azure Service Fabric
 
 Ce démarrage rapide vous permet de déployer une application existante (Node.js dans cet exemple) dans un cluster Service Fabric s’exécutant sur Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Cela inclut l’installation du kit de développement logiciel (SDK) de Service Fabric et de Visual Studio 2017 ou 2015.
+Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement](service-fabric-get-started.md). Cela inclut l’installation du SDK Service Fabric et de Visual Studio 2019 ou 2015.
 
 Vous devez également disposer d’une application Node.js existante pour le déploiement. Ce démarrage rapide utilise un site web Node.js simple qui peut être téléchargé [ici][download-sample]. Extrayez ce fichier vers votre dossier `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` après avoir créé le projet dans l’étape suivante.
 
@@ -66,7 +66,7 @@ Appuyez sur **OK**.
 
 Visual Studio crée le projet d’application et le projet de service d’acteur et les affiche dans l’Explorateur de solutions.
 
-Le projet d’application (**MyGuestApp**) ne contient pas de code directement. Au lieu de cela, il fait référence à un ensemble de projets de service. En outre, il contient trois autres types de contenu :
+Le projet d’application (**MyGuestApp**) ne contient pas de code directement. Le projet fait référence à un ensemble de projets de service. En outre, il contient trois autres types de contenu :
 
 * **Profils de publication**  
 Préférences d’outils pour différents environnements.
@@ -98,9 +98,9 @@ Ouvrez le fichier **ServiceManifest.xml** dans le projet. Au bas du manifeste, i
 
 ## <a name="deploy-to-azure"></a>Déployer dans Azure
 
-Si vous appuyez sur **F5** et exécutez le projet, il est déployé dans le cluster local. Toutefois, nous allons le déployer vers Azure.
+Si vous appuyez sur **F5** et exécutez le projet, il est déployé sur le cluster local. Toutefois, nous allons le déployer vers Azure.
 
-Cliquez avec le bouton droit sur le projet et choisissez **Publier...**, qui ouvre une boîte de dialogue de publication sur Azure.
+Cliquez avec le bouton droit sur le projet et choisissez **Publier...** , qui ouvre une boîte de dialogue de publication sur Azure.
 
 ![Boîte de dialogue de publication sur Azure pour un service Service Fabric][publish]
 
@@ -108,13 +108,13 @@ Sélectionnez le profil cible **PublishProfiles\Cloud.xml**.
 
 Si vous ne l’avez pas fait précédemment, choisissez un compte Azure vers lequel effectuer le déploiement. Si vous n’en avez pas, [obtenez-en un][create-account].
 
-Sous **Point de terminaison de connexion**, sélectionnez le cluster Service Fabric vers lequel effectuer le déploiement. Si vous n’en avez pas, sélectionnez **&lt;Créer un cluster...&gt;** qui ouvre la fenêtre de navigateur web sur le portail Azure. Pour plus d’informations, consultez [Création d’un cluster dans le portail Azure](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+Sous **Point de terminaison de connexion**, sélectionnez le cluster Service Fabric vers lequel effectuer le déploiement. Si vous n’en avez pas, sélectionnez **&lt;Créer un cluster...&gt;** qui ouvre la fenêtre de navigateur web dans le portail Azure. Pour plus d’informations, consultez [Création d’un cluster dans le portail Azure](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
 Lorsque vous créez le cluster Service Fabric, veillez à définir le paramètre **Points de terminaison personnalisés** sur **80**.
 
 ![Configuration de type nœud Service Fabric avec le point de terminaison personnalisé][custom-endpoint]
 
-La création d’un cluster Service Fabric prend un certain temps. Une fois qu’il a été créé, revenez à la boîte de dialogue de publication et sélectionnez **&lt;Actualiser&gt;**. Le nouveau cluster est répertorié dans la zone de liste déroulante ; sélectionnez-le.
+La création d’un cluster Service Fabric prend un certain temps. Une fois qu’il a été créé, revenez à la boîte de dialogue de publication et sélectionnez **&lt;Actualiser&gt;** . Le nouveau cluster est répertorié dans la zone de liste déroulante ; sélectionnez-le.
 
 Appuyez sur **Publier** et attendez que le déploiement se termine.
 

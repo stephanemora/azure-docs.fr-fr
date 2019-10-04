@@ -1,32 +1,47 @@
 ---
-title: Récupérer la liste POP Verizon actuelle pour Azure CDN | Microsoft Docs
-description: Découvrez comment récupérer la liste POP Verizon actuelle à l’aide de l’API REST.
+title: Récupérer la liste d’adresses IP POP actuelle pour Azure CDN | Microsoft Docs
+description: Découvrez comment récupérer la liste POP actuelle.
 services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
-ms.author: kumud
+ms.date: 08/22/2019
+ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 2b34f6bcbf37a48fb49a2a64d727fc9330b0d735
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f677d6b8edfe60646c6368acce9d47b23a35237d
+ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882251"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71146892"
 ---
-# <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Récupérer la liste POP Verizon actuelle pour Azure CDN
+# <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Récupérer la liste d’adresses IP POP actuelle pour Azure CDN
+
+## <a name="retrieve-the-current-verizon-pop-ip-list-for-azure-cdn"></a>Récupérer la liste d’adresses IP POP Verizon actuelle pour Azure CDN
 
 Vous pouvez utiliser l’API REST pour récupérer l’ensemble des adresses IP pour les serveurs POP (point de présence) de Verizon. Ces serveurs POP effectuent des requêtes aux serveurs d’origine qui sont associés à des points de terminaison Azure Content Delivery Network (CDN) sur un profil Verizon (**Azure CDN Standard de Verizon** ou **Azure CDN Premium de Verizon**). Notez que cet ensemble d’adresses IP est différent des adresses IP qu’un client voit lorsqu’ils effectue des requêtes auprès des serveurs POP. 
 
 Pour connaître la syntaxe de l’opération d’API REST pour la récupération de la liste POP, consultez [Nœuds de périphérie - Liste](https://docs.microsoft.com/rest/api/cdn/edgenodes/list).
+
+## <a name="retrieve-the-current-microsoft-pop-ip-list-for-azure-cdn"></a>Récupérer la liste d’adresses IP POP Microsoft actuelle pour Azure CDN
+
+Pour verrouiller votre application de sorte qu’elle n’accepte que le trafic provenant de Microsoft Azure CDN, vous devez configurer les ACL IP pour votre back-end. Vous pouvez également restreindre l’ensemble des valeurs acceptées pour l’en-tête « X-Forwarded-Host » envoyé par Microsoft Azure CDN. Voici le détail de ces étapes :
+
+Configurez les ACL IP pour vos back-ends de manière à accepter uniquement le trafic en provenance de l’espace d’adressage IP de Microsoft Azure CDN et des services d’infrastructure d’Azure. 
+
+* Espace d’adressage IP du back-end IPv4 de Microsoft Azure CDN : 147.243.0.0/16
+* Espace d’adressage IP du back-end IPv6 de Microsoft Azure CDN : 2a01:111:2050::/44
+
+Vous trouverez les plages d’adresses IP et les étiquettes de service pour les services Microsoft [ici](https://www.microsoft.com/download/details.aspx?id=56519).
+
+Filtrez sur les valeurs acceptées pour l’en-tête entrant « X-Forwarded-Host » envoyé par Microsoft Azure CDN. Les seules valeurs autorisées pour l’en-tête doivent être tous les hôtes de point de terminaison comme défini dans votre configuration CDN. Plus précisément, il s’agit uniquement des noms des hôtes en provenance desquels vous souhaitez accepter le trafic sur votre origine spécifique.
 
 ## <a name="typical-use-case"></a>Cas d’utilisation classique
 

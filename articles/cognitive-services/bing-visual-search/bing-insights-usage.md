@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: scottwhi
 ms.openlocfilehash: 94f8d4ea98f42ad919597ef53dc63281825f0e6b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786425"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60610345"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exemples d’utilisation d’insights de Bing
 
@@ -23,25 +23,25 @@ Cet article contient des exemples d’utilisation et d’affichage d’insights 
 
 ## <a name="pagesincluding-insight-example"></a>Exemple d’insight PagesIncluding
 
-Ce qui suit affiche un lien vers la première page Web et permet à l’utilisateur Développer / réduire la liste des autres pages Web qui incluent l’image :
+L’exemple suivant affiche un lien vers la première page web et permet à l’utilisateur de développer et de réduire la liste des autres pages web qui contiennent l’image :
 
 ![Pages développés incluant](./media/pages-including.PNG)
 
 ## <a name="shoppingsources-insight-example"></a>Exemple d’insight ShoppingSources
 
-L’exemple suivant montre comment Bing peut afficher des sources d’achat de produits illustrés dans l’image :
+L’exemple suivant montre comment Bing peut afficher des sources d’achat des produits illustrés dans l’image :
 
 ![Sources d’achat](./media/shopping-sources.PNG)
 
 ## <a name="visualsearch-insight-example"></a>Exemple d’insight VisualSearch
 
-L’exemple suivant montre comment Bing peut afficher des images similaires (consultez **images associées** dans l’exemple) :
+L’exemple suivant montre comment Bing peut afficher des images visuellement similaires (consultez **Images liées** dans l’exemple) :
 
 ![Images visuellement similaires](./media/similar-images.PNG)
 
 ## <a name="recipes-insight-example"></a>Exemple d’insight Recipes
 
-L’exemple suivant montre comment Bing peut afficher des recettes pour les produits alimentaires illustrés dans l’image. L’exemple informe l’utilisateur recettes sont disponibles :
+L’exemple suivant montre comment Bing peut afficher des recettes pour les produits alimentaires illustrés dans l’image. L’exemple informe l’utilisateur que des recettes sont disponibles :
 
 ![Recettes et pages incluant](./media/recipes-pages-including.PNG)
 
@@ -57,7 +57,7 @@ L’exemple suivant montre comment Bing peut afficher les recherches connexes d�
 
 ## <a name="entity-insight-example"></a>Exemple d’insight Entity
 
-L’exemple suivant montre comment Bing peut afficher des informations sur l’entité (personne, emplacement ou chose) illustrée dans l’image. Si l’utilisateur clique sur le lien de l’entité, l’utilisateur est dirigé vers la page de résultats de recherche de Bing.com pour l’entité :
+L’exemple suivant montre comment Bing peut afficher des informations sur l’entité (personne, emplacement ou chose) illustrée dans l’image. Si l’utilisateur clique sur l’entité, il est dirigé vers la page des résultats de la recherche Bing.com pour l’entité :
 
 ![Entité illustrée dans l’image](./media/entity.PNG)
 
@@ -69,13 +69,13 @@ L’exemple suivant montre comment Bing peut afficher d’autres informations su
 
 ## <a name="bounding-boxes-and-hot-spots"></a>Rectangles englobants et zones réactives
 
-Les balises autres que celles par défaut incluent le rectangle englobant qui identifie la zone d’intérêt dans l’image à laquelle la balise s’applique. Si le rectangle englobant n’identifie pas l’image entière, utilisez le rectangle englobant pour créer une zone réactive sur l’image. L’utilisateur peut cliquer sur la zone réactive pour obtenir des informations relatives au contenu figurant sous la zone réactive (ou rectangle). Par exemple, si l’image est une image haute Round-Robin, les résultats peuvent contenir les balises (et zones englobantes) pour les accessoires illustré dans l’image, comme un sac, bijoux, scarfs et ainsi de suite. L’exemple suivant montre un rectangle réactive pour l’ensoleillement est maximal indiqué dans l’image :
+Les balises autres que celles par défaut incluent le rectangle englobant qui identifie la zone d’intérêt dans l’image à laquelle la balise s’applique. Si le rectangle englobant n’identifie pas l’image entière, utilisez le rectangle englobant pour créer une zone réactive sur l’image. L’utilisateur peut cliquer sur la zone réactive pour obtenir des informations relatives au contenu figurant sous la zone réactive (ou rectangle). Par exemple, si l’image est une image relative à la mode, les résultats peuvent contenir des balises (et des rectangles englobants) pour les accessoires illustrés dans l’image, par exemple un sac, des bijoux, des foulards, et ainsi de suite. L’exemple suivant montre un rectangle de zone réactive pour les lunettes de soleil illustrées dans l’image :
 
 ![Rectangle englobant et zone réactive](./media/click-to-search.PNG)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer avec votre première requête, consultez les Démarrages rapides : [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+Pour configurer votre première demande, consultez ces guides de démarrage rapide : [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

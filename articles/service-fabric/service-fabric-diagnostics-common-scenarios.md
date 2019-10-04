@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669280"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "60394204"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostiquer des scénarios courants avec Service Fabric
 
-Cet article décrit les scénarios courants que les utilisateurs ont rencontrés dans le domaine du monitoring et des diagnostics avec Service Fabric. Les scénarios présentés couvrent les 3 couches de Service Fabric : Application, Cluster et Infrastructure. Chaque solution utilise Application Insights et des journaux Azure Monitor, outils, de surveillance Azure pour réaliser chaque scénario. Les étapes décrites dans chaque solution donnent aux utilisateurs une présentation sur la façon d’utiliser Application Insights et Azure Monitor enregistre dans le contexte de Service Fabric.
+Cet article décrit les scénarios courants que les utilisateurs ont rencontrés dans le domaine du monitoring et des diagnostics avec Service Fabric. Les scénarios présentés couvrent les 3 couches de Service Fabric : Application, Cluster et Infrastructure. Chaque solution utilise Application Insights et les journaux Azure Monitor, ainsi que des outils de monitoring Azure, pour chaque scénario. Les étapes de chaque solution offrent aux utilisateurs une introduction à l’utilisation d’Application Insights et de journaux Azure Monitor dans le contexte de Service Fabric.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -32,8 +32,8 @@ Cet article décrit les scénarios courants que les utilisateurs ont rencontrés
 Les solutions de cet article utilisent les outils suivants. Nous vous recommandons de les installer et de les configurer :
 
 * [Application Insights avec Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
-* [Activer Azure Diagnostics sur votre cluster](service-fabric-diagnostics-event-aggregation-wad.md)
-* [Configurer un espace de travail Analytique de journal](service-fabric-diagnostics-oms-setup.md)
+* [Activer Diagnostics Azure sur votre cluster](service-fabric-diagnostics-event-aggregation-wad.md)
+* [Configurer un espace de travail Log Analytics](service-fabric-diagnostics-oms-setup.md)
 * [Agent Log Analytics pour suivre les compteurs de performances](service-fabric-diagnostics-oms-agent.md)
 
 ## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>Comment voir les exceptions non gérées dans mon application ?
@@ -62,10 +62,10 @@ Les solutions de cet article utilisent les outils suivants. Nous vous recommando
 
 ## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Comment créer une alerte quand un nœud est en baisse ?
 
-1. Les événements de nœud sont suivis par votre cluster Service Fabric. Accédez à la ressource de la solution Service Fabric Analytics nommée **ServiceFabric(NameofResourceGroup)**.
+1. Les événements de nœud sont suivis par votre cluster Service Fabric. Accédez à la ressource de la solution Service Fabric Analytics nommée **ServiceFabric(NameofResourceGroup)** .
 2. Cliquez sur le graphe en bas du panneau intitulé « Résumé ».
 
-    ![Azure Monitor enregistre la solution](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Solution de journaux Azure Monitor](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. Ici, vous avez un grand nombre de graphes et de vignettes affichant diverses métriques. Cliquez sur l’un des graphes, ce qui vous dirigera vers la recherche dans les journaux. Ici, vous pouvez créer des requêtes sur des événements de cluster ou des compteurs de performances.
 4. Entrez la requête suivante. Ces ID d’événement se trouvent dans la [référence des événements de nœud](service-fabric-diagnostics-event-generation-operational.md#application-events)
@@ -77,7 +77,7 @@ Les solutions de cet article utilisent les outils suivants. Nous vous recommando
 
 5. Cliquez sur « Nouvelle règle d’alerte » en haut. À partir de maintenant, chaque fois qu’un événement arrive en fonction de cette requête, vous recevez une alerte dans le mode de communication de votre choix.
 
-    ![Azure Monitor ouvre une nouvelle alerte](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Azure Monitor journalise une nouvelle alerte](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Comment être averti de restaurations de mise à niveau d’application ?
 
@@ -129,10 +129,10 @@ Dans la même vue où se trouvent tous les graphes, vous pouvez voir quelques vi
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Comment suivre les performances de mes événements Reliable Services et Actors ?
 
-Pour suivre les performances des Services fiables ou des acteurs dans vos applications, vous devez collecter les compteurs Service Fabric Actor, méthode d’acteur, Service et méthode de Service. Voici des exemples reliable service et l’acteur de compteurs de performance à collecter
+Pour le suivi des performances des événements Reliable Services ou Actors dans vos applications, vous devez aussi collecter les compteurs Service Fabric Actor, Actor Method, Service et Service Method. Voici des exemples de compteurs de performances des services et des acteurs fiables à collecter
 
 >[!NOTE]
->Compteurs de performance de service Fabric ne peuvent pas être collectées par l’agent d’Analytique de journal actuellement, mais peuvent être collectées par [autres solutions de Diagnostics](service-fabric-diagnostics-partners.md)
+>Pour le moment, l’agent Log Analytics ne peut pas collecter les compteurs de performance de Service Fabric. Cependant, ces derniers peuvent être collectés par d’[autres solutions de diagnostic](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
@@ -145,7 +145,7 @@ Consultez ces liens pour obtenir la liste complète des compteurs de performance
 
 * [Configurer des alertes dans AI](../azure-monitor/app/alerts.md) pour être averti des changements de performances ou d’utilisation
 * La [détection intelligente dans Application Insights](../azure-monitor/app/proactive-diagnostics.md) effectue une analyse proactive de la télémétrie envoyée à AI pour vous avertir d’éventuels problèmes de performances
-* En savoir plus sur les journaux d’Azure Monitor [d’alerte](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics.
-* Pour les clusters en local, les journaux Azure Monitor propose une passerelle (Proxy de transfert HTTP) qui peut être utilisée pour envoyer des données dans les journaux d’Azure Monitor. En savoir plus à ce sujet dans [connexion des ordinateurs sans accès à Internet pour les journaux Azure Monitor à l’aide de la passerelle d’Analytique de journal](../azure-monitor/platform/gateway.md)
-* Familiarisez-vous avec les [journal des requêtes et recherches](../log-analytics/log-analytics-log-searches.md) fonctionnalités offertes dans le cadre des journaux d’Azure Monitor
-* Obtenir une présentation plus détaillée des journaux Azure Monitor et ce qu’il propose, lisez [What ' s journaux Azure Monitor ?](../operations-management-suite/operations-management-suite-overview.md)
+* Découvrez plus en détail la [création d’alertes](../log-analytics/log-analytics-alerts.md) dans les journaux Azure Monitor pour faciliter la détection et les diagnostics.
+* Pour les clusters locaux, les journaux Azure Monitor proposent une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données aux journaux Azure Monitor. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs aux journaux Azure Monitor sans accès Internet à l’aide de la passerelle Log Analytics](../azure-monitor/platform/gateway.md)
+* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par les journaux Azure Monitor
+* Pour obtenir une présentation plus détaillée des journaux Azure Monitor et de ce qu’ils proposent, lisez [Présentation des journaux Azure Monitor](../operations-management-suite/operations-management-suite-overview.md).

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: MT
+ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164906"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620789"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Résoudre les problèmes liés aux sorties Azure Stream Analytics
 
@@ -79,7 +79,7 @@ Pour afficher les détails, dans le Portail Azure, sélectionnez le travail de d
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Avertissement de violation de clé avec la sortie Azure SQL Database
 
-Quand vous configurez Azure SQL Database comme sortie d’une tâche Stream Analytics, les enregistrements sont insérés en bloc dans la table de destination. En règle générale, Azure Stream Analytics garantit [au moins une remise]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics) dans le récepteur de sortie, mais vous pouvez toujours [obtenir exactement une remise]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) dans la sortie SQL quand une contrainte unique est définie pour la table SQL. 
+Quand vous configurez Azure SQL Database comme sortie d’une tâche Stream Analytics, les enregistrements sont insérés en bloc dans la table de destination. En règle générale, Azure Stream Analytics garantit [au moins une remise](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) dans le récepteur de sortie, mais vous pouvez toujours [obtenir exactement une remise]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) dans la sortie SQL quand une contrainte unique est définie pour la table SQL. 
 
 Une fois les contraintes clés uniques configurées sur la table SQL et que des enregistrements en double sont insérés dans la table SQL, Azure Stream Analytics supprime l’enregistrement en double. Il fractionne les données en lots et insère les lots de manière récursive jusqu'à trouver un seul enregistrement en double. Si le travail de diffusion en continu a un nombre considérable de lignes en double, cette division et le processus d’insertion doit ignorer les doublons, un par un, ce qui est moins efficace et prend plus de temps. Si vous voyez plusieurs messages d’avertissement de violation de clé dans votre journal d’activité au cours de l’heure passée, il est probable que votre sortie SQL ralentit l’intégralité de la tâche. 
 
@@ -91,6 +91,10 @@ Notez les observations suivantes lors de la configuration d’IGNORE_DUP_KEY pou
 * Vous pouvez définir l’option IGNORE_DUP_KEY avec ALTER INDEX pour un index unique, qui est différent de la contrainte PRIMARY KEY/UNIQUE et créé à l’aide de la définition CREATE INDEX ou INDEX.  
 * IGNORE_DUP_KEY ne s’applique pas aux index de stockage de colonnes, car vous ne pouvez pas imposer l’unicité sur ces derniers.  
 
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Le nom des colonnes est mis en minuscules par Azure Stream Analytics
+Avec le niveau de compatibilité d’origine (1.0), Azure Stream Analytics passait le nom des colonnes en minuscules. Ce comportement a été résolu dans les niveaux de compatibilité ultérieurs. Pour préserver la casse, nous conseillons aux clients de passer au niveau de compatibilité 1.1 ou version ultérieure. Pour plus d’informations, consultez [Comprendre le niveau de compatibilité pour les travaux Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+
+
 ## <a name="get-help"></a>Obtenir de l’aide
 
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
@@ -100,5 +104,5 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
 * [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Références sur le langage des requêtes d'Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

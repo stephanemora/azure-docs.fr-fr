@@ -3,8 +3,8 @@ title: Problèmes de connexion à une application à partir du volet d’accès 
 description: Comment dépanner les problèmes d’accès à une application à partir du volet d’accès Microsoft Azure AD sur myapps.microsoft.com
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691022762e63687c298090c02f486993b4fd77a5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 51e486e8eb2fef04c1b876dff3de644dda4aaf2e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076868"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65781136"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problèmes de connexion à une application à partir du volet d’accès
 
@@ -333,7 +333,7 @@ Pour sélectionner l’identificateur de l’utilisateur ou ajouter des attribut
 
    1. Cliquez sur **Ajouter un attribut**. Entrez le **Nom**, puis sélectionnez la **Valeur** dans la liste déroulante.
 
-   2. Cliquez sur **Enregistrer**. Le nouvel attribut s’affiche dans le tableau.
+   2\. Cliquez sur **Enregistrer**. Le nouvel attribut s’affiche dans le tableau.
 
 ### <a name="download-the-azure-ad-metadata-or-certificate"></a>Télécharger les métadonnées ou le certificat Azure AD
 

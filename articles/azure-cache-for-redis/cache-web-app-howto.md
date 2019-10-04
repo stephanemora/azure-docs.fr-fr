@@ -15,28 +15,21 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 7cca9d020d5e999bda2c494853295957da5cca1a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886367"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326497"
 ---
-# <a name="quickstart-create-an-aspnet-web-app"></a>Démarrage rapide : Créez une application web ASP.NET 
+# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec une application web ASP.NET 
 
-## <a name="introduction"></a>Introduction
-
-Ce démarrage rapide explique comment créer et déployer une application web ASP.NET sur Azure App Service à l’aide de Visual Studio 2017. L’exemple d’application se connecte au cache Azure pour Redis pour stocker des données et les récupérer à partir du cache. À la fin de ce guide de démarrage rapide, vous disposerez d’une application web hébergée dans Azure qui effectue des opérations de lecture et d’écriture dans le cache Azure pour Redis.
-
-![Test simple terminé dans Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Dans ce guide de démarrage rapide, vous allez utiliser Visual Studio 2019 pour créer une application web ASP.NET qui se connecte au cache Azure pour Redis afin de stocker et de récupérer des données du cache. Ensuite, vous déploierez cette application sur Azure App Service.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour effectuer ce démarrage rapide, vous devez installer [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les environnements suivants :
-* Développement web et ASP.NET
-* Développement Azure
+- Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec les charges de travail **Développement web et ASP.NET** et **Développement Azure**
 
 ## <a name="create-the-visual-studio-project"></a>Créer le projet Visual Studio
 
@@ -46,7 +39,7 @@ Pour effectuer ce démarrage rapide, vous devez installer [Visual Studio 2017](h
 
     ![Créer un projet](./media/cache-web-app-howto/cache-create-project.png)
 
-    a. Dans la liste **Modèles**, développez le nœud **Visual C#**.
+    a. Dans la liste **Modèles**, développez le nœud **Visual C#** .
 
     b. Sélectionnez **Cloud**.
 
@@ -116,7 +109,7 @@ Quand vous exécutez l’application localement, les informations stockées dans
 2. Dans le fichier *web.config*, recherchez l’élément `<appSetting>`. Ajoutez ensuite l’attribut `file` suivant. Si vous avez utilisé un autre nom de fichier ou un autre emplacement, remplacez ces valeurs par celles indiquées dans l’exemple.
 
 * Avant : `<appSettings>`
-* Après :  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Après : `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 Le runtime ASP.NET fusionne le contenu du fichier externe avec le balisage dans l’élément `<appSettings>`. Le runtime ignore l’attribut de fichier si le fichier spécifié est introuvable. Vos secrets (la chaîne de connexion à votre cache) ne sont pas inclus dans le code source de l’application. Quand vous déployez votre application web sur Azure, le fichier *CacheSecrets.config* n’est pas déployé.
 
@@ -203,7 +196,7 @@ Le runtime ASP.NET fusionne le contenu du fichier externe avec le balisage dans 
 
 ### <a name="to-add-a-new-rediscache-view"></a>Pour ajouter un nouvel affichage RedisCache
 
-1. Dans l’**Explorateur de solutions**, développez le dossier **Vues** et cliquez avec le bouton droit sur le dossier **Accueil**. Choisissez **Ajouter** > **Vue...**.
+1. Dans l’**Explorateur de solutions**, développez le dossier **Vues** et cliquez avec le bouton droit sur le dossier **Accueil**. Choisissez **Ajouter** > **Vue...** .
 
 2. Dans la boîte de dialogue **Ajouter un affichage**, entrez **RedisCache** dans le champ Nom de l’affichage. Sélectionnez ensuite **Ajouter**.
 
@@ -279,7 +272,7 @@ Après avoir testé l’application avec succès localement, vous pouvez déploy
     | **Nom de l’application** | Utilisez la valeur par défaut. | Le nom de l’application est le nom d’hôte de l’application lors de son déploiement sur Azure. Un suffixe d’horodatage peut être ajouté au nom si nécessaire pour le rendre unique. |
     | **Abonnement** | Choisissez votre abonnement Azure. | Tous les frais d’hébergement associés sont facturés sur cet abonnement. Si vous possédez plusieurs abonnements Azure, vérifiez que l’abonnement souhaité est sélectionné.|
     | **Groupe de ressources** | Utilisez le même groupe de ressources que celui où vous avez créé le cache (par exemple, *TestResourceGroup*). | Le groupe de ressources vous permet de gérer toutes les ressources en tant que groupe. Pour supprimer l’application ultérieurement, vous pouvez simplement supprimer le groupe. |
-    | **Plan App Service** | Sélectionnez **Nouveau** et créez un plan App Service nommé *TestingPlan*. <br />Utilisez le même **emplacement** que pour la création de votre cache. <br />Pour la taille, choisissez **Gratuit**. | Un plan App Service définit un ensemble de ressources de calcul à utiliser pour l’exécution d’une application web. |
+    | **Plan App Service** | Sélectionnez **Nouveau** et créez un plan App Service nommé *TestingPlan*. <br />Utilisez le même **emplacement** que pour la création de votre cache. <br />Pour la taille, choisissez **Gratuit**. | Un plan App Service définit un ensemble de ressources de calcul à utiliser pour l’exécution d’une application web. |
 
     ![Boîte de dialogue App Service](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 
@@ -324,7 +317,7 @@ Sinon, dans le cas où l’exemple d’application de démarrage rapide était v
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com), puis sélectionnez **Groupes de ressources**.
 
-2. Dans la zone **Filtrer par nom...**, saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources, dans la liste des résultats, sélectionnez **...**, puis **Supprimer le groupe de ressources**.
+2. Dans la zone **Filtrer par nom...** , saisissez le nom de votre groupe de ressources. Les instructions de cet article ont utilisé un groupe de ressources nommé *TestResources*. Sur votre groupe de ressources, dans la liste des résultats, sélectionnez **...** , puis **Supprimer le groupe de ressources**.
 
     ![Supprimer](./media/cache-web-app-howto/cache-delete-resource-group.png)
 

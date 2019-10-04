@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505811"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177087"
 ---
 Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessitent la collecte des fichiers journaux du service sur les machines virtuelles au fur et à mesure que les problèmes surviennent. Vous pouvez utiliser l’extension AzureLogCollector à la demande pour exécuter une collecte unique de journaux d’activité à partir d’une ou de plusieurs machines virtuelles de service cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à l’une des machines virtuelles.
 
@@ -20,8 +20,8 @@ Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessitent 
 
 Il existe deux modes de collecte dépendant des types de fichiers à recueillir.
 
-* **Journaux des agents invités Azure uniquement (GA)**. Ce mode de collecte inclut tous les journaux d’activité liés aux agents invités d’Azure et d’autres composants Azure.
-* **Tous les journaux (Complet)**. Ce mode de collecte recueille tous les fichiers en mode GA, plus les suivants :
+* **Journaux d’activité des agents invités Azure uniquement (GA)** . Ce mode de collecte inclut tous les journaux d’activité liés aux agents invités d’Azure et d’autres composants Azure.
+* **Tous les journaux d’activité (Complet)** . Ce mode de collecte recueille tous les fichiers en mode GA, plus les suivants :
   
   * journaux des événements système et d’application
   * Journaux d’activité d’erreurs HTTP
@@ -41,7 +41,7 @@ Dans les deux modes de collecte, les dossiers de collecte de données supplémen
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 * Disposer d’un compte de stockage comme extension pour enregistrer les fichiers zip générés
-* Azure PowerShell. Consultez [installer Azure PowerShell](/powershell/azure/install-az-ps)] pour obtenir des instructions d’installation.
+* Azure PowerShell. Pour obtenir des instructions d’installation, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="add-the-extension"></a>Ajouter l’extension
 Vous pouvez utiliser les applets de commande [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) ou les [API REST Gestion des services](https://msdn.microsoft.com/library/ee460799.aspx) pour ajouter l’extension AzureLogCollector.

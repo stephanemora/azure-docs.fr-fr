@@ -1,48 +1,57 @@
 ---
-title: Azure Data Factory mappage de Transformation de ligne de modification de flux de données
-description: Comment mettre à jour de la cible de base de données à l’aide d’Azure Data Factory mappage flux Alter ligne Transformation des données
+title: Transformation de Alter Row du flux de données de mappage Azure Data Factory
+description: Comment mettre à jour la cible de base de données à l’aide de la transformation de Alter Row du flux de données de mappage Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: d842898ca700490ae99b46140be6609622a144df
-ms.sourcegitcommit: 5f41e855d415cfa741d8f710792ea486480df5cf
-ms.translationtype: MT
+ms.openlocfilehash: e2cd69d5977b8ad1d9be2a71a006579fe3abfd23
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133159"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69971244"
 ---
-# <a name="azure-data-factory-alter-row-transformation"></a>Transformation de ligne de Alter Azure Data Factory
+# <a name="azure-data-factory-alter-row-transformation"></a>Transformation de Alter Row du flux de données de mappage Azure Data Factory
 
-Utiliser la transformation de ligne de modification pour définir des stratégies insert, delete, update et upsert sur les lignes. Vous pouvez ajouter des conditions de type un-à-plusieurs en tant qu’expressions. Chacune de ces conditions peut entraîner une (ou plusieurs lignes) inséré, mis à jour, supprimées ou upsert. Ligne de ALTER peut produire des actions DDL et DML sur votre base de données.
+Utiliser la transformation de Alter Row pour définir des stratégies insert, delete, update et upsert sur les lignes. Vous pouvez ajouter des conditions de type un-à-plusieurs en tant qu’expressions. Ces conditions doivent être spécifiées par ordre de priorité, car chaque ligne sera marquée avec la stratégie liée à la première correspondance. Chacune de ces conditions peut entraîner l'insertion, la mise à jour, la suppression ou l'upsert d'une ligne (ou de plusieurs lignes). Alter Row peut produire des actions DDL et DML sur votre base de données.
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Modifier les paramètres de ligne](media/data-flow/alter-row1.png "modifier les paramètres de ligne")
+![Paramètres Alter row](media/data-flow/alter-row1.png "Paramètres Alter row")
 
 > [!NOTE]
-> Transformations de ligne de ALTER fonctionnera uniquement sur les récepteurs de base de données dans votre flux de données. Les actions que vous attribuez aux lignes (insert, update, delete, upsert) ne sont pas lieu au cours de sessions de débogage. Vous devez ajouter une tâche Exécuter le flux de données à un pipeline et utiliser des déclencheurs ou débogage de pipeline pour mettre en œuvre les stratégies de la ligne alter sur vos tables de base de données.
+> Les transformations Alter Row ne fonctionnent que sur les récepteurs de base de données de votre flux de données. Les actions que vous attribuez aux lignes (insert, update, delete, upsert) n’ont pas lieu au cours des sessions de débogage. Vous devez ajouter une tâche Exécuter le flux de données à un pipeline et utiliser le débogage de pipeline ou des déclencheurs pour mettre en œuvre les stratégies Alter Row sur vos tables de base de données.
+
+## <a name="indicate-a-default-row-policy"></a>Indiquer une stratégie de ligne par défaut
+
+Créez une transformation Alter Row et spécifiez une stratégie de ligne associée à la condition `true()`. Les lignes qui ne correspondent à aucune des expressions définies précédemment seront associées à la stratégie de ligne spécifiée. Par défaut, les lignes qui ne correspondent à aucune expression conditionnelle seront associées à `Insert`.
+
+![Alter Row - Une stratégie](media/data-flow/alter-row4.png "Alter Row - Une stratégie")
+
+> [!NOTE]
+> Pour associer une stratégie à toutes les lignes, vous pouvez créer une condition pour cette stratégie et spécifier la condition comme `true()`.
 
 ## <a name="view-policies"></a>Afficher les stratégies
 
-Basculer le mode de déboguer des flux de données sur activé et affichez les résultats de vos stratégies de la ligne alter dans le volet de visualisation de données. L’exécution d’une ligne alter en mode de données de flux de débogage ne produira pas les actions DDL ou DML par rapport à votre cible. Pour que ces actions se produise, exécuter le flux de données à l’intérieur d’une activité d’exécution de flux de données à l’intérieur d’un pipeline.
+Activez le mode de débogage du flux de données et affichez les résultats de vos stratégies Alter Row dans le volet d'aperçu des données. L’exécution d’une commande Alter Row en mode de débogage du flux de données ne produira pas d’actions DDL ou DML sur votre cible. Pour que ces actions se produisent, exécutez le flux de données au sein d'une activité d'exécution de flux de données au sein d'un pipeline.
 
-![Modifier les stratégies de ligne](media/data-flow/alter-row3.png "modifier les stratégies de ligne")
+![Stratégies Alter Row](media/data-flow/alter-row3.png "Stratégies Alter Row")
 
-Cela vous permettra de vérifier et afficher l’état de chaque ligne en fonction de vos conditions. Icône représente pour chaque instruction insert, update, delete et upsert action qui se produisent dans votre flux de données, qui indique quelle action aura lieu lorsque vous exécutez le flux de données à l’intérieur d’un pipeline.
+Cela permet de vérifier et d’afficher l’état de chaque ligne selon vos conditions. Des icônes représentent chaque action insert, update, delete et upsert survenant dans votre flux de données, et qui indiquent quelle action a lieu lorsque vous exécutez le flux de données au sein d’un pipeline.
 
-## <a name="sink-settings"></a>Paramètres du récepteur
+## <a name="sink-settings"></a>Paramètres de récepteur
 
-Vous devez avoir une base de données récepteur de type de la ligne Alter fonctionne. Dans le récepteur de paramètres, vous devez définir chaque action à autoriser.
+Vous devez disposer d’un type de récepteur de base de données pour que Alter Row fonctionne. Dans le récepteur Paramètres, vous devez définir chaque action correspondant aux conditions Alter Row à autoriser.
 
-![ALTER récepteur de ligne](media/data-flow/alter-row2.png "Alter de récepteur de ligne")
+![Récepteur Alter Row](media/data-flow/alter-row2.png "Récepteur Alter Row")
 
-Le comportement par défaut dans le flux de données ADF avec les récepteurs de la base de données consiste à insérer des lignes. Si vous souhaitez autoriser les mises à jour et suppressions ainsi upserts, vous devez également vérifier ces zones dans le récepteur pour autoriser les actions.
+Le comportement par défaut dans un flux de données ADF avec des récepteurs de base de données consiste à insérer des lignes. Si vous souhaitez autoriser des mises à jour, des suppressions et des upserts, vous devez également cocher ces zones dans le récepteur pour autoriser les actions.
 
 > [!NOTE]
-> Si votre insertions, mises à jour ou upserts modifier le schéma de la table cible dans le récepteur, votre flux de données échoue. Afin de modifier le schéma cible dans votre base de données, vous devez choisir l’option « Recréez la table » dans le récepteur. Cela sera supprimez et recréez votre table avec la nouvelle définition de schéma.
+> Si vos insertions, mises à jour ou upserts modifient le schéma de la table cible du récepteur, le flux de données échoue. Afin de modifier le schéma cible de votre base de données, vous devez choisir l’option « Recréer la table » dans le récepteur. Cela supprime et recrée votre table selon la nouvelle définition de schéma.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après la transformation de ligne de modification, vous pouvez souhaiter [récepteur vos données dans un magasin de données de destination](data-flow-sink.md).
+Une fois la transformation Alter Row effectuée, vous souhaiterez peut-être [transférer vos données vers un magasin de données de destination](data-flow-sink.md).

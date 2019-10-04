@@ -3,21 +3,21 @@ title: Transformer des données avec Databricks Notebook - Azure | Microsoft Doc
 description: Découvrez comment traiter ou transformer des données en exécutant un bloc-notes Databricks.
 services: data-factory
 documentationcenter: ''
-ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
+author: nabhishek
+ms.author: abnarain
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-author: sharonlo101
-ms.author: shlo
-manager: craigg
-ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+ms.openlocfilehash: 23166a4a0110629674db6ccc9d225118264b3c15
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576818"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70233066"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformer des données en exécutant un bloc-notes Databricks
 
@@ -59,18 +59,18 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 |Propriété|Description|Obligatoire|
 |---|---|---|
-|Nom|Nom de l'activité dans le pipeline.|Oui|
-|description|Texte décrivant l’activité.|Non |
-|Type|Pour l’activité Databricks Notebook, le type d’activité est DatabricksNotebook.|Oui|
-|linkedServiceName|Nom du service lié Databricks sur lequel s’exécute le bloc-notes Databricks. Pour en savoir plus sur ce service lié, consultez l’article  [Services liés de calcul](compute-linked-services.md) .|Oui|
-|notebookPath|Chemin absolu du notebook à exécuter dans l’espace de travail Databricks. Ce chemin doit commencer par une barre oblique.|Oui|
-|baseParameters|Tableau de paires clé-valeur. Des paramètres de base peuvent être utilisés pour chaque exécution d’activité. Si le notebook accepte un paramètre qui n’est pas spécifié, la valeur par défaut du notebook est utilisée. Pour obtenir d’autres paramètres, consultez [Databricks Notebooks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Non |
-|libraries|Liste de bibliothèques à installer sur le cluster qui exécute le travail. Il peut s’agir d’un tableau de \<chaîne, objet>.|Non |
+|name|Nom de l'activité dans le pipeline.|OUI|
+|description|Texte décrivant l’activité.|Non|
+|Type|Pour l’activité Databricks Notebook, le type d’activité est DatabricksNotebook.|OUI|
+|linkedServiceName|Nom du service lié Databricks sur lequel s’exécute le bloc-notes Databricks. Pour en savoir plus sur ce service lié, consultez l’article  [Services liés de calcul](compute-linked-services.md) .|OUI|
+|notebookPath|Chemin absolu du notebook à exécuter dans l’espace de travail Databricks. Ce chemin doit commencer par une barre oblique.|OUI|
+|baseParameters|Tableau de paires clé-valeur. Des paramètres de base peuvent être utilisés pour chaque exécution d’activité. Si le notebook accepte un paramètre qui n’est pas spécifié, la valeur par défaut du notebook est utilisée. Pour obtenir d’autres paramètres, consultez [Databricks Notebooks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Non|
+|libraries|Liste de bibliothèques à installer sur le cluster qui exécute le travail. Il peut s’agir d’un tableau de \<chaîne, objet>.|Non|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliothèques prises en charge pour les activités Databricks
 
-Dans la définition d’activité Databricks ci-dessus, vous précisez ces types de bibliothèques : *jar*, *egg*, *maven*, *pypi*,  *cran*.
+Dans la définition d’activité Databricks ci-dessus, vous précisez ces types de bibliothèques : *jar*, *egg*, *whl*, *maven*, *pypi*, *cran*.
 
 ```json
 {
@@ -80,6 +80,12 @@ Dans la définition d’activité Databricks ci-dessus, vous précisez ces types
         },
         {
             "egg": "dbfs:/mnt/libraries/library.egg"
+        },
+    {
+            "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
+        },
+        {
+            "whl": "dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip"
         },
         {
             "maven": {
@@ -105,6 +111,19 @@ Dans la définition d’activité Databricks ci-dessus, vous précisez ces types
 ```
 
 Pour plus d’informations, consultez la [documentation Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) pour les types de bibliothèques.
+
+## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Transmission de paramètres entre des notebooks et une fabrique de données
+
+Vous pouvez transmettre les paramètres d'une fabrique de données à des notebooks en utilisant la propriété *baseParameters* dans l'activité Databricks. 
+
+Dans certains cas, il peut être nécessaire de retransmettre certaines valeurs du notebook vers la fabrique de données. Celles-ci peuvent être utilisées pour le flux de contrôle (contrôles conditionnels) dans la fabrique de données ou être consommées par les activités situées en aval (taille maximale autorisée : 2 Mo). 
+
+1. Dans votre notebook, vous pouvez appeler [dbutils.notebook.exit ("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) et la valeur « returnValue » correspondante sera renvoyée à la fabrique de données.
+
+2. Vous pouvez utiliser la sortie dans la fabrique de données en utilisant une expression telle que `'@activity('databricks notebook activity name').output.runOutput'`. 
+
+   > [!IMPORTANT]
+   > Si vous transmettez un objet JSON, vous pouvez récupérer des valeurs en ajoutant des noms de propriété. Exemple : `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Comment charger une bibliothèque dans Databricks
 

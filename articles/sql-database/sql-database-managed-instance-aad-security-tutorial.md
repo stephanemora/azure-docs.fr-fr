@@ -8,14 +8,13 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 37098411f465c611dc9d2e2443f369e01d6e338c
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58882053"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231006"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Didacticiel : Sécurité des instances managées dans Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD
 
@@ -56,10 +55,12 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Limitation de l’accès à votre instance managée
 
-Les instances managées sont accessibles uniquement par le biais d’une adresse IP privée. Aucun point de terminaison de service n’est disponible pour la connexion à une instance managée en dehors du réseau d’instances managées. À l’instar d’un environnement local SQL Server isolé, les applications ou les utilisateurs doivent avoir accès au réseau (virtuel) d’instances managées pour pouvoir établir une connexion. Pour plus d’informations, consultez l’article suivant : [Connecter votre application à une instance managée](sql-database-managed-instance-connect-app.md).
+Les instances managées sont accessibles par le biais d’une adresse IP privée. À l’instar d’un environnement local SQL Server isolé, les applications ou les utilisateurs doivent avoir accès au réseau (virtuel) d’instances managées pour pouvoir établir une connexion. Pour plus d’informations, consultez l’article suivant : [Connecter votre application à une instance managée](sql-database-managed-instance-connect-app.md).
+
+Il est également possible de configurer un point de terminaison de service sur l’instance managée, ce qui permet les connexions publiques, de la même façon qu’Azure SQL Database. Pour plus d’informations, consultez l’article suivant : [Configurer un point de terminaison public dans une instance managée Azure SQL Database](sql-database-managed-instance-public-endpoint-configure.md).
 
 > [!NOTE] 
-> Dans la mesure où les instances managées sont accessibles uniquement au sein de leur réseau virtuel, les [règles de pare-feu SQL Database](sql-database-firewall-configure.md) ne s’appliquent pas. Une instance managée a son propre [pare-feu intégré](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Même si les points de terminaison de service sont activés, les [règles de pare-feu Azure SQL Database](sql-database-firewall-configure.md) ne s’appliquent pas. Une instance managée a son propre [pare-feu intégré](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) pour gérer la connectivité.
 
 ## <a name="create-an-azure-ad-server-principal-login-for-a-managed-instance-using-ssms"></a>Créer un principal de serveur (connexion) Azure AD pour une instance managée à l’aide de SSMS
 

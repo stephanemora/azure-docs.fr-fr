@@ -3,15 +3,15 @@ title: Exporter les certificats de l’émulateur Azure Cosmos DB
 description: Lors du développement des langages et des runtimes qui n’utilisent pas le magasin de certificats Windows, vous devrez exporter et gérer les certificats SSL. Cet article vous fournit des instructions pas à pas.
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 06/06/2017
+ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: cf280dfb806399a8c09838d965d71e7b18cb905f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a398c10511fdd3891a2c429f0ef46869dcc48922
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521388"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244448"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporter les certificats de l’émulateur Azure Cosmos DB pour une utilisation avec Java, Python et Node.js
 
@@ -44,7 +44,7 @@ Pour régénérer les certificats, cliquez sur **Réinitialiser les données** d
 
     ![Étape 2 - Exporter dans l’émulateur local Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png)
 
-3. Cliquez sur **Copier dans un fichier...**.
+3. Cliquez sur **Copier dans un fichier...** .
 
     ![Étape 3 - Exporter dans l’émulateur local Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
@@ -56,7 +56,7 @@ Pour régénérer les certificats, cliquez sur **Réinitialiser les données** d
 
     ![Étape 5 - Exporter dans l’émulateur local Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png)
 
-6. Cliquez sur **X.509 encodé en base 64 (.cer)**, puis sur **Suivant**.
+6. Cliquez sur **X.509 encodé en base 64 (.cer)** , puis sur **Suivant**.
 
     ![Étape 6 - Exporter dans l’émulateur local Azure Cosmos DB](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png)
 

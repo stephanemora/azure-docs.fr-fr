@@ -13,17 +13,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: d107a9dae29f18b90ba7c23198c0cc1f97d83c70
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b46e9ee8fc3e14981a01cc2425a8ce55d06c5a9a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65150736"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrer des données d’un appareil StorSimple 5000-7000 vers Azure File Sync
 
 > [!IMPORTANT]
-> 9 juillet 2019 la série StorSimple 5000/7000 marquera la fin de l’état de la prise en charge (EOS). Nous recommandons aux clients de la série StorSimple 5000/7000 de migrer vers l’une des alternatives décrites dans le document.
+> La fin du support de la série StorSimple 5000/7000 interviendra le 9 juillet 2019. Nous recommandons aux clients de la série StorSimple 5000/7000 de migrer vers l’une des alternatives décrites dans le document.
 
 La migration des données désigne le processus de déplacement des données d’un emplacement de stockage à un autre. Cela implique de réaliser une copie exacte des données actuelles d’une organisation d’un appareil à l’autre (de préférence sans interrompre ou désactiver les applications actives), puis de rediriger toutes les activités d’entrées/de sorties vers le nouvel appareil. 
 
@@ -87,7 +87,7 @@ Procédez comme suit pour migrer le partage de fichiers Windows configuré sur l
     Ignorez cette étape et passez à l’étape suivante si vous utilisez un autre hôte Windows Server. Si vous utilisez le même serveur de fichiers Windows pour AFS, un temps d’arrêt de quelques minutes a lieu. 
     - **Début du temps d’arrêt** : supprimez le point de terminaison de serveur que vous avez créé au cours de *l’étape 1F*. 
     - Créez un point de terminaison de serveur avec le chemin d’accès où vous souhaitez que les données qui s’y trouvent aillent.
-    - Une fois que le point de terminaison de serveur affiche l’état « Sain » (cela peut prendre quelques minutes), vous verrez les données dans ce nouvel emplacement. Vous pouvez désormais configurer votre hôte Windows Server pour traiter les fichiers à partir de ce nouvel emplacement. -**Fin du temps d’arrêt**.
+    - Une fois que le point de terminaison de serveur affiche l’état « Sain » (cela peut prendre quelques minutes), vous verrez les données dans ce nouvel emplacement. Vous pouvez désormais configurer votre hôte Windows Server pour traiter les fichiers à partir de ce nouvel emplacement. - **Fin du temps d’arrêt**.
 5.  Si vous utilisez un autre serveur de fichiers Windows pour Azure File Sync, il n’y aura aucun temps d’arrêt. 
     - Ajoutez un autre point de terminaison de serveur au chemin d’accès du stockage local que vous êtes prêt à utiliser en tant que cache à la place de l’appareil StorSimple. 
     - Vous serez en mesure de voir les fichiers dans le nouveau serveur après quelques minutes. Vous êtes libre de basculer de votre appareil StorSimple à ce nouvel emplacement sur l’hôte à tout moment.

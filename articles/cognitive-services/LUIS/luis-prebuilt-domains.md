@@ -1,5 +1,5 @@
 ---
-title: Domaines prédéfinis pour Language Understanding (LUIS)
+title: Domaines prédéfinis pour Language Understanding
 titleSuffix: Azure Cognitive Services
 description: LUIS inclut un ensemble de domaines prédéfinis pour ajouter rapidement des scénarios courants d’utilisateur conversationnel.
 services: cognitive-services
@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/24/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: e1b99396c4739dc6f1b7a4da0164553d4c25ef3c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e5d5de6a6f348fa3708b1e39fe2bdd3aa8693dee
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867101"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932653"
 ---
 # <a name="add-prebuilt-domains-for-common-usage-scenarios"></a>Ajouter des domaines prédéfinis pour les scénarios d’usage courants 
 

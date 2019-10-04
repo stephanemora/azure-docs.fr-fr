@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/31/2018
-ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 09/20/2019
+ms.openlocfilehash: 7dd87f38ca5dfb1c2fdd38b56b314e0cbbe3ce12
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006194"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71169916"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installer et utiliser l’extension Azure Terraform Visual Studio Code
 
@@ -134,7 +134,7 @@ Dans cet exercice, vous allez créer et exécuter un fichier de configuration Te
 
 1. Lancez Visual Studio Code.
 
-1. Dans la barre de menus Visual Studio Code, sélectionnez **Fichier > Ouvrir le dossier...**, puis localisez et sélectionnez votre fichier *main.tf*.
+1. Dans la barre de menus Visual Studio Code, sélectionnez **Fichier > Ouvrir le dossier...** , puis localisez et sélectionnez votre fichier *main.tf*.
 
     ![Fichier main.tf](media/terraform-vscode-extension/tf-main-tf.png)
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007472"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61442929"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Intégrer Azure Time Series Insights à la Supervision à distance
 
@@ -22,13 +22,13 @@ Azure Time Series Insights est un service entièrement managé d’analytique, d
 L’accélérateur de solution de supervision à distance assure désormais le déploiement automatique et l’intégration à Time Series Insights. Dans cette procédure, vous allez apprendre à configurer Time Series Insights pour une solution de supervision à distance existante qui ne contient pas déjà Time Series Insights.
 
 > [!NOTE]
-> Time Series Insights n’est pas encore disponible dans le cloud Azure Chine. Les nouveaux déploiements d’accélérateurs de solution de supervision à distance dans le cloud Azure en Chine utilisent Cosmos DB pour la totalité du stockage.
+> Time Series Insights n’est pas encore disponible dans le cloud Azure Chine. Les nouveaux déploiements d’accélérateur de solution de supervision à distance dans le cloud Azure Chine utilisent Cosmos DB pour l’intégralité du stockage.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer cette procédure, vous devez avoir déjà déployé une solution de supervision à distance :
 
-* [Déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md)
+* [Déployer l’accélérateur de solution de supervision à distance](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Créer un groupe de consommateurs
 
@@ -136,7 +136,7 @@ L’étape suivante consiste à configurer le microservice Azure Stream Analytic
 
 1. Choisissez le groupe de ressources **ContosoRM**.
 
-1. Dans la liste des ressources, recherchez le travail de diffusion en continu Azure Stream Analytics (ASA). Le nom de ressource commence par **streamingjobs-**.
+1. Dans la liste des ressources, recherchez le travail de diffusion en continu Azure Stream Analytics (ASA). Le nom de ressource commence par **streamingjobs-** .
 
 1. En haut, cliquez sur le bouton pour arrêter les travaux de diffusion en continu ASA.
 
@@ -238,7 +238,7 @@ Configurez l’environnement de déploiement `basic` pour les microservices mis 
 1. Redémarrez les conteneurs Docker à l’aide de l’élément `sudo ./start.sh` à partir de la machine virtuelle.
 
 > [!NOTE]
-> La configuration des variables d’environnement ci-dessus est valable pour les versions de surveillance à distance avant la version 1.0.2
+> La configuration des variables d’environnement ci-dessus est valable pour les versions de Surveillance à distance antérieures à 1.0.2
 
 ### <a name="standard-deployments"></a>Déploiements standard
 

@@ -3,19 +3,20 @@ title: Modèle Conversation Learner de démonstration, commande de pizza – Mic
 titleSuffix: Azure
 description: Découvrez comment créer un modèle Conversation Learner de démonstration.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 3fe11bef6c505771ee1e3f2e12e647eafc7c45d1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4d42121468b8a875ecd13fb936d810728bd4b644
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212441"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703424"
 ---
 # <a name="demo-pizza-order"></a>Démonstration : commande de pizza
 Cette démonstration illustre un bot de commande de pizza capable de prendre en charge une commande à la fois en :

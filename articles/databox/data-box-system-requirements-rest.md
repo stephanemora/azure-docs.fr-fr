@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
 ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004565"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61436492"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Exigences relatives au stockage Blob Azure Data Box
 
-Cet article répertorie les versions de l’API Azure, les bibliothèques clientes Azure et les outils pris en charge avec le stockage d’objets Blob de zone de données. Le stockage Blob Data Box fournit des fonctionnalités de gestion des objets blob avec une sémantique Azure cohérente. Cet article récapitule également les différences connues entre le stockage Blob Azure Data Box et les services de stockage Azure.
+Cet article liste les versions des API Azure, des bibliothèques de client Azure et des outils pris en charge avec le stockage Blob Data Box. Le stockage Blob Data Box fournit des fonctionnalités de gestion des objets blob avec une sémantique Azure cohérente. Cet article récapitule également les différences connues entre le stockage Blob Azure Data Box et les services de stockage Azure.
 
 Nous vous recommandons de lire attentivement les informations suivantes avant de vous connecter au stockage Blob Data Box, puis d'y revenir par la suite si nécessaire.
 
@@ -57,7 +57,7 @@ Des bibliothèques clientes spécifiques, de même que des exigences spécifique
 |--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    9.2.0                                           |    Package NuGet :   https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>Version de GitHub :   https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    Fichier app.config                 |
 |    Java                |    7.0.0                                           |    Package Maven :   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Version de GitHub :   https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Configuration de la chaîne de connexion         |
-|    Node.js             |    2.8.3                                           |    Lien NPM :   https://www.npmjs.com/package/azure-storage   (Exécuter : `npm install azure-storage@2.7.0`)   <br>Version de GitHub :   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Déclaration d’instance de service    |
+|    Node.js             |    2.8.3                                           |    Lien NPM :   https://www.npmjs.com/package/azure-storage   (Exécutez : `npm install azure-storage@2.7.0` )   <br>Version de GitHub :   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Déclaration d’instance de service    |
 |    C++                 |    5.2.0                                           |    Package NuGet :   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>Version de GitHub :   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Configuration de la chaîne de connexion         |
 |    PHP                 |    1.2.0                                           |    Version de GitHub :<br>Courant : https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Objet blob : https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Installer via Composer (pour en savoir plus, voir les détails ci-dessous.)                                                                                                             |    Configuration de la chaîne de connexion         |
 |    Python              |    1.1.0                                           |    Version de GitHub :<br>Courant :   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Objet blob :   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Déclaration d’instance de service    |
@@ -83,7 +83,7 @@ Pour installer via Composer : (prenez blob pour exemple).
 
 ### <a name="endpoint-declaration"></a>Déclaration de point de terminaison
 
-Un point de terminaison de stockage Blob Azure Data Box comprend deux parties : le nom d'une région et le domaine Data Box. Dans le stockage d’objets Blob de données boîte SDK, le point de terminaison par défaut est `\<serial no. of the device>.microsoftdatabox.com`.  Pour plus d'informations sur le point de terminaison du service d'objets blob, accédez à [Se connecter via le stockage Blob Data Box](data-box-deploy-copy-data-via-rest.md).
+Un point de terminaison de stockage Blob Azure Data Box comprend deux parties : le nom d'une région et le domaine Data Box. Dans le SDK du stockage Blob Data Box, le point de terminaison par défaut est `\<serial no. of the device>.microsoftdatabox.com`.  Pour plus d'informations sur le point de terminaison du service d'objets blob, accédez à [Se connecter via le stockage Blob Data Box](data-box-deploy-copy-data-via-rest.md).
  
 ## <a name="examples"></a>Exemples
 

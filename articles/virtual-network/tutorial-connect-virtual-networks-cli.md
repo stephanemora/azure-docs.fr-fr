@@ -1,10 +1,10 @@
 ---
-title: Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels - Azure CLI | Microsoft Docs
-description: Dans cet article, vous apprendrez à connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant Azure CLI.
+title: Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels - Azure CLI | Microsoft Docs
+description: Dans cet article, vous apprendrez à connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
@@ -15,21 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: e690ae8cd8f6b2ae52c0c8a9dae12c51f8921531
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8e1cf2a1c5503f31a70bc654ae1a211d1ab64581
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694565"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203868"
 ---
-# <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Connecter des réseaux virtuels à l’aide de l’appairage de réseaux virtuels en utilisant Azure CLI
+# <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant Azure CLI
 
-Vous pouvez connecter des réseaux virtuels entre eux à l’aide de l’appairage de réseaux virtuels. Une fois que les deux réseaux virtuels sont appairés, leurs ressources peuvent communiquer entre elles avec les mêmes bande passante et latence, comme si elles se trouvaient sur le même réseau virtuel. Dans cet article, vous apprendrez comment :
+Vous pouvez connecter des réseaux virtuels entre eux à l’aide du peering de réseaux virtuels. Une fois que les deux réseaux virtuels sont appairés, leurs ressources peuvent communiquer entre elles avec les mêmes bande passante et latence, comme si elles se trouvaient sur le même réseau virtuel. Dans cet article, vous apprendrez comment :
 
 * Créer deux réseaux virtuels
-* Connecter deux réseaux virtuels à l’aide de l’homologation de réseaux virtuels
+* Connecter deux réseaux virtuels à l’aide du peering de réseaux virtuels
 * Déployer une machine virtuelle sur chaque réseau virtuel
 * Établir une communication entre les machines virtuelles
 
@@ -71,7 +71,7 @@ az network vnet create \
 
 ## <a name="peer-virtual-networks"></a>Appairer des réseaux virtuels
 
-Les appairages sont établis entre les ID des réseaux virtuels, vous devez donc d’abord obtenir l’ID de chaque réseau virtuel à l’aide d’[az network vnet show](/cli/azure/network/vnet) et stocker l’ID dans une variable.
+Les peerings sont établis entre les ID des réseaux virtuels, vous devez donc d’abord obtenir l’ID de chaque réseau virtuel à l’aide d’[az network vnet show](/cli/azure/network/vnet) et stocker l’ID dans une variable.
 
 ```azurecli-interactive
 # Get the id for myVirtualNetwork1.
@@ -88,29 +88,29 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-Créez un appairage entre *myVirtualNetwork1* et *myVirtualNetwork2* à l’aide d’[az network vnet peering create](/cli/azure/network/vnet/peering). Si le paramètre `--allow-vnet-access` n’est pas spécifié, un appairage est établi, mais aucune communication ne peut passer.
+Créez un appairage entre *myVirtualNetwork1* et *myVirtualNetwork2* à l’aide d’[az network vnet peering create](/cli/azure/network/vnet/peering). Si le paramètre `--allow-vnet-access` n’est pas spécifié, un peering est établi, mais aucune communication ne peut passer.
 
 ```azurecli-interactive
 az network vnet peering create \
   --name myVirtualNetwork1-myVirtualNetwork2 \
   --resource-group myResourceGroup \
   --vnet-name myVirtualNetwork1 \
-  --remote-vnet-id $vNet2Id \
+  --remote-vnet $vNet2Id \
   --allow-vnet-access
 ```
 
-Dans la sortie obtenue après l’exécution de la commande précédente, vous constatez que le **peeringState** (état de l’appairage) est *Initiated*. L’appairage reste dans l’état *Initiated* jusqu’à ce que vous créiez l’appairage entre *myVirtualNetwork2* et *myVirtualNetwork1*. Créez un appairage entre *myVirtualNetwork2* et *myVirtualNetwork1*. 
+Dans la sortie obtenue après l’exécution de la commande précédente, vous constatez que le **peeringState** (état de l’appairage) est *Initiated*. Le peering reste dans l’état *Initiated* jusqu’à ce que vous créiez le peering entre *myVirtualNetwork2* et *myVirtualNetwork1*. Créez un peering entre *myVirtualNetwork2* et *myVirtualNetwork1*. 
 
 ```azurecli-interactive
 az network vnet peering create \
   --name myVirtualNetwork2-myVirtualNetwork1 \
   --resource-group myResourceGroup \
   --vnet-name myVirtualNetwork2 \
-  --remote-vnet-id $vNet1Id \
+  --remote-vnet $vNet1Id \
   --allow-vnet-access
 ```
 
-Dans la sortie obtenue après l’exécution de la commande précédente, vous constatez que le **peeringState** (état de l’appairage) est *Connected*. Azure a également changé l’état de l’appairage de l’appairage *myVirtualNetwork1-myVirtualNetwork2*en *Connected*. Confirmez que l’état de l’appairage de l’appairage *myVirtualNetwork1-myVirtualNetwork2* a été changé en *Connected* à l’aide de [az network vnet peering show](/cli/azure/network/vnet/peering).
+Dans la sortie obtenue après l’exécution de la commande précédente, vous constatez que le **peeringState** (état de l’appairage) est *Connected*. Azure a également changé l’état du peering *myVirtualNetwork1-myVirtualNetwork2* en *Connected*. Confirmez que l’état de l’appairage de l’appairage *myVirtualNetwork1-myVirtualNetwork2* a été changé en *Connected* à l’aide de [az network vnet peering show](/cli/azure/network/vnet/peering).
 
 ```azurecli-interactive
 az network vnet peering show \
@@ -200,6 +200,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à connecter deux réseaux situés dans la même région Azure à l’aide de l’appairage de réseaux virtuels. Vous pouvez également appairer des réseaux virtuels situés dans des [régions différentes](virtual-network-manage-peering.md#cross-region) et dans des [abonnements Azure différents](create-peering-different-subscriptions.md#cli). Vous pouvez aussi créer des [conceptions réseau hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec l’appairage. Pour en savoir plus sur l’appairage de réseaux virtuels, consultez [Aperçu de présentation de l’appairage de réseaux virtuels](virtual-network-peering-overview.md) et [Gérer les appairages de réseau virtuels](virtual-network-manage-peering.md).
+Dans cet article, vous avez appris à connecter deux réseaux situés dans la même région Azure à l’aide du peering de réseaux virtuels. Vous pouvez également appairer des réseaux virtuels situés dans des [régions différentes](virtual-network-manage-peering.md#cross-region) et dans des [abonnements Azure différents](create-peering-different-subscriptions.md#cli). Vous pouvez aussi créer des [conceptions réseau hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec le peering. Pour en savoir plus sur le peering de réseaux virtuels, consultez [Aperçu de présentation du peering de réseaux virtuels](virtual-network-peering-overview.md) et [Gérer les peerings de réseau virtuels](virtual-network-manage-peering.md).
 
 Vous pouvez [connecter votre propre ordinateur à un réseau virtuel](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) via un VPN et interagir avec les ressources dans un réseau virtuel, ou dans des réseaux virtuels appairés. Consultez les [exemples de script](cli-samples.md) pour obtenir des scripts réutilisables permettant d’accomplir un grand nombre des tâches présentées dans les articles sur les réseaux virtuels.

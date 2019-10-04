@@ -1,5 +1,5 @@
 ---
-title: 'Testabilité : Communication de service | Microsoft Docs'
+title: 'Testabilité : communication de service | Microsoft Docs'
 description: La communication service à service constitue un point d’intégration critique d’une application Service Fabric. Cet article aborde les problématiques de conception et les techniques de test.
 services: service-fabric
 documentationcenter: .net
@@ -15,13 +15,13 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 529c8d74b6e0a63a7969f31d5b5e8073ecb79411
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665744"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60543221"
 ---
-# <a name="service-fabric-testability-scenarios-service-communication"></a>Scénarios de testabilité de service Fabric : Communication de service
+# <a name="service-fabric-testability-scenarios-service-communication"></a>Scénarios de testabilité Service Fabric Communication de service
 Les microservices et les styles architecturaux orientés services émergent naturellement dans Azure Service Fabric. Dans ces types d’architectures distribuées, les applications de microservices compartimentés sont généralement composées de plusieurs services qui interagissent entre eux. Même dans le cas le plus simple, vous disposez habituellement d’au moins un service web sans état et d’un service de stockage de données avec état qui communiquent.
 
 La communication de service à service constitue un point d’intégration critique d’une application, car chaque service expose une API distante aux autres services. L’utilisation d’un ensemble de limites d’API impliquant un trafic d’E/S nécessite bien souvent une attention particulière, secondée par de solides méthodes de test et de validation.
@@ -48,7 +48,7 @@ Pour bénéficier d’un système pleinement fonctionnel, il est nécessaire de 
 * Vous pourrez observer une augmentation temporaire de la latence du service étant donné que l’instance de service redémarre son écouteur. Cette latence dépend de la vitesse à laquelle le service ouvre l’écouteur une fois l’instance de service déplacée.
 * Toutes les connexions existantes doivent être fermées, puis rouvertes une fois que le service s’ouvre sur un nouveau nœud. Un arrêt ou redémarrage approprié du nœud laisse suffisamment de temps aux connexions existantes pour s’arrêter correctement.
 
-### <a name="test-it-move-service-instances"></a>Testez-le : Déplacer des instances de service
+### <a name="test-it-move-service-instances"></a>Test : Déplacement des instances de service
 À l’aide des outils de testabilité de Service Fabric, vous pouvez établir un scénario test afin d’évaluer ces situations dans des contextes différents :
 
 1. Déplacez un réplica principal de service avec état.
@@ -77,7 +77,7 @@ En tant que plateforme, Service Fabric est conçu pour assurer la haute disponi
 
 Les services avec état utilisent un système avec quorum pour répliquer l’état à des fins de haute disponibilité. Cela signifie qu’un quorum de réplicas doit être disponible pour l’exécution des opérations d’écriture. Dans de rares cas, comme celui d’une défaillance matérielle étendue, aucun quorum de réplicas ne peut être disponible. Le cas échéant, vous ne pourrez pas exécuter d’opérations d’écriture, mais disposerez des opérations de lecture.
 
-### <a name="test-it-write-operation-unavailability"></a>Testez-le : Écrire l’indisponibilité des opérations
+### <a name="test-it-write-operation-unavailability"></a>Test : Écriture de la non-disponibilité des opérations
 En utilisant les outils de testabilité de Service Fabric, vous pouvez injecter une erreur qui entraîne une perte de quorum en guise de test. Même si ce scénario est rare, les clients et les entités qui dépendent d’un service avec état doivent néanmoins s’y préparer. Que faire quand les requêtes d’écriture sur le service avec état sont impossibles ? Il est également essentiel que le service avec état ait conscience de cette possibilité, et qu’il en fasse part de manière adaptée aux appelants.
 
 Vous pouvez provoquer une perte de quorum à l’aide de l’applet de commande PowerShell **Invoke-ServiceFabricPartitionQuorumLoss** :

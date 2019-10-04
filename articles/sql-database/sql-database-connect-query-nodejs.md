@@ -1,32 +1,32 @@
 ---
-title: Utilisation de Node.js pour interroger Azure SQL Database | Microsoft Docs
-description: Utilisation de Node.js pour créer un programme qui se connecte à une base de données SQL Azure et pour l’interroger à l’aide d’instructions T-SQL.
+title: 'Démarrage rapide : Utiliser Node.js pour interroger Azure SQL Database'
+description: Utilisation de Node.js pour créer un programme qui se connecte à une base de données Azure SQL et pour l’interroger à l’aide d’instructions T-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.devlang: nodejs
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: cd0435ffc27402299da85434693dcdf32a4083ca
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.custom: seo-javascript-september2019
+ms.openlocfilehash: b865bca5db11c4a34a1be4deb2e3145d73599e81
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444697"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059275"
 ---
-# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Node.js pour interroger une base de données SQL Azure
+# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de Node.js pour interroger une base de données Azure SQL
 
-Cet article explique comment utiliser [Node.js](https://nodejs.org) pour se connecter à une base de données SQL Azure. Vous pouvez ensuite utiliser les instructions T-SQL pour interroger des données.
+Cet article explique comment utiliser [Node.js](https://nodejs.org) pour se connecter à une base de données Azure SQL. Vous pouvez ensuite utiliser les instructions T-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cet exemple, vérifiez que les conditions préalables ci-dessous sont bien remplies :
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
@@ -53,7 +53,7 @@ Pour suivre cet exemple, vérifiez que les conditions préalables ci-dessous son
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données SQL Azure. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -63,7 +63,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 ## <a name="create-the-project"></a>Créer le projet
 
-Ouvrez une invite de commandes et créez un dossier nommé *sqltest*. Accédez au dossier que vous avez créé et exécutez la commande suivante :
+Ouvrez une invite de commandes et créez un dossier nommé *sqltest*. Ouvrez le dossier que vous avez créé et exécutez la commande suivante :
 
   ```bash
   npm init -y
@@ -159,4 +159,4 @@ Ouvrez une invite de commandes et créez un dossier nommé *sqltest*. Accédez a
 
 - [Prise en main de .NET Core sur Windows/Linux/macOS à l’aide de la ligne de commande](/dotnet/core/tutorials/using-with-xplat-cli)
 
-- Concevoir votre première base de données SQL Azure à l’aide de [.NET](sql-database-design-first-database-csharp.md) ou de [SSMS](sql-database-design-first-database.md)
+- Concevoir votre première base de données Azure SQL à l’aide de [.NET](sql-database-design-first-database-csharp.md) ou de [SSMS](sql-database-design-first-database.md)

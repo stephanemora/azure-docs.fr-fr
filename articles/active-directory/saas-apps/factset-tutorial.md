@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à FactSet | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à FactSet | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et FactSet.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad0c1ac2ce39fd919cb82ce2bdb0841edf9c777
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 27b154c5374fb16388e0ae72243fb7b32a400d96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855620"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102754"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-factset"></a>Tutoriel : Intégration d’Azure AD à FactSet
+# <a name="tutorial-azure-active-directory-integration-with-factset"></a>Didacticiel : Intégration d’Azure AD à FactSet
 
 Dans ce didacticiel, vous allez apprendre à intégrer FactSet à Azure Active Directory (Azure AD).
 L’intégration de FactSet dans Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration de FactSet à Azure AD, vous devez ajouter Fact
 
 **Pour ajouter FactSet à partir de la galerie, effectuez les étapes suivantes :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -105,12 +105,12 @@ Pour configurer l’authentification unique Azure AD avec FactSet, effectuez les
 
     ![Informations d’authentification unique dans les domaines et URL FactSet](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://login.factset.com/services/auth-test?idpid=<GUID>`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<intendedDestinationURL>.factset.com?idpid=<GUID>`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://login.factset.com`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://login.factset.com`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique FactSet](mailto:support@factset.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Contactez le représentant de votre compte FactSet pour obtenir ces valeurs. Si vous n’avez pas ses coordonnées, vous pouvez vous reporter à la [page des numéros du support FactSet](https://www.factset.com/support-numbers). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -128,7 +128,7 @@ Pour configurer l’authentification unique Azure AD avec FactSet, effectuez les
 
 ### <a name="configure-factset-single-sign-on"></a>Configurer l’authentification unique FactSet
 
-Pour configurer l’authentification unique côté **FactSet**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique FactSet](mailto:support@factset.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **FactSet**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées du portail Azure aux personnes de l’équipe du support FactSet que vous avez contactées. Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -183,7 +183,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-factset-test-user"></a>Créer un utilisateur de test FactSet
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans FactSet. Collaborez avec l’ [équipe du support technique FactSet](mailto:support@factset.com) pour ajouter les utilisateurs à la plateforme FactSet. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans FactSet. Contactez les représentants du support de votre compte FactSet pour ajouter les utilisateurs à la plateforme FactSet. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

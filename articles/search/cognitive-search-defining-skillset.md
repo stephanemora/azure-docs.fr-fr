@@ -1,25 +1,23 @@
 ---
 title: Créer un jeu de compétences dans un pipeline de recherche cognitive - Recherche Azure
 description: Définissez des étapes d’extraction des données, de traitement du langage naturel ou d’analyse de l’image pour enrichir et extraire des informations structurées à partir de vos données pour les utiliser dans Recherche Azure.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751971"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265526"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Création d’un jeu de compétences dans un pipeline d’enrichissement
 
-La recherche cognitive extrait et enrichit les données pour qu’elles puissent faire l’objet de recherches dans Recherche Azure. Nous appelons les étapes d’extraction et d’enrichissement *compétences cognitives*. Elles sont combinées en un *jeu de compétences* référencé pendant l’indexation. Un jeu de compétences peut utiliser des [compétences prédéfinies](cognitive-search-predefined-skills.md) ou des compétences personnalisées. Pour plus d’informations, consultez [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) (Exemple : créer une compétence personnalisée.
+La recherche cognitive extrait et enrichit les données pour qu’elles puissent faire l’objet de recherches dans Recherche Azure. Nous appelons les étapes d’extraction et d’enrichissement *compétences cognitives*. Elles sont combinées en un *jeu de compétences* référencé pendant l’indexation. Un ensemble de qualifications peut contenir des [qualifications prédéfinies](cognitive-search-predefined-skills.md) ou des qualifications personnalisées (pour plus d’informations, consultez [Exemple : Création d’une compétence personnalisée pour la recherche cognitive](cognitive-search-create-custom-skill-example.md).
 
 Dans cet article, vous allez découvrir comment créer un pipeline d’enrichissement pour les compétences que vous souhaitez utiliser. Un jeu de compétences est attaché à un [indexeur](search-indexer-overview.md) Recherche Azure. Une partie de la conception du pipeline, traitée dans cet article, constitue le jeu de compétences proprement dit. 
 
@@ -57,7 +55,7 @@ Dans le diagramme, l’étape de *décodage de document* a lieu automatiquement.
 Un jeu de compétences est défini comme un tableau de compétences. Chaque compétence définit la source de ses entrées et le nom des sorties générées. À l’aide de [l’API REST Create Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset), vous pouvez définir un jeu de compétences qui correspond au diagramme précédent : 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -69,7 +67,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -140,9 +138,9 @@ Lorsque vous créez un jeu de compétences, vous pouvez en indiquer une descript
 
 L’élément suivant du jeu de compétences est un tableau de compétences. Vous pouvez penser chaque compétence comme étant une primitive d’enrichissement. Chaque compétence effectue une petite tâche dans ce pipeline d’enrichissement. Chacune d’elles accepte une entrée (ou un ensemble d’entrées) et retourne des sorties. Les sections suivantes sont consacrées à la spécification des compétences prédéfinies et personnalisées, chaînant ainsi les compétences ensemble via des références d’entrée et de sortie. Les entrées peuvent provenir de données sources ou d’une autre compétence. Les sorties peuvent être mappées à un champ dans un index de recherche ou utilisées en tant qu’entrée pour une compétence en aval.
 
-## <a name="add-predefined-skills"></a>Ajouter des compétences prédéfinies
+## <a name="add-built-in-skills"></a>Ajouter des compétences prédéfinies
 
-Examinons la première compétence, qui est la [compétence de reconnaissance d'entité](cognitive-search-skill-entity-recognition.md) prédéfinie :
+Examinons la première compétence, qui est la [compétence de reconnaissance d’entité](cognitive-search-skill-entity-recognition.md) prédéfinie :
 
 ```json
     {
@@ -167,13 +165,13 @@ Examinons la première compétence, qui est la [compétence de reconnaissance d'
 
 * Chaque compétence prédéfinie dispose des propriétés `odata.type`, `input` et `output`. Les propriétés propres à une compétence fournissent des informations supplémentaires applicables à cette compétence. Pour la reconnaissance d’entité, `categories` est une entité parmi un ensemble fixe de types d’entité que le modèle préformé peut reconnaître.
 
-* Chaque compétence doit posséder un ```"context"```. Le contexte représente le niveau auquel les opérations ont lieu. Dans la compétence ci-dessus, le contexte représente l’ensemble du document, ce qui implique que la compétence de reconnaissance d’entité nommée est appelée une fois par document. Les sorties sont également générées à ce niveau. Plus spécifiquement, les ```"organizations"``` sont générées en tant que membre de ```"/document"```. Dans les compétences en aval, vous pouvez faire référence à ces informations qui viennent d’être créées sous la forme ```"/document/organizations"```.  Si le champ ```"context"``` n’est pas défini explicitement, le contexte par défaut est le document.
+* Chaque compétence doit posséder un ```"context"```. Le contexte représente le niveau auquel les opérations ont lieu. Dans la compétence ci-dessus, le contexte représente l’ensemble du document, ce qui implique que la compétence de reconnaissance d’entité est appelée une fois par document. Les sorties sont également générées à ce niveau. Plus spécifiquement, les ```"organizations"``` sont générées en tant que membre de ```"/document"```. Dans les compétences en aval, vous pouvez faire référence à ces informations qui viennent d’être créées sous la forme ```"/document/organizations"```.  Si le champ ```"context"``` n’est pas défini explicitement, le contexte par défaut est le document.
 
-* La compétence possède une entrée appelée « texte », avec une entrée source définie sur ```"/document/content"```. La compétence (nommée reconnaissance d’entité) fonctionne sur le champ *contenu* de chaque document. Il s’agit d’un champ standard créé par l’indexeur des objets blob Azure. 
+* La compétence possède une entrée appelée « texte », avec une entrée source définie sur ```"/document/content"```. La compétence (reconnaissance d’entité) fonctionne sur le champ *contenu* de chaque document. Il s’agit d’un champ standard créé par l’indexeur des objets blob Azure. 
 
 * La compétence possède une sortie appelée ```"organizations"```. Les sorties existent uniquement pendant le traitement. Pour chaîner cette sortie à l’entrée d’une compétence en aval, référencez la sortie en tant que ```"/document/organizations"```.
 
-* Pour un document particulier, la valeur de ```"/document/organizations"``` est un tableau des organisations extraites du texte. Par exemple : 
+* Pour un document particulier, la valeur de ```"/document/organizations"``` est un tableau des organisations extraites du texte. Par exemple :
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -212,7 +210,7 @@ Rappelez la structure de l’enrichisseur personnalisé Recherche d’entités B
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
-      }
+      },
       "context": "/document/organizations/*",
       "inputs": [
         {
@@ -229,13 +227,13 @@ Rappelez la structure de l’enrichisseur personnalisé Recherche d’entités B
     }
 ```
 
-Cette définition est une [compétence personnalisée](cognitive-search-custom-skill-web-api.md) qui appelle une API web dans le cadre du processus d'enrichissement. Pour chaque organisation identifiée par la reconnaissance d’entité nommée, cette compétence appelle une API web pour rechercher la description de cette organisation. L’orchestration du moment auquel appeler l’API web et du traitement des informations reçues est gérée en interne par le moteur d’enrichissement. Toutefois, l’initialisation nécessaire pour appeler cette API personnalisée doit être indiquée dans le fichier JSON (par exemple, l’URI, les en-têtes HTTP et les entrées attendus). Pour obtenir des conseils sur la création d’une API web personnalisée pour le pipeline d’enrichissement, consultez [Guide pratique pour définir une interface personnalisée](cognitive-search-custom-skill-interface.md).
+Cette définition est une [compétence personnalisée](cognitive-search-custom-skill-web-api.md) qui appelle une API web dans le cadre du processus d'enrichissement. Pour chaque organisation identifiée par la reconnaissance d’entité, cette compétence appelle une API web pour rechercher la description de cette organisation. L’orchestration du moment auquel appeler l’API web et du traitement des informations reçues est gérée en interne par le moteur d’enrichissement. Toutefois, l’initialisation nécessaire pour appeler cette API personnalisée doit être indiquée dans le fichier JSON (par exemple, l’URI, les en-têtes HTTP et les entrées attendus). Pour obtenir des conseils sur la création d’une API web personnalisée pour le pipeline d’enrichissement, consultez [Guide pratique pour définir une interface personnalisée](cognitive-search-custom-skill-interface.md).
 
 Notez que le champ « contexte » contient la valeur ```"/document/organizations/*"``` avec un astérisque, ce qui signifie que l’étape d’enrichissement est appelée *pour chaque* organisation sous ```"/document/organizations"```. 
 
 La sortie, dans ce cas une description de société, est générée pour chaque organisation identifiée. Lorsque vous faites référence à la description d’une étape en aval (par exemple, dans l’extraction d’expressions clés), vous utilisez le chemin d’accès ```"/document/organizations/*/description"``` pour ce faire. 
 
-## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Les enrichissements créent une structure à partir d’informations non structurées
+## <a name="add-structure"></a>Ajouter une structure
 
 Le jeu de compétences génère des informations structurées à partir de données non structurées. Considérez l'exemple suivant :
 
@@ -245,9 +243,38 @@ Un résultat probable serait une structure générée semblable à l’illustrat
 
 ![Exemple de structure de sortie](media/cognitive-search-defining-skillset/enriched-doc.png "Exemple de structure de sortie")
 
-Rappelez-vous que cette structure est interne. Pour le moment, vous ne pouvez pas récupérer ce graphique dans le code.
+Jusqu’à présent, cette structure est interne uniquement, en mémoire seulement et utilisée uniquement dans les index Recherche Azure. L’ajout d’une base de connaissances vous permet d’enregistrer les enrichissements mis en forme pour une utilisation hors de la recherche.
+
+## <a name="add-a-knowledge-store"></a>Ajouter une base de connaissances
+
+La [base de connaissances](knowledge-store-concept-intro.md) est une fonctionnalité d’évaluation de Recherche Azure destinée à l’enregistrement de vos documents enrichis. La base de connaissances que vous créez à l’aide d’un compte de stockage Azure est le référentiel dans lequel vos données enrichies résident. 
+
+Une définition de la base de connaissances est ajoutée à un ensemble de compétences. Pour obtenir une procédure pas à pas de l’ensemble du processus, consultez [Prise en main de la base de connaissances](knowledge-store-howto.md).
+
+```json
+"knowledgeStore": {
+  "storageConnectionString": "<an Azure storage connection string>",
+  "projections" : [
+    {
+      "tables": [ ]
+    },
+    {
+      "objects": [
+        {
+          "storageContainer": "containername",
+          "source": "/document/EnrichedShape/",
+          "key": "/document/Id"
+        }
+      ]
+    }
+  ]
+}
+```
+
+Vous pouvez choisir d’enregistrer les documents enrichis sous forme de tables avec des relations hiérarchiques conservées ou sous forme de documents JSON dans le stockage blob. Toute sortie à partir des compétences de l’ensemble de compétences peut servir de source d’entrée de la projection. Si vous cherchez à projeter les données dans une forme spécifique, la [compétence de modélisateur](cognitive-search-skill-shaper.md) mise à jour peut maintenant modéliser les types complexes que vous utilisez. 
 
 <a name="next-step"></a>
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Maintenant que vous connaissez le pipeline d’enrichissement et les jeux de compétences, poursuivez avec [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) (Référencement des annotations dans un jeu de compétences) ou [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md) (Mappage de sorties à des champs dans un index). 

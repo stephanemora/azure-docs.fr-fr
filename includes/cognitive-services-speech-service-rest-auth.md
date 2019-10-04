@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 22a95be43f06e95a6067b179b3023ba94ee5795d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671679"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362510"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -17,17 +17,16 @@ Chaque requête nécessite un en-tête d’autorisation. Ce tableau présente le
 
 | En-têtes d'autorisation pris en charge | Reconnaissance vocale | Synthèse vocale |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Oui | Non  |
-| Autorisation : Support | Oui | Oui |
+| Ocp-Apim-Subscription-Key | OUI | Non |
+| Autorisation : Support | OUI | OUI |
 
-Lorsque vous utilisez l’en-tête `Ocp-Apim-Subscription-Key`, vous devez uniquement fournir votre clé d’abonnement. Par exemple : 
+Lorsque vous utilisez l’en-tête `Ocp-Apim-Subscription-Key`, vous devez uniquement fournir votre clé d’abonnement. Par exemple :
 
 ```
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-Lorsque vous utilisez l’en-tête `Authorization: Bearer`, vous devez envoyer une demande au point de terminaison `issueToken`. Dans cette requête, vous échangez votre clé d’abonnement contre un jeton d’accès valide pendant 10 minutes. Dans les sections suivantes, vous apprendrez à obtenir, utiliser et actualiser un jeton.
-
+Lorsque vous utilisez l’en-tête `Authorization: Bearer`, vous devez envoyer une demande au point de terminaison `issueToken`. Dans cette requête, vous échangez votre clé d’abonnement contre un jeton d’accès valide pendant 10 minutes. Dans les sections suivantes, vous apprendrez à obtenir et utiliser un jeton.
 
 ### <a name="how-to-get-an-access-token"></a>Obtenir un jeton d’accès
 
@@ -55,7 +54,7 @@ Le corps de la réponse contient le jeton d’accès au format JSON Web Token (J
 
 #### <a name="powershell-sample"></a>Exemple de code PowerShell
 
-Cet exemple est un simple script PowerShell pour obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Veillez à utiliser le point de terminaison correct pour la région correspondant à votre abonnement. Cet exemple est actuellement configuré pour l’Ouest des États-Unis.
+Cet exemple est un simple script PowerShell pour obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Veillez à utiliser le point de terminaison correct pour la région correspondant à votre abonnement. Cet exemple est actuellement configuré pour l’USA Ouest.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -74,7 +73,7 @@ $OAuthToken
 
 #### <a name="curl-sample"></a>Exemple cURL
 
-cURL est un outil en ligne de commande disponible dans Linux (ainsi que dans le sous-système Windows pour Linux). Cette commande cURL montre comment obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Veillez à utiliser le point de terminaison correct pour la région correspondant à votre abonnement. Cet exemple est actuellement configuré pour l’Ouest des États-Unis.
+cURL est un outil en ligne de commande disponible dans Linux (ainsi que dans le sous-système Windows pour Linux). Cette commande cURL montre comment obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Veillez à utiliser le point de terminaison correct pour la région correspondant à votre abonnement. Cet exemple est actuellement configuré pour l’USA Ouest.
 
 ```cli
 curl -v -X POST
@@ -86,7 +85,7 @@ curl -v -X POST
 
 #### <a name="c-sample"></a>Exemple de code C#
 
-La classe C# montre comment obtenir un jeton d’accès. Transmettez votre clé d’abonnement du service Speech quand vous instanciez la classe. Si votre abonnement ne figure pas dans la région Ouest des États-Unis, modifiez la valeur `FetchTokenUri` afin qu’elle corresponde à la région de votre abonnement.
+La classe C# montre comment obtenir un jeton d’accès. Transmettez votre clé d’abonnement du service Speech quand vous instanciez la classe. Si votre abonnement ne figure pas dans la région USA Ouest, modifiez la valeur `FetchTokenUri` afin qu’elle corresponde à la région de votre abonnement.
 
 ```cs
 public class Authentication
@@ -130,6 +129,7 @@ public class Authentication
 import requests
 
 subscription_key = 'REPLACE_WITH_YOUR_KEY'
+
 
 def get_token(subscription_key):
     fetch_token_url = 'https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken'

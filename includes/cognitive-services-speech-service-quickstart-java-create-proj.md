@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: 8a8611218f47e5600fc02efef24aa7912b630522
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ebefe878393b66e5097ebbda5ef6159a8413833f
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803957"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298439"
 ---
 1. Démarrez Eclipse.
 
@@ -19,7 +19,7 @@ ms.locfileid: "59803957"
 
 1. La fenêtre principale de l’IDE Eclipse apparaît au bout d’un instant. Fermez l’écran d’accueil s’il en existe un.
 
-1. Dans la barre de menus Eclipse, créez un projet en choisissant **File (Fichier)** > **New (Nouveau)** > **Project (Projet)**.
+1. Dans la barre de menus Eclipse, créez un projet en choisissant **File (Fichier)**  > **New (Nouveau)**  > **Project (Projet)** .
 
 1. La boîte de dialogue **Nouveau projet** apparaît. Sélectionnez **Java Project** (Projet Java), puis **Next** (Suivant).
 
@@ -31,7 +31,7 @@ ms.locfileid: "59803957"
 
 1. Si une fenêtre **Open Associated Perspective?** (Ouvrir la perspective associée ?) s’affiche, sélectionnez **Open Perspective** (Ouvrir la perspective).
 
-1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur le projet **quickstart** (démarrage rapide). Choisissez **Configure (Configurer)** > **Convert to Maven Project (Convertir en projet Maven)** dans le menu contextuel.
+1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur le projet **quickstart** (démarrage rapide). Choisissez **Configure (Configurer)**  > **Convert to Maven Project (Convertir en projet Maven)** dans le menu contextuel.
 
    ![Capture d’écran de l’explorateur de package](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "59803957"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-   * Ajoutez également un élément `dependencies`, avec le SDK Speech version 1.4.0 en tant que dépendance :
+   * Ajoutez également un élément `dependencies`, avec le SDK Speech version 1.6.0 en tant que dépendance :
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

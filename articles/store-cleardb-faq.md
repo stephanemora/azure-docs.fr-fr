@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 7b6d38f7755ebd97791959a5a414b09fe4ac769b
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074408"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718022"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ sur les bases de données MySQL ClearDB avec Azure App Service
 Ce FAQ répond aux questions courantes sur l’utilisation et l’achat de bases de données MySQL ClearDB pour Azure Web Apps.
@@ -49,7 +49,7 @@ L’option de base de données par défaut est Titan, qui coûte 3,50 USD. Nous
 ## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>J’exécute MySQL sur ma propre machine virtuelle Azure. Puis-je connecter mon application web Azure à ma base de données ?
 Oui. Vous pouvez connecter votre application web à votre base de données tant que votre machine virtuelle Azure a octroyé l’accès à distance à votre application web. Pour plus d’informations, consultez la page [Installer MySQL sur une machine virtuelle](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>Dans quels pays les clusters Premium MySQL ClearDB sont-ils pris en charge ?
+## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>Dans quels pays/régions les clusters Premium MySQL ClearDB sont-ils pris en charge ?
 Les clusters Premium MySQL ClearDB sont disponibles dans toutes les régions Azure du monde, à l’exception des régions suivantes : Inde, Australie, Brésil Sud et Chine.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>Puis-je créer un nouveau cluster avant de créer une base de données avec la solution de cluster premium ClearDB ?
@@ -68,19 +68,19 @@ Utilisez le niveau tarifaire De base ou un niveau supérieur pour Web Apps. Pour
 Dans le [portail Azure](https://portal.azure.com), vous pouvez faire monter en puissance une base de données d’hébergement partagé ClearDB. (pour plus d’informations, consultez cet [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/)). Actuellement, nous ne prenons pas en charge la mise à niveau des clusters ClearDB Premium dans le portail Azure.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Ma base de données ClearDB ne s’affiche pas dans le portail Azure.
-Si vous avez créé une base de données ClearDB en classique, vous ne pourrez pas voir votre base de données dans le [portail Azure](https://portal.azure.com). Il n’existe aucune solution de contournement pour ce scénario.
+Si vous avez créé une base de données ClearDB dans Azure Classic, vous ne pourrez pas voir votre base de données dans le [portail Azure](https://portal.azure.com). Il n’existe aucune solution de contournement pour ce scénario.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Qui dois-je contacter pour obtenir de l’aide quand ma base de données est en panne ?
 Contactez le [support ClearDB](https://www.cleardb.com/developers/help/support) pour tout problème lié à la base de données. Préparez-vous à fournir des informations sur votre abonnement Azure.
 
 ## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>Puis-je créer des utilisateurs supplémentaires pour ma solution de cluster de base de données ClearDB MySQL ?
- Non. Vous ne pouvez pas créer des utilisateurs supplémentaires, mais vous pouvez créer des bases de données sur votre cluster de base de données ClearDB.  
+Non. Vous ne pouvez pas créer des utilisateurs supplémentaires, mais vous pouvez créer des bases de données sur votre cluster de base de données ClearDB.  
 
 ## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>Les bases de données Basic/Pro peuvent-elles être mises à niveau sur place comme les plans Planetary actuellement sur le portail de ClearDB ?
 Oui, les bases de données Basic peuvent être mises à niveau sur place (Basic 60 à Basic 500). Les bases de données Pro peuvent être mises à niveau sur place (Pro 125 à Pro 1000), à l’exception de Pro 60. Actuellement, nous ne prenons pas en charge la mise à niveau de la base de données Pro 60. 
 
 ## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>Lorsque je migre mes ressources d’un abonnement à un autre, ma base de données ClearDB MySQL migre-t-elle également ?
-Lorsque vous effectuez la migration de ressources entre les différents abonnements, certaines [limitations](azure-resource-manager/resource-group-move-resources.md#app-service-limitations) s’appliquent. Une base de données ClearDB MySQL est un service tiers et ne peut donc pas être migrée lors d’une migration d’abonnement Azure. Si vous ne gérez pas la migration de votre base de données MySQL avant la migration des ressources Azure, vos bases de données ClearDB MySQL peuvent être désactivées. Commencez par migrer manuellement vos bases de données, puis effectuez la migration des abonnements Azure pour votre application web. 
+Lorsque vous effectuez la migration de ressources entre les différents abonnements, certaines [limitations](azure-resource-manager/move-support-resources.md) s’appliquent. Une base de données ClearDB MySQL est un service tiers et ne peut donc pas être migrée lors d’une migration d’abonnement Azure. Si vous ne gérez pas la migration de votre base de données MySQL avant la migration des ressources Azure, vos bases de données ClearDB MySQL peuvent être désactivées. Commencez par migrer manuellement vos bases de données, puis effectuez la migration des abonnements Azure pour votre application web. 
 
 ## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>J’ai atteint la limite de dépense de mon abonnement. J’ai supprimé la limite et mon App Service est en ligne, mais la base de données n’est pas accessible. Comment ré-activer la base de données ClearDB ?
 Contactez [l’assistance de ClearDB](https://www.cleardb.com/developers/help/support) pour réactiver la base de données. Préparez-vous à fournir les informations sur votre abonnement Azure et le nom de la base de données.

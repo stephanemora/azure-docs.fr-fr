@@ -5,28 +5,28 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 09/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 334859aecf3a5f7a5678c0af656c6837d5661dac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9e597b03abfdeda01d74986b7b30c14de46fd3f1
+ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270861"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70861135"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliothèques clientes pour la connexion à Azure Analysis Services
 
-Les bibliothèques clientes sont nécessaires pour que les applications clientes et les outils se connectent aux serveurs Analysis Services. Les applications clientes Microsoft telles que Power BI Desktop, Excel, SQL Server Management Studio (SSMS), et SQL Server Data Tools (SSDT) installent tous les trois bibliothèques clientes et les mettre à jour en même temps que les mises à jour de l’application normale. Dans certains cas, vous devrez peut-être installer des versions plus récentes des bibliothèques clientes. Les applications clientes personnalisées nécessitent également les bibliothèques clientes sont installées.
+Les bibliothèques clientes sont nécessaires pour que les applications clientes et les outils se connectent aux serveurs Analysis Services. Les applications clientes Microsoft telles que Power BI Desktop, Excel, SQL Server Management Studio (SSMS) et SQL Server Data Tools (SSDT) installent les trois bibliothèques clientes et les mettent à jour avec des mises à jour régulières des applications. Dans certains cas, vous devrez peut-être installer des versions plus récentes des bibliothèques clientes. Les applications clientes personnalisées nécessitent également l’installation de bibliothèques clientes.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Télécharger les bibliothèques clientes plus récentes (Windows Installer)  
 
 |Téléchargement  |Version du produit  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.15.26    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.15.26      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.17.1.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.17.1.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.1.25    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.1.25       |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.5.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.5.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO et ADOMD (packages NuGet)
 
@@ -34,8 +34,8 @@ Les bibliothèques clientes AMO et ADOMD sont disponibles sous forme de packages
 
 |Package  | Version du produit  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.17.1     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.17.1      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.5     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.5      |
 
 Les assemblys de package NuGet AssemblyVersion respectent la gestion sémantique de version suivante : MAJEURE.MINEURE.CORRECTIF. Les références NuGet chargent la version attendue, même s’il existe une version différente dans le Global Assembly Cache (résultant de l’installation MSI). Le numéro de correctif est incrémenté à chaque version. Les versions AMO et ADOMD sont constamment synchronisées.
 
@@ -66,7 +66,7 @@ Les bibliothèques clientes pour les connexions clientes sont différentes des f
 
  ADOMD.NET est une bibliothèque cliente de données managée utilisée pour interroger des données Analysis Services. Elle est installée et utilisée par des outils et des applications clientes. 
   
- Durant la connexion à une base de données, les propriétés de chaîne de connexion pour les trois bibliothèques sont similaires. Pratiquement toute chaîne de connexion que vous définissez pour ADOMD.NET à l’aide de [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) fonctionne également pour AMO et le fournisseur OLE DB Analysis Services (MSOLAP). Pour plus d’informations, consultez [Propriétés des chaînes de connexion &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
+ Durant la connexion à une base de données, les propriétés de chaîne de connexion pour les trois bibliothèques sont similaires. Pratiquement toute chaîne de connexion que vous définissez pour ADOMD.NET à l’aide de [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) fonctionne également pour AMO et le fournisseur OLE DB Analysis Services (MSOLAP). Pour plus d’informations, consultez [Propriétés des chaînes de connexion &#40;Analysis Services&#41;](https://docs.microsoft.com/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
 ##  <a name="bkmk_LibUpdate"></a>Comment déterminer la version de la bibliothèque cliente   

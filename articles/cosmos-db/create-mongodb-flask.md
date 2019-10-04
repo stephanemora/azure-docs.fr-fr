@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 07f213de3509ed16af627af5e0583cd985c278f6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119205"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954655"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Démarrage rapide : Générer une application Python en utilisant l’API d’Azure Cosmos DB pour MongoDB
 
@@ -28,7 +28,7 @@ ms.locfileid: "58119205"
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous avez la possibilité de créer et d’interroger rapidement des documents, des paires clé/valeur et des bases de données de graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur de Cosmos DB.
 
-Ce guide de démarrage rapide utilise [l’exemple Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) suivant et illustre comment créer une application de liste de tâches Flask simple avec [l’émulateur Azure Cosmos DB](local-emulator.md) et l’API d’Azure Cosmos DB pour MongoDB.
+Ce guide de démarrage rapide utilise [l'exemple Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) suivant et illustre comment créer une application de liste de tâches Flask simple avec [l'émulateur Azure Cosmos DB](local-emulator.md) et l'API pour MongoDB d'Azure Cosmos DB.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -104,7 +104,7 @@ Les extraits de code suivants proviennent tous du fichier app.py et utilisent la
 
 2. Ouvrez une fenêtre de terminal et accédez avec la commande `cd` au répertoire dans lequel l’application est enregistrée.
 
-3. Ensuite, définissez la variable d’environnement pour l’application Flask avec `set FLASK_APP=app.py` ou `export FLASK_APP=app.py` si vous utilisez un Mac.
+3. Définissez ensuite la variable d'environnement de l'application Flask avec `set FLASK_APP=app.py`, `$env:FLASK_APP = app.py` pour les éditeurs PowerShell, ou `export FLASK_APP=app.py` si vous utilisez un Mac. 
 
 4. Exécutez l’application avec `flask run` et accédez à [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
@@ -142,7 +142,7 @@ Lors du déploiement sur Azure, vous devez supprimer vos clés d’application e
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-Vous devez ensuite ajouter vos valeurs MONGOURL, MONGO_PASSWORD et MONGO_USERNAME aux paramètres d’application. Vous pouvez suivre ce [didacticiel](https://docs.microsoft.com/azure/app-service-web/web-sites-configure#application-settings) pour en savoir plus sur les paramètres d’application dans Azure Web Apps.
+Vous devez ensuite ajouter vos valeurs MONGOURL, MONGO_PASSWORD et MONGO_USERNAME aux paramètres d’application. Vous pouvez suivre ce [didacticiel](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings) pour en savoir plus sur les paramètres d’application dans Azure Web Apps.
 
 Si vous ne souhaitez pas créer de duplication de ce dépôt, vous pouvez également cliquer sur le bouton Déployer sur Azure ci-dessous. Vous devez ensuite aller dans Azure et configurer les paramètres d’application avec vos informations de compte Cosmos DB.
 

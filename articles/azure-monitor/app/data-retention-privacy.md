@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 08/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: df441a55ef4a9a40fe4defcabca5f667eeddbf29
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003579"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207297"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -28,7 +28,7 @@ Tout d’abord, la réponse courte :
 * Les modules de télémétrie standard qui s’exécutent « dès le départ » sont peu susceptibles d’envoyer des données sensibles au service. La télémétrie s’attache aux métriques de charge, de performance et d’utilisation, aux rapports d’exception et autres données de diagnostic. Les données d’utilisateur principal visibles dans les rapports de diagnostics sont des URL ; mais votre application ne doit en aucun cas mettre des données sensibles en texte brut dans une URL.
 * Vous pouvez écrire du code qui envoie les données de télémétrie personnalisées supplémentaires, afin de vous aider avec les diagnostics et à surveiller l’utilisation. (Cette extensibilité est une fonctionnalité intéressante de Application Insights.) Il serait possible, par erreur, d’écrire ce code de manière à ce qu’il inclue les données personnelles et d’autres données sensibles. Si votre application fonctionne avec ces données, vous devez vérifier de manière approfondie l’ensemble du code que vous écrivez.
 * Pendant le développement et le test de votre application, il est facile d’examiner ce qui est envoyé par le Kit de développement logiciel (SDK). Les données apparaissent dans les fenêtres de sortie de débogage de l’IDE et du navigateur. 
-* Les données sont stockées sur des serveurs [Microsoft Azure](https://azure.com) aux États-Unis. (Mais votre application peut s’exécuter n’importe où.) Azure dispose de [processus de sécurité renforcés, il est conforme à une large gamme de normes de conformité](https://azure.microsoft.com/support/trust-center/). Seuls vous et votre équipe avez accès à vos données. Le personnel Microsoft peut avoir un accès restreint uniquement dans certaines circonstances définies, avec votre consentement. Il est chiffré en transit, mais pas dans les serveurs.
+* Les données sont stockées sur des serveurs [Microsoft Azure](https://azure.com) aux États-Unis. (Mais votre application peut s’exécuter n’importe où.) Azure dispose de [processus de sécurité renforcés, il est conforme à une large gamme de normes de conformité](https://azure.microsoft.com/support/trust-center/). Seuls vous et votre équipe avez accès à vos données. Le personnel Microsoft peut avoir un accès restreint uniquement dans certaines circonstances définies, avec votre consentement. Les données sont chiffrées, en transit comme au repos.
 
 Le reste de cet article aborde plus en détail ces réponses. Il est conçu pour être autonome, afin que vous puissiez le montrer à des collègues qui ne font pas partie de votre équipe.
 
@@ -64,7 +64,7 @@ Les principales catégories sont :
 * [Les exceptions](../../azure-monitor/app/asp-net-exceptions.md) et les incidents : **vidages de pile**, génération d’id, type d’UC. 
 * [Les dépendances](../../azure-monitor/app/asp-net-dependencies.md) : les appels aux services externes tels que REST, SQL, AJAX. L’URI ou la chaîne de connexion, la durée, la réussite, la commande.
 * [Les tests de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) : durée et étapes du test, réponses.
-* [Les journaux de suivi](../../azure-monitor/app/asp-net-trace-logs.md) et [la télémétrie personnalisée](../../azure-monitor/app/api-custom-events-metrics.md) - **tout ce que vous codez dans vos journaux ou télémétrie**.
+* [Les journaux d’activité de suivi](../../azure-monitor/app/asp-net-trace-logs.md) et [la télémétrie personnalisée](../../azure-monitor/app/api-custom-events-metrics.md) - **tout ce que vous codez dans vos journaux d’activité ou télémétrie**.
 
 [Plus de détails](#data-sent-by-application-insights).
 
@@ -83,11 +83,13 @@ Pour les pages web, ouvrez la fenêtre de débogage de votre navigateur.
 Cela est possible en écrivant un [plug-in de processeur de télémétrie](../../azure-monitor/app/api-filtering-sampling.md).
 
 ## <a name="how-long-is-the-data-kept"></a>Combien de temps sont conservées les données ?
-Les points de données brutes (autrement dit, les éléments que vous pouvez interroger dans Analytics et inspecter dans Recherche) sont conservés pendant 90 jours maximum. Si vous voulez conserver les données plus longtemps, vous pouvez utiliser l’ [exportation continue](../../azure-monitor/app/export-telemetry.md) pour les copier dans un compte de stockage.
+Les points de données brutes (autrement dit, les éléments que vous pouvez interroger dans Analytics et inspecter dans Recherche) sont conservés pendant 730 jours maximum. Vous pouvez [sélectionner une durée de rétention](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) de 30, 60, 90, 120, 180, 270, 365, 550 ou 730 jours. Si vous voulez conserver les données plus longtemps, vous pouvez utiliser [l’exportation continue](../../azure-monitor/app/export-telemetry.md) pour les copier dans un compte de stockage durant l’ingestion des données. 
+
+Des frais supplémentaires sont facturés pour les données conservées pendant plus de 90 jours. Plus d’informations sur la tarification d’Application Insights sur la [page de tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées avec une granularité de 1 minute pendant 90 jours.
 
-Les [captures instantanées de débogage](../../azure-monitor/app/snapshot-debugger.md) sont stockées pendant sept jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
+Les [captures instantanées de débogage](../../azure-monitor/app/snapshot-debugger.md) sont stockées pendant quinze jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
 
 ## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 Les données sont visibles par vous et, si vous disposez un compte d’organisation, par les membres de votre équipe. 
@@ -98,9 +100,9 @@ Vous ou les membres de votre équipe pouvez les exporter et les copier à d’au
 Microsoft n’utilise les données que pour vous fournir le service.
 
 ## <a name="where-is-the-data-held"></a>Où sont conservées les données ?
-* Aux États-Unis, en Europe ou en Asie du Sud-Est. Vous pouvez sélectionner l’emplacement quand vous créez une ressource Application Insights. 
+* Vous pouvez sélectionner l’emplacement quand vous créez une ressource Application Insights. Vous pouvez en savoir plus sur la disponibilité d’Application Insights par région [ici](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Cela signifie-t-il que mon application doit être hébergée aux États-Unis, en Europe ou en Asie du Sud-Est ?
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Cela signifie-t-il que mon application doit être hébergée aux États-Unis, en Europe ou en Asie Sud-Est ?
 * Non. Votre application peut s’exécuter n’importe où, sur vos propres hôtes locaux ou dans le cloud.
 
 ## <a name="how-secure-is-my-data"></a>Mes données sont-elles sécurisées ?
@@ -118,7 +120,7 @@ Elles peuvent envoyer des données de télémétrie supplémentaires à votre co
 Si vous partagez le code avec d’autres projets, pensez à supprimer votre clé d’instrumentation.
 
 ## <a name="is-the-data-encrypted"></a>Les données sont-elles chiffrées ?
-Toutes les données sont chiffrées au repos et en tant qu’il se déplace entre les données des centres de.
+Toutes les données sont chiffrées, aussi bien au repos que lors de leur déplacement entre les centres de données.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Les données sont-elles chiffrées lors de leur passage depuis mon application vers les serveurs Application Insights ?
 Oui, nous utilisons le protocole HTTPS pour envoyer les données au portail à partir de presque tous les Kits de développement logiciel (SDK), y compris les serveurs web, les appareils et les pages web HTTPS. La seule exception concerne les données envoyées à partir des pages web HTTP.
@@ -127,12 +129,9 @@ Oui, nous utilisons le protocole HTTPS pour envoyer les données au portail à p
 
 Oui, certains canaux de télémétrie conservent les données localement si un point de terminaison est inaccessible. Consultez ce qui suit pour voir les infrastructures et les canaux de télémétrie concernés.
 
-
 Les canaux de télémétrie qui utilisent le stockage local créent des fichiers temporaires dans les répertoires TEMP ou APPDATA qui sont limités au compte exécutant votre application. Cela se produit lorsqu’un point de terminaison a été temporairement indisponible ou lorsque vous avez atteint la limite de bande passante. Une fois ce problème résolu, le canal de télémétrie reprend l’envoi de toutes les données nouvelles et conservées.
 
-
-Ces données conservées n’étant **pas chiffrées**, il est vivement recommandé de modifier votre stratégie en désactivant la collecte de données privées. (Pour plus d’informations, consultez [Comment exporter et supprimer des données privées](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
-
+Ces données persistantes ne sont pas chiffrées en local. Si cela pose problème, passez en revue les données et limitez la collection de données privées. (Pour plus d’informations, consultez [Comment exporter et supprimer des données privées](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
 
 Si un client a besoin configurer ce répertoire avec des exigences de sécurité spécifiques, il peut être configuré conformément au framework. Vérifiez que le processus exécutant votre application a accès en écriture à ce répertoire, mais veillez également à que ce répertoire soit protégé pour éviter la lecture des données de télémétrie par des utilisateurs non autorisés.
 
@@ -167,7 +166,7 @@ Par le biais du code :
 
 Par défaut, `ServerTelemetryChannel` utilise le dossier de données d’application local `%localAppData%\Microsoft\ApplicationInsights` ou le dossier temp `%TMP%` de l’utilisateur actuel. (Consultez l’[implémentation](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) ici.) Dans un environnement Linux, le stockage local sera désactivé sauf si un dossier de stockage est spécifié.
 
-L’extrait de code suivant montre comment définir `ServerTelemetryChannel.StorageFolder` dans la `ConfigureServices()` méthode de votre classe  `Startup.cs`  :
+L’extrait de code suivant montre comment définir `ServerTelemetryChannel.StorageFolder` dans la méthode `ConfigureServices()` de votre classe `Startup.cs` :
 
 ```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -206,7 +205,7 @@ Nous ne recommandons pas de configurer explicitement votre application de façon
 | Windows Server 2012 - 2016 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 et Windows Server 2008 R2 SP1 | Pris en charge, mais non activé par défaut. | Consultez la page [Paramètres de Registre de TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) pour plus d’informations sur l’activation.  |
 | Windows Server 2008 SP2 | La prise en charge de TLS 1.2 nécessite une mise à jour. | Consultez [Mise à jour pour ajouter la prise en charge de TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) dans Windows Server 2008 SP2. |
-|Windows Vista | Non pris en charge. | S.O.
+|Windows Vista | Non pris en charge. | N/A
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Vérifier la version d’OpenSSL que votre distribution Linux exécute
 
@@ -241,14 +240,14 @@ Les kits de développement logiciel (SDK) varient en fonction des plateformes et
 | Votre action | Classes de données collectées (voir tableau suivant) |
 | --- | --- |
 | [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Demandes<br/>**Exceptions**<br/>session<br/>users |
-| [Installer Status Monitor sur IIS][redfield] |Dépendances<br/>ServerContext<br/>Inferred<br/>Perf counters |
+| [Installer Status Monitor sur IIS][redfield] |Les dépendances<br/>ServerContext<br/>Inferred<br/>Perf counters |
 | [Ajouter le kit de développement logiciel (SDK) Application Insights à une application web Java][java] |ServerContext<br/>Inferred<br/>Requête<br/>session<br/>users |
-| [Ajouter le kit de développement logiciel (SDK) JavaScript à une page web][client] |ClientContext  <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
+| [Ajouter le kit de développement logiciel (SDK) JavaScript à une page web][client] |ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
 | [Définir les propriétés par défaut][apiproperties] |**Propriétés** sur tous les événements standard et personnalisés |
 | [Appeler TrackMetric][api] |Valeurs numériques<br/>**Propriétés** |
 | [Appeler Track*][api] |Nom de l'événement<br/>**Propriétés** |
 | [Appeler TrackException][api] |**Exceptions**<br/>Vidage de pile<br/>**Propriétés** |
-| Le Kit SDK ne peut pas collecter les données. Par exemple :  <br/> - impossible d’accéder aux compteurs de performances<br/> - exception dans l’initialiseur de télémétrie |SDK diagnostics |
+| Le Kit SDK ne peut pas collecter les données. Par exemple : <br/> - impossible d’accéder aux compteurs de performances<br/> - exception dans l’initialiseur de télémétrie |SDK diagnostics |
 
 Pour les [Kits de développement logiciel (SDK) des autres plateformes][platforms], consultez les documents correspondants.
 
@@ -258,7 +257,7 @@ Pour les [Kits de développement logiciel (SDK) des autres plateformes][platform
 | --- | --- |
 | **Propriétés** |**Toutes les données - en fonction de votre code** |
 | DeviceContext |ID, adresse IP, paramètres régionaux, modèle d’appareil, réseau, type de réseau, nom OEM, résolution d’écran, instance de rôle, nom du rôle, type d’appareil |
-| ClientContext  |Système d’exploitation, paramètres régionaux, langue, réseau, résolution de la fenêtre |
+| ClientContext |Système d’exploitation, paramètres régionaux, langue, réseau, résolution de la fenêtre |
 | session |ID de session |
 | ServerContext |Nom de l’ordinateur, paramètres régionaux, système d’exploitation, appareil, session utilisateur, contexte utilisateur, opération |
 | Inferred |Emplacement géographique à partir de l’adresse IP, horodatage, système d’exploitation, navigateur |
@@ -276,10 +275,10 @@ Pour les [Kits de développement logiciel (SDK) des autres plateformes][platform
 | Disponibilité |Code de réponse de test web, durée de chaque étape de test, nom de test, horodatage, réussite, temps de réponse, emplacement de test |
 | SDK diagnostics |Message de suivi ou exception |
 
-Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config].
+Vous pouvez [désactiver certaines données en modifiant ApplicationInsights.config][config]
 
 > [!NOTE]
-> L’IP du client est utilisée pour déduire son emplacement géographique, mais par défaut, les données d’IP ne sont plus stockées et tous les zéros sont écrits dans le champ associé. Pour en savoir plus sur la gestion des données personnelles, nous vous invitons à lire [cet article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Si vous avez besoin de stocker l’adresse IP, vous pouvez le faire avec un [initialiseur de télémétrie](./../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer).
+> L’IP du client est utilisée pour déduire son emplacement géographique, mais par défaut, les données d’IP ne sont plus stockées et tous les zéros sont écrits dans le champ associé. Pour en savoir plus sur la gestion des données personnelles, nous vous invitons à lire [cet article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Si vous avez besoin de stocker des données d’adresse IP, notre [article sur la collecte des adresses IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) vous présentera vos options.
 
 ## <a name="credits"></a>Crédits
 Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur [https://www.maxmind.com](https://www.maxmind.com).
@@ -298,4 +297,3 @@ Ce produit contient des données GeoLite2 créées par MaxMind, disponibles sur 
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
-

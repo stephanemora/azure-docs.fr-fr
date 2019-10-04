@@ -1,93 +1,108 @@
 ---
-title: Analyse continue de votre pipeline de mise en production DevOps avec Azure DevOps et Azure Application Insights | Microsoft Docs
-description: Fournit des instructions permettant de configurer rapidement une analyse continue avec Application Insights.
+title: Analyse continue de votre pipeline de mise en production DevOps avec Azure Pipelines et Azure Application Insights | Microsoft Docs
+description: Fournit des instructions permettant de configurer rapidement une analyse continue avec Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 11/13/2017
+ms.date: 07/16/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 41999defb01e024773b6364f169a1ce3b1377237
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: MT
+ms.openlocfilehash: c39a2f75fe74b61463af464078b4446bba07dec0
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54056351"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277699"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Ajouter l’analyse continue à votre pipeline de mise en production
 
-Azure DevOps Services s’intègre à Azure Application Insights pour permettre l’analyse continue de votre pipeline de mise en production DevOps tout au long du cycle de vie du développement logiciel. 
+Azure Pipelines s’intègre à Azure Application Insights pour permettre l’analyse continue de votre pipeline de mise en production DevOps tout au long du cycle de vie du développement logiciel. 
 
-Azure DevOps Services prend désormais en charge l’analyse continue, grâce à laquelle les pipelines de mise en production peuvent intégrer les données d’analyse d’Application Insights et d’autres ressources Azure. Lorsqu’une alerte Application Insights est détectée, le déploiement peut rester contrôlé ou être restauré jusqu’à ce que l’alerte soit résolue. Si toutes les vérifications réussissent, les déploiements passent automatiquement de la phase de test à la mise en production sans nécessiter d’intervention manuelle. 
+Avec l’analyse continue, les pipelines de mise en production peuvent incorporer des données d’analyse à partir de Application Insights et d’autres ressources Azure. Lorsque le pipeline de mise en production détecte une alerte Application Insights, le pipeline peut déterminer ou restaurer le déploiement jusqu’à ce que l’alerte soit résolue. Si toutes les vérifications réussissent, les déploiements passent automatiquement de la phase de test à la mise en production sans nécessiter d’intervention manuelle. 
 
 ## <a name="configure-continuous-monitoring"></a>Configurer l’analyse continue
 
-1. Sélectionnez un projet Azure DevOps Services existant.
+1. Dans [Azure DevOps](https://dev.azure.com), sélectionnez une organisation et un projet.
+   
+1. Dans le menu de gauche de la page projet, sélectionnez **Pipelines** > **Mises en production**. 
+   
+1. Faites glisser la flèche à côté de **Nouveau** et sélectionnez **Nouveau pipeline de mise en production**. Ou, si vous n’avez pas encore de pipeline, sélectionnez **Nouveau pipeline** dans la page qui s’affiche.
+   
+1. Dans le volet **Sélectionner un modèle**, recherchez et sélectionnez **Déploiement avec analyse continue Azure App Service**, puis sélectionnez **Appliquer**. 
 
-2. Passez le curseur sur **Build et mise en production** > sélectionnez **Versions** > cliquez sur le **signe plus** > **Création d’une définition de version** > recherchez **Analyse** > **Déploiement d’Azure App Service avec l’analyse continue.**
+   ![Nouveau pipeline de mise en production Azure Pipelines](media/continuous-monitoring/001.png)
 
-   ![Nouveau pipeline de mise en production d’Azure DevOps Services](media/continuous-monitoring/001.png)
+1. Dans la zone **Étape 1**, sélectionnez le lien hypertexte pour **Afficher les tâches d’étape.**
 
-3. Cliquez sur **Appliquer**.
+   ![Afficher les tâches d’étape](media/continuous-monitoring/002.png)
 
-4. À côté du point d’exclamation rouge, sélectionnez le texte en bleu pour **afficher les tâches d’environnement.**
-
-   ![Afficher les tâches d’environnement](media/continuous-monitoring/002.png)
-
-   Une boîte de configuration s’affiche : utilisez le tableau suivant pour remplir les champs d’entrée.
+1. Dans le volet configuration de l’**Étape 1**, complétez les champs suivants : 
 
     | Paramètre        | Valeur |
    | ------------- |:-----|
-   | **Nom de l’environnement**      | Nom décrivant l’environnement de pipeline de mise en production |
-   | **Abonnement Azure** | Liste déroulante contenant les abonnements Azure liés à l’organisation Azure DevOps Services|
-   | **Nom de l’App Service** | En fonction des autres sélections, il peut être nécessaire de saisir manuellement une nouvelle valeur pour ce champ. |
-   | **Groupe de ressources**    | La liste déroulante affiche les groupes de ressources disponibles |
-   | **Nom de la ressource Application Insights** | La liste déroulante affiche toutes les ressources Application Insights correspondant au groupe de ressources sélectionné précédemment.
+   | **Nom de l’étape**      | Fournissez un nom d’étape ou laissez-le en tant que **Étape 1**. |
+   | **Abonnement Azure** | Faites défiler et sélectionnez l’abonnement Azure lié que vous souhaitez utiliser.|
+   | **Type d’application** | Faites défiler et sélectionnez votre type d’application. |
+   | **Nom de l’App Service** | Entrez le nom de votre Azure App Service. |
+   | **Nom du groupe de ressources pour Application Insights**    | Faites défiler et sélectionnez le groupe de ressources à utiliser. |
+   | **Nom de la ressource Application Insights** | Faites défiler et sélectionnez la ressource Application Insights pour le groupe de ressources que vous avez sélectionné.
 
-5. Sélectionnez **Configurer les alertes Application Insights**.
-
-6. Pour les règles d’alerte par défaut, sélectionnez **Enregistrer** > entrez un commentaire descriptif > cliquez sur **OK**.
+1. Pour enregistrer le pipeline avec les paramètres de règle d’ alerte par défaut, sélectionnez **Enregistrer** en haut à droite dans la fenêtre Azure DevOps. Entrez un commentaire descriptif, puis sélectionnez **OK**.
 
 ## <a name="modify-alert-rules"></a>Modifier les règles d’alerte
 
-1. Pour modifier les paramètres d’alerte prédéfinis, cliquez sur les **points de suspension...**  à droite des **règles d’alerte.**
+Prêt à l’emploi, le modèle de **déploiement avec analyse continue Azure App Service** comporte quatre règles d’alerte : **Disponibilité**, **Requêtes ayant échoué**, **Temps de réponse du serveur** et **Exceptions du serveur**. Vous pouvez ajouter d’autres règles ou modifier les paramètres de règle en fonction de vos besoins de niveau de service. 
 
-   (Par défaut, les quatre règles d’alerte sont : la disponibilité, les requêtes ayant échoué, le temps de réponse du serveur et les exceptions du serveur.)
+Pour modifier les paramètres de règle d’alerte :
 
-2. Cliquez sur le symbole de la liste déroulante en regard de **Disponibilité.**
+1. Dans le volet gauche de la page pipeline de mise en production, sélectionnez **Configurer des alertes Application Insights**.
 
-3. Modifiez le **seuil** de disponibilité pour répondre à vos exigences de niveau de service.
-
+1. Dans le volet **Alertes Azure Monitor**, sélectionnez les points de suspension **...** à côté de **Règles d’alerte**.
+   
+1. Dans la boîte de dialogue **Règles d’alerte**, sélectionnez le symbole de liste déroulante à côté d’une règle d’alerte, par exemple **Disponibilité**. 
+   
+1. Modifiez le **Seuil** et d’autres paramètres pour répondre à vos besoins.
+   
    ![Modifier l’alerte](media/continuous-monitoring/003.png)
-
-4. Sélectionnez **OK** > **Enregistrer** > entrez un commentaire descriptif > cliquez sur **OK.**
+   
+1. Sélectionnez **OK**, puis cliquez sur **Enregistrer** en haut à droite dans la fenêtre Azure DevOps. Entrez un commentaire descriptif, puis sélectionnez **OK**.
 
 ## <a name="add-deployment-conditions"></a>Ajouter des conditions de déploiement
 
-1. Cliquez sur **Pipeline** > sélectionnez le symbole des conditions **pré** ou **post-déploiement** en fonction de l’étape nécessitant un portail d’analyse continue.
+Lorsque vous ajoutez des jalons de déploiement à votre pipeline de mise en production, une alerte de dépassement des seuils que vous définissez empêche la promotion des mises en production indésirables. Une fois que vous avez résolu l’alerte, le déploiement peut se poursuivre automatiquement.
 
-   ![Conditions préalables au déploiement](media/continuous-monitoring/004.png)
+Pour ajouter des jalons de déploiement :
 
-2. Définissez **Portails** sur **Activé** > **Portails d’approbation**> cliquez sur **Ajouter.**
+1. Dans la page pipeline principal, sous **Étapes**, sélectionnez le symbole **Conditions de pré-déploiement** ou **Conditions de post-déploiement**, en fonction de l’étape nécessitant une jalons d’analyse continue.
+   
+   ![Conditions de pré-déploiement](media/continuous-monitoring/004.png)
+   
+1. Dans le volet configuration des **Conditions de pré-déploiement**, définissez **Jalons** à **Activé**.
+   
+1. À côté de **Jalons de déploiement**, sélectionnez **Ajouter**.
+   
+1. Dans le menu déroulant, sélectionnez **Interroger les alertes Azure Monitor**. Cette option vous permet d’accéder aux alertes Azure Monitor et Application Insights.
+   
+   ![Interroger les alertes Azure Monitor](media/continuous-monitoring/005.png)
+   
+1. Sous **Options d’évaluation**, entrez les valeurs souhaitées pour les paramètres tels que **Le délai entre la réévaluation des jalons** et **Le délai d’attente après lequel les jalons échouent**. 
 
-3. Sélectionnez **Azure Monitor** (cette option vous permet d’accéder aux alertes à partir d’Azure Monitor et d’Application Insights).
+## <a name="view-release-logs"></a>Afficher les journaux des mises en production
 
-    ![Azure Monitor](media/continuous-monitoring/005.png)
+Vous pouvez voir le comportement du jalon de déploiement et d’autres étapes de mise en production dans les journaux des mises en production. Pour ouvrir les journaux :
 
-4. Saisissez une valeur pour le **délai d’attente des portails**.
-
-5. Saisissez un **intervalle d’échantillonnage.**
-
-## <a name="deployment-gate-status-logs"></a>Journaux d’activité d’état du portail de déploiement
-
-Une fois que vous ajoutez des portails de déploiement, une alerte dans Application Insights, d’une valeur supérieure au seuil défini précédemment, protège votre déploiement de toute promotion non souhaitée de la mise en production. Une fois l’alerte résolue, le déploiement peut s’effectuer automatiquement.
-
-Pour observer ce comportement, sélectionnez **Mises en production** > clic droit sur le nom de la mise en production **ouvrir** > **Journaux.**
-
-![Journaux d’activité](media/continuous-monitoring/006.png)
+1. Sélectionnez **Mises en production** dans le menu de gauche de la page Pipeline. 
+   
+1. Sélectionnez n’importe quelle mise en production. 
+   
+1. Sous **Étapes**, sélectionnez une étape pour afficher un résumé de la mise en production. 
+   
+1. Pour afficher les journaux, sélectionnez **Afficher les journaux** dans le résumé de la mise en production, sélectionnez le lien hypertexte ayant **Réussi** ou **Échoué** à n’importe quelle étape, ou passez la souris sur une étape et sélectionnez **Journaux**. 
+   
+   ![Afficher les journaux des mises en production](media/continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur Azure Pipelines, essayez ces [guides de démarrage rapide](https://docs.microsoft.com/azure/devops/pipelines).
+Pour plus d’informations sur Azure Pipelines, consultez la [documentation Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines).

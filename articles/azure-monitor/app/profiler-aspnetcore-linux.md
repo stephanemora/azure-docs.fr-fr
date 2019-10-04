@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: cweining
 ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790152"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60306484"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profiler des applications web ASP.NET Core Azure Linux avec Application Insights Profiler
 
@@ -29,7 +29,7 @@ Après avoir terminé cette procédure pas à pas, votre application peut collec
 
 ![Traces du profileur](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Les instructions suivantes s’appliquent à tous les environnements de développement Windows, Linux et Mac :
 
 * Installez le [kit SDK .NET Core 2.1.2 ou une version ultérieure](https://dotnet.microsoft.com/download/archives).
@@ -53,7 +53,7 @@ Les instructions suivantes s’appliquent à tous les environnements de dévelop
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-1. Activer Application Insights dans le fichier Program.cs :
+1. Activez Application Insights dans Program.cs :
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -176,8 +176,8 @@ Le résultat ressemble à ce qui suit en exemple :
 
 ## <a name="known-issues"></a>Problèmes connus
 
-### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Profil maintenant le bouton ne fonctionne pas pour Profiler de Linux
-La version Linux du profileur application Insights ne prend pas en charge à la demande de profilage en utilisant le profil maintenant bouton.
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>Le bouton Profile Now ne fonctionne pas pour Linux Profiler
+La version Linux de Profiler App Insights ne prend pas encore en charge le profilage à la demande avec ce bouton.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

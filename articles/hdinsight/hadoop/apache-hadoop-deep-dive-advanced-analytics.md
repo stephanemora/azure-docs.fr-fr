@@ -1,7 +1,6 @@
 ---
 title: Approfondissement - Analytique avancée - Azure HDInsight
-description: Découvrez comment l’analytique avancée utilise des algorithmes pour traiter des données Big Data.
-services: hdinsight
+description: Découvrez comment l’analytique avancée utilise des algorithmes pour traiter des données Big Data dans Azure HDInsight.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 893273fc325eaf878814c07eb095c67f5ea3c3f1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: MT
+ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
+ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675056"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71066980"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Approfondissement - Analytique avancée
 
@@ -24,17 +23,17 @@ HDInsight fournit la possibilité d’obtenir des insights pertinents à partir 
 
 ## <a name="advanced-analytics-process"></a>Processus d’analytique avancée
 
-![Process](./media/apache-hadoop-deep-dive-advanced-analytics/process.png)
+![Flux du processus d’analytique avancée](./media/apache-hadoop-deep-dive-advanced-analytics/hdinsight-analytic-process.png)
 
-Une fois que vous avez identifié le problème de l’entreprise et que vous avez démarré la collecte et le traitement de vos données, vous devez créer un modèle qui représente la question à propos de laquelle vous souhaitez établir des prédictions. Votre modèle utilise un ou plusieurs algorithmes Machine Learning pour restituer le type de prédiction qui répond le mieux aux besoins de votre entreprise.  La majorité de vos données doit être utilisée pour l’apprentissage de votre modèle, le reste étant utilisé à des fins de test ou d’évaluation. 
+Une fois que vous avez identifié le problème de l’entreprise et que vous avez démarré la collecte et le traitement de vos données, vous devez créer un modèle qui représente la question à propos de laquelle vous souhaitez établir des prédictions. Votre modèle utilise un ou plusieurs algorithmes Machine Learning pour restituer le type de prédiction qui répond le mieux aux besoins de votre entreprise.  La majorité de vos données doit être utilisée pour l’apprentissage de votre modèle, le reste étant utilisé à des fins de test ou d’évaluation.
 
-Une fois que vous avez créé, chargé, testé et évalué votre modèle, l’étape suivante consiste à déployer votre modèle afin qu’il commence à fournir des réponses à vos questions. La dernière étape consiste à analyser les performances de votre modèle et à les ajuster au besoin. 
+Une fois que vous avez créé, chargé, testé et évalué votre modèle, l’étape suivante consiste à déployer votre modèle afin qu’il commence à fournir des réponses à vos questions. La dernière étape consiste à analyser les performances de votre modèle et à les ajuster au besoin.
 
 ## <a name="common-types-of-algorithms"></a>Types courants d’algorithmes
 
 La solution d’analytique avancée fournit un ensemble d’algorithmes Machine Learning. Voici un résumé des catégories d’algorithmes et des exemples d’utilisation courants associés.
 
-![Cas d’usage Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/ml-use-cases.png)
+![Résumés des catégories Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-use-cases.png)
 
 Une fois que vous avez sélectionné l’algorithme le mieux adapté, vous devez définir si vous avez besoin de fournir des données pour l’apprentissage. Les algorithmes Machine Learning sont classés comme suit :
 
@@ -99,7 +98,7 @@ Il existe trois tâches clés dans ce scénario d’analytique avancée :
 
 Cet exemple utilise le jeu d’images CIFAR-10 compilé et distribué par Alex Krizhevsky, Vinod Nair et Geoffrey Hinton. Le jeu de données CIFAR-10 contient 60 000 images en couleur de 32 x 32 pixels appartenant à 10 classes qui s’excluent mutuellement :
 
-![Images](./media/apache-hadoop-deep-dive-advanced-analytics/ml-images.png)
+![Exemples d’images Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-images.png)
 
 Pour plus d’informations sur le jeu de données, consultez l’article [Learning Multiple Layers of Features from Tiny Images](https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf) rédigé par Alex Krizhevsky.
 
@@ -112,7 +111,7 @@ Le jeu de données a été partitionné en un jeu d’apprentissage de 50 000 i
 
 L’ensemble du processus de prétraitement/notation des 10 000 images prend moins d’une minute sur un cluster avec 4 nœuds Worker. Le modèle prédit correctement les étiquettes d’environ 9 100 images (91 %). Une matrice de confusion illustre les erreurs de classification les plus courantes. Par exemple, la matrice montre qu’un étiquetage erroné d’images de chiens et de chats se produit plus fréquemment que pour les autres paires d’étiquette.
 
-![Résultats](./media/apache-hadoop-deep-dive-advanced-analytics/ml-results.png)
+![Graphique des résultats Machine Learning](./media/apache-hadoop-deep-dive-advanced-analytics/machine-learning-results.png)
 
 ### <a name="try-it-out"></a>Faites un essai.
 

@@ -1,20 +1,21 @@
 ---
-title: Démarrage rapide – Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Node.js | Microsoft Docs
+title: 'Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Node.js'
 titleSuffix: Azure Cognitive Services
 description: Commencez à utiliser l’API Recherche d’entreprises locales Bing dans Node.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: d649926a60d115c66a2763cef6b02b4aedbb962c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.subservice: bing-local-business
+ms.topic: quickstart
+ms.date: 09/13/2019
+ms.author: aahi
+ms.openlocfilehash: 02513d0596588b4e6ba05edf5342769e78c24242
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761308"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996660"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Node.js
 
@@ -22,7 +23,7 @@ Utilisez ce démarrage rapide pour commencer à envoyer des demandes à l’API 
 
 Cet exemple d’application récupère des données de réponse locales auprès de l’API pour la requête de recherche `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * La dernière version de [Node.js](https://nodejs.org/en/download/).
 

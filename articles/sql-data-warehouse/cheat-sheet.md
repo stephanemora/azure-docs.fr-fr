@@ -2,20 +2,20 @@
 title: Aide-mémoire pour Azure SQL Data Warehouse | Microsoft Docs
 description: Découvrez des liens et les bonnes pratiques à suivre pour créer rapidement vos solutions Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: acomet
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 04/17/2018
-ms.author: acomet
+ms.date: 08/23/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 795facc6148d33592ff8eac5083a273dc3d5cb26
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1bbb0148e6f4be2afc777960afcda9c727328206
+ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314906"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70195065"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Aide-mémoire pour Azure SQL Data Warehouse
 Cet aide-mémoire vous procure des conseils et des bonnes pratiques à suivre pour créer vos solutions Azure SQL Data Warehouse. Avant de démarrer, découvrez chaque étape en détail dans la section [Azure SQL Data Warehouse Workload Patterns and Anti-Patterns](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns) (Modèles et anti-modèles de charges de travail Azure SQL Data Warehouse), qui définit sans ambiguïté SQL Data Warehouse.
@@ -35,7 +35,7 @@ Le fait de bien déterminer le type des opérations à l’avance vous aide à o
 
 ## <a name="data-migration"></a>Migration des données
 
-Commencez par charger vos données dans [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) ou le stockage Blob Azure. Ensuite, utilisez PolyBase pour charger vos données dans une table de mise en lots dans SQL Data Warehouse. Utilisez la configuration suivante :
+Commencez par charger vos données dans [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) ou le stockage d’objets blob Azure. Ensuite, utilisez PolyBase pour charger vos données dans une table de mise en lots dans SQL Data Warehouse. Utilisez la configuration suivante :
 
 | Conception | Recommandation |
 |:--- |:--- |
@@ -96,9 +96,11 @@ Découvrez plus en détail les [partitions].
 
 ## <a name="incremental-load"></a>Chargement incrémentiel
 
-Si vous envisagez de charger vos données de manière incrémentielle, assurez-vous d’allouer des classes de ressources plus grandes au chargement de vos données. Nous vous recommandons d’utiliser PolyBase et ADF V2 pour automatiser vos pipelines ELT dans SQL Data Warehouse.
+Si vous envisagez de charger vos données de manière incrémentielle, assurez-vous d’allouer des classes de ressources plus grandes au chargement de vos données.  C’est particulièrement important lors d’un chargement dans des tables contenant des index columnstore en cluster.  Pour plus d’informations, consultez [Classes de ressources](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management).  
 
-Si vous avez beaucoup de mises à jour dans vos données d’historique, supprimez les données concernées. Vous pouvez ensuite procéder à une insertion en bloc des nouvelles données. Cette approche en 2 étapes est plus efficace.
+Nous vous recommandons d’utiliser PolyBase et ADF V2 pour automatiser vos pipelines ELT dans SQL Data Warehouse.
+
+Pour un grand lot de mises à jour dans vos données d’historique, envisagez d’utiliser une opération [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) afin d’écrire les données à conserver dans une table plutôt que d’utiliser une opération INSERT, UPDATE et DELETE.
 
 ## <a name="maintain-statistics"></a>Mettre à jour les statistiques
  Jusqu’à la disponibilité générale des statistiques automatiques, SQL Data Warehouse nécessite une maintenance manuelle des statistiques. Il est important de mettre à jour les statistiques dès que des modifications *significatives* ont été apportées à vos données. Cela permet d’optimiser davantage vos plans de requête. Si vous trouvez que la mise à jour de toutes vos statistiques prend trop de temps, vous pouvez sélectionner moins de colonnes contenant des statistiques. 
@@ -157,8 +159,8 @@ Déployez en un seul clic vos spokes dans les bases de données SQL Database à 
 <!--Other Web references-->
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[migration des données]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+[migration des données]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
-[Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
+[Azure Data Lake Storage]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
 [sys.dm_pdw_request_steps]:/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

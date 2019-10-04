@@ -2,20 +2,20 @@
 title: BuildingBlocks - Azure Active Directory B2C | Microsoft Docs
 description: Spécifiez l’élément BuildingBlocks d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: afa064232c10d3e84e9c301d44b82faae4904253
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5ab2b11749aa57065a1a4d688b02fed97731ab7c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152975"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464745"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -67,6 +67,8 @@ L’élément **BuildingBlocks** contient les éléments suivants qui doivent ê
     - Création d’une revendication de chaîne à partir du paramètre fourni dans la stratégie.
     - Création d’une chaîne aléatoire à l’aide du générateur de nombres aléatoires.
     - Mise en forme d’une revendication en fonction de la chaîne de format fournie. Cette transformation utilise la méthode C# `String.Format`.
+    
+- InputValidation – Cet élément vous permet d’effectuer des agrégations booléennes similaires à *et* et *ou*.
 
 - [ContentDefinitions](contentdefinitions.md) : contient des URL pour les modèles HTML5 à utiliser dans votre parcours utilisateur. Dans une stratégie personnalisée, une définition de contenu définit l’URI de page HTML5 qui est utilisée pour une étape spécifiée dans le parcours utilisateur. Par exemple, les pages de connexion ou d’inscription, de réinitialisation du mot de passe ou d’erreur. Vous pouvez modifier l’apparence en substituant le LoadUri du fichier HTML5. Vous pouvez aussi créer des définitions de contenu en fonction de vos besoins. Cet élément peut contenir une référence de ressources localisées à l’aide d’un ID de localisation.
 

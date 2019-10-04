@@ -1,39 +1,32 @@
-items:
 - name: Documentation du module HSM dédié
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Vue d’ensemble du module HSM dédié
-    href: overview.md
-- name: Didacticiels
+    - name: Vue d’ensemble du module HSM dédié
+      href: overview.md
+- name: Tutoriels
   items:
-  - name: Déploiement de modules HSM sur un réseau virtuel existant à l’aide d’Azure CLI
-    href: tutorial-deploy-hsm-cli.md
-  - name: Déploiement de modules HSM sur un réseau virtuel existant à l’aide de PowerShell
-    href: tutorial-deploy-hsm-powershell.md
+    - name: "Déploiement de modules\_HSM sur un réseau virtuel existant à l’aide d’Azure CLI"
+      href: tutorial-deploy-hsm-cli.md
+    - name: "Déploiement de modules\_HSM sur un réseau virtuel existant à l’aide de PowerShell"
+      href: tutorial-deploy-hsm-powershell.md
 - name: Concepts
   items:
-  - name: Haute disponibilité
-    href: high-availability.md
-  - name: Surveillance
-    href: monitoring.md
-  - name: Mise en réseau
-    href: Networking.md
-  - name: Sécurité physique
-    href: physical-security.md
-  - name: Prise en charge
-    href: supportability.md
-- name: Procédures
+    - name: Haute disponibilité
+      href: high-availability.md
+    - name: Surveillance
+      href: monitoring.md
+    - name: Mise en réseau
+      href: Networking.md
+    - name: Sécurité physique
+      href: physical-security.md
+    - name: Prise en charge
+      href: supportability.md
+- name: Guides pratiques
   items:
-  - name: Choix de l’architecture de déploiement
-    href: deployment-architecture.md
+    - name: Choix de l’architecture de déploiement
+      href: deployment-architecture.md
 - name: Ressources
   items:
-  - name: Questions fréquentes (FAQ)
-    href: faq.md
-ms.openlocfilehash: f0efd79e23aef90f54a38602694a8636e0789804
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317974"
+    - name: Questions fréquentes (FAQ)
+      href: faq.md

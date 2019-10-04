@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 81ba993e6cbe55b45d34325545754bec561ce479
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678868"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514461"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité et reprise d’activité : Régions jumelées Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "59678868"
 
 Azure fonctionne dans plusieurs zones géographiques à travers le monde. Une zone géographique Azure est une zone définie du monde contenant au moins une région Azure. Une région Azure est une zone géographique contenant un ou plusieurs centres de données.
 
-Chaque région Azure est associée à une autre région au sein de la même région géographique, constituant ainsi des paires régionales. La seule exception est le sud du Brésil qui est associé à une zone en dehors de sa zone géographique. Pour les paires de régions, Azure sérialise les mises à jour de plateforme (maintenance planifiée) pour que les deux régions soient mises à jour l’une après l’autre, et non en même temps. En cas de panne affectant plusieurs régions, au moins l’une des régions de chaque paire est prioritaire pour la récupération.
+Chaque région Azure est associée à une autre région au sein de la même région géographique, constituant ainsi des paires régionales. La seule exception est le Brésil Sud qui est associé à une zone en dehors de sa zone géographique. Pour les paires de régions, Azure sérialise les mises à jour de plateforme (maintenance planifiée) pour que les deux régions soient mises à jour l’une après l’autre, et non en même temps. En cas de panne affectant plusieurs régions, au moins l’une des régions de chaque paire est prioritaire pour la récupération.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
@@ -28,33 +28,27 @@ Figure 1 – Paires régionales Azure
 
 | Geography | Régions jumelées |  |
 |:--- |:--- |:--- |
-| Asie |Est de l'Asie |Asie du Sud-Est |
-| Australie |Est de l’Australie |Australie Sud-Est |
+| Asie |Asie Est |Asie Sud-Est |
+| Australie |Australie Est |Sud-Australie Est |
 | Australie |Centre de l’Australie |Centre de l’Australie 2 |
-| Brésil |Brésil Sud |USA Centre Sud |
+| Brésil |Brésil Sud |États-Unis - partie centrale méridionale |
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|
 | Chine |Chine Nord 2 |Chine orientale 2|
-| Europe |Europe du Nord |Europe Ouest |
+| Europe |Europe Nord (Irlande) |Europe Ouest (Pays-Bas) |
 | France |France Centre|France Sud|
 | Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
-| Allemagne |Nord de l’Allemagne | Ouest-Centre de l’Allemagne
-| Inde |Inde centrale |Inde du Sud |
+| Inde |Inde centrale |Inde Sud |
 | Inde |Inde Ouest |Inde Sud |
-| Japon |Est du Japon |Ouest du Japon |
+| Japon |Japon Est |OuJapon Est |
 | Corée du Sud |Centre de la Corée |Corée du Sud |
-| Amérique du Nord |Est des États-Unis |États-Unis de l’Ouest |
-| Amérique du Nord |Est des États-Unis 2 |Centre des États-Unis |
+| Amérique du Nord |USA Est |USA Ouest |
+| Amérique du Nord |USA Est 2 |USA Centre |
 | Amérique du Nord |Centre-Nord des États-Unis |États-Unis - partie centrale méridionale |
-| Amérique du Nord |Ouest des États-Unis 2 |USA Centre-Ouest 
-| Amérique du Nord |Ouest des États-Unis 3 |USA Est
-| Norvège |Norvège Est |Norvège Ouest
+| Amérique du Nord |USA Ouest 2 |Centre-USA Ouest 
 | Afrique du Sud | Afrique du Sud Nord | Afrique du Sud Ouest
-| Suède |Suède Central |Sud de la Suède
-| Suisse | Nord de la Suisse | Ouest de la Suisse
 | Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
-| Royaume-Uni |Nord du Royaume-Uni |Sud du Royaume-Uni 2
-| Émirats Arabes Unis | Nord des Émirats arabes unis | Centre des Émirats Arabes Unis
+| Émirats Arabes Unis | Émirats arabes unis Nord | Émirats arabes unis Centre
 | Ministère de la défense des États-Unis |Est des États-Unis – US DoD |Centre des États-Unis – US DoD |
 | Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |
 | Gouvernement américain |US Gov Iowa |Gouvernement américain - Virginie |
@@ -62,11 +56,11 @@ Figure 1 – Paires régionales Azure
 
 Tableau 1 - Mise en correspondance des paires régionales Azure
 
-- Inde de l’ouest est associée dans une seule direction. La région secondaire de la région Inde de l’Ouest est Inde du Sud, mais la région secondaire de la région Inde du Sud est Centre de l’Inde.
-- La région Brésil Sud est unique, car elle est jumelée avec une région située en dehors de sa propre zone géographique. Région secondaire sud du Brésil est sud du centre des États-Unis. De Sud région secondaire n’est pas sud du Brésil.
-- La des États-Unis-Iowa région secondaire est Virginie.
-- Région secondaire de gouvernement américain-Virginie est la région gouvernement des États-Unis-Texas.
-- L’US Gov Texas région secondaire est gouvernement des États-Unis-Arizona.
+- La région Inde Ouest est jumelée dans une seule direction. La région secondaire de la région Inde Ouest est Inde Sud, mais la région secondaire de la région Inde Sud est Inde Centre.
+- La région Brésil Sud est unique, car elle est jumelée avec une région située en dehors de sa propre zone géographique. La région secondaire de la région Brésil Sud est USA Centre Sud. La région secondaire de la région USA Centre Sud n’est pas Brésil Sud.
+- La région secondaire de la région US Gov Iowa est US Gov Virginie.
+- La région secondaire de la région US Gov Virginie est US Gov Texas.
+- La région secondaire de la région US Gov Texas est US Gov Arizona.
 
 
 Nous vous recommandons de configurer la continuité d’activité et reprise d’activité (BCDR) dans les paires régionales pour tirer parti des stratégies d’isolation et de disponibilité Azure. Pour les applications qui prennent en charge plusieurs régions actives, nous vous recommandons d’utiliser les deux régions d’une paire lorsque cela est possible. Cela garantit la disponibilité optimale des applications, ainsi qu’un temps de récupération réduit en cas de sinistre. 
@@ -83,9 +77,9 @@ Conformément à la figure 2.
 
 ![IaaS](./media/best-practices-availability-paired-regions/1Green.png)**Azure Compute (IaaS)** – Vous devez approvisionner des ressources de calcul supplémentaires à l’avance pour garantir la disponibilité des ressources dans d’autres régions au cours d’un incident. Pour plus d’informations, consultez le [Guide technique de la résilience Azure](resiliency/resiliency-technical-guidance.md).
 
-![Storage](./media/best-practices-availability-paired-regions/2Green.png)**Azure Storage** - Le stockage géo-redondant (GRS, Geo-Redundant Storage) est configuré par défaut quand vous créez un compte de stockage Azure. Avec GRS, vos données sont répliquées trois fois dans la région principale et trois fois dans la région jumelée. Pour plus d'informations, consultez [Options de redondance du stockage Azure](storage/common/storage-redundancy.md).
+![Stockage](./media/best-practices-availability-paired-regions/2Green.png) **Stockage Azure** : si vous utilisez des disques managés, découvrez les [sauvegardes inter-régions](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) avec Sauvegarde Azure, et la [réplication de machines virtuelles](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) d’une région à l’autre avec Azure Site Recovery. Si vous utilisez des comptes de stockage, le stockage géo-redondant (GRS, Geo-Redundant Storage) est configuré par défaut quand vous créez un compte de stockage Azure. Avec GRS, vos données sont répliquées trois fois dans la région principale et trois fois dans la région jumelée. Pour plus d'informations, consultez [Options de redondance du stockage Azure](storage/common/storage-redundancy.md).
 
-![SQL Azure](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – avec la géoréplication dans Azure SQL Database, vous pouvez configurer une réplication asynchrone des transactions vers toute région du monde. En revanche, nous vous recommandons de déployer ces ressources dans une région couplée pour la plupart des scénarios de récupération d’urgence. Pour plus d’informations, consultez la rubrique concernant la [géoréplication dans la base de données SQL Azure](sql-database/sql-database-geo-replication-overview.md).
+![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png)**Azure SQL Database** – avec la géoréplication dans Azure SQL Database, vous pouvez configurer une réplication asynchrone des transactions vers toute région du monde. En revanche, nous vous recommandons de déployer ces ressources dans une région couplée pour la plupart des scénarios de récupération d’urgence. Pour plus d’informations, consultez [Géoréplication dans Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 
 ![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager** - Resource Manager offre par nature une isolation logique des composants entre les régions. Cela signifie que des échecs logiques dans une région sont moins susceptibles d’avoir un impact sur une autre.
 
@@ -105,4 +99,4 @@ Conformément à la figure 2.
 **Mises à jour séquentielles** – Les mises à jour planifiées du système Azure sont déployées vers les régions jumelées séquentiellement (pas en même temps) pour limiter les interruptions de service, l’effet des bogues et les échecs logiques dans les rares cas d’échec de mise à jour.
 
 ![Données](./media/best-practices-availability-paired-regions/9Orange.png)
-**Résidence de données** – Une région se trouve dans la même zone géographique que la région avec laquelle elle est jumelée (à l’exception du Sud du Brésil) pour répondre aux exigences de la résidence de données en termes d’impôts et d’application de la loi.
+**Résidence de données** – Une région se trouve dans la même zone géographique que la région avec laquelle elle est jumelée (à l’exception du Brésil Sud) pour répondre aux exigences de la résidence de données en termes d’impôts et d’application de la loi.

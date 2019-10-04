@@ -1,21 +1,21 @@
 ---
 title: Créer des révisions de transcriptions de vidéos à l’aide de .NET - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Créer des révisions de transcriptions de vidéos à l’aide du SDK Content Moderator pour .NET
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: f3f93824eb021e0fb75e1a6b81935292379d50e5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524495"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883068"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Révisions de transcriptions de vidéos à l’aide de .NET
 
@@ -25,9 +25,9 @@ Cet article fournit des informations et des exemples de code destinés à vous a
 - Ajouter une transcription modérée à la révision
 - Publier la révision
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Connectez-vous ou créez un compte sur le modérateur de contenu [outil de révision](https://contentmoderator.cognitive.microsoft.com/) de site si vous n’avez pas déjà fait.
+- Si ce n’est déjà fait, connectez-vous ou créez un compte sur le site de [l’outil de révision](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 - Cet article suppose que vous avez [modéré la vidéo](video-moderation-api.md) et [créé la révision de la vidéo](video-reviews-quickstart-dotnet.md) dans l’outil de révision pour la prise de décision humaine. Vous souhaitez maintenant ajouter les transcriptions de la vidéo modérée dans l’outil de révision.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>Vérifier que votre clé API peut appeler l’API de révision (création de travail)
@@ -154,7 +154,7 @@ Créez une révision de vidéo avec **ContentModeratorClient.Reviews.CreateVideo
 **CreateVideoReviews** a les paramètres obligatoires suivants :
 1. Une chaîne contenant un type MIME, qui doit être « application/json ». 
 1. Le nom de votre équipe Content Moderator.
-1. Un **IList\<CreateVideoReviewsBodyItem >** objet. Chaque objet **CreateVideoReviewsBodyItem** représente une révision de vidéo. Ce guide de démarrage rapide crée une révision à la fois.
+1. Un objet **IList\<CreateVideoReviewsBodyItem>** . Chaque objet **CreateVideoReviewsBodyItem** représente une révision de vidéo. Ce guide de démarrage rapide crée une révision à la fois.
 
 **CreateVideoReviewsBodyItem** a plusieurs propriétés. Vous définissez au moins les propriétés suivantes :
 - **Content**. URL de la vidéo à réviser.
@@ -162,7 +162,7 @@ Créez une révision de vidéo avec **ContentModeratorClient.Reviews.CreateVideo
 - **Status**. Définissez la valeur sur « Unpublished ». Si vous ne définissez pas cette propriété, sa valeur par défaut est « Pending », ce qui signifie que la révision de la vidéo est publiée et en attente d’une révision par un opérateur humain. Une fois qu’une révision de vidéo est publiée, vous ne pouvez plus y ajouter de trames vidéo, de transcription ou de résultat de la modération des transcriptions.
 
 > [!NOTE]
-> **CreateVideoReviews** retourne un IList<string>. Chacune de ces chaînes contient un ID de révision de vidéo. Ces ID sont des GUID et sont différents de la valeur de la propriété **ContentId**.
+> **CreateVideoReviews** retourne une chaîne IList\<>. Chacune de ces chaînes contient un ID de révision de vidéo. Ces ID sont des GUID et sont différents de la valeur de la propriété **ContentId**.
 
 Ajoutez la définition de méthode suivante à l’espace de noms VideoReviews de la classe Program.
 
@@ -244,15 +244,15 @@ En plus d’ajouter une transcription à une révision de vidéo, vous pouvez é
 1. Une chaîne qui contient un type MIME, qui doit être « application/json ». 
 1. Le nom de votre équipe Content Moderator.
 1. L’ID de révision de vidéo retourné par **CreateVideoReviews**.
-1. IList\<TranscriptModerationBodyItem >. Un élément **TranscriptModerationBodyItem** a les propriétés suivantes :
-1. **Termes** IList\<TranscriptModerationBodyItemTermsItem >. Un élément **TranscriptModerationBodyItemTermsItem** a les propriétés suivantes :
+1. Un IList\<TranscriptModerationBodyItem>. Un élément **TranscriptModerationBodyItem** a les propriétés suivantes :
+1. **Termes** Un IList\<TranscriptModerationBodyItemTermsItem>. Un élément **TranscriptModerationBodyItemTermsItem** a les propriétés suivantes :
 1. **Index**. L’index de base zéro du terme.
 1. **Terme**. Une chaîne qui contient le terme.
 1. **Horodatage** Une chaîne qui contient le moment (exprimé en secondes) où se trouvent les termes dans la transcription.
 
 La transcription doit être au format WebVTT. Pour plus d'informations, consultez [WebVTT : le format Web Video Text Tracks](https://www.w3.org/TR/webvtt1/).
 
-Ajoutez la définition de méthode suivante à l’espace de noms VideoTranscriptReview de la classe Program. Cette méthode envoie une transcription à la méthode **ContentModeratorClient.TextModeration.ScreenText**. Il convertit également le résultat dans une IList\<TranscriptModerationBodyItem > et soumet à **AddVideoTranscriptModerationResult**.
+Ajoutez la définition de méthode suivante à l’espace de noms VideoTranscriptReview de la classe Program. Cette méthode envoie une transcription à la méthode **ContentModeratorClient.TextModeration.ScreenText**. Elle traduit également le résultat en une IList\<TranscriptModerationBodyItem> et l’envoie à **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -341,7 +341,7 @@ static void Main(string[] args)
         var transcript = @"WEBVTT
 
         01:01.000 --> 02:02.000
-        First line with a crap word in a transcript.
+        First line with a negative word in a transcript.
 
         02:03.000 --> 02:25.000
         This is another line in the transcript.

@@ -1,20 +1,20 @@
 ---
-title: Résoudre les problèmes de connexion à la base de données Azure Database pour PostgreSQL
-description: Découvrez comment résoudre les problèmes de connexion à Azure SQL Database pour PostgreSQL.
+title: Résoudre les problèmes de connexion à la base de données Azure Database pour PostgreSQL - Serveur unique
+description: Découvrez comment résoudre les problèmes de connexion à la base de données Azure Database pour PostgreSQL - Serveur unique.
 keywords: connexion postgresql,chaîne de connexion,problèmes de connectivité,erreur temporaire,erreur de connexion
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: a78167e9b143a4c8d424947b489043dd45dfe2db
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 5/6/2019
+ms.openlocfilehash: 8a0fe87703c9fb471174c761a6e8296e6e7a37ec
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886420"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65952106"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour PostgreSQL
+# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Résoudre les problèmes de connexion à la base de données Azure Database pour PostgreSQL - Serveur unique
 
 Les problèmes de connexion peuvent avoir l’une des causes suivantes :
 
@@ -48,12 +48,12 @@ Si l’application échoue de façon permanente à se connecter à la base de do
 
 * Configuration du pare-feu côté serveur : le pare-feu du serveur Azure Database pour PostgreSQL doit être configuré de façon à autoriser les connexions provenant du client, y compris les serveurs proxy et les passerelles.
 * Configuration du pare-feu côté client : le pare-feu du client doit autoriser les connexions au serveur de base de données. Les adresses IP et les ports du serveur auquel vous ne pouvez pas vous connecter doivent être autorisés, ainsi que les noms d’application, comme PostgreSQL, sur certains pare-feu.
-* Erreur utilisateur : Vous avez peut-être mal tapé des paramètres de connexion, telles que le nom du serveur dans la chaîne de connexion ou l’absence d’un  *\@nom_serveur* suffixe dans le nom d’utilisateur.
+* Erreur utilisateur : il se peut que vous ayez fait une erreur lors de la saisie des paramètres de connexion, comme le nom du serveur dans la chaîne de connexion ou le suffixe *\@servername* manquant dans le nom de l’utilisateur.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Étapes permettant résoudre les problèmes de connectivité persistants
 
 1. Configurez les [règles de pare-feu](howto-manage-firewall-using-portal.md) pour autoriser l’adresse IP du client. Définissez une règle de pare-feu avec 0.0.0.0 pour adresse IP initiale et 255.255.255.255 pour adresse IP finale à des fins de test temporaire uniquement. Cette opération ouvrira le serveur à toutes les adresses IP. Si elle résout votre problème de connectivité, supprimez cette règle et créez une règle de pare-feu pour une adresse ou une plage d’adresses IP correctement bornée.
-2. Sur tous les pare-feu situés entre le client et Internet, assurez-vous que le port 3306 est ouvert pour les connexions sortantes.
+2. Sur tous les pare-feu situés entre le client et Internet, assurez-vous que le port 5432 est ouvert pour les connexions sortantes.
 3. Vérifiez votre chaîne de connexion et d’autres paramètres de connexion.
 4. Vérifiez l’état du service dans le tableau de bord. Si vous soupçonnez une panne régionale, consultez [Vue d’ensemble de la continuité d’activité avec Azure Database pour PostgreSQL](concepts-business-continuity.md) pour connaître les étapes de restauration vers une nouvelle région.
 

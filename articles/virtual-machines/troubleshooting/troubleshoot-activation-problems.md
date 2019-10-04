@@ -4,22 +4,21 @@ description: Indique les étapes de résolution des problèmes relatifs à l’a
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f3ad58c4094e9f39bcf9782b7b98e351e9d7809b
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791709"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058145"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure
 
@@ -51,11 +50,9 @@ En règle générale, les problèmes d’activation de machines virtuelles Azure
 >
 >Si vous utilisez le service ExpressRoute et possédez un itinéraire publié par défaut, consultez l’article [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (Une machine virtuelle Azure peut être incapable d’activer ExpressRoute).
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Étape 1 : Configurer la bonne clé d’installation client KMS (pour Windows Server 2016 et Windows Server 2012 R2)
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>Étape 1 : configurer la bonne clé d’installation client KMS
 
-Pour la machine virtuelle créée à partir d’une image personnalisée de Windows Server 2016 ou Windows Server 2012 R2, vous devez configurer la clé d’installation client KMS adéquate pour la machine virtuelle.
-
-Cette étape ne s’applique pas pour Windows 2012 ou Windows 2008 R2. Elle utilise la fonctionnalité d’activation automatique de machine virtuelle (AVMA). Cette dernière est uniquement prise en charge par Windows Server 2016 et Windows Server 2012 R2.
+Pour la machine virtuelle créée à partir d’une image personnalisée, vous devez configurer la clé d’installation client KMS adéquate pour la machine virtuelle.
 
 1. Exécutez **slmgr.vbs /dlv** dans une invite de commandes avec élévation de privilèges. Dans la sortie, vérifiez la valeur Description. Ensuite, déterminez si cette valeur a été créée à partir de la vente au détail (Canal de vente au détail) ou d’un support de licence en volume (VOLUME_KMSCLIENT) :
   
@@ -86,7 +83,6 @@ Cette étape ne s’applique pas pour Windows 2012 ou Windows 2008 R2. Elle u
 
 3. Assurez-vous que la machine virtuelle est configurée pour utiliser le bon serveur Azure KMS. Pour ce faire, exécutez la commande suivante :
   
-
     ```powershell
     Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
@@ -95,29 +91,26 @@ Cette étape ne s’applique pas pour Windows 2012 ou Windows 2008 R2. Elle u
 
 4. Vérifiez à l’aide de Psping que vous avez une connexion au serveur KMS. Basculez vers le dossier où vous avez extrait le téléchargement Pstools.zip, puis exécutez la commande suivante :
   
-
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-
-  
    Dans l’avant-dernière ligne de la sortie, assurez-vous que les informations suivantes s’affichent : Envoyé = 4, Reçu = 4, Perdu = 0 (0 % de perte).
 
    Si la perte est supérieure à 0 (zéro), la machine virtuelle n’a pas de connectivité au serveur KMS. Dans ce cas, si la machine virtuelle se trouve au sein d’un réseau virtuel et a spécifié un serveur DNS personnalisé, vérifiez que le serveur DNS est capable de résoudre kms.core.windows.net. Sinon, passez à un serveur DNS capable de résoudre kms.core.windows.net.
 
    Notez que si vous supprimez l’ensemble des serveurs DNS du réseau virtuel, les machines virtuelles utiliseront le service DNS interne d’Azure. Ce service peut résoudre kms.core.windows.net.
   
-Vérifiez également que le pare-feu invité n’a pas été configuré de manière à bloquer les tentatives d’activation.
+    Assurez-vous également que le trafic réseau sortant vers le point de terminaison KMS via le port 1688 n’est pas bloqué par le pare-feu de la machine virtuelle.
 
-1. Après avoir vérifié que la connectivité à kms.core.windows.net fonctionne, exécutez la commande suivante dans l’invite Windows PowerShell avec élévation de privilèges. Cette commande tente plusieurs fois l’activation.
+5. Après avoir vérifié que la connectivité à kms.core.windows.net fonctionne, exécutez la commande suivante dans l’invite Windows PowerShell avec élévation de privilèges. Cette commande tente plusieurs fois l’activation.
 
     ```powershell
-    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
     ```
 
-Une activation réussie renvoie des informations qui ressemblent à ceci :
-
-**Activation de Windows(R), édition ServerDatacenter (12345678-1234-1234-1234-12345678)... Le produit a été activé.**
+    Une activation réussie renvoie des informations qui ressemblent à ceci :
+    
+    **Activation de Windows(R), édition ServerDatacenter (12345678-1234-1234-1234-12345678)... Le produit a été activé**.
 
 ## <a name="faq"></a>Forum Aux Questions 
 

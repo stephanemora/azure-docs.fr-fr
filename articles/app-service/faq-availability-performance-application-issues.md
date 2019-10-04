@@ -4,30 +4,29 @@ description: Obtenez des réponses aux questions récurrentes sur la disponibili
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: ae59f54de9c02bfc4e538dd10c809ba398d599ee
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565955"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71122071"
 ---
-> [!NOTE]
-> Parmi les instructions ci-dessous fonctionnent uniquement sur Windows ou Linux App Services. Par exemple, App Services Linux s’exécutent en mode 64 bits par défaut.
->
-
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQ sur les performances des applications web Azure dans Azure
+
+> [!NOTE]
+> Certaines instructions ci-dessous fonctionnent uniquement sur les App Services Windows ou Linux. Par exemple, les App Services Linux s’exécutent en mode 64 bits par défaut.
+>
 
 Cet article fournit des réponses aux questions fréquemment posées (FAQ) sur les problèmes de performances des applications pour la [fonctionnalité Web Apps d’Azure App Service](https://azure.microsoft.com/services/app-service/web/).
 
@@ -161,7 +160,7 @@ Vous pouvez basculer vers des processus 64 bits pour tirer parti de la mémoire 
 
 Notez également qu’un environnement 64 bits nécessite un plan de service De base ou Standard. Les plans Gratuit et Partagé s’exécutent toujours dans un environnement 32 bits.
 
-Pour plus d’informations, consultez [Configurer des applications web dans App Service](web-sites-configure.md).
+Pour plus d’informations, consultez [Configurer des applications web dans App Service](configure-common.md).
 
 ## <a name="why-does-my-request-time-out-after-230-seconds"></a>Pourquoi ma demande expire-t-elle au bout de 230 secondes ?
 

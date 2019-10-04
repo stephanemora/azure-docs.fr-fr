@@ -10,15 +10,15 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
 ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885942"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60609665"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 **Le Blueprint de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST propose le déploiement clé en main d’une solution PaaS et IaaS Azure afin d’illustrer comment ingérer, stocker, analyser, interagir, identifier et déployer des solutions de manière sécurisée avec des données de santé tout en respectant les exigences de conformité du secteur. Le plan aide à accélérer l’adoption et l’utilisation du cloud pour les clients avec des données réglementées.**
 
@@ -48,7 +48,7 @@ Ce plan est destiné à servir de base modulaire. Il pourra être adapté par le
 
 -   **Diagramme architectural.** Le diagramme illustre l’architecture de référence utilisée pour le plan et l’exemple de scénario de cas d’usage.
 
--   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) cette solution va vous montrer comment migrer une solution SQL en local vers Azure et pour implémenter une station de travail de l’accès privilégié pour gérer en toute sécurité des solutions et services basés sur le cloud. 
+-   [Extension IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Cette solution montrera comment migrer une solution SQL locale vers Azure, et comment implémenter une station de travail à accès privilégié pour gérer les services et solutions cloud de manière sécurisée. 
 
 ## <a name="solution-components"></a>Composants de la solution
 
@@ -78,7 +78,7 @@ L’administrateur du site est responsable de l’abonnement Azure du client. Il
 
 -   Attributions de rôles par défaut : [Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
--   Attributions de rôles personnalisées : S.O.
+-   Attributions de rôles personnalisées : N/A
 
 -   Étendue : Abonnement
 
@@ -89,7 +89,7 @@ Il n’a pas accès aux dossiers des patients.
 
 -   Attributions de rôles intégrées : [Contributeur de SQL DB](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [Contributeur de SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
--   Attributions de rôles personnalisées : S.O.
+-   Attributions de rôles personnalisées : N/A
 
 -   Étendue : ResourceGroup
 
@@ -100,7 +100,7 @@ Le scientifique des données assure le fonctionnement du service Azure Machine L
 
 -   Attributions de rôles intégrées : [Contributeur de compte de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
--   Attributions de rôles personnalisées : S.O.
+-   Attributions de rôles personnalisées : N/A
 
 -   Étendue : ResourceGroup
 
@@ -130,7 +130,7 @@ L’auditeur évalue la conformité de la solution. Ils n’ont aucun accès dir
 
 -   Attributions de rôles intégrées : [Lecteur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
--   Attributions de rôles personnalisées : S.O.
+-   Attributions de rôles personnalisées : N/A
 
 -   Étendue : Abonnement
 
@@ -272,7 +272,7 @@ Quand vous utilisez le script de démonstration .\\HealthcareDemo.ps1 avec le co
 
 **2. Key Vault** est sollicité afin d’obtenir un secret qui est associé au jeton demandé.
 
-**3. Rôles Azure** valide la demande et autoriser la demande d’accès à Key Vault.
+**3. Les rôles Azure** valident la requête et autorisent la demande d’accès à Key Vault.
 
 **4. Key Vault** retourne le secret, dans le cas présent la chaîne de connexion à la base de données SQL.
 
@@ -306,7 +306,7 @@ Le solution prend en charge Event Grid, un service unique permettant de gérer l
 ### <a name="sql-database-and-server"></a>Serveur et base de données SQL 
 
 
--   Le [chiffrement transparent des données (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) fournit un chiffrement et un déchiffrement en temps réel des données stockées dans Azure SQL Database, à l’aide d’une clé stockée dans Azure Key Vault.
+-   [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) fournit un chiffrement et un déchiffrement en temps réel des données stockées dans Azure SQL Database, à l’aide d’une clé stockée dans Azure Key Vault.
 
 -   [Évaluation des vulnérabilités SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) est un outil simple à configurer, qui vous permet de découvrir, suivre et corriger des vulnérabilités de base de données potentielles.
 
@@ -359,10 +359,10 @@ Le solution prend en charge Event Grid, un service unique permettant de gérer l
 - [Application Insights](/azure/application-insights/app-insights-overview) est un service extensible de gestion des performances des applications (APM) destiné aux développeurs web sur de multiples plateformes. Utilisez-le pour analyser votre application web en direct. Il détecte les anomalies de performances. Il intègre de puissants outils d’analyse pour vous aider à diagnostiquer les problèmes et à comprendre ce que font les utilisateurs avec votre application. Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité.
 
 ### <a name="azure-alerts"></a>Alertes Azure
-- [Alertes](/azure/azure-monitor/platform/alerts-metric) constituent une méthode de surveillance des services Azure et vous permettent de configurer des conditions sur les données. Elles fournissent également des notifications quand une condition d’alerte correspond aux données de surveillance.
+- Les [alertes](/azure/azure-monitor/platform/alerts-metric) offrent un moyen de superviser les services Azure et vous permettent de configurer des conditions sur les données. Elles fournissent également des notifications quand une condition d’alerte correspond aux données de surveillance.
 
 ### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
-[Journaux d’analyse Azure](/azure/operations-management-suite/operations-management-suite-overview) est une collection de services de gestion.
+[Journaux Azure Monitor](/azure/operations-management-suite/operations-management-suite-overview) est un ensemble de services de gestion.
 
 -   L’espace de travail est activé pour Security Center
 
@@ -384,4 +384,4 @@ Le solution prend en charge Event Grid, un service unique permettant de gérer l
 
 -   [Application Insights Connector (préversion)](/azure/log-analytics/log-analytics-app-insights-connector) est activé
 
--   [Activity Log Analytics](/azure/log-analytics/log-analytics-activity) est activé
+-   [L’analytique des journaux d’activité](/azure/log-analytics/log-analytics-activity) est activé

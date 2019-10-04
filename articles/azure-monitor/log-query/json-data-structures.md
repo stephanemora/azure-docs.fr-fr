@@ -1,6 +1,6 @@
 ---
 title: Utilisation de chaînes dans des requêtes de journal dans Azure Monitor | Microsoft Docs
-description: Cet article fournit un didacticiel pour l’utilisation d’Analytique de journal d’analyse Azure dans le portail Azure pour interroger et analyser les données de journal dans Azure Monitor.
+description: Cet article présente un tutoriel décrivant l’utilisation d’Azure Monitor Log Analytics dans le portail Azure pour interroger et analyser des données de journal dans Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750954"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60519652"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Utilisation de JSON et de structures de données dans des requêtes de journal dans Azure Monitor
 
 > [!NOTE]
-> Vous devez effectuer [prise en main Azure Monitor Log Analytique](get-started-portal.md) et [prise en main des requêtes de journal Azure Monitor](get-started-queries.md) avant la fin de cette leçon.
+> Avant de suivre ce tutoriel, vous devez avoir suivi les tutoriels [Bien démarrer avec Azure Monitor Log Analytics](get-started-portal.md) et [Bien démarrer avec les requêtes de journal Azure Monitor](get-started-queries.md).
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

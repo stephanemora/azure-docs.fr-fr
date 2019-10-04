@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1a61a825ce223282e85c9262c613814530ba130f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: a87abfdd70db07e4310dc6a39a280e12f664d03b
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527300"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972091"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurer la récupération d’urgence de machines virtuelles ou de serveurs physiques VMware locaux sur un site secondaire
 
@@ -57,7 +57,7 @@ o Pour les machines physiques, suivez ce [didacticiel](./physical-azure-disaster
 **Matrice de prise en charge** | [Pour plus d’informations, cliquez ici](./vmware-physical-azure-support-matrix.md)|[Télécharger la matrice compatible ASR Scout](https://aka.ms/asr-scout-cm)
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Pour suivre ce tutoriel :
 
 - [Examinez](vmware-physical-secondary-support-matrix.md) les spécifications de prise en charge de tous les composants.
@@ -159,7 +159,7 @@ Scout Update 7 est un programme d’installation complet qui peut être utilis�
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Mise à niveau manuelle pour PHP et MySQL sur CS, PS et RX
 La plateforme de scripts PHP doit être mise à niveau vers la version 7.2.10 sur le serveur de configuration, le serveur de processus et le serveur RX.
 Le système de gestion de base de données MySQL doit être mise à niveau vers la version 5.7.23 sur le serveur de configuration, le serveur de processus et le serveur RX.
-Suivez les étapes manuelles décrites dans le [guide d’installation rapide](https://aka.ms/asr-scout-quick-install-guide) pour mettre à niveau les versions PHP et MySQL.
+Veuillez suivre les étapes manuelles du [guide d’installation rapide](https://aka.ms/asr-scout-quick-install-guide) pour mettre à niveau les versions de PHP et de MySQL.
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
 Date de mise à jour : 12 octobre 2017
@@ -188,7 +188,7 @@ Téléchargez le fichier .zip de [mise à jour](https://aka.ms/asr-scout-update6
 - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
 - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-- UA update4 bits pour RHEL5, OL5, OL6, SUSE 10, SUSE 11 : UA_\<système d’exploitation Linux > _8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- UA update4 bits pour RHEL5, OL5, OL6, SUSE 10, SUSE 11 : UA_\<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
   1. Extrayez les fichiers .zip.
   2. **Serveur RX** : copiez **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** sur le serveur RX, puis extrayez-le. Dans le dossier extrait, exécutez **/Install**.
   3. **Serveur de configuration et serveur de processus** : copiez **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** sur le serveur de configuration et le serveur de processus. Double-cliquez dessus pour l’exécuter.<br>

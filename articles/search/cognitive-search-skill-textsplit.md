@@ -2,21 +2,19 @@
 title: Compétence Fractionnement de texte de la recherche cognitive - Recherche Azure
 description: Découpe le texte en segments ou des pages de texte en fonction de leur longueur dans un pipeline d’enrichissement Recherche Azure.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: c860066608f1b78d9a4c45b03fb3948b3c888e25
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: a6e46970b6c0fc91c464207049d2dedaaee1afdd
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894204"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71265682"
 ---
 #   <a name="text-split-cognitive-skill"></a>Compétence cognitive Fractionnement de texte
 
@@ -43,7 +41,7 @@ Les paramètres respectent la casse.
 
 | Nom du paramètre       | Description      |
 |----------------------|------------------|
-| texte  | Texte à fractionner en sous-chaînes. |
+| text  | Texte à fractionner en sous-chaînes. |
 | languageCode  | (Facultatif) Code de langue du document.  |
 
 ## <a name="skill-outputs"></a>Sorties de la compétence 
@@ -88,7 +86,7 @@ Les paramètres respectent la casse.
         {
             "recordId": "1",
             "data": {
-                "text": "This is a the loan application for Joe Romero, he is a Microsoft employee who was born in Chile and then moved to Australia…",
+                "text": "This is a the loan application for Joe Romero, a Microsoft employee who was born in Chile and who then moved to Australia…",
                 "languageCode": "en"
             }
         },

@@ -1,12 +1,22 @@
 - name: Documentation de l’API Vision par ordinateur
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: Qu’est-ce que le service Vision par ordinateur ?
       href: Home.md
 - name: Démarrages rapides
   items:
+    - name: Utilisation du kit de développement logiciel (SDK) client
+      items:
+        - name: Kit de développement logiciel (SDK) .NET
+          href: quickstarts-sdk/csharp-sdk.md
+        - name: Kit de développement logiciel (SDK) Python
+          href: quickstarts-sdk/python-sdk.md
+        - name: Kit de développement logiciel (SDK) Java
+          href: quickstarts-sdk/java-sdk.md
+        - name: Kit de développement logiciel (SDK) Node.js
+          href: quickstarts-sdk/node-sdk.md
     - name: Utilisation de l’API REST
       items:
         - name: Analyser une image distante
@@ -21,12 +31,8 @@
               href: QuickStarts/javascript-analyze.md
             - name: Node.js
               href: QuickStarts/node-analyze.md
-            - name: PHP
-              href: QuickStarts/php-analyze.md
             - name: Python
               href: QuickStarts/python-analyze.md
-            - name: Ruby
-              href: QuickStarts/ruby-analyze.md
         - name: Analyser une image locale
           items:
             - name: 'C#'
@@ -47,13 +53,19 @@
               href: QuickStarts/javascript-thumb.md
             - name: Node.js
               href: QuickStarts/node-thumb.md
-            - name: PHP
-              href: QuickStarts/php-thumb.md
             - name: Python
               href: QuickStarts/python-thumb.md
-            - name: Ruby
-              href: QuickStarts/ruby-thumb.md
-        - name: Extraire le texte imprimé
+        - name: Extraire le texte (API de lecture)
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-hand-text.md
+            - name: Java
+              href: QuickStarts/java-hand-text.md
+            - name: JavaScript
+              href: QuickStarts/javascript-hand-text.md
+            - name: Python
+              href: QuickStarts/python-hand-text.md
+        - name: Extraire le texte imprimé (OCR)
           items:
             - name: 'C#'
               href: QuickStarts/CSharp-print-text.md
@@ -67,93 +79,67 @@
               href: QuickStarts/javascript-print-text.md
             - name: Node.js
               href: QuickStarts/node-print-text.md
-            - name: PHP
-              href: QuickStarts/php-print-text.md
             - name: Python
               href: QuickStarts/python-print-text.md
-            - name: Ruby
-              href: QuickStarts/ruby-print-text.md
-        - name: Extraire le texte manuscrit
-          items:
-            - name: 'C#'
-              href: QuickStarts/CSharp-hand-text.md
-            - name: Java
-              href: QuickStarts/java-hand-text.md
-            - name: JavaScript
-              href: QuickStarts/javascript-hand-text.md
-            - name: Python
-              href: QuickStarts/python-hand-text.md
         - name: Utiliser un modèle de domaine
           items:
-            - name: PHP
-              href: QuickStarts/php-domain.md
             - name: Python
               href: QuickStarts/python-domain.md
-    - name: Utilisation du kit de développement logiciel (SDK) .NET
-      items:
-        - name: Analyser une image
-          href: quickstarts-sdk/csharp-analyze-sdk.md
-        - name: Générer une miniature
-          href: quickstarts-sdk/csharp-thumb-sdk.md
-        - name: Extraction du texte
-          href: quickstarts-sdk/csharp-hand-text-sdk.md
-    - name: Utilisation du Kit de développement logiciel (SDK) Python
-      href: quickstarts-sdk/python-sdk.md
 - name: Tutoriels
   items:
     - name: Générer des métadonnées pour les images
       href: Tutorials/storage-lab-tutorial.md
 - name: Concepts
   items:
-    - name: Étiquetage des images
+    - name: Étiquettes de contenu
       href: concept-tagging-images.md
     - name: Détection d’objets
       href: concept-object-detection.md
-    - name: Détection de marques
+    - name: Détection des marques
       href: concept-brand-detection.md
-    - name: Classement des images
+    - name: Catégorisation des images
       href: concept-categorizing-images.md
-    - name: Description des images
+    - name: Descriptions des images
       href: concept-describing-images.md
     - name: Détection des visages
       href: concept-detecting-faces.md
-    - name: Détection des types d’images
+    - name: Détection des types d’image
       href: concept-detecting-image-types.md
-    - name: Détection du contenu spécifique à un domaine
+    - name: Contenu spécifique à un domaine
       href: concept-detecting-domain-content.md
     - name: Détection des jeux de couleurs
       href: concept-detecting-color-schemes.md
-    - name: Génération de miniatures
+    - name: Miniatures créées avec un rognage intelligent
       href: concept-generating-thumbnails.md
-    - name: Reconnaître le texte imprimé et manuscrit
+    - name: Reconnaissance du texte imprimé et manuscrit
       href: concept-recognizing-text.md
-    - name: Détection du contenu pour adultes et osé
+    - name: Détection de contenu pour adultes
       href: concept-detecting-adult-content.md
 - name: Guides pratiques
   items:
-    - name: Utiliser la vision par ordinateur
-      items:
-        - name: Java
-          href: Tutorials/java-tutorial.md
-        - name: JavaScript
-          href: Tutorials/javascript-tutorial.md
-        - name: Python
-          href: Tutorials/PythonTutorial.md
     - name: Appeler l’API Vision par ordinateur
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Utiliser des conteneurs
       items:
         - name: Installer et exécuter des conteneurs
           href: computer-vision-how-to-install-containers.md
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
         - name: Configurer des conteneurs
           href: computer-vision-resource-container-config.md
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
+        - name: Utilisation avec Kubernetes et Helm
+          href: deploy-computer-vision-on-premises.md
+          displayName: 'kubectl, docker, helm, kubernetes, K8s, tiller, container, image, on-prem, on-premises'
+        - name: Utiliser des instances de conteneur
+          href: deploy-computer-vision-on-container-instances.md
+          displayName: 'container instances, container, containers, images'
     - name: Utilisez le service connecté Vision par ordinateur
       href: vs-computer-vision-connected-service.md
     - name: Analyser des vidéos en temps réel
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
@@ -171,10 +157,8 @@
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python'
         - name: Go
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision'
-        - name: Android (Java)
+        - name: Java
           href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable'
-        - name: Swift
-          href: 'https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK'
 - name: Ressources
   items:
     - name: Exemples
@@ -199,3 +183,5 @@
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

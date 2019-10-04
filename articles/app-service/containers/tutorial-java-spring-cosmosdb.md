@@ -8,19 +8,19 @@ ms.service: app-service-web
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.custom: seodec18
-ms.openlocfilehash: f86949c196507080b32771a1b5470e9911e3e5b7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.openlocfilehash: 582ed374e7895d0b99f25ac033d0d4b1ec99104c
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545782"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171495"
 ---
-# <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Didacticiel : Création d’une application web Java avec Spring et Azure Cosmos DB
+# <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Didacticiel : Générer une application web Spring Boot Java avec Azure App Service sur Linux et Azure Cosmos DB
 
 Ce didacticiel vous guide au travers du processus de création, de configuration, de déploiement et de mise à l’échelle des applications web Java sur Azure. Lorsque vous avez terminé, une application [Spring Boot](https://projects.spring.io/spring-boot/) stocke des données dans [Azure Cosmos DB](/azure/cosmos-db) s’exécutant sous [Azure App Service sur Linux](/azure/app-service/containers).
 
-![Application Java s’exécutant dans Azure App Service](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+![Application Spring Boot stockant les données dans Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -79,7 +79,7 @@ Suivez ces étapes pour créer une base de données Azure Cosmos DB dans votre a
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
     ```
 
-4. Obtenez votre clé d’Azure Cosmos DB pour vous connecter à l’application. Conserver le `primaryMasterKey` et `documentEndpoint` à proximité, car vous en aurez besoin à l’étape suivante.
+4. Obtenez votre clé d’Azure Cosmos DB pour vous connecter à l’application. Conservez `primaryMasterKey` et `documentEndpoint` à proximité, car vous en aurez besoin à l’étape suivante.
 
     ```bash
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
@@ -169,7 +169,7 @@ bash-3.2$ mvn package spring-boot:run
 
 Vous pouvez accéder à l’application de liste de tâches Spring localement en utilisant ce lien une fois l’application lancée : [http://localhost:8080/](http://localhost:8080/).
 
- ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+ ![Accéder à l’application Spring TODO localement](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 Si vous voyez des exceptions à la place du message « Started TodoApplication », vérifiez que le script `bash` de l’étape précédente a correctement exporté les variables d’environnement et que les valeurs sont correctes pour la base de données Azure Cosmos DB créée.
 
@@ -263,7 +263,7 @@ open https://spring-todo-app.azurewebsites.net
 
 Vous devez voir l’application exécutée avec l’URL distante dans la barre d’adresses :
 
- ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
+ ![Application Spring Boot s’exécutant avec une URL distante](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
 ## <a name="stream-diagnostic-logs"></a>Diffuser les journaux de diagnostic
 

@@ -1,0 +1,78 @@
+- name: Documentation sur Liaison privée Azure
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce que Liaison privée Azure\_?"
+      href: private-link-overview.md
+- name: Démarrages rapides
+  items:
+    - name: Créer un point de terminaison privé
+      items:
+        - name: Portail Azure
+          href: create-private-endpoint-portal.md
+        - name: D’Azure CLI
+          href: create-private-endpoint-cli.md
+        - name: Azure PowerShell
+          href: create-private-endpoint-powershell.md
+    - name: Créer un service Liaison privée
+      items:
+        - name: Azure PowerShell
+          href: create-private-link-service-powershell.md
+        - name: Azure CLI
+          href: create-private-link-service-cli.md
+- name: Concepts
+  items:
+    - name: Point de terminaison privé
+      href: private-endpoint-overview.md
+    - name: Service Liaison privée
+      href: private-link-service-overview.md
+- name: Procédures
+  items:
+    - name: Se connecter en privé à un compte de stockage
+      href: create-private-endpoint-storage-portal.md
+    - name: Désactiver les stratégies réseau pour un point de terminaison privé
+      href: disable-private-endpoint-network-policy.md
+    - name: Désactiver les stratégies réseau pour un service Liaison privée
+      href: disable-private-link-service-network-policy.md
+    - name: Gérer les points de terminaison privés
+      href: manage-private-endpoint.md
+- name: Informations de référence
+  items:
+    - name: D’Azure CLI
+      href: /cli/azure/network
+    - name: Azure PowerShell
+      href: /powershell/module/az.network
+    - name: .NET
+      href: /api/overview/azure/virtual-network
+    - name: Java
+      href: /java/api/
+    - name: Node.js
+      href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST
+      href: /rest/api/virtualnetwork/privateendpoints
+    - name: Modèle Resource Manager
+      href: /azure/templates/microsoft.network/allversions
+    - name: Exemples de code
+      href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
+- name: Ressources
+  items:
+    - name: Développer vos compétences avec Microsoft Learn
+      href: /learn/browse/
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Blog sur la mise en réseau
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Forum sur la mise en réseau
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Commentaires sur les réseaux
+      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/virtual-network'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-virtual-network'
+    - name: Forum Aux Questions
+      href: private-link-faq.md

@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: de99d1a58cac12c80748b34ef4a1b07c9fb2a78e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: d13e0b95d57e3063292319961d5e1138f994076e
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576852"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70812281"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformer des données dans le cloud à l’aide d’une activité Spark dans Azure Data Factory
 Dans ce didacticiel, vous utilisez le portail Azure pour créer un pipeline Azure Data Factory. Ce pipeline transforme les données à l’aide de l’activité Spark et un service lié HDInsight de la demande. 
@@ -104,9 +104,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 1. Pour **Version**, sélectionnez **V2**.
 1. Pour **Emplacement**, sélectionnez l’emplacement de la fabrique de données. 
 
-   Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (tels que le Stockage Azure et Azure SQL Database) et les services de calcul (comme HDInsight) utilisés par Data Factory peuvent se trouver dans d’autres régions.
+   Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (tels que Stockage Azure et Azure SQL Database) et les services de calcul (comme HDInsight) utilisés par Data Factory peuvent se trouver dans d’autres régions.
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 1. Une fois la création terminée, la page **Data Factory** s’affiche. Sélectionnez la vignette **Créer et surveiller** pour démarrer l’application d’interface utilisateur (IU) de Data Factory dans un onglet séparé.
 
@@ -147,13 +147,13 @@ Vous créez deux services liés dans cette section :
    
    b. Vérifiez que **HDInsight à la demande** est le **Type** sélectionné.
    
-   c. Sélectionnez **AzureStorage1** pour **Service lié Stockage Azure**. Vous avez déjà créé ce service lié. Si vous avez utilisé un nom différent, spécifiez le nom correct. 
+   c. Sélectionnez **AzureBlobStorage1** pour **Service lié Stockage Azure**. Vous avez déjà créé ce service lié. Si vous avez utilisé un nom différent, spécifiez le nom correct. 
    
    d. Sélectionnez **spark** pour **Type de Cluster**.
    
    e. Entrez l’ID du principal de service ayant l’autorisation de créer un cluster HDInsight pour **ID du principal de service**. 
    
-      Ce principal de service doit être membre du rôle Contributeur de l’abonnement ou du groupe de ressources dans lequel le cluster est créé. Pour plus d’informations, consultez [Créer une application Active Directory et un principal de service](../active-directory/develop/howto-create-service-principal-portal.md).
+      Ce principal de service doit être membre du rôle Contributeur de l’abonnement ou du groupe de ressources dans lequel le cluster est créé. Pour plus d’informations, consultez [Créer une application Active Directory et un principal de service](../active-directory/develop/howto-create-service-principal-portal.md). L’**ID de principal de service** est équivalent à l’*ID d’application* et une **clé de principal de service** est équivalente à la valeur d’un *secret client*.
    
    f. Pour **Clé du principal de service**, saisissez la clé. 
    
@@ -189,7 +189,7 @@ Vous créez deux services liés dans cette section :
    ![Spécifier le service lié HDInsight](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Basculez vers l’onglet **Script/Jar**, et procédez comme suit : 
 
-   a. Sélectionnez **AzureStorage1** pour **Service lié au travail**.
+   a. Sélectionnez **AzureBlobStorage1** pour **Service lié au travail**.
    
    b. Cliquez sur **Parcourir le stockage**.
 
@@ -206,7 +206,7 @@ Vous créez deux services liés dans cette section :
 
 
 ## <a name="trigger-a-pipeline-run"></a>Déclencher une exécution du pipeline
-Sélectionnez **Déclencher** dans la barre d’outils, puis **Déclencher maintenant**. 
+Sélectionnez **Ajouter déclencheur** dans la barre d’outils, puis **Déclencher maintenant**. 
 
 ![Boutons Déclencher et Déclencher maintenant](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -222,7 +222,7 @@ Sélectionnez **Déclencher** dans la barre d’outils, puis **Déclencher maint
 
    ![État de l’exécution de pipelines](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   Vous pouvez basculer vers la vue des exécutions de pipelines en cliquant sur le lien **Pipelines** en haut.
+   Vous pouvez basculer vers la vue des exécutions de pipelines en cliquant sur le lien **Toutes les exécutions de pipeline** en haut.
 
    ![Vue des exécutions d’activités](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 
@@ -231,7 +231,7 @@ Vérifiez que le fichier de sortie est créé dans le dossier spark/otuputfiles/
 
 ![Emplacement du fichier de sortie](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-Le fichier doit contenir chaque mot du fichier texte entrée et le nombre d’apparitions du mot dans le fichier. Par exemple :  
+Le fichier doit contenir chaque mot du fichier texte entrée et le nombre d’apparitions du mot dans le fichier. Par exemple : 
 
 ```
 (u'This', 1)

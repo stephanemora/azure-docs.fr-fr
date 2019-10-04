@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370055"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258382"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Préparation à la modification du format dans les journaux de diagnostics Azure Monitor archivés dans un compte de stockage
 
@@ -24,16 +24,16 @@ ms.locfileid: "58370055"
 
 ## <a name="what-is-changing"></a>Changements
 
-Azure Monitor offre une fonctionnalité qui vous permet d’envoyer des données de diagnostic de ressources et des données de journal d’activité dans un compte de stockage Azure, espace de noms Event Hubs, ou dans un espace de travail Analytique de journal dans Azure Monitor. Afin de résoudre un problème de performances du système, le **1er novembre 2018 à 00:00 UTC**, le format des données de journaux envoyées au stockage d’objets blob sera modifié. Si vous disposez des outils qui lisent les données dans le stockage d’objets blob, vous devez les mettre à jour pour qu’ils comprennent le nouveau format de données.
+Azure Monitor offre une fonctionnalité qui vous permet d'envoyer des données de diagnostics de ressources et des données de journaux d'activités vers un compte de stockage Azure, un espace de noms Event Hubs ou un espace de travail Log Analytics dans Azure Monitor. Afin de résoudre un problème de performances du système, le **1er novembre 2018 à 00:00 UTC**, le format des données de journaux envoyées au stockage d’objets blob sera modifié. Si vous disposez des outils qui lisent les données dans le stockage d’objets blob, vous devez les mettre à jour pour qu’ils comprennent le nouveau format de données.
 
 * Le jeudi 1er novembre 2018 à 00:00 UTC, le format des objets blob sera modifié en [lignes JSON](http://jsonlines.org/). Cela signifie que chaque enregistrement sera délimité par une nouvelle ligne, sans tableau d’enregistrements extérieurs ni virgule entre les enregistrements JSON.
 * Le format des objets blob est modifié pour tous les paramètres de diagnostics sur tous les abonnements en même temps. Le premier fichier PT1H.json émis le 1er novembre utilisera ce nouveau format. Les noms des objets blob et du conteneur ne changent pas.
 * La définition d’un paramètre de diagnostic entre aujourd’hui et le 1er novembre continue d’émettre des données dans le format actuel jusqu’au 1er novembre.
-* Cette modification s’effectuera immédiatement sur toutes les régions cloud publiques. Elle ne s’effectuera pas dans les clouds Azure Chine, Azure Allemagne ou Azure Government pour le moment.
+* Cette modification s’effectuera immédiatement sur toutes les régions cloud publiques. La modification n’aura pas lieu dans Microsoft Azure géré par 21Vianet, Azure Allemagne ou Azure Government pour le moment.
 * Elle affectera les types de données suivants :
-  * [Journaux de diagnostics de ressources Azure](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([voir la liste des ressources ici](./../../azure-monitor/platform/diagnostic-logs-schema.md))
-  * [Métriques de ressources Azure en cours d’exportation par les paramètres de diagnostic](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
-  * [Données des journaux d’activité Azure en cours d’exportation par les profils de journaux](./../../azure-monitor/platform/archive-activity-log.md)
+  * [Journaux de diagnostics de ressources Azure](archive-diagnostic-logs.md) ([voir la liste des ressources ici](diagnostic-logs-schema.md))
+  * [Métriques de ressources Azure en cours d’exportation par les paramètres de diagnostic](diagnostic-settings.md)
+  * [Données des journaux d’activité Azure en cours d’exportation par les profils de journaux](archive-activity-log.md)
 * Cette modification n’affecte pas :
   * Journaux de flux de réseau
   * Les journaux d’activité du service Azure ne sont pas encore disponibles via Azure Monitor (par exemple, les journaux de diagnostics Azure App Service, les journaux d’activité d’analyses de stockage)

@@ -9,21 +9,22 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8d7fa8b8119ddf1769b36bcb55831047d6242470
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793944"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073435"
 ---
-# <a name="what-is-api-management"></a>Présentation de Gestion des API
+# <a name="about-api-management"></a>En savoir plus sur la Gestion des API
 
-Gestion des API (API Management, APIM) aide les organisations à publier des API pour des développeurs externes, partenaires et internes, afin de libérer le potentiel de leurs données et services. Toutes les entreprises cherchent à étendre leurs opérations en tant que plateforme numérique, en créant de nouveaux canaux, en trouvant de nouveaux clients et en suscitant un engagement supérieur auprès de ceux existants. Il offre les compétences essentielles qui garantissent un programme d’API réussi au travers de l’engagement des développeurs, des perspectives commerciales, de l’analytique, de la sécurité et de la protection. Vous pouvez utiliser la gestion des API Azure pour prendre n’importe quel serveur principal et lancer un programme d’API à part entière qui repose sur ce dernier.
+La Gestion des API (APIM) est une méthode permettant de créer des passerelles API cohérentes et modernes pour des services back-end existants.
+
+Gestion des API aide les organisations à publier des API pour des développeurs externes, partenaires et internes, afin de libérer le potentiel de leurs données et services. Toutes les entreprises cherchent à étendre leurs opérations en tant que plateforme numérique, en créant de nouveaux canaux, en trouvant de nouveaux clients et en suscitant un engagement supérieur auprès de ceux existants. Il offre les compétences essentielles qui garantissent un programme d’API réussi au travers de l’engagement des développeurs, des perspectives commerciales, de l’analytique, de la sécurité et de la protection. Vous pouvez utiliser la gestion des API Azure pour prendre n’importe quel serveur principal et lancer un programme d’API à part entière qui repose sur ce dernier.
 
 Cet article fournit une vue d’ensemble des scénarios courants qui impliquent APIM.  Elle donne également une vue d’ensemble des principaux composants du système APIM. L’article fournit ensuite une présentation plus détaillée de chaque composant.
 
@@ -73,7 +74,7 @@ Pour plus d’informations, consultez le livre blanc au format PDF [Cloud-based 
 ## <a name="apis"> </a>API et opérations
 Les API sont la base d'une instance du service Gestion des API. Chaque API représente un ensemble d'opérations disponibles pour les développeurs. Chaque API contient une référence au service principal qui implémente l'API, et ses opérations effectuent un mappage vers les opérations implémentées par le service principal. Les opérations dans Gestion des API sont hautement configurables. Elles contrôlent le mappage d'URL, les paramètres de requête et de chemin d'accès, le contenu de la demande et de la réponse, et la mise en cache de la réponse de l'opération. La limite de débit, les quotas et les stratégies de restriction de l'adresse IP peuvent également être implémentés au niveau de l'API ou du fonctionnement individuel.
 
-Pour plus d’informations, consultez les pages [Création d’API][How to create APIs] et [Ajout d’opérations à une API][How to add operations to an API].
+Pour plus d'informations, consultez les pages [Création d'API][How to create APIs] et [Ajout d'opérations à une API][How to add operations to an API].
 
 ## <a name="products"> </a> Produits
 Les produits sont la façon dont les API sont présentées en surface aux développeurs. Les produits dans Gestion des API possèdent une ou plusieurs API et sont configurés avec un titre, une description et des conditions d'utilisation. Les produits peuvent être **ouverts** ou **protégés**. Les produits protégés doivent faire l’objet d’un abonnement avant de pouvoir être utilisés, alors que les produits ouverts peuvent être utilisés sans abonnement. Lorsqu'un produit est prêt à l'emploi pour les développeurs, il peut être publié. Une fois le produit publié, les développeurs peuvent l’afficher et s’y abonner (dans le cas des produits protégés). L'approbation d'abonnement est configurée au niveau du produit et peut nécessiter l'approbation de l'administrateur ou être automatiquement approuvée.
@@ -89,14 +90,14 @@ Les groupes permettent de gérer la visibilité des produits pour les développe
 
 Outre ces groupes système, les administrateurs peuvent créer des groupes personnalisés ou [utiliser des groupes externes dans des locataires Azure Active Directory qui leur sont associés](api-management-howto-aad.md). Des groupes externes et personnalisés peuvent être utilisés avec des groupes système offrant une certaine visibilité aux développeurs et un accès aux produits d’API. Vous pourriez, par exemple, créer un groupe personnalisé pour les développeurs affiliés à une organisation partenaire spécifique et leur permettre d’accéder aux API à partir d’un produit contenant uniquement des API pertinentes. Un utilisateur peut être membre de plusieurs groupes.
 
-Pour plus d’informations, consultez la page [Création et utilisation de groupes][How to create and use groups].
+Pour plus d'informations, consultez la page [Création et utilisation de groupes][How to create and use groups].
 
 ## <a name="developers"></a> Développeurs
-Les développeurs représentent les comptes d'utilisateur dans une instance du service Gestion des API. Ils peuvent être créés ou invités à rejoindre le groupe par les administrateurs, ou ils peuvent s’inscrire dans le [Portail des développeurs][Developer portal]. Chaque développeur est membre d'un ou plusieurs groupes, et peut s'abonner aux produits qui accordent de la visibilité à ces groupes.
+Les développeurs représentent les comptes d'utilisateur dans une instance du service Gestion des API. Ils peuvent être créés ou invités à rejoindre le groupe par les administrateurs, ou ils peuvent s'inscrire au [Portail des développeurs][Developer portal]. Chaque développeur est membre d'un ou plusieurs groupes, et peut s'abonner aux produits qui accordent de la visibilité à ces groupes.
 
 Lorsque des développeurs s’abonnent à un produit, ils reçoivent les clés principale et secondaire pour le produit. Cette clé est utilisée pour les appels dans les API du produit.
 
-Pour plus d’informations, consultez les pages [Création ou invitation de développeurs][How to create or invite developers] et [Association de groupes aux développeurs][How to associate groups with developers].
+Pour plus d'informations, consultez les pages [Création ou invitation de développeurs][How to create or invite developers] et [Association de groupes à des développeurs][How to associate groups with developers].
 
 ## <a name="policies"></a> Stratégies
 Les stratégies sont une fonctionnalité puissante de Gestion des API. Elles permettent au portail Azure de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions les plus utilisées comprennent la conversion du format XML au format JSON et la limitation du débit d'appels pour restreindre le nombre d'appels entrants d'un développeur. De nombreuses autres stratégies sont disponibles.
@@ -104,7 +105,7 @@ Les stratégies sont une fonctionnalité puissante de Gestion des API. Elles per
 Les expressions de stratégie peuvent être utilisées comme valeurs d’attribut ou valeurs de texte dans l’une des stratégies de Gestion des API, sauf si la stratégie le spécifie autrement. Certaines stratégies, telles que les stratégies [Control flow](/azure/api-management/api-management-advanced-policies#choose) et [Set variable](/azure/api-management/api-management-advanced-policies#set-variable), sont basées sur des expressions de stratégie. Pour plus d’informations, consultez les rubriques [Stratégies avancées](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) et [Expressions de stratégie](/azure/api-management/api-management-policy-expressions).
 
 
-Pour obtenir la liste complète des stratégies Gestion des API, consultez la page [Référence de stratégie][Policy reference]. Pour plus d’informations sur l’utilisation et la configuration des stratégies, consultez la page [Stratégies Gestion des API][API Management policies]. Pour consulter un didacticiel sur la création d’un produit avec des stratégies de limite de débit et de quota, référez-vous à la page [Création et configuration de paramètres de produit avancés][How create and configure advanced product settings].
+Pour obtenir la liste complète des stratégies Gestion des API, consultez la page [Référence de stratégie][Policy reference]. Pour plus d'informations sur l'utilisation et la configuration des stratégies, consultez la page [Stratégies Gestion des API][API Management policies]. Pour consulter un didacticiel sur la création d'un produit avec des stratégies de limite de débit et de quota, consultez la page [Création et configuration de paramètres produit avancés][How create and configure advanced product settings].
 
 
 ## <a name="developer-portal"></a> Portail des développeurs

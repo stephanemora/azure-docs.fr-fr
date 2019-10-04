@@ -1,22 +1,22 @@
 ---
-title: "Tutoriel : Créer une application web monopage - API Recherche d'actualités Bing"
-titlesuffix: Azure Cognitive Services
+title: "Didacticiel : Créer une application web monopage - API Recherche d'actualités Bing"
+titleSuffix: Azure Cognitive Services
 description: Utilisez ce tutoriel pour créer une application web monopage qui peut envoyer des requêtes à l’API Recherche d'actualités Bing et afficher les résultats dans la page web.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 01/10/2019
-ms.author: v-gedod
+ms.date: 07/12/2019
+ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 29539ba39e724208093910f8fb6fa2d3bc309bda
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885036"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423609"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutoriel : Créer une application web monopage
 
@@ -381,7 +381,7 @@ La fonction de renderer d’actualités :
 > * Génère les balises HTML `<a>` qui établissent un lien vers l’image et la page la contenant.
 > * Génère la description qui affiche des informations sur l’image et le site sur lequel elle se trouve.
 
-La taille des miniatures est utilisée à la fois dans la balise `<img>` et dans les champs `h` et `w` des URL de miniature. Le [service de miniature Bing](resize-and-crop-thumbnails.md) fournit alors une miniature d’exactement cette taille.
+La taille des miniatures est utilisée à la fois dans la balise `<img>` et dans les champs `h` et `w` des URL de miniature. Le [service de miniature Bing](../bing-web-search/resize-and-crop-thumbnails.md) fournit alors une miniature d’exactement cette taille.
 
 ## <a name="persisting-client-id"></a>ID client persistant
 Les réponses provenant des API Recherche Bing peuvent inclure un en-tête `X-MSEdge-ClientID`, qui doit être renvoyé à l’API avec les requêtes suivantes. Si plusieurs API Recherche Bing sont utilisées, le même ID de client doit être employé avec toutes, si possible.
@@ -397,7 +397,7 @@ Les stratégies de sécurité de navigateur (CORS) peuvent rendre l’en-tête `
 > [!NOTE]
 > Dans une application web de production, vous devez effectuer la requête côté serveur. Dans le cas contraire, votre clé API Recherche Bing doit être incluse dans la page web, où elle est accessible à toute personne qui consulte la source. Vous êtes facturé pour toutes les utilisations associées à votre clé d’abonnement d’API, y compris les requêtes effectuées par des tiers non autorisés. Il est donc important de ne pas exposer votre clé.
 
-À des fins de développement, vous pouvez effectuer la requête d’API Recherche Web Bing via un proxy CORS. La réponse émanant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui met les en-têtes de réponse sur liste verte et les rend disponibles pour JavaScript.
+À des fins de développement, vous pouvez effectuer la requête d’API Recherche Web Bing via un proxy CORS. La réponse provenant d’un proxy de ce type a un en-tête `Access-Control-Expose-Headers` qui autorise les en-têtes de réponse et les rend accessibles à JavaScript.
 
 Il est facile d’installer un proxy CORS pour autoriser l’application du didacticiel à accéder à l’en-tête d’ID client. Tout d’abord, [installez Node.js](https://nodejs.org/en/download/) si ce n’est pas déjà fait. Exécutez alors la commande suivante dans une fenêtre de commande :
 

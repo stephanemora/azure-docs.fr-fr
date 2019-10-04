@@ -4,21 +4,20 @@ description: Apprendre à résoudre un échec de connexion RDP dû à la désact
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 742026a8ff35f318f58674ebc2fb5c03e45161a8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 666868d723b5e040b69762cdb39f472f2f8822c9
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133330"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71057923"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Impossible de connecter un bureau à distance à une machine virtuelle car l'interface réseau est désactivée
 
@@ -53,8 +52,7 @@ Pour activer l'interface de la machine virtuelle, utilisez la console série ou 
 
     Par exemple, si l’interface réseau s’appelle « Ethernet 2 », exécutez la commande suivante :
 
-        netsh interface set interface name=""Ethernet 2" admin=enabled
-
+        netsh interface set interface name="Ethernet 2" admin=enabled
 
 4.  Vérifiez à nouveau l’état de l’interface réseau pour vous assurer qu'elle est activée.
 

@@ -1,73 +1,69 @@
 ---
-title: 'Démarrage rapide : traduire une entrée vocale, C++ (Windows) - Services Speech'
+title: 'Démarrage rapide : Traduire une entrée vocale, C++ (Windows) – Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous allez créer une application C++ simple pour capturer les paroles de l’utilisateur, les traduire dans une autre langue et générer le texte à la ligne de commande. Ce guide est conçu pour les utilisateurs de Windows.
+description: Dans ce guide de démarrage rapide, vous allez créer une application C++ pour capturer les paroles de l’utilisateur, les traduire dans une autre langue et générer le texte sur la ligne de commande. Ce guide est conçu pour les utilisateurs de Windows.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 08/24/2019
 ms.author: erhopf
-ms.openlocfilehash: f7120e80d079723ed8265320ba4b38d76a825a00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6ba4e44efc7ff24aa48f9f16840b2248423f7241
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499816"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382672"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>Démarrage rapide : traduire une entrée vocale à l’aide du SDK Speech pour C++
+# <a name="quickstart-translate-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Démarrage rapide : Traduire des paroles en C++ sur Windows avec le SDK Speech
 
-Dans ce guide de démarrage rapide, vous allez créer une application C++ simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis transcrit le texte traduit à la ligne de commande en temps réel. Cette application est conçue pour fonctionner sur Windows 64 bits et est générée avec le [package NuGet du SDK Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017.
+Des guides de démarrage rapide sont également disponibles pour la [reconnaissance vocale](quickstart-cpp-windows.md) et la [synthèse vocale](quickstart-text-to-speech-cpp-windows.md).
+
+Dans ce guide de démarrage rapide, vous allez créer une application C++ qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis transcrit le texte traduit sur la ligne de commande en temps réel. Cette application est générée avec le [package NuGet du SDK Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2019 (n’importe quelle édition).
 
 Pour obtenir la liste complète des langues disponibles pour la traduction vocale, consultez [Prise en charge linguistique](language-support.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce démarrage rapide nécessite :
-
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
+Vous avez besoin d’une clé d’abonnement au service Speech pour suivre ce guide de démarrage rapide. Vous pouvez en obtenir une gratuitement. Pour plus d’informations, consultez [Essayer le service Speech gratuitement](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
-[!INCLUDE[](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
-1. Ouvrez le fichier source *helloworld.cpp*. Remplacez tout le code sous l’instruction include initiale (`#include "stdafx.h"` ou `#include "pch.h"`) par le code suivant :
+1. Ouvrez le fichier source **helloworld.cpp**.
 
-    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/cpp-windows/helloworld/helloworld.cpp#code)]
+1. Remplacez tout le code par l’extrait de code suivant :
+
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/cpp-windows/helloworld/helloworld.cpp?range=2-#code)]
 
 1. Dans le même fichier, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement.
 
 1. Remplacez la chaîne `YourServiceRegion` par la [région](regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
 
-1. Enregistrez les modifications apportées au projet.
+1. Dans la barre de menus, choisissez **Fichier** > **Enregistrer tout**.
 
-## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
+## <a name="build-and-run-the-application"></a>Génération et exécution de l’application
 
-1. Générez l’application. Dans la barre de menus, choisissez **Générer** > **Générer la solution**. Le code doit se compiler sans erreur.
+1. Dans la barre de menus, sélectionnez **Générer** > **Générer la solution** pour générer l’application. Le code doit maintenant se compiler sans erreurs.
 
-   ![Capture d’écran de l’application Visual Studio, avec l’option Générer la solution mise en surbrillance](media/sdk/qs-cpp-windows-06-build.png)
+1. Choisissez **Déboguer** > **Démarrer le débogage** (ou appuyez sur **F5**) pour démarrer l’application **helloworld**.
 
-1. Lancez l’application. Dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage**, ou appuyez sur **F5**.
+1. Prononcez une phrase ou quelques mots en anglais. L’application transmet vos paroles aux services Speech, qui traduisent et transcrivent les paroles en texte (dans ce cas, vers le français et l’allemand). Les services Speech renvoient ensuite le texte à l’application pour que celle-ci l’affiche.
 
-   ![Capture d’écran de l’application Visual Studio, avec l’option Démarrer le débogage mise en surbrillance](media/sdk/qs-cpp-windows-07-start-debugging.png)
-
-1. Une fenêtre de console s’affiche vous invitant à dire quelque chose. Prononcez une phrase ou quelques mots en anglais. Votre entrée orale est transmise au service Speech, traduite et transcrite en texte qui apparaît dans la même fenêtre.
-
-   ![Capture d’écran de la sortie de la console après une traduction réussie](media/sdk/qs-translate-cpp-windows-output.png)
+   ![Sortie de la console après une traduction vocale réussie](media/sdk/qs-translate-cpp-windows-output.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Des exemples supplémentaires, qui montrent notamment comment lire une entrée orale à partir d’un fichier audio et générer un texte traduit en parole de synthèse, sont disponibles sur GitHub.
+Des exemples supplémentaires, qui montrent notamment comment lire une entrée vocale à partir d’un fichier audio ou convertir du texte traduit en synthèse vocale, sont disponibles sur GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorer des exemples C++ sur GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
-- [Personnaliser les modèles de langage](how-to-customize-language-model.md)
+- [Entraîner un modèle pour Custom Speech](how-to-custom-speech-train-model.md)

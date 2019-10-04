@@ -3,23 +3,22 @@ title: Conserver les résultats ou les journaux d’activité des tâches et des
 description: Découvrez les différentes possibilités pour conserver les données de sortie des tâches et des travaux Batch. Vous pouvez conserver les données dans le Stockage Azure ou un autre magasin de données.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc579cd372616563b61e5ba04fe32612f3efb1c7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: d03fd754e5a8e2872063b8a10bd1293b94d8f3b6
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541245"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70094426"
 ---
 # <a name="persist-job-and-task-output"></a>Conserver les résultats des tâches et des travaux
 
@@ -53,7 +52,7 @@ Pour plus d’informations sur la conservation de la sortie des tâches avec l�
 
 Batch définit un ensemble facultatif de conventions pour nommer les fichiers de sortie de tâche dans le Stockage Azure. Les conventions standard de nommage des fichiers Batch sont décrites dans ce [document](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Les conventions standard de nommage des fichiers déterminent les noms du conteneur et du chemin d’objet blob de destination dans le Stockage Azure pour un fichier de sortie donné en fonction des noms du travail et de la tâche.
 
-C’est à vous qu’il appartient d’appliquer ou non les conventions standard de nommage des fichiers pour vos fichiers de données de sortie. Vous pouvez aussi nommer le conteneur et l’objet blob de destination comme vous le souhaitez. Si vous utilisez les conventions standard de nommage des fichiers pour nommer vos fichiers de sortie, ceux-ci sont visibles dans le [portail Azure][portal].
+C’est à vous qu’il appartient d’appliquer ou non les conventions standard de nommage des fichiers pour vos fichiers de données de sortie. Vous pouvez aussi nommer le conteneur et l’objet blob de destination comme vous le souhaitez. Si vous utilisez cette norme pour nommer les fichiers de sortie, vos fichiers de sortie sont visibles dans le [portail Azure][portal].
 
 Les développeurs qui élaborent des solutions Batch avec C# et .NET peuvent utiliser la [bibliothèque Conventions de nommage des fichiers pour .NET][nuget_package] pour conserver les données des tâches dans un compte de Stockage Azure, conformément aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). La bibliothèque Conventions de nommage des fichiers gère le déplacement des fichiers de sortie vers le Stockage Azure, ainsi que le nommage des conteneurs et objets blob de destination d’une façon bien connue.
 
@@ -83,7 +82,7 @@ Au moment de concevoir votre solution Batch, tenez compte des points suivants s�
 
 - **Récupération de sortie** : vous pouvez récupérer la sortie des tâches directement à partir des nœuds de calcul de votre pool ou depuis Stockage Azure ou un autre magasin de données si vous avez conservé la sortie des tâches. Pour récupérer la sortie d’une tâche directement à partir d’un nœud de calcul, vous avez besoin du nom de fichier et de son emplacement de sortie sur le nœud. Si vous conservez la sortie des tâches dans le Stockage Azure, vous avez besoin du chemin complet des fichiers dans le Stockage Azure pour télécharger les fichiers de sortie à l’aide du kit SDK Stockage Azure.
 
-- **Affichage de sortie** : lorsque vous accédez à une tâche Batch dans le portail Azure et sélectionnez **Fichiers sur le nœud**, tous les fichiers associés à la tâche s’affichent, et pas seulement les fichiers de sortie qui vous intéressent. De nouveau, les fichiers hébergés sur les nœuds de calcul sont disponibles uniquement lorsque le nœud existe, et seulement pendant la durée de rétention des fichiers que vous avez définie pour la tâche. Pour afficher la sortie des tâches que vous avez conservée dans le Stockage Azure, vous pouvez utiliser le portail Azure ou une application cliente du Stockage Azure telle que l’[Explorateur de Stockage Azure][storage_explorer]. Pour afficher des données de sortie dans le Stockage Azure avec le portail ou un autre outil, vous devez connaître l’emplacement du fichier correspondant et y accéder directement.
+- **Affichage de sortie** : lorsque vous accédez à une tâche Batch dans le portail Azure et sélectionnez **Fichiers sur le nœud**, tous les fichiers associés à la tâche s’affichent, et pas seulement les fichiers de sortie qui vous intéressent. De nouveau, les fichiers hébergés sur les nœuds de calcul sont disponibles uniquement lorsque le nœud existe, et seulement pendant la durée de rétention des fichiers que vous avez définie pour la tâche. Pour afficher la sortie des tâches que vous avez conservée dans le Stockage Azure, vous pouvez utiliser le portail Azure ou une application cliente du Stockage Azure telle que l’[Explorateur Stockage Azure][storage_explorer]. Pour afficher des données de sortie dans le Stockage Azure avec le portail ou un autre outil, vous devez connaître l’emplacement du fichier correspondant et y accéder directement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

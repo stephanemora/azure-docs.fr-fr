@@ -9,11 +9,11 @@ ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: ccee0f0c01119ebbfb5ba9c5980ee006a555a399
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872078"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60367606"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Exemples de configuration de routeur pour configurer et gérer des NAT
 
@@ -24,7 +24,7 @@ Cette page fournit des exemples de configuration NAT pour les routeurs des séri
 > 
 > 
 
-* Les exemples de configuration de routeur ci-dessous s'appliquent aux homologations Azure Public et Microsoft. Vous ne devez pas configurer un système NAT pour l'homologation privée Azure. Pour plus d’informations, voir [Homologations ExpressRoute](expressroute-circuit-peerings.md) et [Configuration NAT requise pour ExpressRoute](expressroute-nat.md).
+* Les exemples de configuration de routeur ci-dessous s'appliquent aux peerings Azure Public et Microsoft. Vous ne devez pas configurer un système NAT pour le peering privé Azure. Pour plus d’informations, voir [Peerings ExpressRoute](expressroute-circuit-peerings.md) et [Configuration NAT requise pour ExpressRoute](expressroute-nat.md).
 
 * Vous DEVEZ utiliser des pools IP NAT distincts pour la connectivité à Internet et ExpressRoute. L’utilisation du même pool IP NAT via internet et ExpressRoute entraîne un routage asymétrique et une perte de connectivité.
 
@@ -214,7 +214,7 @@ Commandes NAT :
        }
 
 ### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configuration de BGP pour publier les préfixes sélectifs dans chaque direction
-Reportez-vous aux exemples [exemples de configuration de routage](expressroute-config-samples-routing.md) page.
+Consultez les exemples de la page [Exemples de configuration de routage ](expressroute-config-samples-routing.md).
 
 ### <a name="6-create-policies"></a>6. Création des stratégies
     routing-options {

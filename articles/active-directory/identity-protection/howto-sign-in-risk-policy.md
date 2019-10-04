@@ -2,46 +2,37 @@
 title: Comment configurer la stratégie de connexion à risque dans Azure Active Directory Identity Protection | Microsoft Docs
 description: Découvrez comment configurer la stratégie de connexion à risque d’Azure AD Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gestion d’applications, sécurité, risque, niveau de risque, vulnérabilité, stratégie de sécurité
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe9e0a4d481ef7b802c50fdc347872e389fa8ef7
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: d00376c6689b6be773f24e8acd09c3697fb6a799
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518037"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70126306"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Procédure : Configurer la stratégie en matière de risque à la connexion
 
-Azure Active Directory détecte les [types d’événements à risque](../reports-monitoring/concept-risk-events.md#risk-event-types) en temps réel et hors connexion. Tous les événements à risque qui sont détectés pendant la connexion d’un utilisateur viennent alimenter un concept logique appelé « connexion risquée ». Une connexion risquée est une tentative de connexion susceptible d’émaner d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
-
+Azure Active Directory détecte les [types de détection de risque](../reports-monitoring/concept-risk-events.md#risk-detection-types) en temps réel et hors connexion. Toutes les détections de risques qui sont détectées pendant la connexion d’un utilisateur viennent alimenter un concept logique appelé « connexion risquée ». Une connexion risquée est une tentative de connexion susceptible d’émaner d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
 
 ## <a name="what-is-the-sign-in-risk-policy"></a>Qu’est-ce que la stratégie de connexion à risque ?
 
-Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Par exemple, la connexion est-elle effectuée à l’aide d’une adresse IP anonyme, ou est-elle lancée à partir d’un emplacement inconnu ? Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée un événement à risque. Azure AD calcule une valeur en fonction des événements à risque détectés au cours d’une connexion. Cette valeur représente la probabilité (faible, moyenne ou élevée) avec laquelle la connexion n’est pas effectuée par un utilisateur légitime. La probabilité est appelée **niveau de risque de connexion**.
+Azure AD analyse chaque connexion d’un utilisateur. L’objectif de l’analyse est de détecter les actions suspectes se produisant dans le cadre de la connexion. Par exemple, la connexion est-elle effectuée à l’aide d’une adresse IP anonyme, ou est-elle lancée à partir d’un emplacement inconnu ? Dans Azure AD, une action suspecte pouvant être détectée par le système est également appelée une détection de risque. Azure AD calcule une valeur en fonction des détections de risques détectées au cours d’une connexion. Cette valeur représente la probabilité (faible, moyenne ou élevée) avec laquelle la connexion n’est pas effectuée par un utilisateur légitime. La probabilité est appelée **niveau de risque de connexion**.
 
 La stratégie de connexion à risque est une réponse automatisée que vous pouvez configurer pour un niveau de risque de connexion spécifique. Dans votre réponse, vous pouvez bloquer l’accès à vos ressources ou exiger la résolution d’un test de l’authentification multifacteur pour obtenir l’accès.
-
    
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Comment faire pour accéder à la stratégie de connexion à risque ?
    
 La stratégie de risque de connexion est disponible dans la section **Configurer** de la [page Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
 ![Stratégie en matière de risque à la connexion](./media/howto-sign-in-risk-policy/1014.png "Stratégie en matière de risque à la connexion")
-
 
 ## <a name="policy-settings"></a>Paramètres de stratégie
 
@@ -63,7 +54,6 @@ Lorsque vous configurez la stratégie de connexion à risque, vous devez défini
 
     ![Appliquer la stratégie](./media/howto-sign-in-risk-policy/14.png)
 
-
 La boîte de dialogue de configuration de stratégie vous offre une option permettant d’évaluer l’impact de la reconfiguration.
 
 ![Impact estimé](./media/howto-sign-in-risk-policy/15.png)
@@ -79,7 +69,6 @@ Toutefois, pour des raisons de sécurité, ce paramètre s’applique uniquement
 Si vous souhaitez exiger l’authentification multifacteur pour les connexions à risque, vous devez :
 
 1. Activer la [stratégie d’inscription à l’authentification multifacteur](howto-mfa-policy.md) pour les utilisateurs concernés, et
-
 2. Demander aux utilisateurs concernés de se connecter à une session sécurisée pour s’inscrire à l’authentification MFA.
 
 Suivre ces étapes permet de s’assurer que l’authentification multifacteur est requise pour une connexion à risque.
@@ -87,9 +76,7 @@ Suivre ces étapes permet de s’assurer que l’authentification multifacteur e
 La stratégie en matière de risque à la connexion :
 
 - est appliquée à l’ensemble du trafic de navigateur et des connexions utilisant une authentification moderne ;
-
 - n’est pas appliquée aux applications utilisant des protocoles de sécurité plus anciens en désactivant le point de terminaison WS-Trust sur le fournisseur d’identité fédérée, tels qu’ADFS.
-
 
 Pour une obtenir une vue d’ensemble de l’expérience utilisateur, consultez :
 
@@ -106,21 +93,12 @@ Cependant, cela a pour effet d’exclure les connexions associées à un indicat
 Pour définir la stratégie
 
 - Excluez les utilisateurs qui ne sont pas inscrits/ne peuvent pas s’inscrire à l’authentification multifacteur.
-
 - Excluez les utilisateurs situés dans des régions où l’activation de la stratégie n’est pas adaptée (par exemple, aucun accès au support technique).
-
 - Excluez les utilisateurs susceptibles de générer un grand nombre de faux positifs (développeurs, analystes de sécurité).
-
 - Utilisez un niveau de risque **Élevé** pendant le déploiement initial de la stratégie ou si vous devez réduire la complexité pour les utilisateurs finaux.
-
 - Utilisez un niveau de risque **Faible** si votre organisation nécessite une sécurité accrue. La sélection d’un niveau de risque **Faible** complique la connexion pour les utilisateurs, mais renforce la sécurité.
 
 Pour la plupart des organisations, nous recommandons de configurer un niveau de risque **Moyen** afin d’établir un juste équilibre entre facilité d’utilisation et sécurité.
-
-
-
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

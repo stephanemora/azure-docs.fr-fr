@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: d87c8a46459a9b4bf80bef895ec97e436d38e699
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 17469d3602935715d570a496e12b6680269ff465
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60622901"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Stocker des secrets dans un coffre de clés dans Azure DevTest Labs
 Vous pouvez avoir besoin d’entrer un secret complexe lorsque vous utilisez Azure DevTest Labs : un mot de passe pour votre machine virtuelle Windows, une clé SSH publique pour votre machine virtuelle Linux ou un jeton d’accès personnel pour cloner votre dépôt Git via un artefact. Les secrets sont généralement longs et ont des caractères aléatoires. Par conséquent, la saisie d’un secret peut être difficile et peu pratique, surtout si vous l’utilisez plusieurs fois.

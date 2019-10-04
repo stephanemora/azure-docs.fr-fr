@@ -1,6 +1,6 @@
 ---
-title: Configurer une instance gérée Azure SQL Database | Microsoft Docs
-description: Découvrez comment configurer et gérer une instance gérée Azure SQL Database.
+title: Configurer une instance managée Azure SQL Database | Microsoft Docs
+description: Découvrez comment configurer et gérer une instance managée Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
-manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 886f06e8640891ac09d1e4624335a7bfebcd3def
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b8c05ab05630e92e64a4885d5e6cdc6f5471dff2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009376"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568061"
 ---
-# <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Utiliser une instance gérée dans Azure SQL Database
+# <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Utiliser une instance managée dans Azure SQL Database
 
 Dans cet article, vous trouverez des guides, des scripts et des explications pour vous aider à gérer et à configurer votre instance gérée.
 
@@ -36,7 +35,7 @@ Dans cet article, vous trouverez des guides, des scripts et des explications pou
 - [Configurer un réseau virtuel et un sous-réseau existants pour une instance gérée](sql-database-managed-instance-configure-vnet-subnet.md) : si vous souhaitez configurer votre réseau virtuel et votre sous-réseau pour y déployer des instances gérées, vous trouverez ici le script qui vérifie la [configuration réseau](sql-database-managed-instance-connectivity-architecture.md#network-requirements) et configure votre sous-réseau en fonction des exigences.
 - [Configurer les DNS personnalisés](sql-database-managed-instance-custom-dns.md) : vous devez configurer des DNS personnalisés si vous souhaitez accéder à des ressources externes sur les domaines personnalisés depuis votre instance gérée via le serveur lié des profils de courrier de la base de données.
 - [Synchroniser la configuration réseau](sql-database-managed-instance-sync-network-configuration.md) : il peut arriver que bien que votre [application soit intégrée à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md), vous ne puissiez pas établir de connexion à une instance gérée. Vous pouvez par exemple essayer d’actualiser la configuration de mise en réseau pour votre plan de service.
-- [Rechercher l’adresse IP du point de terminaison gestion](sql-database-managed-instance-find-management-endpoint-ip-address.md) – Managed instance utilise le point de terminaison public pour à des fins de gestion. Vous pouvez déterminer l’adresse IP du point de terminaison de gestion avec le script décrit ici.
+- [Rechercher l'adresse IP du point de terminaison de gestion](sql-database-managed-instance-find-management-endpoint-ip-address.md) : une instance gérée utilise le point de terminaison public à des fins de gestion. Vous pouvez déterminer l’adresse IP du point de terminaison de gestion avec le script décrit ici.
 - [Vérifier la protection de pare-feu intégré](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) : une instance gérée est protégée par un pare-feu intégré qui autorise uniquement le trafic sur les ports nécessaires. Vous pouvez vérifier les règles du pare-feu intégré avec script décrit dans ce guide.
 - [Connecter des applications](sql-database-managed-instance-connect-app.md) : une instance gérée est placée dans votre propre réseau virtuel Azure avec une adresse IP privée. Découvrez les différents modèles de connexion des applications à votre instance gérée.
 

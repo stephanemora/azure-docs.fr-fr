@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 09/17/2019
 ms.author: alinast
-ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
+ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531732"
+ms.lasthandoff: 09/22/2019
+ms.locfileid: "71178252"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Traitement des données et fonctions définies par l’utilisateur
 
@@ -23,7 +23,7 @@ Azure Digital Twins propose des fonctionnalités de calcul avancées. Les dével
 
 Lorsque les appareils ont envoyé des données de télémétrie à Azure Digital Twins, les développeurs peuvent traiter ces données en quatre phases : *validation*, *détection*, *calcul* et *distribution*.
 
-![Flux de traitement des données Azure Digital Twins][1]
+[![Flux de traitement des données Azure Digital Twins](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. La phase de validation convertit le message de télémétrie entrant en un format d’[objet de transfert de données](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) généralement bien compris. Cette phase exécute également la validation de l’appareil et du capteur.
 1. La phase Détection recherche la ou les fonctions définies par l’utilisateur qui doivent être exécutées. Les détecteurs prédéfinis recherchent les fonctions définies par l’utilisateur en se basant sur les informations relatives à l’appareil, au capteur et à l’espace qui sont issues du message de télémétrie entrant.
@@ -34,9 +34,7 @@ Lorsque les appareils ont envoyé des données de télémétrie à Azure Digita
 
 Dans Azure Digital Twins, le traitement des données consiste à définir les trois objets suivants : les *détecteurs*, les *fonctions définies par l’utilisateur* et les *attributions de rôles*.
 
-![Flux de traitement des objets Azure Digital Twins][2]
-
-<div id="matcher"></div>
+[![Flux de traitement des objets Azure Digital Twins](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>Détecteurs
 
@@ -92,7 +90,7 @@ Les détecteurs définissent un ensemble de conditions qui évaluent les actions
 
 ### <a name="user-defined-functions"></a>Fonctions définies par l’utilisateur
 
-Une fonction définie par l’utilisateur est une fonction personnalisée exécutée dans un environnement isolé d’Azure Digital Twins. Les fonctions définies par l’utilisateur ont accès au message brut de télémétrie du capteur tel qu’il a été reçu. Elles ont également accès au graphique spatial et au service de répartiteur. Lorsque la fonction définie par l’utilisateur est inscrite dans le graphique, vous devez créer un détecteur (détaillé [plus haut](#matcher)) pour spécifier à quel moment exécuter la fonction. Par exemple, lorsqu’Azure Digital Twins reçoit de nouvelles données de télémétrie provenant d’un capteur donné, la fonction définie par l’utilisateur trouvée peut calculer une moyenne mobile à partir des dernières données de capteur.
+Une fonction définie par l’utilisateur est une fonction personnalisée exécutée dans un environnement isolé d’Azure Digital Twins. Les fonctions définies par l’utilisateur ont accès au message brut de télémétrie du capteur tel qu’il a été reçu. Elles ont également accès au graphique spatial et au service de répartiteur. Lorsque la fonction définie par l’utilisateur est inscrite dans le graphique, vous devez créer un détecteur (détaillé [plus haut](#matchers)) pour spécifier à quel moment exécuter la fonction. Par exemple, lorsqu’Azure Digital Twins reçoit de nouvelles données de télémétrie provenant d’un capteur donné, la fonction définie par l’utilisateur trouvée peut calculer une moyenne mobile à partir des dernières données de capteur.
 
 Les fonctions définies par l’utilisateur peuvent être rédigées en JavaScript. Les méthodes d’assistance permettant d’interagir avec le graphe dans l’environnement d’exécution défini par l’utilisateur. Les développeurs peuvent exécuter des extraits de code personnalisés par rapport aux messages de télémétrie de capteur. Voici quelques exemples :
 
@@ -103,14 +101,11 @@ Les fonctions définies par l’utilisateur peuvent être rédigées en JavaScri
 
 Pour en savoir plus, consultez [Utilisation des fonctions définies par l’utilisateur](./how-to-user-defined-functions.md).
 
-
 #### <a name="examples"></a>Exemples
 
 Le [dépôt GitHub pour l’exemple en C# Digital Twins](https://github.com/Azure-Samples/digital-twins-samples-csharp/) contient quelques exemples de fonctions définies par l’utilisateur :
 - [Cette fonction](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) recherche des valeurs de dioxyde de carbone, de mouvement et de température pour déterminer si un espace est disponible avec ces valeurs dans la plage. Les [didacticiels pour Digital Twins](tutorial-facilities-udf.md) explorent cette fonction de façon plus détaillée. 
 - [Cette fonction](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) recherche des données provenant de plusieurs capteurs de mouvement, et détermine que l’espace est disponible si aucun d'eux ne détecte de mouvement. Vous pouvez facilement remplacer la fonction définie par l’utilisateur utilisée dans le [guide de démarrage rapide](quickstart-view-occupancy-dotnet.md) ou dans les [didacticiels](tutorial-facilities-setup.md), en apportant les modifications mentionnées dans la section comments du fichier. 
-
-
 
 ### <a name="role-assignment"></a>Attribution de rôle
 
@@ -125,7 +120,3 @@ Un détecteur peut déclencher une fonction définie par l’utilisateur à laqu
 - Pour plus d’informations sur la création des détecteurs, des fonctions définies par l’utilisateur et des attributions de rôles, lisez le [Guide pratique pour l’utilisation des fonctions définies par l’utilisateur](./how-to-user-defined-functions.md).
 
 - Consultez la [documentation sur les informations de référence de la bibliothèque cliente](./reference-user-defined-functions-client-library.md).
-
-<!-- Images -->
-[1]: media/concepts/digital-twins-data-processing-flow.png
-[2]: media/concepts/digital-twins-user-defined-functions.png

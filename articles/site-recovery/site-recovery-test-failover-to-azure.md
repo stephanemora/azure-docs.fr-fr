@@ -1,19 +1,18 @@
 ---
-title: Exécuter une procédure de récupération d’urgence sur Azure avec Azure Site Recovery | Microsoft Docs
+title: Exécuter une procédure de récupération d’urgence sur Azure avec Azure Site Recovery
 description: Découvrez l’exécution d’une procédure de récupération d’urgence à partir d’un site local vers Azure, à l’aide du service Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
-services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 6d8ad71894444b3759e506c50244b592ac1f8aac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 8342f60d8a0f91cc4807d25307510c1cbe7ee5c8
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904710"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70814370"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Effectuer un exercice de récupération d'urgence vers Azure 
 

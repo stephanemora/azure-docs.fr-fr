@@ -2,30 +2,23 @@
 title: Services Go-To-Market - Guide pratique pour apparaître sur la place de marché | Azure
 description: 'Services Go-To-Market : cette section explique comment faire apparaître une annonce sur la Place de marché Microsoft Azure'
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: bda94e648891ad5c4de810195e874a5774d6b498
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a99237ec52d302dbb7fc3914c6abfff5fecf4523
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355159"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962751"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Guide pratique pour apparaître dans AppSource et dans la Place de marché Microsoft Azure
 
 La Place de marché Microsoft Azure et AppSource ont des sections **Applications proposées**, où votre application peut apparaître :
 
-* Tout d’abord, si vous avez une offre ESSAI ou TRANSACTION, vous pouvez utiliser votre avantage de « promotion de catégorie » via les avantages Go-to-Market.
+* Tout d’abord, si vous avez une offre ESSAI ou TRANSACTION, vous pouvez utiliser votre avantage de « promotion de catégorie » dans le cadre des [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 * Ensuite, passez en revue la liste des bonnes pratiques et les critères ci-dessous pour obtenir une place.
 
 L’algorithme de sélection des applications proposées génère un score pour une application établi par Microsoft.  La sélection hebdomadaire des applications proposées repose sur un calcul des performances des applications et des services.
@@ -51,7 +44,7 @@ Votre prise en charge GTM inclut également une bibliothèque complète de modè
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les services GTM de la place de marché, consultez [Services de commercialisation](https://partner.microsoft.com/reach-customers/gtm).
+Apprenez-en plus sur les [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
 Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com) pour créer et configurer votre offre.
 

@@ -1,22 +1,20 @@
 ---
 title: Gérer les ressources de données dans Azure Data Catalog
 description: Cet article explique comment contrôler la visibilité et la propriété des ressources de données inscrites dans Azure Data Catalog.
-services: data-catalog
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 0b155a5cdfa1c540e1cfb92147f6ebc7f88dd929
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.date: 08/01/2019
+ms.openlocfilehash: 9905ed72ec54304bbdb0f7ee607cbb013fc645bb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000638"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736341"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gérer les ressources de données dans Azure Data Catalog
-## <a name="introduction"></a>Présentation
+## <a name="introduction"></a>Introduction
 Azure Data Catalog est conçu pour la détection des sources de données. Il permet de détecter facilement les sources de données dont vous avez besoin pour effectuer des analyses et prendre des décisions. Ces fonctionnalités de détection se révèlent très utiles, car elles vous permettent d’effectuer des recherches sur les nombreuses sources de données disponibles et de les comprendre. Par conséquent, le comportement par défaut de Data Catalog consiste à rendre visibles et détectables l’ensemble des sources de données inscrites pour tous les utilisateurs du catalogue.
 
 Data Catalog ne permet pas d’accéder aux données proprement dites. L’accès aux données est contrôlé par le propriétaire de la source de données. Data Catalog vous permet de détecter les sources de données et d’afficher les métadonnées relatives aux sources inscrites dans le catalogue.

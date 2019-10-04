@@ -1,5 +1,5 @@
 ---
-title: Couverture du géocodage dans Azure Maps | Microsoft Docs
+title: Couverture de géocodage dans Azure Maps | Microsoft Docs
 description: Découvrez la couverture de géocodage dans Azure Maps
 author: walsehgal
 ms.author: v-musehg
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a5e5f4ab286289e223a2fe10ff8cf45f43309f04
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000927"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65785936"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Couverture de géocodage Azure Maps
 
 Lorsque vous recherchez un emplacement avec Azure Maps, le service de recherche accepte les termes de recherche et retourne les coordonnées de latitude et longitude. Ce processus est appelé « géocodage ». Toutefois, Maps n’a pas le même niveau d’information et de précision pour tous les pays et régions. Utilisez cet article pour déterminer quels types d’emplacements vous pouvez rechercher de manière fiable dans chaque région. 
 
-La possibilité de géocoder dans un pays dépend de la couverture de données de route et de la précision du service de géocodage. Les catégorisations suivantes permettent de spécifier le niveau de prise en charge du géocodage dans chaque pays.
+La possibilité de géocoder dans un pays/une région dépend de la couverture de données de route et de la précision du service de géocodage. Les catégorisations suivantes permettent de spécifier le niveau de prise en charge du géocodage dans chaque pays/région.
 * **Points d’adresse** : Les données d’adresses peuvent être résolues en coordonnées latitude/longitude dans la parcelle de l’adresse (limite de propriété). Ils sont parfois désignés comme ayant une précision « rooftop » (maximale). Il s’agit du niveau de précision le plus haut disponible pour les adresses. 
 * **Numéros de résidence** : Les adresses sont interpolées en coordonnées latitude/longitude dans la rue.
 * **Niveau de rue** : Les adresses sont résolues en coordonnées latitude/longitude de la rue qui contient l’adresse. Le numéro de résidence ne peut pas être traité.
@@ -44,7 +44,6 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Canada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Caïmans (îles)                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Chili                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
-| Îles Clipperton                                   |                 |                |              |      ✓     |                    |
 | Colombie                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Cuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
@@ -84,8 +83,8 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | États-Unis d’Amérique                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Îles Vierges - britanniques                            |                 |                |              |      ✓     |          ✓         |
-| Îles Vierges - États-Unis                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Îles Vierges britanniques                              |                 |                |              |      ✓     |          ✓         |
+| Données Îles Vierges                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Asie-Pacifique
 
@@ -98,12 +97,12 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Territoire britannique de l'océan Indien                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cambodge                                            |                 |                |              |      ✓     |          ✓         |
-| Chine                                               |        ✓        |        ✓       |              |      ✓     |          ✓         |
+| Chine                                               |                 |                |              |      ✓     |          ✓         |
 | Christmas (île)                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Îles Cocos (Keeling)                             |                 |                |              |      ✓     |          ✓         |
 | Comores                                             |                 |                |              |      ✓     |          ✓         |
 | Cook (îles)                                        |                 |                |              |      ✓     |          ✓         |
-| Fidji                                                |                  |                |              |      ✓     |          ✓         |
+| Fidji                                                |                  |                |              |      ✓     |          ✓        |
 | Polynésie française                                    |                 |                |              |      ✓     |          ✓         |
 | Heard et McDonald (îles)                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong (R.A.S.)                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -288,13 +287,12 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Soudan                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Swaziland                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Syrie                                               |                 |                |              |      ✓     |          ✓         |
-| São Tomé e Príncipe                               |                 |                |       ✓      |      ✓     |          ✓         |
+| São Tomé et Príncipe                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Tanzanie                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Togo                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Tunisie                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Ouganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Émirats Arabes Unis                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Cisjordanie                                           |                 |                |              |      ✓     |          ✓         |
 | Yémen                                               |                 |                |              |      ✓     |          ✓         |
 | Zambie                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabwe                                            |                 |                |       ✓      |      ✓     |          ✓         |

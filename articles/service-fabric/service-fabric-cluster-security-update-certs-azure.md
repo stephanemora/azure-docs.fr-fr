@@ -3,7 +3,7 @@ title: Gérer les certificats d’un cluster Azure Service Fabric | Microsoft 
 description: Explique comment ajouter de nouveaux certificats, substituer un certificat ou supprimer un certificat pour un cluster Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo
-ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: d84525e869d47fc609ee8aac7feb7feda36a5f23
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050235"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68599956"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Ajouter ou supprimer des certificats pour un cluster Service Fabric dans Azure
 Nous vous recommandons de vous familiariser avec la façon dont Service Fabric utilise les certificats X.509 et de prendre connaissance des [scénarios de sécurité d’un cluster](service-fabric-cluster-security.md). Vous devez comprendre ce qu’est un certificat de cluster et quelle est son utilité avant de passer à la suite.
 
-Le comportement de charge de certificat par défaut du SDK Azure Service Fabric consiste à déployer et utiliser un certificat défini avec une date d’expiration plus loin dans le futur, quelle que soit la définition de leur configuration principale ou secondaire. Revenir au comportement classique est non avancée action recommandée et requiert la définition de la valeur du paramètre « UseSecondaryIfNewer » paramètre false au sein de votre configuration Fabric.Code.
+Le comportement de charge de certificat par défaut du SDK Azure Service Fabric consiste à déployer et utiliser un certificat défini avec une date d’expiration plus loin dans le futur, quelle que soit la définition de leur configuration principale ou secondaire. Revenir au comportement classique n’est pas une action avancée recommandée et demande de définir la valeur du paramètre « UseSecondaryIfNewer » sur False au sein de la configuration de votre Fabric.Code.
 
 Lorsque vous configurez la sécurité par certificat lors de la création du cluster, Service Fabric vous permet de spécifier deux certificats de cluster, un principal et un secondaire, en plus des certificats clients. Pour plus d’informations sur la configuration de ces certificats au moment de la création, consultez [Création d’un cluster avec le portail](service-fabric-cluster-creation-via-portal.md) ou [Création d’un cluster Azure avec Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Si vous spécifiez un seul certificat de cluster au moment de la création, celui-ci est utilisé comme certificat principal. Après la création du cluster, vous pouvez ajouter un certificat en tant que certificat secondaire.
 
@@ -48,7 +48,7 @@ Si votre intention est de supprimer le certificat marqué comme principal, vous 
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Ajouter un certificat secondaire à l’aide de Resource Manager PowerShell
 > [!TIP]
-> Il est désormais plus facile à ajouter un certificat secondaire à l’aide et le [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) applet de commande. Vous n’avez pas besoin de suivre le reste des étapes de cette section.  En outre, il est inutile du modèle à l’origine utilisé pour créer et déployer le cluster lors de l’utilisation du [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) applet de commande.
+> Il existe désormais un moyen amélioré et plus simple pour ajouter un certificat secondaire à l’aide de la cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate). Vous n’avez pas besoin de suivre le reste des étapes de cette section.  En outre, vous n’avez pas besoin du modèle utilisé à l’origine pour créer et déployer le cluster lors de l’utilisation de la cmdlet [Add-AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate).
 
 Pour pouvoir exécuter ces étapes, vous devez connaître le fonctionnement de Resource Manager, avoir déployé au moins un cluster Service Fabric à l’aide d’un modèle Resource Manager et disposer du modèle que vous avez utilisé pour configurer le cluster. Il est également supposé que vous maîtrisez l’utilisation de JSON.
 
@@ -117,7 +117,7 @@ Pour simplifier l’exécution de la procédure, l’exemple 5-VM-1-NodeTypes-Se
          }
     ``` 
 
-4. Apportez des modifications à **toutes** les définitions de ressource **Microsoft.Compute/virtualMachineScaleSets** : recherchez la définition de ressource Microsoft.Compute/virtualMachineScaleSets. Faites défiler vers le « publisher » : « Microsoft.Azure.ServiceFabric », sous « virtualMachineProfile ».
+4. Apportez des modifications à **toutes** les définitions de ressource **Microsoft.Compute/virtualMachineScaleSets** : recherchez la définition de ressource Microsoft.Compute/virtualMachineScaleSets. Accédez à la section « publisher » : « Microsoft.Azure.ServiceFabric », sous « virtualMachineProfile ».
 
     Dans les paramètres de l’éditeur Service Fabric, vous devriez trouver des propriétés semblables.
     
@@ -262,7 +262,7 @@ Pour référence, voici la commande pour connaître l’intégrité du cluster
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-client-certificates-to-the-cluster"></a>Déploiement de certificats client sur le cluster.
+## <a name="deploying-client-certificates-to-the-cluster"></a>Déploiement de certificats clients dans le cluster.
 
 Vous pouvez utiliser la même procédure qu’à l’étape 5 pour déployer les certificats sur les nœuds à partir d’un coffre de clés. Vous devez simplement définir et utiliser des paramètres différents.
 

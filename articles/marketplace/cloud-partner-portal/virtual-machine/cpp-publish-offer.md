@@ -1,25 +1,18 @@
 ---
-title: Publier une offre de machine virtuelle sur la Place de marché Microsoft Azure | Microsoft Docs
+title: Publier une offre de machine virtuelle dans la Place de marché Azure
 description: Affiche les étapes nécessaires pour publier une offre de machine virtuelle sur la Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 08/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 3cf6a3d9bcb9470fd3a6bd4fef964c1966adfa1a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.author: pabutler
+ms.openlocfilehash: 6796c2871cf8a5928beed2ab557cefdfe8ecaae9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638950"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938593"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>Publier une offre de machine virtuelle
 
@@ -27,14 +20,15 @@ ms.locfileid: "49638950"
 
 ![Étapes de publication d’une offre de machine virtuelle](./media/publishvm_013.png)
 
-Le tableau suivant décrit ces étapes et fournit une estimation de leur durée maximale : <!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
+Le tableau suivant décrit ces étapes et fournit une estimation de leur durée maximale :
+<!-- we need to tell them that if an offer seems stuck in a step, to know that they should file a support ticket (link to support ticket doc) -->
 
 
 |  **Étape de publication**           | **Time**    | **Description**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Valider les prérequis         | 15 min   | Les informations de l’offre et les paramètres de l’offre sont validés.                        |
 | Validation de Test Drive (facultatif) | 2 heures | Si vous avez choisi d’activer Test Drive, Microsoft vérifie la configuration de Test Drive, son déploiement et la réplication sur les régions sélectionnées. |
-| Certification                  | 3 jours | L’offre est analysée par l’équipe de certification d’Azure. Cette étape recherche des virus, des programmes malveillants et des problèmes de sécurité, et vérifie la conformité de la sécurité. Des commentaires sont fournis si un problème est détecté. |
+| Certification                  | 3 jours | L’offre est analysée par l’équipe de certification d’Azure. Cette étape recherche des virus, des programmes malveillants et des problèmes de sécurité, et vérifie la conformité de la sécurité. Si un problème est détecté, des commentaires sont fournis. |
 | Approvisionnement                   | 4 jours   | L’offre de machine virtuelle est répliquée dans les systèmes de production de place de marché.               |
 | Empaquetage et référencement de génération de prospects | \< 1 heure  | Les ressources techniques de l’offre sont empaquetées pour une utilisation par le client, et les systèmes de prospection sont installés et configurés. |
 |  Validation de l’éditeur             |  -        | Révision finale de l’éditeur et confirmation avant la mise en ligne de l’offre. Vous pouvez déployer votre offre dans les abonnements sélectionnés (dans les étapes d’informations de l’offre) pour vérifier qu’elle répond à toutes vos exigences.  |

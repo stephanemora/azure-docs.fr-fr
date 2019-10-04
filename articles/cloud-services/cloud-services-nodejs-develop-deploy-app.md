@@ -3,23 +3,18 @@ title: Guide de mise en route Node.js
 description: Apprenez à créer une application web Node.js simple et à la déployer vers un service cloud Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/17/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 270f400f78b971e022a59e5e9a04a76dfa929941
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.author: gwallace
+ms.openlocfilehash: 81ad3bce6c7e331fd67fba60b35de6b8a37c5da9
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761155"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359532"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Création et déploiement d'une application Node.js dans Azure Cloud Services
 
@@ -36,7 +31,7 @@ Il s’agit d’une application « hello world » simple :
 
 ![Navigateur Web avec la page Web Hello World][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 > [!NOTE]
 > Ce didacticiel utilise Azure PowerShell, qui nécessite Windows.
 
@@ -164,7 +159,7 @@ Pour plus d’informations, consultez le [Centre de développement Node.js].
 
 <!-- URL List -->
 
-[Comparaison des sites Web Azure, des services cloud et des machines virtuelles]: ../app-service/overview-compare.md
+[Comparaison des sites Web Azure, des services cloud et des machines virtuelles]: /azure/architecture/guide/technology-choices/compute-decision-tree
 [utiliser une application web légère]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Kit de développement logiciel (SDK) Azure pour .NET 2.7]: https://www.microsoft.com/en-us/download/details.aspx?id=48178

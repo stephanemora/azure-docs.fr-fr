@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c851b5ef024e6584e6f8c93995208b08a91fbb60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096671"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "62095487"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Synchronisation d’Azure AD Connect : gérer les erreurs LargeObject provoquées par l’attribut userCertificate
 
@@ -98,10 +98,10 @@ Il existe normalement une règle de synchronisation activée et configurée pour
     | Type d’objet de connecteur |**user** |
     | Attribut MV |**userCertificate** |
 
-3. Si vous utilisez des règles de synchronisation OOB (« out-of-box ») vers le connecteur Azure AD pour exporter l’attribut userCertificate des objets User, revenez à la règle *« Out to AAD – User ExchangeOnline »*.
+3. Si vous utilisez des règles de synchronisation OOB (« out-of-box ») vers le connecteur Azure AD pour exporter l’attribut userCertificate des objets User, revenez à la règle *« Out to AAD – User ExchangeOnline »* .
 4. Notez la valeur de **priorité** de cette règle de synchronisation.
 5. Sélectionnez la règle de synchronisation et cliquez sur **Modifier**.
-6. Dans la boîte de dialogue contextuelle *« Modifier la confirmation de règle réservée »*, cliquez sur **Non**. (Ne vous inquiétez pas, nous n’allons pas apporter de modifications à cette règle de synchronisation).
+6. Dans la boîte de dialogue contextuelle *« Modifier la confirmation de règle réservée »* , cliquez sur **Non**. (Ne vous inquiétez pas, nous n’allons pas apporter de modifications à cette règle de synchronisation).
 7. Dans l’écran de modification, sélectionnez l’onglet **Filtre d’étendue**.
 8. Notez la configuration du filtre d’étendue. Si vous utilisez la règle de synchronisation OOB, il doit y avoir exactement **un groupe de filtres d’étendue comportant deux clauses**, notamment :
 

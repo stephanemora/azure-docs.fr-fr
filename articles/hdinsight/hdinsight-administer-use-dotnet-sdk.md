@@ -1,7 +1,6 @@
 ---
 title: Gérer les clusters Apache Hadoop dans HDInsight avec le SDK .NET - Azure
 description: Découvrez comment effectuer des tâches d’administration pour les clusters Apache Hadoop dans HDInsight au moyen du Kit de développement logiciel (SDK) .NET HDInsight.
-services: hdinsight
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2e57726c3519fbb2660d7dfb4794a885871acc0d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: abfbac552cc5cb4449a75c45d0c1ffdbcf6b770c
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793916"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508108"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gérer les clusters Apache Hadoop dans HDInsight avec le SDK .NET
 
@@ -230,7 +229,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > [!NOTE]  
 > En octroyant/révoquant l’accès, vous réinitialisez le nom d’utilisateur et le mot de passe du cluster.
 
-Vous pouvez également le faire via le portail Azure. Consultez [gestion Apache des clusters Hadoop dans HDInsight à l’aide du portail Azure](hdinsight-administer-use-portal-linux.md).
+Vous pouvez également le faire via le portail Azure. Consultez [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md).
 
 ## <a name="update-http-user-credentials"></a>Mettre à jour les informations d’identification de l’utilisateur HTTP
 
@@ -258,10 +257,6 @@ Consultez [Exécuter des exemples MapReduce dans HDInsight](hadoop/apache-hadoop
 
 Consultez [Exécuter des requêtes Apache Hive avec le Kit de développement logiciel (SDK) .NET HDInsight](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Pour envoyer des travaux Apache Pig**
-
-Consultez [Exécution de tâches Apache Pig à l’aide du Kit de développement logiciel (SDK) .NET pour Apache Hadoop dans HDInsight](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
-
 **Pour envoyer des travaux Apache Sqoop**
 
 Consultez [Utiliser Apache Sqoop avec HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
@@ -272,13 +267,13 @@ Consultez [Utilisation d’Apache Oozie avec Hadoop pour définir et exécuter u
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Téléchargement de données vers le stockage d'objets blob Azure
 
-Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data].
+Consultez [Charger les données vers HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Voir aussi
 
 * [Documentation de référence sur le Kit de développement logiciel (SDK) .NET HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Gérer des clusters Apache Hadoop dans HDInsight avec le portail Azure](hdinsight-administer-use-portal-linux.md)
-* [Administration de HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
+* [Administrer HDInsight à l’aide d’une interface de ligne de commande][hdinsight-admin-cli]
 * [Création de clusters HDInsight][hdinsight-provision]
 * [Téléchargement de données vers HDInsight][hdinsight-upload-data]
 * [Prise en main d’Azure HDInsight][hdinsight-get-started]

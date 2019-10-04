@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078157"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64926143"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Résoudre les erreurs de suppression de ressources de stockage classiques
 Cet article fournit des conseils pour résoudre les erreurs suivantes quand vous essayez de supprimer un compte de stockage Azure classique, un conteneur ou un fichier *.vhd d’objet blob de pages. 
@@ -37,7 +37,7 @@ Une ressource « Disque » est utilisée pour monter un fichier *.vhd d’obje
 3. Une fois le bail de disque résilié, le ou les objets blob de pages peuvent être supprimés. Un compte de stockage ou un conteneur peut être supprimé une fois que toutes les ressources « Disque » qu’il contient sont supprimées.
 
 >[!NOTE] 
->Si l’utilisateur supprime la machine virtuelle, mais pas le disque dur virtuel, les frais de stockage restent appliqués au fichier *.vhd d’objet blob de pages. Les frais sont calculés en fonction du type de compte de stockage, consultez la [page des prix](https://azure.microsoft.com/en-us/pricing/details/storage/) pour plus d’informations. Si l’utilisateur ne veut plus utiliser les disques durs virtuels, supprimez-les pour éviter d’engendrer des frais. 
+>Si l’utilisateur supprime la machine virtuelle, mais pas le disque dur virtuel, les frais de stockage restent appliqués au fichier *.vhd d’objet blob de pages. Les frais sont calculés en fonction du type de compte de stockage, consultez la [page des prix](https://azure.microsoft.com/pricing/details/storage/) pour plus d’informations. Si l’utilisateur ne veut plus utiliser les disques durs virtuels, supprimez-les pour éviter d’engendrer des frais. 
 
 ## <a name="unable-to-delete-storage-account"></a>Impossible de supprimer le compte de stockage 
 
@@ -99,7 +99,7 @@ Dans le portail, vous avez deux expériences possibles selon la liste d’objets
 #### <a name="azure-powershell"></a>Azure PowerShell 
 Si l’utilisateur choisit d’effectuer la suppression à l’aide de PowerShell, l’erreur suivante se produit. 
 
-> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"**</span>
+> <span style="color:cyan">**Remove-AzureStorageBlob -Context $context -Container vhds -Blob "classicvm-os-8698.vhd"** </span>
 > 
 > <span style="color:red">Remove-AzureStorageBlob : Le serveur distant a retourné une erreur : (412) Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande. Code d’état HTTP : 412 - Message d’erreur HTTP : Il existe actuellement un bail sur l’objet blob et aucun ID de bail n’a été spécifié dans la demande.</span>
 

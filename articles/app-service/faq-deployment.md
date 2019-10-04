@@ -4,24 +4,23 @@ description: Obtenez des réponses aux questions fréquemment posées sur le dé
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9d38e3caf3d835eaf73df90282157eed76c5ea25
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 0a01f25894d1226466473dec7333859c7415f1fd
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350638"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71121200"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Forum aux questions sur le déploiement de Web Apps dans Azure
 
@@ -38,16 +37,16 @@ Voici quelques options pour la publication de votre code d’application web :
 
 Pour plus d’informations, voir [Déploiement de votre application dans Azure App Service](deploy-local-git.md).
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Un message d’erreur s’affiche quand je tente de déployer à partir de Visual Studio. Comment résoudre ce problème ?
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Un message d’erreur s’affiche quand je tente de déployer à partir de Visual Studio. Comment faire pour résoudre cette erreur ?
 
-Si vous voyez le message suivant, vous utilisez peut-être une version antérieure du SDK : « Erreur lors du déploiement pour la ressource ’Nomdevotreressource’ dans le groupe de ressources ’Nomdevotregroupederessources’ : MissingRegistrationForLocation: The subscription is not registered for the resource type ’components’ in the location ’Central US’ (Erreur lors du déploiement pour la ressource ’Nomdevotreressource’ dans le groupe de ressources ’Nomdevotregroupederessources’ : MissingRegistrationForLocation : l’abonnement n’est pas enregistré pour le type de ressource ’composants’ à l’emplacement ’USA Centre’). Renouvelez l’inscription pour ce fournisseur afin d’avoir accès à cet emplacement. » 
+Si vous voyez le message suivant, vous utilisez peut-être une version antérieure du SDK : « Erreur lors du déploiement pour la ressource ’Nomdevotreressource’ dans le groupe de ressources ’Nomdevotregroupederessources’ : MissingRegistrationForLocation: The subscription is not registered for the resource type ’components’ in the location ’Central US’ (Erreur lors du déploiement pour la ressource ’Nomdevotreressource’ dans le groupe de ressources ’Nomdevotregroupederessources’ : MissingRegistrationForLocation : l’abonnement n’est pas enregistré pour le type de ressource ’composants’ à l’emplacement ’USA Centre’). Renouvelez l’inscription pour ce fournisseur afin d’avoir accès à cet emplacement. » 
 
 Pour résoudre cette erreur, mettez à niveau vers la [dernière version du Kit de développement logiciel (SDK)](https://azure.microsoft.com/downloads/). Si vous voyez ce message et disposez de la dernière version du Kit de développement logiciel (SDK), envoyez une demande de support.
 
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Comment déployer une application ASP.NET à partir de Visual Studio vers App Service ?
 <a id="deployasp"></a>
 
-Le didacticiel [Création d’une application web ASP.NET dans Azure](app-service-web-get-started-dotnet.md) explique comment déployer une application web ASP.NET vers une application web dans App Service à l’aide de Visual Studio 2017.
+Le didacticiel [Création d’une application web ASP.NET dans Azure](app-service-web-get-started-dotnet.md) explique comment déployer une application web ASP.NET vers une application web dans App Service à l’aide de Visual Studio 2019.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quelles sont les différents types d’informations d’identification de déploiement ?
 
@@ -69,7 +68,7 @@ Vous pouvez configurer un déploiement continu à partir de plusieurs ressources
 
 Pour approfondir les problèmes liés à un déploiement continu à partir de GitHub ou de Bitbucket, voir [Analyse du déploiement continu](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>Je ne peux pas effectuer de transfert FTP vers mon site et publier mon code. Comment résoudre ce problème ?
+## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>Je ne peux pas effectuer de transfert FTP vers mon site et publier mon code. Comment faire pour résoudre ce problème ?
 
 Pour résoudre les problèmes de FTP :
 
@@ -90,7 +89,7 @@ Pour en savoir plus sur les circonstances dans lesquelles un déploiement d’ap
 
 Vous disposez de deux options pour utiliser un déploiement continu avec Azure DevOps :
 
-*   Utiliser un projet Git. Connectez-vous via App Service à l’aide du centre de déploiement.
+*   Utiliser un projet Git. Connectez-vous via App Service en utilisant le Centre de déploiement.
 *   Utiliser un projet Team Foundation Version Control (TFVC). Déployez à l’aide de l’agent de build pour App Service.
 
 Le déploiement de code en continu pour ces deux options dépend des flux de travail de développeur et des procédures de vérification existants. Pour plus d’informations, voir les articles suivants : 

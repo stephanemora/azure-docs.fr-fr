@@ -10,11 +10,11 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996593"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61457332"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(DÉPRÉCIÉ) Autoriser l’accès public à une application Azure Container Service
 
@@ -37,7 +37,7 @@ Tout d’abord, il faut ouvrir le port désiré.
    
    | Champ | Description |
    | --- | --- |
-   | NOM |Nom descriptif de la sonde. |
+   | Nom |Nom descriptif de la sonde. |
    | Port |Port du conteneur à tester. |
    | path |(En mode HTTP) Le chemin relatif du site à la sonde. HTTPS non pris en charge. |
    | Intervalle |Intervalle de temps entre les tentatives de la sonde, en secondes. |
@@ -49,7 +49,7 @@ Tout d’abord, il faut ouvrir le port désiré.
    
    | Champ | Description |
    | --- | --- |
-   | NOM |Nom descriptif de l’équilibrage de charge. |
+   | Nom |Nom descriptif de l’équilibrage de charge. |
    | Port |Port entrant public. |
    | Port principal |Port interne public du conteneur vers lequel le trafic est acheminé. |
    | Pool principal |Les conteneurs de ce pool seront les cibles de cet équilibrage de charge. |
@@ -72,7 +72,7 @@ Ensuite, il faut ajouter une règle de sécurité qui achemine le trafic à part
    
    | Champ | Description |
    | --- | --- |
-   | NOM |Nom descriptif de la règle de pare-feu. |
+   | Nom |Nom descriptif de la règle de pare-feu. |
    | Priorité |Rang de priorité de la règle. Plus le numéro de priorité est faible, plus la priorité de la règle est élevée. |
    | Source |Restreindre la plage d’adresses IP entrante pour qu’elle soit autorisée ou interdite par cette règle. Utilisez **Any** (Aucune) pour ne spécifier aucune restriction. |
    | Service |Sélectionner un ensemble de services prédéfinis concerné par cette règle de sécurité. Sinon, utilisez **Personnalisé** pour créer votre propre ensemble de services. |

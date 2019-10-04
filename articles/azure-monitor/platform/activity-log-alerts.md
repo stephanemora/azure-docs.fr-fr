@@ -1,38 +1,38 @@
 ---
 title: Alertes de journal d’activité dans Azure Monitor
 description: Recevez des notifications par SMS, webhook, e-mail, etc. lors de la survenue de certains événements dans le journal d’activité.
-author: msvijayn
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: vinagara
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 3459ef4caa99a2147144354165bef7d2852e87cc
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b24f24edf2a3a0df8cb8ef9687f205a4a8868537
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433347"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675234"
 ---
 # <a name="alerts-on-activity-log"></a>Alertes sur le journal d’activité 
 
-## <a name="overview"></a>Vue d’ensemble
-Les alertes de journal d’activité s’activent lorsqu’un nouvel événement du journal d’activité correspond aux conditions spécifiées dans l’alerte. Il s’agit de ressources Azure, et peuvent donc être créées à l’aide d’un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Cet article décrit comment utiliser le portail Azure pour configurer une alerte sur les événements de journal d’activité. Pour plus d’informations sur son utilisation, consultez [Créer et gérer les alertes de journal d’activité](../../azure-monitor/platform/alerts-activity-log.md).
+## <a name="overview"></a>Vue d'ensemble
+Les alertes du journal d’activité s’activent quand un nouvel [événement du journal d’activité](activity-log-schema.md) correspond aux conditions spécifiées dans l’alerte. La règle d’alerte se déclenche en fonction de l’ordre et du volume des événements enregistrés dans le [journal d’activité Azure](activity-logs-overview.md). Les règles d’alerte du journal d’activité étant des ressources Azure, elles peuvent être créées à l’aide d’un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Pour plus d’informations sur la création ou l’utilisation des règles d’alerte du journal d’activité, consultez [Créer et gérer des alertes du journal d’activité](alerts-activity-log.md).
 
 > [!NOTE]
-> Les alertes **ne peuvent pas** être créées pour des événements dans la catégorie d’alerte du journal d’activité
+> Les alertes **ne peuvent pas** être créées pour des événements dans la catégorie d’alerte du journal d’activité.
 
 En général, vous créez des alertes du journal d’activité pour recevoir des notifications lorsque :
 
 * des fonctionnements particuliers se produisent dans votre abonnement Azure, souvent étendus à des groupes de ressources ou à des ressources spécifiques. Par exemple, vous pouvez désirer être averti lorsqu’une machine virtuelle dans myProductionResourceGroup est supprimée. Vous pouvez également vouloir être averti si de nouveaux rôles sont attribués à un utilisateur dans votre abonnement.
 * Un événement d’intégrité du service se produit. Les événements d’intégrité du service incluent la notification des incidents et des événements de maintenance qui s’appliquent aux ressources de votre abonnement.
 
-Pour bien comprendre les conditions dans lesquelles des règles d’alerte peuvent être créées sur le journal d’activité, il est possible d’explorer ou de filtrer les événements par le biais du [Journal d’activité dans le portail Azure](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). Dans Azure Monitor - Journal d’activité, il est possible de filtrer ou de rechercher l’événement requis, puis de créer une alerte à l’aide du bouton **Ajouter une alerte de journal d’activité**.
+Pour bien comprendre les conditions dans lesquelles des règles d’alerte peuvent être créées sur le journal d’activité, il est possible d’explorer ou de filtrer les événements par le biais du [Journal d’activité dans le portail Azure](activity-log-view.md#azure-portal). Dans Azure Monitor - Journal d’activité, il est possible de filtrer ou de rechercher l’événement requis, puis de créer une alerte à l’aide du bouton **Ajouter une alerte de journal d’activité**.
 
 Dans les deux cas, l’alerte du journal d’activité surveille uniquement les événements de l’abonnement dans lequel elle a été créée.
 
-Vous pouvez configurer une alerte de journal d’activité en fonction de n’importe quelle propriété de niveau supérieur de l’objet JSON d’un événement de journal d’activité. Pour plus d’informations, reportez-vous à la rubrique [Présentation du journal d’activité Azure](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log). Pour en savoir plus sur les événements d’intégrité du service, consultez [Recevoir des alertes de journal d’activité sur les notifications de service](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+Vous pouvez configurer une alerte de journal d’activité en fonction de n’importe quelle propriété de niveau supérieur de l’objet JSON d’un événement de journal d’activité. Pour plus d’informations, reportez-vous à la rubrique [Présentation du journal d’activité Azure](./activity-logs-overview.md#categories-in-the-activity-log). Pour en savoir plus sur les événements d’intégrité du service, consultez [Recevoir des alertes de journal d’activité sur les notifications de service](./alerts-activity-log-service-notifications.md). 
 
 Les alertes de journal d’activité ont quelques options communes :
 
@@ -43,8 +43,7 @@ Les alertes de journal d’activité ont quelques options communes :
     - Au niveau de l’abonnement : par exemple, toutes les machines virtuelles d’un abonnement (ou) toutes les ressources d’un abonnement
 - **Groupe de ressources** : par défaut, la règle d’alerte est enregistrée dans le même groupe de ressources que celui de la cible définie dans l’étendue. L’utilisateur peut également définir le groupe de ressources où la règle d’alerte doit être stockée.
 - **Type de ressource** : Resource Manager a défini l’espace de noms pour la cible de l’alerte.
-
-- **Nom de l'opération** : le nom de l’opération Access Control basé sur le rôle de Resource Manager.
+- **Nom de l'opération** : [nom d’opération Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilisé pour le Contrôle d’accès en fonction du rôle. Les opérations non inscrites auprès d’Azure Resource Manager ne peuvent pas être utilisées dans une règle d’alerte du journal d’activité.
 - **Niveau** : le niveau de gravité de l’événement (détaillé, informationnel, avertissement, erreur ou critique).
 - **État** : l’état de l’événement, généralement « Démarré », « Échoué » ou « Réussi ».
 - **Événement lancé par** : également appelé l’« appelant». L’adresse e-mail ou l’identificateur Azure Active Directory de l’utilisateur qui a effectué l’opération.
@@ -57,13 +56,12 @@ Lorsqu’une alerte du journal d’activité devient active, elle utilise un gro
 * utiliser un groupe d’actions existant dans votre alerte de journal d’activité.
 * créer un nouveau groupe d’action.
 
-Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions dans le portail Azure](../../azure-monitor/platform/action-groups.md).
+Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions dans le portail Azure](action-groups.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Obtenir une [vue d’ensemble des alertes](../../azure-monitor/platform/alerts-overview.md).
-- En savoir plus sur la [création et la modification des alertes de journal d’activité](../../azure-monitor/platform/alerts-activity-log.md).
+
+- Obtenir une [vue d’ensemble des alertes](alerts-overview.md).
+- En savoir plus sur la [création et la modification des alertes de journal d’activité](alerts-activity-log.md).
 - Consultez le [schéma webhook des alertes de journal d’activité](activity-log-alerts-webhook.md).
-- En savoir plus sur les [notifications sur l’intégrité du service](../../azure-monitor/platform/service-notifications.md).
-
-
+- En savoir plus sur les [notifications sur l’intégrité du service](service-notifications.md).

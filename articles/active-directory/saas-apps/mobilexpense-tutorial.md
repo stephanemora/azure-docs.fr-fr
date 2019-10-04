@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b86f62bf25801b5259af1c54b55836fca9cf1aed
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0918333d70efcd8c93f77f99b2a36b099fb211e1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271303"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Tutoriel : Intégration d’Azure Active Directory à Mobile Xpense
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de Mobile Xpense dans Azure AD, vous devez ajou
 
 **Pour ajouter Mobile Xpense à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

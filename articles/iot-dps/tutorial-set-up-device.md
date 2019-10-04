@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 344cc3b8ba3f7698f5124d464f3c277b6cb5cdde
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d5a4f6c7d7d19ced4f2cd9ff21b00e58703f795e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500972"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911679"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurer un appareil à provisionner à l’aide du service IoT Hub Device Provisioning
 
@@ -27,7 +27,7 @@ Dans le didacticiel précédent, vous avez appris à configurer le service IoT H
 
 Avant de continuer ce tutoriel, vous devez créer votre instance du service Device Provisioning Service et un hub IoT en suivant les instructions indiquées dans le tutoriel précédent [Configurer des ressources cloud](tutorial-set-up-cloud.md).
 
-Ce didacticiel utilise le [référentiel Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c), qui contient le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C. Le Kit de développement logiciel (SDK) offre actuellement une prise en charge TPM et X.509 pour les appareils s’exécutant sur des implémentations Windows ou Ubuntu. Ce didacticiel repose sur l’utilisation d’un client de développement Windows, ce qui suppose également que vous ayez des compétences basiques sur Visual Studio 2017. 
+Ce didacticiel utilise le [référentiel Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c), qui contient le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C. Le Kit de développement logiciel (SDK) offre actuellement une prise en charge TPM et X.509 pour les appareils s’exécutant sur des implémentations Windows ou Ubuntu. Ce didacticiel repose sur l'utilisation d'un client de développement Windows, ce qui suppose également que vous ayez des connaissances de base sur Visual Studio. 
 
 Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter l’article [Concepts de provisionnement automatique](concepts-auto-provisioning.md) avant de continuer. 
 
@@ -36,14 +36,14 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Visual Studio 2015 ou [Visual Studio 2017](https://www.visualstudio.com/vs/) avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou version ultérieure avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
 * Dernière version de [Git](https://git-scm.com/download/) installée.
 
 
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Générer une version spécifique à la plateforme du Kit de développement (SDK)
 
-Le Kit de développement logiciel (SDK) Device Provisioning Service Client vous permet d’implémenter votre logiciel d’inscription d’appareil. Mais avant de pouvoir l’utiliser, vous devez générer une version du Kit de développement logiciel (SDK) spécifique à votre mécanisme d’attestation et plateforme cliente de développement. Dans ce didacticiel, vous générez un Kit de développement logiciel (SDK) qui utilise Visual Studio 2017 sur une plateforme de développement Windows, pour un type d’attestation pris en charge :
+Le Kit de développement logiciel (SDK) Device Provisioning Service Client vous permet d’implémenter votre logiciel d’inscription d’appareil. Mais avant de pouvoir l’utiliser, vous devez générer une version du Kit de développement logiciel (SDK) spécifique à votre mécanisme d’attestation et plateforme cliente de développement. Dans ce didacticiel, vous générez un kit de développement logiciel (SDK) qui utilise Visual Studio sur une plateforme de développement Windows, pour un type d'attestation pris en charge :
 
 1. Téléchargez le [système de génération CMake](https://cmake.org/download/).
 
@@ -128,9 +128,9 @@ Selon que vous générez le kit de développement logiciel (SDK) pour utiliser l
 
   1. Dans le volet *Explorateur de solutions* de Visual Studio, accédez au dossier **Provision\_Outils**. Cliquez avec le bouton droit sur le projet**dice\_device\_enrollment** et sélectionnez **Définir comme projet de démarrage**. 
   
-  1. Exécutez la solution à l’aide des commandes « Start » dans le menu « Déboguer ». Dans la fenêtre Sortie, entrez **i** pour l’inscription individuelle lorsque vous y êtes invité. La fenêtre Sortie affiche un certificat X.509 généré localement pour votre appareil simulé. Copiez dans le Presse-papiers la sortie débutant par *-----BEGIN CERTIFICATE-----* et se terminant par *-----END CERTIFICATE-----*, en faisant bien attention à inclure également ces deux lignes. Vous n’avez besoin que du premier certificat dans la fenêtre Sortie.
+  1. Exécutez la solution à l’aide des commandes « Start » dans le menu « Déboguer ». Dans la fenêtre Sortie, entrez **i** pour l’inscription individuelle lorsque vous y êtes invité. La fenêtre Sortie affiche un certificat X.509 généré localement pour votre appareil simulé. Copiez dans le Presse-papiers la sortie débutant par *-----BEGIN CERTIFICATE-----* et se terminant par *-----END CERTIFICATE-----* , en faisant bien attention à inclure également ces deux lignes. Vous n’avez besoin que du premier certificat dans la fenêtre Sortie.
  
-  1. Créez un fichier nommé **_X509testcert.pem_**, ouvrez-le dans l’éditeur de texte de votre choix et copiez le contenu du Presse-papiers dans ce fichier. Enregistrez le fichier car vous allez l’utiliser pour l’inscription d’appareil. Lorsque votre logiciel d’inscription s’exécute, il utilise le même certificat au cours de l’approvisionnement automatique.    
+  1. Créez un fichier nommé **_X509testcert.pem_** , ouvrez-le dans l’éditeur de texte de votre choix et copiez le contenu du Presse-papiers dans ce fichier. Enregistrez le fichier car vous allez l’utiliser pour l’inscription d’appareil. Lorsque votre logiciel d’inscription s’exécute, il utilise le même certificat au cours de l’approvisionnement automatique.    
 
 Ces artefacts de sécurité sont obligatoires pour l’inscription de votre appareil auprès du service d’approvisionnement des appareils. Le service d’approvisionnement attend que l’appareil démarre et s’y connecte plus tard. Au premier démarrage de votre appareil, la logique du Kit de développement logiciel (SDK) client interagit avec votre processeur (ou simulateur) pour extraire les artefacts de sécurité de l’appareil et vérifie l’inscription auprès du service Device Provisioning Service. 
 
@@ -141,7 +141,7 @@ La dernière étape consiste à écrire une application d’inscription qui util
 > [!NOTE]
 > Pour cette étape, nous allons utiliser un appareil simulé, obtenu en exécutant un exemple d’application d’inscription de Kit de développement logiciel (SDK) à partir de votre station de travail. Toutefois, les mêmes concepts s’appliquent si vous générez une application d’inscription pour un déploiement vers un appareil physique. 
 
-1. Dans le portail Azure, sélectionnez le panneau **Vue d’ensemble** de votre service Device Provisioning Service et copiez la valeur de **_Étendue de l’ID_**. *L’étendue de l’ID* est générée par le service et garantit l’unicité. Elle est immuable et sert à identifier les ID d’inscription.
+1. Dans le portail Azure, sélectionnez le panneau **Vue d’ensemble** de votre service Device Provisioning Service et copiez la valeur de **_Étendue de l’ID_** . *L’étendue de l’ID* est générée par le service et garantit l’unicité. Elle est immuable et sert à identifier les ID d’inscription.
 
     ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 

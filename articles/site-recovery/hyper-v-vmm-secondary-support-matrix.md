@@ -1,23 +1,22 @@
 ---
-title: Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire avec Azure Site Recovery | Microsoft Docs
+title: Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire avec Azure Site Recovery
 description: Résume la prise en charge de la réplication des machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire avec Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 9c3a19d44a4ac0fba37f4815b65b17c26d257dbc
+ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360799"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70813619"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
 
-Cet article résume ce qui est pris en charge lorsque vous utilisez le [Azure Site Recovery](site-recovery-overview.md) gérées par le service de réplication des machines virtuelles Hyper-V dans des clouds System Center Virtual Machine Manager (VMM) vers un site secondaire. Si vous souhaitez répliquer des machines virtuelles Hyper-V vers Azure, passez en revue [cette matrice de prise en charge](hyper-v-azure-support-matrix.md).
+Cet article résume ce qui est pris en charge lorsque vous utilisez le service [Azure Site Recovery](site-recovery-overview.md) pour répliquer des machines virtuelles Hyper-V gérées dans des clouds System Center Virtual Machine Manager (VMM) vers un site secondaire. Si vous souhaitez répliquer des machines virtuelles Hyper-V vers Azure, passez en revue [cette matrice de prise en charge](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
 > Vous pouvez uniquement répliquer vers un site secondaire lorsque vos hôtes Hyper-V sont gérés dans des clouds VMM.
@@ -55,15 +54,15 @@ Seules les machines Linux avec le stockage suivant peuvent être répliquées :
 
 **Configuration** | **Pris en charge**  
 --- | --- 
-Hôte - Association de cartes réseau | Oui 
-Hôte -VLAN | Oui 
-Hôte - IPv4 | Oui 
-Hôte - IPv6 | Non  
-Machine virtuelle invitée - Association de cartes réseau | Non 
-Machine virtuelle invitée - IPv4 | Oui
-Machine virtuelle invitée - IPv6 | Non 
-Machine virtuelle invitée - Windows/Linux - Adresse IP statique | Oui
-Machine virtuelle invitée - Plusieurs cartes réseau | Oui
+Hôte - Association de cartes réseau | OUI 
+Hôte -VLAN | OUI 
+Hôte - IPv4 | OUI 
+Hôte - IPv6 | Non 
+Machine virtuelle invitée - Association de cartes réseau | Non
+Machine virtuelle invitée - IPv4 | OUI
+Machine virtuelle invitée - IPv6 | Non
+Machine virtuelle invitée - Windows/Linux - Adresse IP statique | OUI
+Machine virtuelle invitée - Plusieurs cartes réseau | OUI
 
 
 ## <a name="storage"></a>Stockage
@@ -72,37 +71,37 @@ Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 
 **Stockage (hôte)** | **Pris en charge**
 --- | --- 
-NFS | S.O.
-SMB 3.0 |  Oui
-SAN (ISCSI) | Oui
-Chemins d’accès multiples (MPIO) | Oui
+NFS | N/A
+SMB 3.0 |  OUI
+SAN (ISCSI) | OUI
+Chemins d’accès multiples (MPIO) | OUI
 
 ### <a name="guest-or-physical-server-storage"></a>Stockage sur serveur physique ou invité
 
 **Configuration** | **Pris en charge**
 --- | --- | 
-VMDK |  S.O.
+VMDK |  N/A
 VHD/VHDX | Oui (jusqu’à 16 disques)
-Machine virtuelle de 2e génération | Oui
-Disque de cluster partagé | Non 
-Disque chiffré | Non 
-UEFI| S.O.
-NFS | Non 
-SMB 3.0 | Non 
-RDM | S.O.
-Disque > 1 To | Oui
-Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui
-Espaces de stockage | Oui
-Ajout/suppression de disque à chaud | Non 
-Exclure le disque | Oui
-Chemins d’accès multiples (MPIO) | Oui
+Machine virtuelle de 2e génération | OUI
+Disque de cluster partagé | Non
+Disque chiffré | Non
+UEFI| N/A
+NFS | Non
+SMB 3.0 | Non
+RDM | N/A
+Disque > 1 To | OUI
+Volume avec disque à bandes > 1 To<br/><br/> LVM | OUI
+Espaces de stockage | OUI
+Ajout/suppression de disque à chaud | Non
+Exclure le disque | OUI
+Chemins d’accès multiples (MPIO) | OUI
 
 ## <a name="vaults"></a>Coffres
 
 **Action** | **Pris en charge**
 --- | --- 
-Déplacer les coffres entre plusieurs groupes de ressources (dans ou entre les différents abonnements) |  Non 
-Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources (dans ou entre les différents abonnements) | Non 
+Déplacer les coffres entre plusieurs groupes de ressources (dans ou entre les différents abonnements) |  Non
+Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources (dans ou entre les différents abonnements) | Non
 
 ## <a name="azure-site-recovery-provider"></a>Fournisseur Azure Site Recovery
 

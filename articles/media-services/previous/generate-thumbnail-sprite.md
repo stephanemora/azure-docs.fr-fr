@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: e5d32d1bc3bd704b03e58c62251a323ed3f4662c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991650"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61229048"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>Générer un sprite de miniatures  
 
@@ -33,7 +33,7 @@ Pour pouvoir utiliser Media Encoder Standard pour générer un sprite de miniatu
 
     1. Si SpriteColumn est définie sur M >= 1, l’image de sortie est un rectangle avec M colonnes. Si le nombre de miniatures générées via #2 n’est pas un multiple exact de M, la dernière ligne est incomplète et remplie avec des pixels noirs.  
 
-Voici un exemple : 
+Voici un exemple :
 
 ```json
 {

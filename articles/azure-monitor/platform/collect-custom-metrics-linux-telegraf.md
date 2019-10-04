@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 14415b88cd6036642442ef9ae23e8dee301bb908
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: e8164a111b9ad5ebcc67c248586e2576046334b0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775609"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883243"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf
 
@@ -33,23 +33,23 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 Créez une machine virtuelle Linux : 
 
-1. Sélectionnez l’option  **Créer une ressource**  dans le volet de navigation gauche. 
-1. Recherchez **Machine virtuelle**.  
+1. Sélectionnez l’option **Créer une ressource** dans le volet de navigation gauche. 
+1. Recherchez **Machine virtuelle**.  
 1. Sélectionnez **Ubuntu 16.04 LTS**, puis sélectionnez **Créer**. 
-1. Donnez un nom à votre machine virtuelle comme  **MyTelegrafVM**.  
-1. Gardez la valeur **SSD** pour le type de disque. Ensuite, fournissez un **nom d’utilisateur**, comme  **azureuser**. 
-1. Pour le  **Type d’authentification**, sélectionnez  **Mot de passe**. Ensuite, entrez un mot de passe que vous utiliserez plus tard pour établir une connexion SSH avec cette machine virtuelle. 
-1. Choisissez  **Créer un groupe de ressources**. Ensuite, indiquez un nom comme  **myResourceGroup**. Choisissez votre  **Emplacement**. Sélectionnez  **OK**. 
+1. Donnez un nom à votre machine virtuelle comme **MyTelegrafVM**.  
+1. Gardez la valeur **SSD** pour le type de disque. Ensuite, fournissez un **nom d’utilisateur**, comme **azureuser**. 
+1. Pour le **Type d’authentification**, sélectionnez **Mot de passe**. Ensuite, entrez un mot de passe que vous utiliserez plus tard pour établir une connexion SSH avec cette machine virtuelle. 
+1. Choisissez de **créer un groupe de ressources**. Ensuite, indiquez un nom comme **myResourceGroup**. Choisissez votre **emplacement**. Sélectionnez ensuite **OK**. 
 
     ![Créer une machine virtuelle Ubuntu](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
-1. Choisissez la taille de la machine virtuelle. Vous pouvez filtrer par  **Type de calcul**  ou par  **Type de disque**, par exemple. 
+1. Choisissez la taille de la machine virtuelle. Vous pouvez filtrer par **Type de calcul** ou par **Type de disque**, par exemple. 
 
     ![Taille de la machine virtuelle - Agent Telegraf](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. Dans la page  **Paramètres** , dans  **Réseau** > **Groupe de sécurité réseau** > **Sélectionner des ports d’entrée publics**, sélectionnez  **HTTP**  et  **SSH (22)**. Laissez les autres valeurs par défaut et sélectionnez  **OK**. 
+1. Dans la page **Paramètres**, dans **Réseau** > **Groupe de sécurité réseau** > **Sélectionner des ports d’entrée publics**, sélectionnez **HTTP** et **SSH (22)** . Laissez les autres valeurs par défaut et sélectionnez **OK**. 
 
-1. Dans la page récapitulative, sélectionnez  **Créer**  pour démarrer le déploiement de la machine virtuelle. 
+1. Sur la page de résumé, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle. 
 
 1. La machine virtuelle est épinglée au tableau de bord du Portail Azure. Une fois le déploiement terminé, le récapitulatif de la machine virtuelle s’ouvre automatiquement. 
 
@@ -59,11 +59,11 @@ Créez une machine virtuelle Linux :
  
 ## <a name="connect-to-the-vm"></a>Connexion à la machine virtuelle 
 
-Créez une connexion SSH avec la machine virtuelle. Sélectionnez le bouton  **Se connecter**  dans la vue d’ensemble de votre machine virtuelle. 
+Créez une connexion SSH avec la machine virtuelle. Sélectionnez le bouton **Se connecter** sur la page de présentation de la machine virtuelle. 
 
 ![Page de vue d’ensemble de la machine virtuelle Telegraf](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
-Dans la page  **Se connecter à la machine virtuelle** , conservez les options par défaut pour vous connecter par nom de DNS sur le port 22. Dans  **Se connecter à l’aide d’un compte local de machine virtuelle**, une commande de connexion s’affiche. Sélectionnez le bouton pour copier la commande. L’exemple suivant montre la commande de connexion SSH : 
+Sur la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par nom DNS sur le port 22. Dans **Se connecter à l’aide d’un compte local de machine virtuelle**, une commande de connexion s’affiche. Sélectionnez le bouton pour copier la commande. L’exemple suivant montre la commande de connexion SSH : 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 
@@ -77,7 +77,7 @@ Pour installer le package Debian Telegraf sur la machine virtuelle, exécutez le
 
 ```cmd
 # download the package to the VM 
-wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
+wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
 # install the package 
 sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
 ```
@@ -108,7 +108,7 @@ Désormais, l’agent collecte les métriques de chacun des plug-ins d’entrée
 
 1. Ouvrez le [portail Azure](https://portal.azure.com). 
 
-1. Accédez au nouvel onglet  **Surveiller** . Ensuite, sélectionnez  **Métriques**.  
+1. Accédez au nouvel onglet **Surveiller** . Puis sélectionnez **Métriques**.  
 
      ![Surveiller - Métriques (préversion)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 
@@ -128,7 +128,7 @@ De plus, dans cette procédure pas à pas, vous avez utilisé un agent Telegraf 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources 
 
-Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle, puis sélectionner  **Supprimer**. Ensuite, confirmez le nom du groupe de ressources à supprimer. 
+Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle, puis sélectionner **Supprimer**. Ensuite, confirmez le nom du groupe de ressources à supprimer. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [métriques personnalisées](metrics-custom-overview.md).

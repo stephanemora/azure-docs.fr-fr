@@ -4,24 +4,23 @@ description: FAQ d’Azure App Service sur Linux.
 keywords: azure app service, application web, faq, linux, oss, web app pour conteneurs, multi-conteneur, multiconteneur
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: fa7b6a02ba287c7f51284a28ce41b2291317f99c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525124"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066905"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -39,13 +38,15 @@ Vous trouverez tous les fichiers Docker sur [GitHub](https://github.com/azure-ap
 
 **Quelles sont les valeurs attendues de la section Fichier de démarrage lorsque je configure la pile d’exécution ?**
 
-| Pile     | Valeur attendue                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | une commande pour démarrer votre `.jar` application                                    |
-| Tomcat    | l’emplacement d’un script pour exécuter toutes les configurations pour votre application          |
-| Node.js   | le fichier de configuration PM2 ou votre fichier de script                                |
-| .Net Core | le nom de la DLL compilé en tant que `dotnet <myapp>.dll`                                 |
-| Ruby      | le script Ruby que vous souhaitez initialiser votre application avec                     |
+| Pile           | Valeur attendue                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | la commande pour démarrer votre application JAR (par exemple, `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | l’emplacement d’un script pour effectuer toutes les configurations nécessaires (par exemple, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | le fichier de configuration PM2 ou votre fichier de script                                |
+| .Net Core       | le nom de la DLL compilée en tant que `dotnet <myapp>.dll`                                 |
+| Ruby            | le script Ruby avec lequel initialiser votre application                     |
+
+Ces commandes ou scripts sont exécutés après le démarrage du conteneur Docker intégré, mais avant le démarrage de votre code d’application.
 
 ## <a name="management"></a>gestion
 
@@ -58,7 +59,7 @@ Cette action revient à redémarrer Docker.
 Oui, vous pouvez le faire via le site de gestion de contrôle de code source (SCM).
 
 > [!NOTE]
-> Vous pouvez également vous connecter au conteneur d’application directement à partir de votre ordinateur de développement local à l’aide de SSH, SFTP ou Visual Studio Code (pour le débogage dynamique des applications Node.js). Pour plus d’informations, consultez [Remote debugging and SSH in App Service on Linux (Débogage à distance et technologie SSH dans App Service sur Linux)](https://aka.ms/linux-debug).
+> Vous pouvez également vous connecter au conteneur d’application directement à partir de votre ordinateur de développement local à l’aide de SSH, SFTP ou Visual Studio Code (pour le débogage dynamique des applications Node.js). Pour plus d’informations, consultez [Remote debugging and SSH in App Service on Linux (Débogage à distance et technologie SSH dans App Service sur Linux)](https://azure.github.io/AppService/2018/05/07/New-SSH-Experience-and-Remote-Debugging-for-Linux-Web-Apps.html).
 >
 
 **Comment puis-je créer un plan App Service Linux via un kit de développement ou un modèle Azure Resource Manager ?**
@@ -83,7 +84,7 @@ Oui, vous devez définir le paramètre d’application `WEBSITE_WEBDEPLOY_USE_SC
 
 Si le déploiement Git sur votre application web Linux échoue, choisissez l’une des options suivantes pour déployer le code de votre application :
 
-- Utilisez la fonctionnalité Livraison continue (préversion) : Vous pouvez stocker le code source de votre application dans un référentiel Git de DevOps Azure ou d’un dépôt GitHub pour utiliser la livraison continue Azure. Pour plus d’informations, consultez [Configurer la livraison continue pour une application web Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Utilisez la fonctionnalité Livraison continue (préversion) : Vous pouvez stocker le code source de votre application dans un référentiel Git Azure DevOps ou un référentiel GitHub pour utiliser la livraison continue Azure. Pour plus d’informations, consultez [Configurer la livraison continue pour une application web Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Utilisez [l’API de déploiement ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) : Pour utiliser cette API, [connectez-vous via SSH à votre application web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) et accédez au dossier où vous souhaitez déployer votre code. Exécutez le code suivant :
 
@@ -117,10 +118,7 @@ Oui. Lors d’un déploiement Git, Kudu doit détecter que vous déployez une ap
 
 **J’utilise mon propre conteneur personnalisé. Je souhaite que la plateforme monte un partage SMB dans le répertoire `/home/`.**
 
-Pour cela, définissez le paramètre d’application `WEBSITES_ENABLE_APP_SERVICE_STORAGE` sur *true*. Gardez à l’esprit que cela entraîne le redémarrage du conteneur lorsque le stockage de la plateforme subit une modification.
-
->[!NOTE]
->Si le paramètre `WEBSITES_ENABLE_APP_SERVICE_STORAGE` n’est pas spécifié ou s’il est défini *false*, le répertoire `/home/` ne sera plus partagé par les instances d’échelle, et les fichiers qui y sont écrits ne seront pas conservés après un redémarrage.
+Si le paramètre `WEBSITES_ENABLE_APP_SERVICE_STORAGE` est **non spécifié** ou est défini sur *true*, le répertoire `/home/` **sera partagé** par les instances, et les fichiers écrits **seront conservés** après chaque redémarrage. Si vous définissez explicitement `WEBSITES_ENABLE_APP_SERVICE_STORAGE` sur *false*, le montage est désactivé.
 
 **Mon conteneur personnalisé met longtemps à démarrer, et la plateforme le redémarre avant qu’il ait terminé.**
 
@@ -136,7 +134,7 @@ Ajoutez le nom complet de l’image, comprenant l’URL de registre privé (par 
 
 **Je veux exposer plusieurs ports sur l’image de mon conteneur personnalisé.**
 
-Nous ne prenons pas en charge actuellement l’exposition de plusieurs ports.
+Nous ne prenons pas en charge l’exposition de plusieurs ports.
 
 **Puis-je apporter mon propre système de stockage ?**
 
@@ -154,16 +152,16 @@ Nous avons la détection automatique du port. Vous pouvez également spécifier 
 
 Non, la plateforme gère l’annulation HTTPS au niveau des serveurs frontaux partagés.
 
-## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Utilisation de plusieurs conteneurs avec Docker Compose et Kubernetes
+## <a name="multi-container-with-docker-compose"></a>Plusieurs conteneurs avec Docker Compose
 
 **Comment configurer Azure Container Registry (ACR) de manière à utiliser plusieurs conteneurs ?**
 
-Pour utiliser ACR avec plusieurs conteneurs, **toutes les images de conteneur** doivent être hébergées sur le même serveur de Registre ACR. Une fois qu’elles se trouvent sur le même serveur de Registre, vous devez créer des paramètres d’application, puis mettre à jour le fichier de configuration Kubernetes ou Docker Compose en y ajoutant le nom de l’image ACR.
+Pour utiliser ACR avec plusieurs conteneurs, **toutes les images de conteneur** doivent être hébergées sur le même serveur de Registre ACR. Une fois qu’elles se trouvent sur le même serveur de Registre, vous devez créer des paramètres d’application, puis mettre à jour le fichier config Docker Compose en y ajoutant le nom de l’image ACR.
 
 Créez les paramètres d’application suivants :
 
 - DOCKER_REGISTRY_SERVER_USERNAME
-- DOCKER_REGISTRY_SERVER_URL (complète des URL, par ex. : `https://<server-name>.azurecr.io`)
+- DOCKER_REGISTRY_SERVER_URL (URL complète, p. ex. : `https://<server-name>.azurecr.io`)
 - DOCKER_REGISTRY_SERVER_PASSWORD (activez l’accès administrateur dans les paramètres ACR)
 
 Dans le fichier de configuration, référencez votre image ACR comme dans l’exemple suivant :

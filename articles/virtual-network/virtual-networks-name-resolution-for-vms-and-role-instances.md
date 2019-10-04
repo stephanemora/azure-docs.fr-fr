@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 64f79b3e72a8655f8d704ffd531d9e34485832b0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527181"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570618"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
 
@@ -74,7 +74,7 @@ La résolution de noms fournie par Azure présente les avantages suivants :
 * Les noms d’hôte doivent être compatibles avec DNS. Les noms doivent comporter uniquement les caractères 0-9, a-z et « - », et ils ne peuvent pas commencer ou se terminer par « - ».
 * Le trafic de requêtes DNS est limité pour chaque machine virtuelle. Cette limitation ne devrait pas avoir d’incidence sur la plupart des applications. Si la limitation de requêtes est respectée, assurez-vous que la mise en cache côté client est activée. Pour plus d’informations, consultez [Configuration du client DNS](#dns-client-configuration).
 * Seules les machines virtuelles des 180 premiers services cloud sont inscrites pour chaque réseau virtuel dans un modèle de déploiement classique. Cette limite ne s’applique pas aux réseaux virtuels d’Azure Resource Manager.
-* L’adresse IP de DNS Azure est 168.63.129.16. Ceci est une adresse IP statique et ne change pas.
+* Adresse IP d’Azure DNS : 168.63.129.16. Il s’agit d’une adresse IP statique qui ne change pas.
 
 ## <a name="dns-client-configuration"></a>Configuration du client DNS
 
@@ -88,15 +88,15 @@ Le client DNS Windows par défaut comprend un cache DNS intégré. Certaines dis
 
 Il existe plusieurs packages de mise en cache DNS différents (par exemple, dnsmasq). Voici les étapes nécessaires à l’installation de dnsmasq sur les distributions les plus courantes :
 
-* **Ubuntu (utilise resolvconf)**:
+* **Ubuntu (utilise resolvconf)** :
   * Installez le package dnsmasq avec `sudo apt-get install dnsmasq`.
-* **SUSE (utilise netconf)**:
+* **SUSE (utilise netconf)** :
   * Installez le package dnsmasq avec `sudo zypper install dnsmasq`.
   * Activez le service dnsmasq avec `systemctl enable dnsmasq.service`. 
   * Démarrez le service dnsmasq avec `systemctl start dnsmasq.service`. 
   * Modifiez **/etc/sysconfig/network/config** et remplacez *NETCONFIG_DNS_FORWARDER=""* par *dnsmasq*.
   * Mettez à jour resolv.conf avec `netconfig update` pour définir le cache en tant que programme de résolution DNS local.
-* **OpenLogic (utilise NetworkManager)**:
+* **CentOS (utilise NetworkManager)** :
   * Installez le package dnsmasq avec `sudo yum install dnsmasq`.
   * Activez le service dnsmasq avec `systemctl enable dnsmasq.service`.
   * Démarrez le service dnsmasq avec `systemctl start dnsmasq.service`.
@@ -129,7 +129,7 @@ Le fichier resolv.conf est généralement généré automatiquement et ne doit p
 * **SUSE** (utilise netconf) :
   1. Ajoutez *timeout:1 attempts:5* au paramètre **NETCONFIG_DNS_RESOLVER_OPTIONS=""** dans **/etc/sysconfig/network/config**.
   2. Exécutez `netconfig update` pour effectuer la mise à jour.
-* **OpenLogic** (utilise NetworkManager) :
+* **CentOS (utilise NetworkManager)** :
   1. Ajoutez *echo "options timeout:1 attempts:5"* à **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. Mettez à jour avec `service network restart`.
 
@@ -154,11 +154,11 @@ Le transfert DNS permet aussi la résolution DNS entre réseaux virtuels et perm
 
 ![Diagramme des requêtes DNS entre les deux réseaux virtuels](./media/virtual-networks-name-resolution-for-vms-and-role-instances/inter-vnet-dns.png)
 
-Lorsque vous utilisez la résolution de noms fournie par Azure, le protocole DHCP d’Azure fournit un suffixe DNS interne (**.internal.cloudapp.net**) à chaque machine virtuelle. Ce suffixe permet d’effectuer la résolution des noms d’hôte, car les enregistrements de noms d’hôte se trouvent dans la zone **internal.cloudapp.net**. Quand vous utilisez votre propre solution de résolution de noms, ce suffixe n’est pas fourni aux machines virtuelles, car il interfère avec d’autres architectures DNS (comme dans les scénarios avec jointure de domaine). Au lieu de cela, Azure fournit un espace réservé non fonctionnel (*reddog.microsoft.com*).
+Lorsque vous utilisez la résolution de noms fournie par Azure, le protocole DHCP d’Azure fournit un suffixe DNS interne ( **.internal.cloudapp.net**) à chaque machine virtuelle. Ce suffixe permet d’effectuer la résolution des noms d’hôte, car les enregistrements de noms d’hôte se trouvent dans la zone **internal.cloudapp.net**. Quand vous utilisez votre propre solution de résolution de noms, ce suffixe n’est pas fourni aux machines virtuelles, car il interfère avec d’autres architectures DNS (comme dans les scénarios avec jointure de domaine). Au lieu de cela, Azure fournit un espace réservé non fonctionnel (*reddog.microsoft.com*).
 
 Si nécessaire, vous pouvez déterminer le suffixe DNS interne à l’aide de PowerShell ou de l’API :
 
-* Pour les réseaux virtuels dans les modèles de déploiement Azure Resource Manager, le suffixe est disponible via le [API REST d’interface réseau](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), le [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) applet de commande PowerShell et le [ AZ réseau nic afficher](/cli/azure/network/nic#az-network-nic-show) commande CLI Azure.
+* Pour les réseaux virtuels des modèles de déploiement Azure Resource Manager, le suffixe est disponible via [l’API REST d’interface réseau](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), la cmdlet PowerShell [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) et la commande [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI.
 * Dans les modèles de déploiement classiques, le suffixe est disponible via l’appel de [l’API Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) ou l’applet de commande [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm).
 
 Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir votre propre solution DNS. Votre solution DNS doit :
@@ -169,7 +169,7 @@ Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir vot
 * Être protégée contre tout accès à partir d’Internet, pour atténuer les menaces posées par les agents externes.
 
 > [!NOTE]
-> Pour de meilleures performances, lorsque vous utilisez des machines virtuelles Azure en tant que serveurs DNS, le protocole IPv6 doit être désactivé. Une [adresse IP publique](virtual-network-public-ip-address.md) doit être attribuée à chaque machine virtuelle de serveur DNS. Pour connaître les autres optimisations et analyses de performances disponibles lorsque vous utilisez Windows Server en tant que serveur DNS, consultez [Name resolution performance of a recursive Windows DNS Server 2012 R2](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
+> Pour de meilleures performances, lorsque vous utilisez des machines virtuelles Azure en tant que serveurs DNS, le protocole IPv6 doit être désactivé. Une [adresse IP publique](virtual-network-public-ip-address.md) doit être attribuée à chaque machine virtuelle de serveur DNS. Pour connaître les autres optimisations et analyses de performances disponibles lorsque vous utilisez Windows Server en tant que serveur DNS, consultez [Name resolution performance of a recursive Windows DNS Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
 > 
 > 
 
@@ -192,7 +192,7 @@ Si vous devez effectuer une résolution de noms à partir de votre application w
 Lorsque vous utilisez vos propres serveurs DNS, Azure offre la possibilité de spécifier plusieurs serveurs DNS par réseau virtuel. Vous pouvez également spécifier plusieurs serveurs DNS par interface réseau (pour Azure Resource Manager) ou par service cloud (pour le modèle de déploiement classique). Les serveurs DNS spécifiés pour une interface réseau ou un service cloud ont la priorité sur les serveurs DNS spécifiés pour le réseau virtuel.
 
 > [!NOTE]
-> Les propriétés d’une connexion réseau, telles que les adresses IP des serveurs DNS, ne doivent pas être modifiées directement dans les machines virtuelles Windows. En effet, ces propriétés risquent d’être effacées pendant la réparation du service, lors du remplacement de la carte réseau virtuelle.
+> Les propriétés d’une connexion réseau, telles que les adresses IP des serveurs DNS, ne doivent pas être modifiées directement dans les machines virtuelles. En effet, ces propriétés risquent d’être effacées pendant la réparation du service, lors du remplacement de la carte réseau virtuelle. Cela s’applique pour les machines virtuelles Windows et Linux.
 >
 >
 

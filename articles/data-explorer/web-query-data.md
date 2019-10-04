@@ -1,20 +1,20 @@
 ---
-title: 'Démarrage rapide : Interroger des données dans Azure Data Explorer'
-description: Dans ce guide de démarrage rapide, vous allez apprendre à interroger et partager des données dans l’Explorateur de données Azure.
+title: 'Démarrage rapide : Interroger des données dans l’interface utilisateur web Azure Data Explorer'
+description: Dans ce guide de démarrage rapide, vous allez apprendre à interroger et à partager des données dans l’interface utilisateur web d’Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/04/2019
+ms.openlocfilehash: 145e452a3a914e1026d6da11f2ce38e85fa724f0
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050558"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797189"
 ---
-# <a name="quickstart-query-data-in-azure-data-explorer"></a>Démarrage rapide : Interroger des données dans Azure Data Explorer
+# <a name="quickstart-query-data-in-azure-data-explorer-web-ui"></a>Démarrage rapide : Interroger des données dans l’interface utilisateur web Azure Data Explorer
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. L’Explorateur de données Azure fournit une application web qui vous permet d’exécuter et de partager des requêtes. L’application est disponible dans le portail Azure en tant qu’application web autonome. Dans cet article, vous travaillez dans la version autonome, laquelle vous permet de vous connecter à plusieurs clusters et de partager des liens ciblés vers vos requêtes.
 
@@ -191,5 +191,4 @@ Vous n’avez pas créé aucune ressource dans ce guide de démarrage rapide, ma
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Écrire des requêtes pour l’Explorateur de données Azure](write-queries.md)
+[Écrire des requêtes pour l’Explorateur de données Azure](write-queries.md)

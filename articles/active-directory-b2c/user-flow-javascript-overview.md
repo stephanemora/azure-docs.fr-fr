@@ -1,42 +1,52 @@
 ---
-title: JavaScript et versions des contrats de pages pour les flux d’utilisateurs dans Azure Active Directory B2C | Microsoft Docs
-description: Découvrez comment activer JavaScript et utiliser des versions de contrats de pages pour personnaliser un flux d’utilisateurs dans Azure Active Directory B2C.
+title: Versions de mise en page et JavaScript - Azure Active Directory B2C | Microsoft Docs
+description: Découvrez comment activer JavaScript et utiliser des versions de mise en page dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.author: davidmu
+ms.date: 04/25/2019
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 0eb5c89387d8bdcf0e0b72c669c42f716ff5fbb3
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401557"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227099"
 ---
-# <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>Informations sur JavaScript et les versions des contrats de pages dans un flux d’utilisateurs
+# <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Versions de mise en page et JavaScript dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C fournit un ensemble de contenu packagé (HTML, CSS et JavaScript) pour les éléments d’interface utilisateur des flux d’utilisateurs. Si vous prévoyez d’activer du code [JavaScript](javascript-samples.md) côté client dans vos flux d’utilisateurs, vérifiez que les éléments sur lesquels il s’appuie sont immuables. Dans le cas contraire, la moindre modification pourrait provoquer un comportement inattendu sur vos pages de flux d’utilisateurs. Pour éviter ces problèmes, vous pouvez imposer l’utilisation d’un contrat de pages pour un flux d’utilisateurs et spécifier une version du contrat de pages. Toutes les définitions de contenu sur lesquelles se basent votre code JavaScript seront ainsi immuables. Même si vous ne souhaitez pas activer JavaScript pour un flux d’utilisateurs, vous pouvez spécifier une version du contrat pour vos pages de flux d’utilisateurs.
+Azure AD B2C fournit un ensemble de contenu packagé contenant des données HTML, CSS et JavaScript pour les éléments d’interface utilisateur dans vos flux d’utilisateurs et stratégies personnalisées. Pour activer JavaScript pour vos applications, vous devez ajouter un élément à votre [stratégie personnalisée](active-directory-b2c-overview-custom.md) ou l’activer dans le portail des flux d’utilisateurs, puis sélectionner une mise en page et utiliser le paramètre [b2clogin.com](b2clogin.md) dans vos requêtes.
 
-> [!NOTE]
-> Cet article traite de JavaScript pour les flux d’utilisateurs, mais vous pouvez également utiliser JavaScript et sélectionner des versions de contrats de pages avec des [stratégies personnalisées](page-contract.md).
+Si vous prévoyez d’activer du code [JavaScript](javascript-samples.md) côté client, vérifiez que les éléments sur lesquels il s’appuie sont immuables. Dans le cas contraire, la moindre modification pourrait provoquer un comportement inattendu sur vos pages d’utilisateurs. Pour éviter ces problèmes, vous pouvez imposer l’utilisation d’une mise en page et spécifier une version de mise en page. Toutes les définitions de contenu sur lesquelles se basent votre code JavaScript seront ainsi immuables. Même si vous ne souhaitez pas activer JavaScript, vous pouvez spécifier une version de mise en page pour vos pages.
 
-## <a name="enable-javascript"></a>Activer JavaScript
+## <a name="user-flows"></a>Flux d’utilisateurs
 
-Dans les propriétés du flux d’utilisateurs, vous pouvez activer JavaScript, ce qui impose également l’utilisation d’un contrat de pages. Vous pouvez alors définir la version du contrat de pages (voir la section suivante).
+Dans les **Propriétés** du flux d’utilisateurs, vous pouvez activer JavaScript, ce qui impose également l’utilisation d’une mise en page. Vous pouvez ensuite définir la version de mise en page du flux d'utilisateur comme décrit dans la section suivante.
 
-![Paramètre Activer JavaScript](media/user-flow-javascript-overview/javascript-settings.PNG)
+![Page des propriétés du flux d'utilisateur avec le paramètre Activer JavaScript en surbrillance](media/user-flow-javascript-overview/javascript-settings.png)
 
-## <a name="specify-a-page-contract-version"></a>Spécifier une version du contrat de pages
+### <a name="select-a-page-layout-version"></a>Sélectionner une version de mise en page
 
-Que vous activiez ou non JavaScript dans les propriétés de votre flux d’utilisateurs, vous pouvez spécifier une version du contrat pour vos pages de flux d’utilisateurs. Ouvrez le flux d’utilisateur et sélectionnez **Mises en page**. Sous **Nom de la mise en page**, sélectionner une page de flux d’utilisateurs et choisissez **Version du contrat de pages**.
+Que vous activiez ou non JavaScript dans les propriétés de votre flux d’utilisateur, vous pouvez spécifier une version de mise en page pour vos pages de flux d’utilisateur. Ouvrez le flux d’utilisateur et sélectionnez **Mises en page**. Sous **NOM DE LA MISE EN PAGE**, sélectionnez une page de flux d’utilisateur et choisissez **Version de mise en page**.
 
-![Paramètre Activer JavaScript](media/user-flow-javascript-overview/page-contract-version.PNG)
+Pour plus d’informations sur les différentes versions de mise en page, consultez le [Journal des modifications de version](page-layout.md#version-change-log).
+
+![Paramètres de mise en page dans le portail montrant la liste déroulante des versions de mise en page](media/user-flow-javascript-overview/page-layout-version.png)
+
+## <a name="custom-policies"></a>Stratégies personnalisées
+
+Pour activer JavaScript dans des stratégies personnalisées, vous ajoutez l’élément **ScriptExecution** dans l’élément **RelyingParty** de votre fichier de stratégie personnalisée. Pour en savoir plus, voir [Exemples JavaScript dans Azure Active Directory B2C](javascript-samples.md).
+
+Que vous activiez ou non JavaScript dans vos stratégies personnalisées, vous pouvez spécifier une version de mise en page pour vos pages. Pour en savoir plus sur la spécification d’une mise en page, consultez [Sélectionner une mise en page dans Azure Active Directory B2C à l’aide de stratégies personnalisées](page-layout.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Voir [Exemples JavaScript dans Azure Active Directory B2C](javascript-samples.md).
+
+Pour plus d’informations sur les différentes versions de mise en page, consultez la section **Journal des modifications de version** de l'article [Sélectionner une mise en page dans Azure Active Directory B2C à l’aide de stratégies personnalisées](page-layout.md#version-change-log).
+
+Vous trouverez des exemples d'utilisation de JavaScript dans [Exemples JavaScript pour une utilisation dans Active Directory B2C](javascript-samples.md).

@@ -3,22 +3,18 @@ title: Notes de publication de l’API Key Vault .NET 2.x | Microsoft Docs
 description: Les développeurs .NET utiliseront cette API pour coder pour Azure Key Vault
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 editor: bryanla
-ms.assetid: 1cccf21b-5be9-4a49-8145-483b695124ba
 ms.service: key-vault
-ms.devlang: CSharp
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 05/02/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 3d2543ea2b2ee6261b04396f92d5f3583a89ffb0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 07502b4c4487a7517e2fe73b62eae0a237a6f22b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406902"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70883272"
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - Notes de publication et guide de migration
 Les informations suivantes vous permettent d’effectuer la migration vers la version 2.0 de la bibliothèque Azure Key Vault pour C# et .NET.  Les applications écrites pour les versions antérieures doivent être mises à jour pour prendre en charge la version la plus récente.  Ces modifications sont nécessaires pour prendre en charge des fonctionnalités nouvelles et améliorées, telles que les **certificats Key Vault**.
@@ -52,12 +48,12 @@ Les certificats Key Vault gèrent les certificats x509 et prennent en charge les
 
 * *Secret* est remplacé par *SecretBundle*
 * *Dictionary* est remplacé par *IDictionary*
-* *List<T>, chaîne []* est remplacé par *IList<T>*
+* *List\<>T, chaîne []* est remplacé par *IList\<T>*
 * *NextList* est remplacé par *NextPageLink*
 
 ## <a name="return-types"></a>Types de retour
 
-* **KeyList** et **SecretList** retournent désormais *IPage<T>* au lieu de *ListKeysResponseMessage*
+* **KeyList** et **SecretList** retournent désormais *IPage\<>T* au lieu de *ListKeysResponseMessage*
 * Le résultat généré **BackupKeyAsync** retourne désormais *BackupKeyResult*, qui contient *Value* (objet blob de sauvegarde). Auparavant, la méthode était encapsulée et ne retournait que la valeur.
 
 ## <a name="exceptions"></a>Exceptions
@@ -68,7 +64,7 @@ Les certificats Key Vault gèrent les certificats x509 et prennent en charge les
 
 ## <a name="constructors"></a>Constructeurs
 
-* Au lieu d’accepter un *HttpClient* comme un argument de constructeur, le constructeur accepte seulement *HttpClientHandler* ou *DelegatingHandler[]*.
+* Au lieu d’accepter un *HttpClient* comme un argument de constructeur, le constructeur accepte seulement *HttpClientHandler* ou *DelegatingHandler[]* .
 
 ## <a name="downloaded-packages"></a>Packages téléchargés
 

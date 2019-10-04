@@ -8,19 +8,18 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: d46c460f7158635e520b47517fb3aab005af94a2
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566003"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140749"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données SQL Azure
-Dans ce tutoriel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL Azure.    
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données Azure SQL
+Dans ce tutoriel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données Azure SQL.    
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
@@ -67,7 +66,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 * **SQL Server**. Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server locale comme magasin de données source. 
-* **Base de données SQL Azure**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une. 
+* **Azure SQL Database**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Créer des tables sources dans votre base de données SQL Server
 
@@ -109,8 +108,8 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     
     ```
 
-### <a name="create-destination-tables-in-your-azure-sql-database"></a>Créer des tables de destination dans votre base de données SQL Azure
-1. Ouvrez SQL Server Management Studio, puis connectez-vous à votre base de données SQL Azure.
+### <a name="create-destination-tables-in-your-azure-sql-database"></a>Créer des tables de destination dans votre base de données Azure SQL
+1. Ouvrez SQL Server Management Studio, puis connectez-vous à votre base de données Azure SQL.
 
 1. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur la base de données et choisissez **Nouvelle requête**.
 
@@ -132,7 +131,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Créer une autre table dans Azure SQL Database pour stocker la valeur de limite supérieure
+### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Créer une autre table dans la base de données Azure SQL pour stocker la valeur de limite supérieure
 1. Exécutez la commande SQL suivante sur votre base de données SQL pour créer une table sous le nom `watermarktable` pour stocker la valeur de filigrane : 
     
     ```sql
@@ -154,7 +153,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     
     ```
 
-### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Créer une procédure stockée dans Azure SQL Database 
+### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Créer une procédure stockée dans la base de données Azure SQL 
 
 Exécutez la commande suivante pour créer une procédure stockée dans votre base de données SQL. Cette procédure stockée met à jour la valeur de filigrane après chaque exécution du pipeline. 
 
@@ -172,7 +171,7 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Créer des types de données et des procédures stockées supplémentaires dans Azure SQL Database
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Créer des types de données et des procédures stockées supplémentaires dans la base de données Azure SQL
 Exécutez la requête suivante pour créer deux procédures stockées et deux types de données dans votre base de données SQL. Ils sont utilisés pour fusionner les données des tables source dans les tables de destination.
 
 Afin de faciliter le démarrage du parcours, nous utilisons directement ces procédures stockées en transmettant les données delta par l’intermédiaire d’une variable de table, puis nous les fusionnons dans le magasin de destination. Faites attention qu’il ne s’attende pas à ce qu’un nombre « élevé » de lignes delta (plus de 100) soient stockées dans la variable de table.  
@@ -249,7 +248,7 @@ END
          
         Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
 1. Sélectionnez **V2 (préversion)** pour la **version**.
-1. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+1. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 1. Sélectionnez **Épingler au tableau de bord**.     
 1. Cliquez sur **Créer**.      
 1. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**. 
@@ -284,7 +283,7 @@ Lorsque vous déplacez des données d’un magasin de données d’un réseau pr
 1. Cliquez sur **Cliquez ici pour lancer l’installation rapide pour cet ordinateur** dans la section **Option 1 : installation rapide**. 
 
    ![Cliquer sur le lien d’installation rapide](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
-1. Dans la fenêtre **Installation rapide du runtime d’intégration (auto-hébergé)**, cliquez sur **Fermer**. 
+1. Dans la fenêtre **Installation rapide du runtime d’intégration (auto-hébergé)** , cliquez sur **Fermer**. 
 
    ![Installation du runtime d’intégration - réussie](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
 1. Dans la fenêtre **Installation du runtime d’intégration**, cliquez sur **Terminer**. 
@@ -321,7 +320,7 @@ Dans cette étape, vous liez votre base de données SQL Server locale à la fabr
         ![Service lié SQL Server - paramètres](./media/tutorial-incremental-copy-multiple-tables-portal/sql-server-linked-service-settings.png)
 
 ### <a name="create-the-azure-sql-database-linked-service"></a>Créer le service lié Azure SQL Database
-Dans cette dernière étape, vous créez un service lié qui relie votre base de données SQL Server source à la fabrique de données. Dans cette étape, vous liez votre base de données SQL Azure de destination/récepteur à la fabrique de données. 
+Dans cette dernière étape, vous créez un service lié qui relie votre base de données SQL Server source à la fabrique de données. Dans cette étape, vous liez votre base de données Azure SQL de destination/récepteur à la fabrique de données. 
 
 1. Dans la fenêtre **Connexions**, passez de l’onglet **Runtimes d’intégration** à l’onglet **Services liés**, puis cliquez sur **+ Nouveau**.
 
@@ -331,8 +330,8 @@ Dans cette dernière étape, vous créez un service lié qui relie votre base de
 
     1. Entrez **AzureSqlDatabaseLinkedService** pour **Nom**. 
     1. Dans le champ **Nom du serveur**, sélectionnez le nom de votre serveur SQL Azure dans la liste déroulante. 
-    1. Dans le champ **Nom de la base de données**, sélectionnez la base de données SQL Azure dans laquelle vous avez créé les tables customer_table et project_table dans le cadre des conditions préalables. 
-    1. Dans le champ **Nom d’utilisateur**, entrez le nom de l’utilisateur qui a accès à la base de données SQL Azure. 
+    1. Dans le champ **Nom de la base de données**, sélectionnez la base de données Azure SQL dans laquelle vous avez créé les tables customer_table et project_table dans le cadre des prérequis 
+    1. Dans le champ **Nom d’utilisateur**, entrez le nom de l’utilisateur qui a accès à la base de données Azure SQL. 
     1. Dans le champ **Mot de passe**, entrez le **mot de passe** de l’utilisateur. 
     1. Pour vérifier si Data Factory peut se connecter à votre base de données SQL Server, cliquez sur **Tester la connexion**. Corrigez les erreurs jusqu’à ce que la connexion soit établie. 
     1. Pour enregistrer le service lié, cliquez sur **Enregistrer**.
@@ -347,7 +346,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 
 ### <a name="create-a-source-dataset"></a>Créer un jeu de données source
 
-1. Dans le volet gauche, cliquez sur **+ (plus)**, puis sur **Jeu de données**.
+1. Dans le volet gauche, cliquez sur **+ (plus)** , puis sur **Jeu de données**.
 
    ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **SQL Server**, puis cliquez sur **Terminer**. 
@@ -362,7 +361,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 
 
 ### <a name="create-a-sink-dataset"></a>Créer un jeu de données récepteur
-1. Dans le volet gauche, cliquez sur **+ (plus)**, puis sur **Jeu de données**.
+1. Dans le volet gauche, cliquez sur **+ (plus)** , puis sur **Jeu de données**.
 
    ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Azure SQL Database**, puis cliquez sur **Terminer**. 
@@ -394,7 +393,7 @@ Dans cette étape, vous créez des jeux de données pour représenter la source 
 ### <a name="create-a-dataset-for-a-watermark"></a>Créer un jeu de données pour un filigrane
 Dans cette étape, vous allez créer un jeu de données pour stocker une valeur de limite supérieure. 
 
-1. Dans le volet gauche, cliquez sur **+ (plus)**, puis sur **Jeu de données**.
+1. Dans le volet gauche, cliquez sur **+ (plus)** , puis sur **Jeu de données**.
 
    ![Menu Nouveau jeu de données](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
 1. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Azure SQL Database**, puis cliquez sur **Terminer**. 
@@ -421,7 +420,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
 
 ### <a name="create-the-pipeline"></a>Créer le pipeline
 
-1. Dans le volet gauche, cliquez sur **+ (plus)**, puis cliquez sur **Pipeline**.
+1. Dans le volet gauche, cliquez sur **+ (plus)** , puis cliquez sur **Pipeline**.
 
     ![Nouveau pipeline : menu](./media/tutorial-incremental-copy-multiple-tables-portal/new-pipeline-menu.png)
 1. Dans l’onglet **Général** de la fenêtre **Propriétés**, entrez **IncrementalCopyPipeline** comme **nom**. 
@@ -440,7 +439,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
 1. Passez dans l’onglet **Paramètres** de la fenêtre **Propriétés**, puis entrez `@pipeline().parameters.tableList` dans le champ **Éléments**. L’activité ForEach parcourt une liste de tables et effectue l’opération de copie incrémentielle. 
 
     ![Activité ForEach : paramètres](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
-1. Sélectionnez l’activité **ForEach** dans le pipeline si elle n’est pas déjà sélectionnée. Cliquez sur le bouton **Modifier (icône Crayon)**.
+1. Sélectionnez l’activité **ForEach** dans le pipeline si elle n’est pas déjà sélectionnée. Cliquez sur le bouton **Modifier (icône Crayon)** .
 
     ![Activité ForEach : modification](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
 1. Dans la boîte à outils **Activités**, développez **Général** puis faites glisser et déposez l’activité **Recherche** sur la surface du concepteur de pipeline. Ensuite, saisissez **LookupOldWaterMarkActivity** dans **Nom**.

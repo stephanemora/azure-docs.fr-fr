@@ -1,25 +1,18 @@
 ---
-title: Mettre à jour une offre de module Azure IoT Edge existante | Microsoft Docs
+title: Mettre à jour une offre de module Azure IoT Edge existante | Place de marché Microsoft Azure
 description: Méthode de mise à jour d’une offre de module IoT Edge existante dans la Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ca7bed26d91c28304638e85d6da93708bfcfcada
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 1dc6832fe09a610634ad934e3b173be6cc3331e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170307"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64942152"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>Mettre à jour une offre de module IoT Edge existante
 
@@ -36,7 +29,7 @@ Le portail contient les fonctions **Comparer** et **Historique** qui vous aident
 
 ## <a name="unpermitted-changes-to-iot-edge-module-offer-or-sku"></a>Modifications non autorisées apportées à l’offre de module IoT Edge ou aux références (SKU)
 
-Il existe des attributs d’une offre de module IoT Edge ou d’une référence (SKU) qui ne peut pas être modifiée une fois que l’offre est publiée sur la place de marché Azure. Vous ne pouvez pas modifier les paramètres suivants :
+Certains attributs d'une offre de module IoT Edge ou d'une référence SKU ne peuvent pas être modifiés une fois l'offre publiée sur la Place de marché Azure. Vous ne pouvez pas modifier les paramètres suivants :
 
 -  **ID d’offre** et **ID de l’éditeur** de l’offre
 -  **ID de référence (SKU)** de références (SKU) existantes
@@ -49,7 +42,7 @@ Les opérations de mise à jour suivantes sont courantes.
 
 ### <a name="update-the-iot-edge-module-image-version-for-a-sku"></a>Mise à jour de la version d’image de module IoT Edge pour une référence (SKU)
 
-Il est courant pour une image de module IoT Edge à mettre à jour régulièrement avec les correctifs de sécurité, des fonctionnalités supplémentaires et ainsi de suite. Dans ce scénario, vous pouvez mettre à jour l’image de module IoT Edge associée à vos références SKU à l’aide de la procédure suivante :
+Il est courant qu'une image de module IoT Edge soit régulièrement mise à jour avec des correctifs de sécurité, des fonctionnalités supplémentaires, etc. Dans ce scénario, vous pouvez mettre à jour l’image de module IoT Edge associée à vos références SKU à l’aide de la procédure suivante :
 
 1.  Connectez-vous au [Portail Cloud Partner](https://cloudpartner.azure.com/).
 
@@ -73,7 +66,7 @@ Pour qu’une nouvelle référence SKU soit disponible pour votre offre, procéd
 
 3.  Sous l’onglet **Références**, cliquez sur **Ajouter une référence** et fournissez un **ID de référence SKU** dans la fenêtre contextuelle.
 
-4.  Republier le module IoT Edge à l’aide de la procédure décrite dans [publier un module IoT Edge à la place de marché Azure](./cpp-publish-offer.md).
+4.  Republiez le module IoT Edge en suivant la procédure décrite dans [Publier un module IoT Edge sur la Place de marché Azure](./cpp-publish-offer.md).
 
 5.  Cliquez sur **Publier** pour démarrer le flux de travail et publier votre nouvelle référence SKU.
 
@@ -86,7 +79,7 @@ Pour mettre à jour les métadonnées de Place de marché associées à votre of
 
 2.  Sous **Toutes les offres**, recherchez l’offre que vous souhaitez mettre à jour.
 
-3.  Accédez à l’onglet **Place de marché**. Suivez les instructions de la [publier un module IoT Edge à la place de marché Azure](./cpp-publish-offer.md) article pour apporter des modifications de métadonnées.
+3.  Accédez à l’onglet **Place de marché**. Suivez les instructions de l'article [Publier un module IoT Edge sur la Place de marché Azure](./cpp-publish-offer.md) pour apporter des modifications aux métadonnées.
 
 4.  Cliquez sur **Publier** pour démarrer le flux de travail et publier vos modifications.
 

@@ -1,5 +1,5 @@
 ---
-title: Comprendre la hiérarchie de stockage de Azure NetApp Files | Microsoft Docs
+title: Qu’est-ce que la hiérarchie de stockage d’Azure NetApp Files | Microsoft Docs
 description: Décrit la hiérarchie de stockage, y compris les comptes, les pools de capacité et les volumes Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 357bd5eac41b0da50a1d7035e8e8045a9f21144c
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: c2984e012ae83a8bc17d72ed4eac0c5c469c2694
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545520"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522866"
 ---
-# <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Comprendre la hiérarchie de stockage de Azure NetApp Files
+# <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Qu’est-ce que la hiérarchie de stockage d’Azure NetApp Files
 
 Avant de créer un volume dans Azure NetApp Files, vous devez acheter et configurer un pool de capacité disponible.  Pour configurer un pool de capacité, vous devez disposer d’un compte NetApp. Comprendre la hiérarchie de stockage s’avère utile pour configurer et gérer vos ressources Azure NetApp Files.
 
@@ -39,15 +39,17 @@ Avant de créer un volume dans Azure NetApp Files, vous devez acheter et configu
 - Un pool de capacité ne peut avoir qu’un seul niveau de service.  
 - Chaque pool de capacité peut appartenir à un seul compte NetApp. Toutefois, vous pouvez avoir plusieurs pools de capacité au sein d’un compte NetApp.  
 - Un pool de capacité ne peut pas être déplacé entre les comptes NetApp.   
-  Par exemple, dans le [diagramme conceptuel de la hiérarchie de stockage](#conceptual_diagram_of_storage_hierarchy) ci-dessous, le Pool de capacité 1 ne peut pas être déplacé du compte NetApp Est des États-Unis au compte NetApp Ouest des États-Unis 2.  
+  Par exemple, dans le [diagramme conceptuel de la hiérarchie de stockage](#conceptual_diagram_of_storage_hierarchy) ci-dessous, le Pool de capacité 1 ne peut pas être déplacé du compte NetApp USA Est au compte NetApp USA Ouest 2.  
+- Impossible de supprimer un pool de capacités tant que tous les volumes qu’il contient n’ont pas été supprimés.
 
 ## <a name="volumes"></a>Volumes
 
 - Un volume se mesure par la consommation de capacité logique et est évolutif. 
 - La consommation de capacité d’un volume est comptée par rapport à la capacité configurée de son pool.
 - Chaque volume appartient à un seul pool, mais un pool peut contenir plusieurs volumes. 
-- Vous pouvez déplacer un volume entre différents pools d’un même compte NetApp.    
-  Par exemple, dans le [diagramme conceptuel de la hiérarchie de stockage](#conceptual_diagram_of_storage_hierarchy) ci-dessous, vous pouvez déplacer les volumes du Pool de capacité de 1 au Pool de capacité 2.
+- Un volume ne peut pas être déplacé entre des pools de capacité. <!--Within the same NetApp account, you can move a volume across pools.  -->   
+  Par exemple, dans le [diagramme conceptuel de la hiérarchie de stockage](#conceptual_diagram_of_storage_hierarchy) ci-dessous, vous ne pouvez pas déplacer les volumes du Pool de capacité de 1 vers le Pool de capacité 2.
+- Impossible de supprimer un volume tant que tous ses instantanés n’ont pas été supprimés.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Diagramme conceptuel de la hiérarchie de stockage 
 L’exemple suivant montre les relations entre l’abonnement Azure, les comptes NetApp, les pools de capacité et les volumes.   

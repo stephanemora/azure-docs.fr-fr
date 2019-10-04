@@ -9,20 +9,19 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 13a2eb080c6822a8a6786be1952bc588fa8afd80
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: be6441b1fea81f5b947e8deacd8de7b17814aab5
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729201"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073500"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
 
-Le service Gestion des API permet de sécuriser l’accès au service principal d’une API en utilisant des certificats clients. Ce guide montre comment gérer les certificats de l’instance de service Gestion des API Azure dans le Portail Azure. Il explique également comment configurer une API pour utiliser un certificat et ainsi accéder à un service principal.
+La gestion des API permet de sécuriser l’accès au service principal d’une API en utilisant des certificats clients. Ce guide montre comment gérer les certificats de l’instance de service Gestion des API Azure dans le Portail Azure. Il explique également comment configurer une API pour utiliser un certificat et ainsi accéder à un service principal.
 
 Pour en savoir plus sur la gestion des certificats à l’aide de l’API REST de gestion des API, consultez <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Entité de certificat API REST de gestion des API Azure</a>.
 
@@ -36,7 +35,7 @@ Ce guide explique comment configurer votre instance de service de gestion des AP
 
 ![Ajouter des certificats clients](media/api-management-howto-mutual-certificates/apim-client-cert.png)
 
-Suivez les étapes ci-dessous pour charger un nouveau certificat client. Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez le didacticiel [Créer une instance du service Gestion des API Azure][Create an API Management service instance].
+Suivez les étapes ci-dessous pour charger un nouveau certificat client. Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez le tutoriel [Créer une instance du service Gestion des API Azure][Create an API Management service instance].
 
 1. Accédez à votre instance de service Gestion des API Azure dans le Portail Azure.
 2. Sélectionnez **Certificats clients** dans le menu.
@@ -55,7 +54,7 @@ Lorsque le certificat est chargé, il s’affiche dans **Certificats clients**. 
 
 ## <a name="step1a"></a>Suppression d’un certificat client
 
-Pour supprimer un certificat, cliquez sur le menu contextuel **...**, puis sélectionnez **Supprimer** à côté du certificat.
+Pour supprimer un certificat, cliquez sur le menu contextuel **...** , puis sélectionnez **Supprimer** à côté du certificat.
 
 ![Supprimer des certificats clients](media/api-management-howto-mutual-certificates/apim-client-cert-delete.png)
 

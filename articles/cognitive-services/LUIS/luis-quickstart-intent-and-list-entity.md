@@ -1,5 +1,5 @@
 ---
-title: Correspondance de texte exacte
+title: 'Didacticiel : Correspondance de texte exacte – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Obtenez des données qui correspondent à une liste d’éléments prédéfinie. Chaque élément de la liste peut avoir des synonymes qui correspondent également exactement
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 09/03/2019
 ms.author: diberry
-ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521269"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307611"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Didacticiel : Obtenir des données exactes correspondant au texte d’un énoncé
 
@@ -108,11 +108,7 @@ Le nom _canonique_ principal pour chaque élément est le nom de service. Voici 
 
 1. Dans la page Department entity, entrez la valeur `Accounting`.
 
-    [![Capture d’écran de saisie de valeur](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Capture d’écran de saisie de valeur")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. Pour Synonyms, ajoutez les synonymes à partir du tableau précédent.
-
-    [![Capture d’écran de saisie de synonymes](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Capture d’écran de saisie de synonymes")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. Faites de même pour tous les noms canoniques et leurs synonymes. 
 

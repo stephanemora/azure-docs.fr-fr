@@ -2,7 +2,7 @@
   href: index.yml
   expanded: true
   items: null
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est l’API Recherche d’entreprises locales Bing\_?"
@@ -44,3 +44,5 @@
       href: 'https://azure.microsoft.com/en-us/try/cognitive-services/?api=bing-web-search-api'
     - name: Informations sur la tarification
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

@@ -1,6 +1,6 @@
 ---
-title: Comment mettre à jour d’Azure Monitor pour les conteneurs pour les mesures | Microsoft Docs
-description: Cet article décrit comment vous mettre à jour Azure Monitor pour les conteneurs pour activer la fonctionnalité de mesures personnalisées qui prend en charge l’exploration et la génération d’alertes sur des mesures agrégées.
+title: Mise à jour d’Azure Monitor pour conteneurs afin d’activer les métriques | Microsoft Docs
+description: Cet article décrit comment mettre à jour Azure Monitor pour conteneurs afin d’activer la fonctionnalité de métriques personnalisées prenant en charge l’exploration de métriques agrégées et la génération d’alertes sur ces dernières.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,63 +11,63 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 2f500ea127d3f2042e7c97eeace592b4da8d8d0e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f4e15c4fc7bd7b786c5204153fe64f010e5ffe85
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995980"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65148866"
 ---
-# <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Comment mettre à jour d’Azure Monitor pour les conteneurs pour activer les mesures
-Azure Monitor pour les conteneurs introduit la prise en charge pour la collecte de mesures à partir des nœuds de clusters Azure Kubernetes service (AKS) et les blocs et en les écrivant dans le magasin de métriques Azure Monitor. Cette modification vise à fournir la rapidité d’exécution améliorée lors de la présentation des calculs d’agrégation (Avg, Count, Max, Min, Sum) dans les graphiques de performances, prise en charge de l’épinglage des graphiques de performances dans les tableaux de bord portail Azure et prend en charge les alertes de métrique.
+# <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Mise à jour d’Azure Monitor pour conteneurs afin d’activer les métriques
+Azure Monitor pour conteneurs prend désormais en charge la collecte de métriques à partir des nœuds et pods de clusters Azure Kubernetes Service (AKS), ainsi que la consignation de ces métriques dans le magasin de métriques Azure Monitor. Cette modification est destinée à accroître la rapidité d’exécution lors de la présentation de calculs agrégés (Avg, Count, Max, Min, Sum) dans les graphiques de performances, à prendre en charge l’épinglage de ces graphiques dans les tableaux de bord du Portail Azure et à gérer les alertes de métrique.
 
-Les métriques suivantes sont activées dans le cadre de cette fonctionnalité :
+Les métriques activées dans le cadre de cette fonctionnalité sont les suivantes :
 
 | Espace de noms de la métrique | Métrique | Description |
 |------------------|--------|-------------|
-| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Il s’agit de *nœud* métriques et inclure *hôte* comme une dimension et ils incluent également la<br> nom du nœud en tant que valeur pour le *hôte* dimension. |
-| insights.container/pods | podCount | Il s’agit de *pod* métriques et incluent les éléments suivants en tant que dimensions - ControllerName, espace de noms Kubernetes, le nom, phase. |
+| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Il s’agit de métriques de *nœud* qui comprennent la dimension *host*, ainsi que<br> le nom du nœud comme valeur de la dimension *host*. |
+| insights.container/pods | podCount | Il s’agit de métriques de *pod* qui comprennent les dimensions suivantes : ControllerName, espace de noms Kubernetes, nom, phase. |
 
-Le cluster pour prendre en charge ces nouvelles fonctionnalités de la mise à jour peut être effectuée à partir du portail Azure, Azure PowerShell, ou avec Azure CLI. Avec Azure PowerShell et CLI, vous pouvez activer ce cluster par ou pour tous les clusters dans votre abonnement. Nouveaux déploiements d’ACS inclut automatiquement ce changement de configuration et les fonctionnalités.
+La mise à jour du cluster pour la prise en charge de ces nouvelles fonctionnalités peut s’effectuer à partir du Portail Azure, d’Azure PowerShell ou de l’interface de ligne de commande Azure (Azure CLI). Azure PowerShell et Azure CLI vous permettent d’activer ces fonctionnalités par cluster ou pour tous les clusters de votre abonnement. Les nouveaux déploiements d’AKS intègrent automatiquement ce changement de configuration et ces nouvelles fonctionnalités.
 
-Soit traiter affecte le **surveillance du serveur de publication métriques** rôle au principal de service du cluster afin que les données collectées par l’agent peut être publié dans votre ressource de clusters. Surveillance des métriques de serveur de publication a l’autorisation uniquement aux métriques de push à la ressource, il ne peut pas modifier n’importe quel état, mettre à jour de la ressource ou lire toutes les données. Pour plus d’informations sur le rôle, consultez [rôle surveillance du serveur de publication métriques](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Les deux processus attribuent le rôle **Éditeur de métriques d’analyse** au principal de service du cluster afin que les données collectées par l’agent puissent être publiées sur votre ressource de cluster. L’Éditeur de métriques d’analyse est uniquement autorisé à envoyer (push) des métriques à la ressource. Il ne peut pas modifier d’état, mettre à jour la ressource ni lire aucune donnée. Pour plus d’informations sur le rôle, consultez l’article [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher) (Rôle Éditeur de métriques d’analyse).
 
-## <a name="prerequisites"></a>Conditions préalables 
-Avant de commencer, assurez-vous que vous êtes un membre de la **[propriétaire](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.md#owner)** rôle sur la ressource de cluster AKS pour activer la collecte de nœud et pod des métriques de performances personnalisés. 
+## <a name="prerequisites"></a>Prérequis 
+Avant de commencer, vérifiez que vous êtes membre du rôle **[Propriétaire](../../role-based-access-control/built-in-roles.md#owner)** sur la ressource de cluster AKS pour activer la collection de métriques de performances personnalisées de nœud et de pod. 
 
-Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI version 2.0.59 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI version 2.0.59 ou une version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Mise à niveau un cluster à partir du portail Azure
+## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Mettre à niveau un cluster à partir du Portail Azure
 
-Pour les clusters AKS existants surveillés par Azure Monitor pour les conteneurs, après sélection du cluster pour afficher son état d’intégrité de la vue de plusieurs cluster dans Azure Monitor ou directement à partir du cluster en sélectionnant **Insights** à partir de la gauche volet, vous devez voir une bannière en haut du portail.
+Dans le cas des clusters AKS existants surveillés par Azure Monitor pour conteneurs, après avoir sélectionné un cluster pour visualiser son intégrité à partir de la vue multicluster dans Azure Monitor ou directement à partir du cluster en sélectionnant **Insights** dans le volet gauche, vous devriez voir apparaître une bannière en haut du portail.
 
-![Mise à niveau de la bannière de cluster AKS dans le portail Azure](./media/container-insights-update-metrics/portal-banner-enable-01.png)
+![Bannière de mise à niveau de cluster AKS dans le Portail Azure](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 
-En cliquant sur **activer** pour démarrer le processus pour mettre à niveau le cluster. Ce processus peut prendre plusieurs secondes pour terminer, et vous pouvez suivre sa progression sous les Notifications à partir du menu.
+Cliquez sur **Activer** pour démarrer le processus de mise à niveau du cluster. Ce processus peut nécessiter plusieurs secondes. Vous pouvez suivre sa progression sous Notifications à partir du menu.
 
-## <a name="upgrade-all-clusters-using-bash-in-azure-command-shell"></a>Mettre à niveau tous les clusters à l’aide de Bash dans le Shell de commande Azure
-Procédez comme suit pour mettre à jour tous les clusters dans votre abonnement à l’aide de Bash dans le Shell de commande Azure.
+## <a name="upgrade-all-clusters-using-bash-in-azure-command-shell"></a>Mettre à niveau tous les clusters à l’aide de Bash dans l’interpréteur de commandes Azure
+Pour mettre à jour tous les clusters de votre abonnement à l’aide de Bash dans l’interpréteur de commandes Azure, procédez comme suit.
 
-1. Exécutez la commande suivante à l’aide de l’interface CLI.  Modifiez la valeur de **subscriptionId** à l’aide de la valeur à partir de la **vue d’ensemble d’AKS** page pour le cluster AKS.
+1. Exécutez la commande ci-après par le biais d’Azure CLI.  Remplacez la valeur **subscriptionId** par celle qui figure sur la page **Vue d’ensemble d’AKS** du cluster AKS.
 
     ```azurecli
     az login
     az account set --subscription "Subscription Name"
-    curl -sL https://git.io/aks-mdm-onboarding-atscale | bash -s subscriptionId   
+    curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
     ```
 
-    La modification de configuration peut prendre quelques secondes. Lorsqu’il est terminé, un message similaire à celui-ci s’affiche avec les résultats :
+    Le changement de configuration peut nécessiter quelques minutes. Lorsqu’il est terminé, un message similaire à celui-ci s’affiche avec les résultats :
 
     ```azurecli
     completed role assignments for all AKS clusters in subscription: <subscriptionId>
     ```
 
-## <a name="upgrade-per-cluster-using-azure-cli"></a>Mise à niveau par le cluster à l’aide d’Azure CLI
-Procédez comme suit pour mettre à jour un cluster spécifique dans votre abonnement à l’aide d’Azure CLI.
+## <a name="upgrade-per-cluster-using-azure-cli"></a>Effectuer une mise à niveau par cluster à l’aide d’Azure CLI
+Pour mettre à jour un cluster spécifique de votre abonnement au moyen d’Azure CLI, procédez comme suit.
 
-1. Exécutez la commande suivante à l’aide de l’interface CLI. Modifiez les valeurs pour **subscriptionId**, **resourceGroupName**, et **clusterName** en utilisant les valeurs sur le **vue d’ensemble d’AKS** page pour le Cluster AKS.  Pour obtenir la valeur de **clientIdOfSPN**, elle est retournée lorsque vous exécutez la commande `az aks show` comme indiqué dans l’exemple ci-dessous.
+1. Exécutez la commande ci-après par le biais d’Azure CLI. Remplacez les valeurs **subscriptionId**, **resourceGroupName** et **clusterName** par celles qui figurent sur la page **Vue d’ensemble d’AKS** du cluster AKS.  La valeur **clientIdOfSPN** est renvoyée lors de l’exécution de la commande `az aks show`, comme indiqué dans l’exemple ci-dessous.
 
     ```azurecli
     az login
@@ -77,9 +77,9 @@ Procédez comme suit pour mettre à jour un cluster spécifique dans votre abonn
     ``` 
 
 ## <a name="upgrade-all-clusters-using-azure-powershell"></a>Mettre à niveau tous les clusters à l’aide d’Azure PowerShell
-Procédez comme suit pour mettre à jour tous les clusters dans votre abonnement à l’aide d’Azure PowerShell.
+Pour mettre à jour tous les clusters de votre abonnement à l’aide d’Azure PowerShell, procédez comme suit.
 
-1. Copiez et collez le script suivant dans votre fichier :
+1. Copiez-collez le script ci-après dans votre fichier :
 
     ```powershell
     <# 
@@ -319,22 +319,22 @@ Procédez comme suit pour mettre à jour tous les clusters dans votre abonnement
     Write-Host("Completed adding role assignment for the aks clusters in subscriptionId :$SubscriptionId")   
     ```
 
-2. Enregistrez ce fichier sous **onboard_metrics_atscale.ps1** dans un dossier local.
-3. Exécutez la commande suivante à l’aide d’Azure PowerShell.  Modifiez la valeur de **subscriptionId** à l’aide de la valeur à partir de la **vue d’ensemble d’AKS** page pour le cluster AKS.
+2. Enregistrez ce fichier sous le nom **onboard_metrics_atscale.ps1** dans un dossier local.
+3. Exécutez la commande ci-après à l’aide d’Azure PowerShell.  Remplacez la valeur **subscriptionId** par celle qui figure sur la page **Vue d’ensemble d’AKS** du cluster AKS.
 
     ```powershell
     .\onboard_metrics_atscale.ps1 subscriptionId
     ```
-    La modification de configuration peut prendre quelques secondes. Lorsqu’il est terminé, un message similaire à celui-ci s’affiche avec les résultats :
+    Le changement de configuration peut nécessiter quelques minutes. Lorsqu’il est terminé, un message similaire à celui-ci s’affiche avec les résultats :
 
     ```powershell
     Completed adding role assignment for the aks clusters in subscriptionId :<subscriptionId>
     ```
 
-## <a name="upgrade-per-cluster-using-azure-powershell"></a>Mise à niveau par le cluster à l’aide d’Azure PowerShell
-Procédez comme suit pour mettre à jour un cluster spécifique à l’aide d’Azure PowerShell.
+## <a name="upgrade-per-cluster-using-azure-powershell"></a>Effectuer une mise à niveau par cluster à l’aide d’Azure PowerShell
+Pour mettre à jour un cluster spécifique au moyen d’Azure PowerShell, procédez comme suit.
 
-1. Copiez et collez le script suivant dans votre fichier :
+1. Copiez-collez le script ci-après dans votre fichier :
 
     ```powershell
     <# 
@@ -568,18 +568,18 @@ Procédez comme suit pour mettre à jour un cluster spécifique à l’aide d’
     }
     ```
 
-2. Enregistrez ce fichier sous **onboard_metrics.ps1** dans un dossier local.
-3. Exécutez la commande suivante à l’aide d’Azure PowerShell. Modifiez les valeurs pour **subscriptionId**, **resourceGroupName**, et **clusterName** en utilisant les valeurs sur le **vue d’ensemble d’AKS** page pour le Cluster AKS.
+2. Enregistrez ce fichier sous le nom **onboard_metrics.ps1** dans un dossier local.
+3. Exécutez la commande ci-après à l’aide d’Azure PowerShell. Remplacez les valeurs **subscriptionId**, **resourceGroupName** et **clusterName** par celles qui figurent sur la page **Vue d’ensemble d’AKS** du cluster AKS.
 
     ```powershell
     .\onboard_metrics.ps1 subscriptionId <subscriptionId> resourceGroupName <resourceGroupName> clusterName <clusterName>
     ```
 
-    La modification de configuration peut prendre quelques secondes. Lorsqu’il est terminé, un message similaire à celui-ci s’affiche avec les résultats :
+    Le changement de configuration peut nécessiter quelques minutes. Lorsqu’il est terminé, un message similaire à celui-ci s’affiche avec les résultats :
 
     ```powershell
     Successfully added Monitoring Metrics Publisher role assignment to cluster : <clusterName>
     ```
 
 ## <a name="verify-update"></a>Vérifier la mise à jour 
-Après avoir lancé la mise à jour en utilisant l’une des méthodes décrites précédemment, vous pouvez utiliser l’Explorateur de mesures Azure Monitor et vérifier à partir de la **espace de noms métrique** qui **insights** est répertorié. Dans le cas, cela indique vous pouvez poursuivre et commencer à configurer [alertes de métrique](../platform/alerts-metric.md) ou l’épinglage des graphiques [des tableaux de bord](../../azure-portal/azure-portal-dashboards.md).  
+Après avoir lancé la mise à jour à l’aide de l’une des méthodes décrites dans cet article, vous pouvez utiliser la fonctionnalité Metrics Explorer d’Azure Monitor pour vérifier que la valeur **insights** est répertoriée dans **Espace de noms de métrique**. Si tel est le cas, cela indique que vous pouvez commencer à configurer les [alertes de métrique](../platform/alerts-metric.md) ou à épingler vos graphiques dans les [tableaux de bord](../../azure-portal/azure-portal-dashboards.md).  

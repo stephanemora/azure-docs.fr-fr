@@ -3,9 +3,8 @@ title: Playbook de sécurité dans Azure Security Center | Microsoft Docs
 description: Ce document vous aide à utiliser des playbooks de sécurité dans Azure Security Center pour automatiser votre réponse aux incidents de sécurité.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.assetid: a8c45ddf-5c4c-4393-b6e9-46ed1f91bf5f
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: memildin
+ms.openlocfilehash: faf297ef4b07b76f98bb7773c636cd8f6228bbc0
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116743"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71201726"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook de sécurité dans Azure Security Center (préversion)
 Ce document vous aide à utiliser des playbooks de sécurité dans Azure Security Center pour gérer votre réponse aux incidents de sécurité.
@@ -34,11 +33,11 @@ Un playbook de sécurité est un ensemble de procédures exécutable depuis Secu
 Pour créer un playbook de sécurité depuis Azure Security Center, procédez comme suit :
 
 1.  Ouvrez le tableau de bord **Security Center**.
-2.  Sous **Automation et orchestration**, dans le volet gauche, cliquez sur **Playbooks (préversion)**.
+2.  Sous **Automation et orchestration**, dans le volet gauche, cliquez sur **Playbooks (préversion)** .
 
     ![Application logique](./media/security-center-playbooks/security-center-playbooks-fig17.png)
 
-3. Dans la page **Security Center - Playbooks (préversion)**, cliquez sur le bouton **Ajouter**.
+3. Dans la page **Security Center - Playbooks (préversion)** , cliquez sur le bouton **Ajouter**.
 
     ![Créer une application logique](./media/security-center-playbooks/security-center-playbooks-fig2.png)
 

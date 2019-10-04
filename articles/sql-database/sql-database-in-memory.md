@@ -7,23 +7,22 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/19/2019
-ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 325dda3695e796bc0814954d3bd69b9b340133b8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226978"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567956"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimisation des performances à l’aide des technologies en mémoire dans SQL Database
 
 Les technologies en mémoire d’Azure SQL Database vous permettent d’améliorer les performances de votre application, et potentiellement de réduire le coût de votre base de données. 
 
-## <a name="when-to-use-in-memory-technologies"></a>Quand utiliser des technologies en mémoire
+## <a name="when-to-use-in-memory-technologies"></a>Quand utiliser les technologies SQL en mémoire
 
 En utilisant les technologies en mémoire dans Azure SQL Database, vous pouvez améliorer les performances avec différentes charges de travail :
 
@@ -33,9 +32,9 @@ En utilisant les technologies en mémoire dans Azure SQL Database, vous pouvez a
 
 Les technologies en mémoire peuvent améliorer les performances de ces charges de travail en conservant dans la mémoire les données à traiter, en utilisant la compilation native des requêtes ou un traitement avancé comme le traitement par lots et des instructions SIMD qui sont disponibles sur le matériel sous-jacent. 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
-L’Azure SQL Database comprend les technologies en mémoire suivantes :
+Azure SQL Database comprend les technologies en mémoire suivantes :
 - *[OLTP en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* augmente le nombre de transactions par seconde et réduit la latence du traitement transactionnel. Les scénarios qui bénéficient de l’OLTP en mémoire sont : le traitement de transactions haut débit, notamment les données commerciales et de jeux, l’ingestion de données d’événements ou d’appareils IoT, la mise en cache, le chargement de données, les tables temporaires et les scénarios de variables de table.
 - Les *index columnstore en cluster* réduisent l’encombrement de stockage (jusqu'à 10 fois) et améliorent les performances des requêtes d’analyse et de création de rapports. Vous pouvez les utiliser avec des tables de faits dans vos mini-Data Warehouses pour faire tenir plus de données dans votre base de données et optimiser les performances. Vous pouvez également les utiliser avec des données historiques dans votre base de données opérationnelles pour archiver et être en mesure d’interroger jusqu’à 10 fois plus de données.
 - Les *index columnstore sans cluster* pour HTAP vous aident à obtenir un aperçu en temps réel de votre activité en interrogeant la base de données opérationnelle directement, sans avoir à exécuter de processus d’extraction, de transformation et de chargement (ETL) coûteux et à attendre que l’entrepôt de données se remplisse. Les index columnstore sans cluster permettent une exécution rapide des requêtes d’analyse sur la base de données OLTP, tout en réduisant l’impact sur la charge de travail opérationnelle.
@@ -56,9 +55,9 @@ Voici deux exemples illustrant comment la technologie OLTP en mémoire a permis 
   - Pour plus d’informations, consultez le billet de blog : [Billet de blog OLTP en mémoire dans Azure SQL Database](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
-> Les technologies en mémoire sont disponibles dans les niveaux Premium et Critique pour l’entreprise des bases de données SQL Azure, et dans les pools élastiques Premium.
+> Les technologies en mémoire sont disponibles dans les niveaux Premium et Critique pour l’entreprise des bases de données Azure SQL et des pools élastiques Premium.
 
-La vidéo suivante explique les gains de performance potentiels que peuvent apporter les technologies en mémoire dans l’Azure SQL Database. N’oubliez pas que le gain de performance que vous remarquez dépend de nombreux facteurs, notamment de la nature de la charge de travail et des données, du modèle d’accès de la base de données, etc.
+La vidéo suivante explique les gains de performance potentiels que peuvent apporter les technologies en mémoire dans Azure SQL Database. N’oubliez pas que le gain de performance que vous remarquez dépend de nombreux facteurs, notamment de la nature de la charge de travail et des données, du modèle d’accès de la base de données, etc.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-In-Memory-Technologies/player]
 >
@@ -68,7 +67,7 @@ Cet article décrit des aspects de l’OLTP en mémoire et des index columnstore
 
 - Vous verrez l’impact de ces technologies sur le stockage et les limites de taille des données.
 - Vous verrez ensuite comment gérer le déplacement de bases de données qui exploitent ces technologies entre les différents niveaux tarifaires.
-- Vous verrez deux exemples qui illustrent l’utilisation d’OLTP en mémoire, ainsi que les index columnstore dans la base de données SQL Azure.
+- Vous verrez deux exemples qui illustrent l’utilisation d’OLTP en mémoire, ainsi que les index columnstore dans la base de données Azure SQL.
 
 Pour plus d'informations, consultez les pages suivantes :
 
@@ -83,7 +82,7 @@ La technologie OLTP en mémoire fournit des opérations d’accès aux données 
 
 - Le format **rowstore à mémoire optimisée** où chaque ligne est un objet de mémoire distinct. Il s’agit d’un format OLTP en mémoire classique optimisé pour les charges de travail OLTP hautes performances. Il existe deux types de tables à mémoire optimisée qui peuvent être utilisées dans le format rowstore à mémoire optimisée :
   - *Tables durables* (SCHEMA_AND_DATA) où les lignes placées en mémoire sont conservées après le redémarrage du serveur. Ce type de tables se comporte comme une table rowstore traditionnelle avec en plus les avantages des optimisations en mémoire.
-  - *Tables non durables* (SCHEMA_ONLY) où les lignes ne sont pas préservées après le redémarrage. Ce type de table est conçu pour les données temporaires (par exemple, le remplacement de tables temporaires) ou les tables dans lesquelles vous devez rapidement charger des données avant de les déplacer vers une table persistante (les tables de mise en lots).
+  - *Tables non durables* (SCHEMA_ONLY) où les lignes ne sont pas conservées après le redémarrage. Ce type de table est conçu pour les données temporaires (par exemple, le remplacement de tables temporaires) ou les tables dans lesquelles vous devez rapidement charger des données avant de les déplacer vers une table persistante (les tables de mise en lots).
 - Le format **columnstore à mémoire optimisée** où les données sont organisées dans un format de colonne. Cette structure est conçue pour les scénarios HTAP où vous avez besoin d’exécuter des requêtes analytiques sur la même structure de données que celle où votre charge de travail OLTP s’exécute.
 
 > [!Note]
@@ -160,7 +159,7 @@ Vidéo détaillée sur la technologie :
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Taille des données et stockage pour les index columnstore
 
-Le volume des index columntore ne doit pas forcément tenir dans la mémoire. Par conséquent, le seul seuil de taille des index est la taille de base de données globale maximale décrite dans les articles [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
+Le volume des index columntore ne doit pas forcément tenir dans la mémoire. Par conséquent, le seul seuil de taille des index est la taille de base de données globale maximale décrite dans les articles [Modèle d’achat DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 
 Lors de l’utilisation d’index columnstore en cluster, la compression en colonnes est utilisée pour le stockage de table de base. Cette compression peut réduire considérablement l’encombrement de stockage des données utilisateur, ce qui signifie que vous pouvez entrer davantage de données dans la base de données. De plus, la compression peut être accrue d’avantage avec [la compression d’archivage en colonnes](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression). Le taux de compression que vous pouvez obtenir dépend de la nature des données, mais une compression égale à 10 fois n’est pas rare.
 

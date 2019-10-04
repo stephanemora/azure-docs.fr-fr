@@ -11,11 +11,11 @@ ms.topic: hub-page
 ms.date: 01/29/2019
 ms.author: magoedte
 ms.openlocfilehash: ced88f973ff26f7c8990c1c80bf8532949ef9ae8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244774"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60640104"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -99,7 +99,7 @@ ms.locfileid: "56244774"
                                                     <div class="cardText">
                                                     <h3>Surveillance</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/data-collection">Métriques et journaux</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-collection">Métriques et journaux d’activité</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-ingestion-time">Durée d’ingestion des données de journal</a><br/>
                                                         </p>
                                                         <br>
@@ -113,8 +113,8 @@ ms.locfileid: "56244774"
                                                             <a href="/azure/azure-monitor/platform/data-sources-collectd">Données de performances collectées</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix">Alertes Nagios et Zabbix</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-sources-syslog">Syslog</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-iis-logs">Journaux IIS</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/data-sources-custom-logs">Journaux personnalisés</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-iis-logs">Journaux d’activité IIS</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-sources-custom-logs">Journaux d’activité personnalisés</a><br/>
                                                             <a href="/azure/azure-monitor/platform/custom-fields">Champs personnalisés</a><br/>
                                                             <a href="/azure/azure-monitor/platform/data-collector-api">API de collecte de données</a><br/>
                                                         </p>

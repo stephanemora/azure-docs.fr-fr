@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f94d731fd7b9a9fa85ae42d22949c7ca4024aabe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 67a05d065cba8286c837487e21fc2f5be54e2c0b
+ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791522"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71162342"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Activer le réglage automatique pour surveiller les requêtes et améliorer les performances de la charge de travail
 
@@ -26,10 +25,10 @@ Azure SQL Database est un service de données géré automatiquement qui surveil
 Le réglage automatique peut être activé au niveau du serveur ou de la base de données par le biais du [portail Azure](sql-database-automatic-tuning-enable.md#azure-portal), des appels d’[API REST](sql-database-automatic-tuning-enable.md#rest-api) et des commandes [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 > [!NOTE]
-> Pour Managed Instance, l’option de prise en charge FORCE_LAST_GOOD_PLAN peut être configurée via [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) uniquement. Configuration basée sur le portail et les options de réglage automatique des index décrites dans cet article ne s’appliquent pas à Managed Instance.
+> Pour Managed Instance, l’option prise en charge FORCE_LAST_GOOD_PLAN peut être configurée par le biais de [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) uniquement. La configuration basée sur le portail et les options de réglage automatique des index décrites dans cet article ne s’appliquent pas à Managed Instance.
 
 > [!NOTE]
-> Configuration des options de réglage automatique via le modèle d’ARM (Azure Resource Manager) n’est pas pris en charge pour l’instant.
+> La configuration des options de réglage automatique par le biais du modèle ARM (Azure Resource Manager) n’est pas prise en charge pour l’instant.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Activer le réglage automatique sur le serveur
 
@@ -42,7 +41,7 @@ Pour activer le réglage automatique sur le **serveur** logique Azure SQL Databa
 ![Serveur](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Notez que l’option **DROP_INDEX** n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index, et ne doit pas être activée dans ces cas.
+> Notez que l’option **DROP_INDEX** n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index, et ne doit pas être activée dans ces cas. La suppression des index inutilisés n’est pas prise en charge pour les niveaux de service Premium et Critique pour l’entreprise.
 >
 
 Sélectionnez les options de réglage automatique que vous souhaitez activer et sélectionnez **Appliquer**.
@@ -99,7 +98,7 @@ Si vous affectez la valeur ON à l’option de réglage, les paramètres hérit�
 > Dans le cas de la [géoréplication active](sql-database-auto-failover-group.md), le paramétrage automatique doit être configuré sur la base de données primaire uniquement. Les actions de paramétrage appliquées automatiquement, comme la création ou la suppression d’index, sont automatiquement répliquées sur la base de données secondaire en lecture seule. Toute tentative d’activation du paramétrage automatique au moyen de T-SQL sur la base de données secondaire en lecture seule se solde par un échec, car une configuration de paramétrage différente sur la base de données secondaire en lecture seule n’est pas prise en charge.
 >
 
-Découvrez-en davantage sur les options T-SQL pour configurer le réglage automatique en consultant [Options SET d’ALTER DATABASE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Pour en savoir plus sur les options T-SQL permettant de configurer le réglage automatique, consultez [Options ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 ## <a name="disabled-by-the-system"></a>Désactivée par le système
 

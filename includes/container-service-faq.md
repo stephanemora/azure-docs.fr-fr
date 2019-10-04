@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3e1e1266122ebcccc0149ca8e0421577becd6708
+ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213019"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70036700"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(DÉPRÉCIÉ) Questions fréquentes (FAQ) sur Container Service
 
@@ -37,7 +37,7 @@ En fonction de votre scénario, vous pouvez également créer et gérer des solu
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Quelle est la différence entre Azure Container Service et ACS Engine ? 
 Azure Container Service est un service Azure reposant sur un SLA qui inclut des fonctionnalités dans le portail Azure, des outils de ligne de commande Azure et des API Azure. Le service vous permet de mettre en œuvre et de gérer rapidement des clusters exécutant des outils d’orchestration de conteneur standard avec un nombre de possibilités de configuration relativement faible. 
 
-[ACS Engine](http://github.com/Azure/acs-engine) est un projet open source qui permet aux utilisateurs de personnaliser la configuration du cluster à tous les niveaux. Cette possibilité de modifier la configuration de l’infrastructure et des logiciels implique que nous ne proposons aucun SLA pour l’ACS Engine. La prise en charge est gérée via le projet open source sur GitHub plutôt que via des canaux Microsoft officiels. 
+[ACS Engine](https://github.com/Azure/acs-engine) est un projet open source qui permet aux utilisateurs de personnaliser la configuration du cluster à tous les niveaux. Cette possibilité de modifier la configuration de l’infrastructure et des logiciels implique que nous ne proposons aucun SLA pour l’ACS Engine. La prise en charge est gérée via le projet open source sur GitHub plutôt que via des canaux Microsoft officiels. 
 
 Pour obtenir des informations détaillées, consultez notre [stratégie de support pour les conteneurs](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers).
 
@@ -99,7 +99,7 @@ Vous pouvez retrouver la chaîne de connexion dans le portail Azure ou à l’ai
 
 4. Dans la page **Résumé**, sous **Sorties**, plusieurs liens de cluster s’affichent. **SSHMaster0** fournit une chaîne de connexion SSH au premier maître dans votre cluster de service du conteneur. 
 
-Comme indiqué précédemment, vous pouvez également utiliser des outils Azure pour rechercher le nom de domaine complet (FQDN) du maître. Établissez une connexion SSH au maître à l’aide du nom de domaine complet (FQDN) du maître et du nom d’utilisateur que vous avez spécifié lors de la création du cluster. Par exemple : 
+Comme indiqué précédemment, vous pouvez également utiliser des outils Azure pour rechercher le nom de domaine complet (FQDN) du maître. Établissez une connexion SSH au maître à l’aide du nom de domaine complet (FQDN) du maître et du nom d’utilisateur que vous avez spécifié lors de la création du cluster. Par exemple :
 
 ```bash
 ssh userName@masterFQDN –A –p 22 

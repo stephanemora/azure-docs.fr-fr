@@ -3,7 +3,7 @@ title: Supprimer un type de nœud dans Azure Service Fabric | Microsoft Docs
 description: Découvrez comment supprimer type de nœud d’un cluster Service Fabric dans Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: vturecek
 ms.assetid: ''
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo
-ms.openlocfilehash: 193a24aebff8f7de60752e53bbc1b18dd5c54f33
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: 44f25adf4168f4339a31e9270c2b23a8466a8889
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787066"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599494"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>Supprimer un type de nœud Service Fabric
 Cet article décrit comment mettre à l’échelle un cluster Azure Service Fabric en supprimant un type de nœud existant d’un cluster. Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure que vous utilisez pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud défini dans un cluster Azure est [ configuré comme un groupe identique distinct](service-fabric-cluster-nodetypes.md). Chaque type de nœud peut alors faire l’objet d’une gestion séparée. Après avoir créé un cluster Service Fabric, vous pouvez faire évoluer un cluster horizontalement en supprimant un type de nœud (groupe de machines virtuelles identiques) et tous ses nœuds.  Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.  Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Utilisez [Remove-AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype) pour supprimer un type de nœud Service Fabric.
+Utilisez la cmdlet [Remove-AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype) pour supprimer un type de nœud Service Fabric.
 
-Les trois opérations qui se produisent lorsqu’elle est appelée de Remove-AzServiceFabricNodeType sont :
+Trois opérations se produisent lorsque vous appelez Remove-AzServiceFabricNodeType :
 1.  Le groupe de machines virtuelles identiques derrière le type de nœud est supprimé.
 2.  Le type de nœud est supprimé du cluster.
 3.  Pour chaque nœud au sein de ce type de nœud, l’état entier de ce nœud est supprimé du système. S’il existe des services sur ce nœud, alors ils sont tout d’abord déplacés vers un autre nœud. Si le Gestionnaire du cluster ne trouve pas de nœud pour le réplica/service, l’opération est retardée/bloquée.
@@ -37,7 +37,7 @@ Les trois opérations qui se produisent lorsqu’elle est appelée de Remove-AzS
 > Nous vous recommandons de ne pas utiliser fréquemment Remove-AzServiceFabricNodeType pour supprimer un type de nœud d’un cluster de production. Il s’agit d’une commande dangereuse, car elle supprime le groupe de machines virtuelles identiques derrière le type de nœud. 
 
 ## <a name="durability-characteristics"></a>Caractéristiques de durabilité
-Sécurité est prioritaire par rapport à la vitesse lors de l’utilisation de Remove-AzServiceFabricNodeType. Le type de nœud doit avoir le [niveau de durabilité](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) Silver ou Gold, car :
+La sécurité est prioritaire par rapport à la vitesse lors de l’utilisation de Remove-AzServiceFabricNodeType. Le type de nœud doit avoir le [niveau de durabilité](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) Silver ou Gold, car :
 - Bronze ne vous accorde aucune garantie sur l’enregistrement des informations d’état.
 - Les niveaux de durabilité Silver et Gold interceptent toutes les modifications du groupe de machines virtuelles identiques.
 - Gold vous permet également de contrôler les mises à jour Azure sous le groupe de machines virtuelles identiques.
@@ -50,7 +50,7 @@ Lorsque vous supprimez un type de nœud de niveau Bronze, tous les nœuds dans l
 
 ## <a name="recommended-node-type-removal-process"></a>Procédure de suppression de nœud recommandée
 
-Pour supprimer le type de nœud, exécutez l’applet de commande [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  Ce processus prend un certain temps.  Exécutez ensuite [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) sur chacun des nœuds à supprimer.
+Pour supprimer le type de nœud, exécutez l’applet de commande [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  Ce processus prend un certain temps.  Une fois que toutes les machines virtuelles ont disparu (représentées comme « Down ») fabric:/System/InfrastructureService/[nom_type_nœud] indique un état d’erreur.
 
 ```powershell
 $groupname = "mynodetype"
@@ -64,7 +64,14 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mytestcluster.eastus.cloudapp.a
           -X509Credential -ServerCertThumbprint <thumbprint> `
           -FindType FindByThumbprint -FindValue <thumbprint> `
           -StoreLocation CurrentUser -StoreName My
+```
 
+Ensuite, vous pouvez mettre à jour la ressource de cluster pour supprimer le type de nœud. Vous pouvez utiliser le déploiement du modèle ARM ou modifier la ressource de cluster par le biais d’[Azure Resource Manager](https://resources.azure.com). Cela démarre une mise à niveau du cluster qui supprimera le service fabric:/System/InfrastructureService/[nom_type_nœud] qui est en état d’erreur.
+
+Vous verrez toujours les nœuds comme étant « Down » dans Service Fabric Explorer. Exécutez [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) sur chacun des nœuds à supprimer.
+
+
+```powershell
 $nodes = Get-ServiceFabricNode | Where-Object {$_.NodeType -eq $nodetype} | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending
 
 Foreach($node in $nodes)

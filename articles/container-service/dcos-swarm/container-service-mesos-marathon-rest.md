@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 73fa9c4433a2af780798f0439c0a119bc32a678f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309801"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64916695"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(DÉCONSEILLÉ) Gestion de conteneur DC/OS à l’aide de l’API REST Marathon
 
@@ -22,7 +22,7 @@ ms.locfileid: "58309801"
 
 DC/OS offre un environnement de déploiement et de mise à l’échelle des charges de travail en cluster tout en faisant abstraction du matériel sous-jacent. DC/OS sous-tend un framework qui gère la planification et l’exécution des charges de travail de calcul. Bien qu’il existe des infrastructures pour de nombreuses charges de travail courantes, ce document décrit la création et la mise à l’échelle des déploiements de conteneurs avec l’API REST Marathon. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant d’étudier ces exemples, vous devez avoir un cluster DC/OS configuré dans Azure Container Service. Vous devez également disposer d’une connectivité à distance à ce cluster. Pour plus d’informations sur ces éléments, voir les articles suivants :
 
@@ -30,9 +30,9 @@ Avant d’étudier ces exemples, vous devez avoir un cluster DC/OS configuré da
 * [Connexion à un cluster Azure Container Service](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>Accéder aux API DC/OS
-Une fois que vous êtes connecté au cluster Azure Container Service, vous pouvez accéder à DC/OS et l’API REST associées via http :\//localhost:local-port. Les exemples cités dans ce document partent du principe que vous créez un tunnel sur le port 80. Par exemple, les points de terminaison Marathon peuvent être accessible aux URI commençant par http : \/ /localhost/marathon/v2 /. 
+Une fois que vous êtes connecté au cluster Azure Container Service, vous pouvez accéder au DC/OS et aux API REST associées via http:\//localhost:local-port. Les exemples cités dans ce document partent du principe que vous créez un tunnel sur le port 80. Par exemple, les points de terminaison Marathon peuvent être atteints via les URI commençant par http:\//localhost/marathon/v2/. 
 
-Pour plus d’informations sur les différentes API, consultez la documentation Mesosphere relative à l’[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) et à l’[API Chronos](https://mesos.github.io/chronos/docs/api.html), ainsi que la documentation Apache relative à l’[API Mesos Scheduler](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Pour plus d’informations sur les différentes API, consultez la documentation Mesosphere relative à l’[API Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) et à l’[API Chronos](https://mesos.github.io/chronos/docs/api.html), ainsi que la documentation Apache relative à l’[API Mesos Scheduler](https://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Collecte d’informations à partir de DC/OS et de Marathon
 Avant de déployer des conteneurs vers le cluster DC/OS, vous devez recueillir certaines informations sur le cluster DC/OS, notamment le nom et l’état des agents DC/OS. Pour ce faire, interrogez le point de terminaison `master/slaves` sur l’API REST DC/OS. Si tout se déroule correctement, la requête renvoie une liste d’agents DC/OS accompagnée de quelques-unes de leurs propriétés.
@@ -123,7 +123,7 @@ Vous pouvez utiliser l’API Marathon pour diminuer ou augmenter la taille des d
 À partir de la connexion par tunnel, exécutez la commande suivante pour augmenter la taille des instances de l’application.
 
 > [!NOTE]
-> L’URI est http : \/ /localhost/marathon/v2/apps/suivi par l’ID de l’application à l’échelle. Si vous utilisez l’exemple Nginx fourni ici, l’URI serait http :\//localhost/marathon/v2/apps/nginx.
+> L'URI est http:\//localhost/marathon/v2/apps/, suivi de l'ID de l'application que vous souhaitez mettre à l'échelle. Si vous utilisiez l'exemple Nginx fourni ici, l'URI serait http:\//localhost/marathon/v2/apps/nginx.
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -180,7 +180,7 @@ Vous pouvez également utiliser l’API Marathon pour diminuer ou augmenter la t
 Exécutez la commande suivante pour augmenter la taille des instances de l’application :
 
 > [!NOTE]
-> L’URI est http : \/ /localhost/marathon/v2/apps/suivi par l’ID de l’application à l’échelle. Si vous utilisez l’exemple Nginx fourni ici, l’URI serait http :\//localhost/marathon/v2/apps/nginx.
+> L'URI est http:\//localhost/marathon/v2/apps/, suivi de l'ID de l'application que vous souhaitez mettre à l'échelle. Si vous utilisiez l'exemple Nginx fourni ici, l'URI serait http:\//localhost/marathon/v2/apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'

@@ -10,11 +10,11 @@ ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451193"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61073895"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemple d’utilisation : déploiement continu sur des machines virtuelles à l’aide d’Automation State Configuration et Chocolatey
 
@@ -51,7 +51,7 @@ Un modèle Resource Manager se distingue par sa capacité à installer une exten
 ## <a name="quick-trip-around-the-diagram"></a>Tour d’horizon rapide du diagramme
 
 Commençons par le point de départ : vous écrivez votre code, vous le générez, vous le testez, puis vous créez un package d’installation.
-Chocolatey peut gérer différents types de packages d’installation, tels que MSI, MSU ou ZIP. Et vous disposez de toute la puissance de PowerShell pour effectuer l’installation si les fonctionnalités natives de Chocolatey ne sont pas tout à fait adaptées. Placez le package dans un emplacement accessible, un référentiel de packages. Cet exemple utilise un dossier public dans un compte de stockage d’objets blob Azure, mais vous pouvez utiliser n’importe quel emplacement. Chocolatey fonctionne en mode natif avec des serveurs NuGet et quelques autres serveurs pour la gestion des métadonnées de packages. [Cet article](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) en décrit les options. Cet exemple utilise NuGet. Un Nuspec désigne les métadonnées concernant vos packages. Les Nuspec sont « compilés » dans NuPkg et stockés sur un serveur NuGet. Lorsque votre configuration demande un package par son nom et fait référence à un serveur NuGet, la ressource DSC Chocolatey (qui réside désormais sur la machine virtuelle) extrait le package et l’installe à votre place. Vous pouvez également demander une version spécifique d’un package.
+Chocolatey peut gérer différents types de packages d’installation, tels que MSI, MSU ou ZIP. Et vous disposez de toute la puissance de PowerShell pour effectuer l’installation si les fonctionnalités natives de Chocolatey ne sont pas tout à fait adaptées. Placez le package dans un endroit facilement accessible, tel qu’un référentiel de packages. Cet exemple utilise un dossier public dans un compte de stockage d’objets blob Azure, mais vous pouvez utiliser n’importe quel emplacement. Chocolatey fonctionne en mode natif avec des serveurs NuGet et quelques autres serveurs pour la gestion des métadonnées de packages. [Cet article](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) en décrit les options. Cet exemple utilise NuGet. Un Nuspec désigne les métadonnées concernant vos packages. Les Nuspec sont « compilés » dans NuPkg et stockés sur un serveur NuGet. Lorsque votre configuration demande un package par son nom et fait référence à un serveur NuGet, la ressource DSC Chocolatey (qui réside désormais sur la machine virtuelle) extrait le package et l’installe à votre place. Vous pouvez également demander une version spécifique d’un package.
 
 Dans la partie inférieure gauche de l’image, vous verrez un modèle Azure Resource Manager. Dans cet exemple, l’extension de machine virtuelle enregistre la machine virtuelle auprès du serveur Pull Azure Automation State Configuration (autrement dit, un serveur d’extraction) en tant que nœud. La configuration est stockée dans le serveur d’extraction.
 En fait, elle est stockée à deux reprises : une première fois en tant que texte brut et une deuxième fois compilée dans un fichier MOF (pour ceux qui s’y connaissent). Dans le portail, la structure MOF est une « configuration de nœud » (et non une simple « configuration »). Il s’agit de l’artefact qui est associé à un nœud afin que le nœud connaisse sa configuration. Les détails ci-dessous montrent comment affecter la configuration de nœud au nœud.

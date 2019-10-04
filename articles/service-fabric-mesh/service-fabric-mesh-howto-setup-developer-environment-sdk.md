@@ -9,19 +9,19 @@ ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
-ms.openlocfilehash: 70c32f5e54fa7e71c0884ceba48c84af782b3f41
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: 5ab817c65ab562f37b456cc3589624c1876084f0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66428203"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurer votre environnement de développement Windows pour créer des applications Service Fabric Mesh
 
 Pour générer et exécuter des applications Azure Service Fabric Mesh sur votre machine de développement Windows, vous devez disposer de ce qui suit :
 
 * Docker
-* Visual Studio 2017
+* Visual Studio 2017 ou version ultérieure
 * Runtime Service Fabric Mesh
 * Outils et kit de développement logiciel (SDK) Service Fabric Mesh
 
@@ -37,7 +37,7 @@ Les instructions suivantes vous aideront à tout installer en fonction de la ver
 
 ## <a name="visual-studio"></a>Visual Studio
 
-Visual Studio 2017 est requis pour déployer des applications Service Fabric Mesh. [Installez la version 15.6.0][download-visual-studio] ou ultérieure et activez les charges de travail suivantes :
+Visual Studio 2017 ou version ultérieure est requis pour déployer des applications Service Fabric Mesh. [Installez la version 15.6.0][download-visual-studio] ou ultérieure et activez les charges de travail suivantes :
 
 * Développement web et ASP.NET
 * Développement Azure

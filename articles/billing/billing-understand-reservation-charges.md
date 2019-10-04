@@ -1,6 +1,6 @@
 ---
-title: Comprendre la remise de réservations pour les bases de données SQL Azure | Microsoft Docs
-description: Découvrez comment une remise de réservation est appliquée à l’exécution de bases de données SQL Azure.
+title: Remise de réservation appliquée aux bases de données Azure SQL Database | Microsoft Docs
+description: Découvrez comment une remise de réservation est appliquée aux bases de données Azure SQL Database en cours d'exécution.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -10,26 +10,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 09/30/2019
 ms.author: banders
-ms.openlocfilehash: 4b4c6b390e9b3a0cf764f998523fe3c1cdc66026
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: d7a1a451bf40a09b1bd9b9d823e0778d335a690b
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997425"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701789"
 ---
-# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Comment une remise de réservation est appliquée aux bases de données SQL Azure
+# <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Comme une remise de réservation est-elle appliquée aux bases de données Azure SQL Database ?
 
 Quand vous achetez une capacité réservée Azure SQL Database, la remise de réservation est automatiquement appliquée aux bases de données SQL qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre les coûts de calcul de votre base de données SQL. Les frais de logiciel, de stockage et de réseau vous sont facturés aux tarifs normaux. Vous pouvez couvrir les coûts de licence pour les bases de données SQL avec [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Pour Azure Reserved Virtual Machine Instances, consultez [Comprendre la remise Azure Reserved VM Instances](billing-understand-vm-reservation-charges.md).
 
-## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est appliquée
+## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est-elle appliquée ?
 
-Une remise de réservation est «*utilisation-it-ou-perdre-it*». Par conséquent, si vous n’avez pas les ressources correspondantes pour toutes les heures, puis vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas effectuer transférer heures réservées inutilisées.
+Une remise de réservation repose sur le principe de « *capacité utilisée ou perdue* ». Ainsi, si vous ne disposez pas des ressources correspondantes pour une heure donnée, vous perdez une quantité de réservation pour cette heure. Vous ne pouvez pas reporter les heures réservées inutilisées.
 
-Lorsque vous arrêtez une ressource, la remise de réservation s’applique automatiquement à une autre ressource correspondante dans la portée spécifiée. Si aucune ressource correspondante ne se trouvent dans la portée spécifiée, les heures réservées sont *perdues*.
+Lorsque vous arrêtez une ressource, la remise de réservation s'applique automatiquement à une autre ressource correspondante dans l'étendue spécifiée. Si aucune ressource correspondante n'est trouvée dans l'étendue spécifiée, les heures réservées sont *perdues*.
 
 ## <a name="discount-applied-to-sql-databases"></a>Remise appliquée aux bases de données SQL
 
@@ -49,7 +49,7 @@ Pour comprendre et voir l’application de vos réservations Azure dans les rapp
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, créez une [demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

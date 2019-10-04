@@ -4,30 +4,33 @@ description: Utiliser Visual Studio Code afin de développer, générer et débo
 services: iot-edge
 keywords: ''
 author: shizn
-manager: philmea
 ms.author: xshi
-ms.date: 02/20/2019
+ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9a7d83070caad86d7d66b62a9592dbb1e0017f97
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: e5bfd2fc127774b9630e87ab4f51241e82ed7c87
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884237"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "70999063"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code afin de développer et déboguer des modules pour Azure IoT Edge
 
 Vous pouvez transformer votre logique métier en modules pour Azure IoT Edge. Cet article explique comment utiliser Visual Studio Code comme outil principal pour développer et déboguer des modules.
 
-## <a name="prerequisites"></a>Conditions préalables
+Deux méthodes de débogage de module écrites en C#, Node.js ou Java sont disponibles dans Visual Studio Code : Vous pouvez les associer à un processus dans un conteneur de modules ou lancer le code des modules en mode débogage. Vous ne pouvez déboguer des modules écrits en Python ou en C qu'en les associant à un processus dans des conteneurs Linux amd64.
 
-Vous pouvez utiliser un ordinateur ou une machine virtuelle Windows, macOS ou Linux comme machine de développement. Vous pouvez utiliser un autre appareil physique comme appareil IoT Edge.
+Si vous n’êtes pas familiarisé avec les fonctionnalités de débogage de Visual Studio Code, découvrez-en plus sur le [débogage](https://code.visualstudio.com/Docs/editor/debugging).
 
-Pour les modules écrits en C#, Node.js ou Java, deux méthodes de débogage sont disponibles dans Visual Studio Code : Vous pouvez les associer à un processus dans un conteneur de modules ou lancer le code des modules en mode débogage. Les modules écrits en Python ou en C ne peuvent être débogués qu'en les associant à un processus dans des conteneurs Linux amd64.
+Cet article fournit des instructions pour le développement et le débogage de modules dans plusieurs langues pour plusieurs architectures. Actuellement, Visual Studio Code prend en charge les modules écrits C#, C, Python, Node.js et Java. Les architectures d’appareils prises en charge sont x64 et ARM32. Pour plus d’informations sur les systèmes d’exploitation, les langages et les architectures pris en charge, consultez [Prise en charge des langages et architectures](module-development.md#language-and-architecture-support).
 
-> [!TIP]
-> Si vous n’êtes pas familiarisé avec les fonctionnalités de débogage de Visual Studio Code, découvrez-en plus sur le [débogage](https://code.visualstudio.com/Docs/editor/debugging).
+>[!NOTE]
+>La prise en charge du développement et du débogage des appareils Linux ARM64 est disponible en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour plus d’informations, consultez [Développer et déboguer des modules IoT Edge ARM64 dans Visual Studio Code (préversion)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+
+## <a name="prerequisites"></a>Prérequis
+
+Vous pouvez utiliser un ordinateur ou une machine virtuelle Windows, macOS ou Linux comme machine de développement. Sur les ordinateurs Windows, vous pouvez développer des modules Windows ou Linux. Pour développer des modules Windows, utilisez un ordinateur Windows exécutant la version 1809/build 17763 ou une version plus récente. Pour développer des modules Linux, utilisez un ordinateur Windows qui est conforme à la [configuration requise pour Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
 Commencez par installer [Visual Studio Code](https://code.visualstudio.com/), puis ajoutez les extensions suivantes :
 
@@ -43,17 +46,13 @@ Vous devrez également installer d'autres outils spécifiques au langage utilis�
 
 - C#, y compris Azure Functions : [Kit de développement logiciel (SDK) .NET Core 2.1](https://www.microsoft.com/net/download)
 
-- Python : [Python](https://www.python.org/downloads/) et [PIP](https://pip.pypa.io/en/stable/installing/#installation) pour l'installation des packages Python (généralement inclus avec votre installation Python). Une fois PIP installé, installez le package **Cookiecutter** à l'aide de la commande suivante :
-
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
+- Python : [Python](https://www.python.org/downloads/) et [PIP](https://pip.pypa.io/en/stable/installing/#installation) pour l'installation des packages Python (généralement inclus avec votre installation Python).
 
 - Node.js : [Node.js](https://nodejs.org). Vous pourrez également installer [Yeoman](https://www.npmjs.com/package/yo) et le [générateur de module Node.js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
 - Java : [Java SE Development Kit 10](https://aka.ms/azure-jdks) et [Maven](https://maven.apache.org/). Vous devrez [définir la variable d'environnement `JAVA_HOME` ](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)de manière à ce qu'elle pointe vers votre installation JDK.
 
-Afin de générer et de déployer l'image de votre module, vous devez disposer de Docker pour générer l'image du module et d'un registre de conteneurs pour stocker cette image :
+Pour générer et déployer l'image de votre module, vous devez disposer de Docker pour générer l'image du module et d'un registre de conteneurs pour stocker cette image :
 
 - [Docker Community Edition](https://docs.docker.com/install/) sur votre ordinateur de développement
 
@@ -62,14 +61,15 @@ Afin de générer et de déployer l'image de votre module, vous devez disposer d
     > [!TIP]
     > Vous pouvez utiliser un registre Docker local pour le prototype et à des fins de test, au lieu d’un registre cloud.
 
-À moins que vous ne développiez votre module en C, vous devez également disposer de l'[outil de développement Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/) basé sur Python afin de configurer votre environnement de développement local pour déboguer, exécuter et tester votre solution IoT Edge. Si ce n'est déjà fait, installez [Python (2.7/3.6) et PIP](https://www.python.org/), puis installez **iotedgehubdev** en exécutant la commande suivante dans votre terminal.
+À moins que vous ne développiez votre module en C, vous devez également disposer de l'[outil de développement Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/) basé sur Python afin de configurer votre environnement de développement local pour déboguer, exécuter et tester votre solution IoT Edge. Si ce n’est pas déjà fait, installez [Python (2.7/3.6+) et Pip](https://www.python.org/), puis installez **iotedgehubdev** en exécutant la commande suivante dans votre terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
-
 > [!NOTE]
-> Pour tester votre module sur un appareil, vous devez disposer d'un hub IoT actif avec au moins un appareil IoT Edge. Pour utiliser votre ordinateur comme appareil IoT Edge, suivez les étapes décrites dans le guide de démarrage rapide pour [Linux](quickstart-linux.md) ou [Windows](quickstart.md). Si vous exécutez le démon IoT Edge sur votre ordinateur de développement, vous devrez peut-être arrêter EdgeHub et EdgeAgent avant de passer à l'étape suivante.
+> Si vous avez plusieurs Python, y compris Python 2.7 préinstallé (par exemple, sur Ubuntu ou MacOS), assurez-vous que vous utilisez le bon `pip` ou `pip3` pour installer **iotedgehubdev**.
+
+Pour tester votre module sur un appareil, vous devez disposer d’un hub IoT actif avec au moins un appareil IoT Edge. Pour utiliser votre ordinateur comme appareil IoT Edge, suivez les étapes décrites dans le guide de démarrage rapide pour [Linux](quickstart-linux.md) ou [Windows](quickstart.md). Si vous exécutez le démon IoT Edge sur votre ordinateur de développement, vous devrez peut-être arrêter EdgeHub et EdgeAgent avant de passer à l'étape suivante.
 
 ## <a name="create-a-new-solution-template"></a>Créer un modèle de solution
 
@@ -89,7 +89,7 @@ Les étapes suivantes expliquent comment créer un module IoT Edge dans votre la
 
 1. Entrez un nom pour votre module. Choisissez un nom qui est unique dans le registre de conteneurs.
 
-1. Indiquez le nom du référentiel d’images du module. Par défaut, Visual Studio Code nomme le module **localhost:5000/<nom de votre module\>**. Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion se présente comme suit : ***\<nom du registre\>*.azurecr.io**. Remplacez uniquement la partie **localhost:5000** de la chaîne afin d'obtenir le résultat final suivant : **\<* nom du registre*\>.azurecr.io/*\<nom de votre module\>***.
+1. Indiquez le nom du référentiel d’images du module. Par défaut, Visual Studio Code nomme le module **localhost:5000/<nom de votre module\>** . Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion se présente comme suit : **_\<nom du registre\>_ .azurecr.io**. Remplacez uniquement la partie **localhost:5000** de la chaîne afin d’obtenir le résultat final suivant : **\<*nom du registre*\>.azurecr.io/ _\<nom de votre module\>_** .
 
    ![Fourniture du référentiel d’images Docker](./media/how-to-develop-csharp-module/repository.png)
 
@@ -99,14 +99,14 @@ La solution comprend quatre éléments :
 
 - Un dossier **.vscode**, qui contient les configurations de débogage.
 
-- Un dossier **modules**, qui contient des sous-dossiers pour chaque module. À ce stade, vous n’en avez qu’un. Vous pouvez cependant en ajouter via la palette de commandes avec la commande **Azure IoT Edge : Ajouter un module IoT Edge**.
+- Un dossier **modules**, qui contient des sous-dossiers pour chaque module.  Dans le dossier de chaque module se trouve fichier, **module.json**, qui contrôle la façon dont les modules sont générés et déployés.  Ce fichier doit être modifié pour remplacer le registre localhost du conteneur de déploiement de module par un registre distant. À ce stade, vous n’avez qu’un seul module.  Vous pouvez cependant en ajouter via la palette de commandes avec la commande **Azure IoT Edge : Ajouter un module IoT Edge**.
 
 - Un fichier **.env**, qui liste vos variables d’environnement. Si Azure Container Registry est votre registre, celui-ci comprend un nom d’utilisateur et un mot de passe Azure Container Registry.
 
   > [!NOTE]
   > Le fichier d’environnement est créé uniquement si vous fournissez un référentiel d’images pour le module. Si vous avez accepté les valeurs localhost par défaut pour tester et déboguer localement, vous n’avez pas besoin de déclarer des variables d’environnement.
 
-- Un fichier **deployment.template.json**, qui répertorie votre nouveau module, ainsi qu’un exemple de module **tempSensor** qui simule les données que vous pouvez utiliser à des fins de test. Pour plus d’informations sur le fonctionnement des manifestes de déploiement, consultez [Découvrez comment utiliser des manifestes de déploiement pour déployer des modules et établir des itinéraires](module-composition.md).
+- Un fichier **deployment.template.json**, qui répertorie votre nouveau module, ainsi qu’un exemple de module **SimulatedTemperatureSensor** qui simule les données que vous pouvez utiliser à des fins de test. Pour plus d’informations sur le fonctionnement des manifestes de déploiement, consultez [Découvrez comment utiliser des manifestes de déploiement pour déployer des modules et établir des itinéraires](module-composition.md).
 
 ## <a name="add-additional-modules"></a>Ajouter des modules supplémentaires
 
@@ -116,14 +116,14 @@ Pour ajouter des modules supplémentaires à votre solution, exécutez la comman
 
 Le code du module par défaut fourni avec la solution se trouve à l'emplacement suivant :
 
-- Azure Function (C#) : **modules > *&lt;nom de votre module&gt;* > *&lt;nom de votre module&gt;*.cs**
+- Azure Function (C#) : **modules > *&lt;nom de votre module&gt;*  >  *&lt;nom de votre module&gt;* .cs**
 - C# : **modules > *&lt;nom de votre module&gt;* > Program.cs**
 - Python : **modules > *&lt;nom de votre module&gt;* > main.py**
 - Node.js : **modules > *&lt;nom de votre module&gt;* > app.js**
 - Java : **modules > *&lt;nom de votre module&gt;* > src > main > java > com > edgemodulemodules > App.java**
 - C : **modules > *&lt;nom de votre module&gt;* > main.c**
 
-Le module et le fichier deployment.template.json sont définis de manière à vous permettre de générer la solution, de l’envoyer vers votre registre de conteneurs et de la déployer sur un appareil pour commencer les tests, sans avoir à utiliser de code. Le module est conçu pour récupérer les entrées d’une source (dans ce cas, le module tempSensor qui simule des données) et les acheminer vers IoT Hub.
+Le module et le fichier deployment.template.json sont définis de manière à vous permettre de générer la solution, de l’envoyer vers votre registre de conteneurs et de la déployer sur un appareil pour commencer les tests, sans avoir à utiliser de code. Le module est conçu pour récupérer facilement les entrées d’une source (dans ce cas, le module SimulatedTemperatureSensor qui simule des données) et les acheminer vers IoT Hub.
 
 Lorsque vous êtes prêt à personnaliser le modèle avec votre propre code, utilisez les kits [SDK Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) pour générer des modules répondant aux besoins des solutions IoT, tels que la sécurité, la gestion des appareils et la fiabilité.
 
@@ -154,7 +154,7 @@ Pour configurer et démarrer le simulateur, exécutez la commande **Azure IoT Ed
 
 1. Préparez votre environnement pour le débogage conformément aux exigences de votre langage de développement, définissez un point d'arrêt dans votre module et sélectionnez la configuration de débogage à utiliser :
    - **C#**
-     - Dans le terminal intégré Visual Studio Code, remplacez le répertoire par le ***&lt;le nom de votre module&gt;*** dossier, puis exécutez la commande suivante pour générer l’application .NET Core.
+     - Dans le terminal intégré de Visual Studio Code, remplacez le répertoire par le dossier ***&lt;nom de votre module&gt;***, puis exécutez la commande suivante pour générer l’application .NET Core.
 
        ```cmd
        dotnet build
@@ -165,7 +165,7 @@ Pour configurer et démarrer le simulateur, exécutez la commande **Azure IoT Ed
      - Accédez à l'affichage Débogage de Visual Studio Code en sélectionnant **Affichage > Déboguer**. Sélectionnez la configuration de débogage ***&lt;Débogage local de &gt;* nom de votre module (.NET Core)** dans la liste déroulante.
 
         > [!NOTE]
-        > Si .NET Core `TargetFramework` n’est pas cohérente avec votre chemin d’accès de programme dans `launch.json`, vous devez mettre à jour manuellement le chemin d’accès de programme dans `launch.json` pour faire correspondre le `TargetFramework` dans votre fichier .csproj afin que Visual Studio Code peut le lancement avec succès programme.
+        > Si votre `TargetFramework` .NET Core ne correspond pas au chemin de votre programme dans `launch.json`, vous devrez le mettre à jour manuellement dans `launch.json` pour qu’il corresponde au `TargetFramework` de votre fichier .csproj afin que Visual Studio Code puisse lancer ce programme.
 
    - **Node.JS**
      - Dans le terminal intégré de Visual Studio Code, remplacez le répertoire par le dossier ***&lt;nom de votre module&gt;***, puis exécutez la commande suivante pour installer les packages Node.
@@ -226,7 +226,7 @@ Sur votre ordinateur de développement, plutôt que d'installer le démon de sé
 
 1. Dans l'affichage Explorateur de Visual Studio Code, cliquez sur le fichier `deployment.debug.template.json` de votre solution, puis sélectionnez **Générer et exécuter la solution IoT Edge dans le simulateur**. Vous pouvez surveiller tous les journaux d’activité du conteneur de module dans la même fenêtre. Vous pouvez aussi accéder à l'affichage Docker pour surveiller l'état du conteneur.
 
-   ![Surveiller des variables](media/how-to-develop-csharp-module/view-log.png)
+   ![Surveiller des variables](media/how-to-vs-code-develop-module/view-log.png)
 
 1. Accédez à l'affichage Débogage de Visual Studio Code, puis sélectionnez le fichier de configuration du débogage de votre module. Le nom de l'option de débogage doit être semblable à ***&lt;Débogage distant de &gt;* nom de votre module**
 
@@ -269,22 +269,22 @@ Lors du débogage de modules à l’aide de cette méthode, vos modules s’exé
       ptvsd.break_into_debugger()
       ```
 
-     Par exemple, si vous souhaitez déboguer la méthode `receive_message_callback`, insérez cette ligne de code comme indiqué ci-dessous :
+     Par exemple, si vous souhaitez déboguer la fonction `receive_message_listener`, insérez cette ligne de code comme indiqué ci-dessous :
 
       ```python
-      def receive_message_callback(message, hubManager):
+      def receive_message_listener(client):
           ptvsd.break_into_debugger()
-          global RECEIVE_CALLBACKS
-          message_buffer = message.get_bytearray()
-          size = len(message_buffer)
-          print ( "    Data: <<<%s>>> & Size=%d" % (message_buffer[:size].decode ('utf-8'), size) )
-          map_properties = message.properties()
-          key_value_pair = map_properties.get_internals()
-          print ( "    Properties: %s" % key_value_pair )
-          RECEIVE_CALLBACKS += 1
-          print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
-          hubManager.forward_event_to_output("output1", message, 0)
-          return IoTHubMessageDispositionResult.ACCEPTED
+          global RECEIVED_MESSAGES
+          while True:
+              message = client.receive_message_on_input("input1")   # blocking call
+              RECEIVED_MESSAGES += 1
+              print("Message received on input1")
+              print( "    Data: <<{}>>".format(message.data) )
+              print( "    Properties: {}".format(message.custom_properties))
+              print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
+              print("Forwarding message to output1")
+              client.send_message_to_output(message, "output1")
+              print("Message successfully forwarded")
       ```
 
 1. Dans la palette de commandes de Visual Studio Code :

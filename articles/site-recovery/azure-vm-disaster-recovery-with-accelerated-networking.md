@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: c7edc7979636ced8697aa5ad724f9c6600d840bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283356"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60772487"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Mise en réseau accélérée avec la récupération d’urgence de machines virtuelles Azure
 
@@ -24,7 +24,7 @@ Une mise en réseau accélérée permet d’opérer une virtualisation d’E/S d
 
 Azure Site Recovery vous permet d’utiliser les avantages de la mise en réseau accélérée, pour les machines virtuelles Azure basculées vers une autre région Azure. Cet article décrit comment utiliser la mise en réseau accélérée pour les machines virtuelles Azure répliquées avec Azure Site Recovery.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que vous connaissez suffisamment les sujets suivants :
 -   [Architecture de réplication](azure-to-azure-architecture.md) des machines virtuelles Azure

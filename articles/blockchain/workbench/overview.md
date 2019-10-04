@@ -1,25 +1,27 @@
 ---
-title: Présentation d’Azure Blockchain Workbench
-description: Présentation d’Azure Blockchain Workbench et de ses fonctionnalités.
+title: Vue d’ensemble d’Azure Blockchain Workbench (préversion)
+description: Vue d’ensemble d’Azure Blockchain Workbench (préversion) et de ses fonctionnalités.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 09/05/2019
 ms.topic: overview
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 58fd09726f05ba442c66387ecbd6cfad37f598e1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 097185502321c8810214ed737047bdf596d18bdb
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332555"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844105"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Qu’est-ce qu’Azure Blockchain Workbench ?
 
-Azure Blockchain Workbench est une collection de services et de fonctionnalités Azure conçue pour vous aider à créer et à déployer des applications blockchain afin de partager des processus métier et des données avec d’autres organisations. Azure Blockchain Workbench fournit la génération de modèles automatique d’infrastructure pour générer des applications blockchain permettant aux développeurs de se concentrer sur la création d’une logique métier et de contrats intelligents. Il facilite aussi la création d’applications blockchain en intégrant plusieurs services et fonctionnalités Azure pour vous aider à automatiser les tâches de développement courantes.
+La préversion d’Azure Blockchain Workbench est une collection de services et de fonctionnalités Azure conçus pour vous aider à créer et à déployer des applications blockchain afin de partager des processus métier et des données avec d’autres organisations. Azure Blockchain Workbench fournit la génération de modèles automatique d’infrastructure pour générer des applications blockchain permettant aux développeurs de se concentrer sur la création d’une logique métier et de contrats intelligents. Il facilite aussi la création d’applications blockchain en intégrant plusieurs services et fonctionnalités Azure pour vous aider à automatiser les tâches de développement courantes.
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## <a name="create-blockchain-applications"></a>Créer des applications blockchain
 
@@ -41,13 +43,13 @@ Workbench remet automatiquement des événements à Service Bus et Event Grid po
 
 Azure Blockchain Workbench simplifie la configuration du consortium du réseau blockchain en tant que solution préconfigurée avec un modèle de solution Azure Resource Manager. Le modèle fournit un déploiement simplifié qui déploie tous les composants nécessaires à l’exécution d’un consortium. Aujourd'hui, Blockchain Workbench prend en charge Ethereum.
 
-## <a name="use-active-directory-login"></a>Utiliser la connexion Active Directory
+## <a name="use-active-directory"></a>Utiliser Active Directory
 
 Avec les protocoles blockchain existants, les identités du blockchain sont représentées sous forme d’une adresse sur le réseau. Azure Blockchain Workbench élimine l’identité du blockchain en l’associant à une identité Active Directory, simplifiant ainsi la génération d’applications d’entreprise avec des identités Active Directory.
 
 ## <a name="synchronize-on-chain-data-with-off-chain-storage"></a>Synchroniser les données on-chain avec le stockage off-chain
 
-Azure Blockchain Workbench facilite l’analyse de données et d’événements du blockchain en synchronisant automatiquement les données sur le blockchain avec le stockage off-chain. Au lieu d’extraire les données directement à partir du blockchain, vous pouvez interroger des systèmes de base de données off-chain, comme SQL Server. Une expertise spécifique à Blockchain n’est pas nécessaire pour les utilisateurs finaux qui effectuent des tâches d’analyse des données. 
+Azure Blockchain Workbench facilite l’analyse de données et d’événements du blockchain en synchronisant automatiquement les données sur le blockchain avec le stockage off-chain. Au lieu d’extraire les données directement à partir du blockchain, vous pouvez interroger des systèmes de base de données off-chain, comme SQL Server. Les utilisateurs finaux qui effectuent des tâches d'analyse des données ne doivent pas nécessairement posséder de connaissances en matière de blockchains.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

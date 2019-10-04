@@ -4,18 +4,18 @@ description: Utilisez l'interface Azure CLI pour gérer votre compte, votre base
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 4/8/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1d19e58b2d1381725de490b68d9e4d00a2ca4cb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f9d8bf9161343e4b36a3c16209873962b69d8af5
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495479"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615208"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gérer les ressources Azure Cosmos à l’aide d’Azure CLI
 
-Le guide suivant décrit les commandes courantes pour automatiser la gestion de vos comptes Azure Cosmos DB, les bases de données et les conteneurs à l’aide d’Azure CLI. Des pages d’informations de référence pour toutes les commandes Azure Cosmos DB CLI sont disponibles dans les [Informations de référence sur Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb). Vous trouverez également des exemples dans [Exemples Azure CLI pour Azure Cosmos DB](cli-samples.md), notamment sur la création et la gestion de comptes, bases de données et conteneurs Cosmos DB pour les API MongoDB, Gremlin, Cassandra et Table.
+Le guide suivant décrit les commandes courantes permettant d’automatiser la gestion de vos comptes, bases de données et conteneurs Azure Cosmos DB à l’aide de l’interface Azure CLI. Des pages d’informations de référence pour toutes les commandes Azure Cosmos DB CLI sont disponibles dans les [Informations de référence sur Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb). Vous trouverez également des exemples dans [Exemples Azure CLI pour Azure Cosmos DB](cli-samples.md), notamment sur la création et la gestion de comptes, bases de données et conteneurs Cosmos DB pour les API MongoDB, Gremlin, Cassandra et Table.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -23,15 +23,16 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Création d’un compte Azure Cosmos DB
 
-Pour créer un compte Azure Cosmos DB avec l’API SQL, la cohérence de Session dans les régions est et ouest des États-Unis, exécutez la commande suivante :
+Pour créer un compte Azure Cosmos DB avec prise en charge de l’API SQL et de la cohérence de session dans les régions USA Est et USA Ouest, exécutez la commande suivante :
 
 ```azurecli-interactive
 az cosmosdb create \
-   --name mycosmosdbaccount \
+   --name mycosmosdbaccount # must be lowercase and < 31 characters \
    --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
-   --locations EastUS=0 WestUS=1 \
+   --locations regionName=EastUS failoverPriority=0 isZoneRedundant=False \
+   --locations regionName=WestUS failoverPriority=1 isZoneRedundant=False \
    --enable-multiple-write-locations false
 ```
 
@@ -40,7 +41,7 @@ az cosmosdb create \
 
 ## <a name="create-a-database"></a>Créer une base de données
 
-Pour créer une base de données Cosmos DB, exécutez la commande suivante :
+Exécutez la commande suivante pour créer une base de données Cosmos :
 
 ```azurecli-interactive
 az cosmosdb database create \
@@ -51,7 +52,7 @@ az cosmosdb database create \
 
 ## <a name="create-a-container"></a>Créez un conteneur.
 
-Pour créer un conteneur Cosmos DB avec RU/s de 400 et une clé de partition, exécutez la commande suivante :
+Pour créer un conteneur Cosmos avec un taux de RU/s de 400 et une clé de partition, exécutez la commande suivante :
 
 ```azurecli-interactive
 # Create a container
@@ -66,7 +67,7 @@ az cosmosdb collection create \
 
 ## <a name="change-the-throughput-of-a-container"></a>Modifier le débit d’un conteneur
 
-Pour modifier le débit d’un conteneur Cosmos DB à 1000 RU/s, exécutez la commande suivante :
+Pour changer le débit d’un conteneur Cosmos afin de passer à un taux de RU/s de 1000, exécutez la commande suivante :
 
 ```azurecli-interactive
 # Update container throughput
@@ -80,18 +81,18 @@ az cosmosdb collection update \
 
 ## <a name="list-account-keys"></a>Répertorier les clés de compte
 
-Pour obtenir les clés pour votre compte Cosmos, exécutez la commande suivante :
+Pour obtenir les clés de votre compte Cosmos, exécutez la commande suivante :
 
 ```azurecli-interactive
 # List account keys
-az cosmosdb list-keys \
+az cosmosdb keys list \
    --name  mycosmosdbaccount \
    --resource-group myResourceGroup
 ```
 
 ## <a name="list-connection-strings"></a>Répertorier les chaînes de connexion
 
-Pour obtenir les chaînes de connexion pour votre compte Cosmos, exécutez la commande suivante :
+Pour obtenir les chaînes de connexion de votre compte Cosmos, exécutez la commande suivante :
 
 ```azurecli-interactive
 # List connection strings
@@ -102,7 +103,7 @@ az cosmosdb list-connection-strings \
 
 ## <a name="regenerate-account-key"></a>Régénérer la clé de compte
 
-Pour régénérer une nouvelle clé primaire pour votre compte Cosmos, exécutez la commande suivante :
+Pour générer à nouveau une clé primaire pour votre compte Cosmos, exécutez la commande suivante :
 
 ```azurecli-interactive
 # Regenerate account key

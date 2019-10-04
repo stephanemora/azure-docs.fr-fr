@@ -4,14 +4,14 @@ description: Découvrez les concepts du contrôle d’accès dans Azure Cosmos D
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 133181fcc76d759a57725df1ff965966f3797399
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: f2e01e42a53f6f099191c03f45d6521668ea73a1
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245709"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616682"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Sécuriser l’accès aux données dans Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Azure Cosmos DB utilise deux types de clés pour authentifier les utilisateurs e
 
 ## <a name="master-keys"></a>Clés principales 
 
-Les clés principales fournissent un accès à toutes les ressources d’administration du compte de base de données. Clés principales :  
+Les clés principales fournissent un accès à toutes les ressources administratives du compte de base de données. Clés principales :  
 - Fournissent un accès aux comptes, aux bases de données, aux utilisateurs et aux autorisations. 
 - Ne peuvent pas être utilisées pour fournir un accès précis aux conteneurs et aux documents.
 - Sont créées lors de la création d’un compte.
@@ -105,7 +105,7 @@ Pour obtenir un exemple de service de niveau intermédiaire utilisé pour géné
 <a id="users"></a>
 
 ## <a name="users"></a>Utilisateurs
-Les utilisateurs d’Azure Cosmos DB sont associés à une base de données Cosmos DB.  Chaque base de données peut contenir zéro, un ou plusieurs utilisateurs Azure Cosmos DB.  L’exemple de code suivant indique comment créer une ressource utilisateur DocumentDB.
+Les utilisateurs d’Azure Cosmos DB sont associés à une base de données Cosmos.  Chaque base de données peut contenir zéro, un ou plusieurs utilisateurs Azure Cosmos DB.  L’exemple de code suivant indique comment créer une ressource utilisateur DocumentDB.
 
 ```csharp
 //Create a user.
@@ -178,7 +178,7 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 Pour ajouter l’accès en lecture aux comptes Azure Cosmos DB à votre compte d’utilisateur, demandez à un propriétaire d’abonnement d’effectuer les étapes suivantes dans le portail Azure.
 
 1. Ouvrez le portail Azure, puis sélectionnez votre compte Azure Cosmos DB.
-2. Cliquez sur l’onglet **Contrôle d’accès (IAM)**, puis cliquez sur **+ Ajouter une attribution de rôle**.
+2. Cliquez sur l’onglet **Contrôle d’accès (IAM)** , puis cliquez sur **+ Ajouter une attribution de rôle**.
 3. Dans le volet **Ajouter une attribution de rôle**, dans la zone **Rôle**, sélectionnez **Rôle de lecteur de compte Cosmos DB**.
 4. Dans la zone **Attribuer l’accès à**, sélectionnez **Utilisateur, groupe ou application Azure AD**.
 5. Dans votre annuaire, sélectionnez l’utilisateur, le groupe ou l’application qui doit recevoir l’accès.  Dans l’annuaire, vous pouvez rechercher des noms d’affichage, des adresses e-mail et des identificateurs d’objet.
@@ -193,5 +193,5 @@ Azure Cosmos DB vous permet de rechercher, de sélectionner, de modifier et de s
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur la sécurité de la base de données Azure Cosmos DB, consultez [Azure Cosmos DB : Sécurité de la base de données](database-security.md).
+* Pour en savoir plus sur la sécurité de la base de données Azure Cosmos, consultez [Azure Cosmos DB : Sécurité de la base de données](database-security.md).
 * Pour savoir comment créer des jetons d’autorisation Azure Cosmos DB, consultez [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) (Contrôle d’accès aux ressources Azure Cosmos DB).

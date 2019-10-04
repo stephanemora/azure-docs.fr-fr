@@ -1,6 +1,6 @@
 ---
-title: Créer des alertes de performances à l’aide d’Azure Monitor pour les conteneurs | Microsoft Docs
-description: Cet article décrit comment utiliser Azure Monitor pour les conteneurs pour créer des alertes personnalisées basées sur des requêtes de journal pour la mémoire et l’utilisation du processeur.
+title: Créer des alertes de performances à l’aide d’Azure Monitor pour conteneurs | Microsoft Docs
+description: Cet article explique comment créer des alertes personnalisées basées sur des requêtes de journal relatives à l’utilisation de la mémoire et de l’UC à partir d’Azure Monitor pour conteneurs.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,33 +11,34 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 04/26/2019
 ms.author: magoedte
-ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 2b1ee0e56b5a133e65a25b5d9af645f351d039c0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998649"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722679"
 ---
-# <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Comment configurer des alertes pour les problèmes de performances dans Azure Monitor pour les conteneurs
-Azure Monitor pour les conteneurs surveille les performances des charges de travail de conteneur qui sont déployés sur Azure Container Instances ou sur managed Kubernetes clusters qui sont hébergés sur Azure Kubernetes Service (AKS).
+# <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Comment configurer des alertes pour des problèmes de performances dans Azure Monitor pour conteneurs
+Azure Monitor pour conteneurs supervise les performances des charges de travail de conteneur déployées sur Azure Container Instances ou sur des clusters Kubernetes managés hébergés sur Azure Kubernetes Service (AKS).
 
 Cet article décrit comment activer les alertes pour les situations suivantes :
 
-* Lorsque l’utilisation du processeur ou mémoire sur les nœuds de cluster dépasse un seuil défini.
-* Lorsque l’utilisation du processeur ou mémoire sur n’importe quel conteneur au sein d’un contrôleur dépasse un seuil défini par rapport à une limite qui est définie sur la ressource correspondante
-* *NotReady* nœud État du compte
-*  *Échec de*, *en attente*, *inconnu*, *en cours d’exécution*, ou *Succeeded* compte de la phase de pod
+- Lorsque l’utilisation de la mémoire ou de l’UC sur les nœuds de cluster dépasse un seuil
+- Lorsque l’utilisation de la mémoire ou de l’UC sur n’importe quel conteneur au sein d’un contrôleur dépasse un seuil par rapport à une limite définie sur la ressource correspondante
+- Nombre de nœuds à l’état *Non prêt*
+- Nombre de phases de pod à l’état *Échec*, *En attente*, *Inconnu*, *En cours d’exécution* ou *Réussite*
+- Lorsque espace disque libre sur les nœuds de cluster dépasse un seuil 
 
-Pour alerter en cas de processeur élevé ou utilisation de la mémoire sur les nœuds de cluster, utilisez les requêtes qui sont fournis pour créer une alerte de mesure ou une alerte de mesure métrique. Alertes de métrique ont une latence plus faible que les alertes de journal. Mais fournissent des alertes de journal d’interrogation avancées et complexité. Requêtes comparent une valeur datetime jusqu'à présent à l’aide des alertes de journal le *maintenant* opérateur et en accédant à une heure de sauvegarde. (Azure Monitor pour les conteneurs stocke toutes les dates au format de temps universel coordonné (UTC).)
+Pour alerter en cas d’utilisation élevée de la mémoire ou de l’UC, ou de manque d’espace disponible sur les nœuds de cluster, utilisez les requêtes fournies pour créer une alerte de métrique ou une alerte de mesure de métrique. Les alertes de métrique ont une latence plus faible que les alertes de journal. Mais les alertes de journal permettent d’effectuer des requêtes avancées et plus complexes. Les requêtes d’alerte comparent une valeur DateHeure au présent en utilisant l’opérateur *maintenant* et en remontant d’une heure. (Azure Monitor pour conteneurs stocke toutes les dates au format de temps universel coordonné (UTC).)
 
-Si vous n’êtes pas familiarisé avec les alertes Azure Monitor, consultez [vue d’ensemble des alertes dans Microsoft Azure](../platform/alerts-overview.md) avant de commencer. Pour en savoir plus sur les alertes qui utilisent des requêtes de journal, consultez [alertes de journal dans Azure Monitor](../platform/alerts-unified-log.md). Pour plus d’informations sur les alertes de métriques, consultez [alertes de métrique dans Azure Monitor](../platform/alerts-metric-overview.md).
+Avant de commencer, si vous n’êtes pas familiarisé avec les alertes d’Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../platform/alerts-overview.md). Pour en savoir plus sur les alertes utilisant des requêtes de journal, consultez [Alertes de journal dans Azure Monitor](../platform/alerts-unified-log.md). Pour en savoir plus sur les alertes de métrique, consultez [Alertes de métriques dans Azure Monitor](../platform/alerts-metric-overview.md).
 
-## <a name="resource-utilization-log-search-queries"></a>Requêtes de recherche de journal l’utilisation des ressources
-Les requêtes dans cette section prend en charge chaque scénario d’alerte. Ils sont utilisés à l’étape 7 de la [créer alerte](#create-an-alert-rule) section de cet article.
+## <a name="resource-utilization-log-search-queries"></a>Requêtes de recherche de journal concernant l’utilisation des ressources
+Les requêtes de cette section prennent en charge chaque scénario d’alerte. Elles sont utilisées à l’étape 7 de la section [Créer une alerte](#create-an-alert-rule) de cet article.
 
-La requête suivante calcule l’utilisation moyenne du processeur en moyenne d’utilisation du processeur de nœuds de membres toutes les minutes.  
+La requête suivante calcule l’utilisation moyenne de l’UC en tant que moyenne de l’utilisation par l’UC par les nœuds membres à chaque minute.  
 
 ```kusto
 let endDateTime = now();
@@ -72,7 +73,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 
-La requête suivante calcule le taux d’utilisation moyenne de la mémoire comme une moyenne d’utilisation de la mémoire des nœuds membres toutes les minutes.
+La requête suivante calcule l’utilisation moyenne de la mémoire en tant que moyenne de l’utilisation de la mémoire par les nœuds membres à chaque minute.
 
 ```kusto
 let endDateTime = now();
@@ -107,9 +108,9 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->Les requêtes suivantes utilisent les valeurs d’espace réservé \<your-cluster-name > et \<your-contrôleur-name > pour représenter votre cluster et le contrôleur. Remplacez-les par des valeurs spécifiques à votre environnement lorsque vous définissez des alertes.
+>Les requêtes suivantes utilisent les valeurs d’espace réservé \<your-cluster-name > et \<your-controller-name > pour représenter votre cluster et votre contrôleur. Remplacez-les par des valeurs propres à votre environnement lorsque vous définissez des alertes.
 
-La requête suivante calcule l’utilisation moyenne du processeur de tous les conteneurs dans un contrôleur comme une moyenne de l’utilisation du processeur de chaque instance de conteneur dans un contrôleur de toutes les minutes. La mesure est un pourcentage de la limite configurée pour un conteneur.
+La requête suivante calcule l’utilisation moyenne de l’UC de tous les conteneurs d’un contrôleur en tant que moyenne de l’utilisation de l’UC de chaque instance de conteneur dans un contrôleur à chaque minute. La mesure est un pourcentage de la limite configurée pour un conteneur.
 
 ```kusto
 let endDateTime = now();
@@ -149,7 +150,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-La requête suivante calcule l’utilisation moyenne de la mémoire de tous les conteneurs dans un contrôleur en moyenne d’utilisation de la mémoire de chaque instance de conteneur dans un contrôleur de toutes les minutes. La mesure est un pourcentage de la limite configurée pour un conteneur.
+La requête suivante calcule l’utilisation moyenne de la mémoire de tous les conteneurs d’un contrôleur en tant que moyenne de l’utilisation de la mémoire de chaque instance de conteneur dans un contrôleur à chaque minute. La mesure est un pourcentage de la limite configurée pour un conteneur.
 
 ```kusto
 let endDateTime = now();
@@ -189,7 +190,7 @@ KubePodInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
 
-La requête suivante retourne tous les nœuds et les nombres dont l’état de *prêt* et *NotReady*.
+La requête suivante renvoie tous les nœuds et combien d’entre eux ont l’état *Prêt* et *Non prêt*.
 
 ```kusto
 let endDateTime = now();
@@ -216,7 +217,7 @@ KubeNodeInventory
             NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
 | order by ClusterName asc, Computer asc, TimeGenerated desc
 ```
-La requête suivante retourne le nombre de phase de pod basée sur toutes les phases : *Échec de*, *en attente*, *inconnu*, *en cours d’exécution*, ou *a réussi*.  
+La requête suivante renvoie le nombre de phase de pod en fonction de toutes les phases : *Échec*, *En attente*, *Inconnu*, *En cours d’exécution* ou *Réussite*.  
 
 ```kusto
 let endDateTime = now();
@@ -253,37 +254,64 @@ let endDateTime = now();
 ```
 
 >[!NOTE]
->Alerter sur certaines phases pod, telles que *en attente*, *échec*, ou *inconnu*, modifiez la dernière ligne de la requête. Par exemple, pour générer des alertes sur *FailedCount* utiliser : <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
+>Pour alerter sur certaines phases pod, telles que *En attente*, *Échec* ou *Inconnu*, modifiez la dernière ligne de la requête. Par exemple, pour générer des alertes sur *FailedCount*, utilisez : <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
+
+La requête suivante renvoie les disques de nœuds de clusters qui dépassent 90 % d’espace utilisé. Pour obtenir l’ID de cluster, exécutez tout d’abord la requête suivante et copiez la valeur de la propriété `ClusterId` :
+
+```kusto
+InsightsMetrics
+| extend Tags = todynamic(Tags)            
+| project ClusterId = Tags['container.azm.ms/clusterId']   
+| distinct tostring(ClusterId)   
+``` 
+
+```kusto
+let clusterId = '<cluster-id>';
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+InsightsMetrics
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| where Origin == 'container.azm.ms/telegraf'            
+| where Namespace == 'container.azm.ms/disk'            
+| extend Tags = todynamic(Tags)            
+| project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
+| where ClusterId =~ clusterId       
+| where DiskMetricName == 'used_percent'
+| summarize AggregatedValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
+| where AggregatedValue >= 90
+```
 
 ## <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
-Suivez ces étapes pour créer une alerte de journal dans Azure Monitor en utilisant l’une des règles de recherche de journal qui a été fourni précédemment.  
+Suivez ces étapes pour créer une alerte de journal dans Azure Monitor en utilisant l’une des règles de recherche dans les journaux fournis précédemment.  
 
 >[!NOTE]
->La procédure suivante pour créer une règle d’alerte pour l’utilisation des ressources de conteneur, vous devez basculer vers un nouveau journal alertes API comme décrit dans [préférence de basculer les API pour les alertes de journal](../platform/alerts-log-api-switch.md).
+>La procédure suivante visant à créer une règle d’alerte pour l’utilisation des ressources de conteneur requiert de basculer vers une nouvelle API d’alertes de journal, comme décrit dans [Changer de préférence d’API pour les alertes de journal](../platform/alerts-log-api-switch.md).
 >
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Sélectionnez **moniteur** dans le volet situé à gauche. Sous **Insights**, sélectionnez **conteneurs**.
-3. Sur le **Clusters analysés** , sélectionnez un cluster à partir de la liste.
-4. Dans le volet situé à gauche sous **surveillance**, sélectionnez **journaux** pour ouvrir la page de journaux Azure Monitor. Cette page vous permet d’écrire et exécuter des requêtes d’Analytique de journal Azure.
-5. Sur le **journaux** page, sélectionnez **+ nouvelle règle d’alerte**.
-6. Dans le **Condition** section, sélectionnez le **chaque fois que le journal recherche personnalisée est \<logique non définie >** prédéfinis de condition de journal personnalisé. Le **recherche de journal personnalisée** type de signal est sélectionné automatiquement, car nous créons une règle d’alerte directement à partir de la page des journaux Azure Monitor.  
-7. Collez un de le [requêtes](#resource-utilization-log-search-queries) fourni précédemment dans le **requête de recherche** champ.
+2. Sélectionnez **Monitor** dans le volet situé à gauche. Sous **Insights**, sélectionnez **Conteneurs**.
+3. Dans la liste de l’onglet **Clusters supervisés**, sélectionnez un cluster.
+4. Dans le volet situé à gauche sous **Surveillance**, sélectionnez **Journaux** pour ouvrir la page de journaux Azure Monitor. Cette page vous permet d’écrire et exécuter des requêtes Azure Log Analytics.
+5. Sur la page **Journaux**, sélectionnez **+ Nouvelle règle d’alerte**.
+6. Dans la section **Condition**, sélectionnez la condition de journal personnalisée prédéfinie **Chaque fois que la recherche dans les journaux est \<logique non définie>** . Le type de signal **Recherche dans les journaux d’activité personnalisée** est automatiquement sélectionné pour nous parce que nous créons une règle d’alerte directement à partir de la page de journaux d’Azure Monitor.  
+7. Collez l’une des [requêtes](#resource-utilization-log-search-queries) fournies précédemment dans le champ **Requête de recherche**.
 8. Configurez l’alerte comme suit :
 
-    1. Dans la liste déroulante **Basé sur**, sélectionnez **Mesure des métriques**. Une mesure métrique crée une alerte pour chaque objet dans la requête qui a une valeur supérieure à notre seuil spécifié.
-    1. Pour **Condition**, sélectionnez **supérieur**, puis entrez **75** comme une base de référence initiale **seuil**. Ou entrez une valeur différente qui répond à vos critères.
-    1. Dans le **déclencheur alerte basés sur** section, sélectionnez **violations consécutives**. Dans la liste déroulante, sélectionnez **supérieur**, puis entrez **2**.
-    1. Pour configurer une alerte pour l’UC du conteneur ou l’utilisation de la mémoire, sous **agréger sur**, sélectionnez **ContainerName**. 
-    1. Dans le **évalué selon** section, définissez le **période** valeur **60 minutes**. La règle exécute toutes les 5 minutes et retourner les enregistrements qui ont été créés dans la dernière heure à partir de l’heure actuelle. Définition de la période de temps pour des comptes d’une fenêtre large potentiels latence des données. Elle garantit également que la requête retourne des données afin d’éviter un faux négatif dans lequel l’alerte se déclenche jamais.
+    1. Dans la liste déroulante **Basé sur**, sélectionnez **Mesure des métriques**. Une mesure des métriques crée une alerte pour chaque objet de la requête dont la valeur dépasse le seuil spécifié.
+    1. Pour **Condition**, sélectionnez **Supérieur à**, puis entrez **75** comme **Seuil** de ligne de base initiale pour les alertes d’utilisation de la mémoire et de l’UC. Pour l’alerte d’espace disque faible, entrez **90**. Ou saisissez une valeur différente qui répond à vos critères.
+    1. Dans la section **Déclencher l’alerte selon**, sélectionnez **Violations consécutives**. Dans la liste déroulante, sélectionnez **Supérieur à**, puis entrez **2**.
+    1. Pour configurer une alerte pour l’utilisation de la mémoire ou l’UC du conteneur, sous **Agréger sur**, sélectionnez **ContainerName**. Pour configurer l’alerte de disque faible de nœud de cluster, sélectionnez **ClusterId**.
+    1. Dans la section **Évaluées sur la base de**, définissez la valeur de **Période** sur **60 minutes**. La règle s’exécute toutes les 5 minutes et renvoie les enregistrements qui ont été créés au cours de la dernière heure. Le fait de définir la période sur une fenêtre d’une certaine amplitude permet de tenir compte d’une potentielle latence des données. Cela garantit également que la requête renvoie des données afin d’éviter un faux négatif dans lequel l’alerte se déclenche jamais.
 
-9. Sélectionnez **fait** pour terminer la règle d’alerte.
-10. Entrez un nom dans la **nom de la règle d’alerte** champ. Spécifiez un **Description** qui fournit des détails sur l’alerte. Et sélectionnez un niveau de gravité approprié parmi les options fournies.
-11. Pour activer immédiatement la règle d’alerte, acceptez la valeur par défaut **activer la règle lors de la création**.
-12. Sélectionnez un **groupe d’actions** ou créez un nouveau groupe. Cette étape garantit que la même action chaque fois qu’une alerte est déclenchée. Configurer selon la façon dont votre service informatique ou de l’équipe des opérations DevOps gère les incidents.
-13. Sélectionnez **créer une règle d’alerte** pour terminer la règle d’alerte. Son exécution démarre immédiatement.
+9. Sélectionnez **Terminé** pour terminer la règle d’alerte.
+10. Entrez un nom dans le champ **Nom de la règle d’alerte**. Spécifiez une **description** qui fournit des détails sur l’alerte. Enfin, sélectionnez un niveau de gravité approprié parmi les options proposées.
+11. Pour activer immédiatement la règle d’alerte, acceptez la valeur par défaut pour l’option **Activer la règle lors de sa création**.
+12. Sélectionnez un **groupe d’actions** existant ou créez-en un. Cette étape garantit que chaque déclenchement d’alerte entraîne la même action. Choisissez la configuration en fonction de la façon dont l’équipe chargée des opérations informatiques ou de DevOps gère les incidents.
+13. Sélectionnez **Créer une règle d’alerte** pour terminer la règle d’alerte. Son exécution démarre immédiatement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Vue [connecter des exemples de requêtes](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples pour évaluer ou personnaliser pour génération d’alertes, la visualisation ou l’analyse de vos clusters.
-- Pour en savoir plus sur Azure Monitor et comment surveiller d’autres aspects de votre cluster AKS, consultez [vue Azure Kubernetes Service health](container-insights-analyze.md).
+- Consultez les [exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir les requêtes prédéfinies et des exemples permettant d’évaluer ou de personnaliser la génération d’alertes, la visualisation ou l’analyse de vos clusters.
+- Pour en savoir plus sur Azure Monitor et la façon de surveiller d’autres aspects de votre cluster AKS, voir [Afficher l’intégrité d’Azure Kubernetes Service](container-insights-analyze.md).

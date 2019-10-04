@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: a4ca5cba924a3269f279469f26e68acdb0ad0659
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3c23cc4fc7647cffa98cff9310498f683fda6328
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257618"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275716"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Présentation d’Azure Lab Services
 Azure Lab Services vous permet de configurer rapidement un environnement pour votre équipe (par exemple : un environnement de développement, un environnement de test, un environnement de laboratoire de salle de classe) dans le cloud. Le propriétaire d’un laboratoire crée un laboratoire, configure Windows ou des machines virtuelles Linux, installe les logiciels et outils nécessaires, puis les rend disponibles aux utilisateurs du laboratoire. Les utilisateurs du laboratoire se connectent à des machines virtuelles (VM) dans le laboratoire puis s’en servent pour leurs tâches quotidiennes, leurs projets à court terme ou les exercices en classe. Lorsque les utilisateurs commencent à exploiter les ressources du laboratoire, un administrateur de laboratoire peut analyser les coûts et l’utilisation entre plusieurs laboratoires et définir des stratégies globales afin d’optimiser les coûts de l’équipe ou de l’organisation.
@@ -39,7 +39,7 @@ Azure Lab Services prend en charge les fonctionnalités clés suivantes :
 - **Intégration dans vos flux de travail et outils**. Azure Lab Services vous permet d’intégrer les laboratoires dans le site Web et les systèmes de gestion de votre organisation. Vous pouvez automatiquement mettre en service les environnements à l’aide de vos outils de déploiement/intégration (CI/CD) en continu. (uniquement disponible dans DevTest Labs actuellement)
 
 > [!NOTE]
-> Actuellement, Azure Lab Services ne prend en charge que les machines virtuelles créées à partir d’images de la Place de marché Azure. Si vous souhaitez utiliser des images personnalisées ou créer d’autres ressources PaaS dans un environnement lab, utilisez DevTest Labs. Pour plus d’informations, consultez [Créer une image personnalisée dans DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) et [Créer des environnements lab à l’aide de modèles Resource Manager](devtest-lab-create-environment-from-arm.md).
+> Actuellement, Azure Lab Services ne prend en charge que les machines virtuelles créées à partir d’images de la Place de marché Azure. Si vous souhaitez utiliser des images personnalisées ou créer d’autres ressources PaaS dans un environnement lab, utilisez DevTest Labs. Pour plus d’informations, voir [Créer une image personnalisée dans DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) et [Créer des environnements lab à l’aide de modèles Resource Manager](devtest-lab-create-environment-from-arm.md).
 
 ## <a name="scenarios"></a>Scénarios
 

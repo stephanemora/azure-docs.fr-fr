@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: MT
+ms.openlocfilehash: 317977af9d41163013545a6e5f60bee887da596c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804954"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71262244"
 ---
 # <a name="networking"></a>Mise en réseau
 
@@ -70,7 +70,9 @@ La mise à l’échelle de l’infrastructure est requise pour activer la mise e
 
 * Pour exécuter des charges de travail de conteneur Windows, utilisez le [mode de mise en réseau ouvert](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) afin de simplifier la communication de service à service.
 
-* Utilisez un proxy inversé tel que [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) ou le [proxy inversé Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) pour exposer les ports d’application courants tels que 80 ou 443.
+* Utilisez un proxy inversé tel que [Traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) ou le [proxy inversé Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) pour exposer les ports d’application courants tels que 80 ou 443.
+
+* Pour les conteneurs Windows hébergés sur des machines isolées sous « air gap » qui ne peuvent pas extraire des couches de base du stockage cloud Azure, remplacez le comportement de couche étrangère, en utilisant l’indicateur [--allow-nondistributable-artifacts](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) dans le démon Docker.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

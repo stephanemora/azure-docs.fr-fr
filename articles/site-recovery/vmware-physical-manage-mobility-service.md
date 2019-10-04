@@ -1,27 +1,27 @@
 ---
-title: Gérer l’agent de mobilité sur les serveurs de récupération d’urgence des machines virtuelles VMware et physiques avec Azure Site Recovery | Microsoft Docs
-description: Gérer l’agent du Service mobilité pour la récupération d’urgence de machines virtuelles VMware et des serveurs physiques vers Azure à l’aide du service Azure Site Recovery.
+title: Gérer l’agent Mobilité sur les serveurs pour la récupération d'urgence des serveurs physiques et des machines virtuelles VMware à l'aide d'Azure Site Recovery | Microsoft Docs
+description: Gérez l'agent du service Mobilité pour la récupération d'urgence des serveurs physiques et des machines virtuelles VMware sur Azure à l’aide du service Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 69b8e1c533747d1bade69949911ea43f299f49e9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0a8b3a8bcfc2aa8270d7be140a94e5b83973f3e5
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794233"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972132"
 ---
-# <a name="manage-mobility-agent-on-protected-machines"></a>Gérer l’agent de mobilité sur les ordinateurs protégés
+# <a name="manage-mobility-agent-on-protected-machines"></a>Gérer l’agent Mobilité sur les ordinateurs protégés
 
-Permet de paramétrer l’agent de mobilité sur votre serveur lorsque vous utilisez Azure Site Recovery pour la récupération d’urgence de machines virtuelles VMware et des serveurs physiques vers Azure. Agent de mobilité coordonne la communication entre votre ordinateur protégé, la configuration serveur de processus de serveur/montée en puissance et gère la réplication des données. Cet article résume les tâches courantes de gestion d’agent de mobilité après son déploiement.
+Quand vous utilisez Azure Site Recovery pour la récupération d'urgence de machines virtuelles VMware et de serveurs physiques sur Azure, vous devez configurer l’agent de mobilité sur votre serveur. L’agent de mobilité coordonne la communication entre votre ordinateur protégé, le serveur de configuration/serveur de traitement scale-out et gère la réplication des données. Cet article récapitule les tâches courantes de gestion de l’agent de mobilité après son déploiement.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="update-mobility-service-from-azure-portal"></a>Mettre à jour le service mobilité à partir du portail Azure
+## <a name="update-mobility-service-from-azure-portal"></a>Mettre à jour le service de mobilité à partir du portail Azure
 
 1. Avant de commencer, veillez à ce que le serveur de configuration, les serveurs de processus de scale-out et les serveurs cibles maîtres qui font partie de votre déploiement soient mis à jour avant de procéder à la mise à jour du service Mobilité sur les machines protégées.
 2. Sur le portail, ouvrez le coffre > **Éléments répliqués**.
@@ -35,19 +35,19 @@ Permet de paramétrer l’agent de mobilité sur votre serveur lorsque vous util
 
 5. La tâche Mettre à jour le service Mobilité est alors lancée pour chacune des machines sélectionnées.
 
-## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Mettre à jour de service de mobilité via le script powershell sur le serveur de Windows
+## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Mettre à jour le service de mobilité via le script powershell sur le serveur Windows
 
-Utilisez le script pour mettre à niveau de service de mobilité sur un serveur via l’applet de commande power shell suivant
+Utiliser le script suivant pour mettre à niveau le service de mobilité sur un serveur via la cmdlet power shell
 
 ```azurepowershell
 Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
 
-## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Mettre à jour le compte utilisé pour l’installation push du service mobilité
+## <a name="update-account-used-for-push-installation-of-mobility-service"></a>Mettre à jour le compte utilisé pour l’installation Push du service Mobilité
 
 Au moment du déploiement de Site Recovery, pour activer l’installation Push du service Mobilité, vous avez spécifié un compte que le serveur de processus Site Recovery utilise afin d'accéder aux machines et installer le service lorsque de la réplication est activée pour la machine. Pour mettre à jour les informations d’identification de ce compte, suivez [ces instructions](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="uninstall-mobility-service"></a>Désinstaller le service mobilité
+## <a name="uninstall-mobility-service"></a>Désinstaller le service Mobilité
 
 ### <a name="on-a-windows-machine"></a>Sur une machine Windows
 
@@ -61,21 +61,22 @@ Désinstallez le service à partir de l’interface utilisateur ou d’une invit
 
 ### <a name="on-a-linux-machine"></a>Sur une machine Linux
 1. Sur la machine Linux, connectez-vous en tant qu’utilisateur **racine**.
-2. Dans un terminal, accédez à /user/local/ASR.
+2. Dans un terminal, accédez à /usr/local/ASR.
 3. Exécutez la commande suivante :
     ```
     uninstall.sh -Y
+   ```
+   
+## <a name="install-site-recovery-vss-provider-on-source-machine"></a>Installer le fournisseur VSS Site Recovery sur la machine source
 
-## Install Site Recovery VSS provider on source machine
+Le fournisseur VSS Site Recovery est requis sur la machine source pour générer des points de cohérence d’application. Si l’installation du fournisseur n’a pas réussi par le biais de l’installation push, suivez les instructions ci-dessous pour l’installer manuellement.
 
-Azure Site Recovery VSS provider is required on the source machine to generate application consistency points. If the installation of the provider didn't succeed through push installation, follow the below given guidelines to install it manually.
+1. Ouvrez la fenêtre admin cmd.
+2. Accédez à l’emplacement d’installation du service Mobilité. (Par exemple C:\Program Files (x86)\Microsoft Azure Site Recovery\agent)
+3. Exécutez le script InMageVSSProvider_Uninstall.cmd. Le service sera alors désinstallé s’il existe déjà.
+4. Exécutez le script InMageVSSProvider_Install.cmd pour installer le fournisseur VSS manuellement.
 
-1. Open admin cmd window.
-2. Navigate to the mobility service installation location. (Eg - C:\Program Files (x86)\Microsoft Azure Site Recovery\agent)
-3. Run the script InMageVSSProvider_Uninstall.cmd . This will uninstall the service if it already exists.
-4. Run the script InMageVSSProvider_Install.cmd to install the VSS provider manually.
+## <a name="next-steps"></a>Étapes suivantes
 
-## Next steps
-
-- [Set up disaster recovery for VMware VMs](vmware-azure-tutorial.md)
-- [Set up disaster recovery for physical servers](physical-azure-disaster-recovery.md)
+- [Configurer la reprise d'activité pour les machines virtuelles VMware](vmware-azure-tutorial.md)
+- [Configurer la reprise d'activité pour les serveurs physiques](physical-azure-disaster-recovery.md)

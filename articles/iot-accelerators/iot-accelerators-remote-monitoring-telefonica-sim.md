@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606783"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "61442215"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Intégrer des données SIM à la solution de supervision à distance
 
@@ -67,7 +67,7 @@ Les paramètres de connectivité suivants sont publiés :
 
 Maintenant que vous avez une vue d’ensemble de l’intégration des données SIM à la surveillance à distance Azure IoT, voici les étapes suivantes suggérées pour les accélérateurs de solution :
 
-* [Exploiter la solution de surveillance à distance Azure IoT](quickstart-remote-monitoring-deploy.md)
+* [Exploiter la solution de supervision à distance Azure IoT](quickstart-remote-monitoring-deploy.md)
 * [Effectuer la surveillance avancée](iot-accelerators-remote-monitoring-monitor.md)
 * [Gestion de vos appareils](iot-accelerators-remote-monitoring-manage.md)
 * [Résoudre les problèmes de l’appareil](iot-accelerators-remote-monitoring-maintain.md)

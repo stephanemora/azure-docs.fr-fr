@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 908ae768ae471ab6f49452c99323c31d34772d45
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 750b49e149907f204b8b15f0b5728ab25f917743
+ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201842"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70844514"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 
@@ -33,11 +33,11 @@ Lors de la création du répertoire, le nom de domaine initial, par exemple « c
 2. Sélectionnez **Azure Active Directory**.
 3. Sélectionnez **Noms de domaine personnalisés**.
   
-   ![Ouverture de la page de gestion d’utilisateur](./media/domains-manage/add-custom-domain.png)
+   ![Ouvrir la page de gestion des utilisateurs](./media/domains-manage/add-custom-domain.png)
 4. Sélectionnez le nom du domaine que vous souhaitez choisir comme domaine principal.
 5. Sélectionnez la commande **Définir comme principal**. Confirmez votre choix lorsque vous y êtes invité.
   
-   ![Rendre un domaine nom principal](./media/domains-manage/make-primary-domain.png)
+   ![Créer un nom de domaine principal](./media/domains-manage/make-primary-domain.png)
 
 Vous pouvez modifier le nom de domaine principal de votre répertoire par n’importe quel domaine personnalisé vérifié qui n’est pas fédéré. La modification du domaine principal de votre répertoire ne change pas le nom des utilisateurs existants.
 
@@ -90,7 +90,7 @@ Une erreur est renvoyée quand :
 **Q : Pourquoi la suppression du domaine échoue-t-elle avec une erreur indiquant que je dispose de groupes Exchange contrôlés sur ce nom de domaine ?** <br>
 **R :** Aujourd'hui, certains groupes tels que les groupes de sécurité à extension messagerie et les listes distribuées sont approvisionnés par Exchange et doivent être nettoyés manuellement dans le [Centre d'administration Exchange](https://outlook.office365.com/ecp/). Des éléments ProxyAddresses, qui reposent sur le nom de domaine personnalisé, peuvent être en attente et devront être mis à jour manuellement vers un autre nom de domaine. 
 
-**Q : Je suis connecté en tant qu’administrateur\@contoso.com, mais je ne pouvons pas supprimer le nom de domaine « contoso.com » ?**<br>
+**Q : Je suis connecté en tant qu'administrateur\@contoso.com, mais je ne peux pas supprimer le nom de domaine « contoso.com ».**<br>
 **R :** Vous ne pouvez pas référencer le nom de domaine personnalisé que vous cherchez à supprimer dans votre nom de compte d'utilisateur. Assurez-vous que le compte d’administrateur général utilise le nom de domaine par défaut initial (.onmicrosoft.com) comme admin@contoso.onmicrosoft.com. Connectez-vous avec un compte d’administrateur général différent comme admin@contoso.onmicrosoft.com ou un autre nom de domaine personnalisé comme « fabrikam.com » où le compte est admin@fabrikam.com.
 
 **Q : J'ai cliqué sur le bouton Supprimer un domaine et je vois l'état `In Progress` pour l'opération de suppression. Combien de temps cela prend-il ? Que se passe-t-il en cas d’échec ?**<br>
@@ -106,7 +106,7 @@ Si vous remarquez que l’une des conditions n’a pas été respectée, nettoye
 
 La plupart des tâches de gestion des noms de domaine dans Azure Active Directory peuvent également être accomplies à l’aide de Microsoft PowerShell, ou encore par programmation à l’aide d’API Graph d’Azure AD.
 
-* [Utilisation de PowerShell pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
+* [Utilisation de PowerShell pour gérer les noms de domaine dans Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
 * [Utilisation d’API Graph pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
 
 ## <a name="next-steps"></a>Étapes suivantes

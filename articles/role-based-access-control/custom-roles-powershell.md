@@ -15,21 +15,21 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ad1185cab2b2bd2d0fea10f21b7859fd9ab1339f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807607"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66158449"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-azure-powershell"></a>Créer des rôles personnalisés pour les ressources Azure à l’aide d’Azure PowerShell
 
 Si les [rôles intégrés prévus pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment créer et gérer des rôles personnalisés avec Azure PowerShell.
 
-Pour obtenir un tutoriel pas à pas sur la création d’un rôle personnalisé, consultez [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure PowerShell](tutorial-custom-role-powershell.md).
+Pour obtenir un tutoriel pas à pas sur la création d’un rôle personnalisé, consultez [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l'aide d'Azure PowerShell](tutorial-custom-role-powershell.md).
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour créer des rôles personnalisés, vous avez besoin des éléments suivants :
 
@@ -69,9 +69,9 @@ Virtual Machine Operator     True
 
 Si l’abonnement sélectionné ne se trouve pas dans le `AssignableScopes` du rôle, le rôle personnalisé ne sera pas répertorié.
 
-## <a name="list-a-custom-role-definition"></a>Liste d’une définition de rôle personnalisé
+## <a name="list-a-custom-role-definition"></a>Lister une définition de rôle personnalisé
 
-Pour répertorier une définition de rôle personnalisé, utilisez [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Il s’agit de la même commande que vous utilisez pour un rôle intégré.
+Pour lister une définition de rôle personnalisé, utilisez [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). Il s’agit de la même commande que vous utiliseriez pour un rôle intégré.
 
 ```azurepowershell
 Get-AzRoleDefinition <role name> | ConvertTo-Json
@@ -106,7 +106,7 @@ PS C:\> Get-AzRoleDefinition "Virtual Machine Operator" | ConvertTo-Json
 }
 ```
 
-L’exemple suivant répertorie uniquement les actions du rôle :
+L’exemple suivant liste seulement les actions du rôle :
 
 ```azurepowershell
 (Get-AzRoleDefinition <role name>).Actions

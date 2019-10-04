@@ -5,19 +5,19 @@ author: rimman
 ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: f50f1b3e2ee7f98d14d29f1e2205a97d76eaacc8
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525634"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71219893"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Flux de modification dans Azure Cosmos DB - Vue d'ensemble
 
-Dans Azure Cosmos DB, le flux de modification écoute les modifications apportées à un conteneur Azure Cosmos DB. Il renvoie ensuite la liste chronologique de documents qui ont été modifiés, dans l’ordre dans lequel ils ont été modifiés. Les modifications sont conservées et peuvent être traitées de manière asynchrone et incrémentielle, puis réparties sur un ou plusieurs consommateurs pour un traitement en parallèle. 
+Dans Azure Cosmos DB, le flux de modification écoute les modifications apportées à un conteneur Azure Cosmos. Il renvoie ensuite la liste chronologique de documents qui ont été modifiés, dans l’ordre dans lequel ils ont été modifiés. Les modifications sont conservées et peuvent être traitées de manière asynchrone et incrémentielle, puis réparties sur un ou plusieurs consommateurs pour un traitement en parallèle. 
 
 Azure Cosmos DB est particulièrement bien adapté aux applications d’IoT, de jeux, de vente au détail et de journal des opérations. Ces applications intègrent souvent un modèle de conception qui consiste à utiliser des modifications de données pour déclencher des actions supplémentaires. Voici quelques exemples d’actions supplémentaires :
 
@@ -35,14 +35,14 @@ Cette fonctionnalité est prise en charge par les API et les SDK clients Azure C
 
 | **Pilotes clients** | **Interface de ligne de commande Azure** | **API SQL** | **API Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin**|**API de table** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | Oui | Non  | Non  | Oui | Non  |
-|Java|N/D|Oui|Non |Non |Oui|Non |
-|Python|N/D|Oui|Non |Non |Oui|Non |
-|Node/JS|N/D|Oui|Non |Non |Oui|Non |
+| .NET | N/D | OUI | Non | Non | OUI | Non |
+|Java|N/D|OUI|Non|Non|OUI|Non|
+|Python|N/D|OUI|Non|Non|OUI|Non|
+|Node/JS|N/D|OUI|Non|Non|OUI|Non|
 
 ## <a name="change-feed-and-different-operations"></a>Flux de modification et différentes opérations
 
-Aujourd’hui, vous pouvez voir toutes les opérations dans le flux de modification. Il n’est pas encore possible de contrôler le flux de modification pour certaines opérations (par exemple, mises à jour sans insertions). Vous pouvez ajouter un « marqueur conditionnel » de mise à jour à l’élément, et filtrer les résultats selon ce marqueur lorsque vous effectuez le traitement des éléments du flux de modification. Pour le moment, le flux de modification ne consigne pas les suppressions. Comme pour l’exemple précédent, vous pouvez ajouter un marqueur conditionnel aux éléments en cours de suppression. Par exemple, vous pouvez ajouter l’attribut « supprimé » à l’élément, lui attribuer la valeur « true », puis définir une durée de vie pour l’élément, afin que celui-ci soit supprimé automatiquement. Vous pouvez lire les éléments d’historique dans le flux de modification, par exemple, les éléments qui ont été ajoutés il y a cinq ans. Si l’élément n’a pas été supprimé, vous pouvez lire le flux de modification correspondant en remontant jusqu’à la date de création de votre conteneur.
+Aujourd’hui, vous pouvez voir toutes les opérations dans le flux de modification. Il n’est pas encore possible de contrôler le flux de modification pour certaines opérations (par exemple, mises à jour sans insertions). Vous pouvez ajouter un « marqueur conditionnel » de mise à jour à l’élément, et filtrer les résultats selon ce marqueur lorsque vous effectuez le traitement des éléments du flux de modification. Pour le moment, le flux de modification ne consigne pas les suppressions. Comme pour l’exemple précédent, vous pouvez ajouter un marqueur conditionnel aux éléments en cours de suppression. Par exemple, vous pouvez ajouter l’attribut « supprimé » à l’élément, lui attribuer la valeur « true », puis définir une durée de vie pour l’élément, afin que celui-ci soit supprimé automatiquement. Vous pouvez lire le flux de modification pour les éléments historiques, par exemple, pour les éléments qui ont été ajoutés il y a cinq ans (la modification la plus récente correspondant à l’élément, il n’inclut pas les modifications intermédiaires). Si l’élément n’a pas été supprimé, vous pouvez lire le flux de modification correspondant en remontant jusqu’à la date de création de votre conteneur.
 
 ### <a name="sort-order-of-items-in-change-feed"></a>Ordre de tri des éléments du flux de modification
 
@@ -56,9 +56,9 @@ Dans un compte Azure Cosmos multirégion, si une région d’écriture bascule, 
 
 Si une propriété de durée de vie (TTL) est définie sur -1 pour un élément, le flux de modification est conservé indéfiniment. Tant que les données ne sont pas supprimées, elles restent dans le flux de modification.  
 
-### <a name="change-feed-and-etag-lsn-or-ts"></a>Flux de modification et formats _etag, _lsn ou _ts
+### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Flux de modification et formats _etag, _lsn ou _ts
 
-Le format _etag est un format interne. Vous ne devez pas vous y fier, car il peut être modifié à tout moment. Le format _ts correspond à un horodatage de modification ou de création. Vous pouvez utiliser les données _ts à des fins de comparaison chronologique. _lsn est un ID de lot est ajouté pour la modification de flux uniquement ; Il représente l’ID de transaction. De nombreux éléments peuvent avoir un même _lsn. L’étiquette d’entité (ETag) de FeedResponse est différente du _etag que vous voyez dans l’élément. _etag est un identificateur interne utilisé pour le contrôle de l’accès concurrentiel, qui indique la version du document, alors que l’ETag est utilisé pour le séquencement du flux.
+Le format _etag est un format interne. Vous ne devez pas vous y fier, car il peut être modifié à tout moment. Le format _ts correspond à un horodatage de modification ou de création. Vous pouvez utiliser les données _ts à des fins de comparaison chronologique. Le format _lsn est un ID de lot qui est ajouté uniquement pour le flux de modification. Il représente l’ID de transaction. De nombreux éléments peuvent avoir un même _lsn. L’étiquette d’entité (ETag) de FeedResponse est différente du _etag que vous voyez dans l’élément. _etag est un identificateur interne utilisé pour le contrôle de l’accès concurrentiel, qui indique la version du document, alors que l’ETag est utilisé pour le séquencement du flux.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Cas d’utilisation et scénarios du flux de modification
 
@@ -94,7 +94,7 @@ Voici quelques-uns des scénarios que vous pouvez facilement implémenter avec l
 Vous pouvez utiliser le flux de modification à l’aide des options suivantes :
 
 * [Utilisation du flux de modification avec Azure Functions](change-feed-functions.md)
-* [Utilisation du flux de modification avec la bibliothèque du processeur](change-feed-processor.md) 
+* [Utilisation du flux de modification avec le processeur de flux de modification](change-feed-processor.md) 
 
 Le flux de modification est disponible pour chacune des clés de partition logique du conteneur, et il peut être distribué vers un ou plusieurs consommateurs en vue d’un traitement parallèle, comme indiqué dans l’image ci-dessous.
 
@@ -108,7 +108,7 @@ Le flux de modification est disponible pour chacune des clés de partition logiq
 
 * Le flux de modification inclut les opérations d’insertion et de mise à jour apportées aux éléments du conteneur. Vous pouvez capturer des suppressions en définissant un indicateur de « suppression réversible » dans vos éléments (par exemple, vos documents) au lieu d’effectuer des suppressions définitives. Vous pouvez également définir un délai d’expiration fixe pour vos éléments avec la [fonctionnalité de durée de vie](time-to-live.md). Par exemple, vous pouvez définir le délai sur 24 heures et utiliser la valeur de cette propriété pour capturer les suppressions. Avec cette solution, vous devez traiter les modifications dans un intervalle de temps inférieur à la période d’expiration de durée de vie. 
 
-* Chaque modification apportée à un élément n’apparaît qu’une seule fois dans le flux de modification. En outre, les clients doivent gérer leur logique de points de contrôle. Si vous souhaitez éviter la gestion complexe des points de contrôle, la bibliothèque du processeur du flux de modification fournit des points de contrôle automatiques ainsi qu’une sémantique de type « au moins une fois ». Consultez [Utilisation du flux de modification avec la bibliothèque du processeur](change-feed-processor.md).
+* Chaque modification apportée à un élément n’apparaît qu’une seule fois dans le flux de modification. En outre, les clients doivent gérer leur logique de points de contrôle. Si vous souhaitez éviter la gestion complexe des points de contrôle, le processeur du flux de modification fournit des points de contrôle automatiques ainsi qu’une sémantique de type « au moins une fois ». Consultez [Utilisation du flux de modification avec le processeur de flux de modification](change-feed-processor.md).
 
 * Seule la dernière modification d’un élément donné est incluse dans le journal des modifications. Les modifications intermédiaires peuvent ne pas être disponibles.
 
@@ -118,7 +118,7 @@ Le flux de modification est disponible pour chacune des clés de partition logiq
 
 * Les modifications sont disponibles en parallèle pour toutes les clés de partition logique d’un conteneur Azure Cosmos. Cette fonctionnalité permet à plusieurs consommateurs de traiter en parallèle les modifications de grands conteneurs.
 
-* Les applications peuvent demander plusieurs flux de modification sur le même conteneur simultanément. ChangeFeedOptions.StartTime peut être utilisé pour fournir un point de départ. Par exemple, pour rechercher le jeton de continuation correspondant à une heure donnée. S’il est spécifié, ContinuationToken l’emporte sur les valeurs StartTime et StartFromBeginning. La précision de ChangeFeedOptions.StartTime est ’environ 5 secondes. 
+* Les applications peuvent demander plusieurs flux de modification simultanément pour un même conteneur. ChangeFeedOptions.StartTime peut être utilisé pour fournir un point de départ. Par exemple, pour rechercher le jeton de continuation correspondant à une heure donnée. S’il est spécifié, ContinuationToken l’emporte sur les valeurs StartTime et StartFromBeginning. La précision de ChangeFeedOptions.StartTime est ’environ 5 secondes. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -126,4 +126,4 @@ Pour plus d’informations sur le flux de modification, consultez les articles s
 
 * [Options de lecture du flux de modification](read-change-feed.md)
 * [Utilisation du flux de modification avec Azure Functions](change-feed-functions.md)
-* [Utilisation de la bibliothèque du processeur de flux de modification](change-feed-processor.md)
+* [Utilisation du processeur de flux de modification](change-feed-processor.md)

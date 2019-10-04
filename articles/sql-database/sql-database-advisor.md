@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: d09adbfa7cb2782d710ef3116cbd7bc68ee247b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787798"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569526"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recommandations relatives aux performances pour SQL Database
 
-Le service Azure SQL Database apprend avec votre application et s’adapte à cette dernière. Il fournit des recommandations personnalisées qui vous permettent d’optimiser le niveau de performance de vos bases de données SQL. SQL Database évalue et analyse continuellement l’historique de l’utilisation de vos bases de données SQL. Les recommandations fournies reposent sur des modèles de charge de travail propres à une base de données, et contribuent à améliorer le niveau de performance.
+Azure SQL Database apprend avec votre application et s’adapte à cette dernière. Il fournit des recommandations personnalisées qui vous permettent d’optimiser le niveau de performance de vos bases de données SQL. SQL Database évalue et analyse continuellement l’historique de l’utilisation de vos bases de données SQL. Les recommandations fournies reposent sur des modèles de charge de travail propres à une base de données, et contribuent à améliorer le niveau de performance.
 
 > [!TIP]
 > Le [réglage automatique](sql-database-automatic-tuning.md) est la méthode recommandée pour régler automatiquement certains problèmes de performances de base de données les plus courants. [Query Performance Insight](sql-database-query-performance.md) est la méthode recommandée pour superviser les performances de base d’Azure SQL Database. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) est la méthode recommandée pour la supervision avancée des performances de base de données à grande échelle, avec une intelligence intégrée pour résoudre automatiquement les problèmes de performances.
@@ -79,7 +78,7 @@ La recommandation « Résoudre les problèmes de schéma » s’affiche lorsque 
 
 | Code d’erreur SQL | Message |
 | --- | --- |
-| 201 |La procédure ou fonction '*’ attend le paramètre ’*', qui n’a pas été fourni. |
+| 201 |La procédure ou fonction ' *’ attend le paramètre ’* ', qui n’a pas été fourni. |
 | 207 |Nom de colonne non valide '*'. |
 | 208 |Nom d'objet non valide ’*’. |
 | 213 |Le nom de la colonne ou le nombre de valeurs fournies ne correspond pas à la définition de la table. |
@@ -88,7 +87,7 @@ La recommandation « Résoudre les problèmes de schéma » s’affiche lorsque 
 
 ## <a name="custom-applications"></a>Applications personnalisées
 
-Les développeurs peuvent envisager de développer des applications personnalisées à l’aide des recommandations relatives aux performances de base de données SQL Azure. Toutes les recommandations répertoriées dans le portail pour une base de données est accessible via [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction) API.
+Les développeurs peuvent envisager de développer des applications personnalisées à l’aide des recommandations relatives aux performances pour Azure SQL Database. Toutes les recommandations listées dans le portail pour une base de données sont accessibles par le biais de l’API [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Surveillez vos recommandations et continuez à les appliquer pour affiner les performances. Les charges de travail d’une base de données sont dynamiques et évoluent en permanence. SQL Database Advisor analyse en continu le niveau de performance de votre base de données et fournit des recommandations susceptibles d’améliorer ce niveau. 

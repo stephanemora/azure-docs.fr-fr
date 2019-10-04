@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728544"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177141"
 ---
 ## <a name="c-program-example"></a>Exemple de programme C#
 
@@ -17,7 +17,7 @@ Les sections suivantes de cet article présentent un programme C# qui utilise AD
 
 - [Se connecter à la base de données SQL avec ADO.NET](#cs_1_connect)
 - [Méthodes qui retournent des instructions T-SQL](#cs_2_return)
-    - Créer des tables
+    - créez des tables
     - Remplir des tables avec des données
     - Mettre à jour, supprimer et sélectionner des données
 - [Envoyer T-SQL à la base de données](#cs_3_submit)
@@ -37,7 +37,7 @@ Ensuite, le diagramme affiche la relation entre les deux tables. Les valeurs pr�
 
 Logiquement, le programme C# est un fichier .cs qui est physiquement divisé en plusieurs blocs de code, ce qui rend chaque bloc plus facile à interpréter. Pour compiler et exécuter le programme, effectuez les étapes suivantes :
 
-1. Créez un projet C# dans Visual Studio. Le type de projet doit être une *Console*, située sous **Modèles** > **Visual C#** > **Windows Desktop** > **Application console (.NET Framework)**.
+1. Créez un projet C# dans Visual Studio. Le type de projet doit être une *Console*, située sous **Modèles** > **Visual C#**  > **Windows Desktop** > **Application console (.NET Framework)** .
 
 1. Dans le fichier *Program.cs*, remplacez les lignes de code de démarrage par les étapes suivantes :
 

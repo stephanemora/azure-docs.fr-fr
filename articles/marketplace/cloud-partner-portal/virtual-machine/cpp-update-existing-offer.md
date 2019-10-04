@@ -1,25 +1,18 @@
 ---
-title: Mettre à jour une offre de machine virtuelle existante dans Place de marché Azure | Microsoft Docs
+title: Mettre à jour une offre de machine virtuelle existante dans la Place de marché Azure
 description: Explique comment mettre à jour une offre de machine virtuelle existante dans Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: Ankit.Sud
-ms.openlocfilehash: 254215389d129874f7ac3fc855b26819d41a095c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: ansud
+ms.openlocfilehash: e6099caf949d93abf8c665f61cd9b91d545dd0f4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852472"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612550"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Mettre à jour une offre de machine virtuelle existante dans Place de marché Azure
 
@@ -36,7 +29,7 @@ Plusieurs raisons peuvent motiver la mise à jour d’une offre :
 Le portail contient les fonctions **Comparer** et **Historique** qui vous aident à apporter ces modifications.  
 
 >[!Note]
->Cloud fournisseurs de solutions partenaires canal opt-in est désormais disponible.  Consultez [les fournisseurs de solutions de Cloud](../../cloud-solution-providers.md) canaux du partenaire pour plus d’informations sur le marketing de votre offre via le CSP de Microsoft.
+>L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Consultez [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Modifications non autorisées apportées à l’offre ou à la référence SKU de machine virtuelle
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cc0fcbb2005ce2aaa70c9e1d2a9993d341169209
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797840"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814227"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Collecter des journaux d’activité IIS dans Azure Monitor
 Internet Information Services (IIS) enregistre l'activité des utilisateurs dans des fichiers journaux qui peuvent être collectés par Azure Monitor et stockés en tant que [données de journal](data-platform.md).
@@ -34,7 +34,7 @@ Configurez les journaux d’activité IIS dans Azure Monitor à partir du [menu 
 
 
 ## <a name="data-collection"></a>Collecte des données
-Azure Monitor collecte les entrées de journal IIS à partir de chaque agent, à chaque fois que le journal est fermé et qu’un nouveau est créé. Cette fréquence est contrôlée par le paramètre de **planification de la substitution de fichier journal** pour le site IIS qui est, par défaut, défini sur une fois par jour. Par exemple, si le paramètre est **horaire**, Azure Monitor collecte le journal toutes les heures.  Si le paramètre est **quotidien**, Azure Monitor collecte le journal toutes les 24 heures.
+Azure Monitor collecte les entrées de journal IIS de chaque agent à chaque fois que l’horodateur du journal est modifié. Le journal est lu toutes les **5 minutes**. Si, pour une raison quelconque, IIS ne met pas à jour l’horodateur avant l’heure de substitution lors de la création d’un nouveau fichier, les entrées sont collectées après la création du nouveau fichier. Cette fréquence de création de fichier est contrôlée par le paramètre de **planification de la substitution de fichier journal** pour le site IIS qui est, par défaut, défini sur une fois par jour. Si le paramètre est **Toutes les heures**, Azure Monitor collecte le journal toutes les heures. Si le paramètre est **Quotidien**, Azure Monitor collecte le journal toutes les 24 heures.
 
 
 ## <a name="iis-log-record-properties"></a>Propriétés d’enregistrement de journal IIS
@@ -42,7 +42,7 @@ Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriét
 
 | Propriété | Description |
 |:--- |:--- |
-| Ordinateur |Nom de l'ordinateur à partir duquel l'événement a été collecté. |
+| Computer |Nom de l'ordinateur à partir duquel l'événement a été collecté. |
 | cIP |Adresse IP du client. |
 | csMethod |Méthode de la requête, par exemple GET ou POST. |
 | csReferer |Site à partir duquel l'utilisateur a suivi un lien vers le site actuel. |
@@ -51,7 +51,7 @@ Les enregistrements de journal IIS sont de type **W3CIISLog** et leurs propriét
 | csUriStem |Cible de la requête, par exemple une page web. |
 | csUriQuery |Requête, le cas échéant, que le client tentait d'effectuer. |
 | ManagementGroupName |Nom du groupe d’administration pour les agents Operations Manager.  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
-| RemoteIPCountry |Pays de l'adresse IP du client. |
+| RemoteIPCountry |Pays/région associés à l’adresse IP du client. |
 | RemoteIPLatitude |Latitude de l'adresse IP du client. |
 | RemoteIPLongitude |Longitude de l'adresse IP du client. |
 | scStatus |Code d'état HTTP. |
@@ -72,7 +72,7 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 | W3CIISLog |Tous les enregistrements de journaux IIS. |
 | W3CIISLog &#124; où scStatus==500 |Tous les enregistrements de journaux IIS dont l’état renvoyé est 500. |
 | W3CIISLog &#124; résumer count() par cIP |Nombre d’entrées de journaux IIS par adresse IP du client. |
-| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Entrées de journal de nombre d’IIS par URL pour l’hôte www\.contoso.com. |
+| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Nombre d’entrées de journaux IIS par URL pour l’hôte www\.contoso.com. |
 | W3CIISLog &#124; résumer sum(csBytes) par ordinateur &#124; prendre 500000 |Nombre total d'octets reçus par chaque ordinateur IIS. |
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,32 +1,23 @@
 ---
 title: Convertir les disques non managés d’une machine virtuelle Windows en disques managés - Azure Disques managés | Microsoft Docs
 description: Conversion d’une machine virtuelle Windows qui utilise des disques non managés pour qu’elle utilise des disques managés à l’aide de PowerShell dans le modèle de déploiement Resource Manager
-services: virtual-machines-windows
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: roygara
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2018
-ms.author: cynthn
-ms.openlocfilehash: d848fdd23f459d7e95e85fe38f2272f4d67c32be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: rogarana
+ms.openlocfilehash: d43ad941fe68707bca873fa969fbc27806ba96a5
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120786"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698809"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Windows en disques managés
 
 Si vos machines virtuelles Windows existantes utilisent des disques non managés, vous pouvez les convertir pour qu’elles utilisent des disques managés par le biais d’[Azure Disques managés](managed-disks-overview.md). Ce processus convertit le disque du système d’exploitation ainsi que tous les autres disques de données attachés.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -37,7 +28,7 @@ Si vos machines virtuelles Windows existantes utilisent des disques non managés
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
-
+* Les disques durs virtuels et le compte de stockage d’origine utilisé par la machine virtuelle avant la conversion ne sont pas supprimés. Ils continuent à être facturés. Pour éviter la facturation de ces artefacts, supprimez les objets BLOB du disque dur virtuel d’origine après avoir vérifié que la conversion est terminée. Si vous avez besoin de trouver ces disques libres afin de les supprimer, consultez notre article [Rechercher et supprimer les disques managés et non managés Azure non attachés](find-unattached-disks.md).
 
 
 ## <a name="convert-single-instance-vms"></a>Convertir des machines virtuelles à instance unique
@@ -99,7 +90,6 @@ Si les machines virtuelles que vous souhaitez convertir pour utiliser des disque
 Si une erreur survient lors de la conversion, ou si une machine virtuelle est dans un état d’échec en raison de problèmes dans une conversion précédente, exécutez l’applet de commande `ConvertTo-AzVMManagedDisk` à nouveau. Généralement, une simple nouvelle tentative suffit à débloquer la situation.
 Avant de lancer la conversion, assurez-vous que toutes les extensions de machine virtuelle sont dans l’état « Provisionnement réussi ». Sinon, la conversion échoue avec le code d’erreur 409.
 
-
 ## <a name="convert-using-the-azure-portal"></a>Convertir à l’aide du portail Azure
 
 Vous pouvez également convertir des disques non managés en disques managés à l’aide du portail Azure.
@@ -108,13 +98,13 @@ Vous pouvez également convertir des disques non managés en disques managés à
 2. Sélectionnez la machine virtuelle dans la liste des machines virtuelles sur le portail.
 3. Dans le panneau de la machine virtuelle, sélectionnez **Disques** dans le menu.
 4. En haut du panneau **Disques**, sélectionnez **Migrer vers des disques managés**.
-5. Si votre machine virtuelle se trouve dans un groupe à haute disponibilité, un avertissement apparaît sur le panneau **Migrer vers des disques managés**, indiquant que vous devez commencer par convertir le groupe à haute disponibilité. L’avertissement doit avoir un lien sur lequel vous pouvez cliquer pour convertir le groupe à haute disponibilité. Une fois le groupe à haute disponibilité converti, ou si votre machine virtuelle ne se trouve pas dans un groupe à haute disponibilité, cliquez sur **Migrate** pour démarrer le processus de migration de vos disques vers des disques managés. 
+5. Si votre machine virtuelle se trouve dans un groupe à haute disponibilité, un avertissement apparaît sur le panneau **Migrer vers des disques managés**, indiquant que vous devez commencer par convertir le groupe à haute disponibilité. L’avertissement doit avoir un lien sur lequel vous pouvez cliquer pour convertir le groupe à haute disponibilité. Une fois le groupe à haute disponibilité converti, ou si votre machine virtuelle ne se trouve pas dans un groupe à haute disponibilité, cliquez sur **Migrate** pour démarrer le processus de migration de vos disques vers des disques managés.
 
 Lorsque la migration est terminée, la machine virtuelle est arrêtée, puis redémarrée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Convertir des disques gérés standard en premium](convert-disk-storage.md)
+[Convertir des disques managés standard en premium](convert-disk-storage.md)
 
 Créez une copie en lecture seule d’une machine virtuelle en utilisant des [captures instantanées](snapshot-copy-managed-disk.md).
 

@@ -11,17 +11,16 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ab04d1288eb3a851774128b8aaaae03868c2ffa7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3118be297caabbd4b829344e42361fa6b7602aad
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53730185"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70066741"
 ---
 # <a name="azure-app-service-plan-overview"></a>Présentation des plans d’Azure App Service
 
@@ -32,14 +31,13 @@ Quand vous créez un plan App Service dans une région (par exemple, Europe Oues
 - Région (USA Ouest, USA Est, etc.)
 - Nombre d’instances de machine virtuelle
 - Taille des instances de machine virtuelle (petite, moyenne ou grande)
-- Niveau tarifaire (Gratuit, Partagé, De base, Standard, Premium, PremiumV2, Isolé, Consommation)
+- Niveau tarifaire (Gratuit, Partagé, De base, Standard, Premium, PremiumV2, Isolé)
 
 Le _niveau tarifaire_ d’un plan App Service détermine les fonctionnalités App Service que vous obtenez et combien vous payez pour le plan. Il existe plusieurs catégories de niveaux tarifaires :
 
 - **Calcul partagé** : Les deux niveaux de base, **Gratuit** et **Partagé**, exécutent une application sur la même machine virtuelle Azure que les autres applications App Service, y compris les applications d’autres clients. Ces niveaux allouent des quotas d’UC à chaque application qui s’exécute sur les ressources partagées, et les ressources ne peuvent pas être mises à l’échelle.
 - **Calcul dédié** : Les niveaux **De base**, **Standard**, **Premium** et **PremiumV2** exécutent les applications sur des machines virtuelles Azure dédiées. Seules les applications qui se trouvent dans un même plan App Service partagent les mêmes ressources de calcul. Plus le niveau est élevé, plus vous disposez d’instances de machine virtuelle pour une mises à l’échelle.
-- **Isolé** : Ce niveau exécute les machines virtuelles Azure dédiées sur des réseaux virtuels Azure dédiés, doublant l’isolement de calcul de vos applications d’un isolement réseau. Il fournit les fonctionnalités de mises à l’échelle maximales.
-- **Consommation** : Ce niveau n’est disponible que pour les [applications de fonction](../azure-functions/functions-overview.md). Il met à l’échelle les fonctions de manière dynamique en fonction de la charge de travail. Pour plus d’informations, consultez [Comparaison des plans d’hébergement Azure Functions](../azure-functions/functions-scale.md).
+- **Isolé** : Ce niveau exécute des machines virtuelles Azure dédiées sur des réseaux virtuels Azure dédiés. Il fournit à vos applications l’isolement réseau au-dessus de l’isolation du calcul. Il fournit les fonctionnalités de mises à l’échelle maximales.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -80,8 +78,7 @@ Cette section décrit la façon dont les applications App Service sont facturée
 
 - Dans le niveau **Partagé**, chaque application reçoit un quota de minutes d’UC ; ainsi, _chaque application_ est facturée toutes les heures pour le quota d’UC.
 - Dans les niveaux de calcul dédié (**De base**, **Standard**, **Premium**, **PremiumV2**), le plan App Service définit le nombre d’instances de machines virtuelles auquel les applications sont mises à l’échelle ; ainsi, _chaque instance de machine virtuelle_ dans le plan App Service fait l’objet d’une facturation horaire. Ces instances de machine virtuelle sont facturées dans les mêmes proportions, quel que soit le nombre d’applications en cours d’exécution sur ces instances. Pour éviter des frais inattendus, consultez [Nettoyer un plan App Service](app-service-plan-manage.md#delete).
-- Dans le niveau **Isolé**, l’environnement App Service définit le nombre de workers isolés qui exécutent vos applications, et _chaque worker_ est facturé toutes les heures. En outre, l’exécution de l’environnement App Service donne lieu à des frais horaires de base. 
-- (Azure Functions uniquement) Le niveau **Consommation** alloue dynamiquement des instances de machine virtuelle pour gérer la charge de travail d’une application de fonction et est facturé dynamiquement par seconde par Azure. Pour plus d’informations, consultez [Tarification d’Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+- Dans le niveau **Isolé**, l’environnement App Service définit le nombre de workers isolés qui exécutent vos applications, et _chaque worker_ est facturé toutes les heures. En outre, l’exécution de l’environnement App Service donne lieu à des frais horaires de base.
 
 Vous ne payez pas pour l’utilisation des fonctionnalités App Service dont vous disposez (configuration de domaines personnalisés, certificats SSL, emplacements de déploiement, sauvegardes, etc.). Les exceptions sont les suivantes :
 
@@ -102,7 +99,7 @@ Par exemple, vous pouvez commencer par tester votre application web dans un plan
 
 Il en va de même dans l’autre sens. Quand vous estimez que vous n’avez plus besoin des fonctions ou fonctionnalités d’un niveau supérieur, vous pouvez passer à un niveau inférieur et économiser ainsi de l’argent.
 
-Pour en savoir plus sur la mise à l’échelle du plan App Service, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](web-sites-scale.md).
+Pour en savoir plus sur la mise à l’échelle du plan App Service, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](manage-scale-up.md).
 
 Si votre application est dans le même plan App Service que d’autres applications, vous souhaiterez probablement améliorer le niveau de performance de l’application en isolant les ressources de calcul. Pour ce faire, vous pouvez déplacer l’application vers un plan App Service distinct. Pour plus d’informations, consultez [Déplacer une application vers un autre plan App Service](app-service-plan-manage.md#move).
 

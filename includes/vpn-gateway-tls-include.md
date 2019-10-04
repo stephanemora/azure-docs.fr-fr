@@ -9,11 +9,11 @@ ms.date: 07/27/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0d5c3b55d20be19d4aeb92b82d6e44d417259a7b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53995684"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176889"
 ---
 1. Ouvrez une invite de commandes avec des privilèges élevés en cliquant avec le bouton droit sur **Invite de commandes** et en sélectionnant **Exécuter en tant qu’administrateur**.
 2. Exécutez les commandes suivantes à partir de l’invite de commandes :

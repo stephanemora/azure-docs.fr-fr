@@ -3,15 +3,15 @@ title: Découvrir comment configurer et gérer la durée de vie dans Azure Cosmo
 description: Découvrir comment configurer et gérer la durée de vie dans Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 11/14/2018
+ms.topic: conceptual
+ms.date: 09/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: bb5997c2ae8f93068b0ad2a77b5109f6c79b9b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ddda7b96147892efb38cb0405120db3613e98cf8
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003515"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104867"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurer la durée de vie dans Azure Cosmos DB
 
@@ -36,12 +36,17 @@ Utilisez les étapes suivantes pour activer la durée de vie sur un conteneur sa
 
    ![Configuration de la durée de vie dans le portail Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
+
+- Quand DefaultTimeToLive est null, votre Durée de vie est Désactivée
+- Lorsque DefaultTimeToLive est -1, votre Durée de vie est Activée (pas par défaut)
+- Quand DefaultTimeToLive a une autre valeur Int (à l’exception de 0), votre Durée de vie est Activée
+
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Activer la durée de vie sur un conteneur à l’aide du kit SDK
 
-### <a id="dotnet-enable-noexpiry"></a>Kit SDK .NET
+### <a id="dotnet-enable-noexpiry"></a>.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
-// Create a new collection with TTL enabled and without any expiration value
+// Create a new container with TTL enabled and without any expiration value
 DocumentCollection collectionDefinition = new DocumentCollection();
 collectionDefinition.Id = "myContainer";
 collectionDefinition.PartitionKey.Paths.Add("/myPartitionKey");
@@ -49,18 +54,29 @@ collectionDefinition.DefaultTimeToLive = -1; //(never expire by default)
 
 DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
-    collectionDefinition,
-    new RequestOptions { OfferThroughput = 20000 });
+    collectionDefinition);
+```
+
+### <a id="dotnet-enable-noexpiry"></a>.NET SDK V3 (Microsoft.Azure.Cosmos)
+
+```csharp
+// Create a new container with TTL enabled and without any expiration value
+await client.GetDatabase("database").CreateContainerAsync(new ContainerProperties
+{
+    Id = "container",
+    PartitionKeyPath = "/myPartitionKey",
+    DefaultTimeToLive = -1 //(never expire by default)
+});
 ```
 
 ## <a name="set-time-to-live-on-a-container-using-sdk"></a>Définir la durée de vie sur un conteneur à l’aide du kit SDK
 
-### <a id="dotnet-enable-withexpiry"></a>Kit SDK .NET
-
 Pour définir la durée de vie sur un conteneur, vous devez fournir un nombre positif non nul qui indique la durée en secondes. Selon la valeur de la TTL configurée, tous les éléments présents dans le conteneur sont supprimés après l’horodatage de la dernière modification de l’élément `_ts`.
 
+### <a id="dotnet-enable-withexpiry"></a>.NET SDK V2 (Microsoft.Azure.DocumentDB)
+
 ```csharp
-// Create a new collection with TTL enabled and a 90 day expiration
+// Create a new container with TTL enabled and a 90 day expiration
 DocumentCollection collectionDefinition = new DocumentCollection();
 collectionDefinition.Id = "myContainer";
 collectionDefinition.PartitionKey.Paths.Add("/myPartitionKey");
@@ -68,8 +84,19 @@ collectionDefinition.DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all docume
 
 DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
-    collectionDefinition,
-    new RequestOptions { OfferThroughput = 20000 });
+    collectionDefinition;
+```
+
+### <a id="dotnet-enable-withexpiry"></a>.NET SDK V3 (Microsoft.Azure.Cosmos)
+
+```csharp
+// Create a new container with TTL enabled and a 90 day expiration
+await client.GetDatabase("database").CreateContainerAsync(new ContainerProperties
+{
+    Id = "container",
+    PartitionKeyPath = "/myPartitionKey",
+    DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
+});
 ```
 
 ### <a id="nodejs-enable-withexpiry"></a>Kit de développement logiciel (SDK) NodeJS
@@ -127,7 +154,7 @@ Utilisez les étapes suivantes pour activer la durée de vie sur un élément :
    }
    ```
 
-### <a id="dotnet-set-ttl-item"></a>Kit SDK .NET
+### <a id="dotnet-set-ttl-item"></a>.NET SDK (n’importe quelle version)
 
 ```csharp
 // Include a property that serializes to "ttl" in JSON
@@ -168,7 +195,7 @@ const itemDefinition = {
 
 Vous pouvez réinitialiser la durée de vie sur un élément en effectuant une opération d’écriture ou de mise à jour sur celui-ci. L’opération d’écriture ou de mise à jour définit l’élément `_ts` sur l’heure actuelle, et la durée de vie déclenchant l’expiration de l’élément recommence son décompte. Si vous souhaitez modifier la durée de vie d’un élément, vous pouvez mettre à jour ce champ de la même manière que vous mettriez à jour n’importe quel autre champ.
 
-### <a id="dotnet-extend-ttl-item"></a>Kit SDK .NET
+### <a id="dotnet-extend-ttl-item"></a>.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -182,11 +209,22 @@ readDocument.ttl = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
+### <a id="dotnet-extend-ttl-item"></a>.NET SDK V3 (Microsoft.Azure.Cosmos)
+
+```csharp
+// This examples leverages the Sales Order class above.
+// Read a document, update its TTL, save it.
+ItemResponse<SalesOrder> itemResponse = await client.GetContainer("database", "container").ReadItemAsync<SalesOrder>("SO05", new PartitionKey("CO18009186470"));
+
+itemResponse.Resource.ttl = 60 * 30 * 30; // update time to live
+await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse.Resource, "SO05");
+```
+
 ## <a name="turn-off-time-to-live"></a>Suspendre la durée de vie
 
 Si la durée de vie a été définie sur un élément et que vous ne souhaitez plus faire expirer cet élément, vous pouvez récupérer l’élément, supprimer le champ TTL et replacer l’élément sur le serveur. Lorsque le champ TTL est supprimé de l’élément, la valeur de durée de vie par défaut affectée au conteneur est appliquée à l’élément. Définissez la valeur de durée de vie sur -1, pour empêcher l’expiration d’un élément et pour ne pas hériter de la valeur de durée de vie du conteneur.
 
-### <a id="dotnet-turn-off-ttl-item"></a>Kit SDK .NET
+### <a id="dotnet-turn-off-ttl-item"></a>.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -196,23 +234,44 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.ttl = null; // inherit the default TTL of the collection
+readDocument.ttl = null; // inherit the default TTL of the container
 
 response = await client.ReplaceDocumentAsync(readDocument);
+```
+
+### <a id="dotnet-turn-off-ttl-item"></a>.NET SDK V3 (Microsoft.Azure.Cosmos)
+
+```csharp
+// This examples leverages the Sales Order class above.
+// Read a document, turn off its override TTL, save it.
+ItemResponse<SalesOrder> itemResponse = await client.GetContainer("database", "container").ReadItemAsync<SalesOrder>("SO05", new PartitionKey("CO18009186470"));
+
+itemResponse.Resource.ttl = null; // inherit the default TTL of the container
+await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse.Resource, "SO05");
 ```
 
 ## <a name="disable-time-to-live"></a>Désactiver la durée de vie
 
 Pour désactiver la durée de vie sur un conteneur et arrêter le processus en arrière-plan qui recherche les éléments ayant expiré, la propriété `DefaultTimeToLive` sur le conteneur doit être supprimée. Supprimer cette propriété ne revient pas à la définir sur -1. Lorsque vous la définissez sur -1, les nouveaux éléments ajoutés au conteneur continuent de vivre indéfiniment, mais vous pouvez remplacer cette valeur sur des éléments spécifiques du conteneur. Lorsque vous supprimez du conteneur la propriété de durée de vie, les éléments n’expirent jamais, même si la précédente valeur de durée de vie par défaut a été explicitement remplacée.
 
-### <a id="dotnet-disable-ttl"></a>Kit SDK .NET
+### <a id="dotnet-disable-ttl"></a>.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
-// Get the collection, update DefaultTimeToLive to null
+// Get the container, update DefaultTimeToLive to null
 DocumentCollection collection = await client.ReadDocumentCollectionAsync("/dbs/salesdb/colls/orders");
 // Disable TTL
 collection.DefaultTimeToLive = null;
 await client.ReplaceDocumentCollectionAsync(collection);
+```
+
+### <a id="dotnet-disable-ttl"></a>.NET SDK V3 (Microsoft.Azure.Cosmos)
+
+```csharp
+// Get the container, update DefaultTimeToLive to null
+ContainerResponse containerResponse = await client.GetContainer("database", "container").ReadContainerAsync();
+// Disable TTL
+containerResponse.Resource.DefaultTimeToLive = null;
+await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

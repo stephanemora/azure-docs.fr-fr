@@ -2,26 +2,26 @@
 title: Exemples de transformations de revendications de comptes sociaux pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C | Microsoft Docs
 description: Exemples de transformations de revendications de comptes sociaux pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: cd4839e2c8ad6605a29f3c8b824375185384f78c
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893518"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71258143"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformations de revendications de comptes sociaux
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Dans Azure Active Directory (Azure AD) B2C, les identités de comptes sociaux sont stockées dans un attribut `userIdentities` d’un type de revendication **alternativeSecurityIdCollection**. Chaque élément dans le type de revendication **alternativeSecurityIdCollection** spécifie l’émetteur (nom du fournisseur d’identité, tel que facebook.com), et l’`issuerUserId`, qui est un identificateur d’utilisateur unique pour l’émetteur.
+Dans Azure Active Directory B2C (Azure AD B2C), les identités de comptes sociaux sont stockées dans un attribut `userIdentities` d’un type de revendication **alternativeSecurityIdCollection**. Chaque élément dans le type de revendication **alternativeSecurityIdCollection** spécifie l’émetteur (nom du fournisseur d’identité, tel que facebook.com), et l’`issuerUserId`, qui est un identificateur d’utilisateur unique pour l’émetteur.
 
 ```JSON
 "userIdentities": [{
@@ -38,7 +38,7 @@ Cet article fournit des exemples d’utilisation des transformations de revendic
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Crée une représentation JSON de la propriété alternativeSecurityId de l’utilisateur, qui peut être utilisée dans les appels à Azure Active Directory. Pour plus d’informations, voir le [schéma d’AlternativeSecurityId](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#AlternativeSecurityIdType).
+Crée une représentation JSON de la propriété alternativeSecurityId de l’utilisateur, qui peut être utilisée dans les appels à Azure Active Directory. Pour plus d’informations, voir le [schéma d’AlternativeSecurityId](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#alternativesecurityid-type).
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -51,7 +51,7 @@ Utilisez cette transformation de revendications pour générer un ClaimType `alt
 ```XML
 <ClaimsTransformation Id="CreateAlternativeSecurityId" TransformationMethod="CreateAlternativeSecurityId">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="socialIdpUserId" TransformationClaimType="key" />
+    <InputClaim ClaimTypeReferenceId="issuerUserId" TransformationClaimType="key" />
     <InputClaim ClaimTypeReferenceId="identityProvider" TransformationClaimType="identityProvider" />
   </InputClaims>
   <OutputClaims>

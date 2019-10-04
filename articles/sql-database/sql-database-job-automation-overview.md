@@ -1,6 +1,6 @@
 ---
 title: Automatisation des travaux SQL Azure | Microsoft Docs
-description: Utiliser l’automatisation des travaux pour exécuter des scripts T-SQL (Transact-SQL) sur une ou plusieurs bases de données SQL Azure
+description: Utiliser l’automatisation des travaux pour exécuter des scripts T-SQL (Transact-SQL) sur une ou plusieurs bases de données Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -9,20 +9,19 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 432580017cec548b7ecd7cf766aa8f5cdb2253cc
+ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901965"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70113594"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatiser des tâches de gestion avec des travaux de base de données
 
 Azure SQL Database vous permet de créer et de planifier des travaux qui peuvent être exécutées périodiquement sur une ou plusieurs bases de données, pour exécuter des requêtes T-SQL et effectuer des tâches de maintenance. Chaque tâche consigne l’état de l’exécution et retente également automatiquement les opérations en cas d’échec.
-Vous pouvez définir une base de données ou des groupes de bases de données SQL Azure cibles où le travail sera exécuté, et aussi définir des planifications pour l’exécution d’un travail.
-Un travail gère la tâche de connexion à chaque base de données cible. Vous pouvez également définir, gérer et conserver des scripts Transact-SQL à exécuter sur un groupe de bases de données SQL Azure.
+Vous pouvez définir une base de données ou des groupes de bases de données Azure SQL cibles où le travail sera exécuté, et aussi définir des planifications pour l’exécution d’un travail.
+Un travail gère la tâche de connexion à la base de données cible. Vous pouvez également définir, gérer et conserver des scripts Transact-SQL à exécuter sur un groupe de bases de données Azure SQL.
 
 ## <a name="when-to-use-automated-jobs"></a>Quand utiliser les travaux automatisés
 
@@ -34,24 +33,24 @@ Vous pouvez utiliser l’automatisation des travaux dans plusieurs scénarios :
   - Recréer des indexes pour améliorer les performances d’une requête. Configurer des travaux de manière à ce qu’ils s’exécutent sur une collection de bases de données de façon récurrente, par exemple pendant les heures creuses.
   - Collecter les résultats de la requête à partir d'un ensemble de bases de données dans une table centrale sur une base continue. Les requêtes de performances peuvent être exécutées en permanence et configurées pour déclencher des tâches supplémentaires à exécuter.
 - Collecter des données de création de rapports
-  - Agréger des données provenant d’une collection de bases de données SQL Azure dans un tableau de destination unique.
+  - Agréger des données provenant d’une collection de bases de données Azure SQL dans un tableau de destination unique.
   - Exécuter des requêtes de traitement de données avec un temps d’exécution plus long sur un grand ensemble de bases de données, par exemple, la collection de télémétrie de client. Les résultats sont rassemblés dans une table de destination unique pour une analyse ultérieure.
 - Déplacements de données
-  - Créez des travaux qui répliquent les modifications apportées à vos bases de données sur d’autres bases de données, ou qui collectent les mises à jour effectuées dans des bases de données distantes et les appliquent à la base de données.
+  - Créez des travaux qui répliquent les modifications apportées à vos bases de données sur d’autres bases de données, ou qui collectent les mises à jour effectuées dans des bases de données distantes et appliquent les modifications à la base de données.
   - Créez des travaux qui chargent des données depuis ou vers vos bases de données avec SQL Server Integration Services (SSIS).
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Les technologies de planification de travaux suivantes sont disponibles dans Azure SQL Database :
 
-- **Travaux SQL Agent** est le composant classique et éprouvé de planification de travaux de SQL Server disponible dans Managed Instance. Les travaux de l’Agent SQL ne sont pas disponibles dans les bases de données uniques.
-- **Travaux de base de données élastiques** est le service de planification de travaux qui exécute des travaux personnalisés sur une ou plusieurs bases de données SQL.
+- **Travaux SQL Agent** est le composant classique et éprouvé de planification de travaux de SQL Server disponible dans Managed Instance. Les travaux de l’Agent SQL ne sont pas disponibles dans les bases de données uniques Azure SQL.
+- **Travaux de base de données élastiques (préversion)** est le service de planification de travaux qui exécute des travaux personnalisés sur une ou plusieurs bases de données Azure SQL.
 
 Il convient de noter quelques différences importantes entre SQL Agent (disponible localement et dans le cadre de SQL Database Managed Instance) et l’agent de travail élastique de base de données (disponible pour les bases de données uniques dans Azure SQL Database et les bases de données dans SQL Data Warehouse).
 
 |  |Travaux élastiques  |SQL Agent |
 |---------|---------|---------|
-|Étendue     |  N’importe quel nombre de bases de données et/ou d’entrepôts de données SQL Azure dans le même cloud Azure que l’agent de travail. Les cibles peuvent se trouver dans des serveurs SQL Database, des régions et/ou des abonnements différents. <br><br>Les groupes cibles peuvent être composés de bases de données ou d’entrepôts de données individuels, ou bien de toutes les bases de données d’un serveur, d’un pool ou d’une carte de partitions (énumérées dynamiquement au moment de l’exécution du travail). | N’importe quelle base de données individuelle dans la même instance SQL Server que l’agent SQL. |
+|Étendue     |  N’importe quel nombre de bases de données Azure SQL et/ou d’entrepôts de données dans le même cloud Azure que l’agent de travail. Les cibles peuvent se trouver dans des serveurs SQL Database, des régions et/ou des abonnements différents. <br><br>Les groupes cibles peuvent être composés de bases de données ou d’entrepôts de données individuels, ou bien de toutes les bases de données d’un serveur, d’un pool ou d’une carte de partitions (énumérées dynamiquement au moment de l’exécution du travail). | N’importe quelle base de données individuelle dans la même instance SQL Server que l’agent SQL. |
 |API et outils pris en charge     |  Portail, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SSMS (SQL Server Management Studio)     |
 
 ## <a name="sql-agent-jobs"></a>Travaux SQL Agent
@@ -135,10 +134,10 @@ GO
 RECONFIGURE 
 ```
 
-Vous pouvez notifier un opérateur que quelque chose s’est produit avec vos travaux SQL Agent. Un opérateur définit les informations de contact pour une personne responsable de la maintenance d’une ou plusieurs instances Managed Instance. Parfois, les responsabilités d’opérateur sont affectées à une seule personne.
+Vous pouvez notifier l’opérateur que quelque chose s’est produit avec vos travaux SQL Agent. Un opérateur définit les informations de contact pour une personne responsable de la maintenance d’une ou plusieurs instances Managed Instance. Parfois, les responsabilités d’opérateur sont affectées à une seule personne.
 Dans les systèmes avec plusieurs instances Managed Instance ou plusieurs serveurs SQL Server, de nombreuses personnes peuvent partager les responsabilités d’opérateur. Un opérateur ne contient pas d’informations de sécurité et ne définit pas de principal de sécurité.
 
-Vous pouvez créer des opérateurs avec SSMS ou un script Transact-SQL illustré dans l’exemple suivant :
+Vous pouvez créer des opérateurs avec SSMS ou le script Transact-SQL illustré dans l’exemple suivant :
 
 ```sql
 EXEC msdb.dbo.sp_add_operator 
@@ -163,13 +162,13 @@ Certaines des fonctionnalités de SQL Agent disponibles dans SQL Server ne sont 
 - Les notifications sont partiellement prises en charge
   - Les récepteurs de radiomessagerie ne sont pas pris en charge.
   - NetSend n’est pas pris en charge.
-  - Les alertes ne sont pas encore prises en charge.
+  - Les alertes ne sont pas prises en charge.
 - Les proxies ne sont pas pris en charge.
 - EventLog n’est pas pris en charge.
 
 Pour plus d’informations sur SQL Server Agent, consultez [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
 
-## <a name="elastic-database-jobs"></a>Tâches de base de données élastique
+## <a name="elastic-database-jobs-preview"></a>Tâches de base de données élastique (préversion)
 
 Les **travaux de base de données élastiques** permettent d’exécuter un ou plusieurs scripts T-SQL en parallèle sur un grand nombre de bases de données, selon une planification ou à la demande.
 
@@ -184,7 +183,7 @@ L’image suivante montre un agent de travail qui exécute des travaux sur les d
 |Composant  | Description (détails supplémentaires sous le tableau) |
 |---------|---------|
 |[**Agent de travail élastique**](#elastic-job-agent) |  Ressource Azure que vous créez pour exécuter et gérer des travaux.   |
-|[**Base de données de travaux**](#job-database)    |    Base de données SQL Azure utilisée par l’agent de travail pour stocker les données associées aux travaux, les définitions des travaux, etc.      |
+|[**Base de données de travaux**](#job-database)    |    Base de données Azure SQL utilisée par l’agent de travail pour stocker les données associées aux travaux, les définitions des travaux, etc.      |
 |[**Groupe cible**](#target-group)      |  Ensemble de serveurs, de pools, de bases de données et de cartes de partitions sur lesquels un travail est exécuté.       |
 |[**Travail**](#job)  |  Un travail est une unité de travail composée d’une ou plusieurs [étapes de travail](#job-step). Celles-ci spécifient le script T-SQL à exécuter, ainsi que d’autres détails nécessaires pour exécuter le script.  |
 
@@ -201,7 +200,7 @@ L’agent de travail élastique est gratuit. La base de données de travaux est 
 
 La *base de données de travaux* permet de définir des travaux et de suivre l’état et l’historique des exécutions des travaux. La *base de données de travaux* permet également de stocker les métadonnées de l’agent, les journaux d’activité, les résultats et les définitions des travaux. Par ailleurs, elle contient de nombreuses procédures stockées utiles, ainsi que d’autres objets de base de données pour créer, exécuter et gérer des travaux avec T-SQL.
 
-Pour la préversion actuelle, une base de données SQL Azure existante (S0 au minimum) est nécessaire pour créer un agent de travail élastique.
+Pour la préversion actuelle, une base de données Azure SQL existante (S0 au minimum) est nécessaire pour créer un agent de travail élastique.
 
 La *base de données de travaux* ne doit pas nécessairement être nouvelle, mais elle doit être nettoyée, vide et configurée avec le niveau de service S0 ou supérieur. Le niveau de service recommandé pour la *base de données de travaux* est au moins S1, mais il varie en fonction des besoins en termes de performances de vos travaux : nombre d’étapes de travail, nombre de fois que les travaux sont exécutés et fréquence d’exécution. Par exemple, une base de données S0 peut convenir à un agent de travail qui exécute quelques travaux par heure, mails ses performances risquent d’être insuffisantes pour exécuter un travail toutes les minutes. Dans ce cas, un niveau de service plus élevé peut être préférable.
 

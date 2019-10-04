@@ -1,32 +1,33 @@
 ---
-title: Connectez-vous en deux étapes vérification ou la sécurité d’informations - Azure Active Directory | Microsoft Docs
+title: Se connecter à l’aide de la vérification en deux étapes ou des informations de sécurité - Azure Active Directory | Microsoft Docs
 description: Découvrez comment vous connecter en utilisant les différentes méthodes de vérification d’identité dans les informations de sécurité.
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: librown
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 07/18/2019
 ms.author: lizross
-ms.custom: user-help, seo-update-azuread-jan
+ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b20ea1131ceda0527ed35d1a1082d05f25da6bac
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268351"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382309"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Se connecter à l’aide de la vérification en deux étapes ou des informations de sécurité
+
 Une fois que vous aurez configuré la vérification en deux étapes ou les informations de sécurité, vous pourrez vous connecter à votre compte à l'aide de la méthode d'authentification que vous avez spécifiée.
 
 > [!Note]
 > Si vous utilisez toujours la vérification en deux étapes, vous devrez configurer vos méthodes d’authentification en suivant les instructions données dans l’article [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
-> 
-> Si votre administrateur a activé les informations de sécurité, vous devrez définir vos méthodes d’authentification en suivant ces articles pas à pas :<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md) (Configurer les informations de sécurité pour utiliser une application d’authentification)</li><li>[Configurer les informations de sécurité pour utiliser la messagerie texte](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md) (Configurer les informations de sécurité pour utiliser un appel téléphonique)</li></ul>
+>
+> Si votre administrateur a activé les informations de sécurité, vous devrez définir vos méthodes d’authentification en suivant ces articles pas à pas :<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md) (Configurer les informations de sécurité pour utiliser une application d’authentification)</li><li>[Configurer les informations de sécurité pour utiliser la messagerie texte](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md) (Configurer les informations de sécurité pour utiliser un appel téléphonique)</li><li>[Configurer les informations de sécurité pour utiliser une clé de sécurité](security-info-setup-security-key.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Se connecter à partir d’une notification de l’application d’authentification sur votre appareil mobile
 
@@ -52,17 +53,37 @@ Une fois que vous aurez configuré la vérification en deux étapes ou les infor
 
 2. Ouvrez le SMS et tapez le code indiqué dans la zone **Entrez un code**.
 
-## <a name="sign-in-using-another-verification-method"></a>Se connecter à l’aide d’une autre méthode de vérification
-Si pour une raison quelconque, vous ne parvenez pas à utiliser votre méthode de connexion principal, vous pouvez utiliser un autre précédemment configuré à la méthode de vérification.
+## <a name="sign-in-using-a-security-key-at-the-lock-screen"></a>Ouvrir une session à l'aide d'une clé de sécurité dans l'écran de verrouillage
 
-1. Connectez-vous à votre compte normalement, puis choisissez le **connectez-vous à une autre façon** lien sur le **vérification en deux étapes** page.
+1. Après avoir enregistré votre clé de sécurité, sélectionnez l'image de la clé de sécurité dans l'écran de verrouillage Windows 10.
+
+2. Insérez votre clé de sécurité dans le port USB de votre appareil et connectez-vous à Windows à l'aide du code PIN de votre clé de sécurité.
+
+    ![Connexion par clé de sécurité depuis l’écran de verrouillage Windows 10](./media/security-info/security-info-windows-10-lock-screen-security-key.png)
+
+## <a name="sign-in-using-a-security-key-and-the-microsoft-edge-browser"></a>Se connecter à l'aide d'une clé de sécurité et du navigateur Microsoft Edge
+
+1. Après avoir enregistré votre clé de sécurité, ouvrez le navigateur Microsoft Edge.
+
+2. Lorsque vous êtes invité à vous connecter, insérez votre clé de sécurité dans le port USB de votre appareil, puis connectez-vous à Windows à l'aide de votre code PIN.
+
+    ![Se connecter à l'aide d'une clé de sécurité et du navigateur Microsoft Edge](./media/security-info/security-info-edge-security-key.png)
+
+    >[!NOTE]
+    >Pour plus d’informations sur la connexion à l’aide de l’application Microsoft Authenticator, consultez l’article [Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator](user-help-auth-app-sign-in.md).
+
+## <a name="sign-in-using-another-verification-method"></a>Se connecter à l’aide d’une autre méthode de vérification
+
+Si, pour une raison quelconque, vous ne parvenez pas à utiliser votre méthode de connexion principale, vous pouvez utiliser une autre méthode de vérification précédemment configurée.
+
+1. Connectez-vous à votre compte comme vous le faites habituellement, puis cliquez sur le lien **Se connecter d'une autre façon** situé dans la page **Vérification en deux étapes**.
 
     ![Changer de méthode de vérification](media/security-info/two-factor-auth-signin-another-way.png)
 
     >[!Note]
-    >Si vous ne voyez pas le **connectez-vous à une autre façon** lien, cela signifie que vous n’avez pas configuré toutes les autres méthodes de vérification et que vous devrez contacter votre administrateur pour vous connecter à votre compte de l’aide. Une fois que votre administrateur vous aide à vous connecter, assurez-vous que vous ajoutez d’autres méthodes de vérification. Pour plus d’informations sur l’ajout de méthodes de vérification, consultez l’article [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md).
-    > 
-    >Si vous voyez le **connectez-vous à une autre façon** lier, mais ne voyez toujours pas toutes les autres méthodes de vérification, vous devrez contacter votre administrateur pour l’aide pour vous connecter à votre compte.
+    >Si le lien **Se connecter d'une autre façon** ne s'affiche, cela signifie que vous n'avez pas configuré d'autres méthodes de vérification. Contactez votre administrateur pour qu’il vous aide à vous connecter à votre compte. Lorsque c'est chose faite, veillez à ajouter d’autres méthodes de vérification. Pour plus d’informations sur l’ajout de méthodes de vérification, consultez l’article [Gérer les paramètres de la vérification en deux étapes](multi-factor-authentication-end-user-manage-settings.md).
+    >
+    >Si le lien **Se connecter d'une autre façon** s'affiche, mais que vous ne voyez toujours pas les autres méthodes de vérification, contactez votre administrateur pour qu’il vous aide à vous connecter à votre compte.
 
 2. Choisissez votre méthode de vérification et poursuivez le processus de vérification en deux étapes.
 
@@ -72,7 +93,7 @@ Si pour une raison quelconque, vous ne parvenez pas à utiliser votre méthode d
 
 - Découvrez les informations de sécurité avec l’article [Security info (preview) overview](user-help-security-info-overview.md) (Vue d’ensemble des informations de sécurité [préversion]).
 
-- Pour plus d’informations sur la vérification en deux étapes, consultez l’article [Two-step verification overview](user-help-two-step-verification-overview.md) (Vue d’ensemble de la vérification en deux étapes). 
+- Pour plus d’informations sur la vérification en deux étapes, consultez l’article [Two-step verification overview](user-help-two-step-verification-overview.md) (Vue d’ensemble de la vérification en deux étapes).
 
 - En cas de perte ou d’oubli de votre mot de passe, réinitialisez-le à partir du [portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/).
 

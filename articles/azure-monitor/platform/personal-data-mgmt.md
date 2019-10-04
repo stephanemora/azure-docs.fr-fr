@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: a443931b8340552251fbcbe534f009eeeaf953aa
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59577896"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617309"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guide pour les données personnelles stockées dans Log Analytics et Application Insights
 
@@ -88,7 +88,7 @@ Comme mentionné plus haut dans la section [Stratégie de gestion des données p
 Pour les requêtes d’affichage et d’exportation des données, vous devez utiliser l’[API de requête Log Analytics](https://dev.loganalytics.io/) ou l’[API de requête Application Insights](https://dev.applicationinsights.io/quickstart). L’implémentation de la logique pour convertir la forme des données selon un format approprié pour vos utilisateurs dépend de vous. [Azure Functions](https://azure.microsoft.com/services/functions/) est l’endroit idéal pour héberger cette logique.
 
 > [!IMPORTANT]
->  Bien que la grande majorité des opérations de purge peut suivre beaucoup plus rapidement que le contrat SLA, **formel contrat SLA pour la réalisation d’opérations de purge est définie sur 30 jours** en raison de leur impact importante sur la plateforme de données utilisée. Il s’agit d’un processus automatisé ; Il n’existe aucun moyen pour demander qu’une opération d’être gérées plus rapidement.
+>  Alors que la grande majorité des opérations de vidage peuvent être effectuées beaucoup plus rapidement que ce que prévoit le contrat SLA, **le contrat SLA formel pour la réalisation des opérations de vidage est défini à 30 jours** en raison de leur impact important sur la plateforme de données utilisée. Il s’agit d’un processus automatisé, ce qui exclut la possibilité de demander qu’une opération soit gérée plus rapidement.
 
 ### <a name="delete"></a>Supprimer
 
@@ -99,15 +99,20 @@ Nous avons rendu disponible un chemin d’API *de vidage* dans le cadre d’une 
 
 Le vidage est une opération nécessitant des privilèges élevés, qu’aucune application ni utilisateur dans Azure (y compris même le propriétaire de la ressource) n’a l’autorisation d’exécuter sans qu’un rôle lui soit explicitement accordé dans Azure Resource Manager. Ce rôle est _Videur de données_ et il doit être délégué avec prudence en raison du risque de perte de données. 
 
+> [!IMPORTANT]
+> Pour gérer les ressources système, les demandes de vidage sont limitées à 50 demandes par heure. Vous devez regrouper l’exécution des demandes de vidage en envoyant une seule commande dont le prédicat comprend toutes les identités des utilisateurs qui demandent un vidage. Utilisez [l’opérateur in](/azure/kusto/query/inoperator) pour spécifier plusieurs identités. Vous devez exécuter la requête avant d’exécuter la demande de vidage pour vérifier que les résultats sont tels qu’attendus. 
+
+
+
 Une fois que le rôle Azure Resource Manager a été affecté, deux nouveaux chemins d’API sont disponibles : 
 
 #### <a name="log-data"></a>Données de journal
 
 * [POST purge](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - prend un objet spécifiant les paramètres des données à supprimer et retourne un GUID de référence 
-* GET purge status - l’appel de POST purge retourne un en-tête « x-ms-état-location » qui inclut une URL que vous pouvez appeler pour déterminer l’état de votre API de vidage. Par exemple : 
+* GET purge status - l’appel de POST purge retourne un en-tête « x-ms-état-location » qui inclut une URL que vous pouvez appeler pour déterminer l’état de votre API de vidage. Par exemple :
 
     ```
-    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
+    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
 > [!IMPORTANT]
@@ -116,7 +121,7 @@ Une fois que le rôle Azure Resource Manager a été affecté, deux nouveaux che
 #### <a name="application-data"></a>Données d'application
 
 * [POST purge](https://docs.microsoft.com/rest/api/application-insights/components/purge) - prend un objet spécifiant les paramètres des données à supprimer et retourne un GUID de référence
-* GET purge status - l’appel de POST purge retourne un en-tête « x-ms-état-location » qui inclut une URL que vous pouvez appeler pour déterminer l’état de votre API de vidage. Par exemple : 
+* GET purge status - l’appel de POST purge retourne un en-tête « x-ms-état-location » qui inclut une URL que vous pouvez appeler pour déterminer l’état de votre API de vidage. Par exemple :
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

@@ -4,22 +4,21 @@ description: Découvrez comment ouvrir un port / créer un point de terminaison 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: f7cf0319-5ee7-435e-8f94-c484bf5ee6f1
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: cac17403425f53593d4f48692b4216a92c8624e3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f9edee7a0ff19a536d0ea719ede6d0cd2e9d6ac7
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884383"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102633"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Guide d’ouverture de ports vers une machine virtuelle avec le portail Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -32,7 +31,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 1. Recherchez et sélectionnez un groupe de ressources pour la machine virtuelle, choisissez **Ajouter**, puis recherchez et sélectionnez **Groupe de sécurité de réseau**.
 
-2. Sélectionnez **Créer**.
+2. Sélectionnez **Create** (Créer).
 
     La fenêtre **Créer un groupe de sécurité réseau** s’ouvre.
 
@@ -52,7 +51,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     ![Ajouter une règle de trafic entrant](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-3. Sélectionnez **Advanced (Avancé)**. 
+3. Sélectionnez **Advanced (Avancé)** . 
 
 4. Choisissez un **Service** courant dans le menu déroulant, tel que **HTTP**. Vous pouvez aussi sélectionner **Personnalisé** si vous souhaitez indiquer un port spécifique à utiliser. 
 

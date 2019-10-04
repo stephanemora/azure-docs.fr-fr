@@ -1,6 +1,6 @@
 ---
 title: Définir les suggestions personnalisées de la Suggestion automatique - Recherche personnalisée Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Décrit comment configurer la Suggestion automatique avec des suggestions personnalisées
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: bbad72b41a177bdbafd6cf98bfd2025190d98b16
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b08eb49b0c4f9655326d2ab09ce39210205e28a9
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237635"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405108"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurer votre expérience de Suggestion automatique personnalisée
 
@@ -36,7 +36,7 @@ Pour activer les suggestions Bing, placez le curseur **Automatic Bing suggestion
 
 ## <a name="add-your-own-suggestions"></a>Ajouter vos propres suggestions
 
-Pour ajouter vos propres suggestions de chaînes de requête, ajoutez-les à la liste qui se trouve sous **Suggestions définies par l’utilisateur**. Après avoir ajouté une suggestion à la liste, appuyez sur la touche Entrée ou cliquez sur l’icône **+**. Vous pouvez spécifier la suggestion dans n’importe quelle langue. Vous pouvez ajouter un maximum de 5 000 suggestions de chaînes de requête.
+Pour ajouter vos propres suggestions de chaînes de requête, ajoutez-les à la liste qui se trouve sous **Suggestions définies par l’utilisateur**. Après avoir ajouté une suggestion à la liste, appuyez sur la touche Entrée ou cliquez sur l’icône **+** . Vous pouvez spécifier la suggestion dans n’importe quelle langue. Vous pouvez ajouter un maximum de 5 000 suggestions de chaînes de requête.
 
 ## <a name="upload-suggestions"></a>Charger des suggestions
 
@@ -48,7 +48,7 @@ Pour supprimer une suggestion, cliquez sur l’icône de suppression en regard d
 
 ## <a name="block-suggestions"></a>Bloquer des suggestions
 
-Si vous incluez des suggestions Bing, vous pouvez ajouter une liste comprenant les chaînes de requête que Bing ne doit pas retourner. Pour ajouter une chaîne de requête à bloquer, cliquez sur **Show blocked suggestions** (Afficher les suggestions bloquées). Ajoutez la chaîne de requête à la liste, puis appuyez sur la touche Entrée ou cliquez sur l’icône **+**. Vous pouvez bloquer un maximum de 50 chaînes de requête.
+Si vous incluez des suggestions Bing, vous pouvez ajouter une liste comprenant les chaînes de requête que Bing ne doit pas retourner. Pour ajouter une chaîne de requête à bloquer, cliquez sur **Show blocked suggestions** (Afficher les suggestions bloquées). Ajoutez la chaîne de requête à la liste, puis appuyez sur la touche Entrée ou cliquez sur l’icône **+** . Vous pouvez bloquer un maximum de 50 chaînes de requête.
 
 
 

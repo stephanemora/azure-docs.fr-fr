@@ -8,18 +8,17 @@ tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: 41d9f21688df6f32918500365bc88f3f168604d2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 59f8035aa69f21196a2134bf6bc1b12f3e5b34c4
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869647"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815706"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extension de configuration d’état souhaité avec des modèles Azure Resource Manager
 
@@ -180,13 +179,13 @@ Pour obtenir la liste des arguments disponibles pour le script de configuration 
 
 | Nom de la propriété | type | Description |
 | --- | --- | --- |
-| settings.wmfVersion |chaîne |Spécifie la version de Windows Management Framework (WMF) qui doit être installée sur votre machine virtuelle. Lorsque cette propriété est définie sur **latest**, la version la plus récente de WMF est installée. Actuellement, les seules valeurs possibles pour cette propriété sont **4.0**, **5.0**, **5.1** et **latest**. Les valeurs possibles font l’objet de mises à jour. La valeur par défaut est **latest**. |
-| settings.configuration.url |chaîne |Spécifie l’adresse URL de téléchargement de votre fichier .zip de configuration DSC. Si l’accès à l’URL fournie nécessite un jeton SAP, définissez la propriété **protectedSettings.configurationUrlSasToken** sur la valeur de votre jeton SAP. Cette propriété est requise si la propriété **settings.configuration.script** ou **settings.configuration.function** est définie. Si aucune valeur n’est indiquée pour ces propriétés, l’extension appelle le script de configuration par défaut pour définir les métadonnées du gestionnaire de configuration locale (LCM) et les arguments doivent être fournis. |
-| settings.configuration.script |chaîne |Spécifie le nom de fichier du script qui contient la définition de votre configuration DSC. Ce script doit se trouver dans le dossier racine du fichier .zip téléchargé depuis l’URL spécifiée par la propriété **settings.configuration.url**. Cette propriété est requise si la propriété **settings.configuration.url** ou **settings.configuration.script** est définie. Si aucune valeur n’est indiquée pour ces propriétés, l’extension appelle le script de configuration par défaut pour définir les métadonnées du gestionnaire de configuration locale et les arguments doivent être fournis. |
-| settings.configuration.function |chaîne |Spécifie le nom de votre configuration DSC. La configuration nommée doit se trouver dans le script défini par **settings.configuration.script**. Cette propriété est requise si la propriété **settings.configuration.url** ou **settings.configuration.function** est définie. Si aucune valeur n’est indiquée pour ces propriétés, l’extension appelle le script de configuration par défaut pour définir les métadonnées du gestionnaire de configuration locale et les arguments doivent être fournis. |
+| settings.wmfVersion |string |Spécifie la version de Windows Management Framework (WMF) qui doit être installée sur votre machine virtuelle. Lorsque cette propriété est définie sur **latest**, la version la plus récente de WMF est installée. Actuellement, les seules valeurs possibles pour cette propriété sont **4.0**, **5.0**, **5.1** et **latest**. Les valeurs possibles font l’objet de mises à jour. La valeur par défaut est **latest**. |
+| settings.configuration.url |string |Spécifie l’adresse URL de téléchargement de votre fichier .zip de configuration DSC. Si l’accès à l’URL fournie nécessite un jeton SAP, définissez la propriété **protectedSettings.configurationUrlSasToken** sur la valeur de votre jeton SAP. Cette propriété est requise si la propriété **settings.configuration.script** ou **settings.configuration.function** est définie. Si aucune valeur n’est indiquée pour ces propriétés, l’extension appelle le script de configuration par défaut pour définir les métadonnées du gestionnaire de configuration locale (LCM) et les arguments doivent être fournis. |
+| settings.configuration.script |string |Spécifie le nom de fichier du script qui contient la définition de votre configuration DSC. Ce script doit se trouver dans le dossier racine du fichier .zip téléchargé depuis l’URL spécifiée par la propriété **settings.configuration.url**. Cette propriété est requise si la propriété **settings.configuration.url** ou **settings.configuration.script** est définie. Si aucune valeur n’est indiquée pour ces propriétés, l’extension appelle le script de configuration par défaut pour définir les métadonnées du gestionnaire de configuration locale et les arguments doivent être fournis. |
+| settings.configuration.function |string |Spécifie le nom de votre configuration DSC. La configuration nommée doit se trouver dans le script défini par **settings.configuration.script**. Cette propriété est requise si la propriété **settings.configuration.url** ou **settings.configuration.function** est définie. Si aucune valeur n’est indiquée pour ces propriétés, l’extension appelle le script de configuration par défaut pour définir les métadonnées du gestionnaire de configuration locale et les arguments doivent être fournis. |
 | settings.configurationArguments |Collection |Définit les paramètres à transmettre à votre configuration DSC. Cette propriété n’est pas chiffrée. |
-| settings.configurationData.url |chaîne |Spécifie l’URL de téléchargement de votre fichier de données de configuration (.psd1) à utiliser comme entrée pour votre configuration DSC. Si l’accès à l’URL fournie nécessite un jeton SAP, définissez la propriété **protectedSettings.configurationDataUrlSasToken** sur la valeur de votre jeton SAP. |
-| settings.privacy.dataCollection |string |Active ou désactive la collecte télémétrique. Les seules valeurs possibles pour cette propriété sont **Enable**, **Disable**, **''** ou **$null**. Le fait de laisser cette propriété vide ou de la définir sur $null active la télémétrie. La valeur par défaut est **''**. Pour plus d’informations, consultez la page [Azure DSC Extension Data Collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Collection de données d’extension Azure DSC). |
+| settings.configurationData.url |string |Spécifie l’URL de téléchargement de votre fichier de données de configuration (.psd1) à utiliser comme entrée pour votre configuration DSC. Si l’accès à l’URL fournie nécessite un jeton SAP, définissez la propriété **protectedSettings.configurationDataUrlSasToken** sur la valeur de votre jeton SAP. |
+| settings.privacy.dataCollection |string |Active ou désactive la collecte télémétrique. Les seules valeurs possibles pour cette propriété sont **Enable**, **Disable**, **''** ou **$null**. Le fait de laisser cette propriété vide ou de la définir sur $null active la télémétrie. La valeur par défaut est **''** . Pour plus d’informations, consultez la page [Azure DSC Extension Data Collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Collection de données d’extension Azure DSC). |
 | settings.advancedOptions.downloadMappings |Collection |Définit d’autres emplacements de téléchargement de WMF. Pour plus d’informations, consultez la page [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) (Extension Azure DSC 2.8 et comment mapper des téléchargements des dépendances de l’extension sur votre propre emplacement). |
 | protectedSettings.configurationArguments |Collection |Définit les paramètres à transmettre à votre configuration DSC. Cette propriété est chiffrée. |
 | protectedSettings.configurationUrlSasToken |string |Spécifie le jeton SAP à utiliser pour accéder à l’URL définie par **settings.configuration.url**. Cette propriété est chiffrée. |
@@ -200,14 +199,14 @@ Vous pouvez utiliser le script de configuration par défaut de l’extension DSC
 | Nom de la propriété | type | Description |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Propriété requise. Spécifie la clé utilisée pour un nœud à inscrire avec le service Azure Automation en tant que mot de passe d’un objet d’informations d’identification PowerShell. Cette valeur peut être découverte automatiquement à l’aide de la méthode **listkeys** sur le compte Automation.  Reportez-vous à l’[exemple](#example-using-referenced-azure-automation-registration-values). |
-| settings.configurationArguments.RegistrationUrl |chaîne |Propriété requise. Spécifie l’URL du point de terminaison Automation où le nœud tente de s’inscrire. Cette valeur peut être découverte automatiquement à l’aide de la méthode **reference** sur le compte Automation. |
-| settings.configurationArguments.NodeConfigurationName |chaîne |Propriété requise. Spécifie la configuration de nœud dans le compte Automation à affecter au nœud. |
-| settings.configurationArguments.ConfigurationMode |chaîne |Spécifie le mode pour le gestionnaire de configuration locale. Les options valides sont **ApplyOnly**, **ApplyandMonitor** et **ApplyandAutoCorrect**.  La valeur par défaut est **ApplyandMonitor**. |
+| settings.configurationArguments.RegistrationUrl |string |Propriété requise. Spécifie l’URL du point de terminaison Automation où le nœud tente de s’inscrire. Cette valeur peut être découverte automatiquement à l’aide de la méthode **reference** sur le compte Automation. |
+| settings.configurationArguments.NodeConfigurationName |string |Propriété requise. Spécifie la configuration de nœud dans le compte Automation à affecter au nœud. |
+| settings.configurationArguments.ConfigurationMode |string |Spécifie le mode pour le gestionnaire de configuration locale. Les options valides sont **ApplyOnly**, **ApplyandMonitor** et **ApplyandAutoCorrect**.  La valeur par défaut est **ApplyandMonitor**. |
 | settings.configurationArguments.RefreshFrequencyMins | uint32 | Spécifie la fréquence à laquelle le gestionnaire de configuration locale tente de vérifier les mises à jour du compte Automation.  La valeur par défaut est **30**.  La valeur minimale est **15**. |
 | settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | Spécifie la fréquence à laquelle le gestionnaire de configuration locale valide la configuration actuelle. La valeur par défaut est **15**. La valeur minimale est **15**. |
-| settings.configurationArguments.RebootNodeIfNeeded | booléenne | Spécifie si un nœud peut être redémarré automatiquement si une opération DSC le demande. La valeur par défaut est **false**. |
-| settings.configurationArguments.ActionAfterReboot | chaîne | Spécifie ce qu’il se passe après un redémarrage lors de l’application d’une configuration. Les options valides sont **ContinueConfiguration** et **StopConfiguration**. La valeur par défaut est **ContinueConfiguration**. |
-| settings.configurationArguments.AllowModuleOverwrite | booléenne | Spécifie si le gestionnaire de configuration locale remplace les modules existants sur le nœud. La valeur par défaut est **false**. |
+| settings.configurationArguments.RebootNodeIfNeeded | boolean | Spécifie si un nœud peut être redémarré automatiquement si une opération DSC le demande. La valeur par défaut est **false**. |
+| settings.configurationArguments.ActionAfterReboot | string | Spécifie ce qu’il se passe après un redémarrage lors de l’application d’une configuration. Les options valides sont **ContinueConfiguration** et **StopConfiguration**. La valeur par défaut est **ContinueConfiguration**. |
+| settings.configurationArguments.AllowModuleOverwrite | boolean | Spécifie si le gestionnaire de configuration locale remplace les modules existants sur le nœud. La valeur par défaut est **false**. |
 
 ## <a name="settings-vs-protectedsettings"></a>settings ou protectedSettings
 
@@ -237,8 +236,10 @@ Les arguments de configuration sont transmis au script de configuration par déf
 
 ```json
 "settings": {
-    "RegistrationUrl" : "[parameters('registrationUrl1')]",
-    "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    "configurationArguments": {
+        "RegistrationUrl" : "[parameters('registrationUrl1')]",
+        "NodeConfigurationName" : "nodeConfigurationNameValue1"
+    }
 },
 "protectedSettings": {
     "configurationArguments": {
@@ -355,7 +356,7 @@ The only possible values are '', 'Enable' et 'Disable'.
 "WmfVersion is '{0}'.
 Les seules valeurs possibles sont les suivantes : and 'latest'".
 
-**Problème**: Une valeur fournie n’est pas autorisée.
+**Problème** : Une valeur fournie n’est pas autorisée.
 
 **Solution**: Remplacez la valeur non valide par une valeur valide.
 Pour plus d’informations, consultez le tableau [Détails](#details).
@@ -364,18 +365,18 @@ Pour plus d’informations, consultez le tableau [Détails](#details).
 
 "ConfigurationData.url is '{0}'. This is not a valid URL » (configurationData.url est « {0} ». Il ne s’agit pas d’une URL valide.) « DataBlobUri is '{0}'. This is not a valid URL » (DataBlobUri est « {0} ». Il ne s’agit pas d’une URL valide.) « Configuration.url is '{0}'. This is not a valid URL » (configuration.url est « {0} ». Il ne s’agit pas d’une URL valide.)
 
-**Problème**: Une URL fournie n’est pas valide.
+**Problème** : Une URL fournie n’est pas valide.
 
-**Solution**: Vérifiez toutes les URL fournies.
+**Solution**: Vérifiez toutes les URL que vous avez fournies.
 Assurez-vous que toutes les URL se résolvent en emplacements valides auxquels l’extension peut accéder sur l’ordinateur distant.
 
 ### <a name="invalid-registrationkey-type"></a>Type de RegistrationKey non valide
 
 « Type non valide pour le paramètre RegistrationKey de type PSCredential ».
 
-**Problème**: Le *RegistrationKey* valeur dans protectedSettings.configurationArguments ne peut pas être fournie comme n’importe quel type autre que PSCredential.
+**Problème** : la valeur *RegistrationKey* de la propriété protectedSettings.configurationArguments ne peut être fournie que sous le type PSCredential.
 
-**Solution**: Modifier votre entrée de protectedSettings.configurationArguments pour RegistrationKey à un type PSCredential en utilisant le format suivant :
+**Solution**: remplacez l'entrée protectedSettings.configurationArguments de la valeur RegistrationKey par un type PSCredential en utilisant le format suivant :
 
 ```json
 "configurationArguments": {
@@ -390,16 +391,16 @@ Assurez-vous que toutes les URL se résolvent en emplacements valides auxquels l
 
 "Invalid configurationArguments type {0}"
 
-**Problème**: Le *ConfigurationArguments* propriété ne peut pas être un **table de hachage** objet.
+**Problème** : la propriété *ConfigurationArguments* ne peut pas se résoudre en objet de **table de hachage**.
 
-**Solution**: Vérifiez votre *ConfigurationArguments* propriété un **table de hachage**.
+**Solution**: faites de votre propriété *ConfigurationArguments* une **table de hachage**.
 Suivez le format fourni dans les exemples précédents. Prenez garde aux guillemets, aux virgules et aux accolades.
 
 ### <a name="duplicate-configurationarguments"></a>Propriétés configurationArguments en double
 
 « Found duplicate arguments '{0}' in both public and protected configurationArguments » (Arguments en double trouvés dans les paramètres configuration Arguments publics et protégés)
 
-**Problème**: Le *ConfigurationArguments* dans les paramètres publics et les *ConfigurationArguments* dans les paramètres protégés ont des propriétés portant le même nom.
+**Problème** : Les arguments *ConfigurationArguments* dans les paramètres publics et les arguments *ConfigurationArguments* dans les paramètres protégés contiennent des propriétés portant le même nom.
 
 **Solution**: Supprimez l’une des propriétés en double.
 
@@ -417,7 +418,7 @@ Suivez le format fourni dans les exemples précédents. Prenez garde aux guillem
 
 « protectedSettings.ConfigurationDataUrlSasToken requires that settings.configurationData.url is specified » (settings.configurationData.url doit être spécifié pour protectedSettings.ConfigurationDataUrlSasToken)
 
-**Problème**: Une propriété définie a besoin d’une autre propriété, qui est manquante.
+**Problème** : Une propriété définie a besoin d’une autre propriété, laquelle est manquante.
 
 **Solutions** :
 

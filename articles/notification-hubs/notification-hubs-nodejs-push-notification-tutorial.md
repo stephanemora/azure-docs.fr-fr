@@ -4,9 +4,9 @@ description: Découvrez comment utiliser Notification Hubs pour envoyer des noti
 keywords: notification push,notifications push,node.js push, ios push
 services: notification-hubs
 documentationcenter: nodejs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: bdeba401e99ad16555b9f6ea00017fc525302983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994997"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71213196"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envoi de notifications Push avec Azure Notification Hubs et Node.js
 
@@ -46,7 +48,7 @@ Azure Notification Hubs offre une infrastructure multiplateforme extensible et c
 
 ## <a name="create-a-nodejs-application"></a>Création d’une application Node.js
 
-La première étape de ce didacticiel consiste à créer une application Node.js vide. Pour des instructions sur la création d’une application Node.js, consultez [Création et déploiement d’une application Node.js dans un site web Azure][nodejswebsite], [Service cloud Node.js][Node.js Cloud Service] avec Windows PowerShell ou [Site web avec WebMatrix][webmatrix].
+La première étape de ce didacticiel consiste à créer une application Node.js vide. Pour obtenir des instructions sur la création d’une application Node.js, consultez [Créer et déployer une application Node.js sur un site web Azure][nodejswebsite], [Service cloud Node.js][Node.js Cloud Service] avec Windows PowerShell ou [Site web avec WebMatrix][webmatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Configuration de l’application pour utiliser Notification Hubs
 
@@ -80,7 +82,7 @@ var notificationHubService = azure.createNotificationHubService('hubname','conne
 Obtenez la valeur de connexion `connectionstring` à partir du [portail Azure] en effectuant les étapes suivantes :
 
 1. Dans le volet de navigation de gauche, cliquez sur **Parcourir**.
-2. Sélectionnez **Notification Hubs**, puis recherchez le hub à utiliser pour l’exemple. Vous pouvez faire référence à la [didacticiel Windows Store mise en route](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) si vous avez besoin d’aide à la création d’un concentrateur de Notification.
+2. Sélectionnez **Notification Hubs**, puis recherchez le hub à utiliser pour l’exemple. Si vous avez besoin d’aide pour créer un hub de notification, vous pouvez consulter le [didacticiel de prise en main de Windows Store](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 3. Sélectionnez **Paramètres**.
 4. Cliquez sur **Stratégies d’accès**. Vous pouvez voir les chaînes de connexion d’accès total et partagé.
 
@@ -106,7 +108,7 @@ L’objet `GcmService` fournit une méthode `send` que vous pouvez utiliser pour
 - **Payload** : charge utile JSON ou de chaîne brute du message.
 - **Callback** : fonction de rappel.
 
-Pour plus d’informations sur le format de charge utile, consultez la section **Charge utile** du document relatif à [l’implémentation du serveur GCM](https://developer.android.com/google/gcm/server.html#payload) .
+Pour plus d’informations sur le format de charge utile, voir la [documentation relative à la charge utile](https://distriqt.github.io/ANE-PushNotifications/m.FCM-GCM%20Payload).
 
 Le code suivant utilise l’instance `GcmService` exposée par `NotificationHubService` pour envoyer une notification Push à tous les clients inscrits.
 

@@ -1,10 +1,10 @@
 ---
-title: Authentification de service à service Azure Active Directory qui utilise la spécification préliminaire On-Behalf-Of OAuth 2.0 | Microsoft Docs
+title: Authentification de service à service Azure AD à l’aide de la spécification préliminaire On-Behalf-Of OAuth2.0 | Microsoft Docs
 description: Cet article explique comment utiliser des messages HTTP pour implémenter l’authentification de service à service avec le flux On-Behalf-Of OAuth 2.0.
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/06/2017
-ms.author: celested
+ms.topic: conceptual
+ms.date: 05/22/2019
+ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: accd14446ab8f4a70336e3bd6787cbd8c93ff21d
+ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116263"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69891515"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels de service à service utilisant l’identité utilisateur déléguée dans le flux On-Behalf-Of
 
@@ -38,7 +38,7 @@ Le flux On-Behalf-Of (OBO) OAuth 2.0 permet à une application qui appelle un se
 
 Le flux OBO commence après que l’utilisateur a été authentifié sur une application qui utilise le [flux d’octroi de code d’autorisation OAuth 2.0](v1-protocols-oauth-code.md). À ce stade, l’application envoie un jeton d’accès (jeton A) à l’API web de niveau intermédiaire (API A) contenant les revendications de l’utilisateur et le consentement pour accéder à l’API A. Ensuite, l’API A fait une demande authentifiée à l’API web en aval (API B).
 
-Ces étapes constituent le flux On-Behalf-Of : ![Flux Pour le compte de OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Ces étapes constituent le flux On-Behalf-Of : ![Indique les étapes dans le flux On-Behalf-Of OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. L’application cliente fait une demande à l’API A avec le jeton A.
 1. L’API A s’authentifie auprès du point de terminaison d’émission de jeton Azure AD et demande un jeton pour accéder à l’API B.
@@ -58,31 +58,32 @@ Inscrivez le service de niveau intermédiaire et l’application cliente dans Az
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Dans la barre du haut, sélectionnez votre compte et, sous la liste **Annuaire**, sélectionnez un locataire Active Directory pour votre application.
 1. Dans le volet gauche, sélectionnez **Plus de services** et choisissez **Azure Active Directory**.
-1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription d’application**.
+1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
 1. Entrez un nom convivial pour l’application, puis sélectionnez le type d’application.
-    1. En fonction du type d’application, définissez l’URL de connexion ou l’URL de redirection sur l’URL de base.
-    1. Sélectionnez **Créer** pour créer l’application.
+1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
+1. Définir l’URI de redirection sur l’URL de base.
+1. Sélectionnez **Inscrire** pour créer l’application.
 1. Générez une clé secrète du client avant de quitter le portail Azure.
-   1. Dans le portail Azure, choisissez votre application, puis sélectionnez **Paramètres**.
-   1. Sélectionnez **Clés** dans le menu Paramètres et ajoutez une clé avec une durée de clé d’un ou deux ans.
-   1. Quand vous enregistrez cette page, le portail Azure affiche la valeur de la clé. Copiez et enregistrez la clé dans un endroit sûr.
+1. Dans le portail Azure, choisissez votre application, puis sélectionnez **Certificats et secrets**.
+1. Sélectionnez **Nouvelle clé secrète client** et ajouter un secret avec une durée d’un ou deux ans.
+1. Lorsque vous enregistrez cette page, le portail Azure affiche la valeur du secret. Copiez et enregistrez la valeur du secret dans un endroit sûr.
 
-      > [!IMPORTANT]
-      > Vous avez besoin de la clé pour configurer les paramètres de l’application dans votre implémentation. Cette valeur de clé ne sera plus affichée, et elle n’est récupérable par aucun autre moyen. Enregistrez-la dès qu’elle est visible dans le portail Azure.
+> [!IMPORTANT]
+> Vous avez besoin du secret pour configurer les paramètres de l’application dans votre implémentation. Cette valeur de secret ne sera plus affichée et elle n’est récupérable par aucun autre moyen. Enregistrez-la dès qu’elle est visible dans le portail Azure.
 
 ### <a name="register-the-client-application"></a>Inscrire l’application cliente
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Dans la barre du haut, sélectionnez votre compte et, sous la liste **Annuaire**, sélectionnez un locataire Active Directory pour votre application.
 1. Dans le volet gauche, sélectionnez **Plus de services** et choisissez **Azure Active Directory**.
-1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription d’application**.
+1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription**.
 1. Entrez un nom convivial pour l’application, puis sélectionnez le type d’application.
-   1. En fonction du type d’application, définissez l’URL de connexion ou l’URL de redirection sur l’URL de base.
-   1. Sélectionnez **Créer** pour créer l’application.
-1. Configurez les autorisations pour votre application.
-   1. Dans le menu Paramètres, choisissez la section **Autorisations nécessaires**, puis sélectionnez **Ajouter**et **Sélectionner une API**.
-   1. Tapez le nom du service de niveau intermédiaire dans le champ de texte.
-   1. Choisissez **Sélectionner les autorisations**, puis sélectionnez Accéder à **Nom du service**.
+1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
+1. Définir l’URI de redirection sur l’URL de base.
+1. Sélectionnez **Inscrire** pour créer l’application.
+1. Configurez les autorisations pour votre application. Dans **Autorisations des API**, sélectionnez **Ajouter une autorisation**, puis **Mes API**.
+1. Tapez le nom du service de niveau intermédiaire dans le champ de texte.
+1. Choisissez **Sélectionner les autorisations**, puis sélectionnez **Accéder à \<Nom du service>** .
 
 ### <a name="configure-known-client-applications"></a>Configurer les applications clientes connues
 
@@ -195,7 +196,7 @@ Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec
 
 L’exemple suivant illustre une réponse affirmative à une demande de jeton d’accès pour l’API web https://graph.windows.net.
 
-```
+```json
 {
     "token_type":"Bearer",
     "scope":"User.Read",
@@ -212,9 +213,9 @@ L’exemple suivant illustre une réponse affirmative à une demande de jeton d�
 
 ### <a name="error-response-example"></a>Exemple de réponse d’erreur
 
-Le point de terminaison de jeton Azure AD renvoie une réponse d’erreur quand il tente d’acquérir un jeton d’accès pour une API en aval qui est définie avec une stratégie d’accès conditionnel (par exemple l’authentification multifacteur). Le service de niveau intermédiaire doit faire apparaître cette erreur à l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
+Le point de terminaison de jeton Azure AD renvoie une réponse d’erreur quand il tente d’acquérir un jeton d’accès pour une API en aval qui est définie avec une stratégie d’accès conditionnel (par exemple l’authentification multifacteur). Le service de niveau intermédiaire doit faire apparaître cette erreur sur l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
 
-```
+```json
 {
     "error":"interaction_required",
     "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",

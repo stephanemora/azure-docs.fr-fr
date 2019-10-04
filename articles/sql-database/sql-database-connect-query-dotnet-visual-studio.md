@@ -1,33 +1,32 @@
 ---
 title: Utilisation de Visual Studio avec .NET et C# pour interroger Azure SQL Database | Microsoft Docs
-description: Utilisez Visual Studio pour créer une application en C# qui se connecte à une base de données SQL Azure et l’interroge avec des instructions Transact-SQL.
+description: Utilisez Visual Studio pour créer une application en C# qui se connecte à une base de données Azure SQL et l’interroge avec des instructions Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: dotnet
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 7c444235ed7aa641fe218b4d1667e661ff05d77e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 4472ff10c42cd9163693e7316b6bdaef50258db6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443667"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569244"
 ---
-# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de NET et C# dans Visual Studio pour se connecter à une base de données SQL Azure et l’interroger
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de NET et C# dans Visual Studio pour se connecter à une base de données Azure SQL et l’interroger
 
-Ce guide de démarrage rapide montre comment utiliser [l’infrastructure .NET](https://www.microsoft.com/net/) et le code C# dans Visual Studio pour interroger une base de données SQL Azure avec des instructions Transact-SQL.
+Ce guide de démarrage rapide montre comment utiliser [l’infrastructure .NET](https://www.microsoft.com/net/) et le code C# dans Visual Studio pour interroger une base de données Azure SQL avec des instructions Transact-SQL.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
@@ -43,11 +42,11 @@ Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
   > [!IMPORTANT]
   > Les scripts fournis dans cet article utilisent la base de données Adventure Works. Avec une instance managée, vous devez importer la base de données Adventure Works dans une base de données d’instance, ou modifier les scripts fournis dans cet article pour utiliser la base de données Wide World Importers.
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) édition Communauté, Professionnel ou Entreprise.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) édition Community, Professional ou Enterprise.
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données SQL Azure. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -59,7 +58,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 1. Dans Visual Studio, sélectionnez **Fichier** > **Nouveau** > **Projet**. 
    
-1. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C#**, puis **Application console (.NET Framework)**.
+1. Dans la boîte de dialogue **Nouveau projet**, sélectionnez **Visual C#** , puis **Application console (.NET Framework)** .
    
 1. Entrez *sqltest* pour le nom du projet puis sélectionnez **OK**. Le nouveau projet est créé. 
    
@@ -73,7 +72,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
    
 1. Une fois l’installation terminée, vous pouvez fermer le **Gestionnaire de package NuGet**. 
    
-1. Dans l’éditeur de code, remplacez le contenu de **Program.cs** par le code suivant. Remplacez `<server>`, `<username>`, `<password>`, et `<database>` par vos valeurs.
+1. Dans l’éditeur de code, remplacez le contenu de **Program.cs** par le code suivant. Remplacez `<server>`, `<username>`, `<password>` et `<database>` par vos valeurs.
    
    >[!IMPORTANT]
    >Dans cet exemple, le code utilise les exemples de données AdventureWorksLT que vous pouvez choisir comme source lors de la création de votre base de données. Si votre base de données comporte des données différentes, utilisez des tables de votre propre base de données dans la requête SELECT. 
@@ -139,9 +138,9 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [connecter et interroger une base de données SQL Azure à l’aide de .NET Core](sql-database-connect-query-dotnet-core.md) sur Windows/Linux/macOS.  
+- Découvrez comment [connecter et interroger une base de données Azure SQL à l’aide de .NET Core](sql-database-connect-query-dotnet-core.md) sur Windows/Linux/macOS.  
 - En savoir plus sur la [prise en main de .NET Core sur Windows/Linux/macOS à l’aide de la ligne de commande](/dotnet/core/tutorials/using-with-xplat-cli).
-- Découvrez comment [concevoir votre première base de données SQL Azure à l’aide de SSMS](sql-database-design-first-database.md) ou [concevoir votre première base de données SQL Azure à l’aide de .NET](sql-database-design-first-database-csharp.md).
+- Découvrez comment [concevoir votre première base de données Azure SQL à l’aide de SSMS](sql-database-design-first-database.md) ou [concevoir votre première base de données Azure SQL à l’aide de .NET](sql-database-design-first-database-csharp.md).
 - Pour plus d’informations sur .NET, consultez la [documentation .NET](https://docs.microsoft.com/dotnet/).
 - Exemple de logique de nouvelle tentative : [Connexion résiliente à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 

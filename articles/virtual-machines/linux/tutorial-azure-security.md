@@ -4,24 +4,23 @@ description: Avec ce didacticiel, vous allez découvrir les fonctionnalités Azu
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b4c484f3dd118a19291741b071432b09894e836c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 0ac5c95fa51ca5032f5d3e057af2064f872ea15c
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593299"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70081708"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Didacticiel : Utiliser Azure Security Center pour superviser les machines virtuelles Linux
 
@@ -51,7 +50,7 @@ Avant d’obtenir une visibilité des configurations de sécurité des machines 
 
 1. Dans le tableau de bord de Security Center, cliquez sur **Stratégie de sécurité** puis sélectionnez votre abonnement. 
 2. Pour **Collecte de données**, dans **Approvisionnement automatique**, sélectionnez **Activer**.
-3. Pour **Configuration de l’espace de travail par défaut**, conservez le paramètre **Utiliser un ou des espace(s) de travail créé(s) par Security Center (par défaut)**.
+3. Pour **Configuration de l’espace de travail par défaut**, conservez le paramètre **Utiliser un ou des espace(s) de travail créé(s) par Security Center (par défaut)** .
 4. Pour **Événements de sécurité**, conservez l’option par défaut **Commun**.
 4. Cliquez sur **Enregistrer** dans la partie supérieure de la page. 
 
@@ -72,7 +71,7 @@ Pour configurer une stratégie de sécurité pour l’intégralité d’un abonn
 
 ## <a name="view-vm-configuration-health"></a>Afficher l’état de configuration des machines virtuelles
 
-Après que vous avez activé la collecte de données et défini une stratégie de sécurité, Security Center commence à fournir des alertes et des recommandations. À mesure que des machines virtuelles sont déployées, l’agent de collecte de données est installé. Security Center reçoit ensuite des données relatives aux nouvelles machines virtuelles. Pour des informations détaillées sur l’intégrité de la configuration des machines virtuelles, consultez [Protéger vos machines virtuelles dans Security Center](../../security-center/security-center-virtual-machine-recommendations.md). 
+Après que vous avez activé la collecte de données et défini une stratégie de sécurité, Security Center commence à fournir des alertes et des recommandations. À mesure que des machines virtuelles sont déployées, l’agent de collecte de données est installé. Security Center reçoit ensuite des données relatives aux nouvelles machines virtuelles. Pour des informations détaillées sur l’intégrité de la configuration des machines virtuelles, consultez [Protéger vos machines virtuelles dans Security Center](../../security-center/security-center-virtual-machine-protection.md). 
 
 À mesure que des données sont collectées, les informations sur l’état d’intégrité des ressources de chaque machine virtuelle et des ressources Azure associées sont agrégées. Les informations sont affichées dans un graphique aisément lisible. 
 
@@ -104,7 +103,7 @@ Les recommandations sont marquées comme étant résolues à mesure qu’elles s
 
 ## <a name="view-detected-threats"></a>Consulter les menaces détectées
 
-En plus des recommandations concernant la configuration des ressources, Security Center affiche des alertes de détection de menaces. La fonctionnalité d’alertes de sécurité agrège les données collectées à partir de chaque machine virtuelle, des journaux d’activité de réseau Azure et des solutions partenaires connectées pour détecter les menaces de sécurité au niveau des ressources Azure. Pour obtenir des informations détaillées sur les fonctionnalités de détection des menaces de Security Center, consultez [Fonctionnalités de détection d’Azure Security Center](../../security-center/security-center-detection-capabilities.md).
+En plus des recommandations concernant la configuration des ressources, Security Center affiche des alertes de détection de menaces. La fonctionnalité d’alertes de sécurité agrège les données collectées à partir de chaque machine virtuelle, des journaux d’activité de réseau Azure et des solutions partenaires connectées pour détecter les menaces de sécurité au niveau des ressources Azure. Pour obtenir des informations détaillées sur les fonctionnalités de détection des menaces de Security Center, consultez [Comment Security Center détecte-t-il les menaces ?](../../security-center/security-center-alerts-overview.md#detect-threats).
 
 La fonctionnalité d’alertes de sécurité nécessite que le niveau tarifaire de Security Center soit porté de *Gratuit* à *Standard*. Une **version d’essai gratuit** est disponible quand vous passez à ce niveau tarifaire supérieur. 
 

@@ -1,6 +1,6 @@
 ---
-title: Accéder à et utiliser des applications sur le portail mes applications - Azure Active Directory | Microsoft Docs
-description: Découvrez comment accéder au portail mes applications.
+title: Accéder aux applications et les utiliser sur le portail Mes applications - Azure Active Directory | Microsoft Docs
+description: Découvrez comment accéder au portail Mes applications.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,23 +13,25 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaed7357221f5b766bfb8b9e1a9031c08854ac9a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 901067e198616dba390e0e1162ec26a0b11768f1
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340123"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383138"
 ---
-# <a name="access-and-use-apps-on-the-my-apps-portal"></a>Accès et l’utilisation des applications sur le portail mes applications
-Vous pouvez utiliser votre compte professionnel ou scolaire avec basée sur le web **mes applications** portal, pour afficher et démarrer la plupart des applications de cloud de votre organisation, à mettre à jour certaines de vos informations de compte et un profil pour voir votre **groupes** plus d’informations et d’effectuer **révisions d’accès** pour vos applications et les groupes. Si vous n’avez pas accès à la **mes applications** portail, vous devez contacter votre support technique pour obtenir l’autorisation.
+# <a name="access-and-use-apps-on-the-my-apps-portal"></a>Accéder aux applications et les utiliser sur le portail Mes applications
+
+Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur comment configurer et gérer vos applications cloud dans le [Documentation gestion des Application](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Ce contenu est destiné aux utilisateurs. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="supported-browsers"></a>Navigateurs pris en charge
-Vous pouvez accéder à la **mes applications** portail à partir des navigateurs web suivants :
+
+Vous pouvez accéder au portail **Mes applications** dans les navigateurs web suivants :
 
 - Google Chrome
 
@@ -37,120 +39,127 @@ Vous pouvez accéder à la **mes applications** portail à partir des navigateur
 
 - Microsoft Edge
 
-- Internet Explorer version 11 (prise en charge limitée)
+- Internet Explorer, version 11 (prise en charge limitée)
 
-## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Téléchargez et installez l’Extension de connexion sécurisée à mes applications
-Téléchargez et installez l’Extension sécurisée à mes applications connectez-vous, si vous y êtes invité. Cette extension vous permet de démarrer des applications de cloud de votre organisation qui vous obligent à utiliser un processus d’authentification unique. Si votre organisation a déjà vous pour l’authentification unique, l’extension est installée automatiquement et vous pouvez ignorer cette section.
+## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Télécharger et installer l’extension de connexion sécurisée à Mes applications
 
-Cette extension vous permet de : 
+Téléchargez et installez l’extension de connexion sécurisée à Mes applications si vous y êtes invité. Cette extension vous permet de lancer les applications cloud de votre organisation qui vous obligent à utiliser un processus d’authentification unique. Si votre organisation a déjà configuré l’authentification unique, cette extension est installée automatiquement et vous pouvez ignorer cette section.
 
-- Connectez-vous directement aux applications à partir de la page de connexion.
+Cette extension vous permet d’effectuer les actions suivantes :
 
-- Démarrer toutes les applications à l’aide de la **recherche rapide** fonctionnalité.
+- Vous connecter directement aux applications à partir de la page de connexion.
 
-- Consultez les dernières applications vous avez utilisé dans le **utilisés récemment** section.
+- Lancer n’importe quelle application à l’aide de la fonctionnalité de **recherche rapide**.
 
-- Utiliser des URL internes de l’entreprise à distance avec [Proxy d’Application](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+- Consulter les dernières applications vous avez utilisées dans la section **Utilisées récemment**.
+
+- Utiliser les URL internes de la société à distance via le [Proxy d’application](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
 ### <a name="to-download-and-install-the-extension"></a>Pour télécharger et installer l’extension
-Téléchargez et installez l’extension, basée sur le navigateur que vous utilisez :
 
-- **Google Chrome.** Dans le Store Web Chrome, accédez à la [sécurisée à mes applications-Extension de connexion](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) des fonctionnalités, puis sélectionnez **ajouter à Chrome**.
+Téléchargez et installez l’extension en fonction du navigateur que vous utilisez :
 
-- **Mozilla Firefox** à partir de la **modules complémentaires de Firefox** page, accédez à la [sécurisée à mes applications-Extension de connexion](https://addons.mozilla.org/firefox/addon/access-panel-extension/) des fonctionnalités, puis sélectionnez **ajouter à Firefox**.
+- **Google Chrome.** Dans le Store Web Chrome, accédez à la fonctionnalité [Extension de connexion sécurisée à Mes applications](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl), puis sélectionnez **Ajouter à Chrome**.
 
-- **Microsoft Edge** dans le Microsoft Store, accédez à la [sécurisée à mes applications-Extension de connexion](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) des fonctionnalités, puis sélectionnez **obtenir**.
+- **Mozilla Firefox** Sur la page des **extensions Firefox**, accédez à la fonctionnalité [Extension de connexion sécurisée à Mes applications](https://addons.mozilla.org/firefox/addon/access-panel-extension/), puis sélectionnez **Ajouter Firefox**.
 
-Une icône est ajoutée à droite de votre **adresse** barre, vous permettant de se connecter et personnaliser l’extension.
+- **Microsoft Edge** Dans le Microsoft Store, accédez à la fonctionnalité **Extension de connexion sécurisée à Mes applications**, puis sélectionnez [Obtenir](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab).
 
-#### <a name="to-change-your-my-apps-portal-using-the-extension"></a>Pour modifier votre portail mes applications à l’aide de l’extension
-Vous pouvez choisir le nombre d’applications à afficher dans le **utilisés récemment** section et décider s’il faut autoriser les URL internes de votre organisation à rediriger.
+Une icône est ajoutée à droite de votre barre d’**adresse**, vous permettant de vous connecter et de personnaliser l’extension.
 
-1. Sélectionnez la nouvelle **sécurisée à mes applications-Extension de connexion** icône ![icône de l’Extension](media/my-apps-portal/my-apps-portal-extension-icon.png) à droite de votre **adresse** barre, puis sélectionnez **connecter pour obtenir la prise en main**.
+#### <a name="to-change-your-my-apps-portal-using-the-extension"></a>Pour modifier votre portail Mes applications à l’aide de l’extension
+Vous pouvez choisir le nombre d’applications à afficher dans la section **Utilisées récemment** et décider si vous devez autoriser la redirection des URL internes de votre organisation.
 
-2. Avec le bouton droit le **paramètres** icône ![icône des paramètres](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), puis sélectionnez **paramètres**.
+1. Sélectionnez la nouvelle icône **Extension de connexion sécurisée à Mes applications** icône de l’![Extension](media/my-apps-portal/my-apps-portal-extension-icon.png) à droite de votre **barre d’adresse**, puis sélectionnez **Connectez-vous pour commencer**.
 
-3. Dans le **paramètres** zone, sélectionnez le nombre d’applications récentes que vous souhaitez voir sur le portail, et si pour permettre à votre organisation des URL internes à rediriger, vous pouvez les utiliser à distance.
+2. Cliquez avec le bouton droit sur l’icône **Paramètres** icône des ![paramètres](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), puis sélectionnez **Paramètres**.
 
-    ![Page Paramètres de l’extension, montrant les personnalisations disponibles](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
+3. Dans la zone **Paramètres**, sélectionnez le nombre d’applications récentes que vous souhaitez voir sur le portail et si vous souhaitez permettre la redirection des URL internes pour pouvoir les utiliser à distance.
 
-## <a name="access-and-use-the-my-apps-portal-by-device"></a>Accès et l’utilisation du portail mes applications par appareil
-Vous pouvez accéder et utiliser le portail mes applications sur votre ordinateur, à partir d’un navigateur géré par Intune ou à partir d’un appareil iOS ou Android mobile.
+    ![Page des paramètres de l’extension avec les personnalisations disponibles](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
-![Page applications dans le portail mes applications](media/my-apps-portal/my-apps-portal-apps-page.png)
+## <a name="access-and-use-the-my-apps-portal-by-device"></a>Accéder au portail Mes applications et l’utiliser sur un appareil mobile
+Vous pouvez accéder et utiliser le portail Mes applications sur votre ordinateur, via un navigateur Intune managé ou sur un appareil iOS ou Android mobile.
 
-### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Accès et l’utilisation du portail mes applications sur votre ordinateur
-Si vous êtes autorisé à accéder à et utiliser des applications de cloud de votre organisation, vous pouvez y accéder via le **mes applications** portail.
+![Page des applications dans le portail Mes applications](media/my-apps-portal/my-apps-portal-apps-page.png)
 
-1.  Connectez-vous à votre compte professionnel ou scolaire.
+### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Accéder au portail Mes applications et l’utiliser sur votre ordinateur
+Si vous êtes autorisé à accéder à et utiliser les applications cloud de votre organisation, vous pouvez y accéder via le portail **Mes applications**.
 
-2.  Ouvrez votre navigateur web et accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pourrez être dirigé vers une page personnalisée pour votre organisation, tel que https://myapps.microsoft.com/contoso.com.
+1. Connectez-vous à votre compte professionnel ou scolaire.
 
-    Le **applications** page apparaît, affichant toutes les applications cloud détenus par votre organisation et que vous pouvez utiliser.
+2. Ouvrez votre navigateur web et accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
-3. À partir de la **applications** , sélectionnez l’application que vous souhaitez recommencer à utiliser.
-    
-    Une nouvelle page s’ouvre pour l’application, où vous pouvez connectez-vous (si nécessaire) ou commencer à l’aide de l’application.
+    La page **Applications** s’affiche, avec toutes les applications cloud de votre organisation et que vous pouvez utiliser.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-intune-managed-browser"></a>Accès et l’utilisation du portail mes applications sur un navigateur géré par Intune
-Afficher et utiliser des applications de votre organisation à partir d’un compte Intune Managed Browser sur vos appareils iOS et Android.
+3. Dans la page **Applications**, sélectionnez l’application que vous souhaitez recommencer à utiliser.
 
-1. Sur votre appareil mobile, téléchargez et installez l’application Intune Managed Browser à partir de la [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) et [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
+    Une nouvelle page s’ouvre pour l’application. Vous pouvez vous connecter (si nécessaire) ou commencer à utiliser l’application.
 
-2. Ouvrez l’application Intune Managed Browser, accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pourrez être dirigé vers une page personnalisée pour votre organisation, tel que https://myapps.microsoft.com/contoso.com.
+### <a name="access-and-use-the-my-apps-portal-on-an-intune-managed-browser"></a>Accéder au portail Mes applications et l’utiliser sur un navigateur Intune managé
 
-    Le **applications** page apparaît, affichant toutes les applications cloud détenus par votre organisation et que vous pouvez utiliser.
+Consultez et utilisez les applications de votre organisation dans Intune Managed Browser sur vos appareils iOS et Android.
 
-3. À partir de la **applications** , sélectionnez l’application que vous souhaitez recommencer à utiliser.
-    
-    Une nouvelle page s’ouvre pour l’application, où vous pouvez connectez-vous (si nécessaire) ou commencer à l’aide de l’application.
+1. Sur votre appareil mobile, téléchargez et installez l’application Intune Managed Browser dans l’[Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ou [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>Accès et l’utilisation du portail mes applications sur un appareil iOS
-Afficher et utiliser le **mes applications** portail à partir d’un appareil iPhone ou iPad exécutant iOS version 7 ou version ultérieure. Vous pouvez également installer le [application mobile My Apps](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) pour accéder aux applications de votre organisation sur vos appareils iOS. 
+2. Ouvrez Intune Managed Browser, accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée pour votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
-1. Sur votre appareil mobile, démarrez une application de navigateur web, tels que Safari.
+    La page **Applications** s’affiche, avec toutes les applications cloud de votre organisation et que vous pouvez utiliser.
 
-2. Accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pourrez être dirigé vers une page personnalisée pour votre organisation, tel que https://myapps.microsoft.com/contoso.com.
+3. Dans la page **Applications**, sélectionnez l’application que vous souhaitez recommencer à utiliser.
 
-    Le **applications** page apparaît, affichant toutes les applications cloud détenus par votre organisation et que vous pouvez utiliser.
+    Une nouvelle page s’ouvre pour l’application. Vous pouvez vous connecter (si nécessaire) ou commencer à utiliser l’application.
 
-3. À partir de la **applications** , sélectionnez l’application que vous souhaitez recommencer à utiliser.
-    
-    Une nouvelle page s’ouvre pour l’application, où vous pouvez connectez-vous (si nécessaire) ou commencer à l’aide de l’application.
+### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>Accéder au portail Mes applications et l’utiliser sur un appareil iOS
 
-### <a name="access-and-use-the-my-apps-portal-on-an-android-device"></a>Accès et l’utilisation du portail mes applications sur un appareil Android
-Afficher et utiliser le **mes applications** portail sur un appareil Android.
+Accédez au portail **Mes applications** et utilisez-le sur un iPhone ou un iPad exécutant iOS version 7 ou version ultérieure. Vous pouvez également installer l’[application mobile Mes applications](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) pour accéder aux applications de votre organisation sur vos appareils iOS. 
 
-1. Sur votre appareil mobile, démarrez une application de navigateur web, tels que Google Chrome.
+1. Sur votre appareil mobile, démarrez un navigateur web, par exemple Safari.
 
-2. Accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pourrez être dirigé vers une page personnalisée pour votre organisation, tel que https://myapps.microsoft.com/contoso.com.
+2. Accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée pour votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
-    Le **applications** page apparaît, affichant toutes les applications cloud détenus par votre organisation et que vous pouvez utiliser.
+    La page **Applications** s’affiche, avec toutes les applications cloud de votre organisation et que vous pouvez utiliser.
 
-3. À partir de la **applications** , sélectionnez l’application que vous souhaitez recommencer à utiliser.
-    
-    Une nouvelle page s’ouvre pour l’application, où vous pouvez connectez-vous (si nécessaire) ou commencer à l’aide de l’application.
+3. Dans la page **Applications**, sélectionnez l’application que vous souhaitez recommencer à utiliser.
 
-## <a name="add-a-new-app-to-the-my-apps-portal"></a>Ajouter une nouvelle application au portail mes applications
-Si votre administrateur vous a donné l’autorisation, vous pouvez ajouter une nouvelle application à la **applications** page.
+    Une nouvelle page s’ouvre pour l’application. Vous pouvez vous connecter (si nécessaire) ou commencer à utiliser l’application.
 
-1. À partir de la **applications** page, sélectionnez **ajouter une application**.
+### <a name="access-and-use-the-my-apps-portal-on-an-android-device"></a>Accéder au portail Mes applications et l’utiliser sur un appareil Android
 
-    Le **ajouter des applications** page s’affiche.
+Vous pouvez accéder au portail **Mes applications** et le consulter sur un appareil Android.
 
-    ![Ajouter la page des applications, dans le portail mes applications](media/my-apps-portal/my-apps-portal-add-apps-page.png)
+1. Sur votre appareil mobile, démarrez un navigateur web, par exemple Google Chrome.
 
-2. Sélectionnez l’application que vous souhaitez ajouter à partir de la liste fournie, puis sélectionnez **ajouter**.
+2. Accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée pour votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
-3. L’application est ajoutée à la liste sur le **applications** page.
+    La page **Applications** s’affiche, avec toutes les applications cloud de votre organisation et que vous pouvez utiliser.
 
-    Certaines applications peuvent exiger l’approbation de l’administrateur avant d’être ajouté. Dans ce cas, l’application n’est pas ajoutée à la **applications** page jusqu'à ce que l’administrateur approuve le projet.
+3. Dans la page **Applications**, sélectionnez l’application que vous souhaitez recommencer à utiliser.
+
+    Une nouvelle page s’ouvre pour l’application. Vous pouvez vous connecter (si nécessaire) ou commencer à utiliser l’application.
+
+## <a name="add-a-new-app-to-the-my-apps-portal"></a>Ajout d’une nouvelle application au portail Mes applications
+
+Si votre administrateur vous en a donné l’autorisation, vous pouvez ajouter une nouvelle application à la page **Applications**.
+
+1. Dans la page **Applications**, sélectionnez **Ajouter l’application**.
+
+    La page **Ajouter des applications** s’affiche.
+
+    ![Page Ajouter des applications, dans le portail Mes applications](media/my-apps-portal/my-apps-portal-add-apps-page.png)
+
+2. Sélectionnez l’application que vous souhaitez ajouter dans la liste fournie, puis sélectionnez **Ajouter**.
+
+3. L’application est ajoutée à la liste sur la page **Applications**.
+
+    Certaines applications peuvent exiger l’approbation de l’administrateur avant d’être ajoutées. Dans ce cas, l’application n’est ajoutée à la page **Applications** qu’une fois que l’administrateur l’a approuvée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois que vous le **applications** page, vous pouvez effectuer les actions suivantes :
 
-- [Modifier vos informations de profil](my-apps-portal-end-user-update-profile.md).
+Une fois dans la page **Applications**, vous pouvez :
 
-- [Afficher et mettre à jour vos informations de groupes](my-apps-portal-end-user-groups.md).
+- [Modifier vos informations de profil](my-apps-portal-end-user-update-profile.md)
 
-- [Effectuer votre propre révisions d’accès](my-apps-portal-end-user-access-reviews.md).
+- [Consulter et mettre à jour les informations relatives aux groupes](my-apps-portal-end-user-groups.md)
+
+- [Effectuer vos propres révisions d’accès](my-apps-portal-end-user-access-reviews.md)

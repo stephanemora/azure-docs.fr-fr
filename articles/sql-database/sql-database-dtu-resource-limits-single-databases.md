@@ -7,21 +7,20 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/20/2019
-ms.openlocfilehash: b3514eca8db5d5b68b3e5784ee95e8583813945c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 84e39a727d5be842b356e5bd30333cb154df86aa
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008965"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568772"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU
 
-Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat par DTU.
+Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat DTU.
 
 Pour connaître les limites de ressources des pools élastiques du modèle d’achat DTU, consultez [Limites des ressources DTU : pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md). Pour voir les limites de ressources par vCore, consultez [Limites de ressources par vCore : bases de données uniques](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources par vCore : pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md). Pour plus d’informations concernant les différents modèles d’achat, consultez l’article décrivant les [modèles d’achat et niveaux de service](sql-database-purchase-models.md).
 
@@ -30,16 +29,16 @@ Pour connaître les limites de ressources des pools élastiques du modèle d’a
 Les tableaux suivants indiquent les ressources disponibles pour une base de données unique à chaque niveau de service et taille de calcul. Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage pour une base de données unique à l’aide du [Portail Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), de [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), de [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [d’Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) ou de [l’API REST](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 > [!IMPORTANT]
-> Mise à l’échelle les instructions et des considérations, consultez [mettre à l’échelle d’une base de données](sql-database-single-database-scale.md)
+> Pour obtenir des instructions et informations sur la mise à l’échelle, consultez [Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database](sql-database-single-database-scale.md)
 
 ### <a name="basic-service-tier"></a>Niveau de service De base
 
 | **Taille de calcul** | **De base** |
 | :--- | --: |
-| DTU max | 5. |
+| DTU max | 5\. |
 | Espace de stockage inclus (Go) | 2 |
 | Choix de stockage maximum (Go) | 2 |
-| Stockage In-Memory OLTP maximal (Go) |S.O. |
+| Stockage In-Memory OLTP maximal (Go) |N/A |
 | Nombre maximal d’ouvriers simultanés (demandes) | 30 |
 | Nombre maximal de sessions simultanées | 300 |
 |||
@@ -51,7 +50,7 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 | DTU max | 10 | 20 | 50 | 100 |
 | Espace de stockage inclus (Go) | 250 | 250 | 250 | 250 |
 | Choix de stockage maximum (Go) | 250 | 250 | 250 | 250, 500, 750, 1 024 |
-| Stockage In-Memory OLTP maximal (Go) | S.O. | N/A | N/A | S.O. |
+| Stockage In-Memory OLTP maximal (Go) | N/A | N/A | N/A | N/A |
 | Nombre maximal d’ouvriers simultanés (demandes)| 60 | 90 | 120 | 200 |
 | Nombre maximal de sessions simultanées |600 | 900 | 1 200 | 2 400 |
 ||||||
@@ -63,7 +62,7 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 | DTU max | 200 | 400 | 800 | 1 600 | 3000 |
 | Espace de stockage inclus (Go) | 250 | 250 | 250 | 250 | 250 |
 | Choix de stockage maximum (Go) | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 |
-| Stockage In-Memory OLTP maximal (Go) | S.O. | N/A | N/A | N/A |S.O. |
+| Stockage In-Memory OLTP maximal (Go) | N/A | N/A | N/A | N/A |N/A |
 | Nombre maximal d’ouvriers simultanés (demandes)| 400 | 800 | 1 600 | 3200 |6000 |
 | Nombre maximal de sessions simultanées |4 800 | 9 600 | 19 200 | 30000 |30000 |
 |||||||
@@ -73,19 +72,19 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 | **Taille de calcul** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | DTU max | 125 | 250 | 500 | 1 000 | 1 750 | 4000 |
-| Espace de stockage inclus (Go) | 500 | 500 | 500 | 500 | 4096* | 4096* |
-| Choix de stockage maximum (Go) | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 | 4096* | 4096* |
+| Espace de stockage inclus (Go) | 500 | 500 | 500 | 500 | 4 096* | 4 096* |
+| Choix de stockage maximum (Go) | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 | 4 096* | 4 096* |
 | Stockage In-Memory OLTP maximal (Go) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Nombre maximal d’ouvriers simultanés (demandes)| 200 | 400 | 800 | 1 600 | 2 400 | 6 400 |
 | Nombre maximal de sessions simultanées | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-\* À partir de 1 024 Go jusqu'à 4 096 Go par incréments de 256 Go
+\* De 1 024 à 4 096 Go par incréments de 256 Go
 
 > [!IMPORTANT]
 > Un espace de stockage supérieur à 1 To au niveau Premium est actuellement disponible dans les toutes régions sauf les suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, USA Centre-Ouest, US DoD et Gouvernement US Centre. Dans ces régions, l’espace de stockage maximal au niveau Premium est limité à 1 To.  Pour plus d’informations, voir les [limitations actuelles P11-P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!NOTE]
-> Pour `tempdb` les limites, consultez [limites tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> Pour les limites `tempdb`, consultez [Limites tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

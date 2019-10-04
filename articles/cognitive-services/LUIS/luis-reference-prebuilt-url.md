@@ -1,6 +1,6 @@
 ---
-title: Entités prédéfinies d’URL
-titleSuffix: Azure
+title: Entités prédéfinies URL – LUIS
+titleSuffix: Azure Cognitive Services
 description: Cet article contient des informations sur l’entité prédéfinie URL dans Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/04/2019
+ms.topic: conceptual
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5fb62c38bde98d946694790adb860240eaa59fa9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b05b4f8638eedc0830c887da59c0c22706a1c4ce
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530175"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933386"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie URL pour une application LUIS
 L’entité URL extrait des URL avec des noms de domaine ou des adresses IP. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des URL à l’application. L’entité URL est prise en charge uniquement dans la culture `en-us`. 
@@ -25,6 +25,9 @@ L’entité URL extrait des URL avec des noms de domaine ou des adresses IP. Ét
 L’entité URL est gérée à partir du dépôt GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-URL.yaml)
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Résolution pour une entité prédéfinie URL
+
+### <a name="api-version-2x"></a>API version 2.x
+
 L’exemple suivant montre la résolution de l’entité **builtin.url**.
 
 ```json
@@ -48,6 +51,64 @@ L’exemple suivant montre la résolution de l’entité **builtin.url**.
       "endIndex": 17
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>API 3.x en préversion
+
+Le code JSON suivant a le paramètre `verbose` défini sur `false` :
+
+```json
+{
+    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+    "prediction": {
+        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.421936184
+            }
+        },
+        "entities": {
+            "url": [
+                "https://www.luis.ai"
+            ]
+        }
+    }
+}
+```
+
+Le code JSON suivant a le paramètre `verbose` défini sur `true` :
+
+```json
+{
+    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+    "prediction": {
+        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.421936184
+            }
+        },
+        "entities": {
+            "url": [
+                "https://www.luis.ai"
+            ],
+            "$instance": {
+                "url": [
+                    {
+                        "type": "builtin.url",
+                        "text": "https://www.luis.ai",
+                        "startIndex": 0,
+                        "length": 19,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

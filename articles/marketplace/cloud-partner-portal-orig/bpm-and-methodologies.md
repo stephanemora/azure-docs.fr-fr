@@ -1,25 +1,19 @@
 ---
-title: Bibliothèques de processus d’entreprise | Microsoft Docs
+title: Bibliothèques de processus d’entreprise | Place de marché Azure
 description: Description détaillée des bibliothèques et méthodologies de processus d’entreprise | Microsoft Docs
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: df323d121b42ab1200844f3fefb713122ba43106
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: pabutler
+ms.openlocfilehash: 870e77f3390c820278970f5ffda002b4826b82a4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316078"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935625"
 ---
 # <a name="business-process-libraries"></a>Bibliothèques de processus d’entreprise
 

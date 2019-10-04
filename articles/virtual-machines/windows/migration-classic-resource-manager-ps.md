@@ -4,23 +4,22 @@ description: Cet article décrit pas à pas la procédure de migration de ressou
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 2b3dff9b-2e99-4556-acc5-d75ef234af9c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 02b3f4b0db46d05751569d465abf09310be91e8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: bf964f23b6c38444fb15b61161cb7ed5a2b15e00
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549769"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70102654"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide d’Azure PowerShell
 Ces étapes vous montrent comment utiliser les commandes Azure PowerShell pour migrer des ressources d’infrastructure en tant que service (IaaS) à partir du modèle de déploiement Classic vers le modèle de déploiement Azure Resource Manager.
@@ -36,7 +35,7 @@ Voici un diagramme de flux permettant d’identifier l’ordre dans lequel les �
 
 ![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="step-1-plan-for-migration"></a>Étape 1 : Planifier la migration
 Voici quelques bonnes pratiques recommandées lorsque vous évaluez la migration de ressources IaaS d’un environnement Classic vers Resource Manager.
@@ -228,7 +227,7 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
 
 Pour migrer des machines virtuelles dans un service cloud, vous migrez le réseau virtuel. Les machines virtuelles migrent automatiquement avec le réseau virtuel. Sélectionnez le réseau virtuel dont vous souhaitez effectuer la migration.
 > [!NOTE]
-> [Migrez une machine virtuelle classique unique](migrate-single-classic-to-resource-manager.md) en créant une nouvelle machine virtuelle Resource Manager avec des disques gérés en utilisant les fichiers de disque dur virtuel (système d’exploitation et données) de la machine virtuelle.
+> [Migrez une machine virtuelle classique unique](migrate-single-classic-to-resource-manager.md) en créant une nouvelle machine virtuelle Resource Manager avec la fonctionnalité Disques managés en utilisant les fichiers de disque dur virtuel (système d’exploitation et données) de la machine virtuelle.
 <br>
 
 > [!NOTE]

@@ -6,17 +6,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 06/17/2019
+ms.openlocfilehash: b73810b37020bf01c1088f194bd426e93fd95d2c
+ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361780"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71180772"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 
-Vous pouvez choisir entre quelques services de stockage Azure différent lors de la création des clusters HDInsight :
+Vous pouvez choisir parmi plusieurs services de stockage Azure lors de la création de clusters HDInsight :
 
 * Stockage Azure
 * Azure Data Lake Storage Gen2
@@ -24,34 +24,38 @@ Vous pouvez choisir entre quelques services de stockage Azure différent lors de
 
 Cet article fournit une vue d’ensemble de ces types de stockage, ainsi que de leurs caractéristiques uniques.
 
-Le tableau suivant récapitule les services de stockage Azure qui sont pris en charge avec différentes versions de HDInsight :
+Le tableau suivant récapitule les services de stockage Azure pris en charge avec les différentes versions de HDInsight :
 
-| Service de stockage | Type de compte | Type de Namespace | Services pris en charge | Niveaux de performances pris en charge | Niveaux d’accès pris en charge | Version de HDInsight | Type de cluster |
+| Service de stockage | Type de compte | Type d’espace de noms | Services pris en charge | Niveaux de performances pris en charge | Niveaux d’accès pris en charge | Version de HDInsight | Type de cluster |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Universel v2 | Hiérarchique (système de fichiers) | Blob | standard | À chaud, froid, Archive | 3.6+ | Tous |
-|Stockage Azure| Universel v2 | Object | Blob | standard | À chaud, froid, Archive | 3.6+ | Tous |
-|Stockage Azure| Universel v1 | Object | Blob | standard | S.O. | Tous | Tous |
-|Stockage Azure| Stockage Blob | Object | Blob | standard | À chaud, froid, Archive | Tous | Tous |
-|Azure Data Lake Storage Gen1| S.O. | Hiérarchique (système de fichiers) | S.O. | N/A | S.O. | 3.6 uniquement | Tout sauf HBase |
+|Azure Data Lake Storage Gen2| Universel v2 | Hiérarchique (système de fichiers) | Blob | standard | Chaud, froid, archive | 3.6+ | Tous |
+|Stockage Azure| Universel v2 | Object | Blob | standard | Chaud, froid, archive | 3.6+ | Tous |
+|Stockage Azure| Universel v1 | Object | Blob | standard | N/A | Tous | Tous |
+|Stockage Azure| Stockage Blob** | Object | Objet blob de blocs | standard | Chaud, froid, archive | Tous | Tous |
+|Azure Data Lake Storage Gen1| N/A | Hiérarchique (système de fichiers) | N/A | N/A | N/A | 3.6 uniquement | Tout sauf HBase |
 
-Pour plus d’informations sur les niveaux d’accès de stockage Azure, consultez [stockage Blob Azure : Premium (version préliminaire), les niveaux de stockage chaud, froid et Archive](../storage/blobs/storage-blob-storage-tiers.md)
+** Pour les clusters HDInsight, seuls les comptes de stockage secondaires peuvent être de type BlobStorage. Par ailleurs, les objets blob de pages ne font pas partie des options de stockage prises en charge.
 
-Vous pouvez créer un cluster à l’aide de différentes combinaisons de services pour le stockage secondaire principal et facultatif. Le tableau suivant résume les configurations de stockage de cluster qui sont actuellement pris en charge dans HDInsight :
+Pour plus d’informations sur les types de comptes de stockage Azure, consultez l’article [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
+
+Pour plus d’informations sur les niveaux d’accès du stockage Azure, consultez [Stockage Blob Azure : niveaux de stockage Premium (préversion), chaud, froid et archive](../storage/blobs/storage-blob-storage-tiers.md)
+
+Vous pouvez créer un cluster à l’aide de différentes combinaisons de services pour le stockage secondaire principal et facultatif. Le tableau suivant résume les configurations de stockage de cluster actuellement prises en charge dans HDInsight :
 
 | Version de HDInsight | Stockage principal | Stockage secondaire | Pris en charge |
 |---|---|---|---|
-| 3.6 & 4.0 | Objet Blob standard | Objet Blob standard | Oui |
-| 3.6 & 4.0 | Objet Blob standard | Data Lake Storage Gen2 | Non  |
-| 3.6 & 4.0 | Objet Blob standard | Data Lake Storage Gen 1 | Oui |
-| 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Oui |
-| 3.6 & 4.0 | Data Lake Storage Gen2 * | Objet Blob standard | Oui |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen 1 | Non  |
-| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen 1 | Oui |
-| 3.6 | Data Lake Storage Gen 1 | Objet Blob standard | Oui |
-| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen2 | Non  |
-| 4.0 | Data Lake Storage Gen 1 | Quelconque | Non  |
+| 3.6 et 4.0 | Usage général V1, usage général V2 | Usage général V1, usage général V2, BlobStorage (objets BLOB de blocs) | OUI |
+| 3.6 et 4.0 | Usage général V1, usage général V2 | Data Lake Storage Gen2 | Non |
+| 3.6 et 4.0 | Usage général V1, usage général V2 | Data Lake Storage Gen 1 | OUI |
+| 3.6 et 4.0 | Data Lake Storage Gen2* | Data Lake Storage Gen2 | OUI |
+| 3.6 et 4.0 | Data Lake Storage Gen2* | Usage général V1, usage général V2, BlobStorage (objets BLOB de blocs) | OUI |
+| 3.6 et 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen 1 | Non |
+| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen 1 | OUI |
+| 3.6 | Data Lake Storage Gen 1 | Usage général V1, usage général V2, BlobStorage (objets BLOB de blocs) | OUI |
+| 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen2 | Non |
+| 4.0 | Data Lake Storage Gen 1 | Quelconque | Non |
 
-* = Cela peut être un ou plusieurs comptes Data Lake Storage Gen2, tant qu’ils sont tous les paramètres à utiliser la même identité gérée pour l’accès au cluster.
+\* = Peut être un ou plusieurs comptes Data Lake Storage Gen2, tant qu’ils sont tous configurés pour utiliser la même identité gérée pour l’accès au cluster.
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Utiliser Azure Data Lake Storage Gen2 avec des clusters Apache Hadoop dans Azure HDInsight
 
@@ -91,9 +95,9 @@ Pour plus d’informations, consultez [Pilote ABFS (Azure Blob Filesystem) : pi
 
 Azure Data Lake Storage Gen2 utilise un nouveau schéma d’URI pour accéder aux fichiers de Stockage Azure à partir d’HDInsight :
 
-`abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+`abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
 
-Le schéma d’URI fournit un accès SSL chiffré (préfixe `abfss://`) et un accès SSL non chiffré (préfixe `abfs://`). Utilisez `abfss` dans la mesure du possible, même pour accéder à des données qui se trouvent dans la même région Azure.
+Le schéma d’URI fournit un accès chiffré SSL.
 
 `<FILE_SYSTEM_NAME>` identifie le chemin du système de fichiers Data Lake Storage Gen2.
 
@@ -104,8 +108,8 @@ Le schéma d’URI fournit un accès SSL chiffré (préfixe `abfss://`) et un ac
 Si vous ne spécifiez pas de valeurs pour `<FILE_SYSTEM_NAME>` et `<ACCOUNT_NAME>`, le système de fichiers par défaut est utilisé. Pour les fichiers du système de fichiers par défaut, utilisez un chemin relatif ou absolu. Par exemple, vous pouvez référencer le fichier `hadoop-mapreduce-examples.jar` fourni avec les clusters HDInsight en utilisant un des chemins suivants :
 
 ```
-abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
+abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
 > [!Note]
@@ -117,15 +121,15 @@ Pour plus d’informations, consultez [Utiliser l’URI d’Azure Data Lake Stor
 
 Stockage Azure est une solution de stockage à la fois robuste et polyvalente qui s’intègre en toute transparence à HDInsight. HDInsight peut utiliser un conteneur d’objets blob dans le stockage Azure comme système de fichiers par défaut pour le cluster. Grâce à une interface HDFS, l’ensemble des composants de HDInsight peut opérer directement sur les données structurées ou non structurées stockées en tant qu’objets blob.
 
-Nous vous recommandons d’utiliser des conteneurs de stockage distinct pour votre stockage de cluster par défaut et vos données d’entreprise, pour isoler les journaux de HDInsight et les fichiers temporaires à partir de vos propres données d’entreprise. Nous vous recommandons également de supprimer le conteneur d’objets blob par défaut, qui contient les journaux des applications et système, après chaque utilisation pour réduire le coût de stockage. Assurez-vous de récupérer les journaux d’activité avant de supprimer le conteneur.
+Nous vous recommandons d’utiliser des conteneurs de stockage distincts pour votre stockage de cluster par défaut et vos données d’entreprise, pour isoler les journaux de HDInsight et les fichiers temporaires de vos propres données d’entreprise. Nous recommandons également de supprimer le conteneur d’objets blob par défaut, qui contient les journaux des applications et système, après chaque utilisation pour réduire le coût de stockage. Assurez-vous de récupérer les journaux d’activité avant de supprimer le conteneur.
 
-Si vous choisissez votre compte de stockage avec le **les pare-feux et réseaux virtuels** restrictions sur **réseaux sélectionnés**, veillez à activer l’exception **autoriser fiables Microsoft Services...**  afin que HDInsight puisse accéder à votre compte de stockage.
+Si vous choisissez de sécuriser votre compte de stockage à l’aide des restrictions de **pare-feu et réseaux virtuels** sur des **réseaux sélectionnés**, veillez à activer l’exception **Autoriser les services approuvés de Microsoft...** afin que HDInsight puisse accéder à votre compte de stockage.
 
 ### <a name="hdinsight-storage-architecture"></a>Architecture de stockage HDInsight
 
 Le schéma suivant résume l’architecture HDInsight de Stockage Azure :
 
-![Schéma montrant comment les clusters Hadoop utilisent l’API HDFS pour accéder aux données structurées et non structurées et les stocker dans le stockage d’objets blob](./media/hdinsight-hadoop-compare-storage-options/HDI.WASB.Arch.png "Architecture de stockage HDInsight")
+![Architecture de stockage HDInsight](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "Architecture de stockage HDInsight")
 
 HDInsight permet d'accéder au système de fichiers distribués (DFS) connecté localement aux nœuds de calcul. Vous pouvez accéder à ce système de fichiers en utilisant l'URI complet, par exemple :
 
@@ -133,7 +137,7 @@ HDInsight permet d'accéder au système de fichiers distribués (DFS) connecté 
 
 Avec HDInsight, vous pouvez également accéder aux données dans Stockage Azure. La syntaxe est la suivante :
 
-    wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
+    wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
 Voici quelques points à prendre en compte quand vous utilisez un compte Stockage Azure avec des clusters HDInsight :
 

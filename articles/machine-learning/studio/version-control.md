@@ -10,11 +10,11 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
 ms.openlocfilehash: 046afaa0e83fa572d6cd43a3717707892b25af69
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793687"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66171087"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Application Lifecycle Management dans Azure Machine Learning Studio
 Azure Machine Learning Studio est un outil permettant de développer les expériences d’apprentissage automatique qui seront utilisées dans la plate-forme de cloud Azure. Cet outil est similaire au service cloud évolutif et à l’environnement IDE de Visual Studio, tous deux regroupés au sein d’une même plate-forme. Vous pouvez incorporer dans Azure Machine Learning Studio des pratiques de gestion du cycle de vie des applications (ALM, Application Lifecycle Management) standard, notamment le contrôle de version de plusieurs ressources, ainsi que l’exécution et le déploiement automatisés. Cet article traite de certaines de ces options et approches.
@@ -43,7 +43,7 @@ Les instantanés de l’historique d’exécution conservent une version immuabl
 Le fichier JSON est une représentation textuelle du graphique de l’expérience, qui peut inclure une référence aux ressources dans l’espace de travail, comme le jeu de données ou un modèle formé. Il ne contient aucune version sérialisée de la ressource. Si vous tentez d’importer le document JSON dans l’espace de travail, les ressources référencées doivent déjà exister et présenter les ID de ressource référencés dans l’expérience ; dans le cas contraire, vous ne pouvez pas accéder à l’expérience importée.
 
 ## <a name="versioning-trained-model"></a>Contrôle de version du modèle formé
-Un modèle formé dans Azure Machine Learning Studio est sérialisé dans un format connu comme étant un fichier iLearner (`.iLearner`) et est stocké dans le compte de stockage Blob Azure associé à l’espace de travail. Pour obtenir une copie du fichier iLearner, vous pouvez par exemple utiliser l’API de reformation. [Cet article](/azure/machine-learning/studio/retrain-machine-learning-model) décrit le fonctionnement de l’API de reformation. Voici la procédure générale :
+Un modèle formé dans Azure Machine Learning Studio est sérialisé sous la forme d’un fichier iLearner (`.iLearner`) et stocké dans le compte de stockage Blob Azure associé à l’espace de travail. Pour obtenir une copie du fichier iLearner, vous pouvez par exemple utiliser l’API de reformation. [Cet article](/azure/machine-learning/studio/retrain-machine-learning-model) décrit le fonctionnement de l’API de reformation. Voici la procédure générale :
 
 1. Configurez votre expérience de formation.
 2. Ajoutez le port de sortie du service web au module Former le modèle ou au module qui génère le modèle formé, tel que Tune Model Hyperparameter ou Create R Model.
@@ -58,7 +58,7 @@ Une fois que le fichier iLearner contenant le modèle formé est prêt, vous pou
 Vous pouvez ensuite utiliser le fichier iLearner enregistré pour évaluer les services web déployés.
 
 ## <a name="versioning-web-service"></a>Contrôle de version du service web
-Vous pouvez déployer deux types de web services à partir d’un Azure Machine Learning Studio faire des essais. Le service web classique est étroitement lié à l’expérience, ainsi qu’à l’espace de travail. Le nouveau service web s’appuie sur l’infrastructure Azure Resource Manager ; il n’est plus associé à l’expérience d’origine, ni à l’espace de travail.
+Vous pouvez déployer deux types de services web à partir d’une expérience Azure Machine Learning Studio. Le service web classique est étroitement lié à l’expérience, ainsi qu’à l’espace de travail. Le nouveau service web s’appuie sur l’infrastructure Azure Resource Manager ; il n’est plus associé à l’expérience d’origine, ni à l’espace de travail.
 
 ### <a name="classic-web-service"></a>Service web classique
 Pour contrôler la version d’un service web classique, vous pouvez tirer parti de la construction du point de terminaison du service web. Voici un flux typique :
@@ -75,12 +75,12 @@ Au fil du temps, vous aurez sans doute plusieurs points de terminaison créés d
 Vous pouvez également créer plusieurs points de terminaison de service web identiques et associer différentes versions du fichier iLearner au point de terminaison pour obtenir des effets similaires. Cet [article](create-models-and-endpoints-with-powershell.md) explique en détail la procédure à suivre.
 
 ### <a name="new-web-service"></a>Nouveau service web
-Si vous créez un service web basé sur Azure Resource Manager, la construction du point de terminaison n’est plus disponible. Au lieu de cela, vous pouvez générer des fichiers WSD (définition) de service web, au format JSON, à partir de votre expérience prédictive à l’aide de la [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) applet de commande PowerShell, ou à l’aide de la [ *Export-AzMlWebservice* ](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice) applet de commande PowerShell à partir d’un service web basé sur Resource Manager déployé.
+Si vous créez un service web basé sur Azure Resource Manager, la construction du point de terminaison n’est plus disponible. Au lieu de cela, vous pouvez générer des fichiers WSD (définition de service web), au format JSON, à partir de votre expérience prédictive à l’aide de l’applet de commande PowerShell [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment), ou à l’aide de l’applet de commande PowerShell [*Export-AzMlWebservice*](https://docs.microsoft.com/powershell/module/az.machinelearning/export-azmlwebservice), à partir d’un service web basé sur Resource Manager et déployé.
 
 Si vous avez déjà exporté, puis soumis le fichier WSD à un contrôle de version, vous pouvez également le déployer en tant que nouveau service web dans un plan de service web différent, dans une région Azure différente. Assurez-vous de fournir la configuration de compte de stockage appropriée, ainsi que l’ID du nouveau plan de service web. Pour associer d’autres fichiers iLearner, vous pouvez modifier le fichier WSD et mettre à jour la référence d’emplacement du modèle formé, puis le déployer en tant que nouveau service web.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>Automatiser le déploiement et l’exécution de l’expérience
-Un aspect important d’ALM consiste à automatiser l’exécution et le déploiement de l’application. Dans Azure Machine Learning Studio, vous pouvez y parvenir en utilisant la [module PowerShell](https://aka.ms/amlps). Voici un exemple d’étapes de bout en bout qui correspondent à un processus standard d’exécution/de déploiement ALM automatisé, à l’aide du [module PowerShell Azure Machine Learning](https://aka.ms/amlps). Chaque étape est liée à une ou plusieurs applets de commande PowerShell, que vous pouvez utiliser pour exécuter l’étape en question.
+Un aspect important d’ALM consiste à automatiser l’exécution et le déploiement de l’application. Pour ce faire, vous pouvez utiliser le [module PowerShell](https://aka.ms/amlps) dans Azure Machine Learning Studio. Voici un exemple d’étapes de bout en bout qui correspondent à un processus standard d’exécution/de déploiement ALM automatisé, à l’aide du [module PowerShell Azure Machine Learning](https://aka.ms/amlps). Chaque étape est liée à une ou plusieurs applets de commande PowerShell, que vous pouvez utiliser pour exécuter l’étape en question.
 
 1. [Téléchargez un jeu de données](https://github.com/hning86/azuremlps#upload-amldataset).
 2. Copiez une expérience de formation dans l’espace de travail à partir d’un [espace de travail](https://github.com/hning86/azuremlps#copy-amlexperiment) ou de la [galerie](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), ou [importez](https://github.com/hning86/azuremlps#import-amlexperimentgraph) à partir du disque local une expérience [exportée](https://github.com/hning86/azuremlps#export-amlexperimentgraph).

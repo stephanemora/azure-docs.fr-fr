@@ -1,20 +1,21 @@
 ---
-title: Catégories de recherche pour l’API Recherche d’entreprises locales Bing | Microsoft Docs
+title: Catégories de recherche pour l’API Recherche d’entreprises locales Bing
 titleSuffix: Azure Cognitive Services
 description: Lisez cet article pour apprendre à spécifier les catégories de recherche pour le point de terminaison d’API Recherche d’entreprises locales Bing.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.subservice: bing-local-business
+ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: b96c4e0ebfb12f48917febcc8ad623de18758935
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 56b94d66eb0929d2fd0ca74a1a631d229330adfa
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773668"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906391"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Catégories de recherche pour l’API Recherche d’entreprises locales Bing
 

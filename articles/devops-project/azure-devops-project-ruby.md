@@ -6,23 +6,22 @@ ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4cf3feeb92f04b4e97cbdc83c539c206790a78c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5cb47cdd76d1de284c4dc6dbdfbfedd0095653ab
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264520"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70899568"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-projects"></a>Créer un pipeline CI/CD pour Ruby on Rails avec Azure DevOps Projects
 
@@ -74,7 +73,7 @@ Azure DevOps Projects crée un dépôt Git dans Azure Pipelines ou dans GitHub. 
     Le lien ouvre une vue sur le dépôt Git récemment créé.
 
 1. Pour voir l’URL du clone du dépôt, sélectionnez **Cloner** en haut à droite.  
-    Vous pouvez cloner votre dépôt Git dans votre IDE favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche master et les valider.
+    Vous pouvez cloner votre dépôt Git dans votre IDE favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche maîtresse et les valider.
 
 1. Sur la gauche, accédez au fichier *app/views/pages/home.html.erb*, puis sélectionnez **Modifier**.
 
@@ -95,12 +94,12 @@ Azure DevOps Projects configure automatiquement un pipeline CI/CD complet dans v
     Un onglet du navigateur affiche le pipeline de build de votre nouveau projet.
 
 1. Pointez sur le champ **État**, puis sélectionnez les points de suspension (...).  
-    Un menu affiche plusieurs options, comme la mise en file d’attente d’une nouvelle build, la mise en pause d’une build et la modification du pipeline de build.
+    Un menu affiche plusieurs options, telles que de la mise en file d’attente d’une nouvelle build, la mise en pause d’une build et la modification du pipeline de build.
 
 1. Sélectionnez **Modifier**.
 
 1. Dans ce volet, vous pouvez examiner les différentes tâches de votre pipeline de build.  
-    La build effectue différentes tâches, comme la récupération (fetch) de sources dans le dépôt Git, la restauration de dépendances et la publication de sorties utilisées pour les déploiements.
+    La build effectue diverses opérations, comme la récupération (fetch) de sources dans le dépôt Git, la restauration de dépendances et la publication de sorties utilisées pour les déploiements.
 
 1. En haut du pipeline de build, sélectionnez le nom du pipeline de build.
 
@@ -125,7 +124,7 @@ Azure DevOps Projects configure automatiquement un pipeline CI/CD complet dans v
     Le pipeline de build que vous avez examiné précédemment génère la sortie qui est utilisée pour l’artefact. 
 
 1. À droite de l’icône **Déposer**, sélectionnez **Déclencheur de déploiement continu**.  
-    Ce pipeline de mise en production a un déclencheur de déploiement continu activé qui exécute un déploiement chaque fois qu’un nouvel artefact de build est disponible. Si vous le souhaitez, vous pouvez désactiver le déclencheur, vos déploiements nécessitant alors une exécution manuelle. 
+    Ce pipeline de mise en production est doté d’un déclencheur de déploiement continu activé qui exécute un déploiement chaque fois qu’un nouvel artefact de build est disponible. Si vous le souhaitez, vous pouvez désactiver le déclencheur, vos déploiements nécessitant alors une exécution manuelle. 
 
 1. Sur la gauche, sélectionnez **Tâches**.  
     Les tâches sont les activités effectuées par votre processus de déploiement. Dans cet exemple, une tâche a été créée pour déployer sur Azure App Service.

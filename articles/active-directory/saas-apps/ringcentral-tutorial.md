@@ -4,186 +4,125 @@ description: Découvrez comment configurer l’authentification unique entre Azu
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: celested
 ms.assetid: 5848c875-5185-4f91-8279-1a030e67c510
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/08/2018
+ms.topic: tutorial
+ms.date: 05/09/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9cd97bc226ec69441b933a9f7bf3caec17f1478
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c374c9e8fd91d50b7e6589f22f9bed09fbe0de39
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877120"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092873"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Tutoriel : Intégration d’Azure Active Directory à RingCentral
+# <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Didacticiel : Intégrer RingCentral à Azure Active Directory
 
-Dans ce didacticiel, vous allez apprendre à intégrer RingCentral à Azure Active Directory (Azure AD).
+Dans ce tutoriel, vous allez découvrir comment intégrer RingCentral à Azure AD (Azure Active Directory). Quand vous intégrez RingCentral à Azure AD, vous pouvez :
 
-L’intégration de RingCentral dans Azure AD vous offre les avantages suivants :
+* Contrôler qui a accès à RingCentral dans Azure AD.
+* Permettre aux utilisateurs de se connecter automatiquement à RingCentral avec leur compte Azure AD.
+* Gérer vos comptes à partir d’un emplacement central : le portail Azure.
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à RingCentral.
-- Vous pouvez autoriser vos utilisateurs à se connecter automatiquement à RingCentral (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="prerequisites"></a>Conditions préalables
+Pour commencer, vous devez disposer de ce qui suit :
 
-Pour configurer l’intégration d’Azure AD à RingCentral, vous avez besoin des éléments suivants :
-
-- Un abonnement Azure AD
-- Un abonnement RingCentral pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’en avez pas, vous pouvez obtenir un essai gratuit d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/)
+* Un abonnement RingCentral pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
-1. Ajout de RingCentral depuis la galerie
-2. Configuration et test de l’authentification unique Azure AD
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. RingCentral prend en charge l’authentification unique lancée par le **fournisseur d’identité**
 
 ## <a name="adding-ringcentral-from-the-gallery"></a>Ajout de RingCentral depuis la galerie
+
 Pour configurer l’intégration de RingCentral à Azure AD, vous devez ajouter RingCentral à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter RingCentral à partir de la galerie, procédez comme suit :**
-
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
-
-    ![image](./media/ringcentral-tutorial/selectazuread.png)
-
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
-
-    ![image](./media/ringcentral-tutorial/a_select_app.png)
-    
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
-
-    ![image](./media/ringcentral-tutorial/a_new_app.png)
-
-4. Dans la zone de recherche, tapez **RingCentral**, sélectionnez **RingCentral** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
-
-     ![image](./media/ringcentral-tutorial/a_add_app.png)
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **RingCentral** dans la zone de recherche.
+1. Sélectionnez **RingCentral** dans le panneau de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec RingCentral, en vous servant d’un utilisateur de test appelé « Britta Simon ».
+Configurez et testez l’authentification unique Azure AD avec RingCentral à l’aide d’un utilisateur de test appelé **Britta Simon**. Pour que l’authentification unique fonctionne, vous devez établir une relation entre un utilisateur Azure AD et l’utilisateur RingCentral associé.
 
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur RingCentral équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et l’utilisateur associé dans RingCentral doit être établie.
+Pour configurer et tester l’authentification unique Azure AD avec RingCentral, suivez les indications des sections ci-après :
 
-Pour configurer et tester l’authentification unique Azure AD avec RingCentral, vous devez suivre les indications des sections suivantes :
-
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test RingCentral](#create-a-ringcentral-test-user)** pour avoir un équivalent de Britta Simon dans RingCentral, lié à la représentation Azure AD de l’utilisateur.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique RingCentral](#configure-ringcentral-sso)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
 4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+5. **[Créer un utilisateur de test RingCentral](#create-ringcentral-test-user)** pour avoir un équivalent de Britta Simon dans RingCentral, lié à la représentation Azure AD de l’utilisateur.
+6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application RingCentral.
+Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec RingCentral, procédez comme suit :**
+1. Dans le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **RingCentral**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
 
-1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **RingCentral**, cliquez sur **Authentification unique**.
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-    ![image](./media/ringcentral-tutorial/b1_b2_select_sso.png)
+1. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
 
-2. Cliquez sur **Modifier le mode d’authentification unique** en haut de l’écran pour sélectionner le mode **SAML**.
+    1. Cliquez sur **Charger un fichier de métadonnées**.
+    1. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
+    1. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la section **Configuration SAML de base**.
 
-      ![image](./media/ringcentral-tutorial/b1_b2_saml_ssso.png)
-
-3. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML** afin d’activer l’authentification unique.
-
-    ![image](./media/ringcentral-tutorial/b1_b2_saml_sso.png)
-
-4. Sur la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
-
-    ![image](./media/ringcentral-tutorial/b1-domains_and_urlsedit.png)
-
-5. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
-
-    a. Cliquez sur **Charger un fichier de métadonnées**.
-
-    ![image](./media/ringcentral-tutorial/b9_saml.png)
-
-    b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
-
-    ![image](./media/ringcentral-tutorial/b9(1)_saml.png)
-
-    c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la zone de texte de la section **Configuration SAML de base**, comme indiqué ci-dessous :
-
-    ![image](./media/ringcentral-tutorial/b21-domains_and_urls.png)
-
-    d. Dans la zone de texte **URL d’authentification**, entrez une URL :
-
-    | |
-    |--|
-    | `https://service.ringcentral.com` |
-    | `https://service.ringcentral.com.au` |
-    | `https://service.ringcentral.co.uk` |
-    | `https://service.ringcentral.eu` |
-
-    > [!NOTE]
+    > [!Note]
     > Sur la page de configuration de l’authentification unique de RingCentral, vous obtenez le **fichier de métadonnées du fournisseur de services**, qui sera expliqué plus tard dans le didacticiel.
 
-6. Si vous n’avez pas **fichier de métadonnées de fournisseur de services**, procédez comme suit :
+1. Si vous n’avez pas de **fichier de métadonnées du fournisseur de services**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL d’authentification**, entrez une URL :
-
-    | |
-    |--|
-    | `https://service.ringcentral.com` |
-    | `https://service.ringcentral.com.au` |
-    | `https://service.ringcentral.co.uk` |
-    | `https://service.ringcentral.eu` |
-
-    b. Dans la zone de texte **Identificateur**, tapez une URL :
+    a. Dans la zone de texte **Identificateur**, tapez une URL :
 
     | |
     |--|
     |  `https://sso.ringcentral.com` |
     | `https://ssoeuro.ringcentral.com` |
 
-    c. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant :
-    
+    b. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant :
+
     | |
     |--|
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
     | `https://ssoeuro.ringcentral.com/sp/ACS.saml2` |
 
-    ![image](./media/ringcentral-tutorial/b2-domains_and_urls.png)
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
-7. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le certificat en fonction des options définies, puis enregistrez-le sur votre ordinateur.
+    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
-    ![image](./media/ringcentral-tutorial/certificatebase64.png)
-    
-8. Ouvrez une autre fenêtre de navigateur web et connectez-vous à RingCentral en tant qu’administrateur de la sécurité.
+### <a name="configure-ringcentral-sso"></a>Configurer l’authentification unique RingCentral
 
-9. En haut de la page, cliquez sur **Outils**.
+1. Ouvrez une autre fenêtre de navigateur web et connectez-vous à RingCentral en tant qu’administrateur de la sécurité.
+
+1. En haut de la page, cliquez sur **Outils**.
 
     ![image](./media/ringcentral-tutorial/ringcentral1.png)
 
-10. Accédez à **Authentification unique**.
+1. Accédez à **Authentification unique**.
 
     ![image](./media/ringcentral-tutorial/ringcentral2.png)
 
-11. Sur la page **Authentification unique**, dans la section **Configuration SSO**, cliquez sur **Modifier** dans l’**étape 1**, puis procédez comme suit :
+1. Sur la page **Authentification unique**, dans la section **Configuration SSO**, cliquez sur **Modifier** dans l’**étape 1**, puis procédez comme suit :
 
     ![image](./media/ringcentral-tutorial/ringcentral3.png)
 
-12. Sur la page **Configurer l’authentification unique**, effectuez les étapes suivantes :
+1. Sur la page **Configurer l’authentification unique**, effectuez les étapes suivantes :
 
     ![image](./media/ringcentral-tutorial/ringcentral4.png)
 
@@ -195,7 +134,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     d. Cliquez sur **Enregistrer**.
 
-    e. À partir de **étape 2** cliquez sur **télécharger** pour télécharger le **fichier de métadonnées de fournisseur de services** et chargez-le dans **base Configuration SAML** section pour le remplissage automatique de la **identificateur** et **URL de réponse** valeurs dans le portail Azure.
+    e. Dans l’**étape 2**, cliquez sur **Télécharger** pour télécharger le **fichier de métadonnées du fournisseur de services**. Ensuite, chargez-le dans la section **Configuration SAML de base** afin de renseigner automatiquement les valeurs **Identificateur** et **URL de réponse** dans le portail Azure.
 
     ![image](./media/ringcentral-tutorial/ringcentral6.png) 
 
@@ -203,90 +142,54 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![image](./media/ringcentral-tutorial/ringcentral5.png)
 
-    a. Sélectionnez **Activer le service d’authentification unique**.
-    
-    b. Sélectionnez **Allow users to log in with SSO or RingCentral credential** (Autoriser les utilisateurs à se connecter avec des informations d’identification de l’authentification unique ou RingCentral).
+    * Sélectionnez **Activer le service d’authentification unique**.
 
-    c. Cliquez sur **Enregistrer**.
+    * Sélectionnez **Allow users to log in with SSO or RingCentral credential** (Autoriser les utilisateurs à se connecter avec des informations d’identification de l’authentification unique ou RingCentral).
+
+    * Cliquez sur **Enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+Dans cette section, vous allez créer un utilisateur de test appelé Britta Simon dans le Portail Azure.
 
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
-
-    ![image](./media/ringcentral-tutorial/d_users_and_groups.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![image](./media/ringcentral-tutorial/d_adduser.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![image](./media/ringcentral-tutorial/d_userproperties.png)
-
-    a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
-    b. Dans le **nom d’utilisateur** type de champ **brittasimon\@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
-
-    c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Sélectionnez **Créer**.
- 
-### <a name="create-a-ringcentral-test-user"></a>Créer un utilisateur de test RingCentral
-
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans RingCentral. Collaborez avec l’ [équipe de support technique RingCentral](https://success.ringcentral.com/RCContactSupp) pour ajouter les utilisateurs dans la plateforme RingCentral. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
+   1. Dans le champ **Nom**, entrez `Britta Simon`.  
+   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `BrittaSimon@contoso.com`.
+   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+   1. Cliquez sur **Créer**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à RingCentral.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Dans la liste des applications, sélectionnez **RingCentral**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
 
-    ![image](./media/ringcentral-tutorial/d_all_applications.png)
+   ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-2. Dans la liste des applications, sélectionnez **RingCentral**.
+1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
 
-    ![image](./media/ringcentral-tutorial/d_all_proapplications.png)
+    ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-    ![image](./media/ringcentral-tutorial/d_leftpaneusers.png)
+### <a name="create-ringcentral-test-user"></a>Créer un utilisateur de test RingCentral
 
-4. Sélectionnez le bouton **Ajouter**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans RingCentral. Collaborez avec l’ [équipe de support technique RingCentral](https://success.ringcentral.com/RCContactSupp)  pour ajouter les utilisateurs dans la plateforme RingCentral. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-    ![image](./media/ringcentral-tutorial/d_assign_user.png)
+### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
-4. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-5. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
-
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
-
-Lorsque vous cliquez sur la mosaïque RingCentral dans le volet d’accès, vous devez être connecté automatiquement à votre application RingCentral.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Quand vous sélectionnez la vignette RingCentral dans le volet d’accès, vous devez être connecté automatiquement à l’application RingCentral pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/ringcentral-tutorial/tutorial_general_01.png
-[2]: ./media/ringcentral-tutorial/tutorial_general_02.png
-[3]: ./media/ringcentral-tutorial/tutorial_general_03.png
-[4]: ./media/ringcentral-tutorial/tutorial_general_04.png
-
-[100]: ./media/ringcentral-tutorial/tutorial_general_100.png
-
-[200]: ./media/ringcentral-tutorial/tutorial_general_200.png
-[201]: ./media/ringcentral-tutorial/tutorial_general_201.png
-[202]: ./media/ringcentral-tutorial/tutorial_general_202.png
-[203]: ./media/ringcentral-tutorial/tutorial_general_203.png
-
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

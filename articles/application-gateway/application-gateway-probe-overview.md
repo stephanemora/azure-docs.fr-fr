@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
 ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120548"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66135216"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Vue d’ensemble de l’analyse d’intégrité Application Gateway
 
@@ -35,7 +35,7 @@ Si l’analyse de la sonde par défaut échoue pour le serveur A, la passerelle
 
 ### <a name="probe-matching"></a>Correspondance des sondes
 
-Par défaut, une réponse HTTP (S) avec le code d’état compris entre 200 et 399 est considéré comme saine. Les sondes d’intégrité personnalisées prennent également en charge deux critères de correspondance. Les critères de correspondance peuvent être utilisés pour éventuellement modifier l’interprétation par défaut de ce qui constitue une réponse intègre.
+Par défaut, une réponse HTTP(S) avec un code d’état compris entre 200 et 399 est considérée comme intègre. Les sondes d’intégrité personnalisées prennent également en charge deux critères de correspondance. Les critères de correspondance peuvent être utilisés pour éventuellement modifier l’interprétation par défaut de ce qui constitue une réponse intègre.
 
 Les éléments suivants sont des critères de correspondance : 
 
@@ -44,7 +44,7 @@ Les éléments suivants sont des critères de correspondance :
 
 Les critères de correspondance peuvent être spécifiés à l’aide de la cmdlet `New-AzApplicationGatewayProbeHealthResponseMatch`.
 
-Par exemple : 
+Par exemple :
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -64,7 +64,7 @@ Une fois les critères de correspondance spécifiés, ils peuvent être joints �
 > [!NOTE]
 > Le port est le même que celui utilisé par les paramètres HTTP du serveur principal.
 
-La sonde par défaut examine uniquement http :\//127.0.0.1 :\<port\> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées.
+La sonde par défaut examine uniquement http:\//127.0.0.1:\<port\> pour déterminer l’état d’intégrité. Si vous devez configurer la sonde d’intégrité de sorte qu’elle accède à une URL personnalisée ou modifier d’autres paramètres, vous devez utiliser des sondes personnalisées.
 
 ### <a name="probe-intervals"></a>Intervalles d'analyse
 

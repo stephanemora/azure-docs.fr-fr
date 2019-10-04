@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802488"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60826147"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accéder à l’API Azure Media Services avec l’authentification Azure AD  
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
 
 L’API Azure Media Services est une API RESTful. Vous pouvez l’utiliser pour effectuer des opérations sur les ressources médias à l’aide d’une API REST ou à l’aide de Kits de développement logiciel (SDK) clients disponibles. Azure Media Services propose un Kit de développement logiciel (SDK) client Media Services pour Microsoft .NET. Pour être autorisé à accéder aux ressources Media Services et à l’API Media Services, vous devez tout d’abord être authentifié. 
 
@@ -32,7 +32,7 @@ Media Services prend en charge l’[authentification avec Azure Active Directory
 Ce document donne une vue d’ensemble de l’accès à l’API Media Services à l’aide des API REST ou .NET.
 
 > [!NOTE]
-> Autorisation de contrôle d’accès a été déconseillée sur le 1er juin 2018.
+> L’autorisation Access Control a été dépréciée le 1er juin 2018.
 
 ## <a name="access-control"></a>Contrôle d’accès
 
@@ -79,13 +79,13 @@ Dans le diagramme précédent, les nombres représentent le flux des requêtes d
        Les informations relatives au locataire peuvent être récupérées à partir du portail Azure. Placez votre curseur sur le nom de l’utilisateur connecté, en haut à droite.
    * URI de ressource Media Services. 
 
-       Cet URI est identique pour les comptes Media Services qui se trouvent dans le même environnement Azure (par exemple, https://rest.media.azure.net)).
+       Cet URI est identique pour les comptes Media Services qui se trouvent dans le même environnement Azure (par exemple, https://rest.media.azure.net) ).
 
    * ID client d’application Media Services (natif).
    * URI de redirection d’application Media Services (natif).
    * URI de ressource pour REST Media Services.
         
-       L’URI représente le point de terminaison d’API REST (par exemple, https://test03.restv2.westus.media.azure.net/api/)).
+       L’URI représente le point de terminaison d’API REST (par exemple, https://test03.restv2.westus.media.azure.net/api/) ).
 
      Pour obtenir les valeurs de ces paramètres, consultez [Prise en main de l’authentification Azure AD à l’aide du portail Azure](media-services-portal-get-started-with-aad.md) par le biais de l’option d’authentification utilisateur.
 
@@ -121,11 +121,11 @@ Dans la figure précédente, les nombres représentent le flux des requêtes dan
        Les informations relatives au locataire peuvent être récupérées à partir du portail Azure. Placez votre curseur sur le nom de l’utilisateur connecté, en haut à droite.
    * URI de ressource Media Services. 
 
-       Cet URI est identique pour les comptes Media Services qui se trouvent dans le même environnement Azure (par exemple, https://rest.media.azure.net)).
+       Cet URI est identique pour les comptes Media Services qui se trouvent dans le même environnement Azure (par exemple, https://rest.media.azure.net) ).
 
    * URI de ressource pour REST Media Services.
 
-       L’URI représente le point de terminaison d’API REST (par exemple, https://test03.restv2.westus.media.azure.net/api/)).
+       L’URI représente le point de terminaison d’API REST (par exemple, https://test03.restv2.westus.media.azure.net/api/) ).
 
    * Valeurs de l’application Azure AD : ID client et clé secrète client.
     

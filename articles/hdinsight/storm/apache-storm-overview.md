@@ -1,27 +1,24 @@
 ---
 title: Présentation d’Apache Storm - Azure HDInsight
 description: Apache Storm vous permet de traiter des flux de données en temps réel. Azure HDInsight vous permet de créer facilement des clusters Storm dans le cloud Azure. Avec Visual Studio, vous pouvez créer des solutions Storm en C#, puis les déployer sur vos clusters Storm HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: cas d’utilisation d’apache storm,cluster storm,présentation d’apache storm
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 02/27/2018
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: b9c66216411f42e46cc7c7be486f6103db9c7208
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 0540d8a83a8dc1da9bc763bce0b30463889cfe90
+ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894595"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70915035"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Présentation d’Apache Storm sur Azure HDInsight
 
 [Apache Storm](https://storm.apache.org/) est un système de calcul distribué, à tolérance de panne et open source. Vous pouvez utiliser Storm pour traiter des flux de données en temps réel avec [Apache Hadoop](https://hadoop.apache.org/). Les solutions Storm peuvent également permettre un traitement garanti des données, ainsi que la possibilité de relire les données dont le traitement a échoué une première fois.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="why-use-apache-storm-on-hdinsight"></a>Pourquoi utiliser Apache Storm sur HDInsight ?
 
@@ -39,8 +36,7 @@ Le logiciel Storm sur HDInsight offre les fonctionnalités suivantes :
 
 * **Mise à l’échelle dynamique** : Vous pouvez ajouter ou supprimer les nœuds Worker sans nuire à l’exécution des topologies Storm.
 
-    > [!NOTE]  
-    > Vous devez désactiver puis réactiver les topologies en cours d’exécution afin de tirer parti des nouveaux nœuds ajoutés avec les opérations de mise à l’échelle.
+    * Vous devez désactiver puis réactiver les topologies en cours d’exécution afin de tirer parti des nouveaux nœuds ajoutés avec les opérations de mise à l’échelle.
 
 * **Créer des pipelines de streaming à l’aide de plusieurs services Azure** : Storm sur HDInsight s’intègre avec d’autres services Azure tels que Event Hubs, SQL Database, Stockage Azure et Azure Data Lake Storage.
 
@@ -48,7 +44,7 @@ Le logiciel Storm sur HDInsight offre les fonctionnalités suivantes :
 
 Pour obtenir la liste des entreprises qui utilisent Apache Storm pour leurs solutions d’analyse en temps réel, voir [Entreprises utilisant Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-Pour commencer à l’aide de Storm, consultez [prise en main Apache Storm sur HDInsight][gettingstarted].
+Pour commencer avec Storm, consultez [Créer et surveiller une topologie Apache Storm dans Azure HDInsight](apache-storm-quickstart.md).
 
 ## <a name="how-does-apache-storm-work"></a>Fonctionnement d’Apache Storm
 
@@ -68,11 +64,11 @@ Le nœud Nimbus offre une fonctionnalité similaire à Apache Hadoop JobTracker 
 
 Par défaut, un cluster Apache Storm est configuré pour n’avoir qu’un seul nœud Nimbus. Storm sur HDInsight fournit deux nœuds Nimbus. Si le nœud principal tombe en panne, le cluster Storm bascule vers le nœud secondaire tandis que le nœud principal est récupéré. Le schéma suivant illustre la configuration du flux de tâches pour Storm sur HDInsight :
 
-![Schéma de Nimbus, de Zookeeper et de Superviseur](./media/apache-storm-overview/nimbus.png)
+![Schéma de Nimbus, de Zookeeper et de Superviseur](./media/apache-storm-overview/storm-diagram-nimbus.png)
 
 ## <a name="ease-of-creation"></a>Facilité de création
 
-Vous pouvez créer un nouveau cluster Storm sur HDInsight en quelques minutes. Pour plus d’informations sur la création d’un cluster Storm, consultez [Prise en main de Storm sur un cluster HDInsight](apache-storm-tutorial-get-started-linux.md).
+Vous pouvez créer un nouveau cluster Storm sur HDInsight en quelques minutes. Pour plus d’informations sur la création d’un cluster Storm, consultez [Créer des clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="ease-of-use"></a>Simplicité d'utilisation
 
@@ -86,7 +82,7 @@ Vous pouvez créer un nouveau cluster Storm sur HDInsight en quelques minutes. P
 
 * __Azure PowerShell et Azure CLI__ : PowerShell et l’interface CLI classique fournissent des utilitaires de ligne de commande que vous pouvez utiliser avec HDInsight et d’autres services Azure, à partir de votre système client.
 
-* __Intégration à Visual Studio__ : Azure Data Lake Tools pour Visual Studio incluent des modèles de projet pour la création de C# topologies Storm à l’aide de l’infrastructure SCP.NET. Data Lake Tools fournit des outils permettant de déployer, de surveiller et de gérer des solutions avec Storm sur HDInsight.
+* __Intégration à Visual Studio__ : Azure Data Lake Tools pour Visual Studio inclut des modèles de projet pour la création de topologies Storm en C# à l’aide du framework SCP.NET. Data Lake Tools fournit des outils permettant de déployer, de surveiller et de gérer des solutions avec Storm sur HDInsight.
 
   Pour en savoir plus, voir [Développement de topologies C# pour Apache Storm sur HDInsight à l’aide des outils Hadoop pour Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
@@ -142,7 +138,7 @@ Pour plus d‘informations, consultez la rubrique [Garanties sur le traitement d
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-Le modèle de lecture d’un tuple d’entrée, générant zéro ou plusieurs tuples et puis reconnaissant le tuple d’entrée immédiatement à la fin de la méthode execute est courant. Storm fournit l’interface [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html)pour automatiser ce modèle.
+Le modèle de lecture d’une entrée tuple, qui émet entre zéro et plusieurs tuples, puis le mécanisme d’accusé de réception de l’entrée tuple appliqué dès la fin de la méthode d’exécution sont courants. Storm fournit l’interface [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html)pour automatiser ce modèle.
 
 ### <a name="joins"></a>Jointures
 
@@ -150,7 +146,9 @@ La façon dont les flux de données sont joints varie entre les applications. Vo
 
 Dans l’exemple Java suivant, fieldsGrouping est utilisé pour acheminer les tuples qui proviennent des composants « 1 », « 2 » et « 3 » vers le bolt MyJoiner :
 
-    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```java
+builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```
 
 ### <a name="batches"></a>Lots
 
@@ -178,10 +176,5 @@ Pour découvrir un exemple de topologie indiquant comment configurer la journali
 
 En savoir plus sur les solutions d‘analyse en temps réel avec Apache Storm dans HDInsight :
 
-* [Prise en main d’Apache Storm sur HDInsight][gettingstarted]
+* [Créer et surveiller une topologie Apache Storm dans Azure HDInsight à votre projet](apache-storm-quickstart.md)
 * [Exemples de topologies pour Apache Storm dans HDInsight](apache-storm-example-topology.md)
-
-[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
-[gettingstarted]: apache-storm-tutorial-get-started-linux.md

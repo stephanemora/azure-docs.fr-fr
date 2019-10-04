@@ -11,11 +11,11 @@ ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
 ms.openlocfilehash: 9165e51d07cf97756408c7f73720931abe067bb2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371744"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60751534"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prédire une réponse à l’aide d’un modèle simple
 ## <a name="video-4-data-science-for-beginners-series"></a>Vidéo 4 : série Science des données pour les débutants
@@ -87,7 +87,7 @@ En dessinant une ligne, nous avons créé un *modèle*. Cela revient à prendre 
 
 Le fait que la ligne ne passe pas exactement par tous les points n’est pas un problème. Les chercheurs de données expliquent cela en disant qu’il existe le modèle (la ligne) et que du *bruit* ou une *variance* peuvent être ensuite associés à chaque point. Nous avons d’un côté la relation sous-jacente parfaite, et de l’autre le monde réel moins clair qui ajoute du bruit et de l’incertitude.
 
-Étant donné que nous essayons de répondre à la question *Combien ?*, il s’agit une *régression*. Et comme nous utilisons une ligne droite, c’est une *régression linéaire*.
+Étant donné que nous essayons de répondre à la question *Combien ?* , il s’agit une *régression*. Et comme nous utilisons une ligne droite, c’est une *régression linéaire*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Utiliser le modèle pour trouver la réponse
 Nous avons maintenant un modèle et nous lui posons notre question : Combien coûte un diamant de 1,35 carat ?

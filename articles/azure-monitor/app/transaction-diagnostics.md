@@ -13,11 +13,11 @@ ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619830"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60783625"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostics de transaction entre composants unifiés
 
@@ -74,9 +74,9 @@ Ce volet réductible affiche les autres résultats qui correspondent aux critèr
 
 Le [profileur Application Insights](../../azure-monitor/app/profiler.md) ou le [débogueur de la capture instantanée](snapshot-debugger.md) apporte une aide avec des diagnostics au niveau du code des problèmes de performances et d’échec. Grâce à cette expérience, vous pouvez afficher les traces du profileur ou les instantanés d’un composant d’un simple clic.
 
-Si vous pouvez obtenir pas Profiler fonctionne, veuillez contacter **serviceprofilerhelp\@microsoft.com**
+Si Profiler ne fonctionne pas, contactez **serviceprofilerhelp\@microsoft.com**
 
-Si vous pouvez obtenir pas l’utilisation du débogueur de capture instantanée, veuillez contacter **snapshothelp\@microsoft.com**
+Si le Débogueur de capture instantanée ne fonctionne pas, contactez **snapshothelp\@microsoft.com**
 
 ![Intégration de Profiler](media/transaction-diagnostics/profilerTraces.png)
 

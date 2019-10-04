@@ -6,22 +6,30 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58794017"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061586"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
 ![Logo Office 365](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> Pour installer et configurer la solution Office 365, nous vous recommandons d’activer le [connecteur Office 365](../../sentinel/connect-office-365.md) dans [Azure Sentinel](../../sentinel/overview.md) plutôt que d’utiliser les étapes du présent article. Il s’agit d’une version mise à jour de la solution Office 365, qui offre une expérience de configuration optimisée. Pour connecter les journaux Azure AD, vous pouvez utiliser le [connecteur Azure AD Azure Sentinel](../../sentinel/connect-azure-active-directory.md) ou [configurer les paramètres de diagnostic Azure AD](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), qui fournissent des données de journal plus riches que les journaux de gestion Office 365. 
+>
+> Lorsque vous [intégrez Azure Sentinel](../../sentinel/quickstart-onboard.md), spécifiez l’espace de travail Log Analytics dans lequel vous souhaitez installer la solution Office 365 Une fois le connecteur activé, la solution est disponible dans l’espace de travail, et vous pouvez l’utiliser exactement comme les autres solutions de surveillance que vous avez installées.
+>
+> Les utilisateurs du cloud Azure Government doivent installer Office 365 en suivant la procédure de cet article, car Azure Sentinel n’est pas encore disponible sur ce Cloud.
 
 La solution de gestion Office 365 vous permet d’effectuer le monitoring de votre environnement Office 365 dans Azure Monitor.
 
@@ -31,9 +39,10 @@ La solution de gestion Office 365 vous permet d’effectuer le monitoring de vot
 - Présentation d’audit et de conformité. Par exemple, vous pouvez surveiller les opérations d’accès aux fichiers sur des fichiers confidentiels, ce qui peut vous aider dans le processus d’audit et de conformité.
 - Effectuez un dépannage opérationnel à l’aide des [requêtes dans les journaux](../log-query/log-query-overview.md) en haut des données d’activité Office 365 de votre organisation.
 
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les conditions suivantes sont requises avant l’installation et la configuration de cette solution.
 
@@ -74,45 +83,46 @@ La première étape consiste à créer une application dans Azure Active Directo
 
 1. Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com/).
 1. Sélectionnez **Azure Active Directory**, puis **Inscription des applications**.
-1. Cliquez sur **Nouvelle inscription d’application**.
+1. Cliquez sur **Nouvelle inscription**.
 
     ![Ajouter une inscription d’application](media/solution-office-365/add-app-registration.png)
-1. Entrez le **Nom** de l’application et **l’URL de connexion**.  Le nom doit être descriptif.  Utilisez `http://localhost` pour l’URL et de conserver _application Web / API_ pour la **type d’Application**
+1. Entrer le **nom** d’une application. Sélectionnez **Comptes dans un annuaire d’organisation (tout annuaire Azure AD - Multilocataire)** pour **Types de comptes pris en charge**.
     
     ![Créer une application](media/solution-office-365/create-application.png)
-1. Cliquez sur **Créer** et validez les informations de l’application.
+1. Cliquez sur **Inscrire** et vérifiez les informations de l’application.
 
     ![Application inscrite](media/solution-office-365/registered-app.png)
 
 ### <a name="configure-application-for-office-365"></a>Configurer l’application pour Office 365
 
-1. Cliquez sur **Paramètres** pour ouvrir le menu **Paramètres**.
-1. Sélectionner **Propriétés**. Définissez **Mutualisé** sur _Oui_.
+1. Sélectionnez **Authentification** et vérifiez que **Comptes dans un annuaire d’organisation (tout annuaire Azure AD - Multilocataire)** est sélectionné sous **Types de comptes pris en charge**.
 
     ![Paramètres Mutualisé](media/solution-office-365/settings-multitenant.png)
 
-1. Sélectionnez **Autorisations requises** dans le menu **Paramètres**, puis cliquez sur **Ajouter**.
-1. Cliquez sur **Sélectionner une API**, puis sur **API Gestion Office 365**. Cliquez sur **API Gestion Office 365**. Cliquez sur **Sélectionner**.
+1. Sélectionnez **Autorisations d’API**, puis **Ajouter une autorisation**.
+1. Cliquez sur **API Gestion Office 365**. 
 
     ![Sélectionner une API](media/solution-office-365/select-api.png)
 
-1. Sous **Sélectionner les autorisations**, sélectionnez les options suivantes pour **Autorisations de l’application** et pour **Autorisations déléguées** :
+1. Sous **Quel type d’autorisation votre application nécessite-t-elle ?** , sélectionnez les options suivantes pour **Autorisations d’application** et **Autorisations déléguées** :
    - Lire les informations sur l’intégrité du service pour votre organisation
    - Lire les données d’activité pour votre organisation
    - Lire les rapports d’activité pour votre organisation
 
-     ![Sélectionner une API](media/solution-office-365/select-permissions.png)
+     ![Sélectionner une API](media/solution-office-365/select-permissions-01.png)![Sélectionner une API](media/solution-office-365/select-permissions-02.png)
 
-1. Cliquez sur **Sélectionner**, puis sur **Terminé**.
-1. Cliquez sur **Accorder des autorisations**, puis sur **Oui** en réponse à la demande de vérification.
+1. Cliquez sur **Ajouter des autorisations**.
+1. Cliquez sur **Accorder le consentement administrateur**, puis sur **Oui** en réponse à la demande de vérification.
 
-    ![Accorder des autorisations](media/solution-office-365/grant-permissions.png)
 
-### <a name="add-a-key-for-the-application"></a>Ajouter une clé pour l’application
+### <a name="add-a-secret-for-the-application"></a>Ajouter un secret pour l’application
 
-1. Sélectionnez **Clés** dans le menu **Paramètres**.
+1. Sélectionnez **Certificats et secrets**, puis **Nouveau secret client**.
+
+    ![Clés](media/solution-office-365/secret.png)
+ 
 1. Tapez une **Description** et une **Durée** pour la nouvelle clé.
-1. Cliquez sur **Enregistrer**, puis copiez la **Valeur** générée.
+1. Cliquez sur **Ajouter**, puis copiez la **valeur** générée.
 
     ![Clés](media/solution-office-365/keys.png)
 
@@ -562,12 +572,12 @@ Ces enregistrements sont créés lorsqu’un utilisateur Active Directory tente 
 
 | Propriété | Description |
 |:--- |:--- |
-| OfficeWorkload | AzureActiveDirectory |
-| RecordType     | AzureActiveDirectoryAccountLogon |
-| Application | L’application qui a déclenché l’événement de connexion du compte, telles que Office 15. |
-| Client | Détails sur le terminal client, le système d’exploitation du terminal et le navigateur du terminal qui a été utilisé pour l’événement de connexion du compte. |
-| LoginStatus | Cette propriété est directement issue de OrgIdLogon.LoginStatus. Le mappage de différentes connexions intéressantes peut être effectué par les alertes des algorithmes. |
-| UserDomain | Les informations d’identité client (TII). | 
+| `OfficeWorkload` | AzureActiveDirectory |
+| `RecordType`     | AzureActiveDirectoryAccountLogon |
+| `Application` | L’application qui a déclenché l’événement de connexion du compte, telles que Office 15. |
+| `Client` | Détails sur le terminal client, le système d’exploitation du terminal et le navigateur du terminal qui a été utilisé pour l’événement de connexion du compte. |
+| `LoginStatus` | Cette propriété est directement issue de OrgIdLogon.LoginStatus. Le mappage de différentes connexions intéressantes peut être effectué par les alertes des algorithmes. |
+| `UserDomain` | Les informations d’identité client (TII). | 
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
@@ -734,7 +744,7 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 | Requête | Description |
 | --- | --- |
 |Nombre de toutes les opérations sur votre abonnement Office 365 |OfficeActivity &#124; summarize count() by Operation |
-|Utilisation des sites SharePoint|OfficeActivity &#124; where OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|
+|Utilisation des sites SharePoint|OfficeActivity &#124; où OfficeWorkload =~ "sharepoint" &#124; summarize count() by SiteUrl \| sort by Count asc|
 |Opérations d’accès de fichier par type d’utilisateur|search in (OfficeActivity) OfficeWorkload =~ "azureactivedirectory" and "MyTest"|
 |Recherche avec un mot clé spécifique|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Analyser des actions externes sur Exchange|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|

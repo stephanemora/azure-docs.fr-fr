@@ -3,24 +3,23 @@ title: Configuration des pilotes GPU de série N Azure pour Windows | Microsoft 
 description: Procédure de configuration des pilotes GPU NVIDIA pour les machines virtuelles série N exécutant Windows Serveur ou Windows dans Azure
 services: virtual-machines-windows
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: f3950c34-9406-48ae-bcd9-c0418607b37d
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d173f1f9048a46f3fb2500d225ec121157d5d960
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 92ebd34c20e3733971593344925dcb566a1bf912
+ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483538"
+ms.lasthandoff: 09/01/2019
+ms.locfileid: "70207355"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles de série N exécutant Windows 
 
@@ -42,6 +41,8 @@ Après l’installation du pilote GRID sur une machine virtuelle, un redémarrag
 
 ## <a name="verify-driver-installation"></a>Vérification de l’installation du pilote
 
+Notez que le panneau de configuration Nvidia n’est accessible que si vous installez le pilote GRID. Si vous avez installé les pilotes CUDA, le panneau de configuration Nvidia ne sera pas accessible.
+
 Vous pouvez vérifier l’installation du pilote dans le Gestionnaire de périphériques. L’exemple suivant illustre une configuration réussie de la carte Tesla K80 sur une machine virtuelle NC Azure.
 
 ![Propriétés du pilote GPU](./media/n-series-driver-setup/GPU_driver_properties.png)
@@ -50,7 +51,7 @@ Pour interroger l’état de l’appareil GPU, exécutez l’utilitaire de ligne
 
 1. Ouvrez une invite de commandes et apportez vos modifications dans le répertoire **C:\Program Files\NVIDIA Corporation\NVSMI**.
 
-2. Exécutez `nvidia-smi`. Si le pilote est installé, vous obtenez un résultat qui ressemble à celui indiqué. **GPU-Util** affiche **0 %**, sauf si vous exécutez actuellement une charge de travail GPU sur la machine virtuelle. La version de votre pilote et vos détails de GPU peuvent différer de ceux indiqués.
+2. Exécutez `nvidia-smi`. Si le pilote est installé, vous obtenez un résultat qui ressemble à celui indiqué. **GPU-Util** affiche **0 %** , sauf si vous exécutez actuellement une charge de travail GPU sur la machine virtuelle. La version de votre pilote et vos détails de GPU peuvent différer de ceux indiqués.
 
 ![État de l’appareil NVIDIA](./media/n-series-driver-setup/smi.png)  
 

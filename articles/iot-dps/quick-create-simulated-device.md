@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: e705ce17f0f09d341f2c650dfaccbbad60da14c7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ca6914967d855123c70bf746a9d68d2e045e76d9
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500190"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908677"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Démarrage rapide : Approvisionner un appareil TPM simulé à l'aide du Kit de développement logiciel (SDK) Azure IoT pour C
 
@@ -34,7 +34,7 @@ Cet article présente les inscriptions individuelles.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Visual Studio 2015 ou [Visual Studio 2017](https://www.visualstudio.com/vs/) avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou version ultérieure avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
 * Dernière version de [Git](https://git-scm.com/download/) installée.
 
 
@@ -115,7 +115,7 @@ Dans cette section, vous allez générer et exécuter un exemple qui lit la pair
 
 3. Dans la fenêtre *Explorateur de solutions* de Visual Studio, accédez au dossier **Provision\_Tools**. Cliquez avec le bouton droit sur le projet **tpm_device_provision** et sélectionnez **Définir comme projet de démarrage**. 
 
-4. Dans le menu Visual Studio, sélectionnez **Déboguer** > **Exécuter sans débogage** pour exécuter la solution. L’application lit et affiche un **_ID d’inscription_** et une **_paire de clés de type EK_**. Copiez ces valeurs. Ils seront utilisés dans la section suivante pour l’inscription d’appareil. 
+4. Dans le menu Visual Studio, sélectionnez **Déboguer** > **Exécuter sans débogage** pour exécuter la solution. L’application lit et affiche un **_ID d’inscription_** et une **_paire de clés de type EK_** . Copiez ces valeurs. Ils seront utilisés dans la section suivante pour l’inscription d’appareil. 
 
 
 <a id="portalenrollment"></a>
@@ -145,7 +145,7 @@ Dans cette section, vous allez générer et exécuter un exemple qui lit la pair
 
 Dans cette section, vous allez configurer des exemples de code pour utiliser le [protocole AMQP (Advance Message Queuing Protocol)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol) pour envoyer la séquence de démarrage de l’appareil à votre instance Device Provisioning. Cette séquence de démarrage entraînera la reconnaissance et l’affectation d’un appareil à un hub IoT lié à l’instance de service Device Provisioning.
 
-1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et copiez la valeur **_Étendue de l’ID_**.
+1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et copiez la valeur **_Étendue de l’ID_** .
 
     ![Extraire des informations de point de terminaison de service Device Provisioning dans le portail](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 

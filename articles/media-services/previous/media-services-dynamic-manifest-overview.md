@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkd;juliako
-ms.openlocfilehash: 229f89a8803f089c24981f56e00e36efe96de3aa
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.author: juliako
+ms.openlocfilehash: 1234263fa800a17d0a5c235df54ca2751e3094bb
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316591"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "69015851"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtres et manifestes dynamiques
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version de Media Services que vous utilisez :"]
 > * [Version 2](media-services-dynamic-manifest-overview.md)
 > * [Version 3](../latest/filters-dynamic-manifest-overview.md)
 
@@ -31,7 +31,7 @@ ms.locfileid: "58316591"
 
 Cette rubrique décrit les scénarios courants dans lesquels l’utilisation de filtres s’avère utile pour vos clients, elle fait également le lien avec d’autres rubriques qui montrent comment créer par programmation de tels filtres.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Quand vous distribuez votre contenu aux clients (diffusion en continu d’événements en direct ou vidéo à la demande), votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. Pour atteindre cet objectif, procédez comme suit :
 
 * encodez votre flux dans un flux vidéo à débit binaire multiple ([débit binaire adaptatif](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (les conditions de qualité et de réseau sont ainsi prises en charge) ; 
@@ -73,14 +73,14 @@ Voici un exemple de fichier manifeste :
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Manifestes dynamiques
-Il existe des [scénarios](media-services-dynamic-manifest-overview.md#scenarios) dans lesquels votre client a besoin de davantage de flexibilité que celle décrite dans le fichier manifeste de l'élément multimédia par défaut. Par exemple : 
+Il existe des [scénarios](media-services-dynamic-manifest-overview.md#scenarios) dans lesquels votre client a besoin de davantage de flexibilité que celle décrite dans le fichier manifeste de l'élément multimédia par défaut. Par exemple :
 
 * Particularité de l’appareil : distribuez uniquement les rendus spécifiés et/ou les pistes de langue spécifiées qui sont prises en charge par l’appareil utilisé pour lire le contenu (« filtrage de rendu »). 
 * Réduisez le manifeste pour afficher un sous-clip d'un événement en direct (« filtrage de sous-clip »).
 * Découpez le début d'une vidéo (« découpage d'une vidéo »).
 * Ajustez la fenêtre de présentation (DVR) afin de fournir une longueur limitée de la fenêtre du DVR dans le lecteur (« ajustement de la fenêtre de présentation »).
 
-Pour obtenir cette flexibilité, Media Services propose des **manifestes dynamiques** basés sur des [filtres](media-services-dynamic-manifest-overview.md#filters)prédéfinis.  Une fois que vous avez défini les filtres, vos clients peuvent les utiliser pour diffuser un rendu spécifique ou des sous-clips de votre vidéo. Ils peuvent spécifier des filtres dans l'URL de diffusion en continu. Les filtres peuvent s’appliquer aux protocoles de streaming à débit adaptatif par [empaquetage dynamique](media-services-dynamic-packaging-overview.md) : HLS, MPEG-DASH et Smooth Streaming. Par exemple : 
+Pour obtenir cette flexibilité, Media Services propose des **manifestes dynamiques** basés sur des [filtres](media-services-dynamic-manifest-overview.md#filters)prédéfinis.  Une fois que vous avez défini les filtres, vos clients peuvent les utiliser pour diffuser un rendu spécifique ou des sous-clips de votre vidéo. Ils peuvent spécifier des filtres dans l'URL de diffusion en continu. Les filtres peuvent s’appliquer aux protocoles de streaming à débit adaptatif par [empaquetage dynamique](media-services-dynamic-packaging-overview.md) : HLS, MPEG-DASH et Smooth Streaming. Par exemple :
 
 URL MPEG DASH avec filtre
 

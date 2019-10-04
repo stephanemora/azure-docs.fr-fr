@@ -1,24 +1,25 @@
 ---
-title: Informations de référence sur l’API Recherche d’entreprises locales Bing v7 | Microsoft Docs
-description: Décrit les éléments de programmation de l’API Recherche d’entreprises locales Bing.
+title: Informations de référence sur l’API Recherche d’entreprises locales Bing v7
 titleSuffix: Azure Cognitive Services
+description: Décrit les éléments de programmation de l’API Recherche d’entreprises locales Bing.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.subservice: bing-local-business
+ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: c9ebaeb66bc46132160c77c09f93fc2921dc8961
+ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992472"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69906351"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informations de référence sur l’API Recherche d’entreprises locales Bing v7
 
-L’API Recherche d’entreprises locales envoie une requête de recherche à Bing pour obtenir des résultats sur les restaurants, les hôtels et d’autres entreprises locales. Pour trouver des lieux, la requête peut spécifier le nom de l’entreprise locale ou une catégorie (par exemple, les restaurants autour de moi). Les résultats d’entités incluent des personnes, des lieux ou d’autres éléments. Dans ce contexte, un lieu correspond à une entité de type entreprise, un État, un pays, etc.  
+L’API Recherche d’entreprises locales envoie une requête de recherche à Bing pour obtenir des résultats sur les restaurants, les hôtels et d’autres entreprises locales. Pour trouver des lieux, la requête peut spécifier le nom de l’entreprise locale ou une catégorie (par exemple, les restaurants autour de moi). Les résultats d’entités incluent des personnes, des lieux ou d’autres éléments. Dans ce contexte, un lieu correspond à une entité de type entreprise, un État, un pays/région, etc.  
 
 Cette section donne des détails techniques sur les objets de réponse, les paramètres de la requête et les en-têtes qui affectent les résultats de recherche. Pour obtenir des exemples montrant comment effectuer des requêtes, voir [Démarrage rapide C# sur la Recherche d’entreprises locales](quickstarts/local-quickstart.md) ou [Démarrage rapide Java sur la Recherche d’entreprises locales](quickstarts/local-search-java-quickstart.md). 
   
@@ -72,14 +73,14 @@ La demande peut comporter les paramètres de requête suivants. Consultez la col
   
 |Nom|Valeur|Type|Obligatoire|  
 |----------|-----------|----------|--------------|
-|<a name="count" />count|Le nombre de résultats à retourner, en commençant par l’index spécifié par le `offset` paramètre.|Chaîne|Non |   
-|<a name="localCategories" />localCategories|Liste des options qui définissent la recherche par catégorie d’entreprise.  Voir [Recherche par catégories d’entreprises locales](local-categories.md).|Chaîne|Non |  
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API Recherche d’entreprises locales ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|Oui|
-|<a name="offset"/>offset|Index de début des résultats spécifiés par le paramètre `count`.|Entier |Non |  
-|<a name="query" />q|Critère de recherche de l’utilisateur.|Chaîne|Non |  
-|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](https://json-ld.org/).|Chaîne|Non |  
-|<a name="safesearch" />safeSearch|Filtre utilisé pour filtrer le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Retourner les pages web comportant du texte, des images ou des vidéos pour adultes.<br /><br/></li><li>Modéré &mdash; Retourner les pages web comportant du texte pour adultes, mais pas des images ou des vidéos pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas retourner de pages web comportant du texte, des images ou des vidéos pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la demande provient d’un marché où la stratégie de Bing en matière de contenu pour adultes exige que `safeSearch` ait la valeur Strict, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes. |Chaîne|Non |  
-|<a name="setlang" />setLang|Langue à utiliser pour les chaînes de l’interface utilisateur. Spécifiez la langue en utilisant le code de langue ISO 639-1 à deux lettres. Par exemple, celui de l’anglais est EN. La valeur par défaut est EN (anglais).<br /><br /> Nous vous conseillons de toujours indiquer la langue, bien qu’elle soit facultative. En général, on définit `setLang` sur la langue spécifiée par `mkt`, sauf si l’utilisateur souhaite que les chaînes de l’interface utilisateur soient affichées dans une autre langue.<br /><br /> Ce paramètre et l’en-tête [Accept-Language](#acceptlanguage) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. En outre, les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée.|Chaîne|Non | 
+|<a name="count" />count|Nombre de résultats à retourner, en commençant par l’index spécifié par le paramètre `offset`.|Chaîne|Non|   
+|<a name="localCategories" />localCategories|Liste des options qui définissent la recherche par catégorie d’entreprise.  Voir [Recherche par catégories d’entreprises locales](local-categories.md).|Chaîne|Non|  
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API Recherche d’entreprises locales ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|OUI|
+|<a name="offset"/>offset|Index de début des résultats spécifiés par le paramètre `count`.|Entier|Non|  
+|<a name="query" />q|Critère de recherche de l’utilisateur.|Chaîne|Non|  
+|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](https://json-ld.org/).|Chaîne|Non|  
+|<a name="safesearch" />safeSearch|Filtre utilisé pour filtrer le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Retourner les pages web comportant du texte, des images ou des vidéos pour adultes.<br /><br/></li><li>Modéré &mdash; Retourner les pages web comportant du texte pour adultes, mais pas des images ou des vidéos pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas retourner de pages web comportant du texte, des images ou des vidéos pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la demande provient d’un marché où la stratégie de Bing en matière de contenu pour adultes exige que `safeSearch` ait la valeur Strict, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes. |Chaîne|Non|  
+|<a name="setlang" />setLang|Langue à utiliser pour les chaînes de l’interface utilisateur. Spécifiez la langue en utilisant le code de langue ISO 639-1 à deux lettres. Par exemple, celui de l’anglais est EN. La valeur par défaut est EN (anglais).<br /><br /> Nous vous conseillons de toujours indiquer la langue, bien qu’elle soit facultative. En général, on définit `setLang` sur la langue spécifiée par `mkt`, sauf si l’utilisateur souhaite que les chaînes de l’interface utilisateur soient affichées dans une autre langue.<br /><br /> Ce paramètre et l’en-tête [Accept-Language](#acceptlanguage) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. En outre, les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée.|Chaîne|Non| 
 
 
 ## <a name="response-objects"></a>Objets de la réponse  
@@ -129,7 +130,7 @@ Définit les composants d’un lien hypertexte.
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
 |_type|Indicateur de type.|Chaîne|  
-|texte|Texte d’affichage.|Chaîne|  
+|text|Texte d’affichage.|Chaîne|  
 |url|URL. Utilisez l’URL et le texte d’affichage pour créer un lien hypertexte.|Chaîne|  
   
 
@@ -166,10 +167,10 @@ Définit le contexte de requête utilisé par Bing pour la demande.
   
 |Élément|Description|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Valeur booléenne qui indique si la requête spécifiée est destinée à des adultes. La valeur est **true** si c’est le cas, **false** sinon.|Booléen|  
+|adultIntent|Valeur booléenne qui indique si la requête spécifiée est destinée à des adultes. La valeur est **true** si c’est le cas, **false** sinon.|Boolean|  
 |alterationOverrideQuery|Chaîne de requête à utiliser pour forcer Bing à utiliser la chaîne d’origine. Par exemple, si la chaîne de requête est *saling downwind*, la chaîne de requête de remplacement sera *+saling downwind*. N’oubliez pas d’encoder la chaîne de requête, ce qui donne *%2Bsaling+downwind*.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|Chaîne|  
 |alteredQuery|Chaîne de requête utilisée par Bing pour exécuter la requête. Bing utilise la chaîne de requête modifiée si la chaîne de requête d’origine contenait des fautes d’orthographe. Par exemple, si la chaîne de requête est `saling downwind`, la chaîne de requête modifiée sera `sailing downwind`.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|Chaîne|  
-|askUserForLocation|Valeur booléenne qui indique si Bing exige que l’emplacement de l’utilisateur donne des résultats précis. Si vous avez spécifié l’emplacement de l’utilisateur à l’aide des en-têtes [X-MSEdge-ClientIP](#clientip) et [X-Search-Location](#location), vous pouvez ignorer ce champ.<br /><br /> Dans le cas des requêtes pour lesquelles l’emplacement de l’utilisateur doit fournir des résultats précis, comme « météo du jour » ou « restaurants proches », ce champ est défini sur **true**.<br /><br /> Dans le cas des requêtes qui précisent l’emplacement (par exemple, « météo Seattle »), ce champ est défini sur **false**. Ce champ est également défini sur **false** pour les requêtes qui ne dépendent pas de la localisation, comme « meilleurs ventes ».|Booléen|  
+|askUserForLocation|Valeur booléenne qui indique si Bing exige que l’emplacement de l’utilisateur donne des résultats précis. Si vous avez spécifié l’emplacement de l’utilisateur à l’aide des en-têtes [X-MSEdge-ClientIP](#clientip) et [X-Search-Location](#location), vous pouvez ignorer ce champ.<br /><br /> Dans le cas des requêtes pour lesquelles l’emplacement de l’utilisateur doit fournir des résultats précis, comme « météo du jour » ou « restaurants proches », ce champ est défini sur **true**.<br /><br /> Dans le cas des requêtes qui précisent l’emplacement (par exemple, « météo Seattle »), ce champ est défini sur **false**. Ce champ est également défini sur **false** pour les requêtes qui ne dépendent pas de la localisation, comme « meilleurs ventes ».|Boolean|  
 |originalQuery|Chaîne de requête telle que spécifiée dans la demande.|Chaîne|  
 
 ### <a name="identifiable"></a>Identifiable
@@ -190,7 +191,7 @@ Définit un élément de résultat de recherche à afficher.
 
 |Nom|Valeur|Type|  
 |-------------|-----------------|----------|
-|resultIndex|Index base zéro de l’élément de la réponse à afficher. Si l’élément ne comporte pas ce champ, affiche tous les éléments de la réponse. Par exemple, affiche tous les articles dans la réponse Actualités.|Entier |
+|resultIndex|Index base zéro de l’élément de la réponse à afficher. Si l’élément ne comporte pas ce champ, affiche tous les éléments de la réponse. Par exemple, affiche tous les articles dans la réponse Actualités.|Entier|
 |answerType|Réponse qui contient l’élément à afficher. Par exemple, Actualités.<br /><br />Utilisez le type pour trouver la réponse dans l’objet SearchResponse. Le type est le nom d’un champ SearchResponse.<br /><br /> Toutefois, n’utilisez le type de réponse que si cet objet inclut le champ de valeur ; sinon, ignorez-le.|Chaîne|
 |textualIndex|Index de la réponse dans textualAnswers à afficher.| Entier non signé|
 |value|ID qui identifie une réponse ou un élément de réponse à afficher. Si l’ID identifie une réponse, affiche tous les éléments de la réponse.|Identifiable|

@@ -10,20 +10,28 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: e4625b934f9e1cf98254f3dee59f9c26e8e16fb5
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 53f152eb9b02d7c5a635ba1b9aae8299743dd6e0
+ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353377"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010482"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copier des données de SAP Cloud for Customer (C4C) avec Azure Data Factory
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de/vers SAP Cloud for Customer (C4C). Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
+>[!TIP]
+>Pour en savoir plus sur la prise en charge générale de l’intégration de données SAP par ADF, consultez le livre blanc [Intégration de données SAP à l’aide d’Azure Data Factory](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) offrant une présentation détaillée, une comparaison et des conseils.
+
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
+
+Ce connecteur SAP Cloud for Customer est pris en charge pour les activités suivantes :
+
+- [Activité Copy](copy-activity-overview.md) avec [prise en charge de la matrice source/du récepteur](copy-activity-overview.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
 
 Vous pouvez copier des données de SAP Cloud for Customer vers n’importe quel magasin de données récepteur pris en charge, ou de n’importe quel magasin de données source pris en charge vers SAP Cloud for Customer. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -41,9 +49,9 @@ Les propriétés suivantes sont prises en charge pour le service lié SAP Cloud 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **SapCloudForCustomer**. | Oui |
-| url | URL de l’instance SAP C4C OData. | Oui |
-| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à SAP C4C. | Oui |
+| type | La propriété type doit être définie sur : **SapCloudForCustomer**. | OUI |
+| url | URL de l’instance SAP C4C OData. | OUI |
+| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à SAP C4C. | OUI |
 | password | Indiquez le mot de passe du compte d’utilisateur défini pour username. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
 
@@ -81,8 +89,8 @@ Pour copier des données de SAP Cloud for Customer, affectez la valeur **SapClou
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **SapCloudForCustomerResource** |Oui |
-| chemin d’accès | Indiquez le chemin d’accès de l’entité SAP C4C OData. |Oui |
+| type | La propriété type du jeu de données doit être définie sur : **SapCloudForCustomerResource** |OUI |
+| path | Indiquez le chemin d’accès de l’entité SAP C4C OData. |OUI |
 
 **Exemple :**
 
@@ -94,6 +102,7 @@ Pour copier des données de SAP Cloud for Customer, affectez la valeur **SapClou
         "typeProperties": {
             "path": "<path e.g. LeadCollection>"
         },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<SAP C4C linked service>",
             "type": "LinkedServiceReference"
@@ -112,8 +121,8 @@ Pour copier des données de SAP Cloud for Customer, affectez la valeur **SapClou
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **SapCloudForCustomerSource**  | Oui |
-| query | Indiquez la requête OData personnalisée permettant de lire les données. | Non  |
+| type | La propriété type doit être définie sur : **SapCloudForCustomerSource**  | OUI |
+| query | Indiquez la requête OData personnalisée permettant de lire les données. | Non |
 
 Exemple de requête permettant d’obtenir des données pour un jour en particulier : `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
@@ -155,9 +164,9 @@ Pour copier des données vers SAP Cloud for Customer, affectez la valeur **SapCl
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **SapCloudForCustomerSink**  | Oui |
-| writeBehavior | Comportement d’écriture de l’opération. Valeurs possibles : « Insert », « Update ». |  Non. Valeur par défaut : « Insert ». |
-| writeBatchSize | Taille de lot de l’opération d’écriture. La taille de lot offrant les meilleures performances peut être différente selon les tables et les serveurs. |  Non. Valeur par défaut : 10. |
+| type | La propriété type doit être définie sur : **SapCloudForCustomerSink**  | OUI |
+| writeBehavior | Comportement d’écriture de l’opération. Valeurs possibles : « Insert », « Update ». | Non. Valeur par défaut : « Insert ». |
+| writeBatchSize | Taille de lot de l’opération d’écriture. La taille de lot offrant les meilleures performances peut être différente selon les tables et les serveurs. | Non. Valeur par défaut : 10. |
 
 **Exemple :**
 
@@ -207,8 +216,8 @@ Lors de la copie de données de SAP Cloud for Customer, les mappages suivants so
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | Datetime |
-| Edm.Decimal | Décimal |
+| Edm.DateTime | DateTime |
+| Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
 | Edm.Guid | Guid |
@@ -216,10 +225,14 @@ Lors de la copie de données de SAP Cloud for Customer, les mappages suivants so
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Chaîne |
-| Edm.Time | intervalle de temps |
-| Edm.DateTimeOffset | DatetimeOffset |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
+| Edm.DateTimeOffset | DateTimeOffset |
 
+
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
+
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

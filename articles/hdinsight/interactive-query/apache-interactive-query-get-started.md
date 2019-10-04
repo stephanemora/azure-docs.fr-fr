@@ -1,44 +1,44 @@
 ---
-title: Utiliser Interactive Query avec Azure HDInsight
-description: Découvrez comment utiliser Interactive Query (Hive LLAP) avec HDInsight.
-services: hdinsight
+title: Qu'est-ce qu'Interactive Query dans Azure HDInsight ?
+description: Introduction à Interactive Query, également appelé Apache Hive LLAP, dans Azure HDInsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 02/22/2018
-ms.openlocfilehash: ae0264c918bb550affe8e694cdb3b9891edea531
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.topic: overview
+ms.date: 09/17/2019
+ms.openlocfilehash: 3e0fddc03ad880d36876276827198b0ac180a00d
+ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875444"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71076359"
 ---
-# <a name="use-interactive-query-with-hdinsight"></a>Utiliser Interactive Query avec HDInsight
-Le cluster Interactive Query (également appelé Apache Hive LLAP ou [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) est un [type de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. Interactive Query prend en charge la mise en mémoire cache, ce qui accélère les requêtes Apache Hive et les rend beaucoup plus interactives.
+# <a name="what-is-interactive-query-in-azure-hdinsight"></a>Qu'est-ce qu'Interactive Query dans Azure HDInsight
 
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)] 
+Le cluster Interactive Query (également appelé Apache Hive LLAP ou [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) est un [type de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. Interactive Query prend en charge la mise en mémoire cache, ce qui accélère les requêtes Apache Hive et les rend beaucoup plus interactives. Les clients utilisent Interactive Query pour interroger des données stockées dans le stockage Azure et Azure Data Lake Storage de manière extrêmement rapide. Une requête interactive permet facilement aux développeurs et scientifiques des données de travailler avec des données volumineuses (big data) à l’aide des outils décisionnels qu’ils préfèrent. HDInsight Interactive Query prend en charge plusieurs outils pour accéder aux données volumineuses de façon facile.
 
-Les clusters Interactive Query sont différents des clusters Apache Hadoop. Ils contiennent uniquement le service Hive. 
+[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
-> [!NOTE]  
-> Vous pouvez accéder au service Hive dans le cluster Interactive Query uniquement par le biais de la vue Apache Ambari Hive, de Beeline et du pilote ODBC Microsoft Hive. Vous ne pouvez pas y accéder par le biais de la console Hive, Templeton, l’interface Azure Classic CLI, ni Azure PowerShell. 
+Les clusters Interactive Query sont différents des clusters Apache Hadoop. Ils contiennent uniquement le service Hive.
+
+Vous pouvez accéder au service Hive dans le cluster Interactive Query uniquement par le biais de la vue Apache Ambari Hive, de Beeline et du pilote ODBC Microsoft Hive. Vous ne pouvez pas y accéder par le biais de la console Hive, Templeton, l’interface Azure Classic CLI, ni Azure PowerShell.
 
 ## <a name="create-an-interactive-query-cluster"></a>Créer un cluster Interactive Query
+
 Pour obtenir des informations sur la création d’un cluster HDInsight, consultez [Créer des clusters Apache Hadoop dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Choisissez le type de cluster Interactive Query.
 
+> [!IMPORTANT]
+> La taille minimale du nœud principal pour les clusters Interactive Query est Standard_D13_v2. Pour plus d’informations, consultez le [Tableau de dimensionnement des machines virtuelles Azure](../../cloud-services/cloud-services-sizes-specs.md#dv2-series).
+
 ## <a name="execute-apache-hive-queries-from-interactive-query"></a>Exécuter des requêtes Apache Hive à partir du cluster Interactive Query
+
 Pour exécuter des requêtes Hive, vous disposez des options suivantes :
 
 * Utiliser Microsoft Power BI
 
     Consultez [Visualiser des données Interactive Query Apache Hive à l’aide de Power BI dans Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md). Consultez [Visualiser des données volumineuses (« Big Data ») avec Power BI dans Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
- 
-* Utiliser Apache Zeppelin
-
-    Consultez [utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
 
 * Utiliser Visual Studio
 
@@ -62,20 +62,14 @@ Pour exécuter des requêtes Hive, vous disposez des options suivantes :
 
 Pour rechercher la chaîne de connexion Java Database Connectivity (JDBC) :
 
-1. Connectez-vous à Apache Ambari à l’aide de l’URL suivante : https://\<nom du cluster\>.AzureHDInsight.net.
+1. Connectez-vous à Apache Ambari à l’aide de l’URL suivante : `https://<cluster name>.AzureHDInsight.net`.
 2. Dans le menu de gauche, sélectionnez **Hive**.
 3. Pour copier l’URL, sélectionnez l’icône du Presse-papiers :
-   
+
    ![HDInsight Hadoop Interactive Query LLAP JDBC](./media/apache-interactive-query-get-started/hdinsight-hadoop-use-interactive-hive-jdbc.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez comment [créer des clusters Interactive Query dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Découvrez comment [visualiser des Big Data à l’aide de Power BI dans Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* Découvrez comment [utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
-* Découvrez comment [exécuter des requêtes Apache Hive à l’aide de Data Lake Tools pour Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).
-* Découvrez comment [utiliser les outils HDInsight pour Visual Studio Code](../hdinsight-for-vscode.md).
-* Découvrez comment [utiliser la vue Apache Hive avec Apache Hadoop dans HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md).
-* Découvrez comment [utiliser Beeline pour envoyer des requêtes Apache Hive dans HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md).
-* Découvrez comment [connecter Excel à Apache Hadoop avec le pilote ODBC Microsoft Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
-
+* Découvrez comment [utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).

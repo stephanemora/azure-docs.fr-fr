@@ -1,6 +1,6 @@
 ---
-title: Encoder de transformation personnalisée à l’aide de Media Services v3 CLI - Azure | Microsoft Docs
-description: Cette rubrique montre comment utiliser Azure Media Services v3 pour coder une transformation personnalisée à l’aide de CLI.
+title: Encoder une transformation personnalisée avec la CLI Media Services v3 - Azure | Microsoft Docs
+description: Cette rubrique explique comment utiliser Azure Media Services v3 pour encoder une transformation personnalisée à l’aide de la CLI.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,145 +10,134 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 03/12/2019
+ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: b0329c8c0bfa56e5ae36c5f4223edca91e6510a0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: 42b7c2d86525c428253137b424fe58bb61edba70
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755597"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65762022"
 ---
 # <a name="how-to-encode-with-a-custom-transform---cli"></a>Comment encoder avec une transformation personnalisée - CLI
 
-Lors de l’encodage avec Azure Media Services, vous pouvez démarrer rapidement avec l’une des présélections intégrées recommandées, selon les meilleures pratiques du secteur, comme illustré dans le [diffusion en continu de fichiers](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) Guide de démarrage rapide. Vous pouvez également créer un paramètre prédéfini pour cibler vos exigences de scénario ou un périphérique spécifiques.
+Lors de l’encodage avec Azure Media Services, vous pouvez commencer rapidement avec l’un des préréglages intégrés recommandés et basés sur les bonnes pratiques, comme illustré dans le démarrage rapide [Streaming de fichiers](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding). Vous pouvez également créer un préréglage personnalisé pour les besoins de votre scénario ou votre appareil.
 
 ## <a name="considerations"></a>Considérations
 
-Lorsque vous créez des paramètres prédéfinis personnalisés, les considérations suivantes s’appliquent :
+Lorsque vous créez des préréglages personnalisés, les considérations suivantes s’appliquent :
 
-* Toutes les valeurs de hauteur et la largeur du contenu de AVC doivent être un multiple de 4.
-* Dans Azure Media Services v3, tous les débits binaires de codage sont en bits par seconde. Cela diffère des présélections avec nos API v2, utiliser des kilobits par seconde en tant que l’unité. Par exemple, si la vitesse de transmission dans v2 a été spécifié en tant que 128 (kilobits par seconde), dans v3 il serait défini à 128000 (bits/seconde).
+* Toutes les valeurs de hauteur et de largeur de contenu AVC doivent être un multiple de 4.
+* Dans Azure Media Services v3, toutes les vitesses d’encodage sont données en bits par seconde. Cela diffère des préréglages avec nos API v2, qui utilisaient des kilobits par seconde comme unité. Par exemple, si la vitesse de transmission dans v2 était de 128 (kilobits/seconde), elle sera définie sur 12 8000 (bits/seconde) dans v3.
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 
 [Créer un compte Media Services](create-account-cli-how-to.md). <br/>Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services. 
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
-## <a name="define-a-custom-preset"></a>Définir une présélection personnalisée
+## <a name="define-a-custom-preset"></a>Définir un préréglage personnalisé
 
-L’exemple suivant définit le corps de la demande d’une nouvelle transformation. Nous définissons un ensemble de sorties que nous voulons être générée lorsque cette transformation est utilisée. 
+L’exemple suivant définit le corps de la demande d’une nouvelle transformation. Nous définissons un ensemble de sorties à générer lorsque cette transformation est utilisée. 
 
-Dans cet exemple, nous avons tout d’abord ajouter une couche de AacAudio pour l’encodage audio et deux couches H264Video pour l’encodage vidéo. Dans les couches vidéo, nous attribuons les étiquettes afin qu’ils peuvent être utilisés dans les noms de fichiers de sortie. Ensuite, nous voulons la sortie pour inclure également les miniatures. Dans l’exemple ci-dessous, nous spécifions les images au format PNG, généré à 50 % de la résolution de la vidéo d’entrée et aux trois horodatages - {25 %, 50 %, 75} de la longueur de la vidéo d’entrée. Enfin, nous spécifions le format pour les fichiers de sortie - un pour la vidéo + audio et l’autre pour les miniatures. Étant donné que nous avons plusieurs H264Layers, nous devons utiliser des macros qui produisent des noms uniques par couche. Nous pouvons utiliser un `{Label}` ou `{Bitrate}` macro, l’exemple montre l’ancienne base de données.
+Dans cet exemple, nous ajoutons tout d’abord une couche AacAudio pour l’encodage audio et deux couches H264Video pour l’encodage vidéo. Dans les couches vidéo, nous attribuons des étiquettes pour pouvoir les utiliser dans les noms de fichiers de sortie. Nous souhaitons ensuite que la sortie inclue également des miniatures. Dans l’exemple ci-dessous, nous spécifions des images au format PNG, générées à 50 % de la résolution de la vidéo d’entrée et à trois horodatages {25 %, 50 %, 75} de la longueur de la vidéo d’entrée. Pour fini, nous spécifions le format des fichiers de sortie : un pour la vidéo + audio et un autre pour les miniatures. Étant donné que nous avons plusieurs couches H264, nous devons utiliser des macros qui produisent des noms uniques par couche. Nous pouvons utiliser une macro `{Label}` ou `{Bitrate}` ; l’exemple montre la première.
 
-Nous allons enregistrer cette transformation dans un fichier. Dans cet exemple, nous nommez le fichier `customPreset.json`. 
+Nous enregistrons cette transformation dans un fichier. Dans cet exemple, nous nommons ce fichier `customPreset.json`. 
 
 ```json
 {
-    "properties": {
-        "description": "Basic Transform using a custom encoding preset",
-        "outputs": [
-            {
-                "onError": "StopProcessingJob",
-                "relativePriority": "Normal",
-                "preset": {
-                    "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
-                    "codecs": [
-                        {
-                            "@odata.type": "#Microsoft.Media.AacAudio",
-                            "channels": 2,
-                            "samplingRate": 48000,
-                            "bitrate": 128000,
-                            "profile": "AacLc"
-                        },
-                        {
-                            "@odata.type": "#Microsoft.Media.H264Video",
-                            "keyFrameInterval": "PT2S",
-                            "stretchMode": "AutoSize",
-                            "sceneChangeDetection": false,
-                            "complexity": "Balanced",
-                            "layers": [
-                                {
-                                    "width": "1280",
-                                    "height": "720",
-                                    "label": "HD",
-                                    "bitrate": 3400000,
-                                    "maxBitrate": 3400000,
-                                    "bFrames": 3,
-                                    "slices": 0,
-                                    "adaptiveBFrame": true,
-                                    "profile": "Auto",
-                                    "level": "auto",
-                                    "bufferWindow": "PT5S",
-                                    "referenceFrames": 3,
-                                    "entropyMode": "Cabac"
-                                },
-                                {
-                                    "width": "640",
-                                    "height": "360",
-                                    "label": "SD",
-                                    "bitrate": 1000000,
-                                    "maxBitrate": 1000000,
-                                    "bFrames": 3,
-                                    "slices": 0,
-                                    "adaptiveBFrame": true,
-                                    "profile": "Auto",
-                                    "level": "auto",
-                                    "bufferWindow": "PT5S",
-                                    "referenceFrames": 3,
-                                    "entropyMode": "Cabac"
-                                }
-                            ]
-                        },
-                        {
-                            "@odata.type": "#Microsoft.Media.PngImage",
-                            "stretchMode": "AutoSize",
-                            "start": "25%",
-                            "step": "25%",
-                            "range": "80%",
-                            "layers": [
-                                {
-                                    "width": "50%",
-                                    "height": "50%"
-                                }
-                            ]
-                        }
-                    ],
-                    "formats": [
-                        {
-                            "@odata.type": "#Microsoft.Media.Mp4Format",
-                            "filenamePattern": "Video-{Basename}-{Label}{Extension}",
-                            "outputFiles": []
-                        },
-                        {
-                            "@odata.type": "#Microsoft.Media.PngFormat",
-                            "filenamePattern": "Thumbnail-{Basename}-{Index}{Extension}"
-                        }
-                    ]
+    "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
+    "codecs": [
+        {
+            "@odata.type": "#Microsoft.Media.AacAudio",
+            "channels": 2,
+            "samplingRate": 48000,
+            "bitrate": 128000,
+            "profile": "AacLc"
+        },
+        {
+            "@odata.type": "#Microsoft.Media.H264Video",
+            "keyFrameInterval": "PT2S",
+            "stretchMode": "AutoSize",
+            "sceneChangeDetection": false,
+            "complexity": "Balanced",
+            "layers": [
+                {
+                    "width": "1280",
+                    "height": "720",
+                    "label": "HD",
+                    "bitrate": 3400000,
+                    "maxBitrate": 3400000,
+                    "bFrames": 3,
+                    "slices": 0,
+                    "adaptiveBFrame": true,
+                    "profile": "Auto",
+                    "level": "auto",
+                    "bufferWindow": "PT5S",
+                    "referenceFrames": 3,
+                    "entropyMode": "Cabac"
+                },
+                {
+                    "width": "640",
+                    "height": "360",
+                    "label": "SD",
+                    "bitrate": 1000000,
+                    "maxBitrate": 1000000,
+                    "bFrames": 3,
+                    "slices": 0,
+                    "adaptiveBFrame": true,
+                    "profile": "Auto",
+                    "level": "auto",
+                    "bufferWindow": "PT5S",
+                    "referenceFrames": 3,
+                    "entropyMode": "Cabac"
                 }
-            }
-        ]
-    }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Media.PngImage",
+            "stretchMode": "AutoSize",
+            "start": "25%",
+            "step": "25%",
+            "range": "80%",
+            "layers": [
+                {
+                    "width": "50%",
+                    "height": "50%"
+                }
+            ]
+        }
+    ],
+    "formats": [
+        {
+            "@odata.type": "#Microsoft.Media.Mp4Format",
+            "filenamePattern": "Video-{Basename}-{Label}-{Bitrate}{Extension}",
+            "outputFiles": []
+        },
+        {
+            "@odata.type": "#Microsoft.Media.PngFormat",
+            "filenamePattern": "Thumbnail-{Basename}-{Index}{Extension}"
+        }
+    ]
 }
 
 ```
 
 ## <a name="create-a-new-transform"></a>Créer une transformation  
 
-Dans cet exemple, nous créons un **transformer** qui repose sur la présélection personnalisée définie précédemment. Lorsque vous créez une transformation, vous devez tout d’abord vérifier si celle-ci existe. Si la transformation existe, la réutiliser. Ce qui suit `show` commande retourne le `customTransformName` transformer si elle existe :
+Dans cet exemple, nous créons une **transformation** qui repose sur le préréglage personnalisé que nous avons défini précédemment. Lorsque vous créez une transformation, vous devez tout d’abord vérifier s’il en existe déjà une. Si la transformation existe, réutilisez-la. La commande suivante `show` retourne la transformation `customTransformName`, si elle existe :
 
 ```cli
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
 ```
 
-La commande CLI suivante crée la transformation en fonction de la présélection personnalisée (définie précédemment). 
+La commande CLI suivante crée la transformation en fonction de la présélection personnalisée (définie plus tôt). 
 
 ```cli
 az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --description "Basic Transform using a custom encoding preset" --preset customPreset.json
 ```
 
-Media Services appliquer la transformation au spécifié vidéo ou audio, vous devez soumettre une tâche de cette transformation. Pour obtenir un exemple complet qui montre comment soumettre un travail sous une transformation, consultez [Guide de démarrage rapide : Stream fichiers vidéo - CLI](stream-files-cli-quickstart.md).
+Pour que la plateforme Media Services applique la transformation au fichier vidéo ou audio spécifié, vous devez soumettre un travail relevant de cette transformation. Pour obtenir un exemple complet illustrant la soumission d’un travail relevant d’une transformation, consultez le [Démarre rapide : Diffuser des fichiers vidéo en streaming - CLI](stream-files-cli-quickstart.md).
 
 ## <a name="see-also"></a>Voir aussi
 

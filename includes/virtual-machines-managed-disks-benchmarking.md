@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890929"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673324"
 ---
 *Préchauffage du cache*  
 Le disque dont la mise en cache de l’hôte est définie en lecture seule peut générer un taux d’E/S par seconde supérieur à sa propre limite. Pour obtenir ces performances de lecture maximales à partir du cache de l’hôte, vous devez tout d’abord préchauffer le cache du disque. Ainsi, les E/S en lecture que l’outil de benchmark génèrera sur le volume CacheReads atteindront le cache plutôt que le disque directement. Le fait d’intervenir au niveau du cache permet de générer des E/S supplémentaires à partir du seul disque ayant une mise en cache.
 
 > [!IMPORTANT]
->  Vous devez préchauffer le cache avant d’exécuter l’outil de benchmarking à chaque redémarrage de la machine virtuelle.
+> Vous devez préchauffer le cache avant d’exécuter l’outil de benchmarking à chaque redémarrage de la machine virtuelle.
 
 ## <a name="tools"></a>Outils
 
 ### <a name="iometer"></a>Iometer
 
-[Téléchargez l’outil Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) sur la machine virtuelle.
+[Téléchargez l’outil Iometer](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) sur la machine virtuelle.
 
 #### <a name="test-file"></a>Fichier de test
 
@@ -40,7 +40,7 @@ Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scén
 
 #### <a name="maximum-iops-test-specifications"></a>Spécifications de test du taux d’E/S maximal
 
- Pour démontrer le taux maximal d’E/S par seconde, utilisez une taille de demande plus petite. Utilisez une taille de 8 Ko et créez des spécifications pour les lectures et écritures aléatoires.
+Pour démontrer le taux maximal d’E/S par seconde, utilisez une taille de demande plus petite. Utilisez une taille de 8 Ko et créez des spécifications pour les lectures et écritures aléatoires.
 
 | Spécification d’accès | Taille de la demande | % aléatoire | % écriture |
 | --- | --- | --- | --- |
@@ -49,7 +49,7 @@ Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scén
 
 #### <a name="maximum-throughput-test-specifications"></a>Spécifications de test du débit maximal
 
- Pour afficher le débit maximal, utilisez une plus grande taille de demande. Utilisez une taille de demande de 64 Ko et créez des spécifications pour des lectures et des écritures aléatoires.
+Pour afficher le débit maximal, utilisez une plus grande taille de demande. Utilisez une taille de demande de 64 Ko et créez des spécifications pour des lectures et des écritures aléatoires.
 
 | Spécification d’accès | Taille de la demande | % aléatoire | % écriture |
 | --- | --- | --- | --- |
@@ -58,7 +58,7 @@ Vous trouverez ci-dessous un exemple de spécifications d’accès pour un scén
 
 #### <a name="run-the-iometer-test"></a>Exécuter le test Iometer
 
- Procédez comme suit pour préparer le cache
+Procédez comme suit pour préparer le cache
 
 1. Créez deux spécifications d’accès avec les valeurs indiquées ci-dessous
 
@@ -81,7 +81,7 @@ Une fois le disque de cache préchauffé, poursuivez avec les scénarios de test
 
 | Scénario de test | Volume cible | Nom | Résultat |
 | --- | --- | --- | --- |
-| Bande passante E/S par seconde en lecture |CacheReads |RandomWrites\_8K |50 000 E/S par seconde  |
+| Bande passante E/S par seconde en lecture |CacheReads |RandomWrites\_8K |50 000 E/S par seconde |
 | Bande passante E/S par seconde en écriture |NoCacheWrites |RandomReads\_8K |64 000 E/S par seconde |
 | Bande passante Taux d’E/S par seconde combiné |CacheReads |RandomWrites\_8K |100 000 E/S par seconde |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
@@ -102,7 +102,7 @@ Voici les captures d’écran des résultats du test Iometer pour les scénarios
 
 ### <a name="fio"></a>FIO
 
-FIO est un outil communément utilisé pour tester le stockage sur des machines virtuelles Linux. Cet outil offre la possibilité de sélectionner différentes tailles d’E/S, avec des lectures et des écritures séquentielles ou aléatoires. Il génère des threads de travail ou des processus pour exécuter les opérations d’E/S spécifiées. Vous pouvez spécifier le type d’opérations d’E/S que chaque thread de travail doit exécuter à l’aide de fichiers de travail. Nous avons créé un fichier de travail par scénario, comme illustré dans les exemples ci-dessous. Vous pouvez modifier les spécifications de ces fichiers de travail pour tester différentes charges de travail exécutées sur Premium Storage. Dans ces exemples, nous utilisons une machine virtuelle DS 14 standard exécutée sous **Ubuntu**. Utilisez la même configuration décrite au début de la section Benchmarking et à chaude du cache avant d’exécuter les tests de benchmarking.
+FIO est un outil communément utilisé pour tester le stockage sur des machines virtuelles Linux. Cet outil offre la possibilité de sélectionner différentes tailles d’E/S, avec des lectures et des écritures séquentielles ou aléatoires. Il génère des threads de travail ou des processus pour exécuter les opérations d’E/S spécifiées. Vous pouvez spécifier le type d’opérations d’E/S que chaque thread de travail doit exécuter à l’aide de fichiers de travail. Nous avons créé un fichier de travail par scénario, comme illustré dans les exemples ci-dessous. Vous pouvez modifier les spécifications de ces fichiers de travail pour tester différentes charges de travail exécutées sur Premium Storage. Dans ces exemples, nous utilisons une machine virtuelle DS 14 standard exécutée sous **Ubuntu**. Utilisez la configuration décrite au début de la section Benchmarking et préchauffez le cache avant d’exécuter les tests de benchmarking.
 
 Avant de commencer, [téléchargez FIO](https://github.com/axboe/fio) et installez-le sur votre machine virtuelle.
 
@@ -116,7 +116,7 @@ Nous allons utiliser quatre threads de travail pour générer les opérations d�
 
 #### <a name="maximum-write-iops"></a>Taux d’E/S maximal en écriture
 
- Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en écriture. Nommez ce fichier « fiowrite.ini ».
+Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en écriture. Nommez ce fichier « fiowrite.ini ».
 
 ```ini
 [global]
@@ -157,7 +157,7 @@ Pendant l’exécution du test, le nombre d’E/S par seconde en écriture gén�
 
 #### <a name="maximum-read-iops"></a>Taux d’E/S maximal en lecture
 
- Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en lecture. Nommez ce fichier « fioread.ini ».
+Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal d’E/S par seconde en lecture. Nommez ce fichier « fioread.ini ».
 
 ```ini
 [global]
@@ -198,7 +198,7 @@ Pendant l’exécution du test, le nombre d’E/S par seconde en lecture génér
 
 #### <a name="maximum-read-and-write-iops"></a>Taux d’E/S maximal en lecture et en écriture
 
- Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal combiné d’E/S par seconde en lecture et en écriture. Nommez ce fichier « fioreadwrite.ini ».
+Créez le fichier de travail avec les spécifications suivantes pour obtenir le taux maximal combiné d’E/S par seconde en lecture et en écriture. Nommez ce fichier « fioreadwrite.ini ».
 
 ```ini
 [global]
@@ -256,4 +256,4 @@ Pendant l’exécution du test, le nombre d’E/S par seconde combinées en lect
 
 #### <a name="maximum-combined-throughput"></a>Débit maximal combiné
 
- Pour obtenir le débit maximal combiné en lecture et en écriture, utilisez une plus grande taille de bloc et une grande profondeur de file d’attente avec plusieurs threads effectuant des opérations de lecture et d’écriture. Vous pouvez utiliser une taille de bloc de 64 Ko et une profondeur de file d’attente de 128.
+Pour obtenir le débit maximal combiné en lecture et en écriture, utilisez une plus grande taille de bloc et une grande profondeur de file d’attente avec plusieurs threads effectuant des opérations de lecture et d’écriture. Vous pouvez utiliser une taille de bloc de 64 Ko et une profondeur de file d’attente de 128.

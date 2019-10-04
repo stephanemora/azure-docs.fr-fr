@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816934"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476860"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
 
@@ -67,9 +67,9 @@ Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données so
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="using-change-tracking-in-azure-monitor-logs"></a>Utilisation du suivi des changements dans les journaux d’activité Azure Monitor
+## <a name="using-change-tracking-in-azure-monitor-logs"></a>Utilisation du suivi des changements dans les journaux Azure Monitor
 
-Le suivi des changements génère des données de journal d’activité qui sont envoyées aux journaux d’activité Azure Monitor.
+Le suivi des changements génère des données de journal qui sont envoyées aux journaux Azure Monitor.
 Pour rechercher les journaux d’activité en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Suivi des modifications**.
 Les données de suivi des modifications sont stockées sous le type **ConfigurationData**.
 L’exemple de requête Log Analytics ci-après renvoie tous les services Windows arrêtés.
@@ -79,7 +79,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux d’activité Azure Monitor, consultez [Journaux d’activité Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans les journaux Azure Monitor, consultez [Journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configurer le suivi des modifications
 
@@ -197,7 +197,7 @@ Sous **Logique d’alerte**, pour **Seuil**, entrez **0**. Quand vous avez termi
 
 Sous **Groupes d’action**, sélectionnez **Créer**. Un groupe d’actions est un groupe que vous pouvez utiliser dans plusieurs alertes. Les actions peuvent inclure, sans s’y limiter, les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../azure-monitor/platform/action-groups.md).
 
-Sous **Détails de l’alerte**, entrez un nom et une description pour l’alerte. Définissez le niveau de **Gravité** sur **Information (gravité 2)**, **Avertissement (gravité 1)** ou **Critique (gravité 0)**.
+Sous **Détails de l’alerte**, entrez un nom et une description pour l’alerte. Définissez le niveau de **Gravité** sur **Information (gravité 2)** , **Avertissement (gravité 1)** ou **Critique (gravité 0)** .
 
 Dans la zone **Nom du groupe d’actions** , entrez un nom pour l’alerte et un nom court. Le nom court est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
 

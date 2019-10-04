@@ -10,11 +10,11 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc
 ms.openlocfilehash: a70011b934398ac4e7f74bb67013e93bb5e86e4e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007837"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60799158"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Réagir aux événements Azure Maps à l'aide d'Event Grid 
 
@@ -32,8 +32,8 @@ Event Grid utilise les [abonnements aux événements](https://docs.microsoft.com
 
 | Type d'événement | Description |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | Déclenché lorsque les coordonnées reçues sont passées de l'extérieur d'une limite géographique donnée à l'intérieur de celle-ci. |
-| Microsoft.Maps.GeofenceExited | Déclenché lorsque les coordonnées reçues sont passées de l'intérieur d'une limite géographique donnée à l'extérieur de celle-ci. |
+| Microsoft.Maps.GeofenceEntered | Déclenché lorsque les coordonnées reçues sont passées de l’extérieur d’une limite géographique donnée à l’intérieur d’une zone donnée. |
+| Microsoft.Maps.GeofenceExited | Déclenché lorsque les coordonnées reçues sont passées de l’intérieur d’une limite géographique donnée à l’extérieur de celle-ci. |
 | Microsoft.Maps.GeofenceResult | Déclenché chaque fois qu'une requête de geofencing renvoie un résultat, quel que soit l'état. |
 
 ## <a name="event-schema"></a>Schéma d’événement

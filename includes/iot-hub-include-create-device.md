@@ -8,31 +8,30 @@ ms.topic: include
 ms.date: 11/06/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d70544866b9e321d98acd3978da145276e036025
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 7b022f71e197c5695876f2049ee376c3616afc6d
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671871"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70049013"
 ---
 <!-- put the ## header in the file that includes this file -->
 
-Dans cette section, vous allez créer une identité d’appareil dans le registre des identités de votre hub IoT. Un appareil ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre des identités. Pour plus d’informations, consultez la section « Registre des identités » du [Guide du développeur IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md). 
+Dans cette section, vous allez créer une identité d’appareil dans le registre des identités de votre hub IoT. Un appareil ne peut pas se connecter à un hub, à moins d’avoir une entrée dans le registre des identités. Pour plus d’informations, consultez le [Guide du développeur IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md#identity-registry-operations).
 
-1. Dans votre menu de navigation du hub IoT, ouvrez **appareils IoT**, puis sélectionnez **ajouter** pour inscrire un nouvel appareil dans votre IoT hub.
+1. Dans le menu de navigation de votre hub IoT, ouvrez **Appareils IoT**, puis sélectionnez **Nouveau** pour ajouter un appareil à votre hub IoT.
 
-    ![Créer une identité d’appareil sur le portail](./media/iot-hub-include-create-device/create-identity-portal.png)
+    ![Créer une identité d’appareil sur le portail](./media/iot-hub-include-create-device/create-identity-portal-vs2019.png)
 
-1. Fournissez un nom pour votre nouvel appareil, tel que **myDeviceId**, puis sélectionnez **enregistrer**. Cette action permet de créer une identité d’appareil pour votre IoT Hub.
+1. Dans **Créer un appareil**, indiquez le nom de votre nouvel appareil, par exemple **myDeviceId**, puis sélectionnez **Enregistrer**. Cette action permet de créer une identité d’appareil pour votre hub IoT.
 
-   ![Ajouter un nouvel appareil](./media/iot-hub-include-create-device/create-a-device.png)
+   ![Ajouter un nouvel appareil](./media/iot-hub-include-create-device/create-a-device-vs2019.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
+1. Une fois l’appareil créé, ouvrez ce dernier à partir de la liste figurant dans le volet **Appareils IoT**. Copiez la **chaîne de connexion principale** à utiliser plus tard.
 
-1. Une fois l’appareil créé, ouvrez ce dernier à partir de la liste figurant dans le volet **Appareils IoT**. Copiez la **Chaîne de connexion – clé primaire** pour une utilisation ultérieure.
-
-    ![Chaîne de connexion de l’appareil](./media/iot-hub-include-create-device/device-details.png)
+    ![Chaîne de connexion de l’appareil](./media/iot-hub-include-create-device/device-details-vs2019.png)
 
 > [!NOTE]
 > Le registre des identités IoT Hub stocke uniquement les identités des appareils pour permettre un accès sécurisé à IoT Hub. Il stocke les ID des appareils et les clés à utiliser comme informations d’identification de sécurité et un indicateur activé/désactivé que vous pouvez utiliser pour désactiver l’accès pour un appareil individuel. Si votre application a besoin de stocker d’autres métadonnées spécifiques aux appareils, elle doit utiliser un magasin spécifique aux applications. Pour plus d’informations, reportez-vous au [Guide du développeur IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md).

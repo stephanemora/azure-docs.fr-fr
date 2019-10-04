@@ -1,6 +1,6 @@
 ---
 title: Configurer Network Performance Monitor pour les circuits ExpressRoute - Azure | Microsoft Docs
-description: Configurez la surveillance réseau (NPM) basée sur le cloud pour les circuits Azure ExpressRoute. Ce document traite de la surveillance via l’appairage privé ExpressRoute et l’appairage Microsoft.
+description: Configurez la surveillance réseau (NPM) basée sur le cloud pour les circuits Azure ExpressRoute. Ce document traite de la surveillance via le peering privé ExpressRoute et le peering Microsoft.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -9,15 +9,15 @@ ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118627"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60840170"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
 
-Cet article vous permet de configurer une extension Network Performance Monitor pour superviser ExpressRoute. Network Performance Monitor (NPM) est une solution de supervision réseau basée sur le cloud, qui surveille la connectivité entre les déploiements cloud Azure et les déploiements locaux (succursales, etc.). NPM fait partie des journaux d’Azure Monitor. NPM offre une extension pour ExpressRoute, qui vous permet de surveiller les performances réseau sur des circuits ExpressRoute configurés pour utiliser l’appairage privé ou l’appairage Microsoft. Lorsque vous configurez NPM pour ExpressRoute, vous pouvez détecter les problèmes de réseau pour les identifier et les éliminer. Ce service est également disponible pour le cloud Azure Government.
+Cet article vous permet de configurer une extension Network Performance Monitor pour superviser ExpressRoute. Network Performance Monitor (NPM) est une solution de supervision réseau basée sur le cloud, qui surveille la connectivité entre les déploiements cloud Azure et les déploiements locaux (succursales, etc.). NPM fait partie des journaux d’Azure Monitor. NPM offre une extension pour ExpressRoute, qui vous permet de surveiller les performances réseau sur des circuits ExpressRoute configurés pour utiliser le peering privé ou le peering Microsoft. Lorsque vous configurez NPM pour ExpressRoute, vous pouvez détecter les problèmes de réseau pour les identifier et les éliminer. Ce service est également disponible pour le cloud Azure Government.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -41,7 +41,7 @@ Des agents de surveillance sont installés sur plusieurs serveurs, en local et s
 
 1. Créez un espace de travail NPM. Il est identique à un espace de travail Log Analytics.
 2. Installez et configurez les agents logiciels (si vous souhaitez uniquement superviser via Microsoft Peering, cette étape est inutile) : 
-    * Installez des agents de surveillance sur les serveurs locaux et les machines virtuelles Azure (pour l’appairage privé).
+    * Installez des agents de surveillance sur les serveurs locaux et les machines virtuelles Azure (pour le peering privé).
     * Configurez les paramètres sur les serveurs de l’agent de surveillance pour autoriser les agents de surveillance à communiquer. (Ouvrez les ports du pare-feu, etc.)
 3. Configurez des règles de groupe de sécurité réseau pour permettre à l’agent de surveillance installé sur des machines virtuelles Azure de communiquer avec des agents de surveillance locaux.
 4. Configurez la supervision : Lancez une détection automatique et gérez les réseaux visibles dans NPM.
@@ -60,7 +60,7 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
 
    ![portail](./media/how-to-npm/3.png)<br><br>
 2. En bas de la page **Network Performance Monitor**, cliquez sur **Créer** pour ouvrir la page **Network Performance Monitor - Créer une solution**. Cliquez sur **Espace de travail Log Analytics - Sélectionner un espace de travail** pour ouvrir la page Espaces de travail. Cliquez sur **+ Créer un espace de travail** pour ouvrir la page Espaces de travail.
-3. Sur le **espace de travail Analytique de journal** page, sélectionnez **créer un nouveau**, puis configurez les paramètres suivants :
+3. Dans la page **Espace de travail Log Analytics**, sélectionnez **Créer**, puis configurez les paramètres suivants :
 
    * Espace de travail Log Analytics : entrez un nom pour votre espace de travail.
    * Abonnement : si vous possédez plusieurs abonnements, choisissez celui que vous souhaitez associer au nouvel espace de travail.
@@ -100,7 +100,7 @@ Nous vous recommandons d’installer au moins deux agents de chaque côté de la
 2. Sur la page d’**accueil**, cliquez sur **Suivant**.
 3. Sur la page **Termes du contrat de licence**, lisez les conditions de licence, puis cliquez sur **J’accepte**.
 4. Sur la page **Dossier de destination**, modifiez ou conservez le dossier d’installation par défaut, puis cliquez sur **Suivant**.
-5. Sur le **Options d’installation de l’Agent** page, vous pouvez choisir de connecter l’agent pour les journaux Azure Monitor ou Operations Manager. Ou bien, vous pouvez ne rien choisir si vous souhaitez configurer l’agent ultérieurement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
+5. Dans la page **Options d’installation de l’agent**, vous pouvez choisir de connecter l’agent aux journaux Azure Monitor ou à Operations Manager. Ou bien, vous pouvez ne rien choisir si vous souhaitez configurer l’agent ultérieurement. Une fois vos sélections effectuées, cliquez sur **Suivant**.
 
    * Si vous choisissez de vous connecter à **Azure Log Analytics**, collez **l’ID de l’espace de travail** et la **Clé de l’espace de travail** (clé primaire) que vous avez copiés dans le bloc-notes de la section précédente. Cliquez ensuite sur **Suivant**.
 
@@ -113,7 +113,7 @@ Nous vous recommandons d’installer au moins deux agents de chaque côté de la
      ![Compte](./media/how-to-npm/10.png)
 6. Dans la page **Prêt pour l’installation**, passez en revue vos choix, puis cliquez sur **Installer**.
 7. Dans la page **Configuration effectuée**, cliquez sur **Terminer**.
-8. Lorsque vous avez terminé, Microsoft Monitoring Agent apparaît dans le Panneau de configuration. Vous pouvez contrôler votre configuration et vérifiez que l’agent est connecté aux journaux d’Azure Monitor. Quand il est connecté, l’agent affiche un message indiquant : **Microsoft Monitoring Agent s’est connecté au service Microsoft Operations Management Suite**.
+8. Lorsque vous avez terminé, Microsoft Monitoring Agent apparaît dans le Panneau de configuration. Vous pouvez y contrôler votre configuration et vérifier que l’agent est bien connecté aux journaux Azure Monitor. Quand il est connecté, l’agent affiche un message indiquant : **Microsoft Monitoring Agent s’est connecté au service Microsoft Operations Management Suite**.
 
 9. Répétez cette procédure pour chaque réseau virtuel dont vous voulez effectuer la surveillance.
 
@@ -137,7 +137,7 @@ Vous pouvez facilement vérifier si vos agents communiquent.
 1. Sur un serveur avec l’agent de surveillance, ouvrez le **Panneau de configuration**.
 2. Ouvrez **Microsoft Monitoring Agent**.
 3. Cliquez sur l’onglet **Azure Log Analytics**.
-4. Dans le **état** colonne, vous devez voir que l’agent est correctement connecté aux journaux d’Azure Monitor.
+4. Dans la colonne **État**, vous devez voir que l’agent est correctement connecté aux journaux Azure Monitor.
 
    ![status](./media/how-to-npm/12.png)
 
@@ -176,58 +176,58 @@ Pour plus d’informations concernant le groupe de sécurité réseau, consultez
 2. Cliquez sur la vignette de vue d’ensemble **Network Performance Monitor** pour afficher le tableau de bord. Le tableau de bord contient une page ExpressRoute, qui montre que ExpressRoute est dans un état « non configuré ». Cliquez sur **Installation de la fonctionnalité** pour ouvrir la page de configuration de Network Performance Monitor.
 
    ![installation de fonctionnalité](./media/how-to-npm/npm2.png)
-3. Sur la page de configuration, accédez à l’onglet « Appairages ExpressRoute » situé dans le panneau de gauche. Cliquez ensuite sur **Découvrir maintenant**.
+3. Sur la page de configuration, accédez à l’onglet « Peerings ExpressRoute » situé dans le panneau de gauche. Cliquez ensuite sur **Découvrir maintenant**.
 
    ![détecter](./media/how-to-npm/13.png)
 4. Une fois la détection terminée, vous verrez une liste contenant les éléments suivants :
-   * Toutes les connexions d’appairage Microsoft dans le ou les circuits ExpressRoute associés à cet abonnement.
-   * Toutes les connexions d’appairage privé qui se connectent aux réseaux virtuels associés à cet abonnement.
+   * Toutes les connexions de peering Microsoft dans le ou les circuits ExpressRoute associés à cet abonnement.
+   * Toutes les connexions de peering privé qui se connectent aux réseaux virtuels associés à cet abonnement.
             
 ## <a name="configmonitor"></a>Étape 5 : Configurer les moniteurs
 
-Dans cette section, vous configurez les analyses. Suivez les étapes pour le type d’appairage que vous souhaitez surveiller : **appairage privé** ou **appairage Microsoft**.
+Dans cette section, vous configurez les analyses. Suivez les étapes pour le type de peering que vous souhaitez surveiller : **peering privé** ou **peering Microsoft**.
 
-### <a name="private-peering"></a>Homologation privée
+### <a name="private-peering"></a>Peering privé
 
-Pour l’appairage privé, une fois la détection terminée, vous voyez des règles pour un **nom de circuit** et un **nom de réseau virtuel** uniques. Au départ, ces règles sont désactivées.
+Pour le peering privé, une fois la détection terminée, vous voyez des règles pour un **nom de circuit** et un **nom de réseau virtuel** uniques. Au départ, ces règles sont désactivées.
 
 ![règles](./media/how-to-npm/14.png)
 
-1. Cochez la case **Surveiller cet appairage**.
-2. Cochez la case **Activer le monitoring d’intégrité pour cet appairage**.
+1. Cochez la case **Surveiller ce peering**.
+2. Cochez la case **Activer le monitoring d’intégrité pour ce peering**.
 3. Choisissez les conditions de surveillance. Vous pouvez définir des seuils personnalisés pour la génération d’événements d’intégrité en tapant des valeurs de seuil. Chaque fois que la valeur d’une condition dépasse son seuil sélectionné pour la paire de réseaux/sous-réseaux sélectionnée, un événement d’intégrité est généré.
-4. Cliquez sur le bouton AGENTS LOCAUX **Ajouter des agents** pour ajouter les serveurs locaux à partir desquels vous souhaitez surveiller la connexion d’appairage privé. Assurez-vous de choisir uniquement des agents qui disposent d’une connectivité au point de terminaison de service Microsoft que vous avez spécifié dans la section pour l’étape 2. Les agents locaux doivent être en mesure d’atteindre le point de terminaison à l’aide de la connexion ExpressRoute.
+4. Cliquez sur le bouton AGENTS LOCAUX **Ajouter des agents** pour ajouter les serveurs locaux à partir desquels vous souhaitez surveiller la connexion de peering privé. Assurez-vous de choisir uniquement des agents qui disposent d’une connectivité au point de terminaison de service Microsoft que vous avez spécifié dans la section pour l’étape 2. Les agents locaux doivent être en mesure d’atteindre le point de terminaison à l’aide de la connexion ExpressRoute.
 5. Enregistrez les paramètres.
 6. Après l’activation des règles et la sélection des valeurs et des agents que vous souhaitez surveiller, vous devez attendre entre 30 minutes et 1 heure pour que les valeurs commencent à s’ajouter et que les vignettes **Surveillance ExpressRoute** deviennent disponibles.
 
-### <a name="microsoft-peering"></a>Homologation Microsoft
+### <a name="microsoft-peering"></a>Peering Microsoft
 
-Pour l’appairage Microsoft, cliquez sur la ou les connexions d’appairage Microsoft que vous souhaitez surveiller et configurez les paramètres.
+Pour le peering Microsoft, cliquez sur la ou les connexions de peering Microsoft que vous souhaitez surveiller et configurez les paramètres.
 
-1. Cochez la case **Surveiller cet appairage**. 
+1. Cochez la case **Surveiller ce peering**. 
 2. (Facultatif) Vous pouvez modifier le point de terminaison de service Microsoft cible. Par défaut, NPM choisit un point de terminaison de service Microsoft comme cible. NPM surveille la connectivité entre vos serveurs locaux et ce point de terminaison cible via ExpressRoute. 
-    * Pour modifier ce point de terminaison cible, cliquez sur le lien **(modifier)** sous **Cible :**, puis sélectionnez un autre point de terminaison de service Microsoft cible dans la liste des URL.
+    * Pour modifier ce point de terminaison cible, cliquez sur le lien **(modifier)** sous **Cible :** , puis sélectionnez un autre point de terminaison de service Microsoft cible dans la liste des URL.
       ![modifier la cible](./media/how-to-npm/edit_target.png)<br>
 
-    * Vous pouvez utiliser une URL ou une adresse IP personnalisée. Cette option est particulièrement utile si vous utilisez l’appairage Microsoft pour établir une connexion aux services Azure PaaS, par exemple Stockage Azure, les bases de données SQL et les sites web proposés sur des adresses IP publiques. Pour ce faire, cliquez sur le lien **(Utiliser une URL ou adresse IP personnalisée à la place)** en bas de la liste d’URL, puis entrez le point de terminaison public de votre service PaaS Azure qui est connecté via l’appairage Microsoft ExpressRoute.
+    * Vous pouvez utiliser une URL ou une adresse IP personnalisée. Cette option est particulièrement utile si vous utilisez le peering Microsoft pour établir une connexion aux services Azure PaaS, par exemple Stockage Azure, les bases de données SQL et les sites web proposés sur des adresses IP publiques. Pour ce faire, cliquez sur le lien **(Utiliser une URL ou adresse IP personnalisée à la place)** en bas de la liste d’URL, puis entrez le point de terminaison public de votre service PaaS Azure qui est connecté via le peering Microsoft ExpressRoute.
     ![URL personnalisée](./media/how-to-npm/custom_url.png)<br>
 
     * Si vous utilisez ces paramètres facultatifs, assurez-vous que seul le point de terminaison de service Microsoft est sélectionné ici. Le point de terminaison doit être connecté à ExpressRoute et accessible par les agents locaux.
-3. Cochez la case **Activer le monitoring d’intégrité pour cet appairage**.
+3. Cochez la case **Activer le monitoring d’intégrité pour ce peering**.
 4. Choisissez les conditions de surveillance. Vous pouvez définir des seuils personnalisés pour la génération d’événements d’intégrité en tapant des valeurs de seuil. Chaque fois que la valeur d’une condition dépasse son seuil sélectionné pour la paire de réseaux/sous-réseaux sélectionnée, un événement d’intégrité est généré.
-5. Cliquez sur le bouton AGENTS LOCAUX **Ajouter des agents** pour ajouter les serveurs locaux à partir desquels vous souhaitez surveiller la connexion d’appairage Microsoft. Assurez-vous de choisir uniquement des agents qui disposent d’une connectivité aux points de terminaison de service Microsoft que vous avez spécifiés dans la section pour l’étape 2. Les agents locaux doivent être en mesure d’atteindre le point de terminaison à l’aide de la connexion ExpressRoute.
+5. Cliquez sur le bouton AGENTS LOCAUX **Ajouter des agents** pour ajouter les serveurs locaux à partir desquels vous souhaitez surveiller la connexion de peering Microsoft. Assurez-vous de choisir uniquement des agents qui disposent d’une connectivité aux points de terminaison de service Microsoft que vous avez spécifiés dans la section pour l’étape 2. Les agents locaux doivent être en mesure d’atteindre le point de terminaison à l’aide de la connexion ExpressRoute.
 6. Enregistrez les paramètres.
 7. Après l’activation des règles et la sélection des valeurs et des agents que vous souhaitez surveiller, vous devez attendre entre 30 minutes et 1 heure pour que les valeurs commencent à s’ajouter et que les vignettes **Surveillance ExpressRoute** deviennent disponibles.
 
 ## <a name="explore"></a>Étape 6 : Voir les vignettes de supervision
 
-Une fois que vous voyez les vignettes de surveillance, vos circuits ExpressRoute et ressources de connexion sont surveillés par NPM. Vous pouvez cliquer sur la vignette Appairage Microsoft pour explorer au niveau du détail l’intégrité des connexions d’appairage Microsoft.
+Une fois que vous voyez les vignettes de surveillance, vos circuits ExpressRoute et ressources de connexion sont surveillés par NPM. Vous pouvez cliquer sur la vignette Peering Microsoft pour explorer au niveau du détail l’intégrité des connexions de peering Microsoft.
 
 ![vignettes de surveillance](./media/how-to-npm/15.png)
 
 ### <a name="dashboard"></a>Page Network Performance Monitor
 
-La page NPM contient une page pour ExpressRoute qui présente une vue d’ensemble de l’intégrité des circuits et des homologations ExpressRoute.
+La page NPM contient une page pour ExpressRoute qui présente une vue d’ensemble de l’intégrité des circuits et des peerings ExpressRoute.
 
 ![tableau de bord](./media/how-to-npm/dashboard.png)
 
@@ -245,19 +245,19 @@ Les graphiques représentant la bande passante, la latence et la perte sont inte
 
 ### <a name="peerings"></a>Liste des homologations
 
-Cliquez sur la vignette **Appairages privés** du tableau de bord pour afficher une liste de toutes les connexions à des réseaux virtuels sur l’appairage privé. Ici, vous pouvez sélectionner une connexion de réseau virtuel et afficher son état d’intégrité, des graphiques de tendances pour la perte de paquets, l’utilisation de la bande passante et la latence.
+Cliquez sur la vignette **Peerings privés** du tableau de bord pour afficher une liste de toutes les connexions à des réseaux virtuels sur le peering privé. Ici, vous pouvez sélectionner une connexion de réseau virtuel et afficher son état d’intégrité, des graphiques de tendances pour la perte de paquets, l’utilisation de la bande passante et la latence.
 
 ![liste de circuits](./media/how-to-npm/peerings.png)
 
 ### <a name="nodes"></a>Affichage des nœuds
 
-Pour afficher une liste de tous les liens entre les nœuds locaux et les points de terminaison de service des machines virtuelles Azure/Microsoft pour la connexion d’appairage ExpressRoute choisie, cliquez sur **Afficher les liens de nœud**. Vous pouvez afficher l’état d’intégrité de chaque lien, ainsi que la tendance des pertes et de la latence associée.
+Pour afficher une liste de tous les liens entre les nœuds locaux et les points de terminaison de service des machines virtuelles Azure/Microsoft pour la connexion de peering ExpressRoute choisie, cliquez sur **Afficher les liens de nœud**. Vous pouvez afficher l’état d’intégrité de chaque lien, ainsi que la tendance des pertes et de la latence associée.
 
 ![affichage des nœuds](./media/how-to-npm/nodes.png)
 
 ### <a name="topology"></a>Topologie de circuit
 
-Pour afficher la topologie de circuit, cliquez sur la vignette **Topologie**. Vous accédez ainsi à l’affichage de la topologie du circuit ou de l’homologation. Le diagramme de topologie fournit la latence pour chaque segment du réseau. Chaque tronçon de couche 3 est représenté par un nœud du diagramme. En cliquant sur un tronçon, vous pouvez obtenir plus de détails sur le tronçon.
+Pour afficher la topologie de circuit, cliquez sur la vignette **Topologie**. Vous accédez ainsi à l’affichage de la topologie du circuit ou du peering. Le diagramme de topologie fournit la latence pour chaque segment du réseau. Chaque tronçon de couche 3 est représenté par un nœud du diagramme. En cliquant sur un tronçon, vous pouvez obtenir plus de détails sur le tronçon.
 
 Vous pouvez augmenter le niveau de visibilité pour inclure des sauts locaux en déplaçant le curseur sous **Filtres**. Déplacez le curseur vers la droite ou gauche pour augmenter/diminuer le nombre de sauts dans le graphique de la topologie. La latence pour chaque segment est visible, ce qui permet une isolation plus rapide des segments à latence élevée sur votre réseau.
 

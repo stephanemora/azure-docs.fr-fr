@@ -10,17 +10,16 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e26cf5ede2c8884719152b6d35f1b41eb092eda6
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653388"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70071797"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service #
 
@@ -41,7 +40,6 @@ Lorsque votre application effectue une requête DNS qui correspond à un point d
 > [!NOTE]
 > Cela signifie que vous devez toujours utiliser un nom DNS pour votre connexion hybride. Certains logiciels clients n’effectuent une recherche DNS que si le point de terminaison utilise une adresse IP à la place.
 >
-
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Avantages d’une connexion hybride App Service ###
 
@@ -105,7 +103,7 @@ Les connexions hybrides App Service sont uniquement disponibles dans les référ
 
 | Plan tarifaire | Nombre de connexions hybrides utilisables dans le plan |
 |----|----|
-| De base | 5. |
+| De base | 5\. |
 | standard | 25 |
 | Premium | 200 |
 | Isolé | 200 |
@@ -140,7 +138,7 @@ Pour ajouter une ou plusieurs connexions hybrides à votre GCH :
 2. Sélectionnez **Configurer une autre connexion hybride**.
 ![Capture d’écran de la configuration de nouvelles connexions hybrides][8]
 
-1. Connectez-vous à votre compte Azure.
+1. Connectez-vous à votre compte Azure pour obtenir les connexions hybrides disponibles avec vos abonnements. Le HCM ne continue pas d’utiliser votre compte Azure au-delà de cela. 
 1. Choisissez un abonnement.
 1. Sélectionnez les connexions hybrides à faire relayer par HCM.
 ![Capture d’écran des connexions hybrides][9]
@@ -198,7 +196,7 @@ L’objet JSON associé à une connexion hybride ressemble à :
       }
     }
 
-On peut utiliser ces informations avec l’armclient, que vous pouvez obtenir à partir du projet GitHub [ARMClient][armclient]. Voici un exemple d’attachement d’une connexion hybride existante à votre application. Créez un fichier JSON similaire au schéma ci-dessus :
+Vous pouvez utiliser ces informations avec l’armclient, que vous pouvez obtenir à partir du projet GitHub [ARMClient][armclient]. Voici un exemple d’attachement d’une connexion hybride existante à votre application. Créez un fichier JSON similaire au schéma ci-dessus :
 
     {
       "name": "relay-demo-hc",
@@ -226,7 +224,9 @@ L’état « Connecté » signifie qu’au moins un HCM est configuré avec ce
 
 La principale raison pour laquelle les clients ne peuvent pas se connecter à leur point de terminaison est que le point de terminaison a été spécifié à l’aide d’une adresse IP au lieu d’un nom DNS. Si votre application ne peut pas accéder au point de terminaison souhaité et que vous avez utilisé une adresse IP, utilisez un nom DNS valide sur l’hôte sur lequel le GCH est exécuté. Vérifiez également que le nom DNS est correctement résolu sur l’hôte sur lequel le HCM est en cours d’exécution. Vérifiez qu’il existe une connectivité à partir de l’hôte où le HCM est en cours d’exécution vers le point de terminaison de connexion hybride.  
 
-Dans App Service, l’outil tcpping peut être appelé à partir de la console Outils avancés (Kudu). Cet outil peut vous indiquer si vous avez accès à un point de terminaison TCP, mais ne vous dit pas si vous avez accès à un point de terminaison de connexion hybride. Lorsque vous utilisez l’outil dans la console par rapport à un point de terminaison de connexion hybride, vous confirmez seulement qu’il utilise une combinaison hôte:port.  
+Dans App Service, l’outil de ligne de commande **tcpping** peut être appelé à partir de la console Outils avancés (Kudu). Cet outil peut vous indiquer si vous avez accès à un point de terminaison TCP, mais ne vous dit pas si vous avez accès à un point de terminaison de connexion hybride. Lorsque vous utilisez l’outil dans la console par rapport à un point de terminaison de connexion hybride, vous confirmez seulement qu’il utilise une combinaison hôte:port.  
+
+Si vous avez un client de ligne de commande pour votre point de terminaison, vous pouvez tester la connectivité à partir de la console de l’application. Par exemple, vous pouvez tester l’accès aux points de terminaison de serveur web à l’aide de curl.
 
 ## <a name="biztalk-hybrid-connections"></a>Connexions hybrides BizTalk ##
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: d5557ce1dda7bb36b8b0a6a44fcaca50e0667bb7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53429955"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "67177555"
 ---
 Commencez par inscrire votre application auprès d’un site de fournisseur d’identité, puis définissez les informations d’identification générées par le fournisseur dans le serveur principal Mobile Apps.
 

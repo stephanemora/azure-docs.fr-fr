@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 03/13/2019
+ms.topic: article
+ms.date: 04/26/2019
 ms.author: cherylmc
-ms.openlocfilehash: f2b459ccfd7e3f513b9b6526864321ce247ae7aa
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 209c4deec2863de21362ab69a7f1d372921ac147
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64575560"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
 
@@ -133,13 +133,13 @@ Créez la passerelle de réseau virtuel.
 ### <a name="for-expressroute"></a>Pour la passerelle ExpressRoute
 
 ```azurepowershell-interactive
-New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType ExpressRoute
+New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType ExpressRoute -GatewaySku ErGw1AZ
 ```
 
 ### <a name="for-vpn-gateway"></a>Pour la passerelle VPN
 
 ```azurepowershell-interactive
-New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased
+New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1AZ
 ```
 
 ## <a name="faq"></a>Forum Aux Questions
@@ -154,7 +154,7 @@ Oui, vous pouvez utiliser le Portail Azure pour déployer les nouvelles référe
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Dans quelles régions puis-je utiliser les nouvelles références SKU ?
 
-Consultez [Zones de disponibilité](../availability-zones/az-overview.md#services-support-by-region) pour obtenir la liste des régions disponibles.
+Consultez [Zones de disponibilité](../availability-zones/az-overview.md#services-support-by-region) pour obtenir la dernière liste des régions disponibles.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Puis-je changer/migrer/mettre à niveau mes passerelles de réseau virtuel existantes vers des passerelles zonales ou redondantes interzone ?
 

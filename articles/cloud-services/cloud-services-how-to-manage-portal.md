@@ -3,23 +3,17 @@ title: Tâches courantes de gestion de service cloud | Microsoft Docs
 description: Découvrez comment gérer Azure Cloud Services dans le portail Azure. Ces exemples utilisent le portail Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.author: gwallace
+ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038266"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359595"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gérer Azure Cloud Services dans le portail Azure
 Dans la zone **Services cloud** du portail Azure, vous pouvez :
@@ -34,7 +28,7 @@ Pour plus d’informations sur la mise à l’échelle votre service cloud, voir
 ## <a name="update-a-cloud-service-role-or-deployment"></a>Mettre à jour rôle de service cloud ou un déploiement
 Si vous devez mettre à jour le code de l'application pour votre service cloud, utilisez **Update** dans le panneau de service cloud. Vous pouvez mettre à jour un ou plusieurs rôles. Pour effectuer la mise à jour, vous pouvez charger un nouveau package de service ou un nouveau fichier de configuration de service.
 
-1. Dans le [portail Azure][Azure portal], sélectionnez le service cloud à mettre à jour. Cette étape ouvre le panneau d'instance de service cloud.
+1. Dans le [portail Azure][Azure portal], sélectionnez le service cloud que vous souhaitez mettre à jour. Cette étape ouvre le panneau d'instance de service cloud.
 
 2. Sur le panneau, sélectionnez **Mettre à jour**.
 
@@ -48,9 +42,9 @@ Si vous devez mettre à jour le code de l'application pour votre service cloud, 
 
 5. Si l’un des rôles ne comporte qu’une seule instance, activez la case à cocher **Déployer même si un ou plusieurs rôles contiennent une seule instance** pour permettre la mise à niveau.
 
-    Azure ne peut 99,95 % de disponibilité du service pendant la mise à jour d’un service cloud que si chaque rôle dispose d’au moins deux instances (machines virtuelles). Avec deux instances de rôle, une machine virtuelle traite les demandes du client pendant que l'autre est mise à jour.
+    Azure ne peut garantir 99,95 % de disponibilité du service pendant la mise à jour d’un service cloud que si chaque rôle dispose d’au moins deux instances (machines virtuelles). Avec deux instances de rôle, une machine virtuelle traite les demandes du client pendant que l'autre est mise à jour.
 
-6. Activez la case à cocher **Démarrer le déploiement** pour appliquer la mise à jour une fois le chargement du package.
+6. Activez la case à cocher **Démarrer le déploiement** pour appliquer la mise à jour une fois le chargement du package terminé.
 
 7. Sélectionnez **OK** pour démarrer la mise à jour du service.
 
@@ -59,7 +53,7 @@ Lorsque vous décidez de déployer une nouvelle version d'un service cloud, cré
 
 Vous pouvez inverser les déploiements à partir de la page **Cloud Services** ou du tableau de bord.
 
-1. Dans le [portail Azure][Azure portal], sélectionnez le service cloud à mettre à jour. Cette étape ouvre le panneau d'instance de service cloud.
+1. Dans le [portail Azure][Azure portal], sélectionnez le service cloud que vous souhaitez mettre à jour. Cette étape ouvre le panneau d'instance de service cloud.
 
 2. Sur le panneau, sélectionnez **Permuter**.
 
@@ -89,7 +83,7 @@ Notez que les mises à jour du système d’exploitation invité et les opérati
 
 **Un échange implique-t-il un temps d’arrêt pour mon application ? Comment dois-je le gérer ?**
 
-Comme décrit dans la section précédente, une permutation de déploiements est généralement rapide, car s’agit simplement d’une modification de configuration dans Azure Load Balancer. Dans certains cas, elle peut prendre au moins 10 secondes et entraîner des échecs de connexion temporaires. Pour limiter l’impact sur vos clients, envisagez d’implémenter la [logique de nouvelle tentative client](../best-practices-retry-general.md).
+Comme décrit dans la section précédente, une permutation de déploiements est généralement rapide, car il s’agit simplement d’une modification de configuration dans Azure Load Balancer. Dans certains cas, elle peut prendre au moins 10 secondes et entraîner des échecs de connexion temporaires. Pour limiter l’impact sur vos clients, envisagez d’implémenter la [logique de nouvelle tentative client](../best-practices-retry-general.md).
 
 ## <a name="delete-deployments-and-a-cloud-service"></a>Supprimer des déploiements et un service cloud
 Avant de pouvoir supprimer un service cloud, vous devez supprimer tous les déploiements existants.
@@ -98,7 +92,7 @@ Afin de réduire les coûts liés au calcul, vous pouvez supprimer le déploieme
 
 Utiliser la procédure suivante pour supprimer un déploiement ou un service cloud.
 
-1. Dans le [portail Azure][Azure portal], sélectionnez le service cloud à supprimer. Cette étape ouvre le panneau d'instance de service cloud.
+1. Dans le [portail Azure][Azure portal], sélectionnez le service cloud que vous souhaitez supprimer. Cette étape ouvre le panneau d'instance de service cloud.
 
 2. Sur le panneau, sélectionnez **Supprimer**.
 

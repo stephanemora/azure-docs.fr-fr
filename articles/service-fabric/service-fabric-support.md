@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ac36b1a538d5899613e19f157695d0bc333d9ece
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005041"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679057"
 ---
 # <a name="azure-service-fabric-support-options"></a>Options de support d’Azure Service Fabric
 
@@ -35,15 +35,15 @@ Pour en savoir plus :
 - [Support Premier Microsoft](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Clusters s’exécutant sur un niveau de fiabilité bronze permettent d’exécuter des charges de travail de test uniquement. Si vous rencontrez des problèmes avec un cluster en cours d’exécution sur la fiabilité bronze, l’équipe de support Microsoft vous aide à atténuer le problème, mais il n’effectuera pas une analyse de Cause racine. Reportez-vous à [les caractéristiques de fiabilité du cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) pour plus d’informations.
+> Les clusters s’exécutant sur un niveau de fiabilité bronze ou un cluster à nœud unique vous permettent uniquement d’exécuter des charges de travail de test. Si vous rencontrez des problèmes avec un cluster en cours d’exécution sur la fiabilité bronze ou un cluster à nœud unique, l’équipe du support technique de Microsoft vous aidera à atténuer le problème, mais elle n’effectuera pas d’analyse de la cause racine. Pour plus d’informations, reportez-vous à [Caractéristiques de fiabilité du cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster).
 >
-> Pour plus d’informations sur ce qui est nécessaire pour un cluster prêt pour la production, reportez-vous à la [liste de contrôle de production readiness](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Pour de plus amples renseignements sur les conditions exigées lors de la mise en service d’un cluster en production, reportez-vous à la [check-list de préparation à la production](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Signaler des problèmes de production ou demander un support payant pour des clusters Service Fabric autonomes
 
-Pour signaler des problèmes sur votre cluster Service Fabric déployé en local ou sur d’autres clouds, ouvrez un ticket de support professionnel sur le [portail de support Microsoft](https://support.microsoft.com/oas/default.aspx?prid=16146).
+Pour signaler des problèmes sur votre cluster Service Fabric déployé en local ou sur d’autres clouds, ouvrez un ticket de support professionnel sur le [portail de support Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Pour en savoir plus :
 
@@ -60,7 +60,7 @@ Signaler des problèmes avec Azure Service Fabric sur le [Référentiel Git des 
 
 ### <a name="stackoverflow-and-msdn-forums"></a>Forums StackOverflow et MSDN
 
-La [Balise Service Fabric sur StackOverflow][stackoverflow] et le [Forum Service Fabric sur MSDN][msdn-forum] sont recommandés pour poser des questions sur le fonctionnement de la plateforme et la réalisation de certaines tâches par son intermédiaire.
+La Balise [Service Fabric sur StackOverflow][stackoverflow] et le [Forum Service Fabric sur MSDN][msdn-forum] sont recommandés pour poser des questions sur le fonctionnement de la plateforme et la réalisation de certaines tâches par son intermédiaire.
 
 ### <a name="azure-feedback-forum"></a>Forum de commentaires Azure
 

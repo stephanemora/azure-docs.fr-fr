@@ -1,5 +1,5 @@
 ---
-title: Azure MFA connectez-vous avec la vérification en deux étapes - Azure Active Directory | Microsoft Docs
+title: Authentification multifacteur Azure avec vérification en deux étapes - Azure Active Directory | Microsoft Docs
 description: Cette page vous fournit des conseils pour consulter les différentes méthodes de connexion disponibles avec Azure MFA.
 keywords: authentification de l'utilisateur, expérience de connexion, connexion avec un téléphone mobile, connexion avec le téléphone de bureau
 services: active-directory
@@ -16,11 +16,11 @@ ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840871"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60334434"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Expérience de connexion avec Azure Multi-Factor Authentication
 > [!NOTE]

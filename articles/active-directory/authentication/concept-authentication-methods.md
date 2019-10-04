@@ -1,28 +1,28 @@
 ---
-title: Méthodes d’authentification - Azure Active Directory
-description: Quelles sont les méthodes d’authentification disponibles dans Azure AD pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service ?
+title: 'Méthodes d’authentification : Azure Active Directory'
+description: Méthodes d’authentification disponibles dans Azure AD pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 3b0c91357e5ab15b88c92b04fd0896b989e83953
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360639"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051444"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
-En tant qu’administrateur, choix de méthodes d’authentification pour Azure multi-Factor Authentication et de réinitialisation de mot de passe libre-service (SSPR) il est recommandé de demander aux utilisateurs d’inscrire plusieurs méthodes d’authentification. Quand une méthode d’authentification n’est pas disponible pour un utilisateur, ils peuvent choisir de s’authentifier avec une autre méthode.
+En tant qu’administrateur, lorsque vous choisissez des méthodes d’authentification pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service, il est recommandé de demander aux utilisateurs d’inscrire plusieurs méthodes d’authentification. Quand une méthode d’authentification n’est pas disponible pour un utilisateur, il peut choisir de s’authentifier avec une autre méthode.
 
-Les administrateurs peuvent définir, dans la stratégie, les méthodes d’authentification disponibles pour les utilisateurs avec les fonctionnalités d’authentification multifacteur et de réinitialisation de mot de passe en libre-service. Certaines méthodes d’authentification peuvent ne pas être disponibles pour toutes les fonctionnalités. Pour plus d’informations sur la configuration de vos stratégies consultez les articles [comment déployer avec succès la réinitialisation de mot de passe libre-service](howto-sspr-deployment.md) et [planification basée sur le cloud Azure multi-Factor Authentication](howto-mfa-getstarted.md)
+Les administrateurs peuvent définir, dans la stratégie, les méthodes d’authentification disponibles pour les utilisateurs avec les fonctionnalités d’authentification multifacteur et de réinitialisation de mot de passe en libre-service. Certaines méthodes d’authentification peuvent ne pas être disponibles pour toutes les fonctionnalités. Pour plus d’informations sur la configuration de vos stratégies, consultez les articles [How to successfully roll out self-service password reset](howto-sspr-deployment.md) (Comment réussir le lancement de la réinitialisation de mot de passe en libre-service) et [Planning a cloud-based Azure Multi-Factor Authentication](howto-mfa-getstarted.md) (Planification d’une authentification multifacteur Azure basée sur le cloud).
 
 Microsoft recommande vivement aux administrateurs de permettre aux utilisateurs de sélectionner plus que le nombre minimal requis de méthodes d’authentification au cas où une ne serait pas accessible.
 
@@ -31,7 +31,7 @@ Microsoft recommande vivement aux administrateurs de permettre aux utilisateurs 
 | Mot de passe | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
 | Questions de sécurité | Réinitialisation de mot de passe en libre-service uniquement |
 | Adresse de messagerie | Réinitialisation de mot de passe en libre-service uniquement |
-| Application Microsoft Authenticator | Authentification multifacteur et préversion publique pour la réinitialisation de mot de passe en libre-service |
+| Application Microsoft Authenticator | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
 | Jetons matériels OATH | Préversion publique pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service |
 | sms | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
 | Appel vocal | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
@@ -41,7 +41,7 @@ Microsoft recommande vivement aux administrateurs de permettre aux utilisateurs 
 
 |     |
 | --- |
-| Les jetons matériels OATH pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service, et la notification d’application mobile ou le code d’application mobile en tant que méthodes de réinitialisation de mot de passe en libre-service Azure AD, sont des fonctionnalités disponibles dans la préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Les jetons matériels OATH pour MFA et SSPR sont des fonctionnalités en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Mot de passe
@@ -142,7 +142,7 @@ L’application Microsoft Authenticator peut aider à empêcher tout accès non 
 Si vous activez l’utilisation de la notification par le biais de l’application mobile et du code de vérification de l’application mobile, les utilisateurs qui inscrivent l’application Microsoft Authenticator à l’aide d’une notification peuvent utiliser aussi bien la notification que le code pour vérifier leur identité.
 
 > [!NOTE]
-> Si votre organisation a personnel travaillant dans ou en déplacement à la Chine, le **Notification via application mobile** méthode sur **les appareils Android** ne fonctionne pas dans ce pays. Autres méthodes doivent être accessibles aux utilisateurs.
+> Si le personnel de votre organisation travaille ou voyage en Chine, la méthode de **notification via application mobile** sur les **appareils Android** ne fonctionne pas dans ce pays. D’autres méthodes doivent être proposées aux utilisateurs.
 
 ### <a name="verification-code-from-mobile-app"></a>Code de vérification de l’application mobile
 
@@ -152,11 +152,11 @@ L'application Microsoft Authenticator ou une autre application tierce peut être
 > Quand une seule méthode est requise pour la réinitialisation de mot de passe en libre-service, le code de vérification est la seule option à la disposition des utilisateurs **pour garantir le niveau de sécurité le plus élevé**.
 >
 
-Les utilisateurs devront peut-être une combinaison de jetons de matériels jusqu'à cinq serment ou des applications de l’authentificateur, telles que l’application Microsoft Authenticator configuré pour une utilisation à tout moment.
+Les utilisateurs peuvent combiner jusqu’à cinq jetons matériels OATH ou des applications d’authentification, comme l’application Microsoft Authenticator, configurées pour une utilisation à tout moment.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Jetons matériels OATH (préversion publique)
 
-OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Les clés secrètes sont limités à 128 caractères, ce qui n’est peut-être pas compatibles avec tous les jetons.
+OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Les secrets sont limités à 128 caractères et cette limite peut ne pas être compatible avec tous les jetons. Les clés secrètes doivent être encodées en Base32.
 
 ![Chargement des jetons OATH dans le panneau de jetons OATH du serveur MFA](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
@@ -165,7 +165,7 @@ Les jetons matériels OATH seront pris en charge dans le cadre d’une préversi
 Après avoir obtenu les jetons, vous devez les charger dans un fichier de valeurs séparées par des virgules (CSV), contenant l’UPN, le numéro de série, le secret, l’intervalle de temps, le fabricant et le modèle, comme dans l’exemple suivant.
 
 ```csv
-upn,serial number,secret key,timeinterval,manufacturer,model
+upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```
 
@@ -178,9 +178,11 @@ L’opération peut prendre plusieurs minutes selon la taille du fichier CSV. Cl
 
 Une fois que toutes les erreurs ont été résolues, l’administrateur peut activer chaque clé en cliquant sur **Activer** pour activer le jeton et en entrant l’OTP affiché sur le jeton.
 
-Les utilisateurs devront peut-être une combinaison de jetons de matériels jusqu'à cinq serment ou des applications de l’authentificateur, telles que l’application Microsoft Authenticator configuré pour une utilisation à tout moment.
+Les utilisateurs peuvent combiner jusqu’à cinq jetons matériels OATH ou des applications d’authentification, comme l’application Microsoft Authenticator, configurées pour une utilisation à tout moment.
 
-## <a name="mobile-phone"></a>Téléphone mobile
+## <a name="phone-options"></a>Options de téléphone
+
+### <a name="mobile-phone"></a>Téléphone mobile
 
 Deux options sont disponibles pour les utilisateurs de téléphones mobiles.
 
@@ -193,18 +195,20 @@ Pour que tout fonctionne correctement, les numéros de téléphone doivent être
 >
 > La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format +1 4255551234X12345, les extensions sont supprimées avant l’appel.
 
-### <a name="text-message"></a>SMS
+Microsoft ne garantit pas que les notifications Multi-Factor Authentication envoyées par SMS ou message vocale proviennent systématiquement du même numéro. Dans l’intérêt de ses utilisateurs, Microsoft peut à tout moment ajouter ou supprimer des codes courts pour refléter les ajustements apportés aux itinéraires dans le but d’améliorer la remise des SMS. Microsoft ne prend pas en charge les codes courts pour les pays/régions en dehors des États-Unis et du Canada.
+
+#### <a name="text-message"></a>SMS
 
 Un SMS est envoyé au numéro de téléphone mobile. Il contient un code de vérification. Entrez le code de vérification fourni dans l’interface de connexion pour continuer.
 
-### <a name="phone-call"></a>appel téléphonique
+#### <a name="phone-call"></a>appel téléphonique
 
 Un appel vocal automatisé est passé au numéro de téléphone indiqué. Répondez à l’appel et appuyez sur la touche # du clavier du téléphone pour vous authentifier.
 
 > [!IMPORTANT]
-> À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible aux utilisateurs MFA et SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.
+> Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs MFA et SSPR dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les appels téléphoniques continueront à être disponibles pour les utilisateurs de locataires Azure AD payants. Cette modification affecte uniquement les locataires Azure AD gratuits ou à l’essai.
 
-## <a name="office-phone"></a>Téléphone de bureau
+### <a name="office-phone"></a>Téléphone de bureau
 
 Un appel vocal automatisé est passé au numéro de téléphone indiqué. Répondez à l’appel et appuyez sur la touche # du clavier du téléphone pour vous authentifier.
 
@@ -213,12 +217,31 @@ Pour que tout fonctionne correctement, les numéros de téléphone doivent être
 L’attribut Téléphone de bureau est géré par l’administrateur.
 
 > [!IMPORTANT]
-> À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible aux utilisateurs MFA et SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.
+> Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs MFA et SSPR dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les appels téléphoniques continueront à être disponibles pour les utilisateurs de locataires Azure AD payants. Cette modification affecte uniquement les locataires Azure AD gratuits ou à l’essai.
 
 > [!NOTE]
 > Il doit y avoir un espace entre l’indicatif du pays et le numéro de téléphone.
 >
 > La réinitialisation du mot de passe ne prend pas en charge les extensions de téléphone. Même au format +1 4255551234X12345, les extensions sont supprimées avant l’appel.
+
+### <a name="troubleshooting-phone-options"></a>Résolution des problèmes liés aux options du téléphone
+
+Problèmes courants relatifs aux méthodes d’authentification utilisant un numéro de téléphone :
+
+* ID de l’appelant bloqué sur un seul appareil
+   * Résoudre les problèmes d’appareil
+* Numéro de téléphone incorrect, code pays incorrect, numéro de téléphone personnel et numéro de téléphone professionnel
+   * Résoudre les problèmes d’objet utilisateur et de méthodes d’authentification. Vérifiez que les bons numéros de téléphone sont enregistrés.
+* Code PIN entré incorrect
+   * Confirmez que l’utilisateur a utilisé le bon code PIN inscrit dans Azure MFA Server.
+* Appel transféré vers la messagerie vocale
+   * Vérifiez que le téléphone de l’utilisateur est allumé et que le service est disponible dans leur zone ou utilisez une autre méthode.
+* L’utilisateur est bloqué
+   * Demander à l’administrateur de débloquer l’utilisateur dans le portail Azure.
+* L’option SMS n’est pas inscrite sur l’appareil
+   * Demandez à l’utilisateur de changer de méthode ou d’activer les SMS sur l’appareil.
+* Fournisseurs de télécommunications en faute (aucune entrée téléphone détectée, problèmes de tonalités DTMF manquantes, ID de l’appelant bloqué sur plusieurs appareils, ou SMS bloqués sur plusieurs appareils)
+   * Microsoft utilise plusieurs fournisseurs de télécommunications pour acheminer les appels téléphoniques et les messages SMS pour l’authentification. Si vous rencontrez des problèmes mentionnés ci-dessus, demandez à un utilisateur d’essayer d’utiliser la méthode au moins 5 fois en 5 minutes, et soyez en possession de ses informations lorsque vous contactez le support Microsoft.
 
 ## <a name="app-passwords"></a>Mots de passe d'application
 
@@ -240,6 +263,6 @@ Si votre organisation est fédérée (SSO) avec Azure AD et si vous vous apprê
 
 [Activer Azure Multi-Factor Authentication pour votre organisation](howto-mfa-getstarted.md)
 
-[Activer l’inscription de combiné dans votre client](howto-registration-mfa-sspr-combined.md)
+[Activer une inscription combinée dans votre locataire](howto-registration-mfa-sspr-combined.md)
 
 [Documentation relative à la configuration de la méthode d’authentification de l’utilisateur final](https://aka.ms/securityinfoguide)

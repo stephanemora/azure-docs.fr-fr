@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
 ms.openlocfilehash: a06d629087e853c2578e6d35a2ea90c5a8eff840
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860599"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60308941"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Créer des zones et des jeux d’enregistrements DNS à l’aide du Kit de développement logiciel (SDK) .NET
 
@@ -145,7 +145,7 @@ recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zo
 
 ## <a name="list-zones-and-record-sets"></a>Répertorier les zones et les jeux d’enregistrements
 
-Pour répertorier les zones, utilisez les méthodes *DnsManagementClient.Zones.List...*, qui prennent en charge l’énumération de toutes les zones d’un groupe de ressources donné ou toutes les zones d’un abonnement Azure donné (parmi les groupes de ressources). Pour répertorier les jeux d’enregistrements, utilisez les méthodes *DnsManagementClient.RecordSets.List...*, qui prennent en charge l’énumération de tous les jeux d’enregistrements d’une zone donnée ou uniquement les jeux d’enregistrements d’un type spécifique.
+Pour répertorier les zones, utilisez les méthodes *DnsManagementClient.Zones.List...* , qui prennent en charge l’énumération de toutes les zones d’un groupe de ressources donné ou toutes les zones d’un abonnement Azure donné (parmi les groupes de ressources). Pour répertorier les jeux d’enregistrements, utilisez les méthodes *DnsManagementClient.RecordSets.List...* , qui prennent en charge l’énumération de tous les jeux d’enregistrements d’une zone donnée ou uniquement les jeux d’enregistrements d’un type spécifique.
 
 Notez que les résultats peuvent être paginés lors du répertoriage des zones et des jeux d’enregistrements.  L’exemple suivant montre comment effectuer une itération dans les pages de résultats. (Une taille de page artificiellement petite de « 2 » est utilisée pour forcer la pagination. Dans la pratique, ce paramètre doit être omis et la taille de page par défaut doit être utilisée.)
 

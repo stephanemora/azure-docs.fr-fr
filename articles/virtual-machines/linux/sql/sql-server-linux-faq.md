@@ -7,18 +7,17 @@ author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fb1cafcf9405576749ea91aeea033c6ee783a026
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 1e729c608a2cad28c810f8d5236360c909a496b0
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330430"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70082026"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Linux Azure
 
@@ -73,7 +72,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je modifier une machine virtuelle pour utiliser ma propre licence SQL Server si elle a été créée à partir de l’une des images de la galerie avec paiement à l’utilisation ?**
 
-    Non. Vous ne pouvez pas passer du mode de licence avec paiement à la seconde à de votre propre licence. Vous devez créer une machine virtuelle Linux, installer SQL Server et faire migrer vos données. Consultez la question précédente pour plus d’informations sur l’apport de votre propre licence.
+   Non. Vous ne pouvez pas passer du mode de licence avec paiement à la seconde à de votre propre licence. Vous devez créer une machine virtuelle Linux, installer SQL Server et faire migrer vos données. Consultez la question précédente pour plus d’informations sur l’apport de votre propre licence.
 
 ## <a name="administration"></a>Administration
 

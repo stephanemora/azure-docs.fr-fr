@@ -1,30 +1,58 @@
 ---
-title: Contrat standard | Azure
-description: Contrat standard dans Azure Marketplace et AppSource
+title: Contrat Standard | Azure
+description: Contrat Standard dans la Place de marché Azure et AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
 ms.service: marketplace
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 07/05/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3c3b3c3af3dbe78bd08a0803c7fc2a37f554e4d7
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
-ms.translationtype: MT
+ms.openlocfilehash: 80c157423572d356026f257e81d52650ce01d3e8
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57250471"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620364"
 ---
 # <a name="standard-contract"></a>Contrat standard
 
-Pour simplifier le processus d’approvisionnement pour les clients et réduire la complexité juridique éditeurs de logiciels, Microsoft propose un modèle de contrat Standard afin de faciliter une transaction dans la place de marché. Au lieu d’élaborer des conditions générales personnalisées, les serveurs de publication Azure Marketplace peuvent choisir d’offrir leur logiciel contractuelles Standard, qui les clients doivent uniquement les antécédents et accepter qu’une seule fois. Le contrat Standard est disponible ici : [ https://go.microsoft.com/fwlink/?linkid=2041178 ](https://go.microsoft.com/fwlink/?linkid=2041178). 
+Pour simplifier le processus d’approvisionnement pour les clients et réduire la complexité juridique pour les éditeurs de logiciels, Microsoft propose un modèle de contrat Standard afin de faciliter les transactions sur la place de marché. Plutôt que d’élaborer des conditions générales personnalisées, les éditeurs de la Place de marché Azure peuvent choisir de proposer leur logiciel dans le cadre du contrat Standard, que les clients ne doivent accepter qu’une seule fois. Le contrat Standard est disponible ici : [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178). 
 
-Les termes et conditions pour une offre sont définies sous l’onglet de la place de marché lorsque vous créez une offre dans le portail Cloud Partner. L’option de contrat Standard est activée en modifiant le paramètre sur Oui.
+Les termes et conditions des offres sont définies sous l’onglet Place de marché lorsque vous créez une offre dans le Portail Cloud Partner. L’option de contrat Standard est activée en définissant le paramètre sur Oui.
 
-![L’activation de l’option de contrat Standard](media/marketplace-publishers-guide/standard-contract.png)
+![Activation de l’option de contrat Standard](media/marketplace-publishers-guide/standard-contract.png)
 
 >[!Note] 
->Si vous choisissez d’utiliser le contrat Standard, séparent les termes et conditions sont toujours nécessaires pour le [fournisseur de solutions Cloud](./cloud-solution-providers.md) canal.
+>Si vous choisissez d’utiliser le contrat Standard, d’autres conditions générales sont encore nécessaires pour le [canal CSP](./cloud-solution-providers.md).
+
+## <a name="standard-contract-amendments"></a>Contrat Standard | Modifications
+
+Les modifications de contrat Standard permettent aux éditeurs de sélectionner le contrat Standard par souci de simplicité, et avec des conditions personnalisées pour leur produit ou entreprise.  Les clients sont invités à examiner les modifications apportées au contrat, puis à accepter le contrat Standard de Microsoft.
+
+Deux types de modifications sont proposées aux éditeurs de la Place de marché Azure :
+
+* Modifications universelles : Ces modifications sont appliquées de manière universelle au contrat Standard de tous les clients. Les modifications universelles s'affichent pour chaque client du produit dans le flux d’achat.
+
+![Modifications universelles](media/marketplace-publishers-guide/universal-amendaments.png)
+
+* Modifications personnalisées : La Place de marché Azure propose également des modifications personnalisées destinées aux locataires. Il s'agit de modifications spéciales apportées au contrat Standard qui ciblent certains clients uniquement. Les éditeurs peuvent choisir le locataire qu'ils souhaitent cibler. Les clients de ce locataire achètent le produit selon les conditions du contrat Standard et les modifications ciblées.
+
+![Modifications personnalisées](media/marketplace-publishers-guide/custom-amendaments.png)
+
+>[!Note] 
+>Les clients ciblés par les modifications personnalisées reçoivent aussi la modification universelle apportée aux conditions standard lors de l'achat.
+
+>[!Note]
+>Les types d’offres suivants prennent en charge les modifications du contrat Standard : applications Azure (modèles de solution et applications managées), machines virtuelles, conteneurs, applications de conteneur.
+
+### <a name="customer-experience"></a>Expérience client
+
+Lors du processus d’achat sur le portail Azure, les clients peuvent voir les conditions du contrat associé au produit en tant que contrat Standard de Microsoft, ainsi que les modifications.
+
+![Expérience client sur le portail Azure.](media/marketplace-publishers-guide/ibiza-customer-experience.png)
+
+### <a name="api"></a>API
+
+Les clients peuvent utiliser `Get-AzureRmMarketplaceTerms` pour récupérer les conditions d’une offre et l’accepter. Le contrat Standard et les modifications qui s'y rapportent sont renvoyés dans la sortie de la cmdlet.
 
 ---

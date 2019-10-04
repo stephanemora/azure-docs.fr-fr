@@ -12,17 +12,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/08/2018
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: a8aed646f03b777722518152354cfe80cea043a0
+ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300912"
+ms.lasthandoff: 09/15/2019
+ms.locfileid: "71002804"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>Bonnes pratiques liées à StorSimple Virtual Array
-## <a name="overview"></a>Vue d’ensemble
+
+## <a name="overview"></a>Vue d'ensemble
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 Microsoft Azure StorSimple Virtual Array est une solution de stockage intégrée qui gère les tâches de stockage entre un appareil virtuel local exécuté dans un hyperviseur et le stockage cloud Microsoft Azure. StorSimple Virtual Array représente une alternative efficace et économique à la baie de stockage physique de la gamme 8000. La baie virtuelle peut s’exécuter sur votre infrastructure de l’hyperviseur, prend en charge les protocoles SMB et iSCSI, et est adaptée aux scénarios de bureaux distants. Pour plus d’informations sur les solutions StorSimple, consultez [Vue d’ensemble de Microsoft Azure StorSimple](https://www.microsoft.com/en-us/server-cloud/products/storsimple/overview.aspx).
 
 Cet article aborde les bonnes pratiques à implémenter au cours de l’installation initiale, du déploiement et de la gestion de la baie virtuelle StorSimple Virtual Array. Ces bonnes pratiques fournissent des instructions validées pour l’installation et la gestion de votre baie virtuelle. Cet article est destiné aux administrateurs informatiques qui déploient et gèrent les baies virtuelles dans leurs centres de données.
@@ -75,9 +79,9 @@ Tout d’abord, pour chaque partage/volume hiérarchisé, la réservation locale
 * d’une réservation locale de 120 Go (pour un partage/volume hiérarchisé de 1 To) ;
 * de 330 Go pour le volume ou le partage épinglé localement (en ajoutant 10 % de réservation locale à la taille approvisionnée de 300 Go) ;
 
-L’espace total requis à ce stade au niveau local est de : 240 Go + 120 Go + 330 Go = 690 Go.
+À ce stade, l’espace total requis au niveau local est de : 240 Go + 120 Go + 330 Go = 690 Go.
 
-Deuxièmement, nous avons besoin d’au moins autant d’espace au niveau local que la réservation unique la plus grande. Ce montant supplémentaire est utilisé au cas où il serait nécessaire d’effectuer une restauration à partir d’un instantané cloud. Dans cet exemple, la plus grande réservation locale est de 330 Go (y compris la réservation pour le système de fichiers), donc vous devez l’ajouter aux 690 Go : 690 Go + 330 Go = 1 020 Go.
+Deuxièmement, nous avons besoin d’au moins autant d’espace au niveau local que la réservation unique la plus grande. Ce montant supplémentaire est utilisé au cas où il serait nécessaire d’effectuer une restauration à partir d’un instantané cloud. Dans cet exemple, la plus grande réservation locale étant de 330 Go (avec la réservation pour le système de fichiers), vous devez l’ajouter aux 690 Go : 690 Go + 330 Go = 1 020 Go.
 Si nous avons effectué des restaurations supplémentaires ultérieures, nous pouvons toujours libérer l’espace utilisé pour l’opération de restauration précédente.
 
 Troisièmement, nous avons besoin de 15 % de votre espace local total jusqu’ici pour stocker les instantanés locaux, si bien que 85 % de celui-ci est disponible. Dans cet exemple, cela représente environ 1 020 Go = 0,85&ast;To du disque de données configuré. Par conséquent, le disque de données configuré aurait une taille de (1 020&ast;(1/0,85)) = 1 200 Go = 1,20 To ~ 1,25 To (en arrondissant au quartile le plus proche)
@@ -99,7 +103,7 @@ En tenant compte des 12 % de réservation de l’espace local pour les partages/
 * d’une réservation locale de 240 Go (pour un partage/volume hiérarchisé de 2 To) ;
 * de 330 Go pour le volume ou le partage épinglé localement (en ajoutant 10 % de réservation locale à l’espace approvisionné de 300 Go)
 
-L’espace total requis au niveau local est de : 240 Go + 330 Go = 570 Go.
+L’espace total requis au niveau local est de : 240 Go + 330 Go = 570 Go
 
 L’espace local minimal requis pour la restauration est de 330 Go.
 
@@ -195,7 +199,7 @@ Utilisez les bonnes pratiques suivantes lors de la configuration d’ACR pour le
 ### <a name="data-security-and-encryption"></a>Chiffrement et sécurité des données
 Votre baie virtuelle StorSimple Virtual Array a des fonctionnalités de chiffrement et de sécurité des données qui garantissent la confidentialité et l’intégrité de vos données. Lorsque vous utilisez ces fonctionnalités, nous vous recommandons de suivre ces bonnes pratiques : 
 
-* Définissez une clé de chiffrement de stockage cloud pour générer un chiffrement AES-256 avant l’envoi des données de votre baie virtuelle vers le cloud. Cette clé n’est pas requise si vos données sont chiffrées dès le départ. La clé peut être générée et protégée à l’aide d’un système de gestion de clés tel qu’ [Azure Key Vault](../key-vault/key-vault-whatis.md).
+* Définissez une clé de chiffrement de stockage cloud pour générer un chiffrement AES-256 avant l’envoi des données de votre baie virtuelle vers le cloud. Cette clé n’est pas requise si vos données sont chiffrées dès le départ. La clé peut être générée et protégée à l’aide d’un système de gestion de clés tel qu’ [Azure Key Vault](../key-vault/key-vault-overview.md).
 * Lorsque vous configurez le compte de stockage via le service StorSimple Manager, veillez à activer le mode SSL pour créer un canal sécurisé pour la communication réseau entre votre appareil StorSimple et le cloud.
 * Régénérez les clés de vos comptes de stockage (en accédant au service Stockage Azure) régulièrement pour prendre en compte toutes les modifications de l’accès en fonction de la liste modifiée des administrateurs.
 * Les données figurant sur votre baie virtuelle sont compressées et dédupliquées avant leur envoi vers Azure. Nous ne recommandons pas l’utilisation du service de rôle Déduplication des données sur votre hôte Windows Server.

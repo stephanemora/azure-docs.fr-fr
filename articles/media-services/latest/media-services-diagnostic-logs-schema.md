@@ -1,6 +1,6 @@
 ---
-title: Schémas - Azure des journaux de diagnostic Azure Media Services
-description: Cet article explique les schémas de journaux de diagnostic Azure Media Services.
+title: Schémas des journaux de diagnostic Azure Media Services - Azure
+description: Cet article présente les schémas des journaux de diagnostic d’Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: 394370738bc7996a221300540e68404986d91310
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f95258368664aabeb89426afb83854378c0e4429
+ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58850632"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71261096"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schémas des journaux de diagnostic
 
-[Azure Monitor](../../azure-monitor/overview.md) permet aux mesures de surveillance et de journaux de diagnostic qui vous aident à comprendre le fonctionnement de vos applications. Vous pouvez surveiller les journaux de diagnostic de Media Services et créer des alertes et notifications pour les métriques collectées et les journaux. Vous pouvez envoyer des journaux au [stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)et les exporter vers [Analytique de journal](https://azure.microsoft.com/services/log-analytics/), ou utiliser les services tiers 3e.
+[Azure Monitor](../../azure-monitor/overview.md) vous permet de surveiller les métriques et les journaux de diagnostic pour vous aider à comprendre le fonctionnement de vos applications. Vous pouvez surveiller les journaux de diagnostic de Media Services et créer des alertes et des notifications pour les métriques et les journaux collectés. Vous pouvez envoyer les journaux d’activité au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers [Log Analytics](https://azure.microsoft.com/services/log-analytics/) ou utiliser un service externe.
 
-Pour plus d’informations, consultez [mesures Azure Monitor](../../azure-monitor/platform/data-platform.md) et [journaux de Diagnostic du moniteur Azure](../../azure-monitor/platform/diagnostic-logs-overview.md).
+Pour plus d’informations, consultez [Métriques Azure Monitor](../../azure-monitor/platform/data-platform.md) et [Journaux de diagnostic Azure Monitor](../../azure-monitor/platform/resource-logs-overview.md).
 
 Cet article décrit les schémas des journaux de diagnostic de Media Services.
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Schéma des journaux de diagnostic de niveau supérieur
 
-Pour obtenir une description détaillée du schéma de niveau supérieur de journaux de diagnostic, consultez [prise en charge des services, des schémas et des catégories pour les journaux de Diagnostic Azure](../../azure-monitor/platform/tutorial-dashboards.md).
+Pour une description détaillée du schéma général des journaux de diagnostic, consultez [Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure](../../azure-monitor/platform/tutorial-dashboards.md).
 
 ## <a name="key-delivery-log-schema"></a>Schéma de journal de remise de clé
 
 ### <a name="properties"></a>properties
 
-Ces propriétés sont spécifiques au schéma de journal de remise de clé.
+Ces propriétés sont spécifiques au schéma du journal de remise de clé.
 
 |Nom|Description|
 |---|---|
@@ -44,11 +44,11 @@ Ces propriétés sont spécifiques au schéma de journal de remise de clé.
 |keyType|Peut être l’une des valeurs suivantes : « Clear » (aucun chiffrement), « FairPlay », « PlayReady » ou « Widevine ».|
 |policyName|Nom de la stratégie Azure Resource Manager.|
 |tokenType|Le type de jeton.|
-|statusMessage|Le message d’état.|
+|statusMessage|L’état du message.|
 
 ### <a name="examples"></a>Exemples
 
-Propriétés du schéma de demandes de remise de clé.
+Propriétés du schéma de demande de remise de clé.
 
 ```json
 {
@@ -110,4 +110,4 @@ Propriétés du schéma de demandes de remise de clé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Surveiller les métriques de Media Services et des journaux de diagnostic](media-services-metrics-diagnostic-logs.md)
+[Superviser les métriques et les journaux de diagnostic Media Services](media-services-metrics-diagnostic-logs.md)

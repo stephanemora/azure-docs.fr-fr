@@ -1,19 +1,19 @@
 ---
-title: Optimiser les insertions en bloc sur un serveur Azure Database pour PostgreSQL
-description: Cet article explique comment vous pouvez optimiser des insertions en bloc dans un serveur Azure Database pour PostgreSQL.
+title: Optimiser les insertions en bloc dans une instance Azure Database pour PostgreSQL (serveur unique)
+description: Cet article explique comment vous pouvez optimiser des insertions en bloc dans une instance Azure Database pour PostgreSQL (serveur unique).
 author: dianaputnam
 ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: a82984ce4c2a2e44306abaa63265e0c25cc6ace4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.date: 5/6/2019
+ms.openlocfilehash: c1ae29f7c498a79af09aaaf6d7aeae29561aa500
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310289"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65067047"
 ---
-# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>Optimiser les insertions en bloc et utiliser les données temporaires sur un serveur Azure Database pour PostgreSQL 
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>Optimiser les insertions en bloc et utiliser les données temporaires dans une instance Azure Database pour PostgreSQL (serveur unique) 
 Cet article explique comment vous pouvez optimiser des insertions en bloc et utiliser les données temporaires dans un serveur Azure Database pour PostgreSQL.
 
 ## <a name="use-unlogged-tables"></a>Utiliser des tables non journalisées

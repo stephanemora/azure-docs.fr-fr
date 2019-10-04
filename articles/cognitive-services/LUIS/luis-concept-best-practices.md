@@ -1,6 +1,6 @@
 ---
-title: Bonnes pratiques
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Meilleures pratiques - LUIS
+titleSuffix: Azure Cognitive Services
 description: Découvrez les bonnes pratiques LUIS pour obtenir les meilleurs résultats à partir du modèle de votre application LUIS.
 services: cognitive-services
 author: diberry
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 91ff99f674439580d369aad1490ded85d39d377c
+ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895813"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70382889"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bonnes pratiques pour la création d’une application Language Understanding avec Cognitive Services
-Suivez le processus de création d’applications pour générer votre application LUIS. 
+Suivez le processus de création d’applications pour générer votre application LUIS : 
 
 * Générer un modèle de langage
 * Ajouter quelques exemples d’énoncés d’apprentissage (10-15 par intention)
@@ -78,13 +78,13 @@ Pour plus d'informations :
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Ajouter des listes d’expressions et des modèles dans les itérations ultérieures
 
-Il est préférable de ne pas appliquer ces pratiques tant que votre application n'a pas été testée. Vous devez comprendre le comportement de l’application avant d’ajouter des modèles et des listes d’expression, car ces fonctionnalités sont pondérées plus fortement que les énoncés d’exemple et faussera confiance. 
+Il est préférable de ne pas appliquer ces pratiques tant que votre application n'a pas été testée. Vous devez comprendre le comportement de l’application avant d’ajouter des [modèles](luis-concept-feature.md) et des [listes d’expression](luis-concept-patterns.md), car ces fonctionnalités sont pondérées plus fortement que les exemples d’énoncés et fausseront la confiance. 
 
 Cela permet de comprendre comment votre application se comporte sans ces éléments ; vous pouvez ensuite ajouter ces fonctionnalités selon les besoins. Il n'est pas nécessaire d'ajouter ces fonctionnalités à chaque [itération](luis-concept-app-iteration.md) ou de les modifier à chaque version. 
 
 Rien ne vous empêche de les ajouter au début de la conception de votre modèle, mais il est plus aisé de constater les changements produits par chaque fonctionnalité une fois le modèle testé avec des énoncés. 
 
-Une bonne pratique consiste à le tester via le [point de terminaison](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) pour bénéficier de l'avantage supplémentaire qu'offre l'[apprentissage actif](luis-concept-review-endpoint-utterances.md). Le [volet de test interactif](luis-interactive-test.md) constitue également une méthodologie de test valide. 
+Une bonne pratique consiste à le tester via le [point de terminaison](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) pour bénéficier de l'avantage supplémentaire qu'offre l'[apprentissage actif](luis-concept-review-endpoint-utterances.md). Le [volet de test interactif](luis-interactive-test.md) constitue également une méthodologie de test valide. 
  
 
 ### <a name="phrase-lists"></a>Listes d’expressions

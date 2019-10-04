@@ -1,27 +1,27 @@
 ---
 title: 'Exemple : Modéliser la base de données d’inventaire AdventureWorks - Recherche Azure'
 description: Découvrez comment modéliser des données relationnelles, en les transformant en un jeu de données aplati, pour l’indexation et la recherche en texte intégral dans Recherche Azure.
-author: cstone
-manager: cgronlun
+author: HeidiSteen
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: chstone
-ms.openlocfilehash: 6d5d01dfbbcfda56818f5c38b06117a87e021445
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 09/05/2019
+ms.author: heidist
+ms.openlocfilehash: c25dd34460e7e92bb20913f5b812044623dd38e3
+ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55174565"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70274033"
 ---
 # <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Exemple : Modéliser la base de données d’inventaire AdventureWorks pour la Recherche Azure
 
-La modélisation du contenu d’une base de données structurée en un index de recherche efficace est rarement un exercice facile. Hormis la planification et la gestion des changements, il y a le défi de dénormalisation des lignes sources hors de leur état de table jointe en entités destinées à la recherche. Cet article utilise l’exemple de données AdventureWorks, disponible en ligne, pour mettre en évidence des expériences courantes de transition d’une base de données à une recherche. 
+Recherche Azure accepte un ensemble de lignes aplati comme entrées du [pipeline d’indexation (ingestion des données)](search-what-is-an-index.md). Si vos données sources proviennent d’une base de données relationnelle SQL Server, cet article montre une approche de la création d’un ensemble de lignes aplati avant l’indexation, en utilisant l’exemple de base de données AdventureWorks comme exemple.
 
 ## <a name="about-adventureworks"></a>À propos d’AdventureWorks
 
-Si vous avez une instance SQL Server, vous connaissez peut-être l’exemple de base de données AdventureWorks. Parmi les tables incluses dans cette base de données figurent cinq tables qui exposent des informations sur les produits.
+Si vous avez une instance SQL Server, vous connaissez peut-être l’[exemple de base de données AdventureWorks](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017). Parmi les tables incluses dans cette base de données figurent cinq tables qui exposent des informations sur les produits.
 
 + **ProductModel** : nom
 + **Product** : nom, couleur, coût, taille, poids, image, catégorie (chaque ligne est jointe à un ProductModel spécifique)
@@ -29,7 +29,7 @@ Si vous avez une instance SQL Server, vous connaissez peut-être l’exemple de
 + **ProductModelProductDescription** : paramètres régionaux (chaque ligne joint un ProductModel à un ProductDescription spécifique pour une langue spécifique)
 + **ProductCategory** : nom, catégorie parente
 
-La combinaison de toutes ces données en un ensemble de lignes aplati qui peut être ingéré dans un index de recherche est la tâche en cours. 
+L’objectif de cet exemple est la combinaison de toutes ces données en un ensemble de lignes aplati qui peut être ingéré dans un index de recherche. 
 
 ## <a name="considering-our-options"></a>Étude de nos options
 
@@ -43,7 +43,7 @@ La résolution de ce problème n’est pas aussi simple que de déplacer l’ind
 
 ## <a name="use-a-collection-data-type"></a>Utiliser un type de données Collection
 
-La « bonne approche » consiste à utiliser une fonctionnalité de schéma de recherche qui n’a pas de parallèle direct dans le modèle de base de données : **Collection(Edm.String)**. Un type de données Collection est utilisé quand vous avez une liste de chaînes individuelles plutôt qu’une très longue (et même) chaîne. Si vous avez des tags ou des mots clés, vous devez utiliser un type de données Collection pour ce champ.
+La « bonne approche » consiste à utiliser une fonctionnalité de schéma de recherche qui n’a pas de parallèle direct dans le modèle de base de données : **Collection(Edm.String)** . Cette construction est définie dans le schéma d’index de Recherche Azure. Un type de données Collection est utilisé quand vous devez représenter une liste de chaînes individuelles plutôt qu’une (seule) chaîne très longue. Si vous avez des tags ou des mots clés, vous devez utiliser un type de données Collection pour ce champ.
 
 En définissant des champs d’index à valeurs multiples de **Collection(Edm.String)** pour « color » (couleur), « size » (taille) et « image », les informations auxiliaires sont conservées pour les facettes et le filtrage sans polluer l’index avec des entrées en double. De même, appliquez des fonctions d’agrégation aux champs Product numériques, en indexant **minListPrice** au lieu de chaque produit unique **listPrice**.
 
@@ -164,5 +164,3 @@ WHERE
 
 > [!div class="nextstepaction"]
 > [Exemple : Taxonomies de facettes à plusieurs niveaux dans Recherche Azure](search-example-adventureworks-multilevel-faceting.md)
-
-

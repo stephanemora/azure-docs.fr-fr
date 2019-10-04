@@ -1,25 +1,18 @@
 ---
-title: Client d’auto-test pour prévalider une machine virtuelle - Place de marché Azure | Microsoft Docs
+title: Client d'auto-test pour prévalider une machine virtuelle | Place de marché Azure
 description: Comment créer un client d’auto-test pour prévalider une image de machine virtuelle pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: pabutler
+ms.openlocfilehash: 117249feea04381b34f8fc1d95f77c2c1a567dba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848934"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64938719"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Créer un client d’auto-test pour prévalider une image de machine virtuelle Azure
 
@@ -254,7 +247,7 @@ Utilisez les étapes suivantes pour inscrire l’application cliente.
 
    - **Nom** : entrez un nom convivial pour l’application. Par exemple, « SelfTestClient » (Client d’auto-test).
    - **Type d’application** : sélectionnez **Application/API web**
-   - **URL d’authentification** – Type « https :\//isvapp.azurewebsites.net/selftest-vm »
+   - **URL de connexion** : entrez « https:\//isvapp.azurewebsites.net/selftest-vm »
 
 4. Sélectionnez **Créer**.
 5. Sous **Inscriptions des applications** ou **Application inscrite** , copiez l’**ID de l’application**.
@@ -271,7 +264,7 @@ Utilisez les étapes suivantes pour inscrire l’application cliente.
     ![Configurer un multilocataire pour une application](./media/stclient-select-api.png)
 
 12. Sous **Ajouter un accès d’API**, choisissez **Sélectionner des autorisations**.
-13. Sélectionnez **Accéder à « API Gestion des services Windows Azure »**.
+13. Sélectionnez **Accéder à « API Gestion des services Windows Azure »** .
 
     ![Activer l’accès d’API pour une application](./media/stclient-enable-api-access.png)
 
@@ -357,7 +350,7 @@ La capture d’écran suivante présente un exemple d’utilisation de la comman
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>Pour créer et obtenir un jeton à l’aide de C&#35;
 
-Pour demander des jetons pour toutes vos applications autorisées Auth0, effectuer une opération POST au point de terminaison https :\//soamtenant.auth0.com/oauth/token le point de terminaison avec une charge utile au format suivant :
+Pour demander des jetons à Auth0 pour toutes vos applications autorisées, effectuez une opération POST sur le point de terminaison https:\//soamtenant.auth0.com/oauth/token avec une charge utile au format suivant :
 
 ```csharp
 string clientId = "Your Application Id";
@@ -380,7 +373,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>Pour créer et obtenir un jeton à l’aide de PowerShell
 
-Pour demander des jetons pour toutes vos applications autorisées Auth0, effectuer une opération POST au point de terminaison https :\//soamtenant.auth0.com/oauth/token le point de terminaison avec une charge utile au format suivant :
+Pour demander des jetons à Auth0 pour toutes vos applications autorisées, effectuez une opération POST sur le point de terminaison https:\//soamtenant.auth0.com/oauth/token avec une charge utile au format suivant :
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

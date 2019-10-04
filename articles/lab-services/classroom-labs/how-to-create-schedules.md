@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f607ba68563aa92797f45cf77db0575ae6802fee
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55501260"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385606"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Créer et gérer des planifications pour laboratoires de classe dans Azure Lab Services 
 Les planifications vous permettent de configurer un laboratoire de classe de sorte que les machines virtuelles utilisées dans le laboratoire démarrent et s’arrêtent automatiquement à une heure précise. Vous pouvez définir une planification ponctuelle ou périodique. Les procédures suivantes décrivent comment créer et gérer des planifications pour un laboratoire de classe : 
 
 > [!IMPORTANT]
-> Le temps d’exécution planifié des machines virtuelles ne compte pas dans le [quota alloué à un utilisateur](how-to-configure-student-usage.md#set-quotas-per-user). Le quota s’applique au temps pendant lequel un étudiant utilise les machines virtuelles en dehors des heures planifiées. 
+> Le temps d’exécution planifié des machines virtuelles ne compte pas dans le [quota alloué à un utilisateur](how-to-configure-student-usage.md#set-quotas-for-users). Le quota s’applique au temps pendant lequel un étudiant utilise les machines virtuelles en dehors des heures planifiées. 
 
 ## <a name="add-a-schedule-once"></a>Ajouter une planification (une fois)
 

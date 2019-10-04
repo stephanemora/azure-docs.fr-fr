@@ -2,20 +2,20 @@
 title: Stratégies personnalisées Azure Active Directory B2C | Microsoft Docs
 description: Développement d’applications accessibles aux consommateurs avec Azure Active Directory B2C à l’aide de stratégies personnalisées.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 5/06/2017
-ms.author: davidmu
+ms.date: 05/06/2017
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bca20bdcf682b040a2fe0b14bf06bc6ca59528b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: MT
+ms.openlocfilehash: 9090bb6fefd727595a3e2c05db5e86ec2df31c8c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172577"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654095"
 ---
 # <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Inscription et connexion de consommateurs à vos applications à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 

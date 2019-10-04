@@ -3,9 +3,8 @@ title: Créer un locataire Azure Active Directory | Microsoft Docs
 description: Découvrez comment créer un locataire Azure AD à utiliser pour l'inscription et la création d'applications.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
@@ -14,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/05/2019
-ms.author: celested
-ms.reviewer: dadobali
-ms.custom: aaddev
+ms.author: ryanwi
+ms.reviewer: jmprieur
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c29195e5e597583a5c16c7f1d9494d655f2b317
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108659"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268606"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>Démarrage rapide : Configurer un environnement de développement
+# <a name="quickstart-set-up-a-tenant"></a>Démarrage rapide : Configurer un locataire
 
 La plateforme d’identité Microsoft permet aux développeurs de créer des applications qui ciblent un large éventail d’environnements Microsoft 365 personnalisés et d’identités. Pour bien commencer avec la plateforme d’identité Microsoft, vous devrez accéder à un environnement, également appelé un locataire Azure AD, qui peut inscrire et gérer des applications, accéder aux données Microsoft 365 et déployer des accès conditionnels et des restrictions personnalisés au niveau du locataire.
 

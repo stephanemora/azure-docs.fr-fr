@@ -2,22 +2,22 @@
 title: 'Démarrage rapide : créer un entrepôt de données SQL Azure - Azure Powershell | Microsoft Docs'
 description: Créez rapidement un serveur logique SQL Database, une règle de pare-feu au niveau du serveur et un entrepôt de données avec Azure PowerShell.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: development
 ms.date: 4/11/2019
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d76f7ac6c8b60e2dec7d7d95cf419e1352b97f15
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f5ee4227b0aeb53be4512dafc91f814468b50c12
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545126"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574904"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Démarrage rapide : créer et interroger un entrepôt de données SQL Azure avec Azure PowerShell
+# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Démarrage rapide : Créer et interroger un entrepôt de données SQL Azure avec Azure PowerShell
 
 Créez rapidement un entrepôt de données SQL Azure à l’aide d’Azure PowerShell.
 

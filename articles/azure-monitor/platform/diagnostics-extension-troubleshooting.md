@@ -6,14 +6,14 @@ author: rboucher
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/08/2019
 ms.author: robb
-ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699096"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "65471778"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
 Cet article contient des informations de dépannage pour Diagnostics Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](diagnostics-extension-overview.md).
@@ -29,7 +29,7 @@ Cet article contient des informations de dépannage pour Diagnostics Azure. Pour
 Voici les chemins d’accès de quelques journaux d’activité et artefacts importants. Nous nous référons à ces informations dans le reste du document.
 
 ### <a name="azure-cloud-services"></a>Services cloud Azure
-| Artefact | path |
+| Artefact | Path |
 | --- | --- |
 | **Fichier de configuration de Diagnostics Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Fichiers journaux** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ Voici les chemins d’accès de quelques journaux d’activité et artefacts imp
 | **Fichier journal MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Machines virtuelles
-| Artefact | path |
+| Artefact | Path |
 | --- | --- |
 | **Fichier de configuration de Diagnostics Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Fichiers journaux** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -48,7 +48,7 @@ Voici les chemins d’accès de quelques journaux d’activité et artefacts imp
 | **Fichier de configuration de l’agent de surveillance** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **Fichier d’état** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Package d’extension Diagnostics Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
-| **Chemin d’accès à l’utilitaire de collecte des journaux** | C:\WindowsAzure\Packages |
+| **Chemin d’accès à l’utilitaire de collecte des journaux** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **Fichier journal MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Les données métriques ne s’affichent pas dans le portail Azure
@@ -81,7 +81,7 @@ S’il n’existe aucune donnée pour cette métrique en particulier, vérifiez 
 Si la configuration est correctement définie, mais que vous ne voyez toujours pas les données métriques, reportez-vous aux indications suivantes. Elles vous aideront à résoudre les problèmes rencontrés.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>Azure Diagnostics ne démarre pas
+## <a name="azure-diagnostics-is-not-starting"></a>Diagnostics Azure ne démarre pas
 Pour savoir pourquoi Diagnostics Azure ne démarre pas, voir les journaux **DiagnosticsPluginLauncher.log** et **DiagnosticsPlugin.log** dont nous avons fourni le chemin d’accès précédemment.
 
 Si ces journaux d’activité indiquent `Monitoring Agent not reporting success after launch`, cela signifie que le lancement de MonAgentHost.exe a échoué. Consultez ces journaux d’activité à l’emplacement indiqué pour `MonAgentHost log file` dans la section précédente.
@@ -104,15 +104,15 @@ Le plus souvent, quand aucune donnée d’événement ne s’affiche, le problè
 
 Solution : corrigez la configuration du plug-in Diagnostics et réinstallez-le.
 
-Si le compte de stockage est correctement configuré un accès à distance à l’ordinateur et vérifiez que *DiagnosticsPlugin.exe* et *MonAgentCore.exe* sont en cours d’exécution. Dans le cas contraire, suivez les étapes décrites dans la section [Diagnostics Azure ne démarre pas](#azure-diagnostics-is-not-starting).
+Si le compte de stockage est configuré correctement, accédez à distance à la machine, puis vérifiez que les fichiers *DiagnosticsPlugin.exe* et *MonAgentCore.exe* sont bien en cours d’exécution. Dans le cas contraire, suivez les étapes décrites dans la section [Diagnostics Azure ne démarre pas](#azure-diagnostics-is-not-starting).
 
 Si ces processus sont en cours d’exécution, reportez-vous à la section [La capture des données intervient-elle en local ?](#is-data-getting-captured-locally), puis suivez les instructions fournies.
 
-Si cela ne résout pas le problème, essayez de :
+Si cela ne résout pas le problème, essayez les manipulations suivantes :
 
 1. Désinstaller l’agent
 2. Supprimer le répertoire C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
-3. Réinstallez l’agent
+3. Réinstaller l’agent
 
 
 ### <a name="part-of-the-data-is-missing"></a>Une partie des données est manquante
@@ -167,7 +167,7 @@ Les tables de stockage Azure qui contiennent les événements ETW utilisent le 
             tableName = "WAD" + eventDestination;
 ```
 
-Voici un exemple : 
+Voici un exemple :
 
 ```XML
         <EtwEventSourceProviderConfiguration provider="prov1">

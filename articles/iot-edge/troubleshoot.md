@@ -4,27 +4,53 @@ description: Cet article vous permettra d’acquérir des compétences de diagno
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 61c75c011ce25c3c7238ec75cf5ed579e677531f
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58847537"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71091372"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problèmes courants et résolutions pour Azure IoT Edge
 
-Si vous rencontrez des problèmes lors de l’exécution d’Azure IoT Edge dans votre environnement, consultez cet article qui vous guidera pour la résolution des problèmes. 
+Si vous rencontrez des problèmes lors de l’exécution d’Azure IoT Edge dans votre environnement, consultez cet article qui vous guidera pour la résolution des problèmes.
 
-## <a name="standard-diagnostic-steps"></a>Étapes de diagnostic standard 
+## <a name="run-the-iotedge-check-command"></a>Exécuter la commande iotedge « check »
 
-Quand vous rencontrez un problème, obtenez des informations supplémentaires sur l’état de votre appareil IoT Edge en examinant les journaux d’activité du conteneur et les messages transitant par l’appareil. Utilisez les commandes et les outils de cette section pour recueillir des informations. 
+La première étape dans la résolution des problèmes relatifs à IoT Edge consiste à utiliser la commande `check`, qui effectue une collection de tests de configuration et de connectivité à la recherche de problèmes courants. La commande `check` est disponible dans la [version 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) et supérieure.
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Vérifiez l’état du gestionnaire de sécurité IoT Edge et de ses journaux d’activité :
+Vous pouvez exécuter la commande `check` comme suit, ou inclure l’indicateur `--help` pour afficher une liste complète des options :
+
+* Sur Linux :
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* Sous Windows :
+
+  ```powershell
+  iotedge check
+  ```
+
+Les types de vérifications exécutés par l’outil peuvent être classés ainsi :
+
+* Vérification de configuration : Elle permet d’examiner les détails pouvant empêcher les appareils Edge de se connecter au cloud, y compris les problèmes avec *config.yaml* et le moteur du conteneur.
+* Vérification de connexion : Elle vérifie que le runtime IoT Edge peut accéder aux ports sur l’appareil hôte et que tous les composants IoT Edge peuvent se connecter à IoT Hub.
+* Vérification de disponibilité de la production : Elle recherche les meilleures pratiques de production recommandées, comme l’état des certificats d’autorité de l’appareil et la configuration du fichier journal du module.
+
+Pour obtenir une liste complète des vérifications de diagnostic, consultez [Fonctionnalités de résolution des problèmes intégrées](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## <a name="standard-diagnostic-steps"></a>Étapes de diagnostic standard
+
+Si vous rencontrez un problème, vous pouvez obtenir des informations supplémentaires sur l’état de votre appareil IoT Edge en examinant les journaux d’activité du conteneur et les messages transitant par l’appareil. Utilisez les commandes et les outils de cette section pour recueillir des informations.
+
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Vérifier l’état du gestionnaire de sécurité IoT Edge et de ses journaux d’activité
 
 Sur Linux :
 - Pour voir l’état du gestionnaire de sécurité IoT Edge :
@@ -72,14 +98,7 @@ Sous Windows :
 - Pour voir les journaux d’activité du gestionnaire de sécurité IoT Edge :
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Si le gestionnaire de sécurité IoT Edge n’est pas en cours d’exécution, vérifiez votre fichier de configuration yaml
@@ -101,15 +120,15 @@ Sous Windows :
 
 ### <a name="check-container-logs-for-issues"></a>Vérifier si les journaux d’activité des conteneurs indiquent des problèmes
 
-Une fois le démon de sécurité IoT Edge exécuté, vérifiez si les journaux d’activité des conteneurs indiquent des problèmes. Commencez par les conteneurs déployés, puis examinez les conteneurs qui composent le runtime IoT Edge : edgeAgent et edgeHub. Les journaux de l’agent IoT Edge fournissent généralement des informations sur le cycle de vie de chaque conteneur. Les journaux de hub IoT Edge fournissent des informations sur la messagerie et de routage. 
+Une fois le démon de sécurité IoT Edge exécuté, vérifiez si les journaux d’activité des conteneurs indiquent des problèmes. Commencez par les conteneurs déployés, puis examinez les conteneurs qui composent le runtime IoT Edge : Edge Agent et Edge Hub. En général, les journaux d’activité de l’agent IoT Edge fournissent des informations sur le cycle de vie de chaque conteneur. Les journaux d’activité du hub IoT Edge fournissent des informations sur la messagerie et le routage. 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Afficher les messages acheminés via le hub IoT Edge
+### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Afficher les messages acheminés via hub IoT Edge
 
-Vous pouvez afficher les messages acheminés via le hub IoT Edge et collecter des informations à partir des journaux détaillés à partir de conteneurs du runtime. Pour activer les journaux d’activité détaillés sur ces conteneurs, définissez `RuntimeLogLevel` dans votre fichier de configuration yaml. Pour ouvrir le fichier :
+Vous pouvez afficher les messages acheminés via le hub IoT Edge et recueillir des insights à partir des journaux d’activité détaillés issus des conteneurs du runtime. Pour activer les journaux d’activité détaillés sur ces conteneurs, définissez `RuntimeLogLevel` dans votre fichier de configuration yaml. Pour ouvrir le fichier :
 
 Sur Linux :
 
@@ -180,11 +199,11 @@ Sous Windows :
    Start-Service iotedge
    ```
 
-## <a name="iot-edge-agent-stops-after-about-a-minute"></a>Agent IoT Edge s’arrête après environ une minute
+## <a name="iot-edge-agent-stops-after-about-a-minute"></a>L’agent IoT Edge s’arrête après environ une minute
 
-Le module edgeAgent démarre et s’exécute avec succès pendant environ une minute, puis s’arrête. Les journaux indiquent que l’agent IoT Edge tente de se connecter à IoT Hub via AMQP, puis tente de se connecter à l’aide d’AMQP sur WebSocket. Lorsque cette tentative échoue, l’agent IoT Edge se ferme. 
+Le module edgeAgent démarre et s’exécute avec succès pendant environ une minute, puis s’arrête. Les journaux d’activité indiquent que l’agent IoT Edge tente de se connecter à IoT Hub via AMQP, puis essaie de se connecter à l’aide d’AMQP sur WebSocket. Lorsque cette tentative échoue, l’agent IoT Edge se ferme. 
 
-Exemple edgeAgent logs :
+Exemples de journaux d’activité edgeAgent :
 
 ```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
@@ -193,17 +212,19 @@ Exemple edgeAgent logs :
 2017-11-28 18:46:49 [INF] - Edge agent attempting to connect to IoT Hub via AMQP over WebSocket... 
 ```
 
-### <a name="root-cause"></a>Cause racine
+**Cause racine**
+
 Une configuration de mise en réseau sur le réseau hôte empêche l’agent IoT Edge d’atteindre le réseau. L’agent tente de se connecter via AMQP (port 5671) en premier. Si la connexion échoue, il essaie via les WebSockets (port 443).
 
 Le runtime IoT Edge configure un réseau pour chacun des modules sur lesquels communiquer. Sur Linux, ce réseau est un réseau de pont. Sur Windows, il utilise NAT. Ce problème est plus courant sur les appareils Windows utilisant des conteneurs Windows qui utilisent le réseau NAT. 
 
-### <a name="resolution"></a>Résolution :
+**Résolution :**
+
 Assurez-vous qu’il existe un itinéraire vers Internet pour les adresses IP affectées à ce réseau pont/NAT. Parfois, une configuration VPN sur l’hôte remplace le réseau IoT Edge. 
 
-## <a name="iot-edge-hub-fails-to-start"></a>Hub IoT Edge ne parvient pas à démarrer
+## <a name="iot-edge-hub-fails-to-start"></a>Edge Hub ne parvient pas à démarrer
 
-Le module edgeHub échoue à démarrer et imprime le message suivant dans les journaux : 
+Le module edgeHub ne parvient pas à démarrer et le message suivant est consigné dans les journaux d’activité : 
 
 ```output
 One or more errors occurred. 
@@ -212,19 +233,23 @@ One or more errors occurred.
 Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n) 
 ```
 
-### <a name="root-cause"></a>Cause racine
-Un autre processus de l’ordinateur hôte est lié au port 443. IoT Edge hub mappe les ports 5671 et 443 pour une utilisation dans les scénarios de passerelle. Ce mappage de port échoue si un autre processus est déjà lié à ce port. 
+**Cause racine**
 
-### <a name="resolution"></a>Résolution :
+Un autre processus de l’ordinateur hôte est lié au port 443. Le hub IoT Edge mappe les ports 5671 et 443 pour une utilisation dans les scénarios de passerelle. Ce mappage de port échoue si un autre processus est déjà lié à ce port. 
+
+**Résolution :**
+
 Recherchez et arrêtez le processus qui utilise le port 443. Ce processus est généralement un serveur web.
 
-## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>Agent IoT Edge ne peut pas accéder à l’image d’un module (403)
-Un conteneur ne parvient pas à exécuter, et les journaux d’edgeAgent indiquent une erreur 403. 
+## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>L’agent IoT Edge ne peut pas accéder à l’image d’un module (403)
+Un conteneur ne s’exécute pas et les journaux d’activité edgeAgent comportent une erreur 403. 
 
-### <a name="root-cause"></a>Cause racine
-Autorisations d’accès de l’image d’un module n’a pas l’agent Iot Edge. 
+**Cause racine**
 
-### <a name="resolution"></a>Résolution :
+L’agent IoT Edge ne possède pas les autorisations pour accéder à l’image d’un module. 
+
+**Résolution :**
+
 Vérifiez que les informations d’identification du registre sont correctement spécifiées dans le manifeste de déploiement.
 
 ## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>Le démon de sécurité IoT Edge échoue avec un nom d’hôte non valide
@@ -235,10 +260,12 @@ Vérifiez que les informations d’identification du registre sont correctement 
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
 ```
 
-### <a name="root-cause"></a>Cause racine
+**Cause racine**
+
 Le runtime IoT Edge peut prendre uniquement en charge les noms d’hôte avec moins de 64 caractères. Les machines physiques n’ont généralement pas de noms d’hôte longs, mais le problème est plus courant sur une machine virtuelle. Les noms d’hôtes générés automatiquement pour les machines virtuelles Windows hébergées dans Azure, en particulier, sont généralement longs. 
 
-### <a name="resolution"></a>Résolution :
+**Résolution :**
+
 Lorsque vous voyez cette erreur, vous pouvez la résoudre par la configuration du nom DNS de votre machine virtuelle, puis en définissant le nom DNS en tant que nom d’hôte dans la commande d’installation.
 
 1. Dans le Portail Azure, accédez au panneau Vue d’ensemble de votre machine virtuelle. 
@@ -265,15 +292,17 @@ Lorsque vous voyez cette erreur, vous pouvez la résoudre par la configuration d
 ## <a name="stability-issues-on-resource-constrained-devices"></a>Problèmes de stabilité sur les appareils avec contraintes de ressources 
 Vous pouvez rencontrer des problèmes de stabilité sur des appareils avec contraintes, comme le Raspberry Pi, en particulier quand ils sont utilisés comme passerelle. Les symptômes incluent des exceptions de mémoire insuffisante dans le module Edge Hub, des appareils en aval qui ne peuvent pas se connecter ou l’appareil qui cesse d’envoyer des messages de télémétrie au bout de quelques heures.
 
-### <a name="root-cause"></a>Cause racine
+**Cause racine**
+
 Le hub IoT Edge, qui fait partie du runtime IoT Edge, est optimisé pour les performances par défaut et tente d’allouer de grandes quantités de mémoire. Cette optimisation n’est pas idéale pour les appareils de périphérie limités et peut entraîner des problèmes de stabilité.
 
-### <a name="resolution"></a>Résolution :
-Pour le hub IoT Edge, définir une variable d’environnement **OptimizeForPerformance** à **false**. Il existe deux façons d'effectuer cette opération :
+**Résolution :**
+
+Pour le hub IoT Edge, affectez la valeur **false** à une variable d’environnement **OptimizeForPerformance**. Il existe deux façons d'effectuer cette opération :
 
 Dans l’interface utilisateur : 
 
-Dans le portail, accédez à **détails de l’appareil** > **Modules définir** > **configurer les paramètres du Runtime Edge avancés**. Créer une variable d’environnement pour le module de Edge Hub appelé *OptimizeForPerformance* qui est défini sur *false*.
+Dans le portail, accédez à **Informations sur l’appareil** > **Définir les modules** > **Configurer les paramètres avancés du runtime Edge**. Créez une variable d'environnement pour le module Edge Hub appelé *OptimizeForPerformance* définie sur *false*.
 
 ![OptimizeForPerformance défini sur false](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -297,10 +326,12 @@ Dans le manifeste de déploiement :
 ## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Impossible d’obtenir les journaux d’activité de démon IoT Edge sur Windows
 Si vous obtenez une EventLogException lors de l’utilisation de `Get-WinEvent` sur Windows, vérifiez les entrées de Registre.
 
-### <a name="root-cause"></a>Cause racine
+**Cause racine**
+
 La commande PowerShell `Get-WinEvent` repose sur la présence d’une entrée de Registre pour trouver les journaux d’activité d’après un `ProviderName` spécifique.
 
-### <a name="resolution"></a>Résolution :
+**Résolution :**
+
 Définissez une entrée de Registre pour le démon IoT Edge. Créez un fichier **iotedge.reg** avec le contenu suivant, puis importez-le dans le Registre Windows en double-cliquant dessus ou en utilisant la commande `reg import iotedge.reg` :
 
 ```
@@ -320,36 +351,42 @@ Un module IoT Edge personnalisé ne parvient pas à envoyer de message à l’ed
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
 ```
 
-### <a name="root-cause"></a>Cause racine
+**Cause racine**
+
 Pour des raisons de sécurité, le démon IoT Edge applique l’identification du processus à tous les modules se connectant à l’edgeHub. Il vérifie que tous les messages envoyés par un module proviennent de l’ID de processus principal du module. Si un message est envoyé par un module depuis un ID de processus différent de celui qui a été établi initialement, il rejette le message avec un message d’erreur 404.
 
-### <a name="resolution"></a>Résolution :
-Assurez-vous que le même ID de processus est bien toujours utilisé par le module IoT Edge personnalisé pour envoyer des messages au hub de périphérie. Par exemple, veillez à `ENTRYPOINT` au lieu de `CMD` commande dans votre fichier Docker, étant donné que `CMD` entraîne un processus ID pour le module et un autre ID de processus pour la commande d’interpréteur de commandes exécutant le programme principal, tandis que `ENTRYPOINT` entraîne un ID de processus unique.
+**Résolution :**
+
+Depuis la version 1.0.7, tous les processus de module sont autorisés à se connecter. Si la mise à niveau vers la version 1.0.7 n’est pas possible, procédez comme suit. Pour plus d’informations, consultez les [Notes de version pour la version 1.0.7](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+
+Assurez-vous que le même ID de processus est bien toujours utilisé par le module IoT Edge personnalisé pour envoyer des messages au hub de périphérie. Par exemple, veillez à utiliser `ENTRYPOINT` plutôt que la commande `CMD` dans votre fichier Docker, car `CMD` va générer un ID de processus pour le module et un autre pour la commande bash exécutant le programme principal, tandis que `ENTRYPOINT` génère un ID de processus unique.
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>Règles de configuration du pare-feu et des ports pour le déploiement d’IoT Edge
-Azure IoT Edge permet la communication à partir d’un serveur local vers Azure cloud à l’aide des protocoles pris en charge de IoT Hub, consultez [choix d’un protocole de communication](../iot-hub/iot-hub-devguide-protocols.md). Pour renforcer la sécurité, les canaux de communication entre Azure IoT Edge et Azure IoT Hub sont toujours configurés pour être sortants. Cette configuration est basée sur le [modèle de communication assistée par des services](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), ce qui réduit la surface d’attaque qu’une entité malveillante pourrait explorer. Les communications entrantes sont uniquement requises pour des scénarios spécifiques où Azure IoT Hub a besoin d’envoyer (push) des messages à l’appareil Azure IoT Edge. Les messages cloud-à-appareil sont protégés à l’aide de canaux TLS sécurisés, protection qui peut être renforcée à l’aide de certificats X.509 et de modules d’appareil TPM. Le Gestionnaire de sécurité Azure IoT Edge régit la façon dont cette communication peut être établie (voir [Gestionnaire de sécurité IoT Edge](../iot-edge/iot-edge-security-manager.md)).
+Azure IoT Edge permet la communication entre un serveur local et le cloud Azure au moyen des protocoles IoT Hub pris en charge (voir [Choisir un protocole de communication](../iot-hub/iot-hub-devguide-protocols.md)). Pour renforcer la sécurité, les canaux de communication entre Azure IoT Edge et Azure IoT Hub sont toujours configurés pour être sortants. Cette configuration est basée sur le [modèle de communication assistée par des services](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), ce qui réduit la surface d’attaque qu’une entité malveillante pourrait explorer. Les communications entrantes sont uniquement requises pour des scénarios spécifiques où Azure IoT Hub a besoin d’envoyer (push) des messages à l’appareil Azure IoT Edge. Les messages cloud-à-appareil sont protégés à l’aide de canaux TLS sécurisés, protection qui peut être renforcée à l’aide de certificats X.509 et de modules d’appareil TPM. Le Gestionnaire de sécurité Azure IoT Edge régit la façon dont cette communication peut être établie (voir [Gestionnaire de sécurité IoT Edge](../iot-edge/iot-edge-security-manager.md)).
 
-Bien que IoT Edge assure une configuration améliorée pour la sécurisation du runtime Azure IoT Edge et des modules déployés, il dépend toujours de la configuration du réseau et de l’ordinateur sous-jacents. Par conséquent, il est impératif de garantir le bon réseau et les règles de pare-feu sont configurées pour edge sécurisée vers le cloud de communication. Le tableau suivant permettre servir comme indication lorsque les règles de pare-feu de la configuration pour les serveurs sous-jacents où le runtime Azure IoT Edge est hébergé :
+Bien que IoT Edge assure une configuration améliorée pour la sécurisation du runtime Azure IoT Edge et des modules déployés, il dépend toujours de la configuration du réseau et de l’ordinateur sous-jacents. Il est donc indispensable de vérifier que les règles de pare-feu et de réseau sont bien configurées pour assurer la sécurisation de la communication Edge vers Cloud. Vous pouvez utiliser le tableau suivant pour configurer les règles de pare-feu pour les serveurs sous-jacents hébergeant le runtime Azure IoT Edge :
 
-|Protocole|Port|Entrant|Sortant|Assistance|
+|Protocol|Port|Entrant|Sortant|Assistance|
 |--|--|--|--|--|
 |MQTT|8883|BLOQUÉ (par défaut)|BLOQUÉ (par défaut)|<ul> <li>Configurez Sortant sur Ouvert lorsque vous utilisez MQTT comme protocole de communication.<li>1883 pour MQTT n’est pas pris en charge par IoT Edge. <li>Les connexions entrantes doivent être bloquées.</ul>|
 |AMQP|5671|BLOQUÉ (par défaut)|OUVERT (par défaut)|<ul> <li>Protocole de communication par défaut pour IoT Edge. <li> Doit être configuré sur Ouvert si Azure IoT Edge n’est pas configuré pour les autres protocoles pris en charge ou si AMQP est le protocole de communication souhaité.<li>5672 pour AMQP n’est pas pris en charge par IoT Edge.<li>Bloquez ce port quand Azure IoT Edge utilise un autre protocole IoT Hub pris en charge.<li>Les connexions entrantes doivent être bloquées.</ul></ul>|
 |HTTPS|443|BLOQUÉ (par défaut)|OUVERT (par défaut)|<ul> <li>Configurez la connexion sortante pour être Ouverte sur le port 443 pour le provisionnement d’IoT Edge. Cette configuration est requise en cas d’utilisation de scripts manuels ou du service Azure IoT Device Provisioning. <li>La connexion entrante ne peut être Ouverte que dans certaines situations uniquement : <ul> <li>  Si vous disposez d’une passerelle transparente avec des appareils de nœud terminal pouvant envoyer des requêtes de méthode. Dans ce cas, le port 443 n’a pas besoin d’être ouvert aux réseaux externes pour se connecter à IoTHub ou fournir des services IoTHub via Azure IoT Edge. La règle entrante peut donc être limitée uniquement à l’ouverture du trafic entrant en provenance du réseau interne. <li> Pour les scénarios Client vers Appareil (C2D).</ul><li>80 pour HTTP n’est pas pris en charge par IoT Edge.<li>Si les protocoles non-HTTP (par exemple, AMQP ou MQTT) ne peuvent pas être configurés dans l’entreprise, les messages peuvent être envoyés sur WebSockets. Dans ce cas, le port 443 sera utilisé pour la communication WebSocket.</ul>|
 
-## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Module de l’Agent Edge continuellement rapports « vide config file » et aucun module démarrer sur l’appareil
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Le module Edge Agent rapporte en continu le message « fichier config vide » et aucun module ne démarre sur l’appareil
 
-L’appareil a des difficultés pour démarrer les modules définis dans le déploiement. Uniquement l’edgeAgent est en cours d’exécution, mais en signalant continuellement « fichier de configuration vide... ».
+L’appareil rencontre des difficultés pour démarrer les modules définis dans le déploiement. Seul edgeAgent s’exécute mais rapporte en continu le message « fichier config vide ».
 
-### <a name="potential-root-cause"></a>Cause racine
-Par défaut, IoT Edge démarre les modules dans leur propre réseau de conteneur isolé. L’appareil peut avoir un problème avec la résolution de noms DNS au sein de ce réseau privé.
+**Cause racine**
 
-### <a name="resolution"></a>Résolution :
+Par défaut, IoT Edge démarre les modules dans leur réseau de conteneur isolé. L’appareil peut rencontrer des difficultés avec la résolution de noms DNS au sein de ce réseau privé.
 
-**Option 1 : Définissez de serveur DNS dans le conteneur Paramètres du moteur**
+**Résolution :**
 
-Spécifiez le serveur DNS pour votre environnement dans les paramètres de moteur de conteneur qui seront appliquent à tous les modules de conteneur démarrés par le moteur. Créez un fichier nommé `daemon.json` en spécifiant le serveur DNS à utiliser. Par exemple : 
+
+**Option 1 : Définissez le serveur DNS dans les paramètres du moteur de conteneur**
+
+Spécifiez le serveur DNS de votre environnement dans les paramètres du moteur de conteneur à appliquer à tous les modules de conteneur démarrés par le moteur. Créez un fichier nommé `daemon.json` en spécifiant le serveur DNS à utiliser. Par exemple :
 
 ```
 {
@@ -357,27 +394,27 @@ Spécifiez le serveur DNS pour votre environnement dans les paramètres de moteu
 }
 ```
 
-L’exemple ci-dessus définit le serveur DNS à un service DNS accessible publiquement. Si l’appareil edge ne peut pas accéder à cette adresse IP à partir de son environnement, remplacez-le par adresse de serveur DNS est accessible.
+L’exemple ci-dessus définit le serveur DNS sur un service DNS accessible publiquement. Si l’appareil edge ne peut accéder à cette adresse IP depuis son environnement, remplacez-la par l’adresse du serveur DNS qui accessible.
 
-Place `daemon.json` dans l’emplacement approprié pour votre plateforme : 
+Placez `daemon.json` au bon emplacement de votre plateforme : 
 
-| Plateforme | Lieu |
+| Plateforme | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| Hôte de Windows avec les conteneurs Windows | `C:\ProgramData\iotedge-moby-data\config` |
+| Hôte Windows avec des conteneurs Windows | `C:\ProgramData\iotedge-moby\config` |
 
-Si l’emplacement contient déjà `daemon.json` , ajoutez le **dns** clé lui et enregistrez le fichier.
+Si l’emplacement contient déjà le fichier `daemon.json`, ajoutez la clé **dns** et enregistrez-le.
 
-*Redémarrez le moteur de conteneur pour les mises à jour en vigueur*
+*Redémarrez le moteur de conteneur pour que les mises à jour prennent effet*
 
 | Plateforme | Commande |
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
-| Windows (Powershell d’administration) | `Restart-Service iotedge-moby -Force` |
+| Windows (Powershell admin) | `Restart-Service iotedge-moby -Force` |
 
-**Option 2 : Définir le serveur DNS dans un déploiement IoT Edge par module**
+**Option 2 : Définissez le serveur DNS dans le déploiement IoT Edge par module**
 
-Vous pouvez définir le serveur DNS pour chaque module *createOptions* dans le déploiement IoT Edge. Par exemple : 
+Vous pouvez définir le serveur DNS pour *createOptions* de chaque module dans le déploiement IoT Edge. Par exemple :
 
 ```
 "createOptions": {
@@ -389,7 +426,7 @@ Vous pouvez définir le serveur DNS pour chaque module *createOptions* dans le d
 }
 ```
 
-Veillez à définir pour le *edgeAgent* et *edgeHub* ainsi des modules. 
+Veillez à le définir aussi pour les modules *edgeAgent* et *edgeHub*. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pensez que vous avez trouvé un bogue dans la plateforme IoT Edge ? [Soumettez un problème](https://github.com/Azure/iotedge/issues) afin que nous puissions poursuivre les améliorations. 

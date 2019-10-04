@@ -1,5 +1,5 @@
 ---
-title: Créer un mot déclencheur personnalisé - Services Speech
+title: Créer un mot déclencheur personnalisé – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Votre appareil est toujours à l’écoute d’un mot déclencheur (ou d’une phrase). Quand l’utilisateur prononce le mot déclencheur, l’appareil envoie tous les sons suivants vers le cloud, jusqu’à ce que l’utilisateur arrête de parler. Pour différencier votre appareil et renforcer votre marque, vous pouvez personnaliser votre mot déclencheur.
 services: cognitive-services
@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 2bc1a6cbbf1e0d790326849a41b0788e332daa31
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498229"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553104"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Créer un mot déclencheur personnalisé à l’aide du service Speech
 
@@ -47,29 +46,26 @@ Vous devez respecter les consignes suivantes lors du choix d’un mot déclenche
 
 ## <a name="create-your-wake-word"></a>Créer votre mot déclencheur
 
-Avant de pouvoir utiliser un mot déclencheur personnalisé avec votre appareil, vous devez le créer à l’aide du service de génération de mot déclencheur personnalisé de Microsoft. Après avoir fourni un mot de mise en éveil, le service génère un fichier que vous déployez sur votre kit de développement pour activer le mot de mise en éveil sur votre appareil.
+Avant de pouvoir utiliser un mot déclencheur personnalisé avec votre appareil, vous devez en créer un avec le service de génération de mot déclencheur personnalisé de Microsoft. Une fois que vous avez fourni un mot déclencheur, le service génère un fichier que vous déployez sur votre kit de développement pour activer le mot déclencheur sur votre appareil.
 
-1. Accédez à la [portail du Service vocal personnalisé](https://cris.ai/).
+1. Accédez au [portail du service Speech personnalisé](https://aka.ms/sdsdk-speechportal) et **connectez-vous**, ou, si vous n’avez pas d’abonnement vocal, choisissez [**Créer un abonnement**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
-    ![Le portail de Service vocal personnalisé](media/speech-devices-sdk/wake-word-4.png)
+    ![Le portail du service Speech personnalisé](media/speech-devices-sdk/wake-word-4.png)
 
-1. Connectez-vous à l’adresse de messagerie qui a reçu l’invitation pour Azure Active Directory.
-
-1. La page **Custom Wake Word** (Mot déclencheur personnalisé) n’est pas accessible au public ; il n’existe donc aucun lien direct pour y accéder. La fonctionnalité de reconnaissance vocale personnalisé nécessite un abonnement Azure, mais ne la fonctionnalité Wake de personnalisé. Si vous recevez le message d’erreur **Aucun abonnement trouvé**, remplacez simplement **"Subscriptions?errorMessage=No%20Subscriptions%20found"** par "**customkws**" dans l’URL et appuyez sur Entrée. L’URL doit être l’une de celles-ci : https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, en fonction de votre région.
-
-1. Tapez le mot déclencheur de votre choix, puis sélectionnez **Submit the word** (Soumettre le mot).
+1. À la page du [mot déclencheur personnalisé](https://aka.ms/sdsdk-wakewordportal), tapez le mot déclencheur de votre choix, puis cliquez sur **Ajouter un mot déclencheur**. Nous avons des [instructions](#choose-an-effective-wake-word) pour vous aider à choisir un mot clé efficace. Seule la langue en-US est prise en charge pour le moment.
 
     ![Entrez votre mot déclencheur](media/speech-devices-sdk/wake-word-5.png)
 
-1. La création des fichiers peut nécessiter quelques minutes. Vous devez voir un cercle en rotation dans la fenêtre de votre navigateur. Après quelques instants, une barre d’informations s’affiche et vous invite à télécharger un fichier .zip.
+1. Trois prononciations possibles de votre mot déclencheur sont créées. Vous pouvez choisir toutes les prononciations que vous voulez. Puis sélectionnez **Envoyer** pour générer le mot déclencheur. Si vous souhaitez modifier le mot déclencheur, supprimez d’abord le mot existant : l’icône de suppression apparaît lorsque vous pointez sur la ligne de prononciation.
 
-1. Enregistrez le fichier .zip sur votre ordinateur. Vous avez besoin de ce fichier pour déployer le mot déclencheur personnalisé dans le kit de développement. Pour déployer le mot déclencheur personnalisé, suivez les instructions fournies dans [ Prise en main du Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk-qsg.md).
+    ![Vérifiez votre mot déclencheur](media/speech-devices-sdk/wake-word-6.png)
 
-1. Sélectionnez **Sign out** (Se déconnecter).
+1. La création du modèle peut prendre jusqu'à une minute. Vous êtes alors invité à télécharger le fichier.
+
+    ![Téléchargez votre mot déclencheur](media/speech-devices-sdk/wake-word-7.png)
+
+1. Enregistrez le fichier .zip sur votre ordinateur. Vous aurez besoin de ce fichier pour déployer votre mot déclencheur personnalisé dans le kit de développement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) et inscrivez-vous pour obtenir le kit de développement logiciel (SDK) Speech Devices.
-
-> [!div class="nextstepaction"]
-> [S’inscrire pour le kit de développement logiciel (SDK) Speech Devices](get-speech-devices-sdk.md)
+Tester votre mot de mise en éveil personnalisé avec le [kit de développement logiciel (SDK) de démarrage rapide Speech](https://aka.ms/sdsdk-quickstart).

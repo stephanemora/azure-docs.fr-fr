@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes d’Extension de machine virtuelle Azure Log Analytique dans Azure Monitor | Microsoft Docs
+title: Résoudre les problèmes d’extension de machine virtuelle Azure Log Analytics dans Azure Monitor | Microsoft Docs
 description: Décrit les symptômes, les causes et les solutions aux problèmes courants liés à l’extension de machine virtuelle Log Analytics pour les machines virtuelles Azure Windows et Linux.
 services: log-analytics
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 06/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 40f0705cfa7f0e9bb45d300a629adebd0cc5be47
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: dd5e0749116ef335887ea634b9d2790c63bf171d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883666"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66751930"
 ---
-# <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Résolution des problèmes de l’extension de machine virtuelle Analytique de journal dans Azure Monitor
+# <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Résolution des problèmes de l’extension de machine virtuelle Log Analytics dans Azure Monitor
 Cet article présente les problèmes qui peuvent survenir avec l’extension de machine virtuelle Log Analytics sur les machines virtuelles Windows et Linux en cours d’exécution sur Microsoft Azure, puis propose des solutions possibles pour les résoudre.
 
 Pour vérifier l’état de l’extension, effectuez les étapes suivantes à partir du portail Azure.
@@ -45,16 +45,11 @@ Si l’extension de machine virtuelle *Microsoft Monitoring Agent* ne s’instal
    * Vous pouvez également consulter le fichier journal de l’agent de machine virtuelle `C:\WindowsAzure\logs\WaAppAgent.log`.
    * Si le journal n’existe pas, l’agent de machine virtuelle n’est pas installé.
    * [Installer l’agent de machine virtuelle Azure](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
-2. Vérifiez que la tâche de vérification des pulsations de l’extension Microsoft Monitoring Agent est en cours d’exécution en procédant comme suit :
-   * Connectez-vous à la machine virtuelle.
-   * Ouvrez le Planificateur de tâches et recherchez la tâche `update_azureoperationalinsight_agent_heartbeat`.
-   * Vérifiez que la tâche est activée et exécutée toutes les minutes.
-   * Consultez le fichier journal des pulsations dans `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`.
-3. Examinez les fichiers de journaux d’extension de machine virtuelle Microsoft Monitoring Agent dans `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
-4. Vérifiez que la machine virtuelle peut exécuter des scripts PowerShell.
-5. Vérifiez que les autorisations sur C:\Windows\temp n’ont pas été modifiées.
-6. Affichez l’état de Microsoft Monitoring Agent en tapant ce qui suit dans une fenêtre PowerShell avec des privilèges élevés sur la machine virtuelle `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
-7. Examinez les fichiers journaux d’installation de Microsoft Monitoring Agent dans `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
+2. Examinez les fichiers de journaux d’extension de machine virtuelle Microsoft Monitoring Agent dans `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
+3. Vérifiez que la machine virtuelle peut exécuter des scripts PowerShell.
+4. Vérifiez que les autorisations sur C:\Windows\temp n’ont pas été modifiées.
+5. Affichez l’état de Microsoft Monitoring Agent en tapant ce qui suit dans une fenêtre PowerShell avec des privilèges élevés sur la machine virtuelle `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`.
+6. Examinez les fichiers journaux d’installation de Microsoft Monitoring Agent dans `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`.
 
 Pour plus d’informations, consultez [Résolution des problèmes des extensions Windows](../../virtual-machines/extensions/oms-windows.md).
 

@@ -1,20 +1,21 @@
 ---
-title: Démarrage rapide – Envoyer une requête à l’API Recherche d’entreprises locales Bing en Python | Microsoft Docs
+title: 'Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing en Python'
 titleSuffix: Azure Cognitive Services
 description: Utilisez cet article pour commencer à utiliser l’API Recherche d’entreprises locales Bing en Python.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 241ade7d4866186946c371aa1786bc913d045483
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.subservice: bing-local-business
+ms.topic: quickstart
+ms.date: 09/13/2019
+ms.author: aahi
+ms.openlocfilehash: 2ed4ba5081ba91318b56fdc65027664640542ca0
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762940"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70994381"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing en Python
 
@@ -22,7 +23,7 @@ Utilisez ce démarrage rapide pour commencer à envoyer des demandes à l’API 
 
 Cet exemple d’application récupère des données de réponse locales auprès de l’API pour la requête de recherche `hotel in Bellevue`.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * [Python](https://www.python.org/) 2.x ou 3.x
  

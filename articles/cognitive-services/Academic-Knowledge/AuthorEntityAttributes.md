@@ -10,19 +10,20 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX
+ms.openlocfilehash: e63e9d3f8f17a2473caf3d31b83e318ddb132b43
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878933"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705088"
 ---
 # <a name="author-entity"></a>Entité Auteur
 <sub> *Les attributs suivants sont spécifiques à l’entité de l’auteur. (Ty = '1') </sub>
 
 Nom    |Description                            |Type       | Opérations
 ------- | ------------------------------------- | --------- | ----------------------------
-ID      |L’ID d’entité                              |Int64      |Égal à
+Id      |L’ID d’entité                              |Int64      |Égal à
 AuN     |Nom de l’auteur normalisé                 |Chaîne     |Égal à
 DAuN    |Nom d’affichage de l’auteur                    |Chaîne     |Aucun
 CC      |Nombre total de citations de l’auteur            |Int32      |Aucun  

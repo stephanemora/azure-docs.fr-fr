@@ -1,20 +1,19 @@
 ---
 title: 'Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka - Azure HDInsight '
 description: Découvrez comment utiliser les API de consommateur et de producteur Apache Kafka avec Kafka sur HDInsight. Dans ce didacticiel, vous allez apprendre à utiliser ces API avec Kafka sur HDInsight à partir d’une application Java.
-services: hdinsight
 author: dhgoelmsft
 ms.author: dhgoel
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.openlocfilehash: 6b77cd9939e244fd031788164cdfe391c3e2b9d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/24/2019
+ms.openlocfilehash: 7a23d30e940417a6191cf14ad5d60159bd11c3da
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916391"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446412"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka
 
@@ -66,8 +65,7 @@ Les points importants à comprendre dans le fichier `pom.xml` sont les suivants 
     </dependency>
     ```
 
-    > [!NOTE]  
-    > L’entrée `${kafka.version}` est déclarée dans la section `<properties>..</properties>` de `pom.xml` et elle est configurée pour la version Kafka du cluster HDInsight.
+    L’entrée `${kafka.version}` est déclarée dans la section `<properties>..</properties>` de `pom.xml` et elle est configurée pour la version Kafka du cluster HDInsight.
 
 * Plug-ins : les plug-ins Maven fournissent diverses fonctionnalités. Dans ce projet, les plug-ins suivants sont utilisés :
 
@@ -221,10 +219,19 @@ La consommation par les clients au sein du même groupe est gérée par le biais
 
 Les enregistrements stockés dans Kafka sont stockés dans l’ordre de réception dans une partition. Pour obtenir la livraison chronologique des enregistrements *dans une partition*, créez un groupe de consommateurs où le nombre d’instances de consommateurs correspond au nombre de partitions. Pour obtenir la livraison chronologique des enregistrements *dans la rubrique*, créez un groupe de consommateurs avec une seule instance de consommateur.
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Pour supprimer les ressources créées par ce didacticiel, vous pouvez supprimer le groupe de ressources. La suppression du groupe de ressources efface également le cluster HDInsight associé et d’autres ressources liées au groupe de ressources.
+
+Pour supprimer le groupe de ressources à l’aide du portail Azure :
+
+1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez __Groupes de ressources__ pour afficher la liste de vos groupes de ressources.
+2. Recherchez le groupe de ressources à supprimer, puis faites un clic droit sur le bouton __Plus__ (...) se trouvant à droite de la liste.
+3. Sélectionnez __Supprimer le groupe de ressources__ et confirmez.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce document, vous avez découvert comment utiliser les API de consommateur et de producteur Apache Kafka avec Kafka sur HDInsight. Consultez les articles suivants pour en savoir plus sur l’utilisation de Kafka :
 
-* [Analyser les journaux d’activité Apache Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Répliquer des données d’un cluster Kafka à un autre](apache-kafka-mirroring.md)
-* [API Apache Kafka Streams avec HDInsight](apache-kafka-streams-api.md)
+> [!div class="nextstepaction"]
+> [Analyser les journaux d’activité Apache Kafka](apache-kafka-log-analytics-operations-management.md)

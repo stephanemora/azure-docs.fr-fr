@@ -1,5 +1,5 @@
 ---
-title: Intentions prédéfinies
+title: Intentions prédéfinies pour Language Understanding
 titleSuffix: Azure Cognitive Services
 description: LUIS inclut un ensemble d’intentions prédéfinies pour ajouter rapidement des scénarios courants d’utilisateur conversationnel.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/24/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8e11b6d5a9c9df10e789c8e0be3a90d94ecf3d23
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4b14d9f39ef5bb0806cfe0720dbaa2fe95b32421
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874394"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932617"
 ---
 # <a name="add-prebuilt-intents-for-common-intents"></a>Ajouter des intentions prédéfinies pour les intentions courantes 
 

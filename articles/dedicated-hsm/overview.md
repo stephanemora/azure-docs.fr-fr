@@ -2,8 +2,8 @@
 title: Présentation d’HSM dédié - HSM dédié Azure | Microsoft Docs
 description: La présentation du service HSM dédié Azure offre dans Azure des fonctionnalités de stockage de clés qui répondent à la certification FIPS 140-2 de niveau 3
 services: dedicated-hsm
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.workload: identity
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
-ms.author: barclayn
-ms.openlocfilehash: 447518d2189a3b2723edc7c7db74ccc8435b71b7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: mbaldwin
+ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
+ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110368"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70881077"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Présentation du service HSM dédié Azure
 
@@ -68,7 +68,7 @@ Le service Azure Dedicated HSM convient plus particulièrement aux scénarios «
 
 ### <a name="not-a-fit"></a>Inadéquation
 
-Le service Azure Dedicated HSM n’est pas adapté au type de scénario suivant : Les services cloud Microsoft qui prennent en charge le chiffrement avec des clés gérées par le client (tels qu’Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL Database et Clé client Office 365) ne sont pas intégrés à Azure Dedicated HSM.
+Le service Azure Dedicated HSM n’est pas adapté au type de scénario suivant : Les services cloud Microsoft qui prennent en charge le chiffrement avec des clés gérées par le client (tels qu’Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Stockage Azure, Azure SQL Database et Clé client Office 365) ne sont pas intégrés à Azure Dedicated HSM.
 
 ### <a name="it-depends"></a>Cela dépend
 

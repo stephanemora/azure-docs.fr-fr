@@ -3,22 +3,22 @@ title: Obtenir les journaux d’activité du conteneur et les événements avec 
 description: Découvrez comment déboguer les journaux d’activité du conteneur et les événements avec Azure Container Instances
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f286e2136b12a88e65e40f8fb956542233f71715
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 8ae7ab3f53f480f46165800504fbb1eb6649c3e2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369001"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68325968"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Récupérer les journaux d’activité du conteneur et les événements dans Azure Container Instances
 
-Lorsque vous avez un conteneur mal configuré, démarrez en affichant ses journaux avec [journaux du conteneur az][az-container-logs] et diffusez en continu sa sortie standard et son erreur standard avec [liaison du conteneur az] [az-container-attach].
+Lorsque vous avez un conteneur mal configuré, démarrez en affichant ses journaux d’activité avec [journaux d’activité du conteneur az][az-container-logs] et diffusez en continu sa sortie standard et son erreur standard avec [liaison du conteneur az][az-container-attach].
 
 ## <a name="view-logs"></a>Afficher les journaux d’activité
 

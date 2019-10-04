@@ -4,22 +4,21 @@ description: Répertorie les événements pouvant entraîner le redémarrage d�
 services: virtual-machines
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 70a6845349b90cf614a84e13680ebb6fc6b3e2a9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: a536eb89f2040333617329e963ce00f5c6b1ba7a
+ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433159"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71086980"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Comprendre un redémarrage du système pour Azure
 
@@ -102,7 +101,7 @@ Toutes les machines virtuelles sont automatiquement déplacées vers un autre se
 
 Il est rare que l’équipe d’exploitation Azure ait besoin d’effectuer des activités de maintenance pour garantir l’intégrité globale de la plateforme Azure. Ce comportement peut affecter la disponibilité de la machine virtuelle et aboutit généralement à la même action de récupération automatique que celle décrite précédemment.  
 
-Maintenance non planifiée sont les suivantes :
+La maintenance non planifiée comprend les actions suivantes :
 
 - Défragmentation urgente de nœud
 - Mises à jour du commutateur réseau urgente

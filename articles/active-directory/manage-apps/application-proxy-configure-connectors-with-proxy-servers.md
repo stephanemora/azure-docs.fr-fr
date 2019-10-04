@@ -2,28 +2,29 @@
 title: Travailler avec des serveurs proxy locaux existants et Azure AD | Microsoft Docs
 description: Explique comment travailler avec des serveurs proxy locaux existants.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.author: celested
+ms.date: 05/21/2019
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b4cb1f6cc3da5230f510f57a56c7297341f82f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1e4b073a63b5b6bec565aed67bcaec7ed014261b
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175572"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807872"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Travailler avec des serveurs proxy locaux existants
 
 Cet article explique comment configurer les connecteurs de proxy d’application Azure Active Directory (Azure AD) pour fonctionner avec des serveurs proxy sortants. Il est destiné aux clients avec des environnements réseau qui ont des proxys existants.
 
 Nous allons commencer par examiner les scénarios de déploiement principaux suivants :
+
 * Configurer des connecteurs pour contourner vos proxys sortants locaux.
 * Configurer des connecteurs pour utiliser un proxy sortant afin d’accéder au proxy d’application Azure AD.
 
@@ -53,6 +54,7 @@ Pour désactiver l’utilisation d’un proxy sortant pour le connecteur, modifi
   </appSettings>
 </configuration>
 ```
+
 Pour vérifier que le service de mise à jour du connecteur ignore également le proxy, apportez une modification semblable au fichier ApplicationProxyConnectorUpdaterService.exe.config. Ce fichier se trouve dans C:\Program Files\Microsoft AAD App Proxy Connector Updater.
 
 Veillez à faire des copies des fichiers d’origine, au cas où vous devriez restaurer les fichiers par défaut.
@@ -67,8 +69,8 @@ Vous pouvez configurer le trafic du connecteur pour passer par le serveur proxy 
 
 Conséquence de la présence seule de trafic sortant, il est inutile de configurer l’accès entrant à travers vos pare-feu.
 
->[!NOTE]
->Le proxy d’application ne prend pas en charge l’authentification auprès d’autres proxys. Les comptes du service réseau de mise à jour/connecteur doivent être en mesure de se connecter au proxy sans avoir à se connecter avec l’authentification.
+> [!NOTE]
+> Le proxy d’application ne prend pas en charge l’authentification auprès d’autres proxys. Les comptes du service réseau de mise à jour/connecteur doivent être en mesure de se connecter au proxy sans avoir à se connecter avec l’authentification.
 
 ### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Étape 1 : Configurer le connecteur et les services associés pour passer par le proxy sortant
 
@@ -98,12 +100,14 @@ Configurez ensuite le service de mise à jour du connecteur pour utiliser le pro
 ### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Étape 2 : Configurer le serveur proxy pour autoriser le passage du trafic à partir du connecteur et des services associés
 
 Il y a quatre aspects à prendre en compte au niveau du proxy sortant :
+
 * Règles sortantes du proxy
 * Authentification du proxy
 * Ports du proxy
 * Inspection SSL
 
 #### <a name="proxy-outbound-rules"></a>Règles sortantes du proxy
+
 Autorisez l'accès aux URL suivantes :
 
 | URL | Utilisation |
@@ -112,8 +116,7 @@ Autorisez l'accès aux URL suivantes :
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure utilise ces URL pour vérifier les certificats |
 | login.windows.net<br>login.microsoftonline.com | Le connecteur utilise ces URL lors du processus d'inscription. |
 
-Si votre pare-feu ou votre proxy autorise la mise en liste verte de DNS, vous pouvez y placer les connexions à \*.msappproxy.net et \*.servicebus.windows.net. Si ce n’est pas le cas, vous devez autoriser l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ces dernières sont mises à jour chaque semaine.
-
+Si votre pare-feu ou proxy vous permet de configurer la mise en liste verte de DN, vous pouvez autoriser les connexions à \*.msappproxy.net et \*.servicebus.windows.net. Si ce n’est pas le cas, vous devez autoriser l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ces dernières sont mises à jour chaque semaine.
 
 Si vous ne pouvez pas autoriser la connectivité par le nom de domaine complet et devez spécifier des plages d’adresses IP à la place, utilisez ces options :
 
@@ -128,13 +131,15 @@ L’authentification proxy n'est actuellement pas prise en charge. Notre recomma
 
 Le connecteur établit les connexions sortantes SSL à l’aide de la méthode CONNECT. Cette méthode sert à définir un tunnel via le serveur proxy sortant. Configurez le serveur proxy pour autoriser le tunneling vers les ports 443 et 80.
 
->[!NOTE]
->Lorsque Service Bus s’exécute via le protocole HTTPS, il utilise le port 443. Toutefois, par défaut, Service Bus tente des connexions TCP directes et bascule sur HTTPS uniquement si la connectivité directe échoue.
+> [!NOTE]
+> Lorsque Service Bus s’exécute via le protocole HTTPS, il utilise le port 443. Toutefois, par défaut, Service Bus tente des connexions TCP directes et bascule sur HTTPS uniquement si la connectivité directe échoue.
 
 #### <a name="ssl-inspection"></a>Inspection SSL
-N’utilisez pas l’inspection SSL pour le trafic de connecteur, car cela entraîne des problèmes pour le trafic du connecteur. Le connecteur utilise un certificat pour s’authentifier auprès du service Proxy d’application et ce certificat peut se perdre pendant l’inspection SSL. 
+
+N’utilisez pas l’inspection SSL pour le trafic de connecteur, car cela entraîne des problèmes pour le trafic du connecteur. Le connecteur utilise un certificat pour s’authentifier auprès du service Proxy d’application et ce certificat peut se perdre pendant l’inspection SSL.
 
 ## <a name="troubleshoot-connector-proxy-problems-and-service-connectivity-issues"></a>Résoudre les problèmes courants de proxy de connecteur et de connectivité du service
+
 Vous devriez maintenant voir tout le trafic transitant par le proxy. Si vous rencontrez des problèmes, les informations de résolution des problèmes suivantes devraient vous aider.
 
 Le meilleur moyen d’identifier et de résoudre les problèmes de connectivité de connecteur consiste à prendre une capture réseau au démarrage du service de connecteur. Voici quelques conseils rapides sur la capture et le filtrage de traces réseau.
@@ -151,21 +156,18 @@ Pour commencer la résolution des problèmes, procédez comme suit :
 
    ![Service de connecteur de proxy d’application Azure AD dans services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
-2. Exécutez Message Analyser en tant qu’administrateur.
-3. Sélectionnez **Start local trace (Démarrer la trace locale)**.
+1. Exécutez Message Analyser en tant qu’administrateur.
+1. Sélectionnez **Start local trace (Démarrer la trace locale)** .
+1. Démarrez le service de connecteur de proxy d’application Azure AD.
+1. Arrêtez la capture réseau.
 
-   ![Démarrer la capture réseau](./media/application-proxy-configure-connectors-with-proxy-servers/start-local-trace.png)
-
-3. Démarrez le service de connecteur de proxy d’application Azure AD.
-4. Arrêtez la capture réseau.
-
-   ![Arrêter la capture réseau](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![Capture d’écran montrant le bouton Arrêter la capture réseau](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>Vérifier si le trafic du connecteur ignore les proxys sortants
 
-Si vous avez configuré votre connecteur de proxy d’application de sorte à ce qu’il ignore les serveurs proxy et qu’il se connecte directement au service de proxy d’application, recherchez dans la capture réseau les tentatives de connexion TCP qui ont échoué. 
+Si vous avez configuré votre connecteur de proxy d’application de sorte à ce qu’il ignore les serveurs proxy et qu’il se connecte directement au service de proxy d’application, recherchez dans la capture réseau les tentatives de connexion TCP qui ont échoué.
 
-Utilisez le filtre Message Analyzer pour identifier ces tentatives. Entrez `property.TCPSynRetransmit` dans la zone de filtre, puis sélectionnez **Appliquer**. 
+Utilisez le filtre Message Analyzer pour identifier ces tentatives. Entrez `property.TCPSynRetransmit` dans la zone de filtre, puis sélectionnez **Appliquer**.
 
 Un paquet SYN est le premier paquet envoyé pour établir une connexion TCP. Si ce paquet ne renvoie aucune réponse, le SYN est renvoyé. Vous pouvez utiliser le filtre précédent pour voir les SYN retransmis. Ensuite, vous pouvez vérifiez si ces SYN correspondent à du trafic lié à un connecteur.
 
@@ -173,9 +175,9 @@ Si vous vous attendez à ce que le connecteur établisse des connexions directes
 
 ### <a name="check-if-the-connector-traffic-uses-outbound-proxies"></a>Vérifier si le trafic du connecteur utilise des proxys sortants
 
-Si vous avez configuré le trafic du connecteur de votre proxy d’application de sorte à ce qu’il passe par les serveurs proxy, recherchez les connexions HTTPS à votre serveur proxy qui ont échoué. 
+Si vous avez configuré le trafic du connecteur de votre proxy d’application de sorte à ce qu’il passe par les serveurs proxy, recherchez les connexions HTTPS à votre serveur proxy qui ont échoué.
 
-Pour filtrer la capture réseau de sorte à obtenir ces tentatives de connexion, entrez `(https.Request or https.Response) and tcp.port==8080` dans le filtre Message Analyzer, en remplaçant 8080 par le port de votre service proxy. Sélectionnez **Appliquer** pour voir les résultats du filtre. 
+Pour filtrer la capture réseau de sorte à obtenir ces tentatives de connexion, entrez `(https.Request or https.Response) and tcp.port==8080` dans le filtre Message Analyzer, en remplaçant 8080 par le port de votre service proxy. Sélectionnez **Appliquer** pour voir les résultats du filtre.
 
 Le filtre précédent affiche uniquement les requêtes et réponses HTTPS vers/depuis le port du proxy. Vous recherchez les requêtes CONNECT indiquant une communication avec le serveur proxy. En cas de succès, vous obtenez une réponse HTTP OK (200).
 
@@ -183,6 +185,5 @@ Si vous voyez d’autres codes de réponse, comme 407 ou 502, cela signifie que 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)
-
-- Si vous avez des problèmes de connectivité du connecteur, posez votre question sur le [forum Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) ou créez un ticket auprès de notre équipe de support.
+* [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)
+* Si vous avez des problèmes de connectivité du connecteur, posez votre question sur le [forum Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) ou créez un ticket auprès de notre équipe de support.

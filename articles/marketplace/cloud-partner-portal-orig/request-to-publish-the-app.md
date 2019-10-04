@@ -1,25 +1,19 @@
 ---
-title: Demande de publication d'une application | Microsoft Docs
+title: Demande de publication de l'application
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a3243310e1639591b19c1f426285d8ee6d8dddaa
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: e272d051af6070007bcebc0f697d2854cd721497
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806046"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64943582"
 ---
 # <a name="request-to-publish-the-app"></a>Demande de publication d'une application
 

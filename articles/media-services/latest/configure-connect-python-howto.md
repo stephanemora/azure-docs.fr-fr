@@ -1,6 +1,6 @@
 ---
-title: Se connecter à Azure Media Services v3 API - Python
-description: Découvrez comment vous connecter à Media Services v3 API avec Python.
+title: Se connecter à l’API Azure Media Services v3 - Python
+description: Apprenez à vous connecter à l’API Azure Media Services v3 avec Python.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,32 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 971e36b600a2c6be516e39ce84ca5780a2f23bbd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 2ceebd88f4988f23bf9cd32bd827aaca67d70461
+ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59700199"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70307870"
 ---
-# <a name="connect-to-media-services-v3-api---python"></a>Se connecter à l’API de Media Services v3 - Python
+# <a name="connect-to-media-services-v3-api---python"></a>Se connecter à l’API Media Services v3 - Python
 
-Cet article vous montre comment se connecter au SDK Python Azure Media Services v3 à l’aide de la connexion du principal du service dans la méthode.
+Cet article vous montre comment vous connecter à l’API Azure Media Services v3 en utilisant la méthode de connexion au principal du service.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Téléchargez Python à partir de [python.org](https://www.python.org/downloads/)
-- Veillez à définir le `PATH` variable d’environnement
-- [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom de groupe de ressources et le nom du compte Media Services.
-- Suivez les étapes de la [accéder aux API](access-api-cli-how-to.md) rubrique. Enregistrez l’ID d’abonnement, ID d’application (ID client), la clé d’authentification (secret) et l’ID de client dont vous avez besoin à l’étape ultérieure.
+- Télécharger Python sur le site [python.org](https://www.python.org/downloads/)
+- Définir la variable d’environnement `PATH`
+- [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services.
+- Suivez les étapes de l’article [Accéder aux API](access-api-cli-how-to.md). Enregistrez l’ID d’abonnement, l’ID d’application (ID client), la clé d’authentification (secret), et l’ID locataire dont vous aurez besoin dans une prochaine étape.
+
+> [!IMPORTANT]
+> Examinez les [conventions d’appellation](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="install-the-modules"></a>Installer les modules
 
-Pour travailler avec Azure Media Services à l’aide de Python, vous devez installer ces modules.
+Pour utiliser Azure Media Services avec Python, vous devez installer ces modules.
 
-* Le `azure-mgmt-resource` module, qui comprend des modules Azure pour Active Directory.
-* Le `azure-mgmt-media` module, qui comprend les entités Media Services.
+* Le module `azure-mgmt-resource`, qui inclut des modules Azure pour Active Directory.
+* Le module `azure-mgmt-media`, qui comprend les entités Media Services.
 
-Ouvrez un outil de ligne de commande et utilisez les commandes suivantes pour installer les modules.
+Ouvrez l’outil en ligne de commande et utilisez les commandes suivantes pour installer les modules.
 
 ```
 pip3 install azure-mgmt-resource
@@ -47,11 +50,11 @@ pip3 install azure-mgmt-media==1.1.1
 
 ## <a name="connect-to-the-python-client"></a>Se connecter au client Python
 
-1. Créez un fichier avec un `.py` extension
-1. Ouvrez le fichier dans votre éditeur favori
-1. Ajoutez le code qui suit au fichier. Le code importe les modules nécessaires et crée l’objet d’informations d’identification Active Directory que vous devez vous connecter à Media Services.
+1. Créer un fichier avec une extension `.py`
+1. Ouvrir le fichier dans l’éditeur de votre choix
+1. Ajoutez le code suivant au fichier. Le code importe les modules nécessaires et crée l’objet d’informations d’identification Active Directory nécessaire pour vous connecter à Media Services.
 
-      Définir les valeurs des variables pour les valeurs que vous avez obtenu de [accéder aux API](access-api-cli-how-to.md)
+      Définir les valeurs de variables pour les valeurs que vous avez obtenues à l’étape [Accéder aux API](access-api-cli-how-to.md)
 
       ```
       import adal
@@ -96,7 +99,7 @@ pip3 install azure-mgmt-media==1.1.1
       print (client.assets.list(RESOUCE_GROUP_NAME, ACCOUNT_NAME).get(0))
       ```
 
-1. Exécutez le fichier
+1. Exécuter le fichier
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,6 +1,6 @@
 ---
 title: Configurer une interface utilisateur hébergée pour le service Recherche personnalisée Bing | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Cet article vous explique comment configurer et intégrer une interface utilisateur hébergée pour le service Recherche personnalisée Bing.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: af1e65cc7dfe1a0934056ad141f4c62a96627bbb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 2cc89bf57167db75404c044f58d18ab48edfaf38
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084130"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854088"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurer votre expérience d’interface utilisateur hébergée
 
@@ -78,7 +78,7 @@ Pour consommer l’IU hébergée, soit vous :
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Ajoutez les paramètres de requête suivants à l’URL selon vos besoins. Pour plus d’informations sur ces paramètres, consultez la référence [API Recherche personnalisée](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters).
+  > Ajoutez les paramètres de requête suivants à l’URL selon vos besoins. Pour plus d’informations sur ces paramètres, consultez la référence [API Recherche personnalisée](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters).
   >
   > - q
   > - mkt
@@ -165,5 +165,5 @@ Les configurations suivantes s’appliquent uniquement si vous utilisez l’inte
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Utiliser des marqueurs d’ornement pour mettre en surbrillance du texte](./hit-highlighting.md)
+- [Utiliser des marqueurs d’ornement pour mettre en surbrillance du texte](../bing-web-search/hit-highlighting.md)
 - [Paginer des pages web](./page-webpages.md)

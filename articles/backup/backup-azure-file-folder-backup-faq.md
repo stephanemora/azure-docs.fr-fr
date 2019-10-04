@@ -1,103 +1,137 @@
 ---
-title: Forum aux questions sur l’agent Azure Backup
-description: 'Réponses aux questions fréquentes concernant les sujets suivants : les tâches de l’agent de sauvegarde Azure et les limites de sauvegarde et de rétention.'
-services: backup
-author: trinadhk
-manager: shreeshd
-keywords: sauvegarde et récupération d’urgence ; service de sauvegarde
+title: Questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure
+description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/6/2018
-ms.author: trinadhk
-ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 07/29/2019
+ms.author: dacurwin
+ms.openlocfilehash: 99f14b14e9149f79ae992834ae75bcb8fdc3c74b
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426254"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601988"
 ---
-# <a name="questions-about-the-azure-backup-agent"></a>Questions sur le service de sauvegarde Azure
-Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de l’agent de sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+# <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et de dossiers
 
-## <a name="configure-backup"></a>Configurer une sauvegarde
-### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Où puis-je télécharger le dernier agent Azure Backup ? <br/>
-Vous pouvez télécharger le dernier agent de sauvegarde de Windows Server, de System Center DPM ou du client Windows, en cliquant [ici](https://aka.ms/azurebackup_agent). Si vous souhaitez sauvegarder une machine virtuelle, utilisez l’Agent de machine virtuelle (qui installe automatiquement l’extension appropriée). L’agent de machine virtuelle est déjà présent dans les machines virtuelles créées à partir de la galerie Azure.
+Dans cet article, nous répondons aux questions courantes concernant la sauvegarde de fichiers et de dossiers avec l’agent Microsoft Azure Recovery Services (MARS) dans le service [Sauvegarde Microsoft Azure](backup-overview.md).
 
-### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>Pendant la configuration de l’agent Azure Backup, je suis invité à entrer des informations d’identification de coffre. Les informations d’identification de coffre expirent-elles ?
-Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de votre coffre.
+## <a name="general"></a>Généralités
 
-### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>À partir de quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ? <br/>
-Vous ne pouvez pas sauvegarder les lecteurs/volumes suivants :
+## <a name="configure-backups"></a>Configurer des sauvegardes
 
-* Médias amovibles : toutes les sources d’éléments de sauvegarde doivent être déclarées fixes.
-* Volumes en lecture seule : le volume doit être accessible en écriture pour que le service VSS puisse fonctionner.
-* Volumes hors connexion : le volume doit être en ligne pour que le service VSS puisse fonctionner.
-* Partage réseau : le volume doit être local sur le serveur à sauvegarder à l’aide de la sauvegarde en ligne.
+### <a name="where-can-i-download-the-latest-version-of-the-mars-agent"></a>Où puis-je télécharger la dernière version de l’agent MARS ?
+Vous pouvez [télécharger ici](https://aka.ms/azurebackup_agent) la dernière version de l’agent MARS utilisé lors de la sauvegarde de machines Windows Server et System Center DPM, et du serveur de Sauvegarde Microsoft Azure.
+
+### <a name="how-long-are-vault-credentials-valid"></a>Combien de temps les informations d’identification restent-elles valides ?
+Les informations d’identification du coffre expirent au bout de 48 heures. Si le fichier d’informations d’identification arrive à expiration, retéléchargez-le à partir du Portail Microsoft Azure.
+
+### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Sur quels types de lecteurs puis-je sauvegarder des fichiers et des dossiers ?
+
+Vous ne pouvez pas sauvegarder de données sur les types de lecteurs et volumes suivants :
+
+* Médias amovibles : toutes les sources d’éléments de sauvegarde doivent être déclarées fixes.
+* Volumes en lecture seule : le volume doit être accessible en écriture pour que le service VSS puisse fonctionner.
+* Volumes hors connexion : le volume doit être en ligne pour que le service VSS puisse fonctionner.
+* Partages réseau : le volume doit être local sur le serveur à sauvegarder à l’aide de la sauvegarde en ligne.
 * Volumes protégés par BitLocker : le volume doit être déverrouillé pour que la sauvegarde soit possible.
 * Identification du système de fichiers : NTFS est le seul système de fichiers pris en charge.
 
-### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>Quels types de fichier et dossier puis-je sauvegarder à partir de mon serveur ?<br/>
-Les types suivants sont pris en charge :
+### <a name="what-file-and-folder-types-are-supported"></a>Quels sont les types de fichiers et dossiers pris en charge ?
 
-* Chiffré
-* Compressé
-* Partiellement alloué
-* Compressé + partiellement alloué
-* Liens physiques : non pris en charge, ignorés
-* Point d’analyse : non pris en charge, ignoré
-* Chiffré + partiellement alloué : non pris en charge, ignoré
-* Flux compressé : non pris en charge, ignoré
-* Flux partiellement alloué : non pris en charge, ignoré
+[En savoir plus](backup-support-matrix-mars-agent.md#supported-file-types-for-backup) sur les types de fichiers et dossiers pris en charge pour la sauvegarde.
 
-### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Puis-je installer l’agent Azure Backup sur une machine virtuelle Azure déjà sauvegardée par le service Azure Backup en utilisant l’extension de machine virtuelle ? <br/>
-Absolument. Azure Backup fournit une sauvegarde au niveau de la machine virtuelle pour les machines virtuelles Azure à l’aide de l’extension de machine virtuelle. Pour protéger des fichiers et dossiers du système d’exploitation Windows invité, installez l’agent Azure Backup sur ce dernier.
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-an-azure-vm"></a>Puis-je utiliser l’agent MARS pour sauvegarder des fichiers et des dossiers sur une machine virtuelle Azure ?  
+Oui. La Sauvegarde Azure assure la sauvegarde au niveau de la machine virtuelle des machines virtuelles Azure à l’aide de l’extension de machine virtuelle de l’agent de machine virtuelle Azure. Si vous souhaitez sauvegarder des fichiers et des dossiers sur le système d’exploitation Windows invité de la machine virtuelle, vous pouvez installer l’agent MARS.
 
-### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Puis-je installer l’agent Azure Backup sur une machine virtuelle Azure pour sauvegarder des fichiers et des dossiers situés sur le stockage temporaire fourni par la machine virtuelle Azure ? <br/>
-Oui. Installez l’agent Azure Backup sur le système d’exploitation Windows invité et sauvegardez les fichiers et dossiers sur un stockage temporaire. Les opérations de sauvegarde échouent une fois les données du stockage temporaire effacées. En outre, si les données de stockage temporaire ont été supprimées, vous pouvez uniquement restaurer les stockages non volatiles.
+### <a name="can-i-use-the-mars-agent-to-back-up-files-and-folders-on-temporary-storage-for-the-azure-vm"></a>Puis-je utiliser l’agent MARS pour sauvegarder des fichiers et des dossiers dans un espace de stockage temporaire de la machine virtuelle Azure ?
+Oui. Installez l’agent MARS et sauvegardez les fichiers et dossiers sur le système d’exploitation Windows invité, dans un espace de stockage temporaire.
 
-### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Quelle est la taille minimale requise du dossier du cache ? <br/>
-La taille du dossier du cache détermine la quantité de données que vous sauvegardez. Le volume de votre dossier de cache doit représenter au moins 5 à 10 % de l’espace disponible, compte tenu de la taille totale des données de sauvegarde. Si le volume dispose de moins de 5 % de l’espace libre, augmentez la taille du volume, ou [déplacez le dossier de cache vers un volume ayant suffisamment d’espace libre](backup-azure-file-folder-backup-faq.md#backup).
+- Les opérations de sauvegarde échouent lorsque les données du stockage temporaire sont effacées.
+- Si les données du stockage temporaire sont supprimées, vous pouvez uniquement restaurer le stockage non volatile.
 
-### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Comment inscrire mon serveur dans un autre centre de données ?<br/>
-Les données de sauvegarde sont envoyées au centre de données du coffre dans lequel il est inscrit. Le moyen le plus simple pour changer de centre de données consiste à désinstaller/réinstaller l’agent et à demander un nouveau coffre appartenant au centre de données choisi.
+### <a name="how-do-i-register-a-server-to-another-region"></a>Comment faire pour inscrire un serveur dans une autre région ?
 
-### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>L’agent de sauvegarde Azure fonctionne-t-il sur un serveur qui utilise la déduplication Windows Server 2012 ? <br/>
-Oui. Le service de l’agent convertit les données dédupliquées en données normales lorsqu'il prépare l'opération de sauvegarde. Il optimise ensuite les données pour la sauvegarde, chiffre les données, puis envoie les données chiffrées au service de sauvegarde en ligne.
+Les données de sauvegarde sont envoyées au centre de données du coffre dans lequel le serveur est inscrit. Le moyen le plus simple pour changer de centre de données consiste à désinstaller, puis réinstaller l’agent, et à inscrire la machine auprès d’un nouveau coffre, dans la région requise.
 
-## <a name="prerequisites-and-dependencies"></a>Prérequis et dépendances
-### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>Quelles sont les fonctionnalités de l’agent MARS (Microsoft Azure Recovery Services) qui nécessitent le .NET Framework 4.5.2 ou ultérieur ?
-La fonctionnalité [Restauration instantanée](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine), qui permet de restaurer des fichiers et des dossiers individuels à partir de l’Assistant *Récupérer des données*, nécessite le .NET Framework 4.5.2 ou ultérieur.
+### <a name="does-the-mars-agent-support-windows-server-2012-deduplication"></a>L’agent MARS prend-il en charge la déduplication de Windows Server 2012 ?
+Oui. Cet agent convertit les données dédupliquées en données normales lorsqu’il prépare l’opération de sauvegarde. Ensuite, il optimise les données pour la sauvegarde, les chiffre, puis les envoie au coffre.
 
-## <a name="backup"></a>Sauvegarde
-### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Comment puis-je modifier l’emplacement du cache spécifié pour l’agent Azure Backup ?<br/>
-Utilisez la liste suivante pour modifier l’emplacement du cache.
+## <a name="manage-backups"></a>Gestion des sauvegardes
 
-1. Arrêtez le moteur Backup en exécutant la commande qui suit dans une invite de commandes avec élévation de privilèges :
+### <a name="what-happens-if-i-rename-a-windows-machine-configured-for-backup"></a>Que se passe-t-il si je renomme un ordinateur Windows configuré pour la sauvegarde ?
+
+Lorsque vous renommez un ordinateur Windows, toutes les sauvegardes actuellement configurées sont arrêtées.
+
+- Vous devez enregistrer le nouveau nom de l’ordinateur dans le coffre de sauvegarde.
+- Lorsque vous enregistrez le nouveau nom dans le coffre, la première opération de sauvegarde est une sauvegarde *complète*.
+- Si vous devez récupérer des données sauvegardées dans le coffre avec le nom de l’ancien serveur, utilisez l’option permettant de restaurer les données à un autre emplacement dans l’Assistant Récupération de données. [Plus d’informations](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+
+### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Quelle est la longueur maximale autorisée pour le chemin d’accès au fichier de sauvegarde ?
+L’agent MARS s’appuie sur NTFS et utilise la spécification de longueur de chemin d’accès définie par [l’API Windows](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Si les fichiers que vous souhaitez protéger sont plus longs que la valeur autorisée, sauvegardez le dossier parent ou le lecteur de disque.  
+
+### <a name="what-characters-are-allowed-in-file-paths"></a>Quels sont les caractères autorisés dans les chemins d’accès aux fichiers ?
+
+L’agent MARS s’appuie sur NTFS et autorise les [caractères pris en charge](/windows/desktop/FileIO/naming-a-file#naming-conventions) dans les noms/chemins d’accès aux fichiers.
+
+### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>Un avertissement s’affiche, signalant que les Sauvegardes Azure n’ont pas été configurées pour ce serveur.
+Cet avertissement, qui peut s’afficher même si vous avez configuré une stratégie de sauvegarde, apparaît lorsque les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent de ceux qui figurent dans le coffre de sauvegarde.
+- Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser.
+- Si vous recevez cet avertissement, [reconfigurez](backup-azure-manage-windows-server.md) la stratégie de sauvegarde, puis exécutez une sauvegarde à la demande pour resynchroniser les données du serveur local avec Azure.
+
+
+## <a name="manage-the-backup-cache-folder"></a>Gérer le dossier du cache de sauvegarde
+
+### <a name="whats-the-minimum-size-requirement-for-the-cache-folder"></a>Quelle est la taille minimale requise du dossier du cache ?
+La taille du dossier du cache détermine la quantité de données que vous sauvegardez.
+- Les volumes de dossier de cache doivent disposer d’un espace disponible correspondant à 5 à 10 % minimum de la taille totale des données de sauvegarde.
+- Si le volume dispose de moins de 5 % de l’espace libre, augmentez la taille du volume, ou déplacez le dossier de cache vers un volume ayant suffisamment d’espace disponible.
+- Si vous sauvegardez l’état du système Windows, il vous faut 30 à 35 Go d’espace disponible de plus sur le volume contenant le dossier du cache.
+
+### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Comment vérifier si le dossier de travail est valide et accessible ?
+
+1. Par défaut, le dossier de travail se trouve ici : `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+2. Vérifiez que le chemin de l’emplacement de votre dossier de travail correspond aux valeurs des entrées de clé de Registre ci-dessous :
+
+  | Chemin d’accès au Registre | Clé de Registre | Valeur |
+  | --- | --- | --- |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
+  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
+
+### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Comment faire pour modifier l’emplacement du cache pour l’agent MARS ?
+
+1. Pour arrêter le moteur de sauvegarde, exécutez cette commande dans une invite de commandes avec élévation de privilèges :
 
     ```PS C:\> Net stop obengine```
 
-2. Ne déplacez pas les fichiers, mais copiez le dossier d’espace de cache dans un autre lecteur disposant d’un espace suffisant. L’espace de cache d’origine peut être supprimé après avoir confirmé que les sauvegardes fonctionnent avec le nouvel espace de cache.
-3. Mettez à jour les entrées de registre suivantes en utilisant le chemin d’accès au nouveau dossier d’espace de cache.<br/>
+2. Si vous avez configuré la sauvegarde de l’état du système, ouvrez gestion des disques et démontez le ou les disques avec des noms au format `"CBSSBVol_<ID>"`.
+3. Ne déplacez pas les fichiers, mais copiez le dossier d’espace de cache sur un autre lecteur disposant d’un espace suffisant.
+4. Mettez à jour les entrées de registre suivantes en utilisant le chemin d’accès au nouveau dossier de cache.<br/>
 
     | Chemin d’accès au Registre | Clé de Registre | Valeur |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
 
-4. Démarrez le moteur Backup en exécutant la commande suivante dans une invite de commandes avec élévation de privilèges :
+5. Redémarrez le moteur de sauvegarde via une invite de commandes avec élévation de privilèges :
+
+    ```PS C:\> Net stop obengine```
 
     ```PS C:\> Net start obengine```
 
-Une fois les sauvegardes correctement effectuées avec le nouvel emplacement de cache, vous pouvez supprimer le dossier de cache d’origine.
+6. Exécutez une sauvegarde ad hoc. Une fois la sauvegarde terminée au nouvel emplacement, vous pouvez supprimer le dossier du cache d’origine.
 
 
-### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Où dois-je placer le dossier du cache de l’agent Azure Backup pour que ce dernier fonctionne comme prévu ?<br/>
+### <a name="where-should-the-cache-folder-be-located"></a>Où le dossier du cache doit-il se trouver ?
+
 Les emplacements suivants pour le dossier du cache ne sont pas recommandés :
 
-* Partage réseau ou un média amovible : le dossier du cache doit être local sur le serveur nécessitant une sauvegarde à l’aide de la sauvegarde en ligne. Les emplacements réseau ou les médias amovibles comme les lecteurs USB ne sont pas pris en charge.
-* Volumes hors connexion : le dossier du cache doit être en ligne pour la sauvegarde attendue avec l’agent de sauvegarde Azure
+* Partage réseau ou média amovible : le dossier du cache doit être local sur le serveur nécessitant une sauvegarde à l’aide de la sauvegarde en ligne. Les emplacements réseau ou les médias amovibles comme les lecteurs USB ne sont pas pris en charge.
+* Volumes hors connexion : le dossier du cache doit être en ligne pour la sauvegarde attendue avec l’agent de sauvegarde Azure
 
-### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Existe-t-il des attributs du dossier du cache qui ne sont pas pris en charge ?<br/>
+### <a name="are-there-any-attributes-of-the-cache-folder-that-arent-supported"></a>Existe-t-il des attributs du dossier du cache qui ne sont pas pris en charge ?
 Les attributs suivants ou leurs combinaisons ne sont pas pris en charge pour le dossier du cache :
 
 * Chiffré
@@ -108,25 +142,17 @@ Les attributs suivants ou leurs combinaisons ne sont pas pris en charge pour le 
 
 Le dossier du cache et les métadonnées du disque dur virtuel ne possèdent les attributs nécessaires pour l’agent de sauvegarde Azure.
 
-### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Existe-t-il un moyen d’adapter la quantité de bande passante utilisée par le service Backup ?<br/>
-  Oui, utilisez l’option **Modifier les propriétés** de l’agent Backup pour régler la bande passante. Vous pouvez ajuster la quantité de bande passante et les heures d’utilisation de cette bande passante. Pour obtenir des instructions détaillées, consultez **[Activation de la limitation du réseau](backup-configure-vault.md#enable-network-throttling)**.
+### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>Existe-t-il un moyen d’adapter la quantité de bande passante utilisée pour la sauvegarde ?
+
+Oui. Vous pouvez utiliser l’option **Modifier les propriétés** de l’agent MARS pour régler la bande passante et la durée. [Plus d’informations](backup-configure-vault.md#enable-network-throttling)
 
 ## <a name="restore"></a>Restore
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Que se passe-t-il si j’annule un travail de restauration en cours ?
-Si un travail de restauration en cours est annulé, le processus de restauration s’arrête et tous les fichiers restaurés avant l’annulation restent dans la destination configurée (emplacement d’origine ou autre) sans aucun restauration.
+
+Si un travail de restauration en cours est annulé, le processus de restauration s’arrête. Tous les fichiers restaurés avant l’annulation restent dans la destination configurée (emplacement d’origine ou autre), sans aucun restauration.
 
 
-## <a name="manage-backups"></a>Gestion des sauvegardes
+## <a name="next-steps"></a>Étapes suivantes
 
-### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Que se passe-t-il si je renomme un serveur Windows qui sauvegarde des données dans Azure ?<br/>
-Lorsque vous renommez un serveur, toutes les sauvegardes actuellement configurées sont arrêtées. Enregistrez le nouveau nom du serveur avec le coffre de sauvegarde. Lorsque vous enregistrez le nouveau nom avec le coffre, la première opération de sauvegarde est une sauvegarde *complète*. Si vous devez récupérer des données sauvegardées dans le coffre avec le nom de l’ancien serveur, utilisez l’option [**Un autre serveur**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) de l’assistant **Récupérer des données**.
-
-### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Quelle est la longueur maximale du chemin d’accès de fichier pouvant être spécifiée dans la stratégie de sauvegarde avec l’agent de sauvegarde Azure ? <br/>
-L’agent Azure Backup utilise le format NTFS. La [spécification de longueur de chemin d’accès est limitée par l’API Windows](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Si les fichiers que vous souhaitez protéger présentent une longueur de chemin d’accès supérieure à la limite autorisée par l’API Windows, sauvegardez le dossier parent ou le lecteur de disque.  
-
-### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Quels sont les caractères autorisés dans le chemin d’accès du fichier de stratégie Azure Backup à l’aide de l’agent Azure Backup ? <br>
- L’agent Azure Backup utilise le format NTFS. Elle active les [caractères NTFS pris en charge](/windows/desktop/FileIO/naming-a-file#naming_conventions) dans le cadre de la spécification de fichier.
-
-### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Je reçois l’avertissement « Les sauvegardes Azure n’ont pas été configurées pour ce serveur » alors que j’avais configuré une stratégie de sauvegarde. <br/>
-Cet avertissement est généré lorsque les paramètres de planification de la sauvegarde stockés sur le serveur local diffèrent des paramètres stockés dans le coffre de sauvegarde. Lorsque le serveur ou les paramètres ont été restaurés à un état correct connu, les planifications de sauvegarde peuvent se désynchroniser. Si vous recevez cet avertissement, [reconfigurez la stratégie de sauvegarde](backup-azure-manage-windows-server.md) , puis sélectionnez **Exécuter la sauvegarde maintenant** pour resynchroniser le serveur local avec Azure.
+[Apprenez](tutorial-backup-windows-server-to-azure.md) comment sauvegarder une machine Windows.

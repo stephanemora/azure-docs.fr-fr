@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: spelluru
 ms.openlocfilehash: b6e0e57881154f5885e9f518363eda3c5b1169a0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330962"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177305"
 ---
 ### <a name="install-via-composer"></a>Installation via Composer
 1. Créez un fichier nommé **composer.json** à la racine de votre projet et ajoutez-y le code suivant :

@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Dans ce démarrage rapide, vous découvrez comment créer un réseau virtuel à l’aide du portail Azure. Un réseau virtuel permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé entre elles et avec Internet.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
-ms.author: jdial
-ms.openlocfilehash: 57c3b5099c24151794b27f4aeec7845495a4630a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.author: kumud
+ms.openlocfilehash: 3a21bff9e4c696063458d5734a579fc7c37258a7
+ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670402"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66730081"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Démarrage rapide : Créer un réseau virtuel à l’aide de PowerShell
 
@@ -27,7 +27,7 @@ Un réseau virtuel permet à des ressources Azure, comme des machines virtuelles
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maintenant.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si vous décidez plutôt d’installer et d’utiliser PowerShell en local, vous devez utiliser le module Azure PowerShell version 1.0.0, ou une version ultérieure, pour les besoins de ce guide de démarrage rapide. Pour trouver la version installée, exécutez `Get-Module -ListAvailable Az`. Consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps) pour installer et mettre à jour des informations.
 
@@ -140,9 +140,6 @@ Ouvrez une invite de commandes sur votre ordinateur local. Exécutez la commande
 ```cmd
 mstsc /v:<publicIpAddress>
 ```
-
-Un fichier *.rdp* (Remote Desktop Protocol) est téléchargé sur votre ordinateur et un Bureau à distance s’ouvre.
-
 1. Si vous y êtes invité, sélectionnez **Connexion**.
 
 1. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle.

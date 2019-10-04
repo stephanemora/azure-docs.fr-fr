@@ -1,189 +1,157 @@
 ---
-ms.assetid: ''
-title: Compte de stockage managé Azure Key Vault – CLI
+title: Gérer les clés de compte de stockage avec Azure Key Vault et l’interface de ligne de commande Azure
 description: Les clés de compte de stockage assurent une intégration transparente entre Azure Key Vault et l’accès au compte de stockage Azure basé sur les clés.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: prashanthyv
-ms.author: prashanthyv
-manager: barbkess
-ms.date: 03/01/2019
-ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+author: msmbaldwin
+ms.author: mbaldwin
+manager: rkarlin
+ms.date: 09/18/2019
+ms.openlocfilehash: 8b9478dda83b85e937faa8915fa5e9b77660f194
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526270"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203624"
 ---
-# <a name="azure-key-vault-managed-storage-account---cli"></a>Compte de stockage managé Azure Key Vault – CLI
+# <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure
 
-> [!NOTE]
-> [L’intégration du stockage Azure avec Azure Active Directory (Azure AD) est désormais disponible en préversion](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Nous recommandons d’utiliser Azure AD pour l’authentification et l’autorisation, offrant un accès au stockage Azure via un jeton OAuth2, à l’instar d’Azure Key Vault. Vous pouvez ainsi :
-> - Authentifier votre application cliente en utilisant une identité d’application ou d’utilisateur plutôt que les informations d’identification du compte de stockage. 
-> - Utiliser une [identité Azure AD managée](/azure/active-directory/managed-identities-azure-resources/) lors de l’exécution sur Azure. Les identités managées suppriment totalement l’authentification du client ainsi que le stockage des informations d’identification dans ou avec votre application.
-> - Utiliser le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.
+Un compte de stockage Azure utilise des informations d’identification comprenant un nom de compte et une clé. La clé qui est générée automatiquement sert de mot de passe et non pas de clé de chiffrement. Key Vault gère les clés de compte de stockage en les stockant en tant que [secrets Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
 
-Un [compte de stockage Azure](/azure/storage/storage-create-storage-account) utilise des informations d’identification qui se composent d’un nom de compte et d’une clé. La clé est générée automatiquement et sert plus de « mot de passe » que de clé de chiffrement. Key Vault peut gérer ces clés de compte de stockage en les stockant en tant que [secrets Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+Vous pouvez utiliser la fonctionnalité de clé de compte de stockage gérée de Key Vault pour lister (synchroniser) les clés avec un compte de stockage Azure et regénérer (faire tourner) régulièrement les clés. Vous pouvez gérer les clés des comptes de stockage et des comptes de stockage classiques.
 
-## <a name="overview"></a>Présentation
+Lorsque vous utilisez la fonctionnalité de clé de compte de stockage managé, tenez compte des points suivants :
 
-La fonctionnalité de compte de stockage Key Vault managé exécute plusieurs fonctions de gestion interne à votre place :
-
-- Répertorie (synchronise) les clés avec un compte de stockage Azure.
-- Regénère (fait tourner) les clés régulièrement.
-- Gère les clés des comptes de stockage et des comptes de stockage classiques.
 - Les valeurs de clés ne sont jamais retournées en réponse à l’appelant.
+- Seul Key Vault doit gérer vos clés de compte de stockage. Ne gérez pas les clés vous-même et évitez d’interférer avec les processus de Key Vault.
+- Un seul objet Key Vault doit gérer les clés de compte de stockage. Vous ne devez pas autoriser la gestion des clients par des objets multiples.
+- Vous pouvez demander à Key Vault de gérer votre compte de stockage avec un principal utilisateur, mais pas avec un principal de service.
+- Régénérez les clés à l’aide de Key Vault uniquement. Ne régénérez pas manuellement vos clés de compte de stockage.
 
-Lorsque vous utilisez la fonctionnalité de clé de compte de stockage managé :
+Nous vous recommandons d’utiliser l’intégration de Stockage Azure avec Azure Active Directory (Azure AD), le service Microsoft basé sur le cloud qui gère les identités et les accès. L’intégration d’Azure AD est disponible pour les [objets blob et les files d’attente Azure](../storage/common/storage-auth-aad.md) et fournit un accès basé sur les jetons OAuth2 au Stockage Azure (comme Azure Key Vault).
 
-- **Autorisez uniquement Key Vault à gérer vos clés de compte de stockage.** N’essayez pas de les gérer vous-même, vous interféreriez avec les processus de Key Vault.
-- **Ne permettez pas que les clés de compte de stockage soient gérées par plusieurs objets Key Vault**.
-- **Ne régénérez pas manuellement vos clés de compte de stockage**. Nous vous recommandons de les régénérer via Key Vault.
-- Vous demandant de Key Vault pour gérer votre compte de stockage est possible par un Principal d’utilisateur pour l’instant et pas un Principal de Service
+Azure AD vous permet d’authentifier votre application cliente en utilisant une identité d’application ou d’utilisateur plutôt que les informations d’identification du compte de stockage. Vous pouvez utiliser une [identité Azure AD managée](/azure/active-directory/managed-identities-azure-resources/) lors de l’exécution sur Azure. Les identités managées suppriment l’authentification du client ainsi que le stockage des informations d’identification dans ou avec votre application.
 
-L’exemple suivant vous montre comment autoriser Key Vault à gérer vos clés de compte de stockage.
+Azure AD utilise le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.
 
-> [!IMPORTANT]
-> Un locataire Azure AD fournit à chaque application inscrite un **[principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object)**, qui représente l’identité de l’application. L’ID d’application du principal de service est utilisé quand il reçoit l’autorisation d’accéder à d’autres ressources Azure, via le contrôle d’accès en fonction du rôle (RBAC). Key Vault étant une application Microsoft, elle est préinscrite dans tous les locataires Azure AD sous le même ID d’application dans chaque cloud Azure :
-> - Les locataires Azure AD dans le cloud Azure Government utilisent l’ID d’application `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
-> - Les locataires Azure AD dans le cloud public Azure et tous les autres utilisent l’ID d’application `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+## <a name="service-principal-application-id"></a>ID d’application du principal de service
 
-<a name="prerequisites"></a>Conditions préalables
---------------
-1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) Installer Azure CLI   
-2. [Créer un compte de stockage](https://azure.microsoft.com/services/storage/)
-    - Suivez les étapes de ce [document](https://docs.microsoft.com/azure/storage/) pour créer un compte de stockage.  
-    - **Aide pour le nommage :** Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.        
+Un locataire Azure AD fournit à chaque application inscrite un [principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object), Le principal de service fait office d’ID d’application, qui est utilisé lors de la configuration des autorisations pour l’accès aux autres ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC).
+
+Key Vault est une application Microsoft préinscrite dans tous les locataires Azure AD. Key Vault est inscrit sous le même ID d’application dans chaque cloud Azure.
+
+| Locataires | Cloud | ID de l'application |
+| --- | --- | --- |
+| Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| Azure AD | Azure public | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Autres  | Quelconque | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour suivre ce guide, vous devez d’abord effectuer ce qui suit :
+
+- [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli).
+- [Création d’un coffre de clés](quick-create-cli.md)
+- [Création d’un compte de stockage Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-cli). Le nom du compte de stockage doit contenir uniquement des lettres minuscules et des chiffres. Le nom doit compter 3 à 24 caractères.
       
-<a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Instructions étape par étape sur la façon d'utiliser Key Vault pour gérer les clés du compte de stockage
---------------------------------------------------------------------------------
-Sur le plan conceptuel, la liste des étapes à suivre est
-- Nous commençons par obtenir un compte de stockage (préexistant)
-- Nous récupérons ensuite un coffre de clés (préexistant)
-- Puis, nous ajoutons un compte de stockage géré par Key Vault au coffre, en définissant Key1 en tant que clé active et avec une période de régénération de 180 jours
-- Enfin, nous définissons un contexte de stockage pour le compte de stockage spécifié, avec Key1
+## <a name="manage-storage-account-keys"></a>Gérer les clés de compte de stockage
 
-Dans les instructions ci-dessous, nous attribuons au service Key Vault des autorisations d’opérateur sur votre compte de stockage.
+### <a name="connect-to-your-azure-account"></a>Se connecter au compte Azure
 
-> [!NOTE]
-> Veuillez noter qu'une fois que vous avez configuré les clés du compte de stockage managé Azure Key Vault, elles ne doivent **PLUS**être modifiées, sauf via Key Vault. Clés du compte de stockage managé signifie que Key Vault gère la rotation de la clé du compte de stockage
+Authentifiez votre session Azure CLI à l’aide des commandes [az login](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0).
 
-> [!IMPORTANT]
-> Un locataire Azure AD fournit à chaque application inscrite un **[principal de service](/azure/active-directory/develop/developer-glossary#service-principal-object)**, qui représente l’identité de l’application. L’ID d’application du principal de service est utilisé quand il reçoit l’autorisation d’accéder à d’autres ressources Azure, via le contrôle d’accès en fonction du rôle (RBAC). Key Vault étant une application Microsoft, elle est préinscrite dans tous les locataires Azure AD sous le même ID d’application dans chaque cloud Azure :
-> - Les locataires Azure AD dans le cloud Azure Government utilisent l’ID d’application `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
-> - Les locataires Azure AD dans le cloud public Azure et tous les autres utilisent l’ID d’application `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+```azurecli-interactive
+az login
+``` 
 
-> - Actuellement, vous pouvez utiliser pour demander de Key Vault pour gérer un compte de stockage Principal de l’utilisateur et pas un Principal de Service
+### <a name="give-key-vault-access-to-your-storage-account"></a>Octroyer un accès Key Vault à votre compte de stockage
 
+Utilisez la commande Azure CLI [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest) pour permettre à Key Vault d’accéder à votre compte de stockage. Fournissez à la commande les valeurs de paramètre suivantes :
 
-1. Après avoir créé un compte de stockage, exécutez la commande suivante pour obtenir l’ID de ressource du compte de stockage que vous voulez gérer.
+- `--role`: Transmettez le rôle du contrôle d’accès en fonction du rôle (RBAC) « Rôle de service d’opérateur de clé de compte de stockage ». Ce rôle limite l’étendue d’accès à votre compte de stockage. Pour un type de compte classique, transmettez « Rôle de service d’opérateur de clé de compte de stockage classique » à la place.
+- `--assignee-object-id`: Transmettez la valeur « 93c27d83-f79b-4cb2-8dd4-4aa716542e74 », qui est l’ID d’objet pour Key Vault dans le cloud public Azure. (Pour obtenir l’ID d’objet de Key Vault dans le cloud Azure Government, consultez [ID d’application du principal du service](#service-principal-application-id).)
+- `--scope`: Transmettez l’ID de ressource de votre compte de stockage, qui se présente sous la forme `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Pour trouver votre ID d’abonnement, utilisez la commande Azure CLI [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) ; pour trouver le nom de votre compte de stockage et le groupe de ressources du compte de stockage, utilisez la commande Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list).
 
-    ```
-    az storage account show -n storageaccountname 
-    ```
-    Champ d’ID de copie hors le résultat de la commande ci-dessus, qui se présente comme suit
-    ```
-    /subscriptions/0xxxxxx-4310-48d9-b5ca-0xxxxxxxxxx/resourceGroups/ResourceGroup/providers/Microsoft.Storage/storageAccounts/StorageAccountName
-    ```
-            "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
-    
-2. Attribuer un rôle RBAC « Stockage compte rôle opérateur de clé Service » à Key Vault, limitant l’étendue d’accès à votre compte de stockage. Pour un compte de stockage classique, utiliser « Classic stockage compte clé Service rôle d’opérateur. »
-    ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
-    ```
-    
-    « 93c27d83-f79b-4cb2-8dd4-4aa716542e74 » est l’ID d’objet pour Key Vault dans le Cloud Public. Pour obtenir l’ID d’objet pour le coffre de clés dans les clouds nationaux consultez la section Important ci-dessus
-    
-3. Créez un compte de stockage managé Key Vault.     <br /><br />
-   Ci-dessous, nous définissons une période de regénération de 90 jours. Après 90 jours, Key Vault regénère « key1 » et remplace la clé active « key2 » par « key1 ». Il désigne maintenant Key1 comme la clé active. 
+```azurecli-interactive
+az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+ ```
+
+### <a name="create-a-key-vault-managed-storage-account"></a>Créer un compte de stockage managé Key Vault
+
+ Créez un compte de stockage managé Key Vault à l’aide de la commande Azure CLI [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add). Définissez une période de régénération de 90 jours. Au bout de 90 jours, Key Vault régénère `key1` et remplace la clé active `key2` par `key1`. `key1` est alors désignée comme la clé active. Fournissez à la commande les valeurs de paramètre suivantes :
+
+- `--vault-name`: transmettez le nom de votre coffre de clés. Pour trouver le nom de votre coffre de clés, utilisez la commande Azure CLI [az keyvault list](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list).
+- `-n`: transmettez le nom de votre compte de stockage Pour trouver le nom de votre compte de stockage, utilisez la commande Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list).
+- `--resource-id`: Transmettez l’ID de ressource de votre compte de stockage, qui se présente sous la forme `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Pour trouver votre ID d’abonnement, utilisez la commande Azure CLI [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) ; pour trouver le nom de votre compte de stockage et le groupe de ressources du compte de stockage, utilisez la commande Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list).
    
-    ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
-    ```
+ ```azurecli-interactive
+az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+ ```
 
-<a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Instructions étape par étape sur la façon d'utiliser Key Vault pour créer et générer des jetons SAS
---------------------------------------------------------------------------------
-Vous pouvez également demander à Key Vault de générer des jetons SAS (Shared Access Signature, signature d'accès partagé). Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Avec une signature d’accès partagé, vous pouvez accorder aux clients l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. C’est tout l’intérêt d’utiliser des signatures d’accès partagé dans vos applications : une SAP est un moyen sécurisé de partager vos ressources de stockage sans compromettre vos clés de compte.
+## <a name="shared-access-signature-tokens"></a>Jetons de signature d’accès partagé
 
-Une fois que vous avez terminé les étapes répertoriées ci-dessus, vous pouvez exécuter les commandes suivantes pour demander à Key Vault de générer des jetons SAS pour vous. 
+Vous pouvez également demander à Key Vault de générer des jetons de signature d’accès partagé. Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. Vous pouvez accorder aux clients l’accès aux ressources dans votre compte de stockage sans partager les clés de votre compte. Une signature d’accès partagé constitue un moyen sécurisé de partager vos ressources de stockage sans compromettre vos clés de compte.
 
-Voici les choses qui peuvent être accomplies avec les étapes ci-dessous
-- Définit un compte de sa définition nommé `<YourSASDefinitionName>` sur un compte de stockage géré KeyVault `<YourStorageAccountName>` dans votre coffre `<VaultName>`. 
-- Crée un jeton SAS de compte pour les services Blob, Fichier, Table et File d’attente, pour les types de ressources Service, Conteneur et Objet, avec toutes les autorisations, via le protocole https et avec les dates de début et de fin spécifiées
-- Configure une définition SAQ de stockage géré par KeyVault dans le coffre, avec l’URI de modèle en tant que le jeton SAS créé ci-dessus, avec un « compte » de type SAS et une validité de N jours
-- Récupère le jeton d’accès réel à partir du secret KeyVault correspondant à la définition SAS
+Les commandes figurant dans cette section effectuent les actions suivantes :
 
-1. Dans cette étape, nous allons créer une définition SAS. Une fois que cette définition SAS est créée, vous pouvez demander à Key Vault de générer plus de jetons SAS pour vous. Cette opération nécessite l’autorisation storage/setsas.
+- Définissez une définition de signature d’accès partagé `<YourSASDefinitionName>`. La définition pointe sur un compte de stockage managé Key Vault `<YourStorageAccountName>` dans votre coffre de clés `<YourKeyVaultName>`.
+- Créez un jeton de signature d’accès partagé pour les services Blob, Fichier, Table et File d’attente. Le jeton est créé pour les types de ressource Service, Conteneur et Objet. Le jeton est créé avec toutes les autorisations, via le protocole https et avec les dates de début et de fin spécifiées.
+- Définissez une définition de signature d’accès partagé au stockage géré par Key Vault dans le coffre. La définition comporte l’URI du modèle du jeton de signature d’accès partagé créé. La définition possède le type de signature d’accès partagé `account` et est valide pendant N jours.
+- Vérifiez que la signature d’accès partagé a été enregistrée dans votre coffre de clés en tant que secret.
 
+### <a name="create-a-shared-access-signature-token"></a>Créer un jeton de signature d’accès partagé
+
+Créez une définition de signature d’accès partagé à l’aide de la commande Azure CLI [az storage account generate-sas](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas). Cette opération nécessite les autorisations `storage` et `setsas`.
+
+
+```azurecli-interactive
+az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name <YourStorageAccountName> --account-key 00000000
 ```
-$sastoken = az storage account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
-```
-Vous trouverez [ici](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) plus d’aide sur l’opération ci-dessus
-
-Lorsque cette opération s’exécute correctement, vous devriez voir une sortie similaire à celle ci-dessous. Copiez cela
+Une fois l’opération exécutée avec succès, copiez la sortie.
 
 ```console
-   "se=2020-01-01&sp=***"
+"se=2020-01-01&sp=***"
 ```
 
-1. Dans cette étape, nous allons utiliser la sortie ($sasToken) générée ci-dessus pour créer une définition SAS. Pour plus d’informations, lisez [ceci](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+Cette sortie est transmise au paramètre `--template-id` à l’étape suivante.
 
-```
-az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
-```
-                        
+### <a name="generate-a-shared-access-signature-definition"></a>Générer une définition de signature d’accès partagé
 
- > [!NOTE] 
- > Si l’utilisateur ne dispose pas des autorisations sur le compte de stockage, nous commençons par obtenir l’ID d’objet de l’utilisateur.
+Utilisez la commande Azure CLI [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create), en transmettant la sortie de l’étape précédente au paramètre `--template-id`, afin de créer une définition de signature d’accès partagé.  Vous pouvez fournir le nom de votre choix au paramètre `-n`.
 
- ```
- az ad user show --upn-or-object-id "developer@contoso.com"
-
- az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
- ```
-    
-## <a name="fetch-sas-tokens-in-code"></a>Récupérer des jetons SAS dans le code
-
-Dans cette section, nous allons étudier comment vous pouvez effectuer des opérations sur votre compte de stockage en extrayant des [jetons SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) à partir de Key Vault
-
-Dans la section ci-dessous, nous montrons comment récupérer des jetons SAS après la création d’une définition SAS comme indiqué ci-dessus.
-
-> [!NOTE]
->   Il existe 3 façons de s’authentifier sur Key Vault comme vous pouvez le lire dans les [concepts de base](key-vault-whatis.md#basic-concepts)
-> - Utilisation de MSI (Managed Service Identity), fortement recommandée
-> - Utilisation d’un principal de service et d’un certificat 
-> - Utilisation d’un principal de service et d’un mot de passe, non recommandée
-
-```cs
-// Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials
-var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(securityToken));
-
-// Get a SAS token for our storage from Key Vault. SecretUri is of the format https://<VaultName>.vault.azure.net/secrets/<ExamplePassword>
-var sasToken = await kv.GetSecretAsync("SecretUri");
-
-// Create new storage credentials using the SAS token.
-var accountSasCredential = new StorageCredentials(sasToken.Value);
-
-// Use the storage credentials and the Blob storage endpoint to create a new Blob service client.
-var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("https://myaccount.blob.core.windows.net/"), null, null, null);
-
-var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
+```azurecli-interactive
+az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
 ```
 
-Si votre jeton SAS est sur le point d’expirer, extrayez-le à nouveau à partir de Key Vault, puis mettez à jour le code
+### <a name="verify-the-shared-access-signature-definition"></a>Vérifier la définition de la signature d’accès partagé
 
-```cs
-// If your SAS token is about to expire, get the SAS Token again from Key Vault and update it.
-sasToken = await kv.GetSecretAsync("SecretUri");
-accountSasCredential.UpdateSASToken(sasToken);
+Vous pouvez vérifier que la définition de la signature d’accès partagé a été stockée dans votre coffre de clés à l’aide des commandes Azure CLI [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) et [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show).
+
+Tout d’abord, recherchez la définition de la signature d’accès partagé dans votre coffre de clés à l’aide de la commande [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list).
+
+```azurecli-interactive
+az keyvault secret list --vault-name <YourKeyVaultName>
 ```
 
-### <a name="relevant-azure-cli-commands"></a>Commandes Azure CLI pertinentes
+Le secret correspondant à votre définition SAS a les propriétés suivantes :
 
-[Commandes de stockage Azure CLI](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
+```console
+    "contentType": "application/vnd.ms-sastoken-storage",
+    "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
+```
 
-## <a name="see-also"></a>Voir aussi
+Vous pouvez maintenant utiliser la commande [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) et la propriété `id` pour afficher le contenu de ce secret.
 
-- [Présentation des clés, des secrets et des certificats](https://docs.microsoft.com/rest/api/keyvault/)
-- [Blog de l’équipe Key Vault](https://blogs.technet.microsoft.com/kv/)
+```azurecli-interactive
+az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
+```
+
+La sortie de cette commande affiche la chaîne de votre définition SAS sous la forme `value`.
+
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Apprenez-en davantage sur [les clés, les secrets et les certificats](https://docs.microsoft.com/rest/api/keyvault/).
+- Passez en revue les articles de [blog de l’équipe Azure Key Vault](https://blogs.technet.microsoft.com/kv/).
+- Consultez la documentation de référence sur la commande [az keyvault storage](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest).

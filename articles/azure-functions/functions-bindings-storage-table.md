@@ -4,19 +4,18 @@ description: Comprendre comment utiliser les liaisons de stockage de table Azure
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 0c9cd513f4d5842d14077bb7470ebd18c7a46340
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 464c1a8ab27f6615fdffd8efa6ab20d75e10a7c1
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538202"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71171183"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Liaisons de stockage Table Azure pour Azure Functions
 
@@ -493,7 +492,7 @@ Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
 
 ## <a name="input---java-annotations"></a>Entrée - annotations Java
 
-Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@TableInput` sur les paramètres dont la valeur proviendrait du Stockage Table.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de Optional<T>. 
+Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@TableInput` sur les paramètres dont la valeur proviendrait du Stockage Table.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de Optional\<T>. 
 
 ## <a name="input---configuration"></a>Entrée - configuration
 
@@ -530,14 +529,14 @@ La liaison d’entrée de stockage de table prend en charge les scénarios suiva
 
 * **Lire une ou plusieurs lignes en JavaScript**
 
-  Définissez les propriétés `filter` et `take`. Ne définissez pas `partitionKey` ni `rowKey`. Accédez à l’entité (ou les entités) de table d’entrée à l’aide de `context.bindings.<name>`. Les objets désérialisés ont des propriétés `RowKey` et `PartitionKey`.
+  Définissez les propriétés `filter` et `take`. Ne définissez pas `partitionKey` ni `rowKey`. Accédez à l’entité (ou les entités) de table d’entrée à l’aide de `context.bindings.<BINDING_NAME>`. Les objets désérialisés ont des propriétés `RowKey` et `PartitionKey`.
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 Utilisez une liaison de sortie de stockage de table Azure pour écrire des entités dans une table d’un compte de Stockage Azure.
 
 > [!NOTE]
-> Cette liaison de sortie ne prend pas en charge la mise à jour d’entités existantes. Utilisez l’opération `TableOperation.Replace` [à partir du Kit de développement logiciel (SDK) Stockage Azure](https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) pour mettre à jour une entité existante.   
+> Cette liaison de sortie ne prend pas en charge la mise à jour d’entités existantes. Utilisez l’opération `TableOperation.Replace` [à partir du Kit de développement logiciel (SDK) Stockage Azure](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-table-dotnet#delete-an-entity) pour mettre à jour une entité existante.   
 
 ## <a name="output---example"></a>Sortie - exemple
 
@@ -787,11 +786,11 @@ La liaison de sortie de stockage de table prend en charge les scénarios suivant
 
 * **Écrire une ou plusieurs lignes en JavaScript**
 
-  Dans les fonctions JavaScript, accédez à la sortie de table avec `context.bindings.<name>`.
+  Dans les fonctions JavaScript, accédez à la sortie de table avec `context.bindings.<BINDING_NAME>`.
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
-| Liaison | Référence |
+| Liaison | Informations de référence |
 |---|---|
 | Table | [Codes d’erreur de table](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Objet blob, Table, File d’attente | [Codes d’erreur de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

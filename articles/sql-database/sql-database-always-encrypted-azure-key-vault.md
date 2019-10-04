@@ -11,24 +11,23 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: bcda6ac723101d6a907a10c5163ae1baf0ad2214
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 924ec20b9922d12da7291dc4f44b7413c68728c6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884169"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569569"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted : protéger les données sensibles et stocker les clés de chiffrement dans Azure Key Vault
 
 Cet article explique comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de données en utilisant [l’Assistant Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) dans [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Il inclut également des instructions concernant le stockage de chaque clé de chiffrement dans Azure Key Vault.
 
-Le chiffrement intégral est une nouvelle technologie de chiffrement de données dans Base de données SQL Azure et SQL Server, qui permet de protéger des données sensibles au repos sur le serveur, lors de leur déplacement entre client et serveur, et lors de leur utilisation. Cette technologie garantit que les données sensibles n’apparaissent jamais en tant que texte en clair à l’intérieur du système de base de données. Une fois le chiffrement des données configuré, seules des applications clientes ou des serveurs d’applications ayant accès aux clés peuvent accéder aux données texte en clair. Pour plus d’informations, consultez [Chiffrement intégral (moteur de base de données)](https://msdn.microsoft.com/library/mt163865.aspx).
+Le chiffrement intégral est une nouvelle technologie de chiffrement de données dans Azure SQL Database et SQL Server, qui permet de protéger des données sensibles au repos sur le serveur, lors de leur déplacement entre client et serveur, et lors de leur utilisation. Cette technologie garantit que les données sensibles n’apparaissent jamais en tant que texte en clair à l’intérieur du système de base de données. Une fois le chiffrement des données configuré, seules des applications clientes ou des serveurs d’applications ayant accès aux clés peuvent accéder aux données texte en clair. Pour plus d’informations, consultez [Chiffrement intégral (moteur de base de données)](https://msdn.microsoft.com/library/mt163865.aspx).
 
 Après avoir configuré la base de données pour le chiffrement intégral, nous allons créer une application cliente en C# avec Visual Studio afin de l’utiliser avec les données chiffrées.
 
-Suivez les étapes de cet article et découvrez comment configurer le chiffrement intégral pour une base de données SQL Azure. Dans cet article, vous allez apprendre à effectuer les tâches suivantes :
+Suivez les étapes de cet article et découvrez comment configurer le chiffrement intégral pour une base de données Azure SQL. Dans cet article, vous allez apprendre à effectuer les tâches suivantes :
 
 * Utiliser l’Assistant Chiffrement intégral dans SSMS pour créer des [clés intégralement chiffrées](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
   * Créer une [clé principale de colonne (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
@@ -36,11 +35,11 @@ Suivez les étapes de cet article et découvrez comment configurer le chiffremen
 * Créer une table de base de données et chiffrer des colonnes.
 * Créer une application qui insère, sélectionne et affiche les données des colonnes chiffrées.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
 Pour ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -86,7 +85,7 @@ Vous pouvez rapidement créer un coffre de clés en exécutant le script suivant
 ## <a name="create-a-blank-sql-database"></a>Créer une base de données SQL vide
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Accédez à **Créer une ressource** > **Bases de données** > **Base de données SQL**.
-3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données SQL Azure](sql-database-single-database-get-started.md).
+3. Créez une base de données **vide** nommée **Clinique** sur un serveur nouveau ou existant. Pour obtenir des instructions détaillées sur la création d’une base de données dans le portail Azure, consultez [Votre première base de données Azure SQL](sql-database-single-database-get-started.md).
    
     ![Créer une base de données vide](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
@@ -226,7 +225,7 @@ Le code suivant montre comment activer le chiffrement intégral en définissant 
 ## <a name="register-the-azure-key-vault-provider"></a>Inscrire le fournisseur du coffre de clés Azure (Azure Key Vault)
 Le code suivant montre comment inscrire le fournisseur d’Azure Key Vault auprès du pilote ADO.NET.
 
-```C#
+```csharp
     private static ClientCredential _clientCredential;
 
     static void InitializeAzureKeyVaultProvider()

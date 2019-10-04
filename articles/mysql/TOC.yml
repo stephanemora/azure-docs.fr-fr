@@ -1,9 +1,11 @@
 - name: Base de données Azure pour les documents MySQL
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure DB pour MySQL\_?"
       href: overview.md
+    - name: "Quelle option MySQL dois-je choisir\_?"
+      href: select-right-deployment-type.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -39,7 +41,7 @@
       items:
         - name: Portail Azure
           href: tutorial-design-database-using-portal.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: tutorial-design-database-using-cli.md
         - name: "Modèle Azure\_Resource\_Manager"
           href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
@@ -53,7 +55,7 @@
           maintainContext: true
 - name: Exemples
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
@@ -81,18 +83,28 @@
           href: concepts-data-access-and-security-threat-protection.md
         - name: Réseau virtuel
           href: concepts-data-access-and-security-vnet.md
+        - name: Architecture de connectivité
+          href: concepts-connectivity-architecture.md
     - name: Continuité de l’activité
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: concepts-business-continuity.md
         - name: Sauvegarde et restauration
           href: concepts-backup.md
-    - name: Surveiller
+    - name: Surveiller et régler
       items:
-        - name: Surveiller
+        - name: Surveiller et régler
           href: concepts-monitoring.md
-        - name: Journaux d’activité du serveur
+        - name: Journaux des requêtes lentes
           href: concepts-server-logs.md
+        - name: Journaux d’audit
+          href: concepts-audit-logs.md
+        - name: Magasin de requêtes
+          href: concepts-query-store.md
+        - name: Query Performance Insight
+          href: concepts-query-performance-insight.md
+        - name: Recommandations sur les performances
+          href: concepts-performance-recommendations.md
     - name: Développement
       items:
         - name: Compatibilité des pilotes et des outils
@@ -125,13 +137,13 @@
       items:
         - name: Portail Azure
           href: howto-manage-firewall-using-portal.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: howto-manage-firewall-using-cli.md
     - name: Restaurer un serveur
       items:
         - name: Portail Azure
           href: howto-restore-server-portal.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: howto-restore-server-cli.md
     - name: Migrer une base de données
       items:
@@ -155,14 +167,26 @@
       items:
         - name: Portail Azure
           href: howto-server-parameters.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: howto-configure-server-parameters-using-cli.md
-    - name: Accéder aux journaux d’activité du serveur
+    - name: Augmenter automatiquement le stockage
       items:
         - name: Portail Azure
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-in-cli.md
+          href: howto-auto-grow-storage-portal.md
+        - name: D’Azure CLI
+          href: howto-auto-grow-storage-cli.md
+    - name: Accéder aux journaux d’activité du serveur
+      items:
+        - name: Journaux des requêtes lentes
+          items:
+            - name: Portail Azure
+              href: howto-configure-server-logs-in-portal.md
+            - name: D’Azure CLI
+              href: howto-configure-server-logs-in-cli.md
+        - name: Journaux d’audit
+          items:
+            - name: Portail Azure
+              href: howto-configure-audit-logs-portal.md
     - name: Surveiller
       items:
         - name: Créer des alertes sur les mesures
@@ -173,7 +197,7 @@
           href: howto-data-in-replication.md
         - name: Créer des réplicas en lecture dans le portail Azure
           href: howto-read-replicas-portal.md
-        - name: Créer des réplicas en lecture dans Azure CLI
+        - name: 'Créer des réplicas en lecture avec Azure CLI, l’API REST'
           href: howto-read-replicas-cli.md
     - name: Résolution des problèmes
       items:
@@ -191,24 +215,24 @@
       items:
         - name: Portail Azure
           href: howto-manage-vnet-using-portal.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: howto-manage-vnet-using-cli.md
     - name: Redémarrer le serveur
       items:
         - name: Portail Azure
           href: howto-restart-server-portal.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: howto-restart-server-cli.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/mysql
     - name: API REST
       href: /rest/api/mysql
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.dbformysql/allversions
-    - name: Procédures stockées de réplication de données entrantes
-      href: reference-data-in-stored-procedures.md
+    - name: Procédures stockées Azure
+      href: reference-stored-procedures.md
 - name: Ressources
   items:
     - name: Modèles de déploiement
@@ -218,7 +242,7 @@
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/mysql/'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL'
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMySQL'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-mysql'
     - name: Videos

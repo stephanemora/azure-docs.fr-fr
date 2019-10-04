@@ -2,20 +2,20 @@
 title: Définir un profil technique de validation dans une stratégie personnalisée dans Azure Active Directory B2C | Microsoft Docs
 description: Définissez un profil technique Azure Active Directory dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 466ed4c2bd353e4a5ec3bec5535b70a90446ee0b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 3f20c3c6d6821b5a8bbdb74101095431f6f7f18f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483894"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66511912"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de validation dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -51,9 +51,9 @@ L’élément **ValidationTechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Oui | L’identificateur d’un profil technique déjà défini dans la stratégie ou dans la stratégie parente. |
-|ContinueOnError|Non | Qui indique si la validation de tous les profils techniques validation ultérieure doit se poursuivre si ce profil technique de validation génère une erreur. Valeurs possibles : `true` ou `false` (par défaut, arrête le traitement des profils de validation suivants et renvoie une erreur). |
-|ContinueOnSuccess | Non  | Indique si la validation des profils de validation suivants doit se poursuivre si ce profil technique de validation réussit. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`, ce qui signifie que le traitement des profils de validation suivants continue. |
+| ReferenceId | OUI | L’identificateur d’un profil technique déjà défini dans la stratégie ou dans la stratégie parente. |
+|ContinueOnError|Non| Indique si la validation des profils techniques de validation suivants doit se poursuivre si ce profil technique de validation génère une erreur. Valeurs possibles : `true` ou `false` (par défaut, arrête le traitement des profils de validation suivants et renvoie une erreur). |
+|ContinueOnSuccess | Non | Indique si la validation des profils de validation suivants doit se poursuivre si ce profil technique de validation réussit. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`, ce qui signifie que le traitement des profils de validation suivants continue. |
 
 L’élément **ValidationTechnicalProfile** contient l’élément suivant :
 
@@ -65,8 +65,8 @@ L’élément **Precondition** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| `Type` | Oui | Le type de vérification ou de requête à exécuter pour la condition préalable. Soit vous spécifiez `ClaimsExist` pour vous assurer que les actions seront effectuées si les revendications spécifiées existent dans l’ensemble de revendications actuel de l’utilisateur, soit vous spécifiez `ClaimEquals` pour que les actions soient exécutées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
-| `ExecuteActionsIf` | Oui | Indique si les actions de la condition préalable doivent être effectuées si le test est true ou false. |
+| `Type` | OUI | Le type de vérification ou de requête à exécuter pour la condition préalable. Soit vous spécifiez `ClaimsExist` pour vous assurer que les actions seront effectuées si les revendications spécifiées existent dans l’ensemble de revendications actuel de l’utilisateur, soit vous spécifiez `ClaimEquals` pour que les actions soient exécutées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
+| `ExecuteActionsIf` | OUI | Indique si les actions de la condition préalable doivent être effectuées si le test est true ou false. |
 
 L’élément **Precondition** contient les éléments suivants :
 

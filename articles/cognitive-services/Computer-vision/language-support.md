@@ -1,33 +1,33 @@
 ---
-title: Prise en charge linguistique - vision par ordinateur
+title: Prise en charge des langues – Vision par ordinateur
 titleSuffix: Azure Cognitive Services
-description: Une liste de langages naturels pris en charge par les fonctionnalités de vision par ordinateur.
+description: Liste des langages naturels pris en charge par les fonctionnalités de la Vision par ordinateur.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1a70d1b2ea504d0ccfba925810a2d19d0c7583cc
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 516d21bc69bbc20f924a3bdf39eda7245fc08a28
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012646"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882967"
 ---
-# <a name="language-support-for-computer-vision"></a>Prise en charge linguistique pour la vision par ordinateur
+# <a name="language-support-for-computer-vision"></a>Prise en charge des langues pour la Vision par ordinateur
 
-Certaines fonctionnalités de vision par ordinateur prend en charge plusieurs langues ; toutes les fonctionnalités non mentionnées ici prennent uniquement en charge l’anglais.
+Certaines des fonctionnalités de la Vision par ordinateur prennent en charge plusieurs langues ; celles qui ne sont pas mentionnées ici ne gèrent que l’anglais.
 
 ## <a name="text-recognition"></a>Reconnaissance de texte
 
-Vision par ordinateur peut reconnaître le texte dans de nombreux langages. Plus précisément, le [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) API prend en charge une variété de langues, tandis que le [en lecture](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API et [reconnaître le texte](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) API prennent uniquement en charge l’anglais. Consultez [reconnaître le texte imprimé et manuscrit](concept-recognizing-text.md) pour plus d’informations sur cette fonctionnalité et les avantages de chaque API.
+La Vision par ordinateur peut reconnaître du texte dans de nombreuses langues. Plus précisément, l’API [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) gère tout une série de langues, tandis que les API [Lire](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) et [Reconnaître le texte](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) ne prennent en charge que l’anglais. Pour plus d’informations sur cette fonctionnalité et sur les avantages de chaque API, voir [Reconnaître du texte imprimé et du texte manuscrit](concept-recognizing-text.md).
 
-Reconnaissance optique de caractères détecte automatiquement la langue du matériel d’entrée, par conséquent, il est inutile de spécifier un code de langue dans l’appel d’API. Toutefois, les codes de langue sont toujours retournés comme valeur de la `"language"` nœud dans la réponse JSON.
+L’OCR détecte automatiquement la langue du matériau d’entrée ; il est donc inutile de spécifier un code de langue dans l’appel d’API. Les codes de langue sont toujours retournés dans la valeur du nœud `"language"` de la réponse JSON.
 
-|Langage| Code de langue | API DE RECONNAISSANCE OPTIQUE DE CARACTÈRES |
+|Langage| Code de langue | API OCR |
 |:-----|:----:|:-----:|
 |Arabe | `ar`|✔ |
 |Chinois (simplifié) | `zh-Hans`|✔ |
@@ -58,9 +58,9 @@ Reconnaissance optique de caractères détecte automatiquement la langue du mat�
 
 ## <a name="image-analysis"></a>Analyse d’image
 
-Certaines actions de la [analyser - Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API peut retourner des résultats dans d’autres langages, spécifiés avec le `language` paramètre de requête. Autres actions retournent des résultats en anglais, quel que soit le langage est spécifié, et autres lèvent une exception pour les langages non pris en charge. Actions sont spécifiées avec le `visualFeatures` et `details` paramètres de requête ; consultez la [vue d’ensemble](home.md) pour obtenir la liste de toutes les actions que vous pouvez faire avec l’analyse d’image.
+Certaines actions de l’API [Analyser – Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) peuvent retourner des résultats dans d’autres langues, spécifiées avec le paramètre de requête `language`. D’autres donnent des résultats en anglais indépendamment de la langue spécifiée ; les dernières lèvent une exception pour les langues non prises en charge. Les actions sont spécifiées avec les paramètres de requête `visualFeatures` et `details` ; pour connaître la liste des actions possibles avec l’analyse d’image, voir la [Vue d’ensemble](home.md).
 
-|Langage | Code de langue | Categories | Balises | Description | Adulte | Marques | Couleur | Visages | ImageType | Objets | Célébrités | Points de repère |
+|Langage | Code de langue | Catégories | Balises | Description | Adulte | Marques | Couleur | Visages | ImageType | Objets | Célébrités | Points de repère |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinois | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Anglais | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
@@ -70,7 +70,7 @@ Certaines actions de la [analyser - Image](https://westus.dev.cognitive.microsof
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment utiliser les fonctionnalités de vision par ordinateur mentionnées dans ce guide.
+Découvrez comment utiliser les fonctionnalités Vision par ordinateur mentionnées dans ce guide.
 
 * [Analyser une image locale (REST)](./quickstarts/csharp-analyze.md)
-* [Extraire le texte imprimé (REST)](./quickstarts/csharp-print-text.md)
+* [Extraire du texte imprimé (REST)](./quickstarts/csharp-print-text.md)

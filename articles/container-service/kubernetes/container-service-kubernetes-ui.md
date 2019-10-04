@@ -10,11 +10,11 @@ ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996133"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60309659"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(DÉCONSEILLÉ) Utilisation de l’interface utilisateur web Kubernetes avec Azure Container Service
 
@@ -49,7 +49,7 @@ Si `kubectl` n’est pas installé, vous pouvez exécuter :
 $ az acs kubernetes install-cli
 ```
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 ### <a name="connect-to-the-web-ui"></a>Connexion à l’interface web
 Vous pouvez lancer l’interface web Kubernetes en exécutant :

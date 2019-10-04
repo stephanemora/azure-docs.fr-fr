@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: 8fe22f95c1dfc5171c41d6b3f0e00760fd9c9d69
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133099"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177327"
 ---
 ### <a name="prerequisites"></a>Prérequis
 * Un compte [Facebook](https://www.facebook.com/) 
@@ -18,12 +18,12 @@ Pour pouvoir utiliser votre compte Facebook dans une application logique, vous d
 
 Pour autoriser votre application logique à se connecter à votre compte Facebook, procédez comme suit :
 
-1. Pour créer une connexion à Facebook, dans le Concepteur d’applications logiques, sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis entrez *Facebook* dans la zone de recherche. Sélectionnez le déclencheur ou l’action que vous allez utiliser :   
+1. Pour créer une connexion à Facebook, dans le Concepteur d’applications logiques, sélectionnez **Afficher les API gérées par Microsoft** dans la liste déroulante, puis entrez *Facebook* dans la zone de recherche. Sélectionnez le déclencheur ou l’action que vous allez utiliser :  
    ![Facebook étape 1](./media/connectors-create-api-facebook/facebook-1.png)
 2. Si vous n’avez créé aucune connexion à Facebook auparavant, vous êtes invité à indiquer vos informations d’identification Facebook. Ces informations d’identification serviront à autoriser votre application logique à se connecter et à accéder aux données de votre compte Facebook :  
    ![Facebook étape 2](./media/connectors-create-api-facebook/facebook-2.png)
 3. Indiquez votre nom d’utilisateur et votre mot de passe Facebook pour autoriser votre application logique :  
    ![Facebook étape 3](./media/connectors-create-api-facebook/facebook-3.png)   
-4. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :   
+4. Notez que la connexion a été créée et que vous pouvez maintenant poursuivre la procédure dans votre application logique :  
    ![Facebook étape 4](./media/connectors-create-api-facebook/facebook-4.png)   
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: juliako
 ms.openlocfilehash: 5c7686d8501baf17a63a5317f0d136adb6ac7812
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52270000"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014693"
 ---
 Utilisez le forum [User Voice](https://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) pour fournir des commentaires et des suggestions sur la façon d’améliorer Azure Media Services. Vous pouvez également accéder directement à l’une des catégories suivantes :
 

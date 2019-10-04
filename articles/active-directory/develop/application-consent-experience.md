@@ -3,25 +3,26 @@ title: Comprendre les expériences de consentement de l’application Azure AD |
 description: En savoir plus sur les expériences de consentement Azure AD pour voir comment vous pouvez les utiliser lors du développement et de la gestion d’applications sur Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7de892143e1c69953cc60429ea0d24df194f0df
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 012a79969f2fa72589ba6b70aa5398b6f4e7e811
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795183"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835248"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Comprendre les expériences de consentement de l’application Azure AD
 
@@ -50,8 +51,8 @@ Le diagramme et le tableau suivants fournissent des informations sur les blocs d
 | 2 | Intitulé | L’intitulé change selon que les utilisateurs suivent le flux de consentement utilisateur ou administrateur. Dans le flux de consentement utilisateur, l’intitulé sera « Permissions requested » (Autorisations demandées), tandis que dans le flux de consentement administrateur, l’intitulé aura une ligne supplémentaire « Accept for your organization » (Accepter pour votre organisation). |
 | 3 | Logo de l’application | Cette image donne aux utilisateurs un indice visuel pour déterminer si cette application est bien celle à laquelle ils souhaitaient accéder. Cette image est fournie par les développeurs d’application et la propriété de cette image n’est pas validée. |
 | 4 | Nom de l’application | Cette valeur indique aux utilisateurs quelle application demande à accéder à leurs données. Ce nom est fourni par les développeurs et la propriété de ce nom d’application n’est pas validée. |
-| 5. | Domaine de l’éditeur | Cette valeur fournit aux utilisateurs un nom de domaine dont ils peuvent évaluer la fiabilité. Ce domaine est fourni par les développeurs et la propriété de ce domaine d’éditeur est validée. |
-| 6. | Autorisations | Cette liste contient les autorisations demandées par l’application cliente. Les utilisateurs doivent systématiquement évaluer les types d’autorisations demandées pour savoir à quelles données l’application cliente aura accès en leur nom s’ils donnent leur consentement. En tant que développeur d’application, nous vous recommandons de demander des autorisations d’accès avec le niveau de privilège minimum. |
+| 5\. | Domaine de l’éditeur | Cette valeur fournit aux utilisateurs un nom de domaine dont ils peuvent évaluer la fiabilité. Ce domaine est fourni par les développeurs et la propriété de ce domaine d’éditeur est validée. |
+| 6 | Autorisations | Cette liste contient les autorisations demandées par l’application cliente. Les utilisateurs doivent systématiquement évaluer les types d’autorisations demandées pour savoir à quelles données l’application cliente aura accès en leur nom s’ils donnent leur consentement. En tant que développeur d’application, nous vous recommandons de demander des autorisations d’accès avec le niveau de privilège minimum. |
 | 7 | Description de l’autorisation | Cette valeur est fournie par le service exposant les autorisations. Pour afficher les descriptions d’autorisation, vous devez cliquer sur la flèche de développement en regard de l’autorisation. |
 | 8 | Conditions générales de l’application | Ces conditions contiennent des liens vers les conditions d’utilisation du service et la déclaration de confidentialité de l’application. L’éditeur est chargé de mentionner ses règles dans les conditions d’utilisation du service. L’éditeur doit également indiquer de quelle manière il utilise et partage les données des utilisateurs dans sa déclaration de confidentialité. Si l’éditeur ne fournit pas de liens vers ces valeurs pour les applications mutualisées, un message d’avertissement s’affiche en gras dans l’invite de consentement. |
 | 9 | https://myapps.microsoft.com | Il s’agit du lien via lequel les utilisateurs peuvent afficher et supprimer les applications non Microsoft qui ont actuellement accès à leurs données. |
@@ -86,4 +87,4 @@ Voici les expériences de consentement auxquelles un utilisateur peut être conf
 ## <a name="next-steps"></a>Étapes suivantes
 - Obtenez une présentation détaillée de [la façon dont l’infrastructure de consentement Azure AD implémente le consentement](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Pour plus de détails, découvrez [la façon dont une application mutualisée peut utiliser l’infrastructure de consentement](active-directory-devhowto-multi-tenant-overview.md) pour implémenter un consentement de type « utilisateur » et « admin », en prenant en charge des modèles d’applications mutualisées plus avancés.
-- En savoir plus [comment configurer le domaine de l’éditeur de l’application](howto-configure-publisher-domain.md).
+- Découvrez [comment configurer le domaine de l’éditeur de l’application](howto-configure-publisher-domain.md).

@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 3238abcbcbc4d776e3736b13d5b32149c642649c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307817"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516945"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
-Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code pour pouvoir les traiter.  
+Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code dont vous avez besoin pour les traiter.  
 
 Avant de configurer l’exportation continue, d’autres options doivent être prises en considération :
 
-* Le bouton Exporter en haut d’un panneau de métriques ou de recherche permet de transférer des tables et des graphiques dans une feuille de calcul Excel.
+* Le bouton Exporter en haut d’un onglet de métriques ou de recherche permet de transférer des tables et des graphiques dans une feuille de calcul Excel.
 
 * [Analytics](../../azure-monitor/app/analytics.md) fournit un puissant langage de requête pour la télémétrie et peut également en exporter les résultats.
 * Si vous cherchez à [explorer vos données dans Power BI](../../azure-monitor/app/export-power-bi.md ), vous pouvez le faire sans utiliser l’exportation continue.
@@ -33,31 +33,30 @@ Avant de configurer l’exportation continue, d’autres options doivent être p
 
 Une fois que l’exportation continue a copié vos données vers l’espace de stockage (où elles peuvent rester aussi longtemps que vous le souhaitez), elles restent disponibles dans Application Insights pendant la [période de rétention](../../azure-monitor/app/data-retention-privacy.md) habituelle.
 
-## <a name="continuous-export-advanced-storage-configuration"></a>Configuration de stockage avancées l’exportation continue
+## <a name="continuous-export-advanced-storage-configuration"></a>Configuration de stockage avancée de l’exportation continue
 
-Exportation continue **ne prend pas en charge** les fonctionnalités/configurations du stockage Azure suivantes :
+L’exportation continue **ne prend pas en charge** les fonctionnalités/configurations de stockage Azure suivantes :
 
-* Utilisation de [pare-feu de réseau virtuel/Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security) conjointement avec le stockage Blob Azure.
+* [Pare-feu de réseau virtuel/Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) utilisés conjointement avec le Stockage Blob Azure.
 
-* [Stockage immuable](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) pour stockage Blob Azure.
+* [Stockage immuable](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) pour le Stockage Blob Azure.
 
 * [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> Créez une exportation continue.
-1. Dans la ressource Application Insights de votre application, ouvrez Exportation continue et choisissez **ajouter** :
+
+1. Dans la ressource Application Insights de votre application, sous Configurer, à gauche, ouvrez Exportation continue et choisissez **Ajouter** :
 
 2. Choisissez les types de données de télémétrie que vous souhaitez exporter.
 
-3. Créez ou sélectionnez le [compte de stockage Azure](../../storage/common/storage-introduction.md) sur lequel vous voulez stocker les données. Pour plus d’informations sur les options de tarification de stockage, consultez la [officielle page sur la tarification](https://azure.microsoft.com/pricing/details/storage/).
+3. Créez ou sélectionnez le [compte de stockage Azure](../../storage/common/storage-introduction.md) sur lequel vous voulez stocker les données. Pour plus d’informations sur les options de tarification de stockage, consultez la [page officielle sur la tarification](https://azure.microsoft.com/pricing/details/storage/).
+
+     Cliquez sur Ajouter, Destination de l’exportation, Compte de stockage, puis créez un magasin ou choisissez un magasin existant.
 
     > [!Warning]
     > Par défaut, l’emplacement de stockage est défini dans la même région géographique que votre ressource Application Insights. Si vous utilisez une autre région de stockage, vous risquez de subir des frais de transfert.
 
-    ![Cliquez sur Ajouter, Destination de l’exportation, Compte de stockage, puis créez un nouveau magasin ou choisissez un magasin existant.](./media/export-telemetry/02-add.png)
-
-4. Créez ou sélectionnez un conteneur dans votre stockage :
-
-    ![Cliquez sur Choisir les types d’événements.](./media/export-telemetry/create-container.png)
+4. Créez ou sélectionnez un conteneur dans votre stockage.
 
 Une fois que vous avez créé l’exportation, elle démarre. Vous n’obtenez que les données qui arrivent après la création de l’exportation.
 
@@ -65,9 +64,7 @@ Il peut y avoir un délai d'environ une heure avant que les données n’apparai
 
 ### <a name="to-edit-continuous-export"></a>Pour modifier une exportation continue
 
-Si vous souhaitez modifier les types d’événement plus tard, modifiez simplement l’exportation :
-
-![Cliquez sur Choisir les types d’événements.](./media/export-telemetry/05-edit.png)
+Cliquez sur Exportation continue et sélectionnez le compte de stockage à modifier.
 
 ### <a name="to-stop-continuous-export"></a>Pour suspendre une exportation continue
 
@@ -76,7 +73,7 @@ Pour arrêter l’exportation, cliquez sur Désactiver. Lorsque vous cliquez de 
 Pour arrêter définitivement l’exportation, supprimez-la simplement. Cette opération ne supprime pas vos données du stockage.
 
 ### <a name="cant-add-or-change-an-export"></a>Impossible d’ajouter ou de modifier une exportation ?
-* Pour ajouter ou modifier des exportations, vous devez disposer de droits d’accès de propriétaire, de collaborateur ou de collaborateur Application Insights. [En savoir plus sur les rôles][roles].
+* Pour ajouter ou modifier des exportations, vous devez disposer de droits d’accès de propriétaire, de contributeur ou de contributeur Application Insights. [En savoir plus sur les rôles][roles].
 
 ## <a name="analyze"></a> Quels sont les événements que vous obtenez ?
 Les données exportées sont les données de télémétrie brutes que nous recevons de votre application. Toutefois, nous ajoutons les données d’emplacement que nous calculons à partir de l’adresse IP du client.
@@ -93,7 +90,7 @@ Les données incluent également les résultats de n’importe quel [test web de
 >
 
 ## <a name="get"></a> Inspection des données
-Vous pouvez inspecter le stockage directement sur le portail. Cliquez sur **Parcourir**, sélectionnez votre compte de stockage, puis ouvrez **Conteneurs**.
+Vous pouvez inspecter le stockage directement sur le portail. Cliquez sur Accueil dans le menu de gauche. En haut, sous « Services Azure », sélectionnez **Comptes de stockage**, puis sélectionnez le nom du compte de stockage. Dans la page de présentation, sous les services, sélectionnez **Objets blob**. Enfin, sélectionnez le nom du conteneur.
 
 Pour examiner le stockage Azure dans Visual Studio, ouvrez **Afficher**, **Cloud Explorer**. (Si vous n’avez pas cette commande de menu, vous devez installer le SDK Azure : ouvrez la boîte de dialogue **Nouveau projet**, développez Visual C#/Cloud et choisissez **Obtenir Microsoft Azure SDK pour .NET**.)
 
@@ -128,7 +125,7 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Par e
 [Référence de modèle de données détaillé pour les valeurs et types de propriétés.](export-data-model.md)
 
 ## <a name="processing-the-data"></a>Traitement des données
-À petite échelle, vous pouvez écrire du code pour décomposer vos données, les lire dans une feuille de calcul et ainsi de suite. Par exemple : 
+À petite échelle, vous pouvez écrire du code pour décomposer vos données, les lire dans une feuille de calcul et ainsi de suite. Par exemple :
 
     private IEnumerable<T> DeserializeMany<T>(string folderName)
     {
@@ -147,17 +144,15 @@ Les durées sont exprimées en nombre de cycles, où 10 000 cycles = 1 ms. Par e
       }
     }
 
-Pour un exemple de code plus long, consultez [Utilisation d’un rôle de travail][exportasa].
+Pour obtenir un exemple de code plus long, consultez [Utilisation d’un rôle de travail][exportasa].
 
 ## <a name="delete"></a>Supprimer les anciennes données
-Vous êtes chargé de gérer votre capacité de stockage et de supprimer les anciennes données si nécessaire.
+C’est à vous de gérer votre capacité de stockage et de supprimer les anciennes données si nécessaire.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Si vous régénérez votre clé de stockage...
 Si vous modifiez la clé de votre stockage, l’exportation continue cesse de fonctionner. Vous voyez alors une notification dans votre compte Azure.
 
-Ouvrez le panneau Exportation continue et modifiez votre exportation. Modifiez la destination de l’exportation, mais laissez le même stockage sélectionné. Cliquez sur OK pour confirmer.
-
-![Modifiez l’exportation continue, ouvrez puis fermez la destination de l’exportation.](./media/export-telemetry/07-resetstore.png)
+Ouvrez l’onglet Exportation continue et modifiez votre exportation. Modifiez la destination de l’exportation, mais laissez le même stockage sélectionné. Cliquez sur OK pour confirmer.
 
 L’exportation continue redémarre.
 
@@ -171,7 +166,7 @@ L’exportation continue redémarre.
 ## <a name="q--a"></a>Questions et réponses
 * *Je veux simplement télécharger un graphique.*  
 
-    Oui, vous pouvez le faire. En haut du panneau, cliquez sur **Exporter les données**.
+    Oui, vous pouvez le faire. En haut de l’onglet, cliquez sur **Exporter les données**.
 * *J’ai configuré une exportation, mais il n’y a pas de données dans mon magasin.*
 
     Application Insights a-t-il reçu de la télémétrie de votre application depuis que vous avez configuré l’exportation ? Vous recevrez uniquement les nouvelles données.
@@ -187,10 +182,10 @@ L’exportation continue redémarre.
 * *Combien d’objets blob devrais-je voir dans le stockage ?*
 
   * Pour chaque type de données que vous avez choisi d'exporter un objet blob est créé toutes les minutes (si les données sont disponibles).
-  * En outre, pour les applications avec un trafic élevé, des unités de partition supplémentaires sont allouées. Dans ce cas, chaque unité crée un objet blob toutes les minutes.
+  * En outre, pour les applications avec un trafic élevé, des unités de partition supplémentaires sont allouées. Dans ce cas, chaque unité crée un objet blob par minute.
 * *J’ai régénéré la clé de mon espace de stockage ou modifié le nom du conteneur et l’exportation ne fonctionne plus.*
 
-    Modifiez l’exportation et ouvrez le panneau de destination d’exportation. Conservez le même stockage que celui sélectionné auparavant, puis cliquez sur OK pour confirmer. L’exportation redémarre. Si la modification a eu lieu dans les derniers jours, vous ne perdrez pas de données.
+    Modifiez l’exportation et ouvrez l’onglet de destination d’exportation. Conservez le même stockage que celui sélectionné auparavant, puis cliquez sur OK pour confirmer. L’exportation redémarre. Si la modification a eu lieu dans les derniers jours, vous ne perdrez pas de données.
 * *Est-il possible de suspendre l’exportation ?*
 
     Oui. Cliquez sur Désactiver.

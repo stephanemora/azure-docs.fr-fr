@@ -8,11 +8,11 @@
   items:
     - name: Créer et modifier un circuit
       href: expressroute-howto-circuit-portal-resource-manager.md
-    - name: Créer et modifier une configuration de l’homologation
+    - name: Créer et modifier une configuration du peering
       href: expressroute-howto-routing-portal-resource-manager.md
     - name: Lier un réseau virtuel à un circuit ExpressRoute
       href: expressroute-howto-linkvnet-portal-resource-manager.md
-    - name: Configurer des filtres de routage pour l’homologation Microsoft
+    - name: Configurer des filtres de routage pour le peering Microsoft
       href: how-to-routefilter-portal.md
 - name: Concepts
   items:
@@ -21,13 +21,12 @@
     - name: Circuits et peering
       href: expressroute-circuit-peerings.md
     - name: Emplacements et partenaires
-      href: expressroute-locations.md
       items:
         - name: Fournisseurs par emplacement
           href: expressroute-locations-providers.md
         - name: Emplacements par fournisseur
           href: expressroute-locations.md
-    - name: À propos des passerelles de réseau virtuel
+    - name: Passerelle de réseau virtuel et FastPath
       href: expressroute-about-virtual-network-gateways.md
     - name: Prérequis
       href: expressroute-prerequisites.md
@@ -45,6 +44,8 @@
       href: expressroute-erdirect-about.md
     - name: À propos d’ExpressRoute Global Reach
       href: expressroute-global-reach.md
+    - name: Connecter Azure au cloud public
+      href: expressroute-connect-azure-to-public-cloud.md
     - name: Interopérabilité de connectivité du serveur principal
       items:
         - name: Préface et initialisation (tearDown) de test
@@ -57,6 +58,14 @@
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: Connectivité interréseau
       href: cross-network-connectivity.md
+    - name: Contrôles de sécurité intégrés
+      href: expressroute-security-controls.md
+    - name: Conception pour une haute disponibilité
+      href: designing-for-high-availability-with-expressroute.md
+    - name: Conception pour une reprise d’activité après sinistre
+      items:
+        - name: Peering privé
+          href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
 - name: Guides pratiques
   items:
     - name: Créer et modifier un circuit
@@ -65,9 +74,12 @@
           href: expressroute-howto-circuit-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-circuit-arm.md
-        - name: Azure CLI
+        - name: D’Azure CLI
           href: howto-circuit-cli.md
-    - name: Créer et modifier une configuration de l’homologation
+        - name: "Modèle Azure\_Resource\_Manager"
+          displayName: 'ARM,resource manager template'
+          href: expressroute-howto-circuit-resource-manager-template.md
+    - name: Créer et modifier une configuration du peering
       items:
         - name: Portail Azure
           href: expressroute-howto-routing-portal-resource-manager.md
@@ -85,7 +97,7 @@
           href: howto-linkvnet-cli.md
     - name: Chiffrer le trafic sur les circuits
       items:
-        - name: Configurer un réseau VPN de site à site via l’homologation Microsoft
+        - name: Configurer un réseau VPN de site à site via le peering Microsoft
           href: site-to-site-vpn-over-microsoft-peering.md
         - name: Configurer le mode de transport IPsec pour les hôtes Windows
           href: expressroute-howto-ipsec-transport-private-windows.md
@@ -109,7 +121,7 @@
           href: expressroute-howto-erdirect.md
         - name: Azure CLI
           href: expressroute-howto-expressroute-direct-cli.md
-    - name: Configurer des filtres de routage pour l’homologation Microsoft
+    - name: Configurer des filtres de routage pour le peering Microsoft
       items:
         - name: Portail Azure
           href: how-to-routefilter-portal.md
@@ -117,9 +129,9 @@
           href: how-to-routefilter-powershell.md
         - name: Azure CLI
           href: how-to-routefilter-cli.md
-    - name: Activer et désactiver les homologations
+    - name: Activer et désactiver les peerings
       href: expressroute-howto-reset-peering.md
-    - name: Déplacer de l’homologation publique vers l’homologation Microsoft
+    - name: Déplacer du peering public vers le peering Microsoft
       href: how-to-move-peering.md
     - name: Migrer un circuit d’un déploiement classique vers Resource Manager
       href: expressroute-howto-move-arm.md
@@ -143,7 +155,7 @@
       items:
         - name: Modifier un circuit
           href: expressroute-howto-circuit-classic.md
-        - name: Créer et modifier une configuration de l’homologation
+        - name: Créer et modifier une configuration du peering
           href: expressroute-howto-routing-classic.md
         - name: Lier un réseau virtuel à un circuit ExpressRoute
           href: expressroute-howto-linkvnet-classic.md
@@ -183,6 +195,9 @@
       href: 'https://msdn.microsoft.com/library/azure/mt586720'
     - name: REST (Classic)
       href: 'https://msdn.microsoft.com/library/azure/dn606310'
+    - name: Modèle Resource Manager
+      displayName: 'ARM,resource manager template'
+      href: /azure/templates/microsoft.network/expressroutecircuits
 - name: Ressources
   items:
     - name: Forum Aux Questions ExpressRoute
@@ -218,11 +233,11 @@
           href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/'
         - name: Faire évoluer votre infrastructure réseau pour la connectivité
           href: 'https://go.microsoft.com/fwlink/p/?LinkId=615124'
-        - name: Configuration de l’homologation privée pour votre circuit
+        - name: Configuration du peering privé pour votre circuit
           href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/'
         - name: "Partenariats hybrides\_: activation des scénarios locaux"
           href: 'https://go.microsoft.com/fwlink/p/?LinkId=615125'
-        - name: Configurer l’homologation Microsoft pour votre circuit
+        - name: Configurer le peering Microsoft pour votre circuit
           href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/'
-        - name: Configurer l’homologation publique pour votre circuit
+        - name: Configurer le peering public pour votre circuit
           href: 'https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/'

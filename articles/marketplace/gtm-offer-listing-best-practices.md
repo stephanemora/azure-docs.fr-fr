@@ -2,24 +2,17 @@
 title: Services Go-To-Market - Bonnes pratiques pour le référencement des offres | Azure
 description: 'Services Go-To-Market : cette section décrit les bonnes pratiques pour le référencement des offres'
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: e5db2f340917705ec29f7b6db4de40914c66efcd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 2a660fe0f7663ac87b82038a3bd3d4c4fbf18544
+ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863931"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70962768"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
 
@@ -60,7 +53,7 @@ L’ajout de ces paramètres dans votre URL AppSource vous permet d’observer l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les services GTM de la place de marché, consultez [Services de commercialisation](https://partner.microsoft.com/reach-customers/gtm).
+Apprenez-en plus sur les [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
 Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com) pour créer et configurer votre offre.
 

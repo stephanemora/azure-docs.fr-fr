@@ -8,21 +8,20 @@ ms.topic: include
 ms.date: 11/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 13e99f1dc84c5345ba04fcfc412b8ef4237cc581
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6ffc91a6e01cfb479a4090bcf13f15a7bd20095c
+ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285735"
+ms.lasthandoff: 09/23/2019
+ms.locfileid: "71203933"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>Copier vos informations d’identification depuis le portail Azure
 
 L’exemple d’application doit autoriser l’accès à votre compte de stockage. Fournissez les informations d’identification de votre compte de stockage à l’application sous la forme d’une chaîne de connexion. Pour afficher les informations d’identification de votre compte de stockage :
 
-1. Accédez au [portail Azure](https://portal.azure.com).
-2. Recherchez votre compte de stockage.
-3. Dans la section **Paramètres** de la présentation du compte de stockage, sélectionnez **Clés d’accès**. Les clés d’accès et la chaîne de connexion de votre compte s’affichent.
-4. Notez le nom de votre compte de stockage, vous en aurez besoin pour l’autorisation.   
-5. Recherchez la valeur de **Clé** sous **clé1**, puis cliquez sur le bouton **Copier** pour copier la clé de compte.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre compte de stockage.
+1. Dans la section **Paramètres**de la vue d’ensemble du compte de stockage, sélectionnez **Clés d’accès** pour afficher les clés d’accès et la chaîne de connexion de votre compte.
+1. Notez le nom de votre compte de stockage, vous en aurez besoin pour l’autorisation.   
+1. Recherchez la valeur **Clé** sous **clé1**, puis sélectionnez **Copier** pour copier la clé de compte.
 
     ![Capture d’écran montrant comment copier votre clé de compte à partir du portail Azure](media/storage-copy-account-key-portal/portal-account-key.png)

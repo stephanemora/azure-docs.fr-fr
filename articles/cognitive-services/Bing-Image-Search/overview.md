@@ -9,15 +9,15 @@ ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: overview
-ms.date: 02/06/2019
+ms.date: 09/13/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fa1e2e6ac6e85c431a759d8eb1c22923e86e40d4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f9e33ae30b3aa59f4705518c3df20118fa056a93
+ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237312"
+ms.lasthandoff: 09/14/2019
+ms.locfileid: "70996760"
 ---
 # <a name="what-is-the-bing-image-search-api"></a>Qu'est-ce que l'API Recherche d’images Bing ?
 
@@ -31,7 +31,7 @@ Alors que l’API Recherche d’images Bing fournit seulement des images dans le
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Suggestion de termes de recherche en temps réel](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | Améliorez votre expérience d’application en utilisant [l’API Suggestion automatique Bing](../bing-autosuggest/get-suggested-search-terms.md) pour afficher des suggestions de termes de recherche pendant la saisie de la requête. |
 | [Filtrage et restriction des résultats d’image](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | Filtrez les images renvoyées par Bing en modifiant les paramètres de requête.                                                                                                       |
-| [Rognage, redimensionnement et affichage des miniatures](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | Modifiez et affichez les miniatures des images renvoyées par le service Recherche d’images Bing.                                                                                      |
+| [Rognage, redimensionnement et affichage des miniatures](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails)                                                | Modifiez et affichez les miniatures des images renvoyées par le service Recherche d’images Bing.                                                                                      |
 | [Création d’un tableau croisé dynamique à partir des requêtes de recherche utilisateur et élargissement des requêtes](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | Élargissez vos capacités de recherche en incluant et en affichant les suggestions de termes de recherche Bing dans les requêtes.                                                                    |
 | [Obtention des images tendance](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | Personnalisez une recherche afin d’obtenir les images tendance du monde entier.                                                                                                          |
 
@@ -59,10 +59,12 @@ Pour exécuter rapidement votre première requête d’API, vous pouvez apprendr
 
 * [Détail des prix](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) des API Recherche Bing. 
 
-* La section de référence de l’[API Recherche d’images Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) contient des informations sur les points de terminaison, les en-têtes, les réponses et les paramètres de requête de l’API.
+* La section de référence de l’[API Recherche d’images Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) contient des informations sur les points de terminaison, les en-têtes, les réponses et les paramètres de requête de l’API.
 
 * L’article [Conditions d’utilisation et d’affichage de l’API Recherche Bing](./useanddisplayrequirements.md) spécifie les utilisations acceptables du contenu et des informations obtenus par le biais des API Recherche Bing.
 
 * L’article [Obtention d’images à partir du web avec l’API Recherche d’images Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images) explique comment rechercher et obtenir des images à partir du web.
 
 * L’article [Envoi et utilisation des requêtes de recherche](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) décrit comment créer et personnaliser des requêtes de recherche et comment leur ajouter un tableau croisé dynamique.
+
+* [Comparer les API Recherche Bing](../Bing-web-search/bing-api-comparison.md)

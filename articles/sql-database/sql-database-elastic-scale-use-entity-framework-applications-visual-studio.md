@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/04/2019
-ms.openlocfilehash: 54890aef8dabfa019a5181c155b6668b1c07cf2c
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 8ae264f7da84336d5f786d2ff060aa89bbe75837
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755932"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568306"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Bibliothèque cliente de la base de données élastique avec Entity Framework
 
@@ -33,7 +32,7 @@ Pour télécharger le code utilisé dans cet article :
 * Dans Visual Studio, sélectionnez Fichier -> Ouvrir un projet/une solution. 
 * Dans la boîte de dialogue **Ouvrir un projet**, accédez à l’exemple que vous avez téléchargé, puis sélectionnez **EntityFrameworkCodeFirst.sln** pour ouvrir l’exemple. 
 
-Pour exécuter l'exemple, vous devez créer trois bases de données vides dans Base de données SQL Azure :
+Pour exécuter l'exemple, vous devez créer trois bases de données vides dans Azure SQL Database :
 
 * Une base de données du gestionnaire des cartes de partitions
 * Une base de données nommée Shard 1
@@ -134,7 +133,7 @@ public DbSet<Blog> Blogs { get; set; }
   * La carte de partitions crée la connexion ouverte vers la partition hébergeant le shardlet pour la clé de partitionnement donnée.
   * Cette connexion ouverte est renvoyée vers le constructeur de classe de base de DbContext pour indiquer que cette connexion doit être utilisée par EF au lieu de laisser EF créer une connexion automatiquement. Ainsi, la connexion a été marquée par l’API cliente de base de données élastique pour garantir la cohérence au cours des opérations de gestion de carte de partitions.
 
-Utilisez le nouveau constructeur pour votre classe secondaire DbContext au lieu du constructeur par défaut dans votre code. Voici un exemple :  
+Utilisez le nouveau constructeur pour votre classe secondaire DbContext au lieu du constructeur par défaut dans votre code. Voici un exemple : 
 
 ```csharp
 // Create and save a new blog.

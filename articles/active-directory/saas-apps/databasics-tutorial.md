@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27c2f4b2fd0d634b933a88307b468c2bf57ef32d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ce1505405de7bc90e53c032eaf2bba390d6abad0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864386"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104607"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-databasics"></a>Tutoriel : Intégration d’Azure Active Directory à DATABASICS
+# <a name="tutorial-azure-active-directory-integration-with-databasics"></a>Didacticiel : Intégration d’Azure Active Directory à DATABASICS
 
 Dans ce didacticiel, vous allez apprendre à intégrer DATABASICS à Azure Active Directory (Azure AD).
 L’intégration de DATABASICS à Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration de DATABASICS à Azure AD, vous devez ajouter 
 
 **Pour ajouter DATABASICS à partir de la galerie, suivez les étapes ci-dessous :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec DATABASICS, effectuez 
 
     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<sitenumber>.data-basics.net/<clientname>/saml_sso.jsp`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)**, tapez une valeur : `DATA-BASICS_SP`
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , tapez une valeur : `DATA-BASICS_SP`
 
     > [!NOTE]
     > La valeur d’URL de connexion n’est pas réelle. Remplacez cette valeur par l’URL de connexion réelle. Contactez [l’équipe de support client DATABASICS](https://www.data-basics.com/support/) pour obtenir ces valeurs. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
@@ -148,7 +148,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

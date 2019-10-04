@@ -9,16 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 4f57f7cbc4e93f8a98b64b31ca51e0f1e32c375c
+ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105282"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70073293"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -72,22 +71,22 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|json-to-xml|Élément racine.|Oui|
+|json-to-xml|Élément racine.|OUI|
 
 ### <a name="attributes"></a>Attributs
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours appliquer la conversion.<br />-   content-type-json : ne convertir que si l’en-tête de réponse Content-Type indique la présence de JSON.|Oui|S.O.|
-|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format JSON est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non |true|
-|date de l’analyse|Quand les valeurs de date sont définies sur `false`, elles sont simplement copiées lors de la transformation|Non |true|
+|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours appliquer la conversion.<br />-   content-type-json : ne convertir que si l’en-tête de réponse Content-Type indique la présence de JSON.|OUI|N/A|
+|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format JSON est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non|true|
+|date de l’analyse|Quand les valeurs de date sont définies sur `false`, elles sont simplement copiées lors de la transformation|Non|true|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, on-error
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ##  <a name="ConvertXMLtoJSON"></a> Convert XML to JSON
  La stratégie `xml-to-json` convertit le corps de la demande ou de la réponse de XML en JSON. Cette stratégie peut être utilisée pour moderniser les API basées sur des services web exclusivement en XML.
@@ -116,22 +115,22 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|xml-to-json|Élément racine.|Oui|
+|xml-to-json|Élément racine.|OUI|
 
 ### <a name="attributes"></a>Attributs
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|kind|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   javascript-friendly : le JSON converti présente un format familier aux développeurs JavaScript.<br />-   direct : le JSON converti reflète la structure d’origine du document XML.|Oui|S.O.|
-|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours convertir.<br />-   content-type-xml : ne convertir que si l’en-tête de réponse Content-Type indique la présence de XML.|Oui|S.O.|
-|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format XML est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non |true|
+|kind|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   javascript-friendly : le JSON converti présente un format familier aux développeurs JavaScript.<br />-   direct : le JSON converti reflète la structure d’origine du document XML.|OUI|N/A|
+|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours convertir.<br />-   content-type-xml : ne convertir que si l’en-tête de réponse Content-Type indique la présence de XML.|OUI|N/A|
+|consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format XML est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non|true|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, on-error
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ##  <a name="Findandreplacestringinbody"></a> Find and replace string in body
  La stratégie `find-and-replace` recherche une sous-chaîne de demande ou de réponse et la remplace par une autre sous-chaîne.
@@ -152,21 +151,21 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|find-and-replace|Élément racine.|Oui|
+|find-and-replace|Élément racine.|OUI|
 
 ### <a name="attributes"></a>Attributs
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|from|Chaîne à rechercher.|Oui|S.O.|
-|to|Chaîne de remplacement. Spécifiez une chaîne de remplacement nulle pour supprimer la chaîne de recherche.|Oui|S.O.|
+|from|Chaîne à rechercher.|OUI|N/A|
+|to|Chaîne de remplacement. Spécifiez une chaîne de remplacement nulle pour supprimer la chaîne de recherche.|OUI|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ##  <a name="MaskURLSContent"></a> Mask URLs in content
  La stratégie `redirect-content-urls` réécrit (masque) les liens dans le corps de la réponse afin qu’ils pointent vers un lien équivalent par l’intermédiaire de la passerelle. À utiliser dans la section outbound pour réécrire les liens du corps de réponse afin qu’ils pointent vers la passerelle. À utiliser dans la section inbound pour obtenir l’effet opposé.
@@ -190,14 +189,14 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|redirect-content-urls|Élément racine.|Oui|
+|redirect-content-urls|Élément racine.|OUI|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ##  <a name="SetBackendService"></a> Set backend service
  Utilisez la stratégie `set-backend-service` pour rediriger une demande entrante vers un service principal autre que celui qui est spécifié dans les paramètres d’API de cette opération. Cette stratégie remplace l’URL de base du service principal de la demande entrante par celle qui est spécifiée dans la stratégie.
@@ -215,7 +214,7 @@ or
 ```
 
 > [!NOTE]
-> Entités de serveur principal peuvent être gérées via la gestion [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Les entités de back-end peuvent être gérées via l’[API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) de gestion et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Exemples
 
@@ -263,35 +262,35 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|set-backend-service|Élément racine.|Oui|
+|set-backend-service|Élément racine.|OUI|
 
 ### <a name="attributes"></a>Attributs
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|base-url|Nouvelle URL de base du service principal.|Un des `base-url` ou `backend-id` doit être présent.|S.O.|
-|id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de serveur principal sont gérées via [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Un des `base-url` ou `backend-id` doit être présent.|S.O.|
-|clé de partition SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Utilisé pour résoudre une partition spécifique à partir du service de résolution des noms.|Non |S.O.|
-|type de réplica SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Contrôle si la requête doit atteindre le réplica principal ou secondaire d’une partition. |Non |S.O.|
-|condition de résolution SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Condition identifiant si l’appel au serveur principal Service Fabric doit être répété avec une nouvelle résolution.|Non |S.O.|
-|nom d’instance de service DF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Permet de modifier les instances de service lors de l’exécution. |Non |S.O.|
-|sf-listener-name|S’applique uniquement lorsque le back end est un service Service Fabric et qu’il est spécifié comme « backend-id ». Service Fabric Reliable Services permet de créer plusieurs écouteurs dans un service. Cet attribut permet de sélectionner un écouteur spécifique lorsqu’un service fiable principal dispose de plusieurs écouteurs. S’il n’est pas spécifié, la Gestion des API tentera d’utiliser un écouteur sans nom. Les écouteurs sans nom sont courants pour les services fiables qui n'ont qu’un seul écouteur. |Non |S.O.|
+|base-url|Nouvelle URL de base du service principal.|`base-url` ou `backend-id` doit être présent.|N/A|
+|id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de back-end sont gérées via une [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|`base-url` ou `backend-id` doit être présent.|N/A|
+|clé de partition SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Utilisé pour résoudre une partition spécifique à partir du service de résolution des noms.|Non|N/A|
+|type de réplica SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Contrôle si la requête doit atteindre le réplica principal ou secondaire d’une partition. |Non|N/A|
+|condition de résolution SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Condition identifiant si l’appel au serveur principal Service Fabric doit être répété avec une nouvelle résolution.|Non|N/A|
+|nom d’instance de service DF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Permet de modifier les instances de service lors de l’exécution. |Non|N/A|
+|sf-listener-name|S’applique uniquement lorsque le back end est un service Service Fabric et qu’il est spécifié comme « backend-id ». Service Fabric Reliable Services permet de créer plusieurs écouteurs dans un service. Cet attribut permet de sélectionner un écouteur spécifique lorsqu’un service fiable principal dispose de plusieurs écouteurs. S’il n’est pas spécifié, la Gestion des API tentera d’utiliser un écouteur sans nom. Les écouteurs sans nom sont courants pour les services fiables qui n'ont qu’un seul écouteur. |Non|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, backend
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ##  <a name="SetBody"></a> Set body
  Utilisez la stratégie `set-body` pour définir le corps du message pour les demandes entrantes et sortantes. Pour accéder au corps du message, vous pouvez utiliser la propriété `context.Request.Body` ou `context.Response.Body`, selon que la stratégie se trouve dans la section inbound ou outbound.
 
 > [!IMPORTANT]
 >  Notez que, par défaut, lorsque vous accédez au corps du message avec `context.Request.Body` ou `context.Response.Body`, le corps du message d’origine est perdu et doit être défini en renvoyant le corps dans l’expression. Pour conserver le contenu du corps, donnez la valeur `true` au paramètre `preserveContent` lorsque vous accédez au message. Si `preserveContent` a la valeur `true` et qu’un autre corps est renvoyé par l’expression, le corps renvoyé est utilisé.
-> 
+>
 >  Notez les points suivants lorsque vous utilisez la stratégie `set-body`.
-> 
+>
 > - Si vous utilisez la stratégie `set-body` pour renvoyer un nouveau corps ou un corps mis à jour, vous n’avez pas besoin de donner la valeur `true` à `preserveContent` parce que vous fournissez explicitement le nouveau contenu du corps.
 >   -   Conserver le contenu d’une réponse dans le pipeline inbound n’est pas judicieux, car il n’existe encore aucune réponse.
 >   -   Conserver le contenu d’une demande dans le pipeline de sortie n’est pas judicieux, car la demande a déjà été envoyée au service principal à ce stade.
@@ -385,7 +384,7 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 </set-body>
 ```
 
-#### <a name="transform-json-using-a-liquid-template"></a>Transformer de JSON à l’aide d’un modèle Liquid
+#### <a name="transform-json-using-a-liquid-template"></a>Transformation de JSON à l’aide d’un modèle Liquid
 ```xml
 {
 "order": {
@@ -399,13 +398,13 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|set-body|Élément racine. Contient le corps du texte ou une expression qui renvoie un corps.|Oui|
+|set-body|Élément racine. Contient le corps du texte ou une expression qui renvoie un corps.|OUI|
 
 ### <a name="properties"></a>properties
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|template|Permet de modifier le mode de création du modèle dans lequel la stratégie Set body sera exécutée. Actuellement, la seule valeur possible est :<br /><br />- liquid - la stratégie Set body utilisera le moteur de création de modèle Liquid |Non |liquid|
+|template|Permet de modifier le mode de création du modèle dans lequel la stratégie Set body sera exécutée. Actuellement, la seule valeur possible est :<br /><br />- liquid - la stratégie Set body utilisera le moteur de création de modèle Liquid |Non||
 
 Pour accéder aux informations sur la requête et la réponse, le modèle Liquid peut lier à un objet de contexte aux propriétés suivantes : <br />
 <pre>context.
@@ -452,7 +451,7 @@ OriginalUrl.
 
 -   **Sections de la stratégie :** inbound, outbound, backend
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ##  <a name="SetHTTPheader"></a> Set HTTP header
  La stratégie `set-header` affecte une valeur à un en-tête de réponse et/ou de demande existant ou bien ajoute un nouvel en-tête de réponse et/ou de demande.
@@ -491,14 +490,14 @@ OriginalUrl.
  Pour plus d’informations, consultez les pages [Expressions de stratégie](api-management-policy-expressions.md) et [Variable de contexte](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Plusieurs valeurs d’en-tête sont concaténées en une chaîne de volume partagé de cluster, par exemple : `headerName: value1,value2,value3`
+> Les valeurs multiples d’un en-tête sont concaténées pour former une chaîne CSV, par exemple : `headerName: value1,value2,value3`
 >
 > Parmi les exceptions figurent les en-têtes normalisés dont les valeurs sont normalisées :
 > - peuvent contenir des virgules (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - peuvent contenir une date (`Cookie`, `Set-Cookie`, `Warning`),
 > - contiennent une date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
-> En cas de ces exceptions, plusieurs valeurs d’en-tête ne seront pas concaténées en une seule chaîne et seront passés comme des en-têtes distincts, par exemple : `User-Agent: value1`
+> Dans ces cas d’exception, les valeurs d’en-tête multiples ne sont pas concaténées en une seule chaîne et sont transmises comme en-têtes distincts, par exemple : `User-Agent: value1`
 >`User-Agent: value2`
 >`User-Agent: value3`
 
@@ -506,22 +505,22 @@ OriginalUrl.
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|set-header|Élément racine.|Oui|
-|value|Spécifie la valeur de l'en-tête à définir. Si plusieurs en-têtes portent le même nom, ajoutez d’autres éléments `value`.|Oui|
+|set-header|Élément racine.|OUI|
+|value|Spécifie la valeur de l'en-tête à définir. Si plusieurs en-têtes portent le même nom, ajoutez d’autres éléments `value`.|OUI|
 
 ### <a name="properties"></a>properties
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|
-|Nom|Spécifie le nom de l'en-tête à définir.|Oui|S.O.|
+|exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non|override|
+|Nom|Spécifie le nom de l'en-tête à définir.|OUI|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ##  <a name="SetQueryStringParameter"></a> Set query string parameter
  La stratégie `set-query-parameter` ajoute, supprime un paramètre de chaîne de requête de la demande ou le remplace par une autre valeur. Peut être utilisée pour transmettre les paramètres de requête attendus par le service principal qui sont facultatifs ou ne sont jamais présents dans la demande.
@@ -566,22 +565,22 @@ OriginalUrl.
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|set-query-parameter|Élément racine.|Oui|
-|value|Fournissez une valeur au paramètre de requête à définir. Si plusieurs paramètres de requête portent le même nom, ajoutez d’autres éléments `value`.|Oui|
+|set-query-parameter|Élément racine.|OUI|
+|value|Fournissez une valeur au paramètre de requête à définir. Si plusieurs paramètres de requête portent le même nom, ajoutez d’autres éléments `value`.|OUI|
 
 ### <a name="properties"></a>properties
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|exists-action|Spécifie l’action à entreprendre lorsque le paramètre de requête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur du paramètre actuel.<br />- skip : ne remplace pas la valeur du paramètre de requête actuel.<br />- append : ajoute la valeur à celle du paramètre de requête actuel.<br />- delete : supprime le paramètre de requête de la demande.<br /><br /> S’il a la valeur `override`, l’ajout de plusieurs entrées portant le même nom fait que le paramètre de requête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|
-|Nom|Spécifie le nom du paramètre de requête à définir.|Oui|S.O.|
+|exists-action|Spécifie l’action à entreprendre lorsque le paramètre de requête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur du paramètre actuel.<br />- skip : ne remplace pas la valeur du paramètre de requête actuel.<br />- append : ajoute la valeur à celle du paramètre de requête actuel.<br />- delete : supprime le paramètre de requête de la demande.<br /><br /> S’il a la valeur `override`, l’ajout de plusieurs entrées portant le même nom fait que le paramètre de requête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non|override|
+|Nom|Spécifie le nom du paramètre de requête à définir.|OUI|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, backend
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ##  <a name="RewriteURL"></a> Rewrite URL
  La stratégie `rewrite-uri` convertit une URL de demande de sa forme publique en une forme attendue par le service web, comme le montre l’exemple suivant.
@@ -645,21 +644,21 @@ OriginalUrl.
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|rewrite-uri|Élément racine.|Oui|
+|rewrite-uri|Élément racine.|OUI|
 
 ### <a name="attributes"></a>Attributs
 
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
-|template|URL de service web réelle avec les paramètres de chaîne de requête. Lorsque vous utilisez des expressions, la valeur entière doit être une expression.|Oui|S.O.|
-|copy-unmatched-params|Spécifie si les paramètres de requête dans la requête entrante non présents dans le modèle d’URL d’origine sont ajoutés à l’URL définie par le modèle de réécriture|Non |true|
+|template|URL de service web réelle avec les paramètres de chaîne de requête. Lorsque vous utilisez des expressions, la valeur entière doit être une expression.|OUI|N/A|
+|copy-unmatched-params|Spécifie si les paramètres de requête dans la requête entrante non présents dans le modèle d’URL d’origine sont ajoutés à l’URL définie par le modèle de réécriture|Non|true|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ##  <a name="XSLTransform"></a> Transform XML using an XSLT
  La stratégie `Transform XML using an XSLT` applique une transformation de XSL en XML dans le corps de la réponse ou de la demande.
@@ -714,16 +713,16 @@ OriginalUrl.
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|xsl-transform|Élément racine.|Oui|
-|paramètre|Permet de définir des variables utilisées dans la transformation|Non |
-|xsl:stylesheet|Élément feuille de style racine. Tous les éléments et attributs définis à l’intérieur respectent la [Spécification XSLT](https://www.w3.org/TR/xslt) standard.|Oui|
+|xsl-transform|Élément racine.|OUI|
+|paramètre|Permet de définir des variables utilisées dans la transformation|Non|
+|xsl:stylesheet|Élément feuille de style racine. Tous les éléments et attributs définis à l’intérieur respectent la [Spécification XSLT](https://www.w3.org/TR/xslt) standard.|OUI|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound
 
--   **Étendues de la stratégie :** global, product, API, operation
+-   **Étendues de la stratégie :** toutes les étendues
 
 ## <a name="next-steps"></a>Étapes suivantes
 

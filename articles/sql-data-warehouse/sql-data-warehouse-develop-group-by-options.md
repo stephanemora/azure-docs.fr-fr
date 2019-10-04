@@ -2,20 +2,20 @@
 title: Utilisation des options de regroupement par dans SQL Data Warehouse | Microsoft Docs
 description: Conseils relatifs à l’implémentation d’options de regroupement dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: query
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 69a76ae9d6f355fe401b438ec2ab89d6606ba46c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2f6614f32c31338c9cf4f00307c475db4e02f553
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463478"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479633"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Options de regroupement dans SQL Data Warehouse
 Conseils relatifs à l’implémentation d’options de regroupement dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
@@ -50,7 +50,7 @@ GROUP BY ROLLUP (
 À l’aide de ROLLUP, l’exemple précédent requiert les agrégations suivantes :
 
 * Pays et région
-* Pays
+* Country
 * Total général
 
 Pour remplacer ROLLUP et renvoyer les mêmes résultats, vous pouvez utiliser UNION ALL et spécifier explicitement les agrégations requises :

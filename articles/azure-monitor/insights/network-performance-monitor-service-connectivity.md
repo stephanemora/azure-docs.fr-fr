@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: abshamsft
-ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
-ms.translationtype: MT
+ms.author: absha
+ms.openlocfilehash: c5285ac95a2f5813949f22aae3849fd7f55b1ada
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571169"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67052091"
 ---
 # <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 
@@ -59,16 +59,17 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 Commencez par créer des tests pour surveiller la connectivité réseau vers les points de terminaison de service.
 
 1. Sélectionnez l’onglet **Moniteur de connectivité de service**.
-2. Sélectionnez **Ajouter un test**, puis entrez le nom et la description du test. 
+2. Sélectionnez **Ajouter un test**, puis entrez le nom et la description du test. Vous pouvez créer un maximum de 450 tests par espace de travail. 
 3. Sélectionnez le type de test :<br>
 
     * Sélectionnez **Web** pour surveiller la connectivité à un service qui répond à des requêtes HTTP/S, comme outlook.office365.com ou bing.com.<br>
     * Sélectionnez **Réseau** pour surveiller la connectivité à un service qui répond à des requêtes TCP, mais pas à des requêtes HTTP/S, comme un serveur SQL, un serveur FTP ou un port SSH. 
+    * Par exemple :  Pour créer un test web dans un compte de stockage blob, sélectionnez **Web** et entrez la cible en tant que *yourstorageaccount*.blob.core.windows.net. De même, vous pouvez créer des tests pour d’autres stockages de tables, de files d’attente et Azure Files en utilisant [ce lien.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Si vous ne souhaitez pas effectuer de mesures sur le réseau, telles que la latence du réseau, la perte de paquets et la découverte des topologies, désactivez la case pour **effectuer des mesures sur un réseau**. Cochez-la pour profiter pleinement de la fonctionnalité. 
 5. Dans le champ **Cible**, entrez l’adresse IP, le nom de domaine complet sur lesquels porte la surveillance de la connectivité réseau.
 6. Dans le champ **Numéro de port**, entrez le numéro de port du service cible. 
 7. Dans le champ **Fréquence de test**, entrez la fréquence à laquelle exécuter le test. 
-8. Sélectionnez les nœuds à partir desquels vous souhaitez surveiller la connectivité réseau du service. Assurez-vous que le nombre d’agents ajoutés par test est inférieure à 150. N’importe quel agent peut tester maximale de 150 points de terminaison/agents.
+8. Sélectionnez les nœuds à partir desquels vous souhaitez surveiller la connectivité réseau du service. Assurez-vous que le nombre d’agents ajoutés par test est inférieur à 150. N’importe quel agent peut tester un maximum de 150 points de terminaison/agents.
 
     >[!NOTE]
     > Pour les nœuds de serveur Windows, la fonctionnalité utilise des requêtes TCP pour effectuer les mesures de réseau. Pour les nœuds de client Windows, la fonctionnalité utilise des requêtes ICMP pour effectuer les mesures de réseau. Dans certains cas, l’application cible bloque les demandes ICMP entrantes lorsque les nœuds sont basés sur le client Windows. La solution ne peut pas effectuer de mesures sur un réseau. Nous vous recommandons d’utiliser des nœuds de serveur Windows dans ce cas. 
@@ -127,6 +128,16 @@ Si vous observez une anomalie, procédez comme suit :
 
 * Si l’application est lente, déterminez si les performances médiocres sont dues au réseau ou à un problème du côté du fournisseur de l’application.
 
+## <a name="gcc-office-urls-for-us-government-customers"></a>URL Office de GCC pour les administrations clientes aux États-Unis
+Pour la région US Gov Virginia, seules les URL DOD sont intégrées dans NPM. Les clients qui utilisent les URL de GCC doivent créer des tests personnalisés et ajouter chaque URL individuellement.
+
+| Champ | GCC |
+|:---   |:--- |
+| Portail Office 365 et partagé | portal.apps.mil |
+| Authentification et identité Office 365 | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www .office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
+| MS Teams | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Rechercher dans les journaux](../../azure-monitor/log-query/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.
+[Rechercher dans les journaux d’activité](../../azure-monitor/log-query/log-query-overview.md) pour afficher des enregistrements de données détaillées sur les performances réseau.

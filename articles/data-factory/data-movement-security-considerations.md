@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b571ba8d259a5e3b3b049ad66d4718e9e85d488b
+ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996121"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70931268"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 >
 > * [Version 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Version actuelle](data-movement-security-considerations.md)
@@ -50,7 +50,7 @@ Si la conformité Azure vous intéresse et que vous désirez savoir comment Azur
 
 Cet article présente les principes de sécurité à prendre en compte dans les deux scénarios de déplacement de données suivants : 
 
-- **Scénario cloud** : Dans ce scénario, votre source et votre destination sont toutes deux accessibles publiquement via Internet. Cela inclut les services de stockage cloud managés comme le stockage Azure, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, les services SaaS tels que Salesforce et les protocoles Web tels que FTP et OData. Recherchez une liste complète des sources de données prises en charge dans [Banques de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Scénario cloud** : Dans ce scénario, votre source et votre destination sont toutes deux accessibles publiquement via Internet. Cela inclut les services de stockage cloud managés comme Stockage Azure, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, les services SaaS tels que Salesforce et les protocoles Web tels que FTP et OData. Recherchez une liste complète des sources de données prises en charge dans [Banques de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Scénario hybride** : Dans ce scénario, votre source ou votre destination se trouve derrière un pare-feu ou à l’intérieur d’un réseau d’entreprise local. Ou bien, la banque de données est un réseau ou un réseau virtuel (le plus souvent la source) et n’est pas accessible publiquement. Les serveurs de base de données hébergés sur des machines virtuelles sont également inclus dans ce scénario.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -59,7 +59,7 @@ Cet article présente les principes de sécurité à prendre en compte dans les 
 
 ### <a name="securing-data-store-credentials"></a>Sécurisation des informations d’identification des banques de données
 
-- **Stocker les informations d’identification chiffrées dans un magasin managé Azure Data Factory**. Data Factory permet de protéger les informations d’identification de vos banques de données en les chiffrant à l’aide de certificats managés par Microsoft. Ces certificats sont remplacés tous les deux ans (avec renouvellement des certificats et migration des informations d’identification). Ces informations d’identification chiffrées sont stockées de manière sécurisée dans un compte de stockage Azure managé par les services de gestion Azure Data Factory. Pour plus d’informations sur la sécurité du stockage Azure, consultez [Vue d’ensemble de la sécurité du stockage Azure](../security/security-storage-overview.md).
+- **Stocker les informations d’identification chiffrées dans un magasin managé Azure Data Factory**. Data Factory permet de protéger les informations d’identification de vos banques de données en les chiffrant à l’aide de certificats managés par Microsoft. Ces certificats sont remplacés tous les deux ans (avec renouvellement des certificats et migration des informations d’identification). Pour plus d’informations sur la sécurité du stockage Azure, consultez [Vue d’ensemble de la sécurité du stockage Azure](../security/fundamentals/storage-overview.md).
 - **Stocker les informations d’identification dans Azure Key Vault**. Vous pouvez également stocker les informations d’identification de la banque de données dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory récupère les informations d’identification lors de l’exécution d’une activité. Pour plus d’informations, consultez [Store credential in Azure Key Vault](store-credentials-in-key-vault.md) (Stocker les informations d’identification dans Azure Key Vault).
 
 ### <a name="data-encryption-in-transit"></a>Chiffrement des données en transit
@@ -108,18 +108,19 @@ Pour les scénarios hybrides, un runtime d’intégration auto-hébergé doit ê
 Le canal de commande autorise la communication entre les services de déplacement des données dans Data Factory et le runtime d’intégration auto-hébergé. La communication contient des informations relatives à l’activité. Le canal de données est utilisé pour transférer des données entre les banques de données locales et les banques de données cloud.    
 
 ### <a name="on-premises-data-store-credentials"></a>Informations d’identification des banques de données locales
-Les informations d’identification associées à vos banques de données locales sont toujours chiffrées et locales. Elles peuvent être stockées localement sur la machine du runtime d’intégration auto-hébergé ou dans le stockage managé Azure Data Factory (à l’instar des informations d’identification du magasin cloud). 
+Les informations d’identification peuvent être stockées dans une fabrique de données ou [référencées par une fabrique de données](store-credentials-in-key-vault.md) au moment de l’exécution à partir d’Azure Key Vault. Quand vous stockez des informations d’identification dans une fabrique de données, elles sont toujours chiffrées sur le runtime d’intégration auto-hébergé. 
+ 
+- **Stocker des informations d’identification localement**. Si vous utilisez directement l’applet de commande **Set-AzDataFactoryV2LinkedService** avec les chaînes de connexion et les informations d’identification incluses dans le JSON, le service lié est chiffré et stocké sur le runtime d’intégration auto-hébergé.  Dans ce cas, les informations d’identification passent par le service back-end Azure, hautement sécurisé, avant d’aboutir à la machine d’intégration auto-hébergée, où elles sont chiffrées et stockées. Le runtime d’intégration auto-hébergé utilise [l’API de protection des données (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) Windows pour chiffrer les données sensibles et les informations d’identification.
 
-- **Stocker des informations d’identification localement**. Si vous souhaitez chiffrer et stocker des informations d’identification localement sur le runtime d’intégration auto-hébergé, suivez les étapes sur [Chiffrer des informations d’identification pour les banques de données locales dans Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Tous les connecteurs prennent en charge cette option. Le runtime d’intégration auto-hébergé utilise [l’API de protection des données (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) Windows pour chiffrer les données sensibles et les informations d’identification. 
+- **Stocker les informations d’identification dans Azure Key Vault**. Vous pouvez également stocker les informations d’identification de la banque de données dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory récupère les informations d’identification lors de l’exécution d’une activité. Pour plus d’informations, consultez [Store credential in Azure Key Vault](store-credentials-in-key-vault.md) (Stocker les informations d’identification dans Azure Key Vault).
 
-   Utilisez le **New-AzDataFactoryV2LinkedServiceEncryptedCredential** applet de commande pour chiffrer les informations d’identification et les informations sensibles dans le service lié. Vous pouvez ensuite utiliser le JSON retourné (avec le **EncryptedCredential** élément dans la chaîne de connexion) pour créer un service lié à l’aide de la **Set-AzDataFactoryV2LinkedService** applet de commande.  
+- **Stocker des informations d’identification localement sur le runtime d’intégration auto-hébergé sans les faire passer par le service back-end Azure**. Si vous souhaitez chiffrer et stocker des informations d’identification localement sur le runtime d’intégration auto-hébergé sans les faire passer par le service back-end de la fabrique de données, suivez les étapes décrites dans [Chiffrer des informations d’identification pour les banques de données locales dans Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Tous les connecteurs prennent en charge cette option. Le runtime d’intégration auto-hébergé utilise [l’API de protection des données (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) Windows pour chiffrer les données sensibles et les informations d’identification. 
 
-- **Stocker dans le stockage managé Azure Data Factory**. Si vous utilisez directement le **Set-AzDataFactoryV2LinkedService** applet de commande avec la connexion des chaînes et informations d’identification incluses dans le JSON, le service lié est chiffré et stocké dans le stockage managé Azure Data Factory. Les informations sensibles sont toujours chiffrées par le certificat et Microsoft gère ces certificats.
-
+   Utilisez la cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** pour chiffrer les informations d’identification et les informations sensibles du service lié. Vous pouvez ensuite utiliser le JSON retourné (avec l’élément **EncryptedCredential** dans la chaîne de connexion) pour créer un service lié à l’aide de la cmdlet **Set-AzDataFactoryV2LinkedService**.  
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Ports utilisés pendant le chiffrement du service lié sur le runtime d’intégration auto-hébergé
-Par défaut, PowerShell utilise le port 8050 sur la machine disposant du runtime d’intégration auto-hébergé pour garantir une communication sécurisée. Ce port peut être modifié en cas de besoin.  
+Par défaut, PowerShell utilise le port 8060 sur la machine disposant du runtime d’intégration auto-hébergé pour garantir une communication sécurisée. Ce port peut être modifié en cas de besoin.  
 
 ![Port HTTPS pour la passerelle](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -131,15 +132,15 @@ Tous les transferts de données s’effectuent via un canal sécurisé HTTPS et 
 
 Vous pouvez également utiliser un [VPN IPSec](../vpn-gateway/vpn-gateway-about-vpn-devices.md) ou [Azure ExpressRoute](../expressroute/expressroute-introduction.md) pour renforcer la sécurité du canal de communication entre votre réseau local et Azure.
 
-Le réseau virtuel Azure est une représentation logique de votre réseau dans le cloud. Vous pouvez connecter un réseau local à votre réseau virtuel Azure en configurant VPN IPSec (de site à site) ou ExpressRoute (homologation privée).    
+Le réseau virtuel Azure est une représentation logique de votre réseau dans le cloud. Vous pouvez connecter un réseau local à votre réseau virtuel Azure en configurant VPN IPSec (de site à site) ou ExpressRoute (peering privé).    
 
 Le tableau suivant récapitule les recommandations pour la configuration du réseau et du runtime d’intégration auto-hébergé selon différentes combinaisons d’emplacements source et de destination pour le déplacement de données hybrides.
 
 | Source      | Destination                              | Configuration réseau                    | Installation du runtime d’intégration                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | VPN IPSec (de point à site ou de site à site) | Le runtime d’intégration auto-hébergé doit être installé sur une machine virtuelle Azure dans le réseau virtuel.  |
-| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | ExpressRoute (homologation privée)           | Le runtime d’intégration auto-hébergé doit être installé sur une machine virtuelle Azure dans le réseau virtuel.  |
-| Local | Services Azure disposant d’un point de terminaison public | ExpressRoute (homologation Microsoft)            | Le runtime d’intégration auto-hébergé peut être installé en local ou sur une machine virtuelle Azure. |
+| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | VPN IPSec (de point à site ou de site à site) | Le runtime d’intégration auto-hébergé doit être installé sur une machine virtuelle Azure au sein du réseau virtuel.  |
+| Local | Machines virtuelles et services cloud déployés au sein de réseaux virtuels | ExpressRoute (peering privé)           | Le runtime d’intégration auto-hébergé doit être installé sur une machine virtuelle Azure au sein du réseau virtuel.  |
+| Local | Services Azure disposant d’un point de terminaison public | ExpressRoute (peering Microsoft)            | Le runtime d’intégration auto-hébergé peut être installé en local ou sur une machine virtuelle Azure. |
 
 Les images suivantes décrivent l’utilisation du runtime d’intégration auto-hébergé pour le déplacement de données entre une base de données locale et les services Azure à l’aide d’ExpressRoute et d’un VPN IPSec (avec un réseau virtuel) :
 
@@ -183,7 +184,7 @@ Certaines banques de données dans le cloud exigent également que mettiez sur l
 
 Les banques de données cloud suivantes exigent que vous mettiez sur liste verte l’adresse IP de la machine runtime d’intégration auto-hébergé. Il est possible que certaines de ces banques de données ne requièrent pas par défaut la mise en liste verte des adresses IP. 
 
-- [Base de données SQL Azure](../sql-database/sql-database-firewall-configure.md) 
+- [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
@@ -197,7 +198,7 @@ Oui. Plus de détails [ici](https://azure.microsoft.com/blog/sharing-a-self-host
 
 **Quelle sont les exigences de ports pour assurer un bon fonctionnement du runtime d’intégration auto-hébergé ?**
 
-Le runtime d’intégration auto-hébergé établit des connexions HTTP pour l’accès à Internet. Le port sortant 443 doit être ouvert pour que le runtime d’intégration autohébergé puisse établir cette connexion. Ouvrez le port entrant 8050 uniquement au niveau de la machine (et non au niveau du pare-feu d’entreprise) pour l’application du gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure SQL Data Warehouse comme source ou destination, vous devez également ouvrir le port 1433 également. Pour en savoir plus, consultez la section [Configurations du pare-feu et adresses IP de mise en liste verte](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
+Le runtime d’intégration auto-hébergé établit des connexions HTTP pour l’accès à Internet. Le port sortant 443 doit être ouvert pour que le runtime d’intégration autohébergé puisse établir cette connexion. Ouvrez le port entrant 8060 uniquement au niveau de la machine (et non au niveau du pare-feu d’entreprise) pour l’application du gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure SQL Data Warehouse comme source ou destination, vous devez également ouvrir le port 1433 également. Pour en savoir plus, consultez la section [Configurations du pare-feu et adresses IP de mise en liste verte](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

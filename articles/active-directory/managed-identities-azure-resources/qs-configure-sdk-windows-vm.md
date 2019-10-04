@@ -16,11 +16,11 @@ ms.date: 09/28/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 29446f6f0a86a00cc92fe46211caddd22aaa4859
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444846"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66112562"
 ---
 # <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>Configurer une machine virtuelle avec des identités managées pour ressources Azure en utilisant un SDK Azure
 
@@ -30,7 +30,7 @@ Les identités managées pour ressources Azure fournissent des services Azure av
 
 Dans cet article, vous allez découvrir comment activer et supprimer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un SDK Azure.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -38,7 +38,7 @@ Dans cet article, vous allez découvrir comment activer et supprimer des identit
 
 Azure prend en charge plusieurs plates-formes de programmation via une série de [Kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads). Plusieurs d’entre eux ont été mis à jour pour prendre en charge les identités managées pour ressources Azure, et fournissent des exemples appropriés pour en illustrer l’utilisation. Cette liste a été mise à jour, suite à l’ajout d’une prise en charge supplémentaire :
 
-| Kit SDK  | Exemple |
+| Kit SDK | Exemple |
 | --- | ------ | 
 | .NET   | [Gérer une ressource à partir d’une machine virtuelle activée avec des identités managées pour ressources Azure](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
 | Java   | [Gérer un stockage à partir d’une machine virtuelle activée avec des identités managées pour ressources Azure](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|

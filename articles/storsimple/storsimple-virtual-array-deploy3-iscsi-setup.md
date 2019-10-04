@@ -12,20 +12,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/27/2017
+ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 4560ca2b07826e2a071f515f147dfab8cbec3624
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317508"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516813"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>Déploiement de StorSimple Virtual Array - Configuration d’un serveur iSCSI via le portail Azure
 
 ![flux du processus d'installation iscsi](./media/storsimple-virtual-array-deploy3-iscsi-setup/iscsi4.png)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 Ce didacticiel de déploiement s’applique à l’instance Microsoft Azure StorSimple Virtual Array. Ce didacticiel explique comment effectuer la configuration initiale, inscrire votre serveur iSCSI StorSimple, finaliser l’installation de l’appareil, puis créer, monter, initialiser et formater des volumes sur votre instance StorSimple Virtual Array configurée en tant que serveur iSCSI. 
 
@@ -88,7 +90,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
       > Si vous joignez votre serveur iSCSI à un domaine, assurez-vous que votre tableau virtuel est dans sa propre unité organisationnelle (UO) pour Microsoft Azure Active Directory et qu’aucun objet de stratégie de groupe (GPO) ne lui est appliqué.
       > 
       > 
-   4. Une boîte de dialogue s’affiche. Entrez vos informations d'identification de domaine au format spécifié. Cliquez sur l’icône de coche  ![icône en forme de coche](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Les informations d'identification de domaine seront vérifiées. Un message d'erreur apparaît si les informations d'identification sont incorrectes.
+   4. Une boîte de dialogue s’affiche. Entrez vos informations d'identification de domaine au format spécifié. Cliquez sur l’icône de coche ![icône en forme de coche](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png). Les informations d'identification de domaine seront vérifiées. Un message d'erreur apparaît si les informations d'identification sont incorrectes.
       
        ![credentials](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. Cliquez sur **Appliquer**. Cette opération appliquera et validera les paramètres de l’appareil.
@@ -98,7 +100,7 @@ Utilisez la procédure détaillée ci-dessous pour configurer votre solution Sto
    
     Dans la page **Proxy web** :
    
-   1. Fournir le **URL du proxy Web** au format suivant : *http :\//host-IP adresse* ou *: port numéro*. Notez que les URL HTTPS ne sont pas prises en charge.
+   1. Indiquez l’**URL du proxy web** au format suivant : *http:\//adresse IP-hôte* ou *nom de domaine complet:numéro de port*. Notez que les URL HTTPS ne sont pas prises en charge.
    2. Définissez **Authentification** sur le paramètre **De base** ou **Aucune**.
    3. Si vous utilisez une authentification, vous devez également fournir un **nom d’utilisateur** et un **mot de passe**.
    4. Cliquez sur **Appliquer**. Cette opération validera et appliquera les paramètres de proxy web configurés.
@@ -195,7 +197,7 @@ Procédez comme suit pour monter, initialiser et formater vos volumes StorSimple
 4. Dans la fenêtre **Propriétés de l’initiateur iSCSI**, sous l’onglet **Cibles**, recherchez les **cibles découvertes**. (Chaque volume sera une cible découverte). L’appareil doit apparaître comme **inactif**.
    
     ![cibles découvertes](./media/storsimple-virtual-array-deploy3-iscsi-setup/image24.png)
-5. Sélectionnez un appareil cible, puis cliquez sur **Connecter**. Une fois l’appareil connecté, son état doit indiquer **Connecté**. (Pour plus d’informations sur l’utilisation de l’initiateur Microsoft iSCSI, consultez la rubrique [Installation et configuration de l’initiateur Microsoft iSCSI][1].
+5. Sélectionnez un appareil cible, puis cliquez sur **Connecter**. Une fois l’appareil connecté, son état doit indiquer **Connecté**. (Pour plus d’informations sur l’utilisation de l’initiateur Microsoft iSCSI, consultez [Installing and Configuring Microsoft iSCSI Initiator][1] (Installation et configuration de l’initiateur Microsoft iSCSI)).
    
     ![sélectionner un appareil cible](./media/storsimple-virtual-array-deploy3-iscsi-setup/image25.png)
 6. Sur l’hôte Windows, appuyez sur la touche de logo Windows + X, puis cliquez sur **Exécuter**.

@@ -2,17 +2,17 @@
 title: Meilleures pratiques relatives à Azure Kubernetes Service (AKS)
 description: Ensemble des meilleures pratiques à destination du développeur et de l’opérateur de clusters pour créer et gérer des applications dans Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.author: iainfou
-ms.openlocfilehash: c73f2fea808944847fab6a675914ee57e537560b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.author: mlearned
+ms.openlocfilehash: 7127894b364ac8f0fe1d87e13150d5522f5473e2
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731325"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615961"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Meilleures pratiques à destination du développeur et de l’opérateur de clusters pour créer et gérer des applications sur Azure Kubernetes Service (AKS)
 
@@ -40,7 +40,7 @@ En tant qu’opérateur de cluster, travaillez avec les propriétaires d’appli
 * [Meilleures pratiques relatives à la sécurité et aux mises à niveau du cluster](operator-best-practices-cluster-security.md)
     * Inclut la sécurisation de l’accès au serveur d’API, la limitation de l’accès au conteneur et la gestion des mises à niveau et du redémarrage du nœud.
 * [Meilleures pratiques relatives à la gestion et à la sécurité des images de conteneur](operator-best-practices-container-image-management.md)
-    * Inclut la sécurisation de l’image et des runtimes (à l’aide des registres de confiance) et les générations automatisées sur les mises à jour de l’image de base...
+    * Inclut la sécurisation de l’image et des runtimes ainsi que les générations automatisées sur les mises à jour de l’image de base.
 * [Bonnes pratiques relatives à la sécurité de pod](developer-best-practices-pod-security.md)
     * Inclut la sécurisation de l’accès aux ressources, la limitation de l’exposition des informations d’identification et l’utilisation d’identités de pod et de coffres de clés numériques.
 

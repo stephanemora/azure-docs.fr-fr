@@ -10,12 +10,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 2ccac3bf9a882dc021c6c969946ad9d439a7cf5d
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494543"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069686"
 ---
 # <a name="introduction-to-azure-advisor"></a>Présentation d’Azure Advisor
 
@@ -61,7 +61,9 @@ Vous pouvez accéder aux recommandations d’Advisor en tant que *propriétaire*
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Pour quelles ressources le conseiller fournit-il des recommandations ?
 
-Advisor fournit des recommandations pour les machines virtuelles, les groupes à haute disponibilité, les passerelles d’application, App Services, les serveurs SQL et le Cache Azure pour Redis.
+Advisor fournit des recommandations pour Application Gateway, App Services, les groupes à haute disponibilité, le Cache Azure, Azure Data Factory, Azure Database pour MySQL, Azure Database pour PostgreSQL, Azure Database pour MariaDB, Azure ExpressRoute, Azure Cosmos DB, les adresses IP publiques Azure, SQL Data Warehouse, les serveurs SQL, les comptes de stockage, les profils Traffic Manager et les machines virtuelles.
+
+Azure Advisor inclut également vos recommandations de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations), pouvant inclure des recommandations pour des types de ressources supplémentaires.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Puis-je reporter ou ignorer une recommandation ?
 

@@ -15,15 +15,15 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862860"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60935759"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guide de l’administrateur Atlassian Jira et Confluence pour Azure Active Directory
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Le plug-in d’authentification unique (SSO) Azure Active Directory (Azure AD) permet aux clients Microsoft Azure AD d’utiliser leur compte professionnel ou scolaire pour se connecter aux produits serveur Atlassian Jira et Confluence. Il implémente l’authentification unique basée sur SAML 2.0.
 
@@ -53,7 +53,7 @@ Les administrateurs de Jira et Confluence peuvent utiliser le plug-in pour activ
 * Jira ou Confluence sont également disponibles à l’extérieur du réseau d’entreprise.
 * Le plug-in fonctionne uniquement avec la version locale de Jira et Confluence.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Avant d’installer le plug-in, tenez compte des informations suivantes :
 
@@ -100,7 +100,7 @@ Pour installer le plug-in, procédez comme suit :
 
 4. Sélectionnez le plug-in, puis poursuivez avec l’installation du Gestionnaire de plug-in universel (UPM).
 
-Une fois installé, le plug-in s’affiche dans la section **User Installed Add-ons (Modules complémentaires installés par l’utilisateur)** de **Manage add-ons (Gérer les modules complémentaires)**.
+Une fois installé, le plug-in s’affiche dans la section **User Installed Add-ons (Modules complémentaires installés par l’utilisateur)** de **Manage add-ons (Gérer les modules complémentaires)** .
 
 ## <a name="plug-in-configuration"></a>Configuration du plug-in
 
@@ -112,11 +112,11 @@ L’image suivante montre l’écran de configuration dans Jira et Confluence :
 
 * **URL de métadonnées** : URL pour obtenir les métadonnées de fédération à partir d’Azure AD.
 
-* **Identificateurs** : URL utilisée par Azure AD pour valider la source de la requête. Elle correspond à l’élément **Identificateur** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*\<domaine : port >*/.
+* **Identificateurs** : URL utilisée par Azure AD pour valider la source de la requête. Elle correspond à l’élément **Identificateur** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https:// *\<domaine: port>* /.
 
-* **URL de réponse** : URL de réponse dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **URL de réponse** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*\<domaine : port >*/plugins/servlet/saml/auth.
+* **URL de réponse** : URL de réponse dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **URL de réponse** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https:// *\<domaine: port>* /plugins/servlet/saml/auth.
 
-* **URL d’authentification** : URL de connexion dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **Connexion** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https://*\<domaine : port >*/plugins/servlet/saml/auth.
+* **URL d’authentification** : URL de connexion dans votre fournisseur d’identité (IdP) qui initie la connexion SAML. Elle correspond à l’élément **Connexion** dans Azure AD. Le plug-in déduit automatiquement cette URL sous la forme https:// *\<domaine: port>* /plugins/servlet/saml/auth.
 
 * **ID d'entité de fournisseur d'identité** : identifiant d’entité utilisé par votre fournisseur d’identité. Cette case est renseignée quand l’URL des métadonnées est résolue.
 

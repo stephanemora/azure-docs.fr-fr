@@ -1,84 +1,83 @@
 ---
-title: Intégrer en version préliminaire de sentinelle Azure | Microsoft Docs
+title: Intégrer Azure Sentinel| Microsoft Docs
 description: Découvrez comment collecter des données dans Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: d5750b3e-bfbd-4fa0-b888-ebfab7d9c9ae
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7f209ef8bb8c492245b59374c33187dbbe763aa5
+ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276641"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71240474"
 ---
-# <a name="on-board-azure-sentinel-preview"></a>Aperçu de la sentinelle Azure intégrée
+# <a name="on-board-azure-sentinel"></a>Intégrer Azure Sentinel
 
-> [!IMPORTANT]
-> Azure Sentinel est actuellement disponible en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Dans ce démarrage rapide, vous allez apprendre comment intégrer Sentinel d’Azure. 
 
-Pour intégrer Azure Sentinel, vous devez d’abord activer Azure Sentinel et connectez vos sources de données. Sentinel Azure est fourni avec plusieurs connecteurs pour les solutions de Microsoft, disponibles en dehors de la zone et fournissant l’intégration en temps réel, notamment des solutions de Protection contre les menaces de Microsoft, Microsoft 365 sources, y compris Office 365, Azure AD, Azure ATP, et Microsoft Cloud App Security et bien plus encore. En outre, il existe des connecteurs intégrés pour la connexion aux écosystèmes de sécurité élargis pour les solutions non Microsoft. Vous pouvez également utiliser le format d’événement commun, Syslog ou l’API REST pour vous connecter vos sources de données avec Azure Sentinel.  
+Dans ce guide de démarrage rapide, vous allez apprendre à intégrer Azure Sentinel. 
 
-Une fois que vous vous connectez vos sources de données, choisissez parmi une galerie de tableaux de bord créé de manière experte surface insights basés sur vos données. Ces tableaux de bord permettre être facilement adapté à vos besoins.
+Pour intégrer Azure Sentinel, vous devez d’abord activer Azure Sentinel, puis vous connecter à vos sources de données. Azure Sentinel est fourni avec plusieurs connecteurs pour les solutions Microsoft, disponibles par défaut et offrant une intégration en temps réel, y compris les solutions Microsoft Threat Protection, les sources Microsoft 365, dont Office 365, Azure AD, Azure ATP et Microsoft Cloud App Security, etc. En outre, il existe des connecteurs intégrés pour la connexion aux écosystèmes de sécurité élargis pour les solutions non Microsoft. Vous pouvez également utiliser le format d’événement commun, Syslog ou l’API REST pour connecter vos sources de données à Azure Sentinel.  
+
+Après avoir connecté vos sources de données, opérez votre choix dans une galerie de classeurs créés par des experts, qui mettent en avant des insights sur la base de vos données. Vous pouvez aisément adapter ces classeurs à vos besoins.
 
 
 ## <a name="global-prerequisites"></a>Conditions préalables globales
 
-- Abonnement Azure actif, si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+- Activez l’abonnement Azure, et si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-- Ouvrez une session espace de travail Analytique. Découvrez comment [créer un espace de travail Analytique de journal](../log-analytics/log-analytics-quick-create-workspace.md)
+- Espace de travail Log Analytics. Découvrir comment [créer un espace de travail Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
 
--  Pour activer Azure Sentinel, vous avez besoin d’autorisations de collaborateur pour l’abonnement dans lequel réside l’espace de travail Azure Sentinel. 
-- Pour utiliser Azure Sentinel, vous avez besoin des autorisations de collaborateur ou Observateur sur le groupe de ressources auquel appartient l’espace de travail
-- Des autorisations supplémentaires peuvent être nécessaires pour connecter les sources de données spécifiques
+-  Pour activer Azure Sentinel, vous avez besoin des autorisations des contributeurs concernant l’abonnement dans lequel réside l’espace de travail Azure Sentinel. 
+- Pour utiliser Azure Sentinel, vous avez besoin des autorisations des contributeurs ou des lecteurs sur le groupe de ressources auquel appartient l’espace de travail.
+- Des autorisations supplémentaires peuvent être nécessaires pour la connexion à des sources de données spécifiques.
+- Azure Sentinel est un service payant. Pour obtenir des informations de tarification, voir [À propos d’Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
  
 ## Activer Azure Sentinel <a name="enable"></a>
 
-1. Accédez au portail Azure.
-2. Assurez-vous que l’abonnement dans lequel Azure Sentinel est créé, est sélectionné. 
+1. Accédez au Portail Azure.
+2. Assurez-vous que l’abonnement dans lequel est créé Azure Sentinel est bien sélectionné. 
 3. Recherchez Azure Sentinel. 
    ![search](./media/quickstart-onboard/search-product.png)
 
 1. Cliquez sur **+Ajouter**.
-1. Sélectionnez l’espace de travail que vous souhaitez utiliser ou créez-en un. Vous pouvez exécuter Azure Sentinel sur plus d’un espace de travail, mais les données sont isolées sur un seul espace de travail.
+1. Sélectionnez l’espace de travail que vous souhaitez utiliser ou créez-en un. Vous pouvez exécuter Azure Sentinel sur plusieurs espaces de travail, mais les données sont isolées sur un seul espace de travail.
 
    ![recherche](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
-   > - **Emplacement de l’espace de travail** il est important de comprendre que toutes les données que vous diffusez sur Azure Sentinel est stockée dans l’emplacement géographique de l’espace de travail que vous avez sélectionné.  
-   > - Espaces de travail par défaut créés par Azure Security Center n’apparaîtra pas dans la liste ; Vous ne pouvez pas installer Azure Sentinel dessus.
-   > - Sentinel Azure peut s’exécuter sur les espaces de travail qui sont déployés dans une des régions suivantes :  Sud-est de l’Australie, centre du Canada, centre de l’Inde, est des États-Unis, est des États-Unis 2-EUAP (Canaries), est du Japon, Asie du Sud-est, Royaume-Uni Sud, Europe de l’ouest, ouest des États-Unis 2.
+   > - Les espaces de travail par défaut créés par Azure Security Center n’apparaissent pas dans la liste. Vous ne pouvez pas installer Azure Sentinel sur ces derniers.
+   > - Azure Sentinel peut s’exécuter sur des espaces de travail dans tout [région généralement disponible de Log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), à l’exception des régions Chine, Allemagne et Azure Government. Les données générées par Azure Sentinel (par exemple, incidents, signets et règles d’alerte, qui peuvent contenir des données client provenant de ces espaces de travail) sont enregistrées dans les régions Europe Ouest (pour les espaces de travail situés en Europe) ou USA Est (pour tous les espaces de travail basés aux États-Unis, ainsi que dans toute région autre que l’Europe).
 
-6. Cliquez sur **ajouter Azure Sentinel**.
+6. Cliquez sur **Ajouter Azure Sentinel**.
   
 
 ## <a name="connect-data-sources"></a>Connecter des sources de données
 
-Sentinel Azure crée la connexion aux services et applications en vous connectant au service et de transfert des événements et les journaux à Azure Sentinel. Pour les ordinateurs et les machines virtuelles, vous pouvez installer l’agent Sentinel Azure qui collecte les journaux et les transfère à Azure Sentinel. Pour les pare-feux et proxys, Sentinel Azure utilise un serveur Linux Syslog. L’agent est installé sur celui-ci et à partir de laquelle l’agent collecte les fichiers journaux et les transfère à Azure Sentinel. 
+Azure Sentinel crée la connexion aux services et aux applications en se connectant au service et en transférant les événements et les journaux vers Azure Sentinel. Pour les ordinateurs et les machines virtuelles, vous pouvez installer l’agent Azure Sentinel qui collecte les journaux et les transfère à Azure Sentinel. Pour les pare-feux et les proxies, Azure Sentinel utilise un serveur Linux Syslog. L’agent est installé sur ce dernier et l’utilise pour collecter les fichiers journaux et les transférer à Azure Sentinel. 
  
-1. Cliquez sur **collecte des données**.
-2. Il existe une vignette pour chaque source de données que vous pouvez vous connecter.<br>
-Par exemple, cliquez sur **Azure Active Directory**. Si vous vous connectez à cette source de données, vous diffusez tous les journaux à partir d’Azure AD dans Azure Sentinel. Vous pouvez sélectionner le type de journaux que vous souhaitez pour obtenir - journaux de connexion et/ou les journaux d’audit. <br>
-En bas, Sentinel Azure fournit des recommandations pour les tableaux de bord, vous devez installer pour chaque connecteur afin de vous pouvez immédiatement obtenir des intéressants insights sur vos données. <br> Suivez les instructions d’installation ou [consultez le guide de connexion pertinentes](connect-data-sources.md) pour plus d’informations. Pour plus d’informations sur les connecteurs de données, consultez [services Microsoft de se connecter](connect-data-sources.md).
+1. Cliquez sur **Collecte de données**.
+2. Il existe une vignette pour chaque source de données que vous pouvez connecter.<br>
+Par exemple, cliquez sur **Azure Active Directory**. Si vous connectez cette source de données, vous diffusez tous les journaux d’Azure AD vers Azure Sentinel. Vous pouvez sélectionner le type de journaux de votre choix pour accéder et vous connecter aux journaux et/ou journaux d’audit. <br>
+Dans la partie inférieure, Azure Sentinel fournit des suggestions sur les classeurs que vous devez installer pour chaque connecteur afin que vous puissiez immédiatement obtenir des insights intéressants sur vos données. <br> Suivez les instructions d’installation ou [consultez le guide de connexion concerné](connect-data-sources.md) pour plus d’informations. Pour plus d’informations sur les connecteurs de données, consultez [Connecter des services Microsoft](connect-data-sources.md).
 
-Une fois que vos données sources sont connectés, vos données démarre la diffusion en continu dans Azure Sentinel et sont prêtes à commencer à utiliser. Vous pouvez afficher les journaux dans le [tableaux de bord intégrés](quickstart-get-visibility.md) et commencez à créer des requêtes dans Analytique de journal à [examiner les données](tutorial-investigate-cases.md).
+Une fois que vos données sources sont connectées, elles commencent à être diffusées en continu dans Azure Sentinel et peuvent être utilisées. Vous pouvez afficher les journaux dans les [tableaux de bord intégrés](quickstart-get-visibility.md) et commencer à créer des requêtes dans Log Analytics pour [examiner les données](tutorial-investigate-cases.md).
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce document, vous avez appris sur la connexion des sources de données à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
-- Découvrez comment [obtenez une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main [détecter des menaces avec Azure Sentinel](tutorial-detect-threats.md).
-- Données à partir de Stream [appliances de Format d’erreur commun](connect-common-event-format.md) dans Azure Sentinel.
+Dans ce document, vous avez appris à connecter des sources de données à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
+- Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Diffusez des données à partir d’[appliances de format d’erreur courants](connect-common-event-format.md) vers Azure Sentinel.

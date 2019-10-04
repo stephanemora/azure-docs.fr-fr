@@ -1,28 +1,21 @@
 ---
-title: Considérations sur les API | Microsoft Docs
+title: Considérations sur les API | Place de marché Azure
 description: Gestion des versions, des erreurs et des problèmes d’autorisation lors de l’utilisation des API de la Place de marché.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c6cfb41cb6254145821ab3fef662e9a5e54f6298
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: pabutler
+ms.openlocfilehash: 6bf27db27daee50f78552344ae1b2b116d48a5c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806441"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "64935572"
 ---
-<a name="api-considerations"></a>Considérations sur les API
-=================
+# <a name="api-considerations"></a>Considérations sur les API
+
 
 <a name="api-versioning"></a>Contrôle de version d’API
 --------------

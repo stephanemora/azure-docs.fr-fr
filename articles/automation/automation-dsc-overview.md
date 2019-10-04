@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
+ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524937"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70061392"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Vue d’ensemble d’Azure Automation State Configuration
 
@@ -39,15 +39,15 @@ Azure Automation State Configuration apporte la même couche de gestion à la [c
 
 ### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importer des données de création de rapports dans les journaux Azure Monitor
 
-Les nœuds gérés dans Azure Automation State Configuration envoient des données détaillées sur l’état de création de rapports au serveur collecteur intégré. Vous pouvez configurer Azure Automation State Configuration de façon à envoyer ces données à votre espace de travail Log Analytics. Pour savoir comment envoyer des données d’état de Configuration d’état à votre espace de travail Analytique de journal, consultez [transférer Azure Automation la Configuration d’état données de rapport dans les journaux d’Azure Monitor](automation-dsc-diagnostics.md).
+Les nœuds gérés dans Azure Automation State Configuration envoient des données détaillées sur l’état de création de rapports au serveur collecteur intégré. Vous pouvez configurer Azure Automation State Configuration de façon à envoyer ces données à votre espace de travail Log Analytics. Pour savoir comment envoyer des données d’état State Configuration à votre espace de travail Log Analytics, consultez [Transférer des données de rapport Azure Automation State Configuration à des journaux Azure Monitor](automation-dsc-diagnostics.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Veuillez prendre en compte les exigences suivantes lors de l’utilisation d’Azure Automation état Configuration (DSC).
+Veuillez prendre en compte les exigences suivantes lors de l’utilisation d’Azure Automation State Configuration (DSC).
 
 ### <a name="operating-system-requirements"></a>Configuration requise du système d’exploitation
 
-Pour les nœuds exécutant Windows, les versions suivantes sont prises en charge :
+Pour les nœuds exécutant Windows, les versions suivantes sont prises en charge :
 
 - Windows Server 2019
 - Windows Server 2016
@@ -58,29 +58,40 @@ Pour les nœuds exécutant Windows, les versions suivantes sont prises en charge
 - Windows 8.1
 - Windows 7
 
-Pour les nœuds Linux en cours d’exécution, les distributions/versions suivantes sont prises en charge :
+La référence SKU du produit autonome [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) ne contenant pas d’implémentation de Desired State Configuration, elle ne peut pas être gérée par PowerShell DSC ou Azure Automation State Configuration.
 
-L’extension DSC Linux prend en charge toutes les distributions Linux [approuvées sur Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , à l’exception :
+Pour les nœuds exécutant Linux, les distributions/versions suivantes sont prises en charge :
 
-Distribution | Version
--|-
-Debian  | toutes les versions
-Ubuntu  | 18,04
+L’extension Linux DSC prend en charge toutes les distributions Linux listées sous [Distributions Linux prises en charge](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
-### <a name="dsc-requirements"></a>Exigences de DSC
+### <a name="dsc-requirements"></a>Configuration requise de DSC
 
-Pour tous les nœuds de Windows s’exécutant dans Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) sera installé lors de l’intégration.  Pour les nœuds exécutant Windows Server 2012 et Windows 7, [sera activé WinRM](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Pour tous les nœuds Windows s’exécutant dans Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) sera installé lors de l’intégration.  Pour les nœuds exécutant Windows Server 2012 et Windows 7, [WinRM sera activé](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 Pour tous les nœuds Linux s’exécutant dans Azure, [DSC PowerShell pour Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) sera installé lors de l’intégration.
 
 ### <a name="network-planning"></a>Configurer des réseaux privés
 
-Si vos nœuds sont situés dans un réseau privé, le port et les URL suivantes sont requises pour état de Configuration (DSC) pour communiquer avec Automation :
+Si vos nœuds sont situés dans un réseau privé, les ports et URL suivants sont requis pour permettre à State Configuration (DSC) de communiquer avec Automation :
 
 * Port : seul le port TCP 443 est nécessaire pour l’accès Internet sortant.
 * URL globale : *.azure-automation.net
 * URL globale d’US Gov Virginie : *.azure-automation.us
 * Service de l’agent : https://\<ID_espace_de_travail\>.agentsvc.azure-automation.net
+
+Cela fournit une connectivité réseau pour que le nœud géré communique avec Azure Automation.
+Si vous utilisez des ressources DSC qui communiquent entre des nœuds, telles que les [ressources WaitFor*](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), vous devrez également autoriser le trafic entre les nœuds.
+Pour connaître la configuration réseau requise, consultez la documentation de chaque ressource DSC.
+
+#### <a name="proxy-support"></a>Prise en charge de proxy
+
+La prise en charge de proxy pour l’agent DSC est disponible dans Windows version 1809 et versions ultérieures.
+Pour configurer cette option, définissez les valeurs **ProxyURL** et **ProxyCredential** dans le [script de métaconfiguration](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) utilisé pour inscrire des nœuds.
+Le proxy n’est pas disponible dans DSC pour les versions antérieures de Windows.
+
+Pour les nœuds Linux, l’agent DSC prend en charge le proxy et utilisera la variable http_proxy pour déterminer l’URL.
+
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Plages et espace de noms de réseaux d’Azure State Configuration
 
 Il est recommandé d’utiliser les adresses répertoriées lors de la définition des exceptions. Pour les adresses IP, vous pouvez télécharger les [Plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ce fichier, qui est mis à jour chaque semaine, possède les plages actuellement déployées et tous les changements à venir des plages d’adresses IP.
 
@@ -88,14 +99,15 @@ Si vous avez un compte Automation défini pour une région spécifique, vous pou
 
 | **Région** | **Enregistrement DNS** |
 | --- | --- |
-| USA Centre-Ouest | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| USA Centre Sud |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| Centre-USA Ouest | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
+| États-Unis - partie centrale méridionale |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| USA Est   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | USA Est 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Centre du Canada |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | Europe Ouest |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
 | Europe Nord |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
 | Asie Sud-Est |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
-| Inde Centre |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
+| Inde centrale |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | Japon Est |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Sud-Est de l’Australie |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Sud du Royaume-Uni | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
@@ -109,15 +121,6 @@ Pour obtenir la liste des adresses IP régionales plutôt que celle des noms des
 >Un fichier mis à jour est publié chaque semaine. Le fichier reflète les plages déployées et toutes les modifications à venir dans les plages IP. Les nouvelles plages figurant dans le fichier ne sont pas utilisées dans les centres de données avant une semaine minimum.
 >
 > Pensez à télécharger le nouveau fichier XML chaque semaine. Ensuite, mettez à jour votre site afin qu’il identifie correctement les services en cours d’exécution dans Azure. Les utilisateurs d’Azure ExpressRoute doivent noter que ce fichier est utilisé pour mettre à jour la publication BGP (Border Gateway Protocol) de l’espace Azure la première semaine de chaque mois.
-
-## <a name="introduction-video"></a>Vidéo de présentation
-
-Lire de la documentation vous enchante moyennement ? Jetez un œil à la vidéo ci-dessous, publiée en mai 2015 à l’occasion de l’annonce d’Azure Automation State Configuration.
-
-> [!NOTE]
-> Bien que les concepts et le cycle de vie abordés dans cette vidéo soient corrects, Azure Automation State Configuration a beaucoup progressé depuis l’enregistrement de cette vidéo. Désormais disponible au public, il dispose d’une interface utilisateur plus étendue dans le portail Azure et prend en charge des fonctionnalités supplémentaires.
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

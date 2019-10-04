@@ -3,9 +3,9 @@ title: Notifications Push localisées vers des appareils iOS à l’aide d’Azu
 description: Découvrez comment utiliser des notifications Push localisées vers des appareils iOS à l’aide d’Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,15 +13,17 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
-ms.openlocfilehash: 527e9979b624970dd55b4300fe63c27386640ac4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 8eb4cf5e12c16c3c164ecce41a84a9cd32fd85ee
+ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886600"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71211896"
 ---
-# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Tutoriel : notifications Push localisées vers des appareils iOS à l’aide d’Azure Notification Hubs
+# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Didacticiel : notifications Push localisées vers des appareils iOS à l’aide d’Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
@@ -42,14 +44,14 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Envoyer des notifications de modèle localisé à partir de l’application console .NET
 > * Envoyer des notifications de modèle localisé à partir de l’appareil
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Dans le tutoriel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles] , vous avez créé une application qui se sert de **balises** pour s'abonner aux notifications relatives à différentes catégories de nouvelles. Cependant, de nombreuses applications sont destinées à plusieurs marchés et doivent donc être localisées. Cela signifie que le contenu des notifications proprement dites doit lui aussi être localisé et envoyé au bon ensemble d’appareils. Ce tutoriel vous montre comment utiliser la fonctionnalité de **modèle** de Notification Hubs pour facilement envoyer des notifications de dernières nouvelles localisées.
 
 > [!NOTE]
 > Pour envoyer des notifications localisées, vous pouvez notamment créer plusieurs versions de chaque balise. Par exemple, pour prendre en charge l'anglais, le français et le mandarin, vous auriez besoin de trois balises différentes pour les nouvelles internationales : « world_en », « world_fr » et « world_ch ». Il faudrait ensuite que vous envoyiez une version localisée des nouvelles internationales à chacune de ces balises. Dans cette rubrique, vous utilisez des modèles afin d'éviter la prolifération de balises et d'éliminer la nécessité d'envoyer plusieurs messages.
 
-À un haut niveau, les modèles permettent de spécifier comment un appareil particulier reçoit une notification. Le modèle spécifie le format de charge utile exact en se référant aux propriétés qui font partie du message envoyé par le serveur principal de votre application. Aux fins de notre exemple, vous allez envoyer un message de paramètres régionaux contenant toutes les langues prises en charge :
+Les modèles permettent de spécifier comment un appareil particulier reçoit une notification. Le modèle spécifie le format de charge utile exact en se référant aux propriétés qui font partie du message envoyé par le serveur principal de votre application. Aux fins de notre exemple, vous allez envoyer un message de paramètres régionaux contenant toutes les langues prises en charge :
 
 ```json
 {
@@ -71,10 +73,10 @@ Ensuite, vous allez vous assurer que les appareils s'inscrivent avec un modèle 
 
 Pour plus d’informations sur les modèles, consultez l’article [Modèles](notification-hubs-templates-cross-platform-push-messages.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Compléter le tutoriel [Notifications Push à des appareils iOS spécifique](notification-hubs-ios-xplat-segmented-apns-push-notification.md) et rendre le code disponible car ce tutoriel s’appuie directement sur ce code.
-* Visual Studio 2017 est facultatif.
+* Visual Studio 2019 est facultatif.
 
 ## <a name="update-the-app-user-interface"></a>Mettre à jour l’interface utilisateur de l’application
 

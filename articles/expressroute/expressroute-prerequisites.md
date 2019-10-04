@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: mialdrid
+ms.date: 09/18/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.openlocfilehash: 4ef1a768356078c160b798c1a96412adda0330f6
+ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295196"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71123290"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Configuration requise pour ExpressRoute et liste de contrôle
 Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, vous devez vérifier que les conditions requises des sections suivantes sont remplies.
@@ -21,7 +21,7 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## <a name="azure-account"></a>Compte Azure
-* Un compte Microsoft Azure actif et valide. Ce compte est nécessaire pour configurer le circuit ExpressRoute. Les circuits ExpressRoute sont des ressources au sein des abonnements Azure. Un abonnement Azure est requis même si la connectivité est limitée aux services cloud de Microsoft étrangers à Azure, tels que les services Office 365 et Dynamics 365.
+* Un compte Microsoft Azure actif et valide. Ce compte est nécessaire pour configurer le circuit ExpressRoute. Les circuits ExpressRoute sont des ressources au sein des abonnements Azure. Un abonnement Azure est nécessaire, même si la connectivité est limitée aux services cloud Microsoft autres qu’Azure, tels qu’Office 365.
 * Un abonnement Office 365 actif (si vous utilisez les services Office 365). Pour plus d’informations, consultez la section Conditions requises propres à Office 365 de cet article.
 
 ## <a name="connectivity-provider"></a>Fournisseur de connectivité
@@ -30,8 +30,8 @@ Pour vous connecter aux services cloud de Microsoft en utilisant ExpressRoute, v
 * Si votre fournisseur n’est pas un partenaire de connectivité ExpressRoute, vous pouvez toujours vous connecter à Microsoft Cloud par le biais d’un [fournisseur de solutions d’interconnexion de clouds](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
-* **Redondance dans chaque emplacement d’homologation**: Microsoft exige que les sessions BGP redondantes définie entre ses routeurs et les routeurs d’homologation sur chaque circuit ExpressRoute (même si vous avez simplement [une seule connexion physique à un échange de cloud](expressroute-faqs.md#onep2plink)).
-* **Redondance pour la récupération d’urgence**: Microsoft vous recommande vivement de que vous configurez au moins deux circuits ExpressRoute dans différents emplacements d’homologation pour éviter un point de défaillance unique.
+* **Redondance à chaque emplacement d’homologation**: Microsoft exige la configuration de sessions BGP redondantes entre ses routeurs et les routeurs d’homologation sur chaque circuit ExpressRoute, même quand vous ne disposez que d’[une seule connexion physique à une solution d’interconnexion de clouds](expressroute-faqs.md#onep2plink).
+* **Redondance pour la reprise d’activité après sinistre** : Microsoft vous recommande vivement de configurer au moins deux circuits ExpressRoute à des emplacements d’homologation différents pour éviter d’avoir un point de défaillance unique.
 * **Routage** : selon la façon dont vous vous connectez à Microsoft Cloud, vous ou votre fournisseur pouvez avoir besoin de configurer et gérer les sessions BGP pour les [domaines de routage](expressroute-circuit-peerings.md). Certains fournisseurs de connectivité Ethernet ou fournisseurs d’échange cloud peuvent proposer la gestion BGP en tant que service à valeur ajoutée.
 * **Traduction d’adresses réseau (NAT)** : Microsoft accepte uniquement les adresses IP publiques par le biais de l’homologation Microsoft. Si votre réseau local comporte des adresses IP privées, vous ou votre fournisseur devez traduire les adresses IP privées en adresses IP publiques [à l’aide de la traduction d’adresses réseau](expressroute-nat.md).
 * **Qualité de service (QoS)** : Skype Entreprise comprend différents services (par exemple, voix, vidéo, texte) nécessitant un traitement QoS différencié. Vous et votre fournisseur devez suivre la [configuration requise pour ExpressRoute QoS](expressroute-qos.md).
@@ -48,12 +48,6 @@ Si vous prévoyez d’activer Office 365 sur ExpressRoute, consultez les docume
 * [Outils et calculatrices de bande passante réseau](https://support.office.com/article/Network-and-migration-planning-for-Office-365-f5ee6c33-bcd7-4b0b-b0f8-dc1d9fb8d132)
 * [Intégration d’Office 365 aux environnements locaux](https://support.office.com/article/Office-365-integration-with-on-premises-environments-263faf8d-aa21-428b-aed3-2021837a4b65)
 * [Vidéos de formation avancée à ExpressRoute sur Office 365](https://channel9.msdn.com/series/aer/)
-
-## <a name="dynamics-365"></a>Dynamics 365
-Si vous prévoyez d’activer Dynamics 365 sur ExpressRoute, consultez les documents suivants pour plus d’informations sur Dynamics 365.
-
-* [Livre blanc Dynamics 365 et ExpressRoute](https://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
-* [URL](https://support.microsoft.com/kb/2655102) et [plages d’adresses IP Dynamics 365](https://support.microsoft.com/kb/2728473)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour plus d'informations sur ExpressRoute, consultez le [FAQ sur ExpressRoute](expressroute-faqs.md).

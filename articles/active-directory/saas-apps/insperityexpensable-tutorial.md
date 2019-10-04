@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b049b6526b0053c79b313d3d51a94a7706d5f93c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 43b24bec557d1cc879be9568bea451f1a8b0b310
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565731"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>Didacticiel : Intégration d’Azure Active Directory à Insperity ExpensAble
 
@@ -53,7 +53,7 @@ Pour configurer l'intégration d’Insperity ExpensAble avec Azure AD, vous dev
 
 **Pour ajouter Insperity ExpensAble à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec Insperity ExpensAble,
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support Insperity ExpensAble](http://expensable.com/support/support-overview). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Pour obtenir cette valeur, contactez l’[équipe du support Insperity ExpensAble](https://www.insperity.com/products/expense-management/support/express/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -126,7 +126,7 @@ Pour configurer l’authentification unique Azure AD avec Insperity ExpensAble,
 
 ### <a name="configure-insperity-expensable-single-sign-on"></a>Configurer l’authentification unique Insperity ExpensAble
 
-Pour configurer l’authentification unique côté **Insperity ExpensAble**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support Insperity ExpensAble](http://expensable.com/support/support-overview). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Insperity ExpensAble**, vous devez envoyer le **certificat (Base64)** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support Insperity ExpensAble](https://www.insperity.com/products/expense-management/support/express/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -181,7 +181,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-insperity-expensable-test-user"></a>Créer un utilisateur de test Insperity ExpensAble
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Insperity ExpensAble. Travaillez en collaboration avec l’ [équipe du support Insperity ExpensAble](http://expensable.com/support/support-overview) pour ajouter des utilisateurs à la plateforme Insperity ExpensAble. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Insperity ExpensAble. Travaillez en collaboration avec l’ [équipe du support Insperity ExpensAble](https://www.insperity.com/products/expense-management/support/express/) pour ajouter des utilisateurs à la plateforme Insperity ExpensAble. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

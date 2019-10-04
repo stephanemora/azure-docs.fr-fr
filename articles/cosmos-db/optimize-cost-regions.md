@@ -4,14 +4,14 @@ description: Cet article explique comment gérer les coûts des déploiements mu
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/31/2019
 ms.author: rimman
-ms.openlocfilehash: 012eacb172acfdeb0b82343c484c664a3f75310e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 233eab1fc49d7ce4cbb1e5b98b67eda9a64aa195
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876700"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667596"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimiser le coût multirégion dans Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Le débit approvisionné avec une seule région d’écriture coûte 0,008 $/heu
 
 ## <a name="costs-for-multiple-write-regions"></a>Coûts pour plusieurs régions d’écriture
 
-Dans un système multimaître, les unités de requête nettes disponibles pour les opérations d’écriture sont multipliées par `N`, où `N` est le nombre de régions d’écriture. Contrairement aux régions d’écriture uniques, toutes les régions sont désormais accessibles en écriture et doivent prendre en charge la résolution des conflits. La quantité de charges de travail en écriture a augmenté. À partir du coût de planification de point de vue, pour effectuer `M` valeur de RU/s des écritures dans le monde entier, vous devez approvisionner M `RUs` à un niveau de base de données ou le conteneur. Vous pouvez ensuite ajouter autant de régions que vous le souhaitez et les utiliser pour les écritures pour effectuer `M` RU d’écritures dans le monde entier. 
+Dans un système multimaître, les unités de requête nettes disponibles pour les opérations d’écriture sont multipliées par `N`, où `N` est le nombre de régions d’écriture. Contrairement aux régions d’écriture uniques, toutes les régions sont désormais accessibles en écriture et doivent prendre en charge la résolution des conflits. La quantité de charges de travail en écriture a augmenté. Du point de vue du coût de planification, pour effectuer `M` RU/seconde d’écritures dans le monde, vous devez approvisionner M `RUs` au niveau de la base de données ou du conteneur. Vous pouvez ensuite ajouter autant de régions que vous le souhaitez et les utiliser pour les écritures pour effectuer `M` RU d’écritures dans le monde entier. 
 
 ### <a name="example"></a>Exemples
 
@@ -35,9 +35,9 @@ Supposons que vous disposez d’un conteneur dans la région USA Ouest qui est p
 |----|----|----|----|
 |Facture de débit pour le conteneur de la région USA Ouest (plusieurs régions d’écriture) |10 000 RU/seconde x 24 x 31 |0,016 $ pour 100 RU/s par heure |$1 190,40 |
 |Facture de débit pour 3 régions supplémentaires : USA Est, Europe Nord et Asie Est (plusieurs régions d’écriture) |(3 + 1) x 10 000 RU/s x 24 x 31 |0,016 $ pour 100 RU/s par heure |$4 761,60 |
-|Facture de stockage pour le conteneur de la région USA Ouest |100 Go |0,25 $/Go |25 $ |
-|Facture de stockage pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est) |3 x 1 To |0,25 $/Go |75 $ |
-|**Total**|||**6 052 $** |
+|Facture de stockage pour le conteneur de la région USA Ouest |1 To (ou 1 024 Go) |0,25 $/Go |256 $ |
+|Facture de stockage pour 3 régions supplémentaires (USA Est, Europe Nord et Asie Est) |3 * 1 Go (ou 3 072 Go) |0,25 $/Go |768 $ |
+|**Total**|||**6 976 $** |
 
 ## <a name="improve-throughput-utilization-on-a-per-region-basis"></a>Améliorer l’utilisation du débit par région
 

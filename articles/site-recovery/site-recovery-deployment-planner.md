@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: mayg
-ms.openlocfilehash: 0597f185df35a92696ed9287d23778180319b3de
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4e1d27d133b2eb4e0d4d45a5de563e119513c79f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005687"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68620060"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>À propos du planificateur de déploiement Azure Site Recovery pour VMware sur Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -41,10 +41,9 @@ L’outil fournit les informations suivantes :
 
 **Exigences de l’infrastructure Azure**
 
-* Le type de stockage (compte de stockage standard ou premium) pour chaque machine virtuelle
-* Le nombre total de comptes de stockage standard et premium à configurer pour la réplication
+* Exigences relatives au type de stockage (stockage standard ou premium) pour chaque machine virtuelle
+* Nombre total de comptes de stockage standard et premium à configurer pour la réplication (y compris les comptes de stockage de cache)
 * Suggestions d’affectation de noms pour les comptes de stockage en fonction des conseils liés au stockage
-* L’emplacement du compte de stockage pour toutes les machines virtuelles
 * Le nombre de cœurs Azure à configurer avant le test de basculement ou le basculement sur l’abonnement
 * La taille recommandée de machine virtuelle Azure pour chaque machine virtuelle sur site
 
@@ -65,14 +64,14 @@ L’outil fournit les informations suivantes :
 
 | | **VMware vers Azure** |**Hyper-V vers Azure**|**Azure vers Azure**|**Hyper-V vers un site secondaire**|**VMware vers un site secondaire**
 --|--|--|--|--|--
-Scénarios pris en charge |Oui|Oui|Non |Oui*|Non 
+Scénarios pris en charge |OUI|OUI|Non|Oui*|Non
 Version prise en charge | vCenter 6.7, 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
 Configuration prise en charge|vCenter, ESXi| Cluster Hyper-V, hôte Hyper-V|N/D|Cluster Hyper-V, hôte Hyper-V|N/D|
 Nombre de serveurs pouvant être profilés par instance en cours d’exécution du planificateur de déploiement Site Recovery |Unique (des machines virtuelles appartenant à un vCenter Server ou un serveur ESXi peuvent être profilées à la fois)|Plusieurs (des machines virtuelles sur plusieurs hôtes ou clusters hôtes peuvent être profilées à la fois)| N/D |Plusieurs (des machines virtuelles sur plusieurs hôtes ou clusters hôtes peuvent être profilées à la fois)| N/D
 
-* L’outil s’applique principalement au scénario de récupération d’urgence Hyper-V vers Azure. Pour la récupération d’urgence Hyper-V vers un site secondaire, il permet uniquement de disposer de recommandations côté source telles que la bande passante réseau requise, l’espace de stockage disponible requis sur chacun des serveurs Hyper-V source, et les numéros et définitions de lots de réplication initiale. Ignorez les recommandations et coûts Azure dans le rapport. De plus, l’opération d’obtention du débit ne s’applique pas au scénario de récupération d’urgence Hyper-V vers un site secondaire.
+\* L’outil s’applique principalement au scénario de récupération d’urgence Hyper-V vers Azure. Pour la récupération d’urgence Hyper-V vers un site secondaire, il permet uniquement de disposer de recommandations côté source telles que la bande passante réseau requise, l’espace de stockage disponible requis sur chacun des serveurs Hyper-V source, et les numéros et définitions de lots de réplication initiale. Ignorez les recommandations et coûts Azure dans le rapport. De plus, l’opération d’obtention du débit ne s’applique pas au scénario de récupération d’urgence Hyper-V vers un site secondaire.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 L’outil comporte deux phases principales : le profilage et la génération de rapport. En outre, une troisième option permet de calculer le débit uniquement. La configuration requise pour le serveur à partir de laquelle le profilage et la mesure du débit sont initiés est présentée dans le tableau suivant.
 
 | Configuration requise du serveur | Description|
@@ -104,6 +103,9 @@ Le dossier contient plusieurs fichiers et sous-dossiers. Le fichier exécutable 
     E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Mise à jour vers la dernière version du planificateur de déploiement
+
+Les dernières mises à jour sont résumées dans l’[historique des versions](site-recovery-deployment-planner-history.md) du Planificateur de déploiement.
+
 Si vous disposez d’une version précédente du planificateur de déploiement, effectuez l’une des actions suivantes :
  * Si la dernière version ne contient pas de correctif de profilage, et que le profilage est déjà en cours sur votre version actuelle de la planification, passez au profilage.
  * Si la dernière version contient un correctif de profilage, nous vous recommandons d’arrêter le profilage sur votre version actuelle et de redémarrer le profilage avec la nouvelle version.
@@ -117,8 +119,8 @@ Si vous disposez d’une version précédente du planificateur de déploiement, 
 
 
 ## <a name="version-history"></a>Historique des versions
-La dernière version de l’outil Site Recovery Deployment Planner est 2.4.
-Reportez-vous à la page [Historique des versions du Planificateur de déploiement Site Recovery](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) pour voir les correctifs ajoutés à chaque mise à jour.
+La dernière version de l’outil Planificateur de déploiement Site Recovery est la version 2.5.
+Reportez-vous à la page [Historique des versions du Planificateur de déploiement Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) pour voir les correctifs ajoutés à chaque mise à jour.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Exécuter le Planificateur de déploiement Site Recovery](site-recovery-vmware-deployment-planner-run.md)

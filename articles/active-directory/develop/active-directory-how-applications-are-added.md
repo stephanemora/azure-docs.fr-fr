@@ -3,27 +3,27 @@ title: Comment et pourquoi les applications sont ajoutées à Azure Active Direc
 description: Qu’implique l’ajout d’une application à Azure AD et comment en sommes-nous arrivés ici ?
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
-ms.author: celested
+ms.date: 06/04/2019
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 257f7b66163b72141ceb6405768e912a263fb14b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 6bb3ef2a86c523d7cda5bc7da5d83ec4ac741abf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124216"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835393"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Comment et pourquoi les applications sont ajoutées à Azure AD
 
@@ -32,9 +32,9 @@ Il existe deux représentations des applications dans Azure AD :
 * Les [principaux de service](app-objects-and-service-principals.md#service-principal-object) : ils peuvent être considérés comme une instance d’une application. En règle générale, les principaux de service référencent un objet d’application, et un objet d’application peut être référencé par plusieurs principaux de service sur plusieurs annuaires.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>À quoi correspondent les objets d’application et d’où viennent-ils ?
-Vous pouvez gérer des [objets d’application](app-objects-and-service-principals.md#application-object) dans le portail Azure via [Inscriptions d’application](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade). Les objets d’application décrivent l’application à Azure AD et peuvent être considérés comme la définition de l’application. Ils permettent au service de savoir comment émettre des jetons pour l’application, en fonction de ses paramètres. L’objet d’application existe uniquement dans son répertoire de base, même s’il s’agit d’une application mutualisée prenant en charge des principaux de service dans d’autres répertoires. L’objet d’application peut inclure les éléments suivants (ainsi que d’autres informations qui ne sont pas mentionnées ici) :
+Vous pouvez gérer des [objets d’application](app-objects-and-service-principals.md#application-object) dans le portail Azure via [Inscriptions d’application](https://aka.ms/appregistrations). Les objets d’application décrivent l’application à Azure AD et peuvent être considérés comme la définition de l’application. Ils permettent au service de savoir comment émettre des jetons pour l’application, en fonction de ses paramètres. L’objet d’application existe uniquement dans son répertoire de base, même s’il s’agit d’une application mutualisée prenant en charge des principaux de service dans d’autres répertoires. L’objet d’application peut inclure les éléments suivants (ainsi que d’autres informations qui ne sont pas mentionnées ici) :
 * Nom, logo et éditeur
-* URL de réponse
+* URI de redirection
 * Secrets (clés symétriques et/ou asymétriques utilisées pour authentifier l’application)
 * Dépendances d’API (OAuth)
 * API/ressources/étendues publiées (OAuth)
@@ -74,13 +74,15 @@ Le principal de service peut inclure :
   * Lorsque vous vous abonnez à Office 365 ou commencez une version d’évaluation, un ou plusieurs principaux de service sont créés dans l’annuaire représentant les différents services qui sont utilisés pour transmettre toutes les fonctionnalités associées à Office 365.
   * Certains services d’Office 365 tels que SharePoint créent des principaux de service sur une base continue, afin de sécuriser les communications entre les composants, y compris les flux de travail.
 * Lorsqu’un administrateur ajoute une application à partir de la galerie d’applications (cette opération crée également un objet d’application sous-jacent)
-* Lors de l’ajout d’une application pour utiliser le [Proxy d’application d’Azure AD](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+* Lors de l’ajout d’une application pour utiliser le [Proxy d’application d’Azure AD](/azure/active-directory/manage-apps/application-proxy)
 * Lors de la connexion d’une application pour l’authentification unique à l’aide de SAML ou de l’authentification unique (SSO) avec mot de passe
 * Par programmation via l’API Graph Azure AD ou PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Quel est le lien entre les objets d’application et les principaux de service ?
+
 Une application possède un objet d’application dans son annuaire de base qui est référencé par un ou plusieurs principaux de service dans chacun des annuaires où il opère (y compris l’annuaire de base de l’application).
-![Schéma illustrant la façon dont les objets d’application et les principaux de service interagissent entre eux et avec les instances Azure AD.][apps_service_principals_directory]
+
+![Illustre la relation entre les objets d’application et les principaux de service][apps_service_principals_directory]
 
 Dans le schéma ci-dessus, Microsoft gère deux annuaires en interne (représentés à gauche), qu’il utilise pour publier des applications :
 
@@ -96,15 +98,17 @@ Les applications que vous ajoutez vous-même (représentées en tant que **(Vos)
 * Les applications que vous avez publiées à l’aide du proxy d’application Azure AD
 
 ### <a name="notes-and-exceptions"></a>Remarques et exceptions
+
 * Tous les principaux de service ne pointent pas vers un objet d’application. Lorsqu’Azure AD a été créé, les services fournis aux applications étaient alors plus limités et le principal de service était suffisant pour établir une identité d’application. Le principal du service d'origine était plus proche en termes de forme du compte de service Windows Server Active Directory. Pour cette raison, il est toujours possible de créer des principaux de service via diverses méthodes, avec Azure AD PowerShell par exemple, sans d’abord créer un objet d’application. L’API Graph Azure AD requiert un objet d’application avant de pouvoir créer un principal de service.
 * Actuellement, toutes les informations décrites ci-dessus sont exposées par programmation. Les éléments suivants sont uniquement disponibles dans l'interface utilisateur :
   * Revendication des règles de transformation
   * Mappages d'attributs (déploiement de l'utilisateur)
 * Pour plus d’informations détaillées sur le principal de service et les objets d’application, consultez la documentation de référence sur l’API REST Azure AD Graph :
-  * [Application](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Principal du service](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+  * [Application](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Principal du service](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Pourquoi les applications s’intègrent à Azure AD ?
+
 Les applications sont ajoutées à Azure AD pour exploiter un ou plusieurs des services proposés par Azure AD, notamment :
 
 * L’authentification et l’autorisation de l’application
@@ -116,6 +120,7 @@ Les applications sont ajoutées à Azure AD pour exploiter un ou plusieurs des s
 * La publication et le proxy d’applications : publiez une application sur Internet à partir d’un réseau privé
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Qui a l'autorisation d'ajouter des applications à mon instance Azure AD ?
+
 Bien que certaines tâches puissent uniquement être effectuées par les administrateurs généraux (comme l’ajout d’applications depuis la galerie d’applications et la configuration d’une application pour utiliser le proxy d’application), par défaut tous les utilisateurs de votre annuaire ont des droits pour inscrire des objets d’application qu’ils sont en train de développer et décider des applications qu’ils partagent ou auxquelles ils donnent accès à leurs données organisationnelles via un consentement. Si une personne est le premier utilisateur de votre annuaire à se connecter à une application et à donner son consentement, un principal de service sera créé dans votre locataire ; sinon, les informations d’octroi du consentement seront stockées dans le principal de service existant.
 
 Permettre aux utilisateurs d’inscrire des applications et de donner leur consentement peut, à première vue, sembler inquiétant, mais n’oubliez pas les points suivants :
@@ -132,10 +137,11 @@ Si vous souhaitez toujours empêcher les utilisateurs de votre annuaire d’insc
 
 * Pour empêcher les utilisateurs de donner leur consentement pour leur propre compte :
   1. Dans le portail Azure, accédez à la section [Paramètres utilisateur](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) sous Applications d’entreprise.
-  2. Définissez le paramètre **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** sur **Non**. 
+  2. Définissez le paramètre **Les utilisateurs peuvent autoriser les applications à accéder aux données de l’entreprise en leur nom** sur **Non**.
      
      > [!NOTE]
-     > Si vous décidez de désactiver le consentement de l’utilisateur, un administrateur devra donner son consentement pour chaque nouvelle application qu’un utilisateur utilisera.    
+     > Si vous décidez de désactiver le consentement de l’utilisateur, un administrateur devra donner son consentement pour chaque nouvelle application qu’un utilisateur utilisera.
+
 * Pour empêcher les utilisateurs d’inscrire leurs propres applications :
   1. Dans le portail Azure, accédez à la section [Paramètres utilisateur](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) sous Azure Active Directory
   2. Définissez le paramètre **Les utilisateurs peuvent inscrire des applications** sur **Non**.
@@ -145,4 +151,3 @@ Si vous souhaitez toujours empêcher les utilisateurs de votre annuaire d’insc
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

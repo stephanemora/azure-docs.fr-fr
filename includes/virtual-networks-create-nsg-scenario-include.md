@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 873549442284ede2e9f020bd90879f721b9c1a18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 588aa260f2ece543445bfd4da7ef4682dab8334c
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38760354"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67176984"
 ---
 ## <a name="scenario"></a>Scénario
 Pour mieux illustrer la création de Groupes de sécurité réseau (NSG), ce document utilise le scénario suivant :

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f9fca0a9fefb5959747a4492139ae422a118db02
+ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470620"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70390172"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Comprendre le filtrage d’événements pour les abonnements Event Grid
 
@@ -43,7 +43,7 @@ Pour le filtrage simple par objet, spécifiez une valeur de départ ou de fin po
 
 Lorsque vous publiez des événements dans des rubriques personnalisées, créez des objets pour vos événements permettant aux abonnés de savoir facilement si l’événement les intéresse. Les abonnés utilisent la propriété d’objet pour filtrer et router des événements. Envisagez d’ajouter le chemin à l’origine de l’événement, de sorte que les abonnés puissent filtrer sur des segments de ce chemin. Le chemin d’accès permet aux abonnés de filtrer les événements avec précision ou à grande échelle. Si vous fournissez un chemin de trois segments comme `/A/B/C` dans l’objet, les abonnés peuvent filtrer sur le premier segment `/A` pour obtenir un vaste ensemble d’événements. Ces abonnés obtiennent des événements avec des objets tels que `/A/B/C` ou `/A/D/E`. Les autres abonnés peuvent filtrer par `/A/B` pour obtenir un ensemble plus restreint d’événements.
 
-La syntaxe JSON pour le filtrage par type d’événement est :
+La syntaxe JSON pour le filtrage par objet est :
 
 ```json
 "filter": {
@@ -61,23 +61,40 @@ Pour filtrer sur des valeurs dans les champs de données et spécifier l’opér
 * clé : champ des données d’événement que vous utilisez pour le filtrage. Ce peut être un nombre, une valeur booléenne ou une chaîne.
 * valeur ou valeurs : valeur ou valeurs à comparer à la clé.
 
-La syntaxe JSON pour utiliser des filtres avancés est la suivante :
+Si vous spécifiez un seul filtre avec plusieurs valeurs, une opération **OU** est effectuée : la valeur du champ clé doit donc être une de ces valeurs. Voici un exemple :
 
 ```json
-"filter": {
-  "advancedFilters": [
+"advancedFilters": [
     {
-      "operatorType": "NumberGreaterThanOrEquals",
-      "key": "Data.Key1",
-      "value": 5
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/",
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
+    }
+]
+```
+
+Si vous spécifiez plusieurs filtres différents, une opération **ET** est effectuée : chaque condition du filtre doit donc être satisfaite. Voici un exemple : 
+
+```json
+"advancedFilters": [
+    {
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/microsoft.devtestlab/"
+        ]
     },
     {
-      "operatorType": "StringContains",
-      "key": "Subject",
-      "values": ["container1", "container2"]
+        "operatorType": "StringContains",
+        "key": "Subject",
+        "values": [
+            "/providers/Microsoft.Compute/virtualMachines/"
+        ]
     }
-  ]
-}
+]
 ```
 
 ### <a name="operator"></a>Operator
@@ -107,7 +124,7 @@ Aucune des comparaisons de chaînes n’est sensible à la casse.
 
 Pour les événements dans le schéma Event Grid, utilisez les valeurs suivantes pour la clé :
 
-* ID
+* id
 * Rubrique
 * Objet
 * Type d’événement
@@ -129,8 +146,8 @@ Pour le schéma d’entrée personnalisé, utilisez les champs de données d’�
 Les valeurs peuvent être les suivantes :
 
 * number
-* chaîne
-* booléenne
+* string
+* boolean
 * array
 
 ### <a name="limitations"></a>Limites
@@ -140,8 +157,6 @@ Le filtrage avancé présente les limites suivantes :
 * Cinq filtres avancés par abonnement Event Grid
 * 512 caractères par valeur de type chaîne
 * Cinq valeurs pour les opérateurs **dans** et **pas dans**
-* La clé ne peut avoir qu'un niveau d’imbrication (comme data.key1)
-* Pour filtrer les schémas d’événement personnalisés, utilisez les champs de niveau supérieur
 
 La même clé peut être utilisée dans plusieurs filtres.
 

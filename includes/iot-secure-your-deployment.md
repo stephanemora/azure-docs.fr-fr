@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 6179086c6a2cf187c976ff23bf24180257023d28
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289170"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67177719"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Sécuriser votre déploiement Internet des objets
 
@@ -21,11 +21,11 @@ Cet article fournit davantage de détails sur la sécurisation de l’infrastruc
 
 La sécurisation du déploiement Azure IoT peut être divisée selon les trois zones de sécurité suivantes :
 
-* **Sécurité de l’appareil**: sécurisation de l’appareil IoT alors que celui-ci est déployé dans la nature.
+* **Sécurité des appareils** : sécurisation de l’appareil IoT alors que celui-ci est déployé dans la nature.
 
-* **Sécurité de la connexion**: s’assurer que toutes les données transmises entre l’appareil IoT et IoT Hub sont confidentielles et protégées contre la falsification.
+* **Sécurité de la connexion** : s’assurer que toutes les données transmises entre l’appareil IoT et IoT Hub sont confidentielles et protégées contre la falsification.
 
-* **Sécurité du cloud**: fournir un moyen de sécuriser les données lorsque celles-ci transitent par le cloud ou sont stockées sur celui-ci.
+* **Sécurité cloud** : fournir un moyen de sécuriser les données lorsque celles-ci transitent par le cloud ou sont stockées sur celui-ci.
 
 ![Trois zones de sécurité](./media/iot-secure-your-deployment/overview.png)
 
@@ -35,7 +35,7 @@ Les accélérateurs de solution IoT sécurisent les appareils IoT de deux façon
 
 * En fournissant une clé d’identité unique (jetons de sécurité) pour chaque appareil, qui peut être utilisée par l’appareil pour communiquer avec IoT Hub.
 
-* À l’aide d’un [certificat X.509](http://www.itu.int/rec/T-REC-X.509-201210-I/en) et d’une clé privée sur l’appareil en vue d’authentifier l’appareil auprès de l’IoT Hub. Cette méthode d’authentification permet de s’assurer que la clé privée sur l’appareil reste confidentielle à tout moment, offrant ainsi un niveau de sécurité plus élevé.
+* À l’aide d’un [certificat X.509](https://www.itu.int/rec/T-REC-X.509-201210-S) et d’une clé privée sur l’appareil en vue d’authentifier l’appareil auprès de l’IoT Hub. Cette méthode d’authentification permet de s’assurer que la clé privée sur l’appareil reste confidentielle à tout moment, offrant ainsi un niveau de sécurité plus élevé.
 
 La méthode du jeton de sécurité fournit une authentification pour chaque appel effectué par l’appareil à IoT Hub en associant la clé symétrique à chaque appel. L’authentification basée sur le certificat X.509 permet l’authentification d’un appareil IoT au niveau physique dans le cadre de l’établissement d’une connexion TLS. La méthode basée sur le jeton de sécurité peut être utilisée sans l’authentification X.509 qui constitue un modèle moins sécurisé. Le choix entre les deux méthodes dépend principalement du niveau requis pour l’authentification de l’appareil et de la disponibilité d’un stockage sécurisé sur l’appareil (pour stocker la clé privée en toute sécurité).
 
@@ -57,7 +57,7 @@ Chaque IoT Hub dispose d’un [registre d’identité](../articles/iot-hub/iot-
 
 * MQTT : le paquet CONNECT utilise `{deviceId}` en tant que `{ClientId}`, `{IoThubhostname}/{deviceId}` dans le champ **Nom d’utilisateur** et un jeton SAS dans le champ **Mot de passe**.
 
-* HTTP : le jeton valide se trouve dans l’en-tête de la requête d’autorisation.
+* HTTP : le jeton valide se trouve dans l’en-tête de la requête d’autorisation.
 
 Vous pouvez utiliser le registre d’identité IoT Hub pour configurer les informations d’identification de sécurité et le contrôle d’accès par appareil. Cependant, si une solution IoT représente déjà un investissement significatif dans un [registre d’identité des appareils personnalisé et/ou un schéma d’authentification](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication), vous pouvez intégrer cette infrastructure existante à IoT Hub en créant un service de jeton.
 
@@ -105,11 +105,11 @@ Les données reçues par Azure IoT Hub peuvent être utilisées par une variét�
 
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) : traitement des flux en temps réel dans le cloud, permettant de développer et de déployer rapidement une solution d’analyse à faible coût pour obtenir des informations en temps réel de la part des appareils, capteurs, infrastructures et applications. Les données de ce service entièrement géré peuvent être mises à l’échelle selon n’importe quel volume. Vous continuez à bénéficier d’un débit élevé, d’une faible latence et de la résilience.
 
-* [Azure App Services](https://azure.microsoft.com/services/app-service/) : plateforme cloud permettant de créer de puissantes applications web et mobiles qui se connectent aux données n’importe où, que ce soit localement ou dans le cloud. Créez des applications mobiles attrayantes pour iOS, Android et Windows. Assurez l’intégration avec vos applications SaaS (Software as a Service) et d’entreprise grâce à une connectivité prête à l’emploi à des dizaines d’applications et services basés sur le cloud. Encodez dans votre environnement de développement intégré et votre langage favoris (.NET, Node.js, PHP, Python ou Java) pour créer rapidement des applications web et des API.
+* [Azure App Services](https://azure.microsoft.com/services/app-service/) : plateforme cloud qui permet de créer des applications web et mobiles puissantes qui se connectent aux données n’importe où, que ce soit localement ou dans le cloud. Créez des applications mobiles attrayantes pour iOS, Android et Windows. Assurez l’intégration avec vos applications SaaS (Software as a Service) et d’entreprise grâce à une connectivité prête à l’emploi à des dizaines d’applications et services basés sur le cloud. Encodez dans votre environnement de développement intégré et votre langage favoris (.NET, Node.js, PHP, Python ou Java) pour créer rapidement des applications web et des API.
 
-* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/) : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
+* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/) : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
 
-* [Stockage Blob Azure](https://azure.microsoft.com/services/storage/) : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.
+* [Stockage Blob Azure](https://azure.microsoft.com/services/storage/) : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.
 
 ## <a name="conclusion"></a>Conclusion
 

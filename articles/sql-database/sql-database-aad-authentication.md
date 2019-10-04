@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: MT
+ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
+ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308378"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896997"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Utiliser l’authentification Azure Active Directory pour l’authentification avec SQL
 
@@ -56,11 +55,11 @@ Les étapes de configuration incluent les procédures suivantes pour configurer 
 
 ## <a name="trust-architecture"></a>Architecture d’approbation
 
-Le diagramme de niveau élevé suivant résume l’architecture de solution de l’utilisation de l’authentification Azure AD avec la base de données SQL Azure. Les mêmes concepts s’appliquent à SQL Data Warehouse. Pour prendre en charge le mot de passe des utilisateurs natifs d’Azure AD, seuls la partie cloud et Azure AD/Azure SQL Database sont considérés. Pour prendre en charge l’authentification fédérée (ou utilisateur/mot de passe pour les informations d’identification Windows), la communication avec le bloc ADFS est requise. Les flèches indiquent les voies de communication.
+Le diagramme de niveau élevé suivant résume l’architecture de solution de l’utilisation de l’authentification Azure AD avec Azure SQL Database. Les mêmes concepts s’appliquent à SQL Data Warehouse. Pour prendre en charge le mot de passe des utilisateurs natifs d’Azure AD, seuls la partie cloud et Azure AD/Azure SQL Database sont considérés. Pour prendre en charge l’authentification fédérée (ou utilisateur/mot de passe pour les informations d’identification Windows), la communication avec le bloc ADFS est requise. Les flèches indiquent les voies de communication.
 
 ![diagramme autorisation aad][1]
 
-Le diagramme suivant indique la fédération, l’approbation et les relations d’hébergement qui autorisent un client à se connecter à une base de données en soumettant un jeton. Le jeton est authentifié par une instance Azure AD, et approuvé par la base de données. Le client 1 peut représenter un répertoire Azure Active Directory avec des utilisateurs natifs ou un répertoire Azure AD avec des utilisateurs fédérés. Le client 2 représente une solution possible incluant des utilisateurs importés, qui dans cet exemple proviennent d’un répertoire Azure Active Directory fédéré avec la synchronisation d’ADFS avec Azure Active Directory. Il est important de comprendre que l’accès à une base de données à l’aide de l’authentification Azure AD exige que l’abonnement d’hébergement soit associé à Azure AD. Le même abonnement doit être utilisé pour créer le serveur SQL Server hébergeant la base de données SQL Azure ou SQL Data Warehouse.
+Le diagramme suivant indique la fédération, l’approbation et les relations d’hébergement qui autorisent un client à se connecter à une base de données en soumettant un jeton. Le jeton est authentifié par une instance Azure AD, et approuvé par la base de données. Le client 1 peut représenter un répertoire Azure Active Directory avec des utilisateurs natifs ou un répertoire Azure AD avec des utilisateurs fédérés. Le client 2 représente une solution possible incluant des utilisateurs importés, qui dans cet exemple proviennent d’un répertoire Azure Active Directory fédéré avec la synchronisation d’ADFS avec Azure Active Directory. Il est important de comprendre que l’accès à une base de données à l’aide de l’authentification Azure AD exige que l’abonnement d’hébergement soit associé à Azure AD. Le même abonnement doit être utilisé pour créer le serveur SQL Server hébergeant la base de données Azure SQL ou SQL Data Warehouse.
 
 ![relation abonnement][2]
 
@@ -99,7 +98,7 @@ Pour créer un utilisateur de base de données autonome dans le service Azure SQ
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### <a name="manage-instances"></a>Gérer des instances
+### <a name="managed-instances"></a>Instances Managed Instance
 
 - Les principaux de serveur (connexions) et les utilisateurs Azure AD sont pris en charge en tant que fonctionnalité d'évaluation pour les [instances gérées](sql-database-managed-instance.md).
 - La définition de principaux de serveur (connexions) Azure AD mappés sur un groupe Azure AD en tant que propriétaire de la base de données n’est pas prise en charge dans les [instances gérées](sql-database-managed-instance.md).
@@ -117,8 +116,9 @@ Pour créer un utilisateur de base de données autonome dans le service Azure SQ
 
 L’authentification Azure Active Directory prend en charge les méthodes suivantes de connexion à une base de données à l’aide d’identités Azure AD :
 
-- À l’aide de l’authentification Windows.
-- À l’aide d’un nom principal et d’un mot de passe Azure AD
+- Mot de passe Azure Active Directory
+- Intégration d’Azure Active Directory
+- Authentification universelle Azure Active Directory avec MFA
 - À l’aide de l’authentification par jeton d’application
 
 Les méthodes d’authentification suivantes sont prises en charge pour les principaux de serveur (connexions) Azure AD (**préversion publique**) :
@@ -126,7 +126,6 @@ Les méthodes d’authentification suivantes sont prises en charge pour les prin
 - Mot de passe Azure Active Directory
 - Intégration d’Azure Active Directory
 - Authentification universelle Azure Active Directory avec MFA
-- Authentification interactive Azure Active Directory
 
 
 ### <a name="additional-considerations"></a>Considérations supplémentaires

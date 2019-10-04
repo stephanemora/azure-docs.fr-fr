@@ -1,20 +1,19 @@
 ---
 title: Ports utilisés par les services Hadoop sur HDInsight - Azure
-description: Liste des ports utilisés par les services Hadoop sur HDInsight.
-services: hdinsight
+description: Cette liste répertorie les ports utilisés par les services Apache Hadoop qui s’exécutent dans Azure HDInsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: 1fe66c1c171e779f48f4cc7c6767307feaafbd5f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715458"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70733428"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Ports utilisés par les services Apache Hadoop sur HDInsight
 
@@ -29,8 +28,7 @@ En interne, HDInsight est implémenté par plusieurs machines virtuelles Azure (
 > [!IMPORTANT]  
 > Si vous ne spécifiez pas de réseau virtuel Azure comme une option de configuration pour HDInsight, un réseau virtuel Azure sera créé automatiquement. Toutefois, vous ne pouvez pas associer d’autres ordinateurs (comme les autres machines virtuelles Azure ou votre ordinateur de développement client) à ce réseau virtuel.
 
-
-Pour joindre des ordinateurs supplémentaires au réseau virtuel, vous devez d’abord créer le réseau virtuel, puis le spécifier lors de la création de votre cluster HDInsight. Pour plus d’informations, consultez [Étendre les capacités de HDInsight en utilisant un réseau virtuel Azure](hdinsight-extend-hadoop-virtual-network.md)
+Pour joindre des ordinateurs supplémentaires au réseau virtuel, vous devez d’abord créer le réseau virtuel, puis le spécifier lors de la création de votre cluster HDInsight. Pour plus d’informations, consultez le document [Planifier un réseau virtuel pour HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="public-ports"></a>Ports publics
 
@@ -43,7 +41,7 @@ Tous les nœuds dans un cluster HDInsight se trouvent dans un réseau virtuel Az
 | sshd |23 |SSH |Connecte les clients à sshd sur le nœud principal secondaire. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | Ambari |443 |HTTPS |Interface utilisateur web d’Ambari. Consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web Apache Ambari](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |API Ambari REST. Consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur Apache Ambari REST](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat, |443 |HTTPS |API REST HCatalog. Consultez les pages [Utilisation d'Apache Hive avec Curl](hadoop/apache-hadoop-use-pig-curl.md), [Utilisation d'Apache Pig avec Curl](hadoop/apache-hadoop-use-pig-curl.md), [Utilisation de MapReduce avec Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| WebHCat, |443 |HTTPS |API REST HCatalog. Voir [Utiliser MapReduce avec Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |Se connecte à Hive à l’aide de ODBC. Consultez la page [Connexion d’Excel à HDInsight à l’aide du pilote ODBC Microsoft](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
 | HiveServer2 |443 |JDBC |Se connecte à Apache Hive à l’aide de JDBC. Consultez la page [Se connecter à Apache Hive sur HDInsight à l’aide du pilote JDBC Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
@@ -56,7 +54,7 @@ Les éléments suivants sont disponibles pour les types de clusters spécifiques
 | Serveur Spark Thrift |443 |HTTPS |Spark |Le serveur Spark Thrift utilisé pour envoyer des requêtes Hive. Voir [Utiliser Beeline avec Apache Hive sur HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Interface utilisateur web de Storm. Voir [Déploiement et gestion des topologies Apache Storm sur HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
-### <a name="authentication"></a>Authentification
+### <a name="authentication"></a>Authentication
 
 Tous les services exposés publiquement sur Internet doivent être authentifiés :
 
@@ -107,7 +105,7 @@ Exemples :
 | NodeManager |Tous les nœuds de travail |30050 |&nbsp; |L’adresse du gestionnaire de conteneurs |
 | Interface utilisateur web de NodeManager |Tous les nœuds de travail |30060 |HTTP |Interface de Resource Manager |
 | Adresse de Timeline |Nœuds principaux |10200 |RPC |Le service RPC du service de Timeline. |
-| Interface utilisateur web de Timeline |Nœuds principaux |8181 |HTTP |L’interface utilisateur web du service Timeline |
+| Interface utilisateur web de Timeline |Nœuds principaux |8188 |HTTP |L’interface utilisateur web du service Timeline |
 
 ### <a name="hive-ports"></a>Ports Hive
 

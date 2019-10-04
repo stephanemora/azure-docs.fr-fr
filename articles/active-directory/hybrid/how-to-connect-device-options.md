@@ -16,18 +16,18 @@ ms.date: 09/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f397401581cc1bc947f1b19ce248c17fba26f4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 96ddcdb67ef079cfa23902a1dcb03b0ec61077fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160720"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67109542"
 ---
 # <a name="azure-ad-connect-device-options"></a>Azure AD Connect : Options de l’appareil
 
 La documentation ci-après fournit des informations sur les différentes options d’appareil disponibles dans Azure AD Connect. Vous pouvez utiliser Azure AD Connect pour configurer les deux opérations suivantes : 
 * **Jointure Azure AD Hybride** : Si votre environnement comporte une empreinte locale AD et que vous souhaitez profiter d’Azure AD, vous pouvez implémenter des appareils joints Azure AD hybrides. Ces appareils sont joints à la fois à votre service Active Directory local et à Azure Active Directory.
-* **Réécriture d’appareil** : la réécriture d’appareil est utilisée pour activer l’accès conditionnel basé sur l’appareil à des appareils protégés par AD FS (2012 R2 ou version ultérieure)
+* **Réécriture d’appareil** : La réécriture d’appareil est utilisée pour activer l’accès conditionnel basé sur l’appareil à des appareils protégés par AD FS (2012 R2 ou version ultérieure)
 
 ## <a name="configure-device-options-in-azure-ad-connect"></a>Configurer les options d’appareil dans Azure AD Connect
 

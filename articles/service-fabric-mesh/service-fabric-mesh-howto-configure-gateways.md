@@ -8,19 +8,18 @@ manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: b4fc6f91ee2429205974b9cb7ceb05b7cff53f15
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528116"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034208"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configurer une ressource Passerelle pour router les demandes
 
@@ -228,8 +227,8 @@ Voici à quoi ressemble une configuration complète d’une ressource Passerelle
 ```
 
 Cette passerelle est configurée pour une application Linux, "meshAppLinux", qui se compose d’au moins deux services, "helloWorldService" et "counterService", qui écoute sur le port 80. En fonction de la structure de l’URL de la demande entrante, elle route la demande vers l’un de ces services. 
-* «\<IPAddress > : 80/helloWorld/\<demande\>« entraînerait une demande est dirigée vers le « helloWorldListener » dans le helloWorldService. 
-* «\<IPAddress > : 80/compteur/\<demande\>« entraînerait une demande est dirigée vers le « counterListener » dans le counterService. 
+* "\<IPAddress>: 80/helloWorld/\<requête\>" dirigerait une requête vers le "helloWorldListener" du helloWorldService. 
+* "\<IPAddress>: 80/counter/\<requête\>" dirigerait une requête vers le "counterListener" du counterService. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Déployer l’[exemple d’entrée](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) pour voir les passerelles en action

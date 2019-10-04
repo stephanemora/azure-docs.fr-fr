@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: e0505960a413308283c4e67e33ec495eedd3b092
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336998"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827725"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Fonctionnalités et terminologie dans Azure Event Hubs
 
@@ -33,7 +33,7 @@ Un espace de noms Event Hubs fournit un conteneur d’étendue unique, référen
 
 [Cette fonctionnalité](event-hubs-for-kafka-ecosystem-overview.md) fournit un point de terminaison qui permet aux clients de communiquer avec Event Hubs à l'aide du protocole Kafka. Cette intégration fournit aux clients un point de terminaison Kafka. Cela permet aux clients de configurer leurs applications Kafka existantes pour communiquer avec Event Hubs, offrant ainsi une alternative à l'exécution de leurs propres clusters Kafka. Event Hubs pour Apache Kafka prend en charge le protocole Kafka 1.0 et versions ultérieures. 
 
-Avec cette intégration, vous n’avez pas besoin exécuter des clusters Kafka ou les gérer avec Zookeeper. Cela vous permet également d'utiliser certaines des fonctionnalités les plus exigeantes d'Event Hubs, comme la Capture, l'Augmentation automatique et la Géo-reprise d'activité après sinistre.
+Avec cette intégration, vous n’avez pas besoin d’exécuter des clusters Kafka ni de les gérer avec Zookeeper. Cela vous permet également d'utiliser certaines des fonctionnalités les plus exigeantes d'Event Hubs, comme la Capture, l'Augmentation automatique et la Géo-reprise d'activité après sinistre.
 
 Cette intégration permet aussi à des applications comme Mirror Maker ou à une infrastructure comme Kafka Connect de fonctionner sans cluster en utilisant uniquement des modifications de configuration. 
 
@@ -66,30 +66,8 @@ Vous n'êtes pas obligé de créer des noms d'éditeurs à l'avance, mais ils do
 [Event Hubs Capture](event-hubs-capture-overview.md) vous permet de capturer automatiquement les données de streaming dans Event Hubs et de les enregistrer dans le compte Stockage Blob ou le compte Azure Data Lake Service de votre choix. Vous pouvez activer la fonctionnalité Capture à partir du portail Azure et spécifier une taille minimale, ainsi que la période pour l’exécution de la capture. Avec Event Hubs Capture, vous pouvez spécifier vos propres compte Stockage Blob Azure et conteneur, ou votre propre compte Azure Data Lake Store, celui qui est utilisé pour stocker les données capturées. Les données capturées sont écrites dans le format Apache Avro.
 
 ## <a name="partitions"></a>Partitions
+[!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]
 
-Azure Event Hubs diffuse des messages via un modèle de consommateur partitionné, dans lequel chaque consommateur lit uniquement un sous-ensemble spécifique, ou partition, du flux de messages. Ce modèle permet la mise à l’échelle horizontale pour le traitement des événements et fournit d’autres fonctionnalités de flux qui ne sont pas disponibles dans les rubriques et les files d’attente.
-
-Une partition est une séquence ordonnée d’événements qui est conservée dans un concentrateur d’événements. Les événements les plus récents sont ajoutés à la fin de cette séquence. Une partition peut être considérée comme un « journal de validation ».
-
-![Event Hubs](./media/event-hubs-features/partition.png)
-
-Event Hubs conserve les données pendant une durée de rétention configurée, qui s’applique à toutes les partitions du concentrateur d’événements. Les événements expirent selon une base temporelle. Vous ne pouvez pas les supprimer explicitement. Comme les partitions sont indépendantes et contiennent leur propre séquence de données, elles évoluent souvent à des vitesses différentes.
-
-![Event Hubs](./media/event-hubs-features/multiple_partitions.png)
-
-Le nombre de partitions est spécifié lors de la création du concentrateur d’événements. Il doit être compris entre 2 et 32. Le nombre de partitions n’est pas modifiable. Lorsque vous le définissez, tenez compte de la mise à l’échelle sur le long terme. Les partitions constituent un mécanisme d’organisation des données. Elles sont liées au degré de parallélisme en aval requis lors de la consommation des applications. Le choix du nombre de partitions dans un concentrateur d’événements est directement lié au nombre de lecteurs simultanés que vous prévoyez d’avoir. Si vous souhaitez augmenter le nombre de partitions au-delà de 32, contactez l’équipe Azure Event Hubs.
-
-Les partitions sont identifiables et peuvent recevoir des données directement, mais envoyer directement à une partition n’est pas recommandé. Au lieu de cela, vous pouvez utiliser des constructions de niveau supérieur présentées dans le [Éditeur d’événements](#event-publishers) et sections de capacité. 
-
-Une séquence de données d’événement est incluse dans les partitions. Elle comprend le corps de chaque événement, un conteneur de propriétés défini par l’utilisateur et diverses métadonnées, telles que son décalage dans la partition et son numéro dans la séquence de flux.
-
-Pour plus d’informations sur les partitions et le compromis entre la disponibilité et la fiabilité, consultez le [Guide de programmation de concentrateurs d’événements](event-hubs-programming-guide.md#partition-key) et l’article [Disponibilité et cohérence dans Event Hubs](event-hubs-availability-and-consistency.md).
-
-### <a name="partition-key"></a>Clé de partition
-
-Vous pouvez utiliser une [clé de partition](event-hubs-programming-guide.md#partition-key) pour mapper des données d’événement entrant dans des partitions spécifiques dans le cadre de l’organisation des données. La clé de partition est une valeur fournie par l’expéditeur transmise dans un concentrateur d’événements. Elle est traitée par le biais d’une fonction de hachage statique, qui crée l’affectation de la partition. Si vous ne spécifiez aucune clé de partition lors de la publication d’un événement, une affectation de type tourniquet (round robin) est utilisée.
-
-L’éditeur d’événements est uniquement informé de sa clé de partition, et non de la partition sur laquelle les événements sont publiés. Grâce à cette dissociation de la clé et de la partition, l’expéditeur n’a pas besoin de connaître trop d’informations sur le traitement en aval. Une identité par appareil ou unique à l'utilisateur constitue une bonne clé de partition, mais d'autres attributs tels que la géographie, peuvent également être utilisés pour regrouper des événements liés dans une seule partition.
 
 ## <a name="sas-tokens"></a>Jetons SAS
 
@@ -152,38 +130,11 @@ Données d’événement :
 
 Il vous incombe de gérer le décalage.
 
-## <a name="scaling-with-event-hubs"></a>Mise à l’échelle avec Event Hubs
-
-Il existe deux facteurs qui influencent la mise à l’échelle avec Event Hubs.
-*   Unités de débit
-*   Partitions
-
-### <a name="throughput-units"></a>Unités de débit
-
-La capacité de débit des concentrateurs d’événements est contrôlée par les *unités de débit*. Les unités de débit sont des unités de capacité achetées préalablement. Un débit unique vous permet de :
-
-* Entrée : jusqu’à 1 Mo par seconde ou 1 000 événements par seconde, selon ce qui se produit en premier.
-* Sortie : jusqu’à 2 Mo par seconde ou 4 096 événements par seconde.
-
-En cas de dépassement de la capacité des unités de débit achetées, l’entrée est limitée et une exception [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) est renvoyée. La sortie ne produit aucune exception de limitation, mais reste limitée à la capacité des unités de débit achetées. Si vous recevez des exceptions de vitesse de publication ou si vous attendez une sortie plus élevée, vérifiez le nombre d’unités de débit achetées pour l’espace de noms. Vous pouvez gérer des unités de débit sur le panneau **Mettre à l’échelle** des espaces de noms, dans le [portail Azure](https://portal.azure.com). Vous pouvez également gérer les unités de débit par programmation à l’aide des [API Event Hubs](event-hubs-api-overview.md).
-
-Les unités de débit sont achetées à l’avance et facturées à l’heure. Une fois achetées, les unités de débit sont facturées au moins une heure. Vous pouvez acheter jusqu’à 20 unités de débit par espace de noms Azure Event Hubs. Ces unités sont partagées entre tous les hubs d’événements de l’espace de noms en question.
-
-### <a name="partitions"></a>Partitions
-
-Partitions let vous mise à l’échelle votre traitement en aval. En raison du modèle de consommateur partitionné qui offre des concentrateurs d’événements avec des partitions, vous pouvez faire évoluer lors du traitement de vos événements simultanément. Un concentrateur d’événements peut avoir jusqu'à 32 partitions.
-
-Nous vous recommandons d’équilibrer les partitions et les unités de débit de 1:1 pour obtenir un dimensionnement optimal. Une partition unique a une garantie entrant et sortant de jusqu'à 1 unité de débit. Même si vous êtes en mesure d’atteindre un débit plus élevé sur une partition, la performance n’est pas garanti. C’est pourquoi nous vous recommandons fortement de que le nombre de partitions dans un concentrateur d’événements soit supérieur ou égal au nombre d’unités de débit.
-
-Étant donné le débit total que vous prévoyez d’avoir besoin, vous connaissez le nombre d’unités de débit que vous avez besoin et le nombre minimal de partitions, mais le nombre de partitions devez vous avoir ? Choisissez le nombre de partitions basées sur le parallélisme en aval que vous voulez effectuer, ainsi que vos besoins en débit futures. Il n’existe aucun frais pour le nombre de partitions que vous avez au sein d’un concentrateur d’événements.
-
-Pour obtenir des informations de tarification détaillées des concentrateurs d’événements, consultez [Tarification des concentrateurs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :
 
-* Prise en main avec un [didacticiel des hubs d'événements][Event Hubs tutorial]
+* Prise en main avec un [didacticiel des concentrateurs d’événements][Event Hubs tutorial]
 * [Guide de programmation Event Hubs](event-hubs-programming-guide.md)
 * [Disponibilité et cohérence dans Event Hubs](event-hubs-availability-and-consistency.md)
 * [FAQ sur les hubs d’événements](event-hubs-faq.md)

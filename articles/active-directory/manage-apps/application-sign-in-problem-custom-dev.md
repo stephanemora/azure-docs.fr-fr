@@ -3,8 +3,8 @@ title: Problèmes de connexion à une application personnalisée | Microsoft Doc
 description: Erreurs courantes pouvant vous empêcher de vous connecter à une application développée avec Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4365c87f0028fe3a9c4ba35f40599359eb1455f
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.openlocfilehash: b8ad2499aea8bf4e41ca00d6c78d76e112f0493e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259123"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65825239"
 ---
-# <a name="problems-signing-in-to-an-custom-developed-application"></a>Problèmes de connexion à une application personnalisée
+# <a name="problems-signing-in-to-a-custom-developed-application"></a>Problèmes de connexion à une application personnalisée
 
 Plusieurs erreurs peuvent vous empêcher de vous connecter à une application. La raison principale vient du fait que les applications sont mal configurées.
 

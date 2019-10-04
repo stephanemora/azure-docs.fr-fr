@@ -1,6 +1,6 @@
 ---
-title: Surveiller Azure SQL Data Sync avec les journaux d’Azure Monitor | Microsoft Docs
-description: Découvrez comment surveiller Azure SQL Data Sync à l’aide des journaux Azure Monitor
+title: Superviser Azure SQL Data Sync avec des journaux Azure Monitor | Microsoft Docs
+description: Découvrez comment superviser Azure SQL Data Sync avec des journaux Azure Monitor.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -10,16 +10,15 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 6e94aac47ce5b45e700e2413d2e86d5f36596348
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: d1461a1bb026d478d51a5f79cc02b34172524db6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482434"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566407"
 ---
-# <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Surveiller SQL Data Sync avec les journaux Azure Monitor 
+# <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Superviser SQL Data Sync avec des journaux Azure Monitor 
 
 Pour contrôler le journal d’activité de SQL Data Sync et détecter les erreurs et avertissements, vous deviez vérifier manuellement SQL Data Sync dans le portail Azure ou utiliser PowerShell ou l’API REST. Suivez les étapes décrites dans cet article pour configurer une solution personnalisée qui améliore l’expérience de surveillance de Data Sync. Vous pouvez personnaliser cette solution pour l’adapter à votre scénario.
 
@@ -32,27 +31,27 @@ Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des 
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tableau de bord de surveillance pour tous vos groupes de synchronisation 
 
-Vous n’avez plus besoin d’examiner les journaux d’activité de chaque groupe de synchronisation individuellement pour rechercher des problèmes. Vous pouvez surveiller tous vos groupes de synchronisation à partir d’un de vos abonnements au même endroit à l’aide d’une vue personnalisée de Azure Monitor. Cette vue met en évidence les informations qui intéressent les clients SQL Data Sync.
+Vous n’avez plus besoin d’examiner les journaux d’activité de chaque groupe de synchronisation individuellement pour rechercher des problèmes. Vous pouvez superviser tous vos groupes de synchronisation à partir de n’importe lequel de vos abonnements et d’un seul emplacement à l’aide d’une vue Azure Monitor personnalisée. Cette vue met en évidence les informations qui intéressent les clients SQL Data Sync.
 
 ![Tableau de surveillance Data Sync](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Notifications automatiques par e-mail
 
-Vous n’avez plus besoin de consulter le journal manuellement dans le portail Azure ou par le biais de PowerShell ou de l’API REST. Avec [Azure Monitor enregistre](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), vous pouvez créer des alertes qui sont envoyées directement aux adresses de messagerie des personnes devant être informées en cas d’erreur.
+Vous n’avez plus besoin de consulter le journal manuellement dans le portail Azure ou par le biais de PowerShell ou de l’API REST. Avec [Journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), vous pouvez créer des alertes qui sont envoyées directement aux adresses e-mail des personnes devant être informées en cas d’erreur.
 
 ![Notifications Data Sync par e-mail](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>Comment faire pour configurer ces fonctionnalités de surveillance ? 
 
-Implémenter une analyse personnalisée d’Azure ouvre une solution de surveillance pour SQL Data Sync dans moins d’une heure en procédant comme suit :
+Effectuez les étapes suivantes pour implémenter une solution de supervision des journaux Azure Monitor personnalisée pour SQL Data Sync en moins d’une heure :
 
 Vous devez configurer trois composants :
 
--   Un runbook PowerShell pour envoyer les données de journal SQL Data Sync dans les journaux d’Azure Monitor.
+-   Un runbook PowerShell pour envoyer les données du journal SQL Data Sync aux journaux Azure Monitor.
 
--   Une alerte Azure Monitor pour les notifications par courrier électronique.
+-   Une alerte Azure Monitor pour les notifications par e-mail.
 
--   Une vue d’analyse Azure pour la surveillance.
+-   Une vue Azure Monitor pour la supervision.
 
 ### <a name="samples-to-download"></a>Exemples à télécharger
 
@@ -60,9 +59,9 @@ Téléchargez les deux exemples suivants :
 
 -   [Runbook PowerShell de journal Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Vue d’analyse Azure Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Vue Azure Monitor Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 Vérifiez que vous avez configuré les éléments suivants :
 
@@ -72,7 +71,7 @@ Vérifiez que vous avez configuré les éléments suivants :
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>Un runbook PowerShell pour obtenir le journal SQL Data Sync 
 
-Utilisez un runbook PowerShell hébergé dans Azure Automation pour extraire les données de journal SQL Data Sync et les envoyer aux journaux d’Azure Monitor. Un exemple de script est fourni. Comme prérequis, vous devez disposer d’un compte Azure Automation. Vous devez ensuite créer un runbook et planifier son exécution. 
+Utilisez un runbook PowerShell hébergé dans Azure Automation pour extraire les données de journal SQL Data Sync et les envoyer aux journaux Azure Monitor. Un exemple de script est fourni. Comme prérequis, vous devez disposer d’un compte Azure Automation. Vous devez ensuite créer un runbook et planifier son exécution. 
 
 ### <a name="create-a-runbook"></a>Créer un runbook
 
@@ -102,7 +101,7 @@ Pour plus d’informations sur la création d’un runbook, consultez [Mon premi
 
     2.  Informations sur les groupes de synchronisation.
 
-    3.  Azure Monitor enregistre des informations. Recherchez ces informations dans le Portail Azure | Paramètres | Sources connectées. Pour plus d’informations sur l’envoi des données dans les journaux d’Azure Monitor, consultez [envoyer des données dans les journaux d’Azure Monitor avec l’API collecteur de données HTTP (version préliminaire)](../azure-monitor/platform/data-collector-api.md).
+    3.  Informations sur les journaux Azure Monitor. Recherchez ces informations dans le Portail Azure | Paramètres | Sources connectées. Pour plus d’informations sur l’envoi de données aux journaux Azure Monitor, consultez [Envoyer des données aux journaux Azure Monitor avec l’API de collecte de données HTTP (préversion)](../azure-monitor/platform/data-collector-api.md).
 
 11. Exécutez le runbook dans le volet Test. Vérifiez que le test a réussi.
 
@@ -130,13 +129,13 @@ Pour planifier le runbook
 
 Pour surveiller si votre automation s’exécute comme prévu, sous **Vue d’ensemble** pour votre compte automation, recherchez la vue **Statistiques des tâches** sous **Surveillance**. Épinglez cette vue à votre tableau de bord pour en faciliter la consultation. Les exécutions réussies du runbook sont affichées avec la mention « Terminé » et les exécutions ayant échoué avec la mention « Échec ».
 
-## <a name="create-an-azure-monitor-reader-alert-for-email-notifications"></a>Créer une alerte de lecteur Azure Monitor pour les Notifications par courrier électronique
+## <a name="create-an-azure-monitor-reader-alert-for-email-notifications"></a>Créer une alerte de lecture Azure Monitor pour les notifications par e-mail
 
-Pour créer une alerte qui utilise des journaux Azure Monitor, procédez comme suit. Comme condition préalable, vous avez besoin pour que les journaux Azure Monitor lié à un espace de travail Analytique de journal.
+Pour créer une alerte qui utilise des journaux Azure Monitor, effectuez les étapes suivantes. Comme prérequis, vous devez lier les journaux Azure Monitor à un espace de travail Log Analytics.
 
 1.  Dans le Portail Azure, sélectionnez **Recherche dans les journaux**.
 
-2.  Créez une requête pour sélectionner les erreurs et avertissements par groupe de synchronisation dans l’intervalle que vous avez sélectionné. Par exemple : 
+2.  Créez une requête pour sélectionner les erreurs et avertissements par groupe de synchronisation dans l’intervalle que vous avez sélectionné. Par exemple :
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
@@ -152,9 +151,9 @@ Pour créer une alerte qui utilise des journaux Azure Monitor, procédez comme s
 
 6.  Cliquez sur **Enregistrer**. Les destinataires spécifiés reçoivent maintenant des notifications par e-mail quand des erreurs se produisent.
 
-## <a name="create-an-azure-monitor-view-for-monitoring"></a>Créer une vue d’Azure Monitor pour la surveillance
+## <a name="create-an-azure-monitor-view-for-monitoring"></a>Créer une vue Azure Monitor pour la supervision
 
-Cette étape crée une vue d’Azure Monitor pour surveiller visuellement tous les groupes de synchronisation spécifié. La vue comprend plusieurs composants :
+Cette étape crée une vue Azure Monitor pour superviser visuellement tous les groupes de synchronisation spécifiés. La vue comprend plusieurs composants :
 
 -   Une vignette de vue d’ensemble, qui montre combien d’erreurs, de succès et d’avertissements ont tous les groupes de synchronisation.
 
@@ -162,9 +161,9 @@ Cette étape crée une vue d’Azure Monitor pour surveiller visuellement tous l
 
 -   Une vignette pour chaque groupe de synchronisation, qui montre le nombre d’erreurs, de succès et d’avertissements et les messages d’erreur récents.
 
-Pour configurer l’affichage d’Azure Monitor, procédez comme suit :
+Pour configurer la vue Azure Monitor, effectuez les étapes suivantes :
 
-1.  Sur la page d’accueil espace de travail Analytique de journal, sélectionnez le signe plus à gauche pour ouvrir le **Concepteur de vues**.
+1.  Dans la page d’accueil de l’espace de travail Log Analytics, sélectionnez le signe plus à gauche pour ouvrir le **Concepteur de vue**.
 
 2.  Sélectionnez **Importer** dans la barre supérieure du Concepteur de vue. Sélectionnez ensuite l’exemple de fichier « DataSyncLogOMSView ».
 
@@ -188,7 +187,7 @@ Dans la plupart des cas, cette solution est gratuite.
 
 **Azure Automation :** selon votre utilisation, le compte Azure Automation peut induire des frais. Les 500 premières minutes d’exécution de travail par mois sont gratuites. Dans la plupart des cas, cette solution doit utiliser moins de 500 minutes par mois. Pour éviter des frais, planifiez le runbook pour qu’il s’exécute à un intervalle de deux heures ou plus. Pour plus d’informations, consultez [Tarification Automation](https://azure.microsoft.com/pricing/details/automation/).
 
-**Surveiller les journaux Azure :** Il existe peut-être un coût associé aux journaux Azure Monitor en fonction de votre utilisation. Le niveau gratuit inclut 500 Mo de données ingérées par jour. Dans la plupart des cas, cette solution doit ingérer moins de 500 Mo par jour. Pour réduire l’utilisation, utilisez le filtrage « échec uniquement » inclus dans le runbook. Si vous utilisez plus de 500 Mo par jour, effectuez une mise à niveau vers le niveau payant pour éviter que l’analytique ne s’arrête quand la limite est atteinte. Pour plus d’informations, consultez [Azure Monitor enregistre la tarification](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Journaux Azure Monitor :** selon votre utilisation, les journaux Azure Monitor peuvent engendrer des coûts. Le niveau gratuit inclut 500 Mo de données ingérées par jour. Dans la plupart des cas, cette solution doit ingérer moins de 500 Mo par jour. Pour réduire l’utilisation, utilisez le filtrage « échec uniquement » inclus dans le runbook. Si vous utilisez plus de 500 Mo par jour, effectuez une mise à niveau vers le niveau payant pour éviter que l’analytique ne s’arrête quand la limite est atteinte. Pour plus d’informations, consultez [Tarifs des journaux Azure Monitor](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Exemples de code
 
@@ -196,7 +195,7 @@ Téléchargez les exemples de code décrits dans cet article à partir des empla
 
 -   [Runbook PowerShell de journal Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Vue d’analyse Azure Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Vue Azure Monitor Data Sync](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur SQL Data Sync, consultez :
@@ -205,8 +204,8 @@ Pour plus d’informations sur SQL Data Sync, consultez :
 -   Configurer Data Sync
     - Sur le portail - [Tutoriel : Configurer SQL Data Sync pour synchroniser les données entre Azure SQL Database et SQL Server en local](sql-database-get-started-sql-data-sync.md)
     - Avec PowerShell
-        -  [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md)
-        -  [Utiliser PowerShell pour la synchronisation entre une base de données SQL Azure et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
+        -  [Utilisez PowerShell pour la synchronisation entre plusieurs bases de données Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Utiliser PowerShell pour la synchronisation entre une base de données Azure SQL et une base de données locale SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Agent de synchronisation des données - [Agent de synchronisation des données pour Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Bonnes pratiques - [Bonnes pratiques pour Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
 -   Résolution des problèmes - [Résoudre les problèmes liés à Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)

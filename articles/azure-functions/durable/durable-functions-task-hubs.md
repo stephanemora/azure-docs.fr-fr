@@ -6,16 +6,15 @@ author: cgillum
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: b0a58251530467d788710b0584b15715a207e20f
+ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753466"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70734321"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hubs de tâches dans Fonctions durables (Azure Functions)
 
@@ -102,6 +101,8 @@ Le nom du hub de tâches est défini sur la valeur du paramètre d’application
 
 Voici un exemple C# précompilé montrant comment écrire une fonction qui utilise [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) pour travailler avec un hub de tâches configuré comme un paramètre d’application :
 
+### <a name="c"></a>C#
+
 ```csharp
 [FunctionName("HttpStart")]
 public static async Task<HttpResponseMessage> Run(
@@ -120,8 +121,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-Et voici la configuration requise pour JavaScript. La propriété de hub de tâches dans le fichier `function.json` est définie par le biais du paramètre d’application :
+### <a name="javascript"></a>JavaScript
 
+La propriété de hub de tâches dans le fichier `function.json` est définie par le biais du paramètre d’application :
 ```json
 {
     "name": "input",

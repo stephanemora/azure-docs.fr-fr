@@ -1,5 +1,5 @@
 ---
-title: Exigences de données Azure AD SSPR - Azure Active Directory
+title: Exigences en matière de données SSPR Azure AD - Azure Active Directory
 description: Exigences en matière de données pour la réinitialisation du mot de passe en libre-service Azure AD et comment les satisfaire
 services: active-directory
 ms.service: active-directory
@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371364"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60358025"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Déployer la réinitialisation du mot de passe sans demander l’inscription de l’utilisateur final
 
@@ -47,7 +47,7 @@ Lorsqu’un utilisateur confirme son numéro de téléphone mobile, le champ Té
 
 Comme le montre la capture d’écran suivante, un administrateur général peut définir manuellement les informations de contact d’authentification de l’utilisateur.
 
-![Informations sur un utilisateur de contact de l’authentification dans Azure AD][Contact]
+![Informations de contact d'authentification sur un utilisateur dans Azure AD][Contact]
 
 Si le champ Téléphone est renseigné et si l’option Téléphone mobile est activée dans la stratégie SSPR, l’utilisateur voit ce numéro dans la page d’inscription de réinitialisation du mot de passe, et lors du flux de travail de réinitialisation du mot de passe.
 

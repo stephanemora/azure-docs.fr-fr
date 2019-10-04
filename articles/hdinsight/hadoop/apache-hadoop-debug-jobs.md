@@ -1,7 +1,6 @@
 ---
 title: 'Déboguer Apache Hadoop : Afficher les journaux d’activité et interpréter les messages d’erreur - Azure HDInsight'
 description: Découvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la procédure de récupération.
-services: hdinsight
 ms.reviewer: jasonh
 author: ashishthaps
 ms.service: hdinsight
@@ -9,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: a035789af08aa4c0d877a06295d9bd6fdedf6844
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 8ad2bdd0f12abad08515f0314b9c03cc971127cb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449483"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059214"
 ---
-# <a name="analyze-apache-hadoop-logs"></a>Analyser les journaux d’activité Apache Hadoop
+# <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Analyser les journaux Apache Hadoop dans Azure HDInsight
 
 Chaque cluster Apache Hadoop dans Azure HDInsight dispose d'un compte de stockage Azure utilisé comme système de fichiers par défaut. Le compte de stockage est désigné comme le compte de stockage par défaut. Le cluster utilise le stockage de tables Azure et le stockage d’objets Blob sur le compte de stockage par défaut pour stocker ses journaux d’activité.  Pour trouver le compte de stockage par défaut pour votre cluster, consultez [Gestion des clusters Apache Hadoop dans HDInsight](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts). Les journaux d’activité sont conservés dans le compte de stockage, même après la suppression du cluster.
 
@@ -33,7 +32,7 @@ Lorsque vous créez un cluster HDInsight, six tables sont automatiquement créé
 * ambariserverlog
 * ambariagentlog
 
-Les noms des fichiers de table sont au format **u<ClusterName>JJMoiAAAAàHHMMSSsss<TableName>**.
+Les noms de fichiers de table sont établis comme suit : **u\<NomCluster>JJMAAAAatHHMMSSsss\<NomTable>** .
 
 Ces tables contiennent les champs suivants :
 
@@ -45,7 +44,7 @@ Ces tables contiennent les champs suivants :
 * Message
 * N
 * PreciseTimeStamp
-* Rôle
+* Role
 * RowIndex
 * Locataire
 * TIMESTAMP
@@ -74,7 +73,7 @@ Power Query peut être installé à partir de [Microsoft Power Query pour Excel]
 5. Cliquez avec le bouton droit de la souris sur la table hadoopservicelog dans le volet du **navigateur** et sélectionnez **Modifier**. Vous devez voir quatre colonnes. Vous pouvez supprimer les colonnes **Clé de partition**, **Clé de ligne** et **Horodatage** en les sélectionnant, puis en cliquant sur **Supprimer les colonnes** dans les options du ruban.
 6. Cliquez sur l’icône de développement de la colonne Contenu pour choisir les colonnes que vous souhaitez importer dans la feuille de calcul Excel. Pour cette démonstration, j’ai choisi les colonnes TraceLevel et ComponentName : Elles peuvent me donner des informations de base sur les composants ayant rencontré des problèmes.
    
-    ![Choisir les colonnes des journaux d’activité HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
+    ![Les journaux HDInsight Hadoop choisissent les colonnes Excel](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png "Les journaux HDInsight Hadoop choisissent les colonnes Excel")
 7. Cliquez sur **OK** pour importer les données.
 8. Sélectionnez les colonnes **TraceLevel**, Rôle et **ComponentName**, puis cliquez sur la commande **Regroupement** dans le ruban.
 9. Cliquez sur **OK** dans la boîte de dialogue Regroupement.
@@ -90,11 +89,11 @@ Vous pouvez maintenant utiliser Excel pour filtrer et trier en fonction de vos b
 3. Dans **Cloud Explorer**, sélectionnez **Types de ressources**.  L’autre option disponible est **Groupes de ressources**.
 4. Développez **Comptes de stockage**, le compte de stockage par défaut pour votre cluster, puis **Tables**.
 5. Double-cliquez sur **hadoopservicelog**.
-6. Ajoutez un filtre. Par exemple : 
+6. Ajoutez un filtre. Par exemple :
    
         TraceLevel eq 'ERROR'
    
-    ![Choisir les colonnes des journaux d’activité HDInsight Hadoop](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
+    ![Les journaux HDInsight Hadoop choisissent les colonnes VS](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png "Les journaux HDInsight Hadoop choisissent les colonnes VS")
    
     Pour plus d’informations sur la création de filtres, consultez [Construction de chaînes de filtrage pour le Concepteur de tables](../../vs-azure-tools-table-designer-construct-filter-strings.md).
 
@@ -111,7 +110,7 @@ Pour plus d’informations sur les journaux des applications, consultez la page 
 ### <a name="access-the-ambari-ui"></a>Accéder à l’interface utilisateur Ambari
 À partir du portail Azure, cliquez sur un nom de cluster HDInsight pour ouvrir le volet du cluster. Dans le volet du cluster, cliquez sur **Tableau de bord**.
 
-![Tableau de bord du cluster](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
+![HDInsight - Lancer le tableau de bord de cluster](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### <a name="access-the-yarn-ui"></a>Accéder à l’interface utilisateur Yarn
@@ -121,7 +120,7 @@ Vous pouvez utiliser l’interface utilisateur YARN pour effectuer les opératio
 
 * **Obtenir l’état du cluster**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **About**. Une série de détails sur l’état du cluster apparaissent, comme la mémoire totale allouée, les cœurs utilisés, l’état du gestionnaire des ressources de cluster ou la version du cluster.
   
-    ![Tableau de bord du cluster](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png)
+    ![HDInsight - Lancer le tableau de bord du cluster YARN](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight - Lancer le tableau de bord de cluster YARN")
 * **Obtenir l’état du nœud**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Nodes**. Cette opération répertorie tous les nœuds du cluster, l’adresse HTTP de chaque nœud, les ressources allouées à chaque nœud, etc.
 * **Surveiller l’état du travail**. Dans le volet gauche, développez **Cluster**, puis cliquez sur **Applications** pour répertorier tous les travaux dans le cluster. Si vous souhaitez examiner les travaux dans un état spécifique (comme nouveau, envoyé, en cours d’exécution, etc.), cliquez sur le lien approprié sous **Applications**. Vous pouvez cliquer sur le nom du travail pour obtenir des informations supplémentaires sur celui-ci, relatives par exemple à la sortie ou aux journaux d’activité.
 
@@ -134,7 +133,7 @@ Les messages d’erreur répertoriés dans cette section visent à aider les uti
 Certains de ces messages d'erreur peuvent également apparaître dans le portail Azure lorsqu'il sert à gérer les clusters HDinsight. Mais d'autres messages d'erreur que vous pouvez rencontrer ici sont moins granulaires, en raison des contraintes qui s'appliquent aux mesures correctives possibles dans ce contexte. D'autres encore sont fournis dans les contextes où l'atténuation est évidente. 
 
 ### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
-* **Description** : Fournissez des informations détaillées sur la base de données SQL Azure pour au moins un composant afin d’utiliser les paramètres personnalisés pour les metastores Hive et Oozie.
+* **Description** : Fournissez des informations détaillées sur la base de données Azure SQL pour au moins un composant afin d’utiliser les paramètres personnalisés pour les metastores Hive et Oozie.
 * **Atténuation** : Vous devez fournir un metastore SQL Azure valide et relancer la requête.  
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported

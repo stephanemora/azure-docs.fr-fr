@@ -1,33 +1,33 @@
 ---
-title: Accéder aux journaux d’activité du serveur dans Azure Database pour MySQL à l’aide d’Azure CLI
-description: Cet article décrit comment accéder aux journaux d’activité du serveur dans Azure Database pour MySQL à l’aide de l’utilitaire de ligne de commande Azure CLI.
-author: rachel-msft
-ms.author: raagyema
+title: Accéder aux journaux des requêtes lentes dans Azure Database pour MySQL à l’aide d’Azure CLI
+description: Cet article décrit comment accéder aux journaux des requêtes lentes dans Azure Database pour MySQL à l’aide de l’interface Azure CLI.
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: MT
+ms.date: 06/12/2019
+ms.openlocfilehash: e6d25a4d8b470580626cab4a84f9d912a3f79f75
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547029"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612644"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux d’activité du serveur à l’aide d’Azure CLI
-Vous pouvez télécharger les journaux d’activité du serveur Azure Database pour MySQL à l’aide d’Azure CLI, l’utilitaire de ligne de commande Azure.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Configurer et consulter les journaux des requêtes lentes à l’aide d’Azure CLI
+Vous pouvez télécharger les journaux des requêtes lentes Azure Database pour MySQL à l’aide d’Azure CLI, l’utilitaire en ligne de commande Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - [Serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) ou Azure Cloud Shell dans le navigateur
 
-## <a name="configure-logging-for-azure-database-for-mysql"></a>Configuration de la journalisation pour Azure Database pour MySQL
+## <a name="configure-logging"></a>Configuration de la journalisation
 Vous pouvez configurer le serveur afin d’accéder au journal des requêtes lentes MySQL, comme suit :
-1. Activez la journalisation en définissant le paramètre **journal\_des requêtes\_lentes** sur ON.
+1. Activez la journalisation des requêtes lentes en définissant le paramètre **slow\_query\_log** sur ON.
 2. Réglez les autres paramètres tels que **durée\_longue\_d’une requête**  et  **instructions\_admin\_lentes\_du journal**.
 
-Pour savoir comment définir la valeur de ces paramètres via Azure CLI, consultez [Comment configurer les paramètres du serveur](howto-configure-server-parameters-using-cli.md). 
+Pour savoir comment définir la valeur de ces paramètres via Azure CLI, consultez [Comment configurer les paramètres du serveur](howto-configure-server-parameters-using-cli.md).
 
 Par exemple, la commande CLI suivante active le journal des requêtes lentes, définit la durée de requête longue sur 10 secondes et désactive la journalisation de l’instruction admin lente. Enfin, elle répertorie les options de configuration à vérifier.
 ```azurecli-interactive
@@ -38,7 +38,7 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Répertorier les journaux d’activité pour le serveur Azure Database pour MySQL
-Pour répertorier les fichiers journaux disponibles pour votre serveur, exécutez la commande [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list).
+Pour lister les fichiers journaux des requêtes lentes disponibles pour votre serveur, exécutez la commande [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list).
 
 Vous pouvez répertorier les fichiers journaux pour le serveur **mydemoserver.mysql.database.azure.com** sous le groupe de ressources **myresourcegroup**. Puis, dirigez la liste des fichiers journaux vers un fichier texte appelé **log\_files\_list.txt**.
 ```azurecli-interactive
@@ -53,4 +53,4 @@ az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [journaux d’activité du serveur dans Azure Database pour MySQL](concepts-server-logs.md).
+- Découvrez les [journaux des requêtes lentes dans Azure Database pour MySQL](concepts-server-logs.md).

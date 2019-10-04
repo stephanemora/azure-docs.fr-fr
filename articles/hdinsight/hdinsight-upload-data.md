@@ -1,34 +1,32 @@
 ---
 title: Charger des données pour des travaux Apache Hadoop dans HDInsight
 description: Découvrez comment charger des données pour des travaux Apache Hadoop et y accéder dans HDInsight avec Azure Classic CLI, Explorateur Stockage Azure, Azure PowerShell, la ligne de commande Hadoop ou Sqoop.
-keywords: etl hadoop, obtention de données dans hadoop, données de charge hadoop
-services: hdinsight
 author: hrasheed-msft
-ms.reviewer: jasonh
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/08/2019
-ms.openlocfilehash: a56f2546eec12d04dcc64665e60a9874b8e991b6
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.date: 06/03/2019
+ms.openlocfilehash: f75933940aa97606ca33ab6bfc18fe5871811eef
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684138"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441972"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Charger des données pour des travaux Apache Hadoop dans HDInsight
 
-Azure HDInsight fournit un système HDFS (Hadoop Distributed File System) complet pour Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2). Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont conçus en tant qu’extensions HDFS pour offrir aux clients une expérience fluide. Ils permettent à l’ensemble des composants de l’écosystème Hadoop de fonctionner directement sur les données qu’il gère. Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont des systèmes de fichiers distincts, optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages associés à l’utilisation de Stockage Azure, voir [Utiliser Stockage Azure avec HDInsight][hdinsight-storage], [Utiliser Data Lake Storage Gen1 avec HDInsight](hdinsight-hadoop-use-data-lake-store.md) et [Utiliser Data Lake Storage Gen2 avec HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Azure HDInsight fournit un système HDFS (Hadoop Distributed File System) complet pour Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2). Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont conçus en tant qu’extensions HDFS pour offrir aux clients une expérience fluide. Ils permettent à l’ensemble des composants de l’écosystème Hadoop de fonctionner directement sur les données qu’il gère. Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont des systèmes de fichiers distincts, optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages associés à l’utilisation de Stockage Azure, voir [Utiliser Stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md), [Utiliser Data Lake Storage Gen1 avec HDInsight](hdinsight-hadoop-use-data-lake-store.md) et [Utiliser Data Lake Storage Gen2 avec HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Notez les prérequis suivants avant de démarrer :
 
-* Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main d’Azure HDInsight][hdinsight-get-started] ou la rubrique [Créer des clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main d’Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) ou la rubrique [Créer des clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Connaissance des articles suivants :
 
-    - [Utiliser le stockage Azure avec HDInsight][hdinsight-storage]
+    - [Utiliser Stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md)
     - [Utiliser Data Lake Storage Gen1 avec HDInsight](hdinsight-hadoop-use-data-lake-store.md)
     - [Utiliser Data Lake Storage Gen2 avec HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
@@ -53,23 +51,23 @@ Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 ## <a id="commandline"></a>Ligne de commande Hadoop
 La ligne de commande Hadoop est utile uniquement pour stocker les données dans le blob du stockage Azure quand celles-ci sont déjà présentes sur le nœud principal du cluster.
 
-Pour pouvoir utiliser la commande Hadoop, vous devez vous connecter au nœud principal en utilisant [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
+Pour utiliser la commande Hadoop, vous devez d’abord vous connecter au nœud principal à l’aide de [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Une fois connecté, vous pouvez utiliser la syntaxe suivante pour télécharger un fichier dans le stockage.
 
 ```bash
-hadoop -copyFromLocal <localFilePath> <storageFilePath>
+hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
 Par exemple, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Comme le système de fichiers par défaut pour HDInsight se trouve dans le Stockage Azure, /example/data.txt s’y trouve également. Vous pouvez également faire référence au fichier comme ceci :
 
-    wasb:///example/data/data.txt
+    wasbs:///example/data/data.txt
 
 or
 
-    wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
 Pour la liste des autres commandes Hadoop qui fonctionnent avec des fichiers, voir [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -84,7 +82,7 @@ Plusieurs applications fournissent également une interface graphique pour utili
 | [Outils Microsoft Visual Studio pour HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
 | [Cerulea](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
-| [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
+| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [CloudBerry Explorer for Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
@@ -105,7 +103,7 @@ Le service Azure Data Factory est un service entièrement géré pour composer d
 ### <a id="sqoop"></a>Apache Sqoop
 Sqoop est un outil conçu pour transférer des données entre Hadoop et des bases de données relationnelles. Vous pouvez l’utiliser pour importer des données depuis un système de gestion de base de données relationnelle (SGBDR) tel que SQ Server, MySQL ou Oracle dans un système de fichiers distribués Hadoop (HDFS), transformer des données dans Hadoop avec MapReduce ou Hive et exporter à nouveau les données dans un SGBDR.
 
-Pour plus d’informations, consultez [Utilisation de Sqoop avec HDInsight][hdinsight-use-sqoop].
+Pour plus d’informations, consultez [Utilisation de Sqoop avec HDInsight](hadoop/hdinsight-use-sqoop.md).
 
 ### <a name="development-sdks"></a>Kits de développement logiciel (SDK) de développement
 Le Stockage Azure est également accessible à l’aide d’un SDK Azure dans les langages de programmation suivants :
@@ -153,28 +151,21 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 Vous pouvez également augmenter la valeur de `fs.azure.write.request.size` globalement à l’aide d’Apache Ambari. Vous pouvez utiliser les étapes suivantes pour modifier la valeur dans l’interface utilisateur Web d’Ambari :
 
-1. Dans votre navigateur, accédez à l’interface utilisateur Web d’Ambari pour votre cluster. Il s’agit de https://CLUSTERNAME.azurehdinsight.net, où **CLUSTERNAME** est le nom de votre cluster.
+1. Dans votre navigateur, accédez à l’interface utilisateur Web d’Ambari pour votre cluster. Il s’agit de `https://CLUSTERNAME.azurehdinsight.net`, où `CLUSTERNAME` est le nom de votre cluster.
 
     Lorsque vous y êtes invité, entrez le nom et le mot de passe administrateur correspondant au cluster HDInsight.
 2. Sur le côté gauche de l’écran, sélectionnez **HDFS**, puis l’onglet **Configurations**.
-3. Dans le champ **Filtrer...**, entrez `fs.azure.write.request.size`. Le champ et la valeur actuelle s’affichent au milieu de la page.
+3. Dans le champ **Filtrer...** , entrez `fs.azure.write.request.size`. Le champ et la valeur actuelle s’affichent au milieu de la page.
 4. Modifiez la valeur 262144 (256 Ko) sur la nouvelle valeur. Par exemple, 4194304 (4 Mo).
 
-![Image de la modification de la valeur via l’interface utilisateur Web d’Ambari](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
+    ![Image de la modification de la valeur via l’interface utilisateur Web d’Ambari](./media/hdinsight-upload-data/hbase-change-block-write-size.png)
 
 Pour plus d’informations sur l’utilisation d’Ambari, voir [Gestion des clusters HDInsight à l’aide de l’interface utilisateur Web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous savez comment obtenir des données avec HDInsight, consultez les articles suivants pour apprendre à effectuer des analyses :
 
-* [Prise en main d’Azure HDInsight][hdinsight-get-started]
-* [Envoi de tâches Apache Hadoop par programmation][hdinsight-submit-jobs]
-* [Utilisation d’Apache Hive avec HDInsight][hdinsight-use-hive]
-* [Utilisation d’Apache Pig avec HDInsight][hdinsight-use-pig]
-
-[hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-[hdinsight-submit-jobs]:hadoop/submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
-[hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
+* [Prise en main d’Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* [Envoi de tâches Apache Hadoop par programmation](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
+* [Utilisation d’Apache Pig avec HDInsight](hadoop/hdinsight-use-pig.md)

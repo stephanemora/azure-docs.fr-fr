@@ -2,23 +2,20 @@
 title: Variables système et fonctions Data Factory | Microsoft Docs
 description: Fournit la liste des variables système et fonctions Azure Data Factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-services: data-factory
-ms.assetid: b6b3c2ae-b0e8-4e28-90d8-daf20421660d
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 243923fba5b81ef68d6e4e560182d228e3b8ad1a
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523934"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139760"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Variables système et fonctions
 > [!NOTE]
@@ -59,7 +56,7 @@ Vous pouvez utiliser des fonctions dans Data Factory avec les variables système
 
 1. Spécification de requêtes de sélection de données (consultez les articles connexes référencés par l’article [Activités de déplacement des données](data-factory-data-movement-activities.md) ).
    
-   La syntaxe pour appeler une fonction data factory est :  **$$ \<fonction >** pour les requêtes de sélection de données et d’autres propriétés de l’activité et les jeux de données.  
+   La syntaxe pour appeler une fonction Data Factory est **$$\<function>** pour les requêtes de sélection de données et d’autres propriétés de l’activité et des jeux de données.  
 2. Spécifier les dépendances d’entrée avec les fonctions Data Factory dans la collecte d’entrées d’activité.
    
     $$ n’est pas nécessaire pour spécifier des expressions de dépendance d’entrée.     
@@ -78,11 +75,11 @@ Consultez la rubrique [Chaînes de format de date et d’heure personnalisées](
 ### <a name="functions"></a>Fonctions
 Les tables qui suivent répertorient toutes les fonctions dans Azure Data Factory :
 
-| Catégorie | Fonction | parameters | Description |
+| Category | Fonction | parameters | Description |
 | --- | --- | --- | --- |
 | Temps |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y heures à l’heure donnée X. <br/><br/>Exemple : `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Temps |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y minutes à X.<br/><br/>Exemple : `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Temps |StartOfHour(X) |X: DateTime |Obtient l’heure de début de l’heure représentée par le composant heure de X. <br/><br/>Exemple : `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Temps |StartOfHour(X) |X: Datetime |Obtient l’heure de début de l’heure représentée par le composant heure de X. <br/><br/>Exemple : `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
 | Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Ajoute Y jours à X. <br/><br/>Exemple : 15/9/2013 12:00:00 + 2 jours = 17/9/2013 12:00:00.<br/><br/>Vous pouvez également soustraire les jours en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
 | Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |Ajoute Y mois à X.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Vous pouvez également soustraire les mois en spécifiant Y en tant que nombre négatif.<br/><br/>Exemple : `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
 | Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Ajoute Y * 3 mois à X.<br/><br/>Exemple : `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |

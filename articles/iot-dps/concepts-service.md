@@ -3,17 +3,17 @@ title: Concepts de service du service Azure IoT Hub Device Provisioning | Micros
 description: Décrit les concepts de provisionnement de service spécifiques aux appareils avec le service Device Provisioning et IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 4a4f53f991355e634e8139f9e90bec6c508a527d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 51486da6b34c0ff1e9b6d05558c2132a416913e9
+ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792745"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71104358"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Concepts du service IoT Hub Device Provisioning
 
@@ -57,7 +57,7 @@ Il existe deux types d’inscription pris en charge par le service Device Provis
 
 ### <a name="enrollment-group"></a>Groupe d’inscription
 
-Un groupe d’inscription désigne un groupe d’appareils qui partagent un mécanisme d’attestation spécifique. Tous les appareils du groupe d’inscription présentent des certificats X.509 qui ont été signés par la même autorité de certification racine ou intermédiaire. Les groupes d’inscription peuvent uniquement utiliser le mécanisme d’attestation X.509. Le nom du groupe d’inscription et le nom du certificat sont alphanumériques, en minuscules et peuvent contenir des traits d’union.
+Un groupe d’inscription désigne un groupe d’appareils qui partagent un mécanisme d’attestation spécifique. Les groupes d’inscriptions prennent en charge X.509 et la clé symétrique. Tous les appareils du groupe d’inscriptions X.509 présentent des certificats X.509 qui ont été signés par la même autorité de certification racine ou intermédiaire. Chaque appareil du groupe d’inscriptions de clé symétrique présente des jetons SAS dérivés de la clé symétrique du groupe. Le nom du groupe d’inscription et le nom du certificat sont alphanumériques, en minuscules et peuvent contenir des traits d’union.
 
 > [!TIP]
 > Nous vous recommandons d’utiliser un groupe d’inscription pour un grand nombre d’appareils qui partagent une configuration initiale souhaitée ou pour des appareils destinés au même locataire.

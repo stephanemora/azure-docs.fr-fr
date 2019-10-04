@@ -1,34 +1,34 @@
 ---
-title: Azure Disk Encryption et Azure machines virtuelles identiques séquencement d’extensions
-description: Cet article fournit des instructions sur l’activation Microsoft Azure Disk Encryption pour les machines virtuelles IaaS Linux.
+title: Azure Disk Encryption et séquencement d’extensions de groupes de machines virtuelles identiques Azure
+description: Cet article fournit des instructions sur l’activation de Microsoft Azure Disk Encryption pour les machines virtuelles IaaS Linux.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/21/2019
 ms.openlocfilehash: e98e501806971f3cf1bec29960ad15ef9c0024fc
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498143"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60611269"
 ---
-# <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Utilisez Azure Disk Encryption avec mise à l’échelle de machine virtuelle définie séquencement d’extensions
+# <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Utiliser Azure Disk Encryption avec un séquencement d’extensions de groupes de machines virtuelles identiques
 
-Extensions telles que le chiffrement de disque Azure peuvent être ajoutées à un groupe identique de machines virtuelles définies dans un ordre spécifié. Pour ce faire, utilisez [séquencement d’extensions](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). 
+Il est possible d’ajouter des extensions telles qu’Azure Disk Encryption à un groupe de machines virtuelles identiques dans un ordre spécifié. Pour ce faire, utilisez un [séquencement d’extensions](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md). 
 
-En règle générale, le chiffrement doit être appliqué à un disque :
+En règle générale, un chiffrement doit être appliqué à un disque :
 
-- Une fois les extensions ou des scripts personnalisés qui préparent les disques ou volumes.
-- Avant d’extensions ou des scripts personnalisés qui accèdent ou consomment les données sur les disques chiffrés ou les volumes.
+- Après les extensions ou scripts personnalisés qui préparent les disques ou les volumes.
+- Avant les extensions ou scripts personnalisés qui accèdent ou utilisent les données figurant sur les disques ou volumes chiffrés.
 
-Dans les deux cas, le `provisionAfterExtensions` propriété désigne quelle extension doit être ajoutée plus loin dans la séquence.
+Dans les deux cas, la propriété `provisionAfterExtensions` désigne l’extension à ajouter plus loin dans la séquence.
 
-## <a name="sample-azure-templates"></a>Exemples modèles Azure
+## <a name="sample-azure-templates"></a>Exemples de modèles Azure
 
-Si vous souhaitez avoir Azure Disk Encryption est appliquée après une autre extension, placer le `provisionAfterExtensions` propriété dans le bloc d’extension AzureDiskEncryption. 
+Si vous souhaitez qu’Azure Disk Encryption soit appliqué après une autre extension, placez la propriété `provisionAfterExtensions` dans le bloc d’extension AzureDiskEncryption. 
 
-Voici un exemple d’utilisation de « CustomScriptExtension », un script Powershell qui initialise et met en forme un disque de Windows, suivi de « AzureDiskEncryption » :
+Voici un exemple d’utilisation de « CustomScriptExtension », un script Powershell qui initialise et formate un disque de Windows, suivi de « AzureDiskEncryption » :
 
 ```json
 "virtualMachineProfile": {
@@ -84,9 +84,9 @@ Voici un exemple d’utilisation de « CustomScriptExtension », un script Pow
 }
 ```
 
-Si vous souhaitez avoir Azure Disk Encryption est appliqué avant une autre extension, placer le `provisionAfterExtensions` propriété dans le bloc de l’extension à suivre.
+Si vous souhaitez qu’Azure Disk Encryption soit appliqué avant une autre extension, placez la propriété `provisionAfterExtensions` dans le bloc de l’extension à suivre.
 
-Voici un exemple d’utilisation de « AzureDiskEncryption » suivie de « VMDiagnosticsSettings » une extension qui permet de surveiller les fonctionnalités et de diagnostics sur une machine virtuelle Azure basée sur Windows :
+Voici un exemple utilisant « AzureDiskEncryption » suivi de « VMDiagnosticsSettings », une extension offrant des fonctionnalités de supervision et de diagnostics sur une machine virtuelle Azure basée sur Windows :
 
 
 ```json
@@ -151,11 +151,11 @@ Voici un exemple d’utilisation de « AzureDiskEncryption » suivie de « VM
 }
 ```
 
-Pour d’autres modèles détaillées, consultez :
-* Appliquer l’extension Azure Disk Encryption après un script d’interpréteur de commandes personnalisé qui formate le disque (Linux) : [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
+Pour des modèles plus détaillés, voir :
+* Appliquer l’extension Azure Disk Encryption après un script shell personnalisé qui formate le disque (Linux) : [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 * Appliquer l’extension Azure Disk Encryption après un script Powershell personnalisé qui initialise et formate le disque (Windows) : [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-ADE-after-customscript.json)
 * Appliquer l’extension Azure Disk Encryption avant un script Powershell personnalisé qui initialise et formate le disque (Windows) : [deploy-extseq-windows-CustomScript-after-ADE.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-CustomScript-after-ADE.json)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur le séquencement d’extensions : [Séquence d’approvisionnement de l’extension dans les machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md).
-- En savoir plus sur la `provisionAfterExtensions` propriété : [Référence du modèle Microsoft.Compute/virtualMachineScaleSets les extensions](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
+- Apprenez-en davantage sur le séquencement d’extensions : [Séquencer l’approvisionnement des extensions dans des groupes de machines virtuelles identiques](../virtual-machine-scale-sets/virtual-machine-scale-sets-extension-sequencing.md).
+- Apprenez-en davantage sur la propriété `provisionAfterExtensions` : [Microsoft.Compute virtualMachineScaleSets/extensions template reference](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).

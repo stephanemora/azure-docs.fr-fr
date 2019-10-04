@@ -4,21 +4,20 @@ description: Découvrez comment résoudre un problème RDP causé par la désact
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: ef44931cc3b36bcab64a2de840d9264c1b8fdedb
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652278"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71058019"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Impossible d’établir une connexion RDP à des machines virtuelles Azure car le service client DHCP est désactivé
 
@@ -36,7 +35,7 @@ Vous ne pouvez pas établir une connexion RDP à une machine virtuelle dans Azur
 **Catégorie de tâche** : Aucun </br>
 **Niveau** : Error </br>
 **Mots clés** : Classique</br>
-**Utilisateur** : S.O. </br>
+**Utilisateur** : N/A </br>
 **Ordinateur** : myvm.cosotos.com</br>
 **Description** : Le service client DHCP se bloque au démarrage.</br>
 

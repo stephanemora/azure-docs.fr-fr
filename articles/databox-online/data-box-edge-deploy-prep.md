@@ -1,23 +1,22 @@
 ---
-title: Didacticiel sur la préparation du Portail Azure pour déployer Data Box Edge | Microsoft Docs
+title: Tutoriel pour préparer le Portail Azure et l’environnement du centre de données pour déployer Azure Data Box Edge | Microsoft Docs
 description: Le premier didacticiel sur le déploiement d’Azure Data Box Edge implique la préparation du portail Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 19c4fc96653f966ea5642149d944886e4b7f4483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
+ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401673"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66476779"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Didacticiel : préparer le déploiement d’Azure Data Box Edge  
-
 
 Ce didacticiel est le premier d’une série de didacticiels permettant de déployer entièrement Azure Data Box Edge. Il explique comment préparer le portail Azure pour déployer une ressource Data Box Edge.
 
@@ -31,7 +30,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-
 ### <a name="get-started"></a>Prise en main
 
 Pour déployer Data Box Edge, consultez les didacticiels suivants dans l’ordre indiqué.
@@ -42,7 +40,7 @@ Pour déployer Data Box Edge, consultez les didacticiels suivants dans l’ordre
 | 2. |**[Installer Data Box Edge](data-box-edge-deploy-install.md)**|Décompressez, montez en rack et branchez l’appareil physique Data Box Edge.  |
 | 3. |**[Se connecter à Data Box Edge, procéder à sa configuration et à son activation](data-box-edge-deploy-connect-setup-activate.md)** |Connectez-vous à l’interface utilisateur web locale, terminez l’installation de l’appareil et activez-le. L’appareil est prêt à configurer des partages SMB ou NFS.  |
 | 4. |**[Transférer des données avec Data Box Edge](data-box-edge-deploy-add-shares.md)** |Ajoutez des partages et connectez-vous à ces derniers via SMB ou NFS. |
-| 5. |**[Transformer des données avec Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configurez des modules Edge sur l’appareil pour transformer les données lors de leur déplacement vers Azure. |
+| 5. |**[Transformer des données avec Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configurez des modules de calcul sur l’appareil pour transformer les données lors de leur déplacement vers Azure. |
 
 Vous pouvez maintenant commencer à configurer le portail Azure.
 
@@ -54,7 +52,13 @@ Vous trouverez ci-après la configuration requise pour votre ressource Data Box 
 
 Avant de commencer, assurez-vous que :
 
-- Votre abonnement Microsoft Azure est activé pour la ressource Data Box Edge. Les abonnements à l’utilisation ne sont pas pris en charge.
+- Votre abonnement Microsoft Azure est activé pour la ressource Data Box Edge. Les abonnements de type Paiement à l’utilisation ne sont pas pris en charge.
+- Vous disposez d’un accès Propriétaire ou Contributeur au niveau du groupe de ressources pour les ressources Data Box Edge/Data Box Gateway, IoT Hub et Stockage Azure.
+
+    - Pour créer une ressource Data Box Edge/Data Box Gateway, vous devez disposer d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Vous devez également être sûr que le fournisseur `Microsoft.DataBoxEdge` est inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Pour créer une ressource IoT Hub, vérifiez que le fournisseur Microsoft.Devices est bien inscrit. Pour plus d’informations sur l’inscription, consultez [Inscrire un fournisseur de ressources](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Pour créer une ressource de compte de stockage, là encore, vous avez besoin d’autorisations Contributeur (ou supérieures) au niveau du groupe de ressources. Par défaut, le stockage Azure est un fournisseur de ressources inscrit.
+- Vous avez un accès Administrateur ou Utilisateur à l’API Graph Azure Active Directory. Pour plus d’informations, consultez [API Graph Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
 
 ### <a name="for-the-data-box-edge-device"></a>Pour l’appareil Data Box Edge
@@ -62,7 +66,7 @@ Avant de commencer, assurez-vous que :
 Avant de déployer un appareil physique, assurez-vous que :
 
 - Vous avez consulté les informations relatives à la sécurité qui étaient incluses dans le colis d’expédition.
-- Vous avez un 1 emplacement U disponible dans un rack de 19’’ standard dans votre centre de données pour le montage en rack de l’appareil. 
+- Dans votre centre de données, un emplacement 1U est disponible dans un rack standard 19 pouces pour le montage en rack de l’appareil.
 - Vous avez accès à une surface de travail plane, stable et de niveau sur laquelle poser l’appareil en sécurité.
 - Le site où vous envisagez de configurer l’appareil dispose d’une alimentation secteur standard provenant d’une source indépendante ou d’une unité de distribution de l’alimentation (PDU) en rack avec un onduleur (UPS).
 - Vous avez accès à un appareil physique.
@@ -87,11 +91,15 @@ Pour créer une ressource Data Box Edge, procédez comme suit dans le portail Az
 
 1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter : 
     
-    - Au portail Azure à cette URL : [https://portal.azure.com](http://portal.azure.com)
-    - Ou bien, au portail Azure Government à cette URL : [https://portal.azure.us](https://portal.azure.us)
+    - Au portail Azure à cette URL : [https://portal.azure.com](https://portal.azure.com)
+    - Ou bien, au portail Azure Government à cette URL : [https://portal.azure.us](https://portal.azure.us) Pour plus d’informations, accédez à [Se connecter à Azure Government à l’aide du portail](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Dans le volet de gauche, sélectionnez **+ Créer une ressource**. Recherchez **Data Box Edge / Data Box Gateway**. Sélectionnez **Data Box Edge / Data Box Gateway**. Sélectionnez **Créer**.
-3. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Data Box Edge. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Edge. Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles. Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. Dans l’option **Data Box Edge**, sélectionnez **Créer**.
+3. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Data Box Edge. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Edge. Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles. 
+
+    Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. La région stocke les métadonnées uniquement pour la gestion des appareils. Les données réelles peuvent être stockées dans n’importe quel compte de stockage. 
+    
+    Dans l’option **Data Box Edge**, sélectionnez **Créer**.
 
     ![Rechercher le service Data Box Edge](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 

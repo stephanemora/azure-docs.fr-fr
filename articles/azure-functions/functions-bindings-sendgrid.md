@@ -4,18 +4,17 @@ description: Informations de référence sur les liaisons SendGrid dans Azure Fu
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.openlocfilehash: a0d12639ce074c3ed105513a3d90e323e30d1087
+ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823805"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71155075"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Liaisons SendGrid dans Azure Functions
 
@@ -32,6 +31,9 @@ Les liaisons SendGrid sont fournies dans le package NuGet [Microsoft.Azure.WebJo
 ## <a name="packages---functions-2x"></a>Packages - Functions 2.x
 
 Les liaisons SendGrid sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/).
+
+> [!NOTE]
+> La version 2.x ne crée pas la rubrique ou l’abonnement configurés dans l’instance `ServiceBusTrigger`. La version 2.x se base sur [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) et ne gère pas les files d’attente.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -164,7 +166,7 @@ public class Message
 
 ### <a name="java-example"></a>Exemple Java
 
-L’exemple suivant utilise le `@SendGridOutput` annotation à partir de la [Java fonctions de bibliothèque runtime](/java/api/overview/azure/functions/runtime) liaison de sortie pour envoyer un e-mail à l’aide de SendGrid.
+L’exemple suivant utilise l’annotation `@SendGridOutput` de la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime) pour envoyer un e-mail à l’aide de la liaison de sortie SendGrid.
 
 ```java
 @FunctionName("SendEmail")
@@ -261,7 +263,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**apiKey**|**ApiKey**| Nom d’un paramètre d’application qui contient votre clé API. En l’absence de définition, le nom du paramètre d’application par défaut est « AzureWebJobsSendGridApiKey ».|
 |**to**|**To**| Adresse e-mail du destinataire. |
 |**from**|**From**| Adresse e-mail de l’expéditeur. |
-|**subject**|**Objet**| Objet de l’e-mail. |
+|**subject**|**Subject**| Objet de l’e-mail. |
 |**text**|**Text**| Contenu de l’e-mail. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

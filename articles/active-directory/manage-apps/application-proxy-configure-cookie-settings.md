@@ -2,22 +2,22 @@
 title: Paramètres de cookies du proxy d'application - Azure Active Directory  | Microsoft Docs
 description: Azure Active Directory (Azure AD) contient des cookies d'accès et de session pour accéder aux applications locales via le proxy d'application. Dans cet article, vous allez apprendre à utiliser et configurer les paramètres de cookies.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/16/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06fd83ee815e9e207c1fa5a1c6767280122c4d0c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: d2e7f1bb54ce316a10eca0d020519779b0536c9e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482689"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65825747"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Paramètres de cookies pour l'accès aux applications locales dans Azure Active Directory
 
@@ -45,17 +45,17 @@ Pour définir les paramètres de cookies à l'aide du portail Azure :
 
 ## <a name="view-current-cookie-settings---powershell"></a>Afficher les paramètres de cookies en cours - PowerShell
 
-Pour afficher les paramètres actuels de cookie pour l’application, utilisez cette commande PowerShell :  
+Pour afficher les paramètres actuels en matière de cookie de l’application, utilisez cette commande PowerShell :  
 
 ```powershell
 Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl * 
 ```
 
-## <a name="set-cookie-settings---powershell"></a>Définir les paramètres de cookies - PowerShell
+## <a name="set-cookie-settings---powershell"></a>Définir les paramètres en matière de cookie - PowerShell
 
-Dans les commandes PowerShell suivantes, ```<ObjectId>``` est l’ObjectId de l’application. 
+Dans les commandes PowerShell suivantes, ```<ObjectId>``` correspond à l’ObjectId de l’application. 
 
-**Cookie HTTP uniquement** 
+**Cookie HTTPOnly** 
 
 ```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $true 

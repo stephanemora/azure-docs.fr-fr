@@ -10,21 +10,20 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: a39cfd1981041c807a91a08c198378d238f0846e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916170"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568920"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
 
 Cette rubrique décrit le comportement de connexion d’Azure SQL Database pour les clients qui utilisent ADO.NET version 4.5 ou ultérieure.
 
 > [!IMPORTANT]
-> Pour plus d’informations sur l’architecture de connectivité, consultez [Azure SQL Database connectivity architecture](sql-database-connectivity-architecture.md) (Architecture de connectivité d’Azure SQL Database).
+> Pour plus d’informations sur l’architecture de connectivité, consultez [Architecture de connectivité d’Azure SQL Database](sql-database-connectivity-architecture.md).
 >
 
 ## <a name="outside-vs-inside"></a>À l’extérieur et à l’intérieur
@@ -37,17 +36,17 @@ Le port 1433 est le seul port qui doit être ouvert sur votre ordinateur de bur
 
 ### <a name="inside-client-runs-on-azure"></a>*À l’intérieur :* Le client s’exécute sur Azure
 
-Quand votre client s’exécute à l’intérieur de la limite du cloud Azure, il utilise ce que nous pouvons appeler un *itinéraire direct* pour interagir avec le serveur de la base de données SQL. Une fois une connexion établie, les interactions suivantes entre le client et la base de données n’impliquent aucune passerelle Azure SQL Database.
+Quand votre client s’exécute à l’intérieur de la limite du cloud Azure, il utilise ce que nous pouvons appeler un *itinéraire direct* pour interagir avec le serveur SQL Database. Une fois une connexion établie, les interactions suivantes entre le client et la base de données n’impliquent aucune passerelle Azure SQL Database.
 
 La séquence est la suivante :
 
 1. ADO.NET 4.5 (ou version ultérieure) initie une brève interaction avec le cloud Azure et reçoit un numéro de port identifié de manière dynamique.
 
-   * Le numéro de port identifié de manière dynamique est dans la plage 11000-11999.
+   * Le numéro de port identifié de manière dynamique appartient à la plage 11000-11999.
 2. ADO.NET se connecte ensuite au serveur SQL Database directement, sans passer par un intergiciel.
 3. Les requêtes sont envoyées directement à la base de données et les résultats sont retournés directement au client.
 
-Vérifiez que les plages de ports 11000-11999 sur votre ordinateur client Azure sont restent disponibles pour les interactions du client ADO.NET 4.5 avec SQL Database.
+Vérifiez que les plages de ports 11000-11999 sur votre ordinateur client Azure restent disponibles pour les interactions du client ADO.NET 4.5 avec SQL Database.
 
 * En particulier, les ports dans la plage doivent être libres de tout autre bloqueur sortant.
 * Sur votre machine virtuelle Azure, le **Pare-feu Windows avec fonctions avancées de sécurité** contrôle les paramètres des ports.
@@ -81,9 +80,9 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 
 * Se connecter à Azure SQL Database V12 via la redirection https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [Liste des versions du protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
+* [Liste des versions du protocole TDS](https://www.freetds.org/userguide/tdshistory.htm)
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
-* [Procédure : Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
+* [Guide pratique pour Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
 
 

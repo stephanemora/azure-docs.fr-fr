@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: b922e048b2787eedfc0bfc40e553e79f433277dc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 16b87018b86d9734a066d2cb5361602c9be0f00c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279463"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Didacticiel : Intégration d’Azure Active Directory à PlanGrid
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de PlanGrid à Azure AD, vous devez ajouter Pla
 
 **Pour ajouter PlanGrid à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

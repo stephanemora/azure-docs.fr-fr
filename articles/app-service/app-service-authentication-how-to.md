@@ -4,22 +4,21 @@ description: Découvrez comment personnaliser les paramètres d’authentificati
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 09/02/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 97764db40807214e756f119ca95fd640164f0cf2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 105728bdab9c70bb807f38e4a09d5be863694c16
+ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877300"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70231979"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
@@ -41,9 +40,9 @@ La configuration du portail n’offre pas de solution clé en main pour présent
 
 Tout d’abord, sur la page **Authentification / Autorisation** du portail Azure, configurez chaque fournisseur d’identité que vous souhaitez activer.
 
-Sous **Mesure à prendre quand une demande n’est pas authentifiée**, sélectionnez **Autoriser les requêtes anonymes (aucune action)**.
+Sous **Mesure à prendre quand une demande n’est pas authentifiée**, sélectionnez **Autoriser les requêtes anonymes (aucune action)** .
 
-Dans la page de connexion, la barre de navigation ou tout autre emplacement de votre application, ajoutez un lien de connexion pour chacun des fournisseurs que vous avez activés (`/.auth/login/<provider>`). Par exemple : 
+Dans la page de connexion, la barre de navigation ou tout autre emplacement de votre application, ajoutez un lien de connexion pour chacun des fournisseurs que vous avez activés (`/.auth/login/<provider>`). Par exemple :
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -65,7 +64,7 @@ Pour rediriger l’utilisateur post-connexion vers une URL personnalisée, utili
 
 Dans une connexion dirigée par le client, l'application connecte manuellement l'utilisateur au fournisseur, puis soumet le jeton d'authentification à App Service pour validation (voir [Flux d'authentification](overview-authentication-authorization.md#authentication-flow)). Cette validation proprement dite ne vous octroie pas l'accès aux ressources souhaitées, mais une validation réussie vous conférera un jeton de session que vous pourrez utiliser pour accéder aux ressources de l'application. 
 
-Pour valider le jeton du fournisseur, l'application App Service doit d'abord être configurée avec le fournisseur souhaité. Au moment de l'exécution, après avoir récupéré le jeton d'authentification auprès de votre fournisseur, envoyez-le à `/.auth/login/<provider>` pour validation. Par exemple :  
+Pour valider le jeton du fournisseur, l'application App Service doit d'abord être configurée avec le fournisseur souhaité. Au moment de l'exécution, après avoir récupéré le jeton d'authentification auprès de votre fournisseur, envoyez-le à `/.auth/login/<provider>` pour validation. Par exemple : 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -96,7 +95,7 @@ Si le jeton du fournisseur est validé, l'API renvoie un `authenticationToken` d
 }
 ```
 
-Une fois en possession de ce jeton de session, vous pouvez accéder aux ressources d'application protégées en ajoutant l'en-tête `X-ZUMO-AUTH` à vos requêtes HTTP. Par exemple :  
+Une fois en possession de ce jeton de session, vous pouvez accéder aux ressources d'application protégées en ajoutant l'en-tête `X-ZUMO-AUTH` à vos requêtes HTTP. Par exemple : 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -117,7 +116,7 @@ Voici un lien de déconnexion simple dans une page web :
 <a href="/.auth/logout">Sign out</a>
 ```
 
-Par défaut, une déconnexion réussie redirige le client vers l’URL `/.auth/logout/done`. Vous pouvez modifier la page de redirection après déconnexion en ajoutant le paramètre de requête `post_logout_redirect_uri`. Par exemple : 
+Par défaut, une déconnexion réussie redirige le client vers l’URL `/.auth/logout/done`. Vous pouvez modifier la page de redirection après déconnexion en ajoutant le paramètre de requête `post_logout_redirect_uri`. Par exemple :
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -131,7 +130,7 @@ Lorsque vous utilisez une URL complète, celle-ci doit être hébergée dans le 
 GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
 ```
 
-Vous devez exécuter la commande suivante dans [Azure Cloud Shell](../cloud-shell/quickstart.md) :
+Exécutez la commande suivante dans [Azure Cloud Shell](../cloud-shell/quickstart.md) :
 
 ```azurecli-interactive
 az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
@@ -186,7 +185,7 @@ Lorsque le jeton d'accès de votre fournisseur (et non le [jeton de session](#ex
 - **Compte Microsoft** : au moment de [configurer les paramètres d’authentification de compte Microsoft](configure-authentication-provider-microsoft.md), sélectionnez l’étendue `wl.offline_access`.
 - **Azure Active Directory** : Dans [https://resources.azure.com](https://resources.azure.com), effectuez les étapes suivantes :
     1. En haut de la page, sélectionnez **Lecture/écriture**.
-    2. Dans le navigateur de gauche, accédez à **abonnements** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **fournisseurs** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+    2. Dans le navigateur de gauche, accédez à **abonnements** >  **_\<subscription\_name_**  > **resourceGroups** >  **_\<resource\_group\_name>_**  > **fournisseurs** > **Microsoft.Web** > **sites** >  **_\<app\_name>_**  > **config** > **authsettings**. 
     3. Cliquez sur **Modifier**.
     4. Modifiez la propriété suivante. Remplacez la valeur _\<app\_id>_ par l’ID d’application Azure Active Directory du service auquel vous souhaitez accéder.
 
@@ -231,15 +230,63 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 ## <a name="limit-the-domain-of-sign-in-accounts"></a>Restreindre le domaine des comptes de connexion
 
-Les options Compte Microsoft et Azure Active Directory permettent de se connecter à partir de multiples domaines. Par exemple, l’option Compte Microsoft prend en charge les comptes _outlook.com_, _live.com_ et _hotmail.com_. Azure Active Directory prend en charge un nombre illimité de domaines personnalisés pour les comptes de connexion. Ce comportement peut ne pas être souhaitable pour une application interne pour laquelle vous souhaitez refuser l’accès à tout utilisateur disposant d’un compte _outlook.com_. Pour restreindre le nom de domaine des comptes de connexion, procédez comme suit.
+Les options Compte Microsoft et Azure Active Directory permettent de se connecter à partir de multiples domaines. Par exemple, l’option Compte Microsoft prend en charge les comptes _outlook.com_, _live.com_ et _hotmail.com_. Azure Active Directory prend en charge un nombre illimité de domaines personnalisés pour les comptes de connexion. Toutefois, vous pouvez accélérer l’accès de vos utilisateurs directement à votre propre page de connexion Azure AD (par exemple, `contoso.com`). Pour suggérer le nom de domaine des comptes de connexion, procédez comme suit.
 
-Dans [https://resources.azure.com](https://resources.azure.com), accédez à **abonnements** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **fournisseurs** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
+Dans [https://resources.azure.com](https://resources.azure.com), accédez à **abonnements** >  **_\< subscription\_ name_**  > **resourceGroups** >  **_\< resource\_ group\_ name>_**  > **fournisseurs** > **Microsoft.Web** > **sites** >  **_\< app\_ name>_**  > **config** > **authsettings**. 
 
 Cliquez sur **Modifier**, modifiez la propriété suivante, puis cliquez sur **Put**. Veillez à remplacer la valeur _\<domain\_name>_ par le domaine souhaité.
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
+
+Ce paramètre ajoute le paramètre de chaîne de requête `domain_hint` à l’URL de redirection de la connexion. 
+
+> [!IMPORTANT]
+> Le client peut supprimer le paramètre `domain_hint` après avoir reçu l’URL de redirection, puis de se connecter avec un autre domaine. Bien que cette fonction soit pratique, il ne s’agit pas d’une fonctionnalité de sécurité.
+>
+
+## <a name="authorize-or-deny-users"></a>Autoriser ou refuser des utilisateurs
+
+Bien que App Service se charge du cas d’autorisation le plus simple (c’est-à-dire le rejet des demandes non authentifiées), votre application peut nécessiter un comportement d’autorisation plus précis, tel que la limitation de l’accès à un groupe spécifique d’utilisateurs. Dans certains cas, vous devez écrire un code d’application personnalisé pour autoriser ou refuser l’accès à l’utilisateur connecté. Dans d’autres cas, App Service ou votre fournisseur d’identité peut être en mesure de vous aider sans modification du code.
+
+- [Au niveau du serveur](#server-level-windows-apps-only)
+- [Au niveau du fournisseur d’identité](#identity-provider-level)
+- [Au niveau de l’application](#application-level)
+
+### <a name="server-level-windows-apps-only"></a>Au niveau du serveur (applications Windows uniquement)
+
+Pour toute application Windows, vous pouvez définir le comportement d’autorisation du serveur web IIS en modifiant le fichier *Web.config*. Les applications Linux n’utilisent pas IIS et ne peuvent pas être configurées à l’aide du fichier *Web.config*.
+
+1. Accédez à `https://<app-name>.scm.azurewebsites.net/DebugConsole`.
+
+1. Dans l’explorateur de navigateur de vos fichiers App Service, accédez à *site/wwwroot*. S’il n’existe pas de fichier *Web.config*, créez-en un en sélectionnant **+**  > **Nouveau fichier**. 
+
+1. Sélectionnez le crayon correspondant à *Web. config* pour le modifier. Ajoutez le code de configuration suivant, puis cliquez sur **Enregistrer**. Si le fichier *Web.config* existe, ajoutez simplement l’élément `<authorization>` avec tout ce qui se trouve dans celui-ci. Ajoutez les comptes que vous souhaitez autoriser dans l’élément `<allow>`.
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+       <system.web>
+          <authorization>
+            <allow users="user1@contoso.com,user2@contoso.com"/>
+            <deny users="*"/>
+          </authorization>
+       </system.web>
+    </configuration>
+    ```
+
+### <a name="identity-provider-level"></a>Au niveau du fournisseur d’identité
+
+Le fournisseur d’identité peut fournir un autorisation clé en main. Par exemple :
+
+- Pour [Azure App Service](configure-authentication-provider-aad.md), vous pouvez [gérer l’accès au niveau entreprise](../active-directory/manage-apps/what-is-access-management.md) directement dans Azure AD. Pour obtenir des instructions, voir [Comprendre comment retirer l’accès d’un utilisateur à une application](../active-directory/manage-apps/methods-for-removing-user-access.md).
+- Pour [Google](configure-authentication-provider-google.md) , les projets d’API Google appartenant à une [organisation](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) peuvent être configurés de façon à autoriser l’accès uniquement aux utilisateurs de votre organisation (voir la [page de support **Setting up OAuth 2.0** de Google](https://support.google.com/cloud/answer/6158849?hl=en)).
+
+### <a name="application-level"></a>Niveau d’application
+
+Si l’un des autres niveaux ne fournit pas l’autorisation dont vous avez besoin, ou si votre plateforme ou fournisseur d’identité ne sont pas pris en charge, vous devez écrire du code personnalisé afin d’autoriser les utilisateurs en fonction de leurs [revendications](#access-user-claims).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]

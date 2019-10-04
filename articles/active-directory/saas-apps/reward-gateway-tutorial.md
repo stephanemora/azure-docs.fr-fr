@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d0dbcda886b3a44917548e19b69ced1b59df9e3e
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 1cdc4420758b67dc3a578b9530fb7039ed53ee66
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565595"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092794"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutoriel : Intégration d’Azure Active Directory à Reward Gateway
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Reward Gateway à Azure AD, vous devez ajou
 
 **Pour ajouter Reward Gateway à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 

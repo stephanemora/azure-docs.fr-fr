@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
-ms.author: v-jaswel
-ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.author: nitinme
+ROBOTS: NOINDEX
+ms.openlocfilehash: c964c62c34f952a547d077e93e7bb4d0eb7b192d
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117436"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703679"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>Guide pratique pour utiliser Conversation Learner avec d’autres technologies de génération de bots
 

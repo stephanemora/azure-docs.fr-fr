@@ -3,8 +3,8 @@ title: Protocole SAML de déconnexion unique Azure | Microsoft Docs
 description: Cet article décrit le protocole SAML de déconnexion unique dans Azure Active Directory
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
@@ -12,18 +12,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d4f9c69d6ddcbef96a88a0df10c3b0974cd5b74
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 66c509b1b901889241d6837611a2c373750fdb3a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437082"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834797"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocole SAML de déconnexion unique
 
@@ -72,7 +72,7 @@ Azure AD envoie une `LogoutResponse` en réponse à un élément `LogoutRequest`
 Azure AD définit les valeurs `ID`, `Version` et `IssueInstant` dans l’élément `LogoutResponse`. Il définit également l’élément `InResponseTo` sur la valeur de l’attribut `ID` de l’élément `LogoutRequest` qui a obtenu la réponse.
 
 ### <a name="issuer"></a>Émetteur
-Azure AD définit cette valeur sur `https://login.microsoftonline.com/<TenantIdGUID>/` où \<TenantIdGUID > est l’ID client du locataire Azure AD.
+Azure AD définit cette valeur sur `https://login.microsoftonline.com/<TenantIdGUID>/`, où \<TenantIdGUID> correspond à l’ID du locataire Azure AD.
 
 Pour évaluer la valeur de l’élément `Issuer` , utilisez la valeur de **l’URI ID d’application** spécifiée lors de l’inscription de l’application.
 

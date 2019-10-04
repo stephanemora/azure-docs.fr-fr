@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide de PowerShell dans Azure Cloud Shell | Microsoft Docs
-description: Démarrage rapide de PowerShell dans Cloud Shell
+title: Azure Cloud Shell - Démarrage rapide | Microsoft Docs
+description: Démarrage rapide pour Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: maertendmsft
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f1184f9f3a4cf827f0afef9bca8a72308c371d76
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905067"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "71224567"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Démarrage rapide de PowerShell dans Azure Cloud Shell
 
@@ -147,7 +147,7 @@ La chaîne de connexion vous permet d’utiliser la commande suivante pour monte
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
 ```
 
-Pour en savoir plus, consultez [Montage d’un partage Azure Files et accès au partage dans Windows][azmount].
+Pour en savoir plus, consultez [Montage d'un partage Azure Files et accès au partage dans Windows][azmount].
 
 Vous pouvez également parcourir les répertoires sous le partage Azure Files comme suit :
 
@@ -186,14 +186,15 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
   En supposant que vous avez une machine virtuelle, MyVM1, utilisons `Invoke-AzVMCommand` pour appeler un bloc de script PowerShell sur la machine distante.
 
   ```azurepowershell-interactive
-  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  Enable-AzVMPSRemoting -Name MyVM1 -ResourceGroupname MyResourceGroup
+  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
   ```
 
   Vous pouvez également commencer par accéder au répertoire virtualMachines, puis exécuter `Invoke-AzVMCommand` comme suit.
 
   ```azurepowershell-interactive
-  PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo}
+  PS Azure:\> cd MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines
+  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo} -Credential (Get-Credential)
 
   # You will see output similar to the following:
 
@@ -215,13 +216,13 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 Vous pouvez utiliser `Enter-AzVM` pour la connexion interactive à une machine virtuelle s’exécutant dans Azure.
 
   ```azurepowershell-interactive
-  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -Credential (Get-Credential)
   ```
 
 Vous pouvez également commencer par naviguer vers le répertoire `VirtualMachines` et exécuter `Enter-AzVM` comme suit.
 
   ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
  ```
 
 ### <a name="discover-webapps"></a>Découvrir les applications web
@@ -267,7 +268,7 @@ Pour vous authentifier auprès des serveurs ou machines virtuelles à l’aide d
 
 ### <a name="using-ssh"></a>Utilisation de SSH
 
-Suivez les instructions [ici](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) pour créer une nouvelle configuration de machine virtuelle à l’aide des applets de commande Azure PowerShell.
+Suivez les instructions fournies [ici](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) pour créer une configuration de machine virtuelle à l'aide de cmdlets Azure PowerShell.
 Avant d’appeler `New-AzVM` pour lancer le déploiement, ajoutez la clé publique SSH à la configuration de machine virtuelle.
 La machine virtuelle créée contient la clé publique à l’emplacement `~\.ssh\authorized_keys` ; vous pouvez ainsi ouvrir une session SSH sur la machine virtuelle sans recourir à des informations d’identification.
 
@@ -338,7 +339,7 @@ Pour savoir comment créer un profil, consultez [À propos des profils][profile]
 
 ## <a name="use-git"></a>Utiliser Git
 
-Pour cloner un dépôt Git dans le Cloud Shell, vous devez créer un [jeton d’accès personnel][githubtoken] et l’utiliser comme nom d’utilisateur. Dès que vous disposez de votre jeton, clonez le dépôt comme suit :
+Pour cloner un référentiel Git dans Cloud Shell, vous devez créer un [jeton d'accès personnel][githubtoken] et l'utiliser comme nom d'utilisateur. Dès que vous disposez de votre jeton, clonez le dépôt comme suit :
 
 ```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git

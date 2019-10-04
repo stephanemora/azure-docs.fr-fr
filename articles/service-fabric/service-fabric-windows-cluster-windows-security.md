@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 394ba3b3b8189bbe96137e920745f7b8cdd1cd95
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: ccc726f54821d316c745f6af9c63d7ed13986d79
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666672"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "65761931"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Sécuriser un cluster autonome sous Windows avec la sécurité Windows
 Pour empêcher tout accès non autorisé à un cluster Service Fabric, vous devez sécuriser le cluster. La sécurité est particulièrement importante lorsque le cluster exécute des charges de travail de production. Cet article explique comment configurer la sécurité de nœud à nœud et de client à nœud avec la sécurité Windows dans le fichier *ClusterConfig.JSON*.  Le processus correspond à l’étape de configuration de la sécurité sur la page [Créer un cluster autonome s’exécutant sous Windows](service-fabric-cluster-creation-for-windows-server.md). Pour plus d’informations sur la manière dont Service Fabric utilise la sécurité Windows, référez-vous à [Scénarios de sécurité du cluster](service-fabric-cluster-security.md).
@@ -30,7 +30,7 @@ Pour empêcher tout accès non autorisé à un cluster Service Fabric, vous deve
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Configuration de la sécurité Windows à l’aide de gMSA  
-L’exemple *Clusterconfig.Windows.JSON* fichier de configuration téléchargé avec le [Microsoft.Azure.ServiceFabric.WindowsServer.\< version > .zip](https://go.microsoft.com/fwlink/?LinkId=730690) package de cluster autonome contient un modèle de configuration de sécurité Windows à l’aide [compte géré de groupe Service (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
+L’exemple de fichier de configuration *ClusterConfig.gMSA.Windows.MultiMachine.JSON* téléchargé avec le package de cluster autonome [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) comporte un modèle de configuration de la sécurité Windows avec un [compte de service administré de groupe (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) :  
 
 ```
 "security": {
@@ -61,12 +61,12 @@ L’exemple *Clusterconfig.Windows.JSON* fichier de configuration téléchargé 
 | IsAdmin |Définissez sur true pour indiquer que l’utilisateur de domaine dispose d’un accès administrateur au client, ou sur false pour un accès utilisateur. |
 
 > [!NOTE]
-> Valeur de ClustergMSAIdentity ne peut pas inclure le nom de domaine et peut être uniquement le nom de compte de service administré de groupe. I.E. « mysfgmsa » est correcte, alors que les « mondomaine / / mysfgmsa » ou «mysfgmsa@mydomain» sont non valides ; comme le domaine est impliqué par l’ordinateur hôte.
+> La valeur de ClustergMSAIdentity doit être au format « mysfgmsa@mydomain ».
 
-La [sécurité de nœud à nœud](service-fabric-cluster-security.md#node-to-node-security) se configure en définissant **ClustergMSAIdentity** lorsque Service Fabric doit s’exécuter sous le compte gMSA. Pour créer des relations d’approbation entre les nœuds, ceux-ci doivent se connaître mutuellement. Cela peut être accompli de deux manières différentes : Spécifiez le groupe compte de Service administré qui inclut tous les nœuds du cluster, ou spécifiez le groupe de machines de domaine qui inclut tous les nœuds du cluster. Nous vous recommandons d’utiliser l’approche avec le [compte de service géré de groupe (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) , en particulier pour les clusters de grande taille (plus de 10 nœuds) ou pour les clusters dont la taille est susceptible d’augmenter ou de diminuer.  
+La [sécurité de nœud à nœud](service-fabric-cluster-security.md#node-to-node-security) se configure en définissant **ClustergMSAIdentity** lorsque Service Fabric doit s’exécuter sous le compte gMSA. Pour créer des relations d’approbation entre les nœuds, ceux-ci doivent se connaître mutuellement. Cette opération peut être réalisée de deux manières : indiquez le compte de service administré de groupe qui inclut tous les nœuds du cluster, ou spécifiez le groupe de machines de domaine qui inclut tous les nœuds du cluster. Nous vous recommandons d’utiliser l’approche avec le [compte de service géré de groupe (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) , en particulier pour les clusters de grande taille (plus de 10 nœuds) ou pour les clusters dont la taille est susceptible d’augmenter ou de diminuer.  
 Cette méthode ne nécessite pas la création d’un groupe de domaine pour lequel les administrateurs de cluster disposent des droits d’accès leur permettant d’ajouter et de supprimer des membres. Ces comptes sont également utiles pour la gestion des mots de passe automatique. Pour en savoir plus, consultez [Prise en main des comptes de service gérés de groupe](https://technet.microsoft.com/library/jj128431.aspx).  
  
-[sécurité client à nœud](service-fabric-cluster-security.md#client-to-node-security) est configurée à l’aide de **ClientIdentities**. Pour établir une approbation entre un client et le cluster, vous devez configurer le cluster de façon à ce qu’il sache quelles identités client sont fiables. Cette opération peut être réalisée de deux manières : Spécifiez les utilisateurs du groupe de domaine qui peuvent se connecter ou spécifier les utilisateurs de nœud de domaine qui peuvent se connecter. Service Fabric prend en charge deux types de contrôle d'accès différents pour les clients qui sont connectés à un cluster Service Fabric : administrateur et utilisateur. Le contrôle d'accès permet à l'administrateur du cluster de limiter l'accès à certains types d’opérations de cluster pour différents groupes d'utilisateurs, renforçant ainsi la sécurité du cluster.  Les administrateurs ont un accès complet aux fonctions de gestion (y compris les fonctionnalités de lecture/écriture). Les utilisateurs, par défaut, ont uniquement un accès en lecture aux fonctionnalités de gestion (par exemple, aux fonctionnalités de requête) et la capacité à résoudre les applications et les services. Pour en savoir plus sur les contrôles d’accès, consultez [Contrôle d’accès en fonction du rôle pour les clients de Service Fabric](service-fabric-cluster-security-roles.md).  
+[sécurité client à nœud](service-fabric-cluster-security.md#client-to-node-security) est configurée à l’aide de **ClientIdentities**. Pour établir une approbation entre un client et le cluster, vous devez configurer le cluster de façon à ce qu’il sache quelles identités client sont fiables. Cette opération peut être réalisée de deux manières : indiquez les utilisateurs de groupe de domaine autorisés à se connecter ou indiquez les utilisateurs de nœud de domaine autorisés à se connecter. Service Fabric prend en charge deux types de contrôle d'accès différents pour les clients qui sont connectés à un cluster Service Fabric : administrateur et utilisateur. Le contrôle d'accès permet à l'administrateur du cluster de limiter l'accès à certains types d’opérations de cluster pour différents groupes d'utilisateurs, renforçant ainsi la sécurité du cluster.  Les administrateurs ont un accès complet aux fonctions de gestion (y compris les fonctionnalités de lecture/écriture). Les utilisateurs, par défaut, ont uniquement un accès en lecture aux fonctionnalités de gestion (par exemple, aux fonctionnalités de requête) et la capacité à résoudre les applications et les services. Pour en savoir plus sur les contrôles d’accès, consultez [Contrôle d’accès en fonction du rôle pour les clients de Service Fabric](service-fabric-cluster-security-roles.md).  
  
 L’exemple de **sécurité** suivant illustre la configuration de la sécurité Windows à l’aide de gMSA et indique que les ordinateurs du gMSA *ServiceFabric/clusterA.contoso.com* font partie du cluster et que *CONTOSO\usera* dispose d’un accès administrateur au client :  
   
@@ -86,7 +86,7 @@ L’exemple de **sécurité** suivant illustre la configuration de la sécurité
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Configuration de la sécurité Windows à l’aide d’un groupe de machines  
-Ce modèle est déconseillé. Nous recommandons d’utiliser le compte GMSA comme décrit ci-dessus. L’exemple *ClusterConfig.Windows.MultiMachine.JSON* fichier de configuration téléchargé avec le [Microsoft.Azure.ServiceFabric.WindowsServer.\< version > .zip](https://go.microsoft.com/fwlink/?LinkId=730690) package de cluster autonome comporte un modèle de configuration de la sécurité de Windows.  La sécurité Windows est configurée dans la section **Propriétés** : 
+Ce modèle est déconseillé. Nous recommandons d’utiliser le compte GMSA comme décrit ci-dessus. L’exemple de fichier de configuration *ClusterConfig.Windows.MultiMachine.JSON* téléchargé avec le package de cluster autonome [Microsoft.Azure.ServiceFabric.WindowsServer\<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) comporte un modèle de configuration de la sécurité Windows.  La sécurité Windows est configurée dans la section **Propriétés** : 
 
 ```
 "security": {

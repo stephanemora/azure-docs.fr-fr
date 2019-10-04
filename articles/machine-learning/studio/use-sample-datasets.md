@@ -11,16 +11,16 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
 ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60736613"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-Lorsque vous créez un nouvel espace de travail dans Azure Machine Learning Studio, un nombre d’exemples de datasets et d’expériences est inclus par défaut. Plusieurs de ces exemples de jeux de données sont utilisés par les exemples de modèles [d’Azure AI Gallery](https://gallery.azure.ai/). D’autres sont inclus comme exemples des différents types de données généralement utilisées dans Machine Learning.
+Quand vous créez un espace de travail dans Azure Machine Learning Studio, vous disposez par défaut d’un certain nombre d’exemples de jeux de données et d’expériences. Plusieurs de ces exemples de jeux de données sont utilisés par les exemples de modèles [d’Azure AI Gallery](https://gallery.azure.ai/). D’autres sont inclus comme exemples des différents types de données généralement utilisées dans Machine Learning.
 
 Certains de ces jeux de données sont disponibles dans le Stockage Blob Azure. Le tableau ci-dessous fournit un lien direct vers ces jeux de données. Vous pouvez utiliser ces jeux de données dans vos expériences à l’aide du module [Importer les données][import-data].
 
@@ -232,7 +232,7 @@ Il s’agit sans doute de l’une des bases de données les plus réputées dans
 <tr>
   <td>Tweets de films</td>
   <td>
-Ce jeu de données est une version étendue du jeu de données Movie Tweetings. Il contient 170 000 évaluations de film, tirées de tweets structurés publiés sur Twitter. Chaque instance représente un tweet et constitue un tuple : ID d’utilisateur, ID de film IMDB, évaluation, horodatage, nombre de favoris pour ce tweet et nombre de retweets pour ce tweet. Ce jeu de données a été fourni par A. Said, S. Dooms, B. Loni et D. Tikk dans le cadre du Recommender Systems Challenge 2014.
+Ce jeu de données est une version étendue du jeu de données Movie Tweetings. Il contient 170 000 évaluations de film, tirées de tweets structurés publiés sur Twitter. Chaque instance correspond à un tweet et constitue un tuple : ID utilisateur, ID IMDB, évaluation, horodatage, nombre de favoris pour ce tweet et nombre de retweets pour ce tweet. Ce jeu de données a été fourni par A. Said, S. Dooms, B. Loni et D. Tikk dans le cadre du Recommender Systems Challenge 2014.
   </td>
 </tr>
 
@@ -255,7 +255,7 @@ Sous-ensemble de la base de données du National Institute of Diabetes and Diges
 <p></p>
 <b>Utilisation :</b> prédire si le sujet a du diabète (classification binaire). 
 <p></p>
-<b>Recherche associée :</b> Sigillito, V. (1990). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml »</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>Recherche associée :</b> Sigillito, V. (1990). Référentiel Machine Learning UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml  »</a>. Irvine, CA: University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -408,7 +408,7 @@ Le jeu de données a été téléchargé et stocké dans le stockage d’objets 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Kickstart vos expériences avec des exemples](sample-experiments.md)
+> [Démarrez rapidement vos expériences avec des exemples](sample-experiments.md)
 
 <!-- Module References -->
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

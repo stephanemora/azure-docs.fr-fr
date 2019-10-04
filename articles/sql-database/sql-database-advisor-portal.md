@@ -1,6 +1,6 @@
 ---
 title: Appliquer les recommandations relatives aux performances - Azure SQL Database | Microsoft Docs
-description: Utilisez le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre Azure SQL Database.
+description: Utilisez le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre base de données Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b6bcb2650cd11ed97b6e81fda6aaafe7fca61202
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58863200"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569597"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 
-Vous pouvez utiliser le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre Azure SQL Database ou pour résoudre un problème identifié dans votre charge de travail. La page **Recommandations en matière de performances** du portail Azure vous permet de trouver les meilleures recommandations en fonction de leur impact potentiel. 
+Vous pouvez utiliser le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre base de données Azure SQL ou pour résoudre un problème identifié dans votre charge de travail. La page **Recommandations en matière de performances** du portail Azure vous permet de trouver les meilleures recommandations en fonction de leur impact potentiel. 
 
 ## <a name="viewing-recommendations"></a>Affichage des recommandations
 
@@ -111,11 +110,11 @@ Vous pouvez configurer Azure SQL Database de manière à implémenter automatiqu
 
 Une fois que vous avez sélectionné la configuration voulue, cliquez sur Appliquer.
 
-### <a name="manually-apply-recommendations-through-t-sql"></a>Appliquer manuellement les recommandations via T-SQL
+### <a name="manually-apply-recommendations-through-t-sql"></a>Appliquer manuellement des recommandations par le biais de T-SQL
 
 Sélectionnez une recommandation, puis cliquez sur **Afficher le script**. Exécutez ce script sur votre base de données pour appliquer la recommandation manuellement.
 
-*Les index qui sont exécutés manuellement ne sont pas surveillés ni validés en ce qui concerne l’impact du service sur les performances*. Nous vous suggérons donc de surveiller ces index après leur création pour vérifier s’ils améliorent les performances et de les ajuster ou de les supprimer, si nécessaire. Pour plus d’informations sur la création d’index, consultez [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). En outre, des recommandations appliquées manuellement reste active et affichées dans la liste des recommandations de 24 à 48 heures. avant que le système retire automatiquement les. Si vous souhaitez supprimer une recommandation plus tôt, vous pouvez l’ignorer manuellement.
+*Les index qui sont exécutés manuellement ne sont pas surveillés ni validés en ce qui concerne l’impact du service sur les performances*. Nous vous suggérons donc de surveiller ces index après leur création pour vérifier s’ils améliorent les performances et de les ajuster ou de les supprimer, si nécessaire. Pour plus d’informations sur la création d’index, consultez [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). En outre, les recommandations appliquées manuellement restent actives et figurent dans la liste des recommandations pendant 24 à 48 heures avant que le système ne les retire automatiquement. Pour supprimer une recommandation plus tôt, vous pouvez l’ignorer manuellement.
 
 ### <a name="canceling-recommendations"></a>Annulation de recommandations
 

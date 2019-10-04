@@ -3,7 +3,7 @@ title: Créer une application de conteneur Microsoft Azure Service Fabric sur Li
 description: Créez votre première application de conteneur Linux sur Microsoft Azure Service Fabric. Concevez une image Docker avec votre application, envoyez l’image vers un registre de conteneurs, créez et déployez une application de conteneur Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
-ms.author: aljo
-ms.openlocfilehash: 9e8f209f1448119ed2e3dfd5d38d42699a4be01c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.author: atsenthi
+ms.openlocfilehash: 2bb9a5e8e42901f22d9f68d691684614c7161620
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670861"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650665"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ L’exécution d’une application existante dans un conteneur Linux sur un clus
 > [!NOTE]
 > Cet article s’applique à un environnement de développement Linux.  Le runtime du cluster Service Fabric et le runtime Docker doivent être en cours d’exécution sur le même système d’exploitation.  Vous ne pouvez pas exécuter des conteneurs Linux sur un cluster Windows.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Un ordinateur de développement exécutant :
   * [Outils et SDK Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE pour Linux](https://docs.docker.com/engine/installation/#prior-releases). 
@@ -84,10 +84,12 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
@@ -122,7 +124,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* donne un nom au conteneur en cours d’exécution (au lieu d’utiliser l’ID de conteneur).
 
-Connectez le conteneur en cours d’exécution. Ouvrez un navigateur web pointant vers l’adresse IP renvoyée sur le port 4000, par exemple « http :\//localhost:4000 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
+Connectez le conteneur en cours d’exécution. Ouvrez un navigateur web qui pointe vers l’adresse IP renvoyée sur le port 4000, par exemple « http:\//localhost:4000 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 ![Hello World!][hello-world]
 
@@ -141,9 +143,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>Envoyer l’image dans le registre de conteneurs
 Après avoir vérifié que l’application s’exécute dans Docker, envoyez l’image à votre registre dans Azure Container Registry.
 
-Exécutez `docker login` pour vous connecter à votre Registre de conteneur à l’aide de vos [informations d’identification du Registre](../container-registry/container-registry-authentication.md).
+Exécutez `docker login` pour vous connecter à votre registre de conteneurs à l’aide des [informations d’identification de votre registre](../container-registry/container-registry-authentication.md).
 
-L’exemple suivant transmet l’ID et le mot de passe d’un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory . Par exemple, vous pouvez avoir affecté un principal du service à votre Registre pour un scénario d’automatisation. Ou bien, vous pouvez vous connecter à l’aide de votre nom d’utilisateur de registre et mot de passe.
+L’exemple suivant transmet l’ID et le mot de passe d’un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory . Par exemple, vous pouvez avoir affecté un principal du service à votre Registre pour un scénario d’automatisation. Vous pouvez aussi vous connecter à l’aide de votre nom d’utilisateur du registre et votre mot de passe.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -179,28 +181,11 @@ Spécifiez le mappage de port au format approprié. Pour cet article, vous devez
 ![Générateur Yeoman Service Fabric pour les conteneurs][sf-yeoman]
 
 ## <a name="configure-container-repository-authentication"></a>Configurer l’authentification des référentiels de conteneur
- Si votre conteneur doit s’authentifier auprès d’un référentiel privé, ajoutez `RepositoryCredentials`. Pour cet article, ajoutez le nom de compte et le mot de passe du registre de conteneurs myregistry.azurecr.io. Assurez-vous que la stratégie est ajoutée sous la balise « ServiceManifestImport » correspondant au package de service approprié.
 
-```xml
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
-    <Policies>
-        <ContainerHostPolicies CodePackageRef="Code">
-        <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
-        </ContainerHostPolicies>
-    </Policies>
-   </ServiceManifestImport>
-``` 
-
-Nous vous recommandons de chiffrer le mot de passe du référentiel. Pour obtenir des instructions, consultez [Gérer les secrets chiffrés dans les applications Service Fabric](service-fabric-application-secret-management.md).
-
-### <a name="configure-cluster-wide-credentials"></a>Configurer les informations d’identification au niveau du cluster
-Reportez-vous à [cette documentation](
-service-fabric-get-started-containers.md#configure-cluster-wide-credentials).
+Pour configurer différents types d'authentification afin de télécharger des images conteneur, consultez [Authentification des référentiels de conteneur](configure-container-repository-credentials.md).
 
 ## <a name="configure-isolation-mode"></a>Configurer le mode d’isolation
-Avec la version du runtime 6.3, l’isolation de machine virtuelle est prise en charge pour les conteneurs Linux. Deux modes d’isolation sont ainsi pris en charge pour les conteneurs : process et hyperv. Avec le mode d’isolation hyperv, les noyaux sont isolés entre chaque conteneur et l’hôte du conteneur. L’isolation hyperv est implémentée à l’aide de l’option [Nettoyer les conteneurs](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Le mode d’isolation est spécifié pour les clusters Linux dans l’élément `ServicePackageContainerPolicy` dans le fichier manifeste de l’application. Les modes d’isolation qui peuvent être définis sont `process`, `hyperv` et `default`. La valeur par défaut est le mode d’isolation de processus. L’extrait de code suivant montre comment le mode d’isolation est spécifié dans le fichier manifeste de l’application.
+La version 6.3 du runtime prend en charge l'isolation des machines virtuelles pour les conteneurs Linux. Deux modes d'isolation sont ainsi pris en charge pour les conteneurs : process et Hyper-V. Avec le mode d'isolation Hyper-V, les noyaux sont isolés entre chaque conteneur et l'hôte du conteneur. L'isolation Hyper-V est implémentée à l'aide de l'option [Nettoyer les conteneurs](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Le mode d’isolation est spécifié pour les clusters Linux dans l’élément `ServicePackageContainerPolicy` dans le fichier manifeste de l’application. Les modes d’isolation qui peuvent être définis sont `process`, `hyperv` et `default`. La valeur par défaut est le mode d’isolation de processus. L’extrait de code suivant montre comment le mode d’isolation est spécifié dans le fichier manifeste de l’application.
 
 ```xml
 <ServiceManifestImport>
@@ -231,7 +216,12 @@ La [gouvernance des ressources](service-fabric-resource-governance.md) limite le
 
 
 ## <a name="configure-docker-healthcheck"></a>Configurer le docker HEALTHCHECK 
-En démarrant la version 6.1, Service Fabric intègre automatiquement les événements [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) à son rapport d’intégrité du système. Cela signifie que si **HEALTHCHECK** est activé dans votre conteneur, Service Fabric générera un rapport d’intégrité chaque fois que l’état d’intégrité du conteneur changera comme indiqué par Docker. Un rapport d’intégrité **OK** apparaît dans [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) lorsque *health_status* est *intègre* et  **AVERTISSEMENT** s’affiche lorsque *health_status* est *défectueux*. L’instruction **HEALTHCHECK** qui pointe vers la vérification réalisée pour surveiller l’intégrité du conteneur doit être présente dans le fichier Dockerfile utilisé lors de la génération de l’image conteneur. 
+
+En démarrant la version 6.1, Service Fabric intègre automatiquement les événements [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) à son rapport d’intégrité du système. Cela signifie que si **HEALTHCHECK** est activé dans votre conteneur, Service Fabric générera un rapport d’intégrité chaque fois que l’état d’intégrité du conteneur changera comme indiqué par Docker. Un rapport d’intégrité **OK** apparaît dans [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) lorsque *health_status* est *intègre* et  **AVERTISSEMENT** s’affiche lorsque *health_status* est *défectueux*. 
+
+À compter de la dernière version v6.4, vous avez la possibilité d’indiquer que les évaluations HEALTHCHECK docker doivent être signalées en tant qu’erreur. Si cette option est activée, un rapport d’intégrité **OK** apparaît quand *health_status* indique *sain* et **ERROR** s’affiche quand *health_status* indique *non sain*.
+
+L’instruction **HEALTHCHECK** qui pointe vers la vérification réalisée pour surveiller l’intégrité du conteneur doit être présente dans le fichier Dockerfile utilisé lors de la génération de l’image conteneur.
 
 ![HealthCheckHealthy][1]
 
@@ -246,12 +236,18 @@ Vous pouvez configurer un comportement **HEALTHCHECK** pour chaque conteneur en 
     <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true"
+              RestartContainerOnUnhealthyDockerHealthStatus="false" 
+              TreatContainerUnhealthyStatusAsError="false" />
       </ContainerHostPolicies>
     </Policies>
 </ServiceManifestImport>
 ```
-Par défaut *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true** et *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false**. Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true**, un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
+Par défaut, *IncludeDockerHealthStatusInSystemHealthReport* est défini sur **true**, *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **false** et *TreatContainerUnhealthyStatusAsError* est défini sur **false**. 
+
+Si *RestartContainerOnUnhealthyDockerHealthStatus* est défini sur **true**, un conteneur déclaré défectueux à plusieurs reprises est redémarré (éventuellement sur d’autres nœuds).
+
+Si *TreatContainerUnhealthyStatusAsError* est défini sur **true**, des rapports d’intégrité **ERROR** s’affichent quand *health_status* indique *non sain* pour le conteneur.
 
 Si vous souhaitez désactiver l’intégration **HEALTHCHECK** pour l’ensemble du cluster Service Fabric, vous devez définir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) sur **false**.
 
@@ -271,9 +267,9 @@ Utilisez le script d’installation fourni dans le modèle à l’adresse https:
 ./install.sh
 ```
 
-Ouvrez un navigateur et accédez à Service Fabric Explorer à http :\//localhost:19080 / Explorer (remplacez localhost par l’adresse IP privée de la machine virtuelle si vous utilisez Vagrant sur Mac OS X). Développez le nœud Applications et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
+Ouvrez un navigateur et accédez à Service Fabric Explorer à l’adresse http:\//localhost:19080/Explorer (remplacez localhost par l’adresse IP privée de la machine virtuelle si vous utilisez Vagrant sur Mac OS X). Développez le nœud Applications et notez qu’il existe désormais une entrée pour votre type d’application et une autre pour la première instance de ce type.
 
-Connectez le conteneur en cours d’exécution. Ouvrez un navigateur web pointant vers l’adresse IP renvoyée sur le port 4000, par exemple « http :\//localhost:4000 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
+Connectez le conteneur en cours d’exécution. Ouvrez un navigateur web qui pointe vers l’adresse IP renvoyée sur le port 4000, par exemple « http:\//localhost:4000 ». Vous devez voir le titre « Hello World ! » s’afficher dans le navigateur.
 
 ![Hello World!][hello-world]
 

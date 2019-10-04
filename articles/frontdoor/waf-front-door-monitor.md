@@ -1,6 +1,6 @@
 ---
-title: Pare-feu d’applications web Azure analyse et la journalisation
-description: Découvrez le pare-feu d’applications web (WAF) avec principale surveillance et journalisation
+title: Supervision et journalisation du pare-feu d’applications web Azure
+description: Découvrez les fonctionnalités de supervision et de journalisation du pare-feu d’applications web (WAF)
 services: frontdoor
 author: KumudD
 ms.service: frontdoor
@@ -8,40 +8,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
-ms.author: tyao;kumud
-ms.openlocfilehash: 5368ed8d1e60a646366065e2cf617fb2f3735b53
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 05/31/2019
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 675d06f3d2071022da3867a4c45137efb818980d
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59782885"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849142"
 ---
-# <a name="azure-web-application-firewall-monitoring-and-logging"></a>Pare-feu d’applications web Azure analyse et la journalisation 
+# <a name="azure-web-application-firewall-monitoring-and-logging"></a>Supervision et journalisation du pare-feu d’applications web Azure 
 
-Surveillance d’Azure web application firewall (WAF) et la journalisation sont fournis via l’intégration avec Azure Monitor et Azure Monitor et de journalisation des journaux.
-
-> [!IMPORTANT]
-> Le WAF surveillance et journalisation de fonctionnalité pour Azure porte d’entrée est actuellement en version préliminaire publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Les fonctionnalités de supervision et de journalisation du pare-feu d’applications web (WAF) Azure sont fournies via la journalisation et l’intégration avec Azure Monitor et les journaux Azure Monitor.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Pare-feu d’applications Web avec les journaux principale est intégré avec [Azure Monitor](../azure-monitor/overview.md). Azure Monitor permet de suivre les informations de diagnostics, y compris les journaux et alertes WAF. Vous pouvez configurer la surveillance de pare-feu d’applications Web au sein de la ressource de la porte d’entrée dans le portail sous la **Diagnostics** onglet ou via l’analyse Azure service directement.
+La journalisation WAF avec Front Door est intégrée à [Azure Monitor](../azure-monitor/overview.md). Azure Monitor vous permet d’effectuer le suivi des informations de diagnostic, y compris des alertes et des journaux WAF. Vous pouvez configurer la supervision WAF dans la ressource Front Door sur le portail sous l’onglet **Diagnostics** ou directement via le service Azure Monitor.
 
-À partir du portail Azure, accédez au type de ressource porte d’entrée. À partir de **surveillance**/**métriques** onglet sur la gauche, vous pouvez ajouter **WebApplicationFirewallRequestCount** pour effectuer le suivi du nombre de demandes qui correspondent aux règles de pare-feu d’applications Web. Filtres personnalisés peuvent être créés en fonction des types d’action et les noms de règle.
+À partir du portail Azure, accédez au type de ressource Front Door. Sous l’onglet **Supervision**/**Métriques** sur la gauche, ajoutez **WebApplicationFirewallRequestCount** pour suivre le nombre de requêtes qui correspondent à des règles WAF. Vous pouvez créer des filtres personnalisés sur la base des types d’action et des noms de règle.
 
 ![WAFMetrics](./media//waf-front-door-monitor/waf-frontdoor-metrics.png)
 
 ## <a name="logs-and-diagnostics"></a>Journaux et diagnostics
 
-Pare-feu d’applications Web avec la porte d’entrée fournit des rapports détaillés sur chaque menace détectée. La journalisation est intégrée aux journaux d’activité Azure Diagnostics et les alertes sont enregistrées au format json. Ces journaux d’activité peuvent être intégrés aux [journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
+WAF avec Front Door fournit des rapports détaillés sur chaque menace détectée. La journalisation est intégrée aux journaux Diagnostics Azure et les alertes sont enregistrées au format json. Ces journaux d’activité peuvent être intégrés aux [journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 
 ![WAFDiag](./media/waf-front-door-monitor/waf-frontdoor-diagnostics.png)
 
-FrontdoorAccessLog enregistre toutes les demandes qui sont transférés au client des serveurs principaux. FrontdoorWebApplicationFirewallLog enregistre toute demande qui correspond à une règle de pare-feu d’applications Web.
+FrontdoorAccessLog consigne toutes les requêtes qui sont transmises aux back-ends clients. FrontdoorWebApplicationFirewallLog consigne toutes les requêtes qui correspondent à une règle WAF.
 
-L’exemple de requête suivante obtient les journaux WAF sur les demandes bloquées :
+L’exemple de requête suivant obtient les journaux WAF sur les requêtes bloquées :
 
 ``` WAFlogQuery
 AzureDiagnostics
@@ -50,7 +47,7 @@ AzureDiagnostics
 
 ```
 
-L’exemple de requête suivante obtient les entrées AccessLogs :
+L’exemple de requête suivant obtient les entrées AccessLogs :
 
 ``` AccessLogQuery
 AzureDiagnostics
@@ -61,5 +58,5 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [porte d’entrée](front-door-overview.md).
+- En savoir plus sur [Front Door](front-door-overview.md).
 

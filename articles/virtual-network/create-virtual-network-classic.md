@@ -4,7 +4,7 @@ description: Découvrez comment créer un réseau virtuel (Classic) comprenant p
 services: virtual-network
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d934386a47c339cd3abdf72578736b44d40e7952
+ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421388"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71059009"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Créer un réseau virtuel (Classic) comprenant plusieurs sous-réseaux
 
 > [!IMPORTANT]
-> Azure dispose de deux [modèles de déploiement différents](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour créer et utiliser des ressources : le déploiement Resource Manager et le déploiement Classic. Cet article traite du modèle de déploiement classique. Microsoft recommande de créer la plupart des réseaux virtuels via le modèle de déploiement [Resource Manager](quick-create-portal.md).
+> Azure offre deux [modèles de déploiement différents](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite du modèle de déploiement classique. Microsoft recommande de créer la plupart des réseaux virtuels via le modèle de déploiement [Resource Manager](quick-create-portal.md).
 
 Ce didacticiel explique comment créer un réseau virtuel Azure (Classic) de base comprenant des sous-réseaux publics et privés distincts. Vous pouvez créer des ressources Azure, telles que des machines virtuelles et des services cloud, dans un sous-réseau. Les ressources créées dans des réseaux virtuels (Classic) peuvent communiquer entre elles, ainsi qu’avec des ressources d’autres réseaux connectés à un réseau virtuel.
 
@@ -43,15 +43,15 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
 2. Cliquez sur **Créer une ressource** dans le portail.
 3. Entrez *Réseau virtuel* dans la zone **Rechercher dans la place de marché** située dans le haut du volet **Nouveau** qui s’affiche. Quand la mention **Réseau virtuel** apparaît dans les résultats de la recherche, cliquez dessus.
 4. Dans le volet **Réseau virtuel** qui s’affiche, repérez la zone **Sélectionnez un modèle de déploiement** et sélectionnez **Classique**, puis cliquez sur **Créer**. 
-5. Dans le volet **Créer un réseau virtuel (classique)**, entrez les valeurs suivantes, puis cliquez sur **Créer** :
+5. Dans le volet **Créer un réseau virtuel (classique)** , entrez les valeurs suivantes, puis cliquez sur **Créer** :
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVnet|
+    |Nom|myVnet|
     |Espace d’adressage|10.0.0.0/16|
     |Nom du sous-réseau|Public|
     |Plage d’adresses de sous-réseau|10.0.0.0/24|
-    |Groupe de ressources|Laissez l’option **Créer** activée, puis entrez **myResourceGroup**.|
+    |Resource group|Laissez l’option **Créer** activée, puis entrez **myResourceGroup**.|
     |Abonnement et emplacement|Sélectionnez votre abonnement et son emplacement.
 
     Si vous débutez avec Azure, apprenez-en davantage sur les [groupes de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), les [abonnements](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) et les [emplacements](https://azure.microsoft.com/regions) (également appelés *régions*).
@@ -60,12 +60,12 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
 6. Dans le volet **myVnet - Sous-réseaux** qui s’affiche, cliquez sur **+Ajouter**.
 7. Dans le volet **Ajouter un sous-réseau**, pour **Nom**, entrez **Privé**. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.  Cliquez sur **OK**.
 8. Dans le volet **myVnet - Sous-réseaux**, vous pouvez voir les sous-réseaux **Publics** et **Privés** que vous avez créés.
-9. **Facultatif** : à l’issue de ce didacticiel, vous pouvez supprimer les ressources créées afin d’éviter la facturation liée à leur utilisation :
+9. **Facultatif** : Lorsque vous aurez terminé ce didacticiel, vous devriez supprimer les ressources créées afin que leur utilisation ne soit pas facturée :
     - Dans le volet **myVnet**, cliquez sur **Vue d’ensemble**.
     - Dans le volet **myVnet**, cliquez sur l’icône **Supprimer**.
     - Pour confirmer la suppression, cliquez sur **Oui** dans la zone **Supprimer le réseau virtuel**.
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 
 1. Vous pouvez soit [installer et configurer Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), soit utiliser l’interface de ligne de commande au sein d’Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Pour obtenir de l’aide sur les commandes CLI, entrez `azure <command> --help`. 
 2. Dans une session d’interface de ligne de commande, connectez-vous à Azure avec la commande suivante. Si vous cliquez sur **Essayez-la** dans la zone ci-dessous, Cloud Shell s’ouvre. Vous pouvez vous connecter à votre abonnement Azure sans entrer la commande suivante :
@@ -98,7 +98,7 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
     azure network vnet show --vnet myVnet
     ```
 
-7. **Facultatif**: à l’issue de ce didacticiel, vous pouvez supprimer les ressources créées afin d’éviter la facturation liée à leur utilisation :
+7. **Facultatif** : à l’issue de ce didacticiel, vous devriez supprimer les ressources créées afin d’éviter que leur utilisation ne vous soit facturée :
 
     ```azurecli-interactive
     azure network vnet delete --vnet myVnet --quiet
@@ -153,7 +153,7 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
     Get-AzureVNetSite -VNetName "myVnet"
     ```
 
-8. **Facultatif**: à l’issue de ce didacticiel, vous pouvez supprimer les ressources créées afin d’éviter la facturation liée à leur utilisation. Pour supprimer le réseau virtuel, reprenez les étapes 4 à 6, cette fois en supprimant l’élément **VirtualNetworkSite** ajouté à l’étape 5.
+8. **Facultatif** : à l’issue de ce didacticiel, vous devriez supprimer les ressources créées afin d’éviter que leur utilisation ne vous soit facturée. Pour supprimer le réseau virtuel, reprenez les étapes 4 à 6, cette fois en supprimant l’élément **VirtualNetworkSite** ajouté à l’étape 5.
  
 > [!NOTE]
 > Bien que vous ne puissiez pas spécifier un groupe de ressources pour créer un réseau virtuel (Classic) à l’aide de PowerShell, Azure crée le réseau virtuel dans un groupe de ressources nommé *Default-Networking*.
@@ -164,5 +164,5 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
 
 - Pour découvrir tous les paramètres de réseau virtuel et de sous-réseau, consultez [Gérer des réseaux virtuels](manage-virtual-network.md) et [Gérer les sous-réseaux virtuels](virtual-network-manage-subnet.md). Vous disposez de différentes options pour l’utilisation de réseaux virtuels et de sous-réseaux dans un environnement de production afin de répondre à différentes exigences.
 - Créez une machine virtuelle [Windows](../virtual-machines/windows/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou une machine virtuelle [Linux](../virtual-machines/linux/classic/createportal-classic.md?toc=%2fazure%2fvirtual-network%2ftoc.json), puis connectez-la à un réseau virtuel existant.
-- Pour connecter deux réseaux virtuels situés dans un même emplacement Azure, créez une [homologation de réseaux virtuels](create-peering-different-deployment-models.md) entre les réseaux virtuels. Vous pouvez apparier un réseau virtuel (Resource Manager) à un réseau virtuel (Classic), mais vous ne pouvez pas créer une homologation entre deux réseaux virtuels (Classic).
+- Pour connecter deux réseaux virtuels situés dans un même emplacement Azure, créez un [peering de réseaux virtuels](create-peering-different-deployment-models.md) entre les réseaux virtuels. Vous pouvez apparier un réseau virtuel (Resource Manager) à un réseau virtuel (Classic), mais vous ne pouvez pas créer un peering entre deux réseaux virtuels (Classic).
 - Connectez le réseau virtuel à un réseau local en utilisant un circuit [Passerelle VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

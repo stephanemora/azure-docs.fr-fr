@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: abbd26779cefaf52c6f2247a5d27db25f280c930
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
+ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118048"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70051837"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connecter Azure aux outils ITSM à l’aide du connecteur de gestion des services informatiques
 
@@ -35,11 +35,12 @@ ITSMC prend en charge les connexions avec les outils ITSM suivants :
 -   Provance
 -   Cherwell
 
-Avec ITSMC, vous pouvez
+Avec ITSMC, vous pouvez :
 
 -  Créer des éléments de travail dans l’outil ITSM, en fonction de vos alertes Azure (alertes de métriques, alertes de journal d’activité et alertes Log Analytics).
 -  Si vous le souhaitez, vous pouvez synchroniser les données d’incidents et de demandes de modification de vos outils ITSM vers un espace de travail Azure Log Analytics.
 
+En savoir plus sur les [conditions légales et la politique de confidentialité](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
 
 Vous pouvez commencer à utiliser le connecteur ITSM en effectuant les étapes suivantes :
 
@@ -62,7 +63,9 @@ Avant de pouvoir créer une connexion, vous devez ajouter la solution de connect
 
 3. Dans la section **Espace de travail OMS**, sélectionnez l’espace de travail Azure Log Analytics où vous souhaitez installer la solution.
    >[!NOTE]
-   >Dans le cadre de la transition en cours depuis Microsoft Operations Management Suite (OMS) vers Azure Monitor, les espaces de travail OMS sont maintenant appelé espaces de travail Log Analytics.
+   > * Dans le cadre de la transition en cours depuis Microsoft Operations Management Suite (OMS) vers Azure Monitor, les espaces de travail OMS sont maintenant appelé espaces de travail Log Analytics.
+   > * Le connecteur ITSM peut uniquement être installé dans les espaces de travail Log Analytics des régions suivantes : USA Est, Europe Ouest, Asie Sud-Est, Australie Sud-Est, USA Centre-Ouest, Japon Est, Royaume-Uni Sud, Inde Centre, Canada Centre.
+
 4. Dans la section **Paramètres de l’espace de travail OMS**, sélectionnez le groupe de ressources où vous souhaitez créer la ressource de la solution.
 
    ![Espace de travail ITSMC](media/itsmc-overview/itsmc-solution-workspace.png)
@@ -89,7 +92,7 @@ Effectuez les étapes suivantes, en fonction du produit ITSM auquel vous vous co
 
 Une fois que vous avez préparé votre outils ITSM, suivez les étapes ci-dessous pour créer une connexion :
 
-1. Accédez à **Toutes les ressources** et recherchez **ServiceDesk(nom_de_votre_espace_de_travail)**.
+1. Accédez à **Toutes les ressources** et recherchez **ServiceDesk(nom_de_votre_espace_de_travail)** .
 2. Sous **Sources de données de l’espace de travail** dans le volet gauche, cliquez sur **Connexions ITSM**.
    ![Connexions ITSM](media/itsmc-overview/itsm-connections.png)
 
@@ -101,7 +104,7 @@ Une fois que vous avez préparé votre outils ITSM, suivez les étapes ci-dessou
 4. Spécifiez les paramètres de connexion comme décrit dans l’article [Configuration de la connexion ITSM avec vos produits/services ITSM](../../azure-monitor/platform/itsmc-connections.md).
 
    > [!NOTE]
-   > 
+   >
    > Par défaut, ITSMC actualise les données de configuration de la connexion toutes les 24 heures. Pour actualiser instantanément les données de votre connexion avec vos modifications ou mises à jour du modèle, cliquez sur le bouton **Synchroniser** sur le panneau de votre connexion.
 
    ![Actualisation de la connexion](media/itsmc-overview/itsmc-connections-refresh.png)
@@ -139,7 +142,7 @@ Procédez comme suit :
 Lorsque vous créez/modifiez une règle d’alerte Azure, utilisez un groupe d’actions qui contient une action ITSM. Quand l’alerte se déclenche, l’élément de travail est créé/mis à jour dans l’outil ITSM.
 
 > [!NOTE]
-> 
+>
 > Pour plus d’informations sur la tarification de l’action ITSM, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/monitor/) pour les groupes d’actions.
 
 
@@ -172,7 +175,7 @@ Les incidents et les demandes de modification sont synchronisés entre votre pro
 Les informations suivantes présentent des exemples de données collectées par ITSM :
 
 > [!NOTE]
-> 
+>
 > Selon le type d’élément de travail importé dans Log Analytics, l’événement **ServiceDesk_CL** contient les champs suivants :
 
 **Élément de travail :** **Incidents**  
@@ -182,7 +185,7 @@ ServiceDeskWorkItemType_s="Incident"
 
 - ServiceDeskConnectionName
 - ID du service d’assistance
-- État
+- State
 - Urgence
 - Impact
 - Priorité
@@ -192,14 +195,14 @@ ServiceDeskWorkItemType_s="Incident"
 - Fermé par
 - Source
 - Affecté à
-- Catégorie
+- Category
 - Intitulé
 - Description
 - Date de création
 - Date de fermeture
 - Date de résolution
 - Date de dernière modification
-- Ordinateur
+- Computer
 
 
 **Élément de travail :** **Demandes de modification**
@@ -215,7 +218,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Affecté à
 - Intitulé
 - Type
-- Catégorie
+- Category
 - State
 - Escalade
 - État conflictuel
@@ -233,14 +236,14 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Date de début du travail
 - Date de fin du travail
 - Description
-- Ordinateur
+- Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Données de sortie pour un incident ServiceNow
 
 | Champ Log Analytics | Champ ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
-| IncidentState_s | État |
+| IncidentState_s | State |
 | Urgency_s |Urgence |
 | Impact_s |Impact|
 | Priority_s | Priorité |
@@ -249,13 +252,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | Fermé par |
 | Source_s| Type de contact |
 | AssignedTo_s | Affecté à  |
-| Category_s | Catégorie |
+| Category_s | Category |
 | Title_s|  Brève description |
 | Description_s|  Notes |
 | CreatedDate_t|  Ouvert |
 | ClosedDate_t| Fermé|
 | ResolvedDate_t|Résolu|
-| Ordinateur  | Élément de configuration |
+| Computer  | Élément de configuration |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Données de sortie pour une demande de modification ServiceNow
 
@@ -267,8 +270,8 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | AssignedTo_s | Affecté à  |
 | Title_s|  Brève description |
 | Type_s|  Type |
-| Category_s|  Catégorie |
-| CRState_s|  État|
+| Category_s|  Category |
+| CRState_s|  State|
 | Urgency_s|  Urgence |
 | Priority_s| Priorité|
 | Risk_s| Risque|
@@ -280,7 +283,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | Date de début réelle |
 | WorkEndDate_t | Date de fin réelle|
 | Description_s | Description |
-| Ordinateur  | Élément de configuration |
+| Computer  | Élément de configuration |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Dépanner les connexions ITSM
@@ -289,7 +292,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
    - vérifiez que vous avez correctement entré le nom d’utilisateur, le mot de passe, l’ID client et la clé secrète client pour chacune des connexions.  
    - Vérifiez que vous disposez de privilèges suffisants dans le produit ITSM correspondant pour établir la connexion.  
    - Pour les connexions Service Manager,  
-   - vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier la connexion est établie avec l’ordinateur de Service Manager sur site, visitez l’URL de l’application Web comme indiqué dans la documentation concernant l’établissement le [connexion hybride](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+   - vérifiez que l’application web est correctement déployée et que la connexion hybride est créée. Pour vérifier que la connexion est établie avec l’ordinateur Service Manager local, accédez à l’URL de l’application web, comme décrit dans la documentation concernant l’établissement d’une [connexion hybride](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
 2. Si les données de ServiceNow ne sont pas synchronisées dans Log Analytics, vérifiez que l’instance ServiceNow n’est pas en état de veille. Parfois, les instances de développement ServiceNow entrent en veille quand elles restent longtemps inactives. Autrement, signalez le problème.
 3. Si des alertes Log Analytics se déclenchent mais qu’aucun élément de travail n’est créé dans le produit ITSM ou qu’aucun élément de configuration n’est créé/lié à des éléments de travail ou pour obtenir d’autres informations génériques, examinez les emplacements suivants :

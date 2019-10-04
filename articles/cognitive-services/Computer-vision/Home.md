@@ -1,6 +1,6 @@
 ---
 title: Présentation de l’API Vision par ordinateur - Vision par ordinateur
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Le service Vision par ordinateur offre aux développeurs un accès à des algorithmes avancés pour le traitement d’images et le renvoi d’informations.
 services: cognitive-services
 author: PatrickFarley
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 03/04/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432105"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70967058"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -30,27 +30,29 @@ Vous pouvez analyser des images pour obtenir des informations détaillées sur l
 
 | Action | Description |
 | ------ | ----------- |
-|**[Identifier les composants visuels à l’aide de balises](concept-tagging-images.md)**|Identifier les composants visuels d’une image et les marquer à l’aide de balises à partir d’un ensemble de milliers d’objets, d’êtres vivants, de scènes et d’actions reconnaissables. Quand les balises sont ambigües ou inhabituelles, la réponse de l’API fournit des « conseils » pour expliquer la signification de la balise dans le contexte des paramètres connus. Le balisage ne se limite pas au sujet principal, comme une personne au premier plan, mais il inclut également le décor (intérieur ou extérieur), le mobilier, les outils, les plantes, les animaux, les accessoires, les gadgets, etc.|
+|**[Identifier les composants visuels à l’aide de balises](concept-tagging-images.md)**|Identifier les composants visuels d’une image et les marquer à l’aide de balises à partir d’un ensemble de milliers d’objets, d’êtres vivants, de scènes et d’actions reconnaissables. Quand les étiquettes sont ambigües ou inhabituelles, la réponse de l’API fournit des conseils pour clarifier le contexte de l’étiquette. Le balisage ne se limite pas au sujet principal, comme une personne au premier plan, mais il inclut également le décor (intérieur ou extérieur), le mobilier, les outils, les plantes, les animaux, les accessoires, les gadgets, etc.|
 |**[Détecter des objets](concept-object-detection.md)**| La détection d’objets est similaire au balisage, mais l’API retourne les coordonnées de cadre englobant pour chaque balise appliquée. Par exemple, si une image contient un chien, un chat et une personne, l’opération de détection répertorie ces objets ainsi que leurs coordonnées dans l’image. Vous pouvez utiliser cette fonctionnalité pour traiter d’autres relations entre les objets dans une image. Elle vous permet également de savoir quand il existe plusieurs instances de la même balise dans une image.|
 |**[Détecter les marques](concept-brand-detection.md)**|Identifiez les marques commerciales dans les images ou vidéos à partir d’une base de données de milliers de logos internationaux. Vous pouvez utiliser cette fonctionnalité, par exemple, pour déterminer quelles marques sont les plus populaires sur les réseaux sociaux ou prédominants en termes de placement de produit dans les médias.|
 |**[Catégoriser une image](concept-categorizing-images.md)**|Identifier et catégoriser une image dans son ensemble en utilisant une [taxonomie des catégories](Category-Taxonomy.md) comprenant des hiérarchies héréditaires parent/enfant. Les catégories peuvent être utilisées seules ou avec nos nouveaux modèles de balisage.<br/>Actuellement, l’anglais est la seule langue prise en charge pour le balisage et la catégorisation des images.|
 |**[Décrire une image](concept-describing-images.md)**|Générer une description de l’intégralité d’une image dans un langage lisible utilisant des phrases complètes. Les algorithmes du service Vision par ordinateur génèrent différentes descriptions selon les objets identifiés dans l’image. Chacune des descriptions est évaluée, et un score de confiance est généré. Une liste est ensuite renvoyée, classée du score de confiance plus élevé au plus bas.|
-|**[Détecter les visages](concept-detecting-faces.md)** |Détecter les visages dans une image et fournir des informations sur chaque visage détecté. Le service Vision par ordinateur indique les coordonnées, le rectangle, le sexe et l’âge pour chaque visage détecté.<br/>Il fournit un sous-ensemble de fonctionnalités proposées par le service [Visage](/azure/cognitive-services/face/). Vous pouvez également utiliser le service Visage pour effectuer une analyse plus détaillée, comme l’identification faciale et la détection de la pose.|
+|**[Détecter les visages](concept-detecting-faces.md)** |Détecter les visages dans une image et fournir des informations sur chaque visage détecté. Le service Vision par ordinateur indique les coordonnées, le rectangle, le sexe et l’âge pour chaque visage détecté.<br/>Le service Vision par ordinateur fournit un sous-ensemble des fonctionnalités du service [Visage](/azure/cognitive-services/face/). Utilisez le service Visage pour effectuer une analyse plus détaillée (reconnaissance faciale, détection de la posture, etc.).|
 |**[Détecter les types d’images](concept-detecting-image-types.md)**|Détecter les caractéristiques relatives à une image, par exemple si une image est un dessin au trait ou s’il pourrait s’agir d’une image clipart.|
-|**[Détecter le contenu spécifique à un domaine](concept-detecting-domain-content.md)**|Utiliser des modèles de domaine pour détecter et identifier le contenu spécifique à un domaine dans une image, notamment pour reconnaître des célébrités ou des éléments géographiques. Par exemple, si une image contient des célébrités, le service Vision par ordinateur peut utiliser un modèle de domaine pour célébrités intégré afin de déterminer si les personnes détectées dans l’image correspondent à des célébrités connues.|
+|**[Détecter le contenu spécifique à un domaine](concept-detecting-domain-content.md)**|Utiliser des modèles de domaine pour détecter et identifier le contenu spécifique à un domaine dans une image, notamment pour reconnaître des célébrités ou des éléments géographiques. Par exemple, si une image contient des célébrités, le service Vision par ordinateur peut utiliser un modèle de domaine pour célébrités afin de déterminer si les personnes détectées dans l’image correspondent à des célébrités connues.|
 |**[Détecter le jeu de couleurs](concept-detecting-color-schemes.md)**|Analyser l’utilisation des couleurs dans une image. Le service Vision par ordinateur peut déterminer si une image est en noir et blanc ou en couleur. Pour les images en couleur, il peut également identifier les couleurs dominantes et d’accentuation.|
 |**[Générer une miniature](concept-generating-thumbnails.md)**|Analyser le contenu d’une image pour en générer une miniature. Le service Vision par ordinateur commence par générer une miniature de haute qualité, puis analyse les objets contenus dans l’image pour déterminer la *zone d’intérêt*. Il rogne ensuite l’image pour conserver uniquement la zone d’intérêt. La miniature générée peut être présentée à l’aide de proportions différentes de celles de l’image d’origine selon les besoins de chacun.|
-|**[Obtenir la zone d’intérêt](concept-generating-thumbnails.md#area-of-interest)**|Analyser le contenu d’une image pour retourner les coordonnées de la *zone d’intérêt*. Il s’agit de la même fonction que celle qui est utilisée pour générer une miniature mais, au lieu de rogner l’image, le service Vision par ordinateur retourne les coordonnées de cadre englobant de la région afin que l’application appelante puisse modifier l’image d’origine de la manière souhaitée.|
+|**[Obtenir la zone d’intérêt](concept-generating-thumbnails.md#area-of-interest)**|Analyser le contenu d’une image pour retourner les coordonnées de la *zone d’intérêt*. Au lieu de rogner l’image et de générer une miniature, le service Vision par ordinateur retourne les coordonnées de cadre englobant de la région pour que l’application appelante puisse modifier l’image d’origine de la manière souhaitée.|
 
 ## <a name="extract-text-from-images"></a>Extraire du texte à partir des images
 
-Vous pouvez utiliser le service Vision par ordinateur pour extraire le texte d’une image dans un flux de caractères lisible par machine à l’aide d’une [reconnaissance optique de caractères (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Le cas échéant, la fonction OCR corrige la rotation du texte reconnu et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte reconnu.
+Vous pouvez utiliser l’[API Read](concept-recognizing-text.md#read-api) du service Vision par ordinateur pour extraire le texte imprimé ou manuscrit d’images dans un flux de caractères exploitable automatiquement. L’API Read utilise nos derniers modèles et fonctionne avec le texte dont les surfaces et arrière-plans diffèrent, tels que les accusés de réception, les affiches, les cartes de visite, les lettres et les tableaux blancs. Actuellement, l’anglais est la seule langue prise en charge.
 
-Vous pouvez également utiliser l’[API Read](concept-recognizing-text.md#read-api) pour extraire du texte imprimé et manuscrit d’images et de documents contenant beaucoup de texte. L’API Read utilise des modèles à jour et fonctionne pour divers objets dont les surfaces et arrière-plans diffèrent, tels que les accusés de réception, des affiches, des cartes de visite, des lettres et des tableaux blancs. Actuellement, l’API Read est disponible en préversion, et l’anglais est la seule langue prise en charge.
+Vous pouvez également utiliser l’API [OCR (reconnaissance optique des caractères)](concept-recognizing-text.md#ocr-optical-character-recognition-api) pour extraire le texte imprimé en plusieurs langues. Le cas échéant, la fonction OCR corrige la rotation du texte reconnu et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte reconnu.
+
+
 
 ## <a name="moderate-content-in-images"></a>Modérer du contenu dans les images
 
-Vous pouvez utiliser Vision par ordinateur pour [détecter le contenu pour adultes et choquant](concept-detecting-adult-content.md) dans une image et retourner un score de confiance pour les deux. Le filtre pour la détection de contenu choquant et réservé aux adultes peut être défini sur une échelle variable afin de répondre à vos besoins spécifiques.
+Vous pouvez utiliser Vision par ordinateur pour [détecter le contenu pour adultes et choquant](concept-detecting-adult-content.md) dans une image et retourner un score de confiance pour les deux. Vous pouvez définir le filtre pour la détection de contenu choquant et réservé aux adultes sur une échelle variable afin de répondre à vos besoins spécifiques.
 
 ## <a name="use-containers"></a>Utiliser des conteneurs
 
@@ -63,7 +65,7 @@ Le service Vision par ordinateur peut analyser des images qui répondent aux exi
 - L’image doit être au format JPEG, PNG, GIF ou BMP
 - La taille de fichier de l’image doit être inférieure à 4 mégaoctets (Mo)
 - Les dimensions de l’image doivent être supérieures à 50 x 50 pixels
-  - Pour l’OCR, la taille de l’image doit être comprise entre 50 x 50 et 4200 x 4200 pixels
+  - Pour l’API Read, la taille de l’image doit être comprise entre 50 x 50 et 10 000 x 10 000 pixels.
 
 ## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
 
@@ -73,6 +75,6 @@ Comme avec tous les services Cognitive Services, les développeurs utilisant le 
 
 Démarrez avec le service Vision par ordinateur en suivant un guide de démarrage rapide :
 
-- [Démarrage rapide : Analyser une image](quickstarts-sdk/csharp-analyze-sdk.md)
-- [Démarrage rapide : Extraire du texte manuscrit](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Démarrage rapide : Générer une miniature](quickstarts-sdk/csharp-thumb-sdk.md)
+- [Démarrage rapide : SDK .NET Vision par ordinateur](quickstarts-sdk/csharp-sdk.md)
+- [Démarrage rapide : SDK Python Vision par ordinateur](quickstarts-sdk/python-sdk.md)
+- [Démarrage rapide : SDK Java Vision par ordinateur](quickstarts-sdk/java-sdk.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 05f2f52da90f499f7ac16de179d9967b97579997
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905696"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849184"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
 
@@ -51,12 +51,12 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 
 | Source connectée | Pris en charge | Description |
 | --- | --- | --- |
-| [Agents Windows](../../azure-monitor/platform/agent-windows.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
-| [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
-| [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
-| [Compte Azure Storage](collect-azure-metrics-logs.md) | Non  | La solution ne collecte aucune information à partir de stockage Azure. |
+| [Agents Windows](../../azure-monitor/platform/agent-windows.md) | Non | La solution ne collecte aucune information à partir d’agents Windows. |
+| [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non | La solution ne collecte aucune information à partir d’agents Linux. |
+| [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Non | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
+| [Compte Azure Storage](collect-azure-metrics-logs.md) | Non | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Pour accéder aux informations d’Application Insights Connector, vous devez posséder un abonnement Azure.
 - Vous devez disposer d’au moins une ressource Application Insights configurée.
@@ -142,7 +142,7 @@ Les composants de la perspective sont mis à jour en fonction de la requête de 
 
 Les panneaux Application Insights Connector sont conçus pour vous permettre de passer à l’application Application Insights sélectionnée *lorsque vous utilisez le portail Azure*. Vous pouvez utiliser la solution comme une plateforme de surveillance de haut niveau qui vous permet de dépanner une application. Lorsque vous identifiez un problème potentiel dans l’une de vos applications connectées, vous pouvez soit la rechercher dans Log Analytics, soit accéder directement à l’application Application Insights.
 
-Pour ouvrir l’application, cliquez sur l’ellipse (**...**) qui apparaît à la fin de chaque ligne, puis sélectionnez **Ouvrir dans Application Insights**.
+Pour ouvrir l’application, cliquez sur l’ellipse ( **...** ) qui apparaît à la fin de chaque ligne, puis sélectionnez **Ouvrir dans Application Insights**.
 
 >[!NOTE]
 >L’option **Ouvrir dans Application Insights** n’est pas disponible dans le portail Azure.
@@ -192,10 +192,10 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 | DeviceType | Appareil client |
 | ScreenResolution |   |
 | Continent | Continent d'où provient la requête |
-| Pays | Pays d'où provient la requête |
+| Country | Pays/région d’où provient la requête |
 | Province | Province, état ou lieu d'où provient la requête |
 | City | Ville d'où provient la requête |
-| isSynthetic | Indique si la requête a été créée par un utilisateur ou par une méthode automatisée. True = générée par l’utilisateur, ou false = méthode automatisée |
+| isSynthetic | Indique si la requête a été créée par un utilisateur ou par une méthode automatisée. True = méthode automatisée ou false = générée par l’utilisateur |
 | SamplingRate | Pourcentage de télémétrie générée par le Kit SDK qui est envoyé vers le portail. Plage 0.0-100.0. |
 | SampledCount | 100/(SamplingRate). Par exemple, 4 =&gt; 25 % |
 | IsAuthenticated | True ou false |

@@ -3,22 +3,20 @@ title: Traiter des jeux de données volumineux à l’aide de Data Factory et de
 description: Décrit comment traiter de grandes quantités de données dans un pipeline Azure Data Factory en utilisant la capacité de traitement parallèle d’Azure Batch.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: fe015e2ffa371c0c31f7f5f43c433d44f3ca3c42
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124148"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70140040"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -43,7 +41,7 @@ Avec le service Batch, vous définissez des ressources de calcul Azure pour exé
 * [Notions de base d’Azure Batch](../../batch/batch-technical-overview.md)
 * [Aperçu des fonctionnalités d’Azure Batch](../../batch/batch-api-basics.md)
 
-Si vous le souhaitez, pour en savoir plus sur Batch, consultez [la documentation Batch](https://docs.microsoft.com/azure/batch/).
+Si vous le souhaitez, consultez la [documentation Azure Batch](https://docs.microsoft.com/azure/batch/) pour en savoir plus sur Azure Batch.
 
 ## <a name="why-azure-data-factory"></a>Pourquoi Azure Data Factory ?
 Data Factory est un service d’intégration de données dans le cloud qui gère et automatise le déplacement et la transformation des données. Vous pouvez utiliser Azure Data Factory pour créer des pipelines de données managées qui déplacent les données de magasins de données locaux et cloud vers un magasin de données centralisé. Le stockage d’objets blob Azure en est un exemple. Vous pouvez utiliser Azure Data Factory pour traiter/transformer des données à l’aide de services tels qu’Azure HDInsight et Azure Machine Learning. Vous pouvez également planifier des pipelines de données à exécuter de façon planifiée (par exemple, toutes les heures, tous les jours et toutes les semaines). Vous surveillez et gérez les pipelines en un clin d’œil pour identifier les problèmes et prendre les mesures adéquates.
@@ -88,7 +86,7 @@ La solution exemple est volontairement simple. Elle vous montre comment utiliser
 
 **Durée :** si vous maîtrisez les notions de base d’Azure, d’Azure Data Factory et d’Azure Batch et que vous disposez des éléments requis ci-dessous, cette solution est opérationnelle en 1 à 2 heures.
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 #### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, vous pouvez créer rapidement un compte Azure gratuit. Pour plus d’informations, consultez la page [Créez votre compte gratuit Azure dès aujourd’hui](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -96,7 +94,7 @@ Si vous n’avez pas d’abonnement Azure, vous pouvez créer rapidement un comp
 Vous utilisez un compte de stockage pour stocker les données dans ce didacticiel. Si vous ne possédez pas encore de compte de stockage, consultez [Create a storage account (Créer un compte de stockage)](../../storage/common/storage-quickstart-create-account.md). L’exemple de solution utilise un stockage d’objets blob.
 
 #### <a name="azure-batch-account"></a>Compte Azure Batch
-Créer un compte de stockage à l’aide du [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez [Create and manage a Batch account (Créer et gérer un compte Azure Batch)](../../batch/batch-account-create-portal.md). Notez le nom et la clé du compte Azure Batch. Vous pouvez également utiliser le [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) applet de commande pour créer un compte Batch. Pour savoir comment utiliser cette applet de commande, consultez [Get started with Batch PowerShell cmdlets (Prise en main des applets de commande PowerShell d’Azure Batch)](../../batch/batch-powershell-cmdlets-get-started.md).
+Créer un compte de stockage à l’aide du [portail Azure](https://portal.azure.com/). Pour plus d’informations, consultez [Create and manage a Batch account (Créer et gérer un compte Azure Batch)](../../batch/batch-account-create-portal.md). Notez le nom et la clé du compte Azure Batch. Vous pouvez également créer un compte Azure Batch à l’aide de la cmdlet [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount). Pour savoir comment utiliser cette applet de commande, consultez [Get started with Batch PowerShell cmdlets (Prise en main des applets de commande PowerShell d’Azure Batch)](../../batch/batch-powershell-cmdlets-get-started.md).
 
 La solution exemple utilise Azure Batch (indirectement via un pipeline Azure Data Factory) pour traiter des données en parallèle sur un pool de nœuds de calcul (une collection gérée de machines virtuelles).
 
@@ -124,7 +122,7 @@ Créez un pool Azure Batch comprenant au moins deux nœuds de calcul.
    f. Sélectionnez **OK** pour créer le pool.
 
 #### <a name="azure-storage-explorer"></a>Explorateur de stockage Azure
-Vous utilisez [Explorateur Stockage Azure 6](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (à partir de ClumsyLeaf Software) pour inspecter et modifier les données dans vos projets de stockage. Vous pouvez également examiner et modifier les données dans les journaux d’activité de vos applications hébergées dans le cloud.
+Vous utilisez [Explorateur Stockage Azure 6](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (à partir de ClumsyLeaf Software) pour inspecter et modifier les données dans vos projets de stockage. Vous pouvez également examiner et modifier les données dans les journaux d’activité de vos applications hébergées dans le cloud.
 
 1. Créez un conteneur nommé **mycontainer** avec un accès privé (sans accès anonyme).
 
@@ -184,7 +182,7 @@ Cette méthode a quelques composants clés qu’il est important de comprendre :
 
    b. Sélectionnez **Fichier** > **Nouveau** > **Projet**.
 
-   c. Développez **Modèles**, puis sélectionnez **Visual C\#**. Dans cette procédure pas à pas, vous utilisez C\#, mais vous pouvez utiliser un autre langage .NET pour développer l’activité personnalisée.
+   c. Développez **Modèles**, puis sélectionnez **Visual C\#** . Dans cette procédure pas à pas, vous utilisez C\#, mais vous pouvez utiliser un autre langage .NET pour développer l’activité personnalisée.
 
    d. Sélectionnez **Bibliothèque de classes** dans la liste des types de projet, sur la droite.
 
@@ -409,7 +407,7 @@ Cette méthode a quelques composants clés qu’il est important de comprendre :
 #### <a name="execute-method"></a>Méthode Execute
 Cette section fournit des informations supplémentaires concernant le code dans la méthode Execute.
 
-1. Les membres nécessaires pour l’itération dans la collection d’entrée se trouvent dans l’espace de noms [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) . L’itération dans la collection d’objets blob requiert l’utilisation de la classe **BlobContinuationToken**. Vous devez utiliser une boucle do-while en utilisant le jeton pour sortir de la boucle. Pour plus d’informations, consultez [Use Blob storage from .NET (Utiliser le stockage d’objets blob à partir de .NET)](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Une boucle de base est illustrée ici :
+1. Les membres nécessaires pour l’itération dans la collection d’entrée se trouvent dans l’espace de noms [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) . L’itération dans la collection d’objets blob requiert l’utilisation de la classe **BlobContinuationToken**. Vous devez utiliser une boucle do-while en utilisant le jeton pour sortir de la boucle. Pour plus d’informations, consultez [Use Blob storage from .NET (Utiliser le stockage d’objets blob à partir de .NET)](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Une boucle de base est illustrée ici :
 
     ```csharp
     // Initialize the continuation token.
@@ -432,7 +430,7 @@ Cette section fournit des informations supplémentaires concernant le code dans 
     } while (continuationToken != null);
 
     ```
-   Pour plus d’informations, consultez la documentation de la méthode [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx).
+   Pour plus d’informations, consultez la documentation de la méthode [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented).
 
 1. Le code permettant de parcourir l’ensemble d’objets blob s’inscrit logiquement dans la boucle do-while. Dans la méthode **Execute**, la boucle do-while transmet la liste d’objets blob à une méthode nommée **Calculate**. La méthode renvoie une variable de chaîne nommée **output** , qui correspond au résultat de l’itération dans tous les objets blob du segment.
 
@@ -673,7 +671,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     | 2         | 2015-11-16T**01**:00:00 |
     | 3         | 2015-11-16T**02**:00:00 |
     | 4         | 2015-11-16T**03**:00:00 |
-    | 5.         | 2015-11-16T**04**:00:00 |
+    | 5\.         | 2015-11-16T**04**:00:00 |
 
     La valeur **folderPath** est calculée à l’aide de la partie année, mois, jour et heure de l’heure de début de la tranche (**SliceStart**). Voici comment un dossier d’entrée est mappé à une tranche.
 
@@ -683,7 +681,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
     | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02** |
     | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
-    | 5.         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
+    | 5\.         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
 1. Sélectionnez **Déployer** dans la barre d’outils pour créer et déployer la table **InputDataset**.
 
@@ -730,7 +728,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
     | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
     | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
-    | 5.         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
+    | 5\.         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
 
     N’oubliez pas que tous les fichiers figurant dans un dossier d’entrée (par exemple, 2015-11-16-00) font partie d’une tranche associée à l’heure de début 2015-11-16-00. Lorsque cette tranche est traitée, l’activité personnalisée lit chaque fichier et génère une ligne dans le fichier de sortie avec le nombre d’occurrences du terme recherché (Microsoft). Si le dossier 2015-11-16-00 contient trois fichiers, le fichier de sortie 2015-11-16-00.txt contient trois lignes.
 

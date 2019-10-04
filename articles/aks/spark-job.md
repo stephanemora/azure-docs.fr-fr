@@ -10,11 +10,11 @@ ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
 ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: MT
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414027"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205350"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Exécution de tâches Apache Spark sur AKS
 
@@ -313,7 +313,7 @@ Lors de l’exécution du travail, au lieu d’indiquer une URL de fichier jar 
 ```
 
 > [!WARNING]
-> À partir de la [documentation Spark][spark-docs] : « Le planificateur Kubernetes est actuellement en phase expérimentale. Dans les versions ultérieures, des modifications comportementales autour de la configuration, des images de conteneur et des points d’entrée peuvent subvenir ».
+> À partir de la [documentation Spark][spark-docs] : « Le planificateur Kubernetes est actuellement en phase expérimentale. Dans les versions ultérieures, des modifications comportementales autour de la configuration, des images de conteneur et des points d’entrée peuvent subvenir ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 

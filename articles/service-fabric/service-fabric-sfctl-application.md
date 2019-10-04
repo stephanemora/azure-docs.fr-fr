@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d4fec5d8131d269d3df229360066452c37a92430
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 5d9728db919f15eda49602f2619f1c27fbb42b57
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665540"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036550"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Permet de créer, de supprimer et de gérer les applications et les types d’application.
@@ -40,10 +39,10 @@ Permet de créer, de supprimer et de gérer les applications et les types d’ap
 | manifest | Permet d’obtenir le manifeste qui décrit un type d’application. |
 | provision | Permet d’approvisionner ou d’inscrire un type d’application Service Fabric auprès du cluster à l’aide du package .sfpkg dans le magasin externe ou du package d’application dans le magasin d’images. |
 | report-health | Permet d’envoyer un rapport d’intégrité sur l’application Service Fabric. |
-| Type | Permet d’obtenir la liste des types d’applications du cluster Service Fabric qui correspondent exactement au nom spécifié. |
+| type | Permet d’obtenir la liste des types d’applications du cluster Service Fabric qui correspondent exactement au nom spécifié. |
 | type-list | Permet d’obtenir la liste des types d’applications du cluster Service Fabric. |
 | unprovision | Permet de supprimer ou d’annuler l’inscription d’un type d’application Service Fabric dans le cluster. |
-| mettre à niveau | Commence la mise à niveau d’une application dans le cluster Service Fabric. |
+| upgrade | Commence la mise à niveau d’une application dans le cluster Service Fabric. |
 | upgrade-resume | Commence la mise à niveau d’une application dans le cluster Service Fabric. |
 | upgrade-rollback | Annule la mise à niveau en cours d’une application du cluster Service Fabric. |
 | upgrade-status | Permet d’obtenir les détails de la dernière mise à jour effectuée sur cette application. |

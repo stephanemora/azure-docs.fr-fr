@@ -7,16 +7,16 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: e9ab243692f5a4a1ec7de25774f5bad867698fc3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787059"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60746245"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du Portail Azure
-Règles de pare-feu de niveau serveur peuvent être utilisées pour gérer l’accès à une base de données Azure pour MariaDB Server à partir d’une adresse IP spécifiée ou une plage d’adresses IP.
+Les règles de pare-feu au niveau du serveur sont utiles pour gérer l’accès à un serveur Azure Database for MariaDB à partir d’une adresse IP spécifique ou d’une plage d’adresses IP.
 
-Les règles de réseau virtuel peuvent également être utilisés pour sécuriser l’accès à votre serveur. En savoir plus sur [création et gestion de réseau virtuel de points de terminaison et des règles à l’aide du portail Azure service](howto-manage-vnet-portal.md).
+Des règles de réseau virtuel (VNet) peuvent également être utilisées pour sécuriser l’accès à votre serveur. Découvrez comment [créer et gérer des règles et des points de terminaison de service de réseau virtuel à l’aide du portail Azure](howto-manage-vnet-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Créer une règle de pare-feu au niveau du serveur dans le portail Azure
 
@@ -55,5 +55,5 @@ Répétez les étapes pour gérer les règles de pare-feu.
 * Pour supprimer une règle existante, cliquez sur les points de suspension [...], puis sur **Supprimer**. Cliquez sur **Enregistrer** pour enregistrer les modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
- - De même, vous pouvez utiliser un script pour [créer et gérer la base de données Azure pour les règles de pare-feu MariaDB avec Azure CLI](howto-manage-firewall-cli.md).
- - Sécuriser davantage l’accès à votre serveur par [création et gestion de réseau virtuel de points de terminaison et des règles à l’aide du portail Azure service](howto-manage-vnet-portal.md).
+ - De même, vous pouvez utiliser un script pour [créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide d’Azure CLI](howto-manage-firewall-cli.md).
+ - Pour sécuriser davantage l’accès à votre serveur, [créez et gérez des règles et des points de terminaison de service de réseau virtuel à l’aide du portail Azure](howto-manage-vnet-portal.md).

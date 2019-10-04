@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76f1f0d99b47b0a57f97f4fcdf721a78a77ba9b4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259403"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Didacticiel : Intégration d’Azure Active Directory à MOVEit Transfer - Intégration d’Azure AD
 
@@ -52,7 +52,7 @@ Pour configurer l’intégration de MOVEit Transfer - Azure AD integration avec 
 
 **Pour ajouter MOVEit Transfer - Azure AD integration à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec MOVEit Transfer - Azur
 
     ![choisir le fichier de métadonnées](common/browse-upload-metadata.png)
 
-    c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **	URL de réponse** sont automatiquement renseignées dans la section **Configuration SAML de base** :
+    c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la section **Configuration SAML de base** :
 
     ![Informations d’authentification unique dans Domaine et URL MOVEit Transfer - Azure AD integration](common/sp-identifier-reply.png)
 

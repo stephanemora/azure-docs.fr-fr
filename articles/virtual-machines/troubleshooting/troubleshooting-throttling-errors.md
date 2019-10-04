@@ -4,21 +4,21 @@ description: Erreurs de limitation, nouvelles tentatives et interruption dans Az
 services: virtual-machines
 documentationcenter: ''
 author: changov
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
-ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: vashan, rajraj, changov
-ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: changov
+ms.reviewer: vashan, rajraj
+ms.openlocfilehash: db1c6e8e4f1e98db08d5f7ff0ef218fa42d25860
+ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880710"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103296"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Résolution des erreurs de limitation d’API 
 
@@ -80,7 +80,7 @@ Comme illustré ci-dessus, chaque erreur de limitation inclut l’en-tête `Retr
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Taux d’appel d’API et analyseur d’erreur de limitation
 Une préversion d’une fonctionnalité de résolution des problèmes est disponible pour l’API du fournisseur de ressources de calcul. Ces applets de commande PowerShell fournissent des statistiques sur le taux de requête d’API par intervalle de temps par opération et sur les violations de limitation par groupe d’opération (stratégie) :
 -   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
+-   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 Les statistiques d’appels d’API peuvent fournir de précieuses informations sur le comportement des clients d’un abonnement, et faciliter l’identification des modèles d’appels qui provoquent la limitation.
 

@@ -2,18 +2,18 @@
 title: Sécurité au niveau des lignes avec Collections d’espaces de travail Power BI
 description: Détails sur la sécurité au niveau des lignes avec Collections d’espaces de travail Power BI
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: ae9819cd5b27d794f26227f342cb0fdf1b0ab644
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 2a26cc7573abb970dc58c6f7c327dfbc659cb646
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518386"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672479"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Sécurité au niveau des lignes avec Collections d’espaces de travail Power BI
 
@@ -48,7 +48,7 @@ Voici quelques points à noter concernant ce schéma :
 
 * Toutes les mesures, comme **Total Sales**, sont stockées dans la table de faits **Sales**.
 * Il existe quatre tables de dimension connexes supplémentaires : **Item**, **Time**, **Store** et **District**.
-* Les flèches sur les lignes de relation indiquent de quelle façon les filtres peuvent circuler d’une table à l’autre. Par exemple, si un filtre est placé sur **Time[Date]**, dans le schéma actuel, il filtre uniquement sur les valeurs de la table **Sales**. Aucune autre table n’est affectée par ce filtre, car tous les flèches sur les lignes de relation pointent vers la table des ventes (et pas en direction opposée).
+* Les flèches sur les lignes de relation indiquent de quelle façon les filtres peuvent circuler d’une table à l’autre. Par exemple, si un filtre est placé sur **Time[Date]** , dans le schéma actuel, il filtre uniquement sur les valeurs de la table **Sales**. Aucune autre table n’est affectée par ce filtre, car tous les flèches sur les lignes de relation pointent vers la table des ventes (et pas en direction opposée).
 * La table **Région** indique qui est le directeur pour chaque région :
   
   ![Lignes de la table District](media/row-level-security/district-table-4.png)

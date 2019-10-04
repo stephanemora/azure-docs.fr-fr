@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 0821c749a6cb718e1b8abb74a2925bc041850eaf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617595"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "66305270"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
@@ -22,7 +22,8 @@ Cet article décrit les principaux concepts utilisés dans Azure Event Grid.
 
 Un événement correspond à la plus petite quantité d’informations décrivant intégralement quelque chose qui s’est produit dans le système. Chaque événement possède des informations communes telles que la source de l’événement, l’heure à laquelle l’événement a eu lieu et un identificateur unique. Chaque événement comporte également des informations spécifiques qui se rapportent uniquement au type d’événement en question. Par exemple, un événement concernant un fichier en cours de création dans le Stockage Azure a des informations détaillées sur le fichier, notamment la valeur `lastTimeModified`. Ou bien, un événement Event Hubs contient l’URL du fichier Capture. 
 
-Chaque événement est limité à 64 Ko de données.
+Tout événement d’une taille jusqu’à 64 Ko est couvert par le contrat de niveau de service (SLA) en disponibilité générale. La prise en charge des événements d’une taille jusqu’à 1 Mo est actuellement en préversion. Les événements de plus de 64 Ko donnent lieu à une facturation par incréments de 64 Ko. 
+
 
 Pour les propriétés qui sont envoyées dans un événement, consultez le [schéma d’événements Azure Event Grid](event-schema.md).
 
@@ -59,9 +60,6 @@ Pour obtenir des exemples de création d’abonnements, consultez :
 Pour plus d’informations sur l’obtention de vos abonnements Event Grid actuels, consultez [Interroger les abonnements Event Grid](query-event-subscriptions.md).
 
 ## <a name="event-subscription-expiration"></a>Expiration de l’abonnement aux événements
-
-[L’extension Event Grid](/cli/azure/azure-cli-extensions-list) pour Azure CLI permet de définir une date d’expiration lors de la création d’un abonnement aux événements. Si vous vous servez de l’API REST, utilisez `api-version=2018-09-15-preview`.
-
 L’abonnement aux événements expire automatiquement après cette date. Définissez une expiration pour les abonnements aux événements qui ne sont nécessaires que pour une durée limitée et que vous ne souhaitez pas avoir à nettoyer ; par exemple, si vous créez un abonnement aux événements pour tester un scénario. 
 
 Pour un exemple de configuration d’une expiration, voir [S’abonner avec des filtres avancés](how-to-filter-events.md#subscribe-with-advanced-filters).
@@ -82,7 +80,10 @@ Si Event Grid ne peut pas confirmer qu’un événement a été reçu par le poi
 
 ## <a name="batching"></a>Traitement par lot
 
-Quand vous utilisez une rubrique personnalisée, les événements doivent toujours être publiés dans un tableau. Il peut s’agir d’un lot de un pour les scénarios à faible débit. Toutefois, dans les cas d’utilisation à volume élevé, il est recommandé de regrouper dans un lot plusieurs événements par publication afin d’améliorer l’efficacité. La taille maximale d’un lot est de 1 Mo. Un événement ne doit pas dépasser 64 Ko.
+Quand vous utilisez une rubrique personnalisée, les événements doivent toujours être publiés dans un tableau. Il peut s’agir d’un lot de un pour les scénarios à faible débit. Toutefois, dans les cas d’utilisation à volume élevé, il est recommandé de regrouper dans un lot plusieurs événements par publication afin d’améliorer l’efficacité. La taille maximale d’un lot est de 1 Mo. La taille maximale de chaque événement est toujours de 64 Ko (version en disponibilité générale) ou de 1 Mo (en préversion).
+
+> [!NOTE]
+> Tout événement d’une taille jusqu’à 64 Ko est couvert par le contrat de niveau de service (SLA) en disponibilité générale. La prise en charge des événements d’une taille jusqu’à 1 Mo est actuellement en préversion. Les événements de plus de 64 Ko donnent lieu à une facturation par incréments de 64 Ko. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

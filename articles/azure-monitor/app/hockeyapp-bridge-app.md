@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
 ms.openlocfilehash: 79adfbfde25903bfe92c94507071c9d0fe303ef1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448388"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60898716"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Exploration des données HockeyApp dans Application Insights
 
@@ -56,7 +56,7 @@ Et voilà ! Les données de trace et personnalisées collectées dans votre app
 Nous allons brièvement passer en revue chacune de ces fonctionnalités, qui sont désormais à votre disposition.
 
 ## <a name="analytics"></a>Analytics
-Analytique est un outil puissant pour des requêtes ad hoc de vos données, ce qui vous permet de diagnostiquer et d’analyser vos données de télémétrie et de découvrir rapidement les causes et les modèles.
+Analytics est un outil puissant pour l’interrogation ad hoc de vos données, qui vous permet de diagnostiquer et d’analyser vos données de télémétrie et de déceler rapidement les causes premières et les modèles.
 
 ![Analytics](./media/hockeyapp-bridge-app/05.png)
 

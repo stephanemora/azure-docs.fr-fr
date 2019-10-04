@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: ac8abbdbbe9125ea036d837c08e1089aa6d1e55d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4f2aa4b848172ab8b6a7e74de7dc1bc5f80639a1
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212855"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335644"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planification de la capacité pour les applications Service Fabric
 Ce document explique comment estimer la quantité de ressources (UC, RAM, stockage sur disque) dont vous avez besoin pour exécuter vos applications Azure Service Fabric. Il est courant que les ressources requises changent au fil du temps. Vous avez besoin généralement de peu de ressources quand vous développez/testez votre service, puis vous avez besoin de plus de ressources quand vous passez en production et que votre application grandit en popularité. Quand vous concevez votre application, réfléchissez à la configuration requise à long terme et faites des choix qui permettront à votre service d’évoluer pour répondre à la hausse de demande des clients.
@@ -51,7 +51,7 @@ Il est judicieux d’avoir des ordinateurs supplémentaires disponibles à tout 
 La proposition ci-dessus suppose un seul service avec état. Si vous avez plus d’un service avec état, vous devez ajouter la valeur DB_Size associée aux autres services dans l’équation. Vous pouvez également calculer le nombre de nœuds séparément pour chaque service avec état.  Votre service peut avoir des réplicas ou des partitions qui ne sont pas équilibrés. N’oubliez pas que certaines partitions peuvent également contenir plus de données que d’autres. Pour plus d’informations sur le partitionnement, consultez [l’article sur les meilleures pratiques de partitionnement](service-fabric-concepts-partitioning.md). Toutefois, l’équation précédente ne tient pas compte des partitions et des réplicas, car Service Fabric garantit que les réplicas sont répartis entre les nœuds de manière optimisée.
 
 ## <a name="use-a-spreadsheet-for-cost-calculation"></a>Utiliser une feuille de calcul pour le calcul des coûts
-Maintenant, nous allons placer des chiffres réels dans la formule. Un [exemple de feuille de calcul](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) montre comment planifier la capacité pour une application qui contient trois types d’objets de données. Pour chaque objet, nous estimons sa taille et le nombre d'objets que nous nous attendons à avoir. Nous sélectionnons également le nombre de réplicas pour chaque type d’objet. La feuille de calcul calcule la quantité totale de mémoire à stocker dans le cluster.
+Maintenant, nous allons placer des chiffres réels dans la formule. Un [exemple de feuille de calcul](https://github.com/Azure/service-fabric/raw/master/docs_resources/SF_VM_Cost_calculator-NEW.xlsx) montre comment planifier la capacité pour une application qui contient trois types d’objets de données. Pour chaque objet, nous estimons sa taille et le nombre d'objets que nous nous attendons à avoir. Nous sélectionnons également le nombre de réplicas pour chaque type d’objet. La feuille de calcul calcule la quantité totale de mémoire à stocker dans le cluster.
 
 Ensuite, nous entrons une taille de machine virtuelle et le coût mensuel. Selon la taille de la machine virtuelle, la feuille de calcul vous indique le nombre minimal de partitions nécessaires à la répartition physique des données sur les nœuds. Vous pouvez souhaiter un plus grand nombre de partitions pour prendre en charge les besoins en calcul et trafic réseau spécifiques de votre application. La feuille de calcul montre que le nombre de partitions pour gérer les objets de profils utilisateur est passé de un à six.
 

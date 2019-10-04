@@ -4,17 +4,16 @@ description: Attribuez des analyseurs aux champs de texte d’un index pouvant f
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/08/2019
 ms.author: heidist
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
-ms.custom: seodec2018
-ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 387248b2dac7c10ec0e96454f26964ca7f15c56e
+ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651819"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69650005"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyseurs pour le traitement de texte dans Recherche Azure
 
@@ -31,7 +30,7 @@ Les analyseurs linguistiques convertissent une entrée de texte en forme primiti
 
 ## <a name="default-analyzer"></a>Analyseur par défaut  
 
-Par défaut, Recherche Azure utilise l’[analyseur Apache Lucene Standard (lucene standard)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html), qui décompose le texte en éléments en suivant les règles de la [« Segmentation du texte Unicode »](https://unicode.org/reports/tr29/). Par ailleurs, l'analyseur standard convertit tous les caractères en minuscules. Les documents indexés et les termes de recherche sont analysés pendant l'indexation et le traitement des requêtes.  
+Par défaut, Recherche Azure utilise l’[analyseur Apache Lucene Standard (lucene standard)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), qui décompose le texte en éléments en suivant les règles de la [« Segmentation du texte Unicode »](https://unicode.org/reports/tr29/). Par ailleurs, l'analyseur standard convertit tous les caractères en minuscules. Les documents indexés et les termes de recherche sont analysés pendant l'indexation et le traitement des requêtes.  
 
 Il est utilisé automatiquement sur chaque champ pouvant faire l’objet d’une recherche. Vous pouvez substituer l’analyseur par défaut champ par champ. Ces analyseurs alternatifs peuvent être un [analyseur linguistique](index-add-language-analyzers.md), un [analyseur personnalisé](index-add-custom-analyzers.md) ou un analyseur prédéfini figurant dans la [liste des analyseurs disponibles](index-add-custom-analyzers.md#AnalyzerTable).
 
@@ -40,9 +39,9 @@ Il est utilisé automatiquement sur chaque champ pouvant faire l’objet d’une
 
 La liste suivante décrit les analyseurs disponibles dans Recherche Azure.
 
-| Catégorie | Description |
+| Category | Description |
 |----------|-------------|
-| [Analyseur Lucene standard](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Par défaut. Aucune spécification ou configuration n’est nécessaire. Cet analyseur à usage général est efficace pour la plupart des scénarios et des langues.|
+| [Analyseur Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Par défaut. Aucune spécification ou configuration n’est nécessaire. Cet analyseur à usage général est efficace pour la plupart des scénarios et des langues.|
 | Analyseurs prédéfinis | Proposés comme produits finis destinés à être utilisés tels quels. <br/>Il en existe deux types : spécialisé et linguistique. Ils sont dits « prédéfinis », car vous les référencez par leur nom, sans aucune configuration ni personnalisation. <br/><br/>Les [analyseurs spécialisés (non dépendants de la langue)](index-add-custom-analyzers.md#AnalyzerTable) sont employés quand les entrées de texte nécessitent un traitement spécialisé ou minimal. Les analyseurs prédéfinis qui ne dépendent pas de la langue sont les suivants : **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>Utilisez les [analyseurs linguistiques](index-add-language-analyzers.md) quand vous avez besoin d’une prise en charge linguistique avancée pour différentes langues. La Recherche Azure prend en charge 35 analyseurs linguistiques Lucene et 50 analyseurs de traitement en langage naturel Microsoft. |
 |[Analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Ils renvoient à une configuration définie par l’utilisateur constituée d’une combinaison d’éléments existants, dont un générateur de jetons (obligatoire) et des filtres facultatifs (caractères ou jetons).|
 
@@ -92,10 +91,6 @@ La substitution de l’analyseur standard nécessite une regénération de l’i
 ### <a name="inspect-tokenized-terms"></a>Examiner les termes sous forme de jetons
 
 Si une recherche ne renvoie pas les résultats attendus, cela est très probablement dû aux différences de jetons entre les termes entrés dans la requête et les termes sous forme de jetons présents dans l’index. Si les jetons ne sont pas identiques, les correspondances ne sont pas détectées. Pour examiner les résultats du générateur de jetons, nous vous recommandons d’utiliser [l’API d’analyse](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) comme outil d’investigation. La réponse se compose de jetons qui sont générés par un analyseur spécifique.
-
-### <a name="compare-english-analyzers"></a>Comparer les analyseurs en anglais
-
-La [démonstration de l’analyseur Recherche](https://alice.unearth.ai/) est une application de démonstration tierce qui présente une comparaison côte à côte de l’analyseur Lucene standard, de l’analyseur linguistique anglais de Lucene et de l’outil de traitement en langage naturel anglais de Microsoft. L’index est fixe et contient du texte issu d’un article populaire. Pour chaque recherche que vous effectuez, les résultats de chaque analyseur sont affichés dans des volets adjacents, ce qui vous donne une idée de la façon dont chaque analyseur traite la même chaîne. 
 
 <a name="examples"></a>
 
@@ -276,9 +271,9 @@ Les champs qui contiennent des chaînes dans différentes langues peuvent utilis
   }
 ~~~~
 
-## <a name="c-examples"></a>C#exemples
+## <a name="c-examples"></a>Exemples C#
 
-Si vous utilisez les exemples de code .NET SDK, vous pouvez ajouter ces exemples pour utiliser ou configurez des analyseurs.
+Si vous utilisez les exemples de code du SDK .NET, vous pouvez ajouter ces exemples pour utiliser ou configurez des analyseurs.
 
 + [Attribuer un analyseur intégré](#Assign-a-language-analyzer)
 + [Configurer un analyseur](#Define-a-custom-analyzer)
@@ -287,11 +282,11 @@ Si vous utilisez les exemples de code .NET SDK, vous pouvez ajouter ces exemples
 
 ### <a name="assign-a-language-analyzer"></a>Attribuer un analyseur de langage
 
-Tout analyseur qui est utilisé en tant que-est, sans aucune configuration, est spécifiée sur une définition de champ. Il n’existe aucune configuration requise pour la création d’une construction de l’analyseur. 
+Tout analyseur qui est utilisé tel quel, sans configuration, est spécifié sur une définition de champ. Il n’est pas obligatoire de créer une construction de l’analyseur. 
 
-Cet exemple affecte les analyseurs Microsoft English et Français aux champs de description. Il est un extrait de code extraite d’une définition plus grande de l’index des hôtels, création à l’aide de la classe hôtel dans le fichier hotels.cs de la [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) exemple.
+Cet exemple attribue les analyseurs Anglais et Français de Microsoft aux champs de description. C’est un extrait de code issu d’une définition plus grande de l’index des hôtels, créé à l’aide de la classe Hotel dans le fichier hotels.cs de l’exemple [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
-Appelez [analyseur](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), en spécifiant le [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) type en fournissant un analyseur de texte pris en charge dans Azure Search.
+Appelez [Analyseur](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), en spécifiant le type [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) afin de fournir un analyseur de texte pris en charge dans Recherche Azure.
 
 ```csharp
     public partial class Hotel
@@ -315,9 +310,9 @@ Appelez [analyseur](https://docs.microsoft.com/dotnet/api/microsoft.azure.search
 
 ### <a name="define-a-custom-analyzer"></a>Définir un analyseur personnalisé
 
-Lors de la personnalisation ou configuration est requise, vous devez ajouter une construction de l’analyseur à un index. Une fois que vous le définissez, vous pouvez l’ajouter la définition de champ comme illustré dans l’exemple précédent.
+Lorsqu’une personnalisation ou configuration est requise, vous devez ajouter une construction de l’analyseur à un index. Une fois que vous la définissez, vous pouvez l’ajouter à la définition de champ comme illustré dans l’exemple précédent.
 
-Créer un [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) objet. Pour plus d’exemples, consultez [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+Créez un objet [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet). Pour plus d’exemples, consultez [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {
@@ -348,8 +343,6 @@ Créer un [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure
 + Découvrez comment appliquer des [analyseurs lexicaux propres au langage](index-add-language-analyzers.md).
 
 + [Configurez des analyseurs personnalisés](index-add-custom-analyzers.md) pour un traitement minimal ou pour un traitement spécialisé sur certains champs.
-
-+ [Comparez les analyseurs standard et les analyseurs anglais](https://alice.unearth.ai/) dans des volets adjacents sur ce site web de démonstration. 
 
 ## <a name="see-also"></a>Voir aussi
 

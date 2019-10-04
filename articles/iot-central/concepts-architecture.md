@@ -3,19 +3,21 @@ title: Concepts d’architecture dans Azure IoT Central | Microsoft Docs
 description: Cet article présente les concepts clés relatifs à l’architecture d’Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/26/2019
+ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: 4f4b917808f4973dc83294391f58d7e0e2d01c4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+manager: philmea
+ms.openlocfilehash: 43357bdeb444fed20f29107d10dc31a61857fccf
+ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798808"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69877506"
 ---
 # <a name="azure-iot-central-architecture"></a>Architecture d’Azure IoT Central
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Cet article donne une vue d’ensemble de l’architecture d’Azure IoT Central.
 
@@ -79,6 +81,14 @@ Dans un modèle d’appareil :
 
 Une application peut avoir un ou plusieurs appareils simulés et réels basés sur chaque modèle d’appareil.
 
+## <a name="data-export"></a>Exportation de données
+
+Dans une application Azure IoT Central, vous pouvez [exporter en continu vos données](howto-export-data-event-hubs-service-bus.md) vers votre propre Azure Event Hubs et vers les instances Azure Service Bus. Vous pouvez également régulièrement exporter vos données vers votre compte de stockage d’objets blob Azure. IoT Central peut exporter des mesures, des appareils et des modèles d’appareil.
+
+## <a name="batch-device-updates"></a>Mises à jour d’appareils par lots
+
+Dans une application Azure IoT Central, vous pouvez [créer et exécuter des travaux](howto-run-a-job.md) pour gérer des appareils connectés. Ces travaux vous permettent d’effectuer des mises à jour en bloc sur les propriétés ou les paramètres des appareils, ou d’exécuter des commandes. Par exemple, vous pouvez créer un travail pour augmenter la vitesse du ventilateur pour plusieurs distributeurs réfrigérés.
+
 ## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
 
 Un [administrateur peut définir des règles d’accès](howto-administer.md) pour une application Azure IoT Central en utilisant les rôles prédéfinis. Un administrateur peut affecter des utilisateurs à des rôles qui déterminent les zones de l’application auxquelles l’utilisateur a accès.
@@ -95,6 +105,9 @@ Les fonctionnalités de sécurité dans Azure IoT Central sont les suivantes :
 ## <a name="ui-shell"></a>Le shell d’interface utilisateur
 
 Le shell d’interface utilisateur est une application moderne et réactive, basée sur un navigateur HTML 5.
+Un administrateur peut personnaliser l’interface utilisateur de l’application en appliquant des thèmes personnalisés et en modifiant les liens d’aide pour pointer vers vos propres ressources d’aide personnalisée. Pour en savoir plus sur la personnalisation de l’interface utilisateur, consultez l’article [Personnaliser l’interface utilisateur d’Azure IoT Central](howto-customize-ui.md).
+
+Un opérateur peut créer des tableaux de bord des applications personnalisées. Vous pouvez disposer de plusieurs tableaux de bord, qui affichent différentes informations, et basculer de l’un à l’autre.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

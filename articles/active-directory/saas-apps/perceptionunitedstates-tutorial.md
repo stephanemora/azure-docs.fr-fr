@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277015"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094833"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutoriel : Intégration d’Azure Active Directory à Perception United States (Non-UltiPro)
 
@@ -53,7 +53,7 @@ Pour configurer l’intégration de Perception United States (Non-UltiPro) à Az
 
 **Pour ajouter Perception United States (Non-UltiPro) à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Pour configurer l’intégration de Perception United States (Non-UltiPro) à Az
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Perception United States (Non-UltiPro)**, sélectionnez **Perception United States (Non-UltiPro)** à partir du volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Perception United States (Non-UltiPro)** , sélectionnez **Perception United States (Non-UltiPro)** à partir du volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
      ![Perception United States (Non-UltiPro) dans la liste des résultats](common/search-new-app.png)
 
@@ -89,7 +89,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
 Pour configurer l’authentification unique d’Azure AD avec Perception United States (Non-UltiPro), procédez comme suit :
 
-1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **Perception United States (Non-UltiPro)**, sélectionnez **Authentification unique**.
+1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **Perception United States (Non-UltiPro)** , sélectionnez **Authentification unique**.
 
     ![Lien Configurer l’authentification unique](common/select-sso.png)
 
@@ -109,7 +109,7 @@ Pour configurer l’authentification unique d’Azure AD avec Perception United
 
     b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. L’application **Perception United States (Non-UltiPro)** requiert la valeur de l’**identificateur Azure AD** en tant que <entity_id>, que vous obtiendrez à partir de la section **Configurer Perception United States (Non-UltiPro)**, à encoder dans l’URI. Pour obtenir la valeur encodée sous forme d’URI, utilisez le lien suivant :**http://www.url-encode-decode.com/**.
+    c. L’application **Perception United States (Non-UltiPro)** requiert la valeur de l’**identificateur Azure AD** en tant que <entity_id>, que vous obtiendrez à partir de la section **Configurer Perception United States (Non-UltiPro)** , à encoder dans l’URI. Pour obtenir la valeur encodée sous forme d’URI, utilisez le lien suivant : **http://www.url-encode-decode.com/** .
 
     d. Après l’obtention de la valeur encodée en URI, associez-la à l’**URL de réponse** comme indiqué ci-dessous :
 
@@ -121,7 +121,7 @@ Pour configurer l’authentification unique d’Azure AD avec Perception United
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-6. Dans la section **Configurer Perception United States (Non-UltiPro)**, copiez la ou les URL appropriées correspondant à vos besoins.
+6. Dans la section **Configurer Perception United States (Non-UltiPro)** , copiez la ou les URL appropriées correspondant à vos besoins.
 
     ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
@@ -195,11 +195,11 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Perception United States (Non-UltiPro).
 
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, sélectionnez **Toutes les applications**, puis sélectionnez **Perception United States (Non-UltiPro)**.
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, sélectionnez **Toutes les applications**, puis sélectionnez **Perception United States (Non-UltiPro)** .
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **Perception United States (Non-UltiPro)**.
+2. Dans la liste des applications, sélectionnez **Perception United States (Non-UltiPro)** .
 
     ![Lien Perception United States (Non-UltiPro) dans la liste des applications](common/all-applications.png)
 

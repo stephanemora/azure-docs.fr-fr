@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 720aafac79a67f64b0974dba0dd60c6aa24a8c54
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: ec93574a8da051b5cf77a37af1030d0c22dfc4a9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342069"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382904"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>Configurer les informations de sécurité (préversion) pour utiliser votre adresse e-mail
+
 Procédez comme suit pour ajouter votre méthode de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pourrez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
 
 Après avoir configuré votre méthode de réinitialisation de mot de passe, vous devez également configurer votre méthode de vérification en deux étapes, à l'aide d'une [application d'authentification](security-info-setup-auth-app.md), de la [messagerie texte](security-info-setup-text-msg.md), ou d'un [appel téléphonique](security-info-setup-phone-number.md).
@@ -27,6 +28,7 @@ Après avoir configuré votre méthode de réinitialisation de mot de passe, vou
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configurer votre adresse e-mail à partir de la page Informations de sécurité
+
 Selon les paramètres de votre organisation, vous pourrez peut-être utiliser votre adresse e-mail comme méthode d'informations de sécurité.
 
 >[!Note]
@@ -60,6 +62,7 @@ Selon les paramètres de votre organisation, vous pourrez peut-être utiliser vo
     Vos informations de sécurité sont mises à jour et vous pouvez utiliser votre adresse e-mail à des fins de contrôle de votre identité lors de la réinitialisation de mot de passe.
 
 ## <a name="delete-your-email-address-from-your-security-info-methods"></a>Supprimer votre adresse e-mail de vos méthodes d'informations de sécurité
+
 Si vous ne souhaitez plus utiliser votre adresse e-mail comme méthode d'informations de sécurité, vous pouvez supprimer celle-ci de la page **Informations de sécurité**.
 
 >[!Important]
@@ -74,6 +77,7 @@ Si vous ne souhaitez plus utiliser votre adresse e-mail comme méthode d'informa
 2. Sélectionnez **Oui** dans la zone de confirmation pour supprimer le compte **E-mail**. Une fois le compte e-mail supprimé, celui-ci disparaît de vos informations de sécurité et de la page **Informations de sécurité**.
 
 ## <a name="additional-security-info-methods"></a>Autres méthodes d'informations de sécurité
+
 Vous avez la possibilité de choisir la façon d’être contacté par votre organisation pour la vérification de votre identité, en fonction de ce que vous essayez de faire. Ces options sont les suivantes :
 
 - **Application d’authentification.** Téléchargez et utilisez une application d’authentification pour obtenir une notification d’approbation ou un code d’approbation généré de manière aléatoire pour la réinitialisation du mot de passe ou la vérification en deux étapes. Pour obtenir des instructions détaillées sur la configuration et l’utilisation de l’application Microsoft Authenticator, consultez [Configurer les informations de sécurité pour utiliser une application d’authentification](security-info-setup-auth-app.md).
@@ -82,8 +86,10 @@ Vous avez la possibilité de choisir la façon d’être contacté par votre org
 
 - **Appel sur téléphone mobile ou téléphone professionnel.** Entrez votre numéro de téléphone mobile et recevez un appel pour la réinitialisation de mot de passe ou la vérification en deux étapes. Pour obtenir des instructions détaillées sur la vérification de votre identité au moyen d’un numéro de téléphone, consultez [Configurer les informations de sécurité pour utiliser un appel téléphonique](security-info-setup-phone-number.md).
 
+- **Clé de sécurité.** Enregistrez votre clé de sécurité compatible Microsoft et utilisez-la avec un code PIN pour la vérification en deux étapes ou la réinitialisation du mot de passe. Pour obtenir des instructions détaillées sur la vérification de votre identité au moyen d’une clé de sécurité, consultez [Configurer des informations de sécurité pour utiliser une clé de sécurité](security-info-setup-security-key.md).
+
 - **Questions de sécurité.** Répondez à certaines questions de sécurité créées par votre administrateur pour votre organisation. Cette option est uniquement disponible pour la réinitialisation du mot de passe et non pour la vérification en deux étapes. Pour des instructions pas à pas sur la façon de configurer vos questions de sécurité, consultez l’article [Configurer les informations de sécurité pour utiliser les questions de sécurité](security-info-setup-questions.md).
-    
+
     >[!Note]
     >Si certaines de ces options ne sont pas disponibles, il est très probable que votre organisation n’autorise pas ces méthodes. Si tel est le cas, vous devez choisir une autre méthode ou contacter votre administrateur pour obtenir de l’aide.
 

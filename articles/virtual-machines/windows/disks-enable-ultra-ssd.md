@@ -1,22 +1,17 @@
 ---
 title: Disques Ultra pour machines virtuelles Windows - Azure Disques managés | Microsoft Docs
-description: En savoir plus sur les disques Ultra SSD pour les machines virtuelles Azure
-services: virtual-machines-windows
+description: En savoir plus sur les disques Ultra pour machines virtuelles Azure
 author: roygara
 ms.service: virtual-machines-windows
-ms.workload: storage
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
-ms.date: 09/24/2018
+ms.topic: conceptual
+ms.date: 08/15/2019
 ms.author: rogarana
-ms.custom: seodec18
 ms.subservice: disks
-ms.openlocfilehash: c5eaac4766bec2c4666e2a533d0d771237cbde53
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 787f24389baff96c94c0bb6af415e083dfaa591c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428276"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510338"
 ---
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]

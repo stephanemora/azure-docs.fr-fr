@@ -1,48 +1,46 @@
 ---
-title: Gérer les réservations Azure | Microsoft Docs
-description: Découvrez comment changer l’étendue de l’abonnement et gérer l’accès pour les réservations Azure.
+title: Gérer les réservations Azure
+description: Découvrez comment gérer les réservations Azure.
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: b161fc7cd4faa75dd87613c297c12f1edd862510
+ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994948"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "68840037"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
-Une fois que vous achetez une réservation pour Azure, vous devrez peut-être appliquer cette réservation à un autre abonnement, modifier qui peut gérer la réservation, ou modifier l’étendue de la réservation. Vous pouvez également diviser une réservation en deux pour appliquer certaines des instances que vous avez achetées à un autre abonnement.
+Après avoir acheté une réservation Azure, il se peut que vous deviez l’appliquer à un autre abonnement, modifier la personne autorisés à la gérer, ou en modifier l’étendue. Vous pouvez également diviser une réservation en deux pour appliquer certaines des instances que vous avez achetées à un autre abonnement.
 
-Si vous avez acheté Azure Reserved Virtual Machine Instances, vous pouvez modifier le paramètre d’optimisation de la réservation. La remise sur la réservation peut s’appliquer à des machines virtuelles de la même série, ou vous pouvez réserver de la capacité du centre de données pour une taille de machine virtuelle spécifique.
+Si vous avez acheté des instances de machine virtuelle réservées d’Azure, vous pouvez modifier le paramètre d’optimisation de la réservation. La remise sur la réservation peut s’appliquer à des machines virtuelles de la même série, ou vous pouvez réserver de la capacité du centre de données pour une taille de machine virtuelle spécifique. Et, vous devez essayer d’optimiser les réservations afin qu’elles soient entièrement utilisées.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="reservation-order-and-reservation"></a>Réservation et l’ordre de réservation
+## <a name="reservation-order-and-reservation"></a>Ordre de réservation et réservation
 
-Lorsque vous achetez d’une réservation, deux objets sont créés : **Ordre de réservation** et **réservation**.
+Lorsque vous achetez une réservation, deux objets sont créés : l’**ordre de réservation** et la **réservation**.
 
-Au moment de l’achat, un ordre de réservation a une réservation sous celui-ci. Créent des actions telles que le fractionnement, fusion, remboursement partiel ou exchange nouvelles réservations sous la **de réservation**.
+Au moment de l’achat, un ordre de réservation contient une réservation. Les actions telles que le fractionnement, la fusion, le remboursement partiel ou l’échange créent de nouvelles réservations dans l’**ordre de réservation**.
 
-Pour afficher une commande de réservation, accédez à **réservations** > sélectionnez la réservation, puis cliquez sur le **ID de commande de réservation**.
+Pour afficher un ordre de réservation, accédez à la section **Réservations**, sélectionnez la réservation, puis cliquez sur l’**ID d’ordre de réservation**.
 
-![Exemple de détails de commande de réservation indiquant l’ID de commande de réservation ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+![Exemple de détails d’ordre de réservation indiquant l’ID d’ordre de réservation ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
 
 Une réservation hérite des autorisations de son ordre de réservation.
 
 ## <a name="change-the-reservation-scope"></a>Modifier l’étendue de réservation
 
- Votre remise de réservation s’applique aux machines virtuelles, bases de données SQL, Azure Cosmos DB ou autres ressources qui correspondent à votre réservation et l’exécutent dans l’étendue de réservation. Le contexte de facturation dépend de l’abonnement utilisé pour acheter la réservation.
+ Votre remise de réservation s’applique aux machines virtuelles, aux bases de données SQL, à Azure Cosmos DB ou à d’autres ressources qui correspondent à votre réservation et qui s’exécutent dans les limites de l’étendue de la réservation. Le contexte de facturation dépend de l’abonnement utilisé pour acheter la réservation.
 
 Pour mettre à jour l’étendue d’une réservation :
 
@@ -54,15 +52,15 @@ Pour mettre à jour l’étendue d’une réservation :
 
 Si vous passez de l’étendue partagée à une étendue unique, vous ne pouvez sélectionner que les abonnements dont vous êtes le propriétaire. Seuls peuvent être sélectionnés les abonnements présents dans le même contexte de facturation que celui de la réservation.
 
-L’étendue s’applique uniquement aux abonnements MS-AZR-0003P ou MS-AZR-0023P de l’offre avec paiement à l’utilisation, MS-AZR-0017P ou MS-AZR-0148P de l’offre Entreprise ou CSP.
+L’étendue s’applique uniquement aux abonnements individuels MS-AZR-0003P ou MS-AZR-0023P de l’offre avec paiement à l’utilisation, MS-AZR-0017P ou MS-AZR-0148P de l’offre Entreprise ou CSP.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Ajouter ou modifier les utilisateurs qui peuvent gérer une réservation
 
-Vous pouvez déléguer la gestion de la réservation en ajoutant des utilisateurs aux rôles sur l’ordre de réservation ou la réservation. Par défaut, la personne qui place l’ordre de réservation et l’administrateur de compte ont le rôle de propriétaire sur l’ordre de réservation et la réservation.
+Vous pouvez déléguer la gestion des réservations en ajoutant des utilisateurs aux rôles de l’ordre de réservation ou de la réservation. Par défaut, la personne qui a acheté l’ordre de réservation et l’administrateur de compte disposent tous les deux du rôle de propriétaire sur la réservation et l’ordre de réservation.
 
-Vous pouvez gérer l’accès aux commandes de réservations et les réservations indépendamment des abonnements qui bénéficient de la remise de réservation. Lorsque vous accordez des autorisations pour gérer une demande de réservation ou la réservation, il ne les autorisez à gérer l’abonnement. De même, si vous accordez des autorisations pour gérer un abonnement dans l’étendue de la réservation, il ne donne pas les droits pour gérer l’ordre de réservation ou la réservation.
+Vous pouvez gérer l’accès aux ordres de réservations et réservations, indépendamment des abonnements qui bénéficient de la remise de réservation. Lorsque vous accordez des autorisations de gestion pour une réservation ou un ordre de réservation, cela ne veut pas dire que vous octroyez des autorisations pour la gestion de l’abonnement. De même, si vous accordez des autorisations de gestion d’un abonnement dans les limites de l’étendue de la réservation, vous n’octroyez aucun droit permettant de gérer la réservation ou l’ordre de réservation.
 
-Pour effectuer un échange ou un remboursement, l’utilisateur doit avoir accès à l’ordre de réservation. Lorsqu’il accorde une personne, il convient d’accorder des autorisations à l’ordre de réservation, pas la réservation.
+Pour effectuer un échange ou un remboursement, l’utilisateur doit avoir accès à l’ordre de réservation. Lorsque vous accordez des autorisations à une personne, il convient d’accorder des autorisations pour l’ordre de réservation, pas la réservation.
 
 
 Pour déléguer la gestion de l’accès à une réservation :
@@ -70,7 +68,7 @@ Pour déléguer la gestion de l’accès à une réservation :
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Réservation** pour afficher la liste des réservations auxquelles vous avez accès.
 3. Sélectionnez la réservation pour laquelle vous souhaitez déléguer l’accès à d’autres utilisateurs.
-4. Sélectionnez **Contrôle d’accès (IAM)**.
+4. Sélectionnez **Contrôle d’accès (IAM)** .
 5. Sélectionnez **Ajouter une attribution de rôle** > **Rôle** > **Propriétaire**. Ou si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.
 6. Tapez l’adresse e-mail de l’utilisateur à ajouter comme propriétaire.
 7. Sélectionnez l’utilisateur, puis **Enregistrer**.
@@ -108,13 +106,9 @@ Pour déléguer la gestion de l’accès à une réservation :
     Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
-## <a name="cancellations-and-exchanges"></a>Annulations et échanges
+## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Selon le type de réservation, vous pourrez peut-être annuler ou échanger une réservation. Pour plus d’informations, consultez les sections relatives aux annulations et échanges dans les rubriques suivantes :
-
-- [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
-- [Prépayer des logiciels SUSE avec des réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
-- [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Modifier le paramètre d’optimisation pour des instances de machine virtuelle réservées
 
@@ -132,28 +126,59 @@ Pour mettre à jour le paramètre d’optimisation de la réservation :
 4. Sélectionnez **Paramètres** > **Configuration**.
 5. Modifiez le paramètre **Optimiser pour**.
 
+## <a name="optimize-reservation-use"></a>Optimiser l’utilisation de la réservation
+
+Les économies de réservation Azure résultent uniquement d’une utilisation soutenue des ressources. Lorsque vous effectuez un achat de réservation, vous payez un coût initial pour ce qui correspond essentiellement à 100 % de l’utilisation des ressources possibles sur une période d’un an ou trois ans. Essayez d’optimiser votre réservation pour en tirer le meilleur parti et réaliser des économies. Les sections suivantes expliquent comment surveiller une réservation et optimiser son utilisation.
+
+### <a name="view-reservation-use-in-the-azure-portal"></a>Afficher l’utilisation de réservation dans le Portail Azure
+
+L’un des moyens d’afficher l’utilisation des réservations est le Portail Azure.
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+2. Sélectionnez **Réservations de**  > [**tous les services**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) et notez l’**utilisation (%)** pour une réservation.  
+  ![Image représentant la liste des réservations](./media/billing-manage-reserved-vm-instance/reservation-list.png)
+3. Sélectionnez une réservation.
+4. Passez en revue la tendance d’utilisation des réservations dans le temps.  
+  ![Image représentant l’utilisation de réservation ](./media/billing-manage-reserved-vm-instance/reservation-utilization-trend.png)
+
+### <a name="view-reservation-use-with-api"></a>Afficher l’utilisation de réservation avec l’API
+
+Si vous êtes client Contrat Entreprise (EA), vous pouvez afficher par programmation la manière dont les réservations sont utilisées dans votre organisation. Vous bénéficiez d’une réservation inutilisée par le biais des données d’utilisation. Lorsque vous examinez les frais de réservation, gardez à l’esprit que les données sont réparties entre le coût réel et les coûts amortis. Le coût réel fournit les données à rapprocher avec votre facture mensuelle. Il comporte également des détails sur l’application de réservation et le coût d’achat des réservations. Le coût amorti est semblable au coût réel, sauf que le prix effectif de l’utilisation de la réservation est calculé au prorata. Les heures de réservation inutilisées sont affichées dans les données de coût amorties. Pour plus d’informations sur les données d’utilisation pour les clients EA, consultez [Obtenir les données d’utilisation et de coûts de la réservation pour les Contrats Entreprise](billing-understand-reserved-instance-usage-ea.md).
+
+Pour les autres abonnements, utilisez l’API [de résumés de réservations – Liste par commande de réservation et réservation](/rest/api/consumption/reservationssummaries/listbyreservationorderandreservation).
+
+### <a name="optimize-your-reservation"></a>Optimiser votre réservation
+
+Si vous constatez que les réservations de votre organisation sont sous-utilisées :
+
+- Assurez-vous que les machines virtuelles créées par votre organisation correspondent à la taille de machine virtuelle qui se trouve sur la réservation.
+- Assurez-vous que la flexibilité de taille d’instance est activée. Pour plus d’informations, consultez [Gérer les réservations - Modifier le paramètre d’optimisation pour des instances de machine virtuelle réservées](#change-optimize-setting-for-reserved-vm-instances).
+- Modifiez l’étendue de réservation en _partage_ afin qu’elle s’applique plus largement. Pour plus d’informations, consultez [Modifier l’étendue d’une réservation](#change-the-reservation-scope).
+- Envisagez d’échanger la quantité inutilisée. Pour plus d’informations, consultez [Annulations et échanges](#cancel-exchange-or-refund-reservations).
+
+
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
-Si vous avez des questions ou besoin d’aide, [créer une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
+Si vous avez des questions ou besoin d’aide, [créez une demande de support](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-- [Quelles sont les réservations pour Azure ?](billing-save-compute-costs-reservations.md)
+- [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
 
-Acheter un plan de service :
+Acheter un plan de service :
 - [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Prépayer des ressources Azure Cosmos DB avec une capacité réservée Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 
-Acheter un plan de logiciels :
-- [Prépayer les abonnements de logiciels de Red Hat à partir des réservations d’Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
+Acheter un abonnement logiciel :
+- [Prépayer des abonnements logiciels Red Hat dans Réservations Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Prépayer des logiciels SUSE avec des réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 
-Comprendre l’utilisation et remise :
+Comprendre la remise et l’utilisation :
 - [Comprendre comment la remise sur réservation de machine virtuelle est appliquée](billing-understand-vm-reservation-charges.md)
-- [Comprendre comment la remise de plan de logiciels de Red Hat Enterprise Linux est appliquée](../billing/billing-understand-rhel-reservation-charges.md)
+- [Comprendre comment la remise sur abonnement logiciel Red Hat Enterprise Linux est appliquée](../billing/billing-understand-rhel-reservation-charges.md)
 - [Comprendre comment la remise sur offre logicielle SUSE Linux Enterprise est appliquée](../billing/billing-understand-suse-reservation-charges.md)
 - [Comprendre comment les autres remises sur réservation sont appliquées](billing-understand-reservation-charges.md)
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)

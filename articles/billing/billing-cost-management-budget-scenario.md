@@ -3,7 +3,7 @@ title: Scénario de budget de facturation et de gestion des coûts Azure | Micro
 description: Découvrez comment utiliser Azure automation pour arrêter les machines virtuelles en fonction de seuils de budget spécifiques.
 services: billing
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 03/13/2019
-ms.author: erikre
-ms.openlocfilehash: c92789c12f4454f5d76590e5323b78223b49c97f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 10/01/2019
+ms.author: banders
+ms.openlocfilehash: 8ff402299b26637473f3fb762a3320255ea4df64
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113059"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719912"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gérer les coûts avec Azure Budgets
 
@@ -277,8 +277,8 @@ Lorsque vous créez le groupe d’actions, vous pointez vers l’application log
 4.  Ajoutez et vérifiez les éléments suivants :
     - Nom du groupe d’actions
     - Nom court
-    - Abonnement
-    - Groupe de ressources
+    - Subscription
+    - Resource group
 
     ![Azure - Application logique - Ajouter un groupe d’actions](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-26.png)
 
@@ -289,7 +289,7 @@ Vous en avez terminé avec la création et la sélection de tous les composants 
 
 ## <a name="create-the-azure-budget"></a>Créer le budget Azure
 
-Vous pouvez créer un budget dans le portail Azure en utilisant le [fonctionnalité de Budget](../cost-management/tutorial-acm-create-budgets.md) dans Cost Management. Ou bien, vous pouvez créer un budget à l’aide des API REST, les applets de commande Powershell, ou utiliser l’interface CLI. La procédure suivante utilise l’API REST. Avant d’appeler l’API REST, vous devez vous procurer un jeton d’autorisation. Pour créer un jeton d’autorisation, vous pouvez utiliser le projet [ARMClient](https://github.com/projectkudu/ARMClient). Avec **ARMClient**, vous vous authentifiez à Azure Resource Manager et obtenez un jeton pour appeler les API.
+Vous pouvez créer un budget dans le portail Azure en utilisant la [fonctionnalité Budget](../cost-management/tutorial-acm-create-budgets.md) dans Cost Management. Ou bien, vous pouvez créer un budget à l’aide d’API REST, d’applets de commande PowerShell ou de l’interface CLI. La procédure suivante utilise l’API REST. Avant d’appeler l’API REST, vous devez vous procurer un jeton d’autorisation. Pour créer un jeton d’autorisation, vous pouvez utiliser le projet [ARMClient](https://github.com/projectkudu/ARMClient). Avec **ARMClient**, vous vous authentifiez à Azure Resource Manager et obtenez un jeton pour appeler les API.
 
 ### <a name="create-an-authentication-token"></a>Créer un jeton d’authentification
 
@@ -328,7 +328,7 @@ Vous pouvez créer un budget dans le portail Azure en utilisant le [fonctionnali
 8.  Définissez **Value** (Valeur) sur le jeton qui a été créé à l’aide du projet ArmClient à la fin de la dernière section.
 9.  Sélectionnez l’onglet **Body** (Corps) dans Postman.
 10. Sélectionnez la case d’option **raw** (brut).
-11. Dans la zone de texte, collez la toutefois ci-dessous un exemple de définition de budget, vous devez remplacer le **subscriptionid**, **nom de budget**, et **actiongroupname** paramètres avec votre ID d’abonnement, un nom unique pour votre budget et le nom de groupe d’actions que vous avez créé dans l’URL et le corps de la demande :
+11. Dans la zone de texte, collez l’exemple de définition de budget ci-dessous ; par contre, vous devez remplacer les paramètres de **subscriptionid**, **budgetname** et **actiongroupname** par votre ID d’abonnement, un nom unique pour votre budget et le nom du groupe d’actions que vous avez créé à la fois dans l’URL et dans le corps de la demande :
 
     ```
         {

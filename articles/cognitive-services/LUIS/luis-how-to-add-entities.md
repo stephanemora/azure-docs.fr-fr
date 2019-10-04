@@ -1,30 +1,30 @@
 ---
-title: Ajouter des entités
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Créer des entités pour extraire des données de clé énoncés utilisateur dans les applications de reconnaissance vocale (LUIS).
+title: Ajouter des entités - LUIS
+titleSuffix: Azure Cognitive Services
+description: Créez des entités pour extraire les données clés des énoncés de l'utilisateur dans les applications LUIS (Language Understanding).
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/01/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 80e1052cb7acbdcec2dcb94f1667cae3c554d18e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522348"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932922"
 ---
 # <a name="create-entities-without-utterances"></a>Créer des entités sans énoncés
 
-L’entité représente un mot ou une phrase dans l’énoncé que vous souhaitez extraire. Une entité représente une classe, notamment une collection d’objets similaires (lieux, choses, personnes, des événements ou concepts). Les entités décrivent des informations relatives à l’intention, et sont parfois essentiels pour que votre application effectue sa tâche. Vous pouvez créer des entités lorsque vous ajoutez un énoncé à une intention ou les unes des autres à partir de (avant ou après) Ajout d’un énoncé à une intention.
+L’entité représente un mot ou une phrase dans l’énoncé que vous souhaitez extraire. Une entité représente une classe, notamment une collection d’objets similaires (lieux, choses, personnes, événements ou concepts). Les entités décrivent des informations relatives à l’intention, et sont parfois essentiels pour que votre application effectue sa tâche. Vous pouvez créer des entités lorsque vous ajoutez un énoncé à une intention (avant ou après).
 
 La **liste des entités** de la page **Entities** permet d’ajouter, de modifier et de supprimer des entités dans une application LUIS. LUIS propose deux grands types d’entités : les [entités prédéfinies](luis-reference-prebuilt-entities.md) et les [entités personnalisées](luis-concept-entity-types.md#types-of-entities).
 
-Une fois qu’une entité de la machine a appris est créée, vous devez marquer cette entité dans tous les énoncé de l’exemple de toutes les intentions dans qu'il se trouve.
+Lorsqu'une entité issue de l’apprentissage automatique est créée, vous devez marquer cette entité dans tous les exemples d’énoncé de toutes les intentions dans lesquelles elle est exprimée.
 
 <a name="add-prebuilt-entity"></a>
 
@@ -42,7 +42,7 @@ Celles qui sont le plus souvent ajoutées aux applications sont *number* et *dat
 
 <a name="add-simple-entities"></a>
 
-## <a name="add-simple-entities-for-single-concepts"></a>Ajouter des entités simples pour les concepts uniques
+## <a name="add-simple-entities-for-single-concepts"></a>Ajouter des entités simples pour des concepts uniques
 
 Une entité simple décrit un concept unique. Appliquez la procédure suivante pour créer une entité qui extrait des noms de services d’entreprise tels que *Human resources* ou *Operations*.   
 
@@ -56,7 +56,7 @@ Une entité simple décrit un concept unique. Appliquez la procédure suivante p
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Ajouter des entités d’expression régulière pour les concepts très structurés
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>Ajouter des entités d’expression régulière pour des concepts hautement structurés
 
 Une entité d’expression régulière sert à extraire des données de l’énoncé suivant l’expression régulière fournie. 
 
@@ -64,30 +64,7 @@ Une entité d’expression régulière sert à extraire des données de l’éno
 
 1. Dans la boîte de dialogue contextuelle, entrez `Human resources form name` dans la zone **Nom de l’entité**, sélectionnez **Expression régulière** dans la liste **Type d’entité**, entrez l’expression régulière `hrf-[0-9]{6}`, puis sélectionnez **Terminé**. 
 
-    Cette expression régulière correspond à des caractères littéraux `hrf-`, puis à 6 chiffres pour représenter un formulaire numéro pour un formulaire de ressources humaines.
-
-## <a name="add-hierarchical-entities"></a>Ajouter des entités hiérarchiques
-
-Une entité hiérarchique est une catégorie d’entités apprises de façon contextuelle et associées de façon conceptuelle. Dans l’exemple suivant, l’entité contient des lieux de départ et de destination. 
-
-Dans l’énoncé `Move John Smith from Seattle to Cairo`, Seattle est le lieu de départ et Cairo (Le Caire) le lieu de destination. Chaque lieu est différent sur le plan du contexte, et appris à partir de l’ordre des mots et du choix des mots dans l’énoncé.
-
-Pour ajouter des entités hiérarchiques, suivez les étapes ci-dessous : 
-
-1. Dans votre application, sélectionnez **Entités** dans le volet de navigation gauche, puis **Créer une entité**.
-
-1. Dans la boîte de dialogue contextuelle, tapez `Location` dans la zone **Nom de l’entité**, puis sélectionnez **Hiérarchique** dans la liste **Type d’entité**.
-
-    ![Ajouter une entité hiérarchique](./media/add-entities/hier-location-entity-creation.png)
-
-1. Sélectionnez **Add Child** (Ajouter un enfant), puis entrez `Origin` dans la zone **Child #1**. 
-
-1. Sélectionnez **Add Child**, puis entrez `Destination` dans la zone **Child #2**. Sélectionnez **Terminé**.
-
-    >[!CAUTION]
-    >Les noms d’entité enfant doivent être uniques parmi toutes les entités dans une même application. Deux entités hiérarchiques différentes ne peuvent pas contenir d’entités enfants portant le même nom. 
-
-    Une fois cette entité créée, accédez à toutes les intentions qui ont des exemples d’énoncés contenant l’entité. Sélectionnez le texte dans l’exemple d’énoncé et marquez-le en tant qu’entité. 
+    Cette expression régulière correspond aux caractères littéraux `hrf-`, suivis de 6 chiffres pour représenter un numéro de formulaire pour un formulaire de ressources humaines.
 
 <a name="add-composite-entities"></a>
 
@@ -115,7 +92,7 @@ Dans l’énoncé `Send hrf-123456 to John Smith`, le texte `hrf-123456` est mis
 
 <a name="add-pattern-any-entities"></a>
 
-## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Ajouter des entités Pattern.any pour capturer des entités de forme libre
+## <a name="add-patternany-entities-to-capture-free-form-entities"></a>Ajouter des entités Pattern.any pour capturer des entités à structure libre
 
 Les entités [Pattern.Any](luis-concept-entity-types.md) sont valides uniquement dans les [modèles](luis-how-to-model-intent-pattern.md), et non dans les intentions. Ce type d’entité aide LUIS à trouver la fin des entités présentant une longueur variable et différents choix de mots. Cette entité étant utilisée dans un modèle, LUIS sait où se trouve la fin de l’entité dans le modèle d’énoncé.
 
@@ -135,17 +112,15 @@ Dans l’énoncé `Where is Request relocation from employee new to the company 
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>Ajouter un rôle pour distinguer les différents contextes
 
-Un rôle est un sous-type nommé en fonction du contexte. Il est disponible dans toutes les entités, y compris des entités prédéfinies et non-machine-appris. 
+Un rôle est un sous-type nommé en fonction du contexte. Il est disponible dans toutes les entités, y compris les entités prédéfinies et non issues de l’apprentissage automatique. 
 
-Si l’on continue avec le même exemple d’entité hiérarchique de villes d’origine et de destination, la différence est qu’un rôle est nommé origine au lieu d’un enfant hiérarchique. 
-
-La syntaxe d’un rôle est **{nom_entité:nom_rôle}**, le nom de l’entité étant suivi de deux-points, puis du nom du rôle. Par exemple : `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+La syntaxe d’un rôle est **`{Entityname:Rolename}`** , le nom de l’entité étant suivi de deux-points, puis du nom du rôle. Par exemple : `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. Dans la section **Build**, sélectionnez **Entities** dans le volet gauche.
 
-1. Sélectionnez **Créer une entité**. Entrez le nom de `LocationUsingRoles`. Sélectionnez le type **Simple**, puis **Done**. 
+1. Sélectionnez **Créer une entité**. Entrez le nom de `Location`. Sélectionnez le type **Simple**, puis **Done**. 
 
-1. Sélectionnez **Entities** dans le volet gauche, puis la nouvelle entité **LocationUsingRoles** créée à l’étape précédente.
+1. Sélectionnez **Entités** dans le volet gauche, puis la nouvelle entité **Emplacement** créée à l’étape précédente.
 
 1. Dans la zone de texte **Nom du rôle**, entrez le nom `Origin` du rôle et entrez. Ajoutez le deuxième nom de rôle `Destination`. 
 
@@ -153,7 +128,7 @@ La syntaxe d’un rôle est **{nom_entité:nom_rôle}**, le nom de l’entité �
 
 <a name="add-list-entities"></a>
 
-## <a name="add-list-entities-for-exact-matches"></a>Ajouter des entités de la liste des correspondances exactes
+## <a name="add-list-entities-for-exact-matches"></a>Ajouter des entités de liste pour des correspondances exactes
 
 Les entités de liste représentent un ensemble fixe et fermé de mots liés les uns aux autres. 
 
@@ -204,7 +179,7 @@ LUIS n’autorise pas la modification du type de l’entité, car il ne sait pas
 
 <a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="create-a-pattern-from-an-example-utterance"></a>Créer un modèle à partir d’un énoncé de l’exemple
+## <a name="create-a-pattern-from-an-example-utterance"></a>Créer un modèle à partir d’un exemple d’énoncé
 
 Voir [Ajouter un modèle à partir d’un énoncé existant sur une page d’intention ou d’entité](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 

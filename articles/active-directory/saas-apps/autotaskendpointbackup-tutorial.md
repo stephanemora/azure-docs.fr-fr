@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Autotask Endpoint Backup | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Autotask Endpoint Backup | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Autotask Endpoint Backup.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db6140d69e96c4923a7d0f0d197d5db76f826460
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6e0b14138940c240dc674eb733bfe46b7f5d4c1e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857469"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106618"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutoriel : Intégration d’Azure Active Directory à Autotask Endpoint Backup
+# <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Didacticiel : Intégration d’Azure Active Directory à Autotask Endpoint Backup
 
 Dans ce tutoriel, vous allez apprendre à intégrer Autotask Endpoint Backup à Azure Active Directory (Azure AD).
 L’intégration d’Autotask Endpoint Backup à Azure AD vous offre les avantages suivants :
@@ -53,7 +53,7 @@ Pour configurer l’intégration d’Autotask Endpoint Backup à Azure AD, vous 
 
 **Pour ajouter Autotask Endpoint Backup à partir de la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
@@ -148,7 +148,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

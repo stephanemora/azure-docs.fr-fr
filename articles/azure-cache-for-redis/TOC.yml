@@ -1,10 +1,11 @@
 - name: Documentation du cache Azure pour Redis
   href: index.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos du cache Azure pour Redis
       href: cache-overview.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Créer une application ASP.NET
       href: cache-web-app-howto.md
@@ -35,7 +36,7 @@
     - name: Bonnes pratiques
       items:
         - name: Bonnes pratiques pour le cache Azure pour Redis
-          href: 'https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f'
+          href: cache-best-practices.md
         - name: Meilleures pratiques de l’architecture Azure pour la mise en cache
           href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: Guides pratiques

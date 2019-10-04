@@ -3,17 +3,18 @@ title: Utiliser une identité managée avec Azure Container Instances
 description: Découvrez comment utiliser une identité managée pour s’authentifier auprès d’autres services Azure à partir d’Azure Container Instances.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 773650e5e5e85d4a5fca0b3755f3730921cc5f2e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336522"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325937"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Comment utiliser une identité managée avec Azure Container Instances
 
@@ -154,7 +155,7 @@ az container exec --resource-group myResourceGroup --name mycontainer --exec-com
 Exécutez les commandes suivantes dans le shell bash du conteneur. Pour obtenir un jeton d’accès permettant d’utiliser Azure Active Directory pour s’authentifier sur Key Vault, exécutez la commande suivante :
 
 ```bash
-curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true -s
 ```
 
 Sortie :
@@ -170,7 +171,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Utilisez maintenant le jeton d’accès pour vous authentifier sur Key Vault et lire un code secret. Veillez à remplacer le nom de votre coffre de clés dans l’URL (*https://mykeyvault.vault.azure.net/...*) :
+Utilisez maintenant le jeton d’accès pour vous authentifier sur Key Vault et lire un code secret. Veillez à remplacer le nom de votre coffre de clés dans l’URL ( *https://mykeyvault.vault.azure.net/...* ) :
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
@@ -252,7 +253,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Utilisez maintenant le jeton d’accès pour vous authentifier sur Key Vault et lire un code secret. Veillez à indiquer le nom de votre coffre de clés dans l’URL (*https :\//mykeyvault.vault.azure.net/...* ):
+Utilisez maintenant le jeton d’accès pour vous authentifier sur Key Vault et lire un code secret. Veillez à remplacer le nom de votre coffre de clés dans l’URL (*https:\//mykeyvault.vault.azure.net/...* ) :
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

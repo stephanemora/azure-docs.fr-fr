@@ -3,17 +3,16 @@ title: Présentation du cycle de vie d’un blueprint
 description: Découvrez le cycle de vie d’un blueprint et les détails de chaque phase.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
-ms.openlocfilehash: a57085fa37efd56a46b740d8cbc4278dc53cf39f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6112f6f2834f02cec970af886360844c5314150d
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795421"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678984"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Présentation du cycle de vie d’un blueprint Azure
 
@@ -34,7 +33,7 @@ Pour bien comprendre ce qu’est un blueprint et quelles sont les phases de son 
 
 Quand vous créez un blueprint, vous y ajoutez des artefacts, vous l’enregistrez dans un groupe d’administration ou un abonnement, et vous spécifiez un nom unique et une version unique. Le blueprint est à présent en mode **Brouillon** et ne peut pas encore être affecté. Pendant qu’il est en mode **Brouillon**, il peut continuer d’être mis à jour et modifié.
 
-Un blueprint en mode **Brouillon** qui n’a jamais été publié affiche une icône dans la page **Définitions de blueprint** qui est différente de ceux qui ont été **publiés**. Le **Version la plus récente** s’affiche en tant que **Draft** pour ces jamais publié plans.
+Un blueprint en mode **Brouillon** qui n’a jamais été publié affiche une icône dans la page **Définitions de blueprint** qui est différente de ceux qui ont été **publiés**. Le champ **Dernière version** indique **Brouillon** pour les blueprints qui n’ont jamais été publiés.
 
 Vous créez et modifiez un blueprint avec le [portail Azure](../create-blueprint-portal.md#create-a-blueprint) ou l’[API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -69,11 +68,11 @@ Chaque version d’un blueprint est un objet unique qui peut être **publié** i
 
 1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez **Blueprints**.
 
-1. Sélectionnez **Blueprint définitions** à partir de la page sur la gauche et l’utilisation du filtre options pour localiser le plan que vous souhaitez supprimer une version de. Cliquez dessus pour ouvrir la page de modification.
+1. Sélectionnez **Définitions de blueprint** dans la page de gauche et utilisez les options de filtre pour trouver le blueprint dont vous souhaitez supprimer une version. Cliquez dessus pour ouvrir la page de modification.
 
 1. Cliquez sur l’onglet **Versions publiées** et recherchez la version que vous souhaitez supprimer.
 
-1. Avec le bouton droit sur la version à supprimer, puis sélectionnez **supprimer cette version**.
+1. Cliquez avec le bouton droit sur la version à supprimer, puis sélectionnez **Supprimer cette version**.
 
 ## <a name="deleting-the-blueprint"></a>Suppression du blueprint
 
@@ -99,6 +98,17 @@ Quand un blueprint est affecté, l’affectation peut être mise à jour. Plusie
 - Mettre à niveau l’affectation vers une version **publiée** plus récente du blueprint
 
 Pour découvrir comment procéder, consultez [Mettre à jour des affectations existantes](../how-to/update-existing-assignments.md)
+
+### <a name="unassigning-assignments"></a>Annulation de l’affectation des affectations
+
+Si le blueprint n’est plus nécessaire, son attribution peut être annulée à partir du groupe d’administration ou de l’abonnement. Lors de la désaffectation d’un plan, voici ce qui se produit :
+
+- Suppression du [verrouillage des ressources de blueprint](resource-locking.md)
+- Suppression de l’objet d’affectation de blueprint
+- (Conditionnel) Si une **identité gérée affectée par le système** a été utilisée, elle est également supprimée
+
+> [!NOTE]
+> Toutes les ressources déployées par l’affectation du blueprint sont conservées, mais elles ne sont plus protégées par Azure Blueprints.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

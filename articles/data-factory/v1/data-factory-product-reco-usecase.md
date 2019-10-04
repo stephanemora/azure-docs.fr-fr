@@ -3,22 +3,21 @@ title: Cas d'utilisation Data Factory - Recommandations de produits
 description: Découvrez un cas d'utilisation implémenté à l'aide d’Azure Data Factory et d'autres services.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-robots: noindex
-ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 49ad9be7c70602132436b14234f01a4086d8e1fe
+ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540128"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70139134"
 ---
 # <a name="use-case---product-recommendations"></a>Cas d’utilisation - Recommandations de produits
 Azure Data Factory est l’un des nombreux services permettant d’implémenter la solution d’accélérateurs Cortana Intelligence Suite.  Consultez la page [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) pour plus de détails. Dans ce document, nous décrivons un cas d’utilisation courant que les utilisateurs Azure ont déjà résolu et implémenté à l’aide d’Azure Data Factory et d’autres services Cortana Intelligence.
@@ -48,7 +47,7 @@ Toutes les données sont combinées et chargées dans un système de recommandat
 
 ![diagramme de cas d'utilisation](./media/data-factory-product-reco-usecase/diagram-1.png)
 
-Des gigaoctets de fichiers journaux web bruts sont générés chaque jour sous forme de fichiers semi-structurés, à partir du site web du détaillant en ligne. Les fichiers journaux web bruts et les informations sur les clients et le catalogue de produits sont transmises régulièrement à un stockage d'objets blob Azure en utilisant le déplacement de données déployées globalement Data Factory comme service. Les fichiers journaux bruts de la journée sont partitionnés (par année et mois) dans le stockage d’objets blob pour un stockage à long terme.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) sert à partitionner les fichiers journaux bruts dans le magasin d’objets blob et à traiter les journaux ingérés à l’échelle à l’aide de scripts Hive et Pig. Les données de journal d’activité web partitionnées sont alors traitées pour extraire les entrées nécessaires pour un système de recommandation, afin de générer les recommandations de produits personnalisées.
+Des gigaoctets de fichiers journaux web bruts sont générés chaque jour sous forme de fichiers semi-structurés, à partir du site web du détaillant en ligne. Les fichiers journaux web bruts et les informations sur les clients et le catalogue de produits sont transmises régulièrement à un stockage d'objets blob Azure en utilisant le déplacement de données déployées globalement Data Factory comme service. Les fichiers journaux bruts de la journée sont partitionnés (par année et mois) dans le stockage d’objets blob pour un stockage à long terme.  [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) sert à partitionner les fichiers journaux bruts dans le magasin d’objets blob et à traiter les journaux d’activité ingérés à l’échelle à l’aide de scripts Hive et Pig. Les données de journal d’activité web partitionnées sont alors traitées pour extraire les entrées nécessaires pour un système de recommandation, afin de générer les recommandations de produits personnalisées.
 
 Le système de recommandation utilisé pour Machine Learning dans cet exemple est une plateforme de recommandation Machine Learning open source d’ [Apache Mahout](https://mahout.apache.org/).  N’importe quel modèle [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) ou modèle personnalisé peut être appliqué au scénario.  Le modèle Mahout sert à prédire la similarité entre des éléments présents sur le site web en fonction de modèles d'utilisation globaux, et à générer des recommandations personnalisées selon un utilisateur individuel.
 

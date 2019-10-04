@@ -1,6 +1,6 @@
 - name: Documentation relative à l’accès conditionnel
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que l’accès conditionnel\_?"
       href: overview.md
@@ -19,8 +19,10 @@
 - name: Concepts
   expanded: false
   items:
-    - name: Protection de la ligne de base
-      href: baseline-protection.md
+    - name: Stratégies d’accès conditionnel courantes
+      href: concept-conditional-access-policy-common.md
+    - name: Composants des stratégies d’accès conditionnel
+      href: concept-conditional-access-policies.md
     - name: Conditions
       href: conditions.md
     - name: Conditions d’emplacement
@@ -31,6 +33,8 @@
       href: service-dependencies.md
     - name: Outil de simulation
       href: what-if-tool.md
+    - name: Stratégies de protection de la base de référence
+      href: concept-baseline-protection.md
 - name: Guides pratiques
   expanded: true
   items:
@@ -38,12 +42,26 @@
       href: plan-conditional-access.md
     - name: Bonnes pratiques
       href: best-practices.md
+    - name: Stratégies d’accès conditionnel courantes
+      items:
+        - name: Exiger MFA pour les administrateurs
+          href: howto-conditional-access-policy-admin-mfa.md
+        - name: Exiger MFA pour la gestion Azure
+          href: howto-conditional-access-policy-azure-management.md
+        - name: Bloquer l’authentification héritée
+          href: howto-conditional-access-policy-block-legacy.md
+        - name: Accès conditionnel basé sur les risques
+          href: howto-conditional-access-policy-risk.md
+        - name: Exiger un emplacement approuvé pour l’inscription MFA
+          href: howto-conditional-access-policy-registration.md
+        - name: Bloquer l’accès par emplacement
+          href: howto-conditional-access-policy-location.md
+        - name: Exiger un appareil conforme
+          href: howto-conditional-access-policy-compliant-device.md
     - name: Bloquer l’authentification héritée
       href: block-legacy-authentication.md
-    - name: Contrôle l’accès à Exchange Online et SharePoint Online
-      href: conditional-access-for-exo-and-spo.md
-    - name: Migrer les stratégies classiques
-      href: policy-migration.md
+    - name: Accès conditionnel pour l’inscription MFA
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Exiger des applications client approuvées
       href: app-based-conditional-access.md
     - name: Exiger une stratégie de protection des applications
@@ -54,6 +72,26 @@
       href: untrusted-networks.md
     - name: Exiger des conditions d’utilisation
       href: terms-of-use.md
+    - name: Contrôles de la fréquence des connexions et de la persistance du navigateur
+      href: howto-conditional-access-session-lifetime.md
+    - name: Migrer les stratégies classiques
+      href: policy-migration.md
+    - name: Stratégies de base de référence
+      items:
+        - name: Demander l’authentification multifacteur pour les administrateurs
+          href: howto-baseline-protect-administrators.md
+        - name: Protection des utilisateurs finaux
+          href: howto-baseline-protect-end-users.md
+        - name: Bloquer l’authentification héritée
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Exiger MFA pour le management des services
+          href: howto-baseline-protect-azure.md
+    - name: Adoption de l’accès conditionnel
+      href: howto-conditional-access-adoption-kit.md
+    - name: Résolution de problèmes
+      items:
+        - name: Résoudre les problèmes avec l’outil What If
+          href: troubleshoot-conditional-access-what-if.md
 - name: Informations de référence
   items:
     - name: Référence technique

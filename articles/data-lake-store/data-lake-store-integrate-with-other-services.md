@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: e28863f9980d6403bef1f88de01b7a9b5271b444
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879299"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "60197083"
 ---
 # <a name="integrating-azure-data-lake-storage-gen1-with-other-azure-services"></a>Intégration d’Azure Data Lake Storage Gen1 à d’autres services Azure
 Azure Data Lake Storage Gen1 peut être utilisé conjointement à d’autres services Azure afin d’augmenter le nombre de scénarios. L’article suivant liste les services auxquels Data Lake Storage Gen1 peut être intégré.
@@ -37,7 +37,7 @@ Pour savoir comment approvisionner un cluster HDInsight avec Data Lake Storage G
 Pour obtenir des instructions sur l’utilisation de Data Lake Analytics avec Data Lake Storage Gen1, consultez la rubrique [Prise en main de Data Lake Analytics avec Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
 ## <a name="use-data-lake-storage-gen1-with-azure-data-factory"></a>Utiliser Data Lake Storage Gen1 avec Azure Data Factory
-Vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pour recevoir des données à partir de tables Azure, de bases de données SQL Azure, d'Azure SQL DataWarehouse, d'objets Blob Azure Storage et de bases de données locales. Jouissant d’un statut de premier ordre dans l’écosystème Azure, Azure Data Factory peut être utilisé pour orchestrer l’ingestion de données de ces sources vers Data Lake Storage Gen1.
+Vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pour recevoir des données de tables Azure, d’Azure SQL Database, d’Azure SQL DataWarehouse, du stockage Blob Azure et de bases de données locales. Jouissant d’un statut de premier ordre dans l’écosystème Azure, Azure Data Factory peut être utilisé pour orchestrer l’ingestion de données de ces sources vers Data Lake Storage Gen1.
 
 Pour obtenir des instructions sur l’utilisation d’Azure Data Factory avec Data Lake Storage Gen1, consultez la rubrique [Déplacer des données vers et depuis Data Lake Storage Gen1 avec Data Factory](../data-factory/connector-azure-data-lake-store.md).
 

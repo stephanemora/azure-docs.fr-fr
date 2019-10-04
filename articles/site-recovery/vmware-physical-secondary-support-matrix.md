@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
+ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360146"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69972078"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge de la récupération d’urgence des machines virtuelles VMware et serveurs physiques sur un site secondaire
 
@@ -57,15 +57,15 @@ Seules les machines Linux avec le stockage suivant peuvent être répliquées :
 
 **Configuration** | **Pris en charge**  
 --- | --- 
-Hôte - Association de cartes réseau | Oui 
-Hôte -VLAN | Oui 
-Hôte - IPv4 | Oui 
-Hôte - IPv6 | Non  
-Machine virtuelle invitée - Association de cartes réseau | Non 
-Machine virtuelle invitée - IPv4 | Oui
-Machine virtuelle invitée - IPv6 | Non 
-Machine virtuelle invitée - Windows/Linux - Adresse IP statique | Oui
-Machine virtuelle invitée - Plusieurs cartes réseau | Oui
+Hôte - Association de cartes réseau | OUI 
+Hôte -VLAN | OUI 
+Hôte - IPv4 | OUI 
+Hôte - IPv6 | Non 
+Machine virtuelle invitée - Association de cartes réseau | Non
+Machine virtuelle invitée - IPv4 | OUI
+Machine virtuelle invitée - IPv6 | Non
+Machine virtuelle invitée - Windows/Linux - Adresse IP statique | OUI
+Machine virtuelle invitée - Plusieurs cartes réseau | OUI
 
 
 ## <a name="storage"></a>Stockage
@@ -74,37 +74,37 @@ Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 
 **Stockage (hôte)** | **Pris en charge** 
 --- | --- 
-NFS | Oui 
-SMB 3.0 | S.O. 
-SAN (ISCSI) | Oui 
-Chemins d’accès multiples (MPIO) | Oui 
+NFS | OUI 
+SMB 3.0 | N/A 
+SAN (ISCSI) | OUI 
+Chemins d’accès multiples (MPIO) | OUI 
 
 ### <a name="guest-or-physical-server-storage"></a>Stockage sur serveur physique ou invité
 
 **Configuration** | **Pris en charge** 
 --- | --- 
-VMDK | Oui 
-VHD/VHDX | S.O. 
-Machine virtuelle de 2e génération | S.O. 
-Disque de cluster partagé | Oui 
-Disque chiffré | Non  
-UEFI| Oui 
-NFS | Non  
-SMB 3.0 | Non  
-RDM | Oui 
-Disque > 1 To | Oui 
-Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui 
-Espaces de stockage | Non  
-Ajout/suppression de disque à chaud | Oui 
-Exclure le disque | Oui 
-Chemins d’accès multiples (MPIO) | S.O. 
+VMDK | OUI 
+VHD/VHDX | N/A 
+Machine virtuelle de 2e génération | N/A 
+Disque de cluster partagé | OUI 
+Disque chiffré | Non 
+UEFI| OUI 
+NFS | Non 
+SMB 3.0 | Non 
+RDM | OUI 
+Disque > 1 To | OUI 
+Volume avec disque à bandes > 1 To<br/><br/> LVM | OUI 
+Espaces de stockage | Non 
+Ajout/suppression de disque à chaud | OUI 
+Exclure le disque | OUI 
+Chemins d’accès multiples (MPIO) | N/A 
 
 ## <a name="vaults"></a>Coffres
 
 **Action** | **Pris en charge** 
 --- | --- 
-Déplacer les coffres entre plusieurs groupes de ressources (dans ou entre les différents abonnements) | Non  
-Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources (dans ou entre les différents abonnements) | Non  
+Déplacer les coffres entre plusieurs groupes de ressources (dans ou entre les différents abonnements) | Non 
+Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources (dans ou entre les différents abonnements) | Non 
 
 ## <a name="mobility-service-and-updates"></a>Service mobilité et mises à jour
 

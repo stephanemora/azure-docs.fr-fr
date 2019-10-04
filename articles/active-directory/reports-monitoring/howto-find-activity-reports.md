@@ -3,7 +3,7 @@ title: Rechercher les rapports d’activité utilisateur Azure Active Directory 
 description: Découvrez où se trouvent les rapports d’activité utilisateur Azure Active Directory sur le portail Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d47072713c57576abe780134792c3a5cbc27127c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
+ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439037"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70127388"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
 
@@ -33,7 +33,7 @@ Le rapport de journaux d’audit regroupe plusieurs rapports en lien avec les ac
 2. Sélectionnez votre annuaire en haut à droite de l'écran, puis sélectionnez le panneau **Azure Active Directory** à partir du volet de navigation de gauche.
 3. Sélectionnez **Journaux d’audit** dans la section **Activité** du panneau Azure Active Directory. 
 
-    ![Journaux d’audit](./media/howto-find-activity-reports/482.png "Journaux d’Audit")
+    ![Journaux d’audit](./media/howto-find-activity-reports/482.png "Journaux d’activité d’Audit")
 
 Le rapport de journaux d’audit regroupe les rapports suivants :
 
@@ -48,9 +48,9 @@ Le rapport de journaux d’audit regroupe les rapports suivants :
 
 ### <a name="filtering-on-audit-logs"></a>Filtrage sur les journaux d’audit
 
-Vous pouvez utiliser le filtrage avancé dans le rapport d’audit pour accéder à une catégorie spécifique de données d’audit, en spécifiant dans le **catégorie** filtre. Par exemple, pour afficher toutes les activités liées aux utilisateurs, sélectionnez le **usermanagement** catégorie. 
+Vous pouvez appliquer le filtrage avancé au rapport d’audit pour accéder à une catégorie spécifique de données d’audit, en spécifiant celle-ci dans le filtre **Catégorie**. Par exemple, pour afficher toutes les activités liées aux utilisateurs, sélectionnez la catégorie **UserManagement**. 
 
-Catégories sont les suivantes :
+Les catégories sont les suivantes :
 
 - Tous
 - AdministrativeUnit
@@ -69,19 +69,19 @@ Catégories sont les suivantes :
 - RoleManagement
 - UserManagement
 
-Vous pouvez également filtrer sur un service spécifique à l’aide de la **Service** filtre de liste déroulante. Par exemple, pour obtenir tous les événements d’audit liés à la gestion de mot de passe libre-service, sélectionnez le **gestion de mot de passe libre-service** filtre.
+Vous pouvez également filtrer sur un service spécifique à l’aide du filtre de liste déroulante **Service**. Par exemple, pour obtenir tous les événements d’audit liés à la gestion de mot de passe en libre-service, sélectionnez le filtre **gestion de mot de passe libre-service**.
 
-Les services incluent :
+Les services sont les suivants :
 
 - Tous
 - Révisions d’accès
 - Approvisionnement des comptes 
-- Application SSO
+- Authentification unique des applications
 - Méthodes d’authentification
 - B2C
 - Accès conditionnel
 - Annuaire principal
-- Gestion des droits d'utilisation
+- Gestion des droits d’utilisation
 - Identity Protection
 - Utilisateurs invités
 - PIM
@@ -112,12 +112,12 @@ Vous pouvez utiliser le rapport de connexions pour afficher des détails sur l�
 
 ### <a name="anomalous-activity-reports"></a>Rapports d’activités anormales
 
-Les rapports d'activité anormaux fournissent des informations sur les événements à risque qu'Azure AD peut détecter et signaler.
+Les rapports d’activités anormales fournissent des informations sur les détections d’événements à risque qu’Azure AD est capable de signaler.
 
-Le tableau suivant répertorie les rapports de sécurité sur les activités anormales d’Azure AD et les types d’événements à risque correspondants dans le portail Azure. Pour plus d’informations, consultez [Événements à risque dans Azure Active Directory](concept-risk-events.md).  
+Le tableau suivant liste les rapports d’activités anormales Azure AD et les types de détections d’événements à risque correspondants dans le portail Azure. Pour plus d’informations, consultez [Détections d’événements à risque dans Azure Active Directory](concept-risk-events.md).  
 
 
-| Rapport d’activités anormales Azure AD |  Type d’événement à risque signalé par Identity Protection|
+| Rapport d’activités anormales Azure AD |  Type de détection d’événement à risque Identity Protection|
 | :--- | :--- |
 | Utilisateurs avec des informations d’identification volées | Informations d’identification divulguées |
 | Activité de connexion anormale | Voyage impossible vers des emplacements inhabituels |
@@ -126,15 +126,15 @@ Le tableau suivant répertorie les rapports de sécurité sur les activités ano
 | Connexions depuis des adresses IP avec des activités suspectes | Connexions depuis des adresses IP avec des activités suspectes |
 | - | Connexions depuis des emplacements non connus |
 
-Les rapports de sécurité sur les activités anormales d’Azure AD suivants ne sont pas inclus en tant qu’événements à risque dans le portail Azure :
+Les rapports d’activités anormales Azure AD suivants ne sont pas inclus en tant que détections d’événements à risque dans le portail Azure :
 
 * Connexions après plusieurs échecs
 * Connexions depuis plusieurs zones géographiques
 
 
-### <a name="detected-risk-events"></a>Événements à risque détectés
+### <a name="detected-risk-detections"></a>Détections d’événements à risque trouvées
 
-Sur le **portail Azure**, vous pouvez accéder aux rapports relatifs aux événements à risque détectés dans la section **Sécurité** du panneau [Azure Active Directory](https://portal.azure.com). Les événements à risque détectés sont suivis dans les rapports suivants :   
+Vous pouvez accéder aux rapports sur les détections d’événements à risque dans la section **Sécurité** du panneau **Azure Active Directory** du [portail Azure](https://portal.azure.com). Les détections d’événements à risque sont suivies dans les rapports suivants :   
 
 - [Utilisateurs à risque](concept-user-at-risk.md)
 - [Connexions risquées](concept-risky-sign-ins.md)
@@ -153,7 +153,7 @@ J’ai téléchargé les journaux d’activité (d’audit ou de connexion) et t
  
 #### <a name="cause"></a>Cause :
 
-Lorsque vous téléchargez des journaux d’activité dans le portail Azure, nous limitons l’échelle à des 250000 enregistrements, triés selon le plus récent en premier. 
+Lorsque vous téléchargez des journaux d’activité à partir du portail Azure, nous limitons l’échelle à 250 000 enregistrements, classés du plus récent au moins récent. 
 
 #### <a name="resolution"></a>Résolution :
 

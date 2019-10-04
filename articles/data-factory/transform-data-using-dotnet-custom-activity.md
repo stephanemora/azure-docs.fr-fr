@@ -11,16 +11,16 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 8076ae81b111aa6b524b7e286ed15ca0661d748b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904574"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062117"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Version actuelle](transform-data-using-dotnet-custom-activity.md)
 
@@ -36,8 +36,8 @@ Pour déplacer des données vers ou depuis un magasin de données que Data Facto
 Consultez les articles suivants si vous ne connaissez pas le service Azure Batch :
 
 * [Présentation de base d’Azure Batch](../batch/batch-technical-overview.md) pour une vue d’ensemble du service Azure Batch.
-* [Nouvelle AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) applet de commande pour créer un compte Azure Batch (ou) [Azure portal](../batch/batch-account-create-portal.md) pour créer le compte Azure Batch à l’aide du portail Azure. Pour obtenir des instructions détaillées sur l’utilisation de la cmdlet, voir [Utilisation de PowerShell pour gérer un compte Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
-* [Nouvelle AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) applet de commande pour créer un pool Azure Batch.
+* Applet de commande [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) pour créer un compte Azure Batch (ou) [Portail Azure](../batch/batch-account-create-portal.md) pour créer le compte Azure Batch à l’aide du portail Azure. Pour obtenir des instructions détaillées sur l’utilisation de la cmdlet, voir [Utilisation de PowerShell pour gérer un compte Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) pour créer un pool Azure Batch.
 
 ## <a name="azure-batch-linked-service"></a>Service lié Azure Batch
 
@@ -102,21 +102,21 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 
 | Propriété              | Description                              | Obligatoire |
 | :-------------------- | :--------------------------------------- | :------- |
-| Nom                  | Nom de l’activité dans le pipeline     | Oui      |
-| description           | Texte décrivant l’activité.  | Non        |
-| Type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | Oui      |
-| linkedServiceName     | Service lié sur Azure Batch. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  | Oui      |
-| command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | Oui      |
+| Nom                  | Nom de l’activité dans le pipeline     | OUI      |
+| description           | Texte décrivant l’activité.  | Non       |
+| Type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | OUI      |
+| linkedServiceName     | Service lié sur Azure Batch. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  | OUI      |
+| command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | OUI      |
 | resourceLinkedService | Le service lié Stockage Azure sur le compte de stockage où l’application personnalisée est stockée. | Non &#42;       |
 | folderPath            | Chemin du dossier de l’application personnalisée et de toutes ses dépendances.<br/><br/>Si vous avez des dépendances stockées dans les sous-dossiers (autrement dit, dans une structure de dossiers hiérarchique sous *folderPath*),-la structure de dossiers est aplatie lorsque les fichiers sont copiés vers Azure Batch. Autrement dit, tous les fichiers sont copiés dans un dossier unique, sans sous-dossier. Pour contourner ce problème, envisagez de compresser les fichiers, de copier le fichier compressé, puis de le décompresser avec du code personnalisé à l’emplacement souhaité. | Non &#42;       |
-| referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des ressources de la fabrique de données. | Non        |
-| extendedProperties    | Propriétés définies par l’utilisateur qui peuvent être passées à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des propriétés supplémentaires. | Non        |
-| retentionTimeInDays | La durée de rétention pour les fichiers soumis à des activités personnalisées. Valeur par défaut est de 30 jours. | Non  |
+| referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des ressources de la fabrique de données. | Non       |
+| extendedProperties    | Propriétés définies par l’utilisateur qui peuvent être passées à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des propriétés supplémentaires. | Non       |
+| retentionTimeInDays | Durée de rétention pour les fichiers soumis pour une activité personnalisée. La valeur par défaut est de 30 jours. | Non |
 
 &#42; Les propriétés `resourceLinkedService` et `folderPath` doivent être toutes deux spécifiées ou omises.
 
 > [!NOTE]
-> Si vous transmettez les services liés en tant que referenceObjects dans une activité personnalisée, il est une bonne pratique de sécurité pour passer d’un coffre de clés Azure activé fetch et service lié (dans la mesure où il ne contient pas toutes les chaînes sécurisées), les informations d’identification à l’aide du nom du secret directement à partir de la clé Coffre à partir du code. Vous trouverez un exemple [ici](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) que références AKV activé un service lié, récupère les informations d’identification de coffre de clés et accède ensuite au stockage dans le code.
+> Si vous transmettez des services liés en tant que referenceObjects dans une activité personnalisée, il est recommandé de transmettre un service lié Azure Key Vault (dans la mesure où il ne contient pas de chaînes sécurisées), et de récupérer les informations d’identification à l’aide du nom du secret directement à partir de Key Vault issu du code. Vous trouverez un exemple [ici](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) qui fait référence au service lié AKV, qui récupère les informations d’identification de Key Vault, puis accède au stockage dans le code.
 
 ## <a name="custom-activity-permissions"></a>Autorisations d’activité personnalisée
 
@@ -301,7 +301,7 @@ Activity Error section:
 Si vous souhaitez consommer le contenu de stdout.txt dans des activités en aval, vous pouvez obtenir le chemin du fichier stdout.txt dans l’expression « \@activity(’MyCustomActivity’).output.outputs[0] ».
 
 > [!IMPORTANT]
-> - Les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le dossier d’exécution de la tâche de traitement par lots. Pour cet exemple, les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le chemin d’accès « https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/ ». Si nécessaire, vous devez les nettoyer séparément.
+> - Les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le dossier d’exécution de la tâche de traitement par lots. Pour cet exemple, les fichiers activity.json, linkedServices.json et datasets.json sont stockés dans le chemin d’accès `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"`. Si nécessaire, vous devez les nettoyer séparément.
 > - Pour les services liés qui utilisent le runtime d’intégration auto-hébergé, les informations sensibles comme les clés ou les mots de passe sont chiffrées par le runtime d’intégration auto-hébergé pour faire en sorte que les informations d’identification restent dans l’environnement de réseau privé défini par le client. Certains champs sensibles peuvent manquer lorsqu’ils sont référencés par votre code d’application personnalisé de cette façon. Au besoin, utilisez SecureString dans extendedProperties au lieu d’utiliser une référence de service lié.
 
 ## <a name="pass-outputs-to-another-activity"></a>Passer les sorties à une autre activité
@@ -310,7 +310,7 @@ Vous pouvez renvoyer les valeurs personnalisées figurant dans le code d’une a
 
 ## <a name="retrieve-securestring-outputs"></a>Récupérer les sorties SecureString
 
-Les valeurs de propriété sensibles désignées en tant que type *SecureString*, comme illustré dans certains exemples de cet article, sont masqués dans l’onglet Surveillance de l’interface utilisateur de Data Factory.  Lors de l’exécution réelle du pipeline, cependant, une propriété *SecureString* est sérialisée au format JSON dans le fichier `activity.json` en tant que texte brut. Par exemple : 
+Les valeurs de propriété sensibles désignées en tant que type *SecureString*, comme illustré dans certains exemples de cet article, sont masqués dans l’onglet Surveillance de l’interface utilisateur de Data Factory.  Lors de l’exécution réelle du pipeline, cependant, une propriété *SecureString* est sérialisée au format JSON dans le fichier `activity.json` en tant que texte brut. Par exemple :
 
 ```json
 "extendedProperties": {
@@ -327,9 +327,9 @@ Pour accéder aux propriétés de type *SecureString* à partir d’une activit�
 
 ## <a name="compare-v2-v1"></a> Comparer les activités personnalisées de la version 2 et les activités DotNet (personnalisées) de la version 1
 
-Dans Azure Data Factory version 1, vous implémentez une activité DotNet (personnalisée) en créant un projet de bibliothèque de classes .NET avec une classe qui implémente le `Execute` méthode de la `IDotNetActivity` interface. Les services liés, les jeux de données et les propriétés étendues de la charge utile JSON d’une activité DotNet (personnalisée) sont transmis à la méthode d’exécution sous forme d’objets fortement typés. Pour plus d’informations sur le comportement de la version 1, consultez la page [DotNet (personnalisé) dans la version 1](v1/data-factory-use-custom-activities.md). En raison de cette implémentation, votre code d’activité DotNet version 1 doit cibler .NET Framework 4.5.2. L’activité DotNet de la version 1 doit également être exécutée sur des nœuds de pools Azure Batch Windows.
+Dans la version 1 d’Azure Data Factory, pour implémenter une activité DotNet (personnalisée), on crée un projet de bibliothèque de classes .NET avec une classe qui implémente la méthode `Execute` de l’interface `IDotNetActivity`. Les services liés, les jeux de données et les propriétés étendues de la charge utile JSON d’une activité DotNet (personnalisée) sont transmis à la méthode d’exécution sous forme d’objets fortement typés. Pour plus d’informations sur le comportement de la version 1, consultez la page [DotNet (personnalisé) dans la version 1](v1/data-factory-use-custom-activities.md). À cause de cette implémentation, le code de votre activité DotNet de la version 1 doit cibler .NET Framework 4.5.2. L’activité DotNet de la version 1 doit également être exécutée sur des nœuds de pools Azure Batch Windows.
 
-Dans l’activité personnalisée Azure Data Factory V2, vous n'êtes pas obligé d’implémenter une interface .NET. Vous pouvez maintenant exécuter directement des commandes, des scripts et votre propre code compilé sous forme d’exécutable. Pour configurer cette implémentation, spécifiez la propriété `Command` conjointement avec la propriété `folderPath`. L’activité personnalisée charge l’exécutable et ses dépendances sur `folderpath` et exécute la commande automatiquement.
+Dans une activité personnalisée de la version 2 d’Azure Data Factory, il n’est pas obligatoire d’implémenter une interface .NET. Vous pouvez maintenant exécuter directement des commandes, des scripts et votre propre code compilé sous forme d’exécutable. Pour configurer cette implémentation, spécifiez la propriété `Command` conjointement avec la propriété `folderPath`. L’activité personnalisée charge l’exécutable et ses dépendances sur `folderpath` et exécute la commande automatiquement.
 
 Les services liés, les jeux de données (définis dans referenceObjects) et les propriétés étendues définis dans la charge utile JSON d’une activité personnalisée de la version 2 de Data Factory sont accessibles par le biais de l’exécutable sous forme de fichiers JSON. Vous pouvez accéder aux propriétés requises à l’aide du sérialiseur JSON, comme dans l’exemple de code SampleApp.exe précédent.
 
@@ -344,12 +344,12 @@ Le tableau suivant décrit les différences qui existent entre l’activité per
 |Exécution des scripts      |Prend en charge l’exécution directe de scripts (par exemple « cmd /c echo hello world » sur une machine virtuelle Windows)      |Nécessite une implémentation dans la DLL .NET      |
 |Jeu de données nécessaire      |Facultatif      |Nécessaire pour chaîner des activités et passer des informations      |
 |Passer des informations entre l’activité et la logique personnalisée      |Via ReferenceObjects (LinkedServices et Datasets) et ExtendedProperties (propriétés personnalisées)      |et via ExtendedProperties (propriétés personnalisées), Input et Output Datasets      |
-|Récupération des informations dans la logique personnalisée      |Analyse activity.json, linkedServices.json et datasets.json, stockés dans le même dossier que l’exécutable      |Via le kit SDK de .NET (.NET Framework 4.5.2)      |
-|Journalisation      |Écrit directement dans STDOUT      |Implémentation d’enregistreur d’événements dans les DLL .NET      |
+|Récupération des informations dans la logique personnalisée      |Analyse activity.json, linkedServices.json et datasets.json, stockés dans le même dossier que l’exécutable      |Via .NET SDK (.NET Frame 4.5.2)      |
+|Journalisation      |Écrit directement dans STDOUT      |Implémentation de l’enregistreur d’événements dans la DLL .NET      |
 
-Si vous avez du code .NET écrit pour une version d’une activité DotNet (personnalisée) 1, vous devez modifier votre code pour qu’il fonctionne avec la version actuelle de l’activité personnalisée. Pour mettre à jour votre code, suivez ces instructions générales :
+S’il vous reste du code .NET écrit pour une activité DotNet (personnalisée) de la version 1, vous devez le modifier de sorte qu’il fonctionne avec la version actuelle de l’activité personnalisée. Pour mettre à jour votre code, suivez ces instructions générales :
 
-  - Modifiez le projet à partir d’une bibliothèque de classes .NET à une application de Console.
+  - Changez le projet pour qu’il s’agisse non plus d’une bibliothèque de classes .Net, mais d’une application console.
   - Démarrez votre application avec la méthode `Main`. La méthode `Execute` de l’interface `IDotNetActivity` n’est plus nécessaire.
   - Lisez et analyser les services liés, les jeux de données et l’activité avec un sérialiseur JSON et non en tant qu’objets fortement typés. Transmettez les valeurs des propriétés requises à la logique du code personnalisé principal. Voir l’exemple de code SampleApp.exe plus haut.
   - L’objet Enregistreur d’événements n’est plus pris en charge. La sortie de l’exécutable peut être imprimée sur la console ; elle est enregistrée dans stdout.txt.
